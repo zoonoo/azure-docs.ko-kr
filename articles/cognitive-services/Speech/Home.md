@@ -3,20 +3,20 @@ title: Microsoft Bing Speech Service | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Microsoft Speech API를 사용하여 사용자와의 실시간 상호 작용을 포함하여 앱에 음성 기반 작업을 추가합니다.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: d2c7211831658a18e65e04aa753607f4eb22dac8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ff9de2557583eecd5ddb2acd97b445a93abc5fb6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515083"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966642"
 ---
 # <a name="what-is-bing-speech"></a>Bing Speech란?
 
@@ -37,9 +37,9 @@ Microsoft Speech Recognition API는 오디오 스트림을 애플리케이션에
 | 사용 사례 | [REST API](GetStarted/GetStartedREST.md) | [클라이언트 라이브러리](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
 | 중간 결과가 없는 짧은 음성 오디오(예: 오디오 길이가 15초 미만인 명령) 변환 | 예 | 예 |
-| 긴 오디오(15초 초과) 변환 | 아닙니다. | 예 |
-| 중간 결과가 필요한 오디오 스트림 | 아닙니다. | 예 |
-| LUIS를 사용하여 오디오에서 변환된 텍스트 인식 | 아닙니다. | 예 |
+| 긴 오디오(15초 초과) 변환 | 아니요 | 예 |
+| 중간 결과가 필요한 오디오 스트림 | 아니요 | 예 |
+| LUIS를 사용하여 오디오에서 변환된 텍스트 인식 | 아니요 | 예 |
 
 개발자가 REST API와 클라이언트 라이브러리 중에서 어느 것을 선택하든 Microsoft Speech Service에서 지원하는 항목은 다음과 같습니다.
 

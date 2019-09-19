@@ -4,14 +4,14 @@ description: Azure Cosmos DB SDK를 사용하여 저장 프로시저, 트리거 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 09/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 7732039ff2494ef16fda5afe384a824ec786a8cf
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3cc144c1b8748710f0500b6ca2a418cd8bf5a2b7
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092938"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104841"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 등록하고 사용하는 방법
 
@@ -26,9 +26,9 @@ Azure Cosmos DB의 SQL API는 저장 프로시저, 트리거 및 JavaScript로 �
 > [!NOTE]
 > 분할된 컨테이너의 경우 저장 프로시저를 실행할 때 파티션 키 값은 요청 옵션에서 제공되어야 합니다. 저장 프로시저의 범위는 항상 파티션 키로 지정됩니다. 다른 파티션 키 값을 가진 항목은 저장 프로시저에 표시되지 않습니다. 이 트리거에도 적용되었습니다.
 
-### <a name="stored-procedures---net-sdk"></a>저장 프로시저 - .NET SDK
+### <a name="stored-procedures---net-sdk-v2"></a>저장 프로시저-.NET SDK V2
 
-다음 예제는 .NET SDK를 사용하여 저장 프로시저를 등록하는 방법을 보여줍니다.
+다음 예에서는 .NET SDK V2를 사용 하 여 저장 프로시저를 등록 하는 방법을 보여 줍니다.
 
 ```csharp
 string storedProcedureId = "spCreateToDoItem";
@@ -42,7 +42,7 @@ var response = await client.CreateStoredProcedureAsync(containerUri, newStoredPr
 StoredProcedure createdStoredProcedure = response.Resource;
 ```
 
-다음 코드는 .NET SDK를 사용하여 저장 프로시저를 호출하는 방법을 보여줍니다.
+다음 코드에서는 .NET SDK V2를 사용 하 여 저장 프로시저를 호출 하는 방법을 보여 줍니다.
 
 ```csharp
 dynamic newItem = new
@@ -56,7 +56,32 @@ dynamic newItem = new
 Uri uri = UriFactory.CreateStoredProcedureUri("myDatabase", "myContainer", "spCreateToDoItem");
 RequestOptions options = new RequestOptions { PartitionKey = new PartitionKey("Personal") };
 var result = await client.ExecuteStoredProcedureAsync<string>(uri, options, newItem);
-var id = result.Response;
+```
+
+### <a name="stored-procedures---net-sdk-v3"></a>저장 프로시저-.NET SDK V3
+
+다음 예에서는 .NET SDK V3를 사용 하 여 저장 프로시저를 등록 하는 방법을 보여 줍니다.
+
+```csharp
+StoredProcedureResponse storedProcedureResponse = await client.GetContainer("database", "container").Scripts.CreateStoredProcedureAsync(new StoredProcedureProperties
+{
+    Id = "spCreateToDoItem",
+    Body = File.ReadAllText(@"..\js\spCreateToDoItem.js")
+});
+```
+
+다음 코드에서는 .NET SDK V3을 사용 하 여 저장 프로시저를 호출 하는 방법을 보여 줍니다.
+
+```csharp
+dynamic newItem = new
+{
+    category = "Personal",
+    name = "Groceries",
+    description = "Pick up strawberries",
+    isComplete = false
+};
+
+var result = await client.GetContainer("database", "container").Scripts.ExecuteStoredProcedureAsync<string>("spCreateToDoItem", new PartitionKey("Personal"), newItem);
 ```
 
 ### <a name="stored-procedures---java-sdk"></a>저장 프로시저 - Java SDK
@@ -176,9 +201,9 @@ client.ExecuteStoredProcedure(sproc_link, new_item, {'partitionKey': 'Personal'}
 > [!NOTE]
 > 트리거의 이름이 목록으로 전달되는 경우에도 작업당 하나의 트리거만 실행할 수 있습니다.
 
-### <a name="pre-triggers---net-sdk"></a>사전 트리거 - .NET SDK
+### <a name="pre-triggers---net-sdk-v2"></a>사전 트리거-.NET SDK V2
 
-다음 코드는 .NET SDK를 사용하여 사전 트리거를 등록하는 방법을 보여줍니다.
+다음 코드는 .NET SDK V2를 사용 하 여 사전 트리거를 등록 하는 방법을 보여 줍니다.
 
 ```csharp
 string triggerId = "trgPreValidateToDoItemTimestamp";
@@ -193,7 +218,7 @@ Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myConta
 await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
-다음 코드는 .NET SDK를 사용하여 사전 트리거를 호출하는 방법을 보여줍니다.
+다음 코드는 .NET SDK V2를 사용 하 여 사전 트리거를 호출 하는 방법을 보여 줍니다.
 
 ```csharp
 dynamic newItem = new
@@ -207,6 +232,34 @@ dynamic newItem = new
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 RequestOptions requestOptions = new RequestOptions { PreTriggerInclude = new List<string> { "trgPreValidateToDoItemTimestamp" } };
 await client.CreateDocumentAsync(containerUri, newItem, requestOptions);
+```
+
+### <a name="pre-triggers---net-sdk-v3"></a>사전 트리거-.NET SDK V3
+
+다음 코드는 .NET SDK V3을 사용 하 여 사전 트리거를 등록 하는 방법을 보여 줍니다.
+
+```csharp
+await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(new TriggerProperties
+{
+    Id = "trgPreValidateToDoItemTimestamp",
+    Body = File.ReadAllText("@..\js\trgPreValidateToDoItemTimestamp.js"),
+    TriggerOperation = TriggerOperation.Create,
+    TriggerType = TriggerType.Pre
+});
+```
+
+다음 코드는 .NET SDK V3을 사용 하 여 사전 트리거를 호출 하는 방법을 보여 줍니다.
+
+```csharp
+dynamic newItem = new
+{
+    category = "Personal",
+    name = "Groceries",
+    description = "Pick up strawberries",
+    isComplete = false
+};
+
+await client.GetContainer("database", "container").CreateItemAsync(newItem, null, new ItemRequestOptions { PreTriggers = new List<string> { "trgPreValidateToDoItemTimestamp" } });
 ```
 
 ### <a name="pre-triggers---java-sdk"></a>사전 트리거 - Java SDK
@@ -301,9 +354,9 @@ client.CreateItem(container_link, item, {
 
 다음 예제에서는 Azure Cosmos DB SDK를 사용하여 사후 트리거를 등록하는 방법을 보여줍니다. 이 사후 트리거의 원본이 `trgPostUpdateMetadata.js`로 저장되면 [사후 트리거 예제](how-to-write-stored-procedures-triggers-udfs.md#post-triggers)를 참조하세요.
 
-### <a name="post-triggers---net-sdk"></a>사후 트리거 - .NET SDK
+### <a name="post-triggers---net-sdk-v2"></a>사후 트리거-.NET SDK V2
 
-다음 코드는 .NET SDK를 사용하여 사후 트리거를 등록하는 방법을 보여줍니다.
+다음 코드에서는 .NET SDK V2를 사용 하 여 사후 트리거를 등록 하는 방법을 보여 줍니다.
 
 ```csharp
 string triggerId = "trgPostUpdateMetadata";
@@ -318,7 +371,7 @@ Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myConta
 await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
-다음 코드는 .NET SDK를 사용하여 사후 트리거를 호출하는 방법을 보여줍니다.
+다음 코드는 .NET SDK V2를 사용 하 여 사후 트리거를 호출 하는 방법을 보여 줍니다.
 
 ```csharp
 var newItem = { 
@@ -330,6 +383,32 @@ var newItem = {
 RequestOptions options = new RequestOptions { PostTriggerInclude = new List<string> { "trgPostUpdateMetadata" } };
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 await client.createDocumentAsync(containerUri, newItem, options);
+```
+
+### <a name="post-triggers---net-sdk-v3"></a>사후 트리거-.NET SDK V3
+
+다음 코드에서는 .NET SDK V3을 사용 하 여 사후 트리거를 등록 하는 방법을 보여 줍니다.
+
+```csharp
+await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(new TriggerProperties
+{
+    Id = "trgPostUpdateMetadata",
+    Body = File.ReadAllText(@"..\js\trgPostUpdateMetadata.js"),
+    TriggerOperation = TriggerOperation.Create,
+    TriggerType = TriggerType.Post
+});
+```
+
+다음 코드는 .NET SDK V3을 사용 하 여 사후 트리거를 호출 하는 방법을 보여 줍니다.
+
+```csharp
+var newItem = { 
+    name: "artist_profile_1023",
+    artist: "The Band",
+    albums: ["Hellujah", "Rotators", "Spinning Top"]
+};
+
+await client.GetContainer("database", "container").CreateItemAsync(newItem, null, new ItemRequestOptions { PostTriggers = new List<string> { "trgPostUpdateMetadata" } });
 ```
 
 ### <a name="post-triggers---java-sdk"></a>사후 트리거 - Java SDK
@@ -422,16 +501,16 @@ client.CreateItem(container_link, item, {
 
 다음 예제에서는 Azure Cosmos DB SDK를 사용하여 사용자 정의 함수를 등록하는 방법을 보여줍니다. 이 사후 트리거의 원본이 `udfTax.js`로 저장되면 [사용자 정의 함수 예제](how-to-write-stored-procedures-triggers-udfs.md#udfs)를 참조하세요.
 
-### <a name="user-defined-functions---net-sdk"></a>사용자 정의 함수 - .NET SDK
+### <a name="user-defined-functions---net-sdk-v2"></a>사용자 정의 함수-.NET SDK V2
 
-다음 코드는 .NET SDK를 사용하여 사용자 정의 함수를 등록하는 방법을 보여줍니다.
+다음 코드에서는 .NET SDK V2를 사용 하 여 사용자 정의 함수를 등록 하는 방법을 보여 줍니다.
 
 ```csharp
 string udfId = "Tax";
 var udfTax = new UserDefinedFunction
 {
     Id = udfId,
-    Body = File.ReadAllText($@"..\js\{udfId}.js"),
+    Body = File.ReadAllText($@"..\js\{udfId}.js")
 };
 
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
@@ -439,7 +518,7 @@ await client.CreateUserDefinedFunctionAsync(containerUri, udfTax);
 
 ```
 
-다음 코드는 .NET SDK를 사용하여 사용자 정의 함수를 호출하는 방법을 보여줍니다.
+다음 코드에서는 .NET SDK V2를 사용 하 여 사용자 정의 함수를 호출 하는 방법을 보여 줍니다.
 
 ```csharp
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
@@ -448,6 +527,32 @@ var results = client.CreateDocumentQuery<dynamic>(containerUri, "SELECT * FROM I
 foreach (var result in results)
 {
     //iterate over results
+}
+```
+
+### <a name="user-defined-functions---net-sdk-v3"></a>사용자 정의 함수-.NET SDK V3
+
+다음 코드에서는 .NET SDK V3을 사용 하 여 사용자 정의 함수를 등록 하는 방법을 보여 줍니다.
+
+```csharp
+await client.GetContainer("database", "container").Scripts.CreateUserDefinedFunctionAsync(new UserDefinedFunctionProperties
+{
+    Id = "Tax",
+    Body = File.ReadAllText(@"..\js\Tax.js")
+});
+```
+
+다음 코드에서는 .NET SDK V3을 사용 하 여 사용자 정의 함수를 호출 하는 방법을 보여 줍니다.
+
+```csharp
+var iterator = client.GetContainer("database", "container").GetItemQueryIterator<dynamic>("SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000");
+while (iterator.HasMoreResults)
+{
+    var results = await iterator.ReadNextAsync();
+    foreach (var result in results)
+    {
+        //iterate over results
+    }
 }
 ```
 

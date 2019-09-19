@@ -3,20 +3,20 @@ title: Bing Speech WebSocket 프로토콜 | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: WebSockets 기반 Bing Speech를 위한 프로토콜 설명서
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: e7f51d49624d5019bec058a2d12f6ca2f1366938
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515332"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966880"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing Speech WebSocket 프로토콜
 
@@ -61,7 +61,7 @@ Date: Wed, 17 Aug 2016 15:03:52 GMT
 
 음성 서비스는 모든 클라이언트가 연결을 식별하기 위한 고유한 ID를 포함할 것을 요구합니다. 클라이언트는 WebSocket 핸드셰이크를 시작할 때 *X-ConnectionId* 헤더를 포함*해야 합니다*. *X-ConnectionId* 헤더는 UUID([universally unique identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier)) 값이어야 합니다. *X-ConnectionId*를 포함하지 않거나 *X-ConnectionId* 헤더에 대한 값을 지정하지 않거나 유효한 UUID 값을 포함하지 않은 WebSocket 업그레이드 요청은 서비스에서 `400 Bad Request` 응답과 함께 거부됩니다.
 
-### <a name="authorization"></a>권한 부여
+### <a name="authorization"></a>Authorization
 
 표준 WebSocket 핸드셰이크 헤더 외에 음성 요청에서는 *인증* 헤더가 필요합니다. 이 헤더가 없는 연결 요청은 서비스에서 HTTP `403 Forbidden` 응답과 함께 거부됩니다.
 
@@ -69,7 +69,7 @@ Date: Wed, 17 Aug 2016 15:03:52 GMT
 
 유효한 JWT 액세스 토큰을 검색하는 데 사용되는 API 키를 구독하고 가져오는 방법에 대한 자세한 내용은 [Cognitive Services 구독](https://azure.microsoft.com/try/cognitive-services/) 페이지를 참조하세요.
 
-API 키는 토큰 서비스에 전달됩니다. 예를 들면 다음과 같습니다.
+API 키는 토큰 서비스에 전달됩니다. 예:
 
 ``` HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
@@ -80,9 +80,9 @@ Content-Length: 0
 
 | 이름 | 형식 | 설명 |
 |----|----|----|
-| Ocp-Apim-Subscription-Key | ASCII | 구독 키 |
+| Ocp-Apim-Subscription-Key | ASCII | 사용자 구독 키 |
 
-토큰 서비스는 JWT 액세스 토큰을 `text/plain`으로 반환합니다. 그런 다음, JWT는 문자열 `Bearer`가 앞에 추가된 *인증* 헤더로 핸드셰이크에 `Base64 access_token`으로 전달됩니다. 예를 들면 다음과 같습니다.
+토큰 서비스는 JWT 액세스 토큰을 `text/plain`으로 반환합니다. 그런 다음, JWT는 문자열 `Bearer`가 앞에 추가된 *인증* 헤더로 핸드셰이크에 `Base64 access_token`으로 전달됩니다. 예를 들어:
 
 `Authorization: Bearer [Base64 access_token]`
 
@@ -98,7 +98,7 @@ Content-Length: 0
 
 클라이언트는 음성 서비스의 적절한 엔드포인트를 사용*해야 합니다*. 엔드포인트는 인식 모드 및 언어를 기반으로 합니다. 다음 표가 몇 가지 예를 보여줍니다.
 
-| Mode | Path | 서비스 URI |
+| 모드 | Path | 서비스 URI |
 | -----|-----|-----|
 | 대화형 | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
 | 대화 | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
@@ -172,7 +172,7 @@ Content-Length: 0
 
 클라이언트는 음성 서비스에 대한 연결을 설정한 후 `audio` 메시지를 보내기 전에 `speech.config` 메시지를 *보내야 합니다*. `speech.config` 메시지를 연결당 한 번만 보내야 합니다.
 
-| 필드 | 설명 |
+| 필드 | Description |
 |----|----|
 | WebSocket 메시지 인코딩 | 텍스트 |
 | Body | JSON 구조인 페이로드 |
@@ -217,7 +217,7 @@ Content-Length: 0
 
 ##### <a name="os-element"></a>OS 요소
 
-| 필드 | 설명 | 사용 |
+| 필드 | Description | 사용법 |
 |-|-|-|
 | os.platform | 애플리케이션을 호스팅하는 OS 플랫폼. 예: Windows, Android, iOS 또는 Linux |필수 |
 | os.name | OS 제품 이름. 예: Debian 또는 Windows 10 | 필수 |
@@ -225,7 +225,7 @@ Content-Length: 0
 
 ##### <a name="device-element"></a>디바이스 요소
 
-| 필드 | 설명 | 사용 |
+| 필드 | Description | 사용법 |
 |-|-|-|
 | device.manufacturer | 디바이스 하드웨어 제조업체 | 필수 |
 | device.model | 디바이스 모델 | 필수 |
@@ -241,9 +241,9 @@ Content-Length: 0
 
 음성 서비스는 고유한 요청 식별자를 포함하는 첫 번째 `audio` 메시지를 사용하여 새 요청/응답 사이클 또는 *회차*의 시작을 신호합니다. 서비스는 새 요청 식별자를 포함한 `audio` 메시지를 수신한 후 이전 회차와 연결된 큐에 저장되거나 보내지 않은 메시지를 버립니다.
 
-| 필드 | 설명 |
+| 필드 | Description |
 |-------------|----------------|
-| WebSocket 메시지 인코딩 | 이진 |
+| WebSocket 메시지 인코딩 | 이항 |
 | Body | 오디오 청크에 대한 이진 데이터입니다. 최대 크기는 8,192바이트입니다. |
 
 #### <a name="required-message-headers"></a>필요한 메시지 헤더
@@ -327,7 +327,7 @@ return SDK.CreateRecognizerWithCustomAudioSource(
 
 `speech.startDetected` 메시지는 음성 서비스가 오디오 스트림에서 음성을 검색했음을 나타냅니다.
 
-| 필드 | 설명 |
+| 필드 | Description |
 | ------------- | ---------------- |
 | WebSocket 메시지 인코딩 | 텍스트 |
 | Path | `speech.startDetected` |
@@ -384,7 +384,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 음성 서비스가 변경하지 않을 인식 결과를 생성하기에 충분한 정보를 확보했다고 결정하면 서비스는 `speech.phrase` 메시지를 생성합니다. 음성 서비스는 사용자가 문장 또는 구를 마친 것을 검색한 후 이러한 결과를 생성합니다.
 
-| 필드 | 설명 |
+| 필드 | Description |
 | ------------- | ---------------- |
 | WebSocket 메시지 인코딩 | 텍스트 |
 | Path | `speech.phrase` |
@@ -412,7 +412,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 `speech.endDetected` 메시지는 클라이언트 애플리케이션이 서비스에 대한 오디오 스트리밍을 중단하는 것이 좋음을 지정합니다.
 
-| 필드 | 설명 |
+| 필드 | Description |
 | ------------- | ---------------- |
 | WebSocket 메시지 인코딩 | 텍스트 |
 | Path | `speech.endDetected` |
@@ -437,7 +437,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 `turn.start`는 서비스 관점에서 회차의 시작을 신호합니다. `turn.start` 메시지는 언제나 요청에 대해 수신하는 첫 번째 응답 메시지입니다. `turn.start` 메시지를 수신하지 않은 경우 서비스 연결의 시작이 잘못되었다고 가정합니다.
 
-| 필드 | 설명 |
+| 필드 | Description |
 | ------------- | ---------------- |
 | WebSocket 메시지 인코딩 | 텍스트 |
 | Path | `turn.start` |
@@ -498,7 +498,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 클라이언트는 서비스에서 보낸 모든 메시지의 타임스탬프를 JSON 본문에 포함하여 해당 메시지의 수신을 확인*해야* 합니다. 클라이언트가 메시지의 수신을 확인하지 않으면 서비스가 연결을 종료할 수 있습니다.
 
-### <a name="metrics"></a>메트릭
+### <a name="metrics"></a>metrics
 
 클라이언트는 요청의 수명 중에 발생한 이벤트에 관한 정보를 포함해야 합니다. 다음 메트릭이 지원됩니다. `Connection`, `Microphone` 및 `ListeningTrigger`.
 
@@ -506,28 +506,28 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 `Connection` 메트릭은 클라이언트의 연결 시도에 관한 세부 정보를 지정합니다. 이 메트릭은 WebSocket 연결이 시작된 시간과 종료된 시간의 타임스탬프를 포함해야 합니다. `Connection` 메트릭은 *첫 번째 연결 회차에 대해서만* 필요합니다. 이후 회차는 이 정보를 포함하지 않아도 됩니다. 클라이언트가 연결이 설정되기 전에 여러 번 연결을 시도한 경우 시도한 *모든* 연결에 관한 정보를 포함하는 것이 좋습니다. 자세한 내용은 [연결 실패 원격 분석](#connection-failure-telemetry)을 참조하세요.
 
-| 필드 | 설명 | 사용 |
+| 필드 | 설명 | 사용법 |
 | ----- | ----------- | ----- |
 | 이름 | `Connection` | 필수 |
 | Id | 이 연결 요청에 대한 *X-ConnectionId* 헤더에 사용한 연결 식별자 값 | 필수 |
 | 시작 | 클라이언트가 연결 요청을 보낸 시간 | 필수 |
-| 끝 | 클라이언트가 연결이 성공적으로 설정된 사실 또는 오류가 발생한 경우 거부, 거절 또는 실패한 사실의 알림을 받은 시간 | 필수 |
+| 종료 | 클라이언트가 연결이 성공적으로 설정된 사실 또는 오류가 발생한 경우 거부, 거절 또는 실패한 사실의 알림을 받은 시간 | 필수 |
 | 오류 | 발생한 오류(있는 경우)에 대한 설명. 연결이 성공한 경우 클라이언트는 이 필드를 생략하는 것이 좋습니다. 이 필드의 최대 길이는 50자입니다. | 오류의 경우 필수, 그렇지 않으면 생략됨 |
 
 오류 설명은 50문자 이하로 하는 것이 좋으며 다음 표에 나열한 값 중 하나로 하는 것이 가장 좋습니다. 오류 조건이 이러한 값 중 하나와 일치하지 않는 경우 클라이언트는 [CamelCasing](https://en.wikipedia.org/wiki/Camel_case)을 공백 없이 사용하여 오류 조건에 대한 간결한 설명을 사용할 수 있습니다. 서비스에 연결해야 *원격 분석* 메시지를 보낼 수 있으므로 과도적 또는 일시적 오류 조건만이 *원격 분석* 메시지에 보고될 수 있습니다. 클라이언트가 서비스에 대한 연결을 설정하는 것을 *영구적으로* 차단하는 오류 조건은 클라이언트가 *원격 분석* 메시지를 포함하여 메시지를 서비스에 보내지 못하게 합니다.
 
-| 오류 | 사용 |
+| 오류 | 사용법 |
 | ----- | ----- |
 | DNSfailure | 클라이언트가 네트워크 스택의 DNS 실패 때문에 서비스에 연결할 수 없었습니다. |
 | NoNetwork | 클라이언트가 연결을 시도했지만 네트워크 스택이 사용 가능한 실제 네트워크가 없다고 보고했습니다. |
 | NoAuthorization | 연결에 대한 인증 토큰의 획득을 시도하는 중에 클라이언트 연결이 실패했습니다. |
 | NoResources | 클라이언트가 연결을 시도하는 중에 일부 로컬 리소스(예: 메모리)가 부족했습니다. |
 | 사용할 수 없음 | 서비스가 WebSocket 업그레이드 요청에 대해 HTTP `403 Forbidden` 상태 코드를 반환했기 때문에 클라이언트가 서비스에 연결할 수 없었습니다. |
-| 권한 없음 | 서비스가 WebSocket 업그레이드 요청에 대해 HTTP `401 Unauthorized` 상태 코드를 반환했기 때문에 클라이언트가 서비스에 연결할 수 없었습니다. |
+| 인증되지 않음 | 서비스가 WebSocket 업그레이드 요청에 대해 HTTP `401 Unauthorized` 상태 코드를 반환했기 때문에 클라이언트가 서비스에 연결할 수 없었습니다. |
 | BadRequest | 서비스가 WebSocket 업그레이드 요청에 대해 HTTP `400 Bad Request` 상태 코드를 반환했기 때문에 클라이언트가 서비스에 연결할 수 없었습니다. |
 | ServerUnavailable | 서비스가 WebSocket 업그레이드 요청에 대해 HTTP `503 Server Unavailable` 상태 코드를 반환했기 때문에 클라이언트가 서비스에 연결할 수 없었습니다. |
 | ServerError | 서비스가 WebSocket 업그레이드 요청에 대해 `HTTP 500` 내부 오류 상태 코드를 반환했기 때문에 클라이언트가 서비스에 연결할 수 없었습니다. |
-| 시간 제한 | 클라이언트 연결 요청이 서비스에서의 응답 없이 시간 초과했습니다. *종료* 필드는 클라이언트가 시간 초과하여 연결 대기를 중단한 시간을 포함합니다. |
+| 제한 시간 | 클라이언트 연결 요청이 서비스에서의 응답 없이 시간 초과했습니다. *종료* 필드는 클라이언트가 시간 초과하여 연결 대기를 중단한 시간을 포함합니다. |
 | ClientError | 클라이언트가 일부 내부 클라이언트 오류 때문에 연결을 종료했습니다. |
 
 ### <a name="metric-microphone"></a>메트릭 `Microphone`
@@ -546,11 +546,11 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 `Microphone` 메트릭에 대한 *종료* 시간은 클라이언트 애플리케이션이 오디오 입력 스트리밍을 중단한 시간을 기록합니다. 대부분의 상황에서 이 이벤트는 클라이언트가 서비스에서 `speech.endDetected` 메시지를 수신한 직후에 발생합니다. 클라이언트 애플리케이션은 `Microphone` 메트릭에 대한 *종료* 시간 값이 `speech.endDetected` 메시지에 대한 수신 시간 값보다 이후에 발생하는지 확인하여 프로토콜을 적절히 준수했음을 확인할 수 있습니다. 그리고 일반적으로 한 회차의 종료와 다른 회차의 시작 간에 지연이 있으므로 클라이언트는 이후 회차에 대한 `Microphone` 메트릭의 *시작* 시간 값이 클라이언트가 마이크를 사용하여 오디오 입력을 서비스에 스트리밍하기 *시작한* 시간을 정확히 기록하는지 확인하여 프로토콜 적합성을 확인할 수 있습니다.
 
-| 필드 | 설명 | 사용 |
+| 필드 | Description | 사용법 |
 | ----- | ----------- | ----- |
 | 이름 | 마이크 | 필수 |
 | 시작 | 클라이언트가 마이크 또는 다른 오디오 스트림에서 오는 오디오 입력을 사용하기 시작했거나 키워드 스포터에서 트리거를 수신한 시간 | 필수 |
-| 끝 | 클라이언트가 마이크 또는 오디오 스트림 사용을 중단한 시간 | 필수 |
+| 종료 | 클라이언트가 마이크 또는 오디오 스트림 사용을 중단한 시간 | 필수 |
 | 오류 | 발생한 오류(있는 경우)에 대한 설명. 마이크 작동이 성공적인 경우 클라이언트는 이 필드를 생략하는 것이 좋습니다. 이 필드의 최대 길이는 50자입니다. | 오류의 경우 필수, 그렇지 않으면 생략됨 |
 
 ### <a name="metric-listeningtrigger"></a>메트릭 `ListeningTrigger`
@@ -566,11 +566,11 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 * 클라이언트 애플리케이션이 다회차 요청의 2회차를 처리 중인데 서비스 응답 메시지에서 2회차에 대한 입력을 수집하기 위해 마이크를 켜라는 알림을 받습니다. 클라이언트 애플리케이션은 이 회차에 대한 `ListeningTrigger` 메트릭을 포함하지 *않는 것이 좋습니다*.
 
-| 필드 | 설명 | 사용 |
+| 필드 | Description | 사용법 |
 | ----- | ----------- | ----- |
-| 이름 | ListeningTrigger | 옵션 |
+| 이름 | ListeningTrigger | Optional |
 | 시작 | 클라이언트 수신 대기 트리거가 시작된 시간 | 필수 |
-| 끝 | 클라이언트 수신 대기 트리거가 종료된 시간 | 필수 |
+| 종료 | 클라이언트 수신 대기 트리거가 종료된 시간 | 필수 |
 | 오류 | 발생한 오류(있는 경우)에 대한 설명. 트리거 작업이 성공한 경우 클라이언트는 이 필드를 생략하는 것이 좋습니다. 이 필드의 최대 길이는 50자입니다. | 오류의 경우 필수, 그렇지 않으면 생략됨 |
 
 #### <a name="sample-message"></a>샘플 메시지
@@ -687,7 +687,7 @@ WebSocket 업그레이드 중에 잘못된 인증이 제공된 경우 음성 서
 
 ### <a name="http-status-codes"></a>HTTP 상태 코드
 
-| HTTP 상태 코드 | 설명 | 문제 해결 |
+| HTTP 상태 코드 | Description | 문제 해결 |
 | - | - | - |
 | 400 잘못된 요청 | 클라이언트가 잘못된 WebSocket 연결 요청을 보냈습니다. | 모든 필수 매개 변수 및 HTTP 헤더를 제공했는지 그리고 값이 올바른지 확인합니다. |
 | 401 권한 없음 | 클라이언트가 필수 권한 정보를 포함하지 않았습니다. | WebSocket 연결의 *권한* 헤더를 보냈는지 확인합니다. |
@@ -698,13 +698,13 @@ WebSocket 업그레이드 중에 잘못된 인증이 제공된 경우 음성 서
 
 ### <a name="websocket-error-codes"></a>WebSocket 오류 코드
 
-| WebSocketsStatus 코드 | 설명 | 문제 해결 |
+| WebSocketsStatus 코드 | Description | 문제 해결 |
 | - | - | - |
 | 1000 기본 닫기 | 서비스가 WebSocket 연결을 오류 없이 닫았습니다. | WebSocket 닫기가 예기치 않은 경우 설명서를 다시 읽고 서비스가 WebSocket 연결을 종료할 수 있는 방법 및 경우를 확인하세요. |
 | 1002 프로토콜 오류 | 클라이언트가 프로토콜 요구 사항을 준수하지 않았습니다. | 프로토콜 설명서를 이해하고 있는지 그리고 요구 사항에 대해 명확히 알고 있는지 확인합니다. 오류 이유에 대한 이전 설명서를 읽고 프로토콜 요구 사항을 위반하지 않는지 확인합니다. |
 | 1007 잘못된 페이로드 데이터 | 클라이언트가 프로토콜 메시지에 잘못된 페이로드를 보냈습니다. | 서비스에 보낸 마지막 메시지에 오류가 있는지 확인합니다. 페이로드 오류에 관한 이전 설명서를 읽습니다. |
 | 1011 서버 오류 | 서버가 내부 오류를 발견했으며 요청을 수행할 수 없습니다. | 대부분의 경우 이 오류는 과도적입니다. 요청을 다시 시도하십시오. |
 
-## <a name="related-topics"></a>관련된 항목
+## <a name="related-topics"></a>관련 항목
 
 WebSocket 기반 음성 서비스 프로토콜의 구현인 [JavaScript SDK](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript)를 참조하세요.

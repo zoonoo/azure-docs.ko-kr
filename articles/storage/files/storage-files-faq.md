@@ -7,12 +7,12 @@ ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 0fe893ae95b31b1b676a982a60166041a0ad964d
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: cc827f52d227ee36620bd215dfcba96b433804d3
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015898"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103050"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -89,7 +89,7 @@ ms.locfileid: "69015898"
 
 * <a id="cross-domain-sync"></a>
   **도메인에 가입된 서버와 도메인에 가입되지 않은 서버를 같은 동기화 그룹에 둘 수 있나요?**  
-    예 동기화 그룹에는 도메인에 가입되지 않은 경우에도 다른 Active Directory 구성원 자격을 갖는 서버 엔드포인트가 포함될 수 있습니다. 이 구성이 기술적으로는 작동하지만, 한 서버의 파일 및 폴더에 대해 정의된 ACL(액세스 제어 목록)은 동기화 그룹의 다른 서버에 의해 적용될 수 없으므로 이러한 구성은 일반적인 구성으로 권장되지 않습니다. 최상의 결과를 얻으려면 동일한 Active Directory 포리스트에 있는 서버 간, 다른 Active Directory 포리스트에 있지만 설정된 트러스트 관계에 있는 서버 간 또는 도메인에 있지 않은 서버 간의 동기화를 권장합니다. 이러한 구성 간의 혼합 사용은 방지하는 것이 좋습니다.
+    예. 동기화 그룹에는 도메인에 가입되지 않은 경우에도 다른 Active Directory 구성원 자격을 갖는 서버 엔드포인트가 포함될 수 있습니다. 이 구성이 기술적으로는 작동하지만, 한 서버의 파일 및 폴더에 대해 정의된 ACL(액세스 제어 목록)은 동기화 그룹의 다른 서버에 의해 적용될 수 없으므로 이러한 구성은 일반적인 구성으로 권장되지 않습니다. 최상의 결과를 얻으려면 동일한 Active Directory 포리스트에 있는 서버 간, 다른 Active Directory 포리스트에 있지만 설정된 트러스트 관계에 있는 서버 간 또는 도메인에 있지 않은 서버 간의 동기화를 권장합니다. 이러한 구성 간의 혼합 사용은 방지하는 것이 좋습니다.
 
 * <a id="afs-change-detection"></a>
   **SMB를 사용하여 또는 포털에서 Azure Files 공유에서 직접 파일을 만들었습니다. 파일을 동기화 그룹의 서버와 동기화하는 데 얼마나 소요되나요?**  
@@ -100,7 +100,7 @@ ms.locfileid: "69015898"
    
     \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
-    예를 들어, CompanyReport.docx의 첫 번째 충돌은 CentralServer가 이전 쓰기가 발생한 위치인 경우 CompanyReport-CentralServer.docx가 됩니다. 두 번째 충돌은 CompanyReport-CentralServer-1.docx라는 이름이 됩니다.
+    예를 들어, CompanyReport.docx의 첫 번째 충돌은 CentralServer가 이전 쓰기가 발생한 위치인 경우 CompanyReport-CentralServer.docx가 됩니다. 두 번째 충돌은 CompanyReport-CentralServer-1.docx라는 이름이 됩니다. Azure File Sync는 파일당 100 충돌 파일을 지원 합니다. 최대 충돌 파일 수에 도달 하면 충돌 파일 수가 100 미만일 때까지 파일이 동기화 되지 않습니다.
 
 * <a id="afs-storage-redundancy"></a>
   **지역 중복 스토리지가 Azure 파일 동기화에서 지원되나요?**  
@@ -213,7 +213,7 @@ ms.locfileid: "69015898"
 * <a id="encryption-at-rest"></a>
 **Azure 파일 공유가 미사용 암호화되도록 하려면 어떻게 해야 하나요?**  
 
-    예 자세한 내용은 [Azure Storage 서비스 암호화](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조 하세요.
+    예. 자세한 내용은 [Azure Storage 서비스 암호화](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조 하세요.
 
 * <a id="access-via-browser"></a>
 **웹 브라우저를 사용하여 특정 파일에 대한 액세스를 제공하려면 어떻게 해야 하나요?**  
@@ -228,7 +228,7 @@ ms.locfileid: "69015898"
 * <a id="ip-restrictions"></a>
 **Azure 파일 공유에 대한 IP 제한을 구현할 수 있나요?**  
 
-    예 Azure 파일 공유에 대한 액세스는 스토리지 계정 수준에서 제한할 수 있습니다. 자세한 내용은 [Azure Storage 방화벽 및 Virtual Networks 구성](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
+    예. Azure 파일 공유에 대한 액세스는 스토리지 계정 수준에서 제한할 수 있습니다. 자세한 내용은 [Azure Storage 방화벽 및 Virtual Networks 구성](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
 
 * <a id="data-compliance-policies"></a>
 **Azure Files는 어떤 데이터 규정 준수 정책을 지원하나요?**  
@@ -274,7 +274,7 @@ ms.locfileid: "69015898"
 
 * <a id="snapshot-limits"></a>
 **사용할 수 있는 공유 스냅샷 수에 제한이 있나요?**  
-    예 Azure Files는 최대 200개의 공유 스냅샷을 유지할 수 있습니다. 공유 스냅샷은 공유 할당량에 포함되지 않으므로 모든 공유 스냅샷에서 사용되는 총 공간에 대한 공유별 제한은 없습니다. 스토리지 계정 제한은 여전히 적용됩니다. 공유 스냅샷이 200개를 넘는 경우 새 공유 스냅샷을 생성하려면 이전 스냅샷을 삭제해야 합니다.
+    예. Azure Files는 최대 200개의 공유 스냅샷을 유지할 수 있습니다. 공유 스냅샷은 공유 할당량에 포함되지 않으므로 모든 공유 스냅샷에서 사용되는 총 공간에 대한 공유별 제한은 없습니다. 다만 스토리지 계정 제한은 여전히 적용됩니다. 공유 스냅샷이 200개를 넘는 경우 새 공유 스냅샷을 생성하려면 이전 스냅샷을 삭제해야 합니다.
 
 * <a id="snapshot-cost"></a>
 **스냅샷 공유 비용은 얼마나 되나요?**  
@@ -315,7 +315,7 @@ ms.locfileid: "69015898"
 
 * <a id="restore-snapshotted-file-to-other-share"></a>
 **공유 스냅샷의 데이터를 다른 스토리지 계정으로 복원할 수 있나요?**  
-    예 동일한 지역 또는 서로 다른 지역에서 원래 위치 또는 동일한 스토리지 계정 또는 다른 스토리지 계정을 포함하는 대체 위치로 공유 스냅샷의 파일을 복사할 수 있습니다. 온-프레미스 위치 또는 다른 클라우드로 파일을 복사할 수도 있습니다.    
+    예. 동일한 지역 또는 서로 다른 지역에서 원래 위치 또는 동일한 스토리지 계정 또는 다른 스토리지 계정을 포함하는 대체 위치로 공유 스냅샷의 파일을 복사할 수 있습니다. 온-프레미스 위치 또는 다른 클라우드로 파일을 복사할 수도 있습니다.    
   
 ### <a name="clean-up-share-snapshots"></a>공유 스냅샷 정리
 * <a id="delete-share-keep-snapshots"></a>
@@ -379,7 +379,7 @@ ms.locfileid: "69015898"
 **IBM MQ에서 Azure Files를 어떻게 사용하나요?**  
     IBM은 IBM MQ 고객이 IBM 서비스로 Azure Files를 구성할 수 있도록 돕는 문서를 발표했습니다. 자세한 내용은 [Microsoft Azure 파일 서비스와 IBM MQ 다중 인스턴스 큐 관리자를 설치하는 방법](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)을 참조하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고자료
 * [Windows에서 Azure Files 문제 해결](storage-troubleshoot-windows-file-connection-problems.md)
 * [Linux에서 Azure Files 문제 해결](storage-troubleshoot-linux-file-connection-problems.md)
 * [Azure 파일 동기화 문제 해결](storage-sync-files-troubleshoot.md)

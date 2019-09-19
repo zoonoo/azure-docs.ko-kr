@@ -3,20 +3,20 @@ title: REST를 사용하여 Bing Speech Recognition API 시작 | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: REST를 통해 Microsoft Cognitive Services의 Speech Recognition API에 액세스하여 음성 오디오를 텍스트로 변환합니다.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ead4026ecec4878c69bc21a9ebc989eaf3d69a13
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e962a12c6c27737f95e78e80036e51bac41147d5
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515145"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965777"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>빠른 시작: Bing Speech Recognition REST API 사용
 
@@ -24,7 +24,7 @@ ms.locfileid: "60515145"
 
 클라우드 기반 Bing Speech Service를 사용하여 REST API를 통해 음성 오디오를 텍스트로 변환함으로써 애플리케이션을 개발할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="subscribe-to-the-speech-api-and-get-a-free-trial-subscription-key"></a>Speech API 구독 및 평가판 구독 키 가져오기
 
@@ -67,8 +67,8 @@ https://speech.platform.bing.com/speech/recognition/<RECOGNITION_MODE>/cognitive
 | 인식 모드  | 언어 | 출력 형식 | 서비스 URI |
 |---|---|---|---|
 | `interactive` | pt-BR | 기본값 | https:\//speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | en-US | Detailed | https:\//speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
-| `dictation` | fr-FR | 간단한 | https:\//speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
+| `conversation` | ko-KR | 자세히 | https:\//speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `dictation` | fr-FR | 단순 | https:\//speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
 > 서비스 URI는 애플리케이션에서 REST API를 사용하여 음성 인식 서비스를 호출하는 경우에만 필요합니다. [클라이언트 라이브러리](GetStartedClientLibraries.md) 중 하나를 사용하는 경우 일반적으로 사용되는 URI에 대해 알고 있을 필요가 없습니다. 클라이언트 라이브러리에서 특정 클라이언트 라이브러리에만 적용할 수 있는 별도의 서비스 URI를 사용할 수 있습니다. 자세한 내용은 선택한 클라이언트 라이브러리를 참조하세요.
@@ -250,7 +250,7 @@ REST API에는 몇 가지 제한 사항이 있습니다.
 
 이러한 제한 사항을 제거하려면 Speech [클라이언트 라이브러리](GetStartedClientLibraries.md)를 사용합니다. 또는 [Speech WebSocket 프로토콜](../API-Reference-REST/websocketprotocol.md)을 직접 사용할 수도 있습니다.
 
-## <a name="whats-next"></a>다음 단계
+## <a name="whats-next"></a>새로운 기능
 
 - C#, Java 등에서 REST API를 사용하는 방법을 알아보려면 이러한 [샘플 애플리케이션](../samples.md)을 참조하세요.
 - 오류를 찾고 수정하려면 [문제 해결](../troubleshooting.md)을 참조하세요.

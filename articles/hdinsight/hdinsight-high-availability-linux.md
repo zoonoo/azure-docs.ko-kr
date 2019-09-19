@@ -1,20 +1,20 @@
 ---
 title: Hadoop의 고가용성 - Azure HDInsight
 description: HDInsight 클러스터에서 추가 헤드 노드를 사용하여 안정성과 가용성을 높이는 방법을 알아봅니다. 이로 인해 Ambari 및 Hive와 같은 Hadoop 서비스에 미치는 영향과 SSH를 사용하여 각 헤드 노드에 개별적으로 연결하는 방법에 대해 알아봅니다.
-ms.reviewer: jasonh
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 keywords: hadoop high availability
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: hrasheed
-ms.openlocfilehash: 1bfc17d343f6e788d22cd158fcb849c5895b019f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 615b1e4c5684084b6c5f88d26293b993c1efbf1f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879726"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104417"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>HDInsight에서 Apache Hadoop 클러스터의 가용성 및 안정성
 
@@ -106,7 +106,7 @@ Ambari 웹 UI는 `https://CLUSTERNAME.azurehdinsight.net`에서 볼 수 있습�
 
 Ambari 페이지로 이동하면 설치된 서비스가 페이지 왼쪽에 나열됩니다.
 
-![설치된 서비스](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
+![Apache Ambari 설치 된 서비스](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
 
 서비스 옆에 상태를 나타내는 여러 아이콘이 표시될 수 있습니다. 서비스와 관련된 모든 경고는 페이지 위쪽의 **Alert(경고)** 링크를 사용하여 볼 수 있습니다.  Ambari는 미리 정의 된 여러 경고를 제공 합니다.
 
@@ -155,11 +155,11 @@ Ambari 페이지로 이동하면 설치된 서비스가 페이지 왼쪽에 나�
 
 서비스 페이지에서는 각 서비스의 상태 및 구성에 대한 정보를 제공하지만 서비스가 실행되고 있는 헤드 노드에 대한 정보는 제공하지 않습니다. 이 정보를 보려면 페이지 위쪽의 **Hosts(호스트)** 링크를 사용하세요. 이 페이지에는 헤드 노드를 포함하여 클러스터 내의 호스트가 표시됩니다.
 
-![호스트 목록](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
+![Apache Ambari 헤드 노드 호스트 목록](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
 
 헤드 노드 중 하나에 대한 링크를 선택하면 해당 노드에서 실행 중인 서비스와 구성 요소가 표시됩니다.
 
-![구성 요소 상태](./media/hdinsight-high-availability-linux/hdinsight-node-services.png)
+![Apache Ambari 구성 요소 상태](./media/hdinsight-high-availability-linux/hdinsight-node-services.png)
 
 Ambari 사용에 대한 자세한 내용은 [Apache Ambari Web UI를 사용하여 HDInsight 모니터링 및 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 

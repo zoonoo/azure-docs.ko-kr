@@ -2,18 +2,18 @@
 title: SSH 터널링을 사용하여 Azure HDInsight에 액세스
 description: SSH 터널을 사용하여 Linux 기반 HDInsight 노드에 호스팅되는 웹 리소스를 안전하게 검색하는 방법에 알아봅니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.author: hrasheed
-ms.openlocfilehash: cad2988a9b6d6cdf557eeabee7cc93e0bbba9267
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: d976826fe90946697a32c5b1edb9dd323b01cc1c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879534"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105463"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>SSH 터널링을 사용 하 여 Apache Ambari 웹 UI, JobHistory, NameNode, Apache Oozie 및 기타 Ui에 액세스
 
@@ -90,19 +90,19 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
 1. **저장**을 선택합니다.
 
-    ![SSH 세션 만들기](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
+    ![HDInsight create putty 세션](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
 
 1. 대화 상자의 왼쪽에 있는 **Category** 섹션에서 **Connection**, **SSH**를 차례로 확장한 다음 **Tunnels**를 선택합니다.
 
 1. **Options controlling SSH port forwarding** 양식에 다음 정보를 제공합니다.
-   
+
    * **Source port** - 전달하려는 클라이언트의 포트입니다. 예를 들면 **9876**과 같습니다.
 
    * **Destination** - HDInsight 클러스터의 SSH 주소입니다. 예를 들면 **mycluster-ssh.azurehdinsight.net**과 같습니다.
 
    * **Dynamic** - 동적 SOCKS 프록시 라우팅을 활성화합니다.
-     
-     ![터널링 옵션 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
+
+     ![PuTTY 구성 터널링 옵션](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
 
 1. **추가** 를 선택 하 여 설정을 추가 하 고 **열기** 를 클릭 하 여 SSH 연결을 엽니다.
 
@@ -114,9 +114,9 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 > 이 섹션의 단계에서는 Mozilla FireFox 브라우저를 사용합니다. 이 브라우저는 모든 플랫폼에서 동일한 프록시 설정을 제공하기 때문입니다. Google Chrome 등의 다른 최신 브라우저에는 터널에서 작동하기 위해 FoxyProxy 등의 확장이 필요할 수 있습니다.
 
 1. **localhost**와 **SOCKS v5** 프록시로 터널을 만들 때 사용한 포트를 사용하도록 브라우저를 구성합니다. Firefox 설정은 다음과 같습니다. 9876이 아닌 다른 포트를 사용한 경우 포트를 사용한 포트로 변경합니다.
-   
-    ![Firefox 설정 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/firefox-proxy-settings.png)
-   
+
+    ![firefox 브라우저 프록시 설정](./media/hdinsight-linux-ambari-ssh-tunnel/firefox-proxy-settings.png)
+
    > [!NOTE]  
    > **Remote DNS**를 선택하면 HDInsight 클러스터를 통해 DNS(Domain Name System) 요청이 확인됩니다. 이 설정은 클러스터의 헤드 노드를 사용하여 DNS를 확인합니다.
 
@@ -133,7 +133,7 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
 2. Ambari 웹 UI에서 페이지의 왼쪽 목록에서 HDFS를 선택합니다.
 
-    ![HDFS가 선택된 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/hdfs-service-selected.png)
+    ![Apache Ambari hdfs 서비스 선택 됨](./media/hdinsight-linux-ambari-ssh-tunnel/hdfs-service-selected.png)
 
 3. HDFS 서비스 정보가 표시되면 **빠른 링크**를 선택합니다. 클러스터 헤드 노드 목록이 표시됩니다. 헤드 노드 중 하나를 선택한 다음 **NameNode UI**를 선택합니다.
 
@@ -146,7 +146,7 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 
 4. 다음 이미지와 유사한 페이지가 표시됩니다.
 
-    ![NameNode UI의 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-namenode-ui.png)
+    ![Hadoop NameNode UI 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-namenode-ui.png)
 
     > [!NOTE]  
     > 이 페이지에 대 한 URL을 확인 합니다. 와 유사 `http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster`합니다. 이 URI는 노드의 내부 FQDN(정규화된 도메인 이름)을 사용하며 SSH 터널을 통해서만 액세스할 수 있습니다.

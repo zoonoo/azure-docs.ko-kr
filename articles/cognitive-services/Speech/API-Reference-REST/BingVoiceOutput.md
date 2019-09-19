@@ -3,20 +3,20 @@ title: Microsoft Speech Service의 Text to Speech API | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Text to Speech API를 사용하여 다양한 음성과 언어로 실시간 텍스트 음성 변환을 제공할 수 있습니다.
 services: cognitive-services
-author: priyaravi20
-manager: yanbo
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: priyar
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a046bec5d81d828d88716d31c84e9cbcdcea1a08
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ee9b0b47fb88cba948bc06db6eb83fe9c076fe40
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515435"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966865"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing Text to Speech API
 
@@ -32,7 +32,7 @@ Bing Text to Speech API를 사용하면 애플리케이션이 HTTP 요청을 클
 
 모든 음성 합성 요청에는 JWT(JSON Web Token) 액세스 토큰이 필요합니다. JWT 액세스 토큰은 음성 요청 헤더를 통해 전달됩니다. 토큰의 만료 시간은 10분입니다. 유효한 JWT 액세스 토큰을 검색하는 데 사용되는 API 키를 구독하고 가져오는 방법에 대한 자세한 내용은 [Cognitive Services 구독](https://azure.microsoft.com/try/cognitive-services/)을 참조하세요.
 
-API 키는 토큰 서비스에 전달됩니다. 예를 들면 다음과 같습니다.
+API 키는 토큰 서비스에 전달됩니다. 예를 들어:
 
 ```HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
@@ -41,11 +41,11 @@ Content-Length: 0
 
 토큰 액세스에 필요한 헤더 정보는 다음과 같습니다.
 
-Name| 형식 | 설명
+이름| 형식 | Description
 ----|----|----
-Ocp-Apim-Subscription-Key | ASCII | 구독 키
+Ocp-Apim-Subscription-Key | ASCII | 사용자 구독 키
 
-토큰 서비스는 JWT 액세스 토큰을 `text/plain`으로 반환합니다. 그런 다음, JWT는 문자열 `Bearer`가 앞에 추가된 인증 헤더로 음성 엔드포인트에 `Base64 access_token`으로 전달됩니다. 예를 들면 다음과 같습니다.
+토큰 서비스는 JWT 액세스 토큰을 `text/plain`으로 반환합니다. 그런 다음, JWT는 문자열 `Bearer`가 앞에 추가된 인증 헤더로 음성 엔드포인트에 `Base64 access_token`으로 전달됩니다. 예를 들어:
 
 `Authorization: Bearer [Base64 access_token]`
 
@@ -60,7 +60,7 @@ Ocp-Apim-Subscription-Key | ASCII | 구독 키
 
 다음 표에서는 음성 합성 요청에 사용되는 HTTP 헤더를 보여 줍니다.
 
-헤더 |값 |설명
+헤더 |값 |주석
 ----|----|----
 Content-Type | application/ssml+xml | 입력 콘텐츠 형식입니다.
 X-Microsoft-OutputFormat | **1.** ssml-16khz-16bit-mono-tts <br> **2.** raw-16khz-16bit-mono-pcm <br>**3.** audio-16khz-16kbps-mono-siren <br> **4.** riff-16khz-16kbps-mono-siren <br> **5.** riff-16khz-16bit-mono-pcm <br> **6.** audio-16khz-128kbitrate-mono-mp3 <br> **7.** audio-16khz-64kbitrate-mono-mp3 <br> **8.** audio-16khz-32kbitrate-mono-mp3 | 출력 오디오 형식입니다.
@@ -122,7 +122,7 @@ Content-Length: 0
 
 ### <a name="ErrorResponse"></a>오류 응답
 
-오류 | 설명
+오류 | Description
 ----|----
 HTTP/400 잘못된 요청 | 필수 매개 변수가 누락되었거나, 비어 있거나, Null이거나 필수 또는 선택적 매개 변수에 전달된 값이 잘못되었습니다. “잘못된” 응답이 표시되는 한 가지 이유는 허용 길이보다 긴 문자열 값을 전달하는 경우입니다. 문제가 있는 매개 변수에 대한 간단한 설명이 포함됩니다.
 HTTP/401 권한 없음 | 요청에 권한이 없습니다.
@@ -192,84 +192,84 @@ Microsoft Text-to-Speech API는 W3C [SSML(Speech Synthesis Markup Language) 버�
 
 로캘 | 성별 | 서비스 이름 매핑
 ---------|--------|------------
-ar-EG* | Female | "Microsoft Server Speech Text to Speech Voice(ar-EG, Hoda)"
-ar-SA | Male | “Microsoft Server Speech Text to Speech Voice(ar-SA, Naayf)”
-bg-BG | Male | “Microsoft Server Speech Text to Speech Voice(bg-BG, Ivan)”
-ca-ES | Female | “Microsoft Server Speech Text to Speech Voice(ca-ES, HerenaRUS)”
-cs-CZ | Male | “Microsoft Server Speech Text to Speech Voice(cs-CZ, Jakub)”
-da-DK | Female | “Microsoft Server Speech Text to Speech Voice(da-DK, HelleRUS)”
-de-AT | Male | “Microsoft Server Speech Text to Speech Voice(de-AT, Michael)”
-de-CH | Male | “Microsoft Server Speech Text to Speech Voice(de-CH, Karsten)”
-de-DE | Female | "Microsoft Server Speech Text to Speech Voice(de-DE, Hedda) "
-de-DE | Female | "Microsoft Server Speech Text to Speech Voice(de-DE, HeddaRUS)"
-de-DE | Male | “Microsoft Server Speech Text to Speech Voice(de-DE, Stefan, Apollo)”
-el-GR | Male | “Microsoft Server Speech Text to Speech Voice(el-GR, Stefanos)”
-en-AU | Female | “Microsoft Server Speech Text to Speech Voice(en-AU, Catherine)”
-en-AU | Female | “Microsoft Server Speech Text to Speech Voice(en-AU, HayleyRUS)”
-en-CA | Female | "Microsoft Server Speech Text to Speech Voice(en-CA, Linda)"
-en-CA | Female | “Microsoft Server Speech Text to Speech Voice(en-CA, HeatherRUS)”
-en-GB | Female | “Microsoft Server Speech Text to Speech Voice(en-GB, Susan, Apollo)”
-en-GB | Female | “Microsoft Server Speech Text to Speech Voice(en-GB, HazelRUS)”
-en-GB | Male | “Microsoft Server Speech Text to Speech Voice(en-GB, George, Apollo)”
-en-IE | Male | “Microsoft Server Speech Text to Speech Voice(en-IE, Sean)”
-en-IN | Female | “Microsoft Server Speech Text to Speech Voice(en-IN, Heera, Apollo)”
-en-IN | Female | “Microsoft Server Speech Text to Speech Voice(en-IN, PriyaRUS)”
-en-IN | Male | “Microsoft Server Speech Text to Speech Voice(en-IN, Ravi, Apollo)”
-en-US | Female | “Microsoft Server Speech Text to Speech Voice(en-US, ZiraRUS)”
-en-US | Female | “Microsoft Server Speech Text to Speech Voice(en-US, JessaRUS)”
-en-US | Male | “Microsoft Server Speech Text to Speech Voice(en-US, BenjaminRUS)”
-es-ES | Female | “Microsoft Server Speech Text to Speech Voice(es-ES, Laura, Apollo)”
-es-ES | Female | “Microsoft Server Speech Text to Speech Voice(es-ES, HelenaRUS)”
-es-ES | Male | “Microsoft Server Speech Text to Speech Voice(es-ES, Pablo, Apollo)”
-es-MX | Female | “Microsoft Server Speech Text to Speech Voice(es-MX, HildaRUS)”
-es-MX | Male | “Microsoft Server Speech Text to Speech Voice(es-MX, Raul, Apollo)”
-fi-FI | Female | “Microsoft Server Speech Text to Speech Voice(fi-FI, HeidiRUS)”
-fr-CA | Female | “Microsoft Server Speech Text to Speech Voice(fr-CA, Caroline)”
-fr-CA | Female | “Microsoft Server Speech Text to Speech Voice(fr-CA, HarmonieRUS)”
-fr-CH | Male | “Microsoft Server Speech Text to Speech Voice(fr-CH, Guillaume)”
-fr-FR | Female | “Microsoft Server Speech Text to Speech Voice(fr-FR, Julie, Apollo)”
-fr-FR | Female | “Microsoft Server Speech Text to Speech Voice(fr-FR, HortenseRUS)”
-fr-FR | Male | “Microsoft Server Speech Text to Speech Voice(fr-FR, Paul, Apollo)”
-he-IL| Male| “Microsoft Server Speech Text to Speech Voice(he-IL, Asaf)”
-hi-IN | Female | “Microsoft Server Speech Text to Speech Voice(hi-IN, Kalpana, Apollo)”
-hi-IN | Female | “Microsoft Server Speech Text to Speech Voice(hi-IN, Kalpana)”
-hi-IN | Male | “Microsoft Server Speech Text to Speech Voice(hi-IN, Hemant)”
-hr-HR | Male | “Microsoft Server Speech Text to Speech Voice(hr-HR, Matej)”
-hu-HU | Male | “Microsoft Server Speech Text to Speech Voice(hr-HR, Matej)”
-id-ID | Male | "Microsoft Server Speech Text to Speech Voice(id-ID, Andika)"
-it-IT | Male | “Microsoft Server Speech Text to Speech Voice(it-IT, Cosimo, Apollo)”
-it-IT | Female | "Microsoft Server Speech Text to Speech Voice(it-IT, LuciaRUS)"
-ja-JP | Female | “Microsoft Server Speech Text to Speech Voice(ja-JP, Ayumi, Apollo)”
-ja-JP | Male | “Microsoft Server Speech Text to Speech Voice(ja-JP, Ichiro, Apollo)”
-ja-JP | Female | “Microsoft Server Speech Text to Speech Voice(ja-JP, HarukaRUS)”
-en-US | Female | “Microsoft Server Speech Text to Speech Voice(ko-KR, HeamiRUS)”
-ms-MY | Male | “Microsoft Server Speech Text to Speech Voice(ms-MY, Rizwan)”
-nb-NO | Female | “Microsoft Server Speech Text to Speech Voice(nb-NO, HuldaRUS)”
-nl-NL | Female | “Microsoft Server Speech Text to Speech Voice(nl-NL, HannaRUS)”
-pl-PL | Female | “Microsoft Server Speech Text to Speech Voice(pl-PL, PaulinaRUS)”
-pt-BR | Female | “Microsoft Server Speech Text to Speech Voice(pt-BR, HeloisaRUS)”
-pt-BR | Male | “Microsoft Server Speech Text to Speech Voice(pt-BR, Daniel, Apollo)”
-pt-PT | Female | “Microsoft Server Speech Text to Speech Voice(pt-PT, HeliaRUS)”
-ro-RO | Male | “Microsoft Server Speech Text to Speech Voice(ro-RO, Andrei)”
-ru-RU | Female | “Microsoft Server Speech Text to Speech Voice(ru-RU, Irina, Apollo)”
-ru-RU | Male | “Microsoft Server Speech Text to Speech Voice(ru-RU, Pavel, Apollo)”
-ru-RU | Female | "Microsoft Server Speech Text to Speech Voice(ru-RU, EkaterinaRUS)"
-sk-SK | Male | “Microsoft Server Speech Text to Speech Voice(sk-SK, Filip)”
-sl-SI | Male | “Microsoft Server Speech Text to Speech Voice(sl-SI, Lado)”
-sv-SE | Female | “Microsoft Server Speech Text to Speech Voice(sv-SE, HedvigRUS)”
-ta-IN | Male | “Microsoft Server Speech Text to Speech Voice(ta-IN, Valluvar)”
-th-TH | Male | “Microsoft Server Speech Text to Speech Voice(th-TH, Pattara)”
-tr-TR | Female | “Microsoft Server Speech Text to Speech Voice(tr-TR, SedaRUS)”
-vi-VN | Male | “Microsoft Server Speech Text to Speech Voice(vi-VN, An)”
-zh-CN | Female | “Microsoft Server Speech Text to Speech Voice(zh-CN, HuihuiRUS)”
-zh-CN | Female | “Microsoft Server Speech Text to Speech Voice(zh-CN, Yaoyao, Apollo)”
-zh-CN | Male | “Microsoft Server Speech Text to Speech Voice(zh-CN, Kangkang, Apollo)”
-zh-HK | Female | “Microsoft Server Speech Text to Speech Voice(zh-HK, Tracy, Apollo)”
-zh-HK | Female | “Microsoft Server Speech Text to Speech Voice(zh-HK, TracyRUS)”
-zh-HK | Male | “Microsoft Server Speech Text to Speech Voice(zh-HK, Danny, Apollo)”
-zh-TW | Female | “Microsoft Server Speech Text to Speech Voice(zh-TW, Yating, Apollo)”
-zh-TW | Female | “Microsoft Server Speech Text to Speech Voice(zh-TW, HanHanRUS)”
-zh-TW | Male | “Microsoft Server Speech Text to Speech Voice(zh-TW, Zhiwei, Apollo)”
+ar-EG* | 여성 | "Microsoft Server Speech Text to Speech Voice(ar-EG, Hoda)"
+ar-SA | 남성 | “Microsoft Server Speech Text to Speech Voice(ar-SA, Naayf)”
+bg-BG | 남성 | “Microsoft Server Speech Text to Speech Voice(bg-BG, Ivan)”
+ca-ES | 여성 | “Microsoft Server Speech Text to Speech Voice(ca-ES, HerenaRUS)”
+cs-CZ | 남성 | “Microsoft Server Speech Text to Speech Voice(cs-CZ, Jakub)”
+da-DK | 여성 | “Microsoft Server Speech Text to Speech Voice(da-DK, HelleRUS)”
+de-AT | 남성 | “Microsoft Server Speech Text to Speech Voice(de-AT, Michael)”
+de-CH | 남성 | “Microsoft Server Speech Text to Speech Voice(de-CH, Karsten)”
+de-DE | 여성 | "Microsoft Server Speech Text to Speech Voice(de-DE, Hedda) "
+de-DE | 여성 | "Microsoft Server Speech Text to Speech Voice(de-DE, HeddaRUS)"
+de-DE | 남성 | “Microsoft Server Speech Text to Speech Voice(de-DE, Stefan, Apollo)”
+el-GR | 남성 | “Microsoft Server Speech Text to Speech Voice(el-GR, Stefanos)”
+en-AU | 여성 | “Microsoft Server Speech Text to Speech Voice(en-AU, Catherine)”
+en-AU | 여성 | “Microsoft Server Speech Text to Speech Voice(en-AU, HayleyRUS)”
+en-CA | 여성 | "Microsoft Server Speech Text to Speech Voice(en-CA, Linda)"
+en-CA | 여성 | “Microsoft Server Speech Text to Speech Voice(en-CA, HeatherRUS)”
+en-GB | 여성 | “Microsoft Server Speech Text to Speech Voice(en-GB, Susan, Apollo)”
+en-GB | 여성 | “Microsoft Server Speech Text to Speech Voice(en-GB, HazelRUS)”
+en-GB | 남성 | “Microsoft Server Speech Text to Speech Voice(en-GB, George, Apollo)”
+en-IE | 남성 | “Microsoft Server Speech Text to Speech Voice(en-IE, Sean)”
+en-IN | 여성 | “Microsoft Server Speech Text to Speech Voice(en-IN, Heera, Apollo)”
+en-IN | 여성 | “Microsoft Server Speech Text to Speech Voice(en-IN, PriyaRUS)”
+en-IN | 남성 | “Microsoft Server Speech Text to Speech Voice(en-IN, Ravi, Apollo)”
+ko-KR | 여성 | “Microsoft Server Speech Text to Speech Voice(en-US, ZiraRUS)”
+ko-KR | 여성 | “Microsoft Server Speech Text to Speech Voice(en-US, JessaRUS)”
+ko-KR | 남성 | “Microsoft Server Speech Text to Speech Voice(en-US, BenjaminRUS)”
+es-ES | 여성 | “Microsoft Server Speech Text to Speech Voice(es-ES, Laura, Apollo)”
+es-ES | 여성 | “Microsoft Server Speech Text to Speech Voice(es-ES, HelenaRUS)”
+es-ES | 남성 | “Microsoft Server Speech Text to Speech Voice(es-ES, Pablo, Apollo)”
+es-MX | 여성 | “Microsoft Server Speech Text to Speech Voice(es-MX, HildaRUS)”
+es-MX | 남성 | “Microsoft Server Speech Text to Speech Voice(es-MX, Raul, Apollo)”
+fi-FI | 여성 | “Microsoft Server Speech Text to Speech Voice(fi-FI, HeidiRUS)”
+fr-CA | 여성 | “Microsoft Server Speech Text to Speech Voice(fr-CA, Caroline)”
+fr-CA | 여성 | “Microsoft Server Speech Text to Speech Voice(fr-CA, HarmonieRUS)”
+fr-CH | 남성 | “Microsoft Server Speech Text to Speech Voice(fr-CH, Guillaume)”
+fr-FR | 여성 | “Microsoft Server Speech Text to Speech Voice(fr-FR, Julie, Apollo)”
+fr-FR | 여성 | “Microsoft Server Speech Text to Speech Voice(fr-FR, HortenseRUS)”
+fr-FR | 남성 | “Microsoft Server Speech Text to Speech Voice(fr-FR, Paul, Apollo)”
+he-IL| 남성| “Microsoft Server Speech Text to Speech Voice(he-IL, Asaf)”
+hi-IN | 여성 | “Microsoft Server Speech Text to Speech Voice(hi-IN, Kalpana, Apollo)”
+hi-IN | 여성 | “Microsoft Server Speech Text to Speech Voice(hi-IN, Kalpana)”
+hi-IN | 남성 | “Microsoft Server Speech Text to Speech Voice(hi-IN, Hemant)”
+hr-HR | 남성 | “Microsoft Server Speech Text to Speech Voice(hr-HR, Matej)”
+hu-HU | 남성 | “Microsoft Server Speech Text to Speech Voice(hr-HR, Matej)”
+id-ID | 남성 | "Microsoft Server Speech Text to Speech Voice(id-ID, Andika)"
+it-IT | 남성 | “Microsoft Server Speech Text to Speech Voice(it-IT, Cosimo, Apollo)”
+it-IT | 여성 | "Microsoft Server Speech Text to Speech Voice(it-IT, LuciaRUS)"
+ja-JP | 여성 | “Microsoft Server Speech Text to Speech Voice(ja-JP, Ayumi, Apollo)”
+ja-JP | 남성 | “Microsoft Server Speech Text to Speech Voice(ja-JP, Ichiro, Apollo)”
+ja-JP | 여성 | “Microsoft Server Speech Text to Speech Voice(ja-JP, HarukaRUS)”
+ko-KR | 여성 | “Microsoft Server Speech Text to Speech Voice(ko-KR, HeamiRUS)”
+ms-MY | 남성 | “Microsoft Server Speech Text to Speech Voice(ms-MY, Rizwan)”
+nb-NO | 여성 | “Microsoft Server Speech Text to Speech Voice(nb-NO, HuldaRUS)”
+nl-NL | 여성 | “Microsoft Server Speech Text to Speech Voice(nl-NL, HannaRUS)”
+pl-PL | 여성 | “Microsoft Server Speech Text to Speech Voice(pl-PL, PaulinaRUS)”
+pt-BR | 여성 | “Microsoft Server Speech Text to Speech Voice(pt-BR, HeloisaRUS)”
+pt-BR | 남성 | “Microsoft Server Speech Text to Speech Voice(pt-BR, Daniel, Apollo)”
+pt-PT | 여성 | “Microsoft Server Speech Text to Speech Voice(pt-PT, HeliaRUS)”
+ro-RO | 남성 | “Microsoft Server Speech Text to Speech Voice(ro-RO, Andrei)”
+ru-RU | 여성 | “Microsoft Server Speech Text to Speech Voice(ru-RU, Irina, Apollo)”
+ru-RU | 남성 | “Microsoft Server Speech Text to Speech Voice(ru-RU, Pavel, Apollo)”
+ru-RU | 여성 | "Microsoft Server Speech Text to Speech Voice(ru-RU, EkaterinaRUS)"
+sk-SK | 남성 | “Microsoft Server Speech Text to Speech Voice(sk-SK, Filip)”
+sl-SI | 남성 | “Microsoft Server Speech Text to Speech Voice(sl-SI, Lado)”
+sv-SE | 여성 | “Microsoft Server Speech Text to Speech Voice(sv-SE, HedvigRUS)”
+ta-IN | 남성 | “Microsoft Server Speech Text to Speech Voice(ta-IN, Valluvar)”
+th-TH | 남성 | “Microsoft Server Speech Text to Speech Voice(th-TH, Pattara)”
+tr-TR | 여성 | “Microsoft Server Speech Text to Speech Voice(tr-TR, SedaRUS)”
+vi VN | 남성 | “Microsoft Server Speech Text to Speech Voice(vi-VN, An)”
+zh-CN | 여성 | “Microsoft Server Speech Text to Speech Voice(zh-CN, HuihuiRUS)”
+zh-CN | 여성 | “Microsoft Server Speech Text to Speech Voice(zh-CN, Yaoyao, Apollo)”
+zh-CN | 남성 | “Microsoft Server Speech Text to Speech Voice(zh-CN, Kangkang, Apollo)”
+zh-HK | 여성 | “Microsoft Server Speech Text to Speech Voice(zh-HK, Tracy, Apollo)”
+zh-HK | 여성 | “Microsoft Server Speech Text to Speech Voice(zh-HK, TracyRUS)”
+zh-HK | 남성 | “Microsoft Server Speech Text to Speech Voice(zh-HK, Danny, Apollo)”
+zh-TW | 여성 | “Microsoft Server Speech Text to Speech Voice(zh-TW, Yating, Apollo)”
+zh-TW | 여성 | “Microsoft Server Speech Text to Speech Voice(zh-TW, HanHanRUS)”
+zh-TW | 남성 | “Microsoft Server Speech Text to Speech Voice(zh-TW, Zhiwei, Apollo)”
 
  *ar-EG는 MSA(Modern Standard Arabic)를 지원합니다.
 

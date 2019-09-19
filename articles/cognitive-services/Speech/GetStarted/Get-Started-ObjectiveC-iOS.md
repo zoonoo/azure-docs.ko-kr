@@ -3,20 +3,20 @@ title: iOS의 Objective-C에서 Bing Speech Recognition API 시작 | Microsoft D
 titlesuffix: Azure Cognitive Services
 description: Bing Speech Recognition API를 사용하여 음성 오디오를 텍스트로 변환하는 iOS 애플리케이션을 개발합니다.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 09b7e8961e59bd6fad49408c28e9ee9a4a209cae
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e42784e6d2751f7e76aec8caf1d6e1f9f09a9fd1
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515284"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965928"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>빠른 시작: iOS의 Objective-C에서 Bing Speech Recognition API 사용
 
@@ -26,7 +26,7 @@ Speech Recognition API를 사용하면 클라우드 기반 Speech Service를 사
 
 이 문서에서는 샘플 애플리케이션을 사용하여 Speech Recognition API를 시작하여 iOS 애플리케이션을 개발하는 방법의 기본 사항을 보여 줍니다. 전체 API 참조는 [Speech SDK 클라이언트 라이브러리 참조](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 ### <a name="platform-requirements"></a>플랫폼 요구 사항
 
@@ -141,7 +141,7 @@ iOS용 클라이언트 라이브러리 참조를 찾으려면 이 [웹 페이지
   * `SpeechRecognitionMode_LongDictation` 모드에서는 서비스에서 문장 일시 중지를 식별하는 위치에 따라 이벤트 처리기가 여러 번 호출됩니다.
   * **N 상위 선택 항목 각각에 대해** 신뢰도 값 및 인식된 텍스트의 몇 가지 다른 형식이 반환됩니다. 자세한 내용은 [출력 형식](../Concepts.md#output-format)을 참조하세요.
 
-## <a name="related-topics"></a>관련된 항목
+## <a name="related-topics"></a>관련 항목
 
 * [iOS용 클라이언트 라이브러리 참조](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html)
 * [Android의 Java에서 Microsoft 음성 인식 및/또는 의도 시작](GetStartedJavaAndroid.md)

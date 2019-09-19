@@ -3,20 +3,20 @@ title: C# 데스크톱 라이브러리를 사용하여 Bing Speech Recognition A
 titlesuffix: Azure Cognitive Services
 description: Bing Speech Recognition API를 사용하여 음성 오디오를 텍스트로 변환하는 기본 Windows 애플리케이션을 개발합니다.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5f3b70a2dd9816210ed61280be38504a3980d205
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3160ccc1c8741d87fcee94a6face48551a79052d
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515377"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966896"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>빠른 시작: Windows의 .NET용 C&#35;에서 Bing Speech Recognition API 사용
 
@@ -28,7 +28,7 @@ ms.locfileid: "60515377"
 
 다음 섹션에서는 C# 데스크톱 라이브러리를 사용하여 C# 샘플 애플리케이션을 설치, 빌드 및 실행하는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="platform-requirements"></a>플랫폼 요구 사항
 
@@ -101,7 +101,7 @@ Speech API는 Cognitive Services(이전의 Project Oxford)의 일부입니다. [
 
 이벤트 처리기는 이미 코드에서 코드 주석 형식으로 지정되었습니다.
 
-## <a name="related-topics"></a>관련된 항목
+## <a name="related-topics"></a>관련 항목
 
 * [Microsoft Speech 데스크톱 라이브러리 참조](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html)
 * [Android의 Java에서 Microsoft Speech Recognition API 시작](GetStartedJavaAndroid.md)

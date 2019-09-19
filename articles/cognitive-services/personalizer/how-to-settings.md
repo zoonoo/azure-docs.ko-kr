@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: cd67f435ff390267e01acd99594b9063db4c4ee1
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 376c2efbf3269092d0534870108ef6d753f8743e
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559098"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962509"
 ---
 # <a name="personalizer-settings"></a>Personalizer 설정
 
@@ -67,7 +67,7 @@ ms.locfileid: "69559098"
 
 높은 모델 업데이트 빈도는 사용자 동작에서 변경 사항을 밀접하게 추적하려는 상황에 유용합니다. 라이브 뉴스, 바이럴 콘텐츠 또는 라이브 상품 입찰에서 실행하는 사이트를 예로 들 수 있습니다. 이러한 시나리오에서 15분 빈도를 사용할 수 있습니다. 대부분 사용 사례의 경우 낮은 업데이트 빈도가 효과적입니다. 1분 업데이트 빈도는 Personalizer를 사용하여 애플리케이션의 코드 디버깅, 데모 실행 또는 Machine Learning 측면을 대화형으로 테스트할 때 유용합니다.
 
-![모델 업데이트 빈도는 새 Personalizer 모델을 다시 학습시키는 빈도를 설정합니다.](media/settings/configure-model-update-frequency-settings.png)
+![모델 업데이트 빈도는 새 Personalizer 모델을 다시 학습시키는 빈도를 설정합니다.](media/settings/configure-model-update-frequency-settings-15-minutes.png)
 
 이 설정을 변경한 후 꼭 **저장**을 선택해야 합니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: genli
-ms.openlocfilehash: 37c2cf5ffb5e6eaf8b8da6e7bc9259cfa101c796
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 0a32f9a9fde0983a5b97f7342a111d40ef01c686
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058815"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104813"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>문제 해결: Azure 지점 및 사이트 간 연결 문제
 
@@ -48,8 +48,7 @@ VPN 클라이언트를 사용하여 Azure 가상 네트워크에 연결하려고
     | Certificate | 위치 |
     | ------------- | ------------- |
     | AzureClient.pfx  | Current User\Personal\Certificates |
-    | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
-    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
+    | AzureRoot    | Local Computer\Trusted Root Certification Authorities|
 
 3. C:\Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>로 이동하고, 인증서(*.cer file)를 사용자 및 컴퓨터의 저장소에 수동으로 설치합니다.
 

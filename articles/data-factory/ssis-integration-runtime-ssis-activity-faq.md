@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: a7ad0f3be754029c654b04d19750aab7bbcd210d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 8e800ec8a7a2dd52e052547efa51deaad8c9bb45
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933643"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104914"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>SSIS integration runtime에서 패키지 실행 문제 해결
 
@@ -55,7 +55,7 @@ SSIS 카탈로그 (SSISDB)를 사용 하 여 실행에 대 한 세부 정보 로
 
 ### <a name="error-message-the-connection--is-not-found"></a>오류 메시지: "연결 ' ... ' 찾을 수 없음 "
 
-이 오류는 이전 버전의 SSMS(SQL Server Management Studio)에서 알려진 이슈로 인해 발생할 수 있습니다. 패키지에 SSMS를 사용하여 배포를 수행하는 컴퓨터에 설치되지 않은 사용자 지정 구성 요소(예: SSIS Azure Feature Pack 또는 파트너 구성 요소)가 포함된 경우 SSMS는 구성 요소를 제거하고 오류를 발생시킵니다. 문제가 해결 된 최신 버전으로 [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 를 업그레이드 합니다.
+이 오류는 이전 버전의 SSMS(SQL Server Management Studio)에서 알려진 이슈로 인해 발생할 수 있습니다. 패키지에 SSMS를 사용하여 배포를 수행하는 컴퓨터에 설치되지 않은 사용자 지정 구성 요소(예: SSIS Azure Feature Pack 또는 파트너 구성 요소)가 포함된 경우 SSMS는 구성 요소를 제거하고 오류를 발생시킵니다. 이슈가 해결된 최신 버전으로 [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 업그레이드합니다.
 
 ### <a name="error-messagessis-executor-exit-code--1073741819"></a>오류 메시지: "SSIS Executor 종료 코드:-1073741819"
 
@@ -120,19 +120,47 @@ SSIS integration runtime에서 많은 패키지가 병렬로 실행 되는 경�
 
 ### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>오류 메시지: "Microsoft OLE DB Provider for Analysis Services. Hresult 0x80004005 설명: ' COM 오류: COM 오류: mscorlib; 호출 대상이 예외를 throw 했습니다. "
 
-한 가지 가능한 원인은 Azure Multi-factor Authentication을 사용 하는 사용자 이름 또는 암호가 Azure Analysis Services 인증에 대해 구성 되어 있기 때문입니다. 이 인증은 SSIS integration runtime에서 지원 되지 않습니다. Azure Analysis Services 인증을 위해 서비스 주체를 사용 하려고 합니다.
+한 가지 가능한 원인은 Azure Multi-Factor Authentication 사용 하도록 설정 된 사용자 이름 또는 암호가 Azure Analysis Services 인증에 대해 구성 되어 있기 때문입니다. 이 인증은 SSIS integration runtime에서 지원 되지 않습니다. Azure Analysis Services 인증을 위해 서비스 주체를 사용 하려고 합니다.
 1. [서비스 주체를 사용 하 여 자동화](https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal)에 설명 된 대로 서비스 주체를 준비 합니다.
 2. 연결 관리자에서 **특정 사용자 이름 및 암호 사용**구성: **AppID** 를 username으로 설정 하 고 **clientSecret** 를 암호로 설정 합니다.
 
-### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>오류 메시지: "ADONET Source에서 다음 오류 메시지와 함께 {GUID} 연결을 획득 하지 못했습니다. 관리 id를 사용 하는 경우 ' NT AUTHORITY\ANONYMOUS LOGON ' 사용자에 대 한 로그인이 실패 했습니다.
+### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>오류 메시지: 관리 ID를 사용할 때 "ADONET 원본에서 다음 오류 메시지와 함께 연결 {GUID}를 가져오지 못했습니다. 관리 id를 사용 하는 경우 ' NT AUTHORITY\ANONYMOUS LOGON ' 사용자에 대 한 로그인이 실패 했습니다.
 
 *ConnectUsingManagedIdentity* 매개 변수가 **True**인 경우 **Active Directory 암호 인증** 으로 연결 관리자의 인증 방법을 구성 하지 않아야 합니다. 대신 *ConnectUsingManagedIdentity* 가 설정 된 경우 무시 되는 **SQL 인증** 으로 구성할 수 있습니다.
+
+### <a name="error-message-request-staging-task-with-operation-guid--fail-since-error-failed-to-dispatch-staging-operation-with-error-message-microsoftsqlserverintegrationservicesaisagentcoreaisagentexception-failed-to-load-data-proxy"></a>오류 메시지: "작업 guid를 사용 하 여 준비 작업 요청 ... 오류 발생 후 실패: 다음 오류 메시지가 발생 하 여 준비 작업을 디스패치하지 못했습니다. Microsoft.sqlserver.management.integrationservices입니다. Aisagentcore: 데이터 프록시를 로드 하지 못했습니다. "
+
+Azure SSIS 통합 런타임이 자체 호스팅 통합 런타임을 사용 하 여 구성 되어 있는지 확인 합니다. 자세한 내용은 [ADF의 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성](self-hosted-integration-runtime-proxy-ssis.md)에서 찾을 수 있습니다.
+
+### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2010-errormessage-the-self-hosted-integration-runtime--is-offline"></a>오류 메시지: "준비 작업 상태: 실패함. 준비 태스크 오류: ErrorCode 2010, ErrorMessage: 자체 호스팅 Integration Runtime ... 오프 라인 상태 "
+
+자체 호스팅 integration runtime이 설치 및 시작 되었는지 확인 합니다. 자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성](create-self-hosted-integration-runtime.md) 에서 찾을 수 있습니다.
+
+### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-the-requested-ole-db-provider--is-not-registered-if-the-64-bit-driver-is-not-installed-run-the-package-in-32-bit-mode"></a>오류 메시지: "준비 작업 오류: ErrorCode 2906, ErrorMessage: 패키지를 실행 하지 못했습니다., 출력: {"OperationErrorMessages": "오류: 요청 된 OLE DB 공급자 ... 이 등록 되지 않은 경우 64 비트 드라이버가 설치 되지 않은 경우 32 비트 모드에서 패키지를 실행 합니다.
+
+패키지의 OLE DB 커넥터에서 사용 하는 해당 공급자가 자체 호스팅 통합 런타임 컴퓨터에 제대로 설치 되어 있는지 확인 합니다. 자세한 내용은 [ADF의 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir) 에서 찾을 수 있습니다.
+
+### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>오류 메시지: "준비 작업 오류: ErrorCode 2906, ErrorMessage: 패키지를 실행 하지 못했습니다., 출력: {"OperationErrorMessages": "오류: System.IO.FileLoadException: 파일이 나 어셈블리 ' Windowsazure.servicebus, Version = ..., Culture = 중립, PublicKeyToken = 31bf3856ad364e35 ' 또는 해당 종속성 중 하나를 로드할 수 없습니다. 찾은 어셈블리의 매니페스트 정의가 어셈블리 참조와 일치 하지 않습니다. ' ..."
+
+자체 호스팅 통합 런타임이 제대로 설치 또는 업그레이드 되지 않는 한 가지 잠재적인 원인이 있습니다. 최신 자체 호스팅 통합 런타임을 다운로드 하 고 다시 설치 하는 것이 좋습니다. 자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성](create-self-hosted-integration-runtime.md#installation-best-practices) 에서 찾을 수 있습니다.
+
+### <a name="error-message-a-connection-is-required-when-requesting-metadata-if-you-are-working-offline-uncheck-work-offline-on-the-ssis-menu-to-enable-the-connection"></a>오류 메시지: "메타 데이터를 요청할 때 연결이 필요 합니다. 오프 라인으로 작업 하는 경우 SSIS 메뉴에서 오프 라인으로 작업을 선택 취소 하 여 연결을 설정 합니다.
+
+* 잠재적인 원인 & 권장 조치:
+  * "구성 요소에서 연결 관리자를 사용 하 여 연결 관리자의 연결 관리자 사용을 지원 하지 않습니다." 라는 경고 메시지가 나타나면 "ConnectByProxy"를 아직 지원 하지 않는 구성 요소에서 연결 관리자를 사용 하는 것을 의미 합니다. 지원 되는 구성 요소는 [ADF의 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy) 에서 찾을 수 있습니다.
+  * 실행 로그는 [SSMS 보고서](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) 또는 SSIS 패키지 실행 작업에서 지정한 로그 폴더에서 찾을 수 있습니다.
+  * vNet은 다른 방법으로 온-프레미스 데이터에 액세스 하는 데도 사용할 수 있습니다. 자세한 내용은 [AZURE SSIS integration runtime을 가상 네트워크에 가입](join-azure-ssis-integration-runtime-virtual-network.md) 에서 찾을 수 있습니다.
+
+### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>오류 메시지: "준비 작업 상태: 실패함. 준비 태스크 오류: ErrorCode 2906, ErrorMessage: 패키지를 실행 하지 못했습니다., 출력: {"OperationErrorMessages": "SSIS Executor 종료 코드:-1. \ n", "LogLocation": "... SSISTelemetry executionlog..."\\," effectiveIntegrationRuntime ":" ... "," executionlog ": ...," durationInQueue ": {" integrationRuntimeQueue ": ...}}"\\ \\
+
+자체 호스팅 integration C++ runtime 컴퓨터에 Visual runtime이 설치 되어 있는지 확인 합니다. 자세한 내용은 [ADF의 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir) 에서 찾을 수 있습니다.
 
 ### <a name="multiple-package-executions-are-triggered-unexpectedly"></a>여러 패키지 실행이 예기치 않게 트리거됨
 
 * 잠재적인 원인 & 권장 조치:
-  * ADF 저장 프로시저 작업은 SSIS 패키지 실행을 트리거하는 데 사용 됩니다. T-sql 명령은 일시적인 문제를 발생 시킬 수 있으며 여러 패키지를 실행 하는 다시 실행을 트리거할 수 있습니다.
+  * ADF 저장 프로시저 작업 또는 조회 작업은 SSIS 패키지 실행을 트리거하는 데 사용 됩니다. T-sql 명령은 일시적인 문제를 발생 시킬 수 있으며 여러 패키지를 실행 하는 다시 실행을 트리거할 수 있습니다.
   * 사용자가 작업에서 다시 시도 횟수를 설정 하지 않으면 패키지 실행이 다시 실행 되지 않도록 하는 ExecuteSSISPackage 작업을 대신 사용 합니다. 세부 정보는 다음 위치에서 찾을 수 있습니다.[https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
+  * 실행이 이미 트리거 되었는지 확인 하 여 다시 실행할 수 있도록 t-sql 명령을 구체화 합니다.
 
 ### <a name="package-execution-takes-too-long"></a>패키지 실행 시간이 너무 오래 걸립니다.
 

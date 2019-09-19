@@ -3,20 +3,20 @@ title: Bing Speech 개념 | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Microsoft Speech Service에서 사용되는 기본 개념입니다.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1cbf1514ac5eba4e288ecb78944878217fc5ba3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fba1bbdeaf68bdd45524b336011627a27cd024da
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954525"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965708"
 ---
 # <a name="basic-concepts"></a>기본 개념
 
@@ -32,7 +32,7 @@ ms.locfileid: "65954525"
 
 음성의 기본 개념 중 가장 중요한 것은 *오디오 스트림*입니다. 단일 시점에서 발생하고 단일 정보를 포함하는 키 입력과 달리 음성 요청은 수백 밀리초에 걸쳐 분산되며 수 킬로바이트의 정보를 포함합니다. 음성 발화의 기간은 애플리케이션에 간소화되고 세련된 음성 환경을 제공하려는 개발자에게 약간의 어려움을 안겨줍니다. 오늘날의 컴퓨터와 알고리즘에서는 발화 기간 중 절반 정도에서 음성 전사를 수행하므로 2초의 발화는 대략 1초 내에 전사될 수 있지만, 사용자를 처리하는 데 1초의 지연이 발생하는 애플리케이션은 간소화되지도 않고 세련되지도 않습니다.
 
-다행히도 사용자가 다른 부분을 말하는 동안 발화의 한 부분에서 전사를 수행하여 전사 시간을 "숨기는" 방법이 있습니다. 예를 들어,는 1 초 utterance 100 밀리초의 10 개의 청크로 분할 하 여 각 청크에서 기록을 차례로 수행 하 여를 기록 하는 데 필요한 총 500 밀리초의 수 "숨김" 450 개는 사용자를 인식 되지 않도록 기록 이며 말하기는 해당 하는 동안 수행 중입니다. 이 예를 생각해 보면, 사용자가 다음 100밀리초 동안 말하는 동안 서비스에서 이전의 100밀리초에 대한 오디오에서 전사를 수행하므로, 사용자가 말을 멈추는 경우 서비스에서 대략 100밀리초의 오디오를 전사하여 결과를 생성하면 됩니다.
+다행히도 사용자가 다른 부분을 말하는 동안 발화의 한 부분에서 전사를 수행하여 전사 시간을 "숨기는" 방법이 있습니다. 예를 들어 1 초 utterance을 10 개 청크 100 밀리초로 분할 하 고 각 청크에 대해 기록을 수행 하 여, 기록에 필요한 총 500 밀리초의 450을 초과 하면 "hidden"으로 설정 하 여 사용자를 인식할 수 없습니다. 말하는 동안 수행 됩니다. 이 예를 생각해 보면, 사용자가 다음 100밀리초 동안 말하는 동안 서비스에서 이전의 100밀리초에 대한 오디오에서 전사를 수행하므로, 사용자가 말을 멈추는 경우 서비스에서 대략 100밀리초의 오디오를 전사하여 결과를 생성하면 됩니다.
 
 이러한 사용자 경험을 달성하기 위해, 음성 오디오 정보는 청크로 수집되어 사용자가 말하는 대로 전사됩니다. 이러한 오디오 청크는 *오디오 스트림*에서 집합적으로 수집되며, 이러한 오디오 청크를 서비스로 보내는 프로세스를 *오디오 스트리밍*이라고 합니다. 오디오 스트리밍은 음성 사용 애플리케이션의 중요한 부분이며, 청크 크기 조정 및 스트리밍 구현 최적화는 애플리케이션의 사용자 경험을 향상시키는 데 가장 효과적인 방법에 해당합니다.
 
@@ -82,9 +82,9 @@ Microsoft Speech Service는 일부 상태에 참여하므로 서비스 프로토
 | 사용 사례 | [REST API](GetStarted/GetStartedREST.md) | [클라이언트 라이브러리](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
 | 중간 결과가 없는 짧은 음성 오디오(예: 오디오 길이가 15초 미만인 명령) 변환 | 예 | 예 |
-| 긴 오디오(15초 초과) 변환 | 아닙니다. | 예 |
-| 중간 결과가 필요한 오디오 스트림 | 아닙니다. | 예 |
-| LUIS를 사용하여 오디오에서 변환된 텍스트 인식 | 아닙니다. | 예 |
+| 긴 오디오(15초 초과) 변환 | 아니요 | 예 |
+| 중간 결과가 필요한 오디오 스트림 | 아니요 | 예 |
+| LUIS를 사용하여 오디오에서 변환된 텍스트 인식 | 아니요 | 예 |
 
  언어 또는 플랫폼에 아직 SDK가 없는 경우 [프로토콜 설명서](API-Reference-REST/websocketprotocol.md)에 따라 사용자 고유의 구현을 만들 수 있습니다.
 
@@ -146,7 +146,7 @@ Microsoft Speech Service는 `HTTP 400 Bad Request` 응답을 표시하여 잘못
 
 서비스에서 지원되는 언어 중 하나 또는 모두를 지원하는 애플리케이션을 빌드하도록 선택할 수 있습니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 예제에서는 애플리케이션에서 미국 영어 화자에 대해 *대화* 음성 인식 모드를 사용합니다.
 
@@ -160,9 +160,9 @@ https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservic
 
 - `RecognitionStatus`는 인식 상태를 지정합니다. 아래 표에는 가능한 값이 나와 있습니다.
 
-| 상태 | 설명 |
+| Status | Description |
 | ------------- | ---------------- |
-| 성공 | 성공적으로 인식했고 DisplayText 필드가 있습니다. |
+| Success | 성공적으로 인식했고 DisplayText 필드가 있습니다. |
 | NoMatch | 오디오 스트림에서 음성이 감지되었지만 대상 언어의 단어가 일치하지 않습니다. 자세한 내용은 [NoMatch 인식 상태(#nomatch-recognition-status)]를 참조하세요.  |
 | InitialSilenceTimeout | 오디오 스트림의 시작 부분에는 묵음만 있으며, 서비스의 음성 대기 시간이 초과되었습니다. |
 | BabbleTimeout | 오디오 스트림의 시작 부분에는 소음만 있으며, 서비스의 음성 대기 시간이 초과되었습니다. |
@@ -190,7 +190,7 @@ Microsoft Speech Service는 전사 응답에 다양한 페이로드 형식을 �
 
 `format` URL 쿼리 매개 변수를 지정하여 구 결과 형식을 제어할 수 있습니다. 기본적으로 서비스는 `simple` 결과를 반환합니다.
 
-| 형식 | 설명 |
+| 형식 | Description |
 |-----|-----|
 | `simple` | 인식 상태와 인식된 텍스트가 표시 형식으로 포함된 간소화된 구 결과입니다. |
 | `detailed` | 각 구 결과에 네 가지 인식 형식과 신뢰도 점수가 모두 포함된 구 검색 결과의 인식 상태 및 N 상위 목록입니다. |

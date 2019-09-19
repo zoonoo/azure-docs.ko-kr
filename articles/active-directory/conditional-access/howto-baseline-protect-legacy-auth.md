@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 413df402d5acc878130a47821efd5fa3a512257d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 9b74491c76747bd635547f6f22964fe792dbf01a
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931943"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104078"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>기준 정책: 레거시 인증 차단 (미리 보기)
 
@@ -106,15 +106,15 @@ Windows 기반 Outlook 클라이언트에서 최신 인증을 사용 하려면 E
 
 이 정책을 사용 하도록 설정 하 고 조직을 보호 하려면:
 
-1. 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
+1. 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
 1. **Azure Active Directory** > **조건부 액세스**로 이동 합니다.
 1. 정책 목록에서 기준 정책을 선택 **합니다. 레거시 인증 (미리 보기)** 을 차단 합니다.
 1. 정책 **사용을 즉시 정책**사용으로 설정 합니다.
-1.  **저장**을 클릭 합니다.
+1. **Save**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-참조 항목:
+자세한 내용은 다음을 참조하세요.
 
 * [조건부 액세스 기준 보호 정책](concept-baseline-protection.md)
 * [ID 인프라를 보호하기 위한 5단계](../../security/fundamentals/steps-secure-identity.md)

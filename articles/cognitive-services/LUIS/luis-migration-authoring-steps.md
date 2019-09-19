@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7a6091ac1a0d54d997c40fe284d58426ecadf765
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
-ms.translationtype: HT
+ms.openlocfilehash: 7e79d3119f5d2d0fe1894de0ab9535dd988706f8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898850"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935211"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Azure authoring resource로 마이그레이션하는 단계
 
 Language Understanding (LUIS) 포털에서 Azure 제작 리소스를 사용 하도록 소유 하 고 있는 모든 앱을 마이그레이션합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * **필요에 따라**각 앱을 내보내거나 내보내기 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40)를 사용 하 여 LUIS 포털의 앱 목록에서 앱을 백업 합니다.
 * **필요에 따라**각 앱의 collaborator's 목록을 저장 합니다. 모든 협력자는 마이그레이션 프로세스의 일부로 전자 메일을 보낼 수 있습니다.
@@ -94,6 +94,13 @@ LUIS apps의 소유자 인 경우 마이그레이션 프로세스를 사용할 �
 1. 앱에 액세스 하기 전에 구독 및 LUIS authoring 리소스를 선택 하 여 사용자가 작성할 수 있는 앱을 확인 합니다.
 
     ![구독 및 LUIS 제작 리소스를 선택 하 여 작성할 수 있는 앱을 확인 합니다.](./media/migrate-authoring-key/app-list-by-subscription-and-resource.png)
+
+
+## <a name="app-contributor-begins-the-migration-process"></a>앱 참가자가 마이그레이션 프로세스를 시작 합니다.
+
+마이그레이션의 앱 소유자와 동일한 단계를 수행 합니다. 이 프로세스는 종류 `LUIS.Authoring`의 새 제작 리소스를 만듭니다. 
+
+다른 사용자가 소유한 마이그레이션된 앱에 대 한 참가자로 추가 되기 위해 계정을 마이그레이션해야 합니다.  
 
 ## <a name="after-the-migration-process-add-contributors-to-your-authoring-resource"></a>마이그레이션 프로세스 후 제작 리소스에 참가자를 추가 합니다.
 

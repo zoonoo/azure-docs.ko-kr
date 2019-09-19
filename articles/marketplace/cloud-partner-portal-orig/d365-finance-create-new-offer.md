@@ -1,37 +1,23 @@
 ---
 title: 새 Microsoft Dynamics 365 Business Central 제품을 만드는 방법 | Azure Marketplace
-description: Cloud 파트너 포털을 사용하여 새 Microsoft Dynamics 365 Business Central 제품을 만드는 방법을 설명합니다.
+description: 사용 되지 않으며 해당 PC 문서에 연결 됩니다. was "Cloud 파트너 포털를 사용 하 여 새로운 Microsoft Dynamics 365 Business Central 제품을 만드는 방법을 설명 합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: ChJenk
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 09/18/2019
 ms.author: pabutler
-ms.openlocfilehash: 603dd63b31536bf906afc49223f4d6ac99819293
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 165406f2cf7ad6087febebdfdc67896527d23961
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935055"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105585"
 ---
-<a name="how-to-create-your-new-microsoft-dynamics-365-business-central-offer"></a>새 Microsoft Dynamics 365 Business Central 제품을 만드는 방법
-====================================================================
+# <a name="how-to-create-your-new-microsoft-dynamics-365-business-central-offer"></a>새 Microsoft Dynamics 365 Business Central 제품을 만드는 방법
 
-앱을 빌드한 후에는 Microsoft AppSource에 앱이 나열되는 방식을 결정하는 모든 특성을 정의해야 합니다. 예를 들어, 회사 정보, 제품 및 플랜, 마케팅 정보, 지원 연락처 및 Microsoft AppSource 범주를 입력해야 합니다. 
+[Cloud 파트너 포털](https://cloudpartner.azure.com/) 는 Dynamics 365 비즈니스 센터 제품의 생성 및 관리를 더 이상 지원 하지 않습니다. 대신이 기능은 Microsoft [파트너 센터 포털로](https://partner.microsoft.com/)이동 되었습니다. 자세한 내용은 [새 Dynamics 365 비즈니스 센터 제품 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer)를 참조 하세요.
 
-특성을 정의하려면 개발자 센터에서 등록하는 데 사용한 Microsoft 계정으로 Microsoft [Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인합니다.
+## <a name="next-steps"></a>다음 단계
 
-1. Cloud 파트너 포털의 왼쪽 탐색 모음에서 **+ 새 제품**을 클릭하고 애플리케이션 목록에서 **Dynamics 365 Business Central**을 선택합니다.
-
-   ![새 제품 만들기](./media/d365-financials/image003.png)
-
-2. 이제 사용자에게 새 제품 “편집기” 뷰가 열리며, 작성할 준비가 된 것입니다.
-
-   ![제품 게시 시퀀스](./media/d365-financials/image005.png)
-
-3. “편집기” 뷰에서 작성해야 하는 탭의 개요를 볼 수 있습니다. 각 탭은 작성해야 할 필드 집합으로 구성되어 있습니다. 필수 필드에는 빨간색 별표(\*)가 표시됩니다. 해당 필드를 작성하지 않으면 다음 게시 단계로 진행할 수 없습니다. Dynamics 365 Business Central 앱의 경우 다음 탭이 표시됩니다.
-
--   **제품 설정**
--   **기술 정보**
--   **상점 세부 정보**
--   **연락처**
+새 Dynamics 365 비즈니스 센터 제품을 만들기 전에 [파트너 센터 계정 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 를 읽은 다음 **개요** 페이지가 선택 된 상태로 [상용 마켓플레이스 대시보드](https://partner.microsoft.com/dashboard/directory) 를 열어야 합니다. [새 Dynamics 365 비즈니스 센터 제품 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer) 의 지침에 따라 제품을 만듭니다.

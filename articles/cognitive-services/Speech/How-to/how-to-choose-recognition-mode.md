@@ -3,20 +3,20 @@ title: Bing Speech 인식 모드를 선택하는 방법 | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Bing Speech에서 최상의 인식 모드를 선택하는 방법입니다.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 99e69691d9904285ecff356523813b426c98fca2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1860acb571c837a5eb4c75be69a96d1b22682118
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515012"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965685"
 ---
 # <a name="bing-speech-recognition-modes"></a>Bing Speech 인식 모드
 
@@ -24,7 +24,7 @@ ms.locfileid: "60515012"
 
 Bing Speech to Text API는 여러 음성 인식 모드를 지원합니다. 애플리케이션에 가장 적합한 인식 결과를 생성하는 모드를 선택합니다.
 
-| Mode | 설명 |
+| 모드 | 설명 |
 |---|---|
 | *대화형* | 대화형 사용자 애플리케이션 시나리오에 대한 "명령 및 제어" 인식입니다. 사용자는 애플리케이션에 대한 명령으로 의도한 짧은 구를 말합니다. |
 | *받아쓰기* | 받아쓰기 시나리오에 대한 연속 인식입니다. 사용자는 텍스트로 표시되는 긴 문장을 말합니다. 사용자는 더 정중한 발성 특성을 채택합니다. |

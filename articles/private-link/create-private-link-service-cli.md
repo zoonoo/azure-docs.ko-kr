@@ -1,18 +1,18 @@
 ---
 title: Azure CLI를 사용 하 여 Azure 개인 링크 서비스 만들기
 description: Azure CLI를 사용 하 여 Azure 개인 링크 서비스를 만드는 방법을 알아봅니다.
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 6955e1147bbe7b3e777ce4f06ac64901b0392f42
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 87d0f08d67dbbe6a0fa1725aba850c8d9b6c5619
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018076"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104713"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Azure CLI를 사용 하 여 개인 링크 서비스 만들기
 이 문서에서는 Azure CLI를 사용 하 여 Azure에서 개인 링크 서비스를 만드는 방법을 보여 줍니다.
@@ -20,7 +20,7 @@ ms.locfileid: "71018076"
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Azure CLI를 로컬로 설치 하 고 사용 하도록 결정 한 경우이 빠른 시작을 사용 하려면 최신 Azure CLI 버전을 사용 해야 합니다. 설치된 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드 정보는 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
-## <a name="create-a-private-link-service"></a>개인 링크 서비스 만들기
+## <a name="create-a-private-link-service"></a>Private Link 서비스 만들기
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
 가상 네트워크를 만들려면 먼저 가상 네트워크를 호스트할 리소스 그룹을 만들어야 합니다. [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 이 예제에서는 *westcentralus* 위치에 *myresourcegroup* 이라는 리소스 그룹을 만듭니다.
@@ -88,7 +88,7 @@ az network lb create --resource-group myResourceGroup --name myILB --sku standar
 az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --disable-private-link-service-network-policies true 
 ```
  
-## <a name="create-a-private-link-service"></a>개인 링크 서비스 만들기  
+## <a name="create-a-private-link-service"></a>Private Link 서비스 만들기  
  
 [Az network Private-Link-service create](/cli/azure/network/az-network-private-link-service-create)를 사용 하 여 표준 Load Balancer 프런트 엔드 IP 구성을 사용 하 여 개인 링크 서비스를 만듭니다. 이 예제에서는 *Myloadbalancer*이라는 리소스 그룹에서 *myloadbalancer* 라는 표준 Load Balancer 사용 하 여 *myPLS* 이라는 개인 링크 서비스를 만듭니다. 
  

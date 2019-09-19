@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 63eb13dd131fcc1c424c02fdac10f531cc9f0282
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 5e50c814fef24aa799549d055ad6496f5bdf05e0
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876634"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961497"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>QnA 작성기에 대한 기술 콘텐츠의 언어 지원
 
@@ -29,19 +29,11 @@ QnA Maker는 여러 언어로 기술 자료 콘텐츠를 지원합니다. 그러
 
     ![Azure Search 리소스 선택](../media/qnamaker-how-to-language-kb/select-azsearch.png)
 
-1. **testkb** 인덱스를 선택합니다. 이 Azure Search 인덱스는 항상 첫 번째로 만들어지고 해당 서비스에서 모든 기술 자료의 저장된 콘텐츠를 포함합니다. 
+1. **인덱스**를 선택한 다음 **testkb** 인덱스를 선택 합니다. 만든 첫 번째 Azure Search 인덱스 이며, 해당 서비스에 있는 모든 기술 자료의 저장 된 내용이 포함 되어 있습니다. 
 
-    ![테스트 KB 선택](../media/qnamaker-how-to-language-kb/select-testkb.png)
+1. 인덱스의 필드를 보려면 **필드** 를 선택 합니다.
 
-1. _Testkb_ 세부 정보를 표시 하는 **필드** 섹션을 선택 합니다.
-
-    ![필드 선택](../media/qnamaker-how-to-language-kb/selectfields.png)
-
-1. **분석기**에 대한 확인란을 선택하고 언어 정보를 확인합니다.
-
-    ![분석기 선택](../media/qnamaker-how-to-language-kb/select-analyzer.png)
-
-1. _분석기_ 가 특정 언어로 설정 된 것을 알 수 있습니다. 이 언어는 가져온 파일 및 Url에서 기술 자료 생성 단계를 수행 하는 동안 자동으로 검색 되었습니다. 리소스가 만들어지면 이 언어를 변경할 수 없습니다.
+1. `questions` 및`answer` 필드의 Analyzer 열은 특정 언어로 설정 됩니다. 이 언어는 가져온 파일 및 Url에서 기술 자료 생성 단계를 수행 하는 동안 자동으로 검색 되었습니다. 리소스가 만들어지면 이 언어를 변경할 수 없습니다.
 
     ![선택한 분석기](../media/qnamaker-how-to-language-kb/selected-analyzer.png)
 

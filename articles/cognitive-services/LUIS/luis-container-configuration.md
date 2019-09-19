@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: e6a13688bba1c3a0e62e427e078e78c8f8dd4e70
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9760475886ecb0f20d9f0f3981eab8246643da21
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560613"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101991"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Language Understanding Docker 컨테이너 구성 
 
@@ -69,7 +69,7 @@ LUIS**Language Understanding** 컨테이너 런타임 환경은 `docker run` 명
 
 |필수| Name | 데이터 형식 | Description |
 |--|------|-----------|-------------|
-|예| `Billing` | 문자열 | 청구 끝점 URI<br><br>예제:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
+|예| `Billing` | String | 청구 끝점 URI<br><br>예제:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
 
 ## <a name="eula-setting"></a>Eula 설정
 
@@ -100,13 +100,13 @@ LUIS 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 �
 |필수| Name | 데이터 형식 | Description |
 |-------|------|-----------|-------------|
 |예| `Input` | String | 입력 탑재의 대상입니다. 기본값은 `/input`입니다. LUIS 패키지 파일의 위치입니다. <br><br>예제:<br>`--mount type=bind,src=c:\input,target=/input`|
-|아니요| `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. LUIS 쿼리 로그 및 컨테이너 로그를 포함합니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
+|아니요| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. LUIS 쿼리 로그 및 컨테이너 로그를 포함합니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>docker run 명령 예제
 
 다음 예제에서는 구성 설정을 사용하여 `docker run` 명령을 쓰고 사용하는 방법을 설명합니다.  한번 실행되면 컨테이너는 [중지](luis-container-howto.md#stop-the-container)할 때까지 계속 실행됩니다.
 
-* 이 예에서는 드라이브의 `c:` 디렉터리를 사용 하 여 Windows에서 사용 권한 충돌을 방지 합니다. 입력 디렉터리로 특정 디렉터리를 사용해야 할 경우 Docker 서비스 권한을 받아야 할 수도 있습니다. 
+* 이 예에서는 드라이브의 `C:` 디렉터리를 사용 하 여 Windows에서 사용 권한 충돌을 방지 합니다. 입력 디렉터리로 특정 디렉터리를 사용해야 할 경우 Docker 서비스 권한을 받아야 할 수도 있습니다. 
 * Docker 컨테이너에 대해 잘 알고 있지 않은 경우 인수 순서를 변경하지 마세요.
 * 다른 운영 체제를 사용 하는 경우 시스템에 올바른 콘솔/터미널, 탑재를 위한 폴더 구문 및 줄 연속 문자를 사용 합니다. 이 예에서는 Windows 콘솔에 줄 연속 문자가 `^`있는 것으로 가정 합니다. 컨테이너는 Linux 운영 체제 이므로 대상 탑재는 Linux 스타일 폴더 구문을 사용 합니다.
 
@@ -116,11 +116,13 @@ LUIS 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 �
 
 | Placeholder | 값 | 형식 또는 예 |
 |-------------|-------|---|
-|{API_KEY} | 학습된 LUIS 애플리케이션의 엔드포인트 키입니다. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URL} | 청구 끝점 값은 Azure의 `Cognitive Services` 개요 페이지에서 사용 가능합니다. |https://westus.api.cognitive.microsoft.com/luis/v2.0|
+| **{API_KEY}** | `LUIS` Azure`LUIS` 키 페이지에 있는 리소스의 끝점 키입니다. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | 청구 끝점 값은 Azure의 `LUIS` 개요 페이지에서 사용 가능합니다.| 명시적 예제에 대 한 [필수 매개 변수 수집](luis-container-howto.md#gathering-required-parameters) 을 참조 하세요. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](luis-container-howto.md#billing)를 참조하세요.
+> 컨테이너를 실행하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다. 자세한 내용은 [Billing](luis-container-howto.md#billing)을 참조하세요.
 > Apikey 값은 LUIS 포털의 키 및 끝점 페이지에 있는 **키** 이며 Azure `Cognitive Services` 리소스 키 페이지 에서도 사용할 수 있습니다. 
 
 ### <a name="basic-example"></a>기본 예제

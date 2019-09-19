@@ -1,18 +1,18 @@
 ---
 title: Azure 개인 링크 FAQ (질문과 대답)
 description: Azure 개인 링크에 대해 알아봅니다.
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 7e08c91636089abf25e46e1303097fc27b2d75b1
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 32e570e098c9a3f95dfc5393348cccb1ebe1fb60
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037500"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104579"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Azure 개인 링크 FAQ (질문과 대답)
 
@@ -23,7 +23,7 @@ ms.locfileid: "71037500"
 - **[Azure 개인 끝점](private-endpoint-overview.md)** : Azure 개인 끝점은 Azure 개인 링크를 통해 제공 되는 서비스에 비공개로 안전 하 게 연결 하는 네트워크 인터페이스입니다. 개인 끝점을 사용 하 여 개인 링크 또는 개인 링크 서비스에 대 한 개인 링크를 지 원하는 Azure PaaS 서비스에 연결할 수 있습니다.
 - **[Azure 개인 링크 서비스](private-link-service-overview.md)** : Azure 개인 링크 서비스는 서비스 공급자가 만든 서비스입니다. 현재 개인 링크 서비스는 표준 Load Balancer의 프런트 엔드 IP 구성에 연결할 수 있습니다. 
 
-### <a name="how-is-traffic-being-send-when-using-private-link"></a>개인 링크를 사용 하는 경우 트래픽이 어떻게 전송 되나요?
+### <a name="how-is-traffic-being-sent-when-using-private-link"></a>개인 링크를 사용 하는 경우 트래픽이 어떻게 전송 되나요?
 트래픽은 Microsoft 백본을 통해 개인적으로 전송 됩니다. 인터넷을 통과 하지 않습니다.  
  
 ### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>서비스 끝점과 개인 끝점의 차이점은 무엇 인가요?

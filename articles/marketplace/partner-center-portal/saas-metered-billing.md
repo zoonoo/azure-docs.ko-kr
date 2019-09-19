@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 3fa485c9fb2835b8270cb35fc75b57251476005f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a244e4f7ac406fecd4c053b39a5e9a9cb6ecab2c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141770"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105505"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Marketplace 계량 서비스를 사용 하 여 요금제 청구
 
@@ -55,7 +55,7 @@ SaaS 제품이 요금제 요금을 사용 하려면 다음을 수행 해야 합�
     * 5만 전자 메일 외에 모든 100 전자 메일에 대해 $0.5 요금 청구
     * 1만 텍스트 외에도 모든 텍스트에 대해 $0.01을 지불 합니다.
 
-CN 서비스를 구독 하는 Azure 고객은 선택한 계획에 따라 월간 텍스트 및 전자 메일의 포함 된 수량을 보낼 수 있습니다.  고객이 포함 된 수량을 초과 하 여 사용 하는 경우 계획을 변경 하거나 다른 작업을 수행할 필요가 없습니다.  Contoso는 초과분을 포함 된 수량 보다 크게 측정 하 고 [Marketplace 계량 서비스 API](./marketplace-metering-service-apis.md)를 사용 하 여 추가 사용을 위해 Microsoft에 사용 이벤트를 내보내는 것을 시작 합니다.  Microsoft는 게시자에 지정 된 대로 추가 사용에 대해 고객에 게 요금을 부과 합니다.
+CN 서비스를 구독 하는 Azure 고객은 선택한 계획에 따라 월간 텍스트 및 전자 메일의 포함 된 수량을 보낼 수 있습니다.  Contoso는 Microsoft에 사용 이벤트를 보내지 않고 포함 된 수량까지 사용량을 측정 합니다.  고객이 포함 된 수량을 초과 하 여 사용 하는 경우 계획을 변경 하거나 다른 작업을 수행할 필요가 없습니다.  Contoso는 초과분을 포함 된 수량 보다 크게 측정 하 고 [Marketplace 계량 서비스 API](./marketplace-metering-service-apis.md)를 사용 하 여 추가 사용을 위해 Microsoft에 사용 이벤트를 내보내는 것을 시작 합니다.  Microsoft는 게시자에 지정 된 대로 추가 사용에 대해 고객에 게 요금을 부과 합니다.
 
 ## <a name="billing-dimensions"></a>청구 차원
 

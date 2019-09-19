@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/08/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 5828d4f453afeccfaac206195f064e43a20d1ba0
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
-ms.translationtype: HT
+ms.openlocfilehash: 8e732496c4523646f02ef461b7d3c52314c28dae
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844761"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932822"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Azure 리소스 제작 키로 마이그레이션
 
@@ -35,7 +35,8 @@ LUIS () 제작 인증을 전자 메일 계정에서 Azure 리소스로 변경 �
 
 마이그레이션에는 다음이 포함 됩니다.
 
-* **모든** 소유자의 앱입니다.
+* LUIS, 소유자 및 참가자의 모든 사용자입니다.
+* **모든** 앱.
 * **단방향** 마이그레이션.
 
 소유자는 마이그레이션할 앱의 하위 집합을 선택할 수 없으며 프로세스를 되돌릴 수 없습니다. 
@@ -87,13 +88,17 @@ _Azure Portal_, 해당 리소스에 대 한 **Access Control (IAM)** 페이지�
 
 ## <a name="migration-for-the-app-contributor"></a>앱 참가자에 대 한 마이그레이션
 
+LUIS의 모든 사용자는 협력자/contributors를 포함 하 여 마이그레이션해야 합니다. 
+
 ### <a name="before-the-app-is-migrated"></a>앱을 마이그레이션하기 전에
 
 협력자 인 앱을 내보낸 다음 앱을 다시 LUIS으로 가져올 수 있습니다. 가져오기 프로세스에서는 사용자가 소유자 인 새 앱 ID를 사용 하 여 새 앱을 만듭니다.
 
 ### <a name="after-the-app-is-migrated"></a>앱이 마이그레이션된 후
 
-마이그레이션 프로세스 후 원본 앱에 액세스 해야 하는 경우 앱 소유자가 Azure authoring resource를 협력자로 추가 해야 합니다.  
+앱 소유자는 [Azure authoring resource에 협력자로 전자 메일을 추가](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource)해야 합니다. 
+
+마이그레이션 프로세스 후 소유 하는 모든 앱은 LUIS 포털의 **내 앱** 페이지에서 사용할 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

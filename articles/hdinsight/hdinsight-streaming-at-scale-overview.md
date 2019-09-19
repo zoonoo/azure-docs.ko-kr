@@ -8,22 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: e18203162229e6c3db24a5f76b65de61d572f96a
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 76d1947ae6fbdf7577cc9b8db9d902dc55350b7f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076787"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105328"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>HDInsight에서 대규모 스트리밍
 
 실시간 빅 데이터 솔루션은 동작 하는 데이터에 대해 작동 합니다. 일반적으로 이 데이터는 도착 시간에 가장 가치가 있습니다. 들어오는 데이터 스트림이 그 순간에 처리할 수 있는 것보다 큰 경우 리소스를 제한해야 할 수 있습니다. 또는 필요에 따라 노드를 추가하여 스트리밍 솔루션에 맞게 HDInsight 클러스터를 강화할 수 있습니다.
 
-
 스트리밍 애플리케이션에서 하나 이상의 데이터 원본이 유용한 정보를 삭제하지 않고 빠르게 수집해야 하는 이벤트(경우에 따라 수백만 개/초)를 생성합니다. 들어오는 이벤트는 서비스(예: [Apache Kafka](kafka/apache-kafka-introduction.md) 또는 [Event Hubs](https://azure.microsoft.com/services/event-hubs/))에서 ‘이벤트 큐’라고도 하는 ‘스트림 버퍼링’으로 처리됩니다. 이벤트가 수집되면 ‘스트림 처리’ 계층(예: [Apache Storm](storm/apache-storm-overview.md) 또는 [Apache Spark 스트리밍](spark/apache-spark-streaming-overview.md)) 내에서 실시간 분석 시스템을 사용하여 데이터를 분석할 수 있습니다. 처리된 데이터는 장기 스토리지 시스템(예: [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/))에 저장될 수 있으며, 비즈니스 인텔리전스 대시보드(예: [Power BI](https://powerbi.microsoft.com), Tableau 또는 사용자 지정 웹 페이지)에 실시간으로 표시될 수 있습니다.
 
-
-![HDInsight 스트리밍 패턴](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
+![Azure HDInsight 스트리밍 패턴](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 
 ## <a name="apache-kafka"></a>Apache Kafka
 

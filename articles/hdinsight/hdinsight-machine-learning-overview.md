@@ -2,18 +2,18 @@
 title: 기계 학습 개요 - Azure HDInsight
 description: Azure HDInsight의 클러스터에 대 한 빅 데이터 기계 학습 옵션의 개요입니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: hrasheed
-ms.openlocfilehash: 0fecb41c3417d5b43e0638815d6a7d274ba461b0
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 139d82079b5946b0628760f5b05bb08d208cae6f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961957"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105408"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight의 기계 학습
 
@@ -39,7 +39,7 @@ Spark가 있는 HDInsight의 ML 서비스를 사용하면 Spark 컴퓨팅 컨텍
 
 Azure Machine Learning은 예측 분석을 모델링하는 도구를 제공할 뿐 아니라, 예측 모델을 사용할 준비가 된 웹 서비스로 배포하는 데 사용할 수 있는 완전한 관리 서비스도 제공합니다. Azure Machine Learning은 클라우드 기반의 완벽한 예측 분석 솔루션으로, 예측 모델을 생성, 테스트, 운영 및 관리하는 데 사용할 수 있습니다. 대형 알고리즘 라이브러리에서 선택하고, 웹 기반 스튜디오를 사용하여 모델을 작성하고, 이 모델을 웹 서비스로 쉽게 배포합니다.
 
-![Microsoft Azure Machine Learning을 사용하여 Hadoop에 액세스할 수 있는 고급 분석 만들기](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
+![Microsoft Azure machine learning 개요](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
 [Hive 쿼리](../machine-learning/team-data-science-process/create-features-hive.md)를 사용하여 HDInsight Hadoop 클러스터의 데이터에 대한 기능을 만듭니다. *기능 엔지니어링*은 원시 데이터로부터 학습 프로세스를 용이하게 하는 기능을 만들어 학습 알고리즘의 예측 능력을 향상시키도록 합니다. Azure Machine Learning Studio에서 HiveQL 쿼리를 실행하고, [데이터 가져오기 모듈](../machine-learning/studio/import-data.md)을 사용하여 Hive에서 처리되고 Blob Storage에 저장된 데이터에 액세스할 수 있습니다.
 

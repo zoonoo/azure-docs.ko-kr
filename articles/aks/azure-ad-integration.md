@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: mlearned
-ms.openlocfilehash: 5dabbb6458d0d0d4af51490bea0c3f38a7c5c41d
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 26f1544cab5cf5be2edd52f97c758d46eb835514
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542899"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103783"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes Service와 Azure Active Directory 통합
 
@@ -86,7 +86,7 @@ AKS 클러스터에 대 한 Azure AD 인증을 제공 하기 위해 두 개의 A
 
     e. **권한 추가** 를 선택 하 여 업데이트를 저장 합니다.
 
-    f. **동의 허용**에서 **관리자 동의 부여**를 선택 합니다. 현재 계정이 테 넌 트 관리자가 아닌 경우에는이 단추를 사용할 수 없습니다.
+    f. **동의 허용**에서 **관리자 동의 부여**를 선택 합니다. 이 단추를 사용할 수 없습니다. 사용 중인 현재 계정이 테 넌 트 관리자로 나열 되지 않습니다.
 
     권한이 성공적으로 부여 되 면 포털에 다음과 같은 알림이 표시 됩니다.
 

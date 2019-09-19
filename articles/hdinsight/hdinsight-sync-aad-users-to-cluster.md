@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9a7008ca7967135209b8fc2c341998570a2679be
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 9767bccc754d5ccf8c0e7cbb66c8e9c3d5eaf7d0
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960809"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105360"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Azure Active Directory 사용자를 HDInsight 클러스터와 동기화
 
@@ -31,11 +31,11 @@ ms.locfileid: "70960809"
 
 2. 왼쪽 메뉴에서 **모든 사용자**를 선택한 후 **새 사용자**를 선택합니다.
 
-    ![모든 사용자 창](./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png)
+    ![사용자 및 그룹 모두 Azure Portal](./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png)
 
 3. 새 사용자 양식을 완료합니다. 클러스터 기반 사용 권한 할당을 위해 만든 그룹을 선택합니다. 이 예제에서는 새 사용자를 할당할 수 있는 "HiveUsers"라는 그룹을 만듭니다. ESP 클러스터를 만들기 위한 [예제 지침](hdinsight-domain-joined-configure.md)에는 2개의 그룹인 `HiveUsers` 및 `AAD DC Administrators`의 추가가 포함됩니다.
 
-    ![새 사용자 창](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
+    ![사용자 창 Azure Portal 그룹 선택](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
 
 4. **만들기**를 선택합니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "70960809"
 
 1. [SSH 사용하여 클러스터에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)합니다. Azure Portal의 클러스터에 대한 개요 창에서 **SSH(보안 셸)** 단추를 선택합니다.
 
-    ![SSH(보안 셸)](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-secure-shell.png)
+    ![HDInsight Secure Shell (SSH) 아이콘](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-secure-shell.png)
 
 2. 표시되는 `ssh` 명령을 복사한 후 SSH 클라이언트에 붙여 넣습니다. ssh 사용자 암호를 입력하라고 요구되면 입력합니다.
 
@@ -131,15 +131,15 @@ ms.locfileid: "70960809"
 
 1. Ambari 대시보드의 **관리자** 메뉴 아래에서 **Ambari 관리**를 선택합니다
 
-    ![Ambari 관리](./media/hdinsight-sync-aad-users-to-cluster/manage-apache-ambari.png)
+    ![Apache Ambari 대시보드 관리 Ambari](./media/hdinsight-sync-aad-users-to-cluster/manage-apache-ambari.png)
 
 2. 페이지 왼쪽의 **사용자 + 그룹 관리** 메뉴 그룹 아래에서 **사용자**를 선택합니다.
 
-    ![사용자 메뉴 항목](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-menu-item.png)
+    ![HDInsight 사용자 및 그룹 메뉴](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-menu-item.png)
 
 3. 새 사용자가 사용자 테이블 내에 표시되어야 합니다. 유형은 `Local`이 아닌 `LDAP`로 설정됩니다.
 
-    ![사용자 페이지](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-page.png)
+    ![HDInsight aad 사용자 페이지 개요](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-page.png)
 
 ## <a name="log-in-to-ambari-as-the-new-user"></a>새 사용자 권한으로 Ambari에 로그인
 

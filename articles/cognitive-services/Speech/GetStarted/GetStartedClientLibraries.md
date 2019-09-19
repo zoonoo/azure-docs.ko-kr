@@ -3,20 +3,20 @@ title: 클라이언트 라이브러리를 사용하여 Bing Speech Recognition A
 titlesuffix: Azure Cognitive Services
 description: Microsoft Cognitive Services의 Bing Speech 클라이언트 라이브러리를 사용하여 음성 오디오를 텍스트로 변환하는 애플리케이션을 개발합니다.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 89eb18a2b4af76f6489442dc66ab12d0840e92c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ea0c9e7104b29456749c7f1af2a671b32a8fde2
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515239"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966856"
 ---
 # <a name="get-started-with-bing-speech-service-client-libraries"></a>Bing Speech Service 클라이언트 라이브러리 시작
 
@@ -36,7 +36,7 @@ Bing Speech Service는 REST API를 통해 직접 HTTP를 요청하는 것 외에
 - [Android용 Java 라이브러리](GetStartedJavaAndroid.md)
 - [iOS용 Objective-C 라이브러리](Get-Started-ObjectiveC-iOS.md)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 - [샘플](../samples.md) 페이지에서 Speech 클라이언트 라이브러리를 사용하는 완전한 샘플을 제공합니다.
 - 아직 지원되지 않는 클라이언트 라이브러리가 필요한 경우 사용자 고유의 SDK를 만들 수 있습니다. 플랫폼에서 [Speech WebSocket 프로토콜](../API-Reference-REST/websocketprotocol.md)을 구현하고 선택한 언어를 사용합니다.

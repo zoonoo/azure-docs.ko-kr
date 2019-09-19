@@ -1,18 +1,18 @@
 ---
 title: Azure에서 개인 끝점 연결 관리
 description: Azure에서 개인 끝점 연결을 관리 하는 방법 알아보기
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 16654662665607f86aa08d1f9c5638daf2cbc251
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 012b236e997ef9144eaab43862f5f4dd2b324fff
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018903"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104643"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>개인 끝점 연결 관리
 Azure 개인 링크는 개인 링크 서비스 소비자가 서비스를 사용 하기 위해 서비스 공급자에 대 한 연결을 요청할 수 있는 승인 호출 흐름 모델에서 작동 합니다. 그러면 서비스 공급자가 소비자의 연결을 허용할지 여부를 결정할 수 있습니다. Azure 개인 링크를 통해 서비스 공급자는 해당 리소스에 대 한 개인 끝점 연결을 관리할 수 있습니다. 이 문서에서는 개인 끝점 연결을 관리 하는 방법에 대 한 지침을 제공 합니다.
@@ -26,7 +26,7 @@ Azure 개인 링크는 개인 링크 서비스 소비자가 서비스를 사용 
 아래 표에서는 다양 한 서비스 공급자 작업 및 개인 끝점에 대 한 결과 연결 상태를 보여 줍니다.  서비스 공급자는 나중에 소비자 개입 없이 개인 끝점 연결의 연결 상태를 변경할 수도 있습니다. 작업은 소비자 쪽에서 끝점의 상태를 업데이트 합니다. 
 
 
-|서비스 공급자 작업   |서비스 소비자 전용 끝점 상태   |설명   |
+|서비스 공급자 작업   |서비스 소비자 전용 끝점 상태   |Description   |
 |---------|---------|---------|
 |없음    |    대기 중     |    연결이 수동으로 만들어지고 개인 링크 리소스 소유자의 승인 보류 중입니다.       |
 |승인    |  승인       |  연결이 자동 또는 수동으로 승인 되었고 사용할 준비가 되었습니다.     |

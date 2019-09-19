@@ -3,20 +3,20 @@ title: C# 서비스 라이브러리를 사용하여 Microsoft Speech Recognition
 titlesuffix: Azure Cognitive Services
 description: Bing Speech 인식 서비스 라이브러리를 사용하여 음성 언어를 텍스트로 변환합니다.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 0f445d1fff48ee7a04c0b1c1d64c808f87d824b7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 71c3e471a8844eb6c6b70921e40c94338a084a8b
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515221"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965853"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>빠른 시작: .NET Windows용 C&#35;에서 Bing Speech 인식 서비스 라이브러리 사용
 
@@ -28,7 +28,7 @@ C# 서비스 라이브러리를 사용하려면 [Microsoft.Bing.Speech NuGet 패
 
 다음 섹션에서는 C# 서비스 라이브러리를 사용하여 C# 샘플 애플리케이션을 설치, 빌드 및 실행하는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 ### <a name="platform-requirements"></a>플랫폼 요구 사항
 
@@ -120,7 +120,7 @@ SpeechClient 및 SpeechInput 개체가 인스턴스화되면 RecognizeAsync를 �
 
 이 이벤트는 말하기를 끝내거나(`MicrophoneRecognitionClient`를 사용하는 경우) 데이터 보내기를 끝내기(`DataRecognitionClient`를 사용하는 경우) 전에도 Speech Service에서 사용자가 말할 수 있는 내용을 예측할 때마다 호출됩니다. `SpeechClient.SubscribeToPartialResult()`를 사용하여 이벤트를 구독할 수 있습니다. 또는 일반 이벤트 구독 메서드인 `SpeechClient.SubscribeTo<RecognitionPartialResult>()`를 사용할 수 있습니다.
 
-**반환 형식** | 설명 |
+**반환 형식** | Description |
 ------|------
 **LexicalForm** | 이 형식은 처리되지 않은 원시 음성 인식 결과가 필요한 애플리케이션에서 사용하기에 적합합니다.
 **DisplayText** | 역 텍스트 정규화, 대문자 표시, 문장 부호 및 불경한 언어 마스킹이 적용된 인식된 구입니다. 불경한 언어는 첫 번째 문자 뒤에 별표로 마스킹됩니다(예: "d***"). 이 형식은 음성 인식 결과를 사용자에게 표시하는 애플리케이션에서 사용하기에 적합합니다.
@@ -131,7 +131,7 @@ SpeechClient 및 SpeechInput 개체가 인스턴스화되면 RecognizeAsync를 �
 #### <a name="result-event"></a>결과 이벤트
 말하기를 끝내면(`ShortPhrase` 모드에서) 이 이벤트가 호출됩니다. 결과에 대한 N 상위 선택 항목이 제공됩니다. `LongDictation` 모드에서는 서버에서 문장 일시 중지를 나타내는 위치에 따라 이벤트가 여러 번 호출될 수 있습니다. `SpeechClient.SubscribeToRecognitionResult()`를 사용하여 이벤트를 구독할 수 있습니다. 또는 일반 이벤트 구독 메서드인 `SpeechClient.SubscribeTo<RecognitionResult>()`를 사용할 수 있습니다.
 
-**반환 형식** | 설명 |
+**반환 형식** | Description |
 ------|------|
 **RecognitionStatus** | 인식이 생성된 방법에 상태입니다. 예를 들어 성공적인 인식 결과 또는 연결 취소 결과 등으로 생성된 것이 있습니다.
 **Phrases** | 인식 신뢰도를 사용하여 인식된 N 상위 구의 집합입니다.
@@ -166,6 +166,6 @@ API는 요청당 하나의 WebSocket 연결을 사용합니다. 최적의 사용
 
 기본적으로 SDK는 네트워크 중단 발생 시 복구할 수 있도록 오디오를 버퍼링합니다. 네트워크 연결이 끊겨 있는 동안 손실된 오디오를 삭제하고 연결을 다시 시작하는 것이 바람직한 시나리오에서는 Preferences 개체의 `EnableAudioBuffering`을 `false`로 설정하여 오디오 버퍼링을 사용하지 않는 것이 가장 좋습니다.
 
-## <a name="related-topics"></a>관련된 항목
+## <a name="related-topics"></a>관련 항목
 
 [Microsoft Speech C# 서비스 라이브러리 참조](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html)

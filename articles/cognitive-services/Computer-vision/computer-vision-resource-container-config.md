@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 3e1dc68ec67e8a7a24c3459519df80a8faf2fc01
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 186f2f60aad15b336265114d7c85c757e0dd333f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565655"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102296"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>텍스트 인식 Docker 컨테이너 구성
 
@@ -51,7 +51,7 @@ ms.locfileid: "68565655"
 
 다음 표에 나와 있는 것처럼 끝점 URI로 라우팅할 `vision/v1.0`을 추가해야 합니다. 
 
-|필수| Name | 데이터 형식 | 설명 |
+|필수| Name | 데이터 형식 | Description |
 |--|------|-----------|-------------|
 |예| `Billing` | 문자열 | 청구 끝점 URI<br><br>예제:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
@@ -82,7 +82,7 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 |Optional| Name | 데이터 형식 | Description |
 |-------|------|-----------|-------------|
 |허용되지 않음| `Input` | String | Computer Vision 컨테이너에는 사용되지 않습니다.|
-|Optional| `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Optional| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>docker run 명령 예제 
 
@@ -97,11 +97,13 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 
 | Placeholder | 값 | 형식 또는 예 |
 |-------------|-------|---|
-|{API_KEY} | Cognitive Services 리소스의 끝점 키입니다. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | 지역을 포함하는 청구 엔드포인트 값입니다.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
+| **{API_KEY}** | `Computer Vision` Azure`Computer Vision` 키 페이지에 있는 리소스의 끝점 키입니다. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | 청구 끝점 값은 Azure의 `Computer Vision` 개요 페이지에서 사용 가능합니다.| 명시적 예제에 대 한 [필수 매개 변수 수집](computer-vision-how-to-install-containers.md#gathering-required-parameters) 을 참조 하세요. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](computer-vision-how-to-install-containers.md#billing)를 참조하세요.
+> 컨테이너를 실행하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](computer-vision-how-to-install-containers.md#billing)을 참조하세요.
 > ApiKey 값은 Azure `Cognitive Services` 리소스 [키] 페이지의 **키**입니다. 
 
 ## <a name="recognize-text-container-docker-examples"></a>텍스트 인식 컨테이너 Docker 예제

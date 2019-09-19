@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: 60c725e084a18326cc4bc9cc05d02d103261f5a4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 7624f15e878e13a93b5b5f395ef9cf9af48c95e4
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70809266"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104524"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive 쿼리를 최적화
 
@@ -29,11 +29,11 @@ HDInsight 클러스터의 작업자 노드 수를 늘리면 작업에 더 많은
 
 * 클러스터를 만들 때 Azure Portal, Azure PowerShell 또는 명령줄 인터페이스를 사용하여 작업자 노드 수를 지정할 수 있습니다.  자세한 내용은 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 다음 스크린샷에는 Azure Portal의 작업자 노드 구성이 나와 있습니다.
   
-    ![scaleout_1](./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png "scaleout_1")
-    
+    ![Azure Portal 클러스터 크기 노드](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-1.png "scaleout_1")
+
 * 클러스터를 만든 후에는 작업자 노드 수를 편집하여 클러스터를 다시 만들지 않고도 클러스터 규모를 확장할 수도 있습니다.
 
-    ![scaleout_2](./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png "scaleout_2")
+    ![클러스터 크기 Azure Portal 크기 조정](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
 
 HDInsight 크기 조정에 대한 자세한 내용은 [HDInsight 클러스터 크기 조정](hdinsight-scaling-best-practices.md)을 참조하세요.
 
@@ -41,7 +41,7 @@ HDInsight 크기 조정에 대한 자세한 내용은 [HDInsight 클러스터 �
 
 [Apache Tez](https://tez.apache.org/)는 MapReduce 엔진을 대신하는 실행 엔진입니다. Linux 기반 HDInsight 클러스터는 Tez를 기본적으로 사용합니다.
 
-![tez_1][image-hdi-optimize-hive-tez_1]
+![HDInsight Apache Tez 개요 다이어그램](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
 
 다음의 이유로 Tez가 훨씬 빠릅니다.
 
@@ -55,9 +55,9 @@ HDInsight 크기 조정에 대한 자세한 내용은 [HDInsight 클러스터 �
 
 다음 설정 명령을 사용하여 쿼리를 접두사로 지정하면 Tez가 사용되는 Hive 쿼리를 원하는 대로 만들 수 있습니다.
 
-   ```hive
-   set hive.execution.engine=tez;
-   ```
+```hive
+set hive.execution.engine=tez;
+```
 
 ## <a name="hive-partitioning"></a>Hive 분할
 
@@ -65,7 +65,7 @@ I/O 작업은 Hive 쿼리 실행의 주요 성능 병목 상태입니다. 읽어
 
 Hive 분할은 원시 데이터를 새 디렉터리로 재구성하여 구현됩니다. 각 파티션은 자체 파일 디렉터리를 갖습니다. 분할은 사용자가 정의합니다. 다음 다이어그램에서는 Hive 테이블을 *년* 열로 분할하는 것을 보여 줍니다. 각 연도로 새 디렉터리가 생성됩니다.
 
-![Hive 분할][image-hdi-optimize-hive-partitioning_1]
+![HDInsight Apache Hive 분할](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
 
 일부 분할 고려 사항:
 
@@ -75,32 +75,32 @@ Hive 분할은 원시 데이터를 새 디렉터리로 재구성하여 구현됩
 
 파티션 테이블을 만들려면 *Partitioned By* 절을 사용합니다.
 
-   ```hive
-   CREATE TABLE lineitem_part
-       (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
-        L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
-        L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
-        L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, 
-        L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING)
-   PARTITIONED BY(L_SHIPDATE STRING)
-   ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-   STORED AS TEXTFILE;
-   ```
-   
+```sql
+CREATE TABLE lineitem_part
+      (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
+      L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
+      L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
+      L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, 
+      L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING)
+PARTITIONED BY(L_SHIPDATE STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+STORED AS TEXTFILE;
+```
+
 분할된 테이블을 만든 후 정적 분할 또는 동적 분할을 만들 수 있습니다.
 
 * **정적 분할**은 이미 적절한 디렉터리에 공유 데이터가 있다는 의미입니다. 정적 파티션을 사용하는 경우 디렉터리 위치에 따라 수동으로 Hive 파티션을 추가합니다. 다음 코드 조각은 예제로 제공됩니다.
   
-   ```hive
+   ```sql
    INSERT OVERWRITE TABLE lineitem_part
    PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’)
    SELECT * FROM lineitem 
    WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
-   
+
    ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
    LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
    ```
-   
+
 * **동적 분할** 은 하이브가 파티션을 자동으로 만들수 있음을 의미합니다. 준비 테이블에서 분할 테이블을 이미 만들었으므로, 분할된 테이블에 데이터를 삽입하기만 하면 됩니다.
   
    ```hive
@@ -117,7 +117,7 @@ Hive 분할은 원시 데이터를 새 디렉터리로 재구성하여 구현됩
        L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as L_SHIPMODE, 
        L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
    ```
-   
+
 자세한 내용은 [분할된 테이블](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables)을 참조하세요.
 
 ## <a name="use-the-orcfile-format"></a>ORCFile 형식 사용
@@ -136,40 +136,40 @@ ORC(최적화된 행 칼럼 형식) 형식은 Hive 데이터를 저장하는 매
 
 ORC 형식을 사용하려면 먼저 *Stored as ORC*절로 테이블을 만듭니다.
 
-   ```hive
-   CREATE TABLE lineitem_orc_part
-       (L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
-        L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
-        L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
-        L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING,
-        L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT      STRING)
-   PARTITIONED BY(L_SHIPDATE STRING)
-   STORED AS ORC;
-   ```
-   
+```sql
+CREATE TABLE lineitem_orc_part
+      (L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
+      L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
+      L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
+      L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING,
+      L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT      STRING)
+PARTITIONED BY(L_SHIPDATE STRING)
+STORED AS ORC;
+```
+
 다음으로 스테이징 테이블에서 ORC 테이블로 데이터를 삽입합니다. 예:
 
-   ```hive
-   INSERT INTO TABLE lineitem_orc
-   SELECT L_ORDERKEY as L_ORDERKEY, 
-          L_PARTKEY as L_PARTKEY , 
-          L_SUPPKEY as L_SUPPKEY,
-          L_LINENUMBER as L_LINENUMBER,
-          L_QUANTITY as L_QUANTITY, 
-          L_EXTENDEDPRICE as L_EXTENDEDPRICE,
-          L_DISCOUNT as L_DISCOUNT,
-          L_TAX as L_TAX,
-          L_RETURNFLAG as L_RETURNFLAG,
-          L_LINESTATUS as L_LINESTATUS,
-          L_SHIPDATE as L_SHIPDATE,
-           L_COMMITDATE as L_COMMITDATE,
-           L_RECEIPTDATE as L_RECEIPTDATE, 
-           L_SHIPINSTRUCT as L_SHIPINSTRUCT,
-           L_SHIPMODE as L_SHIPMODE,
-           L_COMMENT as L_COMMENT
-    FROM lineitem;
-   ```
-   
+```sql
+INSERT INTO TABLE lineitem_orc
+SELECT L_ORDERKEY as L_ORDERKEY, 
+         L_PARTKEY as L_PARTKEY , 
+         L_SUPPKEY as L_SUPPKEY,
+         L_LINENUMBER as L_LINENUMBER,
+         L_QUANTITY as L_QUANTITY, 
+         L_EXTENDEDPRICE as L_EXTENDEDPRICE,
+         L_DISCOUNT as L_DISCOUNT,
+         L_TAX as L_TAX,
+         L_RETURNFLAG as L_RETURNFLAG,
+         L_LINESTATUS as L_LINESTATUS,
+         L_SHIPDATE as L_SHIPDATE,
+         L_COMMITDATE as L_COMMITDATE,
+         L_RECEIPTDATE as L_RECEIPTDATE, 
+         L_SHIPINSTRUCT as L_SHIPINSTRUCT,
+         L_SHIPMODE as L_SHIPMODE,
+         L_COMMENT as L_COMMENT
+FROM lineitem;
+```
+
 [Apache Hive 언어 설명서](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC)에서 ORC 형식에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="vectorization"></a>벡터화
@@ -178,13 +178,14 @@ ORC 형식을 사용하려면 먼저 *Stored as ORC*절로 테이블을 만듭�
 
 다음 설정을 사용하여 Hive 쿼리에 벡터화 접두사를 사용할 수 있도록 하려면:
 
-   ```hive
-    set hive.vectorized.execution.enabled = true;
-   ```
+```hive
+set hive.vectorized.execution.enabled = true;
+```
 
 자세한 내용은 [벡터화된 쿼리 실행](https://cwiki.apache.org/confluence/display/Hive/Vectorized+Query+Execution)을 참조하세요.
 
 ## <a name="other-optimization-methods"></a>다른 최적화 방법
+
 예를 들어 다음은 고려할 수 있는 추가 최적화 방법입니다.
 
 * **Hive 버킷팅:** 대형 데이터 집합을 클러스터 또는 세그먼트하여 쿼리 성능을 최적화할 수 있는 기술입니다.
@@ -192,12 +193,9 @@ ORC 형식을 사용하려면 먼저 *Stored as ORC*절로 테이블을 만듭�
 * **리듀서 증가**
 
 ## <a name="next-steps"></a>다음 단계
+
 이 기사에서는 몇가지 일반적인 하이브 쿼리 최적화 방법을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
 * [HDInsight에서 대화형 쿼리를 사용 하 여 비행 지연 데이터 분석](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 * [HDInsight에서 Apache Hive를 사용하여 Twitter 데이터 분석](hdinsight-analyze-twitter-data-linux.md)
-
-
-[image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
-[image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png

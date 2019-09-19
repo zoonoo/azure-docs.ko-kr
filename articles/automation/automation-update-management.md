@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: daa075518c569e257fd86a478809a1d1650d4345
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
-ms.translationtype: HT
+ms.openlocfilehash: 20d8106f06b708527fc60e025a19c6b07656acb3
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098117"
+ms.locfileid: "71102642"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -108,7 +108,7 @@ Windows 에이전트는 WSUS 서버와 통신하도록 구성되거나 Microsoft
 
 #### <a name="linux"></a>Linux
 
-Linux의 경우 컴퓨터에 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 업데이트 리포지토리는 프라이빗 또는 공용일 수 있습니다. 업데이트 관리와 상호 작용하는 데 TLS 1.1 또는 TLS 1.2가 필요합니다. 이 솔루션은 여러 Azure Log Analytics 작업 영역에 보고하도록 구성된 Linux용 Log Analytics 에이전트를 지원하지 않습니다.
+Linux의 경우 컴퓨터에 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 업데이트 리포지토리는 프라이빗 또는 공용일 수 있습니다. 업데이트 관리와 상호 작용하는 데 TLS 1.1 또는 TLS 1.2가 필요합니다. 이 솔루션은 여러 Azure Log Analytics 작업 영역에 보고하도록 구성된 Linux용 Log Analytics 에이전트를 지원하지 않습니다.  컴퓨터에 Python 2.x도 설치 되어 있어야 합니다.
 
 Linux 용 Log Analytics 에이전트를 설치 하 고 최신 버전을 다운로드 하는 방법에 대 한 자세한 내용은 [linux 용 Log Analytics 에이전트](https://github.com/microsoft/oms-agent-for-linux)를 참조 하세요. Windows 용 Log Analytics 에이전트를 설치 하는 방법에 대 한 자세한 내용은 [windows 용 Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md)을 참조 하세요.
 

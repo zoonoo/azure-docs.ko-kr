@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 22955ba4b885b264210dc8788f2a410b785b28b4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 50325b75280160a3fefa5b5487df29a25e53bddd
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883975"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966931"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>예측 API 사용하여 모델 사용
 
@@ -44,8 +44,6 @@ ms.locfileid: "68883975"
 
 ![성능 탭은 이미지 파일 및 예측 키 값을 사용 하기 위한 예측 URL 값을 둘러싼 빨간색 사각형으로 표시 됩니다.](./media/use-prediction-api/prediction-api-info.png)
 
-> [!TIP]
-> __예측 키__ 는 프로젝트와 관련된 Custom Vision Azure 리소스의 [Azure portal](https://portal.azure.com) 페이지의 __키__ 블레이드 아래에서도 찾을 수 있습니다.
 
 이 가이드에서는 로컬 이미지를 사용하므로 **이미지 파일이 있는 경우** 아래의 URL을 임시 위치에 복사합니다. 해당하는 __예측 키__ 값도 복사합니다.
 

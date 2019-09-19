@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: 4a490e8a9f111985df9c9e8c9f73bc36d686cc2a
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: af30719ead8464d0420734818203b8070eb5d145
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348699"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105114"
 ---
 # <a name="configure-form-recognizer-containers"></a>Form Recognizer 컨테이너 구성
 
@@ -77,7 +77,7 @@ Azure 양식 인식기 컨테이너를 사용 하 여 강력한 클라우드 기
 |Optional| Name | 데이터 형식 | 설명 |
 |-------|------|-----------|-------------|
 |필수| `Input` | String | 입력 탑재의 대상입니다. 기본값은 `/input`입니다.    <br><br>예제:<br>`--mount type=bind,src=c:\input,target=/input`|
-|필수| `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다.  <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
+|필수| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다.  <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>docker run 명령 예제
 
@@ -88,18 +88,19 @@ Azure 양식 인식기 컨테이너를 사용 하 여 강력한 클라우드 기
 
 다음 표의 {_argument_name_}을 사용자 고유의 값으로 바꿉니다.
 
-| Placeholder | 값 |
+| 자리표시자 | 값 |
 |-------------|-------|
-|{FORM_RECOGNIZER_API_KEY} | 컨테이너를 시작 하는 데 사용 되는 키입니다. Azure Portal 폼 인식기 키 페이지에서 사용할 수 있습니다.  |
-|{FORM_RECOGNIZER_ENDPOINT_URI} | 청구 끝점 URI 값은 Azure Portal 폼 인식기 개요 페이지에서 사용할 수 있습니다.|
-|{COMPUTER_VISION_API_KEY}| 키는 Azure Portal Computer Vision API 키 페이지에서 사용할 수 있습니다.|
-|{COMPUTER_VISION_ENDPOINT_URI}|청구 엔드포인트입니다. 클라우드 기반 Computer Vision 리소스를 사용 하는 경우 URI 값은 Azure Portal Computer Vision API 개요 페이지에서 사용할 수 있습니다. *인식 서비스-인식-텍스트* 컨테이너를 사용 하는 경우 `docker run` 명령에서 컨테이너에 전달 되는 청구 끝점 URL을 사용 합니다.|
+| **{FORM_RECOGNIZER_API_KEY}** | 컨테이너를 시작 하는 데 사용 되는 키입니다. Azure Portal 폼 인식기 키 페이지에서 사용할 수 있습니다. |
+| **{FORM_RECOGNIZER_ENDPOINT_URI}** | 청구 끝점 URI 값은 Azure Portal 폼 인식기 개요 페이지에서 사용할 수 있습니다.|
+| **{COMPUTER_VISION_API_KEY}** | 키는 Azure Portal Computer Vision API 키 페이지에서 사용할 수 있습니다.|
+| **{COMPUTER_VISION_ENDPOINT_URI}** | 청구 엔드포인트입니다. 클라우드 기반 Computer Vision 리소스를 사용 하는 경우 URI 값은 Azure Portal Computer Vision API 개요 페이지에서 사용할 수 있습니다. *인식 서비스-인식-텍스트* 컨테이너를 사용 하는 경우 `docker run` 명령에서 컨테이너에 전달 되는 청구 끝점 URL을 사용 합니다. |
+
+이러한 값을 얻는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](form-recognizer-container-howto.md#gathering-required-parameters) 을 참조 하세요.
+
+[!INCLUDE [cognitive-services-custom-subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> 컨테이너를 실행 하려면 `Eula`, `Billing`및 `ApiKey` 옵션을 지정 합니다. 그렇지 않으면 컨테이너가 시작 되지 않습니다. 자세한 내용은 [Billing](#billing-configuration-setting)를 참조하세요.
-
-> [!NOTE] 
-> ApiKey 값은 Azure Form Recognizer 리소스 키 페이지의 **키**입니다.
+> 컨테이너를 실행 하려면 `Eula`, `Billing`및 `ApiKey` 옵션을 지정 합니다. 그렇지 않으면 컨테이너가 시작 되지 않습니다. 자세한 내용은 [Billing](#billing-configuration-setting)을 참조하세요.
 
 ## <a name="form-recognizer-container-docker-examples"></a>Form Recognizer 컨테이너 Docker 예제
 

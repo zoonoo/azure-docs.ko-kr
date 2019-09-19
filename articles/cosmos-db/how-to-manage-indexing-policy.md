@@ -4,14 +4,14 @@ description: Azure Cosmos DB의 인덱싱 정책 관리 방법을 알아봅니�
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/17/2019
 ms.author: thweiss
-ms.openlocfilehash: ede4266457aaa76bdd9f1141df5c2981bb722326
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: b80a4b8697544a0f7fe7cee99b666a513f53a0d6
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915914"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104857"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책 관리
 
@@ -374,47 +374,23 @@ az cosmosdb collection update \
 
 ## <a name="use-the-net-sdk-v2"></a>.NET SDK V2 사용
 
-[.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)(해당 사용법에 관한 [이 빠른 시작](create-sql-api-dotnet.md) 참조)의 `DocumentCollection` 개체는 `IndexingMode`를 변경하고 `IncludedPaths` 및 `ExcludedPaths`를 추가 또는 제거할 수 있는 `IndexingPolicy` 속성을 표시합니다.
+`IndexingMode` `IncludedPaths` `ExcludedPaths` [.Net SDK v2의 개체는](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 를 변경 하 고 및를 추가 또는 제거할 수 있는 속성을노출합니다.`IndexingPolicy` `DocumentCollection`
 
-컨테이너의 세부 정보를 검색 합니다.
 
 ```csharp
+// Retrieve the container's details
 ResourceResponse<DocumentCollection> containerResponse = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("database", "container"));
-```
-
-인덱싱 모드를 일관 되 게 설정
-
-```csharp
+// Set the indexing mode to consistent
 containerResponse.Resource.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
-```
-
-포함 된 경로 추가
-
-```csharp
-containerResponse.Resource.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/age/*" });
-```
-
-제외 된 경로 추가
-
-```csharp
+// Add an included path
+containerResponse.Resource.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+// Add an excluded path
 containerResponse.Resource.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/name/*" });
-```
-
-공간 인덱스 추가
-
-```csharp
+// Add a spatial index
 containerResponse.Resource.IndexingPolicy.SpatialIndexes.Add(new SpatialSpec() { Path = "/locations/*", SpatialTypes = new Collection<SpatialType>() { SpatialType.Point } } );
-```
-
-복합 인덱스 추가
-
-```csharp
+// Add a composite index
 containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<CompositePath> {new CompositePath() { Path = "/name", Order = CompositePathSortOrder.Ascending }, new CompositePath() { Path = "/age", Order = CompositePathSortOrder.Descending }});
-```
-
-변경 내용으로 컨테이너 업데이트
-
-```csharp
+// Update container with changes
 await client.ReplaceDocumentCollectionAsync(containerResponse.Resource);
 ```
 
@@ -425,6 +401,64 @@ await client.ReplaceDocumentCollectionAsync(containerResponse.Resource);
 ResourceResponse<DocumentCollection> container = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("database", "container"), new RequestOptions { PopulateQuotaInfo = true });
 // retrieve the index transformation progress from the result
 long indexTransformationProgress = container.IndexTransformationProgress;
+```
+
+## <a name="use-the-net-sdk-v3"></a>.NET SDK V3 사용
+
+`IndexingMode` [.Net SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (사용법에 `IndexingPolicy` 관한 [이 빠른](create-sql-api-dotnet.md) 시작 참조)의 `IncludedPaths` `ExcludedPaths` 개체는를변경하고및를추가하거나제거할수있는속성`ContainerProperties` 을 노출 합니다.
+
+
+```csharp
+// Retrieve the container's details
+ContainerResponse containerResponse = await client.GetContainer("database", "container").ReadContainerAsync();
+// Set the indexing mode to consistent
+containerResponse.Resource.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
+// Add an included path
+containerResponse.Resource.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+// Add an excluded path
+containerResponse.Resource.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/name/*" });
+// Add a spatial index
+SpatialPath spatialPath = new SpatialPath
+{
+    Path = "/locations/*"
+};
+spatialPath.SpatialTypes.Add(SpatialType.Point);
+containerResponse.Resource.IndexingPolicy.SpatialIndexes.Add(spatialPath);
+// Add a composite index
+containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<CompositePath> { new CompositePath() { Path = "/name", Order = CompositePathSortOrder.Ascending }, new CompositePath() { Path = "/age", Order = CompositePathSortOrder.Descending } });
+// Update container with changes
+await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
+```
+
+인덱스 변환 `RequestOptions` 진행률을 추적 하려면 `PopulateQuotaInfo` 속성 `true`을 설정 하는 개체를 전달 하 고 `x-ms-documentdb-collection-index-transformation-progress` 응답 헤더에서 값을 검색 합니다.
+
+```csharp
+// retrieve the container's details
+ContainerResponse containerResponse = await client.GetContainer("database", "container").ReadContainerAsync(new ContainerRequestOptions { PopulateQuotaInfo = true });
+// retrieve the index transformation progress from the result
+long indexTransformationProgress = long.Parse(containerResponse.Headers["x-ms-documentdb-collection-index-transformation-progress"]);
+```
+
+새 컨테이너를 만드는 동안 사용자 지정 인덱싱 정책을 정의할 때 SDK V3's 흐름 API를 사용 하 여 간결 하 고 효율적인 방식으로이 정의를 작성할 수 있습니다.
+
+```csharp
+await client.GetDatabase("database").DefineContainer(name: "container", partitionKeyPath: "/myPartitionKey")
+    .WithIndexingPolicy()
+        .WithIncludedPaths()
+            .Path("/*")
+        .Attach()
+        .WithExcludedPaths()
+            .Path("/name/*")
+        .Attach()
+        .WithSpatialIndex()
+            .Path("/locations/*", SpatialType.Point)
+        .Attach()
+        .WithCompositeIndex()
+            .Path("/name", CompositePathSortOrder.Ascending)
+            .Path("/age", CompositePathSortOrder.Descending)
+        .Attach()
+    .Attach()
+    .CreateIfNotExistsAsync();
 ```
 
 ## <a name="use-the-java-sdk"></a>Java SDK 사용

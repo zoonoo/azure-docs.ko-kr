@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 93d5b3de47ec0b3c0494589da0baf87f91a0233a
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 642b21624ce3ffc993d5f29a413845044d703fd7
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390251"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984276"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Text Analytics에서 명명된 엔터티 인식 사용 방법
 
@@ -47,19 +47,17 @@ Text Analytics [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/do
 | 수량      | 수        | "6", "six"     |
 | 수량      | 백분율    | "50%", "fifty percent"|
 | 수량      | 서수       | "2nd", "second"     |
-| 수량      | NumberRange   | "4 to 8"     |
 | 수량      | 나이           | "90 day old", "30 years old"    |
 | 수량      | 통화      | "$10.99"     |
 | 수량      | 치수     | "10 miles", "40 cm"     |
 | 수량      | 온도   | "32 degrees"    |
 | DateTime      | 해당 없음\*         | "6:30PM February 4, 2012"      |
 | DateTime      | 날짜          | "May 2nd, 2017", "05/02/2017"   |
-| DateTime      | 시간          | "8am", "8:00"  |
+| DateTime      | Time          | "8am", "8:00"  |
 | DateTime      | DateRange     | "May 2nd to May 5th"    |
 | DateTime      | TimeRange     | "6pm to 7pm"     |
 | DateTime      | Duration      | "1 minute and 45 seconds"   |
 | DateTime      | 설정           | "every Tuesday"     |
-| DateTime      | TimeZone      |    |
 | URL           | 해당 없음\*         | "https:\//www.bing.com"    |
 | EMail         | 해당 없음\*         | "support@contoso.com" |
 

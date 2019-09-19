@@ -7,15 +7,15 @@ author: luiscabrer
 ms.service: search
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/18/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 0c591bb72ba859be2c5b52d8d8cc5040deffda7d
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: c69c757be482a7e95f31a9f31cac8d324c1e0216
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183379"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103301"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>핵심 문구 추출 인식 기술
 
@@ -46,7 +46,7 @@ Microsoft.Skills.Text.KeyPhraseExtractionSkill
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 입력     | Description |
+| 입력     | 설명 |
 |--------------------|-------------|
 | text | 분석할 텍스트입니다.|
 | languageCode  |  레코드의 언어를 나타내는 문자열입니다. 이 매개 변수를 지정하지 않으면 레코드를 분석하는 데 기본 언어 코드가 사용됩니다. <br/>[지원되는 언어 전체 목록](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) 참조|
@@ -59,7 +59,7 @@ Microsoft.Skills.Text.KeyPhraseExtractionSkill
     "inputs": [
       {
         "name": "text",
-        "source": "/document/text"
+        "source": "/document/content"
       },
       {
         "name": "languageCode",

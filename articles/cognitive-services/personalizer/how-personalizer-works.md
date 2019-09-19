@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 09/13/2019
 ms.author: diberry
-ms.openlocfilehash: c258799b1305c4204d08d66aa36a0be7c71a4944
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 7c163dacae24749dbe309bca33bac016a3be7aa5
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034384"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002883"
 ---
 # <a name="how-personalizer-works"></a>Personalizer 작동 방식
 
@@ -89,31 +89,6 @@ Personalizer는 Microsoft Research의 백서, 연구 활동 및 진행 중인 �
 * 봇 특성 및 어조: 어조, 자세한 정도 및 작성 스타일이 달리질 수 있는 봇의 경우 맞춤형 방식으로 이러한 특성을 바꾸는 방법을 고려합니다.
 * 알림 및 경고 콘텐츠: 사용자의 참여를 높이려면 경고에 어떤 텍스트를 사용해야 하는지 결정합니다.
 * 알림 및 경고 타이밍: 사용자의 참여를 높이려면 사용자에게 알림을 보내야 하는 시기에 대한 맞춤형 학습을 제공합니다.
-
-## <a name="checklist-for-applying-personalizer"></a>Personalizer를 적용하기 위한 검사 목록
-
-Personalizer를 적용할 수 있는 경우는 다음과 같습니다.
-
-* 애플리케이션에 대한 비즈니스 또는 유용성 목표가 있습니다.
-* 사용자에게 표시할 항목을 상황에 맞게 결정하여 해당 목표를 향상시킬 수 있는 위치가 애플리케이션에 있습니다.
-* 최상의 선택은 전체 사용자 동작과 총 보상 점수에서 학습할 수 있고 학습해야 합니다.
-* 기계 학습을 개인 설정에 사용하려면 [사용 책임 지침](ethics-responsible-use.md) 및 팀의 선택 내용을 따릅니다.
-* 결정된 내용을 최상의 옵션(제한된 선택 항목의 [작업](concepts-features.md#actions-represent-a-list-of-options)로 표현할 수 있습니다.
-* 해당 선택을 비즈니스 논리에서 얼마나 잘 컴퓨팅할 수 있는지 나타내기 위해 사용자 동작을 여러 관점에서 측정하고 -1~1 사이의 숫자로 나타낼 수 있습니다.
-* 보상 점수는 교란 요인 또는 외부 요인을 많이 반영하지 않으며, 특히 실험 기간은 보상 점수를 컴퓨팅하면서도 관련성을 유지할 수 있을 만큼 짧습니다.
-* 순위에 대한 컨텍스트는 올바른 선택을 하는 데 도움이 될 것으로 보이고 개인 식별 정보가 포함되지 않은 5개 이상의 기능 사전으로 표현할 수 있습니다.
-* 각 작업에 대한 정보는 Personalizer에서 올바른 선택을 하는 데 도움이 될 것으로 보이는 5개 이상의 특성 또는 기능 사전으로 제공됩니다.
-* 100,000개 이상의 상호 작용 기록을 누적할 수 있을 만큼 충분히 오랫동안 데이터를 보존할 수 있습니다.
-
-## <a name="machine-learning-considerations-for-applying-personalizer"></a>Personalizer를 적용하기 위한 기계 학습 고려 사항
-
-Personalizer는 개발자가 제공하는 피드백을 통해 학습되는 기계 학습 방법인 보충 학습을 기반으로 합니다. 
-
-Personalizer에서 가장 효율적으로 학습할 수 있는 상황은 다음과 같습니다.
-* 시간이 지남에 따라 문제가 발생하면 최적의 맞춤 설정(예: 뉴스 또는 패션의 기본 설정)에 따라 유지할 수 있는 충분한 이벤트가 있습니다. Personalizer는 현실 세계의 지속적인 변화에 적응할 수 있지만, 새로운 패턴을 검색하고 해결하는 데 충분한 이벤트와 데이터가 없으면 최적의 결과가 되지 않습니다. 자주 발생하는 사용 사례를 선택해야 합니다. 하루에 500회 이상 발생하는 사용 사례를 확인하는 것이 좋습니다.
-* 컨텍스트 및 작업에는 학습을 용이하게 하는 기능이 충분히 있습니다.
-* 호출당 순위를 지정하는 50개 미만의 작업이 있습니다.
-* 데이터 보존 설정을 통해 Personalizer는 오프라인 평가 및 정책 최적화를 수행하는 데 충분한 데이터를 수집할 수 있습니다. 이는 일반적으로 50,000개 이상의 데이터 요소입니다.
 
 ## <a name="how-to-use-personalizer-in-a-web-application"></a>웹 애플리케이션에서 Personalizer를 사용하는 방법
 

@@ -9,14 +9,14 @@ displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: ebc06057dfa4bce72821ddf807cda46270e8ff3e
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 5c55084a57e46931049841f5011941b2115e9e69
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70206842"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961514"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>기술 자료에 대한 분석 가져오기
 
@@ -26,9 +26,7 @@ ms.locfileid: "70206842"
 
     ![Application Insights 리소스 선택](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. **Analytics** 선택 QnA Maker 원격 분석을 쿼리할 수 있는 새 창이 열립니다.
-
-    ![Analytics 선택](../media/qnamaker-how-to-analytics-kb/analytics.png)
+2. **Log(Analytics)** 를 선택합니다. QnA Maker 원격 분석을 쿼리할 수 있는 새 창이 열립니다.
 
 3. 다음 쿼리에 붙여넣고 실행합니다.
 
@@ -48,7 +46,7 @@ ms.locfileid: "70206842"
 
     **실행**을 선택하여 쿼리를 실행합니다.
 
-    ![쿼리 실행](../media/qnamaker-how-to-analytics-kb/run-query.png)
+    [![쿼리를 실행 하 여 사용자의 질문, 답변 및 점수를 확인 합니다.](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
 ## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>QnA Maker 기술 자료에 대한 다른 분석에 대해 쿼리 실행
 

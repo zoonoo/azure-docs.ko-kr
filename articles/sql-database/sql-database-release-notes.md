@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: 21f80a2be09302e47817ccfd4223207bdcdd0413
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 232f8b13174aed19477ee0b139c83fba439049ac
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066805"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101539"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 릴리스 정보
 
@@ -48,7 +48,6 @@ ms.locfileid: "71066805"
 | ---| --- |
 | <a href="/azure/sql-database/sql-database-instance-pools">인스턴스 풀</a> | 더 작은 SQL 인스턴스를 클라우드로 마이그레이션하는 편리 하 고 비용 효율적인 방법입니다. |
 | <a href="https://aka.ms/managed-instance-tde-byok">Bring Your Own Key (BYOK)를 사용 하는 TDE (투명 한 데이터 암호화)</a> |자세한 내용은 Azure Key Vault에서 [고객이 관리 하는 키를 사용 하 여 Azure SQL 투명한 데이터 암호화를 참조 하세요. Bring Your Own Key 지원](transparent-data-encryption-byok-azure-sql.md).|
-| <a href="https://aka.ms/managed-instance-failover-groups">지리적으로 분산 장애 조치 (failover) 그룹</a> | 다른 지역에 인스턴스의 복사본을 보관 하 고 지역 재해 시나리오 에서도 데이터를 사용할 수 있도록 합니다. |
 | <a href="https://aka.ms/managed-instance-aadlogins">인스턴스 수준 Azure AD 서버 보안 주체 (로그인)</a> | <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> 문을 사용 하 여 서버 수준 로그인을 만듭니다. |
 | [트랜잭션 복제자](sql-database-managed-instance-transactional-replication.md) | 테이블의 변경 내용을 관리 되는 인스턴스, 단일 데이터베이스 또는 SQL Server 인스턴스에 배치 된 다른 데이터베이스로 복제 하거나 다른 관리 되는 인스턴스 또는 SQL Server 인스턴스에서 일부 행이 변경 될 때 테이블을 업데이트 합니다. 자세한 내용은 [Azure SQL Database 관리 되는 인스턴스 데이터베이스에서 복제 구성](replication-with-sql-database-managed-instance.md)을 참조 하세요. |
 | 위협 검색 |자세한 내용은 [Azure SQL Database 관리 되는 인스턴스에서 위협 감지 구성](sql-database-managed-instance-threat-detection.md)을 참조 하세요.|

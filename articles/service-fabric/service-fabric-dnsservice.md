@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: atsenthi
-ms.openlocfilehash: 123e63fb79ba966e4e17b0c55440049a79add905
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d8925f1c31b7a0c8f45e65e783077e8f5e2b0add
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931183"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103237"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric의 DNS 서비스
 DNS 서비스는 DNS 프로토콜을 통해 다른 서비스를 검색하기 위해 클러스터에서 사용할 수 있는 선택적 시스템 서비스입니다. 
@@ -73,16 +73,16 @@ Service Fabric 버전 6.3부터, 분할된 상태 저장 서비스 주소 지정
 
    - 기본 설정으로 DNS 서비스를 활성화하려면 다음 예와 같이 `properties` 섹션 안의 `addonFeatures` 섹션에 추가합니다.
 
-       ```json
-           "properties": {
-              ...
-
-              "addonFeatures": [
-                "DnsService"
+        ```json
+          "properties": {
+            ...
+            "addonFeatures": [
+              "DnsService"
               ],
-              ...
-           }
-       ```
+            ...
+          }
+        ```
+
    - 기본 설정 이외의 설정으로 서비스를 활성화하려면 `properties` 섹션의 `fabricSettings` 섹션 안에 `DnsService` 섹션을 추가합니다. 이 경우 `addonFeatures`에 DnsService를 추가할 필요가 없습니다. DNS 서비스에 대해 설정할 수 있는 속성에 대한 자세한 내용은 [DNS 서비스 설정](./service-fabric-cluster-fabric-settings.md#dnsservice)을 참조하세요.
 
        ```json
@@ -111,7 +111,10 @@ Service Fabric 버전 6.3부터, 분할된 상태 저장 서비스 주소 지정
               ]
             }
        ```
-1. 변경 사항으로 클러스터 템플릿을 업데이트한 후에는 이를 적용하여 업그레이드를 완료합니다. 업그레이드가 완료되면 DNS 시스템 서비스가 클러스터에서 실행을 시작합니다. 서비스 이름은 `fabric:/System/DnsService`이며, Service Fabric 탐색기의 **시스템** 서비스 섹션 아래에서 찾을 수 있습니다. 
+3. 변경 사항으로 클러스터 템플릿을 업데이트한 후에는 이를 적용하여 업그레이드를 완료합니다. 업그레이드가 완료되면 DNS 시스템 서비스가 클러스터에서 실행을 시작합니다. 서비스 이름은 `fabric:/System/DnsService`이며, Service Fabric 탐색기의 **시스템** 서비스 섹션 아래에서 찾을 수 있습니다. 
+
+> [!NOTE]
+> DNS를 사용 안 함에서 사용으로 업그레이드 하는 경우 Service Fabric Explorer 새 상태를 반영 하지 않을 수 있습니다. 해결 하려면 Azure Resource Manager 템플릿에서 UpgradePolicy를 수정 하 여 노드를 다시 시작 합니다. 자세한 내용은 [Service Fabric 템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) 를 참조 하세요.
 
 
 ## <a name="setting-the-dns-name-for-your-service"></a>서비스에 대한 DNS 이름 설정

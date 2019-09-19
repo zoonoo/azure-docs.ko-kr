@@ -4,15 +4,15 @@ description: 이 문서에서는 분할을 사용 하 여 병렬화 할 수 없�
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 07/26/2019
+ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 9c802e6d23daf502da351549c66a7dae1247c068
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 82e4a225d26bac04ed4754169cc4a79e0a8f9b32
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517437"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101504"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>다시 분할을 사용 하 여 Azure Stream Analytics 처리 최적화
 
@@ -54,7 +54,17 @@ SELECT * INTO output FROM step1 PARTITION BY DeviceID UNION step2 PARTITION BY D
 
 ## <a name="repartitions-for-sql-output"></a>SQL 출력의 repartitions
 
-작업에서 출력에 SQL database를 사용 하는 경우 최적의 파티션 수와 일치 하도록 명시적 분할을 사용 하 여 처리량을 최대화 합니다. SQL은 8 개의 기록기에서 가장 잘 작동 하므로 플러시 전에 8로 흐름을 다시 분할 하거나 더 많은 업스트림에서 작업 성능을 향상 시킬 수 있습니다. 자세한 내용은 [Azure SQL Database에 Azure Stream Analytics 출력](stream-analytics-sql-output-perf.md)을 참조하세요.
+작업에서 출력에 SQL database를 사용 하는 경우 최적의 파티션 수와 일치 하도록 명시적 분할을 사용 하 여 처리량을 최대화 합니다. SQL은 8 개의 기록기에서 가장 잘 작동 하므로 플러시 전에 8로 흐름을 다시 분할 하거나 더 많은 업스트림에서 작업 성능을 향상 시킬 수 있습니다. 
+
+입력 파티션이 8개보다 많은 경우 입력 파티션 구성표를 상속하는 것이 적합하지 않을 수 있습니다. 쿼리에서 [을](/stream-analytics-query/into-azure-stream-analytics.md#into-shard-count) 사용 하 여 출력 작성기 수를 명시적으로 지정 하는 것이 좋습니다. 
+
+다음 예에서는 자연스럽 게 분할 되는 것에 관계 없이 입력을 읽고, DeviceID 차원에 따라 10 배나 스트림을 다시 분할 하 고, 데이터를 출력으로 플러시합니다. 
+
+```sql
+SELECT * INTO [output] FROM [input] PARTITION BY DeviceID INTO 10
+```
+
+자세한 내용은 [Azure SQL Database에 Azure Stream Analytics 출력](stream-analytics-sql-output-perf.md)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

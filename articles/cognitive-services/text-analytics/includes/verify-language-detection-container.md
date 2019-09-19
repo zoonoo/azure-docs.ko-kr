@@ -7,16 +7,16 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/21/2019
+ms.date: 09/12/2019
 ms.author: dapine
-ms.openlocfilehash: 74d95d70438431495c9072e115854b1ccfa05bcb
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: f4e0770bc052044a408f2c4088f2bd5ead225aa3
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70052121"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70968593"
 ---
-## <a name="verify-the-language-detection-container-instance"></a>언어 감지 컨테이너 인스턴스 확인
+### <a name="verify-the-language-detection-container-instance"></a>언어 감지 컨테이너 인스턴스 확인
 
 1. **개요** 탭을 선택 하 고 IP 주소를 복사 합니다.
 1. 새 브라우저 탭을 열고 IP 주소를 입력 합니다. 예를 들어를 `http://<IP-address>:5000 (http://55.55.55.55:5000`입력 합니다. 컨테이너의 홈 페이지가 표시 됩니다. 그러면 컨테이너가 실행 중임을 알 수 있습니다.

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: pabutler
-ms.openlocfilehash: 40170540458b7bc7ddb30f88117d472858937e8c
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 0bbe0e9718a25fdff76e591bf388bf829518502e
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962943"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105623"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -166,43 +166,28 @@ SKU는 제품의 변형인 SKU와 같이 더 세부적인 수준에서 GUID를 �
 
 고객 사용 특성을 사용 하려면 Guid를 등록 해야 합니다.
 
-템플릿 GUID에 대한 모든 등록은 Azure Marketplace CPP(Cloud 파트너 포털)를 통해 수행됩니다.
+템플릿 Guid에 대 한 모든 등록은 파트너 센터 내에서 수행 됩니다.
 
-GUID가 템플릿이나 사용자 에이전트에 추가되고 해당 GUID가 CPP에 등록되면 모든 배포가 추적됩니다.
+GUID를 템플릿 또는 사용자 에이전트에 추가 하 고 파트너 센터에 GUID를 등록 하면 모든 배포가 추적 됩니다.
 
-1. [Azure Marketplace](https://aka.ms/listonazuremarketplace)에 신청하여 CPP에 액세스합니다.
+1. [상업적 마켓플레이스 게시자](https://aka.ms/JoinMarketplace)로 등록 합니다.
 
-   * 파트너는 [CPP에 프로필을 가지고 있어야 합니다](https://docs.microsoft.com/azure/marketplace/become-publisher). Azure Marketplace 또는 AppSource에 제품을 나열하는 것이 좋습니다.
+   * 파트너 [센터에 프로필이 있어야](https://docs.microsoft.com/azure/marketplace/become-publisher)합니다. Azure Marketplace 또는 AppSource에 제품을 나열하는 것이 좋습니다.
    * 파트너는 여러 GUID를 등록할 수 있습니다.
    * 파트너는 Marketplace 이외의 솔루션 템플릿 및 제품에 대한 GUID를 등록할 수 있습니다.
 
-1. [클라우드 파트너 포털](https://cloudpartner.azure.com/)에 로그인합니다.
+1. [파트너 센터](https://partner.microsoft.com/dashboard)에 로그인합니다.
 
-1. 오른쪽 위 모서리에서 계정 아이콘을 선택한 다음, **게시자 프로필**을 선택합니다.
+1. 오른쪽 위 모서리에서 설정 기어 아이콘을 선택 하 고 **개발자 설정**을 선택 합니다.
 
-   ![게시자 프로필 선택](media/marketplace-publishers-guide/guid-image-for-lu.png)
+1. **계정 설정 페이지**에서 **추적 GUID 추가를 선택 합니다.**
 
-1. **프로필 페이지**에서 **추적 GUID 추가**를 선택합니다.
-
-   ![추적 GUID 추가 선택](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
-
-1. **추적 GUID** 상자에서 추적 GUID를 입력합니다. **pid-** 접두사 없이 GUID만 입력합니다. **사용자 지정 설명** 상자에서 제품 이름 또는 설명을 입력합니다.
-
-   ![프로필 페이지](media/marketplace-publishers-guide/guid-dev-center-login.png)
-
-   ![GUID 및 제품 설명 입력](media/marketplace-publishers-guide/guid-dev-center-example.png)
+1. **Guid** 상자에 추적 guid를 입력 합니다. **pid-** 접두사 없이 GUID만 입력합니다. **설명** 상자에 제품 이름 또는 설명을 입력 합니다.
 
 1. 여러 GUID를 등록하려면 **추적 GUID 추가**를 다시 선택합니다. 추가 상자가 페이지에 표시됩니다.
 
-   ![추적 GUID 추가 다시 선택](media/marketplace-publishers-guide/guid-dev-center-example-add.png)
-
-   ![다른 GUID를 입력하고 설명을 제공합니다.](media/marketplace-publishers-guide/guid-dev-center-example-description.png)
-
 1. **저장**을 선택합니다.
 
-   ![저장 선택](media/marketplace-publishers-guide/guid-dev-center-save.png)
-
-GUID가 템플릿이나 사용자 에이전트에 추가되고 해당 GUID가 CPP에 등록되면 모든 배포가 추적됩니다.
 
 ## <a name="verify-the-guid-deployment"></a>GUID 배포 확인
 

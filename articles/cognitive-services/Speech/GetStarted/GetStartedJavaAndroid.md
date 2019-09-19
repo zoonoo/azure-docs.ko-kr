@@ -3,20 +3,20 @@ title: Android의 Java에서 Microsoft Speech Recognition API 시작 | Microsoft
 titlesuffix: Azure Cognitive Services
 description: Microsoft Speech API를 사용하여 음성 오디오를 텍스트로 변환하는 Android 애플리케이션을 개발합니다.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 147042e300e629dd7e354d4e9079cc4855a8146c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 77fee2ecee9cfabe3fad9c1df2c41c7803c3367e
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515191"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966840"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>빠른 시작: Android의 Java에서 Bing Speech Recognition API 사용
 
@@ -26,7 +26,7 @@ Bing Speech Recognition API를 사용하면 클라우드 기반 Bing Speech 서�
 
 이 문서에서는 샘플 애플리케이션을 사용하여 Android용 Speech 클라이언트 라이브러리를 통해 Android 디바이스용 Java에서 음성 - 텍스트 변환 애플리케이션을 개발하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="platform-requirements"></a>플랫폼 요구 사항
 
@@ -144,7 +144,7 @@ void initializeRecoClient()
   * `LongDictation` 모드에서는 서비스에서 문장 일시 중지를 식별하는 위치에 따라 이벤트 처리기가 여러 번 호출됩니다.
   * **N 상위 선택 항목 각각에 대해** 신뢰도 값 및 인식된 텍스트의 몇 가지 다른 형식이 반환됩니다. 자세한 내용은 [출력 형식](../Concepts.md#output-format)을 참조하세요.
 
-## <a name="related-topics"></a>관련된 항목
+## <a name="related-topics"></a>관련 항목
 
 * [Android용 클라이언트 라이브러리 참조](https://github.com/Azure-Samples/Cognitive-Speech-STT-Android/tree/master/docs)
 * [.NET의 Windows용 C#에서 Microsoft Speech API 시작](GetStartedCSharpDesktop.md)

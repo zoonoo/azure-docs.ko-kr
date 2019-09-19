@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 28ec42f1634e0546d75f81ed76b1ecbac51f6c3f
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: a2b467eed010edbb842d536bd8f6e3f4107fcea8
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277602"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984354"
 ---
 # <a name="manage-qna-maker-resources"></a>QnA Maker 리소스 관리
 
@@ -87,6 +87,8 @@ QnA Maker 리소스를 만든 Azure Portal에서 구독 키를 확인 하 고 �
 
 ## <a name="find-endpoint-keys-in-the-qna-maker-portal"></a>QnA Maker 포털에서 끝점 키 찾기
 
+끝점은 기술 자료에 대 한 호출을 수행 하는 데 사용 되므로 끝점은 리소스와 동일한 영역에 있습니다.
+
 엔드포인트 키는 [QnA Maker 포털](https://qnamaker.ai)에서 관리할 수 있습니다.
 
 1. [QnA Maker 포털](https://qnamaker.ai)에 로그인 하 고, 프로필로 이동한 다음, **서비스 설정**을 선택 합니다.
@@ -111,6 +113,8 @@ QnA Maker는 여러 Azure 리소스를 만듭니다. 관리를 줄이고 비용 
 |App Service|X|디자인에서 불가능|
 |Application Insights|✔|공유할 수 있습니다.|
 |Search 서비스|✔|1. `testkb` 은 QnAMaker 서비스에 예약 된 이름이 고 다른 서비스에서는 사용할 수 없습니다.<br>2. 이름을 `synonym-map` 기준으로 하는 동의어 맵이 QnAMaker 서비스에 예약 되어 있습니다.<br>3. 게시 된 기술 자료의 수는 검색 서비스 계층에 의해 제한 됩니다. 사용 가능한 인덱스가 있는 경우 다른 서비스에서 사용할 수 있습니다.|
+
+[App service](../../../app-service/index.yml) 및 [Search 서비스](../../../search/index.yml)에 대해 자세히 알아보세요.
 
 ### <a name="using-a-single-search-service"></a>단일 검색 서비스 사용
 
@@ -202,6 +206,8 @@ QnAMaker 런타임은 Azure Portal에서 [QnAMaker 서비스를 만들](./set-up
 QnA Maker 관리 서비스는 QnA Maker 포털 및 초기 데이터 처리에만 사용 됩니다. 이 서비스는 미국 서 부 지역 에서만 사용할 수 있습니다. 이 미국 서 부 서비스에는 고객 데이터가 저장 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
+[App service](../../../app-service/index.yml) 및 [Search 서비스](../../../search/index.yml)에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [기술 자료 만들기 및 게시](../Quickstarts/create-publish-knowledge-base.md)

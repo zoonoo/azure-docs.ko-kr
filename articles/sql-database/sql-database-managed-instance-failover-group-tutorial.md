@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: 3e5b96cf4227e933aa99b37469410276a775dbed
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 04802b8b25ca21cc0099874e5a9ea69748868f6e
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103068"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103205"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>자습서: 장애 조치 (failover) 그룹에 SQL Database 관리 되는 인스턴스 추가
 
@@ -31,7 +31,7 @@ ms.locfileid: "70103068"
   > [!NOTE]
   > - 이 자습서를 진행 하는 경우 [관리 되는 인스턴스에 대해 장애 조치 그룹을 설정 하기 위한 필수 구성 요소](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets)를 사용 하 여 리소스를 구성 하 고 있는지 확인 합니다. 
   > - 관리 되는 인스턴스를 만드는 데는 상당한 시간이 걸릴 수 있습니다. 따라서이 자습서를 완료 하는 데 몇 시간 정도 걸릴 수 있습니다. 프로 비전 시간에 대 한 자세한 내용은 [관리 되는 인스턴스 관리 작업](sql-database-managed-instance.md#managed-instance-management-operations)을 참조 하세요. 
-  > - 관리 되는 인스턴스에서 장애 조치 그룹을 사용 하는 것은 현재 미리 보기 상태입니다. 
+
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -43,8 +43,8 @@ ms.locfileid: "70103068"
 ## <a name="1---create-resource-group-and-primary-managed-instance"></a>1-리소스 그룹 및 기본 관리 되는 인스턴스 만들기
 이 단계에서는 Azure Portal를 사용 하 여 장애 조치 (failover) 그룹에 대 한 리소스 그룹 및 기본 관리 되는 인스턴스를 만듭니다. 
 
-1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. 필드 **AZURE SQL** 옆의 별표를 선택 하 여 즐겨찾기를 선택 하 고 왼쪽 탐색에 항목으로 추가 합니다. 
-1. **+ 추가** 를 선택 하 여 **SQL 배포 옵션 선택** 페이지를 엽니다. 데이터베이스 타일에 대 한 자세한 정보 표시를 선택 하 여 다른 데이터베이스에 대 한 추가 정보를 볼 수 있습니다.
+1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
+1. **+ 추가**를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. 데이터베이스 타일에 대 한 자세한 정보 표시를 선택 하 여 다른 데이터베이스에 대 한 추가 정보를 볼 수 있습니다.
 1. **SQL 관리 되는 인스턴스** 타일에서 **만들기** 를 선택 합니다. 
 
     ![관리 되는 인스턴스 선택](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
@@ -100,8 +100,8 @@ ms.locfileid: "70103068"
 
 보조 관리 되는 인스턴스를 만들려면 다음 단계를 수행 합니다. 
 
-1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. 필드 **AZURE SQL** 옆의 별표를 선택 하 여 즐겨찾기를 선택 하 고 왼쪽 탐색에 항목으로 추가 합니다. 
-1. **+ 추가** 를 선택 하 여 **SQL 배포 옵션 선택** 페이지를 엽니다. 데이터베이스 타일에 대 한 자세한 정보 표시를 선택 하 여 다른 데이터베이스에 대 한 추가 정보를 볼 수 있습니다.
+1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
+1. **+ 추가**를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. 데이터베이스 타일에 대 한 자세한 정보 표시를 선택 하 여 다른 데이터베이스에 대 한 추가 정보를 볼 수 있습니다.
 1. **SQL 관리 되는 인스턴스** 타일에서 **만들기** 를 선택 합니다. 
 
     ![관리 되는 인스턴스 선택](media/sql-database-managed-instance-failover-group-tutorial/select-managed-instance.png)
@@ -215,7 +215,7 @@ ms.locfileid: "70103068"
 ## <a name="7---create-a-failover-group"></a>7-장애 조치 (failover) 그룹 만들기
 이 단계에서는 장애 조치 (failover) 그룹을 만들고 여기에 관리 되는 인스턴스를 모두 추가 합니다. 
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL** 을 선택 합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. 필드 **AZURE SQL** 옆의 별표를 선택 하 여 즐겨찾기를 선택 하 고 왼쪽 탐색에 항목으로 추가 합니다. 
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
 1. 첫 번째 섹션에서 만든 기본 관리 되는 인스턴스 (예: `sql-mi-primary`)를 선택 합니다. 
 1. **설정**에서 **인스턴스 장애 조치 (failover) 그룹** 으로 이동한 다음 **그룹 추가** 를 선택 하 여 **인스턴스 장애 조치 (failover) 그룹** 페이지를 엽니다. 
 

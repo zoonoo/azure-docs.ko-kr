@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: 558ce8950a1848f0cddc247f60dd4e75dd20ccf0
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: efac8755be8435ae7929fdcb2ecedb4959c363b9
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305474"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097135"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Text Analytics API에 대한 언어 및 지역 지원
 
@@ -48,17 +48,18 @@ Text Analytics API는 다양한 언어, 변형, 방언 및 일부 국가/문화�
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | 아랍어      | `ar`          |           |             | ✔ \*                     | |
 | 체코어       | `cs`          |           |             | ✔ \*                     | |
-| 중국어-간체 | `zh-CN`|           |             | ✔         |    |
+| 중국어-간체 | `zh-hans`| ✔ \***     |             | ✔         |    |
+| 중국어-번체 | `zh-hant`| ✔ \***     |             | ✔         |    |
 | 덴마크어      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
 | 네덜란드어       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
-| 영어     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
+| 영어     | `en`          | ✔ \***       | ✔           |  ✔ \*\*     |      |
 | 핀란드어     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| 프랑스어      | `fr`          | ✔        | ✔           |  ✔            |     |
+| 프랑스어      | `fr`          | ✔ \***       | ✔           |  ✔            |     |
 | 독일어      | `de`          | ✔ \*     | ✔           |  ✔           |     |
 | 그리스어       | `el`          | ✔ \*     |             |            |     |
 | 헝가리어   | `hu`          |           |             |  ✔ \*          |     | 
-| 이탈리아어     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| 일본어    | `ja`          |          | ✔           |  ✔ \*          |     |
+| 이탈리아어     | `it`          | ✔ \***     | ✔           |  ✔ \*           |     |
+| 일본어    | `ja`          | ✔ \***         | ✔           |  ✔ \*          |     |
 | 한국어      | `ko`          |          | ✔           |  ✔ \*          |     |
 | 노르웨이어(복말) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
 | 폴란드어      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
@@ -71,7 +72,9 @@ Text Analytics API는 다양한 언어, 변형, 방언 및 일부 국가/문화�
 
 \*언어 지원은 미리 보기 상태입니다.
 
-\*\*이 언어에 대해 [명명 된 엔터티 인식](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) 및 [엔터티 링크](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) 를 모두 사용할 수 있습니다.    
+\*\*이 언어에 대해 [명명 된 엔터티 인식](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) 및 [엔터티 링크](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) 를 모두 사용할 수 있습니다.  
+
+\** * [감정 분석 V3 공개 미리 보기](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview) 에서 사용 가능
 
 ## <a name="see-also"></a>참고자료
 

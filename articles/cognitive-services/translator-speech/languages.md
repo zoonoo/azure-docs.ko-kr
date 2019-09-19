@@ -3,20 +3,20 @@ title: 지원되는 언어 - Translator Speech API
 titlesuffix: Azure Cognitive Services
 description: Translator Speech API에서 지원되는 언어를 봅니다.
 services: cognitive-services
-author: swmachan
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
-ms.author: swmachan
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ed8f693e4dc0344a0117ae9d6992b925992ef0c4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2f5b48f2dbc2d109c03613676c6a119fd971603b
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446922"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965434"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Translator Speech API에서 지원되는 언어
 
@@ -48,7 +48,7 @@ Translator Speech API는 다음 언어를 음성 텍스트 변환 번역에 대�
 | 불가리아어      | `bg`          |
 | 광둥어(번체)      | `yue`          |
 | 카탈로니아어      | `ca`          |
-| 중국어 간체      | `zh-Hans`          |
+| 중국어(간체)      | `zh-Hans`          |
 | 중국어 번체      | `zh-Hant`          |
 | 크로아티아어      | `hr`          |
 | 체코어      | `cs`          |
@@ -77,7 +77,7 @@ Translator Speech API는 다음 언어를 음성 텍스트 변환 번역에 대�
 | 한국어      | `ko`          |
 | 라트비아어      | `lv`          |
 | 리투아니아어      | `lt`          |
-| 마다가스카르어      | `mg`          |
+| 말라가시어      | `mg`          |
 | 말레이어      | `ms`          |
 | 몰타어      | `mt`          |
 | 노르웨이어      | `nb`          |

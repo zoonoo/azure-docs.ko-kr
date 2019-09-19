@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 8/21/2019
 ms.author: dapine
-ms.openlocfilehash: c12e64fc51eb53aebffbef1ad886b7cc404cf699
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 88d140c4890492b6a53c2e73328ab814293550e6
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051232"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70994963"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 지원
 
@@ -46,7 +46,7 @@ Cognitive Services 리소스는 [Microsoft Azure](https://azure.microsoft.com)�
 
 Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 집합을 제공하며, 각각은 Azure Cognitive Services 서비스의 기능 하위 집합을 포함하고 있습니다.
 
-| 서비스 | 지원 되는 가격 책정 계층 | 컨테이너 | 설명 |
+| 서비스 | 지원 되는 가격 책정 계층 | 컨테이너 | Description |
 |---------|----------|----------|-------------|
 |[변칙 탐지기][ad-containers] |F0, S0|**변칙-탐지기** |Anomaly Detector API를 사용하면 기계 학습을 통해 시계열 데이터에서 변칙을 검색하고 모니터링할 수 있습니다.<br>[액세스 요청](https://aka.ms/adcontainer)|
 |[Computer Vision][cv-containers] |F0, S1|**텍스트 인식** |영수증, 포스터, 명함과 같은 여러 가지 표면과 배경이 있는 다양한 개체의 이미지에서 인쇄된 텍스트를 추출합니다.<br/><br/>**중요:** 텍스트 인식 컨테이너는 현재 영어로만 작동합니다.<br>[액세스 요청](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
@@ -98,6 +98,8 @@ Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.
 
 개별 컨테이너마다 서버 및 메모리 할당 요구 사항을 포함하여 각각 고유한 요구 사항이 있을 수 있습니다.
 
+[!INCLUDE [Cognitive Services container security](containers/includes/cognitive-services-container-security.md)]
+
 [!INCLUDE [Discoverability of more container information](../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="next-steps"></a>다음 단계
@@ -116,7 +118,6 @@ Azure Cognitive Services의 컨테이너에서 제공하는 기능을 설치하�
 
 <!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 -->
-
 
 [ad-containers]: anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: computer-vision/computer-vision-how-to-install-containers.md

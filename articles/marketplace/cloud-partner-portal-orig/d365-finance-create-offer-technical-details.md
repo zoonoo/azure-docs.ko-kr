@@ -1,53 +1,23 @@
 ---
 title: 기술 정보 양식 작성 방법
-description: 새 Dynamics 365 Business Central 앱에 대한 기술 정보 양식의 값을 입력하는 방법을 설명합니다.
+description: 사용 되지 않으며 해당 PC 문서에 연결 됩니다. was "새로운 Dynamics 365 비즈니스 중앙 앱에 대 한 기술 정보 양식에서 값을 입력 하는 방법을 설명 합니다."
 services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: ChJenk
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 09/18/2019
 ms.author: pabutler
-ms.openlocfilehash: dbc38fab5bd8e55f6dd280ecc46af1b1a5ae7ede
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c59bf5aa4518d556de36b7aa4ea4ef91fa244dea
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935059"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105561"
 ---
-<a name="how-to-fill-out-the-technical-info-form"></a>기술 정보 양식 작성 방법
-===========================================
+# <a name="how-to-fill-out-the-technical-info-form"></a>기술 정보 양식 작성 방법
 
-1.  **애플리케이션 종류 선택** 섹션에서 확장 패키지 파일(.app) 및 확장에 종속성이 있는 모든 확장 패키지 파일을 업로드합니다.
+[Cloud 파트너 포털](https://cloudpartner.azure.com/) 는 Dynamics 365 비즈니스 센터 제품의 생성 및 관리를 더 이상 지원 하지 않습니다. 대신이 기능은 Microsoft [파트너 센터 포털로](https://partner.microsoft.com/)이동 되었습니다. 자세한 내용은 [새 Dynamics 365 비즈니스 센터 제품 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer)를 참조 하세요.
 
-    ![애플리케이션 패키지 정보](./media/d365-financials/image015.png)
+## <a name="next-steps"></a>다음 단계
 
--   **확장 패키지 파일** - 필수 - 확장 패키지 파일(.app)입니다.
-
--   **종속성 패키지 파일** - 앱이 AppSource에 게시된 다른 앱에 대한 종속성을 가진 경우 필수입니다. 현재 앱이 종속된, AppSource에 이미 게시된 확장의 이 .app 파일입니다. 
-
--   **라이브러리 패키지 파일** - 앱이 AppSource에 게시되지 *않은* 다른 앱에 대한 종속성을 가진 경우 필수입니다. AppSource에 게시되지 않았으며 게시되지 않을 기존 앱의 이 .app 파일입니다.
-
--   **앱 테스트 자동화** - 필수 - 확장의 자동화된 테스트를 위해 만들어야 하는 VS 코딩된 테스트 패키지입니다.
-
-1. **확장에 대한 추가 정보** 섹션에서 확장에 대한 추가 정보를 업로드합니다. 이 정보는 유효성 검사 중에 사용됩니다.
-
-   ![앱 확장 양식에 대한 추가 정보](./media/d365-financials/image016.png)
-
-
--   **제품 설명서 URL** - 필수 - 확장 설명서의 URL입니다.
-
--   **키 사용 시나리오** - 필수 - 확장에 대한 단계별 설정 및 사용법 세부 정보를 나열하는 문서입니다. 예제는 [사용자 시나리오 문서](https://docs.microsoft.com/dynamics-nav/compliance/apptest-userscenario/)에서 확인할 수 있습니다.
-
--   **대상 릴리스** - 필수 - 앱을 배포할 릴리스를 선택합니다. 현재 출시된 버전에 배포하려면 **현재**를 선택합니다. 릴리스할 다음 부 버전에 배포하려면 **다음 부 버전**을 선택합니다. 릴리스할 다음 주 버전에 배포하려면 **다음 주 버전**을 선택합니다.
-
--   **프리미엄 SKU 필요** - 선택 사항 - 앱에 프리미엄 SKU가 필요한 경우 프리미엄 단추를 선택합니다. 서비스 관리 및 제조는 프리미엄에서만 사용할 수 있습니다. 필수 및 프리미엄에 대한 자세한 내용은 [표시되는 기능 변경](https://docs.microsoft.com/dynamics365/financials/ui-experiences) 문서에서 확인할 수 있습니다.
-
--   **코드 분석 오류에 대한 설명** - 선택 사항 - 요구 사항을 충족하지 않는 코드를 나열하고 근거를 제공하는 문서입니다.
-
--   **영향을 받는 핵심 기능에 대한 설명** - 선택 사항 - 확장에 의해 제한되는 핵심 기능을 나열하고 설명하는 문서입니다.
-
--   **테스트 계정** - 선택 사항 - 종료 간 사용 테스트를 완료하는 데 필요한 원격 서비스, 웹 사이트 등에 대한 사용자 계정입니다.
-
--   **UX 요구 사항 예외** - 선택 사항 - 확장에 의해 충족되지 않은 사용자 환경 요구 사항을 나열하고 근거를 제공하는 문서입니다.
-
-다음 단계는 제품에 대한 상점 세부 정보를 추가하는 것입니다.
+새 Dynamics 365 비즈니스 센터 제품을 만들기 전에 [파트너 센터 계정 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 를 읽은 다음 **개요** 페이지가 선택 된 상태로 [상용 마켓플레이스 대시보드](https://partner.microsoft.com/dashboard/directory) 를 열어야 합니다. [새 Dynamics 365 비즈니스 센터 제품 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer) 의 지침에 따라 제품을 만듭니다.

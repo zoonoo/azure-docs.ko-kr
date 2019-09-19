@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: pafarley
-ms.openlocfilehash: b4bcd07cf7549029d09f5acd58fdf8f92fffed74
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: c3a80cbdd166f77681665ee3675c1a71ce3a9bd6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945296"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967083"
 ---
 # <a name="detect-popular-brands-in-images"></a>인기 있는 브랜드 이미지 감지
 
@@ -76,5 +76,5 @@ Computer Vision 서비스는 지정된 이미지에 브랜드 로고가 있는�
 
 브랜드 감지 기능은 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부 입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. **visualFeatures** 쿼리 매개 변수에서 `Brands`를 포함합니다. 그런 다음, 전체 JSON 응답을 얻을 때 간단하게 `"brands"` 섹션의 콘텐츠에 대한 문자열을 구문 분석합니다.
 
-* [빠른 시작: 이미지 분석(.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+* [빠른 시작: Computer Vision .NET SDK](./quickstarts-sdk/csharp-sdk.md)
 * [빠른 시작: 이미지 분석(REST API)](./quickstarts/csharp-analyze.md)

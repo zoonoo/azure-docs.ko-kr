@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
-ms.openlocfilehash: a2f743b2b7e63df8b81a1024b20e3e27a3f247a9
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4a961080bc124e53a8c5fe4dcc5f3cd6f21e9e5c
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932986"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102564"
 ---
-# <a name="configure-anomaly-detector-containers"></a>변칙 탐지기 컨테이너 구성
+# <a name="configure-anomaly-detector-containers"></a>Anomaly Detector 컨테이너 구성
 
 **변칙 탐지기** 컨테이너 런타임 환경은 명령 인수를 `docker run` 사용 하 여 구성 됩니다. 이 컨테이너에는 여러 필수 설정과 몇 가지 선택적 설정이 있습니다. 몇 가지 명령의 [예제](#example-docker-run-commands)를 사용할 수 있습니다. 청구 설정은 컨테이너별로 다릅니다. 
 
@@ -61,7 +61,7 @@ ms.locfileid: "68932986"
 
 |필수| Name | 데이터 형식 | Description |
 |--|------|-----------|-------------|
-|예| `Billing` | String | 청구 끝점 URI<br><br>예제:<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
+|예| `Billing` | 문자열 | 청구 끝점 URI<br><br>예제:<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
 
 ## <a name="eula-setting"></a>Eula 설정
 
@@ -91,7 +91,7 @@ ms.locfileid: "68932986"
 |Optional| Name | 데이터 형식 | Description |
 |-------|------|-----------|-------------|
 |허용되지 않음| `Input` | 문자열 | 변칙 탐지기 컨테이너는이를 사용 하지 않습니다.|
-|Optional| `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Optional| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>docker run 명령 예제 
 
@@ -102,13 +102,15 @@ ms.locfileid: "68932986"
 
 대괄호 ( `{}`)의 값을 고유한 값으로 바꿉니다.
 
-| Placeholder | 값 | 형식 또는 예 |
+| 자리표시자 | 값 | 형식 또는 예 |
 |-------------|-------|---|
-|{API_KEY} | 변칙 탐지기 리소스의 끝점 키입니다. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | 지역을 포함하는 청구 엔드포인트 값입니다.|`https://westus2.api.cognitive.microsoft.com`|
+| **{API_KEY}** | `Anomaly Detector` Azure`Anomaly Detector` 키 페이지에 있는 리소스의 끝점 키입니다. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | 청구 끝점 값은 Azure의 `Anomaly Detector` 개요 페이지에서 사용 가능합니다.| 명시적 예제에 대 한 [필수 매개 변수 수집](anomaly-detector-container-howto.md#gathering-required-parameters) 을 참조 하세요. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](anomaly-detector-container-howto.md#billing)를 참조하세요.
+> 컨테이너를 실행하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](anomaly-detector-container-howto.md#billing)을 참조하세요.
 > ApiKey 값은 Azure 변칙 탐지기 리소스 키 페이지의 **키** 입니다. 
 
 ## <a name="anomaly-detector-container-docker-examples"></a>변칙 탐지기 컨테이너 Docker 예

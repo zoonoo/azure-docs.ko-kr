@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: aahi
-ms.openlocfilehash: e57bb55f5bbeba9cb476672723511a4d19c46165
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: cd00f49aea08e5c94a9206b64f66f4424ef3ca04
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383263"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057643"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Azure 명령줄 인터페이스 (CLI)를 사용 하 여 Cognitive Services 리소스 만들기
 
@@ -79,7 +79,7 @@ az group create \
 
 ### <a name="vision"></a>비전
 
-| 서비스                    | Kind                      |
+| 서비스                    | 종류                      |
 |----------------------------|---------------------------|
 | Computer Vision            | `ComputerVision`          |
 | Custom Vision-예측 | `CustomVision.Prediction` |
@@ -90,7 +90,7 @@ az group create \
 
 ### <a name="search"></a>검색
 
-| 서비스            | Kind                  |
+| 서비스            | 종류                  |
 |--------------------|-----------------------|
 | Bing Autosuggest   | `Bing.Autosuggest.v7` |
 | Bing 사용자 지정 검색 | `Bing.CustomSearch`   |
@@ -100,14 +100,14 @@ az group create \
 
 ### <a name="speech"></a>음성 명령
 
-| 서비스            | Kind                 |
+| 서비스            | 종류                 |
 |--------------------|----------------------|
 | Speech Services    | `SpeechServices`     |
 | 음성 인식 | `SpeakerRecognition` |
 
 ### <a name="language"></a>언어
 
-| 서비스            | Kind                |
+| 서비스            | 종류                |
 |--------------------|---------------------|
 | 양식 이해 | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
@@ -117,7 +117,7 @@ az group create \
 
 ### <a name="decision"></a>결정
 
-| 서비스           | Kind               |
+| 서비스           | 종류               |
 |-------------------|--------------------|
 | Anomaly Detector  | `AnomalyDetector`  |
 | Content Moderator | `ContentModerator` |
@@ -138,7 +138,7 @@ az cognitiveservices account list-kinds
 ```azurecli-interactive
 az cognitiveservices account create \
     --name anomaly-detector-resource \
-    --group cognitive-services-resource-group \
+    --resource-group cognitive-services-resource-group \
     --kind AnomalyDetector \
     --sku F0 \
     --location westus2 \

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 3cad1a73dd98928ed12748e2acffaea158dc5924
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 594edab4e6a69edb49c8a1ce407c9fd943d11f2b
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010290"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103166"
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL Database 기능
 
@@ -114,8 +114,8 @@ Azure platform은 표준 데이터베이스 기능에 추가 값으로 추가 �
 
 | **플랫폼 기능** | **단일 데이터베이스 및 탄력적 풀** | **관리 되는 인스턴스 및 인스턴스 풀** |
 | --- | --- | --- |
-| [활성 지역 복제](sql-database-active-geo-replication.md) | 예-대규모 이외의 모든 서비스 계층 | 아니요, 대 안으로 [자동 장애 조치 그룹 (미리 보기)](sql-database-auto-failover-group.md) 을 참조 하세요. |
-| [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md) | 예-대규모 이외의 모든 서비스 계층 | 예, [공개 미리 보기 상태](sql-database-auto-failover-group.md)|
+| [활성 지역 복제](sql-database-active-geo-replication.md) | 예-대규모 이외의 모든 서비스 계층 | 아니요, 대 안으로 [자동 장애 조치 (failover) 그룹](sql-database-auto-failover-group.md) 을 참조 하세요. |
+| [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md) | 예-대규모 이외의 모든 서비스 계층 | 예, [자동 장애 조치 그룹](sql-database-auto-failover-group.md) 을 참조 하세요.|
 | 자동 크기 조정 | 예, 하지만 서버 리스 [모델](sql-database-serverless.md)에서만 사용 됩니다. 서버를 사용 하지 않는 모델에서는 서비스 계층의 변경 (vCore, 저장소 또는 DTU 변경)이 빠르고 온라인 상태입니다. 서비스 계층을 변경 하려면 가동 중지 시간을 최소화 해야 합니다. | 아니요, 예약 된 계산 및 저장소를 선택 해야 합니다. 서비스 계층 (vCore 또는 max storage)의 변경은 온라인 상태 이며 가동 중지 시간을 최소화 하거나 거의 필요 하지 않습니다. |
 | [자동 백업](sql-database-automated-backups.md) | 예. 전체 백업은 7 일, 차등 12 시간 및 로그 백업 마다 5-10 분 마다 수행 됩니다. | 예. 전체 백업은 7 일, 차등 12 시간 및 로그 백업 마다 5-10 분 마다 수행 됩니다. |
 | [자동 조정(인덱스)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [예](sql-database-automatic-tuning.md)| 아니요 |

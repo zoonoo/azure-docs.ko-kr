@@ -3,17 +3,17 @@ title: Azure IoT Hub Device Provisioning Service의 서비스 개념 | Microsoft
 description: Device Provisioning 서비스 및 IoT Hub를 사용하는 디바이스에 해당하는 서비스 프로비전 개념을 설명합니다.
 author: nberdy
 ms.author: nberdy
-ms.date: 04/04/2019
+ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 4a4f53f991355e634e8139f9e90bec6c508a527d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51486da6b34c0ff1e9b6d05558c2132a416913e9
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60745811"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104372"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>IoT Hub Device Provisioning Service 개념
 
@@ -31,7 +31,7 @@ IoT Hub Device Provisioning Service는 지정된 IoT 허브에 대한 제로 터
 
 디바이스 프로비전 엔드포인트는 모든 디바이스가 자동 프로비전에 사용하는 단일 엔드포인트입니다. URL은 공급 체인 시나리오에서 새 연결 정보를 사용하여 디바이스를 새로 고쳐야 하는 필요성을 경감하기 위해 모든 프로비전 서비스 인스턴스에 대해 동일합니다. ID 범위는 테넌트 격리를 보장합니다.
 
-## <a name="linked-iot-hubs"></a>연결된 IoT 허브
+## <a name="linked-iot-hubs"></a>연결된 IoT Hub
 
 Device Provisioning 서비스는 Device Provisioning 서비스에 연결된 IoT 허브에만 프로비전할 수 있습니다. IoT 허브를 Device Provisioning 서비스 인스턴스에 연결하면 서비스에 IoT 허브의 디바이스 레지스트리에 대한 읽기/쓰기 권한을 부여합니다. 링크를 사용하면 Device Provisioning 서비스는 디바이스 ID를 등록하고 디바이스 쌍에서 초기 구성을 설정할 수 있습니다. 연결된 IoT 허브는 모든 Azure 지역에 있을 수 있습니다. 다른 구독의 허브를 프로비전 서비스에 연결할 수 있습니다.
 
@@ -57,7 +57,7 @@ Device Provisioning 서비스에는 다음 두 가지 유형의 등록을 지원
 
 ### <a name="enrollment-group"></a>등록 그룹
 
-등록 그룹은 특정 증명 메커니즘을 공유하는 디바이스의 그룹입니다. 등록 그룹의 모든 디바이스는 동일한 루트 CA 또는 중간 CA(인증 기관)에서 서명된 X.509 인증서를 제공합니다. 등록 그룹은 X.509 증명 메커니즘만 사용할 수 있습니다. 등록 그룹 이름 및 인증서 이름은 영숫자, 소문자여야 하며 하이픈을 포함할 수 있습니다.
+등록 그룹은 특정 증명 메커니즘을 공유하는 디바이스의 그룹입니다. 등록 그룹은 x.509 뿐만 아니라 대칭을 모두 지원 합니다. X.509 등록 그룹의 모든 장치는 동일한 루트 또는 중간 CA (인증 기관)에서 서명 된 x.509 인증서를 제공 합니다. 대칭 키 등록 그룹의 각 장치는 그룹 대칭 키에서 파생 된 SAS 토큰을 제공 합니다. 등록 그룹 이름 및 인증서 이름은 영숫자, 소문자여야 하며 하이픈을 포함할 수 있습니다.
 
 > [!TIP]
 > 원하는 초기 구성을 공유하는 다수의 디바이스 또는 동일한 테넌트로 이동하는 디바이스에 대한 등록 그룹을 사용하는 것이 좋습니다.
