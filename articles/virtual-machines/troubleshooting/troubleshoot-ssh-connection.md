@@ -5,7 +5,7 @@ keywords: ssh 연결 거부, ssh 오류, azure ssh, SSH 연결 실패
 services: virtual-machines-linux
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: dcb82e19-29b2-47bb-99f2-900d4cfb5bbb
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: fd3c40d56e0ba9cdb50847832051606f81d0e952
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 006dbbe1b7472982a894691d019eb88ef2041dac
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677681"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088259"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>실패하거나 오류가 발생하거나 거부되는 Azure Linux VM에 대한 SSH 연결 문제 해결
 이 문서는 Linux VM(가상 머신)에 연결하려고 할 때 SSH(Secure Shell) 오류, SSH 연결 실패 또는 SSH 연결 거부 문제로 인해 발생하는 문제를 찾고 수정하도록 돕습니다. Azure Portal, Azure CLI 또는 Linux용 VM 액세스 확장을 사용하여 연결 문제를 해결할 수 있습니다.
@@ -49,7 +49,7 @@ ms.locfileid: "68677681"
 다음 방법 중 하나를 사용하여 자격 증명 또는 SSH 구성을 다시 설정할 수 있습니다.
 
 * [Azure Portal](#use-the-azure-portal) - SSH 구성 또는 SSH 키를 신속하게 다시 설정해야 하는데 Azure 도구가 설치되지 않은 경우에 매우 유용합니다.
-* [AZURE Vm 직렬 콘솔](https://aka.ms/serialconsolelinux) -vm 직렬 콘솔은 SSH 구성에 관계 없이 작동 하며 vm에 대 한 대화형 콘솔을 제공 합니다. 실제로 "SSH 불가능" 상황은 특히 해결을 돕기 위해 직렬 콘솔이 설계 된 것입니다. 자세한 내용은 아래를 참조 하세요.
+* [AZURE Vm 직렬 콘솔](https://aka.ms/serialconsolelinux) -vm 직렬 콘솔은 SSH 구성에 관계 없이 작동 하며 vm에 대 한 대화형 콘솔을 제공 합니다. 실제로 "SSH 불가능" 상황은 특히 해결을 돕기 위해 직렬 콘솔이 설계 된 것입니다. 자세한 내용은 아래를 참조하세요.
 * [Azure CLI](#use-the-azure-cli) - 명령줄에 이미 도달한 경우 SSH 구성 또는 자격 증명을 신속하게 다시 설정합니다. 클래식 VM을 사용하는 경우 [Azure 클래식 CLI](#use-the-azure-classic-cli)를 사용할 수 있습니다.
 * [Azure VMAccessForLinux 확장](#use-the-vmaccess-extension) - json 정의 파일을 만들고 다시 사용하여 SSH 구성 또는 사용자 자격 증명을 다시 설정합니다.
 

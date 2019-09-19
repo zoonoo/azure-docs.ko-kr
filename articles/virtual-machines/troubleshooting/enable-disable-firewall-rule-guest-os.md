@@ -4,7 +4,7 @@ description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 7a547efb7af69c58f8e04615d24dd7c230f0c8b0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 782240c51833fc841af9f4260860db4c03897c03
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444643"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086442"
 ---
-# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Azure VM 게스트 OS에 대 한 방화벽 규칙을 사용할지 설정 합니다.
+# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Azure VM 게스트 OS에서 방화벽 규칙을 사용 하거나 사용 하지 않도록 설정
 
 이 문서에서는 게스트 운영 체제 방화벽에서 VM(가상 머신)의 트래픽 일부를 필터링하는 것으로 의심되는 상황을 해결하기 위한 참조를 제공합니다. 이는 다음과 같은 이유로 유용할 수 있습니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "67444643"
 
 *   모든 방화벽 프로필을 사용하지 않도록 설정하면 RDP 관련 방화벽 규칙을 설정하는 것보다 훨씬 더 쉽게 문제를 해결할 수 있습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 방화벽 규칙을 구성하는 방법은 필요한 VM에 대한 액세스 수준에 따라 달라집니다. 다음 예제에서는 RDP 규칙을 사용합니다. 그러나 올바른 레지스트리 키를 가리켜서 다른 모든 종류의 트래픽에도 동일한 방법을 적용할 수 있습니다.
 
@@ -99,7 +99,7 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
 
 1.  문제 해결을 위한 VM에서 레지스트리 편집기(regedit.exe)를 시작한 다음, **파일** > **네트워크 레지스트리 연결**을 차례로 선택합니다.
 
-2.  엽니다는 *대상 컴퓨터*\SYSTEM 분기 하 고 다음 값을 지정 합니다.
+2.  *대상 컴퓨터*\SYSTEM branch를 열고 다음 값을 지정 합니다.
 
     * 규칙을 사용하도록 설정하려면 다음 레지스트리 값을 엽니다.
     
@@ -107,7 +107,7 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
     
         그런 다음, 문자열에서 **Active=FALSE**를 **Active=TRUE**로 변경합니다.
 
-        **v2.22 | 작업 = 허용 | 활성 = TRUE | Dir = In | 프로토콜 = 6 | 프로필: 도메인 | 프로필 = 개인 | 프로필 = Public | LPort 3389 = | App=%SystemRoot%\system32\svchost.exe| Svc termservice = | 이름 =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
+        **v 2.22 | Action = Allow | Active = TRUE | Dir = In | 프로토콜 = 6 | Profile = 도메인 | Profile = 비공개 | Profile = 공용 | LPort = 3389 | 앱 =%SystemRoot%\system32\svchost.exe | Svc = termservice | Name =\@FirewallAPI,-28775 | Desc =\@FirewallAPI,-28756 | EmbedCtxt =\@FirewallAPI,-28752 |**
     
     * 규칙을 사용하지 않도록 설정하려면 다음 레지스트리 값을 엽니다.
     
@@ -115,7 +115,7 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
 
         그런 다음, **Active =TRUE**를 **Active=FALSE**로 변경합니다.
         
-        **v2.22 | 작업 = 허용 | 활성 = FALSE | Dir = In | 프로토콜 = 6 | 프로필: 도메인 | 프로필 = 개인 | 프로필 = Public | LPort 3389 = | App=%SystemRoot%\system32\svchost.exe| Svc termservice = | 이름 =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
+        **v 2.22 | Action = Allow | 활성 = FALSE | Dir = In | 프로토콜 = 6 | Profile = 도메인 | Profile = 비공개 | Profile = 공용 | LPort = 3389 | 앱 =%SystemRoot%\system32\svchost.exe | Svc = termservice | Name =\@FirewallAPI,-28775 | Desc =\@FirewallAPI,-28756 | EmbedCtxt =\@FirewallAPI,-28752 |**
 
 3.  VM을 다시 시작하여 변경 내용을 적용합니다.
 
@@ -131,22 +131,22 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
 
 3.  디스크 관리 콘솔에서 디스크의 플래그가 **온라인**으로 지정되었는지 확인합니다. 연결된 시스템 디스크에 할당된 드라이브 문자입니다.
 
-4.  변경 하기 전에 변경 내용의 롤백이 필요한 경우 \windows\system32\config 폴더의 복사본을 만듭니다.
+4.  변경을 수행 하기 전에 변경 내용을 롤백하는 경우에 \windows\system32\config 폴더의 복사본을 만듭니다.
 
-5.  문제 해결 VM에서 레지스트리 편집기 (regedit.exe)를 시작 합니다.
+5.  VM 문제 해결에서 레지스트리 편집기 (regedit.exe)를 시작 합니다.
 
-6.  강조 표시 합니다 **HKEY_LOCAL_MACHINE** 키를 선택한 후 **파일** > **하이브 로드** 메뉴에서.
+6.  **HKEY_LOCAL_MACHINE** 키를 강조 표시 한 다음 메뉴에서 **파일** > **로드 하이브** 를 선택 합니다.
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
 7.  \windows\system32\config\SYSTEM 파일을 찾아 엽니다. 
 
     > [!Note]
-    > 이름을 묻는 메시지가 표시됩니다. 입력 **BROKENSYSTEM**를 차례로 확장 하 고 **HKEY_LOCAL_MACHINE**합니다. 이라고 하는 추가 키 나타납니다 **BROKENSYSTEM**합니다. 이 문제를 해결 하려면 것 탑재 하는으로 이러한 문제가 하이브 **BROKENSYSTEM**합니다.
+    > 이름을 묻는 메시지가 표시됩니다. **BROKENSYSTEM**를 입력 한 다음 **HKEY_LOCAL_MACHINE**을 확장 합니다. 이제 이름이 **BROKENSYSTEM**인 추가 키가 표시 됩니다. 이 문제 해결을 위해 이러한 문제 하이브를 **BROKENSYSTEM**으로 탑재 합니다.
 
 8.  BROKENSYSTEM 분기에서 다음과 같이 변경합니다.
 
-    1.  VM이 시작되는 **ControlSet** 레지스트리 키를 확인합니다. HKLM\BROKENSYSTEM\Select\Current 키 번호를 볼 수 있습니다.
+    1.  VM이 시작되는 **ControlSet** 레지스트리 키를 확인합니다. HKLM\BROKENSYSTEM\Select\Current.에 키 번호가 표시 됩니다.
 
     2.  규칙을 사용하도록 설정하려면 다음 레지스트리 값을 엽니다.
     
@@ -154,7 +154,7 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
         
         그런 다음, **Active=FALSE**를 **Active=True**로 변경합니다.
         
-        **v2.22 | 작업 = 허용 | 활성 = TRUE | Dir = In | 프로토콜 = 6 | 프로필: 도메인 | 프로필 = 개인 | 프로필 = Public | LPort 3389 = | App=%SystemRoot%\system32\svchost.exe| Svc termservice = | 이름 =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
+        **v 2.22 | Action = Allow | Active = TRUE | Dir = In | 프로토콜 = 6 | Profile = 도메인 | Profile = 비공개 | Profile = 공용 | LPort = 3389 | 앱 =%SystemRoot%\system32\svchost.exe | Svc = termservice | Name =\@FirewallAPI,-28775 | Desc =\@FirewallAPI,-28756 | EmbedCtxt =\@FirewallAPI,-28752 |**
 
     3.  규칙을 사용하지 않도록 설정하려면 다음 레지스트리 키를 엽니다.
 
@@ -162,9 +162,9 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
 
         그런 다음, **Active=True**를 **Active=FALSE**로 변경합니다.
         
-        **v2.22 | 작업 = 허용 | 활성 = FALSE | Dir = In | 프로토콜 = 6 | 프로필: 도메인 | 프로필 = 개인 | 프로필 = Public | LPort 3389 = | App=%SystemRoot%\system32\svchost.exe| Svc termservice = | 이름 =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
+        **v 2.22 | Action = Allow | 활성 = FALSE | Dir = In | 프로토콜 = 6 | Profile = 도메인 | Profile = 비공개 | Profile = 공용 | LPort = 3389 | 앱 =%SystemRoot%\system32\svchost.exe | Svc = termservice | Name =\@FirewallAPI,-28775 | Desc =\@FirewallAPI,-28756 | EmbedCtxt =\@FirewallAPI,-28752 |**
 
-9.  강조 표시 **BROKENSYSTEM**를 선택한 후 **파일** > **하이브 언로드** 합니다.
+9.  **BROKENSYSTEM**를 강조 표시 한 다음 메뉴에서 **파일** > **언로드 Hive** 를 선택 합니다.
 
 10. [시스템 디스크를 분리하고 VM을 다시 만듭니다](troubleshoot-recovery-disks-portal-windows.md).
 

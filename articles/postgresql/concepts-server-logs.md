@@ -5,15 +5,15 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 4d1cf2c59e324cedd9b747b1ac65d6edcb9deb45
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/18/2019
+ms.openlocfilehash: b295ab442e70772a86d6699e1063c7a1c728f1a7
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067401"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091128"
 ---
-# <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>서버에서 Azure Database for PostgreSQL-단일 서버 로그
+# <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 서버 로그-단일 서버
 Azure Database for PostgreSQL에서는 쿼리 및 오류 로그를 생성합니다. 쿼리 및 오류 로그는 구성 오류 및 최적 상태가 아닌 성능 문제를 식별하고, 문제를 해결하고, 복구하는 데 사용될 수 있습니다. 단, 트랜잭션 로그 액세스 권한은 포함되지 않습니다. 
 
 ## <a name="configure-logging"></a>로깅 구성 
@@ -28,36 +28,48 @@ Azure Database for PostgreSQL에서는 쿼리 및 오류 로그를 생성합니�
 
 
 ## <a name="diagnostic-logs"></a>진단 로그
-Azure Database for PostgreSQL은 Azure Monitor 진단 로그와 통합됩니다. PostgreSQL 서버에 로그를 사용 설정한 후에 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md), Event Hubs 또는 Azure 저장소에 내보내도록 선택할 수 있습니다. 진단 로그를 사용하도록 설정하는 방법에 대한 자세한 내용은 [진단 로그 설명서](../azure-monitor/platform/diagnostic-logs-overview.md)의 방법 섹션을 참조하세요. 
+Azure Database for PostgreSQL은 Azure Monitor 진단 로그와 통합됩니다. PostgreSQL 서버에 로그를 사용 설정한 후에 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md), Event Hubs 또는 Azure 저장소에 내보내도록 선택할 수 있습니다. 
 
 > [!IMPORTANT]
 > 이 서버 로그에 대한 진단 기능은 범용 및 메모리 최적화 [가격 책정 계층](concepts-pricing-tiers.md)에서만 사용할 수 있습니다.
 
-아래 표에는 각 로그의 내용에 대한 설명이 나와 있습니다. 포함되는 필드와 이러한 필드가 표시되는 순서는 선택한 출력 엔드포인트에 따라 달라질 수 있습니다. 
+Azure Portal를 사용 하 여 진단 로그를 사용 하도록 설정 하려면
+
+   1. 포털에서 Postgres server의 탐색 메뉴에 있는 *진단 설정* 으로 이동 합니다.
+   2. *진단 설정 추가*를 선택 합니다.
+   3. 이 설정의 이름을로 설정 합니다. 
+   4. 기본 다운스트림 위치 (저장소 계정, 이벤트 허브, log analytics)를 선택 합니다. 
+   5. 원하는 데이터 형식을 선택 합니다.
+   6. 설정을 저장합니다.
+
+다음 표에서는 각 로그의 내용에 대해 설명 합니다. 포함되는 필드와 이러한 필드가 표시되는 순서는 선택한 출력 엔드포인트에 따라 달라질 수 있습니다. 
 
 |**필드** | **설명** |
 |---|---|
 | TenantId | 테넌트 ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | UTC에 로그가 기록된 때의 타임스탬프 |
-| Type | 로그의 형식 항상 `AzureDiagnostics` |
+| 형식 | 로그의 형식 항상 `AzureDiagnostics` |
 | SubscriptionId | 서버가 속한 구독의 GUID |
 | ResourceGroup | 서버가 속한 리소스 그룹의 이름 |
 | ResourceProvider | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
-| ResourceId | 리소스 URI |
-| Resource | 서버의 이름 |
-| Category | `PostgreSQLLogs` |
+| resourceId | 리소스 URI |
+| Resource | 서버의 이름입니다. |
+| 범주 | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | 로깅 수준(예: LOG, ERROR, NOTICE) |
-| Message | 기본 로그 메시지 | 
+| 메시지 | 기본 로그 메시지 | 
 | Domain | 서버 버전(예: postgres-10) |
 | Detail | 보조 로그 메시지(해당하는 경우) |
 | ColumnName | 열 이름(해당하는 경우) |
 | SchemaName | 스키마 이름(해당하는 경우) |
 | DatatypeName | 데이터 형식 이름(해당하는 경우) |
-| LogicalServerName | 서버의 이름 | 
+| LogicalServerName | 서버의 이름입니다. | 
 | _ResourceId | 리소스 URI |
+| 접두사 | 로그 줄의 접두사 |
+
+
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Portal](howto-configure-server-logs-in-portal.md) 또는 [Azure CLI](howto-configure-server-logs-using-cli.md)에서 로그에 액세스하는 방법에 대해 자세히 알아봅니다.

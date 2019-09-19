@@ -8,28 +8,31 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/07/2019
 ms.author: rajanaki
-ms.openlocfilehash: 907a698a675a039dfdc852210adecb94c7bfab25
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 1905d6afb023b1bed15f1359fed8477d815acb45
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886898"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087700"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>대상 Azure VM의 네트워킹 구성 사용자 지정
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용 하 여 한 지역에서 다른 지역으로 azure vm을 복제 및 복구할 때 대상 azure vm에서 네트워킹 구성을 사용자 지정 하는 방법에 대 한 지침을 제공 합니다.
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 주의 사항
 
 Site Recovery가 [이 시나리오](azure-to-azure-architecture.md)에 재해 복구를 지원하는 방법을 알아봅니다.
 
-## <a name="support-networking-resources"></a>네트워킹 리소스 지원
+## <a name="supported-networking-resources"></a>지원 되는 네트워킹 리소스
 
 Azure Vm을 복제 하는 동안 장애 조치 VM에 대해 다음과 같은 주요 리소스 구성을 제공할 수 있습니다.
 
 - [내부 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#what-is-standard-load-balancer)
 - [공용 IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
 - 서브넷 및 NIC 모두에 대 한 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
+
+ > [!IMPORTANT]
+  > 이러한 설정은 현재 장애 조치 (failover) 작업 에서만 지원 되며 테스트 장애 조치 (failover)에 대해서는 지원 되지 않습니다.
 
 ## <a name="pre-requisites"></a>필수 조건
 

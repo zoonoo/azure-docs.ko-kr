@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb4486c889dec29f81b57605c3ccee510242f832
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
-ms.translationtype: MT
+ms.openlocfilehash: bdb1e26d9f10ae9b9549421e72a99f2c4e5341c2
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035136"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056077"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용 하 여 Power BI Mobile에 대 한 원격 액세스 사용
 
@@ -138,7 +138,7 @@ Power BI 모바일 앱에서 연결 하 여 보고서 서비스에 액세스 하
 ## <a name="step-5-configure-intune-policy-for-managed-devices-optional"></a>5단계: 관리 장치에 대 한 Intune 정책 구성 (선택 사항)
 
 > [!NOTE]
-> 7/31/19 까지는이 기능을 사용할 수 없습니다.
+> 이 기능은 현재 iOS 에서만 사용할 수 있습니다.
 
 Microsoft Intune를 사용 하 여 회사의 직원이 사용 하는 클라이언트 앱을 관리할 수 있습니다. Intune을 사용 하면 데이터 암호화 및 추가 액세스 요구 사항과 같은 기능을 사용할 수 있습니다. Intune을 통한 앱 관리에 대해 자세히 알아보려면 Intune 앱 관리를 참조 하세요. Power BI 모바일 응용 프로그램이 Intune 정책에서 작동 하도록 설정 하려면 다음 단계를 사용 합니다.
 

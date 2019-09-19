@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5d618f12b2a83b0aee145470aff900e26241b705
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 80a38767121f5c54afe51a7d4d788716fe9547e2
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147274"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091354"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>IoT Edge 장치, 모듈 및 자식 장치에 대 한 확장 된 오프 라인 기능 이해
 
@@ -110,7 +110,7 @@ az iot hub device-identity add-children \
 
 ## <a name="specify-dns-servers"></a>DNS 서버 지정 
 
-견고성을 향상 시키려면 사용자 환경에서 사용 되는 DNS 서버 주소를 지정 하는 것이 좋습니다. [문제 해결 문서에서 DNS 서버를 설정](troubleshoot.md#resolution-7)하는 두 가지 옵션을 참조 하세요.
+견고성을 향상 시키려면 사용자 환경에서 사용 되는 DNS 서버 주소를 지정 하는 것이 좋습니다. IoT Edge에 대 한 DNS 서버를 설정 하려면 문제 해결 문서에서 [Edge 에이전트 모듈 지속적으로 ' 빈 구성 파일 ' 및 장치에서 모듈 시작 안 함](troubleshoot.md#edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device) 확인을 참조 하세요.
 
 ## <a name="optional-offline-settings"></a>선택적 오프라인 설정
 
@@ -145,11 +145,11 @@ TTL(Time to Live) 설정은 메시지가 만료되기 전까지 대기할 수 �
 **고급 Edge 런타임 설정 구성** 섹션에서 Azure Portal의 IoT Edge 허브 모듈에 대한 환경 변수 및 만들기 옵션을 구성할 수 있습니다. 
 
 1. IoT Edge 허브와 IoT Edge 에이전트 모두에서 모듈의 디렉터리를 가리키는 **Storagefolder** 라는 환경 변수를 추가 합니다.
-1. IoT Edge 허브와 IoT Edge 에이전트 모두에 대해 바인딩을 추가 하 여 호스트 컴퓨터의 로컬 디렉터리를 모듈의 디렉터리에 연결 합니다. 예를 들어: 
+1. IoT Edge 허브와 IoT Edge 에이전트 모두에 대해 바인딩을 추가 하 여 호스트 컴퓨터의 로컬 디렉터리를 모듈의 디렉터리에 연결 합니다. 예: 
 
    ![로컬 저장소에 대 한 만들기 옵션 및 환경 변수 추가](./media/offline-capabilities/offline-storage.png)
 
-또는 배포 매니페스트에서 직접 로컬 저장소를 구성할 수 있습니다. 예를 들어: 
+또는 배포 매니페스트에서 직접 로컬 저장소를 구성할 수 있습니다. 예: 
 
 ```json
 "systemModules": {
@@ -193,7 +193,7 @@ TTL(Time to Live) 설정은 메시지가 만료되기 전까지 대기할 수 �
 
 예를 들어 `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]`는 컨테이너에서 **/iotedge/storage/** 디렉터리에 매핑된 사용자의 호스트 시스템의 **/etc/iotedge/storage** 디렉터리를 의미합니다. 또는 Windows 시스템에 대한 또 다른 예로 `"Binds":["C:\\temp:C:\\contemp"]`는 컨테이너에서 **C:\\contemp** 디렉터리에 매핑된 사용자의 호스트 시스템의 **C:\\temp** 디렉터리를 의미합니다. 
 
-Linux 장치에서 IoT Edge 허브의 사용자 프로필 UID 1000에 호스트 시스템 디렉터리에 대 한 읽기, 쓰기 및 실행 권한이 있는지 확인 합니다. 이러한 권한은 IoT Edge 허브가 디렉터리에 메시지를 저장 하 고 나중에 검색할 수 있도록 하기 위해 필요 합니다. IoT Edge 에이전트는 루트로 작동 하므로 추가 권한이 필요 하지 않습니다. 를 사용 `chown` 하 여 디렉터리 소유자를 변경한 다음 `chmod` 사용 권한을 변경 하는 등 Linux 시스템에서 디렉터리 권한을 관리 하는 방법에는 여러 가지가 있습니다. 예를 들어:
+Linux 장치에서 IoT Edge 허브의 사용자 프로필 UID 1000에 호스트 시스템 디렉터리에 대 한 읽기, 쓰기 및 실행 권한이 있는지 확인 합니다. 이러한 권한은 IoT Edge 허브가 디렉터리에 메시지를 저장 하 고 나중에 검색할 수 있도록 하기 위해 필요 합니다. IoT Edge 에이전트는 루트로 작동 하므로 추가 권한이 필요 하지 않습니다. 를 사용 `chown` 하 여 디렉터리 소유자를 변경한 다음 `chmod` 사용 권한을 변경 하는 등 Linux 시스템에서 디렉터리 권한을 관리 하는 방법에는 여러 가지가 있습니다. 예:
 
 ```bash
 sudo chown 1000 <HostStoragePath>
@@ -207,5 +207,5 @@ sudo chmod 700 <HostStoragePath>
 부모/자식 장치 연결에 대해 투명 게이트웨이를 설정 하는 방법에 대해 자세히 알아보세요. 
 
 * [IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성](how-to-create-transparent-gateway.md)
-* [Azure IoT Hub에 대 한 다운스트림 장치 인증](how-to-authenticate-downstream-device.md)
+* [Azure IoT Hub에 다운스트림 디바이스 인증](how-to-authenticate-downstream-device.md)
 * [다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결](how-to-connect-downstream-device.md)

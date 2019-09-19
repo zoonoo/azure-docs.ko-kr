@@ -3,17 +3,18 @@ title: Azure Storage 마이그레이션 FAQ | Microsoft Docs
 description: Azure Storage 마이그레이션에 대한 일반적인 질문과 대답입니다.
 services: storage
 author: genlin
+manager: dcscontentpm
 ms.service: storage
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 2ba09496ed8c110e3bf0e431da20f09c82d5ea0b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 250cdedaa5155f1487cb842be492acd82c0f26b3
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985581"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090812"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure Storage 마이그레이션에 대한 FAQ(질문과 대답)
 
@@ -68,7 +69,7 @@ Automation 스크립트는 스토리지 콘텐츠 조작 대신 Azure Resource M
 
 **한 스토리지 컨테이너에서 다른 스토리지 컨테이너로 데이터를 이동하려면 어떻게 할까요?**
 
-다음 단계를 수행하십시오.
+다음 단계를 수행하세요.
 
 1.  대상 Blob에 컨테이너(폴더)를 만듭니다.
 
@@ -120,7 +121,7 @@ Azure 파일 공유를 사용합니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-다음 단계를 수행하십시오.
+다음 단계를 수행하세요.
 
 1.  관리 디스크가 연결된 가상 머신을 중지합니다.
 
@@ -201,7 +202,7 @@ AzCopy를 사용하여 다른 스토리지 계정으로 데이터를 복사한 �
 
 **Premium Storage 계정에서 표준 스토리지 계정으로 이동하려면 어떻게 할까요?**
 
-다음 단계를 수행하십시오.
+다음 단계를 수행하세요.
 
 1.  표준 스토리지 계정을 만듭니다. (또는 구독에서 기존 표준 스토리지 계정을 사용합니다.)
 
@@ -276,7 +277,7 @@ Azure CLI를 사용할 수 있습니다.
 
 -   읽기 액세스 지역 중복 스토리지를 사용하는 경우 언제든지 보조 지역의 데이터에 액세스할 수 있습니다. 다음 방법 중 하나를 사용합니다.  
       
-    - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 스토리지 계정 이름에 **-secondary**를 추가합니다. 예를 들어:  
+    - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 스토리지 계정 이름에 **-secondary**를 추가합니다. 예:  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
@@ -297,6 +298,6 @@ Storage Explorer 또는 유사한 애플리케이션을 사용하지 않고 데�
 
  [Blob 마이그레이션 스크립트](../scripts/storage-common-transfer-between-storage-accounts.md)를 사용하여 이 작업을 수행할 수 있습니다.
 
-## <a name="need-help-contact-support"></a>도움이 필요하십니까? 지원에 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

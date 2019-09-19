@@ -5,13 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 08/02/2019
-ms.openlocfilehash: bc65387252fd425256684474f38ec5d783bb45e7
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: eebf9a7c3df2e5956d7926cbdf93f473897dbf44
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734841"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087850"
 ---
 # <a name="scenario-apache-ambari-ui-shows-down-hosts-and-services-in-azure-hdinsight"></a>시나리오: Apache Ambari UI는 Azure HDInsight에서 호스트 및 서비스를 표시 합니다.
 

@@ -7,12 +7,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: a4cc11447686f81017332a3528019a54a5167c52
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 71f2357ba2c2d3e978e4f967ad09fee763586a7c
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231990"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058305"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>웹 응용 프로그램 방화벽 v2 사용자 지정 규칙 만들기 및 사용
 
@@ -179,7 +179,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
 
 ## <a name="example-3"></a>예제 3
 
-이 예에서는 사용자 에이전트 *evilbot*및 192.168.5.0/24 범위의 트래픽을 차단 하려고 합니다. 이를 수행 하기 위해 두 개의 서로 다른 일치 조건을 만든 다음 둘 다 동일한 규칙에 둘 수 있습니다. 이렇게 하면 사용자 에이전트 헤더의 *evilbot* **와** 192.168.5.0/24 범위의 IP 주소가 모두 차단 됩니다.
+이 예에서는 사용자 에이전트 *evilbot*및 192.168.5.0/24 범위의 트래픽을 차단 하려고 합니다. 이를 수행 하기 위해 두 개의 서로 다른 일치 조건을 만든 다음 둘 다 동일한 규칙에 둘 수 있습니다. 이렇게 하면 사용자 에이전트 헤더의 두 *evilbot* 192.168.5.0/24 범위의 IP 주소 **와** 일치 하는 경우 요청이 차단 됩니다.
 
 논리: p **및** q
 
@@ -253,7 +253,7 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
 
 이 예에서는 요청이 IP 주소 범위 *192.168.5.0/24*외부에 있거나 사용자 에이전트 문자열이 *chrome* 이 아닌 경우 (사용자가 chrome 브라우저를 사용 하지 않음) 차단 하려고 합니다. 이 논리는 **또는**를 사용 하기 때문에 다음 예제에서 볼 수 있듯이 두 조건은 별도의 규칙에 있습니다. *myrule1* 및 *myrule2* 는 둘 다 일치 하 여 트래픽을 차단 해야 합니다.
 
-논리: **not** (p **및** q) = p가 아니거나 no q입니다.
+논리: **not** (p **및** q **) = p가 아니거나 no** **q입니다** .
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `

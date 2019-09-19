@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: atsenthi
-ms.openlocfilehash: f2621abcb2bac55ff123a11efa0ae9a082a1acbd
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 467b202cf6b981969316a2646aac99f788f7a2f4
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968257"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091190"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Azure 리소스에 대 한 Service Fabric 응용 프로그램의 관리 되는 id 액세스 권한 부여 (미리 보기)
 
@@ -40,9 +40,14 @@ Service Fabric 응용 프로그램의 관리 되는 id (이 경우 사용자 할
 
 ![Key Vault 액세스 정책](../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-다음 예제에서는 템플릿 배포를 통해 자격 증명 모음에 대 한 액세스 권한을 부여 하는 방법을 보여 줍니다. 아래 코드 조각을 템플릿의 `resources` 요소 아래에 있는 다른 항목으로 추가 합니다.
+다음 예제에서는 템플릿 배포를 통해 자격 증명 모음에 대 한 액세스 권한을 부여 하는 방법을 보여 줍니다. 아래 코드 조각을 템플릿의 `resources` 요소 아래에 있는 다른 항목으로 추가 합니다. 이 샘플에서는 사용자 할당 id 유형과 시스템 할당 id 유형 모두에 대 한 액세스 권한을 부여 하는 방법을 보여 줍니다.
 
 ```json
+    # under 'variables':
+  "variables": {
+        "userAssignedIdentityResourceId" : "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]",
+    }
+    # under 'resources':
     {
         "type": "Microsoft.KeyVault/vaults/accessPolicies",
         "name": "[concat(parameters('keyVaultName'), '/add')]",
@@ -64,6 +69,42 @@ Service Fabric 응용 프로그램의 관리 되는 id (이 경우 사용자 할
             ]
         }
     },
+```
+시스템 할당 관리 id의 경우:
+```json
+    # under 'variables':
+  "variables": {
+        "sfAppSystemAssignedIdentityResourceId": "[concat(resourceId('Microsoft.ServiceFabric/clusters/applications/', parameters('clusterName'), parameters('applicationName')), '/providers/Microsoft.ManagedIdentity/Identities/default')]"
+    }
+    # under 'resources':
+    {
+        "type": "Microsoft.KeyVault/vaults/accessPolicies",
+        "name": "[concat(parameters('keyVaultName'), '/add')]",
+        "apiVersion": "2018-02-14",
+        "properties": {
+            "accessPolicies": [
+            {
+                    "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
+                    "tenantId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').tenantId]",
+                    "objectId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').principalId]",
+                    "dependsOn": [
+                        "[variables('sfAppSystemAssignedIdentityResourceId')]"
+                    ],
+                    "permissions": {
+                        "secrets": [
+                            "get",
+                            "list"
+                        ],
+                        "certificates": 
+                        [
+                            "get", 
+                            "list"
+                        ]
+                    }
+            },
+        ]
+        }
+    }
 ```
 
 자세한 내용은 [자격 증명 모음-액세스 정책 업데이트](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy)를 참조 하세요.

@@ -4,7 +4,7 @@ description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9ae8620b803fa9a911f44840a5fff5d190a316a1
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505464"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086526"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Azure VM에서 게스트 OS 방화벽 사용 안 함
 
 이 문서에서는 게스트 운영 체제 방화벽이 VM(가상 머신) 트래픽의 일부 또는 전체를 필터링하는 것으로 의심되는 상황에 대한 참조를 제공합니다. 이 문제는 방화벽에서 RDP 연결 오류를 일으키는 변경 작업이 의도적으로 수행된 경우에 발생할 수 있습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 이 문서에서 설명하는 프로세스는 문제를 해결하는 용도로 사용되므로 실제 문제 해결, 즉, 방화벽 규칙을 올바르게 설정하는 방법에 집중할 수 있습니다. Windows 방화벽 구성 요소를 사용하려면 Microsoft 모범 사례가 필요합니다. 방화벽 규칙을 구성하는 방법은 필요한 VM 액세스 수준에 따라 달라집니다.
 
@@ -60,7 +60,7 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
 
 2.  PowerShell 콘솔 창을 엽니다.
 
-3.  다음 명령을 실행합니다.
+3.  다음 명령을 실행 합니다.
 
     ```powershell
     Enter-PSSession (New-PSSession -ComputerName "<HOSTNAME>" -Credential (Get-Credential) -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck)) 
@@ -70,7 +70,7 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
     ```
 
 > [!Note]
-> 방화벽은 그룹 정책 개체를 통해 설정 되 면이 명령은 로컬 레지스트리 항목만 변경 되기 때문에이 메서드가 작동 하지 않습니다. 정책을 적용하면 이 변경 내용이 재정의됩니다. 
+> 그룹 정책 개체를 통해 방화벽을 설정 하는 경우이 명령은 로컬 레지스트리 항목만 변경 하므로이 메서드는 작동 하지 않을 수 있습니다. 정책을 적용하면 이 변경 내용이 재정의됩니다. 
 
 #### <a name="mitigation-3-pstools-commands"></a>해결 방법 3: PSTools 명령
 
@@ -78,7 +78,7 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
 
 2.  CMD 인스턴스를 열고 해당 DIP를 통해 VM에 액세스합니다.
 
-3.  다음 명령을 실행합니다.
+3.  다음 명령을 실행 합니다.
 
     ```cmd
     psexec \\<DIP> -u <username> cmd

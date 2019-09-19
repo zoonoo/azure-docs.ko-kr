@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 390c961eaa692e6ca5bf26e2954c0764207fc210
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 216316249197071bdd7a175dfc5339caeddee50a
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853667"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086838"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 조건부 액세스 설정 참조
 
@@ -71,7 +71,7 @@ Microsoft에서 다음 클라우드 앱에 조건부 액세스 정책을 할당�
 - Power BI 서비스
 - Project Online
 - 비즈니스 온라인용 Skype
-- VPN (가상 사설망)
+- VPN(가상 사설망)
 - Visual Studio App Center
 - Windows Defender ATP
 
@@ -125,7 +125,7 @@ Microsoft 클라우드 앱 외에도 다음과 같은 유형의 클라우드 앱
 | Android                | Microsoft Edge, Intune Managed Browser, Chrome  |
 | Windows Phone          | Microsoft Edge, Internet Explorer               |
 | Windows Server 2019    | Microsoft Edge, Internet Explorer, Chrome       |
-| Windows Server 2016    | Microsoft Edge, Internet Explorer               |
+| Windows Server 2016    | Internet Explorer |
 | Windows Server 2012 R2 | Internet Explorer                       |
 | Windows Server 2008 R2 | Internet Explorer                       |
 | macOS                  | Chrome, Safari                                  |

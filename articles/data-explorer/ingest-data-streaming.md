@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 5aa2d694c2c74b493a7fd1a2a89d39866928d1d4
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 712273ddfb8b6f781627e2cc7915a1f538f57b4d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70843863"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090624"
 ---
 # <a name="streaming-ingestion-preview"></a>스트리밍 수집 (미리 보기)
 
@@ -41,8 +41,9 @@ ms.locfileid: "70843863"
  
 1. [웹 UI](https://dataexplorer.azure.com/)에서 스트리밍 데이터를 수신 하는 테이블 또는 데이터베이스에 대 한 [스트리밍 수집 정책을](/azure/kusto/concepts/streamingingestionpolicy) 정의 합니다. 
 
-    > [!TIP]
-    > 정책이 데이터베이스 수준에서 정의 된 경우 데이터베이스의 모든 테이블에 대해 스트리밍 수집을 사용할 수 있습니다.
+    > [!NOTE]
+    > * 정책이 데이터베이스 수준에서 정의 된 경우 데이터베이스의 모든 테이블에 대해 스트리밍 수집을 사용할 수 있습니다.
+    > * 적용 된 정책은 새로 수집 된 데이터만 참조할 수 있으며 데이터베이스의 다른 테이블은 참조할 수 없습니다.
 
 ## <a name="use-streaming-ingestion-to-ingest-data-to-your-cluster"></a>스트리밍 수집을 사용 하 여 데이터를 클러스터로 수집 합니다.
 

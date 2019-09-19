@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 08/09/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: c8fc8e7d5888f9a0b080c0ca1d24e53068b543be
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c9e24924472e0bb8dbd0e529b739263469b631fb
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095183"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090746"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch에서 컨테이너 애플리케이션 실행
 
@@ -89,7 +89,7 @@ Batch와 호환되는 Linux 배포판 중 하나에서 Docker를 실행하는 VM
 
 ## <a name="container-configuration-for-batch-pool"></a>Batch 풀에 대한 컨테이너 구성
 
-Batch 풀을 사용하여 컨테이너 워크로드를 실행하려면 해당 풀의 [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) 개체에서 [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) 설정을 지정해야 합니다. (이 문서는 Batch .NET API 참조에 대한 링크를 제공합니다. 해당 설정은 [Batch Python](/python/api/azure.batch) API에 있습니다.)
+Batch 풀을 사용하여 컨테이너 워크로드를 실행하려면 해당 풀의 [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) 개체에서 [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) 설정을 지정해야 합니다. (이 문서는 Batch .NET API 참조에 대한 링크를 제공합니다. 해당 설정은 [Batch Python](/python/api/overview/azure/batch) API에 있습니다.)
 
 다음 예제와 같이 프리페치된 컨테이너 이미지를 사용하거나 사용하지 않고 컨테이너 지원 풀을 만들 수 있습니다. 끌어오기(또는 프리페치) 프로세스를 사용하면 Docker 허브 또는 인터넷의 다른 컨테이너 레지스트리에서 컨테이너 이미지를 미리 로드할 수 있습니다. 최상의 성능을 위해 Batch 계정과 동일한 영역의 [Azure Container Registry](../container-registry/container-registry-intro.md)를 사용합니다.
 

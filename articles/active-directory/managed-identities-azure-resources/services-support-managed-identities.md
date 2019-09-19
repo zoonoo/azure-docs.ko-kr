@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5f271f75a4faa7067f8a52d63a34772780c6448
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 37eba245933bc94e9fb631abd3b4ff495f8c6d67
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959895"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087609"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -220,7 +220,7 @@ Azure Resource Manager에 대 한 액세스를 구성 하려면 다음 목록을
 | 클라우드 | 리소스 ID | Status |
 |--------|------------|--------|
 | Azure 글로벌 | `https://servicebus.azure.net`  | 사용 가능 |
-| Azure Government |  | 사용할 수 없음 |
+| Azure Government |  | 사용 가능 |
 | Azure Germany |   | 사용할 수 없음 |
 | Azure China 21Vianet |  | 사용할 수 없음 |
 

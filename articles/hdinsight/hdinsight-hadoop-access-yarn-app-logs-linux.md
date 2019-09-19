@@ -2,18 +2,18 @@
 title: Linux 기반 HDInsight에서 Apache Hadoop YARN 애플리케이션 로그에 액세스 - Azure
 description: 명령줄과 웹 브라우저를 사용하여 Linux 기반 HDInsight(Apache Hadoop) 클러스터에서 YARN 애플리케이션 로그에 액세스하는 방법을 알아봅니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: hrasheed
-ms.openlocfilehash: 2b230f91b9d6b169b89b125bdd0394c2c7ecd96f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 6eb24e85d1d7ffa4f3377d4c2fe8b168303c15f0
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879881"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091517"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Apache Hadoop YARN 애플리케이션 로그에 액세스
 
@@ -62,11 +62,11 @@ YARN ResourceManager UI는 클러스터 헤드 노드에서 실행됩니다. Amb
 1. 웹 브라우저에서 https://CLUSTERNAME.azurehdinsight.net 으로 이동합니다. CLUSTERNAME은 HDInsight 클러스터 이름을 바꿉니다.
 2. 왼쪽에 있는 서비스 목록에서 **YARN**을 선택합니다.
 
-    ![선택한 Yarn 서비스](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
+    ![Apache Ambari Yarn 서비스 선택 됨](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
 
 3. **빠른 링크** 드롭다운에서 클러스터 헤드 노드 중 하나를 선택한 다음 **ResourceManager 로그**를 선택합니다.
 
-    ![Yarn 빠른 링크](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
+    ![Apache Ambari Yarn 빠른 링크](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
 
     YARN 로그에 대한 링크 목록이 나타납니다.
 

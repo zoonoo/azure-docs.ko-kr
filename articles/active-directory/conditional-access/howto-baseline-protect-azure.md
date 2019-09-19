@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8095b4fa6e52b7c34cedaea35b129ab68dddc65
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 06b3a3f12b2955ae97c43b0caf6a4ac13c9b770a
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532949"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086740"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>기준 정책: 서비스 관리를 위해 MFA 필요 (미리 보기)
 
@@ -50,7 +50,7 @@ CLI가 기본 브라우저를 열 수 있는 경우, 그렇게 하고 로그인 
 
 ## <a name="deployment-considerations"></a>배포 고려 사항
 
-**서비스 관리에 대 한 MFA 필요** 정책은 모든 Azure Resource Manager 사용자에 게 적용 되므로 원활한 배포를 위해 몇 가지 사항을 고려해 야 합니다. 이러한 고려 사항에는 MFA를 수행할 수 없는 Azure AD의 사용자 및 서비스 원칙과 최신 인증을 지원 하지 않는 조직에서 사용 하는 응용 프로그램 및 클라이언트를 식별 하는 작업이 포함 됩니다.
+**서비스 관리 정책에 대 한 MFA 필요** 는 모든 Azure Resource Manager 사용자에 게 적용 됩니다.
 
 ## <a name="enable-the-baseline-policy"></a>기준 정책 사용
 

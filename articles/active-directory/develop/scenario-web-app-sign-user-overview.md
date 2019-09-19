@@ -11,36 +11,56 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b898a93b87811fa5139e148a3273d7051af851b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
-ms.translationtype: HT
+ms.openlocfilehash: 1f9b6d4ce4048b31f17b50184f90aed4d2a8ba81
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056283"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086566"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>시나리오: 사용자가 로그인하는 웹앱
 
 Microsoft id 플랫폼을 사용 하 여 사용자를 로그인 하는 웹 앱을 빌드하는 데 필요한 모든 것을 알아보세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="getting-started"></a>시작
+
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 사용자를 로그인 하는 첫 번째 휴대용 (ASP.NET Core) 웹 앱을 만들려면 다음 빠른 시작을 수행 합니다.
 
 > [!div class="nextstepaction"]
 > [빠른 시작: 사용자를 로그인 하는 ASP.NET Core 웹 앱](quickstart-v2-aspnet-core-webapp.md)
 
-ASP.NET를 계속 사용 하려는 경우 다음 자습서를 사용해 보세요.
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+f 레거시 ASP.NET 웹 응용 프로그램에 로그인을 추가 하는 방법을 이해 하려면 다음 자습서를 사용해 보세요.
 
 > [!div class="nextstepaction"]
 > [빠른 시작: 사용자를 로그인 하는 ASP.NET 웹 앱](quickstart-v2-aspnet-webapp.md)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Java 개발자 라면 다음 빠른 시작을 사용해 보세요.
+
+> [!div class="nextstepaction"]
+> [빠른 시작: Java 웹 앱에 Microsoft에 로그인 추가](quickstart-v2-java-webapp.md)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python을 사용 하 여 개발 하는 경우 다음을 시도해 보세요.
+
+> [!div class="nextstepaction"]
+> [빠른 시작: Python 웹 앱에 Microsoft에 로그인 추가](quickstart-v2-python-webapp.md)
+
+---
 
 ## <a name="overview"></a>개요
 
@@ -51,7 +71,7 @@ ASP.NET를 계속 사용 하려는 경우 다음 자습서를 사용해 보세�
 두 번째 단계로, 로그인 한 사용자를 대신 하 여 응용 프로그램이 Web Api를 호출 하도록 할 수도 있습니다. 다음 단계는 [웹 앱 호출 웹 api](scenario-web-app-call-api-overview.md) 에서 찾을 수 있는 다른 시나리오입니다.
 
 > [!NOTE]
-> 웹 앱에 로그인을 추가 하는 작업은 웹 앱을 보호 하 고 **미들웨어** 라이브러리인 사용자 토큰의 유효성을 검사 하는 것입니다. 이 시나리오에는 보호 된 Api를 호출 하는 토큰을 획득 하는 것에 대 한 MSAL (Microsoft 인증 라이브러리)이 필요 하지 않습니다. 인증 라이브러리는 웹 앱이 web Api를 호출 해야 하는 경우에만 추가 작업 시나리오에서 도입 됩니다.
+> 웹 앱에 로그인을 추가 하는 작업은 웹 앱을 보호 하 고 **미들웨어** 라이브러리인 사용자 토큰의 유효성을 검사 하는 것입니다. .NET의 경우이 시나리오는 아직 MSAL (Microsoft 인증 라이브러리)을 필요로 하지 않습니다 .이는 보호 된 Api를 호출 하는 토큰을 획득 하는 것입니다. 인증 라이브러리는 웹 앱이 web Api를 호출 해야 하는 경우에만 추가 작업 시나리오에서 도입 됩니다.
 
 ## <a name="specifics"></a>자세히
 

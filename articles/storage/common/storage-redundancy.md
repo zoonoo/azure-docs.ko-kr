@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/10/2019
+ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 17d1bd95067c15bd67f80f3713f0e497bff8a68d
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 3640d2d88fc679b78395472c667fcde39979728a
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516116"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71074343"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -28,16 +28,16 @@ Azure Storage는 CRCs (순환 중복 검사)를 사용 하 여 저장 된 데이
 
 스토리지 계정을 만들 때 다음 중복성 옵션 중 하나를 선택할 수 있습니다.
 
-* [LRS(로컬 중복 스토리지)](storage-redundancy-lrs.md)
-* [ZRS(영역 중복 스토리지)](storage-redundancy-zrs.md)
-* [GRS(지역 중복 스토리지)](storage-redundancy-grs.md)
-* [RA-GRS(읽기 액세스 지역 중복 스토리지)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
-* [GZRS (지역 영역 중복 저장소)](storage-redundancy-gzrs.md)
-* [읽기 액세스 지리적 영역 중복 저장소 (RA-GZRS)](storage-redundancy-gzrs.md)
+- [LRS(로컬 중복 스토리지)](storage-redundancy-lrs.md)
+- [ZRS(영역 중복 스토리지)](storage-redundancy-zrs.md)
+- [GRS(지역 중복 스토리지)](storage-redundancy-grs.md)
+- [RA-GRS(읽기 액세스 지역 중복 스토리지)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
+- [GZRS (지역 영역 중복 저장소)](storage-redundancy-gzrs.md)
+- [읽기 액세스 지리적 영역 중복 저장소 (RA-GZRS)](storage-redundancy-gzrs.md)
 
 다음 표는 각 복제 전략에서 특정 유형의 이벤트(또는 영향이 비슷한 이벤트)에 제공하는 내구성 및 가용성 범위를 간략하게 보여줍니다.
 
-| 시나리오                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                               |
+| 시나리오                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS (미리 보기)                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | 데이터 센터 내에서 노드를 사용할 수 없음                                                                 | 예                             | 예                              | 예                                  | 예                                  |
 | 전체 데이터 센터(영역 또는 비영역)를 사용할 수 없게 됨                                           | 아니요                              | 예                              | 예                                  | 예                                  |
@@ -45,7 +45,7 @@ Azure Storage는 CRCs (순환 중복 검사)를 사용 하 여 저장 된 데이
 | 지역 전체가 사용할 수 없는 우 데이터(원격 지역 복제 지역의)에 대한 읽기 권한 | 아니요                              | 아니요                               | 예 (RA-GRS 사용)                                   | 예 (RA-GZRS 사용)                                 |
 | 지정된 한 해 동안 개체의 \_\_ 내구성을 제공하도록 설계                                          | 최소 99.999999999% | 최소 99.9999999999% | 최소 99.99999999999999% | 최소 99.99999999999999% |
 | 지원되는 스토리지 계정 형식                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2                     |
-| 읽기 요청에 대한 가용성 SLA | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.99%(쿨 액세스 계층에 대해 99.9%) |
+| 읽기 요청에 대한 가용성 SLA | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | GRS에 대 한 최소 99.9% (쿨 액세스 계층의 경우 99%)<br /><br />RA-GRS에 대 한 최소 99.99% (쿨 액세스 계층의 경우 99.9%) | GZRS에 대 한 최소 99.9% (쿨 액세스 계층의 경우 99%)<br /><br />RA-GZRS에 대 한 최소 99.99% (쿨 액세스 계층의 경우 99.9%) |
 | 쓰기 요청에 대한 가용성 SLA | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) |
 
 블록 blob 및 추가 blob, 페이지 blob, 큐, 테이블 및 파일을 포함 하 여 저장소 계정의 모든 데이터가 복제 됩니다. ZRS에 범용 v2 저장소 계정이 필요 하지만 모든 유형의 저장소 계정이 복제 됩니다.
@@ -61,9 +61,9 @@ Azure Storage의 내구성 및 가용성 보장에 대한 정보는 [Azure Stora
 
 [Azure Portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)또는 [Azure Storage 클라이언트 라이브러리](https://docs.microsoft.com/azure/index#pivot=sdkstools)중 하나를 사용 하 여 저장소 계정의 복제 전략을 변경할 수 있습니다. 스토리지 계정의 복제 유형을 변경해도 가동 중지 시간이 발생하지 않습니다.
 
-   > [!NOTE]
-   > 현재 Azure Portal 또는 Azure Storage 클라이언트 라이브러리를 사용 하 여 계정을 ZRS, GZRS 또는 RA-GZRS로 변환할 수 없습니다. 계정을 ZRS로 마이그레이션하려면, 자세한 내용은 [고가용성 Azure Storage 응용 프로그램을 빌드하기 위한 ZRS (영역 중복 저장소](storage-redundancy-zrs.md) )를 참조 하세요. GZRS 또는 RA-GZRS를 마이그레이션하려면 자세한 내용은 고가용성 [및 최대 내구성 (미리 보기)을 위한 지역 영역 중복 저장소](storage-redundancy-zrs.md) 를 참조 하세요.
-    
+> [!NOTE]
+> 현재 Azure Portal 또는 Azure Storage 클라이언트 라이브러리를 사용 하 여 계정을 ZRS, GZRS 또는 RA-GZRS로 변환할 수 없습니다. 계정을 ZRS로 마이그레이션하려면, 자세한 내용은 [고가용성 Azure Storage 응용 프로그램을 빌드하기 위한 ZRS (영역 중복 저장소](storage-redundancy-zrs.md) )를 참조 하세요. GZRS 또는 RA-GZRS를 마이그레이션하려면 자세한 내용은 고가용성 [및 최대 내구성 (미리 보기)을 위한 지역 영역 중복 저장소](storage-redundancy-zrs.md) 를 참조 하세요.
+
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>내 계정의 복제 전략을 변경하는 데 드는 비용이 있나요?
 
 변환 경로에 따라 다릅니다. 최소한의 비용이 많이 드는 Azure Storage 중복성 제공 LRS, ZRS, GRS, RA-GRS, GZRS, RA-GZRS의 순서로 정렬 됩니다. 예를 들어 LRS *에서* 다른 유형의 복제로 이동 하는 경우 보다 정교한 중복성 수준으로 이동 하기 때문에 추가 요금이 발생 합니다. GRS 또는 RA-GRS *로* 마이그레이션하면 사용자의 데이터 (주 지역)가 원격 보조 지역으로 복제 되므로 송신 대역폭 요금이 부과 됩니다. 초기 설치 시에는 일회성 비용이 청구 됩니다. 데이터가 복사 된 후에는 더 이상 마이그레이션 요금이 발생 하지 않습니다. 기존 데이터에 대 한 새 또는 업데이트 복제에 대해서만 요금이 청구 됩니다. 대역폭 요금에 대한 자세한 내용은 [Azure Storage 가격 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.

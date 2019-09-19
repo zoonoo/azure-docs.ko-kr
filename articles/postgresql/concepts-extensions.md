@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/23/2019
-ms.openlocfilehash: 04b17d2e3acba7f003325ca7fdef2107108aea4d
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.date: 09/10/2019
+ms.openlocfilehash: 383f5acb9f106bb4697433be99c53bb78d00b396
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013407"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091137"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 PostgreSQL 확장-단일 서버
 PostgreSQL은 확장을 사용하여 데이터베이스의 기능을 확장하는 방법을 제공합니다. 확장은 단일 명령을 사용 하 여 데이터베이스에서 로드 하거나 제거할 수 있는 단일 패키지에서 여러 관련 SQL 개체를 함께 번들로 묶습니다. 데이터베이스에 로드 된 후 확장은 기본 제공 기능 처럼 작동 합니다.
@@ -44,6 +44,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | 국제 제품 번호 매기기 표준에 대 한 데이터 형식|
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | 계층적 트리 구조에 대 한 데이터 형식|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | 상용 RDBMS에서 함수 및 패키지의 하위 집합을 에뮬레이트하는 함수 및 연산자|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | 감사 기능 제공|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | 암호화 함수|
 > |[pgrouting](https://pgrouting.org/)                    | 2.6.2 critical           | pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | 행 수준 잠금 정보 표시|
@@ -88,6 +89,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 > |[isn](https://www.postgresql.org/docs/10/isn.html)                          | 1.1             | 국제 제품 번호 매기기 표준에 대 한 데이터 형식|
 > |[ltree](https://www.postgresql.org/docs/10/ltree.html)                        | 1.1             | 계층적 트리 구조에 대 한 데이터 형식|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | 상용 RDBMS에서 함수 및 패키지의 하위 집합을 에뮬레이트하는 함수 및 연산자|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | 감사 기능 제공|
 > |[pgcrypto](https://www.postgresql.org/docs/10/pgcrypto.html)                     | 1.3             | 암호화 함수|
 > |[pgrouting](https://pgrouting.org/)                    | 2.5.2           | pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/10/pgrowlocks.html)                   | 1.2             | 행 수준 잠금 정보 표시|
@@ -133,6 +135,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 > |[isn](https://www.postgresql.org/docs/9.6/isn.html)                          | 1.1             | 국제 제품 번호 매기기 표준에 대 한 데이터 형식|
 > |[ltree](https://www.postgresql.org/docs/9.6/ltree.html)                        | 1.1             | 계층적 트리 구조에 대 한 데이터 형식|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | 상용 RDBMS에서 함수 및 패키지의 하위 집합을 에뮬레이트하는 함수 및 연산자|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | 감사 기능 제공|
 > |[pgcrypto](https://www.postgresql.org/docs/9.6/pgcrypto.html)                     | 1.3             | 암호화 함수|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.2           | pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.6/pgrowlocks.html)                   | 1.2             | 행 수준 잠금 정보 표시|
@@ -178,6 +181,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 > |[isn](https://www.postgresql.org/docs/9.5/isn.html)                          | 1.0             | 국제 제품 번호 매기기 표준에 대 한 데이터 형식|
 > |[ltree](https://www.postgresql.org/docs/9.5/ltree.html)                        | 1.0             | 계층적 트리 구조에 대 한 데이터 형식|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | 상용 RDBMS에서 함수 및 패키지의 하위 집합을 에뮬레이트하는 함수 및 연산자|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | 감사 기능 제공|
 > |[pgcrypto](https://www.postgresql.org/docs/9.5/pgcrypto.html)                     | 1.2             | 암호화 함수|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.0           | pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.5/pgrowlocks.html)                   | 1.1             | 행 수준 잠금 정보 표시|
@@ -212,6 +216,9 @@ dblink 및 postgres_fdw를 사용하여 한 PostgreSQL 서버에서 다른 Postg
 ## <a name="uuid"></a>uuid
 Uuid-ossp 확장에서 `uuid_generate_v4()` 를 사용 하려는 경우 성능 이점을 위해 pgcrypto 확장에서 `gen_random_uuid()` 와 비교 하는 것이 좋습니다.
 
+
+## <a name="pgaudit"></a>pgAudit
+PgAudit 확장은 세션 및 개체 감사 로깅을 제공 합니다. Azure Database for PostgreSQL에서이 확장을 사용 하는 방법을 알아보려면 [감사 개념 문서](concepts-audit.md)를 참조 하세요. 
 
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB는 PostgreSQL에 대한 확장으로 패키지되는 시계열 데이터베이스입니다. TimescaleDB는 시간 지향적인 분석 함수, 최적화를 제공하고 시계열 작업용 Postgres를 확장합니다.

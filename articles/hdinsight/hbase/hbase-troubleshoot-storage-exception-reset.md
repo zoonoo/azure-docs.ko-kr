@@ -5,13 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 08/08/2019
-ms.openlocfilehash: 8460e6782083a7e2aee06c80effe4fb5a683dd80
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 52135391024eafdfea15afd6c05a5d13bf92a2c7
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951115"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091578"
 ---
 # <a name="scenario-storage-exception-after-connection-reset-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 연결을 다시 설정한 후의 저장소 예외
 
@@ -31,7 +32,7 @@ ms.locfileid: "68951115"
 
 1. Apache Ambari UI에서 활성 HMaster를 다시 시작 합니다. 이렇게 하면 두 개의 대기 HMaster 중 하나가 활성 상태가 되 고 새 활성 HMaster가 메타 데이터 테이블 정보를 다시 로드 합니다. 따라서 hmaster UI에는 `already-deleted` 테이블이 표시 되지 않습니다.
 
-1. 클라우드 탐색기 또는와 같은 `hdfs dfs -ls /xxxxxx/yyyyy`명령을 실행 하는 등의 UI 도구에서 고아 blob 파일을 찾을 수 있습니다. 을 `hdfs dfs -rmr /xxxxx/yyyy` 실행 하 여 해당 blob을 삭제 합니다. `hdfs dfs -rmr /hbase/data/default/ThatTable/ThatFile` )을 입력합니다.
+1. 클라우드 탐색기 또는와 같은 `hdfs dfs -ls /xxxxxx/yyyyy`명령을 실행 하는 등의 UI 도구에서 고아 blob 파일을 찾을 수 있습니다. 을 `hdfs dfs -rmr /xxxxx/yyyy` 실행 하 여 해당 blob을 삭제 합니다. 예를 들어, `hdfs dfs -rmr /hbase/data/default/ThatTable/ThatFile`을 입력합니다.
 
 이제 HBase에서 동일한 이름을 사용 하 여 새 테이블을 만들 수 있습니다.
 

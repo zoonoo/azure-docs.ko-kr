@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1341f0def306a1167e1e4876365c70901cf89cd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fc1f6434bea8f75c7bcc7859c6f90d7abdd031b
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086997"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091030"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workable"></a>자습서: Workable과 Azure Active Directory 통합
 
@@ -142,7 +142,7 @@ Workable에서 SSO를 사용하도록 설정하려면 전용 Workable 계정을 
 
 3. 로그아웃 URL
 
-Single Sign On을 사용하도록 설정하면 Workable 계정 관리자가 사용자에게 알려주고 사용자는 [Workable의 SSO 페이지](https://id.workable.com/sso/signin)를 사용하여 Workable 계정 하위 도메인을 통해 로그인할 수 있습니다.
+Single Sign On을 사용하도록 설정하면 Workable 계정 관리자가 사용자에게 알려주고 사용자는 [Workable의 SSO 페이지](https://help.workable.com/hc/en-us/articles/360000067753-Single-Sign-on-SSO-Overview-Pro)를 사용하여 Workable 계정 하위 도메인을 통해 로그인할 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

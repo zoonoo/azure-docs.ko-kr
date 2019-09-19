@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 91467f99e7932ce7ffcd5b3300f8544fb848ccfa
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: d966ff3bc00d5190ebc163d4f4bfa35ba73d21ab
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019068"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087665"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Application Insights .NET SDK를 통한 사용자 지정 작업 추적
 
@@ -354,7 +354,7 @@ public async Task Process(MessagePayload message)
 
 ### <a name="dependency-types"></a>종속성 유형
 
-Application Insights는 종속성 형식을 사용 하 여 UI 환경을 cusomize 합니다. 큐의 경우 [트랜잭션 진단 환경을](/azure-monitor/app/transaction-diagnostics)개선 `DependencyTelemetry` 하는 다음과 같은 유형을 인식 합니다.
+Application Insights는 종속성 형식을 사용 하 여 UI 환경을 cusomize 합니다. 큐의 경우 [트랜잭션 진단 환경을](/azure/azure-monitor/app/transaction-diagnostics)개선 `DependencyTelemetry` 하는 다음과 같은 유형을 인식 합니다.
 - `Azure queue`Azure Storage 큐의 경우
 - `Azure Event Hubs`Azure Event Hubs
 - `Azure Service Bus`Azure Service Bus

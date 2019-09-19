@@ -5,13 +5,14 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 08/12/2019
-ms.openlocfilehash: 14f4cd7588405dbf351124b1e469fd96f9b38274
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: d4bb9e090b238eacec77f4c19bbf9afb3e09a912
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977405"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091057"
 ---
 # <a name="scenario-unable-to-sign-in-to-apache-zeppelin-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 Apache Zeppelin에 로그인 할 수 없습니다.
 

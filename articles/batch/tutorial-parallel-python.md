@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 92d8c6fb1bfa1689475774bbc4f62cd9ab38268f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: d06cf74b2a29af3fea2c24facac2899d09a0a84f
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321842"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090780"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>자습서: Python API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
@@ -123,7 +123,7 @@ Azure Portal에서 Batch 계정으로 가서 풀, 컴퓨팅 노드, 작업 및 �
 
 ### <a name="authenticate-blob-and-batch-clients"></a>Blob 및 Batch 클라이언트 인증
 
-이 앱은 Storage 계정과 상호 작용하기 위해 [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) 패키지를 사용하여 [BlockBlobService](/python/api/azure.storage.blob.blockblobservice.blockblobservice) 개체를 만듭니다.
+이 앱은 Storage 계정과 상호 작용하기 위해 [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) 패키지를 사용하여 [BlockBlobService](/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice) 개체를 만듭니다.
 
 ```python
 blob_client = azureblob.BlockBlobService(
@@ -144,7 +144,7 @@ batch_client = batch.BatchServiceClient(
 
 ### <a name="upload-input-files"></a>입력 파일 업로드
 
-이 앱은 `blob_client` 참조를 사용하여 입력된 MP4 파일을 위한 스토리지 컨테이너와 태스크 출력을 위한 컨테이너를 만듭니다. 그런 다음 `upload_file_to_container` 함수를 호출하여 로컬 `InputFiles` 디렉터리의 MP4 파일을 컨테이너에 업로드합니다. 스토리지의 파일은 Batch가 나중에 계산 노드에 다운로드할 수 있는 Batch [ResourceFile](/python/api/azure.batch.models.resourcefile) 개체로 정의됩니다.
+이 앱은 `blob_client` 참조를 사용하여 입력된 MP4 파일을 위한 스토리지 컨테이너와 태스크 출력을 위한 컨테이너를 만듭니다. 그런 다음 `upload_file_to_container` 함수를 호출하여 로컬 `InputFiles` 디렉터리의 MP4 파일을 컨테이너에 업로드합니다. 스토리지의 파일은 Batch가 나중에 컴퓨팅 노드에 다운로드할 수 있는 Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile) 개체로 정의됩니다.
 
 ```python
 blob_client.create_container(input_container_name, fail_on_exist=False)
@@ -165,13 +165,13 @@ input_files = [
 
 ### <a name="create-a-pool-of-compute-nodes"></a>컴퓨팅 노드 풀 만들기
 
-다음으로, 샘플이 `create_pool`에 대한 호출을 통해 Batch 계정에 계산 노드의 풀을 만듭니다. 이 정의된 함수는 Batch [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) 클래스를 사용하여 노드 수, VM 크기 및 풀 구성을 설정합니다. 여기서 [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) 개체는 Azure Marketplace에 게시된 Ubuntu Server 18.04 LTS 이미지에 대한 [ImageReference](/python/api/azure.batch.models.imagereference)를 지정합니다. Batch는 Azure Marketplace의 광범위한 VM 이미지뿐만 아니라 사용자 지정 VM 이미지도 지원합니다.
+다음으로, 샘플이 `create_pool`에 대한 호출을 통해 Batch 계정에 컴퓨팅 노드의 풀을 만듭니다. 이 정의된 함수는 Batch [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) 클래스를 사용하여 노드 수, VM 크기 및 풀 구성을 설정합니다. 여기서 [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) 개체는 Azure Marketplace에 게시된 Ubuntu Server 18.04 LTS 이미지에 대한 [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference)를 지정합니다. Batch는 Azure Marketplace의 광범위한 VM 이미지뿐만 아니라 사용자 지정 VM 이미지도 지원합니다.
 
 노드 수 및 VM 크기는 정의된 상수를 사용하여 설정됩니다. Batch는 전용 노드와 [우선 순위가 낮은](batch-low-pri-vms.md) 노드를 지원하며, 풀에서 하나 또는 둘 다 사용할 수 있습니다. 전용 노드는 풀에 예약되어 있습니다. 우선 순위가 낮은 노드는 Azure의 잔여 VM 용량에서 할인된 가격으로 제공됩니다. Azure에 충분한 용량이 없으면 우선 순위가 낮은 노드는 사용할 수 없게 됩니다. 이 샘플은 기본적으로 *Standard_A1_v2* 크기의 우선 순위가 낮은 노드 5개만 포함된 풀을 만듭니다. 
 
-이 풀 구성에는 실제 노드 속성 외에 [StartTask](/python/api/azure.batch.models.starttask) 개체가 포함되어 있습니다. StartTask는 해당 노드가 풀을 연결할 때 각 노드에서 실행하고 이 때마다 노드가 다시 시작됩니다. 이 예에서 StartTask는 Bash 셸 명령을 실행하여 노드에 ffmpeg 패키지와 종속성을 설치합니다.
+이 풀 구성에는 실제 노드 속성 외에 [StartTask](/python/api/azure-batch/azure.batch.models.starttask) 개체가 포함되어 있습니다. StartTask는 해당 노드가 풀을 연결할 때 각 노드에서 실행하고 이 때마다 노드가 다시 시작됩니다. 이 예에서 StartTask는 Bash 셸 명령을 실행하여 노드에 ffmpeg 패키지와 종속성을 설치합니다.
 
-[pool.add](/python/api/azure.batch.operations.pooloperations) 메서드는 풀을 Batch 서비스에 제출합니다.
+[pool.add](/python/api/azure-batch/azure.batch.operations.pooloperations) 메서드는 풀을 Batch 서비스에 제출합니다.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -201,7 +201,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-job"></a>작업 만들기
 
-Batch 작업은 태스크를 실행할 풀과 우선 순위 및 작업 일정과 같은 선택적 설정을 지정합니다. 이 샘플은 `create_job`를 호출하여 작업을 만듭니다. 이 정의된 함수는 [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) 클래스를 사용하여 풀에 작업을 만듭니다. [job.add](/python/api/azure.batch.operations.joboperations) 메서드는 Batch 서비스에 풀을 제출합니다. 처음에는 작업에 태스크가 없습니다.
+Batch 작업은 태스크를 실행할 풀과 우선 순위 및 작업 일정과 같은 선택적 설정을 지정합니다. 이 샘플은 `create_job`를 호출하여 작업을 만듭니다. 이 정의된 함수는 [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) 클래스를 사용하여 풀에 작업을 만듭니다. [job.add](/python/api/azure-batch/azure.batch.operations.joboperations) 메서드는 Batch 서비스에 풀을 제출합니다. 처음에는 작업에 태스크가 없습니다.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -213,11 +213,11 @@ batch_service_client.job.add(job)
 
 ### <a name="create-tasks"></a>태스크 만들기
 
-이 앱은 `add_tasks`를 호출하여 작업에 태스크를 만듭니다. 이 정의된 함수는 [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter) 클래스를 사용하여 태스크 개체 목록을 만듭니다. 각 태스크는 `command_line` 매개 변수를 사용하여 입력된 `resource_files` 개체를 처리하는 ffmpeg를 실행합니다. ffmpeg는 이전에 풀이 생성될 때 각 노드에 설치되었습니다. 여기서 명령줄은 fmpeg를 실행하여 입력된 각 MP4(비디오) 파일을 MP3(오디오) 파일로 변환합니다.
+이 앱은 `add_tasks`를 호출하여 작업에 태스크를 만듭니다. 이 정의된 함수는 [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter) 클래스를 사용하여 태스크 개체 목록을 만듭니다. 각 태스크는 `command_line` 매개 변수를 사용하여 입력된 `resource_files` 개체를 처리하는 ffmpeg를 실행합니다. ffmpeg는 이전에 풀이 생성될 때 각 노드에 설치되었습니다. 여기서 명령줄은 fmpeg를 실행하여 입력된 각 MP4(비디오) 파일을 MP3(오디오) 파일로 변환합니다.
 
-이 샘플에서는 명령줄을 실행한 후 MP3 파일에 대한 [OutputFile](/python/api/azure.batch.models.outputfile) 개체를 만듭니다. 각 태스크의 출력 파일(이 경우에는 하나)은 태스크의 `output_files` 속성을 사용하여 연결된 스토리지 계정의 컨테이너에 업로드됩니다.
+이 샘플에서는 명령줄을 실행한 후 MP3 파일에 대한 [OutputFile](/python/api/azure-batch/azure.batch.models.outputfile) 개체를 만듭니다. 각 태스크의 출력 파일(이 경우에는 하나)은 태스크의 `output_files` 속성을 사용하여 연결된 스토리지 계정의 컨테이너에 업로드됩니다.
 
-그런 다음, 이 앱은 [task.add_collection](/python/api/azure.batch.operations.taskoperations) 메서드를 사용하여 작업에 태스크를 추가하고, 계산 노드 실행 대기열에 추가합니다. 
+그런 다음, 이 앱은 [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations) 메서드를 사용하여 작업에 태스크를 추가하고, 컴퓨팅 노드 실행 대기열에 추가합니다. 
 
 ```python
 tasks = list()
@@ -247,7 +247,7 @@ batch_service_client.task.add_collection(job_id, tasks)
 
 태스크가 작업에 추가되면 Batch에서 서비스가 연결된 풀의 컴퓨팅 노드 실행 대기열에 자동으로 추가하고 예약합니다. 지정한 설정에 따라 Batch는 대기, 예약, 다시 시도하는 모든 작업 및 기타 담당 작업 관리 업무를 처리합니다. 
 
-태스크 실행을 모니터링하는 방법은 여러 가지가 있습니다. 이 예에서 `wait_for_tasks_to_complete` 함수는 [TaskState](/python/api/azure.batch.models.taskstate) 개체를 사용하여 제한된 시간 동안 태스크의 특정 상태(이 경우에는 완료된 상태)를 모니터링합니다.
+태스크 실행을 모니터링하는 방법은 여러 가지가 있습니다. 이 예에서 `wait_for_tasks_to_complete` 함수는 [TaskState](/python/api/azure-batch/azure.batch.models.taskstate) 개체를 사용하여 제한된 시간 동안 태스크의 특정 상태(이 경우에는 완료된 상태)를 모니터링합니다.
 
 ```python
 while datetime.datetime.now() < timeout_expiration:
@@ -267,7 +267,7 @@ while datetime.datetime.now() < timeout_expiration:
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-앱은 태스크를 실행한 후 생성된 입력 스토리지 컨테이너를 자동으로 삭제하고 사용자에게 Batch 풀 및 작업을 삭제하는 옵션을 제공합니다. BatchClient의 [JobOperations](/python/api/azure.batch.operations.joboperations) 및 [PoolOperations](/python/api/azure.batch.operations.pooloperations) 클래스에는 삭제 메서드가 있고 이는 삭제를 확인하는 경우 호출됩니다. 작업 및 태스크 자체에 대한 요금이 부과되지 않지만 컴퓨팅 노드에 대한 요금이 청구됩니다. 따라서 풀을 필요할 때만 할당하는 것이 좋습니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다. 그러나 입력 및 출력 파일은 스토리지 계정에 남아 있습니다.
+앱은 태스크를 실행한 후 생성된 입력 스토리지 컨테이너를 자동으로 삭제하고 사용자에게 Batch 풀 및 작업을 삭제하는 옵션을 제공합니다. BatchClient의 [JobOperations](/python/api/azure-batch/azure.batch.operations.joboperations) 및 [PoolOperations](/python/api/azure-batch/azure.batch.operations.pooloperations) 클래스에는 삭제 메서드가 있고 이는 삭제를 확인하는 경우 호출됩니다. 작업 및 태스크 자체에 대한 요금이 부과되지 않지만 컴퓨팅 노드에 대한 요금이 청구됩니다. 따라서 풀을 필요할 때만 할당하는 것이 좋습니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다. 그러나 입력 및 출력 파일은 스토리지 계정에 남아 있습니다.
 
 더 이상 필요하지 않은 경우 리소스 그룹, Batch 계정 및 스토리지 계정을 삭제합니다. Azure Portal에서 이렇게 하려면 배치 계정에 대한 리소스 그룹을 선택하고 **리소스 그룹 삭제**를 클릭합니다.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: e444d6254b575ead4b5d436a4b92f960c61b1d1c
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 171a1141670e55814474390c59ae8d514491edbd
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802876"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088101"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Foodee 구성
 
@@ -36,7 +36,7 @@ ms.locfileid: "70802876"
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
 * Azure AD 테넌트.
-* [Foodee 테 넌 트](https://Foodee.com/pricing/)
+* [Foodee 테 넌 트](https://www.food.ee/about/)
 * 관리자 권한이 있는 Foodee의 사용자 계정
 
 ## <a name="assigning-users-to-foodee"></a>Foodee에 사용자 할당 

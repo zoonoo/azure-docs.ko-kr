@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: f002a4d67ee782b11cd8f39784eb48b136328c89
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 48095a2d446c8f85bab9d9268e924e29fe9a9f21
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876698"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003897"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>자습서: Linux VM 및 Python 앱을 사용하여 Azure Key Vault에 비밀 저장
 
 Azure Key Vault를 통해 애플리케이션, 서비스 및 IT 리소스에 액세스하는 데 필요한 API 키, 데이터베이스 연결 문자열과 같은 비밀을 보호할 수 있습니다.
 
-이 자습서에서는 Azure 리소스의 관리 ID를 사용하여 Azure Key Vault에서 정보를 읽도록 Azure 웹 애플리케이션을 설정합니다. 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Azure 리소스의 관리 ID를 사용하여 Azure Key Vault에서 정보를 읽도록 Azure 웹 애플리케이션을 설정합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 키 자격 증명 모음 만들기
@@ -30,7 +30,7 @@ Azure Key Vault를 통해 애플리케이션, 서비스 및 IT 리소스에 액�
 > * 콘솔 애플리케이션이 키 자격 증명 모음에서 데이터를 읽는 데 필요한 권한 부여
 > * 키 자격 증명 모음에서 비밀 검색
 
-본론으로 들어가기 전에 [Key Vault에 대한 기본 개념](key-vault-whatis.md#basic-concepts)을 이해해야 합니다.
+본론으로 들어가기 전에 [Key Vault에 대한 기본 개념](basic-concepts.md)을 이해해야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

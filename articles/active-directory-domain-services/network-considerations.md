@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: iainfou
-ms.openlocfilehash: 506967fc4cecd322c694d31789cf09bec22ad3d4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: e18f990885a25b7e130dfeb5a0a3425530ee11e6
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617317"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086575"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Azure AD Domain Services에 대 한 가상 네트워크 디자인 고려 사항 및 구성 옵션
 
@@ -36,7 +36,7 @@ Azure AD DS에 대 한 가상 네트워크를 설계할 때 다음과 같은 고
     * 대기 시간을 최소화 하려면 Azure AD DS 관리 되는 도메인에 대 한 가상 네트워크 서브넷과 동일한 지역에 가까운 코어 응용 프로그램을 유지 합니다. Azure 가상 네트워크 간의 가상 네트워크 피어 링 또는 VPN (가상 사설망) 연결을 사용할 수 있습니다.
 * 가상 네트워크는 Azure AD DS에서 제공 하는 것 외의 DNS 서비스를 사용할 수 없습니다.
     * Azure AD DS는 자체 DNS 서비스를 제공 합니다. 이러한 DNS 서비스 주소를 사용 하도록 가상 네트워크를 구성 해야 합니다. 조건부 전달자를 사용 하 여 추가 네임 스페이스에 대 한 이름 확인을 수행할 수 있습니다.
-    * 사용자 지정 DNS 서버 설정을 사용 하 여 Vm을 비롯 한 다른 DNS 서버에 쿼리를 보낼 수 없습니다. 가상 네트워크의 리소스는 Azure AD DS에서 제공 하는 DNS 서비스를 사용 해야 합니다.
+    * 사용자 지정 DNS 서버 설정을 사용 하 여 Vm을 비롯 한 다른 DNS 서버의 쿼리를 전달할 수 없습니다. 가상 네트워크의 리소스는 Azure AD DS에서 제공 하는 DNS 서비스를 사용 해야 합니다.
 
 > [!IMPORTANT]
 > 서비스를 사용 하도록 설정한 후에는 Azure AD DS을 다른 가상 네트워크로 이동할 수 없습니다.
@@ -88,7 +88,7 @@ Azure AD Domain Services 가상 네트워크에 연결 된 가상 네트워크�
 
 Azure AD DS 관리 되는 도메인은 배포 중에 일부 네트워킹 리소스를 만듭니다. 이러한 리소스는 Azure AD DS 관리 되는 도메인의 성공적인 작업 및 관리에 필요 하며 수동으로 구성할 수 없습니다.
 
-| Azure 리소스                          | Description |
+| Azure 리소스                          | 설명 |
 |:----------------------------------------|:---|
 | 네트워크 인터페이스 카드                  | Azure AD DS는 Windows Server에서 실행 되는 두 개의 Dc (도메인 컨트롤러)에서 관리 되는 도메인을 Azure Vm으로 호스팅합니다. 각 VM에는 가상 네트워크 서브넷에 연결 하는 가상 네트워크 인터페이스가 있습니다. |
 | 동적 기본 공용 IP 주소         | Azure AD DS는 기본 SKU 공용 IP 주소를 사용 하 여 동기화 및 관리 서비스와 통신 합니다. 공용 IP 주소에 대 한 자세한 내용은 [Azure의 ip 주소 유형 및 할당 방법](../virtual-network/virtual-network-ip-addresses-overview-arm.md)을 참조 하세요. |
@@ -105,7 +105,7 @@ Azure AD DS 관리 되는 도메인은 배포 중에 일부 네트워킹 리소�
 
 다음 네트워크 보안 그룹 규칙은 Azure AD DS에서 인증 및 관리 서비스를 제공 하는 데 필요 합니다. Azure AD DS 관리 되는 도메인이 배포 되는 가상 네트워크 서브넷에 대해 이러한 네트워크 보안 그룹 규칙을 편집 하거나 삭제 하지 마세요.
 
-| 포트 번호 | 프로토콜 | Source                             | Destination | 작업 | 필수 | 용도 |
+| 포트 번호 | 프로토콜 | 원본                             | Destination | 작업 | 필수 | 용도 |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 443         | TCP      | AzureActiveDirectoryDomainServices | 임의의 값         | Allow  | 예      | Azure AD 테 넌 트와 동기화. |
 | 3389        | TCP      | CorpNetSaw                         | 임의의 값         | Allow  | 예      | 도메인 관리. |

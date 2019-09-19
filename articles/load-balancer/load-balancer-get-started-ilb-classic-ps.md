@@ -5,6 +5,7 @@ description: 클래식 배포 모델에서 PowerShell을 사용하여 내부 부
 services: load-balancer
 documentationcenter: na
 author: genlin
+manager: dcscontentpm
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
-ms.openlocfilehash: ef6aac0d97c38798f826304475779ea8059875c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b864a4bf352c547779bb368650971fa8b805fca7
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60848562"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090975"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>PowerShell을 사용하여 내부 부하 분산 장치(클래식) 만들기 시작
 
@@ -61,7 +62,7 @@ Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb �
 
 ### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>2단계: 내부 부하 분산 인스턴스에 엔드포인트 추가
 
-다음은 예제입니다.
+다음 예를 참조하세요.
 
 ```powershell
 $svc="mytestcloud"
@@ -86,7 +87,7 @@ $svc="<Cloud Service Name>"
 Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 ```
 
-이러한 명령을 사용하려면 값을 입력하고 < 및 >를 제거합니다. 다음은 예제입니다.
+이러한 명령을 사용하려면 값을 입력하고 < 및 >를 제거합니다. 다음 예를 참조하세요.
 
 ```powershell
 $svc="mytestcloud"
@@ -147,7 +148,7 @@ Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname
 
 이러한 명령을 사용하려면 값을 입력하고 < 및 >를 제거합니다.
 
-다음은 예제입니다.
+다음 예를 참조하세요.
 
 ```powershell
 $svc="mytestcloud"
@@ -165,7 +166,7 @@ Remove-AzureInternalLoadBalancer -ServiceName $svc
 
 이러한 명령을 사용하려면 값을 입력하고 < 및 >를 제거합니다.
 
-다음은 예제입니다.
+다음 예를 참조하세요.
 
 ```powershell
 $svc="mytestcloud"

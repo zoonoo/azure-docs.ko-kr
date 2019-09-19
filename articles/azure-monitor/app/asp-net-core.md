@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 7e0143a25c0bb25b936d072cc2652e8b38a0be66
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: a48c2fdcce5126747f00cd3b901839864d438346
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302709"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058269"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 
-이 문서에서는 [ASP.NET Core](https://docs.microsoft.com/aspnet/core) 응용 프로그램에 대해 Application Insights를 사용 하도록 설정 하는 방법을 설명 합니다. 이 문서의 지침을 완료 하면 Application Insights는 ASP.NET Core 응용 프로그램에서 요청, 종속성, 예외, 성능 카운터, 하트 비트 및 로그를 수집 합니다. 
+이 문서에서는 [ASP.NET Core](https://docs.microsoft.com/aspnet/core) 응용 프로그램에 대해 Application Insights를 사용 하도록 설정 하는 방법을 설명 합니다. 이 문서의 지침을 완료 하면 Application Insights는 ASP.NET Core 응용 프로그램에서 요청, 종속성, 예외, 성능 카운터, 하트 비트 및 로그를 수집 합니다.
 
 여기서 사용 하는 예제는를 대상 `netcoreapp2.2`으로 하는 [MVC 응용 프로그램](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) 입니다. 모든 ASP.NET Core 응용 프로그램에 이러한 지침을 적용할 수 있습니다.
 
@@ -34,6 +34,9 @@ ms.locfileid: "68302709"
 * **웹 서버**: IIS (Internet Information Server) 또는 Kestrel. 
 * **호스팅 플랫폼**: Azure App Service, Azure VM, Docker, Azure Kubernetes 서비스 (AKS) 등의 Web Apps 기능입니다.
 * **IDE**: Visual Studio, VS Code 또는 명령줄입니다.
+
+> [!NOTE]
+> Application Insights와 함께 ASP.NET Core 3.0-미리 보기를 사용 하는 경우 [2.8.0-beta2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0-beta2) 버전 이상을 사용 하세요. 이 버전은 ASP.NET Core 3.0에서 잘 작동 하는 것으로 알려져 있습니다. 또한 ASP.NET Core 3.0 앱에 대해서는 Visual Studio 기반 온 보 딩이 아직 지원 되지 않습니다.
 
 ## <a name="prerequisites"></a>전제 조건
 
@@ -137,11 +140,42 @@ ms.locfileid: "68302709"
 
 ASP.NET Core의 [성능 카운터](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/) 에 대 한 지원은 제한 되어 있습니다.
 
-   * SDK 버전 2.4.1 이상에서는 응용 프로그램이 Web Apps (Windows)에서 실행 되는 경우 성능 카운터를 수집 합니다.
-   * 응용 프로그램이 Windows 및 대상 `NETSTANDARD2.0` 이상에서 실행 되는 경우 SDK 버전 합니다-beta3 이상에서 성능 카운터를 수집 합니다.
-   * .NET Framework를 대상으로 하는 응용 프로그램의 경우 모든 버전의 SDK에서 성능 카운터를 지원 합니다.
- 
-이 문서는 Linux에서 성능 카운터 지원이 추가 될 때 업데이트 됩니다.
+* SDK 버전 2.4.1 이상에서는 응용 프로그램이 Azure Web Apps (Windows)에서 실행 되는 경우 성능 카운터를 수집 합니다.
+* SDK 버전 2.7.1 이상에서는 응용 프로그램이 Windows 및 대상 `NETSTANDARD2.0` 이상에서 실행 되는 경우 성능 카운터를 수집 합니다.
+* .NET Framework를 대상으로 하는 응용 프로그램의 경우 모든 버전의 SDK에서 성능 카운터를 지원 합니다.
+* SDK 버전 2.8.0-beta3 이상에서는 Linux의 cpu/메모리 카운터를 지원 합니다. 다른 카운터는 Linux에서 지원 되지 않습니다. Linux 및 기타 비 Windows 환경에서 시스템 카운터를 가져오는 권장 방법은 [Eventcounters](#eventcounter) 를 사용 하는 것입니다.
+
+### <a name="eventcounter"></a>EventCounter
+
+[Eventcounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md)는 .NET/.net Core에서 카운터를 게시 하 고 사용 하는 플랫폼 간 메서드입니다. 이 기능은 이전에 있었지만 이러한 카운터를 게시 한 기본 제공 공급자는 없었습니다. .NET Core 3.0부터 몇 가지 카운터가 CLR 카운터, ASP.NET Core 카운터 등의 상자에서 게시 됩니다.
+
+SDK 버전 2.8.0-beta3 이상에서는 EventCounters 컬렉션을 지원 합니다. 기본적으로 SDK는 다음 카운터를 수집 합니다. 이러한 카운터는 메트릭 탐색기에서 또는 PerformanceCounter 테이블 아래의 Analytics 쿼리를 사용 하 여 쿼리할 수 있습니다. 카운터 이름은 "Category | 형식이 됩니다. Counter ".
+
+|범주 | 카운터|
+|---------------|-------|
+|시스템 런타임 | cpu 사용량 |
+|시스템 런타임 | 작업 집합 |
+|시스템 런타임 | gc-힙 크기 |
+|시스템 런타임 | gen-0-gc-개수 |
+|시스템 런타임 | gen-1-gc-개수 |
+|시스템 런타임 | gen-2-gc-개수 |
+|시스템 런타임 | gc 시간 |
+|시스템 런타임 | gen-0-크기 |
+|시스템 런타임 | gen-1-크기 |
+|시스템 런타임 | gen-2-크기 |
+|시스템 런타임 | loh-크기 |
+|시스템 런타임 | 할당 율 |
+|시스템 런타임 | 어셈블리 수 |
+|시스템 런타임 | 예외-개수 |
+|시스템 런타임 | threadpool-스레드 수 |
+|시스템 런타임 | 모니터-잠금-경합 수 |
+|시스템 런타임 | threadpool-큐 길이 |
+|시스템 런타임 | threadpool-완료-항목 수 |
+|시스템 런타임 | 활성-타이머-개수 |
+|AspNetCore | 초당 요청 수 |
+|AspNetCore | total-requests |
+|AspNetCore | 현재 요청 |
+|AspNetCore | 실패-요청 |
 
 ### <a name="ilogger-logs"></a>ILogger 로그
 
@@ -197,7 +231,17 @@ ASP.NET Core에 대 한 Application Insights SDK를 사용자 지정 하 여 기
     }
 ```
 
-자세한 내용은 [에서 `ApplicationInsightsServiceOptions`구성 가능한 설정을 ](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Microsoft.ApplicationInsights.AspNetCore/Extensions/ApplicationInsightsServiceOptions.cs)참조 하세요.
+의 전체 설정 목록`ApplicationInsightsServiceOptions`
+
+|설정 | Description | 기본값
+|---------------|-------|-------
+|EnableQuickPulseMetricStream | LiveMetrics 기능 사용/사용 안 함 | true
+|EnableAdaptiveSampling | 적응 샘플링 사용/사용 안 함 | true
+|EnableHeartbeat 비트 | 하트 비트 기능 사용/사용 안 함-주기적 (15 분 기본값)은 ' HeartBeatState ' 라는 사용자 지정 메트릭을 .NET 버전, Azure 환경 정보 (해당 하는 경우) 등의 런타임에 대 한 정보로 보냅니다. | true
+|AddAutoCollectedMetricExtractor | 샘플링을 수행 하기 전에 요청/종속성에 대 한 미리 집계 된 메트릭을 전송 하는 TelemetryProcessor AutoCollectedMetrics 추출기를 사용/사용 안 함으로 설정 합니다. | true
+|RequestCollectionOptions. 사이 예외 | 요청 수집 모듈에서 처리 되지 않은 예외 추적의 보고를 사용 하거나 사용 하지 않도록 설정 합니다. | ApplicationInsightsLoggerProvider를 사용 하 여 예외를 추적 하므로 NETSTANDARD 2.0의 경우 false이 고, 그렇지 않으면 true입니다.
+
+최신 목록에 대해서는 [의 `ApplicationInsightsServiceOptions` 구성 가능한 설정을](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Microsoft.ApplicationInsights.AspNetCore/Extensions/ApplicationInsightsServiceOptions.cs) 참조 하세요.
 
 ### <a name="sampling"></a>샘플링
 
@@ -259,16 +303,17 @@ ASP.NET Core에 대 한 Application Insights SDK는 고정 비율과 적응 샘�
 
 ### <a name="configuring-or-removing-default-telemetrymodules"></a>기본 TelemetryModules 구성 또는 제거
 
-Application Insights는 원격 분석 모듈을 사용 하 여 추가 구성을 요구 하지 않고 특정 작업에 대 한 [유용한 정보를 자동으로 수집](https://docs.microsoft.com/azure/azure-monitor/app/auto-collect-dependencies) 합니다.
+Application Insights 원격 분석 모듈을 사용 하 여 사용자별 수동 추적을 요구 하지 않고 특정 작업에 대 한 유용한 원격 분석을 자동으로 수집 합니다.
 
 다음 자동 컬렉션 모듈은 기본적으로 사용 하도록 설정 되어 있습니다. 이러한 모듈은 원격 분석을 자동으로 수집 합니다. 기본 동작을 변경 하도록 사용 하지 않도록 설정 하거나 구성할 수 있습니다.
 
-* `RequestTrackingTelemetryModule`
-* `DependencyTrackingTelemetryModule`
-* `PerformanceCollectorModule`
-* `QuickPulseTelemetryModule`
-* `AppServicesHeartbeatTelemetryModule`
-* `AzureInstanceMetadataTelemetryModule`
+* `RequestTrackingTelemetryModule`-들어오는 웹 요청에서 RequestTelemetry 분석을 수집 합니다.
+* `DependencyTrackingTelemetryModule`-나가는 http 호출 및 sql 호출에서 DependencyTelemetry을 수집 합니다.
+* `PerformanceCollectorModule`-Windows PerformanceCounters을 수집 합니다.
+* `QuickPulseTelemetryModule`-라이브 메트릭 포털에 표시 하기 위한 원격 분석을 수집 합니다.
+* `AppServicesHeartbeatTelemetryModule`-응용 프로그램이 호스트 되는 Azure App Service 환경에 대해 하트 비트 (사용자 지정 메트릭으로 전송 됨)를 수집 합니다.
+* `AzureInstanceMetadataTelemetryModule`-응용 프로그램이 호스트 되는 Azure VM 환경에 대해 하트 비트 (사용자 지정 메트릭으로 전송 됨)를 수집 합니다.
+* `EventCounterCollectionModule`- [Eventcounters를](#eventcounter)수집 합니다. 이 모듈은 새로운 기능이 며 SDK 버전 2.8.0-beta3 이상에서 사용할 수 있습니다.
 
 기본값 `TelemetryModule`을 구성 하려면 다음 예제와 같이에 `ConfigureTelemetryModule<T>` `IServiceCollection`확장 메서드를 사용 합니다.
 
@@ -286,6 +331,15 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
                         {
                             module.EnableW3CHeadersInjection = true;
                         });
+
+        // The following removes all default counters from EventCounterCollectionModule, and adds a single one.
+        services.ConfigureTelemetryModule<EventCounterCollectionModule>(
+                            (module, o) =>
+                            {
+                                module.Counters.Clear();
+                                module.Counters.Add(new EventCounterCollectionRequest("System.Runtime", "gen-0-size"));
+                            }
+                        );
 
         // The following removes PerformanceCollectorModule to disable perf-counter collection.
         // Similarly, any other default modules can be removed.
@@ -331,6 +385,8 @@ using Microsoft.ApplicationInsights.Channel;
     }
 ```
 
+위의 경우 자동 수집 모듈이 원격 분석을 수집 하는 것을 방지할 수 없습니다. Application Insights에 대 한 원격 분석 보내기가 위의 방법으로 사용 하지 않도록 설정 됩니다. 특정 자동 수집 모듈을 원하지 않는 경우 [원격 분석 모듈을 제거](#configuring-or-removing-default-telemetrymodules) 하는 것이 가장 좋습니다.
+
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>자동으로 수집 되지 않는 원격 분석을 추적 하려면 어떻게 해야 하나요?
@@ -366,6 +422,8 @@ Application Insights의 사용자 지정 데이터 보고에 대 한 자세한 �
 
 예,이 메서드를 사용 하 여 Application Insights를 사용할 수 있습니다. 이 기술은 Visual Studio 온 보 딩 및 Web Apps 확장에서 사용 됩니다. 그러나 일부 구성을 제어 하 `services.AddApplicationInsightsTelemetry()` 는 오버 로드를 제공 하기 때문에를 사용 하는 것이 좋습니다. 두 방법 모두 내부적으로 동일한 작업을 수행 하므로 사용자 지정 구성을 적용할 필요가 없는 경우 두 메서드 중 하나를 호출할 수 있습니다.
 
+`IWebHostBuilder`는 ASP.NET Core 3.0 `IHostBuilder` 에서로 바뀌고 Application Insights 혼동을 피하기 위해 beta3 2.8.0 버전은 useapplicationinsights () 메서드를 사용 되지 않는 것으로 표시 하 고 다음 주 버전에서는 제거 됩니다.
+
 ### <a name="im-deploying-my-aspnet-core-application-to-web-apps-should-i-still-enable-the-application-insights-extension-from-web-apps"></a>Web Apps에 ASP.NET Core 응용 프로그램을 배포 합니다. Web Apps에서 Application Insights 확장을 계속 사용 하도록 설정 해야 하나요?
 
 이 문서에 표시 된 것 처럼 SDK가 빌드 시간에 설치 된 경우 App Service 포털에서 [Application Insights 확장](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps) 을 사용 하도록 설정할 필요가 없습니다. 확장이 설치 된 경우에도 SDK가 응용 프로그램에 이미 추가 된 것을 감지 하면 해당 확장이 다시 시작 됩니다. 확장에서 Application Insights를 사용 하도록 설정 하는 경우 SDK를 설치 하 고 업데이트할 필요가 없습니다. 그러나이 문서의 지침에 따라 Application Insights를 사용 하도록 설정 하면 다음과 같은 이유로 유연성이 향상 됩니다.
@@ -375,6 +433,7 @@ Application Insights의 사용자 지정 데이터 보고에 대 한 자세한 �
        * 자체 포함 또는 프레임 워크 종속을 비롯 한 모든 게시 모드
        * 전체 .NET Framework를 포함 하는 모든 대상 프레임 워크입니다.
        * Web Apps, Vm, Linux, 컨테이너, Azure Kubernetes 서비스 및 비 Azure 호스팅을 비롯 한 모든 호스팅 옵션입니다.
+       * Preview 버전을 포함 한 모든 .NET Core 버전
    * Visual Studio에서 디버깅 하는 경우 원격 분석을 로컬로 볼 수 있습니다.
    * API를 `TrackXXX()` 사용 하 여 추가 사용자 지정 원격 분석을 추적할 수 있습니다.
    * 구성에 대 한 모든 권한을 가집니다.
