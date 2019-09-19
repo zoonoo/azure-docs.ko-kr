@@ -3,20 +3,20 @@ title: Translator Speech 서비스란?
 titleSuffix: Azure Cognitive Services
 description: Translator Speech API를 사용하여 음성을 음성으로 및 음성을 텍스트로 번역을 애플리케이션에 추가합니다.
 services: cognitive-services
-author: swmachan
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
-ms.author: swmachan
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ed425cd6545d85cdf3b2f76038b381a0f09045f9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: eaa6e9a7e8e7edd4241594ad7c2188c3fb50295e
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449665"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966446"
 ---
 # <a name="what-is-translator-speech-api"></a>Translator Speech API란?
 

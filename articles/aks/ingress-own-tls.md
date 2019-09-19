@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 2b30ade9971ede6f9544b618504033553392e9bd
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: fc7f2180e4166070fe44863aed2b12135b0db8ee
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "67615428"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097856"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러를 만들고 고유한 TLS 인증서 사용
 
@@ -133,7 +133,7 @@ helm install azure-samples/aks-helloworld \
 다음 예제에서 주소 `https://demo.azure.com/`으로 향하는 트래픽은 `aks-helloworld`라는 서비스로 라우트됩니다. 주소 `https://demo.azure.com/hello-world-two`로 향하는 트래픽은 `ingress-demo` 서비스로 라우팅됩니다. 이 문서에서는 해당 데모 호스트 이름을 바꿀 필요가 없습니다. 프로덕션 사용의 경우 지정된 이름을 인증서 요청 및 생성 프로세스의 일부로 제공합니다.
 
 > [!TIP]
-> 인증서 요청 프로세스 동안 지정된 호스트 이름, CN 이름이 수신 경로에 정의된 호스트와 일치하지 않으면 수신 컨트롤러는 *Kubernetes 수신 컨트롤러 가짜 인증서*를 표시합니다. 인증서 및 수신 경로 호스트 이름이 일치하는지 확인합니다.
+> 인증서 요청 프로세스 중에 지정 된 호스트 이름이 수신 경로에 정의 된 호스트와 일치 하지 않는 경우 수신 컨트롤러는 *Kubernetes 수신 컨트롤러 가짜 인증서* 경고를 표시 합니다. 인증서 및 수신 경로 호스트 이름이 일치하는지 확인합니다.
 
 *tls* 섹션은 호스트 *demo.azure.com*에 대해 *aks-ingress-tls*라는 비밀을 사용하도록 수신 경로에 지시합니다. 마찬가지로 프로덕션 사용을 위해서는 사용자 고유의 호스트 주소를 지정합니다.
 

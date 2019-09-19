@@ -1,6 +1,6 @@
 ---
 title: 저장 & 쓰기 실험 파일
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 실험 입력 파일을 저장할 위치와 출력 파일을 작성 하 여 저장소 제한 오류 및 실험 대기 시간을 방지 하는 방법에 대해 알아봅니다.
 services: machine-learning
 author: rastala
@@ -12,12 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 7d5e147173e766d0da54aa3422faef4b6035b914
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 77f816400709262fab8cb9bd351bdcde73377e09
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114505"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034280"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Azure Machine Learning 실험을 위해 파일을 저장 하 고 작성 하는 위치
 
@@ -33,7 +33,7 @@ Azure Machine Learning는 전체 스크립트 폴더를 대상 계산 컨텍스�
 
 이러한 이유로 다음을 수행 하는 것이 좋습니다.
 
-* **Azure Machine Learning [데이터 저장소](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py)에 파일을 저장 합니다.** 이로 인해 실험 대기 시간 문제가 발생 하지 않으며 원격 계산 대상의 데이터에 액세스 하는 이점이 있습니다. 즉, 인증 및 탑재는 Azure Machine Learning 서비스에서 관리 합니다. 데이터 저장소를 원본 디렉터리로 지정 하 고 [데이터를 데이터 저장소에서 데이터 액세스 문서의 데이터](how-to-access-data.md) 저장소에 업로드 하는 방법에 대해 자세히 알아보세요.
+* **Azure Machine Learning [데이터 저장소](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py)에 파일을 저장 합니다.** 이로 인해 실험 대기 시간 문제가 발생 하지 않으며 원격 계산 대상에서 데이터에 액세스 하는 이점이 있습니다. 즉, 인증 및 탑재는 Azure Machine Learning에서 관리 됩니다. 데이터 저장소를 원본 디렉터리로 지정 하 고 [데이터를 데이터 저장소에서 데이터 액세스 문서의 데이터](how-to-access-data.md) 저장소에 업로드 하는 방법에 대해 자세히 알아보세요.
 
 * **데이터 파일 및 종속성 스크립트가 몇 개만 필요 하 고 데이터 저장소를 사용할 수 없는 경우** 학습 스크립트와 동일한 폴더 디렉터리에 파일을 저장 합니다. 이 폴더 `source_directory` 를 학습 스크립트나 학습 스크립트를 호출 하는 코드에서 직접 지정 합니다.
 

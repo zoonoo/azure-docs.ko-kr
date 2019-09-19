@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 3ff9a694dca0d2a205c27569a7c744f482b662ec
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3e954a6c714e525e5bbefe8f62c798cf8ac9a517
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100650"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036395"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성
 
@@ -112,7 +112,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
    - **가용성 집합**을 클릭합니다.
    - **만들기**를 클릭합니다.
    - **가용성 집합 만들기** 블레이드에서 다음 값을 설정합니다.
-      - **이름**: 가용성 집합의 이름입니다.
+      - **Name**: 가용성 집합의 이름입니다.
       - **구독**: Azure 구독.
       - **리소스 그룹**: 기존 그룹을 사용하려는 경우 **기존 항목 사용**을 클릭하고 드롭다운 목록에서 그룹을 선택합니다. 그렇지 않으면 **새로 만들기**를 선택하고 그룹에 대한 이름을 입력합니다.
       - **위치**: 가상 머신을 만들 위치를 설정합니다.
@@ -267,11 +267,22 @@ PowerShell로 클러스터의 유효성을 검사하려면 가상 머신 중 하
 - 장애 조치 클러스터의 이름
 - 장애 조치 클러스터의 IP 주소 클러스터 노드와 동일한 Azure 가상 네트워크 및 서브넷에 사용되지 않는 IP 주소를 사용할 수 있습니다.
 
-다음 PowerShell은 장애 조치 클러스터를 만듭니다. 스크립트를 노드의 이름(가상 머신 이름) 및 Azure VNET에서 사용 가능한 IP 주소 이름으로 업데이트합니다.
+#### <a name="windows-server-2008-2016"></a>Windows Server 2008-2016
+
+다음 PowerShell은 **Windows Server 2008-2016**에 대 한 장애 조치 (failover) 클러스터를 만듭니다. 스크립트를 노드의 이름(가상 머신 이름) 및 Azure VNET에서 사용 가능한 IP 주소 이름으로 업데이트합니다.
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
+
+#### <a name="windows-server-2019"></a>Windows Server 2019
+
+다음 PowerShell은 Windows Server 2019에 대 한 장애 조치 (failover) 클러스터를 만듭니다.  자세한 내용은 블로그 [장애 조치 (Failover) 클러스터를 참조 하세요. 클러스터 네트워크 개체](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97)입니다.  스크립트를 노드의 이름(가상 머신 이름) 및 Azure VNET에서 사용 가능한 IP 주소 이름으로 업데이트합니다.
+
+```powershell
+New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
+```
+
 
 ### <a name="create-a-cloud-witness"></a>클라우드 감시 만들기
 
@@ -364,7 +375,7 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
 
 1. 다음으로 부하 분산 장치를 구성합니다.
 
-   - **이름**: 부하 분산 장치를 식별하는 이름입니다.
+   - **Name**: 부하 분산 장치를 식별하는 이름입니다.
    - **유형**: 부하 분산 장치는 공개 또는 프라이빗일 수 있습니다. 동일한 VNET 내에서 프라이빗 부하 분산 장치에 액세스할 수 있습니다. 대부분의 Azure 애플리케이션은 프라이빗 부하 분산 장치를 사용할 수 있습니다. 애플리케이션에 인터넷을 통해 직접 SQL Server에 대한 액세스가 필요한 경우 공개 부하 분산 장치를 사용합니다.
    - **Virtual Network**: 가상 머신과 동일한 네트워크입니다.
    - **서브넷**: 가상 머신과 동일한 서브넷입니다.
@@ -396,7 +407,7 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
 
 1. **상태 프로브 추가** 블레이드에서 <a name="probe"></a>상태 프로브 매개 변수를 설정합니다.
 
-   - **이름**: 상태 프로브의 이름입니다.
+   - **Name**: 상태 프로브의 이름입니다.
    - **프로토콜**: TCP입니다.
    - **포트**: [이 단계](#ports)에서 상태 프로브에 대해 방화벽에서 만든 포트로 설정 합니다. 이 문서에서는이 예제에서는 TCP 포트 `59999`를 사용 합니다.
    - **간격**: 5초입니다.
@@ -412,7 +423,7 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
 
 1. 부하 분산 규칙 매개 변수를 설정합니다.
 
-   - **이름**: 부하 분산 규칙의 이름입니다.
+   - **Name**: 부하 분산 규칙의 이름입니다.
    - **프런트 엔드 IP 주소**: SQL Server FCI 클러스터 네트워크 리소스에 대한 IP 주소를 사용합니다.
    - **포트**: SQL Server FCI TCP 포트에 대해 설정합니다. 기본 인스턴스 포트는 1433입니다.
    - **백 엔드 포트**: 이 값은 **부동 IP(Direct Server Return)** 를 활성화할 때 **포트** 값과 동일한 포트를 사용합니다.

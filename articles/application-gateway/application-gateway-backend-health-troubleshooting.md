@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: surmb
-ms.openlocfilehash: ce1d0542530c4f190ace52d45e2369d6ecc18772
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 1fd4e9156e29133b1db4fe9ab9a0825eb1aa3b55
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384087"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097586"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Application Gateway의 백 엔드 상태 문제 해결
 ==================================================
@@ -81,10 +81,10 @@ BackendAddressPoolsText : [
 백 엔드 상태 탭의 세부 정보 열에 표시 되는 메시지는 문제에 대 한 보다 자세한 정보를 제공 하 고이에 따라 문제 해결을 시작할 수 있습니다.
 
 > [!NOTE]
-> 기본 프로브 요청은 포트 80의 http 프로브 <protocol> <http://127.0.0.1/> 에 대해://<port>127.0.0.1:/형식으로 전송 되 고 http 상태 코드 200-399의 응답만 정상 응답으로 간주 합니다. 프로토콜 및 대상 포트는 HTTP 설정에서 상속 됩니다. 다른 프로토콜, 호스트 이름 또는 경로를 검색 하 고 다른 상태 코드를 정상으로 적용 하려면 사용자 지정 프로브를 구성 하 고 HTTP 설정과 연결 Application Gateway 합니다.
+> 기본 프로브 요청은 \<프로토콜\>://127.0.0.1: port\>/형식으로 전송\<됩니다. 예를 <http://127.0.0.1/> 들어 포트 80에 대 한 http 프로브의 경우 http 상태 코드 200-399의 응답만으로 간주 됩니다. 정상 응답입니다. 프로토콜 및 대상 포트는 HTTP 설정에서 상속 됩니다. 다른 프로토콜, 호스트 이름 또는 경로를 검색 하 고 다른 상태 코드를 정상으로 적용 하려면 사용자 지정 프로브를 구성 하 고 HTTP 설정과 연결 Application Gateway 합니다.
 
-### <a name="error-messages"></a>오류 메시지
-
+<a name="error-messages"></a>오류 메시지
+------------------------
 #### <a name="backend-server-timeout"></a>백 엔드 서버 시간 제한
 
 **메시지:** 백 엔드에서 응용 프로그램 게이트웨이\'상태 프로브에 응답 하는 데 걸린 시간은 프로브 설정의 제한 시간 임계값 보다 작습니다.

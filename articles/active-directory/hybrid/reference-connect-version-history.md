@@ -16,12 +16,12 @@ ms.date: 05/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e491815f25f3744d839efc09ce34793d80d9943a
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: ce66c0239eee3f31695a942a586766694525fbad
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983547"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097607"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -44,6 +44,9 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 일부 버전의 Azure AD Connect는 자동 업그레이드에 사용할 수 있습니다. 릴리스 상태는 릴리스가 자동 업그레이드 또는 다운로드에만 사용할 수 있는지 여부를 나타냅니다. 자동 업그레이드가 Azure AD Connect 서버에서 활성화된 경우 해당 서버는 자동으로 자동 업그레이드용으로 릴리스되는 최신 버전의 Azure AD Connect로 업그레이드됩니다. 일부 Azure AD Connect 구성을 자동 업그레이드에 사용할 수 있습니다. [자동 업그레이드](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)에 대한 자세한 내용은 이 링크 참조
 
 ## <a name="14x0"></a>1.4. X. 0
+
+>[!IMPORTANT]
+>이전에는 온-프레미스 AD에 가입 된 Windows 하위 수준 컴퓨터가 일부 환경에서 클라우드로 올바르게 동기화 되지 않았습니다. 예를 들어 AD의 Windows 하위 수준 장치에 대 한 userCertificate 특성 값이 채워집니다. 그러나 Azure AD의 이러한 장치는 AAD Sync를 통해 Azure AD에 등록 하도록 설계 되지 않았기 때문에 "보류 중" 상태로 항상 높게 유지 됩니다. 이 버전의 Azure AD Connect에서는 Windows 하위 수준 컴퓨터를 Azure AD와 동기화 하는 것을 중지 하 고 AAD Sync, Azure AD에서 이전에 잘못 동기화 된 Windows 하위 수준 장치를 제거 합니다. 이 변경 내용은 MSI 패키지를 사용 하 여 Azure AD에 올바르게 등록 된 Windows 하위 수준 장치를 삭제 하지 않습니다. 이러한 장치는 장치 기반 조건부 액세스의 목적에 따라 계속 해 서 예상 대로 작동 합니다. 일부 고객은 Azure AD에서 일부 또는 모든 Windows 하위 수준 장치를 볼 수 있습니다. 이러한 장치 id는 조건부 액세스 권한 부여 중에 Azure AD에서 실제로 사용한 적이 없기 때문에 문제가 발생 하지 않습니다. 이러한 고객은 장치 기반 조건부 https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan 액세스에 완벽 하 게 참가할 수 있도록 Windows 하위 수준 장치를 다시 방문 하 여 올바르게 등록 해야 할 수 있습니다. Azure AD에서 내보내기 삭제 임계값을 초과 하는 하위 수준 컴퓨터/장치 개체의 이러한 삭제가 표시 되는 경우 고객은 이러한 삭제를 통과 하도록 허용 하는 것이 좋습니다.
 
 ### <a name="release-status"></a>릴리스 상태
 9/10/2019: 자동 업그레이드에 대해서만 릴리스 됨
@@ -472,7 +475,7 @@ PowerShell 스크립트를 사용하여 조직에서 제공하거나 이전 Azur
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-위치 
+Where 
 
 **$ObjectDN** = 사용 권한을 강화해야 하는 Active Directory 계정입니다.
 
@@ -791,7 +794,7 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|선택|
-    |CertKeyAlgorithmParams|CertHashString|위치|
+    |CertKeyAlgorithmParams|CertHashString|Where|
     |||With|
 
 * 고객이 그룹 개체에 대한 sAMAccountName, domainNetBios 및 domainFQDN과 사용자 개체에 대한 distinguishedName을 전달하는 사용자 지정 동기화 규칙을 만들 수 있도록 스키마가 다음과 같이 변경되었습니다.

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c722dc6af2b98adb60045d530bb38de7762027d5
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 2f81c0affb78d5944b8ba910cccfa0be655f1a6f
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477903"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097944"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Azure Automation의 Az 모듈 지원
 
@@ -22,7 +22,7 @@ Azure Automation은 Runbook에서 [Azure Powershell Az 모듈](/powershell/azure
 
 ## <a name="considerations"></a>고려 사항
 
-Azure Automation에서 Az 모듈을 사용할 경우 여러 가지 사항을 고려해야 합니다. Runbook 및 모듈은 Automation 계정의 상위 솔루션에서 사용할 수 있습니다. Runbook을 편집하거나 모듈을 업그레이드하면 Runbook에 문제가 발생할 수 있습니다. 새 `Az` 모듈을 가져오기 전에 모든 Runbook 및 솔루션을 별도 Automation 계정에서 신중히 테스트해야 합니다. 모든 모듈 수정 내용은 업데이트 관리 및 작업 시간 외 VM 시작/중지와 같은 상위 솔루션에 부정적인 영향을 미칠 수 있습니다. 솔루션을 포함하는 Automation 계정의 모듈 및 Runbook은 변경하지 않는 것이 좋습니다. 이 동작은 Az 모듈과 관련이 없습니다. Automation 계정을 변경할 때는 이 동작을 고려해야 합니다.
+Azure Automation에서 Az 모듈을 사용할 경우 여러 가지 사항을 고려해야 합니다. Runbook 및 모듈은 Automation 계정의 상위 솔루션에서 사용할 수 있습니다. Runbook을 편집하거나 모듈을 업그레이드하면 Runbook에 문제가 발생할 수 있습니다. 새 `Az` 모듈을 가져오기 전에 모든 Runbook 및 솔루션을 별도 Automation 계정에서 신중히 테스트해야 합니다. 모듈을 수정 하면 [시작/중지](automation-solution-vm-management.md) 솔루션에 악영향을 미칠 수 있습니다. 솔루션을 포함하는 Automation 계정의 모듈 및 Runbook은 변경하지 않는 것이 좋습니다. 이 동작은 Az 모듈과 관련이 없습니다. Automation 계정을 변경할 때는 이 동작을 고려해야 합니다.
 
 Automation 계정으로 `Az` 모듈을 가져와도 Runbook이 사용하는 PowerShell 세션으로 모듈을 자동으로 가져오지 않습니다. 다음과 같은 상황에서 모듈을 PowerShell 세션으로 가져올 수 있습니다.
 
@@ -69,7 +69,7 @@ Automation 계정의 **공유 리소스** 아래에서 **모듈**을 선택합�
 
 ## <a name="after-migration-details"></a>마이그레이션 후 세부 정보
 
-마이그레이션이 완료된 후에는 더 이상 계정에서 `AzureRM` 모듈을 사용하여 Runbook을 시작하지 않도록 합니다. 또한 이 계정에서 `AzureRM` 모듈을 가져오거나 업데이트하지 않는 것이 좋습니다. 이때부터 이 계정이 `Az`로 마이그레이션되었다고 간주하고 `Az` 모듈만 사용하는 것이 좋습니다. 새 Automation 계정을 만들 때 기존 `AzureRM` 모듈은 계속 설치되고, 자습서 Runbook은 `AzureRM` cmdlet으로 계속 작성됩니다. 이러한 runbook은 실행 하지 마십시오.
+마이그레이션이 완료된 후에는 더 이상 계정에서 `AzureRM` 모듈을 사용하여 Runbook을 시작하지 않도록 합니다. 또한 이 계정에서 `AzureRM` 모듈을 가져오거나 업데이트하지 않는 것이 좋습니다. 이때부터 이 계정이 `Az`로 마이그레이션되었다고 간주하고 `Az` 모듈만 사용하는 것이 좋습니다. 새 Automation 계정을 만들 때 기존 `AzureRM` 모듈은 계속 설치되고, 자습서 Runbook은 `AzureRM` cmdlet으로 계속 작성됩니다. 이러한 runbook은 실행 하면 안 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

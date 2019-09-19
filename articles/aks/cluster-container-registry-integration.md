@@ -6,43 +6,28 @@ author: mlearned
 manager: gwallace
 ms.service: container-service
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/17/2018
 ms.author: mlearned
-ms.openlocfilehash: 3c11367945b74db9be20ade86c7bc26901440e4d
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: ab744efd205d826cb7ae2c3eda7bba28f4a9bee0
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305157"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097798"
 ---
-# <a name="preview---authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>미리 보기-Azure Kubernetes Service에서 Azure Container Registry 인증
+# <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증
 
 AKS(Azure Kubernetes Service)에서 ACR(Azure Container Registry)을 사용할 때는 인증 메커니즘을 설정해야 합니다. 이 문서에서는 이러한 두 가지 Azure 서비스 간 인증을 위해 권장되는 구성에 대해 설명합니다.
 
 Azure CLI를 사용 하 여 몇 가지 간단한 명령에서 ACR 통합에 AKS를 설정할 수 있습니다.
-
-> [!IMPORTANT]
-> AKS 미리 보기 기능은 셀프 서비스 옵트인입니다. 미리 보기는 "있는 그대로" 및 "사용 가능한 상태로" 제공 되며 서비스 수준 계약 및 제한 된 보증에서 제외 됩니다. AKS 미리 보기는 최상의 노력에 대 한 고객 지원에서 부분적으로 다룹니다. 이러한 기능은 프로덕션 용도로는 사용할 수 없습니다. 추가 정보 다음 지원 문서를 참조 하세요.
->
-> * [AKS 지원 정책](support-policies.md)
-> * [Azure 지원 FAQ](faq.md)
 
 ## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 다음이 있어야 합니다.
 
 * **Azure 구독** 에 대 한 **소유자** 또는 **azure 계정 관리자** 역할
-* Azure CLI 버전 2.0.70 이상 및 aks-preview 0.4.8 확장도 필요 합니다.
+* Azure CLI 버전 2.0.73 이상도 필요 합니다.
 * 클라이언트에 [docker가 설치 되어](https://docs.docker.com/install/) 있어야 하며 [docker 허브](https://hub.docker.com/) 에 액세스할 수 있어야 합니다.
-
-## <a name="install-latest-aks-cli-preview-extension"></a>최신 AKS CLI 미리 보기 확장 설치
-
-**Aks-preview 0.4.13** extension 이상이 필요 합니다.
-
-```azurecli
-az extension remove --name aks-preview 
-az extension add -y --name aks-preview
-```
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>ACR 통합을 사용 하 여 새 AKS 클러스터 만들기
 
@@ -52,7 +37,7 @@ az login
 az acr create -n myContainerRegistry -g myContainerRegistryResourceGroup --sku basic [in case you do not have an existing ACR]
 az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resource-id>
 ```
-\* * ACR 리소스 id의 형식은 다음과 같습니다. 
+**ACR 리소스 ID의 형식은 다음과 같습니다.** 
 
 /subscriptions/< subscription-d >/Stggs/< 리소스 그룹 이름 >/providers/Microsoft.ContainerRegistry/registries/{name} 
   

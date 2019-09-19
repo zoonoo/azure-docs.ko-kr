@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: raynew
-ms.openlocfilehash: 75a8207cd214a63258ddb167b887fe83b7aa032a
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 784bf15a58e25ba4cba18494adc295343d0c175a
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008836"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098885"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -132,7 +132,7 @@ RDM | NA | NA
 미사용 암호화(SSE)| 예 | 예
 Premium Storage | 예 | 예
 Import/Export 서비스 | 아니요 | 아니요
-방화벽이 설정 된 Azure storage 계정 | 아니요  | 예. 대상 저장소 및 캐시
+방화벽이 설정 된 Azure storage 계정 | 예. 대상 저장소 및 캐시 | 예. 대상 저장소 및 캐시
 저장소 계정 수정 | 아니요. 복제를 사용 하도록 설정한 후에는 대상 Azure storage 계정을 수정할 수 없습니다. 수정 하려면 재해 복구를 사용 하지 않도록 설정한 다음 다시 활성화 합니다. | 아니요
 
 

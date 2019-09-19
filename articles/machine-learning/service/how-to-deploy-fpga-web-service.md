@@ -1,7 +1,7 @@
 ---
 title: FPGA 정의-배포 하는 방법
-titleSuffix: Azure Machine Learning service
-description: 매우 낮은 대기 시간 유추를 위해 Azure Machine Learning 서비스를 사용 하 여 FPGA에서 실행 되는 모델을 사용 하 여 웹 서비스를 배포 하는 방법을 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: 매우 낮은 대기 시간 유추를 위해 Azure Machine Learning를 사용 하 여 FPGA에서 실행 되는 모델을 사용 하 여 웹 서비스를 배포 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: tedway
 author: tedway
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8f95846844f9ff498b1b99a0b7a375f1c883457d
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 929ca8e16db73be5cfa226b5d55a30dbb7b2bc99
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860471"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034458"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>FPGA (필드 프로그래밍 가능 게이트 배열) 및 배포 방법
 
-이 문서에서는 FPGA (필드 프로그래밍 가능 게이트 배열)에 대해 소개 하 고 Azure FPGA에 Azure Machine Learning service를 사용 하 여 모델을 배포 하는 방법을 보여 줍니다. 
+이 문서에서는 FPGA (필드 프로그래밍 가능 게이트 배열)에 대해 소개 하 고 Azure FPGA에 Azure Machine Learning를 사용 하 여 모델을 배포 하는 방법을 보여 줍니다. 
 
 FPGA는 프로그래밍 가능한 논리 블록 배열과 재구성 가능한 상호 연결 계층 구조를 포함하고 있습니다. 제조 후 상호 연결을 통해 이러한 블록을 다양한 방법으로 구성할 수 있습니다. 다른 칩과 비교해서, FPGA는 프로그래밍 기능 및 성능 조합을 제공합니다.
 
@@ -28,7 +28,7 @@ FPGA는 프로그래밍 가능한 논리 블록 배열과 재구성 가능한 �
 
 다음 다이어그램 및 표에서는 FPGA와 다른 프로세서를 비교해서 보여 줍니다.
 
-![Azure Machine Learning Service FPGA 비교 다이어그램](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
+![Azure Machine Learning FPGA 비교 다이어그램](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
 |프로세서||설명|
 |---|:-------:|------|
@@ -87,9 +87,9 @@ Azure FPGAs는 Azure Machine Learning와 통합 됩니다. Microsoft에서는 DN
 Azure Machine Learning 하드웨어 가속 모델를 사용 하 여 모델을 FPGAs에서 웹 서비스로 배포할 수 있습니다. FPGAs를 사용 하면 단일 일괄 처리 크기를 사용 하는 경우에도 매우 짧은 대기 시간 유추가 가능 합니다. 유추 또는 모델 점수 매기기는 배포 된 모델이 예측에 사용 되는 단계 이며 가장 일반적으로 프로덕션 데이터에 사용 됩니다.
 
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 
-- Azure 구독.  계정이 없는 경우 시작 하기 전에 무료 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
+- Azure 구독.  계정이 없는 경우 시작 하기 전에 무료 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 을 사용해 보세요.
 
 - FPGA 할당량입니다. Azure CLI를 사용 하 여 할당량이 있는지 여부를 확인 합니다.
 
@@ -112,7 +112,7 @@ Azure Machine Learning 하드웨어 가속 모델를 사용 하 여 모델을 FP
 
     할당량이 없는 경우에서 [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI)요청을 제출 합니다.
 
-- Azure Machine Learning 서비스 작업 영역 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
+- Azure Machine Learning 작업 영역 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
  
 - 하드웨어 가속 모델용 Python SDK:
 

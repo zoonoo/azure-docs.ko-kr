@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c07a978004ee8d2e25772f0d393529cbb509380a
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: d0ac86dcdb698c554c40325d6a20d6d27de908f8
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967218"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104376"
 ---
 # <a name="tutorial-integrate-apptio-with-azure-active-directory"></a>자습서: Azure Active Directory와 Apptio 통합
 
@@ -85,14 +85,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     **식별자** 텍스트 상자에서 `urn:federation:apptio` 값을 입력합니다.
 
-5. Apptio 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 할당 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  단추를 클릭하여 사용자 특성 대화 상자를 엽니다.
+5. Apptio 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 할당 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 사용자 특성 대화 상자를 엽니다.
 
     ![이미지](common/edit-attribute.png)
 
     > [!NOTE]
     > [여기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)를 클릭하여 Azure AD에서 **역할**을 구성하는 방법을 알아봅니다.
 
-6. 위에서 언급한 특성 외에도, Apptio 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 사용자 특성 대화 상자의 사용자 클레임 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다. 
+6. 위에서 언급한 특성 외에도, Apptio 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. [사용자 특성] 대화 상자의 [사용자 클레임] 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다. 
 
     | Name |  원본 특성|
     | -------------- | -------------------- |
@@ -156,7 +156,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="create-apptio-test-user"></a>Apptio 테스트 사용자 만들기
 
-이 섹션에서는 Apptio에 B.Simon이라는 사용자를 만듭니다. Apptio 플랫폼에서 사용자를 추가하려면  [Apptio 지원 팀](https://www.apptio.com/about/contact)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Apptio에 B.Simon이라는 사용자를 만듭니다. Apptio 플랫폼에서 사용자를 추가하려면 [Apptio 지원 팀](https://www.apptio.com/about/contact)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 30587af098b5ced7962dc45d6a059184f8b5f319
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 8e00053d5ce7c481b026d2fe0ce590d7b8799d8a
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914888"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075448"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>미리 보기-Azure CLI를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
 
@@ -149,7 +149,7 @@ az aks create \
 > 암호 유효성 검사 오류가 발생 하는 경우 다른 지역에 리소스 그룹을 만들어 보세요.
 > 그런 다음 새 리소스 그룹을 사용 하 여 클러스터를 만들어 보세요.
 
-몇 분 후 명령이 완료되면 클러스터에 대한 JSON 형식 정보가 반환됩니다.
+몇 분 후 명령이 완료되면 클러스터에 대한 JSON 형식 정보가 반환됩니다. 경우에 따라 클러스터를 프로 비전 하는 데 몇 분 이상 걸릴 수 있습니다. 이러한 경우 최대 10 분이 허용 됩니다. 
 
 ## <a name="add-a-windows-server-node-pool"></a>Windows Server 노드 풀 추가
 
@@ -264,7 +264,7 @@ service/sample created
 
 ## <a name="test-the-application"></a>애플리케이션 테스트
 
-애플리케이션이 실행되면 애플리케이션 프런트 엔드를 인터넷에 공개하는 Kubernetes 서비스가 만들어집니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다.
+애플리케이션이 실행되면 애플리케이션 프런트 엔드를 인터넷에 공개하는 Kubernetes 서비스가 만들어집니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다. 경우에 따라 서비스를 프로 비전 하는 데 몇 분 이상 걸릴 수 있습니다. 이러한 경우 최대 10 분이 허용 됩니다.
 
 진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
 

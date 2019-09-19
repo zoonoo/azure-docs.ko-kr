@@ -4,7 +4,7 @@ description: Linux VM 디바이스 이름이 변경되는 이유와 이 문제�
 services: virtual-machines-linux
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 0350b6bdc990ed6c2de60e3e98c3768b18d0d636
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7d8a7e7e88837214042fb8f1c109c0b93bfe771b
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710429"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058215"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Linux VM 디바이스 이름 변경 문제 해결
 
@@ -46,7 +46,7 @@ SCSI 하위 시스템에서 예약된 Linux에서 검색하는 디바이스가 �
 
 Azure Linux 에이전트는 VM에 설치될 때 Udev 규칙을 사용하여 /dev/disk/azure 경로 아래에 기호 링크의 집합을 만듭니다. 애플리케이션 및 스크립트는 Udev 규칙을 사용하여 VM에 연결된 디스크와 디스크 유형 및 디스크 LUN을 식별합니다.
 
-이미 VM 부팅 되지 않는 하 수 없는 SSH를 VM에 하는 방식으로 프로그램 fstab을 편집한 경우 사용할 수 있습니다 합니다 [직렬 콘솔 VM](./serial-console-linux.md) 입력 [단일 사용자 모드](./serial-console-grub-single-user-mode.md) 프로그램 fstab을 수정 합니다.
+VM이 부팅 되지 않고 VM으로 SSH 할 수 없는 방식으로 fstab를 이미 편집한 경우 [Vm 직렬 콘솔](./serial-console-linux.md) 을 사용 하 여 [단일 사용자 모드로](./serial-console-grub-single-user-mode.md) 전환 하 고 fstab를 수정할 수 있습니다.
 
 ### <a name="identify-disk-luns"></a>디스크 LUN 식별
 
@@ -152,8 +152,8 @@ Azure Linux 에이전트 Udev 규칙은 /dev/disk/azure 경로 아래에 기호 
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [Ubuntu의 경우: UUID를 사용 하 여](https://help.ubuntu.com/community/UsingUUID)
+- [Ubuntu UUID 사용](https://help.ubuntu.com/community/UsingUUID)
 - [Red Hat: 영구 이름 지정](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
-- [Linux: Uuid를 수행할 수 있는 작업](https://www.linux.com/news/what-uuids-can-do-you)
-- [Udev: 최신 Linux 시스템에서 장치 관리 소개](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
+- [Linux: 사용자를 위해 수행할 수 있는 Uuid](https://www.linux.com/news/what-uuids-can-do-you)
+- [Udev 최신 Linux 시스템에서 장치 관리 소개](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
 

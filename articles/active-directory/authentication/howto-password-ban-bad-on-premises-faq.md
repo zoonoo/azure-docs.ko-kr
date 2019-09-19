@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82fe917f911be45d7f68662e956fe3bd14f92267
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 74f81cb1f9b62755d2dd2707518b828466e9ed1b
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959873"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097562"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD 암호 보호 온-프레미스 - 질문과 대답
 
@@ -136,6 +136,10 @@ Azure AD 암호 보호 DC 에이전트 서비스는 기존의 정상적인 Activ
 **Q: 감사 모드에서 정책을 구성한 경우에도 Azure AD에서 취약 한 암호를 거부 하는 이유는 무엇 인가요?**
 
 감사 모드는 온-프레미스 Active Directory 환경 에서만 지원 됩니다. Azure AD는 암호를 평가할 때 암시적으로 항상 "적용" 모드로 전환 됩니다.
+
+**Q: Azure AD 암호 보호에서 암호를 거부 하는 경우 사용자에 게 기존 Windows 오류 메시지가 표시 됩니다. 사용자가 정말로 무엇이 발생 했는지 알 수 있도록이 오류 메시지를 사용자 지정할 수 있나요?**
+
+아니요. 도메인 컨트롤러에서 암호를 거부 하는 경우 사용자에 게 표시 되는 오류 메시지는 도메인 컨트롤러가 아니라 클라이언트 컴퓨터에서 제어 합니다. 이 동작은 암호가 기본 Active Directory 암호 정책에 의해 거부 되거나 Azure AD 암호 보호와 같은 암호 필터 기반 솔루션에 의해 거부 되는지 여부에 따라 수행 됩니다.
 
 ## <a name="additional-content"></a>추가 콘텐츠
 

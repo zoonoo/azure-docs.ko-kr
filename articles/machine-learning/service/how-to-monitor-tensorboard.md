@@ -1,6 +1,6 @@
 ---
 title: TensorBoard로 실험 시각화
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: TensorBoard를 시작 하 여 실험 실행 기록을 시각화 하 고 하이퍼 매개 변수 조정 및 재 학습을 위한 잠재적 영역을 식별 합니다.
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: 2e4527ba167076935505b668a7879e5f1446b25e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b96b80a735c0caee8a3aabaf19b04fd0e153ba6b
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856064"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034326"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>TensorBoard 및 Azure Machine Learning를 사용 하 여 실험 실행 및 메트릭 시각화
 
-이 문서에서는 기본 Azure Machine Learning 서비스 SDK의 [패키지를 `tensorboard` ](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) 사용 하 여 TensorBoard에서 실험 실행 및 메트릭을 보는 방법에 대해 알아봅니다. 실험 실행을 검사 한 후에는 machine learning 모델을 더 잘 조정 하 고 다시 학습 수 있습니다.
+이 문서에서는 기본 Azure Machine Learning SDK의 [패키지를 `tensorboard` ](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) 사용 하 여 TensorBoard에서 실험 실행과 메트릭을 보는 방법에 대해 알아봅니다. 실험 실행을 검사 한 후에는 machine learning 모델을 더 잘 조정 하 고 다시 학습 수 있습니다.
 
 [TensorBoard](https://www.tensorflow.org/tensorboard/r1/overview) 은 실험 구조와 성능을 검사 하 고 이해 하기 위한 웹 응용 프로그램 모음입니다.
 
@@ -43,7 +43,7 @@ Azure Machine Learning 실험을 통해 TensorBoard를 시작 하는 방법은 �
 
     * 사용자 고유의 Juptyer 노트북 서버
           * `tensorboard` 추가를 사용 하 여 [Azure Machine Learning SDK를 설치 합니다](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) .
-          * [Azure Machine Learning Service 작업 영역을 만듭니다](how-to-manage-workspace.md).  
+          * [Azure Machine Learning 작업 영역을 만듭니다](how-to-manage-workspace.md).  
           * [작업 영역 구성 파일을 만듭니다](how-to-configure-environment.md#workspace).
   
 <a name="direct"></a>
@@ -71,7 +71,7 @@ if not path.exists(exp_dir):
 
 ### <a name="download-tensorflow-demo-experiment-code"></a>TensorFlow demo 실험 코드 다운로드
 
-TensorFlow의 리포지토리는 광범위 한 TensorBoard 계측을 포함 하는 MNIST 데모를 포함 합니다. Azure Machine Learning 서비스를 사용 하기 위해이 데모 코드를 변경할 필요는 없습니다. 다음 코드에서는 MNIST 코드를 다운로드 하 고 새로 만든 실험 폴더에 저장 합니다.
+TensorFlow의 리포지토리는 광범위 한 TensorBoard 계측을 포함 하는 MNIST 데모를 포함 합니다. Azure Machine Learning 사용 하기 위해이 데모 코드를 변경할 필요는 없습니다. 다음 코드에서는 MNIST 코드를 다운로드 하 고 새로 만든 실험 폴더에 저장 합니다.
 
 ```python
 import requests

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: a9b5eecd97b078c9446e28d971f900c4cf65130f
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: dbde4ccede7f27ae494c8326babc7ec69b4a1266
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845540"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984999"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>자습서: PowerShell을 사용하여 서비스 주체 만들기 및 역할 할당
 
@@ -92,6 +92,7 @@ Get-RdsTenant
 역할 할당을 만들 테넌트의 테넌트 이름을 찾으면 다음 cmdlet에서 해당 이름을 사용합니다.
 
 ```powershell
+$myTenantName = "<Windows Virtual Desktop Tenant Name>"
 New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
 ```
 

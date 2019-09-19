@@ -2,18 +2,18 @@
 title: Visual Studio용 Data Lake 도구 및 Hortonworks 샌드박스 - Azure HDInsight
 description: Hortonworks Sandbox(로컬 VM에서 실행됨)와 Azure Data Lake tools for Visual Studio를 사용하는 방법을 알아봅니다. 이러한 도구로 샌드박스에 대한 Hive 및 Pig 작업을 만들고 실행하며 작업 출력 및 기록을 볼 수 있습니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: hrasheed
-ms.openlocfilehash: a80cc44dbc4be0728ad632eefd8b9ed62f7f86b1
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 1edab776ec93f057ebf7e37ac887747f86a27db9
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962153"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098768"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Hortonworks Sandbox와 Azure Data Lake tools for Visual Studio 사용
 
@@ -21,7 +21,7 @@ Azure Data Lake는 제네릭 Apache Hadoop 클러스터를 사용하기 위한 �
 
 Hortonworks Sandbox를 사용하여 개발 환경에서 로컬로 Hadoop를 사용할 수 있습니다. 솔루션을 개발하여 대규모로 배포했으므로 HDInsight 클러스터를 살펴볼 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 개발 환경의 가상 머신에서 실행되는 Hortonworks Sandbox입니다. 이 문서는 Oracle VirtualBox에서 실행 중인 샌드박스로 작성 및 테스트되었으며, 샌드박스 설정에 대한 자세한 내용은 [Hortonworks 샌드박스 시작](hadoop/apache-hadoop-emulator-get-started.md) 문서를 참조하세요.
 
@@ -41,7 +41,7 @@ Hortonworks Sandbox가 실행 중인지 확인합니다. [Hortonworks 샌드박�
 
 2. **서버 탐색기**에서 **HDInsight** 항목을 마우스 오른쪽 단추로 클릭한 다음 **HDInsight Emulator에 연결**을 선택합니다.
 
-    ![HDInsight Emulator에 연결이 강조 표시된 서버 탐색기의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/connect-hdinsight-emulator.png)
+    ![서버 탐색기, HDInsight Emulator에 연결 강조 표시](./media/hdinsight-hadoop-emulator-visual-studio/connect-hdinsight-emulator.png)
 
 3. **HDInsight Emulator에 연결** 대화 상자에서 Ambari에 대해 구성한 암호를 입력합니다.
 
@@ -112,7 +112,7 @@ Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼
     > [!NOTE]  
     > 이 정보는 작업 완료 후 **작업 로그** 링크에서 사용할 수 있는 것과 동일한 정보입니다.
 
-    ![출력 로그의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output-box.png)
+    ![HiveServer2 출력의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output-box.png)
 
 ## <a name="create-a-hive-project"></a>Hive 프로젝트 만들기
 
@@ -122,7 +122,7 @@ Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼
 
 2. 프로젝트 목록에서 **템플릿**, **Azure Data Lake**를 차례로 확장한 다음 **HIVE(HDInsight)** 를 선택합니다. 템플릿 목록에서 **Hive 샘플**을 선택합니다. 이름과 위치를 입력한 다음 **확인**을 선택합니다.
 
-    ![Azure Data Lake, HIVE, Hive 예제 및 확인이 강조 표시된 새 프로젝트 창의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/new-apache-hive-project.png)
+    ![Azure Data Lake, Hive 샘플 및 OK를 사용 하는 새 프로젝트 창](./media/hdinsight-hadoop-emulator-visual-studio/new-apache-hive-project.png)
 
 **Hive 샘플** 프로젝트에는 **WebLogAnalysis.hql** 및 **SensorDataAnalysis.hql**이라는 두 개의 스크립트가 포함되어 있습니다. 창 위쪽의 동일한 **제출** 단추를 사용하여 이러한 스크립트를 제출할 수 있습니다.
 
@@ -179,7 +179,7 @@ Hive에서는 구조화된 데이터로 작업하기 위한 SQL과 유사한 쿼
 
 2. 테이블을 확장하면 해당 테이블에 대한 열을 표시합니다. 데이터를 신속하게 보려면 테이블을 마우스 오른쪽 단추로 클릭하고 **상위 100개 행 보기**를 선택합니다.
 
-    ![테이블이 확장되고 상위 100개 행 보기가 선택된 서버 탐색기의 스크린샷](./media/hdinsight-hadoop-emulator-visual-studio/hdi-view-top-100-rows.png)
+    ![테이블이 확장 되 고 상위 100 행이 선택 된 서버 탐색기](./media/hdinsight-hadoop-emulator-visual-studio/hdi-view-top-100-rows.png)
 
 ### <a name="database-and-table-properties"></a>데이터베이스 및 테이블 속성
 
