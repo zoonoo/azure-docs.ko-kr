@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 9/24/2018
+ms.date: 09/20/2019
 ms.author: victorh
-ms.openlocfilehash: 34201a0eb4139de64261f77f285096a2aa2dd3aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b134058e1924bae030338411226a9a6aff46557
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61066328"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130196"
 ---
 # <a name="infrastructure-fqdns"></a>인프라 FQDN
 
@@ -23,7 +23,6 @@ Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 �
 - 스토리지 PIR(플랫폼 이미지 리포지토리)에 대한 액세스를 컴퓨팅합니다.
 - 관리 디스크 상태 스토리지 액세스.
 - Azure Diagnostics 및 로깅(MDS)
-- Azure Active Directory
 
 ## <a name="overriding"></a>대체 
 

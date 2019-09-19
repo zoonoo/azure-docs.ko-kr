@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/19/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9d4822d07a95fcdec32c0c4146562884302fa4f8
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9bc0d1b31ebeaecce8b4be8699cf87811047b6f9
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308328"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123253"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 라우팅 요구 사항
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 라우팅을 설치하고 관리해야 합니다. 일부 연결 공급자는 라우팅을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 이 서비스를 제공하는지를 확인합니다. 제공하지 않는 경우 다음 요구 사항을 준수해야 합니다.
@@ -84,7 +84,7 @@ BGP 세션을 설치하기 위해 소유한 공용 IP 주소를 사용해야 합
 프라이빗 피어링에 대한 공용 또는 프라이빗 IPv4 주소를 사용할 수 있습니다. 개인 피어링의 경우 다른 고객과 주소가 중첩되지 않도록 트래픽의 엔드투엔드 격리를 제공합니다. 이러한 주소는 인터넷에는 보급되지 않습니다. 
 
 ### <a name="microsoft-peering"></a>Microsoft 피어링
-Microsoft 피어링 경로를 사용하면 Microsoft 클라우드 서비스에 연결할 수 있습니다. 서비스 목록에는 Exchange Online, SharePoint Online, 비즈니스용 Skype, Microsoft 팀, Dynamics 365 등의 Office 365 서비스가 포함 됩니다. Microsoft는 Microsoft 피어링에 양방향 연결을 지원합니다. Microsoft 클라우드 서비스에 보내는 트래픽은 Microsoft 네트워크를 입력하기 전에 유효한 공용 IPv4 주소를 사용해야 합니다.
+Microsoft 피어링 경로를 사용하면 Microsoft 클라우드 서비스에 연결할 수 있습니다. 서비스 목록은 Exchange Online, SharePoint Online, 비즈니스용 Skype 및 Microsoft 팀과 같은 Office 365 서비스를 포함 합니다. Microsoft는 Microsoft 피어링에 양방향 연결을 지원합니다. Microsoft 클라우드 서비스에 보내는 트래픽은 Microsoft 네트워크를 입력하기 전에 유효한 공용 IPv4 주소를 사용해야 합니다.
 
 IP 주소 및 AS 번호가 다음 레지스트리 중 하나에 등록되었는지 확인합니다.
 
@@ -218,7 +218,6 @@ Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 �
 | Exchange Online | 12076분 5010초 |
 | SharePoint Online | 12076분 5020초 |
 | 비즈니스 온라인용 Skype | 12076:5030 |
-| Dynamics 365 | 12076:5040 |
 | Azure 글로벌 서비스* | 12076:5050 |
 | 기타 Office 365 온라인 서비스 | 12076분 5100초 |
 
@@ -249,7 +248,6 @@ Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 �
 | Exchange Online |12076분 5110초 |
 | SharePoint Online |12076분 5120초 |
 | 비즈니스 온라인용 Skype |12076분 5130초 |
-| Dynamics 365 |12076분 5140초 |
 | 기타 Office 365 온라인 서비스 |12076분 5200초 |
 
 ## <a name="next-steps"></a>다음 단계

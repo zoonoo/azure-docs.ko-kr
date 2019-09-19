@@ -1,19 +1,19 @@
 ---
 title: Azure HDInsight에서 Power BI를 사용하여 대화형 쿼리 Hive 데이터 시각화
 description: Microsoft Power BI를 사용하여 Azure HDInsight에서 대화형 쿼리 Hive 데이터를 시각화
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 6311ae7e89cab67611396c607d38fd0f00f99dad
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 0f273f75c33362bc99efbd7ac6bc46c3778ae88b
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811624"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123029"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-hdinsight"></a>HDInsight에서 직접 쿼리를 사용 하 여 Microsoft Power BI로 대화형 쿼리 Apache Hive 데이터 시각화
 
@@ -23,7 +23,7 @@ ms.locfileid: "70811624"
 
 [Apache Hive ODBC 드라이버](../hadoop/apache-hadoop-connect-hive-power-bi.md)를 활용하여 Power BI Desktop에서 제네릭 ODBC 커넥터를 통해 가져오기를 수행할 수 있습니다. 그러나 BI 워크로드의 경우 Hive 쿼리 엔진의 비대화형 특성을 지정하지 않는 것이 좋습니다. 성능을 개선하기 위해 [HDInsight 대화형 쿼리 커넥터](./apache-hadoop-connect-hive-power-bi-directquery.md) 및 [HDInsight Apache Spark 커넥터](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect)를 선택할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
 * **HDInsight 클러스터**. 클러스터는 Apache Hive를 사용한 HDInsight 클러스터 또는 새로 릴리스된 대화형 쿼리 클러스터일 수 있습니다. 클러스터를 만드는 방법은 [클러스터 만들기](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하세요.
@@ -37,7 +37,7 @@ Hive `hivesampletable` 테이블은 모든 HDInsight 클러스터와 함께 제�
 
 2. 메뉴 모음에서 **홈** > **데이터** > 가져오기**자세히**로 이동 합니다.
 
-    ![HDInsight Power BI 데이터 열기](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
+    ![HDInsight Power BI 데이터 가져오기](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
 
 3. **데이터 가져오기** 창에서 검색 상자에 **hdinsight** 를 입력 합니다.  
 

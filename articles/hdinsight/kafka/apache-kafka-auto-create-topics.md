@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.openlocfilehash: 5d990a1c39495090fed1c78f1ddf5e879490e6c4
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 393087f4d5c5e7a52fd2dd10d20362a045a0075b
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960646"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122660"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>자동으로 토픽을 작성하기 위해 HDInsight에서 Apache Kafka를 구성하는 방법
 
@@ -25,7 +25,7 @@ Ambari 웹 UI를 통해 기존 클러스터에서 자동 토픽 생성을 사용
 
 1. [Azure 포털](https://portal.azure.com)에서 Kafka 클러스터를 선택합니다.
 
-2. __클러스터 개요__에서 __클러스터 대시보드__를 선택합니다. 
+2. __클러스터 개요__에서 __클러스터 대시보드__를 선택합니다.
 
     ![클러스터 대시 보드로 선택한 포털 이미지](./media/apache-kafka-auto-create-topics/kafka-cluster-overview.png)
 
@@ -35,15 +35,15 @@ Ambari 웹 UI를 통해 기존 클러스터에서 자동 토픽 생성을 사용
 
 3. 페이지 왼쪽 목록에서 Kafka 서비스를 선택합니다.
 
-    ![서비스 목록](./media/apache-kafka-auto-create-topics/hdinsight-service-list.png)
+    ![Apache Ambari 서비스 목록 탭](./media/apache-kafka-auto-create-topics/hdinsight-service-list.png)
 
 4. 페이지 중간의 Config를 선택합니다.
 
-    ![서비스 구성 탭](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
+    ![Apache Ambari service configs 탭](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
 
-5. 필터 필드에 `auto.create` 값을 입력합니다. 
+5. 필터 필드에 `auto.create` 값을 입력합니다.
 
-    ![필터 필드의 이미지](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
+    ![Apache Ambari 검색 필터 필드](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
 
     이렇게 하면 속성 목록이 필터링되고 `auto.create.topics.enable` 설정이 표시됩니다.
 
@@ -53,7 +53,7 @@ Ambari 웹 UI를 통해 기존 클러스터에서 자동 토픽 생성을 사용
 
 7. Kafka 서비스를 선택하고 __다시 시작__을 선택한 후 __영향을 받는 모든 서비스 다시 시작__을 선택합니다. 메시지가 나타나면 __모두 다시 시작 확인__을 선택합니다.
 
-    ![다시 시작 선택 이미지](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
+    ![모든 영향을 받는 Apache Ambari 다시 시작](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 
 > [!NOTE]  
 > 또한 Ambari REST API를 통해 Ambari 값을 설정할 수 있습니다. 일반적으로 이렇게 하는 것은 현재 구성을 검색하고 수정하기 위해 REST 호출을 여러 번 해야 하기 때문에 더 어렵습니다. 자세한 내용은 [Apache Ambari REST API를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari-rest-api.md) 문서를 참조하세요.

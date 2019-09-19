@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 2f5029ccbf80551721ecc363aa4c3930961d9154
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 8b3572182832dc7692f6475be44281f56cf58571
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993069"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122767"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Azure CLI 및 REST API를 사용 하 여 Azure Database for MariaDB에서 읽기 복제본을 만들고 관리 하는 방법
 
@@ -20,7 +20,7 @@ ms.locfileid: "70993069"
 ## <a name="azure-cli"></a>Azure CLI
 Azure CLI를 사용 하 여 읽기 복제본을 만들고 관리할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - 마스터 서버로 사용 되는 [Azure Database for MariaDB 서버](quickstart-create-mariadb-server-database-using-azure-portal.md) 입니다. 
@@ -44,7 +44,12 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 | name | mydemoreplicaserver | 만들어지는 새 복제본 서버의 이름입니다. |
 | source-server | mydemoserver | 복제할 기존 마스터 서버의 이름 또는 ID입니다. |
 
-지역 간 읽기 복제본을 만들려면 `--location` 매개 변수를 사용 합니다. 아래 CLI 예제에서는 미국 서 부에 복제본을 만듭니다.
+지역 간 읽기 복제본을 만들려면 `--location` 매개 변수를 사용 합니다. 
+
+> [!NOTE]
+> 지역 간 복제는 미리 보기 상태입니다.
+
+아래 CLI 예제에서는 미국 서 부에 복제본을 만듭니다.
 
 ```azurecli-interactive
 az mariadb server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
@@ -66,7 +71,7 @@ az mariadb server replica list --server-name mydemoserver --resource-group myres
 
 `az mariadb server replica list` 명령에는 다음과 같은 매개 변수가 필요합니다.
 
-| 설정 | 예제 값 | Description  |
+| 설정 | 예제 값 | 설명  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  복제본 서버가 만들어지는 리소스 그룹입니다.  |
 | 서버 이름 | mydemoserver | 마스터 서버의 이름 또는 ID입니다. |
@@ -84,7 +89,7 @@ az mariadb server replica stop --name mydemoreplicaserver --resource-group myres
 
 `az mariadb server replica stop` 명령에는 다음과 같은 매개 변수가 필요합니다.
 
-| 설정 | 예제 값 | Description  |
+| 설정 | 예제 값 | 설명  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  복제본 서버가 있는 리소스 그룹입니다.  |
 | name | mydemoreplicaserver | 복제를 중지할 복제본 서버의 이름입니다. |

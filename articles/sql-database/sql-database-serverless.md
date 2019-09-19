@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: e6c815b317e60d7a65a2f26249782451bc917097
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 04e3881b553f639bb2df948b6ad1154f86f1c9da
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993460"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123093"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>서버를 사용 하지 않는 Azure SQL Database (미리 보기)
 
@@ -160,6 +160,12 @@ Autoresuming는 데이터베이스를 온라인 상태로 만들어야 하는 �
    |GP_S_Gen5_1|범용|5세대|1|
    |GP_S_Gen5_2|범용|5세대|2|
    |GP_S_Gen5_4|범용|5세대|4|
+   |GP_S_Gen5_6|범용|Gen5|6|
+   |GP_S_Gen5_8|범용|Gen5|8|
+   |GP_S_Gen5_10|범용|Gen5|10|
+   |GP_S_Gen5_12|범용|Gen5|12|
+   |GP_S_Gen5_14|범용|Gen5|14|
+   |GP_S_Gen5_16|범용|Gen5|16|
 
 2. 필요에 따라 최소 vCores 및 autopause delay를 지정 하 여 기본값을 변경 합니다. 다음 표에는 이러한 매개 변수에 사용할 수 있는 값이 나와 있습니다.
 

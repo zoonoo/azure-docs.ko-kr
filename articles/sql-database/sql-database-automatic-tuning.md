@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/06/2019
-ms.openlocfilehash: 9922d347fae154a3a9b1c37e813014225c28442d
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: d782c2d9dff45dc152cab2246c95dda063bfd900
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103170"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130384"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL Database에서 자동 조정
 
@@ -75,7 +75,7 @@ Azure SQL Database에서 사용 가능한 자동 조정 옵션은 다음과 같�
 
 포털을 사용하여 조정 권장 사항을 수동으로 적용하거나 자동 조정을 통해 조정 권장 사항이 자율적으로 적용되도록 할 수 있습니다. 시스템에서 조정 권장 사항이 자율적으로 적용되도록 하는 경우 좋은 점은 워크로드 성능에 긍정적인 이득이 있는지 자동으로 확인하고, 뛰어난 성능 향상이 감지되지 않는 경우에는 조정 권장 사항을 자동으로 되돌립니다. 자주 실행되지 않는 조정 권장 사항의 영향을 받는 쿼리에 대한 유효성 검사 단계는 최대 72시간이 소요될 수 있습니다.
 
-T-sql을 통해 튜닝 권장 사항을 적용 하는 경우 자동 성능 유효성 검사 및 반전 메커니즘을 사용할 수 없습니다. 이러한 방식으로 적용 되는 권장 사항은 활성 상태로 유지 되며 24-48 시간에 대 한 튜닝 권장 사항 목록에 표시 됩니다. 시스템에서 자동으로 인출 합니다. 이 목록에서 권장 사항을 더 일찍 제거 하려면 Azure Portal에서 취소할 수 있습니다.
+T-sql을 통해 튜닝 권장 사항을 적용 하는 경우 자동 성능 유효성 검사 및 반전 메커니즘을 사용할 수 없습니다. 이러한 방식으로 적용 되는 권장 사항은 활성 상태로 유지 되며 24-48 시간에 대 한 튜닝 권장 사항 목록에 표시 됩니다. 시스템에서 자동으로 인출 합니다. 권장 사항을 더 일찍 제거 하려면 Azure Portal에서 취소할 수 있습니다.
 
 자동 조정 옵션은 데이터베이스당 별도로 설정 또는 해제하거나 SQL Database 서버에서 구성하고 서버에서 설정을 상속하는 모든 데이터베이스에서 적용할 수 있습니다. SQL Database 서버는 자동 조정 설정에 대한 Azure 기본값을 상속할 수 있습니다. 현재 Azure에서는 기본적으로 FORCE_LAST_GOOD_PLAN 및 CREATE_INDEX는 사용하고 DROP_INDEX는 사용하지 않도록 설정됩니다.
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 951d5bb10fbeeac090a1edb510b7214855477eac
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 3f64bce34a1bdb11bdbebb99fe28cdf3ff16dfb8
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515360"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128714"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL 하이퍼스케일 데이터베이스에 대한 FAQ
 
@@ -49,12 +49,12 @@ VCore 기반 서비스 계층은 기본적으로 가용성, 저장소 유형 및
 |  **리소스 종류** ||단일 데이터베이스/탄력적 풀/관리되는 인스턴스 | 단일 데이터베이스 | 단일 데이터베이스/탄력적 풀/관리되는 인스턴스 |
 | **컴퓨팅 크기**|단일 데이터베이스/탄력적 풀* | vCore 1~80개 | vCore 1~80개* | vCore 1~80개 |
 | |Managed Instance | vCore 8, 16, 24, 32, 40, 64, 80개 | 해당 사항 없음 | vCore 8, 16, 24, 32, 40, 64, 80개 |
-| **스토리지 유형** | 모두 |프리미엄 원격 스토리지(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 스토리지(인스턴스별) | 초고속 로컬 SSD 스토리지(인스턴스별) |
+| **저장소 유형** | 모두 |프리미엄 원격 스토리지(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 스토리지(인스턴스별) | 초고속 로컬 SSD 스토리지(인스턴스별) |
 | **스토리지 크기** | 단일 데이터베이스/탄력적 풀 | 5GB~4TB | 최대 100TB | 5GB~4TB |
 | | Managed Instance  | 32GB~8TB | 해당 사항 없음 | 32GB~4TB |
 | **IO 처리량** | 단일 데이터베이스** | vCore당 500 IOPS(최대 7,000 IOPS) | Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 유효 IOPs는 워크 로드에 따라 달라 집니다. | 5000 IOPS(최대 200,000 IOPS)|
-| | Managed Instance | 파일의 크기에 따라 다름 | N/A | Managed Instance: 파일의 크기에 따라 다름|
-|**Availability**|모두|복제본 1개, 읽기 확장 없음, 로컬 캐시 없음 | 복제본 여러 개, 읽기 확장 최대 15, 부분 로컬 캐시 | 복제본 3개, 읽기 확장 1개, 영역 중복 HA, 전체 로컬 캐시 |
+| | Managed Instance | 파일의 크기에 따라 다름 | 해당 사항 없음 | Managed Instance: 파일의 크기에 따라 다름|
+|**Availability**|모두|복제본 1개, 읽기 확장 없음, 로컬 캐시 없음 | 여러 복제본, 최대 4 개의 읽기 확장, 부분 로컬 캐시 | 복제본 3개, 읽기 확장 1개, 영역 중복 HA, 전체 로컬 캐시 |
 |**백업**|모두|RA-GRS, 7-35일(기본값: 7일)| RA-GRS, 7 일, 상수 시간 지정 시간 복구 (PITR) | RA-GRS, 7-35일(기본값: 7일) |
 
 \* 하이퍼스케일 서비스 계층에는 탄력적 풀이 지원되지 않습니다.

@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/18/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 3ffcc5ac2193e607573ceb93717258f5349d1f15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e0f4d356bb6addf735bf148a80e6be3ca550c8f
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883201"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123371"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>회로 프로비전 및 회로 상태에 대한 ExpressRoute 워크플로
 이 페이지에서는 높은 수준에서 구성 워크플로 프로비전 및 라우팅 서비스를 안내합니다.
@@ -29,7 +29,7 @@ ms.locfileid: "60883201"
    
    * Azure 프라이빗 피어링 사용 - 이 피어링을 사용하여 가상 네트워크 내에 배포된 VM/클라우드 서비스에 연결합니다.
 
-   * Microsoft 피어링 사용 - Office 365 및 Dynamics 365에 액세스하려면 이 기능을 사용합니다. 또한 모든 Azure PaaS 서비스는 Microsoft 피어링을 통해 액세스할 수도 있습니다.
+   * Microsoft 피어 링 사용-Office 365에 액세스 하려면이 기능을 사용 하도록 설정 합니다. 또한 모든 Azure PaaS 서비스는 Microsoft 피어링을 통해 액세스할 수도 있습니다.
      
      > [!IMPORTANT]
      > 인터넷에 사용하는 것 이외에 별도 프록시/Edge를 사용하여 Microsoft에 연결해야 합니다. ExpressRoute 및 인터넷 모두에 동일한 Edge를 사용하면 비대칭 라우팅이 발생하고 네트워크에 대한 연결 중단이 발생합니다.
@@ -43,7 +43,7 @@ ms.locfileid: "60883201"
 각 ExpressRoute 회로에는 두 가지 상태가 있습니다.
 
 * 서비스 공급자 프로비전 상태
-* 상태
+* Status
 
 상태는 Microsoft의 프로비전 상태를 나타냅니다. Express 경로 회로를 만들 때는 이 속성이 Enabled로 설정됩니다.
 

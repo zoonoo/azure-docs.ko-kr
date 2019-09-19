@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 9a5e5dc414d487efd5f6762c89cecb77da74e3d5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 6e3045ba8363965fcfc198356ed68447a187308d
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592066"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123426"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -55,11 +55,23 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 ## <a name="supported-services"></a>지원되는 서비스
 
-ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 도메인](expressroute-circuit-peerings.md)을 지원합니다.
+Express 경로는 개인 피어 링, Microsoft 피어 링 및 공용 피어 링과 같은 다양 한 유형의 서비스에 대 한 [세 개의 라우팅 도메인](expressroute-circuit-peerings.md) 을 지원 합니다.
 
 ### <a name="private-peering"></a>개인 피어링
 
 * 모든 가상 머신 및 클라우드 서비스를 포함한 가상 네트워크
+
+### <a name="microsoft-peering"></a>Microsoft 피어링
+
+* [Office 365](https://aka.ms/ExpressRouteOffice365)
+* Power BI-Azure 지역 커뮤니티를 통해 사용할 수 있습니다. Power BI 테 넌 트의 지역을 확인 하는 방법은 [여기](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) 를 참조 하세요.
+* Azure Active Directory
+* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/)(Azure 글로벌 서비스 커뮤니티)
+* 대부분의 Azure 서비스가 지원됩니다. 사용하려는 서비스의 지원 유무를 직접 확인해 보세요.<br><br>**다음 서비스는 지원되지 않습니다**.
+    * CDN
+    * Azure Front Door
+    * Multi-Factor 인증
+    * Traffic Manager
 
 ### <a name="public-peering"></a>공용 피어링
 
@@ -68,7 +80,6 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 >
 
 * Power BI
-* Dynamics 365 for Finance and Operations(이전의 Dynamics AX Online)
 * 대부분의 Azure 서비스가 지원됩니다. 사용하려는 서비스의 지원 유무를 직접 확인해 보세요.<br><br>
   **다음 서비스는 지원되지 않습니다**.
     * CDN
@@ -76,18 +87,10 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
     * Multi-Factor 인증
     * Traffic Manager
 
-### <a name="microsoft-peering"></a>Microsoft 피어링
+### <a name="is-dynamics-365-supported-on-expressroute"></a>Express 경로에서 Dynamics 365이 지원 되나요?
 
-* [Office 365](https://aka.ms/ExpressRouteOffice365)
-* Dynamics 365 
-* Power BI-Azure 지역 커뮤니티를 통해 사용할 수 있습니다. Power BI 테 넌 트의 지역을 확인 하는 방법은 [여기](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) 를 참조 하세요. 
-* Azure Active Directory
-* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/)(Azure 글로벌 서비스 커뮤니티)
-* 대부분의 Azure 서비스가 지원됩니다. 사용하려는 서비스의 지원 유무를 직접 확인해 보세요.<br><br>**다음 서비스는 지원되지 않습니다**.
-    * CDN
-    * Azure Front Door
-    * Multi-Factor 인증
-    * Traffic Manager
+Dynamics 365 및 Common Data Service (CD) 환경은 Azure에서 호스트 되므로 고객은 Azure 리소스에 대 한 기본 Express 경로 지원을 활용 합니다. 라우터 필터에 Dynamics 365/CD 환경이 호스트 되는 Azure 지역이 포함 된 경우 해당 서비스 끝점에 연결할 수 있습니다.
+
 
 ## <a name="data-and-connections"></a>데이터 및 연결
 
@@ -262,7 +265,7 @@ ExpressRoute Premium은 다음 기능의 모음입니다.
 
 * 증가된 라우팅 테이블은 프라이빗 피어링에 대해 4000개의 경로에서 경로 10, 000개의 경로로 제한합니다.
 * ExpressRoute 회로에서 사용할 수 있는 VNet 및 ExpressRoute Global Reach 연결 수가 증가했습니다(기본값은 10). 자세한 내용은 [ExpressRoute 제한](#limits) 표를 참조하세요.
-* Office 365 및 Dynamics 365에 연결합니다.
+* Office 365에 대 한 연결
 * Microsoft 핵심 네트워크를 통해 전역 연결합니다. 이제 한 지리적 지역의 VNet을 다른 지역의 ExpressRoute 회로와 연결할 수 있습니다.<br>
     **예:**
 
@@ -332,7 +335,7 @@ Express 경로 로컬은 하나 또는 두 개의 Azure 지역이 종료 되는 
 > 
 > 
 
-### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-dynamics-365"></a>기존 ExpressRoute 회로가 Office 365 서비스 및 Dynamics 365에 대한 연결을 지원할 수 있나요?
+### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services"></a>기존 Express 경로 회로에서 Office 365 서비스에 대 한 연결을 지원할 수 있나요?
 
 예. 기존 ExpressRoute 회로가 Office 365 서비스에 대한 연결을 지원하도록 구성할 수 있나요? Office 365 서비스에 연결하는 데 충분한 용량이 있는지와 프리미엄 추가 기능을 사용하도록 설정했는지를 확인합니다. [Office 365의 네트워크 계획 및 성능 조정](https://aka.ms/tune/)을 참조하면 연결 요구 사항을 계획할 수 있습니다. [ExpressRoute 회로 만들기 및 수정](expressroute-howto-circuit-classic.md)도 참조하세요.
 
@@ -369,13 +372,9 @@ Office 365 서비스를 사용하려면 프리미엄 추가 기능을 사용하�
 
 경로 필터를 사용하면 모든 고객이 Microsoft 피어링을 설정할 수 있습니다. 그러나 Office 365 서비스를 사용하려면 여전히 Office 365에서 권한을 부여받아야 합니다.
 
-### <a name="do-i-need-to-get-authorization-for-turning-on-dynamics-365-over-microsoft-peering"></a>Microsoft 피어링을 통해 Dynamics 365를 설정하는 경우 필요한 권한을 부여받아야 하나요?
-
-아니요, Dynamics 365에 대해 권한을 부여받을 필요가 없습니다. 규칙을 만든 다음, 권한을 부여받지 않고 Dynamics 365 커뮤니티를 선택하면 됩니다.
-
 ### <a name="i-enabled-microsoft-peering-prior-to-august-1-2017-how-can-i-take-advantage-of-route-filters"></a>2017년 8월 1일 이전에 Microsoft 피어링을 사용하도록 설정했습니다. 경로 필터를 사용하려면 어떻게 해야 하나요?
 
-기존 회로가 Office 365 및 Dynamics 365용 접두사를 계속 보급하게 됩니다. 동일한 Microsoft 피어링을 통해 Azure 공용 접두사 보급 알림을 추가하려면 경로 필터를 만들고, 보급해야 하는 서비스(필요한 Office 365 서비스 및 Dynamics 365 포함)를 선택하고, 해당 필터를 Microsoft 피어링에 추가할 수 있습니다. 자세한 내용은 [Microsoft 피어링용 경로 필터 구성](how-to-routefilter-powershell.md)을 참조하세요.
+기존 회로는 Office 365에 대 한 접두사를 계속 보급 합니다. 동일한 Microsoft 피어 링을 통해 Azure 공용 접두사 보급을 추가 하려는 경우 경로 필터를 만들고, 보급 해야 하는 서비스 (필요한 Office 365 서비스 포함)를 선택 하 고, Microsoft 피어 링에 필터를 연결 하면 됩니다. 자세한 내용은 [Microsoft 피어링용 경로 필터 구성](how-to-routefilter-powershell.md)을 참조하세요.
 
 ### <a name="i-have-microsoft-peering-at-one-location-now-i-am-trying-to-enable-it-at-another-location-and-i-am-not-seeing-any-prefixes"></a>한 위치에서 Microsoft 피어링을 사용하고 있습니다. 이제 다른 위치에서 사용하도록 설정하려고 했지만 접두사가 표시되지 않습니다.
 

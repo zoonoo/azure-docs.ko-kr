@@ -9,12 +9,12 @@ ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 3640d2d88fc679b78395472c667fcde39979728a
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 6a598ad3f68c613a745fd56f3b368e309afeb8b6
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71074343"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122967"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -28,12 +28,7 @@ Azure Storage는 CRCs (순환 중복 검사)를 사용 하 여 저장 된 데이
 
 스토리지 계정을 만들 때 다음 중복성 옵션 중 하나를 선택할 수 있습니다.
 
-- [LRS(로컬 중복 스토리지)](storage-redundancy-lrs.md)
-- [ZRS(영역 중복 스토리지)](storage-redundancy-zrs.md)
-- [GRS(지역 중복 스토리지)](storage-redundancy-grs.md)
-- [RA-GRS(읽기 액세스 지역 중복 스토리지)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
-- [GZRS (지역 영역 중복 저장소)](storage-redundancy-gzrs.md)
-- [읽기 액세스 지리적 영역 중복 저장소 (RA-GZRS)](storage-redundancy-gzrs.md)
+[!INCLUDE [azure-storage-redundancy](../../../includes/azure-storage-redundancy.md)]
 
 다음 표는 각 복제 전략에서 특정 유형의 이벤트(또는 영향이 비슷한 이벤트)에 제공하는 내구성 및 가용성 범위를 간략하게 보여줍니다.
 
@@ -55,7 +50,7 @@ Azure Storage는 CRCs (순환 중복 검사)를 사용 하 여 저장 된 데이
 Azure Storage의 내구성 및 가용성 보장에 대한 정보는 [Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/)를 참조하세요.
 
 > [!NOTE]
-> Azure Premium Storage는 LRS (로컬 중복 저장소)만 지원 합니다.
+> Azure Premium Storage는 현재 LRS (로컬 중복 저장소)만 지원 합니다.
 
 ## <a name="changing-replication-strategy"></a>복제 전략 변경
 
@@ -72,7 +67,7 @@ Azure Storage의 내구성 및 가용성 보장에 대한 정보는 [Azure Stora
 
 GRS에서 GRS 또는 LRS로 저장소 계정을 마이그레이션하는 경우 해당 계정은 변환 된 날짜를 초과 하 여 30 일이 경과 하면 RA-GRS로 청구 됩니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
 - [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복성](storage-redundancy-lrs.md)
 - [ZRS(영역 중복 스토리지): 고가용성 Azure Storage 애플리케이션](storage-redundancy-zrs.md)

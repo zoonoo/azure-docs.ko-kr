@@ -1,18 +1,18 @@
 ---
 title: Linux 기반 Azure HDInsight에서 Hadoop Oozie 워크플로 사용
 description: Linux 기반 HDInsight에서 Hadoop Oozie를 사용합니다. 또한 Oozie 워크플로를 정의하고 Oozie 작업을 제출하는 방법에 대해서도 살펴봅니다.
-ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: d601dc1efe8dc3f6f2678f5d4df03f172146cd07
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: c24370c91c7164786503cdd8e3c44de60abc8370
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900542"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122488"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Hadoop과 함께 Apache Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로 정의 및 실행
 
@@ -29,7 +29,7 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 > HDInsight를 사용하여 워크플로를 정의하는 또 다른 옵션은 Azure Data Factory를 사용하는 것입니다. Data Factory에 대 한 자세한 내용은 [Data Factory에서 Apache Pig 및 Apache Hive 사용][azure-data-factory-pig-hive]을 참조 하세요. Enterprise Security Package가 포함된 클러스터에서 Oozie를 사용하려면 [Enterprise Security Package가 포함된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)을 참조하세요.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **HDInsight의 Hadoop 클러스터** [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
@@ -39,12 +39,11 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 
 * 클러스터 기본 스토리지에 대한 [URI 체계](./hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. Azure Storage는 `wasb://`, Azure Data Lake Storage Gen2는 `abfs://`, Azure Data Lake Storage Gen1은 `adl://`입니다. Azure Storage 또는 Data Lake Storage Gen2에 보안 전송을 사용하는 경우 URI는 각각 `wasbs://` 또는 `abfss://`가 됩니다. [보안 전송](../storage/common/storage-require-secure-transfer.md)도 참조하세요.
 
-
 ## <a name="example-workflow"></a>예제 워크플로
 
 이 문서에서 사용되는 워크플로에는 두 가지 작업이 있습니다. 동작은 Hive, Sqoop, MapReduce 또는 기타 프로세스 실행과 같은 작업에 대한 정의입니다.
 
-![워크플로 다이어그램][img-workflow-diagram]
+![HDInsight oozie 워크플로 다이어그램](./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png)
 
 1. Hive 작업은 HiveQL 스크립트를 실행 하 여 HDInsight에 포함 `hivesampletable` 된에서 레코드를 추출 합니다. 데이터의 각 행은 특정 모바일 디바이스에서의 방문을 설명합니다. 레코드 형식은 다음 텍스트와 유사하게 표시됩니다.
 
@@ -222,7 +221,7 @@ Oozie 워크플로 정의는 XML 프로세스 정의 언어인 hPDL(Hadoop 프�
     hdfs dfs -put workflow.xml /tutorials/useoozie/workflow.xml
     ```
 
-## <a name="create-a-table"></a>테이블 만들기
+## <a name="create-a-table"></a>테이블 생성하기
 
 > [!NOTE]  
 > 여러 가지 방법으로 SQL Database에 연결하여 테이블을 생성할 수 있습니다. 다음 단계는 HDInsight 클러스터의 [FreeTDS](https://www.freetds.org/) 를 사용합니다.
@@ -482,7 +481,7 @@ Oozie REST API를 사용하면 Oozie와 함께 작동하는 사용자 고유의 
 
 * **URI**: `https://CLUSTERNAME.azurehdinsight.net/oozie`에서 클러스터 외부의 REST API에 액세스할 수 있습니다.
 
-* **인증**: 인증을 받으려면 API와 클러스터 HTTP 계정(admin) 및 암호를 사용합니다. 예를 들어:
+* **인증**: 인증을 받으려면 API와 클러스터 HTTP 계정(admin) 및 암호를 사용합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -510,29 +509,29 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 완료하세요.
 
 3. 페이지의 왼쪽부터 **Oozie** > **빠른 링크** > **Oozie 웹 UI**를 선택합니다.
 
-    ![메뉴 이미지](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
+    ![Apache Ambari oozie 웹 ui 단계](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
 
 4. Oozie 웹 UI는 기본적으로 실행 중인 워크플로 작업을 표시합니다. 모든 워크플로 작업을 보려면 **모든 작업**을 선택합니다.
 
-    ![모든 작업 표시](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
+    ![Oozie 웹 콘솔 워크플로 작업](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
 
 5. 작업에 대한 자세한 내용을 보려면 해당 작업을 선택합니다.
 
-    ![작업 정보](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
+    ![HDInsight Apache Oozie 작업 정보](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
 
 6. **작업 정보** 탭에서 기본 작업 정보 및 작업 내의 개별 동작을 볼 수 있습니다. 맨 위에 있는 탭을 사용하여 **작업 정의**, **작업 구성**을 보거나, **작업 로그**에 액세스하거나, **작업 DAG**에서 작업의 DAG(방향성 비순환 그래프)를 확인할 수 있습니다.
 
    * **작업 로그**: **로그 가져오기** 단추를 선택하여 작업에 대한 모든 로그를 가져오거나 **검색 필터 입력** 필드를 사용하여 로그를 필터링합니다.
 
-       ![작업 로그](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
+       ![HDInsight Apache Oozie 작업 로그](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
 
    * **작업 DAG**: DAG는 워크플로를 통해 가져온 데이터 경로의 그래픽 개요입니다.
 
-       ![작업 DAG](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
+       ![HDInsight Apache Oozie 작업 dag](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
 
 7. **작업 정보** 탭에서 동작 중 하나를 선택하면 해당 동작에 대한 정보가 표시됩니다. 예를 들어 **RunHiveScript** 동작을 선택합니다.
 
-    ![동작 정보](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
+    ![HDInsight oozie 작업 동작 정보](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
 
 8. **콘솔 URL** 링크 등 작업에 대한 세부 정보를 확인할 수 있습니다. 이 링크를 사용하여 작업에 대한 작업 추적기 정보를 볼 수 있습니다.
 
@@ -632,18 +631,18 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 완료하세요.
 
 7. Oozie 웹 UI를 방문하여 **코디네이터 작업** 탭을 선택하면 다음 그림과 유사한 정보가 표시됩니다.
 
-    ![코디네이터 작업 탭](./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png)
+    ![Oozie 웹 콘솔 코디네이터 작업 탭](./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png)
 
     **다음 구체화** 항목에는 다음에 작업이 실행되는 시간이 포함됩니다.
 
 8. 이전의 워크플로 작업과 마찬가지로 웹 UI에서 작업 항목을 선택하면 작업에 대한 정보가 표시됩니다.
 
-    ![코디네이터 작업 정보](./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png)
+    ![Apache Oozie 코디네이터 작업 정보](./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png)
 
     > [!NOTE]  
     > 이 이미지는 성공한 작업 실행만 표시하며, 예약된 워크플로 내의 개별 동작은 표시하지 않습니다. 개별 작업을 보려면 **동작** 항목 중 하나를 선택합니다.
 
-    ![코디네이터 작업 정보](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
+    ![OOzie 웹 콘솔 작업 정보 탭](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -747,7 +746,6 @@ Oozie UI를 사용하여 Oozie 로그를 볼 수 있습니다. Oozie UI에는 �
 
 [cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-[img-workflow-diagram]: ./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png
 [img-preparation-output]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 

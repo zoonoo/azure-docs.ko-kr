@@ -2,18 +2,18 @@
 title: Azure HDInsight Tools-Visual Studio Code에 대 한 PySpark 대화형 환경
 description: Azure HDInsight Tools for Visual Studio Code를 사용하여 쿼리와 스크립트를 만들고 제출하는 방법에 대해 알아봅니다.
 keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,대화형 Hive,대화형 쿼리
-ms.service: hdinsight
 author: jejiang
 ms.author: jejiang
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: d220d81b8dc57541113f7ef1e477bb77d394e206
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: f62f7994818e487202e35e4931472355fb6ac3d2
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879299"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130186"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Visual Studio Code용 PySpark 대화형 환경 설정
 
@@ -21,20 +21,19 @@ ms.locfileid: "70879299"
 
 **python/pip** 명령을 사용하여 홈 경로에서 가상 환경을 빌드합니다. 다른 버전을 사용하려면 **python/pip** 명령의 기본 버전을 수동으로 변경해야 합니다. 자세한 내용은 [update-alternatives](https://linux.die.net/man/8/update-alternatives)를 참조하세요.
 
-1. [Python](https://www.python.org/downloads/) 및 [pip](https://pip.pypa.io/en/stable/installing/)를 설치합니다.
-   
+1. [Python](https://www.python.org/downloads/) 및 [pip](https://pip.pypa.io/en/stable/installing/)를 설치 합니다.
+
    + [https://www.python.org/downloads/](https://www.python.org/downloads/)에서 Python을 설치합니다.
    + (Python 설치 [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) 에서 설치 되지 않은 경우)에서 pip를 설치 합니다.
    + 다음 명령을 사용 하 여 Python 및 pip가 성공적으로 설치 되었는지 확인 합니다. (옵션)
- 
-        ![Python pip 버전](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
+
+        ![Python pip 버전 명령 확인](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
      > [!NOTE]
      > MacOS 기본 버전을 사용 하는 대신 Python을 수동으로 설치 하는 것이 좋습니다.
 
-
 2. 아래 명령을 실행하여 **virtualenv**를 설치합니다.
-   
+
    ```
    pip install virtualenv
    ```
@@ -43,7 +42,7 @@ ms.locfileid: "70879299"
 
 오류 메시지가 표시 되 면 다음 명령을 실행 하 여 필요한 패키지를 설치 합니다.
 
-   ![libkrb5-dev 패키지](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
+   ![Python 용 libkrb5-dev 패키지 설치](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
 
 ```
 sudo apt-get install libkrb5-dev

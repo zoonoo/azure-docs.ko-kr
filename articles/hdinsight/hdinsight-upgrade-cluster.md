@@ -1,30 +1,31 @@
 ---
 title: HDInsight 클러스터를 최신 버전으로 업그레이드 - Azure
 description: Azure HDInsight 클러스터를 최신 버전으로 업그레이드 하는 지침에 대해 알아봅니다.
-ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: a62da0d27d21589f7b75a89cc184ce9f456f1fed
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 808e592a01bca2066b7d3d37a5fdfa697d739d4b
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960719"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122440"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>HDInsight 클러스터를 최신 버전으로 업그레이드
+
 최신 HDInsight 기능을 활용하려면 HDInsight 클러스터를 최신 버전으로 업그레이드하는 것이 좋습니다. 아래 지침에 따라 HDInsight 클러스터 버전을 업그레이드합니다.
 
 > [!NOTE]  
 > 지원되는 HDInsight 버전에 대한 자세한 내용은 [HDInsight 구성 요소 버전](hdinsight-component-versioning.md#supported-hdinsight-versions)을 참조하세요.
 
 ## <a name="upgrade-tasks"></a>업그레이드 작업
-HDInsight 클러스터를 업그레이드하는 워크플로는 다음과 같습니다.
 
-![업그레이드 워크플로 다이어그램](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
+HDInsight 클러스터를 업그레이드하는 워크플로는 다음과 같습니다.
+![HDInsight 업그레이드 워크플로 다이어그램](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
 
 1. HDInsight 클러스터를 업그레이드할 때 필요할 수 있는 변경 내용을 이해하려면 이 문서의 각 섹션을 읽어보세요.
 2. 클러스터를 테스트/품질 보증 환경으로 만듭니다. 클러스터를 만드는 방법에 대한 자세한 내용은 [Linux 기반 HDInsight 클러스터를 만드는 방법 알아보기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
@@ -40,7 +41,7 @@ HDInsight 클러스터를 업그레이드하는 워크플로는 다음과 같습
 5.  새 클러스터를 사용하여 작업을 시작하거나 계속 처리합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 * [Linux 기반 HDInsight 클러스터를 만드는 방법 알아보기](hdinsight-hadoop-provision-linux-clusters.md)
 * [SSH를 사용하여 HDInsight에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Apache Ambari를 사용하여 Linux 기반 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
-

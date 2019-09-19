@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 20d8106f06b708527fc60e025a19c6b07656acb3
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f4816ea2dc67df717e46df61c955d6d156b14d7e
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102642"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129673"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -83,7 +83,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 
 > [!NOTE]
 > Azure 가상 머신 확장 집합은 업데이트 관리를 사용 하 여 관리할 수 있습니다. 업데이트 관리은 기본 이미지가 아닌 인스턴스 자체에 대해 작동 합니다. 모든 VM 인스턴스를 한 번에 업데이트 하지 않도록 증분 방식으로 업데이트를 예약 해야 합니다.
-> [Onbaord a 비 Azure 컴퓨터](automation-tutorial-installed-software.md#onboard-a-non-azure-machine)의 단계에 따라 Vmss 노드를 추가할 수 있습니다.
+> [비 Azure 컴퓨터 등록의](automation-tutorial-installed-software.md#onboard-a-non-azure-machine)단계에 따라 Vmss 노드를 추가할 수 있습니다.
 
 ### <a name="unsupported-client-types"></a>지원되지 않는 클라이언트 유형
 

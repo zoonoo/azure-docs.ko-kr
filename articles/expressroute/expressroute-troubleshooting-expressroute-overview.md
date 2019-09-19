@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 888f4dedf2fda0f54297d42a5f813abf73ded748
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 026900e3dcbf7c20750bb8e17e44ba64897c9a30
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66117854"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123449"
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute 연결 확인
 이 문서는 ExpressRoute 연결 문제를 확인하고 해결하는 데 도움을 줍니다. 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장하는 ExpressRoute에는 다음 세 가지 고유 네트워크 영역이 필요합니다.
@@ -22,10 +22,10 @@ ms.locfileid: "66117854"
 -   공급자 네트워크
 -   Microsoft 데이터 센터
 
-이 문서는 사용자가 연결 문제가 있는 위치와 해당 영역을 파악하여 문제를 해결할 수 있도록 적절한 팀에 지원을 요청하는 데 도움이 되기 위한 것입니다. 문제를 해결하기 위해 지원이 필요하면 [Microsoft 지원][Support]에서 지원 티켓을 열어주세요.
+이 문서는 사용자가 연결 문제가 있는 위치와 해당 영역을 파악하여 문제를 해결할 수 있도록 적절한 팀에 지원을 요청하는 데 도움이 되기 위한 것입니다. 문제를 해결 하기 위해 Microsoft 지원이 필요한 경우 [Microsoft 지원][Support]를 사용 하 여 지원 티켓을 엽니다.
 
 > [!IMPORTANT]
-> 이 문서는 간단한 문제를 진단하고 수정하는 데 사용됩니다. 이 문서는 Microsoft 기술 지원 서비스를 대체하지 않습니다. 제공된 지침을 사용하여 문제를 해결할 수 없으면 [Microsoft 지원][Support]에서 지원 티켓을 열어주세요.
+> 이 문서는 간단한 문제를 진단하고 수정하는 데 사용됩니다. 이 문서는 Microsoft 기술 지원 서비스를 대체하지 않습니다. 제공 된 지침을 사용 하 여 문제를 해결할 수 없는 경우 [Microsoft 지원][Support] 를 사용 하 여 지원 티켓을 엽니다.
 >
 >
 
@@ -66,7 +66,7 @@ ExpressRoute 회로의 유효성을 검사하기 위해 다음 단계가 적용�
 나중에 더 많은 유효성 검사와 확인이 추가되며 매월 다시 확인해 주세요!
 
 ## <a name="validate-circuit-provisioning-and-state"></a>회로 프로비전 및 상태 유효성 검사
-연결 모델에 관계 없이 ExpressRoute 회로를 만들어야 하므로 회로 프로비전을 위해 생성된 서비스 키가 필요합니다. ExpressRoute 회로를 프로비전하면 PE-MSEE(4)와 MSEE(5) 간에 계층 2 중복 연결이 설정됩니다. ExpressRoute 회로 만들기, 수정, 프로비전 및 확인 방법에 대한 자세한 내용은 [ExpressRoute 회로 만들기 및 수정][CreateCircuit] 문서를 참조하세요.
+연결 모델에 관계 없이 ExpressRoute 회로를 만들어야 하므로 회로 프로비전을 위해 생성된 서비스 키가 필요합니다. ExpressRoute 회로를 프로비전하면 PE-MSEE(4)와 MSEE(5) 간에 계층 2 중복 연결이 설정됩니다. Express 경로 회로를 만들고, 수정 하 고, 프로 비전 하 고, 확인 하는 방법에 대 한 자세한 내용은 [express 경로 회로 만들기 및 수정][CreateCircuit]문서를 참조 하세요.
 
 >[!TIP]
 >서비스 키는 ExpressRoute 회로를 고유하게 식별합니다. 이 키는 이 문서에서 언급하는 PowerShell 명령 대부분에 필요합니다. 또한 Microsoft 또는 ExpressRoute 파트너로부터 도움을 받아 ExpressRoute 문제를 해결하려면 회로를 쉽게 식별할 수 있도록 서비스 키를 제공해야 합니다.
@@ -74,7 +74,7 @@ ExpressRoute 회로의 유효성을 검사하기 위해 다음 단계가 적용�
 >
 
 ### <a name="verification-via-the-azure-portal"></a>Azure Portal을 통한 확인
-Azure Portal에서 ExpressRoute 회로의 상태는 왼쪽 세로 막대 메뉴에서 ![2][2]를 선택한 다음 ExpressRoute 회로를 선택하여 확인할 수 있습니다. "모든 리소스" 아래에 나열된 ExpressRoute 회로를 선택하면 ExpressRoute 회로 블레이드가 열립니다. 에 ![3][3] 섹션 블레이드의 ExpressRoute essentials는 다음 스크린샷과에서 같이 나열 됩니다.
+Azure Portal에서 ExpressRoute 회로의 상태는 왼쪽 세로 막대 메뉴에서 ![2][2]를 선택한 다음 ExpressRoute 회로를 선택하여 확인할 수 있습니다. "모든 리소스" 아래에 나열된 ExpressRoute 회로를 선택하면 ExpressRoute 회로 블레이드가 열립니다. 블레이드의 ![3][3] 섹션에는 다음 스크린샷에 표시 된 것 처럼 express 경로 essentials가 나열 됩니다.
 
 ![4][4]    
 
@@ -83,7 +83,7 @@ ExpressRoute Essentials에서 *회로 상태*는 Microsoft 쪽 회로 상태를 
 ExpressRoute 회로가 작동하려면 *회로 상태*가 *사용*이고, *공급자 상태*가 *프로비전됨*이어야 합니다.
 
 > [!NOTE]
-> *회로 상태*가 ‘사용’이 아니면 [Microsoft 지원][Support]에 문의하고, *공급자 상태*가 ‘프로비전되지 않음’이면 서비스 공급자에게 문의하세요.
+> *회로 상태* 를 사용할 수 없는 경우 [Microsoft 지원][Support]에 문의 하세요. *공급자 상태*가 ‘프로비전되지 않음’이면 서비스 공급자에게 문의하세요.
 >
 >
 
@@ -132,7 +132,7 @@ ExpressRoute 회로가 작동하는지 확인하려면 다음 필드에 특히 �
     ServiceProviderProvisioningState : Provisioned
 
 > [!NOTE]
-> *CircuitProvisioningState*가 '사용'이 아니면 [Microsoft 지원][Support]에 문의하고, *ServiceProviderProvisioningState*가 '프로비전되지 않음'이면 서비스 공급자에게 문의하세요.
+> *CircuitProvisioningState* 를 사용 하도록 설정 하지 않은 경우 [Microsoft 지원][Support]에 문의 하세요. *ServiceProviderProvisioningState*가 '프로비전되지 않음'이면 서비스 공급자에게 문의하세요.
 >
 >
 
@@ -160,12 +160,12 @@ ExpressRoute 회로가 작동하는지 확인하려면 다음 필드에 특히 �
 ExpressRoute 회로가 작동하는지 확인하려면 다음 필드에 특히 주의하세요. ServiceProviderProvisioningState : 프로비전된 상태: Enabled
 
 > [!NOTE]
-> *상태*가 ‘사용’이 아니면 [Microsoft 지원][Support]에 문의하고, *ServiceProviderProvisioningState*가 '프로비전되지 않음'이면 서비스 공급자에게 문의하세요.
+> *상태* 를 사용할 수 없는 경우 [Microsoft 지원][Support]에 문의 하세요. *ServiceProviderProvisioningState*가 '프로비전되지 않음'이면 서비스 공급자에게 문의하세요.
 >
 >
 
 ## <a name="validate-peering-configuration"></a>피어링 구성 유효성 검사
-서비스 공급자가 ExpressRoute 회로 프로비전을 완료하면 MSEE-PR(4)와 MSEE(5) 사이의 ExpressRoute 회로를 통해 라우팅 구성을 만들 수 있습니다. ExpressRoute 회로마다 하나, 둘 또는 셋의 라우팅 컨텍스트, 즉 Azure 프라이빗 피어링(Azure에서 프라이빗 가상 네트워크로의 트래픽), Azure 공용 피어링(Azure에서 공용 IP 주소로의 트래픽) 및 Microsoft 피어링(Office 365 및 Dynamics 365로의 트래픽)을 사용할 수 있습니다. 라우팅 구성을 만들고 수정하는 방법에 대한 자세한 내용은 [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering] 문서를 참조하세요.
+서비스 공급자가 ExpressRoute 회로 프로비전을 완료하면 MSEE-PR(4)와 MSEE(5) 사이의 ExpressRoute 회로를 통해 라우팅 구성을 만들 수 있습니다. ExpressRoute 회로마다 하나, 둘 또는 셋의 라우팅 컨텍스트, Azure 개인 피어 링 (Azure에서 개인 가상 네트워크로의 트래픽), Azure 공용 피어 링 (Azure의 공용 IP 주소에 대 한 트래픽) 및 Microsoft 피어 링 (Office 365에 대 한 트래픽) 라우팅 구성을 만들고 수정 하는 방법에 대 한 자세한 내용은 [express 경로 회로에 대 한 라우팅 만들기 및 수정][CreatePeering]문서를 참조 하세요.
 
 ### <a name="verification-via-the-azure-portal"></a>Azure Portal을 통한 확인
 
@@ -174,14 +174,14 @@ ExpressRoute 회로가 작동하는지 확인하려면 다음 필드에 특히 �
 >
 >
 
-Azure Portal에서 ExpressRoute 회로의 상태는 왼쪽 세로 막대 메뉴에서 ![2][2]를 선택한 다음 ExpressRoute 회로를 선택하여 확인할 수 있습니다. "모든 리소스" 아래에 나열된 ExpressRoute 회로를 선택하면 ExpressRoute 회로 블레이드가 열립니다. 에 ![3][3] ExpressRoute essentials는 다음 스크린샷에 표시 된 것 처럼 표시 되는 블레이드의 섹션:
+Azure Portal에서 ExpressRoute 회로의 상태는 왼쪽 세로 막대 메뉴에서 ![2][2]를 선택한 다음 ExpressRoute 회로를 선택하여 확인할 수 있습니다. "모든 리소스" 아래에 나열된 ExpressRoute 회로를 선택하면 ExpressRoute 회로 블레이드가 열립니다. 블레이드의 ![3][3] 섹션에는 다음 스크린샷에 표시 된 것 처럼 express 경로 essentials가 나열 됩니다.
 
 ![5][5]
 
 앞의 예제에서 명시한 대로 Azure 프라이빗 피어링 라우팅 컨텍스트는 사용할 수 있지만, Azure 공용 피어링 및 Microsoft 피어링 라우팅 컨텍스트는 사용할 수 없습니다. 또한 성공적으로 사용되는 피어링 컨텍스트에는 기본 및 보조 지점 간(BGP에 필수) 서브넷이 나열되어 있습니다. /30 서브넷은 MSEE 및 PE-MSEE의 인터페이스 IP 주소에 사용됩니다. 
 
 > [!NOTE]
-> 피어링을 사용하지 않는 경우 할당된 기본 및 보조 서브넷이 PE-MSEE의 구성과 일치하는지 확인합니다. 그렇지 않은 경우 MSEE 라우터의 구성을 변경하려면 [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering]을 참조하세요.
+> 피어링을 사용하지 않는 경우 할당된 기본 및 보조 서브넷이 PE-MSEE의 구성과 일치하는지 확인합니다. 그렇지 않은 경우 MSEE 라우터의 구성을 변경 하려면 [express 경로 회로에 대 한 라우팅 만들기 및 수정][CreatePeering] 을 참조 하세요.
 >
 >
 
@@ -231,7 +231,7 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
 
 
 > [!NOTE]
-> 피어링을 사용하지 않는 경우 할당된 기본 및 보조 서브넷이 연결된 PE-MSEE의 구성과 일치하는지 확인합니다. 또한 올바른 *VlanId*, *AzureASN* 및 *PeerASN*이 MSEE에서 사용되는지 여부와 이러한 값이 연결된 PE-MSEE에서 사용된 값에 매핑되는지 여부를 확인합니다. MD5 해싱을 선택하는 경우 공유 키가 MSEE 및 PE-MSEE 쌍에서 동일해야 합니다. MSEE 라우터의 구성을 변경하려면 [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering]을 참조하세요.  
+> 피어링을 사용하지 않는 경우 할당된 기본 및 보조 서브넷이 연결된 PE-MSEE의 구성과 일치하는지 확인합니다. 또한 올바른 *VlanId*, *AzureASN* 및 *PeerASN*이 MSEE에서 사용되는지 여부와 이러한 값이 연결된 PE-MSEE에서 사용된 값에 매핑되는지 여부를 확인합니다. MD5 해싱을 선택하는 경우 공유 키가 MSEE 및 PE-MSEE 쌍에서 동일해야 합니다. MSEE 라우터의 구성을 변경 하려면 [express 경로 회로에 대 한 라우팅 만들기 및 수정][CreatePeering]을 참조 하세요.  
 >
 >
 
@@ -271,12 +271,12 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
 >
 
 > [!NOTE]
-> 피어링을 사용하지 않는 경우 할당된 기본 및 보조 피어 서브넷이 연결된 PE-MSEE의 구성과 일치하는지 확인합니다. 또한 올바른 *VlanId*, *AzureAsn* 및 *PeerAsn*이 MSEE에서 사용되는지 여부와 이러한 값이 연결된 PE-MSEE에서 사용된 값에 매핑되는지 여부를 확인합니다. MSEE 라우터의 구성을 변경하려면 [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering]을 참조하세요.
+> 피어링을 사용하지 않는 경우 할당된 기본 및 보조 피어 서브넷이 연결된 PE-MSEE의 구성과 일치하는지 확인합니다. 또한 올바른 *VlanId*, *AzureAsn* 및 *PeerAsn*이 MSEE에서 사용되는지 여부와 이러한 값이 연결된 PE-MSEE에서 사용된 값에 매핑되는지 여부를 확인합니다. MSEE 라우터의 구성을 변경 하려면 [express 경로 회로에 대 한 라우팅 만들기 및 수정][CreatePeering]을 참조 하세요.
 >
 >
 
 ## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Microsoft와 서비스 공급자 간의 ARP 유효성 검사
-이 섹션에서는 PowerShell(클래식) 명령을 사용합니다. PowerShell Azure Resource Manager 명령을 사용하고 있으면 관리자/공동 관리자로서 구독에 액세스할 수 있는지 확인합니다. Azure Resource Manager 명령 사용과 관련된 문제를 해결하려면 [Resource Manager 배포 모델에서 ARP 테이블 가져오기][ARP] 문서를 참조하세요.
+이 섹션에서는 PowerShell(클래식) 명령을 사용합니다. PowerShell Azure Resource Manager 명령을 사용하고 있으면 관리자/공동 관리자로서 구독에 액세스할 수 있는지 확인합니다. Azure Resource Manager 명령을 사용 하 여 문제를 해결 하려면 [리소스 관리자 deployment model 문서에서 ARP 테이블 가져오기][ARP] 문서를 참조 하세요.
 
 > [!NOTE]
 >ARP를 가져오려면 Azure Portal 및 Azure Resource Manager PowerShell 명령을 모두 사용할 수 있습니다. Azure Resource Manager PowerShell 명령에 오류가 발생하는 경우 클래식 PowerShell 명령은 Azure Resource Manager ExpressRoute 회로에서도 작동하므로 클래식 PowerShell 명령이 작동해야 합니다.
@@ -330,7 +330,7 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
 앞의 예제와 같이 이 명령은 라우팅 컨텍스트가 설정된 기간을 확인하는 데 유용합니다. 또한 피어링 라우터에서 보급하는 경로 접두사의 수도 나타냅니다.
 
 > [!NOTE]
-> 상태가 활성 또는 유휴 상태이면 할당된 기본 및 보조 피어 서브넷이 연결된 PE-MSEE의 구성과 일치하는지 확인합니다. 또한 올바른 *VlanId*, *AzureAsn* 및 *PeerAsn*이 MSEE에서 사용되는지 여부와 이러한 값이 연결된 PE-MSEE에서 사용된 값에 매핑되는지 여부를 확인합니다. MD5 해싱을 선택하는 경우 공유 키가 MSEE 및 PE-MSEE 쌍에서 동일해야 합니다. MSEE 라우터의 구성을 변경하려면 [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering]을 참조하세요.
+> 상태가 활성 또는 유휴 상태이면 할당된 기본 및 보조 피어 서브넷이 연결된 PE-MSEE의 구성과 일치하는지 확인합니다. 또한 올바른 *VlanId*, *AzureAsn* 및 *PeerAsn*이 MSEE에서 사용되는지 여부와 이러한 값이 연결된 PE-MSEE에서 사용된 값에 매핑되는지 여부를 확인합니다. MD5 해싱을 선택하는 경우 공유 키가 MSEE 및 PE-MSEE 쌍에서 동일해야 합니다. MSEE 라우터의 구성을 변경 하려면 [express 경로 회로에 대 한 라우팅 만들기 및 수정][CreatePeering]을 참조 하세요.
 >
 >
 
@@ -383,7 +383,7 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
 
 - [Microsoft 지원][Support]
 - [ExpressRoute 회로 만들기 및 수정][CreateCircuit]
-- [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering]
+- [Express 경로 회로에 대 한 라우팅 만들기 및 수정][CreatePeering]
 
 <!--Image References-->
 [1]: ./media/expressroute-troubleshooting-expressroute-overview/expressroute-logical-diagram.png "논리 ExpressRoute 연결"

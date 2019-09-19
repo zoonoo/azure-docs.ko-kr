@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 09/18/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: f16f797afca6d60029c1f39fea7235ce84e4f954
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 4ef1a768356078c160b798c1a96412adda0330f6
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442205"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123288"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 필수 구성 요소 및 검사 목록
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 다음 섹션에 나열된 다음 요구 사항을 충족하는지 확인해야 합니다.
@@ -21,7 +21,7 @@ ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Azure 계정
-* 유효한 활성 Microsoft Azure 계정 ExpressRoute 회로를 설정하려면 이 계정이 필요합니다. ExpressRoute 회로는 Azure 구독 내의 리소스입니다. Azure 구독은 Office 365 서비스 및 Dynamics 365와 같은 Azure 이외의 Microsoft 클라우드 서비스에 대한 연결이 제한되는 경우에도 필요합니다.
+* 유효한 활성 Microsoft Azure 계정 ExpressRoute 회로를 설정하려면 이 계정이 필요합니다. ExpressRoute 회로는 Azure 구독 내의 리소스입니다. Azure 구독은 Office 365와 같은 비 Azure Microsoft 클라우드 서비스에 대 한 연결이 제한 되는 경우에도 필요 합니다.
 * 활성 Office 365 구독(Office 365 서비스를 사용하는 경우). 자세한 내용은 이 문서의 Office 365 특정 요구 사항 섹션을 참조하세요.
 
 ## <a name="connectivity-provider"></a>연결 공급자
@@ -48,9 +48,6 @@ ExpressRoute에서 Office 365를 사용하도록 설정하려는 경우 Office 3
 * [네트워크 대역폭 계산기 및 도구](https://support.office.com/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
 * [온-프레미스 환경과 Office 365 통합](https://support.office.com/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 * [Office 365 고급 교육 비디오의 ExpressRoute](https://channel9.msdn.com/series/aer/)
-
-## <a name="dynamics-365"></a>Dynamics 365
-Express 경로에서 Dynamics 365을 사용 하도록 설정 하려는 경우 [dynamics 365 url](https://support.microsoft.com/kb/2655102) 및 [IP 주소 범위](https://support.microsoft.com/kb/2728473)를 검토 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * ExpressRoute에 대한 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.

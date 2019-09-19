@@ -4,18 +4,18 @@ summary: 'Azure Private Link를 사용하면 가상 네트워크의 Private Endp
 metadata:
   title: Private Link 설명서 - 빠른 시작, 방법 가이드 및 API 참조
   description: Azure Private Link 서비스 사용 방법에 대해 알아봅니다. 빠른 시작, 자습서는 Private Link 서비스를 배포하는 방법을 보여줍니다.
-  ms.service: virtual-network
+  ms.service: private-link
   ms.topic: landing-page
   ms.collection: collection
   author: KumudD
   ms.author: kumud
   ms.date: 09/16/2019
-  ms.openlocfilehash: 867c20b96f8a48aeb52e455d718057e686ddfcbe
-  ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+  ms.openlocfilehash: 24b6d3ce2514ef25a015182e4a4fcd641ac76d50
+  ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/16/2019
-  ms.locfileid: "71020214"
+  ms.lasthandoff: 09/18/2019
+  ms.locfileid: "71104599"
 landingContent:
 - title: Azure Private Link 정보
   linkLists:

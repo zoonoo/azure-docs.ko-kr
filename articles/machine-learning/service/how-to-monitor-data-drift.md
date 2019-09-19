@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 09/13/2019
-ms.openlocfilehash: 59cce0b56a4e54208a454c9f71d9a4c8576b0a8b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 3b3fbce40c93389037435a7cdb1271e773163de3
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034350"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123276"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에 배포 된 모델에서 데이터 드리프트 (미리 보기) 검색
 
@@ -23,7 +23,7 @@ ms.locfileid: "71034350"
 
 ## <a name="what-is-data-drift"></a>데이터 드리프트 란?
 
-프로덕션 환경에서 모델에 제공 되는 데이터가 모델 학습에 사용 되는 데이터와 다를 때 데이터 드리프트가 발생 합니다. 모델 정확성이 시간이 지남에 따라 저하 되는 가장 중요 한 이유 중 하나 이므로 데이터 드리프트를 모니터링 하면 모델 성능 문제를 감지 하는 데 도움이 됩니다. 
+기계 학습의 컨텍스트에서 데이터 드리프트는 모델의 성능 저하를 초래 하는 모델 입력 데이터의 변경 내용입니다. 모델 정확성이 시간이 지남에 따라 저하 되는 가장 중요 한 이유 중 하나 이므로 데이터 드리프트를 모니터링 하면 모델 성능 문제를 감지 하는 데 도움이 됩니다. 
 
 ## <a name="what-can-i-monitor"></a>무엇을 모니터링할 수 있나요?
 
@@ -42,7 +42,7 @@ Azure Machine Learning를 사용 하 여 AKS에 배포 된 모델에 대 한 입
 
 Azure Machine Learning를 사용 하 여 데이터 드리프트는 데이터 집합 또는 배포를 통해 모니터링 됩니다. 데이터 드리프트를 모니터링 하기 위해 기본 데이터 집합 (일반적으로 모델에 대 한 학습 데이터 집합)이 지정 됩니다. 두 번째 데이터 집합 (일반적으로 배포에서 수집 된 입력 데이터 모델)은 기준선 데이터 집합에 대해 테스트 됩니다. 데이터 집합은 모두 프로 파일링 되 고 데이터 드리프트 모니터링 서비스에 입력 됩니다. 기계 학습 모델을 학습 하 여 두 데이터 집합 간의 차이를 검색 합니다. 모델의 성능은 두 데이터 집합 간의 드리프트 크기를 측정 하는 드리프트 계수로 변환 됩니다. [모델 interpretability](machine-learning-interpretability-explainability.md)를 사용 하 여 드리프트 계수에 영향을 주는 기능을 계산 합니다. 데이터 집합 프로필에서 각 기능에 대 한 통계 정보를 추적 합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독. 계정이 없는 경우 시작 하기 전에 무료 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 을 사용해 보세요.
 

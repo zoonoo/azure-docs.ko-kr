@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 65daf1468d27825d9904a14e42e43796d3985321
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: f560887a48ce4754b26a54ef0e18093c5577af34
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996516"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128816"
 ---
 # <a name="what-is-the-visual-interface-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 시각적 인터페이스는 무엇 인가요? 
 
@@ -43,7 +43,7 @@ Azure Machine Learning의 시각적 인터페이스 (미리 보기)를 사용 �
 + 준비가 되 면 **학습 실험** 을 **예측 실험**으로 변환 합니다.
 + 다른 사용자가 모델에 액세스할 수 있도록 예측 실험을 웹 서비스로 [배포](#deployment) 합니다.
 
-## <a name="experiment"></a>Experiment
+## <a name="experiment"></a>실험
 
 처음부터 실험을 만들거나 기존 샘플 실험을 템플릿으로 사용 합니다.  실험을 실행할 때마다 아티팩트는 작업 영역에 저장 됩니다.
 
@@ -57,7 +57,7 @@ Azure Machine Learning의 시각적 인터페이스 (미리 보기)를 사용 �
 
 시각적 인터페이스를 시작 하는 방법에 대 한 자세한 내용은 [자습서: 시각적 개체 인터페이스로 자동차 가격 예측](ui-tutorial-automobile-price-train-score.md)을 사용하여 시각적 개체 인터페이스(미리 보기)를 시도해 보세요.
 
-## <a name="dataset"></a>데이터 집합
+## <a name="dataset"></a>데이터 세트
 
 데이터 집합은 모델링 프로세스에서 사용할 시각적 인터페이스에 업로드 된 데이터입니다. 시험해 볼 수 있는 다양 한 샘플 데이터 집합이 포함 되어 있으며 필요에 따라 더 많은 데이터 집합을 업로드할 수 있습니다.
 
@@ -95,8 +95,8 @@ Azure Machine Learning의 시각적 인터페이스 (미리 보기)를 사용 �
 
 * 자습서를 사용 하 여 [예측 분석 및 기계 학습의 기본 사항에 대해 알아봅니다. 그래픽 인터페이스를 사용하여 자동차 가격 예측](ui-tutorial-automobile-price-train-score.md)
 * 샘플 중 하나를 사용 하 고 요구 사항에 맞게 수정 합니다.
-    * [샘플 1-회귀: 예측 가격](ui-sample-regression-predict-automobile-price-basic.md)
-    * [샘플 2-회귀: 가격 예측 및 알고리즘 비교](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-    * [샘플 3-분류: 신용 위험 예측](ui-sample-classification-predict-credit-risk-basic.md)
-    * [샘플 4-분류: 신용 위험 예측 (비용 구분)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-    * [샘플 5-분류: 변동, 욕구 및 업 판매 예측](ui-sample-classification-predict-churn.md)
+    * [샘플 1-회귀: 예측 가격](how-to-ui-sample-regression-predict-automobile-price-basic.md)
+    * [샘플 2-회귀: 가격 예측 및 알고리즘 비교](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+    * [샘플 3-분류: 신용 위험 예측](how-to-ui-sample-classification-predict-credit-risk-basic.md)
+    * [샘플 4-분류: 신용 위험 예측 (비용 구분)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+    * [샘플 5-분류: 변동, 욕구 및 업 판매 예측](how-to-ui-sample-classification-predict-churn.md)

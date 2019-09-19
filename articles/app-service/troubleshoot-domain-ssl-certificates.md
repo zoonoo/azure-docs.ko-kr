@@ -4,7 +4,7 @@ description: Azure App Service에서 도메인 및 SSL 인증서 문제 해결
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.service: app-service-web
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 097d4ea45827223a5d3e64a2d1ca326569db9958
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: a6c3b8485a3243d7c89ab409a2fb83b1b045c9ba
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113542"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121990"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Azure App Service에서 도메인 및 SSL 인증서 문제 해결
 
@@ -266,7 +266,7 @@ Azure Portal에서 App Service 도메인을 구입할 수 없습니다.
 
     **해결 방법**: CNAME 또는 A 레코드가 올바르게 구성되었는지 확인합니다. 사용자 지정 도메인을 앱에 매핑하려면 CNAME 레코드 또는 A 레코드를 만듭니다. 루트 도메인을 사용하려면 A 및 TXT 레코드를 사용해야 합니다.
 
-    |레코드 유형|호스트|대상|
+    |레코드 유형|Host|대상|
     |------|------|-----|
     |변수를 잠그기 위한|@|앱의 IP 주소|
     |TXT|@|`<app-name>.azurewebsites.net`|

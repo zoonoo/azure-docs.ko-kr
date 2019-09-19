@@ -4,7 +4,7 @@ description: Azure에서 App Service Environment와 함께 내부 Load Balancer�
 services: vpn-gateway
 documentationCenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: vpn-gateway
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2018
 ms.author: genli
-ms.openlocfilehash: baed2b23a321c53a614303d3085fbb3a4bf6ad0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c3216af283ebd9d84a5469d4d50d18c19f67534
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831098"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121944"
 ---
 # <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>백 엔드 서버 인증서는 App Service Environment와 함께 내부 Load Balancer를 사용하는 애플리케이션 게이트웨이에 대한 허용 목록에 없습니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "60831098"
 
 **502 - 웹 서버에서 게이트웨이 또는 프록시 서버 역할을 하는 동안 잘못된 응답을 수신했습니다.**
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 HTTPS 웹 사이트에 액세스하는 데 호스트 이름을 사용하지 않으면 SNI를 사용하지 않는 경우 백 엔드 서버는 기본 웹 사이트에서 구성된 인증서를 반환합니다. ILB ASE의 경우 기본 인증서는 ILB 인증서에서 제공됩니다. ILB에 대해 구성된 인증서가 없는 경우 인증서는 ASE 앱 인증서에서 제공됩니다.
 
@@ -70,6 +70,6 @@ FQDN(정규화된 도메인 이름)을 사용하여 ILB에 액세스하는 경�
 
 오버헤드를 줄이기 위해 HTTP 설정에 ILB 인증서를 업로드하여 프로브 경로 작업을 만들 수 있습니다. (이 단계는 허용 목록에 대한 것입니다. SSL 통신에 사용되지 않습니다.) HTTPS의 사용자 브라우저에서 해당 IP 주소로 ILB에 액세스한 다음, Base-64로 인코딩된 CER 형식으로 SSL 인증서를 내보내고 해당 HTTP 설정에서 인증서를 업로드하여 ILB 인증서를 검색할 수 있습니다.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원 문의
 
 다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

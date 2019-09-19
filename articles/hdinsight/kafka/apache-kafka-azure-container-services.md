@@ -1,19 +1,19 @@
 ---
 title: HDInsight의 Kafka로 Azure Kubernetes Service 사용
 description: AKS(Azure Kubernetes Service)에서 호스트되는 컨테이너 이미지에서 HDInsight의 Kafka를 사용하는 방법을 알아봅니다.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: e87ac268ab5448f38470f46bd6b0c7f2cdd204ce
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 31eefbad8e8d7cb626d87d53690388d09b85257e
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960558"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122654"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka에서 Azure Kubernetes Service 사용
 
@@ -24,7 +24,7 @@ HDInsight 클러스터의 [Apache Kafka](https://kafka.apache.org/)에서 AKS(Az
 > [!NOTE]  
 > 이 문서에서는 Azure Kubernetes Services가 HDInsight의 Kafka와 통신하도록 설정하는 데 필요한 단계에 중점을 두고 있습니다. 예제 자체는 구성이 작동하는 것을 보여주는 기본적인 Kafka 클라이언트입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Azure 구독
@@ -43,10 +43,9 @@ HDInsight 클러스터의 [Apache Kafka](https://kafka.apache.org/)에서 AKS(Az
 
 HDInsight와 AKS 모두 Azure Virtual Network를 컴퓨팅 리소스의 컨테이너로 사용합니다. HDInsight와 AKS 간의 통신을 가능하게 하려면 해당 네트워크 간의 통신이 가능하도록 설정해야 합니다. 이 문서의 단계에서는 네트워크에 가상 네트워크 피어링을 사용합니다. VPN과 같은 다른 연결도 작동합니다. 피어링에 대한 자세한 내용은 [가상 네트워크 피어링](../../virtual-network/virtual-network-peering-overview.md) 문서를 참조하세요.
 
-
 다음 다이어그램은 이 문서에서 사용한 네트워크 토폴로지를 보여줍니다.
 
-![한 가상 네트워크의 HDInsight, 다른 네트워크의 AKS 및 피어링을 사용하여 연결된 네트워크](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
+![한 가상 네트워크의 HDInsight, 다른 가상 네트워크에 AKS, 피어 링 사용](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
 
 > [!IMPORTANT]  
 > 피어링된 네트워크 간에 이름 확인을 사용할 수 없으므로 IP 주소 지정이 사용됩니다. 기본적으로 HDInsight의 Kafka는 클라이언트 연결 시 IP 주소 대신 호스트 이름을 반환하도록 구성됩니다. 이 문서의 단계에서는 IP 보급을 대신 사용하도록 Kafka를 수정합니다.
@@ -80,14 +79,14 @@ AKS 클러스터가 아직 없으면 다음 문서 중 하나를 사용하여 �
 
 5. HDInsight 네트워크와 AKS 클러스터 네트워크 간에 피어링을 구성하려면 가상 네트워크를 선택한 다음, __피어링__을 선택합니다. __+ 추가__를 선택하고 다음 값을 사용하여 양식에 정보를 입력합니다.
 
-   * __이름__: 피어링 구성에 대한 고유 이름을 입력합니다.
+   * __Name__: 피어링 구성에 대한 고유 이름을 입력합니다.
    * __가상 네트워크__: 이 필드를 사용하여 **AKS 클러스터**의 가상 네트워크를 선택합니다.
 
      다른 필드는 모두 기본값으로 남겨두고 __확인__을 선택하여 피어링을 구성합니다.
 
 6. AKS 클러스터 네트워크와 HDInsight 네트워크 간에 피어링을 구성하려면 __AKS 클러스터 가상 네트워크__를 선택한 다음, __피어링__을 선택합니다. __+ 추가__를 선택하고 다음 값을 사용하여 양식에 정보를 입력합니다.
 
-   * __이름__: 피어링 구성에 대한 고유 이름을 입력합니다.
+   * __Name__: 피어링 구성에 대한 고유 이름을 입력합니다.
    * __가상 네트워크__: 이 필드를 사용하여 __HDInsight 클러스터__의 가상 네트워크를 선택합니다.
 
      다른 필드는 모두 기본값으로 남겨두고 __확인__을 선택하여 피어링을 구성합니다.
@@ -113,7 +112,7 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
 
 3. Kafka 구성을 보려면 위쪽 가운데에서 __Configs__를 선택합니다.
 
-    ![Kafka에 대한 링크 구성](./media/apache-kafka-azure-container-services/select-kafka-config1.png)
+    ![Apache Ambari services 구성](./media/apache-kafka-azure-container-services/select-kafka-config1.png)
 
 4. __kafka-env__ 구성을 찾으려면 오른쪽 위에 있는 __필터__ 필드에 `kafka-env`를 입력합니다.
 
@@ -135,7 +134,7 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
 
 8. 구성 변경 내용을 저장하려면 __저장__ 단추를 사용합니다. 변경 내용을 설명하는 텍스트 메시지를 입력합니다. 변경 내용이 저장되면 __확인__을 선택합니다.
 
-    ![구성 저장 단추](./media/apache-kafka-azure-container-services/save-configuration-button.png)
+    ![Apache Ambari 구성 저장](./media/apache-kafka-azure-container-services/save-configuration-button.png)
 
 9. Kafka를 다시 시작할 때 오류를 방지하려면 __서비스 작업__ 단추를 사용하여 __유지 관리 모드 켜기__를 선택합니다. 확인을 선택하여 이 작업을 완료합니다.
 
@@ -192,6 +191,7 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
     ```bash
     docker push <acrLoginServer>/kafka-aks-test:v1
     ```
+
     이 작업을 완료하는 데 몇 분이 걸립니다.
 
 8. Kubernetes manifest 파일(`kafka-aks-test.yaml`)을 편집하고 `microsoft`를 4단계에서 검색된 ACR loginServer 이름으로 바꿉니다.
@@ -212,7 +212,7 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
 
 11. 웹 브라우저를 열고 서비스의 외부 IP 주소를 입력합니다. 다음 이미지와 유사한 페이지가 열립니다.
 
-    ![웹 페이지의 이미지](./media/apache-kafka-azure-container-services/test-web-page-image1.png)
+    ![Apache Kafka 테스트 웹 페이지 이미지](./media/apache-kafka-azure-container-services/test-web-page-image1.png)
 
 12. 필드에 텍스트를 입력하고 __보내기__ 단추를 선택합니다. 데이터가 Kafka로 전송됩니다. 그러면 애플리케이션의 Kafka 소비자가 메시지를 읽고 이를 __Kafka의 메시지__ 섹션에 추가합니다.
 

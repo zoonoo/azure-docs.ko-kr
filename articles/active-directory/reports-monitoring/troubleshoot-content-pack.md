@@ -17,12 +17,12 @@ ms.date: 06/07/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a0a5b5306414eb50a1928ec8a1854f56055681
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 9e50f2b92318ada729ad8e3405af8403f31d7b6e
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987891"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129281"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Azure Active Directory 활동 로그 콘텐츠 팩 오류 문제 해결 
 
@@ -47,7 +47,7 @@ Azure Active Directory(Azure AD)용 Power BI 콘텐츠 팩으로 작업할 때 �
 | 원인 | 해결 방법 |
 | ---   | ---        |
 | 콘텐츠 팩에 연결되는 사용자의 자격 증명이 다시 설정되었지만 콘텐츠 팩의 연결 설정에서 업데이트되지 않은 경우 새로 고침 실패 오류가 발생할 수 있습니다. | Power BI에서 Azure AD 활동 로그 대시보드(**Azure Active Directory 활동 로그**)에 해당하는 데이터 세트를 찾아서 새로 고침 예약을 선택하고 Azure AD 자격 증명을 입력합니다. |
-| 데이터 집합이 크기 때문에 새로 고침이 실패할 수 있습니다. | 현재 Power BI 포함 된 Azure AD 콘텐츠 팩은 Power BI 서비스의 제한 시간에 대 한 몇 가지 제한 사항으로 인해 작은 데이터 집합 (500, 00 행 미만)만 지원할 수 있습니다. 제한 오류가 발생 하거나 제한 시간 문제로 인해 새로 고침이 실패 하는 경우에는 많은 데이터 집합을 인출 하려고 했기 때문일 수 있습니다. 쿼리의 기간을 줄인 후 다시 시도 하십시오.|
+| 데이터 집합이 크기 때문에 새로 고침이 실패할 수 있습니다. | 현재 Power BI 포함 된 Azure AD 콘텐츠 팩은 Power BI 서비스의 제한 시간에 대 한 몇 가지 제한 사항으로 인해 작은 데이터 집합 (50만 행 미만)만 지원할 수 있습니다. 제한 오류가 발생 하거나 제한 시간 문제로 인해 새로 고침이 실패 하는 경우에는 많은 데이터 집합을 인출 하려고 했기 때문일 수 있습니다. 쿼리의 기간을 줄인 후 다시 시도 하십시오.|
  
  
 ## <a name="failed-to-update-data-source-credentials"></a>데이터 원본 자격 증명을 업데이트하지 못했습니다. 

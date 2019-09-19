@@ -8,12 +8,12 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
-ms.openlocfilehash: 7c018ad15ee653bcdc903492028ec5ed058dbd14
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 4c01cd36d489d8e7128bed645c8cb1127c6c0c25
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992228"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130403"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>빅 데이터 분석 솔루션을 Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2로 업그레이드
 
@@ -249,7 +249,7 @@ Data Lake Storage Gen1 또는 Data Lake Storage Gen2에서 애플리케이션을
 
 Data Lake Storage Gen1의 URI 체계는 [여기](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store)서 자세히 설명되지만, 대체로 *adl://mydatalakestore.azuredatalakestore.net/\<file_path\>입니다.*
 
-Data Lake Storage Gen2 파일에 액세스 하기 위한 URI 체계에 대 한 자세한 설명은 [여기](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) 에 자세히 `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`설명 되어 있습니다.
+Data Lake Storage Gen2 파일에 액세스 하기 위한 URI 체계에 대 한 자세한 설명은 [여기](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) 에 자세히 `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`설명 되어 있습니다.
 
 기존 애플리케이션을 살펴보고 Data Lake Storage Gen2를 가리키도록 URI를 적절히 변경했는지 확인해야 합니다. 또한 적절한 자격 증명도 추가해야 합니다. 마지막으로, 원래 애플리케이션을 사용 중지하고 새 애플리케이션으로 교체하는 방법은 전체 업그레이드 전략과 긴밀하게 연계되어야 합니다.
 

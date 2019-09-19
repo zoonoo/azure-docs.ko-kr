@@ -4,7 +4,7 @@ description: 주요 자격 증명 모음 인증서를 사용 하 여 Azure API M
 services: api-management
 documentationcenter: ''
 author: genlin
-manager: cfowler
+manager: dcscontentpm
 editor: ''
 ms.service: api-management
 ms.workload: mobile
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
-ms.openlocfilehash: 30dfd864c6c237024c72325da813691ac5043bd0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5d31ec21e341c46c2f2d0ab49fdb2d4302c29dc6
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072088"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121529"
 ---
 # <a name="failed-to-update-api-management-service-hostnames"></a>API Management 서비스 호스트 이름을 업데이트 하지 못했습니다.
 

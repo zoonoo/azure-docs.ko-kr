@@ -1,19 +1,19 @@
 ---
 title: 가상 네트워크를 사용하여 Kafka에 연결 - Azure HDInsight
 description: Azure Virtual Network를 통해 HDInsight에서 Kafka에 직접 연결하는 방법을 알아봅니다. VPN Gateway를 사용하여 개발 클라이언트에서 또는 VPN 게이트웨이 디바이스를 사용하여 온-프레미스 네트워크의 클라이언트에서 Kafka에 연결하는 방법을 알아봅니다.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: ab5f8c35334b6b6c56b0ebe8714d04ad5c7c8084
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 66bb054ab75c5a4e387995bc64dbc026c073413f
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960424"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122617"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Azure Virtual Network를 통해 HDInsight의 Apache Kafka에 연결
 
@@ -252,7 +252,7 @@ Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 �
 
 3. Kafka 구성을 보려면 위쪽 가운데에서 __Configs__를 선택합니다.
 
-    ![Kafka에 대한 링크 구성](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
+    ![Apache Ambari services 구성](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
 
 4. __kafka-env__ 구성을 찾으려면 오른쪽 위에 있는 __필터__ 필드에 `kafka-env`를 입력합니다.
 
@@ -274,7 +274,7 @@ Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 �
 
 8. 구성 변경 내용을 저장하려면 __저장__ 단추를 사용합니다. 변경 내용을 설명하는 텍스트 메시지를 입력합니다. 변경 내용이 저장되면 __확인__을 선택합니다.
 
-    ![구성 저장 단추](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
+    ![Apache Ambari 구성 저장](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
 
 9. Kafka를 다시 시작할 때 오류를 방지하려면 __서비스 작업__ 단추를 사용하여 __유지 관리 모드 켜기__를 선택합니다. 확인을 선택하여 이 작업을 완료합니다.
 

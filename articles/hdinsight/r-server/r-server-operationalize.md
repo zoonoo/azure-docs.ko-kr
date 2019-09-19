@@ -1,25 +1,25 @@
 ---
 title: HDInsight에서 ML 서비스 운영 - Azure
 description: Azure HDInsight에서 ML 서비스를 사용 하 여 예측 하도록 데이터 모델을 운영 하는 방법을 알아봅니다.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 4980b4d3a4ec7165a4aba3d02561f6c666150924
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: a05bcdef2b7456fbab852e9728c156e57f847f57
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967657"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123572"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 운영
 
 HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을 완료한 후에 모델을 운영하여 예측할 수 있습니다. 이 문서에서는 이 작업을 수행하는 방법에 대한 지침을 제공합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 ML Services 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**으로 **ML Services**를 선택합니다.
 
@@ -50,31 +50,31 @@ HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을
 
 1. 선택할 수 있는 옵션이 표시됩니다. 다음 스크린샷에 표시된 첫 번째 옵션인 **운영을 위해 ML Server 구성**을 선택합니다.
 
-    ![한 상자 op1](./media/r-server-operationalize/admin-util-one-box-1.png)
+    ![R 서버 관리 유틸리티 선택](./media/r-server-operationalize/admin-util-one-box-1.png)
 
 1. 이제 ML Server를 운영하는 방법을 선택할 수 있는 옵션이 표시됩니다. 표시된 옵션에서 **A**를 입력하여 첫 번째 옵션을 선택합니다.
 
-    ![한 상자 op2](./media/r-server-operationalize/admin-util-one-box-2.png)
+    ![R server 관리 유틸리티 운영](./media/r-server-operationalize/admin-util-one-box-2.png)
 
 1. 메시지가 표시되면 로컬 관리 사용자의 암호를 입력하고 다시 입력합니다.
 
 1. 조작이 성공했음을 알리는 출력이 표시됩니다. 메뉴에서 다른 옵션을 선택하라는 메시지도 표시됩니다. E를 선택하여 주 메뉴로 돌아갑니다.
 
-    ![한 상자 op3](./media/r-server-operationalize/admin-util-one-box-3.png)
+    ![R server 관리 유틸리티 성공](./media/r-server-operationalize/admin-util-one-box-3.png)
 
 1. 필요에 따라 다음과 같이 진단 테스트를 실행하여 진단 검사를 수행할 수 있습니다.
 
     a. 주 메뉴에서 **6**을 선택하여 진단 테스트를 실행합니다.
 
-    ![diagnostic1](./media/r-server-operationalize/hdinsight-diagnostic1.png)
+    ![R server 관리 유틸리티 진단](./media/r-server-operationalize/hdinsight-diagnostic1.png)
 
     b. 진단 테스트 메뉴에서 **A**를 선택합니다. 메시지가 표시되면 로컬 관리 사용자에 대해 지정한 암호를 입력합니다.
 
-    ![diagnostic2](./media/r-server-operationalize/hdinsight-diagnostic2.png)
+    ![R server 관리 유틸리티 테스트](./media/r-server-operationalize/hdinsight-diagnostic2.png)
 
     c. 출력에서 전체 상태가 성공으로 표시되는지 확인합니다.
 
-    ![diagnostic3](./media/r-server-operationalize/hdinsight-diagnostic3.png)
+    ![R server 관리 유틸리티 통과](./media/r-server-operationalize/hdinsight-diagnostic3.png)
 
     d. 표시된 메뉴 옵션에서 **E**를 입력하여 주 메뉴로 돌아간 다음 **8**을 입력하여 관리 유틸리티를 종료합니다.
 
@@ -148,7 +148,7 @@ ML 서비스 클러스터는 [Apache Hadoop YARN](https://hadoop.apache.org/docs
 
 1. **작업** > **선택한 호스트** > **호스트** > **유지 관리 모드 켜기**를 클릭합니다. 예를 들어 다음 이미지에서는 wn3과 wn4를 선택하여 서비스를 해제했습니다.  
 
-   ![작업자 노드 서비스 해제](./media/r-server-operationalize/get-started-operationalization.png)  
+   ![Apache Ambari 유지 관리 모드 켜기](./media/r-server-operationalize/get-started-operationalization.png)  
 
 * **작업** > **선택한 호스트** > **DataNodes**를 선택하고 > **서비스 해제**를 클릭합니다.
 * **작업** > **선택한 호스트** > **NodeManagers**를 선택하고 > **서비스 해제**를 클릭합니다.

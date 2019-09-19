@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 939097ccca844e505819f5aad405d6322941b526
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: cceb1814089436efe4d4f9352f40f24d6eae790d
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309174"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123603"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MariaDB에서 읽기 복제본을 만들고 관리 하는 방법
 
 이 문서에서는 Azure Portal를 사용 하 여 Azure Database for MariaDB 서비스에서 읽기 복제본을 만들고 관리 하는 방법에 대해 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 마스터 서버로 사용 되는 [Azure Database for MariaDB 서버](quickstart-create-mariadb-server-database-using-azure-portal.md) 입니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "70309174"
     ![Azure Database for MariaDB-복제본 위치](./media/howto-read-replica-portal/replica-location.png)
 
    > [!NOTE]
-   > 에서 복제본을 만들 수 있는 지역에 대 한 자세한 내용은 [복제본 개념 읽기 문서](concepts-read-replicas.md)를 참조 하세요. 
+   > 지역 간 복제는 미리 보기 상태입니다. 에서 복제본을 만들 수 있는 지역에 대 한 자세한 내용은 [복제본 개념 읽기 문서](concepts-read-replicas.md)를 참조 하세요. 
 
 7. **확인** 을 선택 하 여 복제본 만들기를 확인 합니다.
 

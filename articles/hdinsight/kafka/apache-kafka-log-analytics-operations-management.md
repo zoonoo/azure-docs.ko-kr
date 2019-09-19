@@ -1,19 +1,19 @@
 ---
 title: Apache Kafka에 대 한 Azure Monitor 로그-Azure HDInsight
 description: Azure Monitor 로그를 사용 하 여 Azure HDInsight의 Apache Kafka 클러스터에서 로그를 분석 하는 방법을 알아봅니다.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 44eea1bc6390e743aff104550e5b6d7e97c45929
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 5739883984d4087d2b2a1bda66c01ff3cfa10eb0
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960128"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122589"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka에 대한 로그 분석
 
@@ -43,7 +43,7 @@ HDInsight에 대 한 Azure Monitor 로그를 사용 하도록 설정 하는 단�
 * 디스크 사용:
 
     ```kusto
-    Perf 
+    Perf
     | where ObjectName == "Logical Disk" and CounterName == "Free Megabytes" and InstanceName == "_Total" and ((Computer startswith_cs "hn" and Computer contains_cs "-") or (Computer startswith_cs "wn" and Computer contains_cs "-")) 
     | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)
     ```
@@ -82,17 +82,17 @@ HDInsight에 대 한 Azure Monitor 로그를 사용 하도록 설정 하는 단�
 
     > [!IMPORTANT]  
     > 쿼리 값을 클러스터 관련 정보로 바꿉니다. 예를 들어 `ClusterName_s`를 클러스터의 이름으로 설정해야 합니다. `HostName_s`는 클러스터의 작업자 노드 도메인 이름으로 설정해야 합니다.
-    
+
     `*`를 입력하여 기록된 모든 종류를 검색할 수도 있습니다. 현재 다음 로그를 쿼리에 사용할 수 있습니다.
-    
-    | 로그 형식 | Description |
+
+    | 로그 형식 | 설명 |
     | ---- | ---- |
     | log\_kafkaserver\_CL | Kafka broker server.log |
     | log\_kafkacontroller\_CL | Kafka broker controller.log |
     | metrics\_kafka\_CL | Kafka JMX 메트릭 |
-    
-    ![CPU 사용량 검색의 이미지](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
- 
+
+    ![Apache kafka 로그 분석 cpu 사용량](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
+
 ## <a name="next-steps"></a>다음 단계
 
 Azure Monitor에 대 한 자세한 내용은 [Azure Monitor 개요](../../log-analytics/log-analytics-get-started.md)및 [HDInsight 클러스터 모니터링을 위한 Azure Monitor 로그 쿼리](../hdinsight-hadoop-oms-log-analytics-use-queries.md)를 참조 하세요.

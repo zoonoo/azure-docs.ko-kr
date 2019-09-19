@@ -1,21 +1,20 @@
 ---
 title: Azure HDInsight에서 Grafana 사용
 description: Azure HDInsight에서 Apache Hadoop 클러스터로 Grafana 대시보드에 액세스 하는 방법을 알아봅니다.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: a61188ce5a0c3ba5e4170e15ed81d599af205205
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: cea0e9709afb65caa23d28be093c28498f2b82d0
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961557"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122989"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Azure HDInsight에서 Grafana에 액세스
-
 
 [Grafana](https://grafana.com/)는 널리 사용되는 오픈 소스 그래프 및 대시보드 작성기입니다. Grafana는 다양한 기능을 수행합니다. 사용자가 사용자 지정 가능하고 공유 가능한 대시보드를 만들 뿐만 아니라 템플릿/스크립팅 대시보드, LDAP 통합, 여러 데이터 원본 등도 제공합니다.
 
@@ -27,9 +26,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 섹션에서는 Azure Resource Manager 템플릿을 사용하여 HDInsight에서 대화형 쿼리 클러스터를 만듭니다. 이 문서를 따라하는 데 Resource Manager 템플릿 환경이 필요하지는 않습니다. 
 
-1. 아래 **Azure에 배포** 단추를 클릭하여 Azure에 로그인하고 Azure Portal에서 Resource Manager 템플릿을 엽니다. 
+1. 아래 **Azure에 배포** 단추를 클릭하여 Azure에 로그인하고 Azure Portal에서 Resource Manager 템플릿을 엽니다.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-interactive-hive%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-grafana/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-interactive-hive%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-grafana/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 2. 다음 스크린샷에서 설명된 대로 값을 입력하거나 선택합니다.
 
@@ -46,22 +45,22 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     |---------|---------|
     |**구독**     |  Azure 구독을 선택합니다. |
     |**리소스 그룹**     | 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.  리소스 그룹은 Azure 구성 요소의 컨테이너입니다.  이 경우 리소스 그룹에는 HDInsight 클러스터 및 종속 Azure Storage 계정이 포함되어 있습니다. |
-    |**위치**     | 클러스터를 만들려는 Azure 위치를 선택합니다.  성능 향상을 위해 가까운 곳을 선택합니다. |
+    |**Location**:     | 클러스터를 만들려는 Azure 위치를 선택합니다.  성능 향상을 위해 가까운 곳을 선택합니다. |
     |**클러스터 유형**     | **hadoop**을 선택합니다. |
     |**클러스터 이름**     | Apache Hadoop 클러스터에 사용할 이름을 입력합니다. HDInsight의 모든 클러스터는 동일한 DNS 네임스페이스를 공유하므로 이 이름은 고유해야 합니다. 이름은 문자, 숫자 및 하이픈을 포함하여 최대 59자로 구성할 수 있습니다. 이름의 첫 번째 및 마지막 문자에는 하이픈을 사용할 수 없습니다. |
     |**클러스터 로그인 이름 및 암호**     | 기본 로그인 이름은 **admin**입니다. 암호는 10자 이상이어야 하며, 숫자, 대문자, 소문자 및 영숫자가 아닌 문자(' " ` 문자 제외\)를 각각 하나 이상 포함해야 합니다. "Pass@word1"과 같은 일반적인 암호를 **제공하지 않았는지** 확인합니다.|
     |**SSH 사용자 이름 및 암호**     | 기본 사용자 이름은 **sshuser**입니다.  SSH 사용자 이름은 바꿀 수 있습니다.  SSH 사용자 암호에는 클러스터 로그인 암호와 동일한 요구 사항이 적용됩니다.|
-       
+
     일부 속성이 템플릿에 하드 코딩되었습니다.  템플릿에서 이러한 값을 구성할 수 있습니다. 이러한 속성에 대한 자세한 설명은 [HDInsight에서 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
 3. **위에 명시된 사용 약관에 동의함** 및 **대시보드에 고정**을 선택한 다음, **구매**를 선택합니다. 포털 대시보드에 **배포 제출 중**이라는 제목의 새 타일이 표시됩니다. 클러스터를 만들려면 20분 정도가 걸립니다.
 
-    ![템플릿 배포 진행률](./media/hdinsight-grafana/deployment-progress-tile.png "Azure 템플릿 배포 진행률")
+    ![Azure 템플릿 배포 진행률](./media/hdinsight-grafana/deployment-progress-tile.png "Azure 템플릿 배포 진행률")
 
-4. 클러스터가 생성되면 타일의 캡션이 지정한 리소스 그룹 이름으로 변경됩니다. 또한 타일은 리소스 그룹 내에서 만든 HDInsight 클러스터를 나열합니다. 
-   
+4. 클러스터가 생성되면 타일의 캡션이 지정한 리소스 그룹 이름으로 변경됩니다. 또한 타일은 리소스 그룹 내에서 만든 HDInsight 클러스터를 나열합니다.
+
     ![HDInsight Linux 시작 - 리소스 그룹](./media/hdinsight-grafana/hdinsight-linux-get-started-resource-group.png "Azure HDInsight 클러스터 리소스 그룹")
-    
+
 5. 또한 타일은 클러스터와 연결된 기본 스토리지를 나열합니다. 각 클러스터에는 [Azure Storage 계정](../hdinsight-hadoop-use-blob-storage.md) 또는 [Azure Data Lake 계정](../hdinsight-hadoop-use-data-lake-store.md) 종속성이 있습니다. 이 스토리지 계정을 기본 스토리지 계정이라고 합니다. HDInsight 클러스터와 해당 기본 스토리지 계정은 같은 Azure 지역에 있어야 합니다. 클러스터를 삭제해도 스토리지 계정은 삭제되지 않습니다.
     
 
@@ -84,9 +83,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 6. 다음 예제와 같은 Grafana 대시보드가 표시됩니다.
 
-    ![HDInsight Grafana 대시보드](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana 대시보드")
-
-   
+    ![HDInsight Grafana 웹 대시보드](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana 대시보드")
 
 ## <a name="clean-up-resources"></a>리소스 정리
 이 문서를 완료한 후에 클러스터를 삭제할 수 있습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 스토리지에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. 
@@ -98,7 +95,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. Azure Portal이 있는 브라우저 탭으로 돌아갑니다. 그러면 클러스터 개요 페이지가 표시됩니다. 클러스터는 삭제하지만 기본 스토리지 계정은 유지하려는 경우 **삭제**를 선택합니다.
 
-    ![HDInsight 클러스터 삭제](./media/hdinsight-grafana/hdinsight-delete-cluster.png "HDInsight 클러스터 삭제")
+    ![클러스터 삭제 Azure Portal 아이콘](./media/hdinsight-grafana/hdinsight-delete-cluster.png "HDInsight 클러스터 삭제")
 
 2. 클러스터와 기본 스토리지 계정을 삭제하려는 경우 리소스 그룹 이름(이전 스크린샷에서 강조 표시됨)을 선택하여 리소스 그룹 페이지를 엽니다.
 

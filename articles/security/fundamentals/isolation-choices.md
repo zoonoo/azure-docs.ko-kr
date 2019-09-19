@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9ab09c7215827369b3e1fc449af68be307881f51
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a3e4a598446c0b59cd678e186906abc61d3d727d
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928008"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123070"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 퍼블릭 클라우드에서 격리
 ##  <a name="introduction"></a>소개
@@ -128,19 +128,8 @@ ISO/IEC 27001과 같은 감사된 인증을 갖춘 비즈니스 서비스는 합
 Microsoft Azure는 애플리케이션 또는 엔터프라이즈의 요구 사항을 충족하도록 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스를 제공합니다. 이러한 컴퓨팅 인스턴스와 서비스는 여러 수준에서 격리를 제공하여 고객이 요구하는 구성에서 유연성을 유지하면서 데이터를 보호합니다.
 
 ### <a name="isolated-virtual-machine-sizes"></a>격리 가상 머신 크기
-Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전용인 가상 머신 크기를 제공합니다.  이러한 가상 머신 크기는 규정 준수 및 규정 요구 사항과 같은 요소를 포함하는 작업에 대해 다른 고객으로부터 높은 수준의 격리가 필요한 작업에 가장 적합합니다.  고객은 [중첩된 가상 머신에 대한 Azure 지원](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)을 사용하여 이러한 격리된 가상 머신의 리소스를 보다 세분화할 수도 있습니다.
 
-격리 크기를 사용하면 가상 머신이 특정 서버 인스턴스에서 하나만 실행되도록 보장합니다.  현재 격리 가상 머신 제품에는 다음이 포함됩니다.
-* Standard_E64is_v3
-* Standard_E64i_v3
-* Standard_M128ms
-* Standard_GS5
-* Standard_G5
-* Standard_DS15_v2
-* Standard_D15_v2
-* Standard_F72s_v2
-
-[여기](../../virtual-machines/windows/sizes-memory.md)에서 사용 가능한 격리 크기 각각에 대해 자세히 알아볼 수 있습니다.
+[!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation.md)]
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>루트 VM과 게스트 VM 간 Hyper-V 및 루트 OS 격리
 Azure의 컴퓨팅 플랫폼은 Hyper-V 가상 머신에서 모든 고객 코드를 실행한다는 것을 의미하는 머신 가상화를 기반으로 합니다. 각 Azure 노드(또는 네트워크 엔드포인트)에는 하드웨어를 통해 직접 실행되는 하이퍼바이저가 있으며, 노드는 여러 게스트 VM(Virtual Machines)으로 나누어집니다.
@@ -352,7 +341,7 @@ Azure 배포에는 여러 계층의 네트워크 격리가 있습니다. 다음 
 
 - [Microsoft Azure Virtual Network의 컴퓨터에 대한 네트워크 격리 옵션](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
 
-여기에는 특정 클라이언트 또는 다른 컴퓨터가 IP 주소의 허용 목록을 기반으로 하여 특정 엔드포인트에 연결할 수 있도록 특정 백 엔드 네트워크 또는 하위 네트워크의 컴퓨터에서 허용하는 클래식 프런트 엔드 및 백 엔드 시나리오가 포함됩니다.
+여기에는 특정 백 엔드 네트워크 또는 하위 네트워크의 컴퓨터에서 허용 되는 IP 주소 목록에 따라 특정 끝점에 연결 하는 특정 클라이언트 또는 다른 컴퓨터에만 허용할 수 있는 클래식 프런트 엔드 및 백 엔드 시나리오가 포함 됩니다.
 
 - [Compute 격리](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
 

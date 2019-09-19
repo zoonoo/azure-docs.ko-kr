@@ -1,6 +1,6 @@
 ---
-title: HTTP 요청에 응답-Azure Logic Apps
-description: Azure Logic Apps를 사용 하 여 HTTP를 통해 실시간으로 이벤트에 응답
+title: HTTPS 호출 수신 및 응답-Azure Logic Apps
+description: Azure Logic Apps를 사용 하 여 실시간으로 HTTPS 요청 및 이벤트 처리
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -12,22 +12,24 @@ ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
 ms.topic: article
 ms.date: 09/06/2019
 tags: connectors
-ms.openlocfilehash: 07f143b261d0cff9eba0d4b1803753446c311818
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 668e815f1dc1ead0ad38264bdc71fc3c315b751c
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914369"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122721"
 ---
-# <a name="respond-to-http-requests-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 HTTP 요청에 응답
+# <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 들어오는 HTTPS 호출 받기 및 응답
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 기본 제공 요청 트리거 또는 응답 작업을 사용 하면 HTTP 요청을 실시간으로 수신 하 고 응답 하는 자동화 된 작업 및 워크플로를 만들 수 있습니다. 예를 들어 논리 앱을 사용할 수 있습니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 기본 제공 요청 트리거 또는 응답 작업을 사용 하 여 들어오는 HTTPS 요청을 수신 하 고 응답 하는 자동화 된 작업 및 워크플로를 만들 수 있습니다. 예를 들어 논리 앱을 사용할 수 있습니다.
 
-* 온-프레미스 데이터베이스의 데이터에 대 한 HTTP 요청에 응답 합니다.
+* 온-프레미스 데이터베이스에서 데이터에 대 한 HTTPS 요청을 수신 하 고 응답 합니다.
 * 외부 webhook 이벤트가 발생 하는 경우 워크플로를 트리거합니다.
-* 다른 논리 앱 내에서 논리 앱을 호출 합니다.
+* 다른 논리 앱에서 HTTPS 호출을 받고 응답 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+요청 트리거는 HTTPS *만* 지원 합니다. 대신 나가는 HTTP 또는 HTTPS 호출을 수행 하려면 기본 제공 [http 트리거 또는 작업](../connectors/connectors-native-http.md)을 사용 합니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독. 구독이 없는 경우 [무료 Azure 계정에 등록할](https://azure.microsoft.com/free/)수 있습니다.
 
@@ -35,27 +37,27 @@ ms.locfileid: "70914369"
 
 <a name="add-request"></a>
 
-## <a name="add-a-request-trigger"></a>요청 트리거 추가
+## <a name="add-request-trigger"></a>요청 트리거 추가
 
-이 기본 제공 트리거는 들어오는 HTTP 요청을 받을 수 있는 수동으로 호출할 수 있는 끝점을 만듭니다. 이 이벤트가 발생 하면 트리거가 발생 하 고 논리 앱을 실행 합니다. 트리거의 기본 JSON 정의 및이 트리거를 호출 하는 방법에 대 한 자세한 내용은 [요청 트리거 형식](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) 및 [HTTP 끝점을 사용 하 여 워크플로 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md) 을 참조 Azure Logic Apps
+이 기본 제공 트리거 *는 들어오는 https* 요청만 수신할 수 있는 수동으로 호출할 수 있는 https 끝점을 만듭니다. 이 이벤트가 발생 하면 트리거가 발생 하 고 논리 앱을 실행 합니다. 트리거의 기본 JSON 정의 및이 트리거를 호출 하는 방법에 대 한 자세한 내용은 [요청 트리거 형식](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) 및 [Azure Logic Apps에서 HTTP 끝점을 사용 하 여 워크플로 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조 하세요.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 빈 논리 앱을 만듭니다.
 
 1. 논리 앱 디자이너가 열리면 검색 상자에 "http 요청"을 필터로 입력 합니다. 트리거 목록에서 논리 앱 워크플로의 첫 단계인 **HTTP 요청을 받을 때** 트리거를 선택 합니다.
 
-   ![HTTP 요청 트리거 선택](./media/connectors-native-reqres/select-request-trigger.png)
+   ![요청 트리거 선택](./media/connectors-native-reqres/select-request-trigger.png)
 
    요청 트리거는 다음과 같은 속성을 표시 합니다.
 
    ![요청 트리거](./media/connectors-native-reqres/request-trigger.png)
 
-   | 속성 이름 | JSON 속성 이름 | 필수 | Description |
+   | 속성 이름 | JSON 속성 이름 | 필요한 공간 | 설명 |
    |---------------|--------------------|----------|-------------|
    | **HTTP 게시 URL** | {없음} | 예 | 논리 앱을 저장 한 후에 생성 되 고 논리 앱을 호출 하는 데 사용 되는 끝점 URL입니다. |
-   | **요청 본문 JSON 스키마** | `schema` | 아니요 | 들어오는 HTTP 요청 본문의 속성 및 값을 설명 하는 JSON 스키마입니다. |
+   | **요청 본문 JSON 스키마** | `schema` | 아니요 | 들어오는 요청 본문의 속성 및 값을 설명 하는 JSON 스키마입니다. |
    |||||
 
-1. 필요에 따라 **본문 Json 스키마 요청** 상자에서 들어오는 요청의 HTTP 요청 본문을 설명 하는 JSON 스키마를 입력 합니다. 예를 들면 다음과 같습니다.
+1. 필요에 따라 **본문 Json 스키마 요청** 상자에서 들어오는 요청의 본문을 설명 하는 JSON 스키마를 입력 합니다. 예를 들면 다음과 같습니다.
 
    ![JSON 스키마 예제](./media/connectors-native-reqres/provide-json-schema.png)
 
@@ -148,7 +150,7 @@ ms.locfileid: "70914369"
 
 1. 추가 속성을 지정 하려면 **새 매개 변수 추가** 목록을 열고 추가 하려는 매개 변수를 선택 합니다.
 
-   | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
+   | 속성 이름 | JSON 속성 이름 | 필요한 공간 | 설명 |
    |---------------|--------------------|----------|-------------|
    | **메서드** | `method` | 아니요 | 들어오는 요청에서 논리 앱을 호출 하는 데 사용 해야 하는 메서드입니다. |
    | **상대 경로** | `relativePath` | 아니요 | 논리 앱의 끝점 URL에서 수락할 수 있는 매개 변수의 상대 경로입니다. |
@@ -180,7 +182,7 @@ ms.locfileid: "70914369"
 
 요청 트리거의 출력에 대 한 자세한 내용은 다음과 같습니다.
 
-| JSON 속성 이름 | 데이터 형식 | Description |
+| JSON 속성 이름 | 데이터 형식 | 설명 |
 |--------------------|-----------|-------------|
 | `headers` | Object | 요청의 헤더를 설명 하는 JSON 개체입니다. |
 | `body` | Object | 요청의 본문 콘텐츠를 설명 하는 JSON 개체입니다. |
@@ -190,7 +192,7 @@ ms.locfileid: "70914369"
 
 ## <a name="add-a-response-action"></a>응답 동작 추가
 
-응답 작업을 사용 하 여 HTTP 요청에 의해 트리거되는 논리 앱 에서만 들어오는 HTTP 요청에 대 한 페이로드 (데이터)에 응답할 수 있습니다. 워크플로의 어떤 지점에서 든 응답 작업을 추가할 수 있습니다. 이 트리거에 대 한 기본 JSON 정의에 대 한 자세한 내용은 [응답 작업 형식](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action)을 참조 하세요.
+응답 작업을 사용 하 여 들어오는 HTTPS 요청에 대 한 페이로드 (데이터)에 응답 하 고 HTTPS 요청에 의해 트리거되는 논리 앱 에서만 응답을 받을 수 있습니다. 워크플로의 어떤 지점에서 든 응답 작업을 추가할 수 있습니다. 이 트리거에 대 한 기본 JSON 정의에 대 한 자세한 내용은 [응답 작업 형식](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action)을 참조 하세요.
 
 논리 앱은 1 분 동안만 들어오는 요청을 열어 둡니다. 논리 앱 워크플로에 응답 작업이 포함 되어 있다고 가정 하면 논리 앱이이 시간 경과 후 응답을 반환 하지 않는 경우 논리 앱은를 `504 GATEWAY TIMEOUT` 호출자에 게 반환 합니다. 그렇지 않고 논리 앱에 응답 동작이 포함 되지 않은 경우 논리 앱은 즉시 호출자에 게 `202 ACCEPTED` 응답을 반환 합니다.
 
@@ -222,9 +224,9 @@ ms.locfileid: "70914369"
 
    응답 작업에서 설정할 수 있는 속성에 대 한 자세한 내용은 다음과 같습니다. 
 
-   | 속성 이름 | JSON 속성 이름 | 필수 | Description |
+   | 속성 이름 | JSON 속성 이름 | 필요한 공간 | 설명 |
    |---------------|--------------------|----------|-------------|
-   | **상태 코드** | `statusCode` | 예 | 응답에 반환할 HTTP 상태 코드입니다. |
+   | **상태 코드** | `statusCode` | 예 | 응답에 반환할 상태 코드 |
    | **헤더** | `headers` | 아니요 | 응답에 포함할 하나 이상의 헤더를 설명 하는 JSON 개체입니다. |
    | **본문** | `body` | 아니요 | 응답 본문 |
    |||||

@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 09/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3ddf5a1ab37ac0af25379394b4513627139fcbd5
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: b2cfe8014e6ffbd7a6d5449192acde9780a2d303
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307945"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122879"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Media Services v3 API-.NET에 연결
 
 이 문서에서는 서비스 사용자 로그인 메서드를 사용 하 여 Azure Media Services v3 .NET SDK에 연결 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Media Services 계정 만들기](create-account-cli-how-to.md) 리소스 그룹 이름 및 Media Services 계정 이름을 명심 해야 합니다.
 - .NET 개발에 사용할 도구를 설치 합니다. 이 문서의 단계에서는 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 사용 하는 방법을 보여 줍니다. Visual Studio Code를 사용할 수 있습니다. [작업 C# ](https://code.visualstudio.com/docs/languages/csharp)을 참조 하세요. 또는 다른 코드 편집기를 사용할 수 있습니다.
@@ -43,9 +43,9 @@ ms.locfileid: "70307945"
 ## <a name="add-required-nuget-packages"></a>필요한 NuGet 패키지 추가
 
 1. Visual Studio에서 **도구** > **nuget 패키지 관리자** > **nuget 관리자 콘솔**을 선택 합니다.
-2. **패키지 관리자 콘솔** 창에서 명령을 사용 `Install-Package` 하 여 다음 NuGet 패키지를 추가 합니다. [http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest](`Install-Package Microsoft.Azure.Management.Media`)을 입력합니다.
+2. **패키지 관리자 콘솔** 창에서 명령을 사용 `Install-Package` 하 여 다음 NuGet 패키지를 추가 합니다. 예를 들어, `Install-Package Microsoft.Azure.Management.Media`을 입력합니다.
 
-|패키지|Description|
+|패키지|설명|
 |---|---|
 |`Microsoft.Azure.Management.Media`|Azure Media Services SDK. <br/>최신 Azure Media Services 패키지를 사용 하 고 있는지 확인 하려면 [Microsoft.](https://www.nuget.org/packages/Microsoft.Azure.Management.Media)|
 |`Microsoft.Rest.ClientRuntime.Azure.Authentication`|NET 용 Azure SDK 용 ADAL 인증 라이브러리|
@@ -240,6 +240,7 @@ namespace ConsoleApp1
 - [Media Services로 필터 만들기 - .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Media Services v3 및 Azure Functions v2의 고급 비디오 주문형 예제](https://aka.ms/ams3functions)
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
-[.NET 참조](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* [.NET 참조](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* 더 많은 코드 예제는 [.NET SDK 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet) 리포지토리를 참조 하세요.

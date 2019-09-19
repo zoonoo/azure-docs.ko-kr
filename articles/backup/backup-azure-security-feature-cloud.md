@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 4fb88cbed4e73a7cea2b0ccf01b1429a3ff321f3
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: b882b8ee08c38b6313558916ab46f80ce9dd5130
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018192"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129329"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Azure Backup를 사용 하는 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 기능
 
@@ -122,9 +122,9 @@ Recovery services 자격 증명 모음에 사용 되는 저장소 계정은 격�
 
 자격 증명 모음에 일시 삭제 된 상태의 백업 항목이 있는 경우에는 Recovery Services 자격 증명 모음을 삭제할 수 없습니다. 일시 삭제 된 항목은 삭제 작업을 14 일 후에 영구적으로 삭제 됩니다. 모든 일시 삭제 된 항목이 제거 된 후에만 자격 증명 모음을 삭제할 수 있습니다.  
 
-#### <a name="how-can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>삭제 후 14 일 동안 일시적으로 삭제 되는 데이터를 삭제 하려면 어떻게 해야 하나요?
+#### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>삭제 후 14 일 일시 삭제 기간 보다 이전 데이터를 삭제할 수 있나요?
 
-삭제 후 14 일 전에 데이터를 제거할 수 있는 방법은 없습니다. 차단 또는 규정 준수 문제인 경우 Microsoft 지원에 문의 하세요.
+아니요. 일시 삭제 된 항목은 강제로 삭제할 수 없으며 14 일이 지나면 자동으로 삭제 됩니다. 이 보안 기능은 백업 된 데이터를 실수로 또는 악의적으로 삭제 하지 않도록 보호 하기 위해 사용 됩니다.  VM에서 다른 작업을 수행 하기 전에 14 일 동안 기다려야 합니다.  일시 삭제 된 항목은 요금이 청구 되지 않습니다.  일시 삭제 하도록 표시 된 Vm을 14 일 이내에 새 자격 증명 모음으로 다시 보호 해야 하는 경우 Microsoft 지원에 문의 하세요.
 
 #### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>PowerShell 또는 CLI에서 일시 삭제 작업을 수행할 수 있나요?
 

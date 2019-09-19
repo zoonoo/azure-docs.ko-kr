@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 07/01/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 55b5207e4c05712b4d96d4272f9ae193cc4c1720
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: c49b1fa1e2e8421146f5d5012de983c14934c23c
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508597"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122932"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Microsoft 피어링에 대한 경로 필터 구성: Azure portal
+# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Microsoft 피어링에 대한 경로 필터 구성: Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
@@ -24,9 +24,9 @@ ms.locfileid: "67508597"
 
 경로 필터는 Microsoft 피어링을 통해 지원되는 서비스의 하위 집합을 사용하는 방법입니다. 이 문서의 단계는 ExpressRoute 회로에 대한 경로 필터를 구성하고 관리하는 데 도움이 됩니다.
 
-Dynamics 365 서비스, Exchange Online, SharePoint Online, 비즈니스용 Skype 같은 Office 365 서비스 그리고 스토리지 및 SQL DB 같은 Azure 서비스는 Microsoft 피어링을 통해 액세스할 수 있습니다. Microsoft 피어링이 ExpressRoute 회로에 구성되면 설정된 BGP 세션을 통해 이러한 서비스와 관련된 모든 접두사가 보급됩니다. BGP 커뮤니티 값은 접두사를 통해 제공되는 서비스를 식별하는 모든 접두사에 연결됩니다. BGP 커뮤니티 값과 매핑되는 서비스의 목록은 [BGP 커뮤니티](expressroute-routing.md#bgp)를 참조하세요.
+Microsoft 피어 링을 통해 Exchange Online, SharePoint Online, 비즈니스용 Skype 및 Azure 서비스 (예: 저장소 및 SQL DB)에 액세스할 수 있습니다. 365 Microsoft 피어링이 ExpressRoute 회로에 구성되면 설정된 BGP 세션을 통해 이러한 서비스와 관련된 모든 접두사가 보급됩니다. BGP 커뮤니티 값은 접두사를 통해 제공되는 서비스를 식별하는 모든 접두사에 연결됩니다. BGP 커뮤니티 값과 매핑되는 서비스의 목록은 [BGP 커뮤니티](expressroute-routing.md#bgp)를 참조하세요.
 
-모든 서비스에 연결해야 하는 경우 많은 수의 접두사가 BGP를 통해 보급됩니다. 그러면 네트워크 내의 라우터에서 유지 관리되는 경로 테이블의 크기가 상당히 증가합니다. Microsoft 피어링을 통해 제공되는 서비스의 하위 집합만 사용하려는 경우 두 가지 방법으로 경로 테이블의 크기를 줄일 수 있습니다. 다음을 수행할 수 있습니다.
+모든 서비스에 연결해야 하는 경우 많은 수의 접두사가 BGP를 통해 보급됩니다. 그러면 네트워크 내의 라우터에서 유지 관리되는 경로 테이블의 크기가 상당히 증가합니다. Microsoft 피어링을 통해 제공되는 서비스의 하위 집합만 사용하려는 경우 두 가지 방법으로 경로 테이블의 크기를 줄일 수 있습니다. 다음을 할 수 있습니다.
 
 - BGP 커뮤니티에 라우팅 필터를 적용하여 필요 없는 접두사를 필터링합니다. 표준 네트워킹 방법은 많은 네트워크 내에서 일반적으로 사용됩니다.
 
@@ -38,10 +38,10 @@ Microsoft 피어링이 ExpressRoute 회로에 구성되면 Microsoft 에지 라�
 
 경로 필터를 사용하면 ExpressRoute 회로의 Microsoft 피어링을 통해 사용하려는 서비스를 식별할 수 있습니다. 기본적으로 허용 하려는 모든 BGP 커뮤니티 값의 목록입니다. 경로 필터 리소스가 정의되고 ExpressRoute 회로에 연결되면 BGP 커뮤니티 값에 매핑되는 모든 접두사는 네트워크에 보급됩니다.
 
-경로 필터를 Office 365 서비스에 연결할 수 있으려면 ExpressRoute를 통해 Office 365 서비스를 사용할 수 있는 권한이 부여되어야 합니다. ExpressRoute를 통해 Office 365 서비스를 사용할 수 있는 권한이 없는 경우 경로 필터를 연결하는 작업에 실패합니다. 권한 부여 프로세스에 대한 자세한 내용은 [Office 365용 Azure ExpressRoute](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)를 참조하세요. Dynamics 365 서비스에 대한 연결에는 사전 권한 부여가 필요하지 않습니다.
+경로 필터를 Office 365 서비스에 연결할 수 있으려면 ExpressRoute를 통해 Office 365 서비스를 사용할 수 있는 권한이 부여되어야 합니다. ExpressRoute를 통해 Office 365 서비스를 사용할 수 있는 권한이 없는 경우 경로 필터를 연결하는 작업에 실패합니다. 권한 부여 프로세스에 대한 자세한 내용은 [Office 365용 Azure ExpressRoute](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)를 참조하세요.
 
 > [!IMPORTANT]
-> 경로 필터를 정의하지 않은 경우에도 2017년 8월 1일 이전에 구성된 ExpressRoute 회로의 Microsoft 피어링에는 Microsoft 피어링을 통해 보급된 모든 서비스 접두사가 포함됩니다. 2017년 8월 1일 이후에 구성된 ExpressRoute 회로의 Microsoft 피어링에는 경로 필터가 회로에 연결될 때까지 접두사가 보급되지 않습니다.
+> 경로 필터를 정의하지 않은 경우에도 2017년 8월 1일 이전에 구성된 ExpressRoute 회로의 Microsoft 피어링에는 Microsoft 피어링을 통해 보급된 모든 서비스 접두사가 포함됩니다. 2017년 8월 1일 이후에 구성되는 ExpressRoute 회로의 Microsoft 피어링에는 경로 필터를 회로에 연결할 때까지 접두사가 보급되지 않습니다.
 > 
 > 
 
@@ -60,7 +60,7 @@ Microsoft 피어링을 통해 서비스에 성공적으로 연결할 수 있으�
 
 -  경로 필터를 ExpressRoute 회로에 연결해야 합니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 구성을 시작하기 전에 다음 조건을 충족하는지 확인합니다.
 
@@ -79,7 +79,7 @@ Microsoft 피어링을 통해 액세스할 수 있는 서비스와 관련된 BGP
 
 ### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. 사용하려는 값의 목록 확인
 
-목록을 확인 하십시오 [BGP 커뮤니티 값](expressroute-routing.md#bgp) 경로 필터에 사용 하려는. 
+경로 필터에서 사용 하려는 [BGP 커뮤니티 값](expressroute-routing.md#bgp) 목록을 만듭니다. 
 
 ## <a name="filter"></a>2단계: 경로 필터 및 필터 규칙 만들기
 
@@ -101,14 +101,14 @@ Microsoft 피어링을 통해 액세스할 수 있는 서비스와 관련된 BGP
 ![경로 필터 만들기](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
 
-드롭다운 목록에서 연결 하 고 수행 하는 경우 규칙을 저장 하려는 서비스를 선택할 수 있습니다.
+드롭다운 목록에서 연결 하려는 서비스를 선택 하 고 완료 되 면 규칙을 저장할 수 있습니다.
 
 ![경로 필터 만들기](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
 
 
 ## <a name="attach"></a>3단계: 경로 필터를 ExpressRoute 회로에 연결합니다.
 
-"회로 추가" 단추를 선택 하 고 드롭다운 목록에서 ExpressRoute 회로 선택 하 여 경로 필터를 회로에 연결할 수 있습니다.
+"회로 추가" 단추를 선택 하 고 드롭다운 목록에서 Express 경로 회로를 선택 하 여 경로 필터를 회로에 연결할 수 있습니다.
 
 ![경로 필터 만들기](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
 
@@ -137,7 +137,7 @@ Microsoft 피어링을 통해 액세스할 수 있는 서비스와 관련된 BGP
 
 ### <a name="detach"></a>ExpressRoute 회로에서 경로 필터를 분리하려면
 
-경로 필터에서 회로 분리 하려면 회로 마우스 오른쪽 단추로 클릭 하 고 "연결 해제"를 클릭 합니다.
+회로를 경로 필터에서 분리 하려면 회로를 마우스 오른쪽 단추로 클릭 하 고 "연관 해제"를 클릭 합니다.
 
 ![경로 필터 만들기](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
 
@@ -152,4 +152,4 @@ Microsoft 피어링을 통해 액세스할 수 있는 서비스와 관련된 BGP
 
 * ExpressRoute에 대한 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.
 
-* 라우터 구성 샘플에 대 한 정보를 참조 하세요 [설정 및 라우팅 관리를 위한 라우터 구성 샘플](expressroute-config-samples-routing.md)합니다. 
+* 라우터 구성 샘플에 대 한 자세한 내용은 [라우팅 설정 및 관리를 위한 라우터 구성 샘플](expressroute-config-samples-routing.md)을 참조 하세요. 

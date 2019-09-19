@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1b3d02d5cfdae2f196f2f35f075dd8c250b5ece1
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 280ac51dbc32bca7024f850a379f29fb86d5e684
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860334"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130109"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -35,7 +35,7 @@ ms.locfileid: "70860334"
 * **이벤트 로그** 에는 다른 백업 제품의 백업 오류 (예: Windows Server 백업)가 표시 될 수 있으며, Azure 백업으로 인 한 것이 아닙니다. 다음 단계를 사용 하 여 문제가 Azure Backup 있는지 여부를 확인 합니다.
    * 이벤트 원본 또는 메시지에 항목을 **백업** 하는 동안 오류가 발생 하는 경우 AZURE IaaS VM 백업 백업에 성공 했는지 여부 및 원하는 스냅숏 유형으로 복원 지점을 만들었는지 여부를 확인 합니다.
     * Azure Backup 작동 하는 경우 다른 백업 솔루션에 문제가 있을 수 있습니다.
-    * Azure 백업이 정상적으로 작동 하지만 "Windows Server 백업"이 실패 한 이벤트 뷰어 오류의 예는 다음과 같습니다.<br>
+    * 다음은 Azure 백업이 정상적으로 작동 하지만 "Windows Server 백업"이 실패 한 이벤트 뷰어 오류 517의 예입니다.<br>
     ![Windows Server 백업 실패](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
     * Azure Backup 실패 하면이 문서의 일반적인 VM 백업 오류 섹션에서 해당 오류 코드를 찾습니다.
 
@@ -185,10 +185,10 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 | 오류 정보 | 해결 방법 |
 | ------ | --- |
-| **오류 코드**: 320001<br/> **오류 메시지**: VM이 더 이상 없으므로 작업을 수행할 수 없습니다. <br/> <br/> **오류 코드**: 400094 <br/> **오류 메시지**: 가상 머신이 존재 하지 않습니다. <br/> <br/>  Azure 가상 머신을 찾을 수 없습니다.  |이 오류는 주 VM이 삭제되었지만 백업 정책이 백업을 수행하기 위해 여전히 VM을 검색할 때 발생합니다. 이 오류를 해결하려면 다음 단계를 수행합니다. <ol><li> 동일한 이름 및 동일한 리소스 그룹 이름, **클라우드 서비스 이름**으로 가상 머신을 다시 만듭니다.<br>**또는**</li><li> 백업 데이터를 삭제하거나 삭제하지 않고 가상 머신의 보호를 중지합니다. 자세한 내용은 [가상 머신 보호 중지](backup-azure-manage-vms.md#stop-protecting-a-vm)를 참조하세요.</li></ol>|
-| VM이 실패한 프로비전 상태입니다. <br>VM을 다시 시작하고 VM이 실행 중이거나 종료되었는지 확인합니다. | 이 오류는 확장 오류 중 하나로 인해 VM 상태가 실패한 프로비전 상태가 될 때 발생합니다. 확장 목록으로 이동하고, 실패한 확장이 있는지 확인하고, 제거한 후 가상 머신을 다시 시작해 봅니다. 모든 확장이 실행 중 상태인 경우 VM 에이전트 서비스가 실행 중인지 확인합니다. 실행 중이 아니면 VM 에이전트 서비스를 다시 시작합니다. |
+| **오류 코드**: 320001, ResourceNotFound <br/> **오류 메시지**: VM이 더 이상 없으므로 작업을 수행할 수 없습니다. <br/> <br/> **오류 코드**: 400094, BCMV2VMNotFound <br/> **오류 메시지**: 가상 머신이 존재 하지 않습니다. <br/> <br/>  Azure 가상 머신을 찾을 수 없습니다.  |이 오류는 주 VM이 삭제되었지만 백업 정책이 백업을 수행하기 위해 여전히 VM을 검색할 때 발생합니다. 이 오류를 해결하려면 다음 단계를 수행합니다. <ol><li> 동일한 이름 및 동일한 리소스 그룹 이름, **클라우드 서비스 이름**으로 가상 머신을 다시 만듭니다.<br>**또는**</li><li> 백업 데이터를 삭제하거나 삭제하지 않고 가상 머신의 보호를 중지합니다. 자세한 내용은 [가상 머신 보호 중지](backup-azure-manage-vms.md#stop-protecting-a-vm)를 참조하세요.</li></ol>|
+| **오류 코드**: UserErrorVmProvisioningStateFailed<br/> **오류 메시지**: VM이 실패한 프로비전 상태입니다. <br>VM을 다시 시작하고 VM이 실행 중이거나 종료되었는지 확인합니다. | 이 오류는 확장 오류 중 하나로 인해 VM 상태가 실패한 프로비전 상태가 될 때 발생합니다. 확장 목록으로 이동하고, 실패한 확장이 있는지 확인하고, 제거한 후 가상 머신을 다시 시작해 봅니다. 모든 확장이 실행 중 상태인 경우 VM 에이전트 서비스가 실행 중인지 확인합니다. 실행 중이 아니면 VM 에이전트 서비스를 다시 시작합니다. |
 |**오류 코드**: UserErrorBCMPremiumStorageQuotaError<br/> **오류 메시지**: 저장소 계정에 사용 가능한 공간이 부족 하 여 가상 컴퓨터의 스냅숏을 복사할 수 없습니다. | VM 백업 스택 V1에 있는 프리미엄 VM의 경우 스토리지 계정에 스냅샷을 복사합니다. 이 단계는 스냅샷에서 작동하는 백업 관리 트래픽이 프리미엄 디스크를 사용하는 애플리케이션에서 사용 가능한 IOPS 수를 제한하지 않도록 하기 위한 것입니다. <br><br>총 스토리지 계정 공간의 50%, 17.5TB만을 할당하는 것이 좋습니다. 그런 다음, Azure Backup 서비스에서 스토리지 계정에 스냅샷을 복사하고 스토리지 계정의 복사된 위치에서 자격 증명 모음으로 데이터를 전송할 수 있습니다. |
-| **오류 코드: 380008** <br/> **오류 메시지**: 가상 컴퓨터가 실행 되 고 있지 않으므로 Microsoft Recovery Services 확장을 설치 하지 못했습니다. | VM 에이전트는 Azure Recovery Services 확장에 대한 필수 구성 요소입니다. Azure Virtual Machine 에이전트를 설치하고 등록 작업을 다시 시작합니다. <br> <ol> <li>VM 에이전트가 제대로 설치되었는지 확인합니다. <li>VM 구성의 플래그가 올바르게 설정되었는지 확인합니다.</ol> VM 에이전트 설치 및 VM 에이전트 설치의 유효성을 검사하는 방법에 대해 자세히 알아보세요. |
+| **오류 코드**: 380008, AzureVmOffline <br/> **오류 메시지**: 가상 컴퓨터가 실행 되 고 있지 않으므로 Microsoft Recovery Services 확장을 설치 하지 못했습니다. | VM 에이전트는 Azure Recovery Services 확장에 대한 필수 구성 요소입니다. Azure Virtual Machine 에이전트를 설치하고 등록 작업을 다시 시작합니다. <br> <ol> <li>VM 에이전트가 제대로 설치되었는지 확인합니다. <li>VM 구성의 플래그가 올바르게 설정되었는지 확인합니다.</ol> VM 에이전트 설치 및 VM 에이전트 설치의 유효성을 검사하는 방법에 대해 자세히 알아보세요. |
 | **오류 코드**: ExtensionSnapshotBitlockerError <br/> **오류 메시지**: **이 드라이브는 BitLocker 드라이브 암호화로 잠겨 있습니다. 제어판에서 이 드라이브의 잠금을 해제해야 합니다.** 라는 VSS(볼륨 섀도 복사본 서비스) 작업 오류와 함께 스냅숏 작업이 실패했습니다. |VM에 있는 모든 드라이브의 BitLocker를 끄고 VSS 문제가 해결되었는지 확인합니다. |
 | **오류 코드**: VmNotInDesirableState <br/> **오류 메시지**:  VM이 백업을 허용하지 않는 상태입니다. |<ul><li>VM이 **실행 중**에서 **종료** 상태로 전환되고 있으면 상태가 변경될 때까지 기다립니다. 그런 다음, 백업 작업을 트리거합니다. <li> VM이 Linux 에이전트이고 Security-Enhanced Linux 커널 모듈을 사용하는 경우 보안 정책에서 Azure Linux 에이전트 경로 **/var/lib/waagent**를 제외하여 백업 확장이 설치되도록 합니다.  |
 | VM 에이전트가 가상 머신에 없습니다. <br>모든 필수 구성 요소 및 VM 에이전트를 설치합니다. 그런 다음, 작업을 다시 시작합니다. |[VM 에이전트 설치 및 VM 에이전트 설치의 유효성을 검사하는 방법](#vm-agent)에 대해 자세히 알아보세요. |

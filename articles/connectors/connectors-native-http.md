@@ -1,6 +1,6 @@
 ---
-title: Azure Logic Apps에서 HTTP 또는 HTTPS 끝점에 연결
-description: Azure Logic Apps를 사용 하 여 자동화 된 작업, 프로세스 및 워크플로의 HTTP 또는 HTTPS 끝점 모니터링
+title: HTTP 및 HTTPS 끝점 호출-Azure Logic Apps
+description: Azure Logic Apps를 사용 하 여 HTTP 및 HTTPS 끝점에 보내는 요청 보내기
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,16 +10,18 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: 04d9beaef29e76d40c0bb3f9dcf0bb6f4fe3152d
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: df856e0d76dbd5903964bc80aa01b97b7461128a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234350"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122693"
 ---
-# <a name="call-http-or-https-endpoints-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 HTTP 또는 HTTPS 끝점 호출
+# <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 HTTP 또는 HTTPS 끝점에 보내는 호출 보내기
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 기본 제공 HTTP 커넥터를 사용 하 여 논리 앱을 빌드하여 HTTP 또는 HTTPS 끝점을 정기적으로 호출 하는 워크플로를 자동화할 수 있습니다. 예를 들어 지정 된 일정에 따라 해당 끝점을 확인 하 여 웹 사이트에 대 한 서비스 끝점을 모니터링할 수 있습니다. 웹 사이트의 작동이 중단 되는 경우와 같이 해당 끝점에서 특정 이벤트가 발생 하면 이벤트는 논리 앱의 워크플로를 트리거하고 지정 된 작업을 실행 합니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 기본 제공 http 트리거 또는 작업을 사용 하 여 HTTP 또는 HTTPS 끝점으로 요청을 정기적으로 전송 하는 자동화 된 작업 및 워크플로를 만들 수 있습니다. 들어오는 HTTP 또는 HTTPS 호출을 수신 하 고 대신 응답 하려면 기본 제공 [요청 트리거 또는 응답 작업](../connectors/connectors-native-reqres.md)을 사용 합니다.
+
+예를 들어 지정 된 일정에 따라 해당 끝점을 확인 하 여 웹 사이트에 대 한 서비스 끝점을 모니터링할 수 있습니다. 웹 사이트의 작동이 중단 되는 경우와 같이 해당 끝점에서 특정 이벤트가 발생 하면 이벤트는 논리 앱의 워크플로를 트리거하고 지정 된 작업을 실행 합니다.
 
 정기적으로 끝점을 검사 하거나 *폴링하기* 위해 워크플로의 첫 단계로 HTTP 트리거를 사용할 수 있습니다. 각 검사에서 트리거는 엔드포인트에 호출 또는 *요청*을 전송합니다. 엔드포인트의 응답은 논리 앱의 워크플로가 실행될지 여부를 결정합니다. 트리거는 응답에서 논리 앱의 작업으로 모든 콘텐츠를 전달합니다.
 
@@ -27,7 +29,7 @@ ms.locfileid: "68234350"
 
 대상 끝점의 기능을 기반으로 하는 HTTP 커넥터는 TLS (전송 계층 보안) 버전 1.0, 1.1 및 1.2을 지원 합니다. 가능 하면 지원 되는 가장 높은 버전을 사용 하 여 끝점에 대 한 Logic Apps 협상 합니다. 따라서 예를 들어 끝점이 1.2을 지 원하는 경우 커넥터는 1.2를 먼저 사용 합니다. 그렇지 않으면 커넥터에서 지원 되는 가장 높은 다음 버전을 사용 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -59,7 +61,7 @@ ms.locfileid: "68234350"
 
 1. 트리거가 발생할 때 실행되는 작업을 사용하여 논리 앱의 워크플로를 계속해서 작성합니다.
 
-1. 완료 되 면 논리 앱을 저장 해야 합니다. 디자이너 도구 모음에서 **저장**을 선택 합니다.
+1. 완료 되 면 논리 앱을 저장 해야 합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
 ## <a name="add-an-http-action"></a>HTTP 동작 추가
 
@@ -87,7 +89,7 @@ ms.locfileid: "68234350"
 
 1. 사용할 수 있는 다른 매개 변수를 추가 하려면 **새 매개 변수 추가** 목록을 열고 원하는 매개 변수를 선택 합니다.
 
-1. 완료 되 면 논리 앱을 저장 해야 합니다. 디자이너 도구 모음에서 **저장**을 선택 합니다.
+1. 완료 되 면 논리 앱을 저장 해야 합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
 ## <a name="content-with-multipartform-data-type"></a>Multipart/form 데이터 형식의 콘텐츠
 
@@ -142,23 +144,23 @@ Http 요청에 `multipart/form-data` 형식이 있는 콘텐츠를 처리 하려
 * [HTTP 트리거 매개 변수](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)
 * [HTTP 동작 매개 변수](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)
 
-### <a name="output-details"></a>출력 세부 정보
+### <a name="output-details"></a>출력 세부 사항
 
 이 정보를 반환 하는 HTTP 트리거 또는 작업의 출력에 대 한 자세한 내용은 다음과 같습니다.
 
 | 속성 이름 | 형식 | 설명 |
 |---------------|------|-------------|
-| headers | 개체(object) | 요청의 헤더입니다. |
-| body | 개체(object) | JSON 개체 | 요청의 본문 내용이 포함 된 개체입니다. |
-| status code | ssNoversion | 요청의 상태 코드 |
+| headers | object | 요청의 헤더입니다. |
+| body | object | JSON 개체 | 요청의 본문 내용이 포함 된 개체입니다. |
+| status code | int | 요청의 상태 코드 |
 |||
 
 | status code | 설명 |
 |-------------|-------------|
 | 200 | 확인 |
-| 202 | 수락됨 |
+| 202 | 동의함 |
 | 400 | 잘못된 요청 |
-| 401 | 권한 없음 |
+| 401 | 인증되지 않음 |
 | 403 | 사용할 수 없음 |
 | 404 | 찾을 수 없음 |
 | 500 | 내부 서버 오류. 알 수 없는 오류 발생. |

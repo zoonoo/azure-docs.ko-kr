@@ -2,17 +2,17 @@
 title: 포함 파일
 description: 포함 파일
 services: logic-apps
-author: ecfan
 ms.service: logic-apps
-ms.topic: include
-ms.date: 05/14/2018
+author: ecfan
 ms.author: estfan
+ms.topic: include
+ms.date: 09/18/2019
 ms.custom: include file
-ms.openlocfilehash: 6594031aeccae4b9f0ea843e2d72cb01a67d492d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 1fbf8a8d83871fa4cbed3fa79d3c19d66406329d
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67181959"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121067"
 ---
-논리 앱에서 서비스에 액세스하려면 논리 앱과 해당 서비스 사이에 *연결*을 만들어야 합니다. 이전에 이 연결을 만들지 않은 경우 논리 앱에 해당 서비스에 대한 트리거 또는 작업을 추가할 때 연결 정보에 대한 메시지가 나타납니다. Logic Apps 디자이너는 논리 앱에서 직접 이 연결을 쉽게 만드는 방법을 제공합니다.
+서비스에 처음으로 액세스 하는 트리거 또는 작업을 사용 하는 경우 Logic Apps 디자이너에서 해당 서비스에 대 한 *연결* 을 만들라는 메시지를 표시 합니다. 그런 다음 디자이너 내 논리 앱에서 직접 필요한 연결 정보를 제공할 수 있습니다.

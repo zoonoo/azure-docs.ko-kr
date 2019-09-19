@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: a294c444f10719f69716b25b97cd137874a3e0be
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 916175401cd993392094b2bb16f8fc8746a4d2a8
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954145"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123391"
 ---
 # <a name="about-expressroute-direct"></a>ExpressRoute Direct 정보
 
@@ -45,7 +45,7 @@ Express 경로 다이렉트를 사용 하기 전에 먼저 구독을 등록 해�
 
 ## <a name="expressroute-direct-circuits"></a>ExpressRoute Direct 회로
 
-Microsoft Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure, Office 365 및 Dynamics 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.  
+Microsoft Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. Express 경로를 사용 하 여 Microsoft Azure 및 Office 365와 같은 Microsoft 클라우드 서비스에 대 한 연결을 설정할 수 있습니다.
 
 각 피어링 위치는 Microsoft의 글로벌 네트워크에 대한 액세스 권한을 가지며 기본적으로 지리적 영역에 있는 모든 지역에 액세스할 수 있으며 프리미엄 회로를 사용하여 전 세계 모든 지역에 액세스할 수 있습니다.  
 
@@ -57,7 +57,7 @@ ExpressRoute Direct는 Azure Storage 및 기타 빅 데이터 서비스에 대�
 
 | **100 Gbps Express 경로 직접** | **10gbps Express 경로 직접** | 
 | --- | --- |
-| **구독 된 대역폭**: 200 Gbps | **구독 된 대역폭**: 20gbps |
+| **구독 된 대역폭**: 200Gbps | **구독 된 대역폭**: 20gbps |
 | <ul><li>5Gbps</li><li>10Gbps</li><li>40Gbps</li><li>100 Gbps</li></ul> | <ul><li>1Gbps</li><li>2Gbps</li><li>5Gbps</li><li>10Gbps</li></ul>
 
 ## <a name="technical-requirements"></a>기술적인 요구 사항

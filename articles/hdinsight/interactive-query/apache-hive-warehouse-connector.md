@@ -1,18 +1,18 @@
 ---
 title: Hive 웨어하우스 커넥터를 사용 하 여 Apache Spark 및 Apache Hive 통합
 description: Azure HDInsight의 Hive 웨어하우스 커넥터와 Apache Spark 및 Apache Hive를 통합 하는 방법에 대해 알아봅니다.
-ms.service: hdinsight
 author: nakhanha
 ms.author: nakhanha
 ms.reviewer: hrasheed
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 068dc76112db39ad8db118062656013e20cfc2ab
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 8a946a75a2dbd487494d70d0fd195a5becf5bd5a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811668"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122198"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Hive 웨어하우스 커넥터를 사용 하 여 Apache Spark 및 Apache Hive 통합
 
@@ -22,7 +22,7 @@ Hive 웨어하우스 커넥터를 사용 하면 Hive 및 Spark의 고유한 기�
 
 Apache Spark에는 Apache Hive에서 사용할 수 없는 스트리밍 기능을 제공 하는 구조적 스트리밍 API가 있습니다. HDInsight 4.0부터 Apache Spark 2.3.1 및 Apache Hive 3.1.0에는 별도의 metastore 있으므로 상호 운용성이 어려워질 수 있습니다. Hive 웨어하우스 커넥터를 사용 하면 Spark와 Hive를 함께 더 쉽게 사용할 수 있습니다. HWC 라이브러리는 LLAP 디먼에서 Spark 실행 기에 병렬로 데이터를 로드 하 여 Spark에서 Hive로 표준 JDBC 연결을 사용 하는 것 보다 효율적이 고 확장 가능 합니다.
 
-![아키텍처](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
+![hive 웨어하우스 커넥터 아키텍처](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
 Hive 웨어하우스 커넥터에서 지원 되는 작업은 다음과 같습니다.
 
@@ -42,16 +42,16 @@ Azure HDInsight에서 Spark 및 대화형 쿼리 클러스터 간에 Hive 웨어
 1. Spark 클러스터와 동일한 저장소 계정 및 Azure 가상 네트워크를 사용 하 여 Azure Portal를 사용 하 여 HDInsight 대화형 쿼리 (LLAP) 4.0 클러스터를 만듭니다.
 1. 대화형 쿼리 클러스터의 headnode0 `/etc/hosts` 에 있는 파일의 내용을 Spark 클러스터의 headnode0 `/etc/hosts` 파일에 복사 합니다. 이 단계에서는 Spark 클러스터가 대화형 쿼리 클러스터 노드의 IP 주소를 확인할 수 있습니다. 을 사용 하 `cat /etc/hosts`여 업데이트 된 파일의 내용을 봅니다. 출력은 아래 스크린샷에 표시 된 것과 같아야 합니다.
 
-    ![hosts 파일 보기](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
+    ![hive 웨어하우스 커넥터가 파일을 호스트 합니다.](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
 
 1. 다음 단계를 수행 하 여 Spark 클러스터 설정을 구성 합니다. 
     1. Azure Portal로 이동 하 여 HDInsight 클러스터를 선택 하 고 클러스터 이름을 클릭 합니다.
     1. 오른쪽의 **클러스터 대시보드**아래에서 **Ambari home**을 선택 합니다.
     1. Ambari 웹 UI에서 **SPARK2** > **CONFIGS** > **Custom SPARK2-defaults**를 클릭 합니다.
 
-        ![Spark2 Ambari 구성](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
+        ![Apache Ambari Spark2 구성](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
-    1. \* * 고급 hive-대화형-사이트 * * 아래의 **hive.** l a. l a. `spark.hadoop.hive.llap.daemon.service.hosts` 예를 들면 `@llap0`
+    1. \* * 고급 hive-대화형-사이트 * * 아래의 **hive.** l a. l a. `spark.hadoop.hive.llap.daemon.service.hosts` 예를 들어 IPv4 주소를 사용하는 경우 `@llap0`
 
     1. 대화형 `spark.sql.hive.hiveserver2.jdbc.url` 쿼리 클러스터의 Hiveserver2에 연결 하는 JDBC 연결 문자열로 설정 합니다. 클러스터에 대 한 연결 문자열은 아래 URI 처럼 보입니다. `CLUSTERNAME`는 Spark 클러스터 `user` 의 이름이 고 및 `password` 매개 변수는 클러스터에 대 한 올바른 값으로 설정 됩니다.
 
@@ -59,7 +59,7 @@ Azure HDInsight에서 Spark 및 대화형 쿼리 클러스터 간에 Hive 웨어
         jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2
         ```
 
-        >[!Note] 
+        > [!Note]
         > JDBC URL은 사용자 이름 및 암호를 포함 하 여 Hiveserver2에 연결 하기 위한 자격 증명을 포함 해야 합니다.
 
     1. 적절 `spark.datasource.hive.warehouse.load.staging.dir` 한 HDFS 호환 준비 디렉터리로 설정 합니다. 서로 다른 두 개의 클러스터가 있는 경우 스테이징 디렉터리는 HiveServer2에서 액세스할 수 있도록 LLAP 클러스터의 저장소 계정의 준비 디렉터리에 있는 폴더 여야 합니다. 예 `wasb://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp` 를 들어 여기서 `STORAGE_ACCOUNT_NAME` 는 클러스터에서 사용 되는 저장소 계정의 이름이 고 `STORAGE_CONTAINER_NAME` 은 저장소 컨테이너의 이름입니다.
@@ -159,14 +159,14 @@ Spark는 기본적으로 Hive의 관리 되는 ACID 테이블에 쓰기를 지�
     ```
 
 2. 열 `hivesampletable` 이`state` 같은 테이블`Colorado`을 필터링 합니다. Hive 테이블의이 쿼리는 Spark 데이터 프레임 반환 됩니다. 그런 다음 데이터 프레임은 함수를 `sampletable_colorado` `write` 사용 하 여 Hive 테이블에 저장 됩니다.
-    
+
     ```scala
     hive.table("hivesampletable").filter("state = 'Colorado'").write.format(HiveWarehouseSession.HIVE_WAREHOUSE_CONNECTOR).option("table","sampletable_colorado").save()
     ```
 
 아래 스크린샷에서 결과 테이블을 볼 수 있습니다.
 
-![결과 테이블 표시](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
+![hive 웨어하우스 커넥터 hive 테이블 표시](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
 
 ### <a name="structured-streaming-writes"></a>구조적 스트리밍 쓰기
 
@@ -185,7 +185,9 @@ Hive 웨어하우스 커넥터를 사용 하 여 Spark 스트리밍을 사용 �
     1. 동일한 Spark 클러스터에서 다른 터미널을 엽니다.
     1. 명령 프롬프트에서 `nc -lk 9999`를 입력합니다. 이 명령은 netcat 유틸리티를 사용 하 여 명령줄에서 지정 된 포트로 데이터를 보냅니다.
     1. Spark 스트림에 수집할 단어를 입력 하 고 그 뒤에 캐리지 리턴을 입력 합니다.
-        ![spark 스트림에 대 한 입력 데이터](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark-stream-data-input.png)
+
+        ![Apache spark 스트림에 입력 데이터](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark-stream-data-input.png)
+
 1. 스트리밍 데이터를 보관할 새 Hive 테이블을 만듭니다. Spark-셸에서 다음 명령을 입력 합니다.
 
     ```scala
@@ -230,8 +232,11 @@ Hive 웨어하우스 커넥터를 사용 하 여 Spark 스트리밍을 사용 �
     1. 에서 `https://CLUSTERNAME.azurehdinsight.net/ranger/`레인저 관리 UI로 이동 합니다.
     1. **Hive**에서 클러스터에 대 한 hive 서비스를 클릭 합니다.
         ![레인저 service manager](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
-    1. **마스킹** 탭을 클릭 한 다음 **새 정책** ![hive 정책 목록 추가를 클릭 합니다.](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
-    1. 원하는 정책 이름을 제공 합니다. 데이터베이스 선택: **기본**, hive 테이블: **demo**, hive 열: **이름**, 사용자: **Rsadmin2**, 액세스 형식: **선택**및 부분 마스크: 선택 **마스킹 옵션** 메뉴에서 **마지막 4 표시** . **추가**를 클릭합니다.
+    1. **마스킹** 탭을 클릭 한 다음 **새 정책 추가** 를 클릭 합니다.
+
+        ![hive 웨어하우스 커넥터 레인저 hive 정책 목록](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
+
+    a. 원하는 정책 이름을 제공 합니다. 데이터베이스 선택: **기본**, hive 테이블: **demo**, hive 열: **이름**, 사용자: **Rsadmin2**, 액세스 형식: **선택**및 부분 마스크: 선택 **마스킹 옵션** 메뉴에서 **마지막 4 표시** . **추가**를 클릭합니다.
                 ![정책 만들기](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. 테이블의 내용을 다시 봅니다. 레인저 정책을 적용 한 후에는 열의 마지막 4 자만 볼 수 있습니다.
 

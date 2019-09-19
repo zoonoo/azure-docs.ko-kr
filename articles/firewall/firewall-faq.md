@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/20/2019
 ms.author: victorh
-ms.openlocfilehash: 4b258df1711aa51ed4edee6ecd209fa39c7fde27
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: cb5b8bbb322dc401c7a8b057418d392120ef68e3
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018844"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130218"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -88,7 +88,7 @@ PaaS 서비스에 안전하게 액세스하려면 서비스 엔드포인트를 �
 
 Azure PowerShell *할 당 취소* 및 *할당* 메서드를 사용할 수 있습니다.
 
-예:
+예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```azurepowershell
 # Stop an existing firewall
@@ -163,3 +163,7 @@ Azure 방화벽은 규모에 따라 더 많은 가상 머신 인스턴스를 프
 ## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>서비스가 확장 됨에 따라 방화벽 서브넷 크기를 변경 해야 하나요?
 
 아니요. Azure 방화벽에는/26 보다 큰 서브넷이 필요 하지 않습니다.
+
+## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Azure 방화벽에서 기본적으로 Active Directory에 대 한 액세스를 허용 하나요?
+
+아니요. Azure 방화벽은 기본적으로 Active Directory 액세스를 차단 합니다. 액세스를 허용 하려면 AzureActiveDirectory service 태그를 구성 합니다. 자세한 내용은 [Azure 방화벽 서비스 태그](service-tags.md)를 참조 하세요.

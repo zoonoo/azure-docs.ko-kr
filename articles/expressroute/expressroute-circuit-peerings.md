@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 09/18/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: c4290473a7c1edce02d74a4a787c62ccf0d9c052
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 864b834fcc6810b52f067d8e67b4a48febd0f787
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924305"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123488"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute 회로 및 피어링
 
@@ -22,7 +22,7 @@ ExpressRoute 회로는 연결 공급자를 통해 온-프레미스 인프라를 
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 > [!IMPORTANT]
-> Azure 공용 피어 링 사용 되지 않으며 새 ExpressRoute 회로 대 한 불가능 합니다. 새 회로 Microsoft 피어 링 및 개인 피어 링을 지원합니다.  
+> Azure 공용 피어 링은 더 이상 사용 되지 않으며 새로운 Express 경로 회로에 사용할 수 없습니다. 새 회로는 Microsoft 피어 링 및 개인 피어 링을 지원 합니다.  
 >
 
 ## <a name="circuits"></a>ExpressRoute 회로
@@ -45,7 +45,7 @@ ExpressRoute 회로에는 연결된 여러 라우팅 도메인/피어링이 있�
 
 ![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
-### <a name="privatepeering"></a>Azure 개인 피어링
+### <a name="privatepeering"></a>Azure 프라이빗 피어링
 
 Azure 컴퓨팅 서비스, 즉 가상 머신(IaaS) 및 가상 네트워크 내에 배포된 클라우드 서비스(PaaS)는 개인 피어링 도메인을 통해 연결될 수 있습니다. 프라이빗 피어링 도메인은 Microsoft Azure로의 핵심 네트워크의 신뢰할 수 있는 확장으로 간주됩니다. 핵심 네트워크 및 Azure Vnet(가상 네트워크) 간의 양방향 연결을 설정할 수 있습니다. 이 피어링을 통해 개인 IP 주소에서 가상 머신과 클라우드 서비스에 직접 연결할 수 있습니다.  
 
@@ -55,14 +55,14 @@ Azure 컴퓨팅 서비스, 즉 가상 머신(IaaS) 및 가상 네트워크 내�
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-Microsoft 피어링을 통해 Microsoft 온라인 서비스(Office 365, Dynamics 365 및 Azure PaaS 서비스)에 연결됩니다. Microsoft 피어링 라우팅 도메인을 통해 WAN 및 Microsoft 클라우드 서비스 간의 양방향 연결을 설정합니다. 사용자 또는 연결 공급자가 소유하는 공용 IP 주소에 대해서만 Microsoft 클라우드 서비스에 연결 해야 하고 모든 정의된 규칙을 따라야 합니다. 자세한 내용은 [ExpressRoute 필수 구성 요소](expressroute-prerequisites.md) 페이지를 참조하세요.
+Microsoft 피어 링을 통해 Microsoft 온라인 서비스 (Office 365 및 Azure PaaS 서비스)에 연결 합니다. Microsoft 피어링 라우팅 도메인을 통해 WAN 및 Microsoft 클라우드 서비스 간의 양방향 연결을 설정합니다. 사용자 또는 연결 공급자가 소유하는 공용 IP 주소에 대해서만 Microsoft 클라우드 서비스에 연결 해야 하고 모든 정의된 규칙을 따라야 합니다. 자세한 내용은 [ExpressRoute 필수 구성 요소](expressroute-prerequisites.md) 페이지를 참조하세요.
 
 지원 서비스, 비용 및 구성 세부 정보에 대한 자세한 내용은 [FAQ 페이지](expressroute-faqs.md) 를 참조하세요. Microsoft 피어링이 지원하는 연결 공급자의 목록에 대한 정보는 [ExpressRoute 위치](expressroute-locations.md) 페이지를 참조하세요.
 
 ### <a name="publicpeering"></a>Azure 공용 피어링(새 회로에 사용되지 않음)
 
 > [!Note]
-> Azure 공용 피어 링에 각 BGP 세션에 연결 된 NAT IP 주소 1 NAT IP 주소 2 개 이상인 경우, Microsoft 피어 링으로 이동 합니다. Microsoft 피어 링 선택적 접두사 보급 알림에 대 한 경로 필터를 사용 하 여 뿐만 아니라 고유한 NAT 할당을 구성할 수 있습니다. 자세한 내용은 [Microsoft 피어 링으로 이동](https://docs.microsoft.com/azure/expressroute/how-to-move-peering)합니다.
+> Azure 공용 피어 링에는 각 BGP 세션에 연결 된 1 개의 NAT IP 주소가 있습니다. NAT IP 주소 2 개를 초과 하는 경우 Microsoft 피어 링으로 이동 합니다. Microsoft 피어 링을 사용 하면 사용자 고유의 NAT 할당을 구성 하 고 선택적 접두사 광고에 경로 필터를 사용할 수 있습니다. 자세한 내용은 [Microsoft 피어 링으로 이동](https://docs.microsoft.com/azure/expressroute/how-to-move-peering)을 참조 하세요.
 >
 
 Azure Storage, SQL Databases 및 Websites와 같은 서비스는 공용 IP 주소에 제공됩니다. 공용 피어링 라우팅 도메인을 통해 공용 IP 주소(클라우드 서비스의 VIP 포함)에서 호스팅되는 서비스에 개인적으로 연결할 수 있습니다. 인터넷을 통해 연결하지 않고도 공용 피어링 도메인을 DMZ에 연결하고 WAN에서 해당 공용 IP 주소의 모든 Azure 서비스에 연결할 수 있습니다.
@@ -77,7 +77,7 @@ Azure Storage, SQL Databases 및 Websites와 같은 서비스는 공용 IP 주�
 
 다음 테이블에서 3개의 피어링을 비교합니다.
 
-|  | **개인 피어링** | **Microsoft 피어링** |  **공용 피어링**(새 회로에 사용되지 않음) |
+|  | **프라이빗 피어링** | **Microsoft 피어링** |  **공용 피어링**(새 회로에 사용되지 않음) |
 | --- | --- | --- | --- |
 | **피어링당 지원되는 최대값 # 접두사** |기본적으로 4000, ExpressRoute 프리미엄으로 10,000 |200 |200 |
 | **지원되는 IP 주소 범위** |WAN 내의 유효한 IP 주소. |사용자 또는 연결 공급자가 소유한 공용 IP 주소. |사용자 또는 연결 공급자가 소유한 공용 IP 주소. |

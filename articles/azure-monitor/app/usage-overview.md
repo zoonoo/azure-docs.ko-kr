@@ -3,22 +3,20 @@ title: Azure Application Insights로 사용 분석 | Microsoft Docs
 description: 어떤 사용자가 앱으로 어떤 작업을 수행하는지 이해합니다.
 services: application-insights
 documentationcenter: ''
-author: NumberByColors
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/10/2017
-ms.pm_owner: daviste;NumberByColors
-ms.reviewer: mbullwin
-ms.author: daviste
-ms.openlocfilehash: ba29688958ee11aa9906a820f7a3d2bf41223743
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.date: 09/19/2019
+ms.author: mbullwin
+ms.openlocfilehash: 77aa39ae68800128409beb17ce3eb636ddcf28d1
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798174"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128956"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights를 사용하여 사용량 분석
 
@@ -33,19 +31,18 @@ ms.locfileid: "67798174"
     * *서버 코드를 설치하지 않으려면 [Azure Application Insights 리소스를 만들기만](../../azure-monitor/app/create-new-resource.md ) 하면 됩니다.*
 
 2. **웹 페이지 코드:** ``</head>``를 닫기 전에 다음 스크립트를 웹 페이지에 추가합니다. 계측 키를 Application Insights 리소스에 대한 적절한 값으로 바꿉니다.
-
-   ```javascript
-      <script type="text/javascript">
-        var appInsights=window.appInsights||function(a){
-            function b(a){c[a]=function(){var b=arguments;c.queue.push(function(){c[a].apply(c,b)})}}var c={config:a},d=document,e=window;setTimeout(function(){var b=d.createElement("script");b.src=a.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js",d.getElementsByTagName("script")[0].parentNode.appendChild(b)});try{c.cookie=d.cookie}catch(a){}c.queue=[];for(var f=["Event","Exception","Metric","PageView","Trace","Dependency"];f.length;)b("track"+f.pop());if(b("setAuthenticatedUserContext"),b("clearAuthenticatedUserContext"),b("startTrackEvent"),b("stopTrackEvent"),b("startTrackPage"),b("stopTrackPage"),b("flush"),!a.disableExceptionTracking){f="onerror",b("_"+f);var g=e[f];e[f]=function(a,b,d,e,h){var i=g&&g(a,b,d,e,h);return!0!==i&&c["_"+f](a,b,d,e,h),i}}return c
-        }({
-            instrumentationKey: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx"
-        });
-        
-        window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
+    
+    ```html
+    <script type="text/javascript">
+    var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
+    {
+      instrumentationKey:"INSTRUMENTATION_KEY"
+    }
+    );window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
     </script>
     ```
-    웹 사이트 모니터링을 위한 고급 구성에 대해 자세히 알아보려면 [JavaScript SDK API 참조](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)를 확인하세요.
+
+    웹 사이트 모니터링에 대 한 고급 구성을 알아보려면 [JAVASCRIPT SDK 참조 문서](https://docs.microsoft.com/azure/azure-monitor/app/javascript)를 확인 하세요.
 
 3. **모바일 앱 코드:** App Center SDK를 사용하여 앱에서 이벤트를 수집한 다음, 분석을 위해 [이 가이드에 따라](../../azure-monitor/learn/mobile-center-quickstart.md) 이러한 이벤트의 복사본을 Application Insights로 보냅니다.
 
@@ -162,9 +159,9 @@ Global.asax.cs 같은 웹앱 이니셜라이저에서 다음이 적용됩니다.
 **ASP.NET Core 앱**
 
 > [!NOTE]
-> 사용 하 여 추가 이니셜라이저 `ApplicationInsights.config` 알거나 `TelemetryConfiguration.Active` ASP.NET Core 응용 프로그램에 적합 하지 않습니다. 
+> 또는를 사용 `ApplicationInsights.config`하여 이니셜라이저를추가하는것은ASP.NETCore응용프로그램에적합하지않습니다.`TelemetryConfiguration.Active` 
 
-에 대 한 [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 응용 프로그램을 새 추가 `TelemetryInitializer` 아래와 같이 종속성 주입 컨테이너에 추가 하 여 수행 됩니다. 이렇게 `ConfigureServices` 메서드의 여 `Startup.cs` 클래스입니다.
+[ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 응용 프로그램의 경우 아래와 `TelemetryInitializer` 같이 종속성 주입 컨테이너에 새를 추가 하 여 새를 추가 합니다. 클래스의 메서드에서`ConfigureServices` 이 작업을 수행 합니다. `Startup.cs`
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;

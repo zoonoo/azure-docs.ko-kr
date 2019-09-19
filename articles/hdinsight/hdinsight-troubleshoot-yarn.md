@@ -1,18 +1,18 @@
 ---
 title: Azure HDInsight의 YARN 문제 해결
 description: Apache Hadoop YARN 및 Azure HDInsight 작업에 대한 일반적인 질문에 답합니다.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 107230a4d8c2e0427c2fcf2a8862559c707831a1
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a0eb0d15d931cf1b2f71740c7a9359cf16205481
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076561"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122522"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Hadoop YARN 문제를 해결합니다.
 
@@ -34,24 +34,24 @@ Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐�
 
 1. **Ambari 뷰** 아이콘을 선택한 다음, 그리드 패턴을 선택합니다. 다음으로, **YARN 큐 관리자**를 선택합니다.
 
-    ![Ambari 뷰 아이콘 선택](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
+    ![Apache Ambari 대시보드 YARN 큐 관리자](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. **default** 큐를 선택합니다.
 
-    ![default 큐 선택](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
+    ![Apache Ambari YARN select 기본 큐](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
 3. **default** 큐의 경우 **용량**을 50%에서 25%로 변경합니다. **thriftsvr** 큐의 경우 **용량**을 25%로 변경합니다.
 
     ![default 및 thriftsvr 큐에 대해 용량을 25%로 변경](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. 새 큐를 만들려면 **큐 추가**를 선택합니다.
 
-    ![큐 추가 선택](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
+    ![Apache Ambari YARN dashboard 큐 추가](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
 5. 새 큐 이름을 지정합니다.
 
-    ![큐 이름을 Spark로 지정](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
+    ![Apache Ambari YARN 대시보드 이름 큐](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
 6. **용량** 값을 50%로 두고 **작업** 단추를 선택합니다.
 
-    ![작업 단추 선택](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
+    ![Apache Ambari YARN select 작업](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
 7. **큐 저장 및 새로 고침**을 선택합니다.
 
     ![큐 저장 및 새로 고침 선택](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
@@ -64,7 +64,7 @@ Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐�
 
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>클러스터에서 YARN 로그를 다운로드하려면 어떻게 하나요?
 
-### <a name="resolution-steps"></a>해결 단계: 
+### <a name="resolution-steps"></a>해결 단계:
 
 1. SSH(Secure Shell) 클라이언트를 사용하여 HDInsight 클러스터에 연결합니다. 자세한 내용은 [더 보기](#additional-reading-2)를 참조하세요.
 

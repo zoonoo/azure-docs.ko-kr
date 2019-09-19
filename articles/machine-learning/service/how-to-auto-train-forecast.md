@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: c49d8000888d4094ea1df47920c1927747927f5c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 5339d963b84c5922138d53e44abe9340d55b4dde
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035057"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130243"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 
@@ -35,7 +35,7 @@ ms.locfileid: "71035057"
 
 학습 데이터에서 추출 된 기능은 중요 한 역할을 합니다. 그리고 자동화 된 ML은 표준 전처리 단계를 수행 하 고, 계절 효과를 캡처하고 예측 정확도를 최대화 하기 위한 추가 시계열 기능을 생성 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 * 이 문서에서는 자동화 된 machine learning 실험을 설정 하는 방법에 대 한 기본 지식이 있다고 가정 합니다. [자습서](tutorial-auto-train-models.md) 또는 [방법에](how-to-configure-auto-train.md) 따라 기본적인 자동화 된 기계 학습 실험 디자인 패턴을 볼 수 있습니다.
@@ -90,15 +90,15 @@ y_test = X_test.pop("sales_quantity").values
 
 개체 `AutoMLConfig` 는 자동화 된 machine learning 작업에 필요한 설정 및 데이터를 정의 합니다. 회귀 문제와 마찬가지로 작업 유형, 반복 횟수, 학습 데이터 및 교차 유효성 검사 수와 같은 표준 학습 매개 변수를 정의 합니다. 예측 작업의 경우 실험에 영향을 주는 추가 매개 변수를 설정 해야 합니다. 다음 표에서는 각 매개 변수 및 사용법을 설명 합니다.
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수 | 설명 | 필요한 공간 |
 |-------|-------|-------|
 |`time_column_name`|시계열을 작성 하 고 해당 빈도를 유추 하는 데 사용 되는 입력 데이터의 datetime 열을 지정 하는 데 사용 됩니다.|✓|
 |`grain_column_names`|입력 데이터에서 개별 계열 그룹을 정의 하는 이름입니다. 그레인을 정의 하지 않으면 데이터 집합은 하나의 시계열으로 간주 됩니다.||
 |`max_horizon`|시계열 빈도 단위로 원하는 최대 예측 구간을 정의 합니다. 단위는 학습 데이터의 시간 간격 (예: 매월, 매주 forecaster)을 기반으로 합니다.|✓|
-|`target_lags`|*n* 모델 학습 전에 지연 대상 값에 대 한 기간입니다.||
+|`target_lags`|데이터의 빈도에 따라 대상 값의 지연에 사용 되는 행 수입니다. 이는 목록 또는 단일 정수로 표시 됩니다.||
 |`target_rolling_window_size`|예측 값을 생성 하는 데 사용할 수 *있는 기록 기간* < = 학습 집합 크기입니다. 생략 하는 경우 *n* 은 전체 학습 집합 크기입니다.||
 
-시간 계열 설정을 사전 개체로 만듭니다. `time_column_name` 을`day_datetime` 데이터 집합의 필드로 설정 합니다. 매개 변수 `grain_column_names` 를 정의 하 여 데이터에 대해 **두 개의 개별 시계열 그룹이** 생성 되도록 합니다. 즉, 매장 A와 B에 대해 하나씩, `max_horizon` 마지막으로 전체 테스트 집합에 대해 예측 하려면를 50로 설정 합니다. 를 사용 `target_rolling_window_size`하 여 예측 기간을 10 개로 설정 하 고 `target_lags` 매개 변수를 사용 하 여 대상 값 2 기간을 앞으로 지연 합니다.
+시간 계열 설정을 사전 개체로 만듭니다. `time_column_name` 을`day_datetime` 데이터 집합의 필드로 설정 합니다. 매개 변수 `grain_column_names` 를 정의 하 여 데이터에 대해 **두 개의 개별 시계열 그룹이** 생성 되도록 합니다. 즉, 매장 A와 B에 대해 하나씩, `max_horizon` 마지막으로 전체 테스트 집합에 대해 예측 하려면를 50로 설정 합니다. 를 사용 `target_rolling_window_size`하 여 예측 기간을 10 개로 설정 하 고 `target_lags` 매개 변수를 사용 하 여 2 개 기간의 대상 값에 단일 지연을 지정 합니다.
 
 ```python
 time_series_settings = {
@@ -111,8 +111,14 @@ time_series_settings = {
 }
 ```
 
+
+
 > [!NOTE]
 > 자동화된 기계 학습 사전 처리 단계(기능 정규화, 누락된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용하는 경우 학습 중에 적용되는 동일한 전처리 단계가 입력 데이터에 자동으로 적용됩니다.
+
+위의 코드 조각 `grain_column_names` 에서를 정의 하 여 automl은 여러 시계열이 라고도 하는 두 개의 개별 시계열 그룹을 만듭니다. 그레인을 정의 하지 않으면 AutoML은 데이터 집합이 단일 시계열 이라고 가정 합니다. 단일 시계열에 대 한 자세한 내용은 [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)를 참조 하세요.
+
+
 
 이제 `forecasting` 작업 유형을 지정 `AutoMLConfig` 하 고 실험을 제출 하는 표준 개체를 만듭니다. 모델이 완료 된 후 최상의 실행 반복을 검색 합니다.
 

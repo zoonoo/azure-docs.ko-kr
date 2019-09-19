@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/24/2019
-ms.openlocfilehash: 8565ee03ddff67afb3700aa1cda91ae696a0fc93
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 270bc5401e58f4e5c99cae3c5ab06b4f03ae9543
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960232"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123237"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>MirrorMaker를 사용하여 HDInsight에서 Kafka와 함께 Apache Kafka 토픽 복제
 
@@ -84,12 +84,12 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
     1. **추가**를 클릭합니다.
     1. **피어 링 추가** 화면에서 아래 스크린샷에 표시 된 대로 세부 정보를 입력 합니다.
 
-        ![vnet 피어 링 추가](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
+        ![HDInsight Kafka 추가 vnet 피어 링](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
 
 1. IP 광고를 구성 합니다.
     1. 기본 클러스터 `https://PRIMARYCLUSTERNAME.azurehdinsight.net`에 대 한 Ambari 대시보드로 이동 합니다.
     1. **서비스** > **kafka**을 클릭 합니다. **Configs** 탭을 클릭합니다.
-    1. 아래쪽 **kafka-env 템플릿** 섹션에 다음 구성 줄을 추가 합니다. **Save**을 클릭합니다.
+    1. 아래쪽 **kafka-env 템플릿** 섹션에 다음 구성 줄을 추가 합니다. **저장**을 클릭합니다.
     
         ```
         # Configure Kafka to advertise IP addresses instead of FQDN
@@ -104,18 +104,18 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
     1. **구성 변경 내용 저장**에서 **확인을** 클릭 합니다.
     1. 다시 시작 **필요** 알림에서**모든 영향을** **다시 시작을 클릭 합니다.**  >  **모두 다시 시작 확인**을 클릭 합니다.
 
-        ![kafka 노드 다시 시작](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+        ![모든 영향을 받는 Apache Ambari 다시 시작](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
 1. 모든 네트워크 인터페이스에서 수신 대기 하도록 Kafka을 구성 합니다.
     1. **서비스** kafka에서Configs탭을 > 그대로 유지 합니다. **Kafka Broker** 섹션에서 **listeners** 속성을로 `PLAINTEXT://0.0.0.0:9092`설정 합니다.
-    1. **Save**을 클릭합니다.
+    1. **저장**을 클릭합니다.
     1. **다시 시작**을 클릭 하 고 **모두 다시 시작을 확인**합니다.
 
 1. 기본 클러스터에 대 한 Broker IP 주소 및 사육 아웃 주소를 기록 합니다.
     1. Ambari 대시보드에서 **호스트** 를 클릭 합니다.
     1. 브로커 및 Zookeeper의 IP 주소를 기록해 둡니다. 브로커 노드는 호스트 이름의 처음 두 문자로 **w)** , 사육 아웃 노드에는 호스트 이름의 처음 두 문자로 **zk** 가 있습니다.
 
-        ![ip 주소 보기](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+        ![Apache Ambari view 노드 ip 주소](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
 
 1. 두 번째 클러스터에 대해 앞의 세 단계를 반복 합니다. **kafka 두-보조-클러스터**: IP 보급을 구성 하 고, 수신기를 설정 하 고, Broker 및 사육 아웃 ip 주소를 기록 합니다.
 
@@ -251,7 +251,7 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
         6. `auto.create.topics.enable` 값을 true로 변경하고 __저장__을 선택합니다. 메모를 추가하고 __저장__을 다시 선택합니다.
         7. __Kafka__ 서비스를 선택하고 __다시 시작__을 선택한 후 __영향을 받는 모든 서비스 다시 시작__을 선택합니다. 메시지가 나타나면 __모두 다시 시작 확인__을 선택합니다.
 
-        ![토픽 자동 생성 구성](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
+        ![kafka 자동 만들기 항목 사용](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
 
 ## <a name="start-mirrormaker"></a>MirrorMaker 시작
 

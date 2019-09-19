@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: d3d09d466e05c97de215542c66987aa6b723afce
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 9b78c18547ef61b388a56a1272b5621cada43806
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827996"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71120495"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -30,6 +30,7 @@ ms.locfileid: "68827996"
 | 고유 (논리적) 파티션 키의 최대 수 | 제한 없음 |
 | 컨테이너 당 최대 저장소 | 제한 없음 |
 | 데이터베이스당 최대 저장소 | 제한 없음 |
+| 계정 당 최대 첨부 파일 크기 (첨부 기능을 사용) | 2GB | 
 
 > [!NOTE]
 > 저장소 또는 처리량을 더 많이 필요로 하는 파티션 키가 포함 된 워크 로드를 관리 하는 모범 사례는 [핫 파티션 키 디자인](synthetic-partition-keys.md) 을 참조 하세요.

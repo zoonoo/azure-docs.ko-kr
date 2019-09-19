@@ -12,14 +12,14 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: b86f08fbcb661ae4266658016de7aa92da785bf9
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 35618b80dc4731f4d679bab9f035987af50730e8
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070593"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129704"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -34,7 +34,7 @@ ms.locfileid: "70070593"
 
 각 App Service 계획 계층은 다양한 수의 배포 슬롯을 지원합니다. 배포 슬롯 사용에 대 한 추가 비용은 없습니다. 앱 계층이 지 원하는 슬롯 수를 확인 하려면 [App Service 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits)을 참조 하세요. 
 
-앱을 다른 계층으로 확장 하려면 대상 계층에서 앱이 이미 사용 하는 슬롯 수를 지원 하는지 확인 합니다. 예를 들어 앱의 슬롯이 5 개를 초과 하는 경우 표준 계층은 5 개의 배포 슬롯만 지원 하기 때문 에 **표준** 계층으로 확장할 수 없습니다. 
+앱을 다른 계층으로 확장 하려면 대상 계층에서 앱이 이미 사용 하는 슬롯 수를 지원 하는지 확인 합니다. 예를 들어 앱의 슬롯이 5 개를 초과 하는 **경우 표준 계층은 5** 개의 배포 슬롯만 지원 하기 때문에 **표준** 계층으로 확장할 수 없습니다. 
 
 <a name="Add"></a>
 
@@ -220,6 +220,9 @@ Preview를 사용 하 여 교환 하려면:
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: 사이트를 준비 하기 위해 ping 할 경로입니다. 슬래시로 시작하는 사용자 지정 경로를 값으로 지정하여 이 앱 설정을 추가합니다. 예제입니다. `/statuscheck` 기본값은 `/`입니다. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: 준비 작업에 대한 유효한 HTTP 응답 코드입니다. HTTP 코드의 쉼표로 구분된 목록을 사용하여 이 앱 설정을 추가합니다. 예를 `200,202` 들면입니다. 반환 된 상태 코드가 목록에 없으면 준비 및 교환 작업이 중지 됩니다. 기본적으로 모든 응답 코드는 유효합니다.
 
+> [!NOTE]
+> `<applicationInitialization>`는 각 앱 시작에 포함 되며, 이러한 두 앱 설정은 슬롯 교환에만 적용 됩니다.
+
 문제가 있는 경우 [교체 문제 해결](#troubleshoot-swaps)을 참조 하세요.
 
 ## <a name="monitor-a-swap"></a>교환 모니터링
@@ -350,7 +353,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 - 앱 콘텐츠가 로컬 캐시에 지정 된 로컬 디스크 할당량을 초과 하면 로컬 캐시 초기화가 실패할 수 있습니다. 자세한 내용은 [로컬 캐시 개요](overview-local-cache.md)를 참조 하세요.
 
-- [사용자 지정 준비](#Warm-up)과정에서 HTTP 요청은 외부 URL을 거치지 않고 내부적으로 수행 됩니다. Web.config의 특정 URL 재작성 규칙을 사용 하여 실패할 수 있습니다. 예를 들어 도메인 이름을 리디렉션하는 규칙이 나 HTTPS를 적용 하면 준비 요청이 앱 코드에 도달 하지 못할 수 있습니다. 이 문제를 해결 하려면 다음 두 가지 조건을 추가 하 여 재작성 규칙을 수정 합니다.
+- [사용자 지정 준비](#Warm-up)과정에서 HTTP 요청은 외부 URL을 거치지 않고 내부적으로 수행 됩니다. *Web.config의 특정*URL 재작성 규칙을 사용 하 여 실패할 수 있습니다. 예를 들어 도메인 이름을 리디렉션하는 규칙이 나 HTTPS를 적용 하면 준비 요청이 앱 코드에 도달 하지 못할 수 있습니다. 이 문제를 해결 하려면 다음 두 가지 조건을 추가 하 여 재작성 규칙을 수정 합니다.
 
     ```xml
     <conditions>
@@ -368,6 +371,8 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
     </conditions>
     ```
 - 일부 [IP 제한 규칙](app-service-ip-restrictions.md) 은 교환 작업에서 응용 프로그램에 HTTP 요청을 보내지 못하도록 할 수 있습니다. 로 시작 하 고 `10.` `100.` 배포에 내부적으로 사용 되는 IPv4 주소 범위입니다. 앱에 연결 하도록 허용 해야 합니다.
+
+- 슬롯 교체 후에는 앱에서 예기치 않은 다시 시작이 발생할 수 있습니다. 이는 교환 후 호스트 이름 바인딩 구성이 동기화 되지 않아 자체적으로 다시 시작 되지 않기 때문입니다. 그러나 특정 기본 저장소 이벤트 (예: 저장소 볼륨 장애 조치 (failover))는 이러한 불일치를 감지 하 여 모든 작업자 프로세스를 강제로 다시 시작할 수 있습니다. 이러한 유형의 다시 시작을 최소화 하려면 *모든 슬롯*에서 [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` 앱 설정을](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) 설정 합니다. 그러나이 앱 설정은 WCF (Windows Communication Foundation) 앱에서 작동 *하지* 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [비프로덕션 슬롯에 대한 액세스 차단](app-service-ip-restrictions.md)
