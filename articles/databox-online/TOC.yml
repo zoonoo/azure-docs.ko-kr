@@ -51,9 +51,11 @@
           href: data-box-edge-contact-microsoft-support.md
     - name: 릴리스 정보
       items:
-        - name: 1905 - 현재
+        - name: 1906 - 현재
+          href: data-box-gateway-1906-release-notes.md
+        - name: 1905
           href: data-box-gateway-1905-release-notes.md
-        - name: 일반 공급
+        - name: GA(일반 공급)
           href: data-box-gateway-release-notes.md
 - name: Data Box Edge
   items:
@@ -115,9 +117,11 @@
           href: data-box-edge-return-device.md
     - name: 릴리스 정보
       items:
-        - name: 1905 - 현재
+        - name: 1906 - 현재
+          href: data-box-gateway-1906-release-notes.md
+        - name: 1905
           href: data-box-gateway-1905-release-notes.md
-        - name: 일반 공급
+        - name: GA(일반 공급)
           href: data-box-gateway-release-notes.md
 - name: 리소스
   items:

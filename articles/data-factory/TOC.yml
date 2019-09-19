@@ -584,6 +584,8 @@
           href: solution-template-bulk-copy-with-control-table.md
         - name: 데이터베이스에서 델타 복사
           href: solution-template-delta-copy-with-control-table.md
+        - name: Amazon S3에서 Azure Storage로 데이터 마이그레이션
+          href: solution-template-migration-s3-azure.md
         - name: 파일 이동
           href: solution-template-move-files.md
         - name: Databricks를 사용하여 데이터 변환

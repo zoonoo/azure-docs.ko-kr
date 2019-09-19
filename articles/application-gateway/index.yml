@@ -1,69 +1,69 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Application Gateway 설명서
+### YamlMime:Landing
+title: Azure Application Gateway 설명서
+summary: 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다. 이 설명서에서는 Azure 리소스에 대한 웹 트래픽을 계획, 배포 및 관리하는 방법을 설명합니다.
 metadata:
-  title: 'Azure Application Gateway 설명서 - 자습서, API 참조'
-  meta.description: 'Learn how to create application gateways. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.'
+  title: Azure Application Gateway 설명서
+  description: 클라우드 기반 네트워크 보안 서비스인 Azure Firewall을 배포하는 방법을 알아봅니다.
   services: application-gateway
-  author: vhorne
   ms.service: application-gateway
   ms.topic: landing-page
-  ms.date: 5/20/2019
+  author: vhorne
   ms.author: victorh
-abstract:
-  description: 'ADC(Application Deliver Controller)인 Application Gateway를 서비스로 배포하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 확장성 및 가용성이 뛰어난 웹 프런트 엔드를 빌드할 수 있는 애플리케이션 수준 라우팅 및 부하 분산 서비스를 설정하는 방법을 보여 줍니다.'
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: Application Gateway를 사용하여 리소스에 대한 웹 트래픽을 관리하는 방법에 대해 알아보세요.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/application-gateway/media/index/portal.svg'
-            text: Azure Portal
-            href: 'https://docs.microsoft.com/azure/application-gateway/quick-create-portal'
-          - image:
-              src: 'https://docs.microsoft.com/azure/application-gateway/media/index/logo_powershell.svg'
-            text: Azure PowerShell
-            href: 'https://docs.microsoft.com/azure/application-gateway/quick-create-powershell'
-          - image:
-              src: 'https://docs.microsoft.com/azure/application-gateway/media/index/cli.svg'
-            text: Azure CLI
-            href: 'https://docs.microsoft.com/azure/application-gateway/quick-create-cli'
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: Azure에서 애플리케이션 게이트웨이를 배포하고 관리하며 모니터링하는 방법에 대해 알아보기
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/application-gateway/application-gateway-web-application-firewall-portal">웹 애플리케이션 방화벽이 있는 애플리케이션 게이트웨이 만들기</a>
-          - html: <a href="/azure/application-gateway/create-ssl-portal">SSL 종료를 사용하여 애플리케이션 게이트웨이 구성</a>
-          - html: <a href="/azure/application-gateway/create-multiple-sites-portal">여러 웹 사이트를 호스팅하는 애플리케이션 게이트웨이 생성 및 구성</a>
-          - html: <a href="/azure/application-gateway/create-url-route-portal">경로 기반 라우팅 규칙을 사용하여 애플리케이션 게이트웨이 만들기</a>
-          - html: <a href="/azure/application-gateway/tutorial-url-redirect-cli">URL 경로 기반 리디렉션으로 애플리케이션 게이트웨이 만들기</a>
-          - html: <a href="/azure/application-gateway/tutorial-autoscale-ps">웹 애플리케이션 액세스를 향상시키는 애플리케이션 게이트웨이 만들기</a>
-  - title: 샘플
-    items:
-      - type: paragraph
-        text: 애플리케이션 게이트웨이를 사용하여 웹 트래픽을 관리합니다.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/application-gateway/cli-samples">Azure CLI</a>
-          - html: <a href="/azure/application-gateway/powershell-samples">Azure PowerShell</a>
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 명령줄
-            html: <p><a href="/powershell/resourcemanager">Azure PowerShell</a></p><p><a href="/cli/azure/network/application-gateway">Azure CLI</a></p>
-          - title: Languages
-            html: '<p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="/javascript/api/azure-arm-network/ApplicationGateways">Node.JS</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-network/azure.mgmt.network.v2018_08_01.operations.applicationgatewaysoperations">Python</a></p>'
-          - title: REST (영문)
-            html: '<p><a href="https://msdn.microsoft.com/library/mt684941">완전한 REST API 참조</a></p>'
+  ms.date: 09/18/2019
+  ms.openlocfilehash: ff940f474c6d5d6fd96a03c45be18de39f065b97
+  ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 09/17/2019
+  ms.locfileid: "71076024"
+landingContent:
+- title: Application Gateway에 대해 알아보기
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Application Gateway란?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: 질문과 대답
+      url: application-gateway-faq.md
+- title: Application Gateway 배포
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure Application Gateway를 통해 웹 트래픽 보내기
+      url: quick-create-portal.md
+- title: SSL 종료를 사용하여 배포
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Application Gateway를 사용한 SSL 종료 및 엔드투엔드 SSL
+      url: ssl-overview.md
+    - text: SSL 정책 개요
+      url: application-gateway-ssl-policy-overview.md
+  - linkListType: tutorial
+    links:
+    - text: SSL 종료를 사용하여 애플리케이션 게이트웨이 구성
+      url: create-ssl-portal.md
+- title: 자동 크기 조정 및 영역 중복 Application Gateway
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 자동 크기 조정 및 영역 중복 Application Gateway v2
+      url: application-gateway-autoscaling-zone-redundant.md
+  - linkListType: tutorial
+    links:
+    - text: 웹 애플리케이션 액세스를 향상시키는 애플리케이션 게이트웨이 만들기
+      url: tutorial-autoscale-ps.md
+- title: Application Gateway 문제 해결
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Application Gateway Resource Health 개요
+      url: resource-health-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Log Analytics를 사용하여 Application Gateway 웹 애플리케이션 방화벽 로그 검사
+      url: log-analytics.md
+    - text: Application Gateway의 백 엔드 상태 이슈
+      url: application-gateway-backend-health-troubleshooting.md

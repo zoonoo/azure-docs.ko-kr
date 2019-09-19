@@ -73,7 +73,7 @@ sections:
       - type: list
         style: cards
         className: cardsM
-        columns: 3
+        columns: 2
         items:
           - href: /azure/sql-database/sql-database-single-index
             html: <p>예측 가능한 성능의 단일 데이터베이스가 필요한 SaaS 애플리케이션 및 마이크로서비스에 SQL Database 서버가 관리하는 단일 데이터베이스를 사용합니다.</p>
@@ -90,6 +90,11 @@ sections:
             image:
               src: media/index/i_mi.svg
             title: Managed Instance
+          - href: /azure/sql-database/sql-database-instance-pools
+            html: <p>리소스를 공유하고 빠르게 확장하는 여러 관리형 인스턴스를 배포할 수 있는 간단하고 비용 효율적인 솔루션으로 관리형 인스턴스 풀을 사용합니다.</p>
+            image:
+              src: media/index/i_instancepool.png
+            title: 인스턴스 풀
   - title: 5분 빠른 시작
     items:
       - type: paragraph
@@ -128,6 +133,12 @@ sections:
               - href: 'https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44'
               - href: /azure/sql-database/scripts/sql-database-create-configure-managed-instance-powershell
               - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet'
+          - title: 인스턴스 풀 만들기
+            values:
+              - href: null
+              - href: null
+              - href: '/azure/sql-database/sql-database-instance-pools-how-to#create-an-instance-pool'
+              - href: null
   - title: 단계별 자습서 및 교육 자료
     items:
       - type: paragraph

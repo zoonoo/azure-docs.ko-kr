@@ -255,8 +255,18 @@
           href: manage-public-ip-address-prefix.md
     - name: 지역 간 이동
       items:
+        - name: 네트워크 보안 그룹 - 포털
+          href: move-across-regions-nsg-portal.md
+        - name: 네트워크 보안 그룹 - PowerShell
+          href: move-across-regions-nsg-powershell.md
         - name: 가상 네트워크 - 포털
           href: virtual-network-azure-to-azure-migrate-vnet-portal.md
+        - name: 가상 네트워크 - PowerShell
+          href: virtual-network-azure-to-azure-migrate-vnet-powershell.md
+        - name: 공용 IP - 포털
+          href: move-across-regions-publicip-portal.md
+        - name: 공용 IP - PowerShell
+          href: move-across-regions-publicip-powershell.md
     - name: 문제 해결
       items:
         - name: 가상 네트워크 피어링 문제 해결

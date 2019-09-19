@@ -7,11 +7,11 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 여러 서비스 애플리케이션 만들기
-      href: terrafom-quickstart.md
     - name: Terraform 설치 및 구성
       href: /azure/virtual-machines/linux/terraform-install-configure
       maintainContext: true
+    - name: 여러 서비스 애플리케이션 만들기
+      href: terrafom-quickstart.md
     - name: Linux VM 만들기
       href: /azure/virtual-machines/linux/terraform-create-complete-vm
       maintainContext: true
@@ -67,10 +67,6 @@
   items:
     - name: 구성 템플릿
       href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
-- name: 개념
-  items:
-    - name: Azure Cloud Shell 통합
-      href: terraform-cloud-shell.md
 - name: 방법 가이드
   items:
     - name: Azure Storage의 저장소 상태
@@ -79,7 +75,7 @@
   items:
     - name: Azure 모듈 레지스트리
       href: 'https://registry.terraform.io/modules/Azure'
-    - name: Terraform 참조
+    - name: Terraform Azure 공급자
       href: 'https://aka.ms/terraform'
 - name: 리소스
   items:

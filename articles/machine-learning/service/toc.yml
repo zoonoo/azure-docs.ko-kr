@@ -152,6 +152,9 @@
         - name: 데이터 세트 추가 및 등록
           displayName: 'data, dataset'
           href: how-to-create-register-datasets.md
+        - name: 데이터 세트로 학습
+          displayName: 'data, dataset'
+          href: how-to-train-with-datasets.md
     - name: 모델 학습
       items:
         - name: 학습 환경 설정

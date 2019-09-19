@@ -100,6 +100,8 @@
       href: acs-aks-migration.md
     - name: 지원되는 Kubernetes 버전
       href: supported-kubernetes-versions.md
+    - name: 호스트 OS의 보안 강화
+      href: security-hardened-vm-host-image.md
 - name: 방법 가이드
   items:
     - name: 클러스터 작업
@@ -116,7 +118,7 @@
         - name: AKS 클러스터 삭제
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: AKS 클러스터를 사용하여 ACR 만들기(미리 보기)
+        - name: AKS 클러스터를 사용하여 ACR 만들기
           href: cluster-container-registry-integration.md
         - name: 가상 노드 만들기
           items:

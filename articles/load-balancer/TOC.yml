@@ -123,6 +123,14 @@
       href: load-balancer-query-metrics-rest-api.md
     - name: 내부 부하 분산 장치에 대해 고가용성 포트 구성
       href: load-balancer-configure-ha-ports.md
+    - name: 지역 간 이동
+      items:
+        - name: 외부 부하 분산 장치 - 포털
+          href: move-across-regions-external-load-balancer-portal.md
+        - name: 외부 부하 분산 장치 - PowerShell
+          href: move-across-regions-external-load-balancer-powershell.md
+        - name: 내부 부하 분산 장치 - PowerShell
+          href: move-across-regions-internal-load-balancer-powershell.md
     - name: 문제 해결
       items:
         - name: Azure Load Balancer 문제 해결

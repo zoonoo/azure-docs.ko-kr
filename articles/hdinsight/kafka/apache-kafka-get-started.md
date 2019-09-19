@@ -52,18 +52,18 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
    
    ![HDInsight 기본 구성의 Apache Kafka 클러스터](./media/apache-kafka-get-started/custom-basics-kafka1.png)
 
-4. __클러스터 구성__에서 다음 값을 선택합니다.
+4. __클러스터 구성__ 에서 다음 값을 선택합니다.
 
     | 설정 | 값 |
     | --- | --- |
     | 클러스터 유형 | Kafka |
     | 버전 | Kafka 1.1.0(HDI 3.6) |
 
-    **선택** 단추를 사용하여 클러스터 유형 설정을 저장하고 __기본__으로 돌아갑니다.
+    **선택** 단추를 사용하여 클러스터 유형 설정을 저장하고 __기본__ 으로 돌아갑니다.
 
     ![클러스터 유형 선택](./media/apache-kafka-get-started/apache-kafka-cluster-type.png)
 
-5. __기본__에서 다음 정보를 입력하거나 선택합니다.
+5. __기본__ 에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
     | --- | --- |
@@ -75,11 +75,11 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
 
     각 Azure 지역(위치)은 _장애 도메인_을 제공합니다. 장애 도메인은 Azure 데이터 센터에 있는 기본 하드웨어의 논리적 그룹입니다. 장애 도메인마다 공통 전원과 네트워크 스위치를 공유합니다. HDInsight 클러스터 내의 노드를 구현하는 가상 머신과 관리 디스크는 이러한 장애 도메인에 분산되어 있습니다. 이 아키텍처에서는 실제 하드웨어 오류의 잠재적 영향을 제한합니다.
 
-    데이터의 고가용성을 위해 __세 개의 장애 도메인__을 포함하는 지역(위치)을 선택합니다. 영역에서 장애 도메인의 수에 대한 자세한 내용은 [Linux 가상 머신의 가용성](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 문서를 참조하세요.
+    데이터의 고가용성을 위해 __세 개의 장애 도메인__ 을 포함하는 지역(위치)을 선택합니다. 영역에서 장애 도메인의 수에 대한 자세한 내용은 [Linux 가상 머신의 가용성](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 문서를 참조하세요.
 
    ![구독 선택](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
 
-    __다음__을 선택하여 기본 구성을 완료합니다.
+    __다음__ 을 선택하여 기본 구성을 완료합니다.
 
 6. 이 빠른 시작에서는 기본 보안 설정을 유지합니다. Enterprise Security 패키지에 대해 자세히 알아보려면 [Azure Active Directory Domain Services를 사용하여 Enterprise Security Package로 HDInsight 클러스터 구성](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)을 참조하세요. Apache Kafka 디스크 암호화에 고유한 키를 사용하는 방법을 알아보려면 [Azure HDInsight에서 Apache Kafka에 대한 고유한 키 가져오기](apache-kafka-byok.md)를 참조하세요.
 
@@ -91,17 +91,17 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
 
    ![HDInsight에 대한 스토리지 계정 설정 지정](./media/apache-kafka-get-started/storage-configuration.png)
 
-8. __애플리케이션(선택 사항)__ 에서 __다음__을 선택하여 기본 설정을 사용해서 계속 진행합니다.
+8. __애플리케이션(선택 사항)__ 에서 __다음__ 을 선택하여 기본 설정을 사용해서 계속 진행합니다.
 
-9. __클러스터 크기__에서 __다음__을 선택하여 기본 설정을 사용해서 계속 진행합니다.
+9. __클러스터 크기__ 에서 __다음__  을 선택하여 기본 설정을 사용해서 계속 진행합니다.
 
     HDInsight에서 Apache Kafka의 가용성을 보장하려면 __작업자 노드 수__ 항목을 3 이상으로 설정해야 합니다. 기본값은 4입니다.
 
-    **작업자 노드 항목당 디스크**에 따라 HDInsight에서 Apache Kafka의 확장성이 구성됩니다. HDInsight의 Apache Kafka는 클러스터에서 가상 머신의 로컬 디스크를 사용하여 데이터를 저장합니다. Apache Kafka는 입출력이 많으므로 높은 처리량과 노드당 더 많은 스토리지를 제공하기 위해 [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md)를 사용합니다. 관리 디스크 유형은 __표준__(HDD) 또는 __프리미엄__(SSD)일 수 있습니다. 디스크 유형은 작업자 노드(Apache Kafka broker)에서 사용하는 VM 크기에 따라 달라집니다. 프리미엄 디스크는 DS 및 GS 시리즈 VM에 자동으로 사용됩니다. 다른 모든 VM 유형은 표준을 사용합니다.
+    **작업자 노드 항목당 디스크**에 따라 HDInsight에서 Apache Kafka의 확장성이 구성됩니다. HDInsight의 Apache Kafka는 클러스터에서 가상 머신의 로컬 디스크를 사용하여 데이터를 저장합니다. Apache Kafka는 입출력이 많으므로 높은 처리량과 노드당 더 많은 스토리지를 제공하기 위해 [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md)를 사용합니다. 관리 디스크 유형은 __표준__ (HDD) 또는 __프리미엄__ (SSD)일 수 있습니다. 디스크 유형은 작업자 노드(Apache Kafka broker)에서 사용하는 VM 크기에 따라 달라집니다. 프리미엄 디스크는 DS 및 GS 시리즈 VM에 자동으로 사용됩니다. 다른 모든 VM 유형은 표준을 사용합니다.
 
    ![Apache Kafka 클러스터 크기 설정](./media/apache-kafka-get-started/apace-kafka-cluster-size.png)
 
-10. __고급 설정__에서 __다음__을 선택하여 기본 설정을 사용해서 계속 진행합니다.
+10. __고급 설정__ 에서 __다음__  을 선택하여 기본 설정을 사용해서 계속 진행합니다.
 
 11. **요약**에서 클러스터에 대한 구성을 검토합니다. __편집__ 링크를 사용하여 올바르지 않은 설정을 변경합니다. 마지막으로, **만들기**를 선택하여 클러스터를 만듭니다.
 
@@ -117,7 +117,7 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
     ssh sshuser@mykafka-ssh.azurehdinsight.net
     ```
 
-2. 클러스터에 처음 연결할 때 호스트의 신뢰성을 설정할 수 없다는 경고가 SSH 클라이언트에 표시될 수도 있습니다. 메시지가 표시되면 __예__를 입력한 다음, __Enter__ 키를 눌러 SSH 클라이언트의 신뢰할 수 있는 서버 목록에 호스트를 추가합니다.
+2. 클러스터에 처음 연결할 때 호스트의 신뢰성을 설정할 수 없다는 경고가 SSH 클라이언트에 표시될 수도 있습니다. 메시지가 표시되면 __예__ 를 입력한 다음, __Enter__ 키를 눌러 SSH 클라이언트의 신뢰할 수 있는 서버 목록에 호스트를 추가합니다.
 
 3. 확인 메시지가 표시되면 SSH 사용자의 암호를 입력합니다.
 
@@ -286,7 +286,7 @@ Kafka는 토픽에 *레코드*를 저장합니다. *생산자*에서 레코드�
 
     이전 버전의 Kafka를 사용하는 경우 `--bootstrap-server $KAFKABROKERS`를 `--zookeeper $KAFKAZKHOSTS`로 바꿉니다.
 
-4. __Ctrl+C__를 사용하여 소비자를 중지합니다.
+4. __Ctrl+C__ 를 사용하여 소비자를 중지합니다.
 
 또한 프로그래밍 방식으로 생산자와 소비자를 만들 수 있습니다. 이 API를 사용하는 예제는 [HDInsight의 Apache Kafka 생산자 및 소비자 API](apache-kafka-producer-consumer-api.md) 문서를 참조하세요.
 
@@ -296,9 +296,9 @@ Kafka는 토픽에 *레코드*를 저장합니다. *생산자*에서 레코드�
 
 Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 
-1. Azure Portal에서 왼쪽의 메뉴를 확장하여 서비스 메뉴를 연 다음 __리소스 그룹__을 선택하여 리소스 그룹 목록을 표시합니다.
+1. Azure Portal에서 왼쪽의 메뉴를 확장하여 서비스 메뉴를 연 다음 __리소스 그룹__ 을 선택하여 리소스 그룹 목록을 표시합니다.
 2. 삭제할 리소스 그룹을 찾은 다음 목록 오른쪽에 있는 __자세히__ 단추(...)를 마우스 오른쪽 단추로 클릭합니다.
-3. __리소스 그룹 삭제__를 선택한 다음 확인합니다.
+3. __리소스 그룹 삭제__ 를 선택한 다음 확인합니다.
 
 > [!WARNING]  
 > 클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 분 단위로 청구되므로 더 이상 사용하지 않으면 항상 클러스터를 삭제해야 합니다.

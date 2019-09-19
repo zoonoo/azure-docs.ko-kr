@@ -666,6 +666,8 @@
           href: how-to-configure-change-feed-start-time.md
         - name: 변경 피드 평가기 사용
           href: how-to-use-change-feed-estimator.md
+        - name: 변경 피드 프로세서 라이브러리에서 마이그레이션
+          href: how-to-migrate-from-change-feed-library.md
     - name: Apache Spark를 사용한 기본 제공 분석
       items:
         - name: Azure Databricks Spark 커넥터

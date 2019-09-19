@@ -19,10 +19,10 @@
 - name: 개념
   expanded: false
   items:
-    - name: 조건부 액세스 채택
-      href: howto-conditional-access-adoption-kit.md
     - name: 일반 조건부 액세스 정책
       href: concept-conditional-access-policy-common.md
+    - name: 조건부 액세스 정책 구성 요소
+      href: concept-conditional-access-policies.md
     - name: 조건
       href: conditions.md
     - name: 위치 조건

@@ -44,6 +44,9 @@ sections:
           - title: VNet 통합
             href: /azure/sql-database/sql-database-managed-instance-connectivity-architecture
             html: <p>보안 서비스는 개인 IP 주소를 사용하여 프라이빗 Azure VNet에 배치됩니다.</p>
+          - href: /azure/sql-database/sql-database-instance-pools
+            html: <p>리소스를 공유하는 여러 관리형 인스턴스를 배포하기 위한 비용 효율적인 솔루션입니다.</p>
+            title: 인스턴스 풀
           - title: 간편한 마이그레이션
             href: /azure/sql-database/sql-database-managed-instance-get-started-restore
             html: <p>네이티브 복원을 사용하여 Azure 클라우드로 온-프레미스 데이터베이스를 쉽게 마이그레이션합니다.</p>
@@ -59,9 +62,6 @@ sections:
           - title: 서비스 계층
             href: /azure/sql-database/sql-database-service-tiers-general-purpose-business-critical
             html: <p>비즈니스 요구 사항에 따라 범용 및 중요 비즈니스용 서비스 계층에서 선택합니다.</p>
-          - title: 고급 보안
-            href: /azure/sql-database/sql-database-security-index
-            html: <p>기본 제공 Azure SQL 데이터베이스 보안 기능을 사용하여 사용자 인스턴스 및 데이터베이스를 보호합니다.<p>
   - title: 5분 빠른 시작
     items:
       - type: paragraph
@@ -93,6 +93,12 @@ sections:
               - href: null
               - href: 'https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44'
               - href: '/powershell/module/az.sql/set-azsqlinstance#examples'
+              - href: null
+          - title: 새 인스턴스 풀 만들기
+            values:
+              - href: null
+              - href: null
+              - href: '/azure/sql-database/sql-database-instance-pools-how-to#create-an-instance-pool'
               - href: null
           - title: Azure 네트워크 환경 구성
             values:
