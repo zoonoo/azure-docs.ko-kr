@@ -9,10 +9,10 @@ ms.date: 11/29/2018
 ms.author: jinzh
 ms.custom: include file
 ms.openlocfilehash: 2bf9f75442ccf57aa28e6a12f415fb6e4ede78ec
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 09/18/2019
 ms.locfileid: "67182597"
 ---
 다음 표에서는 Azure Maps S0 가격 책정 계층의 사용 제한을 보여 줍니다. 사용량 제한은 가격 책정 계층에 따라 달라집니다. 

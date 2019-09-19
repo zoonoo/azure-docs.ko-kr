@@ -1,7 +1,7 @@
 ---
 title: Azure의 자동화 된 ML 인터페이스를 사용 하 여 모델을 학습 & 배포
-titleSuffix: Azure Machine Learning service
-description: Azure Portal에서 자동화 된 machine learning 실험을 만들고 관리 하 고 배포 합니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning의 작업 영역 방문 페이지 (미리 보기)에서 자동화 된 machine learning 실험을 만들고, 관리 하 고, 배포 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,46 +10,48 @@ ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 08/02/2019
-ms.openlocfilehash: 79632a2b5862538ef702cec01a60aada14d8dbce
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.date: 09/09/2019
+ms.openlocfilehash: 3a47977f2589227347582dc6fcaff25120e380d7
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860494"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034821"
 ---
-# <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Azure Portal에서 자동화 된 machine learning 실험 만들기, 탐색 및 배포 (미리 보기)
+# <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>Azure Machine Learning의 작업 영역 방문 페이지 (미리 보기)를 사용 하 여 자동화 된 machine learning 실험 만들기, 탐색 및 배포
 
- 이 문서에서는 코드 한 줄 없이 Azure Portal에서 자동화 된 machine learning 실험을 만들고 탐색 하 고 배포 하는 방법에 대해 알아봅니다. 자동화 된 machine learning은 특정 데이터에 사용할 가장 적합 한 알고리즘을 선택 하는 프로세스를 자동화 하므로 기계 학습 모델을 신속 하 게 생성할 수 있습니다. [자동화 된 machine learning에 대해 자세히 알아보세요](concept-automated-ml.md).
+ 이 문서에서는 코드를 한 줄도 표시 하지 않고 Azure Machine Learning의 작업 영역 방문 페이지에서 자동화 된 machine learning 실험을 만들고 탐색 하 고 배포 하는 방법에 대해 알아봅니다. 자동화 된 machine learning은 특정 데이터에 사용할 가장 적합 한 알고리즘을 선택 하는 프로세스를 자동화 하므로 기계 학습 모델을 신속 하 게 생성할 수 있습니다. [자동화 된 machine learning에 대해 자세히 알아보세요](concept-automated-ml.md).
 
  더 많은 코드 기반 환경을 선호 하는 경우 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용 하 여 [Python에서 자동화 된 machine learning 실험을 구성할](how-to-configure-auto-train.md) 수도 있습니다.
 
+## <a name="prerequisites"></a>필수 구성 요소
 
-## <a name="prerequisites"></a>전제 조건
+* Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 을 사용해 보세요.
 
-* Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
-
-* Azure Machine Learning 서비스 작업 영역. [Azure Machine Learning 서비스 작업 영역 만들기를](how-to-manage-workspace.md)참조 하세요.
+* Azure Machine Learning 작업 영역 [Azure Machine Learning 작업 영역 만들기를](how-to-manage-workspace.md)참조 하세요.
 
 ## <a name="get-started"></a>시작
 
-작업 영역의 왼쪽 창으로 이동 합니다. 제작 (미리 보기) 섹션에서 자동화 된 Machine Learning를 선택 합니다.
 
-![Azure Portal 탐색 창](media/how-to-create-portal-experiments/nav-pane.png)
+1. [작업 영역 방문 페이지](https://ml.azure.com/workspaceportal/)에 로그인 합니다. 
 
- 처음으로 실험을 수행 하는 경우 **자동화 된 Machine Learning 시작** 화면이 표시 됩니다. 
+1. 구독 및 작업 영역을 선택 합니다. 
+
+1. 왼쪽 창으로 이동 합니다. **제작** 섹션에서 **자동화 된 ML** 을 선택 합니다.
+
+[![Azure Portal 탐색 창](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+
+ 실험을 처음 수행 하는 경우 **시작** 화면을 볼 수 있습니다. 
 
 그렇지 않으면 자동화 **된 machine learning 대시보드가 SDK** 를 사용 하 여 만든 실험을 포함 하 여 자동화 된 모든 기계 학습 실험의 개요를 볼 수 있습니다. 여기에서 날짜, 실험 이름 및 실행 상태별로 실행을 필터링 하 고 탐색할 수 있습니다.
 
-[작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)에서 자동화 된 Machine Learning에 액세스할 수도 있습니다.
+## <a name="create-and-run-experiment"></a>실험 만들기 및 실행
 
-## <a name="create-an-experiment"></a>실험 만들기
-
-**실험 만들기** 를 선택 하 고 **새 자동화 된 Machine learning 실험 만들기** 폼을 채웁니다.
+1. **실험 만들기** 를 선택 하 고 폼을 채웁니다.
 
 1. 고유한 실험 이름을 입력 합니다.
 
-1. 데이터 프로 파일링 및 학습 작업에 대 한 계산을 선택 합니다. 기존 계산 목록은 드롭다운에서 사용할 수 있습니다. 새 계산을 만들려면 3 단계의 지침을 따르세요.
+1. 데이터 프로 파일링 및 학습 작업에 대 한 계산을 선택 합니다. 기존 계산 목록은 드롭다운에서 사용할 수 있습니다. 새 계산을 만들려면 4 단계의 지침을 따르세요.
 
 1. **새 계산 만들기** 를 선택 하 여이 실험의 계산 컨텍스트를 구성 합니다.
 
@@ -58,32 +60,40 @@ ms.locfileid: "70860494"
     컴퓨팅 이름| 컴퓨팅 컨텍스트를 식별하는 고유한 이름을 입력합니다.
     가상 머신 크기| 컴퓨팅에 사용할 가상 머신 크기를 선택합니다.
     추가 설정| *최소 노드*: 계산의 최소 노드 수를 입력 합니다. AML 계산에 대 한 최소 노드 수는 0입니다. 데이터 프로 파일링을 사용 하도록 설정 하려면 하나 이상의 노드가 있어야 합니다. <br> *최대 노드*: 계산의 최대 노드 수를 입력 합니다. 기본값은 AML 계산에 대 한 6 노드입니다.
+    
+    **만들기**를 선택합니다. 새 계산을 만들려면 몇 분 정도 걸릴 수 있습니다.
 
-      **만들기**를 선택합니다. 새 계산을 만들려면 몇 분 정도 걸릴 수 있습니다.
+    >[!NOTE]
+    > 계산 이름은 선택/만들기 계산을 *프로 파일링 할 수*있는지 여부를 표시 합니다. 자세한 내용은 [데이터 프로 파일링](#profile) 섹션을 참조 하세요.
 
-      >[!NOTE]
-      > 계산 이름은 선택/만들기 계산을 *프로 파일링 할 수*있는지 여부를 표시 합니다. 데이터 프로 파일링에 대 한 자세한 내용은 7b를 참조 하십시오.
+1. 저장소 컨테이너에서 데이터 집합을 선택 하거나 로컬 컴퓨터의 파일을 컨테이너에 업로드 하 여 데이터 집합을 만듭니다. 공개 미리 보기는 로컬 파일 업로드 및 Azure blob storage 계정만 지원 합니다.
 
-1. 데이터에 대 한 저장소 계정을 선택 합니다. 
-
-1. 저장소 컨테이너를 선택 합니다.
-
-1. 저장소 컨테이너에서 데이터 파일을 선택 하거나 로컬 컴퓨터의 파일을 컨테이너에 업로드 합니다. 공개 미리 보기는 로컬 파일 업로드 및 Azure Blob Storage 계정만 지원 합니다.
     >[!Important]
     > 데이터 학습을 위한 요구 사항:
     >* 데이터는 테이블 형식 이어야 합니다.
     >* 예측 하려는 값 (대상 열)이 데이터에 있어야 합니다.
 
-    [![데이터 파일 선택](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
+    1. 로컬 계산의 파일에서 새 데이터 집합을 만들려면 **찾아보기** 를 선택한 다음 파일을 선택 합니다. 
 
-1. 미리 보기 및 프로필 탭을 사용 하 여이 실험을 위한 데이터를 추가로 구성 합니다.
+    1. 데이터 집합에 고유한 이름을 지정 하 고 설명 (선택 사항)을 제공 합니다. 
 
-    1. **미리 보기** 탭에서 데이터에 머리글이 포함 되어 있는지 여부를 지정 하 고 각 기능 열의 **포함 된** 스위치 단추를 사용 하 여 학습을 위한 기능 (열)을 선택 합니다.
+    1. **다음** 을 선택 하 여 작업 영역으로 자동으로 만들어진 기본 저장소 컨테이너에 업로드 하거나 실험에 사용할 저장소 컨테이너를 선택 합니다. 
 
-    1. **프로필** 탭에서 기능별로 [데이터 프로필](#profile) 을 볼 수 있을 뿐만 아니라 각각의 분포, 유형 및 요약 통계 (평균, 중앙값, 최대값/최소값 등)를 볼 수 있습니다.
+    1. 정확성에 대 한 **설정 및 미리 보기** 양식을 검토 합니다. 양식은 파일 형식에 따라 지능적으로 채워집니다. 
 
-        >[!NOTE]
-        > 계산 컨텍스트가 프로 파일링을 사용 하도록 설정 되어 **있지** 않으면 다음 오류 메시지가 표시 됩니다. *데이터 프로 파일링은 이미 실행 중인 계산 대상에 대해서만 사용할 수*있습니다.
+        필드| 설명
+        ----|----
+        파일 형식| 파일에 저장 된 데이터의 레이아웃 및 유형을 정의 합니다.
+        구분 기호| 일반 텍스트 또는 다른 데이터 스트림의 개별 독립 영역 간 경계를 지정 하는 하나 이상의 문자입니다.
+        인코딩| 데이터 집합을 읽는 데 사용할 수 있는 문자 스키마 테이블을 식별 합니다.
+        열 머리글| 데이터 집합의 헤더 (있는 경우)가 처리 되는 방법을 나타냅니다.
+        행 건너뛰기 | 데이터 집합에서 건너뛴 행 수 (있는 경우)를 나타냅니다.
+    
+        **다음**을 선택합니다.
+
+    1. **스키마** 양식은 **설정 및 미리 보기** 양식의 선택 항목에 따라 지능적으로 채워집니다. 여기에서 각 열의 데이터 형식을 구성 하 고, 열 이름을 검토 하 고, 실험에 **포함 하지 않을** 열을 선택 합니다. 
+            
+        **다음을 선택 합니다.**
 
 1. 학습 작업 유형 (분류, 회귀 또는 예측)을 선택 합니다.
 
@@ -94,7 +104,7 @@ ms.locfileid: "70860494"
 
     1. 예측 구간을 선택 합니다. 모델에서 미래를 예측할 수 있는 시간 단위 (분/시간/일/주/월/연도)를 표시 합니다. 나중에 예측 하는 데 더 많은 모델이 필요 하며,이는 더 정확 하지 않게 됩니다. [예측 및 예측 마감일에 대해 자세히 알아보세요](how-to-auto-train-forecast.md).
 
-1. 필드 고급 설정: 학습 작업을 보다 효율적으로 제어 하는 데 사용할 수 있는 추가 설정입니다.
+1. 필드 고급 설정: 학습 작업을 보다 효율적으로 제어 하는 데 사용할 수 있는 추가 설정입니다. 그렇지 않으면 실험 선택 및 데이터를 기반으로 기본값이 적용 됩니다. 
 
     고급 설정|Description
     ------|------
@@ -114,7 +124,7 @@ ms.locfileid: "70860494"
 >[!NOTE]
 > 관련이 없는 형식의 기능에 대해 빈 항목이 표시 됩니다.
 
-통계|설명
+통계|Description
 ------|------
 기능| 요약 되는 열의 이름입니다.
 프로필| 유추 된 형식을 기반으로 하는 인라인 시각화입니다. 예를 들어 문자열, 부울 및 날짜에는 값이 포함 되 고, decimals (숫자)에는 근사 히스토그램이 있습니다. 이를 통해 데이터 배포를 빠르게 파악할 수 있습니다.
@@ -137,7 +147,7 @@ Variance| 이 열의 데이터에 대 한 분포의 평균 값을 측정 한 값
 
 실험을 구성할 때 고급 설정을 `Preprocess`사용 하도록 설정할 수 있습니다. 이렇게 하면 다음 데이터 전처리 및 기능화 단계가 자동으로 수행 됩니다.
 
-|전처리&nbsp;단계| Description |
+|전처리&nbsp;단계| 설명 |
 | ------------- | ------------- |
 |높은 카디널리티 또는 분산 없는 기능 삭제|모든 값이 누락 된 기능을 포함 하 여 학습 및 유효성 검사 집합에서이를 삭제 하거나, 모든 행에서 동일한 값을 사용 하거나, 해시, Id 또는 Guid와 같은 매우 높은 카디널리티를 사용 합니다.|
 |누락 값 입력|숫자 기능의 경우 열에 있는 값의 평균을 돌립니다 합니다.<br/><br/>범주 기능의 경우 가장 자주 사용 되는 값을 돌립니다 합니다.|
@@ -165,7 +175,7 @@ Variance| 이 열의 데이터에 대 한 분포의 평균 값을 측정 한 값
 
 성능 메트릭 및 배포 차트와 같은 학습 실행 세부 정보를 보려면 출력 모델을 드릴 다운 합니다. [차트에 대해 자세히 알아보세요](how-to-understand-automated-ml.md).
 
-![반복 세부 정보](media/how-to-create-portal-experiments/iteration-details.png)
+[![반복 세부 정보](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
 
 ## <a name="deploy-your-model"></a>모델 배포
 
@@ -178,6 +188,7 @@ Variance| 이 열의 데이터에 대 한 분포의 평균 값을 측정 한 값
     + 옵션 1: 사용자가 정의한 메트릭 조건에 따라 최상의 모델을 배포 하려면 실행 세부 정보 페이지에서 최적 모델 배포를 선택 합니다.
 
     + 옵션 2: 이 실험에서 특정 모델 반복을 배포 하려면 모델에서 드릴 다운 하 여 실행 세부 정보 페이지를 열고 모델 배포를 선택 합니다.
+
 1. **모델 배포** 창을 채웁니다.
 
     필드| 값

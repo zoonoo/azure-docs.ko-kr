@@ -7,16 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: b0d963e212e66bf96ec42ec2a5c0fd5005f7a889
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: MT
+ms.openlocfilehash: ced2c888a412a72643bb0c12fceb7e83d39936cf
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165885"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098742"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 사용할 스토리지 옵션 비교
 
-HDInsight 클러스터를 만들 때 몇 가지 서로 다른 Azure 저장소 서비스 간에 선택할 수 있습니다.
+HDInsight 클러스터를 만들 때 몇 가지 Azure storage 서비스 중에서 선택할 수 있습니다.
 
 * Azure Storage
 * Azure Data Lake Storage Gen2
@@ -24,38 +24,38 @@ HDInsight 클러스터를 만들 때 몇 가지 서로 다른 Azure 저장소 �
 
 이 문서에서는 이러한 스토리지 유형 및 각 유형의 고유 기능에 대한 개요를 제공합니다.
 
-다음 표에서 서로 다른 버전의 HDInsight 사용 하 여 지원 되는 Azure Storage 서비스를 보여 줍니다.
+다음 표에서는 다양 한 버전의 HDInsight에서 지원 되는 Azure Storage 서비스를 요약 합니다.
 
-| 스토리지 서비스 | 계정 유형 | Namespace 형식 | 지원되는 서비스 | 지원되는 성능 계층 | 지원되는 액세스 계층 | HDInsight 버전 | 클러스터 유형 |
+| 스토리지 서비스 | 계정 형식 | 네임 스페이스 형식 | 지원되는 서비스 | 지원되는 성능 계층 | 지원되는 액세스 계층 | HDInsight 버전 | 클러스터 유형 |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| 범용 V2 | 계층 구조 (파일 시스템) | Blob | Standard | 핫, 쿨, 보관 | 3.6 이상 | 모두 |
-|Azure Storage| 범용 V2 | Object | Blob | Standard | 핫, 쿨, 보관 | 3.6 이상 | 모두 |
-|Azure Storage| 범용 V1 | Object | Blob | Standard | N/A | 모두 | 모두 |
-|Azure Storage| Blob Storage** | Object | 블록 Blob | Standard | 핫, 쿨, 보관 | 모두 | 모두 |
-|Azure Data Lake Storage Gen1| N/A | 계층 구조 (파일 시스템) | N/A | 해당 사항 없음 | N/A | 3.6에만 해당 | HBase를 제외한 모든 |
+|Azure Data Lake Storage Gen2| 범용 V2 | 계층 구조 (파일 시스템) | Blob | 표준 | 핫, 쿨, 보관 | 3.6 이상 | 모두 |
+|Azure Storage| 범용 V2 | Object | Blob | 표준 | 핫, 쿨, 보관 | 3.6 이상 | 모두 |
+|Azure Storage| 범용 V1 | Object | Blob | 표준 | 해당 사항 없음 | 모두 | 모두 |
+|Azure Storage| Blob Storage * * | Object | 블록 Blob | 표준 | 핫, 쿨, 보관 | 모두 | 모두 |
+|Azure Data Lake Storage Gen1| N/A | 계층 구조 (파일 시스템) | 해당 사항 없음 | 해당 사항 없음 | N/A | 3.6만 해당 | HBase를 제외한 모든 |
 
-\* * HDInsight 클러스터에 대 한 계정에만 보조 저장소는 blob Storage 형식일 수 있습니다.
+\* * HDInsight 클러스터의 경우에는 보조 저장소 계정만 BlobStorage 형식일 수 있습니다.
 
-Azure 저장소 계정 유형에 대 한 자세한 내용은 참조 하세요. [Azure storage 계정 개요](../storage/common/storage-account-overview.md)
+Azure Storage 계정 유형에 대 한 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md) 를 참조 하세요.
 
-Azure Storage 액세스 계층에 대 한 자세한 내용은 참조 하세요. [Azure Blob storage: Premium (미리 보기), 핫, 쿨 및 보관 저장소 계층](../storage/blobs/storage-blob-storage-tiers.md)
+Azure Storage 액세스 계층에 대 한 자세한 내용은 Azure [Blob Storage를 참조 하세요. 프리미엄 (미리 보기), 핫, 쿨 및 보관 저장소 계층](../storage/blobs/storage-blob-storage-tiers.md)
 
-기본 및 선택적 보조 저장소에 대 한 서비스의 다양 한 조합을 사용 하는 클러스터를 만들 수 있습니다. 다음 표에서 HDInsight에서 현재 지원 되는 클러스터 저장소 구성:
+기본 및 선택적 보조 저장소에 대해 서로 다른 서비스 조합을 사용 하 여 클러스터를 만들 수 있습니다. 다음 표에는 HDInsight에서 현재 지원 되는 클러스터 저장소 구성이 요약 되어 있습니다.
 
 | HDInsight 버전 | 기본 스토리지 | 보조 저장소 | 지원됨 |
 |---|---|---|---|
-| 3.6 & 4.0 | 범용 V1, 범용 V2 | 범용 V1, 범용 V2는 blob Storage (블록 Blob) | 예 |
-| 3.6 & 4.0 | 범용 V1, 범용 V2 | Data Lake Storage Gen2 | 아닙니다. |
+| 3.6 & 4.0 | 범용 V1, 범용 V2 | 범용 V1, 범용 V2, BlobStorage (블록 Blob) | 예 |
+| 3.6 & 4.0 | 범용 V1, 범용 V2 | Data Lake Storage Gen2 | 아니요 |
 | 3.6 & 4.0 | 범용 V1, 범용 V2 | Data Lake Storage Gen1 | 예 |
-| 3.6 & 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | 예 |
-| 3.6 & 4.0 | Data Lake Storage Gen2* | 범용 V1, 범용 V2는 blob Storage (블록 Blob) | 예 |
-| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | 아닙니다. |
+| 3.6 & 4.0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | 예 |
+| 3.6 & 4.0 | Data Lake Storage Gen2 * | 범용 V1, 범용 V2, BlobStorage (블록 Blob) | 예 |
+| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | 아니요 |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | 예 |
-| 3.6 | Data Lake Storage Gen1 | 범용 V1, 범용 V2는 blob Storage (블록 Blob) | 예 |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | 아닙니다. |
-| 4.0 | Data Lake Storage Gen1 | 모두 | 아닙니다. |
+| 3.6 | Data Lake Storage Gen1 | 범용 V1, 범용 V2, BlobStorage (블록 Blob) | 예 |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | 아니요 |
+| 4.0 | Data Lake Storage Gen1 | 임의의 값 | 아니요 |
 
-\* =으로 클러스터 액세스에 대 한 관리 되는 동일한 id를 사용 하려면 모든 설정 하는 하나 이상의 Data Lake 저장소 Gen2 계정 수 있습니다.
+\* = 클러스터 액세스에 동일한 관리 되는 id를 사용 하도록 모두 설정 되어 있는 한 하나 또는 여러 개의 Data Lake Storage Gen2 계정일 수 있습니다.
 
 ## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Azure HDInsight의 Apache Hadoop에서 Azure Data Lake Storage Gen2 사용
 
@@ -121,17 +121,17 @@ abfss:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapredu
 
 Azure Storage는 HDInsight와 매끄럽게 통합되는 강력한 범용 스토리지 솔루션입니다. HDInsight는 Azure Storage의 Blob 컨테이너를 클러스터의 기본 파일 시스템으로 사용합니다. HDInsight의 모든 구성 요소 집합은 HDFS 인터페이스를 통해 Blob에 저장된 구조적 또는 비구조적 데이터에서 직접 작동할 수 있습니다.
 
-기본 클러스터 저장소 및 비즈니스 데이터를 위한 별도 저장소 컨테이너를 사용 하 여 HDInsight 로그 및 사용자 고유의 비즈니스 데이터에서 임시 파일을 격리 하기 좋습니다. 응용 프로그램 및 시스템 로그를 포함 하는 기본 blob 컨테이너를 삭제 하는 것이 좋습니다 저장소 비용을 줄이기 위해 각 사용 후 합니다. 컨테이너를 삭제하기 전에 이러한 로그를 검색해야 합니다.
+기본 클러스터 저장소 및 비즈니스 데이터에 별도의 저장소 컨테이너를 사용 하 여 고유한 비즈니스 데이터에서 HDInsight 로그와 임시 파일을 분리 하는 것이 좋습니다. 또한 응용 프로그램 및 시스템 로그를 포함 하는 기본 blob 컨테이너를 삭제 하 여 저장소 비용을 줄이는 것이 좋습니다. 컨테이너를 삭제하기 전에 이러한 로그를 검색해야 합니다.
 
-사용 하 여 저장소 계정을 보호 하려는 경우는 **방화벽 및 virtual network** 에 대 한 제한 **네트워크를 선택한**, 예외를 사용 하도록 설정 해야 **허용 Microsoft 신뢰할 수 있는 서비스 하는 중...**  HDInsight 저장소 계정에 액세스할 수 있도록 합니다.
+**선택한 네트워크**에 대 한 **방화벽 및 가상 네트워크** 제한 사항을 사용 하 여 저장소 계정을 보호 하도록 선택 하는 경우 HDInsight가 저장소에 액세스할 수 있도록 신뢰할 수 있는 **Microsoft 서비스 허용** 예외를 사용 하도록 설정 해야 합니다. 계정일.
 
 ### <a name="hdinsight-storage-architecture"></a>HDInsight 스토리지 아키텍처
 
 다음 다이어그램은 Azure Storage의 HDInsight 아키텍처 추상 보기를 제공합니다.
 
-![Hadoop 클러스터가 HDFS API를 사용하여 Blob 스토리지의 구조적 및 비구조적 데이터에 액세스하고 저장하는 방식을 보여 주는 다이어그램](./media/hdinsight-hadoop-compare-storage-options/HDI.WASB.Arch.png "HDInsight 스토리지 아키텍처")
+![HDInsight 저장소 아키텍처](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "HDInsight 저장소 아키텍처")
 
-HDInsight는 계산 노드에 로컬로 연결된 분산 파일 시스템에 대한 액세스를 제공합니다. 정규화된 URI를 사용하여 이 파일 시스템에 액세스할 수 있습니다. 예를 들면 다음과 같습니다.
+HDInsight는 컴퓨팅 노드에 로컬로 연결된 분산 파일 시스템에 대한 액세스를 제공합니다. 정규화된 URI를 사용하여 이 파일 시스템에 액세스할 수 있습니다. 예를 들면 다음과 같습니다.
 
     hdfs://<namenodehost>/<path>
 
@@ -148,7 +148,7 @@ HDInsight 클러스터와 Azure Storage 계정을 사용하는 경우 다음 원
   > [!NOTE]  
   > 공용 컨테이너를 사용하면 해당 컨테이너에서 사용할 수 있는 모든 Blob 목록 및 컨테이너 메타데이터를 가져올 수 있습니다. 공용 Blob을 사용하면 정확한 URL을 아는 경우에만 Blob에 액세스할 수 있습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../storage/blobs/storage-manage-access-to-resources.md)를 참조하세요.
 
-* **클러스터에 연결되지 *않은* 스토리지 계정의 개인 컨테이너:** WebHCat 작업을 제출할 때 스토리지 계정을 정의하지 않는 경우 컨테이너의 Blob에 액세스할 수 없습니다. 
+* **클러스터에 연결되지 *않은* 스토리지 계정의 프라이빗 컨테이너:** WebHCat 작업을 제출할 때 스토리지 계정을 정의하지 않는 경우 컨테이너의 Blob에 액세스할 수 없습니다. 
 
 만들기 프로세스에서 정의된 스토리지 계정과 해당 키는 클러스터 노드의 %HADOOP_HOME%/conf/core-site.xml에 저장됩니다. 기본적으로 HDInsight는 core-site.xml 파일에 정의된 스토리지 계정을 사용합니다. [Apache Ambari](./hdinsight-hadoop-manage-ambari.md)를 사용하여 이 설정을 수정할 수 있습니다.
 
@@ -217,8 +217,8 @@ Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사용하�
 
 | **기능** | **설명** |
 | --- | --- |
-| Authentication |Data Lake Storage Gen1은 Data Lake Storage Gen1에 저장된 모든 데이터에 대한 ID 및 액세스 관리를 위해 Azure Active Directory(Azure AD)와 통합합니다. 이러한 통합으로 인해 Data Lake Storage Gen1은 모든 Azure AD 기능의 이점을 얻습니다. 이러한 기능은 multi-factor authentication, 조건부 액세스, 역할 기반 액세스 제어, 응용 프로그램 사용 모니터링, 보안 모니터링 및 경고 하 고 포함 합니다. Data Lake Storage Gen1은 REST 인터페이스에서 인증을 위한 OAuth 2.0 프로토콜을 지원합니다. [Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1에 인증](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)을 참조하세요.|
-| Access Control |Data Lake Storage Gen1은 WebHDFS 프로토콜에 의해 노출되는 POSIX 스타일 권한을 지원하여 액세스 제어를 제공합니다. ACL은 루트 폴더, 하위 폴더 및 개별 파일에서도 사용할 수 있습니다. Data Lake Storage Gen1의 컨텍스트에서 ACL 작동 방식에 대한 자세한 내용은 [Data Lake Storage Gen1의 액세스 제어](../data-lake-store/data-lake-store-access-control.md)를 참조하세요. |
+| 인증 |Data Lake Storage Gen1은 Data Lake Storage Gen1에 저장된 모든 데이터에 대한 ID 및 액세스 관리를 위해 Azure Active Directory(Azure AD)와 통합합니다. 이러한 통합으로 인해 Data Lake Storage Gen1은 모든 Azure AD 기능의 이점을 얻습니다. 이러한 기능에는 다단계 인증, 조건부 액세스, 역할 기반 액세스 제어, 응용 프로그램 사용 모니터링, 보안 모니터링 및 경고 등이 포함 됩니다. Data Lake Storage Gen1은 REST 인터페이스에서 인증을 위한 OAuth 2.0 프로토콜을 지원합니다. [Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1에 인증](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)을 참조하세요.|
+| 액세스 제어 |Data Lake Storage Gen1은 WebHDFS 프로토콜에 의해 노출되는 POSIX 스타일 권한을 지원하여 액세스 제어를 제공합니다. ACL은 루트 폴더, 하위 폴더 및 개별 파일에서도 사용할 수 있습니다. Data Lake Storage Gen1의 컨텍스트에서 ACL 작동 방식에 대한 자세한 내용은 [Data Lake Storage Gen1의 액세스 제어](../data-lake-store/data-lake-store-access-control.md)를 참조하세요. |
 | 암호화 |또한 Data Lake Storage Gen1은 계정에 저장된 데이터에 대한 암호화를 제공합니다. Data Lake Storage Gen1 계정을 만드는 동안 암호화 설정을 지정합니다. 암호화된 데이터 또는 암호화 없음을 선택할 수 있습니다. 자세한 내용은 [Data Lake Storage Gen1의 암호화](../data-lake-store/data-lake-store-encryption.md)를 참조하세요. 암호화 관련 구성을 제공하는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](../data-lake-store/data-lake-store-get-started-portal.md)을 참조하세요. |
 
 Data Lake Storage Gen1의 데이터 보안 방법에 대해 자세히 알아보려면 [Azure Data Lake Storage Gen1에 저장된 데이터 보안](../data-lake-store/data-lake-store-secure-data.md)을 참조하세요.

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 51f0e223abd7103663fddd8c06dcdf0be549c671
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 2b4d588799d72be85030e70aed58b2c8d6b0a9a3
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70930770"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091743"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Visual Studio Code Spark & Hive 도구 사용
 
@@ -20,8 +20,7 @@ Visual Studio Code Spark & Hive 도구를 사용 하 여 Apache Hive batch 작�
 
 Windows, Linux 및 macOS를 포함 하는 Visual Studio Code에서 지원 되는 플랫폼에 Spark & Hive 도구를 설치할 수 있습니다. 다른 플랫폼에 대 한 다음 필수 구성 요소를 확인 합니다.
 
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 문서의 단계를 완료하려면 다음 항목이 필요합니다.
 
@@ -47,7 +46,6 @@ Windows, Linux 및 macOS를 포함 하는 Visual Studio Code에서 지원 되는
 
 5. 필요한 경우 **다시 로드** 를 선택 합니다.
 
-
 ## <a name="open-a-work-folder"></a>작업 폴더 열기
 
 작업 폴더를 열고 Visual Studio Code 파일을 만들려면 다음 단계를 수행 합니다.
@@ -56,14 +54,14 @@ Windows, Linux 및 macOS를 포함 하는 Visual Studio Code에서 지원 되는
 
 2. **탐색기** 보기에서 **hdexample** 대상 폴더를 선택 하 고 작업 폴더 옆의 **새 파일** 아이콘을 선택 합니다.
 
-   ![새 파일](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
+   ![visual studio code 새 파일 아이콘](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
 
 3. `.hql` (Hive 쿼리) `.py` 또는 (Spark 스크립트) 파일 확장명을 사용 하 여 새 파일의 이름을로 합니다. 이 예제에서는 **HelloWorld.hql**을 사용합니다.
 
 ## <a name="set-the-azure-environment"></a>Azure 환경 설정
 
 국가별 클라우드 사용자의 경우 다음 단계에 따라 먼저 azure 환경을 설정 하 고 azure를 사용 합니다 **.**  로그인 명령을 통해 Azure에 로그인 합니다.
-   
+
 1. **File\Preferences\Settings**를 선택 합니다.
 2. 다음 문자열을 검색 합니다. **Azure: Pnrp**
 3. 목록에서 국가 클라우드를 선택 합니다.
@@ -79,7 +77,6 @@ Visual Studio Code에서 클러스터에 스크립트를 제출 하려면 먼저
     ![Visual Studio Code 로그인에 대 한 Spark & Hive 도구](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
 2. 로그인 지침에 따라 Azure에 로그인 합니다. 연결 되 면 Azure 계정 이름이 Visual Studio Code 창의 아래쪽에 있는 상태 표시줄에 표시 됩니다.  
-  
 
 ## <a name="link-a-cluster"></a>클러스터 연결
 
@@ -89,7 +86,7 @@ Visual Studio Code에서 클러스터에 스크립트를 제출 하려면 먼저
 
 1. 메뉴 모음에서 **보기** > **명령 팔레트**로 이동 하 여 Spark/Hive **를 입력 합니다. Link a Cluster**를 입력합니다.
 
-   ![클러스터 연결 명령](./media/hdinsight-for-vscode/link-cluster-command.png)
+   ![명령 팔레트 링크 클러스터 명령](./media/hdinsight-for-vscode/link-cluster-command.png)
 
 2. 연결된 클러스터 유형 **Azure HDInsight**를 선택합니다.
 
@@ -107,7 +104,6 @@ Visual Studio Code에서 클러스터에 스크립트를 제출 하려면 먼저
 
    > [!NOTE]  
    > 클러스터가 Azure 구독에 로그인 하 고 클러스터에 연결 된 경우 연결 된 사용자 이름 및 암호가 사용 됩니다.  
-
 
 ### <a name="link-generic-livy-endpoint"></a>링크나 일반 Livy 끝점
 
@@ -147,7 +143,6 @@ Visual Studio Code에서 클러스터에 스크립트를 제출 하려면 먼저
 
    ![기본 클러스터 구성 설정](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
 
-
 ## <a name="submit-interactive-hive-queries-and-hive-batch-scripts"></a>대화형 Hive 쿼리 및 Hive 배치 스크립트 제출
 
 Visual Studio Code Spark & Hive 도구를 사용 하 여 대화형 Hive 쿼리 및 Hive 배치 스크립트를 클러스터에 제출할 수 있습니다.
@@ -155,7 +150,6 @@ Visual Studio Code Spark & Hive 도구를 사용 하 여 대화형 Hive 쿼리 �
 1. 종결 된 경우 [앞](#open-a-work-folder)에서 설명한 **hdexample** 를 다시 엽니다.  
 
 2. [앞](#open-a-work-folder)에서 만든 **hql** 파일을 선택 합니다. 스크립트 편집기에서 열립니다.
-
 
 3. 다음 코드를 복사 하 여 Hive 파일에 붙여넣은 다음 저장 합니다.
 
@@ -169,7 +163,7 @@ Visual Studio Code Spark & Hive 도구를 사용 하 여 대화형 Hive 쿼리 �
 
 6. 기본 클러스터를 지정 하지 않은 경우 클러스터를 선택 합니다. 또한이 도구를 사용 하면 상황에 맞는 메뉴를 사용 하 여 전체 스크립트 파일 대신 코드 블록을 제출할 수 있습니다. 잠시 후 쿼리 결과가 새 탭에 나타납니다.
 
-   ![대화형 Hive 결과](./media/hdinsight-for-vscode/interactive-hive-result.png)
+   ![대화형 Apache Hive 쿼리 결과](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
     - **결과** 패널: 전체 결과를 CSV, JSON 또는 Excel 파일로 로컬 경로에 저장 하거나 여러 줄을 선택할 수 있습니다.
 
@@ -184,6 +178,7 @@ Visual Studio Code Spark & Hive 도구를 사용 하 여 대화형 Hive 쿼리 �
 2. [이전](#open-a-work-folder) 단계에 따라 새 **HelloWorld.py** 파일을 만듭니다.
 
 3. 다음 코드를 복사하여 스크립트 파일에 붙여넣습니다.
+
    ```python
    from operator import add
    lines = spark.read.text("/HdiSamples/HdiSamples/FoodInspectionData/README").rdd.map(lambda r: r[0])
@@ -210,7 +205,7 @@ Visual Studio Code Spark & Hive 도구를 사용 하 여 대화형 Hive 쿼리 �
 
 7. **%% Info**를 입력 한 다음 Shift + enter를 눌러 작업 정보를 확인 합니다 (선택 사항).
 
-   ![작업 정보 보기](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
+   ![pyspark 대화형 보기 작업 정보](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
 8. 이 도구는 **SPARK SQL** 쿼리도 지원 합니다.
 
@@ -218,12 +213,11 @@ Visual Studio Code Spark & Hive 도구를 사용 하 여 대화형 Hive 쿼리 �
 
    제출 상태는 쿼리를 실행할 때 낮은 상태 표시줄의 왼쪽에 표시 됩니다. 상태가 **PySpark 커널(작업 중)** 이면 다른 쿼리를 제출하지 마세요.  
 
-   > [!NOTE] 
+   > [!NOTE]
    >
    > 설정에서 **Python 확장을 사용 하도록** 설정 하는 경우 (기본적으로 선택 됨) 제출 된 pyspark 상호 작용 결과에는 이전 창이 사용 됩니다.
    >
    > ![pyspark 대화형 python 확장 사용 안 함](./media/hdinsight-for-vscode/pyspark-interactive-python-extension-disabled.png)
-
 
 ## <a name="submit-pyspark-batch-job"></a>PySpark 배치 작업 제출
 
@@ -256,11 +250,11 @@ Visual Studio Code Spark & Hive 도구를 사용 하 여 대화형 Hive 쿼리 �
 
 4. 아직 수행 하지 않은 경우 Azure 계정에 [연결](#connect-to-an-azure-account) 하거나 클러스터를 연결 합니다.
 
-5. 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 Spark **를 선택 합니다. 일괄 처리**를 PySpark 하거나 Ctrl + Alt + H 바로 가기 키를 사용 합니다. 
+5. 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 Spark **를 선택 합니다. 일괄 처리**를 PySpark 하거나 Ctrl + Alt + H 바로 가기 키를 사용 합니다.
 
 6. PySpark 작업을 제출할 클러스터를 선택 합니다.
 
-   ![Python 작업 결과 제출](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
+   ![Python 작업 결과 출력 제출](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
 Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력** 창에 나타납니다. Spark UI URL 및 Yarn UI URL도 표시 됩니다. 웹 브라우저에서 URL을 열어 작업 상태를 추적할 수 있습니다.
 
@@ -271,29 +265,27 @@ Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력**
 <a id="triggerlivyconf"></a>**Livy 구성을 트리거하는 방법**
 
 방법 1  
-1. 메뉴 모음에서 **파일** > **기본** > **설정 설정**으로 이동 합니다.  
+1. 메뉴 모음에서 **파일** > **기본** > **설정 설정**으로 이동 합니다.
 2. **검색 설정** 상자 **에 HDInsight 작업 제출: Livy Conf**를 입력합니다.  
 3. 관련 검색 결과에 대해 **settings.json에서 편집**을 선택합니다.
 
-방법 2   
-파일을 제출 합니다 .이 경우에는 vscode 폴더가 작업 폴더에 자동으로 추가 됩니다. Livy 구성은 **.vscode\settings.s**를 선택 하 여 볼 수 있습니다.
+방법 2 파일을 제출 합니다. vscode 폴더가 작업 폴더에 자동으로 추가 되는 것을 볼 수 있습니다. Livy 구성은 **.vscode\settings.s**를 선택 하 여 볼 수 있습니다.
 
 + 프로젝트 설정:
 
-    ![Livy 구성](./media/hdinsight-for-vscode/hdi-apache-livy-config.png)
+    ![HDInsight Apache Livy 구성](./media/hdinsight-for-vscode/hdi-apache-livy-config.png)
 
     >[!NOTE]
     >**Drivermemory** 및 **executormemory** 설정에 대해 값과 단위를 설정 합니다. 예를 들어: 1g 또는 1024m.
 
-+ 지원 되는 Livy 구성:   
++ 지원 되는 Livy 구성:
 
-    **POST/일괄 처리**   
-    요청 본문
+    **사후 배치/일괄 처리** 요청 본문
 
-    | name | description | type | 
-    | :- | :- | :- | 
+    | name | description | type |
+    | :- | :- | :- |
     | files | 실행할 애플리케이션을 포함하는 파일 | path (필수) |
-    | proxyUser | 작업을 실행할 때 가장하는 사용자 | String |
+    | proxyUser | 작업을 실행할 때 가장하는 사용자 | 문자열 |
     | className | 애플리케이션 Java/Spark 주 클래스 | String |
     | args | 응용 프로그램에 대 한 명령줄 인수 | 문자열 목록 |
     | jars | 이 세션에서 사용할 jar | 문자열 목록 | 
@@ -305,8 +297,8 @@ Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력**
     | executorCores | 각 실행기에 사용할 코어 수 | Int |
     | numExecutors | 이 세션에 대해 시작할 실행기 수 | Int |
     | archives | 이 세션에 사용할 아카이브 | 문자열 목록 |
-    | queue | 제출할 YARN 큐의 이름입니다.| 문자열 |
-    | name | 이 세션의 이름 | 문자열 |
+    | queue | 제출할 YARN 큐의 이름입니다.| String |
+    | name | 이 세션의 이름 | String |
     | conf | Spark 구성 속성 | key=val의 맵 |
 
     응답 본문   
@@ -315,7 +307,7 @@ Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력**
     | name | description | type |
     | :- | :- | :- | 
     | id | 세션 ID | Int | 
-    | appId | 이 세션의 응용 프로그램 id | 문자열 |
+    | appId | 이 세션의 응용 프로그램 id | String |
     | appInfo | 자세한 응용 프로그램 정보 | key=val의 맵 |
     | log | 로그 줄 | 문자열 목록 |
     | state |일괄 처리 상태 | String |
@@ -333,12 +325,11 @@ Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력**
 
 3. 왼쪽 창에서 **AZURE HDINSIGHT**를 펼칩니다.  사용 가능한 구독 및 클러스터 (Spark, Hadoop 및 HBase가 지원 됨)가 나열 됩니다.
 
-   ![Azure HDInsight 구독](./media/hdinsight-for-vscode/hdi-azure-hdinsight-subscription.png)
+   ![Azure HDInsight 구독 표시](./media/hdinsight-for-vscode/hdi-azure-hdinsight-subscription.png)
 
 4. 클러스터를 확장 하 여 hive 메타 데이터 데이터베이스 및 테이블 스키마를 봅니다.
 
-   ![Azure HDInsight 클러스터](./media/hdinsight-for-vscode/hdi-azure-hdinsight-cluster.png)
-
+   ![Azure HDInsight 클러스터 삭제](./media/hdinsight-for-vscode/hdi-azure-hdinsight-cluster.png)
 
 ## <a name="preview-hive-table"></a>Hive 테이블 미리 보기
 **Azure HDInsight** 탐색기를 통해 클러스터의 Hive 테이블을 직접 미리 볼 수 있습니다.
@@ -357,7 +348,7 @@ Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력**
 6. **미리 보기 결과** 창이 열립니다.
 
    ![Visual Studio Code 미리 보기 결과 창에 대 한 Spark & Hive](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-results-window.png)
-   
+
 - 결과 패널
 
    전체 결과를 CSV, JSON 또는 Excel 파일로 로컬 경로에 저장 하거나 여러 줄을 선택할 수 있습니다.
@@ -378,7 +369,8 @@ Visual Studio Code에 대 한 Spark & Hive는 또한 다음과 같은 기능을 
 
 - **IntelliSense 자동 완성**. 키워드, 메서드, 변수 및 기타 프로그래밍 요소에 대 한 제안이 팝업 됩니다. 다음과 같이 개체 형식마다 다른 아이콘으로 표시됩니다.
 
-    ![Visual Studio Code IntelliSense 개체 형식에 대 한 Spark & Hive 도구](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
+    ![IntelliSense 개체 Visual Studio Code Spark & Hive 도구](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
+
 - **IntelliSense 오류 표식**. 언어 서비스는 Hive 스크립트의 편집 오류에 밑줄을 긋습니다.     
 - **구문 강조 표시**. 언어 서비스는 변수, 키워드, 데이터 형식, 함수 및 기타 프로그래밍 요소를 구분 하는 데 서로 다른 색을 사용 합니다.
 
@@ -390,7 +382,7 @@ Visual Studio Code에 대 한 Spark & Hive는 또한 다음과 같은 기능을 
 
 ### <a name="browse-the-hdinsight-cluster"></a>HDInsight 클러스터 찾아보기  
 
-Azure HDInsight 탐색기를 선택 하 여 HDInsight 클러스터를 확장 하는 경우 클러스터에 대 한 읽기 전용 역할이 있는 경우 클러스터를 연결 하 라는 메시지가 표시 됩니다. Ambari 자격 증명을 사용 하 여 클러스터에 연결 하려면 다음 메서드를 사용 합니다. 
+Azure HDInsight 탐색기를 선택 하 여 HDInsight 클러스터를 확장 하는 경우 클러스터에 대 한 읽기 전용 역할이 있는 경우 클러스터를 연결 하 라는 메시지가 표시 됩니다. Ambari 자격 증명을 사용 하 여 클러스터에 연결 하려면 다음 메서드를 사용 합니다.
 
 ### <a name="submit-the-job-to-the-hdinsight-cluster"></a>HDInsight 클러스터에 작업 제출
 
@@ -398,8 +390,8 @@ HDInsight 클러스터에 작업을 제출 하는 경우 클러스터에 대 한
 
 ### <a name="link-to-the-cluster"></a>클러스터에 연결
 
-1.  올바른 Ambari 사용자 이름을 입력 하세요.
-2.  올바른 암호를 입력 하십시오.
+1. 올바른 Ambari 사용자 이름을 입력 하세요.
+2. 올바른 암호를 입력 하십시오.
 
    ![Visual Studio Code 사용자 이름에 대 한 Spark & Hive 도구](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-username.png)
 
@@ -421,11 +413,11 @@ Data Lake Storage Gen2 계정을 확장 하기 위해 Azure HDInsight 탐색기�
 
 Data Lake Storage Gen2를 사용 하 여 HDInsight 클러스터에 작업을 제출 하는 경우 Azure 계정에 Gen2 저장소에 대 한 쓰기 권한이 없는 경우 저장소 액세스 키를 입력 하 라는 메시지가 표시 됩니다. 액세스 키의 유효성을 검사 한 후 작업이 성공적으로 제출 됩니다.
 
-![Visual Studio Code AccessKey 용 Spark & Hive 도구](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-accesskey.png)   
+![Visual Studio Code AccessKey 용 Spark & Hive 도구](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-accesskey.png)
 
 > [!NOTE]
-> 
->Azure Portal에서 저장소 계정에 대 한 액세스 키를 가져올 수 있습니다. 자세한 내용은 [액세스 키 보기 및 복사](https://docs.microsoft.com/azure/storage/common/storage-account-manage#access-keys)를 참조 하세요.
+>
+> Azure Portal에서 저장소 계정에 대 한 액세스 키를 가져올 수 있습니다. 자세한 내용은 [액세스 키 보기 및 복사](https://docs.microsoft.com/azure/storage/common/storage-account-manage#access-keys)를 참조 하세요.
 
 ## <a name="unlink-cluster"></a>클러스터 링크 해제
 
@@ -439,6 +431,6 @@ Data Lake Storage Gen2를 사용 하 여 HDInsight 클러스터에 작업을 제
 
 메뉴 모음에서 **보기** > **명령 팔레트**로 이동한 다음 Azure를 입력 **합니다. 로그 아웃**합니다.
 
-
 ## <a name="next-steps"></a>다음 단계
+
 Visual Studio Code에 Spark & Hive를 사용 하는 방법을 보여 주는 비디오는 [Visual Studio Code에 대 한 spark & hive](https://go.microsoft.com/fwlink/?linkid=858706)를 참조 하세요.

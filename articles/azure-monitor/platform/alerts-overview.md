@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: ae3e45ece1bd53846ab7728c29c0da1b709fe42c
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: eab6e7e0fb834447a55b67dfc9a17c470e9e3361
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915960"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091768"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고 개요 
 
@@ -171,7 +171,7 @@ ms.locfileid: "70915960"
 
 경고 정보 페이지에는 다음과 같은 섹션이 포함 되어 있습니다.
 
-| 섹션 | Description |
+| 섹션 | 설명 |
 |:---|:---|
 | 요약 | 경고에 대한 속성과 기타 중요한 정보를 표시합니다. |
 | 기록 | 경고에서 수행한 각 작업과 경고의 변경 내용을 나열합니다. 현재는 상태 변경으로 제한되어 있습니다. |
@@ -202,9 +202,9 @@ API에 대 한 다음 샘플 요청은 한 구독 내의 경고 수를 반환 �
   }
 }
 ```
-해당 [필수](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields) 필드에 대 한 경고를 쿼리할 수 있습니다.
+해당 [필수](alerts-common-schema-definitions.md#essentials) 필드에 대 한 경고를 쿼리할 수 있습니다.
 
-[경고 관리 REST API](https://aka.ms/alert-management-api) 를 사용 하 여 [경고 컨텍스트](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) 필드를 포함 하 여 특정 경고에 대 한 자세한 정보를 얻을 수 있습니다.
+[경고 관리 REST API](https://aka.ms/alert-management-api) 를 사용 하 여 [경고 컨텍스트](alerts-common-schema-definitions.md#alert-context) 필드를 포함 하 여 특정 경고에 대 한 자세한 정보를 얻을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 033d25d6ff2da580523e13e25771faef14cfe5a9
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: d89b4018da7c50127fc38219c6cb799a89509258
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009454"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092120"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 DB2에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -30,7 +30,7 @@ ms.locfileid: "71009454"
 
 이 DB2 데이터베이스 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
-- [지원 되는 원본 행렬이](copy-activity-overview.md) 포함 된 [복사 작업](copy-activity-overview.md)
+- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 
 DB2 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
@@ -192,20 +192,20 @@ DB2에서 데이터를 복사하는 경우 DB2 데이터 형식에서 Azure Data
 | BigInt |Int64 |
 | Binary |Byte[] |
 | Blob |Byte[] |
-| Char |String |
-| Clob |String |
+| Char |문자열 |
+| Clob |문자열 |
 | 날짜 |Datetime |
-| DB2DynArray |문자열 |
+| DB2DynArray |String |
 | DbClob |String |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| 그래픽 |String |
+| 그래픽 |문자열 |
 | Integer |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |String |
-| LongVarGraphic |문자열 |
+| LongVarChar |문자열 |
+| LongVarGraphic |String |
 | 숫자 |Decimal |
 | Real |Single |
 | SmallInt |Int16 |

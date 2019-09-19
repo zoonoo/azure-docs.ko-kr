@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca85007bb016cc98d1be61ce08865945e699ad4a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b5ff7f0bbf1bf474a611ae033165bca6dfaac676
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358188"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097643"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Azure AD 암호 보호 운영 절차
 
@@ -28,11 +28,11 @@ ms.locfileid: "60358188"
 
 ## <a name="enable-password-protection"></a>암호 보호 사용
 
-1. 에 로그인 하는 [Azure portal](https://portal.azure.com) 로 이동한 **Azure Active Directory**, **인증 방법**, 한 다음 **암호 보호**합니다.
+1. [Azure Portal](https://portal.azure.com) 에 로그인 하 여 **Azure Active Directory**, **인증 방법**, **암호 보호**로 이동 합니다.
 1. **Windows Server Active Directory에 대한 암호 보호를 사용하도록 설정**을 **예**로 설정합니다.
 1. [배포 가이드](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy)에 설명된 대로, 처음에는 **모드**를 **감사**로 설정하는 것이 좋습니다.
    * 기능에 익숙해진 후 **모드**를 **강제 적용**으로 전환하면 됩니다.
-1. 페이지 맨 아래에 있는 **저장**
+1. **저장**을 클릭합니다.
 
 ![Azure Portal에서 Azure AD 암호 보호 구성 요소를 사용하도록 설정](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)
 
@@ -55,9 +55,12 @@ Azure AD 암호 보호 DC 에이전트가 적용 모드에서 암호를 거부�
 
 영향을 받는 최종 사용자는 IT 직원의 도움을 받아 새 요구 사항을 이해하면 안전한 암호를 선택해야 합니다.
 
+> [!NOTE]
+> Azure AD 암호 보호는 취약 한 암호를 거부 하는 경우 클라이언트 컴퓨터에 표시 되는 특정 오류 메시지를 제어 하지 않습니다.
+
 ## <a name="enable-mode"></a>모드 사용
 
-일반적으로 이 설정은 기본 설정된(예) 상태로 두어야 합니다. 이 설정을 사용 안 함(아니요)으로 구성하면 배포된 모든 Azure AD 암호 보호 DC 에이전트가 모든 암호를 그대로 허용하는 정지 모드로 전환되어 모든 유효성 검사 작업이 실행하지 않습니다(예: 감사 이벤트조차도 내보내지 않음).
+이 설정은 기본 사용 (예) 상태로 유지 되어야 합니다. 이 설정을 사용 안 함(아니요)으로 구성하면 배포된 모든 Azure AD 암호 보호 DC 에이전트가 모든 암호를 그대로 허용하는 정지 모드로 전환되어 모든 유효성 검사 작업이 실행하지 않습니다(예: 감사 이벤트조차도 내보내지 않음).
 
 ## <a name="next-steps"></a>다음 단계
 

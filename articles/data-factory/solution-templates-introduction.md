@@ -11,12 +11,12 @@ ms.date: 01/04/2019
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: c4a3fc20e806ec91ed2646e6131f682bf5c80e38
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: eb7a7eb8e1bdacae4b74e3a0019a376c440fe4d5
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140846"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091968"
 ---
 # <a name="templates"></a>템플릿
 
@@ -56,7 +56,7 @@ Data Factory는 데이터 팩터리 파이프라인 템플릿을 저장하기 �
 
     -   \<원본\>에서 \<대상\>으로 복사
 
-        -   Amazon S3에서 Azure Data Lake Store Gen 2로 복사
+        -   [Amazon S3에서 Azure Data Lake Store Gen 2로](solution-template-migration-s3-azure.md)
 
         -   Google Big Query에서 Azure Data Lake Store Gen 2로 복사
 

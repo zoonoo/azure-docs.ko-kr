@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 67f3fd8f3166abac987e8fefbbf4a020f165c8bf
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 7264b8e5a536c90d106b3bf4a5e26093744327d6
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951880"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091823"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>메시지 세션: FIFO(처음 들어간 것부터 사용) 
 
@@ -40,6 +40,9 @@ Service Bus의 세션 기능을 사용하면 C# 및 Java API의 [MessageSession]
 포털에서 다음 확인란을 사용하여 플래그를 지정합니다.
 
 ![][2]
+
+> [!NOTE]
+> 큐 또는 구독에서 세션을 사용 하는 경우 클라이언트 응용 프로그램은 ***더 이상*** 일반 메시지를 보내고 받을 수 없습니다. 모든 메시지는 세션 id를 설정 하 여 세션의 일부로 전송 되 고 세션을 수신 하 여 수신 해야 합니다.
 
 세션용 API는 큐 및 구독 클라이언트에 있습니다. 세션 및 메시지가 수신되는 시간을 제어하는 필수 모델과 수신 루프 관리의 복잡성을 숨기는 *OnMessage*와 유사한 처리기 기반 모델이 있습니다.
 

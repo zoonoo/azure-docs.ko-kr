@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 45aa1354f6009d5eccd48f85f993bae8949139e3
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
-ms.translationtype: HT
+ms.openlocfilehash: ed466b072a771c3aa288a96fa4a0037c31b875f9
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058966"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091985"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>문제 해결 Azure Data Factory
 
@@ -282,17 +282,109 @@ ms.locfileid: "71058966"
 
 - **원인**: Azure 함수 활동 정의가 완료 되지 않았습니다.
 
-- **권장 사항**: 입력 AzureFunction 활동 JSON 정의에 이름이 ' method ' 인 속성이 있는지 확인 하세요.
+- **권장 사항**: 입력 AzureFunction 활동 JSON 정의에 이름이 ' method ' 인 속성이 있는지 확인 합니다.
 
 
 ### <a name="error-code--3612"></a>오류 코드:  3612
 
 - **메시지**:`Azure function activity missing LinkedService definition in JSON.`
 
-- **원인**: Azure 함수 활동 정의가 완료 되지 않았습니다.
+- **원인**: Azure 함수 활동 정의가 완료 되지 않았을 수 있습니다.
 
 - **권장 사항**: 입력 AzureFunction 활동 JSON 정의에 연결 된 서비스 정보가 있는지 확인 하세요.
 
+
+## <a name="azure-machine-learning"></a>Azure Machine Learning
+
+
+### <a name="error-code--4101"></a>오류 코드:  4101
+
+- **메시지**:`AzureMLExecutePipeline activity '%activityName;' has invalid value for property '%propertyName;'.`
+
+- **원인**: 속성의 형식이 잘못 되었거나 정의가 누락 되었습니다.
+
+- **권장 사항**:  작업이 올바른 데이터로 정의 되었는지 확인 하세요.
+
+
+### <a name="error-code--4110"></a>오류 코드:  4110
+
+- **메시지**: AzureMLExecutePipeline 활동에 JSON의 LinkedService 정의가 없습니다.
+
+- **원인**: AzureMLExecutePipeline 활동 정의가 완료 되지 않았습니다.
+
+- **권장 사항**:  입력 AzureMLExecutePipeline 활동 JSON 정의에 연결 된 서비스 정보가 있는지 확인 하세요.
+
+
+### <a name="error-code--4111"></a>오류 코드:  4111
+
+- **메시지**:`AzureMLExecutePipeline activity has wrong LinkedService type in JSON. Expected LinkedService type: '%expectedLinkedServiceType;', current LinkedService type: Expected LinkedService type: '%currentLinkedServiceType;'.`
+
+- **원인**: 잘못 된 작업 정의입니다.
+
+- **권장 사항**:  입력 AzureMLExecutePipeline 활동 JSON 정의에 올바른 연결 된 서비스 정보가 있는지 확인 하세요.
+
+
+### <a name="error-code--4112"></a>오류 코드:  4112
+
+- **메시지**:`AzureMLService linked service has invalid value for property '%propertyName;'.`
+
+- **원인**: 속성의 형식이 잘못 되었거나 정의가 누락 되었습니다.
+
+- **권장 사항**:  연결 된 서비스 정의에 올바른 데이터가 있는지 확인 하세요.
+
+
+### <a name="error-code--4121"></a>오류 코드:  4121
+
+- **메시지**:`Request sent to AzureML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from AzureML Service: '%externalMessage;'.`
+
+- **원인**: Azure ML 서비스에 액세스 하는 데 사용 된 자격 증명이 만료 되었습니다.
+
+- **권장 사항**:  자격 증명이 올바른지 확인 한 후 다시 시도 하세요.
+
+
+### <a name="error-code--4122"></a>오류 코드:  4122
+
+- **메시지**:`Request sent to AzureML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from AzureML Service: '%externalMessage;'.`
+
+- **원인**: AzureML 서비스 연결 된 서비스에 제공 된 자격 증명이 잘못 되었거나 작업에 대 한 권한이 없습니다.
+
+- **권장 사항**:  연결 된 서비스의 자격 증명이 올바르며 AzureML 서비스에 액세스할 수 있는 권한이 있는지 확인 하세요.
+
+
+### <a name="error-code--4123"></a>오류 코드:  4123
+
+- **메시지**:`Request sent to AzureML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from AzureML Service: '%externalMessage;'.`
+
+- **원인**:`Properties of the activity such as pipelineParamters are invalid for the Azure ML pipeline.`
+
+- **권장 사항**:  활동 속성의 값을 확인 하 여 연결 된 서비스에 지정 된 게시 된 Azure ML 파이프라인의 예상 페이로드와 일치 하는지 확인 하세요.
+
+
+### <a name="error-code--4124"></a>오류 코드:  4124
+
+- **메시지**:`Request sent to AzureML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from AzureML Service: '%externalMessage;'.`
+
+- **원인**: 게시 된 Azure ML 파이프라인 끝점이 없습니다.
+
+- **권장 사항**:  연결 된 서비스에 지정 된 게시 된 Azure ML 파이프라인 끝점이 Azure ML 서비스에 있는지 확인 하세요.
+
+
+### <a name="error-code--4125"></a>오류 코드:  4125
+
+- **메시지**:`Request sent to AzureML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from AzureML Service: '%externalMessage;'.`
+
+- **원인**: Azure ML 서비스에서 서버 오류가 발생 했습니다.
+
+- **권장 사항**:  나중에 다시 시도하십시오. 문제가 계속 되는 경우 Azure ML 서비스 팀에 문의 하 여 도움을 요청 하세요.
+
+
+### <a name="error-code--4126"></a>오류 코드:  4126
+
+- **메시지**:`AzureML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in AzureMLService for more error loggings.`
+
+- **원인**: AzureML 파이프라인 실행이 실패 했습니다.
+
+- **권장 사항**:  AzureMLService에서 자세한 오류 로깅를 확인 하 고 ML 파이프라인을 수정 하세요.
 
 
 ## <a name="custom"></a>사용자 지정
@@ -316,6 +408,15 @@ ms.locfileid: "71058966"
 - **원인**: 일괄 처리 액세스 키 또는 풀 이름이 잘못 되었습니다.
 
 - **권장 사항**: 연결 된 서비스의 풀 이름 및 Batch 액세스 키를 확인 합니다.
+
+
+### <a name="error-code--2502"></a>오류 코드:  2502
+
+- **메시지**:`Cannot access user storage account; please check storage account settings.`
+
+- **원인**: 저장소 계정 이름 또는 액세스 키가 잘못 되었습니다.
+
+- **권장 사항**: 연결 된 서비스에서 저장소 계정 이름 및 액세스 키를 확인 합니다.
 
 
 ### <a name="error-code--2504"></a>오류 코드:  2504
@@ -472,7 +573,7 @@ ms.locfileid: "71058966"
 
 ## <a name="web-activity"></a>웹 작업
 
-### <a name="error-code--2310"></a>오류 코드:  2310
+### <a name="error-code--2108"></a>오류 코드:  2108
 
 - **메시지**:`Invalid HttpMethod: '...'.`
 
@@ -559,6 +660,25 @@ ms.locfileid: "71058966"
 - **원인**: 웹 활동 본문이 잘못 되었습니다.
 
 - **권장 사항**:  Fiddler 또는 Postman을 사용 하 여 끝점을 확인 합니다.
+
+
+### <a name="error-code--2208"></a>오류 코드:  2208
+
+- **메시지**:`Invoking Web Activity failed with HttpStatusCode - {0}.`
+
+- **원인**: 대상 서비스에서 실패 상태를 반환 했습니다.
+
+- **권장 사항**:  Fiddler/Postman을 사용 하 여 요청의 유효성을 검사 합니다.
+
+
+### <a name="error-code--2308"></a>오류 코드:  2308
+
+- **메시지**:`No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
+
+- **원인**: 네트워크 연결, DNS 오류, 서버 인증서 유효성 검사 또는 시간 제한과 같은이 오류가 발생 하는 여러 가지 이유가 있을 수 있습니다.
+
+- **권장 사항**:  Fiddler/Postman을 사용 하 여 요청의 유효성을 검사 합니다.
+
 
 Fiddler를 사용 하 여 모니터링 되는 웹 응용 프로그램의 HTTP 세션을 만들려면 다음을 수행 합니다.
 

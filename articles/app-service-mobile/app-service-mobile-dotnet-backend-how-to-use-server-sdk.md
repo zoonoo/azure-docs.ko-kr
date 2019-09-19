@@ -15,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d277786fd08e1448b3d5ccf4fd45055fe069e4c0
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119525"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097771"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -28,12 +28,12 @@ ms.locfileid: "62119525"
 이 항목은 주요 Azure App Service Mobile Apps 시나리오에서 .NET 백 엔드 서버 SDK를 사용하는 방법을 보여줍니다. Azure Mobile Apps SDK를 사용하면 ASP.NET 애플리케이션에서 모바일 클라이언트를 사용하여 작업할 수 있습니다.
 
 > [!TIP]
-> [Azure Mobile Apps용 .NET 서버 SDK][2]는 GitHub에서 오픈 소스입니다. 리포지토리는 전체 서버 SDK 단위 테스트 도구 모음 및 일부 샘플 프로젝트를 포함하는 모든 소스 코드를 포함합니다.
+> [Azure Mobile Apps에 대 한 .net SERVER SDK][2] 는 GitHub에서 오픈 소스입니다. 리포지토리는 전체 서버 SDK 단위 테스트 도구 모음 및 일부 샘플 프로젝트를 포함하는 모든 소스 코드를 포함합니다.
 >
 >
 
 ## <a name="reference-documentation"></a>참조 설명서
-서버 SDK에 대한 참조 설명서는 [Azure Mobile Apps .NET 참조][1]에서 찾을 수 있습니다.
+서버 SDK에 대한 참조 설명서는 [Azure Mobile Apps .Net 참조][1]입니다.
 
 ## <a name="create-app"></a>방법: .NET 모바일 앱 백 엔드 만들기
 새 프로젝트를 시작하는 경우 [Azure Portal] 과 Visual Studio 중 하나를 사용하여 App Service 애플리케이션을 만들 수 있습니다. App Service 애플리케이션을 로컬로 실행하거나 클라우드 기반 앱 서비스 모바일 앱에 프로젝트를 게시할 수 있습니다.
@@ -41,7 +41,7 @@ ms.locfileid: "62119525"
 기존 프로젝트에 모바일 기능을 추가하는 경우 [SDK 다운로드 및 초기화](#install-sdk) 섹션을 참조하세요.
 
 ### <a name="create-a-net-backend-using-the-azure-portal"></a>Azure 포털을 사용하여 .NET 백 엔드 만들기
-App Service 모바일 백 엔드를 만들려면 [빠른 시작 자습서][3]를 따르거나 다음과 같은 단계를 수행합니다.
+App Service 모바일 백 엔드를 만들려면 [빠른 시작 자습서][3] 를 수행 하거나 다음 단계를 수행 합니다.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
@@ -54,7 +54,7 @@ Visual Studio 설치 관리자를 통해 Azure 워크로드를 설치하여 Visu
 1. **새 프로젝트** 대화를 엽니다(**파일** > **새로 만들기** > **프로젝트...** 에서).
 2. **Visual C#** 를 확장하고 **웹**을 선택합니다.
 3. **ASP.NET 웹 애플리케이션(.NET Framework)** 을 선택합니다.
-4. 프로젝트 이름을 입력합니다. 그런 후 **OK**를 클릭합니다.
+4. 프로젝트 이름을 입력합니다. 그런 다음 **확인**을 클릭합니다.
 5. 템플릿 목록에서 **Azure 모바일 앱**을 선택합니다.
 6. **확인**을 클릭하여 솔루션을 만듭니다.
 7. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택한 다음, 게시 대상으로 **App Service**를 선택합니다.
@@ -62,12 +62,12 @@ Visual Studio 설치 관리자를 통해 Azure 워크로드를 설치하여 Visu
 
 ### <a name="create-a-net-backend-using-visual-studio-2015"></a>Visual Studio 2015를 사용하여 .NET 백 엔드 만들기
 
-Visual Studio에서 Azure Mobile Apps 프로젝트를 만들려면 [.NET용 Azure SDK][4](버전 2.9.0 이상)을 설치합니다. SDK를 설치한 후 다음 단계를 사용하여 ASP.NET 애플리케이션을 만듭니다.
+Visual Studio에서 Azure Mobile Apps 프로젝트를 만들기 위해 [.net 용 AZURE SDK][4] (버전 2.9.0 이상)를 설치 합니다. SDK를 설치한 후 다음 단계를 사용하여 ASP.NET 애플리케이션을 만듭니다.
 
 1. **새 프로젝트** 대화를 엽니다(**파일** > **새로 만들기** > **프로젝트...** 에서).
 2. **템플릿** > **Visual C#** 를 확장하고 **웹**을 선택합니다.
 3. **ASP.NET 웹 애플리케이션**을 선택합니다.
-4. 프로젝트 이름을 입력합니다. 그런 후 **OK**를 클릭합니다.
+4. 프로젝트 이름을 입력합니다. 그런 다음 **확인**을 클릭합니다.
 5. *ASP.NET 4.5.2 템플릿*아래에서 **Azure Mobile App**을 선택합니다. **클라우드에 호스트** 를 선택하여 클라우드에 이 프로젝트를 게시할 수 있는 모바일 백 엔드를 만듭니다.
 6. **확인**을 클릭합니다.
 
@@ -166,7 +166,7 @@ Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()** 을 호
 2. Mobile DbContext 클래스에 테이블 참조를 구성합니다.
 3. 테이블 컨트롤러를 만듭니다.
 
-데이터 전송 개체(DTO)는 `EntityData`에서 상속하는 일반 C# 개체입니다.  예를 들면 다음과 같습니다.
+데이터 전송 개체(DTO)는 `EntityData`에서 상속하는 일반 C# 개체입니다.  예를 들어:
 
     public class TodoItem : EntityData
     {
@@ -410,7 +410,7 @@ Notification Hubs를 사용하면 태그를 사용하여 특정 등록에 대상
 
 설치를 만들 때 푸시 알림 등록을 수행하는 동안 클라이언트가 제공한 태그는 백 엔드에서 무시됩니다. 클라이언트를 사용하여 설치에 태그를 추가하려면 이전 패턴을 사용하여 태그를 추가하는 사용자 지정 API를 만들어야 합니다.
 
-예제는 App Service Mobile Apps 완료된 빠른 시작 샘플에서 [클라이언트 추가 푸시 알림 태그][5]를 참조하세요.
+예제는 App Service Mobile Apps 완료 된 빠른 시작 샘플의 [클라이언트 추가 푸시 알림 태그][5] 를 참조 하세요.
 
 ## <a name="push-user"></a>방법: 인증된 사용자에게 푸시 알림 보내기
 인증된 사용자가 푸시 알림에 등록하면 사용자 ID 태그가 등록에 자동으로 추가됩니다. 이 태그를 사용하여 해당 사용자로 등록된 모든 디바이스에 푸시 알림을 보낼 수 있습니다. 다음 코드는 요청을 만드는 사용자의 SID를 가져오고 해당 사용자에 대한 모든 디바이스 등록에 템플릿 푸시 알림을 보냅니다.
@@ -426,7 +426,7 @@ Notification Hubs를 사용하면 태그를 사용하여 특정 등록에 대상
     // Send a template notification to the user ID.
     await hub.SendTemplateNotificationAsync(notification, userTag);
 
-인증된 클라이언트의 푸시 알림을 등록할 때 등록을 시도하기 전에 인증이 완료되었는지 확인합니다. 자세한 내용은 .NET 백 엔드에 대한 App Service Mobile Apps 완료된 빠른 시작 샘플에서 [사용자에게 푸시 알림 보내기][6]를 참조하세요.
+인증된 클라이언트의 푸시 알림을 등록할 때 등록을 시도하기 전에 인증이 완료되었는지 확인합니다. 자세한 내용은 .NET 백 엔드에 대 한 App Service Mobile Apps 완료 된 빠른 시작 샘플에서 [사용자에 게 푸시][6] 를 참조 하세요.
 
 ## <a name="how-to-debug-and-troubleshoot-the-net-server-sdk"></a>방법: .NET 서버 SDK 디버그 및 문제 해결
 Azure App Service는 ASP.NET 애플리케이션에 대한 여러 디버깅 및 문제 해결 기술을 제공합니다.
@@ -440,7 +440,7 @@ Azure App Service는 ASP.NET 애플리케이션에 대한 여러 디버깅 및 �
 
 진단을 사용하도록 설정하고 로그에 쓰려면:
 
-1. [진단을 사용하는 방법](../app-service/troubleshoot-diagnostic-logs.md#enablediag)에서 단계를 수행합니다.
+1. [응용 프로그램 로깅 사용 (Windows)](../app-service/troubleshoot-diagnostic-logs.md#enable-application-logging-windows)의 단계를 수행 합니다.
 2. 코드 파일에 다음 using 문을 추가합니다.
 
         using System.Web.Http.Tracing;
@@ -449,7 +449,7 @@ Azure App Service는 ASP.NET 애플리케이션에 대한 여러 디버깅 및 �
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");
 4. 서버 프로젝트를 다시 게시하고 모바일 앱 백 엔드에 액세스하여 로깅을 통해 코드 경로를 실행합니다.
-5. [방법: 로그 다운로드](../app-service/troubleshoot-diagnostic-logs.md#download)에 설명된 대로 로그를 다운로드하고 평가합니다.
+5. [액세스 로그 파일](../app-service/troubleshoot-diagnostic-logs.md#access-log-files)에 설명 된 대로 로그를 다운로드 하 고 평가 합니다.
 
 ### <a name="local-debug"></a>인증을 사용하여 로컬 디버깅
 애플리케이션을 로컬로 실행하여 변경 내용을 클라우드에 게시하기 전에 테스트할 수 있습니다. 대부분의 Azure Mobile Apps 백 엔드의 경우 Visual Studio에 있는 동안 *F5* 를 누릅니다. 그러나 인증을 사용할 때 몇 가지 추가 고려 사항이 있습니다.

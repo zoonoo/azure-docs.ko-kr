@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2019
+ms.date: 09/16/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 784ec507027d6ec0ac1b5288c101e2a76cab436e
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 0eea0fd03b1df49e912a867b0c667ff0fd28c08a
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835062"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097612"
 ---
 # <a name="use-microsoft-authentication-library-to-interoperate-with-azure-active-directory-b2c"></a>MSAL(Microsoft 인증 라이브러리)를 사용하여 Azure Active Directory B2C와 상호 운용
 
@@ -32,7 +32,7 @@ Azure AD B2C를 사용하면 UI를 브랜드를 반영하고 사용자 지정하
 
 이 자습서에서는 MSAL을 사용하여 Azure AD B2C와 상호 운용되는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 아직 고유한 [Azure AD B2C 테넌트](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant)를 만들지 않았다면 지금 만듭니다. 기존 Azure AD B2C 테넌트를 사용해도 됩니다.
 
@@ -56,21 +56,30 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 1. 샘플에서 **index.html** 파일을 엽니다.
 
-1. 애플리케이션을 등록하는 동안 이전에 기록해 둔 애플리케이션 ID와 키를 사용하여 샘플을 구성합니다. 디렉터리 및 API의 이름으로 값을 바꿔서 코드의 다음 줄을 변경합니다.
+1. 응용 프로그램을 등록 하는 동안 이전에 기록한 클라이언트 ID 및 키를 사용 하 여 샘플을 구성 합니다. 디렉터리 및 API의 이름으로 값을 바꿔서 코드의 다음 줄을 변경합니다.
 
    ```javascript
-   // The current application coordinates were pre-registered in a B2C directory.
+   // The current application coordinates were pre-registered in a B2C tenant.
 
-   const msalConfig = {
-       auth:{
-           clientId: "Enter_the_Application_Id_here",
-           authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>",
-           b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/hello/demo.read"],
-           webApi: 'http://localhost:5000/hello',
-     };
+    var appConfig = {
+        b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"],
+        webApi: "https://fabrikamb2chello.azurewebsites.net/hello"
+    };
 
-   // create UserAgentApplication instance
-   const myMSALObj = new UserAgentApplication(msalConfig);
+    const msalConfig = {
+        auth: {
+            clientId: "e760cab2-b9a1-4c0d-86fb-ff7084abd902" //This is your client/application ID
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi", //This is your tenant info
+            validateAuthority: false
+        },
+        cache: {
+            cacheLocation: "localStorage",
+            storeAuthStateInCookie: true
+        }
+    };
+    // create UserAgentApplication instance
+    const myMSALObj = new Msal.UserAgentApplication(msalConfig);
+
    ```
 
 이 자습서의 [사용자 흐름](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) 이름은 **B2C_1_signupsignin1**입니다. 다른 사용자 흐름 이름을 사용하는 경우 **authority** 값을 해당 이름으로 설정합니다.

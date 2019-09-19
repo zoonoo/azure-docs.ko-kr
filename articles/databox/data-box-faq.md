@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: f9afd3ae1d1d5d6235cf8bd0a6350a782ea6afbe
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 8dbdbe39f613bb8895be6ae21d8aa29b766781cd
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142940"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098813"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: 질문과 대답
 
@@ -180,8 +180,19 @@ A.  To speed up the copy process:
 ### <a name="q-my-device-was-delivered-but-the-device-seems-to-be-damaged-what-should-i-do"></a>Q. 내 디바이스가 배송되었으나 손상된 것 같습니다. 어떻게 해야 하나요?
 1\. 디바이스가 손상된 상태로 도착했거나 변조의 증거가 있다면 디바이스를 사용하지 않습니다. [Microsoft 지원에 문의](data-box-disk-contact-microsoft-support.md)하고 가능한 빨리 디바이스를 반환하세요. 교체 디바이스를 위한 새 Data Box 주문을 만들 수도 있습니다. 이런 경우 교체 디바이스에 대한 요금이 청구되지 않습니다.
 
-### <a name="q-can-i-use-my-own-shipping-carrier-to-ship-data-box"></a>Q. Data Box 배송에 내가 원하는 배송 업체를 사용할 수 있나요?
-1\. Data Box 서비스에서는 Microsoft가 Azure 데이터 센터로의 배송을 처리합니다. 사용자 고유의 배송 업체를 사용하려면 Azure Import/Export 서비스를 사용할 수 있습니다. 자세한 내용은 [Azure Import/Export service 란?](../storage/common/storage-import-export-service.md)을 참조하세요.
+### <a name="q-can-i-pick-up-my-data-box-order-myself-can-i-return-the-data-box-via-a-carrier-that-i-choose"></a>Q. 내 Data Box 주문을 직접 선택할 수 있나요? 선택한 캐리어를 통해 Data Box을 반환할 수 있나요?
+1\. 예. Microsoft는 또한 US Gov 지역 에서만 자체 관리 배송을 제공 합니다. Data Box 순서를 배치할 때 자체 관리 전달 옵션을 선택할 수 있습니다. Data Box 장치를 선택 하려면 다음 단계를 수행 합니다.
+    
+1. 주문을 배치 하면 주문이 처리 되 고 Data Box 준비 됩니다. 주문이 픽업 준비가 되었다는 전자 메일을 통해 알림이 표시 됩니다. 
+2. 픽업 주문이 준비 되 면 Azure Portal의 주문으로 이동 하 여 **개요** 블레이드로 이동 합니다. 
+3. Azure Portal에 코드가 포함 된 알림이 표시 됩니다. [Azure Data Box 운영 팀](mailto:adbops@microsoft.com) 에 전자 메일을 보내고 코드를 제공 합니다. 팀이 위치를 제공 하 고 픽업 날짜 및 시간을 예약 합니다. 전자 메일 알림을 받은 후 영업일 5 일 이내에 팀에 게 문의 해야 합니다.
+
+데이터 복사가 완료 되 면 다음 단계를 수행 하 여 장치를 반환 합니다.
+
+1. 데이터 복사가 오류 없이 완료 되 면 **배송 준비**를 실행 합니다. 준비가 완료 되 면 장치의 로컬 웹 UI에서 코드를 받게 됩니다. 코드를 복사 하 고 저장 합니다.
+2. 장치를 끄고 연결 케이블을 제거 합니다.
+3. 디바이스와 함께 제공된 전원 코드를 디바이스 뒷면에 스풀링하고 안전하게 고정합니다.
+4. [Azure Data Box 운영 팀](mailto:adbops@microsoft.com) 에 전자 메일을 보내고 이전에 저장 한 코드를 제공 합니다. 장치를 어디에서 어디에 놓는 지에 대 한 정보를 제공 합니다.
 
 ### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>Q. 배송 중에 내 Data Box 디바이스가 국가 경계를 넘을 수 있나요?
 1\. 모든 Data Box 디바이스는 목적지와 동일한 국가 내에서 배송되며 국경을 넘지 않습니다. 유일한 예외는 디바이스가 모든 EU 국가 간에 발송될 수 있는 EU(유럽 연합) 내에서의 주문입니다. Data Box와 Data Box Heavy 디바이스에 모두 적용됩니다.

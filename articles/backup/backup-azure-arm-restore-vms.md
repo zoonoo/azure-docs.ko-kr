@@ -7,14 +7,14 @@ manager: carmonm
 keywords: 백업 복원; 복원하는 방법; 복구 지점;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 09/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3d7497b7afd44a05f3691d3e3094e84c3dd73747
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: c479249a3a09b625e37fb80e7b73dcc8a1268622
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983912"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098358"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Azure Portal에서 Azure VM 데이터를 복원 하는 방법
 
@@ -188,7 +188,27 @@ VM이 복원되면 주의해야 할 몇 가지 사항이 있습니다.
 - 백업된 VM에 고정 IP 주소가 있으면 복원된 VM에서 동적 IP 주소를 사용하도록 하여 충돌을 방지합니다. [고정 IP 주소는 복원된 VM에 추가](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)할 수 있습니다.
 - 복원된 VM에는 가용성 집합이 없습니다. 복원 디스크 옵션을 사용 하는 경우 제공 된 템플릿 또는 PowerShell을 사용 하 여 디스크에서 VM을 만들 때 [가용성 집합을 지정할](../virtual-machines/windows/tutorial-availability-sets.md) 수 있습니다.
 - Ubuntu와 같은 cloud-init 기반 Linux 배포를 사용하면 보안상의 이유로 복원 후에 암호가 차단됩니다. 복원된 VM에서 VMAccess 확장을 사용하여 [암호를 재설정](../virtual-machines/linux/reset-password.md)하세요. 복원 후에 암호를 다시 설정할 필요가 없도록 이러한 배포에서 SSH 키를 사용하는 것이 좋습니다.
+- VM이 도메인 컨트롤러와의 관계로 인해 복원 된 후 VM에 액세스할 수 없는 경우 아래 단계에 따라 VM을 가져옵니다.
+    - 복구 된 VM에 OS 디스크를 데이터 디스크로 연결 합니다.
+    - 이 [링크](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline)를 따라 Azure 에이전트가 응답 하지 않는 경우 수동으로 VM 에이전트를 설치 합니다.
+    - Vm에 대 한 직렬 콘솔 액세스를 사용 하도록 설정 하 여 VM에 대 한 명령줄 액세스 허용
+    
+  ```
+    bcdedit /store <drive letter>:\boot\bcd /enum
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} displaybootmenu yes
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} timeout 5
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} bootems yes
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<<BOOT LOADER IDENTIFIER>>} ON
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
+    ```
+    - VM을 다시 작성 하는 경우 Azure Portal 사용 하 여 로컬 관리자 계정 및 암호를 다시 설정 합니다.
+    - 직렬 콘솔 access 및 CMD를 사용 하 여 도메인에서 VM 가입
 
+    ```
+    cmd /c "netdom remove <<MachineName>> /domain:<<DomainName>> /userD:<<DomainAdminhere>> /passwordD:<<PasswordHere>> /reboot:10 /Force" 
+    ```
+
+- VM이 가입 해제 되 고 다시 시작 되 면 로컬 관리자 자격 증명을 사용 하 여 VM에 성공적으로 RDP 하 고 VM을 다시 도메인에 다시 조인할 수 있습니다.
 
 ## <a name="backing-up-restored-vms"></a>복원된 VM 백업
 

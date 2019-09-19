@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 948cdb2ab1af3fe93566497186c025f7f8f39b2e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f0bcf12a43a4732b371dd2d64c0b174a0087bea9
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877088"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098948"
 ---
 # <a name="understand-iot-hub-metrics"></a>IoT Hub 메트릭 이해
 
@@ -69,7 +69,7 @@ IoT Hub는 허브의 상태와 연결된 디바이스의 총 수에 대한 개�
 |d2c<br>.endpoints<br>.latency<br>.storage|라우팅: 스토리지에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 스토리지 엔드포인트에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|차원 없음|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.bytes|라우팅: 스토리지에 배달된 데이터|바이트|Total|IoT Hub 라우팅에서 스토리지 엔드포인트에 배달된 데이터 양입니다(바이트).|차원 없음|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.blobs|라우팅: 스토리지에 배달된 Blob|개수|Total|IoT Hub 라우팅에서 스토리지 엔드포인트에 Blob을 배달한 횟수입니다.|차원 없음|
-|EventGridDeliveries|Event Grid 배달 (미리 보기)|개수|Total|Event Grid에 게시 된 IoT Hub 이벤트 수입니다. 성공 및 실패 한 요청의 수에 대해 결과 차원을 사용 합니다. EventType dimension 이벤트 유형 ()https://aka.ms/ioteventgrid) 을 표시 합니다. 요청을 가져올 위치를 확인 하려면 EventType 차원을 사용 합니다.|Result, EventType|
+|EventGridDeliveries|Event Grid 배달 (미리 보기)|개수|Total|Event Grid에 게시 된 IoT Hub 이벤트 수입니다. 성공 및 실패 한 요청의 수에 대해 결과 차원을 사용 합니다. EventType dimension 이벤트 유형 (https://aka.ms/ioteventgrid) 을 표시 합니다. 요청을 가져올 위치를 확인 하려면 EventType 차원을 사용 합니다.|Result, EventType|
 |EventGridLatency|Event Grid 대기 시간 (미리 보기)|밀리초|평균|Event Grid에 이벤트가 게시 될 때 Iot Hub 이벤트가 생성 된 시간에 대 한 평균 대기 시간 (밀리초)입니다. 이 숫자는 모든 이벤트 유형 사이의 평균입니다. 특정 유형의 이벤트에 대 한 대기 시간을 확인 하려면 EventType 차원을 사용 합니다.|이벤트 유형|
 |d2c<br>.twin<br>.read<br>.success|디바이스에서의 성공한 쌍 읽기|개수|Total|성공한 모든 디바이스 시작 쌍 읽기 수입니다.|차원 없음|
 |d2c<br>.twin<br>.read<br>.failure|디바이스에서의 실패한 쌍 읽기|개수|Total|실패한 모든 디바이스 시작 쌍 읽기 수입니다.|차원 없음|
@@ -81,7 +81,7 @@ IoT Hub는 허브의 상태와 연결된 디바이스의 총 수에 대한 개�
 |c2d<br>.methods<br>.failure|실패한 직접 메서드 호출|개수|Total|실패한 모든 직접 메서드 호출의 수입니다.|차원 없음|
 |c2d<br>.methods<br>.requestSize|직접 메서드 호출의 요청 크기|바이트|평균|성공한 모든 직접 메서드 요청의 평균, 최소값, 최대값입니다.|차원 없음|
 |c2d<br>.methods<br>.responseSize|직접 메서드 호출의 응답 크기|바이트|평균|성공한 모든 직접 메서드 응답의 평균, 최소값, 최대값입니다.|차원 없음|
-|c2d<br>.twin<br>.read<br>.success|백 엔드에서의 성공한 쌍 읽기|개수|Total|성공한 모든 백 엔드 시작 쌍 읽기 수입니다.|차원 없음|
+|c2d<br>.twin<br>.read<br>.success|백 엔드에서의 성공한 쌍 읽기|개수|Total|성공한 모든 백 엔드 시작 쌍 읽기 수입니다. 이 수에는 쌍 쿼리에서 시작 된 쌍 읽기가 포함 되지 않습니다.|차원 없음|
 |c2d<br>.twin<br>.read<br>.failure|백 엔드에서의 실패한 쌍 읽기|개수|Total|실패한 모든 백 엔드 시작 쌍 읽기 수입니다.|차원 없음|
 |c2d<br>.twin<br>.read<br>.size|백 엔드에서의 쌍 읽기 응답 크기|바이트|평균|성공한 모든 백 엔드 시작 쌍 읽기 수의 평균, 최소값 및 최대값입니다.|차원 없음|
 |c2d<br>.twin<br>.update<br>.success|백 엔드에서의 성공한 쌍 업데이트|개수|Total|성공한 모든 백 엔드 시작 쌍 업데이트 수입니다.|차원 없음|

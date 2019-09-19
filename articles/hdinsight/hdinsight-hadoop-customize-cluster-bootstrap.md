@@ -1,6 +1,6 @@
 ---
-title: 부트스트랩을 사용 하 여 Azure HDInsight 클러스터 구성을 사용자 지정
-description: 프로그래밍 방식으로.Net, PowerShell 및 Resource Manager를 사용 하 여 HDInsight 클러스터 구성을 사용자 지정 하는 방법을 알아봅니다 템플릿.
+title: 부트스트랩을 사용 하 여 Azure HDInsight 클러스터 구성 사용자 지정
+description: .Net, PowerShell 및 리소스 관리자 템플릿을 사용 하 여 프로그래밍 방식으로 HDInsight 클러스터 구성을 사용자 지정 하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,24 +8,24 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: 50db9a588cd953bbd0e912ec942194a8deeffe4c
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 15d08b14e38f097e8e9c3e0db893efb1d6efe44d
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484050"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098677"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정
 
-부트스트랩 스크립트를 사용 하면 설치 하 고 Azure HDInsight에서 구성 요소를 프로그래밍 방식으로 구성할 수 있습니다. 
+부트스트랩 스크립트를 사용 하 여 프로그래밍 방식으로 Azure HDInsight의 구성 요소를 설치 및 구성할 수 있습니다.
 
-HDInsight 클러스터가 만들어질 때 구성 파일 설정을 설정 하는 방법은 세 가지가 있습니다.
+HDInsight 클러스터를 만들 때 구성 파일 설정을 설정 하는 방법에는 세 가지가 있습니다.
 
 * Azure PowerShell 사용
 * .NET SDK 사용
 * Azure Resource Manager 템플릿 사용
 
-예를 들어 프로그래밍 방식으로 이러한 메서드를 사용 하면 옵션을 구성할 수 이러한 파일에:
+예를 들어 이러한 프로그래밍 메서드를 사용 하 여 다음 파일의 옵션을 구성할 수 있습니다.
 
 * clusterIdentity.xml
 * core-site.xml
@@ -44,19 +44,18 @@ HDInsight 클러스터가 만들어질 때 구성 파일 설정을 설정 하는
 * yarn-site.xml
 * server.properties(kafka-broker 구성)
 
-만든 시간 동안 HDInsight 클러스터에서 추가 구성 요소 설치에 대 한 내용은 참조 하세요 [사용자 지정 HDInsight 스크립트 동작 (Linux)를 사용 하 여 클러스터](hdinsight-hadoop-customize-cluster-linux.md)합니다.
+만든 시간 동안 HDInsight 클러스터에 추가 구성 요소를 설치 하는 방법에 대 한 자세한 내용은 [스크립트 작업을 사용 하 여 hdinsight 클러스터 사용자 지정 (Linux)](hdinsight-hadoop-customize-cluster-linux.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-* PowerShell을 사용 하는 경우는 [Az 모듈](https://docs.microsoft.com/powershell/azure/overview)합니다.
+* PowerShell을 사용 하는 경우 [Az Module](https://docs.microsoft.com/powershell/azure/overview)이 필요 합니다.
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell 사용
 
 다음 PowerShell 코드는 [Apache Hive](https://hive.apache.org/) 구성을 사용자 지정합니다.
 
 > [!IMPORTANT]  
-> 매개 변수 `Spark2Defaults` 사용 해야 할 수 있습니다 [추가-AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue)합니다. 아래 코드 예제에 표시 된 대로 매개 변수에 빈 값을 전달할 수 있습니다.
-
+> 매개 변수 `Spark2Defaults` 는 [AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue)와 함께 사용 해야 할 수 있습니다. 아래 코드 예제에 표시 된 것 처럼 매개 변수에 빈 값을 전달할 수 있습니다.
 
 ```powershell
 # hive-site.xml configuration
@@ -130,29 +129,27 @@ Resource Manager 템플릿에서 부트스트랩을 사용할 수 있습니다.
 }
 ```
 
-![HDInsight Hadoop 사용자 지정 클러스터 부트스트랩 Azure Resource Manager 템플릿](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+![Hadoop은 클러스터 부트스트랩 Azure Resource Manager 템플릿을 사용자 지정 합니다.](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
-## <a name="see-also"></a>참고 항목
-* [HDInsight에서 Apache Hadoop 클러스터 만들기][hdinsight-provision-cluster] 다른 사용자 지정 옵션을 사용 하 여 HDInsight 클러스터를 만드는 방법에 대 한 지침을 제공 합니다.
+## <a name="see-also"></a>참고자료
+
+* [Hdinsight에서 Apache Hadoop 클러스터 만들기][hdinsight-provision-cluster] 에서는 다른 사용자 지정 옵션을 사용 하 여 hdinsight 클러스터를 만드는 방법에 대 한 지침을 제공 합니다.
 * [HDInsight용 스크립트 작업 스크립트 개발][hdinsight-write-script]
-* [설치 하 고 HDInsight 클러스터에서 Apache Spark 사용][hdinsight-install-spark]
+* [HDInsight 클러스터에 Apache Spark 설치 및 사용][hdinsight-install-spark]
 * [HDInsight 클러스터에 Apache Giraph 설치 및 사용](hdinsight-hadoop-giraph-install.md)
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions-linux.md
 [hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-
-
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "클러스터를 만드는 동안의 단계"
 
 ## <a name="appendix-powershell-sample"></a>부록: PowerShell 샘플
 
-이 PowerShell 스크립트는 HDInsight 클러스터를 만들고 Hive 설정을 사용자 지정 합니다. 에 대 한 값을 입력 해야 `$nameToken`, `$httpPassword`, 및 `$sshPassword`합니다.
+이 PowerShell 스크립트는 HDInsight 클러스터를 만들고 Hive 설정을 사용자 지정 합니다. , `$nameToken` `$httpPassword`및 에대한값을입력해야합니다.`$sshPassword`
 
 > [!WARNING]  
-> 저장소 계정 종류 `BlobStorage` HDInsight 클러스터에 사용할 수 없습니다.
-
+> 스토리지 계정 종류 `BlobStorage`는 HDInsight 클러스터에 사용할 수 없습니다.
 
 ```powershell
 ####################################

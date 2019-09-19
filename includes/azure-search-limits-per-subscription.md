@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: 1e147e8bd9260cd1ece60b70641968a229995ec1
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 09/18/2019
 ms.locfileid: "67182582"
 ---
 구독 내에서 여러 서비스를 만들 수 있습니다. 각 항목은 특정 계층에서 프로 비전 할 수 있습니다. 각 계층에서 허용 되는 서비스 수에 의해서만 제한 됩니다. 예를 들어, 기본 계층에 최대 12개의 서비스를 만들고, 동일한 구독 내의 S1 계층에 12개의 다른 서비스를 만들 수 있습니다. 계층에 대 한 자세한 내용은 [AZURE SEARCH SKU 또는 계층 선택](../articles/search/search-sku-tier.md)을 참조 하세요.

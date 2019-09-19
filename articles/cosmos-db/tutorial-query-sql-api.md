@@ -8,12 +8,12 @@ ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 05/21/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9c6bd2040cb90f7a837efdf11d33a6e6999bc944
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 7e57abcc3df17dadd2e607895a8de011761ed68c
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965485"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932790"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>자습서: SQL API를 사용하여 Azure Cosmos DB 쿼리
 
@@ -61,7 +61,7 @@ Azure Cosmos DB [SQL API](documentdb-introduction.md)는 SQL을 사용하여 문
 Azure Portal의 [데이터 탐색기]를 사용하여 [REST API 및 SDK](sql-api-sdk-dotnet.md)를 통해 쿼리를 실행할 수 있으며, 기존 샘플 데이터 집합에 대해 쿼리를 실행하는 [쿼리 실습](https://www.documentdb.com/sql/demo)도 사용할 수 있습니다.
 
 SQL 쿼리에 대한 자세한 내용은 다음을 참조하세요.
-* [SQL 쿼리 및 SQL 구문](how-to-sql-query.md)
+* [SQL 쿼리 및 SQL 구문](sql-query-getting-started.md)
 
 ## <a name="prerequisites"></a>필수 조건
 

@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: b298c87d802314bd865bd6f38c35e4361eb69f3f
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 09/18/2019
 ms.locfileid: "67182583"
 ---
 스토리지는 디스크 공간이나 인덱스, 문서 또는 기타 고급 리소스의 *최대 수*의 하드 제한 중에서 먼저 충족되는 조건에 따라 제한됩니다. 다음 표에서는 스토리지 제한에 대해 설명합니다. 인덱스, 문서 및 기타 개체에 대 한 최대 제한은 [리소스로 제한](../articles/search/search-limits-quotas-capacity.md#index-limits)을 참조 하세요.
@@ -21,7 +21,7 @@ ms.locfileid: "67182583"
 | -------- | --- | --- | --- | --- | --- | --- | --- | --- |
 | SLA (서비스 수준 계약)<sup>3</sup>  |아니요 |예 |예 |예 |예 |예 |예 |예 |
 | 파티션당 스토리지 |50MB |2 GB |25GB |100GB |200GB |200GB |1TB |2TB |
-| 서비스당 파티션 |해당 사항 없음 |1 |12 |12 |12 |3 |12 |12 |
+| 서비스당 파티션 |N/A |1 |12 |12 |12 |3 |12 |12 |
 | 파티션 크기 |해당 사항 없음 |2GB |25GB |100GB |200GB |200GB |1TB |2TB |
 | 복제본 |해당 사항 없음 |3 |12 |12 |12 |12 |12 |12 |
 

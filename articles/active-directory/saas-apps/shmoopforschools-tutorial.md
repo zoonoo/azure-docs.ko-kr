@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5fa47e029434b70166403b8603c820d611690f2
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: c88457653d73931600c37f5e332cc4327dc7957a
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975977"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102892"
 ---
 # <a name="tutorial-integrate-shmoop-for-schools-with-azure-active-directory"></a>자습서: Azure Active Directory와 Shmoop For Schools 통합
 
@@ -91,14 +91,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Shmoop For Schools 클라이언트 지원 팀](mailto:support@shmoop.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-5. Shmoop For Schools 애플리케이션에는 특정 형식의 SAML 어설션이 필요하기 때문에 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  아이콘을 클릭하여  **사용자 특성**  대화 상자를 엽니다.
+5. Shmoop For Schools 애플리케이션에는 특정 형식의 SAML 어설션이 필요하기 때문에 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
     ![이미지](common/edit-attribute.png)
 
     > [!NOTE]
     > Shmoop For Schools는 사용자에게 다음과 같은 두 가지 역할을 지원합니다. **교사** 및 **학생**. 사용자가 적절한 역할을 할당 받을 수 있도록 Azure AD에서 이러한 역할을 설정합니다. Azure AD에서 역할을 구성하는 방법을 이해하려면 [여기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)를 참조하세요.
 
-6. 위에서 언급한 특성 외에도, Shmoop For Schools 애플리케이션에는 SAML 응답으로 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다.  **사용자 특성**  대화 상자의  **사용자 클레임**  섹션에서 다음 단계를 수행하여 아래 표와 같이 SAML 토큰 특성을 추가합니다. 
+6. 위에서 언급한 특성 외에도, Shmoop For Schools 애플리케이션에는 SAML 응답으로 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다. 
 
     | Name |  원본 특성|
     | --------- | --------------- |

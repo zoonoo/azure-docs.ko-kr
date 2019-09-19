@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 952126b76b00ff472181c72b1fd7b1a0e1b14e40
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 51e5c654da95732409c3bbb7acae088d8935a59d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976356"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71000631"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Azure CLI를 사용하여 Key Vault 관리 
 
@@ -35,7 +35,7 @@ Azure Key Vault는 대부분 지역에서 사용할 수 있습니다. 자세한 
 > 이 문서에서는 단계 중 하나에 포함된 Azure 애플리케이션을 작성하는 방법에 대한 지침을 포함하고 있지 않지만, 키 자격 증명 모음에서 키 또는 비밀을 사용할 수 있도록 애플리케이션에 권한을 부여하는 방법을 보여 줍니다.
 >
 
-Azure Key Vault에 대한 개요는 [Azure Key Vault란?](key-vault-whatis.md)을 참조하세요.
+Azure Key Vault에 대한 개요는 [Azure Key Vault란?](key-vault-overview.md)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건

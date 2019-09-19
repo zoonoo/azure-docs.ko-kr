@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 7220c72625697490d9c42dab7e18ca4bf64d3f43
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8092108ef13f4b86f20cf5a8a0b41b49d75aa626
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085620"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098696"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -123,7 +123,7 @@ requests
 
 사용할 수 있는 테이블이 왼쪽의 **스키마** 탭에 표시 됩니다. 다음 테이블에서 함수 호출에 의해 생성된 데이터를 찾을 수 있습니다.
 
-| Table | 설명 |
+| Table | Description |
 | ----- | ----------- |
 | **traces** | 런타임과 함수 코드에 의해 생성 된 로그입니다. |
 | **requests** | 각 함수 호출에 대해 하나의 요청 |
@@ -165,7 +165,7 @@ Azure Functions 로거에는 모든 로그에 대한 *범주*가 포함되어 �
 |디버그       | 1 |
 |정보 | 2 |
 |경고     | 3 |
-|Error       | 4 |
+|오류       | 4 |
 |심각    | 5 |
 |없음        | 6 |
 
@@ -610,7 +610,7 @@ Application Insights의 Functions 통합 문제를 보고하거나 제안 사항
 
 함수 실행에 의해 생성 되는 로그 파일의 스트림을 보는 방법에는 두 가지가 있습니다.
 
-* **기본 제공 로그 스트리밍**: App Service 플랫폼을 사용 하면 응용 프로그램 로그 파일의 스트림을 볼 수 있습니다. 이는 [로컬 개발](functions-develop-local.md) 중에 또는 포털에서 **테스트** 탭을 사용할 때 표시 되는 출력과 동일 합니다. 모든 로그 기반 정보가 표시 됩니다. 자세한 내용은 [로그를 스트리밍하는 방법](../app-service/troubleshoot-diagnostic-logs.md#streamlogs)을 참조하세요. 이 스트리밍 방법은 단일 인스턴스만 지원 하며 소비 계획에서 Linux에서 실행 되는 앱과 함께 사용할 수 없습니다.
+* **기본 제공 로그 스트리밍**: App Service 플랫폼을 사용 하면 응용 프로그램 로그 파일의 스트림을 볼 수 있습니다. 이는 [로컬 개발](functions-develop-local.md) 중에 또는 포털에서 **테스트** 탭을 사용할 때 표시 되는 출력과 동일 합니다. 모든 로그 기반 정보가 표시 됩니다. 자세한 내용은 [스트림 로그](../app-service/troubleshoot-diagnostic-logs.md#stream-logs)를 참조 하세요. 이 스트리밍 방법은 단일 인스턴스만 지원 하며 소비 계획에서 Linux에서 실행 되는 앱과 함께 사용할 수 없습니다.
 
 * **라이브 메트릭 스트림**: 함수 앱이 [Application Insights에 연결](#enable-application-insights-integration)된 경우 [라이브 메트릭 스트림](../azure-monitor/app/live-stream.md)를 사용 하 여 Azure Portal에서 거의 실시간으로 로그 데이터 및 기타 메트릭을 볼 수 있습니다. 소비 계획의 여러 인스턴스 또는 Linux에서 실행 되는 함수를 모니터링 하는 경우이 방법을 사용 합니다. 이 메서드는 [샘플링 된 데이터](#configure-sampling)를 사용 합니다.
 

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: 43fee2ce25e358bbcff915d2fbef96bf4b7c1a0c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 590757f78086be894cdc2384bb4a4df380e91c27
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233112"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098597"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>Visual Studio Code를 사용 하 여 Azure Functions에 Python 배포
 
@@ -31,7 +31,7 @@ ms.locfileid: "70233112"
 
 이 자습서의 단계 중 하나에 문제가 발생 하는 경우 세부 정보에 대 한 의견을 보내 주시기 바랍니다. 각 섹션의 끝에 있는 **문제가 발생** 했습니다. 단추를 사용 하 여 자세한 피드백을 제출 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - [Azure 구독](#azure-subscription).
 - [Azure Functions 확장을 사용 하 여 Visual Studio Code](#visual-studio-code-python-and-the-azure-functions-extension) 합니다.
@@ -45,7 +45,7 @@ Azure 구독이 없는 경우 Azure 크레딧을 사용 하 여 $200의 무료 3
 
 다음 소프트웨어를 설치 합니다.
 
-- Azure Functions에 필요한 Python 3.6. x [Python 3.6.8](https://www.python.org/downloads/release/python-368/) 은 최신 3.6. x 버전입니다.
+- Azure Functions에 필요한 Python 3.6. x [Python 3.6.9](https://www.python.org/downloads/release/python-369/) 은 최신 3.6. x 버전입니다.
 - 및[Visual Studio Code](https://code.visualstudio.com/)가 있습니다.
 - Python [확장](https://marketplace.visualstudio.com/items?itemName=ms-python.python) 은 [Visual Studio Code Python 자습서-필수 구성 요소](https://code.visualstudio.com/docs/python/python-tutorial)에 설명 되어 있습니다.
 - [Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)입니다. 일반 정보는 [vscode-Azurefunctions GitHub 리포지토리](https://github.com/Microsoft/vscode-azurefunctions)를 참조 하세요.
@@ -242,7 +242,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 1. 함수를 디버깅 하려면 URL을 다시 읽고 `name = req.params.get('name')` 요청 하는 줄에 중단점을 설정 합니다. Visual Studio Code 디버거는 해당 줄에서 중지 되어 변수를 검사 하 고 코드를 단계별로 실행할 수 있습니다. 기본 디버깅에 대 한 간단한 연습은 [Visual Studio Code 자습서-디버거 구성 및 실행](https://code.visualstudio.com/docs/python/python-tutorial.md#configure-and-run-the-debugger)을 참조 하세요.)
 
-1. 함수를 로컬로 철저 하 게 테스트 한 > 경우 디버깅**중지** 메뉴 명령 또는 디버깅 도구 모음의 **연결 끊기** 명령을 사용 하 여 디버거를 중지 합니다.
+1. 함수를 로컬로 철저 하 게 테스트 한 경우 디버깅**중지** 메뉴 명령 또는 디버깅 도구 모음의 **연결 끊기** 명령을 사용 >  **하 여 디버거**를 중지 합니다.
 
 > [!div class="nextstepaction"]
 > [문제가 발생했습니다.](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=04-test-debug)
@@ -444,6 +444,18 @@ _바인딩을_ 사용 하면 데이터 액세스 코드를 작성 하지 않고�
           "queueName": "outqueue",
           "connection": "AzureWebJobsStorage"
         }
+    ```
+
+1. *호스트* 의 콘텐츠를 다음으로 바꾸고 [확장 번들 참조](functions-bindings-register.md#extension-bundles)를 추가 합니다.
+
+    ```json
+    {
+        "version": "2.0",
+        "extensionBundle": {
+            "id": "Microsoft.Azure.Functions.ExtensionBundle",
+            "version": "[1.*, 2.0.0)"
+        }
+    }
     ```
 
 1. 이제 바인딩을 구성 했으므로 함수 코드에서 사용할 수 있습니다. 다시, 새로 정의 된 바인딩은 `main` 코드에서  *\_py \_\_\_* 의 함수에 대 한 인수로 표시 됩니다. 예를 들어, 다음에 사용 되는 이름을 사용 하 여 타임 스탬프 메시지를 작성 하는 `msg` 데 인수를 사용 하는 것을 보여 주는 httpexample의 py 파일을 수정할  *\_ \_\_\_* 수 있습니다. 요구. 설명은 특정 변경 내용을 설명 합니다.

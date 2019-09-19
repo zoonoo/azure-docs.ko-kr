@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9102d6f3ce3be44107268419517dc9ebe434ac7a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bfb66789df3236c096ea00bcc83ddc435e87f047
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098455"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097654"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service 로컬 캐시 개요
 
@@ -49,7 +49,7 @@ Azure App Service 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 제�
 * 로컬 캐시는 각각 _D:\home\site_ 및 _D:\home\siteextensions_에 공유 콘텐츠 저장소의 _/site_ 및 _/siteextensions_ 폴더에 대한 일회성 복사본을 포함합니다. 파일은 앱이 시작될 때 로컬 캐시에 복사됩니다. 각 앱에서 두 폴더의 크기는 기본적으로 300MB로 제한되지만 최대 2GB로 증가될 수 있습니다.
 * 로컬 캐시는 읽기/쓰기가 가능합니다. 그러나 앱이 가상 머신을 이동하거나 다시 시작된 경우 모든 수정 내용이 삭제됩니다. 중요 업무용 데이터를 콘텐츠 저장소에 저장하는 앱에 로컬 캐시를 사용해서는 안 됩니다.
 * _D:\home\LogFiles_ 및 _D:\home\Data_에는 로그 파일 및 앱 데이터가 포함됩니다. 두 개의 하위 폴더가 VM 인스턴스에 로컬로 저장되고 공유 콘텐츠 저장소에 주기적으로 복사됩니다. 앱은 로그 파일 및 데이터를 이러한 폴더에 써서 유지할 수 있습니다. 그러나 공유 콘텐츠 저장소로의 복사는 최상의 노력 방식을 따르므로 VM 인스턴스의 갑작스러운 작동 중단으로 인해 로그 파일 및 데이터가 손실될 수 있습니다.
-* [로그 스트리밍](troubleshoot-diagnostic-logs.md#streamlogs)은 최상의 노력 복사의 영향을 받습니다. 스트리밍된 로그에서 최대 1분의 지연을 확인할 수 있습니다.
+* [로그 스트리밍](troubleshoot-diagnostic-logs.md#stream-logs)은 최상의 노력 복사의 영향을 받습니다. 스트리밍된 로그에서 최대 1분의 지연을 확인할 수 있습니다.
 * 공유 콘텐츠 저장소에서 로컬 캐시를 사용하는 앱의 경우 _LogFiles_ 및 _Data_ 폴더의 폴더 구조가 변경되었습니다. 이제 "고유 식별자" + 타임스탬프 명명 패턴을 따르는 하위 폴더가 있습니다. 각 하위 폴더는 앱을 실행 중이거나 실행한 VM 인스턴스에 해당합니다.
 * _D:\home_의 다른 폴더가 로컬 캐시에 남아 있으며 공유 콘텐츠 저장소에 복사되지 않습니다.
 * 지원되는 메서드를 통한 앱 배포는 지속 가능한 공유 콘텐츠 저장소로 직접 게시됩니다. 로컬 캐시에서 _D:\home\site_ 및 _D:\home\siteextensions_ 폴더를 새로 고치려면 앱을 다시 시작해야 합니다. 수명 주기를 원활하게 하려면 이 문서의 뒷부분에 나오는 정보를 참조하세요.

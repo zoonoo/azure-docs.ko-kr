@@ -9,10 +9,10 @@ ms.date: 05/22/2019
 ms.author: curtand
 ms.custom: include file
 ms.openlocfilehash: 421e88374a4ca03311fa77a6568a676aa9ffafa5
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 09/18/2019
 ms.locfileid: "70919708"
 ---
 다음은 Azure AD(Azure Active Directory) 서비스에 대한 사용 제약 조건 및 기타 서비스 제한입니다.

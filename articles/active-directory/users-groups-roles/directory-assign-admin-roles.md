@@ -14,11 +14,11 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54e0648ff9aab12ad6a579fc7f6e45b98a9d6d03
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: c2eff9c0edf6797c08d0ef9732c903a81a6c764a
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 09/18/2019
 ms.locfileid: "70861168"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
@@ -78,12 +78,6 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 * 보안 그룹 및 Office 365 그룹 소유자: 그룹 멤버 자격을 관리할 수 있습니다. 해당 그룹은 중요한 프라이빗 정보 또는 Azure AD 및 다른 위치의 중요한 구성에 대한 액세스 권한을 부여할 수 있습니다.
 * Exchange Online, Office 보안 및 준수 센터, 인사 관리 시스템과 같은 Azure AD 외부의 다른 서비스에 있는 관리자
 * 중요한 프라이빗 정보에 액세스할 수 있는 임원, 법률 고문 및 인사 관리 직원과 같은 비관리자.
-
-### <a name="azure-devops-administratorazure-devops-administrator-permissions"></a>[Azure DevOps 관리자](#azure-devops-administrator-permissions)
-
-이 역할을 가진 사용자는 Azure DevOps 정책을 관리 하 여 새 Azure DevOps 조직 생성을 구성 가능한 사용자/AAD 그룹으로 제한할 수 있습니다. 이 역할의 사용자는 회사의 Azure AD를 기반으로 하는 모든 Azure DevOps 조직을 통해이 정책을 관리할 수 있습니다.
-
-이후에 모든 엔터프라이즈 Azure DevOps 정책은이 역할의 사용자에 의해 관리 됩니다.
 
 ### <a name="azure-information-protection-administratorazure-information-protection-administrator-permissions"></a>[Azure Information Protection 관리자](#azure-information-protection-administrator-permissions)
 
@@ -226,7 +220,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 * 보고서 읽기 권한자
 
 > [!IMPORTANT]
-> 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 암호를 변경할 수 있습니다. 사용자의 암호를 변경한다는 것은 사용자의 ID 및 권한을 가정할 수 있다는 것을 의미합니다. 예를 들어:
+> 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 암호를 변경할 수 있습니다. 사용자의 암호를 변경한다는 것은 사용자의 ID 및 권한을 가정할 수 있다는 것을 의미합니다. 예:
 
 * 애플리케이션 등록 및 엔터프라이즈 애플리케이션 소유자: 소유한 앱의 자격 증명을 관리할 수 있습니다. 이러한 앱은 Azure AD에서 권한이 부여되었을 수 있으며, 다른 위치에서는 기술 지원 팀 관리자에 권한이 부여되지 않습니다. 이 경로를 통해 기술 지원 팀 관리자는 애플리케이션 소유자의 ID를 가정하고, 애플리케이션의 자격 증명을 업데이트하여 권한 있는 애플리케이션의 ID를 추가로 가정할 수 있습니다.
 * Azure 구독 소유자: Azure에서 중요한 프라이빗 정보 또는 중요한 구성에 액세스할 수 있습니다.
@@ -497,19 +491,6 @@ Windows Defender ATP 및 EDR | 경고를 확인 하 고 조사 합니다. Window
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 | microsoft. directory/사용자/암호/업데이트 | Office 365 조직의 모든 사용자에 대 한 암호를 업데이트 합니다. 자세한 내용은 온라인 설명서를 참조하세요. |
-
-### <a name="azure-devops-administrator-permissions"></a>Azure DevOps 관리자 권한
-
-Azure DevOps 조직 정책 및 설정을 관리할 수 있습니다.
-
-> [!NOTE]
-> 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위의 [역할 설명](#azure-devops-administrator) 을 참조 하세요.
->
->
-
-| **actions** | **설명** |
-| --- | --- |
-| microsoft azure. devOps/allEntities/Allentities | Azure DevOps를 읽고 구성 합니다. |
 
 ### <a name="azure-information-protection-administrator-permissions"></a>Azure Information Protection 관리자 권한
 
@@ -1515,7 +1496,6 @@ Microsoft Teams 서비스를 관리할 수 있습니다.
 애플리케이션 관리자 | 애플리케이션 관리자 | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 애플리케이션 개발자 | 응용 프로그램 개발자 | CF1C38E5-3621-4004-A7CB-879624DCED7C
 인증 관리자 | 인증 관리자 | c4e39bd9-1100-46d3-8c65-fb160da0071f
-Azure DevOps 관리자 | Azure DevOps 관리자 | e3973bdf-4987-49ae-837a-ba8e231c7286
 Azure Information Protection 관리자 | Azure Information Protection 관리자 | 7495fdc4-34c4-4d15-a289-98788ce399fd
 B2C 사용자 흐름 관리자 | B2C 사용자 흐름 관리자 | 6e591065-9bad-43ed-90f3-e9424366d2f0
 B2C 사용자 흐름 특성 관리자 | B2C 사용자 흐름 특성 관리자 | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
