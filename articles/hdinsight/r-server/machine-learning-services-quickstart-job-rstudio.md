@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 6d87e46b522bb7c7e55c711194cc6456fcd89e92
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: ecb173a31e6c61991eba1bb7525f6b978d9fff72
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736207"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960042"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>빠른 시작: RStudio Server를 사용하여 Azure HDInsight의 ML Services 클러스터에서 R 스크립트 실행
 
@@ -37,7 +37,7 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
 연결되면 다음 스크린샷과 유사한 화면이 표시됩니다.
 
-![클러스터 기본 세부 정보](./media/ml-services-quickstart-job-rstudio/connect-to-r-studio.png)
+![클러스터 기본 세부 정보](./media/ml-services-quickstart-job-rstudio/connect-to-r-studio1.png)
 
 ## <a name="use-a-compute-context"></a>컴퓨팅 컨텍스트 사용
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.openlocfilehash: 3ffb28ba6c2e6170198a0a360315b7d71f059c34
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: c4c6348c0af478ae3df160c4c50cb344456177b0
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899915"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984622"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>자습서: IntelliJ를 사용하여 HDInsight의 Apache Spark용 Scala Maven 애플리케이션 만들기
 
@@ -49,7 +49,7 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
 
 2. 시작 화면에서 **구성** > **플러그인**으로 이동하여 **플러그인** 창을 엽니다.
 
-    ![scala 플러그 인 활성화](./media/apache-spark-create-standalone-application/enable-scala-plugin.png)
+    ![scala 플러그 인 활성화](./media/apache-spark-create-standalone-application/enable-scala-plugin1.png)
 
 3. 새 창에 제공되는 Scala 플러그인에 대해 **설치**를 선택합니다.  
 
@@ -82,7 +82,7 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
   	|프로젝트 SDK| IDEA를 처음 사용하는 경우에는 비어 있습니다.  **새로 만들기...** 를 만들기 JDK로 이동합니다.|
   	|Spark 버전|만들기 마법사는 Spark SDK 및 Scala SDK에 대해 적합한 버전을 통합합니다. Spark 클러스터 2.0 이하 버전을 사용하는 경우 **Spark 1.x**를 선택합니다. 그렇지 않은 경우 **Spark2.x**를 선택합니다. 이 예제에서는 **Spark 2.3.0(Scala 2.11.8)** 을 사용합니다.|
 
-    ![Spark SDK 선택](./media/apache-spark-create-standalone-application/hdi-new-project.png)
+    ![Spark SDK 선택](./media/apache-spark-create-standalone-application/hdi-scala-new-project.png)
 
 7. **마침**을 선택합니다.
 
@@ -125,7 +125,7 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
 
 16. **적용**을 선택한 다음 **확인**을 선택합니다.  그러면 프로젝트 창으로 돌아갑니다.
 
-    ![자동 다운로드를 위해 Maven 구성](./media/apache-spark-create-standalone-application/configure-maven.png)
+    ![자동 다운로드를 위해 Maven 구성](./media/apache-spark-create-standalone-application/configure-maven-download.png)
 
 
 17. 왼쪽 창에서 **src** > **main** > **scala** > **com.microsoft.spark.example**로 이동하고 **앱**을 두 번 클릭하여 App.scala를 엽니다.
@@ -177,21 +177,21 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
 
     2. **프로젝트 구조** 창에서 **아티팩트** > **더하기 기호 +**  > **JAR** > **종속 항목이 있는 모듈에서...** 로 이동합니다.
 
-        ![JAR 만들기1](./media/apache-spark-create-standalone-application/create-jar-1.png)
+        ![JAR 만들기1](./media/apache-spark-create-standalone-application/hdinsight-create-jar1.png)
 
     3. **모듈에서 JAR 만들기** 창의 **주 클래스** 텍스트 상자에서 폴더 아이콘을 선택합니다.
 
     4. **주 클래스 선택** 창에서 기본적으로 표시되는 클래스를 선택한 다음, **확인**을 선택합니다.
 
-        ![JAR 만들기2](./media/apache-spark-create-standalone-application/create-jar-2.png)
+        ![JAR 만들기2](./media/apache-spark-create-standalone-application/hdinsight-create-jar2.png)
 
     5. **모듈에서 JAR 만들기** 창에서 **대상 JAR에 추출** 옵션이 선택되었는지 확인한 다음, **확인**을 선택합니다.  이 설정을 사용하면 모든 종속성이 있는 단일 JAR이 만들어집니다.
 
-        ![JAR 만들기3](./media/apache-spark-create-standalone-application/create-jar-3.png)
+        ![JAR 만들기3](./media/apache-spark-create-standalone-application/hdinsight-create-jar3.png)
 
     6. **출력 레이아웃** 탭에는 Maven 프로젝트의 일부분으로 포함된 jar이 모두 나열됩니다. 직접 종속성이 없는 Scala 애플리케이션을 선택하고 삭제할 수 있습니다. 여기에서 만드는 애플리케이션의 경우 마지막 것(**SparkSimpleApp 컴파일 출력**)을 제외한 모두를 제거할 수 있습니다. jar을 선택하여 삭제한 다음, 빼기 기호 **-** 를 선택합니다.
 
-        ![JAR 만들기4](./media/apache-spark-create-standalone-application/delete-output-jars.png)
+        ![JAR 만들기4](./media/apache-spark-create-standalone-application/hdi-delete-output-jars.png)
 
         프로젝트를 작성하거나 업데이트할 때마다 jar이 생성되는지 확인하는 **프로젝트 빌드에 포함** 확인란이 선택되었는지 확인합니다. **적용**을 선택한 다음, **확인**을 선택합니다.
 

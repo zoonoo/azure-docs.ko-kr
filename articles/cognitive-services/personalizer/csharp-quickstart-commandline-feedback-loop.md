@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 2940073d18cfee5a2313c03a5e9de6c00782edff
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 2fc9e91a34975642a666aa794694cfcc3321c93f
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882931"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962554"
 ---
 # <a name="quickstart-personalize-client-library-for-net"></a>빠른 시작: .NET용 Personalizer 클라이언트 라이브러리
 
