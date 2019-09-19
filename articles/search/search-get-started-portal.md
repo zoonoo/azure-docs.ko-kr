@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure Portal을 사용하여 인덱스 만들기, 로드 및 쿼리 - Azure Search'
+title: '빠른 시작: Azure Portal을 사용하여 검색 인덱스 만들기 - Azure Search'
 description: Azure Portal에서 데이터 가져오기 마법사를 사용하여 Azure Search에서 첫 번째 인덱스를 만들고 로드하고 쿼리합니다.
 author: lobrien
 manager: nitinme
@@ -7,14 +7,14 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 07/01/2019
+ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: c2950b35f207f772f1190a2f8f104098eeb43375
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 44f370829b972840ac4266a760fefb4aa317be30
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656360"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884571"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]

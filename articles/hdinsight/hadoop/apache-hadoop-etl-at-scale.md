@@ -8,20 +8,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: ashishth
-ms.openlocfilehash: e4168b2aec73efcaa282398cbe145df49a117da0
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d19640d19c3b7fa611f5bfe0e4fd0868924650c5
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810768"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066931"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>규모에 맞게 ETL(추출, 변환 및 로드)
 
-ETL(추출, 변환 및 로드)은 다양한 원본에서 데이터를 가져오고, 표준 위치에 수집하고, 정리 및 처리한 다음, 최종적으로 쿼리할 수 있는 데이터 저장소에 로드하는 프로세스입니다. 레거시 ETL 프로세스는 데이터를 가져오고, 제 위치에서 정리한 다음, 관계형 데이터 엔진에 저장합니다. HDInsight를 사용하면 다양한 Apache Hadoop 에코시스템 구성 요소에서 규모에 맞게 ETL을 수행할 수 있습니다. 
+ETL(추출, 변환 및 로드)은 다양한 원본에서 데이터를 가져오고, 표준 위치에 수집하고, 정리 및 처리한 다음, 최종적으로 쿼리할 수 있는 데이터 저장소에 로드하는 프로세스입니다. 레거시 ETL 프로세스는 데이터를 가져오고, 제 위치에서 정리한 다음, 관계형 데이터 엔진에 저장합니다. HDInsight를 사용하면 다양한 Apache Hadoop 에코시스템 구성 요소에서 규모에 맞게 ETL을 수행할 수 있습니다.
 
 ETL 프로세스에서 HDInsight를 사용하는 방법은 다음과 같은 파이프라인으로 요약할 수 있습니다.
 
-![HDInsight ETL 개요](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
+![대규모 HDInsight ETL 개요 개요](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
 
 다음 섹션에서는 ETL 단계 및 관련 구성 요소 각각에 대해 살펴봅니다.
 
@@ -35,11 +35,11 @@ ETL 프로세스에서 HDInsight를 사용하는 방법은 다음과 같은 파�
 
 Apache Oozie는 Hadoop 작업을 관리하는 워크플로 조정 시스템입니다. Oozie는 HDInsight 클러스터 내에서 실행되며 Hadoop 스택과 통합됩니다. Oozie는 Apache Hadoop MapReduce, Apache Pig, Apache Hive 및 Apache Sqoop에 대한 Hadoop 작업을 지원합니다. 또한 Oozie를 사용하여 Java 프로그램 또는 셸 스크립트와 같이 시스템 특정의 작업을 예약할 수 있습니다.
 
-자세한 내용은 [Apache Hadoop과 함께 Apache Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행](../hdinsight-use-oozie-linux-mac.md)을 참조하세요. Oozie를 사용하여 엔드투엔드 파이프라인을 구동하는 방법에 대한 자세한 내용은 [데이터 파이프라인 운용](../hdinsight-operationalize-data-pipeline.md)을 참조하세요. 
+자세한 내용은 [Apache Hadoop과 함께 Apache Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행](../hdinsight-use-oozie-linux-mac.md)을 참조하세요. Oozie를 사용하여 엔드투엔드 파이프라인을 구동하는 방법에 대한 자세한 내용은 [데이터 파이프라인 운용](../hdinsight-operationalize-data-pipeline.md)을 참조하세요.
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
-Azure Data Factory는 오케스트레이션 기능을 PaaS(Platform as a Service ) 형태로 제공합니다. 데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스입니다. 
+Azure Data Factory는 오케스트레이션 기능을 PaaS(Platform as a Service ) 형태로 제공합니다. 데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스입니다.
 
 Azure Data Factory를 사용하면 다음을 수행할 수 있습니다.
 

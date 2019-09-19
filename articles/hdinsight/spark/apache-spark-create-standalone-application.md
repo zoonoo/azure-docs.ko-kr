@@ -1,5 +1,5 @@
 ---
-title: '자습서: IntelliJ를 사용하여 Azure HDInsight에서 Spark용 Scala Maven 애플리케이션 만들기'
+title: '자습서: IntelliJ를 사용한 Spark용 Scala Maven 애플리케이션 - Azure HDInsight'
 description: 자습서 - Apache Maven을 빌드 시스템으로 사용하여 Scala에서 작성된 Spark 애플리케이션 및 IntelliJ IDEA에서 제공하는 Scala에 대한 기존 Maven 원형을 만듭니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.openlocfilehash: 263eea88182a947eccc8a57450432fce8d2fcfc9
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 3ffb28ba6c2e6170198a0a360315b7d71f059c34
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839736"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899915"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>자습서: IntelliJ를 사용하여 HDInsight의 Apache Spark용 Scala Maven 애플리케이션 만들기
 
@@ -33,7 +33,7 @@ ms.locfileid: "68839736"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
+* HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
 * [Oracle Java Development 키트](https://www.azul.com/downloads/azure-only/zulu/).  이 자습서에서는 Java 버전 8.0.202를 사용합니다.
 
@@ -177,27 +177,27 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
 
     2. **프로젝트 구조** 창에서 **아티팩트** > **더하기 기호 +**  > **JAR** > **종속 항목이 있는 모듈에서...** 로 이동합니다.
 
-        ![JAR 만들기](./media/apache-spark-create-standalone-application/create-jar-1.png)
+        ![JAR 만들기1](./media/apache-spark-create-standalone-application/create-jar-1.png)
 
     3. **모듈에서 JAR 만들기** 창의 **주 클래스** 텍스트 상자에서 폴더 아이콘을 선택합니다.
 
     4. **주 클래스 선택** 창에서 기본적으로 표시되는 클래스를 선택한 다음, **확인**을 선택합니다.
 
-        ![JAR 만들기](./media/apache-spark-create-standalone-application/create-jar-2.png)
+        ![JAR 만들기2](./media/apache-spark-create-standalone-application/create-jar-2.png)
 
     5. **모듈에서 JAR 만들기** 창에서 **대상 JAR에 추출** 옵션이 선택되었는지 확인한 다음, **확인**을 선택합니다.  이 설정을 사용하면 모든 종속성이 있는 단일 JAR이 만들어집니다.
 
-        ![JAR 만들기](./media/apache-spark-create-standalone-application/create-jar-3.png)
+        ![JAR 만들기3](./media/apache-spark-create-standalone-application/create-jar-3.png)
 
     6. **출력 레이아웃** 탭에는 Maven 프로젝트의 일부분으로 포함된 jar이 모두 나열됩니다. 직접 종속성이 없는 Scala 애플리케이션을 선택하고 삭제할 수 있습니다. 여기에서 만드는 애플리케이션의 경우 마지막 것(**SparkSimpleApp 컴파일 출력**)을 제외한 모두를 제거할 수 있습니다. jar을 선택하여 삭제한 다음, 빼기 기호 **-** 를 선택합니다.
 
-        ![JAR 만들기](./media/apache-spark-create-standalone-application/delete-output-jars.png)
+        ![JAR 만들기4](./media/apache-spark-create-standalone-application/delete-output-jars.png)
 
         프로젝트를 작성하거나 업데이트할 때마다 jar이 생성되는지 확인하는 **프로젝트 빌드에 포함** 확인란이 선택되었는지 확인합니다. **적용**을 선택한 다음, **확인**을 선택합니다.
 
     7. jar을 만들려면 **빌드** > **빌드 아티팩트** > **빌드**로 이동합니다. 프로젝트가 약 30초 후에 컴파일됩니다.  **\out\artifacts** 아래에 출력 jar이 만들어집니다.
 
-        ![JAR 만들기](./media/apache-spark-create-standalone-application/output.png)
+        ![output](./media/apache-spark-create-standalone-application/hdi-artifact-output-jar.png)
 
 ## <a name="run-the-application-on-the-apache-spark-cluster"></a>Apache Spark 클러스터에서 애플리케이션 실행
 

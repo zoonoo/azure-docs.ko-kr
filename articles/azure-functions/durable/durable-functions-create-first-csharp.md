@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 07/19/2019
 ms.author: azfuncdf
-ms.openlocfilehash: e34d000f77ca5a5ac75fadab61b4280d528c6805
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 1579a4dfbab1ec9d9aa6bb3995bd88d948d6d5e2
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735285"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933966"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>C\#으로 첫 번째 지속성 함수 만들기
 
@@ -144,4 +144,4 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
 Visual Studio를 사용하여 C# 지속성 함수 앱을 만들고 게시했습니다.
 
 > [!div class="nextstepaction"]
-> [일반적인 지속성 함수 패턴에 대해 알아보기](durable-functions-concepts.md)
+> [일반적인 지속성 함수 패턴에 대해 알아보기](durable-functions-overview.md#application-patterns)

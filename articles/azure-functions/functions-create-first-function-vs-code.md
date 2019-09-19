@@ -5,19 +5,18 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-keywords: Azure 함수, 함수, 이벤트 처리, 계산, 서버리스 아키텍처
+keywords: Azure 함수, 함수, 이벤트 처리, 컴퓨팅, 서버리스 아키텍처
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 06/25/2019
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fcf9f1d6420dbbde359d386bc3b67a0866aca30d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 52f682f7c7f06056be122b33d27592a55a01be94
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444615"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70744066"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Visual Studio Code를 사용하여 첫 번째 함수 만들기
 
@@ -27,7 +26,7 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션
 
 ![Visual Studio 프로젝트의 Azure Functions 코드](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-이 확장은 현재 C#, JavaScript 및 Java 함수를  지원하며, Python 지원은 현재 미리 보기로 제공됩니다. 이 문서와 다음 문서에 나오는 단계는 JavaScript 및 C# 함수만 지원합니다. Visual Studio Code를 사용하여 Python 함수를 만들고 게시하는 방법에 대해 알아보려면 [Azure Functions에 Python 배포](https://code.visualstudio.com/docs/python/tutorial-azure-functions)를 참조하세요. Visual Studio Code를 사용하여 PowerShell 함수를 만들고 게시하는 방법에 대해 알아보려면 [Azure에서 첫 번째 PowerShell 함수 만들기](functions-create-first-function-powershell.md)를 참조하세요. 
+현재 확장은 C#, JavaScript, Java 및 Python 함수를 지원합니다. 이 문서와 다음 문서에 나오는 단계는 JavaScript 및 C# 함수만 지원합니다. Visual Studio Code를 사용하여 Python 함수를 만들고 게시하는 방법에 대해 알아보려면 [Azure Functions에 Python 배포](https://code.visualstudio.com/docs/python/tutorial-azure-functions)를 참조하세요. Visual Studio Code를 사용하여 PowerShell 함수를 만들고 게시하는 방법에 대해 알아보려면 [Azure에서 첫 번째 PowerShell 함수 만들기](functions-create-first-function-powershell.md)를 참조하세요. 
 
 확장은 현재 미리 보기로 제공되고 있습니다. 자세한 내용은 [Visual Studio Code용 Azure Functions 확장] 확장 페이지를 참조하세요.
 
@@ -64,11 +63,11 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션
 
 ## <a name="run-the-function-in-azure"></a>Azure에서 함수 실행
 
-1. **출력** 패널에서 HTTP 트리거의 URL을 복사합니다. 이전처럼 이 URL 마지막에 `?name=<yourname>` 쿼리 문자열을 추가하고 요청을 실행해야 합니다.
+1. **출력** 패널에서 HTTP 트리거의 URL을 복사합니다. 이 URL에는 `code` 쿼리 매개 변수에 전달되는 함수 키가 포함되어 있습니다. 이전처럼 이 URL 마지막에 `?name=<yourname>` 쿼리 문자열을 추가하고 요청을 실행해야 합니다.
 
     HTTP 트리거 함수를 호출하는 URL은 다음 형식이어야 합니다.
 
-        http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
+        http://<functionappname>.azurewebsites.net/api/<functionname>?code=<function_key>&name=<yourname> 
 
 1. HTTP 요청에 대한 이러한 새 URL을 브라우저의 주소 표시줄에 붙여넣습니다. 다음은 함수에서 반환된 원격 GET 요청에 대한 브라우저의 응답을 보여 줍니다. 
 

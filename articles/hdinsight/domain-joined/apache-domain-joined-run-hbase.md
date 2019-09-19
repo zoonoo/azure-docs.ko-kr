@@ -1,18 +1,18 @@
 ---
-title: 자습서 - Enterprise Security Package를 사용하여 HDInsight에서 Apache HBase 정책 구성 - Azure
+title: 자습서 - Enterprise Security Package를 사용하여 Apache HBase 구성 - Azure
 description: 자습서 - Enterprise Security Package를 사용하여 Azure HDInsight에서 HBase용 Apache Ranger 정책을 구성하는 방법을 알아봅니다.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 06/18/2019
-ms.openlocfilehash: 04592ba307cd696c20778d4a79f03be2eb0ac987
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 09/04/2019
+ms.openlocfilehash: 72e268628560618fb6fa47843f5125d9126a9f3e
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274403"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885162"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache HBase 정책 구성
 
@@ -100,7 +100,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
 
 2. **정책 목록** 화면에 이 클러스터에 대해 생성된 모든 Ranger 정책이 표시됩니다. 미리 구성된 정책 하나가 나열될 수 있습니다. **새 정책 추가**를 클릭합니다.
 
-    ![Apache Ranger 관리 UI 정책 만들기](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+    ![Apache Ranger HBase 정책 목록](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
 3. **정책 만들기** 화면에서 다음 값을 입력합니다.
 
@@ -119,7 +119,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
    * `*`는 문자가 0개 이상 나옴을 나타냅니다.
    * `?`는 문자 하나를 나타냅니다.
 
-   ![Apache Ranger 관리 UI 정책 만들기](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
+   ![Apache Ranger 정책 sales 만들기](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
    >[!NOTE]
    >**사용자 선택**에 도메인 사용자가 자동으로 입력되지 않으면 Ranger가 Azure AD와 동기화될 때까지 잠시 기다립니다.
@@ -138,7 +138,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
    |사용자 선택  | marketing_user1 |
    |권한  | 읽기 |
 
-   ![Apache Ranger 관리 UI 정책 만들기](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
+   ![Apache Ranger 정책 만들기 marketing](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
 
 6. **추가** 를 클릭하여 정책을 저장합니다.
 
@@ -146,7 +146,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
 
 구성된 Ranger 정책에 따라 **sales_user1**은 `Name` 및 `Contact` 열 패밀리의 열에 대한 모든 데이터를 볼 수 있습니다. **marketing_user1**은 `Contact` 열 패밀리의 데이터만 볼 수 있습니다.
 
-### <a name="access-data-as-salesuser1"></a>sales_user1로 데이터에 액세스
+### <a name="access-data-as-sales_user1"></a>sales_user1로 데이터에 액세스
 
 1. 클러스터에 대한 새 SSH 연결을 엽니다. 다음 명령을 사용하여 클러스터에 로그인합니다.
 
@@ -188,7 +188,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
     2 row(s) in 0.1000 seconds
     ```
 
-### <a name="access-data-as-marketinguser1"></a>marketing_user1로 데이터에 액세스
+### <a name="access-data-as-marketing_user1"></a>marketing_user1로 데이터에 액세스
 
 1. 클러스터에 대한 새 SSH 연결을 엽니다. 다음 명령을 사용하여 **marketing_user1**로 로그인합니다.
 

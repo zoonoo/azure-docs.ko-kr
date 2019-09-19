@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/20/2019
+ms.date: 09/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce0882be0419cbbbc7d94cb8d517e27bdb06a780
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: e7d0810c393cf9b6060f456c5ff01d03673b62a9
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013938"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861309"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-watch-by-colors"></a>자습서: Watch by Colors와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -56,7 +56,6 @@ Watch by Colors가 Azure AD에 통합되도록 구성하려면 갤러리에서 W
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **Watch by Colors**를 입력합니다.
 1. 결과 패널에서 **Watch by Colors**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
-
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-watch-by-colors"></a>Watch by Colors에 대한 Azure AD Single Sign-On 구성 및 테스트
 
@@ -123,13 +122,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-watch-by-colors-sso"></a>Watch by Colors SSO 구성
 
-1. 새 웹 브라우저 창을 열고 Watch by Colors 회사 사이트에 관리자로 로그인하여 다음 단계를 수행합니다.
+1. Watch by Colors 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
 
-1. 페이지의 오른쪽 위 모서리에서 **프로필** > **계정 설정** > **SSO(Single Sign On)** 를 클릭합니다.
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+2. 브라우저에 확장을 추가한 후 **Watch by Colors 설정**을 클릭하면 Watch by Colors 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 Watch by Colors에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-5단계를 자동으로 수행합니다.
+
+    ![구성 설정](common/setup-sso.png)
+
+3. Watch by Colors를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Watch by Colors 회사 사이트에 관리자로 로그인하여 다음 단계를 수행합니다.
+
+4. 페이지의 오른쪽 위 모서리에서 **프로필** > **계정 설정** > **SSO(Single Sign On)** 를 클릭합니다.
 
     ![Watch by Colors 구성](./media/watch-by-colors-tutorial/config01.png)
 
-1. **SSO(Single Sign On)** 페이지에서 다음 단계를 수행합니다.
+5. **SSO(Single Sign On)** 페이지에서 다음 단계를 수행합니다.
 
     ![Watch by Colors 구성](./media/watch-by-colors-tutorial/config02.png)
 
@@ -183,5 +190,5 @@ Azure AD 사용자가 Watch by Colors에 로그인할 수 있도록 하려면 Wa
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Azure AD를 사용하여 Blink 사용해보기](https://aad.portal.azure.com/)
+- [Azure AD로 Watch by Colors 체험하기](https://aad.portal.azure.com/)
 

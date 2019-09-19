@@ -8,22 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 08/24/2019
 ms.author: yinhew
-ms.openlocfilehash: fdc5e540dd7e84d47aa139768fbfc2614f38b376
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 686b21d3e02266af77687778c32f0d1ca6d55154
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607724"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383092"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Windows에서 C++로 음성 합성
 
 빠른 시작은 [음성 인식](quickstart-cpp-windows.md) 및 [음성 번역](quickstart-translate-speech-cpp-windows.md)에도 사용할 수 있습니다.
 
-이 문서에서는 Windows용 C++ 콘솔 애플리케이션을 만듭니다. Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 실시간으로 텍스트를 음성으로 합성하여 PC 스피커에서 재생합니다. 이 애플리케이션은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017 이상(모든 버전)으로 빌드되었습니다.
-
-이 문서에 설명된 기능은 [Speech SDK 1.5.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.5.0)에서 사용할 수 있습니다.
+이 문서에서는 Windows용 C++ 콘솔 애플리케이션을 만듭니다. Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 실시간으로 텍스트를 음성으로 합성하여 PC 스피커에서 재생합니다. 이 애플리케이션은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2019(모든 버전)로 빌드되었습니다.
 
 음성 합성에 사용할 수 있는 전체 언어/음성 목록은 [언어 지원](language-support.md#text-to-speech)을 참조하세요.
 
@@ -37,7 +35,9 @@ ms.locfileid: "68607724"
 
 ## <a name="add-sample-code"></a>샘플 코드 추가
 
-1. 원본 파일 *helloworld.cpp*를 엽니다. 다음을 사용하여 아래 코드를 초기 include 문(`#include "stdafx.h"` 또는 `#include "pch.h"`)으로 바꿉니다.
+1. 원본 파일 **helloworld.cpp**를 엽니다.
+
+1. 모든 코드를 다음 코드 조각으로 바꿉니다.
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/cpp-windows/helloworld/helloworld.cpp#code)]
 
@@ -45,21 +45,17 @@ ms.locfileid: "68607724"
 
 1. 문자열 `YourServiceRegion`을 구독과 연결된 [지역](regions.md)으로 바꿉니다(예를 들어 평가판 구독에 대해 `westus`).
 
-1. 프로젝트에 대한 변경 내용을 저장합니다.
+1. 메뉴 모음에서 **파일** > **모두 저장**을 선택합니다.
 
-## <a name="build-and-run-the-app"></a>앱 빌드 및 실행
+## <a name="build-and-run-the-application"></a>애플리케이션 빌드 및 실행
 
-1. 애플리케이션을 빌드합니다. 메뉴 모음에서 **빌드** > **솔루션 빌드**를 선택합니다. 코드는 오류 없이 컴파일됩니다.
+1. 메뉴 모음에서 **빌드** > **솔루션 빌드**를 선택하여 애플리케이션을 빌드합니다. 코드는 이제 오류 없이 컴파일됩니다.
 
-   ![솔루션 빌드 옵션이 강조 표시된 Visual Studio 애플리케이션의 스크린샷](media/sdk/qs-cpp-windows-06-build.png)
+1. **디버그** > **디버깅 시작**을 선택하거나, **F5** 키를 눌러 **helloworld** 애플리케이션을 시작합니다.
 
-1. 애플리케이션을 시작합니다. 메뉴 모음에서 **디버그** > **디버깅 시작**을 선택하거나 **F5** 키를 누릅니다.
+1. 영어 구 또는 문장을 입력합니다. 애플리케이션은 텍스트를 음성 서비스로 전송하고, 여기서 합성된 음성을 스피커에서 재생하기 위해 애플리케이션으로 다시 보냅니다.
 
-   ![디버깅 시작 옵션이 강조 표시된 Visual Studio 애플리케이션의 스크린샷](media/sdk/qs-cpp-windows-07-start-debugging.png)
-
-1. 콘솔 창이 나타나고 텍스트를 입력라는 메시지가 표시됩니다. 몇 가지 단어나 문장을 입력합니다. 입력한 텍스트는 Speech Services로 전송되고 음성으로 합성되어 스피커로 재생됩니다.
-
-   ![합성에 성공한 후 콘솔 출력 스크린샷](media/sdk/qs-tts-cpp-windows-console-output.png)
+   ![음성 합성에 성공한 후의 콘솔 출력](media/sdk/qs-tts-cpp-windows-console-output.png)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -70,5 +66,5 @@ ms.locfileid: "68607724"
 
 ## <a name="see-also"></a>참고 항목
 
-- [음성 글꼴 사용자 지정](how-to-customize-voice-font.md)
-- [음성 샘플 레코드](record-custom-voice-samples.md)
+- [사용자 지정 음성 만들기](how-to-custom-voice-create-voice.md)
+- [사용자 지정 음성 녹음 샘플](record-custom-voice-samples.md)

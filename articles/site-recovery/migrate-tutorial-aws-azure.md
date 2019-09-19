@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: bb60fa216c10b11b6a47c029fbef3698c6f7bd6d
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 1f5f2dc6babbca219f0efbb1d7013d4e6e3270e6
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663491"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873315"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services)에서 Azure로 VM 마이그레이션
 
@@ -30,6 +30,10 @@ ms.locfileid: "68663491"
 > * Azure에 대한 일회성 장애 조치(failover) 실행
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
+
+
+> [!NOTE]
+    > 이제 Azure Migrate 서비스를 사용하여 AWS 인스턴스를 Azure로 마이그레이션할 수 있습니다. [자세히 알아보기](../migrate/tutorial-migrate-physical-virtual-machines.md).
 
 ## <a name="prerequisites"></a>필수 조건
 - 마이그레이션할 VM이 지원되는 OS 버전을 실행하고 있는지 확인합니다. 지원되는 버전은 다음과 같습니다. 
@@ -91,11 +95,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **네트워킹** >
    **가상 네트워크**를 선택합니다.
 3. **이름**에 **myMigrationNetwork**를 입력합니다.
-4. **주소 공간**에 대한 기본값을 그대로 둡니다.
+4. **주소 공간**의 기본값을 그대로 둡니다(값을 입력해야 함).
 5. **구독**에 사용할 Azure 구독을 선택합니다.
 6. **리소스 그룹**에서 **기존 항목 사용**을 선택한 후 **migrationRG**를 선택합니다.
 7. **위치**로 **유럽 서부**를 선택합니다.
-8. **서브넷**에서 **이름** 및 **IP 범위**의 기본값을 그대로 둡니다.
+8. **서브넷**에서 **이름** 및 **IP 범위**의 기본값을 그대로 둡니다(값을 입력해야 함).
 9. DDoS 보호 설정에 대한 지침을 추가합니다.
 10. **서비스 엔드포인트** 옵션을 비활성화합니다.
 11. 방화벽 설정에 대한 지침을 추가합니다.

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 06/28/2019
-ms.openlocfilehash: 17fb83bc845de61f7ec0e674f09c0dc73537f2fd
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.date: 09/06/2019
+ms.openlocfilehash: 6cb10f09772bf6666e197a4b622792c5b62d3ace
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461592"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734798"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>자습서: DMS를 사용하여 RDS PostgreSQL을 Azure Database for PostgreSQL로 온라인 마이그레이션
 
@@ -49,9 +49,6 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 
     또한 RDS PostgreSQL 버전은 Azure Database for PostgreSQL 버전과 일치해야 합니다. 예를 들어 RDS PostgreSQL 9.5.11.5는 Azure Database for PostgreSQL 9.5.11로만 마이그레이션할 수 있고, 버전 9.6.7로는 업그레이드할 수 없습니다.
 
-    > [!NOTE]
-    > PostgreSQL 버전 10의 경우 현재 DMS는 10.3 버전을 Azure Database for PostgreSQL로 마이그레이션하는 것만 지원합니다.
-
 * [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal)의 인스턴스를 만듭니다. pgAdmin을 사용하여 PostgreSQL 서버에 연결하는 방법에 대한 자세한 내용은 문서의 이 [섹션](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal#connect-to-the-postgresql-server-using-pgadmin)을 참조하세요.
 * Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service에 대한 Azure VNet(Virtual Network)을 만듭니다. 그러면 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다. VNet을 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/) 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
 * VNet 네트워크 보안 그룹 규칙이 Azure Database Migration Service에 대한 다음 인바운드 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445 및 12000 Azure VNet NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
@@ -66,7 +63,7 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 2. 마스터 사용자 이름을 사용하여 Azure Database Migration Service에서 원본에 연결합니다. 마스터 사용자 계정이 아닌 다른 계정을 사용하는 경우 계정에 rds_superuser 역할 및 rds_replication 역할이 있어야 합니다. rds_replication 역할은 논리적 슬롯을 관리하고 논리적 슬롯을 사용하여 데이터를 스트리밍하는 권한을 부여합니다.
 3. 다음 구성을 사용하여 새 매개 변수 그룹을 만듭니다. a. DB 매개 변수 그룹에서 rds.logical_replication 매개 변수를 1로 설정합니다.
     b. max_wal_senders = [동시 작업 수]: max_wal_senders 매개 변수는 실행할 수 있는 동시 작업 수를 설정합니다. 10으로 설정하는 것이 좋습니다.
-    다. max_replication_slots = [슬롯 수]: 5로 설정하는 것이 좋습니다.
+    다. max_replication_slots – = [number of slots], 5개 슬롯으로 설정하는 것이 좋습니다.
 4. 만든 매개 변수 그룹을 RDS PostgreSQL 인스턴스에 연결합니다.
 
 ## <a name="migrate-the-schema"></a>스키마 마이그레이션

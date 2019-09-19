@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 56a73449c69010bc97122023f7dcbc9e3a9df154
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 27063702729d8a61ab8919c2685fcfc6f743ce09
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70048013"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858999"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>IoT 플러그 앤 플레이 미리 보기란?
 
@@ -63,7 +63,7 @@ IoT 플러그 앤 플레이 디바이스를 연결하면 해당 디바이스 기
 
 1. 디바이스 기능 모델 및 인터페이스에 선언된 기능을 구현하는 디바이스 소프트웨어 또는 펌웨어를 제작합니다. Azure IoT SDK에는 디바이스 기능 모델을 구현하는 API가 포함되어 있습니다.
 
-[VS Code용 IoT Device Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) 확장은 도움이 되는 여러 기능을 제공합니다. 예를 들어 디바이스 개발자는 이 확장을 사용하여 기능 모델에서 기본 C 프로젝트를 생성할 수 있습니다. 그러나 모든 IDE를 사용하여 디바이스 기능 모델을 작성하고 구현할 수 있습니다.
+[Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 확장 팩은 다양한 지원 기능을 제공합니다. 예를 들어 디바이스 개발자는 확장을 사용하여 기능 모델에서 기본 C 프로젝트를 생성할 수 있습니다. 그러나 모든 IDE를 사용하여 디바이스 기능 모델을 작성하고 구현할 수 있습니다.
 
 ## <a name="certify-an-iot-plug-and-play-device"></a>IoT 플러그 앤 플레이 디바이스 인증
 
@@ -76,6 +76,7 @@ IoT 플러그 앤 플레이 디바이스를 연결하면 해당 디바이스 기
 - IoT용 Certified 디바이스 카탈로그에 게시합니다.
 
 ## <a name="regional-availability"></a>국가별 가용성
+
 공개 미리 보기 기간에는 북유럽, 미국 중부 및 일본 동부에서 IoT 플러그 앤 플레이를 사용할 수 있습니다. 이러한 지역 중 하나에 허브를 만들어야 합니다.
 
 ## <a name="message-quotas-in-iot-hub"></a>IoT Hub의 메시지 할당량

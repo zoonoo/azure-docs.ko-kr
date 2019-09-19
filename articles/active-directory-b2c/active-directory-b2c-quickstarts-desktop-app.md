@@ -1,6 +1,6 @@
 ---
-title: 빠른 시작 - Azure Active Directory B2C를 사용하여 데스크톱 앱에 대한 로그인 설정 | Microsoft Docs
-description: Azure Active Directory B2C를 사용하여 계정 로그인을 제공하는 샘플 ASP.NET 데스크톱 애플리케이션을 실행합니다.
+title: 빠른 시작 - Azure Active Directory B2C를 사용하여 데스크톱 앱의 로그인 설정
+description: Azure Active Directory B2C를 사용하여 계정 로그인을 제공하는 샘플 WPF 데스크톱 애플리케이션을 실행합니다.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 636e47c1d0c689dd9660f8bf01ada571d3824961
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 98d312dbafd399cc8b92e2c4fb70499853c214b5
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835453"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914274"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>빠른 시작: Azure Active Directory B2C를 사용하여 데스크톱 앱에 대한 로그인 설정
 
@@ -27,7 +27,7 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
 ## <a name="prerequisites"></a>필수 조건
 
 - **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2019](https://www.visualstudio.com/downloads/)
-- Facebook, Google, Microsoft 또는 Twitter의 소셜 계정입니다.
+- Facebook, Google 또는 Microsoft의 소셜 계정
 - GitHub에서 [Zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip)하거나 샘플 웹앱을 복제합니다.
 
     ```
@@ -45,10 +45,10 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
 
     ![샘플 WPF 애플리케이션 스크린샷](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
 
-    샘플은 여러 가지 등록 옵션을 지원합니다. 이러한 옵션에는 소셜 ID 공급자를 사용하거나 이메일 주소를 사용하여 로컬 계정을 만드는 것이 포함됩니다. 이 빠른 시작에서는 Facebook, Google, Microsoft 또는 Twitter의 소셜 ID 공급자 계정을 사용합니다.
+    샘플은 여러 가지 등록 옵션을 지원합니다. 이러한 옵션에는 소셜 ID 공급자를 사용하거나 이메일 주소를 사용하여 로컬 계정을 만드는 것이 포함됩니다. 이 빠른 시작에서는 Facebook, Google 또는 Microsoft의 소셜 ID 공급자 계정을 사용합니다.
 
 
-2. Azure AD B2C는 샘플 웹앱용으로 Wingtip Toys라는 가상의 브랜드에 대한 사용자 지정 로그인 페이지를 제공합니다. 소셜 ID 공급자를 사용하여 등록하려면 사용할 ID 공급자의 단추를 클릭합니다.
+2. Azure AD B2C는 샘플 웹 애플리케이션용으로 Fabrikam이라는 가상 회사의 로그인 페이지를 제공합니다. 소셜 ID 공급자를 사용하여 등록하려면 사용할 ID 공급자의 단추를 클릭합니다.
 
     ![ID 공급자를 표시하는 로그인 또는 등록 페이지](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
 
@@ -66,7 +66,7 @@ Azure AD B2C에는 사용자가 프로필을 업데이트할 수 있는 기능�
 
     ![WPF 샘플 앱에서 강조 표시된 프로필 편집 단추](media/active-directory-b2c-quickstarts-desktop-app/edit-profile-wpf.png)
 
-2. 만든 계정과 연결된 ID 공급자를 선택합니다. 예를 들어 계정을 만들 때 ID 공급자로 Twitter를 사용한 경우 연결된 프로필 세부 정보를 수정하려면 Twitter를 선택합니다.
+2. 만든 계정과 연결된 ID 공급자를 선택합니다. 예를 들어 계정을 만들 때 ID 공급자로 Facebook을 사용한 경우 Facebook을 선택하여 연결된 프로필 세부 정보를 수정합니다.
 
 3. **표시 이름** 또는 **구/군/시**를 변경한 다음, **계속**을 클릭합니다.
 

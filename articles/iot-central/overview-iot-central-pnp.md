@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: af5b16448a39e0106dbc04724607ff603483484c
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: bfdad0d81599035e7d8c270ec4e8ee8d6a45125e
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997754"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858930"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>Azure IoT Central(미리 보기 기능)이란?
 
@@ -62,7 +62,8 @@ Azure IoT Central이 일반 IoT 프로젝트와 다른 점:
 - 배열 스키마 형식은 지원되지 않습니다.
 - 애플리케이션 템플릿 내보내기 및 애플리케이션 복사는 지원되지 않습니다.
 - C 디바이스 SDK와 Node.js 디바이스 및 서비스 SDK만 지원됩니다.
-- 일부 지역에서만 사용할 수 있습니다.
+- 북유럽 및 미국 중부 지역에서만 사용할 수 있습니다.
+- 디바이스 기능 모델의 모든 인터페이스가 동일한 파일에 인라인으로 정의되어 있어야 합니다.
 
 ## <a name="personas"></a>가상 사용자
 

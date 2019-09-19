@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 14d79c6ec7a4e9197aca49e9c98e4f24a890ba54
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 0bcd94c62ec0fe5d9e9ffec18c982e7a102f0ffc
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606850"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858956"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>빠른 시작: REST API 및 Go를 사용하여 이미지에서 얼굴 감지
 
@@ -49,7 +49,7 @@ func main() {
     // subscription keys. For example, if you got your subscription keys from
     // westus, replace "westcentralus" in the URL below with "westus".
     const uriBase =
-      "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect"
+      "https://<My Endpoint String>.com/face/v1.0/detect"
     const imageUrl =
       "https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg"
 
@@ -108,9 +108,11 @@ func main() {
 }
 ```
 
-`subscriptionKey` 값을 구독 키로 업데이트해야 하며 올바른 지역 식별자가 포함되도록 `uriBase` 문자열을 변경해야 할 수도 있습니다(모든 지역 엔드포인트 목록에 대해서는 [Face API 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 참조). 
+`subscriptionKey` 값을 구독 키로 업데이트하고, 올바른 엔드포인트 문자열이 포함되도록 `uriBase` 문자열을 변경해야 합니다.
 
-사용자 고유의 입력 이미지를 가리키도록 `imageUrl` 필드를 변경하려고 할 수도 있습니다. 또한 검색할 얼굴 특성을 지정하도록 `returnFaceAttributes` 필드를 변경하려고 할 수도 있습니다.
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
+사용자 고유의 입력 이미지를 가리키도록 `imageUrl` 필드를 변경하려고 할 수도 있습니다. 검색할 얼굴 특성을 지정하는 `returnFaceAttributes` 필드도 변경할 수 있습니다.
 
 ## <a name="run-the-script"></a>스크립트 실행
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 08/09/2019
+ms.date: 09/06/2019
 ms.author: diberry
-ms.openlocfilehash: ca1478801ad704888266175a23b6f436d067dd10
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 404ee6fd51493735b8f96e98276f71d1d2f91158
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950591"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70882883"
 ---
 # <a name="quickstart-personalize-client-library-for-python"></a>빠른 시작: Python용 Personalizer 클라이언트 라이브러리
 
@@ -46,6 +46,9 @@ Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로
 
 * 리소스 키에 대한 `PERSONALIZER_KEY`
 * 리소스 엔드포인트에 대한 `PERSONALIZER_ENDPOINT`
+
+Azure Portal의 **빠른 시작** 페이지에서 키와 엔드포인트 값을 모두 확인할 수 있습니다.
+
 
 ### <a name="install-the-python-library-for-personalizer"></a>Personalizer용 Python 라이브러리 설치
 
@@ -108,6 +111,8 @@ Personalizer 클라이언트는 키가 포함된 Microsoft.Rest.ServiceClientCre
 ## <a name="get-content-choices-represented-as-actions"></a>작업으로 표현되는 콘텐츠 선택 항목 가져오기
 
 작업은 Personalizer에서 순위가 지정되도록 하려는 콘텐츠 선택 항목을 나타냅니다. 다음 메서드를 Program 클래스에 추가하여 시간 및 현재 음식 기본 설정에 대한 명령줄에서 사용자의 입력을 가져옵니다.
+
+[!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=getActions)]
 
 [!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=createUserFeatureTimeOfDay)]
 

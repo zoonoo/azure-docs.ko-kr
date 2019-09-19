@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 8e45c8924bbc5cf50877e6c7656dacd7971f59b2
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a00ec77148433d64f2980b1bb47d753d70a5ec20
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606793"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859024"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>빠른 시작: Face REST API 및 Python을 사용하여 이미지에서 얼굴 감지
 
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 다음 코드를 텍스트 편집기에 복사합니다.
 1. 필요한 경우 코드에서 다음 내용을 변경합니다.
     1. `subscription_key`의 값을 구독 키로 바꿉니다.
-    1. 필요한 경우 `face_api_url` 값을 구독 키가 제공된 Azure 지역의 Face API 리소스에 대한 엔드포인트 URL로 바꿉니다.
+    1. Face API 리소스의 엔드포인트 URL이 포함되도록 `face_api_url` 값을 편집합니다.
     1. 필요에 따라 `image_url` 값을 분석하려는 다른 이미지의 URL로 바꿉니다.
 1. 코드를 `.py` 확장명의 파일로 저장합니다. 예: `detect-face.py`
 1. 명령 프롬프트 창을 엽니다.
@@ -53,10 +53,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 import requests
 import json
 
+# set to your own subscription key value
 subscription_key = None
 assert subscription_key
 
-face_api_url = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect'
+# replace <My Endpoint String> with the string from your endpoint URL
+face_api_url = 'https://<My Endpoint String>.com/face/v1.0/detect'
 
 image_url = 'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg'
 

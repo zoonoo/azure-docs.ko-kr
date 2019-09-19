@@ -1,7 +1,7 @@
 ---
-title: 'PowerShell 빠른 시작: REST API를 사용하여 인덱스 만들기, 로드 및 쿼리 - Azure Search'
+title: '빠른 시작: REST API를 사용하여 PowerShell에서 검색 인덱스 만들기 - Azure Search'
 description: PowerShell의 Invoke-RestMethod와 Azure Search REST API를 사용하여 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 설명합니다.
-ms.date: 07/11/2019
+ms.date: 09/10/2019
 author: heidisteen
 manager: nitinme
 ms.author: heidist
@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.openlocfilehash: 171e5a59c59b27469eb3c344fa45c6814b9fbf97
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: ab82406fa151f5889a563d8154e02da921f1c4e6
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656282"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881726"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>빠른 시작: REST API를 사용하여 PowerShell에서 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]

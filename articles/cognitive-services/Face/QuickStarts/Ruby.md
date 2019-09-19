@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 6583db5b1403f70593d586a610f4d06be15c729b
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e043d9bf0e87304868b2c573600578c911134856
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603351"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859180"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>빠른 시작: REST API 및 Ruby를 사용하여 이미지에서 얼굴 감지
 
@@ -33,10 +33,8 @@ _faceDetection.rb_라는 새 파일을 만들고 다음 코드를 추가합니�
 ```ruby
 require 'net/http'
 
-# You must use the same location in your REST call as you used to get your
-# subscription keys. For example, if you got your subscription keys from  westus,
-# replace "westcentralus" in the URL below with "westus".
-uri = URI('https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect')
+# replace <My Endpoint String> in the URL below with the string from your endpoint.
+uri = URI('https://<My Endpoint String>.com/face/v1.0/detect')
 uri.query = URI.encode_www_form({
     # Request parameters
     'returnFaceId' => 'true',
@@ -62,7 +60,9 @@ end
 puts response.body
 ```
 
-`request['Ocp-Apim-Subscription-Key']` 값을 구독 키로 업데이트해야 하며 올바른 지역 식별자가 포함되도록 `uri` 문자열을 변경해야 할 수도 있습니다(모든 지역 엔드포인트 목록에 대해서는 [Face API 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 참조). 
+`request['Ocp-Apim-Subscription-Key']` 값을 구독 키로 업데이트하고, 올바른 엔드포인트가 포함되도록 `uri` 문자열을 변경해야 합니다.
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 사용자 고유의 입력 이미지를 가리키도록 `imageUri` 필드를 변경하려고 할 수도 있습니다. 또한 검색할 얼굴 특성을 지정하도록 `returnFaceAttributes` 필드를 변경하려고 할 수도 있습니다.
 

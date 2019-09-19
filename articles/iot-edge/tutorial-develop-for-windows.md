@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 66fa7c2f61af250e4b63b67f6941bed768bd94c4
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 03b279e6193c55141b80a5fadc9d39c7c1681006
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541914"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915144"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>자습서: Windows 디바이스를 위한 IoT Edge 모듈 개발
 
@@ -194,13 +194,13 @@ IoT Edge 런타임은 IoT Edge 디바이스에 컨테이너 이미지를 끌어�
 
 6. $edgeAgent의 원하는 속성 중에서 **modules** 속성을 찾습니다. 
 
-   여기에는 두 개의 모듈이 표시되어야 합니다. 첫 번째는 **tempSensor**로, 모듈을 테스트하는 데 사용할 수 있는 시뮬레이트된 온도 데이터를 제공하기 위해 기본적으로 모든 템플릿에 포함되어 있습니다. 두 번째는 프로젝트에서 만든 **IotEdgeModule1** 모듈입니다.
+   여기에는 두 개의 모듈이 표시되어야 합니다. 첫 번째는 **SimulatedTemperatureSensor**로, 모듈을 테스트하는 데 사용할 수 있는 시뮬레이트된 온도 데이터를 제공하기 위해 기본적으로 모든 템플릿에 포함되어 있습니다. 두 번째는 프로젝트에서 만든 **IotEdgeModule1** 모듈입니다.
 
    이 모듈 속성은 디바이스 배포에 어떤 모듈을 포함할 것인지 선언합니다. 
 
 7. $edgeHub의 원하는 속성 중에서 **routes** 속성을 찾습니다. 
 
-   IoT Edge 허브 모듈의 기능 중 하나는 배포의 모든 모듈 간에 메시지를 라우팅하는 것입니다. routes 속성의 값을 검토합니다. 첫 번째 경로 **IotEdgeModule1ToIoTHub**는 와일드카드 문자( **\*** )를 사용하여 IotEdgeModule1 모듈의 출력 큐에서 오는 모든 메시지를 포함합니다. 이러한 메시지는 IoT Hub를 지정하는 예약 이름인 *$upstream*으로 이동됩니다. 두 번째 경로 **sensorToIotEdgeModule1**은 tempSensor 모듈에서 오는 메시지를 받아서 IotEdgeModule1 모듈의 *input1* 입력 큐로 라우팅합니다. 
+   IoT Edge 허브 모듈의 기능 중 하나는 배포의 모든 모듈 간에 메시지를 라우팅하는 것입니다. routes 속성의 값을 검토합니다. 첫 번째 경로 **IotEdgeModule1ToIoTHub**는 와일드카드 문자( **\*** )를 사용하여 IotEdgeModule1 모듈의 출력 큐에서 오는 모든 메시지를 포함합니다. 이러한 메시지는 IoT Hub를 지정하는 예약 이름인 *$upstream*으로 이동됩니다. 두 번째 경로 **sensorToIotEdgeModule1**은 SimulatedTemperatureSensor 모듈에서 들어오는 메시지를 받아서 IotEdgeModule1 모듈의 *input1* 입력 큐로 라우팅합니다. 
 
    ![deployment.template.json의 경로 검토](./media/tutorial-develop-for-windows/deployment-routes.png)
 
@@ -284,14 +284,14 @@ IoT Edge 런타임은 IoT Edge 디바이스에 컨테이너 이미지를 끌어�
 
 4. 클라우드 탐색기에서 IoT Edge 디바이스에 대한 세부 정보를 확장하여 디바이스에서 모듈을 봅니다.
 
-5. **새로 고침** 단추로 디바이스 상태를 업데이트하여 tempSensor 및 IotEdgeModule1 모듈이 디바이스에 배포되었는지 확인합니다. 
+5. **새로 고침** 단추로 디바이스 상태를 업데이트하여 SimulatedTemperatureSensor 및 IotEdgeModule1 모듈이 디바이스에 배포되었는지 확인합니다. 
 
 
    ![IoT Edge 디바이스에서 실행되는 모듈을 봅니다.](./media/tutorial-develop-for-windows/view-running-modules.png)
 
 ## <a name="view-messages-from-device"></a>디바이스에서 메시지 보기
 
-IotEdgeModule1 코드는 입력 큐의 메시지를 받고 출력 큐를 통해 메시지를 전달합니다. 배포 매니페스트는 tempSensor에서 IotEdgeModule1으로 메시지를 제공한 후 IotEdgeModule1에서 IoT Hub로 메시지를 전달하는 경로를 선언했습니다. Azure IoT Edge Tools for Visual Studio를 사용하여 개별 디바이스에서 IoT Hub에 도착하는 메시지를 볼 수 있습니다. 
+IotEdgeModule1 코드는 입력 큐의 메시지를 받고 출력 큐를 통해 메시지를 전달합니다. 배포 매니페스트는 SimulatedTemperatureSensor에서 IotEdgeModule1로 메시지를 전달한 다음, IotEdgeModule1에서 IoT Hub로 메시지를 전달하는 경로를 선언했습니다. Azure IoT Edge Tools for Visual Studio를 사용하여 개별 디바이스에서 IoT Hub에 도착하는 메시지를 볼 수 있습니다. 
 
 1. Visual Studio 클라우드 탐색기에서 배포한 IoT Edge 디바이스의 이름을 선택합니다. 
 
@@ -315,7 +315,7 @@ IotEdgeModule1 코드는 입력 큐의 메시지를 받고 출력 큐를 통해 
    iotedge list
    ```
 
-   4개의 모듈(두 개의 IoT Edge 런타임 모듈, tempSensor 및 IotEdgeModule1)이 표시됩니다. 4개의 모듈 모두 실행 중으로 표시됩니다.
+   4개의 모듈(IoT Edge 런타임 모듈 2개, SimulatedTemperatureSensor 및 IotEdgeModule1)이 표시되어야 합니다. 4개의 모듈 모두 실행 중으로 표시됩니다.
 
 * 특정 모듈에 대한 로그를 검사합니다.
 
@@ -325,7 +325,7 @@ IotEdgeModule1 코드는 입력 큐의 메시지를 받고 출력 큐를 통해 
 
    IoT Edge 모듈은 대/소문자를 구분하지 않습니다. 
 
-   tempSensor 및 IotEdgeModule1 로그는 처리 중인 메시지를 표시됩니다. edgeAgent 모듈은 다른 모듈을 시작하므로, 해당 로그는 배포 매니페스트 구현에 대한 정보를 포함합니다. 나열되지 않거나 실행되고 있지 않은 모듈이 있으면 edgeAgent 로그에 오류가 있을 수 있습니다. edgeHub 모듈은 모듈과 IoT Hub 간의 통신을 담당합니다. 모듈이 작동되고 실행 중이지만 IoT Hub에 메시지가 도착하지 않으면 edgeHub 로그에 오류가 있을 수 있습니다. 
+   SimulatedTemperatureSensor 및 IotEdgeModule1 로그는 처리 중인 메시지를 표시해야 합니다. edgeAgent 모듈은 다른 모듈을 시작하므로, 해당 로그는 배포 매니페스트 구현에 대한 정보를 포함합니다. 나열되지 않거나 실행되고 있지 않은 모듈이 있으면 edgeAgent 로그에 오류가 있을 수 있습니다. edgeHub 모듈은 모듈과 IoT Hub 간의 통신을 담당합니다. 모듈이 작동되고 실행 중이지만 IoT Hub에 메시지가 도착하지 않으면 edgeHub 로그에 오류가 있을 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 4bfa325017d485a76bfe87c0f7facde4acf8f2b4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d0d6d091a955f37a12fe6c4066f0e4f999696e21
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066091"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70884554"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-resource-manager-template"></a>빠른 시작: Azure HDInsight에서 Resource Manager 템플릿을 사용하여 Apache Spark 클러스터 만들기
 
@@ -42,7 +42,7 @@ Azure Resource Manager 템플릿을 사용하여 HDInsight Spark 클러스터를
     |---|---|
     |**구독**|이 클러스터를 만드는 데 사용되는 Azure 구독을 선택합니다. 이 빠른 시작에 사용되는 구독은 **&lt;Azure 구독 이름>** 입니다. |
     | **리소스 그룹**|리소스 그룹을 만들거나 기존 그룹을 선택합니다. 리소스 그룹은 프로젝트에 대한 Azure 리소스를 관리하는 데 사용됩니다. 이 빠른 시작에 사용되는 새 리소스 그룹 이름은 **myspark20180403rg**입니다.|
-    | **위치**:|리소스 그룹의 위치를 선택합니다. 템플릿에서는 기본 클러스터 스토리지뿐만 아니라 클러스터를 만드는 데 이 위치를 사용합니다. 이 빠른 시작에 사용되는 위치는 **미국 동부 2**입니다.|
+    | **위치**|리소스 그룹의 위치를 선택합니다. 템플릿에서는 기본 클러스터 스토리지뿐만 아니라 클러스터를 만드는 데 이 위치를 사용합니다. 이 빠른 시작에 사용되는 위치는 **미국 동부 2**입니다.|
     | **ClusterName**|만들려는 HDInsight 클러스터의 이름을 입력합니다. 이 빠른 시작에 사용되는 새 클러스터 이름은 **myspark20180403**입니다.|
     | **클러스터 로그인 이름 및 암호**|기본 로그인 이름은 admin입니다. 클러스터 로그인에 대한 암호를 선택합니다. 이 빠른 시작에 사용되는 로그인 이름은 **admin**입니다.|
     | **SSH 사용자 이름 및 암호**|SSH 사용자에 대한 암호를 선택합니다. 이 빠른 시작에 사용되는 SSH 사용자 이름은 **sshuser**입니다.|
@@ -85,7 +85,7 @@ SQL(구조적 쿼리 언어)은 데이터 쿼리 및 변환에 가장 일반적�
 
 1. 커널이 준비되었는지 확인합니다. Notebook의 커널 이름 옆에 속이 빈 원이 보이면 커널이 준비된 것입니다. 속이 찬 원은 커널이 사용 중이라는 뜻입니다.
 
-    ![HDInsight Spark의 Hive 쿼리](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "HDInsight Spark의 Hive 쿼리")
+    ![커널 상태](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "커널 상태")
 
     Notebook을 처음으로 시작하면 커널이 백그라운드에서 몇 가지 작업을 수행합니다. 커널이 준비될 때까지 기다립니다.
 2. 빈 셀에 다음 코드를 붙여 넣은 다음, **SHIFT + ENTER**를 눌러 코드를 실행합니다. 이 명령은 클러스터의 Hive 테이블을 나열합니다.

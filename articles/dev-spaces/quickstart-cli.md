@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Azure Dev Spaces를 사용하여 AKS에서 마이크로서비스 배포
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 39fb7658140a2eda948cd0dc0e58d71b0b9a053b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: b845a176497891f55990c560e719832c6eaebb73
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67710676"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842529"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes-using-azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces를 사용하여 Kubernetes의 애플리케이션 개발
 이 가이드에서는 다음을 수행하는 방법을 배우게 됩니다.
@@ -34,7 +34,7 @@ ms.locfileid: "67710676"
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>AKS 클러스터에서 Azure Dev Spaces를 사용하도록 설정
@@ -109,6 +109,9 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 ```
 
 `azds up` 명령의 출력에 표시되는 공용 URL을 열어서 실행 중인 서비스를 볼 수 있습니다. 이 예제에서 공용 URL은 *http://webfrontend.1234567890abcdef1234.eus.azds.io/* 입니다.
+
+> [!NOTE]
+> `azds up`을 실행하는 동안 서비스로 이동하면 HTTP 요청 추적도 `azds up` 명령의 출력에 표시됩니다. 이 추적은 서비스의 문제를 해결하고 디버그하는 데 도움이 될 수 있습니다. `azds up`을 실행할 때 `--disable-http-traces`를 사용하면 이러한 추적을 사용하지 않도록 설정할 수 있습니다.
 
 *Ctrl+c*를 사용하여 `azds up` 명령을 중지하면 서비스가 AKS에서 계속 실행되고, 공용 URL은 사용 가능한 상태로 유지됩니다.
 

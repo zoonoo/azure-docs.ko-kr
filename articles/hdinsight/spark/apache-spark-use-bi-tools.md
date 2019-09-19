@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/16/2019
-ms.openlocfilehash: d5296fe19cef9e8881d39bd9e59eb4c40d049959
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 319668ac81b390f9a8bf70da36dd3cf1508f5c37
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296197"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885184"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>자습서: HDInsight에서 Power BI를 사용하여 Apache Spark 데이터 분석
 
@@ -104,21 +104,21 @@ Spark를 사용하는 첫 번째 단계는 Power BI Desktop에서 클러스터�
 
     2. **BuildingID** 필드를 **축**으로 끌어 놓고, **ActualTemp** 및 **TargetTemp** 필드를 **값**으로 끌어 놓습니다.
 
-        ![Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기](./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기")
+        ![값 열 추가](./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "값 열 추가")
 
         다이어그램은 다음과 같이 표시됩니다.
 
-        ![Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기")
+        ![영역 그래프 합계](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "영역 그래프 합계")
 
         기본적으로 시각화에서는 **ActualTemp** 및 **TargetTemp**의 합계를 보여 줍니다. 시각화 창에서 **ActualTemp** 및 **TragetTemp** 옆에 있는 아래쪽 화살표를 선택하면 **Sum**이 선택된 것을 볼 수 있습니다.
 
     3. 시각화 창에서 **ActualTemp** 및 **TragetTemp** 옆에 있는 아래쪽 화살표를 선택하고 **Average**를 선택하여 각 건물에 대한 실제 온도와 대상 온도 간의 평균을 구합니다.
 
-        ![Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기")
+        ![평균값](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "평균값")
 
         데이터 시각화는 스크린샷의 데이터 시각화와 비슷해야 합니다. 커서를 시각화 위로 이동하면 관련 데이터와 함께 도구 설명이 나타납니다.
 
-        ![Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기")
+        ![영역 그래프](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "영역 그래프")
 
 9. **파일** > **저장**으로 이동한 후 파일의 이름 `BuildingTemperature`를 입력하고 **저장**을 선택합니다.
 

@@ -1,21 +1,21 @@
 ---
-title: '자습서 - Azure Toolkit for IntelliJ: HDInsight 클러스터용 Spark 애플리케이션 만들기'
+title: '자습서 - Azure Toolkit for IntelliJ: HDInsight 클러스터용 Spark 애플리케이션'
 description: 자습서 - Azure Toolkit for IntelliJ를 사용하여 Scala로 작성된 Spark 애플리케이션을 개발한 후 HDInsight Spark 클러스터에 제출합니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 06/26/2019
+ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 32f5ff2ebc9d938b1936d7f2929af83d552a543d
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: b13eb6f61aed37344e0df3c864e021f68a4ca85b
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489869"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900307"
 ---
-# <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>자습서: Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
+# <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>자습서: Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
 이 자습서는 Azure Toolkit for IntelliJ 플러그 인을 사용하여 [Scala](https://www.scala-lang.org/)로 작성된 Apache Spark 애플리케이션을 개발한 후 IntelliJ IDE(통합 개발 환경)에서 직접 HDInsight Spark 클러스터에 제출하는 방법을 설명합니다. 다음과 같은 몇 가지 방식으로 플러그 인을 사용할 수 있습니다.
 
@@ -135,27 +135,27 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
 
 1. 메뉴 모음에서 **보기** > **도구 창** > **Azure 탐색기**로 이동합니다.
        
-   ![Azure 탐색기 링크](./media/apache-spark-intellij-tool-plugin/show-azure-explorer.png)
+   ![Azure 탐색기 보기](./media/apache-spark-intellij-tool-plugin/show-azure-explorer.png)
 
 2. Azure 탐색기에서 **Azure** 노드를 마우스 오른쪽 단추로 클릭한 다음, **로그인**을 선택합니다.
    
-   ![Azure 탐색기 링크](./media/apache-spark-intellij-tool-plugin/explorer-rightclick-azure.png)
+   ![탐색기에서 Azure를 마우스 오른쪽 단추로 클릭](./media/apache-spark-intellij-tool-plugin/explorer-rightclick-azure.png)
 
 3. **Azure 로그인** 대화 상자에서 **디바이스 로그인**과 **로그인**을 차례로 선택합니다.
 
-    ![Azure 로그인 대화 상자](./media/apache-spark-intellij-tool-plugin/view-explorer-2.png)
+    ![탐색기 보기 2](./media/apache-spark-intellij-tool-plugin/view-explorer-2.png)
 
 4. **Azure 디바이스 로그인** 대화 상자에서 **복사 및 열기**를 클릭합니다.
    
-   ![Azure 로그인 대화 상자](./media/apache-spark-intellij-tool-plugin/view-explorer-5.png)
+   ![탐색기 보기 5](./media/apache-spark-intellij-tool-plugin/view-explorer-5.png)
 
 5. 브라우저 인터페이스에서 코드를 붙여넣고 **다음**을 클릭합니다.
    
-   ![Azure 로그인 대화 상자](./media/apache-spark-intellij-tool-plugin/view-explorer-6.png)
+   ![탐색기 보기 6](./media/apache-spark-intellij-tool-plugin/view-explorer-6.png)
 
 6. Azure 자격 증명을 입력한 다음, 브라우저를 닫습니다.
    
-   ![Azure 로그인 대화 상자](./media/apache-spark-intellij-tool-plugin/view-explorer-7.png)
+   ![탐색기 보기 7](./media/apache-spark-intellij-tool-plugin/view-explorer-7.png)
 
 7. 로그인하고 나면 **구독 선택** 대화 상자에 자격 증명과 연결된 모든 Azure 구독의 목록이 표시됩니다. 구독을 선택한 후 **선택** 단추를 선택합니다.
 
@@ -163,7 +163,7 @@ Scala 플러그인을 설치하려면 다음 단계를 수행하세요.
 
 8. **Azure 탐색기**에서 **HDInsight**를 확장하여 구독에 포함된 HDInsight Spark 클러스터를 표시합니다.
 
-    ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/view-explorer-3.png)
+    ![탐색기 보기 3](./media/apache-spark-intellij-tool-plugin/view-explorer-3.png)
 
 9.  클러스터와 연결된 리소스(예: 스토리지 계정)를 표시하려면 클러스터 이름 노드를 더 확장할 수 있습니다.
 
@@ -213,7 +213,7 @@ Apache Ambari 관리 사용자 이름을 사용하여 HDInsight 클러스터에 
 
 2. **Azure Explorer**에서 클러스터 연결을 해제할 수도 있습니다.
 
-   ![연결되지 않은 클러스터](./media/apache-spark-intellij-tool-plugin/unlink.png)
+   ![연결되지 않은 클러스터](./media/apache-spark-intellij-tool-plugin/hdi-unlinked-cluster.png)
 
 ## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터에서 Spark Scala 애플리케이션 실행
 
@@ -377,17 +377,17 @@ IntelliJ 2018.2 및 2018.3에서만 지원됩니다.
        
 2. **Azure 탐색기**에서 **HDInsight**를 확장하여 구독에 포함된 HDInsight 클러스터를 표시합니다. **"Role:Reader"** 표시가 있는 클러스터에는 판독기 전용 역할 권한만 있습니다.
 
-    ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/view-explorer-15.png)
+    ![탐색기 보기 15](./media/apache-spark-intellij-tool-plugin/view-explorer-15.png)
 
 3. 판독기 전용 역할 권한이 있는 클러스터를 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **Link this cluster**(이 클러스터 연결)를 선택하여 클러스터를 연결합니다. Ambari 사용자 이름 및 암호를 입력합니다.
 
   
-    ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/view-explorer-11.png)
+    ![탐색기 보기 11](./media/apache-spark-intellij-tool-plugin/view-explorer-11.png)
 
 4. 클러스터가 연결되면 HDInsight가 새로 고쳐집니다.
    클러스터의 단계가 연결됨으로 변경됩니다.
   
-    ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/view-explorer-8.png)
+    ![탐색기 보기 8](./media/apache-spark-intellij-tool-plugin/view-explorer-8.png)
 
 ### <a name="link-cluster-by-expanding-jobs-node"></a>작업 노드를 확장하여 클러스터 연결
 
@@ -395,7 +395,7 @@ IntelliJ 2018.2 및 2018.3에서만 지원됩니다.
    
 2. **Link this cluster**(이 클러스터 연결)를 클릭하여 클러스터를 연결합니다.
    
-    ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/view-explorer-9.png)
+    ![탐색기 보기 9](./media/apache-spark-intellij-tool-plugin/view-explorer-9.png)
 
 ### <a name="link-cluster-from-rundebug-configurations-window"></a>실행/디버그 구성 창에서 클러스터 연결
 
@@ -403,21 +403,21 @@ IntelliJ 2018.2 및 2018.3에서만 지원됩니다.
    
 2. **Spark 클러스터(Linux 전용)** 에 대해 판독기 전용 역할 권한이 있는 클러스터를 선택합니다. 경고 메시지가 표시됩니다. **Link this cluster**(이 클러스터 연결)를 클릭하여 클러스터를 연결합니다.
    
-   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/create-config-1.png)
+   ![구성 만들기 1](./media/apache-spark-intellij-tool-plugin/create-config-1.png)
    
 ### <a name="view-storage-accounts"></a>스토리지 계정 보기
 
 * 판독기 전용 역할 권한이 있는 클러스터에 대해 **스토리지 계정** 노드를 클릭하면 **Storage Access Denied**(스토리지 계정 거부됨) 창이 표시됩니다. **Azure Storage Explorer 열기**를 클릭하여 Storage Explorer를 엽니다.
      
-   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/view-explorer-14.png)
+   ![탐색기 보기 14](./media/apache-spark-intellij-tool-plugin/view-explorer-14.png)
 
-   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/view-explorer-10.png)
+   ![탐색기 보기 10](./media/apache-spark-intellij-tool-plugin/view-explorer-10.png)
 
 * 연결된 클러스터에 대해 **스토리지 계정** 노드를 클릭하면 **Storage Access Denied**(스토리지 계정 거부됨) 창이 표시됩니다. **Azure Storage 열기**를 클릭하여 Storage Explorer를 엽니다.
      
-   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/view-explorer-13.png)
+   ![탐색기 보기 13](./media/apache-spark-intellij-tool-plugin/view-explorer-13.png)
 
-   ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/view-explorer-12.png)
+   ![탐색기 보기 12](./media/apache-spark-intellij-tool-plugin/view-explorer-12.png)
 
 ## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>Azure Toolkit for IntelliJ를 사용하도록 기존 IntelliJ IDEA 애플리케이션 변환
 

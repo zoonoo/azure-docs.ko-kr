@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/14/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 12001aef970d3b465a7f5c8e0c7af072b8f4ec80
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9e48cb53b55cdc4200498a54dba31ae93ca8b31a
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428454"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018558"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>빠른 시작: Azure HDInsight에서 Apache Storm 토폴로지 만들기 및 모니터링
 
@@ -51,7 +51,7 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 
 2. **토폴로지 요약**의 **이름** 열에서 **wordcount** 항목을 선택합니다. 토폴로지에 대한 정보가 표시됩니다.
 
-    ![storm-starter WordCount 토폴로지 정보가 있는 Storm 대시보드.](./media/apache-storm-quickstart/topology-summary.png)
+    ![storm-starter WordCount 토폴로지 정보가 있는 Storm 대시보드.](./media/apache-storm-quickstart/hdi-topology-summary.png)
 
     새 페이지에서는 다음 정보를 제공합니다.
 
@@ -68,7 +68,7 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 
 3. 이 페이지의 **Spouts** 또는 **Bolts** 섹션에서 항목을 선택합니다. 선택한 구성 요소에 대한 정보가 표시됩니다.
 
-    ![선택한 구성 요소에 대한 정보가 있는 스톰 대시보드.](./media/apache-storm-quickstart/component-summary.png)
+    ![선택한 구성 요소에 대한 정보가 있는 스톰 대시보드.](./media/apache-storm-quickstart/hdi-component-summary.png)
 
     새 페이지에는 다음 정보가 표시됩니다.
 

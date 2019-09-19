@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: R 콘솔을 사용하여 Azure HDInsight의 ML Services 클러스터에서 R 스크립트 실행'
+title: '빠른 시작: R 콘솔을 사용하여 ML Services에서 R 스크립트 실행 - Azure HDInsight'
 description: 빠른 시작에서 R 콘솔을 사용하여 Azure HDInsight의 ML Services 클러스터에서 R 스크립트를 실행합니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,22 +8,22 @@ ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 682ee4f44dcdd2619668645fa7a8aa22cb645273
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 44bc90a4c556108b4b6874a2d1297a6467413824
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451514"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736357"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>빠른 시작: R 콘솔을 사용하여 Azure HDInsight의 ML Services 클러스터에서 R 스크립트 실행
 
-Azure HDInsight에서 ML 서비스를 사용하면 R 스크립트에서 Apache Spark 및 Apache Hadoop MapReduce를 사용하여 분산 컴퓨팅을 실행할 수 있습니다. ML Services는 계산 컨텍스트를 설정하여 호출이 실행되는 방법을 제어합니다. 클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 위치를 제공합니다. 에지 노드를 사용하는 경우 에지 노드 서버의 코어에서 RevoScaleR의 병렬화된 분산 함수를 실행하는 옵션이 제공됩니다. 또한 RevoScaleR의 Hadoop Map Reduce 또는 Apache Spark 컴퓨팅 컨텍스트를 사용하여 클러스터의 노드에서 함수를 실행할 수도 있습니다.
+Azure HDInsight에서 ML 서비스를 사용하면 R 스크립트에서 Apache Spark 및 Apache Hadoop MapReduce를 사용하여 분산 컴퓨팅을 실행할 수 있습니다. ML Services는 컴퓨팅 컨텍스트를 설정하여 호출 실행 방법을 제어합니다. 클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 위치를 제공합니다. 에지 노드를 사용하는 경우 에지 노드 서버의 코어에서 RevoScaleR의 병렬화된 분산 함수를 실행하는 옵션이 제공됩니다. 또한 RevoScaleR의 Hadoop Map Reduce 또는 Apache Spark 컴퓨팅 컨텍스트를 사용하여 클러스터의 노드에서 함수를 실행할 수도 있습니다.
 
 이 빠른 시작에서는 분산 R 계산을 위해 Spark를 사용하여 보여 주는 R 콘솔로 R 스크립트를 실행하는 방법을 알아봅니다. 컴퓨팅 컨텍스트를 정의하여 에지 노드에서 로컬로 컴퓨팅을 수행하고 HDInsight 클러스터의 노드 간에 다시 분산됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* HDInsight의 ML 서비스 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**에 대한 **ML Services**를 선택합니다.
+* HDInsight의 ML Services 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**에 대한 **ML Services**를 선택합니다.
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -193,4 +193,4 @@ Azure HDInsight에서 ML 서비스를 사용하면 R 스크립트에서 Apache S
 이 빠른 시작에서는 분산 R 계산을 위해 Spark를 사용하여 보여 주는, R 콘솔로 R 스크립트를 실행하는 방법을 알아봅니다.  다음 문서로 이동하여 에지 노드 또는 HDInsight 클러스터의 코어에서 실행 병렬 처리 여부 및 방법을 지정하기 위해 사용할 수 있는 옵션에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
->[HDInsight의 ML Services에 대한 계산 컨텍스트 옵션](./r-server-compute-contexts.md)
+>[HDInsight의 ML Services에 대한 컴퓨팅 컨텍스트 옵션](./r-server-compute-contexts.md)

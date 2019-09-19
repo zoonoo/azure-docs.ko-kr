@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 09/18/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e4496e2b5d2b21fd878ef68665b8e5b06fa6cc5
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 325de36f3aa480847bc647827260f7f65765b5d7
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70012535"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103758"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 청구 소유권을 다른 계정에 양도
 
@@ -38,7 +38,7 @@ EA(기업계약) 고객인 경우 엔터프라이즈 관리자는 계정 간에 
 
 1. 왼쪽 창에서 **구독**을 선택합니다. 액세스 권한에 따라 청구 범위를 선택하고 **구독** 또는 **Azure 구독**을 선택해야 할 수도 있습니다.
 
-1. 양도하려는 구독의 **청구 소유권 양도**를 선택합니다. 
+1. 양도하려는 구독의 **청구 소유권 양도**를 선택합니다.
 
    ![양도할 구독 선택](./media/billing-subscription-transfer/billing-select-subscription-to-transfer.png)
 
@@ -49,7 +49,7 @@ EA(기업계약) 고객인 경우 엔터프라이즈 관리자는 계정 간에 
     > [!IMPORTANT]
     >
     > 구독을 새 계정의 Azure AD 테넌트로 양도하기로 선택하면 구독의 리소스를 관리하기 위한 모든 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md) 할당이 영구적으로 제거됩니다. 양도 요청을 수락하는 새 계정의 사용자에게만 구독의 리소스를 관리할 수 있는 권한이 제공됩니다. 자세한 내용은 [다른 Azure AD 테넌트의 사용자에게 구독 양도](../active-directory/managed-identities-azure-resources/known-issues.md)를 참조하세요. 또는 구독을 새 계정의 테넌트로 양도하지 않고도 구독 Azure AD 테넌트의 확인란을 선택 취소하여 청구 소유권을 양도할 수 있습니다. 이렇게 하면 Azure 리소스를 관리하는 기존 RBAC 권한이 유지됩니다.
-  
+
     ![양도 요청 보내기 페이지](./media/billing-subscription-transfer/billing-send-transfer-request.PNG)
 
 1. **요청 보내기**를 선택합니다.
@@ -58,7 +58,7 @@ EA(기업계약) 고객인 경우 엔터프라이즈 관리자는 계정 간에 
 
    ![받는 사람에게 전송된 구독 양도 이메일](./media/billing-subscription-transfer/billing-receiver-email.png)
 
-1. 전송 요청을 승인하려면 사용자는 이메일의 링크를 선택하고 지침을 따릅니다. 사용자는 구독 요금을 결제하는 데 사용할 결제 방법을 선택해야 합니다. 또한 사용자는 Azure 계정이 없는 경우 새 계정에 가입해야 합니다. 
+1. 전송 요청을 승인하려면 사용자는 이메일의 링크를 선택하고 지침을 따릅니다. 사용자는 구독 요금을 결제하는 데 사용할 결제 방법을 선택해야 합니다. 또한 사용자는 Azure 계정이 없는 경우 새 계정에 가입해야 합니다.
 
    ![첫 번째 구독 양도 웹 페이지](./media/billing-subscription-transfer/billing-accept-ownership-step1.png)
 
@@ -79,7 +79,7 @@ Azure에 가입하면 Azure AD(Active Directory) 테넌트가 자동으로 만�
 
 ## <a name="transferring-visual-studio-mpn-and-pay-as-you-go-devtest-subscriptions"></a>Visual Studio, MPN 및 종량제 개발/테스트 구독 양도
 
-Visual Studio 및 Microsoft 파트너 네트워크 구독에는 월간 반복 Azure 크레딧이 연결되어 있습니다. 이러한 구독을 양도하면 대상 청구 계정에서 크레딧을 사용할 수 없습니다. 구독에서는 대상 청구 계정의 크레딧을 사용합니다. 예를 들어 Bob이 9월 9일에 Visual Studio Enterprise 구독을 Jane의 계정에 양도하고 Jane이 양도를 수락한다고 가정하겠습니다. 양도가 완료되면 구독에서는 Jane 계정의 크레딧을 사용하여 구독을 시작합니다. 크레딧은 매월 9일에 초기화됩니다. 
+Visual Studio 및 Microsoft 파트너 네트워크 구독에는 월간 반복 Azure 크레딧이 연결되어 있습니다. 이러한 구독을 양도하면 대상 청구 계정에서 크레딧을 사용할 수 없습니다. 구독에서는 대상 청구 계정의 크레딧을 사용합니다. 예를 들어 Bob이 9월 9일에 Visual Studio Enterprise 구독을 Jane의 계정에 양도하고 Jane이 양도를 수락한다고 가정하겠습니다. 양도가 완료되면 구독에서는 Jane 계정의 크레딧을 사용하여 구독을 시작합니다. 크레딧은 매월 9일에 초기화됩니다.
 
 
 <a id="EA"></a>
@@ -107,9 +107,9 @@ Azure Portal의 구독 양도 기능은 아래에 나열된 유형의 구독에�
 
 - [EA(기업 계약)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*
 - [Microsoft 파트너 네트워크](https://azure.microsoft.com/offers/ms-azr-0025p/)  
-- [Visual Studio Enterprise(MPN) 구독자](https://azure.microsoft.com/offers/ms-azr-0029p/) 
+- [Visual Studio Enterprise(MPN) 구독자](https://azure.microsoft.com/offers/ms-azr-0029p/)
 - [MSDN 플랫폼](https://azure.microsoft.com/offers/ms-azr-0062p/)  
-- [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/) 
+- [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [종량제 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)
 - [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/)
@@ -119,7 +119,7 @@ Azure Portal의 구독 양도 기능은 아래에 나열된 유형의 구독에�
 
 \* [EA Portal을 통해](#EA).
 
-\*\* Azure 웹 사이트에서 가입하는 동안 생성된 계정에만 지원됩니다. 
+\*\* Azure 웹 사이트에서 가입하는 동안 생성된 계정에만 지원됩니다.
 
 <a id="faq"></a>
 
@@ -134,8 +134,14 @@ Azure Portal의 구독 양도 기능은 아래에 나열된 유형의 구독에�
 본인이 청구 관리자인 계정을 확인하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal의 Cost Management + 청구 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview)로 이동합니다.
-1. 왼쪽 창에서 **모든 청구 범위**를 선택합니다. 
+1. 왼쪽 창에서 **모든 청구 범위**를 선택합니다.
 1. 구독 페이지에는 본인이 청구 관리자인 구독이 모두 나열됩니다.
+
+구독에 대한 계정 관리자를 잘 모를 경우 다음 단계를 사용하여 확인하세요.
+
+1. [Azure Portal의 구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)를 방문하세요.
+1. 확인하려는 구독을 선택한 다음 **설정**에서 확인합니다.
+1. **속성**을 선택합니다. 구독의 계정 관리자는 **계정 관리자** 상자에 표시됩니다.
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>모든 것이 양도되나요? 양도 항목에 리소스 그룹, VM, 디스크 및 기타 실행 중인 서비스가 포함되나요?
 
@@ -201,13 +207,13 @@ VM, 디스크, 웹 사이트 등의 모든 리소스가 새 계정에 양도됩�
 
 ### <a id="no-button"></a> "구독 양도" 단추가 보이지 않는 이유는 무엇인가요?
 
-현재 청구 계정에는 셀프 서비스 구독 양도를 사용할 수 없습니다. 현재는 Azure Portal에서 EA(기업계약) 계정의 구독 청구 소유권을 양도할 수 없습니다. 또한 Microsoft 담당자와 함께 만든 Microsoft 고객 계약 계정은 청구 소유권 양도를 지원하지 않습니다. 
+현재 청구 계정에는 셀프 서비스 구독 양도를 사용할 수 없습니다. 현재는 Azure Portal에서 EA(기업계약) 계정의 구독 청구 소유권을 양도할 수 없습니다. 또한 Microsoft 담당자와 함께 만든 Microsoft 고객 계약 계정은 청구 소유권 양도를 지원하지 않습니다.
 
-### <a id="no-button"></a> 내 구독 유형이 양도를 지원하지 않는 이유는 무엇인가요? 
+### <a id="no-button"></a> 내 구독 유형이 양도를 지원하지 않는 이유는 무엇인가요?
 
 일부 구독 유형은 청구 소유권 양도를 지원하지 않습니다. 양도를 지원하는 구독 유형 목록을 보려면 [지원되는 구독 유형](#supported-subscription-types)을 참조하세요.
 
-### <a id="no-button"></a> 구독의 청구 소유권을 양도하려고 할 때 액세스 거부 오류가 발생하는 이유는 무엇인가요? 
+### <a id="no-button"></a> 구독의 청구 소유권을 양도하려고 할 때 액세스 거부 오류가 발생하는 이유는 무엇인가요?
 
 Microsoft Azure 플랜 구독을 전송하려고 시도하는데 필요한 권한이 없는 경우 이 오류가 발생합니다. Microsoft Azure 플랜 구독을 양도하려면 구독 요금이 청구되는 청구서 섹션의 소유자 또는 기여자여야 합니다. 자세한 내용은 [청구서 섹션에 대한 구독 관리](billing-understand-mca-roles.md#manage-subscriptions-for-invoice-section)를 참조하세요.
 

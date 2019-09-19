@@ -4,16 +4,17 @@ description: HDInsight 및 Apache Hadoop 기술 스택 및 구성 요소에 대�
 keywords: Azure Hadoop, Hadoop Azure, Hadoop 소개, Hadoop 기술 스택, Hadoop 소개, Hadoop 클러스터란?, Hadoop 용도
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 08/15/2019
-ms.openlocfilehash: 16845e5891117cc01bef5fae28cf4b36c0508651
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 193b8f59a805de4303bfc38d397a821cc068dcc0
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899550"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088194"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hadoop이란?
 
@@ -30,6 +31,10 @@ Apache Hadoop MapReduce는 방대한 양의 데이터를 처리하는 작업을 
 * **매퍼**: 입력 데이터를 사용하고, 일반적으로 필터 및 정렬 작업을 통해 분석하며, 튜플(키-값 쌍)을 내보냅니다.
 
 * **리듀서**: 매퍼에서 내보낸 튜플을 사용하고 매퍼 데이터에서 더 작고 결합된 결과를 만드는 요약 작업을 수행합니다.
+
+다음 다이어그램에서는 기본 단어 계산 MapReduce 작업 예제를 보여줍니다.   
+
+ ![HDI.WordCountDiagram](./media/apache-hadoop-introduction/hdi-word-count-diagram.gif)
 
 이 작업의 출력은 텍스트에서 각 단어가 발생한 횟수입니다.
 
@@ -55,5 +60,3 @@ HDInsight와 함께 Hadoop 스트리밍을 사용하는 예제는 다음 문서�
 ## <a name="next-steps"></a>다음 단계
 
 * [HDInsight에서 Apache Hadoop 클러스터 만들기](apache-hadoop-linux-create-cluster-get-started-portal.md)
-
-[image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif

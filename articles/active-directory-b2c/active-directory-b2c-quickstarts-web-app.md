@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure Active Directory B2C를 사용하여 ASP.NET 애플리케이션에 대한 로그인 설정 | Microsoft Docs
+title: 빠른 시작 - Azure Active Directory B2C를 사용하여 ASP.NET 애플리케이션의 로그인 설정
 description: Azure Active Directory B2C를 사용하여 계정 로그인을 제공하는 샘플 ASP.NET 웹앱을 실행합니다.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 647ea3bdeb914b97fe131d32078ddb610d4d163e
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 5f5cae82e23fed6a30d5f7ac63a5718c2a057a7d
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835473"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914314"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>빠른 시작: Azure Active Directory B2C를 사용하여 ASP.NET 애플리케이션에 대한 로그인 설정
 
@@ -26,14 +26,14 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
 ## <a name="prerequisites"></a>필수 조건
 
 - **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2019](https://www.visualstudio.com/downloads/)
-- Facebook, Google, Microsoft 또는 Twitter의 소셜 계정입니다.
+- Facebook, Google 또는 Microsoft의 소셜 계정
 - GitHub에서 [Zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip)하거나 샘플 웹 애플리케이션을 복제합니다.
 
     ```
     git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
     ```
 
-    두 프로젝트는 샘플 솔루션에 있습니다.
+    샘플 솔루션에는 다음 두 개의 프로젝트가 있습니다.
 
     - **TaskWebApp** - 작업 목록을 만들고 편집하는 웹 애플리케이션입니다. 웹 애플리케이션은 **가입 또는 로그인** 사용자 흐름을 사용하여 사용자 가입 또는 로그인을 수행합니다.
     - **TaskService** - 작업 목록 만들기, 읽기, 업데이트 및 삭제 기능을 지원하는 Web API입니다. 웹 API는 Azure AD B2C를 통해 보호되고 웹 애플리케이션에서 호출됩니다.
@@ -55,9 +55,9 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
 
     ![등록/로그인 링크가 강조 표시된 브라우저의 샘플 ASP.NET 웹앱](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
 
-    이 샘플에서는 소셜 ID 공급자를 사용하거나 이메일 주소를 사용하여 로컬 계정을 만드는 등의 여러 가지 등록 옵션을 지원합니다. 이 빠른 시작에서는 Facebook, Google, Microsoft 또는 Twitter의 소셜 ID 공급자 계정을 사용합니다.
+    이 샘플에서는 소셜 ID 공급자를 사용하거나 이메일 주소를 사용하여 로컬 계정을 만드는 등의 여러 가지 등록 옵션을 지원합니다. 이 빠른 시작에서는 Facebook, Google 또는 Microsoft의 소셜 ID 공급자 계정을 사용합니다.
 
-2. Azure AD B2C는 샘플 웹 애플리케이션용으로 Wingtip Toys라는 가상의 브랜드에 대한 사용자 지정 로그인 페이지를 제공합니다. 소셜 ID 공급자를 사용하여 등록하려면 사용할 ID 공급자의 단추를 클릭합니다.
+2. Azure AD B2C는 샘플 웹 애플리케이션용으로 Fabrikam이라는 가상 회사의 로그인 페이지를 제공합니다. 소셜 ID 공급자를 사용하여 등록하려면 사용할 ID 공급자의 단추를 클릭합니다.
 
     ![ID 공급자 단추를 표시하는 로그인 또는 등록 페이지](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
 

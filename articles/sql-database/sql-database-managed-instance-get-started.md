@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: cacd67e26b13df8ef456ac8f1391e4396f5bdd96
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0344fc834cb1ef29c91bc52239d1df2706d1ca81
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873888"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101686"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database 관리형 인스턴스 만들기
 
@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
    |**암호**|유효한 암호|암호는 16자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
    |**표준 시간대**|관리형 인스턴스에서 관찰할 표준 시간대.|자세한 내용은 [표준 시간대](sql-database-managed-instance-timezone.md)를 참조하세요.|
    |**데이터 정렬**|관리형 인스턴스에 사용할 데이터 정렬.|SQL Server에서 데이터베이스를 마이그레이션하는 경우 `SELECT SERVERPROPERTY(N'Collation')` 명령으로 원본 데이터 정렬을 확인하고 해당 값을 사용합니다. 데이터 정렬에 대한 자세한 내용은 [서버 데이터 정렬 설정 또는 변경](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation)을 참조하세요.|
-   |**위치**:|관리형 인스턴스를 만들 위치.|지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.|
+   |**위치**|관리형 인스턴스를 만들 위치.|지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.|
    |**가상 네트워크**|**새 가상 네트워크 만들기** 또는 유효한 가상 네트워크 및 서브넷을 선택합니다.| 네트워크 또는 서브넷을 사용할 수 없는 경우 [네트워크 요구 사항을 충족하도록 수정](sql-database-managed-instance-configure-vnet-subnet.md)해야만 새 관리형 인스턴스의 대상으로 선택할 수 있습니다. 관리형 인스턴스의 네트워크 환경을 구성하기 위한 요구 사항에 대한 자세한 내용은 [관리형 인스턴스에 대한 가상 네트워크 구성](sql-database-managed-instance-connectivity-architecture.md)을 참조하세요. |
    |**공용 엔드포인트 사용**   |공용 엔드포인트를 사용하려면 이 옵션을 선택합니다.   |공용 데이터 엔드포인트를 통해 관리형 인스턴스에 액세스하려면 **공용 엔드포인트 사용**을 선택해야 합니다.| 
    |**다음의 액세스 허용**   |다음 옵션 중 하나를 선택합니다. <ul> <li>**Azure 서비스**</li> <li>**인터넷**</li> <li>**액세스 권한 없음**</li></ul>   |포털 환경에서는 공용 엔드포인트를 사용하여 보안 그룹을 구성합니다. </br> </br> 시나리오에 따라 다음 옵션 중 하나를 선택합니다. </br> <ul> <li>Azure 서비스 - Power BI 또는 다른 다중 테넌트 서비스에서 연결할 때 권장합니다. </li> <li> 인터넷 - 관리형 인스턴스를 신속하게 가동하려는 경우에 테스트 용도로 사용합니다. 프로덕션 환경에서는 사용하지 않는 것이 좋습니다. </li> <li> 액세스 권한 없음 - 이 옵션은 거부 보안 규칙을 만듭니다. 공용 엔드포인트를 통해 관리형 인스턴스에 액세스하려면 이 규칙을 수정해야 합니다. </li> </ul> </br> 공용 엔드포인트 보안에 대한 자세한 내용은 [공용 엔드포인트를 통해 Azure SQL Database 관리형 인스턴스를 안전하게 사용](sql-database-managed-instance-public-endpoint-securely.md)을 참조하세요.|
@@ -60,7 +60,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
    ![관리형 인스턴스 양식](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-5. 관리되는 인스턴스를 보조 인스턴스 장애 조치(failover) 그룹으로 사용하려면 체크 아웃 확인란을 선택하고 DnsAzurePartner 관리되는 인스턴스를 지정합니다. 이 기능은 미리 보기로 제공되며 다음 스크린샷에는 표시되지 않습니다.
+5. 관리되는 인스턴스를 보조 인스턴스 장애 조치(failover) 그룹으로 사용하려면 체크 아웃 확인란을 선택하고 DnsAzurePartner 관리되는 인스턴스를 지정합니다. 
 6. **가격 책정 계층**을 선택하여 컴퓨팅 및 스토리지 리소스의 크기를 조정하고 가격 책정 옵션을 검토합니다. 메모리 32GB와 Vcore 16개를 제공하는 범용 가격 책정 계층이 기본값입니다.
 7. 슬라이더 또는 텍스트 상자를 사용하여 스토리지 공간 및 가상 코어 수를 지정합니다.
 8. 모두 마쳤으면 **적용**을 눌러 선택한 내용을 저장합니다. 

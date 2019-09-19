@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 156486f4f4f0df3d4bb4ab76492709bbecfb8eb5
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: c737447c3a3bd2d76d3ed620b7c61aaa81250130
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906447"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70393829"
 ---
 ## <a name="set-up"></a>설정
 
@@ -23,4 +23,4 @@ Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로
 평가판 구독 또는 리소스에서 키를 가져온 후 다음 두 가지 [환경 변수](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)를 만듭니다.
 
 * `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` - Translator Text 리소스의 구독 키입니다.
-* `TRANSLATOR_TEXT_ENDPOINT` - 리소스의 지역별 엔드포인트 또는 사용자 지정 하위 도메인 이름입니다.
+* `TRANSLATOR_TEXT_ENDPOINT` - Translator Text의 전역 엔드포인트입니다. `https://api.cognitive.microsofttranslator.com/`를 사용합니다.

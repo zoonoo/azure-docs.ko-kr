@@ -4,16 +4,17 @@ description: HDInsight, Apache Hadoop 및 Apache Spark 기술 스택 및 구성 
 keywords: Azure Hadoop, Hadoop Azure, Hadoop 소개, Hadoop 기술 스택, Hadoop 소개, Hadoop 클러스터란?, Hadoop 용도
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 42de6277449b51eb51a13148504e7e9a5f6f5270
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: f950d273e16dc7fc25f443fda58f9d6582085129
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208456"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076394"
 ---
 # <a name="what-is-azure-hdinsight"></a>Azure HDInsight란?
 
@@ -87,7 +88,7 @@ HDInsight에는 구성 요소, 유틸리티 및 언어 추가와 같은 특정 �
 |[ML Services](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server)|병렬 분산된 R 프로세스를 호스트하고 관리하기 위한 서버입니다. 데이터 과학자, 통계학자 및 R 프로그래머에게 HDInsight의 확장 가능한 분산형 분석 방법에 요청 시 액세스할 수 있도록 해줍니다. [HDInsight의 ML 서비스 개요](./r-server/r-server-overview.md)를 참조하세요.|
 |[Apache Storm](https://storm.incubator.apache.org/)|대규모 데이터 스트림을 빠르게 처리하기 위한 분산형 실시간 계산 시스템입니다. HDInsight에서 관리 클러스터로 제공됩니다. [Storm 및 Hadoop을 사용하여 실시간 센서 데이터 분석](./storm/apache-storm-sensor-data-analysis.md)을 참조하세요.|
 |[Apache 대화형 쿼리](https://cwiki.apache.org/confluence/display/Hive/LLAP)|대화형 및 더 빠른 Hive 쿼리에 대한 메모리 내 캐싱입니다. [HDInsight에서 대화형 쿼리 사용](./interactive-query/apache-interactive-query-get-started.md)을 참조하세요.|
-|[Apache Kafka](https://kafka.apache.org/)|스트리밍 데이터 파이프라인 및 애플리케이션을 빌드하는 데 사용되는 오픈 소스 플랫폼입니다. 또한 Kafka는 고 데이터 스트림을 게시하고 구독할 수 있는 메시지 큐 기능을 제공합니다. [HDInsight에서 Apache Kafka에 대한 소개](./kafka/apache-kafka-introduction.md)를 참조하세요.|
+|[Apache Kafka](https://kafka.apache.org/)|스트리밍 데이터 파이프라인 및 애플리케이션을 빌드하는 데 사용되는 오픈 소스 플랫폼입니다. 또한 Kafka는 데이터 스트림을 게시하고 구독할 수 있는 메시지 큐 기능을 제공합니다. [HDInsight에서 Apache Kafka에 대한 소개](./kafka/apache-kafka-introduction.md)를 참조하세요.|
 
 ## <a name="open-source-components-in-hdinsight"></a>HDInsight의 오픈 소스 구성 요소
 

@@ -8,19 +8,19 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3ad2372f9a9f90e4502b304a08477771fd6ef385
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0e019a9229b671be2fb73e758bd39f33657bc2d4
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880385"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037418"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>클라우드를 온-프레미스 VMware 워크 로드에 대 한 재해 복구 사이트로 설정
 
 클라우드를 재해 발생 시 비즈니스 연속성을 제공 하기 위해 온-프레미스 응용 프로그램에 대 한 복구 사이트로 CloudSimple 사설 클라우드를 설정할 수 있습니다. 복구 솔루션은 Zerto 가상 복제를 복제 및 오케스트레이션 플랫폼으로 기반으로 합니다. 중요 한 인프라 및 응용 프로그램 가상 머신은 온-프레미스 vCenter에서 사설 클라우드로 지속적으로 복제할 수 있습니다. 장애 조치 (failover) 테스트에 사설 클라우드를 사용 하 고 재해 발생 시 응용 프로그램의 가용성을 보장할 수 있습니다. 다른 위치의 복구 사이트로 보호 되는 기본 사이트로 사설 클라우드를 설정 하는 것과 유사한 접근 방식을 사용할 수 있습니다.
 
 > [!NOTE]
-> 재해 복구 환경의 크기를 조정 하는 방법에 대 한 지침은 [Zerto 가상 복제에 대 한 Zerto 문서 크기 조정 고려 사항](http://s3.amazonaws.com/zertodownload_docs/5.5U3/Zerto%20Virtual%20Replication%20Sizing.pdf) 을 참조 하세요.
+> 재해 복구 환경의 크기를 조정 하는 방법에 대 한 지침은 [Zerto 가상 복제에 대 한 Zerto 문서 크기 조정 고려 사항](https://s3.amazonaws.com/zertodownload_docs/5.5U3/Zerto%20Virtual%20Replication%20Sizing.pdf) 을 참조 하세요.
 
 CloudSimple 솔루션:
 
@@ -46,7 +46,7 @@ CloudSimple 솔루션:
 3. [CloudSimple 사설 클라우드에서 ZVM 및 VRA 설정](#set-up-zvm-and-vra-on-your-private-cloud)
 4. [Zerto 가상 보호 그룹 설정](#set-up-zerto-virtual-protection-group)
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 
 온-프레미스 환경에서 사설 클라우드로의 Zerto 가상 복제를 사용 하도록 설정 하려면 다음 필수 구성 요소를 완료 합니다.
 

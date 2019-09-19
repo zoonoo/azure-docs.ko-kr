@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: ffbc919333c43c04f461498a513d098ce8fe628f
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 81eabadba70a2d5334fab43157f17d24c41d97ec
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996584"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103409"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>알려진 문제 및 문제 해결 Azure Machine Learning
 
@@ -174,3 +174,43 @@ Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당�
 오류가 `Unable to upload project files to working directory in AzureFile because the storage is overloaded`표시 되 면 다음 해결 방법을 적용 합니다.
 
 데이터 전송과 같은 다른 작업에 대해 파일 공유를 사용 하는 경우 파일 공유를 사용 하 여 실행을 제출할 수 있도록 blob을 사용 하는 것이 좋습니다. 작업을 서로 다른 두 작업 영역 간에 분할할 수도 있습니다.
+
+## <a name="webservices-in-azure-kubernetes-service-failures"></a>Azure Kubernetes 서비스 실패의 Webservices 
+
+를 사용 하 `kubectl`여 클러스터에 연결 하 여 Azure Kubernetes Service에서 많은 webservice 오류를 디버그할 수 있습니다. 을 실행 하 여 `kubeconfig.json` Azure Kubernetes 서비스 클러스터에 대 한를 가져올 수 있습니다.
+
+```bash
+az aks get-credentials -g <rg> -n <aks cluster name>
+```
+
+## <a name="updating-azure-machine-learning-components-in-aks-cluster"></a>AKS 클러스터의 Azure Machine Learning 구성 요소 업데이트
+
+Azure Kubernetes Service 클러스터에 설치 된 Azure Machine Learning 구성 요소에 대 한 업데이트를 수동으로 적용 해야 합니다. Azure Machine Learning 작업 영역에서 클러스터를 분리 하 여 이러한 클러스터를 적용 한 다음 클러스터를 작업 영역에 다시 연결할 수 있습니다. 클러스터에서 SSL을 사용 하도록 설정한 경우 클러스터를 다시 연결할 때 SSL 인증서와 개인 키를 제공 해야 합니다. 
+
+```python
+compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
+compute_target.detach()
+compute_target.wait_for_completion(show_output=True)
+
+attach_config = AksCompute.attach_configuration(resource_group=resourceGroup, cluster_name=kubernetesClusterName)
+
+## If SSL is enabled.
+attach_config.enable_ssl(
+    ssl_cert_pem_file="cert.pem",
+    ssl_key_pem_file="key.pem",
+    ssl_cname=sslCname)
+
+attach_config.validate_configuration()
+
+compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceName, attach_configuration=attach_config)
+compute_target.wait_for_completion(show_output=True)
+```
+
+SSL 인증서와 개인 키가 더 이상 없거나 Azure Machine Learning에 의해 생성 된 인증서를 사용 하는 경우,를 사용 하 `kubectl` 여 클러스터에 연결 하 고 암호 를검색하여클러스터를분리하기전에파일을검색할수있습니다`azuremlfessl`.
+
+```bash
+kubectl get secret/azuremlfessl -o yaml
+```
+
+>[!Note]
+>Kubernetes는 암호를 base-64로 인코딩된 형식으로 저장 합니다. 에 `key.pem` `cert.pem` 제공하기`attach_config.enable_ssl`전에 비밀의 및 구성 요소를 64으로 디코드 해야 합니다. 

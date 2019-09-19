@@ -1,5 +1,5 @@
 ---
-title: 일괄 처리 테스트-LUIS
+title: '자습서: 일괄 처리 테스트 - LUIS'
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 일괄 처리 테스트를 사용하여 앱의 발언 예측 문제를 찾아 수정하는 방법을 보여줍니다.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 08/20/2019
+ms.topic: tutorial
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 45520d39c822c734e3fc725bca3375e93983a118
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: MT
+ms.openlocfilehash: a0aa4d334dc5a42da8a3a8f269f70c874c9ad54d
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637448"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375509"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>자습서: 일괄 처리 테스트 데이터 세트
 
@@ -28,7 +28,7 @@ ms.locfileid: "69637448"
 
 * 테스트당 최대 1000개 발언 
 * 중복되지 않습니다. 
-* 허용 되는 엔터티 형식: 단순 및 복합 엔터티를 머시닝된에서 배웠습니다. 일괄 테스트는 기계 학습된 의도 및 엔터티에만 유용합니다.
+* 허용되는 엔터티 형식: 기계 학습된 단순 및 복합 엔터티만. 일괄 테스트는 기계 학습된 의도 및 엔터티에만 유용합니다.
 
 이 자습서 이외의 앱을 사용할 때에는 의도에 이미 추가된 발언 예제를 사용하지 *마세요*. 
 
@@ -49,7 +49,7 @@ ms.locfileid: "69637448"
 
 마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
 
-다음 단계를 사용합니다.
+다음 단계를 사용하세요.
 
 1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json)을 다운로드하고 저장합니다.
 
@@ -95,7 +95,7 @@ ms.locfileid: "69637448"
 
 ## <a name="review-batch-results"></a>일괄 처리 결과 검토
 
-일괄 처리 차트는 결과의 사분면으로 표시됩니다. 차트의 오른쪽이 필터입니다. 필터는 의도 및 엔터티를 포함 합니다. [차트의 섹션](luis-concept-batch-test.md#batch-test-results) 또는 차트 내의 한 점을 선택하면 차트 아래에 관련된 발언이 표시됩니다. 
+일괄 처리 차트는 결과의 사분면으로 표시됩니다. 차트의 오른쪽이 필터입니다. 필터에는 의도와 엔터티가 포함됩니다. [차트의 섹션](luis-concept-batch-test.md#batch-test-results) 또는 차트 내의 한 점을 선택하면 차트 아래에 관련된 발언이 표시됩니다. 
 
 차트 위로 마우스를 가져간 후 마우스 휠로 차트의 발언을 확대하거나 축소할 수 있습니다. 차트에 많은 점이 밀집되어 있을 때 이렇게 하면 편리합니다. 
 
@@ -103,27 +103,27 @@ ms.locfileid: "69637448"
 
 ### <a name="getjobinformation-test-results"></a>GetJobInformation 테스트 결과
 
-필터에 표시되는 **GetJobInformation** 테스트 결과는 4개 예측 중 2개가 성공적이었음을 보여 줍니다. 왼쪽 아래 사분면에서 이름 **False 음수** 를 선택 하 여 차트 아래의 길이 발언를 확인 합니다. 
+필터에 표시되는 **GetJobInformation** 테스트 결과는 4개 예측 중 2개가 성공적이었음을 보여 줍니다. 3사분면에서 **False positive**라는 이름을 선택하여 차트 아래의 발화를 확인합니다. 
 
-키보드, Ctrl + E를 사용 하 여 사용자 utterance의 정확한 텍스트를 표시 하는 레이블 보기로 전환 합니다. 
+사용자 발화의 정확한 텍스트를 보려면 키보드 Ctrl+E를 사용하여 레이블 뷰로 전환합니다. 
 
-Utterance `Is there a database position open in Los Colinas?` 는 _getjobinformation_ 으로 레이블이 지정 되지만 현재 모델은 utterance을 _applyforjob_으로 예측 했습니다. 
+`Is there a database position open in Los Colinas?` 발화는 _GetJobInformation_으로 레이블이 지정되었지만, 현재 모델에서 발화를 _ApplyForJob_으로 예측했습니다. 
 
-**Getjobinformation**보다는 **applyforjob** 에 대 한 많은 예가 거의 세 번 있습니다. 이 불균일 예에서는 **Applyforjob** 의도의 우선 순위를 기준으로 잘못 된 예측이 발생 합니다. 
+**ApplyForJob**의 예제가 **GetJobInformation**보다 거의 3배 더 많습니다. 이러한 예제 발화 수의 불균형 때문에 **ApplyForJob** 의도에 가중치가 커져서 잘못된 예측이 발생합니다. 
 
 두 의도는 동일한 오류 수를 갖습니다. 한 의도에서 예측이 잘못되면 다른 의도에도 영향을 미칩니다. 발언이 한 의도에 대해 잘못 예측되었고, 다른 의도에 대해서도 잘못 예측되었으므로 둘 다 오류가 있습니다. 
 
 <a name="fix-the-app"></a>
 
-## <a name="how-to-fix-the-app"></a>앱을 수정 하는 방법
+## <a name="how-to-fix-the-app"></a>앱 수정 방법
 
 이 섹션의 목적은 앱을 수정하여 **GetJobInformation**에 대해 모든 발언이 올바르게 예측되도록 하는 것입니다. 
 
-간단해 보이는 해결 방법은 올바른 의도에 이러한 일괄 처리 파일 발언을 추가하는 것입니다. 원하는 것이 아닙니다. 이러한 발언을 예제로 추가하지 않으면서 LUIS에서 발언이 올바르게 예측되도록 할 것입니다. 
+간단해 보이는 해결 방법은 올바른 의도에 이러한 일괄 처리 파일 발언을 추가하는 것입니다. 하지만 원하는 동작은 아닙니다. 이러한 발언을 예제로 추가하지 않으면서 LUIS에서 발언이 올바르게 예측되도록 할 것입니다. 
 
 **ApplyForJob** 발언 수량이 **GetJobInformation**와 같아질 때까지 발언을 제거하는 방법에 대해서도 관심이 있을 수 있습니다. 이렇게 하면 테스트 결과는 수정되지만 LUIS에서 다음 번에 해당 의도를 정확하게 예측하지 못할 수 있습니다. 
 
-수정은 **Getjobinformation**에 길이 발언를 더 추가 하는 것입니다. 작업에 적용 _되지 않고_ 작업 정보를 찾는 의도를 대상으로 하는 동시에 utterance 길이, 단어 선택 및 단어 정렬을 변경 해야 합니다.
+해결 방법은 **GetJobInformation**에 발화를 더 추가하는 것입니다. 작업 정보를 찾으려는 의도를 유지하면서 발화 길이, 단어 선택 및 단어 배열을 변경하되, 작업에 적용하면 ‘안 됩니다’. 
 
 ### <a name="add-more-utterances"></a>발언 추가
 
@@ -161,7 +161,7 @@ Utterance `Is there a database position open in Los Colinas?` 는 _getjobinforma
 
 1. 맨 위 탐색 모음에서 **테스트**를 선택합니다. 일괄 처리 결과가 계속 열려 있으면 **목록으로 돌아가기**를 선택합니다.  
 
-1. 일괄 처리 이름 오른쪽에 있는 줄임표 (***...***) 단추를 선택 하 고 **실행**을 선택 합니다. 일괄 테스트가 완료될 때까지 기다립니다. **결과 보기** 단추가 이제 녹색으로 표시됩니다. 이것은 전체 일괄 처리가 성공적으로 실행되었음을 나타냅니다.
+1. 일괄 처리 이름 오른쪽에 있는 줄임표(***...***) 단추를 선택한 다음, **실행**을 선택합니다. 일괄 테스트가 완료될 때까지 기다립니다. **결과 보기** 단추가 이제 녹색으로 표시됩니다. 이것은 전체 일괄 처리가 성공적으로 실행되었음을 나타냅니다.
 
 1. **See results**(결과 보기)를 선택합니다. 모든 의도의 이름 왼쪽에 녹색 아이콘이 있어야 합니다. 
 
@@ -200,7 +200,7 @@ Utterance `Is there a database position open in Los Colinas?` 는 _getjobinforma
 
 ## <a name="review-entity-batch-results"></a>엔터티 일괄 처리 결과 검토
 
-모든 의도가 올바르게 예측된 차트가 열립니다. 오른쪽 필터에서 아래로 스크롤하여 오류로 인 한 엔터티 예측을 찾습니다. 
+모든 의도가 올바르게 예측된 차트가 열립니다. 오른쪽 필터에서 아래로 스크롤하여 오류가 있는 엔터티 예측을 찾습니다. 
 
 1. 필터에서 **Job** 엔터티를 선택합니다.
 

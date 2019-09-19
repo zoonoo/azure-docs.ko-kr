@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: RStudio Server를 사용하여 Azure HDInsight의 ML Services 클러스터에서 R 스크립트 실행'
+title: '빠른 시작: ML Services에 대해 R을 실행하기 위한 RStudio 서버 - Azure HDInsight'
 description: 빠른 시작에서 RStudio Server를 사용하여 Azure HDInsight의 ML Services 클러스터에서 R 스크립트를 실행합니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 295430027afabcfcf793a87ae5859dc9c6675966
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6d87e46b522bb7c7e55c711194cc6456fcd89e92
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876303"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736207"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>빠른 시작: RStudio Server를 사용하여 Azure HDInsight의 ML Services 클러스터에서 R 스크립트 실행
 

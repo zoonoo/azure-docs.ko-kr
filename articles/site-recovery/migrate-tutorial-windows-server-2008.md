@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c449b74a9d6185b0616f62d31926feb6ff218cbb
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: d0d5c482e2faf5e4a2c2918a64bd56e4aa814323
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400091"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814507"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Windows Server 2008을 실행하는 서버에서 Azure로 마이그레이션
 
@@ -28,6 +28,9 @@ ms.locfileid: "66400091"
 > * Azure로 장애 조치(failover) 및 마이그레이션 완료
 
 제한 사항 및 알려진 문제 섹션에서는 Windows Server 2008 머신을 Azure로 마이그레이션하는 동안 발생할 수 있는 알려진 문제에 대한 일부 제한 사항 및 해결 방법을 나열합니다. 
+
+> [!NOTE]
+> 이제 Azure Migrate 서비스를 사용하여 온-프레미스에서 Azure로 마이그레이션할 수 있습니다. [자세히 알아보기](../migrate/migrate-services-overview.md).
 
 
 ## <a name="supported-operating-systems-and-environments"></a>지원되는 운영 체제 및 환경

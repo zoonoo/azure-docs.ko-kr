@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: glenga
 ms.reviewer: azfuncdf, cotresne
-ms.openlocfilehash: 9471ca3047090753c30c758f4f41c8558cdf4dd2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b47e828f3b8d760594cb04ba40ceaa7248050c52
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70744054"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933483"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>JavaScript로 첫 번째 지속성 함수 만들기
 
@@ -162,4 +162,4 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
 Visual Studio Code를 사용하여 JavaScript 지속성 함수 앱을 만들고 게시했습니다.
 
 > [!div class="nextstepaction"]
-> [일반적인 지속성 함수 패턴에 대해 알아보기](durable-functions-concepts.md)
+> [일반적인 지속성 함수 패턴에 대해 알아보기](durable-functions-overview.md#application-patterns)

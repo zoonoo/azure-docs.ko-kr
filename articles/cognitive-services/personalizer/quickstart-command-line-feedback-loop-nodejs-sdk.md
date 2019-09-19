@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 08/13/2019
+ms.date: 09/06/2019
 ms.author: diberry
-ms.openlocfilehash: fbd86698438e09a0c94c06e0e79800b8d38b57c1
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: a7c02c92ed61e4c8c8bd6a634cc9c6ad3538396e
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544811"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883703"
 ---
 # <a name="quickstart-personalize-client-library-for-nodejs"></a>빠른 시작: Node.js용 Personalizer 클라이언트 라이브러리
 
@@ -46,6 +46,9 @@ Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로
 
 * 리소스 키에 대한 `PERSONALIZER_KEY`
 * 리소스 엔드포인트에 대한 `PERSONALIZER_ENDPOINT`
+
+Azure Portal의 **빠른 시작** 페이지에서 키와 엔드포인트 값을 모두 확인할 수 있습니다.
+
 
 ### <a name="create-a-new-nodejs-application"></a>새 Node.js 애플리케이션 만들기
 

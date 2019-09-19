@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: d8773b330349356410589cf66e8f50636d92b601
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 4bc6e5570870941f050bc289dddfd85d64843df2
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009181"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092087"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HDFS에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -30,7 +30,7 @@ ms.locfileid: "71009181"
 
 이 HDFS 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
-- [지원 되는 원본 행렬이](copy-activity-overview.md) 포함 된 [복사 작업](copy-activity-overview.md)
+- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 
 특히 이 HDFS 커넥터는 다음을 지원합니다.
@@ -322,7 +322,7 @@ HDFS에서 **ORC 형식**으로 데이터를 복사 하기 위해 복사 작업 
 
 복사 작업은 DistCp를 사용 하 여 Azure Blob ( [준비 된 복사](copy-activity-performance.md)포함)에 있는 그대로 파일을 복사 하거나 Azure Data Lake Store 하 여 자체 호스팅 Integration Runtime를 실행 하는 대신 클러스터의 기능을 완벽 하 게 활용할 수 있습니다. 클러스터가 매우 강력한 경우에 특히 더 나은 복사 처리량을 제공합니다. Azure Data Factory의 구성에 따라 복사 작업은 자동으로 distcp 명령을 생성하고, Hadoop 클러스터에 제출하고, 복사 상태를 모니터링합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 
 DistCp를 사용하여 HDFS에서 Azure Blob(준비된 복사 포함) 또는 Azure Data Lake Store로 파일을 있는 그대로 복사하려면 Hadoop 클러스터가 아래 요구 사항을 충족하는지 확인합니다.
 

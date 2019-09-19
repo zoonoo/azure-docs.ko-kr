@@ -4,7 +4,7 @@ description: 예약된 IP 주소(클래식) 및 Azure PowerShell 및 Azure CLI�
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 ms.assetid: 34652a55-3ab8-4c2d-8fb2-43684033b191
 ms.service: virtual-network
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: 8afed4eb1add0ba3a7db474e54b2f78a0babab06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 675e7a7b557a3f19ea4d8d4960316c3859cbb9c1
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789080"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058487"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>예약된 IP 주소(클래식 배포)
 
@@ -53,7 +53,7 @@ Azure의 IP 주소에 대한 자세한 내용을 알아보려면 [IP 주소](vir
 
 ### <a name="using-azure-powershell-classic"></a>Azure PowerShell(클래식) 사용
 
-예약된 IP를 사용하려면 먼저 구독에 예약된 IP를 추가해야 합니다. ‘미국 중부’ 위치에서 사용할 수 있는 공용 IP 주소 풀에서 다음과 같이 예약된 IP를 만듭니다. 
+예약된 IP를 사용하려면 먼저 구독에 예약된 IP를 추가해야 합니다. ‘미국 중부’ 위치에서 사용할 수 있는 공용 IP 주소 풀에서 다음과 같이 예약된 IP를 만듭니다.
 
 > [!NOTE]
 > 클래식 배포 모델의 경우 Azure PowerShell의 Service Management 버전을 설치해야 합니다. 자세한 내용은 [Azure PowerShell Service Management 모듈 설치](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0)를 참조하세요. 
@@ -93,7 +93,7 @@ Remove-AzureReservedIP -ReservedIPName "MyReservedIP"
 ```
 
 ### <a name="using-azure-cli-classic"></a>Azure CLI(클래식) 사용
-Azure 클래식 CLI를 사용하여 ‘미국 중부’ 위치에서 사용할 수 있는 공용 IP 주소 풀에서 다음과 같이 예약된 IP를 만듭니다. 
+Azure 클래식 CLI를 사용하여 ‘미국 중부’ 위치에서 사용할 수 있는 공용 IP 주소 풀에서 다음과 같이 예약된 IP를 만듭니다.
 
 > [!NOTE]
 > 클래식 배포의 경우 Azure 클래식 CLI를 사용해야 합니다. Azure 클래식 CLI를 설치하는 방법에 대한 자세한 내용은 [Azure 클래식 CLI 설치](https://docs.microsoft.com/cli/azure/install-classic-cli?view=azure-cli-latest)를 참조하세요.
@@ -126,7 +126,7 @@ IP를 예약하면 예약된 IP는 삭제될 때까지 계속 구독에 연결�
  azure network reserved-ip delete MyReservedIP
  ```
 ## <a name="reserve-the-ip-address-of-an-existing-cloud-service"></a>기존 클라우드 서비스의 IP 주소 예약
-`-ServiceName` 매개 변수를 추가하여 기존 클라우드 서비스의 IP 주소를 예약할 수 있습니다. ‘미국 중부’ 위치에서 클라우드 서비스 *TestService*의 IP 주소를 다음과 같이 예약합니다. 
+`-ServiceName` 매개 변수를 추가하여 기존 클라우드 서비스의 IP 주소를 예약할 수 있습니다. ‘미국 중부’ 위치에서 클라우드 서비스 *TestService*의 IP 주소를 다음과 같이 예약합니다.
 
 - Azure PowerShell(클래식) 사용:
 

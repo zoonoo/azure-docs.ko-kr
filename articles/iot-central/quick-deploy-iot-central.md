@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 0d5f04d9c0cc6dcd8a784ae7a816d93e2aab30aa
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: eb6759d95ab0fb7afd3b6179babf052dfb029ff2
+ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099480"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70873435"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Azure IoT Central 애플리케이션 만들기
 
@@ -37,7 +37,7 @@ _작성기_로 Azure IoT Central UI를 사용하여 Microsoft Azure IoT Central 
    - **종량제** 애플리케이션은 처음 5개의 디바이스는 무료로 사용하며, 디바이스별로 요금이 청구됩니다. **종량제** 애플리케이션을 만드는 경우 *디렉터리*, *Azure 구독* 및 *지역*을 선택해야 합니다.
       - *디렉터리*는 애플리케이션을 만드는 Azure AD(Active Directory)입니다. 사용자 ID, 자격 증명 및 기타 조직 정보가 포함됩니다. Azure AD가 없는 경우 Azure 구독을 만들면 자동으로 하나가 생성됩니다.
       - *Azure 구독*을 사용하여 Azure 서비스 인스턴스를 만들 수 있습니다. IoT Central은 구독에서 리소스를 프로비전합니다. Azure 구독이 아직 없는 경우 [Azure 등록 페이지](https://aka.ms/createazuresubscription)에서 만들 수 있습니다. Azure 구독을 만든 후 다시 **애플리케이션 만들기** 페이지로 돌아갑니다. **Azure 구독** 드롭다운에 새 구독이 표시됩니다.
-      - *지역*은 애플리케이션을 만들려는 실제 위치입니다. 일반적으로 최적의 성능을 얻기 위해 디바이스에 물리적으로 가장 가까운 지역을 선택해야 합니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/) 페이지에서 Azure IoT Central을 사용할 수 있는 지역을 확인할 수 있습니다. 일단 지역을 선택하면 애플리케이션을 다른 지역으로 이동할 수 없습니다.
+      - ‘지역’은 애플리케이션을 만들려는 실제 위치 또는 [지리](https://azure.microsoft.com/global-infrastructure/geographies/)입니다.  일반적으로 최적의 성능을 얻으려면 디바이스와 물리적으로 가장 가까운 지역을 선택해야 합니다. Azure IoT Central을 사용할 수 있는 지역은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central) 페이지에서 확인할 수 있습니다. 일단 지역을 선택하면 애플리케이션을 다른 지역으로 이동할 수 없습니다.
 
       [Azure IoT Central 가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-central/)에서 가격 책정에 대해 자세히 알아보세요.
 

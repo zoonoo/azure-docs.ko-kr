@@ -1,21 +1,21 @@
 ---
-title: 자습서 - 웹 애플리케이션에서 인증을 사용하도록 설정 - Azure Active Directory B2C | Microsoft Docs
+title: 자습서 - 웹 애플리케이션에서 인증 사용 - Azure Active Directory B2C
 description: Azure Active Directory B2C를 사용하여 ASP.NET 웹 애플리케이션에 대한 사용자 로그인을 제공하는 방법에 대한 자습서입니다.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 02/04/2019
+ms.date: 09/12/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: bcfd1ef02c68de7709cb8642b94f23a6884ea156
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 2066a7848efaf067dddde3d5db1decfc88d94436
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464769"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914212"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 웹 애플리케이션에서 인증을 사용하도록 설정
 
@@ -32,8 +32,8 @@ ms.locfileid: "68464769"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- [사용자 흐름을 생성](tutorial-create-user-flows.md)하여 애플리케이션에 사용자 환경을 사용하도록 설정합니다.
-- **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
+* [사용자 흐름을 생성](tutorial-create-user-flows.md)하여 애플리케이션에 사용자 환경을 사용하도록 설정합니다.
+* **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
 
 ## <a name="update-the-application"></a>애플리케이션 업데이트
 
@@ -58,15 +58,21 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 다음의 두 프로젝트는 샘플 솔루션에 있습니다.
 
-- **TaskWebApp** - 작업 목록을 만들고 편집합니다. 이 샘플은 **등록 또는 로그인** 사용자 흐름을 사용하여 사용자를 등록하거나 로그인시킵니다.
+- **TaskWebApp** - 작업 목록을 만들고 편집합니다. 이 샘플은 **등록 또는 로그인** 사용자 흐름을 사용하여 사용자를 등록하고 로그인합니다.
 - **TaskService** - 작업 목록 만들기, 읽기, 업데이트 및 삭제 기능을 지원합니다. API는 Azure AD B2C를 통해 보호되고 TaskWebApp에서 호출됩니다.
 
-테넌트에서 등록된 애플리케이션을 사용하도록 샘플을 변경해야 하며, 여기에는 애플리케이션 ID와 이전에 기록한 키가 포함됩니다. 또한 만든 사용자 흐름도 구성해야 합니다. 샘플은 Web.config 파일에서 구성 값을 설정으로 정의합니다. 설정을 변경하려면 다음을 수행합니다.
+테넌트에서 등록된 애플리케이션을 사용하도록 샘플을 변경해야 하며, 여기에는 애플리케이션 ID와 이전에 기록한 키가 포함됩니다. 또한 만든 사용자 흐름도 구성해야 합니다. 샘플은 *Web.config* 파일에서 구성 값을 설정으로 정의합니다.
+
+Web.config 파일의 설정을 사용자 흐름에 맞게 업데이트합니다.
 
 1. Visual Studio에서 **B2C-WebAPI-DotNet** 솔루션을 엽니다.
-2. **TaskWebApp** 프로젝트에서 **Web.config** 파일을 엽니다. `ida:Tenant`의 값을 앞에서 만든 테넌트 이름으로 바꿉니다. `ida:ClientId`의 값을 앞에서 기록한 애플리케이션 ID로 바꿉니다. `ida:ClientSecret`의 값을 앞에서 기록한 키로 바꿉니다. Web.config에 추가하기 전에 클라이언트 암호를 XML로 인코딩해야 합니다.
-3. **Web.config** 파일에서 `ida:SignUpSignInPolicyId`의 값을 `b2c_1_signupsignin1`으로 바꿉니다. `ida:EditProfilePolicyId`의 값을 `b2c_1_profileediting1`로 바꿉니다. `ida:ResetPasswordPolicyId`의 값을 `b2c_1_passwordreset1`로 바꿉니다.
-
+1. **TaskWebApp** 프로젝트에서 **Web.config** 파일을 엽니다.
+    1. `ida:Tenant` 및 `ida:AadInstance`의 값을 앞에서 만든 테넌트 이름으로 바꿉니다.
+    1. `ida:ClientId`의 값을 앞에서 기록한 애플리케이션 ID로 바꿉니다.
+    1. `ida:ClientSecret`의 값을 앞에서 기록한 키로 바꿉니다. Web.config에 추가하기 전에 클라이언트 암호를 XML로 인코딩해야 합니다.
+    1. `ida:SignUpSignInPolicyId`의 값을 `b2c_1_signupsignin1`로 바꿉니다.
+    1. `ida:EditProfilePolicyId`의 값을 `b2c_1_profileediting1`로 바꿉니다.
+    1. `ida:ResetPasswordPolicyId`의 값을 `b2c_1_passwordreset1`로 바꿉니다.
 
 ## <a name="run-the-sample"></a>샘플 실행
 

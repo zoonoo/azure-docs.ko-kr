@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 4cc21a4dbab7d5114eed8414c6530eab5f42bb00
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 2b68da881edd0406a85692d6e0586427a57b7806
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478855"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916447"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Azure Maps를 사용하여 매장 로케이터 만들기
 
@@ -35,7 +35,7 @@ ms.locfileid: "68478855"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서의 단계를 완료하려면 먼저 [Azure Maps 계정을 만들고](./tutorial-search-location.md#createaccount), [계정에 대한 구독 키 가져와야](./tutorial-search-location.md#getkey) 합니다.
+이 자습서의 단계를 완료하려면 먼저 [Azure Maps 계정을 만든](./tutorial-search-location.md#createaccount) 다음, [기본 키 가져오기](./tutorial-search-location.md#getkey)의 단계를 수행하여 계정의 기본 구독 키를 가져와야 합니다.
 
 ## <a name="design"></a>디자인
 

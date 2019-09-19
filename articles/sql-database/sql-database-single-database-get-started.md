@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
-ms.date: 07/29/2019
-ms.openlocfilehash: f9c2ed77075affdfdf464dbf8a468629fc2e610d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 09/09/2019
+ms.openlocfilehash: 831ebbd3f85ffa9b78ac3e97a6ec68a8c41bceb5
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640057"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845301"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>빠른 시작: Azure Portal, PowerShell 및 Azure CLI를 사용하여 Azure SQL Database에서 단일 데이터베이스를 만듭니다.
 
@@ -30,8 +30,8 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 단일 데이터베이스는 서버리스(미리 보기) 또는 프로비저닝된 컴퓨팅 계층에서 만들 수 있습니다.
 
-- 프로비저닝된 컴퓨팅 계층의 단일 데이터베이스에는 미리 할당된 지정된 양의 컴퓨팅 리소스와 함께 두 가지 [구매 모델](sql-database-purchase-models.md) 중 하나를 사용하는 메모리 및 스토리지 리소스 세트가 있습니다.
-- 서버리스 컴퓨팅 계층의 단일 데이터베이스에는 자동으로 크기가 조정된 컴퓨팅 리소스의 범위와 함께 코어당 지정된 양의 메모리, 지정된 양의 스토리지 리소스가 있으며, [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)에서만 제공됩니다.
+- 프로비저닝된 컴퓨팅 계층의 단일 데이터베이스에는 두 가지 [구매 모델](sql-database-purchase-models.md) 중 하나를 사용하여 CPU 및 메모리를 비롯한 정해진 양의 컴퓨팅 리소스가 미리 할당되어 있습니다.
+- 서버리스 컴퓨팅 계층의 단일 데이터베이스에는 자동으로 크기가 조정되고 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)에서만 제공되는, CPU 및 메모리를 비롯한 다양한 컴퓨팅 리소스가 있습니다.
 
 단일 데이터베이스를 만들 때 지정된 Azure 지역의 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 데이터베이스를 관리 및 배치하기 위한 [SQL Database 서버](sql-database-servers.md)도 정의합니다.
 

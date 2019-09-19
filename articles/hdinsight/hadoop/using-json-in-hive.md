@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: dd1c9f5b10583e886c0357ce64bdf9d8bdc6c4c8
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 629a7c98a7b46b470470445cc56a6f53d9e4f4b4
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883361"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077208"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive를 사용하여 JSON 문서 처리 및 분석
 
@@ -91,7 +91,7 @@ SELECT * FROM StudentsOneLine
 
 **SELECT** 문의 출력은 다음과 같습니다.
 
-![JSON 문서 평면화](./media/using-json-in-hive/hdinsight-flatten-json.png)
+![JSON 문서를 평면화 하는 HDInsight](./media/using-json-in-hive/hdinsight-flatten-json.png)
 
 ## <a name="analyze-json-documents-in-hive"></a>Hive에서 JSON 문서 분석
 Hive는 JSON 문서에서 쿼리를 실행할 수 있는 서로 다른 세 가지 메커니즘을 제공하거나 직접 작성할 수 있습니다.
@@ -115,7 +115,7 @@ FROM StudentsOneLine;
 
 콘솔 창에서 이 쿼리를 실행하는 경우 출력은 다음과 같습니다.
 
-![get_json_object UDF](./media/using-json-in-hive/hdinsight-get-json-object.png)
+![Json 개체 UDF 가져오기 Apache Hive](./media/using-json-in-hive/hdinsight-get-json-object.png)
 
 get-json_object UDF에는 다음과 같은 제한 사항이 있습니다.
 
@@ -136,7 +136,7 @@ LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
 
 Hive 콘솔에 표시되는 이 스크립트의 출력은 다음과 같습니다.
 
-![json_tuple UDF](./media/using-json-in-hive/hdinsight-json-tuple.png)
+![Apache Hive json 쿼리 결과](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
 json_tuple UDF는 Hive에서 [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) 구문을 사용합니다. 이 구문을 사용하면 json\_tuple에서 원래 테이블의 각 행에 UDT 함수를 적용하여 가상 테이블을 만들 수 있습니다. **LATERAL VIEW**를 반복적으로 사용하기 때문에 복잡한 JSON을 다루기가 너무 어려워집니다. 또한 **JSON_TUPLE**은 중첩된 JSON을 처리할 수 없습니다.
 

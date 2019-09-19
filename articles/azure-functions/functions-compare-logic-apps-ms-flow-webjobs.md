@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 9543e67d0f98836f760ac840fa12ec5718da037e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 39c40f29f4548f2e7379472427a2c97f1a0b762c
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086035"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932967"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Microsoft Flow, Logic Apps, Functions 및 WebJobs란?
 
@@ -52,7 +52,7 @@ Microsoft Flow는 개발자나 IT를 통하지 않고 사무실 작업자가 간
 
 Functions 및 Logic Apps는 서버가 없는 워크로드를 활성화하는 Azure 서비스입니다. Azure Functions는 서버리스 컴퓨팅 서비스인 반면 Azure Logic Apps는 서버리스 워크플로를 제공합니다. 둘 다 복합 *오케스트레이션*을 만듭니다. 오케스트레이션은 Logic Apps에서 *작업*이라는 함수 또는 단계의 집합이며 복잡한 작업을 수행하기 위해 실행됩니다. 예를 들어 주문의 일괄 처리를 처리하기 위해 많은 함수의 인스턴스를 동시에 실행하고, 모든 인스턴스가 완료되기를 기다린 다음, 집계에 대한 결과를 컴퓨팅하는 함수를 실행할 수 있습니다.
 
-Azure Functions의 경우 코드를 작성하고 [지속성 함수 확장](durable/durable-functions-concepts.md)을 사용하여 오케스트레이션을 개발합니다. Logic Apps의 경우 GUI를 사용하거나 구성 파일을 편집하여 오케스트레이션을 만듭니다.
+Azure Functions의 경우 코드를 작성하고 [지속성 함수 확장](durable/durable-functions-overview.md)을 사용하여 오케스트레이션을 개발합니다. Logic Apps의 경우 GUI를 사용하거나 구성 파일을 편집하여 오케스트레이션을 만듭니다.
 
 오케스트레이션을 빌드할 때 논리 앱에서 함수를 호출하고 함수에서 논리 앱을 호출하여 서비스를 짜 맞출 수 있습니다. 서비스의 기능 또는 개인 기본 설정에 따라 각 오케스트레이션을 빌드하는 방법을 선택합니다. 다음 표는 이러한 서비스 간의 주요 차이점 중 일부를 나열합니다.
  

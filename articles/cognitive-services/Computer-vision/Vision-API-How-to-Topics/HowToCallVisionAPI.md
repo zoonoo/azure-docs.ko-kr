@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
-ms.date: 03/21/2019
+ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 97b9e0defb3f349a6e202572bc0e3005d5d87e9c
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 386503a7089c910b52a87cca8d9f2f2203ae0cad
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141198"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859061"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>예제: Computer Vision API를 호출하는 방법
 
@@ -57,9 +57,14 @@ Computer Vision API를 호출할 때마다 구독 키가 필요합니다. 이 �
 
     ```ocp-apim-subscription-key: <Your subscription key>```
 
-1. 클라이언트 라이브러리를 사용하는 경우 구독 키는 VisionServiceClient의 생성자를 통해 전달됩니다.
+1. 클라이언트 라이브러리를 사용하는 경우 구독 키는 ComputerVisionClient의 생성자를 통해 전달되고, 지역은 클라이언트의 속성에 지정됩니다.
 
-    ```var visionClient = new VisionServiceClient("Your subscriptionKey");```
+    ```
+    var visionClient = new ComputerVisionClient(new ApiKeyServiceClientCredentials("Your subscriptionKey"))
+    {
+        Endpoint = "https://westus.api.cognitive.microsoft.com"
+    }
+    ```
 
 ## <a name="upload-an-image-to-the-computer-vision-api-service-and-get-back-tags-descriptions-and-celebrities"></a>Computer Vision API 서비스에 이미지를 업로드하고 태그, 설명 및 유명인 다시 가져오기
 
@@ -74,16 +79,16 @@ POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatur
 ```
 
 ```csharp
-using Microsoft.ProjectOxford.Vision;
-using Microsoft.ProjectOxford.Vision.Contract;
 using System.IO;
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 
-AnalysisResult analysisResult;
-var features = new VisualFeature[] { VisualFeature.Tags, VisualFeature.Description };
+ImageAnalysis imageAnalysis;
+var features = new VisualFeatureTypes[] { VisualFeatureTypes.Tags, VisualFeatureTypes.Description };
 
 using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 {
-  analysisResult = await visionClient.AnalyzeImageAsync(fs, features);
+  imageAnalysis = await visionClient.AnalyzeImageInStreamAsync(fs, features);
 }
 ```
 
@@ -92,17 +97,17 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 ###### <a name="tags-only"></a>태그만:
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/tag&subscription-key=<Your subscription key>
-var analysisResult = await visionClient.GetTagsAsync("http://contoso.com/example.jpg");
+POST https://westus.api.cognitive.microsoft.com/vision/v2.0/tag?subscription-key=<Your subscription key>
+var tagResults = await visionClient.TagImageAsync("http://contoso.com/example.jpg");
 ```
 
 ###### <a name="description-only"></a>설명만:
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/describe&subscription-key=<Your subscription key>
+POST https://westus.api.cognitive.microsoft.com/vision/v2.0/describe?subscription-key=<Your subscription key>
 using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 {
-  analysisResult = await visionClient.DescribeAsync(fs);
+  imageDescription = await visionClient.DescribeImageInStreamAsync(fs);
 }
 ```
 

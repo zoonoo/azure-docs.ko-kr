@@ -1,19 +1,19 @@
 ---
-title: Azure Site Recovery를 사용하여 온-프레미스 머신 재해 복구용 Azure 준비 | Microsoft Docs
+title: Azure Site Recovery를 사용한 온-프레미스 머신 재해 복구를 위한 Azure 준비
 description: Azure Site Recovery를 사용하여 온-프레미스 머신 재해 복구용 Azure를 준비하는 방법을 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 87216317a965e85d83aede468163f43b1716c45a
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 1b8bdde64ee003d93ad15df8f1d4d8b1e3a2b5f9
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827244"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814350"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>온-프레미스 재해 복구를 위한 Azure 리소스 준비
 

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 6d26cedb0dd836846d7e9f00539fe101c944f478
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1edb83fcbe03fd113c59986bdbb6afcf2a0970bb
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442217"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916091"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>ASP.NET 웹 애플리케이션 모니터링 시작
 
@@ -47,7 +47,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 4. 구독을 선택하고 **등록**을 클릭합니다.
 
-5. **디버그** 메뉴에서 **디버깅 시작**을 선택하거나 F5 키를 눌러서 애플리케이션을 실행합니다.
+5. **프로젝트** > **NuGet 패키지 관리** > **패키지 소스: nuget.org** > **업데이트**를 선택하여 Application Insights SDK 패키지를 안정적인 최신 릴리스로 업데이트합니다.
+
+6. **디버그** 메뉴에서 **디버깅 시작**을 선택하거나 F5 키를 눌러서 애플리케이션을 실행합니다.
 
 ## <a name="confirm-app-configuration"></a>앱 구성 확인
 

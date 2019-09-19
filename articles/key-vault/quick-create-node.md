@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2010
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 4bea46e62f90a41b566781457a39718849ee0e15
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 02b9c439a932a4b35700871e68bdad7f03451110
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259238"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003502"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>빠른 시작: Node 웹앱을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색 
 
@@ -27,7 +27,7 @@ ms.locfileid: "70259238"
 * 웹앱의 [관리 ID](../active-directory/managed-service-identity/overview.md)를 사용하도록 설정합니다.
 * 웹 애플리케이션이 키 자격 증명 모음에서 데이터를 읽는 데 필요한 권한을 부여합니다.
 
-계속 진행하기 전에 [Key Vault에 대한 기본 개념](key-vault-whatis.md#basic-concepts)을 숙지하시기 바랍니다.
+계속 진행하기 전에 [Key Vault에 대한 기본 개념](basic-concepts.md)을 숙지하시기 바랍니다.
 
 > [!NOTE]
 > Key Vault는 프로그래밍 방식으로 비밀을 저장하는 중앙 리포지토리입니다. 하지만 이렇게 하려면 애플리케이션과 사용자가 먼저 Key Vault에 인증해야 합니다. 즉, 비밀을 제공해야 합니다. 보안 모범 사례에 따라 이 첫 번째 비밀을 정기적으로 회전시켜야 합니다. 
@@ -199,6 +199,6 @@ git push azure master
 이 빠른 시작에서는 Key Vault를 만들어 비밀을 저장했습니다. Key Vault를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서를 참조하세요.
 
 - [Azure Key Vault 개요](key-vault-overview.md) 읽기
-- [Azure Key Vault 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
-- [키, 비밀 및 인증서](about-keys-secrets-and-certificates.md)에 대해 알아보기
+- [Azure Key Vault 개발자 가이드](key-vault-developers-guide.md) 참조
+- [키, 비밀 및 인증서](about-keys-secrets-and-certificates.md) 알아보기
 - [Azure Key Vault 모범 사례](key-vault-best-practices.md) 검토

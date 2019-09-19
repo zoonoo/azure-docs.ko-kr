@@ -1,5 +1,5 @@
 ---
-title: '자습서: Data Factory를 사용하여 Azure HDInsight에서 주문형 Apache Hadoop 클러스터 만들기 '
+title: '자습서: Azure HDInsight의 주문형 Apache Hadoop 클러스터 - Data Factory'
 description: 자습서 - Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터를 만드는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 04/18/2019
-ms.openlocfilehash: 7af70de91a7f7696be3b003fec11390d6db9ba60
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: de12725952a2bac6a0b86b1d2e239428c0eaa709
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854976"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736175"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>자습서: Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터 만들기
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "68854976"
 > * Azure Data Factory 작업 이해
 > * Azure Portal을 사용하여 데이터 팩터리 만들기
 > * 연결된 서비스 만들기
-> * 파이프라인을 만들기
+> * 파이프라인을 만듭니다.
 > * 파이프라인 트리거
 > * 파이프라인 모니터링
 > * 출력 확인

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: overview
 ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 284c9bb1b9032d2f9caf0ce62c45ffa7cd8bf9d4
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: e325618ed1cdec6149ac31771c8bd67ecea7d559
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476847"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993842"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark란
 
@@ -25,7 +25,7 @@ Apache Spark는 메모리 내 처리를 지원하여 빅 데이터 분석 애플
 
 Spark는 메모리 내 클러스터 컴퓨팅을 위한 기본 형식을 제공합니다. Spark 작업은 메모리로 데이터를 로드하고 캐시하여 반복적으로 쿼리할 수 있습니다. 메모리 내 컴퓨팅은 HDFS(Hadoop 분산 파일 시스템)를 통해 데이터를 공유하는 Hadoop 같은 디스크 기반 애플리케이션보다 훨씬 빠릅니다. 또한 Spark는 지역 컬렉션과 같이 분산 데이터 집합을 조작할 수 있도록 Scala 프로그래밍 언어로 통합합니다. 매핑 및 reduce 작업으로 모든 것을 구조화하지 않아도 됩니다.
 
-![기존 MapReduce와 Spark](./media/apache-spark-overview/mapreduce-vs-spark.png)
+![기존 MapReduce와 Spark](./media/apache-spark-overview/map-reduce-vs-spark1.png)
 
 HDInsight에서 Spark 클러스터는 완벽하게 관리되는 Spark 서비스를 제공합니다. HDInsight에서 Spark 클러스터를 만드는 이점은 다음과 같습니다.
 
@@ -57,7 +57,7 @@ HDInsight의 Apache Spark 클러스터에는 기본적으로 클러스터에서 
 
 ## <a name="spark-cluster-architecture"></a>Spark 클러스터 아키텍처
 
-![HDInsight Spark의 아키텍처](./media/apache-spark-overview/spark-architecture.png)
+![HDInsight Spark의 아키텍처](./media/apache-spark-overview/hdi-spark-architecture.png)
 
 Spark가 HDInsight 클러스터에서 실행되는 방식을 이해하면 Spark의 구성 요소를 이해하는 것이 쉬워집니다.
 

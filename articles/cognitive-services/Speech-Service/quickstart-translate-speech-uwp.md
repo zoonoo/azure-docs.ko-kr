@@ -1,27 +1,27 @@
 ---
 title: '빠른 시작: 음성 변환, C#(UWP) - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 사용자 음성을 캡처하고, 다른 언어로 변환하고, 명령줄에 텍스트를 출력하는 간단한 UWP(유니버설 Windows 플랫폼) 애플리케이션을 만듭니다. 이 가이드는 Windows 사용자를 위해 설계되었습니다.
+description: 이 빠른 시작에서는 사용자 음성을 캡처하고, 다른 언어로 번역하고, 명령줄에 텍스트를 출력하는 UWP(유니버설 Windows 플랫폼) 애플리케이션을 만듭니다. 이 가이드는 Windows 사용자를 위해 설계되었습니다.
 services: cognitive-services
 author: lisaweixu
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 07/23/2019
+ms.date: 08/19/2019
 ms.author: erhopf
 ms.topic: quickstart
-ms.openlocfilehash: 813edbea0548a5cac9532750a450de08bd238028
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e513cbbc615965ef196a830351aab8ac241c3f20
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640023"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382634"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>빠른 시작: C#용 Speech SDK를 사용하여 음성 번역(UWP)
 
-빠른 시작은 [음성 텍스트 변환](quickstart-csharp-uwp.md), [텍스트 음성 변환](quickstart-text-to-speech-csharp-uwp.md) 및 [음성 우선 가상 도우미](quickstart-virtual-assistant-csharp-uwp.md)에도 사용할 수 있습니다.
+빠른 시작은 [음성 인식](quickstart-csharp-uwp.md), [음성 합성](quickstart-text-to-speech-csharp-uwp.md) 및 [음성 우선 가상 도우미](quickstart-virtual-assistant-csharp-uwp.md)에도 사용할 수 있습니다.
 
-이 빠른 시작에서는 컴퓨터의 마이크에서 사용자 음성을 캡처하고, 음성을 변환하고, 변환된 텍스트를 실시간으로 명령줄에 변환하는 간단한 UWP(유니버설 Windows 플랫폼) 애플리케이션을 만듭니다. 이 애플리케이션은 64비트 Windows에서 실행되도록 설계되었으며 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017 이상으로 빌드되었습니다.
+이 빠른 시작에서는 컴퓨터의 마이크에서 사용자 음성을 캡처하고, 음성을 번역하고, 번역된 텍스트를 실시간으로 명령줄에 전사하는 UWP(유니버설 Windows 플랫폼) 애플리케이션을 만듭니다. 이 애플리케이션은 64비트 Windows에서 실행되도록 설계되었으며, [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2019로 빌드되었습니다.
 
 음성 변환에 사용할 수 있는 언어의 전체 목록은 [언어 지원](language-support.md)을 참조하세요.
 
@@ -32,7 +32,7 @@ ms.locfileid: "68640023"
 
 이 빠른 시작에는 다음이 필요합니다.
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 이상
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * Speech Service에 대한 Azure 구독 키. [무료로 가져올 수 있습니다](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
@@ -41,37 +41,43 @@ ms.locfileid: "68640023"
 
 ## <a name="add-sample-code"></a>샘플 코드 추가
 
-1. 애플리케이션의 사용자 인터페이스는 XAML을 사용하여 정의됩니다. 솔루션 탐색기에서 `MainPage.xaml`을 엽니다. 디자이너의 XAML 보기에서 다음 XAML 코드 조각을 `<Grid>`와 `</Grid>` 사이에 삽입합니다.
+이제 애플리케이션의 사용자 인터페이스를 정의하는 XAML 코드를 추가하고, C# 코드 숨김 구현을 추가합니다.
 
-    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-uwp/helloworld/MainPage.xaml#StackPanel)]
+1. **솔루션 탐색기**에서 `MainPage.xaml` 파일을 엽니다.
 
-1. 코드 숨김 소스 파일 `MainPage.xaml.cs`를 엽니다(`MainPage.xaml` 아래 그룹화되어 있음). 그 안의 모든 코드를 다음으로 바꿉니다.
+1. 디자이너의 XAML 뷰에서 다음 XAML 코드 조각을 **Grid** 태그(`<Grid>`와 `</Grid>` 사이)에 삽입합니다.
 
-    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-uwp/helloworld/MainPage.xaml.cs#code)]
+   [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-uwp/helloworld/MainPage.xaml#StackPanel)]
 
-1. 이 파일의 `SpeechTranslationFromMicrophone_ButtonClicked` 처리기에서 문자열 `YourSubscriptionKey`를 구독 키로 바꿉니다.
+1. **솔루션 탐색기**에서 코드 숨김 원본 파일 `MainPage.xaml.cs`를 엽니다. `MainPage.xaml`로 그룹화되어 있습니다.
 
-1. `SpeechTranslationFromMicrophone_ButtonClicked` 처리기에서 문자열 `YourServiceRegion`을 구독과 연결된 [지역](regions.md)으로 바꿉니다(예를 들어 평가판 구독에 대해 `westus`).
+1. 그 안의 모든 코드를 다음 코드 조각으로 바꿉니다.
 
-1. 프로젝트에 대한 모든 변경 내용을 저장합니다.
+   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-uwp/helloworld/MainPage.xaml.cs#code)]
 
-## <a name="build-and-run-the-app"></a>앱 빌드 및 실행
+1. 이 파일의 `SpeechTranslationFromMicrophone_ButtonClicked` 처리기에서 `YourSubscriptionKey` 문자열을 찾아 구독 키로 바꿉니다.
 
-1. 애플리케이션을 빌드합니다. 메뉴 모음에서 **빌드** > **솔루션 빌드**를 선택합니다. 코드는 이제 오류 없이 컴파일됩니다.
+1. `SpeechTranslationFromMicrophone_ButtonClicked` 처리기에서 `YourServiceRegion` 문자열을 찾아 구독과 연결된 [지역](regions.md)으로 바꿉니다. 예를 들어 평가판 구독의 경우 `westus`를 사용합니다.
 
-    ![솔루션 빌드 옵션이 강조 표시된 Visual Studio 애플리케이션의 스크린샷](media/sdk/qs-csharp-uwp-08-build.png "성공적인 빌드")
+1. 메뉴 모음에서 **파일** > **모두 저장**을 선택하여 변경 내용을 저장합니다.
 
-1. 애플리케이션을 시작합니다. 메뉴 모음에서 **디버그** > **디버깅 시작**을 선택하거나 **F5** 키를 누릅니다.
+## <a name="build-and-run-the-application"></a>애플리케이션 빌드 및 실행
 
-    ![디버깅 시작 옵션이 강조 표시된 Visual Studio 애플리케이션의 스크린샷](media/sdk/qs-csharp-uwp-09-start-debugging.png "앱 디버깅 시작")
+이제 애플리케이션을 빌드하고 테스트할 준비가 되었습니다.
 
-1. 창이 팝업됩니다. **마이크 사용**을 클릭하고 팝업되는 권한 요청을 승인합니다.
+1. 메뉴 모음에서 **빌드** > **솔루션 빌드**를 선택하여 애플리케이션을 빌드합니다. 코드는 이제 오류 없이 컴파일됩니다.
 
-    ![권한 요청 스크린샷](media/sdk/qs-csharp-uwp-10-access-prompt.png "앱 디버깅 시작")
+1. **디버그** > **디버깅 시작**을 선택하거나, **F5** 키를 눌러 애플리케이션을 시작합니다. **helloworld** 창이 나타납니다.
 
-1. **마이크 입력을 사용하여 음성 인식**을 클릭하고 디바이스의 마이크에 짧은 영어 구나 문장을 말합니다. 음성은 음성 서비스로 전송되어 텍스트로 변환되고 창에 표시됩니다.
+   ![C#으로 작성된 샘플 UWP 번역 애플리케이션 - 빠른 시작](media/sdk/qs-translate-speech-uwp-helloworld-window.png)
 
-    ![음성 인식 사용자 인터페이스 스크린샷](media/sdk/qs-translate-csharp-uwp-ui-result.png)
+1. **마이크 사용**을 선택하고, 액세스 권한 요청이 팝업되면 **예**를 선택합니다.
+
+   ![마이크 액세스 권한 요청](media/sdk/qs-csharp-uwp-10-access-prompt.png)
+
+1. **마이크 입력의 음성 번역**을 선택하고 디바이스의 마이크에 짧은 영어 구나 문장을 말합니다. 애플리케이션이 음성 서비스로 음성을 전송하고, 여기서 음성을 다른 언어(이 예제에서는 독일어)의 텍스트로 번역합니다. 음성 서비스는 번역된 텍스트를 애플리케이션으로 다시 보내며, 애플리케이션 창에 번역이 표시됩니다.
+
+   ![음성 번역 사용자 인터페이스](media/sdk/qs-translate-csharp-uwp-ui-result.png)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -80,5 +86,4 @@ ms.locfileid: "68640023"
 
 ## <a name="see-also"></a>참고 항목
 
-- [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
-- [언어 모델 사용자 지정](how-to-customize-language-model.md)
+- [Custom Speech 모델 학습](how-to-custom-speech-train-model.md)

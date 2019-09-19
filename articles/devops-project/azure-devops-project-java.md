@@ -6,27 +6,26 @@ ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc, seo-java-july2019, seo-java-august2019
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 monikerRange: vsts
-ms.openlocfilehash: 381af2989a7622501462e574d05b54eea8416518
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: d395855de6bb16841d54821c87a6af6d5d62c11c
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543447"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898064"
 ---
 # <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>빠른 시작: Azure DevOps Projects를 사용하여 Java 앱에 대한 CI/CD 파이프라인 설정
 
-Azure DevOps Projects는 Azure Pipelines에서 Java 앱에 대한 CI(지속적인 통합) 및 CD(지속적인 업데이트) 파이프라인을 설정하고 Azure 리소스를 만드는 간소화된 환경을 제공합니다.  
+이 빠른 시작 문서에서는 Azure DevOps Projects의 간소화된 환경을 사용하여 Azure Pipelines에서 Java 앱용 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 설정합니다. Azure DevOps Projects를 사용하여 다른 Azure 리소스를 만들 수도 있습니다.  
 
 Azure 구독이 없으면 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료로 구독을 구할 수 있습니다.
 

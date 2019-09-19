@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 80f7185b69a7953656235d3bd622b7f61611de1a
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 1865b1b96b5b8794f1518d639825ccd2f1dcd090
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210186"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773147"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>사용자 지정 이미지를 사용하여 Linux에서 함수 만들기
 
@@ -143,9 +143,8 @@ docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
 
 ![함수 앱을 로컬로 테스트](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-필요에 따라 이번에는 로컬 컨테이너에서 다음 URL을 사용하여 다시 함수를 테스트할 수 있습니다.
-
-`http://localhost:8080/api/myhttptrigger?name=<yourname>`
+> [!NOTE]
+> 이 시점에서 특정 HTTP 함수를 호출하려고 하면 HTTP 401 오류 응답이 나타납니다. 함수가 Azure에서와 동일하게 로컬 컨테이너에서 실행되어, 함수 키가 필요하기 때문입니다. 컨테이너가 함수 앱에 아직 게시되지 않았으므로 사용 가능한 함수 키가 없습니다. 나중에 핵심 도구를 사용하여 컨테이너를 게시할 때 함수 키가 표시됩니다. 로컬 컨테이너에서 실행 중인 함수를 테스트하려는 경우 [인증 키](functions-bindings-http-webhook.md#authorization-keys)를 `anonymous`로 변경할 수 있습니다. 
 
 컨테이너에서 함수 앱을 확인한 후 실행을 중지합니다. 이제 사용자 이미지를 Docker 허브 계정으로 푸시할 수 있습니다.
 
@@ -159,7 +158,7 @@ docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
 docker login --username <docker-id>
 ```
 
-"로그인했습니다."라는 메시지는 사용자가 로그인했다고 확인합니다. 로그인했으면 [docker push](https://docs.docker.com/engine/reference/commandline/push/) 명령을 사용하여 이미지를 Docker 허브에 푸시합니다.
+“로그인했습니다.”라는 메시지를 통해 로그인 상태를 확인할 수 있습니다. 로그인했으면 [docker push](https://docs.docker.com/engine/reference/commandline/push/) 명령을 사용하여 이미지를 Docker 허브에 푸시합니다.
 
 ```bash
 docker push <docker-id>/mydockerimage:v1.0.0
@@ -209,7 +208,7 @@ _deployment-container-image-name_ 매개 변수는 Docker 허브에서 호스팅
 
 ## <a name="configure-the-function-app"></a>함수 앱 구성
 
-함수에는 기본 스토리지 계정에 연결하기 위한 연결 문자열이 필요합니다. 사용자 지정 이미지를 프라이빗 컨테이너 계정에 게시하는 경우 [ENV 명령](https://docs.docker.com/engine/reference/builder/#env) 또는 비슷한 것을 사용하여 Dockerfile에서 이러한 애플리케이션 설정을 환경 변수로 대신 설정해야 합니다.
+함수에는 기본 스토리지 계정에 연결하기 위한 연결 문자열이 필요합니다. 사용자 지정 이미지를 프라이빗 컨테이너 계정에 게시하는 경우 [ENV 명령](https://docs.docker.com/engine/reference/builder/#env)이나 유사한 명령을 사용하여 Dockerfile에서 이 애플리케이션 설정을 환경 변수로 대신 설정해야 합니다.
 
 이 경우 `<storage_name>`는 만든 기본 스토리지 계정의 이름입니다. [az storage account show-connection-string](/cli/azure/storage/account) 명령으로 연결 문자열을 가져옵니다. 함수 앱에서 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 명령으로 이 애플리케이션 설정을 추가합니다.
 

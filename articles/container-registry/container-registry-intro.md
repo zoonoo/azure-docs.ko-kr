@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/28/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8b20c54d2151afae227a085dd66a0d31f2b85305
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 2262948a8368f9448d876166b712ebaf670b5a56
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310665"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70994369"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure의 프라이빗 Docker 컨테이너 레지스트리 소개
 
@@ -31,7 +31,7 @@ Azure Container Registry에서 다양한 배포 대상으로 이미지 끌어오
 * **확장성 있는 오케스트레이션 시스템**: [Kubernetes](https://kubernetes.io/docs/), [DC/OS](https://docs.mesosphere.com/) 및 [Docker Swarm](https://docs.docker.com/swarm/)을 포함하는 호스트 클러스터에서 컨테이너화된 애플리케이션을 관리합니다.
 * [AKS(Azure Kubernetes Service)](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) 및 기타 서비스를 포함한 애플리케이션을 대규모로 빌드하고 실행할 수 있도록 지원하는 **Azure 서비스**.
 
-개발자는 컨테이너 개발 워크플로의 일환으로 컨테이너 레지스트리에 밀어넣을 수도 있습니다. 예를 들어 [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) 또는 [Jenkins](https://jenkins.io/)와 같은 전달 도구 및 지속적인 통합의 컨테이너 레지스트리를 대상으로 합니다.
+개발자는 컨테이너 개발 워크플로의 일환으로 컨테이너 레지스트리에 밀어넣을 수도 있습니다. 예를 들어 [Azure Pipelines](/azure/devops/pipelines/ecosystems/containers/acr-template) 또는 [Jenkins](https://jenkins.io/)와 같은 전달 도구 및 지속적인 통합의 컨테이너 레지스트리를 대상으로 합니다.
 
 기본 이미지가 업데이트될 때 애플리케이션 이미지가 자동으로 다시 작성되거나 팀이 Git 리포지토리에 코드를 커밋할 때 이미지 빌드를 자동화하도록 ACR 작업을 구성합니다. 클라우드에서 여러 컨테이너 이미지를 병렬로 작성 및 테스트하고 패치를 적용하는 작업을 자동화하는 여러 단계 작업을 만듭니다.
 

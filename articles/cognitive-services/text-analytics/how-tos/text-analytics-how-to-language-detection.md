@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 361dc10aad6f65230e1e0f4c563534d44b45f902
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: d34f3a03e1bcd35c270d13c4dda57d0394a36e4b
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697802"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387799"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>예제: Text Analytics를 사용하여 언어 감지
 
@@ -69,7 +69,7 @@ Text Analytics REST API의 [언어 감지](https://westcentralus.dev.cognitive.m
 
 + POST 요청을 만듭니다. 이 요청에 대한 API 문서를 검토하려면 [언어 감지 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)를 참조하세요.
 
-+ 언어 감지에 대한 HTTP 엔드포인트를 설정합니다. Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용합니다. `/languages` 리소스(`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`)를 포함해야 합니다.
++ 언어 감지에 대한 HTTP 엔드포인트를 설정합니다. Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용합니다. URL에 `/text/analytics/v2.1/languages`를 포함해야 합니다. 예: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages`
 
 + Text Analytics 작업에 대한 [액세스 키](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)가 포함되도록 요청 헤더를 설정합니다.
 

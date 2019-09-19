@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 09/06/2019
 ms.author: helohr
-ms.openlocfilehash: cd80ed3c3db2453a333c87ed706dd358ba248b47
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 66441e852ebe0a391a5807b90eeadae230130815
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516190"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734461"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>자습서: Windows Virtual Desktop 미리 보기에서 테넌트 만들기
 
@@ -49,7 +49,7 @@ Windows Virtual Desktop 서비스에 권한을 부여하면 이 서비스에서 
    >https://login.microsoftonline.com/{tenant}/adminconsent?client_id=5a0aa725-4958-4b0c-80a9-34562e23f3b7&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback
    >```
 
-2. 글로벌 관리자 계정을 사용하여 Windows Virtual Desktop 동의 페이지에 로그인합니다. 예를 들어 Contoso 조직의 사용자 계정은 admin@contoso.com 또는 admin@contoso.onmicrosoft.com일 수 있습니다.  
+2. 글로벌 관리자 계정을 사용하여 Windows Virtual Desktop 동의 페이지에 로그인합니다. 예를 들어 Contoso 조직의 사용자 계정은 admin@contoso.com 또는 admin@contoso.onmicrosoft.com일 수 있습니다.
 3. **수락**을 선택합니다.
 4. Azure AD가 동의를 기록할 수 있도록 1분 동안 기다립니다.
 5. 브라우저를 열고 [Windows Virtual Desktop 클라이언트 앱](https://login.microsoftonline.com/common/adminconsent?client_id=fa4345a4-a730-4230-84a8-7d9651b86739&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback)에 대한 관리자 동의 흐름을 시작합니다.
@@ -78,6 +78,7 @@ TenantCreator 애플리케이션 역할을 할당하려면 다음을 수행합�
    !["Windows Virtual Desktop" 엔터프라이즈 애플리케이션을 관리하도록 할당된 사용자 및 그룹 스크린샷입니다. 이 스크린샷은 "기본 액세스"에 대한 할당을 하나만 표시합니다.](media/tenant-default-access.png)
 5. **사용자 추가**를 선택한 다음, **할당 추가** 블레이드에서 **사용자 및 그룹**을 선택합니다.
 6. Windows Virtual Desktop 테넌트를 만들 사용자 계정을 검색합니다. 편의상 이는 글로벌 관리자 계정일 수 있습니다.
+   - contosoadmin@live.com 또는 contosoadmin@outlook.com과 같은 Microsoft ID 공급자를 사용하는 경우 Windows Virtual Desktop에 로그인하지 못할 수도 있습니다. admin@contoso.com 또는 admin@contoso.onmicrosoft.com과 같은 도메인 특정 계정을 사용하는 것이 좋습니다.
 
    !["TenantCreator"로 추가할 사용자를 선택하는 스크린샷입니다.](media/tenant-assign-user.png)
 

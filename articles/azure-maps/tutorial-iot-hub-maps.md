@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 5345bbf2514c8b06ab80d4563227725a398f9407
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: b88d355ec1784b3b613369e90cd5fac99d3d69a6
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898348"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916401"
 ---
 # <a name="implement-iot-spatial-analytics-using-azure-maps"></a>Azure Maps를 사용하여 IoT 공간 분석 구현
 
@@ -41,10 +41,10 @@ ms.locfileid: "69898348"
 ```JSON
 {
     "data": {
-         "properties": {
+        "properties": {
             "Engine": "ON"
-         },
-         "systemProperties": {
+        },
+        "systemProperties": {
             "iothub-content-type": "application/json",
             "iothub-content-encoding": "utf-8",
             "iothub-connection-device-id": "ContosoRentalDevice",
@@ -52,13 +52,13 @@ ms.locfileid: "69898348"
             "iothub-connection-auth-generation-id": "636959817064335548",
             "iothub-enqueuedtime": "2019-06-18T00:17:20.608Z",
             "iothub-message-source": "Telemetry"
-         },
-         "body": { 
-                    "location": { 
-                        "type": "Point",
-                        "coordinates": [ -77.025988698005662, 38.9015330523316 ]
-                     } 
-                 } 
+        },
+        "body": { 
+            "location": { 
+                "type": "Point",
+                "coordinates": [ -77.025988698005662, 38.9015330523316 ]
+            } 
+        } 
     }
 }
 ```
@@ -104,7 +104,7 @@ ms.locfileid: "69898348"
 
 ### <a name="create-an-azure-maps-account"></a>Azure Maps 계정 만들기 
 
-Azure Maps 공간 분석에 기반한 비즈니스 논리를 구현하려면 만든 리소스 그룹에 Azure Maps 계정을 만들어야 합니다. [계정 관리](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys)의 지침에 따라 S1 가격 책정 계층을 사용하여 Azure Maps 계정 구독을 만들고, [자동 인증 세부 정보](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details)를 참조하여 구독 키를 가져오는 방법을 알아봅니다.
+Azure Maps 공간 분석에 기반한 비즈니스 논리를 구현하려면 만든 리소스 그룹에 Azure Maps 계정을 만들어야 합니다. [계정 관리](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account)의 지침에 따라 S1 가격 책정 계층을 사용하여 Azure Maps 계정 구독을 만들고, [기본 키 가져오기](./tutorial-search-location.md#getkey)의 단계를 수행하여 계정의 기본 구독 키를 가져옵니다.
 
 
 ### <a name="create-a-storage-account"></a>스토리지 계정 만들기

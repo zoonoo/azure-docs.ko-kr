@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 8a3a325cbfced13b6e2ac4cb842b5d5f4f764750
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2aae0ce7bbf5c8804dcaab90fcb60a66dfe59cf0
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567464"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744413"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>빠른 시작: 데이터베이스를 Managed Instance로 복원
 
@@ -37,6 +37,7 @@ ms.locfileid: "68567464"
 - SSMS를 사용하여 Managed Instance에 연결해야 합니다. 다음과 같이 연결하는 방법에 대한 빠른 시작을 참조하세요.
   - [Azure VM에서 Azure SQL Database Managed Instance에 연결](sql-database-managed-instance-configure-vm.md)
   - [온-프레미스에서 Azure SQL Database Managed Instance로의 지점 및 사이트 간 연결 구성](sql-database-managed-instance-configure-p2s.md).
+- `rw` 권한이 있는 **SAS 자격 증명**으로 보호된 **퍼블릭 IP**에 Azure Blob Storage 계정(예: Standard_LRS V2)이 있어야 합니다. [방화벽으로 보호된 Blob 스토리지의 프라이빗 IP](https://docs.microsoft.com/azure/storage/common/storage-network-security) 및 Azure Blob Storage 서비스 엔드포인트는 현재 지원되지 않습니다.
 
 > [!NOTE]
 > Azure Blob Storage와 [SAS(공유 액세스 서명) 키](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)를 사용하여 SQL Server Database를 백업하고 복원하는 데 관한 자세한 내용은 [URL에 SQL Server 백업](sql-database-managed-instance-get-started-restore.md)을 참조하세요.

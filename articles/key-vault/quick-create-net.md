@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: c67b24d57117a248559424497939a04ce347658c
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: b61dab28ff3fb6710e59e6209282c71a8f52f674
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308952"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914870"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>빠른 시작: .NET용 Azure Key Vault 클라이언트 라이브러리
 
@@ -178,7 +178,7 @@ setx akvSubscriptionId <your-subscriptionId>
 
 ### <a name="save-a-secret"></a>비밀 저장
 
-이제 애플리케이션이 인증되었으므로 [SetSecretAsync 메서드](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync)를 사용하여 비밀을 키 자격 증명 모음에 저장할 수 있습니다. 이 경우 `https://<your-unique-keyvault-name>.vault.azure.net/secrets/` 형식으로 된 키 자격 증명 모음의 URL이 필요합니다. 또한 비밀의 이름도 필요합니다. 여기서는 "mySecret"을 사용합니다.  이러한 문자열은 다시 사용할 수 있도록 변수에 할당할 수 있습니다.
+이제 애플리케이션이 인증되었으므로 [SetSecretAsync 메서드](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync)를 사용하여 비밀을 키 자격 증명 모음에 저장할 수 있습니다. 이 경우 `https://<your-unique-keyvault-name>.vault.azure.net/secrets/` 형식으로 된 키 자격 증명 모음의 URL이 필요합니다. 또한 비밀의 이름도 필요합니다. 여기서는 "mySecret"을 사용합니다.  이러한 문자열을 재사용할 수 있도록 변수에 할당할 수 있습니다.
 
 [!code-csharp[Set secret](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=setsecret)]
 

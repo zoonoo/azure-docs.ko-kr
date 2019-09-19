@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure Portal에서 AI 보강 인덱스 빌드 - Azure Search'
+title: '빠른 시작: Azure Portal의 인지 검색 AI 보강 알아보기 - Azure Search'
 description: Azure Search 인덱싱 포털에서 Azure Portal 및 샘플 데이터를 사용한 데이터 추출, 자연어 및 이미지 처리 기술입니다.
 manager: nitinme
 author: HeidiSteen
@@ -7,16 +7,16 @@ services: search
 ms.service: search
 ms.subservice: cognitive-search
 ms.topic: quickstart
-ms.date: 07/09/2019
+ms.date: 09/10/2019
 ms.author: heidist
-ms.openlocfilehash: a4654e5895e9c7768b9fa6b975ef848294bcc8cc
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: ff32be5410876d1ba61b3bce2fd5f57868745e50
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648915"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881097"
 ---
-# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>빠른 시작: Azure Search에서 인식 기술을 사용하여 AI 인덱싱 파이프라인 만들기
+# <a name="quickstart-create-an-ai-enrichment-pipeline-using-cognitive-skills-in-azure-search"></a>빠른 시작: Azure Search에서 인지 기술을 사용하여 AI 보강 파이프라인 만들기
 
 Azure Search는 [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)와 통합되고, Azure Search 인덱싱 파이프라인에 콘텐츠 추출, NLP(자연어 처리) 및 이미지 처리 기술을 추가하여 검색할 수 없거나 구조화되지 않은 콘텐츠를 검색할 수 있게 만들어 줍니다. 
 
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)는 AI를 제공합니다. 이 빠른 시작에는 파이프라인을 지정할 때 인라인으로 이러한 리소스를 추가하는 단계가 포함되어 있습니다. 계정을 미리 설정할 필요는 없습니다.
 
-Azure 서비스는 인덱싱 파이프라인에 입력을 제공해야 합니다. AI 인덱싱에 지원되지 않는 Azure Table Storage를 제외하고, [Azure Search 인덱서](search-indexer-overview.md)에서 지원하는 모든 데이터 원본을 사용할 수 있습니다. 이 빠른 시작에서는 원본 데이터 파일의 컨테이너로 [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)를 사용합니다. 
+Azure 서비스는 인덱싱 파이프라인에 입력을 제공해야 합니다. [Azure Search 인덱서](search-indexer-overview.md)에서 지원되는 모든 데이터 원본을 사용할 수 있습니다. 이 빠른 시작에서는 원본 데이터 파일의 컨테이너로 [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)를 사용합니다. 
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Azure Blob service를 설정하고 샘플 데이터 로드
 

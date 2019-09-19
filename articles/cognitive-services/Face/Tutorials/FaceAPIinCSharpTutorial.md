@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 54069fbaa8ad06d257ab835ed3b170fecb76d800
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 93932fac9a5e5d4c21adc99bd31e9366a9709cc2
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603332"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859105"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>자습서: 이미지에서 얼굴 데이터를 표시하는 WPF 앱 만들기
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Face API 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face API 서비스를 구독하고 키를 가져옵니다.
+- Face API 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face API 서비스를 구독하고 키를 가져옵니다. 그런 다음, 각각 `FACE_SUBSCRIPTION_KEY` 및 `FACE_ENDPOINT`라는 키 및 서비스 엔드포인트 문자열에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
 - [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio 프로젝트 만들기
@@ -59,27 +59,31 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 *MainWindow.xaml*을 열고 콘텐츠를 다음 코드로 바꿉니다.&mdash;이 코드로 UI 창이 만들어집니다. `FacePhoto_MouseMove` 및 `BrowseButton_Click` 메서드는 나중에 정의할 이벤트 처리기입니다.
 
-[!code-xaml[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml?range=1-18)]
+[!code-xaml[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml?name=snippet_xaml)]
 
 ### <a name="create-the-main-class"></a>기본 클래스 만들기
 
 *MainWindow.xaml.cs*를 열고 클라이언트 라이브러리 네임스페이스와 필요한 기타 네임스페이스를 추가합니다. 
 
-[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=1-12)]
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_using)]
 
-다음으로, **MainWindow** 클래스에 다음 코드를 삽입합니다. 이 코드로 구독 키를 사용하여 **FaceClient** 인스턴스가 만들어지며, 구독 키는 사용자가 직접 입력해야 합니다. `faceEndpoint`의 지역 문자열을 구독에 대한 올바른 지역으로 설정해야 합니다(모든 지역 엔드포인트 목록에 대해서는 [Face API 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 참조).
+다음으로, **MainWindow** 클래스에 다음 코드를 삽입합니다. 이 코드에서는 구독 키와 엔드포인트를 사용하여 **FaceClient** 인스턴스를 만듭니다.
 
-[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=18-46)]
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mainwindow_fields)]
 
-다음 코드를 **MainWindow** 메서드에 붙여넣습니다.
+**MainWindow** 생성자를 추가합니다. 이 생성자는 엔드포인트 URL 문자열을 확인하고 클라이언트 개체와 연결합니다.
 
-[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=50-61)]
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mainwindow_constructor)]
 
 마지막으로, **BrowseButton_Click** 및 **FacePhoto_MouseMove** 메서드를 클래스에 추가합니다. 이 메서드는 *MainWindow.xaml*에 선언된 이벤트 처리기에 해당합니다. **BrowseButton_Click** 메서드는 사용자가 .jpg 이미지를 선택할 수 있도록 허용하는 **OpenFileDialog**를 만듭니다. 그리고 주 창에 이미지를 표시합니다. 이후 단계에서 **BrowseButton_Click** 및 **FacePhoto_MouseMove**의 나머지 코드를 삽입합니다. **DetectedFace** 개체의 목록인 `faceList` 참조도 기록해 두세요. 이 참조가 앱이 실제 얼굴 데이터를 저장하고 호출하는 위치입니다.
 
-[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=64-90,146)]
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_browsebuttonclick_start)]
 
-[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=148-150,187)]
+<!-- [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_browsebuttonclick_end)] -->
+
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mousemove_start)]
+
+<!-- [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mousemove_end)] -->
 
 ### <a name="try-the-app"></a>앱 시험
 
@@ -93,26 +97,25 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 **MainWindow** 클래스에서 **FacePhoto_MouseMove** 메서드 아래에 다음 메서드를 삽입합니다. 이 메서드는 검색할 얼굴 특성 목록을 정의하고 제출된 이미지 파일을 **스트림**으로 읽어 들입니다. 그런 다음, 두 개체가 **DetectWithStreamAsync** 메서드 호출로 전달됩니다.
 
-[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=189-226)]
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_uploaddetect)]
 
 ## <a name="draw-rectangles-around-faces"></a>얼굴 주위에 사각형 그리기
 
 다음으로, 이미지에서 감지된 각 얼굴 주위에 사각형을 그리는 코드를 추가하겠습니다. **MainWindow** 클래스의 **BrowseButton_Click** 메서드 끝부분에서 `FacePhoto.Source = bitmapSource` 줄 뒤에 다음 코드를 삽입합니다. 이 코드는 호출에서 감지된 얼굴 목록을 **UploadAndDetectFaces**에 채웁니다. 그런 다음, 각 얼굴 주위에 사각형이 그려지고 수정된 이미지가 주 창에 표시됩니다.
 
-[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=92-145)]
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_browsebuttonclick_mid)]
 
 ## <a name="describe-the-faces"></a>얼굴 설명
 
 **MainWindow** 클래스의 **UploadAndDetectFaces** 메서드 아래에 다음 메서드를 추가합니다. 이 메서드는 검색된 얼굴 특성을 얼굴을 설명하는 문자열로 변환합니다.
 
-[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=228-286)]
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_facedesc)]
 
 ## <a name="display-the-face-description"></a>얼굴 설명 표시
 
 **FacePhoto_MouseMove** 메서드에 다음 코드를 추가합니다. 이 이벤트 처리기는 마우스 포인터가 감지된 얼굴 사각형을 가리킬 때 `faceDescriptionStatusBar`에 얼굴 설명 문자열을 표시합니다.
 
-[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=151-186)]
-
+[!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mousemove_mid)]
 
 ## <a name="run-the-app"></a>앱 실행
 

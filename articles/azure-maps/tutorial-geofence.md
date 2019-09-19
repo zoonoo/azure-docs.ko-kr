@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 112d0bd4b6802179692d0d177775027e552d1170
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b4e9b72be5d03e0b3441983ca991a16688f5f4cd
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085323"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916451"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Azure Maps를 사용하여 지오펜스 설정
 
@@ -36,7 +36,7 @@ Event Grid에 대한 자세한 내용은 [Azure Event Grid](https://docs.microso
 
 ### <a name="create-an-azure-maps-account"></a>Azure Maps 계정 만들기 
 
-이 자습서의 단계를 수행하려면 먼저 [계정 및 키 관리](how-to-manage-account-keys.md)를 참조하여 S1 가격 책정 계층을 사용하여 계정 구독을 만들고 관리해야 합니다.
+이 자습서의 단계를 완료하려면 [계정 관리](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account)의 지침에 따라 S1 가격 책정 계층을 사용하여 Azure Maps 계정 구독을 만들고, [기본 키 가져오기](./tutorial-search-location.md#getkey)의 단계를 수행하여 계정의 기본 구독 키를 가져옵니다.
 
 ## <a name="upload-geofences"></a>지오펜스 업로드
 

@@ -1,5 +1,5 @@
 ---
-title: 엔드포인트 발화 검토 - LUIS
+title: '자습서: 엔드포인트 발화 검토 - LUIS'
 titleSuffix: Azure Cognitive Services
 description: LUIS에서 알 수 없는 LUIS HTTP 엔드포인트를 통해 수신된 발언을 확인하거나 수정하여 앱 예측을 향상시키는 방법을 학습합니다. 의도를 확인해야 하는 발언도 있고, 엔터티를 확인해야 하는 발언도 있습니다.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: dd5c0012bad567623fdfc0a70760f692aafe0e3e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f81066ed21702dfe94ad7897adc3b82ed5a49f4d
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563325"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387514"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>자습서: 엔드포인트 발언을 검토하여 알 수 없는 예측 수정
 이 자습서에서는 LUIS에서 알 수 없는 LUIS HTTPS 엔드포인트를 통해 수신된 발언을 확인하거나 수정하여 앱 예측을 향상시키는 방법을 학습합니다. 의도를 확인해야 하는 발언도 있고, 엔터티를 확인해야 하는 발언도 있습니다. 예약된 LUIS 유지 관리의 정기적인 과정 형태로 엔드포인트 발언 검토를 진행해야 합니다. 
@@ -85,15 +85,17 @@ ms.locfileid: "68563325"
     |:--|:--|:--|
     |`I'm looking for a job with Natural Language Processing`|GetJobInfo|작업 - "자연어 처리"|
 
+    keyPhrase 엔터티에서 작업 엔터티로 `natural language processing`을 변경하려면 구문을 선택한 다음, 목록에서 **작업**을 선택합니다. 다른 엔터티에 대해 keyPhrase 텍스트의 일부만 선택하려면 keyPhrase 엔터티를 제거하고 다른 엔터티로 레이블을 지정한 다음, keyPhrase 엔터티를 앱에 다시 적용해야 합니다. 
+
     발화를 추가하면 발화가 **엔드포인트 발화 검토**에서 **GetJobInformation** 의도로 이동합니다. 엔드포인트 발언은 이제 해당 의도에 대한 예제 발언이 되었습니다. 
 
     이 발화를 올바르게 정렬하는 것과 함께 더 많은 발화를 **GetJobInformation** 의도에 추가해야 합니다. 이는 스스로 완료하도록 연습으로 남겨둡니다. **None** 의도를 제외한 각 의도에는 대략적으로 예제와 동일한 수의 발언이 있어야 합니다. **None** 의도에는 앱의 총 발언의 10%가 있어야 합니다. 
 
-1. 이 의도에서 남은 발언을 검토하고, 발언에 레이블을 지정하고, 올바르지 않은 경우 **정렬된 의도**를 수정합니다.
+    이 의도에서 남은 발언을 검토하고, 발언에 레이블을 지정하고, 올바르지 않은 경우 **정렬된 의도**를 수정합니다.
 
-1. 목록에는 더 이상 이런 발언이 없어야 합니다. 발언이 여전히 표시되는 경우, 목록이 빌 때까지 의도를 수정하고, 누락된 엔터티에 레이블을 지정하여 계속 작업합니다. 
+    **엔드포인트 발화 검토** 목록에 이러한 발화가 더 이상 없어야 합니다. 발언이 여전히 표시되는 경우, 목록이 빌 때까지 의도를 수정하고, 누락된 엔터티에 레이블을 지정하여 계속 작업합니다. 
 
-1. 필터 목록에서 다음 의도를 선택한 후 계속 발언을 수정하고 엔터티에 레이블을 지정합니다. 각 의도의 마지막 단계는 발언 행에서 **정렬된 의도를 추가**를 선택하거나 각 의도별로 확인란을 선택하고 테이블 위의 **추가 선택**을 선택하는 것입니다.
+    필터 목록에서 다음 의도를 선택한 후 계속 발언을 수정하고 엔터티에 레이블을 지정합니다. 각 의도의 마지막 단계는 발언 행에서 **정렬된 의도를 추가**를 선택하거나 각 의도별로 확인란을 선택하고 테이블 위의 **추가 선택**을 선택하는 것입니다.
 
     필터 목록의 모든 의도와 엔터티가 비워질 때까지 계속합니다. 이는 매우 작은 앱입니다. 검토 프로세스는 몇 분 정도만 걸립니다. 
 

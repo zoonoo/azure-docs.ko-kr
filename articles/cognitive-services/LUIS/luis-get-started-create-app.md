@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 5e635064af21996b7bd87b9da0f6b1ec9aa29378
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 1704b62cae6375d376fc43fb7a2940cd9c717072
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307782"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382515"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>빠른 시작: 미리 빌드된 홈 자동화 앱 사용
 
@@ -80,7 +80,7 @@ Turn off the lights
 
 점수가 가장 높은 의도가 각 테스트 발언에 대한 의도와 일치하는지 확인합니다.
 
-이 예제에서 "Turn off the lights"는 "HomeAutomation.TurnOff"의 최고 득점 의도로 올바르게 식별되었습니다.
+이 예제에서 `Turn off the lights`는 **HomeAutomation.TurnOff**의 최고 득점 의도로 올바르게 확인되었습니다.
 
 [![발화가 강조 표시된 테스트 패널의 스크린샷](media/luis-quickstart-new-app/test.png "발화가 강조 표시된 테스트 패널의 스크린샷")](media/luis-quickstart-new-app/test.png)
 
@@ -97,83 +97,134 @@ Turn off the lights
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>다른 발화를 사용하여 엔드포인트 쿼리
+## <a name="query-the-v2-api-prediction-endpoint"></a>V2 API 예측 엔드포인트 쿼리
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-2. 주소의 URL 끝으로 이동하고 `turn off the living room light`를 입력한 다음, Enter 키를 누릅니다. 브라우저는 HTTP 엔드포인트의 JSON 응답 V2 API 버전을 표시합니다.
+1. 주소의 URL 끝으로 이동하고 `turn off the living room light`를 입력한 다음, Enter 키를 누릅니다. 브라우저에서 HTTP 엔드포인트의 JSON 응답 **V2 API** 버전이 표시됩니다.
+
+    ```json
+    {
+      "query": "turn off the living room light",
+      "topScoringIntent": {
+        "intent": "HomeAutomation.TurnOff",
+        "score": 0.9753089
+      },
+      "intents": [
+        {
+          "intent": "HomeAutomation.TurnOff",
+          "score": 0.9753089
+        },
+        {
+          "intent": "HomeAutomation.QueryState",
+          "score": 0.01027893
+        },
+        {
+          "intent": "HomeAutomation.TurnUp",
+          "score": 0.006881481
+        },
+        {
+          "intent": "HomeAutomation.SetDevice",
+          "score": 0.006786365
+        },
+        {
+          "intent": "HomeAutomation.TurnDown",
+          "score": 0.005145787
+        },
+        {
+          "intent": "HomeAutomation.TurnOn",
+          "score": 0.004114749
+        },
+        {
+          "intent": "None",
+          "score": 0.000598924
+        }
+      ],
+      "entities": [
+        {
+          "entity": "living room",
+          "type": "HomeAutomation.Location",
+          "startIndex": 13,
+          "endIndex": 23,
+          "score": 0.94558233
+        },
+        {
+          "entity": "living room light",
+          "type": "HomeAutomation.DeviceName",
+          "startIndex": 13,
+          "endIndex": 29,
+          "resolution": {
+            "values": [
+              "living room light"
+            ]
+          }
+        },
+        {
+          "entity": "light",
+          "type": "HomeAutomation.DeviceType",
+          "startIndex": 25,
+          "endIndex": 29,
+          "resolution": {
+            "values": [
+              "light"
+            ]
+          }
+        }
+      ]
+    }
+    ```
+    
+## <a name="query-the-v3-api-prediction-endpoint"></a>V3 API 예측 엔드포인트 쿼리
+
+[V3 API 쿼리](luis-migration-api-v3.md)의 경우, 브라우저에서 꺾쇠괄호 안의 값을 고유한 값으로 변경하여 GET 메서드 HTTPS 요청을 변경합니다. 
+
+**GET 메서드를 사용한 V2 URL**:
+
+https://\<region>.api.cognitive.microsoft.com/luis/**v2.0**/apps/\<appID>?verbose=true&subscription-key=\<YOUR_KEY>&**q=\<user-utterance-text>**
+
+**GET 메서드를 사용한 V3 URL**:
+
+https://\<region>.api.cognitive.microsoft.com/luis/**v3.0-preview**/apps/\<appID>/**slots**/**production**/**predict**?verbose=true&subscription-key=\<YOUR_KEY>&**query=\<user-utterance-text>**
+
+브라우저에서 HTTP 엔드포인트의 JSON 응답 **V3 API 버전**이 표시됩니다.
 
 ```json
 {
-  "query": "turn off the living room light",
-  "topScoringIntent": {
-    "intent": "HomeAutomation.TurnOff",
-    "score": 0.9753089
-  },
-  "intents": [
-    {
-      "intent": "HomeAutomation.TurnOff",
-      "score": 0.9753089
-    },
-    {
-      "intent": "HomeAutomation.QueryState",
-      "score": 0.01027893
-    },
-    {
-      "intent": "HomeAutomation.TurnUp",
-      "score": 0.006881481
-    },
-    {
-      "intent": "HomeAutomation.SetDevice",
-      "score": 0.006786365
-    },
-    {
-      "intent": "HomeAutomation.TurnDown",
-      "score": 0.005145787
-    },
-    {
-      "intent": "HomeAutomation.TurnOn",
-      "score": 0.004114749
-    },
-    {
-      "intent": "None",
-      "score": 0.000598924
+    "query": "turn off the lights",
+    "prediction": {
+        "normalizedQuery": "turn off the lights",
+        "topIntent": "HomeAutomation.TurnOff",
+        "intents": {
+            "HomeAutomation.TurnOff": {
+                "score": 0.99649024
+            }
+        },
+        "entities": {
+            "HomeAutomation.DeviceType": [
+                [
+                    "light"
+                ]
+            ],
+            "$instance": {
+                "HomeAutomation.DeviceType": [
+                    {
+                        "type": "HomeAutomation.DeviceType",
+                        "text": "lights",
+                        "startIndex": 13,
+                        "length": 6,
+                        "modelTypeId": 5,
+                        "modelType": "List Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
     }
-  ],
-  "entities": [
-    {
-      "entity": "living room",
-      "type": "HomeAutomation.Location",
-      "startIndex": 13,
-      "endIndex": 23,
-      "score": 0.94558233
-    },
-    {
-      "entity": "living room light",
-      "type": "HomeAutomation.DeviceName",
-      "startIndex": 13,
-      "endIndex": 29,
-      "resolution": {
-        "values": [
-          "living room light"
-        ]
-      }
-    },
-    {
-      "entity": "light",
-      "type": "HomeAutomation.DeviceType",
-      "startIndex": 25,
-      "endIndex": 29,
-      "resolution": {
-        "values": [
-          "light"
-        ]
-      }
-    }
-  ]
 }
 ```
-    
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]

@@ -1,5 +1,5 @@
 ---
-title: 'Node.js 빠른 시작: Azure Search REST API를 사용하여 인덱스 만들기, 로드 및 쿼리 - Azure Search'
+title: '빠른 시작: REST API를 사용하여 Node.js에서 검색 인덱스 만들기 - Azure Search'
 description: JavaScript에서 인덱스 생성, 데이터 로드, 쿼리 방법을 보여주는 Azure Search에 대한 Node.js 샘플입니다.
 author: lobrien
 manager: nitinme
@@ -8,16 +8,16 @@ services: search
 ms.service: search
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 07/30/2019
+ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: b22a6371522674895465afac88e68f556ab09bcb
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 4e17247ea412b5472a0c23fd74ff7e53f375710d
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656298"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881507"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-nodejs"></a>빠른 시작: Node.js에서 Azure Search 인덱스 만들기
+# <a name="quickstart-create-an-azure-search-index-in-nodejs-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Node.js에서 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)

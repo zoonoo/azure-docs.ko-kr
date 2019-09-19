@@ -11,24 +11,27 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0685b65ce9204221e93a1ea4aa47a5e09eaac9f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 51bfcc47961e870fb7fb87b26a78aea0f1564d46
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932975"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390302"
 ---
 # <a name="what-is-project-acoustics"></a>프로젝트 Acoustics란?
-Project Acoustics는 3D 대화형 환경을 위한 파동 음향 엔진입니다. 수동으로 영역을 표시하지 않고도 복잡한 장면에서 회절, 포털링(portaling) 및 반향 효과와 같은 파동 효과를 모델링합니다. 게임 엔진과 오디오 미들웨어 통합도 포함됩니다. Project Acoustics의 원칙은 정적 조명과 비슷합니다. 즉, 세부적인 물리학을 오프라인으로 베이킹하여 물리적 기준을 제공하며, 의미 있는 디자인 컨트롤이 포함된 간단한 런타임을 사용하여 미적 목표를 충족합니다.
+Project Acoustics는 3D 대화형 환경을 위한 파동 음향 엔진입니다. 수동 영역 표시 또는 CPU를 많이 사용하는 레이트레이싱(raytracing)을 요구하지 않고도 복잡한 장면에서 폐색, 장애, 포털링(portaling) 및 반향 효과와 같은 파동 효과를 모델링합니다. 게임 엔진과 오디오 미들웨어 통합도 포함됩니다. Project Acoustics의 원칙은 정적 조명과 비슷합니다. 즉, 세부적인 물리학을 오프라인으로 베이킹하여 물리적 기준을 제공하며, 의미 있는 디자인 컨트롤이 포함된 간단한 런타임을 사용하여 가상 세계의 음향 효과를 위한 미적 목표를 충족합니다.
 
 ![음향 복셀을 보여주는 Gears of War 4의 스크린샷](media/gears-with-voxels.jpg)
 
 ## <a name="using-wave-physics-for-interactive-acoustics"></a>대화형 음향에 파동 물리학 사용
-광선 기반 음향 방법은 단일 원본-수신기 광선 발사(ray cast)를 사용하여 폐색을 확인하거나 몇 개의 광선으로 로컬 장면 볼륨을 추정하여 반향을 구동할 수 있습니다. 하지만 조약돌이 바위만큼 폐색하므로 이러한 기술은 신뢰할 수 없습니다. 광선은 물체 주변의 소리를 굴절시키는 방식, 즉 회절이라고 하는 현상을 설명하지 않습니다. Project Acoustics의 시뮬레이션은 파동 기반 시뮬레이션을 사용하여 이러한 효과를 캡처합니다. 그 결과는 더 예측 가능하고 신뢰할 수 있습니다.
+광선 기반 음향 방법은 단일 원본-수신기 광선 발사(ray cast)를 사용하여 폐색을 확인하거나 몇 개의 광선으로 로컬 장면 볼륨을 추정하여 반향을 구동할 수 있습니다. 하지만 조약돌이 바위만큼 폐색하므로 이러한 기술은 신뢰할 수 없습니다. 광선은 물체 주변의 소리를 굴절시키는 방식, 즉 회절이라고 하는 현상을 설명하지 않습니다. Project Acoustics의 시뮬레이션은 파동 기반 시뮬레이션을 사용하여 이러한 효과를 캡처합니다. 음향 효과는 보다 예측 가능하고, 정확하며, 원활합니다.
 
-Project Acoustics의 주요 혁신은 음향 시뮬레이션과 기존의 소리 디자인 개념을 결합하는 것입니다. 시뮬레이션 결과를 폐색, 포털링 및 반향에 대한 기존 오디오 DSP 매개 변수로 변환합니다. 디자이너는 이 변환 프로세스에 대한 컨트롤을 사용합니다. Project Acoustics를 지지하는 핵심 기술에 대한 자세한 내용은 [연구 프로젝트 페이지](https://www.microsoft.com/en-us/research/project/project-triton/)를 참조하세요.
+Project Acoustics의 주요 혁신은 실제 음파 기반 음향 시뮬레이션과 기존의 소리 디자인 개념을 결합하는 것입니다. 시뮬레이션 결과를 폐색, 포털링 및 반향에 대한 기존 오디오 DSP 매개 변수로 변환합니다. 디자이너는 이 변환 프로세스에 대한 컨트롤을 사용합니다. Project Acoustics를 지지하는 핵심 기술에 대한 자세한 내용은 [연구 프로젝트 페이지](https://www.microsoft.com/en-us/research/project/project-triton/)를 참조하세요.
 
 ![장면을 통한 웨이브 전파의 수평 2D 슬라이스를 보여주는 애니메이션](media/wave-simulation.gif)
+
+## <a name="video-presentation-from-gdc-2019-30-min"></a>GDC 2019의 동영상 프레젠테이션(~30분)
+[![Project Acoustics 동영상](https://img.youtube.com/vi/uY4G-GUAQIE/0.jpg)](https://www.youtube.com/watch?v=uY4G-GUAQIE "동영상을 재생하려면 클릭")
 
 ## <a name="setup"></a>설정
 [Project Acoustics Unity 통합](unity-integration.md)은 끌어서 놓기이며 Unity 오디오 엔진 플러그 인을 포함합니다. Project Acoustics C# 컨트롤 구성 요소를 각 오디오 개체에 연결하여 Unity 오디오 원본 제어를 강화합니다.

@@ -1,22 +1,22 @@
 ---
 title: '빠른 시작: 텍스트 스크립트 변환 - Translator Text'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Translator Text REST API를 사용하여 텍스트를 한 스크립트에서 다른 스크립트로 음역(변환)하는 방법을 알아봅니다. 이 샘플에서는 라틴어 알파벳을 사용하도록 일본어를 음역합니다.
+description: 이 빠른 시작에서는 Translator Text API를 사용하여 텍스트를 한 스크립트에서 다른 스크립트로 음역(변환)하는 방법을 알아봅니다. 이 샘플에서는 라틴어 알파벳을 사용하도록 일본어를 음역합니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 08/19/2019
+ms.date: 09/05/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 1ed753e9fe24b729f2efeb32bd99f5a721a57083
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: b1da3904c0081a7948adc233878a9a30727f3b37
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906566"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70393910"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text"></a>빠른 시작: Translator Text API를 사용하여 텍스트 음역
 

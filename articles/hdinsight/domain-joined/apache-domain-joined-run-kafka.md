@@ -1,18 +1,18 @@
 ---
-title: 자습서 - Enterprise Security Package를 사용하여 HDInsight에서 Apache Kafka 정책 구성 - Azure
+title: 자습서 - Azure HDInsight의 Enterprise Security Package를 사용한 Apache Kafka
 description: 자습서 - Enterprise Security Package를 사용하여 Azure HDInsight에서 Kafka용 Apache Ranger 정책을 구성하는 방법을 알아봅니다.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 06/24/2019
-ms.openlocfilehash: ba16a975aa3b1e60393006ef49a7e422c572931e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 09/04/2019
+ms.openlocfilehash: 6cac4bd05f2acf5b11a8235a4bc1e0d09e0c4dc7
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441380"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885948"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache Kafka 정책 구성(미리 보기)
 
@@ -64,7 +64,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
    * ’*’는 문자가 0개 이상 나옴을 나타냅니다.
    * ’?‘는 문자 하나를 나타냅니다.
 
-   ![Apache Ranger 관리 UI 정책 만들기](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
+   ![Apache Ranger 관리 UI 정책 만들기1](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
 
    **사용자 선택**에 도메인 사용자가 자동으로 입력되지 않으면 Ranger가 Azure AD와 동기화될 때까지 잠시 기다립니다.
 
@@ -79,7 +79,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
    |사용자 선택  |  marketing_user1 |
    |권한  | 게시, 사용, 만들기 |
 
-   ![Apache Ranger 관리 UI 정책 만들기](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
+   ![Apache Ranger 관리 UI 정책 만들기2](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
 
 6. **추가**를 선택하여 정책을 저장합니다.
 

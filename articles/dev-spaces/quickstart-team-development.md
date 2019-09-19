@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Azure에서 컨테이너와 마이크로서비스를 사용하여 Kubernetes 팀 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: cb1cc62125e668544eb4af9f84b477b273bfe30e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 0abfe655e30b62829a7d353b6da85bb51e378f6d
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706264"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842596"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces를 사용한 Kubernetes의 팀 개발
 
@@ -39,7 +39,7 @@ ms.locfileid: "67706264"
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
 
 또한 *MyAKS* 클러스터는 *Standard_DS2_v2* 크기를 사용하고 RBAC를 사용하지 않도록 설정된 하나의 노드로 만들어집니다.
@@ -146,12 +146,12 @@ azds space select -n dev/azureuser2 -y
 
 ```cmd
 $ azds space list
-Name            Selected
---------------  --------
-default         False
-dev             False
-dev/azureuser1  False
-dev/azureuser2  True
+   Name            DevSpacesEnabled
+-  --------------  ----------------
+   default         False
+   dev             True
+   dev/azureuser1  True
+*  dev/azureuser2  True
 ```
 
 `azds list-uris`를 사용하여 샘플 애플리케이션에 대한 URL을 현재 선택한 *dev/azureuser2* 공간에 표시합니다.
@@ -201,6 +201,9 @@ Service 'bikesharingweb' port 80 (http) is available at http://localhost:54256
 `azds up` 명령의 출력에 표시된 공용 URL을 열어 *dev/azureuser2* 개발 공간에 대한 *bikesharingweb* 서비스로 이동합니다. *Aurelia Briggs(고객)* 를 사용자로 선택합니다. 오른쪽 위 모서리에 업데이트된 텍스트가 표시되는지 확인합니다. 이 변경 내용이 즉시 표시되지 않으면 페이지를 새로 고치거나 브라우저의 캐시를 지워야 할 수 있습니다.
 
 ![업데이트된 Azure Dev Spaces 자전거 공유 샘플 애플리케이션](media/quickstart-team-development/bikeshare-update.png)
+
+> [!NOTE]
+> `azds up`을 실행하는 동안 서비스로 이동하면 HTTP 요청 추적도 `azds up` 명령의 출력에 표시됩니다. 이 추적은 서비스의 문제를 해결하고 디버그하는 데 도움이 될 수 있습니다. `azds up`을 실행할 때 `--disable-http-traces`를 사용하면 이러한 추적을 사용하지 않도록 설정할 수 있습니다.
 
 ## <a name="verify-other-dev-spaces-are-unchanged"></a>다른 Dev Spaces가 변경되지 않았는지 확인
 

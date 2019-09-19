@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/23/2019
+ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0d5a87d4723bcc21b75db1b31ada72823abdf02
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 5f9d727154adf0a2099d7a9144c109cef9c91238
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70171383"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743979"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>자습서: Zoom과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -44,7 +44,8 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-* Zoom이 **SP**에서 시작된 SSO를 지원
+* Zoom은 **SP**에서 시작된 SSO를 지원합니다. 
+* Zoom은 [**자동화된** 사용자 프로비저닝](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial)을 지원합니다.
 
 ## <a name="adding-zoom-from-the-gallery"></a>갤러리에서 Zoom 추가
 
@@ -87,7 +88,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `<companyname>.zoom.us` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Zoom 클라이언트 지원팀](https://support.zoom.us/hc/en-us)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Zoom 클라이언트 지원팀](https://support.zoom.us/hc/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 본인의 컴퓨터에 저장합니다.
 
@@ -101,7 +102,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 > Azure AD에서 역할을 구성하는 방법을 알아보려면 [엔터프라이즈 애플리케이션의 SAML 토큰에서 발급된 역할 클레임 구성](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)을 참조하세요.
 
 > [!NOTE]
-> 확대/축소는 SAML 페이로드에서 그룹 클레임을 예측할 수 있습니다. 그룹을 만든 경우 그룹 정보를 [Zoom 클라이언트 지원 팀](https://support.zoom.us/hc/en-us)에 문의하여 그룹 정보를 최종적으로 구성할 수 있습니다. 또한 최종적인 개체 ID구성을 위해 개체 ID를 [Zoom 클라이언트 지원 팀](https://support.zoom.us/hc/en-us)에 제공해야 합니다. 개체 ID를 가져오려면 [Azure를 사용하여 확대/축소 구성](https://support.zoom.us/hc/en-us/articles/115005887566)을 참조하세요.
+> 확대/축소는 SAML 페이로드에서 그룹 클레임을 예측할 수 있습니다. 그룹을 만든 경우 그룹 정보를 [Zoom 클라이언트 지원 팀](https://support.zoom.us/hc/)에 문의하여 그룹 정보를 최종적으로 구성할 수 있습니다. 또한 최종적인 개체 ID구성을 위해 개체 ID를 [Zoom 클라이언트 지원 팀](https://support.zoom.us/hc/)에 제공해야 합니다. 개체 ID를 가져오려면 [Azure를 사용하여 확대/축소 구성](https://support.zoom.us/hc/articles/115005887566)을 참조하세요.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -172,30 +173,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="create-zoom-test-user"></a>Zoom 테스트 사용자 만들기
 
-Azure AD 사용자가 Zoom에 로그인할 수 있도록 하려면 사용자 계정이 Zoom으로 프로비저닝되어야 합니다. Zoom의 경우, 수동으로 프로비전합니다.
-
-### <a name="to-provision-a-user-account-perform-the-following-steps"></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
-
-1. 관리자 권한으로 **Zoom** 회사 사이트에 로그인합니다.
-
-2. **계정 관리** 탭을 클릭한 후 **사용자 관리**를 클릭합니다.
-
-3. 사용자 관리 섹션에서 **사용자 추가**를 클릭합니다.
-
-    ![사용자 관리](./media/zoom-tutorial/ic784703.png "사용자 관리")
-
-4. **사용자 추가** 페이지에서 다음 단계를 수행합니다.
-
-    ![사용자 추가](./media/zoom-tutorial/ic784704.png "사용자 추가")
-
-    a. **사용자 유형**으로 **기본**을 선택합니다.
-
-    b. **이메일** 텍스트 상자에 프로비전하려는 유효한 Azure AD 계정의 이메일 주소를 입력합니다.
-
-    다. **추가**를 클릭합니다.
+이 섹션은 Zoom에서 B.Simon이라는 사용자를 만들기 위한 것입니다. Zoom은 자동 사용자 프로비저닝을 지원하며, 기본적으로 사용됩니다. 자동 사용자 프로비전 구성 방법에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial)에서 제공합니다.
 
 > [!NOTE]
-> Zoom에서 제공하는 다른 Zoom 사용자 계정 만들기 도구 또는 API를 사용하여 Azure Active Directory 사용자 계정을 프로비전할 수 있습니다.
+> 사용자를 수동으로 만들어야 하는 경우 [Zoom 클라이언트 지원 팀](https://support.zoom.us/hc/)에 문의해야 합니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 

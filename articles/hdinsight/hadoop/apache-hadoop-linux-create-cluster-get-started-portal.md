@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure Portal을 사용하여 Apache Hadoop 및 Apache Hive 시작 - Azure HDInsight'
+title: '빠른 시작: Azure Portal을 사용하는 HDInsight의 Apache Hadoop 및 Apache Hive'
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 HDInsight Hadoop 클러스터를 만듭니다.
 keywords: Hadoop 시작, Hadoop Linux, Hadoop 빠른 시작, Hive 시작, Hive 빠른 시작
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 07/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5becea8c9cb525d86dac09ead40ab1604abdbbed
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: be7ff67f07ed8eaeb3f04a15c6185191bf107cf2
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207386"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70918462"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Hadoop 클러스터 만들기
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. Azure Portal에서 **리소스 만들기** > **Analytics** > **HDInsight**로 이동합니다.
 
-    ![Azure Portal의 Databricks](./media/apache-hadoop-linux-create-cluster-get-started-portal/create-hdinsight.png "Azure Portal의 Databricks")
+    ![Azure Portal의 Databricks](./media/apache-hadoop-linux-create-cluster-get-started-portal/create-hdinsight-cluster.png "Azure Portal의 Databricks")
 
 1. **HDInsight** > **빠른 생성** > **기본 사항**에서 다음 값을 입력하거나 선택합니다.
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     |Resource group     | 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.  리소스 그룹은 Azure 구성 요소의 컨테이너입니다.  이 경우 리소스 그룹에는 HDInsight 클러스터 및 종속 Azure Storage 계정이 포함되어 있습니다. |
     |위치    | 클러스터를 만들려는 Azure 위치를 선택합니다.  성능 향상을 위해 가까운 곳을 선택합니다. |
 
-    ![HDInsight Linux에서 클러스터의 기본 값 제공 시작](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-basics.png "HDInsight 클러스터를 만들기 위한 기본 값 제공")
+    ![HDInsight Linux에서 클러스터의 기본 값 제공 시작](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-basics1.png "HDInsight 클러스터를 만들기 위한 기본 값 제공")
 
 1. **클러스터 유형**을 선택하여 **클러스터 구성** 페이지를 열고 다음 값을 입력합니다.
 
@@ -58,7 +58,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     |클러스터 유형     | **Hadoop**을 선택합니다. |
     |버전     | **Hadoop 2.7.3(HDI 3.6)** 을 선택합니다.|
 
-    ![HDInsight Linux에서 클러스터의 기본 값 제공 시작](./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-configuration-hadoop.png "HDInsight 클러스터를 만들기 위한 기본 값 제공")
+    ![HDInsight Linux 클러스터 구성 시작](./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-configuration-hadoop.png "HDInsight Linux 클러스터 구성 시작")
 
     **선택**을 선택한 후 **다음**을 선택하여 스토리지 설정으로 이동합니다.
 
@@ -82,7 +82,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 클러스터가 생성되면 Azure Portal에서 클러스터 개요 페이지가 나타납니다.
 
-    ![HDInsight Linux 시작 - 클러스터 설정](./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-overview.png "HDInsight 클러스터 속성")    
+    ![HDInsight Linux 시작 - 클러스터 설정](./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-settings-overview.png "HDInsight 클러스터 속성")    
 
     각 클러스터에는 [Azure Storage 계정](../hdinsight-hadoop-use-blob-storage.md) 또는 [Azure Data Lake 계정](../hdinsight-hadoop-use-data-lake-store.md) 종속성이 있습니다. 이 스토리지 계정을 기본 스토리지 계정이라고 합니다. HDInsight 클러스터와 해당 기본 스토리지 계정은 같은 Azure 지역에 있어야 합니다. 클러스터를 삭제해도 스토리지 계정은 삭제되지 않습니다.
 
@@ -95,13 +95,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 이전 스크린샷에서 Ambari를 열려면 **클러스터 대시보드**를 선택합니다.  `https://ClusterName.azurehdinsight.net`으로 이동할 수도 있습니다. 여기서 `ClusterName`은 이전 섹션에서 만든 클러스터입니다.
 
-    ![HDInsight Linux 클러스터 대시보드 시작](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-open-cluster-dashboard.png "HDInsight Linux 클러스터 대시보드 시작")
+    ![HDInsight Linux 클러스터 대시보드 시작](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-get-started-open-cluster-dashboard.png "HDInsight Linux 클러스터 대시보드 시작")
 
 2. 클러스터를 만들 때 지정한 Hadoop 사용자 이름 및 암호를 입력합니다. 기본 사용자 이름은 **admin**입니다.
 
 3. 다음 스크린샷에 표시된 것처럼 **Hive 뷰** 를 엽니다.
 
-    ![Ambari 보기 선택](./media/apache-hadoop-linux-tutorial-get-started/selecthiveview.png "HDInsight Hive 뷰어 메뉴")
+    ![Ambari 보기 선택](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-select-hive-view.png "HDInsight Hive 뷰어 메뉴")
 
 4. **쿼리** 탭에서 다음 HiveQL 문을 워크시트에 붙여넣습니다.
 
@@ -109,13 +109,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     SHOW TABLES;
     ```
 
-    ![HDInsight Hive 보기](./media/apache-hadoop-linux-tutorial-get-started/hiveview-1.png "HDInsight Hive 보기 - 쿼리 편집기")
+    ![HDInsight Hive 보기](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-apache-hive-view1.png "HDInsight Hive 보기 - 쿼리 편집기")
 
 5. **실행**을 선택합니다. **쿼리** 탭 아래에 **결과** 탭이 나타나고 작업에 대한 정보가 표시됩니다. 
 
     쿼리가 완료되면 **쿼리** 탭에 작업 결과가 표시됩니다. **hivesampletable**이라는 테이블이 한 개 표시됩니다. 이 샘플 Hive 테이블은 모든 HDInsight 클러스터와 함께 제공됩니다.
 
-    ![HDInsight Hive 보기](./media/apache-hadoop-linux-tutorial-get-started/hiveview.png "HDInsight Hive 보기 - 쿼리 편집기")
+    ![HDInsight Hive 결과 보기](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-hive-views.png "HDInsight Hive 결과 보기")
 
 6. 4단계 및 5단계를 반복하여 다음 쿼리를 실행합니다.
 
@@ -125,7 +125,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 7. 또한 쿼리 결과를 저장할 수 있습니다. 오른쪽의 메뉴 단추를 선택하고, 결과를 CSV 파일로 다운로드할 것인지 아니면 클러스터와 연결된 스토리지 계정에 저장할 것인지 지정합니다.
 
-    ![Hive 쿼리 결과 저장](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-hive-view-save-results.png "Hive 쿼리 결과 저장")
+    ![Hive 쿼리 결과 저장](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-hive-view-save-results.png "Hive 쿼리 결과 저장")
 
 Hive 작업을 완료한 후에 [결과를 Azure SQL 데이터베이스 또는 SQL Server 데이터베이스로 내보내고](apache-hadoop-use-sqoop-mac-linux.md), [Excel을 사용하여 결과를 시각화](apache-hadoop-connect-excel-power-query.md)할 수도 있습니다. HDInsight에서 Hive를 사용하는 방법에 대한 자세한 내용은 [샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Apache Hadoop과 함께 Apache Hive 및 HiveQL 사용](hdinsight-use-hive.md)을 참조하세요.
 
@@ -140,7 +140,7 @@ Hive 작업을 완료한 후에 [결과를 Azure SQL 데이터베이스 또는 S
 
 1. Azure Portal이 있는 브라우저 탭으로 돌아갑니다. 그러면 클러스터 개요 페이지가 표시됩니다. 클러스터는 삭제하지만 기본 스토리지 계정은 유지하려는 경우 **삭제**를 선택합니다.
 
-    ![HDInsight 클러스터 삭제](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-delete-cluster.png "HDInsight 클러스터 삭제")
+    ![HDInsight 클러스터 삭제](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-delete-cluster.png "HDInsight 클러스터 삭제")
 
 2. 클러스터와 기본 스토리지 계정을 삭제하려는 경우 리소스 그룹 이름(이전 스크린샷에서 강조 표시됨)을 선택하여 리소스 그룹 페이지를 엽니다.
 

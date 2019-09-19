@@ -8,12 +8,12 @@ ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: dccc9462c6c20f3bce239e3b61cafa3d61e3d383
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 5e3a6249f19df7d16c7051c43eec4275ec6f4131
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901188"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090710"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Azure 엔터프라이즈 등록 청구서
 
@@ -43,7 +43,7 @@ EA 관리자가 PO 번호를 업데이트하지 않았고 새 PO 번호가 필�
 
 ## <a name="credits-and-adjustments"></a>크레딧 및 조정
 
-등록에 적용되는 모든 크레딧 또는 조정 내용은 **보고서** 섹션의 [https://www.ea.azure.com](https://www.ea.azure.com)에서 볼 수 있습니다. 실제 크레딧 금액에 대한 질문이 있는 경우 [Azure EA Portal 지원](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c)에 문의하세요.
+등록에 적용되는 모든 크레딧 또는 조정 내용은 **보고서** 섹션의 [https://ea.azure.com](https://ea.azure.com)에서 볼 수 있습니다. 실제 크레딧 금액에 대한 질문이 있는 경우 [Azure EA Portal 지원](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c)에 문의하세요.
 
 ## <a name="request-an-invoice-copy"></a>청구서 사본 요청
 

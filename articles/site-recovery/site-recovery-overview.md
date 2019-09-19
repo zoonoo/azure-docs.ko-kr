@@ -1,19 +1,18 @@
 ---
-title: Azure Site Recovery 정보 | Microsoft Docs
+title: Azure Site Recovery 정보
 description: Azure Site Recovery 서비스의 개요를 제공하고 재해 복구 및 마이그레이션 배포 시나리오를 요약합니다.
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 05/30/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 907d12464156f551930098f6bd6a6a24596307cb
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 3f38560c92e91925ab8a18924acdbb74f4b90e59
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479927"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814389"
 ---
 # <a name="about-site-recovery"></a>Site Recovery란?
 
