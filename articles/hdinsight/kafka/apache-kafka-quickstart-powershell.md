@@ -145,7 +145,7 @@ HDInsight 클러스터를 만드는 데 최대 20분이 걸릴 수 있습니다.
     ssh sshuser@mykafka-ssh.azurehdinsight.net
     ```
 
-2. 클러스터에 처음 연결할 때 호스트의 신뢰성을 설정할 수 없다는 경고가 SSH 클라이언트에 표시될 수도 있습니다. 메시지가 표시되면 __예__를 입력한 다음, __Enter__ 키를 눌러 SSH 클라이언트의 신뢰할 수 있는 서버 목록에 호스트를 추가합니다.
+2. 클러스터에 처음 연결할 때 호스트의 신뢰성을 설정할 수 없다는 경고가 SSH 클라이언트에 표시될 수도 있습니다. 메시지가 표시되면 __예__ 를 입력한 다음, __Enter__ 키를 눌러 SSH 클라이언트의 신뢰할 수 있는 서버 목록에 호스트를 추가합니다.
 
 3. 확인 메시지가 표시되면 SSH 사용자의 암호를 입력합니다.
 
@@ -311,7 +311,7 @@ Kafka는 토픽에 *레코드*를 저장합니다. *생산자*에서 레코드�
 
     이전 버전의 Kafka를 사용하는 경우 `--bootstrap-server $KAFKABROKERS`를 `--zookeeper $KAFKAZKHOSTS`로 바꿉니다.
 
-4. __Ctrl+C__를 사용하여 소비자를 중지합니다.
+4. __Ctrl+C__ 를 사용하여 소비자를 중지합니다.
 
 또한 프로그래밍 방식으로 생산자와 소비자를 만들 수 있습니다. 이 API를 사용하는 예제는 [HDInsight의 Apache Kafka 생산자 및 소비자 API](apache-kafka-producer-consumer-api.md) 문서를 참조하세요.
 
