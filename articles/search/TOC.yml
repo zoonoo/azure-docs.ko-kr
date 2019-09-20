@@ -239,17 +239,17 @@
           href: cognitive-search-concept-troubleshooting.md
         - name: 문서 링크
           href: cognitive-search-resources-documentation.md
-    - name: 기술 저장소(미리 보기)
-      items:
-        - name: Azure Portal에서 지식 저장소 만들기
-          href: knowledge-store-create-portal.md
-        - name: REST 및 Postman을 사용하여 만들기
-          href: knowledge-store-howto.md
-        - name: Storage Explorer로 보기
-          href: knowledge-store-view-storage-explorer.md
-        - name: Power BI로 연결
-          href: knowledge-store-connect-power-bi.md
-    - name: 쿼리 데이터
+        - name: 기술 저장소(미리 보기)
+          items:
+            - name: Azure Portal에서 지식 저장소 만들기
+              href: knowledge-store-create-portal.md
+            - name: REST 및 Postman을 사용하여 만들기
+              href: knowledge-store-howto.md
+            - name: Storage Explorer로 보기
+              href: knowledge-store-view-storage-explorer.md
+            - name: Power BI로 연결
+              href: knowledge-store-connect-power-bi.md
+    - name: 쿼리 문서
       items:
         - name: 기본 쿼리 만들기
           href: search-query-overview.md
@@ -265,7 +265,7 @@
           href: search-query-lucene-examples.md
         - name: moreLikeThis(미리 보기)
           href: search-more-like-this.md
-    - name: 필터 사용
+    - name: 필터 적용
       items:
         - name: 필터 개요
           href: search-filters.md
@@ -283,18 +283,14 @@
       items:
         - name: 페이지 관련 기능
           href: search-pagination-page-layout.md
-    - name: 관련성 튜닝
-      items:
-        - name: 점수 매기기 프로필 추가
+        - name: 관련성 튜닝(점수 매기기 프로필)
           href: index-add-scoring-profiles.md
-    - name: 관리
+    - name: 관리 및 모니터링
       items:
         - name: 포털 관리
           href: search-manage.md
         - name: PowerShell 관리
           href: search-manage-powershell.md
-    - name: 모니터링
-      items:
         - name: 작업 모니터링 및 로깅
           href: search-monitor-usage.md
         - name: 트래픽 분석 검색

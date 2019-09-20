@@ -89,6 +89,8 @@
           href: authentication-scenarios.md
         - name: 인증 흐름 및 앱 시나리오
           href: authentication-flows-app-scenarios.md
+        - name: ID 플랫폼 모범 사례
+          href: identity-platform-integration-checklist.md
         - name: 애플리케이션 시나리오
           items:
             - name: 로그인 대상 그룹
@@ -217,8 +219,6 @@
                   href: scenario-mobile-call-api.md
                 - name: 프로덕션 환경으로 이동
                   href: scenario-mobile-production.md
-            - name: 통합 검사 목록
-              href: identity-platform-integration-checklist.md
         - name: MSAL(Microsoft 인증 라이브러리)
           items:
             - name: 개요

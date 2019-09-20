@@ -5,6 +5,8 @@
     - name: Azure AD B2C 정보
       expanded: true
       href: active-directory-b2c-overview.md
+    - name: 기술 및 기능 개요
+      href: technical-overview.md
 - name: 빠른 시작
   expanded: true
   items:

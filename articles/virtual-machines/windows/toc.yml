@@ -102,6 +102,8 @@
         - name: 이전 세대
           href: sizes-previous-gen.md
           displayName: D-series Ds-series A-series Basic
+        - name: 격리된 크기
+          href: isolation.md
         - name: ACU(Azure 컴퓨팅 단위)
           href: acu.md
         - name: 벤치마크 점수

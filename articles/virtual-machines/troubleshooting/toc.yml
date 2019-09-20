@@ -187,3 +187,9 @@
   href: understand-vm-reboot.md
 - name: 원격 문제 해결 도구
   href: remote-tools-troubleshoot-azure-vm-issues.md
+- name: Virtual Machine 복구
+  items:
+    - name: Azure Virtual Machine 복구 명령을 사용하여 Windows VM 복구
+      href: repair-windows-vm-using-azure-virtual-machine-repair-commands.md
+    - name: Azure Virtual Machine 복구 명령을 사용하여 Linux VM 복구
+      href: repair-linux-vm-using-azure-virtual-machine-repair-commands.md

@@ -271,6 +271,14 @@
           href: ./spark/apache-spark-ipython-notebook-machine-learning.md
         - name: IntelliJ에서 Apache Spark 앱 만들기
           href: ./spark/apache-spark-create-standalone-application.md
+    - name: 개념
+      items:
+        - name: HDInsight에 대한 Spark 모범 사례
+          href: ./spark/spark-best-practices.md
+        - name: Apache Spark 설정 구성
+          href: ./spark/apache-spark-settings.md
+        - name: Apache Spark 작업 최적화
+          href: ./spark/apache-spark-perf.md
     - name: 방법
       items:
         - name: 도구 사용
@@ -323,10 +331,6 @@
               href: ./spark/apache-spark-resource-manager.md
             - name: 확장된 기록 서버를 사용하여 Apache Spark 애플리케이션 관리
               href: ./spark/apache-azure-spark-history-server.md
-            - name: Apache Spark 설정 구성
-              href: ./spark/apache-spark-settings.md
-            - name: Apache Spark 작업 최적화
-              href: ./spark/apache-spark-perf.md
             - name: IO 캐시로 캐싱 사용
               href: ./spark/apache-spark-improve-performance-iocache.md
             - name: Apache Spark와 함께 Notebook 사용

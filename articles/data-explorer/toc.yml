@@ -128,12 +128,18 @@
           href: dealing-with-duplicates.md
     - name: 모니터
       items:
+        - name: 진단 로그를 사용하여 수집 모니터링
+          href: using-diagnostic-logs.md
         - name: 메트릭을 사용하여 클러스터 상태 모니터링
           href: using-metrics.md
     - name: 다른 도구와 통합
       items:
-        - name: Azure Data Factory 템플릿을 사용하여 데이터 대량 복사
-          href: data-factory-template.md
+        - name: Azure 데이터 팩터리
+          items:
+            - name: Azure Data Factory 템플릿을 사용하여 데이터 대량 복사
+              href: data-factory-template.md
+            - name: Azure Data Factory를 사용하여 제어 명령 실행
+              href: data-factory-command-activity.md
         - name: Apache Spark 커넥터
           href: spark-connector.md
         - name: Python을 사용하여 Databricks에서 연결

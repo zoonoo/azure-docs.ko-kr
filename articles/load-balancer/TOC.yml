@@ -129,6 +129,8 @@
           href: move-across-regions-external-load-balancer-portal.md
         - name: 외부 부하 분산 장치 - PowerShell
           href: move-across-regions-external-load-balancer-powershell.md
+        - name: 내부 부하 분산 장치 - 포털
+          href: move-across-regions-internal-load-balancer-portal.md
         - name: 내부 부하 분산 장치 - PowerShell
           href: move-across-regions-internal-load-balancer-powershell.md
     - name: 문제 해결

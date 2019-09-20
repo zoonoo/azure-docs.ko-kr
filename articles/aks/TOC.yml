@@ -118,7 +118,7 @@
         - name: AKS 클러스터 삭제
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: AKS 클러스터를 사용하여 ACR 만들기
+        - name: ACR을 AKS 클러스터와 통합
           href: cluster-container-registry-integration.md
         - name: 가상 노드 만들기
           items:

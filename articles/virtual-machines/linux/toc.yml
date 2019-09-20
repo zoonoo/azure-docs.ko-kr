@@ -103,6 +103,8 @@
           href: sizes-hpc.md
         - name: 이전 세대
           href: sizes-previous-gen.md
+        - name: 격리된 크기
+          href: isolation.md
         - name: ACU(Azure 컴퓨팅 단위)
           href: acu.md
         - name: vCPU 할당량
