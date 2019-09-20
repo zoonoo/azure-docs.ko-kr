@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: ellbe
-ms.openlocfilehash: 843b92d3fe34d592b39cd86ece447fef2ff9af67
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 729ac9fc7c8ec6a85b3497c51888d3b5a6fc8558
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931104"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147184"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>언어 식별 모델을 사용 하 여 음성 언어 자동 식별
 
@@ -53,7 +53,7 @@ API를 사용 하 여 [비디오를 인덱싱하거나 인덱싱할 때](https:/
 * 오디오가 위의 지원 되는 목록 이외의 언어를 포함 하는 경우 예기치 않은 결과가 발생 합니다.
 * Video Indexer 높은 신뢰도 (`>0.6`)로 언어를 식별할 수 없는 경우 대체 언어는 영어입니다.
 * 혼합 된 언어가 있는 파일은 현재 지원 되지 않습니다. 오디오에 혼합 된 언어가 포함 되어 있으면 예기치 않은 결과가 발생 합니다. 
-* 저품질 오디오 신랄 모델 결과에 영향을 줄 수 있습니다.
+* 저품질 오디오가 모델 결과에 영향을 줄 수 있습니다.
 * 모델을 사용 하려면 오디오에 적어도 1 분 이상의 음성이 필요 합니다.
 * 모델은 갑작스런 대화형 음성 (음성 명령, 노래 등)을 인식 하도록 설계 되었습니다.
 

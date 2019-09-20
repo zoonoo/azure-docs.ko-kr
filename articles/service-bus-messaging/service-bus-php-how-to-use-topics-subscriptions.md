@@ -14,18 +14,18 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 18aeaccef724ba94a9c18240fb77ea33897e8d26
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eba2c0aeb37f2bc2283e7afb108bb4578981120e
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063864"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147227"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>PHP에서 Service Bus 토픽 및 구독을 사용하는 방법
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-이 문서에서는 Service Bus 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 PHP로 작성되었으며 [PHP용 Azure SDK](../php-download-sdk.md)를 사용합니다. 다루는 시나리오는 다음과 같습니다.
+이 문서에서는 Service Bus 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 PHP로 작성되었으며 [PHP용 Azure SDK](https://github.com/Azure/azure-sdk-for-php)를 사용합니다. 다루는 시나리오는 다음과 같습니다.
 
 - 토픽 및 구독 만들기 
 - 구독 만들기 필터 
@@ -33,15 +33,15 @@ ms.locfileid: "67063864"
 - 구독에서 메시지 받기
 - 토픽 및 구독 삭제
 
-## <a name="prerequisites"></a>필수 조건
-1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) 에 등록 또는 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
-2. 단계를 수행 합니다 [빠른 시작: Service Bus 토픽 및 구독 항목을 만들려면 Azure portal을 사용 하 여](service-bus-quickstart-topics-subscriptions-portal.md) Service Bus를 만들려면 **네임 스페이스** 받고 합니다 **연결 문자열**합니다.
+## <a name="prerequisites"></a>사전 요구 사항
+1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) 을 활성화 하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 등록할 수 있습니다.
+2. 빠른 시작의 단계 [를 수행 합니다. 항목](service-bus-quickstart-topics-subscriptions-portal.md) 에 대 한 Service Bus 토픽 및 구독을 만드는 Azure Portal를 사용 하 여 Service Bus **네임 스페이스** 를 만들고 **연결 문자열**을 가져옵니다.
 
     > [!NOTE]
-    > 만들려는 **항목** 및 **구독** 사용 하 여 토픽에 **PHP** 이 빠른 시작 합니다. 
+    > 이 빠른 시작에서 **PHP** 를 사용 하 여 **토픽 및 항목에 대 한** **구독** 을 만듭니다. 
 
 ## <a name="create-a-php-application"></a>PHP 애플리케이션 만들기
-Azure Blob service에 액세스하는 PHP 애플리케이션을 만드는 데 유일한 요구 사항은 코드 내에서 [PHP용 Azure SDK](../php-download-sdk.md)의 클래스를 참조하는 것입니다. 어떠한 개발 도구를 사용해도 애플리케이션 또는 메모장을 만들 수 있습니다.
+Azure Blob service에 액세스하는 PHP 애플리케이션을 만드는 데 유일한 요구 사항은 코드 내에서 [PHP용 Azure SDK](https://github.com/Azure/azure-sdk-for-php)의 클래스를 참조하는 것입니다. 어떠한 개발 도구를 사용해도 애플리케이션 또는 메모장을 만들 수 있습니다.
 
 > [!NOTE]
 > PHP를 설치하려면 [OpenSSL 확장](https://php.net/openssl)도 설치되어 있고 사용하도록 설정되어 있어야 합니다.
@@ -62,7 +62,7 @@ Azure Blob service에 액세스하는 PHP 애플리케이션을 만드는 데 �
       }
     }
     ```
-2. 다운로드 **[composer.phar] [작성기 phar]** 프로젝트 루트에 있습니다.
+2. 프로젝트 루트에서 **[작성기. phar] [작성기-phar]** 를 다운로드 합니다.
 3. 명령 프롬프트를 열고 프로젝트 루트에서 다음 명령을 실행합니다.
    
     ```
@@ -72,7 +72,7 @@ Azure Blob service에 액세스하는 PHP 애플리케이션을 만드는 데 �
 ## <a name="configure-your-application-to-use-service-bus"></a>Service Bus를 사용하도록 애플리케이션 구성
 Service Bus API를 사용하려면 다음을 수행합니다.
 
-1. [require_once][require-once] 문을 사용하여 자동 로더 파일을 참조합니다.
+1. [Require_once][require-once] 문을 사용 하 여 자동 로더 파일을 참조 합니다.
 2. 사용할 수 있는 모든 클래스 참조
 
 다음 예제에서는 자동 로더 파일을 포함하고 **ServiceBusService** 클래스를 참조하는 방법을 보여 줍니다.
@@ -98,7 +98,7 @@ Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAcce
 
 여기서 `Endpoint`는 일반적으로 `https://[yourNamespace].servicebus.windows.net` 형식입니다.
 
-Azure 서비스 클라이언트를 만들려면 `ServicesBuilder` 클래스를 사용해야 합니다. 다음을 수행할 수 있습니다.
+Azure 서비스 클라이언트를 만들려면 `ServicesBuilder` 클래스를 사용해야 합니다. 다음을 할 수 있습니다.
 
 * 연결 문자열을 직접 전달합니다.
 * **CCM(CloudConfigurationManager)** 을 사용하여 여러 외부 소스에서 연결 문자열을 확인할 수 있습니다.
@@ -117,7 +117,7 @@ $connectionString = "Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageShare
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 ```
 
-## <a name="create-a-topic"></a>토픽 만들기
+## <a name="create-a-topic"></a>주제 만들기
 `ServiceBusRestProxy` 클래스를 통해 Service Bus 토픽에 대한 관리 작업을 수행할 수 있습니다. `ServiceBusRestProxy` 개체는 관리에 필요한 토큰 사용 권한을 캡슐화하는 적절한 연결 문자열을 사용한 `ServicesBuilder::createServiceBusService` 팩터리 메서드를 통해 구성됩니다.
 
 다음 예제에서는 `ServiceBusRestProxy`를 인스턴스화하고 `ServiceBusRestProxy->createTopic`을 호출하여 `MySBNamespace` 네임스페이스 내에 이름이 `mytopic`인 토픽을 만드는 방법을 보여 줍니다.
@@ -184,7 +184,7 @@ catch(ServiceException $e){
 ```
 
 ### <a name="create-subscriptions-with-filters"></a>필터를 사용하여 구독 만들기
-토픽에 전송된 메시지 중 특정 토픽 구독 내에 표시되어야 하는 메시지를 지정하는 필터를 설정할 수도 있습니다. 구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SqlFilter에 대한 자세한 내용은 [SqlFilter.SqlExpression 속성][sqlfilter]을 참조하십시오.
+토픽에 전송된 메시지 중 특정 토픽 구독 내에 표시되어야 하는 메시지를 지정하는 필터를 설정할 수도 있습니다. 구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. Sqlfilters에 대 한 자세한 내용은 [sqlfilters. Sqlfilters 속성][sqlfilter]을 참조 하세요.
 
 > [!NOTE]
 > 구독에 대한 각 규칙은 들어오는 메시지를 독립적으로 처리하여 해당 결과 메시지를 구독에 추가합니다. 또한 각 새 구독에는 토픽의 모든 메시지를 구독에 추가하는 필터가 포함된 기본 **규칙** 개체가 있습니다. 필터와 일치하는 메시지만 받으려면 기본 규칙을 제거해야 합니다. `ServiceBusRestProxy->deleteRule` 메서드를 사용하여 기본 규칙을 제거할 수 있습니다.
@@ -252,7 +252,7 @@ catch(ServiceException $e){
 }
 ```
 
-Service Bus 토픽으로 전송된 메시지는 [BrokeredMessage][BrokeredMessage] 클래스의 인스턴스입니다. [BrokeredMessage][BrokeredMessage] 개체는 표준 속성 및 메서드 집합과, 애플리케이션별 사용자 지정 속성을 저장하는 데 사용될 수 있는 속성을 갖습니다. 다음 예제에서는 이전에 만든 `mytopic` 토픽에 테스트 메시지 5개를 보내는 방법을 보여 줍니다. `setProperty` 메서드는 각 메시지에 사용자 지정 속성(`MessageNumber`)을 추가하는 데 사용됩니다. `MessageNumber` 속성 값은 각 메시지에 따라 달라집니다. 이 값을 사용하여 [구독 만들기](#create-a-subscription) 섹션에 나와 있는 것처럼 메시지를 수신하는 구독을 결정할 수 있습니다.
+Service Bus 토픽으로 전송된 메시지는 [BrokeredMessage][BrokeredMessage] 클래스의 인스턴스입니다. [BrokeredMessage][BrokeredMessage] 개체에는 표준 속성 및 메서드 집합 뿐만 아니라 응용 프로그램별 사용자 지정 속성을 저장 하는 데 사용할 수 있는 속성도 있습니다. 다음 예제에서는 이전에 만든 `mytopic` 토픽에 테스트 메시지 5개를 보내는 방법을 보여 줍니다. `setProperty` 메서드는 각 메시지에 사용자 지정 속성(`MessageNumber`)을 추가하는 데 사용됩니다. `MessageNumber` 속성 값은 각 메시지에 따라 달라집니다. 이 값을 사용하여 [구독 만들기](#create-a-subscription) 섹션에 나와 있는 것처럼 메시지를 수신하는 구독을 결정할 수 있습니다.
 
 ```php
 for($i = 0; $i < 5; $i++){
@@ -364,7 +364,7 @@ $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 > [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)로 Service Bus 리소스를 관리할 수 있습니다. Service Bus Explorer를 사용하면 Service Bus 네임스페이스에 연결하고 쉬운 방식으로 메시징 엔터티를 관리할 수 있습니다. 이 도구는 가져오기/내보내기 기능 또는 항목, 큐, 구독, 릴레이 서비스, Notification Hubs 및 이벤트 허브를 테스트하는 기능과 같은 고급 기능을 제공합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 [큐, 토픽 및 구독][Queues, topics, and subscriptions]을 참조하세요.
+자세한 내용은 [큐, 토픽 및 구독][Queues, topics, and subscriptions]을 참조 하세요.
 
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md

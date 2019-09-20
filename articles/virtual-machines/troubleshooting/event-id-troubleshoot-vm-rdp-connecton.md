@@ -4,7 +4,7 @@ description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 166648402eec7f8033c090a3f7862a902bae4be6
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61485508"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154202"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>이벤트 ID로 Azure VM RDP 연결 문제 해결 
 
@@ -61,7 +61,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **작업 범주:** 없음 <br />
 **수준:**         오류 <br />
 **키워드:**      클래식 <br />
-**사용자:**          N/A <br />
+**사용자:**          해당 사항 없음 <br />
 **컴퓨터:** *컴퓨터* <br />
 **설명:** RD 세션 호스트 서버가 SSL 연결에서 RD 세션 호스트 서버 인증에 사용할 자체 서명된 만료 인증서를 바꾸지 못했습니다. 관련 상태 코드는 '액세스가 거부되었습니다.'입니다.
 
@@ -72,7 +72,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **작업 범주:** 없음 <br />
 **수준:**         오류 <br />
 **키워드:**      클래식 <br />
-**사용자:**          N/A <br />
+**사용자:**          해당 사항 없음 <br />
 **컴퓨터:** *컴퓨터* <br />
 **설명:** RD 세션 호스트 서버가 SSL 연결에서 RD 세션 호스트 서버 인증에 사용할 새 자체 서명된 인증서를 만들지 못했습니다. 관련 상태 코드는 ‘개체가 이미 있습니다’였습니다.
 
@@ -83,7 +83,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **작업 범주:** 없음 <br />
 **수준:**         오류 <br />
 **키워드:**      클래식 <br />
-**사용자:**          N/A <br />
+**사용자:**          해당 사항 없음 <br />
 **컴퓨터:** *컴퓨터* <br />
 **설명:** RD 세션 호스트 서버가 SSL 연결에서 RD 세션 호스트 서버 인증에 사용할 새 자체 서명된 인증서를 만들지 못했습니다. 관련 상태 코드는 '키 집합이 없습니다.'입니다.
 
@@ -101,7 +101,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **작업 범주:** 없음 <br />
 **수준:**         오류 <br />
 **키워드:**       <br />
-**사용자:**          SYSTEM <br />
+**사용자:**          시스템 <br />
 **컴퓨터:** *컴퓨터* <br />
 **설명:** SSL 서버 자격 증명 프라이빗 키에 액세스하려 할 때 심각한 오류가 발생했습니다. 암호화 모듈에서 반환된 오류 코드는 0x8009030D입니다.  <br />
 내부 오류 상태는 10001입니다.
@@ -223,7 +223,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **작업 범주:** 없음 <br />
 **수준:**         오류 <br />
 **키워드:**       <br />
-**사용자:**          SYSTEM <br />
+**사용자:**          시스템 <br />
 **컴퓨터:** *컴퓨터* <br />
 **설명:** TLS 서버 자격 증명을 만드는 동안 심각한 오류가 발생했습니다. 내부 오류 상태는 10013입니다.
  

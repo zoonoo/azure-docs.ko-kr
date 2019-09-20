@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 20fa8945f01a3431d2fd78d545c43d6215c83f56
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: e29c32c27e7f6c62eb2c6a9cbe2e4d3f1294f038
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66110294"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155160"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Windows Azure Diagnostics 확장을 사용하여 성능 모니터링
 
@@ -191,9 +191,6 @@ WAD를 통해 성능 카운터를 수집하려면 클러스터의 Resource Manag
       },
 ....
 ```
-
- >[!NOTE]
- >`*`를 사용하여 비슷한 이름의 성능 카운터 그룹을 지정할 수 있지만 싱크를 통해 카운터를 보내려면(Application Insights에) 개별적으로 선언되어야 합니다. 
 
 1. 수집되어야 하는 적절한 성능 카운터를 추가하면 실행 중인 클러스터에서 이러한 변경 내용이 반영되도록 클러스터 리소스를 업그레이드해야 합니다. 수정된 `template.json`을 저장하고 PowerShell을 엽니다. `New-AzResourceGroupDeployment`를 사용하여 클러스터를 업그레이드할 수 있습니다. 호출에는 리소스 그룹의 이름, 업데이트된 템플릿 파일 및 매개 변수 파일이 필요하며, 리소스 관리자가 업데이트한 리소스에 대해 적절하게 변경하도록 합니다. 계정에 로그인하고 올바른 구독에 있게 되면 다음 명령을 사용하여 업그레이드를 실행합니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: b276766d69c187e2268f5896f23e3bd435ed63c3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b4c1fcd6a719f341dcebfd9f4efc4423241ca3dd
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274814"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147336"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Azure Load Balancer의 IPv6에 대한 개요
 
@@ -27,7 +27,7 @@ ms.locfileid: "68274814"
 >[!NOTE] 
 >Azure Load Balancer는 다음의 두 가지 형식을 지원합니다. 기본 및 표준 이 문서는 기본 Load Balancer에 대해 설명합니다. 표준 Load Balancer에 대한 자세한 내용은 [표준 Load Balancer 개요](load-balancer-standard-overview.md)를 참조하세요.
 
-인터넷 연결 부하 분산 장치는 IPv6 주소를 사용해 배포할 수 있습니다. IPv4 연결 외에도 다음과 같은 기능을 사용할 수 있습니다.
+기본 SKU 인터넷 연결 부하 분산 장치는 IPv6 주소를 사용 하 여 배포할 수 있습니다. IPv4 연결 외에도 다음과 같은 기능을 사용할 수 있습니다.
 
 * 부하 분산 장치를 통한 공용 인터넷 클라이언트와 Azure Virtual Machines(VM) 사이의 네이티브 엔드투엔드 IPv6 연결.
 * VM과 공용 인터넷 IPv6 사용 가능 클라이언트 사이의 네이티브 엔드투엔드 IPv6 아웃바운드 연결.
@@ -56,7 +56,7 @@ Azure Resource Manager를 통해 배포된 VM에 대한 네이티브 IPv6 지원
 
 ## <a name="details-and-limitations"></a>세부 사항 및 제한 사항
 
-세부 정보
+설명
 
 * Azure DNS 서비스는 IPv4 및 IPv6 AAAA 이름 레코드를 모두 포함하며 부하 분산 장치에 대해 두 레코드와 반응합니다. 클라이언트는 어떤 주소(IPv4 또는 IPv6)와 통신할지 선택합니다.
 * VM이 공용 인터넷 IPv6 연결 디바이스에 연결을 시작할 경우 VM의 원본 IPv6 주소는 부하 분산 디바이스의 공용 IPv6 주소에 대한 NAT(네트워크 주소 변환)입니다.
@@ -79,6 +79,7 @@ Azure Resource Manager를 통해 배포된 VM에 대한 네이티브 IPv6 지원
 * IPv6에 대한 loadDistributionMethod 매개 변수 변경은 **현재 지원되지 않습니다**.
 * 예약된 IPv6 IP(여기서 IPAllocationMethod = static)는 **현재 지원되지 않습니다**.
 * NAT64(IPv4로의 IPv6 변환)가 지원되지 않습니다.
+* 표준 SKU 부하 분산 장치는 현재 IPv6 주소를 지원 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

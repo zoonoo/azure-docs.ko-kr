@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: 730ecd306bf33709ed5d9fa334b64f7cd7a482dc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 737b049aa94ede2ffb0c1035b4cadfbed32d7dc4
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066481"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71145585"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>HDInsight에서 Apache Spark를 사용하여 Application Insights 원격 분석 로그 분석
 
@@ -21,7 +21,7 @@ HDInsight에서 [Apache Spark](https://spark.apache.org/)를 사용하여 Applic
 
 [Visual Studio Application Insights](../../azure-monitor/app/app-insights-overview.md) 는 웹 애플리케이션을 모니터링하는 분석 서비스입니다. Application Insights에 의해 생성된 원격 분석 데이터를 Azure Storage로 내보낼 수 있습니다. 데이터가 Azure Storage에 있으면 HDInsight를 사용하여 분석할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 애플리케이션에서 Application Insights를 사용하도록 구성합니다.
 
@@ -39,13 +39,13 @@ HDInsight에서 [Apache Spark](https://spark.apache.org/)를 사용하여 Applic
 
 다음 다이어그램은 이 예제의 서비스 아키텍처를 보여 줍니다.
 
-![File Storage는 이제 일반적으로 사용 가능하며 SMB 2.1과 SMB 3.0을 모두 지원합니다.](./media/apache-spark-analyze-application-insight-logs/appinsightshdinsight.png)
+![Application Insights에서 blob 저장소로 흐르는 데이터, Spark](./media/apache-spark-analyze-application-insight-logs/application-insights.png)
 
 ### <a name="azure-storage"></a>Azure Storage
 
 Application Insights가 Blob에 원격 분석 정보를 지속적으로 내보내도록 구성될 수 있습니다. 그러면 HDInsight는 Blob에 저장된 데이터를 읽을 수 있습니다. 그러나 따라야 할 몇 가지 요구 사항이 있습니다.
 
-* **Location**: Storage 계정 및 HDInsight가 다른 위치에 있는 경우 대기 시간이 증가할 수 있습니다. 또한 지역 간에 이동하는 데이터에 송신 요금이 적용되면 비용이 증가합니다.
+* **위치**: Storage 계정 및 HDInsight가 다른 위치에 있는 경우 대기 시간이 증가할 수 있습니다. 또한 지역 간에 이동하는 데이터에 송신 요금이 적용되면 비용이 증가합니다.
 
     > [!WARNING]  
     > HDInsight와 다른 위치에서는 Storage 계정을 사용할 수 없습니다.
@@ -72,7 +72,7 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 스토리
 
 1. [Azure 포털](https://portal.azure.com)에서 HDInsight 클러스터의 Spark를 선택합니다. **빠른 링크** 섹션에서 **클러스터 대시보드**를 선택한 다음 클러스터 대시보드__ 섹션에서 **Jupyter Notebook**을 선택합니다.
 
-    ![클러스터 대시보드](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
+    ![Azure Portal 클러스터 대시보드 pyspark](./media/apache-spark-analyze-application-insight-logs/hdi-cluster-dashboards.png)
 
 2. Jupyter 페이지의 오른쪽 위 모퉁이에서 **새로 만들기**, **PySpark**를 차례로 선택합니다. Python 기반 Jupyter Notebook을 포함하는 새 브라우저 탭이 열립니다.
 
@@ -215,7 +215,8 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 스토리
 
 1. [Azure 포털](https://portal.azure.com)에서 HDInsight 클러스터의 Spark를 선택합니다. **빠른 링크** 섹션에서 **클러스터 대시보드**를 선택한 다음 클러스터 대시보드__ 섹션에서 **Jupyter Notebook**을 선택합니다.
 
-    ![클러스터 대시보드](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
+    ![Azure Portal 클러스터 대시보드 Scala](./media/apache-spark-analyze-application-insight-logs/hdi-cluster-dashboards.png)
+
 2. Jupyter 페이지의 오른쪽 위 모퉁이에서 **새로 만들기**, **Scala**를 차례로 선택합니다. Scala 기반 Jupyter Notebook을 포함하는 새 브라우저 탭이 나타납니다.
 3. 페이지의 첫 번째 필드(**셀**이라고 함)에 다음 텍스트를 입력합니다.
 

@@ -16,12 +16,12 @@ ms.date: 09/11/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4e7b89fbb4b6343db62cf3476f3c35220b12649b
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 1f4afe1c31ae964aab82664de12144185069af5a
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104039"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71145666"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Microsoft id 플랫폼 모범 사례 및 권장 사항
 
@@ -78,6 +78,7 @@ ms.locfileid: "71104039"
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) |  모바일 앱의 경우 응용 프로그램 등록 환경을 사용 하 여 각 플랫폼을 구성 합니다. 응용 프로그램에서 single sign-on을 위해 Microsoft Authenticator 또는 Microsoft 회사 포털를 활용 하기 위해 앱에 "broker 리디렉션 URI"가 구성 되어 있어야 합니다. 이를 통해 Microsoft는 인증 후 응용 프로그램에 제어를 반환할 수 있습니다. 각 플랫폼을 구성할 때 앱 등록 환경에서이 과정을 안내 합니다. 빠른 시작을 사용 하 여 작업 예제를 다운로드 합니다. IOS에서 가능 하면 브로커 및 시스템 웹 보기를 사용 합니다.|
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) |  웹 앱 또는 web Api에서 계정 당 하나의 토큰 캐시를 유지 합니다.  웹 앱의 경우 계정 ID로 토큰 캐시를 키로 지정 해야 합니다.  웹 Api의 경우 API를 호출 하는 데 사용 되는 토큰의 해시를 사용 하 여 계정에 키를 지정 해야 합니다. MSAL.NET는 .NET Framework 및 .NET Core subplatforms에서 사용자 지정 토큰 캐시 serialization을 제공 합니다. 보안 및 성능상의 이유로 사용자 당 캐시 하나를 직렬화 하는 것이 좋습니다. 자세한 내용은 [토큰 캐시 serialization](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application)정보를 참조 하세요.|
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 앱에 필요한 데이터를 [Microsoft Graph](https://developer.microsoft.com/graph)를 통해 사용할 수 있는 경우 개별 API가 아닌 Microsoft Graph 끝점을 사용 하 여이 데이터에 대 한 권한을 요청 합니다. |
+| ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) |액세스 토큰 값을 확인 하거나 클라이언트로 구문 분석 해 보십시오.  값, 형식을 변경 하거나 경고 없이 암호화 될 수도 있습니다. 클라이언트가 사용자에 대 한 정보를 확인 하거나 Microsoft Graph를 호출 해야 하는 경우 항상 id_token을 사용 합니다.  웹 Api는 형식을 정의 하 고 암호화 키를 설정 하는 것 이므로 액세스 토큰을 구문 분석 해야 합니다. |
 
 ## <a name="end-user-experience"></a>최종 사용자 환경
 

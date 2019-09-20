@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: atsenthi
-ms.openlocfilehash: 3810afa7ad00aa731751aa1f0bfe38d503de5850
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 0bec430cbb98452f8c852c96053f3f699ce5098e
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68953214"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71153582"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>애플리케이션 및 서비스를 Azure Resource Manager 리소스로 관리
 
@@ -272,7 +272,7 @@ ARM 템플릿에서 ServiceFabric/클러스터/응용 프로그램을 제거 하
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Resource Manager를 통해 기존 애플리케이션 관리
 
-클러스터가 이미 작동 중이며 Resource Manager 리소스로 관리하려는 일부 애플리케이션이 이미 클러스터에 배포된 경우, 애플리케이션을 제거한 후 다시 배포하는 대신, 동일한 API를 통해 PUT 호출을 사용하여 애플리케이션이 Resource Manager 리소스로 승인되도록 할 수 있습니다. 
+클러스터가 이미 작동 중이며 Resource Manager 리소스로 관리하려는 일부 애플리케이션이 이미 클러스터에 배포된 경우, 애플리케이션을 제거한 후 다시 배포하는 대신, 동일한 API를 통해 PUT 호출을 사용하여 애플리케이션이 Resource Manager 리소스로 승인되도록 할 수 있습니다. 자세한 내용은 [Service Fabric 응용 프로그램 리소스 모델 이란?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model) 을 참조 하세요.
 
 > [!NOTE]
 > 클러스터 업그레이드가 비정상 앱을 무시 하도록 허용 하려면 고객이 다음을 지정할 수 있습니다. "maxPercentUnhealthyApplications: 100 "" upgradeDescription/healthPolicy "섹션에서 모든 설정에 대 한 자세한 설명은 [서비스 패브릭 REST API 클러스터 업그레이드 정책 설명서](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)에 있습니다.

@@ -8,19 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: bb234e5b34bd8046c4e65d7cc6812cde0db3b5b2
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: e0490913029efc17d12139378369646c286a276c
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995588"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71145717"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용
 
-
 ## <a name="introduction"></a>소개
 
-심층 학습은 의료, 교통, 제조 등에 이르는 모든 분야에 영향을 줍니다. 기업은 [이미지 분류](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [음성 인식](https://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), 개체 인식 및 기계 번역과 같은 어려운 문제를 해결하기 위해 딥 러닝으로 전환하고 있습니다. 
+심층 학습은 의료, 교통, 제조 등에 이르는 모든 분야에 영향을 줍니다. 기업은 [이미지 분류](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [음성 인식](https://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), 개체 인식 및 기계 번역과 같은 어려운 문제를 해결하기 위해 딥 러닝으로 전환하고 있습니다.
 
 [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), [Apache MXNet](https://mxnet.apache.org/), Theano 등 [널리 사용되는 수많은 프레임워크](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software)가 있습니다. [Caffe](https://caffe.berkeleyvision.org/)는 가장 많이 사용되는 비기호(명령적) 신경망 프레임워크 중 하나로, Computer Vision을 비롯한 많은 영역에서 널리 사용 됩니다. 또한 [CaffeOnSpark](https://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep)는 Caffe를 Apache Spark와 결합하여 기존 Hadoop 클러스터에서 심층 학습을 쉽게 사용하도록 할 수 있습니다. Spark ETL 파이프라인과 함께 심층 학습을 사용하여 시스템 복잡성을 줄이고 완전한 솔루션 학습에 따른 대기 시간을 줄일 수 있습니다.
 
@@ -59,7 +58,6 @@ HDInsight는 PaaS 솔루션으로, 뛰어난 플랫폼 기능을 제공하므로
     sudo ldconfig
     echo "protobuf installation done"
 
-
 스크립트 동작에는 두 단계가 있습니다. 첫 번째 단계는 필요한 모든 라이브러리를 설치하는 것입니다. 이러한 라이브러리로는 Caffe를 컴파일(예: gflags, glog)하고 Caffe를 실행(예: numpy)하는 데 필요한 라이브러리가 포함됩니다. CPU 최적화를 위한 libatlas를 사용 중이지만 MKL 또는 CUDA(GPU용)와 같은 다른 최적화 라이브러리를 설치하는 데는 항상 CaffeOnSpark wiki를 따를 수 있습니다.
 
 두 번째 단계는 런타임 중에 Caffe용 protobuf 2.5.0을 다운로드, 컴파일 및 설치하는 것입니다. Protobuf 2.5.0이 [필요](https://github.com/yahoo/CaffeOnSpark/issues/87)하지만 이 버전은 Ubuntu 16에서 패키지로 제공되지 않으므로 소스 코드에서 컴파일해야 합니다. 컴파일하는 방법에 대한 몇 가지 리소스가 인터넷에 제공됩니다. 자세한 내용은 [여기](https://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html)를 참조하세요.
@@ -68,10 +66,9 @@ HDInsight는 PaaS 솔루션으로, 뛰어난 플랫폼 기능을 제공하므로
 
 ![종속성 설치를 위한 스크립트 동작](./media/apache-spark-deep-learning-caffe/submit-script-action.png)
 
-
 ## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>2단계: 헤드 노드에서 HDInsight용 Apache Spark에 Caffe 빌드
 
-두 번째 단계는 헤드 노드에 Caffe를 빌드한 후 컴파일된 라이브러리를 모든 작업자 노드에 배포하는 것입니다. 이 단계에서는 [헤드 노드에 대해 ssh를 수행](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)해야 합니다. 그런 후에 [CaffeOnSpark 빌드 프로세스](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn)를 따라야 합니다. 다음은 CaffeOnSpark 빌드에 사용할 수 있는 스크립트와 몇 가지 추가 단계입니다. 
+두 번째 단계는 헤드 노드에 Caffe를 빌드한 후 컴파일된 라이브러리를 모든 작업자 노드에 배포하는 것입니다. 이 단계에서는 [헤드 노드에 대해 ssh를 수행](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)해야 합니다. 그런 후에 [CaffeOnSpark 빌드 프로세스](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn)를 따라야 합니다. 다음은 CaffeOnSpark 빌드에 사용할 수 있는 스크립트와 몇 가지 추가 단계입니다.
 
     #!/bin/bash
     git clone https://github.com/yahoo/CaffeOnSpark.git --recursive
@@ -115,7 +112,6 @@ CaffeOnSpark에 대한 설명서에 나와 있는 것보다 더 많은 것을 �
 - 나중에 사용할 수 있도록 데이터 세트를 모든 작업자 노드에 액세스할 수 있는 공유 위치인 Blob Storage에 배치합니다.
 - 컴파일된 Caffe 라이브러리를 Blob Storage에 배치하고 나중에 스크립트 동작을 사용하여 해당 라이브러리를 모든 노드에 복사하여 추가 컴파일 시간이 발생하지 않도록 합니다.
 
-
 ### <a name="troubleshooting-an-ant-buildexception-has-occurred-exec-returned-2"></a>문제 해결: Ant BuildException 발생: exec 반환됨: 2
 
 CaffeOnSpark 빌드를 처음으로 시도할 때 이 메시지가 발생하는 경우가 있습니다.
@@ -134,7 +130,6 @@ maven에서 다음 코드 조각과 유사한 연결 시간 초과 오류가 발
     INFO: I/O exception (java.net.SocketException) caught when processing request to {s}->https://repo.maven.apache.org:443: Connection timed out (Read failed)
 
 몇 분 후에 다시 시도해야 합니다.
-
 
 ### <a name="troubleshooting-test-failure-for-caffe"></a>문제 해결: Caffe 테스트 실패
 
@@ -167,7 +162,7 @@ Caffe는 "표현 아키텍처"를 사용 중이며 여기서는 모델을 구성
 
 학습할 모델은 MNIST 학습을 위한 샘플 모델입니다. 필기 숫자의 MNIST 데이터베이스에는 학습 집합 예제 60,000개와 테스트 집합 예제 10,000개가 포함됩니다. NIST에서 제공되는 큰 집합의 하위 집합입니다. 이 숫자는 크기를 표준화하였고 고정 크기 이미지로 중앙에 배치됩니다. CaffeOnSpark에는 데이터 세트를 다운로드하고 적절한 형식으로 변환할 수 있는 몇 가지 스크립트가 포함됩니다.
 
-CaffeOnSpark는 MNIST 학습을 위한 몇 가지 네트워크 토폴로지를 제공합니다. 네트워크 아키텍처(네트워크의 토폴로지)를 분할하고 최적화하기 위한 훌륭한 설계를 포함합니다. 이 경우 다음 두 파일이 필요합니다. 
+CaffeOnSpark는 MNIST 학습을 위한 몇 가지 네트워크 토폴로지를 제공합니다. 네트워크 아키텍처(네트워크의 토폴로지)를 분할하고 최적화하기 위한 훌륭한 설계를 포함합니다. 이 경우 다음 두 파일이 필요합니다.
 
 "Solver" 파일(${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt)은 최적화를 감독하고 매개 변수 업데이트를 생성하는 데 사용됩니다. 예를 들어 CPU 또는 GPU를 사용할지 여부, 모멘텀, 반복 횟수 등을 정의합니다. 또한 프로그램에서 사용하는 신경망 토폴로지도 정의합니다(필요한 두 번째 파일). Solver에 대한 자세한 내용은 [Caffe 설명서](https://caffe.berkeleyvision.org/tutorial/solver.html)를 참조하세요.
 
@@ -176,7 +171,7 @@ CaffeOnSpark는 MNIST 학습을 위한 몇 가지 네트워크 토폴로지를 �
     # solver mode: CPU or GPU
     solver_mode: CPU
 
-![Caffe Config1](./media/apache-spark-deep-learning-caffe/caffe-configuration1.png
+![HDInsight caffe 구성 예제](./media/apache-spark-deep-learning-caffe/caffe-configuration1.png
 )
 
 필요에 따라 다른 줄을 변경할 수 있습니다.
@@ -186,7 +181,7 @@ CaffeOnSpark는 MNIST 학습을 위한 몇 가지 네트워크 토폴로지를 �
 - "file:/Users/mridul/bigml/demodl/mnist_train_lmdb"를 "wasb:///projects/machine_learning/image_dataset/mnist_train_lmdb"로 변경합니다.
 - "file:/Users/mridul/bigml/demodl/mnist_test_lmdb/"를 "wasb:///projects/machine_learning/image_dataset/mnist_test_lmdb"로 변경합니다.
 
-![Caffe Config2](./media/apache-spark-deep-learning-caffe/caffe-configuration2.png)
+![HDInsight caffe 구성 예제 다시](./media/apache-spark-deep-learning-caffe/caffe-configuration2.png)
 
 네트워크를 정의하는 방법에 대한 자세한 내용은 [MNIST 데이터 세트에 대한 Caffe 설명서](https://caffe.berkeleyvision.org/gathered/examples/mnist.html)를 확인하세요.
 
@@ -202,19 +197,19 @@ YARN 클러스터 모드를 사용 중이고 이 경우 임의 컨테이너(및 
 
     17/02/01 23:22:16 INFO Client: Application report for application_1485916338528_0015 (state: RUNNING)
 
-어떤 작업이 발생했는지 알고 싶은 경우에는 일반적으로 자세한 정보가 포함된 Spark 드라이버 로그를 가져와야 합니다. 이 경우 YARN UI로 이동하여 관련 YARN 로그를 찾아야 합니다. 다음 URL로 YARN UI를 가져올 수 있습니다. 
+어떤 작업이 발생했는지 알고 싶은 경우에는 일반적으로 자세한 정보가 포함된 Spark 드라이버 로그를 가져와야 합니다. 이 경우 YARN UI로 이동하여 관련 YARN 로그를 찾아야 합니다. 다음 URL로 YARN UI를 가져올 수 있습니다.
 
     https://yourclustername.azurehdinsight.net/yarnui
-   
-![YARN UI](./media/apache-spark-deep-learning-caffe/apache-yarn-window-1.png)
+
+![apache yarn scheduler 브라우저 보기](./media/apache-spark-deep-learning-caffe/apache-yarn-window-1.png)
 
 이 특정 애플리케이션에 대해 얼마나 많은 리소스가 할당되는지를 살펴볼 수 있습니다. "Scheduler" 링크를 클릭하면 이 애플리케이션에 대해 9개의 컨테이너가 실행 중인 것을 볼 수 있습니다. YARN에 8개의 실행기를 제공하도록 요청하고 다른 컨테이너는 드라이버 프로세스용입니다. 
 
-![YARN Scheduler](./media/apache-spark-deep-learning-caffe/apache-yarn-scheduler.png)
+![HDI apache YARN Scheduler 보기](./media/apache-spark-deep-learning-caffe/apache-yarn-scheduler.png)
 
 오류가 있는 경우 드라이버 로그 또는 컨테이너 로그를 확인하려 할 수 있습니다. 드라이버 로그의 경우 YARN UI에서 애플리케이션 ID를 클릭한 후 [로그] 단추를 클릭하면 됩니다. 드라이버 로그는 stderr에 기록됩니다.
 
-![YARN UI 2](./media/apache-spark-deep-learning-caffe/apache-yarn-window-2.png)
+![apache yarn 창 브라우저 보기](./media/apache-spark-deep-learning-caffe/apache-yarn-window-2.png)
 
 예를 들어 드라이버 로그에서 아래와 같이 너무 많은 실행기를 할당했음을 나타내는 몇 가지 오류가 표시될 수 있습니다.
 
@@ -262,7 +257,6 @@ YARN 클러스터 모드를 사용 중이고 이 경우 임의 컨테이너(및 
     WARNING: Logging before InitGoogleLogging() is written to STDERR
     F0201 07:10:48.309725 11624 common.cpp:79] Cannot use GPU in CPU-only Caffe: check mode.
 
-
 ## <a name="getting-results"></a>결과 가져오기
 
 8개의 실행기를 할당하고 네트워크 토폴로지가 간단하므로 결과를 실행하는 데 약 30분만 소요됩니다. 명령줄에서 wasb:///mnist.model에 모델을 배치하고 wasb:///mnist_features_result라는 폴더에 결과를 배치한 것을 확인할 수 있습니다.
@@ -285,19 +279,19 @@ YARN 클러스터 모드를 사용 중이고 이 경우 임의 컨테이너(및 
 
 SampleID는 MNIST 데이터 세트에서 ID를 나타내며 레이블은 모델에서 식별하는 숫자입니다.
 
-
 ## <a name="conclusion"></a>결론
 
 이 설명서에서는 간단한 예를 실행하여 CaffeOnSpark를 설치하려고 시도했습니다. HDInsight는 완전히 관리되는 클라우드 분산된 컴퓨팅 플랫폼으로, 분산 딥 러닝을 위해 대규모 데이터 세트에 대해 Machine Learning 및 고급 분석 워크로드를 실행하기 위한 최적의 장소이며 HDInsight Spark에서 Caffe를 사용하여 딥 러닝 작업을 수행할 수 있습니다.
 
-
 ## <a name="seealso"></a>참고 항목
+
 * [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
+
 * [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 HVAC 데이터로 건물 온도 분석](apache-spark-ipython-notebook-machine-learning.md)
 * [Machine Learning과 Apache Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="manage-resources"></a>리소스 관리
-* [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](apache-spark-resource-manager.md)
 
+* [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](apache-spark-resource-manager.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 92ec03e20fb6e681a0afd14048449ad004ebca0c
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: dbe03ef29bd28d465fa671abc915d63d4b038cb2
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991458"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154776"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 모니터링, 메트릭 및 경고
 
@@ -23,57 +23,50 @@ ms.locfileid: "69991458"
 >**클래식 메트릭**을 사용하면 좋지 않습니다.
 >
 
-## <a name="circuit-metrics"></a>회로 메트릭
+## <a name="expressroute-metrics"></a>Express 경로 메트릭
 
-**메트릭**으로 이동하려면 모니터링할 회로에 대한 ExpressRoute 페이지를 클릭합니다. **모니터링**에서 **메트릭**을 볼 수 있습니다. 아래에 나열 된 메트릭에 대해 선택 합니다. 기본 집계가 적용 됩니다. 필요에 따라 분할을 적용할 수 있습니다 .이 경우 다른 차원의 메트릭이 표시 됩니다.
+**메트릭을**보려면 *Azure Monitor* 페이지로 이동 하 여 *메트릭*을 클릭 합니다. **Express** 경로 메트릭을 보려면 리소스 유형 *express 경로 회로*로 필터. **Global Reach** 메트릭을 보려면 리소스 유형 *express 경로 회로* 를 기준으로 필터링 하 고 Global Reach 사용 하도록 설정 된 express 경로 회로 리소스를 선택 합니다. Express 경로 **직접** 메트릭을 보려면 *express 경로 포트*를 기준으로 리소스 종류를 필터링 합니다. 
 
-### <a name="metrics-available"></a>사용 가능한 메트릭: 
-* **Availability** 
-    * Arp 가용성
-      * 사용 가능한 차원:
-        * 피어 (기본/보조 Express 경로 라우터)
-        * 피어 링 유형 (비공개/공용/Microsoft)
-    * Bgp 가용성
-      * 사용 가능한 차원:
-        * 피어 (기본/보조 Express 경로 라우터)
-        * 피어 링 유형 (비공개/공용/Microsoft)
-* **교통**
-    * BitsInPerSecond
-      * 사용 가능한 차원:
-        * 피어 링 유형 (비공개/공용/Microsoft)
-    * BitsOutPerSecond
-      * 사용 가능한 차원:
-        * 피어 링 유형 (비공개/공용/Microsoft)
-    * GlobalReachBitsInPerSecond
-      * 사용 가능한 차원:
-        * 피어 링 회로 Skey (서비스 키)
-    * GlobalReachBitsOutPerSecond
-      * 사용 가능한 차원:
-        * 피어 링 회로 Skey (서비스 키)
+메트릭을 선택 하면 기본 집계가 적용 됩니다. 필요에 따라 분할을 적용할 수 있습니다 .이 경우 다른 차원의 메트릭이 표시 됩니다.
 
+### <a name="available-metrics"></a>사용 가능한 메트릭
+|**메트릭**|**범주**|**개 차원**|**기능**|
+| --- | --- | --- | --- |
+|ARP 가용성|가용성|<ui><li>피어 (기본/보조 Express 경로 라우터)</ui></li><ui><li> 피어 링 유형 (비공개/공용/Microsoft)</ui></li>|Express 경로|
+|Bgp 가용성|가용성|<ui><li> 피어 (기본/보조 Express 경로 라우터)</ui></li><ui><li> 피어 링 유형</ui></li>|Express 경로|
+|BitsInPerSecond|트래픽|<ui><li> 피어 링 유형 (Express 경로)</ui></li><ui><li>링크 (Express 경로 직접)</ui></li>| <li> Express 경로</li><li>ExpressRoute Direct|
+|BitsOutPerSecond|트래픽| <ui><li>피어 링 유형 (Express 경로)</ui></li><ui><li> 링크 (Express 경로 직접) | <ui><li>ExpressRoute<ui><li>Express 경로 직접</ui></li> |
+|GlobalReachBitsInPerSecond|트래픽|<ui><li>피어 링 회로 Skey (서비스 키)</ui></li>|Global Reach|
+|GlobalReachBitsOutPerSecond|트래픽|<ui><li>피어 링 회로 Skey (서비스 키)</ui></li>|Global Reach|
+|AdminState|실제 연결|링크|ExpressRoute Direct|
+|LineProtocol|실제 연결|링크|ExpressRoute Direct|
+|RxLightLevel|실제 연결|<ui><li>링크나</ui></li><ui><li>차선</ui></li>|ExpressRoute Direct|
+|TxLightLevel|실제 연결|<ui><li>링크나</ui></li><ui><li>차선</ui></li>|ExpressRoute Direct|
 >[!NOTE]
 >*GlobalGlobalReachBitsInPerSecond* 및 *GlobalGlobalReachBitsOutPerSecond* 를 사용 하는 것은 하나 이상의 Global Reach 연결이 설정 된 경우에만 표시 됩니다.
 >
 
-## <a name="bits-in-and-out---metrics-across-all-peerings"></a>모든 피어 링에서의 비트 및 외부 메트릭
+## <a name="circuits-metrics"></a>회로 메트릭
+
+### <a name="bits-in-and-out---metrics-across-all-peerings"></a>모든 피어 링에서의 비트 및 외부 메트릭
 
 지정 된 Express 경로 회로의 모든 피어 링에서 메트릭을 볼 수 있습니다.
 
 ![회로 메트릭](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
-## <a name="bits-in-and-out---metrics-per-peering"></a>비트 and Out-피어 링 당 메트릭
+### <a name="bits-in-and-out---metrics-per-peering"></a>비트 and Out-피어 링 당 메트릭
 
 프라이빗, 공용 및 Microsoft 피어링에 대한 메트릭을 비트/초 단위로 볼 수 있습니다.
 
 ![피어링당 메트릭](./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) 
 
-## <a name="bgp-availability---split-by-peer"></a>BGP 가용성-피어로 분할  
+### <a name="bgp-availability---split-by-peer"></a>BGP 가용성-피어로 분할  
 
 피어 링 및 피어 (기본 및 보조 Express 경로 라우터)에서 BGP의 실시간 가용성을 확인할 수 있습니다. 이 대시보드는 개인 피어 링에 대 한 기본 BGP 세션과 개인 피어 링에 대 한 두 번째 BGP 세션을 보여 줍니다. 
 
 ![피어 당 BGP 가용성](./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg) 
 
-## <a name="arp-availability---split-by-peering"></a>ARP 가용성-피어 링으로 분할  
+### <a name="arp-availability---split-by-peering"></a>ARP 가용성-피어 링으로 분할  
 
 피어 링 및 피어 (기본 및 보조 Express 경로 라우터)에서 [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) 의 실시간 가용성을 확인할 수 있습니다. 이 대시보드는 두 피어에서 개인 피어 링 ARP 세션을 보여 주지만 피어 링에서 Microsoft 피어 링을 완료 합니다. 두 피어에서 기본 집계 (평균)를 활용 했습니다.  
 

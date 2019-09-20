@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 09/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 6293fc84969c4e246c05da4482f76142263db230
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e3d6312be0936f14ece5d30a2bbf3e4235031c0e
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985555"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154060"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>컨테이너 및 Blob에 대한 익명 읽기 권한 관리
 
@@ -27,22 +27,15 @@ ms.locfileid: "68985555"
 
 다음 권한으로 컨테이너를 구성할 수 있습니다.
 
-* **공용 읽기 권한이 없습니다.** 컨테이너 및 해당 blob는 저장소 계정 소유자만 액세스할 수 있습니다. 이것이 새로운 모든 컨테이너에 대한 기본 설정입니다.
-* **Blob에 대 한 공용 읽기 액세스 전용:** 컨테이너 내의 blob은 익명 요청에서 읽을 수 있지만 컨테이너 데이터는 사용할 수 없습니다. 익명 클라이언트는 컨테이너 내의 Blob을 열거할 수 없습니다.
-* **컨테이너 및 해당 blob에 대 한 공용 읽기 권한:** 익명 요청을 통해 모든 컨테이너 및 blob 데이터를 읽을 수 있습니다. 클라이언트는 익명 요청을 통해 컨테이너 내에서 Blob을 열거할 수 있지만 스토리지 계정 내에서 컨테이너를 열거할 수는 없습니다.
-
-다음을 사용하여 컨테이너 권한을 설정할 수 있습니다.
-
-* [Azure Portal](https://portal.azure.com)
-* [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Azure CLI](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
-* 프로그래밍 방식으로, 스토리지 클라이언트 라이브러리 중 하나 또는 REST API 사용
+- **공용 읽기 권한이 없습니다.** 컨테이너 및 해당 blob는 저장소 계정 소유자만 액세스할 수 있습니다. 이것이 새로운 모든 컨테이너에 대한 기본 설정입니다.
+- **Blob에 대 한 공용 읽기 액세스 전용:** 컨테이너 내의 blob은 익명 요청에서 읽을 수 있지만 컨테이너 데이터는 사용할 수 없습니다. 익명 클라이언트는 컨테이너 내의 Blob을 열거할 수 없습니다.
+- **컨테이너 및 해당 blob에 대 한 공용 읽기 권한:** 익명 요청을 통해 모든 컨테이너 및 blob 데이터를 읽을 수 있습니다. 클라이언트는 익명 요청을 통해 컨테이너 내에서 Blob을 열거할 수 있지만 스토리지 계정 내에서 컨테이너를 열거할 수는 없습니다.
 
 ### <a name="set-container-public-access-level-in-the-azure-portal"></a>Azure Portal에서 컨테이너 공용 액세스 수준을 설정 합니다.
 
 [Azure Portal](https://portal.azure.com)에서 하나 이상의 컨테이너에 대 한 공용 액세스 수준을 업데이트할 수 있습니다.
 
-1. Azure Portal의 스토리지 계정으로 이동합니다.
+1. Azure Portal에서 저장소 계정 개요로 이동 합니다.
 1. 메뉴 블레이드의 **Blob service** 에서 **blob**을 선택 합니다.
 1. 공용 액세스 수준을 설정 하려는 컨테이너를 선택 합니다.
 1. **액세스 수준 변경** 단추를 사용 하 여 공용 액세스 설정을 표시 합니다.
@@ -57,16 +50,28 @@ ms.locfileid: "68985555"
 
 ### <a name="set-container-public-access-level-with-net"></a>.NET을 사용 하 여 컨테이너 공용 액세스 수준 설정
 
-C# 및 .NET용 Storage 클라이언트 라이브러리를 사용하여 컨테이너에 대한 권한을 설정하려면 먼저 **GetPermissions** 메서드를 호출하여 컨테이너의 기존 권한을 검색합니다. 그런 다음 **GetPermissions** 메서드에 의해 반환된 **BlobContainerPermissions** 개체에 대해 **PublicAccess** 속성을 설정합니다. 마지막으로 업데이트된 권한으로 **SetPermissions** 메서드를 호출합니다.
+.NET 용 Azure Storage 클라이언트 라이브러리를 사용 하 여 컨테이너에 대 한 권한을 설정 하려면 먼저 다음 방법 중 하나를 호출 하 여 컨테이너의 기존 권한을 검색 합니다.
+
+- [GetPermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getpermissions)
+- [GetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getpermissionsasync)
+
+다음으로 **Getpermissions** 메서드에서 반환 되는 [BlobContainerPermissions](/dotnet/api/microsoft.azure.storage.blob.blobcontainerpermissions) 개체에 **publicaccess** 속성을 설정 합니다.
+
+마지막으로 다음 메서드 중 하나를 호출 하 여 컨테이너의 사용 권한을 업데이트 합니다.
+
+- [SetPermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissions)
+- [SetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissionsasync)
 
 다음 예제에서는 컨테이너의 권한을 전체 공용 읽기 권한으로 설정합니다. 권한을 Blob에 대해서만 공용 읽기 권한으로 설정하려면 **PublicAccess** 속성을 **BlobContainerPublicAccessType.Blob**으로 설정합니다. 익명 사용자에 대한 모든 권한을 제거하려면 속성을 **BlobContainerPublicAccessType.Off**로 설정합니다.
 
 ```csharp
-public static void SetPublicContainerPermissions(CloudBlobContainer container)
+private static async Task SetPublicContainerPermissions(CloudBlobContainer container)
 {
-    BlobContainerPermissions permissions = container.GetPermissions();
+    BlobContainerPermissions permissions = await container.GetPermissionsAsync();
     permissions.PublicAccess = BlobContainerPublicAccessType.Container;
-    container.SetPermissions(permissions);
+    await container.SetPermissionsAsync(permissions);
+
+    Console.WriteLine("Container {0} - permissions set to {1}", container.Name, permissions.PublicAccess);
 }
 ```
 
@@ -81,13 +86,15 @@ public static void SetPublicContainerPermissions(CloudBlobContainer container)
 ```csharp
 public static void CreateAnonymousBlobClient()
 {
-    // Create the client object using the Blob storage endpoint.
-    CloudBlobClient blobClient = new CloudBlobClient(new Uri(@"https://storagesample.blob.core.windows.net"));
+    // Create the client object using the Blob storage endpoint for your account.
+    CloudBlobClient blobClient = new CloudBlobClient(
+        new Uri(@"https://storagesamples.blob.core.windows.net"));
 
     // Get a reference to a container that's available for anonymous access.
     CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
 
-    // Read the container's properties. Note this is only possible when the container supports full public read access.
+    // Read the container's properties. 
+    // Note this is only possible when the container supports full public read access.
     container.FetchAttributes();
     Console.WriteLine(container.Properties.LastModified);
     Console.WriteLine(container.Properties.ETag);
@@ -102,9 +109,11 @@ public static void CreateAnonymousBlobClient()
 public static void ListBlobsAnonymously()
 {
     // Get a reference to a container that's available for anonymous access.
-    CloudBlobContainer container = new CloudBlobContainer(new Uri(@"https://storagesample.blob.core.windows.net/sample-container"));
+    CloudBlobContainer container = new CloudBlobContainer(
+        new Uri(@"https://storagesamples.blob.core.windows.net/sample-container"));
 
     // List blobs in the container.
+    // Note this is only possible when the container supports full public read access.
     foreach (IListBlobItem blobItem in container.ListBlobs())
     {
         Console.WriteLine(blobItem.Uri);
@@ -119,45 +128,14 @@ public static void ListBlobsAnonymously()
 ```csharp
 public static void DownloadBlobAnonymously()
 {
-    CloudBlockBlob blob = new CloudBlockBlob(new Uri(@"https://storagesample.blob.core.windows.net/sample-container/logfile.txt"));
-    blob.DownloadToFile(@"C:\Temp\logfile.txt", System.IO.FileMode.Create);
+    CloudBlockBlob blob = new CloudBlockBlob(
+        new Uri(@"https://storagesamples.blob.core.windows.net/sample-container/logfile.txt"));
+    blob.DownloadToFile(@"C:\Temp\logfile.txt", FileMode.Create);
 }
 ```
 
-## <a name="features-available-to-anonymous-users"></a>익명 사용자에게 제공되는 기능
-
-다음 표에서는 공용 액세스를 위해 컨테이너를 구성할 때 익명으로 호출할 수 있는 작업을 보여 줍니다.
-
-| REST 작업 | 컨테이너에 대 한 공용 읽기 액세스 | Blob에 대한 공용 읽기 액세스만 |
-| --- | --- | --- |
-| 컨테이너 나열 | 권한 있는 요청만 | 권한 있는 요청만 |
-| 컨테이너 만들기 | 권한 있는 요청만 | 권한 있는 요청만 |
-| 컨테이너 속성 가져오기 | 허용 된 익명 요청 | 권한 있는 요청만 |
-| 컨테이너 메타데이터 가져오기 | 허용 된 익명 요청 | 권한 있는 요청만 |
-| 컨테이너 메타데이터 설정 | 권한 있는 요청만 | 권한 있는 요청만 |
-| 컨테이너 ACL 가져오기 | 권한 있는 요청만 | 권한 있는 요청만 |
-| 컨테이너 ACL 설정 | 권한 있는 요청만 | 권한 있는 요청만 |
-| 컨테이너 삭제 | 권한 있는 요청만 | 권한 있는 요청만 |
-| Blob 나열 | 허용 된 익명 요청 | 권한 있는 요청만 |
-| Blob 배치 | 권한 있는 요청만 | 권한 있는 요청만 |
-| Blob 가져오기 | 허용 된 익명 요청 | 허용 된 익명 요청 |
-| Blob 속성 가져오기 | 허용 된 익명 요청 | 허용 된 익명 요청 |
-| Blob 속성 설정 | 권한 있는 요청만 | 권한 있는 요청만 |
-| BLOB 메타데이터 가져오기 | 허용 된 익명 요청 | 허용 된 익명 요청 |
-| Blob 메타데이터 설정 | 권한 있는 요청만 | 권한 있는 요청만 |
-| 블록 배치 | 권한 있는 요청만 | 권한 있는 요청만 |
-| 블록 목록 가져오기(커밋된 블록만) | 허용 된 익명 요청 | 허용 된 익명 요청 |
-| 블록 목록 가져오기(커밋되지 않은 블록만 또는 모든 블록) | 권한 있는 요청만 | 권한 있는 요청만 |
-| 블록 목록 배치 | 권한 있는 요청만 | 권한 있는 요청만 |
-| Blob 삭제 | 권한 있는 요청만 | 권한 있는 요청만 |
-| Blob 복사 | 권한 있는 요청만 | 권한 있는 요청만 |
-| Blob 스냅샷 | 권한 있는 요청만 | 권한 있는 요청만 |
-| Blob 임대 | 권한 있는 요청만 | 권한 있는 요청만 |
-| 페이지 가져오기 | 권한 있는 요청만 | 권한 있는 요청만 |
-| 페이지 범위 가져오기 | 허용 된 익명 요청 | 허용 된 익명 요청 |
-| Blob 추가 | 권한 있는 요청만 | 권한 있는 요청만 |
-
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Storage Services에 대 한 권한 부여](https://docs.microsoft.com/rest/api/storageservices/authorization-for-the-azure-storage-services)
-* [공유 액세스 서명 (SAS)을 사용 하 여](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Azure Storage에 대 한 액세스 권한 부여](../common/storage-auth.md)
+- [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../common/storage-sas-overview.md)
+- [BLOB 서비스 REST API](/rest/api/storageservices/blob-service-rest-api)

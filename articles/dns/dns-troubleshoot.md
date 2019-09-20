@@ -1,31 +1,24 @@
 ---
-title: Azure DNS 문제 해결 가이드 | Microsoft Docs
+title: Azure DNS 문제 해결 가이드
 description: Azure DNS와 관련된 일반적인 문제를 해결하는 방법
 services: dns
-documentationcenter: na
-author: genlin
-manager: cshepard
-editor: ''
-ms.assetid: 95b01dc3-ee69-4575-a259-4227131e4f9c
+author: vhorne
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/20/2017
+ms.date: 09/20/2019
 ms.author: genli
-ms.openlocfilehash: 535e7604915555f32a7636b739c49f72cb0220c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 885d41c9cea11805b08b19ec9c3cc4e533813673
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60823898"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162075"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Azure DNS 문제 해결 가이드
 
-이 페이지에서는 일반적인 Azure DNS 질문에 대한 문제 해결 정보를 제공합니다.
+이 문서에서는 일반적인 Azure DNS 질문에 대 한 문제 해결 정보를 제공 합니다.
 
-이 단계에서 문제를 해결하지 못하는 경우 [MSDN의 커뮤니티 지원 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)에서 검색하거나 문제를 게시할 수 있습니다. 또는 Azure 지원 요청을 방문하세요.
+이 단계에서 문제를 해결하지 못하는 경우 [MSDN의 커뮤니티 지원 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)에서 검색하거나 문제를 게시할 수 있습니다. 또는 Azure 지원 요청을 열 수 있습니다.
 
 
 ## <a name="i-cant-create-a-dns-zone"></a>DNS 영역을 만들 수 없습니다.
@@ -33,16 +26,15 @@ ms.locfileid: "60823898"
 일반적인 문제를 해결하려면 다음 단계 중 하나 이상을 수행해 봅니다.
 
 1.  Azure DNS 감사 로그를 검토하여 실패 이유를 확인합니다.
-2.  각 DNS 영역 이름은 해당 리소스 그룹 내에서 고유해야 합니다. 즉, 이름이 같은 두 개의 DNS 영역이 리소스 그룹을 공유할 수 없습니다. 다른 영역 이름을 사용하거나 다른 리소스 그룹을 사용해 보세요.
+2.  각 DNS 영역 이름은 해당 리소스 그룹 내에서 고유해야 합니다. 즉, 이름이 같은 두 DNS 영역은 리소스 그룹을 공유할 수 없습니다. 다른 영역 이름을 사용하거나 다른 리소스 그룹을 사용해 보세요.
 3.  "{subscription id} 구독에서 영역의 최대 수에 도달했거나 최대 수를 초과했습니다."라는 오류가 표시될 수 있습니다. 다른 Azure 구독을 사용하거나 일부 영역을 삭제하세요. 아니면 Azure 지원부에 문의하여 구독 제한을 높이세요.
-4.  "영역 '{zone name}'을(를) 사용할 수 없습니다."라는 오류가 표시될 수 있습니다. 이 오류는 Azure DNS가 이 DNS 영역에 대해 이름 서버를 할당할 수 없음을 의미합니다. 다른 영역 이름을 사용해 보세요. 또는 도메인 이름 소유자인 경우에는 Azure 지원에 문의하세요. Azure 지원에서 이름 서버를 대신 할당해 드릴 수 있습니다.
+4.  "영역 '{zone name}'을(를) 사용할 수 없습니다."라는 오류가 표시될 수 있습니다. 이 오류는 Azure DNS가 이 DNS 영역에 대해 이름 서버를 할당할 수 없음을 의미합니다. 다른 영역 이름을 사용해 보세요. 또는 도메인 이름 소유자 인 경우 Azure 지원에 문의 하 여 이름 서버를 할당할 수 있습니다.
 
 
-### <a name="recommended-documents"></a>**권장되는 문서**
+### <a name="recommended-articles"></a>권장 문서
 
-[DNS 영역 및 레코드](dns-zones-records.md)
-<br>
-[DNS 영역 만들기](dns-getstarted-create-dnszone-portal.md)
+* [DNS 영역 및 레코드](dns-zones-records.md)
+* [DNS 영역 만들기](dns-getstarted-create-dnszone-portal.md)
 
 ## <a name="i-cant-create-a-dns-record"></a>DNS 레코드를 만들 수 없습니다.
 
@@ -50,16 +42,15 @@ ms.locfileid: "60823898"
 
 1.  Azure DNS 감사 로그를 검토하여 실패 이유를 확인합니다.
 2.  레코드 집합이 이미 있습니까?  Azure DNS는 레코드 *집합*, 다시 말해서 이름과 유형이 같은 레코드 컬렉션을 사용하여 레코드를 관리합니다. 이름과 유형이 같은 레코드가 이미 있는 상태에서 같은 레코드를 추가하려면 기존 레코드 집합을 편집해야 합니다.
-3.  DNS 영역 루트(영역의 '루트')에서 레코드를 만들려고 하시나요? 그렇다면 레코드 이름으로 ‘@’ 문자를 사용하는 것이 DNS 규칙입니다. 또한 DNS 표준은 영역 루트에 CNAME 레코드를 허용하지 않습니다.
-4.  CNAME 충돌이 있나요?  DNS 표준은 다른 유형의 레코드와 이름이 같은 CNAME 레코드를 허용하지 않습니다. 기존 CNAME이 있으면 다른 유형의 레코드와 이름이 같은 레코드를 만들 수 없습니다.  마찬가지로 유형이 다른 기존 레코드와 이름이 일치하면 CNAME을 만들 수 없습니다. 다른 레코드를 제거하거나 다른 레코드 이름을 선택하여 충돌을 제거하세요.
-5.  DNS 영역에서 허용되는 레코드 집합 수 제한에 도달했나요? 현재 레코드 집합 수와 최대 레코드 집합 수는 Azure Portal에서 해당 영역의 '속성'에 표시됩니다. 이 제한에 도달했으면 일부 레코드 집합을 삭제하거나 Azure 지원에 문의하여 이 영역의 레코드 집합 제한을 높인 후 다시 시도하세요. 
+3.  DNS 영역 루트(영역의 '루트')에서 레코드를 만들려고 하시나요? 그렇다면 레코드 이름으로 ‘@’ 문자를 사용하는 것이 DNS 규칙입니다. 또한 DNS 표준은 영역 apex에서 CNAME 레코드를 허용 하지 않습니다.
+4.  CNAME 충돌이 있나요?  DNS 표준은 다른 유형의 레코드와 이름이 같은 CNAME 레코드를 허용 하지 않습니다. 기존 CNAME이 있으면 다른 유형의 레코드와 이름이 같은 레코드를 만들 수 없습니다.  마찬가지로 유형이 다른 기존 레코드와 이름이 일치하면 CNAME을 만들 수 없습니다. 다른 레코드를 제거하거나 다른 레코드 이름을 선택하여 충돌을 제거하세요.
+5.  DNS 영역에서 허용되는 레코드 집합 수 제한에 도달했나요? 현재 레코드 집합 수와 최대 레코드 집합 수는 Azure Portal에서 해당 영역의 '속성'에 표시됩니다. 이 제한에 도달한 경우 일부 레코드 집합을 삭제 하거나 Azure 지원에 문의 하 여이 영역에 대 한 레코드 집합 제한을 증가 시킨 후 다시 시도 하세요. 
 
 
-### <a name="recommended-documents"></a>**권장되는 문서**
+### <a name="recommended-articles"></a>권장 문서
 
-[DNS 영역 및 레코드](dns-zones-records.md)
-<br>
-[DNS 영역 만들기](dns-getstarted-create-dnszone-portal.md)
+* [DNS 영역 및 레코드](dns-zones-records.md)
+* [DNS 영역 만들기](dns-getstarted-create-dnszone-portal.md)
 
 
 
@@ -76,9 +67,9 @@ DNS 이름 확인은 여러 가지 이유로 실패할 수 있는 다단계 프�
 4.  위의 단계를 완료하면 DNS 레코드가 올바르게 확인될 것입니다. [digwebinterface](https://digwebinterface.com)를 사용하여 문제가 해결되었는지 확인할 수 있습니다. 이번에는 기본 이름 서버 설정을 사용하면 됩니다.
 
 
-### <a name="recommended-documents"></a>**권장되는 문서**
+### <a name="recommended-articles"></a>권장 문서
 
-[Azure DNS에 도메인 위임](dns-domain-delegation.md)
+* [Azure DNS에 도메인 위임](dns-domain-delegation.md)
 
 
 
@@ -91,13 +82,11 @@ SRV 레코드 이름(서비스 이름 'sip', 프로토콜 'tcp') 예제:
 - \_sip.\_tcp (영역 루트에 레코드 생성)
 - \_sip.\_tcp.sipservice ('sipservice'라는 이름의 레코드 생성)
 
-### <a name="recommended-documents"></a>**권장되는 문서**
+### <a name="recommended-articles"></a>권장 문서
 
-[DNS 영역 및 레코드](dns-zones-records.md)
-<br>
-[Azure Portal을 사용하여 DNS 레코드 집합 및 레코드 만들기](dns-getstarted-create-recordset-portal.md)
-<br>
-[SRV 레코드 형식(Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
+* [DNS 영역 및 레코드](dns-zones-records.md)
+* [Azure Portal을 사용하여 DNS 레코드 집합 및 레코드 만들기](dns-getstarted-create-recordset-portal.md)
+* [SRV 레코드 형식(Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
 
 
 ## <a name="next-steps"></a>다음 단계

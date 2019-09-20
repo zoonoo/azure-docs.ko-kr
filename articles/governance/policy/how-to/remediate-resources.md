@@ -1,22 +1,22 @@
 ---
 title: 규정 비준수 리소스 수정
-description: 이 방법 문서에서는 Azure Policy에서 정책을 준수하지 않는 리소스를 수정하는 과정을 안내합니다.
+description: 이 가이드에서는 Azure Policy 정책을 준수 하지 않는 리소스를 수정 하는 과정을 안내 합니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 40658412f19c444cfa06f5663f567a78453c7e9a
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: d6ca7827200815cf9b9b1c7ac697d06f9c6b306d
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241148"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147059"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure Policy를 사용하여 비준수 리소스 수정
 
-**deployIfNotExists** 정책을 준수하지 않는 리소스는 **수정**을 통해 정책을 준수하는 상태로 설정할 수 있습니다. 업데이트는 기존 리소스에 대해 할당 된 정책의 **Deployifnotexists** 효과를 실행 하도록 Azure Policy 지시 하 여 수행 됩니다. 이 문서에서는 Azure Policy를 사용 하 여 수정 사항을 이해 하 고 수행 하는 데 필요한 단계를 보여 줍니다.
+**Deployifnotexists** 또는 **수정** 정책을 준수 하지 않는 리소스는 **재구성**을 통해 규격 상태로 전환할 수 있습니다. 업데이트를 수행 하려면 Azure Policy를 지시 하 여 기존 리소스에 대해 할당 된 정책의 **Deployifnotexists** 효과 또는 태그 **작업** 을 실행 합니다. 이 문서에서는 Azure Policy를 사용 하 여 수정 사항을 이해 하 고 수행 하는 데 필요한 단계를 보여 줍니다.
 
 ## <a name="how-remediation-security-works"></a>수정 보안의 작동 방식
 
@@ -26,11 +26,11 @@ Azure Policy는 각 할당에 대 한 관리 id를 만들지만 관리 되는 id
 ![관리 ID - 역할 누락](../media/remediate-resources/missing-role.png)
 
 > [!IMPORTANT]
-> **deployIfNotExists**로 수정된 리소스가 정책 할당의 범위를 벗어나거나, 템플릿이 정책 할당 범위를 벗어난 리소스의 속성에 액세스하는 경우에는 할당의 관리 ID에 [액세스 권한을 수동으로 부여](#manually-configure-the-managed-identity)해야 합니다. 이렇게 하지 않으면 수정 배포는 실패합니다.
+> **Deployifnotexists** 또는 **modify** 로 수정 된 리소스가 정책 할당 범위를 벗어난 경우 또는 템플릿에서 정책 할당 범위를 벗어난 리소스의 속성에 액세스 하는 경우 할당의 관리 되는 id는 이어야 [합니다. 액세스를 수동으로 부여](#manually-configure-the-managed-identity) 하거나 업데이트를 배포 하지 못합니다.
 
 ## <a name="configure-policy-definition"></a>정책 정의 구성
 
-첫 단계에서는 **deployIfNotExists**가 포함된 템플릿의 콘텐츠를 정상적으로 배포하려면 정책 정의에 포함되어 있어야 하는 역할을 정의합니다. 이렇게 하려면 **details** 속성 아래에 **roleDefinitionIds** 속성을 추가합니다. 이 속성은 환경의 역할과 일치하는 문자열 배열입니다. 전체 예제는 [deployIfNotExists 예제](../concepts/effects.md#deployifnotexists-example)를 참조하세요.
+첫 번째 단계는 포함 된 템플릿의 콘텐츠를 성공적으로 배포 하기 위해 정책 정의에 **Deployifnotexists** 및 **modify** 필요한 역할을 정의 하는 것입니다. 이렇게 하려면 **details** 속성 아래에 **roleDefinitionIds** 속성을 추가합니다. 이 속성은 환경의 역할과 일치하는 문자열 배열입니다. 전체 예제는 [Deployifnotexists 예제](../concepts/effects.md#deployifnotexists-example) 또는 [수정 예제](../concepts/effects.md#modify-examples)를 참조 하세요.
 
 ```json
 "details": {
@@ -42,7 +42,7 @@ Azure Policy는 각 할당에 대 한 관리 id를 만들지만 관리 되는 id
 }
 ```
 
-**roleDefinitionIds**는 역할의 짧은 **roleName**를 가져오지 않으며 전체 리소스 식별자를 사용합니다. 환경의 ‘Contributor’ 역할 ID를 가져오려면 다음 코드를 사용합니다.
+**Roledefinitionids** 속성은 전체 리소스 식별자를 사용 하며 역할의 짧은 **roleName** 을 취하지 않습니다. 환경의 ‘Contributor’ 역할 ID를 가져오려면 다음 코드를 사용합니다.
 
 ```azurecli-interactive
 az role definition list --name 'Contributor'
@@ -126,7 +126,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
 ### <a name="create-a-remediation-task-through-portal"></a>포털을 통해 수정 작업 만들기
 
-평가 중에는 **deployIfNotExists** 효과가 포함된 정책 할당이 비준수 리소스가 있는지를 확인합니다. 비준수 리소스가 있으면 **수정** 페이지에서 세부 정보가 제공됩니다. 비준수 리소스가 있는 정책 목록을 통해 **수정 작업**이 트리거됩니다. 이 옵션을 선택하면 **deployIfNotExists** 템플릿에서 배포가 작성됩니다.
+평가 하는 동안 **Deployifnotexists** 또는 **modify** effects를 사용 하는 정책 할당은 비준수 리소스가 있는지 여부를 확인 합니다. 비준수 리소스가 있으면 **수정** 페이지에서 세부 정보가 제공됩니다. 비준수 리소스가 있는 정책 목록을 통해 **수정 작업**이 트리거됩니다. 이 옵션은 **Deployifnotexists** 템플릿 또는 **수정** 작업에서 배포를 만드는 것입니다.
 
 **수정 작업**을 만들려면 다음 작업을 수행합니다.
 
@@ -138,7 +138,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
    ![정책 페이지에서 업데이트 관리를 선택 합니다.](../media/remediate-resources/select-remediation.png)
 
-1. 비준수 리소스가 있는 모든 **deployIfNotExists** 정책 할당이 **수정할 정책** 탭과 데이터 테이블에 포함됩니다. 비준수 리소스가 있는 정책을 클릭합니다. **새 수정 작업** 페이지가 열립니다.
+1. 모든 **Deployifnotexists** 및 비규격 리소스를 사용 하는 정책 할당 **수정** 은 수정할 **정책** 탭 및 데이터 테이블에 포함 됩니다. 비준수 리소스가 있는 정책을 클릭합니다. **새 수정 작업** 페이지가 열립니다.
 
    > [!NOTE]
    > **규정 준수** 페이지에서 정책을 찾아서 클릭한 다음 **수정 작업 만들기** 단추를 클릭하여 **수정 작업** 페이지를 열 수도 있습니다.
@@ -161,7 +161,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
 ### <a name="create-a-remediation-task-through-azure-cli"></a>Azure CLI를 통해 재구성 작업을 만듭니다.
 
-Azure CLI를 사용 하 여 **수정 작업** 을 만들려면 `az policy remediation` 명령을 사용 합니다. 를 `{subscriptionId}` 구독`{myAssignmentId}` ID로 바꾸고를 **deployifnotexists** 정책 할당 ID로 바꾸십시오.
+Azure CLI를 사용 하 여 **수정 작업** 을 만들려면 `az policy remediation` 명령을 사용 합니다. 를 `{subscriptionId}` 구독`{myAssignmentId}` ID로 바꾸고를 **deployifnotexists** 로 바꾸고 정책 할당 ID를 **수정** 합니다.
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -174,7 +174,7 @@ az policy remediation create --name myRemediation --policy-assignment '/subscrip
 
 ### <a name="create-a-remediation-task-through-azure-powershell"></a>Azure PowerShell를 통해 재구성 작업을 만듭니다.
 
-Azure PowerShell를 사용 하 여 **수정 작업** 을 만들려면 `Start-AzPolicyRemediation` 명령을 사용 합니다. 를 `{subscriptionId}` 구독`{myAssignmentId}` ID로 바꾸고를 **deployifnotexists** 정책 할당 ID로 바꾸십시오.
+Azure PowerShell를 사용 하 여 **수정 작업** 을 만들려면 `Start-AzPolicyRemediation` 명령을 사용 합니다. 를 `{subscriptionId}` 구독`{myAssignmentId}` ID로 바꾸고를 **deployifnotexists** 로 바꾸고 정책 할당 ID를 **수정** 합니다.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

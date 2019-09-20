@@ -3,16 +3,16 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책이 언제 적용되고 어떤 영향이 있는지 설명함으로써 Azure Policy가 조직의 리소스에 대한 규칙을 설정하기 위해 리소스 정책 정의가 어떻게 사용되는지 설명합니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1999a47d18fd3ce6388d6177be85c7debd3c1e97
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: d7e264bda62753693cdd2333625313cf213f142a
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70239180"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71145578"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -398,6 +398,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 - **DeployIfNotExists**: 아직 존재하지 않는 리소스를 배포합니다.
 - **Disabled**: 정책 규칙 준수에 대해 리소스를 평가하지 않습니다.
 - **EnforceRegoPolicy**: Azure Kubernetes Service (미리 보기)에서 개방형 정책 에이전트 입학 컨트롤러를 구성 합니다.
+- **수정**: 리소스에서 정의 된 태그를 추가, 업데이트 또는 제거 합니다.
 
 **append**의 경우 아래와 같이 details(세부 정보)를 제공해야 합니다.
 
@@ -424,6 +425,8 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
     ]
 }
 ```
+
+마찬가지로 수정 [작업](../how-to/remediate-resources.md)에 대 한 정책 규칙 **의 세부 정보** 부분에서 **roleDefinitionId** 속성을 **수정** 해야 합니다. 또한 **Modify** 는 resources 태그에 대해 수행할 작업을 정의 하는 **작업** 배열이 필요 합니다.
 
 각 효과, 평가 순서, 속성 및 예제에 대 한 자세한 내용은 [Azure Policy 효과 이해](effects.md)를 참조 하세요.
 
@@ -507,7 +510,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
 ### <a name="understanding-the--alias"></a>[*] 별칭 이해
 
-사용 가능한 별칭 중 일부에 ‘정상’ 이름으로 표시되는 버전과 **[\*]** 가 추가된 다른 버전이 있습니다. 예를 들어:
+사용 가능한 별칭 중 일부에 ‘정상’ 이름으로 표시되는 버전과 **[\*]** 가 추가된 다른 버전이 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

@@ -4,7 +4,7 @@ description: 이 문서에서는 서비스를 배포할 때 워크플로 프로�
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: Willchen
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
-ms.openlocfilehash: 383f4d26d44871936ccc910f15575db5aec3ec8c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 5dd57a87658554bf59acf5cee1b6daf67b8692b8
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945334"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162155"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Microsoft Azure 클래식 VM 아키텍처 워크플로 
 이 문서에서는 가상 머신과 같은 Azure 리소스를 배포 하거나 업데이트할 때 발생 하는 워크플로 프로세스에 대 한 개요를 제공 합니다. 
@@ -37,15 +37,16 @@ ms.locfileid: "68945334"
 
 **B**. 패브릭 컨트롤러는 데이터 센터의 모든 리소스를 유지 관리 하 고 모니터링 하는 일을 담당 합니다. 게스트 OS 버전, 서비스 패키지, 서비스 구성, 서비스 상태 등의 정보를 전송 하는 패브릭 OS의 패브릭 호스트 에이전트와 통신 합니다.
 
-**C**. 호스트 에이전트는 호스트 OSsystem에 있으며 게스트 OS를 설정 하 고 게스트 에이전트와의 통신을 담당 합니다 (WindowsAzureGuestAgent). 역할을 의도 된 목표 상태로 업데이트 하 고 게스트 에이전트를 사용 하 여 하트 비트를 확인 합니다. 호스트 에이전트가 10 분 동안 하트 비트 응답을 받지 못하면 호스트 에이전트가 게스트 OS를 다시 시작 합니다.
+**C**. 호스트 에이전트는 호스트 OS에 있고 게스트 OS를 설정 하 고 게스트 에이전트와의 통신 (WindowsAzureGuestAgent) 하 여 역할을 의도 된 목표 상태로 업데이트 하 고 게스트 에이전트를 사용 하 여 하트 비트를 확인 해야 합니다. 호스트 에이전트가 10 분 동안 하트 비트 응답을 받지 못하면 호스트 에이전트가 게스트 OS를 다시 시작 합니다.
 
 **C2**. Waappagent.exe는 WindowsAzureGuestAgent를 설치, 구성 및 업데이트 하는 일을 담당 합니다.
 
 **D**.  WindowsAzureGuestAgent은 다음을 담당 합니다.
 
-1. 방화벽, Acl, LocalStorage 리소스, 서비스 패키지 및 구성, 인증서를 포함 하 여 게스트 OS 구성 역할이 실행 될 사용자 계정에 대 한 SID를 설정 합니다.
-2. 패브릭에 역할 상태를 전달 합니다.
-3. WaHostBootstrapper를 시작 하 고이를 모니터링 하 여 역할이 목표 상태에 있는지 확인 합니다.
+1. 방화벽, Acl, LocalStorage 리소스, 서비스 패키지 및 구성, 인증서를 포함 하 여 게스트 OS 구성
+2. 역할이 실행 될 사용자 계정에 대 한 SID를 설정 합니다.
+3. 패브릭에 역할 상태를 전달 합니다.
+4. WaHostBootstrapper를 시작 하 고이를 모니터링 하 여 역할이 목표 상태에 있는지 확인 합니다.
 
 **E**. WaHostBootstrapper는 다음을 담당 합니다.
 
@@ -60,7 +61,7 @@ ms.locfileid: "68945334"
 3. 서비스 모델에서 구성 된 역할에 대 한 AppPool 설정
 4. DiagnosticStore LocalStorage 폴더를 가리키도록 IIS 로깅 설정
 5. 권한 및 Acl 구성
-6. 웹 사이트가% roleroot%: \sitesroot\0에 있으며 apppool은 IIS를 실행 하기 위해이 위치를 가리킵니다. 
+6. 웹 사이트가% roleroot%: \sitesroot\0에 있으며 AppPool은 IIS를 실행 하기 위해이 위치를 가리킵니다. 
 
 **7**. 시작 작업은 역할 모델에 의해 정의 되 고 WaHostBootstrapper에 의해 시작 됩니다. 시작 작업은 백그라운드에서 비동기적으로 실행 되도록 구성할 수 있으며, 호스트 부트스트래퍼는 시작 작업을 시작한 다음 다른 시작 작업을 계속 진행 합니다. 시작 작업은 간단한 (기본) 모드에서 실행 되도록 구성할 수도 있습니다 .이 모드에서는 호스트 부트스트래퍼가 시작 작업의 실행이 완료 될 때까지 대기 하 고, 다음 시작 작업을 계속 하기 전에 성공 (0) 종료 코드를 반환 합니다.
 
@@ -76,7 +77,7 @@ ms.locfileid: "68945334"
 
 ## <a name="workflow-processes"></a>워크플로 프로세스
 
-1. 사용자가 .cspkg 및 .cscfg 파일을 업로드 하 고 리소스를 중지 하거나 구성 변경을 수행 하는 등의 요청을 수행 합니다. 이 작업은 Visual Studio 게시 기능과 같이 Service Management API를 사용 하는 도구 또는 Azure Portal을 통해 수행할 수 있습니다. 이 요청은 모든 구독 관련 작업을 수행 하기 위해 RDFE로 이동 하 여 FFE에 요청을 전달 합니다. 이러한 워크플로의 나머지 단계는 새 패키지를 배포 하 고 시작 하는 것입니다.
+1. 사용자가 ".cspkg" 및 ".cscfg" 파일을 업로드 하 고, 리소스를 중지 하거나 구성 변경을 수행 하는 등의 작업을 수행 하는 등의 요청을 수행 합니다. 이 작업은 Visual Studio 게시 기능과 같이 Service Management API를 사용 하는 도구 또는 Azure Portal을 통해 수행할 수 있습니다. 이 요청은 모든 구독 관련 작업을 수행 하기 위해 RDFE로 이동 하 여 FFE에 요청을 전달 합니다. 이러한 워크플로의 나머지 단계는 새 패키지를 배포 하 고 시작 하는 것입니다.
 2. FFE는 올바른 컴퓨터 풀을 찾습니다 (예: 선호도 그룹 또는 지리적 위치 및 패브릭의 입력 (예: 컴퓨터 가용성)). 그리고 해당 컴퓨터 풀의 마스터 패브릭 컨트롤러와 통신 합니다.
 3. 패브릭 컨트롤러는 사용 가능한 CPU 코어가 있는 호스트를 찾거나 새 호스트를 회전 합니다. 서비스 패키지와 구성이 호스트에 복사 되 고 패브릭 컨트롤러가 호스트 OS의 호스트 에이전트와 통신 하 여 패키지를 배포 합니다 (Dip, 포트, 게스트 OS 등 구성).
 4. 호스트 에이전트는 게스트 OS를 시작 하 고 게스트 에이전트 (WindowsAzureGuestAgent)와 통신 합니다. 호스트는 해당 역할이 목표 상태로 작동 하는지 확인 하기 위해 하트 비트를 게스트에 보냅니다.

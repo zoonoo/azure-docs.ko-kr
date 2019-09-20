@@ -4,7 +4,7 @@ description: 이 문서는 Microsoft Azure Cloud Services의 구성 및 관리�
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 480ca33f02242499bdf9fff3fa35695e7d4841a0
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 0c694ffe6ccd23803fbe16001f54b7c1611635cd
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945463"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154712"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
@@ -195,7 +195,7 @@ Windows 10 및 Windows Server 2016은 클라이언트와 서버 쪽 모두에서
 5. 서버를 다시 시작합니다.
 6. **기본 웹 사이트**로 이동하여 **바인딩**에서 방금 만든 자체 서명된 인증서와 새 TLS 바인딩을 만듭니다. 
 
-참조 항목:
+자세한 내용은 다음을 참조하세요.
 
 - [IIS에서 HTTP/2](https://blogs.iis.net/davidso/http2)
 - [비디오: Windows 10의 HTTP/2: 브라우저, 앱 및 웹 서버](https://channel9.msdn.com/Events/Build/2015/3-88)
@@ -207,7 +207,7 @@ Windows 10 및 Windows Server 2016은 클라이언트와 서버 쪽 모두에서
 이 작업이 끝난 후에 다음 방법 중 하나를 사용하여 HTTP/2가 사용하도록 설정되어 있는지 여부를 확인할 수 있습니다.
 
 - IIS 로그의 프로토콜 버전을 사용하도록 설정하고 IIS 로그를 확인합니다. 로그에 HTTP/2가 표시됩니다. 
-- Internet Explorer/Microsoft Edge에서 F12 개발자 도구 사용을 설정하고 네트워크 탭으로 전환하여 프로토콜을 확인합니다. 
+- Internet Explorer 또는 Microsoft Edge에서 F12 개발자 도구를 사용 하도록 설정 하 고 네트워크 탭으로 전환 하 여 프로토콜을 확인 합니다. 
 
 자세한 내용은 [IIS에서 HTTP/2](https://blogs.iis.net/davidso/http2)를 참조하세요.
 

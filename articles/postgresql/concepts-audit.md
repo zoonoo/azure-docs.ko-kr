@@ -6,19 +6,20 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 8b4cbe309e310ef1fc384224c952a6f04385b1dd
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 198ab5f567652a76d209168041f305b9da4d0b43
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092262"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147181"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 감사 로깅-단일 서버
 
 Azure Database for PostgreSQL에서 데이터베이스 활동에 대 한 감사 로깅은 PostgreSQL Audit 확장: [Pgaudit](https://www.pgaudit.org/)를 통해 사용할 수 있습니다. pgAudit는 자세한 세션 및/또는 개체 감사 로깅을 제공 합니다.
 
 > [!NOTE]
-> pgAudit는 범용 및 메모리 액세스에 최적화 된 서버에만 사용할 수 있습니다.
+> pgAudit는 Azure Database for PostgreSQL 미리 보기 상태입니다.
+> 확장은 범용 및 메모리 액세스에 최적화 된 서버 에서만 사용 하도록 설정할 수 있습니다.
 
 ## <a name="usage-considerations"></a>사용 고려 사항
 기본적으로 pgAudit log 문은 Postgres의 표준 로깅 기능을 사용 하 여 일반 로그 문과 함께 내보내집니다. Azure Database for PostgreSQL에서 이러한 .log 파일은 Azure Portal 또는 CLI를 통해 다운로드할 수 있습니다. 파일 컬렉션에 대 한 최대 저장소는 1gb이 고 각 파일은 최대 7 일 동안 사용할 수 있습니다 (기본값은 3 일). 이 서비스는 단기 저장소 옵션입니다.

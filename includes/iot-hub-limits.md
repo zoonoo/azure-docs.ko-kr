@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 104849557a8580e16fa1860b7919d1c0252debe9
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 689322614e2cea4e59a5a573b72bfeb2aafda847
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67182598"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71148454"
 ---
 다음 표에서는 다른 서비스 계층 S1, S2, S3 및 F1와 관련 된 제한을 나열 합니다. 각 계층의 각 *단위* 비용에 대 한 자세한 내용은 [Azure IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조 하세요.
 
@@ -38,6 +38,7 @@ ms.locfileid: "67182598"
 | 클라우드-&gt;디바이스 메시지의 최대 크기 |64KB |
 | 클라우드-&gt;디바이스 메시지의 최대 TTL |2일 |
 | 클라우드-&gt;디바이스 <br/> 메시지 |100 |
+| 장치당 클라우드-장치 최대 큐 깊이 |50 |
 | 클라우드->장치 메시지에 대한 응답에서 피드백 <br/> 메시지의 최대 전달 수 |100 |
 | 클라우드->장치 메시지에 대한 응답에서 피드백 <br/> 메시지의 최대 TTL |2일 |
 | [장치 쌍의 최대 크기](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) <br/> (태그, reported 속성 및 desired 속성) | 8KB |

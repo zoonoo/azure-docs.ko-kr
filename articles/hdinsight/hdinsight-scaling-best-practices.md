@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: dad796c8a7a34a782a4f78260ac38bd966eddde9
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 4a1d835ebe47ec36bb839da8dcbcd107ffcb9c4c
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105392"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161968"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 크기 조정
 
@@ -42,7 +42,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 이러한 방법 중 하나를 사용하여 몇 분 만에 HDInsight 클러스터를 확장 또는 축소할 수 있습니다.
 
 > [!IMPORTANT]  
-> * 이전 CLI CLI는 더 이상 사용 되지 않으며 클래식 배포 모델에만 사용 해야 합니다. 다른 모든 배포의 경우 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 사용 합니다.  
+> * Azure 클래식 CLI는 더 이상 사용 되지 않으며 클래식 배포 모델에만 사용 해야 합니다. 다른 모든 배포의 경우 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 사용 합니다.  
 > * PowerShell AzureRM 모듈은 더 이상 사용 되지 않습니다.  가능 하면 [Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) 을 사용 하세요.
 
 ## <a name="impact-of-scaling-operations"></a>크기 조정 작업의 영향
@@ -126,7 +126,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 yarn application -kill <application_id>
 ```
 
-예를 들어:
+예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

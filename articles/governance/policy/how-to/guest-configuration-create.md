@@ -7,12 +7,12 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ee8a17846495a122f7432e66c3e343a00dd0a015
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 0c1c3470ae18b2a600af0d5e930b6fc114123728
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194613"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161925"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>게스트 구성 정책을 만드는 방법
 
@@ -54,15 +54,53 @@ ms.locfileid: "70194613"
    Get-Command -Module 'GuestConfiguration'
    ```
 
-## <a name="create-custom-guest-configuration-configuration"></a>사용자 지정 게스트 구성 구성 만들기
+## <a name="create-custom-guest-configuration-configuration-and-resources"></a>사용자 지정 게스트 구성 구성 및 리소스 만들기
 
 게스트 구성에 대 한 사용자 지정 정책을 만드는 첫 번째 단계는 DSC 구성을 만드는 것입니다. DSC 개념 및 용어에 대 한 개요는 [POWERSHELL Dsc 개요](/powershell/dsc/overview/overview)를 참조 하세요.
+
+구성에 게스트 구성 에이전트 설치와 함께 제공 되는 리소스만 필요한 경우에는 구성 MOF 파일을 작성 하기만 하면 됩니다. 추가 스크립트를 실행 해야 하는 경우 사용자 지정 리소스 모듈을 작성 해야 합니다.
+
+### <a name="requirements-for-guest-configuration-custom-resources"></a>게스트 구성 사용자 지정 리소스에 대 한 요구 사항
+
+게스트 구성에서 컴퓨터를 감사 하는 경우 먼저 `Test-TargetResource` 를 실행 하 여 올바른 상태 인지 확인 합니다.  함수에서 반환 하는 부울 값은 게스트 할당에 대 한 Azure Resource Manager 상태를 준수/비준수로 지정 해야 하는지 여부를 결정 합니다.  구성의 모든 리소스 `$false` 에 대 한 부울 인 경우 공급자가 실행 `Get-TargetResource`됩니다.
+`$true` 그러면`Get-TargetResource` 부울이 호출 되지 않습니다.
+
+이 함수 `Get-TargetResource` 에는 Windows의 필요한 상태 구성에 필요 하지 않은 게스트 구성에 대 한 특별 한 요구 사항이 있습니다.
+
+- 반환 되는 해시 테이블에는 **이유**라는 속성이 포함 되어야 합니다.
+- 이유 속성은 배열 이어야 합니다.
+- 배열의 각 항목은 **코드** 및 **구**라는 키가 있는 해시 테이블 이어야 합니다.
+
+이유 속성은 서비스에서 컴퓨터가 정책을 준수 하지 않는 경우 정보가 표시 되는 방식을 표준화 하는 데 사용 됩니다.
+각 항목에 대해 리소스를 준수 하지 않는 "이유"로 생각할 수 있습니다. 두 가지 이상의 이유로 리소스가 호환 되지 않을 수 있기 때문에 속성은 배열입니다.
+
+서비스에서 속성 **코드** 및 **구가** 필요 합니다. 사용자 지정 리소스를 작성 하는 경우 리소스를 비준수로 표시 하려는 텍스트 (일반적으로 stdout)를 **구에**대 한 값으로 설정 합니다.  **코드** 에는 특정 형식 지정 요구 사항이 있으므로 보고에서 감사를 수행 하는 데 사용 된 리소스에 대 한 정보를 명확 하 게 표시할 수 있습니다. 이 솔루션은 게스트 구성을 확장 가능 하 게 만듭니다. 출력을 캡처하여 **구** 속성의 문자열 값으로 반환할 수 있는 경우 모든 명령을 실행 하 여 컴퓨터를 감사할 수 있습니다.
+
+- **코드** (문자열): 리소스의 이름으로, 반복 되 고, 그에 대 한 식별자로 공백 없이 짧은 이름입니다.  이 세 값은 공백 없이 콜론으로 구분 되어야 합니다.
+    - 예를 들면 ' registry: registry: keynotpresent '입니다.
+- **구** (문자열): 사람이 읽을 수 있는 텍스트로, 설정이 비규격 이유를 설명 합니다.
+    - 예를 들면 ' 레지스트리 키 $key이 (가) 컴퓨터에 없습니다. '가 있습니다.
+
+```powershell
+$reasons = @()
+$reasons += @{
+  Code = 'Name:Name:ReasonIdentifer'
+  Phrase = 'Explain why the setting is not compliant'
+}
+return @{
+    reasons = $reasons
+}
+```
+
+#### <a name="scaffolding-a-guest-configuration-project"></a>게스트 구성 프로젝트 스 캐 폴딩
+
+샘플 코드를 시작 하 고 작업 하는 프로세스를 가속화 하려는 개발자를 위해 **게스트 구성 프로젝트** 라는 커뮤니티 프로젝트는 [Plaster](https://github.com/powershell/plaster) PowerShell 모듈에 대 한 템플릿으로 존재 합니다.  이 도구를 사용 하 여 작업 구성 및 샘플 리소스를 비롯 한 프로젝트를 스 캐 폴드 프로젝트의 유효성을 검사 하는 일련의 [Pester](https://github.com/pester/pester) 테스트를 수행할 수 있습니다.  템플릿에는 게스트 구성 패키지의 빌드 및 유효성 검사를 자동화 하는 Visual Studio Code에 대 한 작업 러너도 포함 되어 있습니다. 자세한 내용은 GitHub 프로젝트 [게스트 구성 프로젝트](https://github.com/microsoft/guestconfigurationproject)를 참조 하세요.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Linux의 사용자 지정 게스트 구성 구성
 
 Linux에서 게스트 구성에 대 한 DSC 구성에서는 `ChefInSpecResource` 리소스를 사용 하 여 엔진에 [Chef InSpec](https://www.chef.io/inspec/) 정의의 이름을 제공 합니다. **Name** 은 유일 하 게 필요한 리소스 속성입니다.
 
-다음 예제에서는 **GuestConfiguration** 이라는 구성을 만들고, 해당 리소스 모듈을 가져오고, 리소스를 `ChefInSpecResource` 사용 하 여 InSpec 정의의 이름을 **linux 패치 기준**으로 설정 합니다.
+다음 예제에서는 **GuestConfiguration** 이라는 구성을 만들고, 해당 리소스 모듈을 **가져오고, 리소스**를 `ChefInSpecResource` 사용 하 여 InSpec 정의의 이름을 **linux 패치 기준**으로 설정 합니다.
 
 ```azurepowershell-interactive
 # Define the DSC configuration and import GuestConfiguration
@@ -141,10 +179,10 @@ Azure Policy 게스트 구성에서 런타임에 사용 되는 암호를 관리 
 
 먼저 Azure에서 사용자 할당 관리 id를 만듭니다. Id는 컴퓨터에서 Key Vault에 저장 된 암호에 액세스 하는 데 사용 됩니다. 자세한 단계는 Azure PowerShell을 [사용 하 여 사용자 할당 관리 Id 만들기, 나열 또는 삭제](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)를 참조 하세요.
 
-다음으로 Key Vault 인스턴스를 만듭니다. 자세한 단계는 [비밀 설정 및 검색-PowerShell](../../../key-vault/quick-create-powershell.md)을 참조 하세요.
+Key Vault 인스턴스를 만듭니다. 자세한 단계는 [비밀 설정 및 검색-PowerShell](../../../key-vault/quick-create-powershell.md)을 참조 하세요.
 인스턴스에 사용 권한을 할당 하 여 Key Vault에 저장 된 암호에 대 한 사용자 할당 id 액세스를 제공 합니다. 자세한 단계는 [암호 설정 및 검색-.net](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault)을 참조 하세요.
 
-그런 다음 사용자 할당 id를 컴퓨터에 할당 합니다. 자세한 단계는 PowerShell을 [사용 하 여 AZURE VM에서 azure 리소스에 대 한 관리 되는 Id 구성](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity)을 참조 하세요.
+사용자 할당 id를 컴퓨터에 할당 합니다. 자세한 단계는 PowerShell을 [사용 하 여 AZURE VM에서 azure 리소스에 대 한 관리 되는 Id 구성](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity)을 참조 하세요.
 대규모로 Azure Policy를 통해 Azure Resource Manager를 사용 하 여이 id를 할당 합니다. 자세한 단계는 [템플릿을 사용 하 여 AZURE VM에서 azure 리소스에 대 한 관리 되는 Id 구성](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm)을 참조 하세요.
 
 마지막으로, 사용자 지정 리소스 내에서 위에 생성 된 클라이언트 ID를 사용 하 여 컴퓨터에서 사용할 수 있는 토큰을 사용 하 여 Key Vault에 액세스 합니다. Key Vault 인스턴스에 대한 `client_id` 및 url을 리소스에 [속성](/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema)으로 전달하여 여러 환경에 대해 리소스를 업데이트할 필요가 없도록하거나 값을 변경해야 할 수 있습니다.
@@ -226,7 +264,7 @@ Cmdlet 출력은 정책 파일의 이니셔티브 표시 이름 및 경로를 �
 
 게스트 구성에서는 런타임에 구성의 속성을 재정의할 수 있습니다. 이 기능은 패키지의 MOF 파일에 있는 값을 정적으로 간주할 필요가 없음을 의미 합니다. 재정의 값은 Azure Policy를 통해 제공 되며 구성을 작성 하거나 컴파일하는 방법에 영향을 주지 않습니다.
 
-`New-GuestConfigurationPolicy` Cmdlet`Test-GuestConfigurationPolicyPackage` 은 매개 변수 라는 매개 변수를 포함 합니다.
+Cmdlet `New-GuestConfigurationPolicy` **은 매개 변수**라는 매개 변수를 포함합니다.`Test-GuestConfigurationPolicyPackage`
 이 매개 변수는 각 매개 변수에 대 한 모든 세부 정보를 포함 하는 해시 테이블 정의를 사용 하 고 Azure Policy 정의를 만드는 데 사용 되는 파일의 모든 필수 섹션을 자동으로 만듭니다.
 
 다음 예에서는 사용자가 정책 할당 시 서비스 목록에서 선택 하는 서비스를 감사 하는 Azure Policy을 만듭니다.
@@ -318,7 +356,7 @@ Azure에서 만든 정책 및 이니셔티브 정의를 사용 하 여 마지막
 
 사용자 지정 콘텐츠 패키지를 사용 하 여 사용자 지정 Azure Policy를 게시 한 후 새 릴리스를 게시 하려는 경우 두 개의 필드를 업데이트 해야 합니다.
 
-- **버전**: Cmdlet을 `New-GuestConfigurationPolicy` 실행할 때 현재 게시 된 것 보다 큰 버전 번호를 지정 해야 합니다.  속성은 새 정책 파일에 있는 게스트 구성 할당의 버전을 업데이트 하 여 패키지가 업데이트 되었다는 것을 인식 합니다.
+- **버전**: `New-GuestConfigurationPolicy` Cmdlet을 실행할 때 현재 게시 된 것 보다 큰 버전 번호를 지정 해야 합니다.  속성은 새 정책 파일에 있는 게스트 구성 할당의 버전을 업데이트 하 여 패키지가 업데이트 되었다는 것을 인식 합니다.
 - **contentHash**: 이 속성은 cmdlet에 `New-GuestConfigurationPolicy` 의해 자동으로 업데이트 됩니다.  에서 `New-GuestConfigurationPackage`만든 패키지의 해시 값입니다.  속성은 게시 하는 `.zip` 파일에 대해 올바른 이어야 합니다.  다른 사람이 포털에서 정책 정의를 수동으로 변경할 수 있는 경우와 같이 속성만업데이트된경우에는확장에서콘텐츠패키지를수락하지않습니다.`contentUri`
 
 업데이트 된 패키지를 해제 하는 가장 쉬운 방법은이 문서에 설명 된 프로세스를 반복 하 고 업데이트 된 버전 번호를 제공 하는 것입니다.
@@ -334,7 +372,7 @@ DSC 커뮤니티에서는 내보낸 그룹 정책 템플릿을 DSC 형식으로 
 
 ## <a name="optional-signing-guest-configuration-packages"></a>선택 사항: 게스트 구성 패키지 서명
 
-게스트 구성 사용자 지정 정책은 기본적으로 SHA256 해시를 사용 하 여 감사 중인 서버에서 읽을 때 정책 패키지가 게시 될 때에서 변경 되지 않았는지 확인 합니다.
+게스트 구성 사용자 지정 정책은 기본적으로 SHA256 해시를 사용 하 여 감사 중인 서버에서 읽을 때 정책 패키지가 게시 된 시기에서 변경 되지 않았는지 확인 합니다.
 필요에 따라 고객은 인증서를 사용 하 여 패키지에 서명 하 고 게스트 구성 확장에서 서명 된 콘텐츠를 허용 하도록 강제할 수도 있습니다.
 
 이 시나리오를 사용 하려면 두 단계를 완료 해야 합니다. Cmdlet을 실행 하 여 콘텐츠 패키지에 서명 하 고 코드에 서명 해야 하는 컴퓨터에 태그를 추가 합니다.

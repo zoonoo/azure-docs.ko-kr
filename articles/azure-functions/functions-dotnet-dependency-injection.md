@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 09bcce6daf519c7d5e99c7c120064f5c8bb92475
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: e1cf67abcc44a3ca134e5435137869d4fff1a7eb
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996884"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162356"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
@@ -27,7 +27,7 @@ Azure Functions는 클래스와 해당 종속성 간의 [IoC (제어 반전)](ht
 
 - 종속성 주입에 대 한 지원은 Azure Functions 2.x로 시작 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 종속성 주입을 사용 하려면 먼저 다음 NuGet 패키지를 설치 해야 합니다.
 
@@ -197,6 +197,9 @@ public class HttpTrigger
 ```
 
 옵션 사용에 대 한 자세한 내용은 [ASP.NET Core의 옵션 패턴](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) 을 참조 하세요.
+
+> [!WARNING]
+> *로컬. settings* 또는 appsettings와 같은 파일에서 값을 읽으려고 시도 하지 마십시오 *. { 환경}.* 트리거 연결과 관련 된 이러한 파일에서 읽은 값은 호스팅 인프라가 구성 정보에 액세스할 수 없기 때문에 앱이 확장 될 때 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

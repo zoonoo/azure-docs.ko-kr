@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c05e1dc720f49eb190ccdbe1826a1a347fba7fa1
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 00753ee8d7d128222e9fb773f00a23720813a237
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914770"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146455"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Microsoft Azure Active Directory에서 관리자로서 관리되지 않는 디렉터리 인수
 
@@ -88,14 +88,11 @@ Office 365와 같이 SharePoint 및 OneDrive를 포함하는 일부 제품은 �
 ### <a name="support-for-external-admin-takeover"></a>외부 관리자 인수에 대한 지원
 외부 관리자 인수는 다음과 같은 온라인 서비스에서 지원합니다.
 
-- Power BI
 - Azure Rights Management
 - Exchange Online
 
 지원되는 서비스 계획은 다음과 같습니다.
 
-- Power BI Free
-- Power BI Pro
 - PowerApps Free
 - PowerFlow Free
 - 개인용 RMS
@@ -113,10 +110,6 @@ SharePoint, OneDrive 또는 비즈니스용 Skype를 포함 하는 서비스 계
 관리되지 않는 테넌트가 다른 지역에 있을 때는 이 키 및 템플릿이 이동되지 않습니다. 예를 들어 관리 되지 않는 테 넌 트가 유럽에 있고 사용자가 소유 하는 조직은 북아메리카에 있는 경우입니다.
 
 개인용 RMS는 보호된 콘텐츠를 열기 위한 Azure AD 인증을 지원하도록 디자인되었지만, 사용자의 콘텐츠 보호를 방지하지 못 합니다. 사용자가 개인용 RMS 구독을 사용 하 여 콘텐츠를 보호 하 고 키와 템플릿을 이동 하지 않은 경우 도메인 인수 후 해당 콘텐츠에 액세스할 수 없습니다.
-
-#### <a name="more-information-about-power-bi"></a>Power BI에 대한 자세한 정보
-
-외부 인수를 수행하면 인수 전에 생성했던 Power BI 콘텐츠가 [Power BI 보관 작업 영역](/power-bi/service-admin-power-bi-archived-workspace)에 배치됩니다. 새 테넌트에서 사용하려는 콘텐츠는 수동으로 마이그레이션해야 합니다.
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>ForceTakeover 옵션에 대한 Microsoft Azure AD PowerShell cmdlets
 [PowerShell 예](#powershell-example)에서 사용되는 이러한 cmdlet을 참조할 수 있습니다.
@@ -157,7 +150,7 @@ Cmdlet | 사용법
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. 이 명령에서 반환되는 값(챌린지)을 복사합니다. 예를 들어:
+4. 이 명령에서 반환되는 값(챌린지)을 복사합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
    ```powershell
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -168,7 +161,7 @@ Cmdlet | 사용법
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
    ```
   
-   예를 들어:
+   예를 들어 다음과 같은 가치를 제공해야 합니다.
   
    ```powershell
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com

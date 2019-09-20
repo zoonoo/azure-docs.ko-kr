@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 3f64bce34a1bdb11bdbebb99fe28cdf3ff16dfb8
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 8c35877c7de2fa89a8fe7a94c11787814183df9e
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128714"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162263"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL 하이퍼스케일 데이터베이스에 대한 FAQ
 
@@ -361,6 +361,11 @@ IOPS 및 IO 대기 시간은 워크 로드 패턴에 따라 달라 집니다.  �
 ### <a name="how-do-i-connect-to-these-secondary-compute-nodes"></a>보조 컴퓨팅 노드에 어떻게 연결하나요?
 
 연결 문자열의 `ApplicationIntent` 인수를 `readonly`로 설정하면 이러한 추가 읽기 전용 컴퓨팅 노드에 연결할 수 있습니다. `readonly`로 표시된 모든 연결은 추가 읽기 전용 컴퓨팅 노드 중 하나에 자동으로 라우팅됩니다.  
+
+### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-node-using-ssms--other-client-tools"></a>SSMS/다른 클라이언트 도구를 사용 하 여 보조 계산 노드에 성공적으로 연결 되었는지 확인 하는 어떻게 할까요?
+
+SSMS/기타 클라이언트 도구 `SELECT DATABASEPROPERTYEX ( '<database_name>' , 'updateability' )`를 사용 하 여 다음 t-sql 쿼리를 실행할 수 있습니다.
+연결이 읽기 전용 `READ_ONLY` 보조 `READ_WRITE` 노드를 가리키거나 연결이 주 노드를 가리키는 경우 결과는입니다.
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>읽기-확장 복제본 전용 엔드포인트를 만들 수 있나요?
 

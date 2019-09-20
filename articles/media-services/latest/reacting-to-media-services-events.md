@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: juliako
-ms.openlocfilehash: 64bf8f5c8de5f56ee1140e91d0472a33b35570cf
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d8cb8fdebb5a7e4bcbc9f979c98085e90ebd4c68
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878793"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147152"
 ---
 # <a name="handling-event-grid-events"></a>Event Grid 이벤트 처리
 
@@ -38,6 +38,9 @@ Media Services 이벤트를 처리하는 애플리케이션은 아래 권장되�
 * 마찬가지로, eventType이 본인이 처리하려는 형식인지 확인하고, 수신된 모든 이벤트가 예상하는 형식일 것이라고 간주하지 않도록 합니다.
 * 이해할 수 없는 필드는 무시합니다.  이 지침은 나중에 추가될 수 있는 새로운 기능에 적용하는 데도 도움이 됩니다.
 * "제목" 접두사 및 접미사 일치를 사용하여 이벤트를 특정 이벤트로 제한합니다.
+
+> [!NOTE]
+> 이벤트는 [SLA (Event Grid Service Level Agreement(서비스 수준 약정))](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/)의 영향을 받습니다. Api를 사용 하 여 이벤트 알림을 받으려면 [.NET sdk](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/ContentProtection/BasicAESClearKey) 또는 [Java sdk](https://github.com/Azure-Samples/media-services-v3-java/tree/master/ContentProtection/BasicAESClearKey)를 사용 하 여 이벤트를 사용 하는 방법에 대 한 예제를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

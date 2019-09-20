@@ -1,18 +1,18 @@
 ---
 title: 효과 작동 방식 이해
-description: Azure Policy 정의는 준수가 관리되고 보고되는 방법을 결정하는 다양한 효과가 있습니다.
+description: Azure Policy 정의에는 규정 준수를 관리 하 고 보고 하는 방법을 결정 하는 다양 한 효과가 있습니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/29/2019
+ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1ac0e70700b4b093fad09b4d10c6bdcf2e06adac
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 06a5ffbef2b841acc7ea7ecc82d05dfccbc0cab1
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231535"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147012"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -25,15 +25,16 @@ Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효�
 - [AuditIfNotExists](#auditifnotexists)
 - [거부](#deny)
 - [DeployIfNotExists](#deployifnotexists)
-- [Disabled](#disabled)
+- [사용 안 함](#disabled)
 - [EnforceRegoPolicy](#enforceregopolicy) 모드
+- [변경](#modify)
 
 ## <a name="order-of-evaluation"></a>평가 순서
 
 Azure Resource Manager를 통해 리소스를 만들거나 업데이트 하는 요청은 먼저 Azure Policy에 의해 평가 됩니다. Azure Policy 리소스에 적용 되는 모든 할당 목록을 만든 다음 각 정의에 대해 리소스를 평가 합니다. Azure Policy은 적절 한 리소스 공급자에 게 요청을 전달 하기 전에 몇 가지 효과를 처리 합니다. 이렇게 하면 리소스가 Azure Policy의 디자인 된 거 버 넌 스 컨트롤을 충족 하지 않는 경우 리소스 공급자에의 한 불필요 한 처리를 방지 합니다.
 
 - **사용 안 함**을 먼저 선택하여 정책 규칙을 평가할지 여부를 확인합니다.
-- 그런 다음, **추가**를 평가합니다. 추가는 요청을 변경할 수 있으므로 추가에서 만들어진 변경은 감사를 방지하거나 트리거되는 효과를 거부할 수 있습니다.
+- 그런 다음 **추가** 및 **수정** 이 평가 됩니다. 에서 요청을 변경할 수 있기 때문에 변경 사항이 있으면 감사 또는 거부 효과가 발생 하지 않을 수 있습니다.
 - 그런 다음, **거부**가 평가됩니다. 감사 전에 거부를 평가하여 원치 않는 리소스의 이중 로깅이 방지됩니다.
 - 그런 다음, 리소스 공급 기업으로 가는 요청 전에 **감사**가 평가됩니다.
 
@@ -47,7 +48,10 @@ Azure Resource Manager를 통해 리소스를 만들거나 업데이트 하는 �
 
 ## <a name="append"></a>추가
 
-만들기 또는 업데이트 중에 요청된 리소스에 추가 필드를 추가하는 데 추가가 사용됩니다. 일반적인 예로 costCenter와 같은 리소스에 태그를 추가하거나 스토리지 리소스에 대해 허용된 IP를 지정합니다.
+만들기 또는 업데이트 중에 요청된 리소스에 추가 필드를 추가하는 데 추가가 사용됩니다. 일반적인 예는 저장소 리소스에 대해 허용 되는 Ip를 지정 하는 것입니다.
+
+> [!IMPORTANT]
+> 추가는 비 태그 속성과 함께 사용 하기 위한 것입니다. 추가는 만들기 또는 업데이트 요청 중에 리소스에 태그를 추가할 수 있지만 대신 태그에 [수정](#modify) 효과를 사용 하는 것이 좋습니다.
 
 ### <a name="append-evaluation"></a>추가 평가
 
@@ -61,36 +65,7 @@ Azure Resource Manager를 통해 리소스를 만들거나 업데이트 하는 �
 
 ### <a name="append-examples"></a>추가 예제
 
-예제 1: 태그를 추가하는 단일 **필드/값** 쌍입니다.
-
-```json
-"then": {
-    "effect": "append",
-    "details": [{
-        "field": "tags.myTag",
-        "value": "myTagValue"
-    }]
-}
-```
-
-예제 2: 태그 세트를 추가하는 여러 **필드/값** 쌍입니다.
-
-```json
-"then": {
-    "effect": "append",
-    "details": [{
-            "field": "tags.myTag",
-            "value": "myTagValue"
-        },
-        {
-            "field": "tags.myOtherTag",
-            "value": "myOtherTagValue"
-        }
-    ]
-}
-```
-
-예제 3: 저장소 계정에 IP 규칙을 설정 하기 위해 배열 **값** 이 포함 된 비 **[\*]** [별칭](definition-structure.md#aliases) 을 사용 하는 단일 **필드/값** 쌍입니다. **[\*]** 별칭이 아닌 별칭이 배열이면 **value**를 전체 배열로 추가합니다. 배열이 이미 있으면 충돌로 인해 거부 이벤트가 발생합니다.
+예제 1: 저장소 계정에 IP 규칙을 설정 하기 위해 배열 **값** 이 포함 된 비 **[\*]** [별칭](definition-structure.md#aliases) 을 사용 하는 단일 **필드/값** 쌍입니다. **[\*]** 별칭이 아닌 별칭이 배열이면 **value**를 전체 배열로 추가합니다. 배열이 이미 있으면 충돌로 인해 거부 이벤트가 발생합니다.
 
 ```json
 "then": {
@@ -105,7 +80,7 @@ Azure Resource Manager를 통해 리소스를 만들거나 업데이트 하는 �
 }
 ```
 
-예제 4: 스토리지 계정에 IP 규칙을 설정하는 **value** 배열이 포함된 **[\*]** [별칭](definition-structure.md#aliases)을 사용하는 단일 **field/value** 쌍입니다. **[\*]** 별칭을 사용하면 효과(effect)에서 **value**를 이전부터 잠재적으로 존재하는 배열에 추가합니다. 배열이 아직 없으면 만들어집니다.
+예 2: 스토리지 계정에 IP 규칙을 설정하는 **value** 배열이 포함된 **[\*]** [별칭](definition-structure.md#aliases)을 사용하는 단일 **field/value** 쌍입니다. **[\*]** 별칭을 사용하면 효과(effect)에서 **value**를 이전부터 잠재적으로 존재하는 배열에 추가합니다. 배열이 아직 없으면 생성 됩니다.
 
 ```json
 "then": {
@@ -117,6 +92,122 @@ Azure Resource Manager를 통해 리소스를 만들거나 업데이트 하는 �
             "action": "Allow"
         }
     }]
+}
+```
+
+## <a name="modify"></a>수정
+
+Modify는 만들거나 업데이트 하는 동안 리소스에 대 한 태그를 추가, 업데이트 또는 제거 하는 데 사용 됩니다. 일반적인 예는 costCenter와 같은 리소스에 대 한 태그를 업데이트 하는 것입니다. 수정 정책은 항상 `mode` _인덱싱된_로 설정 되어야 합니다. 기존 비준수 리소스는 [재구성 작업](../how-to/remediate-resources.md)을 통해 수정할 수 있습니다.
+단일 수정 규칙에는 원하는 수의 작업이 있을 수 있습니다.
+
+> [!IMPORTANT]
+> Modify는 현재 태그에만 사용할 수 있습니다. 태그를 관리 하는 경우 추가 작업 형식 및 기존 리소스를 수정 하는 기능을 제공 하는 대신 수정을 사용 하는 것이 좋습니다. 그러나 관리 id를 만들 수 없는 경우에는 추가를 권장 합니다.
+
+### <a name="modify-evaluation"></a>평가 수정
+
+수정은 리소스를 만들거나 업데이트 하는 동안 리소스 공급자에서 요청을 처리 하기 전에 평가 됩니다. Modify 정책 규칙의 **if** 조건이 충족 될 때 리소스에 대 한 태그를 추가 하거나 업데이트 합니다.
+
+수정 효과를 사용 하는 정책 정의가 평가 주기의 일부로 실행 되는 경우 이미 존재 하는 리소스를 변경 하지 않습니다. 대신 비호환으로 **if** 조건을 충족하는 모든 리소스를 표시합니다.
+
+### <a name="modify-properties"></a>속성 수정
+
+수정 효과의 **details** 속성에는 재구성에 필요한 사용 권한을 정의 하는 모든 하위 속성 및 태그 값을 추가, 업데이트 또는 제거 하는 데 사용 되는 **작업이** 포함 됩니다.
+
+- **roleDefinitionIds** [required]
+  - 이 속성은 구독에서 액세스할 수 있는 역할 기반 액세스 제어 역할 ID와 일치하는 문자열 배열을 포함해야 합니다. 자세한 내용은 [수정 - 정책 정의 구성](../how-to/remediate-resources.md#configure-policy-definition)을 참조하세요.
+  - 정의 된 역할에는 [참가자](../../../role-based-access-control/built-in-roles.md#contributor) 역할에 부여 된 모든 작업이 포함 되어야 합니다.
+- **작업** 하다
+  - 일치 하는 리소스에서 완료할 모든 태그 작업의 배열입니다.
+  - 속성
+    - **작업** 하다
+      - 일치 하는 리소스에 대해 수행할 작업을 정의 합니다. 옵션은 _Addorreplace_, _Add_, _Remove_입니다. _추가는 추가_ [효과와 유사](#append) 하 게 동작 합니다.
+    - **필드** 하다
+      - 추가, 대체 또는 제거할 태그입니다. 태그 이름은 다른 [필드](./definition-structure.md#fields)에 대 한 동일한 명명 규칙을 따라야 합니다.
+    - **값** 필드
+      - 태그를 설정할 값입니다.
+      - **작업이** _addorreplace_ 또는 _Add_인 경우이 속성은 필수입니다.
+
+### <a name="modify-operations"></a>작업 수정
+
+**작업** 속성 배열을 사용 하면 단일 정책 정의에서 여러 가지 방법으로 여러 태그를 변경할 수 있습니다. 각 작업은 **작업**, **필드**및 **값** 속성으로 구성 됩니다. 작업은 수정 작업이 태그에 수행할 작업을 결정 하 고, 필드는 변경 되는 태그를 결정 하며, 값은 해당 태그에 대 한 새 설정을 정의 합니다. 아래 예제에서는 다음과 같은 태그를 변경 합니다.
+
+- 다른 값이 이미 있는 경우에도 태그를"Test"로설정합니다.`environment`
+- 태그 `TempResource`를 제거 합니다.
+- 정책 할당에 구성 된 정책 매개 변수 _DeptName_ 에 태그를설정합니다.`Dept`
+
+```json
+"details": {
+    ...
+    "operations": [
+        {
+            "operation": "addOrReplace",
+            "field": "tags['environment']",
+            "value": "Test"
+        },
+        {
+            "operation": "Remove",
+            "field": "tags['TempResource']",
+        },
+        {
+            "operation": "addOrReplace",
+            "field": "tags['Dept']",
+            "field": "[parameters('DeptName')]"
+        }
+    ]
+}
+```
+
+**Operation** 속성에는 다음과 같은 옵션이 있습니다.
+
+|연산 |설명 |
+|-|-|
+|addOrReplace |태그가 다른 값으로 이미 존재 하는 경우에도 정의 된 태그 및 값을 리소스에 추가 합니다. |
+|추가 |리소스에 정의 된 태그 및 값을 추가 합니다. |
+|제거 |리소스에서 정의 된 태그를 제거 합니다. |
+
+### <a name="modify-examples"></a>예제 수정
+
+예제 1: 태그를 `environment` 추가 하 고 기존 `environment` 태그를 "Test"로 바꿉니다.
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+        ],
+        "operations": [
+            {
+                "operation": "addOrReplace",
+                "field": "tags['environment']",
+                "value": "Test"
+            }
+        ]
+    }
+}
+```
+
+예 2: 태그를 제거 하 고 `environment` 태그를 추가 하거나 기존 `environment` 태그를 매개 변수화 된 값으로 바꿉니다. `env`
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+        ],
+        "operations": [
+            {
+                "operation": "Remove",
+                "field": "tags['env']"
+            },
+            {
+                "operation": "addOrReplace",
+                "field": "tags['environment']",
+                "value": "[parameters('tagValue')]"
+            }
+        ]
+    }
 }
 ```
 
@@ -136,7 +227,7 @@ Azure Resource Manager를 통해 리소스를 만들거나 업데이트 하는 �
 
 ### <a name="deny-example"></a>거부 예제
 
-예제: 거부 효과 사용.
+예: 거부 효과 사용.
 
 ```json
 "then": {
@@ -158,7 +249,7 @@ Audit는 리소스를 만들거나 업데이트 하는 동안 Azure Policy에서
 
 ### <a name="audit-example"></a>감사 예제
 
-예제: 감사 효과 사용.
+예: 감사 효과 사용.
 
 ```json
 "then": {
@@ -204,7 +295,7 @@ AuditIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
 
 ### <a name="auditifnotexists-example"></a>AuditIfNotExists 예제
 
-예제: 맬웨어 방지 확장이 있는지 확인하도록 Virtual Machines를 평가한 다음, 누락되는 경우 감사합니다.
+예: 맬웨어 방지 확장이 있는지 확인하도록 Virtual Machines를 평가한 다음, 누락되는 경우 감사합니다.
 
 ```json
 {
@@ -234,7 +325,7 @@ AuditIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
 
 ## <a name="deployifnotexists"></a>DeployIfNotExists
 
-AuditIfNotExists와 마찬가지로 DeployIfNotExists는 조건이 충족하는 경우 템플릿 배포를 실행합니다.
+AuditIfNotExists와 마찬가지로, DeployIfNotExists 정책 정의는 조건이 충족 될 때 템플릿 배포를 실행 합니다.
 
 > [!NOTE]
 > **deployIfNotExists**에서는 [중첩 템플릿](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template)은 지원되지만 [연결된 템플릿](../../../azure-resource-manager/resource-group-linked-templates.md)은 현재 지원되지 않습니다.
@@ -247,7 +338,7 @@ AuditIfNotExists와 마찬가지로 DeployIfNotExists는 조건이 충족하는 
 
 ### <a name="deployifnotexists-properties"></a>DeployIfNotExists 속성
 
-DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리소스를 정의하는 모든 하위 속성 및 실행할 템플릿 배포가 있습니다.
+DeployIfNotExists 효과의 **details** 속성에는 일치 시킬 관련 리소스를 정의 하는 모든 하위 속성 및 실행할 템플릿 배포가 있습니다.
 
 - **Type**[필수]
   - 일치하는 관련된 리소스의 형식을 지정합니다.
@@ -288,7 +379,7 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
 
 ### <a name="deployifnotexists-example"></a>DeployIfNotExists 예제
 
-예제: transparentDataEncryption이 활성화되었는지 확인하기 위해 SQL Server 데이터베이스를 평가합니다. 그렇지 않은 경우 활성화하는 배포가 실행됩니다.
+예: transparentDataEncryption이 활성화되었는지 확인하기 위해 SQL Server 데이터베이스를 평가합니다. 그렇지 않은 경우 활성화하는 배포가 실행됩니다.
 
 ```json
 "if": {
@@ -348,7 +439,7 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
 
 ### <a name="enforceregopolicy-evaluation"></a>EnforceRegoPolicy 평가
 
-Open Policy Agent 허용 컨트롤러는 클러스터의 모든 새 요청을 실시간으로 평가 합니다.
+개방 된 정책 에이전트 허용 컨트롤러는 클러스터의 모든 새 요청을 실시간으로 평가 합니다.
 5 분 마다 클러스터의 전체 검색이 완료 되 고 결과가 Azure Policy 보고 됩니다.
 
 ### <a name="enforceregopolicy-properties"></a>EnforceRegoPolicy 속성
@@ -364,7 +455,7 @@ EnforceRegoPolicy 효과의 **details** 속성에는 rego 허용 제어 규칙�
 
 ### <a name="enforceregopolicy-example"></a>EnforceRegoPolicy 예제
 
-예제: AKS에서 지정 된 컨테이너 이미지만 허용 하는 rego 허용 제어 규칙
+예: AKS에서 지정 된 컨테이너 이미지만 허용 하는 rego 허용 제어 규칙
 
 ```json
 "if": {
@@ -393,7 +484,7 @@ EnforceRegoPolicy 효과의 **details** 속성에는 rego 허용 제어 규칙�
 
 ## <a name="layering-policies"></a>레이어링 정책
 
-리소스는 여러 할당에서 영향을 받을 수 있습니다. 이러한 할당은 동일한 범위 또는 서로 다른 범위에 있을 수 있습니다. 이러한 각 할당은 정의된 다른 효과를 가질 수 있습니다. 각 정책에 대한 조건 및 효과는 독립적으로 평가됩니다. 예:
+리소스는 여러 할당에서 영향을 받을 수 있습니다. 이러한 할당은 동일한 범위 또는 서로 다른 범위에 있을 수 있습니다. 이러한 각 할당은 정의된 다른 효과를 가질 수 있습니다. 각 정책에 대한 조건 및 효과는 독립적으로 평가됩니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 - 정책 1
   - 리소스 위치를 'westus'로 제한

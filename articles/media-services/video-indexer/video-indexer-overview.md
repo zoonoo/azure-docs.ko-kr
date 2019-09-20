@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: juliako
-ms.openlocfilehash: a30fa858ea7befa2363e0ac2742e16d46037d0e0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a4b7ccf6ece8ed40d6f6c6a22410d4bbe99e590a
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123490"
+ms.locfileid: "71146480"
 ---
 # <a name="what-is-video-indexer"></a>Video Indexer란?
 
@@ -54,10 +54,13 @@ Video Indexer의 정보는 다양 한 시나리오에 적용할 수 있습니다
 * **검정 프레임 감지**: 비디오에 표시되는 검은색 프레임을 식별합니다.
 * **키 프레임 추출**: 비디오에서 안정적인 키 프레임을 검색합니다.
 * **롤링 크레딧**: TV 쇼 및 동영상의 끝에 있는 롤링 크레딧의 시작과 끝을 식별 합니다.
+* **애니메이션 문자 검색** (미리 보기): [Cognitive Services 사용자 지정 비전](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)과의 통합을 통해 애니메이션 내용에서 문자를 검색, 그룹화 및 인식 합니다. 자세한 내용은 [문자 검색에 애니메이션 적용](animated-characters-recognition.md)을 참조 하세요.
+* **편집 샷 유형 검색**: 해당 유형 (예: 넓은 샷, 중간 샷, 근접, 매우 근접 한 근접, 두 샷, 여러 사람, 실외, 실내 등)을 기반으로 하 여 샷을 태그를 지정 합니다. 자세한 내용은 [편집 샷 유형 검색](scenes-shots-keyframes.md#editorial-shot-type-detection)을 참조 하세요.
 
 ### <a name="audio-insights"></a>오디오 인사이트
 
 * **자동 언어 감지**: 기준 음성 언어를 자동으로 식별합니다. 지원 되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어 (간체), 일본어, 러시아어 및 포르투갈어 (브라질)입니다. 언어가 자신을 식별할 수 없는 경우 Video Indexer는 음성 언어를 영어로 가정 합니다. 자세한 내용은 [언어 식별 모델](language-identification-model.md)을 참조 하세요.
+* **다국어 음성 식별 및** 기록 (미리 보기): 는 오디오의 여러 세그먼트에서 음성 언어를 자동으로 식별 하 여 미디어 파일의 각 세그먼트를 transcribed으로 보내고 기록을 다시 하나의 통합 된 기록으로 결합 합니다. 자세한 내용은 [다중 언어 콘텐츠 자동 식별 및 높여줄](multi-language-identification-transcription.md)를 참조 하세요.
 * **오디오 전사**: 음성을 12개 언어의 텍스트로 변환하고 확장을 허용합니다. 지원 되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어 (간체), 일본어, 아랍어, 러시아어, 포르투갈어 (브라질), 힌디어, 한국어를 포함 합니다.
 * **선택 자막**: VTT, TTML, SRT의 세 가지 형식으로 선택 자막을 만듭니다.
 * **두 채널 처리**: 자동으로 감지하고, 개별적으로 전사하고, 단일 타임라인에 병합합니다.
@@ -75,6 +78,7 @@ Video Indexer의 정보는 다양 한 시나리오에 적용할 수 있습니다
 한 채널로 인덱싱하는 경우 해당 모델에 대한 부분 결과가 제공됩니다.
 
 * **키워드 추출**: 음성 및 시각적 텍스트에서 키워드를 추출합니다.
+* **명명 된 엔터티 추출**: NLP (자연어 처리)를 통해 음성 및 시각적 텍스트에서 브랜드, 위치 및 사람을 추출 합니다.
 * **브랜드 추출**: 음성 및 시각적 텍스트에서 브랜드를 추출합니다.
 * **주제 유추**: 전사에서 주요 주제를 유추합니다. IPTC 수준 1 분류가 포함됩니다.
 * **아티팩트**: 각 모델에 대한 풍부한 아티팩트 세트(“다음 수준의 세부 정보”)를 추출합니다.

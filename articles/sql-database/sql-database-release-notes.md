@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: 232f8b13174aed19477ee0b139c83fba439049ac
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 90482fc859c4dcdd04a70e91da2fd6adb079a795
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101539"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162266"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 릴리스 정보
 
@@ -24,9 +24,9 @@ ms.locfileid: "71101539"
 
 ### <a name="single-databasetabsingle-database"></a>[단일 데이터베이스](#tab/single-database)
 
-| 기능 | 세부 정보 |
+| 기능 | 설명 |
 | ---| --- |
-| [Azure 개인 링크](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| 개인 링크는 네트워크 아키텍처를 간소화 하 고 azure 네트워크에 데이터를 유지 하 여 인터넷에 대 한 노출을 제거 함으로써 Azure에서 끝점 간의 연결을 보호 합니다. 개인 링크를 사용 하 여 Azure에서 사용자 고유의 서비스를 만들고 렌더링할 수도 있습니다. |
+| [Azure 개인 링크](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| Private Link는 Azure 네트워크에 데이터를 유지하여 인터넷에 대한 데이터 노출을 제거함으로써 네트워크 아키텍처를 단순화하고 Azure의 엔드포인트 간 연결을 보호합니다. Private Link를 통해 Azure에서 자신만의 서비스를 만들고 렌더링할 수도 있습니다. |
 | 단일 데이터베이스 및 탄력적 풀을 사용한 가속화 된 데이터베이스 복구 | 자세한 내용은 [가속화 데이터베이스 복구](sql-database-accelerated-database-recovery.md)를 참조 하세요.|
 |대략적인 고유 카운트|자세한 내용은 [대략적인 개수 Distinct](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing)를 참조 하십시오.|
 |Rowstore의 일괄 처리 모드 (호환성 수준 150)|자세한 내용은 [Rowstore의 일괄 처리 모드](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)를 참조 하세요.|
@@ -44,7 +44,7 @@ ms.locfileid: "71101539"
 
 ### <a name="managed-instancetabmanaged-instance"></a>[Managed Instance](#tab/managed-instance)
 
-| 기능 | 세부 정보 |
+| 기능 | 설명 |
 | ---| --- |
 | <a href="/azure/sql-database/sql-database-instance-pools">인스턴스 풀</a> | 더 작은 SQL 인스턴스를 클라우드로 마이그레이션하는 편리 하 고 비용 효율적인 방법입니다. |
 | <a href="https://aka.ms/managed-instance-tde-byok">Bring Your Own Key (BYOK)를 사용 하는 TDE (투명 한 데이터 암호화)</a> |자세한 내용은 Azure Key Vault에서 [고객이 관리 하는 키를 사용 하 여 Azure SQL 투명한 데이터 암호화를 참조 하세요. Bring Your Own Key 지원](transparent-data-encryption-byok-azure-sql.md).|
@@ -60,6 +60,7 @@ ms.locfileid: "71101539"
 
 ### <a name="managed-instance-h2-2019-updates"></a>관리 되는 인스턴스 H2 2019 업데이트
 
+- [자동 장애 조치 그룹](https://azure.microsoft.com/updates/azure-sql-database-auto-failover-groups-feature-now-available-in-all-regions/) 을 사용 하면 주 인스턴스에서 다른 지역의 보조 인스턴스로 모든 데이터베이스를 복제할 수 있습니다.
 - [전역 추적 플래그](https://azure.microsoft.com/updates/global-trace-flags-are-now-available-in-azure-sql-database-managed-instance/)를 사용 하 여 관리 되는 인스턴스 동작을 구성 합니다.
 
 ### <a name="managed-instance-h1-2019-updates"></a>관리 되는 인스턴스 H1 2019 업데이트

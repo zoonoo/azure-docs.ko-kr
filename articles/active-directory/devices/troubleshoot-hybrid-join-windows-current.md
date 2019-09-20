@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d4a0f00c8bcf511f220d3e0df81adac1e9ff0d4
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 49658e3e57748ffb7542508530940aa5331f5db1
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995153"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162401"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 연결 된 장치 문제 해결 
 
@@ -110,7 +110,7 @@ WamDefaultAuthority: organizations
 
 #### <a name="windows-10-1803-and-above"></a>Windows 10 1803 이상
 
-조인 상태 출력의 ' 진단 데이터 ' 섹션에서 ' 이전 등록 ' 하위 섹션을 찾습니다.
+조인 상태 출력의 ' 진단 데이터 ' 섹션에서 ' 이전 등록 ' 하위 섹션을 찾습니다. 이 섹션은 장치가 도메인에 가입 되어 있으며 Azure AD 조인을 하이브리드 할 수 없는 경우에만 표시 됩니다.
 ' 오류 단계 ' 필드는 "클라이언트 ErrorCode"가 조인 작업의 오류 코드를 표시 하는 동안 조인 오류의 단계를 나타냅니다.
 
 ```
@@ -181,7 +181,7 @@ WamDefaultAuthority: organizations
 
 ##### <a name="windows-10-1803-and-above"></a>Windows 10 1803 이상
 
-조인 상태 출력의 ' 진단 데이터 ' 섹션에서 ' DRS 검색 테스트 '를 찾습니다.
+조인 상태 출력의 ' 진단 데이터 ' 섹션에서 ' DRS 검색 테스트 '를 찾습니다. 이 섹션은 장치가 도메인에 가입 되어 있으며 Azure AD 조인을 하이브리드 할 수 없는 경우에만 표시 됩니다.
 
 ```
 +----------------------------------------------------------------------+
@@ -305,7 +305,7 @@ WamDefaultAuthority: organizations
 
 #### <a name="windows-10-1803-and-above"></a>Windows 10 1803 이상
 
-조인 상태 출력의 ' 진단 데이터 ' 섹션에서 ' 이전 등록 ' 하위 섹션을 찾습니다.
+조인 상태 출력의 ' 진단 데이터 ' 섹션에서 ' 이전 등록 ' 하위 섹션을 찾습니다. 이 섹션은 장치가 도메인에 가입 되어 있으며 Azure AD 조인을 하이브리드 할 수 없는 경우에만 표시 됩니다.
 ' 등록 유형 ' 필드는 수행 되는 조인 유형을 나타냅니다.
 
 ```

@@ -13,23 +13,26 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2204c572ca1f74f8060d0b6176df69359fe69a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: eb01b46d61b6ba99c3ec9c537dccc350074f5e05
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901712"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146422"
 ---
 # <a name="bulk-delete-users-preview-in-azure-active-directory"></a>Azure Active Directory에서 사용자 대량 삭제 (미리 보기)
 
-Azure AD (Azure Active Directory)는 대량 사용자 만들기 및 삭제 작업, 게스트에 대 한 대량 초대, 사용자, 그룹 및 그룹 구성원 목록 다운로드를 지원 합니다.
+Azure Active Directory (Azure AD) 포털을 사용 하 여 쉼표로 구분 된 값 (CSV) 파일을 사용 하 여 사용자를 대량으로 삭제 하 여 많은 수의 구성원을 그룹으로 제거할 수 있습니다.
 
 ## <a name="to-bulk-delete-users"></a>사용자를 대량으로 삭제 하려면
 
 1. 조직의 사용자 관리자 계정으로 Azure AD 조직에 로그인 합니다.
 1. Azure AD에서 **사용자** > **대량 삭제**를 선택 합니다.
 1. **사용자 대량 삭제** 페이지에서 **다운로드** 를 선택 하 여 사용자 속성의 올바른 CSV 파일을 받은 다음 삭제할 사용자를 추가 합니다.
-1. CSV 파일 편집을 완료 하거나 사용자가 업로드할 준비가 된 사용자가 있는 경우 유효성을 검사할 **csv 파일 업로드** 아래에서 파일을 선택 합니다.
+
+   ![CSV 파일에는 삭제할 사용자의 이름 및 Id가 포함 되어 있습니다.](./media/users-bulk-delete/delete-csv-file.png)
+
+1. CSV 파일 편집을 완료 하면 유효성을 검사할 **csv 파일 업로드** 아래에서 파일을 선택 합니다.
 
    ![삭제 하려는 사용자를 나열 하는 로컬 CSV 파일을 선택 합니다.](./media/users-bulk-delete/bulk-delete.png)
 

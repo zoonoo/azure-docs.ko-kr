@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 4986f888abca94549e921bfe5400d68f6d28c01f
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: bc2be73f85ebec7785b9aa06d6152447eee7e33e
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876688"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147300"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource 컨설팅 서비스
 Azure Marketplace 및 AppSource의 컨설팅 서비스는 Microsoft 파트너에게 고객과 서비스를 연결하여 고객의 Azure 사용을 지원하고 확대한다는 목표와 비즈니스 목표를 제공합니다. 
@@ -24,15 +24,17 @@ Azure Marketplace 및 AppSource는 고객이 필요한 전문 서비스에 연�
 ## <a name="consulting-services-in-azure-marketplace-vs-appsource-storefront"></a>Azure Marketplace의 컨설팅 서비스와 AppSource Storefront 비교
 마켓플레이스 상점은 대상 고객 및 Microsoft 클라우드 제품에 맞게 조정되어 고객이 필요한 정확한 제품을 찾도록 도와줍니다. 각 상점은 전문화된 게시 옵션을 제공하여 게시 투자를 극대화하는 데 도움을 줍니다. 다음 표에서는 이러한 옵션을 요약합니다.
 
-|         |Azure Marketplace  |AppSource |
+|         |Azure Marketplace  |Microsoft AppSource |
 |---------|---------|---------|
 |**대상**   |**IT 전문가 및 클라우드 개발자**|**비즈니스 사용자/LOB(기간 업무) 의사 결정자**|
 |솔루션 연관성     |Azure용으로 또는 Azure에서 빌드된 기술 앱|D365, Power BI, O365, Azure를 활용/확장하는 비즈니스 앱. (추가 기능 또는 추가 항목 완성 앱)|
-|게시 옵션     |나에게 연락, 체험, 거래 또는 컨설팅 서비스|나에게 연락, 체험 또는 컨설팅 서비스|
+|게시 옵션     |Azure에 대 한 문의처, 평가판, Transact-sql 또는 서비스|Dynamics 365 및 Power BI에 대 한 Me, 평가판 또는 서비스를 문의 하세요.|
 |제품 환경 내      |Azure 관리 포털|Dynamics 365, Office 365, Office 클라이언트 앱| 
-|기타      |Azure Stack을 통한 온-프레미스 게시|Dynamics 및 Power BI용 컨설팅 서비스|
+|기타      |Azure Stack를 통한 온-프레미스 게시, Azure 용 컨설팅 서비스, Azure 용 관리 서비스|Dynamics 및 Power BI용 컨설팅 서비스|
 
-Microsoft Dynamics 365, Office 365 및 Power BI를 기반으로 하는 서비스 제품은 AppSource에 나열할 수 있습니다. 자세한 내용은 [Microsoft AppSource 컨설팅 서비스 목록 지침](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf)을 참조하세요. 
+Microsoft Dynamics 365 및 Power BI 기반으로 하는 컨설팅 서비스 제안은 Microsoft AppSource에 나열 될 수 있습니다. 자세한 내용은 [Microsoft AppSource 컨설팅 서비스 목록 지침](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf)을 참조하세요. 
+
+Microsoft Azure 기반으로 하는 컨설팅 서비스 및 관리 서비스 제안은 Azure Marketplace에 나열 될 수 있습니다. 자세한 내용은 [Azure 컨설팅 서비스 게시](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) 및 [Azure Marketplace에 관리 서비스 제품 게시](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)에 대 한 문서를 참조 하세요.
 
 > [!Note]
 > Azure Marketplace의 컨설팅 서비스는 *Azure 기술 솔루션 및 서비스*에 중점을 두고 **기술직 종사자에 맞게 조정된 솔루션을 활용해야 합니다. ** AppSource의 컨설팅 서비스는 전문 지식을 통해 Dynamics 365, Power BI 또는 PowerApps에 대한 품질 솔루션을 제공하는 경우 AppSource에서 해당 컨설팅 서비스 제품을 나열할 수 있습니다.
@@ -149,7 +151,7 @@ Azure Marketplace 및 AppSource에 컨설팅 서비스 제품을 나열하려면
 
 팀은 제품 설명과 제품 요약을 검토할 때 다음 기준을 적용합니다.
 
-|제품 유형  |필수 |권장  |
+|제품 유형  |필요한 공간 |권장  |
 |---------|---------|---------|
 |**평가**    |   여러 날 또는 여러 주 평가를 위한 자세한 주제를 포함하고 고객이 기대할 수 있는 결과물 결정      |    상위 검색 엔진 최적화 키워드로 제품 요약 최적화     |
 |**요약 정보**    |   객이 기대할 수 있는 결과물을 결정합니다. 브리핑은 직접 제공해야 합니다. 가상 서비스를 제공하는 경우 다른 제품 유형을 선택하세요.    |  상위 검색 엔진 최적화 키워드로 제품 요약 최적화       |

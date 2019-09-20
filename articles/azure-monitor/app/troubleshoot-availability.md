@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/19/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: c3f3d9437a6e796cc91ff1782b3a0774382c5f8b
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ee64a8af35f938def94e369bdb400fed6e2798c0
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067068"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146592"
 ---
 # <a name="troubleshooting"></a>문제 해결
 
@@ -46,10 +46,9 @@ ms.locfileid: "71067068"
 
 ## <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>프로토콜 위반 오류로 인 한 간헐적인 테스트 오류
 
-|증상/오류 메시지| 가능한 원인|
-|----|---------|
-프로토콜 위반 CR 뒤에는 LF가와 야 합니다. | 이는 잘못 된 헤더가 검색 된 경우에 발생 합니다. 특히 일부 헤더는 줄 끝을 표시 하는 데 CRLF를 사용 하지 않을 수 있습니다 .이는 HTTP 사양을 위반 하므로 .NET WebRequest 수준에서 유효성 검사가 실패 합니다.
- || 이는 부하 분산 장치 또는 CDNs에 의해 발생할 수도 있습니다.
+|증상/오류 메시지| 가능한 원인| 가능한 해결 방법 |
+|----|---------|-----|
+|서버에서 프로토콜 위반을 커밋 했습니다. 섹션 = ResponseHeader Detail = CR 뒤에 LF가와 야 합니다. | 이는 잘못 된 헤더가 검색 된 경우에 발생 합니다. 특히 일부 헤더는 줄 끝을 나타내는 데 CRLF를 사용 하지 않을 수 있으며,이는 HTTP 사양을 위반 합니다. Application Insights는이 HTTP 사양을 적용 하 고 잘못 된 헤더를 사용 하 여 응답을 실패 합니다.| a. 오류가 있는 서버를 수정 하려면 웹 사이트 호스트 공급자/CDN 공급자에 게 문의 하십시오. <br> b. 실패 한 요청이 리소스 (예: 스타일 파일, 이미지, 스크립트) 인 경우 종속 요청 구문 분석을 사용 하지 않도록 설정할 수 있습니다. 이렇게 하면 해당 파일의 가용성을 모니터링 하는 기능이 손실 됩니다.
 
 > [!NOTE]
 > HTTP 헤더의 유효성 검사가 완화된 브라우저에서는 URL이 실패하지 않을 수 있습니다. 이 문제에 대한 자세한 설명은 http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/ 블로그 게시물을 참조하세요.  

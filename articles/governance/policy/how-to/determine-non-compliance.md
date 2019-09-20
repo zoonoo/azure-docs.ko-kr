@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2b36e7c333521e9438e76bfbe53a26dce23c2e8a
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: a0faaeee369a2227f6018141e5aa5d18c9037e9d
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194692"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161989"
 ---
 # <a name="determine-causes-of-non-compliance"></a>규정 비준수의 원인 확인
 
@@ -20,7 +20,7 @@ Azure 리소스가 정책 규칙을 준수 하지 않는 것으로 확인 되 �
 
 > [!div class="checklist"]
 > - [호환성 정보](#compliance-details)
-> - [변경 내용 (미리 보기)](#change-history-preview)
+> - [변경 내용 (미리 보기)](#change-history)
 
 ## <a name="compliance-details"></a>준수 세부 정보
 
@@ -39,7 +39,7 @@ Azure 리소스가 정책 규칙을 준수 하지 않는 것으로 확인 되 �
 
 1. **개요** 또는 **규정 준수** 페이지에서 _호환_되지 않는 **규정 준수 상태의** 정책을 선택 합니다.
 
-1. **정책 준수** 페이지의 **리소스 준수** 탭에서 비준수 인 **준수 상태의** 리소스에 대 한 줄임표를 마우스 오른쪽 단추로 클릭 하거나 선택 합니다. 그런 다음 **호환성 세부 정보 보기**를 선택 합니다.
+1. **정책 준수** 페이지의 **리소스 준수** 탭 _에서 비준수 인_ **준수 상태의** 리소스에 대 한 줄임표를 마우스 오른쪽 단추로 클릭 하거나 선택 합니다. 그런 다음 **호환성 세부 정보 보기**를 선택 합니다.
 
    ![준수 정보 보기 옵션](../media/determine-non-compliance/view-compliance-details.png)
 
@@ -79,20 +79,20 @@ Azure 리소스가 정책 규칙을 준수 하지 않는 것으로 확인 되 �
 > [!NOTE]
 > 데이터를 보호 하기 위해 속성 값이 _비밀_ 이면 현재 값에 별표가 표시 됩니다.
 
-이러한 세부 정보는 리소스가 현재 비규격 인 이유를 설명 하지만 비준수로 인해 리소스가 변경 된 경우를 표시 하지 않습니다. 해당 정보는 아래의 [변경 내용 (미리 보기)](#change-history-preview) 을 참조 하세요.
+이러한 세부 정보는 리소스가 현재 비규격 인 이유를 설명 하지만 비준수로 인해 리소스가 변경 된 경우를 표시 하지 않습니다. 해당 정보는 아래의 [변경 내용 (미리 보기)](#change-history) 을 참조 하세요.
 
 ### <a name="compliance-reasons"></a>규정 준수 이유
 
 다음 행렬은 가능한 각 _이유_ 를 정책 정의의 책임 [조건](../concepts/definition-structure.md#conditions) 에 매핑합니다.
 
-|이유 | 조건 |
+|Reason | 조건 |
 |-|-|
 |현재 값은 대상 값을 키로 포함 해야 합니다. |containsKey 또는 **not** notContainsKey |
 |현재 값은 대상 값을 포함 해야 합니다. |contains 또는 **not** notcontains |
 |현재 값이 대상 값과 같아야 합니다. |같음 또는 **같지 않음** 참고 |
 |현재 값은 대상 값 보다 작아야 합니다. |less 또는 **not** greaterOrEquals |
-|현재 값은 대상 값 보다 크거나 같아야 합니다. |greaterOrEquals 또는 less |
-|현재 값은 대상 값 보다 커야 합니다. |lessOrEquals 이상 |
+|현재 값은 대상 값 보다 크거나 같아야 합니다. |greaterOrEquals 또는 **less** |
+|현재 값은 대상 값 보다 커야 합니다. |**lessOrEquals 이상** |
 |현재 값은 대상 값 보다 작거나 같아야 합니다. |lessOrEquals 또는 크지 **않음** |
 |현재 값이 있어야 합니다. |있음 |
 |현재 값은 대상 값에 있어야 합니다. |in 또는 **not** notin |
@@ -105,7 +105,7 @@ Azure 리소스가 정책 규칙을 준수 하지 않는 것으로 확인 되 �
 |현재 값이 없어야 합니다. |존재 **하지 않음**  |
 |현재 값이 대상 값에 속하지 않아야 합니다. |notIn 또는 **not** in |
 |현재 값이 대상 값과 같을 수 없습니다. |notLike 또는 **not** like |
-|현재 값은 대상 값과 대/소문자를 구분 하지 않아야 합니다. |notMatch 또는 match |
+|현재 값은 대상 값과 대/소문자를 구분 하지 않아야 합니다. |notMatch 또는 **match** |
 |현재 값이 대상 값과 대/소문자를 구분 하지 않아야 합니다. |notMatchInsensitively 또는 **not** matchInsensitively |
 |관련 리소스가 정책 정의의 효과 세부 정보와 일치 하지 않습니다. |**Then. details. 형식** 에 정의 된 형식의 리소스와 정책 규칙의 해당 부분에 정의 된 리소스와 관련 된 리소스가 없는 **경우** |
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Functions 오류 처리 지침 | Microsoft Docs
-description: 함수를 실행하는 경우에 발생하는 오류를 처리하기 위한 일반적인 지침 및 바인딩 관련 오류 항목에 대한 링크를 제공합니다.
+title: Azure Functions 오류 처리 지침
+description: 특정 바인딩 오류에 대 한 링크를 사용 하 여 Azure Functions 오류를 처리 하는 방법을 알아봅니다.
 services: functions
 cloud: ''
 documentationcenter: ''
@@ -9,26 +9,28 @@ manager: gwallace
 ms.assetid: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 09/11/2019
 ms.author: cshoe
-ms.openlocfilehash: fdfee3442986322f242da730bb9ceccbc9f9e250
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d301940998175adb6469e46cff2de918b5cae9df
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097497"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155273"
 ---
 # <a name="azure-functions-error-handling"></a>Azure Functions 오류 처리
 
-이 항목에서는 함수를 실행하는 경우 발생하는 오류를 처리하기 위한 일반적인 지침을 제공합니다. 또한 발생할 수 있는 바인딩 관련 오류를 설명하는 항목에 대한 링크를 제공합니다. 
+손실 된 데이터, 누락 된 이벤트 및 응용 프로그램의 상태를 모니터링 하는 것을 방지 하기 위해 Azure Functions 오류를 처리 하는 것이 중요 합니다.
 
-## <a name="handling-errors-in-functions"></a>함수의 오류 처리
+이 문서에서는 바인딩 관련 오류에 대 한 링크와 함께 오류 처리에 대 한 일반적인 전략을 설명 합니다.
+
+## <a name="handling-errors"></a>오류 처리
+
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
- 
 ## <a name="binding-error-codes"></a>바인딩 오류 코드
 
-Azure 서비스와 통합하는 경우 기본 서비스의 API에서 발생하는 오류가 발생할 수 있습니다. 이 서비스를 위한 오류 코드 설명서 링크는 다음 트리거 및 바인딩 참조 항목의 **예외 및 반환 코드**  섹션에 있습니다.
+Azure 서비스와 통합 하는 경우 기본 서비스의 Api에서 오류가 발생할 수 있습니다. 바인딩 관련 오류와 관련 된 정보는 다음 문서의 **예외 및 반환 코드** 섹션에서 사용할 수 있습니다.
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 

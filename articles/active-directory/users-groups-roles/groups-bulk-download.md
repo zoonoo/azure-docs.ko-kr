@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1d0f94e9cf9b91bc365586dafc147dc73b17876
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 76aafa978732b3f4bae82f8ad3c09e67caf297ae
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914763"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146292"
 ---
 # <a name="bulk-download-a-list-of-groups-preview-in-azure-active-directory"></a>Azure Active Directory에서 그룹 목록 대량 다운로드 (미리 보기)
 
@@ -26,10 +26,6 @@ Azure Active Directory (Azure AD) 포털을 사용 하 여 조직에 있는 모�
 
 > [!NOTE]
 > Azure AD 대량 작업은 Azure AD의 공개 미리 보기 기능이 며 유료 Azure AD 라이선스 계획과 함께 사용할 수 있습니다. 미리 보기 사용 약관에 대 한 자세한 내용은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
-
-## <a name="bulk-download-service-limits"></a>대량 다운로드 서비스 제한
-
-그룹 목록을 다운로드 하는 각 대량 작업은 최대 1 시간 동안 실행할 수 있습니다. 이를 통해 최소 30만 그룹 목록을 다운로드할 수 있습니다.
 
 ## <a name="to-download-a-list-of-groups"></a>그룹 목록을 다운로드 하려면
 
@@ -44,6 +40,10 @@ Azure Active Directory (Azure AD) 포털을 사용 하 여 조직에 있는 모�
 **대량 작업 결과 (미리 보기)** 페이지에서 보류 중인 모든 대량 요청의 상태를 볼 수 있습니다.
 
    ![대량 작업 결과 페이지에 대량 요청 상태가 표시 됩니다.](./media/groups-bulk-download/bulk-center.png)
+
+## <a name="bulk-download-service-limits"></a>대량 다운로드 서비스 제한
+
+그룹 목록을 다운로드 하는 각 대량 작업은 최대 1 시간 동안 실행할 수 있습니다. 이를 통해 최소 30만 그룹 목록을 다운로드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
