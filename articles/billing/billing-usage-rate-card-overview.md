@@ -47,7 +47,7 @@ Azure [리소스 사용량 API](/previous-versions/azure/reference/mt219003(v=az
 ## <a name="azure-resource-ratecard-api-preview"></a>Azure 리소스 RateCard API(미리 보기)
 [Azure 리소스 RateCard API](/previous-versions/azure/reference/mt219005(v=azure.100))를 사용하여 각 예상 가격 정보 및 사용 가능한 Azure 리소스의 목록을 가져옵니다. API에는 다음이 포함됩니다.
 
-* **Azure 역할 기반 Access Control** - [Azure Portal](https://portal.azure.com) 또는 [Azure PowerShell cmdlet](/powershell/azure/overview)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 RateCard 데이터에 액세스를 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용 데이터에 액세스하려면 호출자를 판독기, 소유자 또는 참가자 역할에 추가해야 합니다.
+* **Azure 역할 기반 Access Control** - [Azure Portal](https://portal.azure.com) 또는 [Azure PowerShell cmdlet](/powershell/azure/overview)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 RateCard 데이터에 액세스를 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용량 현황 데이터에 액세스하려면 호출자를 판독기, 소유자 또는 참가자 역할에 추가해야 합니다.
 * **종량제, MSDN, 금액 약정 및 금액 크레딧 제품에 대한 지원(EA 및 [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card)는 지원되지 않음)** - 이 API는 Azure 제품 수준 속도 정보를 제공합니다.  API의 호출자는 제안 정보를 전달하여 리소스 세부 정보 및 속도를 가져와야 합니다. 현재 EA는 등 당 사용자 지정된 속도를 제공하기 때문에 EA 속도를 제공할 수 없습니다.
 
 ## <a name="scenarios"></a>시나리오

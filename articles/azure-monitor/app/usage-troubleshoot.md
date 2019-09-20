@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights에서 사용자 동작 분석 도구 문제 해결 | Microsoft Docs
-description: 문제 해결 가이드 - Application Insights를 사용하여 사이트 및 앱 사용 현황 분석
+description: 문제 해결 가이드 - Application Insights를 사용하여 사이트 및 앱 사용량 현황 분석
 services: application-insights
 documentationcenter: ''
 author: NumberByColors

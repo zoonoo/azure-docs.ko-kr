@@ -421,7 +421,7 @@ union withsource = $table Usage
 
 ## <a name="next-steps"></a>다음 단계
 
-- 검색 언어를 사용 하는 방법을 알아보려면 [Azure Monitor 로그의 로그 검색](../log-query/log-query-overview.md) 을 참조 하세요. 사용 데이터에 대한 추가 분석을 수행하려면 검색 쿼리를 사용할 수 있습니다.
+- 검색 언어를 사용 하는 방법을 알아보려면 [Azure Monitor 로그의 로그 검색](../log-query/log-query-overview.md) 을 참조 하세요. 사용량 현황 데이터에 대한 추가 분석을 수행하려면 검색 쿼리를 사용할 수 있습니다.
 - [새 로그 경고 만들기](alerts-metric.md)에 설명한 단계를 사용하여 검색 기준이 충족되는 경우 알림을 받을 수 있습니다.
 - [솔루션 대상](../insights/solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다.
 - [Azure Security Center 필터링 정책](../../security-center/security-center-enable-data-collection.md)을 검토하여 효과적인 이벤트 컬렉션 정책을 구성합니다.
