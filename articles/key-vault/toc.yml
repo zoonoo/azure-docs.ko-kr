@@ -92,6 +92,10 @@
           href: create-certificate-scenarios.md
 - name: 방법 가이드
   items:
+    - name: 보안
+      items:
+        - name: 권장 사항
+          href: security-recommendations.md
     - name: App Service 관리 ID 사용
       href: managed-identity.md
     - name: Azure Key Vault 로깅

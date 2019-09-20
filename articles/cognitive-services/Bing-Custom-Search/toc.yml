@@ -31,6 +31,8 @@
               href: sdk-csharp-quick-start.md
             - name: Python 사용
               href: sdk-python-quickstart.md
+            - name: Java 사용
+              href: sdk-java-quickstart.md
 - name: 자습서
   items:
     - name: Custom Search 웹 페이지 빌드
