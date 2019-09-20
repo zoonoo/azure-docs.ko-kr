@@ -271,7 +271,7 @@
           href: 'https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python'
     - name: 앱 설정 참조
       href: functions-app-settings.md
-    - name: 바인딩
+    - name: 트리거 및 바인딩
       items:
         - name: Blob Storage
           href: functions-bindings-storage-blob.md

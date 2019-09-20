@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 07/19/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: d5ce4c094da3a411168c7fe4c282b15ceac7bb86
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: b51d984726cfd178189e7fe1a994c35c7efaed36
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70036745"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71124090"
 ---
 다음 표에서는 Azure 범용 v1, v2 및 Blob storage 계정에 대 한 기본 제한을 설명 합니다. *수신* 제한은 저장소 계정으로 전송 되는 요청의 모든 데이터를 나타냅니다. *송신* 한도는 저장소 계정에서 받은 응답의 모든 데이터를 나타냅니다.
 
 | 리소스 | 기본 제한 |
 | --- | --- |
 | 표준 및 프리미엄 계정 모두를 포함하는 구독당 지역당 스토리지 계정 수 | 250 |
-| 최대 저장소 계정 용량 | 미국 및 유럽 2 PB 및 기타 모든 지역 (영국<sup>포함)에</sup> 대해 500 TB|
+| 최대 저장소 계정 용량 | 2, 미국 및 유럽, 500 TiB, 기타 모든 지역 (영국 포함)<sup>1</sup>|
 | 저장소 계정 당 blob 컨테이너, blob, 파일 공유, 테이블, 큐, 엔터티 또는 메시지의 최대 수 | 제한 없음 |
 | 스토리지 계정당 최대 요청 속도<sup>1</sup> | 초당 20,000회 요청 |
 | 저장소 계정 당 최대 수신<sup>1</sup> (미국, 유럽 지역) | 25gbps |
@@ -31,12 +31,7 @@ ms.locfileid: "70036745"
 
 <sup>1</sup> Azure Standard Storage 계정은 요청에의 한 수신에 대해 더 높은 용량 제한과 더 높은 제한을 지원 합니다. 수신에 대한 계정 제한을 늘리도록 요청하려면 [Azure 고객 지원팀](https://azure.microsoft.com/support/faq/)에 문의하세요. 자세한 내용은 더 [큰 규모의 저장소 계정 발표](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)를 참조 하세요.
 
-<sup>2</sup>[Azure Storage 복제](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 옵션은 다음을 포함합니다.
-
-- **RA-GRS**: 읽기 액세스 지역 중복 스토리지입니다. RA-GRS를 사용하는 경우 보조 위치에 대한 송신 대상은 기본 위치에 대한 송신 대상과 동일합니다.
-- **GRS**: 지역 중복 스토리지입니다.
-- **ZRS**: 영역 중복 스토리지입니다.
-- **LRS**: 로컬 중복 스토리지입니다.
+<sup>2</sup> 읽기 액세스를 사용 하는 경우 (RA-GRS/RA-GZRS) 보조 위치에 대 한 송신 대상은 기본 위치와 동일 합니다. [Azure Storage 복제](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 옵션은 다음과 같습니다.[!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
 
 > [!NOTE]
 > 대부분의 시나리오에서는 범용 v2 저장소 계정을 사용 하는 것이 좋습니다. 가동 중지 시간 없이 데이터를 복사할 필요 없이 일반적인 용도의 v1 또는 Azure Blob storage 계정을 범용 v2 계정으로 쉽게 업그레이드할 수 있습니다.
