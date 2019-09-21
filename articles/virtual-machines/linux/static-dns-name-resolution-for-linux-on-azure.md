@@ -3,7 +3,7 @@ title: Azure CLI에서 VM 이름 확인을 위해 내부 DNS 사용 | Microsoft 
 description: 가상 네트워크 인터페이스 카드를 만들고 Azure CLI를 사용하여 Azure에서 VM 이름 확인을 위해 내부 DNS를 사용하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
-author: vlivech
+author: cynthn
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
-ms.author: gwallace
-ms.openlocfilehash: d53c4c2120701ca99d0865e2c074c85e629ae81c
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.author: cynthn
+ms.openlocfilehash: b143a28216d0d8417615ad2c40a3b66c9c5d1be2
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875164"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173877"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>가상 네트워크 인터페이스 카드 만들기 및 Azure에서 VM 이름 확인을 위해 내부 DNS 사용
 

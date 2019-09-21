@@ -3,7 +3,7 @@ title: Azure 리소스를 프로 비전 하기 위해 Terraform 설치 및 구�
 description: Terraform을 설치하고 구성하여 Azure 리소스를 만드는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: echuvyrov
+author: tomarchermsft
 manager: gwallace
 editor: na
 tags: azure-resource-manager
@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/17/2019
+ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: cd6052db1328fce5ef1a846fbab94fd7066079f6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: cd3c8d7d862788f626356b4cfcdccccca36227b3
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090731"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168742"
 ---
 # <a name="install-and-configure-terraform-to-provision-azure-resources"></a>Azure 리소스를 프로 비전 하기 위해 Terraform 설치 및 구성
  
@@ -37,7 +37,7 @@ Terraform을 설치하려면 운영 체제에 적합한 패키지를 별도의 �
 
 `terraform` 명령을 사용하여 경로 구성을 확인합니다. 다음 예제 출력처럼 사용 가능한 Terraform 옵션 목록이 표시됩니다.
 
-```bash
+```console
 azureuser@Azure:~$ terraform
 Usage: terraform [--version] [--help] <command> [args]
 ```
@@ -94,7 +94,7 @@ export ARM_ENVIRONMENT=public
 
 빈 디렉터리에 `test.tf` 파일을 만들고 다음 스크립트에 붙여넣습니다.
 
-```tf
+```hcl
 provider "azurerm" {
 }
 resource "azurerm_resource_group" "rg" {
@@ -111,7 +111,7 @@ terraform init
 
 다음 예제와 유사하게 출력됩니다.
 
-```bash
+```console
 * provider.azurerm: version = "~> 0.3"
 
 Terraform has been successfully initialized!
@@ -125,7 +125,7 @@ terraform apply
 
 다음 예제와 유사하게 출력됩니다.
 
-```bash
+```console
 An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
   + create

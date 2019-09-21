@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: lahugh
-ms.openlocfilehash: 5e342418dc6cc9ed0a3bbbfaad42801d5ffe9e9d
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: e4572ac6041caffc6c77d74dcbb2cf52f9f0aed0
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900250"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173790"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Azure에서 2 세대 Vm (미리 보기)에 대 한 지원
 
@@ -49,7 +49,7 @@ ms.locfileid: "70900250"
 * [Mv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series)
 * [NCv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv2-series) 및 [NCv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv3-series)
 * [ND 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nd-series)
-* [NVv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nvv3-series--1)
+* [NVv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nvv3-series--1)
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Azure Marketplace의 2 세대 VM 이미지
 
@@ -57,7 +57,7 @@ ms.locfileid: "70900250"
 
 * Windows Server 2019 Datacenter
 * Windows Server 2016 Datacenter
-* Windows Server 2012 R2 Datacenter
+* Windows Server 2012 R2 데이터 센터
 * Windows Server 2012 Datacenter
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
@@ -88,12 +88,13 @@ Azure는 현재 온-프레미스 Hyper-v에서 2 세대 Vm에 대해 지 원하�
 
 | 기능 | 1세대 | 2 세대 |
 |------------|--------------|--------------|
-| OS 디스크 > 2tb                    | :x:                        | :heavy_check_mark: |
-| 사용자 지정 디스크/이미지/스왑 OS         | :heavy_check_mark:         | :heavy_check_mark: |
-| 가상 머신 확장 집합 지원 | :heavy_check_mark:         | :heavy_check_mark: |
-| ASR/backup                        | :heavy_check_mark:         | :x:                |
-| 공유 이미지 갤러리              | :heavy_check_mark:         | :x:                |
-| Azure Disk Encryption             | :heavy_check_mark:         | :x:                |
+| OS 디스크 > 2tb                    | :x:                | :heavy_check_mark: |
+| 사용자 지정 디스크/이미지/스왑 OS         | :heavy_check_mark: | :heavy_check_mark: |
+| 가상 머신 확장 집합 지원 | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Site Recovery               | :heavy_check_mark: | :x:                |
+| 백업/복원                    | :heavy_check_mark: | :heavy_check_mark: |
+| 공유 이미지 갤러리              | :heavy_check_mark: | :x:                |
+| Azure Disk Encryption             | :heavy_check_mark: | :x:                |
 
 ## <a name="creating-a-generation-2-vm"></a>2 세대 VM 만들기
 
@@ -101,14 +102,37 @@ Azure는 현재 온-프레미스 Hyper-v에서 2 세대 Vm에 대해 지 원하�
 
 Azure Portal 또는 Azure CLI에서는 UEFI 부팅을 지 원하는 Marketplace 이미지에서 2 세대 Vm을 만들 수 있습니다.
 
-이 `windowsserver-gen2preview` 제품에는 Windows 2 세대 이미지만 포함 되어 있습니다. 이 패키징은 1 세대와 2 세대 이미지 간의 혼동을 방지 합니다. 2 세대 VM을 만들려면이 제품에서 **이미지** 를 선택 하 고 표준 프로세스에 따라 vm을 만듭니다.
+#### <a name="azure-portal"></a>Azure Portal
 
-현재 Marketplace는 다음과 같은 Windows 생성 2 이미지를 제공 합니다.
+Windows 및 SLES에 대 한 2 세대 이미지는 Gen1 이미지와 동일한 서버 제품에 포함 되어 있습니다. 흐름 관점에서 볼 때 VM에 대 한 포털에서 제품 및 SKU를 선택 한다는 것을 의미 합니다. SKU에서 1 세대와 2 세대 이미지를 모두 지 원하는 경우 VM 생성 흐름의 *고급* 탭에서 2 세대 vm을 만들도록 선택할 수 있습니다.
 
-* 2019-datacenter-gen2
-* 2016-datacenter-gen2
-* 2012-r2-datacenter-gen2
-* 2012-datacenter-gen2
+현재 다음 Sku는 1 세대 및 2 세대 이미지를 모두 지원 합니다.
+
+* Windows Server 2012
+* Windows Server 2012 R2
+* Windows Server 2016
+* Windows Server 2019
+
+제품으로 Windows Server SKU를 선택 하는 경우 **고급** 탭에 **gen 1** (BIOS) 또는 **GEN 2** (UEFI) VM을 만들 수 있는 옵션이 있습니다. **Gen 2**를 선택 하는 경우 **기본** 탭에서 선택한 Vm 크기가 [2 세대 vm에 대해 지원](#generation-2-vm-sizes)되는지 확인 합니다.
+
+![Gen 1 또는 Gen 2 VM 선택](./media/generation-2/gen1-gen2-select.png)
+
+#### <a name="powershell"></a>PowerShell
+
+또한 PowerShell을 사용 하 여 1 세대 또는 2 세대 SKU를 직접 참조 하 여 VM을 만들 수 있습니다.
+
+예를 들어, 다음 PowerShell cmdlet을 사용 하 여 `WindowsServer` 제품의 sku 목록을 가져옵니다.
+
+```powershell
+Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
+```
+
+OS로 Windows Server 2012를 사용 하 여 VM을 만드는 경우 1 세대 (BIOS) 또는 2 세대 (UEFI) VM SKU를 선택 합니다 .이는 다음과 같습니다.
+
+```powershell
+2012-Datacenter
+2012-datacenter-gensecond
+```
 
 지원 되는 Marketplace 이미지의 최신 목록은 [기능 및 기능](#features-and-capabilities) 섹션을 참조 하세요.
 
@@ -131,7 +155,7 @@ Azure Portal 또는 Azure CLI에서는 UEFI 부팅을 지 원하는 Marketplace 
 * **온-프레미스 2 세대 VM의 .vhd 파일이 있습니다. 이 .vhd 파일을 사용 하 여 Azure에서 2 세대 VM을 만들 수 있나요?**
   예, 2 세대 .vhd 파일을 Azure로 가져와서이를 사용 하 여 2 세대 VM을 만들 수 있습니다. 이렇게 하려면 다음 단계를 사용 합니다.
     1. VM을 만들려는 동일한 지역의 저장소 계정에 .vhd를 업로드 합니다.
-    1. .Vhd 파일에서 관리 디스크를 만듭니다. HyperV 생성 속성을 V2로 설정 합니다. 다음 PowerShell 명령은 관리 디스크를 만들 때 HyperV 생성 속성을 설정 합니다.
+    1. .Vhd 파일에서 관리 디스크를 만듭니다. Hyper-v 생성 속성을 V2로 설정 합니다. 다음 PowerShell 명령은 관리 디스크를 만들 때 Hyper-v 생성 속성을 설정 합니다.
 
         ```powershell
         $sourceUri = 'https://xyzstorage.blob.core.windows.net/vhd/abcd.vhd'. #<Provide location to your uploaded .vhd file>

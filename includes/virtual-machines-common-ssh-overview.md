@@ -2,18 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: virtual-machines-linux
-author: dlepow
+author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 12/21/2018
-ms.author: danlep
+ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: bca78e2963f19b60071b1b27c8dc65c76818e10e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3f9b86dd3716a25ab95265cf46b616144f57163b
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182213"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168617"
 ---
 ## <a name="overview-of-ssh-and-keys"></a>SSH 및 키에 대한 개요
 
@@ -21,7 +21,7 @@ ms.locfileid: "67182213"
 
 * *공개 키*는 public-key 암호화를 사용하려는 Linux VM 또는 다른 서비스에 배치됩니다.
 
-* *개인 키*는 로컬 시스템에 남아 있습니다. 이 프라이빗 키는 보호해야 하는 한편, 공유하면 안됩니다.
+* *프라이빗 키*는 로컬 시스템에 남아 있습니다. 이 프라이빗 키는 보호해야 하는 한편, 공유하면 안됩니다.
 
 SSH 클라이언트를 사용하여 공개 키가 있는 Linux VM에 연결하는 경우 원격 VM이 클라이언트를 테스트하여 프라이빗 키를 소유하고 있는지 확인합니다. 클라이언트에 프라이빗 키가 있으면 VM에 액세스할 수 있습니다. 
 

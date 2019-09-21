@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 92accf4317ef8d0e3837ce3789615b5aaf6f6919
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 7a58e8559587ddcb307c338f5ce87cd6b8e52021
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996890"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71171515"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 
@@ -79,6 +79,7 @@ az provider register --namespace Microsoft.ContainerService
 * 기본 (첫 번째) 노드 풀은 삭제할 수 없습니다.
 * HTTP 응용 프로그램 라우팅 추가 기능을 사용할 수 없습니다.
 * 대부분의 작업과 마찬가지로 기존 리소스 관리자 템플릿을 사용 하 여 노드 풀을 추가 하거나 삭제할 수 없습니다. 대신 [별도의 리소스 관리자 템플릿을 사용](#manage-node-pools-using-a-resource-manager-template) 하 여 AKS 클러스터의 노드 풀을 변경 합니다.
+* 노드 풀의 이름은 소문자로 시작 해야 하며 영숫자 문자만 포함할 수 있습니다. Linux 노드 풀의 경우 길이는 1 자에서 12 자 사이 여야 하 고 Windows 노드 풀의 길이는 1에서 6 자 사이 여야 합니다.
 
 이 기능은 미리 보기 상태 이지만 다음과 같은 추가 제한 사항이 적용 됩니다.
 
@@ -130,6 +131,9 @@ az aks nodepool add \
     --node-count 3 \
     --kubernetes-version 1.12.7
 ```
+
+> [!NOTE]
+> 노드 풀의 이름은 소문자로 시작 해야 하며 영숫자 문자만 포함할 수 있습니다. Linux 노드 풀의 경우 길이는 1 자에서 12 자 사이 여야 하 고 Windows 노드 풀의 길이는 1에서 6 자 사이 여야 합니다.
 
 노드 풀의 상태를 확인 하려면 [az aks node pool list][az-aks-nodepool-list] 명령을 사용 하 여 리소스 그룹 및 클러스터 이름을 지정 합니다.
 
@@ -580,8 +584,8 @@ az group deployment create \
 
 ## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>노드 풀에서 노드 당 공용 IP 할당
 
-> [!NOTE]
-> 노드 당 공용 IP를 할당 하는 미리 보기 중에 VM 프로 비전과 충돌 하는 가능한 부하 분산 장치 규칙으로 인해 *AKS의 표준 LOAD BALANCER SKU* 와 함께 사용할 수 없습니다. 미리 보기 중에는 노드당 공용 IP를 할당 해야 하는 경우 *기본 LOAD BALANCER SKU* 를 사용 합니다.
+> [!WARNING]
+> 노드 당 공용 IP를 할당 하는 미리 보기 중에 VM 프로 비전과 충돌 하는 가능한 부하 분산 장치 규칙으로 인해 *AKS의 표준 LOAD BALANCER SKU* 와 함께 사용할 수 없습니다. 미리 보기 중에는 노드당 공용 IP를 할당 해야 하는 경우 *기본 LOAD BALANCER SKU* 를 사용 해야 합니다.
 
 AKS 노드에는 통신에 고유한 공용 IP 주소가 필요 하지 않습니다. 그러나 경우에 따라 노드 풀의 노드에 고유한 공용 IP 주소가 있어야 합니다. 예를 들어 콘솔에서 클라우드 가상 컴퓨터에 직접 연결 하 여 홉을 최소화 해야 하는 게임이 있습니다. 이는 별도의 미리 보기 기능인 노드 공용 IP (미리 보기)를 등록 하 여 수행할 수 있습니다.
 

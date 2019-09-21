@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 759c804fd4128d7b28cbba078cab5e9d7e6453f6
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: f9d4b933bc9c6e11dde8168d9797a1b6196e6f47
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208303"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170693"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Azure에서 Linux Data Science Virtual Machine를 사용 하는 데이터 과학
 
@@ -24,13 +24,13 @@ ms.locfileid: "70208303"
 
 이 연습에서는 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 데이터 집합을 분석 합니다. Spambase는 스팸 또는 ham (스팸이 아님)로 표시 된 전자 메일 집합입니다. Spambase에도 전자 메일의 내용에 대 한 일부 통계가 포함 되어 있습니다. 이 연습의 뒷부분에서 통계에 대해 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Linux DSVM을 사용 하려면 먼저 다음과 같은 필수 구성 요소가 있어야 합니다.
 
 * **Azure 구독**. Azure 구독을 얻으려면 [지금 무료 azure 계정 만들기](https://azure.microsoft.com/free/)를 참조 하세요.
 * [**Linux Data Science Virtual Machine**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). 가상 컴퓨터를 프로 비전 하는 방법에 대 한 자세한 내용은 [Linux Data Science Virtual Machine 프로 비전](linux-dsvm-intro.md)을 참조 하세요.
-* [**X2Go**](https://wiki.x2go.org/doku.php) 는 열려 있는 XFCE 세션을 사용 하 여 컴퓨터에 설치 됩니다. 자세한 내용은 [Install and configure The X2Go client](linux-dsvm-intro.md#install-and-configure-the-x2go-client)을 참조 하세요.
+* [**X2Go**](https://wiki.x2go.org/doku.php) 는 열려 있는 XFCE 세션을 사용 하 여 컴퓨터에 설치 됩니다. 자세한 내용은 [Install and configure The X2Go client](linux-dsvm-intro.md#x2go)을 참조 하세요.
 * 더 부드러운 스크롤 환경을 위해 dsvm의 Firefox 웹 브라우저에서 `gfx.xrender.enabled` `about:config`플래그를 전환 합니다. [자세히 알아보기](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). 또한를로 `mousewheel.enable_pixel_scrolling` 설정 `False`하는 것이 좋습니다. [자세히 알아보기](https://support.mozilla.org/questions/981140).
 * **Azure Machine Learning 계정**. 계정이 아직 없는 경우 [Azure Machine Learning 홈 페이지](https://studio.azureml.net/)에서 새 계정을 등록 합니다. 시작 하는 데 도움이 되도록 무료로 사용해 볼 수 있습니다.
 
@@ -382,7 +382,7 @@ Rattle은 탭 기반 인터페이스를 사용합니다. 대부분의 탭은 데
 
 1. **배포**를 선택합니다.
 1. **Word_freq_remove** 및 **Word_freq_you**에 대해 **히스토그램**을 선택 합니다.
-1. **실행**을 선택합니다. 단일 그래프 창에 밀도 플롯이 모두 표시 되어야 합니다. 여기서 단어는 _제거_하는 것 보다 훨씬 자주 전자 메일에 표시 되는 것을 알 수 있습니다.
+1. **실행**을 선택합니다. 단일 그래프 창에 밀도 플롯이 모두 표시 되어야 합니다. _여기서 단어는_ _제거_하는 것 보다 훨씬 자주 전자 메일에 표시 되는 것을 알 수 있습니다.
 
 **상관 관계** 플롯도 흥미롭습니다. 플롯을 만들려면 다음을 수행 합니다.
 
@@ -392,7 +392,7 @@ Rattle은 탭 기반 인터페이스를 사용합니다. 대부분의 탭은 데
 
 몇 가지 흥미로운 상관 관계를 제공 합니다. 예를 들어 _기술이_ _HP_ 및 _labs_와 밀접 하 게 연관 되어 있습니다. 또한 데이터 집합 기부자의 지역 코드는 650 이므로 _650_ 와 밀접 하 게 연관 됩니다.
 
-단어 간의 상관 관계에 대 한 숫자 값은 **탐색** 창에서 사용할 수 있습니다. 예를 들어이 _기술은_ 및 _money_와 부정적인 상관 관계를 두고 있습니다.
+단어 간의 상관 관계에 대 한 숫자 값은 **탐색** 창에서 사용할 수 있습니다. 예를 들어이 _기술은_ 및 _money_ _와 부정적인_ 상관 관계를 두고 있습니다.
 
 Rattle은 몇 가지 일반적인 문제를 처리하기 위해 데이터 세트를 변환할 수 있습니다. 예를 들어 기능을 다시 크기 조정 하 고, 누락 된 값을 돌립니다 하 고, 이상 값을 처리 하 고, 누락 된 데이터가 있는 변수나 관찰을 제거할 수 있습니다 Rattle는 관찰 및 변수 간의 연결 규칙을 식별할 수도 있습니다. 이러한 탭은이 소개 연습에서 다루지 않습니다.
 
@@ -407,7 +407,7 @@ Rattle는 클러스터 분석도 실행할 수 있습니다. 출력을 더 쉽�
 * word_freq_money
 * capital_run_length_longest
 * word_freq_business
-* 스팸
+* spam
 
 **클러스터** 탭으로 돌아갑니다. **Kmeans**을 선택 하 고 **클러스터 수** 를 **4**로 설정 합니다. **실행**을 선택합니다. 결과가 출력 창에 표시됩니다. 한 클러스터는 _george_ 및 _hp_의 빈도가 높고 합법적인 비즈니스 전자 메일 일 수 있습니다.
 

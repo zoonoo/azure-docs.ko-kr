@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2019
+ms.date: 09/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3867e4c59f541fb50c536850e89e03d49a831e42
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 192bafc0b53483c21e52602b4de8c57f66fdee3c
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162080"
+ms.locfileid: "71172570"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -46,19 +46,19 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 ## <a name="locations"></a>지정 학적 지역 내에서 Express 경로 위치로 Azure 지역
 다음 표에서 지역 내 ExpressRoute 위치에 대한 Azure 지역의 맵을 제공합니다.
 
-| **지역** | **영역** | **Azure 지역** | **ExpressRoute 위치** |
-| --- | --- | --- | --- |
-| **오스트레일리아 정부** | 1 | 오스트레일리아 중부, 오스트레일리아 중부 2 |캔버라, 캔버라2 |
-| **유럽** | 1 |프랑스 중부, 프랑스 남부, 북유럽, 유럽 서부, 영국 서부, 영국 남부 |암스테르담, Amsterdam2, 코펜하겐, 더블린, 프랑크푸르트, 런던, London2, 마르세유에, Newport (Wales), 파리, 스톡홀름, 취리히, 뮌헨 |
-| **북아메리카** | 1 |미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중부, 미국 중남부, 미국 중북부, 미국 중서부, 캐나다 중부, 캐나다 동부 |애틀랜타, 시카고, 달라스, 덴버, Las Vegas, 로스앤젤레스, 마이애미, 뉴욕, San Antonio, 시애틀, 실리콘 계곡, 실리콘 Valley2, 워싱턴 DC, 워싱턴 DC2, 몬트리올, 퀘벡 City, |
-| **아시아** | 2 |동아시아, 동남 아시아 |홍콩 특별 행정구, 콸라룸푸르, 싱가포르, 싱가포르 2, 타이베이 |
-| **인도** | 2 |인도 서부, 인도 중부, 인도 남부 |첸나이, 첸나이2, 뭄바이, 뭄바이2 |
-| **일본** | 2 |일본 서부, 일본 동부 |오사카, 도쿄 |
-| **오세아니아** | 2 |오스트레일리아 남동부, 오스트레일리아 동부 |오클랜드, 멜버른, 퍼스, 시드니 | 
-| **대한민국** | 2 |한국 중부, 한국 남부 |부산, 서울|
-| **UAE** | 3 | 아랍에미리트 중부, 아랍에미리트 북부 | Dubai, Dubai2 |
-| **남아프리카 공화국** | 3 |남아프리카 공화국 서 부, 남아프리카 공화국 북부 |케이프타운, 요하네스버그 |
-| **남미** | 3 |브라질 남부 |Sao Paulo |
+| **지역** | **Azure 지역** | **ExpressRoute 위치** |
+| --- | --- | --- |
+| **오스트레일리아 정부** | 오스트레일리아 중부, 오스트레일리아 중부 2 |캔버라, 캔버라2 |
+| **유럽** | 프랑스 중부, 프랑스 남부, 북유럽, 유럽 서부, 영국 서부, 영국 남부 |암스테르담, Amsterdam2, 코펜하겐, 더블린, 프랑크푸르트, 런던, London2, 마르세유에, Newport (Wales), 파리, 스톡홀름, 취리히, 뮌헨 |
+| **북아메리카** | 미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중부, 미국 중남부, 미국 중북부, 미국 중서부, 캐나다 중부, 캐나다 동부 |애틀랜타, 시카고, 달라스, 덴버, Las Vegas, 로스앤젤레스, 마이애미, 뉴욕, San Antonio, 시애틀, 실리콘 계곡, 실리콘 Valley2, 워싱턴 DC, 워싱턴 DC2, 몬트리올, 퀘벡 City, |
+| **아시아** | 동아시아, 동남 아시아 |홍콩 특별 행정구, 콸라룸푸르, 싱가포르, 싱가포르 2, 타이베이 |
+| **인도** | 인도 서부, 인도 중부, 인도 남부 |첸나이, 첸나이2, 뭄바이, 뭄바이2 |
+| **일본** | 일본 서부, 일본 동부 |오사카, 도쿄 |
+| **오세아니아** | 오스트레일리아 남동부, 오스트레일리아 동부 |오클랜드, 멜버른, 퍼스, 시드니 | 
+| **대한민국** | 한국 중부, 한국 남부 |부산, 서울|
+| **UAE** | 아랍에미리트 중부, 아랍에미리트 북부 | Dubai, Dubai2 |
+| **남아프리카 공화국** | 남아프리카 공화국 서 부, 남아프리카 공화국 북부 |케이프타운, 요하네스버그 |
+| **남미** | 브라질 남부 |Sao Paulo |
 
 ## <a name="azure-regions-and-geopolitical-boundaries-for-national-clouds"></a>국가별 클라우드의 Azure 지역 및 지정 학적 경계
 아래 표에서는 국가별 클라우드의 지역 및 지정학적 경계에 대한 정보를 제공합니다.
@@ -80,61 +80,61 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 
 
 ### <a name="production-azure"></a>프로덕션 Azure
-| **Location**: | **소유자 및 주소** | **로컬 Azure 지역** | **서비스 공급자** |
-| --- | --- | --- | --- |
-| **암스테르담** | [서-ix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | 유럽 서부 | Aryaka Networks, & T NetBond, 영국령 텔레콤, Colt, 의사 Inix, euNetworks, GÉANT, InterCloud, Interx이온, KPN, IX Reach, 수준 3 통신, Megaport, NTT 통신, 주황색, Tata 통신 Zayo |
-| **암스테르담2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 유럽 서부 | CenturyLink Cloud Connect, DECIX, Colt, Interxion, Vodafone |
-| **애틀랜타** | [서-ix AT2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at2/) | n/a | Equinix, Megaport |
-| **오클랜드** | [Vocus Group NZ 올버니](https://www.vocus.co.nz/business/cloud-data-centres) | n/a | Devoli, Kordia, Megaport, Spark NZ, Vocus Group NZ |
-| **부산** | [LG CNS](https://datacenter.lgcns.com/Contents/En/Menu_1/Locations_1.aspx) | 한국 남부 | LG CNS |
-| **캔버라** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 오스트레일리아 중부 | CDC |
-| **캔버라2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 오스트레일리아 중부 2| CDC |
-| **케이프타운** | [Teraco CT1](https://www.teraco.co.za/data-centre-locations/cape-town/) | 남아프리카 서부 | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
-| **첸나이** | Tata Communications | 인도 남부 | Global CloudXchange(GCX), SIFY, Tata Communications |
-| **첸나이2** | Airtel | 인도 남부 | Airtel |
-| **시카고** | [서-ix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | 미국 중북부 | Aryaka Networks, & T NetBond, CenturyLink Cloud Connect, Cologix, Comcast, Coresite, Cologix, InterCloud, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global 제한, 스 프린트, Telia 캐리어, Verizon, Zayo |
-| **코펜하겐** | [Interxion CPH1](https://www.interxion.com/Locations/copenhagen/) | n/a | Interxion |
-| **댈러스** | [서-ix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/) | n/a | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Transtelco, Verizon, Zayo|
-| **덴버** | [CoreSite DE1](https://www.coresite.com/data-centers/locations/denver/de1) | 미국 중서부 | CoreSite, Megaport, Zayo |
-| **Dubai** | [PCCS](https://www.pacificcontrols.net/cloudservices/index.html) | 아랍에미리트 북부 | Etisalat 아랍에미리트 |
-| **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 아랍에미리트 북부 | du datamena, Orixcom |
-| **더블린** | [서-ix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 유럽 북부 | Colt, eir, Equinix, Interxion, Megaport |
-| **프랑크푸르트** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | n/a | DE-DE x, Interxion, 주황 |
-| **Hong Kong SAR** | [서-ix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 아시아 동부 | Aryaka Networks, 영국령 텔레콤, CenturyLink 클라우드 연결, 최고 통신, 중국 통신 글로벌, 서-Ix, Megaport, NTT 통신, 주황색, PCCW Global 제한, Tata 통신, Telia 캐리어, Verizon |
-| **요하네스버그** | [Teraco JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 남아프리카 북부 | 영국령 텔레콤, 인터넷 솔루션-클라우드 연결, 액체 텔레콤, 주황, Teraco |
-| **콸라룸푸르** | [시간 dotCom Menara 목표](https://www.aims.com.my/co-location/points-of-presence.html) | n/a | TIME dotCom |
-| **라스베이거스** | [LV 전환](https://www.switch.com/las-vegas) | n/a | CenturyLink Cloud Connect, Megaport |
-| **런던** | [서-ix LD5](https://www.equinix.com/locations/europe-colocation/united-kingdom-colocation/london-data-centers/ld5/) | 영국 남부 | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
-| **런던2** | [Telehouse 북부 2](https://www.telehouse.com/global-data-centers/emea/london-data-centers/telehouse-north-two/) | 영국 남부 | IX 연결 |
-| **로스앤젤레스** | [CoreSite LA1](https://www.coresite.com/data-centers/locations/los-angeles/one-wilshire) | n/a | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
-| **마르세유** |[Interxion MRS1](https://www.interxion.com/Locations/marseille/) | 프랑스 남부 | 비 CIX, Interxion, 재규어 네트워크 |
-| **멜버른** | [NextDC M1](https://www.nextdc.com/data-centres/m1-melbourne-data-centre) | 오스트레일리아 남동부 | AARNet, Devoli,, Megaport, NEXTDC, Optus, Telstra Corporation, TPG 텔레콤 |
-| **마이애미** | [서-ix MI1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | n/a | C3ntro+, Equinix, Megaport, Neutrona Networks |
-| **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | n/a | 종 캐나다, Cologix, Megaport, Telus, Zayo |
-| **뭄바이** | Tata Communications | 인도 서부 | GCX (Global Gcx), Jio, Sify, Tata 통신, Verizon |
-| **뭄바이2** | Airtel | 인도 서부 | Airtel, Sify, Vodafone Idea |
-| **뉴욕** | [서-ix NY9](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny9/) | n/a | CenturyLink 클라우드 연결, Coresite, 서는 Inix, InterCloud, Megaport, Packet, Zayo |
-| **뉴포트(웨일스)** | [Next Generation Data](https://www.nextgenerationdata.co.uk) | 영국 서부 | 영국령 텔레콤, Colt, 수준 3 통신, 차세대 데이터 |
-| **오사카** | [서-ix OS1](https://www.equinix.com/locations/asia-colocation/japan-colocation/osaka-data-centers/os1/) | 일본 서부 | Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
-| **파리** | [Interxion PAR5](https://www.interxion.com/Locations/paris/) | 프랑스 중부 | CenturyLink Cloud Connect, Colt,와 서는 Inix, Intercloud, Interx이온, 주황색, Telia 캐리어, Zayo |
-| **퍼스** | [NextDC P1](https://www.nextdc.com/data-centres/p1-perth-data-centre) | n/a | Megaport, NextDC |
-| **퀘벡 시티** | [유리한](https://vantage-dc.com/data_centers/quebec-city-data-center-campus/) | 캐나다 동부 | Bell Canada, Megaport |
-| **샌안토니오** | [CyrusOne SA1](https://cyrusone.com/locations/texas/san-antonio-texas/) | 미국 중남부 | CenturyLink Cloud Connect, Megaport |
-| **상파울루** | [서-ix SP2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/sao-paulo-data-centers/sp2/) | 브라질 남부 | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
-| **시애틀** | [서-ix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | 미국 서부 2 | Aryaka Networks, Megaport, Telus, Zayo |
-| **서울** | [KINX Gasan IDC](https://www.kinx.net/support/location/?lang=en) | 한국 중부 | KINX, LG CNS, Sejong Telecom |
-| **실리콘밸리** | [서-ix SV1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/silicon-valley-data-centers/sv1/) | 미국 서부 | Aryaka Networks, & T NetBond, 영국령 텔레콤, CenturyLink Cloud Connect, Comcast, Coresite, 의사 (), Internet2, IX, IX, 패킷, PacketFabric, 수준 3 통신, Megaport, 주황, 스 프린트, Tata 통신, Telia 캐리어, Verizon, Zayo |
-| **실리콘 Valley2** | [Coresite SV7](https://www.coresite.com/data-centers/locations/silicon-valley/sv7) | 미국 서부 | Coresite | 
-| **싱가포르** | [서-ix SG1](https://www.equinix.com/locations/asia-colocation/singapore-colocation/singapore-data-center/sg1/) | 동남아시아 | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |
-| **Singapore2** | [전역 스위치 타이 Seng](https://www.globalswitch.com/locations/singapore-data-centres/) | 동남아시아 | Colt, Epsilon Global Communications, Megaport, SingTel |
-| **스톡홀름** | [서-ix SK1](https://www.equinix.com/locations/europe-colocation/sweden-colocation/stockholm-data-centers/sk1/) | n/a | Telia 캐리어 |
-| **시드니** | [서-ix SY2](https://www.equinix.com/locations/asia-colocation/australia-colocation/sydney-data-centers/sy2/) | 오스트레일리아 동부 | AARNet, & T NetBond, 영국령 텔레콤, Devoli, Kordia, Megaport, NEXTDC, NTT Communications, Optus, 주황, Spark NZ, Telstra Corporation, TPG 텔레콤, Verizon, Vocus Group NZ |
-| **타이베이** | Chief Telecom | n/a | 최고 통신, FarEasTone |
-| **도쿄** | [서-ix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 일본 동부 | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
-| **토론토** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 캐나다 중부 | & T NetBond, 종 캐나다, CenturyLink Cloud Connect, Cologix, Megaport, Telus, Verizon, Zayo |
-| **워싱턴 DC** | [서-ix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | 미국 동부, 미국 동부 2 | Aryaka Networks, & T NetBond, 영국령 텔레콤, CenturyLink Cloud Connect, Cologix, Comcast, Coresite, Cologix, Internet2, InterCloud, Level 3 Communications, Megaport, Neutrona Networks, NTT Communications, 주황, PacketFabric, SES, 스 프린트 및 Tata 통신, Telia 캐리어, Verizon, Zayo |
-| **워싱턴 DC2** | [Coresite Reston](https://www.coresite.com/data-centers/locations/northern-virginia-washington-dc/reston-campus) | 미국 동부, 미국 동부 2 |Coresite, Viasat, Zayo | 
-| **취리히** | [Interxion ZUR2](https://www.interxion.com/Locations/zurich/) | n/a | Intercloud, Interx이온 |
+| **Location**: | **주소** | **영역** | **로컬 Azure 지역** | **서비스 공급자** |
+| --- | --- | --- | --- | --- |
+| **암스테르담** | [서-ix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | 1 | 유럽 서부 | Aryaka Networks, & T NetBond, 영국령 텔레콤, Colt, 의사 Inix, euNetworks, GÉANT, InterCloud, Interx이온, KPN, IX Reach, 수준 3 통신, Megaport, NTT 통신, 주황색, Tata 통신 Zayo |
+| **암스테르담2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 1 | 유럽 서부 | CenturyLink Cloud Connect, DECIX, Colt, Interxion, Vodafone |
+| **애틀랜타** | [서-ix AT2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at2/) | 1 | n/a | Equinix, Megaport |
+| **오클랜드** | [Vocus Group NZ 올버니](https://www.vocus.co.nz/business/cloud-data-centres) | 2 | n/a | Devoli, Kordia, Megaport, Spark NZ, Vocus Group NZ |
+| **부산** | [LG CNS](https://datacenter.lgcns.com/Contents/En/Menu_1/Locations_1.aspx) | 2 | 한국 남부 | LG CNS |
+| **캔버라** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | 오스트레일리아 중부 | CDC |
+| **캔버라2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | 오스트레일리아 중부 2| CDC |
+| **케이프타운** | [Teraco CT1](https://www.teraco.co.za/data-centre-locations/cape-town/) | 3 | 남아프리카 서부 | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
+| **첸나이** | Tata Communications | 2 | 인도 남부 | Global CloudXchange(GCX), SIFY, Tata Communications |
+| **첸나이2** | Airtel | 2 | 인도 남부 | Airtel |
+| **시카고** | [서-ix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | 1 | 미국 중북부 | Aryaka Networks, & T NetBond, CenturyLink Cloud Connect, Cologix, Comcast, Coresite, Cologix, InterCloud, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global 제한, 스 프린트, Telia 캐리어, Verizon, Zayo |
+| **코펜하겐** | [Interxion CPH1](https://www.interxion.com/Locations/copenhagen/) | 1 | n/a | Interxion |
+| **댈러스** | [서-ix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/) | 1 | n/a | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Transtelco, Verizon, Zayo|
+| **덴버** | [CoreSite DE1](https://www.coresite.com/data-centers/locations/denver/de1) | 1 | 미국 중서부 | CoreSite, Megaport, Zayo |
+| **Dubai** | [PCCS](https://www.pacificcontrols.net/cloudservices/index.html) | 3 | 아랍에미리트 북부 | Etisalat 아랍에미리트 |
+| **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | 아랍에미리트 북부 | du datamena, Orixcom |
+| **더블린** | [서-ix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | 유럽 북부 | Colt, eir, Equinix, Interxion, Megaport |
+| **프랑크푸르트** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | 독일 중서부 | DE-DE x, Interxion, 주황 |
+| **Hong Kong SAR** | [서-ix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | 아시아 동부 | Aryaka Networks, 영국령 텔레콤, CenturyLink 클라우드 연결, 최고 통신, 중국 통신 글로벌, 서-Ix, Megaport, NTT 통신, 주황색, PCCW Global 제한, Tata 통신, Telia 캐리어, Verizon |
+| **요하네스버그** | [Teraco JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 3 | 남아프리카 북부 | 영국령 텔레콤, 인터넷 솔루션-클라우드 연결, 액체 텔레콤, 주황, Teraco |
+| **콸라룸푸르** | [시간 dotCom Menara 목표](https://www.aims.com.my/co-location/points-of-presence.html) | 2 | n/a | TIME dotCom |
+| **라스베이거스** | [LV 전환](https://www.switch.com/las-vegas) | 1 | n/a | CenturyLink Cloud Connect, Megaport |
+| **런던** | [서-ix LD5](https://www.equinix.com/locations/europe-colocation/united-kingdom-colocation/london-data-centers/ld5/) | 1 | 영국 남부 | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
+| **런던2** | [Telehouse 북부 2](https://www.telehouse.com/global-data-centers/emea/london-data-centers/telehouse-north-two/) | 1 | 영국 남부 | IX 연결 |
+| **로스앤젤레스** | [CoreSite LA1](https://www.coresite.com/data-centers/locations/los-angeles/one-wilshire) | 1 | n/a | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
+| **마르세유** |[Interxion MRS1](https://www.interxion.com/Locations/marseille/) | 1 | 프랑스 남부 | 비 CIX, Interxion, 재규어 네트워크 |
+| **멜버른** | [NextDC M1](https://www.nextdc.com/data-centres/m1-melbourne-data-centre) | 2 | 오스트레일리아 남동부 | AARNet, Devoli,, Megaport, NEXTDC, Optus, Telstra Corporation, TPG 텔레콤 |
+| **마이애미** | [서-ix MI1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | 1 | n/a | C3ntro+, Equinix, Megaport, Neutrona Networks |
+| **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | n/a | 종 캐나다, Cologix, Megaport, Telus, Zayo |
+| **뭄바이** | Tata Communications | 2 | 인도 서부 | GCX (Global Gcx), Jio, Sify, Tata 통신, Verizon |
+| **뭄바이2** | Airtel | 2 | 인도 서부 | Airtel, Sify, Vodafone Idea |
+| **뉴욕** | [서-ix NY9](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny9/) | 1 | n/a | CenturyLink 클라우드 연결, Coresite, 서는 Inix, InterCloud, Megaport, Packet, Zayo |
+| **뉴포트(웨일스)** | [Next Generation Data](https://www.nextgenerationdata.co.uk) | 1 | 영국 서부 | 영국령 텔레콤, Colt, 수준 3 통신, 차세대 데이터 |
+| **오사카** | [서-ix OS1](https://www.equinix.com/locations/asia-colocation/japan-colocation/osaka-data-centers/os1/) | 2 | 일본 서부 | Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
+| **파리** | [Interxion PAR5](https://www.interxion.com/Locations/paris/) | 1 | 프랑스 중부 | CenturyLink Cloud Connect, Colt,와 서는 Inix, Intercloud, Interx이온, 주황색, Telia 캐리어, Zayo |
+| **퍼스** | [NextDC P1](https://www.nextdc.com/data-centres/p1-perth-data-centre) | 2 | n/a | Megaport, NextDC |
+| **퀘벡 시티** | [유리한](https://vantage-dc.com/data_centers/quebec-city-data-center-campus/) | 1 | 캐나다 동부 | Bell Canada, Megaport |
+| **샌안토니오** | [CyrusOne SA1](https://cyrusone.com/locations/texas/san-antonio-texas/) | 1 | 미국 중남부 | CenturyLink Cloud Connect, Megaport |
+| **상파울루** | [서-ix SP2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/sao-paulo-data-centers/sp2/) | 3 | 브라질 남부 | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
+| **시애틀** | [서-ix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | 1 | 미국 서부 2 | Aryaka Networks, Megaport, Telus, Zayo |
+| **서울** | [KINX Gasan IDC](https://www.kinx.net/support/location/?lang=en) | 2 | 한국 중부 | KINX, LG CNS, Sejong Telecom |
+| **실리콘밸리** | [서-ix SV1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/silicon-valley-data-centers/sv1/) | 1 | 미국 서부 | Aryaka Networks, & T NetBond, 영국령 텔레콤, CenturyLink Cloud Connect, Comcast, Coresite, 의사 (), Internet2, IX, IX, 패킷, PacketFabric, 수준 3 통신, Megaport, 주황, 스 프린트, Tata 통신, Telia 캐리어, Verizon, Zayo |
+| **실리콘 Valley2** | [Coresite SV7](https://www.coresite.com/data-centers/locations/silicon-valley/sv7) | 1 | 미국 서부 | Coresite | 
+| **싱가포르** | [서-ix SG1](https://www.equinix.com/locations/asia-colocation/singapore-colocation/singapore-data-center/sg1/) | 2 | 동남아시아 | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |
+| **Singapore2** | [전역 스위치 타이 Seng](https://www.globalswitch.com/locations/singapore-data-centres/) | 2 | 동남아시아 | Colt, Epsilon Global Communications, Megaport, SingTel |
+| **스톡홀름** | [서-ix SK1](https://www.equinix.com/locations/europe-colocation/sweden-colocation/stockholm-data-centers/sk1/) | 1 | n/a | Telia 캐리어 |
+| **시드니** | [서-ix SY2](https://www.equinix.com/locations/asia-colocation/australia-colocation/sydney-data-centers/sy2/) | 2 | 오스트레일리아 동부 | AARNet, & T NetBond, 영국령 텔레콤, Devoli, Kordia, Megaport, NEXTDC, NTT Communications, Optus, 주황, Spark NZ, Telstra Corporation, TPG 텔레콤, Verizon, Vocus Group NZ |
+| **타이베이** | Chief Telecom | 2 | n/a | 최고 통신, FarEasTone |
+| **도쿄** | [서-ix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | 일본 동부 | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
+| **토론토** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | 캐나다 중부 | & T NetBond, 종 캐나다, CenturyLink Cloud Connect, Cologix, Megaport, Telus, Verizon, Zayo |
+| **워싱턴 DC** | [서-ix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | 1 | 미국 동부, 미국 동부 2 | Aryaka Networks, & T NetBond, 영국령 텔레콤, CenturyLink Cloud Connect, Cologix, Comcast, Coresite, Cologix, Internet2, InterCloud, Level 3 Communications, Megaport, Neutrona Networks, NTT Communications, 주황, PacketFabric, SES, 스 프린트 및 Tata 통신, Telia 캐리어, Verizon, Zayo |
+| **워싱턴 DC2** | [Coresite Reston](https://www.coresite.com/data-centers/locations/northern-virginia-washington-dc/reston-campus) | 1 | 미국 동부, 미국 동부 2 |Coresite, Viasat, Zayo | 
+| **취리히** | [Interxion ZUR2](https://www.interxion.com/Locations/zurich/) | 1 | n/a | Intercloud, Interx이온 |
 
  **+** 는 서비스 예정을 나타냄
 

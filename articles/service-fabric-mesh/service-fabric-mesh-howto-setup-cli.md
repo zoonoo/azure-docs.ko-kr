@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: c716ae0a2bb30e7e8eb249a1d230097efc0d3795
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46b2a9a0c4d8a1d9e0fa069d512670dffb94fc28
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62097796"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173775"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Service Fabric Mesh CLI 설정
 Service Fabric Mesh CLI(명령줄 인터페이스)는 Azure Service Fabric Mesh에서 리소스를 로컬로 배포하고 관리하는 데 필요합니다. 
@@ -25,14 +25,14 @@ Service Fabric Mesh CLI(명령줄 인터페이스)는 Azure Service Fabric Mesh�
 |---|---|---|
 | az mesh | Azure Service Fabric Mesh | Azure Service Fabric Mesh 환경에 대해 애플리케이션을 배포하고 리소스를 관리할 수 있게 해주는 기본 CLI입니다. 
 | sfctl | 로컬 클러스터 | 로컬 클러스터에 대해 Service Fabric CLI 리소스를 배포 및 테스트할 수 있도록 해주는 Service Fabric CLI입니다.  
-| Maven CLI | 로컬 클러스터 및 Azure Service Fabric Mesh | 에 대 한 래퍼로 `az mesh` 및 `sfctl` Java 개발자가 로컬 및 Azure 개발 환경을 위해 친숙 한 명령줄 환경을 사용할 수 있도록 합니다.  
+| Maven CLI | 로컬 클러스터 및 Azure Service Fabric Mesh | Java 개발자가 `az mesh` 로컬 `sfctl` 및 Azure 개발 환경에 대 한 친숙 한 명령줄 환경을 사용할 수 있도록 하는 및 관련 래퍼입니다.  
 
 미리 보기를 위해 Azure CLI에 대한 확장으로 Azure Service Fabric Mesh CLI가 작성되었습니다. Azure Cloud Shell에서 설치하거나 Azure CLI의 로컬 설치에서 설치할 수 있습니다. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
 ## <a name="install-the-azure-service-fabric-mesh-cli"></a>Azure Service Fabric Mesh CLI 설치
-1. Azure CLI 버전 2.0.43 이상을 설치해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 최신 버전의 CLI를 설치하거나 업그레이드하려면 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+1. Azure CLI 버전 2.0.67 이상을 설치 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 최신 버전의 CLI를 설치 하거나 최신 버전으로 업그레이드 하려면 [Azure CLI 설치][azure-cli-install]를 참조 하세요.
 
 2. 다음 명령을 사용하여 Azure Service Fabric Mesh CLI 확장 모듈을 설치합니다. 
 

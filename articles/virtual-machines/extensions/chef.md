@@ -3,7 +3,7 @@ title: Azure VM에 대한 Chef 확장 | Microsoft Docs
 description: Chef VM 확장을 사용하여 가상 머신에 Chef 클라이언트를 배포합니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -12,19 +12,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
-ms.author: roiyz
-ms.openlocfilehash: 0ed042b3b004fd43bc03304c3042c2ac3e1a6482
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: akjosh
+ms.openlocfilehash: e82a5fefcc7f582df65d945735d9840fc3e49829
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092563"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169135"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Linux 및 Windows에 대한 Chef VM 확장
 
 Chef Software는 실제 및 가상 서버 구성의 관리를 활성화하는 Linux 및 Windows용 DevOps 자동화 플랫폼을 제공합니다. Chef VM 확장은 가상 머신에서 Chef를 사용하도록 설정하는 확장입니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 

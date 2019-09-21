@@ -3,7 +3,7 @@ title: Resource Manager 모드에서 Azure CLI 명령 | Microsoft Docs
 description: 리소스 관리자 배포 모델에서 리소스를 관리하는 Azure CLI(명령줄 인터페이스) 명령
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
-ms.author: danlep
-ms.openlocfilehash: 4a155159759a4b817842087bff7d4167ed8ed0c5
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: cynthn
+ms.openlocfilehash: 1ec1856508588d07e55e60e251a1369ecc3fa985
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722836"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174058"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>리소스 관리자 모드에서 Azure CLI 명령
 이 문서에서는 Azure Resource Manager 배포 모델에서 일반적으로 Azure 리소스를 만들고 관리하는 데 사용한 Azure CLI(명령줄 인터페이스) 명령에 대한 구문 및 옵션이 제공됩니다. ARM(Azure Resource Manager) 모드에서 CLI를 실행하여 이러한 명령에 액세스합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다. Azure 리소스 및 리소스 그룹에 대한 일반적인 개요는 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
@@ -196,7 +196,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     hdinsight config add-config-values [options] <configFilePath>
     hdinsight config add-script-action [options] <configFilePath>
 
-예제: 클러스터를 만들 때 실행할 스크립트 동작을 포함하는 구성 파일을 만듭니다.
+예: 클러스터를 만들 때 실행할 스크립트 동작을 포함하는 구성 파일을 만듭니다.
 
     hdinsight config create "C:\myFiles\configFile.config"
     hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <scriptActionURI> --name myScriptAction --parameters "-param value"
@@ -205,7 +205,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     hdinsight cluster create [options] <clusterName>
 
-예제: Linux 클러스터에서 Storm을 만들으십시오
+예: Linux 클러스터에서 스톰 만들기
 
     azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
 
@@ -213,7 +213,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     + Submitting the request to create cluster...
     info:    hdinsight cluster create command OK
 
-예제: 스크립트 동작을 사용하여 클러스터 만들기
+예: 스크립트 동작을 사용하여 클러스터 만들기
 
     azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
 
@@ -307,12 +307,12 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>azure insights: (이벤트, 경고 규칙, 자동 크기 조정 설정, 메트릭) Insights 모니터링 관련 명령
+## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>azure insights: 정보 모니터링과 관련 된 명령 (이벤트, 경고 규칙, 자동 크기 조정 설정, 메트릭)
 **구독, 상관 관계 ID, 리소스 그룹, 리소스 또는 리소스 공급자에 대한 작업 로그 검색**
 
     insights logs list [options]
 
-## <a name="azure-location-commands-to-get-the-available-locations-for-all-resource-types"></a>azure 위치: 모든 리소스 유형에 대해 사용 가능한 위치 명령
+## <a name="azure-location-commands-to-get-the-available-locations-for-all-resource-types"></a>azure 위치: 모든 리소스 유형에 대해 사용 가능한 위치를 가져오는 명령
 **사용 가능한 위치 나열**
 
     location list [options]
@@ -1336,7 +1336,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 <br>
 
     network public-ip list [options] <resource-group>
-리소스 그룹 내 모든 공용 IP 리소스를 나열합니다.
+리소스 그룹 내의 모든 공용 IP 리소스를 나열 합니다.
 
     azure network public-ip list -g myresourcegroup
 
@@ -1562,7 +1562,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     role assignment list [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
-## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>azure storage: 스토리지 개체를 관리하는 명령
+## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>azure 저장소: 스토리지 개체를 관리하는 명령
 **Storage 계정을 관리하는 명령**
 
     storage account list [options]

@@ -3,7 +3,7 @@ title: VM 확장을 포함하는 Azure 리소스 그룹 내보내기 | Microsoft
 description: 가상 머신 확장을 포함하는 Resource Manager 템플릿을 내보냅니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
-ms.author: roiyz
-ms.openlocfilehash: 6ac3a19d12b99c61dd0607b07b4659114f52400e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: akjosh
+ms.openlocfilehash: 652ed732a7fe8f08e48aba6fc4bd1b52164d1fa0
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084610"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169053"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>VM 확장을 포함하는 리소스 그룹 내보내기
 
@@ -41,7 +41,7 @@ Automation 스크립트 기능을 사용하여 다음 확장을 내보낼 수 �
 | BMC CTM Agent Linux | Dynatrace Linux | Site 24x7 Linux Server |
 | BMC CTM Agent Windows | Dynatrace Windows | Site 24x7 Windows Server |
 | Chef Client | HPE Security Application Defender | Trend Micro DSA |
-| 사용자 지정 스크립트 | IaaS Antimalware | Trend Micro DSA Linux |
+| Custom Script | IaaS Antimalware | Trend Micro DSA Linux |
 | 사용자 지정 스크립트 확장 | IaaS Diagnostics | VM Access For Linux |
 | Custom Script for Linux | Linux Chef Client | VM Access For Linux |
 | Datadog Linux Agent | Linux Diagnostic | VM 스냅샷 |

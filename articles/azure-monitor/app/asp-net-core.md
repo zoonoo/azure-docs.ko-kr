@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: a48c2fdcce5126747f00cd3b901839864d438346
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 9e14a9f3f2f27112a591f14e9a93580f66aadef7
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058269"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169557"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 
@@ -29,16 +29,16 @@ ms.locfileid: "71058269"
 
 [ASP.NET Core에 대 한 APPLICATION INSIGHTS SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 는 응용 프로그램의 실행 위치에 관계 없이 응용 프로그램을 모니터링할 수 있습니다. 응용 프로그램이 실행 중이 고 Azure에 네트워크로 연결 되어 있는 경우 원격 분석을 수집할 수 있습니다. Application Insights 모니터링은 .NET Core가 지원 되는 모든 위치에서 지원 됩니다. 지원 내용:
 * **운영 체제**: Windows, Linux 또는 Mac입니다.
-* **호스팅 메서드**: 처리 중입니다. 
+* **호스팅 메서드**: 처리 중입니다.
 * **배포 방법**: 프레임 워크 종속 또는 자체 포함.
-* **웹 서버**: IIS (Internet Information Server) 또는 Kestrel. 
+* **웹 서버**: IIS (Internet Information Server) 또는 Kestrel.
 * **호스팅 플랫폼**: Azure App Service, Azure VM, Docker, Azure Kubernetes 서비스 (AKS) 등의 Web Apps 기능입니다.
 * **IDE**: Visual Studio, VS Code 또는 명령줄입니다.
 
 > [!NOTE]
-> Application Insights와 함께 ASP.NET Core 3.0-미리 보기를 사용 하는 경우 [2.8.0-beta2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0-beta2) 버전 이상을 사용 하세요. 이 버전은 ASP.NET Core 3.0에서 잘 작동 하는 것으로 알려져 있습니다. 또한 ASP.NET Core 3.0 앱에 대해서는 Visual Studio 기반 온 보 딩이 아직 지원 되지 않습니다.
+> Application Insights와 함께 ASP.NET Core 3.0-미리 보기를 사용 하는 경우 [2.8.0-beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0-beta3) 버전 이상을 사용 하세요. 이 버전은 ASP.NET Core 3.0에서 잘 작동 하는 것으로 알려져 있습니다. 또한 ASP.NET Core 3.0 앱에 대해서는 Visual Studio 기반 온 보 딩이 아직 지원 되지 않습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 작동 하는 ASP.NET Core 응용 프로그램입니다. ASP.NET Core 응용 프로그램을 만들어야 하는 경우이 [ASP.NET Core 자습서](https://docs.microsoft.com/aspnet/core/getting-started/)를 따르세요.
 - 유효한 Application Insights 계측 키입니다. Application Insights에 원격 분석을 보내려면이 키가 필요 합니다. 계측 키를 가져오기 위해 새 Application Insights 리소스를 만들어야 하는 경우 [Application Insights 리소스 만들기](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)를 참조 하세요.
@@ -111,7 +111,7 @@ ms.locfileid: "71058269"
 
     * `ApplicationInsights:InstrumentationKey`
 
-    예:
+    예를 들어 다음과 같은 가치를 제공해야 합니다.
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -126,7 +126,7 @@ ms.locfileid: "71058269"
 
 응용 프로그램을 실행 하 고 요청을 만듭니다. 이제 원격 분석이 Application Insights로 흐릅니다. Application Insights SDK는 다음과 같은 원격 분석을 자동으로 수집 합니다.
 
-|요청/종속성 |세부 정보|
+|요청/종속성 |설명|
 |---------------|-------|
 |요청 | 응용 프로그램에 대 한 들어오는 웹 요청입니다. |
 |HTTP 또는 HTTPS | 를 사용 하 `HttpClient`여 호출 합니다. |
@@ -233,7 +233,7 @@ ASP.NET Core에 대 한 Application Insights SDK를 사용자 지정 하 여 기
 
 의 전체 설정 목록`ApplicationInsightsServiceOptions`
 
-|설정 | Description | 기본값
+|설정 | 설명 | 기본값
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | LiveMetrics 기능 사용/사용 안 함 | true
 |EnableAdaptiveSampling | 적응 샘플링 사용/사용 안 함 | true
@@ -241,7 +241,7 @@ ASP.NET Core에 대 한 Application Insights SDK를 사용자 지정 하 여 기
 |AddAutoCollectedMetricExtractor | 샘플링을 수행 하기 전에 요청/종속성에 대 한 미리 집계 된 메트릭을 전송 하는 TelemetryProcessor AutoCollectedMetrics 추출기를 사용/사용 안 함으로 설정 합니다. | true
 |RequestCollectionOptions. 사이 예외 | 요청 수집 모듈에서 처리 되지 않은 예외 추적의 보고를 사용 하거나 사용 하지 않도록 설정 합니다. | ApplicationInsightsLoggerProvider를 사용 하 여 예외를 추적 하므로 NETSTANDARD 2.0의 경우 false이 고, 그렇지 않으면 true입니다.
 
-최신 목록에 대해서는 [의 `ApplicationInsightsServiceOptions` 구성 가능한 설정을](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Microsoft.ApplicationInsights.AspNetCore/Extensions/ApplicationInsightsServiceOptions.cs) 참조 하세요.
+최신 목록에 대해서는 [의 `ApplicationInsightsServiceOptions` 구성 가능한 설정을](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) 참조 하세요.
 
 ### <a name="sampling"></a>샘플링
 

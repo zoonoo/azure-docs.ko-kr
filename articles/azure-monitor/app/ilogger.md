@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: 925264bb69093ab70465665e1d2da615a7a3e53d
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: acc7a218d40ec7b752d9495bd48e5f37436d736d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261767"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169465"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider for .NET Core ILogger logs
 
@@ -206,7 +206,7 @@ public class Startup
 
 합니다-beta2 이전의 Microsoft ApplicationInsights. AspNet SDK 버전은 이제 사용 되지 않는 로깅 공급자를 지원 합니다. 이 공급자는 ILoggerFactory의 **Addapplicationinsights ()** 확장 메서드를 통해 사용 하도록 설정 되었습니다. 다음 두 단계를 포함 하는 새 공급자로 마이그레이션하는 것이 좋습니다.
 
-1. 이중 로깅을 방지 하려면 ILoggerFactory **()** 메서드에서  () 호출을 제거 합니다.
+1. 이중 로깅을 방지 하려면 ILoggerFactory **()** 메서드에서 () 호출을 제거 합니다.
 2. 모든 필터링 규칙은 새 공급자가 적용 하지 않으므로 코드에서 다시 적용 합니다. *ILoggerFactory. AddApplicationInsights ()* 의 오버 로드에는 최소 LogLevel 또는 필터 함수가 걸렸습니다. 새 공급자를 사용 하는 경우 필터링은 로깅 프레임 워크 자체의 일부입니다. Application Insights 공급자는이 작업을 수행 하지 않습니다. 따라서 *ILoggerFactory. AddApplicationInsights ()* 오버 로드를 통해 제공 되는 모든 필터를 제거 해야 합니다. 및 필터링 규칙은 [컨트롤 로깅 수준](#control-logging-level) 지침에 따라 제공 되어야 합니다. *Appsettings* 를 사용 하 여 로깅을 필터링 하는 경우 둘 다 동일한 공급자 별칭인 *applicationinsights*를 사용 하기 때문에 새 공급자와 계속 작동 합니다.
 
 이전 공급자를 계속 사용할 수 있습니다. 주 버전은 3으로 변경 될 때만 제거 됩니다. *xx*.) 그러나 다음과 같은 이유로 새 공급자로 마이그레이션하는 것이 좋습니다.
@@ -220,6 +220,10 @@ public class Startup
 > 새 공급자는 NETSTANDARD 2.0 이상을 대상으로 하는 응용 프로그램에 사용할 수 있습니다. 응용 프로그램이 .NET Core 1.1 같은 이전 버전의 .NET Core를 대상으로 하는 경우 또는 .NET Framework를 대상으로 하는 경우에는 이전 공급자를 계속 사용 합니다.
 
 ## <a name="console-application"></a>콘솔 애플리케이션
+
+> [!NOTE]
+> 모든 콘솔 응용 프로그램에 대해 Application Insights (ILogger 및 기타 Application Insights 원격 분석)를 사용 하도록 설정 하는 데 사용할 수 있는 [라는 새로운](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 베타 Application Insights SDK가 있습니다. [여기](../../azure-monitor/app/worker-service.md)에서이 패키지 및 관련 지침을 사용 하는 것이 좋습니다.
+이 새 패키지의 안정적인 버전이 출시 되 면 다음 예제는 사용 되지 않습니다.
 
 다음 코드는 Application Insights으로 ILogger 추적을 보내도록 구성 된 샘플 콘솔 응용 프로그램을 보여 줍니다.
 
@@ -347,7 +351,7 @@ ApplicationInsightsLoggerProvider의 경우 공급자 별칭은 `ApplicationInsi
 
 ### <a name="create-filter-rules-in-code"></a>코드에서 필터 규칙 만들기
 
-다음 코드 조각에서는 모든 범주에서 *경고* 이상에 대 한 로그를 구성  하 고, "Microsoft" `ApplicationInsightsLoggerProvider`로 시작 하는 범주에서 오류 이상을 구성 합니다. 이 구성은 *appsettings*의 이전 섹션과 동일 합니다.
+다음 코드 조각에서는 모든 범주에서 *경고* 이상에 대 한 로그를 구성 하 고, "Microsoft" `ApplicationInsightsLoggerProvider`로 시작 하는 범주에서 오류 이상을 구성 합니다. 이 구성은 *appsettings*의 이전 섹션과 동일 합니다.
 
 ```csharp
     WebHost.CreateDefaultBuilder(args)
@@ -363,7 +367,7 @@ ApplicationInsightsLoggerProvider의 경우 공급자 별칭은 `ApplicationInsi
 
 ### <a name="what-are-the-old-and-new-versions-of-applicationinsightsloggerprovider"></a>ApplicationInsightsLoggerProvider의 이전 버전 및 새 버전은 무엇 인가요?
 
-ApplicationInsightsLoggerProvider SDK에는 ILoggerFactory를 통해 사용 하도록 설정 된 기본 제공 (AspNetCore ApplicationInsightsLoggerProvider)이 포함 되어 [있습니다](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) . 확장 메서드. 이 공급자는 버전 합니다-beta2에서 사용 되지 않는 것으로 표시 되었습니다. 다음 주 버전 변경에서 완전히 제거 됩니다. [AspNetCore 2.6.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 패키지 자체는 더 이상 사용 되지 않습니다. 요청, 종속성 등의 모니터링을 사용 하도록 설정 하는 데 필요 합니다.
+ApplicationInsightsLoggerProvider SDK에는 ILoggerFactory를 통해 사용 하도록 설정 된 기본 제공 (AspNetCore ApplicationInsightsLoggerProvider)이 포함 되어 [있습니다](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) .확장 메서드. 이 공급자는 버전 합니다-beta2에서 사용 되지 않는 것으로 표시 되었습니다. 다음 주 버전 변경에서 완전히 제거 됩니다. [AspNetCore 2.6.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 패키지 자체는 더 이상 사용 되지 않습니다. 요청, 종속성 등의 모니터링을 사용 하도록 설정 하는 데 필요 합니다.
 
 대신 향상 된 ApplicationInsightsLoggerProvider를 포함 하는 새로운 독립 실행형 패키지 인 [Microsoft.](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) ApplicationInsightsLoggerProvider) 및 ILoggerBuilder에 대 한 확장 메서드를 사용 하도록 설정 합니다.
 

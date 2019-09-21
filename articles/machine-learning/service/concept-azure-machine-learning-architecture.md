@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 91c747b8b4ca58e7714dc101777bad51f9f0286f
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 85ca03bee728ec075383566be14d2484dd7431af
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035589"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170440"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
 
@@ -63,10 +63,10 @@ Azure Machine Learning 다음 도구를 사용 합니다.
 + <a href="#compute-targets">계산 대상</a>
 + <a href="#training-scripts">학습 스크립트</a>
 + <a href="#runs">실행</a>
++ <a href="#environments">에서는</a>
 + <a href="#github-tracking-and-integration">Git 추적</a>
 + <a href="#snapshots">스냅숏</a>
 + <a href="#activities">활동</a>
-+ <a href="#images">Image</a>
 + <a href="#deployment">배포</a>
 + <a href="#web-service-deployments">웹 서비스</a>
 + <a href="#iot-module-deployments">IoT 모듈</a>
@@ -180,28 +180,15 @@ PyTorch, TensorFlow 및 체 이너 Azure Machine Learning 작업의 경우 이�
 
 작업은 SDK 또는 웹 UI를 통해 알림을 제공할 수 있으므로, 사용자가 이러한 조작의 진행 상황을 쉽게 모니터링할 수 있습니다.
 
-### <a name="images"></a>이미지
+### <a name="environments"></a>환경
 
-이미지는 모델을 사용하는 데 필요한 모든 구성 요소와 함께 모델을 안정적으로 배포하는 방법을 제공합니다. 이미지에는 다음 항목이 포함됩니다.
+Azure ML 환경은 데이터 준비, 모델 학습 및 모델 처리를 위한 재현 가능한 환경을 만드는 데 사용 되는 구성 (Docker/Python/Spark/등)을 지정 하는 데 사용 됩니다. 이러한 항목은 다양 한 계산 대상에서 재현 가능 하 고 감사 가능 하며 휴대용 기계 학습 워크플로를 가능 하 게 하는 Azure Machine Learning 작업 영역 내에서 관리 되 고 버전이 지정 된 엔터티입니다
 
-* 모델.
-* 점수 매기기 스크립트 또는 애플리케이션. 스크립트를 사용하여 입력을 모델에 전달하고 모델의 출력을 반환합니다.
-* 모델, 점수 매기기 스크립트 또는 애플리케이션에 필요한 종속성. 예를 들어 Python 패키지 종속성을 나열하는 Conda 환경 파일을 포함할 수 있습니다.
+로컬 계산의 환경 개체를 사용 하 여 학습 스크립트를 개발 하 고, 대규모로 모델 학습을 위해 동일한 환경을 Azure Machine Learning 계산에서 재사용 하 고, 동일한 환경에서 모델을 배포할 수 있습니다. 
 
-Azure Machine Learning은 다음과 같은 두 가지 유형의 이미지를 만들 수 있습니다.
+학습 및 유추를 위해 [재사용 가능한 ML 환경을 만들고 관리 하는 방법을](how-to-use-environments.md) 알아봅니다.
 
-* **FPGA 이미지**: Azure의 FPGA(Field-Programmable Gate Array)에 배포할 때 사용됩니다.
-* **Docker 이미지**: FPGA 이외의 컴퓨팅 대상에 배포할 때 사용됩니다. 예제로는 Azure Container Instances 및 Azure Kubernetes Service가 있습니다.
 
-Azure Machine Learning은 기본적으로 사용 되는 기본 이미지를 제공 합니다. 사용자 고유의 사용자 지정 이미지를 제공할 수도 있습니다.
-
-### <a name="image-registry"></a>이미지 레지스트리
-
-이미지는 작업 영역의 **이미지 레지스트리에** 카탈로그로 만들어집니다. 이미지를 만들 때 추가 메타 데이터 태그를 제공 하 여 나중에 이미지를 찾기 위해 쿼리할 수 있습니다.
-
-이미지를 만드는 예제는 [Azure Container Instance에 이미지 분류 모델 배포](tutorial-deploy-models-with-aml.md)를 참조하세요.
-
-사용자 지정 이미지를 사용 하 여 모델을 배포 하는 예제는 [사용자 지정 Docker 이미지를 사용 하 여 모델을 배포 하는 방법](how-to-deploy-custom-docker-image.md)을 참조 하세요.
 
 ### <a name="deployment"></a>배포
 

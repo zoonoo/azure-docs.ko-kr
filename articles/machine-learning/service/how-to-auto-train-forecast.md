@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 5339d963b84c5922138d53e44abe9340d55b4dde
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 03c5d46221dc385a390e840381270c01c40bdc6d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130243"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170397"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 
@@ -95,8 +95,10 @@ y_test = X_test.pop("sales_quantity").values
 |`time_column_name`|시계열을 작성 하 고 해당 빈도를 유추 하는 데 사용 되는 입력 데이터의 datetime 열을 지정 하는 데 사용 됩니다.|✓|
 |`grain_column_names`|입력 데이터에서 개별 계열 그룹을 정의 하는 이름입니다. 그레인을 정의 하지 않으면 데이터 집합은 하나의 시계열으로 간주 됩니다.||
 |`max_horizon`|시계열 빈도 단위로 원하는 최대 예측 구간을 정의 합니다. 단위는 학습 데이터의 시간 간격 (예: 매월, 매주 forecaster)을 기반으로 합니다.|✓|
-|`target_lags`|데이터의 빈도에 따라 대상 값의 지연에 사용 되는 행 수입니다. 이는 목록 또는 단일 정수로 표시 됩니다.||
-|`target_rolling_window_size`|예측 값을 생성 하는 데 사용할 수 *있는 기록 기간* < = 학습 집합 크기입니다. 생략 하는 경우 *n* 은 전체 학습 집합 크기입니다.||
+|`target_lags`|데이터의 빈도에 따라 대상 값의 지연에 사용 되는 행 수입니다. 이는 목록 또는 단일 정수로 표시 됩니다. 독립 변수와 종속 변수 간의 관계가 기본적으로 일치 하거나 상관 관계를 지정 하지 않는 경우에는 Lag를 사용 해야 합니다. 예를 들어, 제품 수요를 예측 하려는 경우 매월 수요는 특정 상품 3 개월 전에 가격에 따라 달라질 수 있습니다. 이 예에서는 모델이 올바른 관계에 대해 학습 하도록 대상 (수요)을 3 개월로 지연 시킬 수 있습니다.||
+|`target_rolling_window_size`|예측 값을 생성 하는 데 사용할 수 *있는 기록 기간* < = 학습 집합 크기입니다. 생략 하는 경우 *n* 은 전체 학습 집합 크기입니다. 모델을 학습할 때 특정 분량의 기록만 고려 하려는 경우이 매개 변수를 지정 합니다.||
+
+자세한 내용은 [참조 설명서](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) 를 참조 하세요.
 
 시간 계열 설정을 사전 개체로 만듭니다. `time_column_name` 을`day_datetime` 데이터 집합의 필드로 설정 합니다. 매개 변수 `grain_column_names` 를 정의 하 여 데이터에 대해 **두 개의 개별 시계열 그룹이** 생성 되도록 합니다. 즉, 매장 A와 B에 대해 하나씩, `max_horizon` 마지막으로 전체 테스트 집합에 대해 예측 하려면를 50로 설정 합니다. 를 사용 `target_rolling_window_size`하 여 예측 기간을 10 개로 설정 하 고 `target_lags` 매개 변수를 사용 하 여 2 개 기간의 대상 값에 단일 지연을 지정 합니다.
 

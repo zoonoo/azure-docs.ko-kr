@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: glenga
-ms.openlocfilehash: 3fa68cf3996efa047b7573306749acb56b4c9411
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 77805b15d0061d0ab4b6ef2185c2f7f1c3459f0c
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "70744092"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172072"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>을 사용 하 여 Azure Functions 개발 Visual Studio Code
 
@@ -42,7 +42,7 @@ Azure Functions 확장 프로그램은 다음과 같은 이점을 제공 합니�
 > [!IMPORTANT]
 > 단일 함수 앱에 대 한 로컬 개발 및 포털 개발을 혼합 하지 마세요. 로컬 프로젝트에서 함수 앱에 게시할 때 배포 프로세스는 포털에서 개발한 모든 기능을 덮어씁니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Visual Studio Code 용 [visual studio code용 azure functions 확장][visual studio code용 azure functions 확장]을 설치 하 고 실행 하기 전에 다음 요구 사항을 충족 해야 합니다.
 
@@ -90,7 +90,7 @@ Azure storage 계정과 같은 필요한 다른 리소스는 [Visual Studio Code
     >[!IMPORTANT]
     >로컬. 설정 json 파일은 암호를 포함할 수 있기 때문에 프로젝트 소스 제어에서 제외 해야 합니다.
 
-이 시점에서 [함수 json 파일을 수정](#javascript-2) 하거나 [ C# 클래스 라이브러리 함수에 매개 변수를 추가](#c-class-library-2)하 여 입력 및 출력 바인딩을 함수에 추가할 수 있습니다.
+이 시점에서 [함수 json 파일을 수정](#add-a-function-to-your-project) 하거나 [ C# 클래스 라이브러리 함수에 매개 변수를 추가](#add-a-function-to-your-project)하 여 입력 및 출력 바인딩을 함수에 추가할 수 있습니다.
 
 [프로젝트에 새 함수를 추가할](#add-a-function-to-your-project)수도 있습니다.
 
@@ -98,11 +98,11 @@ Azure storage 계정과 같은 필요한 다른 리소스는 [Visual Studio Code
 
 HTTP 및 타이머 트리거를 제외 하 고 바인딩은 확장 패키지에서 구현 됩니다. 필요한 트리거 및 바인딩에 대 한 확장 패키지를 설치 해야 합니다. 바인딩 확장을 설치 하는 프로세스는 프로젝트의 언어에 따라 달라 집니다.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-### <a name="c-class-library"></a>C\# 클래스 라이브러리
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 터미널 창에서 [dotnet add package](/dotnet/core/tools/dotnet-add-package) 명령을 실행 하 여 프로젝트에 필요한 확장 패키지를 설치 합니다. 다음 명령은 Blob, Queue 및 Table Storage에 대 한 바인딩을 구현 하는 Azure Storage 확장을 설치 합니다.
 
@@ -110,19 +110,23 @@ HTTP 및 타이머 트리거를 제외 하 고 바인딩은 확장 패키지에�
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
 
+---
+
 ## <a name="add-a-function-to-your-project"></a>프로젝트에 함수 추가
 
 미리 정의 된 함수 트리거 템플릿 중 하나를 사용 하 여 기존 프로젝트에 새 함수를 추가할 수 있습니다. 새 함수 트리거를 추가 하려면 F1 키를 선택 하 여 명령 팔레트를 연 다음 명령을 **검색 하 고 실행 Azure Functions 합니다. Create Function**. 프롬프트에 따라 트리거 유형을 선택 하 고 트리거의 필수 특성을 정의 합니다. 서비스에 연결 하기 위해 트리거에 액세스 키 또는 연결 문자열이 필요한 경우 함수 트리거를 만들기 전에 준비 합니다.
 
 이 작업의 결과는 프로젝트의 언어에 따라 달라 집니다.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 프로젝트에 새 폴더가 만들어집니다. 폴더에는 새 함수 json 파일 및 새 JavaScript 코드 파일이 포함 되어 있습니다.
 
-### <a name="c-class-library"></a>C\# 클래스 라이브러리
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 새 C# 클래스 라이브러리 (.cs) 파일이 프로젝트에 추가 됩니다.
+
+---
 
 ## <a name="add-input-and-output-bindings"></a>입력 및 출력 바인딩 추가
 
@@ -130,7 +134,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 
 다음 예에서는 저장소 계정에 대 한 연결 `outqueue`문자열이 `MyStorageConnection` 응용 프로그램 설정의 로컬. 설정에서 설정 된 이라는 저장소 큐에 연결 합니다.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 Visual Studio Code를 사용 하면 편리한 프롬프트 집합에 따라 함수 json 파일에 바인딩을 추가할 수 있습니다. 바인딩을 만들려면 함수 폴더의 **함수 json** 파일을 마우스 오른쪽 단추로 클릭 하 고 (Macos에서 Ctrl + 클릭) **바인딩 추가**를 선택 합니다.
 
@@ -138,7 +142,7 @@ Visual Studio Code를 사용 하면 편리한 프롬프트 집합에 따라 함�
 
 다음은 새 저장소 출력 바인딩을 정의 하는 예제 프롬프트입니다.
 
-| 프롬프트 | 값 | Description |
+| 프롬프트 | 값 | 설명 |
 | -------- | ----- | ----------- |
 | **바인딩 방향 선택** | `out` | 바인딩은 출력 바인딩입니다. |
 | **방향이 있는 바인딩 선택** | `Azure Queue Storage` | 바인딩은 Azure Storage 큐 바인딩입니다. |
@@ -168,7 +172,7 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 
 자세히 알아보려면 [큐 저장소 출력 바인딩](functions-bindings-storage-queue.md#output---javascript-example) 참조를 참조 하세요.
 
-### <a name="c-class-library"></a>C\# 클래스 라이브러리
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 함수 메서드를 업데이트 하 여 `Run` 메서드 정의에 다음 매개 변수를 추가 합니다.
 
@@ -181,6 +185,8 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 ```cs
 using Microsoft.Azure.WebJobs.Extensions.Storage;
 ```
+
+---
 
 `msg` 매개 변수는 `ICollector<T>` 형식이며, 함수가 완료될 때 출력 바인딩에 작성되는 메시지의 컬렉션을 나타냅니다. 하나 이상의 메시지를 컬렉션에 추가 합니다. 이러한 메시지는 함수가 완료 되 면 큐에 전송 됩니다.
 
@@ -216,7 +222,7 @@ Visual Studio Code에서 게시할 때 [Zip 배포](functions-deployment-technol
 
 1. 메시지가 표시 되 면 다음 정보를 제공 합니다.
 
-    | 프롬프트 | 값 | Description |
+    | 프롬프트 | 값 | 설명 |
     | ------ | ----- | ----------- |
     | Azure에서 함수 앱 선택 | Azure에서 새 함수 앱 만들기 | 다음 프롬프트에서 새 함수 앱을 식별 하는 전역적으로 고유한 이름을 입력 한 다음 Enter 키를 선택 합니다. 함수 앱 이름에 대한 유효한 문자는 `a-z`, `0-9` 및 `-`입니다. |
     | OS 선택 | Windows | 함수 앱은 Windows에서 실행 됩니다. |
@@ -381,7 +387,7 @@ Azure에서 응용 프로그램 설정을 만든 경우 **Azure Functions를 사
 
 Azure Functions 확장은 Azure에서 함수 앱과 상호 작용 하기 위한 영역에서 유용한 그래픽 인터페이스를 제공 합니다. 명령 팔레트 (F1) 에서도 같은 기능을 명령으로 사용할 수 있습니다. 이러한 Azure Functions 명령을 사용할 수 있습니다.
 
-|Azure Functions 명령  | Description  |
+|Azure Functions 명령  | 설명  |
 |---------|---------|
 |**새 설정 추가**  |  Azure에서 새 응용 프로그램 설정을 만듭니다. 자세히 알아보려면 [응용 프로그램 설정 게시](#publish-application-settings)를 참조 하세요. [로컬 설정으로이 설정을 다운로드](#download-settings-from-azure)해야 할 수도 있습니다. |
 | **배포 원본 구성** | Azure의 함수 앱을 로컬 Git 리포지토리에 연결 합니다. 자세한 내용은 [Azure Functions에 대 한 연속 배포](functions-continuous-deployment.md)를 참조 하세요. |

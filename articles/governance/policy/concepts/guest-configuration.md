@@ -3,16 +3,16 @@ title: 컴퓨터의 콘텐츠를 감사 하는 방법 이해
 description: Azure Policy 게스트 구성을 사용 하 여 Azure 컴퓨터 내에서 설정을 감사 하는 방법을 알아봅니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/04/2019
+ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bfa7f7486a9fa5ef62e8bf9e01dbe39d675d8d27
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 733b7fd8ef5b302df754fc7299b420739baff153
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308564"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172470"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -130,7 +130,7 @@ Azure Policy는 게스트 구성 리소스 공급자 **complianceStatus** 속성
 
 ## <a name="built-in-resource-modules"></a>기본 제공 리소스 모듈
 
-게스트 구성 확장을 설치 하는 경우 ' GuestConfiguration ' PowerShell 모듈은 최신 버전의 DSC 리소스 모듈에 포함 됩니다. 이 모듈은 모듈 페이지 [GuestConfiguration/](https://www.powershellgallery.com/packages/GuestConfiguration/)에서 ' 수동 다운로드 ' 링크를 사용 하 여 PowerShell 갤러리에서 다운로드할 수 있습니다.
+게스트 구성 확장을 설치 하는 경우 ' GuestConfiguration ' PowerShell 모듈은 최신 버전의 DSC 리소스 모듈에 포함 됩니다. 이 모듈은 [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/)모듈 페이지에서 ' 수동 다운로드 ' 링크를 사용 하 여 PowerShell 갤러리에서 다운로드할 수 있습니다.
 압축을 풀고 검토할 수 있도록 '. nupkg ' 파일 형식의 이름을 '. p s '로 바꿀 수 있습니다.
 
 ## <a name="client-log-files"></a>클라이언트 로그 파일
@@ -175,7 +175,7 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 정책 게스트 구성에 대 한 샘플은 다음 위치에서 사용할 수 있습니다.
 
 - [샘플 인덱스-게스트 구성](../samples/index.md#guest-configuration)
-- [Azure Policy GitHub 리포지토리를 샘플](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration)합니다.
+- [Azure Policy 샘플 GitHub 리포지토리](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration)
 
 ## <a name="next-steps"></a>다음 단계
 
