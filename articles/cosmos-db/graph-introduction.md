@@ -22,7 +22,7 @@ ms.locfileid: "68310245"
 
 이 문서에서는 Azure Cosmos DB Gremlin API의 개요와 이 API를 사용하여 수십억 개의 꼭짓점 및 에지가 포함된 대량의 그래프를 저장하는 방법을 설명합니다. 밀리초 단위 대기 시간 내에 그래프를 쿼리하고 그래프 구조를 쉽게 발전시킬 수 있습니다. Azure Cosmos DB의 Gremlin API는 [Apache TinkerPop](https://tinkerpop.apache.org)  그래프 데이터베이스 표준을 기반으로 하며 Gremlin 쿼리 언어를 사용합니다. 
 
-Azure Cosmos DB의 Gremlin API는 그래프 데이터베이스 알고리즘의 기능을 확장성 높은 관리형 인프라와 결합하여 유연성과 관계형 접근 방식의 부족으로 인한 대부분의 일반적인 데이터 문제에 대한 고유하고 유연한 솔루션을 제공합니다. 
+Azure Cosmos DB의 Gremlin API는 그래프 데이터베이스 알고리즘의 기능을 확장성 높은 관리형 인프라와 결합하여 유연성과 관계형 접근 방식이 결여되어 발생하는 대부분의 일반적인 데이터 문제에 대한 고유하고 유연한 솔루션을 제공합니다. 
 
 ## <a name="features-of-azure-cosmos-db-graph-database"></a>Azure Cosmos DB 그래프 데이터베이스의 기능
  
@@ -30,7 +30,7 @@ Azure Cosmos DB는 전역 배포, 스토리지 및 처리량의 탄력적인 확
 
 Azure Cosmos DB Gremlin API에서 제공하는 차별화된 기능은 다음과 같습니다.
 
-* **탄력적으로 확장성 있는 처리량 및 스토리지**
+* **탄력적으로 확장 가능한 처리량 및 스토리지**
 
   실제 사용되는 그래프는 단일 서버의 용량을 초과하여 확장되어야 합니다. Azure Cosmos DB는 거의 제한 없이 스토리지 및 프로비저닝된 처리량을 제공하도록 수평적으로 확장할 수 있는 그래프 데이터베이스를 지원합니다. 그래프 데이터베이스 규모가 증가하면 데이터는 [그래프 분할](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning)을 사용하여 자동으로 분산됩니다.
 
