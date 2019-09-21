@@ -49,17 +49,17 @@ Azure Portal를 사용 하 여 진단 로그를 사용 하도록 설정 하려�
 | TenantId | 테넌트 ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | UTC에 로그가 기록된 때의 타임스탬프 |
-| 형식 | 로그의 형식 항상 `AzureDiagnostics` |
+| Type | 로그의 형식 항상 `AzureDiagnostics` |
 | SubscriptionId | 서버가 속한 구독의 GUID |
 | ResourceGroup | 서버가 속한 리소스 그룹의 이름 |
 | ResourceProvider | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
-| resourceId | 리소스 URI |
+| ResourceId | 리소스 URI |
 | Resource | 서버의 이름입니다. |
-| 범주 | `PostgreSQLLogs` |
+| Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | 로깅 수준(예: LOG, ERROR, NOTICE) |
-| 메시지 | 기본 로그 메시지 | 
+| Message | 기본 로그 메시지 | 
 | Domain | 서버 버전(예: postgres-10) |
 | Detail | 보조 로그 메시지(해당하는 경우) |
 | ColumnName | 열 이름(해당하는 경우) |
@@ -67,7 +67,7 @@ Azure Portal를 사용 하 여 진단 로그를 사용 하도록 설정 하려�
 | DatatypeName | 데이터 형식 이름(해당하는 경우) |
 | LogicalServerName | 서버의 이름입니다. | 
 | _ResourceId | 리소스 URI |
-| 접두사 | 로그 줄의 접두사 |
+| Prefix | 로그 줄의 접두사 |
 
 
 
