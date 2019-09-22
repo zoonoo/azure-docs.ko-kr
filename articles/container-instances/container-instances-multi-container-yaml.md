@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 599339b0591245462dcc0840400ad5241cd5922c
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a38b0cfe7072975e4bcaf61b65ab7733694f714c
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325823"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178559"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>자습서: YAML 파일을 사용 하 여 다중 컨테이너 그룹 배포
 
@@ -24,7 +24,7 @@ ms.locfileid: "68325823"
 
 Azure Container Instances에서는 [컨테이너 그룹](container-instances-container-groups.md)을 사용하여 여러 컨테이너를 단일 호스트에 배포하도록 지원합니다. 컨테이너 그룹은 로깅, 모니터링 또는 서비스가 두 번째 연결 된 프로세스를 필요로 하는 기타 구성에 대해 사이드카 응용 프로그램을 빌드할 때 유용 합니다.
 
-이 자습서에서는 Azure CLI를 사용 하 여 YAML 파일을 배포 하 여 간단한 두 컨테이너 사이드카 구성을 실행 하는 단계를 수행 합니다. YAML 파일은 인스턴스 설정을 지정 하는 데 사용할 간결한 형식을 제공 합니다. 여기에서는 다음과 같은 작업을 수행하는 방법에 대해 배우게 됩니다.
+이 자습서에서는 Azure CLI를 사용 하 여 [Yaml 파일](container-instances-reference-yaml.md) 을 배포 하 여 간단한 두 컨테이너 사이드카 구성을 실행 하는 단계를 수행 합니다. YAML 파일은 인스턴스 설정을 지정 하는 데 사용할 간결한 형식을 제공 합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * YAML 파일 구성

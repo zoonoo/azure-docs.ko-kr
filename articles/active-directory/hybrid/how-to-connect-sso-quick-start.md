@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87764ed30182dc548fc3a260582174f121e27e24
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 29f94d6ff8045b7cae64957eeae00d2460ca3e37
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965226"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176829"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -221,7 +221,7 @@ Firefox 및 Microsoft Edge 브라우저의 프라이빗 검색 모드에서는 S
 >[!IMPORTANT]
 >컴퓨터 계정의 Kerberos 암호 해독 키가 유출된 경우 해당 AD 포리스트의 사용자에 대한 Kerberos 티켓을 생성하는 데 사용될 수 있습니다. 그런 다음, 악의적인 행위자는 손상된 사용자에 대한 Azure AD 로그인을 가장할 수 있습니다. 적어도 30일마다 한 번씩 Kerberos 암호 해독 키를 주기적으로 롤오버하는 것이 좋습니다.
 
-키를 롤오버하는 방법에 대한 지침은 [Azure Active Directory Seamless Single Sign-On: 질문과 대답](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account)을 참조하세요. 자동화된 배포 키를 소개하는 기능을 개발하고 있습니다.
+키를 롤오버하는 방법에 대한 지침은 [Azure Active Directory Seamless Single Sign-On: 질문과 대답](how-to-connect-sso-faq.md)을 참조하세요. 자동화된 배포 키를 소개하는 기능을 개발하고 있습니다.
 
 >[!IMPORTANT]
 >이 기능을 사용하도록 설정한 후에는 이 단계를 _즉시_ 수행할 필요가 없습니다. 적어도 30일마다 Kerberos 암호 해독 키를 롤오버합니다.

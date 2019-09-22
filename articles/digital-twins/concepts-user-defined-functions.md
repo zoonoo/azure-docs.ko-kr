@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: f4aa7e6660e3febdca6e0e5b1ad9f11bebaa48ea
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 07facf06702a63df8ea93d43b9896b72322b209f
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638466"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178258"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>데이터 처리 및 사용자 정의 함수
 
@@ -23,7 +23,7 @@ Azure Digital Twins는 고급 컴퓨팅 기능을 제공합니다. 개발자는 
 
 디바이스에서 원격 분석 데이터를 Azure Digital Twins에 보내면 개발자는 *유효성 검사*, *일치*, *컴퓨팅* 및 *디스패치*의 네 가지 단계로 데이터를 처리할 수 있습니다.
 
-![Azure Digital Twins 데이터 처리 흐름][1]
+[![Azure Digital Twins 데이터 처리 흐름](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
 
 1. 유효성 검사 단계에서는 들어오는 원격 분석 메시지를 일반적으로 이해되는 [데이터 전송 개체](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5)형식으로 변환합니다. 이 단계에서는 디바이스 및 센서 유효성 검사도 실행합니다.
 1. 일치 단계는 실행할 적절한 사용자 정의 함수를 찾습니다. 미리 정의된 검사기가 들어오는 원격 분석 메시지의 디바이스, 센서 및 공간 정보를 기반으로 사용자 정의 함수를 찾습니다.
@@ -34,9 +34,7 @@ Azure Digital Twins는 고급 컴퓨팅 기능을 제공합니다. 개발자는 
 
 Azure Digital Twins의 데이터 처리는 *검사기*, *사용자 정의 함수* 및 *역할 할당*이라는 세 가지 개체로 구성됩니다.
 
-![Azure Digital Twins 데이터 처리 개체][2]
-
-<div id="matcher"></div>
+[![Azure Digital Twins 데이터 처리 개체](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
 ### <a name="matchers"></a>검사기
 
@@ -92,9 +90,9 @@ Azure Digital Twins의 데이터 처리는 *검사기*, *사용자 정의 함수
 
 ### <a name="user-defined-functions"></a>사용자 정의 함수
 
-사용자 정의 함수는 격리된 Azure Digital Twins 환경 내에서 실행된 사용자 지정 함수입니다. 사용자 정의 함수는 수신되는 원시 센서 원격 분석 메시지에 액세스할 수 있습니다. 사용자 정의 함수는 공간 그래프 및 디스패처 서비스에 액세스할 수도 있습니다. 사용자 정의 함수가 그래프 내에 등록되면 함수를 실행할 시기를 지정하도록 선택기([위](#matcher)에서 자세히 설명)를 만들어야 합니다. 예를 들어, Azure Digital Twins가 지정 센서에서 새 원격 분석을 수신하는 경우 일치하는 사용자 정의 함수는 마지막 몇 개의 센서 값에 대한 이동 평균을 계산할 수 있습니다.
+사용자 정의 함수는 격리된 Azure Digital Twins 환경 내에서 실행된 사용자 지정 함수입니다. 사용자 정의 함수는 수신되는 원시 센서 원격 분석 메시지에 액세스할 수 있습니다. 사용자 정의 함수는 공간 그래프 및 디스패처 서비스에 액세스할 수도 있습니다. 사용자 정의 함수가 그래프 내에 등록되면 함수를 실행할 시기를 지정하도록 선택기([위](#matchers)에서 자세히 설명)를 만들어야 합니다. 예를 들어, Azure Digital Twins가 지정 센서에서 새 원격 분석을 수신하는 경우 일치하는 사용자 정의 함수는 마지막 몇 개의 센서 값에 대한 이동 평균을 계산할 수 있습니다.
 
-사용자 정의 함수는 JavaScript로 작성될 수 있습니다. 도우미 메서드는 사용자 정의 실행 환경에서 그래프와 상호 작용합니다. 개발자는 센서 원격 분석 메시지에 대해 사용자 지정 코드 조각을 실행할 수 있습니다. 예를 들어 다음과 같습니다.
+사용자 정의 함수는 JavaScript로 작성될 수 있습니다. 도우미 메서드는 사용자 정의 실행 환경에서 그래프와 상호 작용합니다. 개발자는 센서 원격 분석 메시지에 대해 사용자 지정 코드 조각을 실행할 수 있습니다. 예를 들면 다음과 같습니다.
 
 - 센서 값을 그래프 내의 센서 개체에 직접 설정합니다.
 - 다양한 센서 값을 기반으로 그래프의 공간 내에서 작업을 수행합니다.
@@ -103,14 +101,11 @@ Azure Digital Twins의 데이터 처리는 *검사기*, *사용자 정의 함수
 
 자세한 내용은 [사용자 정의 함수를 사용하는 방법](./how-to-user-defined-functions.md)을 참조하세요.
 
-
 #### <a name="examples"></a>예
 
 [Digital Twins C# 샘플에 대한 GitHub 리포지토리](https://github.com/Azure-Samples/digital-twins-samples-csharp/)에는 사용자 정의 함수의 몇 가지 예가 포함되어 있습니다.
 - [이 함수](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js)는 이산화탄소, 동작 및 온도 값을 찾아 범위 내에서 이러한 값으로 객실을 사용할 수 있는지 여부를 결정합니다. [Digital Twins 자습서](tutorial-facilities-udf.md)에 이 함수에 대해 보다 자세히 나와 있습니다. 
 - [이 함수](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js)는 여러 동작 센서에서 데이터를 찾은 후 어떤 동작 센서로도 동작이 검색되지 않는 경우 공간을 사용할 수 있음을 결정합니다. 파일의 주석 섹션에 설명된 변경을 수행하여 [빠른 시작](quickstart-view-occupancy-dotnet.md) 또는 [자습서](tutorial-facilities-setup.md)에 사용된 사용자 정의 함수를 쉽게 바꿀 수 있습니다. 
-
-
 
 ### <a name="role-assignment"></a>역할 할당
 
@@ -125,7 +120,3 @@ Azure Digital Twins의 데이터 처리는 *검사기*, *사용자 정의 함수
 - 검사기, 사용자 정의 함수 및 역할 할당을 생성하는 방법에 대한 자세한 내용은 [Guide for using user-defined functions](./how-to-user-defined-functions.md)(사용자 정의 함수 사용 가이드)를 참조하세요.
 
 - [사용자 정의 함수 클라이언트 라이브러리 참조 설명서](./reference-user-defined-functions-client-library.md)를 검토하세요.
-
-<!-- Images -->
-[1]: media/concepts/digital-twins-data-processing-flow.png
-[2]: media/concepts/digital-twins-user-defined-functions.png

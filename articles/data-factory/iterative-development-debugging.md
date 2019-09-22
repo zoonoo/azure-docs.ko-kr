@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: afc51735fcbd8f4131b2a4066a0fc4adbb8f1a41
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a1c4bf55fbb8242293fc0e30bbe16a6884b901cb
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142345"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178636"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Azure Data Factory를 사용한 반복적인 개발 및 디버깅
 
@@ -51,6 +51,10 @@ Azure Data Factory를 사용하면 Data Factory 파이프라인을 반복적인 
 ![활성 디버그 실행 보기 아이콘 선택](media/iterative-development-debugging/view-debug-runs-image1.png)
 
 ![활성 디버그 실행 샘플 목록](media/iterative-development-debugging/view-debug-runs-image2.png)
+
+활성 데이터 흐름 디버그 세션이 있는 경우 해당 세션은 활성 디버그 창의 아래쪽에 표시 됩니다. 활성 데이터 흐름 세션을 선택 하 고 해당 클러스터를 중지할 수 있습니다.
+
+![활성 데이터 흐름 디버그 실행의 샘플 목록](media/data-flow/dfsessions.png)
 
 ## <a name="monitoring-debug-runs"></a>디버그 실행 모니터링
 

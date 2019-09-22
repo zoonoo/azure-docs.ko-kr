@@ -7,73 +7,57 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
-ms.custom: seodec2018
-ms.openlocfilehash: 30c3b233a1454d04fb281e049376b2b3aafe1879
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 09/20/2019
+ms.openlocfilehash: 4646cb30ef7602da990e24f923c8eceada4debd0
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647963"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178024"
 ---
-# <a name="how-to-compose-a-query-in-azure-search"></a>Azure Search에서 쿼리를 작성하는 방법
+# <a name="query-types-and-composition-in-azure-search"></a>Azure Search의 쿼리 유형 및 구성
 
-Azure Search에서 쿼리는 왕복 작업의 전체 사양입니다. 요청의 매개 변수는 인덱스에서 문서를 찾는 일치 조건, 엔진에 대한 실행 지침 및 응답을 형성하는 지시문을 제공합니다. 
+Azure Search에서 쿼리는 왕복 작업의 전체 사양입니다. 요청에 대 한 매개 변수는 인덱스의 문서를 찾기 위한 일치 조건, 포함 하거나 제외할 필드, 엔진으로 전달 되는 실행 명령, 응답을 셰이핑 하기 위한 지시문을 제공 합니다. 지정 되지`search=*`않음 (). 쿼리는 모든 검색 가능 필드에 대해 전체 텍스트 검색 작업으로 실행 되어 점수가 매겨진 결과 집합을 임의의 순서로 반환 합니다.
 
-쿼리 요청은 풍부한 구문으로, 범위 내 필드, 검색 방법, 반환할 필드, 정렬 또는 필터링 여부 등을 지정할 수 있습니다. 지정하지 않을 경우, 쿼리는 검색 가능한 모든 필드에 대해 전체 텍스트 검색 작업으로 실행되고, 점수가 매겨지지 않은 결과 집합을 임의의 순서로 반환합니다.
-
-## <a name="apis-and-tools-for-testing"></a>테스트를 위한 API 및 도구
-
-다음 표에는 쿼리를 제출하기 위한 API 및 도구 기반 접근 방법이 나와 있습니다.
-
-| 방법 | Description |
-|-------------|-------------|
-| [검색 탐색기(포털)](search-explorer.md) | 검색 표시줄 및 인덱스와 api-version 선택을 위한 옵션을 제공합니다. 결과는 JSON 문서로 반환됩니다. <br/>[자세한 정보](search-get-started-portal.md#query-index) | 
-| [Postman 또는 Fiddler](search-get-started-postman.md) | 웹 테스트 도구는 REST 호출 작성에 적합한 선택 항목입니다. REST API는 Azure Search에서 가능한 모든 작업을 지원합니다. 이 문서에서는 Azure Search로 요청을 전송하기 위해 HTTP 요청 헤더 및 본문을 설정하는 방법을 알아봅니다.  |
-| [SearchIndexClient(.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Azure Search 인덱스를 쿼리하는 데 사용할 수 있는 클라이언트입니다.  <br/>[자세한 정보](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Search Documents(REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | 인덱스에 대한 GET 또는 POST 메서드로, 추가 입력을 위해 쿼리 매개 변수를 사용합니다.  |
-
-## <a name="a-first-look-at-query-requests"></a>쿼리 요청 소개
-
-예제는 새로운 개념을 소개하는 데 유용합니다. [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)로 작성된 대표 쿼리인 이 예제는 [부동산 데모 인덱스](search-get-started-portal.md)를 대상으로 하고 공통 매개 변수를 포함합니다.
+다음 예는 [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)에서 생성 된 대표적인 쿼리입니다. 이 예에서는 [호텔 데모 인덱스](search-get-started-portal.md) 를 대상으로 하며 일반 매개 변수를 포함 합니다.
 
 ```
 {
     "queryType": "simple" 
-    "search": "seattle townhouse* +\"lake\"",
-    "searchFields": "description, city",
-    "count": "true",
-    "select": "listingId, street, status, daysOnMarket, description",
+    "search": "+New York +restaurant",
+    "searchFields": "Description, Address/City, Tags",
+    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
     "top": "10",
-    "orderby": "daysOnMarket"
+    "count": "true",
+    "orderby": "Rating desc"
 }
 ```
 
-+ **`queryType`** 은 파서를 설정하는데 Azure Search에서는 이것이 [간단한 기본 쿼리 파서](search-query-simple-examples.md)이거나 고급 쿼리 구문(예: 정규식, 근접 검색, 유사 항목 검색 및 와일드 카드 검색)에 사용되는 [전체 Lucene 쿼리 파서](search-query-lucene-examples.md)일 수 있습니다.
++ **`queryType`** [기본 단순 쿼리 파서](search-query-simple-examples.md) (전체 텍스트 검색에 최적) 인 파서 또는 정규식, 근접 검색, 유사 항목 및 와일드 카드 검색 등의 고급 쿼리 구문에 사용 되는 [전체 Lucene 쿼리 파서](search-query-lucene-examples.md) 를 설정 하 여 이름을 몇.
 
 + **`search`** 는 일치 조건을 제공하며, 일반적으로 텍스트이지만 부울 연산자가 자주 사용됩니다. 독립형 단일 용어는 용어 쿼리입니다. 따옴표로 묶인 여러 부분 쿼리는 핵심 구문 쿼리입니다. 검색은 **`search=*`** 처럼 정의되지 않을 수 있지만 예제에 나타나는 것과 유사한 용어, 구문 및 연산자로 구성될 가능성이 큽니다.
 
-+ **`searchFields`** 는 선택적이며 쿼리 실행을 특정 필드로 제한하는 데 사용됩니다.
++ **`searchFields`** 쿼리 실행을 특정 필드로 제한 합니다. 인덱스 스키마에서 *검색* 가능으로 특성을 지정 하는 모든 필드는이 매개 변수에 대 한 후보입니다.
 
-응답은 쿼리에 포함된 매개 변수에 의해 형성됩니다. 예제에서 결과 집합은 **`select`** 문에 나열된 필드로 구성됩니다. 이 쿼리에서는 상위 10개 항목만 반환되지만 **`count`** 는 전체적으로 일치하는 문서의 수를 알려줍니다. 이 쿼리에서 행은 daysOnMarket에 따라 정렬됩니다.
+응답은 쿼리에 포함된 매개 변수에 의해 형성됩니다. 예제에서 결과 집합은 **`select`** 문에 나열된 필드로 구성됩니다. 검색 가능으로 표시 된 필드만 $select 문에서 사용할 *수 있습니다.* 또한이 쿼리에서는 **`top`** 10 개의 적중만 반환 되 고,는 **`count`** 전체와 일치 하는 문서 수를 알려 줍니다 .이는 반환 되는 것 보다 많은 문서입니다. 이 쿼리에서 행은 등급을 기준으로 내림차순으로 정렬 됩니다.
 
 Azure Search에서 쿼리 실행은 항상 하나의 인덱스에 대해 수행되며 요청에 제공된 API 키를 사용하여 인증됩니다. REST에서 둘 다 요청 헤더에 제공됩니다.
 
 ### <a name="how-to-run-this-query"></a>이 쿼리를 실행하는 방법
 
-이 쿼리를 실행하려면 [검색 탐색기와 부동산 데모 인덱스](search-get-started-portal.md)를 사용합니다. 
+이 쿼리를 실행 하려면 [검색 탐색기와 호텔 데모 인덱스](search-get-started-portal.md)를 사용 합니다. 
 
-이 쿼리 문자열을 탐색기의 검색 창에 붙여넣으면 됩니다.`search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket`
+이 쿼리 문자열을 탐색기의 검색 창에 붙여넣으면 됩니다.`search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
 
 ## <a name="how-query-operations-are-enabled-by-the-index"></a>인덱스로 쿼리 작업을 사용하는 방법
 
 인덱스 디자인과 쿼리 디자인은 Azure Search와 밀접하게 결합됩니다. 먼저 알아야 하는 중요한 사실은 각 필드의 특성과 함께 인덱스 스키마에 의해 빌드할 수 있는 쿼리의 종류가 결정된다는 것입니다. 
 
-필드의 인덱스 특성은 허용된 작업(예: 인덱스에서 필드를 검색할 수 있는지(*searchable*), 결과에서 검색이 가능한지(*retrievable*), 정렬이 가능한지(*sortable*), 필터링이 가능한지(*filterable*) 등)을 설정합니다. 예제 쿼리 문자열에서 `"$orderby": "daysOnMarket"`은 daysOnMarket 필드가 인덱스 스키마에서 정렬 가능(*sortable*)으로 표시되어 있기 때문에 작동합니다. 
+필드의 인덱스 특성은 허용된 작업(예: 인덱스에서 필드를 검색할 수 있는지(*searchable*), 결과에서 검색이 가능한지(*retrievable*), 정렬이 가능한지(*sortable*), 필터링이 가능한지(*filterable*) 등)을 설정합니다. 예제 쿼리 문자열 `"$orderby": "Rating"` 에서는 등급 필드가 인덱스 스키마에서 *정렬할* 수 있는 것으로 표시 되기 때문에만 작동 합니다. 
 
-![부동산 샘플에 대한 인덱스 정의](./media/search-query-overview/realestate-sample-index-definition.png "부동산 샘플에 대한 인덱스 정의")
+![호텔 샘플에 대 한 인덱스 정의](./media/search-query-overview/hotel-sample-index-definition.png "호텔 샘플에 대 한 인덱스 정의")
 
-위의 스크린샷은 부동산 샘플에 대한 인덱스 특성의 부분 목록입니다. 전체 인덱스 스키마는 포털에서 볼 수 있습니다. 인덱스 특성에 대한 자세한 내용은 [인덱스 REST API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.
+위의 스크린샷은 호텔 샘플에 대 한 인덱스 특성의 부분 목록입니다. 전체 인덱스 스키마는 포털에서 볼 수 있습니다. 인덱스 특성에 대한 자세한 내용은 [인덱스 REST API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.
 
 > [!Note]
 > 일부 쿼리 기능은 필드별로 활성화되기 보다는 인덱스 전체에서 사용하도록 설정됩니다. 이러한 기능에는 [동의어 맵](search-synonyms.md), [사용자 지정 분석기](index-add-custom-analyzers.md), [확인 기 구문 (자동 완성 및 제안 된 쿼리)](index-add-suggesters.md), [결과 순위 지정을 위한 점수 매기기 논리가](index-add-scoring-profiles.md)포함 됩니다.
@@ -92,22 +76,33 @@ Azure Search에서 쿼리 실행은 항상 하나의 인덱스에 대해 수행�
 
 모든 다른 검색 매개 변수는 선택 사항입니다. 전체 특성 목록은 [인덱스 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요. 처리 중에 매개 변수가 어떻게 사용되는지 자세히 알아보려면, [Azure Search에서 전체 텍스트 검색이 작동하는 원리](search-lucene-query-architecture.md)를 참조하세요.
 
+## <a name="choose-apis-and-tools"></a>Api 및 도구 선택
+
+다음 표에는 쿼리를 제출하기 위한 API 및 도구 기반 접근 방법이 나와 있습니다.
+
+| 방법 | 설명 |
+|-------------|-------------|
+| [검색 탐색기(포털)](search-explorer.md) | 검색 표시줄 및 인덱스와 api-version 선택을 위한 옵션을 제공합니다. 결과는 JSON 문서로 반환됩니다. 탐색, 테스트 및 유효성 검사에 권장 됩니다. <br/>[자세한 정보](search-get-started-portal.md#query-index) | 
+| [Postman 또는 기타 REST 도구](search-get-started-postman.md) | 웹 테스트 도구는 REST 호출 작성에 적합한 선택 항목입니다. REST API는 Azure Search에서 가능한 모든 작업을 지원합니다. 이 문서에서는 Azure Search로 요청을 전송하기 위해 HTTP 요청 헤더 및 본문을 설정하는 방법을 알아봅니다.  |
+| [SearchIndexClient(.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Azure Search 인덱스를 쿼리하는 데 사용할 수 있는 클라이언트입니다.  <br/>[자세한 정보](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Search Documents(REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | 인덱스에 대한 GET 또는 POST 메서드로, 추가 입력을 위해 쿼리 매개 변수를 사용합니다.  |
+
 ## <a name="choose-a-parser-simple--full"></a>파서 선택: 단순 | 전체
 
 Azure Search는 Apache Lucene을 기반으로 하고 일반적인 쿼리와 특수화된 쿼리를 처리하기 위한 두 개의 쿼리 파서 중에서 선택할 수 있도록 합니다. 단순 파서를 사용하는 요청은 [단순 쿼리 구문](query-simple-syntax.md)을 사용하여 형성되며 자유 형식 텍스트 쿼리에서 속도와 효율성의 기본값으로 선택됩니다. 이 구문은 AND, OR, NOT, 구, 접미사 및 우선 순위 연산자를 포함한 여러 일반 검색 연산자를 지원합니다.
 
 요청에 `queryType=full`을 추가하면 사용되도록 설정되는 [전체 Lucene 쿼리 구문](query-Lucene-syntax.md#bkmk_syntax)은 [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)의 일부로 개발된 널리 채택되고 표현적인 쿼리 언어를 공개합니다. 전체 구문은 단순 구문을 확장합니다. 단순 구문에 대해 작성한 쿼리는 전체 Lucene 파서에서 실행됩니다. 
 
-다음 예제는 이런 점을 보여줍니다. 동일한 쿼리이지만 다른 queryType 설정을 사용하면 다른 결과가 나타납니다. 첫 번째 쿼리에서 `^3`은 검색어의 일부로 처리됩니다.
+다음 예제는 이런 점을 보여줍니다. 동일한 쿼리이지만 다른 queryType 설정을 사용하면 다른 결과가 나타납니다. 첫 번째 쿼리에서 `^3` after `historic` 는 검색 용어의 일부로 처리 됩니다. 이 쿼리에 대해 가장 순위가 높은 결과는 "Plaza & 도구 모음" 이며, 해당 설명에는 *바다* 가 있습니다.
 
 ```
-queryType=simple&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
+queryType=simple&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
-전체 Lucene 파서를 사용하는 동일한 쿼리는 "ranch"에서 필드 내 부스트를 해석하여 특정 용어가 포함된 결과의 검색 순위를 높입니다.
+전체 Lucene 파서를 사용 하는 동일한 쿼리 `^3` 는 필드 내 용어 부스터로 해석 됩니다. 파서를 전환 하면 순위가 변경 되 고 맨 *위로 이동 하* 는 용어를 포함 하는 결과가 변경 됩니다.
 
 ```
-queryType=full&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
+queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
 <a name="types-of-queries"></a>
@@ -162,7 +157,7 @@ Azure Search에서 검색 결과를 검색 점수가 아닌 다른 값으로 정
 ### <a name="hit-highlighting"></a>적중 항목 강조 표시
 Azure Search에서 검색 쿼리와 일치하는 검색 결과의 정확한 부분을 강조하려면 **`highlight`** , **`highlightPreTag`** 및 **`highlightPostTag`** 매개 변수를 사용합니다. 어떤 *검색 가능한* 필드의 일치 텍스트를 강조할지를 지정할 수 있으며 Azure Search에서 반환하는 일치 텍스트의 시작 및 끝부분에 추가할 정확한 문자열 태그를 지정할 수 있습니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
 + [Azure Search에서 전체 텍스트 검색이 작동하는 원리(아키텍처를 구문 분석하는 쿼리)](search-lucene-query-architecture.md)
 + [검색 탐색기](search-explorer.md)

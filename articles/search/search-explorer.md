@@ -1,33 +1,30 @@
 ---
-title: Azure Portal의 데이터 쿼리용 검색 탐색기 도구 - Azure Search
-description: 검색 탐색기와 같은 Azure Portal 도구를 사용하여 Azure Search에서 인덱스를 쿼리합니다. 검색 용어 또는 고급 구문을 포함하는 정규화된 검색 문자열을 입력합니다.
+title: 검색 탐색기 도구를 사용 하 여 Azure Portal에서 데이터 쿼리 Azure Search
+description: 검색 탐색기는 Azure Portal에 기본 제공 되며 Azure Search에서 콘텐츠를 탐색 하 고 쿼리 유효성을 검사 하는 데 유용 합니다. 용어 또는 문구 검색 문자열 또는 고급 구문을 포함 하는 정규화 된 검색 식을 입력 합니다.
 manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e941e487adaac38c4ec3bd61a58b4b0c61f4c80a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: fe66787ea82a8f97470199e99faadb72b85c83b2
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649960"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178142"
 ---
-# <a name="search-explorer-for-querying-data-in-azure-search"></a>Azure Search에서 데이터를 쿼리하기 위한 검색 탐색기 
+# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-search"></a>Azure Portal에서 검색 탐색기를 사용 하 여 Azure Search에서 문서를 쿼리 합니다. 
 
-이 문서에서는 Azure Portal에서 **검색 탐색기**를 사용하여 기존 Azure Search 인덱스를 쿼리하는 방법을 보여줍니다. 검색 탐색기를 사용하여 서비스에서 기존 인덱스에 단일 또는 전체 Lucene 쿼리 문자열을 제출할 수 있습니다. 
+이 문서에서는 Azure Portal에서 **검색 탐색기**를 사용하여 기존 Azure Search 인덱스를 쿼리하는 방법을 보여줍니다. 명령 모음에서 검색 탐색기를 시작 하 여 단순 또는 전체 Lucene 쿼리 식을 서비스의 기존 인덱스에 제출할 수 있습니다. 
 
    ![포털의 검색 탐색기 명령](./media/search-explorer/search-explorer-cmd2.png "포털의 검색 탐색기 명령")
 
-
-검색 탐색기 시작과 관련된 도움말은 [검색 탐색기 시작](#start-search-explorer)을 참조하세요.
-
 ## <a name="basic-search-strings"></a>기본 검색 문자열
 
-다음 예제에서는 기본 제공 부동산 샘플 인덱스를 가정합니다. 이 인덱스를 만드는 방법과 관련된 도움말은 [빠른 시작: Azure Portal에서 가져오기, 인덱싱 및 쿼리](search-get-started-portal.md)를 참조하세요.
+다음 예에서는 기본 제공 부동산 샘플 인덱스를 가정 합니다. 데이터 원본으로 **샘플** 을 선택 하 여 포털에서 데이터 가져오기 마법사를 사용 하 여이 인덱스를 만들 수 있습니다.
 
 ### <a name="example-1---empty-search"></a>예제 1 - 빈 검색
 

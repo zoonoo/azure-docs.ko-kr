@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 83581b22389efe5c9c19689e3116b39ea049ccdc
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 087a88322175b1908ab591a5b9afb5ae45227bb1
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694196"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177965"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 가격 책정 계층
 
@@ -23,7 +23,7 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 | vCore | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | vCore 메모리 | 2GB | 5GB | 10GB |
 | 스토리지 크기 | 5GB-1TB | 5GB-4TB | 5GB-4TB |
-| 스토리지 유형 | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
+| 스토리지 형식 | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | 데이터베이스 백업 보존 기간 | 7-35일 | 7-35일 | 7-35일 |
 
 가격 책정 계층을 선택하려면 시작 지점으로 다음 표를 사용합니다.
@@ -46,7 +46,7 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 
 |    | **기본** | **범용** | **메모리 최적화** |
 |:---|:----------|:--------------------|:---------------------|
-| 스토리지 유형 | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
+| 스토리지 형식 | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | 스토리지 크기 | 5GB-1TB | 5GB-4TB | 5GB-4TB |
 | 스토리지 증분 크기 | 1GB | 1GB | 1GB |
 | IOPS | 변수 |3IOPS/GB<br/>최소 100IOPS<br/>최대 6000IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 6000IOPS |
@@ -66,7 +66,7 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 
 |              | **범용** | **메모리 최적화** |
 |:-------------|:--------------------|:---------------------|
-| 스토리지 유형 | Azure Premium Storage | Azure Premium Storage |
+| 스토리지 형식 | Azure Premium Storage | Azure Premium Storage |
 | 스토리지 크기 | 32 g b ~ 16TB| 32 g b ~ 16TB |
 | 스토리지 증분 크기 | 1GB | 1GB |
 | IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS| 3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS |
@@ -83,7 +83,7 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 
 프로 비전 된 저장소 수가 100 미만인 서버는 사용 가능한 저장소가 512MB 보다 작거나 프로 비전 된 저장소 크기의 5% 인 경우 읽기 전용으로 표시 됩니다. 프로 비전 된 저장소가 100 이상인 서버는 사용 가능한 저장소가 5gb 미만인 경우에만 읽기 전용으로 표시 됩니다.
 
-예를 들어 110 GB의 저장소를 프로 비전 하 고 실제 사용률이 105 g b를 초과 하는 경우 서버는 읽기 전용으로 표시 됩니다. 또는 5gb의 저장소를 프로 비전 한 경우 사용 가능한 저장소가 512 미만에 도달 하면 서버는 읽기 전용으로 표시 됩니다.
+예를 들어 110 GB의 저장소를 프로 비전 하 고 실제 사용률이 105 g b를 초과 하는 경우 서버는 읽기 전용으로 표시 됩니다. 또는 5gb의 저장소를 프로 비전 한 경우 사용 가능한 저장소가 256 미만에 도달 하면 서버는 읽기 전용으로 표시 됩니다.
 
 서비스가 서버를 읽기 전용으로 만들려고 하는 동안 모든 새 쓰기 트랜잭션 요청은 차단되고 기존 활성 트랜잭션은 계속 실행됩니다. 서버가 읽기 전용으로 설정되면 모든 후속 쓰기 작업 및 트랜잭션 커밋은 실패합니다. 읽기 쿼리는 중단 없이 계속 작동합니다. 프로비전된 스토리지를 늘린 후 서버는 다시 쓰기 트랜잭션을 허용할 준비를 갖춥니다.
 
@@ -91,9 +91,9 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 
 ### <a name="storage-auto-grow"></a>저장소 자동 증가
 
-저장소 자동 확장은 서버가 저장소에서 실행 되지 않고 읽기 전용이 되도록 방지 합니다. 저장소 자동 증가를 사용 하도록 설정 하면 워크 로드에 영향을 주지 않고 저장소가 자동으로 증가 합니다. 프로 비전 된 저장소 수가 100 미만인 서버의 경우, 사용 가능한 저장소가 프로 비전 된 저장소의 1gb 또는 10%를 초과 하는 즉시 프로 비전 된 저장소 크기는 5gb 씩 증가 합니다. 프로 비전 된 저장소 수가 100 GB를 넘는 서버에서는 사용 가능한 저장소 공간이 프로 비전 된 저장소 크기의 5% 미만이 면 프로 비전 된 저장소 크기가 5% 증가 합니다. 위에 지정 된 대로 최대 저장소 제한이 적용 됩니다.
+저장소 자동 확장은 서버가 저장소에서 실행 되지 않고 읽기 전용이 되도록 방지 합니다. 저장소 자동 증가를 사용 하도록 설정 하면 워크 로드에 영향을 주지 않고 저장소가 자동으로 증가 합니다. 프로 비전 된 저장소 수가 100 미만인 서버의 경우, 사용 가능한 저장소가 프로 비전 된 저장소의 10% 미만인 경우 프로 비전 된 저장소 크기는 5gb 씩 증가 합니다. 프로 비전 된 저장소 수가 100 GB를 넘는 서버에서는 사용 가능한 저장소 공간이 프로 비전 된 저장소 크기의 10% 미만이 면 프로 비전 된 저장소 크기가 5% 증가 합니다. 위에 지정 된 대로 최대 저장소 제한이 적용 됩니다.
 
-예를 들어 1000 GB의 저장소를 프로 비전 하 고 실제 사용률이 950 GB를 초과 하는 경우 서버 저장소 크기가 1050 GB로 증가 합니다. 또는 10gb의 저장소를 프로 비전 한 경우 1gb 미만의 저장소를 사용할 수 있는 경우 저장소 크기가 15gb로 증가 합니다.
+예를 들어 1000 GB의 저장소를 프로 비전 하 고 실제 사용률이 900 GB를 초과 하는 경우 서버 저장소 크기가 1050 GB로 증가 합니다. 또는 10gb의 저장소를 프로 비전 한 경우 1gb 미만의 저장소를 사용할 수 있는 경우 저장소 크기가 15gb로 증가 합니다.
 
 저장소는 다운 되지 않고 확장만 가능 합니다.
 

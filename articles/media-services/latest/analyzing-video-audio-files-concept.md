@@ -9,18 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 09/21/2019
 ms.author: juliako
-ms.openlocfilehash: 477733dcb76647b2c03f79dea4f55c3102d262b8
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: bc4be8eaafe805e5d9a985b005efe80bc4af1d21
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376197"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177987"
 ---
 # <a name="analyzing-video-and-audio-files"></a>비디오 및 오디오 파일 분석
 
-Azure Media Services v3을 사용하면 AMS v3 분석기 사전 설정(이 문서에 설명되어 있음)을 통해 Video Indexer로 비디오 및 오디오 파일에서 인사이트를 추출할 수 있습니다. 더 자세한 인사이트가 필요하면 Video Indexer를 직접 사용해 보세요. Video Indexer 및 Media Services 분석기 미리 설정을 사용하려는 경우를 이해하려면 [비교 문서](../video-indexer/compare-video-indexer-with-media-services-presets.md)를 확인하세요.
+Azure Media Services v3를 사용 하면 Media Services v3 분석기 사전 설정 (이 문서에 설명)을 통해 비디오 및 오디오 Video Indexer 파일에서 정보를 추출할 수 있습니다. 더 자세한 인사이트가 필요하면 Video Indexer를 직접 사용해 보세요. Video Indexer 및 Media Services 분석기 미리 설정을 사용하려는 경우를 이해하려면 [비교 문서](../video-indexer/compare-video-indexer-with-media-services-presets.md)를 확인하세요.
 
 Media Services v3 사전 설정을 사용하여 콘텐츠를 분석하려면 **Transform**을 만들고 다음 사전 설정 중 하나를 사용하는 **Job**을 제출합니다. [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) 또는 **AudioAnalyzerPreset**. 다음 문서에서는 **VideoAnalyzerPreset**을 사용하는 방법을 설명합니다. [자습서: Azure Media Services를 통해 비디오 분석](analyze-videos-tutorial-with-api.md).
 
@@ -62,14 +62,14 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="transcript"></a>대본
 
-|이름|Description|
+|이름|설명|
 |---|---|
 |id|줄 ID입니다.|
 |text|자체 대본입니다.|
 |language|대본 언어입니다. 각 줄마다 다른 언어가 사용될 수 있는 대본을 지원하기 위한 요소입니다.|
 |인스턴스|이 줄이 나타나는 시간 범위 목록입니다. 인스턴스가 대본인 경우 인스턴스는 하나만 있습니다.|
 
-예제:
+예:
 
 ```json
 "transcript": [
@@ -143,7 +143,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="faces"></a>얼굴
 
-|이름|Description|
+|이름|설명|
 |---|---|
 |id|얼굴 ID입니다.|
 |name|얼굴 이름입니다. ‘Unknown #0’, 확인된 유명인 또는 고객 교육을 받은 사람일 수 있습니다.|
@@ -188,7 +188,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="shots"></a>샷
 
-|이름|Description|
+|이름|설명|
 |---|---|
 |id|샷 ID입니다.|
 |keyFrames|샷 내의 키 프레임 목록(각각 ID와 인스턴스 시간 범위 목록이 있음)입니다. 키 프레임 인스턴스에는 keyFrame의 썸네일 ID와 thumbnailId 필드가 있습니다.|
@@ -258,7 +258,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 감정은 sentimentType 필드(긍정적/중립/부정적)로 집계됩니다. 예: 0-0.1, 0.1-0.2.
 
-|이름|Description|
+|이름|설명|
 |---|---|
 |id|감정 ID입니다.|
 |averageScore |해당 감정 유형의 모든 인스턴스의 모든 점수 평균 – 긍정적/중립/부정적|
@@ -293,7 +293,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="labels"></a>레이블
 
-|이름|Description|
+|이름|설명|
 |---|---|
 |id|레이블 ID입니다.|
 |name|레이블 이름(예: '컴퓨터', 'TV')입니다.|
@@ -352,7 +352,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="keywords"></a>키워드
 
-|이름|Description|
+|이름|설명|
 |---|---|
 |id|키워드 ID입니다.|
 |text|키워드 텍스트입니다.|

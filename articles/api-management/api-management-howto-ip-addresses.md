@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 6e12a16b221a8f31d82a002fbc93b090d6f0c577
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 7224c6a77df496624903830f0a2cbd8d193517cc
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861260"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178200"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Azure API Management의 IP 주소
 
@@ -61,7 +61,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 
 API Management 서비스는 가상 네트워크 내에 있는 경우 공용 및 개인 이라는 두 가지 유형의 IP 주소를 갖게 됩니다.
 
-공용 IP 주소는 구성 (예: Azure Resource Manager) `3443` 을 관리 하기 위해 포트에서 내부 통신에 사용 됩니다. 또한 요청을 API Management에서 공용 (인터넷 연결) 백 엔드로 보내는 경우 공용 IP 주소는 요청 원본으로 표시 됩니다.
+공용 IP 주소는 구성 (예: Azure Resource Manager) `3443` 을 관리 하기 위해 포트에서 내부 통신에 사용 됩니다. 외부 VNET 구성에서는 런타임 API 트래픽에도 사용 됩니다. API Management에서 공용 (인터넷 연결) 백 엔드로 요청이 전송 되 면 공용 IP 주소가 요청의 원본으로 표시 됩니다.
 
 개인 VIP (가상 IP) 주소는 네트워크 내에서 API Management 끝점 (게이트웨이, 개발자 포털 및 직접 API 액세스를 위한 관리 평면)에 연결 하는 데 사용 됩니다. 네트워크 내에서 DNS 레코드를 설정 하는 데 사용할 수 있습니다.
 

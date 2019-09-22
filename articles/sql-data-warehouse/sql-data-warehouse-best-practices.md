@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/26/2018
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9c9e293a6e9c8126f2b82f68d591aee56ec32aec
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a89988fd369a382ac86f0f4b1ef0f61c0b7b9cad
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67672288"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178433"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 모범 사례
 이 문서는 Azure SQL Data Warehouse에서 최적의 성능을 달성할 수 있는 모범 사례 모음입니다.  이 문서에 설명된 개념 중 일부는 기본적이고 설명하기 쉬우며 일부 개념은 보다 고급 내용으로 전체적인 내용을 간략히 훑어봅니다.  이 문서의 목적은 몇 가지 기본 지침을 제공하고 데이터 웨어하우스를 구축할 때 주안점을 둘 중요한 사항을 명확히 인식하는 것입니다.  각 섹션에서는 개념을 소개한 후 보다 심도 있게 개념을 다루는 자세한 문서를 안내합니다.
@@ -62,6 +62,9 @@ SQL Data Warehouse는 Azure Data Factory, PolyBase, BCP 등의 여러 도구를 
 INSERT, UPDATE, DELETE 문은 트랜잭션에서 실행되며 실패할 경우 롤백해야 합니다.  긴 롤백에 대한 가능성을 최소화하려면 가능한 경우 항상 트랜잭션 크기를 최소화합니다.  INSERT, UPDATE 및 DELETE 문을 부분으로 나누어 이를 수행할 수 있습니다.  예를 들어 1시간 소요될 것으로 예상되는 INSERT가 있는 경우 가능하면 INSERT를 4부분까지 나누어 각각 15분만에 실행되도록 합니다.  CTAS, TRUNCATE, DROP TABLE 또는 INSERT와 같은 특수한 로깅 사례를 최소한 활용하여 롤백 위험을 줄입니다.  롤백을 제거하는 다른 방법은 데이터 관리를 위한 파티션 전환과 같은 메타데이터 전용 작업을 사용하는 것입니다.  예를 들어 테이블에서 order_date가 2001년 10월인 모든 행을 제거하기 위해 DELETE 문을 실행하는 대신 데이터를 매달 분할한 후 해당 파티션을 다른 테이블의 비어 있는 파티션의 데이터로 전환할 수 있습니다(ALTER TABLE 예 참조).  분할되지 않은 테이블의 경우 DELETE를 사용하는 대신, 테이블에 유지할 데이터를 기록하도록 CTAS를 사용하는 것이 좋습니다.  CTAS에 동일한 시간이 소요되는 경우 매우 최소한의 트랜잭션 로깅을 포함하므로 실행하기에 훨씬 더 안전한 작업이며 필요할 경우 신속하게 취소할 수 있습니다.
 
 참고 항목: [트랜잭션 이해][Understanding transactions], [트랜잭션 최적][Optimizing transactions], [테이블 분할][Table partitioning], [TRUNCATE TABLE][TRUNCATE TABLE], [ALTER TABLE][ALTER TABLE], [CTAS(Create Table As Select)][Create table as select (CTAS)]
+
+## <a name="reduce-query-result-sizes"></a>쿼리 결과 크기 줄이기  
+이렇게 하면 쿼리 결과가 클 때 발생 하는 클라이언트 쪽 문제를 방지할 수 있습니다.  쿼리를 편집 하 여 반환 되는 행 수를 줄일 수 있습니다. 일부 쿼리 생성 도구를 사용 하면 각 쿼리에 "top N" 구문을 추가할 수 있습니다.  쿼리 결과를 임시 테이블에 CETAS 다음 하위 수준 처리를 위해 PolyBase 내보내기를 사용할 수도 있습니다.
 
 ## <a name="use-the-smallest-possible-column-size"></a>가능한 가장 작은 열 크기 사용
 DDL을 정의할 때 데이터를 지원할 가장 작은 데이터 형식을 사용하면 쿼리 성능이 향상됩니다.  이것은 CHAR 및 VARCHAR 열에 대해 특히 중요합니다.  열에서 가장 긴 값이 25자인 경우 열을 VARCHAR(25)로 정의합니다.  모든 문자 열을 큰 기본 길이로 정의하지 마세요.  또한 반드시 필요한 경우에는 열을 NVARCHAR를 사용하는 것보다 VARCHAR로 정의하세요.

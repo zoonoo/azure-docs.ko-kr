@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: 0bb7309ae452b2885be279d1ab38b8467397f2f8
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 37f2afbd9bae4ca6bccc5062515f166687d8913c
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638504"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177061"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Digital Twins 개체 모델 및 공간 인텔리전스 그래프 이해
 
@@ -23,9 +23,7 @@ Digital Twins 개체 모델은 도메인별 개념, 범주 및 속성을 설명�
 
 Digital Twins 개체 모델 및 온톨로지가 작동하면 _공간 그래프_를 채울 수 있습니다. 공간 그래프는 IoT 솔루션과 관련된 공간, 디바이스 및 사람 사이의 여러 관계를 가상으로 표현한 것입니다. 이 다이어그램은 스마트 건물의 온톨로지를 사용하는 공간 그래프의 예제를 보여줍니다.
 
-![Digital Twins 공간 그래프 빌드][1]
-
-<a id="model"></a>
+[![디지털 Twins 공간 그래프 빌드](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
 
 공간 그래프는 공간, 디바이스, 센서 및 사용자를 하나로 합칩니다. 각각은 실제 세계를 모델링하는 방식으로 함께 연결됩니다. 이 샘플에서 장소 43은 4개의 층으로 구성되어 있으며 각각 다른 영역이 있습니다. 사용자는 자신의 워크스테이션과 연결되어 있고 그래프 일부에 대한 액세스 권한이 부여됩니다. 관리자는 공간 그래프를 변경하는 권한이 있는 반면 방문자는 특정 건물 데이터만 볼 수 있는 권한이 있습니다.
 
@@ -55,8 +53,6 @@ Digital Twins 개체 모델은 다음과 같은 주요 범주를 지원합니다
   - 미리 정의된 조건이 충족되면 알림을 보냅니다. 현재 UDF는 JavaScript로 작성할 수 있습니다.
 - **검사기**는 지정된 원격 분석 메시지에 대해 실행할 UDF를 결정하는 개체입니다.
 - **엔드포인트**는 원격 분석 메시지 및 Digital Twins 이벤트를 라우팅할 수 있는 위치입니다(예: `Event Hub`, `Service Bus` 및 `Event Grid`).
-
-<a id="graph"></a>
 
 ## <a name="spatial-intelligence-graph"></a>공간 인텔리전스 그래프
 
@@ -89,7 +85,7 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 
  전체 URL 형식은 이 이미지에 표시됩니다.
 
-![Digital Twins 포털 관리 API][2]
+(![Digital Twins 포털 관리 API](media/concepts/digital-twins-spatial-graph-management-api-url.png)] (media/개념/digital-twins-spatial-graph-management-api-url # 작게 보기)
 
 공간 인텔리전스 그래프를 사용하는 방법에 대한 자세한 내용은 Azure Digital Twins 관리 API 미리 보기를 방문하세요.
 
@@ -106,7 +102,3 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 - 디바이스 연결 및 Digital Twins에 원격 분석 메시지를 보내는 방법에 대한 자세한 내용은 [Azure Digital Twins 디바이스 연결 및 원격 분석 데이터 수신](concepts-device-ingress.md)을 참조하세요.
 
 - 관리 API 제한에 대한 자세한 내용은 [Azure Digital Twins API 관리 및 제한](concepts-service-limits.md)을 참조하세요.
-
-<!-- Images -->
-[1]: media/concepts/digital-twins-spatial-graph-building.png
-[2]: media/concepts/digital-twins-spatial-graph-management-api-url.png

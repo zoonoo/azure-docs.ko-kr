@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: db7746bc91935c0385e97d494a45d34819665ced
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 95e3ee31ea6a700253e372d183944c17c85e327c
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093394"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178329"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Azure Cosmos 계정 관리
 
@@ -166,10 +166,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="configure-multiple-write-regions-portal"></a>Azure Portal
 
-**전역적으로 데이터 복제** 탭을 열고 **사용**을 선택하여 다중 지역 쓰기를 사용하도록 설정합니다. 다중 지역 쓰기를 사용하도록 설정한 후에는 현재 계정에 있는 모든 읽기 지역이 읽기 및 쓰기 지역이 됩니다. 
-
-> [!NOTE]
-> 다중 지역 쓰기를 사용하도록 설정한 후에는 해제할 수 없습니다. 
+**전역적으로 데이터 복제** 탭을 열고 **사용**을 선택하여 다중 지역 쓰기를 사용하도록 설정합니다. 다중 지역 쓰기를 사용하도록 설정한 후에는 현재 계정에 있는 모든 읽기 지역이 읽기 및 쓰기 지역이 됩니다. 필요할 때 다중 지역 쓰기를 사용 하지 않도록 설정할 수도 있습니다.
 
 ![다중 마스터를 구성하는 Azure Cosmos 계정 스크린샷](./media/how-to-manage-database-account/single-to-multi-master.png)
 
@@ -182,6 +179,8 @@ $resourceGroupName = 'myResourceGroup'
 $accountName = 'myaccountname'
 az cosmosdb update --name $accountName --resource-group $resourceGroupName --enable-multiple-write-locations true
 ```
+
+다중 지역 쓰기 없이 Azure Cosmos 계정을 만들려면 매개 변수를 `--enable-multiple-write-locations` false로 설정 하면 됩니다.
 
 ### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 

@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: c24ed7efe9e046a36a05ec5924cbd61d218b1b01
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: bcc9736280b144a77bca57b4f4df1303f4b54796
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091742"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179097"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Apache HBase에 대 한 Azure HDInsight 가속 쓰기
 
@@ -54,6 +54,12 @@ flush 'mytable'
 ```
 disable 'mytable'
 ```
+
+클러스터를 축소 하는 경우 비슷한 단계를 수행 합니다. 테이블을 플러시하고 들어오는 데이터를 중지 하기 위해 테이블을 사용 하지 않도록 설정 합니다. 클러스터를 3 개 미만의 노드로 확장할 수 없습니다.
+
+이러한 단계를 수행 하면 성공적으로 축소 되 고, 복제 된 파일 또는 임시 파일 때문에 namenode 안전 모드로 전환 되지 않을 수 있습니다.
+
+규모 축소 후에 namenode가 안전 하지 않은 경우 hdfs 명령을 사용 하 여 복제 된 블록을 다시 복제 하 고 안전 모드에서 hdfs를 가져옵니다. 이 다시 복제를 통해 HBase를 성공적으로 다시 시작할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

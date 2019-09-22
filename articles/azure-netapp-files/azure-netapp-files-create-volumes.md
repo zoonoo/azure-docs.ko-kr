@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 7/9/2019
 ms.author: b-juche
-ms.openlocfilehash: 06733103980086fad0975514ae3489c3652e428a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 45164acd89fc9634d6929bafb35e64a5dc9f2b86
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846738"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178229"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 볼륨 만들기
 
@@ -44,7 +44,9 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
     * **볼륨 이름**      
         만들고 있는 볼륨의 이름을 지정합니다.   
 
-        볼륨 이름은 각 용량 풀 내에서 고유 해야 합니다. 3자 이상이어야 합니다. 모든 영숫자 문자를 사용할 수 있습니다.
+        볼륨 이름은 각 용량 풀 내에서 고유 해야 합니다. 3자 이상이어야 합니다. 모든 영숫자 문자를 사용할 수 있습니다.   
+
+        를 볼륨 이름 `default` 으로 사용할 수 없습니다.
 
     * **용량 풀**  
         볼륨을 만들 용량 풀을 지정 합니다.

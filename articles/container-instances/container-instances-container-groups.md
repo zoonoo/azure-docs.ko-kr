@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b17004e7821bcac61ca98afdbeaf87644da2a441
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cc9b11ba5fe0cd015d0879f28b9e85fb46b11955
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68326045"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178585"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances의 컨테이너 그룹
 
@@ -41,9 +41,11 @@ Azure Container Instances의 최상위 리소스는 *컨테이너 그룹*입니�
 
 ## <a name="deployment"></a>배포
 
-다중 컨테이너 그룹을 배포 하는 두 가지 일반적인 방법은 [리소스 관리자 템플릿][resource-manager template] 또는 [yaml 파일][yaml-file]을 사용 하는 것입니다. 컨테이너 인스턴스를 배포할 때 추가 Azure 서비스 리소스 (예: [Azure Files 공유][azure-files])를 배포 해야 하는 경우 리소스 관리자 템플릿을 권장 합니다. YAML 형식의 보다 간결한 특성으로 인해 배포에 컨테이너 인스턴스만 포함 된 경우에는 YAML 파일이 권장 됩니다.
+다중 컨테이너 그룹을 배포 하는 두 가지 일반적인 방법은 [리소스 관리자 템플릿][resource-manager template] 또는 [yaml 파일][yaml-file]을 사용 하는 것입니다. 컨테이너 인스턴스를 배포할 때 추가 Azure 서비스 리소스 (예: [Azure Files 공유][azure-files])를 배포 해야 하는 경우 리소스 관리자 템플릿을 권장 합니다. YAML 형식의 보다 간결한 특성으로 인해 배포에 컨테이너 인스턴스만 포함 된 경우에는 YAML 파일이 권장 됩니다. 설정할 수 있는 속성에 대 한 자세한 내용은 [리소스 관리자 템플릿 참조](/azure/templates/microsoft.containerinstance/containergroups) 또는 [yaml 참조](container-instances-reference-yaml.md) 설명서를 참조 하세요.
 
 컨테이너 그룹의 구성을 유지 하려면 Azure CLI 명령 [az container export][az-container-export]를 사용 하 여 해당 구성을 yaml 파일로 내보낼 수 있습니다. 내보내기를 사용 하면 컨테이너 그룹 구성을 "코드로 구성"을 위한 버전 제어로 저장할 수 있습니다. 또는 YAML에서 새 구성을 개발할 때 내보낸 파일을 시작점으로 사용할 수 있습니다.
+
+
 
 ## <a name="resource-allocation"></a>리소스 할당
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 7/9/2019
+ms.date: 9/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 3cd60f390f0233e2923660fc39675b5a307d8d8f
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: a2cfd7937bff10dae4601cb9727cfe43e4d61ca0
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515423"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178267"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -40,12 +40,12 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 * 해당 하는 Windows Active Directory (AD) 서버에서 적절 한 포트가 열려 있어야 합니다.  
     필요한 포트는 다음과 같습니다. 
 
-    |     서비스           |     포트     |     프로토콜     |
+    |     서비스           |     포트     |     Protocol     |
     |-----------------------|--------------|------------------|
     |    AD 웹 서비스    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
     |    DNS                |    53        |    UDP           |
-    |    ICMPv4             |    N/A       |    Echo Reply    |
+    |    ICMPv4             |    해당 사항 없음       |    Echo Reply    |
     |    Kerberos           |    464       |    TCP           |
     |    Kerberos           |    464       |    UDP           |
     |    Kerberos           |    88        |    TCP           |
@@ -118,7 +118,9 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
     * **볼륨 이름**      
         만들고 있는 볼륨의 이름을 지정합니다.   
 
-        볼륨 이름은 각 용량 풀 내에서 고유 해야 합니다. 3자 이상이어야 합니다. 모든 영숫자 문자를 사용할 수 있습니다.
+        볼륨 이름은 각 용량 풀 내에서 고유 해야 합니다. 3자 이상이어야 합니다. 모든 영숫자 문자를 사용할 수 있습니다.   
+
+        를 볼륨 이름 `default` 으로 사용할 수 없습니다.
 
     * **용량 풀**  
         볼륨을 만들 용량 풀을 지정 합니다.

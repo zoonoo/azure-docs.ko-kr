@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 907abe3b09f9999b30703281f7e4ff286e2bae14
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd4743bc38c3b2b4b9495b33535b4b73f48d1372
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60242337"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176683"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory Seamless Single Sign-On: 기술 심층 분석
 
@@ -39,12 +39,12 @@ ms.locfileid: "60242337"
 
 Seamless SSO는 [여기](how-to-connect-sso-quick-start.md)서 보여 주듯이 Azure AD Connect를 통해 사용하도록 설정할 수 있습니다. 이 기능을 사용하도록 설정하는 동안 발생하는 단계는 다음과 같습니다.
 
-- 컴퓨터 계정 (`AZUREADSSOACC`) 온-프레미스 Active Directory (AD) (Azure AD Connect를 사용 하 여) Azure AD에 동기화 하는 각 AD 포리스트에 만들어집니다.
-- 또한 Azure AD 로그인 프로세스 중에 사용할 다양 한 Kerberos 서비스 사용자 이름 (Spn) 만들어집니다.
-- 컴퓨터 계정의 Kerberos 암호 해독 키가 Azure AD와 안전하게 공유됩니다. 여러 AD 포리스트 경우 컴퓨터 계정은 각각 고유한 자체 Kerberos 암호 해독 키를 해야 합니다.
+- 컴퓨터 계정 (`AZUREADSSOACC`)은 Azure AD Connect를 사용 하 여 Azure ad에 동기화 하는 각 ad 포리스트의 온-프레미스 Active Directory (ad)에 만들어집니다.
+- 또한 Azure AD 로그인 프로세스 중에 사용 하기 위해 다양 한 Kerberos Spn (서비스 사용자 이름)이 생성 됩니다.
+- 컴퓨터 계정의 Kerberos 암호 해독 키가 Azure AD와 안전하게 공유됩니다. AD 포리스트가 여러 개인 경우 각 컴퓨터 계정에 고유한 Kerberos 암호 해독 키가 있습니다.
 
 >[!IMPORTANT]
-> `AZUREADSSOACC` 보안상 강력 하 게 보호 해야 하는 컴퓨터 계정입니다. 도메인 관리자만 컴퓨터 계정을 관리할 수 있어야 합니다. 컴퓨터 계정에서 Kerberos 위임을 해제 되 고 Active Directory에 없는 다른 계정 대 한 위임 권한이 있는지 확인 합니다 `AZUREADSSOACC` 컴퓨터 계정... 실수로 인 한 삭제 로부터 안전 하 게 하는 경우 및 도메인 관리자만 액세스할 수 있는 컴퓨터 계정에는 OU (조직 단위)를 저장 합니다. 또한으로 컴퓨터 계정의 Kerberos 암호 해독 키를 중요 한 정보로으로 처리 되어야 합니다. 적어도 30일마다 `AZUREADSSOACC` 컴퓨터 계정의 [Kerberos 암호 해독 키를 롤오버](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account)하는 것이 좋습니다.
+> 보안상의 이유로 컴퓨터 계정을 강력 하 게 보호 해야 합니다. `AZUREADSSOACC` 도메인 관리자만 컴퓨터 계정을 관리할 수 있어야 합니다. 컴퓨터 계정에 대 한 Kerberos 위임이 사용 하지 않도록 설정 되어 있고 Active Directory의 다른 계정에 `AZUREADSSOACC` 컴퓨터 계정에 대 한 위임 권한이 있는지 확인 하십시오. 실수로 삭제 되는 것이 안전 하 고 도메인 관리자만 액세스할 수 있는 조직 구성 단위 (OU)에 컴퓨터 계정을 저장 합니다. 컴퓨터 계정의 Kerberos 암호 해독 키도 중요 한 것으로 간주 됩니다. 적어도 30일마다 `AZUREADSSOACC` 컴퓨터 계정의 [Kerberos 암호 해독 키를 롤오버](how-to-connect-sso-faq.md)하는 것이 좋습니다.
 
 설정이 완료되면 Seamless SSO는 IWA(Windows 통합 인증)를 사용하는 다른 로그인과 동일한 방식으로 작동합니다.
 
@@ -57,7 +57,7 @@ Seamless SSO는 [여기](how-to-connect-sso-quick-start.md)서 보여 주듯이 
 3. 사용자는 자신의 사용자 이름을 Azure AD 로그인 페이지에 입력합니다.
 
    >[!NOTE]
-   >[특정 애플리케이션](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domain_hint-or-login_hint-parameter-capability-of-seamless-sso)의 경우 2-3단계를 건너뜁니다.
+   >[특정 애플리케이션](./how-to-connect-sso-faq.md)의 경우 2-3단계를 건너뜁니다.
 
 4. Azure AD는 백그라운드에서 JavaScript를 사용하여 401 권한 없음 응답을 통해 브라우저에 Kerberos 티켓을 제공합니다.
 5. 그런 다음 브라우저는 Active Directory에서 Azure AD를 나타내는 `AZUREADSSOACC` 컴퓨터 계정에 대한 티켓을 요청합니다.

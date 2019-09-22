@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: f2bdfab82e1b9fb05d74f69536ec672a4b18a4bf
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 7dcc69434e017d6564030d83b14098344bc8ac0d
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114373"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178343"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
@@ -33,6 +33,9 @@ Service Bus 바인딩은 [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.
 ## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
 
 Service Bus 바인딩은 [Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet 패키지 버전 3.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/) GitHub 리포지토리에 있습니다.
+
+> [!NOTE]
+> 버전 2.x는 `ServiceBusTrigger` 인스턴스에 구성 된 토픽 또는 구독을 만들지 않습니다. 2\.x 버전은 [ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) 를 기반으로 하며 큐 관리를 처리 하지 않습니다.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -399,7 +402,7 @@ Service Bus 트리거는 몇 가지 [메타데이터 속성](./functions-binding
 }
 ```
 
-|속성  |Default | Description |
+|속성  |Default | 설명 |
 |---------|---------|---------|
 |maxConcurrentCalls|16|메시지 펌프가 시작되어야 하는 콜백에 대한 최대 동시 호출 수입니다. 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다. 런타임이 큐 또는 토픽 메시지를 한 번에 하나만 처리하도록 하려면, `maxConcurrentCalls`를 1로 설정합니다. |
 |prefetchCount|n/a|기본 MessageReceiver에서 사용할 기본 PrefetchCount입니다.|
@@ -645,7 +648,7 @@ ServiceBue 바인딩 정의는 *type* 이로 `serviceBus`설정 된 *함수인 j
 }
 ```
 
-Py에서는 `set`   *_\__ 값을 메서드에 전달 하 여 큐에 메시지를 작성할 수 있습니다.\_*
+Py에서는 `set`   *_\_값_을 메서드에 전달 하 여 큐에 메시지를 작성할 수 있습니다.\_*
 
 ```python
 import azure.functions as func
@@ -760,7 +763,7 @@ JavaScript에서 `context.bindings.<name from function.json>`를 사용하여 �
 }
 ```
 
-|속성  |Default | Description |
+|속성  |Default | 설명 |
 |---------|---------|---------|
 |maxAutoRenewDuration|00:05:00|메시지 잠금이 자동으로 갱신되는 최대 기간입니다.|
 |autoComplete|true|트리거에서 즉시 완료(자동 완성)로 표시해야 할지 처리가 완료될 때까지 기다려야 하는지 여부입니다.|

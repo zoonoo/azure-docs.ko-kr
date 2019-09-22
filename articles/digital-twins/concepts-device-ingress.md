@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: a3a5555bf163aedd9b41a9c9aa363a883deb4cb8
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 22ae7aeeff4542bee764e131f58eb115026a4fb3
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638510"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177111"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>디바이스 연결 및 원격 분석 수신
 
@@ -67,12 +67,12 @@ YOUR_MANAGEMENT_API_URL/devices?HardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=Con
 
  **Message**의 페이로드 콘텐츠는 최대 256KB의 임의 데이터일 수 있습니다. [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) 형식의 속성에 대한 요구 사항으로 몇 가지가 예상됩니다. 이 표는 시스템에서 지원하는 필수 속성 및 선택적 속성을 보여줍니다.
 
-| 속성 이름 | 값 | 필수 | 설명 |
+| 속성 이름 | 값 | 필요한 공간 | 설명 |
 |---|---|---|---|
 | **DigitalTwins-Telemetry** | 1.0 | 예 | 시스템에 메시지를 식별하는 상수 값입니다. |
-| **DigitalTwins-SensorHardwareId** | `string(72)` | 예 | **Message**를 보내는 센서의 고유 식별자입니다. 이 값은 시스템에서 처리하려면 개체의 **HardwareId** 속성과 일치해야 합니다. `00FF0643BE88-CO2` )을 입력합니다. |
-| **CreationTimeUtc** | `string` | 아니요 | 페이로드의 샘플링 시간을 식별하는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식의 날짜 문자열입니다. `2018-09-20T07:35:00.8587882-07:00` )을 입력합니다. |
-| **CorrelationId** | `string` | 아니요 | 시스템에서 이벤트를 추적하는 데 사용되는 UUID입니다. `cec16751-ab27-405d-8fe6-c68e1412ce1f` )을 입력합니다.
+| **DigitalTwins-SensorHardwareId** | `string(72)` | 예 | **Message**를 보내는 센서의 고유 식별자입니다. 이 값은 시스템에서 처리하려면 개체의 **HardwareId** 속성과 일치해야 합니다. 예를 들어, `00FF0643BE88-CO2`을 입력합니다. |
+| **CreationTimeUtc** | `string` | 아니요 | 페이로드의 샘플링 시간을 식별하는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식의 날짜 문자열입니다. 예를 들어, `2018-09-20T07:35:00.8587882-07:00`을 입력합니다. |
+| **CorrelationId** | `string` | 아니요 | 시스템에서 이벤트를 추적하는 데 사용되는 UUID입니다. 예를 들어, `cec16751-ab27-405d-8fe6-c68e1412ce1f`을 입력합니다.
 
 ### <a name="send-your-message-to-digital-twins"></a>Digital Twins로 메시지 보내기
 

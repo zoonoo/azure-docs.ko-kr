@@ -1,33 +1,35 @@
 ---
-title: "\"Simple\" 검색 구문을 사용 하는 쿼리 예제-Azure Search"
-description: 전체 텍스트 검색, 필터 검색, 지리적 검색, 패싯 검색 및 Azure Search 인덱스 쿼리에 사용되는 기타 쿼리 문자열에 대한 단순 쿼리 예제입니다.
+title: 간단한 쿼리 만들기-Azure Search
+description: 전체 텍스트 검색, 필터 검색, 지리적 검색, Azure Search 인덱스에 대 한 패싯 검색에 대 한 간단한 구문을 기반으로 쿼리를 실행 하 여 예제를 통해 알아보세요.
 author: HeidiSteen
 manager: nitinme
 tags: Simple query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: df84686e512db90351d5a9815706890bce49848b
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7c4aeef07d34159e01f188effae77926895e2857
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647628"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179199"
 ---
-# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Azure Search에서 "단순" 검색 구문을 사용 하는 쿼리 예제
+# <a name="create-a-simple-query-in-azure-search"></a>Azure Search에서 간단한 쿼리 만들기
 
-[단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)은 Azure Search 인덱스에 대해 전체 텍스트 검색 쿼리를 실행하기 위해 기본 쿼리 파서를 호출합니다. 단순 쿼리 분석기는 신속하며, Azure Search에서 전체 텍스트 검색, 필터링 및 패싯 검색, 지리적 검색 등의 일반적인 시나리오를 처리합니다. 이 문서에서는 단순 구문을 사용할 때 사용할 수 있는 쿼리 작업을 보여 주는 예제를 단계별로 진행합니다.
+Azure Search [단순 쿼리 구문은](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 인덱스에 대해 전체 텍스트 검색 쿼리를 실행 하기 위해 기본 쿼리 파서를 호출 합니다. 이 파서는 빠르게 수행할 수 있으며 전체 텍스트 검색, 필터링 된 패싯 검색 및 지역 검색을 포함 한 일반적인 시나리오를 처리 합니다. 
 
-대체 쿼리 구문은 유사 항목 및 와일드 카드 검색과 같은 보다 복잡한 쿼리 구조를 지원하며 처리하는 데 추가 시간이 소요될 수 있는 [전체 Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)입니다. 자세한 내용 및 전체 구문을 보여 주는 예제에 대해서는 [Lucene 구문 쿼리 예제](search-query-lucene-examples.md)를 참조하세요.
+이 문서에서는 간단한 구문을 보여 주기 위해 예제를 사용 합니다.
+
+대체 쿼리 구문은 [전체 Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)이며 유사 항목 및 와일드 카드 검색과 같은 보다 복잡 한 쿼리 구조를 지원 합니다 .이를 처리 하는 데 시간이 더 걸릴 수 있습니다. 전체 구문에 대 한 자세한 내용 및 예제는 [Full Lucene 구문 사용](search-query-lucene-examples.md)을 참조 하세요.
 
 ## <a name="formulate-requests-in-postman"></a>Postman에서 요청 작성
 
 다음 예제는 [City of New York OpenData](https://nycopendata.socrata.com/) 이니셔티브에서 제공하는 데이터 세트에 기반하여 사용 가능한 작업으로 구성된 NYC Jobs 검색 인덱스를 활용합니다. 이 데이터는 최신 또는 완료로 간주되어서는 안 됩니다. 이 인덱스는 Microsoft에서 제공하는 Sandbox 서비스에 있으며 이러한 쿼리를 시도하기 위해 Azure 구독 또는 Azure Search가 필요하지 않음을 의미합니다.
 
-따라서 GET에서 HTTP 요청을 실행하기 위한 Postman 또는 동급의 도구만 있으면 됩니다. 자세한 내용은 [REST 클라이언트로 탐색](search-get-started-postman.md)을 참조하세요.
+따라서 GET에서 HTTP 요청을 실행하기 위한 Postman 또는 동급의 도구만 있으면 됩니다. 자세한 내용은 [빠른 시작: Postman](search-get-started-postman.md)을 사용 하 여 Azure Search REST API를 살펴보세요.
 
 ### <a name="set-the-request-header"></a>요청 헤더 설정
 
@@ -101,7 +103,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 응답에서 검색 점수를 보았을 수 있습니다. 순위가 없으면 검색이 전체 텍스트 검색이 아니거나 어떤 조건도 적용되지 않기 때문에 균일하게 점수 1이 지정됩니다. 조건 없는 Null 검색의 경우 행은 임의의 순서로 반환됩니다. 실제 조건을 포함하는 경우 검색 점수가 의미 있는 값으로 바뀌는 것을 볼 수 있습니다.
 
-## <a name="example-2-look-up-by-id"></a>예제 2: ID별 조회
+## <a name="example-2-look-up-by-id"></a>예 2: ID별 조회
 
 이 예제는 약간 특이하지만, 검색 동작을 평가할 때 결과에 포함되거나 제외된 이유를 이해하기 위해 특정 문서 전체를 확인하려고 할 수 있습니다. 단일 문서 전체를 반환하려면 [조회 작업](https://docs.microsoft.com/rest/api/searchservice/lookup-document)을 사용하여 문서 ID를 전달합니다.
 
@@ -117,7 +119,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2019-05-06&$count=true&search=*
 ```
 
-## <a name="example-3-filter-queries"></a>예제 3: 쿼리 필터링
+## <a name="example-3-filter-queries"></a>예 3: 쿼리 필터링
 
 [구문 필터링](https://docs.microsoft.com/azure/search/search-query-odata-filter)은 **검색** 또는 자체로 사용할 수 있는 OData 식입니다. 검색 매개 변수가 없는 독립 실행형 필터는 필터 식이 관심 있는 문서를 정규화할 수 있을 때 유용합니다. 쿼리 문자열이 없으면 어휘 또는 언어 분석, 점수 매기기(모든 점수는 1) 및 순위 지정 등이 없습니다. 검색 문자열은 비어 있습니다.
 

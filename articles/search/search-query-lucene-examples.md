@@ -1,5 +1,5 @@
 ---
-title: Lucene 쿼리 예제 - Azure Search
+title: Full Lucene 쿼리 구문 사용-Azure Search
 description: Lucene은 Azure Search 서비스에서 유사 항목 검색, 근접 검색, 용어 상승, 정규식 검색 및 와일드카드 검색에 대해 구문을 쿼리합니다.
 author: HeidiSteen
 manager: nitinme
@@ -7,17 +7,17 @@ tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3f6a39129db9e8c43a5e2de68d919ba1037c3f5c
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: fcfc668022d0d8fc74258657bb93642aec49bd08
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648229"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178150"
 ---
-# <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>"Full" Lucene 검색 구문을 사용 하는 쿼리 예제 (Azure Search 고급 쿼리)
+# <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>"Full" Lucene 검색 구문 사용 (Azure Search 고급 쿼리)
 
 Azure Search에 대한 쿼리를 생성하는 경우 기본 [단순 쿼리 파서](query-simple-syntax.md)를 좀 더 복잡한 [Azure Search의 Lucene 쿼리 파서](query-lucene-syntax.md)로 바꾸어 특수 및 고급 쿼리 정의를 작성할 수 있습니다. 
 
@@ -85,7 +85,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 이 첫 번째 예제는 Lucene에 한정 되지 않지만, 첫 번째 기본 쿼리 개념인 필드 범위를 소개 하는 데 사용 됩니다. 이 예에서는 전체 쿼리와 응답의 범위를 몇 개의 특정 필드로 지정 합니다. 도구가 Postman 또는 Search 탐색기인 경우 판독 가능한 JSON 응답을 구성하는 방법을 파악하는 것이 중요합니다. 
 
-간단히 하기 위해 쿼리는 *business_title*만을 대상으로 하며, 직함만 반환되도록 지정합니다. **Searchfields** 매개 변수는 쿼리 실행을 business_title 필드로 제한 하 고 응답 에 포함할 필드를 지정 합니다.
+간단히 하기 위해 쿼리는 *business_title*만을 대상으로 하며, 직함만 반환되도록 지정합니다. **Searchfields** 매개 변수는 쿼리 실행을 business_title 필드로 제한 하 고 응답에 포함할 필드를 **지정 합니다.**
 
 ### <a name="partial-query-string"></a>부분 쿼리 문자열
 
@@ -116,7 +116,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 응답에서 검색 점수를 보았을 수 있습니다. 순위가 없으면 검색이 전체 텍스트 검색이 아니거나 어떤 조건도 적용되지 않기 때문에 균일하게 점수 1이 지정됩니다. 조건 없는 Null 검색의 경우 행은 임의의 순서로 반환됩니다. 실제 검색 조건을 포함 하는 경우 검색 점수가 의미 있는 값으로 증가 하는 것을 볼 수 있습니다.
 
-## <a name="example-2-fielded-search"></a>예제 2: 필드 지정 검색
+## <a name="example-2-fielded-search"></a>예 2: 필드 지정 검색
 
 Full Lucene 구문은 특정 필드에 대 한 개별 검색 식의 범위 지정을 지원 합니다. 이 예제에서는 junior 라는 용어가 포함 된 비즈니스 타이틀을 검색 합니다.
 
@@ -153,7 +153,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 > [!NOTE]
 > 위의 예에서는 쿼리의 각 부분에 명시적으로 지정 된 필드 `searchFields` 이름이 있으므로 매개 변수를 사용할 필요가 없습니다. 그러나 일부 부분의 범위가 특정 필드로 지정 `searchFields` 되 고 나머지는 여러 필드에 적용 될 수 있는 쿼리를 실행 하려는 경우에도 매개 변수를 사용할 수 있습니다. 예를 `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` 들어 쿼리는 `business_title` 필드에 `senior NOT junior` 만 일치 하지만 `posting_type` 필드와 "external"을 일치 시킵니다. **FieldName: searchexpression** 에 제공 된 필드 이름이 항상 `searchFields` 매개 변수 보다 우선 합니다. 즉,이 예제에서는 `searchFields` 매개 변수에를 포함할 `business_title` 필요가 없습니다.
 
-## <a name="example-3-fuzzy-search"></a>예제 3: 유사 항목 검색
+## <a name="example-3-fuzzy-search"></a>예 3: 유사 항목 검색
 
 전체 Lucene 구문은 비슷한 구문을 갖는 용어를 일치시키는 유사 항목 검색도 지원합니다. 유사 항목 검색을 수행하려면 편집 거리를 지정하는 0과 2 사이의 값을 선택적 매개 변수로 포함하여 단일 단어의 끝에 물결표`~` 기호를 추가합니다. 예를 들어, `blue~` 또는 `blue~1`은 blue, blues 및 glue를 반환합니다.
 
