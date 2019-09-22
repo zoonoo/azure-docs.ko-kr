@@ -47,6 +47,7 @@
     - name: Azure SQL Database Managed Instance에 SSIS 패키지 마이그레이션
       href: how-to-migrate-ssis-packages-managed-instance.md
 - name: 리소스
+  expanded: true
   items:
     - name: 데이터베이스 마이그레이션 시나리오 상태
       href: resource-scenario-status.md
