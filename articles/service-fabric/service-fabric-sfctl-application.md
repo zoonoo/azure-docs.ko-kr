@@ -27,15 +27,15 @@ ms.locfileid: "69036538"
 
 |명령|Description|
 | --- | --- |
-| 만들기 | 지정한 설명을 사용하여 Microsoft Azure Service Fabric 애플리케이션을 만듭니다. |
-| 삭제 | 기존 Microsoft Azure Service Fabric 애플리케이션을 삭제합니다. |
+| create | 지정한 설명을 사용하여 Microsoft Azure Service Fabric 애플리케이션을 만듭니다. |
+| delete | 기존 Microsoft Azure Service Fabric 애플리케이션을 삭제합니다. |
 | deployed | Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션에 대한 정보를 가져옵니다. |
 | deployed-health | Service Fabric 노드에 배포된 애플리케이션의 상태에 대한 정보를 가져옵니다. |
 | deployed-list | Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션의 목록을 가져옵니다. |
-| 상태 | Microsoft Azure Service Fabric 애플리케이션의 상태를 가져옵니다. |
-| 정보 | Microsoft Azure Service Fabric 애플리케이션에 대한 정보를 가져옵니다. |
-| 목록 | 지정된 필터와 일치하는 Service Fabric 클러스터에서 만든 애플리케이션 목록을 가져옵니다. |
-| 로드 | Microsoft Azure Service Fabric 애플리케이션에 대한 로드 정보를 가져옵니다. |
+| health | Microsoft Azure Service Fabric 애플리케이션의 상태를 가져옵니다. |
+| info | Microsoft Azure Service Fabric 애플리케이션에 대한 정보를 가져옵니다. |
+| list | 지정된 필터와 일치하는 Service Fabric 클러스터에서 만든 애플리케이션 목록을 가져옵니다. |
+| load | Microsoft Azure Service Fabric 애플리케이션에 대한 로드 정보를 가져옵니다. |
 | manifest | 애플리케이션 유형을 설명하는 매니페스트를 가져옵니다. |
 | provision | 외부 저장소의 .sfpkg 패키지를 사용하거나 이미지 저장소의 애플리케이션 패키지를 사용하는 클러스터를 통해 Service Fabric 애플리케이션 유형을 프로비전하거나 등록합니다. |
 | report-health | Microsoft Azure Service Fabric 애플리케이션에 대한 상태 보고서를 보냅니다. |
