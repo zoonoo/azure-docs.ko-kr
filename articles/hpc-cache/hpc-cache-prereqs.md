@@ -1,19 +1,19 @@
 ---
-title: Azure HPC 캐시 필수 조건
+title: Azure HPC 캐시 (미리 보기) 필수 조건
 description: Azure HPC 캐시를 사용 하기 위한 필수 구성 요소
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: 50c60e38b58815be04cfb892c3622b9579529e67
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 29dc5256424ea4fe7c3a72624ce8d1b3d9e59f3c
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036863"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180902"
 ---
-# <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 캐시의 필수 구성 요소
+# <a name="prerequisites-for-azure-hpc-cache-preview"></a>Azure HPC 캐시 (미리 보기)에 대 한 필수 구성 요소
 
 Azure Portal를 사용 하 여 새 Azure HPC 캐시를 만들기 전에 사용자 환경이 이러한 요구 사항을 충족 하는지 확인 합니다.
 
@@ -59,7 +59,7 @@ Azure 가상 네트워크 [의 리소스에 대 한 이름 확인](https://docs.
 * Azure HPC 캐시는 가상 Nic (네트워크 인터페이스)를 만들 수 있어야 합니다. 캐시를 만드는 사용자에 게는 Nic를 만들기 위해 구독에서 충분 한 권한이 있어야 합니다.
 <!-- There are several ways to authorize this access; read [Additional prerequisites](media/preview-prereqs.md) to learn more. -->
 
-* Blob storage를 사용 하는 경우 Azure HPC 캐시 인스턴스는 저장소 계정에 액세스 하기 위한 권한 부여가 필요 합니다. RBAC (역할 기반 액세스 제어)를 사용 하 여 Blob 저장소에 대 한 캐시 액세스를 제공할 수 있습니다. 다음 두 가지 역할이 필요 합니다. 저장소 계정 참가자 및 저장소 Blob 데이터 참가자. [캐시에 저장소 추가](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account)의 지침을 따릅니다.
+* Blob storage를 사용 하는 경우 Azure HPC 캐시 인스턴스는 저장소 계정에 액세스 하기 위한 권한 부여가 필요 합니다. RBAC (역할 기반 액세스 제어)를 사용 하 여 Blob 저장소에 대 한 캐시 액세스를 제공할 수 있습니다. 다음 두 가지 역할이 필요 합니다. 저장소 계정 참가자 및 저장소 Blob 데이터 참가자. [저장소 대상 추가](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account)의 지침을 따릅니다.
 
 ## <a name="storage-infrastructure"></a>저장소 인프라
 
@@ -86,7 +86,7 @@ Azure HPC 캐시에서 Azure Blob 저장소를 사용 하려면 [Azure blob stor
 
 캐시와 동일한 위치에 있는 저장소 계정을 사용 하는 것이 좋습니다.
 
-또한 Azure storage 계정에 대 한 캐시 응용 프로그램 액세스 권한을 부여 해야 합니다. 캐시에 [저장소 추가](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) 의 설명에 따라 액세스 역할 저장소 계정 참가자 및 저장소 Blob 데이터 참가자를 캐시에 제공 합니다. 저장소 계정 소유자가 아닌 경우 소유자가이 단계를 수행 하도록 합니다.
+또한 Azure storage 계정에 대 한 캐시 응용 프로그램 액세스 권한을 부여 해야 합니다. [저장소 대상 추가](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) 의 설명에 따라 액세스 역할 저장소 계정 참가자 및 저장소 Blob 데이터 참가자를 캐시에 제공 합니다. 저장소 계정 소유자가 아닌 경우 소유자가이 단계를 수행 하도록 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,19 +1,19 @@
 ---
-title: Azure HPC 캐시 탑재
+title: Azure HPC 캐시 (미리 보기) 탑재
 description: Azure HPC 캐시 서비스에 클라이언트를 연결 하는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: v-erkell
-ms.openlocfilehash: 46f221fd7c340b7f321d317f0e7493448d83177c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 3b7a59afa0dea300e200b953d045d38218e99b22
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036934"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180916"
 ---
-# <a name="mount-the-azure-hpc-cache"></a>Azure HPC 캐시 탑재
+# <a name="mount-the-azure-hpc-cache-preview"></a>Azure HPC 캐시 (미리 보기) 탑재
 
 캐시를 만든 후에는 NFS 클라이언트에서 간단한 mount 명령을 사용 하 여 해당 캐시에 액세스할 수 있습니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "71036934"
 
 > sudo mount *cache_mount_address*:/*namespace_path* *local_path* {*options*}
 
-예제: 
+예: 
 
 ```
 root@test-client:/tmp# mkdir hpccache
@@ -54,7 +54,7 @@ root@test-client:/tmp#
 
 | 권장 탑재 명령 설정 | |
 --- | --- 
-``hard`` | vFXT 클러스터에 대한 소프트 탑재는 애플리케이션 오류 및 가능한 데이터 손실과 관련이 있습니다. 
+``hard`` | Azure HPC 캐시에 소프트 탑재는 응용 프로그램 오류 및 가능한 데이터 손실과 관련이 있습니다. 
 ``proto=netid`` | NFS 네트워크 오류를 적절하게 처리하도록 지원합니다.
 ``mountproto=netid`` | 탑재 작업에 대한 네트워크 오류를 적절하게 처리하도록 지원합니다.
 ``retry=n`` | 일시적인 탑재 오류를 방지하려면 ``retry=30``을 설정합니다. (포그라운드 탑재에는 다른 값이 권장됩니다.)

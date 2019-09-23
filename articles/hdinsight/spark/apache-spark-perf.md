@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 673c83c861e1f044a521786a903dd7b21db8c170
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 64dfd26e02526664a4edb204521f7a47a4463a12
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995552"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181070"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>HDInsight에서 Apache Spark 작업 최적화
 
@@ -57,10 +57,10 @@ Spark는 csv, json, xml, parquet, orc, avro 등의 여러 가지 형식을 지�
 
 새 Spark 클러스터를 만들 때 Azure Blob Storage 또는 Azure Data Lake Storage를 클러스터의 기본 스토리지로 선택할 수 있습니다. 두 옵션 모두 임시 클러스터의 장기간 스토리지의 이점을 제공하므로 클러스터를 삭제할 때 데이터가 자동으로 삭제되지 않습니다. 임시 클러스터를 다시 만들고 해당 데이터에 계속 액세스할 수 있습니다.
 
-| 저장소 유형 | 파일 시스템 | 속도 | 임시 | 사용 사례 |
+| 저장소 유형 | 파일 시스템 | 속도 | 일시적 | 사용 사례 |
 | --- | --- | --- | --- | --- |
 | Azure Blob Storage | **wasb:** //url/ | **Standard** | 예 | 임시 클러스터 |
-| Azure Data Lake Storage Gen 2| **abfs[s]:** //url/ | **보다 빠름** | 예 | 임시 클러스터 |
+| Azure Data Lake Storage Gen 2| **abfs:** /url/ | **보다 빠름** | 예 | 임시 클러스터 |
 | Azure Data Lake Storage Gen 1| **adl:** //url/ | **보다 빠름** | 예 | 임시 클러스터 |
 | 로컬 HDFS | **hdfs:** //url/ | **가장 빠름** | 아니요 | 대화형 24/7 클러스터 |
 
