@@ -97,7 +97,7 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 > 전체 애플리케이션을 마이그레이션하려면 [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md)사용을 고려합니다.
 
 ## <a name="ship-hard-drive"></a>하드 드라이브를 제공합니다.
-팀 리더 및/또는 프로젝트 리더가 DSVM에 탑재해야 하는 Azure File Storage를 만든 경우 해당 Azure 파일 스토리지 정보를 가져와야 합니다. 이 서비스를 사용하여 해당 데이터가 포함된 하나 이상의 하드 드라이브를 Azure 데이터 센터로 보내서 데이터를 스토리지 계정으로 업로드할 수 있습니다.
+네트워크를 통한 업로드가 엄청나게 많은 비용이 들거나 적합하지 않은 경우 [Windows Import/Export 서비스 메서드](../../../storage/common/storage-import-export-service.md) 를 사용하여 대량의 파일 데이터를 Azure Blob Storage로 전송합니다. 이 서비스를 사용하여 해당 데이터가 포함된 하나 이상의 하드 드라이브를 Azure 데이터 센터로 보내서 데이터를 스토리지 계정으로 업로드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Virtual Machines의 SQL Server 실행에 대한 자세한 내용은 [Azure Virtual Machines의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
