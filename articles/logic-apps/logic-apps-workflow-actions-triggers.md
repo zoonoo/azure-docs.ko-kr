@@ -56,17 +56,17 @@ ms.locfileid: "70918950"
 | <*trigger-type*> | String | "Http" 또는 "ApiConnection"과 같은 트리거 형식입니다. | 
 | <*trigger-inputs*> | JSON 개체 | 트리거의 동작을 정의하는 입력입니다. | 
 | <*time-unit*> | String | 트리거가 실행되는 빈도를 설명하는 시간 단위로, “초”, “분”, “시간”, “일”, “주” 또는 “월”이 있습니다. | 
-| <*number-of-time-units*> | 정수 | 트리거가 다시 실행될 때까지 기다리는 시간 단위 수를 나타내는 빈도에 따라 트리거가 얼마나 자주 발생하는지를 지정하는 값입니다. <p>다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어, 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. | 
+| <*number-of-time-units*> | String | 트리거가 다시 실행될 때까지 기다리는 시간 단위 수를 나타내는 빈도에 따라 트리거가 얼마나 자주 발생하는지를 지정하는 값입니다. <p>다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어, 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. | 
 |||| 
 
 *선택 사항*
 
 | 값 | 형식 | Description | 
 |-------|------|-------------| 
-| <*array-with-conditions*> | 배열 | 워크플로를 실행할 것인지 여부를 결정하는 하나 이상의 [조건](#trigger-conditions)을 포함하는 배열입니다. 트리거에만 사용 가능합니다. | 
+| <*array-with-conditions*> | String | 워크플로를 실행할 것인지 여부를 결정하는 하나 이상의 [조건](#trigger-conditions)을 포함하는 배열입니다. 트리거에만 사용 가능합니다. | 
 | <*runtime-config-options*> | JSON 개체 | `runtimeConfiguration` 속성을 설정하여 트리거 런타임 동작을 변경할 수 있습니다. 자세한 내용은 [런타임 구성 설정](#runtime-config-options)을 참조하세요. | 
-| <*splitOn-expression*> | 문자열 | 배열을 반환하는 트리거의 경우, 처리를 위해 여러 워크플로 인스턴스로 배열 항목을 [분할 또는 *분리*](#split-on-debatch)하는 식을 지정할 수 있습니다. | 
-| <*operation-option*> | 문자열 | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. | 
+| <*splitOn-expression*> | String | 배열을 반환하는 트리거의 경우, 처리를 위해 여러 워크플로 인스턴스로 배열 항목을 [분할 또는 *분리*](#split-on-debatch)하는 식을 지정할 수 있습니다. | 
+| <*operation-option*> | String | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. | 
 |||| 
 
 ## <a name="trigger-types-list"></a>트리거 유형 목록
