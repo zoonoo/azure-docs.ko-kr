@@ -83,13 +83,13 @@ Service Fabric 가상 머신 확장을 사용 하 여 Azure Virtual Machines에 
 | publisher | Microsoft.Azure.ServiceFabric | --- | Service Fabric 확장 게시자의 이름입니다. |
 | clusterEndpont | string | --- | URI: 관리 끝점에 대 한 포트 |
 | nodeTypeRef | string | --- | nodeType의 이름 |
-| durabilityLevel | 브론즈, 실버, 골드, 플래티넘 | --- | 변경할 수 없는 Azure 인프라를 일시 중지할 수 있는 시간 |
+| durabilityLevel | bronze, silver, gold, platinum | --- | 변경할 수 없는 Azure 인프라를 일시 중지할 수 있는 시간 |
 | enableParallelJobs | true 또는 false | --- | VM 제거와 같은 계산 ParallelJobs를 사용 하도록 설정 하 고 동시에 동일한 확장 집합에서 VM 다시 부팅 |
 | nicPrefixOverride | string | --- | 서브넷 접두사 (예: "10.0.0.0/24") |
 | commonNames | string[] | --- | 설치 된 클러스터 인증서의 일반 이름 |
 | x509StoreName | string | --- | 설치 된 클러스터 인증서가 있는 저장소의 이름 |
 | typeHandlerVersion | 1.1 | --- | 확장의 버전입니다. 1.0 클래식 버전의 확장을 1.1로 업그레이드 하는 것이 좋습니다. |
-| 데이터 경로 | string | --- | Service Fabric 시스템 서비스 및 응용 프로그램 데이터의 상태를 저장 하는 데 사용 되는 드라이브의 경로입니다. 
+| dataPath | string | --- | Service Fabric 시스템 서비스 및 응용 프로그램 데이터의 상태를 저장 하는 데 사용 되는 드라이브의 경로입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 * ["어디에나 배포" 기능의 개요 및 Azure 관리된 클러스터와 비교](service-fabric-deploy-anywhere.md)를 참조하세요.
