@@ -79,11 +79,11 @@ ms.locfileid: "68385336"
 
 | 특성 | 필수 | 형식 | Description |
 |-----------|----------|------|-------------|
-| <*매개 변수-이름*> | 예 | 문자열 | 정의 하려는 매개 변수의 이름입니다. |
+| <*parameter-name*> | 예 | String | 정의 하려는 매개 변수의 이름입니다. |
 | <*parameter-type*> | 예 | int, float, string, bool, array, object, securestring, secureobject <p><p>**참고**: 모든 암호, 키 및 비밀에 대해 작업에서 `securestring` `GET` 이러한 형식을 `secureobject` 반환 하지 않으므로 또는 형식을 사용 합니다. 매개 변수 보안에 대 한 자세한 내용은 [작업 및 입력 매개 변수에 대 한 보안 권장 사항](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)을 참조 하세요. | 매개 변수의 형식 |
-| <*기본 매개 변수 값*> | 예 | `type`과 동일 | 워크플로에서 인스턴스화할 때 값이 지정 되지 않은 경우 사용할 기본 매개 변수 값입니다. 이 `defaultValue` 특성은 논리 앱 디자이너에서 매개 변수를 올바르게 표시 하는 데 필요 하지만 빈 값을 지정할 수 있습니다. |
+| <*default-parameter-value*> | 예 | `type`과 동일 | 워크플로에서 인스턴스화할 때 값이 지정 되지 않은 경우 사용할 기본 매개 변수 값입니다. 이 `defaultValue` 특성은 논리 앱 디자이너에서 매개 변수를 올바르게 표시 하는 데 필요 하지만 빈 값을 지정할 수 있습니다. |
 | <*array-with-permitted-parameter-values*> | 아니요 | 배열 | 매개 변수를 수용할 수 있는 값으로 배열 |
-| <*매개 변수-설명*> | 아니요 | JSON 개체 | 매개 변수에 대 한 설명과 같은 다른 모든 매개 변수 세부 정보 |
+| <*parameter-description*> | 아니요 | JSON 개체 | 매개 변수에 대 한 설명과 같은 다른 모든 매개 변수 세부 정보 |
 ||||
 
 다음으로, 워크플로 정의에 대 한 [Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-overview.md) 만들고, 배포할 때 원하는 값을 허용 하는 템플릿 매개 변수를 정의 하 고, 하드 코드 된 값을 템플릿 또는 워크플로 정의 매개 변수에 대 한 참조로 대체 합니다. 적절 한 경우 배포 시 사용할 값을 별도의 [매개 변수 파일](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)에 저장 합니다. 이렇게 하면 논리 앱을 업데이트 하 고 다시 배포 하지 않고도 매개 변수 파일을 통해 이러한 값을 보다 쉽게 변경할 수 있습니다. 사용자 이름, 암호 및 암호와 같은 중요 하거나 보안을 유지 해야 하는 정보는 Azure Key Vault에 해당 값을 저장 하 고 매개 변수 파일에서 키 자격 증명 모음에서 해당 값을 검색 하도록 할 수 있습니다. 템플릿 및 워크플로 정의 수준에서 매개 변수를 정의 하는 방법에 대 한 자세한 [내용 및 예제는 개요를 참조 하세요. Azure Resource Manager 템플릿을](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)사용 하 여 논리 앱에 대 한 배포를 자동화 합니다.
