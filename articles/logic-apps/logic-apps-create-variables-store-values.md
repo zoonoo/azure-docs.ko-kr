@@ -10,12 +10,12 @@ manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 016ab15b2ca4b2e6278752b166c746f6f5aef72d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 0f7947e4a96a49e3a7a3b0059a1b20b21ac8cbd1
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71171417"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180795"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Azure Logic Apps 변수를 사용 하 여 값 저장 및 관리
 
@@ -99,6 +99,9 @@ ms.locfileid: "71171417"
    }
 },
 ```
+
+> [!NOTE]
+> **변수 초기화** 작업 `variables` 에는 배열로 구조화 된 섹션이 있지만 작업에서 한 번에 하나의 변수만 만들 수 있습니다. 각 새 변수에는 개별 **변수 초기화** 작업이 필요 합니다.
 
 다른 몇 가지 변수 형식에 대한 예는 다음과 같습니다.
 
@@ -200,7 +203,7 @@ ms.locfileid: "71171417"
 
    기존 단계 사이에 작업을 추가하려면 더하기 기호(+)가 나타날 때까지 연결 화살표 위로 마우스를 이동합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
 
-1. 검색 상자에 “변수 증가”를 필터로 입력합니다. 작업 목록에서 **변수 - 변수 증가**를 선택합니다.
+1. 검색 상자에 “변수 증가”를 필터로 입력합니다. 작업 목록에서 **증가 변수**를 선택 합니다.
 
    ![“변수 증가” 작업 선택](./media/logic-apps-create-variables-store-values/select-increment-variable-action.png)
 
@@ -256,7 +259,7 @@ ms.locfileid: "71171417"
 
    1. **변수 초기화** 작업에서 **새 단계**를 선택 합니다.
 
-   1. **작업 선택**에서 **기본 제공**을 선택 합니다. 검색 상자에 검색 필터로를 `for each` 입력 하 고 **각각에 대해**를 선택 합니다.
+   1. **작업 선택** 아래에서 **기본 제공**을 선택합니다. 검색 상자에 검색 필터로를 `for each` 입력 하 고 **각각에 대해**를 선택 합니다.
 
       ![“For each” 루프 추가](./media/logic-apps-create-variables-store-values/add-loop.png)
 

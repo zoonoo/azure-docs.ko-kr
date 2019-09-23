@@ -1,22 +1,21 @@
 ---
-title: Azure HPC 캐시 만들기
-description: Azure HPC 캐시 인스턴스를 만드는 방법
+title: Azure HPC 캐시 만들기 (미리 보기)
+description: Azure HPC Cache 인스턴스를 만드는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: c3d14eaefaa1f317cb061273866ffee83747f12b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 677d42dfa1c468417f18ba4222cb0d5fd3ebb189
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036852"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180977"
 ---
-# <a name="configure-aggregated-namespace"></a>집계 된 네임 스페이스 구성
-<!-- change link in GUI -->
+# <a name="plan-the-aggregated-namespace"></a>집계 된 네임 스페이스 계획
 
-Azure HPC 캐시를 사용 하면 클라이언트가 백 엔드 저장소 시스템의 세부 정보를 숨기는 가상 네임 스페이스를 통해 다양 한 저장소 시스템에 액세스할 수 있습니다.
+Azure HPC Cache (미리 보기)를 사용 하면 클라이언트가 백 엔드 저장소 시스템의 세부 정보를 숨기는 가상 네임 스페이스를 통해 다양 한 저장소 시스템에 액세스할 수 있습니다.
 
 저장소 대상을 추가 하는 경우 클라이언트 연결 filepath를 설정 합니다. 클라이언트 컴퓨터는이 filepath를 탑재 합니다. 해당 경로와 연결 된 저장소 대상을 변경할 수 있습니다. 예를 들어 클라이언트 지향 프로시저를 다시 작성할 필요 없이 하드웨어 저장소 시스템을 클라우드 저장소로 교체할 수 있습니다.
 
@@ -31,7 +30,7 @@ Azure HPC 캐시를 사용 하면 클라이언트가 백 엔드 저장소 시스
     /goldline/templates/acme2017/sku798
     /goldline/templates/acme2017/sku980 
 
-데이터 센터 저장소 시스템은 다음 내보내기를 노출 합니다. 
+데이터 센터 저장소 시스템은 다음 내보내기를 노출 합니다.
 
     /
     /goldline
@@ -41,7 +40,7 @@ Azure HPC 캐시를 사용 하면 클라이언트가 백 엔드 저장소 시스
 
 캐시를 통해 쉽게 액세스할 수 있도록 하려면 다음 가상 네임 스페이스 경로를 사용 하 여 저장소 대상을 만드는 것이 좋습니다.
 
-| 백 엔드 NFS filepath 또는 Blob 컨테이너 | 가상 네임 스페이스 경로 |
+| 백 엔드 NFS filepath 또는 Blob 컨테이너 | 가상 네임스페이스 경로 |
 |-----------------------------------------|------------------------|
 | /goldline/templates/acme2017/sku798     | /templates/sku798      |
 | /goldline/templates/acme2017/sku980     | /templates/sku980      |

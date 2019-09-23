@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2fd8dd09da8080e9eff60bcec7d595476243cd02
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 0acd4c2793c7c13fb687f591d01e6d8753f71bdc
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736127"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181151"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션
 
@@ -33,7 +33,7 @@ Azure Storage를 지역에서 복제할 수 있습니다. 지역에서 복제는
 
 Azure Storage에 저장된 데이터에 액세스하는 데 다음 형식 중 하나를 사용할 수 있습니다.
 
-|데이터 액세스 형식 |Description |
+|데이터 액세스 형식 |설명 |
 |---|---|
 |`wasb:///`|암호화되지 않은 통신을 사용하여 기본 스토리지에 액세스합니다.|
 |`wasbs:///`|암호화된 통신을 사용하여 기본 스토리지에 액세스합니다.|
@@ -110,7 +110,7 @@ Data Lake Storage Gen2의 기본 기능은 데이터 액세스 성능을 개선�
 
 ADLS Gen2에 저장된 데이터에 액세스하는 데 다음 형식 중 하나를 사용할 수 있습니다.
 - `abfs:///`: 클러스터의 기본 Data Lake Storage에 액세스합니다.
-- `abfs[s]://file_system@account_name.dfs.core.windows.net`: 기본이 아닌 Data Lake Storage와 통신할 때 사용됩니다.
+- `abfs://file_system@account_name.dfs.core.windows.net`: 기본이 아닌 Data Lake Storage와 통신할 때 사용됩니다.
 
 자세한 내용은 다음 문서를 참조하세요.
 

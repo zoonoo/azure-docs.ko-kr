@@ -7,19 +7,19 @@ ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: d7e264bda62753693cdd2333625313cf213f142a
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: b2b38fe2d9a2bf4c645e5b1cda4b8fba356353d3
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71145578"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181193"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
 리소스 정책 정의는 Azure Policy에서 리소스에 대한 규칙을 설정하는 데 사용됩니다. 각 정의는 리소스 규정 준수 및 리소스가 규정을 준수하지 않을 때 적용되는 영향에 대해 설명합니다.
 규칙을 정의하여 비용을 제어하고 리소스를 보다 쉽게 관리할 수 있습니다. 예를 들어, 특정 유형의 가상 머신만 허용되게 지정할 수 있습니다. 또는 모든 리소스가 특정 태그를 갖도록 요구할 수 있습니다. 정책은 모든 자식 리소스에 의해 상속됩니다. 리소스 그룹에 정책을 적용하면 해당 리소스 그룹의 모든 리소스에 해당 정책을 적용할 수 있습니다.
 
-여기에서는 Azure Policy에서 사용하는 스키마를 찾을 수 있습니다. [https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
+여기에서는 Azure Policy에서 사용하는 스키마를 찾을 수 있습니다. [https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-01-01/policydefinitions](/azure/templates/microsoft.authorization/2019-01-01/policydefinitions)
 
 JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 요소가 포함됩니다.
 

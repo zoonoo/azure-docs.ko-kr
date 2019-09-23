@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: d036e56a4ccf826ccd19fb7424b7b76568839b23
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: b73810b37020bf01c1088f194bd426e93fd95d2c
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104530"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180775"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 사용할 스토리지 옵션 비교
 
@@ -28,10 +28,10 @@ HDInsight 클러스터를 만들 때 몇 가지 Azure storage 서비스 중에�
 
 | 스토리지 서비스 | 계정 형식 | 네임 스페이스 형식 | 지원되는 서비스 | 지원되는 성능 계층 | 지원되는 액세스 계층 | HDInsight 버전 | 클러스터 유형 |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| 범용 V2 | 계층 구조 (파일 시스템) | Blob | 표준 | 핫, 쿨, 보관 | 3.6 이상 | 모두 |
-|Azure Storage| 범용 V2 | Object | Blob | 표준 | 핫, 쿨, 보관 | 3.6 이상 | 모두 |
-|Azure Storage| 범용 V1 | Object | Blob | 표준 | 해당 사항 없음 | 모두 | 모두 |
-|Azure Storage| Blob Storage * * | Object | 블록 Blob | 표준 | 핫, 쿨, 보관 | 모두 | 모두 |
+|Azure Data Lake Storage Gen2| 범용 V2 | 계층 구조 (파일 시스템) | Blob | Standard | 핫, 쿨, 보관 | 3.6 이상 | 모두 |
+|Azure Storage| 범용 V2 | Object | Blob | Standard | 핫, 쿨, 보관 | 3.6 이상 | 모두 |
+|Azure Storage| 범용 V1 | Object | Blob | Standard | 해당 사항 없음 | 모두 | 모두 |
+|Azure Storage| Blob Storage * * | Object | 블록 Blob | Standard | 핫, 쿨, 보관 | 모두 | 모두 |
 |Azure Data Lake Storage Gen1| 해당 사항 없음 | 계층 구조 (파일 시스템) | 해당 사항 없음 | 해당 사항 없음 | 해당 사항 없음 | 3.6만 해당 | HBase를 제외한 모든 |
 
 \* * HDInsight 클러스터의 경우에는 보조 저장소 계정만 BlobStorage 유형이 될 수 있으며 페이지 Blob은 지원 되는 저장소 옵션이 아닙니다.
@@ -42,7 +42,7 @@ Azure Storage 액세스 계층에 대 한 자세한 내용은 Azure [Blob Storag
 
 기본 및 선택적 보조 저장소에 대해 서로 다른 서비스 조합을 사용 하 여 클러스터를 만들 수 있습니다. 다음 표에는 HDInsight에서 현재 지원 되는 클러스터 저장소 구성이 요약 되어 있습니다.
 
-| HDInsight 버전 | 기본 스토리지 | 보조 저장소 | 지원됨 |
+| HDInsight 버전 | 기본 저장소 | 보조 저장소 | 지원됨 |
 |---|---|---|---|
 | 3.6 & 4.0 | 범용 V1, 범용 V2 | 범용 V1, 범용 V2, BlobStorage (블록 Blob) | 예 |
 | 3.6 & 4.0 | 범용 V1, 범용 V2 | Data Lake Storage Gen2 | 아니요 |
@@ -95,9 +95,9 @@ Apache Hadoop 애플리케이션은 기본적으로 로컬 디스크 스토리�
 
 Azure Data Lake Storage Gen2는 새 URI 체계를 사용하여 HDInsight에서 Azure Storage의 파일에 액세스합니다.
 
-`abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
+`abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
 
-URI 체계는 SSL 암호화 액세스(`abfss://` 접두사) 및 암호화되지 않은 액세스(`abfs://` 접두사)를 제공합니다. Azure의 동일한 지역에 있는 데이터에 액세스하는 경우에도 가능하면 `abfss`를 사용합니다.
+URI 체계는 SSL로 암호화 된 액세스를 제공 합니다.
 
 `<FILE_SYSTEM_NAME>`은 Data Lake Storage Gen2 파일 시스템의 경로를 식별합니다.
 
@@ -108,8 +108,8 @@ URI 체계는 SSL 암호화 액세스(`abfss://` 접두사) 및 암호화되지 
 `<FILE_SYSTEM_NAME>` 및 `<ACCOUNT_NAME>`에 대한 값을 지정하지 않으면 기본 파일 시스템이 사용됩니다. 기본 파일 시스템의 파일에 대해서는 상대 경로나 절대 경로를 사용합니다. 예를 들어 HDInsight 클러스터와 함께 제공되는 `hadoop-mapreduce-examples.jar` 파일은 다음 경로 중 하나를 사용하여 참조할 수 있습니다.
 
 ```
-abfss://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
-abfss:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduce-examples.jar
+abfs://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
+abfs:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduce-examples.jar
 ```
 
 > [!Note]

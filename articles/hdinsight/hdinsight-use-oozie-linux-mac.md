@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: c24370c91c7164786503cdd8e3c44de60abc8370
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b0cb5f9fa0a0bc64b38225fba03568cf31021572
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122488"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181086"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Hadoop과 함께 Apache Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로 정의 및 실행
 
@@ -37,7 +37,7 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 
 * **Azure SQL Database**입니다.  [Azure Portal에서 AZURE SQL Database 만들기](../sql-database/sql-database-get-started.md)를 참조 하세요.  이 문서에서는 라는 `oozietest`데이터베이스를 사용 합니다.
 
-* 클러스터 기본 스토리지에 대한 [URI 체계](./hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. Azure Storage는 `wasb://`, Azure Data Lake Storage Gen2는 `abfs://`, Azure Data Lake Storage Gen1은 `adl://`입니다. Azure Storage 또는 Data Lake Storage Gen2에 보안 전송을 사용하는 경우 URI는 각각 `wasbs://` 또는 `abfss://`가 됩니다. [보안 전송](../storage/common/storage-require-secure-transfer.md)도 참조하세요.
+* 클러스터 기본 스토리지에 대한 [URI 체계](./hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. Azure Storage는 `wasb://`, Azure Data Lake Storage Gen2는 `abfs://`, Azure Data Lake Storage Gen1은 `adl://`입니다. Azure Storage에 대해 보안 전송이 사용 되는 경우 URI `wasbs://`는입니다. 또한 [보안 전송](../storage/common/storage-require-secure-transfer.md)을 참조 하세요.
 
 ## <a name="example-workflow"></a>예제 워크플로
 

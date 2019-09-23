@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.openlocfilehash: 6801f2b3bca1fbfa221ec2eba07f51b76712b4ff
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 26634e2fe23e0a23540638c4559af6e11eccbe72
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813981"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180740"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용
 
@@ -22,8 +22,8 @@ HDInsight Spark 클러스터에는 [Apache Spark](https://spark.apache.org/) 작
 **사전 요구 사항:**
 
 * Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
-* 클러스터 기본 저장소에 대 한 URI 체계입니다. Azure Data Lake Storage Gen2 또는 `wasb://` AzureDataLakeStorageGen1`adl://` 에 대 한 `abfs://` Azure Blob Storage입니다. Blob Storage 또는 Data Lake Storage Gen2에 대해 보안 전송이 사용 되는 경우 URI `wasbs://` 는 각각 또는 `abfss://`입니다.  자세한 내용은 [Azure Storage에서 보안 전송 필요](../../storage/common/storage-require-secure-transfer.md) 를 참조 하세요.
+* HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
+* 클러스터 기본 저장소에 대 한 URI 체계입니다. Azure Data Lake Storage Gen2 또는 `wasb://` AzureDataLakeStorageGen1`adl://` 에 대 한 `abfs://` Azure Blob Storage입니다. Blob Storage에 대해 보안 전송이 사용 되는 경우 URI `wasbs://`는입니다.  자세한 내용은 [Azure Storage에서 보안 전송 필요](../../storage/common/storage-require-secure-transfer.md) 를 참조 하세요.
 
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Apache Zeppelin Notebook 시작
 
@@ -101,7 +101,7 @@ HDInsight Spark 클러스터에는 [Apache Spark](https://spark.apache.org/) 작
     select buildingID, date, targettemp, (targettemp - actualtemp) as temp_diff from hvac where targettemp > "${Temp = 65,65|75|85}"
     ```
 
-    새 단락에 이 코드 조각을 붙여넣고 **Shift + Enter**를 누릅니다. 그런 다음 **임시** 드롭다운 ist에서 **65** 를 선택 합니다. 
+    새 단락에 이 코드 조각을 붙여넣고 **Shift + Enter**를 누릅니다. 그런 다음, **임시** 드롭다운 목록에서 **65** 를 선택 합니다. 
 
 8. **가로 막대형 차트** 아이콘을 선택 하 여 표시를 변경 합니다.  그런 다음 **설정** 을 선택 하 고 다음과 같이 변경 합니다.
 
@@ -118,7 +118,7 @@ HDInsight Spark 클러스터에는 [Apache Spark](https://spark.apache.org/) 작
 
 10. **Livy**으로 스크롤한 다음 **다시 시작**을 선택 합니다.  프롬프트에서 **확인을** 선택 합니다.
 
-    ![Livy 인터프리터 다시 시작](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Zeppelin 인터프리터 다시 시작")
+    ![Livy 인터프리터를 다시 시작 합니다] . (./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Zeppelin 인터프리터를 다시 시작 합니다") .
 
 ## <a name="how-do-i-use-external-packages-with-the-notebook"></a>Notebook에서 외부 패키지 사용 방법
 클러스터에 기본 제공 되지 않는 외부의 커뮤니티 제공 패키지를 사용 하도록 HDInsight의 Apache Spark 클러스터에서 Zeppelin 노트북을 구성할 수 있습니다. 사용할 수 있는 패키지의 전체 목록은 [Maven 리포지토리](https://search.maven.org/) 를 검색할 수 있습니다. 다른 소스에서 사용 가능한 패키지 목록을 가져올 수도 있습니다. 예를 들어 커뮤니티 제공 패키지의 전체 목록은 [Spark 패키지](https://spark-packages.org/)에서 사용할 수 있습니다.
@@ -169,7 +169,7 @@ Zeppelin Notebook에서 첫 번째 코드 단락을 실행하면 HDInsight Spark
 
 2. **Livy**으로 스크롤한 다음 **다시 시작**을 선택 합니다.
 
-    ![Livy 인터프리터 다시 시작](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Zeppelin 인터프리터 다시 시작")
+    ![Livy 인터프리터를 다시 시작 합니다] . (./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Zeppelin 인터프리터를 다시 시작 합니다") .
 
 3. 기존 Zeppelin Notebook에서 코드 셀을 실행합니다. 이렇게 하면 HDInsight 클러스터에 새로운 Livy 세션이 만들어집니다.
 

@@ -1,19 +1,19 @@
 ---
-title: Azure HPC 캐시 데이터 수집-msrsync
+title: Azure HPC 캐시 미리 보기 데이터 수집-msrsync
 description: Azure HPC 캐시에서 msrsync를 사용 하 여 Blob 저장소 대상으로 데이터를 이동 하는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: v-erkell
-ms.openlocfilehash: d49c2ba45b125f8e42ea5d10dcf3dcd68558a52c
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 265ec55a6e013a37cf963b6256e900c070311f72
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775638"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180940"
 ---
-# <a name="azure-hpc-cache-data-ingest---msrsync-method"></a>Azure HPC 캐시 데이터 수집-msrsync 메서드
+# <a name="azure-hpc-cache-preview-data-ingest---msrsync-method"></a>Azure HPC 캐시 (미리 보기) 데이터 수집-msrsync 메서드
 
 이 문서에서는 azure HPC 캐시와 함께 ``msrsync`` 사용 하기 위해 유틸리티를 사용 하 여 azure Blob storage 컨테이너에 데이터를 복사 하는 방법에 대 한 자세한 지침을 제공 합니다.
 

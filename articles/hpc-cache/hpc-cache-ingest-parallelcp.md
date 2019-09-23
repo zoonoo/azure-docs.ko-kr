@@ -1,19 +1,19 @@
 ---
-title: Azure HPC 캐시 데이터 수집-병렬 복사 스크립트
+title: Azure HPC 캐시 미리 보기 데이터 수집-병렬 복사 스크립트
 description: 병렬 복사 스크립트를 사용 하 여 Azure HPC 캐시에서 Blob 저장소 대상으로 데이터를 이동 하는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: v-erkell
-ms.openlocfilehash: 7414d830f5a2e6fc12066b2f408da041838283db
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 852b4e692a4316c7701c8c179039104bee561949
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775365"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180961"
 ---
-# <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Azure HPC 캐시 데이터 수집-병렬 복사 스크립트 메서드
+# <a name="azure-hpc-cache-preview-data-ingest---parallel-copy-script-method"></a>Azure HPC 캐시 (미리 보기) 데이터 수집-병렬 복사 스크립트 메서드
 
 이 문서에서는 스크립트를 ``parallelcp`` 만들고이를 사용 하 여 Azure HPC 캐시에서 사용할 Blob 저장소 컨테이너로 데이터를 이동 하는 방법에 대 한 지침을 제공 합니다.
 

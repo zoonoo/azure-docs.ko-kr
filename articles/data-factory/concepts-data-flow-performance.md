@@ -5,13 +5,13 @@ author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
-ms.date: 05/16/2019
-ms.openlocfilehash: 8eb244a0eff1569ac27feae68104db613373463a
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.date: 09/22/2019
+ms.openlocfilehash: e4b3e08c0cc7fc1ead2aed551c228c6a1165c3b6
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992337"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180849"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>데이터 흐름 매핑 성능 및 튜닝 가이드
 
@@ -90,6 +90,13 @@ ms.locfileid: "69992337"
 * 데이터 흐름 디자이너 내에서 변환의 데이터 미리 보기 탭을 사용 하 여 변환 논리의 결과를 볼 수 있습니다.
 * 파이프라인 디자인 캔버스에 데이터 흐름 작업을 배치 하 고 "디버그" 단추를 사용 하 여 파이프라인 디자이너에서 데이터 흐름 단위 테스트를 사용 하 여 테스트 합니다.
 * 디버그 모드에서의 테스트는 just-in-time 클러스터 스핀을 기다릴 필요 없이 라이브 준비 클러스터 환경에 대해 작동 합니다.
+* 데이터 흐름 디자이너 환경 내에서 데이터 미리 보기를 디버깅 하는 동안 데이터 흐름 디자이너 UI의 디버그 설정 링크에서 행 제한을 설정 하 여 각 원본에 대해 테스트 하는 데이터의 양을 제한할 수 있습니다. 먼저 디버그 모드를 설정 해야 합니다.
+
+![디버그 설정](media/data-flow/debug-settings.png "디버그 설정")
+
+* 파이프라인 디버그 실행에서 데이터 흐름을 테스트할 때 각 원본에 대 한 샘플링 크기를 설정 하 여 테스트에 사용 되는 행 수를 제한할 수 있습니다. 정기적인 조작 가능한 일정에 따라 파이프라인을 예약할 때 샘플링을 사용 하지 않도록 설정 해야 합니다.
+
+![행 샘플링](media/data-flow/source1.png "행 샘플링")
 
 ### <a name="disable-indexes-on-write"></a>쓰기 시 인덱스 사용 안 함
 * 데이터 흐름 작업 이전에 ADF 파이프라인 저장 프로시저 작업을 사용 하 여 싱크에 기록 되는 대상 테이블의 인덱스를 비활성화 합니다.
@@ -140,6 +147,10 @@ ms.locfileid: "69992337"
 ```DateFiles/*_201907*.txt```
 
 이는 내부에서 데이터 흐름 실행 작업을 사용 하 여 ForEach를 사용 하 여 일치 하는 모든 파일에서 반복 하는 파이프라인의 Blob 저장소에 대 한 조회 보다 성능이 더 우수 합니다.
+
+### <a name="increase-the-size-of-your-debug-cluster"></a>디버그 클러스터의 크기를 늘립니다.
+
+기본적으로 디버그를 설정 하면 각 데이터 팩터리에 대해 자동으로 생성 되는 기본 Azure Integration runtime을 사용 합니다. 이 기본 Azure IR는 8 개 코어에 대해 설정 되 고 4 개 코어에 대해 4 개, 작업자 노드에 대해 4 개의 일반 계산 속성을 사용 하 여 설정 됩니다. 큰 데이터를 사용 하 여 테스트 하는 경우 더 큰 구성으로 새 Azure IR을 만들고 디버그를 전환할 때이 새 Azure IR를 선택 하 여 디버그 클러스터의 크기를 늘릴 수 있습니다. 그러면 ADF가 데이터 흐름을 사용 하 여 데이터 미리 보기 및 파이프라인 디버그에이 Azure IR를 사용 하도록 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

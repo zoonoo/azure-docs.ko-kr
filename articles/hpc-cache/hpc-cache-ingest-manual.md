@@ -1,19 +1,19 @@
 ---
-title: Azure HPC 캐시 데이터 수집-수동 복사
+title: Azure HPC 캐시 미리 보기 데이터 수집-수동 복사
 description: Azure HPC 캐시에서 cp 명령을 사용 하 여 Blob 저장소 대상으로 데이터를 이동 하는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: v-erkell
-ms.openlocfilehash: 2d89a74d4b79e74c2bc6667a5f76c2348ca3c274
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 217f976d53a7be8931be9f8d21b000549a9ed68a
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775235"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180996"
 ---
-# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Azure HPC 캐시 데이터 수집-수동 복사 방법
+# <a name="azure-hpc-cache-preview-data-ingest---manual-copy-method"></a>Azure HPC 캐시 (미리 보기) 데이터 수집-수동 복사 방법
 
 이 문서에서는 Azure HPC 캐시에서 사용할 수 있도록 Blob storage 컨테이너에 데이터를 수동으로 복사 하는 방법에 대 한 자세한 지침을 제공 합니다. 다중 스레드 병렬 작업을 사용 하 여 복사 속도를 최적화 합니다.
 
@@ -114,7 +114,7 @@ cp /mnt/source/file8* /mnt/destination3/ & \
 
 마지막으로, 클라이언트 기능에 도달한 경우 더 많은 복사 스레드 또는 추가 탑재 지점을 추가해도 추가 파일 수/초 또는 바이트 수/초가 증가하지 않습니다. 이 경우 자체의 파일 복사 프로세스 집합을 실행할 동일한 탑재 지점 집합을 사용하여 다른 클라이언트를 배포할 수 있습니다. 
 
-예제:
+예:
 
 ```bash
 Client1: cp -R /mnt/source/dir1/dir1a /mnt/destination/dir1/ &

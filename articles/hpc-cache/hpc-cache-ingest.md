@@ -1,19 +1,19 @@
 ---
-title: Azure HPC 캐시 클라우드 컨테이너로 데이터 이동
+title: Azure HPC 캐시 (미리 보기) 클라우드 컨테이너로 데이터 이동
 description: Azure HPC 캐시에서 사용할 Azure Blob 저장소를 채우는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0a71efdc0479a69aed8fecc22a6c89c506279d57
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 103470861383ff411cfaa670d70412086045a418
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105305"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180714"
 ---
-# <a name="move-data-to-azure-blob-storage-for-azure-hpc-cache"></a>Azure HPC 캐시용 Azure Blob storage로 데이터 이동
+# <a name="move-data-to-azure-blob-storage-for-azure-hpc-cache-preview"></a>Azure HPC Cache (미리 보기)를 위해 Azure Blob storage로 데이터 이동
 
 워크플로에 데이터를 Azure Blob 저장소로 이동 하는 작업이 포함 된 경우 Azure HPC 캐시를 통해 데이터를 복사 하는 효율적인 전략을 사용 하 고 있는지 확인 합니다.
 
@@ -33,7 +33,7 @@ Python 기반 유틸리티는 Blob 저장소 컨테이너에 콘텐츠를 로드
 
 다음을 사용할 수 있습니다. <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> Avere CLFSLoad 유틸리티를 통해 데이터를 저장소 대상으로 추가 하기 전에 새 Blob 저장소 컨테이너로 데이터를 복사 합니다. 이 유틸리티는 단일 Linux 시스템에서 실행 되며 Azure HPC 캐시에 필요한 소유 형식으로 데이터를 기록 합니다. CLFSLoad는 캐시에 사용할 Blob 저장소 컨테이너를 채우는 가장 효율적인 방법입니다.
 
-Avere CLFSLoad 유틸리티는 Azure HPC 캐시 팀의 요청에 의해 제공 됩니다. 팀 연락처에 문의 하거나 지원 티켓을 열어 지원을 요청 하세요.
+Avere CLFSLoad 유틸리티는 Azure HPC 캐시 팀의 요청에 의해 제공 됩니다. 팀에 문의 하거나 [지원 티켓](hpc-cache-support-ticket.md) 을 열어 지원을 요청 하세요.
 
 이 옵션은 비어 있는 새 컨테이너에만 적용 됩니다. Avere CLFSLoad를 사용 하기 전에 컨테이너를 만듭니다.
 
@@ -60,7 +60,7 @@ Avere CLFSLoad 유틸리티를 사용 하지 않으려는 경우 또는 기존 B
 
 ![다중 클라이언트, 다중 스레드 데이터 이동을 보여주는 다이어그램: 왼쪽 위의 온-프레미스 하드웨어 스토리지 아이콘에 여러 개의 화살표가 있습니다. 화살표는 네 개의 클라이언트 머신을 가리킵니다. 각 클라이언트 컴퓨터에서 세 개의 화살표가 Azure HPC 캐시를 가리킵니다. Azure HPC 캐시에서 여러 화살표가 Blob storage를 가리킵니다.](media/hpc-cache-parallel-ingest.png) 
 
-일반적으로 ``copy`` 한 저장소 시스템에서 다른 저장소 시스템으로 데이터를 전송 하는 데 사용 하는 또는명령은한번에하나의파일만복사하는단일스레드프로세스입니다.``cp`` 즉 파일 서버에서 한 번에 하나의 파일만 수집합니다. 이로 인해 클러스터 리소스가 낭비됩니다.
+일반적으로 ``copy`` 한 저장소 시스템에서 다른 저장소 시스템으로 데이터를 전송 하는 데 사용 하는 또는명령은한번에하나의파일만복사하는단일스레드프로세스입니다.``cp`` 즉, 파일 서버는 한 번에 하나의 파일만 수집 캐시의 리소스가 낭비 됩니다.
 
 이 섹션에서는 Azure HPC 캐시를 사용 하 여 Blob 저장소로 데이터를 이동 하는 다중 클라이언트 다중 스레드 파일 복사 시스템을 만들기 위한 전략을 설명 합니다. 여러 클라이언트와 단순 복사 명령을 사용하여 효율적인 데이터 복사에 사용할 수 있는 파일 전송 개념 및 결정 사항에 대해 설명합니다.
 

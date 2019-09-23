@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 1904ab07a188e4e877a4fb2f2b7682d923c08fb2
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 7f97348999f2cab6509afeb44bc704d5109ee0f7
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441985"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181117"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
 
 Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 Linux 환경에서 Apache Hadoop을 제공합니다. 대부분의 작업에 대해 Linux 설치에서 모든 다른 Hadoop으로 정확하게 작동해야 합니다. 이 문서를 알고 있어야 하는 특정 차이점을 호출합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계 대부분은 많은 시스템에 설치해야 할 수 있는 다음과 같은 유틸리티를 사용합니다.
 
@@ -95,7 +95,7 @@ Hadoop 관련 파일은 `/usr/hdp`의 클러스터 노드에서 찾을 수 있�
 
 ## <a name="hdfs-azure-storage-and-data-lake-storage"></a>HDFS, Azure Storage 및 Data Lake Storage
 
-대부분의 Hadoop 배포판에서 HDFS에 저장된 데이터는 클러스터의 머신에서 로컬 스토리지에 의해 되돌아갑니다. 계산 리소스에 대해 시간당 또는 분당 비용이 부과되는 클라우드 기반 솔루션의 경우 로컬 스토리지를 사용하면 비용이 많이 들 수 있습니다.
+대부분의 Hadoop 배포판에서 HDFS에 저장된 데이터는 클러스터의 머신에서 로컬 스토리지에 의해 되돌아갑니다. 컴퓨팅 리소스에 대해 시간당 또는 분당 비용이 부과되는 클라우드 기반 솔루션의 경우 로컬 스토리지를 사용하면 비용이 많이 들 수 있습니다.
 
 HDInsight를 사용할 때는 Azure Blob Storage와, 선택적으로 Azure Data Lake Storage를 통해 데이터 파일이 확장성 있고 탄력적인 방식으로 클라우드에 저장됩니다. 이러한 서비스는 다음과 같은 이점을 제공합니다.
 
@@ -114,7 +114,7 @@ HDInsight에서 데이터 스토리지 리소스(Azure Blob Storage 및 Azure Da
 
 ### <a name="URI-and-scheme"></a>URI 및 체계
 
-일부 명령에서는 파일에 액세스할 때 URI의 일부로 구성표를 지정해야 할 수도 있습니다. 예를 들어 Storm-HDFS 구성 요소를 사용하려면 구성표를 지정해야 합니다. 기본값이 아닌 저장소(클러스터에 "추가" 저장소로 추가된 저장소)를 사용할 때는 항상 URI의 일부로 구성표를 사용해야 합니다.
+일부 명령에서는 파일에 액세스할 때 URI의 일부로 구성표를 지정해야 할 수도 있습니다. 예를 들어 Storm-HDFS 구성 요소를 사용하려면 구성표를 지정해야 합니다. 기본값이 아닌 스토리지(클러스터에 &quot;추가&quot; 스토리지로 추가된 스토리지)를 사용할 때는 항상 URI의 일부로 구성표를 사용해야 합니다.
 
 __Azure Storage__를 사용하는 경우 다음 URI 체계 중 하나를 사용합니다.
 
@@ -124,11 +124,9 @@ __Azure Storage__를 사용하는 경우 다음 URI 체계 중 하나를 사용�
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net/`: 기본이 아닌 스토리지 계정과 통신할 때 사용됩니다. 예를 들어 추가 스토리지 계정이 있거나 공개적으로 액세스할 수 있는 스토리지 계정에 저장된 데이터에 액세스하는 경우입니다.
 
-__Azure Data Lake Storage Gen2__를 사용하는 경우 다음 URI 체계 중 하나를 사용합니다.
+__Azure Data Lake Storage Gen2__사용 하는 경우 다음 URI 체계를 사용 합니다.
 
-* `abfs:///`: 암호화되지 않은 통신을 사용하여 기본 스토리지에 액세스합니다.
-
-* `abfss:///`: 암호화된 통신을 사용하여 기본 스토리지에 액세스합니다.  abfss 체계는 HDInsight 버전 3.6 이상에서만 지원됩니다.
+* `abfs://`: 암호화된 통신을 사용하여 기본 스토리지에 액세스합니다.
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: 기본이 아닌 스토리지 계정과 통신할 때 사용됩니다. 예를 들어 추가 스토리지 계정이 있거나 공개적으로 액세스할 수 있는 스토리지 계정에 저장된 데이터에 액세스하는 경우입니다.
 

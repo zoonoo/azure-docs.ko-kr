@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c39ee29b9a4449000d44e44bc6feae407cf4cd38
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 2fcace82eed81b85571ba88243a3de991ae01aa0
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874944"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180111"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 크기 조정 및 호스팅
 
@@ -62,6 +62,8 @@ App Service 계획을 사용 하면 관리 하는 전용 인프라를 활용할 
 * 높은 부하 기간 동안에도 자동으로 규모 확장
 
 동일한 지역에 있는 함수 앱은 동일한 소비 계획에 할당할 수 있습니다. 여러 앱을 동일한 소비 계획에서 실행 하는 경우에는 영향을 주지 않습니다. 여러 앱을 동일한 소비 계획에 할당 하면 각 앱의 복원 력, 확장성 또는 안정성에 영향을 주지 않습니다.
+
+소비 계획에서 실행 하는 경우 비용을 계산 하는 방법에 대 한 자세한 내용은 [소비 계획 비용 이해](functions-consumption-costs.md)를 참조 하세요.
 
 ## <a name="premium-plan"></a>프리미엄 요금제 (미리 보기)
 
@@ -129,7 +131,9 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 ## <a name="storage-account-requirements"></a>Storage 계정 요구 사항
 
-모든 계획에서 함수 앱에는 Azure Blob, 큐, 파일 및 테이블 저장소를 지 원하는 일반 Azure Storage 계정이 필요 합니다. 이는 함수는 트리거 관리 및 함수 실행 로깅 등의 작업에 Azure Storage를 사용 하지만 일부 저장소 계정은 큐 및 테이블을 지원 하지 않기 때문입니다. Blob 전용 스토리지 계정(Premium Storage 포함) 및 영역 중복 스토리지 복제가 사용되는 범용 스토리지 계정을 포함한 계정은 함수 앱을 만들 때 기존 **스토리지 계정** 선택 항목에서 필터링됩니다.
+모든 계획에서 함수 앱에는 Azure Blob, 큐, 파일 및 테이블 저장소를 지 원하는 일반 Azure Storage 계정이 필요 합니다. Functions는 트리거 관리 및 함수 실행 기록과 같은 작업에 Azure Storage를 사용하지만 일부 스토리지 계정은 큐와 테이블을 지원하지 않기 때문입니다. Blob 전용 스토리지 계정(Premium Storage 포함) 및 영역 중복 스토리지 복제가 사용되는 범용 스토리지 계정을 포함한 계정은 함수 앱을 만들 때 기존 **스토리지 계정** 선택 항목에서 필터링됩니다.
+
+함수 앱에서 사용 하는 것과 동일한 저장소 계정을 사용 하 여 응용 프로그램 데이터를 저장할 수 있습니다. 그러나 저장소를 많이 사용 하는 작업의 경우에는 별도의 저장소 계정을 사용 해야 합니다.   
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 

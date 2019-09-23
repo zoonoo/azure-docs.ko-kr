@@ -1,19 +1,19 @@
 ---
-title: Azure HPC 캐시용 지원 티켓 열기
+title: Azure HPC 캐시 (미리 보기)에 대 한 지원 티켓 열기
 description: Azure HPC 캐시에 대 한 도움말 요청을 여는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: v-erkell
-ms.openlocfilehash: d845195940fdba81562acf4c0cfe9069245bd34c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 29750ab19f74ef1ceab8c69792d12b9f9ca2a297
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036911"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180895"
 ---
-# <a name="open-a-support-ticket-for-azure-hpc-cache"></a>Azure HPC 캐시용 지원 티켓 열기
+# <a name="open-a-support-ticket-for-azure-hpc-cache-preview"></a>Azure HPC 캐시 (미리 보기)에 대 한 지원 티켓 열기
 
 Azure Portal를 사용 하 여 지원 티켓을 엽니다. 캐시 인스턴스로 이동한 다음 사이드바의 아래쪽에 표시 되는 **새 지원 요청** 링크를 클릭 합니다.
 
