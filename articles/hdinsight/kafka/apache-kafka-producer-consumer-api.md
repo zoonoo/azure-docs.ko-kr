@@ -108,7 +108,7 @@ properties.setProperty("auto.offset.reset","earliest");
 consumer = new KafkaConsumer<>(properties);
 ```
 
-이 코드에서 소비자는 토픽의 시작에서 읽도록 구성됩니다(`auto.offset.reset`이 `earliest`로 설정됨.)
+이 코드에서 소비자는 토픽의 시작에서 읽도록 구성됩니다(`auto.offset.reset`이 `earliest`로 설정됨).
 
 ### <a name="runjava"></a>Run.java
 
@@ -188,7 +188,7 @@ consumer = new KafkaConsumer<>(properties);
 
     레코드 수와 함께 읽은 레코드가 표시됩니다.
 
-9. __Ctrl+C__를 사용하여 소비자를 종료합니다.
+9. __Ctrl+C__ 를 사용하여 소비자를 종료합니다.
 
 ### <a name="multiple-consumers"></a>여러 소비자
 
@@ -200,7 +200,7 @@ Kafka 소비자는 레코드를 읽을 때 소비자 그룹을 사용합니다. 
 java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS myGroup
 ```
 
-__Ctrl+C__를 사용하여 소비자를 종료합니다.
+__Ctrl+C__ 를 사용하여 소비자를 종료합니다.
 
 동작 중인 이 프로세스를 확인하려면 다음 명령을 사용합니다.
 
@@ -210,7 +210,7 @@ tmux new-session 'java -jar kafka-producer-consumer.jar consumer myTest $KAFKABR
 \; attach
 ```
 
-이 명령은 `tmux`를 사용하여 터미널을 두 개의 열로 분할합니다. 소비자는 동일한 그룹 ID 값으로 각 열에서 시작됩니다. 소비자가 읽기를 완료하면 각 읽기는 레코드의 일부입니다. __Ctrl + C__를 두 번 사용하여 `tmux`를 종료합니다.
+이 명령은 `tmux`를 사용하여 터미널을 두 개의 열로 분할합니다. 소비자는 동일한 그룹 ID 값으로 각 열에서 시작됩니다. 소비자가 읽기를 완료하면 각 읽기는 레코드의 일부입니다. __Ctrl + C__ 를 두 번 사용하여 `tmux`를 종료합니다.
 
 동일한 그룹 내에서 클라이언트에 의한 소비는 토픽에 대한 파티션을 통해 처리됩니다. 이 코드 샘플에서, 앞에서 만든 `test` 토픽에는 8개의 파티션이 있습니다. 8명의 소비자를 시작하는 경우 각 소비자는 토픽에 대한 단일 파티션에서 레코드를 읽습니다.
 
@@ -225,9 +225,9 @@ Kafka에 저장된 레코드는 파티션에서 받은 순서대로 저장됩니
 
 Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 
-1. Azure Portal에서 왼쪽의 메뉴를 확장하여 서비스 메뉴를 연 다음 __리소스 그룹__을 선택하여 리소스 그룹 목록을 표시합니다.
+1. Azure Portal에서 왼쪽의 메뉴를 확장하여 서비스 메뉴를 연 다음 __리소스 그룹__ 을 선택하여 리소스 그룹 목록을 표시합니다.
 2. 삭제할 리소스 그룹을 찾은 다음 목록 오른쪽에 있는 __자세히__ 단추(...)를 마우스 오른쪽 단추로 클릭합니다.
-3. __리소스 그룹 삭제__를 선택한 다음 확인합니다.
+3. __리소스 그룹 삭제__ 를 선택한 다음 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
