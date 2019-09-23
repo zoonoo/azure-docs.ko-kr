@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 9bccd826a37b66f7f89e70c57260a0db08342421
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 4e36362fd42a147ee900005d84b0af1b4839aae1
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019180"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965125"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 크기 조정
 
@@ -94,7 +94,7 @@ resources:
      cpu: 500m
 ```
 
-다음 예제에서는 [kubectl autoscale][kubectl-autoscale] 명령을 사용하여 *azure-vote-front* 배포의 Pod 수를 자동으로 조정합니다. CPU 사용률이 50%를 초과하면 자동 크기 조정기가 Pod를 최대 *10*개 인스턴스로 늘립니다. 그런 다음, 최소 *3*개의 인스턴스가 배포에 대해 정의됩니다.
+다음 예제에서는 [kubectl autoscale][kubectl-autoscale] 명령을 사용하여 *azure-vote-front* 배포의 Pod 수를 자동으로 조정합니다. 모든 Pod의 평균 CPU 사용률이 요청된 사용량의 50%를 초과하는 경우 자동 크기 조정은 Pod를 최대 *10*개의 인스턴스로 늘립니다. 그런 다음, 최소 *3*개의 인스턴스가 배포에 대해 정의됩니다.
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10

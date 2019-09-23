@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 7fca5709a1c7c3ecae11a5fc7de2109f1b20645e
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7714d065d8ac449d10d9b022005e7799f8280bda
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839586"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104446"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>자습서: Linux 디바이스용 C# IoT Edge 모듈 개발
 
@@ -36,7 +36,7 @@ Visual Studio Code를 사용하여 C# 코드를 개발하고 Azure IoT Edge를 �
 
 이 자습서는 **Visual Studio Code**를 사용하여 **C#** 으로 모듈을 개발하는 방법과 **Linux 디바이스**에 배포하는 방법을 보여 줍니다. Windows 디바이스용 모듈을 개발하는 경우 대신, [개발Windows 디바이스용 C# IoT Edge 모듈 개발](tutorial-csharp-module-windows.md)로 이동합니다.
 
-다음 표에서 C 모듈을 개발한 후 Linux에 배포하기 위한 옵션을 확인할 수 있습니다. 
+다음 표를 사용하여 C# 모듈을 개발하고 Linux에 배포하기 위한 옵션을 파악할 수 있습니다. 
 
 | C# | Visual Studio Code | Visual Studio | 
 | -- | ------------------ | ------------- |
@@ -209,14 +209,16 @@ Visual Studio Code를 사용하여 C# 코드를 개발하고 Azure IoT Edge를 �
             {
                 Console.WriteLine($"Machine temperature {messageBody.machine.temperature} " +
                     $"exceeds threshold {temperatureThreshold}");
-                var filteredMessage = new Message(messageBytes);
-                foreach (KeyValuePair<string, string> prop in message.Properties)
+                using (var filteredMessage = new Message(messageBytes))
                 {
-                    filteredMessage.Properties.Add(prop.Key, prop.Value);
-                }
+                    foreach (KeyValuePair<string, string> prop in message.Properties)
+                    {
+                        filteredMessage.Properties.Add(prop.Key, prop.Value);
+                    }
 
-                filteredMessage.Properties.Add("MessageType", "Alert");
-                await moduleClient.SendEventAsync("output1", filteredMessage);
+                    filteredMessage.Properties.Add("MessageType", "Alert");
+                    await moduleClient.SendEventAsync("output1", filteredMessage);
+                }
             }
 
             // Indicate that the message treatment is completed.

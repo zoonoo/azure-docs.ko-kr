@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 2ef207a14582e6ba0d9f8a25c0314c5ec639c7cb
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 762ab2800193aa084b771b7d000b383a7004097e
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882858"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984927"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Security Center란?
 
@@ -38,7 +38,7 @@ Azure Security Center는 다음 세 가지의 가장 긴급한 보안 문제를 
 
 이러한 문제로부터 보호하는 데 도움이 되도록 Security Center에서는 다음과 같은 도구를 제공합니다.
 
--   **보안 상태 강화**: Security Center는 환경을 평가하고 리소스 상태, 즉 안전한지 여부를 파악할 수 있도록 합니다.
+-   **보안 상태 강화**: Security Center는 환경을 평가하고 리소스의 상태와 보안 상태를 이해할 수 있도록 합니다.
 
 -   **위협으로부터 보호**: Security Center는 워크로드를 평가하고 위협 방지 권장 사항 및 위협 탐지 경고를 제공합니다.
 

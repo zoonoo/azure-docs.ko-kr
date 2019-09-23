@@ -14,14 +14,14 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/15/2019
+ms.date: 09/11/2019
 ms.author: jowargo
-ms.openlocfilehash: a01a71190f6de4bd08ee306f0175b01fee3db3d5
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: f1a6980efd7614ce245c45852b6ce08eb71d1cfd
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227875"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70935128"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>자습서: Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시
 
@@ -190,7 +190,7 @@ ms.locfileid: "68227875"
      > [!IMPORTANT]
      > 허브의 **이름**과 **DefaultListenSharedAccessSignature**를 입력하고 계속 진행합니다. 
 
-3. `RegistrationIntentService`라는 프로젝트에 또 다른 새 클래스를 추가합니다. 이 클래스는 `IntentService` 인터페이스를 구현합니다. 또한 [FCM 토큰 새로 고침](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) 및 [알림 허브에 등록](notification-hubs-push-notification-registration-management.md)을 처리합니다.
+2. `RegistrationIntentService`라는 프로젝트에 또 다른 새 클래스를 추가합니다. 이 클래스는 `IntentService` 인터페이스를 구현합니다. 또한 [FCM 토큰 새로 고침](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) 및 [알림 허브에 등록](notification-hubs-push-notification-registration-management.md)을 처리합니다.
 
     이 클래스에 대해 다음 코드를 사용합니다.
 
@@ -292,7 +292,7 @@ ms.locfileid: "68227875"
     }
     ```
 
-4. `MainActivity` 클래스에서 다음 `import` 문을 클래스 선언 위에 추가합니다.
+3. `MainActivity` 클래스에서 다음 `import` 문을 클래스 선언 위에 추가합니다.
 
     ```java
     import com.google.android.gms.common.ConnectionResult;
@@ -303,7 +303,7 @@ ms.locfileid: "68227875"
     import android.widget.Toast;
     ```
 
-5. 클래스 위에 다음 멤버를 추가합니다. 이러한 필드를 사용하여 [Google에서 권장한 대로 Google Play 서비스의 가용성을 확인합니다](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
+4. 클래스 위에 다음 멤버를 추가합니다. 이러한 필드를 사용하여 [Google에서 권장한 대로 Google Play 서비스의 가용성을 확인합니다](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
 
     ```java
     public static MainActivity mainActivity;
@@ -312,7 +312,7 @@ ms.locfileid: "68227875"
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     ```
 
-6. `MainActivity` 클래스에서 Google Play 서비스의 가용성을 확인하는 다음 메서드를 추가합니다.
+5. `MainActivity` 클래스에서 Google Play 서비스의 가용성을 확인하는 다음 메서드를 추가합니다.
 
     ```java
     /**
@@ -339,7 +339,7 @@ ms.locfileid: "68227875"
     }
     ```
 
-7. `MainActivity` 클래스에서 `IntentService`를 호출하기 전에 Google Play 서비스를 확인하는 다음 코드를 추가하여 FCM 등록 토큰을 가져오고 허브에 등록합니다.
+6. `MainActivity` 클래스에서 `IntentService`를 호출하기 전에 Google Play 서비스를 확인하는 다음 코드를 추가하여 FCM 등록 토큰을 가져오고 허브에 등록합니다.
 
     ```java
     public void registerWithNotificationHubs()
@@ -352,7 +352,7 @@ ms.locfileid: "68227875"
     }
     ```
 
-8. `MainActivity` 클래스의 `OnCreate` 메서드에서 활동이 생성되면 등록 프로세스를 시작하는 다음 코드를 추가합니다.
+7. `MainActivity` 클래스의 `OnCreate` 메서드에서 활동이 생성되면 등록 프로세스를 시작하는 다음 코드를 추가합니다.
 
     ```java
     @Override
@@ -366,7 +366,7 @@ ms.locfileid: "68227875"
     }
     ```
 
-9. 앱 상태를 확인하고 앱에서 상태를 보고하려면 `MainActivity`에 이러한 추가 메서드를 추가합니다.
+8. 앱 상태를 확인하고 앱에서 상태를 보고하려면 `MainActivity`에 이러한 추가 메서드를 추가합니다.
 
     ```java
     @Override
@@ -405,15 +405,17 @@ ms.locfileid: "68227875"
     }
     ```
 
-10. `ToastNotify` 메서드는 *"Hello World"* `TextView` 컨트롤을 사용하여 앱에서 영구적으로 상태 및 알림을 보고합니다. **res** > **layout** > **activity_main.xml** 레이아웃에서 해당 컨트롤에 대한 다음 ID를 추가합니다.
+9. `ToastNotify` 메서드는 *"Hello World"* `TextView` 컨트롤을 사용하여 앱에서 영구적으로 상태 및 알림을 보고합니다. **res** > **layout** > **activity_main.xml** 레이아웃에서 해당 컨트롤에 대한 다음 ID를 추가합니다.
 
     ```java
     android:id="@+id/text_hello"
     ```
 
-11. 다음으로 AndroidManifest.xml에서 정의된 수신기에 대한 하위 클래스를 추가합니다. `FirebaseService`라는 프로젝트에 또 다른 새 클래스를 추가합니다.
+    ![Azure Notification Hubs - 전송 테스트](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
 
-12. 그런 다음 `FirebaseService.java`의 맨 위에 다음 import 문을 추가합니다.
+10. 다음으로 AndroidManifest.xml에서 정의된 수신기에 대한 하위 클래스를 추가합니다. `FirebaseService`라는 프로젝트에 또 다른 새 클래스를 추가합니다.
+
+11. 그런 다음 `FirebaseService.java`의 맨 위에 다음 import 문을 추가합니다.
 
     ```java
     import com.google.firebase.messaging.FirebaseMessagingService;
@@ -428,10 +430,10 @@ ms.locfileid: "68227875"
     import android.net.Uri;
     import android.os.Build;
     import android.os.Bundle;
-    import android.support.v4.app.NotificationCompat;
+    import androidx.core.app.NotificationCompat;
     ```
 
-13. `FirebaseService` 클래스에 다음 코드를 추가하여 `FirebaseMessagingService`의 하위 클래스로 만듭니다.
+12. `FirebaseService` 클래스에 다음 코드를 추가하여 `FirebaseMessagingService`의 하위 클래스로 만듭니다.
 
     이 코드는 `onMessageReceived` 메서드를 재정의하고 받은 알림을 보고합니다. 또한 `sendNotification()` 메서드를 사용하여 Android 알림 관리자에 푸시 알림을 보냅니다. `sendNotification()` 메서드는 앱이 실행되지 않을 때 알림이 수신되면 호출됩니다.
 
@@ -518,12 +520,16 @@ ms.locfileid: "68227875"
     }
     ```
 
-14. Android Studio의 메뉴 모음에서 **빌드** > **프로젝트 다시 빌드**를 선택하여 코드에 오류가 없는지 확인합니다. `ic_launcher` 아이콘에 대한 오류가 발생하는 경우 AndroidManifest.xml 파일에서 다음 명령문을 제거합니다. 
+13. Android Studio의 메뉴 모음에서 **빌드** > **프로젝트 다시 빌드**를 선택하여 코드에 오류가 없는지 확인합니다. `ic_launcher` 아이콘에 대한 오류가 발생하는 경우 AndroidManifest.xml 파일에서 다음 명령문을 제거합니다. 
 
     ```
         android:icon="@mipmap/ic_launcher"
     ```
-15. 디바이스에서 앱을 실행하고 허브를 사용하여 성공적으로 등록되는지 확인합니다.
+14. 앱을 실행하기 위한 가상 디바이스가 있는지 확인합니다. 없으면 다음과 같이 추가합니다.
+    1. ![디바이스 관리자 열기](./media/notification-hubs-android-push-notification-google-fcm-get-started/open-device-manager.png)
+    2. ![가상 디바이스 만들기](./media/notification-hubs-android-push-notification-google-fcm-get-started/your-virtual-devices.PNG)
+
+15. 선택한 디바이스에서 앱을 실행하고 허브를 사용하여 성공적으로 등록되는지 확인합니다.
 
     > [!NOTE]
     > 인스턴스 ID 서비스의 `onTokenRefresh()` 메서드가 호출될 때까지 초기 시작 시 등록이 실패할 수 있습니다. 새로 고침은 알림 허브를 사용하여 등록을 성공적으로 시작해야 합니다.

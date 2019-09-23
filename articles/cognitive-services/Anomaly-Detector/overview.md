@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 03/26/2019
+ms.date: 09/05/2019
 ms.author: aahi
-ms.openlocfilehash: 70cb4a008391ad55562bc55fb45d877988e68643
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 3bd60ff1e732940bbb13c2e224084cf7e331266b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854783"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934872"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Anomaly Detector API란?
 
@@ -76,6 +76,11 @@ Anomaly Detector API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고
 * Microsoft에서 개발한 최첨단 SR-CNN 알고리즘에 대한 이 문서 [Microsoft의 시계열 Anomaly Detection 서비스](https://arxiv.org/abs/1906.03821)(KDD 2019에서 수락)를 참조하세요.
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
+
+## <a name="join-the-anomaly-detector-community"></a>Anomaly Detector 커뮤니티 참여
+
+* [Microsoft Teams의 Anomaly Detector Advisors 그룹](https://aka.ms/AdAdvisorsJoin)에 조인
+* 선택한 [사용자 생성 콘텐츠](user-generated-content.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

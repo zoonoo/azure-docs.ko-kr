@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: b61dab28ff3fb6710e59e6209282c71a8f52f674
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: d24323996e222caf6456372cbc65681d2055c3db
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914870"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996635"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>빠른 시작: .NET용 Azure Key Vault 클라이언트 라이브러리
 
@@ -26,7 +26,6 @@ Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되
 - FIPS 140-2 수준 2 유효성이 검사된 HSM을 사용합니다.
 
 [API 참조 설명서](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/KeyVault) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
-
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -118,26 +117,14 @@ az ad sp create-for-rbac -n "http://mySP" --sdk-auth
 }
 ```
 
-아래의 [키 자격 증명 모음에 인증](#authenticate-to-your-key-vault) 단계에서 사용되므로 clientId, clientSecret, subscriptionId 및 tenantId를 적어둡니다.
-
-또한 서비스 주체의 appID도 필요합니다. 이 appID는 `--show-mine` 매개 변수가 포함된 [az ad sp list](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list)를 실행하여 찾을 수 있습니다.
-
-```azurecli
-az ad sp list --show-mine
-```
-
-`appID`가 반환된 JSON에 표시됩니다.
-
-```json
-    "appId": "2cf5aa18-0100-445a-9438-0b93e577a3ed",
-```
+clientId와 clientSecret을 적어둡니다. 아래의 [키 자격 증명 모음에 인증](#authenticate-to-your-key-vault) 단계에서 사용할 것입니다.
 
 #### <a name="give-the-service-principal-access-to-your-key-vault"></a>키 자격 증명 모음에 대한 액세스 권한을 서비스 주체에 부여
 
-서비스 주체에 권한을 부여하는 키 자격 증명 모음에 대한 액세스 정책을 만듭니다. 이 작업은 [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 명령을 사용하여 수행합니다. 여기서는 키와 비밀 모두에 대한 get, list 및 set 권한을 서비스 주체에 부여합니다.
+[az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 명령에 clientId를 전달하여 서비스 사용자에게 권한을 부여하는 키 자격 증명 모음에 대한 액세스 정책을 만듭니다. 서비스 사용자에게 키와 비밀에 대한 get, list 및 set 권한을 부여합니다.
 
 ```azurecli
-az keyvault set-policy -n <your-unique-keyvault-name> --spn <appid-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
+az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
 ```
 
 ## <a name="object-model"></a>개체 모델
@@ -164,10 +151,6 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <appid-of-your-servi
 setx akvClientId <your-clientID>
 
 setx akvClientSecret <your-clientSecret>
-
-setx akvTenantId <your-tentantId>
-
-setx akvSubscriptionId <your-subscriptionId>
 ````
 
 `setx`를 호출할 때마다 "SUCCESS: 지정된 값이 저장되었습니다."라는 응답이 표시됩니다.

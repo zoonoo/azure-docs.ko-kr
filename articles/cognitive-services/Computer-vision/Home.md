@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4f823b62237e8018f092d7a94fb479f7fbdd38da
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 915388b850b1b046dae91a20540881480694a944
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565765"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967052"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
 
@@ -75,6 +75,6 @@ Computer Vision에서 이미지를 분석하는 데 충족되어야 하는 요�
 
 빠른 시작 가이드에 따라 Computer Vision 시작:
 
-- [빠른 시작: 이미지 분석](quickstarts-sdk/csharp-analyze-sdk.md)
-- [빠른 시작: 필기 텍스트 추출](quickstarts-sdk/csharp-hand-text-sdk.md)
-- [빠른 시작: 썸네일 생성](quickstarts-sdk/csharp-thumb-sdk.md)
+- [빠른 시작: Computer Vision .NET SDK](quickstarts-sdk/csharp-sdk.md)
+- [빠른 시작: Computer Vision Python SDK](quickstarts-sdk/python-sdk.md)
+- [빠른 시작: Computer Vision Java SDK](quickstarts-sdk/java-sdk.md)

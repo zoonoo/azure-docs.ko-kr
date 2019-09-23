@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Shell에서 Terraform 사용
+title: Terraform에 대한 Azure Cloud Shell 구성
 description: Azure Cloud Shell로 Terraform을 사용하여 인증 및 템플릿 구성을 간소합니다.
 services: terraform
 ms.service: azure
@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2017
-ms.openlocfilehash: ab2fd0c7fa546201d6eb19f727053a9ac54fa854
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 19a828abfee780dd757d0575f94a0358c12088cd
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66169921"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087745"
 ---
 # <a name="terraform-cloud-shell-development"></a>Terraform Cloud Shell 개발 
 
@@ -43,7 +43,7 @@ Cloud Shell은 임의의 `terraform` CLI 명령을 사용할 때 환경 변수�
 
 ## <a name="other-cloud-shell-developer-tools"></a>다른 Cloud Shell 개발자 도구
 
-파일 및 셸 상태는 Cloud Shell 세션 간에 Azure Storage에 유지됩니다. [Azure Storage 탐색기](/azure/vs-azure-tools-storage-manage-with-storage-explorer)를 사용하여 로컬 컴퓨터에서 Cloud Shell에 파일을 복사하고 업로드합니다.
+파일 및 셸 상태는 Cloud Shell 세션 간에 Azure Storage에 유지됩니다. [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer)를 사용하여 로컬 컴퓨터에서 Cloud Shell에 파일을 복사하고 업로드합니다.
 
 Azure CLI는 Cloud Shell에서 사용할 수 있으며 `terraform apply` 또는 `terraform destroy`가 완료된 후 구성을 테스트하고 작업을 확인하는 데 유용한 도구입니다.
 

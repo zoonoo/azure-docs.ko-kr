@@ -17,9 +17,9 @@
   items:
     - name: 일정 기반 워크플로 만들기
       href: tutorial-build-schedule-recurring-logic-app-workflow.md
-    - name: 메일 그룹 요청 관리
+    - name: 승인 기반 워크플로 만들기
       href: tutorial-process-mailing-list-subscriptions-workflow.md
-    - name: 전자 메일 첨부 파일 처리
+    - name: Azure Storage 및 Azure Functions 워크플로 만들기
       href: tutorial-process-email-attachments-workflow.md
 - name: 샘플
   items:
@@ -31,7 +31,7 @@
   items:
     - name: Logic Apps용 커넥터
       href: ../connectors/apis-list.md
-    - name: 자동화된 반복 워크플로 예약
+    - name: 되풀이 워크플로 예약
       href: concepts-schedule-automated-recurring-tasks-workflows.md
     - name: Azure와 함께 서버를 사용하지 않음
       href: logic-apps-serverless-overview.md
@@ -111,6 +111,12 @@
           href: logic-apps-enterprise-integration-partners.md
         - name: 규약
           href: logic-apps-enterprise-integration-agreements.md
+        - name: XML 유효성 검사를 위한 스키마
+          href: logic-apps-enterprise-integration-schemas.md
+        - name: XML 변환을 위한 맵
+          href: logic-apps-enterprise-integration-maps.md
+        - name: 인증서
+          href: logic-apps-enterprise-integration-certificates.md
         - name: 아티팩트 메타데이터
           href: logic-apps-enterprise-integration-metadata.md
         - name: B2B 메시지 수신
@@ -141,20 +147,14 @@
           href: logic-apps-scenario-edi-send-batch-messages.md
         - name: 플랫 파일 처리
           href: logic-apps-enterprise-integration-flatfile.md
+        - name: XML 변환
+          href: logic-apps-enterprise-integration-transform.md
         - name: XML 처리
           href: logic-apps-enterprise-integration-xml.md
         - name: XML 유효성 검사
           href: logic-apps-enterprise-integration-xml-validation.md
-        - name: XML 유효성 검사를 위한 스키마 추가
-          href: logic-apps-enterprise-integration-schemas.md
-        - name: XML 변환
-          href: logic-apps-enterprise-integration-transform.md
-        - name: XML 변환을 위한 맵 추가
-          href: logic-apps-enterprise-integration-maps.md
         - name: JSON 변환
           href: logic-apps-enterprise-integration-liquid-transform.md
-        - name: 보안 인증서 추가
-          href: logic-apps-enterprise-integration-certificates.md
         - name: B2B 오류 문제 해결
           href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
         - name: 재해 복구 계획 빌드

@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 72e268628560618fb6fa47843f5125d9126a9f3e
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 5823bed08e0fc2ed67dbbf3c58c39982f3a1897e
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885162"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037278"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache HBase 정책 구성
 
@@ -88,7 +88,8 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
     ```hbaseshell
     scan 'Contacts'
     ```
-    ![HDInsight Hadoop HBase 셸](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
+
+    ![HDInsight Hadoop HBase 셸 출력](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
 
 ## <a name="create-ranger-policies"></a>Ranger 정책 만들기
 
@@ -96,7 +97,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
 
 1. **Ranger 관리 UI**를 엽니다. **HBase** 아래에서 **\<ClusterName>_hbase**를 클릭합니다.
 
-   ![Apache Ranger 관리 UI](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
+   ![HDInsight Apache Ranger 관리 UI](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
 2. **정책 목록** 화면에 이 클러스터에 대해 생성된 모든 Ranger 정책이 표시됩니다. 미리 구성된 정책 하나가 나열될 수 있습니다. **새 정책 추가**를 클릭합니다.
 
@@ -202,14 +203,14 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
    kinit marketing_user1
    ```
 
-2. HBase 셸을 열고 `Customers` 테이블을 검사합니다.
+1. HBase 셸을 열고 `Customers` 테이블을 검사합니다.
 
     ```hbaseshell
     hbase shell
     scan `Customers`
     ```
 
-3. marketing user는 `Contact` 열 패밀리의 5개 열만 볼 수 있습니다.
+1. marketing user는 `Contact` 열 패밀리의 5개 열만 볼 수 있습니다.
 
     ```hbaseshell
     ROW                                COLUMN+CELL
@@ -226,9 +227,9 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
     2 row(s) in 0.0730 seconds
     ```
 
-9. Ranger UI에서 감사 액세스 이벤트를 확인합니다.
+1. Ranger UI에서 감사 액세스 이벤트를 확인합니다.
 
-   ![Ranger UI 정책 감사](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
+   ![HDInsight Ranger UI 정책 감사](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 600c808c0bda991bb7203bbf60c098918e274da6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b4642ecfad17bf3e926e9efdec034bbe4aa6c20e
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326639"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076320"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>빠른 시작: App Configuration을 사용하여 ASP.NET Core 앱 만들기
 
@@ -57,9 +57,9 @@ ms.locfileid: "68326639"
 
 ## <a name="add-secret-manager"></a>비밀 관리자 추가
 
-[비밀 관리자 도구](https://docs.microsoft.com/aspnet/core/security/app-secrets)를 프로젝트에 추가합니다. 암호 관리자 도구는 개발 작업에 대한 중요한 데이터를 프로젝트 트리 외부에 저장합니다. 이 방법을 사용하면 소스 코드 내에서 앱 암호를 실수로 공유하는 경우를 방지할 수 있습니다.
+비밀 관리자를 사용하려면 *.csproj* 파일에 `UserSecretsId` 요소를 추가합니다.
 
-- *.csproj* 파일을 엽니다. 아래와 같이 `UserSecretsId` 요소를 추가하고, 해당 값을 고유한 값(일반적으로 GUID)으로 바꿉니다. 파일을 저장합니다.
+- *.csproj* 파일을 엽니다. 여기에 표시된 대로 `UserSecretsId` 요소를 추가합니다. 같은 GUID를 사용해도 되고, 이 값을 원하는 값으로 바꿔도 됩니다. 파일을 저장합니다.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -77,11 +77,13 @@ ms.locfileid: "68326639"
     </Project>
     ```
 
+암호 관리자 도구는 개발 작업에 대한 중요한 데이터를 프로젝트 트리 외부에 저장합니다. 이 방법을 사용하면 소스 코드 내에서 앱 암호를 실수로 공유하는 경우를 방지할 수 있습니다. 비밀 관리자에 대한 자세한 내용은 [ASP.NET Core에서 개발 중인 앱 비밀 보안 스토리지](https://docs.microsoft.com/aspnet/core/security/app-secrets)를 참조하세요.
+
 ## <a name="connect-to-an-app-configuration-store"></a>앱 구성 저장소에 연결
 
 1. 다음 명령을 실행하여 `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet 패키지에 대한 참조를 추가합니다.
 
-        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
+        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
 
 2. 다음 명령을 실행하여 프로젝트에 대한 패키지를 복원합니다.
 
@@ -94,6 +96,9 @@ ms.locfileid: "68326639"
     이 명령은 *.csproj* 파일이 있는 동일한 디렉터리에서 실행해야 합니다.
 
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
+
+    > [!IMPORTANT]
+    > 일부 셸에서는 연결 문자열을 따옴표로 묶지 않으면 연결 문자열이 잘립니다. `dotnet user-secrets` 명령의 출력에 전체 연결 문자열이 표시되는지 확인합니다. 표시되지 않으면 연결 문자열을 따옴표로 묶고 명령을 다시 실행합니다.
 
     비밀 관리자는 웹앱을 로컬로 테스트하는 데만 사용됩니다. 예를 들어 앱이 [Azure App Service](https://azure.microsoft.com/services/app-service/web)에 배포되면 비밀 관리자 대신 App Service의 애플리케이션 설정 **연결 문자열**을 사용하여 연결 문자열을 저장합니다.
 
@@ -182,7 +187,7 @@ ms.locfileid: "68326639"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 새 앱 구성 저장소를 만들고, [앱 구성 공급자](https://go.microsoft.com/fwlink/?linkid=2074664)를 통해 ASP.NET Core 웹앱에서 사용했습니다. App Configuration을 사용하는 방법을 자세히 알아보려면 인증에 대해 설명하는 다음 자습서로 계속 진행하세요.
+이 빠른 시작에서는 새 앱 구성 저장소를 만들고, [앱 구성 공급자](https://go.microsoft.com/fwlink/?linkid=2074664)를 통해 ASP.NET Core 웹앱에서 사용했습니다. App Configuration을 사용하는 방법에 대해 자세히 알아보려면 구성 설정을 동적으로 새로 고치도록 웹앱을 구성하는 방법을 보여주는 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [관리 ID 통합](./howto-integrate-azure-managed-service-identity.md)
+> [ASP.NET Core 앱에서 동적 구성 사용](./enable-dynamic-configuration-aspnet-core.md)

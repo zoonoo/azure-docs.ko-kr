@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor를 사용하여 하이브리드 Linux 컴퓨터에서 데이터 수집 | Microsoft Docs
+title: '빠른 시작: Azure Monitor를 사용하여 하이브리드 Linux 컴퓨터에서 데이터 수집'
 description: 이 빠른 시작에서는 Azure 외부에서 실행되는 Linux 컴퓨터용 Log Analytics 에이전트를 배포하고 Azure Monitor Logs를 사용하여 데이터를 수집하도록 설정하는 방법을 알아봅니다.
 services: azure-monitor
 documentationcenter: azure-monitor
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: magoedte
-ms.custom: mvc
-ms.openlocfilehash: 6fa26adab64a91ac2910607e4a828f9362490d08
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.custom: mvc, seo-javascript-september2019
+ms.openlocfilehash: cdaca0fd3e314ecb5c0b68438eaaf87fbfb699b0
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991764"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933041"
 ---
 # <a name="collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Azure Monitor를 사용하여 하이브리드 환경에서 Linux 컴퓨터의 데이터 수집
 

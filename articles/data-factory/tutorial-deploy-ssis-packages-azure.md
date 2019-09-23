@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: tutorial
-ms.date: 06/26/2019
+ms.date: 09/15/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: bd2c055d2f7f1e90918cb160cfdebfe88f7f8ea4
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: b3b180fe4b465f3e0c7de888043326fd1a43cf23
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484808"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71009645"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure-SSIS 통합 런타임 프로비전
 
@@ -36,8 +36,8 @@ ms.locfileid: "67484808"
 
 - **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 - **Azure SQL Database 서버(선택 사항)** 데이터베이스 서버가 아직 없는 경우 시작하기 전에 Azure Portal에서 이 서버를 만듭니다. 그러면 ADF가 이 데이터베이스 서버에 SSISDB를 만듭니다. Integration Runtime과 동일한 Azure 지역에 데이터베이스 서버를 만드는 것이 좋습니다. 이 구성을 사용하면 통합 런타임에서 Azure 지역을 벗어나지 않고 SSISDB에 실행 로그를 쓸 수 있습니다. 
-    - 선택한 데이터베이스 서버에 따라 사용자를 대신하여 단일 데이터베이스로, 탄력적 풀의 일부분으로, 또는 Managed Instance에서 SSISDB를 만들 수 있습니다. 이러한 SSISDB는 공용 네트워크에서 액세스하거나 가상 네트워크에 조인하여 액세스할 수 있습니다. SSISDB를 호스트할 데이터베이스 서버 유형을 선택하는 지침은 [Azure SQL Database 단일 데이터베이스/탄력적 풀/Managed Instance 비교](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance)를 참조하세요. Azure SQL Database 서버를 가상 네트워크 서비스 엔드포인트/가상 네트워크의 Managed Instance와 함께 사용하여 SSISDB를 호스팅하거나 온-프레미스 데이터에 액세스하도록 요구하는 경우 Azure-SSIS IR을 가상 네트워크에 조인해야 합니다. 자세한 내용은 [가상 네트워크에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요.
-    - 데이터베이스 서버에 대해 **Azure 서비스 방문 허용** 설정을 사용하도록 설정되어 있는지 확인합니다. Azure SQL Database 서버를 가상 네트워크 서비스 엔드포인트/가상 네트워크의 Managed Instance와 함께 사용하여 SSISDB를 호스팅하는 경우는 해당되지 않습니다. 자세한 내용은 [Azure SQL 데이터베이스 보호](../sql-database/sql-database-security-tutorial.md#create-firewall-rules)를 참조하세요. PowerShell을 사용하여 이 설정을 사용하려면 [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)을 참조하세요.
+    - 선택한 데이터베이스 서버에 따라 사용자를 대신하여 단일 데이터베이스로, 탄력적 풀의 일부분으로, 또는 Managed Instance에서 SSISDB를 만들 수 있습니다. 이러한 SSISDB는 공용 네트워크에서 액세스하거나 가상 네트워크에 조인하여 액세스할 수 있습니다. SSISDB를 호스트할 데이터베이스 서버 유형을 선택하는 지침은 [Azure SQL Database 단일 데이터베이스/탄력적 풀/Managed Instance 비교](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance)를 참조하세요. 가상 네트워크 서비스 엔드포인트를 사용하는 Azure SQL Database 서버/프라이빗 엔드포인트를 사용하는 Managed Instance를 사용하여 SSISDB를 호스팅하거나 자체 호스팅 IR을 구성하지 않고 온-프레미스 데이터에 액세스해야 하는 경우 Azure-SSIS IR을 가상 네트워크에 조인해야 합니다. 자세한 내용은 [가상 네트워크에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요.
+    - 데이터베이스 서버에 대해 **Azure 서비스 방문 허용** 설정을 사용하도록 설정되어 있는지 확인합니다. 가상 네트워크 서비스 엔드포인트를 사용하는 Azure SQL Database 서버/프라이빗 엔드포인트를 사용하는 Managed Instance를 사용하여 SSISDB를 호스팅하는 경우에는 위의 내용이 해당되지 않습니다. 자세한 내용은 [Azure SQL 데이터베이스 보호](../sql-database/sql-database-security-tutorial.md#create-firewall-rules)를 참조하세요. PowerShell을 사용하여 이 설정을 사용하려면 [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)을 참조하세요.
     - 데이터베이스 서버에 대한 방화벽 설정에서 클라이언트 IP 주소 목록에 클라이언트 머신의 IP 주소를 포함하는 클라이언트 머신의 IP 주소 또는 IP 주소의 범위를 추가합니다. 자세한 내용은 [Azure SQL Database 서버 수준 및 데이터베이스 수준 방화벽 규칙 구성](../sql-database/sql-database-firewall-configure.md)을 참조하세요.
     - 서버 관리자 자격 증명으로 SQL 인증을 사용하여 데이터베이스 서버에 연결하거나 ADF에 대한 관리 ID로 AAD(Azure Active Directory) 인증을 사용하여 데이터베이스 서버에 연결할 수 있습니다. 후자의 경우 ADF의 ID를 데이터베이스 서버에 대한 액세스 권한이 있는 AAD 그룹에 추가해야 합니다. [AAD 인증을 사용하여 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요.
     - 데이터베이스 서버에 SSISDB가 아직 없는지 확인합니다. Azure-SSIS IR 프로비저닝은 기존 SSISDB 사용을 지원하지 않습니다.
@@ -47,46 +47,15 @@ ms.locfileid: "67484808"
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
-1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다. 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
-1. 왼쪽 메뉴에서 **새로 만들기**를 선택하고 **데이터 + 분석**을 선택한 다음 **데이터 팩터리**를 선택합니다. 
+Azure Portal를 통해 ADF를 만들려면 [UI를 통해 ADF 만들기](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory) 문서의 단계별 지침을 수행합니다. 그 과정에서 **대시보드에 고정**을 선택하면 ADF를 만든 후 신속하게 액세스할 수 있습니다. 
 
-   !["새로 만들기" 창에서 데이터 팩터리 선택](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
-
-1. **새 데이터 팩터리** 페이지에서 **이름**에 **MyAzureSsisDataFactory**를 입력합니다. 
-
-   !["새 데이터 팩터리" 페이지](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
-
-   Azure Data Factory의 이름은 *전역적으로 고유*해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: **&lt;yourname&gt;MyAzureSsisDataFactory**) 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](naming-rules.md) 문서를 참조하세요. 
-
-   `Data factory name “MyAzureSsisDataFactory” is not available`
-
-1. **구독**에 대해 데이터 팩터리를 만들려는 위치에 Azure 구독을 선택합니다. 
-1. **리소스 그룹**에 대해 다음 단계 중 하나를 수행합니다. 
-
-   - **기존 항목 사용**을 선택하고 목록에서 기존 리소스 그룹을 선택합니다. 
-   - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다. 
-
-   리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요. 
-1. **버전**에 **V2(미리 보기)** 를 선택합니다. 
-1. **위치**에 데이터 팩터리의 위치를 선택합니다. 데이터 팩터리 만들기를 지원하는 위치만 목록에 표시됩니다. 
-1. **대시보드에 고정**을 선택합니다. 
-1. **만들기**를 선택합니다. 
-1. 대시보드에서 **데이터 팩터리 배포 중** 상태의 다음과 같은 타일이 표시됩니다. 
-
-   !["데이터 팩터리 배포 중" 타일](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
-
-1. 만들기가 완료되면 **데이터 팩터리** 페이지가 표시됩니다. 
-
-   ![데이터 팩터리의 홈 페이지](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
-
-1. **작성 및 모니터링 관리**를 선택하여 별도의 탭에서 Data Factory UI(사용자 인터페이스)를 엽니다. 
+ADF를 만든 후에는 Azure Portal에서 개요 페이지를 열고, **작성자 및 모니터링** 타일을 클릭하여 별도의 탭에서 **시작** 페이지를 시작합니다. 이 페이지에서 Azure-SSIS IR 만들기를 계속 진행할 수 있습니다.   
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 만들기
 
 ### <a name="from-the-data-factory-overview"></a>Data Factory 개요에서
 
-1. **시작** 페이지에서 **SSIS Integration Runtime 구성** 타일을 선택합니다. 
+1. **시작** 페이지에서 **SSIS Integration Runtime 구성** 타일을 클릭합니다. 
 
    !["SSIS Integration Runtime 구성" 타일](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
 
@@ -138,9 +107,9 @@ ms.locfileid: "67484808"
    
    b. **구독**에서는 SSISDB를 호스트하는 데이터베이스 서버가 있는 Azure 구독을 선택합니다. 
 
-   다. **위치**에서는 SSISDB를 호스트하는 데이터베이스 서버의 위치를 선택합니다. 통합 런타임과 동일한 위치를 선택하는 것이 좋습니다. 
+   다. **위치**에서는 SSISDB를 호스트하는 데이터베이스 서버의 위치를 선택합니다. 통합 런타임과 동일한 위치를 선택하는 것이 좋습니다.
 
-   d. **카탈로그 데이터베이스 서버 엔드포인트**로는 SSISDB를 호스트하는 데이터베이스 서버의 엔드포인트를 선택합니다. 선택한 데이터베이스 서버에 따라 사용자를 대신하여 단일 데이터베이스로, 탄력적 풀의 일부분으로, 또는 Managed Instance에서 SSISDB를 만들 수 있습니다. 이러한 SSISDB는 공용 네트워크에서 액세스하거나 가상 네트워크에 조인하여 액세스할 수 있습니다. SSISDB를 호스트할 데이터베이스 서버 유형을 선택하는 지침은 [Azure SQL Database 단일 데이터베이스/탄력적 풀/Managed Instance 비교](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance)를 참조하세요. Azure SQL Database 서버를 가상 네트워크 서비스 엔드포인트/가상 네트워크의 Managed Instance와 함께 선택하여 SSISDB를 호스팅하거나 온-프레미스 데이터에 액세스하도록 요구하는 경우 Azure-SSIS IR을 가상 네트워크에 조인해야 합니다. 자세한 내용은 [가상 네트워크에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. 
+   d. **카탈로그 데이터베이스 서버 엔드포인트**로는 SSISDB를 호스트하는 데이터베이스 서버의 엔드포인트를 선택합니다. 선택한 데이터베이스 서버에 따라 사용자를 대신하여 단일 데이터베이스로, 탄력적 풀의 일부분으로, 또는 Managed Instance에서 SSISDB를 만들 수 있습니다. 이러한 SSISDB는 공용 네트워크에서 액세스하거나 가상 네트워크에 조인하여 액세스할 수 있습니다. SSISDB를 호스트할 데이터베이스 서버 유형을 선택하는 지침은 [Azure SQL Database 단일 데이터베이스/탄력적 풀/Managed Instance 비교](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance)를 참조하세요. 가상 네트워크 서비스 엔드포인트를 사용하는 Azure SQL Database 서버/프라이빗 엔드포인트를 사용하는 Managed Instance를 선택하여 SSISDB를 호스팅하거나 자체 호스팅 IR을 구성하지 않고 온-프레미스 데이터에 액세스해야 하는 경우 Azure-SSIS IR을 가상 네트워크에 조인해야 합니다. 자세한 내용은 [가상 네트워크에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. 
 
    e. **AAD 인증 사용...** 확인란에서 ADF에 대한 관리 ID를 사용하는 SQL 인증 또는 AAD 인증 선택할 경우 ADF의 관리 ID를 데이터베이스 서버에 대한 액세스 권한이 있는 AAD 그룹에 추가해야 합니다. [AAD 인증을 사용하여 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. 
 
@@ -148,7 +117,7 @@ ms.locfileid: "67484808"
 
    g. **관리자 암호**로는 SSISDB를 호스트하는 데이터베이스 서버의 SQL 인증 암호를 입력합니다. 
 
-   h. **카탈로그 데이터베이스 서비스 계층**의 경우 SSISDB를 호스팅할 데이터베이스 서버에 대한 서비스 계층, 즉 기본/표준/프리미엄 계층 또는 탄력적 풀 이름을 선택합니다. 
+   h. **카탈로그 데이터베이스 서비스 계층**의 경우 SSISDB를 호스팅할 데이터베이스 서버에 대한 서비스 계층, 즉 기본/표준/프리미엄 계층 또는 탄력적 풀 이름을 선택합니다.
 
    i. **연결 테스트**를 클릭하고, 테스트가 성공하면 **다음**을 클릭합니다. 
 
@@ -160,9 +129,13 @@ ms.locfileid: "67484808"
 
    b. **사용자 지정 설치 컨테이너 SAS URI**에는 필요에 따라 설치 스크립트 및 관련 파일이 저장되는 Azure Storage Blob 컨테이너의 SAS(공유 액세스 서명) URI(Uniform Resource Identifier)를 입력합니다. [Azure-SSIS IR에 대한 사용자 지정 설치](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup)를 참조하세요. 
 
-   다. **VNet 선택...** 확인란에서 통합 런타임을 가상 네트워크에 조인할 것인지 선택합니다. Azure SQL Database 서버를 가상 네트워크 서비스 엔드포인트/가상 네트워크의 Managed Instance와 함께 사용하여 SSISDB를 호스트할 것인지 아니면 온-프레미스 데이터에 액세스하도록 요구할 것인지 선택해야 합니다. [가상 네트워크에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. 
+   다. **VNet 선택...** 확인란에서 통합 런타임을 가상 네트워크에 조인할 것인지 선택합니다. 가상 네트워크 서비스 엔드포인트를 사용하는 Azure SQL Database 서버/프라이빗 엔드포인트를 사용하는 Managed Instance를 사용하여 SSISDB를 호스팅하거나 자체 호스팅 IR을 구성하지 않고 온-프레미스 데이터에 액세스해야 하는지 확인해야 합니다. 자세한 내용은 [가상 네트워크에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. 
 
-1. **마침**을 클릭하여 통합 런타임 만들기를 시작합니다. 
+   d. **자체 호스팅 설정...** 확인란에서 Azure-SSIS IR의 프록시로 자체 호스팅 IR을 구성할 것인지 선택합니다. 자세한 내용은 [자체 호스팅 IR을 프록시로 설정](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)을 참조하세요. 
+
+1. **다음**을 클릭합니다. 
+
+1. **요약** 페이지에서 모든 프로비저닝 설정을 검토하고, 권장 설명서 링크를 책갈피로 설정하고, **마침**을 클릭하여 통합 런타임 만들기를 시작합니다. 
 
    > [!NOTE]
    > 이 프로세스는 사용자 지정 설정 시간을 제외하고 5분 이내에 완료되어야 합니다.

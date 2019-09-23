@@ -1,7 +1,7 @@
 ---
 title: '회귀 모델 자습서: 자동화된 ML'
-titleSuffix: Azure Machine Learning service
-description: 자동화된 Machine Learning을 사용하여 Machine Learning 모델을 만드는 방법에 대해 알아봅니다. Azure Machine Learning은 데이터 전처리, 알고리즘 선택 및 하이퍼 매개 변수 선택을 자동화된 방식으로 수행할 수 있습니다. 그런 다음, Azure Machine Learning Service를 사용하여 최종 모델을 배포할 수 있습니다.
+titleSuffix: Azure Machine Learning
+description: 자동화된 Machine Learning을 사용하여 Machine Learning 모델을 만드는 방법에 대해 알아봅니다. Azure Machine Learning은 데이터 전처리, 알고리즘 선택 및 하이퍼 매개 변수 선택을 자동화된 방식으로 수행할 수 있습니다. 그런 다음, Azure Machine Learning을 사용하여 최종 모델을 배포할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 08/21/2019
-ms.openlocfilehash: 990755b247190f689a90d5cdf3d60d6eff9f4ae7
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: f08f2f07137e518925ee4dbe9b128e100be870c9
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036241"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003972"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>자습서: 자동화된 기계 학습을 사용하여 택시 요금 예측
 
-이 자습서에서는 Azure Machine Learning Service의 자동화된 기계 학습을 사용하여 NYC 택시 요금 가격을 예측하는 회귀 모델을 만듭니다. 이 프로세스는 학습 데이터 및 구성 설정을 적용하며 다양한 기능 정규화/표준화 메서드, 모델 및 하이퍼 매개 변수 설정의 결합을 자동으로 반복하여 최선의 모델에 도달합니다.
+이 자습서에서는 Azure Machine Learning의 자동화된 기계 학습을 사용하여 NYC 택시 요금 가격을 예측하는 회귀 모델을 만듭니다. 이 프로세스는 학습 데이터 및 구성 설정을 적용하며 다양한 기능 정규화/표준화 메서드, 모델 및 하이퍼 매개 변수 설정의 결합을 자동으로 반복하여 최선의 모델에 도달합니다.
 
 ![흐름 다이어그램](./media/tutorial-auto-train-models/flow2.png)
 
@@ -30,11 +30,11 @@ ms.locfileid: "70036241"
 > * 자동화된 기계 학습 회귀 모델 학습
 > * 모델 정확도 계산
 
-Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. Azure Machine Learning Service의 [평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
+Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 Azure Machine Learning의 [평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure Machine Learning Service 작업 영역 또는 Notebook 가상 머신이 아직 없으면 [설정 자습서](tutorial-1st-experiment-sdk-setup.md)를 완료하세요.
+* Azure Machine Learning 작업 영역 또는 Notebook 가상 머신이 아직 없으면 [설정 자습서](tutorial-1st-experiment-sdk-setup.md)를 완료하세요.
 * 설정 자습서를 완료한 후 동일한 Notebook 서버를 사용하여 **tutorials/regression-automated-ml.ipynb** Notebook을 엽니다.
 
 이 자습서는 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials)에도 제공되기 때문에 자체 [로컬 환경](how-to-configure-environment.md#local)에서도 실행할 수 있습니다. `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets`을 실행하여 필요한 패키지를 가져옵니다.
@@ -1057,7 +1057,7 @@ print(1 - mean_abs_percent_error)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 Azure Machine Learning Service 자습서를 실행하려면 이 섹션을 완료하지 마세요.
+다른 Azure Machine Learning 자습서를 실행할 계획이라면 이 섹션을 완료하지 마세요.
 
 ### <a name="stop-the-notebook-vm"></a>Notebook VM 중지
 
@@ -1088,4 +1088,4 @@ print(1 - mean_abs_percent_error)
 > * 사용자 지정 매개 변수를 통해 로컬로 자동화된 회귀 모델 사용을 학습했습니다.
 > * 학습 결과를 탐색하고 검토했습니다.
 
-Azure Machine Learning Service를 사용하여 [모델을 배포합니다](tutorial-deploy-models-with-aml.md).
+Azure Machine Learning을 사용하여 [모델을 배포합니다](tutorial-deploy-models-with-aml.md).

@@ -1,28 +1,27 @@
 ---
-title: Azure Blockchain Service에서 스마트 계약 사용
-description: Azure Blockchain Service를 사용하여 스마트 계약을 배포하고, 트랜잭션을 통해 함수를 실행하는 방법에 대한 자습서입니다.
+title: Visual Studio Code에서 Azure Blockchain Service를 사용하여 스마트 계약 생성, 빌드 및 배포
+description: Visual Studio Code에서 Ethereum 확장용 Azure Blockchain Development Kit를 사용하여 Azure Blockchain Service에서 스마트 계약을 만들고 빌드하고 배포하는 방법에 대한 자습서입니다.
 services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/31/2019
+ms.date: 09/10/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
-ms.openlocfilehash: 1843bd66e11a6686c9ae81fb8e30c7b030e889b7
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 96fe4d77efdd1fda309d7da021bcc208edd2dfe9
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705123"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934946"
 ---
-# <a name="tutorial-use-smart-contracts-on-azure-blockchain-service"></a>자습서: Azure Blockchain Service에서 스마트 계약 사용
+# <a name="tutorial-usevisual-studio-code-to-create-buildanddeploysmartcontracts"></a>자습서: Visual Studio Code를 사용하여 스마트 계약 생성, 빌드 및 배포
 
-이 자습서에서는 Etherum용 Azure Blockchain Development Kit를 사용하여 스마트 계약을 만들고 배포한 다음, 컨소시엄 블록체인 네트워크에서 트랜잭션을 통해 스마트 계약 함수를 실행합니다.
+이 자습서에서는 Visual Studio Code에서 Ethereum 확장용 Azure Blockchain Development Kit를 사용하여 Azure Blockchain Service에서 스마트 계약을 만들고 빌드하고 배포합니다. 또한 Truffle을 사용하여 트랜잭션을 통해 스마트 계약 함수를 실행합니다.
 
 Etherum용 Azure Blockchain Development Kit를 사용하여 다음을 수행합니다.
 
 > [!div class="checklist"]
-> * Azure Blockchain Service 컨소시엄 블록체인 멤버에 연결
 > * 스마트 계약 만들기
 > * 스마트 계약 배포
 > * 트랜잭션을 통해 스마트 계약 함수 실행
@@ -32,52 +31,11 @@ Etherum용 Azure Blockchain Development Kit를 사용하여 다음을 수행합�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [빠른 시작: Azure Portal을 사용하여 블록체인 멤버 만들기](create-member.md) 또는 [빠른 시작: Azure CLI를 사용하여 Azure Blockchain Service 블록체인 멤버 만들기](create-member-cli.md)를 완료합니다.
-* [Visual Studio Code](https://code.visualstudio.com/Download)
-* [Etherum용 Azure Blockchain Development Kit 확장](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
-* [Node.JS](https://nodejs.org)
-* [Git](https://git-scm.com)
-* [Python](https://www.python.org/downloads/release/python-2715/). python.exe를 경로에 추가합니다. Azure Blockchain Development Kit에는 경로의 Python이 필요합니다.
-* [Truffle](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
-* [Ganache CLI](https://github.com/trufflesuite/ganache-cli)
-
-### <a name="verify-azure-blockchain-development-kit-environment"></a>Azure Blockchain Development Kit 환경 확인
-
-Azure Blockchain Development Kit는 개발 환경 필수 구성 요소가 충족되었는지 확인합니다. 개발 환경을 확인하려면 다음을 수행합니다.
-
-VS Code 명령 팔레트에서 **Azure Blockchain: 시작 페이지 표시**를 선택합니다.
-
-Azure Blockchain Development Kit는 완료하는 데 1분 정도 걸리는 유효성 검사 스크립트를 실행합니다. **터미널 > 새 터미널**을 차례로 선택하여 출력을 볼 수 있습니다. 터미널 메뉴 모음의 드롭다운에서 **출력** 탭 및 **Azure Blockchain**을 선택합니다. 성공한 유효성 검사는 다음 이미지와 같습니다.
-
-![유효한 개발 환경](./media/send-transaction/valid-environment.png)
-
- 필수 도구가 없는 경우 **Azure Blockchain Development Kit - 미리 보기**라는 새 탭에는 설치할 필수 앱과 해당 도구를 다운로드하는 데 필요한 링크가 나열됩니다.
-
-![개발 키트 필수 앱](./media/send-transaction/required-apps.png)
-
-## <a name="connect-to-consortium-member"></a>컨소시엄 멤버에 연결
-
-Azure Blockchain Development Kit VS Code 확장을 사용하여 컨소시엄 멤버에 연결할 수 있습니다. 컨소시엄에 연결되면 스마트 계약을 Azure Blockchain Service 컨소시엄 멤버에 컴파일, 빌드 및 배포할 수 있습니다.
-
-Azure Blockchain Service 컨소시엄 멤버에 액세스할 수 없는 경우 [빠른 시작: Azure Portal을 사용하여 블록체인 멤버 만들기](create-member.md) 또는 [빠른 시작: Azure CLI를 사용하여 Azure Blockchain Service 블록체인 멤버 만들기](create-member-cli.md)의 필수 조건을 완료합니다.
-
-1. VS Code(Visual Studio Code) 탐색기 창에서 **Azure Blockchain** 확장을 펼칩니다.
-1. **컨소시엄에 연결**을 선택합니다.
-
-   ![컨소시엄에 연결](./media/send-transaction/connect-consortium.png)
-
-    Azure 인증을 요청하는 메시지가 표시되면 프롬프트에 따라 브라우저를 사용하여 인증합니다.
-1. 명령 팔레트 드롭다운에서 **Azure Blockchain Service 컨소시엄에 연결**을 선택합니다.
-1. Azure Blockchain Service 컨소시엄 멤버와 연결된 구독 및 리소스 그룹을 선택합니다.
-1. 목록에서 컨소시엄을 선택합니다.
-
-컨소시엄 및 블록체인 멤버가 Visual Studio 탐색기 사이드바에 나열됩니다.
-
-![탐색기에 표시된 컨소시엄](./media/send-transaction/consortium-node.png)
+* [빠른 시작: Visual Studio Code를 사용하여 Azure Blockchain Service 컨소시엄 네트워크에 연결](connect-vscode.md) 완료
 
 ## <a name="create-a-smart-contract"></a>스마트 계약 만들기
 
-Etherum용 Azure Blockchain Development Kit는 프로젝트 템플릿과 Truffle 도구를 사용하여 계약을 스캐폴드, 빌드 및 배포하는 데 도움을 줍니다.
+Etherum용 Azure Blockchain Development Kit는 프로젝트 템플릿과 Truffle 도구를 사용하여 계약을 스캐폴드, 빌드 및 배포하는 데 도움을 줍니다. 시작하기 전에 [빠른 시작: Visual Studio Code를 사용하여 Azure Blockchain Service 컨소시엄 네트워크에 연결](connect-vscode.md)을 완료해야 합니다. 이 빠른 시작에서는 Ethereum용 Azure Blockchain Development Kit의 설치 및 구성 방법을 안내합니다.
 
 1. VS Code 명령 팔레트에서 **Azure Blockchain: 새 Solidity 프로젝트**를 선택합니다.
 1. **기본 프로젝트 만들기**를 선택합니다.
@@ -107,7 +65,7 @@ Azure Blockchain Development Kit에서 Truffle을 사용하여 스마트 계약�
 Truffle은 마이그레이션 스크립트를 사용하여 계약을 Ethereum 네트워크에 배포합니다. 마이그레이션은 프로젝트의 **miginations** 디렉터리에 있는 JavaScript 파일입니다.
 
 1. 스마트 계약을 배포하려면 마우스 오른쪽 단추로 **HelloBlockchain.sol**을 클릭하고, 메뉴에서 **계약 배포**를 선택합니다.
-1. **truffle-config.js에서** 아래에서 Azure Blockchain 컨소시엄 네트워크를 선택합니다. 컨소시엄 블록체인 네트워크는 프로젝트를 만들 때 프로젝트의 Truffle 구성 파일에 추가되었습니다.
+1. 명령 팔레트에서 Azure Blockchain 컨소시엄 네트워크를 선택합니다. 컨소시엄 블록체인 네트워크는 프로젝트를 만들 때 프로젝트의 Truffle 구성 파일에 추가되었습니다.
 1. **니모닉 생성**을 선택합니다. 파일 이름을 선택하고, 해당 니모닉 파일을 프로젝트 폴더에 저장합니다. 예: `myblockchainmember.env` 니모닉 파일은 블록체인 멤버에 대한 Ethereum 프라이빗 키를 생성하는 데 사용됩니다.
 
 Azure Blockchain Development Kit에서 Truffle을 사용하여 계약을 블록체인으로 배포하는 마이그레이션 스크립트를 실행합니다.
@@ -173,7 +131,7 @@ Truffle이 블록체인 네트워크에서 스크립트를 실행합니다.
     이 함수는 계약의 현재 상태에 따라 상태 변수에 저장된 메시지를 반환합니다.
 
 1. 마우스 오른쪽 단추로 **HelloBlockchain.sol**을 클릭하고, 메뉴에서 **계약 빌드**를 선택하여 스마트 계약의 변경 내용을 컴파일합니다.
-1. 배포하려면 마우스 오른쪽 단추로 **HelloBlockchain.sol**을 클릭하고, 메뉴에서 **계약 배포**를 선택합니다.
+1. 배포하려면 마우스 오른쪽 단추로 **HelloBlockchain.sol**을 클릭하고, 메뉴에서 **계약 배포**를 선택합니다. 메시지가 표시되면 명령 팔레트에서 Azure Blockchain 컨소시엄 네트워크를 선택합니다.
 1. 다음으로 **getMessage** 함수를 호출하는 데 사용하는 스크립트를 만듭니다. 새 파일을 Truffle 프로젝트의 루트에 만들고, 이름을 `getmessage.js`로 지정합니다. 다음 Web3 JavaScript 코드를 파일에 추가합니다.
 
     ```javascript

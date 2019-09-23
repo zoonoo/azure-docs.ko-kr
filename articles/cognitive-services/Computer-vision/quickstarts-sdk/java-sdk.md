@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: quickstart
 ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: fd8abf81589f3338f9e45c6c1d23681269ccc654
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 16a487dc007526f685edb52726f5797303a30c11
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164848"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966980"
 ---
 # <a name="quickstart-computer-vision-client-library-for-java"></a>빠른 시작: Java용 Computer Vision 클라이언트 라이브러리
 
@@ -106,7 +106,7 @@ Computer Vision Java SDK의 주요 기능 중 일부를 처리하는 클래스�
 |Name|설명|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) | 이 클래스는 모든 Computer Vision 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고, 다른 클래스의 인스턴스를 생성하는 데 사용합니다.|
-|[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| 이 클래스는 클라이언트 개체에서 제공되며, 이미지 분석, 텍스트 검색 및 썸네일 생성과 같은 모든 이미지 작업을 직접 처리합니다.
+|[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| 이 클래스는 클라이언트 개체에서 제공되며, 이미지 분석, 텍스트 검색 및 썸네일 생성과 같은 모든 이미지 작업을 직접 처리합니다.|
 |[VisualFeatureTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable)| 이 열거형은 표준 Analyze(분석) 작업에서 수행할 수 있는 다양한 유형의 이미지 분석을 정의합니다. 필요에 따라 VisualFeatureTypes 값 세트를 지정합니다. |
 
 ## <a name="code-examples"></a>코드 예제
@@ -176,13 +176,13 @@ Computer Vision Java SDK의 주요 기능 중 일부를 처리하는 클래스�
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_tags)]
 
-### <a name="get-faces"></a>얼굴 가져오기
+### <a name="detect-faces"></a>얼굴 감지
 
 다음 코드는 사각형 좌표를 사용하여 이미지에서 검색된 얼굴을 반환하고 얼굴 특성을 선택합니다. 자세한 내용은 [얼굴 감지](../concept-detecting-faces.md)를 참조하세요.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
 
-### <a name="get-adult-or-racy-content"></a>성인/외설 콘텐츠 가져오기
+### <a name="detect-adult-or-racy-content"></a>성인 또는 외설 콘텐츠 감지
 
 다음 코드는 이미지에 있는 성인 또는 외설 콘텐츠의 검색된 상태를 출력합니다. 자세한 내용은 [성인/외설 콘텐츠](../concept-detecting-adult-content.md)를 참조하세요.
 
@@ -205,6 +205,12 @@ Computer Vision은 특수 모델을 사용하여 이미지에 대한 추가 분�
 다음 코드는 이미지에서 검색된 랜드마크에 대한 데이터를 구문 분석합니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_analyzelocal_landmarks)]
+
+### <a name="get-the-image-type"></a>이미지 형식 가져오기
+
+다음 코드는 클립 아트 또는 선 그리기인지 여부와 상관없이 이미지 &mdash; 형식에 대한 정보를 인쇄합니다.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_imagetype)]
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 

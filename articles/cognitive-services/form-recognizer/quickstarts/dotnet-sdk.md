@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: ada570196c916a8101e8e968d284a3b280199cf3
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: ce1cdadcdc69fb5539394aa9bf402aa9463311e9
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142814"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057672"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>빠른 시작: .NET용 Form Recognizer 클라이언트 라이브러리
 
@@ -22,9 +22,11 @@ ms.locfileid: "70142814"
 
 .NET용 Form Recognizer 클라이언트 라이브러리를 사용하여 수행하는 작업은 다음과 같습니다.
 
-* 사용자 지정 Form Recognizer 모델 학습
-* 사용자 지정 모델을 사용하여 양식 분석
-* 사용자 지정 모델 목록 가져오기
+* [사용자 지정 Form Recognizer 모델 학습](#train-a-custom-model)
+* [추출된 키 목록 가져오기](#get-a-list-of-extracted-keys)
+* [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
+* [사용자 지정 모델 목록 가져오기](#get-a-list-of-custom-models)
+* [사용자 지정 모델 삭제](#delete-a-custom-model)
 
 [참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.FormRecognizer) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
 
@@ -68,14 +70,7 @@ Build succeeded.
 
 선호하는 편집기 또는 IDE에서 프로젝트 디렉터리의 _Program.cs_ 파일을 엽니다. 다음 `using` 문을 추가합니다.
 
-```csharp
-using Microsoft.Azure.CognitiveServices.FormRecognizer;
-using Microsoft.Azure.CognitiveServices.FormRecognizer.Models;
-
-using System;
-using System.IO;
-using System.Threading.Tasks;
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_using)]
 
 그런 다음, 다음 코드를 애플리케이션의 **Main** 메서드에 추가합니다. 이 비동기 작업은 나중에 정의합니다.
 
@@ -115,10 +110,12 @@ Form Recognizer SDK의 주요 기능을 처리하는 클래스는 다음과 같�
 
 * [클라이언트 인증](#authenticate-the-client)
 * [사용자 지정 Form Recognizer 모델 학습](#train-a-custom-model)
+* [추출된 키 목록 가져오기](#get-a-list-of-extracted-keys)
 * [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
 * [사용자 지정 모델 목록 가져오기](#get-a-list-of-custom-models)
+* [사용자 지정 모델 삭제](#delete-a-custom-model)
 
-### <a name="define-variables"></a>변수 정의
+## <a name="define-variables"></a>변수 정의
 
 메서드를 정의하기 전에 다음 변수 정의를 **Program** 클래스의 맨 위에 추가합니다. 변수 중 일부는 직접 입력해야 합니다. 
 
@@ -127,13 +124,13 @@ Form Recognizer SDK의 주요 기능을 처리하는 클래스는 다음과 같�
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_variables)]
 
-### <a name="authenticate-the-client"></a>클라이언트 인증
+## <a name="authenticate-the-client"></a>클라이언트 인증
 
 `Main`에서 참조되는 작업을 `Main` 메서드 아래에 정의합니다. 여기서는 위에서 정의한 구독 변수를 사용하여 클라이언트 개체를 인증합니다. 다른 메서드는 나중에 정의할 수 있습니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_maintask)]
 
-### <a name="train-a-custom-model"></a>사용자 지정 모델 학습
+## <a name="train-a-custom-model"></a>사용자 지정 모델 학습
 
 다음 메서드는 Form Recognizer 클라이언트 개체를 사용하여 Azure Blob 컨테이너에 저장된 문서에 대한 새 인식 모델을 학습시킵니다. 도우미 메서드를 사용하여 새로 학습된 모델에 대한 정보([ModelResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.modelresult?view=azure-dotnet-preview) 개체로 표시됨)를 표시하고 모델 ID를 반환합니다.
 
@@ -143,9 +140,18 @@ Form Recognizer SDK의 주요 기능을 처리하는 클래스는 다음과 같�
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_displaymodel)]
 
-### <a name="analyze-forms-with-a-custom-model"></a>사용자 지정 모델을 사용하여 양식 분석
+## <a name="get-a-list-of-extracted-keys"></a>추출된 키 목록 가져오기
+
+학습이 완료되면 사용자 지정 모델은 학습 문서에서 추출된 키 목록을 유지합니다. 사용자 지정 모델은 이러한 키를 포함하는 이후 양식 문서를 예상하여 분석 작업에서 해당 값을 추출합니다. 다음 메서드를 사용하여 추출된 키 목록을 검색하고 콘솔에 출력하세요. 이 학습 프로세스가 효과적인지 확인하는 좋은 방법입니다.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_getkeys)]
+
+## <a name="analyze-forms-with-a-custom-model"></a>사용자 지정 모델을 사용하여 양식 분석
 
 다음 메서드는 Form Recognizer 클라이언트와 모델 ID를 사용하여 PDF 양식 문서를 분석하고 키/값 데이터를 추출합니다. 도우미 메서드를 사용하여 결과([AnalyzeResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.analyzeresult?view=azure-dotnet-preview) 개체로 표시됨)를 표시합니다.
+
+> [!NOTE]
+> 다음 메서드는 PDF 양식을 분석합니다. JPEG 및 PNG 양식을 분석하는 유사한 메서드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/FormRecognizer)의 전체 샘플 코드를 참조하세요.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_analyzepdf)]
 
@@ -153,11 +159,17 @@ Form Recognizer SDK의 주요 기능을 처리하는 클래스는 다음과 같�
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_displayanalyze)]
 
-### <a name="get-a-list-of-custom-models"></a>사용자 지정 모델 목록 가져오기
+## <a name="get-a-list-of-custom-models"></a>사용자 지정 모델 목록 가져오기
 
 계정에 속한 모든 학습된 모델의 목록을 반환하고 만들어진 시간에 대한 정보를 검색할 수 있습니다. 모델 목록은 [ModelsResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.modelsresult?view=azure-dotnet-preview) 개체로 표현됩니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_getmodellist)]
+
+## <a name="delete-a-custom-model"></a>사용자 지정 모델 삭제
+
+계정에서 사용자 지정 모델을 삭제하려는 경우 다음 메서드를 사용합니다.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_deletemodel)]
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
@@ -174,9 +186,7 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 * [포털](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-또한 계정에서 삭제하려는 사용자 지정 모델을 학습한 경우 다음 방법을 사용합니다.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_deletemodel)]
+또한 계정에서 삭제하려는 사용자 지정 모델을 학습시킨 경우 [사용자 지정 모델 삭제](#delete-a-custom-model)의 메서드를 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

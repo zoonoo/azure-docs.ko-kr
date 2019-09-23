@@ -192,6 +192,8 @@
           href: functions-deployment-slots.md
         - name: Azure Pipelines을 사용하여 빌드 및 배포
           href: functions-how-to-azure-devops.md
+        - name: GitHub 작업을 사용하여 빌드 및 배포
+          href: functions-how-to-github-actions.md
         - name: Zip 배포
           href: deployment-zip-push.md
         - name: 패키지에서 실행

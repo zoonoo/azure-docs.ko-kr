@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 41947de18ae27b41d046fd4358f0039a1b56374d
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 6f9094a52ff3558fa8d1f2fee1d80ed8eb09a416
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347920"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076334"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>빠른 시작: ASP.NET Core 앱에 기능 플래그를 추가합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "68347920"
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. **기능 관리자** >  **+만들기**를 선택하여 다음 기능 플래그를 추가합니다.
+6. **기능 관리자** >  **+추가**를 선택하여 다음 기능 플래그를 추가합니다.
 
     | 키 | 시스템 상태 |
     |---|---|
@@ -81,10 +81,11 @@ ms.locfileid: "68347920"
 
 ## <a name="connect-to-an-app-configuration-store"></a>App Configuration 저장소에 연결
 
-1. 다음 명령을 실행하여 `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet 패키지에 대한 참조를 추가합니다.
+1. 다음 명령을 실행하여 `Microsoft.Azure.AppConfiguration.AspNetCore` 및 `Microsoft.FeatureManagement.AspNetCore` NuGet 패키지에 대한 참조를 추가합니다.
 
     ```
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
+    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
     ```
 
 1. 다음 명령을 실행하여 프로젝트에 대한 패키지를 복원합니다.
@@ -266,6 +267,8 @@ ms.locfileid: "68347920"
     |---|---|
     | 베타 | 설정 |
 
+1. 명령 프롬프트로 다시 전환하고 `Ctrl-C`를 눌러 실행 중인 `dotnet` 프로세스를 취소한 다음, `dotnet run`을 다시 실행하여 애플리케이션을 다시 시작합니다.
+
 1. 새 구성 설정을 확인하려면 브라우저 페이지를 새로 고칩니다.
 
     ![로컬로 빠른 시작 앱 시작](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
@@ -281,3 +284,4 @@ ms.locfileid: "68347920"
 - [기능 관리](./concept-feature-management.md)에 대한 자세한 정보
 - [기능 플래그 관리](./manage-feature-flags.md)
 - [ASP.NET Core 앱에서 기능 플래그 사용](./use-feature-flags-dotnet-core.md)
+- [ASP.NET Core 앱에서 동적 구성 사용](./enable-dynamic-configuration-aspnet-core.md)

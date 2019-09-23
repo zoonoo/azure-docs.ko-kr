@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 3dece2d2bffc7bd2b9e0a3c2931b2038ebc3c77e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2cbb37b4e93468a42335f40a19baf4c742cb6dbb
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850639"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098616"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Azure Automation Runbook 만들기
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 1. **프로세스 자동화** 아래에서 **Runbook**을 클릭합니다. Runbook 목록이 표시됩니다.
 
-1. 목록 위쪽의 **Runbook 추가** 단추를 클릭합니다. **Runbook 추가** 페이지에서 **빨리 만들기**를 선택합니다.
+1. 목록 위쪽에 있는 **Runbook 만들기** 단추를 클릭합니다.
 
 1. Runbook **이름**으로 "Hello-World"를 입력하고, **Runbook 형식**으로 **PowerShell**을 선택합니다. **만들기**를 클릭합니다.
 

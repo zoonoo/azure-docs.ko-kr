@@ -1,6 +1,6 @@
 ---
 title: '자습서: 그래픽 인터페이스를 사용하여 자동차 가격 예측'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 끌어서 놓기 그래픽 인터페이스를 사용하여 기계 학습 모델을 학습하고 점수를 매기고 배포하는 방법에 대해 알아봅니다. 이 자습서는 선형 회귀 분석을 사용하여 자동차 가격을 예측하는 2부로 구성된 시리즈 중 제1부입니다.
 author: peterclu
 ms.author: peterlu
@@ -9,16 +9,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 08/16/2019
-ms.openlocfilehash: a2134853c48ca09faa150f038be2d9327af75eee
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 11c65c217ef6c150c47f387f7f80070488a8df89
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891700"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996771"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>자습서: 그래픽 인터페이스를 사용하여 자동차 가격 예측
 
-2부로 구성된 이 자습서에서는 Azure Machine Learning Service 시각적 인터페이스를 사용하여 모든 자동차의 가격을 예측하는 예측 분석 솔루션을 개발하고 배포하는 방법을 알아봅니다. 
+2부로 구성된 이 자습서에서는 Azure Machine Learning의 시각적 인터페이스를 사용하여 모든 자동차의 가격을 예측하는 예측 분석 솔루션을 개발하고 배포하는 방법을 알아봅니다. 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
 
@@ -41,11 +41,11 @@ ms.locfileid: "69891700"
 
 ## <a name="create-a-new-experiment"></a>새로운 실험 만들기
 
-시각적 개체 인터페이스 실험을 만들려면 먼저 Azure Machine Learnings Service 작업 영역이 필요합니다. 이 섹션에서는 이 두 가지 리소스를 만드는 방법을 알아봅니다.
+시각적 인터페이스 실험을 만들려면 먼저 Azure Machine Learnings 서비스 작업 영역이 필요합니다. 이 섹션에서는 이 두 가지 리소스를 만드는 방법을 알아봅니다.
 
 ### <a name="create-a-new-workspace"></a>새 작업 영역 만들기
 
-Azure Machine Learning Service 작업 영역이 있으면 다음 섹션으로 건너뜁니다.
+Azure Machine Learning 작업 영역이 있으면 다음 섹션으로 건너뜁니다.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 

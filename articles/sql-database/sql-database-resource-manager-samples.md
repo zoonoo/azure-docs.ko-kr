@@ -11,18 +11,18 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 81f3e4beb29f21f1b752a876827e9b35856c713a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c501bed9220c08013d44836066e46df92cf69eaa
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566895"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037442"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Azure SQL Database용 Azure Resource Manager 템플릿
 
 Azure Resource Manager 템플릿을 사용하여 인프라를 코드로 정의하고 Azure 클라우드에 솔루션을 배포할 수 있습니다.
 
-## <a name="single-database--elastic-pool"></a>단일 데이터베이스 및 탄력적 풀
+## <a name="single-database--elastic-pooltabsingle-database"></a>[단일 데이터베이스 및 탄력적 풀](#tab/single-database)
 
 다음 표에는 Azure SQL Database용 Azure Resource Manager 템플릿 링크가 포함되어 있습니다.
 
@@ -41,7 +41,7 @@ Azure Resource Manager 템플릿을 사용하여 인프라를 코드로 정의�
 | [SQL Database를 사용하는 HDInsight 클러스터](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | 이 템플릿을 사용하면 HDInsight 클러스터, SQL Database 서버, SQL Database 및 두 개의 테이블을 만들 수 있습니다. 이 템플릿은 [HDInsight에서 Hadoop과 Sqoop 사용](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop) 문서에서 사용됩니다. |
 | [일정에 따라 SQL 저장 프로시저를 실행하는 Azure 논리 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | 이 템플릿을 사용하면 일정에 따라 SQL 저장 프로시저를 실행하는 논리 앱을 만들 수 있습니다. 프로시저에 대한 인수를 템플릿의 본문 섹션에 삽입할 수 있습니다.|
 
-## <a name="managed-instance"></a>관리되는 인스턴스
+## <a name="managed-instancetabmanaged-instance"></a>[Managed Instance](#tab/managed-instance)
 
 다음 표에는 Azure SQL Database - Managed Instance에 대한 Azure Resource Manager 템플릿 링크가 포함되어 있습니다.
 
@@ -51,3 +51,5 @@ Azure Resource Manager 템플릿을 사용하여 인프라를 코드로 정의�
 | [Managed Instance에 대한 네트워크 환경](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | 이 배포는 두 개의 서브넷이 있는 구성된 Azure Virtual Network를 만듭니다. 두 서브넷 중 하나는 Managed Instance 전용이고, 다른 하나에는 기타 리소스(예: VM, App Service 환경 등)를 배치할 수 있습니다. 이 템플릿은 Managed Instance를 배포할 수 있도록 올바르게 구성된 네트워킹 환경을 만듭니다. |
 | [P2S 연결을 사용하는 Managed Instance](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-point-to-site-vpn) | 이 배포는 `ManagedInstance` 및 `GatewaySubnet` 서브넷이 있는 Azure Virtual Network를 만듭니다. Managed Instance는 ManagedInstance 서브넷에 배포됩니다. 가상 네트워크 게이트웨이는 `GatewaySubnet` 서브넷에 생성되고 지점-사이트 간 VPN 연결에 대해 구성됩니다. |
 | [가상 머신을 사용하는 Managed Instance](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | 이 배포는 `ManagedInstance` 및 `Management` 서브넷이 있는 Azure Virtual Network를 만듭니다. Managed Instance는 `ManagedInstance` 서브넷에 배포됩니다. 최신 버전의 SSMS(SQL Server Management Studio)가 설치된 가상 머신이 `Management` 서브넷에 배포됩니다. |
+
+---

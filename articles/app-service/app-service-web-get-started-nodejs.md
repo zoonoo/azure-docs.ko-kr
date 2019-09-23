@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 989bff7d8be5c234d9536afa8afc0beb6870807e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d03b209902d3ab0bcdb247b1deefdd70d01905cb
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071673"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018484"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기
 
@@ -51,7 +51,7 @@ _index.js_를 열어서 다음 줄을 찾습니다.
 const port = process.env.PORT || 1337;
 ```
 
-App Service가 process.env.PORT를 애플리케이션에 삽입하기 때문에 코드가 변수를 사용하여 수신할 포트를 파악합니다. 
+App Service는 환경 변수 **process.env.PORT**를 채웁니다. 코드에서 수신할 포트를 알 수 있도록 애플리케이션에서 이를 사용합니다.
 
 터미널 창에서 샘플 Node.js 프로젝트의 **루트 디렉터리**(_index.js_가 포함된 디렉터리)로 이동합니다.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 1f7c212b7bb850816557feb53099973986bab587
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 10e0f24642d54c43d6c818773d0eb17815ab784b
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114503"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996912"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
@@ -130,7 +130,7 @@ Azure Key Vault 계정에서 인증서(비밀)에 액세스하려면 Azure CDN �
 
     ![액세스 정책 설정](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
-3. **비밀 권한 가져오기**를 선택한 다음, **인증서 권한**을 가져오고 나열하여 CDN에서 인증서를 가져오고 나열하는 이러한 권한을 수행하도록 허용합니다. 
+3. **인증서 사용 권한**을 선택한 다음, **Get** 및 **List**에 대한 확인란을 선택하여 CDN에서 인증서를 가져오고 나열하는 이러한 권한을 수행하도록 합니다.
 
 4. **확인**을 선택합니다. 
 

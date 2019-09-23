@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights로 빠른 시작 | Microsoft Docs
+title: '빠른 시작: Azure Application Insights로 모니터링'
 description: Application Insights를 사용하여 모니터링하도록 Node.js 웹앱을 빠르게 설정하는 지침을 제공합니다.
 services: application-insights
 keywords: ''
@@ -7,15 +7,15 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.service: application-insights
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-2019
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: f7c8e4e240d4278257da9df5cea67a7e55eb1019
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 3312822d3e4f74a2db39712d61880c8dd0dd8d5e
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543060"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001178"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Node.js 웹 애플리케이션 모니터링 시작
 
@@ -54,7 +54,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
    | ------------- |:-------------|:-----|
    | **Name**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
    | **애플리케이션 유형** | Node.js 애플리케이션 | 모니터링하는 응용 프로그램의 유형입니다. |
-   | **위치**: | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
+   | **위치** | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
 2. **만들기**를 선택합니다.
 

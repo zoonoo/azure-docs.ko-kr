@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/30/2018
+ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7215a8f169a878b10663347cf9560d822c6aa7e1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9f053cc7646a2a4f41c57010f7e43a3fe3255b7e
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081776"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931786"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>자습서 - cloud-init를 사용하여 첫 번째 부팅 시 Azure에서 Linux 가상 머신을 사용자 지정하는 방법
 
@@ -33,8 +33,6 @@ ms.locfileid: "70081776"
 > * Key Vault를 사용하여 안전하게 인증서 저장
 > * cloud-init를 사용하여 NGINX 배포 자동화
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="cloud-init-overview"></a>Cloud-init 개요
@@ -44,21 +42,23 @@ Cloud-init는 배포에서도 작동합니다. 예를 들어, 패키지를 설�
 
 당사는 파트너와 협력하여 파트너가 Azure에 제공하는 이미지에 cloud-init를 포함하고 이러한 이미지에서 cloud-init가 작동하도록 설정하고 있습니다. 다음 표에서는 Azure 플랫폼 이미지에서 현재 cloud-init 가용성을 간략하게 설명합니다.
 
-| Alias | 게시자 | 제안 | SKU | 버전 |
+| 게시자 | 제안 | SKU | 버전 | cloud-init 준비 여부 |
 |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |최신 |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |최신 |
-| CoreOS |CoreOS |CoreOS |Stable |최신 |
-| | OpenLogic | CentOS | 7-CI | 최신 |
-| | RedHat | RHEL | 7-RAW-CI | 최신 |
+|Canonical |UbuntuServer |18.04-LTS |최신 |예 | 
+|Canonical |UbuntuServer |16.04-LTS |최신 |예 | 
+|Canonical |UbuntuServer |14.04.5-LTS |최신 |예 |
+|CoreOS |CoreOS |Stable |최신 |예 |
+|OpenLogic 7.6 |CentOS |7-CI |최신 |미리 보기 |
+|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |예 |
+|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |미리 보기 |
 
 
 ## <a name="create-cloud-init-config-file"></a>cloud-init 구성 파일 만들기
 cloud-init의 실제 동작을 확인하려면 NGINX를 설치하고 간단한 'Hello World' Node.js 앱을 실행하는 VM을 만듭니다. 다음 cloud-init 구성은 필요한 패키지를 설치하고 Node.js 앱을 만든 다음 앱을 초기화하고 시작합니다.
 
-현재 셸에서 *cloud-init.txt*라는 파일을 만들고 다음 구성을 붙여 넣습니다. 예를 들어 로컬 컴퓨터에 없는 Cloud Shell에서 파일을 만듭니다. 원하는 모든 편집기를 사용할 수 있습니다. `sensible-editor cloud-init.txt`를 입력하여 파일을 만들고 사용할 수 있는 편집기의 목록을 봅니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.
+bash 프롬프트 또는 Cloud Shell에서 *cloud-init.txt*라는 파일을 만들고 다음 구성을 붙여넣습니다. 예를 들어 `sensible-editor cloud-init.txt`를 입력하여 파일을 만들고 사용 가능한 편집기의 목록을 봅니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.
 
-```yaml
+```azurecli-interactive
 #cloud-config
 package_upgrade: true
 packages:
@@ -114,7 +114,7 @@ az group create --name myResourceGroupAutomate --location eastus
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroupAutomate \
-    --name myVM \
+    --name myAutomatedVM \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
@@ -184,7 +184,7 @@ vm_secret=$(az vm secret format --secret "$secret")
 ### <a name="create-cloud-init-config-to-secure-nginx"></a>NGINX를 보호할 cloud-init 구성 만들기
 VM을 만들 때 인증서와 키는 보호되는 */var/lib/waagent/* 디렉터리에 저장됩니다. VM에 인증서 추가 및 NGINX 구성을 자동화하기 위해 이전 예제에서 업데이트된 cloud-init 구성을 사용할 수 있습니다.
 
-*cloud-init-secured.txt*라는 파일을 만들고 다음 구성을 붙여 넣습니다. 다시, Cloud Shell을 사용하는 경우 로컬 컴퓨터가 아닌 해당 위치에서 cloud-init 구성 파일을 만듭니다. `sensible-editor cloud-init-secured.txt`를 사용하여 파일을 만들고 사용할 수 있는 편집기의 목록을 봅니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.
+*cloud-init-secured.txt*라는 파일을 만들고 다음 구성을 붙여 넣습니다. Cloud Shell을 사용하는 경우 로컬 머신이 아닌 해당 위치에서 cloud-init 구성 파일을 만듭니다. 예를 들어 `sensible-editor cloud-init-secured.txt`를 입력하여 파일을 만들고 사용 가능한 편집기의 목록을 봅니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.
 
 ```yaml
 #cloud-config
@@ -241,7 +241,7 @@ runcmd:
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroupAutomate \
-    --name myVMSecured \
+    --name myVMWithCerts \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \

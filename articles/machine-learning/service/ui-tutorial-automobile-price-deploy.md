@@ -1,7 +1,7 @@
 ---
 title: '자습서: 그래픽 인터페이스를 사용하여 기계 학습 모델 배포'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning Service 그래픽 인터페이스에서 예측 분석 솔루션을 빌드하는 방법을 알아봅니다. 끌어서 놓기 모듈을 사용하여 기계 학습 모델을 학습, 채점 및 배포합니다. 이 자습서는 선형 회귀 분석을 사용하여 자동차 가격을 예측하는 2부로 구성된 시리즈 중 제2부입니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learninge의 시각적 인터페이스에서 예측 분석 솔루션을 빌드하는 방법을 알아봅니다. 끌어서 놓기 모듈을 사용하여 기계 학습 모델을 학습, 채점 및 배포합니다. 이 자습서는 선형 회귀 분석을 사용하여 자동차 가격을 예측하는 2부로 구성된 시리즈 중 제2부입니다.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/11/2019
-ms.openlocfilehash: 64062aeab9a807d2aee7f4bca05d4019a3d9b736
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 22d5c41e8b815fd99450962cb63d11e9560c787f
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858639"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997022"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>자습서: 그래픽 인터페이스를 사용하여 기계 학습 모델 배포
 
@@ -105,7 +105,7 @@ REST 호출 샘플은 웹 서비스 세부 정보 페이지의 **사용** 탭에
 
 ## <a name="manage-models-and-deployments"></a>모델 및 배포 관리
 
-그래픽 인터페이스에서 만든 모델 및 웹 서비스 배포는 Azure Machine Learning Service 작업 영역에서도 관리할 수 있습니다.
+시각적 인터페이스에서 만든 모델 및 웹 서비스 배포는 Azure Machine Learning 작업 영역에서도 관리할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 작업 영역을 엽니다.  
 

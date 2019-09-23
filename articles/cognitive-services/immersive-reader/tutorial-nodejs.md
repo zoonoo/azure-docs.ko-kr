@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: ea9728ac54ae357925bd666ffecf270172137f77
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e0c85dba22a7c689631a853bc22d58d1cc4093aa
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990391"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104998"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>자습서: 몰입형 판독기(Node.js) 시작
 
@@ -85,7 +85,7 @@ SUBDOMAIN={YOUR_SUBDOMAIN}
 require('dotenv').config();
 ```
 
-_routes\index.js_ 파일을 열고 파일 맨 위에서 다음 가져오기를 엽니다.
+_routes\index.js_ 파일을 열고 파일 맨 위에 다음 코드를 추가합니다.
 
 ```javascript
 var request = require('request');

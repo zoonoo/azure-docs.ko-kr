@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: abnarain
-ms.openlocfilehash: b520d9fd3fc20d17223edc63db9800748f92cb23
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 1d779c44faabc30ddfa624e7b2d8e5d5de8b6cc7
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140654"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091899"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>자습서: 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터 복사
 이 자습서에서는 Azure PowerShell을 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 Data Factory 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다. 
@@ -40,7 +40,7 @@ ms.locfileid: "70140654"
 시작하기 전에 Azure 구독이 아직 없는 경우 [체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
 ### <a name="azure-roles"></a>Azure 역할
-Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정은 *참가자* 또는 *소유자* 역할로 할당되거나 Azure 구독의 *관리자*여야 합니다. 
+데이터 팩터리 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정이 *참가자* 또는 *소유자* 역할에 할당되거나 Azure 구독의 *관리자*여야 합니다. 
 
 구독에서 사용 권한을 보려면 Azure Portal로 이동하고, 오른쪽 위 모서리에 있는 사용자 이름을 선택한 다음 **사용 권한**을 선택합니다. 여러 구독에 액세스할 수 있는 경우 적절한 구독을 선택합니다. 역할에 사용자를 추가하는 방법에 대한 샘플 지침을 보려면 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md) 문서를 참조하세요.
 
@@ -55,15 +55,22 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
  
 1. **새 데이터베이스** 창에서 데이터베이스의 이름을 입력하고 **확인**을 선택합니다. 
 
-1. **emp** 테이블을 만들고 일부 샘플 데이터를 이 테이블에 삽입하려면 데이터베이스에 대해 다음 쿼리 스크립트를 실행합니다.
+1. **emp** 테이블을 만들고 일부 샘플 데이터를 이 테이블에 삽입하려면 데이터베이스에 대해 다음 쿼리 스크립트를 실행합니다. 트리 뷰에서 생성한 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 
-   ```
-       INSERT INTO emp VALUES ('John', 'Doe')
-       INSERT INTO emp VALUES ('Jane', 'Doe')
-       GO
-   ```
+    ```sql
+    CREATE TABLE dbo.emp
+    (
+        ID int IDENTITY(1,1) NOT NULL,
+        FirstName varchar(50),
+        LastName varchar(50)
+    )
+    GO
+    
+    INSERT INTO emp (FirstName, LastName) VALUES ('John', 'Doe')
+    INSERT INTO emp (FirstName, LastName) VALUES ('Jane', 'Doe')
+    GO
+    ```
 
-1. 트리 뷰에서 생성한 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 
 ### <a name="azure-storage-account"></a>Azure Storage 계정
 이 자습서에서는 범용 Azure Storage 계정(특히 Blob Storage)을 대상/싱크 데이터 저장소로 사용합니다. 범용 Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. 이 자습서에서 만든 데이터 팩터리의 파이프라인은 온-프레미스 SQL Server 데이터베이스(원본)에서 이 Azure Blob Storage(싱크)로 데이터를 복사합니다. 
@@ -92,15 +99,11 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 1. **Blob service** 창에서 **컨테이너**를 선택합니다. 
 
-    ![컨테이너 단추 추가](media/tutorial-hybrid-copy-powershell/add-container-button.png)
-
 1. **새 컨테이너** 창의 **이름** 상자에 **adftutorial**을 입력한 후 **확인**을 선택합니다. 
 
     ![컨테이너 이름 입력](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
 
 1. 컨테이너 목록에서 **adftutorial**을 선택합니다.  
-
-    ![컨테이너를 선택합니다.](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. **adftutorial**의 **컨테이너** 창을 열어 둡니다. 이 자습서의 끝부분에서 출력을 확인하는 데 사용합니다. 데이터 팩터리는 이 컨테이너에서 출력 폴더를 자동으로 만듭니다. 따라서 새로 만들 필요가 없습니다.
 
@@ -116,8 +119,6 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 #### <a name="log-in-to-powershell"></a>PowerShell에 로그인
 
 1. 컴퓨터에서 PowerShell을 시작하고, 이 빠른 시작 자습서가 완료될 때까지 열어 둡니다. PowerShell을 닫고 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
-
-    ![PowerShell 시작](media/tutorial-hybrid-copy-powershell/search-powershell.png)
 
 1. 다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 Azure 사용자 이름 및 암호를 입력합니다.
        
@@ -135,14 +136,14 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 1. 나중에 PowerShell 명령에서 사용할 리소스 그룹 이름에 대한 변수를 정의합니다. PowerShell에 다음 명령을 복사하고, [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름을 지정하고(큰따옴표로 묶임, 예: `"adfrg"`), 명령을 실행합니다. 
    
-     ```powershell
+    ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
     ```
 
 1. 새 리소스 그룹을 만들려면 다음 명령을 실행합니다. 
 
     ```powershell
-    New-AzResourceGroup $resourceGroupName $location
+    New-AzResourceGroup $resourceGroupName -location 'East US'
     ``` 
 
     리소스 그룹이 이미 있는 경우 덮어쓰지 않는 것이 좋습니다. `$resourceGroupName` 변수에 다른 값을 할당하고 명령을 다시 시도하세요.
@@ -194,15 +195,16 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ``` 
+
     샘플 출력은 다음과 같습니다.
 
     ```json
-    Id                : /subscriptions/<subscription ID>/resourceGroups/ADFTutorialResourceGroup/providers/Microsoft.DataFactory/factories/onpremdf0914/integrationruntimes/myonpremirsp0914
+    Name              : ADFTutorialIR
     Type              : SelfHosted
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : onpremdf0914
-    Name              : myonpremirsp0914
+    ResourceGroupName : <resourceGroupName>
+    DataFactoryName   : <dataFactoryName>
     Description       : selfhosted IR description
+    Id                : /subscriptions/<subscription ID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/integrationruntimes/<integrationRuntimeName>
     ```
 
 1. 만든 Integration Runtime의 상태를 검색하려면 다음 명령을 실행합니다.
@@ -214,20 +216,24 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     샘플 출력은 다음과 같습니다.
     
     ```json
-    Nodes                     : {}
-    CreateTime                : 9/14/2017 10:01:21 AM
-    InternalChannelEncryption :
-    Version                   :
-    Capabilities              : {}
-    ScheduledUpdateDate       :
-    UpdateDelayOffset         :
-    LocalTimeZoneOffset       :
-    AutoUpdate                :
-    ServiceUrls               : {eu.frontend.clouddatahub.net, *.servicebus.windows.net}
-    ResourceGroupName         : <ResourceGroup name>
-    DataFactoryName           : <DataFactory name>
-    Name                      : <Integration Runtime name>
     State                     : NeedRegistration
+    Version                   : 
+    CreateTime                : 9/10/2019 3:24:09 AM
+    AutoUpdate                : On
+    ScheduledUpdateDate       : 
+    UpdateDelayOffset         : 
+    LocalTimeZoneOffset       : 
+    InternalChannelEncryption : 
+    Capabilities              : {}
+    ServiceUrls               : {eu.frontend.clouddatahub.net}
+    Nodes                     : {}
+    Links                     : {}
+    Name                      : <Integration Runtime name>
+    Type                      : SelfHosted
+    ResourceGroupName         : <resourceGroup name>
+    DataFactoryName           : <dataFactory name>
+    Description               : selfhosted IR description
+    Id                        : /subscriptions/<subscription ID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/integrationruntimes/<integrationRuntimeName>
     ```
 
 1. 자체 호스팅 Integration Runtime을 클라우드의 Data Factory 서비스에 등록하기 위해 *인증 키*를 검색하려면 다음 명령을 실행합니다. 다음 단계에서 컴퓨터에 설치할 자체 호스팅된 Integration Runtime을 등록하기 위한 키(인용 부호 제외) 중 하나를 복사합니다. 
@@ -256,28 +262,19 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 1. **Microsoft Integration Runtime을 설치할 준비가 됨** 창에서 **설치**를 선택합니다. 
 
-1. 컴퓨터를 사용하지 않는 동안 절전 또는 최대 절전 모드로 전환되도록 구성하는 방법에 대한 경고 메시지가 표시되면 **확인**을 선택합니다. 
-
-1. **전원 옵션** 창이 표시되면 닫은 후 설치 창으로 전환합니다. 
-
 1. **Microsoft Integration Runtime 설치 완료** 마법사에서 **마침**을 선택합니다.
 
 1. **Integration Runtime(자체 호스팅) 등록** 창에 이전 섹션에서 저장한 키를 붙여넣고 **등록**을 선택합니다. 
 
     ![통합 런타임 등록](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
-    자체 호스팅 Integration Runtime이 성공적으로 등록되면 다음 메시지가 표시됩니다. 
-
-    ![성공적으로 등록되었습니다.](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
-
-1. **새로운 Integration Runtime(자체 호스팅) 노드** 창에서 **다음**을 선택합니다. 
+1. **새로운 Integration Runtime(자체 호스팅) 노드** 창에서 **마침**을 선택합니다. 
 
     ![새 Integration Runtime 노드 창](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
 
-1. **인트라넷 통신 채널** 창에서 **건너뛰기**를 선택합니다.  
-    다중 노드 Integration Runtime 환경에서 노드 내 통신을 보호하기 위한 TLS/SSL 인증을 선택할 수 있습니다.
+ 1. 자체 호스팅 Integration Runtime이 성공적으로 등록되면 다음 메시지가 표시됩니다. 
 
-    ![인트라넷 통신 채널 창](media/tutorial-hybrid-copy-powershell/intranet-communication-channel-page.png)
+    ![성공적으로 등록되었습니다.](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
 1. **Integration Runtime(자체 호스팅) 등록** 창에서 **구성 관리자 시작**을 선택합니다. 
 
@@ -286,8 +283,6 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     ![노드가 연결됨](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
 
 1. 다음을 수행하여 SQL Server 데이터베이스에 대한 연결을 테스트합니다.
-
-    ![진단 탭](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png)   
 
     a. **구성 관리자** 창에서 **진단** 탭으로 전환합니다.
 
@@ -304,6 +299,8 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     g. 사용자 이름과 연결된 암호를 입력합니다.
 
     h. Integration Runtime을 Microsoft SQL Server에 연결할 수 있는지 확인하려면 **테스트**를 선택합니다.  
+    ![연결 성공](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png) 
+  
     연결이 성공적인 경우 녹색 확인 표시 아이콘이 표시됩니다. 그렇지 않다면 실패와 관련된 오류 메시지가 나타납니다. 모든 문제를 해결하고 Integration Runtime을 SQL Server 인스턴스에 연결할 수 있는지 확인합니다.
 
     이전 값은 모두 나중에 이 자습서에서 사용합니다.
@@ -321,20 +318,21 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
    ```json
     {
+        "name": "AzureStorageLinkedService",
         "properties": {
-            "type": "AzureStorage",
+            "annotations": [],
+            "type": "AzureBlobStorage",
             "typeProperties": {
-                "connectionString": {
-                    "type": "SecureString",
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>;EndpointSuffix=core.windows.net"
-                }
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>;EndpointSuffix=core.windows.net"
             }
-        },
-        "name": "AzureStorageLinkedService"
+        }
     }
    ```
 
 1. PowerShell에서 *C:\ADFv2Tutorial* 폴더로 전환합니다.
+   ```powershell
+   Set-Location 'C:\ADFv2Tutorial'    
+   ```
 
 1. AzureStorageLinkedService라는 연결된 서비스를 만들려면 다음 `Set-AzDataFactoryV2LinkedService` cmdlet을 실행합니다. 
 
@@ -346,9 +344,9 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
     ```json
     LinkedServiceName : AzureStorageLinkedService
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : onpremdf0914
-    Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
+    ResourceGroupName : <resourceGroup name>
+    DataFactoryName   : <dataFactory name>
+    Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobStorageLinkedService
     ```
 
     "파일을 찾을 수 없음" 오류가 발생하는 경우 `dir` 명령을 실행하여 파일이 있는지 확인합니다. 파일 이름에 *.txt* 확장명이 있으면(예: AzureStorageLinkedService.json.txt) 확장명을 제거하고 PowerShell 명령을 다시 실행합니다. 
@@ -364,48 +362,50 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     **SQL 인증(sa) 사용:**
 
     ```json
-    {
-        "properties": {
-            "type": "SqlServer",
-            "typeProperties": {
-                "connectionString": {
-                    "type": "SecureString",
-                    "value": "Server=<servername>;Database=<databasename>;User ID=<username>;Password=<password>;Timeout=60"
-                }
+    {  
+        "name":"SqlServerLinkedService",
+        "type":"Microsoft.DataFactory/factories/linkedservices",
+        "properties":{  
+            "annotations":[  
+    
+            ],
+            "type":"SqlServer",
+            "typeProperties":{  
+                "connectionString":"integrated security=False;data source=<serverName>;initial catalog=<databaseName>;user id=<userName>;password=<password>"
             },
-            "connectVia": {
-                "type": "integrationRuntimeReference",
-                "referenceName": "<integration runtime name>"
+            "connectVia":{  
+                "referenceName":"<integration runtime name> ",
+                "type":"IntegrationRuntimeReference"
             }
-        },
-        "name": "SqlServerLinkedService"
+        }
     }
    ```    
 
     **Windows 인증 사용:**
 
     ```json
-    {
-        "properties": {
-            "type": "SqlServer",
-            "typeProperties": {
-                "connectionString": {
-                    "type": "SecureString",
-                    "value": "Server=<server>;Database=<database>;Integrated Security=True"
-                },
-                "userName": "<user> or <domain>\\<user>",
-                "password": {
-                    "type": "SecureString",
-                    "value": "<password>"
+    {  
+        "name":"SqlServerLinkedService",
+        "type":"Microsoft.DataFactory/factories/linkedservices",
+        "properties":{  
+            "annotations":[  
+    
+            ],
+            "type":"SqlServer",
+            "typeProperties":{  
+                "connectionString":"integrated security=True;data source=<serverName>;initial catalog=<databaseName>",
+                "userName":"<username> or <domain>\\<username>",
+                "password":{  
+                    "type":"SecureString",
+                    "value":"<password>"
                 }
             },
-            "connectVia": {
-                "type": "integrationRuntimeReference",
-                "referenceName": "<integration runtime name>"
+            "connectVia":{  
+                "referenceName":"<integration runtime name>",
+                "type":"IntegrationRuntimeReference"
             }
-        },
-        "name": "SqlServerLinkedService"
-    }    
+        }
+    } 
     ```
 
     > [!IMPORTANT]
@@ -435,34 +435,26 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 이 단계에서는 SQL Server 데이터베이스 인스턴스에 있는 데이터를 나타내는 데이터 세트를 정의합니다. 데이터 세트는 SqlServerTable 형식입니다. 이 데이터 집합은 이전 단계에서 만든 SQL Server 연결된 서비스를 참조합니다. 연결된 서비스에는 Data Factory 서비스가 런타임 시 SQL Server 인스턴스에 연결하는 데 사용하는 연결 정보가 있습니다. 이 데이터 세트는 데이터가 포함된 데이터베이스에 SQL 테이블을 지정합니다. 이 자습서에서 **emp** 테이블에는 원본 데이터가 포함됩니다. 
 
 1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *SqlServerDataset.json*이라는 JSON 파일을 만듭니다.  
-
     ```json
-    {
-       "properties": {
-            "type": "SqlServerTable",
-            "typeProperties": {
-                "tableName": "dbo.emp"
+    {  
+        "name":"SqlServerDataset",
+        "properties":{  
+            "linkedServiceName":{  
+                "referenceName":"EncryptedSqlServerLinkedService",
+                "type":"LinkedServiceReference"
             },
-            "structure": [
-                 {
-                    "name": "ID",
-                    "type": "String"
-                },
-                {
-                    "name": "FirstName",
-                    "type": "String"
-                },
-                {
-                    "name": "LastName",
-                    "type": "String"
-                }
+            "annotations":[  
+    
             ],
-            "linkedServiceName": {
-                "referenceName": "EncryptedSqlServerLinkedService",
-                "type": "LinkedServiceReference"
+            "type":"SqlServerTable",
+            "schema":[  
+    
+            ],
+            "typeProperties":{  
+                "schema":"dbo",
+                "table":"emp"
             }
-        },
-        "name": "SqlServerDataset"
+        }
     }
     ```
 
@@ -476,9 +468,9 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
     ```json
     DatasetName       : SqlServerDataset
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : onpremdf0914
-    Structure         : {"name": "ID" "type": "String", "name": "FirstName" "type": "String", "name": "LastName" "type": "String"}
+    ResourceGroupName : <resourceGroupName>
+    DataFactoryName   : <dataFactoryName>
+    Structure         : 
     Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerTableDataset
     ```
 
@@ -490,21 +482,32 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *AzureBlobDataset.json*이라는 JSON 파일을 만듭니다.
 
     ```json
-    {
-        "properties": {
-            "type": "AzureBlob",
-            "typeProperties": {
-                "folderPath": "adftutorial/fromonprem",
-                "format": {
-                    "type": "TextFormat"
-                }
+    {  
+        "name":"AzureBlobDataset",
+        "properties":{  
+            "linkedServiceName":{  
+                "referenceName":"AzureStorageLinkedService",
+                "type":"LinkedServiceReference"
             },
-            "linkedServiceName": {
-                "referenceName": "AzureStorageLinkedService",
-                "type": "LinkedServiceReference"
-            }
+            "annotations":[  
+    
+            ],
+            "type":"DelimitedText",
+            "typeProperties":{  
+                "location":{  
+                    "type":"AzureBlobStorageLocation",
+                    "folderPath":"fromonprem",
+                    "container":"adftutorial"
+                },
+                "columnDelimiter":",",
+                "escapeChar":"\\",
+                "quoteChar":"\""
+            },
+            "schema":[  
+    
+            ]
         },
-        "name": "AzureBlobDataset"
+        "type":"Microsoft.DataFactory/factories/datasets"
     }
     ```
 
@@ -518,10 +521,10 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
     ```json
     DatasetName       : AzureBlobDataset
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : onpremdf0914
+    ResourceGroupName : <resourceGroupName>
+    DataFactoryName   : <dataFactoryName>
     Structure         :
-    Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobDataset
+    Properties        : Microsoft.Azure.Management.DataFactory.Models.DelimitedTextDataset
     ```
 
 ## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
@@ -530,34 +533,59 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *SqlServerToBlobPipeline.json*이라는 JSON 파일을 만듭니다.
 
     ```json
-    {
-       "name": "SQLServerToBlobPipeline",
-        "properties": {
-            "activities": [       
-                {
-                    "type": "Copy",
-                    "typeProperties": {
-                        "source": {
-                            "type": "SqlSource"
-                        },
-                        "sink": {
-                            "type":"BlobSink"
-                        }
+    {  
+        "name":"SqlServerToBlobPipeline",
+        "properties":{  
+            "activities":[  
+                {  
+                    "name":"CopySqlServerToAzureBlobActivity",
+                    "type":"Copy",
+                    "dependsOn":[  
+    
+                    ],
+                    "policy":{  
+                        "timeout":"7.00:00:00",
+                        "retry":0,
+                        "retryIntervalInSeconds":30,
+                        "secureOutput":false,
+                        "secureInput":false
                     },
-                    "name": "CopySqlServerToAzureBlobActivity",
-                    "inputs": [
-                        {
-                            "referenceName": "SqlServerDataset",
-                            "type": "DatasetReference"
+                    "userProperties":[  
+    
+                    ],
+                    "typeProperties":{  
+                        "source":{  
+                            "type":"SqlServerSource"
+                        },
+                        "sink":{  
+                            "type":"DelimitedTextSink",
+                            "storeSettings":{  
+                                "type":"AzureBlobStorageWriteSettings"
+                            },
+                            "formatSettings":{  
+                                "type":"DelimitedTextWriteSettings",
+                                "quoteAllText":true,
+                                "fileExtension":".txt"
+                            }
+                        },
+                        "enableStaging":false
+                    },
+                    "inputs":[  
+                        {  
+                            "referenceName":"SqlServerDataset",
+                            "type":"DatasetReference"
                         }
                     ],
-                    "outputs": [
-                        {
-                            "referenceName": "AzureBlobDataset",
-                            "type": "DatasetReference"
+                    "outputs":[  
+                        {  
+                            "referenceName":"AzureBlobDataset",
+                            "type":"DatasetReference"
                         }
                     ]
                 }
+            ],
+            "annotations":[  
+    
             ]
         }
     }
@@ -573,8 +601,8 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
     ```json
     PipelineName      : SQLServerToBlobPipeline
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : onpremdf0914
+    ResourceGroupName : <resourceGroupName>
+    DataFactoryName   : <dataFactoryName>
     Activities        : {CopySqlServerToAzureBlobActivity}
     Parameters        :  
     ```
@@ -608,20 +636,23 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
 
     샘플 실행의 출력은 다음과 같습니다.
 
-    ```jdon
-    ResourceGroupName : <resourceGroupName>
-    DataFactoryName   : <dataFactoryName>
-    ActivityName      : copy
-    PipelineRunId     : 4ec8980c-62f6-466f-92fa-e69b10f33640
-    PipelineName      : SQLServerToBlobPipeline
-    Input             :  
-    Output            :  
-    LinkedServiceName :
-    ActivityRunStart  : 9/13/2017 1:35:22 PM
-    ActivityRunEnd    : 9/13/2017 1:35:42 PM
-    DurationInMs      : 20824
-    Status            : Succeeded
-    Error             : {errorCode, message, failureType, target}
+    ```JSON
+    ResourceGroupName    : <resourceGroupName>
+    DataFactoryName      : <dataFactoryName>
+    ActivityRunId        : 24af7cf6-efca-4a95-931d-067c5c921c25
+    ActivityName         : CopySqlServerToAzureBlobActivity
+    ActivityType         : Copy
+    PipelineRunId        : 7b538846-fd4e-409c-99ef-2475329f5729
+    PipelineName         : SQLServerToBlobPipeline
+    Input                : {source, sink, enableStaging}
+    Output               : {dataRead, dataWritten, filesWritten, sourcePeakConnections...}
+    LinkedServiceName    : 
+    ActivityRunStart     : 9/11/2019 7:10:37 AM
+    ActivityRunEnd       : 9/11/2019 7:10:58 AM
+    DurationInMs         : 21094
+    Status               : Succeeded
+    Error                : {errorCode, message, failureType, target}
+    AdditionalProperties : {[retryAttempt, ], [iterationHash, ], [userProperties, {}], [recoveryStatus, None]...}
     ```
 
 1. 다음과 같이 SQLServerToBlobPipeline 파이프라인의 실행 ID를 가져오고, 다음 명령을 실행하여 자세한 작업 실행 결과를 확인할 수 있습니다. 
@@ -634,15 +665,41 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
     샘플 실행의 출력은 다음과 같습니다.
 
     ```json
-    {
-      "dataRead": 36,
-      "dataWritten": 24,
-      "rowsCopied": 2,
-      "copyDuration": 3,
-      "throughput": 0.01171875,
-      "errors": [],
-      "effectiveIntegrationRuntime": "MyIntegrationRuntime",
-      "billedDuration": 3
+    {  
+        "dataRead":36,
+        "dataWritten":32,
+        "filesWritten":1,
+        "sourcePeakConnections":1,
+        "sinkPeakConnections":1,
+        "rowsRead":2,
+        "rowsCopied":2,
+        "copyDuration":18,
+        "throughput":0.01,
+        "errors":[  
+    
+        ],
+        "effectiveIntegrationRuntime":"ADFTutorialIR",
+        "usedParallelCopies":1,
+        "executionDetails":[  
+            {  
+                "source":{  
+                    "type":"SqlServer"
+                },
+                "sink":{  
+                    "type":"AzureBlobStorage",
+                    "region":"CentralUS"
+                },
+                "status":"Succeeded",
+                "start":"2019-09-11T07:10:38.2342905Z",
+                "duration":18,
+                "usedParallelCopies":1,
+                "detailedDurations":{  
+                    "queuingDuration":6,
+                    "timeToFirstByte":0,
+                    "transferDuration":5
+                }
+            }
+        ]
     }
     ```
 
@@ -650,8 +707,6 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
 파이프라인은 자동으로 `adftutorial` Blob 컨테이너에서 *fromonprem*이라는 출력 폴더를 만듭니다. 출력 폴더에서 *dbo.emp.txt* 파일이 표시되는지 확인합니다. 
 
 1. Azure Portal의 **adftutorial** 컨테이너 창에서 출력 폴더를 보려면 **새로 고침**을 선택합니다.
-
-    ![만든 출력 폴더](media/tutorial-hybrid-copy-powershell/fromonprem-folder.png)
 1. 폴더 목록에서 `fromonprem`을 선택합니다. 
 1. `dbo.emp.txt`이라는 파일이 표시됨을 확인합니다.
 

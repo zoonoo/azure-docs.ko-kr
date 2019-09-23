@@ -1,7 +1,7 @@
 ---
 title: '이미지 분류 자습서: 모델 학습'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning Service를 사용하는 Python Jupyter Notebook에서 scikit-Learn을 사용하여 이미지 분류 모델을 학습시키는 방법을 알아봅니다. 이 자습서는 2부로 구성된 시리즈 중 제1부입니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning을 사용하는 Python Jupyter Notebook에서 scikit-Learn을 사용하여 이미지 분류 모델을 학습하는 방법을 알아봅니다. 이 자습서는 2부로 구성된 시리즈 중 제1부입니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,18 +10,18 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8cf639a290067e71b562e0df844ee01d018a7557
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 5c7396baa745196e054c6cb49d349bf7684cd899
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170567"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001672"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>자습서: Azure Machine Learning에서 MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습
 
-이 자습서에서는 원격 컴퓨팅 리소스에 대해 기계 학습 모델을 학습합니다. Python Jupyter Notebook에서 Azure Machine Learning 서비스에 대한 학습 및 배포 워크플로를 사용합니다.  그런 다음, 이 노트를 템플릿으로 사용하여 자신의 데이터로 고유한 Machine Learning 모델을 학습할 수 있습니다. 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부**입니다.  
+이 자습서에서는 원격 컴퓨팅 리소스에 대해 기계 학습 모델을 학습합니다. Python Jupyter Notebook에서 Azure Machine Learning에 대한 학습 및 배포 워크플로를 사용합니다.  그런 다음, 이 노트를 템플릿으로 사용하여 자신의 데이터로 고유한 Machine Learning 모델을 학습할 수 있습니다. 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부**입니다.  
 
-이 자습서에서는 Azure Machine Learning Service에서 [MNIST](http://yann.lecun.com/exdb/mnist/) 데이터 세트 및 [scikit-learn](https://scikit-learn.org)을 사용하여 간단한 로지스틱 회귀를 학습합니다. MNIST는 70,000개의 회색조 이미지로 구성된 인기 있는 데이터 세트입니다. 각 이미지는 0-9의 숫자를 나타내는 28x28 픽셀의 필기체 숫자입니다. 목표는 지정된 이미지가 나타내는 숫자를 식별하는 다중 클래스 분류자를 만드는 것입니다.
+이 자습서에서는 Azure Machine Learning과 함께 [MNIST](http://yann.lecun.com/exdb/mnist/) 데이터 세트 및 [scikit-learn](https://scikit-learn.org)을 사용하여 간단한 로지스틱 회귀 분석을 학습합니다. MNIST는 70,000개의 회색조 이미지로 구성된 인기 있는 데이터 세트입니다. 각 이미지는 0-9의 숫자를 나타내는 28x28 픽셀의 필기체 숫자입니다. 목표는 지정된 이미지가 나타내는 숫자를 식별하는 다중 클래스 분류자를 만드는 것입니다.
 
 다음 작업을 수행하는 방법에 대해 알아봅니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "70170567"
 
 모델을 선택하고 배포하는 방법은 이 [자습서의 제2부](tutorial-deploy-models-with-aml.md)에서 알아봅니다.
 
-Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
+Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 >[!NOTE]
 > 이 문서의 코드는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 버전 1.0.57로 테스트되었습니다.
@@ -436,7 +436,7 @@ compute_target.delete()
 
 ## <a name="next-steps"></a>다음 단계
 
-이 Azure Machine Learning Service 자습서에서는 Python을 사용하여 다음 작업을 수행했습니다.
+이 Azure Machine Learning 자습서에서는 Python을 사용하여 다음 작업을 수행했습니다.
 
 > [!div class="checklist"]
 > * 개발 환경 설정

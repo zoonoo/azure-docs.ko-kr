@@ -13,12 +13,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: 1649fefda5073761d616fc48c602cab84d293ed0
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 3eee34f594cb23a8b64f6fd10837c9a641eda62d
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67799092"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075964"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>자습서: .NET Core 앱에서 동적 구성 사용
 
@@ -44,9 +44,14 @@ App Configuration .NET Core 클라이언트 라이브러리는 애플리케이�
 
 ## <a name="reload-data-from-app-configuration"></a>App Configuration에서 데이터 다시 로드
 
-*Program.cs*를 열고 파일을 업데이트하여 `AddAzureAppConfiguration` 메서드의 새로 고침 구성을 지정하고 `Refresh` 메서드를 사용하여 수동 새로 고침을 트리거합니다.
+*Program.cs*를 열고 파일을 업데이트하여 `System.Threading.Tasks` 네임스페이스에 대한 참조를 추가하고 `AddAzureAppConfiguration` 메서드의 새로 고침 구성을 지정하고 `Refresh` 메서드를 사용하여 수동 새로 고침을 트리거합니다.
 
 ```csharp
+using System;
+using System.Threading.Tasks;
+
+namespace TestConsole
+{
 class Program
 {
     private static IConfiguration _configuration = null;
@@ -83,6 +88,7 @@ class Program
         await _refresher.Refresh();
         Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
     }
+}
 }
 ```
 

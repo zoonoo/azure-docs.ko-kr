@@ -29,6 +29,10 @@
           href: container-instances-multi-container-yaml.md
         - name: 컨테이너 그룹 배포 - Resource Manager
           href: container-instances-multi-container-group.md
+    - name: Azure 서비스와 통합
+      items:
+        - name: Azure Functions로 트리거
+          href: container-instances-tutorial-azure-function-trigger.md
 - name: 샘플
   items:
     - name: 코드 샘플
@@ -121,6 +125,8 @@
       href: /javascript/api/overview/azure/containerinstances
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.containerinstance/containergroups
+    - name: YAML
+      href: container-instances-reference-yaml.md
     - name: 커넥터
       href: /connectors/aci
 - name: 리소스

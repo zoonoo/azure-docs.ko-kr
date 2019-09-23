@@ -7,12 +7,12 @@ ms.date: 06/24/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 7b2b0686ae884ca2273730c2947091e525359daf
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 6d0b9202cdece44378964ee98d63a126162849fd
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918617"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003052"
 ---
 # <a name="control-mapping-of-the-nist-sp-800-53-r4-blueprint-sample"></a>NIST SP 800-53 R4 청사진 샘플의 컨트롤 매핑
 
@@ -226,7 +226,7 @@ Azure Site Recovery는 가상 머신에서 실행되는 워크로드를 기본 �
 
 ## <a name="sc-5-denial-of-service-protection"></a>SC-5 서비스 거부 방지
 
-Azure의 DDoS(분선 서비스 거부) 표준 계층은 기본 서비스 계층보다 강력한 추가 기능 및 위험 완화 기능을 제공합니다. 이러한 추가 기능으로는 Azure Monitor 통합과 공격 후 완화 보고서를 검토하는 기능이 포함됩니다. 이 청사진은 DDoS 표준 계층을 사용하는지 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. 서비스 계층 간의 기능 차이를 이해하면 해당 Azure 환경의 서비스 거부를 방지하는 최적의 솔루션을 선택할 수 있습니다.
+Azure의 DDoS(분산 서비스 거부) 표준 계층은 기본 서비스 계층보다 강력한 추가 기능 및 위험 완화 기능을 제공합니다. 이러한 추가 기능으로는 Azure Monitor 통합과 공격 후 완화 보고서를 검토하는 기능이 포함됩니다. 이 청사진은 DDoS 표준 계층을 사용하는지 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. 서비스 계층 간의 기능 차이를 이해하면 해당 Azure 환경의 서비스 거부를 방지하는 최적의 솔루션을 선택할 수 있습니다.
 
 - DDoS Protection 표준을 사용하도록 설정해야 합니다.
 

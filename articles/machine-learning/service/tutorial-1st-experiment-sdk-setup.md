@@ -1,6 +1,6 @@
 ---
 title: '자습서: 첫 번째 ML 실험 만들기: 설정'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 이 자습서 시리즈에서는 Jupyter Notebook에서 실행되는 Azure Machine Learning Python SDK를 시작하기 위한 엔드투엔드 단계를 수행합니다.  1부에서는 클라우드 Notebook 서버 환경을 만들고 실험 및 기계 학습 모델을 관리하는 작업 영역을 만드는 과정을 다룹니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 08/28/2019
-ms.openlocfilehash: d968d6e799b75940d1fb73aa31c22eb84068df7d
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 9bc5b9688a8cd568b47fe2dad88d6d007ceca0c4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860416"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004053"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>자습서: Python SDK로 첫 번째 ML 실험 만들기 시작
 
@@ -27,11 +27,11 @@ ms.locfileid: "70860416"
 > * 다음 자습서에서 사용할 [Azure Machine Learning 작업 영역](concept-workspace.md)을 만듭니다.
 > * Azure Machine Learning Python SDK가 설치되고 미리 구성된 클라우드 기반 Jupyter Notebook VM을 만듭니다.
 
-Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 바로 [Azure Machine Learning Service의 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
 
-Azure Machine Learning 작업 영역은 기계 학습 모델을 실험하고, 학습시키고, 배포하는 데 사용하는 클라우드의 기본 리소스입니다. Azure 구독 및 리소스 그룹을 SDK에서 쉽게 사용되는 개체에 연결합니다. Azure Machine Learning Service 작업 영역이 이미 있으면 [다음 섹션](#azure)으로 건너뜁니다. 그렇지 않으면 지금 작업 영역을 새로 만듭니다.
+Azure Machine Learning 작업 영역은 기계 학습 모델을 실험하고, 학습시키고, 배포하는 데 사용하는 클라우드의 기본 리소스입니다. Azure 구독 및 리소스 그룹을 SDK에서 쉽게 사용되는 개체에 연결합니다. Azure Machine Learning 작업 영역이 이미 있으면 [다음 섹션](#azure)으로 건너뜁니다. 그렇지 않으면 지금 작업 영역을 새로 만듭니다.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -39,7 +39,7 @@ Azure Machine Learning 작업 영역은 기계 학습 모델을 실험하고, �
 
 이 예에서는 작업 영역의 클라우드 Notebook 서버를 설치하지 않는 미리 구성된 환경으로 사용합니다. 환경, 패키지 및 종속성을 제어하려면 [사용자 고유의 환경](how-to-configure-environment.md#local)을 사용합니다.
 
-작업 영역에서 Juffyter Notebook을 사용하여 시작할 클라우드 리소스를 만듭니다. 이 리소스는 Azure Machine Learning Service를 실행하는 데 필요한 모든 항목이 미리 구성된 클라우드 기반 Linux 가상 머신입니다.
+작업 영역에서 Juffyter Notebook을 사용하여 시작할 클라우드 리소스를 만듭니다. 이 리소스는 Azure Machine Learning을 실행하는 데 필요한 모든 항목이 미리 구성된 클라우드 기반 Linux 가상 머신입니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 작업 영역을 엽니다.  포털에서 작업 영역을 찾는 방법을 잘 모르는 경우 [작업 영역을 찾는 방법](how-to-manage-workspace.md#view)을 참조하세요.
 
@@ -69,7 +69,7 @@ Azure Machine Learning 작업 영역은 기계 학습 모델을 실험하고, �
 
 이 자습서에서는 다음 작업을 수행했습니다.
 
-* Azure Machine Learning Service 작업 영역 만들기
+* Azure Machine Learning 작업 영역을 만들었습니다.
 * 작업 영역에서 클라우드 Notebook 서버 만들기 및 구성
 
 자습서의 **2부**에서 `tutorial-1st-experiment-sdk-train.ipynb`의 코드를 실행하여 기계 학습 모델을 학습합니다. 

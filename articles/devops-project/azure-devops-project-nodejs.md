@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure DevOps Projects를 사용하여 Node.js용 CI/CD 파이프라인 만들기'
+title: Azure DevOps Projects를 사용하여 Node.js용 CI/CD 파이프라인 만들기
 description: DevOps Projects를 사용하면 Azure를 쉽게 시작할 수 있습니다. 빠른 몇 단계로 원하는 Azure 서비스에서 앱을 시작할 수 있습니다.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-september2019
 monikerRange: vsts
-ms.openlocfilehash: 407b0a270e667e195a6b9e8dbcd3753fb71b9699
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: c59df73e7fa1d19db4c83a1c9a317f9b69ec8a37
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899617"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091178"
 ---
 #  <a name="create-a-cicd-pipeline-for--nodejs-with-azure-devops-projects"></a>Azure DevOps Projects를 사용하여 Node.js용 CI/CD 파이프라인 만들기 
 

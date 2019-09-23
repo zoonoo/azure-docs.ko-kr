@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93b59a108d5d87479c12174e97713d4c12d84f2e
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 1429841ca1376d67c7372f36bd35694afd4cd7ce
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200058"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102638"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>자습서: 자동으로 그룹 구성원 추가 또는 제거
 
@@ -44,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 먼저, 모두 단일 파트너 회사 소속인 게스트 사용자 그룹을 만들겠습니다. 이들에게는 특별한 라이선스가 필요하므로, 이 용도에 사용할 그룹을 따로 만드는 것이 종종 더 효율적입니다.
 
-1. 테넌트에 대한 글로벌 관리자 계정을 사용하여 Azure Portal(https://portal.azure.com)에 로그인합니다.
+1. 테넌트에 대한 글로벌 관리자 계정을 사용하여 Azure Portal(https://portal.azure.com) 에 로그인합니다.
 2. **Azure Active Directory** > **그룹** > **새 그룹**을 선택합니다.
    ![새 그룹을 시작하는 명령 선택](./media/groups-dynamic-tutorial/new-group.png)
 3. **그룹** 블레이드에서:
@@ -52,11 +52,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    * 그룹 형식으로 **보안**을 선택합니다.
    * 그룹의 이름 및 설명으로 `Guest users Contoso`를 입력합니다.
    * **구성원 자격 유형**을 **동적 사용자**로 변경합니다.
-   * **동적 쿼리 추가**를 선택합니다.
-  
-4. **고급 규칙**을 선택하고, **고급 규칙** 상자에서 `(user.userType -eq "Guest") -and (user.companyName -eq "Contoso")`를 입력합니다.
-5. **쿼리 추가**를 선택하여 블레이드를 닫습니다.
-6. **그룹** 블레이드에서 **만들기**를 선택하여 그룹을 만듭니다.
+   
+4. **소유자**를 선택하고, **소유자** 추가 블레이드에서 원하는 소유자를 검색합니다. 원하는 소유자를 클릭하여 선택 항목에 추가합니다.
+5. **선택**을 클릭하여 **소유자 추가** 블레이드를 닫습니다.  
+6. **동적 사용자 구성원** 상자에서 **동적 쿼리 편집**을 선택합니다.
+7. **동적 구성원 규칙** 블레이드에서 다음을 수행합니다.
+
+   * **속성** 필드에서 기존 값을 클릭하고 **userType**을 선택합니다. 
+   * **연산자 필드**에서 **같음**이 선택되었는지 확인합니다.  
+   * **값** 필드를 선택하고 **게스트**를 입력합니다. 
+   * **식 추가** 하이퍼링크를 클릭하여 다른 줄을 추가합니다.
+   * **및/또는** 필드에서 **및**을 선택합니다.
+   * **속성** 필드에서 **companyName**을 선택합니다.
+   * **연산자 필드**에서 **같음**이 선택되었는지 확인합니다.
+   * **값** 필드에 **Contoso**를 입력합니다.
+   * **저장**을 클릭하여 **동적 구성원 규칙** 블레이드를 닫습니다.
+   
+8. **그룹** 블레이드에서 **만들기**를 선택하여 그룹을 만듭니다.
 
 ## <a name="assign-licenses"></a>라이선스 할당
 

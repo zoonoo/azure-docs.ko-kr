@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 08/06/2019
+ms.date: 09/16/2019
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 09e9a89fc79763eee5d154ba589b599fe8a180b2
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: d4e0d632fe476df159710f800eca3a2a283f7908
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743393"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018293"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
@@ -83,10 +83,22 @@ Active Directory 관리자를 추가하는 방법에 대한 자세한 내용은 
 
 ## <a name="set-up-visual-studio"></a>Visual Studio 설정
 
-Visual Studio에서 개발 및 디버깅을 사용하도록 설정하려면 Visual Studio의 메뉴에서 **파일** > **계정 설정**을 선택하여 Azure AD 사용자를 추가하고 **계정 추가**를 클릭합니다.
+### <a name="windows"></a>Windows
+Windows용 Visual Studio는 Azure AD 인증과 통합됩니다. Visual Studio에서 개발 및 디버깅을 사용하도록 설정하려면 Visual Studio의 메뉴에서 **파일** > **계정 설정**을 선택하여 Azure AD 사용자를 추가하고 **계정 추가**를 클릭합니다.
 
 Azure 서비스 인증의 Azure AD 사용자를 설정하려면 메뉴에서 **도구** > **옵션**을 선택한 후 **Azure 서비스 인증** > **계정 선택**을 선택합니다. 추가한 Azure AD 사용자를 선택하고 **확인**을 클릭합니다.
 
+이제 백 엔드 SQL Database에서 Azure AD 인증을 사용하여 앱을 개발하고 디버그할 준비가 되었습니다.
+
+### <a name="macos"></a>MacOS
+
+Mac용 Visual Studio는 Azure AD 인증과 통합되지 않습니다. 그러나 나중에 사용할 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 라이브러리는 Azure CLI의 토큰을 사용할 수 있습니다. Visual Studio에서 개발 및 디버깅을 사용하려면 먼저 로컬 머신에 [Azure CLI를 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)해야 합니다.
+
+로컬 머신에 Azure CLI를 설치했으면 다음 명령을 사용하여 Azure AD 사용자로 Azure CLI에 로그인합니다.
+
+```bash
+az login --allow-no-subscriptions
+```
 이제 백 엔드 SQL Database에서 Azure AD 인증을 사용하여 앱을 개발하고 디버그할 준비가 되었습니다.
 
 ## <a name="modify-your-project"></a>프로젝트 수정

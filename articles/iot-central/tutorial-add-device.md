@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 8731d66c9d2dca0043307ac2f6a0d1828aeaa275
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 192374971e92bae282c5092dd8c5e7261fce0c5f
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050527"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066380"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>자습서: Azure IoT Central 애플리케이션에 실제 디바이스 추가
 
@@ -24,8 +24,8 @@ ms.locfileid: "70050527"
 
 이 자습서는 2부로 구성되어 있습니다.
 
-1. 먼저 운영자로서 Azure IoT Central 애플리케이션에서 실제 디바이스를 추가하고 구성하는 방법을 알아봅니다. 1부의 끝에 2부에서 사용할 연결 문자열을 검색합니다.
-2. 그런 다음, 디바이스 개발자로서 실제 디바이스의 코드에 대해 알아봅니다. 1부의 연결 문자열을 샘플 코드에 추가합니다.
+* 먼저 운영자로서 Azure IoT Central 애플리케이션에서 실제 디바이스를 추가하고 구성하는 방법을 알아봅니다. 1부의 끝에 2부에서 사용할 연결 문자열을 검색합니다.
+* 그런 다음, 디바이스 개발자로서 실제 디바이스의 코드에 대해 알아봅니다. 1부의 연결 문자열을 샘플 코드에 추가합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -39,7 +39,6 @@ ms.locfileid: "70050527"
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 빌더는 최소 첫 번째 작성기 자습서를 완료해야 Azure IoT Central 애플리케이션을 만듭니다. [새 디바이스 유형 정의](tutorial-define-device-type.md)(필수)
-
 
 배포 머신에 [Node.js](https://nodejs.org/) 버전 8.0.0 이상을 설치합니다. 명령줄에서 `node --version` 명령을 실행하여 버전을 확인할 수 있습니다. Node.js는 다양한 운영 체제에 사용할 수 있습니다.
 
@@ -75,10 +74,6 @@ ms.locfileid: "70050527"
 
 3. 실제 디바이스에 대한 **측정**, **규칙** 및 **대시보드** 페이지를 볼 수 있습니다.
 
-## <a name="generate-connection-string"></a>연결 문자열 생성
-
-디바이스 개발자는 디바이스에서 실행되는 코드에서 실제 디바이스에 대한 *연결 문자열*을 포함해야 합니다. 연결 문자열을 사용하면 디바이스를 애플리케이션에 안전하게 연결할 수 있습니다. 다음 단계에서는 연결 문자열을 생성하고 클라이언트 Node.js 코드를 준비합니다.
-
 ## <a name="prepare-the-client-code"></a>클라이언트 코드 준비
 
 이 문서의 예제 코드는 [Node.js](https://nodejs.org/)에서 작성되고 다음을 하기에 충분한 코드를 보여줍니다.
@@ -101,13 +96,9 @@ ms.locfileid: "70050527"
 
    ![연결 정보 링크를 보여주는 디바이스 페이지](media/tutorial-add-device/connectionlink.png)
 
-1. 디바이스 연결 페이지에서 **범위 ID**, **디바이스 ID** 및 **기본 키** 값을 메모합니다. 다음 단계에서 이 값을 사용합니다.
+1. 디바이스 연결 페이지에서 **범위 ID**, **디바이스 ID** 및 **기본 키** 값을 메모합니다. 이 자습서의 뒷부분에서 이러한 값을 사용합니다.
 
    ![연결 정보](media/tutorial-add-device/device-connect.png)
-
-### <a name="generate-the-connection-string"></a>연결 문자열 생성
-
-[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
 
 ### <a name="prepare-the-nodejs-project"></a>Node.js 프로젝트 준비
 
@@ -124,7 +115,7 @@ ms.locfileid: "70050527"
 1. 필요한 패키지를 설치하려면 다음 명령을 실행하십시오.
 
     ```cmd/sh
-    npm install azure-iot-device azure-iot-device-mqtt --save
+    npm install azure-iot-device azure-iot-device-mqtt azure-iot-provisioning-device-mqtt azure-iot-security-symmetric-key --save
     ```
 
 1. 텍스트 편집기를 사용하여 `connectedairconditioner` 폴더에서 **ConnectedAirConditioner.js**이라는 파일을 만듭니다.
@@ -134,21 +125,26 @@ ms.locfileid: "70050527"
     ```javascript
     'use strict';
 
-    var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
+    var iotHubTransport = require('azure-iot-device-mqtt').Mqtt;
+    var Client = require('azure-iot-device').Client;
     var Message = require('azure-iot-device').Message;
-    var ConnectionString = require('azure-iot-device').ConnectionString;
+    var ProvisioningTransport = require('azure-iot-provisioning-device-mqtt').Mqtt;
+    var SymmetricKeySecurityClient = require('azure-iot-security-symmetric-key').SymmetricKeySecurityClient;
+    var ProvisioningDeviceClient = require('azure-iot-provisioning-device').ProvisioningDeviceClient;
     ```
 
-1. 다음 변수 선언을 파일에 추가합니다.
+1. 다음 변수 선언을 파일에 추가합니다. 자리 표시자 `{your Scope ID}`, `{your Device ID}` 및 `{your Primary Key}`를 앞에서 기록한 디바이스 연결 정보로 바꿉니다.
 
     ```javascript
-    var connectionString = '{your device connection string}';
+    var provisioningHost = 'global.azure-devices-provisioning.net';
+    var idScope = '{your Scope ID}';
+    var registrationId = '{your Device ID}';
+    var symmetricKey = '{your Primary Key};
+    var provisioningSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
+    var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvisioningTransport(), provisioningSecurityClient);
+    var hubClient;
     var targetTemperature = 0;
-    var client = clientFromConnectionString(connectionString);
     ```
-
-    > [!NOTE]
-    > 이후 단계에서 자리 표시자 `{your device connection string}`을 업데이트합니다.
 
 1. 지금까지 한 변경을 저장하지만 파일을 열어 놓습니다.
 
@@ -165,12 +161,12 @@ ms.locfileid: "70050527"
 1. Azure IoT Central 애플리케이션에 온도 원격 분석을 보내려면 다음 코드를 **ConnectedAirConditioner.js** 파일에 추가합니다.
 
     ```javascript
-    // Send device telemetry.
+    // Send device measurements.
     function sendTelemetry() {
       var temperature = targetTemperature + (Math.random() * 15);
       var data = JSON.stringify({ temperature: temperature });
       var message = new Message(data);
-      client.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
+      hubClient.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
         (err ? `; error: ${err.toString()}` : '') +
         (res ? `; status: ${res.constructor.name}` : '')));
     }
@@ -187,7 +183,7 @@ ms.locfileid: "70050527"
         firmwareVersion: "9.75",
         serialNumber: "10001"
       };
-      twin.properties.reported.update(properties, (errorMessage) => 
+      twin.properties.reported.update(properties, (errorMessage) =>
       console.log(` * Sent device properties ` + (errorMessage ? `Error: ${errorMessage.toString()}` : `(success)`)));
     }
     ```
@@ -266,43 +262,53 @@ ms.locfileid: "70050527"
         console.log(`Device could not connect to Azure IoT Central: ${err.toString()}`);
       } else {
         console.log('Device successfully connected to Azure IoT Central');
+
+        // Create handler for countdown command
+        hubClient.onDeviceMethod('echo', onCommandEcho);
+
         // Send telemetry measurements to Azure IoT Central every 1 second.
         setInterval(sendTelemetry, 1000);
-        // Setup device command callbacks
-        client.onDeviceMethod('echo', onCommandEcho);
+
         // Get device twin from Azure IoT Central.
-        client.getTwin((err, twin) => {
+        hubClient.getTwin((err, twin) => {
           if (err) {
             console.log(`Error getting device twin: ${err.toString()}`);
           } else {
-            // Send device properties once on device start up
+            // Send device properties once on device start up.
             sendDeviceProperties(twin);
+
             // Apply device settings and handle changes to device settings.
             handleSettings(twin);
           }
         });
       }
     };
-
-    client.open(connectCallback);
     ```
 
-1. 지금까지 한 변경을 저장하지만 파일을 열어 놓습니다.
-
-## <a name="configure-client-code"></a>클라이언트 코드 구성
-
-<!-- Add the connection string to the sample code, build, and run -->
-Azure IoT Central 애플리케이션에 연결할 클라이언트 코드를 구성하려면 이 자습서의 앞부분에서 언급한 실제 디바이스에 대한 연결 문자열을 추가해야 합니다.
-
-1. **ConnectedAirConditioner.js** 파일에서 다음 코드 줄을 찾습니다.
+1. 디바이스를 IoT Central 애플리케이션에 등록하고 연결합니다.
 
     ```javascript
-    var connectionString = '{your device connection string}';
+    // Start the device (connect it to Azure IoT Central).
+    provisioningClient.register((err, result) => {
+      if (err) {
+        console.log("error registering device: " + err);
+      } else {
+        console.log('registration succeeded');
+        console.log('assigned hub=' + result.assignedHub);
+        console.log('deviceId=' + result.deviceId);
+        var connectionString = 'HostName=' + result.assignedHub + ';DeviceId=' + result.deviceId + ';SharedAccessKey=' + symmetricKey;
+        hubClient = Client.fromConnectionString(connectionString, iotHubTransport);
+
+        hubClient.open(connectCallback);
+      }
+    });
     ```
 
-1. `{your device connection string}`을 실제 디바이스의 연결 문자열로 바꿉니다. 이전 단계에서 생성한 연결 문자열을 복사했습니다.
+1. 변경한 내용을 저장합니다.
 
-1. **ConnectedAirConditioner.js** 파일에 변경 내용을 저장합니다.
+## <a name="run-the-client-code"></a>클라이언트 코드 실행
+
+이제 클라이언트 코드를 실행하고 IoT Central 애플리케이션과 상호 작용하는 방식을 확인할 수 있습니다.
 
 1. 샘플을 실행하려면 명령줄 환경에서 다음 명령을 실행합니다.
 

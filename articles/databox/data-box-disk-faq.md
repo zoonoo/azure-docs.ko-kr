@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 08/15/2019
+ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 1ac91853c78a33645c0ccb234437e3cabc188f88
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: eee33a2e1f5d081c1394368152d0d9afb7091e34
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076893"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098830"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: 질문과 대답
 
@@ -88,6 +88,24 @@ a.  Azure Portal에서 Data Box Disk 주문의 상태를 추적할 수 있습니
 
 ### <a name="q-how-do-i-return-the-disks"></a>Q. 디스크를 반환하려면 어떻게 할까요? 
 a.  Microsoft에서는 배송 패키지에 Data Box Disk와 함께 배송 레이블을 제공합니다. 레이블을 배송 상자에 부착하고 봉인된 패키지를 배송업체 지점에 위탁합니다. 레이블이 손상되거나 분실되었으면 **개요 > 배송 레이블 다운로드**로 차례로 이동하여 새 반송 레이블을 다운로드합니다.
+
+### <a name="can-i-pick-up-my-data-box-disk-order-myself-can-i-return-the-disks-via-a-carrier-that-i-choose"></a>주문한 Data Box Disk를 직접 픽업할 수 있나요? 원하는 운송업체를 통해 디스크를 반환할 수 있나요?
+a. 예. Microsoft는 US Gov 지역에만 자체 관리형 배송을 제공합니다. Data Box Disk를 주문할 때 자체 관리형 배송 옵션을 선택할 수 있습니다. 주문한 Data Box Disk를 직접 픽업하려면 다음 단계를 수행합니다.
+    
+1. 발주 후 주문이 처리되고 디스크가 준비됩니다. 주문한 제품의 픽업 준비가 완료되었다는 이메일 알림이 발송됩니다. 
+2. 제품 픽업 준비가 완료되면 Azure Portal에서 주문한 제품으로 이동하여 **개요** 블레이드로 이동합니다. 
+3. Azure Portal에 코드가 포함된 알림이 표시됩니다. 이메일을 통해 [Azure Data Box 운영 팀](mailto:adbops@microsoft.com)에 코드를 보냅니다. 그러면 운영 팀에서 위치를 알려주고 픽업 날짜 및 시간을 예약합니다. 이메일 알림을 받은 후 5영업일 내에 팀에게 알려야 합니다.
+
+데이터 복사 및 유효성 검사가 완료되면 다음 단계에 따라 디스크를 반환합니다.
+
+1. 데이터 유효성 검사가 완료되면 디스크를 분리합니다. 연결 케이블을 제거합니다.
+2. 완충재를 사용하여 모든 디스크 및 연결 케이블을 래핑하고 배송 상자에 배치합니다. 액세서리가 없는 경우 요금이 부과될 수 있습니다.
+
+    - 최초 배송의 포장재를 다시 사용합니다. 안전하게 보호하는 공기 쿠션 랩을 사용하여 디스크를 포장하는 것이 좋습니다.
+    - 상자 내의 움직임을 줄이기 위해 빈틈 없이 채워졌는지 확인합니다.
+3. Azure Portal에서 주문한 제품의 **개요 블레이드**로 이동합니다. 코드가 포함된 알림이 표시됩니다.
+4. 이 코드를 사용하여 [Azure Data Box 운영 팀](mailto:adbops@microsoft.com)에게 이메일을 통해 코드를 보냅니다. 그러면 운영 팀에서는 디스크가 배송되는 위치와 시간 정보를 알려줄 것입니다.
+
 
 ## <a name="migrate-data"></a>데이터 마이그레이션
 

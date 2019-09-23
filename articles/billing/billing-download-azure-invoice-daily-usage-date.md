@@ -1,6 +1,6 @@
 ---
-title: Azure 청구서 및 일간 사용 현황 데이터 다운로드 | Microsoft Docs
-description: Azure 청구서 및 일간 사용 현황 데이터를 다운로드하는 방법을 설명합니다.
+title: Azure 청구서 및 일간 사용량 현황 데이터 다운로드 | Microsoft Docs
+description: Azure 청구서 및 일간 사용량 현황 데이터를 다운로드하는 방법을 설명합니다.
 keywords: 청구서, 청구서 다운로드, azure 청구서, azure 사용 현황
 services: billing
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 16b2eaef74a7aa0e3e28bfcbb6dbd9da568db6cf
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 45f4a45828501afea52f0ad522c3f3f6777f7ccd
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67491398"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057711"
 ---
-# <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Azure 청구서 및 일간 사용 현황 데이터 다운로드 또는 보기
+# <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Azure 청구서 및 일간 사용량 현황 데이터 다운로드 또는 보기
 
 대부분의 구독에 대한 청구서는 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 다운로드하거나 메일로 전송 받을 수 있습니다. 기업계약이 체결된 Azure 고객(EA 고객)의 경우 조직의 청구서를 다운로드할 수 없습니다. 등록에 대한 청구서를 받도록 설정된 사람에게 청구서가 전송됩니다.
 
-EA 고객이거나 [Microsoft 고객 계약](#check-access-to-a-microsoft-customer-agreement)이 있으면 [Azure Portal](https://portal.azure.com/)에서 사용량을 다운로드할 수 있습니다. 다른 구독의 경우 [Azure 계정 센터](https://account.azure.com/Subscriptions)로 이동하여 사용량을 다운로드합니다.
+EA 고객이거나 [Microsoft 고객 계약](#check-access-to-a-microsoft-customer-agreement)이 있으면 [Azure Portal](https://portal.azure.com/)에서 사용량을 다운로드할 수 있습니다.
 
 계정 관리자 또는 엔터프라이즈 관리자와 같은 특정 역할만 청구서 및 사용량 정보를 가져올 수 있는 권한이 있습니다. 청구 정보에 액세스하는 방법에 대한 자세한 내용은 [역할을 사용하여 Azure 청구에 대한 액세스 관리](billing-manage-access.md)를 참조하세요.
 
@@ -46,11 +46,13 @@ Microsoft 고객 계약이 있는 경우 청구 프로필 소유자, 기여자, 
 
     ![청구 및 사용 현황 옵션을 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png)
 
-3. **청구서 다운로드**를 클릭하여 PDF 청구서 사본을 확인합니다. **사용할 수 없음**이 표시될 경우 [왜 마지막 청구 기간에 대한 청구서가 보이지 않습니까?](#noinvoice)를 참조하세요.
+3. 다운로드 단추를 클릭하여 PDF 청구서의 복사본을 다운로드한 다음, **청구서 다운로드**를 선택합니다. **사용할 수 없음**이 표시될 경우 [왜 마지막 청구 기간에 대한 청구서가 보이지 않습니까?](#noinvoice)를 참조하세요.
 
-    ![청구 기간, 다운로드 옵션 및 각 청구 기간별 총 요금을 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/billing4.png)
+    ![청구 기간, 다운로드 옵션 및 각 청구 기간별 총 요금을 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/downloadinvoice.png)
 
-4. 청구 기간을 클릭하여 일간 사용 현황을 볼 수도 있습니다.
+4. 또한 **csv 다운로드**를 클릭하여 일일 사용량 및 예상 요금을 다운로드할 수 있습니다.
+
+    ![청구서 및 사용량 다운로드 옵션을 보여주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/usageandinvoice.png)
 
 청구서에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](billing-understand-your-bill.md)를 참조하세요. 비용 관리에 대한 도움말은 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](billing-getting-started.md)를 참조하세요.
 
@@ -62,7 +64,7 @@ Microsoft 고객 계약의 [청구 프로필](billing-mca-overview.md#billing-pr
 2. 청구 프로필을 선택합니다.
 3. **청구서**를 선택합니다.
 4. 청구서 그리드에서 다운로드하려는 청구서의 행을 찾습니다.
-5. 행 끝에 있는 줄임표(`...`)를 클릭합니다.
+5. 행의 끝에 있는 다운로드 단추를 클릭합니다.
 6. 다운로드 상황에 맞는 메뉴에서 **청구서**를 선택합니다.
 
 마지막 청구 기간에 대한 청구서가 보이지 않으면 **추가 정보**를 참조하세요. <!-- Fix this -->
@@ -74,7 +76,7 @@ Microsoft 고객 계약의 [청구 프로필](billing-mca-overview.md#billing-pr
 
 - 청구서가 아직 생성되지 않았습니다. 청구 기간이 끝날 때까지 기다립니다.
 
-- 청구서를 볼 수 있는 권한이 없습니다. Microsoft 고객 계약이 있는 경우 청구 프로필 소유자, 기여자, 읽기 권한자 또는 청구서 관리자여야 합니다. 다른 구독의 경우 계정 관리자가 아니면 이전 청구서가 보이지 않을 수 있습니다. 청구 정보에 액세스하는 방법에 대한 자세한 내용은 [역할을 사용하여 Azure 청구에 대한 액세스 관리](billing-manage-access.md)를 참조하세요.
+- 청구서를 볼 수 있는 권한이 없습니다. Microsoft 고객 계약이 있는 경우 청구 프로필 소유자, 기여자, 독자 또는 청구서 관리자여야 합니다. 다른 구독의 경우 계정 관리자가 아니면 이전 청구서가 보이지 않을 수 있습니다. 청구 정보에 액세스하는 방법에 대한 자세한 내용은 [역할을 사용하여 Azure 청구에 대한 액세스 관리](billing-manage-access.md)를 참조하세요.
 
 - 구독에 초과하지 않은 월별 크레딧 금액 또는 평가판이 있는 경우, Microsoft 고객 계약이 있어야만 청구서를 받을 수 있습니다.
 
@@ -119,37 +121,19 @@ Microsoft 고객 계약이 있으면 이메일로 청구서 받기로 옵트인�
 
 위의 단계를 수행하고 **옵트아웃**을 클릭하면 이메일로 청구서 받기에서 옵트아웃할 수 있습니다. 그러면 소유자, 기여자, 읽기 권한자 및 청구서 관리자가 이메일로 청구서 받기에서 모두 옵트아웃됩니다. 읽기 권한자는 이메일 청구서 기본 설정을 변경할 수 없습니다.
 
-## <a name="download-usage"></a>사용량 다운로드
+## <a name="download-usage-in-azure-portal"></a>Azure Portal에서 사용량 다운로드
 
- 대부분의 구독에 대한 일일 사용량 파일은 [Azure 계정 센터](https://account.azure.com/Subscriptions)에서 찾을 수 있습니다. EA 고객이거나 Microsoft 고객 계약이 있으면 [Azure Portal](https://portal.azure.com/)에서 사용량을 다운로드할 수 있습니다. <!-- TO DO: update PayG experience to Ibiza once it ships-->
+ 대부분의 구독은 다음 단계에 따라 일일 사용량을 확인할 수 있습니다.
 
-### <a name="download-usage-from-the-account-center-csv"></a>계정 센터에서 사용 현황 다운로드(.csv)
+1. [청구서 액세스 권한이 있는 사용자](billing-manage-access.md)로 Azure Portal의 [구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 구독을 선택합니다.
 
-1. [Azure 계정 센터](https://account.windowsazure.com/subscriptions)에 계정 관리자로 로그인합니다.
+2. **청구서**를 선택합니다.
 
-2. 원하는 송장 및 사용 정보에 대한 구독을 선택합니다.
+    ![청구 및 사용 현황 옵션을 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png)
 
-3. **청구 내역**을 선택합니다.
+3. 확인하려는 청구서 기간의 다운로드 단추를 클릭합니다.
 
-    ![청구 내역 옵션을 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/Billinghisotry.png)
-
-4. 이전 6개의 청구 기간 및 현재 미결제한 기간의 명세서를 볼 수 있습니다.
-
-    ![청구 기간, 청구서 및 일간 사용 현황 다운로드 옵션, 각 청구 기간에 대한 총 요금을 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/billingSum.png)
-
-5. **현재 명세서 보기** 를 선택하여 예상 요금을 볼 수 있습니다. 이 정보는 매일 업데이트만 될 뿐 모든 사용량을 포함하지 않습니다. 월별 청구서는 이 예상과 다를 수 있습니다.
-
-    ![현재 명세서 보기 옵션을 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/billingSum2.png)
-
-    ![현재 예상 요금을 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/billingSum3.png)
-
-6. **사용량 다운로드**를 선택하여 일간 사용 데이터를 CSV 파일로 다운로드 할 수 있습니다. 사용할 수 있는 두 가지 버전이 표시되면 버전 2를 다운로드합니다.
-
-    ![사용 현황 다운로드 옵션을 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
-
-계정 관리자만 Azure 계정 센터에 액세스할 수 있습니다. 소유자 등의 기타 청구 관리자는 [청구 API](billing-usage-rate-card-overview.md)를 사용하여 사용량 정보를 볼 수 있습니다.
-
-일간 사용 현황에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](billing-understand-your-bill.md)를 참조하세요. 비용 관리에 대한 도움말은 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](billing-getting-started.md)를 참조하세요.
+4. **csv 다운로드**를 클릭하여 일일 사용량 및 예상 요금을 다운로드합니다.  csv 파일을 준비하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ### <a name="download-usage-for-ea-customers"></a>EA 고객의 사용량 다운로드
 
@@ -189,7 +173,7 @@ EA 고객이 사용량 데이터를 살펴보고 다운로드하려면 요금 �
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
-질문이 있거나 도움이 필요하면 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>다음 단계
 

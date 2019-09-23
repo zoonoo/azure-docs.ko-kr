@@ -140,7 +140,11 @@
             - name: 성능 튜닝 지침
               href: performance-tuning-ordered-CCI.md
         - name: 결과 세트 캐싱
-          href: /sql/t-sql/statements/set-result-set-caching-transact-sql
+          items:
+            - name: 데이터베이스 설정
+              href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest'
+            - name: 세션 설정
+              href: /sql/t-sql/statements/set-result-set-caching-transact-sql
         - name: 테이블
           items:
             - name: 개요

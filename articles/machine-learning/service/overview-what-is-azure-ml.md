@@ -1,6 +1,6 @@
 ---
-title: Azure Machine Learning Service란?
-description: 고급 분석 애플리케이션을 클라우드 규모로 개발, 실험 및 배포하는 전문 데이터 과학자를 위한 통합 엔드투엔드 데이터 과학 솔루션인 Azure Machine Learning Service의 개요입니다.
+title: Azure Machine Learning이란?
+description: Azure Machine Learning 개요 - 고급 분석 애플리케이션을 클라우드 규모로 개발, 실험 및 배포하는 전문 데이터 과학자를 위한 통합 엔드투엔드 데이터 과학 솔루션입니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ author: j-martens
 ms.author: jmartens
 ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 99514002f0a259b7e981c2db498e72865d4f1bd4
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 0a70b1c9d3ac888f0f77cf0f6e9ca37bc6cd4324
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858661"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999929"
 ---
-# <a name="what-is-azure-machine-learning-service"></a>Azure Machine Learning 서비스란?
+# <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
-Azure Machine Learning Service는 클라우드에서 제공하는 광범위한 모든 규모에서 머신 러닝(Machine Learning) 모델을 학습, 배포, 자동화 및 관리하는 데 사용할 수 있는 클라우드 서비스입니다.
+Azure Machine Learning은 클라우드에서 제공하는 광범위한 모든 규모에서 기계 학습(Machine Learning) 모델을 학습, 배포, 자동화 및 관리하는 데 사용할 수 있는 클라우드 서비스입니다.
 
 ## <a name="what-is-machine-learning"></a>머신 러닝이란 무엇인가요?
 
@@ -26,9 +26,9 @@ Azure Machine Learning Service는 클라우드에서 제공하는 광범위한 �
 
 머신 러닝을 통한 예측은 좀 더 똑똑한 앱 및 디바이스를 만드는 데 도움이 됩니다. 온라인 쇼핑을 예로 들면, 머신 러닝은 사용자가 구매한 제품에 따라 좋아할 만한 다른 제품을 추천하는 데 도움이 됩니다. 또는 신용 카드를 읽을 때 머신 러닝은 해당 거래를 거래 데이터베이스와 비교하여 부정 행위를 검색하는 데 도움을 줍니다. 또한 로봇 진공 청소기가 방을 청소할 때, 머신 러닝은 작업이 완료되었는지 여부를 판단하도록 해줍니다.
 
-## <a name="what-is-azure-machine-learning-service"></a>Azure Machine Learning 서비스란?
+## <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
-Azure Machine Learning Service는 머신 러닝 모델의 데이터 준비, 교육, 테스트, 배포, 관리 및 추적에 사용할 수 있는 클라우드 기반 환경을 제공합니다. 로컬 머신에서 학습을 시작한 다음, 클라우드로 확장할 수 있습니다. 이 서비스는 PyTorch, TensorFlow, scikit-learn 같은 오픈 소스 기술을 완벽하게 지원하며 클래식 ML부터 딥 러닝 및 자율 학습까지 모든 종류의 기계 학습에 사용할 수 있습니다.
+Azure Machine Learning은 기계 학습 모델의 데이터 준비, 교육, 테스트, 배포, 관리 및 추적에 사용할 수 있는 클라우드 기반 환경을 제공합니다. 로컬 머신에서 학습을 시작한 다음, 클라우드로 확장할 수 있습니다. 이 서비스는 PyTorch, TensorFlow, scikit-learn 같은 오픈 소스 기술을 완벽하게 지원하며 클래식 ML부터 딥 러닝 및 자율 학습까지 모든 종류의 기계 학습에 사용할 수 있습니다.
 
 다음과 같은 다양한 도구를 사용하여 데이터를 탐색 및 준비하고, 모델을 학습 및 테스트하고, 모델을 배포하세요.
 + 모듈을 끌어서 놓아 실험을 빌드하고 모델을 배포할 수 있는 [시각적 인터페이스](ui-tutorial-automobile-price-train-score.md)
@@ -38,9 +38,9 @@ Azure Machine Learning Service는 머신 러닝 모델의 데이터 준비, 교�
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
-## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스로 무엇을 할 수 있나요?
+## <a name="what-can-i-do-with-azure-machine-learning"></a>Azure Machine Learning으로 무엇을 할 수 있나요?
 
-<a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a>를 오픈 소스 Python 패키지에 사용하거나 [그래픽 인터페이스(미리 보기)](ui-tutorial-automobile-price-train-score.md)를 사용하여 Azure Machine Learning Service 작업 영역에서 매우 정확한 기계 학습 및 딥 러닝 모델을 직접 빌드하고 학습시킬 수 있습니다.
+<a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a>를 오픈 소스 Python 패키지에 사용하거나 [그래픽 인터페이스(미리 보기)](ui-tutorial-automobile-price-train-score.md)를 사용하여 Azure Machine Learning 작업 영역에서 매우 정확한 기계 학습 및 딥 러닝 모델을 직접 빌드하고 학습시킬 수 있습니다.
 
 오픈 소스 Python 패키지에 제공되는 <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>, <a href="https://mxnet.io" target="_blank">MXNet</a> 등의 여러 기계 학습 구성 요소 중에 선택할 수 있습니다.
 
@@ -58,7 +58,7 @@ SDK를 사용하여 [모델 학습 및 튜닝을 자동화](tutorial-auto-train-
 
 + 사용하기 쉬운 인터페이스에서 [자동화된 ML 실험](tutorial-first-experiment-automated-ml.md)을 만듭니다.
 + [시각적 인터페이스에서 끌어서 놓기 실험](ui-tutorial-automobile-price-train-score.md).
-  ![Azure Machine Learning Service용 시각적 인터페이스](media/overview-what-is-azure-ml/visual-interface.png)
+  ![Azure Machine Learning용 시각적 인터페이스](media/overview-what-is-azure-ml/visual-interface.png)
 
 
 
@@ -77,17 +77,17 @@ SDK를 사용하여 [모델 학습 및 튜닝을 자동화](tutorial-auto-train-
 * 각 단계에서 다른 컴퓨팅 리소스 사용
 * 일괄 처리 점수 매기기 작업 실행
 
-Azure Machine Learning Service를 사용하기 시작하려면 [다음 단계](#next-steps)를 참조하세요.
+Azure Machine Learning을 시작하려면 [다음 단계](#next-steps)를 참조하세요.
 
-## <a name="how-does-azure-machine-learning-service-differ-from-studio"></a>Azure Machine Learning Service는 Studio와 어떤 차이가 있나요?
+## <a name="how-does-azure-machine-learning-differ-from-studio"></a>Azure Machine Learning은 Studio와 어떤 차이가 있나요?
 
 [Machine Learning Studio](../studio/what-is-ml-studio.md)는 코드 작성 없이 기계 학습 솔루션을 빌드, 테스트, 배포할 수 있는 끌어서 놓기 방식의 시각적 공동 작업 영역입니다. 미리 빌드되고 미리 구성된 기계 학습 알고리즘과 데이터 처리 모듈 그리고 전용 컴퓨팅 플랫폼을 사용합니다.
 
-Azure Machine Learning Service는 신속하게 데이터를 준비하고 기계 학습 모델을 학습 및 배포할 수 있도록 SDK **및** 시각적 인터페이스(미리 보기)를 모두 제공합니다. 이 시각적 인터페이스(미리 보기)는 Studio와 유사한 끌어서 놓기 환경을 제공합니다. 그러나 Studio 전용 컴퓨팅 플랫폼과는 달리, 시각적 인터페이스는 사용자 고유의 컴퓨팅 리소스를 사용하며 Azure Machine Learning Service에 완전히 통합됩니다.
+Azure Machine Learning은 신속하게 데이터를 준비하고 기계 학습 모델을 학습 및 배포할 수 있도록 SDK **및** 시각적 인터페이스(미리 보기)를 모두 제공합니다. 이 시각적 인터페이스(미리 보기)는 Studio와 유사한 끌어서 놓기 환경을 제공합니다. 그러나 Studio 전용 컴퓨팅 플랫폼과는 달리, 시각적 인터페이스는 사용자 고유의 컴퓨팅 리소스를 사용하며 Azure Machine Learning에 완전히 통합됩니다.
 
 다음은 간략하게 비교한 내용입니다.
 
-|| Machine Learning Studio | Azure Machine Learning 서비스:<br/>시각적 인터페이스|
+|| Machine Learning Studio | Azure Machine Learning:<br/>시각적 인터페이스|
 |---| --- | --- |
 || GA(일반 공급) | 미리 보기|
 |인터페이스용 모듈| 다수 | 인기 있는 초기 모듈 세트|
@@ -98,11 +98,11 @@ Azure Machine Learning Service는 신속하게 데이터를 준비하고 기계 
 [자습서: 시각적 개체 인터페이스로 자동차 가격 예측](ui-tutorial-automobile-price-train-score.md)을 사용하여 시각적 개체 인터페이스(미리 보기)를 시도해 보세요.
 
 > [!NOTE]
-> Studio에서 만든 모델은 Azure Machine Learning Service로 배포하거나 관리할 수 없습니다. 하지만 서비스 시각적 인터페이스에서 만든 모델은 Azure Machine Learning Service 작업 영역을 통해 관리할 수 있습니다.
+> Studio에서 만든 모델은 Azure Machine Learning으로 배포하거나 관리할 수 없습니다. 하지만 서비스 시각적 인터페이스에서 만든 모델은 Azure Machine Learning 작업 영역을 통해 관리할 수 있습니다.
 
 ## <a name="free-trial"></a>평가판
 
-Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 바로 [Azure Machine Learning Service의 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 Azure 서비스에서 사용 가능한 크레딧을 제공합니다. 크레딧이 소진되더라도 계정이 유지되므로 [무료 Azure 서비스](https://azure.microsoft.com/free/)를 계속 사용할 수 있습니다. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다. 또는 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)합니다. MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
@@ -112,11 +112,11 @@ Azure 서비스에서 사용 가능한 크레딧을 제공합니다. 크레딧�
 
 - 다음 전체 자습서를 따릅니다.
   + [작업 영역을 만들고 첫 번째 ML 모델 학습](tutorial-1st-experiment-sdk-setup.md)
-  + [Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md)
+  + [Azure Machine Learning을 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md)
 
 
 - 머신 러닝 시나리오를 작성, 최적화 및 관리하는 [머신 러닝 파이프라인](/azure/machine-learning/service/concept-ml-pipelines)에 대해 알아보세요.
 
-- 심층적인 [Azure Machine Learning 서비스 아키텍처 및 개념](concept-azure-machine-learning-architecture.md) 문서를 참조하세요.
+- 심층적인 [Azure Machine Learning 아키텍처 및 개념](concept-azure-machine-learning-architecture.md) 문서를 참조하세요.
 
 - 자세한 내용은 [Microsoft의 다른 Machine Learning 제품](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)을 참조하세요.

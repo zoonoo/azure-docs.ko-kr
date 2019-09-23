@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
-ms.date: 06/14/2019
-ms.openlocfilehash: 29b2a9378abaaa697d2d869145d5e912d6c06d6c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.date: 09/17/2019
+ms.openlocfilehash: 3e0fddc03ad880d36876276827198b0ac180a00d
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70811589"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076368"
 ---
 # <a name="what-is-interactive-query-in-azure-hdinsight"></a>Azure HDInsight의 대화형 쿼리란?
 
@@ -28,6 +28,9 @@ Interactive Query 클러스터의 Hive 서비스는 Apache Ambari Hive 보기, B
 ## <a name="create-an-interactive-query-cluster"></a>대화형 쿼리 클러스터 만들기
 
 HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 대화형 쿼리 클러스터 형식을 선택합니다.
+
+> [!IMPORTANT]
+> 대화형 쿼리 클러스터의 최소 헤드 노드 크기는 Standard_D13_v2입니다. 자세한 내용은 [Azure VM 크기 조정 차트](../../cloud-services/cloud-services-sizes-specs.md#dv2-series)를 참조하세요.
 
 ## <a name="execute-apache-hive-queries-from-interactive-query"></a>Interactive Query에서 Apache Hive 쿼리 실행
 

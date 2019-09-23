@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 09/17/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 08c1a8940bedb1093f618c8de53abc78f81c10dd
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 50f1d0bca958ef4504394cad1d771459cc8be27d
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918779"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018969"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
 
@@ -58,9 +58,9 @@ Azure PowerShell을 대신 사용하여 이 절차를 완료하려면 [Azure Pow
 이 경로를 만드는 방법은 이 자습서의 [경로 만들기](#create-the-routes) 섹션을 참조하세요.
 
 >[!NOTE]
->Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewallSubnet이 BGP를 통해 온-프레미스 네트워크에 대한 기본 경로를 학습하는 경우 이 경로를 직접 인터넷 연결을 유지하기 위해 **Internet**으로 설정된 **NextHopType** 값을 통해 0.0.0.0/0 UDR로 재정의해야 합니다. 기본적으로 Azure Firewall은 온-프레미스 네트워크에 대한 강제 터널링을 지원하지 않습니다.
+>Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewallSubnet이 BGP를 통해 온-프레미스 네트워크에 대한 기본 경로를 학습하는 경우 이 경로를 직접 인터넷 연결을 유지하기 위해 **Internet**으로 설정된 **NextHopType** 값을 통해 0.0.0.0/0 UDR로 재정의해야 합니다.
 >
->그러나 구성에 온-프레미스 네트워크에 대한 강제 터널링이 필요한 경우 Microsoft는 사례별로 지원할 예정입니다. 사용자의 사례를 검토할 수 있도록 지원 부서에 연락해주시기 바랍니다. 수락되면 사용자의 구독을 허용하고 필요한 방화벽 인터넷 연결이 유지되도록 합니다.
+>Azure Firewall은 현재 강제 터널링을 지원하지 않습니다. 구성에 온-프레미스 네트워크에 대한 강제 터널링이 필요하고 인터넷 대상의 대상 IP 접두사를 확인할 수 있는 경우, AzureFirewallSubnet의 사용자 정의 경로를 통해 온-프레미스 네트워크를 사용하여 이러한 범위를 다음 홉으로 구성할 수 있습니다. 또는 BGP를 사용하여 이러한 경로를 정의할 수 있습니다.
 
 >[!NOTE]
 >직접 피어링된 VNet 사이의 트래픽은 UDR이 기본 게이트웨이로 Azure Firewall을 가리키는 경우에도 직접 라우팅됩니다. 이 시나리오에서 서브넷 트래픽에 대한 서브넷을 방화벽으로 보내려면 UDR에 두 가지 서브넷에 명시적으로 지정된 대상 서브넷 네트워크 접두사가 포함되어 있어야 합니다.
@@ -373,7 +373,7 @@ SpoketoHub 피어링에서 **전달된 트래픽 허용**을 사용하도록 설
     - **사용자 이름**: *azureuser*
     - **암호**: *Azure123456!* -
 4. **다음: 디스크**를 선택합니다.
-5. 기본값을 적용하고, **다음: 네트워킹**을 선택합니다.
+5. 기본값을 그대로 적용하고 **다음: 네트워킹**을 선택합니다.
 6. 가상 네트워크에 대해 **VNet-Spoke**를 선택하고, 서브넷은 **SN-Workload**입니다.
 7. **공용 IP**에 대해 **없음**을 선택합니다.
 8. **공용 인바운드 포트**에 대해 **선택한 포트 허용**을 선택한 다음, **HTTP(80)** 및 **RDP(3389)** 를 선택합니다.

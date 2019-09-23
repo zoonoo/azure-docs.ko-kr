@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: d937e090895a5b02026c755b1efb7dd1e0b35000
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 033227f085cd23c5fa26313cb4a2816070676560
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054306"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076439"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>빠른 시작: Azure HDInsight에서 HBase 셸을 사용하여 Apache HBase 쿼리
 
@@ -32,11 +32,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 대부분의 사람들의 경우, 데이터는 테이블 형식으로 나타납니다.
 
-![HDInsight HBase 테이블 형식 데이터](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-tabular.png)
+![HDInsight Apache HBase 표 형식 데이터](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-tabular.png)
 
 [Cloud BigTable](https://cloud.google.com/bigtable/)의 구현인 HBase에서는 동일한 데이터가 다음과 같이 표시됩니다.
 
-![HDInsight HBase BigTable 데이터](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-bigtable.png)
+![HDInsight Apache HBase BigTable 데이터](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-bigtable.png)
 
 SSH를 사용하여 HBase 클러스터를 연결한 다음, Apache HBase 셸을 사용하여 HBase 테이블을 만들고 데이터를 삽입하고 데이터를 쿼리할 수 있습니다.
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b4e9b72be5d03e0b3441983ca991a16688f5f4cd
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: a020ef91e52a5d801557399df827d3641bfb974e
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916451"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934197"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Azure Maps를 사용하여 지오펜스 설정
 
@@ -56,7 +56,7 @@ Postman 앱을 열고, 다음 단계에 따라 Azure Maps, 데이터 업로드 A
     
     URL 경로의 GEOJSON 매개 변수는 업로드되는 데이터의 데이터 형식을 나타냅니다.
 
-3. **매개 변수**를 클릭하고 POST 요청 URL에 사용할 다음 키/값 쌍을 입력합니다. subscription-key 값을 Azure Maps 구독 키로 바꿉니다.
+3. **매개 변수**를 클릭하고 POST 요청 URL에 사용할 다음 키/값 쌍을 입력합니다. subscription-key 값을 Azure Maps 기본 구독 키로 바꿉니다.
    
     ![키 값 매개 변수 Postman](./media/tutorial-geofence/postman-key-vals.png)
 

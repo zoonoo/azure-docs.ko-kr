@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 09/16/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 87df37cc6baa863bb0b068bdfeb9cde873e38836
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 2f45f70f1c131e1690997cda18a8d612d3af9dee
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952074"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010313"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>평가하고 Azure로 마이그레이션할 Hyper-V VM 준비
 
@@ -99,7 +99,7 @@ Hyper-V 평가를 준비하려면 다음을 수행합니다.
 1. Hyper-V 호스트 설정을 확인합니다.
 2. Azure Migrate 어플라이언스에서 WinRM 연결을 통해 호스트에서 PowerShell 명령을 실행할 수 있도록 각 호스트에서 PowerShell 원격을 설정합니다.
 3. VM 디스크가 원격 SMB 스토리지에 있으면 자격 증명을 위임해야 합니다. 
-    - Azure Migrate 어플라이언스가 클라이언트로 작동하여 자격 증명을 호스트에 위임할 수 있도록 CredSSP 위임을 사용하도록 설정합니다. T
+    - Azure Migrate 어플라이언스가 클라이언트로 작동하여 자격 증명을 호스트에 위임할 수 있도록 CredSSP 위임을 사용하도록 설정합니다.
     - 아래에서 설명한 대로 각 호스트가 어플라이언스에 대한 대리자로 작동하도록 설정합니다.
     - 나중에 어플라이언스를 설정할 때 어플라이언스에서 위임을 사용하도록 설정합니다.
 4. 어플라이언스 요구 사항 및 어플라이언스에 필요한 URL/포트 액세스를 검토합니다.
@@ -113,7 +113,7 @@ Hyper-V 평가를 준비하려면 다음을 수행합니다.
 
 이 스크립트는 Hyper-V 호스트의 유효성을 검사하고 Hyper-V VM을 검색하고 평가하는 데 필요한 설정을 구성합니다. 다음과 같은 작업이 수행됩니다.
 
-- 지원되는 PowerShell 버전에서 스크립트를 실행하는지 확인합니다.
+- 지원되는 PowerShell 버전에서 스크립트를 실행 중인지 확인합니다.
 - 사용자(스크립트를 실행하는 사용자)에게 Hyper-V 호스트에 대한 관리자 권한이 있는지 확인합니다.
 - Azure Migrate 서비스에서 Hyper-V 호스트와 통신하는 데 사용되는 로컬 사용자 계정(관리자 아님)을 만들 수 있습니다. 이 사용자 계정은 호스트의 다음 그룹에 추가됩니다.
     - 원격 관리 사용자
@@ -129,7 +129,7 @@ Hyper-V 평가를 준비하려면 다음을 수행합니다.
 
 1. PowerShell 버전 4.0 이상이 Hyper-V 호스트에 설치되어 있는지 확인합니다.
 2. [Microsoft 다운로드 센터](https://aka.ms/migrate/script/hyperv)에서 스크립트를 다운로드합니다. 이 스크립트는 Microsoft에서 암호화 방식으로 서명합니다.
-3. MD5 또는 SHA256 해시 파일을 사용하여 스크립트 무결성의 유효성을 검사합니다. 다음 명령을 실행하여 스크립트에 대한 해시를 생성합니다.
+3. MD5 또는 SHA256 해시 파일을 사용하여 스크립트 무결성의 유효성을 검사합니다. 해시태그 값은 아래와 같습니다. 다음 명령을 실행하여 스크립트에 대한 해시를 생성합니다.
     ```
     C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
     ```
@@ -138,19 +138,20 @@ Hyper-V 평가를 준비하려면 다음을 수행합니다.
     C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1
     SHA256
     ```
-    
-    해시 값은 다음과 같습니다.
-    해시 | 값
-    --- | ---
-    **MD5** | 0ef418f31915d01f896ac42a80dc414e
-    **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
-
 
 4.  스크립트 무결성의 유효성이 검사되면 다음 PowerShell 명령을 사용하여 각 Hyper-V 호스트에서 스크립트를 실행합니다.
     ```
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
     ```
 
+#### <a name="hashtag-values"></a>해시태그 값
+
+해시 값은 다음과 같습니다.
+
+| **해시** | **값** |
+| --- | --- |
+| **MD5** | 0ef418f31915d01f896ac42a80dc414e |
+| **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2 |
 
 ### <a name="verify-hyper-v-host-settings"></a>Hyper-V 호스트 설정 확인
 
@@ -224,7 +225,7 @@ Azure Migrate에서 VM의 운영 체제 정보를 캡처할 수 있도록 각 VM
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음을 수행했습니다.
+이 자습서에서는 다음을 수행합니다.
  
 > [!div class="checklist"] 
 > * Azure 계정 권한을 설정합니다.

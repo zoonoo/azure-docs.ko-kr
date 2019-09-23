@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: a9e84210427612143bffe33efe4a5da5364b7a22
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 091c1a4c9e6adae69ec1c8b3e507624b9f5e6a96
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68310447"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057489"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>자습서: Azure Container Registry 작업을 사용하여 클라우드에 컨테이너 이미지 빌드 및 배포
 
@@ -75,7 +75,7 @@ cd acr-build-helloworld-node
 
 이제 소스 코드를 머신으로 가져왔으므로 다음 단계에 따라 컨테이너 레지스트리를 만들고, ACR 작업을 사용하여 컨테이너 이미지를 빌드합니다.
 
-이 시리즈의 자습서에서는 샘플 명령을 더 쉽게 실행하기 위해 셸 환경 변수를 사용합니다. 다음 명령을 실행하여 `ACR_NAME` 변수를 설정합니다. **\<registry-name\>** 을 새 컨테이너 레지스트리에 대한 고유한 이름으로 바꿉니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 자습서에서 만드는 다른 리소스는 이 이름을 기반으로 하므로 이 첫 번째 변수만 수정해야 합니다.
+이 시리즈의 자습서에서는 샘플 명령을 더 쉽게 실행하기 위해 셸 환경 변수를 사용합니다. 다음 명령을 실행하여 `ACR_NAME` 변수를 설정합니다. **\<registry-name\>** 을 새 컨테이너 레지스트리에 대한 고유한 이름으로 바꿉니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 소문자만 포함하고, 5-50자의 영숫자를 포함해야 합니다. 자습서에서 만드는 다른 리소스는 이 이름을 기반으로 하므로 이 첫 번째 변수만 수정해야 합니다.
 
 ```azurecli-interactive
 ACR_NAME=<registry-name>

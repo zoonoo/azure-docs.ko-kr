@@ -229,8 +229,8 @@
       href: /rest/api/mysql
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.dbformysql/allversions
-    - name: 데이터 내부 복제 저장 프로시저
-      href: reference-data-in-stored-procedures.md
+    - name: Azure 저장 프로시저
+      href: reference-stored-procedures.md
 - name: 리소스
   items:
     - name: 배포 템플릿

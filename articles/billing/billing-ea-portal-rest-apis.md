@@ -4,16 +4,16 @@ description: 이 문서에서는 Azure 엔터프라이즈 등록에 사용되는
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2019
+ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 4b56ef09525473920c5f5925485aae9c793ecc04
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: a8cf0d2eb87a823ee4b1d27484e7ea8d89c1abfc
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900865"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105449"
 ---
 # <a name="azure-enterprise-rest-apis"></a>Azure 엔터프라이즈 REST API
 
@@ -31,7 +31,7 @@ Microsoft Enterprise Azure 고객은 REST API를 통해 사용량 및 청구 정
 
 **Marketplace 스토어 요금** - [Marketplace 스토어 요금 API](billing-enterprise-api-marketplace-storecharge.md)는 지정된 청구 기간 또는 시작 날짜와 종료 날짜의 일별 사용량 기반 마켓플레이스 요금 분석 결과를 반환합니다. 자세한 내용은 [기업 고객을 위한 보고 API - Marketplace 스토어 요금](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)을 참조하세요.
 
-**가격표**: [가격표 API](/billing-enterprise-api-pricesheet.md)는 등록 및 청구 기간의 각 미터에 적용할 수 있는 가격을 제공합니다. 자세한 내용은 [기업 고객을 위한 보고 API - 가격표](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet)를 참조하세요.
+**가격표**: [가격표 API](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet)는 등록 및 청구 기간의 각 미터에 적용할 수 있는 가격을 제공합니다. 자세한 내용은 [기업 고객을 위한 보고 API - 가격표](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet)를 참조하세요.
 
 **청구 기간** - [청구 기간 API](billing-enterprise-api-billing-periods.md)는 등록의 사용량 데이터를 역방향 시간 순서로 표시한 청구 기간 목록을 반환합니다. 각 기간에는 4개의 데이터 세트(BalanceSummary, UsageDetails, Marketplace 요금 및 PriceSheet)에 대한 API 경로를 가리키는 속성이 포함되어 있습니다. 자세한 내용은 [기업 고객을 위한 보고 API - 청구 기간](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods)을 참조하세요.
 
@@ -109,7 +109,7 @@ Azure 엔터프라이즈 등록이 없는 파트너 또는 개발자가 API에 �
 
 JSON 형식은 CSV 보고서에서 생성됩니다. 따라서 형식이 요약 CSV 형식과 동일합니다. 열 이름은 wielded이므로 JSON 요약 데이터를 사용할 때 데이터 테이블로 deserialize해야 합니다.
 
-| CSV 열 이름 | Json 열 이름 | Json 새 열 | 주석 |
+| CSV 열 이름 | JSON 열 이름 | JSON 새 열 | 주석 |
 | --- | --- | --- | --- |
 | AccountOwnerId | AccountOwnerLiveId | AccountOwnerLiveId |   |
 | 계정 이름 | AccountName | AccountName |   |
@@ -145,7 +145,7 @@ JSON 형식은 CSV 보고서에서 생성됩니다. 따라서 형식이 요약 C
 
 #### <a name="azure-marketplace-report"></a>Azure Marketplace 보고서
 
-| CSV 열 이름 | Json 열 이름 | Json 새 열 |
+| CSV 열 이름 | JSON 열 이름 | JSON 새 열 |
 | --- | --- | --- |
 | AccountOwnerId | AccountOwnerId | AccountOwnerId |
 | 계정 이름 | AccountName | AccountName |
@@ -174,7 +174,7 @@ JSON 형식은 CSV 보고서에서 생성됩니다. 따라서 형식이 요약 C
 
 #### <a name="price-sheet"></a>가격표
 
-| CSV 열 이름 | Json 열 이름 | 주석 |
+| CSV 열 이름 | JSON 열 이름 | 주석 |
 | --- | --- | --- |
 | 서비스 | 서비스 |  가격 변경 없음 |
 | 측정 단위 | UnitOfMeasure |   |

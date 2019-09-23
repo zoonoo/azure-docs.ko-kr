@@ -2,17 +2,17 @@
 title: '자습서: Azure HDInsight의 주문형 Apache Hadoop 클러스터 - Data Factory'
 description: 자습서 - Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터를 만드는 방법을 알아봅니다.
 author: hrasheed-msft
-ms.reviewer: jasonh
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 04/18/2019
-ms.openlocfilehash: de12725952a2bac6a0b86b1d2e239428c0eaa709
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 0b3062e14873ec971163c125fccd6852d8662663
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736175"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098714"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>자습서: Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터 만들기
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -203,7 +203,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
 6. **작성 및 모니터링**을 선택하여 Azure Data Factory 작성 및 모니터링 포털을 시작합니다.
 
-    ![Azure Data Factory 개요](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Azure Data Factory 개요")
+    ![Azure Data Factory 포털 개요](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Azure Data Factory 개요")
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 
@@ -352,7 +352,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 1. **리소스** 타일에서 리소스 그룹을 다른 프로젝트와 공유하지 않는 한 기본 스토리지 계정과 데이터 팩터리가 나열됩니다.
 1. **리소스 그룹 삭제**를 선택합니다. 이렇게 하면 스토리지 계정 및 스토리지 계정에 저장된 데이터도 삭제됩니다.
 
-    ![리소스 그룹 삭제](./media/hdinsight-hadoop-create-linux-clusters-adf/delete-resource-group.png "리소스 그룹 삭제")
+    ![Azure Portal 리소스 그룹 삭제](./media/hdinsight-hadoop-create-linux-clusters-adf/delete-resource-group.png "리소스 그룹 삭제")
 
 1. 삭제를 확인하려면 리소스 그룹 이름을 입력하고 **삭제**를 선택합니다.
 

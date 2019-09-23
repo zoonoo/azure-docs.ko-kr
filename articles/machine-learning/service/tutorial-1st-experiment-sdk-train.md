@@ -1,7 +1,7 @@
 ---
 title: '자습서: 첫 번째 ML 모델 학습'
-titleSuffix: Azure Machine Learning service
-description: 이 자습서에서는 Azure Machine Learning Service의 기본 디자인 패턴을 알아보고, 당뇨병 데이터 세트를 기반으로 하는 간단한 scikit-learn 모델을 학습시킵니다.
+titleSuffix: Azure Machine Learning
+description: 이 자습서에서는 Azure Machine Learning의 기본 디자인 패턴을 알아보고, 당뇨병 데이터 세트를 기반으로 하는 간단한 scikit-learn 모델을 학습합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/03/2019
-ms.openlocfilehash: 989775916454b6710aef6c2c5be6792920622dab
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: b5d3a687adc8ecefcf581f7eda3b9e13d1973c62
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241290"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004029"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>자습서: 첫 번째 ML 모델 학습
 
-이 자습서는 **2부로 구성된 자습서 시리즈 중 제2부**입니다. 이전 자습서에서는 [작업 영역을 만들고 개발 환경을 선택](tutorial-1st-experiment-sdk-setup.md)했습니다. 이 자습서에서는 Azure Machine Learning Service의 기본 디자인 패턴을 알아보고, 당뇨병 데이터 세트를 기반으로 하는 간단한 scikit-learn 모델을 학습시킵니다. 이 자습서가 완료되면 SDK에 대한 실용적인 지식을 습득하여 더 복잡한 실험과 워크플로를 개발하도록 크기 조정할 수 있습니다.
+이 자습서는 **2부로 구성된 자습서 시리즈 중 제2부**입니다. 이전 자습서에서는 [작업 영역을 만들고 개발 환경을 선택](tutorial-1st-experiment-sdk-setup.md)했습니다. 이 자습서에서는 Azure Machine Learning의 기본 디자인 패턴을 알아보고, 당뇨병 데이터 세트를 기반으로 하는 간단한 scikit-learn 모델을 학습합니다. 이 자습서가 완료되면 SDK에 대한 실용적인 지식을 습득하여 더 복잡한 실험과 워크플로를 개발하도록 크기 조정할 수 있습니다.
 
 이 자습서에서는 다음 작업에 대해 알아봅니다.
 
@@ -197,7 +197,7 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 Azure Machine Learning Service 자습서를 실행하려면 이 섹션을 완료하지 마세요.
+다른 Azure Machine Learning 자습서를 실행할 계획이라면 이 섹션을 완료하지 마세요.
 
 ### <a name="stop-the-notebook-vm"></a>Notebook VM 중지
 

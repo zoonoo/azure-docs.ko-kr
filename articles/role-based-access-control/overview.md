@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/12/2019
+ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4a5352e96e522a8bd32c428957b3bbfd62c5fa9b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: e7113508ff7fe5d3471b193bb8dadb7cdab5a7ca
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275927"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70995321"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Azure 리소스에 대한 RBAC(역할 기반 액세스 제어)란?
 
@@ -98,7 +98,7 @@ Azure는 여러 수준([관리 그룹](../governance/management-groups/index.md)
 
 ![액세스를 제어하는 역할 할당](./media/overview/rbac-overview.png)
 
-Azure Portal, Azure CLI, Azure PowerShell, Azure SDK 또는 REST API를 사용하여 역할 할당을 만들 수 있습니다. 각 구독에서 최대 2000개의 역할 할당을 유지할 수 있습니다. 역할 할당을 만들거나 제거하려면 `Microsoft.Authorization/roleAssignments/*` 권한이 필요합니다. 이 권한은 [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 역할을 통해 부여됩니다.
+Azure Portal, Azure CLI, Azure PowerShell, Azure SDK 또는 REST API를 사용하여 역할 할당을 만들 수 있습니다. 각 구독에서 최대 **2000**개의 역할 할당 및 각 관리 그룹에서 **500**개의 역할 할당을 지정할 수 있습니다. 역할 할당을 만들거나 제거하려면 `Microsoft.Authorization/roleAssignments/*` 권한이 필요합니다. 이 권한은 [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 역할을 통해 부여됩니다.
 
 ## <a name="multiple-role-assignments"></a>여러 역할 할당
 

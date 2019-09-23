@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 2a74dbe9c306c1bf2420fdaac78a9b9183cacab1
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: f237af58bb98f667d4481a88bbb4daa77657468c
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376145"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966921"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>빠른 시작: Python용 Face 클라이언트 라이브러리
 
@@ -285,7 +285,7 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Java용 Face 라이브러리를 사용하여 기본 작업을 수행하는 방법을 알아보았습니다. 다음으로 라이브러리에 대해 자세히 알아보려면 참조 설명서를 살펴보세요.
+이 빠른 시작에서는 Python용 Face 라이브러리를 사용하여 기본 작업을 수행하는 방법을 알아보았습니다. 다음으로 라이브러리에 대해 자세히 알아보려면 참조 설명서를 살펴보세요.
 
 > [!div class="nextstepaction"]
 > [Face API 참조(Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)

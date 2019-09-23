@@ -1,6 +1,6 @@
 ---
 title: 처음으로 자동화된 기계 학습 실험 만들어보기
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Azure Machine Learning의 작업 영역 방문 페이지(미리 보기)에서 자동화된 기계 학습을 사용하여 분류 모델을 학습하고 배포하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: 0dd4447736469644875dff914c6284b087be87d0
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 2422a4525c94f3997dd0a9a0859135e9acf59ffa
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910214"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71092001"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>자습서: 자동화된 기계 학습을 사용하여 처음으로 분류 모델 만들어보기
 
@@ -26,7 +26,7 @@ ms.locfileid: "70910214"
 이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * Azure Machine Learning Service 작업 영역을 만듭니다.
+> * Azure Machine Learning 작업 영역을 만듭니다.
 > * 자동화된 기계 학습 실험을 실행합니다.
 > * 실험 세부 정보를 봅니다.
 > * 모델을 배포합니다.
@@ -67,7 +67,7 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 
 1. 실험 이름으로 **my-1st-automl-experiment**를 입력합니다.
 
-1. **새 컴퓨팅 만들기**를 선택합니다. 
+1. **새 컴퓨팅 만들기**를 선택합니다. 컴퓨팅은 학습 스크립트를 실행하거나 서비스 배포를 호스팅하는 데 사용되는 로컬 또는 클라우드 기반 리소스입니다. 이 실험에서는 클라우드 기반 컴퓨팅을 사용합니다. 
 
     1. 이 실험의 컴퓨팅 컨텍스트를 구성합니다.
         
@@ -99,7 +99,8 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
         파일 형식| 구분됨
         구분 기호| 쉼표
         Encoding| UTF-8
-        열 머리글| 모든 파일에 동일한 머리글이 있음            행 건너뛰기 | 없음
+        열 머리글| 모든 파일의 머리글이 동일함
+        행 건너뛰기 | 없음
 
         >[!NOTE]
         > 이 폼의 설정을 업데이트하면 미리 보기도 그에 따라 업데이트됩니다.
@@ -146,9 +147,9 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 
 ## <a name="deploy-the-model"></a>모델 배포
 
-작업 영역 방문 페이지에서 자동화된 기계 학습을 사용하면 최적 모델을 웹 서비스로 배포하여 새 데이터를 예측하고 잠재적인 기회 영역을 파악할 수 있습니다. 이 실험에서 배포는 이제 금융 기관이 잠재적 정기 예금 고객을 식별할 수 있는 반복적이고 확장 가능한 솔루션을 확보했다는 것을 의미합니다.
+작업 영역 방문 페이지에서 자동화된 기계 학습을 사용하면 몇 단계 안에 최적 모델을 웹 서비스로 배포할 수 있습니다. 배포는 모델 통합이므로 새 데이터를 예측하고 잠재적인 기회 영역을 식별할 수 있습니다. 이 실험에서 웹 서비스에 배포한다는 것은 이제 금융 기관이 잠재적 정기 예금 고객을 식별할 수 있는 반복적이고 확장 가능한 솔루션을 확보했다는 것을 의미합니다. 
 
-**AUC_weighted** 메트릭에 따라 이 실험에서 가장 적합한 모델은 **VotingEnsemble**입니다.  이 모델을 배포할 것이며, 배포 시간이 약 20분 정도 걸립니다.
+**AUC_weighted** 메트릭에 따라 이 실험에서 가장 적합한 모델은 **VotingEnsemble**입니다.  이 모델을 배포할 것이며, 배포 시간이 약 20분 정도 걸립니다. 배포 프로세스에는 모델 등록, 리소스 생성, 웹 서비스에 대한 구성을 포함한 몇 가지 단계가 수반됩니다.
 
 1. **실행 세부 정보** 페이지에서 오른쪽 위에 있는 **최적 모델 배포** 단추를 선택합니다.
 
@@ -161,7 +162,7 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
     채점 스크립트| 자동 생성
     환경 스크립트| 자동 생성
     
-1. **배포**를 선택합니다.
+1. **배포**를 선택합니다.  
 
     배포가 성공적으로 완료되면 배포 완료 메시지가 표시됩니다.
     

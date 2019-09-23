@@ -1,7 +1,7 @@
 ---
 title: '이미지 분류 자습서: 모델 배포'
-titleSuffix: Azure Machine Learning service
-description: 이 자습서에서는 Azure Machine Learning 서비스를 사용하여 Python Jupyter 노트북에서 scikit-learn으로 이미지 분류 모델을 배포하는 방법을 보여줍니다. 이 자습서는 2부로 구성된 시리즈 중 제2부입니다.
+titleSuffix: Azure Machine Learning
+description: 이 자습서에서는 Azure Machine Learning을 사용하여 Python Jupyter Notebook에서 scikit-learn으로 이미지 분류 모델을 배포하는 방법을 보여줍니다. 이 자습서는 2부로 구성된 시리즈 중 제2부입니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 57d34bb170c0ff86f3d3c42a25184d8af71c0270
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 6e5ab17a04c994f09bccc0f51f11749ee8590b1d
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036213"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003061"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>자습서: Azure Container Instance에서 이미지 분류 모델 배포
 
@@ -23,7 +23,7 @@ ms.locfileid: "70036213"
 
 이제 [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/)에서 모델을 웹 서비스로 배포할 준비가 되었습니다. 웹 서비스는 이미지로, 이 경우 Docker 이미지입니다. 점수 매기기 논리와 모델 자체를 캡슐화합니다. 
 
-이 자습서 부분에서는 Azure Machine Learning Service를 사용하여 다음 작업을 수행합니다.
+자습서의 이 부분에서는 Azure Machine Learning을 사용하여 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
 > * 테스트 환경 설정
@@ -378,7 +378,7 @@ service.delete()
 
 ## <a name="next-steps"></a>다음 단계
 
-+ [Azure Machine Learning Service에 대한 배포 옵션](how-to-deploy-and-where.md)을 모두 알아봅니다.
++ [Azure Machine Learning에 대한 배포 옵션](how-to-deploy-and-where.md)을 모두 알아봅니다.
 + [웹 서비스에 대한 클라이언트를 만드는 방법](how-to-consume-web-service.md)에 대해 알아봅니다.
 +  [많은 양의 데이터에 대해 비동기적으로 예측](how-to-run-batch-predictions.md)합니다.
 + [Application Insights](how-to-enable-app-insights.md)를 사용하여 Azure Machine Learning 모델을 모니터링합니다.

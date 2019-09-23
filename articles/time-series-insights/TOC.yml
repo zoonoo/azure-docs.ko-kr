@@ -27,7 +27,7 @@
           href: tutorial-create-populate-tsi-environment.md
     - name: Azure Time Series Insights 미리 보기
       items:
-        - name: Azure Time Series Insights 미리 보기 자습서
+        - name: 미리 보기 환경 설정
           href: time-series-insights-update-create-environment.md
 - name: 개념
   items:

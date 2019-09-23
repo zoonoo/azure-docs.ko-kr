@@ -15,13 +15,13 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
-ms.custom: mvc, seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 615a4c055980381771d3b63eba878846fd583cc9
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 3251637d5a5bd0593a9eaf559963921a68a6ccdc
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883621"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71102742"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>빠른 시작: Windows의 App Service에서 Java 앱 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "70883621"
 > [!NOTE]
 > IntelliJ 및 Eclipse와 같은 인기 있는 IDE를 사용하여 동일한 작업을 수행할 수도 있습니다. [Azure Toolkit for IntelliJ 빠른 시작](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) 또는 [Azure Toolkit for Eclipse 빠른 시작](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app)에서 유사한 문서를 확인하세요.
 >
-![Azure에서 실행되는 샘플 앱](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
+![Azure App Service에서 실행 중인 샘플 앱](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -119,7 +119,7 @@ mvn package azure-webapp:deploy
 
 배포가 완료되면 웹 브라우저에서 다음 URL을 사용하여 배포된 애플리케이션으로 이동합니다(예: `http://<webapp>.azurewebsites.net/`).
 
-![Azure에서 실행되는 샘플 앱](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
+![Azure App Service에서 실행 중인 샘플 앱](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
 
 **축하합니다.** Windows의 App Service에 첫 번째 Java 앱이 배포되었습니다.
 

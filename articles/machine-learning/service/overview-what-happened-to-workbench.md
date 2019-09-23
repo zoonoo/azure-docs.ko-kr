@@ -1,7 +1,7 @@
 ---
 title: Machine Learning Workbench는 어떻게 변경되었나요?
-titleSuffix: Azure Machine Learning service
-description: Machine Learning Workbench 애플리케이션의 변경 내용, Azure Machine Learning Service의 변경 내용 및 지원 타임라인에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Machine Learning Workbench 애플리케이션의 변경 내용, Azure Machine Learning의 변경 내용 및 지원 타임라인에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: d3d7a4ed5ae3bf2c9015625f41ea9cdb10fa1bba
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 724e120a8ed92f71ff2e7f2bdda7d1884d80bc10
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860446"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997142"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench는 어떻게 되었나요?
 
@@ -24,23 +24,23 @@ Azure Machine Learning Workbench 애플리케이션과 일부 초기 기능은 [
 
 환경을 향상시키기 위해 릴리스에는 고객 피드백을 반영한 중요 업데이트가 포함되어 있습니다. 실험 실행에서 모델 배포에 이르기까지 핵심 기능은 변경되지 않았습니다. 그러나 이제 강력한 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a> 및 [Azure CLI](reference-azure-machine-learning-cli.md)를 사용하여 시스템 학습 작업과 파이프라인을 수행할 수 있습니다.
 
-이전 버전의 Azure Machine Learning Service에서 만든 대부분의 아티팩트는 사용자 고유의 로컬 또는 클라우드 스토리지에 저장됩니다. 이러한 아티팩트는 그대로 유지됩니다.
+이전 버전의 Azure Machine Learning에서 만든 대부분의 아티팩트는 사용자 고유의 로컬 또는 클라우드 스토리지에 저장됩니다. 이러한 아티팩트는 그대로 유지됩니다.
 
 이 문서에서는 Azure Machine Learning Workbench 및 해당 API의 변경 내용과 기존 작업에 미친 영향에 대해 알아보겠습니다.
 
 >[!Warning]
->Azure Machine Learning Studio 사용자는 이 문서의 정보를 참조하면 안 됩니다. 이 문서에서는 Workbench(미리 보기) 애플리케이션을 설치했거나 실험 및 모델 관리 미리 보기 계정이 있는 Azure Machine Learning 서비스 고객을 위한 정보를 제공합니다.
+>Azure Machine Learning Studio 사용자는 이 문서의 정보를 참조하면 안 됩니다. 이 문서에서는 Workbench(미리 보기) 애플리케이션을 설치했거나 실험 및 모델 관리 미리 보기 계정이 있는 Azure Machine Learning 고객을 위한 정보를 제공합니다.
 
 
 ## <a name="what-changed"></a>변경 내용
 
-Azure Machine Learning Service의 최신 릴리스에 포함된 기능은 다음과 같습니다.
+Azure Machine Learning의 최신 릴리스에 포함된 기능은 다음과 같습니다.
 + [간소화된 Azure 리소스 모델](concept-azure-machine-learning-architecture.md)
 + 실험 및 컴퓨팅 대상을 관리할 수 있는 [새 포털 UI](how-to-track-experiments.md)
 + 더 포괄적인 새 Python <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>
 + 확장된 새 기계 학습용 [Azure CLI 확장](reference-azure-machine-learning-cli.md)
 
-[아키텍처](concept-azure-machine-learning-architecture.md)는 사용 편의성을 고려하여 다시 설계되었습니다. 여러 Azure 리소스 및 계정 대신 [Azure Machine Learning Service 작업 영역](concept-workspace.md)만 있으면 됩니다. [Azure Portal](how-to-manage-workspace.md)에서 신속하게 작업 영역을 만들 수 있습니다. 작업 영역을 사용하면 여러 사용자가 학습 및 배포 컴퓨팅 대상, 모델 실험, Docker 이미지, 배포된 모델 등을 저장할 수 있습니다.
+[아키텍처](concept-azure-machine-learning-architecture.md)는 사용 편의성을 고려하여 다시 설계되었습니다. 여러 Azure 리소스 및 계정 대신 [Azure Machine Learning 작업 영역](concept-workspace.md)만 있으면 됩니다. [Azure Portal](how-to-manage-workspace.md)에서 신속하게 작업 영역을 만들 수 있습니다. 작업 영역을 사용하면 여러 사용자가 학습 및 배포 컴퓨팅 대상, 모델 실험, Docker 이미지, 배포된 모델 등을 저장할 수 있습니다.
 
 최신 릴리스에는 향상된 새 CLI와 SDK 클라이언트가 포함되어 있지만, 데스크톱 Workbench 애플리케이션 자체는 더 이상 사용되지 않습니다. 실험은 [Azure Portal의 작업 영역 대시보드](how-to-track-experiments.md#view-the-experiment-in-the-web-portal)에서 관리할 수 있습니다. 대시보드를 사용하여 실험 기록을 가져오고, 작업 영역에 연결된 컴퓨팅 대상을 관리하고, 모델 및 Docker 이미지를 관리하고, 심지어 웹 서비스를 배포할 수 있습니다.
 
@@ -62,7 +62,7 @@ Azure Machine Learning Service의 최신 릴리스에 포함된 기능은 다음
 
 [![Online 포털](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
-새 CLI 및 SDK를 사용하여 모델 학습 및 실행 기록 추적을 시작하세요. 해당 방법은 [자습서: Azure Machine Learning 서비스를 사용하여 모델 학습시키기](tutorial-train-models-with-aml.md)에서 확인할 수 있습니다.
+새 CLI 및 SDK를 사용하여 모델 학습 및 실행 기록 추적을 시작하세요. 해당 방법은 [자습서: Azure Machine Learning을 사용하여 모델 학습시키기](tutorial-train-models-with-aml.md)에서 확인할 수 있습니다.
 
 ## <a name="can-i-still-prep-data"></a>여전히 데이터를 준비할 수 있나요?
 
@@ -72,7 +72,7 @@ Azure Machine Learning Service의 최신 릴리스에 포함된 기능은 다음
 
 ## <a name="will-projects-persist"></a>프로젝트는 유지되나요?
 
-코드 또는 작업은 사라지지 않습니다. 이전 버전에서는 프로젝트가 로컬 디렉터리를 사용하는 클라우드 엔터티입니다. 최신 버전에서는 로컬 구성 파일을 사용하여 Azure Machine Learning Service 작업 영역에 로컬 디렉터리를 연결합니다. [최신 아키텍처의 다이어그램](concept-azure-machine-learning-architecture.md)을 참조하세요.
+코드 또는 작업은 사라지지 않습니다. 이전 버전에서는 프로젝트가 로컬 디렉터리를 사용하는 클라우드 엔터티입니다. 최신 버전에서는 로컬 구성 파일을 사용하여 Azure Machine Learning 작업 영역에 로컬 디렉터리를 연결합니다. [최신 아키텍처의 다이어그램](concept-azure-machine-learning-architecture.md)을 참조하세요.
 
 대부분의 프로젝트 콘텐츠는 이미 로컬 머신에에 있습니다. 따라서 해당 디렉터리에 구성 파일을 만들고 코드에서 참조하여 작업 영역에 연결하기만 하면 됩니다. 파일과 스크립트가 포함된 로컬 디렉터리를 계속 사용하려면 ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python 명령에서 디렉터리 이름을 지정하거나 `az ml project attach` CLI 명령을 사용합니다.  예:
 ```python
@@ -96,13 +96,13 @@ run = exp.submit(source_directory=script_folder,
 
 다음 문서에서 자세한 내용을 알아보세요.
 + [모델을 배포하는 위치 및 방법](how-to-deploy-and-where.md)
-+ [자습서: Azure Machine Learning Service를 사용하여 모델 배포](tutorial-deploy-models-with-aml.md)
++ [자습서: Azure Machine Learning을 사용하여 모델 배포](tutorial-deploy-models-with-aml.md)
 
 ## <a name="what-about-the-old-sdk-and-cli"></a>이전 SDK 및 CLI는 어떻게 되나요?
 
 앞의 [타임라인](#timeline)을 참조하세요. 최신 SDK 또는 CLI를 사용하여 새 실험 및 모델을 만드는 것이 좋습니다.
 
-최신 릴리스에서 새 Python SDK를 사용하면 모든 Python 환경에서 Azure Machine Learning Service와 상호 작용할 수 있습니다. 최신 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>를 설치하는 방법을 알아보세요. 다양한 `az ml` 명령 세트로 업데이트된 [Azure Machine Learning CLI 확장](reference-azure-machine-learning-cli.md)을 사용하여 Azure Cloud Shell을 포함한 모든 명령줄 환경에서 서비스와 상호 작용할 수도 있습니다.
+최신 릴리스에서 새 Python SDK를 사용하면 모든 Python 환경에서 Azure Machine Learning과 상호 작용할 수 있습니다. 최신 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>를 설치하는 방법을 알아보세요. 다양한 `az ml` 명령 세트로 업데이트된 [Azure Machine Learning CLI 확장](reference-azure-machine-learning-cli.md)을 사용하여 Azure Cloud Shell을 포함한 모든 명령줄 환경에서 서비스와 상호 작용할 수도 있습니다.
 
 ## <a name="what-about-visual-studio-code-tools-for-ai"></a>Visual Studio Code Tools for AI란?
 
@@ -116,10 +116,10 @@ Computer Vision, Text Analytics 및 예측용 도메인 패키지는 최신 버�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Machine Learning Service에 대한 최신 아키텍처](concept-azure-machine-learning-architecture.md)에 대해 알아봅니다.
+[Azure Machine Learning에 대한 최신 아키텍처](concept-azure-machine-learning-architecture.md)에 대해 알아봅니다.
 
-서비스 개요는 [Azure Machine Learning Service란?](overview-what-is-azure-ml.md)을 읽어보세요.
+서비스 개요는 [Azure Machine Learning이란?](overview-what-is-azure-ml.md)을 읽어보세요.
 
 [환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md) 설정 및 [첫 번째 모델](tutorial-1st-experiment-sdk-train.md)에 대해 두 부분으로 구성된 자습서로 첫 번째 실험을 만듭니다.
 
-이 워크플로에 대해 더 자세히 알아보려면 Azure Machine Learning 서비스를 사용하여 모델을 학습시키고 배포하는 자세한 단계가 포함된 [전체 자습서](tutorial-train-models-with-aml.md)의 과정을 진행하세요.
+이 워크플로에 대해 더 자세히 알아보려면 Azure Machine Learning을 사용하여 모델을 학습시키고 배포하는 자세한 단계가 포함된 [전체 자습서](tutorial-train-models-with-aml.md)의 과정을 진행하세요.

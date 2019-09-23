@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1f5f2dc6babbca219f0efbb1d7013d4e6e3270e6
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 1533ceebcda15c45a71c04580c35432de4125ccd
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873315"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984992"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services)에서 Azure로 VM 마이그레이션
 
@@ -117,6 +117,7 @@ Azure Portal의 자격 증명 모음 페이지에 있는 **시작** 섹션에서
 |---------|-----------|
 | 컴퓨터가 어디에 있나요? |**온-프레미스**를 선택합니다.|
 | 컴퓨터를 복제할 위치를 선택하세요. |**Azure**를 선택합니다.|
+| 마이그레이션을 수행하고 있나요? | **예**를 선택하고, **I underdstand, but I would like to continue with Azure Site Recovery**(이해했지만, Azure Site Recovery를 계속 진행하겠습니다) 옆에 있는 확인란을 선택합니다.
 | 컴퓨터가 가상화되어 있나요? |**가상화되지 않음/기타**를 선택합니다.|
 
 완료되면 **확인**을 클릭하여 다음 섹션으로 이동합니다.

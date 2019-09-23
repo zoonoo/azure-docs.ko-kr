@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: d98d00275cbd89702e4bae0c93aa262805617e59
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 74697d69fbeb9072f839f0b6d49c010c5a7a7a05
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500775"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996703"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>빠른 시작: C#용 Bing Spell Check SDK로 맞춤법 검사
 
@@ -80,7 +80,7 @@ Bing Spell Check SDK를 프로젝트에 추가하려면 Visual Studio의 **솔�
     }
     ```
 
-3. 제안된 첫 번째 수정 사항(있는 경우)을 가져옵니다. 제안 점수와 추천 단어를 출력합니다. 
+3. 첫 번째 제안된 수정 사항(있는 경우)을 가져옵니다. 제안 점수 및 제안 단어를 인쇄합니다. 
 
     ```csharp
             var suggestions = firstspellCheckResult.Suggestions;

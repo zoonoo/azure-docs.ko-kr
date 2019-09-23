@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: hrasheed
-ms.openlocfilehash: df216c4d634ac20365cc5a1cc6e26fbd78be7ab9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e43d2d64535085a9b22d2febc761fc7026498ba8
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917404"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077146"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache HBase 사용
 
@@ -41,7 +41,7 @@ ms.locfileid: "70917404"
 
 1. Azure Portal에서 템플릿을 열려면 다음 이미지를 선택합니다. 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에 있습니다.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 2. **사용자 지정 배포** 블레이드에서 다음 값을 입력합니다.
 
@@ -68,11 +68,11 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
 
 대부분의 사람들의 경우, 데이터는 테이블 형식으로 나타납니다.
 
-![HDInsight HBase 테이블 형식 데이터](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png)
+![HDInsight Apache HBase 표 형식 데이터](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png)
 
 [Cloud BigTable](https://cloud.google.com/bigtable/)의 구현인 HBase에서는 동일한 데이터가 다음과 같이 표시됩니다.
 
-![HDInsight HBase BigTable 데이터](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png)
+![HDInsight Apache HBase BigTable 데이터](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png)
 
 **HBase 셸을 사용하려면**
 
@@ -115,7 +115,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
     scan 'Contacts'
     ```
 
-    ![HDInsight Hadoop HBase 셸](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png)
+    ![HDInsight Apache Hadoop HBase 셸](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png)
 
 1. `get` 명령을 사용하여 행의 콘텐츠를 페치합니다. 다음 명령을 입력합니다.
 
@@ -284,7 +284,7 @@ HDInsight에서 HBase는 클러스터 모니터링에 대한 웹 UI와 함께 �
 
 1. 페이지 위쪽에서 **빠른 링크**를 선택하고 활성 Zookeeper 노드 링크를 가리킨 다음, **HBase Master UI**를 선택합니다.  UI는 다른 브라우저 탭에서 열립니다.
 
-   ![HDInsight HBase HMaster UI](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+   ![HDInsight Apache HBase HMaster UI](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
    HBase Master UI에는 다음 섹션이 포함되어 있습니다.
 

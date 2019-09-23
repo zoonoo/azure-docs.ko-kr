@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub 빠른 시작(Node.js)에서 디바이스 제어 | Microsoft Docs
+title: '빠른 시작: Azure IoT(Node.js)에서 디바이스 제어'
 description: 이 빠른 시작에서 두 개의 샘플 Node.js 애플리케이션을 실행합니다. 하나의 애플리케이션은 허브에 연결된 디바이스를 원격으로 제어할 수 있는 백 엔드 애플리케이션입니다. 또 다른 애플리케이션은 원격으로 제어할 수 있는 허브에 연결된 디바이스를 시뮬레이션 합니다.
 author: wesmc7777
 manager: philmea
@@ -8,14 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: ba49709e6cab2d3e6a752fb7b529da7edb9f642e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: ab064798d21dd6d6ba87f2f2d093dfc0849c1cb6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877161"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967172"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>빠른 시작: IoT Hub에 연결된 디바이스 제어(Node.js)
 

@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b53ce30f4c49580bcd8ad3e259adf0300d8bd4a6
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 6d354ab25125b0df90ac3d6852d7eafe5d5aba46
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369314"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064687"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 단일 페이지 애플리케이션에서 ASP.NET Core 웹 API로의 액세스 권한 부여
 
-이 자습서에서는 단일 페이지 애플리케이션에서 Azure AD(Azure Active Directory) B2C로 보호된 ASP.NET Core 웹 API 리소스를 호출하는 방법을 보여 줍니다.
+이 자습서에서는 단일 페이지 애플리케이션에서 Azure AD B2C(Azure Active Directory B2C)로 보호된 ASP.NET Core 웹 API 리소스를 호출하는 방법을 보여줍니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -41,8 +41,8 @@ ms.locfileid: "68369314"
 액세스 토큰을 제공하는 클라이언트 애플리케이션을 통해 보호된 리소스 요청을 수락하고 이에 응답하려면, 먼저 웹 API 리소스를 테넌트에 등록해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
-1. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 1. **애플리케이션**을 선택하고 **추가**를 선택합니다.
 1. 애플리케이션의 이름을 입력합니다. 예를 들어 *webapi1*과 같습니다.
 1. **웹앱/웹 API 포함** 및 **암시적 흐름 허용**에 **예**를 선택합니다.

@@ -4,15 +4,15 @@ description: 고객을 Azure 위임 리소스 관리에 등록하여 고유한 �
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 08/29/2019
+ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: dabee74dc757a8ccdc4384662f5c9bc09a1e5fbe
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 402f82059f939de204e489bb36c2c2b82f816a19
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165039"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105285"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Azure 위임 리소스 관리에 고객 등록
 
@@ -20,7 +20,7 @@ ms.locfileid: "70165039"
 
 여러 고객의 리소스를 관리하는 경우 이 프로세스를 반복할 수 있습니다. 그러면 권한 있는 사용자는 테넌트에 로그인한 경우 모든 개별 고객 테넌트에 로그인하지 않고도 고객 테넌시 범위에서 관리 작업을 수행하기 위한 권한을 받을 수 있습니다.
 
-MPN(Microsoft 파트너 네트워크) ID를 온보딩한 구독과 연결하여 고객 계약에 미치는 영향을 추적하고 인식을 받을 수 있습니다. 자세한 내용은 [Azure 계정에 파트너 ID 연결](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started)을 참조하세요. 리소스를 관리하는 각 고객 테넌트마다 이 연결을 별도로 수행해야 합니다. 
+MPN(Microsoft 파트너 네트워크) ID를 온보딩한 구독과 연결하여 고객 계약에 미치는 영향을 추적하고 인식을 받을 수 있습니다. 자세한 내용은 [Azure 계정에 파트너 ID 연결](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started)을 참조하세요. 서비스 공급자 테넌트에서 이 연결을 수행해야 합니다.
 
 > [!NOTE]
 > 고객은 Azure Marketplace에 게시한 관리형 서비스 제품(퍼블릭 또는 프라이빗)을 구매하면 자동으로 온보딩될 수 있습니다. 자세한 내용은 [Azure Marketplace에 관리형 서비스 제품 게시](publish-managed-services-offers.md)를 참조하세요. 여기에 설명된 온보딩 프로세스를 Azure Marketplace에 게시된 제품에 사용할 수도 있습니다.

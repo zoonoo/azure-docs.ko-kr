@@ -1,7 +1,7 @@
 ---
 title: 예제 Jupyter Notebook
-titleSuffix: Azure Machine Learning service
-description: Jupyter Notebook 예제를 찾아 사용하여 Python SDK에서 Azure Machine Learning Service를 검색합니다.
+titleSuffix: Azure Machine Learning
+description: Jupyter Notebook 예제를 찾아 사용하여 SDK용 Azure Machine Learning Python을 검색합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14962b936d1c09a6c50daa7bec460ce11dbefe5d
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: dd93e4e621a4fd474283f788e2cf67b305a1be3d
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860387"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70997071"
 ---
-# <a name="explore-azure-machine-learning-service-with-jupyter-notebooks"></a>Jupyter Notebooks를 사용하여 Azure Machine Learning Service 탐색
+# <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Jupyter Notebooks를 사용하여 Azure Machine Learning 검색
 
 [예제 Azure Machine Learning Notebook 리포지토리](https://github.com/azure/machinelearningnotebooks)에는 최신 Azure Machine Learning Python SDK 샘플이 포함되어 있습니다. 이러한 Jupyter Notebook은 사용자가 SDK를 살펴보고 사용자 고유의 Machine Learning 프로젝트를 위한 모델로 사용할 수 있도록 설계되었습니다.
 
@@ -55,7 +55,7 @@ DSVM(Data Science Virtual Machine)은 데이터 과학 수행을 위해 특별�
 
 ## <a name="next-steps"></a>다음 단계
 
-[샘플 Notebook](https://aka.ms/aml-notebooks)을 살펴보고 Azure Machine Learning Service에서 제공하는 기능을 확인하거나 아래 자습서를 사용해 봅니다.
+[샘플 Notebook](https://aka.ms/aml-notebooks)을 살펴보고 Azure Machine Learning에서 제공하는 기능을 확인하거나 다음 자습서를 사용해 봅니다.
 
 - [MNIST를 사용하여 이미지 분류 모델 학습 및 배포](tutorial-train-models-with-aml.md)
 

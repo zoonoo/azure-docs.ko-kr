@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 09/17/2019
 ms.author: alkohli
-ms.openlocfilehash: cd2a776988ba27add54c69b0feccbc3fce8337aa
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: a3e27cf427de3a33f71d6f4a0af9b1590abeb573
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551516"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066994"
 ---
 # <a name="what-is-azure-data-box"></a>Azure Data Box란?
 
@@ -111,14 +111,7 @@ Data Box는 다음과 같은 구성 요소를 포함합니다.
 
 Data Box는 서비스가 배포된 지역, 디바이스가 배송되는 국가/지역 및 데이터를 전송하는 대상 Azure 스토리지 계정에 따라 데이터를 전송할 수 있습니다. 
 
-- **서비스 가용성** - 이 릴리스의 경우 Data Box 서비스는 다음과 같은 지역에서 사용할 수 있습니다.
-    - 미국 내 모든 지역 - 미국 중서부, 미국 서부 2, 미국 서부, 미국 중남부, 미국 중부, 미국 중북부, 미국 동부 및 미국 동부 2.
-    - 유럽 연합 - 유럽 서부 및 유럽 북부.
-    - 영국 - 영국 남부 및 영국 서부.
-    - 프랑스 - 프랑스 중부 및 프랑스 남부.
-    - 일본 - 일본 동부 및 일본 서부.
-    - 오스트레일리아 - 오스트레일리아 동부 및 오스트레일리아 남동부.
-    - 캐나다 - 캐나다 동부 및 캐나다 중부
+- **서비스 가용성** - 지역 가용성에 대한 정보는 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)으로 이동하세요. Data Box는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요.
 
 - **대상 스토리지 계정** - 데이터를 저장하는 스토리지 계정은 서비스를 사용할 수 있는 모든 Azure 지역에서 사용할 수 있습니다.  
 

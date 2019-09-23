@@ -10,16 +10,16 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ca9d8a8373bd73d527862864d436319eb45b5f48
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: ca636079439f811a887d16b627473e7d73930799
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227160"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065702"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Azure Active Directory B2C란?
 
-Azure AD(Azure Active Directory) B2C는 비즈니스-소비자 ID 관리 서비스입니다. 이 서비스를 사용하면 사용자가 웹, 데스크톱, 모바일 또는 단일 페이지 애플리케이션과 안전하게 상호 작용하는 방식을 사용자 지정하고 제어할 수 있습니다. Azure AD B2C를 사용하여 사용자는 등록, 로그인, 암호 재설정 및 프로필 편집을 수행할 수 있습니다. Azure AD B2C는 OpenID Connect 및 OAuth 2.0 프로토콜의 형태를 구현합니다. 이러한 프로토콜을 구현하는 데 있어 중요한 키는 리소스에 대한 보안 액세스를 제공할 수 있는 보안 토큰 및 해당 클레임입니다.
+Azure AD B2C(Azure Active Directory B2C)는 비즈니스-소비자 ID 관리 서비스입니다. 이 서비스를 사용하면 사용자가 웹, 데스크톱, 모바일 또는 단일 페이지 애플리케이션과 안전하게 상호 작용하는 방식을 사용자 지정하고 제어할 수 있습니다. Azure AD B2C를 사용하여 사용자는 등록, 로그인, 암호 재설정 및 프로필 편집을 수행할 수 있습니다. Azure AD B2C는 OpenID Connect 및 OAuth 2.0 프로토콜의 형태를 구현합니다. 이러한 프로토콜을 구현하는 데 있어 중요한 키는 리소스에 대한 보안 액세스를 제공할 수 있는 보안 토큰 및 해당 클레임입니다.
 
 *사용자 경험*은 사용자 및 애플리케이션에서 Azure AD B2C와 상호 작용하는 방법에 대한 동작을 제어하는 정책을 지정하는 요청입니다. Azure AD B2C에서 사용자 경험을 정의하는 데 두 가지 경로를 사용할 수 있습니다.
 

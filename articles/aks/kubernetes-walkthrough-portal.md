@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 5/31/2019
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 90ccd6c827371d9bf72391e2b24c7dcef31f36c9
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 0df60cac241151b5968c5ddfc01ca9c0515a5e6b
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844638"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996981"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -52,7 +52,7 @@ AKS 클러스터를 만들려면 다음 단계를 완료합니다.
    - **서비스 사용자** 필드를 **(새) 기본 서비스 사용자**로 유지하여 신규 서비스 사용자를 만듭니다. 또는 기존 서비스 사용자를 사용하도록 *내 서비스 사용자 구성*을 선택할 수 있습니다. 기존 서비스 사용자를 사용하는 경우 SPN 클라이언트 ID와 비밀을 제공해야 합니다.
    - Kubernetes RBAC(역할 기반 액세스 제어)에 대한 옵션을 사용하도록 설정합니다. 이렇게 하면 AKS 클러스터에 배포된 Kubernetes 리소스에 대한 액세스를 정밀하게 제어할 수 있습니다.
 
-    기본적으로 *기본* 네트워킹이 사용되며 컨테이너에 대한 Azure Monitor가 활성화됩니다. **검토 + 만들기**를 클릭한 후 유효성 검사가 완료되면 **만들기**를 선택합니다.
+기본적으로 *기본* 네트워킹이 사용되며 컨테이너에 대한 Azure Monitor가 활성화됩니다. **검토 + 만들기**를 클릭한 후 유효성 검사가 완료되면 **만들기**를 선택합니다.
 
 AKS 클러스터를 만드는 데 몇 분이 걸립니다. 배포가 완료되면 **리소스로 이동**을 클릭하거나 AKS 클러스터 리소스 그룹(예: *myResourceGroup*)으로 이동하여 AKS 리소스(예: *myAKSCluster*)를 선택합니다. 다음 예제처럼 AKS 클러스터 대시보드가 표시됩니다.
 
@@ -236,7 +236,7 @@ Azure Vote 앱이 실제로 작동하는 모습을 보려면 웹 브라우저를
 
 ![AKS에서 실행 중인 컨테이너의 상태 보기](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-`azure-vote-front` Pod에 대한 로그를 보려면 컨테이너 목록의 오른쪽에서 **컨테이너 로그 보기** 링크를 선택합니다. 이러한 로그는 컨테이너의 *stdout* 및 *stderr* 스트림을 포함합니다.
+`azure-vote-front` Pod에 대한 로그를 보려면 컨테이너 목록의 드롭다운에서 **컨테이너 로그 보기**를 선택합니다. 이러한 로그는 컨테이너의 *stdout* 및 *stderr* 스트림을 포함합니다.
 
 ![AKS에서 컨테이너 로그 보기](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 

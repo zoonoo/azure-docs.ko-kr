@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b88d355ec1784b3b613369e90cd5fac99d3d69a6
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 618931c3a45fcb25b2a9221ea3f6069e9ff11de5
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916401"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933195"
 ---
 # <a name="implement-iot-spatial-analytics-using-azure-maps"></a>Azure Maps를 사용하여 IoT 공간 분석 구현
 
@@ -167,7 +167,7 @@ Postman 앱을 열고, 아래의 단계에 따라 Azure Maps 데이터 업로드
     
     URL 경로의 `dataFormat` 매개 변수에 대한 "geojson" 값은 업로드되는 데이터의 형식을 나타냅니다.
 
-3. **매개 변수**를 클릭하고 POST 요청 URL에 사용할 다음 키/값 쌍을 입력합니다. subscription-key 값을 Azure Maps 구독 키로 바꿉니다.
+3. **매개 변수**를 클릭하고 POST 요청 URL에 사용할 다음 키/값 쌍을 입력합니다. subscription-key 값을 Azure Maps 기본 구독 키로 바꿉니다.
    
     ![키 값 매개 변수 Postman](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 
@@ -224,7 +224,7 @@ Azure Functions는 컴퓨팅 인프라를 명시적으로 프로비저닝하거�
 6. [C# 코드](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx)를 함수에 복사하고, **저장**을 클릭합니다.
  
 7. C# 스크립트에서 다음 매개 변수를 바꿉니다.
-    * **SUBSCRIPTION_KEY**를 Azure Maps 계정 구독 키로 바꿉니다.
+    * **SUBSCRIPTION_KEY**를 Azure Maps 계정 기본 구독 키로 바꿉니다.
     * **UDID**를 업로드한 지오펜스의 udId로 바꿉니다. 
     * 스크립트의 **CreateBlobAsync** 함수에서 이벤트당 Blob을 데이터 스토리지 계정에 만듭니다. **ACCESS_KEY**, **ACCOUNT_NAME** 및 **STORAGE_CONTAINER_NAME**을 스토리지 계정의 액세스 키, 계정 이름 및 데이터 스토리지 컨테이너로 바꿉니다.
 

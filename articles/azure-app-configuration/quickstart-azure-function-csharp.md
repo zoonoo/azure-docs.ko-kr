@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 5eb9d0631a4d5f4221b5184198290a5109655408
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a15b4e10938c39ba599ffb1ce7437feb788b1115
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326573"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075956"
 ---
 # <a name="quickstart-create-an-azure-function-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration으로 Azure 함수 만들기
 
@@ -55,9 +55,10 @@ ms.locfileid: "68326573"
     Microsoft.Extensions.Configuration.AzureAppConfiguration 2.0.0-preview-009200001-1437 or later
     ```
 
-2. *Function1.cs*를 열고, .NET Core App Configuration 공급자에 대한 참조를 추가합니다.
+2. *Function1.cs*를 열고, .NET Core App 일반 구성 공급자와 .NET Core App Configuration 공급자에 대한 참조를 추가합니다.
 
     ```csharp
+    using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 

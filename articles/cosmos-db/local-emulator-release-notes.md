@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 06/20/2019
-ms.openlocfilehash: 5985d0d82341c76993ee91b8dff6927edd1ed8b4
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 587c730dfa436760d42e614c2dabee117f3b61d3
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332144"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71018812"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos Emulator 사용
 
@@ -25,6 +25,10 @@ ms.locfileid: "67332144"
 |**시작**|[Azure Cosmos 에뮬레이터로 로컬에서 개발](local-emulator.md)|
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="246"></a>2.4.6
+
+- 이 릴리스에서는 [Azure Cosmos 에뮬레이터로 로컬에서 개발](local-emulator.md)에 설명된 예외가 포함된 2019년 7월 현재 Azure Cosmos 서비스의 기능과 패리티를 제공합니다. 또한 직접 모드 연결을 사용하는 SDK 클라이언트에 대한 명령줄 및 내부 IP 주소 재정의를 통해 호출될 때 에뮬레이터 종료와 관련된 몇 가지 버그를 수정합니다.
 
 ### <a name="243"></a>2.4.3
 

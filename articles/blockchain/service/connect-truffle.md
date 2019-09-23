@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 822402f548fe0fc866051a9c77adef6e37c3fa75
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: ea64e3fe4789ac0558463ded81c8179db83469d5
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240911"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932589"
 ---
 # <a name="quickstart-use-truffle-to-connect-to-a-transaction-node"></a>빠른 시작: Truffle을 사용하여 트랜잭션 노드에 연결
 
@@ -25,7 +25,7 @@ Truffle은 Azure Blockchain Service 트랜잭션 노드에 연결하는 데 사�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Azure Blockchain 멤버 만들기](create-member.md)
+* [빠른 시작: Azure Portal을 사용하여 블록체인 멤버 만들기](create-member.md) 또는 [빠른 시작: Azure CLI를 사용하여 Azure Blockchain Service 블록체인 멤버 만들기](create-member-cli.md)를 완료합니다.
 * [Truffle](https://github.com/trufflesuite/truffle)을 설치합니다. Truffle을 사용하려면 [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)를 포함한 여러 도구를 설치해야 합니다.
 * [Python 2.7.15](https://www.python.org/downloads/release/python-2715/)를 설치합니다. Python은 Web3에 필요합니다.
 
@@ -124,7 +124,7 @@ Truffle 프로젝트를 구성하려면 Azure Portal의 일부 트랜잭션 노�
 
 이 빠른 시작에서는 Azure Blockchain Service 기본 트랜잭션 노드에 연결하는 Truffle 프로젝트를 만들었습니다.
 
-다음 자습서에서는 Etherum 및 Truffle용 Azure Blockchain Development Kit를 사용하여 컨소시엄 블록체인 네트워크에서 트랜잭션을 통해 스마트 계약 함수를 실행합니다.
+다음 자습서에서는 Etherum 및 Truffle용 Azure Blockchain Development Kit를 사용하여 트랜잭션을 통해 스마트 계약 함수를 생성, 빌드, 배포 및 실행합니다.
 
 > [!div class="nextstepaction"]
-> [Azure Blockchain Service에서 스마트 계약 사용](send-transaction.md)
+> [Visual Studio Code를 사용하여 스마트 계약 생성, 빌드 및 배포](send-transaction.md)

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 07/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: be7ff67f07ed8eaeb3f04a15c6185191bf107cf2
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 33f70ba33168190577baf1757e9be0ece5d315ba
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918462"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066900"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Hadoop 클러스터 만들기
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. Azure Portal에서 **리소스 만들기** > **Analytics** > **HDInsight**로 이동합니다.
 
-    ![Azure Portal의 Databricks](./media/apache-hadoop-linux-create-cluster-get-started-portal/create-hdinsight-cluster.png "Azure Portal의 Databricks")
+    ![리소스 HDInsight 클러스터 만들기](./media/apache-hadoop-linux-create-cluster-get-started-portal/create-hdinsight-cluster.png "리소스 HDInsight 클러스터 만들기")
 
 1. **HDInsight** > **빠른 생성** > **기본 사항**에서 다음 값을 입력하거나 선택합니다.
 
@@ -101,7 +101,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 3. 다음 스크린샷에 표시된 것처럼 **Hive 뷰** 를 엽니다.
 
-    ![Ambari 보기 선택](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-select-hive-view.png "HDInsight Hive 뷰어 메뉴")
+    ![Ambari에서 Hive 보기 선택](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-select-hive-view.png "HDInsight Hive 뷰어 메뉴")
 
 4. **쿼리** 탭에서 다음 HiveQL 문을 워크시트에 붙여넣습니다.
 
@@ -109,13 +109,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     SHOW TABLES;
     ```
 
-    ![HDInsight Hive 보기](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-apache-hive-view1.png "HDInsight Hive 보기 - 쿼리 편집기")
+    ![HDInsight Hive 보기 쿼리 편집기](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdi-apache-hive-view1.png "HDInsight Hive 보기 쿼리 편집기")
 
 5. **실행**을 선택합니다. **쿼리** 탭 아래에 **결과** 탭이 나타나고 작업에 대한 정보가 표시됩니다. 
 
     쿼리가 완료되면 **쿼리** 탭에 작업 결과가 표시됩니다. **hivesampletable**이라는 테이블이 한 개 표시됩니다. 이 샘플 Hive 테이블은 모든 HDInsight 클러스터와 함께 제공됩니다.
 
-    ![HDInsight Hive 결과 보기](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-hive-views.png "HDInsight Hive 결과 보기")
+    ![HDInsight Apache Hive 결과 보기](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-hive-views.png "HDInsight Apache Hive 결과 보기")
 
 6. 4단계 및 5단계를 반복하여 다음 쿼리를 실행합니다.
 
@@ -125,7 +125,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 7. 또한 쿼리 결과를 저장할 수 있습니다. 오른쪽의 메뉴 단추를 선택하고, 결과를 CSV 파일로 다운로드할 것인지 아니면 클러스터와 연결된 스토리지 계정에 저장할 것인지 지정합니다.
 
-    ![Hive 쿼리 결과 저장](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-hive-view-save-results.png "Hive 쿼리 결과 저장")
+    ![Apache Hive 쿼리 결과 저장](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-hive-view-save-results.png "Apache Hive 쿼리 결과 저장")
 
 Hive 작업을 완료한 후에 [결과를 Azure SQL 데이터베이스 또는 SQL Server 데이터베이스로 내보내고](apache-hadoop-use-sqoop-mac-linux.md), [Excel을 사용하여 결과를 시각화](apache-hadoop-connect-excel-power-query.md)할 수도 있습니다. HDInsight에서 Hive를 사용하는 방법에 대한 자세한 내용은 [샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Apache Hadoop과 함께 Apache Hive 및 HiveQL 사용](hdinsight-use-hive.md)을 참조하세요.
 
@@ -140,7 +140,7 @@ Hive 작업을 완료한 후에 [결과를 Azure SQL 데이터베이스 또는 S
 
 1. Azure Portal이 있는 브라우저 탭으로 돌아갑니다. 그러면 클러스터 개요 페이지가 표시됩니다. 클러스터는 삭제하지만 기본 스토리지 계정은 유지하려는 경우 **삭제**를 선택합니다.
 
-    ![HDInsight 클러스터 삭제](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-delete-cluster.png "HDInsight 클러스터 삭제")
+    ![Azure HDInsight 클러스터 삭제](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-delete-cluster.png "Azure HDInsight 클러스터 삭제")
 
 2. 클러스터와 기본 스토리지 계정을 삭제하려는 경우 리소스 그룹 이름(이전 스크린샷에서 강조 표시됨)을 선택하여 리소스 그룹 페이지를 엽니다.
 

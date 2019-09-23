@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/01/2019
+ms.date: 09/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 67df6c84c5a88a3ffc82948898e356e0a913ba27
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: cdd43f6892f1932803bb965897d4af8c4cab481e
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227781"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70934107"
 ---
 # <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 Android 애플리케이션 사용자에게 알림 푸시
 
@@ -470,7 +470,14 @@ ms.locfileid: "68227781"
     ```java
     useLibrary 'org.apache.http.legacy'
     ```
-13. 프로젝트를 빌드합니다.
+13. 앱이 API 수준 28(Android 9.0) 이상을 대상으로 하는 경우 `AndroidManifest.xml`의 `<application>` 요소 내에 다음 선언을 포함합니다.
+
+    ```xml
+    <uses-library
+        android:name="org.apache.http.legacy"
+        android:required="false" />
+    ```
+14. 프로젝트를 빌드합니다.
 
 ## <a name="test-the-app"></a>앱 테스트
 

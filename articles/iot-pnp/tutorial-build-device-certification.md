@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 019b2ba0fd87610195ca9e6c7cb749be9542bd72
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 524bc3b2650ad7b435cba6b6b9d4084ffa5cf96c
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858862"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932673"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>즉시 인증 가능한 IoT 플러그 앤 플레이 미리 보기 디바이스 빌드
 
@@ -84,6 +84,18 @@ VS Code에서 **디바이스 정보** 인터페이스를 보려면 다음을 수
 1. 공용 모델 리포지토리에서 **인터페이스** 탭을 선택하고, 필터 아이콘을 선택하고, 필터 필드에 **디바이스 정보**를 입력합니다.
 
 1. **디바이스 정보** 인터페이스의 로컬 복사본을 만들려면 필터링된 목록에서 해당 복사본을 선택한 다음, **다운로드**를 선택합니다. VS Code에 인터페이스 파일이 표시됩니다.
+
+Azure CLI를 사용하여 **디바이스 정보** 인터페이스를 보려면 다음을 수행합니다.
+
+1. [Azure IoT CLI 확장을 설치합니다](howto-install-pnp-cli.md).
+
+1. 다음 Azure CLI 명령을 사용하여 디바이스 정보 인터페이스 ID가 있는 인터페이스를 표시합니다.
+
+    ```cmd/sh
+    az iot pnp interface show --interface urn:azureiot:DeviceManagement:DeviceInformation:1
+    ```
+
+자세한 내용은 [Azure CLI용 Azure IoT 확장 설치 및 사용](howto-install-pnp-cli.md)을 참조하세요.
 
 ## <a name="update-device-code"></a>디바이스 코드 업데이트
 
