@@ -42,9 +42,9 @@ ms.locfileid: "69015330"
 
 | 이름 | 변수 | 설명 | 기본값 |
 | --- | --- | --- | --- |
-| sensitivityLevel |문자열:'low', 'medium', 'high' |동작이 보고되는 민감도 수준을 설정합니다. 가양성 수를 조정하려면 이 값을 조정합니다. |'medium' |
+| sensitivityLevel |String:'low', 'medium', 'high' |동작이 보고되는 민감도 수준을 설정합니다. 가양성 수를 조정하려면 이 값을 조정합니다. |'medium' |
 | frameSamplingValue |양의 정수 |알고리즘이 실행되는 빈도를 설정합니다. 1은 프레임마다, 2는 두 개의 프레임마다 등을 의미합니다. |1 |
-| detectLightChange |부울:'true', 'false' |결과에 간단한 변경 내용이 보고되는지 여부를 설정합니다. |'False' |
+| detectLightChange |Boolean:'true', 'false' |결과에 간단한 변경 내용이 보고되는지 여부를 설정합니다. |'False' |
 | mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>예제: 00:00:03 |2개의 이벤트가 결합되어 1로 보고되는 동작 이벤트 간의 기간을 지정합니다. |00:00:00 |
 | detectionZones |검색 영역 배열:<br/>- 검색 영역은 3개 이상의 지점 배열<br/>- 지점은 0부터 1까지의 x 및 y 좌표입니다. |사용할 다각형의 검색 영역 목록을 설명합니다.<br/>결과는 영역과 함께 ID로 보고되며 첫 번째 항목은 ‘id’:0입니다. |전체 프레임에 걸쳐 있는 단일 영역입니다. |
 
