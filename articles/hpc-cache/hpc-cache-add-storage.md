@@ -1,19 +1,19 @@
 ---
-title: Azure HPC 캐시에 저장소 추가
+title: Azure HPC 캐시에 저장소 추가 (미리 보기)
 description: Azure HPC 캐시가 장기 파일 저장소에 대해 온-프레미스 NFS 시스템 또는 Azure Blob 컨테이너를 사용할 수 있도록 저장소 대상을 정의 하는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: v-erkell
-ms.openlocfilehash: ca8e13e322c3e192b697248f1252b65f6cbeda7f
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: a17952e193f3e03becaab044f55637372bac7b0d
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037242"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181016"
 ---
-# <a name="add-storage"></a>스토리지 추가
+# <a name="add-storage-targets"></a>스토리지 대상 추가
 
 *저장소 대상은* Azure HPC 캐시 인스턴스를 통해 액세스 되는 파일에 대 한 백 엔드 저장소입니다. 온-프레미스 하드웨어 시스템과 같은 NFS 저장소를 추가 하거나 Azure Blob에 데이터를 저장할 수 있습니다.
 
@@ -27,7 +27,7 @@ Azure HPC 캐시를 만드는 동안 또는 나중에 저장소 대상을 추가
 
 캐시 생성 마법사의 **저장소 대상** 탭을 사용 하 여 캐시 인스턴스를 만들 때 저장소를 정의할 수 있습니다.
 
-![저장소 대상 페이지의 스크린샷](media/hpc-cache-storage-targets-pop.png)
+![스토리지 대상 페이지 스크린샷](media/hpc-cache-storage-targets-pop.png)
 
 저장소를 추가 하려면 **저장소 대상 추가** 링크를 클릭 합니다.
 
@@ -112,8 +112,8 @@ NFS 지원 저장소 대상에 대 한 다음 정보를 제공 합니다.
 
 완료 되 면 **확인** 을 클릭 하 여 저장소 대상을 추가 합니다.
 
-### <a name="choose-a-usage-model"></a>사용 모델 선택 
-<!-- link in GUI to this heading -->
+### <a name="choose-a-usage-model"></a>사용 모델 선택
+<!-- referenced from GUI - update aka.ms link if you change this heading -->
 
 NFS 저장소 시스템을 가리키는 저장소 대상을 만들 때 해당 대상에 대 한 *사용 모델* 을 선택 해야 합니다. 이 모델은 데이터를 캐시 하는 방법을 결정 합니다.
 
@@ -127,5 +127,5 @@ NFS 저장소 시스템을 가리키는 저장소 대상을 만들 때 해당 �
 
 저장소 대상을 만든 후 다음 작업 중 하나를 고려 합니다.
 
-* [Azure HPC 캐시 탑재](hpc-cache-mount.md)
+* [Azure HPC Cache 마운트](hpc-cache-mount.md)
 * [Azure Blob storage로 데이터 이동](hpc-cache-ingest.md)

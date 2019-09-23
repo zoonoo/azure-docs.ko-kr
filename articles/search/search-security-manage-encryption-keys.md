@@ -112,7 +112,7 @@ Azure Search는 id를 할당 하는 두 가지 방법, 즉 관리 되는 id 또�
 
 1. **보안 주체 선택** 을 클릭 하 고 Azure Search 서비스를 선택 합니다. 이름 또는 관리 id를 사용 하도록 설정한 후 표시 된 개체 ID를 기준으로 검색할 수 있습니다.
 
-   ![키 자격 증명 모음 액세스 정책 주체를 선택] 합니다. (./media/search-manage-encryption-keys/select-key-vault-access-policy-principal.png "키 자격 증명 모음 액세스 정책 주체를 선택") 합니다.
+   ![키 자격 증명 모음 액세스 정책 주체를 선택 합니다.](./media/search-manage-encryption-keys/select-key-vault-access-policy-principal.png " 키 자격 증명 모음 액세스 정책 주체를 선택 합니다")
 
 1. **키 사용 권한** 을 클릭 하 고 *가져오기*, *키 래핑* 및 *키 래핑*을 선택 합니다. *Azure Data Lake Storage 또는 Azure Storage* 템플릿을 사용 하 여 필요한 사용 권한을 빠르게 선택할 수 있습니다.
 

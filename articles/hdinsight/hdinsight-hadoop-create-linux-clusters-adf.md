@@ -26,7 +26,7 @@ ms.locfileid: "71098714"
 > * Azure Data Factory 작업 이해
 > * Azure Portal을 사용하여 데이터 팩터리 만들기
 > * 연결된 서비스 만들기
-> * 파이프라인을 만듭니다.
+> * 파이프라인을 만들기
 > * 파이프라인 트리거
 > * 파이프라인 모니터링
 > * 출력 확인
@@ -272,7 +272,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
     ![HDInsight 연결된 서비스의 값 제공](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service-details.png "HDInsight 연결된 서비스의 값 제공")
 
-## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
+## <a name="create-a-pipeline"></a>파이프라인을 만들기
 
 1. **+** (더하기) 단추를 선택한 다음 **파이프라인**을 선택합니다.
 

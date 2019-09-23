@@ -54,11 +54,11 @@ Spark UI에서 이전에 시작한 애플리케이션에 의해 생성된 Spark 
     ![Spark 실행자 보기](./media/apache-spark-job-debugging/view-spark-executors.png)
 3. **단계** 탭을 클릭하여 애플리케이션과 관련된 단계를 봅니다.
    
-    ![Spark 단계 보기] (./media/apache-spark-job-debugging/view-apache-spark-stages.png "Spark 단계 보기")
+    ![Spark 단계 보기](./media/apache-spark-job-debugging/view-apache-spark-stages.png "Spark 단계 보기")
    
     각 단계에서는 아래와 같이 실행 통계를 볼 수 있는 여러 작업이 있습니다.
    
-    ![Spark 단계 세부 정보 보기] (./media/apache-spark-job-debugging/view-spark-stages-details.png "Spark 단계 세부 정보 보기") 
+    ![Spark 단계 세부 정보 보기](./media/apache-spark-job-debugging/view-spark-stages-details.png "Spark 단계 세부 정보 보기") 
 4. 단계 세부 정보 페이지에서 DAG 시각화를 시작할 수 있습니다. 아래와 같이 페이지의 위쪽에서 **DAG 시각화** 링크를 확장합니다.
    
     ![Spark 단계 DAG 시각화 보기](./media/apache-spark-job-debugging/view-spark-stages-dag-visualization.png)
@@ -87,14 +87,14 @@ Spark UI에서 이전에 시작한 애플리케이션에 의해 생성된 Spark 
 
 1. Spark 기록 서버를 시작하려면 개요 블레이드의 **클러스터 대시보드**에서 **Spark 기록 서버**를 클릭합니다.
    
-    ![Spark 기록 Server1 시작] (./media/apache-spark-job-debugging/launch-spark-history-server.png "Spark 기록 Server1 시작")
+    ![Spark 기록 Server1 시작](./media/apache-spark-job-debugging/launch-spark-history-server.png "Spark 기록 Server1 시작")
    
    > [!TIP]  
    > 또는 Ambari UI에서 Spark 기록 서버를 시작할 수도 있습니다. Ambari UI를 시작하려면 개요 블레이드의 **클러스터 대시보드**에서 **Ambari 홈**을 클릭합니다. Ambari UI에서 **Spark**, **빠른 링크**, **Spark 기록 서버 UI**를 차례로 클릭합니다.
 
 2. 완료된 애플리케이션이 모두 표시됩니다. 자세한 내용은 애플리케이션 ID를 클릭하여 애플리케이션에 대해 더 자세히 살펴봅니다.
    
-    ![Spark 기록 시작] (./media/apache-spark-job-debugging/view-completed-applications.png "Spark 기록 시작")
+    ![Spark 기록 시작](./media/apache-spark-job-debugging/view-completed-applications.png "Spark 기록 시작")
 
 ## <a name="see-also"></a>참고자료
 *  [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](apache-spark-resource-manager.md)

@@ -240,7 +240,7 @@ az iot hub route create \
 
 ### <a name="view-routing-and-configure-the-message-enrichments"></a>라우팅 보기 및 메시지 강화 구성
 
-1. **리소스 그룹**을 선택 하 여 IoT Hub으로 이동한 다음이 자습서에 대해 설정 된 리소스 그룹을 선택 합니다 (**ContosoResources_MsgEn**). 목록에서 IoT Hub을 찾아 선택 합니다. Iot Hub에 대 한 *메시지 라우팅**을 선택 합니다.
+1. **리소스 그룹**을 선택 하 여 IoT Hub으로 이동한 다음이 자습서에 대해 설정 된 리소스 그룹을 선택 합니다 (**ContosoResources_MsgEn**). 목록에서 IoT Hub을 찾아 선택 합니다. Iot Hub에 대 한 *메시지 라우팅* 을 선택 합니다.
 
    ![메시지 라우팅 선택](./media/tutorial-message-enrichments/select-iot-hub.png)
 

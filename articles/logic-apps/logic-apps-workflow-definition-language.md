@@ -120,7 +120,7 @@ ms.locfileid: "68385336"
 | <*static-result-definition-name*> | 예 | String | 작업 정의가 개체를 `runtimeConfiguration.staticResult` 통해 참조할 수 있는 정적 결과 정의의 이름입니다. 자세한 내용은 [런타임 구성 설정](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options)을 참조하세요. <p>원하는 고유한 이름을 사용할 수 있습니다. 기본적으로이 고유 이름에는 필요에 따라 증가 하는 숫자가 추가 됩니다. |
 | <*output-attributes-and-values-returned*> | 예 | 다름 | 이러한 특성에 대 한 요구 사항은 다양 한 조건에 따라 달라 집니다. 예를 들어 `status` 가 인 `Succeeded`경우 특성은 `outputs` 작업에서 모의 출력으로 반환 되는 특성 및 값을 포함 합니다. `errors` `message` 가 인 `Failed`경우 특성은 특성을 포함 하며,이 특성은 오류 정보가 있는 하나 이상의 오류 개체를 포함 하는 배열입니다. `outputs` `status` |
 | <*header-values*> | 아니요 | JSON | 작업에서 반환 된 모든 헤더 값 |
-| <*status-code-returned*> | 예 | 문자열 | 작업에서 반환 된 상태 코드입니다. |
+| <*status-code-returned*> | 예 | String | 작업에서 반환 된 상태 코드입니다. |
 | <*action-status*> | 예 | String | 작업의 상태 (예: `Succeeded` 또는)입니다.`Failed` |
 |||||
 
