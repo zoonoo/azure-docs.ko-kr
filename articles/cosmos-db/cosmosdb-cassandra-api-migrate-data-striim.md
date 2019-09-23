@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 39427ac12dc6214630d6c3e5ace62692b1ea30b6
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: ad690fa78f794b26b6cf496ea4485599486752b0
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003076"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146968"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Striim를 사용 하 여 Azure Cosmos DB Cassandra API 계정으로 데이터 마이그레이션
 
@@ -20,7 +20,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
 이 문서에서는 Striim를 사용 하 여 **Oracle 데이터베이스** 에서 **Azure Cosmos DB Cassandra API 계정**으로 데이터를 마이그레이션하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure 구독](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
@@ -160,6 +160,8 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 1. 대상 Azure Cosmos DB 인스턴스의 구성 속성을 입력 하 고 **저장** 을 선택 하 여 계속 합니다. 유의 해야 할 주요 매개 변수는 다음과 같습니다.
 
    * **어댑터** - **databasewriter**를 사용 합니다. Azure Cosmos DB Cassandra API에 쓸 때 DatabaseWriter가 필요 합니다. Cassandra driver 3.6.0는 Striim와 함께 제공 됩니다. DatabaseWriter가 Azure Cosmos 컨테이너에서 프로 비전 된 RUs 수를 초과 하면 응용 프로그램의 작동이 중단 됩니다.
+
+   * **연결 url** -Azure Cosmos DB JDBC 연결 url을 지정 합니다. URL의 형식은`jdbc:cassandra://<contactpoint>:10350/<databaseName>?SSL=true`
 
    * **사용자 이름** -Azure Cosmos 계정 이름을 지정 합니다.
    

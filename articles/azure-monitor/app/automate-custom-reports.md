@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f22cb620bf8cf56110bec60a4dd809066393a8ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3becf5ef579acdc52a51f9ad618e37460491c2ec
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067651"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146755"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Azure Application Insights 데이터를 사용하여 사용자 지정 보고서 자동화
 
@@ -95,7 +95,9 @@ availabilityResults
 5. **_Application Insights 예약된 다이제스트 템플릿_** 을 선택합니다.
 
      > [!NOTE]
-     > 함수 앱은 기본적으로 런타임 버전을 사용 하 여 생성 됩니다 2.x입니다. 수행 해야 합니다 [Azure Functions 런타임 버전을 대상](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) Application Insights를 사용 하는 1.x 다이제스트 서식 파일을 예약 합니다.
+     > 기본적으로 함수 앱은 런타임 버전 2.x로 생성 됩니다. Application Insights 예약 된 다이제스트 템플릿을 사용 하려면 [Azure Functions 런타임 버전](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) 1.x를 대상으로 해야 **합니다.**  ![런타임 스크린샷](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
+
+
 
    ![새 함수 Application Insights 템플릿 스크린샷](./media/automate-custom-reports/function-app-04.png)
 
@@ -103,7 +105,7 @@ availabilityResults
 
    ![함수 설정 스크린샷](./media/automate-custom-reports/function-app-05.png)
 
-7. **Function App** > **플랫폼 기능** > **애플리케이션 설정**을 선택합니다.
+7. **함수 앱** > **플랫폼 기능** > **애플리케이션 설정**을 선택합니다.
 
     ![Azure 함수 애플리케이션 설정 스크린샷](./media/automate-custom-reports/function-app-07.png)
 

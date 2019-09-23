@@ -13,17 +13,22 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: 0c2a28462633d47ad1d3f247793e3fcf6f4d40c0
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: b6ecf1e9cece51635afc0bf0f8025b6e117438ee
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795458"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169443"
 ---
 # <a name="application-insights-for-net-console-applications"></a>.NET 콘솔 애플리케이션용 Application Insights
+
 [Application Insights](../../azure-monitor/app/app-insights-overview.md)를 사용하여 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링할 수 있습니다.
 
 [Microsoft Azure](https://azure.com)를 구독해야 합니다. Microsoft 계정으로 로그인합니다. Windows, Xbox Live 또는 기타 Microsoft 클라우드 서비스의 계정을 사용할 수 있습니다. 팀에서 Azure를 단체 구독할 수도 있습니다. 소유자에게 Microsoft 계정을 사용하여 추가해 달라고 요청하세요.
+
+> [!NOTE]
+> 콘솔 응용 프로그램에 대해 Application Insights를 사용 하도록 설정 하는 데 사용할 수 있는 [Microsoft](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) Application Insights SDK 라는 새로운 베타 SDK가 있습니다. [여기](../../azure-monitor/app/worker-service.md)에서이 패키지 및 관련 지침을 사용 하는 것이 좋습니다. 이 패키지는 [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard)를 대상으로 하므로 .net Core 2.0 이상에서 사용할 수 있으며 .NET Framework 4.7.2 이상에서 사용할 수 있습니다.
+이 새 패키지의 안정적인 버전이 릴리스되면이 문서는 더 이상 사용 되지 않습니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -96,7 +101,7 @@ var telemetryClient = new TelemetryClient(configuration);
 
 ### <a name="configuring-telemetry-collection-from-code"></a>코드에서 원격 분석 컬렉션 구성
 > [!NOTE]
-> 구성 파일을 읽는.NET Core에서 지원 되지 않습니다. 사용 하는 것이 좋습니다 [ASP.NET Core 용 Application Insights SDK](../../azure-monitor/app/asp-net-core.md)
+> .NET Core에서는 구성 파일 읽기가 지원 되지 않습니다. [ASP.NET Core APPLICATION INSIGHTS SDK를](../../azure-monitor/app/asp-net-core.md) 사용 하는 것을 고려할 수 있습니다.
 
 * 애플리케이션이 시작하는 동안 `DependencyTrackingTelemetryModule` 인스턴스를 만들고 구성합니다. 이 인스턴스는 싱글톤이어야 하며 애플리케이션 수명 동안 유지되어야 합니다.
 
@@ -125,13 +130,13 @@ module.Initialize(configuration);
 configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-구성 일반을 사용 하 여 만든 경우 `TelemetryConfiguration()` 생성자 또한 상관 관계 지원을 사용 하도록 설정 해야 합니다. **필요 하지 않습니다** 사용 되는 구성 파일에서 읽었다면 `TelemetryConfiguration.CreateDefault()` 또는 `TelemetryConfiguration.Active`합니다.
+일반 `TelemetryConfiguration()` 생성자를 사용 하 여 구성을 만든 경우 상관 관계 지원을 추가로 사용 하도록 설정 해야 합니다. 또는 `TelemetryConfiguration.CreateDefault()` 를사용하여파일에서구성을읽는경우에는필요하지`TelemetryConfiguration.Active`않습니다.
 
 ```csharp
 configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
 ```
 
-* 설치 하 고 설명 된 대로 성능 카운터 수집기 모듈을 초기화 하려는 [여기](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+* [여기](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/) 에 설명 된 대로 성능 카운터 수집기 모듈을 설치 하 고 초기화할 수도 있습니다.
 
 
 #### <a name="full-example"></a>전체 예제
