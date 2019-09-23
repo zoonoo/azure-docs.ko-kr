@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: 4097d4fc46aac88cd44d21a4cdcf0d7d5093feea
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2d0519abdf25a6fc8373f9d1a3a7232a9783d316
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242730"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984899"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
@@ -49,8 +49,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | ---                     | ---                                                |
     | Name                    | myVirtualNetwork                                   |
     | 주소 공간           | 10.0.0.0/16                                        |
-    | 구독            | 구독을 선택합니다.                          |
-    | 리소스 그룹          | **새로 만들기**를 선택하고 *myResourceGroup*을 입력합니다. |
+    | Subscription            | 구독을 선택합니다.                          |
+    | Resource group          | **새로 만들기**를 선택하고 *myResourceGroup*을 입력합니다. |
     | 위치                | **미국 동부**를 선택합니다.                                |
     | 서브넷 - 이름            | mySubnet                                           |
     | 서브넷 - 주소 범위  | 10.0.0.0/24                                        |
@@ -66,8 +66,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 설정        | 값                                                         |
     | ---            | ---                                                           |
     | Name           | myAsgWebServers                                               |
-    | 구독   | 구독을 선택합니다.                                     |
-    | 리소스 그룹 | **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다. |
+    | Subscription   | 구독을 선택합니다.                                     |
+    | Resource group | **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다. |
     | 위치       | 미국 동부                                                       |
 
 4. 다음 값을 지정하여 3단계를 다시 완료합니다.
@@ -75,8 +75,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 설정        | 값                                                         |
     | ---            | ---                                                           |
     | Name           | myAsgMgmtServers                                              |
-    | 구독   | 구독을 선택합니다.                                     |
-    | 리소스 그룹 | **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다. |
+    | Subscription   | 구독을 선택합니다.                                     |
+    | Resource group | **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다. |
     | 위치       | 미국 동부                                                       |
 
 ## <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
@@ -88,8 +88,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     |설정|값|
     |---|---|
     |Name|myNsg|
-    |구독| 구독을 선택합니다.|
-    |리소스 그룹 | **기존 항목 사용**을 선택한 다음, *myResourceGroup*을 선택합니다.|
+    |Subscription| 구독을 선택합니다.|
+    |Resource group | **기존 항목 사용**을 선택한 다음, *myResourceGroup*을 선택합니다.|
     |위치|미국 동부|
 
 ## <a name="associate-network-security-group-to-subnet"></a>서브넷에 네트워크 보안 그룹 연결
@@ -140,27 +140,29 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. Azure Portal의 왼쪽 위 모서리에 있는 **+ 리소스 만들기**를 선택합니다.
 2. **Compute**를 선택한 다음, **Windows Server 2016 Datacenter**를 선택합니다.
-3. 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용한 다음, **확인**을 선택합니다.
+3. 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용합니다.
 
     |설정|값|
     |---|---|
+    |Subscription| 구독을 선택합니다.|
+    |Resource group| **기존 항목 사용**을 선택하고, **myResourceGroup**을 선택합니다.|
     |Name|myVmWeb|
+    |위치| **미국 동부**를 선택합니다.|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
-    |구독| 구독을 선택합니다.|
-    |리소스 그룹| **기존 항목 사용**을 선택하고, **myResourceGroup**을 선택합니다.|
-    |위치| **미국 동부**를 선택합니다.|
+
+   
 
 4. VM에 대한 크기를 선택한 다음, **선택**을 선택합니다.
-5. **설정**에서 다음 값을 선택하고, 나머지 기본값을 그대로 적용한 다음, **확인**을 선택합니다.
+5. **네트워킹**에서 다음 값을 선택하고, 나머지 기본값을 그대로 적용합니다.
 
     |설정|값|
     |---|---|
     |가상 네트워크 |**myVirtualNetwork**를 선택합니다.|
-    |네트워크 보안 그룹 | **고급**을 선택합니다.|
-    |네트워크 보안 그룹(방화벽)| **(신규) myVmWeb-nsg**를 선택한 다음, **네트워크 보안 그룹 선택**에서 **없음**을 선택합니다. |
+    |NIC 네트워크 보안 그룹 추가 |**고급**을 선택합니다.|
+    |공용 인바운드 포트|**없음**을 선택합니다. |
 
-6. **요약**의 **만들기** 아래에서 **만들기**를 선택하여 VM 배포를 시작합니다.
+6. 왼쪽 아래 모서리에서 **검토 + 만들기**를 선택하고 **만들기**를 선택하여 VM 배포를 시작합니다.
 
 ### <a name="create-the-second-vm"></a>두 번째 VM 만들기
 
