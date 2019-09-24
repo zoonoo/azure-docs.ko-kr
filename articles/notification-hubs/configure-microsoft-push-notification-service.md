@@ -1,33 +1,35 @@
 ---
 title: Azure Notification Hubs에서 Microsoft 푸시 알림 서비스 구성 | Microsoft Docs
-description: Azure 알림 허브에 대 한 Microsoft 푸시 알림 서비스 설정을 구성 하는 방법에 알아봅니다.
+description: Azure 알림 허브에 대 한 Microsoft 푸시 알림 서비스 설정을 구성 하는 방법에 대해 알아봅니다.
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
 ms.date: 03/25/2019
-ms.author: jowargo
-ms.openlocfilehash: 1c76b44438e6527439d0a370c92f4120424b8da5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/25/2019
+ms.openlocfilehash: 0d7bf5410e05bb74a215fb7a95c704673b764b93
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60240309"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212481"
 ---
-# <a name="configure-microsoft-push-notification-service-mpns-settings-for-a-notification-hub-in-the-azure-portal"></a>Azure portal에서 알림 허브에 대 한 Microsoft 푸시 알림 서비스 (MPNS) 설정 구성
-이 문서에서는 Azure portal을 사용 하 여 Azure 알림 허브에 대 한 Microsoft 푸시 알림 서비스 (MPNS) 설정을 구성 하는 방법을 보여 줍니다. 
+# <a name="configure-microsoft-push-notification-service-mpns-settings-for-a-notification-hub-in-the-azure-portal"></a>Azure Portal에서 알림 허브에 대 한 MPNS (Microsoft 푸시 알림 서비스) 설정 구성
+이 문서에서는 Azure Portal를 사용 하 여 Azure 알림 허브에 대 한 MPNS (Microsoft 푸시 알림 서비스) 설정을 구성 하는 방법을 보여 줍니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 알림 허브를 아직 만들지 않은 경우 지금 만듭니다. 자세한 내용은 [Azure Portal에 Azure 알림 허브 만들기](create-notification-hub-portal.md)를 참조하세요. 
 
-## <a name="configure-microsoft-push-notification-service-mpns"></a>Microsoft 푸시 알림 서비스 (MPNS)를 구성 합니다.
+## <a name="configure-microsoft-push-notification-service-mpns"></a>MPNS (Microsoft 푸시 알림 서비스) 구성
 
-다음 절차는 알림 허브에 대 한 Microsoft 푸시 알림 서비스 (MPNS) 설정을 구성 하는 단계를 제공 합니다. 
+다음 절차에서는 알림 허브에 대 한 MPNS (Microsoft 푸시 알림 서비스) 설정을 구성 하는 단계를 제공 합니다. 
 
-1. Azure portal에서에 **알림 허브** 페이지에서 **Windows Phone (MPNS)** 왼쪽된 메뉴에서.
+1. Azure Portal의 **알림 허브** 페이지에서 왼쪽 메뉴에 있는 **Windows Phone (MPNS)** 를 선택 합니다.
 1. 인증되지 않았거나 인증된 푸시 알림 사용:
 
    a. 인증되지 않은 푸시 알림을 사용하도록 설정하려면 **인증되지 않은 푸시 사용** > **저장**을 선택합니다.
@@ -42,5 +44,5 @@ ms.locfileid: "60240309"
       * **Windows Phone(MPNS)** 페이지에서 **저장**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Notification Hubs 및 Microsoft 푸시 알림 서비스 (MPNS)를 사용 하 여 Windows Phone 장치에 알림을 푸시하는 것에 대 한 단계별 지침이 포함 된 자습서를 참조 하세요. [알림을 사용 하 여 Windows Phone 앱에 알림 푸시 허브](notification-hubs-windows-mobile-push-notifications-mpns.md)합니다.
+Azure Notification Hubs 및 MPNS (Microsoft 푸시 알림 서비스)를 사용 하 여 Windows Phone 장치에 알림을 푸시하는 방법에 대 한 단계별 지침이 포함 된 자습서는 [Notification Hubs를 사용 하 여 Windows Phone 앱에 대 한 푸시 알림](notification-hubs-windows-mobile-push-notifications-mpns.md)을 참조 하세요.
 

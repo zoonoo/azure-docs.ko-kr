@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 93eddc0ff8f1a1af8b485fcdb891f72d874b5c0a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: c1b372dbeaea31e83c8ff42a84fc39d762b2ebdb
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202953"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212258"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 
@@ -245,15 +245,15 @@ AKS 클러스터의 모든 노드 풀을 동일한 Kubernetes 버전으로 업�
 AKS 클러스터에는 Kubernetes 버전이 연결 된 두 개의 클러스터 리소스 개체가 있습니다. 첫 번째는 Kubernetes 버전의 제어 평면입니다. 두 번째는 Kubernetes 버전을 포함 하는 에이전트 풀입니다. 컨트롤 평면은 하나 이상의 노드 풀에 매핑됩니다. 업그레이드 작업의 동작은 사용 되는 Azure CLI 명령에 따라 달라 집니다.
 
 1. 컨트롤 평면을 업그레이드 하려면를 사용 해야 합니다.`az aks upgrade`
-   * 이렇게 하면 클러스터에 있는 모든 노드 풀 및 제어 평면 버전이 업그레이드 됩니다.
-   * 플래그를`--control-plane-only` 사용 하 여 전달 `az aks upgrade` 하면 클러스터 제어 평면만 업그레이드 되 고 `--control-plane-only` 연결 된 노드 풀은 업그레이드 되지 않습니다. * **AKS-preview 확장 v 0.4.16** 이상에서 플래그를 사용할 수 있습니다.
+   * 이렇게 하면 클러스터의 모든 노드 풀과 제어 평면 버전이 업그레이드 됩니다.
+   * 플래그와 함께를 전달 `az aks upgrade` 하면 클러스터 제어 평면만 업그레이드 되 고 연결 된 노드 풀은 변경 되지 않습니다. `--control-plane-only` 플래그 `--control-plane-only` 는 **AKS-preview 확장 v 0.4.16** 이상에서 사용할 수 있습니다.
 1. 개별 노드 풀을 업그레이드 하려면를 사용 해야 합니다.`az aks nodepool upgrade`
    * 지정 된 Kubernetes 버전을 사용 하 여 대상 노드 풀만 업그레이드 합니다.
 
 노드 풀에서 보유 한 Kubernetes 버전 간의 관계도 일련의 규칙을 따라야 합니다.
 
 1. 제어 평면과 노드 풀 Kubernetes 버전을 다운 그레이드할 수 없습니다.
-1. Node pool Kubernetes version을 지정 하지 않은 경우 사용 되는 기본값은 제어 평면 버전으로 대체 됩니다.
+1. Node pool Kubernetes version을 지정 하지 않은 경우 동작은 사용 되는 클라이언트에 따라 달라 집니다. ARM 템플릿의 선언에 대해 노드 풀에 대해 정의 된 기존 버전이 사용 됩니다. 설정 된 항목이 없으면 제어 평면 버전이 사용 됩니다.
 1. 지정 된 시간에 제어 평면 또는 노드 풀을 업그레이드 하거나 크기를 조정할 수 있습니다. 두 작업을 동시에 전송할 수는 없습니다.
 1. 노드 풀 Kubernetes 버전은 제어 평면과 동일한 주 버전 이어야 합니다.
 1. Node pool Kubernetes 버전은 제어 평면 보다 두 개 (2) 부 버전이 될 수 있으며, 더 크지 않습니다.
@@ -593,7 +593,7 @@ AKS 노드에는 통신에 고유한 공용 IP 주소가 필요 하지 않습니
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-등록을 완료 한 후 [위에](#manage-node-pools-using-a-resource-manager-template) 나와 있는 것과 동일한 지침에 따라 Azure Resource Manager 템플릿을 배포 하 고 agentpoolprofiles에 다음과 같은 부울 값 속성 "enableNodePublicIP"를 추가 합니다. 이를 `true` 기본적 `false` 으로로 설정 합니다. 지정 하지 않은 경우로 설정 됩니다. 이는 생성 시간 전용 속성 이며 최소 API 버전 2019-06-01이 필요 합니다. 이는 Linux 및 Windows 노드 풀 모두에 적용할 수 있습니다.
+등록을 완료 한 후 [위에](#manage-node-pools-using-a-resource-manager-template) 나와 있는 것과 동일한 지침에 따라 Azure Resource Manager 템플릿을 배포 하 고 agentpoolprofiles에 다음과 같은 부울 값 속성 "enableNodePublicIP"를 추가 합니다. 이를 `true` 기본적으로로 설정 합니다. 지정 하지 `false` 않은 경우로 설정 됩니다. 이는 생성 시간 전용 속성 이며 최소 API 버전 2019-06-01이 필요 합니다. 이는 Linux 및 Windows 노드 풀 모두에 적용할 수 있습니다.
 
 ```
 "agentPoolProfiles":[  

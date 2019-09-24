@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 7d015f485a51ae1f929e2ecaf1a05811d21594a2
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a693b14bb61eb52a09ab1f1ecd5d00b339357d5d
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816021"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240380"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Azure Monitor 로그를 사용 하 여 HDInsight 클러스터 모니터링
 
@@ -24,7 +24,7 @@ Azure Monitor 로그를 사용 하 여 HDInsight에서 Hadoop 클러스터 작�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Log Analytics 작업 영역** - 이 작업 영역은 고유한 데이터 리포지토리, 데이터 원본 및 솔루션이 있는 고유한 Azure Monitor 로그 환경으로 생각할 수 있습니다. 지침은 [Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace)를 참조하세요.
 
@@ -56,7 +56,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. **작업 영역 선택** 드롭다운 목록에서 기존 Log Analytics 작업 영역을 선택합니다.
 
-1.           **저장**을 선택합니다.  설정을 저장하는 데 몇 분 정도 걸립니다.
+1. **저장**을 선택합니다.  설정을 저장하는 데 몇 분 정도 걸립니다.
 
     ![HDInsight 클러스터에 대한 모니터링 사용](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "HDInsight 클러스터에 대한 모니터링 사용")
 
@@ -109,6 +109,15 @@ HDInsight는 Azure Monitor 로그에 추가할 수 있는 클러스터 특정 �
 ## <a name="configuring-performance-counters"></a>성능 카운터 구성
 
 또한 Azure monitor는 클러스터의 노드에 대 한 성능 메트릭을 수집 하 고 분석 하는 것을 지원 합니다. 이 기능을 사용 하도록 설정 하 고 구성 하는 방법에 대 한 자세한 내용은 [Azure Monitor의 Linux 성능 데이터 원본](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#linux-performance-counters)을 참조 하세요.
+
+## <a name="cluster-auditing"></a>클러스터 감사
+
+HDInsight는 다음 유형의 로그를 가져와 Azure Monitor 로그를 사용 하 여 클러스터 감사를 지원 합니다.
+
+* `log_gateway_audit_CL`-이 테이블은 성공 및 실패 한 로그인 시도를 표시 하는 클러스터 게이트웨이 노드의 감사 로그를 제공 합니다.
+* `log_auth_CL`-이 테이블은 성공 및 실패 한 로그인 시도를 포함 하는 SSH 로그를 제공 합니다.
+* `log_ambari_audit_CL`-이 테이블은 Ambari의 감사 로그를 제공 합니다.
+* `log_ranger_audti_CL`-이 테이블은 ESP 클러스터에서 Apache 레인저의 감사 로그를 제공 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

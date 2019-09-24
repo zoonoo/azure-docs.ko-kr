@@ -1,6 +1,6 @@
 ---
-title: Azure 미리 보기 Sentinel Symantec ICDx 데이터 연결할 | Microsoft Docs
-description: Symantec ICDx 데이터 Azure Sentinel를 연결 하는 방법에 알아봅니다.
+title: Azure 센티널에 Symantec ICDx 데이터 연결 | Microsoft Docs
+description: Azure 센티널에 Symantec ICDx 데이터를 연결 하는 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,71 +13,69 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/04/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 74169b4bd2654fb0ff7ec4cdb2f2b02c0f4cc6e8
-ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
+ms.openlocfilehash: 0250780c85041c07fabf7d5ed268d1f3cdb63e18
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673747"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240641"
 ---
-# <a name="connect-your-symantec-icdx-appliance"></a>Symantec ICDx 어플라이언스에서 연결 
+# <a name="connect-your-symantec-icdx-appliance"></a>Symantec ICDx 어플라이언스 연결 
 
-> [!IMPORTANT]
-> Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-Symantec ICDx 커넥터를 사용 하면 프로그램 Azure Sentinel, 대시보드 보기, 사용자 지정 경고를 만들고, 조사가 향상으로 모든 Symantec 보안 솔루션 로그를 쉽게 연결할 수 있습니다. 이 조직의 네트워크에 대 한 자세한 정보를 제공 하며 사용자 보안 작업 기능을 향상 시킵니다. Symantec ICDx와 Azure Sentinel 간의 통합을 사용 하면 REST API를 사용 합니다.
+
+Symantec ICDx 커넥터를 사용 하면 Azure 센티널에 모든 Symantec 보안 솔루션 로그를 쉽게 연결 하 고, 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선할 수 있습니다. 이렇게 하면 조직의 네트워크에 대 한 자세한 정보를 제공 하 고 보안 작업 기능을 향상 시킬 수 있습니다. Symantec ICDx와 Azure 센티널을 통합 하면 REST API를 사용 합니다.
 
 
 > [!NOTE]
-> 데이터 작업 영역의 Azure Sentinel 실행 하는 지리적 위치에 저장 됩니다.
+> 데이터는 Azure 센티널을 실행 하는 작업 영역의 지리적 위치에 저장 됩니다.
 
-## <a name="configure-and-connect-symantec-icdx"></a>구성 하 고 Symantec ICDx 연결 
+## <a name="configure-and-connect-symantec-icdx"></a>Symantec ICDx 구성 및 연결 
 
-Symantec ICDx 통합 하 고 Azure Sentinel에 직접 로그를 내보낼 수 있습니다.
+Symantec ICDx는 로그를 Azure 센티널로 직접 통합 하 고 내보낼 수 있습니다.
 
-1. Microsoft Azure Sentinel (Log Analytics) 전달자를 추가 하려면 ICDx 관리 콘솔을 엽니다.
-2. ICDx 탐색 모음에서 클릭 **구성**합니다. 
-3. 맨 위에 있는 합니다 **구성** 화면에서 클릭 **전달자**합니다.
-4. 아래 **전달자**, Microsoft Azure Sentinel (Log Analytics), 옆에 있는 **추가**합니다. 
-4. 에 **Microsoft Azure (Log Analytics) Sentinel** 창 클릭 **고급 표시**합니다. 
-5. 확장된 된 맨 위에 있는 Microsoft Azure Sentinel (Log Analytics) 창에 다음을 수행 합니다.
-    -   **이름**: 30 개 이상의 문자가 포함 된 전달자에 대 한 이름을 입력 합니다. 고유 하 고 의미 있는 이름을 선택 합니다. 이 이름은의 전달자 목록에 표시 됩니다는 **구성** 화면에서 대시보드 및 합니다 **대시보드** 화면. 예를 들어: Microsoft Azure Log Analytics East. 이 필드는 필수입니다.
-    -   **설명**: 전달자에 대 한 설명을 입력 합니다. 이 설명은 나타나는 전달자 목록에는 **구성** 화면. 전달 중인 이벤트 유형과 같은 정보와 데이터를 검사 해야 하는 그룹을 포함 합니다.
-    -   **시작 유형**: 전달자 구성에 대 한 시작 방법을 선택 합니다. 옵션은 수동 및 자동입니다.<br>기본값은 자동입니다. 
-6. 아래 **이벤트**, 다음을 수행 합니다. 
-    - **원본**: 이벤트를 전달 하는 하나 이상의 보관 파일을 선택 합니다. 분리 된 활성 수집기 보관 (일반적인 보관 파일 포함)를 선택할 수 있습니다 수집기 보관 파일 (즉, 보관 파일을 삭제 하는 수집기에 대 한), ICDx 수신기 보관, 또는 시스템 보관 합니다. <br>기본값은 일반적인 보관 합니다.
+1. ICDx 관리 콘솔을 열어 Microsoft Azure 센티널 (Log Analytics) 전달자를 추가 합니다.
+2. ICDx 탐색 모음에서 **구성**을 클릭 합니다. 
+3. **구성** 화면 맨 위에서 **전달자**를 클릭 합니다.
+4. **전달자**에서 Microsoft Azure 센티널 (Log Analytics) 옆에 있는 **추가**를 클릭 합니다. 
+4. **Microsoft Azure 센티널 (Log Analytics)** 창에서 **고급 표시**를 클릭 합니다. 
+5. Microsoft Azure 센티널 (Log Analytics) 창의 위쪽에서 다음을 수행 합니다.
+    -   **Name**: 전달 자가 30 자이 하를 포함 하는 이름을 입력 합니다. 고유 하 고 의미 있는 이름을 선택 합니다. 이 이름은 **구성** 화면의 전달자 목록 및 **대시보드** 화면에 표시 됩니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. Microsoft Azure Log Analytics East. 이 필드는 필수입니다.
+    -   **설명**: 전달자에 대 한 설명을 입력 합니다. 이 설명은 **구성** 화면의 전달자 목록에도 표시 됩니다. 전달 되는 이벤트 유형과 데이터를 검사 해야 하는 그룹 등의 세부 정보를 포함 합니다.
+    -   **시작 유형**: 전달자 구성의 시작 방법을 선택 합니다. 옵션은 수동 및 자동입니다.<br>기본값은 자동입니다. 
+6. **이벤트**에서 다음을 수행 합니다. 
+    - **원본**: 이벤트를 전달 하는 보관 파일을 하나 이상 선택 합니다. 활성 수집기 보관 파일 (일반적인 보관 파일 포함), 분리 된 수집기 보관 파일 (삭제 한 수집기에 대 한 보관 파일), ICDx 수신기 보관 또는 시스템 보관을 선택할 수 있습니다. <br>기본값은 일반적인 보관 파일입니다.
       > [!NOTE]
-      > ICDx 수신기 보관 파일 이름으로 개별적으로 나열 됩니다. 
+      > ICDx 받는 사람 보관 파일은 이름별로 별도로 나열 됩니다. 
  
-    - **필터**: 전달할 이벤트의 하위 집합을 지정 하는 필터를 추가 합니다. 다음 작업 중 하나를 수행합니다.
-        - 필터 조건을 선택한 형식, 특성, 연산자 및 값을 클릭 합니다. 
-        - 필터 필드를 필터 조건을 검토 합니다. 필드에 직접 편집 하거나 필요에 따라 삭제할 수 있습니다.
-        - 클릭 또는 및 또는 필터 조건에 추가 합니다.
-        - 저장된 된 쿼리를 적용 하려면 저장 된 쿼리를 클릭할 수도 있습니다.
-    - **특성을 포함**: 전달 된 데이터에 포함할 특성을 쉼표로 구분 된 목록을 입력 합니다. 포함 된 특성 제외 되는 특성 보다 우선합니다.
-    - **제외 된 특성**: 전달 된 데이터에서 제외 하려면 특성의 쉼표로 구분 된 목록을 입력 합니다.
-    - **일괄 처리 크기**: 일괄 처리당 보낼 이벤트의 수를 선택 합니다. 옵션에는 10, 50, 100, 500 및 1000 됩니다.<br>기본값은 100입니다. 
-    - **속도 제한**: 이벤트 전달 되는, 초당 이벤트로 표현 되는 속도 선택 합니다. 옵션은 무제한, 500, 1000, 5000, 10000입니다. <br> 기본값은 5000입니다. 
-7. 아래 **Azure 대상**, 다음을 수행 합니다. 
+    - **필터**: 전달할 이벤트의 하위 집합을 지정 하는 필터를 추가 합니다. 다음 중 하나를 수행합니다.
+        - 필터 조건을 선택 하려면 유형, 특성, 연산자 및 값을 클릭 합니다. 
+        - 필터 필드에서 필터 조건을 검토 합니다. 필드에서 직접 편집 하거나 필요에 따라 삭제할 수 있습니다.
+        - AND 또는 OR를 클릭 하 여 필터 조건에 추가 합니다.
+        - 저장 된 쿼리를 클릭 하 여 저장 된 쿼리를 적용할 수도 있습니다.
+    - **포함 된 특성**: 전달 된 데이터에 포함할 쉼표로 구분 된 특성 목록을 입력 합니다. 포함 된 특성은 제외 된 특성 보다 우선적으로 적용 됩니다.
+    - **제외 된 특성**: 전달 된 데이터에서 제외할 특성의 쉼표로 구분 된 목록을 입력 합니다.
+    - **일괄 처리 크기**: 일괄 처리당 전송할 이벤트 수를 선택 합니다. 옵션은 10, 50, 100, 500 및 1000입니다.<br>기본값은 100입니다. 
+    - **전송률 제한**: 이벤트가 전달 되는 속도를 선택 하 여 초당 이벤트로 표시 합니다. 옵션은 무제한, 500, 1000, 5000, 1만입니다. <br> 기본값은 5000입니다. 
+7. **Azure Destination**에서 다음을 수행 합니다. 
     - **작업 영역 ID**: 아래에서 작업 영역 ID를 붙여 넣습니다. 이 필드는 필수입니다.
-    - **기본 키**: 아래에서 기본 키를 붙여 넣습니다. 이 필드는 필수입니다.
-    - **사용자 지정 로그 이름을**: Microsoft Azure 포털 Log Analytics 작업 영역에서 이벤트를 전달 하려는는 사용자 지정 로그 이름을 입력 합니다. 기본값은 SymantecICDx 합니다. 이 필드는 필수입니다.
-8. 클릭 *저장할* 전달자 구성을 완료 합니다. 
-9. 아래에 있는 전달자를 시작 하려면 **옵션**, 클릭 **자세한** 차례로 **시작**합니다.
-10. Log Analytics에서 관련 스키마를 사용 하 여 Symantec ICDx 이벤트를 검색할 **SymantecICDx_CL**합니다.
+    - **기본 키**: 아래에서 기본 키를 붙여넣습니다. 이 필드는 필수입니다.
+    - **사용자 지정 로그 이름**: 이벤트를 전달 하려는 Microsoft Azure portal Log Analytics 작업 영역에 사용자 지정 로그 이름을 입력 합니다. 기본값은 SymantecICDx입니다. 이 필드는 필수입니다.
+8. *저장* 을 클릭 하 여 전달자 구성을 완료 합니다. 
+9. 전달자를 시작 하려면 **옵션**에서 **추가** 를 클릭 한 다음 **시작**을 클릭 합니다.
+10. Symantec ICDx 이벤트의 Log Analytics에서 관련 스키마를 사용 하려면 **SymantecICDx_CL**를 검색 합니다.
 
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사
 
-수준도 로그를 Log Analytics에 나타나기 시작 될 때까지 20 분 정도 걸릴 수 있습니다. 
+로그가 Log Analytics 표시 되기 시작할 때까지 20 분 정도 걸릴 수 있습니다. 
 
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Sentinel Symantec ICDx 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- 에 대해 알아봅니다 하는 방법 [데이터에 잠재적 위협을 파악](quickstart-get-visibility.md)합니다.
-- 시작 [사용 하 여 Azure Sentinel 위협을 감지 하도록](tutorial-detect-threats.md)합니다.
+이 문서에서는 Symantec ICDx를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+- [데이터 및 잠재적 위협에 대 한 가시성을 얻는](quickstart-get-visibility.md)방법에 대해 알아봅니다.
+- [Azure 센티널로 위협 검색을](tutorial-detect-threats-built-in.md)시작 합니다.
 

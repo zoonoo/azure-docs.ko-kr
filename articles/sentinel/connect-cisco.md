@@ -1,5 +1,5 @@
 ---
-title: Azure 센티널 Preview에 Cisco 데이터 연결 | Microsoft Docs
+title: Azure 센티널에 Cisco 데이터 연결 | Microsoft Docs
 description: Cisco 데이터를 Azure 센티널에 연결 하는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: e4df594128a119f38c66796d7b00a30420a2a0bd
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 6218d3a53df38e938b7d7805c45facd30f850105
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679322"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240153"
 ---
 # <a name="connect-your-cisco-asa-appliance"></a>Cisco GLOBAL.ASA 어플라이언스 연결 
 
-> [!IMPORTANT]
-> Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
 
 Azure 센티널을 Cisco의 모든 어플라이언스에 연결할 수 있습니다. Cisco은 기본적으로 데이터 수집을 위해 Azure 센티널과 통합 되어 Cisco 어플라이언스에서 로그를 CEF로 저장 하지 않더라도 CEF 로그를 처리 하는 것과 같은 방식으로 Azure 센티널 수집 합니다. Azure 센티널과 통합 하면 Cisco의 로그 파일 데이터에 대해 분석과 쿼리를 쉽게 실행할 수 있습니다. 
 
@@ -131,5 +129,5 @@ Cisco 이벤트의 Log Analytics에서 관련 스키마를 사용 하려면를 �
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Cisco GLOBAL.ASA 어플라이언스를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [데이터 및 잠재적 위협에 대 한 가시성을 얻는](quickstart-get-visibility.md)방법에 대해 알아봅니다.
-- [Azure 센티널로 위협 검색을](tutorial-detect-threats.md)시작 합니다.
+- [Azure 센티널로 위협 검색을](tutorial-detect-threats-built-in.md)시작 합니다.
 

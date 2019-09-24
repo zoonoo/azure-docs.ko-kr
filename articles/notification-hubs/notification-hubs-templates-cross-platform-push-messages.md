@@ -3,9 +3,9 @@ title: 템플릿
 description: 이 항목에서는 Azure 알림 허브용 템플릿에 대해 설명합니다.
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 02473eb5649c7d201b6a54fd57faea997c1a21cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 54c53fee260062960d6bce9c1822971c935d88d1
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60872108"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212996"
 ---
 # <a name="templates"></a>템플릿
 
@@ -143,7 +145,7 @@ Windows 스토어 클라이언트 앱에 대한 해당 템플릿은 다음과 �
 
 위의 모든 형태가 식이 될 수 있습니다.
 
-연결을 사용할 경우 전체 식을 `{}`로 묶어야 합니다. 예: `{$(prop) + ‘ - ’ + $(prop2)}`.
+연결을 사용할 경우 전체 식을 `{}`로 묶어야 합니다. 예를 들어, `{$(prop) + ‘ - ’ + $(prop2)}`을 입력합니다.
 
 예를 들어 다음 템플릿은 올바른 XML 템플릿이 아닙니다.
 
@@ -157,7 +159,7 @@ Windows 스토어 클라이언트 앱에 대한 해당 템플릿은 다음과 �
 </tile>
 ```
 
-앞에서 설명한 대로 연결을 사용하는 경우 식을 중괄호로 묶어야 합니다. 예를 들면 다음과 같습니다.
+앞에서 설명한 대로 연결을 사용하는 경우 식을 중괄호로 묶어야 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```xml
 <tile>

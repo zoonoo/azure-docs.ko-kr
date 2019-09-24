@@ -3,9 +3,9 @@ title: 'Azure Notification Hubs: FAQ(질문과 대답) | Microsoft Docs'
 description: Notification Hubs에서 솔루션을 디자인/구현하는 방법과 관련한 FAQ
 services: notification-hubs
 documentationcenter: mobile
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 keywords: 푸시 알림, 푸시 알림, iOS 푸시 알림, Android 푸시 알림, iOS 푸시, Android 푸시
 ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
-ms.author: jowargo
-ms.openlocfilehash: a434101a806a810218927cbf0bc24fa0d22c5628
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 5de8c9523e05411a4751766c836b8e99ebb977c1
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67488656"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213141"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs를 사용하는 푸시 알림: 질문과 대답
 
@@ -69,7 +71,7 @@ Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리
 
 ### <a name="which-client-platforms-do-you-support"></a>어떤 클라이언트 플랫폼이 지원되나요?
 
-푸시 알림을 지 [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md)합니다 [Windows 유니버설](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)를 [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China ( baidu 제공)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) 고 Android, 및 [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari)합니다. 자세한 내용을 보려면 [Notification Hubs 시작 자습서] 페이지로 이동하세요.
+푸시 알림은 [ios](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md) [Android China (Baidu를 통해)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([ios](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) 및 android, [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari))에 대해 지원 됩니다. 자세한 내용을 보려면 [Notification Hubs 시작 자습서] 페이지로 이동하세요.
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>문자 메시지, 전자 메일, 웹 알림이 지원되나요?
 
@@ -85,7 +87,7 @@ Notification Hubs는 기본적으로 모바일 앱에 알림을 보내도록 디
 
 지원되는 디바이스 수에 대한 내용은 [Notification Hubs 가격 책정] 페이지를 참조하세요.
 
-10 백만 개 이상의 등록 된 장치에 대 한 지원이 필요한 경우에 여러 허브에서 장치를 분할 해야 합니다.
+1000만 개 이상의 등록 된 장치에 대 한 지원이 필요한 경우 여러 허브에서 장치를 분할 해야 합니다.
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>보낼 수 있는 푸시 알림 수는 몇 개인가요?
 
@@ -195,11 +197,11 @@ Azure Notification Hubs에서는 문제 해결을 위한 여러 기능을 제공
 
 Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 확인할 수 있습니다. 사용 가능한 메트릭에 대한 자세한 내용은 [Notification Hubs 메트릭] 페이지에서 제공됩니다.
 
-또한 프로그래밍 방식으로 메트릭에 액세스할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
+프로그래밍 방식으로 메트릭에 액세스할 수도 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-- [.NET을 사용 하 여 Azure Monitor 메트릭 검색](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)합니다. 이 샘플에서는 사용자 이름 및 암호를 사용 합니다. 인증서를 사용 하려면에 표시 된 대로 인증서를 제공할 FromServicePrincipal 메서드를 오버 로드 [이 예제에서는](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs)합니다. 
+- [.Net을 사용 하 여 Azure Monitor 메트릭을 검색](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)합니다. 이 샘플에서는 사용자 이름 및 암호를 사용 합니다. 인증서를 사용 하려면 [다음 예제](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs)와 같이 FromServicePrincipal 메서드를 오버 로드 하 여 인증서를 제공 합니다. 
 - [리소스에 대 한 메트릭 및 활동 로그 가져오기](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
-- [Azure Monitoring REST API 연습](../azure-monitor/platform/rest-api-walkthrough.md)
+- [Azure 모니터링 REST API 연습](../azure-monitor/platform/rest-api-walkthrough.md)
 
 
 > [!NOTE]

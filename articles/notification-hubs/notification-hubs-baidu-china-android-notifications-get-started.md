@@ -3,21 +3,23 @@ title: Baidu를 사용하여 Azure Notification Hubs 시작 | Microsoft Docs
 description: 이 자습서에서 Baidu를 사용하여 Azure Notification Hubs에서 Android 디바이스로 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: android
-author: jwargo
-manager: patniko
+author: sethmanheim
+manager: femila
 ms.service: notification-hubs
 ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 06/19/2019
-ms.author: jowargo
-ms.openlocfilehash: 7a3a9affc0fd5e83c7f6046e70d198cce08cb3e1
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 06/19/2019
+ms.openlocfilehash: de02c1add1d6ea3a98d30407b7661e71a28458fe
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886047"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211918"
 ---
 # <a name="deprecated-get-started-with-notification-hubs-using-baidu"></a>Mapi Baidu를 사용하여 Notification Hubs 시작
 
@@ -30,7 +32,7 @@ Baidu 클라우드 푸시는 모바일 디바이스로 푸시 알림을 보내�
 
 Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없으므로 다른 앱 스토어 및 푸시 서비스를 사용해야 합니다. Baidu는 그 중 하나이며 현재 알림 허브에서 사용하는 것입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 사용하려면 다음이 필요합니다.
 

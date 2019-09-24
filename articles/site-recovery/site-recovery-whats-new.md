@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/18/2019
 ms.author: raynew
-ms.openlocfilehash: 867a2dc9739e839a6957190f93311a811556df15
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: c54273e0ca8c88a6fe47d5611950acd38f50b4c0
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010239"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212807"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -22,7 +22,7 @@ ms.locfileid: "71010239"
 
 ## <a name="supported-updates"></a>지원 되는 업데이트
 
-Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 N은 최신 릴리스 버전입니다. 각각은 다음 표에 요약되어 있습니다.
+Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 N은 최신 릴리스 버전입니다. 다음 표에 요약 되어 있습니다.
 
 **Update 함수** |  **통합 설정** | **구성 서버 ova** | **모바일 서비스 에이전트** | **Site Recovery 공급자** | **Recovery Services 에이전트**
 --- | --- | --- | --- | --- | ---
@@ -111,7 +111,7 @@ Azure VM 재해 복구에 대 한 새로운 기능이 표에 요약 되어 있�
 
 ### <a name="general"></a>일반
 
-Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 저장소 계정 사용을 지원 합니다. 이전에는 v1만 지원 되었습니다.
+Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 저장소 계정을 사용할 수 있도록 지원 합니다. 이전에는 v1만 지원 되었습니다.
 
 ### <a name="vmware-to-azure-disaster-recovery"></a>VMware에서 Azure로 재해 복구
 

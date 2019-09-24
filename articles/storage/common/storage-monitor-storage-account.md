@@ -1,5 +1,5 @@
 ---
-title: Azure Storage 계정을 모니터링하는 방법 | Microsoft Docs
+title: Azure Portal에서 Azure Storage 계정을 모니터링 하는 방법 Microsoft Docs
 description: Azure 포털을 사용하여 Azure에서 스토리지 계정을 모니터링하는 방법에 대해 알아봅니다.
 author: normesta
 ms.service: storage
@@ -8,16 +8,18 @@ ms.date: 07/31/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 912c1c3403191f40dac054f99f29ac60ba84ce8f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 143574ff02960fcd0fd33ccaed5a80a9bb4f3147
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844910"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211861"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Azure 포털에서 스토리지 계정 모니터링
 
-[Azure Storage 분석](storage-analytics.md)은 모든 Storage 서비스에 대한 메트릭과 Blob, 큐 및 테이블에 대한 로그를 제공합니다. [Azure Portal](https://portal.azure.com)을 사용하여 계정에 기록되는 메트릭 및 로그를 구성하고, 메트릭 데이터를 시각적으로 표현하는 차트를 구성할 수 있습니다.
+[Azure Storage 분석](storage-analytics.md)은 모든 Storage 서비스에 대한 메트릭과 Blob, 큐 및 테이블에 대한 로그를 제공합니다. [Azure Portal](https://portal.azure.com)을 사용하여 계정에 기록되는 메트릭 및 로그를 구성하고, 메트릭 데이터를 시각적으로 표현하는 차트를 구성할 수 있습니다. 
+
+저장소 (미리 보기) [에 대 한 Azure Monitor](../../azure-monitor/insights/storage-insights-overview.md) 를 검토 하는 것이 좋습니다. Azure Storage 서비스 성능, 용량 및 가용성에 대 한 통합 보기를 제공 하 여 Azure Storage 계정에 대 한 포괄적인 모니터링을 제공 하는 Azure Monitor 기능입니다. 모든 항목을 사용 하도록 설정 하거나 구성 하지 않아도 되며, 미리 정의 된 대화형 차트 및 기타 시각화에서 이러한 메트릭을 즉시 볼 수 있습니다.
 
 > [!NOTE]
 > Azure Portal에서 모니터링 데이터를 검사하는 데 관련된 비용이 있습니다. 자세한 정보는 [스토리지 분석](storage-analytics.md)을 참조하세요.
@@ -134,7 +136,7 @@ Azure Storage에서 Blob, 테이블 및 큐 서비스에 대한 읽기, 쓰기 �
 1. **상태**가 **사용**(On)으로 설정되어 있는지 확인하고, 로깅을 사용하도록 설정하려는 **서비스**를 선택합니다.
 
     ![Azure Portal에서 로깅 구성](./media/storage-monitor-storage-account/enable-diagnostics.png)
-1. **Save**을 클릭합니다.
+1. **저장**을 클릭합니다.
 
 진단 로그는 스토리지 계정의 이름이 *$logs*인 Blob 컨테이너에 저장됩니다. [Microsoft Storage Explorer](https://storageexplorer.com)와 같은 스토리지 탐색기를 사용하거나 Storage 클라이언트 라이브러리 또는 PowerShell을 프로그래밍 방식으로 사용하여 로그 데이터를 볼 수 있습니다.
 

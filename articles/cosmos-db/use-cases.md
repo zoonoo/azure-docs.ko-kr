@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 04c1466c47d28f638bf7461050cb06b59c7d2396
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: e22b426b2172c169f9343569fffac57f370afbee
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614234"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219872"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>일반적인 Azure Cosmos DB 사용 사례
 이 문서에서는 Azure Cosmos DB의 몇 가지 일반적인 사용 사례를 간략하게 설명합니다.  이 문서의 권장 사항은 Cosmos DB로 애플리케이션을 개발할 때 시작점 역할을 합니다.   
@@ -40,7 +40,7 @@ Azure Cosmos DB는 광범위한 애플리케이션 및 사용 사례에서 사�
 이러한 특성은 낮은 응답 시간이 필요하고 방대한 양의 읽기 및 쓰기를 처리해야 하는 웹, 모바일, 게임 및 IoT 애플리케이션에 유용합니다.
 
 ## <a name="iot-and-telematics"></a>IoT 및 텔레매틱스
-IoT 사용 사례는 일반적으로 데이터를 수집, 처리 및 저장하는 방법에서 일부 패턴을 공유합니다.  먼저 이러한 시스템이 다양한 로컬의 디바이스 센서에서 데이터 버스트를 수집해야 합니다. 다음으로 이러한 시스템이 스트리밍 데이터를 처리 및 분석하여 실시간 통찰력을 끌어냅니다. 그런 다음 배치 분석에 사용할 수 있도록 데이터를 콜드 스토리지에 보관합니다. Microsoft Azure 제품은 Azure Cosmos DB, Azure Event Hubs, Azure Stream Analytics, Azure Notification Hub, Azure Machine Learning, Azure HDInsight 및 PowerBI를 비롯한 IoT 사용 사례에 적용할 수 있는 다양한 서비스를 제공합니다. 
+IoT 사용 사례는 일반적으로 데이터를 수집, 처리 및 저장하는 방법에서 일부 패턴을 공유합니다.  먼저 이러한 시스템이 다양한 로컬의 디바이스 센서에서 데이터 버스트를 수집해야 합니다. 다음으로 이러한 시스템이 스트리밍 데이터를 처리 및 분석하여 실시간 통찰력을 끌어냅니다. 그런 다음 배치 분석에 사용할 수 있도록 데이터를 콜드 스토리지에 보관합니다. Microsoft Azure Azure Cosmos DB, Azure Event Hubs, Azure Stream Analytics, Azure Notification Hub, Azure Machine Learning, Azure HDInsight 및 Power BI를 비롯 한 IoT 사용 사례에 적용할 수 있는 다양 한 서비스를 제공 합니다. 
 
 ![Azure Cosmos DB IoT 참조 아키텍처](./media/use-cases/iot.png)
 
@@ -98,32 +98,7 @@ Cosmos DB에서 지원되는 형식인 JSON은 간단할 뿐 아니라 JavaScrip
 ![Azure Cosmos DB 웹앱 참조 아키텍처](./media/use-cases/personalization.png)
 
 ## <a name="next-steps"></a>다음 단계
-Azure Cosmos DB를 시작하려면 계정을 만들고 Cosmos DB를 시작하는 과정을 안내하는 [빠른 시작](create-sql-api-dotnet.md)을 따릅니다. 
 
-또는 Cosmos DB를 사용하는 고객에 대한 추가 정보를 원하는 경우 다음 고객 사례를 확인할 수 있습니다.
+* Azure Cosmos DB를 시작하려면 계정을 만들고 Cosmos DB를 시작하는 과정을 안내하는 [빠른 시작](create-sql-api-dotnet.md)을 따릅니다.
 
-* [Jet.com](https://jet.com). 전자 상거래 분야의 도전 기업, Microsoft Cloud에서 실행하고 글로벌 환경에서 Cosmos DB를 활용하여 최고의 자리를 넘보다
-* [Asos.com](https://www.asos.com/). Asos.com은 영국의 온라인 패션/미용 상점입니다. 청년층을 주 고객으로 하는 Asos는 850개 이상의 브랜드와 자체 의류 및 액세서리를 판매합니다.
-* [Toyota](https://www.toyota.com/). Toyota Motor Corporation은 일본 자동차 제조업체입니다. Toyota는 글로벌 IoT 앱을 위해 Cosmos DB를 활용합니다.
-* [Citrix](https://customers.microsoft.com/story/citrix). Citrix는 Azure Service Fabric 및 Azure Cosmos DB를 사용하여 Single-Sign-On 솔루션을 개발합니다.
-* [TEXA](https://customers.microsoft.com/story/texaspa) 차량 소유자를 위한 TEXA의 혁신적인 IoT 솔루션은 시간, 비용, 휘발유 절감뿐 아니라 생명을 구하는 데에도 도움이 됩니다.
-* [Domino's Pizza](https://www.dominos.com). Domino's Pizza Inc.는 미국 체인 피자점입니다.
-* [Johnson Controls](https://www.johnsoncontrols.com). Johnson 컨트롤은 150 개 이상의 국가/지역에서 다양 한 고객에 게 제공 하는 글로벌 다양 한 기술 및 멀티 산업 리더입니다.
-* [Microsoft Windows, Universal Store, Azure IoT Hub, Xbox Live 및 기타 인터넷 규모 서비스](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/). Microsoft에서 Azure Cosmos DB를 사용하여 확장성이 뛰어난 서비스를 빌드하는 방법입니다.
-* [Microsoft 데이터 및 분석 팀](https://customers.microsoft.com/story/microsoftdataandanalytics)합니다. Microsoft 데이터 및 분석 팀은 Azure Cosmos DB를 사용하여 글로벌 규모의 빅 데이터 컬렉션을 얻습니다.
-* [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). Sulekha는 Azure Cosmos DB를 사용하여 인도의 고객과 기업을 연결합니다.
-* [NewOrbit](https://customers.microsoft.com/story/neworbit-takes-flight-with-azure-documentdb). NewOrbit는 Azure Cosmos DB를 사용하여 비행합니다.
-* [Affinio](https://customers.microsoft.com/doclink/affinio-switches-from-aws-to-azure-documentdb-to-harness-social-data-at-scale). Affinio는 대규모의 공유 데이터를 사용하기 위해 AWS에서 Azure Cosmos DB로 전환합니다.
-* [Next Games](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). The Walking Dead: No Man's Land 게임은 Azure Cosmos DB에서 지원하는 1위 게임으로 부상했습니다.
-* [Halo](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Halo 5에서 Azure Cosmos DB를 사용하여 소셜 게임 플레이를 구현한 방식입니다.
-* [Cortana 분석 갤러리](https://azure.microsoft.com/blog/cortana-analytics-gallery-a-scalable-community-site-built-on-azure-documentdb/). Cortana 분석 갤러리 - Azure Cosmos DB를 기반으로 하는 확장 가능한 커뮤니티 사이트입니다.
-* [Breeze](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18602). 선도적인 통합자가 유연한 클라우드 기술을 사용하여 수분 내에 다국적 기업에 글로벌 통찰력을 제공합니다.
-* [News Republic](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18639). 뉴스에 인텔리전스를 추가하여 시민 참여를 위한 정보를 제공합니다. 
-* [SGS International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18653). 전 세계에서 일관된 색을 유지하기 위해 주요 브랜드가 SGS에 의존합니다. 그리고 SGS는 Azure에 의존합니다.
-* [Telenor](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18608). 글로벌 리더인 Telenor는 클라우드를 사용하여 시작 속도로 이동합니다. 
-* [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). 미래 저장소가 빠른 검색 및 쉬운 데이터 흐름으로 실행됩니다.
-* [Nucleo](https://customers.microsoft.com/story/azure-based-software-platform-breaks-down-barriers-bet). Azure 기반 소프트웨어 플랫폼은 비즈니스와 고객 간의 장벽을 없앱니다.
-* [Weka](https://customers.microsoft.com/story/weka-smart-fridge-improves-vaccine-management-so-more-people-can-be-protected-against-diseases). Weka Smart Fridge는 보다 많은 사람들을 질병으로부터 보호할 수 있도록 개선된 백신 관리 기능을 제공합니다.
-* [Orange Tribes](https://customers.microsoft.com/story/theres-more-to-that-food-app-than-meets-the-eye-or-the-mouth). 눈과 입을 충족하는 훌륭한 음식 앱입니다.
-* [Real Madrid](https://customers.microsoft.com/story/real-madrid-brings-the-stadium-closer-to-450-million-f). Real Madrid는 Microsoft Cloud를 통해 전 세계 4억5천만 명에 이르는 팬들을 경기장에 끌어모읍니다.
-* [Tuku](https://customers.microsoft.com/story/tuku-makes-car-buying-fun-with-help-from-azure-services). TUKU는 Azure 서비스의 도움으로 차를 구입하는 재미를 줍니다.
+* Azure Cosmos DB를 사용 하는 고객에 대 한 자세한 내용을 알아보려면 [고객 사례 연구](https://azure.microsoft.com/en-us/case-studies/?service=cosmos-db) 페이지를 참조 하세요.

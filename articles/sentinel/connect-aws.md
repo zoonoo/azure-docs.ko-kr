@@ -1,5 +1,5 @@
 ---
-title: Azure 센티널 Preview에 Symantec AWS 데이터 연결 | Microsoft Docs
+title: Azure 센티널에 Symantec AWS 데이터 연결 | Microsoft Docs
 description: Azure 센티널에 Symantec AWS 데이터를 연결 하는 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 246d4cd7d64554ae575767cdba2e26066ad1720d
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 46ad8f6478e632cd57c009700de182993ce01be1
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295614"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240875"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>AWS CloudTrail에 Azure 센티널 연결
 
 AWS 커넥터를 사용 하 여 모든 AWS CloudTrail 이벤트를 Azure 센티널로 스트리밍합니다. 이 연결 프로세스는 AWS 리소스 로그에 Azure 센티널에 대 한 액세스를 위임 하 여 AWS CloudTrail와 Azure 센티널 간의 트러스트 관계를 만듭니다. 이는 AWS 로그에 액세스할 수 있도록 Azure 센티널에 권한을 부여 하는 역할을 만들어 AWS에서 수행 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 센티널 작업 영역에 대 한 쓰기 권한이 있어야 합니다.
 
@@ -82,5 +82,5 @@ Azure 센티널 작업 영역에 대 한 쓰기 권한이 있어야 합니다.
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 AWS CloudTrail를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [데이터 및 잠재적 위협에 대 한 가시성을 얻는](quickstart-get-visibility.md)방법에 대해 알아봅니다.
-- [Azure 센티널로 위협 검색을](tutorial-detect-threats.md)시작 합니다.
+- [Azure 센티널로 위협 검색을](tutorial-detect-threats-built-in.md)시작 합니다.
 

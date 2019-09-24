@@ -3,20 +3,22 @@ title: Azure Notification Hubs 샘플
 description: 사용 가능한 Azure Notification Hubs SDK의 목록
 services: notification-hubs
 documentationcenter: ''
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
-ms.author: jowargo
 ms.date: 03/28/2019
-ms.openlocfilehash: 1d035513418147b8fae1d8e2f217d20d19f02f2e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/28/2019
+ms.openlocfilehash: 5c7c2b073d0684d908b677d3dda1586f6baa8f61
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60559928"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213315"
 ---
 # <a name="azure-notification-hubs-samples"></a>Azure Notification Hubs 샘플
 이 문서에서는 Azure Notification Hubs의 주요 기능을 보여 주는 샘플에 대 한 링크를 제공 합니다.
@@ -30,4 +32,4 @@ ms.locfileid: "60559928"
 - [iOS](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples)
 
 ## <a name="next-steps"></a>다음 단계
-자습서를 참조 합니다 **자습서** 테이블 (목차)의 섹션입니다.
+목차 (TOC)의 **자습서** 섹션에서 자습서를 참조 하십시오.

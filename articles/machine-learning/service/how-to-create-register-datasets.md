@@ -11,20 +11,20 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/22/2019
-ms.openlocfilehash: d2b9e53fc6c58f0477e252c751e25a99bdbfba42
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 7a6a2c35360f59c8c2e3d0a75e646ae76c0c9de2
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200095"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71218289"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합 만들기 및 액세스 (미리 보기)
 
 이 문서에서는 Azure Machine Learning 데이터 집합을 만드는 방법 (미리 보기)과 로컬 또는 원격 실험에서 데이터에 액세스 하는 방법에 대해 알아봅니다.
 
-Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 수 있습니다. 
+Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 수 있습니다.
 
-* 데이터 집합에서 참조 하 **는 저장소에 데이터의 단일 복사본을 유지** 합니다. 
+* 데이터 집합에서 참조 하 **는 저장소에 데이터의 단일 복사본을 유지** 합니다.
 
 * 연결 문자열 또는 데이터 경로에 대해 걱정 하지 않고 **모델 학습 중에 데이터에 쉽게 액세스** 합니다.
 
@@ -45,7 +45,7 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 ## <a name="dataset-types"></a>데이터 집합 형식
 
-데이터 집합은 사용자가 학습에서 사용 하는 방법에 따라 두 가지 유형으로 분류 됩니다. 
+데이터 집합은 사용자가 학습에서 사용 하는 방법에 따라 두 가지 유형으로 분류 됩니다.
 
 * [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 는 제공 된 파일 또는 파일 목록을 구문 분석 하 여 테이블 형식으로 데이터를 나타냅니다. 이를 통해 pandas 또는 spark 데이터 프레임로 데이터를 구체화할 수 있습니다. Csv, tsv, parquet 파일, SQL 쿼리 결과 등에서 개체를만들수있습니다.`TabularDataset` 전체 목록은 [설명서](https://aka.ms/tabulardataset-api-reference)를 참조 하세요.
 
@@ -53,7 +53,7 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 예정 된 API 변경에 대 한 자세한 내용은 [여기](https://aka.ms/tabular-dataset)를 참조 하세요.
 
-## <a name="create-datasets"></a>데이터 세트 만들기 
+## <a name="create-datasets"></a>데이터 세트 만들기
 
 데이터 집합을 만들면 데이터 원본 위치에 대 한 참조와 해당 메타 데이터의 복사본을 만듭니다. 데이터는 기존 위치에 그대로 남아 있으므로 추가 저장소 비용이 발생 하지 않습니다.
 
@@ -81,9 +81,9 @@ datastore = Datastore.get(workspace, datastore_name)
 
 ### <a name="create-tabulardatasets"></a>TabularDatasets 만들기
 
-TabularDatasets는 SDK를 통해 또는 작업 영역 방문 페이지 (미리 보기)를 사용 하 여 만들 수 있습니다. 타임 스탬프는 데이터의 열에서 지정 하거나 데이터를에 저장 하 여 시계열 특성을 사용할 수 있습니다 .이 특성을 사용 하면 시간에 따라 쉽고 효율적으로 필터링 할 수 있습니다. 
+TabularDatasets는 SDK를 통해 또는 작업 영역 방문 페이지 (미리 보기)를 사용 하 여 만들 수 있습니다. 타임 스탬프는 데이터의 열에서 지정 하거나 데이터를에 저장 하 여 시계열 특성을 사용할 수 있습니다 .이 특성을 사용 하면 시간에 따라 쉽고 효율적으로 필터링 할 수 있습니다.
 
-#### <a name="using-the-sdk"></a>SDK 사용 
+#### <a name="using-the-sdk"></a>SDK 사용
 
 클래스의 [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none-) `TabularDatasetFactory` 메서드를 사용 하 여 csv 또는 tsv 형식의 파일을 읽고 등록 되지 않은 TabularDataset를 만듭니다. 여러 파일에서 읽는 경우 결과는 하나의 테이블 형식 표현으로 집계 됩니다.
 
@@ -120,7 +120,7 @@ from azureml.core import Dataset, Datastore
 sql_datastore = Datastore.get(workspace, 'mssql')
 sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'))
 ```
-클래스의 [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) `TabularDataset` 메서드를 사용 하 여 시간에 따라 쉽고 효율적인 필터링을 사용할 수 있습니다. 더 많은 예제 및 세부 정보는 [여기](http://aka.ms/azureml-tsd-notebook)에서 확인할 수 있습니다. 
+클래스의 [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) `TabularDataset` 메서드를 사용 하 여 시간에 따라 쉽고 효율적인 필터링을 사용할 수 있습니다. 더 많은 예제 및 세부 정보는 [여기](https://aka.ms/azureml-tsd-notebook)에서 확인할 수 있습니다.
 
 ```Python
 # create a TabularDataset with timeseries trait
@@ -132,20 +132,20 @@ dataset = Dataset.Tabular.from_parquet_files(path=datastore_path, partition_form
 # set coarse timestamp to the virtual column created, and fine grain timestamp from a column in the data
 dataset = dataset.with_timestamp_columns(fine_grain_timestamp='datetime', coarse_grain_timestamp='coarse_time')
 
-# filter with timeseries trait specific methods 
+# filter with timeseries trait specific methods
 data_slice = dataset.time_before(datetime(2019, 1, 1))
 data_slice = dataset.time_after(datetime(2019, 1, 1))
-data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1)) 
-data_slice = dataset.time_recent(timedelta(weeks=1, days=1))                  
+data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1))
+data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 ```
 
-#### <a name="using-the-workspace-landing-page"></a>작업 영역 방문 페이지 사용 
+#### <a name="using-the-workspace-landing-page"></a>작업 영역 방문 페이지 사용
 
 [작업 영역 방문 페이지](https://ml.azure.com) 에 로그인 하 여 웹 환경을 통해 데이터 집합을 만듭니다. 현재 작업 영역 방문 페이지는 TabularDatasets 만들기만 지원 합니다.
 
-다음 애니메이션은 작업 영역 방문 페이지에서 데이터 집합을 만드는 방법을 보여 줍니다. 
+다음 애니메이션은 작업 영역 방문 페이지에서 데이터 집합을 만드는 방법을 보여 줍니다.
 
-먼저 왼쪽 창의 **자산** 섹션에서 **데이터 집합** 을 선택 합니다. 그런 다음, **데이터 집합 만들기** 를 선택 하 여 데이터 집합의 원본을 선택 합니다. 이 파일은 로컬 파일, 데이터 저장소 또는 공용 웹 url 중 하나일 수 있습니다. **설정 및 미리 보기** 및 **스키마** 양식은 파일 형식에 따라 지능적으로 채워집니다. **다음** 을 선택 하 여 해당 항목을 검토 하거나 만들기 전에 데이터 집합을 추가로 구성 합니다. **완료** 를 선택 하 여 데이터 집합 만들기를 완료 합니다. 
+먼저 왼쪽 창의 **자산** 섹션에서 **데이터 집합** 을 선택 합니다. 그런 다음, **데이터 집합 만들기** 를 선택 하 여 데이터 집합의 원본을 선택 합니다. 이 파일은 로컬 파일, 데이터 저장소 또는 공용 웹 url 중 하나일 수 있습니다. **설정 및 미리 보기** 및 **스키마** 양식은 파일 형식에 따라 지능적으로 채워집니다. **다음** 을 선택 하 여 해당 항목을 검토 하거나 만들기 전에 데이터 집합을 추가로 구성 합니다. **완료** 를 선택 하 여 데이터 집합 만들기를 완료 합니다.
 
 ![UI를 사용 하 여 데이터 집합 만들기](media/how-to-create-register-datasets/create-dataset-ui.gif)
 
@@ -166,7 +166,7 @@ animal_ds = Dataset.File.from_files(path=datastore_paths)
 web_paths = [
             'https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz',
             'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz'
-           ]          
+           ]
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 
@@ -183,11 +183,11 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 ```
 
 >[!Note]
-> 작업 영역 방문 페이지를 통해 만든 데이터 집합은 작업 영역에 자동으로 등록 됩니다. 
+> 작업 영역 방문 페이지를 통해 만든 데이터 집합은 작업 영역에 자동으로 등록 됩니다.
 
 ## <a name="version-datasets"></a>버전 데이터 집합
 
-새 버전을 만들어 동일한 이름으로 새 데이터 집합을 등록할 수 있습니다. 데이터 집합 버전은 실험 또는 향후 복제를 위해 데이터 집합의 특정 버전을 적용할 수 있도록 데이터의 상태에 책갈피를 지정 하는 방법입니다. 버전 관리를 고려 하는 일반적인 시나리오: 
+새 버전을 만들어 동일한 이름으로 새 데이터 집합을 등록할 수 있습니다. 데이터 집합 버전은 실험 또는 향후 복제를 위해 데이터 집합의 특정 버전을 적용할 수 있도록 데이터의 상태에 책갈피를 지정 하는 방법입니다. 버전 관리를 고려 하는 일반적인 시나리오:
 * 새 데이터를 다시 학습에 사용할 수 있는 경우.
 * 다른 데이터 준비 또는 기능 엔지니어링 방법을 적용 하는 경우
 
@@ -196,7 +196,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 web_paths = [
             'https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
             'https://dprepdata.blob.core.windows.net/demo/Titanic2.csv'
-           ]          
+           ]
 titanic_ds = Dataset.Tabular.from_delimited_files(path=web_paths)
 
 # create a new version of titanic_ds

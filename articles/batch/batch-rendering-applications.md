@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: laurenhughes
 ms.author: lahugh
-ms.date: 09/10/2019
+ms.date: 09/19/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2b0a132c156cc12d317bf51488625191bb8091fc
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 30a365b36645dfe79f35b4bb889c0a06535a4c73
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881474"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212719"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>렌더링 VM 이미지에 미리 설치된 애플리케이션
 
@@ -39,6 +39,37 @@ Azure Batch를 모든 렌더링 애플리케이션에 사용할 수 있습니다
 
 ## <a name="applications-on-latest-windows-server-2016-rendering-images"></a>최신 Windows Server 2016 이미지 렌더링 이미지의 응용 프로그램
 
+다음 목록은 Windows Server 2016, 버전 1.3.8 렌더링 이미지에 적용 됩니다.
+
+* Autodesk Maya I/O 2017 업데이트 5(버전 17.4.5459)
+* Autodesk Maya i/o 2018 업데이트 6 (버전 18.4.0.7622)
+* Autodesk Maya i/o 2019
+* Autodesk 3ds Max I/O 2018 업데이트 4(버전 20.4.0.4254)
+* Autodesk 3ds Max I/O 2019 업데이트 1(버전 21.2.0.2219)
+* Autodesk 3ds Max i/o 2020 업데이트 2
+* Maya 2017에 대 한 Autodesk Arnold (Arnold version 5.3.0.2) MtoA-3.2.0.2-2017
+* Maya 2018에 대 한 Autodesk Arnold (Arnold version 5.3.0.2) MtoA-3.2.0.2-2018
+* Maya 2019 Autodesk Arnold (Arnold version 5.3.0.2) MtoA-3.2.0.2-2019
+* 3ds Max 2018 (Arnold version 5.3.0.2) (버전 1.2.926)에 대 한 Autodesk Arnold
+* 3ds Max 2019 (Arnold version 5.3.0.2) (버전 1.2.926)에 대 한 Autodesk Arnold
+* 3ds Max 2020 (Arnold version 5.3.0.2) (버전 1.2.926)에 대 한 Autodesk Arnold
+* Maya 2017 (버전 4.12.01)의 비정상 그룹 V-광선
+* Maya 2018 (버전 4.12.01)의 비정상 그룹 V-광선
+* Maya 2019 (버전 4.04.03)의 비정상 그룹 V-광선
+* 3ds Max 2018 (version 4.20.01)의 비정상 그룹 V-광선
+* 3ds Max 2019 (version 4.20.01)의 비정상 그룹 V-광선
+* 3ds Max 2020 (version 4.20.01)의 비정상 그룹 V-광선
+* Blender(2.79)
+* Blender (2.80)
+* AZ 10
+
+> [!IMPORTANT]
+> Maya를 사용 하 여 [Azure Batch 확장 템플릿](https://github.com/Azure/batch-extension-templates)외부에서 V 레이를 실행 하려면 `vrayses.exe` 렌더링을 실행 하기 전에를 시작 합니다. 템플릿 외부에서 vrayses를 시작 하려면 다음 명령을 `%MAYA_2017%\vray\bin\vrayses.exe"`사용할 수 있습니다.
+>
+> 예를 들어 GitHub의 [Maya 및 V-광선 템플릿](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) 시작 작업을 참조 하세요.
+
+## <a name="applications-on-previous-windows-server-2016-rendering-images"></a>이전 Windows Server 2016의 응용 프로그램 렌더링 이미지
+
 다음 목록은 Windows Server 2016, 버전 1.3.7 렌더링 이미지에 적용 됩니다.
 
 * Autodesk Maya I/O 2017 업데이트 5(버전 17.4.5459)
@@ -55,24 +86,8 @@ Azure Batch를 모든 렌더링 애플리케이션에 사용할 수 있습니다
 * 3ds Max 2019 (version 4.10.01)의 비정상 그룹 V-광선
 * Blender(2.79)
 
-
 > [!NOTE]
 > 3ds Max 2019 (version 4.10.01)에 대 한 비정상 그룹 V-광선은 V 광선의 주요 변경 사항을 소개 합니다. 이전 버전 (버전 3.60.02)을 사용 하려면 Windows Server 2016, 버전 1.3.2 렌더링 노드를 사용 합니다.
-
-## <a name="applications-on-previous-windows-server-2016-rendering-images"></a>이전 Windows Server 2016의 응용 프로그램 렌더링 이미지
-
-다음 목록은 Windows Server 2016, 버전 1.3.2 렌더링 이미지에 적용 됩니다.
-
-* Autodesk Maya I/O 2017 업데이트 5(버전 17.4.5459)
-* Autodesk Maya I/O 2018 업데이트 4(버전 18.4.0.7622)  
-* Autodesk 3ds Max I/O 2019 업데이트 1(버전 21.2.0.2219)
-* Autodesk 3ds Max I/O 2018 업데이트 4(버전 20.4.0.4254)
-* Autodesk Arnold for Maya 2017(Arnold 버전 5.2.0.1) MtoA-3.1.0.1-2017
-* Autodesk Arnold for Maya 2018(Arnold 버전 5.2.0.1) MtoA-3.1.0.1-2018
-* 3ds Max용 Autodesk Arnold(Arnold 버전 5.0.2.4) (버전 1.2.926)
-* Maya 2019 (버전 3.52.03)의 비정상 그룹 V-광선
-* 3ds Max 2018 (version 3.60.02)의 비정상 그룹 V-광선
-* Blender(2.79)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,26 +7,26 @@ ms.service: application-gateway
 ms.date: 4/11/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e56301e98ca773369631e2f7ae137c63d0b9ddef
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 9f90f373bd6f1cfd34de1605783bf3a7f0185f4c
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613307"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240331"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙
 
-Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약점 및 악용 사례로부터 웹 애플리케이션을 보호합니다. 3\.0 또는 2.2.9 OWASP 핵심 규칙 집합을 기반으로 정의 된 규칙을 통해 수행 됩니다. 이러한 규칙은 규칙별로 해제할 수 있습니다. 이 문서에는 현재 제공되는 규칙 및 규칙 집합이 포함되어 있습니다.
+Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약점 및 악용 사례로부터 웹 애플리케이션을 보호합니다. OWASP core 규칙 집합 3.0 또는 2.2.9에 따라 정의 된 규칙을 통해 수행 됩니다. 이러한 규칙은 규칙별로 해제할 수 있습니다. 이 문서에는 현재 제공되는 규칙 및 규칙 집합이 포함되어 있습니다.
 
-다음 규칙 그룹 및 규칙은 웹 응용 프로그램 방화벽이 있는 Application Gateway를 사용 하는 경우 사용할 수 있습니다.
+웹 응용 프로그램 방화벽과 함께 Application Gateway를 사용 하는 경우 다음 규칙 그룹 및 규칙을 사용할 수 있습니다.
 
 # <a name="owasp-30tabowasp3"></a>[OWASP 3.0](#tab/owasp3)
 
-## <a name="owasp30"></a> 규칙 집합
+## <a name="owasp30"></a>규칙 집합
 
 ### <a name="General"></a> <p x-ms-format-detection="none">일반</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |200004|가능한 다중 파트 일치하지 않는 경계.|
 
@@ -39,7 +39,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs913"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |913100|보안 스캐너와 연결된 사용자-에이전트 발견|
 |913110|보안 스캐너와 연결된 요청 헤더 발견|
@@ -49,11 +49,11 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs920"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |920100|잘못된 HTTP 요청 줄|
 |920130|요청 본문을 구문 분석하지 못했습니다.|
-|920140|다중 파트 요청 본문의 엄격한 유효성 검사 실패|
+|920140|Multipart 요청 본문에서 엄격한 유효성 검사에 실패 했습니다.|
 |920160|콘텐츠-길이 HTTP 헤더가 숫자가 아닙니다.|
 |920170|본문 콘텐츠를 통한 GET 또는 HEAD 요청.|
 |920180|POST 요청에 콘텐츠-길이 헤더가 없습니다.|
@@ -91,11 +91,11 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 |920202|범위 = pdf 요청에 대한 필드가 너무 많음(6개 이상)|
 |920273|요청에 잘못된 문자(매우 엄격한 집합 이외의)|
 |920274|요청 헤더에 잘못된 문자(매우 엄격한 집합 이외의)|
-|920460|비정상적인 이스케이프 문자|
+|920460|비정상 이스케이프 문자|
 
 ### <a name="crs921"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |921100|HTTP 요청 스머글링 공격.|
 |921110|HTTP 요청 밀반입 공격|
@@ -110,7 +110,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs930"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |930100|경로 탐색 공격(/../)|
 |930110|경로 탐색 공격(/../)|
@@ -119,7 +119,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs931"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |931100|가능한 원격 파일 포함(RFI) 공격 = IP 주소를 사용하는 URL 매개 변수|
 |931110|가능한 원격 파일 포함(RFI) 공격 = 일반 RFI 취약한 매개 변수 이름이 URL 페이로드에 사용됨|
@@ -139,7 +139,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs933"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |933100|PHP 삽입 공격 = 여는/닫는 태그 발견|
 |933110|PHP 삽입 공격 = PHP 스크립트 파일 업로드 발견|
@@ -163,17 +163,17 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 |941140|XSS 필터 - 범주 4 = Javascript URI 벡터|
 |941150|XSS 필터 - 범주 5 = 허용되지 않는 HTML 특성|
 |941180|노드 검사기 블랙리스트 키워드|
-|941190|스타일 시트를 사용 하 여 XSS|
-|941200|XSS VML 프레임을 사용 하 여|
-|941210|난독 처리 된 Javascript를 사용 하 여 XSS|
-|941220|난독 처리 된 VB 스크립트를 사용 하 여 XSS|
-|941230|사용 하 여 XSS ' 포함 ' 태그|
-|941240|'Import' 또는 'implementation' 특성을 사용 하 여 XSS|
-|941260|XSS 'meta' 태그를 사용 하 여|
-|941270|Href '연결'을 사용 하 여 XSS|
-|941280|'Base' 태그를 사용 하 여 XSS|
-|941290|XSS '애플릿을' 태그를 사용 하 여|
-|941300|'Object' 태그를 사용 하 여 XSS|
+|941190|스타일 시트를 사용 하는 XSS|
+|941200|VML 프레임을 사용 하는 XSS|
+|941210|난독 처리 Javascript를 사용 하는 XSS|
+|941220|난독 처리 되지 않은 VB 스크립트를 사용 하는 XSS|
+|941230|' Embed ' 태그를 사용 하는 XSS|
+|941240|' Import ' 또는 ' 구현 ' 특성을 사용 하는 XSS|
+|941260|' Meta ' 태그를 사용 하는 XSS|
+|941270|' Link ' href를 사용 하는 XSS|
+|941280|' Base ' 태그를 사용 하는 XSS|
+|941290|' 애플릿 ' 태그를 사용 하는 XSS|
+|941300|' Object ' 태그를 사용 하는 XSS|
 |941310|US-ASCII 잘못된 형식의 Encoding XSS 필터 - 공격 감지됨.|
 |941330|IE XSS 필터 - 공격 감지됨.|
 |941340|IE XSS 필터 - 공격 감지됨.|
@@ -182,7 +182,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs942"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |942100|libinjection을 통한 SQL 삽입 공격 감지됨|
 |942110|SQL 삽입 공격: 일반적인 삽입 테스트 감지됨|
@@ -197,6 +197,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 |942270|기본적인 sql 삽입 검색. mysql oracle 및 기타에 대한 일반적인 공격 문자열.|
 |942290|기본적인 MongoDB SQL 삽입 시도 찾기|
 |942300|MySQL 주석, 조건 및 ch(a)r 삽입 감지|
+|942310|연결 된 SQL 삽입 시도 2/2을 검색 합니다.|
 |942320|MySQL 및 PostgreSQL에 저장된 저장 프로시저/함수 삽입 감지|
 |942330|클래식 SQL 삽입 프로빙 감지 1/2|
 |942340|기본 SQL 인증 바이패스 시도 감지 3/3|
@@ -221,16 +222,16 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 # <a name="owasp-229tabowasp2"></a>[OWASP 2.2.9](#tab/owasp2)
 
-## <a name="owasp229"></a> 규칙 집합
+## <a name="owasp229"></a>규칙 집합
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |960911|잘못된 HTTP 요청 줄|
 |981227|Apache 오류 = 요청에 잘못된 URI가 있습니다.|
 |960912|요청 본문을 구문 분석하지 못했습니다.|
-|960914|다중 파트 요청 본문의 엄격한 유효성 검사 실패|
+|960914|Multipart 요청 본문에서 엄격한 유효성 검사에 실패 했습니다.|
 |960915|다중 파트 파서가 일치하지 않을 수도 있는 경계를 감지했습니다.|
 |960016|콘텐츠-길이 HTTP 헤더가 숫자가 아닙니다.|
 |960011|본문 콘텐츠를 통한 GET 또는 HEAD 요청.|
@@ -264,7 +265,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs23"></a> crs_23_request_limits
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |960209|인수 이름이 너무 김|
 |960208|인수 값이 너무 김|
@@ -275,7 +276,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs30"></a> crs_30_http_policy
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |960032|정책에서 허용하지 않는 메서드|
 |960010|요청 콘텐츠 유형이 정책에서 허용되지 않음|
@@ -294,7 +295,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs40"></a> crs_40_generic_attacks
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |960024|메타 문자 이상 감지 경고 - 반복적인 단어가 아닌 문자|
 |950008|문서화되지 않은 ColdFusion 태그의 삽입|
@@ -360,7 +361,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs41xss"></a> crs_41_xss_attacks
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |973336|XSS 필터 - 범주 1 = 스크립트 태그 벡터|
 |973338|XSS 필터 - 범주 3 = Javascript URI 벡터|
@@ -465,7 +466,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ### <a name="crs42"></a> crs_42_tight_security
 
-|RuleId|Description|
+|RuleId|설명|
 |---|---|
 |950103|경로 조작 공격|
 
@@ -481,4 +482,4 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ## <a name="next-steps"></a>다음 단계
 
-WAF 규칙을 사용 하지 않도록 설정 하는 방법에 알아봅니다. [WAF 규칙 사용자 지정](application-gateway-customize-waf-rules-portal.md)
+WAF 규칙을 사용 하지 않도록 설정 하는 방법을 알아봅니다. [WAF 규칙 사용자 지정](application-gateway-customize-waf-rules-portal.md)

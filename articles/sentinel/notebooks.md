@@ -1,5 +1,5 @@
 ---
-title: Azure 센티널 Preview에서 노트북을 사용 하 여 기능 구하기 | Microsoft Docs
+title: Azure 센티널에서 노트북을 사용 하 여 기능 구하기 | Microsoft Docs
 description: 이 문서에서는 Azure 센티널 구하기 기능에서 노트북을 사용 하는 방법을 설명 합니다.
 services: sentinel
 documentationcenter: na
@@ -16,19 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6372a7958caf108903321e5ee87ea6bf1a42271c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 5b90ecc1db686b698668b07bd839304b425445ca
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689565"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240520"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Jupyter 노트북을 사용 하 여 보안 위협 구하기
-
-> [!IMPORTANT]
-> Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure 센티널의 기반은 데이터 저장소입니다. 고성능 쿼리, 동적 스키마 및 확장을 대규모 데이터 볼륨으로 결합 합니다. Azure 센티널 포털 및 모든 Azure 센티널 도구는 공통 API를 사용 하 여이 데이터 저장소에 액세스 합니다. [Jupyter](https://jupyter.org/) 노트북 및 Python과 같은 외부 도구에도 동일한 API를 사용할 수 있습니다. 포털에서 많은 일반 작업을 수행할 수 있지만 Jupyter는이 데이터로 수행할 수 있는 작업의 범위를 확장 합니다. 기계 학습, 시각화 및 데이터 분석을 위해 방대한 라이브러리 컬렉션과 함께 전체 프로그래밍 기능을 결합 합니다. 이러한 특성은 Jupyter를 보안 조사 및 사냥을 위한 매력적인 도구로 만듭니다.
 
@@ -78,7 +73,7 @@ Azure 센티널 노트북은 pandas, matplotlib, bokeh 등 널리 사용 되는 
 
    ![노트북 가져오기](./media/notebooks/sentinel-create-project.png)
 
-4. 노트북 폴더 **를** 열어 노트북을 확인 합니다. 각 노트북은 헌트 또는 조사를 수행 하는 단계를 안내 합니다. 노트북 자체에서 또는 간단한 구성 절차를 통해 노트북에 필요한 라이브러리 및 기타 종속성을 설치할 수 있습니다. 노트북 프로젝트를 Azure 센티널 구독에 다시 연결 하는 구성은 앞의 단계에서 자동으로 프로 비전 됩니다. 노트북은 Azure 센티널 Log Analytics 작업 영역에 대해 실행할 준비가 되었습니다.
+4. **노트북 폴더를** 열어 노트북을 확인 합니다. 각 노트북은 헌트 또는 조사를 수행 하는 단계를 안내 합니다. 노트북 자체에서 또는 간단한 구성 절차를 통해 노트북에 필요한 라이브러리 및 기타 종속성을 설치할 수 있습니다. 노트북 프로젝트를 Azure 센티널 구독에 다시 연결 하는 구성은 앞의 단계에서 자동으로 프로 비전 됩니다. 노트북은 Azure 센티널 Log Analytics 작업 영역에 대해 실행할 준비가 되었습니다.
 
    ![리포지토리 가져오기](./media/notebooks/sentinel-open-notebook1.png)
 

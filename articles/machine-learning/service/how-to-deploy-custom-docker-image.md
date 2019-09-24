@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: 04d81f8e16a3f34f7abf15c9606833002fafb39c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: a9992fbaa20b0137fd503992fc9efba11c2dfd3b
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034524"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213499"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
 
@@ -40,7 +40,7 @@ Azure Machine Learning는 기본 Docker 기본 이미지를 제공 하므로 만
 * 사용자 지정 기본 이미지를 만듭니다. 사용자 지정 이미지를 만들고 Azure CLI 및 Machine Learning CLI를 사용 하 여 Azure Container Registry에 대 한 인증을 구성 하는 데 사용 되는 관리자 및 DevOps 정보를 제공 합니다.
 * 사용자 지정 기본 이미지를 사용 하 여 모델을 배포 합니다. Python SDK 또는 ML CLI에서 학습 된 모델을 배포할 때 사용자 지정 이미지를 사용 하 여 데이터 과학자 및 DevOps/ML 엔지니어에 게 정보를 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 그룹입니다. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 * [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)입니다. 
@@ -180,7 +180,7 @@ Azure Container Registry에 기존 이미지를 업로드 하는 방법에 대 �
 
 Microsoft는 공개적으로 액세스할 수 있는 리포지토리에 여러 docker 이미지를 제공 하며,이는이 섹션의 단계에서 사용할 수 있습니다.
 
-| 이미지 | Description |
+| 이미지 | 설명 |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Azure Machine Learning에 대 한 기본 이미지 |
 | `mcr.microsoft.com/azureml/onnxruntime:v0.4.0` | ONNX 런타임을 포함 합니다. |
@@ -223,9 +223,9 @@ myenv.docker.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubunt
 
 ```python
 # Set the container registry information
-myenv.docker.base_image_repository.address = "myregistry.azurecr.io"
-myenv.docker.base_image_repository.username = "username"
-myenv.docker.base_image_repository.password = "password"
+myenv.docker.base_image_registry.address = "myregistry.azurecr.io"
+myenv.docker.base_image_registry.username = "username"
+myenv.docker.base_image_registry.password = "password"
 ```
 
 환경을 정의한 후 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) 개체와 함께 사용 하 여 모델 및 웹 서비스가 실행 될 유추 환경을 정의 합니다.

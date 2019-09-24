@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: guide
 ms.date: 09/10/2019
-ms.openlocfilehash: fd1da6a43e4c1d7d6b66d5dbacb2d7a587c2856a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 9d19b31ccce8feeb2d5ce12353d9b79841b40724
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898691"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219435"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 마켓플레이스 계정 만들기
 
@@ -60,7 +60,7 @@ ms.locfileid: "70898691"
 
 ### <a name="agree-to-terms-and-conditions"></a>사용 약관에 동의
 
-[Microsoft Marketplace 게시자 계약](http://go.microsoft.com/fwlink/?LinkID=699560)의 사용 약관에 동의 해야 합니다.
+[Microsoft Marketplace 게시자 계약](https://go.microsoft.com/fwlink/?LinkID=699560)의 사용 약관에 동의 해야 합니다.
 
 ### <a name="provide-your-publisher-profile"></a>게시자 프로필 제공
 
@@ -103,7 +103,7 @@ Microsoft 파트너 네트워크 계정 정보를 편리 하 게 사용할 수 �
 
 1. 파트너 센터에서 **설정** > **파트너 설정** > **프로그램** > **시작**을 선택 합니다.
 2. Microsoft 파트너 네트워크는 구독을 검색 하 고 회사 이름 및 MPN ID를 입력할 수 있는 게시자 프로필 페이지를 표시 합니다.
-3. [Microsoft Marketplace 게시자 규약](http://go.microsoft.com/fwlink/?LinkID=699560)에서 사용 약관을 읽은 다음 **동의 함** 을 선택 하 여 등록을 완료 합니다.
+3. [Microsoft Marketplace 게시자 규약](https://go.microsoft.com/fwlink/?LinkID=699560)에서 사용 약관을 읽은 다음 **동의 함** 을 선택 하 여 등록을 완료 합니다.
 
 등록 한 후에는 상업적 Marketplace 개요 페이지로 이동 합니다. **상업적 Marketplace** 가 왼쪽 탐색 모음에 표시 됩니다. **설정** > **파트너**설정프로그램 > 을 선택 하면 상업적 Marketplace가 등록 된 것으로 표시 됩니다.
 

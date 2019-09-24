@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 0610648594d09de3f86c5d9eb2f0cae722978cca
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 658830e37a453075100cd3aaf132bb1d3aedfaea
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996396"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240386"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -36,7 +36,7 @@ Azure의 Instance Metadata Service는 [Azure Resource Manager](https://docs.micr
 
 이 서비스는 일반 공급되는 Azure 지역에서 사용할 수 있습니다. 모든 API 버전을 모든 Azure 지역에서 사용할 수 있는 것은 아닙니다.
 
-영역                                        | 가용성                                 | 지원되는 버전
+Regions                                        | 가용성                                 | 지원되는 버전
 -----------------------------------------------|-----------------------------------------------|-----------------
 [일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
@@ -107,7 +107,7 @@ API | 기본 데이터 형식 | 다른 형식
 /scheduledevents | json : | 없음
 /attested | JSON | 없음
 
-기본이 아닌 응답 형식에 액세스하려면 요청된 형식을 요청의 쿼리 문자열 매개 변수로 지정합니다. 예를 들어:
+기본이 아닌 응답 형식에 액세스하려면 요청된 형식을 요청의 쿼리 문자열 매개 변수로 지정합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -337,11 +337,11 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 }
 ```
 
-## <a name="metadata-apis"></a>메타데이터 API
+## <a name="metadata-apis"></a>메타 데이터 Api
 
 #### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>메타 데이터 끝점을 통해 사용할 수 있는 Api는 다음과 같습니다.
 
-보기 | Description | 도입된 버전
+data | 설명 | 도입된 버전
 -----|-------------|-----------------------
 attested | [증명된 데이터](#attested-data) 참조 | 2018-10-01
 identity | Azure 리소스에 대한 관리 ID입니다. [액세스 토큰 획득](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)을 참조하세요. | 2018-02-01
@@ -354,16 +354,16 @@ scheduledevents | [예정된 이벤트](scheduled-events.md) 참조 | 2017-08-01
 > [!NOTE]
 > 메타 데이터 끝점을 통해 다음 범주는 인스턴스/계산을 통해 액세스 됩니다.
 
-보기 | Description | 도입된 버전
+data | 설명 | 도입된 버전
 -----|-------------|-----------------------
 azEnvironment | VM이 실행 되는 Azure 환경 | 2018-10-01
 customData | [사용자 지정 데이터](#custom-data) 참조 | 2019-02-01
 위치 | VM을 실행하는 Azure 지역 | 2017-04-02
 name | VM의 이름 | 2017-04-02
-제품 | VM 이미지에 대 한 제품 정보 이며 Azure 이미지 갤러리에서 배포 된 이미지에 대해서만 제공 됩니다. | 2017-04-02
+제안 | VM 이미지에 대 한 제품 정보 이며 Azure 이미지 갤러리에서 배포 된 이미지에 대해서만 제공 됩니다. | 2017-04-02
 osType | Linux 또는or Windows | 2017-04-02
 placementGroupId | 가상 머신 확장 집합의 [배치 그룹](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
-계획 | Azure Marketplace 이미지의 경우 VM에 대 한 이름, 제품 및 게시자를 포함 하는 [계획](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) | 2018-04-02
+플랜 | Azure Marketplace 이미지의 경우 VM에 대 한 이름, 제품 및 게시자를 포함 하는 [계획](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) | 2018-04-02
 platformUpdateDomain |  VM을 실행 중인 [업데이트 도메인](manage-availability.md) | 2017-04-02
 platformFaultDomain | VM을 실행 중인 [장애 도메인](manage-availability.md) | 2017-04-02
 공급자 | VM의 공급자 | 2018-10-01
@@ -386,7 +386,7 @@ vmSize | [VM 크기](sizes.md) | 2017-04-02
 > [!NOTE]
 > 메타 데이터 끝점을 통해 다음 범주는 인스턴스/네트워크/인터페이스를 통해 액세스 됩니다.
 
-보기 | Description | 도입된 버전
+data | 설명 | 도입된 버전
 -----|-------------|-----------------------
 ipv4/privateIpAddress | VM의 로컬 IPv4 주소 | 2017-04-02
 ipv4/publicIpAddress | VM의 공용 IPv4 주소 | 2017-04-02
@@ -545,7 +545,7 @@ AzurePublicCloud
 
 Azure 환경의 지역 및 값은 아래에 나열 되어 있습니다.
 
- 영역 | Azure 환경
+ Regions | Azure 환경
 ---------|-----------------
 [일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | AzurePublicCloud
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
@@ -573,7 +573,7 @@ Department:IT;Environment:Test;Role:WebRole
 **요청**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=JSON"
 ```
 
 **응답**
@@ -641,10 +641,10 @@ Verification successful
 }
 ```
 
-보기 | Description
+data | 설명
 -----|------------
 nonce | 사용자가 요청과 함께 선택적 문자열을 제공했습니다. 요청에 nonce를 제공하지 않은 경우 현재 UTC 타임스탬프가 반환됩니다.
-계획 | Azure Marketplace 이미지의 VM에 대한 [플랜](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)에는 이름, 제품 및 게시자가 포함됩니다.
+플랜 | Azure Marketplace 이미지의 VM에 대한 [플랜](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)에는 이름, 제품 및 게시자가 포함됩니다.
 timestamp/createdOn | 첫 번째 서명된 문서가 생성된 타임스탬프
 timestamp/expiresOn | 서명된 문서가 만료되는 타임스탬프
 vmId |  VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/)
@@ -657,7 +657,7 @@ SubscriptionId | 에 도입 된 가상 컴퓨터에 대 한 Azure 구독`2019-04
 > [!NOTE]
 > 퍼블릭 클라우드와 소버린 클라우드의 인증서는 서로 다릅니다.
 
- 클라우드 | Certificate
+ 클라우드 | 인증서
 ---------|-----------------
 [일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us

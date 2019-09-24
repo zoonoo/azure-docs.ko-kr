@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 20ca823f60ced4260c2e61ca15ae04e158b7d952
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: f50f1b3e2ee7f98d14d29f1e2205a97d76eaacc8
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615675"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219898"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 변경 피드 - 개요
 
@@ -35,14 +35,14 @@ Azure Cosmos DB의 변경 피드를 사용하면 다음 그림과 같이 이러�
 
 | **클라이언트 드라이버** | **Azure CLI** | **SQL API** | **Cassandra API** | **Azure Cosmos DB의 MongoDB API** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | NA | 예 | 아니오 | 아니요 | 예 | 아니요 |
-|Java|NA|예|아니오|아니요|예|아니요|
-|Python|NA|예|아니오|아니요|예|아니요|
-|Node/JS|NA|예|아니오|아니요|예|아니요|
+| .NET | NA | 예 | 아니오 | 아니요 | 사용자 계정 컨트롤 | 아니요 |
+|Java|NA|예|아니오|아니요|사용자 계정 컨트롤|아니요|
+|Python|NA|예|아니오|아니요|사용자 계정 컨트롤|아니요|
+|Node/JS|NA|예|아니오|아니요|사용자 계정 컨트롤|아니요|
 
 ## <a name="change-feed-and-different-operations"></a>변경 피드 및 다양한 작업
 
-현재 변경 피드에서 모든 작업이 표시됩니다. 업데이트만하고 삽입하지 않는 것과 같은 특정 작업에 대해 변경 피드를 제어할 수 있는 기능은 아직 사용할 수 없습니다. 업데이트에 대한 항목에 "소프트 표식"을 추가하고 변경 피드에서 항목을 처리할 때 이를 기준으로 필터링할 수 있습니다. 현재 변경 피드는 삭제를 기록하지 않습니다. 이전 예제와 마찬가지로 삭제되는 항목에 소프트 표식을 추가할 수 있습니다. 예를 들어 자동으로 삭제될 수 있도록 "deleted"라는 항목에 특성을 추가하고 "true"로 설정하고 항목에 TTL을 설정할 수 있습니다. 기록 항목에 대한 변경 피드를 읽을 수 있습니다(예: 5년 전에 추가된 항목). 항목이 삭제되지 않은 경우 컨테이너의 원본인 한, 변경 피드를 읽을 수 있습니다.
+현재 변경 피드에서 모든 작업이 표시됩니다. 업데이트만하고 삽입하지 않는 것과 같은 특정 작업에 대해 변경 피드를 제어할 수 있는 기능은 아직 사용할 수 없습니다. 업데이트에 대한 항목에 "소프트 표식"을 추가하고 변경 피드에서 항목을 처리할 때 이를 기준으로 필터링할 수 있습니다. 현재 변경 피드는 삭제를 기록하지 않습니다. 이전 예제와 마찬가지로 삭제되는 항목에 소프트 표식을 추가할 수 있습니다. 예를 들어 자동으로 삭제될 수 있도록 "deleted"라는 항목에 특성을 추가하고 "true"로 설정하고 항목에 TTL을 설정할 수 있습니다. 기록 항목에 대 한 변경 피드 (항목에 해당 하는 가장 최근의 변경 내용에는 중간 변경을 포함 하지 않음)를 읽을 수 있습니다. 예를 들어 5 년 전에 추가 된 항목입니다. 항목이 삭제되지 않은 경우 컨테이너의 원본인 한, 변경 피드를 읽을 수 있습니다.
 
 ### <a name="sort-order-of-items-in-change-feed"></a>변경 피드에서 항목의 정렬 순서
 

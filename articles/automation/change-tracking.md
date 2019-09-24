@@ -10,12 +10,12 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a681daa60503ff08320b25155e201ca0e7a4a001
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 2d6976e872223cbb66682b9a02ce343487bec35d
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952989"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240270"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적
 
@@ -75,7 +75,7 @@ Azure Security Center Azure 변경 내용 추적에서 빌드된 FIM (파일 무
 
 - 소프트웨어 변경
 - Windows 서비스
-- Linux 데몬
+- Linux 디먼
 
 이미 FIM을 사용 하도록 설정 했 고 전체 변경 내용 추적 솔루션을 사용해 보려는 경우 다음 단계를 수행 해야 합니다. 이 프로세스에서는 설정이 제거 되지 않습니다.
 
@@ -118,7 +118,7 @@ Azure Security Center Azure 변경 내용 추적에서 빌드된 FIM (파일 무
 2. **변경 내용 추적** 페이지에서 **Windows 파일**을 선택한 다음, **+ 추가**를 클릭하여 추적할 새 파일을 추가합니다.
 3. **변경 내용 추적에 대해 Windows 파일 추가**에서 추적할 파일에 대한 정보를 입력하고, **저장**을 클릭합니다.
 
-|속성  |Description  |
+|속성  |설명  |
 |---------|---------|
 |Enabled     | 설정이 적용되는지 여부를 결정합니다.        |
 |항목 이름     | 추적할 파일의 이름입니다.        |
@@ -150,12 +150,12 @@ Azure Security Center Azure 변경 내용 추적에서 빌드된 FIM (파일 무
 2. **변경 내용 추적** 페이지에서 **Windows 레지스트리**를 선택한 다음, **+ 추가**를 클릭하여 추적할 새 레지스트리 키를 추가합니다.
 3. **변경 내용 추적에 대해 Windows 레지스트리 추가**에서 추적할 키에 대한 정보를 입력하고 **저장**을 클릭합니다.
 
-|속성  |Description  |
+|속성  |설명  |
 |---------|---------|
 |Enabled     | 설정이 적용되는지 여부를 결정합니다.        |
 |항목 이름     | 추적할 레지스트리 키의 식별 이름입니다.        |
 |그룹     | 논리적으로 레지스트리 키를 그룹화하는 그룹 이름입니다.        |
-|Windows 레지스트리 키   | 레지스트리 키를 확인할 경로입니다. 예를 들어: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Windows 레지스트리 키   | 레지스트리 키를 확인할 경로입니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>제한 사항
 
@@ -198,7 +198,7 @@ Azure Security Center Azure 변경 내용 추적에서 빌드된 FIM (파일 무
 |---|---|---|
 |파일|500||
 |레지스트리|250||
-|Windows 소프트웨어|250|소프트웨어 업데이트를 포함하지 않음|
+|Windows 소프트웨어|250|소프트웨어 핫픽스를 포함 하지 않음|
 |Linux 패키지|1250||
 |서비스|250||
 |디먼|250||
@@ -289,7 +289,7 @@ Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를
 
 다음 표에서는 이 솔루션에서 수집된 변경 레코드에 대한 로그 검색 샘플을 제공합니다.
 
-|Query  |설명  |
+|query  |설명  |
 |---------|---------|
 |ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "자동"<br>&#124; where SvcState == "중지됨"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Auto로 설정되었지만 Stopped로 보고된 Windows 서비스에 대한 최근의 인벤토리 레코드를 표시합니다.<br>결과는 해당 SoftwareName 및 Computer에 대한 최근의 레코드로 제한됩니다.      |
 |ConfigurationChange<br>&#124; where ConfigChangeType == "소프트웨어" and ChangeCategory == "제거됨"<br>&#124; order by TimeGenerated desc|제거된 소프트웨어에 대한 변경 레코드를 표시합니다.|
@@ -318,7 +318,7 @@ Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를
 
 호스트 파일 변경 시에 경고를 표시하는 기능은 변경 내용 추적 또는 인벤토리 데이터에 경고를 적용하는 좋은 예 중 하나입니다. 하지만 아래 섹션에 정의된 사례와 해당 예제 쿼리를 비롯하여 기타 여러 경고 시나리오를 적용할 수도 있습니다.
 
-|Query  |Description  |
+|query  |설명  |
 |---------|---------|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|중요한 파일 시스템의 변경 내용을 추적하는 데 유용 합니다.|
 |ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|주요 구성 파일의 수정 내용을 추적하는 데 유용합니다.|

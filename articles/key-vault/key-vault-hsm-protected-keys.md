@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 71b7e4bd9406e7fb300ebccd86908820b7628c29
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
+ms.lasthandoff: 09/24/2019
 ms.locfileid: "71000772"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure Key Vault에 대해 HSM 보호된 키를 생성하고 전송하는 방법
@@ -464,7 +464,7 @@ NCipher nShield **generatekey** 프로그램을 사용 하 여 키를 생성 합
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-SUI-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-SUI-1
 
-이 명령을 실행할 때 *contosokey* 를 [키 생성](#step-3-generate-your-key) 단계의 **3.5단계: 새 키 만들기**에서 지정한 값과 동일한 값으로 바꿉니다.
+이 명령을 실행할 때 *contosokey* 를 키 생성 단계의 **3.5단계: 새 키 만들기**에서 지정한 값과 동일한 값으로 바꿉니다.
 
 보안 영역 관리자 카드를 플러그인하라는 메시지가 표시됩니다.
 
@@ -478,7 +478,7 @@ NCipher nShield 유틸리티를 사용 하 여 다음 명령을 사용 하 여 A
 * kmfile-dump.exe:
 
         "%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
-  이 명령을 실행할 때 contosokey를 [키 생성](#step-3-generate-your-key) 단계의 **3.5단계: 새 키 만들기**에서 지정한 값과 동일한 값으로 바꿉니다.
+  이 명령을 실행할 때 contosokey를 키 생성 단계의 **3.5단계: 새 키 만들기**에서 지정한 값과 동일한 값으로 바꿉니다.
 
 ### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>4\.2단계: Microsoft의 키 교환 키를 사용하여 키 암호화
 
@@ -542,7 +542,7 @@ NCipher nShield 유틸리티를 사용 하 여 다음 명령을 사용 하 여 A
 
 이 명령을 실행할 때 다음 지침을 사용합니다.
 
-* *contosokey*를 [키 생성](#step-3-generate-your-key) 단계의 **3.5단계: 새 키 만들기**에서 키를 생성하는 데 사용한 식별자로 바꿉니다.
+* *contosokey*를 키 생성 단계의 **3.5단계: 새 키 만들기**에서 키를 생성하는 데 사용한 식별자로 바꿉니다.
 * *SubscriptionID* 를 주요 자격 증명 모음이 포함된 Azure 구독 ID로 바꿉니다. 이전에[인터넷에 연결된 워크스테이션 준비](#step-1-prepare-your-internet-connected-workstation) 단계의 1.2단계: Azure 구독 ID 가져오기 에서 이 값을 검색했습니다.
 * *ContosoFirstHSMKey*를 출력 파일 이름에 사용할 레이블로 바꿉니다.
 

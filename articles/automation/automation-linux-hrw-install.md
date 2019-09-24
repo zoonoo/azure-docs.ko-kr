@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 878e79097114f60aff084d60c835661196cec5ce
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 360fa750da054f9b126a8694f3dd2ce4b0b417b7
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076018"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240312"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker 배포
 
@@ -71,7 +71,7 @@ Linux Hybrid Runbook Worker에 대한 최소 요구 사항은 다음과 같습�
 
 1. 다음 명령을 실행하여 Linux용 Log Analytics 에이전트를 설치합니다. \<WorkspaceID\> 및 \<WorkspaceKey\>를 작업 영역에서 적절한 값으로 바꿉니다.
 
-   [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
+   [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
    ```bash
    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>

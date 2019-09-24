@@ -1,5 +1,5 @@
 ---
-title: Azure Marketplace 용 가상 머신 제품에 대 한 기술 자산 만들기
+title: Azure Marketplace에 대 한 가상 컴퓨터 제품에 대 한 기술 자산 만들기
 description: Azure Marketplace에서 가상 머신 제안에 대한 기술 자산을 만드는 방법을 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: pabutler
-ms.openlocfilehash: 6113c10cd152a22bd31e7212d86925b0c2107e58
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: c1ef00f846dfad76629b0603ab79fba17249417c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938406"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "71224518"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>가상 머신 제안에 대한 기술 자산 만들기
 
@@ -34,7 +34,7 @@ VM OS, VM 크기, 개방할 포트 및 최대 15개의 연결된 데이터 디�
 
 ## <a name="fundamental-technical-knowledge"></a>기본 기술 지식
 
-이러한 자산을 설계, 구축 및 테스트하려면 시간이 걸리고 Azure 플랫폼과 제안을 작성하는 데 사용되는 기술에 대한 기술적 지식이 모두 필요합니다. 엔지니어링 팀은 솔루션 영역 외에도 다음 Microsoft 기술에 대한 지식을 갖추고 있어야 합니다. 
+이러한 자산의 디자인, 빌드 및 테스트는 시간이 걸리고 제품을 빌드하는 데 사용 되는 Azure 플랫폼 및 기술에 대 한 기술 지식이 필요 합니다. 엔지니어링 팀은 솔루션 도메인 외에 다음과 같은 Microsoft 기술에 대해 알고 있어야 합니다. 
 -   [Azure 서비스](https://azure.microsoft.com/services/)에 대한 기본적 이해 
 -   [Azure 애플리케이션을 디자인 및 설계](https://azure.microsoft.com/solutions/architecture/)하는 방법
 -   [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage) 및 [Azure 네트워킹](https://azure.microsoft.com/services/?filter=networking)에 대한 실무 지식
@@ -50,7 +50,7 @@ VHD 및 VM을 관리하는 데 도움이 되는 다음 스크립팅 환경 중 �
 
 또한 개발 환경에 다음 도구를 추가하는 것이 좋습니다. 
 
--   [Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+-   [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
     *   확장: [Azure Resource Manager 도구](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     *   확장: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)

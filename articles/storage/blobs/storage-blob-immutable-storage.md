@@ -9,14 +9,14 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: aa6bee9cceffc0252dd39d85ebe9d70625e33419
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 6278b16221072b9b5bca371007296806454ba197
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036397"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212433"
 ---
-# <a name="store-business-critical-data-in-azure-blob-storage"></a>Azure Blob Storage에 중요 비즈니스용 데이터 저장
+# <a name="store-business-critical-data-in-azure-blob-storage-immutably"></a>비즈니스에 중요 한 데이터를 Azure Blob 저장소에 저장 immutably 
 
 Azure Blob 저장소에 대 한 변경할 수 없는 저장소를 통해 사용자는 비즈니스에 중요 한 데이터 개체를 웜 (한 번 쓰기, 읽기 다) 상태로 저장할 수 있습니다. 이 상태는 사용자가 지정한 간격 동안 데이터를 지울 수 없고 수정할 수 없게 만듭니다. 보존 기간 동안 Blob 개체를 만들고 수정할 수 있지만 수정할 수는 없습니다. 변경 불가능 한 저장소는 범용 v2 및 모든 Azure 지역에서 Blob Storage 계정에 대해 사용 하도록 설정 됩니다.
 

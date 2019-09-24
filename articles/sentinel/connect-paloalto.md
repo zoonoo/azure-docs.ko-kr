@@ -1,5 +1,5 @@
 ---
-title: Palo Alto Networks 데이터를 Azure 센티널 Preview에 연결 | Microsoft Docs
+title: Palo Alto Networks 데이터를 Azure 센티널에 연결 | Microsoft Docs
 description: Palo Alto Networks 데이터를 Azure 센티널에 연결 하는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5860e1b1b817985aafd95f6f63d39553489482b9
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 659f36a036d8a165b0c2b28830ae2312adb56c56
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679227"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240229"
 ---
 # <a name="connect-your-palo-alto-networks-appliance"></a>Palo Alto Networks 어플라이언스 연결
 
-> [!IMPORTANT]
-> Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
 
 로그 파일을 Syslog (Common Error Format) (CEF)로 저장 하 여 Azure 센티널을 모든 Palo Alto Networks 어플라이언스에 연결할 수 있습니다. Azure 센티널과 통합 하면 Palo Alto Networks의 로그 파일 데이터에서 분석 및 쿼리를 쉽게 실행할 수 있습니다. Azure 센티널에서 CEF 데이터를 수집 하는 방법에 대 한 자세한 내용은 [cef 어플라이언스 연결](connect-common-event-format.md)을 참조 하세요.
 
@@ -141,5 +139,5 @@ Syslog 에이전트를 통해 CEF 형식의 Syslog 메시지를 Azure 작업 영
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Palo Alto Networks 어플라이언스를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [데이터 및 잠재적 위협에 대 한 가시성을 얻는](quickstart-get-visibility.md)방법에 대해 알아봅니다.
-- [Azure 센티널로 위협 검색을](tutorial-detect-threats.md)시작 합니다.
+- [Azure 센티널로 위협 검색을](tutorial-detect-threats-built-in.md)시작 합니다.
 

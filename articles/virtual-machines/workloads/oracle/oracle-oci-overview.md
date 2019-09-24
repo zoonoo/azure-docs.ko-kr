@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 4628955998ab8b289a429cdfb85e23f7f97b0b40
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9947d28cbde7f4804283e03cc07093b9240ca6bf
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101427"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240997"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Oracle 응용 프로그램 솔루션 Microsoft Azure 및 Oracle 클라우드 인프라 통합 (미리 보기)
 
@@ -50,7 +50,7 @@ Oracle 솔루션을 완전히 Azure 인프라에 배포 하는 데 관심이 있
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 
-* 미리 보기의 클라우드 간 연결은 Azure 미국 동부 (eastus) 지역 및 OCI Ashburn (US-ashburn-1) 지역으로 제한 됩니다.
+* 미리 보기로 제공 되는 클라우드 간 연결은 Azure 미국 동부 (영국 남부 & estorage.westcentralus) 지역 및 OCI Ashburn (미국 동부) & 런던 (영국 남부) 지역으로 제한 됩니다. 영국 남부의 경우 대기 시간에 대 한 연결 간 연결을 배포할 때 OCI에서 가용성 도메인 1 (AD 1)을 사용 하세요.
 
 ## <a name="networking"></a>네트워킹
 
@@ -66,7 +66,7 @@ Express 경로 및 FastConnect를 사용 하는 고객은 개인 IP 주소 공�
 
 또한 OCI 가상 클라우드 네트워크 및 보안 규칙 (Azure [네트워크 보안 그룹](../../../virtual-network/security-overview.md)에 연결 됨)에 대 한 [보안 목록을](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) 설정할 수 있습니다. 이러한 규칙을 사용 하 여 가상 네트워크의 컴퓨터 간 트래픽 흐름을 제어할 수 있습니다. 네트워크 보안 규칙은 가상 네트워크 수준 뿐만 아니라 컴퓨터 수준에서 서브넷 수준으로 추가할 수 있습니다.
  
-## <a name="identity"></a>클레임
+## <a name="identity"></a>ID
 
 Id는 Microsoft와 Oracle 간의 파트너 관계의 핵심 핵심 요소 중 하나입니다. [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (idcs)를 [AZURE ACTIVE DIRECTORY](../../../active-directory/index.yml) (Azure AD)와 통합 하기 위해 많은 작업이 수행 되었습니다. Azure AD는 Microsoft의 클라우드 기반 id 및 액세스 관리 서비스입니다. 사용자가 로그인 하 고 다양 한 리소스에 액세스 하는 데 도움이 됩니다. Azure AD를 사용 하 여 사용자와 해당 사용 권한을 관리할 수도 있습니다.
 

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 41037e0687274d123bea742cee5cf2887548aa0f
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 4df831c1329ab13f19e6ecf979e404d4a90e5f72
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775219"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219754"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>데이터 흐름 매핑 열 패턴
 
@@ -57,5 +57,5 @@ ms.locfileid: "68775219"
 * `position`데이터 흐름에서 열의 서 수 위치입니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 데이터 변환에 대 한 ADF 매핑 데이터 흐름 [식 언어](http://aka.ms/dataflowexpressions) 에 대 한 자세한 정보
+* 데이터 변환에 대 한 ADF 매핑 데이터 흐름 [식 언어](https://aka.ms/dataflowexpressions) 에 대 한 자세한 정보
 * [싱크 변환](data-flow-sink.md) 에서 열 패턴을 사용 하 고 규칙 기반 매핑을 사용 하 여 [변환 선택](data-flow-select.md)

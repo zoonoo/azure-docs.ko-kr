@@ -1,33 +1,35 @@
 ---
-title: Azure Notification Hubs에서 Apple 푸시 알림 서비스 구성 | Microsoft Docs
-description: Apple 푸시 알림 서비스 (APNS) 설정을 사용 하 여 Azure 알림 허브를 구성 하는 방법에 알아봅니다.
+title: Azure Notification Hubs에서 Apple Push Notification Service 구성 | Microsoft Docs
+description: APNS (Apple Push Notification Service) 설정을 사용 하 여 Azure notification hub를 구성 하는 방법에 대해 알아봅니다.
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
 ms.date: 03/25/2019
-ms.author: jowargo
-ms.openlocfilehash: 9a9db9f05895569b050e56cdeec1ee2ee25af0df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/25/2019
+ms.openlocfilehash: 74e7e3c74934e292b668b8bff594a5efbca19716
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60237821"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212551"
 ---
-# <a name="configure-apple-push-notification-service-apns-settings-for-a-notification-hub-in-the-azure-portal"></a>Azure portal에서 알림 허브에 대 한 Apple 푸시 알림 서비스 (APNS) 설정 구성
-이 문서에서는 Azure portal을 사용 하 여 Azure 알림 허브에 대 한 Apple 푸시 알림 서비스 (APNS) 설정을 구성 하는 방법을 보여 줍니다. 
+# <a name="configure-apple-push-notification-service-apns-settings-for-a-notification-hub-in-the-azure-portal"></a>Azure Portal에서 알림 허브에 대 한 APNS (Apple Push Notification Service) 설정 구성
+이 문서에서는 Azure Portal를 사용 하 여 Azure 알림 허브에 대 한 APNS (Apple Push Notification Service) 설정을 구성 하는 방법을 보여 줍니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 알림 허브를 아직 만들지 않은 경우 지금 만듭니다. 자세한 내용은 [Azure Portal에 Azure 알림 허브 만들기](create-notification-hub-portal.md)를 참조하세요. 
 
-## <a name="configure-apple-push-notification-service"></a>Apple Push Notification Service를 구성 합니다.
+## <a name="configure-apple-push-notification-service"></a>Apple Push Notification Service 구성
 
-다음 절차는 알림 허브에 대 한 Apple 푸시 알림 서비스 (APNS) 설정을 구성 하는 단계를 제공 합니다.
+다음 절차에서는 알림 허브에 대 한 APNS (Apple Push Notification Service) 설정을 구성 하는 단계를 제공 합니다.
 
-1. Azure portal에서에 **알림 허브** 페이지에서 **APNS (Apple)** 왼쪽된 메뉴에서.
+1. Azure Portal의 **알림 허브** 페이지에서 왼쪽 메뉴에 있는 **Apple (APNS)** 을 선택 합니다.
 
 1. **인증 모드**의 경우 **인증서** 또는 **토큰**을 선택합니다.
 
@@ -46,4 +48,4 @@ ms.locfileid: "60237821"
      ![Azure Portal의 APNS 토큰 구성 스크린샷](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
 
 ## <a name="next-steps"></a>다음 단계
-IOS 장치로 알림을 푸시하는 것에 대 한 단계별 지침을 사용 하 여 자습서의 경우 다음 문서를 참조 합니다. [Notification Hubs 및 APNS를 사용하여 iOS 디바이스에 알림 푸시](notification-hubs-ios-apple-push-notification-apns-get-started.md)
+IOS 장치로 알림을 푸시하는 방법에 대 한 단계별 지침이 포함 된 자습서는 다음 문서를 참조 하세요. [Notification Hubs 및 APNS를 사용하여 iOS 디바이스에 알림 푸시](notification-hubs-ios-apple-push-notification-apns-get-started.md)

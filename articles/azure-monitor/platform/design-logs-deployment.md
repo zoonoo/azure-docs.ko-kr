@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/07/2019
+ms.date: 09/20/2019
 ms.author: magoedte
-ms.openlocfilehash: 5d6e68b4b17c31056ed1f96a779823fc856962fb
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: fa3c8b8cee0b8621a6a2800655f62a3d339f67c3
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034734"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211992"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Azure Monitor 로그 배포 디자인
 
@@ -35,6 +35,8 @@ Log Analytics 작업 영역이 제공하는 정보:
 * [가격 책정 계층](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [보존](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)및 [데이터 50,](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap)같은 설정의 구성에 대 한 범위입니다.
 
 이 문서에서는 디자인 및 마이그레이션 고려 사항, 액세스 제어 개요 및 IT 조직에 권장 되는 디자인 구현을 이해 하는 방법에 대 한 자세한 개요를 제공 합니다.
+
+
 
 ## <a name="important-considerations-for-an-access-control-strategy"></a>액세스 제어 전략에 대 한 중요 고려 사항
 
@@ -67,7 +69,7 @@ RBAC (역할 기반 액세스 제어)를 사용 하면 작업 영역에서 모�
 
 사용자가 액세스할 수 있는 데이터는 다음 표에 나열 된 요소 조합에 따라 결정 됩니다. 각에 대해서는 아래 섹션에서 설명 합니다.
 
-| 비율 | Description |
+| 비율 | 설명 |
 |:---|:---|
 | [액세스 모드](#access-mode) | 사용자가 작업 영역에 액세스 하는 데 사용 하는 방법입니다.  사용 가능한 데이터의 범위와 적용 되는 액세스 제어 모드를 정의 합니다. |
 | [액세스 제어 모드](#access-control-mode) | 사용 권한이 작업 영역에 적용 되는지 아니면 리소스 수준에서 적용 되는지를 정의 하는 작업 영역에 대 한 설정입니다. |
@@ -129,6 +131,19 @@ Azure Monitor는 로그 검색을 수행 하는 컨텍스트에 따라 올바른
     > 사용자에 게 작업 영역에 대 한 리소스 권한만 있으면 작업 영역 액세스 모드가 **리소스 또는 작업 영역 권한 사용**으로 설정 된 것으로 가정 하 여 리소스 컨텍스트 모드를 사용 하 여 작업 영역에 액세스할 수 있습니다.
 
 포털에서 또는 PowerShell을 사용 하 여 액세스 제어 모드를 변경 하거나 리소스 관리자 템플릿을 사용 하는 방법에 대 한 자세한 내용은 [액세스 제어 모드 구성](manage-access.md#configure-access-control-mode)을 참조 하세요.
+
+## <a name="ingestion-volume-rate-limit"></a>수집 볼륨 률 제한
+
+Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 대규모 데이터 서비스입니다. 기본 수집 율 임계값은 작업 영역 당 **500 m b/분** 으로 설정 됩니다. 데이터를 더 높은 속도로 단일 작업 영역으로 보내는 경우 일부 데이터가 삭제 되 고, 임계값을 계속 초과 하는 동안 6 시간 마다 이벤트가 작업 영역에서 *작업* 테이블로 전송 됩니다. 수집 볼륨이 계속 해 서 속도 제한을 초과 하거나 곧 도달할 것으로 예상 되는 경우 지원 요청을 열어 작업 영역에 대 한 증가를 요청할 수 있습니다.
+ 
+작업 영역에서 이러한 이벤트에 대해 알리려면 0 보다 많은 결과 클 경고 논리 기반을 사용 하는 다음 쿼리를 사용 하 여 [로그 경고 규칙](alerts-log.md) 을 만듭니다.
+
+``` Kusto
+Operation
+|where OperationCategory == "Ingestion"
+|where Detail startswith "The rate of data crossed the threshold"
+``` 
+
 
 ## <a name="recommendations"></a>권장 사항
 

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1ab9de1e11fa4f43894a6789fb2ba6fedbd1b77e
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 39cf6126f6212b6e83f1974dae7aaab0038e69c6
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477508"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240991"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Hybrid Runbook Worker 문제 해결
 
@@ -26,7 +26,7 @@ Hybrid Runbook Worker는 Automation 계정과 통신하여 작업자를 등록�
 
 ### <a name="runbook-execution-fails"></a>시나리오: Runbook 실행 실패
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 Runbook 실행에 실패하고 다음 오류가 발생합니다.
 
@@ -60,7 +60,7 @@ Hybrid Runbook Worker 기능을 실행할 컴퓨터가 최소 하드웨어 요�
 
 ### <a name="no-cert-found"></a>시나리오: Hybrid Runbook Worker의 인증서 저장소에서 인증서를 찾을 수 없음
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 Hybrid Runbook Worker에서 실행되는 Runbook이 실패하고 다음 오류 메시지가 표시됩니다.
 
@@ -87,7 +87,7 @@ Linux Hybrid Runbook Worker는 Automation 계정과 통신하여 작업자를 �
 
 ### <a name="oms-agent-not-running"></a>시나리오: Linux용 OMS 에이전트가 실행되고 있지 않습니다.
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 Linux용 OMS 에이전트가 실행되고 있지 않습니다.
 
@@ -130,7 +130,7 @@ Windows Hybrid Runbook Worker는 Automation 계정과 통신하여 작업자를 
 
 ### <a name="mma-not-running"></a>시나리오: Microsoft Monitoring Agent가 실행되고 있지 않음
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 `healthservice` 서비스가 Hybrid Runbook Worker 컴퓨터에서 실행되고 있지 않습니다.
 
@@ -144,7 +144,7 @@ PowerShell에서 `Get-Service healthservice` 명령을 입력하여 에이전트
 
 ### <a name="event-4502"></a> Operations Manager 로그의 4502 이벤트
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 **Application and Services Logs\Operations Manager** 이벤트 로그에서 이벤트 4502 및 다음 설명과 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**를 포함하는 EventMessage를 볼 수 있습니다. *\<wsid\>.oms.opinsights.azure.com 서비스에서 제공한 인증서를 Microsoft 서비스에 사용된 인증 기관에서 발급하지 않았습니다. 네트워크 관리자에게 문의하여 TLS/SSL 통신을 가로채는 프록시를 실행하고 있는지 확인하세요. 문서 KB3126513에는 연결 문제에 대한 추가 문제 해결 정보가 들어 있습니다.*
 
@@ -160,7 +160,7 @@ PowerShell에서 `Get-Service healthservice` 명령을 입력하여 에이전트
 
 ### <a name="corrupt-cache"></a> Hybrid Runbook Worker가 보고하지 않음
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 Hybrid Runbook Worker 시스템이 실행 중이지만 작업 영역에 해당 시스템에 대한 하트비트 데이터가 표시되지 않습니다.
 
@@ -168,7 +168,7 @@ Hybrid Runbook Worker 시스템이 실행 중이지만 작업 영역에 해당 �
 
 ```loganalytics
 // Last heartbeat of each computer
-Heartbeat 
+Heartbeat
 | summarize arg_max(TimeGenerated, *) by Computer
 ```
 
@@ -190,7 +190,7 @@ Start-Service -Name HealthService
 
 ### <a name="already-registered"></a>시나리오: Hybrid Runbook Worker를 추가할 수 없습니다.
 
-#### <a name="issue"></a>문제
+#### <a name="issue"></a>문제점
 
 `Add-HybridRunbookWorker` cmdlet을 사용하여 Hybrid Runbook Worker를 추가하려고 할 때 다음 메시지가 수신됩니다.
 

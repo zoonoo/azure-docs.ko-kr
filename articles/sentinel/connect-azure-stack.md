@@ -10,20 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: caaf708b3efd8ffbe059f8ad249b7945d31fd7cc
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: fb306ec3f8abe2eedb97f83d01836745779db914
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68601165"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240765"
 ---
 # <a name="connect-azure-stack-virtual-machines-to-azure-sentinel"></a>Azure 센티널에 Azure Stack 가상 머신 연결
 
-> [!IMPORTANT]
-> Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
 
 
 Azure 센티널을 사용 하면 Azure Stack Azure에서 실행 되는 Vm을 한 곳에서 모니터링할 수 있습니다. Azure 센티널에 Azure Stack 컴퓨터를 온 보 보드 하려면 먼저 기존 Azure Stack 가상 컴퓨터에 가상 컴퓨터 확장을 추가 해야 합니다. 
@@ -71,5 +69,5 @@ Azure의 Azure 센티널 포털의 **Virtual Machines**에는 모든 vm 및 컴�
 
 Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [데이터 및 잠재적 위협에 대 한 가시성을 얻는](quickstart-get-visibility.md)방법에 대해 알아봅니다.
-- [Azure 센티널로 위협 검색을](tutorial-detect-threats.md)시작 합니다.
+- [Azure 센티널로 위협 검색을](tutorial-detect-threats-built-in.md)시작 합니다.
 - [일반 오류 형식 어플라이언스](connect-common-event-format.md) 의 데이터를 Azure 센티널로 스트림 합니다.

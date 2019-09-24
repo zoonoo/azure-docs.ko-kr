@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: 0070ab94196dfe752e048e97dd40a8f69cf98373
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 0d6f05524be41693ba280b0f0162f65b517ec281
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202599"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219626"
 ---
 # <a name="threat-detection-for-vms-and-servers-in-azure-security-center"></a>Azure Security Center의 Vm 및 서버에 대 한 위협 감지
 
@@ -35,7 +35,7 @@ Security Center는 Windows Server Defender ATP (Advanced Threat Protection)와 �
 > [!NOTE]
 > Windows Server Defender ATP 센서는 Security Center를 사용 하는 Windows 서버에서 자동으로 사용 하도록 설정 됩니다.
 
-Windows Server Defender ATP는 위협을 감지 하면 경고를 트리거합니다. 경고는 Security Center 대시보드에 표시 됩니다. 대시보드에서 Windows Defender ATP 콘솔로 피벗 하 고 자세한 조사를 수행 하 여 공격의 범위를 확인할 수 있습니다. Windows Server Defender ATP에 대 한 자세한 내용은 [Windows DEFENDER atp 서비스에 서버](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints)등록을 참조 하세요.
+Windows Server Defender ATP는 위협을 감지 하면 경고를 트리거합니다. 경고는 Security Center 대시보드에 표시 됩니다. 대시보드에서 Microsoft Defender ATP 콘솔로 피벗을 수행 하 고 자세한 조사를 수행 하 여 공격의 범위를 확인할 수 있습니다. Windows Server Defender ATP에 대 한 자세한 내용은 [Microsoft DEFENDER atp 서비스에 서버](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints)등록을 참조 하세요.
 
 ### 크래시 덤프 분석<a nanme="windows-dump"></a>
 

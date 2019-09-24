@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f4816ea2dc67df717e46df61c955d6d156b14d7e
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 253e01b6bfa6609b4ec41d69a3c4b1bbe405ba5a
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129673"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240294"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -71,11 +71,11 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 
 ### <a name="supported-client-types"></a>지원되는 클라이언트 유형
 
-다음 표에서는 지원되는 운영 체제의 목록을 보여 줍니다.
+다음 표에서는 업데이트 평가에 대해 지원 되는 운영 체제의 목록을 보여 줍니다. 패치를 적용 하려면 Hybrid Runbook Worker 필요 합니다. Hybrid Runbook Worker 요구 사항에 대 한 자세한 내용은 [WINDOWS hrw](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) 및 [Linux hrw](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)에 대 한 설치 가이드를 참조 하세요.
 
 |운영 체제  |참고  |
 |---------|---------|
-|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012<br><br>Windows Server 2008 R2 (RTM 및 SP1 표준)|**업데이트 평가**: 지원됨<br><br>**패치**: Hybrid Runbook Worker 필요 합니다. [Hybrid Runbook Worker 요구 사항](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) 을 참조 하세요.|
+|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012<br><br>Windows Server 2008 R2 (RTM 및 SP1 표준)||
 |CentOS 6(x86/x64) 및 7(x64)      | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 분류 기반 패치에는 CentOS에 기본 제공되지 않은 보안 데이터를 반환하기 위해 'yum'이 필요합니다. CentOS의 분류 기반 패치에 대 한 자세한 내용은 [Linux의 업데이트 분류](#linux-2) 를 참조 하세요.          |
 |Red Hat Enterprise 6(x86/x64) 및 7(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
 |SUSE Linux Enterprise Server 11(x86/x64) 및 12(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
@@ -249,6 +249,9 @@ Azure Marketplace에서 사용할 수 있는 RHEL(주문형 Red Hat Enterprise L
 | 다시 부팅 제어| 다시 부팅을 처리하는 방법을 결정합니다. 사용 가능한 옵션은 다음과 같습니다.</br>필요한 경우 다시 부팅(기본값)</br>항상 다시 부팅</br>다시 부팅 안 함</br>다시 부팅만 - 업데이트 설치 안 함|
 
 업데이트 배포를 프로그래밍 방식으로 만들 수도 있습니다. REST API를 사용하여 업데이트 배포를 만드는 방법은 [소프트웨어 업데이트 구성 - 만들기](/rest/api/automation/softwareupdateconfigurations/create)를 참조하세요. 주간 업데이트 배포를 만드는 데 사용할 수 있는 샘플 Runbook도 있습니다. 이 Runbook에 대한 자세한 내용은 [리소스 그룹에 있는 하나 이상의 VM에 대한 주간 업데이트 배포 만들기](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1)를 참조하세요.
+
+> [!NOTE]
+> 다시 부팅 **안 함**으로 설정 **된 경우** [다시 시작을 관리 하는 데 사용 되](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) 는 레지스트리 키에 나열 된 레지스트리 키가 다시 부팅 이벤트를 발생 시킬 수 있습니다.
 
 ### <a name="maintenance-windows"></a>유지 관리 기간
 

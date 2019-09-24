@@ -9,12 +9,12 @@ ms.date: 09/13/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 78c752423d20d183c561d5bcf0bb95246b84ab49
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 9618d99495e65231de22eb719355e2ca75a17600
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076669"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71218048"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>방화벽 또는 프록시 서버에서 Azure Portal Url Safelist
 
@@ -80,8 +80,8 @@ Azure Portal에 대해 safelist URL 끝점은 조직이 배포 되는 Azure 클�
 IP 주소를 safelist 해야 하나요? 클라우드의 Microsoft Azure 데이터 센터 IP 범위 목록을 다운로드 합니다.
 
 * [전](https://www.microsoft.com/download/details.aspx?id=56519)
-* [미국 자치](http://www.microsoft.com/download/details.aspx?id=57063)
-* [독일](http://www.microsoft.com/download/details.aspx?id=57064)
-* [중국](http://www.microsoft.com/download/details.aspx?id=57062)
+* [미국 자치](https://www.microsoft.com/download/details.aspx?id=57063)
+* [독일](https://www.microsoft.com/download/details.aspx?id=57064)
+* [중국](https://www.microsoft.com/download/details.aspx?id=57062)
 
 다른 Microsoft 서비스는 연결에 대 한 추가 Url 및 IP 주소를 사용 합니다. Microsoft 365 서비스에 대 한 네트워크 연결을 최적화 하려면 [Office 365에 대 한 네트워크 설정](/office365/enterprise/set-up-network-for-office-365)을 참조 하세요.

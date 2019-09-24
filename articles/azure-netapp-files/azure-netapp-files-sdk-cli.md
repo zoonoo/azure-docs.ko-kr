@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: b-juche
-ms.openlocfilehash: a99fb3b61d8193f1671fa1d8e228439941659d57
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 09a1e48d2eb9ab9b117cb1b1161d5137607400ad
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141172"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212092"
 ---
-# <a name="azure-netapp-files-sdks-and-cli-tools"></a>Azure NetApp Files Sdk 및 CLI 도구
+# <a name="azure-netapp-files-sdks-and-cli-tools"></a>Azure NetApp Files SDK 및 CLI 도구
 
 이 문서에는 Azure NetApp Files에서 지 원하는 Sdk 및 명령줄 (CLI) 도구가 나열 되어 있습니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "70141172"
 |    언어/도구    |    코드 샘플 설명서    |
 |------------------|--------------------------------------------|
 |    .NET   |    [에 대 한 Azure NetApp Files SDK 샘플입니다. Microsoft.netcore.portable.compatibility](https://docs.microsoft.com/samples/azure-samples/netappfiles-dotnetcore-sdk-sample/azure-netappfiles-sdk-sample-for-netcore/)    |    
-|    Pythons    |    [Python 용 Azure NetApp Files SDK 샘플](https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/)    |
+|    Python    |    [Python 용 Azure NetApp Files SDK 샘플](https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/)    |
 
 ## <a name="next-steps"></a>다음 단계   
  [Azure Sdk 다운로드](https://azure.microsoft.com/downloads/)

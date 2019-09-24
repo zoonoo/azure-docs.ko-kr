@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: efc439d56ee864d940942369b3d226ed2a94a383
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 166ff5f8866fca955cbe99c5896eb509f52261f6
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072642"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219556"
 ---
 # <a name="api-management-advanced-policies"></a>API Management 고급 정책
 
@@ -38,7 +38,7 @@ ms.locfileid: "70072642"
 -   [요청 메서드 설정](#SetRequestMethod) - 요청에 대한 HTTP 메서드를 변경할 수 있습니다.
 -   [상태 코드 설정](#SetStatus) - 지정된 값으로 HTTP 상태 코드를 변경합니다.
 -   [변수 설정](api-management-advanced-policies.md#set-variable) - 나중에 액세스할 수 있도록 명명된 [context](api-management-policy-expressions.md#ContextVariables) 변수의 값을 유지합니다.
--   [추적](#Trace) - [API 검사기](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) 출력에 문자열을 추가합니다.
+-   [Trace](#Trace) -사용자 지정 추적을 [API 검사기](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) 출력, Application Insights 원격 분석 및 진단 로그에 추가 합니다.
 -   [대기](#Wait) - 계속하기 전에 완료할 포함된 [요청 전송](api-management-advanced-policies.md#SendRequest), [캐시에서 값 가져오기](api-management-caching-policies.md#GetFromCacheByKey) 또는 [제어 흐름](api-management-advanced-policies.md#choose) 정책 등을 기다립니다.
 
 ## <a name="choose"></a> 흐름 제어
@@ -913,16 +913,31 @@ status code and media type. If no example or schema found, the content is empty.
 
 ## <a name="Trace"></a> 추적
 
-`trace` 정책은 [API 검사기](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) 출력에 문자열을 추가합니다. 이 정책은 추적이 트리거된 경우에만 실행됩니다(즉, `Ocp-Apim-Trace` 요청 헤더가 있고 `true`로 설정된 경우 및 `Ocp-Apim-Subscription-Key` 요청 헤더가 있고 관리자 계정에 연결된 유효한 키를 보유하는 경우).
+`trace` 정책은 API 검사기 출력, Application Insights 원격 분석 및/또는 진단 로그에 사용자 지정 추적을 추가 합니다. 
+
+* 이 정책은 추적이 트리거될 때 [API 검사기](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) 출력에 사용자 지정 추적을 추가 합니다. 즉, `Ocp-Apim-Trace` 요청 헤더가 있고 true로 설정 되어 있으며 `Ocp-Apim-Subscription-Key` 요청 헤더가 있고 추적을 허용 하는 유효한 키를 보유 합니다. 
+* 이 정책은 [Application Insights 통합](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) 이 `severity` 사용 하도록 설정 되어 있고 정책 `verbosity` 에 지정 된 수준이 진단에 지정 된 수준 이상이 면 Application Insights에서 [추적](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) 원격 분석을 만듭니다. 설정. 
+* [진단 로그](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) 를 사용 하도록 설정 하 고 정책에 지정 된 심각도 수준이 진단 설정에 지정 된 세부 정보 표시 수준 보다 높거나 높은 경우 정책에서 로그 항목에 속성을 추가 합니다.  
+
 
 ### <a name="policy-statement"></a>정책 문
 
 ```xml
 
-<trace source="arbitrary string literal">
-    <!-- string expression or literal -->
+<trace source="arbitrary string literal" severity="verbose|information|error">
+    <message>String literal or expressions</message>
+    <metadata name="string literal or expressions" value="string literal or expressions"/>
 </trace>
 
+```
+
+### <a name="traceExample"></a> 예제
+
+```xml
+<trace source="PetStore API" severity="verbose">
+    <message>@((string)context.Variables["clientConnectionID"])</message>
+    <metadata name="Operation Name" value="New-Order"/>
+</trace>
 ```
 
 ### <a name="elements"></a>요소
@@ -930,12 +945,17 @@ status code and media type. If no example or schema found, the content is empty.
 | 요소 | 설명   | 필수 |
 | ------- | ------------- | -------- |
 | 추적   | 루트 요소입니다. | 예      |
+| message | 로깅할 문자열이 나 식입니다. | 예 |
+| 메타데이터 | Application Insights [추적](https://docs.microsoft.com/en-us/azure/azure-monitor/app/data-model-trace-telemetry) 원격 분석에 사용자 지정 속성을 추가 합니다. | 아니요 |
 
 ### <a name="attributes"></a>특성
 
 | 특성 | Description                                                                             | 필수 | 기본값 |
 | --------- | --------------------------------------------------------------------------------------- | -------- | ------- |
 | 원본    | 추적 뷰어에 의미있고 메시지 원본을 지정하는 문자열 리터럴입니다. | 예      | 해당 사항 없음     |
+| 심각도    | 추적의 심각도 수준을 지정 합니다. 허용 되는 `verbose`값 `information`은 `error` ,, (가장 낮은 값에서 가장 높은 값)입니다. | 아니요      | 자세히     |
+| name    | 속성의 이름입니다. | 예      | 해당 사항 없음     |
+| 값    | 속성의 값입니다. | 예      | 해당 사항 없음     |
 
 ### <a name="usage"></a>사용법
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 46c08f48efc00c1e4d88ceccb680c0cfd1671b2f
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 30994133b19c4f59ae9e8be26caffe14348638f6
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203566"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219378"
 ---
 # <a name="create-a-private-endpoint-using-azure-cli"></a>Azure CLI를 사용 하 여 개인 끝점 만들기
 개인 끝점은 Azure의 개인 링크를 위한 기본 구성 요소입니다. Vm (가상 머신)과 같은 Azure 리소스가 개인 링크 리소스와 개인적으로 통신할 수 있도록 합니다. 이 빠른 시작에서는 Azure CLI를 사용 하 여 개인 끝점이 있는 SQL Database 서버, 가상 네트워크에서 VM을 만드는 방법에 대해 알아봅니다. 그런 다음 VM에 액세스 하 고 개인 링크 리소스 (이 예제에서는 개인 Azure SQL Database 서버)에 안전 하 게 액세스할 수 있습니다. 
@@ -144,7 +144,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 1. VM 데스크톱이 나타나면 최소화하여 로컬 데스크톱으로 돌아갑니다.  
 
-## <a name="access-dql-database-server-privately-from-the-vm"></a>VM에서 개인용 DQL 데이터베이스 서버에 액세스
+## <a name="access-sql-database-server-privately-from-the-vm"></a>VM에서 전용 SQL Database 서버 액세스
 
 이 섹션에서는 개인 끝점을 사용 하 여 VM에서 SQL Database 서버에 연결 합니다.
 

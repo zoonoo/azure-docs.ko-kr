@@ -50,6 +50,16 @@
           href: backup-support-matrix-mabs-dpm.md
         - name: MARS 에이전트 지원 매트릭스
           href: backup-support-matrix-mars-agent.md
+    - name: 보안
+      items:
+        - name: 역할 기반 Access Control
+          href: backup-rbac-rs-vault.md
+        - name: 클라우드 워크로드 보안
+          href: backup-azure-security-feature-cloud.md
+        - name: 하이브리드 백업 보안
+          href: backup-azure-security-feature.md
+        - name: 기본 제공 보안 컨트롤
+          href: backup-security-controls.md
     - name: 질문과 대답(FAQ)
       items:
         - name: FAQ-Recovery Services 자격 증명 모음
@@ -68,20 +78,12 @@
           href: backup-azure-monitor-alert-faq.md
     - name: 백업 아키텍처
       href: backup-architecture.md
-    - name: 역할 기반 Access Control
-      href: backup-rbac-rs-vault.md
-    - name: 클라우드 워크로드 보안
-      href: backup-azure-security-feature-cloud.md
-    - name: 하이브리드 백업 보안
-      href: backup-azure-security-feature.md
     - name: 오프라인 백업 구성
       href: backup-azure-backup-import-export.md
     - name: DPM 및 Azure Backup Server를 위한 오프라인 백업
       href: backup-azure-backup-server-import-export-.md
     - name: 테이프 라이브러리 교체
       href: backup-azure-backup-cloud-as-tape.md
-    - name: 기본 제공 보안 컨트롤
-      href: backup-security-controls.md
 - name: 방법
   items:
     - name: Azure Backup 서버

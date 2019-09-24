@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2ef501af63628b47bc52d416930c90057569b5de
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 4d4a3eae9ea3931ceb720785bbf458f54689be6e
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035022"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213511"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화 된 ML 실험 구성
 
@@ -202,7 +202,7 @@ Azure Databricks 있는 노트북 예는 [GitHub 사이트](https://github.com/A
         n_cross_validations=5)
     ```
 
-세 가지 다른 `task` 매개 변수 값에 따라 적용할 알고리즘 목록이 결정 됩니다.  `whitelist` 또는 `blacklist` 매개 변수를 사용하여 사용 가능한 알고리즘 반복을 포함 또는 제외하도록 추가로 수정합니다. 지원 되는 모델 목록은 [Supportedalgorithms 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py)에서 찾을 수 있습니다.
+세 가지 다른 `task` 매개 변수 값에 따라 적용할 모델 목록이 결정 됩니다.  포함 하거나 제외할 `blacklist` 사용 가능한 모델로 반복을 수정 하려면 또는매개변수를사용합니다.`whitelist` 지원 되는 모델 목록은 [Supportedmodels 클래스](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py)에서 찾을 수 있습니다.
 
 ### <a name="primary-metric"></a>기본 메트릭
 기본 메트릭 위의 예제에 나와 있는 것 처럼 최적화를 위해 모델 학습 중에 사용할 메트릭을 결정 합니다. 선택할 수 있는 기본 메트릭은 선택한 작업 유형에 따라 결정 됩니다. 다음은 사용 가능한 메트릭의 목록입니다.
@@ -369,7 +369,7 @@ best_run, fitted_model = automl_run.get_output()
 
 전처리 = True 일 때 발생 하는 전처리 및 [자동화 된 기능 엔지니어링](concept-automated-ml.md#preprocess) 목록을 참조 하세요.
 
-다음 예제를 고려해 보세요.
+다음 예를 살펴보세요.
 + 다음과 같은 4 가지 입력 기능이 있습니다. (숫자), B (숫자), C (숫자), D (DateTime)
 + 숫자 기능 C는 모든 고유 값을 포함 하는 ID 열 이므로 삭제 됩니다.
 + 숫자 기능 A와 B에는 누락 된 값이 있으므로 mean 귀속 됩니다.

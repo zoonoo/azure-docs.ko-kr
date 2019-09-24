@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18, seo-java-august2019, seo-java-september2019
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: a24263e80f50d880be269238441545785e2f51e8
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 054289de296488036dd0855d228d272fdea18baf
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967607"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219415"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs"></a>Java를 사용 하 여 Azure에서 이벤트를 보내거나 이벤트를 수신 Event Hubs
 
@@ -26,7 +26,7 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
 > [!NOTE]
 > [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend)에서 샘플로 이 빠른 시작을 다운로드하여 `EventHubConnectionString` 및 `EventHubName` 문자열을 이벤트 허브 값으로 대체하고, 실행합니다. 또는 이 자습서의 단계를 수행하여 직접 만들 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
@@ -138,7 +138,7 @@ ConnectionStringBuilder 클래스를 사용하여 Event Hubs 클라이언트 인
 
 프로그램을 빌드 및 실행하고, 오류가 없는지 확인합니다.
 
-축하합니다. 이제 Event Hub에 메시지를 보냈습니다.
+지금까지 이제 Event Hub에 메시지를 보냈습니다.
 
 ### <a name="appendix-how-messages-are-routed-to-eventhub-partitions"></a>부록: 메시지가 EventHub 파티션으로 라우팅되는 원리
 
@@ -174,18 +174,18 @@ eventHubClient.closeSync();
 
 **EventProcessorHost**는 영구적 검사점을 관리하여 Event Hubs의 이벤트 수신을 간소화하고 이러한 Event Hubs에서 병렬 수신하는 Java 클래스입니다. EventProcessorHost를 사용하면 다른 노드에 호스트된 경우라도 여러 수신기 간에 이벤트를 분할할 수 있습니다. 이 예제에서는 단일 수신기에 대해 EventProcessorHost를 사용하는 방법을 보여 줍니다.
 
-### <a name="create-a-storage-account"></a>저장소 계정 만들기
+### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 EventProcessorHost를 사용 하려면 [Azure Storage 계정] [Azure Storage 계정]이 있어야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인 하 고 화면의 왼쪽에서 **리소스 만들기** 를 선택 합니다.
 2. **저장소**를 선택 하 고 **저장소 계정**을 선택 합니다. **스토리지 계정 만들기** 창에서 스토리지 계정에 사용할 이름을 입력합니다. 나머지 필드를 완료 하 고 원하는 지역을 선택한 후 **만들기**를 선택 합니다.
    
-    ![저장소 계정 만들기](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+    ![Azure Portal에서 저장소 계정 만들기](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-azure-storage-account.png)
 
 3. 새로 만든 저장소 계정을 선택 하 고 **액세스 키**를 선택 합니다.
    
-    ![액세스 키 가져오기](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
+    ![Azure Portal에서 액세스 키 가져오기](./media/event-hubs-dotnet-framework-getstarted-receive-eph/select-azure-storage-access-keys.png)
 
     Key1 값을 임시 위치로 복사합니다. 이 자습서의 뒷부분에서 사용합니다.
 

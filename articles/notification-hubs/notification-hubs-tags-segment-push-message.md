@@ -3,9 +3,9 @@ title: 라우팅 및 태그 식
 description: 이 문서는 Azure 알림 허브에 대한 알림 및 태그 식을 설명합니다.
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 0fffb3bb-8ed8-4e0f-89e8-0de24a47f644
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2019
-ms.author: jowargo
-ms.openlocfilehash: 31a22aabc7b0f1d51a673ef8642037103badcc02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/23/2019
+ms.openlocfilehash: 66388f139b63c63e1f0f8ee8ee063e0ddd0f9da5
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61457807"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213046"
 ---
 # <a name="routing-and-tag-expressions"></a>라우팅 및 태그 식
 
@@ -35,7 +37,7 @@ ms.locfileid: "61457807"
 2. **태그**: 지정된 태그를 포함하는 모든 등록이 알림을 수신합니다.
 3. **태그 식**: 등록의 태그 집합이 지정된 식과 일치하는 모든 등록이 알림을 수신합니다.
 
-## <a name="tags"></a>태그들
+## <a name="tags"></a>Tags
 
 태그에는 영숫자 및 영숫자가 아닌 문자(‘_’, ‘@’, ‘#’, ‘.’, ‘:’, ‘-’)를 포함하는 모든 문자열을 최대 120자까지 사용할 수 있습니다. 다음 예제는 특정 음악 그룹에 대한 토스트 알림을 받을 수 있는 애플리케이션을 보여줍니다. 이 시나리오에서 알림을 라우팅하는 간단한 방법은 등록에 대해 아래 그림처럼 다양한 밴드를 나타내는 태그로 레이블을 붙이는 것입니다.
 

@@ -3,9 +3,9 @@ title: Notification Hubs - 엔터프라이즈 푸시 아키텍처
 description: 엔터프라이즈 환경에서 Azure Notification Hubs 사용에 대한 지침
 services: notification-hubs
 documentationcenter: ''
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 903023e9-9347-442a-924b-663af85e05c6
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,19 +13,21 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 938801148b175456553865b54d59271021811401
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 5b65fe6acb1fdf7ba79b106c876527c9b6736c5f
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60873395"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211915"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>엔터프라이즈 푸시 아키텍처 지침
 
 오늘날 기업에서는 최종 사용자(외부)를 위해 또는 직원(내부)을 위해 모바일 애플리케이션을 만드는 일이 점점 많아지고 있습니다. 기업은 가동 중인 기존 백 엔드 시스템이 모바일 애플리케이션 아키텍처에 통합되어야 하는 메인프레임 또는 일부 LoB 애플리케이션이 되도록 합니다. 이 가이드에서는 일반적인 시나리오에 사용 가능한 솔루션을 권장하는 이 통합을 가장 잘 수행할 수 있는 방법에 대해 설명합니다.
 
-백엔드 시스템에서 관심 이벤트가 발생하는 경우 해당 모바일 애플리케이션을 통해 사용자에게 푸시 알림을 보내기 위한 일반적인 요구 사항입니다. iPhone에 해당 은행의 뱅킹 앱을가지고 있는 은행 고객을 재무부 계정 또는 Windows Phone 예산 승인 앱을가지고 있는 재무 부서에서 직원의가 있는 인트라넷 시나리오에서 일정 금액 때 알림을 받도록 하려고 하는 예를 들어,  승인 요청을 받은 경우 알림을 받을 수 있습니다.
+백엔드 시스템에서 관심 이벤트가 발생하는 경우 해당 모바일 애플리케이션을 통해 사용자에게 푸시 알림을 보내기 위한 일반적인 요구 사항입니다. 예를 들어 iPhone에서 은행 뱅킹 앱을 보유 하 고 있는 은행 고객은 계좌에서 특정 금액을 초과 하는 경우 또는 Windows Phone에 대 한 예산 승인 앱을 보유 하 고 있는 재무 부서의 직원이 있는 인트라넷 시나리오에 대 한 알림이 표시 되려고 합니다.  승인 요청을 받을 때 알림이 표시 됩니다.
 
 은행 계좌 또는 승인 처리는 사용자에게 푸시를 초기화해야 하는 일부 백 엔드 시스템에서 수행될 수 있습니다. 이벤트가 알림을 트리거할 때 같은 종류의 논리를 모두 동일하게 빌드하여 푸시해야 하는 여러 백 엔드 시스템이 있을 수 있습니다. 여기에서는 여러 백 엔드 시스템을 단일 푸시 시스템에 함께 통합할 때의 복잡성을 설명합니다. 최종 사용자는 다양한 알림을 구독했을 수 있고 여기에는 여러 모바일 애플리케이션이 있을 수도 있습니다. 예를 들어 인트라넷 모바일 앱의 경우 특정 모바일 애플리케이션이 그러한 여러 백 엔드 시스템에서 알림을 받기를 원할 수 있습니다. 백 엔드 시스템은 푸시 의미론/기술을 모르거나 알고 있어야 합니다. 그래서 일반적인 솔루션은 전통적으로 모든 관심 이벤트의 백 엔드 시스템을 폴링한 구성 요소를 소개했으며 클라이언트에 푸시 메시지를 전송하는 역할을 담당합니다.
 
@@ -54,9 +56,9 @@ ms.locfileid: "60873395"
 1. 수신자(알림 허브를 통한 모바일 앱/서비스)와 발신자(백엔드 시스템) 사이를 분리하면 최소한의 변경 내용을 가진 추가 백엔드 시스템을 통합할 수 있습니다.
 1. 이렇게 하면 하나 이상의 백 엔드 시스템에서 이벤트를 받을 수 있는 여러 모바일 앱 시나리오를 만들 수도 있습니다.  
 
-## <a name="sample"></a>샘플
+## <a name="sample"></a>예제
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 개념뿐만 아니라 일반적인 만들기 및 구성 단계에 익숙해지려면 다음 자습서를 완료합니다.
 
@@ -265,7 +267,7 @@ ms.locfileid: "60873395"
 ### <a name="running-the-sample"></a>샘플 실행
 
 1. WebJob이 성공적으로 실행 중이고 계속 실행되도록 예약되었는지 확인합니다.
-2. 실행 합니다 **EnterprisePushMobileApp**, Windows 스토어 앱을 시작 합니다.
+2. Windows 스토어 앱을 시작 하는 **EnterprisePushMobileApp**를 실행 합니다.
 3. **EnterprisePushBackendSystem** 콘솔 애플리케이션을 실행하면 LoB 백 엔드를 시뮬레이션 하고 메시지를 보내기 시작하기 때문에 다음 이미지와 같이 나타나는 토스트 알림이 보여야 합니다.
 
     ![][5]

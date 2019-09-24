@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2019
+ms.date: 09/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce66c0239eee3f31695a942a586766694525fbad
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 2a875e028a38c085d45d062984764cd840983fc3
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097607"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212334"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -31,7 +31,7 @@ Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure A
 
 이 테이블은 관련 항목 목록입니다.
 
-항목 |  세부 정보
+항목 |  설명
 --------- | --------- |
 Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스를 [이전 버전에서 최신 버전으로 업그레이드](how-to-upgrade-previous-version.md) 하는 다른 방법입니다.
 필요한 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](reference-connect-accounts-permissions.md#upgrade)을 참조하세요.
@@ -46,7 +46,13 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 ## <a name="14x0"></a>1.4. X. 0
 
 >[!IMPORTANT]
->이전에는 온-프레미스 AD에 가입 된 Windows 하위 수준 컴퓨터가 일부 환경에서 클라우드로 올바르게 동기화 되지 않았습니다. 예를 들어 AD의 Windows 하위 수준 장치에 대 한 userCertificate 특성 값이 채워집니다. 그러나 Azure AD의 이러한 장치는 AAD Sync를 통해 Azure AD에 등록 하도록 설계 되지 않았기 때문에 "보류 중" 상태로 항상 높게 유지 됩니다. 이 버전의 Azure AD Connect에서는 Windows 하위 수준 컴퓨터를 Azure AD와 동기화 하는 것을 중지 하 고 AAD Sync, Azure AD에서 이전에 잘못 동기화 된 Windows 하위 수준 장치를 제거 합니다. 이 변경 내용은 MSI 패키지를 사용 하 여 Azure AD에 올바르게 등록 된 Windows 하위 수준 장치를 삭제 하지 않습니다. 이러한 장치는 장치 기반 조건부 액세스의 목적에 따라 계속 해 서 예상 대로 작동 합니다. 일부 고객은 Azure AD에서 일부 또는 모든 Windows 하위 수준 장치를 볼 수 있습니다. 이러한 장치 id는 조건부 액세스 권한 부여 중에 Azure AD에서 실제로 사용한 적이 없기 때문에 문제가 발생 하지 않습니다. 이러한 고객은 장치 기반 조건부 https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan 액세스에 완벽 하 게 참가할 수 있도록 Windows 하위 수준 장치를 다시 방문 하 여 올바르게 등록 해야 할 수 있습니다. Azure AD에서 내보내기 삭제 임계값을 초과 하는 하위 수준 컴퓨터/장치 개체의 이러한 삭제가 표시 되는 경우 고객은 이러한 삭제를 통과 하도록 허용 하는 것이 좋습니다.
+>하이브리드 Azure AD 조인으로 등록 된 Windows 컴퓨터는 Azure AD에서 장치 개체로 표시 됩니다. 이러한 장치 개체는 조건부 액세스에 사용할 수 있습니다. Windows 10 컴퓨터는 Azure AD Connect을 통해 클라우드와 동기화 됩니다. 낮은 수준의 Windows 컴퓨터는 AD FS 또는 원활한 single sign-on을 사용 하 여 직접 등록 됩니다.
+>
+>하이브리드 Azure AD 조인에서 구성 된 특정 userCertificate 특성 값을 포함 하는 Windows 10 컴퓨터만 Azure AD Connect 하 여 클라우드와 동기화 되어야 합니다.  이전 버전의 Azure AD Connect이 요구 사항은 엄격 하 게 적용 되지 않았기 때문에 Azure AD에서 불필요 한 장치 개체가 생성 됩니다. 이러한 컴퓨터는 Azure AD에 등록 하기 위한 것이 아니므로 Azure AD의 이러한 장치는 항상 "보류 중" 상태로 높게 유지 됩니다.
+>
+>이 버전의 Azure AD Connect는 하이브리드 Azure AD에 연결 되도록 올바르게 구성 된 Windows 10 컴퓨터만 동기화 합니다. Azure AD Connect는 [하위 Windows 장치](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices)를 동기화 해서는 안 됩니다.  Azure AD에서 이전에 잘못 동기화 된 모든 장치는 이제 Azure AD에서 삭제 됩니다.  그러나이 변경은 하이브리드 Azure AD 가입을 위해 Azure AD에 올바르게 등록 된 Windows 장치를 삭제 하지 않습니다. 
+>
+>일부 고객은 Azure AD에서 일부 또는 모든 Windows 장치가 사라질 수 있습니다. 이러한 장치 id는 조건부 액세스 권한 부여 중에 Azure AD에서 사용 되지 않기 때문에 문제가 발생 하지 않습니다. 일부 고객은 다음 방법으로 [다시 방문 해야 할 수 있습니다. 하이브리드 Azure Active Directory 조인 구현을](../../active-directory/devices/hybrid-azuread-join-plan.md) 계획 하 여 Windows 컴퓨터를 올바르게 등록 하 고 이러한 장치가 장치 기반 조건부 액세스에 완전히 참여할 수 있도록 합니다. [하위 수준 windows 장치](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices) 를 삭제 하려고 시도 하는 Azure AD Connect 경우 해당 장치는 [windows 10이 아닌 컴퓨터 MSI에 대 한 Microsoft Workplace Join](https://www.microsoft.com/download/details.aspx?id=53554) 에 의해 생성 된 것이 아니라 다른 Azure AD 기능에서 사용할 수 없습니다.  Azure AD에서 내보내기 삭제 임계값을 초과 하는 컴퓨터/장치 개체의 삭제가 표시 되는 경우 고객은 이러한 삭제를 통과 하도록 허용 하는 것이 좋습니다.
 
 ### <a name="release-status"></a>릴리스 상태
 9/10/2019: 자동 업그레이드에 대해서만 릴리스 됨
@@ -450,7 +456,7 @@ Azure AD Connect 버전 1.1.654.0 이상에서는 Azure AD Connect가 AD DS 계�
 *   특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다. SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
 *   다음과 같은 특정 권한을 할당합니다.
 
-형식     | 이름                          | 액세스               | 적용 대상
+형식     | 이름                          | 액세스 권한               | 적용 대상
 ---------|-------------------------------|----------------------|--------------|
 Allow    | 시스템                        | 모든 권한         | 이 개체  |
 Allow    | Enterprise Admins             | 모든 권한         | 이 개체  |
@@ -484,7 +490,7 @@ Where
 >[!NOTE] 
 >$credential.UserName은 FQDN\username 형식이어야 합니다. 예: contoso.com\admin 
 
-##### <a name="example"></a>예제:
+##### <a name="example"></a>예:
 
 ```powershell
 Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
@@ -1028,7 +1034,7 @@ AD FS 관리
 * 커넥터 공간에 있는 개체가 동시에 하나의 조인 규칙의 범위를 벗어나게 되고 다른 규칙의 범위에 포함되는 경우 조인 규칙이 다시 평가되지 않는 문제가 해결되었습니다. 이런 상황은 조인 조건이 서로 배타적인 조인 규칙이 둘 이상인 경우 발생할 수 있습니다.
 * 조인 규칙을 포함하지 않는 인바운드 동기화 규칙(Azure AD의)이 조인 규칙을 포함하는 규칙보다 낮은 우선 순위 값을 갖는 경우 처리되지 않는 문제가 해결되었습니다.
 
-**향상된 기능**
+**향상된 기능:**
 
 * Windows Server 2016 Standard 이상에 Azure AD Connect를 설치할 수 있도록 지원이 추가되었습니다.
 * Azure AD Connect에 대한 원격 데이터베이스로 SQL Server 2016을 사용하는 데 대한 지원이 추가되었습니다.
@@ -1047,7 +1053,7 @@ AD FS 관리
 * Azure AD Connect 마법사는 서버가 준비 모드에 있을 때 실제 암호 동기화 및 비밀번호 쓰기 저장 구성을 표시하지 않습니다. 항상 비활성화로 표시합니다.
 * 서버가 준비 모드에 있을 때 암호 동기화 및 비밀번호 쓰기 저장에 대한 구성 변경 내용은 Azure AD Connect 마법사에서 유지되지 않습니다.
 
-**향상된 기능**
+**향상된 기능:**
 
 * 새 동기화 주기를 성공적으로 시작할 수 있는지 여부를 표시하도록 Start-ADSyncSyncCycle cmdlet이 업데이트되었습니다.
 * 현재 진행 중인 동기화 주기 및 작업을 종료하는 Stop-ADSyncSyncCycle cmdlet이 추가되었습니다.
@@ -1255,7 +1261,7 @@ Azure AD Sync에서 Azure AD Connect로 이름을 변경했습니다.
 ## <a name="104850222"></a>1.0.485.0222
 릴리스 날짜: 2015년 2월
 
-**향상된 기능**
+**향상된 기능:**
 
 * 가져오기 성능이 향상되었습니다.
 
@@ -1272,7 +1278,7 @@ Azure AD Sync에서 Azure AD Connect로 이름을 변경했습니다.
 **새로운 기능:**
 
 * 이제 특성 기반 필터링을 사용하는 암호 동기화가 지원됩니다. 자세한 내용은 [필터링으로 암호 동기화](how-to-connect-sync-configure-filtering.md)를 참조하세요.
-* ms-DS-ExternalDirectoryObjectID 특성이 다시 Active Directory에 기록됩니다. 이 기능을 통해 Office 365 애플리케이션에 대한 지원이 추가됩니다. 이 기능은 OAuth2를 사용하여 하이브리드 Exchange 배포의 온라인 및 온-프레미스 사서함에 액세스합니다.
+* ms-DS-ExternalDirectoryObjectID 특성이 다시 Active Directory에 기록됩니다. 이 기능을 통해 Office 365 애플리케이션에 대한 지원이 추가됩니다. 하이브리드 Exchange 배포에서 OAuth2을 사용 하 여 온라인 및 온-프레미스 사서함에 액세스 합니다.
 
 **수정된 업그레이드 문제:**
 
