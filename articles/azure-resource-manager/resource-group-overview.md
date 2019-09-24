@@ -93,7 +93,7 @@ Azure는 [관리 그룹](../governance/management-groups/index.md), 구독, [리
 
 Azure Resource Manager 서비스는 복원력 및 지속적인 가용성을 위해 설계되었습니다. REST API의 Resource Manager 및 제어 평면 작업(management.azure.com에 전송된 요청)은 다음과 같습니다.
 
-* 하위 지역에 분산됩니다. 일부 서비스는 지역적입니다.
+* 지역별로 분산됩니다 일부 서비스는 지역적입니다.
 
 * 여러 가용성 영역이 있는 위치에서 가용성 영역(지역도 포함)으로 분산됩니다.
 
