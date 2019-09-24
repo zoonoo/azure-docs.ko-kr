@@ -40,7 +40,7 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 > * 테스트 네트워크 환경 설정
 > * 방화벽 배포
 > * 기본 경로 만들기
-> * [www.google.com]\(www.google.com) 액세스를 허용하도록 애플리케이션 규칙 구성
+> * [www.google.com](www.google.com) 액세스를 허용하도록 애플리케이션 규칙 구성
 > * 외부 DNS 서버 액세스를 허용하도록 네트워크 규칙 구성
 > * 방화벽 테스트
 
@@ -87,7 +87,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. Azure Portal 홈 페이지에서 **리소스 그룹** > **Test-FW-RG**를 선택합니다.
 2. **Test-FW-VN** 가상 네트워크를 선택합니다.
-3. **서브넷** >  **+서브넷**을 선택합니다.
+3. **서브넷** > **+서브넷**을 선택합니다.
 4. **이름**에 **워크 로드-SN**을 입력합니다.
 5. **주소 범위**에 **10.0.2.0/24**를 입력합니다.
 6. **확인**을 선택합니다.
@@ -183,7 +183,7 @@ VNet에 방화벽을 배포합니다.
 
 ## <a name="configure-an-application-rule"></a>애플리케이션 규칙 구성
 
-[www.google.com]\(www.google.com) 에 대한 아웃바운드 액세스를 허용하는 애플리케이션 규칙입니다.
+[www.google.com](www.google.com) 에 대한 아웃바운드 액세스를 허용하는 애플리케이션 규칙입니다.
 
 1. **Test-FW-RG**를 열고 **Test-FW01** 방화벽을 선택합니다.
 2. **Test-FW01** 페이지의 **설정**에서 **규칙**을 선택합니다.
@@ -195,7 +195,7 @@ VNet에 방화벽을 배포합니다.
 8. **규칙**, **대상 FQDN** 아래에서 **이름**으로 **Allow-Google**을 입력합니다.
 9. **원본 주소**에 **10.0.2.0/24**를 입력합니다.
 10. **Protocol:port**에 **http, https**를 입력합니다.
-11. **대상 FQDN**에 대해 **[www.google.com]\(www.google.com)** 을 입력합니다.
+11. **대상 FQDN**에 대해 **[www.google.com](www.google.com)** 을 입력합니다.
 12. **추가**를 선택합니다.
 
 Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 제공 규칙 컬렉션을 포함합니다. 이러한 FQDN은 플랫폼에 대해 특정적이며 다른 용도로 사용할 수 없습니다. 자세한 내용은 [인프라 FQDN](infrastructure-fqdns.md)을 참조하세요.
@@ -236,12 +236,12 @@ Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 �
 1. Azure portal에서 **Srv-Work** 가상 머신에 대한 네트워크 설정을 검토하고 개인 IP 주소를 참고합니다.
 2. 원격 데스크톱을 **Srv-Jump** 가상 머신과 연결하고 로그인합니다. 여기에서 원격 데스크톱 연결을 **Srv-Work** 개인 IP 주소로 엽니다.
 
-3. Internet Explorer를 열고 https://www.google.com 을 찾습니다.
+3. Internet Explorer를 열고 https://www.google.com을 찾습니다.
 4. Internet Explorer 보안 경고에서 **확인** > **닫기**를 선택합니다.
 
    Google 홈 페이지가 나타납니다.
 
-5. https://www.microsoft.com 로 이동합니다.
+5. https://www.microsoft.com로 이동합니다.
 
    방화벽에서 차단해야 합니다.
 

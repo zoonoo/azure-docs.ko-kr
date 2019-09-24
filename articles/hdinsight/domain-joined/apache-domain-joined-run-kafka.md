@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 6cac4bd05f2acf5b11a8235a4bc1e0d09e0c4dc7
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 6d92ebc743bae97ecfa1591add27f470792dcafc
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885948"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037165"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache Kafka 정책 구성(미리 보기)
 
@@ -36,7 +36,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 
 2. Azure AD(Active Directory) 관리자 자격 증명을 사용하여 로그인합니다. Azure AD 관리자 자격 증명은 HDInsight 클러스터 자격 증명 또는 Linux HDInsight 노드 SSH 자격 증명과는 다릅니다.
 
-   ![Apache Ranger 관리 UI](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
+   ![HDInsight Apache Ranger 관리 UI](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
 
 ## <a name="create-domain-users"></a>도메인 사용자 만들기
 
@@ -145,7 +145,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 
    예제: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
 
-4. 을 sales_user가 사용할 수 있는지 확인하려면 **예제 빌드 및 배포** 아래의 3단계를 수행합니다([자습서: Apache Kafka 생산자 및 소비자 API 사용](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example)).
+4. 을 sales_user가 사용할 수 있는지 확인하려면 **예제 빌드 및 배포** 아래의 3단계를 수행합니다([자습서: Apache Kafka 생산자 및 소비자 API](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example)를 사용하여 **sales_user**가 `kafka-producer-consumer.jar`도 사용할 수 있도록 합니다.
 
 5. 다음 명령을 실행하여 **sales_user1**이 `salesevents` 토픽을 생성할 수 있는지 확인합니다.
 
@@ -183,7 +183,7 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 
 9. Ranger UI에서 감사 액세스 이벤트를 확인합니다.
 
-   ![Ranger UI 정책 감사](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
+   ![Ranger UI 정책 감사 액세스 이벤트 ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
