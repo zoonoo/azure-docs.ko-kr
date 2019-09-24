@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: bdf81eb447596c8f580809eed99004186a81eacf
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9a758ce56356da21fc94f426d575a55f7dc762a0
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70065913"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200331"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 및 .NET에 대한 성능 팁
 
@@ -32,18 +32,17 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
     클라이언트가 Azure Cosmos DB에 연결하는 방법은 특히 관찰되는 클라이언트 쪽 대기 시간 측면에서 성능에 중요한 영향을 미칩니다. 클라이언트 연결 정책, 즉 연결 ‘모드’와 연결 ‘프로토콜’을 구성하는 데 사용할 수 있는 두 가지 주요 구성 설정이 있습니다.  두 가지 사용 가능한 모드는 같습니다.
 
-   * 게이트웨이 모드(기본값)
+   * 게이트웨이 모드
       
-     게이트웨이 모드는 모든 SDK 플랫폼에서 지원되며 기본 구성입니다. 엄격한 방화벽으로 제한된 회사 네트워크 내에서 애플리케이션을 실행하는 경우, 표준 HTTPS 포트 및 단일 엔드포인트를 사용하기 때문에 게이트웨이 모드가 최상의 선택입니다. 그러나 게이트웨이 모드의 경우 성능 유지를 위해 Azure Cosmos DB에서 데이터를 읽거나 쓸 때마다 네트워크 홉이 추가됩니다. 이 때문에 직접 모드는 네트워크 홉이 적기 때문에 더 나은 성능을 제공합니다. 제한된 개수의 소켓 연결이 있는 환경에서 애플리케이션을 실행하는 경우(예: Azure Functions를 사용할 때 또는 사용량 플랜을 사용 중인 경우)에도 게이트웨이 연결 모드를 사용하는 것이 좋습니다. 
+     게이트웨이 모드는 모든 SDK 플랫폼에서 지원 되며 [Microsoft. Azure DOCUMENTDB SDK](sql-api-sdk-dotnet.md)에 대해 구성 된 기본값입니다. 응용 프로그램이 엄격한 방화벽 제한을 사용 하는 회사 네트워크 내에서 실행 되는 경우 표준 HTTPS 포트 및 단일 끝점을 사용 하기 때문에 게이트웨이 모드를 선택 하는 것이 가장 좋습니다. 그러나 성능 향상은 Azure Cosmos DB에 데이터를 읽거나 쓸 때마다 게이트웨이 모드에 추가 네트워크 홉이 포함 된다는 것입니다. 이 때문에 직접 모드는 네트워크 홉이 적기 때문에 더 나은 성능을 제공합니다. 게이트웨이 연결 모드는 연결 수를 제한 하는 환경에서 응용 프로그램을 실행 하는 경우에도 권장 됩니다. 
+
+     특히 [소비 계획](../azure-functions/functions-scale.md#consumption-plan)에서 Azure Functions SDK를 사용 하는 경우 [연결의 현재 제한](../azure-functions/manage-connections.md)사항에 유의 해야 합니다. 이 경우 Azure Functions 응용 프로그램 내에서 다른 HTTP 기반 클라이언트를 사용 하는 경우에도 게이트웨이 모드를 사용 하는 것이 좋습니다.
 
    * 직접 모드
 
-     직접 모드는 TCP 및 HTTPS 프로토콜을 통한 연결을 지원합니다. 최신 버전의 .NET SDK를 사용 하는 경우 .NET Standard 2.0 및 .NET framework에서 직접 연결 모드가 지원 됩니다. 직접 모드를 사용하는 경우 다음과 같이 두 가지 프로토콜 옵션을 사용할 수 있습니다.
+     직접 모드는 TCP 및 HTTPS 프로토콜을 통한 연결을 지원 하며 [Cosmos/.Net V3 SDK](sql-api-sdk-dotnet-standard.md)를 사용 하는 경우 기본 연결 모드입니다.
 
-     * TCP
-     * HTTPS
-
-     게이트웨이 모드를 사용하는 경우에는 Cosmos DB가 포트 443을 사용하고, Azure Cosmos DB의 API for MongoDB를 사용하는 경우에는 포트 10250, 10255 및 10256을 사용합니다. 포트 10250은 지역 복제 없이 기본 MongoDB 인스턴스에 매핑되고 포트 10255/10256은 지역 복제를 사용하여 MongoDB 인스턴스에 매핑됩니다. 직접 모드에서 TCP를 사용할 때는 Azure Cosmos DB에서 동적 TCP 포트를 사용하므로 게이트웨이 포트 외에 10000에서 20000 사이의 포트 범위가 열려 있는지 확인해야 합니다. 이러한 포트가 열려 있지 않은 경우 TCP를 사용하려고 하면 503 서비스를 사용할 수 없음 오류가 발생합니다. 다음 표에서는 다른 API에 사용할 수 있는 연결 모드 및 각 API에 사용할 수 있는 서비스 포트를 보여줍니다.
+     게이트웨이 모드를 사용 하는 경우 MongoDB에 Azure Cosmos DB의 API를 사용 하는 경우 Cosmos DB 포트 443 및 포트 10250, 10255 및 10256을 사용 합니다. 포트 10250은 지역 복제 없이 기본 MongoDB 인스턴스에 매핑되고 포트 10255/10256은 지역 복제를 사용하여 MongoDB 인스턴스에 매핑됩니다. 직접 모드에서 TCP를 사용할 때는 Azure Cosmos DB에서 동적 TCP 포트를 사용하므로 게이트웨이 포트 외에 10000에서 20000 사이의 포트 범위가 열려 있는지 확인해야 합니다. 이러한 포트가 열려 있지 않은 경우 TCP를 사용하려고 하면 503 서비스를 사용할 수 없음 오류가 발생합니다. 다음 표에서는 다른 API에 사용할 수 있는 연결 모드 및 각 API에 사용할 수 있는 서비스 포트를 보여줍니다.
 
      |연결 모드  |지원되는 프로토콜  |지원되는 SDK  |API/서비스 포트  |
      |---------|---------|---------|---------|
@@ -53,7 +52,20 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
      Azure Cosmos DB는 HTTPS를 통해 단순한 개방형 RESTful 프로그래밍 모델을 제공합니다. 또한 통신 모델이 RESTful이며 .NET 클라이언트 SDK를 통해 사용할 수 있는 효율적인 TCP 프로토콜도 제공합니다. 직접 TCP 및 HTTPS는 모두 초기 인증 및 암호화 트래픽에 SSL을 사용합니다. 최상의 성능을 위해 가능한 경우 TCP 프로토콜을 사용 합니다.
 
-     연결 모드는 ConnectionPolicy 매개 변수로 DocumentClient 인스턴스를 생성하는 도중 구성됩니다. 직접 모드를 사용하는 경우 ConnectionPolicy 매개 변수 내에서 프로토콜을 설정할 수도 있습니다.
+     SDK V3의 경우 CosmosClient 인스턴스를 만드는 동안 CosmosClientOptions의 일부로 연결 모드가 구성 됩니다.
+
+     ```csharp
+     var serviceEndpoint = new Uri("https://contoso.documents.net");
+     var authKey = "your authKey from the Azure portal";
+     CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
+     new CosmosClientOptions
+     {
+        ConnectionMode = ConnectionMode.Direct,
+        ConnectionProtocol = Protocol.Tcp
+     });
+     ```
+
+     Microsoft Azure DocumentDB SDK의 경우 ConnectionPolicy 매개 변수를 사용 하 여 DocumentClient 인스턴스를 생성 하는 동안 연결 모드가 구성 됩니다. 직접 모드를 사용하는 경우 ConnectionPolicy 매개 변수 내에서 프로토콜을 설정할 수도 있습니다.
 
      ```csharp
      var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -66,15 +78,19 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
      });
      ```
 
-     TCP는 직접 모드에서만 지원되기 때문에, 게이트웨이 모드를 사용하는 경우 게이트웨이와 통신하는 데 항상 HTTPS 프로토콜을 사용하고 ConnectionPolicy의 프로토콜 값은 무시됩니다.
+     TCP는 직접 모드 에서만 지원 되므로 게이트웨이 모드를 사용 하는 경우 항상 HTTPS 프로토콜을 사용 하 여 게이트웨이와 통신 하 고 ConnectionPolicy의 프로토콜 값은 무시 됩니다.
 
      ![Azure Cosmos DB 연결 정책 그림](./media/performance-tips/connection-policy.png)
 
 2. **첫 번째 요청 시 시작 대기 시간을 피하기 위해 OpenAsync 호출**
 
-    기본적으로 첫 번째 요청은 주소 라우팅 테이블을 가져와야 하기 때문에 대기 시간이 길어집니다. 첫 번째 요청에서 이 시작 대기 시간을 방지하려면 다음과 같이 초기화할 때 OpenAsync()를 한 번만 호출해야 합니다.
+    기본적으로 첫 번째 요청은 주소 라우팅 테이블을 가져와야 하기 때문에 대기 시간이 길어집니다. [SDK](sql-api-sdk-dotnet.md)v 2를 사용 하 여 첫 번째 요청에서이 시작 대기 시간을 방지 하려면 다음과 같이 초기화 하는 동안 openasync ()를 한 번 호출 해야 합니다.
 
         await client.OpenAsync();
+
+    > [!NOTE] 
+    > OpenAsync 메서드는 계정의 모든 컨테이너에 대 한 주소 라우팅 테이블을 가져오기 위해 요청을 생성 합니다. 많은 컨테이너가 있지만 응용 프로그램의 하위 집합에 액세스 하는 계정의 경우 초기화 속도가 느려지는 불필요 한 트래픽 양이 생성 됩니다. 따라서 응용 프로그램 시작 속도가 느려지므로이 시나리오에서는 OpenAsync 메서드를 사용 하는 것이 유용 하지 않을 수 있습니다.
+
    <a id="same-region"></a>
 3. **성능을 위해 동일한 Azure 지역에 클라이언트 배치**
 
@@ -95,15 +111,22 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 1. **최신 SDK 설치**
 
     Azure Cosmos DB SDK는 최상의 성능을 제공하기 위해 지속적으로 향상됩니다. [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md) 페이지를 참조하여 최신 SDK를 확인하고 향상된 기능을 검토하세요.
-2. **애플리케이션 수명 동안 singleton Azure Cosmos DB 클라이언트 사용**
 
-    각 DocumentClient 인스턴스는 스레드로부터 안전하고 직접 모드에서 작동하는 경우 효율적인 연결 관리와 주소 캐싱을 수행합니다. DocumentClient에 의해 연결을 효율적으로 관리하고 성능을 개선하려면 애플리케이션 수명 동안 AppDomain당 DocumentClient의 단일 인스턴스를 사용하는 것이 좋습니다.
+2. **Stream Api 사용**
+
+    [.NET SDK V3](sql-api-sdk-dotnet-standard.md) 에는 serialize 하지 않고 데이터를 수신 하 고 반환할 수 있는 스트림 api가 포함 되어 있습니다. 
+
+    SDK에서 직접 응답을 사용 하지 않지만 다른 응용 프로그램 계층에 릴레이 하는 중간 계층 응용 프로그램은 stream Api의 이점을 누릴 수 있습니다. 스트림 처리에 대 한 예제는 [항목 관리](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement) 샘플을 참조 하세요.
+
+3. **애플리케이션 수명 동안 singleton Azure Cosmos DB 클라이언트 사용**
+
+    각 DocumentClient 및 CosmosClient 인스턴스는 스레드로부터 안전 하 고 직접 모드에서 작동 하는 경우 효율적인 연결 관리와 주소 캐싱을 수행 합니다. SDK 클라이언트에서 효율적으로 연결을 관리 하 고 성능을 향상 시키려면 응용 프로그램의 수명 동안 AppDomain 당 단일 인스턴스를 사용 하는 것이 좋습니다.
 
    <a id="max-connection"></a>
-3. **Gateway 모드를 사용하는 경우 호스트당 System.Net MaxConnections 늘리기**
+4. **Gateway 모드를 사용하는 경우 호스트당 System.Net MaxConnections 늘리기**
 
     게이트웨이 모드를 사용하는 경우 Azure Cosmos DB 요청은 HTTPS/REST를 통해 수행되며 호스트 이름 또는 IP 주소당 기본 연결 제한이 적용됩니다. 클라이언트 라이브러리가 Azure Cosmos DB에 대한 여러 동시 연결을 활용할 수 있도록 MaxConnections를 더 높은 값(100-1000)으로 설정해야 할 수도 있습니다. .NET SDK 1.8.0 이상에서 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx)의 기본값은 50이며, 이 값을 변경하려면 [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)를 더 높은 값으로 설정할 수 있습니다.   
-4. **분할된 컬렉션에 대한 병렬 쿼리 튜닝**
+5. **분할된 컬렉션에 대한 병렬 쿼리 튜닝**
 
      SQL .NET SDK 버전 1.9.0 이상은 분할된 컬렉션을 병렬로 쿼리할 수 있는 병렬 쿼리를 지원합니다. 자세한 내용은 SDK 사용과 관련된 [코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs)을 참조하세요. 병렬 쿼리는 해당 직렬 대응을 통해 쿼리 대기 시간 및 처리량을 개선하기 위해 설계되었습니다. 병렬 쿼리는 사용자가 사용자 지정 맞춤 요구 사항을 튜닝할 수 있는 다음과 같은 두 개의 매개 변수를 제공합니다. (a) MaxDegreeOfParallelism: 파티션의 최대 수를 제어한 다음 병렬로 쿼리될 수 있습니다. (b) MaxBufferedItemCount: 프리페치된 결과의 수를 제어합니다.
 
@@ -114,10 +137,10 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     (b) ***MaxBufferedItemCount 튜닝\:*** 결과의 현재 배치가 클라이언트에서 처리되는 반면 병렬 쿼리는 결과를 프리페치하도록 설계되었습니다. 프리페치는 쿼리의 전체 대기 시간 개선 사항에 도움이 됩니다. MaxBufferedItemCount는 프리페치된 결과의 수를 제한하는 매개 변수입니다. MaxBufferedItemCount를 반환된 결과의 예상 수(또는 더 높은 숫자)로 설정하면 쿼리가 프리페치의 최대 이점을 얻을 수 있습니다.
 
     프리페치는 MaxDegreeOfParallelism에 관계없이 동일한 방식으로 작동하고 여기에는 모든 파티션의 데이터에 대한 단일 버퍼가 있습니다.  
-5. **서버 쪽 GC 켜기**
+6. **서버 쪽 GC 켜기**
 
     경우에 따라 가비지 수집의 빈도를 줄이는 것이 도움이 될 수 있습니다. .NET에서 [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) 를 true로 설정합니다.
-6. **RetryAfter 간격으로 백오프 구현**
+7. **RetryAfter 간격으로 백오프 구현**
 
     성능 테스트 중에는 작은 비율의 요청이 제한될 때까지 로드를 늘려야 합니다. 제한될 경우 클라이언트 애플리케이션은 서버에서 지정한 재시도 간격 제한을 백오프해야 합니다. 백오프를 통해 재시도 간 기간을 최소화할 수 있습니다. 다시 시도 정책 지원은 SQL [.NET](sql-api-sdk-dotnet.md) 및 [Java](sql-api-sdk-java.md)의1.8.0 버전 이상, [Node.js](sql-api-sdk-node.md) 및 [Python](sql-api-sdk-python.md)의 1.9.0 버전 이상과 [.NET Core](sql-api-sdk-dotnet-core.md) SDK의 모든 지원 버전에 포함됩니다. 자세한 내용은 [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx)를 참조하세요.
     
@@ -127,15 +150,15 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     readDocument.RequestDiagnosticsString 
     ```
     
-7. **클라이언트 워크로드 규모 확장**
+8. **클라이언트 워크로드 규모 확장**
 
     높은 처리량 수준에서 테스트하는 경우(&gt;50,000 RU/s) 머신의 CPU 또는 네트워크 사용률이 최대화되므로 클라이언트 애플리케이션은 병목 상태가 될 수 있습니다. 이 시점에 도달하면 여러 서버에 걸쳐 클라이언트 애플리케이션을 확장하여 Azure Cosmos DB 계정을 계속 추가할 수 있습니다.
-8. **짧은 읽기 대기 시간 동안 문서 URI 캐시**
+9. **짧은 읽기 대기 시간 동안 문서 URI 캐시**
 
     최상의 문서 읽기 성능이 필요할 때마다 문서 URI를 캐시합니다. 리소스를 만들 때 resourceid를 캐시하는 논리를 정의해야 합니다. Resourceid 기반 조회는 이름 기반 조회보다 빠르므로 이러한 값을 캐시하면 성능이 향상됩니다. 
 
    <a id="tune-page-size"></a>
-1. **성능 향상을 위해 쿼리/읽기 피드에 맞게 페이지 크기 조정**
+10. **성능 향상을 위해 쿼리/읽기 피드에 맞게 페이지 크기 조정**
 
    읽기 피드 기능을 사용하여 대량의 문서 읽기를 수행하거나(예: ReadDocumentFeedAsync) 또는 SQL 쿼리를 실행하면, 결과 집합이 너무 큰 경우 결과가 분할되어 반환됩니다. 기본적으로, 100개의 항목 또는 1MB 단위(둘 중 먼저 도달하는 단위)로 결과가 반환됩니다.
 
@@ -144,7 +167,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
    > [!NOTE] 
    > MaxItemCount 속성은 페이지 매김 목적 으로만 사용 하면 안 됩니다. 단일 페이지에서 반환 되는 최대 항목 수를 줄여 쿼리 성능을 향상 시키는 데 주로 사용 됩니다.  
 
-   사용 가능한 Azure Cosmos DB Sdk를 사용 하 여 페이지 크기를 설정할 수도 있습니다. FeedOptions의 [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) 속성을 사용 하면 enmuration 작업에서 반환 되는 최대 항목 수를 설정할 수 있습니다. 이 `maxItemCount` -1로 설정 되 면 SDK는 문서 크기에 따라 가장 적합 한 값을 자동으로 찾습니다. 예를 들어:
+   사용 가능한 Azure Cosmos DB Sdk를 사용 하 여 페이지 크기를 설정할 수도 있습니다. FeedOptions의 [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) 속성을 사용 하면 열거 작업에서 반환할 최대 항목 수를 설정할 수 있습니다. 이 `maxItemCount` -1로 설정 되 면 SDK는 문서 크기에 따라 가장 적합 한 값을 자동으로 찾습니다. 예를 들어:
     
    ```csharp
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
@@ -152,11 +175,11 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     
    쿼리가 실행 되 면 결과 데이터가 TCP 패킷 내에 전송 됩니다. 에 대해 `maxItemCount`값을 너무 낮게 지정 하면 TCP 패킷 내에서 데이터를 전송 하는 데 필요한 왕복 횟수가 높아 성능에 영향을 줍니다. 따라서 속성에 대해 `maxItemCount` 설정할 값을 잘 모를 경우-1로 설정 하 고 SDK에서 기본값을 선택 하는 것이 가장 좋습니다. 
 
-10. **스레드/작업의 수 늘리기**
+11. **스레드/작업의 수 늘리기**
 
     네트워킹 섹션의 [스레드/작업의 수 늘리기](#increase-threads)를 참조하세요.
 
-11. **64비트 호스트 처리 사용**
+12. **64비트 호스트 처리 사용**
 
     SQL SDK는 SQL .NET SDK 버전 1.11.4 이상을 사용하는 경우 32비트 호스트 프로세스에서 작동합니다. 하지만 파티션 간 쿼리를 사용하는 경우 성능 향상을 위해 64비트 호스트를 처리하는 것이 좋습니다. 다음과 같은 유형의 애플리케이션에서는 32비트 호스트 프로세스를 기본값으로 사용하지만 64비트로 변경하려면 애플리케이션 유형에 따라 다음 단계를 따르세요.
 

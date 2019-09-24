@@ -3,9 +3,8 @@ title: Azure Security Center를 사용하여 보안 태세 강화 | Microsoft Do
 description: 이 문서는 Azure Security Center에서 리소스를 모니터링하여 보안 태세를 강화하는 데 도움이 됩니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 28b4667a9ceb4b3534d85ba28668f06c750e22c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: memildin
+ms.openlocfilehash: b7bb67ec052244689b2775c280ff39a2121da3fa
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60703882"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201688"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Azure Security Center를 사용하여 보안 태세 강화
 이 문서는 보안 태세를 강화하는 데 도움이 됩니다. Azure Security Center의 모니터링 기능을 사용하여 리소스를 최대한 강력하게 보호하고 정책 준수를 모니터링하세요.
@@ -46,7 +45,7 @@ ms.locfileid: "60703882"
 
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 이 문서에서는 Azure Security Center의 모니터링 기능을 사용하는 방법을 살펴보았습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md): Azure Security Center에서 보안 설정을 구성하는 방법을 알아봅니다.

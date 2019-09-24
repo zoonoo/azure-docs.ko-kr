@@ -3,9 +3,8 @@ title: Azure Security Center 조사에서 사용자 데이터 관리 | Microsoft
 description: " Azure Security Center 조사 기능에서 사용자 데이터를 관리하는 방법을 알아봅니다. "
 services: operations-management-suite
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
@@ -13,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
-ms.author: rkarlin
-ms.openlocfilehash: 1fd979be117104186b2dfce47cc79947a092eb9e
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.author: memildin
+ms.openlocfilehash: 8b6bde69f233fee9fe20b260e392966298f13a9a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672337"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202046"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Azure Security Center 조사에서 사용자 데이터 관리
-이 아티클에서는 Azure Security Center 조사 기능에서 사용자 데이터를 관리하는 방법에 대한 정보를 제공합니다. 조사 데이터에 저장 됩니다 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md) Security Center에서 노출 합니다. 사용자 데이터 관리에는 데이터를 삭제하거나, 내보내는 기능이 포함됩니다.
+이 아티클에서는 Azure Security Center 조사 기능에서 사용자 데이터를 관리하는 방법에 대한 정보를 제공합니다. 조사 데이터는 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md) 에 저장 되 고 Security Center에 노출 됩니다. 사용자 데이터 관리에는 데이터를 삭제하거나, 내보내는 기능이 포함됩니다.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
@@ -58,4 +57,4 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 ## <a name="next-steps"></a>다음 단계
 사용자 데이터를 관리하는 방법에 대한 자세한 내용은 [Azure Security Center에서 사용자 데이터 관리](security-center-privacy.md)를 참조하세요.
-Azure Monitor 로그에서 개인 데이터를 삭제 하는 방법에 대 한 자세한 내용은 참조 하세요 [내보내고 개인 데이터를 삭제 하는 방법을](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data)합니다.
+Azure Monitor 로그에서 개인 데이터를 삭제 하는 방법에 대 한 자세한 내용은 [개인 데이터를 내보내고 삭제 하는 방법](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data)을 참조 하세요.

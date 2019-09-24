@@ -3,9 +3,8 @@ title: Azure Security Center에서 사용할 수 있는 지원 되는 기능 | M
 description: 이 문서에서는 Azure Security Center 지원 되는 서비스 목록을 제공 합니다.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 870ebc8d-1fad-435b-9bf9-c477f472ab17
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 0d2b417dd01e26f0f93722be66d82972b52aca83
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.author: memildin
+ms.openlocfilehash: 97708fa3211aa203aab56253b1c7720d04329014
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70234583"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200823"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Azure Security Center에서 사용할 수 있는 지원 되는 기능
 
@@ -41,22 +40,22 @@ ms.locfileid: "70234583"
 |**환경**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
 ||**Virtual Machine**|**Virtual Machine Scale Set**||**Virtual Machine**|**Virtual Machine Scale Set**|
 |VMBA 위협 검색 경고|✔|✔|✔|✔(지원되는 버전에서만)|✔(지원되는 버전에서만)|✔|권장 사항 (무료) 위협 검색 (표준)|
-|네트워크 기반 위협 탐지 경고|✔|✔|X|✔|✔|X|표준|
-|Windows Defender ATP 통합|✔(지원되는 버전에서만)|✔(지원되는 버전에서만)|✔|X|X|X|표준|
-|누락된 패치|✔|✔|✔|✔|✔|✔|Free|
-|보안 구성|✔|✔|✔|✔|✔|✔|Free|
-|Endpoint protection 평가|✔|✔|✔|X|X|X|Free|
-|JIT VM 액세스|✔|X|X|✔|X|X|표준|
-|적응형 애플리케이션 제어|✔|X|✔|✔|X|✔|표준|
-|FIM|✔|✔|✔|✔|✔|✔|표준|
-|디스크 암호화 평가|✔|✔|X|✔|✔|X|Free|
-|타사 배포|✔|X|X|✔|X|X|Free|
-|NSG 평가|✔|✔|X|✔|✔|X|Free|
-|Fileless 위협 탐지|✔|✔|✔|X|X|X|표준|
-|네트워크 맵|✔|✔|X|✔|✔|X|표준|
-|적응형 네트워크 제어|✔|✔|X|✔|✔|X|표준|
-|규정 준수 대시보드 & 보고서|✔|✔|✔|✔|✔|✔|표준|
-|Docker에서 호스트 되는 IaaS 컨테이너의 권장 사항 및 위협 감지|X|X|X|✔|✔|✔|표준|
+|네트워크 기반 위협 탐지 경고|✔|✔|X|✔|✔|X|Standard|
+|Windows Defender ATP 통합|✔(지원되는 버전에서만)|✔(지원되는 버전에서만)|✔|X|X|X|Standard|
+|누락된 패치|✔|✔|✔|✔|✔|✔|무료|
+|보안 구성|✔|✔|✔|✔|✔|✔|무료|
+|Endpoint protection 평가|✔|✔|✔|X|X|X|무료|
+|JIT VM 액세스|✔|X|X|✔|X|X|Standard|
+|적응형 애플리케이션 제어|✔|X|✔|✔|X|✔|Standard|
+|FIM|✔|✔|✔|✔|✔|✔|Standard|
+|디스크 암호화 평가|✔|✔|X|✔|✔|X|무료|
+|타사 배포|✔|X|X|✔|X|X|무료|
+|NSG 평가|✔|✔|X|✔|✔|X|무료|
+|Fileless 위협 탐지|✔|✔|✔|X|X|X|Standard|
+|네트워크 맵|✔|✔|X|✔|✔|X|Standard|
+|적응형 네트워크 제어|✔|✔|X|✔|✔|X|Standard|
+|규정 준수 대시보드 & 보고서|✔|✔|✔|✔|✔|✔|Standard|
+|Docker에서 호스트 되는 IaaS 컨테이너의 권장 사항 및 위협 감지|X|X|X|✔|✔|✔|Standard|
 
 ### 지원 되는 endpoint protection 솔루션<a name="endpoint-supported"></a>
 
@@ -98,7 +97,7 @@ Azure Security Center에서 지 원하는 PaaS 리소스는 다음과 같습니�
 |Blob 스토리지|✔| ✔|
 |Storage 계정|✔| NA|
 |앱 서비스|✔| ✔|
-|함수|✔| X|
+|기능|✔| X|
 |클라우드 서비스|✔| X|
 |VNet|✔| NA|
 |Subnet|✔| NA|

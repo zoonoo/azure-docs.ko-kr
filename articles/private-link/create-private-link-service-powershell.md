@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 09158a935aac023382049d3aa9ce23a711972023
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 8ed3b8e507a93f75b036b3a97eb34395ce525314
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104756"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202947"
 ---
 # <a name="create-a-private-link-service-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 개인 링크 서비스 만들기
 이 문서에서는 Azure PowerShell를 사용 하 여 Azure에서 개인 링크 서비스를 만드는 방법을 보여 줍니다.
@@ -98,7 +98,7 @@ $privateLinkService = New-AzPrivateLinkService `
 -ServiceName $plsName `
 -ResourceGroupName $rgName `
 -Location $location `
--LoadBalancerFrontendIpConfiguration $frontendIP`
+-LoadBalancerFrontendIpConfiguration $frontendIP `
 -IpConfiguration $IPConfig 
 ```
 
@@ -133,7 +133,8 @@ $vnetPE = New-AzVirtualNetwork `
 -AddressPrefix "11.0.0.0/16" `
 -Subnet $peSubnet 
 ```
-### <a name="create-a-private-endpoint"></a>개인 끝점 만들기
+
+### <a name="create-a-private-endpoint"></a>프라이빗 엔드포인트 만들기
 가상 네트워크에서 위에서 만든 개인 링크 서비스를 사용 하기 위한 개인 끝점을 만듭니다.
  
 ```azurepowershell
@@ -141,13 +142,14 @@ $vnetPE = New-AzVirtualNetwork `
 $plsConnection= New-AzPrivateLinkServiceConnection `
 -Name plsConnection `
 -PrivateLinkServiceId  $privateLinkService.Id  
+
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName -Name $peName -Location $location -Subnet $vnetPE.subnets[0] -PrivateLinkServiceConnection $plsConnection -ByManualRequest 
- ```
-### Get private endpoint
-Get the IP address of the private endpoint with `Get-AzPrivateEndpoint` as follows:
+```
+ 
+### <a name="get-private-endpoint"></a>개인 끝점 가져오기
+다음과 같이를 사용 하 `Get-AzPrivateEndpoint` 여 개인 끝점의 IP 주소를 가져옵니다.
 
 ```azurepowershell
-
 # Get Private Endpoint and its IP Address 
 $pe =  Get-AzPrivateEndpoint `
 -Name $peName `
@@ -155,8 +157,9 @@ $pe =  Get-AzPrivateEndpoint `
 -ExpandResource networkinterfaces
 
 $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress 
- ```
-  
+
+```
+
 ### <a name="approve-the-private-endpoint-connection"></a>개인 끝점 연결 승인
 ' AzPrivateEndpointConnection '를 사용 하 여 개인 연결 서비스에 대 한 개인 끝점 연결을 승인 합니다.
 
@@ -167,7 +170,9 @@ $pls = Get-AzPrivateLinkService `
 -ResourceGroupName $rgName 
 
 Approve-AzPrivateEndpointConnection -ResourceId $pls.PrivateEndpointConnections[0].Id -Description "Approved" 
- ``` 
+
+``` 
+
 ## <a name="next-steps"></a>다음 단계
 - [Azure 개인 링크](private-link-overview.md) 에 대 한 자세한 정보
  

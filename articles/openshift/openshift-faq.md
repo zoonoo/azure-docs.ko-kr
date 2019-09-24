@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 6ba252ccf7a46e93b2057b6822f2aae298f537d1
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 86875643950e11f1e5030676c1ab3825039749ed
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991637"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203528"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 
@@ -164,3 +164,45 @@ Azure에서 가상 머신 확장 집합을 사용 하는 경우 기본적으로 
 Azure Red Hat OpenShift는 VNET 피어 링을 지원 하며, 고객이 피어 링을 제공할 수 있도록 하 고, OpenShift 네트워크에서 작동 하는 VNET CIDR을 제공 합니다.
 
 ARO에서 만든 VNET은 보호 되며 구성 변경을 허용 하지 않습니다. 피어 링 된 VNET은 고객에 의해 제어 되며 구독에 상주 합니다.
+
+## <a name="does-the-cluster-reside-in-a-customer-subscription"></a>클러스터가 고객 구독에 상주 합니까? 
+
+Azure 관리 되는 응용 프로그램은 고객 구독과 함께 잠긴 리소스 그룹에 상주 합니다. 고객은 해당 RG에서 개체를 볼 수 있지만 수정할 수는 없습니다.
+
+## <a name="is-the-sdn-module-configurable"></a>SDN 모듈을 구성할 수 있나요?
+
+SDN은 openshift-ovs-networkpolicy 이며 구성할 수 없습니다.
+
+## <a name="which-unix-rights-in-iaas-are-available-for-mastersinfraapp-nodes"></a>마스터/인프라/앱 노드에 사용할 수 있는 UNIX 권한 (IaaS)은 무엇 인가요?
+
+이 제품에는 적용 되지 않습니다. 노드 액세스를 사용할 수 없습니다.
+
+## <a name="which-ocp-rights-do-we-have-cluster-admin-project-admin"></a>어떤 OCP 권한이 있나요? 클러스터 관리자 인가요? 프로젝트 관리자 인가요?
+
+자세한 내용은 Azure Red Hat OpenShift [클러스터 관리 개요](https://docs.openshift.com/aro/admin_guide/index.html)를 참조 하세요.
+
+## <a name="which-kind-of-federation-with-ldap"></a>LDAP를 사용 하는 페더레이션 종류는 무엇 인가요?
+
+Azure AD 통합을 통해이를 달성할 수 있습니다. 
+
+## <a name="is-there-any-element-in-aro-shared-with-other-customers-or-is-everything-independent"></a>다른 고객과 공유 하는 ARO 요소가 있나요? 또는 모두 독립적 입니까?
+
+각 Azure Red Hat OpenShift 클러스터는 특정 고객을 전담 하며 고객의 구독 내에 있습니다. 
+
+## <a name="can-we-choose-any-persistent-storage-solution-ocs"></a>영구적 저장소 솔루션을 선택할 수 있습니다. OCS? 
+
+두 개의 저장소 클래스를 선택할 수 있습니다. Azure 디스크 및 Azure 파일.
+
+## <a name="how-is-a-cluster-updated-including-majors-and-minors-due-to-vulnerabilities"></a>클러스터가 어떻게 업데이트 됩니까 (취약점으로 인해 majors 및 미성년자 미성년자 포함)?
+
+[일반적인 업그레이드 프로세스는 무엇 인가요?](https://docs.microsoft.com/azure/openshift/openshift-faq#what-is-the-general-upgrade-process)
+
+## <a name="what-azure-load-balancer-is-used-by-aro-is-it-standard-or-basic-and-is-it-configurable"></a>ARO에서 사용 하는 Azure 부하 분산 장치는 무엇 인가요?  Standard 또는 Basic 이며 구성 가능 한가요?
+
+ARO는 표준 Azure Load Balancer를 사용 하며 구성할 수 없습니다.
+
+## <a name="can-aro-use-netapp-based-storage"></a>ARO는 NetApp 기반 저장소를 사용할 수 있나요?
+
+지금은 지원 되는 저장소 옵션만 Azure Disk 및 Azure File storage 클래스입니다. 
+
+

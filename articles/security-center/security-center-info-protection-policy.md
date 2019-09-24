@@ -3,9 +3,8 @@ title: Azure Security Center에서 SQL 정보 보호 정책 사용자 지정 | M
 description: Azure Security Center에서 정보 보호 정책을 사용자 지정하는 방법을 알아봅니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 2ebf2bc7-232a-45c4-a06a-b3d32aaf2500
 ms.service: security-center
 ms.devlang: na
@@ -13,19 +12,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
-ms.author: rkarlin
-ms.openlocfilehash: e2bcd92ffc8799b2edf04251b6ce160e96c7609c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: memildin
+ms.openlocfilehash: edd415c330656d4cecc42a39d27598a88a1a8d2c
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64875598"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202082"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Azure Security Center에서 SQL 정보 보호 정책 사용자 지정
  
 Azure Security Center에서 전체 Azure 테넌트에 대해 SQL 정보 보호 정책을 정의하고 사용자 지정할 수 있습니다.
 
-정보 보호는 Azure 데이터 리소스에서 중요한 데이터를 검색하고, 분류하고, 레이블을 지정하고, 보호하는 고급 보안 기능입니다. 가장 중요한 데이터(비즈니스, 재무, 보건, PII 등)를 검색하고 분류하는 기능은 조직 정보 보호 평판에 중추적인 역할을 할 수 있습니다. 그것은 다음에 대한 인프라 역할을 할 수 있습니다.
+정보 보호는 Azure 데이터 리소스에서 중요한 데이터를 검색하고, 분류하고, 레이블을 지정하고, 보호하는 고급 보안 기능입니다. 가장 중요 한 데이터 (비즈니스, 재무, 의료, 개인 데이터 등)를 검색 하 고 분류 하면 조직 정보 보호에서 pivotal 역할을 수행할 수 있습니다. 그것은 다음에 대한 인프라 역할을 할 수 있습니다.
 - 데이터 프라이버시 표준 및 규정 준수 요구 사항을 충족하도록 지원
 - 중요한 데이터에 대한 비정상적인 엑세스 모니터링(감사) 및 경고 등 다양한 보안 시나리오
 - 매우 중요한 데이터가 들어 있는 데이터 저장소에 대한 액세스 제어 및 보안 강화
@@ -41,11 +40,11 @@ Information Protection은 기본적으로 사용되는 레이블 및 정보 형�
 ## <a name="customize-the-information-protection-policy"></a>정보 보호 정책 사용자 지정
 Azure 테넌트에 대한 정보 보호 정책을 사용자 지정하려면 [테넌트의 루트 관리 그룹에 대한 관리 권한](security-center-management-groups.md)이 있어야 합니다. 
  
-1. 보안 주 메뉴를 아래 가운데 **리소스 보안 관리** 로 이동 **데이터 및 저장소** 를 클릭 합니다 **SQL Information Protection** 단추.
+1. Security Center 주 메뉴의 **리소스 보안** 관리에서 **데이터 & 저장소** 로 이동 하 고 **SQL Information Protection** 단추를 클릭 합니다.
 
    ![정보 보호 정책 구성](./media/security-center-info-protection-policy/security-policy.png) 
  
-2. 에 **SQL Information Protection** 페이지에서 현재 레이블 집합을 볼 수 있습니다. 데이터의 민감도 수준을 분류하는 데 사용되는 주요 분류 속성입니다. 여기에서부터 테넌트에 대한 **정보 보호 레이블** 및 **정보 형식**을 구성할 수 있습니다. 
+2. **SQL Information Protection** 페이지에서 현재 레이블 집합을 볼 수 있습니다. 데이터의 민감도 수준을 분류하는 데 사용되는 주요 분류 속성입니다. 여기에서부터 테넌트에 대한 **정보 보호 레이블** 및 **정보 형식**을 구성할 수 있습니다. 
  
 ### <a name="customizing-labels"></a>레이블 사용자 지정
  

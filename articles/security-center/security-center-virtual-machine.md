@@ -3,9 +3,8 @@ title: Azure Security Center 및 Azure Virtual Machines | Microsoft Docs
 description: 이 문서는 Azure Security Center에서 Azure Virtual Machines를 보호할 수 있는 방법을 이해하도록 돕습니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 5fe5a12c-5d25-430c-9d47-df9438b1d7c5
 ms.service: security-center
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
-ms.openlocfilehash: 5d13e7375c9e3cd874bc61b686ff2549c38da1f3
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 481dbff90ee5368e1581502e612cb5d1993ac89e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036361"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200736"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines"></a>Azure Security Center 및 Azure Virtual Machines
 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 통해 위협을 예방하고 감지하며 대응할 수 있습니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
@@ -43,7 +42,7 @@ Security Center는 Azure VM을 보호하는 것 외에도, Cloud Services, App S
 > 
 > 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Azure Security Center를 시작하려면 다음 사항을 이해하고 고려해야 합니다.
 
 * Microsoft Azure를 구독해야 합니다. 보안 센터의 무료 및 표준 계층에 대한 자세한 내용은 [보안 센터 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요.
@@ -94,7 +93,7 @@ Azure Security Center에서 구성한 보안 정책을 기반으로 생성된 �
 
 보안 경고를 선택하여 해당 경고를 트리거하는 이벤트 및 공격을 완화하기 위해 수행해야 하는 단계(있는 경우)에 대해 자세히 알아봅니다. 보안 경고는 형식 및 날짜별로 그룹화됩니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.

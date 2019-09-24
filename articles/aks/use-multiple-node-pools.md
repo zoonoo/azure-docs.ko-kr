@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 7a58e8559587ddcb307c338f5ce87cd6b8e52021
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 93eddc0ff8f1a1af8b485fcdb891f72d874b5c0a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71171515"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202953"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 
@@ -35,7 +35,7 @@ Azure CLI 버전 2.0.61 이상이 설치 및 구성 되어 있어야 합니다. 
 
 ### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
 
-여러 노드 풀을 사용 하려면 *aks-preview* CLI extension version 0.4.12 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치한 다음 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
+여러 노드 풀을 사용 하려면 *aks-preview* CLI extension version 0.4.16 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치한 다음 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -178,7 +178,9 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 > [!NOTE]
 > 클러스터 또는 노드 풀에서 업그레이드 및 크기 조정 작업을 동시에 수행할 수 없습니다. 시도 하면 오류가 반환 됩니다. 대신, 동일한 리소스에 대 한 다음 요청 전에 대상 리소스에서 각 작업 유형이 완료 되어야 합니다. 이에 대 한 자세한 내용은 [문제 해결 가이드](https://aka.ms/aks-pending-upgrade)를 참조 하세요.
 
-첫 번째 단계에서 AKS 클러스터를 처음 만들 때 *1.13.10* 의가 `--kubernetes-version` 지정 되었습니다. 그러면 제어 평면과 기본 노드 풀 모두에 대해 Kubernetes 버전이 설정 됩니다. 이 섹션의 명령은 단일 특정 노드 풀을 업그레이드 하는 방법에 대해 설명 합니다. Kubernetes 버전의 제어 평면과 노드 풀을 업그레이드 하는 경우의 관계는 [아래 섹션](#upgrade-a-cluster-control-plane-with-multiple-node-pools)에 설명 되어 있습니다.
+첫 번째 단계에서 AKS 클러스터를 처음 만들 때 *1.13.10* 의가 `--kubernetes-version` 지정 되었습니다. 그러면 제어 평면과 기본 노드 풀 모두에 대해 Kubernetes 버전이 설정 됩니다. 이 섹션의 명령은 단일 특정 노드 풀을 업그레이드 하는 방법에 대해 설명 합니다.
+
+Kubernetes 버전의 제어 평면과 노드 풀을 업그레이드 하는 경우의 관계는 [아래 섹션](#upgrade-a-cluster-control-plane-with-multiple-node-pools)에 설명 되어 있습니다.
 
 > [!NOTE]
 > 노드 풀 OS 이미지 버전은 클러스터의 Kubernetes 버전에 연결 됩니다. 클러스터 업그레이드 후에는 OS 이미지 업그레이드만 가져옵니다.
@@ -193,9 +195,6 @@ az aks nodepool upgrade \
     --kubernetes-version 1.13.10 \
     --no-wait
 ```
-
-> [!Tip]
-> 컨트롤 평면을 *1.14.6*로 업그레이드 하려면를 실행 `az aks upgrade -k 1.14.6`합니다. [여러 노드 풀을 사용한 제어 평면 업그레이드](#upgrade-a-cluster-control-plane-with-multiple-node-pools)에 대 한 자세한 내용은 여기를 참조 하세요.
 
 [Az aks node pool list][az-aks-nodepool-list] 명령을 사용 하 여 노드 풀의 상태를 다시 나열 합니다. 다음 예에서는 *mynodepool* 이 *1.13.10*에 대 한 *업그레이드* 상태임을 보여 줍니다.
 
@@ -232,7 +231,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 노드를 지정 된 버전으로 업그레이드 하는 데 몇 분 정도 걸립니다.
 
-AKS 클러스터의 모든 노드 풀을 동일한 Kubernetes 버전으로 업그레이드 하는 것이 가장 좋습니다. 개별 노드 풀을 업그레이드 하는 기능을 사용 하면 롤링 업그레이드를 수행 하 고 노드 풀 간에 pod 일정을 예약 하 여 위에서 언급 한 제약 조건 내에서 응용 프로그램 작동 시간을 유지할 수 있습니다
+AKS 클러스터의 모든 노드 풀을 동일한 Kubernetes 버전으로 업그레이드 하는 것이 가장 좋습니다. 의 `az aks upgrade` 기본 동작은이 맞춤을 구현 하기 위해 모든 노드 풀을 제어 평면과 함께 업그레이드 하는 것입니다. 개별 노드 풀을 업그레이드 하는 기능을 사용 하면 롤링 업그레이드를 수행 하 고 노드 풀 간에 pod 일정을 예약 하 여 위에서 언급 한 제약 조건 내에서 응용 프로그램 작동 시간을 유지할 수 있습니다
 
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>여러 노드 풀을 사용 하 여 클러스터 제어 평면 업그레이드
 
@@ -243,11 +242,12 @@ AKS 클러스터의 모든 노드 풀을 동일한 Kubernetes 버전으로 업�
 > * 노드 풀 버전은 제어 평면 버전 보다 한 부 버전이 될 수 있습니다.
 > * 노드 풀 버전은 다른 두 제약 조건을 준수 하는 한 모든 패치 버전이 될 수 있습니다.
 
-AKS 클러스터에는 두 개의 클러스터 리소스 개체가 있습니다. 첫 번째는 Kubernetes 버전의 제어 평면입니다. 두 번째는 Kubernetes 버전을 포함 하는 에이전트 풀입니다. 컨트롤 평면은 하나 이상의 노드 풀에 매핑되고 각각에 고유한 Kubernetes 버전이 있습니다. 업그레이드 작업에 대 한 동작은 대상으로 하는 리소스 및 기본 API의 버전에 따라 달라 집니다.
+AKS 클러스터에는 Kubernetes 버전이 연결 된 두 개의 클러스터 리소스 개체가 있습니다. 첫 번째는 Kubernetes 버전의 제어 평면입니다. 두 번째는 Kubernetes 버전을 포함 하는 에이전트 풀입니다. 컨트롤 평면은 하나 이상의 노드 풀에 매핑됩니다. 업그레이드 작업의 동작은 사용 되는 Azure CLI 명령에 따라 달라 집니다.
 
 1. 컨트롤 평면을 업그레이드 하려면를 사용 해야 합니다.`az aks upgrade`
-   * 클러스터의 모든 노드 풀도 업그레이드 됩니다.
-1. 로 업그레이드`az aks nodepool upgrade`
+   * 이렇게 하면 클러스터에 있는 모든 노드 풀 및 제어 평면 버전이 업그레이드 됩니다.
+   * 플래그를`--control-plane-only` 사용 하 여 전달 `az aks upgrade` 하면 클러스터 제어 평면만 업그레이드 되 고 `--control-plane-only` 연결 된 노드 풀은 업그레이드 되지 않습니다. * **AKS-preview 확장 v 0.4.16** 이상에서 플래그를 사용할 수 있습니다.
+1. 개별 노드 풀을 업그레이드 하려면를 사용 해야 합니다.`az aks nodepool upgrade`
    * 지정 된 Kubernetes 버전을 사용 하 여 대상 노드 풀만 업그레이드 합니다.
 
 노드 풀에서 보유 한 Kubernetes 버전 간의 관계도 일련의 규칙을 따라야 합니다.

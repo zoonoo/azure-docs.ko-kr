@@ -4,17 +4,16 @@ description: 이 문서에서는 Azure Security Center를 사용 하 여 보안 
 services: security-center
 author: memildin
 manager: rkarlin
-editor: ''
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: memildin
-ms.openlocfilehash: c492c4023df30eb51692aa4ae21fb938067c6ebb
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 2a22039b3499f1ba0f2d7acb2e86a1991d35a380
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873377"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202128"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Azure Security Center에서 보안 인시던트 관리
 
@@ -58,7 +57,7 @@ ms.locfileid: "70873377"
 * [서비스 계층 경고](security-center-alerts-service-layer.md)
 * [Azure 보안 제품과 통합](security-center-alerts-integration.md)
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 이 문서에서는 보안 센터에서 보안 인시던트 기능을 사용하는 방법을 살펴보았습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center의 보안 경고](security-center-alerts-overview.md)

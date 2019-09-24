@@ -3,9 +3,8 @@ title: Azure Security Center에 대한 테넌트 수준 가시성 얻기 | Micro
 description: Azure Security Center에서 테넌트 수준 가시성 얻기에 대해 알아봅니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
-ms.author: rkarlin
-ms.openlocfilehash: 7e26dc37c5c4f85e3db634bd961bf9308e418a03
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: memildin
+ms.openlocfilehash: 730ccd7c64ac9ca87fb6da5add130feb3b6ce502
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148096"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201959"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Security Center에 대한 테넌트 수준 가시성 얻기
 이 문서에서는 Azure Security Center에서 제공하는 혜택을 최대화하는 여러 작업을 수행하여 시작하도록 돕습니다. 이러한 작업을 수행하면 Azure Active Directory 테넌트에 연결된 모든 Azure 구독에 대한 가시성을 얻고 집합적 방식으로 여러 구독에 보안 정책을 적용하여 모든 규모에서 조직의 보안 상태를 효율적으로 관리할 수 있습니다.
@@ -50,7 +49,7 @@ Azure 관리 그룹은 액세스, 정책 및 구독 그룹에 대한 보고를 �
     - **관리 그룹 ID**는 이 관리 그룹에 명령을 전송하는 데 사용되는 디렉터리 고유 식별자입니다. 이 식별자는 Azure 시스템 전체에서 이 그룹을 식별하는 데 사용되므로 만든 후에 편집할 수 없습니다. 
     - 표시 이름 필드는 Azure Portal 내에 표시되는 이름을 포함합니다. 별도 표시 이름은 관리 그룹을 만들 때 사용되는 선택적 필드로, 언제든지 변경할 수 있습니다.  
 
-      ![생성](./media/security-center-management-groups/create_context_menu.png)  
+      ![만들기](./media/security-center-management-groups/create_context_menu.png)  
 5.  **저장**을 선택합니다.
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Azure Portal에서 관리 그룹 보기
@@ -115,7 +114,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 1. [Azure PowerShell](/powershell/azure/install-az-ps)을 설치합니다.
-2. 다음 명령을 실행합니다. 
+2. 다음 명령을 실행 합니다. 
 
     ```azurepowershell
     # Login to Azure as a Global Administrator user
@@ -145,12 +144,12 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 2. Security Center에서 보려는 모든 구독을 구독 선택기에서 선택해야 합니다.
 
-    ![구독 선택기 스크린 샷](./media/security-center-management-groups/subscription-selector.png)
+    ![구독 선택기 스크린샷](./media/security-center-management-groups/subscription-selector.png)
 
 1. Azure 주 메뉴 아래에서 **모든 서비스**를 선택한 다음, **Security Center**를 선택합니다.
 2. **개요**에 구독 적용 범위 차트가 있습니다.
 
-    ![구독 검사 차트 스크린 샷](./media/security-center-management-groups/security-center-subscription-coverage.png)
+    ![구독 검사 차트 스크린샷](./media/security-center-management-groups/security-center-subscription-coverage.png)
 
 3. **적용 범위**를 클릭하여 적용되는 구독 목록을 봅니다. 
 

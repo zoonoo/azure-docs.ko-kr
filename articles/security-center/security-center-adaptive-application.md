@@ -3,9 +3,8 @@ title: Azure Security Center에서 적응형 애플리케이션 제어 | Microso
 description: 이 문서에서는 Azure Security Center에서 적응형 애플리케이션 제어를 사용하여 Azure VM에서 실행되는 애플리케이션의 허용 목록을 나열하는 방법이 설명되어 있습니다.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
 ms.devlang: na
@@ -13,19 +12,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 4a8a241df38c258dc1747f04c6079d29ee25b3ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: memildin
+ms.openlocfilehash: 46ab2fc5c796d960de8b1c5e3391a6356563b50a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65968847"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202807"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Azure Security Center의 적응형 애플리케이션 제어
 이 연습을 통해 Azure Security Center에서 애플리케이션 컨트롤을 구성하는 방법에 대해 알아봅니다.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>Security Center의 적응형 애플리케이션 제어란 무엇입니까?
-적응형 애플리케이션 제어는 Azure Security Center의 지능적이고 자동화된 엔드투엔드 애플리케이션 허용 목록 솔루션입니다. 수 있기 때문에 Azure에서 실행할 수 있는 응용 프로그램 제어 및 비 Azure Vm (Windows 및 Linux)는 다른 이점과 함께 맬웨어로부터 Vm을 강화할 수 있습니다. Security Center는 Machine Learning을 사용하여 VM에서 실행되는 애플리케이션을 분석하며, 이 인텔리전스를 사용하여 특정 허용 목록 규칙을 적용하는 데 도움을 줍니다. 이 기능은 애플리케이션 허용 목록 정책의 구성 및 유지 관리 프로세스를 상당히 단순화하며, 다음을 수행할 수 있도록 합니다.
+적응 응용 프로그램 제어는 Azure 및 비 Azure Vm (Windows 및 Linux)에서 실행할 수 있는 응용 프로그램을 제어 하는 데 도움이 되는 Azure Security Center의 지능적이 고 자동화 된 종단 간 솔루션입니다. 다른 이점 중 하나는 맬웨어에 대해 Vm을 강화 하는 데 도움이 됩니다. Security Center는 machine learning을 사용 하 여 Vm에서 실행 되는 응용 프로그램을 분석 하 고이 인텔리전스에서 허용 목록을 만듭니다. 이 기능은 응용 프로그램 허용 목록 정책을 구성 하 고 유지 관리 하는 프로세스를 간소화 하 여 다음과 같은 작업을 수행할 수 있도록 합니다.
 
 - 맬웨어 방지 솔루션에서 누락될 수 있는 것들을 포함하여 악성 애플리케이션 실행 시도를 차단하거나 경고합니다.
 - 사용이 허가된 소프트웨어만 사용하도록 규정된 조직의 보안 정책을 준수합니다.
@@ -35,10 +34,10 @@ ms.locfileid: "65968847"
 - IT 기술을 사용하여 앱 사용을 통해 중요한 데이터에 대한 액세스를 제어할 수 있습니다.
 
 > [!NOTE]
-> 비 Azure와 Linux Vm에 대 한 적응형 응용 프로그램 컨트롤은 감사 모드 에서만 지원 됩니다.
+> 비 Azure 및 Linux Vm의 경우에는 적응 응용 프로그램 컨트롤이 감사 모드 에서만 지원 됩니다.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>적응형 애플리케이션 제어를 사용하는 방법은 무엇입니까?
-적응형 애플리케이션 제어는 구성된 VM 그룹에서 실행되도록 허용된 애플리케이션의 집합을 정의할 수 있습니다. 이 기능은 Azure 및 비-Azure Windows (모든 버전, 클래식 또는 Azure Resource Manager)와 Linux Vm 및 서버 모두에 대해 사용할 수 있습니다. 다음 단계를 사용하여 Security Center에서 애플리케이션 허용 목록을 구성할 수 있습니다.
+적응형 애플리케이션 제어는 구성된 VM 그룹에서 실행되도록 허용된 애플리케이션의 집합을 정의할 수 있습니다. 이 기능은 Azure 및 비 Azure Windows (모든 버전, 클래식 또는 Azure Resource Manager) 및 Linux Vm 및 서버에서 사용할 수 있습니다. 다음 단계를 사용 하 여 응용 프로그램 허용 목록을 구성 합니다.
 
 1. **Security Center** 대시보드를 엽니다.
 2. 왼쪽 창의 **고급 클라우드 방어** 아래에서 **적응형 애플리케이션 제어**를 선택합니다.
@@ -67,10 +66,10 @@ ms.locfileid: "65968847"
 
    이 목록에는 다음과 같은 정보가 포함됩니다.
 
-   - **그룹 이름을**: 구독 및 그룹의 이름
-   - **Vm 및 컴퓨터**: 그룹에서 가상 머신의 수
-   - **상태**: 권장의 상태로
-   - **심각도**: 권장의 심각도 수준
+   - **그룹 이름**: 구독 및 그룹의 이름입니다.
+   - **Vm 및 컴퓨터**: 그룹에 있는 가상 컴퓨터의 수
+   - **상태**: 권장 구성의 상태
+   - **심각도**: 권장 구성의 심각도 수준
 
 2. 그룹을 클릭하여 **애플리케이션 제어 규칙 만들기** 옵션을 엽니다.
 
@@ -85,11 +84,11 @@ ms.locfileid: "65968847"
 
    - **이름**: 애플리케이션의 인증서 정보 또는 전체 경로입니다.
    - **파일 형식**: 애플리케이션 파일 형식. EXE, 스크립트, MSI 또는 이러한 형식의 모든 순열이 될 수 있습니다.
-   - **악용 가능**: 경고 아이콘은 공격자가 애플리케이션 허용 목록 솔루션을 우회하기 위해 특정 애플리케이션을 사용할 수 있음을 나타냅니다. 승인 전에 이러한 애플리케이션을 검토하는 것이 좋습니다.
+   - **악용**가능: 경고 아이콘은 공격자가 특정 응용 프로그램을 사용 하 여 응용 프로그램 허용 목록을 우회할 수 있는지 여부를 나타냅니다. 승인 전에 이러한 애플리케이션을 검토하는 것이 좋습니다.
    - **사용자**: 애플리케이션을 실행할 수 있도록 허용하는 것이 좋은 사용자
 
 5. 선택이 완료되면 **만들기**를 선택합니다. <br>
-   만들기를 선택한 후, Azure Security Center는 Windows 서버(AppLocker)에서 사용할 수 있는 기본 제공 애플리케이션 허용 목록 솔루션 상단에서 적절한 규칙을 자동으로 만듭니다.
+   만들기를 선택 하면 Azure Security Center Windows 서버 (AppLocker)에서 제공 되는 기본 제공 응용 프로그램 허용 목록 솔루션을 기반으로 적절 한 규칙을 자동으로 만듭니다.
 
 > [!NOTE]
 > - Security Center는 기준을 만들고 VM의 그룹별로 고유한 권장 사항을 채우기 위해 최소 2주의 데이터를 필요로 합니다. Security Center 표준 계층의 새 고객은 먼저 VM의 그룹이 *권장 사항 없음* 탭 아래에 나타나는 동작을 예상해야 합니다.
@@ -99,15 +98,15 @@ ms.locfileid: "65968847"
 
 ### <a name="editing-and-monitoring-a-group-configured-with-application-control"></a>애플리케이션 컨트롤을 사용하여 구성된 그룹의 편집 및 모니터링
 
-1. 애플리케이션 허용 목록 정책을 사용하여 구성된 그룹을 편집하고 모니터링하려면 **적응형 애플리케이션 제어** 페이지로 돌아가서 **VM 그룹**에 있는 **구성됨**을 선택합니다.
+1. 응용 프로그램 허용 목록 정책으로 구성 된 그룹을 편집 하 고 모니터링 하려면 **적응형 응용 프로그램 제어** 페이지로 돌아가서 **Vm 그룹**에서 **구성 됨** 을 선택 합니다.
 
    ![그룹](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
 
    이 목록에는 다음과 같은 정보가 포함됩니다.
 
-   - **그룹 이름을**: 구독 및 그룹의 이름
-   - **Vm 및 컴퓨터**: 그룹에서 가상 머신의 수
-   - **모드**: 감사 모드에서는 허용 목록에 없는 애플리케이션을 실행하려는 시도를 기록하고, 강제 적용 모드에서는 허용 목록에 없는 애플리케이션을 실행할 수 없습니다.
+   - **그룹 이름**: 구독 및 그룹의 이름입니다.
+   - **Vm 및 컴퓨터**: 그룹의 가상 머신 수
+   - **모드**: 감사 모드는 허용 목록에 없는 응용 프로그램을 실행 하려는 시도를 로깅합니다. 응용 프로그램을 허용 목록에 없는 경우 적용을 사용 하면 응용 프로그램을 실행할 수 없습니다.
    - **경고**: 현재 위반
 
 2. **애플리케이션 제어 정책 편집** 페이지에서 변경할 그룹을 선택합니다.
@@ -124,7 +123,7 @@ ms.locfileid: "65968847"
    > - 앞서 언급한 것처럼 기본적으로 새 애플리케이션 컨트롤 정책은 항상 *감사* 모드에서 구성됩니다. 
    >
 
-4. **정책 확장**에서 허용할 애플리케이션 경로를 추가합니다. 이러한 경로를 추가한 후 Security Center는 선택된 VM 그룹 내 VM에서 애플리케이션 허용 목록 정책을 업데이트하고, 이미 존재하는 규칙 외에도 이러한 애플리케이션에 대한 적절한 규칙을 만듭니다.
+4. **정책 확장**에서 허용할 애플리케이션 경로를 추가합니다. 이러한 경로를 추가 하면 Security Center는 선택한 VM 그룹 내의 Vm에서 응용 프로그램 허용 목록 정책을 업데이트 하 고 이미 있는 규칙 외에 이러한 응용 프로그램에 대 한 적절 한 규칙을 만듭니다.
 
 5. **최근 경고** 섹션에 나열된 현재 위반을 검토합니다. Azure Security Center 내 **경고**로 리디렉션할 각 줄을 클릭하고, 연결된 VM에서 Azure Security Center에 의해 검색된 모든 경고를 봅니다.
    - **경고**: 기록된 위반.
@@ -146,33 +145,33 @@ ms.locfileid: "65968847"
 
 Security Center는 안정적인 애플리케이션의 집합을 실행하는 가상 머신을 위해 애플리케이션 허용 목록 정책만 권장합니다. 관련된 VM의 애플리케이션이 계속 변경되는 경우 권장 사항이 생성되지 않습니다.
 
-![권장 사항](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
+![권장](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
 
 목록에는 다음이 포함되어 있습니다.
-- **그룹 이름을**: 구독 및 그룹의 이름
-- **Vm 및 컴퓨터**: 그룹에서 가상 머신의 수
+- **그룹 이름**: 구독 및 그룹의 이름입니다.
+- **Vm 및 컴퓨터**: 그룹의 가상 머신 수
 
 Azure Security Center를 사용하면 권장되지 않는 VM 그룹에서도 애플리케이션 허용 목록 정책을 정의할 수 있습니다. 해당 그룹에서도 애플리케이션 허용 목록 정책을 구성하려면 이전에 설명한 동일한 원칙을 따릅니다.
 
-## <a name="move-a-vm-from-one-group-to-another"></a>특정 그룹에서 VM 이동
+## <a name="move-a-vm-from-one-group-to-another"></a>한 그룹에서 다른 그룹으로 VM 이동
 
- 다른 한 그룹에서 VM을 이동 하는 경우 적용할 응용 프로그램 제어 정책 변경 그룹의 설정에는로 이동 합니다. 이전에 VM에 적용 된 모든 응용 프로그램 제어 정책을 제거 하는 구성 되지 않은 그룹에 구성 된 그룹에서 VM를 이동할 수 있습니다.
+ VM을 한 그룹에서 다른 그룹으로 이동 하면 해당 VM에 적용 된 응용 프로그램 제어 정책이 사용자가 이동한 그룹의 설정으로 변경 됩니다. 구성 된 그룹에서 구성 되지 않은 그룹으로 VM을 이동할 수도 있습니다. 이렇게 하면 이전에 VM에 적용 된 응용 프로그램 제어 정책이 모두 제거 됩니다.
 
- 1. **적응형 응용 프로그램 제어** 페이지에서를 **구성 된** 탭 이동 될 현재 VM이 속한 그룹을 클릭 합니다.
-1. 클릭 **Vm 및 컴퓨터 구성**합니다.
-1. VM 이동 하 고 클릭의 줄에 있는 세 점을 클릭 **이동**합니다. 합니다 **서로 다른 그룹에 이동 컴퓨터** 창이 열립니다.
+ 1. **적응 응용 프로그램 컨트롤** 페이지의 **구성 됨** 탭에서 현재 이동 하려는 VM이 속한 그룹을 클릭 합니다.
+1. **구성 된 vm 및 컴퓨터**를 클릭 합니다.
+1. 이동할 VM의 줄에서 세 개의 점을 클릭 하 고 이동을 클릭 **합니다.** **컴퓨터를 다른 그룹으로 이동** 창이 열립니다.
 
     ![보호](./media/security-center-adaptive-application/adaptive-application-move-group.png)
 
- 1. 그룹에 VM을 이동 하 고 클릭을 선택 **이동 컴퓨터**, 클릭 **저장**합니다.
+ 1. VM을 이동할 대상 그룹을 선택 하 고 **컴퓨터 이동**을 클릭 한 다음 **저장**을 클릭 합니다.
 
     ![보호](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
 
  > [!NOTE]
-> 클릭 해야 **저장할** 를 클릭 한 후 **이동 컴퓨터**합니다. 클릭 하지 않은 경우 **저장할**, 다음 컴퓨터를 이동 하지 것입니다.
+> **컴퓨터 이동**을 클릭 한 후에 **저장** 을 클릭 해야 합니다. **저장**을 클릭 하지 않으면 컴퓨터가 이동 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure 및 비 Azure Vm에서 실행 되는 허용 목록에 추가 응용 프로그램에 Azure Security Center에서 적응 응용 프로그램 제어를 사용 하는 방법을 알아보았습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
+이 문서에서는 Azure Security Center에서 적응 응용 프로그램 제어를 사용 하 여 Azure 및 비 Azure Vm에서 실행 되는 응용 프로그램을 허용 목록 하는 방법을 배웠습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 보안 경고 관리 및 대응](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Security Center에서 경고를 관리하고 보안 인시던트에 대응하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md). Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 33383f42c3731d8a5aefdcde5008d706d5a9eed8
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 46c08f48efc00c1e4d88ceccb680c0cfd1671b2f
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104792"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203566"
 ---
 # <a name="create-a-private-endpoint-using-azure-cli"></a>Azure CLI를 사용 하 여 개인 끝점 만들기
 개인 끝점은 Azure의 개인 링크를 위한 기본 구성 요소입니다. Vm (가상 머신)과 같은 Azure 리소스가 개인 링크 리소스와 개인적으로 통신할 수 있도록 합니다. 이 빠른 시작에서는 Azure CLI를 사용 하 여 개인 끝점이 있는 SQL Database 서버, 가상 네트워크에서 VM을 만드는 방법에 대해 알아봅니다. 그런 다음 VM에 액세스 하 고 개인 링크 리소스 (이 예제에서는 개인 Azure SQL Database 서버)에 안전 하 게 액세스할 수 있습니다. 
@@ -107,7 +107,7 @@ az network private-dns link vnet create --resource-group myResourceGroup \
    --registration-enabled false 
 
 #Query for the network interface ID  
-az network private-endpoint show --name myPrivateEndpoint --resource-group myResourceGroup --query 'networkInterfaces[0].id'
+networkInterfaceId=$(az network private-endpoint show --name myPrivateEndpoint --resource-group myResourceGroup --query 'networkInterfaces[0].id' -o tsv)
  
  
 az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json 
@@ -123,13 +123,13 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 다음과 같이 인터넷에서 VM *myvm* 에 연결 합니다.
 
-1. 포털의 검색 창에서 *Myvm*을 입력 합니다.
+1. 포털의 검색 창에 *myVm*을 입력합니다.
 
 1. **연결** 단추를 선택합니다. **연결** 단추를 선택하면 **가상 머신에 연결**이 열립니다.
 
 1. **RDP 파일 다운로드**를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp*) 파일을 만들고, 컴퓨터에 다운로드합니다.
 
-1. 다운로드 한 .rdp * 파일을 엽니다.
+1. 다운로드 한 .rdp* 파일을 엽니다.
 
     1. 메시지가 표시되면 **연결**을 선택합니다.
 
@@ -148,7 +148,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 이 섹션에서는 개인 끝점을 사용 하 여 VM에서 SQL Database 서버에 연결 합니다.
 
- 1.  *Myvm*의 원격 데스크톱에서 PowerShell을 엽니다.
+ 1.  *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
  2. Nslookup myserver.database.windows.net  을 입력 하면 다음과 유사한 메시지가 표시 됩니다. 
 
 ```

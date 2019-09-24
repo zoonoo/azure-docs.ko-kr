@@ -3,23 +3,19 @@ title: Azure Security Center에서 Azure 서비스 계층에 대 한 위협 감�
 description: 이 항목에서는 Azure Security Center에서 사용할 수 있는 Azure 서비스 계층 경고를 제공 합니다.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 33c45447-3181-4b75-aa8e-c517e76cd50d
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 8/25/2019
-ms.author: v-mohabe
-ms.openlocfilehash: bc1b2a07f15ca98da7750c85cd25f2c5766c9bb5
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.date: 08/25/2019
+ms.author: memildin
+ms.openlocfilehash: 9a600b6b45dbef49f600a5e9e913c9d1839eff93
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018175"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202451"
 ---
 # <a name="threat-detection-for-the-azure-service-layer-in-azure-security-center"></a>Azure Security Center에서 Azure 서비스 계층에 대 한 위협 감지
 
@@ -37,7 +33,7 @@ Security Center 네트워크 계층 분석은 Azure core 라우터가 수집 하
 
 > [!div class="mx-tableFixed"]
 
-|알림|Description|
+|알림|설명|
 |---|---|
 |**의심 스러운 나가는 RDP 네트워크 활동**|샘플링 된 네트워크 트래픽 분석은 배포의 리소스에서 시작 된 비정상적인 RDP (보내는 원격 데스크톱 프로토콜) 통신을 검색 했습니다. 이 작업은이 환경에서 비정상으로 간주 됩니다. 리소스가 손상 된 것을 나타낼 수 있으며, 이제는 외부 RDP 끝점의 무차별 암호 대입 공격에 사용 됩니다. 이 유형의 작업을 수행 하면 외부 엔터티에서 악의적인 사용자로 IP에 플래그가 지정 될 수 있습니다.|
 |**여러 대상으로 의심 스러운 나가는 RDP 네트워크 활동**|샘플링 된 네트워크 트래픽 분석은 배포의 리소스에서 여러 대상으로 향하는 비정상적인 나가는 RDP 통신을 검색 했습니다. 이 작업은이 환경에서 비정상으로 간주 됩니다. 리소스가 손상 된 것을 나타낼 수 있으며, 이제는 외부 RDP 끝점의 무차별 대입 공격에 사용 됩니다. 이 유형의 작업을 수행 하면 외부 엔터티에서 악의적인 사용자로 IP에 플래그가 지정 될 수 있습니다.|

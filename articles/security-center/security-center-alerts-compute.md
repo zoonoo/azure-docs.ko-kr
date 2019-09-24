@@ -3,9 +3,8 @@ title: Azure Security Center에서 클라우드 기본 계산에 대 한 위협 
 description: 이 항목에서는 Azure Security Center에서 사용할 수 있는 클라우드 네이티브 계산 경고를 제공 합니다.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 5aa5efcf-9f6f-4aa1-9f72-d651c6a7c9cd
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 78f7633af1631eab8fdfb21fb8ff94eafc0247a9
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.author: memildin
+ms.openlocfilehash: c3fcbadf93ff72f7d2a1dca3b25ace81c9d4f1ae
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013368"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202635"
 ---
 # <a name="threat-detection-for-cloud-native-compute-in-azure-security-center"></a>Azure Security Center에서 클라우드 기본 계산에 대 한 위협 감지
 

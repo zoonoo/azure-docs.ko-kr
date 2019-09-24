@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: juliako
-ms.openlocfilehash: a4b7ccf6ece8ed40d6f6c6a22410d4bbe99e590a
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: d346f68534a9fdbc286cd5521c00d81c2a5fec78
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146480"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203550"
 ---
 # <a name="what-is-video-indexer"></a>Video Indexer란?
 
@@ -79,7 +79,6 @@ Video Indexer의 정보는 다양 한 시나리오에 적용할 수 있습니다
 
 * **키워드 추출**: 음성 및 시각적 텍스트에서 키워드를 추출합니다.
 * **명명 된 엔터티 추출**: NLP (자연어 처리)를 통해 음성 및 시각적 텍스트에서 브랜드, 위치 및 사람을 추출 합니다.
-* **브랜드 추출**: 음성 및 시각적 텍스트에서 브랜드를 추출합니다.
 * **주제 유추**: 전사에서 주요 주제를 유추합니다. IPTC 수준 1 분류가 포함됩니다.
 * **아티팩트**: 각 모델에 대한 풍부한 아티팩트 세트(“다음 수준의 세부 정보”)를 추출합니다.
 * **감정 분석**: 음성 및 시각적 텍스트에서 긍정적, 부정적 및 중립적 감정을 식별합니다.

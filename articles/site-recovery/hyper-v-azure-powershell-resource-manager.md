@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: sutalasi
-ms.openlocfilehash: bc1d52a1062d1848daaaeef7977f96cd270567c8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 1779a33e4ac021c1807ce10dc224e0b8c8c53ebb
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203463"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200525"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>PowerShell과 Azure Resource Manager를 사용하여 Hyper-V VM용 Azure에 대한 재해 복구 설정
 
@@ -34,11 +34,11 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
 >
 >
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 주의 사항
 다음 필수 조건이 충족되었는지 확인합니다.
 
 * [Microsoft Azure](https://azure.microsoft.com/) 계정. [평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. [Azure Site Recovery Manager 가격](https://azure.microsoft.com/pricing/details/site-recovery/)에 대해 알아볼 수도 있습니다.
-* Azure PowerShell. 이 릴리스 및 설치 하는 방법에 대 한 정보를 참조 하세요 [Azure PowerShell 설치](/powershell/azure/install-az-ps)합니다.
+* Azure PowerShell. 이 릴리스와 설치 방법에 대 한 자세한 내용은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조 하세요.
 
 또한 이 문서에 설명된 특정 예제에는 다음과 같은 필수 조건이 있습니다.
 
@@ -49,7 +49,7 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
 
 1. PowerShell 콘솔을 열고 이 명령을 실행하여 Azure 계정에 로그인합니다. cmdlet은 계정 자격 증명을 묻는 웹 페이지를 엽니다. **Connect-AzAccount**.
     - 또는 **Connect-AzAccount** cmdlet에서 **-Credential** 매개 변수를 사용하여 계정 자격 증명을 매개 변수로 포함할 수 있습니다.
-    - 사용자가 테넌트를 대신하여 작업 중인 CSP 파트너인 경우 tenantID 또는 테넌트 기본 도메인 이름을 사용하여 고객을 테넌트로 지정합니다. 예를 들면 다음과 같습니다. **Connect-AzAccount -Tenant "fabrikam.com"**
+    - 사용자가 테넌트를 대신하여 작업 중인 CSP 파트너인 경우 tenantID 또는 테넌트 기본 도메인 이름을 사용하여 고객을 테넌트로 지정합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. **Connect-AzAccount -Tenant "fabrikam.com"**
 2. 계정에 여러 구독이 있을 수 있으므로 사용하려는 구독을 계정과 연결합니다.
 
     `Select-AzSubscription -SubscriptionName $SubscriptionName`
@@ -72,12 +72,12 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
 
     `New-AzResourceGroup -Name $ResourceGroupName -Location $Geo`
 
-2. 실행 하 여 구독에서 리소스 그룹의 목록을 가져올 수는 **Get AzResourceGroup** cmdlet.
+2. 구독에서 리소스 그룹 목록을 가져오려면 **AzResourceGroup** cmdlet을 실행 합니다.
 2. 다음과 같이 새 Azure Recovery Services 자격 증명 모음을 만듭니다.
 
         $vault = New-AzRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
 
-    사용 하 여 기존 자격 증명 모음 목록을 검색할 수 있습니다 합니다 **Get AzRecoveryServicesVault** cmdlet.
+    **AzRecoveryServicesVault** cmdlet을 사용 하 여 기존 자격 증명 모음 목록을 검색할 수 있습니다.
 
 
 ## <a name="step-3-set-the-recovery-services-vault-context"></a>3단계: Recovery Services 자격 증명 모음 컨텍스트 설정
@@ -115,8 +115,8 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
 
 Hyper-V 코어 서버를 실행하는 경우 설치 파일을 다운로드하고 다음 단계를 수행합니다.
-1. 이 명령을 실행 하 여 로컬 디렉터리로 AzureSiteRecoveryProvider.exe에서 파일을 추출 합니다. ```AzureSiteRecoveryProvider.exe /x:. /q```
-2. 실행 ```.\setupdr.exe /i``` 결과 %Programdata%\ASRLogs\DRASetupWizard.log 기록 됩니다.
+1. 다음 명령을 실행 하 여 AzureSiteRecoveryProvider에서 로컬 디렉터리로 파일의 압축을 풉니다.```AzureSiteRecoveryProvider.exe /x:. /q```
+2. 실행 ```.\setupdr.exe /i``` 결과는%Programdata%\ASRLogs\DRASetupWizard.log.에 기록 됩니다.
 
 3. 다음 명령을 실행하여 서버를 등록합니다.
 
@@ -143,9 +143,13 @@ Hyper-V 코어 서버를 실행하는 경우 설치 파일을 다운로드하고
         $protectionContainer = Get-AsrProtectionContainer
 3. 다음과 같이 보호 컨테이너를 복제 정책과 연결합니다.
 
-     $Policy = Get-AsrPolicy -FriendlyName $PolicyName   $associationJob  = New-AsrProtectionContainerMapping -Name $mappingName -Policy $Policy -PrimaryProtectionContainer $protectionContainer[0]
-
+        $Policy = Get-AsrPolicy -FriendlyName $PolicyName
+        $associationJob  = New-AsrProtectionContainerMapping -Name $mappingName -Policy $Policy -PrimaryProtectionContainer $protectionContainer[0]
 4. 연결 작업이 완료될 때까지 기다립니다.
+
+5. 보호 컨테이너 매핑을 검색 합니다.
+
+        $ProtectionContainerMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $protectionContainer
 
 ## <a name="step-7-enable-vm-protection"></a>7단계: VM 보호 사용
 
@@ -155,8 +159,8 @@ Hyper-V 코어 서버를 실행하는 경우 설치 파일을 다운로드하고
         $ProtectableItem = Get-AsrProtectableItem -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
 2. VM을 보호합니다. 보호하는 VM에 둘 이상의 디스크가 연결된 경우 *OSDiskName* 매개 변수를 사용하여 운영 체제 디스크를 지정합니다.
 
-        $Ostype = "Windows"                                 # "Windows" or "Linux"
-        $DRjob = New-AsrReplicationProtectedItem -ProtectableItem $VM -Name $VM.Name -ProtectionContainerMapping $ProtectionContainerMapping -RecoveryAzureStorageAccountId $StorageAccountID -OSDiskName $OSDiskNameList[$i] -OS Windows -RecoveryResourceGroupId
+        $OSType = "Windows"                                 # "Windows" or "Linux"
+        $DRjob = New-AsrReplicationProtectedItem -ProtectableItem $VM -Name $VM.Name -ProtectionContainerMapping $ProtectionContainerMapping -RecoveryAzureStorageAccountId $StorageAccountID -OSDiskName $OSDiskNameList[$i] -OS $OSType -RecoveryResourceGroupId $ResourceGroupID
 
 3. VM이 초기 복제 후 보호되는 상태에 도달할 때까지 기다립니다. 시간이 걸릴 수 있으며 복제될 데이터의 양과 Azure에 사용 가능한 업스트림 대역폭 등의 요인에 따라 걸리는 시간이 달라질 수 있습니다. 보호된 상태가 되면 작업 상태와 작업 설명이 다음과 같이 업데이트됩니다.
 

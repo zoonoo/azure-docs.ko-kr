@@ -3,9 +3,8 @@ title: Azure Security Center의 컨테이너 권장 사항 | Microsoft Docs
 description: 이 문서에서는 컨테이너를 보호하는 방법에 대한 Azure Security Center 권장 사항을 설명합니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 2e76c7f7-a3dd-4d9f-add9-7e0e10e9324d
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
-ms.author: rkarlin
-ms.openlocfilehash: 782c769bc7825dc9b6bd3ba3b8e36885bf150eaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: memildin
+ms.openlocfilehash: 96efe5271b91f87e30ba26aabe69a0de76e1a791
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60705295"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202402"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Azure Security Center 컨테이너 권장 사항 이해
 
@@ -43,7 +42,7 @@ Azure Security Center는 컨테이너를 보호하기 위한 다음과 같은 �
 ## <a name="recommendations"></a>권장 사항
 IaaS Linux 머신에 호스트된 사용 가능한 컨테이너와 해당 Docker 구성의 보안 평가를 이해하는 데 도움이 되는 아래 테이블을 참조하세요.
 
-| 권장 사항 | 설명 | 재구성 |
+| 권장 | 설명 | 업데이트 관리 |
 | --- | --- | --- |
 |컨테이너 보안 구성에서 취약성 수정 |구성 모범 사례를 기반으로 컨테이너 보안 구성에서 취약성을 해결합니다.| 컨테이너 보안 구성에서 취약성을 해결하려면<br>1. 실패한 규칙 목록을 검토합니다.<br>2. 지정된 지침에 따라 각 규칙을 수정합니다.|
 

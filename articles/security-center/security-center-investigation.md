@@ -3,9 +3,8 @@ title: Azure Security Center에서 인시던트 및 경고 조사 | Microsoft Do
 description: 이 문서를 통해 Azure Security Center에서 조사 기능을 사용하여 보안 인시던트 및 경고를 조사할 수 있습니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
-ms.author: rkarlin
-ms.openlocfilehash: 476bdd50a56b953585a8a4e9cea05975c9922e0f
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.author: memildin
+ms.openlocfilehash: 32cc4b01d68ee7a15ae7cfa2259d234cbcd143c4
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662946"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202054"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Azure Security Center에서 인시던트 및 경고 조사 (사용 중지 됨)
 이 문서는 Azure Security Center의 조사 기능 (미리 보기)을 사용 하 여 보안 인시던트 및 경고를 조사 하는 데 도움이 됩니다.
@@ -113,7 +112,7 @@ Security Center의 조사 기능을 사용하면 범위를 심사하고, 이해�
 
 이 지점에서부터 이 인시던트에 관련된 엔터티를 탐색하고 각각에 대한 자세한 정보를 탐색할 수 있습니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 이 문서에서는 Security Center에서 조사 기능을 사용하는 방법을 살펴보았습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 보안 경고 관리 및 대응](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Security Center에서 경고를 관리하고 보안 인시던트에 대응하는 방법을 알아봅니다.

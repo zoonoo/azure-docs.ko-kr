@@ -3,9 +3,8 @@ title: Azure Security Center FAQ(질문과 대답) | Microsoft Docs
 description: 이 FAQ는 Azure Security Center에 대한 질문에 답변합니다.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 33ce4c3c7f7cba8310ca75ffd0de3ecb24ad6d8d
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.author: memildin
+ms.openlocfilehash: b8ca4dfe8b1bba169b1234461dc5e8855fef1d7e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873417"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202290"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Security Center FAQ(질문과 대답)
 이 FAQ는 증가된 가시성으로 위협을 예방, 감지 및 대응하고 Microsoft Azure 리소스의 보안을 제어하는 서비스인 Azure Security Center에 관한 질문에 답변합니다.
@@ -55,7 +54,7 @@ Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성�
 Security Center의 역할 및 허용된 작업에 대한 자세한 내용은 [Azure Security Center의 권한](security-center-permissions.md)을 참조하세요.
 
 ## <a name="data-collection-agents-and-workspaces"></a>데이터 수집, 에이전트 및 작업 영역
-Security Center는 Azure Vm (가상 머신), VMSS (가상 머신 확장 집합), IaaS 컨테이너 및 비 Azure (온-프레미스) 컴퓨터에서 보안 취약성 및 위협에 대 한 모니터링을 위해 데이터를 수집 합니다. Microsoft Monitoring Agent를 사용하여 데이터를 수집합니다. Microsoft Monitoring Agent는 머신에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사합니다.
+Security Center는 Azure Vm (가상 머신), 가상 머신 확장 집합, IaaS 컨테이너 및 비 Azure 컴퓨터 (온-프레미스 포함)에서 보안 취약성 및 위협에 대 한 모니터링 데이터를 수집 합니다. Microsoft Monitoring Agent를 사용하여 데이터를 수집합니다. Microsoft Monitoring Agent는 머신에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사합니다.
 
 ### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Security Center에서 만든 작업 영역에 대 한 Azure Monitor 로그 요금이 청구 되나요?
 아니요. Security Center에서 만든 작업 영역은 노드 요금 청구 당 Azure Monitor 로그에 대해 구성 된 상태에서 Azure Monitor 로그 요금이 발생 하지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다.
@@ -133,10 +132,10 @@ Linux 컴퓨터의 경우 에이전트 멀티 호 밍은 아직 지원 되지 �
 
 등록 구독에 있는 기존 컴퓨터의 경우 2019-03-17 이전에 Security Center 하기 위해 기존 에이전트가 검색 되 면 Microsoft Monitoring Agent 확장이 설치 되지 않으며 컴퓨터에 영향을 주지 않습니다. 이러한 컴퓨터의 경우 해당 컴퓨터에서 에이전트 설치 문제를 해결 하려면 "컴퓨터에서 모니터링 에이전트 상태 문제 해결"을 참조 하세요.
 
- 자세한 내용은 다음 섹션 [SCOM 또는 OMS 직접 에이전트가 VM에 이미 설치되어 있으면 어떻게 되나요?](#scomomsinstalled)를 참조하세요.
+ 자세한 내용은 다음 섹션 [VM에 System Center Operations Manager 또는 OMS 직접 에이전트가 이미 설치 되어 있으면 어떻게 되나요?](#scomomsinstalled) 를 참조 하세요.
 
-### System Center Operations Manager (SCOM) 에이전트가 VM에 이미 설치 되어 있으면 어떻게 되나요?<a name="scomomsinstalled"></a>
-Security center에서는 기존 System Center Operations Manager 에이전트에 Microsoft Monitoring Agent 확장을 함께 설치 합니다. 기존 SCOM 에이전트는 System Center Operations Manager 서버에 정상적으로 계속 보고 합니다. System Center Operations Manager 에이전트와 Microsoft Monitoring Agent는이 프로세스 중에 최신 버전으로 업데이트 되는 공용 런타임 라이브러리를 공유 합니다. 참고-System Center Operations Manager 에이전트 버전 2012가 설치 되어 있는 경우에는 자동 프로 비전을 설정 하지 마십시오. System Center Operations Manager 서버가 2012 버전인 경우에도 관리 기능이 손실 될 수 있습니다.
+### System Center Operations Manager 에이전트가 VM에 이미 설치 되어 있으면 어떻게 되나요?<a name="scomomsinstalled"></a>
+Security center는 기존 System Center Operations Manager 에이전트에 Microsoft Monitoring Agent 확장을 나란히 설치 합니다. 기존 에이전트는 System Center Operations Manager 서버에 정상적으로 계속 보고 합니다. Operations Manager 에이전트와 Microsoft Monitoring Agent는이 프로세스 중에 최신 버전으로 업데이트 되는 공용 런타임 라이브러리를 공유 합니다. 참고-Operations Manager agent의 버전 2012이 설치 되어 있는 경우에는 자동 프로 비전을 설정 하지 마십시오. Operations Manager 서버가 2012 버전인 경우에도 관리 기능이 손실 될 수 있습니다.
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>이러한 확장을 제거할 경우 어떤 영향이 있나요?
 Microsoft Monitoring 확장을 제거하는 경우 Security Center는 VM의 보안 데이터 및 일부 보안 권장 사항을 수집할 수 없고 경고를 사용할 수 없습니다. 24시간 이내에 Security Center는 VM이 확장을 누락하고 확장을 다시 설치했는지 확인합니다.
@@ -160,8 +159,8 @@ Microsoft Monitoring 확장을 제거하는 경우 Security Center는 VM의 보�
 
 다음에 해당하는 경우 자동 프로비전을 옵트아웃하는 것이 좋습니다.
 
-- Security Center에 의한 자동 에이전트 설치가 전체 구독에 적용됩니다.  VM의 하위 집합에 자동 설치를 적용할 수 없습니다. Microsoft Monitoring Agent와 함께 설치할 수 없는 중요한 VM이 있는 경우 자동 프로비전을 옵트아웃해야 합니다.
-- MMA (Microsoft Monitoring Agent) 확장을 설치 하면 에이전트 버전이 업데이트 됩니다. 이는 직접 에이전트 및 SCOM 에이전트에 적용 됩니다 (후자의 경우 SCOM 및 MMA share 공용 런타임 라이브러리-프로세스에서 업데이트 됨). 설치된 SCOM 에이전트가 2012 버전이고 업그레이드된 경우 SCOM 서버도 2012 버전이면 관리 기능이 손실될 수 있습니다. 설치 된 SCOM 에이전트가 버전 2012 인 경우 자동 프로 비전을 옵트아웃 하는 것이 좋습니다.
+- Security Center에 의한 자동 에이전트 설치가 전체 구독에 적용됩니다. VM의 하위 집합에 자동 설치를 적용할 수 없습니다. Microsoft Monitoring Agent와 함께 설치할 수 없는 중요한 VM이 있는 경우 자동 프로비전을 옵트아웃해야 합니다.
+- MMA (Microsoft Monitoring Agent) 확장을 설치 하면 에이전트 버전이 업데이트 됩니다. 이는 직접 에이전트 및 System Center Operations Manager 에이전트에 적용 됩니다 (후자의 경우 Operations Manager 및 MMA 공유 공용 런타임 라이브러리-프로세스에서 업데이트 됨). 설치 된 Operations Manager 에이전트가 버전 2012이 고 업그레이드 된 경우 Operations Manager 서버가 2012 버전인 경우에도 관리 기능이 손실 될 수 있습니다. 설치 된 Operations Manager 에이전트가 버전 2012 인 경우 자동 프로 비전을 옵트아웃 하는 것이 좋습니다.
 - 구독 외부의 사용자 지정 작업 영역(중앙 집중식 작업 영역)이 있는 경우 자동 프로비전을 옵트아웃해야 합니다. Microsoft Monitoring Agent 확장을 수동으로 설치하고 Security Center가 연결을 재정의하지 않고 작업 영역에 연결할 수 있습니다.
 - 구독 내에 자신의 사용자 지정 작업 영역이 있고 구독당 작업 영역을 여러 개 만들지 않으려는 경우 두 가지 옵션이 있습니다.
 
@@ -298,7 +297,7 @@ Microsoft 보안 대응 센터(MSRC)는 Azure 네트워크 및 인프라의 선�
 Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링합니다.
 
 * 가상 머신(VM)( [Cloud Services](../cloud-services/cloud-services-choose-me.md)포함)
-* 가상 머신 확장 집합 (VMSSs)
+* Virtual Machine Scale Sets
 * Azure Virtual Network
 * Azure SQL 서비스
 * Azure Storage 계정

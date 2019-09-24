@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: b7e079e92c2f438fa7acc87a7d7333c371fe8e54
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 5c2ecd5a53bb77193469ba1135c46d9b5fa65b2c
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71099461"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202968"
 ---
 # <a name="security-hardening-in-aks-virtual-machine-hosts"></a>AKS 가상 컴퓨터 호스트의 보안 강화 
 
@@ -76,8 +76,6 @@ AKS 엔진은 현재 특정 보안 표준을 준수 하거나 준수 하지 않�
 |5.4.1.4 |비활성 암호 잠금이 30 일 이내 인지 확인 |
 |5.4.4 |기본 사용자 umask 027 이상 인지 확인 |
 |5.6 |Su 명령에 대 한 액세스가 제한 되어 있는지 확인|
-
-(*) 를 사용 하도록 설정 해야 합니다. 클러스터 정의 [설명서](https://github.com/Azure/aks-engine/blob/master/docs/topics/clusterdefinitions.md)를 참조 하세요.
 
 ## <a name="additional-notes"></a>추가 참고 사항
  

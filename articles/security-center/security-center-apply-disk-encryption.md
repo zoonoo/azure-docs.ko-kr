@@ -3,9 +3,8 @@ title: Azure Security Center에서 디스크 암호화 적용 | Microsoft Docs
 description: 이 문서에서는 Azure Security Center 권장 사항 **디스크 암호화 적용**을 구현하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 6cc7824a-8d6b-4a5f-ab40-e3bbaebc4a91
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 1abb0a5f5523032440086932eb9a1621d4cef455
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.author: memildin
+ms.openlocfilehash: 0ae2b695a64e55b493453549627860872166ed25
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726229"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202496"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Azure Security Center에서 디스크 암호화 적용
 Azure Security Center는 암호화되지 않은 Windows 또는 Linux VM 디스크가 있는 경우 Azure Disk Encryption을 사용하여 디스크 암호화를 적용하도록 권장합니다. 디스크 암호화를 사용하면 Windows 및 Linux IaaS VM 디스크를 암호화할 수 있습니다.  VM에서 OS 및 데이터 볼륨에 암호화를 사용하는 것이 좋습니다.
@@ -48,7 +47,7 @@ Azure Security Center는 암호화되지 않은 Windows 또는 Linux VM 디스�
 
 Azure Virtual Machines에 대해 사용할 수 있는 방법은 여러 가지가 있습니다. 이미 Azure PowerShell 또는 Azure CLI에 대해 잘 알고 있다면 대체 방법을 사용하는 것을 선호할 수 있습니다. 이러한 대체 방법에 대한 자세한 내용은 [Azure Disk Encryption](../security/azure-security-disk-encryption.md)을 참조하세요.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 이 문서에서는 보안 센터 권장 사항 "디스크 암호화 적용"을 구현하는 방법을 보여주었습니다. 디스크 암호화에 대해 자세히 알아보려면 다음을 참조하세요.
 
 * [Azure 주요 자격 증명으로 암호화 및 키 관리](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (비디오, 36분 39초) -- IaaS VM 및 Azure Key Vault에 디스크 암호화 관리를 사용하여 데이터를 세이프가드하는 방법 알아보기

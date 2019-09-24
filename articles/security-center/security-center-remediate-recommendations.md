@@ -3,9 +3,8 @@ title: Azure Security Center의 권장 사항 수정 | Microsoft Docs
 description: 이 문서에서는 Azure 리소스를 보호 하 고 보안 정책을 준수 하는 데 도움이 되는 Azure Security Center의 권장 사항을 수정 하는 방법을 설명 합니다.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 8be947cc-cc86-421d-87a6-b1e23077fd50
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2019
-ms.author: v-mohabe
-ms.openlocfilehash: a32e344ffe33f411bae85763ae3b919040c1109b
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.author: memildin
+ms.openlocfilehash: 9bd1586193d2e36c370217e37b77409298821a67
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575588"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201007"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Azure Security Center의 권장 사항 수정
 
@@ -46,7 +45,7 @@ ms.locfileid: "69575588"
 
    ![한 번 클릭으로 수정 선택](./media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)
 
-2. **비정상 리소스** 탭에서 권장 구성을 구현 하려는 리소스를 선택 하 고 수정을 클릭 합니다. 
+2. **비정상 리소스** 탭에서 권장 구성을 구현 하려는 리소스를 선택 하 고 수정 **을 클릭 합니다**. 
 
     > [!NOTE]
     > 나열 된 리소스 중 일부를 수정할 수 있는 적절 한 권한이 없기 때문에 일부 리소스를 사용 하지 못할 수 있습니다.
@@ -56,7 +55,7 @@ ms.locfileid: "69575588"
    ![한 번 클릭으로 수정](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
 
     > [!NOTE]
-    > 수정을 클릭 한 후 열리는 **리소스 재구성** 창에서 회색 상자에 의미가 나열 됩니다. 여기에는 1 클릭 업데이트를 진행할 때 발생 하는 변경 내용이 나열 됩니다.
+    > 수정을 클릭 한 후 열리는 **리소스 재구성** 창에서 회색 상자에 의미가 **나열 됩니다.** 여기에는 1 클릭 업데이트를 진행할 때 발생 하는 변경 내용이 나열 됩니다.
 
 4. 필요한 경우 관련 매개 변수를 삽입 하 고 수정를 승인 합니다.
 
@@ -75,7 +74,7 @@ ms.locfileid: "69575588"
 |권장|의미상 이러한|
 |---|---|
 |SQL server에 대 한 감사를 사용 하도록 설정 해야 합니다.|이 작업을 수행 하면 이러한 서버 및 해당 데이터베이스에서 SQL 감사를 사용할 수 있습니다. <br>**참고**: <ul><li>선택한 SQL server의 각 지역에 대해 감사 로그를 저장 하는 저장소 계정이 만들어지고 해당 지역의 모든 서버에서 공유 됩니다.</li><li>적절 한 감사를 보장 하려면 리소스 그룹 또는 저장소 계정을 삭제 하거나 이름을 변경 하지 마십시오.</li></ul>|
-|SQL 관리 되는 인스턴스에서 고급 데이터 보안을 사용 하도록 설정 해야 합니다.|이 작업을 수행 하면 선택한 SQL 관리 되는 인스턴스에서 SQL AD (Advanced Data Security)를 사용할 수 있습니다. <br>**참고**: <ul><li>선택한 SQL 관리 되는 인스턴스의 각 지역 및 리소스 그룹에 대해 검사 결과를 저장 하는 저장소 계정이 만들어지고 해당 지역의 모든 인스턴스에서 공유 됩니다.</li><li> 광고는 SQL 관리 되는 인스턴스당 $15로 청구 됩니다.</li></ul>|
+|SQL 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.|이 작업을 수행 하면 선택한 SQL 관리 되는 인스턴스에서 SQL AD (Advanced Data Security)를 사용할 수 있습니다. <br>**참고**: <ul><li>선택한 SQL 관리 되는 인스턴스의 각 지역 및 리소스 그룹에 대해 검사 결과를 저장 하는 저장소 계정이 만들어지고 해당 지역의 모든 인스턴스에서 공유 됩니다.</li><li> 광고는 SQL 관리 되는 인스턴스당 $15로 청구 됩니다.</li></ul>|
 |SQL 관리 되는 인스턴스에서 취약성 평가를 사용 하도록 설정 해야 합니다.|이 작업을 수행 하면 선택한 SQL 관리 되는 인스턴스에 대해 SQL 취약성 평가를 사용할 수 있습니다. <br>**참고**:<ul><li>SQL 취약성 평가는 SQL AD (Advanced Data Security) 패키지의 일부입니다. 광고가 아직 설정 되지 않은 경우에는 관리 되는 인스턴스에서 자동으로 사용 하도록 설정 됩니다.</li><li>선택한 SQL 관리 되는 인스턴스의 각 지역 및 리소스 그룹에 대해 검사 결과를 저장 하는 저장소 계정이 만들어지고 해당 지역의 모든 인스턴스에서 공유 됩니다.</li><li>광고는 SQL server 당 $15로 청구 됩니다.</li></ul>||
 |SQL 서버에서 고급 데이터 보안을 사용 하도록 설정 해야 합니다.|이 작업을 수행 하면 선택한 서버 및 해당 데이터베이스에서 AD (Advanced Data Security)를 사용할 수 있습니다. <br>**참고**:<ul><li>선택한 SQL server의 각 지역 및 리소스 그룹에 대해 검사 결과를 저장 하는 저장소 계정이 만들어지고 해당 지역의 모든 서버에서 공유 됩니다. <</li><li>광고는 SQL server 당 $15로 청구 됩니다.</li></ul>||
 |SQL server에서 취약성 평가를 사용 하도록 설정 해야 합니다.|이 작업을 수행 하면 선택한 서버와 해당 데이터베이스에 대해 SQL 취약성 평가를 사용할 수 있습니다. <br>**참고**:<ul><li>SQL 취약성 평가는 SQL AD (Advanced Data Security) 패키지의 일부입니다. 광고가 아직 설정 되지 않은 경우 SQL server에서 자동으로 사용 하도록 설정 됩니다.</li><li>선택한 SQL server의 각 지역 및 리소스 그룹에 대해 검사 결과를 저장 하는 저장소 계정이 만들어지고 해당 지역의 모든 인스턴스에서 공유 됩니다.</li><li>광고는 SQL server 당 $15로 청구 됩니다.</li></ul>||
@@ -91,7 +90,7 @@ ms.locfileid: "69575588"
 |CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 함|이 작업은 다른 도메인이 함수 응용 프로그램에 액세스 하는 것을 차단 합니다. 특정 도메인을 허용 하려면 허용 된 원본 필드에 쉼표로 구분 하 여 입력 합니다. <br>**참고**: 필드를 비워 두면 모든 크로스-원본 호출이 차단 됩니다. ' Param 필드 제목: ' 허용 된 원본 '|
 |CORS에서 모든 리소스가 API 앱에 액세스 하도록 허용 해서는 안 됩니다.|이 작업은 다른 도메인이 API 응용 프로그램에 액세스 하지 못하도록 차단 합니다. 특정 도메인을 허용 하려면 허용 된 원본 필드에 쉼표로 구분 하 여 입력 합니다. <br>**참고**: 필드를 비워 두면 모든 크로스-원본 호출이 차단 됩니다. ' Param 필드 제목: ' 허용 된 원본 '|
 |가상 머신에서 모니터링 에이전트를 사용 하도록 설정 해야 합니다.|이 작업은 선택한 가상 컴퓨터에 모니터링 에이전트를 설치 합니다. 에이전트에서 보고할 작업 영역을 선택 합니다.<ul><li>업데이트 정책이 자동으로 설정 된 경우 새 기존 인스턴스에 배포 됩니다.</li><li>업데이트 정책을 수동으로 설정 하 고 기존 인스턴스에 에이전트를 설치 하려는 경우 확인란 옵션을 선택 합니다.  [자세히 알아보기](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set)</li></ul>|
-|Key Vault의 진단 로그를 사용 하도록 설정 해야 합니다.|이 작업을 수행 하면 키 자격 증명 모음에 진단 로그가 사용 됩니다. 진단 로그 및 메트릭은 선택한 작업 영역에 저장 됩니다.|
+|Key Vault의 진단 로그를 사용하도록 설정해야 합니다.|이 작업을 수행 하면 키 자격 증명 모음에 진단 로그가 사용 됩니다. 진단 로그 및 메트릭은 선택한 작업 영역에 저장 됩니다.|
 |Service bus의 진단 로그를 사용 하도록 설정 해야 합니다.|이 작업은 service bus에서 진단 로그를 사용 하도록 설정 합니다. 진단 로그 및 메트릭은 선택한 작업 영역에 저장 됩니다.|
 
 ## <a name="next-steps"></a>다음 단계

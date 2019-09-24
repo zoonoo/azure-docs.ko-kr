@@ -7,12 +7,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 8ed083ad39c3ace3a0f66a61936974b462ed418f
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: be4397de477891f2a698c9f7dcb131da79479529
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174696"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200019"
 ---
 # <a name="reference-windows-data-science-virtual-machine"></a>참조: Windows Data Science Virtual Machine
 
@@ -132,4 +132,6 @@ Python SDK는 Microsoft Data Science Virtual Machine에 미리 설치되어 있�
 > [!NOTE]
 > 2018년 3월 이전에 릴리스된 DSVM의 Windows Server 2012 버전 및 Windows Server 2016 버전에서 기본 Anaconda 환경은 Python 2.7입니다. 보조 환경은 C:\Anaconda\envs\py35에 있는 Python 3.5입니다.
 
+## <a name="next-steps"></a>다음 단계
 
+추가 질문이 있나요? [지원 티켓](https://azure.microsoft.com/support/create-ticket/)을 만드는 것이 좋습니다.

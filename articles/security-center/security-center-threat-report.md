@@ -3,9 +3,8 @@ title: Azure Security Center 위협 인텔리전스 보고서 | Microsoft Docs
 description: 이 문서는 조사하는 중에 Azure Security Center 위협 인텔리전스 보고서를 사용하여 보안 경고에 관한 자세한 정보를 확인하는 데 도움이 됩니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 5662e312-e8c2-4736-974e-576eeb333484
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
-ms.author: v-mohabe
-ms.openlocfilehash: 7ab42fdb03209173c61b70fdf498aa77b39a1c23
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.author: memildin
+ms.openlocfilehash: c389fd72d9b185bc920ffeefdfb84e05b3d13001
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036378"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200719"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Azure Security Center 위협 인텔리전스 보고서
 이 문서에서는 Azure Security Center 위협 인텔리전스 보고서를 사용하여 보안 경고를 생성한 위협에 관한 자세한 정보를 확인하는 방식에 대해 설명합니다.
@@ -66,7 +65,7 @@ Security Center에는 세 가지 유형의 위협 보고서가 있는데 공격�
 
 여기서는 해당 보고서의 PDF 파일을 다운로드하여 감지된 보안 문제에 대해 자세히 파악하고 제공된 정보에 기반한 조치를 수행할 수 있습니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 이 문서에서는 보안 경고에 대해 조사하는 중에 Azure Security Center 위협 인텔리전스 보고서를 사용 방법을 살펴보았습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center FAQ](security-center-faq.md)로 설정합니다. 서비스 사용에 관한 질문과 대답을 찾습니다.

@@ -3,23 +3,22 @@ title: Azure Security Center에서 보안 솔루션 통합 | Microsoft Docs
 description: Azure Security Center를 파트너와 통합하여 Azure 리소스의 전반적인 보안을 강화하는 방법에 대해 알아봅니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
-ms.author: rkarlin
-ms.openlocfilehash: 9d52526f87f20a855c045f4e565793ac29abf04a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.date: 03/20/2019
+ms.author: memildin
+ms.openlocfilehash: 25e7262842de2bcf3823a51dfe6d97b5558b16fe
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101008"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201750"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -102,7 +101,7 @@ Security Center는 Azure에서 실행되는 보안 솔루션을 자동으로 검
 
 **데이터 원본 추가** 섹션에는 연결할 수 있는 다른 사용 가능한 데이터 원본이 포함됩니다. 이러한 원본의 데이터를 추가하는 방법에 대한 지침은 **추가**를 클릭합니다.
 
-![데이터 소스](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
+![데이터 원본](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
 ## <a name="exporting-data-to-a-siem"></a>SIEM으로 데이터 내보내기
 

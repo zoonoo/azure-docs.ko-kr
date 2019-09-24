@@ -3,23 +3,22 @@ title: Azure Security Center 설정 | Microsoft Docs
 description: Azure Security Center 설정을 구성합니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: f24b1e4a-cc36-4542-b21e-041453cdfcd8
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/3/2018
-ms.author: rkarlin
-ms.openlocfilehash: ec674641991a1b5a1e0ca92c133be235dd91dfae
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 09/03/2018
+ms.author: memildin
+ms.openlocfilehash: 4a7254d4ac67ee7d1bf203baf5741638dbc8f3dd
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60703526"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201617"
 ---
 # <a name="security-center-settings"></a>Security Center 설정
 이 문서에서는 Security Center의 설정에 대한 개요를 제공합니다.
@@ -37,7 +36,7 @@ ms.locfileid: "60703526"
 
 
 ## <a name="who-can-edit-security-policies"></a>보안 정책은 누가 편집할 수 있나요?
-Security Center는 Azure에서 사용자, 그룹 및 서비스에 할당할 수 있는 기본 제공 역할을 제공하는 RBAC(역할 기반 액세스 제어)를 사용합니다. 사용자가 Security Center를 열면 액세스 권한이 있는 리소스와 관련된 정보만 표시됩니다. 즉, 사용자의 역할에 할당 되는 *소유자*를 *참가자*, 또는 *판독기* 리소스가 속한 구독에 있습니다. 이러한 역할 외에도 두 개의 특정한 Security Center 역할이 있습니다.
+Security Center는 Azure에서 사용자, 그룹 및 서비스에 할당할 수 있는 기본 제공 역할을 제공하는 RBAC(역할 기반 액세스 제어)를 사용합니다. 사용자가 Security Center를 열면 액세스 권한이 있는 리소스와 관련된 정보만 표시됩니다. 즉, 사용자에 게 리소스가 속하는 구독에 대 한 *소유자*, *참가자*또는 *읽기 권한자* 역할이 할당 됩니다. 이러한 역할 외에도 두 개의 특정한 Security Center 역할이 있습니다.
 
 - **보안 읽기 권한자**: 권장 사항, 경고, 정책 및 상태를 비롯한 Security Center에 대한 권한을 볼 수 있지만 변경할 수는 없습니다.
 - **보안 관리자**: *보안 읽기 권한자*와 동일한 보기 권한을 갖지만 보안 정책을 업데이트하고 권장 사항 및 경고를 해제할 수 있습니다.

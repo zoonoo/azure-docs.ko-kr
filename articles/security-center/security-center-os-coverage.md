@@ -3,25 +3,24 @@ title: Azure Security Center에서 지 원하는 플랫폼 | Microsoft Docs
 description: 이 문서에서는 Azure Security Center에서 지 원하는 플랫폼의 목록을 제공 합니다.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: c094ef5f3e7c7bfa96f95264e137fd8938296bb4
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.date: 08/29/2019
+ms.author: memildin
+ms.openlocfilehash: 1d13db922ae84e4032304a8865ba6fcdafa65748
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232211"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201623"
 ---
-# <a name="supported-platforms"></a>지원 플랫폼 
+# <a name="supported-platforms"></a>지원되는 플랫폼 
 
 ## 가상 컴퓨터/서버<a name="vm-server"></a>
 
@@ -96,7 +95,7 @@ Azure Security Center에서 지 원하는 Azure PaaS 리소스는 다음과 같�
 * CosmosDB
 * Storage 계정
 * 앱 서비스
-* 함수
+* 기능
 * 클라우드 서비스
 * VNet
 * Subnet

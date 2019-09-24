@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: a14dca066ec60f4aeec79fe6b4c532445b4392f1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: d2922f79c0b2ef7098e0f51e0c3bf6ab18a1b0e3
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086897"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200283"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
 
@@ -153,7 +153,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 원격 액세스에 대해 다음 설정이 올바르게 구성 되어 있는지 확인 합니다.
 
 >[!NOTE] 
->를 실행할 `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name &lt;object name&gt; -value &lt;value&gt;`때 오류 메시지가 표시 될 수 있습니다. 이 메시지는 무시 해도 됩니다. 도메인은 그룹 정책 개체를 통해 해당 구성을 푸시하는 것만을 의미 합니다.
+>를 실행할 `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name <object name> -value <value>`때 오류 메시지가 표시 될 수 있습니다. 이 메시지는 무시 해도 됩니다. 도메인은 그룹 정책 개체를 통해 해당 구성을 푸시하는 것만을 의미 합니다.
 
 1. RDP(원격 데스크톱 프로토콜)이 활성화되어 있습니다.
    
@@ -272,23 +272,19 @@ VM이 정상, 보안 및 RDP에 액세스할 수 있는지 확인 합니다.
     > 관리자 권한 PowerShell 창을 사용 하 여 이러한 명령을 실행할 수 있습니다.
    
    ```powershell
-    cmd
-
-    bcdedit /set {bootmgr} integrityservices enable
-    bcdedit /set {default} device partition=C:
-    bcdedit /set {default} integrityservices enable
-    bcdedit /set {default} recoveryenabled Off
-    bcdedit /set {default} osdevice partition=C:
-    bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
+    bcdedit /set "{bootmgr}" integrityservices enable
+    bcdedit /set "{default}" device partition=C:
+    bcdedit /set "{default}" integrityservices enable
+    bcdedit /set "{default}" recoveryenabled Off
+    bcdedit /set "{default}" osdevice partition=C:
+    bcdedit /set "{default}" bootstatuspolicy IgnoreAllFailures
 
     #Enable Serial Console Feature
-    bcdedit /set {bootmgr} displaybootmenu yes
-    bcdedit /set {bootmgr} timeout 5
-    bcdedit /set {bootmgr} bootems yes
-    bcdedit /ems {current} ON
+    bcdedit /set "{bootmgr}" displaybootmenu yes
+    bcdedit /set "{bootmgr}" timeout 5
+    bcdedit /set "{bootmgr}" bootems yes
+    bcdedit /ems "{current}" ON
     bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200
-
-    exit
    ```
 3. 덤프 로그는 Windows 크래시 문제를 해결 하는 데 도움이 될 수 있습니다. 덤프 로그 수집을 사용 하도록 설정 합니다.
 
@@ -359,9 +355,9 @@ VM이 정상, 보안 및 RDP에 액세스할 수 있는지 확인 합니다.
 ### <a name="install-windows-updates"></a>Windows 업데이트 설치
 *패치 수준*에서 컴퓨터를 업데이트 해야 하는 것이 가장 좋습니다. 가능 하지 않은 경우 다음 업데이트가 설치 되어 있는지 확인 합니다.
 
-| 구성 요소               | 이항         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
+| 구성 요소               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
-| 저장 공간                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
+| 스토리지                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
 |                         | ntfs.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17623 / 6.2.9200.21743 - KB3121255 | 6.3.9600.18654 - KB4022726         | 10.0.14393.1198 - KB4022715                             | 10.0.15063.447             | -                                               | -                                               |
 |                         | Iologmsg.dll   | 6.1.7601.23403 - KB3125574                | 6.2.9200.16384 - KB2995387                  | -                                  | -                                                       | -                          | -                                               | -                                               |

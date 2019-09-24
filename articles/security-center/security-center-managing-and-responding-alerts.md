@@ -3,9 +3,8 @@ title: Azure Security Center에서 보안 경고 관리| Microsoft Docs
 description: 이 문서는 Azure Security Center 기능을 사용하여 보안 경고를 관리하고 대응하는 데 도움이 됩니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
 ms.service: security-center
 ms.topic: conceptual
@@ -13,13 +12,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2019
-ms.author: v-mohabe
-ms.openlocfilehash: a31b6006ff3345947fc0c64b9427d79e3870a2b6
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.author: memildin
+ms.openlocfilehash: c3134988452efe16044ab7b7740cafd02e8cf27a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70052099"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201926"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 관리 및 대응
 
@@ -79,7 +78,7 @@ ms.locfileid: "70052099"
     * [서비스 계층 경고](security-center-alerts-service-layer.md)
     * [Azure 보안 제품과 통합](security-center-alerts-integration.md)
     
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
 이 문서에서는 보안 센터에서 보안 정책을 구성하는 방법을 배웠습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 

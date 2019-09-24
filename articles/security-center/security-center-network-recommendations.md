@@ -3,9 +3,8 @@ title: Azure Security Center에서 네트워크 리소스 보호 | Microsoft Doc
 description: 이 문서에서는 Azure 네트워크 리소스를 보호하고 보안 정책을 준수하는 데 도움이 되는 Azure Security Center의 권장 사항에 대해 설명합니다.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 536e2e3732a0b196801e37c51dfb6c746e070441
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.author: memildin
+ms.openlocfilehash: bf33fe29b18b09bf903e1fc331f1c378eacb3e17
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910451"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201724"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Azure Security Center에서 네트워크 리소스 보호
 Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리소스의 보안 상태를 지속적으로 분석합니다. Security Center에서 잠재적인 보안 취약점을 식별하는 경우 리소스를 보호하고 강화하는 데 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다.
@@ -134,7 +133,7 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
 
 ## <a name="network-recommendations"></a>네트워크 권장 사항
 
-|권장 사항 이름|Description|Severity|보안 점수|리소스 형식|
+|권장 사항 이름|설명|severity|보안 점수|리소스 형식|
 |----|----|----|----|----|----|
 |서브넷 수준의 네트워크 보안 그룹을 사용 하도록 설정 해야 합니다.|네트워크 보안 그룹을 사용 하 여 서브넷에 배포 된 리소스에 대 한 네트워크 액세스를 제어 합니다.|높음/보통|30|Subnet|
 |가상 컴퓨터는 네트워크 보안 그룹에 연결 해야 합니다.|가상 머신의 네트워크 액세스를 제어하기 위해 네트워크 보안 그룹을 활성화합니다.|높음/보통|30|가상 머신|
@@ -149,7 +148,7 @@ DDoS Protection 표준을 사용하도록 설정해야 합니다.|DDoS protectio
 |HTTPS를 통해서만 함수 앱에 액세스할 수 있어야 합니다.|함수 앱에 대해 "HTTPS만" 액세스를 사용 하도록 설정 합니다. HTTPS를 사용 하 여 서버/서비스 인증을 보장 하 고 전송 중인 데이터를 네트워크 계층 도청 공격 으로부터 보호 합니다.|보통|20|함수 앱|
 |Storage 계정에 보안 전송을 사용하도록 설정해야 합니다.|저장소 계정에 대 한 보안 전송을 사용 하도록 설정 합니다. 보안 전송은 사용자의 스토리지 계정이 보안 연결(HTTPS)에서 오는 요청만 수락하도록 강제 적용하는 옵션입니다. HTTPS를 사용 하면 서버와 서비스 간의 인증을 보장할 뿐 아니라 메시지 가로채기 (man-in-the-middle), 도청 및 세션 하이재킹과 같은 네트워크 계층 공격 으로부터 전송 중인 데이터를 보호 합니다.|높음|20|Storage 계정|
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 다른 Azure 리소스 유형에 적용되는 권장 사항에 대해 자세히 알아보려면 다음을 참조하세요.
 
 * [Azure Security Center에서 머신 및 애플리케이션 보호](security-center-virtual-machine-protection.md)

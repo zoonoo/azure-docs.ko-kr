@@ -3,9 +3,8 @@ title: Azure Security Center 데이터 보안 | Microsoft Docs
 description: 이 문서에서는 Azure Security Center에서 데이터 관리하고 보호하는 방법을 설명합니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 33f2c9f4-21aa-4f0c-9e5e-4cd1223e39d7
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: cd91b83bc808d811fc50293fbf1726d609ad5b46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: memildin
+ms.openlocfilehash: 30f4358bea2670cfa8d825bf1ef75feeba7ea851
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234077"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202347"
 ---
 # <a name="azure-security-center-data-security"></a>Azure Security Center 데이터 보안
 고객이 위협을 방지, 감지 및 대응하는 데 도움을 주기 위해 Azure Security Center에서는 구성 정보, 메타데이터, 이벤트 로그, 크래시 덤프 파일 등을 포함한 보안 관련 데이터를 수집하고 처리합니다. Microsoft는 코딩부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다.
@@ -50,10 +49,10 @@ Azure Security Center에서는 다음 소스의 데이터를 분석하여 보안
 |-------------------------------------|---------------|
 | 미국, 브라질, 남아프리카 공화국 | 미국 |
 | 캐나다                              | 캐나다        |
-| 유럽 (United Kingdom 제외)   | 유럽        |
+| 유럽 (영국 제외)   | Europe        |
 | 영국                      | 영국 |
-| 아시아 (인도, 일본, 한국, 중국 제외)   | 아시아 태평양  |
-| 한국                              | 아시아 태평양  |
+| 아시아 (인도, 일본, 대한민국, 중국 제외)   | 아시아 태평양  |
+| 대한민국                              | 아시아 태평양  |
 | 인도                               | 인도         |
 | 일본                               | 일본         |
 | 중국                               | 중국         |
@@ -82,13 +81,13 @@ Azure Security Center를 무료로 사용하는 경우 보안 정책의 가상 �
 고객은 아래와 같이 다른 데이터 스트림에서 데이터와 관련된 Security Center를 사용할 수 있습니다.
 
 * **Azure 작업**: 모든 보안 경고, 승인된 Security Center [just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) 요청 및 [적응 애플리케이션 컨트롤](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)에서 생성된 모든 경고입니다.
-* **Azure Monitor 로그**: 모든 보안 경고 합니다.
+* **Azure Monitor logs**: 모든 보안 경고입니다.
 
 
 > [!NOTE]
 > REST API를 통해 보안 권장 사항도 사용할 수 있습니다. 자세한 정보는 [보안 리소스 공급자 REST API 참조](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx)를 참고하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 이 문서에서는 Azure Security Center에서 데이터 관리하고 보호하는 방법을 알아봅니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center의 계획 및 운영 가이드](security-center-planning-and-operations-guide.md) — 디자인 고려 사항을 계획하고 이해하여 Azure Security Center를 채택하는 방법을 알아봅니다.

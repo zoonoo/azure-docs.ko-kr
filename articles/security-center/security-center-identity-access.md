@@ -3,9 +3,8 @@ title: Azure Security Center에서 ID 및 액세스 모니터링 | Microsoft Doc
 description: Azure Security Center의 ID 및 액세스 기능을 사용하여 사용자의 액세스 작업과 ID 관련 문제를 모니터링하는 방법을 알아봅니다.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
-ms.author: v-mohabe
-ms.openlocfilehash: 1ef4d8e76b54b995a09decdfaf9974f0929c8ed9
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.author: memildin
+ms.openlocfilehash: d035dc4e8f77bb64a9e845a9dae0668365a6aacb
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905336"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202283"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Azure Security Center에서 ID 및 액세스 모니터링(미리 보기)
 이 문서를 통해 Azure Security Center를 사용하여 사용자의 ID를 모니터링하고 작업에 액세스할 수 있습니다.
@@ -108,7 +107,7 @@ ID 및 액세스 권장 사항의 전체 목록은 [권장 사항](security-cent
 ## <a name="recommendations"></a>권장 사항
 아래 테이블을 참조로 사용하여 사용 가능한 ID 및 액세스 권장 사항을 이해하고, 적용할 경우 어떻게 되는지 이해할 수 있습니다.
 
-|리소스 형식|보안 점수|권장|Description|
+|리소스 형식|보안 점수|권장|설명|
 |----|----|----|----|
 |구독|50|구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.|계정 또는 리소스 위반을 방지하려면 관리자 권한이 있는 모든 구독 계정에 대해 MFA(Multi-factor Authentication)를 사용합니다.|
 |구독|40|쓰기 권한이 있는 구독 계정에서 MFA를 사용 하도록 설정 해야 합니다.|계정 또는 리소스 위반을 방지하려면 쓰기 권한이 있는 모든 구독 계정에 대해 MFA(Multi-factor Authentication)를 사용합니다.|

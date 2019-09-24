@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d802e48231a03fbf3fee9439894371188f31d5e1
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: bc7710619b8975064ec4ec60ed44ccede970ac34
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576655"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200951"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>조건부 액세스: 레거시 인증 차단
 
@@ -24,7 +24,7 @@ ms.locfileid: "69576655"
 
 ## <a name="create-a-conditional-access-policy"></a>조건부 액세스 정책 만들기
 
-다음 단계는 할당 된 관리 역할이 multi-factor authentication을 수행 하도록 요구 하는 조건부 액세스 정책을 만드는 데 도움이 됩니다.
+다음 단계는 레거시 인증 요청을 차단 하는 조건부 액세스 정책을 만드는 데 도움이 됩니다.
 
 1. 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
 1. **Azure Active Directory** > **조건부 액세스**로 이동 합니다.
@@ -43,7 +43,7 @@ ms.locfileid: "69576655"
 1. **액세스 제어** > **권한 부여**에서 **액세스 차단**을 선택 합니다.
    1. **선택**을 선택합니다.
 1. 설정을 확인 하 고 **정책 사용** 을 **켜기**로 설정 합니다.
-1. 만들기 를 선택 하 여 정책을 사용 하도록 설정 합니다.
+1. 만들기 **를 선택 하** 여 정책을 사용 하도록 설정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

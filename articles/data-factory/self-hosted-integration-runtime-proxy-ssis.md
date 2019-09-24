@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: de9e0a936c68f181665e44ea6115f60c6dc60e98
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 2ade270011ad5c1e1e5f5940ca305687e52bba86
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179058"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200305"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>ADF의 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성
 이 문서에서는 프록시로 구성 된 자체 호스팅 IR을 사용 하 여 Azure Data Factory (ADF)에서 Azure-SSIS Integration Runtime (IR)에 SQL Server Integration Services (SSIS) 패키지를 실행 하는 방법을 설명 합니다.  이 기능을 사용 하면 [Azure-SSIS IR 가상 네트워크에 가입](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)하지 않고도 온-프레미스 데이터에 액세스할 수 있습니다.  이는 회사 네트워크에 Azure-SSIS IR를 삽입 하는 데 과도 하 게 복잡 한 구성/제한적인 정책이 있는 경우에 유용 합니다.
@@ -86,10 +86,11 @@ OLEDB/Flat File 원본을 사용 하는 데이터 흐름 태스크가 포함 된
 Azure-SSIS IR에서 실행 되는 두 번째 스테이징 작업은 별도로 청구 되지 않지만 실행 중인 Azure-SSIS IR는 [Azure-SSIS IR 가격 책정](https://azure.microsoft.com/pricing/details/data-factory/ssis/) 문서에 지정 된 대로 청구 됩니다.
 
 ## <a name="current-limitations"></a>현재 제한 사항
-- OLEDB/Flat File 연결 관리자와 OLEDB/Flat File 원본만 현재 지원 됩니다.
+
+- OLEDB/Flat File 연결 관리자와 OLEDB/Flat File 원본만 현재 지원 됩니다. 
 - **계정 키**/**SAS URI**/**서비스 주체** 인증을 사용 하 여 구성 된 Azure Blob Storage 연결 된 서비스만 현재 지원 됩니다.
 - Azure-SSIS IR 프로 비전 된 동일한 ADF에서 프로 비전 된 자체 호스팅 IR만 현재 지원 됩니다.
-- SSIS 변수 및 매개 변수는 지원 되지 않습니다.
+- OLEDB/Flat File 원본 및 연결 관리자의 속성 내에서 SSIS 매개 변수/변수를 사용 하는 것은 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 자체 호스팅 IR을 Azure SSIS IR에 대 한 프록시로 구성한 후에는 패키지를 배포 하 고 실행 하 여 ADF 파이프라인에서 ssis 패키지 실행 작업으로 온-프레미스의 데이터에 액세스할 수 있습니다. 자세한 내용은 ADF 파이프라인에서 [ ssis 패키지를 실행하여 ssis 패키지 실행](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)을 참조하세요.

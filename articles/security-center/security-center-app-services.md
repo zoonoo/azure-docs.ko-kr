@@ -3,23 +3,19 @@ title: Azure Security Center에서 App Services 보호 | Microsoft Docs
 description: 이 문서는 Azure Security Center에서 App Services 보호를 시작하는 데 도움이 됩니다.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: e8518710-fcf9-44a8-ae4b-8200dfcded1a
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 1/27/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 6a6b5b6e247bd7c105286b86257a6ae11c1d1c60
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.date: 01/27/2019
+ms.author: memildin
+ms.openlocfilehash: 68f7c47f0a0f56085d632f1c1741318f440b41ee
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551855"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202474"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Azure Security Center를 통해 App Service 보호
 이 문서에서는 Azure Security Center를 사용하여 App Service 기반으로 실행 중인 애플리케이션을 모니터링 및 보호하는 데 도움이 됩니다.
@@ -32,7 +28,7 @@ Azure Security Center는 VM 또는 주문형 인스턴스의 샌드박스에서 
 
 공격자가 정찰 단계에서 Azure에서 호스팅되는 여러 웹 사이트에서 취약성을 찾기 위한 검사를 수행하는 동안 Security Center는 클라우드 규모를 활용하여 App Service 애플리케이션에 대한 공격을 식별하고 신종 공격에 집중합니다. Security Center는 분석 및 기계 학습 모델을 사용하여, HTTP를 통해서든 관리 메서드를 통해서든 고객이 애플리케이션과 상호 작용하게 하는 모든 인터페이스를 다룹니다. 또한 Azure에서 당사자 서비스 형태인 Security Center는 이 PaaS에 대한 기본 컴퓨팅 노드를 다루는 호스트 기반 보안 분석을 제공하는 고유한 입지에 있으므로 Security Center가 이미 악용된 웹 애플리케이션에 대한 공격을 탐지할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 App Service를 모니터 및 보호하려면 전용 머신에 연결된 App Service 플랜이 있어야 합니다. 이러한 플랜은 Basic, Standard, Premium, Isolated 또는 Linux입니다. Azure Security Center는 Free, Shared 또는 Consumption 플랜은 지원하지 않습니다. 자세한 내용은 [App Service 플랜](https://azure.microsoft.com/pricing/details/app-service/plans/)을 참조하세요.
 
@@ -47,7 +43,7 @@ Security Center는 기본적으로 App Service와 통합되므로 배포 및 탑
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>App Service 모니터링 및 보호 사용
 
 1. Azure에서 Security Center를 선택합니다.
-2. 로 이동 **가격 책정 및 설정** 구독을 선택 합니다.
+2. **가격 책정 & 설정** 으로 이동 하 여 구독을 선택 합니다.
 3. **가격 책정 계층** 아래에서 **App service** 행을 선택하고 플랜을 **사용**으로 토글합니다.
 
 ![앱 서비스 토글](./media/security-center-app-services/app-services-toggle.png)
@@ -59,7 +55,7 @@ App Service에 대한 모니터링과 권장 사항을 사용하지 않도록 �
 
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 이 문서에서는 Azure Security Center의 모니터링 기능을 사용하는 방법을 살펴보았습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md): Azure Security Center에서 보안 설정을 구성하는 방법을 알아봅니다.

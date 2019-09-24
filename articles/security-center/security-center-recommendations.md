@@ -3,9 +3,8 @@ title: Azure Security Center |의 보안 권장 사항 Microsoft Docs
 description: 이 문서에서는 Azure Security Center의 권장 사항이 Azure 리소스를 보호하고 보안 정책을 준수하는 데 어떤 도움이 되는지 알아봅니다.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 229b8949facae34a809c0789154a3b56264ee2c5
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.author: memildin
+ms.openlocfilehash: 32b7f1d699c0d620d70614c441a8c18520c1b2d5
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779013"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201052"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Azure Security Center의 보안 권장 사항 
 이 항목에서는 Azure 리소스를 보호 하는 데 도움이 되는 Azure Security Center의 권장 사항을 확인 하 고 이해 하는 방법을 설명 합니다.

@@ -3,9 +3,8 @@ title: Azure Security Center의 보안 플레이북 | Microsoft Docs
 description: 이 문서를 통해 Azure Security Center에서 보안 플레이북을 사용하여 보안 인시던트에 대한 사용자 응답을 자동화할 수 있습니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: a8c45ddf-5c4c-4393-b6e9-46ed1f91bf5f
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: ec16e6daec099adbede625c5ec6fe6909059143b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: memildin
+ms.openlocfilehash: faf297ef4b07b76f98bb7773c636cd8f6228bbc0
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60907095"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201731"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Azure Security Center의 보안 플레이북(미리 보기)
 이 문서를 통해 Azure Security Center에서 보안 플레이북을 사용하여 보안 관련 문제에 응답할 수 있습니다.
@@ -65,7 +64,7 @@ ms.locfileid: "60907095"
 1.  **Security Center** 대시보드를 엽니다.
 2.  왼쪽 창의 **위협 감지** 아래에서 **보안 인시던트 및 경고**를 클릭합니다.
 
-    ![경고](./media/security-center-playbooks/security-center-playbooks-fig6.png)
+    ![,](./media/security-center-playbooks/security-center-playbooks-fig6.png)
 
 3.  조사하려는 경고를 클릭합니다.
 4.  경고 페이지 맨 위에서 **플레이북 실행** 단추를 클릭합니다.
@@ -84,7 +83,7 @@ ms.locfileid: "60907095"
 
 특정 플레이북의 실행에 대한 자세한 내용을 보려면 플레이북 자체를 클릭합니다. 그러면 전체 워크플로를 포함한 논리 앱 실행 페이지가 나타납니다.
 
-![세부 정보](./media/security-center-playbooks/security-center-playbooks-fig14.png)
+![설명](./media/security-center-playbooks/security-center-playbooks-fig14.png)
 
 이 워크플로에서 각 작업이 실행하는 데 걸린 시간을 확인할 수 있습니다. 또한 각 작업을 확장하여 결과를 볼 수 있습니다.
 
@@ -96,7 +95,7 @@ Security Center에서 기존 플레이북을 변경하여 작업이나 조건을
 > Azure Logic App을 사용하여 고유한 플레이북을 만드는 방법에 대한 자세한 내용은 [클라우드 앱과 클라우드 서비스 간에 프로세스를 자동화하는 첫 번째 논리 앱 워크플로 만들기](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app)를 참고하세요.
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 이 문서에서는 Azure Security Center에서 플레이북을 사용하는 방법을 살펴보았습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 보안 경고 관리 및 대응](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Security Center에서 경고를 관리하고 보안 인시던트에 대응하는 방법을 알아봅니다.

@@ -4,8 +4,8 @@ description: 이 문서는 Azure Security Center가 역할 기반 액세스 제�
 services: security-center
 cloud: na
 documentationcenter: na
-author: rkarlin
-manager: barbkess
+author: memildin
+manager: rkarlin
 ms.assetid: ''
 ms.service: security-center
 ms.workload: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: aa6c154e14fbf5291e2493f4f27b9d4501ba18f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: memildin
+ms.openlocfilehash: f52d518d2ed1dfb62eed72cf9c0b839a37b7f856
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60905622"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201653"
 ---
 # <a name="permissions-in-azure-security-center"></a>Azure Security Center의 권한
 
@@ -49,7 +49,7 @@ Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성�
 | 리소스 그룹 참가자 | -- | X | -- | X |
 | 판독기 | -- | -- | -- | X |
 | 보안 관리자 | X | -- | X | X |
-| 보안 판독기 | -- | -- | -- | X |
+| 보안 읽기 권한자 | -- | -- | -- | X |
 
 > [!NOTE]
 > 사용자가 자신의 작업을 완료하는 데 필요한 최소한의 역할을 할당하는 것이 좋습니다. 예를 들어, 리소스의 보안 상태에 대한 정보를 보기만 하고 권장 사항 적용이나 정책 편집 등의 조치는 취하지 않는 사용자에게 독자 역할을 할당합니다.

@@ -3,9 +3,8 @@ title: 보안 개선을 위해 Azure Security Center 표준 계층으로 온보�
 description: " 보안을 개선하기 위해 Azure Security Center 표준 계층으로 온보딩하는 방법을 알아봅니다. "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
-ms.author: v-mohabe
-ms.openlocfilehash: e5d93d2f1f1c082610cb14a5ea621e0919a41866
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.author: memildin
+ms.openlocfilehash: 7448516e464a379e27abd45834b31760fca3fedd
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67589008"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201860"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>보안 개선을 위해 Azure Security Center 표준 계층으로 온보딩
 Security Center 표준 계층으로 업그레이드하면 하이브리드 클라우드 작업을 위해 강화된 보안 관리 및 위협 방지 기능을 활용할 수 있습니다.  표준 평가판을 사용해 볼 수 있습니다. 자세한 내용은 Security Center [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
@@ -33,7 +32,7 @@ Security Center 표준 계층에는 다음 기능이 포함됩니다.
 ## <a name="detecting-unprotected-resources"></a>보호되지 않는 리소스 검색     
 Security Center에서는 Security Center 표준 계층이 적용되지 않은 모든 Azure 구독이나 작업 영역을 자동으로 검색합니다. 여기에는 Security Center 무료 계층을 사용하는 Azure 구독과 보안 솔루션이 사용하도록 설정되지 않은 작업 영역이 포함됩니다.
 
-전체 Azure 구독을 구독 내에서 모든 지원 되는 리소스에 의해 상속 된 표준 계층으로 업그레이드할 수 있습니다. 표준 적용 계층 작업 영역에 작업 영역에 보고 하는 모든 리소스에 적용 됩니다.
+전체 Azure 구독을 표준 계층으로 업그레이드할 수 있습니다 .이 계층은 구독 내에서 지원 되는 모든 리소스에 상속 됩니다. 작업 영역에 표준 계층을 적용 하는 작업은 작업 영역에 보고 하는 모든 리소스에 적용 됩니다.
 
 > [!NOTE]
 > 특정 에이전트 집합으로 제한하여 비용을 관리하고 솔루션에 대해 수집되는 데이터 양을 제한할 수 있습니다. [솔루션 대상](../operations-management-suite/operations-management-suite-solution-targeting.md)을 사용하면 솔루션에 범위를 적용하고 작업 영역의 컴퓨터 하위 집합을 대상으로 지정할 수 있습니다.  솔루션 대상을 사용하는 경우 Security Center에는 작업 영역에 솔루션이 없는 것으로 표시됩니다.
@@ -53,12 +52,12 @@ Security Center에서는 Security Center 표준 계층이 적용되지 않은 �
 
 
    > [!NOTE]
-   > Security Center의 무료 기능은 Azure Vm 및 VMSS에만 적용 됩니다. 즉, 비 Azure 컴퓨터에는 무료 기능이 적용되지 않습니다. 표준을 선택 하면 모든 Azure Vm, VM scale sets 및 작업 영역에 보고 하는 비 Azure 컴퓨터에 표준 기능이 적용 됩니다. 그러므로 Azure 및 비 Azure 리소스에 고급 보안을 제공하려는 경우 표준을 적용하는 것이 좋습니다.
+   > Security Center의 무료 기능은 Azure Vm 및 VMSS에만 적용 됩니다. 즉, 비 Azure 컴퓨터에는 무료 기능이 적용되지 않습니다. 표준을 선택 하면 작업 영역에 보고 하는 모든 Azure Vm, VM 규모 집합 및 비 Azure 컴퓨터에 표준 기능이 적용 됩니다. 그러므로 Azure 및 비 Azure 리소스에 고급 보안을 제공하려는 경우 표준을 적용하는 것이 좋습니다.
    >
    >
 
 ## <a name="onboard-non-azure-computers"></a>비 Azure 컴퓨터 온보딩
-Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 수는 있지만, 그러려면 먼저 이러한 리소스를 온보딩해야 합니다. **시작하기** 블레이드나 **계산** 블레이드에서 비 Azure 컴퓨터를 추가할 수 있습니다. 여기서는 두 방법에 대해 모두 설명합니다.
+Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 수는 있지만, 그러려면 먼저 이러한 리소스를 온보딩해야 합니다. **시작하기** 블레이드나 **컴퓨팅** 블레이드에서 비 Azure 컴퓨터를 추가할 수 있습니다. 여기서는 두 방법에 대해 모두 설명합니다.
 
 ### <a name="add-new-non-azure-computers-from-getting-started"></a>**시작하기**에서 새로운 비 Azure 컴퓨터 추가
 
@@ -73,7 +72,7 @@ Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 �
 
 기존 작업 영역이 있으면 **새로운 비 Azure 컴퓨터 추가** 아래에 나열됩니다. 컴퓨터를 기존 작업 영역에 추가하거나 새 작업 영역을 만들 수 있습니다. 새 작업 영역을 만들려면 **새 작업 영역 추가** 링크를 선택합니다.
 
-### <a name="add-new-non-azure-computers-from-compute"></a>**계산**에서 새로운 비 Azure 컴퓨터 추가
+### <a name="add-new-non-azure-computers-from-compute"></a>**컴퓨팅**에서 새로운 비 Azure 컴퓨터 추가
 
 **새 작업 영역을 만들고 컴퓨터 추가**
 
@@ -90,14 +89,14 @@ Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 �
 
 **기존 작업 영역을 선택하고 컴퓨터 추가**
 
-위에 나와 있는 것처럼 **온보딩**의 워크플로에 따라 컴퓨터를 추가할 수 있습니다. **계산**의 워크플로에 따라 컴퓨터를 추가할 수도 있습니다. 이 예제에서는 **컴퓨팅**을 사용합니다.
+위에 나와 있는 것처럼 **온보딩**의 워크플로에 따라 컴퓨터를 추가할 수 있습니다. **컴퓨팅**의 워크플로에 따라 컴퓨터를 추가할 수도 있습니다. 이 예제에서는 **컴퓨팅**을 사용합니다.
 
 1. 보안 센터 주 메뉴의 **개요** 대시보드로 돌아옵니다.
 
    ![개요][5]
 
-2. **계산 및 앱**을 선택합니다.
-3. **계산 및 앱** 아래에서 **컴퓨터 추가**를 선택합니다.
+2. **컴퓨팅 및 앱**을 선택합니다.
+3. **컴퓨팅 및 앱** 아래에서 **컴퓨터 추가**를 선택합니다.
 
    ![컴퓨팅 블레이드][6]
 

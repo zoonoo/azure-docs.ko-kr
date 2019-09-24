@@ -6,20 +6,20 @@ documentationcenter: na
 author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
-ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2cce369f6a0670790ede7367609f87c18672ddd5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5d740224adb15dc2d772689d77ab1c510532c901
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100607"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203991"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Azure에서 SQL Server 가상 컴퓨터에 대 한 라이선스 모델 변경
 이 문서에서는 **SqlVirtualMachine**새 SQL vm 리소스 공급자를 사용 하 여 AZURE에서 vm (가상 머신)에 대 SQL Server 한 라이선스 모델을 변경 하는 방법을 설명 합니다.
@@ -41,7 +41,7 @@ Azure VM에서 SQL Server에 Azure 하이브리드 혜택를 사용 하 고 정�
 
 VM이 프로 비전 될 때 SQL Server의 라이선스 유형이 설정 됩니다. 나중에 언제 든 지 변경할 수 있습니다. 라이선스 모델 간을 전환 하면 가동 중지 시간이 발생 하지 않으며, VM을 다시 시작 하지 않고 추가 비용을 추가 하지 않으며 즉시 적용 됩니다. 실제로 Azure 하이브리드 혜택를 활성화 하면 비용이 *절감* 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 SQL VM 리소스 공급자를 사용 하려면 SQL Server IaaS 확장이 필요 합니다. 따라서 다음이 필요 합니다.
 - [Azure 구독](https://azure.microsoft.com/free/).

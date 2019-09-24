@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 0802185b7fb0d1a6d7d41cd1fa5a30f5ce10424b
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.date: 09/22/2019
+ms.openlocfilehash: e84dfb35a435e32cd14b244b29044d700c79d14d
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443921"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203590"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>MySQL용 Azure 데이터베이스 서버 방화벽 규칙
 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.
@@ -46,7 +46,7 @@ Azure의 애플리케이션에서 Azure Database for MySQL 서버에 연결할 �
 ## <a name="programmatically-managing-firewall-rules"></a>방화벽 규칙을 프로그래밍 방식으로 관리
 Azure Portal 외에도 Azure CLI를 사용하여 방화벽 규칙을 프로그래밍 방식으로 관리할 수 있습니다. [Azure CLI를 사용한 MySQL용 Azure 데이터베이스 방화벽 규칙 만들기 및 관리](./howto-manage-firewall-using-cli.md)도 참조하세요.
 
-## <a name="troubleshooting-the-database-firewall"></a>데이터베이스 방화벽 문제 해결
+## <a name="troubleshooting-firewall-issues"></a>방화벽 문제 해결
 Microsoft Azure Database for MySQL 서버 서비스에 대한 액세스가 예상대로 작동되지 않는 경우 다음 사항을 고려하세요.
 
 * **허용 목록의 변경 내용이 아직 적용되지 않았습니다.** Azure Database for MySQL 서버 방화벽 구성에 변경 내용이 적용되려면 최대 5분 정도 걸릴 수 있습니다.
@@ -55,9 +55,11 @@ Microsoft Azure Database for MySQL 서버 서비스에 대한 액세스가 예�
 
 * **동적 IP 주소:** 동적 IP 주소 지정을 통해 인터넷에 연결되어 있고 방화벽을 통과하는 데 문제가 있는 경우 다음 솔루션 중 하나를 시도할 수 있습니다.
 
-* MySQL용 Azure 데이터베이스 서버에 연결될 클라이언트에 할당된 IP 주소 범위를 ISP(인터넷 서비스 공급자)에 요청하고, 방화벽 규칙에 따라 IP 주소 범위를 추가합니다.
+   * MySQL용 Azure 데이터베이스 서버에 연결될 클라이언트에 할당된 IP 주소 범위를 ISP(인터넷 서비스 공급자)에 요청하고, 방화벽 규칙에 따라 IP 주소 범위를 추가합니다.
 
-* 클라이언트 컴퓨터 대신 고정 IP 주소를 얻고, 방화벽 규칙에 따라 IP 주소 범위를 추가합니다.
+   * 클라이언트 컴퓨터 대신 고정 IP 주소를 얻고, 방화벽 규칙에 따라 IP 주소 범위를 추가합니다.
+
+* **서버의 IP가 공개로 표시 됩니다.** Azure Database for MySQL 서버에 대 한 연결은 공개적으로 액세스할 수 있는 Azure 게이트웨이를 통해 라우팅됩니다. 그러나 실제 서버 IP는 방화벽으로 보호 됩니다. 자세한 내용은 [연결 아키텍처 문서](concepts-connectivity-architecture.md)를 참조 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

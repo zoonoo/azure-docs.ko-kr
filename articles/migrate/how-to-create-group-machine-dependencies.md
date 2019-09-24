@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: c48323bb4c8798a0f36d3fda99a4c659187e0e81
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 8e793891ea646ae8c91077ead36be9b84c1b08c8
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906383"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200209"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>평가에 대 한 종속성 시각화 설정
 
@@ -34,7 +34,7 @@ ms.locfileid: "69906383"
 - Azure Migrate에서 컴퓨터를 검색 했는지 확인 합니다. [VMware](how-to-set-up-appliance-vmware.md) 또는 [hyper-v](how-to-set-up-appliance-hyper-v.md)에 대 한 Azure Migrate 어플라이언스를 설정 하 여이 작업을 수행할 수 있습니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate으로 보냅니다. 서버 평가를 사용하여 만들 수 있는 평가에는 두 가지 유형이 있습니다. [자세히 알아보기](migrate-appliance.md).
 
 
-**기능** | **참고:**
+**기능** | **참고**
 --- | ---
 가용성 | Azure Government에서 종속성 시각화를 사용할 수 없습니다.
 서비스 맵 | 종속성 시각화는 Azure Monitor에서 서비스 맵 솔루션을 사용 합니다. [서비스 맵](../azure-monitor/insights/service-map.md) 는 서버 간의 연결을 자동으로 검색 하 고 표시 합니다.
@@ -61,7 +61,7 @@ Log Analytics 에이전트 (MMA) | MMA 설치 방법에 [대해 자세히 알아
 
     ![작업 영역 추가](./media/how-to-create-group-machine-dependencies/workspace.png)
 
-    - 새 작업 영역에 대 한 이름을 지정 하면 Azure Migrate 프로젝트와 동일한 지역에 만들어집니다.
+    - 새 작업 영역에 대 한 이름을 지정 하 고 나면 작업 영역을 만들 [지역을](https://azure.microsoft.com/global-infrastructure/regions/) 선택할 수 있습니다.
     - 기존 작업 영역을 연결하는 경우에는 마이그레이션 프로젝트와 동일한 구독에서 사용 가능한 모든 작업 영역을 선택할 수 있습니다.
     - 연결할 수 있으려면 작업 영역에 대 한 읽기 권한이 있어야 합니다.
     - 프로젝트에 연결 된 후에는 프로젝트와 연결 된 작업 영역을 수정할 수 없습니다.

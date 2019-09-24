@@ -3,23 +3,19 @@ title: Azure Security Center의 Vm 및 서버에 대 한 위협 감지 | Microso
 description: 이 항목에서는 Azure Security Center에서 사용할 수 있는 VM 및 서버 경고를 제공 합니다.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: dd2eb069-4c76-4154-96bb-6e6ae553ef46
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 7/02/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 055b578c1d976b7f85c65ab4e028f9d609861cd4
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.date: 07/02/2019
+ms.author: memildin
+ms.openlocfilehash: 0070ab94196dfe752e048e97dd40a8f69cf98373
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013324"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202599"
 ---
 # <a name="threat-detection-for-vms-and-servers-in-azure-security-center"></a>Azure Security Center의 Vm 및 서버에 대 한 위협 감지
 
@@ -74,7 +70,7 @@ Fileless 공격 감지를 통해 자동화 된 메모리 법적 기술은 filele
 |---|---|
 |**Fileless 공격 기술이 검색 됨**|지정 된 프로세스의 메모리에 fileless attack toolkit이 포함 되어 있습니다. Meterpreter. 일반적으로 Fileless 공격 도구 키트는 파일 시스템에 존재 하지 않으므로 기존의 바이러스 백신 소프트웨어로 검색 하기가 어렵습니다.|
 
-### <a name="further-reading"></a>추가 정보
+### <a name="further-reading"></a>추가 참고 자료
 
 예제 및 Security Center 검색에 대 한 자세한 내용은 다음을 참조 하세요.
 
@@ -95,7 +91,7 @@ auditd 레코드는 Linux MMA 에이전트를 사용 하 여 수집, 보강 및 
 
 > [!div class="mx-tableFixed"]
 
-|알림|Description|
+|알림|설명|
 |---|---|
 |**비정상적인 방식으로 SSH 권한 있는 키 파일에 액세스 하는 과정**|알려진 맬웨어 캠페인과 비슷한 방법으로 SSH 권한 있는 키 파일에 액세스 했습니다. 이 액세스는 공격자가 컴퓨터에 대 한 영구 액세스 권한을 얻으려고 함을 나타낼 수 있습니다.|
 |**지 속성 시도 감지**|호스트 데이터 분석에서 단일 사용자 모드에 대 한 시작 스크립트가 설치 되었음을 감지 했습니다. <br/>모든 합법적인 프로세스가 해당 모드에서 실행 되어야 하는 것은 드물지만이는 공격자가 모든 실행 수준에 악의적인 프로세스를 추가 하 여 지 속성을 보장할 수 있음을 나타낼 수 있습니다.|

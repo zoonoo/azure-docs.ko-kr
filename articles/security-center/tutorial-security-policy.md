@@ -3,9 +3,8 @@ title: 보안 정책 작업 | Microsoft Docs
 description: 이 문서에서는 Azure Security Center에서 보안 정책을 사용 하는 방법을 설명 합니다.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
@@ -13,14 +12,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/18/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 4550532d36753d9b8ed472193bc833855ddd34c9
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.date: 07/18/2019
+ms.author: memildin
+ms.openlocfilehash: 11e1c837e416a5d2105f494c43823298edfd4355
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314913"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200501"
 ---
 # <a name="working-with-security-policies"></a>보안 정책 작업
 
@@ -114,7 +113,7 @@ REST API를 통해 또는 Windows PowerShell을 사용하여 Azure Policy 포털
 1. **매개 변수** 섹션에서 사용 하지 않도록 설정할 권장 사항을 호출 하는 정책을 검색 하 고 드롭다운 목록에서 **사용 안 함** 을 선택 합니다.
 
    ![정책 사용 안 함](./media/tutorial-security-policy/disable-policy.png)
-1. **Save**을 클릭합니다.
+1. **저장**을 클릭합니다.
    > [!Note]
    > 정책 사용 안 함 변경을 적용 하는 데 최대 12 시간이 걸릴 수 있습니다.
 
@@ -131,7 +130,7 @@ Azure Policy의 중요 개념:
 
 - **할당** 은 특정 범위 (관리 그룹, 구독 등)에 대 한 이니셔티브 또는 정책의 응용 프로그램입니다. 
 
-Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니셔티브가 있습니다. Azure 리소스에 대한 Security Center의 정책을 평가하려면 평가하려는 관리 그룹 또는 구독에 대한 할당을 만들어야 합니다.  
+Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니셔티브가 있습니다. Azure 리소스에 대한 Security Center의 정책을 평가하려면 평가하려는 관리 그룹 또는 구독에 대한 할당을 만들어야 합니다.
 
 기본 제공 이니셔티브에는 모든 Security Center의 정책이 기본적으로 사용하도록 설정되어 있습니다. 기본 제공 이니셔티브에서 특정 정책을 사용하지 않도록 선택할 수 있습니다. 예를 들어 정책의 효과 매개 변수 값을 **사용 안 함**로 변경하면, **웹 애플리케이션 방화벽**을 제외한 모든 Security Center의 정책을 적용할 수 있습니다. 
 
@@ -228,10 +227,10 @@ Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니�
 |시스템 업데이트 |Azure Security Center에서 누락된 시스템 업데이트 모니터링 |systemUpdatesMonitoringEffect|
 |스토리지 암호화 |스토리지 계정에 대해 누락된 Blob 암호화 감사 |storageEncryptionMonitoringEffect|
 |JIT 네트워크 액세스 |Azure Security Center에서 가능한 네트워크 JIT(Just-In-time) 액세스 모니터링 |jitNetworkAccessMonitoringEffect |
-|적응 애플리케이션 컨트롤 |Azure Security Center에서 가능한 앱 허용 목록 모니터링 |adaptiveApplicationControlsMonitoringEffect|
+|적응형 애플리케이션 제어 |Azure Security Center에서 가능한 앱 허용 목록 모니터링 |adaptiveApplicationControlsMonitoringEffect|
 |네트워크 보안 그룹 |Azure Security Center에서 관대한 네트워크 액세스 모니터링 |networkSecurityGroupsMonitoringEffect| 
 |보안 구성 |Azure Security Center에서 OS 취약성 모니터링 |systemConfigurationsMonitoringEffect| 
-|Endpoint Protection |Azure Security Center에서 누락된 Endpoint Protection 모니터링 |endpointProtectionMonitoringEffect |
+|엔드포인트 보호 |Azure Security Center에서 누락된 Endpoint Protection 모니터링 |endpointProtectionMonitoringEffect |
 |디스크 암호화 |Azure Security Center에서 암호화되지 않은 VM 디스크 모니터링 |diskEncryptionMonitoringEffect|
 |취약점 평가 |Azure Security Center에서 VM 취약성 모니터링 |vulnerabilityAssessmentMonitoringEffect|
 |웹 애플리케이션 방화벽 |Azure Security Center에서 보호되지 않은 웹 애플리케이션 모니터링 |webApplicationFirewallMonitoringEffect |

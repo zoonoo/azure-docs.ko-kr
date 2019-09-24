@@ -3,23 +3,22 @@ title: PowerShell을 사용하여 Azure Security Center를 온보딩 및 네트�
 description: 이 문서에서는 PowerShell cmdlet을 사용하여 Azure Security Center 온보딩 프로세스를 단계별로 안내합니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: e400fcbf-f0a8-4e10-b571-5a0d0c3d0c67
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/2/2018
-ms.author: rkarlin
-ms.openlocfilehash: 9bf2704fbbaa2c7a469dcefa3dc3f3cd7e4d5504
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.date: 10/02/2018
+ms.author: memildin
+ms.openlocfilehash: 8e2f7b87efe89166175748cec310f24575b7f102
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626272"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201212"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>PowerShell을 사용하여 Azure Security Center 온보딩 자동화
 
@@ -42,7 +41,7 @@ PowerShell을 사용하여 Azure Security Center를 온보딩하면 Azure 리소
 
 6. Azure Security Center의 [기본 보안 정책](tutorial-security-policy.md)을 할당합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 단계는 Security Center cmdlet을 실행하기 전에 수행해야 합니다.
 
@@ -98,7 +97,7 @@ PowerShell을 사용하여 Azure Security Center를 온보딩하면 Azure 리소
 
 
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 PowerShell을 사용하여 Security Center에 대한 온보딩을 자동화하는 방법을 자세히 알아보려면 다음 문서를 참조하세요.
 
 * [Az.Security](https://docs.microsoft.com/powershell/module/az.security).

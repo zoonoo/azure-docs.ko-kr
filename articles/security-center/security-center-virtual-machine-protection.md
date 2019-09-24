@@ -3,9 +3,8 @@ title: Azure Security Center에서 머신 및 애플리케이션 보호 | Micros
 description: 이 문서에서는 가상 머신, 컴퓨터, 웹 앱 및 App Service 환경을 보호하는 데 도움이 되는 Security Center의 권장 사항을 설명합니다.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
-ms.author: v-mohabe
-ms.openlocfilehash: c8f381a3440d742cca880f44b73cbc22bde92ecc
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.author: memildin
+ms.openlocfilehash: a3bce8d6312dd09a7f10f8d5d2eaebd4e312d95d
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910554"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200778"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Azure Security Center에서 머신 및 애플리케이션 보호
 Azure Security Center는 Azure 리소스, 비 Azure 서버 및 가상 컴퓨터의 보안 상태를 분석 합니다. 보안 센터가 잠재적인 보안 취약점을 식별하는 경우 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다. 이러한 권장 사항은 VM(가상 머신)과 컴퓨터, 애플리케이션, 네트워킹, SQL과 ID 및 액세스 등의 Azure 리소스 유형에 적용됩니다.
@@ -85,7 +84,7 @@ Security Center에서 자동 프로비전을 위해 초기화된 VM 및 컴퓨�
 
 
 > [!NOTE]
-> 여기와 **권장 사항** 타일에서 보여 주는 보안 권장 사항은 동일합니다. 권장 사항 해결에 대한 자세한 내용은 [Azure Security Center에서 보안 권장 사항 구현](security-center-recommendations.md)을 참조하세요.
+> 여기와 **권장 사항** 타일에서 보여 주는 보안 권장 사항은 동일합니다. 권장 사항을 해결 하는 방법에 대 한 자세한 내용은 [Azure Security Center에서 보안 권장 사항 구현](security-center-recommendations.md)을 참조 하세요.
 >
 >
 
@@ -108,6 +107,7 @@ VM 및 컴퓨터 섹션에는 모든 VM과 컴퓨터의 권장 사항에 대한 
 각 권장 사항에 표시되는 아이콘은 주의를 기울여야 하는 VM과 컴퓨터 및 권장 사항의 형식을 식별하는 데 도움이 됩니다. 필터를 사용하여 **리소스 종류** 및 **심각도**를 기준으로 목록을 검색할 수도 있습니다.
 
 각 VM에 대한 보안 권장 사항으로 드릴다운하려면 VM을 클릭합니다.
+VM 또는 컴퓨터에 대한 보안 세부 정보는 다음과 같습니다. 맨 아래에서 권장 되는 작업과 각 문제의 심각도를 볼 수 있습니다.
 ![Cloud services](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
 
 ### <a name="cloud-services"></a>Cloud Services
@@ -179,7 +179,7 @@ Microsoft Monitoring Agent를 설치하도록 기존의 모든 확장 집합을 
 
 
 ## <a name="compute-and-app-recommendations"></a>컴퓨팅 및 앱 권장 사항
-|리소스 형식|보안 점수|권장|Description|
+|리소스 형식|보안 점수|권장|설명|
 |----|----|----|----|
 |앱 서비스|20|웹 애플리케이션에 HTTPS를 통해서만 액세스 가능|웹 애플리케이션의 액세스를 HTTPS 사용으로 제한합니다.|
 |앱 서비스|20|함수 앱에 HTTPS를 통해서만 액세스 가능|함수 앱의 액세스를 HTTPS 사용으로 제한합니다.|

@@ -3,9 +3,8 @@ title: Azure Security Center의 IaaS에 대 한 고급 데이터 보안 Microsof
 description: " Azure Security Center에서 IaaS에 대 한 고급 데이터 보안을 사용 하도록 설정 하는 방법을 알아봅니다. "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: monhaber
+author: memildin
+manager: rkarlin
 ms.assetid: ba46c460-6ba7-48b2-a6a7-ec802dd4eec2
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 0b83575baa2221f0b502abbf919654492c7ab6cf
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.author: memildin
+ms.openlocfilehash: 287da68617a9527bc398df577cf8d10773fa8557
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295749"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202183"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>Azure Virtual Machines의 SQL server에 대 한 고급 데이터 보안 (공개 미리 보기)
 Azure Virtual Machines의 SQL Server에 대 한 고급 데이터 보안은 고급 SQL 보안 기능을 위한 통합 패키지입니다. 현재 (공개 미리 보기)에는 잠재적인 데이터베이스 취약성을 표시 하 고 완화 하 고 데이터베이스에 위협을 나타낼 수 있는 비정상적인 활동을 검색 하기 위한 기능이 포함 되어 있습니다. 
@@ -102,7 +101,7 @@ ASC 경고가 생성 될 때 전자 메일 알림을 받을 받는 사람 목록
 1. **설정** 메뉴에서 **전자 메일 알림**을 클릭 합니다. 
 1. **전자 메일 주소** 텍스트 상자에 알림을 받을 전자 메일 주소를 입력 합니다. 전자 메일 주소를 쉼표 (,)로 구분 하 여 전자 메일 주소를 두 개 이상 입력할 수 있습니다.  예: admin1@mycompany.com,admin2@mycompany.comadmin3@mycompany.com
 
-      ![메일 설정](./media/security-center-advanced-iaas-data/email-settings.png)
+      ![전자 메일 설정](./media/security-center-advanced-iaas-data/email-settings.png)
 
 1. **전자 메일 알림** 설정에서 다음 옵션을 설정 합니다.
   
@@ -126,11 +125,11 @@ Log Analytics에서 직접 취약점 평가 결과 및 보고서를 볼 수 있�
 
     ![SQL 평가 보고서](./media/security-center-advanced-iaas-data/ads-sql-server-1.png)
 
-    보고서 대시보드가 로드 됩니다. 시간 기간이 7 일에 한 번씩 고정 된 일정에  따라 데이터베이스에서 실행 되 고 있는지 확인 합니다.
+    보고서 대시보드가 로드 됩니다. 시간 기간이 7 일에 한 번씩 고정 된 일정에 따라 데이터베이스에서 실행 되 고 있는지 확인 합니다.
 
     ![최근 7 일 설정](./media/security-center-advanced-iaas-data/ads-sql-server-2.png)
 
-1. 세부 정보를 드릴 다운 하려면 대시보드 요소 중 하나를 클릭 합니다. 예:
+1. 세부 정보를 드릴 다운 하려면 대시보드 요소 중 하나를 클릭 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
    1. **실패 한 검사 요약** 섹션에서 취약성 확인을 클릭 하 여 모든 데이터베이스에서이 검사 결과를 포함 하는 Log Analytics 테이블을 표시 합니다. 결과가 있는 항목이 먼저 나열 됩니다.
 
