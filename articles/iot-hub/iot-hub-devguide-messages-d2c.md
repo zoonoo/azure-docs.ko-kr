@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 6ee9e334c10bd2d0f291b5fd1bb547ba3ba83ddb
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
-ms.translationtype: HT
+ms.openlocfilehash: d2c84f5b6389ac83206472440d26aa8d81ba76be
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877182"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147355"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>IoT Hub 메시지 라우팅을 사용 하 여 다른 끝점으로 장치-클라우드 메시지 보내기
 
@@ -25,13 +25,17 @@ ms.locfileid: "69877182"
 
 * 다양한 쿼리를 적용하여 **다양한 엔드포인트로 데이터를 라우팅하기 전에 데이터를 필터링**합니다. 메시지 라우팅을 사용하면 메시지 속성 및 메시지 본문뿐만 아니라 디바이스 쌍 태그 및 디바이스 쌍 속성에 대해서도 쿼리할 수 있습니다. [메시지 라우팅에 쿼리](iot-hub-devguide-routing-query-syntax.md)를 사용하는 방법에 대해 자세히 알아보세요.
 
-IoT Hub는 메시지 라우팅을 작동하기 위해 이러한 서비스 엔드포인트에 대한 쓰기 액세스가 필요합니다. Azure Portal을 통해 엔드포인트를 구성하는 경우 필요한 권한이 추가됩니다. 예상된 처리량을 지원하도록 서비스를 구성해야 합니다. IoT 솔루션을 처음 구성하는 경우 추가 엔드포인트를 모니터링하고 실제 부하에 맞게 조정해야 할 수 있습니다.
+IoT Hub는 메시지 라우팅을 작동하기 위해 이러한 서비스 엔드포인트에 대한 쓰기 액세스가 필요합니다. Azure Portal을 통해 엔드포인트를 구성하는 경우 필요한 권한이 추가됩니다. 예상된 처리량을 지원하도록 서비스를 구성해야 합니다. 예를 들어 Event Hubs를 사용자 지정 끝점으로 사용 하는 경우 IoT Hub 메시지 라우팅을 통해 전송 하려는 이벤트의 수신을 처리할 수 있도록 해당 이벤트 허브에 대 한 **처리량 단위** 를 구성 해야 합니다. 마찬가지로 Service Bus 큐를 끝점으로 사용 하는 경우에는 소비자가 egressed 때까지 큐가 모든 데이터 수신를 보유할 수 있도록 **최대 크기** 를 구성 해야 합니다. IoT 솔루션을 처음 구성하는 경우 추가 엔드포인트를 모니터링하고 실제 부하에 맞게 조정해야 할 수 있습니다.
 
 IoT Hub는 프로토콜 전체에서의 상호 운용성을 위해 모든 디바이스-클라우드 메시징에 대해 [일반적인 형식](iot-hub-devguide-messages-construct.md)을 정의합니다. 메시지가 동일한 엔드포인트를 가리키는 여러 경로와 일치하는 경우 IoT Hub는 메시지를 해당 엔드포인트에 한 번만 전달합니다. 따라서 Service Bus 큐 또는 항목에 대해 중복 제거를 구성할 필요가 없습니다. 분할된 큐에서 파티션 선호도는 메시지 순서를 보장합니다. [메시지 라우팅을 구성](tutorial-routing.md)하는 방법을 알아보려면 이 자습서를 사용하세요.
 
 ## <a name="routing-endpoints"></a>라우팅 엔드포인트
 
-IoT Hub에는 Event Hubs와 호환되는 기본 제공 엔드포인트(**메시지/이벤트**)가 있습니다. 구독의 다른 서비스를 IoT Hub에 연결하여 메시지를 라우팅할 [사용자 지정 엔드포인트](iot-hub-devguide-endpoints.md#custom-endpoints)를 만들 수 있습니다. IoT Hub는 현재 다음과 같은 서비스를 사용자 지정 엔드포인트로 지원합니다.
+IoT Hub에는 Event Hubs와 호환되는 기본 제공 엔드포인트(**메시지/이벤트**)가 있습니다. 구독의 다른 서비스를 IoT Hub에 연결하여 메시지를 라우팅할 [사용자 지정 엔드포인트](iot-hub-devguide-endpoints.md#custom-endpoints)를 만들 수 있습니다. 
+
+각 메시지는 일치 하는 라우팅 쿼리가 있는 모든 끝점으로 라우팅됩니다. 즉, 메시지를 여러 끝점으로 라우팅할 수 있습니다.
+
+IoT Hub는 현재 다음과 같은 서비스를 사용자 지정 엔드포인트로 지원합니다.
 
 ### <a name="built-in-endpoint"></a>기본 제공 엔드포인트
 
@@ -43,9 +47,9 @@ IoT Hub에서는 데이터를 JSON 형식 뿐만 아니라 [Apache Avro](https:/
 
 ![Blob storage 끝점 인코딩](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
-또한 IoT Hub는 Blob storage를 기반으로 구축 된 [계층적 네임 스페이스](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)사용 저장소 계정인 ADLS Gen2 계정에 대 한 메시지 라우팅을 지원 합니다. 이 기능은 공개 미리 보기 상태 이며 미국 서 부 2 및 미국 서 부에서 새로운 ADLS Gen2 계정에 사용할 수 있습니다. 모든 클라우드 지역에이 기능을 곧 롤아웃할 예정입니다.
+또한 IoT Hub는 Blob Storage를 기반으로 구축 된 [계층적 네임 스페이스](../storage/blobs/data-lake-storage-namespace.md)사용 저장소 계정인 ADLS ( [Azure Data Lake Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) ) Gen2 계정에 대 한 메시지 라우팅을 지원 합니다. 이 기능은 공개 미리 보기 상태 이며 미국 서 부 2 및 미국 서 부에서 새로운 ADLS Gen2 계정에 사용할 수 있습니다. 이를 미리 보려면 [등록](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u) 하세요. 모든 클라우드 지역에이 기능을 곧 롤아웃할 예정입니다. 
 
-IoT Hub는 메시지를 일괄 처리하고, 일괄 처리가 특정 크기에 도달하거나 일정 시간이 경과할 때마다 Blob에 데이터를 씁니다. IoT Hub는 기본적으로 다음 파일 명명 규칙을 따릅니다.
+IoT Hub는 메시지를 일괄 처리하고, 일괄 처리가 특정 크기에 도달하거나 일정 시간이 경과할 때마다 Blob에 데이터를 씁니다. IoT Hub는 기본적으로 다음 파일 명명 규칙을 따릅니다. 
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
