@@ -6,18 +6,8 @@
       href: hpc-cache-overview.md
 - name: 개념
   items:
-    - name: 집계형 네임스페이스 사용
+    - name: 집계형 네임스페이스 계획
       href: hpc-cache-namespace.md
-    - name: 새 Blob 스토리지 채우기
-      href: hpc-cache-ingest.md
-    - name: 대체 데이터 수집 방법
-      items:
-        - name: 병렬 복사를 사용하여 캐시 채우기
-          href: hpc-cache-ingest-parallelcp.md
-        - name: msrsync를 사용하여 캐시 채우기
-          href: hpc-cache-ingest-msrsync.md
-        - name: 수동 파일 복사를 사용하여 캐시 채우기
-          href: hpc-cache-ingest-manual.md
 - name: 방법 가이드
   items:
     - name: 필수 조건
@@ -25,9 +15,20 @@
     - name: 캐시 만들기
       href: hpc-cache-create.md
     - name: 스토리지 추가
-      href: hpc-cache-add-storage.md
-    - name: 캐시에 연결
-      href: hpc-cache-mount.md
+      items:
+        - name: 스토리지 대상 추가
+          href: hpc-cache-add-storage.md
+        - name: 캐시 스토리지로 데이터 이동
+          items:
+            - name: 새 Blob 스토리지 사전 로드
+              href: hpc-cache-ingest.md
+            - name: 대체 데이터 수집 방법
+            - name: 병렬 복사를 사용하여 캐시 채우기
+              href: hpc-cache-ingest-parallelcp.md
+            - name: msrsync를 사용하여 캐시 채우기
+              href: hpc-cache-ingest-msrsync.md
+            - name: 수동 파일 복사를 사용하여 캐시 채우기
+              href: hpc-cache-ingest-manual.md
 - name: 리소스
   items:
     - name: 지원 티켓 열기

@@ -257,6 +257,12 @@
     - name: Policy 효과 이해
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
+    - name: Azure Policy 할당 구조
+      displayName: 'parameters, enforcementmode, policyDefinitionId'
+      href: ./concepts/assignment-structure.md
+    - name: 새 정책의 영향 평가
+      displayName: 'audit, enforcementmode, compliance'
+      href: ./concepts/evaluate-impact.md
     - name: Kubernetes에 대한 Azure Policy
       displayName: 'aks, rego, k8s, opa, open policy agent, gatekeeper'
       href: ./concepts/rego-for-aks.md

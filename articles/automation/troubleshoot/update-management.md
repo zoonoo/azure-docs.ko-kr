@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 884ded67c25aca78225baef2d7e4c5de1cc94fd0
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 48d2463eee2caeaae36118bf736d00eed84c897a
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782282"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186215"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>업데이트 관리 문제 해결
 
@@ -22,6 +22,42 @@ ms.locfileid: "68782282"
 기본 문제를 확인하기 위한 Hybrid Worker 에이전트용 에이전트 문제 해결사가 제공됩니다. 이 문제 해결사에 대한 자세한 내용은 [업데이트 에이전트 문제 해결](update-agent-issues.md)을 참조하세요. 다른 모든 문제의 경우 아래에서 가능한 문제에 대한 추가 정보를 참조하세요.
 
 ## <a name="general"></a>일반
+
+### <a name="rp-register"></a>시나리오: 구독에 대 한 자동화 리소스 공급자를 등록할 수 없습니다.
+
+#### <a name="issue"></a>문제점
+
+Automation 계정에서 솔루션을 사용 하는 경우 다음과 같은 오류가 나타날 수 있습니다.
+
+```error
+Error details: Unable to register Automation Resource Provider for subscriptions:
+```
+
+#### <a name="cause"></a>원인
+
+자동화 리소스 공급자가 구독에 등록 되어 있지 않습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+Azure Portal에서 다음 단계를 완료 하 여 자동화 리소스 공급자를 등록할 수 있습니다.
+
+1. Azure 서비스 목록 하단에서 **모든 서비스**를 클릭하고 **일반** 서비스 그룹에서 _구독_을 선택합니다.
+2. 구독을 선택합니다.
+3. _설정_에서 **리소스 공급자** 를 클릭 합니다.
+4. 리소스 공급자 목록에서 **Microsoft Automation** 리소스 공급자가 등록 되어 있는지 확인 합니다.
+5. 공급자가 목록에 없으면 아래 [ ](/azure/azure-resource-manager/resource-manager-register-provider-errors)에 나열된 단계를 사용하여 **Microsoft Automation** 공급자를 등록합니다.
+
+### <a name="mw-exceeded"></a>시나리오: MaintenanceWindowExceeded 오류로 인해 업데이트 관리가 예약 되지 않았습니다.
+
+#### <a name="issue"></a>문제점
+
+업데이트에 대 한 기본 유지 관리 기간은 120 분입니다. 유지 관리 기간은 최대 6 시간 또는 360 분으로 늘릴 수 있습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+모든 실패 한 예약 업데이트 배포를 편집 하 고 유지 관리 기간을 늘립니다.
+
+유지 관리 기간에 대 한 자세한 내용은 [업데이트 설치](../automation-update-management.md#install-updates)를 참조 하세요.
 
 ### <a name="components-enabled-not-working"></a>시나리오: ‘업데이트 관리’ 솔루션의 구성 요소를 사용하도록 설정되었으며, 이제 이 가상 머신을 구성 중입니다.
 
@@ -77,6 +113,24 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+
+### <a name="updates-nodeployment"></a>시나리오: 배포 없이 업데이트 설치
+
+### <a name="issue"></a>문제점
+
+업데이트 관리에서 Windows 컴퓨터를 등록 하면 배포 없이 업데이트 설치가 표시 될 수 있습니다.
+
+### <a name="cause"></a>원인
+
+Windows에서는 업데이트가 제공 되는 즉시 자동으로 설치 됩니다. 이렇게 하면 컴퓨터에 배포할 업데이트를 예약 하지 않은 경우 혼동을 일으킬 수 있습니다.
+
+### <a name="resolution"></a>해결 방법
+
+Windows 레지스트리 키 `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` 의 기본값은 "4"- **자동 다운로드 및 설치**입니다.
+
+업데이트 관리 클라이언트의 경우이 키를 "3"으로 설정 하는 것이 좋습니다. 자동으로 **다운로드 하지만 자동으로 설치 하지**않습니다.
+
+자세한 내용은 [자동 업데이트 구성](https://docs.microsoft.com/en-us/windows/deployment/update/waas-wu-settings#configure-automatic-updates)을 참조 하세요.
 
 ### <a name="nologs"></a>시나리오: 업데이트 관리 아래에 컴퓨터가 포털에 표시 되지 않습니다.
 
@@ -242,6 +296,7 @@ Windows 업데이트 또는 WSUS가 컴퓨터에서 올바르게 구성되지 �
 |`0x8024001E`| 서비스 또는 시스템이 종료 되었으므로 업데이트 작업이 완료 되지 않았습니다.|
 |`0x8024002E`| Windows 업데이트 서비스를 사용할 수 없습니다.|
 |`0x8024402C`     | WSUS 서버를 사용하는 경우 레지스트리 키 `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` 아래에 있는 `WUServer` 및 `WUStatusServer`의 레지스트리 값에 올바른 WSUS 서버가 포함되어 있는지 확인합니다.        |
+|`0x80072EE2`|구성 된 WSUS 서버와 통신 하는 네트워크 연결 문제 WSUS 설정을 확인 하 고 클라이언트에서 액세스할 수 있는지 확인 하십시오.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Windows 업데이트 서비스(wuauserv)가 실행되고 있으며 사용 안 함으로 설정되어 있지 않은지 확인합니다.        |
 |다른 제네릭 예외     | 인터넷에서 가능한 해결 방법을 검색하고 현지 IT 지원 팀과 함께 해결합니다.         |
 
@@ -298,7 +353,31 @@ Linux에서 업데이트 실행이 제대로 시작된 뒤 업데이트 실행 �
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
 ```
 
-### <a name="other"></a>시나리오: 위 목록에 없는 문제가 발생함
+## <a name="patches-are-not-installed"></a>패치가 설치 되어 있지 않습니다.
+
+### <a name="machines-do-not-install-updates"></a>컴퓨터에서 업데이트를 설치 하지 않음
+
+* 머신에서 직접 업데이트를 실행해 봅니다. 머신을 업데이트할 수 없는 경우 [문제 해결 가이드의 잠재적 오류 목록](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult)을 참조하세요.
+* 업데이트가 로컬로 실행되는 경우 ["업데이트 관리에서 VM 제거"](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-from-update-management)의 지침에 따라 머신에서 에이전트를 제거했다가 다시 설치해 봅니다.
+
+### <a name="i-know-updates-are-available-but-they-dont-show-as-needed-on-my-machines"></a>업데이트를 사용할 수 있지만, 컴퓨터에 필요에 따라 표시 되지 않습니다.
+
+* 머신이 WSUS/SCCM에서 업데이트를 받도록 구성되었지만 WSUS/SCCM이 업데이트를 승인하지 않는 경우 이 오류가 종종 발생합니다.
+* ["UseWUServer" 레지스트리 키를 이 문서의 "레지스트리를 편집하여 자동 업데이트 구성" 섹션에 나오는 레지스트리 키와 상호 참조](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s)하여 머신이 WSUS/SCCM에 대해 구성되었는지 확인할 수 있습니다.
+
+### <a name="updates-show-as-installed-but-i-cant-find-them-on-my-machine"></a>**업데이트가 설치된 것으로 표시되지만, 머신에서 업데이트를 찾을 수 없음**
+
+* 업데이트가 종종 다른 업데이트로 대체됩니다. 자세한 내용은 [Windows 업데이트 문제 해결 가이드의 "업데이트가 대체됨"](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)을 참조하세요.
+
+### <a name="installing-updates-by-classification-on-linux"></a>**Linux에서 분류를 기준으로 업데이트 설치**
+
+* 분류("중요 업데이트 및 보안 업데이트")를 기준으로 Linux에 업데이트를 배포할 때, 특히 CentOS와 관련하여 중요한 주의 사항이 있습니다. 이러한 [제한 사항은 업데이트 관리 개요 페이지에 설명](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2)되어 있습니다.
+
+### <a name="kb2267602-is-consistently--missing"></a>**KB2267602가 지속적으로 누락**
+
+* KB2267602는 [Windows Defender 정의 업데이트](https://www.microsoft.com/wdsi/definitions)이며 매일 업데이트됩니다.
+
+## <a name="other"></a>시나리오: 위 목록에 없는 문제가 발생함
 
 ### <a name="issue"></a>문제점
 

@@ -241,7 +241,7 @@ Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 �
 
    Google 홈 페이지가 나타납니다.
 
-5. https://www.microsoft.com로 이동합니다.
+5. [https://www.microsoft.com](https://www.microsoft.com) 로 이동합니다.
 
    방화벽에서 차단해야 합니다.
 

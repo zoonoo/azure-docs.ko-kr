@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: d2d4d39cc7b330794094745851856365ef54b42f
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 6ee9e334c10bd2d0f291b5fd1bb547ba3ba83ddb
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828192"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877182"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>IoT Hub 메시지 라우팅을 사용 하 여 다른 끝점으로 장치-클라우드 메시지 보내기
 
@@ -39,7 +39,7 @@ IoT Hub에는 Event Hubs와 호환되는 기본 제공 엔드포인트(**메시�
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-IoT Hub에서는 데이터를 JSON 형식 뿐만 아니라 [Apache Avro](https://avro.apache.org/) 형식으로 Azure Blob Storage에 쓸 수 있습니다. JSON 형식을 인코딩하는 기능은 IoT Hub을 사용할 수 있는 모든 지역에서 일반적으로 사용할 수 있습니다. 기본값은 AVRO입니다. 인코딩 형식은 blob storage 끝점이 구성 된 경우에만 설정할 수 있습니다. 기존 끝점에 대 한 형식을 편집할 수 없습니다. JSON 인코딩을 사용 하는 경우 메시지 [시스템 속성](iot-hub-devguide-routing-query-syntax.md#system-properties)에서 CONTENTTYPE을 json으로, contentencoding을 u t f-8로 설정 해야 합니다. 이 설정을 지정 하지 않으면 IoT Hub는 메시지를 base 64 인코딩 형식으로 씁니다. IoT Hub 만들거나 업데이트 REST API, 특히 [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)또는 [Azure Powershell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0)을 사용 하 여 인코딩 형식을 선택할 수 있습니다. 다음 다이어그램에서는 Azure Portal에서 인코딩 형식을 선택 하는 방법을 보여 줍니다.
+IoT Hub에서는 데이터를 JSON 형식 뿐만 아니라 [Apache Avro](https://avro.apache.org/) 형식으로 Azure Blob Storage에 쓸 수 있습니다. JSON 형식을 인코딩하는 기능은 IoT Hub을 사용할 수 있는 모든 지역에서 일반적으로 사용할 수 있습니다. 기본값은 AVRO입니다. 인코딩 형식은 blob storage 끝점이 구성 된 경우에만 설정할 수 있습니다. 기존 끝점에 대 한 형식을 편집할 수 없습니다. JSON 인코딩을 사용 하는 경우 메시지 [시스템 속성](iot-hub-devguide-routing-query-syntax.md#system-properties)에서 contentType을 **application/JSON** 으로, Contentencoding을 **u t f-8** 로 설정 해야 합니다. 이러한 두 값은 대/소문자를 구분 하지 않습니다. 콘텐츠 인코딩이 설정 되지 않은 경우 IoT Hub는 메시지를 base 64 인코딩 형식으로 씁니다. IoT Hub 만들거나 업데이트 REST API, 특히 [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)또는 [Azure Powershell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0)을 사용 하 여 인코딩 형식을 선택할 수 있습니다. 다음 다이어그램에서는 Azure Portal에서 인코딩 형식을 선택 하는 방법을 보여 줍니다.
 
 ![Blob storage 끝점 인코딩](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -53,7 +53,7 @@ IoT Hub는 메시지를 일괄 처리하고, 일괄 처리가 특정 크기에 �
 
 원하는 파일 명명 규칙을 사용할 수 있지만, 나열된 토큰은 모두 사용해야 합니다. 쓸 데이터가 없으면 IoT Hub가 빈 Blob을 작성합니다.
 
-Blob Storage로 라우팅 시 파티션을 가정하지 않고 모든 컨테이너를 읽을 수 있도록, Blob을 등록한 다음, 반복하는 것이 좋습니다. 파티션 범위는 [Microsoft 시작 장애 조치(failover)](iot-hub-ha-dr.md#microsoft-initiated-failover) 또는 IoT Hub [수동 장애 조치(failover)](iot-hub-ha-dr.md#manual-failover-preview) 중에 변경할 수 있습니다. Blob [목록 API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 를 사용 하 여 blob 목록을 열거할 수 있습니다. 지침으로 다음 샘플을 참조 하세요.
+Blob Storage로 라우팅 시 파티션을 가정하지 않고 모든 컨테이너를 읽을 수 있도록, Blob을 등록한 다음, 반복하는 것이 좋습니다. 파티션 범위는 [Microsoft 시작 장애 조치(failover)](iot-hub-ha-dr.md#microsoft-initiated-failover) 또는 IoT Hub [수동 장애 조치(failover)](iot-hub-ha-dr.md#manual-failover) 중에 변경할 수 있습니다. Blob [목록 API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 를 사용 하 여 blob 목록을 열거할 수 있습니다. 지침으로 다음 샘플을 참조 하세요.
 
    ```csharp
         public void ListBlobsInContainer(string containerName, string iothub)
@@ -103,7 +103,7 @@ Azure Portal > 메시지 라우팅 블레이드에서 대체 경로를 사용 �
 
 ## <a name="non-telemetry-events"></a>비-원격 분석 이벤트
 
-디바이스 원격 분석 외에, 메시지 라우팅을 통해 디바이스 쌍 변경 이벤트와 디바이스 수명 주기 이벤트를 전송할 수 있습니다. 예를 들어, **디바이스 쌍 변경 이벤트**로 설정된 데이터 원본으로 경로가 생성되면, IoT Hub는 디바이스 쌍의 변경 사항을 포함하는 엔드포인트로 메시지를 전송합니다. 마찬가지로 **디바이스 수명 주기 이벤트**로 설정된 데이터 원본으로 경로가 만들어지면 IoT Hub는 디바이스가 삭제되었거나 생성되었는지 여부를 나타내는 메시지를 보냅니다. 
+장치 원격 분석 외에도 메시지 라우팅을 통해 장치 쌍 변경 이벤트, 장치 수명 주기 이벤트 및 디지털 쌍 변경 이벤트 (공개 미리 보기)를 보낼 수 있습니다. 예를 들어, **디바이스 쌍 변경 이벤트**로 설정된 데이터 원본으로 경로가 생성되면, IoT Hub는 디바이스 쌍의 변경 사항을 포함하는 엔드포인트로 메시지를 전송합니다. 마찬가지로 **장치 수명 주기 이벤트**로 설정 된 데이터 원본을 사용 하 여 경로를 만들 경우 IoT Hub는 장치를 삭제 하거나 만들었는지 여부를 나타내는 메시지를 보냅니다. 마지막으로, 개발자는 [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 디지털 쌍 **변경 IoT Hub 이벤트** 로 설정된 데이터 원본이 있는 경로를 만들고 디지털 쌍 [속성](../iot-pnp/iot-plug-and-play-glossary.md)이 설정 되거나 변경 될 때마다 디지털 쌍으로 메시지를 보낼 수 있습니다. [digital twin](../iot-pnp/iot-plug-and-play-glossary.md)이 대체 되거나 기본 장치 쌍에 대해 변경 이벤트가 발생하는 경우
 
 또한 IoT Hub는 이러한 이벤트를 기반으로 워크플로의 실시간 통합 및 자동화를 지 원하는 장치 이벤트를 게시 하 [는 Azure Event Grid와 통합](iot-hub-event-grid.md) 됩니다. [메시지 라우팅과 Event Grid 간의 주요 차이점](iot-hub-event-grid-routing-comparison.md)을 확인하고 내 시나리오에 무엇이 가장 적합한지 알아보세요.
 

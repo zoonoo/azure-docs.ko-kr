@@ -44,6 +44,8 @@
           href: go-tutorial-object-detection.md
 - name: 자습서
   items:
+    - name: IoT 시각적 경고 앱
+      href: iot-visual-alerts-tutorial.md
     - name: 모바일용 로고 탐지기
       href: logo-detector-mobile.md
 - name: 방법 가이드
