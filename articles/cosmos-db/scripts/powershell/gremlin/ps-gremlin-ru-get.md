@@ -3,15 +3,16 @@ title: Azure PowerShell 스크립트 - Gremlin API용 Azure Cosmos DB 처리량 
 description: Azure PowerShell 스크립트 - Gremlin API용 Azure Cosmos DB 처리량 가져오기(RU/s)
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 81dbe0731bd3390ff3777dc21f78c86f535e5bb7
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 1da7559d67be94013ea829a533a09db6c8abcad4
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602431"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178932"
 ---
 # <a name="get-throughput-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Azure Cosmos DB - Gremlin API용 데이터베이스 또는 그래프에 대한 처리량 가져오기(RU/s)
 

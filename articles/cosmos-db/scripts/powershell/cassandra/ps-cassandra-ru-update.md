@@ -3,15 +3,16 @@ title: Azure PowerShell 스크립트 - Azure Cosmos DB Cassandra API용 업데�
 description: Azure PowerShell 스크립트 - Azure Cosmos DB Cassandra API용 업데이트 RU/s
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9df7884d56acf47d3bb7bdcf7679631713cf2725
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 7109c393aa37faf1eaddb37cb2861030ef2900e7
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602531"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178981"
 ---
 # <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Azure Cosmos DB - Cassandra API용 키스페이스 또는 테이블에 대한 업데이트 RU/s
 

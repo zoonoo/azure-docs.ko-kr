@@ -4,9 +4,9 @@ description: 이 자습서에서는 Azure Notification Hubs 및 Bing 공간 데�
 services: notification-hubs
 documentationcenter: windows
 keywords: 푸시 알림, 푸시 알림
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: f41beea1-0d62-4418-9ffc-c9d70607a1b7
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,13 +15,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 9baeb1c21252f8b7f7b24debde48108532d9865c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 84e52feb6e30e0b9b693019b671906fad8c908db
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118309"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213235"
 ---
 # <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>자습서: Azure Notification Hubs 및 Bing 공간 데이터가 있는 위치 기반 알림 푸시
 

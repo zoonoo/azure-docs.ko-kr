@@ -1,9 +1,9 @@
 ---
 title: Azure Notification Hubs를 사용하여 Xamarin.Android 앱에 알림 푸시 | Microsoft Docs
 description: 이 자습서에서 Azure Notification Hubs를 사용하여 Xamarin.Android 애플리케이션에 푸시 알림을 보내는 방법을 알아봅니다.
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 documentationcenter: xamarin
 ms.assetid: 0be600fe-d5f3-43a5-9e5e-3135c9743e54
@@ -14,13 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/01/2019
-ms.author: jowargo
-ms.openlocfilehash: 39fa004b62bf7e2e2a50500f32fa7edcb0c4b6ba
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 08/01/2019
+ms.openlocfilehash: cba84b0f07db3a69cc964e47657a3f6b64659e6a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742420"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213571"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Xamarin.Android 앱에 알림 푸시
 

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 07/09/2019
-ms.openlocfilehash: c4d2e70d0f200f3a31948cfaa43def8e1b699878
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.date: 09/22/2019
+ms.openlocfilehash: 7e5b4a3cb04215504c4fd4fd1ebfcbcbe8c3f9f8
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706891"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179113"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스로 오프라인 마이그레이션
 
@@ -106,6 +106,7 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
 > [!NOTE]
 > Data Migration Assistant에서 마이그레이션 프로젝트를 만들기 전에 필수 구성 요소에 설명된 대로 이미 Azure SQL 데이터베이스를 프로비저닝했어야 합니다. 이 자습서에서는 Azure SQL Database의 이름은 **AdventureWorksAzure**로 가정하지만, 원하는 이름으로 지정할 수 있습니다.
+
 > [!IMPORTANT]
 > SSIS를 사용하는 경우 DMA는 현재 원본 SSISDB 마이그레이션을 지원하지 않지만 Azure SQL Database에서 호스팅하는 대상 SSISDB에 SSIS 프로젝트/패키지를 재배포할 수 있습니다. SSIS 패키지 마이그레이션에 대한 자세한 내용은 [SQL Server Integration Services 패키지를 Azure로 마이그레이션](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) 문서를 참조하세요.
 
@@ -197,7 +198,7 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
     ![Azure Database Migration Service 인스턴스 찾기](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
 
 3. **+ 새 마이그레이션 프로젝트**를 선택합니다.
-4. **새 마이그레이션 프로젝트** 화면에서 프로젝트의 이름을 지정하고, **원본 서버 형식** 텍스트 상자에서 **SQL Server**를 선택하고, **대상 서버 형식** 텍스트 상자에서 **Azure SQL Database**를 선택한 다음, **작업 형식 선택**에서 **오프라인 데이터 마이그레이션**을 선택합니다. 
+4. **새 마이그레이션 프로젝트** 화면에서 프로젝트의 이름을 지정하고, **원본 서버 형식** 텍스트 상자에서 **SQL Server**를 선택하고, **대상 서버 형식** 텍스트 상자에서 **Azure SQL Database**를 선택한 다음, **작업 형식 선택**에서 **오프라인 데이터 마이그레이션**을 선택합니다.
 
     ![Database Migration Service 프로젝트 만들기](media/tutorial-sql-server-to-azure-sql/dms-create-project2.png)
 

@@ -7,13 +7,13 @@ keywords: terraform, devops, 가상 머신, Azure, 확장 집합, 네트워크, 
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/26/2018
-ms.openlocfilehash: 21fea65ed7056afa57d9acbacb2457bb4d09cff5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: a6bc0879d07cadc6c5b0b1a21b11b3075ec69719
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002301"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169866"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Terraform을 사용하여 Azure Virtual Machine Scale Set 만들기
 
@@ -80,7 +80,7 @@ Azure Cloud Shell 내에서 다음 단계를 수행합니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
-   ```JSON
+   ```hcl
    variable "location" {
     description = "The location where resources will be created"
    }
@@ -124,7 +124,7 @@ Azure Cloud Shell 내에서 다음 단계를 수행합니다.
 1. 편집기에 다음 코드를 붙여넣어 가상 머신의 FQDN(정규화된 도메인 이름)을 표시합니다.
    :
 
-   ```JSON
+   ```hcl
     output "vmss_public_ip" {
         value = "${azurerm_public_ip.vmss.fqdn}"
     }
@@ -157,7 +157,7 @@ Azure Cloud Shell 내에서 다음 단계를 수행합니다.
 
 1. 파일 끝에 다음 코드를 붙여넣어 가상 머신의 FQDN(정규화된 도메인 이름)을 표시합니다.
 
-   ```JSON
+   ```hcl
    resource "azurerm_resource_group" "vmss" {
     name     = "${var.resource_group_name}"
     location = "${var.location}"
@@ -252,7 +252,7 @@ Cloud Shell에서 다음 단계를 수행합니다.
 
 1. 파일 끝에 다음 코드를 추가합니다.
 
-   ```JSON
+   ```hcl
    resource "azurerm_lb" "vmss" {
     name                = "vmss-lb"
     location            = "${var.location}"
@@ -369,7 +369,7 @@ Cloud Shell에서 다음 단계를 수행합니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
-   ```JSON
+   ```hcl
    #cloud-config
    packages:
     - nginx
@@ -393,7 +393,7 @@ Cloud Shell에서 다음 단계를 수행합니다.
 
 1. 파일 끝에 다음 코드를 붙여넣어 배포를 사용자 지정합니다.
 
-    ```JSON
+    ```hcl
     variable "application_port" {
        description = "The port that you want to expose to the external load balancer"
        default     = 80
@@ -458,7 +458,7 @@ SSH *jumpbox*는 네트워크상의 다른 서버에 액세스하기 위해 "점
 
 1. 파일 끝에 다음 코드를 추가합니다.
 
-   ```JSON
+   ```hcl
    resource "azurerm_public_ip" "jumpbox" {
     name                         = "jumpbox-public-ip"
     location                     = "${var.location}"
@@ -528,7 +528,7 @@ SSH *jumpbox*는 네트워크상의 다른 서버에 액세스하기 위해 "점
 
 1. 파일 끝에 다음 코드를 붙여넣어 배포가 완료될 때 jumpbox의 호스트 이름을 표시합니다.
 
-   ```
+   ```hcl
    output "jumpbox_public_ip" {
       value = "${azurerm_public_ip.jumpbox.fqdn}"
    }

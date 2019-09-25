@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/16/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: a107f7dba7f28b41303727ad37b7c50f2e215c4f
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 1ab3f30f035f8099ab50f827e559e56b31d7f1f6
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622921"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219749"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>자습서: Azure Digital Twins 미리 보기 배포 및 공간 그래프 구성
 
@@ -43,15 +43,11 @@ Azure Digital Twins 서비스를 사용하여 건물의 물리적 영역 및 엔
 
 - 샘플 코드를 탐색할 [Visual Studio Code](https://code.visualstudio.com/). 
 
-<a id="deploy"></a>
-
 ## <a name="deploy-digital-twins"></a>Deploy Digital Twins
 
 이 섹션의 단계에 따라 Azure Digital Twins 서비스의 새 인스턴스를 만듭니다. 구독당 하나의 인스턴스만 만들 수 있습니다. 이미 인스턴스를 실행 중인 경우 다음 섹션으로 건너뜁니다. 
 
 [!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
-
-<a id="permissions"></a>
 
 ## <a name="grant-permissions-to-your-app"></a>앱에 권한 부여
 
@@ -76,7 +72,7 @@ Digital Twins는 Azure AD([Azure Active Directory](../active-directory/fundament
 
 추출된 샘플 폴더의 **digital-twins-samples-csharp\digital-twins-samples.code-workspace** 파일을 Visual Studio Code에서 엽니다. 이 파일에는 다음 두 프로젝트가 포함되어 있습니다.
 
-* **occupancy-quickstart** 프로비전 샘플을 사용하여 [공간 인텔리전스 그래프](concepts-objectmodel-spatialgraph.md#graph)를 구성하고 프로비전할 수 있습니다. 이 그래프는 물리적 공간 및 포함된 리소스의 디지털화된 이미지입니다. 이 샘플은 스마트 건물에 대한 개체를 정의하는 [개체 모델](concepts-objectmodel-spatialgraph.md#model)을 사용합니다. Digital Twins 개체 및 REST API의 전체 목록을 보려면 [인스턴스](#deploy)에 대해 작성된 [이 REST API 설명서](https://docs.westcentralus.azuresmartspaces.net/management/swagger) 또는 관리 API URL를 방문하세요.
+* **occupancy-quickstart** 프로비전 샘플을 사용하여 [공간 인텔리전스 그래프](concepts-objectmodel-spatialgraph.md#digital-twins-object-models)를 구성하고 프로비전할 수 있습니다. 이 그래프는 물리적 공간 및 포함된 리소스의 디지털화된 이미지입니다. 이 샘플은 스마트 건물에 대한 개체를 정의하는 [개체 모델](concepts-objectmodel-spatialgraph.md#digital-twins-object-models)을 사용합니다. Digital Twins 개체 및 REST API의 전체 목록을 보려면 [인스턴스](#deploy-digital-twins)에 대해 작성된 [이 REST API 설명서](https://docs.westcentralus.azuresmartspaces.net/management/swagger) 또는 관리 API URL를 방문하세요.
 
    샘플이 Digital Twins 인스턴스와 통신하는 방법을 알아보려면 **src\actions** 폴더를 시작하세요. 이 폴더의 파일은 이 자습서에서 사용할 명령을 구현합니다.
     - **provisionSample.cs** 파일은 공간 그래프를 프로비전하는 방법을 보여줍니다.
@@ -84,7 +80,7 @@ Digital Twins는 Azure AD([Azure Active Directory](../active-directory/fundament
     - **getAvailableAndFreshSpaces.cs** 파일은 사용자 정의 함수라고 하는 사용자 지정 함수의 결과를 가져옵니다.
     - **createEndpoints.cs** 파일은 다른 서비스와 상호 작용하는 엔드포인트를 만듭니다.
 
-* 시뮬레이션 샘플 **device-connectivity**는 센서 데이터를 시뮬레이션하여 Digital Twins 인스턴스에 대해 프로비전된 IoT 허브로 보냅니다. 이 샘플은 [공간 그래프를 프로비전한 이후 다음 자습서](tutorial-facilities-udf.md#simulate)에서 사용합니다. 이 샘플을 구성하는 데 사용한 센서 및 디바이스 식별자는 그래프를 프로비전하는 데 사용할 식별자와 동일해야 합니다.
+* 시뮬레이션 샘플 **device-connectivity**는 센서 데이터를 시뮬레이션하여 Digital Twins 인스턴스에 대해 프로비전된 IoT 허브로 보냅니다. 이 샘플은 [공간 그래프를 프로비전한 이후 다음 자습서](tutorial-facilities-udf.md#simulate-sensor-data)에서 사용합니다. 이 샘플을 구성하는 데 사용한 센서 및 디바이스 식별자는 그래프를 프로비전하는 데 사용할 식별자와 동일해야 합니다.
 
 ### <a name="configure-the-provisioning-sample"></a>프로비전 샘플 구성
 
@@ -101,17 +97,15 @@ Digital Twins는 Azure AD([Azure Active Directory](../active-directory/fundament
     ```
 
 1. Visual Studio Code의 **occupancy-quickstart** 프로젝트에서 [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) 파일을 엽니다. 다음 값을 업데이트합니다.
-   * **ClientId**: Azure AD 앱 등록의 애플리케이션 ID를 입력합니다. [앱 사용 권한을 설정](#permissions)하는 섹션에서 이 ID를 기록했습니다.
-   * **Tenant**: [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)의 디렉터리 ID를 입력합니다. [앱 사용 권한을 설정](#permissions)하는 섹션에서 이 ID를 기록했습니다.
-   * **BaseUrl**: Digital Twins 인스턴스의 URL을 입력합니다. 이 URL을 가져오려면 이 URL의 자리 표시자를 인스턴스에 대한 값(`https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`)으로 바꿉니다. [배포 섹션](#deploy)에서 관리 API URL을 수정하여 이 URL을 가져올 수도 있습니다. **swagger/** 를 **api/v1.0/** 로 바꿉니다.
+   * **ClientId**: Azure AD 앱 등록의 애플리케이션 ID를 입력합니다. [앱 사용 권한을 설정](#grant-permissions-to-your-app)하는 섹션에서 이 ID를 기록했습니다.
+   * **Tenant**: [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)의 디렉터리 ID를 입력합니다. [앱 사용 권한을 설정](#grant-permissions-to-your-app)하는 섹션에서 이 ID를 기록했습니다.
+   * **BaseUrl**: Digital Twins 인스턴스의 URL을 입력합니다. 이 URL을 가져오려면 이 URL의 자리 표시자를 인스턴스에 대한 값(`https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`)으로 바꿉니다. [배포 섹션](#deploy-digital-twins)에서 관리 API URL을 수정하여 이 URL을 가져올 수도 있습니다. **swagger/** 를 **api/v1.0/** 로 바꿉니다.
 
 1. 샘플을 사용하여 탐색할 수 있는 Digital Twins 기능 목록을 확인합니다. 다음 명령 실행:
 
     ```cmd/sh
     dotnet run
     ```
-
-<a id="provision-spaces"></a>
 
 ## <a name="understand-the-provisioning-process"></a>프로비전 프로세스 이해
 

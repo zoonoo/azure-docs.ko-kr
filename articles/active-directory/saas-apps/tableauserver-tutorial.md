@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e95143da96ce9891c3820479e536e9ea6a18617
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b07c6d6317d8ca284008d271f507b965414bfbc1
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861350"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257509"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>자습서: Tableau Server와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -158,7 +158,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     h. 페이지 맨 아래에 있는 **저장**
 
     > [!NOTE]
-    > 고객은 Tableau Server SAML SSO 구성의 모든 인증서를 업로드해야 하며, 인증서는 SSO 흐름에서 무시됩니다. Tableau Server에서 SAML을 구성하는 데 도움이 필요한 경우 [SAML 구성](https://help.tableau.com/current/server/en-gb/saml_config_steps_tsm_ui.htm) 문서를 참조하세요.
+    > 고객은 Tableau Server SAML SSO 구성의 모든 인증서를 업로드해야 하며, 인증서는 SSO 흐름에서 무시됩니다. Tableau Server에서 SAML을 구성하는 데 도움이 필요한 경우 [SAML 구성](https://help.tableau.com/current/online/en-us/saml_config_azure_ad.htm) 문서를 참조하세요.
 
 ### <a name="create-tableau-server-test-user"></a>Tableau Server 테스트 사용자 만들기
 

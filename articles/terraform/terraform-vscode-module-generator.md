@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 11/08/2018
-ms.openlocfilehash: 7e66f374a1f5f4fb050f366fdad0e787292101f8
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.date: 09/20/2019
+ms.openlocfilehash: 7a628eb02170346a826cab19498d6fdf40cebddd
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526744"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173181"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Yeoman을 사용하여 Azure에 Terraform 기본 템플릿 만들기
 
@@ -211,7 +211,7 @@ Yeoman 모듈 생성기에서 생성된 일부 파일을 살펴보겠습니다.
 
     ![통과](media/terraform-vscode-module-generator/ymg-pass.png)
 
-1. `exit`를 입력하여 종단 간 테스트를 완료하고 Docker 환경을 종료합니다.
+1. `exit`를 입력하여 엔드투엔드 테스트를 완료하고 Docker 환경을 종료합니다.
 
 ## <a name="use-yeoman-generator-to-create-and-test-a-module-in-cloud-shell"></a>Yeoman 생성기를 사용하여 Cloud Shell에서 모듈 만들기 및 테스트
 
@@ -274,7 +274,7 @@ Docker 파일을 사용하는 대신 Cloud Shell을 사용하면 프로세스가
 
     ![Rake 빌드](media/terraform-vscode-module-generator/ymg-rake-build.png)
 
-1. `rake e2e`를 입력하여 종단 간 테스트를 실행합니다.
+1. `rake e2e`를 입력하여 엔드투엔드 테스트를 실행합니다.
 
 1. 잠시 후에 **통과** 메시지가 표시됩니다.
 

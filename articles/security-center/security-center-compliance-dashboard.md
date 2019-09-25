@@ -3,9 +3,8 @@ title: Azure Security Center를 사용하여 규정 준수 개선 | Microsoft Do
 description: '자습서: Azure Security Center를 사용하여 규정 준수를 개선하는 방법을 알아봅니다.'
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 5f50c4dc-ea42-418d-9ea8-158ffeb93706
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/30/2019
-ms.author: v-mohabe
-ms.openlocfilehash: e1544b0c9bf280c8d097d2fa25f7fc652450b87e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.author: memildin
+ms.openlocfilehash: 20842997c5df81835024a6f458cd863b4e4d78b0
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968564"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202434"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>자습서: 규정 준수 개선
 ---
@@ -32,7 +31,7 @@ Azure Security Center를 통해 규정 준수 대시보드를 사용하여 규�
 
 -   권장 사항에 따라 작업을 수행하여 준수 상태를 개선합니다
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

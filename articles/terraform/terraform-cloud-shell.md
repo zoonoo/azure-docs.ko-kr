@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/19/2017
-ms.openlocfilehash: 19a828abfee780dd757d0575f94a0358c12088cd
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.date: 09/20/2019
+ms.openlocfilehash: e0a59697a3e4da97cf082c4c771fe93ad33b6035
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087745"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173547"
 ---
 # <a name="terraform-cloud-shell-development"></a>Terraform Cloud Shell 개발 
 
@@ -33,7 +33,7 @@ Terraform이 설치되면 Cloud Shell에서 즉시 사용할 수 있습니다. T
 
 Azure Terraform 모듈이 Azure 구독에 있는 리소스에 액세스하고 변경하려면 자격 증명이 필요합니다. Cloud Shell에서 작업할 때 다음 코드를 스크립트에 추가하여 Cloud Shell에서 Azure Terraform 모듈을 사용하십시오.
 
-```tf
+```hcl
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
 }

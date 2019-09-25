@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 3/12/2018
-ms.openlocfilehash: e3aaf943b5eecd9ec1853c09ea36156b98560d3d
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 09/20/2019
+ms.openlocfilehash: 835170448db8709812ca62ac67f8659b3b6a2807
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648717"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173048"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Azure Marketplace 이미지를 사용하여 관리 ID가 있는 Azure 리소스용 Terraform Linux 가상 머신 만들기
 

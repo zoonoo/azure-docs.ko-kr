@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/31/2018
-ms.openlocfilehash: b1102649e48af8cb36a64f1142c078bf9ebc0d99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: 7dd87f38ca5dfb1c2fdd38b56b314e0cbbe3ce12
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006197"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169921"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Azure Terraform Visual Studio Code 확장 설치 및 사용
 
@@ -196,7 +196,7 @@ Terraform *plan*의 결과가 만족스러우면 *apply* 명령을 실행할 수
 
     ![Terraform Apply](media/terraform-vscode-extension/tf-terraform-apply.png)
 
-1. [https://slack.botframework.com](`yes`) 을 입력합니다.
+1. `yes`을 입력합니다.
 
     ![Terraform apply yes](media/terraform-vscode-extension/tf-terraform-apply-yes.png)
 

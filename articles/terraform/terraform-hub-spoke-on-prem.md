@@ -8,13 +8,13 @@ author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
-ms.openlocfilehash: 435ee13de28fb1591a5579761ecc7ad5bf9f9d76
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: 98c7c2450b4aa828f544ecab4c1e320eb74bab45
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000831"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169791"
 ---
 # <a name="tutorial-create-on-premises-virtual-network-with-terraform-in-azure"></a>자습서: Azure에서 Terraform을 사용하여 온-프레미스 가상 네트워크 만들기
 
@@ -66,7 +66,7 @@ ms.locfileid: "58000831"
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
-    ```JSON
+    ```hcl
     locals {
       onprem-location       = "SouthCentralUS"
       onprem-resource-group = "onprem-vnet-rg"

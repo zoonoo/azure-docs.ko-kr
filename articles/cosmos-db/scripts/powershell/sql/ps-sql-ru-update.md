@@ -3,15 +3,16 @@ title: Azure PowerShell 스크립트 - SQL(Core) API용 Azure Cosmos DB 업데�
 description: Azure PowerShell 스크립트 - SQL(Core) API용 Azure Cosmos DB 업데이트 RU/s
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: fae1e7946905a96fbbf00909c96dd3aa99d766d5
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6b54b6021baf7a91c79309f8fa69b4df67d3887e
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603828"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178754"
 ---
 # <a name="update-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Azure Cosmos DB - SQL(Core) API용 데이터베이스 또는 컨테이너에 대한 업데이트 RU/s
 

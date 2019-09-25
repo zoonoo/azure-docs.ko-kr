@@ -4,9 +4,9 @@ description: 이 자습서에서 Azure Notification Hubs 및 Google Firebase Clo
 services: notification-hubs
 documentationcenter: android
 keywords: 푸시 알림,푸시알림,android 푸시 알림
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 8268c6ef-af63-433c-b14e-a20b04a0342a
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,13 +15,15 @@ ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 341f5a30fe03de4c69b5a7e18703931988d2d185
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 36af79b90722041ddb16bb90a73175a8635531fd
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063624"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212369"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시(더 이상 사용되지 않음)
 

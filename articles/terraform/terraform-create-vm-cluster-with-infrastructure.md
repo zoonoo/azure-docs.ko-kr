@@ -8,19 +8,19 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 11/13/2017
-ms.openlocfilehash: 284dcd99dc77d7ec0fb5cb214d49b6fcf93a6aef
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 09/20/2019
+ms.openlocfilehash: bf9539512961930a97d9dcfe86722d0103c1facc
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854495"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173471"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Terraform 및 HCL을 사용하여 VM 클러스터 만들기
 
 이 자습서에서는 [HCL(HashiCorp Configuration Language)](https://www.terraform.io/docs/configuration/syntax.html)을 사용하여 작은 컴퓨팅 클러스터를 만드는 방법을 보여줍니다. 구성은 부하 분산 장치, [가용성 집합](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)의 Linux VM 두 개 및 필요한 모든 네트워킹 리소스를 만듭니다.
 
-이 자습서에서는 다음을 수행했습니다.
+이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
 > * 인증 설정
@@ -46,7 +46,7 @@ ms.locfileid: "68854495"
 
 5. 변수 선언 파일에 다음 코드를 복사합니다.
 
-   ```tf
+   ```hcl
    variable subscription_id {}
    variable tenant_id {}
    variable client_id {}
@@ -64,7 +64,7 @@ ms.locfileid: "68854495"
 
 7. 변수 파일에 다음 코드를 복사합니다. 다음과 같이 자리 표시자를 바꿉니다. `subscription_id`에는 `az account set`을 실행할 때 지정한 Azure 구독 ID를 사용합니다. `tenant_id`에는 `az ad sp create-for-rbac`에서 반환된 `tenant` 값을 사용합니다. `client_id`에는 `az ad sp create-for-rbac`에서 반환된 `appId` 값을 사용합니다. `client_secret`에는 `az ad sp create-for-rbac`에서 반환된 `password` 값을 사용합니다.
 
-   ```tf
+   ```hcl
    subscription_id = "<azure-subscription-id>"
    tenant_id = "<tenant-returned-from-creating-a-service-principal>"
    client_id = "<appId-returned-from-creating-a-service-principal>"
@@ -79,7 +79,7 @@ ms.locfileid: "68854495"
 
 2. 다음 샘플 리소스 정의를 새로 만든 `main.tf` 파일에 복사합니다. 
 
-   ```tf
+   ```hcl
    resource "azurerm_resource_group" "test" {
     name     = "acctestrg"
     location = "West US 2"
@@ -227,7 +227,7 @@ ms.locfileid: "68854495"
 
 Terraform을 초기화하려면 다음 명령을 실행합니다.
 
-  ```cmd
+  ```bash
   terraform init
   ```
 
@@ -245,13 +245,13 @@ Terraform 변수 파일의 이름이 `terraform.tfvars`가 아니고 `*.auto.tfv
 
 실행 계획을 저장할 필요가 없으면 다음 명령을 실행합니다.
 
-  ```cmd
+  ```bash
   terraform plan
   ```
 
 실행 계획을 저장해야 할 경우 다음 명령을 실행합니다( &lt;path> 자리 표시자를 원하는 출력 경로로 바꾸기).
 
-  ```cmd
+  ```bash
   terraform plan -out=<path>
   ```
 
@@ -263,13 +263,13 @@ Terraform 변수 파일의 이름이 `terraform.tfvars`가 아니고 `*.auto.tfv
 
 최신 실행 계획만 적용하려면 다음 명령을 실행합니다.
 
-  ```cmd
+  ```bash
   terraform apply
   ```
 
 이전에 저장한 실행 계획을 적용하려면 다음 명령을 실행합니다(&lt;path> 자리 표시자를 저장된 실행 계획이 포함된 경로로 바꾸기).
 
-  ```cmd
+  ```bash
   terraform apply <path>
   ```
 

@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 4/05/2018
-ms.openlocfilehash: 08e90a69791b0555a6497166f6008e8619f40704
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: ec2ed1da46df2793a241c9c89d168a6c5d462b9d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992233"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169814"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Terraform을 사용하여 Azure 배포 슬롯으로 인프라 프로비전
 
@@ -74,7 +74,7 @@ ms.locfileid: "57992233"
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
-    ```JSON
+    ```hcl
     # Configure the Azure provider
     provider "azurerm" { }
 
@@ -266,7 +266,7 @@ ms.locfileid: "57992233"
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
-    ```JSON
+    ```hcl
     # Configure the Azure provider
     provider "azurerm" { }
 

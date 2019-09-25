@@ -3,9 +3,9 @@ title: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 특정
 description: Notification Hubs를 사용하여 Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 특정 Android 디바이스에 알림을 푸시하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: android
-author: jwargo
-manager: patniko
-editor: spelluru'
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 3c23cb80-9d35-4dde-b26d-a7bfd4cb8f81
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,13 +14,15 @@ ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: af08d3ca6eaa95663b0bb669f6dc82a13df5ab39
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 4a369b72d5c19a63c65f8d693d131b2c10ff2023
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233099"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212813"
 ---
 # <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 특정 Android 디바이스에 알림 푸시(더 이상 사용되지 않음)
 
@@ -45,7 +47,7 @@ ms.locfileid: "65233099"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서는 [자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시][get-started]에서 만든 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 [자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시][get-started]에서 만든 앱을 기반으로 합니다.
+이 자습서는 [자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시][get-started]에서 만든 알림 허브를 기반으로 합니다. 이 자습서를 시작하기 전에 [자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시][get-started]에서 만든 알림 허브를 기반으로 합니다.
 
 ## <a name="add-category-selection-to-the-app"></a>앱에 범주 선택 추가
 
@@ -194,7 +196,7 @@ ms.locfileid: "65233099"
     ```
 
     이 클래스는 로컬 스토리지를 사용하여, 이 디바이스에서 받아야 할 뉴스의 범주를 저장합니다. 이러한 범주를 등록하기 위한 메서드도 이 클래스에 포함됩니다.
-4. `MainActivity` 클래스에서 `NotificationHub` 및 `GoogleCloudMessaging`에 대한 개인 필드를 제거하고 `Notifications`에 대한 필드를 추가합니다.
+4. `MainActivity` 클래스에서 `NotificationHub` 및 `GoogleCloudMessaging`에 대한 프라이빗 필드를 제거하고 `Notifications`에 대한 필드를 추가합니다.
 
     ```java
     // private GoogleCloudMessaging gcm;

@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/19/2017
-ms.openlocfilehash: c6aa780b04c85b8156463011c2b90da2da4541f6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.date: 09/20/2019
+ms.openlocfilehash: 6279b5c9022b448aea9b33a94fc1b2b35b6d23de
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776277"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169860"
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>모듈 레지스트리를 사용하여 Terraform으로 VM 클러스터 만들기
 
@@ -35,7 +35,7 @@ Terraform에 대한 자세한 내용은 [Terraform 설명서](https://www.terraf
 
  Azure 서비스 주체를 만들려면 [Terraform을 설치하고 Azure에 대한 액세스 구성](/azure/virtual-machines/linux/terraform-install-configure)을 검토하세요. 이 서비스 주체를 사용하여 빈 디렉터리에 있는 새 파일 `azureProviderAndCreds.tf`를 다음 코드로 채웁니다.
 
-```tf
+```hcl
 variable subscription_id {}
 variable tenant_id {}
 variable client_id {}
@@ -53,7 +53,7 @@ provider "azurerm" {
 
 다음 코드로 `main.tf`라는 새 Terraform 템플릿을 만듭니다.
 
-```tf
+```hcl
 module mycompute {
     source = "Azure/compute/azurerm"
     resource_group_name = "myResourceGroup"
@@ -85,7 +85,7 @@ output "vm_private_ips" {
 }
 ```
 
-구성 디렉터리에서 `terraform init`을 실행합니다. 0.10.6이상의 Terraform 버전을 사용하면 다음과 같은 출력이 표시됩니다.
+구성 디렉터리에서 `terraform init`을 실행합니다. 0\.10.6이상의 Terraform 버전을 사용하면 다음과 같은 출력이 표시됩니다.
 
 ![Terraform Init](media/terraformInitWithModules.png)
 

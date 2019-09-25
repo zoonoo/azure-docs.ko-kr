@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 31882b878f76060bdbf70a308673fc80d60c8440
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 0eaa3428234db8a7045728404bcfac5cc732dd9d
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075876"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181166"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Storm 및 Apache Kafka 사용
 
@@ -372,7 +372,7 @@ streams:
 | `kafka.broker.hosts` | Kafka 브로커 호스트(작업자 노드를)입니다. |
 | `kafka.topic` | 토폴로지에서 사용되는 Kafka 토픽입니다. |
 | `hdfs.write.dir` | Kafka-reader 토폴로지가 쓰는 디렉터리입니다. |
-| `hdfs.url` | Storm 클러스터에서 사용되는 파일 시스템입니다. Azure Storage 계정의 경우 `wasb:///` 값을 사용합니다. Azure Data Lake Storage Gen2의 경우 `abfs:///` 값을 사용합니다. Azure Data Lake Storage Gen1의 경우 `adl:///` 값을 사용합니다. |
+| `hdfs.url` | Storm 클러스터에서 사용되는 파일 시스템입니다. Azure Storage 계정의 경우 `wasb://` 값을 사용합니다. Azure Data Lake Storage Gen2의 경우 `abfs://` 값을 사용합니다. Azure Data Lake Storage Gen1의 경우 `adl://` 값을 사용합니다. |
 
 ## <a name="create-the-clusters"></a>클러스터 만들기
 

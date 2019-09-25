@@ -3,9 +3,8 @@ title: Azure Security Center 자습서 - 보안 인시던트에 대응 | Microso
 description: Azure Security Center 자습서 - 보안 인시던트에 대응
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
 ms.service: security-center
 ms.devlang: na
@@ -14,13 +13,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
-ms.author: rkarlin
-ms.openlocfilehash: 12ea21a3f61404c2e031909adda28f8e1e768cd0
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.author: memildin
+ms.openlocfilehash: 11c2543de2b5456d253e7e905065eea14810877a
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992087"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200613"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>자습서: 보안 인시던트에 대응
 Security Center는 고급 분석 및 위협 인텔리전스를 사용하여 하이브리드 클라우드 워크로드를 지속적으로 분석하여 악의적인 활동을 경고합니다. 또한 다른 보안 제품 및 서비스의 경고를 Security Center에 통합하고, 사용자 고유의 표시기 또는 인텔리전스 원본에 기반한 사용자 지정 경고를 만들 수 있습니다. 경고가 생성되면 조사하고 수정하기 위한 신속한 조치가 필요합니다. 이 자습서에서는 다음 방법을 알아봅니다.

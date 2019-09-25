@@ -8,13 +8,13 @@ author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
-ms.openlocfilehash: 4155a67f70ccc238c6046c07dded7f0214689617
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: 1fae21e9a60f533533607e74609853ef68348daf
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993504"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173405"
 ---
 # <a name="tutorial-create-a-hub-virtual-network-appliance-with-terraform-in-azure"></a>자습서: Azure에서 Terraform을 사용하여 허브 가상 네트워크 어플라이언스 만들기
 
@@ -68,7 +68,7 @@ Azure는 선택할 수 있는 광범위한 네트워크 가상 어플라이언�
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
     
-    ```JSON
+    ```hcl
     locals {
       prefix-hub-nva         = "hub-nva"
       hub-nva-location       = "CentralUS"
