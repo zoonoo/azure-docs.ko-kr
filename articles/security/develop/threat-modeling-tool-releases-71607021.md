@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: jegeib
-ms.openlocfilehash: 889704a2312bc51e57c18f25875fdbc838876522
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 44fd84af629fadfc96d738e81f2568359ee19d66
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928054"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219839"
 ---
 # <a name="threat-modeling-tool-update-release-71607021---722019"></a>Threat Modeling Tool 업데이트 릴리스 7.1.60702.1-7/2/2019
 
@@ -40,10 +40,10 @@ TMT (Microsoft Threat Modeling Tool 버전 7.1.60702.1)는 7 월 2 2019에 출�
 
 ## <a name="system-requirements"></a>시스템 요구 사항
 
-- Supported Operating Systems
+- 지원되는 운영 체제
   - [Microsoft Windows 10 1주년 업데이트](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) 이상
 - 필요한 .NET 버전
-  - [.Net 4.7.1](http://go.microsoft.com/fwlink/?LinkId=863262) 이상
+  - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) 이상
 - 추가 요구 사항
   - 도구와 템플릿에 대한 업데이트를 받으려면 인터넷 연결이 필요합니다.
 

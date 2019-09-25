@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1b2255b4e0f5aa34e3c7159b00156aee5224928
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c32b587464d66148957672be16493b66dc051ada
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999280"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219699"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-preview"></a>MLflow 및 Azure Machine Learning를 사용 하 여 메트릭 추적 및 모델 배포 (미리 보기)
 
@@ -146,6 +146,7 @@ MLflow 추적 Azure Machine Learning를 사용 하면 Azure Machine Learning 작
 Azure Databricks를 사용 하 여 Mlflow 실험을 실행 하려면 먼저 [Azure Databricks 작업 영역 및 클러스터](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) 를 만들어야 합니다.
 
 클러스터에서 필요한 함수 및 클래스에 대 한 액세스 권한이 있는지 확인 하기 위해 PyPi에서 *azureml* 를 설치 해야 합니다.
+여기에서 실험 노트북을 가져오고, 클러스터를 연결 하 고, 실험을 실행 합니다. 
 
 ### <a name="install-libraries"></a>라이브러리 설치
 
@@ -184,10 +185,17 @@ workspace_name = 'workspace_name'
 ws = Workspace.get(name=workspace_name,
                    subscription_id=subscription_id,
                    resource_group=resource_group)
-
 ```
+
+#### <a name="connect-your-azure-databricks-and-azure-machine-learning-workspaces"></a>Azure Databricks 및 Azure Machine Learning 작업 영역 연결
+
+[Azure Portal](https://ms.portal.azure.com)에서 Azure Databricks (adb) 작업 영역을 신규 또는 기존 Azure Machine Learning 작업 영역에 연결할 수 있습니다. 이렇게 하려면 ADB 작업 영역으로 이동 하 고 오른쪽 아래에 있는 **Azure Machine Learning 작업 영역 연결** 단추를 선택 합니다. 작업 영역을 연결 하면 Azure Machine Learning 작업 영역에서 실험 데이터를 추적할 수 있습니다. 
+
 ### <a name="link-mlflow-tracking-to-your-workspace"></a>작업 영역에 MLflow 추적 링크
+
 작업 영역을 인스턴스화한 후 MLflow 추적 URI를 설정 합니다. 이렇게 하면 MLflow 추적을 Azure Machine Learning 작업 영역에 연결할 수 있습니다. 그러면 모든 실험은 관리 되는 Azure Machine Learning 추적 서비스에 배치 됩니다.
+
+#### <a name="directly-set-mlflow-tracking-in-your-notebook"></a>노트북에서 MLflow 추적 직접 설정
 
 ```python
 uri = ws.get_mlflow_tracking_uri()
@@ -200,6 +208,12 @@ mlflow.set_tracking_uri(uri)
 import mlflow 
 mlflow.log_metric('epoch_loss', loss.item()) 
 ```
+
+#### <a name="automate-setting-mlflow-tracking"></a>MLflow 추적 설정 자동화
+
+클러스터의 모든 이후 실험 노트북 세션에서 추적 URI를 수동으로 설정 하는 대신이 [Azure Machine Learning 추적 클러스터 초기화 스크립트](https://github.com/Azure/MachineLearningNotebooks/blob/3ce779063b000e0670bdd1acc6bc3a4ee707ec13/how-to-use-azureml/azure-databricks/linking/README.md)를 사용 하 여 자동으로 수행 합니다.
+
+올바르게 구성 된 경우 mlflow 사용자 인터페이스를 통해 또는 mlflow 클라이언트를 사용 하 여 Azure Machine Learning의 REST API 및 모든 Azure Databricks 클라이언트에서 MLflow 추적 데이터를 볼 수 있습니다.
 
 ## <a name="view-metrics-and-artifacts-in-your-workspace"></a>작업 영역에서 메트릭 및 아티팩트 보기
 

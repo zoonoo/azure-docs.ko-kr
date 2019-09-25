@@ -2,24 +2,17 @@
 title: '위치 및 연결 공급 기업: Azure ExpressRoute | Microsoft Docs'
 description: 이 문서에서는 서비스가 제공되는 위치 및 Azure 지역에 연결하는 방법의 자세한 개요를 제공합니다. 위치에 따라 정렬됩니다.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-ms.assetid: feb67da3-5abc-4acb-bad4-f78e3c541ded
 ms.service: expressroute
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/20/2019
+ms.date: 09/23/2019
 ms.author: cherylmc
-ms.openlocfilehash: 192bafc0b53483c21e52602b4de8c57f66fdee3c
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 61ac896d2135790ca2e757ec56303fdb783d2865
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172570"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219653"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -74,9 +67,11 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 
 ## <a name="partners"></a>ExpressRoute 연결 공급자
 
-다음 테이블에서는 각 위치에 대한 연결 위치 및 서비스 공급자를 보여 줍니다. 서비스를 제공할 수 있는 서비스 공급자 및 위치를 보려면 [서비스 공급자별 위치](expressroute-locations.md)를 참조하세요. 
+다음 테이블에서는 각 위치에 대한 연결 위치 및 서비스 공급자를 보여 줍니다. 서비스를 제공할 수 있는 서비스 공급자 및 위치를 보려면 [서비스 공급자별 위치](expressroute-locations.md)를 참조하세요.
 
-**로컬 Azure 지역은** 각 피어 링 위치에서 [express](expressroute-faqs.md) 경로를 사용 하 여 액세스할 수 있습니다. **n/a** 는 해당 피어 링 위치에서 Express 경로 로컬을 사용할 수 없음을 나타냅니다.
+* **로컬 Azure 지역은** 각 피어 링 위치에서 [express](expressroute-faqs.md) 경로를 사용 하 여 액세스할 수 있습니다. **n/a** 는 해당 피어 링 위치에서 Express 경로 로컬을 사용할 수 없음을 나타냅니다.
+
+* **영역은** [가격 책정](https://azure.microsoft.com/pricing/details/expressroute/)을 나타냅니다.
 
 
 ### <a name="production-azure"></a>프로덕션 Azure

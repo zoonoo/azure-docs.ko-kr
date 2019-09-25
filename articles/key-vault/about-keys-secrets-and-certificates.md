@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4bbe9d9bfaf49fe93631787b347a3446e4b0f817
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: cca4f794fd3f84b991c7882307f74bcfadf6835b
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000576"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71241047"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>키, 비밀 및 인증서 정보
 
@@ -196,7 +196,7 @@ IntDate 및 기타 데이터 형식에 대한 자세한 내용은 [데이터 형
 
 ###  <a name="key-access-control"></a>키 액세스 제어
 
-Key Vault에서 관리하는 키에 대한 액세스 제어는 키 컨테이너 역할을 하는 Key Vault 수준에서 제공됩니다. 키에 대한 액세스 제어 정책은 동일한 Key Vault의 비밀에 대한 액세스 제어 정책과 다릅니다. 사용자는 키를 보관할 하나 이상의 자격 증명 모음을 만들 수 있으며, 시나리오에 따라 키를 적절하게 세분화하고 관리해야 합니다. 키 액세스 제어는 비밀 액세스 제어와 무관합니다.  
+Key Vault에서 관리하는 키에 대한 액세스 제어는 키 컨테이너 역할을 하는 Key Vault 수준에서 제공됩니다. 키에 대 한 액세스 제어 정책은 동일한 Key Vault의 비밀에 대 한 액세스 제어 정책과는 다릅니다. 사용자는 키를 보관할 하나 이상의 자격 증명 모음을 만들 수 있으며, 시나리오에 따라 키를 적절하게 세분화하고 관리해야 합니다. 키 액세스 제어는 비밀 액세스 제어와 무관합니다.  
 
 자격 증명 모음의 키 액세스 제어 항목에 대해 사용자/서비스 사용자별로 부여할 수 있는 권한은 다음과 같습니다. 이러한 권한은 키 개체에서 허용 되는 작업을 긴밀 하 게 미러링합니다.  Key vault에서 서비스 사용자에 게 액세스 권한을 부여 하는 작업은 onetime 작업 이며 모든 Azure 구독에 대해 동일 하 게 유지 됩니다. 이를 사용 하 여 원하는 수의 인증서를 배포할 수 있습니다. 
 
@@ -367,7 +367,7 @@ Key Vault 인증서를 처음부터 새로 만드는 경우 정책을 제공해�
 |DecipherOnly|decrypt| 해당 사항 없음  |
 |DigitalSignature|sign, verify| 인증서를 만들 때 사용하도록 지정하지 않은 Key Vault 기본값 | 
 |EncipherOnly|encrypt| 해당 사항 없음 |
-|KeyCertSign|sign, verify|N/A|
+|KeyCertSign|sign, verify|해당 사항 없음|
 |KeyEncipherment|wrapKey, unwrapKey| 인증서를 만들 때 사용하도록 지정하지 않은 Key Vault 기본값 | 
 |NonRepudiation|sign, verify| 해당 사항 없음 |
 |crlsign|sign, verify| 해당 사항 없음 |

@@ -8,20 +8,22 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 09/23/2019
 ms.author: juliako
-ms.openlocfilehash: d346f68534a9fdbc286cd5521c00d81c2a5fec78
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 3c8d0d3ec0f11592610363e9150be47112995853
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203550"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219866"
 ---
 # <a name="what-is-video-indexer"></a>Video Indexer란?
 
-Azure Media Services Video Indexer는 Azure Cognitive Services을 기반으로 하는 AI 솔루션입니다. Video Indexer는 여러 채널 (음성, 보컬, 시각적 개체)을 기반으로 기계 학습 모델을 사용 하 여 심층 통찰력을 추출 하는 기능을 제공 합니다 (데이터 분석 또는 코딩 기술을 사용 하지 않아도). 모델을 추가로 사용자 지정 하 고 학습할 수 있습니다. 이 서비스는 심층 검색을 가능 하 게 하 고, 운영 비용을 절감 하 고, 새로운 수익 화 기회, 대량 비디오 보관에 대 한 새로운 사용자 환경 (낮은 항목 장벽)을 지원 합니다. 
+VI (Video Indexer)는 Azure Media Services AI 솔루션 이며 Microsoft Cognitive Services 브랜드의 일부입니다. Video Indexer는 여러 채널 (음성, 보컬, 시각적 개체)을 기반으로 기계 학습 모델을 사용 하 여 심층 통찰력을 추출 하는 기능을 제공 합니다 (데이터 분석 또는 코딩 기술을 사용 하지 않아도). 모델을 추가로 사용자 지정 하 고 학습할 수 있습니다. 이 서비스는 심층 검색을 가능 하 게 하 고, 운영 비용을 절감 하 고, 새로운 수익 화 기회, 대량 비디오 보관에 대 한 새로운 사용자 환경 (낮은 항목 장벽)을 지원 합니다. 
 
 Video Indexer로 정보 추출을 시작 하려면 계정을 만들고 비디오를 업로드 해야 합니다. Video Indexer에 비디오를 업로드 하는 경우 서로 다른 AI 모델을 실행 하 여 시각적 개체와 오디오를 모두 분석 합니다. Video Indexer에서 비디오를 분석 하 여 모델에서 추출 하는 정보를 분석 합니다.
+
+다음 다이어그램은 Video Indexer 백 엔드에서 작동 하는 방법에 대 한 기술 설명이 아닌 그림입니다.
 
 ![흐름 다이어그램](./media/video-indexer-overview/model-chart.png)
 

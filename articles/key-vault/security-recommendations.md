@@ -6,19 +6,19 @@ author: barclayn
 manager: rkarlin
 ms.service: key-vault
 ms.topic: article
-ms.date: 09/19/2019
+ms.date: 09/23/2019
 ms.author: barclayn
 ms.custom: security-recommendations
-ms.openlocfilehash: e1c5382e1e55c5c73a5610c1c13f6bfcef65ebc1
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 90965618b1d2cb126d56453d46a5bebc85319c0f
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71148277"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219635"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Azure Key Vault에 대 한 보안 권장 사항
 
-이 문서에는 Azure App Service에 대 한 보안 권장 사항이 포함 되어 있습니다. 이러한 권장 사항을 구현 하면 공유 책임 모델에 설명 된 대로 보안 의무를 달성 하는 데 도움이 되며 웹 앱 솔루션에 대 한 전반적인 보안을 향상 시킬 수 있습니다. Microsoft에서 서비스 공급자 역할을 수행 하는 데 필요한 사항에 대 한 자세한 내용은 [클라우드 컴퓨팅을 위한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)을 참조 하세요.
+이 문서에는 Azure Key Vault에 대 한 보안 권장 사항이 포함 되어 있습니다. 이러한 권장 사항을 구현 하면 공유 책임 모델에 설명 된 대로 보안 의무를 달성 하는 데 도움이 됩니다. Microsoft에서 서비스 공급자 역할을 수행 하는 데 필요한 사항에 대 한 자세한 내용은 [클라우드 컴퓨팅을 위한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)을 참조 하세요.
 
 이 문서에 포함 된 일부 권장 사항은 Azure Security Center에서 자동으로 모니터링할 수 있습니다. Azure Security Center는 Azure에서 리소스를 보호 하는 첫 번째 방어선입니다. Azure 리소스의 보안 상태를 주기적으로 분석 하 여 잠재적인 보안 취약성을 식별 합니다. 그런 다음이를 해결 하는 방법에 대 한 권장 사항을 제공 합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "71148277"
 
 ## <a name="recommendations"></a>권장 사항
 
-| 범주 | 권장 | 주석 | Security Center |
+| Category | 권장 | 주석 | Security Center |
 |-|-|----|--|
 | 데이터 보호 |일시 삭제 설정 | [일시 삭제](key-vault-ovw-soft-delete.md) 를 사용 하면 삭제 된 자격 증명 모음 및 자격 증명 모음 개체를 복구할 수 있습니다. |  - |
 | 데이터 보호 | 자격 증명 모음 데이터에 대 한 액세스 제한  | 최소 권한의 원칙에 따라 자격 증명 모음 데이터에 대 한 액세스 권한이 있는 조직의 구성원 제한 |  - |

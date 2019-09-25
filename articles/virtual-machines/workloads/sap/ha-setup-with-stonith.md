@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d97130251f7ca56adaf77c5e70d6f08bd5cf514
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0f23fe2aa17934b967e7aecf41687cc555b9552c
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101522"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212538"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>STONITH를 사용하여 SUSE에서 고가용성 설정
 이 문서는 STONITH 디바이스를 사용하여 SUSE 운영 체제에서 고가용성을 설정하는 자세한 단계별 지침을 제공합니다.
@@ -333,11 +333,12 @@ Service pacemaker stop
 ```
 이제 **노드 2**에서 Pacemaker 서비스를 중단하고 리소스를 **노드 1**에 대해 장애 조치합니다.
 
-**장애 조치 전**
-![Before-failover.png](media/HowToHLI/HASetupWithStonith/Before-failover.png)
-**장애 조치 후**
-![after-failover.png](media/HowToHLI/HASetupWithStonith/after-failover.png)
-![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)
+**장애 조치(failover) 전**  
+![Before-failover](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
+
+**장애 조치(failover) 후**  
+![after-failover](media/HowToHLI/HASetupWithStonith/after-failover.png)  
+![crm-mon-after-failover](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
 
 
 ## <a name="9-troubleshooting"></a>9. 문제 해결

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 041f80937e3ebae15dd5bd64858ccbd8269104a0
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 43597113c439f2b88bee0834dddc8cb37ec0202a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002589"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213525"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>추정기를 사용하여 Azure Machine Learning에서 모델 학습
 
@@ -94,25 +94,27 @@ print(run.get_portal_url())
 
 ```Python
 from azureml.train.estimator import Estimator
+from azureml.core.runconfig import MpiConfiguration
 
 estimator = Estimator(source_directory='./my-keras-proj',
                       compute_target=compute_target,
                       entry_script='train.py',
                       node_count=2,
                       process_count_per_node=1,
-                      distributed_backend='mpi',     
+                      distributed_training=MpiConfiguration(),        
                       conda_packages=['tensorflow', 'keras'],
                       custom_docker_image='continuumio/miniconda')
 ```
 
 위의 코드는 `Estimator` 생성자에 다음과 같은 새 매개 변수를 표시합니다.
 
-매개 변수 | Description | 기본값
+매개 변수 | 설명 | 기본값
 --|--|--
 `custom_docker_image`| 사용하려는 이미지의 이름입니다. 공용 Docker 리포지토리(여기서는 Docker 허브)에서 사용할 수 있는 이미지만 제공합니다. 프라이빗 Docker 리포지토리의 이미지를 사용하려면 생성자의 `environment_definition` 매개 변수를 대신 사용합니다. [예제를 참조하세요](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| 학습 작업에 사용할 노드의 수입니다. | `1`
 `process_count_per_node`| 각 노드에서 실행할 프로세스(또는 “작업자”)의 수입니다. 여기서는 각 노드에서 사용할 수 있는 `2` GPU를 사용합니다.| `1`
-`distributed_backend`| Estimator가 MPI를 통해 제공하는 분산 학습 시작을 위한 백 엔드입니다.  병렬 또는 분산 교육을 수행 하려면 (예: `node_count`> 1 또는 `process_count_per_node`> 1 또는 둘 다)를 설정 `distributed_backend='mpi'`합니다. AML에서 사용되는 MPI 구현은 [Open MPI](https://www.open-mpi.org/)입니다.| `None`
+`distributed_training`| MPI 백 엔드를 사용 하 여 분산 학습을 시작 하기 위한 [MPIConfiguration]('https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py') 개체입니다.  | `None`
+
 
 마지막으로, 학습 작업을 제출합니다.
 ```Python

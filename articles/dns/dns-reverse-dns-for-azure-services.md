@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: e162d838cb4895841428a827b56bec28e3e16b8a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c33914fb404467a20a9799df9643e9702234c300
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160916"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "71224494"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Azure에서 호스트되는 서비스에 대해 역방향 DNS 구성
 
@@ -61,7 +61,7 @@ Azure는 현재 IPv4 PublicIpAddress 리소스에 대해서만 역방향 DNS를 
 
 #### <a name="powershell"></a>PowerShell
 
-기존 PublicIpAddresses에 역방향 DNS를 추가하려면
+역방향 DNS를 기존 PublicIpAddress 업데이트 하려면 다음을 수행 합니다.
 
 ```powershell
 $pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 9da58bf3152867bc13dd1879ec57a69b8bd38cb0
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 69e55b17814c5b5ada0813bd0de66cc3a9a591f4
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129323"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219512"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 운영 보안 모범 사례
 이 문서에서는 Azure에서 데이터, 응용 프로그램 및 기타 자산을 보호 하는 일련의 작업 모범 사례를 제공 합니다.
@@ -95,7 +95,7 @@ Security Center의 무료 계층은 Azure 리소스에 대 한 제한 된 보안
 
 Security Center를 사용 하 여 모든 Azure 리소스의 보안 상태를 중앙에서 볼 수 있습니다. 적합한 보안 제어 기능이 마련되어 있으며 올바르게 구성되어 있는지를 한눈에 확인하고 주의가 필요한 리소스를 빠르게 확인할 수 있습니다.
 
-또한 Security Center은 포괄적인 끝점 검색 및 응답 (EDR) 기능을 제공 하는 [Windows DEFENDER ATP (Advanced Threat Protection)](../../security-center/security-center-wdatp.md)와 통합 됩니다. Windows Defender ATP를 통합하면 비정상적인 상태를 정확히 파악할 수 있습니다. Security Center에서 모니터링 하는 서버 끝점에 대 한 고급 공격을 감지 하 고 대응할 수도 있습니다.
+또한 Security Center은 포괄적인 끝점 검색 및 응답 (EDR) 기능을 제공 하는 [Microsoft DEFENDER ATP (Advanced Threat Protection)](../../security-center/security-center-wdatp.md)와 통합 됩니다. Microsoft Defender ATP 통합을 사용 하 여 비정상적인 상태를 찾을 수 있습니다. Security Center에서 모니터링 하는 서버 끝점에 대 한 고급 공격을 감지 하 고 대응할 수도 있습니다.
 
 거의 모든 엔터프라이즈 조직은 다양 한 신호 수집 장치에서 로그 정보를 통합 하 여 새로운 위협을 식별 하는 데 도움이 되는 SIEM (보안 정보 및 이벤트 관리) 시스템을 보유 하 고 있습니다. 그런 다음 데이터 분석 시스템에서 로그를 분석 하 여 모든 로그 수집 및 분석 솔루션에서 발생 하는 모든 의미의 의미를 파악 하는 데 도움이 됩니다.
 
@@ -121,7 +121,7 @@ Security Center를 사용 하 여 모든 Azure 리소스의 보안 상태를 중
 **세부 정보**: [Azure Monitor를 사용 하 여 데이터를 수집 하 고 내보낼 수](/azure/azure-monitor/overview#integrate-and-export-data)있습니다. 이 방법은 보안 인시던트 조사를 사용 하도록 설정 하는 데 중요 하며 온라인 로그 보존은 제한적입니다. Azure 센티널를 사용 하는 경우 [연결 데이터 원본](../../sentinel/connect-data-sources.md)을 참조 하세요.
 
 **모범 사례**: EDR (끝점 검색 및 응답) 기능을 공격 조사에 통합 하 여 조사 및 구하기 프로세스를 가속화 하 고 가양성을 줄입니다.   
-**세부 정보**: Security Center 보안 정책을 통해 [Windows DEFENDER ATP 통합을 사용 하도록 설정](../../security-center/security-center-wdatp.md#enable-windows-defender-atp-integration) 합니다. 위협 구하기 및 인시던트 대응을 위해 Azure 센티널을 사용 하는 것이 좋습니다.
+**세부 정보**: Security Center 보안 정책을 통해 [Microsoft DEFENDER ATP 통합을 사용 하도록 설정](../../security-center/security-center-wdatp.md#enable-microsoft-defender-atp-integration) 합니다. 위협 구하기 및 인시던트 대응을 위해 Azure 센티널을 사용 하는 것이 좋습니다.
 
 ## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>엔드투엔드 시나리오 기반 네트워크 모니터링
 고객은 가상 네트워크, ExpressRoute, Application Gateway, 부하 분산 장치 등의 네트워크 리소스를 결합하여 Azure에서 엔드투엔드 네트워크를 빌드합니다. 모니터링은 각 네트워크 리소스에서 사용할 수 있습니다.
@@ -206,7 +206,7 @@ Azure Policy 사용 하 여 조직의 작성 된 정책을 모니터링 하 고 
 
 Azure Policy를 채택 하 고 나면 다음 몇 가지 보안 모범 사례를 따라야 합니다.
 
-**모범 사례**: 정책은 여러 유형의 효과를 지원 합니다. [Azure Policy 정의 구조](../../governance/policy/concepts/definition-structure.md#policy-rule)에서이에 대해 읽을 수 있습니다. 비즈니스 작업은 **거부** 효과 및 수정 효과에 의해 부정적인 영향 을 받을 수 있으므로 **감사** 효과부터 시작 하 여 정책에서 부정적인 영향을 미치는 위험을 제한할 수 있습니다.   
+**모범 사례**: 정책은 여러 유형의 효과를 지원 합니다. [Azure Policy 정의 구조](../../governance/policy/concepts/definition-structure.md#policy-rule)에서이에 대해 읽을 수 있습니다. 비즈니스 작업은 **거부** 효과 및 **수정 효과에** 의해 부정적인 영향을 받을 수 있으므로 **감사** 효과부터 시작 하 여 정책에서 부정적인 영향을 미치는 위험을 제한할 수 있습니다.   
 **세부 정보**: [감사 모드에서 정책 배포를 시작한](../../governance/policy/concepts/definition-structure.md#policy-rule) 후 나중에 **거부** 또는 **재구성**으로 진행 합니다. **거부** 또는 **재구성**으로 이동 하기 전에 감사 효과의 결과를 테스트 하 고 검토 합니다.
 
 자세한 내용은 [규정 준수를 적용 하는 정책 만들기 및 관리](../../governance/policy/tutorials/create-and-manage.md)를 참조 하세요.
