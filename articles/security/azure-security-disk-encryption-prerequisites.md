@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f7ad49fc56fc82955f79155838c69ff714aba2f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: bd51e70122a5457c8dcf1bd8f2061fe25943e87f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845867"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "71224501"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk Encryption 필수 구성 요소
 
@@ -28,7 +28,7 @@ ms.locfileid: "68845867"
 
 ## <a name="supported-vm-sizes"></a>지원되는 VM 크기
 
-Azure Disk Encryption는 [기본, A 시리즈 vm](/pricing/details/virtual-machines/series/)에서 사용할 수 없습니다. Azure Disk Encryption는 다음과 같은 최소 메모리 요구 사항을 충족 하는 다른 가상 머신에서 사용할 수 있습니다.
+Azure Disk Encryption는 [기본, A 시리즈 vm](https://azure.microsoft.com/pricing/details/virtual-machines/series/)에서 사용할 수 없습니다. Azure Disk Encryption는 다음과 같은 최소 메모리 요구 사항을 충족 하는 다른 가상 머신에서 사용할 수 있습니다.
 
 | 가상 머신 | 최소 메모리 요구 사항 |
 |--|--|
@@ -296,7 +296,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
 1. 키 자격 증명 모음을 선택하고, **액세스 정책**, **클릭하여 고급 액세스 정책 표시**로 차례로 이동합니다.
 2. **볼륨 암호화를 위해 Azure Disk Encryption에 대한 액세스 사용**이라는 레이블이 있는 상자를 선택합니다.
 3. 필요한 경우 **배포를 위해 Azure Virtual Machines에 대한 액세스 사용** 및/또는 **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용**을 선택합니다. 
-4. **Save**을 클릭합니다.
+4. **저장**을 클릭합니다.
 
     ![Azure 키 자격 증명 모음에 대한 고급 액세스 정책](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
 
