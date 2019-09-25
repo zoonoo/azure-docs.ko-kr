@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 602623d48457498963cb5928081d24c1d1132ad4
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 88734b0ee05f5193da89f33e1639e4e7a187f225
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935235"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264657"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
@@ -65,7 +65,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
    [![사용자 선택 대화 상자에서 응용 프로그램을 찾습니다.](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
 
-1. 역할을 선택 합니다. 데이터 또는 **참가자** 를 쿼리하여 데이터를 쿼리하고 참조 데이터를 변경 하려면 **Reader** 를 선택 합니다.           **확인**을 선택합니다.
+1. 역할을 선택 합니다. 데이터 또는 **참가자** 를 쿼리하여 데이터를 쿼리하고 참조 데이터를 변경 하려면 **Reader** 를 선택 합니다. **확인**을 선택합니다.
 
    [![사용자 역할 선택 대화 상자에서 읽기 권한자 또는 참가자를 선택 합니다.](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
 
@@ -100,6 +100,50 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
     ```
 
 1. 애플리케이션이 Time Series Insights API를 호출할 때 `Authorization` 헤더에서 이 토큰을 전달할 수 있습니다.
+
+## <a name="common-headers-and-parameters"></a>공용 헤더 및 매개 변수
+
+이 섹션에서는 Time Series Insights GA 및 Preview Api에 대 한 쿼리를 수행 하는 데 사용 되는 일반적인 HTTP 요청 헤더 및 매개 변수에 대해 설명 합니다. API 관련 요구 사항은 [Time Series Insights REST API 참조 설명서](https://docs.microsoft.com/rest/api/time-series-insights/)에 자세히 설명 되어 있습니다.
+
+### <a name="authentication"></a>인증
+
+[TIME SERIES INSIGHTS Rest api](https://docs.microsoft.com/rest/api/time-series-insights/)에 대해 인증 된 쿼리를 수행 하려면 선택한 rest 클라이언트 (Postman, JavaScript, C#)를 사용 하 여 유효한 OAuth 2.0 전달자 토큰을 [인증 헤더](/rest/api/apimanagement/authorizationserver/createorupdate) 에 전달 해야 합니다. 
+
+> [!IMPORTANT]
+> 토큰은 `https://api.timeseries.azure.com/` 리소스 (토큰의 "대상"이 라고도 함)에 대해 정확 하 게 발급 되어야 합니다.
+> * 따라서 [Postman](https://www.getpostman.com/) **authurl** 은 다음을 준수 합니다.`https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+
+> [!TIP]
+> [Javascript 클라이언트 SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)를 사용 하 여 프로그래밍 방식으로 Time Series Insights api를 사용 하 여 인증 하는 방법을 보려면 [Azure Time Series Insights Javascript 클라이언트 라이브러리 탐색](tutorial-explore-js-client-lib.md#authentication) 자습서를 참조 하세요.
+
+### <a name="http-headers"></a>HTTP 헤더
+
+필요한 요청 헤더:
+
+- `Authorization`인증 및 권한 부여의 경우 유효한 OAuth 2.0 전달자 토큰을 인증 헤더에 전달 해야 합니다. 토큰은 `https://api.timeseries.azure.com/` 리소스 (토큰의 "대상"이 라고도 함)에 대해 정확 하 게 발급 되어야 합니다.
+
+선택적 요청 헤더:
+
+- `Content-type`-만 `application/json` 지원 됩니다.
+- `x-ms-client-request-id`-클라이언트 요청 ID입니다. 서비스에서이 값을 기록 합니다. 서비스에서 서비스에 대 한 작업을 추적할 수 있습니다.
+- `x-ms-client-session-id`-클라이언트 세션 ID입니다. 서비스에서이 값을 기록 합니다. 서비스에서 서비스 간 관련 작업 그룹을 추적할 수 있습니다.
+- `x-ms-client-application-name`-이 요청을 생성 한 응용 프로그램의 이름입니다. 서비스에서이 값을 기록 합니다.
+
+응답 헤더:
+
+- `Content-type`-만 `application/json` 지원 됩니다.
+- `x-ms-request-id`-서버에서 생성 된 요청 ID입니다. Microsoft에 문의 하 여 요청을 조사 하는 데 사용할 수 있습니다.
+
+### <a name="http-parameters"></a>HTTP 매개 변수
+
+필수 URL 쿼리 문자열 매개 변수:
+
+- `api-version=2016-12-12`
+- `api-version=2018-11-01-preview`
+
+선택적 URL 쿼리 문자열 매개 변수:
+
+- `timeout=<timeout>`– 요청 실행을 위한 서버 쪽 시간 제한입니다. [환경 이벤트 가져오기](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) 및 [환경 집계](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) api에만 적용 됩니다. 제한 시간 값은 ISO 8601 기간 형식 이어야 합니다. 예 `"PT20S"` 를 들어, 범위 `1-30 s`내에 있어야 합니다. 기본값은 `30 s`여야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

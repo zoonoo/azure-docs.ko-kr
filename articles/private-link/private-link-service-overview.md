@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 27e927425faec045c4f304ae6de155f2337307d9
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 67bddea31a4bb375657b0df5e21fab1ab3d732f5
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104665"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265549"
 ---
 # <a name="what-is-azure-private-link-service"></a>Azure 개인 링크 서비스 란?
 
@@ -58,7 +58,7 @@ Azure 개인 링크 서비스는 Azure 개인 링크에서 제공 하는 자체 
 |||
 
 
-### <a name="details"></a>세부 정보
+### <a name="details"></a>설명
 
 - 개인 링크 서비스는 동일한 지역의 승인 된 개인 끝점에서 액세스할 수 있습니다. 개인 VPN 또는 Express 경로 연결을 사용 하 여 동일한 가상 네트워크, 지역적으로 피어 링 Vnet, 글로벌 피어 링 Vnet 및 온-프레미스에서 개인 끝점에 연결할 수 있습니다. 
  
@@ -68,7 +68,7 @@ Azure 개인 링크 서비스는 Azure 개인 링크에서 제공 하는 자체 
  
 - 여러 Vnet, 구독 및/또는 Active Directory 테 넌 트에 속하는 여러 개인 끝점에서 단일 개인 링크 서비스에 액세스할 수 있습니다. 연결은 연결 워크플로를 통해 설정 됩니다. 
  
-- 다른 프런트 엔드 IP 구성을 사용 하 여 동일한 표준 Load Balancer에 여러 개인 링크 서비스를 만들 수 있습니다. 표준 Load Balancer 및 구독 당 만들 수 있는 개인 링크 서비스 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits.md#networking-limits)을 참조 하세요.
+- 다른 프런트 엔드 IP 구성을 사용 하 여 동일한 표준 Load Balancer에 여러 개인 링크 서비스를 만들 수 있습니다. 표준 Load Balancer 및 구독 당 만들 수 있는 개인 링크 서비스 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)을 참조 하세요.
  
 - 개인 링크 서비스는 둘 이상의 NAT IP 구성을 연결할 수 있습니다. NAT IP 구성을 두 개 이상 선택 하면 서비스 공급자가 크기를 조정 하는 데 도움이 될 수 있습니다. 현재, 서비스 공급자는 개인 링크 서비스 당 최대 8 개의 NAT IP 주소를 할당할 수 있습니다. 각 NAT IP 주소를 사용 하 여 TCP 연결에 더 많은 포트를 할당 하 고 확장할 수 있습니다. 개인 링크 서비스에 여러 NAT IP 주소를 추가한 후에는 NAT IP 주소를 삭제할 수 없습니다. NAT IP 주소를 삭제 하는 동안 활성 연결에 영향을 주지 않도록 하기 위한 작업입니다.
 

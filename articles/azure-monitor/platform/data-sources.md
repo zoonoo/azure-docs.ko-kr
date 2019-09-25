@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: bwren
-ms.openlocfilehash: 673575d480b78c151e68963e4a935fc72e7e578b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dabc336a1f92169ab573e7cf29e1a7a069ae20b1
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564753"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262039"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Azure Monitor에 대 한 모니터링 데이터의 원본
 Azure Monitor는 [로그](data-platform-logs.md) 및 [메트릭을](data-platform-metrics.md)포함 하는 [일반적인 모니터링 데이터 플랫폼](data-platform.md) 을 기반으로 합니다. 이 플랫폼에 데이터를 수집 하면 Azure Monitor의 공통 도구 집합을 사용 하 여 여러 리소스의 데이터를 함께 분석할 수 있습니다. 모니터링 데이터는 특정 시나리오를 지원 하기 위해 다른 위치로 전송 될 수도 있으며, 일부 리소스는 로그 나 메트릭에 수집 되기 전에 다른 위치에 기록 될 수 있습니다.
@@ -35,7 +35,7 @@ Azure 응용 프로그램에서 모니터링 데이터의 소스는 계층으로
 ### <a name="azure"></a>Azure
 다음 표에서는 Azure와 관련 된 응용 프로그램 계층을 간략하게 설명 합니다. 아래 섹션의 각 항목에 대 한 자세한 내용은 링크를 참조 하세요.
 
-| 계층 | Description | Collection 메서드 |
+| 계층 | 설명 | Collection 메서드 |
 |:---|:---|:---|
 | [Azure 테 넌 트](#azure-tenant) | Azure Active Directory 등, 테넌트 수준 Azure 서비스의 작업에 대한 데이터입니다. | 포털에서 AAD 데이터를 확인 하거나 테 넌 트 진단 설정을 사용 하 여 Azure Monitor 컬렉션을 구성 합니다. |
 | [Azure 구독](#azure-subscription) | 리소스 관리자 및 Service Health와 같은 Azure 구독에서 리소스 간 서비스의 상태 및 관리와 관련 된 데이터입니다. | 포털에서 보거나 로그 프로필을 사용 하 여 Azure Monitor 컬렉션을 구성 합니다. |
@@ -44,7 +44,7 @@ Azure 응용 프로그램에서 모니터링 데이터의 소스는 계층으로
 ### <a name="azure-other-cloud-or-on-premises"></a>Azure, 기타 클라우드 또는 온-프레미스 
 다음 표에서는 Azure, 다른 클라우드 또는 온-프레미스에 있을 수 있는 응용 프로그램 계층을 간략하게 설명 합니다. 아래 섹션의 각 항목에 대 한 자세한 내용은 링크를 참조 하세요.
 
-| 계층 | Description | Collection 메서드 |
+| 계층 | 설명 | Collection 메서드 |
 |:---|:---|:---|
 | [운영 체제 (게스트)](#operating-system-guest) | 계산 리소스의 운영 체제에 대 한 데이터입니다. | Log Analytics 에이전트를 설치 하 여 클라이언트 데이터 원본을 Azure Monitor 및 종속성 에이전트로 수집 하 여 VM용 Azure Monitor를 지 원하는 종속성을 수집 합니다.<br>Azure virtual machines의 경우 Azure 진단 확장을 설치 하 여 Azure Monitor로 로그 및 메트릭을 수집 합니다. |
 | [응용 프로그램 코드](#application-code) | 성능 추적, 응용 프로그램 로그 및 사용자 원격 분석을 포함 하 여 실제 응용 프로그램 및 코드의 성능 및 기능에 대 한 데이터입니다. | 코드를 계측 하 여 데이터를 Application Insights으로 수집 합니다. |
@@ -58,7 +58,7 @@ Azure 테넌트와 관련된 원격 분석은 Azure Active Directory와 같은 �
 ### <a name="azure-active-directory-audit-logs"></a>Azure Active Directory 감사 로그
 [Azure Active Directory 보고](../../active-directory/reports-monitoring/overview-reports.md)는 로그인 활동 및 특정 테넌트 내의 변경 감사 내역에 대한 기록을 포함합니다. 
 
-| Destination | Description | 참조 |
+| Destination | 설명 | 참조 |
 |:---|:---|:---|
 | Azure Monitor 로그 | 다른 모니터링 데이터를 사용 하 여 분석 하기 위해 Azure Monitor에서 수집 되도록 Azure AD 로그를 구성 합니다. | [Azure Monitor 로그와 Azure AD 로그 통합 (미리 보기)](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
 | Azure Storage | Azure AD 로그를 보관을 위해 Azure Storage로 내보냅니다. | [자습서: Azure storage 계정 (미리 보기)에 Azure AD 로그 보관](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
@@ -84,13 +84,13 @@ Azure [활동 로그](activity-logs-overview.md) 에는 azure 구독의 리소�
 ### <a name="azure-service-health"></a>Azure Service Health
 [Azure Service Health](../../service-health/service-health-overview.md)는 애플리케이션 및 리소스가 의존하는 구독에서 Azure 서비스의 상태에 대한 정보를 제공합니다.
 
-| Destination | Description | 참조 |
+| Destination | 설명 | 참조 |
 |:---|:---|:---|
 | 활동 로그<br>Azure Monitor 로그 | Service Health 레코드는 Azure 활동 로그에 저장 되므로 Azure Portal에서 보거나 활동 로그로 수행할 수 있는 다른 활동을 수행할 수 있습니다. | [Azure Portal을 사용하여 서비스 상태 알림 보기](service-notifications.md) |
 
 
 ## <a name="azure-resources"></a>Azure 리소스
-메트릭 및 리소스 수준 진단 로그는 Azure 리소스의 _내부_ 작업에 대한 정보를 제공합니다. 이러한 기능은 대부분의 Azure 서비스에 사용할 수 있으며, 모니터링 솔루션과 통찰력은 특정 서비스에 대 한 추가 데이터를 수집 합니다.
+메트릭 및 리소스 로그는 Azure 리소스의 _내부_ 작업에 대 한 정보를 제공 합니다. 이러한 기능은 대부분의 Azure 서비스에 사용할 수 있으며, 모니터링 솔루션과 통찰력은 특정 서비스에 대 한 추가 데이터를 수집 합니다.
 
 ![Azure 리소스 컬렉션](media/data-sources/azure-resources.png)
 
@@ -98,22 +98,22 @@ Azure [활동 로그](activity-logs-overview.md) 에는 azure 구독의 리소�
 ### <a name="platform-metrics"></a>플랫폼 메트릭 
 대부분의 Azure 서비스는 성능 및 작업을 메트릭 데이터베이스에 직접 반영 하는 [플랫폼 메트릭을](data-platform-metrics.md) 전송 합니다. 특정 [메트릭은 리소스의 각 형식마다 다릅니다](metrics-supported.md). 
 
-| Destination | Description | 참조 |
+| Destination | 설명 | 참조 |
 |:---|:---|:---|
 | Azure Monitor 메트릭 | 플랫폼 메트릭은 구성 없이 Azure Monitor 메트릭 데이터베이스에 기록 합니다. 메트릭 탐색기에서 플랫폼 메트릭에 액세스 합니다.  | [Azure 메트릭 탐색기 시작](metrics-getting-started.md)<br>[Azure Monitor에서 지원되는 메트릭](metrics-supported.md) |
-| Azure Monitor 로그 | Log Analytics를 사용 하 여 추세 및 기타 분석을 위해 플랫폼 메트릭을 로그에 복사 합니다. | [Log Analytics에 대 한 Azure 진단 직접](diagnostic-logs-stream-log-store.md) |
+| Azure Monitor 로그 | Log Analytics를 사용 하 여 추세 및 기타 분석을 위해 플랫폼 메트릭을 로그에 복사 합니다. | [Log Analytics에 대 한 Azure 진단 직접](resource-logs-collect-workspace.md) |
 | Event Hubs | Event Hubs를 사용 하 여 다른 위치로 메트릭을 스트림 합니다. |[Azure 모니터링 데이터를 이벤트 허브로 스트리밍하여 외부 도구에서 사용](stream-monitoring-data-event-hubs.md) |
 
-### <a name="diagnostic-logs"></a>진단 로그
-[진단 로그](diagnostic-logs-overview.md) 는 Azure 리소스의 _내부_ 작업에 대 한 통찰력을 제공 합니다.  진단 로그는 기본적으로 사용 되지 않습니다. 이를 사용 하도록 설정 하 고 각 리소스에 대 한 대상을 지정 해야 합니다. 
+### <a name="resource-logs"></a>리소스 로그
+[리소스 로그](resource-logs-overview.md) 는 Azure 리소스의 _내부_ 작업에 대 한 통찰력을 제공 합니다.  리소스 로그는 자동으로 만들어지지만 각 리소스에 대해 수집할 대상을 지정 하려면 진단 설정을 만들어야 합니다.
 
-진단 로그의 구성 요구 사항 및 내용은 리소스 유형에 따라 다르며, 일부 서비스는 진단 로그를 아직 만들지 않습니다. 각 서비스에 대 한 자세한 내용 및 자세한 구성 절차에 대 한 링크는 [Azure 진단 로그에 대해 지원 되는 서비스, 스키마 및 범주](diagnostic-logs-schema.md) 를 참조 하세요. 서비스가이 문서에 나열 되지 않은 경우 해당 서비스는 현재 진단 로그에 기록 되지 않습니다.
+리소스 로그의 구성 요구 사항 및 내용은 리소스 유형에 따라 다르며, 일부 서비스에서는 아직 만들지 않습니다. 각 서비스에 대 한 자세한 내용과 자세한 구성 절차에 대 한 링크를 보려면 [Azure 리소스 로그에 대해 지원 되는 서비스, 스키마 및 범주](diagnostic-logs-schema.md) 를 참조 하세요. 서비스가이 문서에 나열 되지 않은 경우 해당 서비스는 현재 리소스 로그를 만들지 않습니다.
 
 | Destination | 설명 | 참조 |
 |:---|:---|:---|
-| Azure Monitor 로그 | 다른 수집 된 로그 데이터를 사용 하 여 분석을 위해 Azure Monitor 로그에 진단 로그를 보냅니다. 일부 리소스는 Log Analytics 작업 영역으로 가져오기 전에 저장소 계정에 쓰는 동안 Azure Monitor에 직접 쓸 수 있습니다. | [Azure Monitor에서 Log Analytics 작업 영역으로 Azure 진단 로그 스트림](diagnostic-logs-stream-log-store.md)<br>[Azure Portal를 사용 하 여 Azure Storage에서 로그 수집](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage)  |
-| 스토리지 | 보관을 위해 Azure Storage 진단 로그를 보냅니다. | [Azure 진단 로그 보관](archive-diagnostic-logs.md) |
-| Event Hubs | Event Hubs를 사용 하 여 진단 로그를 다른 위치로 스트림 합니다. |[이벤트 허브로 Azure 진단 로그 스트림](diagnostic-logs-stream-event-hubs.md) |
+| Azure Monitor 로그 | 다른 수집 된 로그 데이터를 사용 하 여 분석을 위해 Azure Monitor 로그에 리소스 로그를 보냅니다. | [Azure Monitor의 Log Analytics 작업 영역에서 Azure 리소스 로그를 수집 합니다.](resource-logs-collect-storage.md) |
+| 스토리지 | 보관을 위해 Azure Storage로 리소스 로그를 보냅니다. | [Azure 리소스 로그 보관](resource-logs-collect-workspace.md) |
+| Event Hubs | Event Hubs를 사용 하 여 리소스 로그를 다른 위치로 스트림 합니다. |[이벤트 허브로 Azure 리소스 로그 스트림](resource-logs-stream-event-hubs.md) |
 
 ## <a name="operating-system-guest"></a>운영 체제 (게스트)
 Azure, 다른 클라우드 및 온-프레미스의 컴퓨팅 리소스에는 모니터링할 게스트 운영 체제가 있습니다. 하나 이상의 에이전트를 설치 하면 게스트의 원격 분석을 Azure Monitor으로 수집 하 여 Azure 서비스와 동일한 모니터링 도구를 사용 하 여 분석할 수 있습니다.
@@ -123,7 +123,7 @@ Azure, 다른 클라우드 및 온-프레미스의 컴퓨팅 리소스에는 모
 ### <a name="azure-diagnostic-extension"></a>Azure 진단 확장
 Azure Virtual machines에 대해 Azure 진단 확장을 사용 하도록 설정 하면 azure 클라우드 서비스 (클래식) 웹 및 작업자 역할, Virtual Machines, 가상 컴퓨터를 포함 하 여 Azure 계산 리소스의 게스트 운영 체제에서 로그 및 메트릭을 수집할 수 있습니다. 크기 집합 및 Service Fabric
 
-| Destination | Description | 참조 |
+| Destination | 설명 | 참조 |
 |:---|:---|:---|
 | 스토리지 | 진단 확장을 사용 하도록 설정 하면 기본적으로 저장소 계정에 기록 됩니다. | [Azure Storage에서 진단 데이터 저장 및 보기](diagnostics-extension-to-storage.md) |
 | Azure Monitor 메트릭 | 성능 카운터를 수집 하도록 진단 확장을 구성 하면 Azure Monitor 메트릭 데이터베이스에 기록 됩니다. | [Windows 가상 머신에 대 한 리소스 관리자 템플릿을 사용 하 여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기](collect-custom-metrics-guestos-resource-manager-vm.md) |
@@ -133,7 +133,7 @@ Azure Virtual machines에 대해 Azure 진단 확장을 사용 하도록 설정 
 ### <a name="log-analytics-agent"></a>Log Analytics 에이전트 
 Windows 또는 Linux 가상 머신에 대 한 포괄적인 모니터링 및 관리를 위해 Log Analytics 에이전트를 설치 합니다. 가상 머신은 Azure, 다른 클라우드 또는 온-프레미스에서 실행될 수 있습니다.
 
-| Destination | Description | 참조 |
+| Destination | 설명 | 참조 |
 |:---|:---|:---|
 | Azure Monitor 로그 | Log Analytics 에이전트는 직접 또는 System Center Operations Manager를 통해 Azure Monitor에 연결 하 여 사용자가 구성 하는 데이터 원본이 나 응용 프로그램에 대 한 추가 정보를 제공 하는 모니터링 솔루션에서 데이터를 수집할 수 있도록 합니다. 가상 머신에서 실행 중입니다. | [Azure Monitor의 에이전트 데이터 원본](agent-data-sources.md)<br>[Azure Monitor에 Operations Manager 연결](om-agents.md) |
 
@@ -141,7 +141,7 @@ Windows 또는 Linux 가상 머신에 대 한 포괄적인 모니터링 및 관�
 ### <a name="azure-monitor-for-vms"></a>VM용 Azure Monitor 
 [VM용 Azure Monitor](../insights/vminsights-overview.md) 은 서비스 상태 및 VM 상태를 비롯 하 여 핵심 Azure Monitor 기능을 제공 하는 기능을 제공 하는 가상 머신에 대 한 사용자 지정 모니터링 환경을 제공 합니다. 가상 컴퓨터 및 외부 프로세스 종속성에서 실행 되는 프로세스에 대 한 검색 된 데이터를 수집 하기 위해 Log Analytics 에이전트와 통합 되는 Windows 및 Linux 가상 컴퓨터에 대 한 Dependency Agent 필요 합니다.
 
-| Destination | Description | 참조 |
+| Destination | 설명 | 참조 |
 |:---|:---|:---|
 | Azure Monitor 로그 | 에이전트의 프로세스 및 종속성에 대 한 데이터를 저장 합니다. | [VM용 Azure Monitor (미리 보기) 맵을 사용 하 여 응용 프로그램 구성 요소 이해](../insights/vminsights-maps.md) |
 | VM 저장소 | VM용 Azure Monitor는 사용자 지정 위치에 heath 상태 정보를 저장 합니다. 이는 [Azure Resource health REST API](/rest/api/resourcehealth/)외에도 Azure Portal VM용 Azure Monitor에만 사용할 수 있습니다. | [Azure virtual machines의 상태 이해](../insights/vminsights-health.md)<br>[Azure 리소스 상태 REST API](https://docs.microsoft.com/rest/api/resourcehealth/) |
@@ -173,7 +173,7 @@ Azure Monitor의 자세한 응용 프로그램 모니터링은 다양 한 플랫
 
 ### <a name="monitoring-solutions"></a>모니터링 솔루션
 
-| Destination | Description | 참조
+| Destination | 설명 | 참조
 |:---|:---|:---|
 | Azure Monitor 로그 | 모니터링 솔루션은 데이터를 Azure Monitor 로그에 수집 합니다 .이 로그는 일반적으로 솔루션에 포함 되어 있는 쿼리 언어나 [뷰](view-designer.md) 를 사용 하 여 분석할 수 있습니다. | [Azure의 모니터링 솔루션에 대 한 데이터 수집 세부 정보](../insights/solutions-inventory.md) |
 
@@ -195,7 +195,7 @@ Azure Monitor의 자세한 응용 프로그램 모니터링은 다양 한 플랫
 
 ![사용자 지정 컬렉션](media/data-sources/custom.png)
 
-| Destination | 메서드 | Description | 참조 |
+| Destination | 메서드 | 설명 | 참조 |
 |:---|:---|:---|:---|
 | Azure Monitor 로그 | 데이터 수집기 API | 모든 REST 클라이언트에서 로그 데이터를 수집 하 고 Log Analytics 작업 영역에 저장 합니다. | [HTTP 데이터 수집기 API를 사용 하 여 Azure Monitor에 로그 데이터 전송 (공개 미리 보기)](data-collector-api.md) |
 | Azure Monitor 메트릭 | 사용자 지정 메트릭 API | 모든 REST 클라이언트에서 메트릭 데이터를 수집 하 고 Azure Monitor 메트릭 데이터베이스에 저장 합니다. | [REST API를 사용 하 여 Azure 리소스에 대 한 사용자 지정 메트릭을 Azure Monitor 메트릭 저장소에 보냅니다.](metrics-store-custom-rest-api.md) |

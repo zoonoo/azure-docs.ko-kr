@@ -9,13 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: 8375d41e3ece3bdd97b218925a8b1b6d45fc327d
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: fe21477865b5bbad65f5e4639e8df253f12dc1b6
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186373"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265415"
 ---
 #   <a name="language-detection-cognitive-skill"></a>언어 감지 인식 기술
 
@@ -41,13 +40,13 @@ Microsoft.Skills.Text.LanguageDetectionSkill
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 입력     | Description |
+| 입력     | 설명 |
 |--------------------|-------------|
 | text | 분석할 텍스트입니다.|
 
 ## <a name="skill-outputs"></a>기술 출력
 
-| 출력 이름    | Description |
+| 출력 이름    | 설명 |
 |--------------------|-------------|
 | languageCode | 식별된 언어에 대한 ISO 6391 언어 코드입니다. 예: "en". |
 | LanguageName | 언어의 이름입니다. 예: "영어". |
@@ -136,7 +135,7 @@ Microsoft.Skills.Text.LanguageDetectionSkill
 ## <a name="error-cases"></a>오류 사례
 텍스트가 지원되지 않는 언어에서 표현되는 경우 오류가 발생하고 언어 식별자가 반환되지 않습니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
 + [기능을 정의하는 방법](cognitive-search-defining-skillset.md)

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: 61e210d1b41966c493099e0619e969cf5ce30c50
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3ac852b1d69c0e9fa224b449d6261eba6abaff32
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094008"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260962"
 ---
 # <a name="monitor-batch-solutions"></a>Batch 솔루션 모니터링
 
@@ -33,14 +33,14 @@ Batch 계정을 포함하는 구독 수준에서, [Azure 활동 로그](../azure
 
 ## <a name="batch-account-level-monitoring"></a>Batch 계정 수준 모니터링
 
-[Azure Monitor](../azure-monitor/overview.md)의 기능을 사용하여 각 Batch 계정을 모니터링합니다. Azure Monitor는 Batch 계정 수준에서 범위가 지정된 풀, 작업, 태스크 등의 리소스에 대한 [메트릭](../azure-monitor/platform/data-platform-metrics.md), 그리고 필요에 따라 [진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)를 수집합니다. 이 데이터를 수동으로 또는 프로그래밍 방식으로 수집하고 사용하여 Batch 계정의 활동을 모니터링하고 문제를 진단할 수 있습니다. 자세한 내용은 [진단 평가 및 모니터링을 위한 Batch 메트릭, 경고 및 로그](batch-diagnostics.md)를 참조하세요.
+[Azure Monitor](../azure-monitor/overview.md)의 기능을 사용하여 각 Batch 계정을 모니터링합니다. Azure Monitor는 Batch 계정 수준에서 범위가 지정된 풀, 작업, 태스크 등의 리소스에 대한 [메트릭](../azure-monitor/platform/data-platform-metrics.md), 그리고 필요에 따라 [진단 로그](../azure-monitor/platform/resource-logs-overview.md)를 수집합니다. 이 데이터를 수동으로 또는 프로그래밍 방식으로 수집하고 사용하여 Batch 계정의 활동을 모니터링하고 문제를 진단할 수 있습니다. 자세한 내용은 [진단 평가 및 모니터링을 위한 Batch 메트릭, 경고 및 로그](batch-diagnostics.md)를 참조하세요.
  
 > [!NOTE]
 > 메트릭은 추가 구성 없이 Batch 계정에서 기본적으로 사용할 수 있으며 30일의 롤링 기록이 있습니다. Batch 계정에 진단 로깅을 사용하도록 설정해야 하며, 진단 로그 데이터를 저장 또는 처리하는 추가 비용이 발생할 수 있습니다. 
 
 ## <a name="batch-resource-monitoring"></a>Batch 리소스 모니터링
 
-Batch 애플리케이션에서 Batch API를 사용하여 작업, 태스크, 노드, 풀을 포함한 리소스 상태를 모니터링하거나 쿼리할 수 있습니다. 예를 들어:
+Batch 애플리케이션에서 Batch API를 사용하여 작업, 태스크, 노드, 풀을 포함한 리소스 상태를 모니터링하거나 쿼리할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 * [상태별 태스크 및 컴퓨팅 노드 카운팅](batch-get-resource-counts.md)
 * [Batch 리소스를 효율적으로 나열하는 쿼리 만들기](batch-efficient-list-queries.md)

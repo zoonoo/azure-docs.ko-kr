@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: b9a4a0a18e120a2843e23d44b03c0fe53b0d84fc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0fe174f309656011a1d05762927e254ff210b1e7
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68370685"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262003"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Azure Monitor 로그의 표준 속성
 Azure Monitor 로그의 데이터는 [Log Analytics 작업 영역 또는 Application Insights 응용 프로그램에](../log-query/logs-structure.md)각각 고유한 속성 집합이 있는 특정 데이터 형식의 레코드 집합으로 저장 됩니다. 많은 데이터 형식에는 여러 형식에 공통적인 표준 속성이 있습니다. 이 문서에서는 이러한 속성에 대해 설명하고 쿼리에 속성을 사용하는 방법의 예를 제공합니다.
@@ -52,7 +52,7 @@ exceptions
 ```
 
 ## <a name="_timereceived"></a>\_TimeReceived
-**\_TimeReceived** 속성은 Azure 클라우드의 Azure Monitor 수집 지점에서 레코드를 받은 날짜 및 시간을 포함 합니다. 이는 데이터 원본과 클라우드 간의 대기 시간 문제를 식별 하는 데 유용할 수 있습니다. 예를 들면, 에이전트에서 데이터를 전송 하는 동안 지연이 발생 하는 네트워킹 문제가 발생 합니다. 자세한 내용은 [Azure Monitor의 로그 데이터 수집 시간](data-ingestion-time.md) 을 참조 하세요.
+**\_TimeReceived** 속성은 Azure 클라우드의 Azure Monitor 수집 지점에서 레코드를 받은 날짜 및 시간을 포함 합니다. 이는 데이터 원본과 클라우드 간의 대기 시간 문제를 식별 하는 데 유용할 수 있습니다. 예를 들어 에이전트에서 데이터를 전송 하는 동안 지연이 발생 하는 네트워킹 문제가 발생 합니다. 자세한 내용은 [Azure Monitor의 로그 데이터 수집 시간](data-ingestion-time.md) 을 참조 하세요.
 
 다음 쿼리는 에이전트의 이벤트 레코드에 대 한 시간당 평균 대기 시간을 제공 합니다. 여기에는 에이전트에서 클라우드로의 시간 및 로그 쿼리에 사용할 수 있는 레코드의 총 시간이 포함 됩니다.
 

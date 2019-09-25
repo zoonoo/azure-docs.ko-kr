@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: d221b828624e649a0d04a89c4394fe5a7fa857dd
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 317977af9d41163013545a6e5f60bee887da596c
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "66237316"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262239"
 ---
 # <a name="networking"></a>네트워킹
 
@@ -60,7 +60,7 @@ Resource Manager 템플릿에서 enableAcceleratedNetworking을 선언하면 가
 
 * [Service Fabric 네트워킹 패턴](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking)에 요약되어 있는 단계를 수행하면 기존 가상 네트워크에 Service Fabric 클러스터를 배포할 수 있습니다.
 
-* 클러스터로의 인바운드 및 아웃바운드 트래픽을 제한하는 노드 형식의 경우에는 NSG(네트워크 보안 그룹)를 사용하는 것이 좋습니다. NSG에서 필요한 포트가 열려 있는지 확인합니다. 예를 들어: ![Service Fabric NSG 규칙][NSGSetup]
+* 클러스터로의 인바운드 및 아웃바운드 트래픽을 제한하는 노드 형식의 경우에는 NSG(네트워크 보안 그룹)를 사용하는 것이 좋습니다. NSG에서 필요한 포트가 열려 있는지 확인합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. ![Service Fabric NSG 규칙][NSGSetup]
 
 * Service Fabric 시스템 서비스를 포함하는 주 노드 형식은 외부 부하 분산 장치를 통해 표시하지 않아도 되며 [내부 부하 분산 장치](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)를 통해 표시할 수 있습니다.
 
@@ -70,7 +70,7 @@ Resource Manager 템플릿에서 enableAcceleratedNetworking을 선언하면 가
 
 * Windows 컨테이너 워크로드를 실행하려는 경우 [오픈 네트워킹 모드](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)를 사용하면 서비스 간 통신을 더 쉽게 수행할 수 있습니다.
 
-* [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) 또는 [Service Fabric 역방향 프록시](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) 등의 역방향 프록시를 사용하여 80, 443 등의 일반적인 애플리케이션 포트를 표시합니다.
+* [Traefik](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/) 또는 [Service Fabric 역방향 프록시](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) 등의 역방향 프록시를 사용하여 80, 443 등의 일반적인 애플리케이션 포트를 표시합니다.
 
 * Azure 클라우드 저장소에서 기본 계층을 끌어올 수 없는 gapped 컴퓨터에서 호스트 되는 Windows 컨테이너의 경우 Docker 디먼의 [--비 배포 가능 아티팩트](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) 플래그를 사용 하 여 외부 계층 동작을 재정의 합니다.
 

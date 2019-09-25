@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74f81cb1f9b62755d2dd2707518b828466e9ed1b
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 2c2e737360d6b1eeb8df28a95b8c36d4cca80ee4
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097562"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268636"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD 암호 보호 온-프레미스 - 질문과 대답
 
@@ -100,6 +100,8 @@ FRS(DFSR에 대한 선행 기술)는 대부분의 알려진 문제를 포함하�
 **Q: Azure AD 암호 보호 프록시 서비스를 Azure AD Connect 등의 다른 서비스와 함께 배포해도 되나요?**
 
 예. Azure AD 암호 보호 프록시 서비스와 Azure AD Connect는 서로 직접적으로 충돌하지 않습니다.
+
+아쉽게도 Azure AD 암호 보호 프록시 소프트웨어에 의해 설치 된 Microsoft Azure AD Connect 에이전트 업데이트 서비스와 Azure Active에서 설치 된 서비스의 버전 사이에 비 호환성이 있습니다. [ 디렉터리 응용 프로그램 프록시](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) 소프트웨어. 이러한 비 호환성으로 인해 에이전트 업데이트 서비스에서 소프트웨어 업데이트를 위해 Azure에 연결 하지 못할 수 있습니다. Azure AD 암호 보호 프록시를 설치 하 고 동일한 컴퓨터에 Azure Active Directory 응용 프로그램 프록시 하는 것은 권장 되지 않습니다.
 
 **Q: DC 에이전트와 프록시를 설치 하 고 등록 해야 하는 순서는 무엇입니까?**
 

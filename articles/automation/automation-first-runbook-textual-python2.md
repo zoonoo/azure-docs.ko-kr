@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6808ad101a828708ff4fe77bb4b8a55cf8c5fec7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 65cd59933fa31d870a507cbe80b454934c9008d0
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135443"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265096"
 ---
 # <a name="my-first-python-runbook"></a>내 첫 번째 Python Runbook
 
@@ -29,7 +29,7 @@ ms.locfileid: "70135443"
 > [!NOTE]
 > Webhook를 사용 하 여 Python runbook을 시작 하는 것은 지원 되지 않습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -146,7 +146,7 @@ Azure 리소스를 관리하려면 스크립트가 Automation 계정의 자격 �
 
 ## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Python 컴퓨팅 클라이언트를 만들고 VM을 시작하는 코드 추가
 
-Azure VM을 사용하려면 [Python용 Azure 컴퓨팅 클라이언트](https://docs.microsoft.com/python/api/azure.mgmt.compute.computemanagementclient?view=azure-python)의 인스턴스를 만듭니다.
+Azure VM을 사용하려면 [Python용 Azure 컴퓨팅 클라이언트](https://docs.microsoft.com/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient)의 인스턴스를 만듭니다.
 
 컴퓨팅 클라이언트를 사용하여 VM을 시작합니다. 이렇게 하려면 Runbook에 다음 코드를 추가합니다.
 

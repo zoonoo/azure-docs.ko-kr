@@ -16,19 +16,19 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff6466ddc6b64dfe85ebfb190205859aeb39ad17
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822321"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260831"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Azure 이벤트 허브에 대한 진단 로그 설정
 
 Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습니다.
 
 * **[활동 로그](../azure-monitor/platform/activity-logs-overview.md)** : 이러한 로그에는 작업에 대해 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다.
-* **[진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)** : 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
+* **[진단 로그](../azure-monitor/platform/resource-logs-overview.md)** : 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
 
 ## <a name="enable-diagnostic-logs"></a>진단 로그 활성화
 
@@ -48,13 +48,13 @@ Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습�
 
     ![진단 로그의 상태 변경](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  원하는 보관 대상을 설정합니다 예를 들어 저장소 계정, event hub 또는 Azure Monitor를 기록합니다.
+5.  원하는 보관 대상을 설정 합니다. 예를 들어 저장소 계정, 이벤트 허브 또는 Azure Monitor 로그가 있습니다.
 
 6.  새 진단 설정을 저장합니다.
 
 새 설정은 약 10분 후에 적용됩니다. 그런 다음 구성된 보관 대상의 **진단 로그** 창에 로그가 나타납니다.
 
-진단 구성에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)를 참조하세요.
+진단 구성에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/resource-logs-overview.md)를 참조하세요.
 
 ## <a name="diagnostic-logs-categories"></a>진단 로그 범주
 
@@ -76,7 +76,7 @@ Event Hubs는 다음 두 가지 범주에 대한 진단 로그를 캡처합니�
 TaskName | 실패한 작업에 대한 설명입니다.
 ActivityId | 추적에 사용되는 내부 ID입니다.
 trackingId | 추적에 사용되는 내부 ID입니다.
-ResourceId | Azure Resource Manager 리소스 ID입니다.
+resourceId | Azure Resource Manager 리소스 ID입니다.
 eventHub | 이벤트 허브 전체 이름(네임스페이스 이름 포함)입니다.
 partitionId | 데이터가 기록되는 이벤트 허브 파티션입니다.
 archiveStep | ArchiveFlushWriter
@@ -113,12 +113,12 @@ category | ArchiveLogs
 ------- | -------
 ActivityId | 추적 목적에 사용되는 내부 ID입니다.
 EventName | 작업 이름입니다.  
-ResourceId | Azure Resource Manager 리소스 ID입니다.
+resourceId | Azure Resource Manager 리소스 ID입니다.
 SubscriptionId | 구독 ID가 표시됩니다.
 EventTimeString | 작업 시간입니다.
 EventProperties | 작업 속성입니다.
-상태 | 작업 상태입니다.
-Caller | 작업 호출자(Azure Portal 또는 관리 클라이언트)입니다.
+Status | 작업 상태입니다.
+호출자 | 작업 호출자(Azure Portal 또는 관리 클라이언트)입니다.
 category | OperationalLogs
 
 다음 코드는 작업 로그 JSON 문자열에 대한 예입니다.

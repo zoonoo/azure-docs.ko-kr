@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: evternov
-ms.openlocfilehash: 9bc94f653f5e70883b483fa44f6a17f6e9e9eaf1
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 3abf50b3467ce9a97f2163a10ad1782f6e1c9c20
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594430"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258436"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>사용자 지정 데이터 원본을 사용하여 Application Insights 데이터 상호 연결
 
@@ -28,7 +28,7 @@ Application Insights는 여러 다른 데이터 형식을 수집합니다(예외
 
 - 데이터 보강 또는 조회 테이블: 예를 들어 서버 이름을 서버의 소유자 및 찾을 수 있는 랩 위치로 보완합니다. 
 - Application Insights 데이터 원본과 상관 관계: 예를 들어 배송 시간 예측값의 정확도를 확인하려면 구매 처리 서비스의 정보와 웹 스토어에서 구매에 대한 데이터를 상관 관계를 만듭니다. 
-- 완전한 사용자 지정 데이터: 대부분의 고객은 Application Insights를 지원하는 Azure Monitor 로그 플랫폼의 쿼리 언어 및 성능을 즐겨 사용하고 Application Insights와 전혀 관련되지 않은 데이터를 쿼리하는 데 사용합니다. 예를 들어 [여기]( https://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/)에서 설명한 대로 스마트 홈 설치의 일부로 태양 패널 성능을 추적하려고 합니다.
+- 완전한 사용자 지정 데이터: 대부분의 고객은 Application Insights를 지원하는 Azure Monitor 로그 플랫폼의 쿼리 언어 및 성능을 즐겨 사용하고 Application Insights와 전혀 관련되지 않은 데이터를 쿼리하는 데 사용합니다. 예를 들어 [여기](https://www.catapultsystems.com/blogs/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/)에서 설명한 대로 스마트 홈 설치의 일부로 태양 패널 성능을 추적하려고 합니다.
 
 ## <a name="how-to-correlate-custom-data-with-application-insights-data"></a>Application Insights와 사용자 지정 데이터 상관 관계 만들기 
 

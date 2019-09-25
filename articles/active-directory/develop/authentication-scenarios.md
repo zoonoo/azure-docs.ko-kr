@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/05/2019
+ms.date: 09/23/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79f462b8903033784f186032c715cc966dfae7b4
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 76c5214fc26d299c6abb72ed6cd448728903e78f
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622698"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272536"
 ---
 # <a name="what-is-authentication"></a>인증이란?
 
@@ -60,9 +60,28 @@ ID가 필요한 가장 기본적인 시나리오를 가정하겠습니다. 예�
 * 안전하게 리소스에 액세스해야 하는 앱
 * 리소스 자체의 역할을 수행하는 앱
 
+### <a name="how-each-flow-emits-tokens-and-codes"></a>각 흐름에서 토큰 및 코드를 내보내는 방법
+
+클라이언트를 구축 하는 방법에 따라 Microsoft id 플랫폼에서 지원 되는 인증 흐름 중 하나 (또는 여러 개)를 사용할 수 있습니다.  이러한 흐름은 다양 한 토큰 (id_tokens, 새로 고침 토큰, 액세스 토큰) 뿐만 아니라 권한 부여 코드를 생성할 수 있으며 서로 다른 토큰을 사용 하 여 작업을 수행할 수 있습니다. 이 차트는 개요를 ide로 합니다.
+
+|흐름 | 위해서는 | id_token | 액세스 토큰 | 토큰 새로 고침 | 인증 코드 | 
+|-----|----------|----------|--------------|---------------|--------------------|
+|[인증 코드 흐름](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[암시적 흐름](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
+|[하이브리드 OIDC 흐름](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[토큰 상환 새로 고침](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | 토큰 새로 고침 | x | x | x| |
+|[On-Behalf-Of 흐름](v2-oauth2-on-behalf-of-flow.md) | 액세스 토큰| x| x| x| |
+|[장치 코드 흐름](v2-oauth2-device-code.md) | | x| x| x| |
+|[클라이언트 자격 증명](v2-oauth2-client-creds-grant-flow.md) | | | x (앱 전용)| | |
+
+**참고**:
+
+암시적 모드를 통해 발급 된 토큰은 URL을 통해 브라우저에 다시 전달 되기 때문에 길이 제한이 있습니다 (여기서 `response_mode` 은 `query` 또는 `fragment`).  일부 브라우저는 브라우저 표시줄에 배치할 수 있는 URL의 크기에 제한이 있으며 너무 길면 실패할 수 있습니다.  따라서 이러한 토큰에는 `groups` 또는 `wids` 클레임이 없습니다. 
+
+
 이제 기본 사항을 간략히 살펴보았으므로 ID 앱 모델 및 API 이해, Microsoft ID 플랫폼에서 프로비전이 작동하는 방법 및 Microsoft ID 플랫폼에서 지원하는 일반적인 시나리오에 대한 자세한 정보 링크를 살펴보세요.
 
-## <a name="application-model"></a>응용 프로그램 모델
+## <a name="application-model"></a>애플리케이션 모델
 
 Microsoft ID 플랫폼은 두 가지 주요 기능을 충족하도록 설계된 특정 모델을 따르는 애플리케이션을 나타냅니다.
 
@@ -109,7 +128,7 @@ Microsoft ID 플랫폼에서 발급하는 보안 토큰(액세스 및 ID 토큰)
 | 클레임 | 설명 |
 | --- | --- |
 | 애플리케이션 ID | 토큰을 사용 중인 애플리케이션을 식별합니다. |
-| 대상 사용자 | 토큰의 의도된 받는 사람 리소스를 식별합니다. |
+| 대상 그룹 | 토큰의 의도된 받는 사람 리소스를 식별합니다. |
 | 애플리케이션 인증 컨텍스트 클래스 참조 | 클라이언트가 인증된 방법을 나타냅니다(공용 클라이언트 또는 기밀 클라이언트). |
 | 인증 인스턴트 | 인증이 발생한 날짜 및 시간을 기록합니다. |
 | 인증 방법 | 토큰의 주체가 인증된 방법을 나타냅니다(예: 암호, 인증서 등). |
@@ -122,8 +141,8 @@ Microsoft ID 플랫폼에서 발급하는 보안 토큰(액세스 및 ID 토큰)
 | 이름 | 토큰의 주체를 식별하는, 사람이 인식할 수 있는 값을 제공합니다. |
 | 개체 ID | Azure AD의 주체에 대한 변경 불가능한 고유 식별자를 포함합니다. |
 | 역할 | 사용자에게 부여된 Azure AD 애플리케이션 역할의 이름을 포함합니다. |
-| 범위 | 클라이언트 애플리케이션에 부여된 권한을 나타냅니다. |
-| 제목 | 토큰에서 어설션하는 정보의 주체를 나타냅니다. |
+| Scope | 클라이언트 애플리케이션에 부여된 권한을 나타냅니다. |
+| Subject | 토큰에서 어설션하는 정보의 주체를 나타냅니다. |
 | 테넌트 ID | 토큰을 발급한 디렉터리 테넌트에 대한 변경 불가능한 고유 식별자를 포함합니다. |
 | 토큰 수명 | 토큰이 유효한 시간 간격을 정의합니다. |
 | 사용자 계정 이름 | 주체의 사용자 계정 이름을 포함합니다. |

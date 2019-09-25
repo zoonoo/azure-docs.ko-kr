@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: heidist
-ms.openlocfilehash: e3240ca40b9dcf866c5e4a5cf570b5575b7586d8
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: aaf0d5edb91d60be85360746f76c4ca1f8db8978
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240350"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257020"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>Azure Search에서 대용량 데이터 세트를 인덱싱하는 방법
 
@@ -25,9 +25,9 @@ ms.locfileid: "71240350"
 
 ## <a name="option-1-pass-multiple-documents"></a>옵션 1: 여러 문서 전달
 
-대용량 데이터 세트를 인덱싱하기 위한 가장 간단한 메커니즘 중 하나는 단일 요청에서 여러 문서 또는 레코드를 제출하는 것입니다. 전체 페이로드가 16MB 미만인 한 요청은 대량 업로드 작업에서 최대 1000개의 문서를 처리할 수 있습니다. 이러한 제한은 .NET SDK에서 [문서 추가 (REST)](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 또는 [인덱스 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 를 사용 하는지에 따라 적용 됩니다. 두 API의 경우 각 요청의 본문에 1000 문서를 패키지할 수 있습니다.
+대용량 데이터 세트를 인덱싱하기 위한 가장 간단한 메커니즘 중 하나는 단일 요청에서 여러 문서 또는 레코드를 제출하는 것입니다. 전체 페이로드가 16MB 미만인 한 요청은 대량 업로드 작업에서 최대 1000개의 문서를 처리할 수 있습니다. 이러한 제한은 .NET SDK에서 [문서 추가 REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 또는 [인덱스 메서드](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) 를 사용 하는지에 따라 적용 됩니다. 두 API의 경우 각 요청의 본문에 1000 문서를 패키지할 수 있습니다.
 
-일괄 처리 인덱싱은 REST 또는 .NET을 사용하여 또는 인덱서를 통해 개별 요청에 대해 구현됩니다. 몇 가지 인덱서는 다른 제한에서 작동합니다. 특히 Azure Blob 인덱싱은 큰 평균 문서 크기의 인식으로 10개의 문서에서 일괄 처리 크기를 설정합니다. [인덱서 만들기 (REST)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer )를 기반으로 하는 인덱서의 경우 데이터의 특성과 `BatchSize` 일치 하도록 인수를 설정 하 여이 설정을 사용자 지정할 수 있습니다. 
+일괄 처리 인덱싱은 REST 또는 .NET을 사용하여 또는 인덱서를 통해 개별 요청에 대해 구현됩니다. 몇 가지 인덱서는 다른 제한에서 작동합니다. 특히 Azure Blob 인덱싱은 큰 평균 문서 크기의 인식으로 10개의 문서에서 일괄 처리 크기를 설정합니다. [만들기 인덱서 REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)에 따른 인덱서의 경우 `BatchSize` 인수를 설정하여 데이터의 특징에 더 잘 일치하도록 이 설정을 사용자 지정할 수 있습니다. 
 
 > [!NOTE]
 > 문서 크기를 유지 하기 위해 인덱스에 쿼리할 수 없는 데이터를 추가 하지 마세요. 이미지 및 기타 이진 데이터는 직접 검색할 수 없으므로 인덱스에 저장하지 않아야 합니다. 쿼리할 수 없는 데이터를 검색 결과에 통합하려면 리소스에 대한 URL 참조를 저장하는 검색할 수 없는 필드를 정의해야 합니다.
@@ -44,7 +44,7 @@ ms.locfileid: "71240350"
 
 + 스케줄러를 통해 시간이 지남에 따라 분배할 수 있도록 정기적으로 인덱싱을 분배할 수 있습니다.
 + 예약된 인덱싱은 마지막으로 알려진 중지 지점에서 다시 시작할 수 있습니다. 데이터 원본이 24시간 기간 내에 완벽하게 크롤링되지 않는 경우 인덱서는 중단 위치에서 두 번째 날에 인덱싱을 다시 시작합니다.
-+ 데이터를 작은 개별 데이터 원본으로 분할하면 병렬 처리가 가능합니다. 대량 데이터 집합을 원본 데이터 플랫폼 (예: Azure Blob storage 또는 Azure SQL Database)에서 더 작은 데이터 집합으로 분할 한 다음 병렬로 인덱싱할 수 있는 여러 [데이터 원본 개체](https://docs.microsoft.com/rest/api/searchservice/create-data-source) 를 Azure Search에 만들 수 있습니다.
++ 데이터를 작은 개별 데이터 원본으로 분할하면 병렬 처리가 가능합니다. 원본 데이터를 Azure Blob storage의 여러 컨테이너와 같은 더 작은 구성 요소로 분할 한 다음 병렬로 인덱싱할 수 있는 Azure Search에 해당 하는 여러 [데이터 원본 개체](https://docs.microsoft.com/rest/api/searchservice/create-data-source) 를 만들 수 있습니다.
 
 > [!NOTE]
 > 인덱서는 데이터 원본에 따르므로 인덱서 방법을 사용하는 것은 Azure에서 선택한 데이터 원본에 대해서만 실행 가능합니다. [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Blob 스토리지](search-howto-indexing-azure-blob-storage.md), [Table 스토리지](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md)

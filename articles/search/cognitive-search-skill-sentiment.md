@@ -9,13 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: ad6689dad3789329ad202c82dd10847c618906a2
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 8610506b7d62542e9eb801b06dd49a5e130fa7fa
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183360"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265750"
 ---
 #   <a name="sentiment-cognitive-skill"></a>감성 인식 기술
 
@@ -44,7 +43,7 @@ Microsoft.Skills.Text.SentimentSkill
 
 ## <a name="skill-inputs"></a>기술 입력 
 
-| 입력 이름 | Description |
+| 입력 이름 | 설명 |
 |--------------------|-------------|
 | text | 분석할 텍스트입니다.|
 | languageCode  |  (선택 사항) 레코드의 언어를 나타내는 문자열입니다. 이 매개 변수를 지정하지 않을 경우 기본값은 "en"입니다. <br/>[지원되는 언어 전체 목록](../cognitive-services/text-analytics/text-analytics-supported-languages.md)을 참조합니다.|
@@ -118,7 +117,7 @@ Microsoft.Skills.Text.SentimentSkill
 ## <a name="error-cases"></a>오류 사례
 언어가 지원되지 않는 경우 오류가 발생하고 감성 점수는 반환되지 않습니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
 + [기능을 정의하는 방법](cognitive-search-defining-skillset.md)

@@ -13,18 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: memildin
-ms.openlocfilehash: d035dc4e8f77bb64a9e845a9dae0668365a6aacb
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8b069bedd3c36f27828e54a1110443ae6dfcdf3f
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202283"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268854"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Azure Security Center에서 ID 및 액세스 모니터링(미리 보기)
 이 문서를 통해 Azure Security Center를 사용하여 사용자의 ID를 모니터링하고 작업에 액세스할 수 있습니다.
-
-> [!NOTE]
-> " *클래식* Id & 액세스 보기" 링크는 2019 년 7 월 31 일에 사용 중지 됩니다. 대체 서비스에 대 한 자세한 내용을 보려면 [여기](security-center-features-retirement-july2019.md#menu_classicidentity) 를 클릭 하세요.
 
 > [!NOTE]
 > ID 및 액세스 모니터링은 미리 보기로 제공되며 Security Center의 표준 계층에서만 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요.
@@ -67,7 +64,7 @@ ID 및 액세스 권장 사항의 전체 목록은 [권장 사항](security-cent
 ### <a name="overview-section"></a>개요 섹션
 **개요**에 권장 사항의 목록이 있습니다. 첫 번째 열에는 권장 사항이 나열되고, 두 번째 열에는 해당 권장 사항의 영향을 받은 구독의 총 수가 표시됩니다. 세 번째 열은 문제의 심각도를 보여 줍니다.
 
-1. 권장 사항을 선택합니다. 권장 사항의 창이 열리고 다음이 표시됩니다.
+1. 권장 사항을 선택합니다. 권장 구성 창이 열리고 다음을 표시 합니다.
 
    - 권장 사항의 설명
    - 비정상 및 정상 상태의 구독 목록
@@ -80,7 +77,7 @@ ID 및 액세스 권장 사항의 전체 목록은 [권장 사항](security-cent
 ### <a name="subscriptions-section"></a>구독 섹션
 **구독**에는 구독의 목록이 있습니다. 첫 번째 열에는 구독이 나열되고, 두 번째 열에는 각 구독에 대한 권장 사항의 총 수를 보여 줍니다. 세 번째 열은 문제의 심각도를 보여 줍니다.
 
-![구독의 탭][4]
+![구독 탭][4]
 
 1. 구독을 선택합니다. 요약 보기는 다음과 같은 세 개의 탭으로 열립니다.
 
@@ -125,13 +122,13 @@ ID 및 액세스 권장 사항의 전체 목록은 [권장 사항](security-cent
 > MFA를 필요 하지만 제외가 설정 된 조건부 액세스 정책을 만든 경우 Security Center MFA 권장 평가는 정책을 준수 하지 않는 것으로 간주 하므로 일부 사용자는 MFA 없이 Azure에 로그인 할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-다른 Azure 리소스 유형에 적용되는 권장 사항에 대해 자세히 알아보려면 다음을 참조하세요.
+다른 Azure 리소스 유형에 적용 되는 권장 사항에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
 - [Azure Security Center에서 머신 및 애플리케이션 보호](security-center-virtual-machine-protection.md)
 - [Azure Security Center에서 네트워크 보호](security-center-network-recommendations.md)
 - [Azure Security Center에서 Azure SQL 서비스 및 데이터 보호](security-center-sql-service-recommendations.md)
 
-보안 센터에 대한 자세한 내용은 다음을 참조하세요.
+Security Center에 대한 자세한 내용은 다음 문서를 참조하세요.
 * [Azure Security Center에서 보안 경고 관리 및 응답](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Security Center에서 경고를 관리하고 보안 인시던트에 대응하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 이해](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). 다양한 유형의 보안 경고에 대해 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md)로 설정합니다. Security Center 사용에 관한 질문과 대답에 대한 답을 찾습니다.

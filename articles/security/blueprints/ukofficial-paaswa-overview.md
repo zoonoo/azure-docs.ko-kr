@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: c0163b5280de942491f2174aa371fa7cc83d5984
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 1f6eeea85a348bb8e88a387fa0fc6bed55e41a5e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946512"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262778"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 보안 및 규정 준수 청사진: UK OFFICIAL 워크로드 준수 PaaS 웹 애플리케이션 호스팅
 
@@ -61,7 +61,7 @@ Azure Blueprint는 승인 또는 규정 준수 요구 사항이 있는 시나리
 - Application Insights
 - Azure Resource Manager
 - Azure Security Center
-- Azure SQL Database
+- Azure SQL 데이터베이스
 - Azure Storage
 
 ## <a name="deployment-architecture"></a>배포 아키텍처
@@ -113,11 +113,11 @@ App Service는 [ISO, SOC 및 PCI 규격](https://www.microsoft.com/TrustCenter/)
 - 여러 App Service [배포 슬롯](https://docs.microsoft.com/azure/app-service/deploy-staging-slots): 개발, 미리 보기, QA, UAT 및 프로덕션(기본 슬롯).
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에 연결하는 [Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/app-service/overview-managed-identity)([Azure SQL Database](https://azure.microsoft.com/services/sql-database/)에 대한 액세스를 제공하는 데 사용할 수도 있음) 
 - 성능을 모니터링하는 [Azure Application Insights](../../azure-monitor/app/azure-web-apps.md)와의 통합
-- [진단 로그](../../azure-monitor/platform/diagnostic-logs-overview.md) 
+- [진단 로그](../../azure-monitor/platform/resource-logs-overview.md) 
 - 메트릭 [경고](../../azure-monitor/app/alerts.md) 
 - [Azure API Apps](https://azure.microsoft.com/services/app-service/api/) 
 
-#### <a name="azure-sql-database"></a>Azure SQL Database
+#### <a name="azure-sql-database"></a>Azure SQL 데이터베이스
 
 SQL Database는 관계형 데이터, 공간, JSON 및 XML과 같은 구조를 지원하는 Microsoft Azure의 범용 관계형 데이터베이스 관리 서비스입니다. SQL Database는 관리되는 단일 SQL 데이터베이스, [탄력적 풀](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)의 관리되는 SQL 데이터베이스 및 SQL [Managed Instances](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)(공개 미리 보기)를 제공합니다. [동적으로 확장 가능한 성능](../../sql-database/sql-database-purchase-models.md)을 제공하고 고도의 분석 및 보고를 위한 [columnstore 인덱스](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) 및 고도의 트랜잭션 처리를 위한 [메모리 내 OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory)와 같은 옵션을 제공합니다. Microsoft에서는 SQL 코드 베이스를 모두 원활하게 패치하고 업데이트하며 기본 인프라의 모든 관리를 추상화합니다.
 
@@ -145,7 +145,7 @@ Microsoft [Azure Storage](https://azure.microsoft.com/services/storage/)는 가�
 - [Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) 
 - HTTPS 연결만 허용
 
-#### <a name="data-at-rest"></a>저장 데이터
+#### <a name="data-at-rest"></a>미사용 데이터
 
 [SSE(스토리지 서비스 암호화)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 통해 Azure Storage에 쓴 모든 데이터는 사용 가능한 가장 강력한 블록 암호화 중 하나인 256비트 AES 암호화를 통해 암호화됩니다. SSE에서 Microsoft 관리 암호화 키를 사용하거나 [사용자 고유의 암호화 키](../../storage/common/storage-encryption-keys-portal.md)를 사용할 수 있습니다.
 

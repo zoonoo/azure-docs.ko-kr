@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 16c65a98ca420a4b15281ee033ea7773197b5b2a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1774fcf0af287bba03c2c5c79e14883e3594ef0c
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098482"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260148"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
 
@@ -43,7 +43,7 @@ ms.locfileid: "70098482"
 
 3. **관리 ID**를 선택합니다.
 
-4. **시스템 할당** 탭에서 **상태**를 **켜기**로 바꿉니다. **Save**을 클릭합니다.
+4. **시스템 할당** 탭에서 **상태**를 **켜기**로 바꿉니다. **저장**을 클릭합니다.
 
 ![App Service의 관리 ID](media/app-service-managed-service-identity/msi-blade-system.png)
 
@@ -304,12 +304,15 @@ Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName
 
 **MSI_ENDPOINT**는 앱이 토큰을 요청할 수 있는 로컬 URL입니다. 리소스 토큰을 가져오려면 이 엔드포인트에 다음 매개 변수를 포함하여 HTTP GET 요청을 보냅니다.
 
-> |매개 변수 이름|입력|Description|
+> |매개 변수 이름|입력|설명|
 > |-----|-----|-----|
-> |resource|Query|토큰을 가져와야 하는 리소스의 AAD 리소스 URI입니다. [Azure AD 인증](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) 또는 기타 리소스 URI를 지원하는 Azure 서비스 중 하나일 수 있습니다.|
-> |api-version|Query|사용할 토큰 API의 버전입니다. "2017-09-01"은 현재 지원되는 유일한 버전입니다.|
+> |resource|query|토큰을 가져와야 하는 리소스의 AAD 리소스 URI입니다. [Azure AD 인증](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) 또는 기타 리소스 URI를 지원하는 Azure 서비스 중 하나일 수 있습니다.|
+> |api-version|query|사용할 토큰 API의 버전입니다. "2017-09-01"은 현재 지원되는 유일한 버전입니다.|
 > |secret|헤더|MSI_SECRET 환경 변수의 값입니다. 이 헤더는 SSRF(서버 쪽 요청 위조) 공격을 완화하는 데 사용됩니다.|
-> |clientid|Query|(선택 사항) 사용할 사용자 할당 ID의 식별자입니다. 생략하면 시스템 할당 ID가 사용됩니다.|
+> |clientid|query|(사용자가 할당 되지 않은 경우 선택 사항) 사용할 사용자 할당 id의 ID입니다. 생략하면 시스템 할당 ID가 사용됩니다.|
+
+> [!IMPORTANT]
+> 사용자 할당 id에 대 한 토큰을 가져오려는 경우에는 `clientid` 속성을 포함 해야 합니다. 그렇지 않으면 토큰 서비스는 시스템 할당 id에 대 한 토큰을 가져오려고 시도 합니다 .이 id는 존재 하지 않을 수도 있고 없을 수도 있습니다.
 
 성공적인 200 OK 응답에는 다음 속성을 가진 JSON 본문이 포함됩니다.
 

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a2749ca35e6137d42a09b79da9315c8f7b242c31
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 1ebf4feb0687d9580bba29cd8213030e542a06da
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000805"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268842"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -29,26 +29,6 @@ Azure Key Vault에 대한 일반적인 내용은 [키 자격 증명 모음이란
 ## <a name="public-previews"></a>공개 미리 보기
 
 새로운 Key Vault 기능의 공개 미리 보기가 정기적으로 릴리스됩니다. 이러한 공개 미리 보기를 사용해보고, 피드백 메일 주소인 azurekeyvault@microsoft.com을 통해 의견을 알려주세요.
-
-### <a name="storage-account-keys---july-10-2017"></a>Storage 계정 키 - 2017년 7월 10일
-
->[!NOTE]
->이 Azure Key Vault 업데이트에서는 **Storage 계정 키** 기능만 미리 보기 상태입니다.
-
-이 미리 보기에는 [.NET/C#](/dotnet/api/microsoft.azure.keyvault/), [REST](/rest/api/keyvault/) 및 [PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault) 인터페이스를 통해 사용할 수 있는 새로운 Storage 계정 키가 포함되어 있습니다. 
-
-새 Storage 계정 키 기능에 대한 자세한 내용은 [Azure Key Vault Storage 계정 키 개요](key-vault-ovw-storage-keys.md)를 참조하세요.
-
-## <a name="videos"></a>비디오
-
-이 비디오에서는 사용자 고유의 키 자격 증명 모음을 만드는 방법과 'Hello Key Vault' 샘플 애플리케이션에서 이를 사용하는 방법을 보여 줍니다.
-
-- [Key Vault 개발자 - 빠른 시작 가이드](https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player)
-
-위 비디오에 언급된 리소스:
-
-- [Azure PowerShell](https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
-- [Azure Key Vault 샘플 코드](https://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
 
 ## <a name="creating-and-managing-key-vaults"></a>주요 자격 증명 모음 만들기 및 관리
 

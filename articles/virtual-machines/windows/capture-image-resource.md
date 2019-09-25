@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 33f3b03ba76a0c3fd33e057d0f15b2ab7a0f44e4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c133431bb2b84525a8ea875dea94cec8595733bb
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089489"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273875"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure에서 일반화된 VM의 관리 이미지 만들기
 
@@ -205,9 +205,9 @@ OS 디스크의 이미지만 만들려면 관리 디스크 ID를 OS 디스크로
     ``` 
 
 
-## <a name="create-an-image-from-a-vhd-in-a-storage-account"></a>스토리지 계정의 VHD에서 이미지 만들기
+## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>저장소 계정을 사용 하는 VM에서 이미지 만들기
 
-스토리지 계정의 일반화된 OS VHD에서 관리되는 이미지를 만듭니다. 스토리지 계정에 있는 VHD의 URI가 필요합니다. 이 URI는 https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd* 형식입니다. 이 예제의 VHD는 *vhdcontainer* 컨테이너의 *mystorageaccount*에 있으며 VHD 파일 이름은 *vhdfilename.vhd*입니다.
+관리 디스크를 사용 하지 않는 VM에서 관리 되는 이미지를 만들려면 저장소 계정에서 OS VHD의 URI가 다음 형식으로 필요 합니다. https://*mystorageaccount*. blob.core.windows.net/*vhdcontainer* /  *vhdfilename*. 이 예제의 VHD는 *vhdcontainer* 컨테이너의 *mystorageaccount*에 있으며 VHD 파일 이름은 *vhdfilename.vhd*입니다.
 
 
 1.  일부 변수를 만듭니다.

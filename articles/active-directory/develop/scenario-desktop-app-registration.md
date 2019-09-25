@@ -17,12 +17,12 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b996b2387e324c7e318536c2a13bdc9de39a7a5e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 648652ed32a5dea30de665b7fa49190171a7f10a
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860887"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268401"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>웹 Api를 호출 하는 데스크톱 앱-앱 등록
 
@@ -51,6 +51,7 @@ ms.locfileid: "70860887"
   > [!IMPORTANT]
   > Today MSAL.NET는 Windows에서 실행 되는 데스크톱 응용 프로그램 (`urn:ietf:wg:oauth:2.0:oob`)에서 기본적으로 다른 리디렉션 URI를 사용 합니다. 나중에이 기본값을 변경 하는 것이 좋습니다. 따라서를 사용 하는 것이 좋습니다.`https://login.microsoftonline.com/common/oauth2/nativeclient`
 
+- MacOS에 대 한 기본 목표-C 또는 Swift 앱을 빌드하는 경우 응용 프로그램의 번들 식별자를 기반으로 하는 redirectUri를 **msauth auth** 형식으로 등록 하는 것이 좋습니다. > <:. 응용 프로그램의 번들 식별자를 사용 하 여 >.
 - 앱이 Windows 통합 인증 또는 사용자 이름/암호를 사용 하는 경우에는 응용 프로그램에 대 한 리디렉션 URI를 등록할 필요가 없습니다. 이러한 흐름은 Microsoft identity platform v2.0 끝점으로의 왕복을 수행 하 고 특정 URI에서 응용 프로그램이 다시 호출 되지 않습니다.
 - 리디렉션 Uri가 없는 기밀 클라이언트 응용 프로그램 흐름 (디먼 응용 프로그램에서 사용 되는 클라이언트 자격 증명 흐름)에서 장치 코드 흐름, Windows 통합 인증 및 사용자 이름/암호를 구분 하려면 응용 프로그램이 공용 클라이언트 응용 프로그램입니다. 이 구성을 얻으려면 응용 프로그램에 대 한 **인증** 섹션으로 이동 합니다. 그런 다음 **고급 설정** 하위 섹션의 **기본 클라이언트 형식** 단락에서 **예** 를 선택 하 여 질문 **처리 응용 프로그램을 공용 클라이언트로**설정 합니다.
 

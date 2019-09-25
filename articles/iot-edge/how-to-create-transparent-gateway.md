@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: e61ddd6cb51795fad564b6246fb24ea4ce48f028
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 467ec25bb9e41180da36f118094324e4fea48cf8
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982946"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266092"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성
 
@@ -34,7 +34,7 @@ ms.locfileid: "69982946"
 
 장치가 게이트웨이로 작동 하려면 다운스트림 장치에 안전 하 게 연결할 수 있어야 합니다. Azure IoT Edge를 사용하면 PKI(공개 키 인프라)를 사용하여 이러한 디바이스 간에 안전한 연결을 설정할 수 있습니다. 이 경우에 투명한 게이트웨이로 작동하는 IoT Edge 디바이스에 다운스트림 디바이스를 연결할 수 있습니다. 적절 한 보안을 유지 하기 위해 다운스트림 장치는 게이트웨이 장치의 id를 확인 해야 합니다. 이 id 검사는 장치에서 잠재적으로 악성 게이트웨이에 연결 하는 것을 방지 합니다.
 
-다운스트림 디바이스는 [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) 클라우드 서비스를 사용하여 생성된 ID가 있는 애플리케이션 또는 플랫폼이 될 수 있습니다. 많은 경우에 이러한 애플리케이션은 [Azure IoT 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용합니다. 모든 실질적인 용도의 경우 다운스트림 디바이스는 IoT Edge 게이트웨이 디바이스 자체에서 실행 중인 애플리케이션일 수 있습니다. 
+투명 게이트웨이 시나리오의 다운스트림 장치는 [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) 클라우드 서비스를 사용 하 여 만든 id가 있는 모든 응용 프로그램 또는 플랫폼이 될 수 있습니다. 많은 경우에 이러한 애플리케이션은 [Azure IoT 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용합니다. 모든 실질적인 용도의 경우 다운스트림 디바이스는 IoT Edge 게이트웨이 디바이스 자체에서 실행 중인 애플리케이션일 수 있습니다. 그러나 IoT Edge 장치는 IoT Edge 게이트웨이의 다운스트림 일 수 없습니다. 
 
 디바이스-게이트웨이 토폴로지에 필요한 신뢰를 설정하는 어떤 인증서 인프라도 만들 수 있습니다. 이 문서에서는 IoT Hub에서 [X.509 ca 보안](../iot-hub/iot-hub-x509ca-overview.md) 을 사용 하도록 설정 하는 데 사용 하는 것과 동일한 인증서 설정을 가정 합니다. 여기에는 특정 iot Hub (iot HUB 루트 CA)와 연결 된 x.509 ca 인증서와이 ca로 서명 된 일련의 인증서가 포함 됩니다. 및 IoT Edge 장치의 CA
 
@@ -47,9 +47,10 @@ ms.locfileid: "69982946"
 
 다음 단계는 인증서를 만들어 게이트웨이의 올바른 위치에 설치 하는 과정을 안내 합니다. 머신을 사용하여 인증서를 생성한 다음, IoT Edge 디바이스로 복사할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-Azure IoT Edge 디바이스를 게이트웨이로 구성합니다. 다음 운영 체제 중 하나에 IoT Edge 설치 단계를 사용 합니다.
+* 인증서를 만들 수 있는 개발 컴퓨터입니다. 
+* Azure IoT Edge 디바이스를 게이트웨이로 구성합니다. 다음 운영 체제 중 하나에 IoT Edge 설치 단계를 사용 합니다.
   * [Windows](how-to-install-iot-edge-windows.md)
   * [Linux](how-to-install-iot-edge-linux.md)
 
@@ -63,7 +64,7 @@ Azure IoT Edge 디바이스를 게이트웨이로 구성합니다. 다음 운영
 
 인증서를 생성하는 데 사용하는 머신에서 Windows용 OpenSSL을 설치합니다. Windows 장치에 OpenSSL가 이미 설치 되어 있는 경우이 단계를 건너뛸 수 있지만 PATH 환경 변수에서 OpenSSL을 사용할 수 있는지 확인 합니다. 
 
-다양한 방법으로 OpenSSL을 설치할 수 있습니다.
+다음을 비롯 한 여러 가지 방법으로 OpenSSL를 설치할 수 있습니다.
 
 * **간편:** [타사 OpenSSL 이진 파일](https://wiki.openssl.org/index.php/Binaries)을 다운로드 하 여 설치 합니다 (예: [Sourceforge의 OpenSSL](https://sourceforge.net/projects/openssl/)). PATH 환경 변수에 openssl.exe에 대한 전체 경로를 추가합니다. 
    
@@ -286,7 +287,7 @@ IoT Hub와의 모든 통신은 아웃 바운드 연결을 통해 수행 되므�
 
 게이트웨이 시나리오가 작동 하려면 다운스트림 장치에서 인바운드 트래픽에 대해 IoT Edge 허브의 지원 되는 프로토콜 중 하나 이상을 열어야 합니다. 지원 되는 프로토콜은 MQTT, AMQP 및 HTTPS입니다. 
 
-| 포트 | 프로토콜 |
+| 포트 | Protocol |
 | ---- | -------- |
 | 8883 | MQTT |
 | 5671 | AMQP |
@@ -321,4 +322,4 @@ IoT Edge 런타임의 [v 1.0.4 릴리스부터](https://github.com/Azure/azure-i
 
 ## <a name="next-steps"></a>다음 단계
 
-투명한 게이트웨이로 작동하는 IoT Edge 디바이스가 생겼습니다. 이제 게이트웨이를 신뢰하고 메시지를 보내도록 다운스트림 디바이스를 구성해야 합니다. 자세한 내용은 [Azure IoT Edge 게이트웨이에 다운스트림 장치 연결](how-to-connect-downstream-device.md) 및 [Azure IoT Hub에 대 한 다운스트림 장치 인증](how-to-authenticate-downstream-device.md)을 참조 하세요.
+투명한 게이트웨이로 작동하는 IoT Edge 디바이스가 생겼습니다. 이제 게이트웨이를 신뢰하고 메시지를 보내도록 다운스트림 디바이스를 구성해야 합니다. 투명 게이트웨이 시나리오를 설정 하는 다음 단계에 대 한 [Azure IoT Hub 위해 다운스트림 장치를 인증](how-to-authenticate-downstream-device.md) 하려면 계속 진행 합니다. 

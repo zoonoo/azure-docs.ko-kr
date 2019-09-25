@@ -9,13 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: 07969a92286837f8f72b533173ac8d170378d0ea
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 69e798601dc53ffb666aa9dcddd68980256fa3fc
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183391"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265450"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>이미지 분석 인식 기술
 
@@ -34,11 +33,11 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 매개 변수 이름     | Description |
+| 매개 변수 이름     | 설명 |
 |--------------------|-------------|
 | defaultLanguageCode   |  반환할 언어를 나타내는 문자열입니다. 서비스는 지정된 언어로 인식 결과를 반환합니다. 이 매개 변수를 지정하지 않을 경우 기본값은 “en”입니다. <br/><br/>지원되는 언어는 다음과 같습니다. <br/>*en* - 영어(기본값) <br/> *zh* - 중국어 간체|
 |visualFeatures |   반환할 시각적 기능 유형을 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다.  <ul><li> *categories* -Cognitive Services [Computer Vision 설명서](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)에 정의 된 분류에 따라 이미지 콘텐츠를 분류 합니다. </li><li> ‘태그’ - 이미지 콘텐츠와 관련된 단어의 자세한 목록으로 이미지에 태그를 지정합니다.</li><li>*설명* -전체 영어 문장이 포함 된 이미지 내용에 대해 설명 합니다.</li><li>*얼굴* -얼굴이 있는지 검색 합니다. 얼굴이 있으면 좌표, 성별 및 나이를 생성합니다.</li><li>    *Imagetype* -이미지가 클립 아트 인지 또는 선 그리기 인지 검색 합니다.</li><li>  *color* -악센트 색, 주요 색 및 이미지가 검은색 & 흰색 인지 여부를 결정 합니다.</li><li>*성인* -이미지가 음란 (노출 또는 성 act를 나타냅니다) 여부를 검색 합니다. 성적으로 노골적인 콘텐츠도 검색됩니다.</li></ul> 시각적 기능의 이름은 대/소문자를 구분합니다.|
-| 자세히   | 반환할 도메인 특정 세부 정보를 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다. <ul><li>*유명인* -이미지에서 검색 된 경우 유명인를 식별 합니다.</li><li>*랜드마크* -이미지에서 검색 된 경우 랜드마크를 식별 합니다. </li></ul> |
+| details 정보   | 반환할 도메인 특정 세부 정보를 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다. <ul><li>*유명인* -이미지에서 검색 된 경우 유명인를 식별 합니다.</li><li>*랜드마크* -이미지에서 검색 된 경우 랜드마크를 식별 합니다. </li></ul> |
 
 ## <a name="skill-inputs"></a>기술 입력
 
@@ -494,7 +493,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 ## <a name="error-cases"></a>오류 사례
 다음 오류 사례에서는 요소가 추출되지 않습니다.
 
-| 오류 코드 | Description |
+| 오류 코드 | 설명 |
 |------------|-------------|
 | NotSupportedLanguage | 제공한 언어가 지원되지 않습니다. |
 | InvalidImageUrl | 이미지 URL의 형식이 잘못되었거나 액세스할 수 없습니다.|
@@ -520,7 +519,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
             ]
 ```
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)

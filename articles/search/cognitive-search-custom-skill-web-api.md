@@ -9,13 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: a01518158e063d68734b1230f11cae78f461faac
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 89539d42e9ac9456c7ee971f6ea607b6b2c6befa
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183460"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266318"
 ---
 # <a name="custom-web-api-skill"></a>사용자 지정 Web API 기술
 
@@ -36,7 +35,7 @@ Microsoft.Skills.Custom.WebApiSkill
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 매개 변수 이름     | Description |
+| 매개 변수 이름     | 설명 |
 |--------------------|-------------|
 | URI | _JSON_ 페이로드가 전송 될 웹 API의 URI입니다. **https** URI 체계만 허용됩니다. |
 | httpMethod | 페이로드를 보내는 데 사용하는 메서드입니다. 허용되는 메서드는 `PUT` 또는 `POST`입니다. |
@@ -201,7 +200,7 @@ Web API가 사용 가능하지 않거나 성공적이지 않은 상태 코드를
 
 Web API가 사용 가능하지 않거나 HTTP 오류를 반환하는 경우 HTTP 오류에 대해 사용 가능한 모든 세부 정보를 포함하는 오류가 인덱서 실행 기록에 추가됩니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [Cognitive Search에 사용자 지정 기술 추가](cognitive-search-custom-skill-interface.md)

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 602e4356ccd9eb45855462a7a25e0966dc176b4f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4a30e496c96fcc90417e58b0f921717985b89693
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899935"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262793"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure 보안 및 준수 청사진 - UK OFFICIAL에 대한 3계층 IaaS 웹 애플리케이션
 
@@ -109,7 +109,7 @@ ms.locfileid: "69899935"
 - (1) Biz 계층 부하 분산 장치
 - (1) 데이터 계층 부하 분산 장치
 
-저장 공간
+스토리지
 - (14) 총 스토리지 계정
   - Active Directory 도메인 컨트롤러 가용성 집합
     - (2) 주 LRS(로컬 중복 스토리지) 계정 - 각 VM에 한 개  
@@ -172,13 +172,13 @@ ms.locfileid: "69899935"
 
 **활동 로그**: [Azure 활동 로그](../../azure-monitor/platform/activity-logs-overview.md)를 구성하여 구독에 있는 리소스에서 수행된 작업에 대한 자세한 정보를 제공합니다.
 
-**진단 로그**: [진단 로그](../../azure-monitor/platform/diagnostic-logs-overview.md)는 리소스에서 내보낸 모든 로그입니다. 이러한 로그는 Windows 이벤트 시스템 로그, Blob, 테이블 및 큐 로그를 포함할 수 있습니다.
+**진단 로그**: [진단 로그](../../azure-monitor/platform/resource-logs-overview.md)는 리소스에서 내보낸 모든 로그입니다. 이러한 로그는 Windows 이벤트 시스템 로그, Blob, 테이블 및 큐 로그를 포함할 수 있습니다.
 
 **방화벽 로그.** : Application Gateway는 전체 진단 및 액세스 로그를 제공합니다. 방화벽 로그는 WAF를 사용하도록 설정한 Application Gateway 리소스에 사용할 수 있습니다.
 
 **로그 보관**: 로그 데이터 저장소는 보관을 위해 중앙 집중식 Azure 저장소 계정에 기록 하 고 정의 된 보존 기간을 기록 하도록 구성할 수 있습니다. 로그는 Azure Monitor 로그 나 타사 SIEM 시스템을 사용 하 여 처리할 수 있습니다.
 
-### <a name="identity"></a>클레임
+### <a name="identity"></a>ID
 
 **Active Directory Domain Services**: 이 아키텍처는 Azure에서 Active Directory Domain Services 배포를 제공합니다. Azure에서 Active Directory를 구현하는 방법에 대한 특정 권장 구성은 다음 문서를 참조하세요.
 

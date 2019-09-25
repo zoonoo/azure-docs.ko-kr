@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: dd5442ff8c8d296dfa221a9ea7ed8d5833fd89c1
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c5e58f496176ec0f1b8317c8b862a8ef2ffa434d
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240719"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262723"
 ---
-# <a name="connect-your-domain-name-server---preview"></a>도메인 이름 서버 연결-미리 보기
+# <a name="connect-your-domain-name-server"></a>도메인 이름 서버 연결
 
-
+> [!IMPORTANT]
+> Azure 센티널의 DNS 데이터 커넥터는 현재 공개 미리 보기로 제공 됩니다.
+> 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Windows에서 실행 되는 모든 DNS (도메인 이름 서버)를 Azure 센티널에 연결할 수 있습니다. 이 작업은 DNS 컴퓨터에 에이전트를 설치 하 여 수행 합니다. DNS 로그를 사용 하 여 DNS 서버에서 분석 및 감사 로그와 기타 관련 데이터를 수집, 분석 및 상관 관계를 구성 하 여 조직의 DNS 인프라에 대 한 보안, 성능 및 작업 관련 정보를 얻을 수 있습니다.
 
@@ -53,7 +55,7 @@ DNS 로그 연결을 사용 하도록 설정 하면 다음을 수행할 수 있�
 
 ## <a name="connect-your-dns-appliance"></a>DNS 어플라이언스 연결
 
-1. Azure 센티널 포털에서 **데이터 커넥터** 를 선택 하 고 **DNS** 타일을 선택 합니다.
+1. Azure 센티널 포털에서 **데이터 커넥터** 를 선택 하 고 **DNS (미리 보기)** 타일을 선택 합니다.
 1. DNS 컴퓨터가 Azure에 있는 경우:
     1. **Azure Windows 가상 머신에서 에이전트 설치를**클릭 합니다.
     1. **Virtual machines** 목록에서 Azure 센티널로 스트리밍할 DNS 컴퓨터를 선택 합니다. Windows VM 인지 확인 합니다.

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 09/24/2019
 ms.author: b-juche
-ms.openlocfilehash: f97bb4842d9e24d879dd47757fda75b16bca48cf
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 66d0d65065f323f53095782e165f179125aa35ac
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494815"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264973"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -58,7 +58,9 @@ ms.locfileid: "68494815"
 
 ### <a name="how-are-encryption-keys-managed"></a>암호화 키는 어떻게 관리 되나요? 
 
-Azure NetApp Files에 대 한 키 관리는 서비스에 의해 처리 됩니다.  현재 사용자가 관리 하는 키 (사용자 고유의 키로 가져오기)는 지원 되지 않습니다.
+Azure NetApp Files에 대 한 키 관리는 서비스에 의해 처리 됩니다. 각 볼륨에 대해 고유한 XTS-256 데이터 암호화 키가 생성 됩니다. 암호화 키 계층은 모든 볼륨 키를 암호화 하 고 보호 하는 데 사용 됩니다. 이러한 암호화 키는 암호화 되지 않은 형식으로 표시 되거나 보고 되지 않습니다. 볼륨을 삭제 하면 암호화 키가 즉시 삭제 됩니다.
+
+현재 사용자가 관리 하는 키 (사용자 고유의 키로 가져오기)는 지원 되지 않습니다.
 
 ### <a name="can-i-configure-the-nfs-export-policy-rules-to-control-access-to-the-azure-netapp-files-service-mount-target"></a>Azure NetApp Files service mount 대상에 대 한 액세스를 제어 하도록 NFS 내보내기 정책 규칙을 구성할 수 있나요?
 

@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 07/11/2019
+ms.date: 9/24/2019
 ms.author: ellacroi
-ms.openlocfilehash: 209905eaf90e006ded232be73ab2a3a428568eda
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 6b9cc80dfb397d5bf330d0be947f468e9b802139
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309029"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259950"
 ---
 # <a name="marketplace-faqs"></a>Marketplace FAQ
 
@@ -35,7 +35,7 @@ Azure Marketplace는 상용 IT 소프트웨어와 서비스에 관심이 있는 
 Azure Marketplace는 Azure 제품과 서비스를 확장하기 위해 빌드된 Microsoft 및 파트너의 기술 솔루션과 서비스를 제공합니다. 솔루션 카탈로그에는 다음을 비롯한 여러 범주가 포함됩니다.
 
 * 기본 운영 체제
-* 데이터베이스
+* databases
 * 보안
 * identity
 * 네트워킹
@@ -245,6 +245,14 @@ Azure Marketplace 구매와 관련된 대금 청구 및 구독 문제의 경우 
 
 Marketplace 서비스 또는 구매와 관련된 기술적인 문제는 판매자에게 직접 문의해야 합니다. 판매자 연락처 정보 및/또는 지원 웹 사이트 링크는 Azure Marketplace의 해당 솔루션 정보 페이지에서 확인할 수 있습니다.
 
+**중간 기간을 늘릴 때 라이선스 추가는 어떻게 처리 되나요?**
+
+기존 구독에 추가 된 라이선스는 구독 기간의 나머지 기간에 대해 등급을 지정 합니다.
+
+**중간 기간 동안 라이선스 제거는 어떻게 처리 되나요?**
+
+취소 된 라이선스에는이 FAQ에 나와 있는 환불 정책이 적용 됩니다.  취소 된 모든 라이선스는 계정에서 즉시 제거 되며 더 이상 사용할 수 없게 됩니다.
+
 ## <a name="faq-for-publishers"></a>판매자 관련 FAQ
 
 ### <a name="what-you-need-to-know-about-azure-marketplace"></a>Azure Marketplace에 대해 알아 두어야 할 내용
@@ -348,7 +356,7 @@ Microsoft는 AAD를 통해 모든 Marketplace 사용자를 인증합니다.  추
 *Web Apps (SaaS 앱, 추가 기능) & 컨설팅 서비스:*
 
 1. Cloud 파트너 포털에서 물음표 아이콘을 선택 하 고 **지원**을 클릭 합니다.
-1. 로 이동하세요 <https://go.microsoft.com/fwlink/?linkid=844975>.
+1. 로 이동하세요.<https://go.microsoft.com/fwlink/?linkid=844975>
 1. 지원 페이지에서 제품 유형을 선택합니다.
 1. 게시 된 제안 **제거** 를 선택 합니다.
 1. 인시던트 티켓을 만듭니다.

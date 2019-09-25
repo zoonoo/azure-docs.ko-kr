@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: cbdf05c714971db5a618ca2a8bb35fe286d6804c
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c1c374977460de04d2339ba8c93019cf9152dbe3
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240682"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262709"
 ---
-# <a name="connect-data-from-threat-intelligence-providers---preview"></a>위협 인텔리전스 공급자에서 데이터 연결-미리 보기
+# <a name="connect-data-from-threat-intelligence-providers"></a>위협 인텔리전스 공급자의 데이터 연결
 
 > [!IMPORTANT]
-> Azure 센티널의 위협 인텔리전스는 현재 공개 미리 보기로 제공 됩니다.
+> Azure 센티널의 위협 인텔리전스 플랫폼 데이터 커넥터는 현재 공개 미리 보기로 제공 됩니다.
 > 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure 센티널을 사용 하면 조직에서 사용 하는 위협 지표를 가져올 수 있습니다. 이렇게 하면 보안 분석가가 알려진 위협을 검색 하 고 우선 순위를 정하는 기능을 향상 시킬 수 있습니다. Azure 센티널의 여러 기능을 사용할 수 있게 되거나 향상 됩니다.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895d44ea7ab6bfebee44014ad4e96016a555c08e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 5ad8f24c9d23e9412a4f6e4e5f97692bba2c0c39
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959930"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268679"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD 암호 보호 배포
 
@@ -43,23 +43,24 @@ ms.locfileid: "70959930"
 ## <a name="deployment-requirements"></a>배포 요구 사항
 
 * Azure AD 암호 보호에 대 한 라이선스 요구 사항은 [조직에서 잘못 된 암호 제거](concept-password-ban-bad.md#license-requirements)문서에서 찾을 수 있습니다.
-* Azure AD 암호 보호를 위한 DC 에이전트 서비스를 가져오는 모든 도메인 컨트롤러는 Windows Server 2012 이상을 실행 해야 합니다. 이 요구 사항은 Active Directory 도메인 또는 포리스트가 Windows Server 2012 도메인 또는 포리스트 기능 수준에 있어야 한다는 의미는 아닙니다. [디자인 원칙](concept-password-ban-bad-on-premises.md#design-principles)에 설명 된 대로 DC 에이전트 또는 프록시 소프트웨어를 실행 하는 데 필요한 최소 dfl 또는 ffl은 없습니다.
+* Azure AD 암호 보호 DC 에이전트 소프트웨어가 설치 되는 모든 컴퓨터는 Windows Server 2012 이상을 실행 해야 합니다. 이 요구 사항은 Active Directory 도메인 또는 포리스트가 Windows Server 2012 도메인 또는 포리스트 기능 수준에 있어야 한다는 의미는 아닙니다. [디자인 원칙](concept-password-ban-bad-on-premises.md#design-principles)에 설명 된 대로 DC 에이전트 또는 프록시 소프트웨어를 실행 하는 데 필요한 최소 dfl 또는 ffl은 없습니다.
 * DC 에이전트 서비스를 설치 하는 모든 컴퓨터에는 .NET 4.5이 설치 되어 있어야 합니다.
-* Azure AD 암호 보호를 위한 프록시 서비스를 가져오는 모든 컴퓨터는 Windows Server 2012 R2 이상을 실행 해야 합니다.
+* Azure AD 암호 보호 프록시 서비스가 설치 되는 모든 컴퓨터는 Windows Server 2012 R2 이상을 실행 해야 합니다.
    > [!NOTE]
    > 프록시 서비스 배포는 도메인 컨트롤러에서 아웃 바운드 직접 인터넷 연결을 사용할 수 있는 경우에도 Azure AD 암호 보호를 배포 하기 위한 필수 요구 사항입니다. 
    >
 * Azure AD 암호 보호 프록시 서비스가 설치 될 모든 컴퓨터에는 .NET 4.7이 설치 되어 있어야 합니다.
   .NET 4.7은 완전히 업데이트 된 Windows Server에 이미 설치 되어 있어야 합니다. 그렇지 않은 경우 [Windows 용 .NET Framework 4.7 오프 라인 설치 관리자](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows)에서 찾은 설치 관리자를 다운로드 하 여 실행 합니다.
-* Azure AD 암호 보호 구성 요소를 가져오는 도메인 컨트롤러를 비롯 한 모든 컴퓨터에는 유니버설 C 런타임이 설치 되어 있어야 합니다. Windows 업데이트의 모든 업데이트가 있는지 확인 하 여 런타임을 가져올 수 있습니다. 또는 OS 특정 업데이트 패키지에서 가져올 수 있습니다. 자세한 내용은 [Windows에서 유니버설 C 런타임 업데이트](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows)를 참조 하세요.
+* Azure AD 암호 보호 구성 요소가 설치 된 도메인 컨트롤러를 비롯 한 모든 컴퓨터에는 유니버설 C 런타임이 설치 되어 있어야 합니다. Windows 업데이트의 모든 업데이트가 있는지 확인 하 여 런타임을 가져올 수 있습니다. 또는 OS 특정 업데이트 패키지에서 가져올 수 있습니다. 자세한 내용은 [Windows에서 유니버설 C 런타임 업데이트](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows)를 참조 하세요.
 * 각 도메인에 있는 하나 이상의 도메인 컨트롤러와 암호 보호를 위해 프록시 서비스를 호스팅하는 하나 이상의 서버 간에 네트워크 연결이 존재 해야 합니다. 이 연결을 통해 도메인 컨트롤러에서 RPC 끝점 매퍼 포트 135 및 프록시 서비스의 RPC 서버 포트에 액세스할 수 있어야 합니다. 기본적으로 RPC 서버 포트는 동적 RPC 포트 이지만 [정적 포트를 사용](#static)하도록 구성할 수 있습니다.
-* 프록시 서비스를 호스트 하는 모든 컴퓨터는 다음 끝점에 대 한 네트워크 액세스 권한이 있어야 합니다.
+* Azure AD 암호 보호 프록시 서비스가 설치 될 모든 컴퓨터에는 다음 끝점에 대 한 네트워크 액세스 권한이 있어야 합니다.
 
     |**엔드포인트**|**용도**|
     | --- | --- |
     |`https://login.microsoftonline.com`|인증 요청|
     |`https://enterpriseregistration.windows.net`|Azure AD 암호 보호 기능|
 
+  또한 [응용 프로그램 프록시 환경 설정 절차](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment)에 지정 된 포트 및 url 집합에 대 한 네트워크 액세스를 사용 하도록 설정 해야 합니다. 이러한 구성 단계는 Microsoft Azure AD Connect Agent 업데이트 프로그램 서비스가 작동할 수 있도록 하는 데 필요 합니다 (이 서비스는 프록시 서비스와 함께 설치 됨). 동일한 컴퓨터에 Azure AD 암호 보호 프록시와 응용 프로그램 프록시를 함께 설치 하는 것은 Microsoft Azure AD 연결 에이전트 업데이트 프로그램 소프트웨어의 버전과의 비 호환성 때문에 권장 되지 않습니다.
 * 도메인 컨트롤러에 프록시 서비스에 로그온 할 수 있는 권한을 부여 하려면 암호 보호를 위해 프록시 서비스를 호스팅하는 모든 컴퓨터를 구성 해야 합니다. 이는 "네트워크에서이 컴퓨터 액세스" 권한 할당을 통해 제어 됩니다.
 * 암호 보호를 위해 프록시 서비스를 호스트 하는 모든 컴퓨터는 아웃 바운드 TLS 1.2 HTTP 트래픽을 허용 하도록 구성 되어야 합니다.
 * Azure AD를 사용 하 여 암호 보호 및 포리스트에 대 한 프록시 서비스를 등록 하는 전역 관리자 계정.
@@ -289,7 +290,7 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
 
    도메인 컨트롤러가 아닌 컴퓨터에는 DC 에이전트 서비스를 설치할 수 있습니다. 이 경우 서비스가 시작 되어 실행 되지만 컴퓨터가 도메인 컨트롤러로 승격 될 때까지 비활성 상태로 유지 됩니다.
 
-   표준 MSI 절차를 사용 하 여 소프트웨어 설치를 자동화할 수 있습니다. 예:
+   표준 MSI 절차를 사용 하 여 소프트웨어 설치를 자동화할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 

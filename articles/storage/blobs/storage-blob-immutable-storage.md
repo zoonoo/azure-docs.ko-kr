@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 6278b16221072b9b5bca371007296806454ba197
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: fcc5c4008c0fdef3b77e436761d8958fe31458d8
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212433"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257364"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage-immutably"></a>비즈니스에 중요 한 데이터를 Azure Blob 저장소에 저장 immutably 
 
@@ -42,7 +42,7 @@ Azure Blob 저장소에 대 한 변경할 수 없는 저장소를 통해 사용�
 
 - **컨테이너 수준 구성**: 사용자가 컨테이너 수준에서 시간 기준 보존 정책 및 법적 보존 태그를 구성할 수 있습니다. 사용자는 간단한 컨테이너 수준 설정을 사용 하 여 시간 기반 보존 정책을 만들고 잠그고, 보존 간격을 확장 하 고, 법적 보류를 설정 하 고 지울 수 있습니다. 이러한 정책은 컨테이너의 모든 Blob(기존 및 신규)에 적용됩니다.
 
-- **감사 로깅 지원**: 각 컨테이너에는 정책 감사 로그가 포함 됩니다. 잠긴 시간 기반 보존 정책에 대 한 최대 7 개의 시간 기반 보존 명령을 표시 하 고 사용자 ID, 명령 유형, 타임 스탬프 및 보존 간격을 포함 합니다. 법적 보존의 경우 로그에는 사용자 ID, 명령 유형, 타임스탬프 및 법적 보존 태그가 포함됩니다. 이 로그는 초 17a-4 (f) 규정 지침에 따라 정책의 수명 동안 유지 됩니다. [Azure 활동 로그](../../azure-monitor/platform/activity-logs-overview.md) 에는 모든 제어 평면 활동의 포괄적인 로그가 표시 됩니다. [Azure 진단 로그](../../azure-monitor/platform/diagnostic-logs-overview.md) 를 사용 하도록 설정 하는 동안 데이터 평면 작업을 유지 하 고 표시 합니다. 이러한 로그는 규정 또는 다른 목적으로 필요할 수 있으므로 사용자가 이러한 로그를 영구적으로 저장할 책임이 있습니다.
+- **감사 로깅 지원**: 각 컨테이너에는 정책 감사 로그가 포함 됩니다. 잠긴 시간 기반 보존 정책에 대 한 최대 7 개의 시간 기반 보존 명령을 표시 하 고 사용자 ID, 명령 유형, 타임 스탬프 및 보존 간격을 포함 합니다. 법적 보존의 경우 로그에는 사용자 ID, 명령 유형, 타임스탬프 및 법적 보존 태그가 포함됩니다. 이 로그는 초 17a-4 (f) 규정 지침에 따라 정책의 수명 동안 유지 됩니다. [Azure 활동 로그](../../azure-monitor/platform/activity-logs-overview.md) 에는 모든 제어 평면 활동의 포괄적인 로그가 표시 됩니다. [Azure 진단 로그](../../azure-monitor/platform/resource-logs-overview.md) 를 사용 하도록 설정 하는 동안 데이터 평면 작업을 유지 하 고 표시 합니다. 이러한 로그는 규정 또는 다른 목적으로 필요할 수 있으므로 사용자가 이러한 로그를 영구적으로 저장할 책임이 있습니다.
 
 ## <a name="how-it-works"></a>작동 방법
 

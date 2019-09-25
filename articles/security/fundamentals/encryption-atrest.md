@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/10/2019
+ms.date: 09/24/2019
 ms.author: barclayn
-ms.openlocfilehash: 3e745d5f38d5623aab17ef7a3e3fbfa2c616e6d4
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: b506c6f6101e8c5ce71231a8178f70fa5a0914d8
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984847"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262817"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 미사용 데이터 암호화
 
@@ -248,7 +248,7 @@ Azure IaaS(Infrastructure as a Service) 기능을 사용하는 모든 고객은 
 - 서버 측: 모든 Azure Storage 서비스는 기본적으로 애플리케이션에 투명한 서비스 관리 키를 사용하여 서버 측 암호화를 활성화합니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)를 참조하세요. Azure Blob Storage 및 Azure Files도 Azure Key Vault의 RSA 2048비트 고객 관리 키를 지원합니다. 자세한 내용은 [Azure Key Vault의 고객 관리 키를 사용하는 Storage 서비스 암호화](../../storage/common/storage-encryption-keys-portal.md)를 참조하세요.
 - 클라이언트 측: Azure Blob, Table 및 Queue에서 클라이언트 측 암호화를 지원합니다. 클라이언트 쪽 암호화를 사용하는 경우 고객은 데이터를 암호화하고 암호화된 Blob으로 데이터를 업로드합니다. 키 관리는 고객이 수행합니다. 자세한 내용은 [Microsoft Azure Storage용 클라이언트 쪽 암호화 및 Azure Key Vault](../../storage/common/storage-client-side-encryption.md)를 참조하세요.
 
-#### <a name="azure-sql-database"></a>Azure SQL Database
+#### <a name="azure-sql-database"></a>Azure SQL 데이터베이스
 
 Azure SQL Database는 현재 Microsoft 관리 서비스 쪽 및 클라이언트 쪽 암호화 시나리오에 대한 저장 데이터 암호화를 지원합니다.
 
@@ -262,8 +262,8 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **서비스 관리 키를 사용하는 서버 쪽**     | **고객이 관리 하는 키를 사용 하는 서버 쪽**             | **클라이언트 관리를 사용하는 클라이언트 쪽**      |
 | **AI 및 Machine Learning**      |                    |                    |                    |
-| Azure Search                     | 예                | -                  | -                  |
-| Azure Machine Learning Service   | 예                | -                  | -                  |
+| Azure Search                     | 예                | 미리 보기            | -                  |
+| Azure Machine Learning 서비스   | 예                | -                  | -                  |
 | Azure Machine Learning Studio    | 예                | 미리 보기, RSA 2048비트 | -               |
 | Power BI                         | 예                | 미리 보기, RSA 2048비트 | -                  |
 | **분석**                    |                    |                    |                    |
@@ -277,19 +277,19 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 | Azure Data Lake Store            | 예                | 예, RSA 2048비트  | -                  |
 | **컨테이너**                   |                    |                    |                    |
 | Azure Kubernetes Service         | 예                | -                  | -                  |
-| 컨테이너 레지스트리               | 예                | -                  | -                  |
+| Container Registry               | 예                | -                  | -                  |
 | **계산**                      |                    |                    |                    |
 | 가상 머신                 | 예                | 예, RSA 2048비트  | -                  |
 | 가상 머신 확장 집합        | 예                | 예, RSA 2048비트  | -                  |
 | SAP HANA                         | 예                | 예, RSA 2048비트  | -                  |
 | **데이터베이스**                    |                    |                    |                    |
 | Virtual Machines의 SQL Server   | 예                | 예, RSA 2048비트  | 예                |
-| Azure SQL Database               | 예                | 예, RSA 2048비트  | 예                |
+| Azure SQL 데이터베이스               | 예                | 예, RSA 2048비트  | 예                |
 | Azure SQL Database for MariaDB   | 예                | -                  | -                  |
 | MySQL에 대 한 Azure SQL Database     | 예                | -                  | -                  |
 | PostgreSQL에 대 한 Azure SQL Database | 예                | -                  | -                  |
 | Azure SQL 데이터 웨어하우스         | 예                | 예, RSA 2048비트  | 예                |
-| SQL Server 스트레치 데이터베이스      | 예                | 예, RSA 2048비트  | 예                |
+| SQL Server Stretch Database      | 예                | 예, RSA 2048비트  | 예                |
 | Table Storage                    | 예                | -                  | 예                |
 | Azure Cosmos DB                  | 예                | -                  | -                  |
 | **DevOps**                       |                    |                    |                    |

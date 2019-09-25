@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e4403c245a3cae671f83260ae313ed400b0f7721
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400855"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259365"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>분산 추적(미리 보기)을 사용하여 Azure IoT 디바이스-클라우드 메시지 추적
 
@@ -30,7 +30,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 이 문서에서는 분산 추적과 함께 [C용 Azure IoT 디바이스 SDK](./iot-hub-device-sdk-c-intro.md)를 사용합니다. 다른 SDK의 경우 분산 추적 지원이 아직 진행 중입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 분산 추적의 미리 보기는 현재 다음 지역에서 만든 IoT Hub에 대해서만 지원됩니다.
 
@@ -172,12 +172,12 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 ### <a name="workaround-for-third-party-clients"></a>타사 클라이언트에 대 한 해결 방법
 
-있기 **하지 trivial** C SDK를 사용 하지 않고 분산된 추적 기능을 미리 보려면. 따라서이 방법은 권장 되지 않습니다.
+C SDK를 사용 하지 않고도 분산 추적 **기능을 미리 볼 수 있습니다** . 따라서이 방법은 사용 하지 않는 것이 좋습니다.
 
-개발자 가이드에 따라 메시지에 모든 IoT Hub 프로토콜 기본 요소를 구현 해야 합니다는 먼저 [만들고 IoT Hub 메시지를 읽기](iot-hub-devguide-messages-construct.md)합니다. 그런 다음 추가할 MQTT/AMQP 메시지의 프로토콜 속성을 편집할 `tracestate` 으로 **시스템 속성**합니다. 특히,
+먼저 개발자 가이드 [IoT Hub 메시지 만들기 및 읽기](iot-hub-devguide-messages-construct.md)를 따라 메시지의 모든 IoT Hub 프로토콜 기본 형식을 구현 해야 합니다. 그런 다음 `tracestate` **system 속성**으로 추가할 mqtt/amqp 메시지의 프로토콜 속성을 편집 합니다. 특히,
 
-* MQTT, 추가 `%24.tracestate=timestamp%3d1539243209` 메시지 항목 위치 `1539243209` unix 타임 스탬프 형식에서 메시지의 생성 시간으로 바꿔야 합니다. 예를 들어 구현을 참조 [C SDK의](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
-* AMQP에 대 한 추가 `key("tracestate")` 고 `value("timestamp=1539243209")` 주석으로 메시지입니다. 참조 구현에 대해서 [여기](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527)합니다.
+* Mqtt의 경우 메시지 `%24.tracestate=timestamp%3d1539243209` 항목에를 추가 합니다. `1539243209` 여기서는 unix 타임 스탬프 형식으로 메시지를 만든 시간으로 바꾸어야 합니다. 예를 들어 [C SDK의](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761) 구현을 참조 하세요.
+* Amqp의 경우 메시지 `key("tracestate")` 주석 `value("timestamp=1539243209")` 으로 및를 추가 합니다. 참조 구현은 [여기](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527)를 참조 하십시오.
 
 이 속성을 포함하는 메시지의 비율을 제어하려는 경우 쌍 업데이트와 같은 클라우드 시작 이벤트를 수신 대기하도록 논리를 구현합니다.
 
@@ -240,10 +240,10 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 }
 ```
 
-| 요소 이름 | 필수 | 형식 | 설명 |
+| 요소 이름 | 필요한 공간 | 형식 | 설명 |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | 예 | 정수 | 샘플링을 켜고 끄기 위해 현재 두 가지 모드 값이 지원됩니다. `1`은 켜짐이고 `2`는 꺼짐입니다. |
-| `sampling_rate` | 예 | 정수 | 이 값은 백분율입니다. `0`~`100`(경계값 포함) 사이의 값만 허용됩니다.  |
+| `sampling_mode` | 예 | Integer | 샘플링을 켜고 끄기 위해 현재 두 가지 모드 값이 지원됩니다. `1`은 켜짐이고 `2`는 꺼짐입니다. |
+| `sampling_rate` | 예 | Integer | 이 값은 백분율입니다. `0`~`100`(경계값 포함) 사이의 값만 허용됩니다.  |
 
 ## <a name="query-and-visualize"></a>쿼리 및 시각화
 
@@ -251,7 +251,7 @@ IoT Hub에서 기록된 모든 추적을 보려면 진단 설정에서 선택한
 
 ### <a name="query-using-log-analytics"></a>Log Analytics를 사용한 쿼리
 
-[진단 로그를 사용하여 Log Analytics](../azure-monitor/platform/diagnostic-logs-stream-log-store.md)를 설정한 경우 `DistributedTracing` 범주에서 로그를 찾아 쿼리합니다. 예를 들어 이 쿼리는 기록된 모든 추적을 보여 줍니다.
+[진단 로그를 사용하여 Log Analytics](../azure-monitor/platform/resource-logs-collect-storage.md)를 설정한 경우 `DistributedTracing` 범주에서 로그를 찾아 쿼리합니다. 예를 들어 이 쿼리는 기록된 모든 추적을 보여 줍니다.
 
 ```Kusto
 // All distributed traces 
@@ -263,11 +263,11 @@ AzureDiagnostics
 
 Log Analytics에 표시된 예제 로그:
 
-| TimeGenerated | OperationName | Category | Level | CorrelationId | DurationMs | properties |
+| TimeGenerated | OperationName | Category | Level | CorrelationId | DurationMs | 속성 |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | 정보 제공 | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
-| 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | 정보 제공 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
-| 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | 정보 제공 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
+| 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | 정보 | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
+| 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | 정보 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
+| 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | 정보 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
 
 다양한 유형의 로그를 이해하려면 [Azure IoT Hub 진단 로그](iot-hub-monitor-resource-health.md#distributed-tracing-preview)를 참조하세요.
 
@@ -284,7 +284,7 @@ IoT 메시지의 흐름을 시각화하기 위해 애플리케이션 맵 샘플 
 
 ## <a name="understand-azure-iot-distributed-tracing"></a>Azure IoT 분산 추적 이해
 
-### <a name="context"></a>Context
+### <a name="context"></a>컨텍스트
 
 고유한 [참조 아키텍처](https://aka.ms/iotrefarchitecture)(영문만 지원)를 포함하는 많은 IoT 솔루션은 일반적으로 [마이크로 서비스 아키텍처](https://docs.microsoft.com/azure/architecture/microservices/)의 변형을 따릅니다. IoT 솔루션이 좀 더 복잡해지면서 결과적으로 수십 개가 넘는 마이크로 서비스를 사용하게 됩니다. 이러한 마이크로 서비스는 Azure에서 제공된 것일 수도 있고 그렇지 않을 수도 있습니다. IoT 메시지가 삭제되거나 느려지는 지점을 찾아내는 일은 어려울 수 있습니다. 예를 들어, 5개의 다른 Azure 서비스와 1,500개의 활성 디바이스를 사용하는 IoT 솔루션이 있을 수 있습니다. 각 디바이스는 초당 10개의 디바이스-클라우드 메시지(초당 총 15,000개 메시지)를 보내지만, 웹앱에는 초당 10,000개의 메시지가 표시되는 것으로 확인되었습니다. 문제가 무엇인가요? 원인은 어떻게 찾을 수 있을까요?
 

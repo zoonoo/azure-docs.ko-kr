@@ -1,26 +1,25 @@
 ---
-title: '예제: Bing Entity Search API-Azure Search를 사용 하 여 사용자 지정 인식 기술 만들기'
+title: '예: Bing Entity Search API-Azure Search를 사용 하 여 사용자 지정 인식 기술 만들기'
 description: Azure Search에서 인지 검색 인덱싱 파이프라인에 매핑된 사용자 지정 기술에 Bing Entity Search 서비스를 사용 하는 방법을 보여 줍니다.
 manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: d77b4e3a002757bcf6c91b6611876e732273fcf9
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: d76a250cc3554b086501899376cb411346a4251c
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183532"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266342"
 ---
-# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>예제: Bing Entity Search API를 사용 하 여 사용자 지정 기술 만들기
+# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>예: Bing Entity Search API를 사용 하 여 사용자 지정 기술 만들기
 
 이 예제에서는 web API 사용자 지정 기술을 만드는 방법에 대해 알아봅니다. 이 스킬은 위치, 공개, 조직 및 조직에 대 한 설명을 반환 합니다. 이 예제에서는 [Azure 함수](https://azure.microsoft.com/services/functions/) 를 사용 하 여 사용자 지정 기술 인터페이스를 구현 하도록 [Bing Entity Search API](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) 를 래핑합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 + 사용자 지정 기술에서 구현 해야 하는 입력/출력 인터페이스에 익숙하지 않은 경우 [사용자 지정 기술 인터페이스](cognitive-search-custom-skill-interface.md) 문서를 참조 하세요.
 
@@ -477,7 +476,7 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 ```
 
 ## <a name="next-steps"></a>다음 단계
-축하합니다. 첫 번째 사용자 지정 사용자를 만들었습니다. 이제 동일한 패턴을 따라 고유한 사용자 지정 기능을 추가할 수 있습니다. 
+지금까지 첫 번째 사용자 지정 사용자를 만들었습니다. 이제 동일한 패턴을 따라 고유한 사용자 지정 기능을 추가할 수 있습니다. 
 
 + [인식 검색 파이프라인에 사용자 지정 기술 추가](cognitive-search-custom-skill-interface.md)
 + [기능을 정의하는 방법](cognitive-search-defining-skillset.md)

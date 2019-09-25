@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: 79ed2b6e5d7bb600a79e12d19268035491f3fe08
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7fe5b45d7719b34fff8c09d08f510dc465f50104
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946852"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257396"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-fedramp-automation"></a>Azure 보안 및 규정 준수 청사진: FedRAMP Automation 용 데이터 웨어하우스
 
@@ -104,7 +104,7 @@ Azure Monitor 로그
 
 **서브넷**: 각 서브넷이 해당 NSG에 연결되어야 합니다.
 
-### <a name="data-at-rest"></a>저장 데이터
+### <a name="data-at-rest"></a>미사용 데이터
 이 아키텍처는 암호화, 데이터베이스 감사 및 다른 방법을 통해 미사용 데이터를 보호합니다.
 
 **Azure Storage** 암호화된 미사용 데이터 요구 사항을 충족하기 위해 모든 [Azure Storage](https://azure.microsoft.com/services/storage/)에서 [스토리지 서비스 암호화](../../storage/common/storage-service-encryption.md)를 사용합니다.
@@ -114,7 +114,7 @@ Azure Monitor 로그
 
 **Azure SQL Database**: Azure SQL Database 인스턴스에서 사용하는 데이터베이스 보안 조치는 다음과 같습니다.
 -   [AD 인증 및 권한 부여](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)를 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 ID를 중앙의 한 위치에서 집중적으로 관리할 수 있습니다.
--   [SQL 데이터베이스 감사](../../sql-database/sql-database-auditing.md)는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 기록합니다.
+-   [SQL Database 감사](../../sql-database/sql-database-auditing.md)는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 기록합니다.
 -   SQL Database는 [TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 사용하도록 구성됩니다. 이 기능은 데이터 및 로그 파일의 실시간 암호화 및 암호 해독을 수행하여 미사용 정보를 보호합니다. TDE는 저장된 데이터가 무단으로 액세스되지 못하게 합니다.
 -   [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)은 적절한 권한이 부여될 때까지 데이터베이스 서버에 대한 모든 액세스를 차단합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다.
 -   [SQL 위협 요소 탐지](../../sql-database/sql-database-threat-detection.md)를 사용하면 의심스러운 데이터베이스 활동, 잠재적 취약성, SQL 삽입 공격 및 비정상 데이터베이스 액세스 패턴에 대한 보안 경고를 제공하여 발생할 수 있는 잠재적 위협을 탐지하고 대응할 수 있습니다.
@@ -129,7 +129,7 @@ Azure Monitor 로그
 ### <a name="logging-and-audit"></a>로깅 및 감사
 [Azure Monitor 로그](../azure-security-disk-encryption-overview.md) 는 시스템 상태 뿐만 아니라 시스템 및 사용자 활동에 대 한 광범위 한 로깅을 제공 합니다. [Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/) 솔루션은 Azure 및 온-프레미스 환경에서 리소스에 의해 생성 된 데이터를 수집 하 고 분석 합니다.
 - **활동 로그**: [활동 로그](../../azure-monitor/platform/activity-logs-overview.md)는 구독에 있는 리소스에서 수행된 작업에 대한 인사이트를 제공합니다.
-- **진단 로그**: [진단 로그](../../azure-monitor/platform/diagnostic-logs-overview.md)는 모든 리소스에서 내보낸 모든 로그를 포함합니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Azure Blob Storage, 테이블 및 큐 로그가 포함됩니다.
+- **진단 로그**: [진단 로그](../../azure-monitor/platform/resource-logs-overview.md)는 모든 리소스에서 내보낸 모든 로그를 포함합니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Azure Blob Storage, 테이블 및 큐 로그가 포함됩니다.
 - **방화벽 로그.** : Application Gateway는 전체 진단 및 액세스 로그를 제공합니다. 방화벽 로그는 WAF가 활성화된 Application Gateway 리소스에 사용할 수 있습니다.
 - **로그 보관**: 모든 진단 로그는 정의된 보존 기간이 2일인 보관을 위해 암호화된 중앙 집중식 Azure Storage 계정에 기록됩니다. 이러한 로그는 처리, 저장 및 대시보드 보고를 위해 Azure Monitor 로그에 연결 됩니다.
 

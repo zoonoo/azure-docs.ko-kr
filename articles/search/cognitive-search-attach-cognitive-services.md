@@ -5,16 +5,15 @@ manager: nitinme
 author: LuisCabrer
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
-ms.openlocfilehash: dcdef8df25bdf6a7a60b1221d1463e6be5486875
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 113286f829b628d4740fbba34e7279741a934aef
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639441"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265937"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search에서 기술과 Cognitive Services 리소스 연결 
 
@@ -138,7 +137,7 @@ Content-Type: application/json
 }
 ```
 
-## <a name="example-estimate-costs"></a>예제: 비용 추정
+## <a name="example-estimate-costs"></a>예: 비용 추정
 
 인지 검색 인덱싱에 관련 된 비용을 예상 하려면 몇 가지 숫자를 실행할 수 있도록 평균 문서 모양을 파악 해야 합니다. 예를 들어 다음을 대략적으로 확인할 수 있습니다.
 

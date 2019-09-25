@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 85c0cbc1e516730018f80e1978ba565e311117fe
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: ab03056557c7c67c5b75d701c9995c9ad500caae
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018160"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268768"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -110,7 +110,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 **오류 코드**: UserErrorUnsupportedDiskSize <br>
 **오류 메시지**: 구성 된 디스크 크기는 현재 Azure Backup에서 지원 되지 않습니다. <br>
 
-디스크 크기가 30tb를 초과 하는 VM을 백업 하는 경우 백업 작업이 실패할 수 있습니다. 또한 4TB 보다 큰 암호화 된 디스크의 백업은 현재 지원 되지 않습니다. 디스크를 분할 하 여 디스크 크기가 지원 되는 한도 보다 작거나 같은지 확인 하십시오.
+디스크 크기가 30tb를 초과 하는 VM을 백업 하는 경우 백업 작업이 실패할 수 있습니다. 또한 2TB 보다 큰 암호화 된 디스크의 백업은 현재 지원 되지 않습니다. 디스크를 분할 하 여 디스크 크기가 지원 되는 한도 보다 작거나 같은지 확인 하십시오.
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - 다른 백업 작업이 현재 진행 중이어서 백업을 시작할 수 없습니다.
 
@@ -233,7 +233,11 @@ Linux VM의 경우 VMSnapshot 확장이 Azure Portal에 표시되지 않으면 [
 
 ### <a name="clean_up_restore_point_collection"></a> 복원 지점 컬렉션 정리
 
-잠금을 제거한 후 복원 지점을 정리해야 합니다. 복원 지점을 정리하려면 다음 방법 중 하나를 따르세요.<br>
+잠금을 제거한 후 복원 지점을 정리해야 합니다.
+
+VM의 리소스 그룹 또는 VM 자체를 삭제 하는 경우 관리 디스크의 인스턴트 복원 스냅숏은 활성 상태로 유지 되 고 보존 집합에 따라 만료 됩니다. 복원 지점 컬렉션에 저장 된 즉시 복원 스냅숏 (더 이상 필요 하지 않은 경우)을 삭제 하려면 아래 지정 된 단계에 따라 복원 지점 컬렉션을 정리 합니다.
+
+복원 지점을 정리하려면 다음 방법 중 하나를 따르세요.<br>
 
 - [임시 백업을 실행 하 여 복원 지점 수집 정리](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 - [Azure Portal에서 복원 지점 컬렉션 정리](#clean-up-restore-point-collection-from-azure-portal)<br>

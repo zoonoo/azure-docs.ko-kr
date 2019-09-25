@@ -17,27 +17,35 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4de1fa903120fa6adc50d34428d8c3e2a28cf23
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 9a132834952d2654f400217bd6eed1a3745efbf9
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835009"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264265"
 ---
 # <a name="migrating-applications-to-msalnet"></a>애플리케이션을 MSAL.NET으로 마이그레이션
 
-MSAL.NET(.NET용 Microsoft 인증 라이브러리) 및 ADAL.NET(.NET용 Azure AD 인증 라이브러리)은 모두 Azure AD 엔터티를 인증하고 Azure AD에서 토큰을 요청하는 데 사용됩니다. 지금까지 대부분의 개발자는 ADAL(Azure AD 인증 라이브러리)을 사용하는 토큰을 요청하여 Azure AD ID(회사 및 학교 계정)를 인증하기 위해 개발자 플랫폼(v1.0)에서 Azure AD를 사용했습니다. 이제 MSAL.NET을 사용하면 Microsoft ID 플랫폼 엔드포인트를 통해 광범위한 Microsoft ID 세트(AD ID 및 Microsoft 계정, Azure AD B2C를 통한 소셜 및 로컬 계정)를 인증할 수 있습니다. 
+MSAL.NET(.NET용 Microsoft 인증 라이브러리) 및 ADAL.NET(.NET용 Azure AD 인증 라이브러리)은 모두 Azure AD 엔터티를 인증하고 Azure AD에서 토큰을 요청하는 데 사용됩니다. 지금까지 대부분의 개발자는 ADAL(Azure AD 인증 라이브러리)을 사용하는 토큰을 요청하여 Azure AD ID(회사 및 학교 계정)를 인증하기 위해 개발자 플랫폼(v1.0)에서 Azure AD를 사용했습니다. MSAL 사용:
 
-이 문서에서는 MSAL.NET(.NET용 Microsoft 인증 라이브러리)과 ADAL.NET(.NET용 Azure AD 인증 라이브러리) 중에서 선택하는 방법을 설명하고 두 라이브러리를 비교합니다.  
+- Microsoft id 플랫폼 끝점을 사용 하 여 광범위 한 Microsoft id 집합 (Azure AD id 및 Microsoft 계정, Azure AD B2C을 통해 소셜 및 로컬 계정)을 인증할 수 있습니다.
+- 사용자는 최상의 single sign-on 환경을 이용할 수 있습니다.
+- 응용 프로그램에서 증분 동의를 사용 하 고 조건부 액세스를 보다 쉽게 지원할 수 있습니다.
+- 혁신을 통해 혜택을 누릴 수 있습니다.
+
+**MSAL.NET는 이제 Microsoft id 플랫폼과 함께 사용할 수 있는 권장 되는 인증 라이브러리입니다**. ADAL.NET에는 새로운 기능이 구현 되지 않습니다. 이러한 활동은 MSAL 향상에 중점을 두었습니다.
+
+이 문서에서는 MSAL.NET (Microsoft Authentication Library for .NET)와 ADAL.NET (Azure AD 인증 Library for .NET) 간의 차이점을 설명 하 고 MSAL으로 마이그레이션하는 데 도움이 됩니다.  
 
 ## <a name="differences-between-adal-and-msal-apps"></a>ADAL 및 MSAL 앱의 차이점
+
 대부분의 경우 Microsoft 인증 라이브러리의 최신 세대인 MSAL.NET 및 Microsoft ID 플랫폼 엔드포인트를 사용하려고 합니다. MSAL.NET을 사용하면 Azure AD(회사 및 학교 계정), MSA(Microsoft (개인) 계정) 또는 Azure AD B2C를 사용하여 애플리케이션에 로그인하는 사용자에 대한 토큰을 얻을 수 있습니다. 
 
 개발자용 Azure AD(v1.0) 엔드포인트 및 ADAL.NET에 이미 익숙한 경우 [Microsoft ID 플랫폼(v2.0) 엔드포인트와의 차이점은?](active-directory-v2-compare.md)을 참조하는 것이 좋습니다.
 
-그러나 애플리케이션이 이전 버전의 [ADFS(Active Directory Federation Services)](/windows-server/identity/active-directory-federation-services)를 사용하여 사용자를 로그인해야 하는 경우에는 여전히 ADAL.NET을 사용해야 합니다. 자세한 내용은 [ADFS 지원](https://aka.ms/msal-net-adfs-support)을 참조하세요.
+그러나 애플리케이션이 이전 버전의 [ADFS(Active Directory Federation Services)](/windows-server/identity/active-directory-federation-services)를 사용하여 사용자를 로그인해야 하는 경우에는 여전히 ADAL.NET을 사용해야 합니다. 자세한 내용은 [ADFS 지원](https://aka.ms/msal-net-adfs-support)을 참조 하세요.
 
-다음 그림에서는 ADAL.NET 및 MSAL.NET ![병렬(side-by-side) 코드](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png) 간의 일부 차이점 중 일부를 요약하고 있습니다.
+다음 그림에서는 ADAL.NET 및 MSAL.NET ![병렬(side-by-side) 코드](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png) 간의 차이점 중 일부를 요약하고 있습니다.
 
 ### <a name="nuget-packages-and-namespaces"></a>NuGet 패키지 및 네임스페이스
 
@@ -117,7 +125,7 @@ MSAL.NET에서 클레임 챌린지 예외는 다음과 같은 방법으로 처�
 허용 | ADAL.NET | MSAL.NET
 ----- |----- | -----
 대화형 | [대화형 인증](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [MSAL.NET에서 대화형으로 토큰 획득](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
-Windows 통합 인증 | [Windows의 통합 인증(Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Windows 통합 인증](msal-authentication-flows.md#integrated-windows-authentication)
+통합 Windows 인증 | [Windows의 통합 인증(Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Windows 통합 인증](msal-authentication-flows.md#integrated-windows-authentication)
 사용자 이름/암호 | [사용자 이름 및 암호를 사용하여 토큰 획득](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)| [사용자 이름 암호 인증](msal-authentication-flows.md#usernamepassword)
 디바이스 코드 흐름 | [웹 브라우저가 없는 디바이스에 대한 디바이스 프로필](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers) | [디바이스 코드 흐름](msal-authentication-flows.md#device-code)
 
@@ -206,7 +214,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 ### <a name="scopes-to-request-in-the-case-of-client-credential-flow--daemon-app"></a>클라이언트 자격 증명 흐름/디먼 앱의 경우 요청하는 범위
 
-클라이언트 자격 증명 흐름의 경우 전달하는 범위도 `/.default`가 됩니다. 이렇게 하면 관리자가 애플리케이션 등록에서 동의한 모든 앱 수준 권한을 요청한다고 Azure AD에 알려줍니다.
+클라이언트 자격 증명 흐름의 경우 전달하는 범위도 `/.default`가 됩니다. 이 범위는 응용 프로그램 등록에서 관리자가 동의한 하는 모든 앱 수준 권한으로 Azure AD에 지시 합니다.
 
 ## <a name="adal-to-msal-migration"></a>ADAL에서 MSAL로 마이그레이션
 
@@ -214,9 +222,9 @@ ADAL.NET v2.X에서는 새로 고침 토큰이 공개되어 토큰을 캐시하�
 * 사용자가 더 이상 연결되지 않은 상태에서 사용자를 대신하여 대시보드를 새로 고치는 등의 작업을 수행하는 장기 실행 서비스 
 * 클라이언트에서 RT를 웹 서비스로 가져올 수 있게 하는 WebFarm 시나리오(클라이언트 쪽에서 캐싱 수행, 쿠키 암호화, 서버 쪽이 아님)
 
-MSAL.NET의 경우는 아니지만, 보안상의 이유로 새로 고침 토큰을 이 방식으로 더 이상 활용하지 않는 것이 좋습니다. 이렇게 하면 API에서 이전에 획득한 새로 고침 토큰을 전달하는 방법을 제공하지 않으므로 MSAL 3.x로 마이그레이션하기가 어려울 수 있습니다. 
+MSAL.NET는 보안상의 이유로 새로 고침 토큰을 노출 하지 않습니다. MSAL은 사용자에 대 한 토큰 새로 고침을 처리 합니다. 
 
-다행히도 MSAL.NET에는 이전의 새로 고침 토큰을 `IConfidentialClientApplication`으로 마이그레이션할 수 있는 API가 있습니다. 
+다행히 이제 MSAL.NET에는 이전 새로 고침 토큰 (ADAL을 사용 하 여 가져옴)을로 `IConfidentialClientApplication`마이그레이션할 수 있는 API가 있습니다.
 
 ```CSharp
 /// <summary>

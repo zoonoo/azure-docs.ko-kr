@@ -9,13 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: d2b3cdac72d47afb804763c521aae0b1d5936567
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: da1ca218f7a3d33e6ceb08b3f8d0f632b8b752b7
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186361"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265337"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR 인식 기술
 
@@ -43,11 +42,11 @@ OCR(광학 문자 인식) 기술은 이미지 파일에서 인쇄 및 필기한 
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 매개 변수 이름     | Description |
+| 매개 변수 이름     | 설명 |
 |--------------------|-------------|
 | detectOrientation | 이미지 방향의 자동 검색을 사용합니다. <br/> 유효한 값: true / false.|
 |defaultLanguageCode | <p>  입력 텍스트의 언어 코드입니다. 지원되는 언어는 다음과 같습니다. <br/> zh-Hans(중국어 간체) <br/> zh-Hant(중국어 번체) <br/>cs(체코어) <br/>da(덴마크어) <br/>nl(네덜란드어) <br/>en(영어) <br/>fi(핀란드어)  <br/>fr(프랑스어) <br/>  de(독일어) <br/>el(그리스어) <br/> hu(헝가리어) <br/> it(이탈리아어) <br/>  ja(일본어) <br/> ko(한국어) <br/> nb(노르웨이어) <br/>   pl(폴란드어) <br/> pt(포르투갈어) <br/>  ru(러시아어) <br/>  es(스페인어) <br/>  sv(스웨덴어) <br/>  tr(터키어) <br/> ar(아랍어) <br/> ro(루마니아어) <br/> sr-Cyrl(세르비아 키릴어) <br/> sr-Latn(세르비아 라틴어) <br/>  sk(슬로바키아어) <br/>  unk(알 수 없음) <br/><br/> 언어 코드가 지정되지 않았거나 null인 경우 언어는 영어로 설정됩니다. 언어가 명시적으로 “unk”로 설정된 경우 언어는 자동으로 검색됩니다. </p> |
-|lineEnding | 검색 된 각 줄 사이에 사용할 값입니다. 가능한 값은 다음과 같습니다. 'Space','CarriageReturn','LineFeed'.  기본값은 ' Space '입니다. |
+|lineEnding | 검색 된 각 줄 사이에 사용할 값입니다. 가능한 값: 'Space','CarriageReturn','LineFeed'.  기본값은 ' Space '입니다. |
 
 이전에는 기술에서 "인쇄 됨" 또는 "필기" 텍스트를 추출 해야 하는지 여부를 지정 하는 "textExtractionAlgorithm" 이라는 매개 변수가 있었습니다.  이 매개 변수는 더 이상 사용 되지 않으며, 최신 읽기 API 알고리즘에서 한 번에 두 유형의 텍스트를 모두 추출할 수 있으므로 더 이상 필요 하지 않습니다.  기술 정의에이 매개 변수가 이미 포함 되어 있으면 제거할 필요가 없지만 더 이상 사용 되지 않으며 두 유형의 텍스트는 설정 된 항목에 관계 없이 앞으로 추출 됩니다.
 
@@ -59,7 +58,7 @@ OCR(광학 문자 인식) 기술은 이미지 파일에서 인쇄 및 필기한 
 
 
 ## <a name="skill-outputs"></a>기술 출력
-| 출력 이름     | Description                   |
+| 출력 이름     | 설명                   |
 |---------------|-------------------------------|
 | text          | 이미지에서 추출된 일반 텍스트입니다.   |
 | layoutText    | 추출된 텍스트와 텍스트를 찾을 수 있는 위치를 설명하는 복합 유형입니다.|
@@ -206,7 +205,7 @@ OCR(광학 문자 인식) 기술은 이미지 파일에서 인쇄 및 필기한 
 }
 ```
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
 + [TextMerger 기술](cognitive-search-skill-textmerger.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)

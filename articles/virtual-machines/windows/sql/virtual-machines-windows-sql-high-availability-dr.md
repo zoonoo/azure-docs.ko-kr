@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: 175ea1c0c25a0c6dd41c68ea0a340cc1b18cc8b0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1d0bdfbbad7e811ac8f1eeffb1991cc5430483a6
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100596"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262899"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구
 
@@ -78,7 +78,11 @@ Azure에서 지원하는 SQL Server HADR 기술은 다음과 같습니다.
 Azure VM, 스토리지 및 네트워킹은 온-프레미스, 가상화되지 않은 IT 인프라에서는 작동 특성이 달라집니다. Azure에서 SQL Server HADR 솔루션을 성공적으로 구현하기 위해서는 이러한 차이점을 이해하고 그에 맞게 솔루션을 설계해야 합니다.
 
 ### <a name="high-availability-nodes-in-an-availability-set"></a>가용성 집합의 고가용성 노드
-Azure의 가용성 집합을 사용하면 고가용성 노드를 별도의 오류 도메인(FD)과 업데이트 도메인(UD)에 배치할 수 있습니다. 같은 가용성 집합에 배치할 Azure VM이라면 같은 클라우드 서비스에 배포해야 합니다. 같은 클라우드 서비스에 있는 노드만 같은 가용성 집합에 참여할 수 있습니다. 자세한 내용은 [Virtual Machines의 가용성 관리](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+Azure의 가용성 집합을 사용하면 고가용성 노드를 별도의 오류 도메인(FD)과 업데이트 도메인(UD)에 배치할 수 있습니다. 기본 Azure 플랫폼에서는 가용성 집합에 포함된 각각의 가상 머신을 업데이트 도메인 및 장애 도메인에 할당합니다. 데이터 센터 내의 이러한 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 가상 컴퓨터를 사용할 수 있고 99.95% Azure SLA가 충족되도록 합니다. 고가용성 설정을 구성 하려면 유지 관리 이벤트 중에 응용 프로그램이 나 데이터 손실을 방지 하기 위해 모든 참여 하는 SQL Virtual Machines를 동일한 가용성 집합에 저장 합니다. 같은 클라우드 서비스에 있는 노드만 같은 가용성 집합에 참여할 수 있습니다. 자세한 내용은 [Virtual Machines의 가용성 관리](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+
+### <a name="high-availability-nodes-in-an-availability-zone"></a>가용성 영역에서 고가용성 노드
+가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 지역 내에서 가용성 영역의 물리적인 분리는 하나 이상의 가상 머신을 사용할 수 있고 99.99% Azure SLA를 충족 하도록 하 여 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 합니다. 고가용성을 구성 하려면 참여 하는 SQL Virtual Machines를 해당 지역에서 사용 가능한 가용성 영역에 분산 시킵니다. 내부 가용성 영역 VM 대 VM 데이터 전송 요금이 추가됩니다. 자세한 내용은 [가용성 영역](/azure/availability-zones/az-overview)을 참조 하세요. 
+
 
 ### <a name="failover-cluster-behavior-in-azure-networking"></a>Azure 네트워킹에서 장애 조치 클러스터의 동작
 Azure에 RFC 호환이 아닌 DHCP 서비스를 사용하면 특정한 장애 조치 클러스터 구성에 오류가 발생할 수 있습니다. 클러스터 노드에 같은 IP 주소가 사용되는 것과 같이 클러스터 네트워크 이름에 중복된 IP 주소가 할당될 수 있기 때문입니다. 이는 Windows 장애 조치 클러스터 기능을 사용하는 가용성 그룹을 구현할 때 문제가 될 수 있습니다.
@@ -136,7 +140,7 @@ Azure VM에서 실행되는 SQL Server에서 최상의 성능을 얻으려면 [A
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure Virtual Machines의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
 
-### <a name="other-resources"></a>다른 리소스
+### <a name="other-resources"></a>기타 리소스
 * [Azure에 새 Active Directory 포리스트 설치](../../../active-directory/active-directory-new-forest-virtual-machine.md)
 * [Azure VM에서 가용성 그룹을 위한 장애 조치 클러스터 만들기](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 

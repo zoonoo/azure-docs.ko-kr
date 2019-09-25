@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 24dc01d47bece4191d1b142a58c4ad7b6d9fb6cf
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c1bd33ea5cbe45d6ff862645d614d54d20110ef4
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876576"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260852"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Azure Digital Twins에서 사용자 정의 함수를 디버그하는 방법
 
@@ -35,7 +35,7 @@ Azure Digital Twins는 강력한 로깅, 모니터링 및 분석을 지원합니
 
 * Azure Digital Twins에 특정 한 로깅 구성을 보려면 [모니터링 및 로깅을 구성 하는 방법](./how-to-configure-monitoring.md)을 참조 하세요.
 * Azure Monitor를 통해 사용 하도록 설정 된 강력한 로그 설정에 대 한 자세한 내용은 [Azure Monitor](../azure-monitor/overview.md) 개요를 참조 하세요.
-* Azure Portal, Azure CLI 또는 PowerShell을 통해 azure Digital Twins에서 진단 로그 설정 구성에 대 한 [azure 리소스에서 로그 데이터 수집 및 사용](../azure-monitor/platform/diagnostic-logs-overview.md) 문서를 검토 합니다.
+* Azure Portal, Azure CLI 또는 PowerShell을 통해 azure Digital Twins에서 진단 로그 설정 구성에 대 한 [azure 리소스에서 로그 데이터 수집 및 사용](../azure-monitor/platform/resource-logs-overview.md) 문서를 검토 합니다.
 
 구성 된 후에는 모든 로그 범주 및 메트릭을 선택 하 고 강력한 Azure Monitor log analytics 작업 영역을 사용 하 여 디버깅 활동을 지원할 수 있습니다.
 
@@ -180,7 +180,7 @@ sendNotification(telemetry.SensorId, "Sensor", JSON.stringify(customNotification
 
 이 문제에 빠져들지 않는 가장 쉬운 방법은 메타데이터 개체에 대해 `Notify` 메서드를 사용하는 것입니다.
 
-예제:
+예:
 
 ```JavaScript
 function process(telemetry, executionContext) {

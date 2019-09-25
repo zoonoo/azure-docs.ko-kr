@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: ab5fba6bbbf6ade83c7699edec937ba02b222939
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5589828570455c61f857dbeadc896e8fef27178
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60237644"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258396"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>스토리지 계정에 보관된 Azure Monitor 진단 로그에 대한 형식 변경 준비
 
@@ -24,16 +24,16 @@ ms.locfileid: "60237644"
 
 ## <a name="what-is-changing"></a>변경 사항
 
-Azure Monitor는 Azure storage 계정, Event Hubs 네임 스페이스 또는 Azure Monitor에서 Log Analytics 작업 영역에 리소스 진단 데이터 및 활동 로그 데이터를 보낼 수 있는 기능을 제공 합니다. 시스템 성능 문제를 해결하기 위해 **2018년 11월 1일 오전 12시(UTC)** 에 Blob Storage로 전송되는 로그 데이터의 형식이 변경됩니다. Blob Storage에서 데이터를 읽는 도구가 있는 경우, 새 데이터 형식을 이해하도록 도구를 업데이트해야 합니다.
+Azure Monitor는 Azure storage 계정, Event Hubs 네임 스페이스 또는 Azure Monitor의 Log Analytics 작업 영역으로 리소스 진단 데이터 및 활동 로그 데이터를 보낼 수 있는 기능을 제공 합니다. 시스템 성능 문제를 해결하기 위해 **2018년 11월 1일 오전 12시(UTC)** 에 Blob Storage로 전송되는 로그 데이터의 형식이 변경됩니다. Blob Storage에서 데이터를 읽는 도구가 있는 경우, 새 데이터 형식을 이해하도록 도구를 업데이트해야 합니다.
 
 * 2018년 11월 1일 목요일 오전 12시(UTC)에 Blob 형식이 [JSON 줄](http://jsonlines.org/)로 변경됩니다. 즉, 각 레코드가 줄 바꿈으로 구분되고 외부 레코드 배열 및 JSON 레코드 사이의 쉼표가 없습니다.
 * 모든 구독의 모든 진단 설정에 대해 Blob 형식이 동시에 변경됩니다. 11월 1일에 내보내는 첫 번째 PT1H.json 파일은 이 새로운 형식을 사용합니다. Blob 및 컨테이너 이름은 동일하게 유지됩니다.
 * 현재와 11월 1일 사이에 진단 설정을 지정해도, 11월 1일까지는 현재 형식으로 데이터를 계속 내보냅니다.
-* 이 변경은 모든 퍼블릭 클라우드 지역에서 동시에 적용됩니다. Azure 중국, Azure 독일 또는 Azure Government 클라우드에서는 변경이 아직 적용되지 않습니다.
+* 이 변경은 모든 퍼블릭 클라우드 지역에서 동시에 적용됩니다. 변경 내용은 아직 21Vianet, Azure 독일 또는 Azure Government 클라우드에서 운영 하는 Microsoft Azure에서 발생 하지 않습니다.
 * 이 변경은 다음 데이터 형식에 영향을 줍니다.
-  * [Azure 리소스 진단 로그](./../../azure-monitor/platform/archive-diagnostic-logs.md)([여기서 리소스 목록 확인](./../../azure-monitor/platform/diagnostic-logs-schema.md))
-  * [진단 설정을 통해 내보내지는 Azure 리소스 메트릭](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)
-  * [로그 프로필을 통해 내보내지는 Azure 활동 로그 데이터](./../../azure-monitor/platform/archive-activity-log.md)
+  * [Azure 리소스 진단 로그](archive-diagnostic-logs.md)([여기서 리소스 목록 확인](diagnostic-logs-schema.md))
+  * [진단 설정을 통해 내보내지는 Azure 리소스 메트릭](diagnostic-settings.md)
+  * [로그 프로필을 통해 내보내지는 Azure 활동 로그 데이터](archive-activity-log.md)
 * 다음 경우에는 이 변경의 영향을 받지 않습니다.
   * 네트워크 흐름 로그
   * Azure Monitor를 통해 사용할 수 없는 Azure 서비스 로그(예: Azure App Service 진단 로그, 스토리지 분석 로그)
@@ -135,6 +135,6 @@ Azure Blob Storage에 있는 PT1H.json 파일의 현재 형식은 레코드의 J
 
 ## <a name="next-steps"></a>다음 단계
 
-* [리소스 진단 로그를 저장소 계정에 보관](./../../azure-monitor/platform/archive-diagnostic-logs.md)하는 방법을 알아봅니다.
+* [리소스 진단 로그를 스토리지 계정에 보관](./../../azure-monitor/platform/archive-diagnostic-logs.md)하는 방법을 알아봅니다.
 * [활동 로그 데이터를 스토리지 계정에 보관](./../../azure-monitor/platform/archive-activity-log.md)하는 방법을 알아봅니다.
 

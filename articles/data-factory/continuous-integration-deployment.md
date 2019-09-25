@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: e522cba88eaf9cb63ef7ef2f20e3b72691261073
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 4386a7adba17eefe3c373697597abdb7d69c476a
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002414"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265977"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Azure Data Factory의 CI/CD(지속적인 통합 및 지속적인 업데이트)
 
@@ -669,7 +669,7 @@ Git을 구성하지 않은 경우 연결된 템플릿은 **ARM 템플릿 내보�
 
 ## <a name="hot-fix-production-branch"></a>핫 픽스 프로덕션 분기
 
-공장을 프로덕션에 배포 하 고 즉시 해결 해야 하는 버그가 있음을 인식 하지만 현재 공동 작업 분기를 배포할 수 없는 경우에는 핫 픽스를 배포 해야 할 수 있습니다.
+공장을 프로덕션에 배포 하 고 즉시 해결 해야 하는 버그가 있음을 인식 하지만 현재 공동 작업 분기를 배포할 수 없는 경우에는 핫 픽스를 배포 해야 할 수 있습니다. 이 접근 방식은 빠른 수정 엔지니어링 또는 QFE 라고 합니다. 
 
 1.  Azure DevOps에서 프로덕션에 배포 된 릴리스로 이동 하 여 배포 된 마지막 커밋을 찾습니다.
 
@@ -705,8 +705,11 @@ Git을 구성하지 않은 경우 연결된 템플릿은 **ARM 템플릿 내보�
 
 ## <a name="unsupported-features"></a>지원되지 않는 기능
 
--   개별 리소스를 게시할 수 없습니다. 데이터 팩터리 엔터티는 서로 종속 되며 변경 종속성을 추적 하는 것은 어려울 수 있으며 예기치 않은 동작이 발생할 수 있습니다. 예를 들어 트리거는 파이프라인에 종속 되 고 파이프라인은 데이터 집합 및 다른 파이프라인에 종속 됩니다. 전체 변경 집합의 하위 집합만 게시할 수 있는 경우 예측할 수 없는 특정 오류가 발생할 수 있습니다.
+- 기본적으로 ADF는 cherry-pick 선택 된 커밋 또는 리소스의 선택적 게시를 허용 _하지_ 않습니다. 게시에는 데이터 팩터리에 대 한 **모든** 변경 내용이 포함 됩니다.
 
--   프라이빗 분기에서 게시할 수 없습니다.
+    - 데이터 팩터리 엔터티는 서로 종속 됩니다. 예를 들어 트리거는 파이프라인에 의존 하 고 파이프라인은 데이터 집합 및 기타 파이프라인 등에 종속 됩니다. 리소스 하위 집합을 선택적으로 게시 하면 예기치 않은 동작 및 오류가 발생할 _수 있습니다_ .
+    - 가끔 선택적 게시가 필요한 경우에는 핫 픽스를 고려할 수 있습니다. 자세한 내용은 [Hot Fix Production Branch](#hot-fix-production-branch) 항목을 참조 하세요.
 
--   Bitbucket에서 프로젝트를 호스팅할 수 없습니다.
+-   비공개 분기에서 게시할 수 없습니다.
+
+-   지금은 Bitbucket에서 프로젝트를 호스트할 수 없습니다.

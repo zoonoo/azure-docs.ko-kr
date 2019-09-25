@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 67e5364996be2945d67aa1a95cbc3ab8137e077e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b9d2dda589cc59be24b73ce16dcdcbbe79b31aef
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850249"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259166"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>DSC(필요한 상태 구성) 문제 해결
 
@@ -149,7 +149,7 @@ WMF 버전을 업그레이드했고 WMI가 손상되었습니다.
 
 #### <a name="resolution"></a>해결 방법
 
-이 문제를 해결 하려면 [DSC의 알려진 문제 및 제한 사항](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc) 문서에 있는 지침을 따르세요.
+이 문제를 해결 하려면 [DSC의 알려진 문제 및 제한 사항](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc) 문서에 있는 지침을 따르세요.
 
 ### <a name="issue-using-credential"></a>시나리오: DSC 구성에서 자격 증명을 사용할 수 없습니다.
 

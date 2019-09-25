@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 7394a9e1b1fa90741bc26fc0e9b6b7e6284d75e0
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 80f2e8a8fd41fbafbaf6d30bc1001b86c5dcdd50
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104691"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266378"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 개인 끝점 이란?
 
@@ -43,7 +43,7 @@ Azure 개인 끝점은 Azure 개인 링크를 통해 제공 되는 서비스에 
  
 - 동일한 개인 링크 리소스를 사용 하 여 여러 개인 끝점을 만들 수 있습니다. 공용 DNS 서버 구성을 사용 하는 단일 네트워크의 경우에는 지정 된 개인 링크 리소스에 대 한 단일 개인 끝점을 사용 하 여 중복 항목이 나 DNS 확인에서 충돌을 방지 하는 것이 좋습니다. 
  
-- 동일한 가상 네트워크 내에서 동일 하거나 다른 서브넷에 여러 개인 끝점을 만들 수 있습니다. 구독에서 만들 수 있는 개인 끝점 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits.md#networking-limits)을 참조 하세요.
+- 동일한 가상 네트워크 내에서 동일 하거나 다른 서브넷에 여러 개인 끝점을 만들 수 있습니다. 구독에서 만들 수 있는 개인 끝점 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)을 참조 하세요.
 
 
  
@@ -119,17 +119,17 @@ Azure는 공용 DNS에서 정식 이름 DNS 레코드 (CNAME)를 만들어 해�
 다음 표에서는 개인 끝점을 사용 하는 경우의 알려진 제한 사항 목록을 제공 합니다. 
 
 
-|제한 사항 |Description |완화  |
+|제한 사항 |설명 |완화  |
 |---------|---------|---------|
 |NSG (네트워크 보안 그룹) 규칙이 개인 끝점에 적용 되지 않음    |NSG는 개인 끝점에서 지원 되지 않습니다. 개인 끝점을 포함 하는 서브넷에 NSG가 연결 되어 있을 수 있지만 규칙은 개인 끝점에서 처리 하는 트래픽에 적용 되지 않습니다. 서브넷에 개인 끝점을 배포 하려면 [네트워크 정책 적용을 사용 하지 않도록 설정](disable-private-endpoint-network-policy.md) 해야 합니다. NSG는 동일한 서브넷에서 호스트 되는 다른 워크 로드에도 적용 됩니다.   | 원본 클라이언트의 아웃 바운드 트래픽에 대 한 NSG 규칙을 사용 하 여 트래픽을 제어 합니다.        |
 |서비스 끝점 또는 특수 작업에 대해 사용 하도록 설정 된 서브넷에서는 개인 끝점을 만들 수 없습니다.    |전용 끝점은 서비스 끝점에 대해 사용 하도록 설정 된 서브넷 또는 특수 작업으로 위임 된 서브넷에 배포할 수 없습니다.|  개별 서브넷을 만들어 개인 끝점을 배포 합니다.        |
 |개인 끝점은 동일한 지역에 있는 개인 링크 서비스 (고객 소유)에만 매핑될 수 있습니다.    |   다른 지역의 개인 링크 서비스에 대 한 연결은 지원 되지 않습니다.       |  미리 보기 중에는 동일한 지역에 개인 링크 서비스를 배포 해야 합니다.        |
-|특수 워크 로드는 전용 끝점에 액세스할 수 없습니다.    |   가상 네트워크에 배포 된 다음 서비스는 개인 끝점을 사용 하 여 개인 링크 리소스에 액세스할 수 없습니다.<br>App Service 계획</br>Azure Container Instances</br>Azure NetApp 파일</br>Azure 전용 HSM<br>       |   미리 보기 중에는 완화가 필요 하지 않습니다.       |
+|특수 워크 로드는 전용 끝점에 액세스할 수 없습니다.    |   가상 네트워크에 배포 된 다음 서비스는 개인 끝점을 사용 하 여 개인 링크 리소스에 액세스할 수 없습니다.<br>App Service 계획</br>Azure Container Instance</br>Azure NetApp 파일</br>Azure 전용 HSM<br>       |   미리 보기 중에는 완화가 필요 하지 않습니다.       |
 |  포털은 별칭을 사용 하 여 개인 끝점 만들기를 지원 하지 않습니다.  |   포털에서는 리소스 URI를 사용 하 여 개인 끝점을 만들 수 있습니다.      | 리소스 URI를 사용 하 여 개인 끝점 연결 요청        |
 
 ## <a name="next-steps"></a>다음 단계
-- [포털을 사용 하 여 SQL Database 서버에 대 한 개인 끝점 만들기](create-private-endpoint-portal.md)
-- [PowerShell을 사용 하 여 SQL Database 서버에 대 한 개인 끝점 만들기](create-private-endpoint-powershell.md)
-- [CLI를 사용 하 여 SQL Database 서버에 대 한 개인 끝점 만들기](create-private-endpoint-cli.md)
-- [포털을 사용 하 여 저장소 계정에 대 한 개인 끝점 만들기](create-private-endpoint-storage-portal.md)
-- [Azure PowerShell를 사용 하 여 사용자 고유의 개인 링크 서비스 만들기](create-private-link-service-powershell.md)
+- [포털을 사용하여 SQL Database Server용 프라이빗 엔드포인트 만들기](create-private-endpoint-portal.md)
+- [PowerShell을 사용하여 SQL Database Server용 프라이빗 엔드포인트 만들기](create-private-endpoint-powershell.md)
+- [CLI를 사용하여 SQL Database Server용 프라이빗 엔드포인트 만들기](create-private-endpoint-cli.md)
+- [포털을 사용하여 스토리지 계정용 프라이빗 엔드포인트 만들기](create-private-endpoint-storage-portal.md)
+- [Azure PowerShell를 사용하여 고유의 Private Link 서비스 만들기](create-private-link-service-powershell.md)

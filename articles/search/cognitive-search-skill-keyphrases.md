@@ -9,13 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: c69c757be482a7e95f31a9f31cac8d324c1e0216
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: ffaa2afbfa12770168cb5a92b7022addc039f0fb
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103301"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265771"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>핵심 문구 추출 인식 기술
 
@@ -39,7 +38,7 @@ Microsoft.Skills.Text.KeyPhraseExtractionSkill
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 입력                | Description |
+| 입력                | 설명 |
 |---------------------|-------------|
 | defaultLanguageCode | (선택 사항) 명시적으로 언어를 지정하지 않은 문서에 적용할 언어 코드입니다.  기본 언어 코드가 지정되지 않은 경우 영어(en)가 기본 언어 코드로 사용됩니다. <br/> [지원되는 언어 전체 목록](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)을 참조합니다. |
 | maxKeyPhraseCount   | (선택 사항) 생성할 핵심 구문의 최대 수입니다. |
@@ -122,7 +121,7 @@ Microsoft.Skills.Text.KeyPhraseExtractionSkill
 텍스트가 비어 있는 경우 경고가 생성됩니다.
 텍스트가 50,000자보다 큰 경우 처음 50,000자만 분석하고 경고를 발생합니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
 + [기능을 정의하는 방법](cognitive-search-defining-skillset.md)

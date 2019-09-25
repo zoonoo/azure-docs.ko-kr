@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: cawa
-ms.openlocfilehash: 2b923a381be9d6cdb1a83f582a541c9e17e117a4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 43e76b9331eb8dbe95265810b9191a10d4caee08
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086641"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272017"
 ---
 # <a name="get-started-with-storage-explorer"></a>Storage Explorer 시작
 
@@ -23,7 +23,7 @@ Microsoft Azure Storage 탐색기은 Windows, macOS 및 Linux에서 Azure Storag
 
 ![Microsoft Azure Storage Explorer][0]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -79,7 +79,7 @@ Storage Explorer는 Storage 계정에 연결하는 여러 방법을 제공합니
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
 > [!NOTE]
-> 로그인 한 후 리소스에 완전히 액세스 하려면 Storage 탐색기 관리 (Azure Resource Manager)와 데이터 계층 권한이 모두 필요 합니다. 즉, 저장소 계정에 대 한 액세스, 계정의 컨테이너 및 컨테이너의 데이터를 제공 하는 Azure Active Directory (Azure AD) 권한이 필요 합니다. 데이터 계층 에서만 사용 권한이 있는 경우 [AZURE AD를 통해 리소스를 추가](#add-a-resource-via-azure-ad)하는 것이 좋습니다. Storage 탐색기 필요한 특정 사용 권한에 대 한 자세한 내용은 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#role-based-access-control-permission-issues)를 참조 하세요.
+> 로그인 한 후 리소스에 완전히 액세스 하려면 Storage 탐색기 관리 (Azure Resource Manager)와 데이터 계층 권한이 모두 필요 합니다. 즉, 저장소 계정에 대 한 액세스, 계정의 컨테이너 및 컨테이너의 데이터를 제공 하는 Azure Active Directory (Azure AD) 권한이 필요 합니다. 데이터 계층 에서만 사용 권한이 있는 경우 [AZURE AD를 통해 리소스를 추가](#add-a-resource-via-azure-ad)하는 것이 좋습니다. Storage 탐색기 필요한 특정 사용 권한에 대 한 자세한 내용은 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#rbac-permissions-issues)를 참조 하세요.
 
 1. Storage 탐색기에서 **계정 관리를 선택 하** 여 계정 관리 패널로 이동 합니다.
 

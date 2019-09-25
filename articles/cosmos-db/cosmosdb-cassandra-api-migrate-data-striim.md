@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: ad690fa78f794b26b6cf496ea4485599486752b0
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: af99f369245d6006d0d4784e572020b820e406a3
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146968"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266052"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Striim를 사용 하 여 Azure Cosmos DB Cassandra API 계정으로 데이터 마이그레이션
 
@@ -155,7 +155,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
    ![대상에 연결](./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png)
 
-1. 대상을 구성 하기 전에 [Baltimore 루트 인증서를 Striim의 Java 환경에](/java/java-sdk-add-certificate-ca-store?view=azure-java-stable#to-add-a-root-certificate-to-the-cacerts-store)추가 했는지 확인 합니다.
+1. 대상을 구성 하기 전에 [Baltimore 루트 인증서를 Striim의 Java 환경에](/azure/java/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store)추가 했는지 확인 합니다.
 
 1. 대상 Azure Cosmos DB 인스턴스의 구성 속성을 입력 하 고 **저장** 을 선택 하 여 계속 합니다. 유의 해야 할 주요 매개 변수는 다음과 같습니다.
 

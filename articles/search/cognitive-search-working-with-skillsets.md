@@ -5,16 +5,15 @@ manager: eladz
 author: vkurpad
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: vikurpad
-ms.openlocfilehash: df2c469ef825863f958c8c263253c7d1c6f6c732
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: f75e6dece376076d4aa5e33497aff7e4f9f56857
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004411"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265691"
 ---
 # <a name="working-with-skillsets"></a>기술력과 사용
 이 문서는 보강 파이프라인이 작동 하는 방식을 심층적으로 이해 해야 하 고 인지 검색 프로세스를 개념적으로 이해 하 고 있다고 가정 하는 개발자를 위한 것입니다. 인지 검색을 처음 접하는 경우 다음으로 시작 합니다.

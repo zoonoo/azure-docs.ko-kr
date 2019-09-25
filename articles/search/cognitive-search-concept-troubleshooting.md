@@ -5,17 +5,16 @@ services: search
 manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.subservice: cognitive-search
 ms.workload: search
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: luisca
-ms.openlocfilehash: bc83a7c06c52ee26246329d6ca3177bce71c9de8
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: ee54d560ae1a294467e4520063153566d2c3b0a2
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186415"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265839"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>인식 검색을 위한 문제 해결 팁
 
@@ -105,7 +104,7 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 [병렬 인덱싱](search-howto-large-index.md)의 경우 여러 컨테이너에 데이터를 또는 동일한 컨테이너 내부에 여러 가상 폴더를 저장합니다. 그런 다음, 여러 데이터 원본 및 인덱서 쌍을 만듭니다. 모든 인덱서는 동일한 기술 집합을 사용하며 동일한 대상 검색 인덱스에 쓸 수 있으므로 검색 앱이 이 분할을 알 필요가 없습니다.
 자세한 내용은 [큰 데이터 세트 인덱싱](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)을 참조합니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 + [빠른 시작: 포털에서 인식 검색 파이프라인 만들기](cognitive-search-quickstart-blob.md)
 + [자습서: 인식 검색 REST API 알아보기](cognitive-search-tutorial-blob.md)
 + [데이터 원본 자격 증명 지정](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)

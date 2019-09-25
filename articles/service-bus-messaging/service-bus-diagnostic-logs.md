@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6443cb727573645792a4e6c929b80c3406d72025
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60714142"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261811"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Service Bus 진단 로그
 
 Azure Service Bus에 대해 다음 두 가지 유형의 로그를 볼 수 있습니다.
 * **[활동 로그](../azure-monitor/platform/activity-logs-overview.md)** . 이러한 로그에는 작업에서 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다.
-* **[진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)** . 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
+* **[진단 로그](../azure-monitor/platform/resource-logs-overview.md)** . 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
 
 ## <a name="turn-on-diagnostic-logs"></a>진단 로그 설정
 
@@ -46,13 +46,13 @@ Azure Service Bus에 대해 다음 두 가지 유형의 로그를 볼 수 있습
 
     ![진단 로그 상태 변경](./media/service-bus-diagnostic-logs/image3.png)
 
-5.  원하는 보관 대상을 설정합니다 예를 들어 저장소 계정, event hub 또는 Azure Monitor를 기록합니다.
+5.  원하는 보관 대상을 설정 합니다. 예를 들어 저장소 계정, 이벤트 허브 또는 Azure Monitor 로그가 있습니다.
 
 6.  새 진단 설정을 저장합니다.
 
 새 설정은 약 10분 후에 적용됩니다. 그런 다음 구성된 보관 대상의 **진단 로그** 블레이드에 로그가 나타납니다.
 
-진단 구성에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)를 참조하세요.
+진단 구성에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/resource-logs-overview.md)를 참조하세요.
 
 ## <a name="diagnostic-logs-schema"></a>진단 로그 스키마
 
@@ -68,13 +68,13 @@ Azure Service Bus에 대해 다음 두 가지 유형의 로그를 볼 수 있습
 ------- | -------
 ActivityId | 추적에 사용되는 내부 ID
 EventName | 작업 이름           
-ResourceId | Azure Resource Manager 리소스 ID
+resourceId | Azure Resource Manager 리소스 ID
 SubscriptionId | 구독 ID
 EventTimeString | 작업 시간
 EventProperties | 작업 속성
-상태 | 작업 상태
-Caller | 작업 호출자(Azure Portal 또는 관리 클라이언트)
-카테고리 | OperationalLogs
+Status | 작업 상태
+호출자 | 작업 호출자(Azure Portal 또는 관리 클라이언트)
+category | OperationalLogs
 
 작업 로그 JSON 문자열 예제는 다음과 같습니다.
 

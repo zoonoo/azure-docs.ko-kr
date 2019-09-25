@@ -8,14 +8,13 @@ ms.service: search
 ms.workload: search
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: cmacdo
-ms.subservice: cognitive-search
-ms.openlocfilehash: 407fd246313e582a3d28a6cbb474edefecd7f0af
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.author: chalton
+ms.openlocfilehash: ddfb35cbfcfbc262f3eff0de67f5cedfc31ea27e
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183322"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265704"
 ---
 #   <a name="text-translation-cognitive-skill"></a>텍스트 변환 인식 기술
 
@@ -40,7 +39,7 @@ TranslationSkill.
 
 매개 변수는 대/소문자를 구분합니다.
 
-| 입력                | Description |
+| 입력                | 설명 |
 |---------------------|-------------|
 | defaultToLanguageCode | 하다 언어를 명시적으로 지정 하지 않는 문서의 문서를로 변환 하는 언어 코드입니다. <br/> [지원되는 언어 전체 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)을 참조합니다. |
 | defaultFromLanguageCode | 필드 에서 언어를 명시적으로 지정 하지 않는 문서의 문서를 변환 하는 언어 코드입니다.  DefaultFromLanguageCode가 지정 되지 않은 경우 Translator Text API에서 제공 하는 자동 언어 검색을 사용 하 여 from 언어를 결정 합니다. <br/> [지원되는 언어 전체 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)을 참조합니다. |
@@ -56,7 +55,7 @@ TranslationSkill.
 
 ## <a name="skill-outputs"></a>기술 출력
 
-| 출력 이름    | Description |
+| 출력 이름    | 설명 |
 |--------------------|-------------|
 | translatedText | TranslatedFromLanguageCode에서 translatedToLanguageCode로 텍스트 변환의 문자열 결과입니다.|
 | translatedToLanguageCode  | 텍스트를 번역 한 언어 코드를 나타내는 문자열입니다. 여러 언어로 번역 하 고 어떤 언어가 어떤 언어로 된 텍스트를 추적할 수 있게 하려는 경우에 유용 합니다.|
@@ -150,7 +149,7 @@ From 또는 to 언어에 대해 지원 되지 않는 언어 코드를 제공 하
 텍스트가 비어 있는 경우 경고가 생성됩니다.
 텍스트가 5만 자 보다 큰 경우에는 첫 번째 5만 자만 변환 되 고 경고가 실행 됩니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
 + [기능을 정의하는 방법](cognitive-search-defining-skillset.md)

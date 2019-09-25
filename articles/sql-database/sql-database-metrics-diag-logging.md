@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: d9f1afdff53ada2df7722fcfdd7014fb6c417e39
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 208ebaa2e22f4cd0ee2138f3e49f78c1e56860cf
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135182"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260327"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅
 
@@ -33,7 +33,7 @@ ms.locfileid: "70135182"
 다양한 Azure 서비스에서 지원하는 메트릭 및 로그 범주에 대한 자세한 내용은 다음을 참조하세요.
 
 - [Microsoft Azure의 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Azure 진단 로그 개요](../azure-monitor/platform/resource-logs-overview.md)
 
 이 문서에서는 Azure SQL 데이터베이스, 탄력적 풀 및 관리되는 인스턴스에 대한 진단 원격 분석을 사용하도록 설정하는 데 도움이 되는 지침을 제공합니다. 또한 이를 통해 데이터베이스 진단 원격 분석을 보기 위한 모니터링 도구로 Azure SQL 분석을 구성하는 방법을 이해할 수 있습니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "70135182"
 
 메트릭 및 진단 로깅을 사용 하도록 설정 하는 경우 진단 원격 분석을 수집 하기 위해 Azure 리소스 대상을 지정 해야 합니다. 사용 가능한 옵션은 다음과 같습니다.
 
-- Azure SQL 분석
+- Azure SQL Analytics
 - Azure Event Hubs
 - Azure Storage
 
@@ -96,7 +96,7 @@ Azure Portal에서 각 단일 풀링된 데이터베이스 또는 인스턴스 �
 
 탄력적 풀 및 탄력적 풀의 데이터베이스에 대 한 진단 원격 분석 스트리밍을 구성 하려면 다음 **두** 가지를 별도로 구성 해야 합니다.
 
-- 탄력적 풀에 대 한 진단 원격 분석의 스트리밍을 사용 하도록 설정 합니다.
+- 탄력적 풀에 대 한 진단 원격 분석의 스트리밍을 사용 하도록 **설정 합니다.**
 - 탄력적 풀의 각 데이터베이스에 대 한 진단 원격 분석의 스트리밍을 사용 하도록 설정
 
 탄력적 풀은 개별 데이터베이스 원격 분석과 분리 된 자체 원격 분석이 있는 데이터베이스 컨테이너 이기 때문입니다.
@@ -158,7 +158,7 @@ Azure Portal에서 각 단일 풀링된 데이터베이스 또는 인스턴스 �
 
 관리 되는 인스턴스 및 인스턴스 데이터베이스의 진단 원격 분석 스트리밍을 구성 하려면 다음 **두 가지** 를 별도로 구성 해야 합니다.
 
-- 관리 되는 인스턴스에 대 한 진단 원격 분석 의 스트리밍을 사용 하도록 설정 합니다.
+- 관리 되는 인스턴스에 대 한 진단 원격 분석의 스트리밍을 사용 하도록 **설정 합니다.**
 - 각 인스턴스 데이터베이스에 대 한 진단 원격 분석의 스트리밍을 사용 하도록 설정
 
 이는 관리 되는 인스턴스가 개별 인스턴스 데이터베이스 원격 분석과는 별개의 원격 분석이 있는 데이터베이스 컨테이너 이기 때문입니다.
@@ -222,7 +222,7 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
 
    스토리지 계정 ID는 대상 스토리지 계정의 리소스 ID입니다.
 
-- 이벤트 허브로 진단 로그 스트리밍을 사용하도록 설정하려면 다음 명령을 사용합니다.
+- 이벤트 허브로의 진단 로그 스트리밍을 활성화하려면 다음 명령을 사용합니다.
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
@@ -234,19 +234,19 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
-- Log Analytics 작업 영역으로 진단 로그 보내기를 사용하도록 설정하려면 다음 명령을 사용합니다.
+- 진단 로그를 Log Analytics 작업 영역으로 보낼 수 있게 하려면 이 명령을 사용합니다.
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
-- 다음 명령을 사용하여 Log Analytics 작업 영역의 리소스 ID를 얻을 수 있습니다.
+- 다음 명령을 사용하여 Log Analytics 작업 영역의 리소스 ID를 가져올 수 있습니다.
 
    ```powershell
    (Get-AzOperationalInsightsWorkspace).ResourceId
    ```
 
-이러한 매개 변수를 결합하여 여러 출력 옵션을 사용하도록 설정할 수 있습니다.
+이러한 매개 변수를 결합하여 여러 출력 옵션을 활성화할 수 있습니다.
 
 ### <a name="to-configure-multiple-azure-resources"></a>Azure 리소스를 여러 개 구성하려면
 
@@ -296,7 +296,7 @@ Azure CLI를 사용하여 메트릭 및 진단 로깅을 사용하도록 설정�
    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
    ```
 
-이러한 매개 변수를 결합하여 여러 출력 옵션을 사용하도록 설정할 수 있습니다.
+이러한 매개 변수를 결합하여 여러 출력 옵션을 활성화할 수 있습니다.
 
 ### <a name="rest-api"></a>REST API
 
@@ -304,7 +304,7 @@ Azure CLI를 사용하여 메트릭 및 진단 로깅을 사용하도록 설정�
 
 ### <a name="resource-manager-template"></a>Resource Manager 템플릿
 
-[Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정을 활성화하는 방법](../azure-monitor/platform/diagnostic-logs-stream-template.md)을 참조하세요.
+[Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정을 활성화하는 방법](../azure-monitor/platform/diagnostic-settings-template.md)을 참조하세요.
 
 ## <a name="stream-into-azure-sql-analytics"></a>Azure SQL Analytics로 스트리밍
 
@@ -435,20 +435,20 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="resource-usage-stats-for-managed-instance"></a>관리 되는 인스턴스의 리소스 사용 통계
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure|
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
 |형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|범주|범주 이름. 항상: ResourceUsageStats |
-|리소스|리소스의 이름 |
+|Category|범주 이름. 항상: ResourceUsageStats |
+|리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: MANAGEDINSTANCES |
 |SubscriptionId|데이터베이스의 구독 GUID |
 |ResourceGroup|데이터베이스의 리소스 그룹 이름 |
 |LogicalServerName_s|관리되는 인스턴스의 이름 |
-|resourceId|리소스 URI |
+|ResourceId|리소스 URI |
 |SKU_s|관리되는 인스턴스 제품 SKU |
 |virtual_core_count_s|사용 가능한 vCore 수 |
 |avg_cpu_percent_s|평균 CPU 비율 |
@@ -460,23 +460,23 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="query-store-runtime-statistics"></a>쿼리 저장소 런타임 통계
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
 |형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|범주|범주 이름. 항상: QueryStoreRuntimeStatistics |
+|Category|범주 이름. 항상: QueryStoreRuntimeStatistics |
 |OperationName|작업의 이름입니다. 항상: QueryStoreRuntimeStatisticsEvent |
-|리소스|리소스의 이름 |
+|리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
 |SubscriptionId|데이터베이스의 구독 GUID |
 |ResourceGroup|데이터베이스의 리소스 그룹 이름 |
 |LogicalServerName_s|데이터베이스의 서버 이름 |
 |ElasticPoolName_s|데이터베이스에 대한 탄력적 풀 이름(있는 경우) |
 |DatabaseName_s|데이터베이스 이름 |
-|resourceId|리소스 URI |
+|ResourceId|리소스 URI |
 |query_hash_s|쿼리 해시 |
 |query_plan_hash_s|쿼리 계획 해시 |
 |statement_sql_handle_s|문 SQL 핸들 |
@@ -516,18 +516,18 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|범주|범주 이름. 항상: QueryStoreWaitStatistics |
+|Category|범주 이름. 항상: QueryStoreWaitStatistics |
 |OperationName|작업의 이름입니다. 항상: QueryStoreWaitStatisticsEvent |
-|리소스|리소스의 이름 |
+|리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
 |SubscriptionId|데이터베이스의 구독 GUID |
 |ResourceGroup|데이터베이스의 리소스 그룹 이름 |
 |LogicalServerName_s|데이터베이스의 서버 이름 |
 |ElasticPoolName_s|데이터베이스에 대한 탄력적 풀 이름(있는 경우) |
 |DatabaseName_s|데이터베이스 이름 |
-|resourceId|리소스 URI |
+|ResourceId|리소스 URI |
 |wait_category_s|대기 범주 |
 |is_parameterizable_s|매개 변수화할 수 있는 쿼리 |
 |statement_type_s|문 형식 |
@@ -554,22 +554,22 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|범주|범주 이름. 항상: 오류 |
+|Category|범주 이름. 항상: 오류 |
 |OperationName|작업의 이름입니다. 항상: ErrorEvent |
-|리소스|리소스의 이름 |
+|리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
 |SubscriptionId|데이터베이스의 구독 GUID |
 |ResourceGroup|데이터베이스의 리소스 그룹 이름 |
 |LogicalServerName_s|데이터베이스의 서버 이름 |
 |ElasticPoolName_s|데이터베이스에 대한 탄력적 풀 이름(있는 경우) |
 |DatabaseName_s|데이터베이스 이름 |
-|resourceId|리소스 URI |
-|메시지|일반 텍스트의 오류 메시지 |
+|ResourceId|리소스 URI |
+|Message|일반 텍스트의 오류 메시지 |
 |user_defined_b|오류 사용자 정의 비트 |
 |error_number_d|오류 코드 |
-|Severity|오류의 심각도 |
+|severity|오류의 심각도 |
 |state_d|오류 상태 |
 |query_hash_s|실패한 쿼리의 쿼리 해시(있는 경우) |
 |query_plan_hash_s|실패한 쿼리의 쿼리 계획 해시(있는 경우) |
@@ -578,23 +578,23 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="database-wait-statistics-dataset"></a>데이터베이스 대기 통계 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|형식|항상: AzureDiagnostics |
+|type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|범주|범주 이름. 항상: DatabaseWaitStatistics |
+|Category|범주 이름. 항상: DatabaseWaitStatistics |
 |OperationName|작업의 이름입니다. 항상: DatabaseWaitStatisticsEvent |
-|리소스|리소스의 이름 |
+|리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
 |SubscriptionId|데이터베이스의 구독 GUID |
 |ResourceGroup|데이터베이스의 리소스 그룹 이름 |
 |LogicalServerName_s|데이터베이스의 서버 이름 |
 |ElasticPoolName_s|데이터베이스에 대한 탄력적 풀 이름(있는 경우) |
 |DatabaseName_s|데이터베이스 이름 |
-|resourceId|리소스 URI |
+|ResourceId|리소스 URI |
 |wait_type_s|대기 형식 이름 |
 |start_utc_date_t [UTC]|측정 기간 시작 시간 |
 |end_utc_date_t [UTC]|측정 기간 종료 시간 |
@@ -607,46 +607,46 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="time-outs-dataset"></a>제한 시간 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
 |형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|범주|범주 이름. 항상: 시간 제한 |
+|Category|범주 이름. 항상: 시간 제한 |
 |OperationName|작업의 이름입니다. 항상: TimeoutEvent |
-|리소스|리소스의 이름 |
+|리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
 |SubscriptionId|데이터베이스의 구독 GUID |
 |ResourceGroup|데이터베이스의 리소스 그룹 이름 |
 |LogicalServerName_s|데이터베이스의 서버 이름 |
 |ElasticPoolName_s|데이터베이스에 대한 탄력적 풀 이름(있는 경우) |
 |DatabaseName_s|데이터베이스 이름 |
-|resourceId|리소스 URI |
+|ResourceId|리소스 URI |
 |error_state_d|오류 상태 코드 |
 |query_hash_s|쿼리 해시(있는 경우) |
 |query_plan_hash_s|쿼리 계획 해시(있는 경우) |
 
 ### <a name="blockings-dataset"></a>차단 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
 |형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|범주|범주 이름. 항상: 블록 |
+|Category|범주 이름. 항상: 블록 |
 |OperationName|작업의 이름입니다. 항상: BlockEvent |
-|리소스|리소스의 이름 |
+|리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
 |SubscriptionId|데이터베이스의 구독 GUID |
 |ResourceGroup|데이터베이스의 리소스 그룹 이름 |
 |LogicalServerName_s|데이터베이스의 서버 이름 |
 |ElasticPoolName_s|데이터베이스에 대한 탄력적 풀 이름(있는 경우) |
 |DatabaseName_s|데이터베이스 이름 |
-|resourceId|리소스 URI |
+|ResourceId|리소스 URI |
 |lock_mode_s|쿼리에 사용된 잠금 모드 |
 |resource_owner_type_s|잠금 소유자 |
 |blocked_process_filtered_s|차단된 프로세스 보고서 XML |
@@ -661,29 +661,29 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 |TimeGenerated [UTC] |로그가 기록된 때의 타임스탬프 |
 |형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|범주|범주 이름. 항상: 교착 상태 |
+|Category|범주 이름. 항상: 교착 상태 |
 |OperationName|작업의 이름입니다. 항상: DeadlockEvent |
-|리소스|리소스의 이름 |
+|리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
 |SubscriptionId|데이터베이스의 구독 GUID |
 |ResourceGroup|데이터베이스의 리소스 그룹 이름 |
 |LogicalServerName_s|데이터베이스의 서버 이름 |
 |ElasticPoolName_s|데이터베이스에 대한 탄력적 풀 이름(있는 경우) |
 |DatabaseName_s|데이터베이스 이름 |
-|resourceId|리소스 URI |
+|ResourceId|리소스 URI |
 |deadlock_xml_s|교착 상태 보고서 XML |
 
 ### <a name="automatic-tuning-dataset"></a>자동 조정 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
 |형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|범주|범주 이름. 항상: AutomaticTuning |
-|리소스|리소스의 이름 |
+|Category|범주 이름. 항상: AutomaticTuning |
+|리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
 |SubscriptionId|데이터베이스의 구독 GUID |
 |ResourceGroup|데이터베이스의 리소스 그룹 이름 |
@@ -691,7 +691,7 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 |LogicalDatabaseName_s|데이터베이스 이름 |
 |ElasticPoolName_s|데이터베이스에 대한 탄력적 풀 이름(있는 경우) |
 |DatabaseName_s|데이터베이스 이름 |
-|resourceId|리소스 URI |
+|ResourceId|리소스 URI |
 |RecommendationHash_s|자동 조정 권장 사항의 고유 해시 |
 |OptionName_s|자동 조정 작업 |
 |Schema_s|데이터베이스 스키마 |
@@ -712,7 +712,7 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 로깅을 사용하도록 설정하는 방법을 알아보고 여러 Azure 서비스에서 지원되는 메트릭과 로그 범주를 이해하려면 다음을 참조하세요.
 
 - [Microsoft Azure의 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Azure 진단 로그 개요](../azure-monitor/platform/resource-logs-overview.md)
 
 Event Hubs에 대해 알아보려면 다음을 확인합니다.
 

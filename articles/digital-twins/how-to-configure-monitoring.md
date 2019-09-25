@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: dd1481c74cdf519dcb4588e0b7cf09b7b6ab5f1d
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: d0f5f9a1d488b6be8ca91fdd057880e351ae0b3f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950118"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261037"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Azure Digital Twins에서 모니터링을 구성하는 방법
 
@@ -57,7 +57,7 @@ Azure Digital Twins에 대한 활동 로깅이 기본적으로 사용되며 다�
 
 ## <a name="enable-customer-diagnostic-logs"></a>고객 진단 로그 사용
 
-각 Azure 인스턴스에 대한 [진단 설정](../azure-monitor/platform/diagnostic-logs-overview.md)을 설정하여 작업 로깅을 보완할 수 있습니다. 활동 로그는 구독 수준 이벤트와 관련이 있지만, 진단 로깅은 리소스 자체의 작업 기록에 대한 인사이트를 제공합니다.
+각 Azure 인스턴스에 대한 [진단 설정](../azure-monitor/platform/resource-logs-overview.md)을 설정하여 작업 로깅을 보완할 수 있습니다. 활동 로그는 구독 수준 이벤트와 관련이 있지만, 진단 로깅은 리소스 자체의 작업 기록에 대한 인사이트를 제공합니다.
 
 다음은 진단 로깅의 예입니다.
 
@@ -129,6 +129,6 @@ Azure Digital Twins는 애플리케이션별 로깅 및 보안 감사도 지원�
 
 - Azure [활동 로그](../azure-monitor/platform/activity-logs-overview.md)에 대해 자세히 알아보세요.
 
-- [진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)를 읽고 Azure 진단 설정에 대해 자세히 알아보세요.
+- [진단 로그 개요](../azure-monitor/platform/resource-logs-overview.md)를 읽고 Azure 진단 설정에 대해 자세히 알아보세요.
 
 - [Azure Monitor 로그](../azure-monitor/log-query/get-started-portal.md)에 대해 자세히 알아보세요.

@@ -5,17 +5,16 @@ services: search
 manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.subservice: cognitive-search
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: e4b94e7a6e41a5c6beaf94069c0fb6bed795ca6d
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 40559744f0650c64afb1dc63c38f56efaa0219d7
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183506"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265545"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>인식 검색 기술 집합의 주석 참조하는 방법
 
@@ -27,7 +26,7 @@ ms.locfileid: "70183506"
 
 구문을 검토를 하기 전에 이 문서의 뒷부분에 제공되는 예제를 보다 잘 이해하려면 몇 가지 중요한 개념을 다시 확인하겠습니다.
 
-| 용어 | Description |
+| 용어 | 설명 |
 |------|-------------|
 | 보강된 문서 | 보강된 문서는 문서와 관련된 모든 주석을 유지하기 위해 파이프라인에서 만들고 사용하는 내부 구조입니다. 보강된 문서를 주석의 트리라고 생각합니다. 일반적으로 이전 주석에서 만든 주석은 자식 주석이 됩니다.<p/>보강된 문서는 기술 집항 실행 동안에만 존재합니다. 콘텐츠가 검색 인덱스에 매핑되면 보강된 문서는 더 이상 필요 없습니다. 보강된 문서와 직접 상호 작용하지 않더라도 기술 집합을 만들 경우 문서의 심적 모델을 보유하는 것이 유용합니다. |
 | 보강 컨텍스트 | 요소가 보강된 점에서 보강이 일어난 컨텍스트입니다. 기본적으로 보강 컨텍스트는 `"/document"` 수준에서 개별 문서에 범위가 지정됩니다. 기술을 실행할 때 해당 기술의 출력은 [정의된 컨텍스트의 속성](#example-2)이 됩니다.|
@@ -61,7 +60,7 @@ Azure Blob storage에서 엔터티 인식을 사용 하 여 추출할 사용자�
 
 <a name="example-2"></a>
 
-## <a name="example-2-reference-an-array-within-a-document"></a>예제 2: 문서 내에서 배열 참조
+## <a name="example-2-reference-an-array-within-a-document"></a>예 2: 문서 내에서 배열 참조
 
 이 예제는 동일 문서에 대해 보강 단계를 여러 번 호출하는 방법을 보여주며 이전 예제를 기반으로 빌드합니다. 이전 예제가 단일 문서에서 10명의 이름을 통해 문자열 배열을 생성했다고 가정합니다. 합리적인 다음 단계는 전체 이름에서 성을 추출하는 두 번째 보강일 수 있습니다. 10개 이름이 있으므로 이 문서에서 이 단계를 한 명당 한 번씩 10번을 호출하고자 합니다. 
 
@@ -93,7 +92,7 @@ Azure Blob storage에서 엔터티 인식을 사용 하 여 추출할 사용자�
 
 <a name="example-3"></a>
 
-## <a name="example-3-reference-members-within-an-array"></a>예제 3: 배열 내에서 멤버 참조
+## <a name="example-3-reference-members-within-an-array"></a>예 3: 배열 내에서 멤버 참조
 
 경우에 따라 특정 기술에 전달하는 특정 형식의 모든 주석을 그룹화해야 합니다. 예제 2에서 추출된 모든 성 가운데 가장 일반적인 성을 식별하는 가상의 사용자 지정 기술을 고려합니다. 사용자 지정 기술에 성만 제공하려면 컨텍스트를 `"/document"`로, 입력을 `"/document/people/*/lastname"`로 지정합니다.
 
@@ -122,7 +121,7 @@ Azure Blob storage에서 엔터티 인식을 사용 하 여 추출할 사용자�
 
 
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 + [사용자 지정 기술을 보강 파이프라인으로 통합하는 방법](cognitive-search-custom-skill-interface.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [기술 집합 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

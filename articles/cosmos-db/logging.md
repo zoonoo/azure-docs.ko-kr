@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: d8a9963edd689a32ae0642ac6fa4a622c248bc5b
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: e43bc4b8eb1db91493f279f5c46681483e4b18c4
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232372"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261400"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB의 진단 로깅 
 
@@ -78,7 +78,7 @@ Azure Portal에서 진단 로깅을 사용 하도록 설정 하려면 다음 단
 
 1. **진단 설정** 페이지에서 다음 세부 정보로 양식을 채웁니다. 
 
-    * **이름**: 만들 로그에 대한 이름을 입력합니다.
+    * **Name**: 만들 로그에 대한 이름을 입력합니다.
 
     * 다음 서비스에 로그를 저장할 수 있습니다.
 
@@ -90,13 +90,13 @@ Azure Portal에서 진단 로깅을 사용 하도록 설정 하려면 다음 단
 
    * 다음 데이터를 기록할 수 있습니다.
 
-      * **DataPlaneRequests**: SQL, Graph, MongoDB, Cassandra 및 Table API 계정을 포함 하는 모든 Api에 대 한 백 엔드 요청을 Azure Cosmos DB에 기록 하려면이 옵션을 선택 합니다. 스토리지 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 로그는 보존 기간이 만료된 후에 자동 삭제됩니다. 다음 JSON 데이터는 DataPlaneRequests을 사용 하 여 기록 된 세부 정보 출력의 예입니다. 유의 해야 할 주요 속성은 다음과 같습니다. Requestcharge, statusCode, clientIPaddress 및 partitionID:
+      * **DataPlaneRequests**: SQL, Graph, MongoDB, Cassandra 및 Table API 계정을 포함 하는 모든 Api에 대 한 백 엔드 요청을 Azure Cosmos DB에 기록 하려면이 옵션을 선택 합니다. 스토리지 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다. 다음 JSON 데이터는 DataPlaneRequests을 사용 하 여 기록 된 세부 정보 출력의 예입니다. 유의 해야 할 주요 속성은 다음과 같습니다. Requestcharge, statusCode, clientIPaddress 및 partitionID:
 
        ```
        { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
        ```
 
-      * **MongoRequests**: 프런트 엔드에서 사용자가 시작한 요청을 MongoDB의 API Azure Cosmos DB에 대 한 요청을 처리 하도록 기록 하려면이 옵션을 선택 합니다. MongoDB 요청은 MongoRequests 및 DataPlaneRequests에도 표시 됩니다. 스토리지 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 로그는 보존 기간이 만료된 후에 자동 삭제됩니다. 다음 JSON 데이터는 MongoRequests을 사용 하 여 기록 된 세부 정보 출력의 예입니다. 유의 해야 할 주요 속성은 다음과 같습니다. Requestcharge, opCode:
+      * **MongoRequests**: 프런트 엔드에서 사용자가 시작한 요청을 MongoDB의 API Azure Cosmos DB에 대 한 요청을 처리 하도록 기록 하려면이 옵션을 선택 합니다. MongoDB 요청은 MongoRequests 및 DataPlaneRequests에도 표시 됩니다. 스토리지 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다. 다음 JSON 데이터는 MongoRequests을 사용 하 여 기록 된 세부 정보 출력의 예입니다. 유의 해야 할 주요 속성은 다음과 같습니다. Requestcharge, opCode:
 
        ```
        { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
@@ -108,7 +108,7 @@ Azure Portal에서 진단 로깅을 사용 하도록 설정 하려면 다음 단
        { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
        ```
 
-      * **메트릭 요청**: [Azure 메트릭](../azure-monitor/platform/metrics-supported.md)에 자세한 데이터를 저장하려면 이 옵션을 선택합니다. 스토리지 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 로그는 보존 기간이 만료된 후에 자동 삭제됩니다.
+      * **메트릭 요청**: [Azure 메트릭](../azure-monitor/platform/metrics-supported.md)에 자세한 데이터를 저장하려면 이 옵션을 선택합니다. 스토리지 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
 
 3. **저장**을 선택합니다.
 
@@ -142,7 +142,7 @@ Azure CLI를 사용하여 메트릭 및 진단 로깅을 사용하도록 설정�
    az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --workspace <resource id of the log analytics workspace> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
-이러한 매개 변수를 결합하여 여러 출력 옵션을 사용하도록 설정할 수 있습니다.
+이러한 매개 변수를 결합하여 여러 출력 옵션을 활성화할 수 있습니다.
 
 ## <a name="turn-on-logging-by-using-powershell"></a>PowerShell을 사용하여 로깅 켜기
 
@@ -287,7 +287,7 @@ Name              : resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/C
 
 여러 리소스에 대한 로그를 수집하는 데 동일한 스토리지 계정을 사용할 수 있으므로 Blob 이름에 있는 정규화된 리소스 ID를 사용하여 필요한 특정 Blob을 액세스하거나 다운로드할 수 있습니다. 이러한 작업을 수행하기 전에, 모든 Blob을 다운로드하는 방법을 다룹니다.
 
-먼저 Blob을 다운로드할 폴더를 만듭니다. 예:
+먼저 Blob을 다운로드할 폴더를 만듭니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```powershell
 New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
@@ -309,7 +309,7 @@ $blobs | Get-AzStorageBlobContent `
 
 이 두 번째 명령을 실행할 때 Blob 이름의 **/** 구분 기호는 대상 폴더 아래에 전체 폴더 구조를 만듭니다. 이 폴더 구조는 Blob을 파일로 다운로드하고 저장하는 데 사용됩니다.
 
-선택적으로 Blob을 다운로드하려면 와일드카드를 사용합니다. 예를 들어:
+선택적으로 Blob을 다운로드하려면 와일드카드를 사용합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 * 여러 데이터베이스가 있고 **CONTOSOCOSMOSDB3**라는 하나의 데이터베이스에 대한 로그를 다운로드하려는 경우 다음 명령을 사용합니다.
 
@@ -363,10 +363,10 @@ $blobs | Get-AzStorageBlobContent `
 
 ## <a name="manage-your-logs"></a>로그 관리
 
-진단 로그는 Azure Cosmos DB 작업이 수행된 시간부터 2시간 동안 계정에서 사용 가능합니다. 스토리지 계정에서 로그를 관리하는 것은 사용자의 책임입니다.
+진단 로그는 Azure Cosmos DB 작업이 수행된 시간부터 2시간 동안 계정에서 사용 가능합니다. 스토리지 계정의 로그 관리에 따라 다릅니다.
 
 * 표준 Azure 액세스 제어 메서드를 사용하여 액세스할 수 있는 사용자를 제한하여 로그를 보호합니다.
-* 스토리지 계정에 더 이상 보존하지 않을 로그를 삭제합니다.
+* 더 이상 스토리지 계정에 유지하지 않으려는 로그를 삭제합니다.
 * 스토리지 계정에 보관된 데이터 평면 요청의 보존 기간은 **DataPlaneRequests 로그** 설정이 선택된 경우 포털에서 구성됩니다. 해당 설정을 변경하려면 [Azure Portal에서 로깅 켜기](#turn-on-logging-in-the-azure-portal)를 참조하세요.
 
 
@@ -481,7 +481,7 @@ Azure Storage 및 Azure Monitor 로그에 저장 된 진단 데이터는 유사�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 로깅을 사용하도록 설정하는 방법뿐 아니라 여러 Azure 서비스에서 지원하는 메트릭 및 로그 범주를 이해하려면 [Microsoft Azure의 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md) 및 [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md) 문서를 읽어보세요.
+- 로깅을 사용하도록 설정하는 방법뿐 아니라 여러 Azure 서비스에서 지원하는 메트릭 및 로그 범주를 이해하려면 [Microsoft Azure의 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md) 및 [Azure 진단 로그 개요](../azure-monitor/platform/resource-logs-overview.md) 문서를 읽어보세요.
 - Event Hubs에 대한 자세한 내용은 다음 문서를 참조하세요.
    - [Azure Event Hubs 정의](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

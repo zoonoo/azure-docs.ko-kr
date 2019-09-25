@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 1ebea83d87cd169f61c91a93f092fa277f5017a7
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 5336153a776f3324e5f73564ba2804389cd96938
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203810"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257578"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit for Eclipse를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
@@ -75,23 +75,23 @@ Ambari 관리 사용자 이름을 사용하여 일반 클러스터를 연결할 
 
 1. **Azure Explorer**에서 **클러스터 연결**을 클릭합니다.
 
-   ![클러스터 연결 상황에 맞는 메뉴](./media/apache-spark-eclipse-tool-plugin/link-a-cluster-context-menu.png)
+   ![Azure 탐색기 링크 클러스터 메뉴](./media/apache-spark-eclipse-tool-plugin/link-a-cluster-context-menu.png)
 
 1. **클러스터 이름**, **사용자 이름** 및 **암호**를 입력한 다음, 확인 단추를 클릭하여 클러스터에 연결합니다. 선택적으로 스토리지 계정, 스토리지 키를 입력한 다음, Storage Explorer의 스토리지 컨테이너를 선택하여 왼쪽 트리 뷰에서 작업합니다.
 
-   ![클러스터 연결 대화 상자](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog1.png)
+   ![새 HDInsight 클러스터 연결 대화 상자](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog1.png)
 
    > [!NOTE]  
    > 클러스터가 Azure 구독 및 연결된 클러스터 모두에 로그인되어 있으면, 연결된 스토리지 키, 사용자 이름 및 암호를 사용합니다.
-   > ![Eclipse의 스토리지 탐색기](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
+   > ![Azure 탐색기 저장소 계정](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
 1. 입력 정보가 올바르면 확인 단추를 클릭한 후 **HDInsight** 노드에 연결된 클러스터가 표시됩니다. 이제 애플리케이션을 연결된 클러스터에 제출할 수 있습니다.
 
-   ![연결된 클러스터](./media/apache-spark-eclipse-tool-plugin/hdinsight-linked-cluster.png)
+   ![Azure Explorer hdi 연결 된 클러스터](./media/apache-spark-eclipse-tool-plugin/hdinsight-linked-cluster.png)
 
 1. **Azure Explorer**에서 클러스터 연결을 해제할 수도 있습니다.
 
-   ![연결되지 않은 클러스터](./media/apache-spark-eclipse-tool-plugin/hdi-unlinked-cluster.png)
+   ![Azure 탐색기 연결 되지 않은 클러스터](./media/apache-spark-eclipse-tool-plugin/hdi-unlinked-cluster.png)
 
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터에 Spark Scala 프로젝트 설정
 
@@ -103,7 +103,7 @@ Ambari 관리 사용자 이름을 사용하여 일반 클러스터를 연결할 
 
 1. Scala 프로젝트 생성 마법사는 Scala 플러그 인이 설치되어 있는지 여부를 자동으로 검색합니다. **확인**을 선택하여 Scala 플러그 인 다운로드를 계속 진행한 후 지침에 따라 Eclipse를 다시 시작합니다.
 
-   ![Scala 확인](./media/apache-spark-eclipse-tool-plugin/auto-installation-scala2.png)
+   ![누락 된 플러그 인 설치 Scala 확인](./media/apache-spark-eclipse-tool-plugin/auto-installation-scala2.png)
 
 1. **새 HDInsight Scala 프로젝트** 대화 상자에서 다음 값을 입력한 후 **다음**을 선택합니다.
    * 프로젝트의 이름을 입력합니다.
@@ -120,10 +120,10 @@ Ambari 관리 사용자 이름을 사용하여 일반 클러스터를 연결할 
 
 1. **마법사 선택** 대화 상자에서 **Scala 마법사**를 확장하고 **Scala 개체**, **다음**을 차례로 선택합니다.
 
-   ![마법사 대화 상자 선택](./media/apache-spark-eclipse-tool-plugin/create-scala-project1.png)
+   ![마법사 선택 Scala 개체 만들기](./media/apache-spark-eclipse-tool-plugin/create-scala-project1.png)
 1. **새 파일 만들기** 대화 상자에서 개체 이름을 입력한 다음 **마침**을 선택합니다.
 
-   ![새 파일 대화 상자 만들기](./media/apache-spark-eclipse-tool-plugin/create-scala-project2.png)
+   ![새 파일 마법사 새 파일 만들기](./media/apache-spark-eclipse-tool-plugin/create-scala-project2.png)
 1. 텍스트 편집기에 다음 코드를 붙여 넣습니다.
 
     ```scala
@@ -156,11 +156,11 @@ Ambari 관리 사용자 이름을 사용하여 일반 클러스터를 연결할 
    * **기본 클래스 이름** 드롭다운 목록에서 제출 마법사에는 프로젝트의 모든 개체 이름이 표시됩니다. 실행하려는 이름을 선택하거나 입력합니다. 하드 드라이브에서 아티팩트를 선택한 경우 주 클래스 이름을 수동으로 입력해야 합니다. 
    * 이 예제의 애플리케이션 코드에는 명령줄 인수가 필요하지 않고 JAR 또는 파일을 참조하지 않으므로 나머지 텍스트 상자를 비워둘 수 있습니다.
 
-     ![Spark 제출 대화 상자](./media/apache-spark-eclipse-tool-plugin/create-scala-project3.png)
+     ![Apache Spark 제출 대화 상자](./media/apache-spark-eclipse-tool-plugin/create-scala-project3.png)
 
 1. **Spark 제출** 탭에 진행 상태가 표시되기 시작합니다. **Spark 제출** 창에서 빨간색 단추를 선택하여 애플리케이션을 중지할 수 있습니다. 구형 아이콘(이미지에 파란색 상자로 표시됨)을 선택하여 특정 애플리케이션을 실행하는 로그를 볼 수도 있습니다.
 
-   ![Spark 제출 창](./media/apache-spark-eclipse-tool-plugin/create-scala-project4.png)
+   ![Apache Spark 제출 창](./media/apache-spark-eclipse-tool-plugin/create-scala-project4.png)
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-hdinsight-tools-in-azure-toolkit-for-eclipse"></a>Eclipse용 Azure 도구 키트의 HDInsight Tools를 사용하여 HDInsight Spark 클러스터 액세스 및 관리
 
@@ -170,15 +170,15 @@ HDInsight Tools를 사용하여 작업 출력에 액세스를 포함한 다양�
 
 1. Azure 탐색기에서 **HDInsight**, Spark 클러스터 이름을 차례로 확장한 다음 **작업**을 선택합니다.
 
-   ![작업 보기 노드](./media/apache-spark-eclipse-tool-plugin/eclipse-job-view-node.png)
+   ![Azure 탐색기 Eclipse 작업 보기 노드](./media/apache-spark-eclipse-tool-plugin/eclipse-job-view-node.png)
 
-1. **작업** 노드를 선택합니다. Java 버전이 **1.8**보다 낮으면 HDInsight Tools가 자동으로 **E(fx)clipse** 플러그인 설치를 미리 알립니다. **확인**을 선택하여 계속 진행한 다음 마법사에 따라 Eclipse Marketplace에서  Eclipse를 설치하고 다시 시작합니다. 
+1. **작업** 노드를 선택합니다. Java 버전이 **1.8**보다 낮으면 HDInsight Tools가 자동으로 **E(fx)clipse** 플러그인 설치를 미리 알립니다. **확인**을 선택하여 계속 진행한 다음 마법사에 따라 Eclipse Marketplace에서  Eclipse를 설치하고 다시 시작합니다.
 
-   ![E(fx)clipse 설치](./media/apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
+   ![누락 된 플러그 인 E (fx) clipse 설치](./media/apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
 
 1. **작업** 노드에서 작업 보기를 엽니다. 오른쪽 창의 **Spark 작업 보기** 탭에는 클러스터에서 실행된 모든 애플리케이션이 표시됩니다. 자세한 내용을 보려면 원하는 애플리케이션 이름을 선택합니다.
 
-   ![애플리케이션 세부 정보](./media/apache-spark-eclipse-tool-plugin/eclipse-view-job-logs.png)
+   ![Apache Eclipse 작업 로그 보기 세부 정보](./media/apache-spark-eclipse-tool-plugin/eclipse-view-job-logs.png)
 
    다음 작업 중 하나를 수행할 수 있습니다.
 
@@ -188,7 +188,7 @@ HDInsight Tools를 사용하여 작업 출력에 액세스를 포함한 다양�
 
    * **드라이버 Stderr**, **드라이버 Stdout** 및 **디렉터리 정보**와 같은 자주 사용되는 로그를 보려면 **로그** 탭을 선택합니다.
 
-     ![로그 세부 정보](./media/apache-spark-eclipse-tool-plugin/eclipse-job-log-info.png)
+     ![Eclipse 작업 로그 정보 Apache Spark](./media/apache-spark-eclipse-tool-plugin/eclipse-job-log-info.png)
 
    * 창 맨 위에 있는 하이퍼링크를 선택하여 Spark 기록 UI 및 Apache Hadoop YARN UI(애플리케이션 수준)를 엽니다.
 
@@ -245,7 +245,7 @@ Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 �
 
 1. 템플릿은 컴퓨터에서 로컬로 실행할 수 있는 샘플 코드(**LogQuery**)를 **src** 폴더 아래에 추가합니다.
 
-   ![LogQuery 위치](./media/apache-spark-eclipse-tool-plugin/local-scala-application.png)
+   ![LogQuery 로컬 scala 응용 프로그램의 위치](./media/apache-spark-eclipse-tool-plugin/local-scala-application.png)
 
 1. **LogQuery** 애플리케이션을 마우스 오른쪽 단추로 클릭하고, **다음으로 실행**을 가리킨 다음, **1 Scala 애플리케이션**을 선택합니다. **콘솔** 탭에 다음과 같은 출력이 표시됩니다.
 
@@ -308,7 +308,7 @@ Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 �
 
 클러스터를 연결하는 경우 스토리지 자격 증명을 제공하는 것이 좋습니다.
 
-![대화형 로그인](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
+![저장소 자격 증명을 사용 하 여 클러스터 연결 eclipse](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
 
 작업을 제출하는 두 가지 모드가 있습니다. 스토리지 자격 증명을 제공하는 경우 작업을 제출하는 데 일괄 처리 모드가 사용됩니다. 그렇지 않으면 대화형 모드가 사용됩니다. 클러스터가 사용 중인 경우 아래 오류가 발생할 수 있습니다.
 

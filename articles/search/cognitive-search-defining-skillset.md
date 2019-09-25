@@ -8,13 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: 457157b93e6fb6be8ed734ae6f58c3b8717fc83d
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: f78b8c3b9619b7eea92b6a4f04ed4f6543916efe
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183467"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265523"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>보강 파이프라인에서 기술 집합을 만드는 방법
 
@@ -172,7 +171,7 @@ Content-Type: application/json
 
 * 기술에는 ```"organizations"```이라는 하나의 출력이 있습니다. 출력은 처리 동안만 존재합니다. 이 출력을 다운스트림 기술의 입력에 연결하려면 출력을 ```"/document/organizations"```로 참조합니다.
 
-* 특정 문서의 경우 ```"/document/organizations"```의 값은 텍스트에서 추출된 조직의 배열입니다. 예를 들어:
+* 특정 문서의 경우 ```"/document/organizations"```의 값은 텍스트에서 추출된 조직의 배열입니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
   ```json
   ["Microsoft", "LinkedIn"]
@@ -236,7 +235,7 @@ Content-Type: application/json
 
 ## <a name="add-structure"></a>구조 추가
 
-기술 집합은 구조화되지 않은 데이터에서 구조화된 정보를 생성합니다. 다음 예제를 참조하세요.
+기술 집합은 구조화되지 않은 데이터에서 구조화된 정보를 생성합니다. 다음 예를 살펴 보십시오.
 
 *"4분기에 Microsoft는 작년에 사들인 소셜 네트워킹 회사 LinkedIn에서 11억 달러의 수익을 기록했습니다. 이 인수는 Microsoft가 LinkedIn 기능을 자사의 CRM 및 Office 기능과 결합할 수 있게 했습니다. 주주들은 지금까지의 진행 상황에 만족해 합니다.”*
 

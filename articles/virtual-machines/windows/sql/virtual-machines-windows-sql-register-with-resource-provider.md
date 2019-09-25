@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: edda6dffa04bfc0492b7336893c5b167ccc42ca5
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 2bf7118d1f4be065969312d1fb9b0cf77e820d48
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743927"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262875"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>SQL VM 리소스 공급자를 사용 하 여 Azure에 SQL Server 가상 머신 등록
 
@@ -27,13 +27,23 @@ ms.locfileid: "70743927"
 
 Azure Portal를 통해 SQL Server VM Azure Marketplace 이미지를 배포 하면 리소스 공급자와 SQL Server VM 자동으로 등록 됩니다. Azure Marketplace에서 이미지를 선택 하는 대신 Azure 가상 컴퓨터에서 SQL Server를 자동으로 설치 하도록 선택 하거나 SQL Server를 사용 하 여 사용자 지정 VHD에서 Azure VM을 프로 비전 하는 경우에는 리소스 공급자를 사용 하 여 SQL Server VM를 등록 해야 합니다. :
 
-- **규정 준수**: Microsoft 제품 약관에 따라 고객은 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)를 사용 하는 경우 microsoft에 알려 주어 야 합니다. 이렇게 하려면 SQL VM 리소스 공급자에 등록 해야 합니다. 
+- **라이선스 관리 간소화**: Microsoft 제품 약관에 따라 고객은 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)를 사용 하는 경우 microsoft에 알려 주어 야 합니다. SQL VM 리소스 공급자를 사용 하 여 등록 하면 SQL Server 라이선스 관리가 간단해 지 며 [포털](virtual-machines-windows-sql-manage-portal.md) 또는 Az CLI에서 Azure 하이브리드 혜택를 사용 하 여 SQL Server vm을 신속 하 게 식별할 수 있습니다. 
+
+   ```azurecli-interactive
+   $vms = az sql vm list | ConvertFrom-Json
+   $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
+   ```
 
 - **기능 이점**: 리소스 공급자를 사용 하 여 SQL Server VM를 등록 하면 [자동화 된 패치](virtual-machines-windows-sql-automated-patching.md), [자동화 된 백업](virtual-machines-windows-sql-automated-backup-v2.md), 모니터링 및 관리 효율성 기능이 잠금 해제 됩니다. 또한 [라이선스](virtual-machines-windows-sql-ahb.md) 및 [버전](virtual-machines-windows-sql-change-edition.md) 유연성을 잠금 해제 합니다. 이전에는 이러한 기능을 Azure Marketplace의 SQL Server VM 이미지만 사용할 수 있었습니다.
 
+- **무료 관리**:  SQL VM 리소스 공급자 및 모든 관리 효율성 모드에 등록 하는 것은 완전히 무료입니다. 리소스 공급자와 관련 된 추가 비용이 나 관리 모드를 변경 하는 경우는 없습니다. 
+
 SQL VM 리소스 공급자를 활용 하려면 SQL VM 리소스 공급자를 구독과 함께 등록 해야 합니다. Azure Portal, Azure CLI 또는 PowerShell을 사용 하 여이를 수행할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+  > [!NOTE]
+  > 리소스 공급자를 등록 하는 것과 관련 된 추가 라이선스 요구 사항은 없습니다. SQL VM 리소스 공급자를 사용 하 여 등록 하면 각 리소스에 대 한 라이선스 등록 양식을 관리 하는 대신 Azure 하이브리드 혜택을 사용할 수 있도록 Microsoft에 알리는 간단한 방법을 제공 합니다. 
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 리소스 공급자에 SQL Server VM을 등록 하려면 다음이 필요 합니다. 
 
@@ -172,13 +182,13 @@ Az CLI 또는 PowerShell을 사용 하 여 현재 SQL Server VM 등록 상태를
 
 ## <a name="change-management-modes"></a>변경 관리 모드
 
-SQL Server IaaS 확장에는 다음과 같은 세 가지 관리 효율성 모드가 있습니다. 
+SQL Server IaaS 확장에는 다음과 같은 세 가지 향상 된 관리 효율성 모드가 있습니다. 
 
-- **전체** 모드에서는 모든 기능을 제공 하지만 SQL Server 및 시스템 관리자 권한이 다시 시작 되어야 합니다. 이 옵션은 기본적으로 설치 되는 옵션입니다. 단일 인스턴스를 사용 하 여 SQL Server VM를 관리 하는 데 사용 합니다. 
+- **전체** 모드에서는 모든 기능을 제공 하지만 SQL Server 및 시스템 관리자 권한이 다시 시작 되어야 합니다. 이 옵션은 기본적으로 설치 되는 옵션입니다. 단일 인스턴스를 사용 하 여 SQL Server VM를 관리 하는 데 사용 합니다. 전체 모드는 메모리 및 CPU에 최소한의 영향을 주는 두 개의 windows 서비스를 설치 합니다. 이러한 서비스는 작업 관리자를 통해 모니터링할 수 있습니다. 전체 관리 효율성 모드를 사용 하는 것과 관련 된 비용은 없습니다. 
 
-- **경량** 를 사용 하는 경우에는 SQL Server를 다시 시작할 필요가 없지만 라이선스 유형과 SQL Server 버전의 변경만 지원 합니다. 여러 인스턴스를 사용 하 여 Vm을 SQL Server 하거나 FCI (장애 조치 (failover) 클러스터 인스턴스)에 참여 하는 경우이 옵션을 사용 합니다. 
+- **경량** 를 사용 하는 경우에는 SQL Server를 다시 시작할 필요가 없지만 라이선스 유형과 SQL Server 버전의 변경만 지원 합니다. 여러 인스턴스를 사용 하 여 Vm을 SQL Server 하거나 FCI (장애 조치 (failover) 클러스터 인스턴스)에 참여 하는 경우이 옵션을 사용 합니다. 경량 모드를 사용 하는 경우 메모리 또는 CPU에는 영향을 주지 않습니다. 경량 관리 모드를 사용 하는 것과 관련 된 비용은 없습니다. 
 
-- **Noagent** 는 Windows Server 2008에 설치 된 SQL Server 2008 및 SQL Server 2008 R2 전용입니다. 
+- **Noagent** 는 Windows Server 2008에 설치 된 SQL Server 2008 및 SQL Server 2008 R2 전용입니다. NoAgent 모드를 사용 하는 경우 메모리 또는 CPU에는 영향을 주지 않습니다. NoAgent 관리 모드를 사용 하는 것과 관련 된 비용은 없습니다. 
 
 PowerShell을 사용 하 여 SQL Server IaaS 에이전트의 현재 모드를 볼 수 있습니다. 
 
@@ -359,6 +369,12 @@ SQL Server IaaS 확장을 설치 하는 경우에만 SQL Server를 다시 시작
 **Always On 가용성 그룹이 구성 된 경우에는 SQL VM 리소스 공급자를 사용 하 여 VM을 등록할 수 있나요?**
 
 예. Always On 가용성 그룹 구성에 참여 하는 경우 SQL VM 리소스 공급자를 사용 하 여 Azure VM에 SQL Server 인스턴스를 등록 하는 데 제한 사항이 없습니다.
+
+**SQL VM 리소스 공급자에 등록 하는 데 드는 비용이 나 완전 한 관리 모드로 업그레이드 하는 경우는 어떻게 되나요?**
+없음 SQL VM 리소스 공급자에 등록 하거나 세 가지 관리 효율성 모드 중 하나를 사용 하는 것과 관련 된 요금은 없습니다. 리소스 공급자를 사용 하 여 SQL Server VM 관리는 완전히 무료입니다. 
+
+**여러 관리 효율성 모드를 사용 하는 경우 성능에 미치는 영향은 무엇입니까?**
+*Noagent* 및 *경량* 관리 효율성 모드를 사용 하는 경우에는 영향을 주지 않습니다. OS에 설치 된 두 서비스에서 *전체* 관리 효율성 모드를 사용 하는 경우 최소한의 영향을 줍니다. 이러한 작업은 작업 관리자를 통해 모니터링할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

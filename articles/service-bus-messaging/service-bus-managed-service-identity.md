@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: aschhab
-ms.openlocfilehash: a35ad4f8d480b0f95f4dc782aa06734e33bc54f8
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 90fbefb46ea51ca5bb7bf05d556fe29c88543d0b
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130301"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273684"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Azure Service Bus 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증
 [Azure 리소스용 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)는 애플리케이션 코드가 실행되는 배포와 관련된 보안 ID를 만들 수 있도록 하는 Azure 간 기능입니다. 그런 다음 애플리케이션에 필요한 특정 Azure 리소스에 액세스하기 위한 사용자 지정 권한을 부여하는 액세스 제어 역할에 해당 ID를 연결할 수 있습니다.
@@ -55,7 +55,14 @@ Azure Service Bus의 경우 Azure Portal 및 Azure 리소스 관리 API를 통�
 
 다음 목록에서는 가장 좁은 범위에서 시작 하 여 Service Bus 리소스에 대 한 액세스 범위를 지정할 수 있는 수준을 설명 합니다.
 
-- **큐**, **토픽**또는 **구독**: 역할 할당은 특정 Service Bus 엔터티에 적용 됩니다. 현재 Azure Portal는 구독 수준에서 RBAC 역할을 Service Bus 하는 사용자/그룹/관리 id 할당을 지원 하지 않습니다. 
+- **큐**, **토픽**또는 **구독**: 역할 할당은 특정 Service Bus 엔터티에 적용 됩니다. 현재 Azure Portal는 구독 수준에서 RBAC 역할을 Service Bus 하는 사용자/그룹/관리 id 할당을 지원 하지 않습니다. Azure CLI 명령을 사용 하는 예제는 다음과 같습니다. [az-role-create-create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) 를 사용 하 여 id를 Service Bus RBAC 역할에 할당 합니다. 
+
+    ```powershell
+    az role assignment create \
+        --role $service_bus_role \
+        --assignee $assignee_id \
+        --scope /subscriptions/$subscription_id/resourceGroups/$resource_group/providers/Microsoft.ServiceBus/namespaces/$service_bus_namespace/topics/$service_bus_topic/subscriptions/$service_bus_subscription
+    ```
 - **Service Bus 네임 스페이스**: 역할 할당은 네임 스페이스 아래 Service Bus의 전체 토폴로지 및 이와 연결 된 소비자 그룹으로 확장 됩니다.
 - **리소스 그룹**: 역할 할당은 리소스 그룹 아래의 모든 Service Bus 리소스에 적용 됩니다.
 - **구독**: 역할 할당은 구독의 모든 리소스 그룹에 있는 모든 Service Bus 리소스에 적용 됩니다.

@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c5a08677759f0ed1a39f5507d936c777516b237
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 7d3346c873f88654f75628863a01fda76449ce2d
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608108"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259402"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -139,7 +139,7 @@ BYOD(Bring-Your-Own-Device) 및 재택 근무 정책이 증가하고 기업의 �
 
 * 관리 역할과 관리할 수 있는 서비스가 있는 사용자를 식별합니다.
 * Azure AD PIM을 사용하여 Azure AD에 대한 관리자 액세스 권한(1단계에 나열된 역할 외의 추가 역할 포함)이 있는 조직의 사용자를 확인합니다.
-* Azure AD에 정의된 역할 외에도, Office 365에는 조직의 사용자에게 할당할 수 있는 일단의 관리자 역할이 제공됩니다. 각 관리자 역할은 일반적인 비즈니스 기능에 매핑되고 조직의 사용자에 게 [Microsoft 365 관리 센터](https://admin.microsoft.com)에서 특정 작업을 수행할 수 있는 권한을 부여 합니다. Microsoft 365 관리 센터를 사용 하 여 Azure AD에서 관리 되지 않는 역할을 비롯 하 여 조직 내 사용자에 게 Office 365에 대 한 관리자 액세스 권한이 있는 사용자를 확인 합니다. 자세한 내용은 [Office 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) 및 [Office 365에 대한 보안 모범 사례](https://support.office.com/article/Security-best-practices-for-Office-365-9295e396-e53d-49b9-ae9b-0b5828cdedc3)를 참조하세요.
+* Azure AD에 정의된 역할 외에도, Office 365에는 조직의 사용자에게 할당할 수 있는 일단의 관리자 역할이 제공됩니다. 각 관리자 역할은 일반적인 비즈니스 기능에 매핑되고 조직의 사용자에 게 [Microsoft 365 관리 센터](https://admin.microsoft.com)에서 특정 작업을 수행할 수 있는 권한을 부여 합니다. Microsoft 365 관리 센터를 사용 하 여 Azure AD에서 관리 되지 않는 역할을 비롯 하 여 조직 내 사용자에 게 Office 365에 대 한 관리자 액세스 권한이 있는 사용자를 확인 합니다. 자세한 내용은 [Office 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) 및 [Office 365에 대한 보안 모범 사례](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center)를 참조하세요.
 * Azure, Intune 또는 Dynamics 365와 같이 조직에서 사용하는 다른 서비스에서 인벤토리를 수행합니다.
 * 관리자 계정(사용자의 일상적인 계정뿐만 아니라 관리 용도로 사용되는 계정)에 연결된 작업 이메일 주소가 있고 Azure MFA에 등록되었거나 온-프레미스에서 MFA를 사용하는지 확인합니다.
 * 사용자에게 관리 액세스 권한에 대한 비즈니스상의 사유를 요청합니다.

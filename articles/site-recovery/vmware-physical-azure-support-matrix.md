@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: raynew
-ms.openlocfilehash: 47914a635afe754cb4205a1e089622a69b706b51
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: cb46acf3f54b5955ba8542adf73b7ca896f20c28
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910432"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266400"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -45,7 +45,7 @@ vSphere 호스트 | 버전 6.7, 6.5, 6.0 또는 5.5 | vSphere 호스트와 vCent
 
 **구성 요소** | **요구 사항**
 --- |---
-CPU 코어 | 8
+CPU 코어 수 | 8
 RAM | 16GB
 디스크 수 | 3개의 디스크<br/><br/> 디스크에는 OS 디스크, 프로세스 서버 캐시 디스크, 보존 드라이브(장애 복구용)가 포함됩니다.
 사용 가능한 디스크 공간 | 프로세스 서버 캐시에 600 GB의 공간이 있습니다.
@@ -167,7 +167,7 @@ IPv4 | 예
 Azure 가상 네트워크 서비스 엔드포인트<br/> | 예
 가속화된 네트워킹 | 아니요
 
-## <a name="storage"></a>저장 공간
+## <a name="storage"></a>스토리지
 **구성 요소** | **지원됨**
 --- | ---
 동적 디스크 | OS 디스크는 기본 디스크 여야 합니다. <br/><br/>데이터 디스크는 동적 디스크일 수 있습니다.
@@ -193,6 +193,7 @@ Docker 디스크 구성 | 아니요
 게스트/서버 - 디스크 제외 | 예
 게스트/서버 다중 경로(MPIO) | 아니요
 게스트/서버 GPT 파티션 | 5 개의 파티션은 [업데이트 롤업 37](https://support.microsoft.com/help/4508614/) (모바일 서비스 버전 9.25)부터 지원 됩니다. 이전에는 4개가 지원되었습니다.
+ReFS | 복원 파일 시스템은 모바일 서비스 버전 9.23 이상에서 지원 됩니다.
 게스트/서버 EFI/UEFI 부팅 | -모바일 서비스 버전 9.13 이상을 실행 하는 경우 지원 됩니다.<br/> -Windows Server 2012 이상을 실행 하는 VMware Vm 또는 물리적 서버를 Azure로 마이그레이션할 때 지원 됩니다.<br/> -마이그레이션을 위해 Vm을 복제할 수 있습니다. 온-프레미스로 장애 복구 (Failback)가 지원 되지 않습니다.<br/> -NTFS만 지원 됩니다. <br/> -보안 UEFI 부팅 유형이 지원 되지 않습니다. <br/> -디스크 섹터 크기는 실제 섹터 당 512 바이트 여야 합니다.
 
 ## <a name="replication-channels"></a>복제 채널

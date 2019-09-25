@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5d740224adb15dc2d772689d77ab1c510532c901
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 05cd68c7be005a5b148b7d3e691c46a0d067b0c0
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203991"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262860"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Azure에서 SQL Server 가상 컴퓨터에 대 한 라이선스 모델 변경
 이 문서에서는 **SqlVirtualMachine**새 SQL vm 리소스 공급자를 사용 하 여 AZURE에서 vm (가상 머신)에 대 SQL Server 한 라이선스 모델을 변경 하는 방법을 설명 합니다.
@@ -125,7 +125,7 @@ $SqlVm | Set-AzResource -Force
 
 Azure 하이브리드 혜택를 통해 Azure VM에 SQL Server 자체 설치만 가능 합니다. Microsoft 제품 약관에 따라 Azure 하이브리드 혜택 사용을 나타내려면 SQL Server 라이선스를 Azure 하이브리드 혜택으로 설정 하 여 [이러한 vm을 SQL VM 리소스 공급자에 등록](virtual-machines-windows-sql-register-with-resource-provider.md) 해야 합니다.
 
-SQL Server VM SQL VM 리소스 공급자에 등록 된 경우에만 SQL Server VM의 라이선스 유형을 종 량 제 또는 Azure 하이브리드 혜택로 변경할 수 있습니다. 라이선스 준수를 위해 모든 SQL Server Vm을 리소스 공급자에 등록 해야 합니다.
+SQL Server VM SQL VM 리소스 공급자에 등록 된 경우에만 SQL Server VM의 라이선스 유형을 종 량 제 또는 Azure 하이브리드 혜택로 변경할 수 있습니다.
 
 ## <a name="remarks"></a>설명
 

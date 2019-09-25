@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: e5b99bba3c3b21ea9662845928c523c329695bf8
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6118c4ddf1386ff4cc816148938e1f5ddeaecc9e
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877232"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266089"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows에 Azure IoT Edge 런타임 설치
 
@@ -34,13 +34,21 @@ Windows 시스템에서 Linux 컨테이너를 사용하는 것은 Azure IoT Edge
 
 최신 버전의 IoT Edge에 포함 된 내용에 대 한 자세한 내용은 [Azure IoT Edge 릴리스](https://github.com/Azure/azure-iotedge/releases)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 섹션을 사용하여 Windows 디바이스에서 IoT Edge를 지원할 수 있는지 여부를 검토하고 설치 전에 컨테이너 엔진에 대해 준비합니다. 
 
 ### <a name="supported-windows-versions"></a>지원되는 Windows 버전
 
 개발 및 테스트 Azure IoT Edge 시나리오의 경우 컨테이너 기능을 지 원하는 모든 버전의 Windows 10 또는 Windows Server 2019 (빌드 17763)에 Windows 컨테이너를 설치할 수 있습니다. 현재 프로덕션 시나리오에 대해 지원 되는 운영 체제에 대 한 자세한 내용은 [지원 되는 Azure IoT Edge 시스템](support.md#operating-systems)을 참조 하세요. 
+
+IoT Core 장치는 IoT Edge 런타임을 지원 하기 위한 IoT Core-Windows 컨테이너 선택적 기능을 포함 해야 합니다. [원격 PowerShell 세션](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell) 에서 다음 명령을 사용 하 여 장치에서 Windows 컨테이너가 지원 되는지 확인 합니다. 
+
+```powershell
+Get-Service vmcompute
+```
+
+서비스가 있으면 **실행 중**으로 표시 된 서비스 상태와 함께 성공적인 응답을 얻게 됩니다. Vmcompute 서비스를 찾을 수 없는 경우 장치는 IoT Edge에 대 한 요구 사항을 충족 하지 않습니다. 하드웨어 공급자에 게 문의 하 여이 기능에 대 한 지원을 요청 하십시오. 
 
 ### <a name="prepare-for-a-container-engine"></a>컨테이너 엔진 준비 
 

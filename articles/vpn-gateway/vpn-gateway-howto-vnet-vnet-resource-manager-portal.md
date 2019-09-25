@@ -2,25 +2,17 @@
 title: Azure Portal을 사용하여 VNet-VNet 간 VPN Gateway 연결 구성 | Microsoft Docs
 description: 리소스 관리자 및 Azure Portal을 사용하여 Vnet 간의 VPN Gateway 연결을 만듭니다.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/03/2018
+ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 94b32595cf2c884ccfd1362f6c8d03f542aabfc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ad83327d5b85784f523a5931f277cd00009e0ed
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128384"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266457"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Azure Portal을 사용하여 VNet-VNet 간 VPN Gateway 연결 구성
 
@@ -39,7 +31,6 @@ ms.locfileid: "62128384"
 > * [다양한 배포 모델 간 연결 - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
-
 
 ## <a name="about-connecting-vnets"></a>VNet 연결 정보
 
@@ -94,7 +85,6 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
     - **게이트웨이 서브넷**:
         - **이름**: *GatewaySubnet*이 자동으로 채워집니다.
         - **주소 범위**: *10.11.255.0/27*을 입력합니다.
-    - **DNS 서버**: **사용자 지정**을 선택하고 DNS 서버의 IP 주소를 입력합니다.
 
 - **가상 네트워크 게이트웨이 설정** 
     - **이름**: *TestVNet1GW*를 입력합니다.
@@ -120,7 +110,6 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
    - **GatewaySubnet** 
       - **이름**: *GatewaySubnet*이 자동으로 채워집니다.
       - **주소 범위**: *10.41.255.0/27*을 입력합니다.
-   - **DNS 서버**: **사용자 지정**을 선택하고 DNS 서버의 IP 주소를 입력합니다.
 
 - **가상 네트워크 게이트웨이 설정** 
     - **이름**: *TestVNet4GW*를 입력합니다.
@@ -133,7 +122,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
        - **공유 키**: *abc123*을 입력합니다. 공유 키를 직접 만들 수 있습니다. VNet 간 연결을 만들 때 값이 일치해야 합니다.
 
 ## <a name="create-and-configure-testvnet1"></a>TestVNet1 만들기 및 구성
-VNet이 이미 있는 경우 설정이 VPN 게이트웨이 설계와 호환되는지 확인합니다. 다른 네트워크와 겹칠 수 있는 서브넷에 특히 주의합니다. 겹치는 서브넷에 있으면 연결이 제대로 작동하지 않습니다. VNet이 올바른 설정으로 구성되었다면 DNS 서버 지정 섹션의 단계를 시작할 수 있습니다.
+VNet이 이미 있는 경우 설정이 VPN 게이트웨이 설계와 호환되는지 확인합니다. 다른 네트워크와 겹칠 수 있는 서브넷에 특히 주의합니다. 겹치는 서브넷에 있으면 연결이 제대로 작동하지 않습니다.
 
 ### <a name="to-create-a-virtual-network"></a>가상 네트워크를 만들려면
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
@@ -143,26 +132,15 @@ VNet이 만들어지면 여기에 다른 주소 공간을 추가하고 서브넷
 
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
-## <a name="create-a-gateway-subnet"></a>게이트웨이 서브넷 만들기
-가상 네트워크에 대한 가상 네트워크 게이트웨이를 만들려면 먼저 게이트웨이 서브넷을 만들어야 합니다. 게이트웨이 서브넷은 가상 네트워크 게이트웨이에서 사용되는 IP 주소를 포함하고 있습니다. 향후 추가 구성 요구 사항을 수용하기에 충분한 IP 주소를 제공할 수 있도록, 되도록이면 /28 또는 /27 CIDR 블록을 사용하여 게이트웨이 서브넷을 만드는 것이 가장 좋습니다.
-
-연습으로 이 구성을 만드는 경우 게이트웨이 서브넷을 만들 때 이러한 [예제 설정](#example-settings)을 참조하세요.
-
-[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
-
-### <a name="to-create-a-gateway-subnet"></a>게이트웨이 서브넷을 만들려면
-[!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
-
-## <a name="specify-a-dns-server-optional"></a>DNS 서버 지정(선택 사항)
-VNet-VNet 연결에는 DNS가 필요 없습니다. 하지만 가상 네트워크에 배포된 리소스에 대한 이름을 확인하려는 경우 DNS 서버를 지정합니다. 이 설정을 통해 이 가상 네트워크에 대한 이름을 확인하는 데 사용하려는 DNS 서버를 지정할 수 있습니다. DNS 서버를 만들지 않습니다.
-
-[!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
-
 ## <a name="create-a-virtual-network-gateway"></a>가상 네트워크 게이트웨이 만들기
 이 단계에서는 VNet용 가상 네트워크 게이트웨이를 만듭니다. 종종 선택한 게이트웨이 SKU에 따라 게이트웨이를 만드는 데 45분 이상 걸릴 수 있습니다. 연습으로 이 구성을 만드는 경우 [예제 설정](#example-settings)을 참조하세요.
 
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
+
 ### <a name="to-create-a-virtual-network-gateway"></a>가상 네트워크 게이트웨이를 만들려면
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+
+[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="create-and-configure-testvnet4"></a>TestVNet4 만들기 및 구성
 TestVNet1을 구성한 후에는 값을 TestVNet4로 바꿔서 이전 단계를 반복하여 TestVNet4를 만듭니다. TestVNet1에 대한 가상 네트워크 게이트웨이 만들기가 완료될 때까지 기다릴 필요 없이 TestVNet4를 구성할 수 있습니다. 고유한 값을 사용하는 경우에 주소 공간에 연결하려는 VNet을 사용하여 겹치지 않는지 확인합니다.

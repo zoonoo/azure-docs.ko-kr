@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 726fc2d2f53e904fdf7f50be5aef7b274dcc51ac
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: f4eb1b69a1464cacaf666e49f4aff7422d63611d
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736150"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264525"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights 미리 보기 사용 사례
 
@@ -40,11 +40,15 @@ Azure Time Series Insights는 종단 간 플랫폼 제공 서비스입니다. �
 
 [![데이터 탐색기](media/v2-update-use-cases/data-explorer.svg)](media/v2-update-use-cases/data-explorer.svg#lightbox)
 
-대부분의 고객은 인사이트 시간이 Time Series Insights의 가장 강력한 자산 중 하나라는 것에 동의합니다. Time Series Insights는 데이터를 미리 준비할 필요가 없습니다. 몇 분 안에 고객을 Azure IoT Hub 또는 Azure Event Hubs의 수십억 개 이벤트에 신속하게 연결합니다. 연결이 설정되면 수십억 개의 이벤트를 시각화하고 분석하여 이상 현상을 포착하고 데이터에서 숨겨진 추세를 발견할 수 있습니다.
+대부분의 고객은 Time Series Insights의 두드러진 기능 중 하나인 정보를 얻는 데 필요한 최소한의 시간에 동의 합니다.
 
-Time Series Insights는 직관적이고 사용 방법이 간단합니다. 코드를 전혀 작성하지 않고도 데이터와 상호 작용할 수 있습니다. 새로운 언어를 배울 필요도 없습니다. Time Series Insights는 SQL에 익숙한 고급 사용자에게 세밀한 텍스트 기반 쿼리를 제공합니다. 초보 사용자를 위한 선택-클릭 탐색도 제공합니다.
+* Time Series Insights는 데이터를 미리 준비할 필요가 없습니다. 
+* 몇 분 안에 고객을 Azure IoT Hub 또는 Azure Event Hubs의 수십억 개 이벤트에 신속하게 연결합니다. 
+* 연결이 설정되면 수십억 개의 이벤트를 시각화하고 분석하여 이상 현상을 포착하고 데이터에서 숨겨진 추세를 발견할 수 있습니다.
 
-고객이 자산 관련 문제를 신속하게 진단할 수 있다는 장점이 있습니다. 고객은 DevOps를 수행하여 IoT 솔루션에 발생하는 버그의 근본 원인을 파악할 수 있습니다. 또한 데이터 과학 이니셔티브를 조사해야 하는 영역을 식별할 수 있습니다.  
+Time Series Insights는 직관적이고 사용 방법이 간단합니다. 코드를 전혀 작성하지 않고도 데이터와 상호 작용할 수 있습니다. 또한 SQL을 잘 알고 있는 고급 사용자를 위해 세부적인 텍스트 기반 쿼리 언어를 제공 하는 Time Series Insights 해도 새로운 언어를 배울 필요가 없습니다. 초보 사용자를 위한 선택-클릭 탐색도 제공합니다.
+
+고객은 속도를 활용 하 여 자산 관련 문제를 신속 하 게 진단할 수 있습니다. 이러한 사용자는 DevOps 분석을 수행 하 여 IoT 솔루션에서 버그의 근본 원인을 파악할 수 있습니다. 또한 데이터 과학 이니셔티브의 일부로 추가 조사를 위해 플래그를 지정 하는 영역을 식별할 수 있습니다.  
 
 Time Series Insights에 저장된 데이터와 상호 작용하는 세 가지 기본적인 방법이 있습니다.
 

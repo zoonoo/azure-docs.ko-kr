@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4cabf2e7a1f0f1ff058f900ed823cc4df0ce80a6
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c01931268642aebbf87c54080c292b105af15665
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999198"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262769"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -93,7 +93,7 @@ Azure Resource Manager 템플릿 기반 배포를 사용하면 표준 보안 제
 충돌, 오류 또는 성능 문제가 있는 경우 세부 정보에서 원격 분석 데이터를 통해 검색하여 원인을 진단할 수 있습니다. 그리고 앱의 가용성과 성능에 변경 사항이 있는 경우 서비스에서 사용자에게 전자 메일을 보냅니다. 따라서 Application Insight는 기밀성, 무결성 및 가용성 보안 3요소를 한 조로 묶어 가용성을 높이는 데 도움이 되므로 중요한 보안 도구가 됩니다.
 
 ### <a name="azure-monitor"></a>Azure Monitor
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) – Azure 인프라([활동 로그](../../azure-monitor/platform/activity-logs-overview.md))와 개별 Azure 리소스([진단 로그](../../azure-monitor/platform/diagnostic-logs-overview.md)) 모두의 데이터에 대한 시각화, 쿼리, 라우팅, 경고, 자동 크기 조정 및 자동화를 제공합니다. Azure Monitor를 사용하여 Azure 로그에서 생성된 보안 관련 이벤트에 대해 사용자에게 알릴 수 있습니다.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) – Azure 인프라([활동 로그](../../azure-monitor/platform/activity-logs-overview.md))와 개별 Azure 리소스([진단 로그](../../azure-monitor/platform/resource-logs-overview.md)) 모두의 데이터에 대한 시각화, 쿼리, 라우팅, 경고, 자동 크기 조정 및 자동화를 제공합니다. Azure Monitor를 사용하여 Azure 로그에서 생성된 보안 관련 이벤트에 대해 사용자에게 알릴 수 있습니다.
 
 ### <a name="azure-monitor-logs"></a>Azure Monitor 로그
 [Azure Monitor logs](https://azure.microsoft.com/documentation/services/log-analytics/) – Azure 리소스 외에도 온-프레미스 및 타사 클라우드 기반 인프라 (예: AWS)에 대 한 IT 관리 솔루션을 제공 합니다. Azure Monitor의 데이터를 Azure Monitor 로그로 직접 라우팅할 수 있으므로 전체 환경에 대 한 메트릭과 로그를 한 곳에서 볼 수 있습니다.
@@ -141,7 +141,7 @@ App Service 웹앱은 웹 서버와 웹 애플리케이션 모두의 정보를 �
 
 -   웹 서버 로깅 - W3C 확장 로그 파일 형식을 사용하는 HTTP 트랜잭션에 대한 정보입니다. 이는 처리된 요청 수, 특정 IP 주소에서 들어온 요청 수 등의 전체 사이트 메트릭을 확인하는 경우에 유용합니다.
 
-#### <a name="application-diagnostics"></a>응용 프로그램 진단
+#### <a name="application-diagnostics"></a>애플리케이션 진단
 [애플리케이션 진단](../../app-service/troubleshoot-diagnostic-logs.md)을 사용하면 웹 애플리케이션에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 애플리케이션은 [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 애플리케이션 진단에는 두 가지 주요 유형의 이벤트, 즉 애플리케이션 성능과 관련된 이벤트와 애플리케이션 실패 및 오류와 관련된 이벤트가 있습니다. 실패와 오류는 연결, 보안 및 오류 문제로 더 자세히 구분할 수 있습니다. 오류 문제는 일반적으로 애플리케이션 코드에서 발생하는 문제와 관련이 있습니다.
 
 애플리케이션 진단에서 다음과 같은 방법으로 그룹화된 이벤트를 볼 수 있습니다.
@@ -150,7 +150,7 @@ App Service 웹앱은 웹 서버와 웹 애플리케이션 모두의 정보를 �
 -   애플리케이션 오류(예외 이벤트 표시)
 -   성능(성능 이벤트 표시)
 
-## <a name="storage"></a>저장 공간
+## <a name="storage"></a>스토리지
 이 섹션에서는 Azure Storage 보안의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="role-based-access-control-rbac"></a>역할 기반 Access Control(RBAC)
@@ -240,10 +240,10 @@ ExpressRoute를 사용하면 Microsoft Azure, Office 365, CRM Online과 같은 M
 ExpressRoute 연결은 공용 인터넷을 거치지 않으므로 VPN 기반 솔루션보다 안전합니다. 이 기능을 사용하면 ExpressRoute 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 
 
-### <a name="application-gateway"></a>애플리케이션 게이트웨이
+### <a name="application-gateway"></a>Application Gateway
 Microsoft [Azure Application Gateway](../../application-gateway/overview.md)는 [ADC(Application Delivery Controller)](https://en.wikipedia.org/wiki/Application_delivery_controller)를 서비스로 제공하여 애플리케이션에 다양한 계층 7 부하 분산 기능을 제공합니다.
 
-![애플리케이션 게이트웨이](./media/overview/azure-security-fig2.png)
+![Application Gateway](./media/overview/azure-security-fig2.png)
 
 Application Gateway에 CPU 집약적인 SSL 종료를 오프로드하여("SSL 오프로드"또는 "SSL 브리징"이라고도 함) 웹 팜 생산성을 최적화할 수 있습니다. 또한 들어오는 트래픽의 라운드 로빈 배포, 쿠키 기반 세션 선호도, URL 경로 기반 라우팅 및 단일 Application Gateway 뒤에 여러 웹 사이트를 호스팅할 수 있는 기능을 포함한 다른 계층 7 라우팅 기능도 제공합니다. Azure Application Gateway는 계층 7 부하 분산 장치입니다.
 

@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: e7346fa0f9cc977755c441077a50707dd207019f
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 79e565668db661d02833d22d2ef619fc67708115
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638299"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266143"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi를 Azure IoT Hub에 연결(Node.js)
 
@@ -135,7 +135,7 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 ![Raspberry Pi와 센서 연결](./media/iot-hub-raspberry-pi-kit-node-get-started/3-raspberry-pi-sensor-connection.png)
 
-BME280 센서는 온도 및 습도 데이터를 수집할 수 있습니다. 디바이스에서 클라우드로 메시지를 보내면 LED가 깜박입니다. 
+BME280 센서는 온도 및 습도 데이터를 수집할 수 있습니다. 디바이스에서 클라우드로 메시지를 보내면 LED가 깜박입니다.
 
 센서 핀의 경우 다음 배선을 사용합니다.
 
@@ -170,8 +170,8 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 1. 호스트 컴퓨터에서 다음 SSH 클라이언트 중 하나를 사용하여 Raspberry Pi에 연결합니다.
 
    **Windows 사용자**
-  
-   a. Windows용 [PuTTY](https://www.putty.org/)를 다운로드 및 설치합니다. 
+
+   a. Windows용 [PuTTY](https://www.putty.org/)를 다운로드 및 설치합니다.
 
    b. 호스트 이름(또는 IP 주소) 섹션에 Pi의 IP 주소를 복사하고 연결 형식으로 SSH를 선택합니다.
 
@@ -192,10 +192,10 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    node -v
    ```
 
-   버전이 11.x 보다 낮거나 Pi에 node.js가 없는 경우 최신 버전을 설치 합니다.
+   버전이 10. x 보다 낮거나 Pi에 node.js가 없는 경우 최신 버전을 설치 합니다.
 
    ```bash
-   curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash
+   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 
@@ -209,7 +209,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 
    ```bash
    cd iot-hub-node-raspberrypi-client-app
-   sudo npm install
+   npm install
    ```
 
    > [!NOTE]
@@ -223,11 +223,13 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    nano config.json
    ```
 
-   ![구성 파일](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
+   ![Config 파일](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
 
    이 파일에는 사용자가 구성할 수 있는 두 개 항목이 있습니다. 첫 번째는 클라우드로 전송되는 두 메시지 사이의 시간 간격(밀리초)을 정의하는 `interval`입니다. 두 번째는 시뮬레이트된 센서 데이터의 사용 여부에 대한 부울 값인 `simulatedData`입니다.
 
    **센서가 없는 경우**`simulatedData` 값을 `true`로 설정하여 샘플 애플리케이션에서 시뮬레이션된 센서 데이터를 만들어서 사용하게 합니다.
+
+   *참고: 이 자습서에 사용 된 i2c 주소는 기본적으로 0x77입니다. 구성에 따라 0 x 5 일 수도 있습니다. i2c 오류가 발생 하는 경우 값을 118로 변경 하 고 더 잘 작동 하는지 확인 하십시오. 센서에서 사용 하는 주소를 확인 하려면 raspberry pi `sudo i2cdetect -y 1` 에서 셸에서를 실행 합니다.*
 
 2. Control-O > Enter > Control-X를 입력하여 저장하고 종료합니다.
 

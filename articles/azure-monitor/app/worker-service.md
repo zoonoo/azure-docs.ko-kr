@@ -12,21 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.author: cithomas
-ms.openlocfilehash: 8cd76a67715898972aac8fc24707085883da8618
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 653710d2f57385fa6d608a501f72b0dde2f3bb46
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174670"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258483"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Worker 서비스 응용 프로그램에 대 한 Application Insights (HTTP가 아닌 응용 프로그램)
 
 Application Insights는 메시징, 백그라운드 작업, 콘솔 `Microsoft.ApplicationInsights.WorkerService`응용 프로그램 등과 같은 HTTP가 아닌 작업에 가장 적합 한 새 SDK를 출시 하 고 있습니다. 이러한 유형의 응용 프로그램에는 기존의 ASP.NET/ASP.NET Core 웹 응용 프로그램과 같은 들어오는 HTTP 요청 개념이 없으므로 [ASP.NET](asp-net.md) 또는 [ASP.NET Core](asp-net-core.md) 응용 프로그램에 대 한 Application Insights 패키지를 사용 하는 것은 지원 되지 않습니다.
 
 새 SDK는 자체적으로 원격 분석 컬렉션을 수행 하지 않습니다. 대신 [microsoft.applicationinsights.dependencycollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/), [perfcountercollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/), [ApplicationInsightsLoggingProvider](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) 등과 같은 잘 알려진 다른 Application Insights 자동 수집기를 제공 합니다. 이 SDK는 원격 분석 컬렉션 `IServiceCollection` 을 사용 하도록 설정 하 고 구성 하기 위해에 확장 메서드를 노출 합니다.
-
-> [!NOTE]
-> 이 문서에서는 작업자 서비스용 Application Insights SDK의 새 패키지에 대해 설명 합니다. 이 패키지는 오늘 베타 패키지로 제공 됩니다. 이 문서는 안정적인 패키지를 사용할 수 있을 때 업데이트 됩니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
@@ -43,7 +40,7 @@ Application Insights는 메시징, 백그라운드 작업, 콘솔 `Microsoft.App
 
 ```xml
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.0-beta3" />
+        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.0" />
     </ItemGroup>
 ```
 
@@ -299,7 +296,7 @@ Application Insights는 메시징, 백그라운드 작업, 콘솔 `Microsoft.App
 
 ### <a name="live-metrics"></a>라이브 메트릭
 
-[라이브 메트릭은](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream) Application Insights 올바르게 설정 되었는지 여부를 신속 하 게 확인 하는 데 사용할 수 있습니다. 포털이 포털 및 분석에 표시 되기 시작 하는 데 몇 분 정도 걸릴 수 있지만, 라이브 메트릭은 거의 실시간으로 실행 중인 프로세스의 CPU 사용량을 표시 합니다. 요청, 종속성, 추적 등의 다른 원격 분석도 표시할 수 있습니다.
+[라이브 메트릭은](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream) Application Insights 모니터링이 올바르게 구성 되었는지 여부를 신속 하 게 확인 하는 데 사용할 수 있습니다. 포털이 포털 및 분석에 표시 되기 시작 하는 데 몇 분 정도 걸릴 수 있지만, 라이브 메트릭은 거의 실시간으로 실행 중인 프로세스의 CPU 사용량을 표시 합니다. 요청, 종속성, 추적 등의 다른 원격 분석도 표시할 수 있습니다.
 
 ### <a name="ilogger-logs"></a>ILogger 로그
 
@@ -311,31 +308,7 @@ Application Insights는 메시징, 백그라운드 작업, 콘솔 `Microsoft.App
 
 ### <a name="eventcounter"></a>EventCounter
 
-[Eventcounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md)는 .NET/.net Core에서 카운터를 게시 하 고 사용 하는 플랫폼 간 메서드입니다. 이 기능은 이전에 있었지만 이러한 카운터를 게시 한 기본 제공 공급자는 없었습니다. .NET Core 3.0부터 몇 가지 카운터가 CLR 카운터, CPU 등의 상자에서 게시 됩니다.
-
-기본적으로 SDK는 다음 카운터를 수집 합니다 (.NET Core 3.0 이상 에서만 사용 가능). 이러한 카운터는 메트릭 탐색기에서 쿼리 하거나 PerformanceCounter 테이블을 대상으로 하는 분석 쿼리를 사용 하 여 쿼리할 수 있습니다. 카운터 이름은 "Category | 형식이 됩니다. Counter ".
-
-|범주 | 카운터|
-|---------------|-------|
-|`System.Runtime` | `cpu-usage` |
-|`System.Runtime` | `working-set` |
-|`System.Runtime` | `gc-heap-size` |
-|`System.Runtime` | `gen-0-gc-count` |
-|`System.Runtime` | `gen-1-gc-count` |
-|`System.Runtime` | `gen-2-gc-count` |
-|`System.Runtime` | `time-in-gc` |
-|`System.Runtime` | `gen-0-size` |
-|`System.Runtime` | `gen-1-size` |
-|`System.Runtime` | `gen-2-size` |
-|`System.Runtime` | `loh-size` |
-|`System.Runtime` | `alloc-rate` |
-|`System.Runtime` | `assembly-count` |
-|`System.Runtime` | `exception-count` |
-|`System.Runtime` | `threadpool-thread-count` |
-|`System.Runtime` | `monitor-lock-contention-count` |
-|`System.Runtime` | `threadpool-queue-length` |
-|`System.Runtime` | `threadpool-completed-items-count` |
-|`System.Runtime` | `active-timer-count` |
+`EventCounterCollectionModule`는 기본적으로 사용 하도록 설정 되며, .NET Core 3.0 앱에서 기본 카운터 집합을 수집 합니다. [Eventcounter](eventcounters.md) 자습서에는 수집 된 카운터의 기본 집합이 나열 됩니다. 또한 목록을 사용자 지정 하는 방법에 대 한 지침도 있습니다.
 
 ### <a name="manually-tracking-additional-telemetry"></a>수동으로 추가 원격 분석 추적
 

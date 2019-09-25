@@ -1,6 +1,6 @@
 ---
-title: 호출 웹 Microsoft id 플랫폼 Api (프로덕션으로 이동)-되는 데스크톱 앱
-description: 데스크톱 앱을 빌드하는 방법을 알아봅니다 호출 웹 Api (프로덕션으로 이동) 되는
+title: 웹 Api를 호출 하는 데스크톱 앱 (프로덕션으로 이동)-Microsoft identity platform
+description: 웹 Api를 호출 하는 데스크톱 앱을 빌드하는 방법 알아보기 (프로덕션으로 이동)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,36 +17,38 @@ ms.date: 04/18/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2343a416bd810792e7267b94395f953aa4f880a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a353b4577f8cfa9ba279ad2793e1a7ab8b27e55
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111195"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268331"
 ---
-# <a name="desktop-app-that-calls-web-apis---move-to-production"></a>웹을 호출 하는 데스크톱 앱 Api-프로덕션 환경으로 이동
+# <a name="desktop-app-that-calls-web-apis---move-to-production"></a>웹 Api를 호출 하는 데스크톱 앱-프로덕션으로 이동
 
-이 문서에서는 응용 프로그램을 추가로 개선 하 고 프로덕션으로 이동 하려면 세부 정보를 제공 합니다.
+이 문서에서는 응용 프로그램을 개선 하 고 프로덕션으로 이동 하기 위한 세부 정보를 제공 합니다.
 
-## <a name="handling-errors-in-desktop-applications"></a>데스크톱 응용 프로그램에서 오류 처리
+## <a name="handling-errors-in-desktop-applications"></a>데스크톱 응용 프로그램의 오류 처리
 
-다른 흐름 (에서처럼 코드 조각)에 대 한 자동 흐름 오류를 처리 하는 방법을 알아보았습니다. 또한 살펴보았습니다 (증분 동 및 조건부 액세스)에 필요한 상호 작용이 있는 경우가 많습니다.
+여러 흐름에서 자동 흐름에 대 한 오류를 처리 하는 방법을 배웠습니다 (코드 조각에 표시 됨). 또한 상호 작용이 필요한 경우도 있습니다 (증분 동의 및 조건부 액세스).
 
-## <a name="how-to-have--the-user-consent-upfront-for-several-resources"></a>선불 여러 리소스에 대 한 사용자 동의가 하는 방법
+## <a name="how-to-have--the-user-consent-upfront-for-several-resources"></a>사용자에 게 여러 리소스를 사전에 동의 하는 방법
 
 > [!NOTE]
-> Azure Active Directory (Azure AD) B2C 아니라 Microsoft id 플랫폼에 대 한 몇 가지 리소스 작동에 대 한 동의 가져오는 중입니다. Azure AD B2C 사용자 동의 하지 유일한 관리자 동의 지원합니다.
+> 여러 리소스에 대 한 동의를 얻는 것은 Microsoft id 플랫폼에서 작동 하지만 Azure Active Directory (Azure AD) B2C의 경우에는 작동 하지 않습니다. Azure AD B2C은 사용자 동의가 아닌 관리자 동의만 지원 합니다.
 
-Microsoft id 플랫폼 (v2.0) 끝점에 한 번에 여러 리소스에 대 한 토큰을 가져올 수를 허용 하지 않습니다. 따라서는 `scopes` 매개 변수는 단일 리소스에 대 한 범위만 포함할 수 있습니다. 사용자 미리 동의 몇 가지 리소스를 사용 하 여 확인할 수 있습니다는 `extraScopesToConsent` 매개 변수입니다.
+V2.0 (Microsoft identity platform) 끝점을 사용 하면 한 번에 여러 리소스에 대 한 토큰을 가져올 수 없습니다. 따라서 매개 변수 `scopes` 는 단일 리소스에 대 한 범위만 포함할 수 있습니다. 사용자가 `extraScopesToConsent` 매개 변수를 사용 하 여 여러 리소스를 미리 동의 수 있습니다.
 
-예를 들어 두 개의 리소스에 있는 경우 각 범위는 두 개:
+예를 들어 두 개의 리소스가 있는 경우 두 개의 범위가 있습니다.
 
-- `https://mytenant.onmicrosoft.com/customerapi` -2 범위를 사용 하 여 `customer.read` 및 `customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi` -2 범위를 사용 하 여 `vendor.read` 및 `vendor.write`
+- `https://mytenant.onmicrosoft.com/customerapi`-2 개 범위 `customer.read` 및`customer.write`
+- `https://mytenant.onmicrosoft.com/vendorapi`-2 개 범위 `vendor.read` 및`vendor.write`
 
-사용 해야 합니다 `.WithAdditionalPromptToConsent` 있는 한정자를 `extraScopesToConsent` 매개 변수입니다.
+`extraScopesToConsent` 매개 변수가 있는 한정자 `.WithAdditionalPromptToConsent` 를 사용 해야 합니다.
 
-예:
+말합니다.
+
+### <a name="in-msalnet"></a>MSAL.NET에서
 
 ```CSharp
 string[] scopesForCustomerApi = new string[]
@@ -67,17 +69,47 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .ExecuteAsync();
 ```
 
-이 호출은 첫 번째 web API에 대 한 액세스 토큰을 얻게 됩니다.
+### <a name="in-msal-for-ios-and-macos"></a>IOS 및 macOS 용 MSAL
 
-두 번째 web API를 호출 해야 할 경우 호출할 수 있습니다.
+Objective-C:
+
+```objc
+NSArray *scopesForCustomerApi = @[@"https://mytenant.onmicrosoft.com/customerapi/customer.read",
+                                @"https://mytenant.onmicrosoft.com/customerapi/customer.write"];
+    
+NSArray *scopesForVendorApi = @[@"https://mytenant.onmicrosoft.com/vendorapi/vendor.read",
+                              @"https://mytenant.onmicrosoft.com/vendorapi/vendor.write"]
+    
+MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopesForCustomerApi webviewParameters:[MSALWebviewParameters new]];
+interactiveParams.extraScopesToConsent = scopesForVendorApi;
+[application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) { /* handle result */ }];
+```
+
+Swift
+
+```swift
+let scopesForCustomerApi = ["https://mytenant.onmicrosoft.com/customerapi/customer.read",
+                            "https://mytenant.onmicrosoft.com/customerapi/customer.write"]
+        
+let scopesForVendorApi = ["https://mytenant.onmicrosoft.com/vendorapi/vendor.read",
+                          "https://mytenant.onmicrosoft.com/vendorapi/vendor.write"]
+        
+let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopesForCustomerApi, webviewParameters: MSALWebviewParameters())
+interactiveParameters.extraScopesToConsent = scopesForVendorApi
+application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in /* handle result */ })
+```
+
+이 호출을 통해 첫 번째 web API에 대 한 액세스 토큰을 얻을 수 있습니다.
+
+두 번째 웹 api를 호출 해야 하는 경우 api를 호출할 `AcquireTokenSilent` 수 있습니다.
 
 ```CSharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
 ```
 
-### <a name="microsoft-personal-account-requires-reconsenting-each-time-the-app-is-run"></a>Microsoft 개인 계정에 앱이 실행 될 때마다 reconsenting 필요
+### <a name="microsoft-personal-account-requires-reconsenting-each-time-the-app-is-run"></a>Microsoft 개인 계정에는 앱이 실행 될 때마다 reconsenting가 필요 합니다.
 
-사용자의 Microsoft 개인 계정에 대 한 권한을 부여 하려면 각 네이티브 클라이언트 (데스크톱/모바일 앱) 호출에서 동의 reprompting 의도 한 동작입니다. 네이티브 클라이언트 id (신원을 증명 하기 위해 Microsoft Id 플랫폼을 사용 하 여 비밀을 교환 하는 비밀 클라이언트 응용 프로그램)에 위배 본질적으로 안전 하지 않습니다. Microsoft id 플랫폼 동의 응용 프로그램에 권한이 부여 된 각 시간에 대 한 사용자에 게 소비자 서비스에 대 한이 세상을 완화 하도록 선택 했습니다.
+Microsoft 개인 계정 사용자의 경우 권한 부여에 대 한 각 native client (데스크톱/모바일 앱) 호출에 대 한 동의를 다시 요청 하는 것이 의도 된 동작입니다. Native client id는 기본적으로 안전 하지 않습니다. 기밀 클라이언트 응용 프로그램은 암호를 Microsoft Id 플랫폼과 교환 하 여 id를 증명 합니다. Microsoft id 플랫폼은 응용 프로그램에 권한이 부여 될 때마다 사용자에 게 동의 하 라는 메시지를 표시 하 여이 입력할 소비자 서비스를 완화 하도록 선택 했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

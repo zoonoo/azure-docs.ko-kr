@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 9e14a9f3f2f27112a591f14e9a93580f66aadef7
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 939a29e8d7b03c5af28342dffe44939f8ec34ae0
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169557"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258458"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 
@@ -33,10 +33,11 @@ ms.locfileid: "71169557"
 * **배포 방법**: 프레임 워크 종속 또는 자체 포함.
 * **웹 서버**: IIS (Internet Information Server) 또는 Kestrel.
 * **호스팅 플랫폼**: Azure App Service, Azure VM, Docker, Azure Kubernetes 서비스 (AKS) 등의 Web Apps 기능입니다.
+* **.Net Core 런타임 버전**: 1xx, 2. XX 또는 3. XX
 * **IDE**: Visual Studio, VS Code 또는 명령줄입니다.
 
 > [!NOTE]
-> Application Insights와 함께 ASP.NET Core 3.0-미리 보기를 사용 하는 경우 [2.8.0-beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0-beta3) 버전 이상을 사용 하세요. 이 버전은 ASP.NET Core 3.0에서 잘 작동 하는 것으로 알려져 있습니다. 또한 ASP.NET Core 3.0 앱에 대해서는 Visual Studio 기반 온 보 딩이 아직 지원 되지 않습니다.
+> Application Insights와 함께 ASP.NET Core 3.0를 사용 하는 경우 [2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) 버전 이상을 사용 하세요. ASP.NET Core 3.0를 지 원하는 유일한 버전입니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -70,7 +71,7 @@ ms.locfileid: "71169557"
 
     ```xml
         <ItemGroup>
-          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.7.0" />
+          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.8.0" />
         </ItemGroup>
     ```
 
@@ -117,24 +118,26 @@ ms.locfileid: "71169557"
 
     * `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
-    일반적으로 Web Apps에 배포 된 응용 프로그램에 대 한 계측 키를 지정합니다.`APPINSIGHTS_INSTRUMENTATIONKEY`
+    일반적으로는 Azure Web Apps에 배포 된 응용 프로그램에 대 한 계측 키를 지정합니다.`APPINSIGHTS_INSTRUMENTATIONKEY`
 
     > [!NOTE]
     > 코드에 지정 된 계측 키가 다른 옵션을 통해 `APPINSIGHTS_INSTRUMENTATIONKEY`적용 되는 환경 변수를 통해 이깁니다.
 
 ## <a name="run-your-application"></a>애플리케이션 실행
 
-응용 프로그램을 실행 하 고 요청을 만듭니다. 이제 원격 분석이 Application Insights로 흐릅니다. Application Insights SDK는 다음과 같은 원격 분석을 자동으로 수집 합니다.
+응용 프로그램을 실행 하 고 요청을 만듭니다. 이제 원격 분석이 Application Insights로 흐릅니다. Application Insights SDK는 다음 원격 분석과 함께 응용 프로그램에 대 한 들어오는 웹 요청을 자동으로 수집 합니다.
 
-|요청/종속성 |설명|
-|---------------|-------|
-|요청 | 응용 프로그램에 대 한 들어오는 웹 요청입니다. |
-|HTTP 또는 HTTPS | 를 사용 하 `HttpClient`여 호출 합니다. |
-|SQL | 를 사용 하 `SqlClient`여 호출 합니다. |
-|[Azure Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) | Azure Storage 클라이언트를 사용 하 여 호출 합니다. |
-|[EventHubs 클라이언트 SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 버전 1.1.0 이상 |
-|[ServiceBus 클라이언트 SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| 버전 3.0.0 이상 |
-|Azure Cosmos DB | HTTP/HTTPS를 사용 하는 경우에만 자동으로 추적 됩니다. Application Insights는 TCP 모드를 캡처하지 않습니다. |
+### <a name="live-metrics"></a>라이브 메트릭
+
+[라이브 메트릭은](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream) Application Insights 모니터링이 올바르게 구성 되었는지 여부를 신속 하 게 확인 하는 데 사용할 수 있습니다. 포털이 포털 및 분석에 표시 되기 시작 하는 데 몇 분 정도 걸릴 수 있지만, 라이브 메트릭은 거의 실시간으로 실행 중인 프로세스의 CPU 사용량을 표시 합니다. 요청, 종속성, 추적 등의 다른 원격 분석도 표시할 수 있습니다.
+
+### <a name="ilogger-logs"></a>ILogger 로그
+
+`ILogger` 심각도`Warning` 이상을 통해 내보낸 로그는 자동으로 캡처됩니다. [ILogger 문서](ilogger.md#control-logging-level) 에 따라 Application Insights에서 캡처할 로그 수준을 사용자 지정할 수 있습니다.
+
+### <a name="dependencies"></a>종속성
+
+종속성 컬렉션은 기본적으로 사용 하도록 설정 되어 있습니다. [이](asp-net-dependencies.md#automatically-tracked-dependencies) 문서에서는 자동으로 수집 되는 종속성에 대해 설명 하 고 수동 추적을 수행 하는 단계를 포함 합니다.
 
 ### <a name="performance-counters"></a>성능 카운터
 
@@ -143,47 +146,11 @@ ASP.NET Core의 [성능 카운터](https://azure.microsoft.com/documentation/art
 * SDK 버전 2.4.1 이상에서는 응용 프로그램이 Azure Web Apps (Windows)에서 실행 되는 경우 성능 카운터를 수집 합니다.
 * SDK 버전 2.7.1 이상에서는 응용 프로그램이 Windows 및 대상 `NETSTANDARD2.0` 이상에서 실행 되는 경우 성능 카운터를 수집 합니다.
 * .NET Framework를 대상으로 하는 응용 프로그램의 경우 모든 버전의 SDK에서 성능 카운터를 지원 합니다.
-* SDK 버전 2.8.0-beta3 이상에서는 Linux의 cpu/메모리 카운터를 지원 합니다. 다른 카운터는 Linux에서 지원 되지 않습니다. Linux 및 기타 비 Windows 환경에서 시스템 카운터를 가져오는 권장 방법은 [Eventcounters](#eventcounter) 를 사용 하는 것입니다.
+* SDK 버전 2.8.0 이상에서는 Linux의 cpu/메모리 카운터를 지원 합니다. 다른 카운터는 Linux에서 지원 되지 않습니다. Linux 및 기타 비 Windows 환경에서 시스템 카운터를 가져오는 권장 방법은 [Eventcounters](#eventcounter) 를 사용 하는 것입니다.
 
 ### <a name="eventcounter"></a>EventCounter
 
-[Eventcounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md)는 .NET/.net Core에서 카운터를 게시 하 고 사용 하는 플랫폼 간 메서드입니다. 이 기능은 이전에 있었지만 이러한 카운터를 게시 한 기본 제공 공급자는 없었습니다. .NET Core 3.0부터 몇 가지 카운터가 CLR 카운터, ASP.NET Core 카운터 등의 상자에서 게시 됩니다.
-
-SDK 버전 2.8.0-beta3 이상에서는 EventCounters 컬렉션을 지원 합니다. 기본적으로 SDK는 다음 카운터를 수집 합니다. 이러한 카운터는 메트릭 탐색기에서 또는 PerformanceCounter 테이블 아래의 Analytics 쿼리를 사용 하 여 쿼리할 수 있습니다. 카운터 이름은 "Category | 형식이 됩니다. Counter ".
-
-|범주 | 카운터|
-|---------------|-------|
-|시스템 런타임 | cpu 사용량 |
-|시스템 런타임 | 작업 집합 |
-|시스템 런타임 | gc-힙 크기 |
-|시스템 런타임 | gen-0-gc-개수 |
-|시스템 런타임 | gen-1-gc-개수 |
-|시스템 런타임 | gen-2-gc-개수 |
-|시스템 런타임 | gc 시간 |
-|시스템 런타임 | gen-0-크기 |
-|시스템 런타임 | gen-1-크기 |
-|시스템 런타임 | gen-2-크기 |
-|시스템 런타임 | loh-크기 |
-|시스템 런타임 | 할당 율 |
-|시스템 런타임 | 어셈블리 수 |
-|시스템 런타임 | 예외-개수 |
-|시스템 런타임 | threadpool-스레드 수 |
-|시스템 런타임 | 모니터-잠금-경합 수 |
-|시스템 런타임 | threadpool-큐 길이 |
-|시스템 런타임 | threadpool-완료-항목 수 |
-|시스템 런타임 | 활성-타이머-개수 |
-|AspNetCore | 초당 요청 수 |
-|AspNetCore | total-requests |
-|AspNetCore | 현재 요청 |
-|AspNetCore | 실패-요청 |
-
-### <a name="ilogger-logs"></a>ILogger 로그
-
-심각도`Warning` 이상의 [ILogger 로그](https://docs.microsoft.com/azure/azure-monitor/app/ilogger) 는 SDK 버전 합니다-beta3 이상에서 자동으로 캡처됩니다.
-
-### <a name="live-metrics"></a>라이브 메트릭
-
-원격 분석이 포털에 표시 되기 시작 하는 데 몇 분 정도 걸릴 수 있습니다. 모든 것이 제대로 작동 하는지 신속 하 게 확인 하려면 실행 중인 응용 프로그램에 요청을 할 때 [라이브 메트릭을](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream) 사용 하는 것이 가장 좋습니다.
+`EventCounterCollectionModule`는 기본적으로 사용 하도록 설정 되며, .NET Core 3.0 앱에서 기본 카운터 집합을 수집 합니다. [Eventcounter](eventcounters.md) 자습서에는 수집 된 카운터의 기본 집합이 나열 됩니다. 또한 목록을 사용자 지정 하는 방법에 대 한 지침도 있습니다.
 
 ## <a name="enable-client-side-telemetry-for-web-applications"></a>웹 응용 프로그램에 대 한 클라이언트 쪽 원격 분석 사용
 
@@ -218,17 +185,17 @@ ASP.NET Core에 대 한 Application Insights SDK를 사용자 지정 하 여 기
 다음 예와 같이에 `ApplicationInsightsServiceOptions` `AddApplicationInsightsTelemetry`전달 하 여 몇 가지 일반적인 설정을 수정할 수 있습니다.
 
 ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions aiOptions
-                    = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
-        // Disables adaptive sampling.
-        aiOptions.EnableAdaptiveSampling = false;
+public void ConfigureServices(IServiceCollection services)
+{
+    Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions aiOptions
+                = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
+    // Disables adaptive sampling.
+    aiOptions.EnableAdaptiveSampling = false;
 
-        // Disables QuickPulse (Live Metrics stream).
-        aiOptions.EnableQuickPulseMetricStream = false;
-        services.AddApplicationInsightsTelemetry(aiOptions);
-    }
+    // Disables QuickPulse (Live Metrics stream).
+    aiOptions.EnableQuickPulseMetricStream = false;
+    services.AddApplicationInsightsTelemetry(aiOptions);
+}
 ```
 
 의 전체 설정 목록`ApplicationInsightsServiceOptions`
@@ -256,10 +223,10 @@ ASP.NET Core에 대 한 Application Insights SDK는 고정 비율과 적응 샘�
 다음 코드에 `TelemetryInitializer` 표시 된 `DependencyInjection` 것 처럼 컨테이너에 새를 추가 합니다. SDK는 `DependencyInjection` 컨테이너에 추가 된 `TelemetryInitializer` 모든를 자동으로 선택 합니다.
 
 ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
-    }
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
+}
 ```
 
 ### <a name="removing-telemetryinitializers"></a>TelemetryInitializers 제거
@@ -267,38 +234,38 @@ ASP.NET Core에 대 한 Application Insights SDK는 고정 비율과 적응 샘�
 원격 분석 이니셜라이저는 기본적으로 제공 됩니다. 모든 또는 특정 원격 분석 이니셜라이저를 제거 하려면를 호출한 `AddApplicationInsightsTelemetry()` *후* 다음 샘플 코드를 사용 합니다.
 
 ```csharp
-    public void ConfigureServices(IServiceCollection services)
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddApplicationInsightsTelemetry();
+
+    // Remove a specific built-in telemetry initializer
+    var tiToRemove = services.FirstOrDefault<ServiceDescriptor>
+                        (t => t.ImplementationType == typeof(AspNetCoreEnvironmentTelemetryInitializer));
+    if (tiToRemove != null)
     {
-        services.AddApplicationInsightsTelemetry();
-
-        // Remove a specific built-in telemetry initializer
-        var tiToRemove = services.FirstOrDefault<ServiceDescriptor>
-                         (t => t.ImplementationType == typeof(AspNetCoreEnvironmentTelemetryInitializer));
-        if (tiToRemove != null)
-        {
-            services.Remove(tiToRemove);
-        }
-
-        // Remove all initializers
-        // This requires importing namespace by using Microsoft.Extensions.DependencyInjection.Extensions;
-        services.RemoveAll(typeof(ITelemetryInitializer));
+        services.Remove(tiToRemove);
     }
+
+    // Remove all initializers
+    // This requires importing namespace by using Microsoft.Extensions.DependencyInjection.Extensions;
+    services.RemoveAll(typeof(ITelemetryInitializer));
+}
 ```
 
 ### <a name="adding-telemetry-processors"></a>원격 분석 프로세서 추가
 
-에서 `TelemetryConfiguration` `AddApplicationInsightsTelemetryProcessor` 확장 메서드를 사용 하 여 사용자 지정 원격 분석 프로세서를에 추가할 수 있습니다. `IServiceCollection` [고급 필터링 시나리오](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor) 에서 원격 분석 프로세서를 사용 하 여 Application Insights 서비스로 보내는 원격 분석에서 포함 되거나 제외 된 항목을 더 직접적으로 제어할 수 있습니다. 다음 예제를 사용 합니다.
+에서 `TelemetryConfiguration` `AddApplicationInsightsTelemetryProcessor` 확장 메서드를 사용 하 여 사용자 지정 원격 분석 프로세서를에 추가할 수 있습니다. `IServiceCollection` [고급 필터링 시나리오](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor)에서 원격 분석 프로세서를 사용 합니다. 다음 예제를 사용 합니다.
 
 ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        // ...
-        services.AddApplicationInsightsTelemetry();
-        services.AddApplicationInsightsTelemetryProcessor<MyFirstCustomTelemetryProcessor>();
+public void ConfigureServices(IServiceCollection services)
+{
+    // ...
+    services.AddApplicationInsightsTelemetry();
+    services.AddApplicationInsightsTelemetryProcessor<MyFirstCustomTelemetryProcessor>();
 
-        // If you have more processors:
-        services.AddApplicationInsightsTelemetryProcessor<MySecondCustomTelemetryProcessor>();
-    }
+    // If you have more processors:
+    services.AddApplicationInsightsTelemetryProcessor<MySecondCustomTelemetryProcessor>();
+}
 ```
 
 ### <a name="configuring-or-removing-default-telemetrymodules"></a>기본 TelemetryModules 구성 또는 제거
@@ -313,7 +280,7 @@ Application Insights 원격 분석 모듈을 사용 하 여 사용자별 수동 
 * `QuickPulseTelemetryModule`-라이브 메트릭 포털에 표시 하기 위한 원격 분석을 수집 합니다.
 * `AppServicesHeartbeatTelemetryModule`-응용 프로그램이 호스트 되는 Azure App Service 환경에 대해 하트 비트 (사용자 지정 메트릭으로 전송 됨)를 수집 합니다.
 * `AzureInstanceMetadataTelemetryModule`-응용 프로그램이 호스트 되는 Azure VM 환경에 대해 하트 비트 (사용자 지정 메트릭으로 전송 됨)를 수집 합니다.
-* `EventCounterCollectionModule`- [Eventcounters를](#eventcounter)수집 합니다. 이 모듈은 새로운 기능이 며 SDK 버전 2.8.0-beta3 이상에서 사용할 수 있습니다.
+* `EventCounterCollectionModule`- [Eventcounters를 수집 합니다.](eventcounters.md) 이 모듈은 새로운 기능이 며 SDK 버전 2.8.0 이상에서 사용할 수 있습니다.
 
 기본값 `TelemetryModule`을 구성 하려면 다음 예제와 같이에 `ConfigureTelemetryModule<T>` `IServiceCollection`확장 메서드를 사용 합니다.
 
@@ -321,34 +288,34 @@ Application Insights 원격 분석 모듈을 사용 하 여 사용자별 수동 
 using Microsoft.ApplicationInsights.DependencyCollector;
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 
-    public void ConfigureServices(IServiceCollection services)
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddApplicationInsightsTelemetry();
+
+    // The following configures DependencyTrackingTelemetryModule.
+    // Similarly, any other default modules can be configured.
+    services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o) =>
+            {
+                module.EnableW3CHeadersInjection = true;
+            });
+
+    // The following removes all default counters from EventCounterCollectionModule, and adds a single one.
+    services.ConfigureTelemetryModule<EventCounterCollectionModule>(
+            (module, o) =>
+            {
+                module.Counters.Clear();
+                module.Counters.Add(new EventCounterCollectionRequest("System.Runtime", "gen-0-size"));
+            }
+        );
+
+    // The following removes PerformanceCollectorModule to disable perf-counter collection.
+    // Similarly, any other default modules can be removed.
+    var performanceCounterService = services.FirstOrDefault<ServiceDescriptor>(t => t.ImplementationType == typeof(PerformanceCollectorModule));
+    if (performanceCounterService != null)
     {
-        services.AddApplicationInsightsTelemetry();
-
-        // The following configures DependencyTrackingTelemetryModule.
-        // Similarly, any other default modules can be configured.
-        services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o) =>
-                        {
-                            module.EnableW3CHeadersInjection = true;
-                        });
-
-        // The following removes all default counters from EventCounterCollectionModule, and adds a single one.
-        services.ConfigureTelemetryModule<EventCounterCollectionModule>(
-                            (module, o) =>
-                            {
-                                module.Counters.Clear();
-                                module.Counters.Add(new EventCounterCollectionRequest("System.Runtime", "gen-0-size"));
-                            }
-                        );
-
-        // The following removes PerformanceCollectorModule to disable perf-counter collection.
-        // Similarly, any other default modules can be removed.
-        var performanceCounterService = services.FirstOrDefault<ServiceDescriptor>(t => t.ImplementationType == typeof(PerformanceCollectorModule));
-        if (performanceCounterService != null)
-        {
-         services.Remove(performanceCounterService);
-        }
+        services.Remove(performanceCounterService);
     }
+}
 ```
 
 ### <a name="configuring-a-telemetry-channel"></a>원격 분석 채널 구성
@@ -385,13 +352,19 @@ using Microsoft.ApplicationInsights.Channel;
     }
 ```
 
-위의 경우 자동 수집 모듈이 원격 분석을 수집 하는 것을 방지할 수 없습니다. Application Insights에 대 한 원격 분석 보내기가 위의 방법으로 사용 하지 않도록 설정 됩니다. 특정 자동 수집 모듈을 원하지 않는 경우 [원격 분석 모듈을 제거](#configuring-or-removing-default-telemetrymodules) 하는 것이 가장 좋습니다.
+위의 경우 자동 수집 모듈이 원격 분석을 수집 하는 것을 방지할 수 없습니다. Application Insights에 대 한 원격 분석 보내기가 위의 방법으로 사용 하지 않도록 설정 됩니다. 특정 자동 수집 모듈을 원하지 않는 경우 [원격 분석 모듈을 제거](#configuring-or-removing-default-telemetrymodules) 하는 것이 좋습니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
+### <a name="does-application-insights-support-aspnet-core-30"></a>3\.0 ASP.NET Core Application Insights 지원 하나요?
+
+예. ASP.NET Core 버전 2.8.0 이상 [에 대 한 APPLICATION INSIGHTS SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 로 업데이트 합니다. 이전 버전의 SDK는 ASP.NET Core 3.0를 지원 하지 않습니다.
+
+또한 [여기](#enable-application-insights-server-side-telemetry-visual-studio)에서 visual studio 기반 지침을 사용 하는 경우 최신 버전의 visual studio 2019 (16.3.0)를 온보드로 업데이트 합니다. 이전 버전의 Visual Studio에서는 ASP.NET Core 3.0 앱에 대 한 자동 등록을 지원 하지 않습니다.
+
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>자동으로 수집 되지 않는 원격 분석을 추적 하려면 어떻게 해야 하나요?
 
-생성자 주입을 사용 `TelemetryClient` 하 여의 인스턴스를 가져온 다음 필요한 `TrackXXX()` 메서드를 호출 합니다. ASP.NET Core 응용 프로그램에서는 새 `TelemetryClient` 인스턴스를 만들지 않는 것이 좋습니다. 의 `TelemetryClient` 단일 인스턴스는 나머지 원격 분석과 공유 `TelemetryConfiguration` 하 `DependencyInjection` 는 컨테이너에 이미 등록 되어 있습니다. 새 `TelemetryClient` 인스턴스를 만드는 것은 원격 분석의 나머지 부분과 분리 된 구성이 필요한 경우에만 권장 됩니다. 
+생성자 주입을 사용 `TelemetryClient` 하 여의 인스턴스를 가져온 다음 필요한 `TrackXXX()` 메서드를 호출 합니다. ASP.NET Core 응용 프로그램에서는 새 `TelemetryClient` 인스턴스를 만들지 않는 것이 좋습니다. 의 `TelemetryClient` 단일 인스턴스는 나머지 원격 분석과 공유 `TelemetryConfiguration` 하 `DependencyInjection` 는 컨테이너에 이미 등록 되어 있습니다. 새 `TelemetryClient` 인스턴스를 만드는 것은 원격 분석의 나머지 부분과 분리 된 구성이 필요한 경우에만 권장 됩니다.
 
 다음 예제에서는 컨트롤러에서 추가 원격 분석을 추적 하는 방법을 보여 줍니다.
 
@@ -420,9 +393,7 @@ Application Insights의 사용자 지정 데이터 보고에 대 한 자세한 �
 
 ### <a name="some-visual-studio-templates-used-the-useapplicationinsights-extension-method-on-iwebhostbuilder-to-enable-application-insights-is-this-usage-still-valid"></a>일부 Visual Studio 템플릿은 IWebHostBuilder에서 UseApplicationInsights () 확장 메서드를 사용 하 여 Application Insights를 사용 하도록 설정 했습니다. 이 사용량이 여전히 유효 한가요?
 
-예,이 메서드를 사용 하 여 Application Insights를 사용할 수 있습니다. 이 기술은 Visual Studio 온 보 딩 및 Web Apps 확장에서 사용 됩니다. 그러나 일부 구성을 제어 하 `services.AddApplicationInsightsTelemetry()` 는 오버 로드를 제공 하기 때문에를 사용 하는 것이 좋습니다. 두 방법 모두 내부적으로 동일한 작업을 수행 하므로 사용자 지정 구성을 적용할 필요가 없는 경우 두 메서드 중 하나를 호출할 수 있습니다.
-
-`IWebHostBuilder`는 ASP.NET Core 3.0 `IHostBuilder` 에서로 바뀌고 Application Insights 혼동을 피하기 위해 beta3 2.8.0 버전은 useapplicationinsights () 메서드를 사용 되지 않는 것으로 표시 하 고 다음 주 버전에서는 제거 됩니다.
+확장 메서드 `UseApplicationInsights()` 는 계속 지원 되지만 Application Insights SDK 버전 2.8.0 이상에서 사용 되지 않는 것으로 표시 되었습니다. SDK의 다음 주 버전에서는 제거 됩니다. Application Insights 원격 분석을 사용 하도록 설정 하는 권장 `AddApplicationInsightsTelemetry()` 방법은를 사용 하 여 일부 구성을 제어 하는 오버 로드를 제공 하기 때문입니다. 또한 ASP.NET Core 3.0 앱 `services.AddApplicationInsightsTelemetry()` 에서 application insights를 사용 하도록 설정 하는 유일한 방법입니다.
 
 ### <a name="im-deploying-my-aspnet-core-application-to-web-apps-should-i-still-enable-the-application-insights-extension-from-web-apps"></a>Web Apps에 ASP.NET Core 응용 프로그램을 배포 합니다. Web Apps에서 Application Insights 확장을 계속 사용 하도록 설정 해야 하나요?
 
@@ -468,6 +439,10 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
         services.AddApplicationInsightsTelemetry();
     }
 ```
+
+### <a name="is-this-sdk-supported-for-the-new-net-core-30-worker-service-template-applications"></a>이 SDK는 새 .NET Core 3.0 작업자 서비스 템플릿 응용 프로그램에 대해 지원 되나요?
+
+이 SDK는 `HttpContext`를 필요로 하므로 .net Core 3.0 작업자 서비스 응용 프로그램을 포함 하 여 HTTP가 아닌 응용 프로그램에서 작동 하지 않습니다. 새로 릴리스된 Microsoft ApplicationInsights. r e n a m e 서비스 SDK를 사용 하 여 이러한 응용 프로그램에서 application insights를 사용 하도록 설정 하려면 [이](worker-service.md) 문서를 참조 하세요.
 
 ## <a name="open-source-sdk"></a>오픈 소스 SDK
 

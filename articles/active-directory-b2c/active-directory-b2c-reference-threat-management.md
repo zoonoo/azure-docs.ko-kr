@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 281bd73671352e1e525e11a7bfde1882d3ef8864
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: eae82fbd56782faf5b15479c13fe530e189a0e3e
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065414"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71256897"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 리소스 및 데이터에 대한 위협 관리
 
@@ -37,10 +37,10 @@ Azure AD B2C는 좀 더 복잡한 계정 잠금 전략을 사용합니다. 계�
 
 잠금 임계값을 포함 하 여 암호 보호 설정을 관리 하려면 다음을 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-1. 포털의 오른쪽 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 Azure AD B2C 테 넌 트를 선택 합니다.
-1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택 하거나 포털의 왼쪽 위 섹션에서 **모든 서비스** 를 선택한 다음를 검색 하 고 *Azure Active Directory*을 선택 합니다.
-1. **보안**에서 **인증 방법**을 선택한 다음 **암호 보호**를 선택 합니다.
+1. [Azure 포털](https://portal.azure.com)
+1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 사용 하 여 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 선택 합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택 합니다. 또는 **모든 서비스** 를 선택 하 고 **Azure AD B2C**을 검색 하 고 선택 합니다.
+1. **보안**에서 **인증 방법 (미리 보기)** 을 선택한 다음 **암호 보호**를 선택 합니다.
 1. 원하는 암호 보호 설정을 입력 하 고 **저장**을 선택 합니다.
 
     ![Azure AD 설정에서 암호 보호 페이지 Azure Portal](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)

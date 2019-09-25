@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 311f69ffa436eebb261fb8aa5ee72886ad9fe9d0
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 37ca2b655d30ffd330d5430da20d07d9548a7c84
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035902"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260865"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 미사용 Azure Event Hubs 데이터를 암호화 하기 위한 고객 관리 키 구성
 Azure Event Hubs는 Azure SSE (Azure Storage 서비스 암호화)를 사용 하 여 미사용 데이터의 암호화를 제공 합니다. Event Hubs는 Azure Storage를 사용 하 여 데이터를 저장 하 고, 기본적으로 Azure Storage와 함께 저장 되는 모든 데이터는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 
@@ -84,7 +84,7 @@ Azure 키 자격 증명 모음 회전 메커니즘을 사용 하 여 키 자격 
 > 키 자격 증명 모음에서 기존 암호화 키를 삭제 하 고 Event Hubs 네임 스페이스의 새 키로 대체 하는 경우, 삭제 키가 최대 1 시간 동안 계속 유효 하므로 이전 데이터 (이전 키로 암호화 됨)가 계속 해 서 액세스할 수 있습니다.  새 데이터를 사용 하 여 이제 새 키를 사용 하 여 액세스할 수 있습니다. 이 동작은 기능의 미리 보기 버전에서 의도적으로 설계 되었습니다. 
 
 ## <a name="set-up-diagnostic-logs"></a>진단 로그 설정 
-BYOK 사용 네임 스페이스에 대 한 진단 로그를 설정 하면 고객이 관리 하는 키를 사용 하 여 네임 스페이스를 암호화할 때 작업에 대 한 필수 정보가 제공 됩니다. 이러한 로그를 사용 하도록 설정 하 고 나중에 이벤트 허브로 스트림 하거나, log analytics를 통해 분석 하거나, 사용자 지정 분석을 수행 하기 위해 저장소로 스트리밍할 수 있습니다. 진단 로그에 대 한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)를 참조 하세요.
+BYOK 사용 네임 스페이스에 대 한 진단 로그를 설정 하면 고객이 관리 하는 키를 사용 하 여 네임 스페이스를 암호화할 때 작업에 대 한 필수 정보가 제공 됩니다. 이러한 로그를 사용 하도록 설정 하 고 나중에 이벤트 허브로 스트림 하거나, log analytics를 통해 분석 하거나, 사용자 지정 분석을 수행 하기 위해 저장소로 스트리밍할 수 있습니다. 진단 로그에 대 한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/resource-logs-overview.md)를 참조 하세요.
 
 ## <a name="enable-user-logs"></a>사용자 로그 사용
 고객 관리 키에 대 한 로그를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
@@ -104,17 +104,17 @@ BYOK 사용 네임 스페이스에 대 한 진단 로그를 설정 하면 고객
 ## <a name="log-schema"></a>로그 스키마 
 모든 로그는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 각 항목에는 다음 표에 설명 된 형식을 사용 하는 문자열 필드가 있습니다. 
 
-| 이름 | Description |
+| 이름 | 설명 |
 | ---- | ----------- | 
 | TaskName | 실패한 작업에 대한 설명입니다. |
 | ActivityId | 추적에 사용 되는 내부 ID입니다. |
 | category | 태스크의 분류를 정의 합니다. 예를 들어 키 자격 증명 모음의 키를 사용 하지 않도록 설정 하는 경우 정보 범주 이거나 키를 래핑 해제할 수 없는 경우 오류가 발생할 수 있습니다. |
 | resourceId | Azure Resource Manager 리소스 ID |
-| keyVault | 키 자격 증명 모음의 전체 이름입니다. |
+| KeyVault | 키 자격 증명 모음의 전체 이름입니다. |
 | Key | Event Hubs 네임 스페이스를 암호화 하는 데 사용 되는 키 이름입니다. |
 | version | 사용 되는 키의 버전입니다. |
 | operation(작업) | 키 자격 증명 모음의 키에 대해 수행 되는 작업입니다. 예를 들어 키, 줄 바꿈 또는 래핑 해제를 사용 하거나 사용 하지 않도록 설정 합니다. |
-| code | 작업과 연결 된 코드입니다. 예제: 오류 코드 404는 키를 찾을 수 없음을 의미 합니다. |
+| code | 작업과 연결 된 코드입니다. 예: 오류 코드 404는 키를 찾을 수 없음을 의미 합니다. |
 | message | 작업과 관련 된 오류 메시지 |
 
 고객 관리 키에 대 한 로그의 예는 다음과 같습니다.

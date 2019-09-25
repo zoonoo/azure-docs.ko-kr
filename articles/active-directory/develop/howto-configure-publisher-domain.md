@@ -17,16 +17,16 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 291de1fa9bbb43ff9393a3163d1cd21dd7cd1b01
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 28021c0b8512ca12ead92b0b78541fce690b1f80
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835144"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257925"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain-preview"></a>방법: 응용 프로그램의 게시자 도메인 구성 (미리 보기)
 
-응용 프로그램의 [동의 프롬프트](application-consent-experience.md) 에서 사용자에 게 해당 정보를 보낼 위치를 알려 주는 응용 프로그램의 게시자 도메인이 표시 됩니다. 5 월 21 일 이후에 등록 된 다중 테 넌 트 응용 프로그램 (게시자 도메인이 없는 2019)은 확인되지 않음으로 표시 됩니다. 다중 테 넌 트 응용 프로그램은 단일 조직 디렉터리 외부의 계정을 지 원하는 응용 프로그램입니다. 예를 들어 모든 Azure AD 계정을 지원 하거나 모든 Azure AD 계정 및 개인 Microsoft 계정을 지원 합니다.
+응용 프로그램의 [동의 프롬프트](application-consent-experience.md) 에서 사용자에 게 해당 정보를 보낼 위치를 알려 주는 응용 프로그램의 게시자 도메인이 표시 됩니다. 5 월 21 일 이후에 등록 된 다중 테 넌 트 응용 **프로그램 (게시자**도메인이 없는 2019)은 확인 되지 않음으로 표시 됩니다. 다중 테 넌 트 응용 프로그램은 단일 조직 디렉터리 외부의 계정을 지 원하는 응용 프로그램입니다. 예를 들어 모든 Azure AD 계정을 지원 하거나 모든 Azure AD 계정 및 개인 Microsoft 계정을 지원 합니다.
 
 ## <a name="new-applications"></a>새 응용 프로그램
 
@@ -42,11 +42,11 @@ ms.locfileid: "68835144"
 | *.onmicrosoft.com | *.onmicrosoft.com |
 | - *.onmicrosoft.com<br/>-domain1.com<br/>-domain2.com (주) | domain2.com |
 
-다중 테 넌 트 응용 프로그램의 게시자 도메인이 설정 되지 않았거나. onmicrosoft.com로 끝나는 도메인으로 설정 된 경우 앱의 동의 확인 표시는 게시자 도메인 대신 확인 되지 않음 으로 표시 됩니다.
+다중 테 넌 트 응용 프로그램의 게시자 도메인이 설정 되지 않았거나. onmicrosoft.com로 끝나는 도메인으로 설정 된 경우 앱의 동의 확인 표시는 게시자 도메인 대신 확인 되지 않음 **으로 표시 됩니다** .
 
 ## <a name="grandfathered-applications"></a>Grandfathered 응용 프로그램
 
-앱이 2019 년 5 월 21 일 이전에 등록 된 경우 게시자 도메인을 설정 하지 않은 경우 응용 프로그램의 동의 확인 표시가 확인 되지 않습니다. 사용자가 앱의 동의 프롬프트에서이 정보를 볼 수 있도록 게시자 도메인 값을 설정 하는 것이 좋습니다.
+앱이 2019 년 5 월 21 일 이전에 등록 된 경우 게시자 도메인을 설정 하지 않은 **경우 응용** 프로그램의 동의 확인 표시가 확인 되지 않습니다. 사용자가 앱의 동의 프롬프트에서이 정보를 볼 수 있도록 게시자 도메인 값을 설정 하는 것이 좋습니다.
 
 ## <a name="configure-publisher-domain-using-the-azure-portal"></a>Azure Portal를 사용 하 여 게시자 도메인 구성
 
@@ -96,6 +96,12 @@ ms.locfileid: "68835144"
 ### <a name="to-select-a-verified-domain"></a>확인 된 도메인을 선택 하려면
 
 - 테 넌 트가 확인 된 도메인을 확인 하는 경우 **확인 된 도메인 선택** 드롭다운에서 도메인 중 하나를 선택 합니다.
+
+>[!Note]
+> 반환 되어야 하는 ' Content-type ' 헤더가 필요 `application/json`합니다. 이와 같은 다른 항목을 사용 하는 경우 아래에 설명 된 대로 오류가 발생할 수 있습니다.`application/json; charset=utf-8` 
+> 
+>``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
+>
 
 ## <a name="implications-on-the-app-consent-prompt"></a>앱 동의 프롬프트의 의미
 

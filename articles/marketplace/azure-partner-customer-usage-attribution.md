@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
 ms.topic: article
-ms.date: 11/17/2018
+ms.date: 9/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 0bbe0e9718a25fdff76e591bf388bf829518502e
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: c077b93b887482dda5ae127bb3dbaec71b2ea11b
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105623"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260078"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -99,7 +99,7 @@ Resource Manager 템플릿을 사용하는 경우 앞에서 설명한 지침에 
 > [!Note]
 > 문자열의 형식이 중요합니다. **pid-** 접두사가 포함되지 않으면 데이터를 쿼리할 수 없습니다. SDK마다 다른 방법으로 추적합니다. 이 방법을 구현하려면 기본 설정 Azure SDK에 대한 지원 및 추적 방법을 검토하세요.
 
-#### <a name="example-the-python-sdk"></a>예제: Python SDK
+#### <a name="example-the-python-sdk"></a>예: Python SDK
 
 Python의 경우 **config** 특성을 사용합니다. 이 특성은 UserAgent에만 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
@@ -176,7 +176,7 @@ GUID를 템플릿 또는 사용자 에이전트에 추가 하 고 파트너 센�
    * 파트너는 여러 GUID를 등록할 수 있습니다.
    * 파트너는 Marketplace 이외의 솔루션 템플릿 및 제품에 대한 GUID를 등록할 수 있습니다.
 
-1. [파트너 센터](https://partner.microsoft.com/dashboard)에 로그인합니다.
+1. [파트너 센터](https://partner.microsoft.com/dashboard)에 로그인 합니다.
 
 1. 오른쪽 위 모서리에서 설정 기어 아이콘을 선택 하 고 **개발자 설정**을 선택 합니다.
 

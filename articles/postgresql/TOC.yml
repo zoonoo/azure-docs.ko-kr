@@ -146,6 +146,12 @@
           href: concepts-hyperscale-choose-distribution-column.md
         - name: 테이블 공동 배치
           href: concepts-hyperscale-colocation.md
+        - name: 데이터 액세스 및 보안
+          items:
+            - name: 방화벽 규칙
+              href: concepts-hyperscale-firewall-rules.md
+            - name: SSL 구성
+              href: concepts-hyperscale-ssl-connection-security.md
         - name: PostgreSQL 확장
           href: concepts-hyperscale-extensions.md
         - name: 리소스
@@ -154,86 +160,96 @@
               href: concepts-hyperscale-configuration-options.md
 - name: 방법 가이드
   items:
-    - name: 사용자 만들기
-      href: howto-create-users.md
-    - name: 최적화
+    - name: 단일 서버
       items:
-        - name: 대량 삽입
-          href: howto-optimize-bulk-inserts.md
-        - name: Autovacuum
-          href: howto-optimize-autovacuum.md
-        - name: 쿼리 통계 컬렉션
-          href: howto-optimize-query-stats-collection.md
-        - name: 알림 테이블 전략
-          href: howto-optimize-query-time-with-toast-table-storage-strategy.md
-    - name: 방화벽 관리
+        - name: 사용자 만들기
+          href: howto-create-users.md
+        - name: 최적화
+          items:
+            - name: 대량 삽입
+              href: howto-optimize-bulk-inserts.md
+            - name: Autovacuum
+              href: howto-optimize-autovacuum.md
+            - name: 쿼리 통계 컬렉션
+              href: howto-optimize-query-stats-collection.md
+            - name: 알림 테이블 전략
+              href: howto-optimize-query-time-with-toast-table-storage-strategy.md
+        - name: 방화벽 관리
+          items:
+            - name: Azure portal
+              href: howto-manage-firewall-using-portal.md
+            - name: Azure CLI
+              href: howto-manage-firewall-using-cli.md
+        - name: 서버 복원
+          items:
+            - name: Azure portal
+              href: howto-restore-server-portal.md
+            - name: Azure CLI
+              href: howto-restore-server-cli.md
+        - name: 데이터베이스 마이그레이션
+          items:
+            - name: 덤프 및 복원
+              href: howto-migrate-using-dump-and-restore.md
+            - name: 가져오기 및 내보내기
+              href: howto-migrate-using-export-and-import.md
+            - name: 최소 가동 중지 시간 마이그레이션
+              href: howto-migrate-online.md
+        - name: 서버 매개 변수 구성
+          items:
+            - name: Azure portal
+              href: howto-configure-server-parameters-using-portal.md
+            - name: Azure CLI
+              href: howto-configure-server-parameters-using-cli.md
+        - name: 자동 증가 스토리지
+          items:
+            - name: Azure portal
+              href: howto-auto-grow-storage-portal.md
+            - name: Azure CLI
+              href: howto-auto-grow-storage-cli.md
+        - name: 서버 로그 액세스
+          items:
+            - name: Azure portal
+              href: howto-configure-server-logs-in-portal.md
+            - name: Azure CLI
+              href: howto-configure-server-logs-using-cli.md
+        - name: 모니터
+          items:
+            - name: 메트릭에 대한 경고 만들기
+              href: howto-alert-on-metric.md
+        - name: 문제 해결
+          items:
+            - name: 연결 오류 문제 해결
+              href: howto-troubleshoot-common-connection-issues.md
+        - name: 고급 위협 보호
+          items:
+            - name: Azure portal
+              href: howto-database-threat-protection-portal.md
+        - name: Virtual Network
+          items:
+            - name: Azure portal
+              href: howto-manage-vnet-using-portal.md
+            - name: Azure CLI
+              href: howto-manage-vnet-using-cli.md
+        - name: 서버 다시 시작
+          items:
+            - name: Azure portal
+              href: howto-restart-server-portal.md
+            - name: Azure CLI
+              href: howto-restart-server-cli.md
+        - name: 복제
+          items:
+            - name: Azure Portal 읽기 복제본 관리
+              href: howto-read-replicas-portal.md
+            - name: '읽기 복제본 Azure CLI, REST API 관리'
+              href: howto-read-replicas-cli.md
+    - name: 하이퍼스케일(Citus)
       items:
-        - name: Azure portal
-          href: howto-manage-firewall-using-portal.md
-        - name: Azure CLI
-          href: howto-manage-firewall-using-cli.md
-    - name: 서버 복원
-      items:
-        - name: Azure portal
-          href: howto-restore-server-portal.md
-        - name: Azure CLI
-          href: howto-restore-server-cli.md
-    - name: 데이터베이스 마이그레이션
-      items:
-        - name: 덤프 및 복원
-          href: howto-migrate-using-dump-and-restore.md
-        - name: 가져오기 및 내보내기
-          href: howto-migrate-using-export-and-import.md
-        - name: 최소 가동 중지 시간 마이그레이션
-          href: howto-migrate-online.md
-    - name: 서버 매개 변수 구성
-      items:
-        - name: Azure portal
-          href: howto-configure-server-parameters-using-portal.md
-        - name: Azure CLI
-          href: howto-configure-server-parameters-using-cli.md
-    - name: 자동 증가 스토리지
-      items:
-        - name: Azure portal
-          href: howto-auto-grow-storage-portal.md
-        - name: Azure CLI
-          href: howto-auto-grow-storage-cli.md
-    - name: 서버 로그 액세스
-      items:
-        - name: Azure portal
-          href: howto-configure-server-logs-in-portal.md
-        - name: Azure CLI
-          href: howto-configure-server-logs-using-cli.md
-    - name: 모니터
-      items:
-        - name: 메트릭에 대한 경고 만들기
-          href: howto-alert-on-metric.md
-    - name: 문제 해결
-      items:
-        - name: 연결 오류 문제 해결
-          href: howto-troubleshoot-common-connection-issues.md
-    - name: 고급 위협 보호
-      items:
-        - name: Azure portal
-          href: howto-database-threat-protection-portal.md
-    - name: Virtual Network
-      items:
-        - name: Azure portal
-          href: howto-manage-vnet-using-portal.md
-        - name: Azure CLI
-          href: howto-manage-vnet-using-cli.md
-    - name: 서버 다시 시작
-      items:
-        - name: Azure portal
-          href: howto-restart-server-portal.md
-        - name: Azure CLI
-          href: howto-restart-server-cli.md
-    - name: 복제
-      items:
-        - name: Azure Portal 읽기 복제본 관리
-          href: howto-read-replicas-portal.md
-        - name: '읽기 복제본 Azure CLI, REST API 관리'
-          href: howto-read-replicas-cli.md
+        - name: 확장
+          href: howto-hyperscale-scaling.md
+        - name: 방화벽 관리
+          items:
+            - name: Azure portal
+              href: howto-hyperscale-manage-firewall-using-portal.md
 - name: 참고 자료
   items:
     - name: Azure CLI

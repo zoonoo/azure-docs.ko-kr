@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: cabailey
-ms.openlocfilehash: 7584a884d41451c5a248b84a40eb45815bfb6bdf
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: a2760b53dbb9776501cb5e58c681045743471166
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240737"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261830"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Azure Information Protection에서 데이터 연결
+
+> [!IMPORTANT]
+> Azure 센티널의 Azure Information Protection 데이터 커넥터는 현재 공개 미리 보기로 제공 됩니다.
+> 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure Information Protection 데이터 커넥터를 구성 하 여 [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) 에서 Azure 센티널로 로깅 정보를 스트리밍할 수 있습니다. Azure Information Protection은 클라우드 또는 온-프레미스에 저장 되어 있든 상관 없이 중요 한 데이터를 제어 하 고 보호 하는 데 도움이 됩니다.
 
@@ -54,10 +58,6 @@ Azure Information Protection 데이터 커넥터를 구성 하 여 [Azure Inform
 - Azure Information Protection Azure Portal에 추가 되었습니다. 이 단계에 대 한 도움이 필요한 경우 [Azure Portal에 Azure Information Protection 추가](https://docs.microsoft.com/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal)를 참조 하세요.
 
 ## <a name="connect-to-azure-information-protection"></a>Azure Information Protection에 연결
-
-> [!IMPORTANT]
-> Azure 센티널의 Azure Information Protection 데이터 커넥터는 현재 공개 미리 보기로 제공 됩니다.
-> 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure Information Protection에 대 한 Log Analytics 작업 영역을 구성 하지 않았거나 Azure Information Protection 로깅 정보를 저장 하는 작업 영역을 변경 해야 하는 경우 다음 지침을 따르십시오.
 

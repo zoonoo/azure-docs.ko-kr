@@ -1,6 +1,6 @@
 ---
 title: Azure Log Analytics Linux 에이전트 문제 해결 | Microsoft Docs
-description: Azure Monitor에서 Linux 용 Log Analytics 에이전트를 사용 하 여 증상, 원인 및 가장 일반적인 문제에 대 한 확인을 설명 합니다.
+description: Azure Monitor에서 Linux 용 Log Analytics 에이전트와 관련 된 가장 일반적인 문제에 대 한 증상, 원인 및 해결 방법을 설명 합니다.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 83f9cc050694344cdc5f4f5a2070bc875fcba3d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2922bbd2e85a671cd17b6042c0b544d3936de884
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071665"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262119"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
-이 문서에서는 Azure Monitor에서 Linux 용 Log Analytics 에이전트를 사용 하 여 발생할 수 및 가능한 해결 방법을 제시 하는 오류 문제 해결 도움말을 제공 합니다.
+이 문서에서는 Azure Monitor에서 Linux 용 Log Analytics agent를 사용 하 여 발생할 수 있는 오류를 해결 하는 데 도움이 되 고 해결 방법을 제안 합니다.
 
 이 문서의 단계를 수행해도 문제가 해결되지 않으면 다음 지원 채널을 사용할 수 있습니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "67071665"
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>중요한 로그 위치 및 로그 수집기 도구
 
- 파일 | path
+ 파일 | 경로
  ---- | -----
  Linux용 Log Analytics 에이전트 로그 파일 | `/var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
  Log Analytics 에이전트 구성 로그 파일 | `/var/opt/microsoft/omsconfig/omsconfig.log`
@@ -45,7 +45,7 @@ ms.locfileid: "67071665"
 
  Category | 파일 위치
  ----- | -----
- syslog | `/etc/syslog-ng/syslog-ng.conf` 또는 `/etc/rsyslog.conf` 또는 `/etc/rsyslog.d/95-omsagent.conf`
+ Syslog | `/etc/syslog-ng/syslog-ng.conf` 또는 `/etc/rsyslog.conf` 또는 `/etc/rsyslog.d/95-omsagent.conf`
  성능, Nagios, Zabbix, Log Analytics 출력 및 일반 에이전트 | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`
  추가 구성 | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/*.conf`
 
@@ -70,7 +70,7 @@ ms.locfileid: "67071665"
 | 22 | 번들 패키지 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. |
 | 23 | SCX 또는 OMI 패키지가 이미 설치되어 있습니다. `--install` 대신 `--upgrade`를 사용하여 셸 번들을 설치하세요. |
 | 30 | 내부 번들 오류가 있습니다. 출력의 세부 정보를 포함하여 [GitHub 문제](https://github.com/Microsoft/OMS-Agent-for-Linux/issues)를 제출하세요. |
-| 55 | Azure Monitor에 지원 되지 않는 openssl 버전 또는 없습니다 연결 또는 dpkg curl 잠겨 있거나 누락 된 프로그램입니다. |
+| 55 | 지원 되지 않는 openssl 버전 이거나 Azure Monitor에 연결할 수 없거나 dpkg에 연결할 수 없습니다. |
 | 61 | Python ctypes 라이브러리가 없습니다. Python ctypes 라이브러리 또는 패키지(python-ctypes)를 설치합니다. |
 | 62 | tar 프로그램이 없습니다. tar를 설치하세요. |
 | 63 | sed 프로그램이 없습니다. sed를 설치하세요. |
@@ -84,8 +84,8 @@ ms.locfileid: "67071665"
 | 2 | omsadmin 스크립트에 잘못된 옵션이 제공되었습니다. `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` 명령을 실행하여 사용 방법을 확인하세요. |
 | 3 | omsadmin 스크립트에 잘못된 구성이 제공되었습니다. `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` 명령을 실행하여 사용 방법을 확인하세요. |
 | 4 | omsadmin 스크립트에 잘못된 프록시가 제공되었습니다. 프록시를 확인하고 [HTTP 프록시 사용에 대한 설명서](log-analytics-agent.md#network-firewall-requirements)를 읽어보세요. |
-| 5 | Azure Monitor에서 수신 된 HTTP 오류 403입니다. omsadmin 스크립트의 전체 출력에서 자세한 내용을 확인하세요. |
-| 6 | Azure Monitor에서 받은 200 이외의 HTTP 오류가 발생 했습니다. omsadmin 스크립트의 전체 출력에서 자세한 내용을 확인하세요. |
+| 5 | 403 Azure Monitor에서 HTTP 오류가 수신 되었습니다. omsadmin 스크립트의 전체 출력에서 자세한 내용을 확인하세요. |
+| 6 | Azure Monitor에서 200이 아닌 HTTP 오류가 수신 되었습니다. omsadmin 스크립트의 전체 출력에서 자세한 내용을 확인하세요. |
 | 7 | Azure Monitor에 연결할 수 없습니다. omsadmin 스크립트의 전체 출력에서 자세한 내용을 확인하세요. |
 | 8 | Log Analytics 작업 영역에 온보딩하는 동안 오류가 발생했습니다. omsadmin 스크립트의 전체 출력에서 자세한 내용을 확인하세요. |
 | 30 | 내부 스크립트 오류가 발생했습니다. 출력의 세부 정보를 포함하여 [GitHub 문제](https://github.com/Microsoft/OMS-Agent-for-Linux/issues)를 제출하세요. |
@@ -115,7 +115,7 @@ ms.locfileid: "67071665"
 </match>
  ```
 
-디버그 로깅을 사용 하면 배치 업로드를 보내는 데 걸리는 시간과 데이터 항목의 수, 형식으로 구분 하는 Azure Monitor로 볼 수 있습니다.
+디버그 로깅을 사용 하면 일괄 처리 된 업로드가 형식, 데이터 항목 수, 전송 소요 시간 등으로 구분 Azure Monitor.
 
 *디버그 사용 로그 예:*
 
@@ -153,18 +153,18 @@ OMS 출력 플러그 인을 사용하는 대신 데이터 항목을 `stdout`으�
 </match>
 ```
 
-## <a name="issue--unable-to-connect-through-proxy-to-azure-monitor"></a>문제:  Azure Monitor에 대 한 프록시를 통해 연결할 수 없습니다.
+## <a name="issue--unable-to-connect-through-proxy-to-azure-monitor"></a>문제:  Azure Monitor에 프록시를 통해 연결할 수 없습니다.
 
 ### <a name="probable-causes"></a>가능한 원인
 * 등록하는 동안 지정된 프록시가 올바르지 않습니다.
-* Azure Monitor 및 Azure Automation 서비스 끝점이 데이터 센터의 허용 목록에 없는 
+* Azure Monitor 및 Azure Automation 서비스 끝점은 데이터 센터에서 허용 목록 되지 않습니다. 
 
 ### <a name="resolution"></a>해결 방법
-1. 옵션을 사용 하 여 다음 명령을 사용 하 여 Linux 용 Log Analytics 에이전트를 사용 하 여 Azure Monitor에 다시 등록 `-v` 사용 하도록 설정 합니다. Azure Monitor에 프록시를 통해 연결 하는 에이전트의 자세한 정보 출력 수 있습니다. 
+1. 다음 명령을 사용 `-v` 하도록 설정 하 고 다음 명령을 사용 하 여 Linux 용 Log Analytics 에이전트와 Azure Monitor 다시 등록 합니다. 프록시를 통해 연결 되는 에이전트의 자세한 출력을 Azure Monitor 수 있습니다. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
 
 2. [프록시 설정 업데이트](agent-manage.md#update-proxy-settings) 섹션을 검토하여 프록시 서버를 통해 통신하도록 에이전트를 제대로 구성했는지 확인합니다.    
-* 다음 Azure Monitor 끝점이 허용 목록에 다시 확인 합니다.
+* 다음 Azure Monitor 끝점이 허용 목록 확인 합니다.
 
     |에이전트 리소스| 포트 | Direction |
     |------|---------|----------|  
@@ -189,42 +189,42 @@ OMS 출력 플러그 인을 사용하는 대신 데이터 항목을 `stdout`으�
 이 문제는 알려진 문제이며 Linux 데이터를 Log Analytics 작업 영역으로 처음 업로드할 때 발생합니다. 이 문제는 전송되는 데이터 또는 서비스 환경에 영향을 미치지 않습니다.
 
 
-## <a name="issue-you-see-omiagent-using-100-cpu"></a>문제: 100 %CPU 사용 하 여 omiagent 표시
+## <a name="issue-you-see-omiagent-using-100-cpu"></a>문제: 100% CPU를 사용 하는 omiagent 표시 됩니다.
 
 ### <a name="probable-causes"></a>가능한 원인
-Nss pem 패키지에서의 문제 재발 [v1.0.3-5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-5.el7.x86_64.rpm.html) 요는 심각한 성능 문제를 발생 Redhat/Centos 7.x 배포판에 많이 제공 합니다. 이 문제에 대 한 자세한 내용은 다음 문서를 확인 합니다. 버그 [libcurl 1667121 성능 회귀](https://bugzilla.redhat.com/show_bug.cgi?id=1667121)합니다.
+Nss의 회귀 [1.0.3 -5. el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html) 는 심각한 성능 문제를 야기 했으며,이에 대 한 자세한 내용은 Redhat/Centos 7.x 배포에서 많이 나옵니다. 이 문제에 대 한 자세한 내용을 보려면 다음 설명서를 확인 하세요. 버그 [1667121에 대 한 성능 회귀](https://bugzilla.redhat.com/show_bug.cgi?id=1667121).
 
-성능 관련 버그는 항상 발생 하지 및 재현 하기 매우 어렵습니다. Omiagent 사용 하 여 이러한 문제가 발생 하면 특정 임계값을 초과 하는 경우에 omiagent의 스택 추적을 수집 합니다 스크립트 omiHighCPUDiagnostics.sh를 사용 해야 합니다.
+성능 관련 버그는 항상 발생 하지 않으며 재현 하기가 매우 어렵습니다. Omiagent와 관련 하 여 이러한 문제가 발생 하는 경우 특정 임계값을 초과할 때 omiagent의 스택 추적을 수집 하는 omiHighCPUDiagnostics.sh 스크립트를 사용 해야 합니다.
 
-1. 스크립트를 다운로드 합니다. <br/>
+1. 스크립트 다운로드 <br/>
 `wget https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/tools/LogCollector/source/omiHighCPUDiagnostics.sh`
 
-2. 24 시간 동안 30 %CPU 임계값에 대 한 진단 유틸리티를 실행 합니다. <br/>
+2. CPU 임계값 30%를 사용 하 여 24 시간 동안 진단 실행 <br/>
 `bash omiHighCPUDiagnostics.sh --runtime-in-min 1440 --cpu-threshold 30`
 
-3. 여러 Curl 및 NSS 함수 호출을 다음 확인 단계를 수행 하는 경우 호출 스택 omiagent_trace 파일에 덤프 됩니다.
+3. 호출 스택이 omiagent_trace 파일에서 덤프 됩니다. NSS 함수 호출이 많은 경우 아래 해결 단계를 수행 합니다.
 
 ### <a name="resolution-step-by-step"></a>해결 방법 (단계별)
 
-1. Nss pem 패키지를 업그레이드 [v1.0.3-5.el7_6.1](https://centos.pkgs.org/7/centos-updates-x86_64/nss-pem-1.0.3-5.el7_6.1.x86_64.rpm.html)합니다. <br/>
+1. Nss 패키지를 [v 1.0.3 -5. el7 _ 6.1](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html)으로 업그레이드 합니다. <br/>
 `sudo yum upgrade nss-pem`
 
-2. Nss pem 업그레이드에 사용할 수 없는 경우 (주로 발생 Centos에서) 다음 curl 7.29.0-46 다운 그레이드 합니다. 경우 실수로 "yum 업데이트"를 실행 하면, 다음 curl 7.29.0-51로 업그레이드 됩니다 및 문제가 다시 발생 합니다. <br/>
+2. Nss를 업그레이드에 사용할 수 없는 경우 (주로 Centos에서 발생),를 7.29.0-46으로 다운 그레이드 합니다. "Yum update"를 실행 하는 경우에는 7.29.0-51로 업그레이드 되 고이 문제는 다시 발생 합니다. <br/>
 `sudo yum downgrade curl libcurl`
 
-3. OMI를 다시 시작 합니다. <br/>
+3. OMI 다시 시작: <br/>
 `sudo scxadmin -restart`
 
 ## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>문제: Azure Portal에서 데이터가 보이지 않음
 
 ### <a name="probable-causes"></a>가능한 원인
 
-- Azure Monitor 등록이 실패 했습니다.
-- Azure Monitor에 대 한 연결이 차단 됩니다.
+- Azure Monitor에 등록 하지 못했습니다.
+- Azure Monitor에 대 한 연결이 차단 되었습니다.
 - Linux용 Log Analytics 에이전트가 백업되었습니다.
 
 ### <a name="resolution"></a>해결 방법
-1. 다음 파일이 있는지 확인 하 여 Azure Monitor 온 보 딩 성공 했는지 여부를 확인 합니다. `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
+1. 다음 파일이 있는지 확인 하 여 온 보 딩 Azure Monitor 성공 했는지 확인 합니다.`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
 2. `omsadmin.sh` 명령줄 명령을 사용하여 다시 등록합니다.
 3. 프록시를 사용하는 경우 앞서 제공된 프록시 문제 해결 단계를 참조하세요.
 4. Linux용 Log Analytics 에이전트가 서비스와 통신할 수 없는 경우 에이전트의 데이터가 최대 버퍼 크기인 50MB로 대기될 수 있습니다. `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]` 명령을 실행하여 에이전트를 다시 시작해야 합니다. 
@@ -305,8 +305,8 @@ omsagent.log에 `[error]: unexpected error error_class=Errno::EADDRINUSE error=#
 ## <a name="issue-you-are-not-seeing-any-linux-data"></a>문제: Linux 데이터가 보이지 않음 
 
 ### <a name="probable-causes"></a>가능한 원인
-* Azure Monitor 등록이 실패 했습니다.
-* Azure Monitor에 대 한 연결이 차단 됩니다.
+* Azure Monitor에 등록 하지 못했습니다.
+* Azure Monitor에 대 한 연결이 차단 되었습니다.
 * 가상 머신이 다시 부팅되었습니다.
 * OMI 패키지가 Linux용 Log Analytics 에이전트 패키지에서 설치한 버전보다 높은 버전으로 수동 업그레이드되었습니다.
 * DSC 리소스가 `omsconfig.log` 로그 파일에 *클래스를 찾을 수 없음* 오류를 기록합니다.
@@ -315,12 +315,12 @@ omsagent.log에 `[error]: unexpected error error_class=Errno::EADDRINUSE error=#
 
 ### <a name="resolution"></a>해결 방법
 1. auditd 패키지 같은 모든 종속성을 설치합니다.
-2. 다음 파일이 있는지 확인 하 여 Azure Monitor에 온 보 딩 성공 했는지 여부를 확인 합니다. `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`합니다.  성공하지 못했으면 omsadmin.sh 명령줄 [지침](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line)을 사용하여 다시 등록합니다.
+2. 다음 파일이 있는지 `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`확인 하 여 Azure Monitor에 대 한 온 보 딩이 성공 했는지 확인 합니다.  성공하지 못했으면 omsadmin.sh 명령줄 [지침](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line)을 사용하여 다시 등록합니다.
 4. 프록시를 사용하는 경우 위의 프록시 문제 해결 단계를 확인합니다.
 5. 일부 Azure 배포 시스템에서는 가상 머신이 다시 부팅된 후 omid OMI 서버 디먼이 시작되지 않습니다. 따라서 감사, ChangeTracking 또는 UpdateManagement 솔루션과 관련된 데이터가 표시되지 않습니다. 해결책은 `sudo /opt/omi/bin/service_control restart` 명령을 실행하여 omi 서버를 수동으로 시작하는 것입니다.
 6. OMI 패키지를 더 높은 버전으로 수동 업그레이드한 후에는 수동으로 다시 시작해야만 Log Analytics 에이전트가 계속 작동합니다. OMI 서버가 업그레이드 후 자동으로 시작되지 않는 일부 배포판에서는 이 단계가 필수입니다. `sudo /opt/omi/bin/service_control restart` 명령을 실행하여 OMI를 다시 시작합니다.
 7. omsconfig.log에 DSC 리소스 *클래스를 찾을 수 없음* 오류가 표시되면 `sudo /opt/omi/bin/service_control restart` 명령을 실행합니다.
-8. 경우에 따라 Azure Monitor에 Linux 용 Log Analytics 에이전트와 통신할 수 없습니다 하는 경우 에이전트에서 데이터를 백업 하는 전체 버퍼 크기: 50MB로 백업될 수 있습니다. `/opt/microsoft/omsagent/bin/service_control restart` 명령을 실행하여 에이전트를 다시 시작해야 합니다.
+8. 경우에 따라 Linux 용 Log Analytics 에이전트가 Azure Monitor와 통신할 수 없는 경우 에이전트의 데이터가 전체 버퍼 크기로 백업 됩니다. 50MB로 백업될 수 있습니다. `/opt/microsoft/omsagent/bin/service_control restart` 명령을 실행하여 에이전트를 다시 시작해야 합니다.
 
     >[!NOTE]
     >이 문제는 에이전트 버전 1.1.0-28 이상에서 해결되었습니다.
@@ -384,12 +384,12 @@ omsagent.log에 `[error]: unexpected error error_class=Errno::EADDRINUSE error=#
 * Linux용 Log Analytics 에이전트 구성 에이전트가 포털 구성 서비스와 통신할 수 없어 최신 구성이 적용되지 않는 경우가 있습니다.
   1. `dpkg --list omsconfig` 또는 `rpm -qi omsconfig` 명령을 실행하여 `omsconfig` 에이전트가 설치되어 있는지 확인합니다.  설치되지 않은 경우 Linux용 Log Analytics 에이전트 최신 버전을 다시 설치합니다.
 
-  2. 있는지 여부를 확인 합니다 `omsconfig` 에이전트는 다음 명령을 실행 하 여 Azure Monitor를 사용 하 여 통신할 수 `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`입니다. 이 명령은 Syslog 설정, Linux 성능 카운터, 사용자 지정 로그 등 에이전트가 서비스에서 수신하는 구성을 반환합니다. 이 명령이 실패하는 경우 `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'` 명령을 실행합니다. 이 명령에서는 omsconfig 에이전트가 Azure Monitor에 설명 하 여 최신 구성을 검색을 강제로 수행 합니다.
+  2. 다음 명령을`sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`실행 하 여 에이전트가AzureMonitor와통신할수있는지확인합니다.`omsconfig` 이 명령은 Syslog 설정, Linux 성능 카운터, 사용자 지정 로그 등 에이전트가 서비스에서 수신하는 구성을 반환합니다. 이 명령이 실패하는 경우 `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'` 명령을 실행합니다. 이 명령은 omsconfig 에이전트가 Azure Monitor와 통신 하 여 최신 구성을 검색 하도록 합니다.
 
 ## <a name="issue-you-are-not-seeing-any-custom-log-data"></a>문제: 사용자 지정 로그 데이터가 보이지 않음 
 
 ### <a name="probable-causes"></a>가능한 원인
-* Azure Monitor에 온 보 딩 하지 못했습니다.
+* Azure Monitor에 등록 하지 못했습니다.
 * **다음 구성을 Linux 서버에 적용** 설정을 선택하지 않았습니다.
 * omsconfig가 서비스의 최신 사용자 지정 로그 구성을 선택하지 않았습니다.
 * 권한이 없어서 또는 사용자 지정 로그가 없어서 Linux 사용자용 Log Analytics 에이전트 `omsagent`가 사용자 지정 로그에 액세스할 수 없습니다.  다음 오류가 표시될 수 있습니다.
@@ -398,12 +398,12 @@ omsagent.log에 `[error]: unexpected error error_class=Errno::EADDRINUSE error=#
 * Linux용 Log Analytics 에이전트 버전 1.1.0-217에서 수정된 경합 조건 문제입니다.
 
 ### <a name="resolution"></a>해결 방법
-1. 다음 파일이 있는지 확인 하 여 Azure Monitor에 온 보 딩 완료 되었는지 확인: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`합니다. 실패한 경우 둘 중 하나를 수행합니다.  
+1. 다음 파일이 있는지 `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`확인 하 여 Azure Monitor에 대 한 온 보 딩이 성공 했는지 확인 합니다. 실패한 경우 둘 중 하나를 수행합니다.  
 
   1. omsadmin.sh 명령줄 [지침](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line)을 사용하여 다시 등록합니다.
   2. Azure Portal의 **고급 설정** 아래에서 **다음 구성을 Linux 서버에 적용** 설정을 사용합니다.  
 
-2. 있는지 여부를 확인 합니다 `omsconfig` 에이전트는 다음 명령을 실행 하 여 Azure Monitor를 사용 하 여 통신할 수 `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`입니다.  이 명령은 Syslog 설정, Linux 성능 카운터, 사용자 지정 로그 등 에이전트가 서비스에서 수신하는 구성을 반환합니다. 이 명령이 실패하는 경우 `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py` 명령을 실행합니다. 이 명령에서는 omsconfig 에이전트가 Azure Monitor에 설명 하 여 최신 구성을 검색을 강제로 수행 합니다.
+2. 다음 명령을`sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`실행 하 여 에이전트가AzureMonitor와통신할수있는지확인합니다.`omsconfig`  이 명령은 Syslog 설정, Linux 성능 카운터, 사용자 지정 로그 등 에이전트가 서비스에서 수신하는 구성을 반환합니다. 이 명령이 실패하는 경우 `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py` 명령을 실행합니다. 이 명령은 omsconfig 에이전트가 Azure Monitor와 통신 하 여 최신 구성을 검색 하도록 합니다.
 
 **백그라운드:** Linux용 Log Analytics 에이전트가 권한 있는 사용자 `root`로 실행되지 않고 `omsagent` 사용자로 실행됩니다. 대부분의 경우 이 사용자가 특정 파일을 읽으려면 명시적 권한을 부여해야 합니다. `omsagent` 사용자에게 권한을 부여하려면 다음 명령을 실행합니다.
 

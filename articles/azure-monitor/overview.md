@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: a80f99bc37d3a92a794a78f1f47ce32fbaae75a3
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1bc4a7634e864f0e3feb0d33cef3b967e5b6741f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989181"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262219"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
@@ -57,7 +57,7 @@ Azure Monitor는 다양한 원본에서 데이터를 수집할 수 있습니다.
 
 Azure 구독을 만들고 가상 머신이나 웹앱 같은 리소스 추가를 시작하는 즉시, Azure Monitor가 데이터 수집을 시작합니다.  [활동 로그](platform/activity-logs-overview.md) 는 리소스를 만들거나 수정할 때 기록 합니다. [메트릭](platform/data-platform.md)은 리소스가 수행되는 방법 및 사용되는 리소스를 알려줍니다. 
 
-[진단을 사용하도록 설정](platform/diagnostic-logs-overview.md)하고 컴퓨팅 리소스에 [에이전트를 추가](platform/agent-windows.md)하여 수집하는 데이터를 실제 리소스 작업으로 확장할 수 있습니다. 이렇게 하면 리소스의 내부 작업에 대한 원격 분석 데이터가 수집되며, Windows 및 Linux 게스트 운영 체제에서 로그 및 메트릭을 수집하도록 여러 [데이터 원본](platform/agent-data-sources.md)을 구성할 수 있습니다. 
+[진단을 사용하도록 설정](platform/resource-logs-overview.md)하고 컴퓨팅 리소스에 [에이전트를 추가](platform/agent-windows.md)하여 수집하는 데이터를 실제 리소스 작업으로 확장할 수 있습니다. 이렇게 하면 리소스의 내부 작업에 대한 원격 분석 데이터가 수집되며, Windows 및 Linux 게스트 운영 체제에서 로그 및 메트릭을 수집하도록 여러 [데이터 원본](platform/agent-data-sources.md)을 구성할 수 있습니다. 
 
 [App Services 응용 프로그램](app/azure-web-apps.md) 또는 [VM 및 가상 머신 확장 집합 응용 프로그램](app/azure-vm-vmss-apps.md)에 대 한 모니터링을 사용 하도록 설정 하 여 Application Insights에서 페이지 보기, 응용 프로그램 요청 및을 비롯 한 응용 프로그램에 대 한 자세한 정보를 수집 하도록 합니다. 단. 사용자 트래픽을 시뮬레이션하도록 [가용성 테스트](app/monitor-web-app-availability.md)를 구성하여 애플리케이션의 가용성을 추가로 확인하세요.
 
@@ -101,10 +101,10 @@ Azure Monitor의 경고 규칙은 고유한 수신자 집합 및 여러 규칙 �
 
 ![,](media/overview/alerts.png)
 
-### <a name="autoscale"></a>크기 자동 조정
+### <a name="autoscale"></a>자동 크기 조정
 자동 크기 조정을 사용하면 애플리케이션의 부하를 처리하기 위해 적절한 양의 리소스가 실행되도록 할 수 있습니다. Azure Monitor에서 수집한 메트릭을 사용하여 부하 증가를 처리하는 데 필요한 리소스를 자동으로 추가하고 유휴 상태인 리소스를 제거하여 비용을 절약하는 시기를 결정하는 규칙을 만들 수 있습니다. 리소스를 늘리거나 줄이는 시기를 결정하기 위한 최대/최소 인스턴스 수 및 논리를 지정할 수 있습니다.
 
-![크기 자동 조정](media/overview/autoscale.png)
+![자동 크기 조정](media/overview/autoscale.png)
 
 ## <a name="visualizing-monitoring-data"></a>모니터링 데이터 시각화
 차트 및 표 같은 [시각화](visualizations.md)는 모니터링 데이터를 요약하여 여러 대상에게 보여주는 효과적인 도구입니다. Azure Monitor는 모니터링 데이터를 시각화하는 고유의 기능을 갖고 있으며 다른 Azure 서비스를 활용하여 모니터링 데이터를 여러 대상에 게시합니다.

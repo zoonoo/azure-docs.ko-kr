@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: dbbe5a667b8d467b416e4a4a571d8d3599ec45b6
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: a8cffe83ec0f2cdfd2e71accfa55966e5dedcd89
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051812"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259131"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 
@@ -152,14 +152,14 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |setcommands|집합|개수|Total||ShardId|
 |operationsPerSecond|초당 작업|개수|최대값||ShardId|
 |evictedkeys|제거된 키|개수|Total||ShardId|
-|totalkeys|총 키|개수|최대값||ShardId|
+|totalkeys|전체 키|개수|최대값||ShardId|
 |expiredkeys|만료된 키|개수|Total||ShardId|
 |usedmemory|사용된 메모리|바이트|최대값||ShardId|
 |usedmemorypercentage|사용된 메모리 비율|Percent|최대값||ShardId|
 |usedmemoryRss|사용된 메모리 RSS|바이트|최대값||ShardId|
 |serverLoad|서버 부하|Percent|최대값||ShardId|
 |cacheWrite|캐시 쓰기|BytesPerSecond|최대값||ShardId|
-|cacheRead|캐시에서 읽은 바이트/초|BytesPerSecond|최대값||ShardId|
+|cacheRead|캐시 읽기|BytesPerSecond|최대값||ShardId|
 |percentProcessorTime|CPU|Percent|최대값||ShardId|
 |cacheLatency|캐시 대기 시간 마이크로초(미리 보기)|개수|평균||ShardId, SampleType|
 |errors|오류|개수|최대값||ShardId, ErrorType|
@@ -372,14 +372,14 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
 |백분율 CPU|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 계산 단위의 백분율|차원 없음|
-|네트워크 입력|청구 가능 네트워크 입력|바이트|Total|가상 머신에서 모든 네트워크 인터페이스에서 받은 청구 가능 바이트 수 (들어오는 트래픽)|차원 없음|
-|네트워크 출력|청구 가능 네트워크 출력|바이트|Total|가상 컴퓨터의 모든 네트워크 인터페이스에서 청구 가능한 바이트 수 (나가는 트래픽)|차원 없음|
+|네트워크 입력|청구 가능 네트워크|바이트|Total|가상 머신에서 모든 네트워크 인터페이스에서 받은 청구 가능 바이트 수 (들어오는 트래픽)|차원 없음|
+|네트워크 출력|청구 가능한 네트워크|바이트|Total|가상 컴퓨터의 모든 네트워크 인터페이스에서 청구 가능한 바이트 수 (나가는 트래픽)|차원 없음|
 |디스크 읽기 바이트 수|디스크 읽기 바이트 수|바이트|Total|모니터링 기간 동안 디스크에서 읽은 바이트 수|차원 없음|
 |디스크 쓰기 바이트 수|디스크 쓰기 바이트|바이트|Total|모니터링 기간 동안 디스크에 쓴 바이트 수|차원 없음|
 |디스크 읽기 작업/초|디스크 읽기 작업/초|CountPerSecond|평균|디스크 읽기 IOPS|차원 없음|
 |디스크 쓰기 작업/초|디스크 쓰기 작업/초|CountPerSecond|평균|디스크 쓰기 IOPS|차원 없음|
-|남은 CPU 크레딧|남아 있는 CPU 크레딧|개수|평균|버스트에 사용할 수 있는 총 크레딧 수|차원 없음|
-|사용한 CPU 크레딧|사용한 CPU 크레딧|개수|평균|Virtual Machine에서 사용하는 총 크레딧 수|차원 없음|
+|남은 CPU 크레딧|남은 CPU 크레딧|개수|평균|버스트에 사용할 수 있는 총 크레딧 수|차원 없음|
+|사용된 CPU 크레딧|사용된 CPU 크레딧|개수|평균|Virtual Machine에서 사용하는 총 크레딧 수|차원 없음|
 |디스크당 읽기 바이트/초|데이터 디스크 읽기 바이트/초 (사용 되지 않음)|CountPerSecond|평균|모니터링 기간에 단일 디스크에서 읽은 바이트/초|SlotId|
 |디스크당 쓰기 바이트/초|데이터 디스크 쓰기 바이트/초 (사용 되지 않음)|CountPerSecond|평균|모니터링 기간 동안 단일 디스크에 쓴 바이트/초|SlotId|
 |디스크당 읽기 작업/초|데이터 디스크 읽기 작업/초 (사용 되지 않음)|CountPerSecond|평균|모니터링 기간에 단일 디스크에서 IOPS 읽기|SlotId|
@@ -416,14 +416,14 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
 |백분율 CPU|백분율 CPU|백분율|평균|현재 Virtual Machine에서 사용 중인 할당된 계산 단위의 백분율|VMName|
-|네트워크 입력|청구 가능 네트워크 입력|바이트|Total|가상 머신에서 모든 네트워크 인터페이스에서 받은 청구 가능 바이트 수 (들어오는 트래픽)|VMName|
-|네트워크 출력|청구 가능 네트워크 출력|바이트|Total|가상 컴퓨터의 모든 네트워크 인터페이스에서 청구 가능한 바이트 수 (나가는 트래픽)|VMName|
+|네트워크 입력|청구 가능 네트워크|바이트|Total|가상 머신에서 모든 네트워크 인터페이스에서 받은 청구 가능 바이트 수 (들어오는 트래픽)|VMName|
+|네트워크 출력|청구 가능한 네트워크|바이트|Total|가상 컴퓨터의 모든 네트워크 인터페이스에서 청구 가능한 바이트 수 (나가는 트래픽)|VMName|
 |디스크 읽기 바이트 수|디스크 읽기 바이트 수|바이트|Total|모니터링 기간 동안 디스크에서 읽은 바이트 수|VMName|
 |디스크 쓰기 바이트 수|디스크 쓰기 바이트|바이트|Total|모니터링 기간 동안 디스크에 쓴 바이트 수|VMName|
 |디스크 읽기 작업/초|디스크 읽기 작업/초|CountPerSecond|평균|디스크 읽기 IOPS|VMName|
 |디스크 쓰기 작업/초|디스크 쓰기 작업/초|CountPerSecond|평균|디스크 쓰기 IOPS|VMName|
-|남아 있는 CPU 크레딧|남아 있는 CPU 크레딧|개수|평균|버스트에 사용할 수 있는 총 크레딧 수|차원 없음|
-|사용한 CPU 크레딧|사용한 CPU 크레딧|개수|평균|Virtual Machine에서 사용하는 총 크레딧 수|차원 없음|
+|남은 CPU 크레딧|남은 CPU 크레딧|개수|평균|버스트에 사용할 수 있는 총 크레딧 수|차원 없음|
+|사용된 CPU 크레딧|사용된 CPU 크레딧|개수|평균|Virtual Machine에서 사용하는 총 크레딧 수|차원 없음|
 |디스크당 읽기 바이트/초|데이터 디스크 읽기 바이트/초 (사용 되지 않음)|CountPerSecond|평균|모니터링 기간에 단일 디스크에서 읽은 바이트/초|SlotId|
 |디스크당 쓰기 바이트/초|데이터 디스크 쓰기 바이트/초 (사용 되지 않음)|CountPerSecond|평균|모니터링 기간 동안 단일 디스크에 쓴 바이트/초|SlotId|
 |디스크당 읽기 작업/초|데이터 디스크 읽기 작업/초 (사용 되지 않음)|CountPerSecond|평균|모니터링 기간에 단일 디스크에서 IOPS 읽기|SlotId|
@@ -589,7 +589,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |memory_percent|메모리 백분율|Percent|평균|메모리 백분율|차원 없음|
 |io_consumption_percent|IO 백분율|Percent|평균|IO 백분율|차원 없음|
 |storage_percent|스토리지 비율|Percent|평균|스토리지 비율|차원 없음|
-|storage_used|사용된 스토리지|바이트|평균|사용된 스토리지|차원 없음|
+|storage_used|스토리지 사용됨|바이트|평균|스토리지 사용됨|차원 없음|
 |storage_limit|스토리지 제한|바이트|평균|스토리지 제한|차원 없음|
 |serverlog_storage_percent|서버 로그 스토리지 비율|Percent|평균|서버 로그 스토리지 비율|차원 없음|
 |serverlog_storage_percent|사용된 서버 로그 스토리지|바이트|평균|사용된 서버 로그 스토리지|차원 없음|
@@ -609,7 +609,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |memory_percent|메모리 백분율|Percent|평균|메모리 백분율|차원 없음|
 |io_consumption_percent|IO 백분율|Percent|평균|IO 백분율|차원 없음|
 |storage_percent|스토리지 비율|Percent|평균|스토리지 비율|차원 없음|
-|storage_used|사용된 스토리지|바이트|평균|사용된 스토리지|차원 없음|
+|storage_used|스토리지 사용됨|바이트|평균|스토리지 사용됨|차원 없음|
 |storage_limit|스토리지 제한|바이트|평균|스토리지 제한|차원 없음|
 |serverlog_storage_percent|서버 로그 스토리지 비율|Percent|평균|서버 로그 스토리지 비율|차원 없음|
 |serverlog_storage_percent|사용된 서버 로그 스토리지|바이트|평균|사용된 서버 로그 스토리지|차원 없음|
@@ -629,7 +629,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |memory_percent|메모리 백분율|Percent|평균|메모리 백분율|차원 없음|
 |io_consumption_percent|IO 백분율|Percent|평균|IO 백분율|차원 없음|
 |storage_percent|스토리지 비율|Percent|평균|스토리지 비율|차원 없음|
-|storage_used|사용된 스토리지|바이트|평균|사용된 스토리지|차원 없음|
+|storage_used|스토리지 사용됨|바이트|평균|스토리지 사용됨|차원 없음|
 |storage_limit|스토리지 제한|바이트|평균|스토리지 제한|차원 없음|
 |serverlog_storage_percent|서버 로그 스토리지 비율|Percent|평균|서버 로그 스토리지 비율|차원 없음|
 |serverlog_storage_percent|사용된 서버 로그 스토리지|바이트|평균|사용된 서버 로그 스토리지|차원 없음|
@@ -650,7 +650,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |memory_percent|메모리 백분율|Percent|평균|메모리 백분율|차원 없음|
 |사서함당|IOPS|개수|평균|초당 IO 작업 수|차원 없음|
 |storage_percent|스토리지 비율|Percent|평균|스토리지 비율|차원 없음|
-|storage_used|사용된 스토리지|바이트|평균|사용된 스토리지|차원 없음|
+|storage_used|스토리지 사용됨|바이트|평균|스토리지 사용됨|차원 없음|
 |active_connections|활성 연결 수|개수|평균|활성 연결 수|차원 없음|
 |network_bytes_egress|네트워크 출력|바이트|Total|활성 연결에서 네트워크 출력|차원 없음|
 |network_bytes_ingress|네트워크 입력|바이트|Total|활성 연결에서 네트워크 입력|차원 없음|
@@ -743,14 +743,14 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |DocumentCount|문서 수|개수|Total|5 분 세분성으로 보고 된 총 문서 수|CollectionName, DatabaseName, Region|
 |DocumentQuota|문서 할당량|바이트|Total|5 분 세분성에 보고 된 총 저장소 할당량|CollectionName, DatabaseName, Region|
 |IndexUsage|인덱스 사용량|바이트|Total|5 분 세분성에 보고 된 총 인덱스 사용|CollectionName, DatabaseName, Region|
-|MetadataRequests|메타데이터 요청|개수|개수|메타데이터 요청 수. Cosmos DB는 컬렉션, 데이터베이스 등과 해당 구성을 무료로 열거할 수 있는 각 계정에 대한 시스템 메타데이터 컬렉션을 유지 관리합니다.|DatabaseName, CollectionName, Region, StatusCode, |
+|MetadataRequests|메타데이터 요청|개수|개수|메타데이터 요청 수. Cosmos DB는 각 계정에 대 한 시스템 메타 데이터 컬렉션을 유지 관리 하며,이를 통해 컬렉션, 데이터베이스 등의 기능 및 해당 구성을 무료로 열거할 수 있습니다.|DatabaseName, CollectionName, Region, StatusCode, |
 |MongoRequestCharge|Mongo 요청 요금|개수|Total|사용된 Mongo 요청 단위|DatabaseName, CollectionName, 지역, CommandName, ErrorCode|
 |MongoRequests|Mongo 요청|개수|개수|생성된 Mongo 요청 수|DatabaseName, CollectionName, 지역, CommandName, ErrorCode|
 |ProvisionedThroughput|프로비전된 처리량|개수|최대값|프로비전된 처리량|DatabaseName, CollectionName|
 |ReplicationLatency|P 99 복제 대기 시간|밀리초|평균|지역 사용 계정에 대한 원본 및 대상 지역의 P99 복제 대기 시간|SourceRegion, TargetRegion|
 |ServiceAvailability|서비스 가용성|Percent|평균|1 시간, 일 또는 월 세분성의 계정 요청 가용성|차원 없음|
 |TotalRequestUnits|총 요청 단위|개수|Total|사용된 요청 단위|DatabaseName, CollectionName, Region, StatusCode, OperationType|
-|TotalRequests|총 요청|개수|개수|요청 수|DatabaseName, CollectionName, Region, StatusCode, OperationType|
+|TotalRequests|총 요청 수|개수|개수|요청 수|DatabaseName, CollectionName, Region, StatusCode, OperationType|
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
 
@@ -785,14 +785,14 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|SuccessfulRequests|성공한 요청 수|개수|Total|Microsoft.EventHub에 대한 성공한 요청.|EntityName, |
+|SuccessfulRequests|Successful Requests|개수|Total|Microsoft.EventHub에 대한 성공한 요청.|EntityName, |
 |ServerErrors|서버 오류.|개수|Total|Microsoft.EventHub에 대한 서버 오류.|EntityName, |
 |UserErrors|사용자 오류.|개수|Total|Microsoft.EventHub에 대한 사용자 오류.|EntityName, |
 |QuotaExceededErrors|할당량 초과 오류.|개수|Total|Microsoft.EventHub에 대한 할당량 초과 오류.|EntityName, |
 |ThrottledRequests|제한된 요청.|개수|Total|Microsoft.EventHub에 대한 제한된 요청.|EntityName, |
 |IncomingRequests|들어오는 요청|개수|Total|Microsoft.EventHub에 대한 들어오는 요청.|EntityName|
 |IncomingMessages|들어오는 메시지|개수|Total|Microsoft.EventHub에 대한 들어오는 메시지.|EntityName|
-|OutgoingMessages|보내는 메시지|개수|Total|Microsoft.EventHub에 대한 보내는 메시지.|EntityName|
+|OutgoingMessages|나가는 메시지|개수|Total|Microsoft.EventHub에 대한 보내는 메시지.|EntityName|
 |IncomingBytes|들어오는 바이트|바이트|Total|Microsoft.EventHub에 대한 들어오는 바이트.|EntityName|
 |OutgoingBytes|보내는 바이트|바이트|Total|Microsoft.EventHub에 대한 보내는 바이트.|EntityName|
 |ActiveConnections|ActiveConnections|개수|평균|Microsoft.EventHub에 대한 총 활성 연결.|차원 없음|
@@ -858,7 +858,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |ObservedMetricValue|관찰된 메트릭 값|개수|평균|실행될 때 자동 크기 조정에서 계산된 값|MetricTriggerSource|
 |MetricThreshold|메트릭 임계값|개수|평균|자동 크기 조정이 실행되었을 때 구성된 자동 크기 조정 임계값입니다.|MetricTriggerRule|
 |ObservedCapacity|관찰된 용량|개수|평균|실행될 때 자동 크기 조정을 위해 보고된 용량입니다.|차원 없음|
-|ScaleActionsInitiated|크기 조정 작업이 시작됨|개수|Total|크기 조정 작업의 방향입니다.|ScaleDirection|
+|ScaleActionsInitiated|시작된 크기 조정 작업|개수|Total|크기 조정 작업의 방향입니다.|ScaleDirection|
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
 
@@ -876,7 +876,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |browserTimings/totalDuration|브라우저 페이지 로드 시간|밀리초|평균|사용자가 요청한 때부터 DOM, 스타일시트, 스크립트 및 이미지가 로드될 때까지 소요된 시간입니다.|차원 없음|
 |dependencies/count|종속성 호출|개수|개수|외부 리소스에 대해 애플리케이션이 만든 호출 수입니다.|dependency/type, dependency/performanceBucket, dependency/success, operation/synthetic, cloud/roleInstance, cloud/roleName|
 |dependencies/duration|종속성 기간|밀리초|평균|외부 리소스에 대한 서버 애플리케이션의 호출 기간입니다.|dependency/type, dependency/performanceBucket, dependency/success, operation/synthetic, cloud/roleInstance, cloud/roleName|
-|dependencies/failed|종속성 호출 오류|개수|개수|외부 리소스에 대해 애플리케이션이 만든 실패한 종속성 호출 수입니다.|dependency/type, dependency/performanceBucket, operation/synthetic, cloud/roleInstance, cloud/roleName|
+|dependencies/failed|종속성 호출 실패|개수|개수|외부 리소스에 대해 애플리케이션이 만든 실패한 종속성 호출 수입니다.|dependency/type, dependency/performanceBucket, operation/synthetic, cloud/roleInstance, cloud/roleName|
 |pageViews/count|페이지 보기|개수|개수|페이지 보기 수입니다.|operation/synthetic|
 |pageViews/duration|페이지 보기 로드 시간|밀리초|평균|페이지 보기 로드 시간|operation/synthetic|
 |performanceCounters/requestExecutionTime|HTTP 요청 실행 시간|밀리초|평균|가장 최근 요청의 실행 시간입니다.|cloud/roleInstance|
@@ -887,11 +887,11 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |performanceCounters/processCpuPercentage|프로세스 CPU|Percent|평균|모든 프로세스 스레드가 명령을 실행하기 위해 프로세서를 사용한 경과된 시간의 백분율입니다. 0~100 사이로 달라질 수 있습니다. 이 메트릭은 w3wp 프로세스만의 성능을 나타냅니다.|cloud/roleInstance|
 |performanceCounters/processorCpuPercentage|프로세서 시간|Percent|평균|프로세서가 비 유휴 스레드에 소요한 시간의 비율입니다.|cloud/roleInstance|
 |performanceCounters/memoryAvailableBytes|사용 가능한 메모리|바이트|평균|프로세스에 할당하거나 시스템에서 사용할 수 있는 실제 메모리입니다.|cloud/roleInstance|
-|performanceCounters/processPrivateBytes|프로세스 전용 바이트|바이트|평균|모니터링되는 애플리케이션의 프로세스에 독점적으로 할당된 메모리입니다.|cloud/roleInstance|
+|performanceCounters/processPrivateBytes|프로세스 프라이빗 바이트|바이트|평균|모니터링되는 애플리케이션의 프로세스에 독점적으로 할당된 메모리입니다.|cloud/roleInstance|
 |requests/duration|서버 응답 시간|밀리초|평균|HTTP 요청을 받은 후 응답 전송을 완료한 때까지의 시간입니다.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
 |requests/count|서버 요청|개수|개수|완료된 HTTP 요청 수입니다.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
 |requests/failed|실패한 요청|개수|개수|실패한 것으로 표시된 HTTP 요청 수입니다. 대부분의 경우 응답 코드가 >= 400이고 401과 같지 않은 요청입니다.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, cloud/roleName|
-|requests/rate|서버 요청 빈도|CountPerSecond|평균|초당 서버 요청 수|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
+|requests/rate|서버 요청 속도|CountPerSecond|평균|초당 서버 요청 수|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
 |exceptions/count|예외|개수|개수|모든 Catch되지 않은 예외의 결합된 수입니다.|cloud/roleName, cloud/roleInstance, client/type|
 |exceptions/browser|브라우저 예외|개수|개수|브라우저에서 발생한 확인할 수 없는 예외의 개수입니다.|차원 없음|
 |exceptions/server|서버 예외|개수|개수|서버 애플리케이션에서 발생된 확인할 수 없는 예외의 수입니다.|cloud/roleName, cloud/roleInstance|
@@ -1134,7 +1134,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |처리량|처리량|BytesPerSecond|Total|Application Gateway에서 제공하는 초당 바이트 수|차원 없음|
 |UnhealthyHostCount|비정상 호스트 수|개수|평균|비정상 백 엔드 호스트 수|BackendSettingsPool|
 |HealthyHostCount|정상 호스트 수|개수|평균|정상 백 엔드 호스트 수|BackendSettingsPool|
-|TotalRequests|총 요청|개수|Total|Application Gateway가 제공하는 성공한 요청 수|BackendSettingsPool|
+|TotalRequests|총 요청 수|개수|Total|Application Gateway가 제공하는 성공한 요청 수|BackendSettingsPool|
 |FailedRequests|실패한 요청|개수|Total|Application Gateway가 제공하는 실패한 요청 수|BackendSettingsPool|
 |ResponseStatus|응답 상태|개수|Total|Application Gateway에서 반환된 HTTP 응답 상태|HttpStatusGroup|
 |CurrentConnections|현재 연결|개수|Total|Application Gateway와 설정된 현재 연결 수|차원 없음|
@@ -1146,7 +1146,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |---|---|---|---|---|---|
 |AverageBandwidth|게이트웨이 S2S 대역폭|BytesPerSecond|평균|초당 게이트웨이의 평균 사이트 간 대역폭(바이트)|차원 없음|
 |P2SBandwidth|게이트웨이 P2S 대역폭|BytesPerSecond|평균|초당 게이트웨이의 평균 지점 및 사이트 간 대역폭(바이트)|차원 없음|
-|P2SConnectionCount|P2S 연결 수|개수|최대값|게이트웨이의 지점 및 사이트 간 연결 수|프로토콜|
+|P2SConnectionCount|P2S 연결 수|개수|최대값|게이트웨이의 지점 및 사이트 간 연결 수|Protocol|
 |TunnelAverageBandwidth|터널 대역폭|BytesPerSecond|평균|초당 터널의 평균 대역폭(바이트)|ConnectionName, RemoteIP|
 |TunnelEgressBytes|터널 송신 바이트|바이트|Total|터널의 송신 바이트|ConnectionName, RemoteIP|
 |TunnelIngressBytes|터널 수신 바이트|바이트|Total|터널의 수신 바이트|ConnectionName, RemoteIP|
@@ -1215,7 +1215,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |incoming|들어오는 메시지|개수|Total|성공한 모든 API 호출 전송의 수입니다. |차원 없음|
 |incoming.scheduled|전송된 예약된 푸시 알림|개수|Total|예약 된 푸시 알림 취소 됨|차원 없음|
 |incoming.scheduled.cancel|예약 된 푸시 알림 취소 됨|개수|Total|예약 된 푸시 알림 취소 됨|차원 없음|
-|scheduled.pending|보류 중인 예약된 알림|개수|Total|보류  중인 예약된 알림|차원 없음|
+|scheduled.pending|보류 중인 예약된 알림|개수|Total|보류 중인 예약된 알림|차원 없음|
 |installation.all|설치 관리 작업|개수|Total|설치 관리 작업|차원 없음|
 |installation.get|설치 작업 가져오기|개수|Total|설치 작업 가져오기|차원 없음|
 |installation.upsert|설치 작업 만들기 또는 업데이트|개수|Total|설치 작업 만들기 또는 업데이트|차원 없음|
@@ -1434,18 +1434,18 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
 |cpu_percent|CPU 비율|Percent|평균|CPU 비율|차원 없음|
-|physical_data_read_percent|데이터 IO 비율|Percent|평균|데이터 IO 비율|차원 없음|
+|physical_data_read_percent|데이터 IO 백분율|Percent|평균|데이터 IO 백분율|차원 없음|
 |log_write_percent|로그 IO 비율|Percent|평균|로그 IO 백분율입니다. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
 |dtu_consumption_percent|DTU 백분율|Percent|평균|DTU 백분율. DTU 기반 데이터베이스에 적용 됩니다.|차원 없음|
 |스토리지|사용되는 데이터 공간|바이트|최대값|총 데이터베이스 크기입니다. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
-|connection_successful|연결 성공|개수|Total|연결 성공|차원 없음|
+|connection_successful|성공적인 연결|개수|Total|성공적인 연결|차원 없음|
 |connection_failed|연결 실패|개수|Total|연결 실패|차원 없음|
-|blocked_by_firewall|방화벽에서 차단됨|개수|Total|방화벽에서 차단됨|차원 없음|
+|blocked_by_firewall|방화벽에 의해 차단|개수|Total|방화벽에 의해 차단|차원 없음|
 |교착 상태(deadlock)|교착 상태|개수|Total|상태가. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
 |storage_percent|사용 되는 데이터 공간 (%)|Percent|최대값|데이터베이스 크기 비율입니다. 데이터 웨어하우스 또는 대규모 데이터베이스에는 적용 되지 않습니다.|차원 없음|
 |xtp_storage_percent|메모리 내 OLTP 스토리지 백분율|Percent|평균|메모리 내 OLTP 저장소 백분율입니다. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
-|workers_percent|작업자 비율|Percent|평균|작업자 비율. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
-|sessions_percent|세션 비율|Percent|평균|세션 백분율. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
+|workers_percent|작업자 백분율|Percent|평균|작업자 비율. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
+|sessions_percent|세션 백분율|Percent|평균|세션 백분율. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
 |dtu_limit|DTU 제한|개수|평균|DTU 한도입니다. DTU 기반 데이터베이스에 적용 됩니다.|차원 없음|
 |dtu_used|DTU 사용됨|개수|평균|DTU를 사용 했습니다. DTU 기반 데이터베이스에 적용 됩니다.|차원 없음|
 |cpu_limit|CPU 제한|개수|평균|CPU 제한. VCore 기반 데이터베이스에 적용 됩니다.|차원 없음|
@@ -1458,7 +1458,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |cache_hit_percent|캐시 적중 비율|Percent|최대값|캐시 적중 비율입니다. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
 |cache_used_percent|캐시 사용 비율|Percent|최대값|캐시 사용 백분율입니다. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
 |local_tempdb_usage_percent|로컬 tempdb 백분율|Percent|평균|로컬 tempdb 비율입니다. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
-|app_cpu_billed|청구된 앱 CPU|개수|Total|청구 되는 앱 CPU입니다. 서버를 사용 하지 않는 데이터베이스에 적용 됩니다.|차원 없음|
+|app_cpu_billed|앱 CPU가 청구됨|개수|Total|청구 되는 앱 CPU입니다. 서버를 사용 하지 않는 데이터베이스에 적용 됩니다.|차원 없음|
 |app_cpu_percent|앱 CPU 비율|Percent|평균|앱 CPU 비율입니다. 서버를 사용 하지 않는 데이터베이스에 적용 됩니다.|차원 없음|
 |app_memory_percent|앱 메모리 사용 비율|Percent|평균|앱 메모리 사용 백분율입니다. 서버를 사용 하지 않는 데이터베이스에 적용 됩니다.|차원 없음|
 |allocated_data_storage|할당된 데이터 공간|바이트|평균|할당 된 데이터 공간. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
@@ -1468,16 +1468,16 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
 |cpu_percent|CPU 비율|Percent|평균|CPU 비율|차원 없음|
-|physical_data_read_percent|데이터 IO 비율|Percent|평균|데이터 IO 비율|차원 없음|
-|log_write_percent|로그 IO 비율|Percent|평균|로그 IO 비율|차원 없음|
+|physical_data_read_percent|데이터 IO 백분율|Percent|평균|데이터 IO 백분율|차원 없음|
+|log_write_percent|로그 IO 비율|Percent|평균|로그 IO 백분율|차원 없음|
 |dtu_consumption_percent|DTU 백분율|Percent|평균|DTU 백분율. DTU 기반 탄력적 풀에 적용 됩니다.|차원 없음|
 |storage_percent|사용 되는 데이터 공간 (%)||Percent|평균|스토리지 비율|차원 없음|
-|workers_percent|작업자 비율|Percent|평균|작업자 비율|차원 없음|
-|sessions_percent|세션 비율|Percent|평균|세션 비율|차원 없음|
+|workers_percent|작업자 백분율|Percent|평균|작업자 백분율|차원 없음|
+|sessions_percent|세션 백분율|Percent|평균|세션 백분율|차원 없음|
 |eDTU_limit|eDTU 제한|개수|평균|eDTU 제한. DTU 기반 탄력적 풀에 적용 됩니다.|차원 없음|
-|storage_limit|데이터의 최대 크기|바이트|평균|스토리지 제한|차원 없음|
+|storage_limit|데이터 최대 크기|바이트|평균|스토리지 제한|차원 없음|
 |eDTU_used|eDTU 사용|개수|평균|eDTU를 사용 했습니다. DTU 기반 탄력적 풀에 적용 됩니다.|차원 없음|
-|storage_used|사용되는 데이터 공간|바이트|평균|사용된 스토리지|차원 없음|
+|storage_used|사용되는 데이터 공간|바이트|평균|스토리지 사용됨|차원 없음|
 |xtp_storage_percent|메모리 내 OLTP 스토리지 백분율|Percent|평균|메모리 내 OLTP 스토리지 백분율|차원 없음|
 |cpu_limit|CPU 제한|개수|평균|CPU 제한. VCore 기반 탄력적 풀에 적용 됩니다.|차원 없음|
 |cpu_used|사용 되는 CPU|개수|평균|사용 되는 CPU입니다. VCore 기반 탄력적 풀에 적용 됩니다.|차원 없음|
@@ -1653,8 +1653,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|CpuPercentage|CPU 백분율|Percent|평균|CPU 백분율|인스턴스|
-|MemoryPercentage|메모리 비율|Percent|평균|메모리 백분율|인스턴스|
+|CpuPercentage|CPU 비율|Percent|평균|CPU 비율|인스턴스|
+|MemoryPercentage|메모리 비율|Percent|평균|메모리 비율|인스턴스|
 |DiskQueueLength|디스크 큐 길이|개수|평균|디스크 큐 길이|인스턴스|
 |HttpQueueLength|Http 큐 길이|개수|평균|Http 큐 길이|인스턴스|
 |BytesReceived|데이터 입력|바이트|Total|데이터 입력|인스턴스|
@@ -1781,8 +1781,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |Http4xx|Http 4xx|개수|Total|Http 4xx|인스턴스|
 |Http5xx|Http 서버 오류|개수|Total|Http 서버 오류|인스턴스|
 |AverageResponseTime|평균 응답 시간|초|평균|평균 응답 시간|인스턴스|
-|CpuPercentage|CPU 백분율|Percent|평균|CPU 백분율|인스턴스|
-|MemoryPercentage|메모리 비율|Percent|평균|메모리 백분율|인스턴스|
+|CpuPercentage|CPU 비율|Percent|평균|CPU 비율|인스턴스|
+|MemoryPercentage|메모리 비율|Percent|평균|메모리 비율|인스턴스|
 |DiskQueueLength|디스크 큐 길이|개수|평균|디스크 큐 길이|인스턴스|
 |HttpQueueLength|Http 큐 길이|개수|평균|Http 큐 길이|인스턴스|
 |ActiveRequests|활성 요청|개수|Total|활성 요청|인스턴스|
@@ -1798,10 +1798,10 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |WorkersTotal|총 작업자|개수|평균|총 작업자|차원 없음|
 |WorkersAvailable|사용 가능한 작업자|개수|평균|사용 가능한 작업자|차원 없음|
 |WorkersUsed|사용한 작업자|개수|평균|사용한 작업자|차원 없음|
-|CpuPercentage|CPU 백분율|Percent|평균|CPU 백분율|인스턴스|
-|MemoryPercentage|메모리 비율|Percent|평균|메모리 백분율|인스턴스|
+|CpuPercentage|CPU 비율|Percent|평균|CPU 비율|인스턴스|
+|MemoryPercentage|메모리 비율|Percent|평균|메모리 비율|인스턴스|
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Monitor의 메트릭에 대해 읽기](data-platform.md)
 * [메트릭에 대한 경고 만들기](alerts-overview.md)
-* [스토리지, 이벤트 허브 또는 Log Analytics에 메트릭 내보내기](diagnostic-logs-overview.md)
+* [스토리지, 이벤트 허브 또는 Log Analytics에 메트릭 내보내기](resource-logs-overview.md)

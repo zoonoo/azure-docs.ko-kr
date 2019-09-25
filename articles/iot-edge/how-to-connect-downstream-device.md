@@ -4,17 +4,17 @@ description: 다운스트림 또는 리프 장치를 Azure IoT Edge 게이트웨
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/07/2019
+ms.date: 09/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 41039d148e0aae7303dbc95c832bed842acdcc90
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 822e58d1d35cfb9b62565ca78ea2277b8d194bc0
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999413"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266115"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결
 
@@ -33,6 +33,10 @@ ms.locfileid: "70999413"
 * 시작하는 데 도움이 되도록 여러 언어로 Azure IoT 샘플을 설명합니다. 
 
 이 문서에서 *게이트웨이* 및  *IoT Edge 게이트웨이*라는 용어는 투명한 게이트웨이로 사용되는 IoT Edge 디바이스를 의미합니다. 
+
+## <a name="prerequisites"></a>사전 요구 사항 
+
+에서 생성 된 **azure-iot-test-only** 인증서 파일을 사용 하 여 다운스트림 장치에서 사용 가능한 [투명 게이트웨이 역할을 하는 IoT Edge 장치를 구성](how-to-create-transparent-gateway.md) 합니다. 다운스트림 장치는이 인증서를 사용 하 여 게이트웨이 장치 id의 유효성을 검사 합니다. 
 
 ## <a name="prepare-a-downstream-device"></a>다운스트림 디바이스 준비
 
@@ -89,6 +93,14 @@ sudo update-ca-certificates
 ### <a name="windows"></a>Windows
 
 다음 단계는 Windows 호스트에 CA 인증서를 설치하는 방법의 예제입니다. 이 예에서는 필수 구성 요소 문서에서 **azure-iot-test-only** 인증서를 사용 하 고 있으며,이 인증서를 다운스트림 장치의 위치로 복사 했다고 가정 합니다.
+
+관리자 권한으로 PowerShell의 [가져오기-인증서](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps) 를 사용 하 여 인증서를 설치할 수 있습니다.
+
+```powershell
+import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
+```
+
+또한 인증서를 설치 하려면 **다음을 사용 합니다.** 
 
 1. 시작 표시줄에서 **컴퓨터 인증서 관리**를 검색하고 선택합니다. **certlm**이라는 유틸리티가 열립니다.
 2. **인증서 - 로컬 컴퓨터** > **신뢰할 수 있는 루트 인증 기관**으로 이동합니다.

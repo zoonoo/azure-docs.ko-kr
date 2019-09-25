@@ -1,6 +1,6 @@
 ---
-title: Microsoft id 플랫폼-국가 클라우드에서 Microsoft 인증 라이브러리 (MSAL) 사용
-description: Microsoft 인증 라이브러리 (MSAL) 응용 프로그램 개발자를 보안된 web Api를 호출 하기 위해 토큰을 획득할 수 있습니다. 이러한 웹 Api는 Microsoft Graph, 기타 Microsoft Api, 파트너 웹 Api 또는 사용자 고유의 웹 API 수 있습니다. MSAL은 다수의 애플리케이션 아키텍처와 플랫폼을 지원합니다.
+title: 국가별 클라우드에서 MSAL (Microsoft 인증 라이브러리) 사용-Microsoft identity platform
+description: MSAL (Microsoft 인증 라이브러리)을 사용 하면 응용 프로그램 개발자가 보안 웹 Api를 호출 하기 위해 토큰을 획득할 수 있습니다. 이러한 웹 Api는 Microsoft Graph, 다른 Microsoft Api, 파트너 웹 api 또는 고유한 web API 일 수 있습니다. MSAL은 다수의 애플리케이션 아키텍처와 플랫폼을 지원합니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: negoe
@@ -17,45 +17,45 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9958356cae3c486ecf68e280f33d63c6a537b14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97855a52831a63a92a46bd0d25d23ba3fc91a07b
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235260"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268572"
 ---
-# <a name="use-msal-in-a-national-cloud-environment"></a>MSAL을 사용 하 여 국가별 클라우드 환경에서
+# <a name="use-msal-in-a-national-cloud-environment"></a>국가별 클라우드 환경에서 MSAL 사용
 
-[내셔널 클라우드](authentication-national-cloud.md) Azure의 물리적으로 격리 된 인스턴스입니다. 이러한 Azure 지역에 지리적 경계 내에서 데이터 상주, 주권, 및 규정 준수 요구 사항이 적용 하 고 있는지 확인 하는 데 도움이 되 합니다.
+[국가별 클라우드](authentication-national-cloud.md) 는 실제로 격리 된 Azure 인스턴스입니다. 이러한 Azure 지역에서는 데이터 상주, 주권 및 규정 준수 요구 사항이 지리적 경계 내에서 적용 되는지 확인 합니다.
 
-Microsoft worldwide cloud 외에도 Microsoft 인증 라이브러리 (MSAL) 응용 프로그램 개발자는 national 클라우드에서 인증 하 고 보안된 웹 Api를 호출 하기 위해 토큰을 획득 하 합니다. 이러한 웹 Api는 Microsoft Graph 또는 기타 Microsoft Api 수 있습니다.
+Microsoft의 전 세계 클라우드 외에도 MSAL (Microsoft 인증 라이브러리)을 사용 하면 국가 클라우드의 응용 프로그램 개발자가 보안 웹 Api를 인증 하 고 호출 하기 위해 토큰을 획득할 수 있습니다. 이러한 웹 Api는 Microsoft Graph 또는 다른 Microsoft Api 일 수 있습니다.
 
-글로벌 클라우드를 비롯 하 여 Azure Active Directory (Azure AD)는 다음 국가별 클라우드에 배포 됩니다.  
+글로벌 클라우드를 포함 하 여 Azure AD (Azure Active Directory)는 다음 국가 클라우드에 배포 됩니다.  
 
 - Azure Government
 - Azure China 21Vianet
 - Azure Germany
 
-이 가이드를 작동 및 학교 계정, 액세스 토큰을 가져오기 Microsoft Graph API 호출에 로그인 하는 방법에 설명 합니다 [Azure Government 클라우드](https://azure.microsoft.com/global-infrastructure/government/) 환경입니다.
+이 가이드에서는 회사 및 학교 계정에 로그인 하 고, 액세스 토큰을 가져오고, [Azure Government 클라우드](https://azure.microsoft.com/global-infrastructure/government/) 환경에서 Microsoft Graph API를 호출 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-시작 하기 전에 이러한 필수 구성이 요소를 충족 하는지 확인 합니다.
+시작 하기 전에 이러한 필수 구성 요소를 충족 하는지 확인 합니다.
 
-### <a name="choose-the-appropriate-identities"></a>적절 한 id를 선택 합니다.
+### <a name="choose-the-appropriate-identities"></a>적절 한 id 선택
 
-[Azure Government](https://docs.microsoft.com/azure/azure-government/) 응용 프로그램 사용자 인증을 Azure AD Government id와 Azure AD 공용 id를 사용할 수 있습니다. 이러한 id 중 하나를 사용할 수 있으므로 시나리오에 대 한 선택 해야 인증 기관 끝점을 결정 해야 합니다.
+[Azure Government](https://docs.microsoft.com/azure/azure-government/) 응용 프로그램은 Azure ad 정부 Id 및 Azure ad 공용 id를 사용 하 여 사용자를 인증할 수 있습니다. 이러한 id 중 하나를 사용할 수 있으므로 시나리오에 대해 선택 해야 하는 기관 끝점을 결정 해야 합니다.
 
-- Azure AD 공개 합니다. 조직에는 Azure AD 공개 테 넌 트를 Office 365 지원 (공개 또는 GCC) 또는 다른 응용 프로그램에 있는 경우에 흔히 사용 합니다.
-- Azure AD 정부: 이미 Azure AD 정부 테 넌 트에 Office 365 지원 (GCC High 또는 DoD) 또는 Azure AD 정부에 새 테 넌 트를 만드는 것 조직의 경우에 흔히 사용 합니다.
+- Azure AD 공용: 조직에 Office 365 (공용 또는 GCC) 또는 다른 응용 프로그램을 지원 하기 위한 Azure AD 공용 테 넌 트가 이미 있는 경우 일반적으로 사용 됩니다.
+- Azure AD 정부: 조직에 이미 Office 365 (GCC High 또는 DoD)를 지원 하기 위한 Azure AD 정부 테 넌 트가 있거나 Azure AD 정부에서 새 테 넌 트를 만드는 경우 일반적으로 사용 됩니다.
 
-결정 한 후는 특별 한 고려 사항은 앱 등록을 수행 하는 위치입니다. Azure Government 응용 프로그램에 대 한 Azure AD 공개 identities를 선택 하면 Azure AD 공개 테 넌 트에서 응용 프로그램을 등록 해야 합니다.
+결정 한 후에는 앱 등록을 수행 하는 특별 한 고려 사항이 있습니다. Azure Government 응용 프로그램에 대해 Azure AD 공용 id를 선택 하는 경우 Azure AD 공용 테 넌 트에서 응용 프로그램을 등록 해야 합니다.
 
 ### <a name="get-an-azure-government-subscription"></a>Azure Government 구독 가져오기
 
-Azure Government 구독을 참조 하세요 [관리 및 Azure Government에서 구독을 연결할](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-subscriptions)합니다.
+Azure Government 구독을 가져오려면 [Azure Government에서 구독 관리 및 연결](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-subscriptions)을 참조 하세요.
 
-Azure Government 구독을 없다면 만들기는 [무료 계정](https://azure.microsoft.com/global-infrastructure/government/request/) 시작 하기 전에 합니다.
+Azure Government 구독이 없는 경우 시작 하기 전에 [무료 계정](https://azure.microsoft.com/global-infrastructure/government/request/) 을 만듭니다.
 
 ## <a name="javascript"></a>JavaScript
 
@@ -63,32 +63,32 @@ Azure Government 구독을 없다면 만들기는 [무료 계정](https://azure.
 
 1. [Azure Portal](https://portal.azure.us/)에 로그인합니다.
     
-   Azure 포털 끝점 다른 국가 클라우드에 대 한 참조 하세요 [앱 등록 끝점](authentication-national-cloud.md#app-registration-endpoints)합니다.
+   다른 국가별 클라우드의 Azure Portal 끝점을 찾으려면 [앱 등록 끝점](authentication-national-cloud.md#app-registration-endpoints)을 참조 하세요.
 
-1. 둘 이상의 테 넌 트에 대 한 액세스, 오른쪽 위 모서리에서 계정을 선택 하 고 원하는 Azure ad 포털 세션을 설정 하 여 계정에서는 테 넌 트 경우.
-1. 로 이동 합니다 [앱 등록](https://aka.ms/ra/ff) 개발자를 위한 Microsoft id 플랫폼에는 페이지입니다.
+1. 계정이 둘 이상의 테 넌 트에 대 한 액세스를 제공 하는 경우 오른쪽 위 모서리에서 사용자의 계정을 선택 하 고 포털 세션을 원하는 Azure AD 테 넌 트로 설정 합니다.
+1. 개발자를 위한 Microsoft id 플랫폼의 [앱 등록](https://aka.ms/ra/ff) 페이지로 이동 합니다.
 1. **애플리케이션 등록** 페이지가 나타나면 애플리케이션의 이름을 입력합니다.
-1. 아래 **지원 되는 계정 유형**를 선택 **조직 디렉터리의 계정**합니다.
-1. 에 **리디렉션 URI** 섹션에서는 **웹** 플랫폼 및 웹 서버에 따라 응용 프로그램의 URL로 값을 설정 합니다. Visual Studio와 노드 리디렉션 URL을 가져오고 설정 하는 방법에 대 한 지침은 다음 섹션을 참조 합니다.
+1. **지원 되는 계정 유형**아래에서 **조직 디렉터리의 계정**을 선택 합니다.
+1. **리디렉션 URI** 섹션에서 **웹** 플랫폼을 선택 하 고 웹 서버에 따라 응용 프로그램의 URL로 값을 설정 합니다. Visual Studio 및 노드에서 리디렉션 URL을 설정 하 고 가져오는 방법에 대 한 지침은 다음 섹션을 참조 하세요.
 1. **등록**을 선택합니다.
 1. 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
-1. 이 자습서를 사용 하도록 설정 해야 합니다 [암시적 허용 흐름](v2-oauth2-implicit-grant-flow.md)합니다. 등록된 된 응용 프로그램의 왼쪽된 창에서 선택 **인증**합니다.
-1. **고급 설정**아래에 있는 **암시적 권한 부여**를 선택 합니다 **ID 토큰** 및 **액세스 토큰을** 확인란 합니다. ID 토큰 및 액세스 토큰은이 앱이 사용자를 로그인 하 고 API를 호출 해야 하기 때문에 필요 합니다.
+1. 이 자습서에서는 [암시적 부여 흐름](v2-oauth2-implicit-grant-flow.md)을 사용 하도록 설정 해야 합니다. 등록된 애플리케이션의 왼쪽 창에서 **인증**을 선택합니다.
+1. **고급 설정**의 **암시적 허용**에서 **ID 토큰** 및 **액세스 토큰** 확인란을 선택합니다. ID 토큰 및 액세스 토큰은이 앱이 사용자에 게 로그인 하 고 API를 호출 해야 하기 때문에 필요 합니다.
 1. **저장**을 선택합니다.
 
 ### <a name="step-2--set-up-your-web-server-or-project"></a>2단계:  웹 서버 또는 프로젝트 설정
 
-- [프로젝트 파일 다운로드](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) 노드 같은 로컬 웹 서버에 대 한 합니다.
+- 노드와 같은 로컬 웹 서버에 대 한 [프로젝트 파일을 다운로드](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) 합니다.
 
-  또는
+  로 구분하거나 여러
 
 - [Visual Studio 프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)합니다.
 
-로 건너뜁니다 [JavaScript SPA 구성](#step-4-configure-your-javascript-spa) 실행 하기 전에 코드 샘플을 구성 합니다.
+그런 다음 코드 샘플을 실행 하기 전에 구성 하도록 [JAVASCRIPT SPA 구성](#step-4-configure-your-javascript-spa) 으로 건너뜁니다.
 
-### <a name="step-3-use-the-microsoft-authentication-library-to-sign-in-the-user"></a>3단계: Microsoft 인증 라이브러리를 사용 하 여 사용자를 로그인
+### <a name="step-3-use-the-microsoft-authentication-library-to-sign-in-the-user"></a>3단계: Microsoft 인증 라이브러리를 사용 하 여 사용자 로그인
 
-단계를 수행 합니다 [JavaScript 자습서](tutorial-v2-javascript-spa.md#create-your-project) 프로젝트를 만들고 사용자를 로그인 하 여 MSAL을 사용 하 여 통합 합니다.
+[JavaScript 자습서](tutorial-v2-javascript-spa.md#create-your-project) 의 단계를 수행 하 여 프로젝트를 만들고 msal과 통합 하 여 사용자를 로그인 합니다.
 
 ### <a name="step-4-configure-your-javascript-spa"></a>4단계: JavaScript SPA 구성
 
@@ -111,30 +111,64 @@ const graphConfig = {
 const myMSALObj = new UserAgentApplication(msalConfig);
 ```
 
-해당 코드:
+해당 코드에서 다음을 수행 합니다.
 
-- `Enter_the_Application_Id_here` **응용 프로그램 (클라이언트) ID** 등록 응용 프로그램에 대 한 값입니다.
-- `Enter_the_Tenant_Info_Here` 다음 옵션 중 하나로 설정 됩니다.
-    - 응용 프로그램이 지 원하는 경우 **이 조직 디렉터리의 계정**, 테 넌 트 ID를 사용 하 여이 값을 대체 또는 테 넌 트 이름 (예를 들어 contoso.microsoft.com).
-    - 응용 프로그램이 지 원하는 경우 **모든 조직 디렉터리의 계정**를 사용 하 여이 값을 대체 `organizations`합니다.
+- `Enter_the_Application_Id_here`등록 한 응용 프로그램에 대 한 **응용 프로그램 (클라이언트) ID** 값입니다.
+- `Enter_the_Tenant_Info_Here`는 다음 옵션 중 하나로 설정 됩니다.
+    - 응용 프로그램이 **이 조직 디렉터리에서 계정을**지 원하는 경우이 값을 테 넌 트 ID 또는 테 넌 트 이름 (예: contoso.microsoft.com)으로 바꿉니다.
+    - 응용 프로그램에서 **조직 디렉터리의 계정을**지 원하는 경우이 값을로 `organizations`바꿉니다.
     
-    인증 끝점 national 모든 클라우드에 대 한 참조 하세요 [Azure AD 인증 끝점](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints)합니다.
+    모든 국가별 클라우드의 인증 끝점을 찾으려면 [AZURE AD 인증 끝점](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints)을 참조 하세요.
 
     > [!NOTE]
-    > 개인 Microsoft 계정 국가 클라우드에서 지원 되지 않습니다.
+    > 개인 Microsoft 계정은 국가별 클라우드에서 지원 되지 않습니다.
   
-- `graphEndpoint` 미국 정부용 Microsoft 클라우드를 위한 Microsoft Graph 끝점이입니다.
+- `graphEndpoint`는 미국 정부의 Microsoft 클라우드의 Microsoft Graph 끝점입니다.
 
-   Microsoft Graph 끝점 national 모든 클라우드에 대 한 참조 하세요 [국가 클라우드에서 Microsoft Graph 끝점](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)합니다.
+   모든 국가별 클라우드의 Microsoft Graph 끝점을 찾으려면 [국가별 클라우드의 Microsoft Graph 끝점](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)을 참조 하세요.
 
 ## <a name="net"></a>.NET
 
-사용자를 로그인 토큰을 획득 하 고 국가 클라우드에서 Microsoft Graph API를 호출 하려면 MSAL.NET을 사용할 수 있습니다.
+MSAL.NET를 사용 하 여 사용자를 로그인 하 고 토큰을 획득 하 고 국가별 클라우드에서 Microsoft Graph API를 호출할 수 있습니다.
 
-다음 자습서에는.NET Core 2.2 MVC 웹 앱을 빌드하는 방법을 보여 줍니다. 앱 국가별 클라우드에 속해 있는 조직의 회사 및 학교 계정을 사용 하 여 사용자를 로그인에 OpenID Connect을 사용 합니다.
+다음 자습서에서는 .NET Core 2.2 MVC 웹 앱을 빌드하는 방법을 보여 줍니다. 앱은 Openid connect Connect를 사용 하 여 국가 클라우드에 속한 조직의 회사 및 학교 계정으로 사용자를 로그인 합니다.
 
-- 사용자를 로그인 하 고 토큰을 획득 하려면 따릅니다 [이 자습서](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-4-Sovereign#build-an-aspnet-core-web-app-signing-in-users-in-sovereign-clouds-with-the-microsoft-identity-platform)합니다.
-- Microsoft Graph API를 호출 하려면 다음과 [이 자습서](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud)합니다.
+- 사용자를 로그인 하 고 토큰을 획득 하려면 [이 자습서](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-4-Sovereign#build-an-aspnet-core-web-app-signing-in-users-in-sovereign-clouds-with-the-microsoft-identity-platform)를 따르세요.
+- Microsoft Graph API를 호출 하려면 [이 자습서](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud)를 따르세요.
+
+## <a name="msal-for-ios-and-macos"></a>IOS 및 macOS 용 MSAL
+
+IOS 및 macOS 용 MSAL을 사용 하 여 국가별 클라우드에서 토큰을 가져올 수 있지만 만들 `MSALPublicClientApplication`때 추가 구성이 필요 합니다.
+
+예를 들어 응용 프로그램을 국가 클라우드의 다중 테 넌 트 응용 프로그램 (미국 정부 기관)으로 만들려면 다음을 작성할 수 있습니다.
+
+Objective-C:
+
+```objc
+MSALAADAuthority *aadAuthority =
+                [[MSALAADAuthority alloc] initWithCloudInstance:MSALAzureUsGovernmentCloudInstance
+                                                   audienceType:MSALAzureADMultipleOrgsAudience
+                                                      rawTenant:nil
+                                                          error:nil];
+                                                          
+MSALPublicClientApplicationConfig *config =
+                [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"
+                                                                redirectUri:@"<your-redirect-uri-here>"
+                                                                  authority:aadAuthority];
+                                                                  
+NSError *applicationError = nil;
+MSALPublicClientApplication *application =
+                [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&applicationError];
+```
+
+Swift
+
+```swift
+let authority = try? MSALAADAuthority(cloudInstance: .usGovernmentCloudInstance, audienceType: .azureADMultipleOrgsAudience, rawTenant: nil)
+        
+let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>", redirectUri: "<your-redirect-uri-here>", authority: authority)
+if let application = try? MSALPublicClientApplication(configuration: config) { /* Use application */}
+```
 
 ## <a name="next-steps"></a>다음 단계
 

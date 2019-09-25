@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 933ae5b70d8e0485360a94ede1fff99c02f75a4c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 0bd4b1d969de0b54a1836048b5cb5910470f1ffa
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034866"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71269230"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -36,9 +36,9 @@ ms.locfileid: "71034866"
 
 * [Jupyter Notebooks](#jupyter): 이미 Jupyter Notebook을 사용 중인 경우 SDK를 통해 몇 가지 요소를 추가로 설치해야 합니다.
 
-* [Visual Studio Code](#vscode): Visual Studio Code를 사용하는 경우 몇 가지 유용한 확장 프로그램을 설치할 수 있습니다.
+* [Visual Studio Code](#vscode): Visual Studio Code 사용 하는 경우 [Azure Machine Learning 확장](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) 에는 Python에 대 한 광범위 한 언어 지원과 Azure Machine Learning 서비스를 사용 하는 데 훨씬 더 편리 하 고 생산적인 기능을 제공 하는 기능이 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요. 작업 영역은 사용자 고유의 [클라우드 기반 노트북 서버](#notebookvm), [dsvm](#dsvm)또는 [Azure Databricks](#aml-databricks)를 시작 하는 데 필요 합니다.
 
@@ -76,7 +76,7 @@ Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machin
 
 + **사용자 지정 가능**. 관리 및 보안 VM을 제공 하는 동안 하드웨어 기능에 대 한 모든 권한을 유지 하 고 원하는 대로 사용자 지정 합니다. 예를 들어 novel 신경망 아키텍처의 단계별 디버깅을 수행 하기 위해 최신 NVidia V100 구동 VM을 신속 하 게 만들 수 있습니다.
 
-노트북 VM 요금이 발생 하지 않도록 하려면 [노트북 vm을 중지](tutorial-1st-experiment-sdk-train.md#clean-up-resources)합니다. 
+노트북 VM 요금이 발생 하지 않도록 하려면 [노트북 vm을 중지](tutorial-1st-experiment-sdk-train.md#clean-up-resources)합니다.
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
@@ -90,7 +90,7 @@ DSVM는 사용자 지정된 VM(가상 머신) 이미지입니다. 데이터 과�
 
 Azure Machine Learning SDK는 DSVM의 Ubuntu 또는 Windows 버전에서 작동합니다. 하지만 컴퓨팅 대상으로 DSVM도 사용할 계획인 경우 Ubuntu만 지원됩니다.
 
-개별 환경으로 DSVM을 사용하려면 다음 단계를 수행합니다.
+DSVM을 개발 환경으로 사용 하려면 다음을 수행 합니다.
 
 1. 다음 환경 중 하나에서 DSVM을 만듭니다.
 
@@ -151,7 +151,7 @@ Azure Machine Learning SDK는 DSVM의 Ubuntu 또는 Windows 버전에서 작동�
 
 ## <a id="local"></a>로컬 컴퓨터
 
-로컬 컴퓨터 (원격 가상 컴퓨터 일 수도 있음)를 사용 하는 경우 다음을 수행 하 여 Anaconda 환경을 만들고 SDK를 설치 합니다.
+로컬 컴퓨터 (원격 가상 컴퓨터 일 수도 있음)를 사용 하는 경우 Anaconda 환경을 만들고 SDK를 설치 합니다. 예를 들면 다음과 같습니다.
 
 1. 아직 없는 경우 [Anaconda](https://www.anaconda.com/distribution/#download-section) (Python 3.7 버전)을 다운로드 하 여 설치 합니다.
 
@@ -185,10 +185,10 @@ Azure Machine Learning SDK는 DSVM의 Ubuntu 또는 Windows 버전에서 작동�
 
 1. 다음 명령을 사용 하 여 패키지를 설치 합니다.
 
-    이 명령은 노트북 및 automl 추가 기능을 사용 하 여 기본 Azure Machine Learning SDK를 설치 합니다. `automl` 추가는 대형 설치 이며 자동화 된 기계 학습 실험을 실행 하지 않으려는 경우 괄호에서 제거할 수 있습니다. 또한 `automl` 추가에는 기본적으로 Azure Machine Learning 데이터 준비 SDK가 종속성으로 포함 됩니다.
+    이 명령은 노트북 및 `automl` 기타 기능을 사용 하 여 기본 Azure Machine Learning SDK를 설치 합니다. `automl` 추가는 대형 설치 이며 자동화 된 기계 학습 실험을 실행 하지 않으려는 경우 괄호에서 제거할 수 있습니다. 또한 `automl` 추가에는 기본적으로 Azure Machine Learning 데이터 준비 SDK가 종속성으로 포함 됩니다.
 
     ```shell
-    pip install azureml-sdk[notebooks,automl]
+    pip install azureml-sdk[notebooks, automl]
     ```
 
    > [!NOTE]
@@ -221,14 +221,16 @@ Azure Machine Learning SDK는 DSVM의 Ubuntu 또는 Windows 버전에서 작동�
 
 Jupyter Notebook은 [Jupyter 프로젝트](https://jupyter.org/)의 일부입니다. 라이브 코드를 설명 테스트 및 그래픽과 혼합하는 문서를 만드는 대화형 코딩 환경을 제공합니다. Jupyter Notebook은 코드 섹션의 출력을 문서에 저장할 수 있으므로 다른 사람과 결과를 공유하는 좋은 방법이기도 합니다. Jupyter Notebook은 다양한 플랫폼에 설치할 수 있습니다.
 
-[로컬 컴퓨터](#local) 섹션의 절차에서는 Anaconda 환경에서 Jupyter 노트북을 실행 하기 위한 필수 구성 요소를 설치 합니다. Jupyter Notebook 환경에서 이러한 구성 요소를 사용하려면 다음 단계를 수행합니다.
+[로컬 컴퓨터](#local) 섹션의 절차에서는 Anaconda 환경에서 Jupyter 노트북을 실행 하기 위한 필수 구성 요소를 설치 합니다.
+
+Jupyter Notebook 환경에서 이러한 구성 요소를 사용 하도록 설정 하려면 다음을 수행 합니다.
 
 1. Anaconda 프롬프트를 열고 환경을 활성화 합니다.
 
     ```shell
     conda activate myenv
     ```
-    
+
 1. 샘플 노트북 집합에 대 한 [GitHub 리포지토리](https://aka.ms/aml-notebooks) 를 복제 합니다.
 
     ```CLI
@@ -254,34 +256,35 @@ Jupyter Notebook은 [Jupyter 프로젝트](https://jupyter.org/)의 일부입니
     import sys
     sys.path
     ```
-    
+
 1. Azure Machine Learning 작업 영역을 사용 하도록 Jupyter Notebook를 구성 하려면 [작업 영역 구성 파일 만들기](#workspace) 섹션으로 이동 합니다.
 
 
 ### <a id="vscode"></a>Visual Studio Code
 
-Visual Studio Code는 크로스 플랫폼 코드 편집기입니다. 로컬 Python 3와 Python을 지원하기 위해 설치되는 Conda를 사용하지만, AI를 사용하기 위한 추가 도구를 제공합니다. 코드 편집기 내에서 Conda 환경을 선택할 수 있는 지원도 제공합니다.
+Visual Studio Code는 [Visual Studio marketplace](https://marketplace.visualstudio.com/vscode)에서 제공 하는 확장을 통해 다양 한 프로그래밍 언어 및 도구 집합을 지 원하는 인기 있는 플랫폼 간 코드 편집기입니다. [Azure Machine Learning 확장](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) 은 모든 유형의 python 환경 (Virtual, Anaconda 등)에서 코딩을 위해 [python 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.python) 을 설치 합니다. 또한 Azure Machine Learning 리소스를 사용 하 고 Azure Machine Learning 실험을 실행 하는 데 필요한 편리한 기능을 제공 하 여 Visual Studio Code 하지 않습니다.
 
-개발에 Visual Studio Code를 사용하려면 다음을 수행합니다.
+개발에 Visual Studio Code를 사용 하려면 다음을 수행 합니다.
 
-1. Python 개발에 Visual Studio Code를 사용하는 방법은 [VSCode에서 Python 시작](https://code.visualstudio.com/docs/python/python-tutorial)을 참조하세요.
-
-1. Conda 환경을 선택하려면 VS Code를 열고, Ctrl-Shift-P(Linux 및 Windows) 또는 Command-Shift-P(Mac)를 선택합니다.
-    __명령 팔레트__가 열립니다.
-
-1. __Python: 인터프리터 선택__을 입력한 다음, Conda 환경을 선택합니다.
-
-1. SDK를 사용할 수 있는지 확인하려면 다음 코드가 포함된 새 Python 파일(.py)을 만들고 실행합니다.
-
-    ```python
-    import azureml.core
-    azureml.core.VERSION
-    ```
-
-1. Visual Studio Code용 Azure Machine Learning 확장을 설치하려면 [AI용 도구](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai)를 참조하세요.
+1. Visual Studio Code에 대 한 Azure Machine Learning 확장을 설치 [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai)를 참조 하세요.
 
     자세한 내용은 [Visual Studio Code용 Azure Machine Learning 사용](how-to-vscode-tools.md)을 참조하세요.
 
+1. 모든 유형의 Python 개발에 Visual Studio Code를 사용 하는 방법에 대 한 자세한 내용은 [VSCode에서 Python 시작](https://code.visualstudio.com/docs/python/python-tutorial)을 참조 하세요.
+
+    - SDK를 포함 하는 SDK Python 환경을 선택 하려면 VS Code를 연 다음 Ctrl + Shift + P (Linux 및 Windows) 또는 명령 + Shift + P (Mac)를 선택 합니다.
+        - __명령 팔레트가__ 열립니다.
+
+    - __Python: 인터프리터__를 선택 하 고 적절 한 환경을 선택 합니다.
+
+1. SDK를 사용할 수 있는지 확인 하려면 다음 코드를 포함 하는 새 Python 파일 (. py)을 만듭니다.
+
+    ```python
+    #%%
+    import azureml.core
+    azureml.core.VERSION
+    ```
+    "셀 실행" CodeLens를 클릭 하 여이 코드를 실행 하거나 단순히 shift + enter를 누릅니다.
 <a name="aml-databricks"></a>
 
 ## <a name="azure-databricks"></a>Azure Databricks
@@ -302,7 +305,7 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
 | 설정 |적용 대상| 값 |
 |----|---|---|
 | 클러스터 이름 |항상| yourclustername |
-| Databricks 런타임 |항상| 모든 비 ML 런타임(비 ML 4.x, 5.x) |
+| Databricks 런타임 |항상| ML이 아닌 모든 런타임 (ML 4.x, 2.x) |
 | Python 버전 |항상| 3 |
 | 작업자 |항상| 2 이상 |
 | 작업자 노드 VM 유형 <br>(최대 동시 반복 횟수를 결정 합니다.) |자동화된 ML<br>에게만| 메모리 최적화 VM 기본 설정 |
@@ -326,7 +329,7 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
    * **모든 클러스터에 자동으로 연결을**선택 하지 않습니다.
    * 클러스터 이름 옆에 있는 **연결** 을 선택 합니다.
 
-1. 상태가 **연결**됨으로 변경 될 때까지 오류를 모니터링 합니다 .이는 몇 분 정도 걸릴 수 있습니다.  이 단계가 실패 하는 경우 다음을 확인 합니다.
+1. 상태가 **연결**됨으로 변경 될 때까지 오류를 모니터링 합니다 .이는 몇 분 정도 걸릴 수 있습니다.  이 단계가 실패 하는 경우:
 
    다음을 수행 하 여 클러스터를 다시 시작 합니다.
    1. 왼쪽 창에서 **클러스터**를 선택합니다.

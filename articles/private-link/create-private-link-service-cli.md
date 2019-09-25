@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 87d0f08d67dbbe6a0fa1725aba850c8d9b6c5619
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: c67d2cd4e90b2fa61a4d95e89a68c888a6e1fe3f
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104713"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273643"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Azure CLI를 사용 하 여 개인 링크 서비스 만들기
 이 문서에서는 Azure CLI를 사용 하 여 Azure에서 개인 링크 서비스를 만드는 방법을 보여 줍니다.
@@ -29,13 +29,13 @@ Azure CLI를 로컬로 설치 하 고 사용 하도록 결정 한 경우이 빠�
 az group create --name myResourceGroup --location westcentralus
 ```
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
-[az network vnet create](/cli/azure/network/az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다. 이 예제에서는 *Mysubnet*이라는 서브넷 하나를 사용 하 여 *myVirtualNetwork* 라는 기본 가상 네트워크를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다. 이 예제에서는 *Mysubnet*이라는 서브넷 하나를 사용 하 여 *myVirtualNetwork* 라는 기본 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive
 az network vnet create --resource-group myResourceGroup --name myVirtualNetwork --address-prefix 10.0.0.0/16  
 ```
 ### <a name="create-a-subnet"></a>서브넷 만들기
-[Az network vnet subnet create](/cli/azure/network/az-network-vnet-subnet-create)를 사용 하 여 가상 네트워크에 대 한 서브넷을 만듭니다. 이 예제에서는 *myVirtualNetwork* 가상 네트워크에 *mysubnet* 이라는 서브넷을 만듭니다.
+[Az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create)를 사용 하 여 가상 네트워크에 대 한 서브넷을 만듭니다. 이 예제에서는 *myVirtualNetwork* 가상 네트워크에 *mysubnet* 이라는 서브넷을 만듭니다.
 
 ```azurecli-interactive
 az network vnet subnet create --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --address-prefixes 10.0.0.0/24    
@@ -82,7 +82,7 @@ az network lb create --resource-group myResourceGroup --name myILB --sku standar
 
 
 ### <a name="disable-private-link-service-network-policies-on-subnet"></a>서브넷에서 개인 링크 서비스 네트워크 정책 사용 안 함 
-개인 링크 서비스에는 가상 네트워크 내에서 선택한 서브넷의 IP가 필요 합니다. 현재는 이러한 Ip에서 네트워크 정책을 지원 하지 않습니다.  따라서 서브넷에서 네트워크 정책을 사용 하지 않도록 설정 해야 합니다. [Az network vnet subnet update](/cli/azure/network/az-network-vnet-subnet-update)를 사용 하 여 개인 링크 서비스 네트워크 정책을 사용 하지 않도록 서브넷을 업데이트 합니다.
+개인 링크 서비스에는 가상 네트워크 내에서 선택한 서브넷의 IP가 필요 합니다. 현재는 이러한 Ip에서 네트워크 정책을 지원 하지 않습니다.  따라서 서브넷에서 네트워크 정책을 사용 하지 않도록 설정 해야 합니다. [Az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)를 사용 하 여 개인 링크 서비스 네트워크 정책을 사용 하지 않도록 서브넷을 업데이트 합니다.
 
 ```azurecli-interactive
 az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --disable-private-link-service-network-policies true 
@@ -90,7 +90,7 @@ az network vnet subnet update --resource-group myResourceGroup --vnet-name myVir
  
 ## <a name="create-a-private-link-service"></a>Private Link 서비스 만들기  
  
-[Az network Private-Link-service create](/cli/azure/network/az-network-private-link-service-create)를 사용 하 여 표준 Load Balancer 프런트 엔드 IP 구성을 사용 하 여 개인 링크 서비스를 만듭니다. 이 예제에서는 *Myloadbalancer*이라는 리소스 그룹에서 *myloadbalancer* 라는 표준 Load Balancer 사용 하 여 *myPLS* 이라는 개인 링크 서비스를 만듭니다. 
+[Az network Private-Link-service create](/cli/azure/network/private-link-service#az-network-private-link-service-create)를 사용 하 여 표준 Load Balancer 프런트 엔드 IP 구성을 사용 하 여 개인 링크 서비스를 만듭니다. 이 예제에서는 *Myloadbalancer*이라는 리소스 그룹에서 *myloadbalancer* 라는 표준 Load Balancer 사용 하 여 *myPLS* 이라는 개인 링크 서비스를 만듭니다. 
  
 ```azurecli-interactive
 az network private-link-service create \
@@ -108,10 +108,10 @@ az network private-link-service create \
  
 다음으로 Azure CLI를 사용 하 여이 서비스를 다른 가상 네트워크의 개인 끝점에 매핑하는 방법을 설명 합니다. 이 예제는 개인 끝점을 만들고 Azure CLI를 사용 하 여 위에서 만든 개인 링크 서비스에 연결 하는 것으로 제한 됩니다. 또한 가상 네트워크에서 가상 컴퓨터를 만들어 개인 끝점으로 트래픽을 보내고 받을 수 있습니다.        
  
-## <a name="private-endpoints"></a>전용 끝점
+## <a name="private-endpoints"></a>프라이빗 엔드포인트
 
 ### <a name="create-the-virtual-network"></a>가상 네트워크 만들기 
- [Az network vnet create](/cli/azure/network/az-network-vnet-create)를 사용 하 여 가상 네트워크를 만듭니다. 이 예제에서는 *myresourcegroup*이라는 리소스 그룹에 *myPEVNet* 라는 가상 네트워크를 만듭니다. 
+ [Az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용 하 여 가상 네트워크를 만듭니다. 이 예제에서는 *myresourcegroup*이라는 리소스 그룹에 *myPEVNet* 라는 가상 네트워크를 만듭니다. 
 ```azurecli-interactive
 az network vnet create \
 --resource-group myResourceGroup \
@@ -119,7 +119,7 @@ az network vnet create \
 --address-prefix 10.0.0.0/16  
 ```
 ### <a name="create-the-subnet"></a>서브넷 만들기 
- [Az network vnet subnet create](/cli/azure/network/az-network-vnet-subnet-create)를 사용 하 여 가상 네트워크에서 서브넷을 만듭니다. 이 예제에서는 *mysubnet*이라는 리소스 그룹에서 *myPEVnet* 라는 가상 네트워크에 *mysubnet* 이라는 서브넷을 만듭니다. 
+ [Az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create)를 사용 하 여 가상 네트워크에서 서브넷을 만듭니다. 이 예제에서는 *mysubnet*이라는 리소스 그룹에서 *myPEVnet* 라는 가상 네트워크에 *mysubnet* 이라는 서브넷을 만듭니다. 
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -129,7 +129,7 @@ az network vnet subnet create \
 --address-prefixes 10.0.0.0/24 
 ```   
 ## <a name="disable-private-endpoint-network-policies-on-subnet"></a>서브넷에서 개인 끝점 네트워크 정책 사용 안 함 
-가상 네트워크 내에서 원하는 모든 서브넷에 개인 끝점을 만들 수 있습니다. 현재 개인 끝점에서는 네트워크 정책을 지원 하지 않습니다.  따라서 서브넷에서 네트워크 정책을 사용 하지 않도록 설정 해야 합니다. [Az network vnet subnet update](/cli/azure/network/az-network-vnet-subnet-update)를 사용 하 여 개인 끝점 네트워크 정책을 사용 하지 않도록 서브넷을 업데이트 합니다. 
+가상 네트워크 내에서 원하는 모든 서브넷에 개인 끝점을 만들 수 있습니다. 현재 개인 끝점에서는 네트워크 정책을 지원 하지 않습니다.  따라서 서브넷에서 네트워크 정책을 사용 하지 않도록 설정 해야 합니다. [Az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)를 사용 하 여 개인 끝점 네트워크 정책을 사용 하지 않도록 서브넷을 업데이트 합니다. 
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -156,7 +156,7 @@ az network private-endpoint create \
  
 ## <a name="show-private-link-service-connections"></a>개인 링크 서비스 연결 표시 
  
-[Az network Private-link-service show](/cli/azure/network/az-network-private-link-service-show)를 사용 하 여 개인 링크 서비스에서 연결 요청을 참조 하세요.    
+[Az network Private-link-service show](/cli/azure/network/private-link-service#az-network-private-link-service-show)를 사용 하 여 개인 링크 서비스에서 연결 요청을 참조 하세요.    
 ```azurecli-interactive 
 az network private-link-service show --resource-group myResourceGroup --name myPLS 
 ```

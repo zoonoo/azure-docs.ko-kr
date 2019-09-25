@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6bb926aeab4f88f2d41c578ae3962737df7b2f3
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: ea6e654037e545a1b969aa2a9b41245fb2892bff
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872872"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273817"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -91,7 +91,7 @@ Azure AD P1 또는 P2 구독에서 사용할 수 있는 사용자 지정 역할�
 새 프로 비전 로그를 통해 사용자 및 그룹 프로 비전 배포를 모니터링 하 고 문제를 해결할 수 있습니다. 이러한 새 로그 파일에는 다음에 대 한 정보가 포함 됩니다.
 
 - [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial) 에서 성공적으로 생성 된 그룹
-- Amazon Web Services에서 가져온 역할 [(AWS)](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-and-test-azure-ad-single-sign-on)
+- Amazon Web Services에서 가져온 역할 [(AWS)](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-and-test-azure-ad-single-sign-on-for-amazon-web-services-aws)
 - [Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial) 에서 가져온 직원
 
 자세한 내용은 [Azure Active Directory 포털에서 보고서 프로 비전 (미리 보기)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)을 참조 하세요.

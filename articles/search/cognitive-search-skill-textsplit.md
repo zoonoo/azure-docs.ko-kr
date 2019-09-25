@@ -9,13 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
-ms.openlocfilehash: fcde448c664ad85b78d275304dd01a1eedaca006
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: a6e46970b6c0fc91c464207049d2dedaaee1afdd
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183308"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265676"
 ---
 #   <a name="text-split-cognitive-skill"></a>텍스트 분할 인식 기술
 
@@ -40,7 +39,7 @@ Microsoft.Skills.Text.SplitSkill
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 매개 변수 이름       | Description      |
+| 매개 변수 이름       | 설명      |
 |----------------------|------------------|
 | text  | 하위 문자열로 분할될 텍스트입니다. |
 | languageCode  | (선택 사항) 문서에 대한 언어 코드입니다.  |
@@ -132,7 +131,7 @@ Microsoft.Skills.Text.SplitSkill
 ## <a name="error-cases"></a>오류 사례
 언어가 지원되지 않는 경우 경고가 생성되고 텍스트가 문자를 경계로 분할됩니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
 + [기능을 정의하는 방법](cognitive-search-defining-skillset.md)

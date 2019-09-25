@@ -1,50 +1,51 @@
 ---
-title: Azure AD Domain Services에서 보안 LDAP(LDAPS) 문제 해결 | Microsoft Docs
-description: Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 문제 해결
+title: Azure AD Domain Services의 보안 LDAP 문제 해결 | Microsoft Docs
+description: Azure Active Directory Domain Services 관리 되는 도메인에 대 한 보안 LDAP (LDAPS) 문제를 해결 하는 방법을 알아봅니다.
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 445c60da-e115-447b-841d-96739975bdf6
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/20/2019
+ms.topic: troubleshooting
+ms.date: 09/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 285af0e5e5d5ab03027fc29064a5f3623ed10e2f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 96aa463441c9e0f21e2ef1aa27c566b94e1e5f4f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617056"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257884"
 ---
-# <a name="troubleshoot-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 문제 해결
+# <a name="troubleshoot-secure-ldap-connectivity-issues-to-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인에 대 한 보안 LDAP 연결 문제 해결
 
-## <a name="connection-issues"></a>연결 문제
-보안 LDAP를 사용하여 관리되는 도메인에 연결하는 데 문제가 있는 경우
+LDAP (lightweight directory access protocol)를 사용 하 여 Azure Active Directory Domain Services (Azure AD DS)와 통신 하는 응용 프로그램 및 서비스는 [보안 ldap를 사용 하도록 구성할](tutorial-configure-ldaps.md)수 있습니다. 보안 LDAP가 제대로 작동 하려면 적절 한 인증서 및 필요한 네트워크 포트를 열어야 합니다.
 
-* 보안 LDAP 인증서의 발급자 체인을 클라이언트에서 신뢰할 수 있어야 합니다. 트러스트를 설정하려면 클라이언트의 신뢰할 수 있는 루트 인증서 저장소에 루트 인증 기관을 추가할 수 있습니다.
-* LDAP 클라이언트(예: ldp.exe)가 IP 주소가 아닌 DNS 이름을 사용하여 보안 LDAP 엔드포인트에 연결되는지 확인합니다.
-* LDAP 클라이언트가 연결할 DNS 이름을 확인합니다. 관리되는 도메인에서 보안 LDAP에 대한 공용 IP 주소를 확인해야 합니다.
-* 관리되는 도메인의 보안 LDAP 인증서의 주체 또는 주체 대체 이름 특성에 DNS 이름이 있는지 확인합니다.
-* 가상 네트워크에 대한 NSG 설정은 인터넷에서 포트 636에 대해 트래픽을 허용해야 합니다. 인터넷을 통한 보안 LDAP 액세스를 사용하도록 설정한 경우에만 이 단계가 적용됩니다.
+이 문서는 Azure AD DS에서 보안 LDAP 액세스와 관련 된 문제를 해결 하는 데 도움이 됩니다.
 
+## <a name="common-connection-issues"></a>일반적인 연결 문제
 
-## <a name="need-help"></a>도움 필요 시
-보안 LDAP를 사용하여 관리되는 도메인에 연결하는 데 계속 문제가 발생하면 [제품 팀에 도움을 요청](contact-us.md)하세요. 문제를 진단하는 데 도움이 되도록 다음 정보를 포함합니다.
-* 연결을 만들고 실패하는 ldp.exe의 스크린샷
-* Azure AD 테넌트 ID 및 관리되는 도메인의 DNS 도메인 이름
-* 바인딩하려는 정확한 사용자 이름입니다.
+보안 LDAP를 사용 하 여 Azure AD DS 관리 되는 도메인에 연결 하는 데 문제가 있는 경우 다음 문제 해결 단계를 검토 합니다. 각 문제 해결 단계 후에 Azure AD DS 관리 되는 도메인에 다시 연결 해 보세요.
 
+* 보안 LDAP 인증서의 발급자 체인을 클라이언트에서 신뢰할 수 있어야 합니다. 클라이언트의 신뢰할 수 있는 루트 인증서 저장소에 루트 CA (인증 기관)를 추가 하 여 트러스트를 설정할 수 있습니다.
+    * [인증서를 내보내고 클라이언트 컴퓨터에 적용][client-cert]해야 합니다.
+* 관리 되는 도메인에 대 한 보안 LDAP 인증서의 *주체* 또는 *주체 대체 이름* 특성에 DNS 이름이 있는지 확인 합니다.
+    * [보안 LDAP 인증서 요구 사항을][certs-prereqs] 검토 하 고 필요한 경우 대체 인증서를 만듭니다.
+* *Ldp.exe* 와 같은 LDAP 클라이언트가 IP 주소가 아닌 DNS 이름을 사용 하 여 보안 ldap 끝점에 연결 하는지 확인 합니다.
+    * Azure AD DS 관리 되는 도메인에 적용 되는 인증서에는 서비스의 IP 주소, DNS 이름만 포함 되지 않습니다.
+* LDAP 클라이언트가 연결할 DNS 이름을 확인합니다. Azure AD DS 관리 되는 도메인의 보안 LDAP에 대 한 공용 IP 주소로 확인 되어야 합니다.
+    * DNS 이름이 내부 IP 주소로 확인 되는 경우 DNS 레코드를 업데이트 하 여 외부 IP 주소로 확인 합니다.
+* 외부 연결의 경우 네트워크 보안 그룹은 인터넷에서 TCP 포트 636에 대 한 트래픽을 허용 하는 규칙을 포함 해야 합니다.
+    * 가상 네트워크에 직접 연결 되어 있지만 외부 연결이 아닌 리소스에서 보안 LDAP를 사용 하 여 Azure AD DS 관리 되는 도메인에 연결할 수 있는 경우 [보안 ldap 트래픽을 허용 하는 네트워크 보안 그룹 규칙을 만들어야][ldaps-nsg]합니다.
 
-## <a name="related-content"></a>관련 콘텐츠
-* [Azure AD Domain Services - 시작 가이드](tutorial-create-instance.md)
-* [Azure AD Domain Services 도메인 관리](tutorial-create-management-vm.md)
-* [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx)(LDAP 쿼리 기본 사항)
-* [Azure AD Domain Services에 대 한 그룹 정책 관리](manage-group-policy.md)
-* [네트워크 보안 그룹](../virtual-network/security-overview.md)
-* [네트워크 보안 그룹 만들기](../virtual-network/tutorial-filter-network-traffic.md)
+## <a name="next-steps"></a>다음 단계
+
+문제가 계속 되 면 [Azure 지원 요청을 열어][azure-support] 추가 문제 해결 지원을 요청 하세요.
+
+<!-- INTERNAL LINKS -->
+[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[configure-ldaps]: tutorial-configure-ldaps.md
+[certs-prereqs]: tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap
+[client-cert]: tutorial-configure-ldaps.md#export-a-certificate-for-client-computers
+[ldaps-nsg]: tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet
