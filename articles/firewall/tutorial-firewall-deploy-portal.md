@@ -236,7 +236,7 @@ Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 �
 1. Azure portal에서 **Srv-Work** 가상 머신에 대한 네트워크 설정을 검토하고 개인 IP 주소를 참고합니다.
 2. 원격 데스크톱을 **Srv-Jump** 가상 머신과 연결하고 로그인합니다. 여기에서 원격 데스크톱 연결을 **Srv-Work** 개인 IP 주소로 엽니다.
 
-3. Internet Explorer를 열고 https://www.google.com을 찾습니다.
+3. Internet Explorer를 열고 [https://www.google.com](https://www.google.com)을 찾습니다.
 4. Internet Explorer 보안 경고에서 **확인** > **닫기**를 선택합니다.
 
    Google 홈 페이지가 나타납니다.

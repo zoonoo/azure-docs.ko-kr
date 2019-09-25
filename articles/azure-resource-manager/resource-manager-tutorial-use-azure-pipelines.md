@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 06/12/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 85dc0476da12bea64610b6910b0682fef00f4b5a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 462d9cd6d2a911e660221621ebde5829e928cf00
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064737"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122218"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>자습서: Azure Pipelines를 사용한 Azure Resource Manager 템플릿의 지속적인 통합
 
@@ -162,7 +162,7 @@ Azure에 프로젝트를 배포하는 데 사용되는 서비스 연결을 만�
     * **모든 파이프라인에서 이 연결을 사용하도록 허용합니다**. (선택됨)
 1. **확인**을 선택합니다.
 
-## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
+## <a name="create-a-pipeline"></a>파이프라인을 만들기
 
 지금까지 다음 작업을 완료했습니다.  GitHub 및 DevOps에 익숙해서 이전 섹션을 건너뛴 경우 다음 작업을 완료해야만 계속 진행할 수 있습니다.
 
@@ -264,4 +264,4 @@ GitHub 리포지토리 및 Azure DevOps 프로젝트를 삭제할 수도 있습�
 이 자습서에서는 Azure Resource Manager 템플릿을 배포하는 Azure DevOps 파이프라인을 만듭니다. 여러 지역에 Azure 리소스를 배포하는 방법 및 안전한 배포 사례를 사용하는 방법을 알아보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Deployment Manager 사용](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [안전한 배포 사례 사용](./deployment-manager-tutorial.md)

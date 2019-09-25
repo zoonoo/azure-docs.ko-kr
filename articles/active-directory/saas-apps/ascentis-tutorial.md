@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ed6c28491162a729f0e110e953f89dd72fe12ea
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 4fd6c18e3a3af763a2f4404e6b9c808e1bd8a4a5
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68002872"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129931"
 ---
 # <a name="tutorial-integrate-ascentis-with-azure-active-directory"></a>자습서: Azure Active Directory와 Ascentis 통합
 
@@ -29,7 +29,6 @@ ms.locfileid: "68002872"
 
 * Azure AD에서 Ascentis에 대한 액세스 권한이 있는 사용자를 제어합니다.
 * 사용자가 자신의 Azure AD 계정으로 Ascentis에 자동으로 로그온되도록 설정할 수 있습니다.
-* 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
