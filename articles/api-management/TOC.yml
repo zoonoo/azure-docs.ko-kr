@@ -49,6 +49,10 @@
           href: api-management-howto-policies.md
         - name: 정책 참조 인덱스
           href: api-management-policies.md
+    - name: 보안
+      items:
+        - name: 기본 제공 보안 컨트롤
+          href: api-management-security-controls.md
     - name: Subscriptions
       href: api-management-subscriptions.md
     - name: 자동화를 사용하여 관리
@@ -57,8 +61,6 @@
       href: api-management-error-handling-policies.md
     - name: API 가져오기 제한
       href: api-management-api-import-restrictions.md
-    - name: 기본 제공 보안 컨트롤
-      href: api-management-security-controls.md
 - name: 방법 가이드
   items:
     - name: API 정의

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 667d725653e9b668b18644e7d0c6d8f437e833ed
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 07b196b8e7081a6cce1ae87297528c1711b3b8bb
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570646"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259449"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>네트워크 보안 그룹에 대한 진단 로깅
 
@@ -88,7 +88,7 @@ Set-AzDiagnosticSetting `
   -Enabled $true
 ```
 
-둘 다가 아닌 하나의 범주에 대해 데이터를 기록하려는 경우 *NetworkSecurityGroupEvent* 또는 *NetworkSecurityGroupRuleCounter*가 뒤에 오는 이전 명령에 `-Categories` 옵션을 추가합니다. Log Analytics 작업 영역이 아닌 다른 [대상](#log-destinations)에 기록하려면 Azure [Storage 계정](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [이벤트 허브](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대한 적절한 매개 변수를 사용합니다.
+둘 다가 아닌 하나의 범주에 대해 데이터를 기록하려는 경우 *NetworkSecurityGroupEvent* 또는 *NetworkSecurityGroupRuleCounter*가 뒤에 오는 이전 명령에 `-Categories` 옵션을 추가합니다. Log Analytics 작업 영역이 아닌 다른 [대상](#log-destinations)에 기록하려면 Azure [Storage 계정](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [이벤트 허브](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대한 적절한 매개 변수를 사용합니다.
 
 로그를 보고 분석합니다. 자세한 내용은 [로그 보기 및 분석](#view-and-analyze-logs)을 참조하세요.
 
@@ -123,7 +123,7 @@ az monitor diagnostic-settings create \
 
 기존 작업 영역에 없는 경우 [Azure Portal](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace)을 사용하여 만들 수 있습니다. 로그를 활성화할 수 있는 두 가지 범주의 로깅이 있습니다.
 
-특정 범주에 대한 데이터만 로깅하려는 경우 이전 명령에서 데이터를 로깅하지 않으려는 범주를 제거합니다. Log Analytics 작업 영역이 아닌 다른 [대상](#log-destinations)에 기록하려면 Azure [Storage 계정](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [이벤트 허브](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대한 적절한 매개 변수를 사용합니다.
+특정 범주에 대한 데이터만 로깅하려는 경우 이전 명령에서 데이터를 로깅하지 않으려는 범주를 제거합니다. Log Analytics 작업 영역이 아닌 다른 [대상](#log-destinations)에 기록하려면 Azure [Storage 계정](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [이벤트 허브](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대한 적절한 매개 변수를 사용합니다.
 
 로그를 보고 분석합니다. 자세한 내용은 [로그 보기 및 분석](#view-and-analyze-logs)을 참조하세요.
 
@@ -131,8 +131,8 @@ az monitor diagnostic-settings create \
 
 진단 데이터는 다음 작업이 가능합니다.
 - 감사 또는 수동 검사를 위해 [Azure Storage 계정에 기록합니다](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 리소스 진단 설정을 사용하여 보존 기간(일)을 지정할 수 있습니다.
-- 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)에서 수집하도록 [Event Hub로 스트리밍합니다](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- [Azure Monitor 로그에 기록](../azure-monitor/platform/diagnostic-logs-stream-log-store.md?toc=%2fazure%2fvirtual-network%2ftoc.json)됩니다.
+- 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)에서 수집하도록 [Event Hub로 스트리밍합니다](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- [Azure Monitor 로그에 기록](../azure-monitor/platform/resource-logs-collect-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json)됩니다.
 
 ## <a name="log-categories"></a>로그 범주
 
@@ -198,7 +198,7 @@ JSON 형식의 데이터는 다음 로그 범주에 대해 기록됩니다.
 
 ## <a name="view-and-analyze-logs"></a>로그 보기 및 분석
 
-진단 로그 데이터를 보는 방법을 알아보려면 [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. 다음으로 진단 데이터를 보내는 경우:
+진단 로그 데이터를 보는 방법을 알아보려면 [Azure 진단 로그 개요](../azure-monitor/platform/resource-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. 다음으로 진단 데이터를 보내는 경우:
 - **Azure Monitor 로그**: 향상된 인사이트에 대해 [네트워크 보안 그룹 분석](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 ) 솔루션을 사용할 수 있습니다. 솔루션은 가상 머신에서 네트워크 인터페이스의 MAC 주소당 트래픽을 허용하거나 거부하는 NSG 규칙에 대한 시각화를 제공합니다.
 - **Azure Storage 계정**: PT1H.json 파일에 데이터가 기록됩니다. 다음을 찾을 수 있습니다.
@@ -207,7 +207,7 @@ JSON 형식의 데이터는 다음 로그 범주에 대해 기록됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 이전에 감사 또는 작업 로그로 알려진 [작업 로깅](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아봅니다. 활동 로깅은 Azure 배포 모델 중 하나를 통해 만든 NSG에 대해 기본적으로 사용됩니다. 활동 로그의 NSG 내에서 완료된 작업을 확인하려면 다음과 같은 리소스 유형을 포함하는 항목을 찾습니다.
+- 이전에 감사 또는 작업 로그로 알려진 [작업 로깅](../azure-monitor/platform/resource-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아봅니다. 활동 로깅은 Azure 배포 모델 중 하나를 통해 만든 NSG에 대해 기본적으로 사용됩니다. 활동 로그의 NSG 내에서 완료된 작업을 확인하려면 다음과 같은 리소스 유형을 포함하는 항목을 찾습니다.
   - Microsoft.ClassicNetwork/networkSecurityGroups
   - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
   - Microsoft.Network/networkSecurityGroups

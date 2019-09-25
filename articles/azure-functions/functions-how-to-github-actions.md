@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 2d97e46578775cd0d5612fb8d94680bb5be8080a
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 8e9e1189c3eb9de273926645ad0d4cfde5ba1c49
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174774"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260033"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>GitHub 작업을 사용 하 여 지속적인 배달
 
@@ -48,7 +48,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 ## <a name="configure-the-github-secret"></a>GitHub 암호 구성
 
-1. [GitHub](https://github/com)에서 리포지토리를 찾아보고 **설정** > **비밀** > **새 비밀 추가**를 선택 합니다.
+1. [GitHub](https://github.com)에서 리포지토리를 찾아보고 **설정** > **비밀** > **새 비밀 추가**를 선택 합니다.
 
     ![비밀 추가](media/functions-how-to-github-actions/add-secret.png)
 

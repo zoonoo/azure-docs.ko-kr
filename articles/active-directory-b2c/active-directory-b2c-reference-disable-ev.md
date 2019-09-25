@@ -1,38 +1,40 @@
 ---
-title: Azure Active Directory B2C에서 소비자 등록 중에 이메일 확인 사용 안 함 | Microsoft Docs
-description: Azure Active Directory B2C의 소비자 등록 중에 이메일 확인을 사용하지 않도록 설정하는 방법을 보여주는 토픽입니다.
+title: Azure Active Directory B2C에서 고객 등록 중에 전자 메일 확인 사용 안 함
+description: Azure Active Directory B2C에서 고객 등록 중에 전자 메일 확인을 사용 하지 않도록 설정 하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 09/25/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d827843bdbaff1ad95dce3318f39867abe8b2d0f
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 9a7adc04991dd4a472bdaf1aa47aacaf6cdeb190
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065632"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71256927"
 ---
-# <a name="disable-email-verification-during-consumer-sign-up-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 소비자 등록 중 이메일 확인 사용 안 함
-사용 하도록 설정 하면 Azure Active Directory B2C (Azure AD B2C)는 소비자에 게 전자 메일 주소를 제공 하 고 로컬 계정을 만들어 응용 프로그램에 등록할 수 있는 기능을 제공 합니다. Azure AD B2C는 등록 프로세스 중에 소비자에게 전자 메일 주소를 확인하도록 요구하여 전자 메일 주소의 유효성을 보장합니다. 또한 악의적인 자동화 프로세스를 통해 애플리케이션에 대한 가짜 계정이 생성되지 못하게 합니다.
+# <a name="disable-email-verification-during-customer-sign-up-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 고객 등록 중에 전자 메일 확인 사용 안 함
 
-일부 애플리케이션 개발자는 등록 프로세스 동안 전자 메일 확인을 건너뛰고 소비자에게 나중에 전자 메일 주소를 확인하도록 합니다. 이를 지원하는 경우 전자 메일 확인을 사용하지 않도록 Azure AD B2C를 구성할 수 있습니다. 이를 통해 등록 프로세스가 좀 더 원활해지고 개발자는 전자 메일 주소를 확인한 소비자와 아직 전자 메일 주소를 확인하지 않은 소비자를 구분할 수 있습니다.
+기본적으로 Azure Active Directory B2C (Azure AD B2C)는 로컬 계정 (메일 주소 또는 사용자 이름을 사용 하 여 등록 하는 사용자 계정)에 대해 고객의 전자 메일 주소를 확인 합니다. Azure AD B2C는 등록 프로세스 중에 고객이 해당 주소를 확인 하도록 요구 하 여 유효한 전자 메일 주소를 확인 합니다. 또한 악의적인 행위자가 자동화 된 프로세스를 사용 하 여 응용 프로그램에서 사기성 계정을 생성 하지 못하도록 방지 합니다.
 
-기본적으로 가입 사용자 흐름에는 이메일 확인 기능이 켜져 있습니다. 해제하려면 다음 단계를 사용합니다.
+일부 응용 프로그램 개발자는 등록 프로세스 중에 전자 메일 확인을 건너뛰고 나중에 고객이 전자 메일 주소를 확인 하는 것을 선호 합니다. 이를 지원하는 경우 전자 메일 확인을 사용하지 않도록 Azure AD B2C를 구성할 수 있습니다. 이렇게 하면 보다 원활한 등록 프로세스가 만들어지고 개발자에 게는 없는 고객의 전자 메일 주소를 확인 한 고객을 구분할 수 있는 유연성이 제공 됩니다.
 
-1. **사용자 흐름**을 클릭합니다.
-2. 사용자 흐름(예: "B2C_1_SiUp")을 클릭하여 엽니다.
-3. **페이지 레이아웃**을 클릭합니다.
-4. **로컬 계정 등록 페이지**를 클릭합니다.
-5. **사용자 특성** 섹션의 **이름** 열에 있는 **이메일 주소**를 클릭합니다.
-6. **확인 필요** 아래에서 **아니요**를 선택합니다.
-7. 블레이드 위쪽에서 **저장**을 클릭합니다. 완료되었습니다!
+전자 메일 확인을 사용 하지 않도록 설정 하려면 다음 단계를 따르세요.
 
-> [!NOTE]
-> 등록 프로세스에서 전자 메일 확인을 사용하지 않도록 설정하면 스팸 메일이 수신될 수 있습니다. 기본 기능을 사용하지 않도록 설정하는 경우에는 자체 확인 시스템을 추가하는 것이 좋습니다.
->
->
+1. [Azure 포털](https://portal.azure.com)
+1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 사용 하 여 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 선택 합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택 합니다. 또는 **모든 서비스** 를 선택 하 고 **Azure AD B2C**을 검색 하 고 선택 합니다.
+1. **사용자 흐름**을 선택합니다.
+1. 전자 메일 확인을 사용 하지 않도록 설정할 사용자 흐름을 선택 합니다. 예를 들면 *B2C_1_signinsignup*입니다.
+1. **페이지 레이아웃**을 선택 합니다.
+1. **로컬 계정 등록 페이지**를 선택 합니다.
+1. **사용자 특성**에서 **전자 메일 주소**를 선택 합니다.
+1. **확인 필요** 드롭다운 아래에서 **아니요**를 선택 합니다.
+1. **저장**을 선택합니다. 이제이 사용자 흐름에 대해 메일 확인을 사용할 수 없습니다.
+
+> [!WARNING]
+> 등록 프로세스에서 전자 메일 확인을 사용하지 않도록 설정하면 스팸 메일이 수신될 수 있습니다. 기본 Azure AD B2C 제공 전자 메일 확인을 사용 하지 않도록 설정 하는 경우 대체 확인 시스템을 구현 하는 것이 좋습니다.

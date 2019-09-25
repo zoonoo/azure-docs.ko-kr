@@ -7,15 +7,7 @@
 - name: VM 확장 설명서
   href: extensions/overview.md
 - name: 워크로드
-  items:
-    - name: Oracle
-      href: workloads/oracle/oracle-considerations.md
-    - name: SAP
-      href: workloads/sap/get-started.md
-    - name: 고성능 컴퓨팅
-      href: workloads/hpc/overview.md
-    - name: 메인프레임 재호스팅
-      href: workloads/mainframe-rehosting/overview.md
+  href: ./workloads/workloads.md
 - name: 클래식 배포
   items:
     - name: 클래식 배포를 사용하는 Linux VM

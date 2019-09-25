@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d4a3eae9ea3931ceb720785bbf458f54689be6e
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: e6cfc18f01bb23d0b318ac1b924cf8cbb9f7a2b6
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213511"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259988"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화 된 ML 실험 구성
 
@@ -69,8 +69,10 @@ automl_config = AutoMLConfig(task="classification")
 ```
 
 ## <a name="data-source-and-format"></a>데이터 원본 및 형식
+
 자동화된 Machine Learning은 로컬 데스크톱 또는 Azure Blob Storage와 같은 클라우드의 데이터를 지원합니다. 데이터는 scikit-learn 지원 데이터 형식으로 읽을 수 있습니다. 데이터를
-* Numpy 배열 X(기능) 및 y(대상 변수 또는 레이블이라고도 함)로 읽을 수 있습니다.
+
+* Numpy array X (기능) 및 y (대상 변수, 레이블 라고도 함)
 * pandas 데이터 프레임
 
 >[!Important]
@@ -93,55 +95,25 @@ automl_config = AutoMLConfig(task="classification")
     ```python
     import pandas as pd
     from sklearn.model_selection import train_test_split
+
     df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
-    # get integer labels
-    y = df["Label"]
-    df = df.drop(["Label"], axis=1)
-    df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
+    y_df = df["Label"]
+    x_df = df.drop(["Label"], axis=1)
+    x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.1, random_state=42)
     ```
 
 ## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>원격 컴퓨팅에서 실험을 실행하기 위한 데이터 가져오기
 
-원격 실행의 경우 원격 계산에서 데이터에 액세스할 수 있도록 해야 합니다. 데이터 저장소에 데이터를 업로드 하 여이 작업을 수행할 수 있습니다.
+원격 실행의 경우 원격 계산에서 학습 데이터에 액세스할 수 있어야 합니다. SDK의 [`Datasets`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) 클래스는 다음과 같은 기능을 제공 합니다.
 
-을 사용 하 `datastore`는 예제는 다음과 같습니다.
+* 정적 파일 또는 URL 원본에서 작업 영역으로 데이터를 쉽게 전송
+* 클라우드 계산 리소스에서 실행 되는 경우 학습 스크립트에서 데이터를 사용할 수 있도록 설정
 
-```python
-    import pandas as pd
-    from sklearn import datasets
-
-    data_train = datasets.load_digits()
-
-    pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
-    pd.DataFrame(data_train.target[100:]).to_csv("data/y_train.csv", index=False)
-
-    ds = ws.get_default_datastore()
-    ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
-```
-
-### <a name="define-dprep-references"></a>참조 정의
-
-아래와 유사한 자동화 된 machine learning `AutoMLConfig` 개체로 전달 되는 d 및 y를 eprep 참조로 정의 합니다.
-
-```python
-
-    X = dprep.auto_read_file(path=ds.path('digitsdata/X_train.csv'))
-    y = dprep.auto_read_file(path=ds.path('digitsdata/y_train.csv'))
-
-
-    automl_config = AutoMLConfig(task = 'classification',
-                                 debug_log = 'automl_errors.log',
-                                 path = project_folder,
-                                 run_configuration=conda_run_config,
-                                 X = X,
-                                 y = y,
-                                 **automl_settings
-                                )
-```
+클래스를 `Dataset` 사용 하 여 계산 대상에 데이터를 탑재 하는 방법에 대 한 예제는 [방법을](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) 참조 하세요.
 
 ## <a name="train-and-validation-data"></a>데이터 학습 및 유효성 검사
 
-`AutoMLConfig` 메서드에서 직접 별도의 학습 및 유효성 검사 집합을 지정할 수 있습니다.
+`AutoMLConfig` 생성자에서 직접 학습 및 유효성 검사 집합을 별도로 지정할 수 있습니다.
 
 ### <a name="k-folds-cross-validation"></a>K 접기 교차 유효성 검사
 
@@ -175,7 +147,7 @@ Azure Databricks 있는 노트북 예는 [GitHub 사이트](https://github.com/A
 
 일부 사례:
 
-1.  반복당 최대 시간이 12,000초인 기본 메트릭으로 가중된 AUC를 사용하는 분류 실험이며, 이 실험은 50회 반복 및 2회 교차 유효성 검사 접기 후에 종료됩니다.
+1.  모든 반복이 12000 초 후에 종료 되 고 2 개의 교차 유효성 검사 접기 50 후에는 실험을 사용 하 여, CC 가중치를 사용 하는 기본 메트릭으로 사용 되는 분류 실험.
 
     ```python
     automl_classifier = AutoMLConfig(
@@ -202,12 +174,10 @@ Azure Databricks 있는 노트북 예는 [GitHub 사이트](https://github.com/A
         n_cross_validations=5)
     ```
 
-세 가지 다른 `task` 매개 변수 값에 따라 적용할 모델 목록이 결정 됩니다.  포함 하거나 제외할 `blacklist` 사용 가능한 모델로 반복을 수정 하려면 또는매개변수를사용합니다.`whitelist` 지원 되는 모델 목록은 [Supportedmodels 클래스](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py)에서 찾을 수 있습니다.
+세 가지 다른 `task` 매개 변수 값 (세 번째 작업 유형은 이며 `forecasting` `regression` 작업과 동일한 알고리즘 풀을 사용)은 적용할 모델 목록을 결정 합니다. 포함 하거나 제외할 `blacklist` 사용 가능한 모델로 반복을 수정 하려면 또는매개변수를사용합니다.`whitelist` 지원 되는 모델 목록은 [Supportedmodels 클래스](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py)에서 찾을 수 있습니다.
 
 ### <a name="primary-metric"></a>기본 메트릭
-기본 메트릭 위의 예제에 나와 있는 것 처럼 최적화를 위해 모델 학습 중에 사용할 메트릭을 결정 합니다. 선택할 수 있는 기본 메트릭은 선택한 작업 유형에 따라 결정 됩니다. 다음은 사용 가능한 메트릭의 목록입니다.
-
-[자동화 된 기계 학습 결과 이해](how-to-understand-automated-ml.md)에서 이러한 정의에 대해 알아봅니다.
+기본 메트릭은 최적화를 위해 모델 학습 중에 사용할 메트릭을 결정 합니다. 선택할 수 있는 메트릭은 선택한 작업 유형에 따라 결정 되며, 다음 표에서는 각 작업 유형에 대 한 유효한 기본 메트릭을 보여 줍니다.
 
 |분류 | 회귀 | 시계열 예측
 |-- |-- |--
@@ -217,9 +187,11 @@ Azure Databricks 있는 노트북 예는 [GitHub 사이트](https://github.com/A
 |norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
 |precision_score_weighted |
 
+[자동화 된 기계 학습 결과 이해](how-to-understand-automated-ml.md)에서 이러한 정의에 대해 알아봅니다.
+
 ### <a name="data-preprocessing--featurization"></a>데이터 전처리 & 기능화
 
-자동화 된 모든 기계 학습 실험에서 데이터의 [크기를 자동으로 조정 하 고](concept-automated-ml.md#preprocess) 알고리즘을 통해 알고리즘을 효율적으로 수행할 수 있습니다.  그러나 누락 값 대체, 인코딩 및 변환과 같은 추가 전처리/기능화을 사용할 수도 있습니다. [기능화 포함 된 항목에 대해 자세히 알아보세요](how-to-create-portal-experiments.md#preprocess).
+자동화 된 모든 기계 학습 실험에서 데이터의 [크기를 자동으로 조정 하 고 표준화](concept-automated-ml.md#preprocess) 하 여 다양 한 규모의 기능에 영향을 주는 *특정* 알고리즘을 지원 합니다.  그러나 누락 값 대체, 인코딩 및 변환과 같은 추가 전처리/기능화을 사용할 수도 있습니다. [기능화 포함 된 항목에 대해 자세히 알아보세요](how-to-create-portal-experiments.md#preprocess).
 
 이 기능화를 사용 하도록 설정 `"preprocess": True` 하려면 [ `AutoMLConfig` 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)에 대해를 지정 합니다.
 
@@ -227,12 +199,13 @@ Azure Databricks 있는 노트북 예는 [GitHub 사이트](https://github.com/A
 > 자동화된 기계 학습 사전 처리 단계(기능 정규화, 누락된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용하는 경우 학습 중에 적용되는 동일한 전처리 단계가 입력 데이터에 자동으로 적용됩니다.
 
 ### <a name="time-series-forecasting"></a>시계열 예측
-시계열 예측 작업 유형에는 정의할 추가 매개 변수가 있습니다.
-1. time_column_name-날짜/시간 계열을 포함 하는 학습 데이터의 열 이름을 정의 하는 필수 매개 변수입니다.
-1. max_horizon-학습 데이터의 주기를 기준으로 예측 하려는 시간을 정의 합니다. 예를 들어 일일 시간 조직 학습 데이터가 있는 경우 모델을 학습 하는 데 사용할 일 수를 정의 합니다.
-1. grain_column_names-학습 데이터의 개별 시계열 데이터를 포함 하는 열의 이름을 정의 합니다. 예를 들어 매장에서 특정 브랜드의 판매를 예측 하는 경우 매장 및 브랜드 열을 그레인 열로 정의 합니다.
+`forecasting` 시계열 작업에는 구성 개체의 추가 매개 변수가 필요 합니다.
 
-아래에서 사용 되는 이러한 설정의 예를 참조 하세요. 노트북 예는 [여기](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)에서 제공 됩니다.
+1. `time_column_name`: 유효한 시계열을 포함 하는 학습 데이터의 열 이름을 정의 하는 필수 매개 변수입니다.
+1. `max_horizon`: 학습 데이터의 주기를 기준으로 예측 하려는 시간을 정의 합니다. 예를 들어 일일 시간 조직 학습 데이터가 있는 경우 모델을 학습 하는 데 사용할 일 수를 정의 합니다.
+1. `grain_column_names`: 학습 데이터의 개별 시계열 데이터를 포함 하는 열의 이름을 정의 합니다. 예를 들어 매장에서 특정 브랜드의 판매를 예측 하는 경우 매장 및 브랜드 열을 그레인 열로 정의 합니다. 각 수준/그룹화에 대해 별도의 시간 계열 및 예측이 생성 됩니다. 
+
+아래 사용 되는 설정의 예제는 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)을 참조 하세요.
 
 ```python
 # Setting Store and Brand as grains for training.
@@ -341,11 +314,11 @@ run = experiment.submit(automl_config, show_output=True)
 >`show_output`을 `True`로 설정하면 출력이 콘솔에 표시됩니다.
 
 ### <a name="exit-criteria"></a>종료 조건
-실험을 완료 하기 위해 정의할 수 있는 몇 가지 옵션이 있습니다.
-1. 조건 없음-종료 매개 변수를 정의 하지 않으면 기본 메트릭에 대 한 추가 진행률이 표시 되지 않을 때까지 실험을 계속 합니다.
-1. 반복 횟수-실험에서 실행할 반복 횟수를 정의 합니다. 선택적으로 iteration_timeout_minutes를 추가 하 여 각 반복 당 시간 제한 (분)을 정의할 수 있습니다.
-1. 시간이 지난 후 종료-설정에서 experiment_timeout_minutes를 사용 하 여 실험 실행을 계속할 시간 (분)을 정의할 수 있습니다.
-1. 점수를 받은 후 종료-experiment_exit_score를 사용 하 여 기본 메트릭에 기반 하는 점수에 도달한 후 실험을 완료 하도록 선택할 수 있습니다.
+실험을 종료 하기 위해 정의할 수 있는 몇 가지 옵션이 있습니다.
+1. 조건 없음: 종료 매개 변수를 정의 하지 않으면 기본 메트릭에 대 한 추가 진행률이 표시 되지 않을 때까지 실험을 계속 합니다.
+1. 반복 횟수: 실험을 실행 하는 반복 횟수를 정의 합니다. 필요에 따라를 `iteration_timeout_minutes` 추가 하 여 각 반복 당 시간 제한 (분)을 정의할 수 있습니다.
+1. 다음 기간 후 종료: 설정 `experiment_timeout_minutes` 에서를 사용 하면 실험을 계속 실행 하는 데 걸리는 시간 (분)을 정의할 수 있습니다.
+1. 점수에 도달한 후 종료: 기본 `experiment_exit_score` 메트릭 점수에 도달한 후에는를 사용 하 여 실험을 완료 합니다.
 
 ### <a name="explore-model-metrics"></a>모델 메트릭 탐색
 
