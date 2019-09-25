@@ -74,7 +74,7 @@ API에 대한 자세한 내용은 [생산자 API](https://kafka.apache.org/docum
 
 ### <a name="producerjava"></a>Producer.java
 
-생산자는 Kafka broker 호스트(작업자 노드)와 통신하고 Kafka 토픽에 데이터를 보냅니다. 다음 코드 조각은 [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) 파일 및 [GitHub 리포지토리](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)에서 가져온 것이며 프로시저 속성을 설정하는 방법을 보여줍니다.
+생산자는 Kafka broker 호스트(작업자 노드)와 통신하고 Kafka 토픽에 데이터를 보냅니다. 다음 코드 조각은 [GitHub 리포지토리](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)의 [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) 파일에서 가져온 것이며 프로시저 속성을 설정하는 방법을 보여줍니다.
 
 ```java
 Properties properties = new Properties();

@@ -110,6 +110,17 @@
         - name: 배포 단계
           displayName: 'standards, Payment Card Industry Data Security Standard'
           href: ./samples/pci-dss-3.2.1/deploy.md
+    - name: SWIFT CSP v2020
+      items:
+        - name: 개요
+          displayName: 'standards, SWIFT CSP-CSCF v2020'
+          href: ./samples/swift-2020/index.md
+        - name: 컨트롤 매핑
+          displayName: 'standards, SWIFT CSP-CSCF v2020'
+          href: ./samples/swift-2020/control-mapping.md
+        - name: 배포 단계
+          displayName: 'standards, SWIFT CSP-CSCF v2020'
+          href: ./samples/swift-2020/deploy.md
     - name: 영국 공식 및 영국 NHS
       items:
         - name: 개요

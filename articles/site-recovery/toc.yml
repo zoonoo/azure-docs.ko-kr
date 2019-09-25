@@ -425,7 +425,7 @@
       href: hyper-v-azure-powershell-resource-manager.md
     - name: PowerShell을 사용하여 Azure로 Hyper-V VM(VMM 포함)의 재해 복구 설정
       href: hyper-v-vmm-powershell-resource-manager.md
-    - name: 장애 조치(failover)를 오케스트레이션하려면 복구 계획에 Azure Automation Runbook 추가
+    - name: 복구 계획에 Azure Automation Runbook 추가
       href: site-recovery-runbook-automation.md
 - name: 모니터링
   items:

@@ -46,10 +46,96 @@
       href: tutorial-secure-web-server.md
 - name: 샘플
   items:
-    - name: PowerShell
+    - name: PowerShell 인덱스
       href: powershell-samples.md
-    - name: Azure CLI
+    - name: PowerShell
+      items:
+        - name: 생성
+          items:
+            - name: 빨리 만들기
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md
+            - name: 완전히 구성된 VM
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm.md
+            - name: 고가용성 VM
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md
+            - name: 사용자 지정 스크립트 예제
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md
+            - name: DSC 사용
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc.md
+            - name: VHD 업로드에서 VM 만들기
+              href: ./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md
+            - name: OS 디스크 연결
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md
+            - name: 스냅샷에서 VM 만들기
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md
+        - name: 스토리지 관리
+          items:
+            - name: VHD에서 관리 디스크 만들기
+              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md
+            - name: 스냅샷에서 관리 디스크 만들기
+              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md
+            - name: 관리 디스크 복사
+              href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
+            - name: 스냅샷을 VHD로 스토리지 계정에 내보내기
+              href: ../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md
+            - name: 관리 디스크의 VHD를 스토리지 계정에 내보내기
+              href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md
+            - name: VHD에서 스냅샷 만들기
+              href: ../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md
+            - name: 스냅샷 복사
+              href: ../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
+        - name: 보안
+          items:
+            - name: VM 및 해당 데이터 디스크 암호화
+              href: ./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?
+        - name: 모니터
+          items:
+            - name: Azure Monitor
+              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md
+            - name: 구독의 모든 VM에 대한 세부 정보 수집
+              href: ../scripts/virtual-machines-powershell-sample-collect-vm-details.md
+    - name: Azure CLI 인덱스
       href: cli-samples.md
+    - name: CLI
+      items:
+        - name: 생성
+          items:
+            - name: 빨리 만들기
+              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-quick-create.md
+            - name: 완전히 구성된 VM
+              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm.md
+            - name: 고가용성 VM
+              href: ./../scripts/virtual-machines-windows-cli-sample-nlb.md
+            - name: 사용자 지정 스크립트 예제
+              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-iis.md
+            - name: DSC 구성 사용
+              href: ./../scripts/virtual-machines-windows-cli-sample-create-iis-using-dsc.md
+        - name: 스토리지 관리
+          items:
+            - name: VHD에서 관리 디스크 만들기
+              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md
+            - name: 스냅샷에서 관리 디스크 만들기
+              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md
+            - name: 관리 디스크 복사
+              href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
+            - name: 스냅샷을 VHD로 스토리지 계정에 내보내기
+              href: ../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md
+            - name: 관리 디스크의 VHD를 스토리지 계정에 내보내기
+              href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md
+            - name: 스냅샷 복사
+              href: ../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-same-or-different-subscription.md
+        - name: 네트워크
+          items:
+            - name: VM 간의 네트워크 트래픽 보안
+              href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md
+        - name: 보안
+          items:
+            - name: VM 및 데이터 디스크 암호화
+              href: ./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md
+            - name: 모니터
+              items:
+                - name: Azure Monitor
+                  href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
 - name: 개념
   items:
     - name: Azure 리소스 관리자
@@ -388,6 +474,8 @@
           href: expand-os-disk.md
         - name: 디스크 스냅샷
           href: snapshot-copy-managed-disk.md
+        - name: 증분 스냅샷 만들기
+          href: disks-incremental-snapshots.md
         - name: 관리되지 않는 디스크 백업
           href: incremental-snapshots.md
         - name: 마이그레이션 및 변환

@@ -227,6 +227,10 @@
           href: spark-api-introduction.md
         - name: 람다 아키텍처
           href: lambda-architecture.md
+    - name: Jupyter Notebook을 사용하는 기본 제공 분석
+      items:
+        - name: Jupyter Notebook 개요
+          href: cosmosdb-jupyter-notebooks.md
     - name: 서버 쪽 프로그래밍
       items:
         - name: '저장 프로시저, 트리거 및 UDF'
@@ -675,6 +679,10 @@
         - name: Apache Kafka 및 Cosmos DB를 사용하는 스트리밍
           href: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
           maintainContext: true
+    - name: 기본 제공 Jupyter Notebook
+      items:
+        - name: Notebook 사용
+          href: enable-notebooks.md
     - name: 서버 쪽 프로그래밍
       items:
         - name: '저장 프로시저, 트리거 및 UDF 작성'

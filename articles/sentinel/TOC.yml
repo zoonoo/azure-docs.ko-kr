@@ -1,4 +1,4 @@
-- name: Azure Sentinel Preview 설명서
+- name: Azure Sentinel 설명서
   href: index.yml
 - name: 개요
   href: overview.md
@@ -11,12 +11,22 @@
       href: quickstart-get-visibility.md
 - name: 자습서
   items:
-    - name: 의심스러운 위협 검색
-      href: tutorial-detect-threats.md
+    - name: 기본 제공 분석을 사용하여 위협 탐지
+      href: tutorial-detect-threats-built-in.md
+    - name: 위협을 탐지하는 사용자 지정 규칙 만들기
+      href: tutorial-detect-threats-custom.md
+    - name: 데이터 모니터링
+      href: tutorial-monitor-your-data.md
     - name: 인시던트 조사
       href: tutorial-investigate-cases.md
     - name: 위협에 대응
       href: tutorial-respond-threats-playbook.md
+- name: 개념
+  items:
+    - name: 역할을 사용하여 권한 할당
+      href: roles.md
+    - name: 고급 다단계 공격 탐지
+      href: fusion.md
 - name: 방법 가이드
   items:
     - name: 데이터 원본 연결
@@ -74,6 +84,10 @@
           href: connect-threat-intelligence.md
         - name: Azure Stack VM 연결
           href: connect-azure-stack.md
+    - name: 다중 테넌트(MSSP)
+      href: multiple-tenants-service-providers.md
+    - name: 경고에서 인시던트 만들기
+      href: create-incidents-from-alerts.md
     - name: 사냥
       href: hunting.md
       items:
@@ -81,8 +95,8 @@
           href: notebooks.md
         - name: 사냥에 책갈피 사용
           href: bookmarks.md
-    - name: 퓨전 사용
-      href: connect-fusion.md
+    - name: Azure Sentinel 제거
+      href: offboard.md
 - name: 리소스
   items:
     - name: 유용한 리소스

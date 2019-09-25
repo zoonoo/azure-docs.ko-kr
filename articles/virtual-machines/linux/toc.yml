@@ -476,6 +476,8 @@
           href: expand-disks.md
         - name: 디스크 스냅샷
           href: snapshot-copy-managed-disk.md
+        - name: 증분 스냅샷 만들기
+          href: disks-incremental-snapshots.md
         - name: 관리되지 않는 디스크 백업
           href: incremental-snapshots.md
         - name: 마이그레이션 및 변환

@@ -5,15 +5,15 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 09/04/2019
+ms.date: 09/24/2019
 ms.author: dacoulte
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ea2c56e35741a49d057f2261f7b53fb754a43f8b
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: d54d60728b9ad0cc72a6cbc81b380b2511d732a8
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967996"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219815"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 
@@ -31,6 +31,7 @@ ms.locfileid: "70967996"
 | [ISO 27001 App Service Environment/SQL Database 워크로드](./iso27001-ase-sql-workload/index.md) | [ISO 27001 Shared Services](./iso27001-shared/index.md) 청사진 샘플에 추가 인프라를 제공합니다. |
 | [NIST SP 800-53 R4](./nist-sp-800-53-rev4/index.md) | NIST SP 800-53 R4 규정 준수를 위한 가드레일을 제공합니다. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | PCI-SS v3.2.1 규정 준수를 위한 일련의 정책을 제공합니다. |
+| [SWIFT CSP-CSCF v2020](./swift-2020/index.md) | SWIFT CSP-CSCF v2020 규정 준수를 지원합니다. |
 | [영국 공식 및 영국 NHS 거버넌스](./ukofficial/index.md) | 영국 공식 및 영국 NHS 증명에 도움이 되는 일련의 호환 인프라 패턴 및 정책 가드 레일을 제공합니다. |
 | [CAF Foundation](./caf-foundation/index.md) | [Azure에 대한 Microsoft CAF(클라우드 채택 프레임워크)](/azure/architecture/cloud-adoption/governance/journeys/index)와 연계하여 클라우드 자산을 관리하는 데 도움이 되는 컨트롤 세트를 제공합니다. |
 | [CAF Migrate 방문 영역](./caf-migrate-landing-zone/index.md) | 첫 번째 워크로드 마이그레이션을 설정하고 [Azure에 대한 Microsoft CAF(클라우드 채택 프레임워크)](/azure/architecture/cloud-adoption/migrate/index)와 연계하여 클라우드 자산을 관리하는 데 도움이 되는 컨트롤 세트를 제공합니다. |
