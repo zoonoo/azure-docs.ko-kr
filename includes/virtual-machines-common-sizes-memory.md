@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: dce7cc2cd8e97eef81023eb803cace3f6d011171
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 18a19f5f853206b06c617307c761a99033c9f92a
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "70174643"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266928"
 ---
 메모리 최적화 VM 크기는 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합한 높은 메모리 대 CPU 비율을 제공합니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 
 * Ev3 시리즈는 하이퍼 스레드 구성에서 E5-2673 v4 2.3GHz(Broadwell) 프로세서를 사용하며, 대부분의 범용 워크로드에 대해 더 나은 가치를 제공하고 Ev3을 다른 대부분 클라우드의 범용 VM과 맞춥니다.  하이퍼 스레딩으로 이동하기 위해 디스크 및 네트워크 제한이 코어 단위로 조정되는 동안 메모리가 확장되었습니다(7GiB/vCPU에서 8GiB/vCPU로).  Ev3는 D/Dv2 제품군의 상위 메모리 VM 크기에 대한 후속 시리즈입니다.
 
-* Eav3 시리즈 및 Easv3 시리즈는 최대 256MB L3 캐시가 포함 된 다중 스레드 구성에서 AMD의 2.35 Ghz EPYC<sup>TM</sup> 7452v 프로세서를 활용 하 여 대부분의 메모리 액세스에 최적화 된 워크 로드를 실행 하는 옵션을 늘립니다.  Eav3 시리즈와 Easv3 시리즈는 Ev3 & Esv3 시리즈와 동일한 메모리 및 디스크 구성을 포함 합니다.
+* Eav3 시리즈 및 Easv3 시리즈의 미리 보기 크기는 최대 256MB L3 캐시가 포함 된 다중 스레드 구성에서 AMD의 2.35 Ghz EPYC<sup>TM</sup> 7452 프로세서를 활용 하 여 대부분의 메모리 액세스에 최적화 된 워크 로드를 실행 하기 위한 옵션을 늘립니다.  Eav3 시리즈와 Easv3 시리즈는 Ev3 & Esv3 시리즈와 동일한 메모리 및 디스크 구성을 포함 합니다.
 
 * Mv2 시리즈는 클라우드에서 VM의 가장 높은 vCPU 수 (최대 208 Vcpu) 및 가장 큰 메모리 (최대 5.7 TiB)를 제공 합니다. 높은 vCPU 개수 및 많은 양의 메모리를 활용하는 매우 큰 데이터베이스 또는 다른 애플리케이션에 이상적입니다.
 
@@ -61,13 +61,15 @@ ESv3 시리즈 인스턴스는 2.3GHz Intel XEON® E5-2673 v4(Broadwell) 프로�
 
 <sup>3</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 
-## <a name="easv3-series"></a>Easv3 시리즈
+## <a name="easv3-series-preview"></a>Easv3 시리즈 (미리 보기)
 
 Premium Storage: 지원됨
 
 Premium Storage 캐싱: 지원됨
 
-Easv3 시리즈 크기는 3.35 GHz의 승격 된 Fmax를 실현 하 고 premium storage를 사용할 수 있는 2.35 Ghz AMD EPYC<sup>TM</sup> 7452v 프로세서를 기반으로 합니다. Easv3 시리즈 크기는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다.
+Easv3 시리즈 크기는 3.35 GHz의 승격 된 Fmax를 실현 하 고 premium storage를 사용할 수 있는 2.35 Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 합니다. Easv3 시리즈 크기는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다.
+
+[미리 보기에 등록 하려면 여기를 클릭](http://aka.ms/azureamdpreview)하세요.
 
 | Size | vCPU | 메모리: GiB | 임시 저장소 (SSD): GiB |
 |---|---|---|---|
@@ -110,23 +112,25 @@ Ev3 시리즈 인스턴스는 2.3GHz Intel XEON® E5-2673 v4(Broadwell) 프로�
 
 <sup>3</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 
-## <a name="eav3-series"></a>Eav3 시리즈
+## <a name="eav3-series-preview"></a>Eav3 시리즈 (미리 보기)
 
 Premium Storage: 지원되지 않음
 
 Premium Storage 캐싱: 지원되지 않음
 
-Eav3 시리즈 크기는 3.35 GHz의 승격 된 Fmax를 실현 하 고 premium storage를 사용할 수 있는 2.35 Ghz AMD EPYC<sup>TM</sup> 7452v 프로세서를 기반으로 합니다. Eav3 시리즈 크기는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다. 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. Premium storage 디스크를 사용 하려면 Easv3 시리즈 크기를 사용 합니다. Easv3 크기에 대 한 가격 책정 및 요금 청구 기준은 Eav3 시리즈와 동일 합니다.
+Eav3 시리즈 크기는 3.35 GHz의 승격 된 Fmax를 실현 하 고 premium storage를 사용할 수 있는 2.35 Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 합니다. Eav3 시리즈 크기는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다. 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. Premium storage 디스크를 사용 하려면 Easv3 시리즈 크기를 사용 합니다. Easv3 크기에 대 한 가격 책정 및 요금 청구 기준은 Eav3 시리즈와 동일 합니다.
 
-| Size | vCPU | 메모리: GiB | 임시 저장소 (SSD): GiB |
-|---|---|---|---|---|---|
-| Standard_E2a_v3  | 2  | 16  | 50   |
-| Standard_E4a_v3  | 4  | 32  | 100  |
-| Standard_E8a_v3  | 8  | 64  | 200  |
-| Standard_E16a_v3 | 16 | 128 | 400  |
-| Standard_E32a_v3 | 32 | 256 | 800  |
-| Standard_E48a_v3 | 48 | 384 | 1200 |
-| Standard_E64a_v3 | 64 | 432 | 1600 |
+[미리 보기에 등록 하려면 여기를 클릭](http://aka.ms/azureamdpreview)하세요.
+
+| Size             | vCPU | 메모리: GiB | 임시 저장소 (SSD): GiB |
+|------------------|------|-------------|-------------------------|
+| Standard_E2a_v3  | 2    | 16          | 50                      |
+| Standard_E4a_v3  | 4    | 32          | 100                     |
+| Standard_E8a_v3  | 8    | 64          | 200                     |
+| Standard_E16a_v3 | 16   | 128         | 400                     |
+| Standard_E32a_v3 | 32   | 256         | 800                     |
+| Standard_E48a_v3 | 48   | 384         | 1200                    |
+| Standard_E64a_v3 | 64   | 432         | 1600                    |
 
 ## <a name="mv2-series"></a>Mv2 시리즈
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/04/2019
+ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: ead314e4c889b79892857eb07ecdd63377131b12
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 21c7220fe10537f56ac7d935f576aa9dac57f64f
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376345"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261943"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-c"></a>빠른 시작: C#을 사용하여 기술 자료에서 질문에 대한 답변 얻기
 
@@ -49,13 +49,13 @@ Program.cs 파일의 맨 위에서 단일 using 문을 다음 줄로 바꾸어 �
 
 `Program` 클래스의 맨 위, `Main` 내부 QnA Maker에 액세스하기 위한 필수 상수를 추가합니다. 이러한 값은 기술 자료를 게시한 후 **게시** 페이지에 표시됩니다. 
 
-[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=14-30 "Add the required constants")]
+[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=9-41 "Add the required constants")]
 
 ## <a name="add-a-post-request-to-send-question-and-get-answer"></a>질문을 보내고 답변을 가져오기 위한 POST 요청 추가
 
 다음 코드에서는 기술 자료로 질문을 보내기 위한 QnA Maker API에 대한 HTTPS 요청을 수행한 후 답변을 수신합니다.
 
-[!code-csharp[Add a POST request to send question to knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=32-57 "Add a POST request to send question to knowledge base")]
+[!code-csharp[Add a POST request to send question to knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=43-76 "Add a POST request to send question to knowledge base")]
 
 `Authorization` 헤더의 값에는 문자열 `EndpointKey`가 포함됩니다. 
 

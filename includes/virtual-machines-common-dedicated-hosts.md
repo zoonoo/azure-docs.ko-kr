@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: a627592bdfcbebc3c7fcda911e31c0ae6f4a630f
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: d27b3613acb2980ff4116825197d018f9c183baa
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976656"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266860"
 ---
 ## <a name="benefits"></a>이점 
 
@@ -113,6 +113,6 @@ Azure는 호스트의 상태를 모니터링 하 고 관리 합니다. 호스트
 |----------|----------------|
 | 호스트 사용 가능     | 호스트와 관련 하 여 알려진 문제가 없습니다.   |
 | 확인 중인 호스트  | Microsoft에서 찾고 있는 호스트에 몇 가지 문제가 있습니다. 이는 Azure에서 식별 된 문제의 범위 및 근본 원인을 파악 하는 데 필요한 전환 상태입니다. 호스트에서 실행 중인 가상 컴퓨터에 영향을 줄 수 있습니다. |
-| 호스트 보류 할당 취소   | Azure에서 호스트를 다시 정상 상태로 복원할 수 없으며이 호스트에서 가상 컴퓨터를 다시 배포 하 라는 메시지가 표시 됩니다. 을 `autoHealingOnFailure` 사용 하는 경우 가상 머신은 정상 하드웨어로 *서비스를 치료* 합니다. 그렇지 않으면 가상 컴퓨터가 실패 하는 호스트에서 실행 중일 수 있습니다.|
-| 호스트 할당 취소  | 모든 가상 머신이 호스트에서 제거 되었습니다. 하드웨어 회전이 중단 되었으므로 더 이상이 호스트에 대 한 요금이 청구 되지 않습니다.   |
+| 호스트 보류 할당 취소   | Azure에서 호스트를 다시 정상 상태로 복원할 수 없으며이 호스트에서 가상 컴퓨터를 다시 배포 하 라는 메시지가 표시 됩니다. 을 `autoReplaceOnFailure` 사용 하는 경우 가상 머신은 정상 하드웨어로 *서비스를 치료* 합니다. 그렇지 않으면 가상 컴퓨터가 실패 하는 호스트에서 실행 중일 수 있습니다.|
+| 호스트 할당 취소됨  | 모든 가상 머신이 호스트에서 제거 되었습니다. 하드웨어 회전이 중단 되었으므로 더 이상이 호스트에 대 한 요금이 청구 되지 않습니다.   |
 

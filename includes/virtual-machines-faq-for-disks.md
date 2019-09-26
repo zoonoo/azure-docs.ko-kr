@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c3201ec64ee7a3471b7d93b83664c62c2e7e0435
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: ffc77d2a175d300be306b1566324b2551e38aeab
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541506"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266877"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -183,8 +183,26 @@ GPT 분할은 OS 디스크가 아닌 데이터 디스크에서만 사용할 수 
 **가용성 집합에서 실행 되는 VM에 ultra disk를 연결할 수 있나요?**
 아니요. 아직 지원 되지 않습니다.
 
-**Ultra disks를 사용 하는 Vm에 대해 Azure Site Recovery (ASR)를 사용 하도록 설정할 수 있나요?**
-아니요, ASR은 아직 ultra disks에 대해 지원 되지 않습니다.
+**Ultra disks를 사용 하는 Vm에 대해 Azure Site Recovery를 사용 하도록 설정할 수 있나요?**
+아니요, Azure Site Recovery은 아직 ultra 디스크에 대해 지원 되지 않습니다.
+
+## <a name="uploading-to-a-managed-disk"></a>관리 디스크에 업로드
+
+**기존 관리 되는 디스크에 데이터를 업로드할 수 있나요?**
+
+아니요. **ReadyToUpload** 상태를 사용 하 여 비어 있는 새 디스크를 만드는 동안에만 업로드할 수 있습니다.
+
+**관리 디스크로 업로드할 어떻게 할까요? 있습니까?**
+
+[CreationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) 이 "upload"로 설정 된 [createoption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) 속성을 사용 하 여 관리 디스크를 만든 다음 데이터를 업로드할 수 있습니다.
+
+**업로드 상태에 있는 동안 VM에 디스크를 연결할 수 있나요?**
+
+아니요.
+
+**관리 되 디스크의 스냅숏을 업로드 상태로 만들 수 있나요?**
+
+아니요.
 
 ## <a name="standard-ssd-disks"></a>표준 SSD 디스크
 

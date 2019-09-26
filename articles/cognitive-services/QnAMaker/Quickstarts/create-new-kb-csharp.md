@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: 8947baba9212fecab8c67eaf679380a2517ed63d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 16e1c96da8fa35a4e8aaa8ce91da1c7976291079
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559902"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261917"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>빠른 시작: C#을 사용하여 QnA Maker 기술 자료 만들기
 
@@ -49,24 +49,26 @@ Program.cs의 맨 위에서 단일 using 문을 다음 줄로 바꾸어 프로�
 
 프로그램 클래스의 맨 위에서 QnA Maker에 액세스하기 위한 다음 상수를 추가합니다.
 
-[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=17-24 "Add the required constants")]
+[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=17-26 "Add the required constants")]
 
 ## <a name="add-the-kb-definition"></a>KB 정의 추가
 
 다음 KB 정의를 상수 뒤에 추가합니다.
 
-[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=32-57 "Add the required constants")]
+[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=28-58 "Add the knowledge base definition")]
 
 ## <a name="add-supporting-functions-and-structures"></a>지원하는 함수 및 구조 추가
 프로그램 클래스 안에 다음 코드 블록을 추가합니다.
 
-[!code-csharp[Add supporting functions and structures](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=62-82 "Add supporting functions and structures")]
+[!code-csharp[Add supporting functions and structures](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=60-99 "Add supporting functions and structures")]
 
 ## <a name="add-a-post-request-to-create-kb"></a>KB를 만들기 위한 POST 요청 추가
 
 다음 코드에서는 KB를 만들도록 QnA Maker API에 HTTPS 요청을 하고 응답을 받습니다.
 
-[!code-csharp[Add a POST request to create KB](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=91-105 "Add a POST request to create KB")]
+[!code-csharp[Add PostCreateKB to request via POST](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=145-165 "Add PostCreateKB to request via POST")]
+
+[!code-csharp[Add a POST request to create KB](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=101-122 "Add a POST request to create KB")]
 
 다음 API 호출은 작업 ID를 포함한 JSON 응답을 반환합니다. 작업 ID를 사용하여 KB가 성공적으로 만들어졌는지 결정합니다. 
 
@@ -84,7 +86,9 @@ Program.cs의 맨 위에서 단일 using 문을 다음 줄로 바꾸어 프로�
 
 작업의 상태를 확인합니다.
 
-[!code-csharp[Add GET request to determine creation status](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=159-170 "Add GET request to determine creation status")]
+[!code-csharp[Add GetStatus to request via GET](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=167-187 "Add GetStatus to request via GET")]
+
+[!code-csharp[Add GET request to determine creation status](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=124-143 "Add GET request to determine creation status")]
 
 다음 API 호출은 작업 상태를 포함한 JSON 응답을 반환합니다. 
 
@@ -115,13 +119,13 @@ Program.cs의 맨 위에서 단일 using 문을 다음 줄로 바꾸어 프로�
 
 다음 메서드는 KB를 만들고 상태 확인을 반복합니다.  POST 응답 헤더 필드 중 **Location**에 _create_ **Operation ID**가 반환되며, GET 요청시 경로의 일부에 사용됩니다. KB를 만드는 데 시간이 걸릴 수 있으므로 상태가 성공 또는 실패 할 때까지, 상태 확인을 위해 호출을 반복해야 합니다. 작업이 성공하면 KB ID가 **resourceLocation**으로 반환됩니다. 
 
-[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=176-237 "Add CreateKB method")]
+[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=189-254 "Add CreateKB method")]
 
 ## <a name="add-the-createkb-method-to-main"></a>Main에 CreateKB 메서드 추가
 
 CreateKB 메서드를 호출하도록 Main 메서드를 변경합니다.
 
-[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=239-248 "Add CreateKB method")]
+[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=256-265 "Add CreateKB method")]
 
 ## <a name="build-and-run-the-program"></a>프로그램 빌드 및 실행
 

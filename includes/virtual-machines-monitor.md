@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: ac400c86af8236ff5d67b8b6fbf99f6f4b1d36c9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 11c9b2ea3ea054415f25f864651df28288aa0025
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182176"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266843"
 ---
 진단 및 로그 데이터를 수집, 보기 및 분석하여 VM을 모니터링하는 데 많은 기회를 활용할 수 있습니다. VM의 간단한 [모니터링](../articles/azure-monitor/overview.md)을 수행하려면 Azure Portal에서 VM에 대한 개요 화면을 사용할 수 있습니다. [확장](../articles/virtual-machines/windows/extensions-features.md)을 사용하여 추가 메트릭 데이터를 수집하도록 VM에서 진단을 구성할 수 있습니다. [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) 및 [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md)와 같은 더 많은 고급 모니터링 옵션을 사용할 수도 있습니다.
 
 ## <a name="diagnostics-and-metrics"></a>진단 및 메트릭 
 
-Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(애플리케이션 프로그래밍 인터페이스)에서 [메트릭](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md)을 사용하여 [진단 데이터](https://docs.microsoft.com/cli/azure/vm/diagnostics)의 컬렉션을 설정하고 모니터링할 수 있습니다. 예를 들어 다음을 수행할 수 있습니다.
+Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(애플리케이션 프로그래밍 인터페이스)에서 [메트릭](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md)을 사용하여 [진단 데이터](https://docs.microsoft.com/cli/azure/vm/diagnostics)의 컬렉션을 설정하고 모니터링할 수 있습니다. 예를 들어 다음 작업을 할 수 있습니다.
 
 - **VM에 대한 기본 메트릭을 관찰합니다.** Azure Portal의 개요 화면에서 표시된 기본 메트릭은 CPU 사용량, 네트워크 사용량, 총 디스크 바이트 및 초당 디스크 작업을 포함합니다.
 
@@ -29,7 +29,7 @@ Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(애플리케�
 
     수집된 진단 데이터를 사용하여 VM에 대한 자동 크기 조정을 구성할 수 있습니다. 데이터를 저장하고 성능이 정확하지 않을 때 알려주는 경고를 설정하도록 로그를 구성할 수 있습니다.
 
-## <a name="alerts"></a>경고
+## <a name="alerts"></a>,
 
 특정 성능 메트릭을 기반으로 하는 [경고](../articles/azure-monitor/platform/alerts-overview.md)를 만들 수 있습니다. 경고를 받을 수 있는 경우의 예는 평균 CPU 사용량이 특정 임계값을 초과하거나 사용 가능한 디스크 공간이 일정량 이하로 떨어지는 경우를 포함합니다. [Azure PowerShell](../articles/azure-monitor/platform/alerts-classic-portal.md#with-powershell) 또는 [Azure CLI](../articles/azure-monitor/platform/alerts-classic-portal.md#with-azure-cli)를 사용하여 [Azure Portal](../articles/azure-monitor/platform/alerts-classic-portal.md)에서 경고를 구성할 수 있습니다.
 
@@ -54,12 +54,12 @@ Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(애플리케�
 
 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor) 또는 [REST API 모니터](https://docs.microsoft.com/rest/api/monitor/)를 사용하여 활동 로그 데이터에 액세스할 수도 있습니다.
 
-[Azure 진단 로그](../articles/azure-monitor/platform/diagnostic-logs-overview.md)는 해당 작업에 대한 풍부하고 빈번한 데이터를 제공하는 VM에서 내보낸 로그입니다. 진단 로그는 VM 내에서 수행된 작업에 대한 정보를 제공하여 활동 로그에서 다릅니다.
+[Azure 리소스 로그](../articles/azure-monitor/platform/resource-logs-overview.md) 는 작업에 대 한 풍부 하 고 빈번한 데이터를 제공 하는 VM에서 내보낸 로그입니다. 리소스 로그는 VM 내에서 수행 된 작업에 대 한 통찰력을 제공 하 여 활동 로그와 다릅니다.
 
 진단 로그를 통해 수행할 수 있는 몇 가지 작업은 다음과 같습니다.
 
 - 감사 또는 수동 검사를 위해 [스토리지 계정에 저장합니다](../articles/azure-monitor/platform/archive-diagnostic-logs.md). 리소스 진단 설정을 사용하여 보존 기간(일)을 지정할 수 있습니다.
-- 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 [Event Hubs로 스트림](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)합니다.
+- 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 [Event Hubs로 스트림](../articles/azure-monitor/platform/resource-logs-stream-event-hubs.md)합니다.
 - [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md)를 사용하여 분석합니다.
 
 ## <a name="advanced-monitoring"></a>고급 모니터링
