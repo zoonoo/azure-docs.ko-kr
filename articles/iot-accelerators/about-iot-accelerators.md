@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: d9dd3ff2f24660404a1ab0440668c4d4da1e7319
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1a27d748e16f892a748cf18569c13ca3f9ead1dd
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080523"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309510"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Azure IoT 솔루션 가속기란?
 
@@ -78,14 +78,14 @@ IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전�
 
 원래 솔루션 가속기는 MVC(모델-뷰-컨트롤러) 아키텍처를 사용하는 .NET을 사용하여 작성되었습니다. Microsoft는 솔루션 가속기를 새로운 마이크로 서비스 아키텍처로 업데이트하고 있습니다. 다음 표에서는 GitHub 리포지토리에 대한 링크를 사용하여 솔루션 가속기의 현재 상태를 보여줍니다.
 
-| 솔루션 가속기   | 아키텍처  | Languages     |
+| 솔루션 가속기   | 아키텍처  | 언어     |
 | ---------------------- | ------------- | ------------- |
 | 원격 모니터링      | 마이크로 서비스 | [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) 및 [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) |
 | 예측 유지 관리 | MVC           | [.NET](https://github.com/Azure/azure-iot-predictive-maintenance)          |
 | 연결된 팩터리      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | 디바이스 시뮬레이션      | 마이크로 서비스 | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-마이크로서비스 아키텍처에 대해 자세히 알아보려면 [Azure IoT 참조 아키텍처 소개](iot-accelerators-architecture-overview.md)를 참조하세요.
+마이크로서비스 아키텍처에 대해 자세히 알아보려면 [Azure IoT 참조 아키텍처 소개](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/)를 참조하세요.
 
 ## <a name="deployment-options"></a>배포 옵션
 
