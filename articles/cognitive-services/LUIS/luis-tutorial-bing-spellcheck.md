@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 43cb2f0c3ef0f845afcd309dccb35bc632ffd324
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 3bde609c83425d660c867939e034247d7e6898c5
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390961"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300268"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Bing Spell Check로 맞춤법이 틀린 단어 수정
 
@@ -89,7 +89,13 @@ LUIS에는 키를 사용할 두 개의 위치가 있습니다. 첫 번째는 [�
 ```
 
 ## <a name="ignore-spelling-mistakes"></a>맞춤법 오류 무시
-Bing Spell Check API v7 서비스를 사용하지 않으려면 LUIS에서 맞춤법 및 오타를 학습할 수 있도록 맞춤법 오류가 있는 발화에 레이블을 지정할 수 있습니다. 이 옵션은 맞춤법 검사기를 사용하는 것보다 더 많은 레이블 지정 작업이 필요합니다.
+
+Bing Spell Check API v7 서비스를 사용 하지 않으려면 올바른 철자와 잘못 된 철자를 추가 해야 합니다. 
+
+두 가지 솔루션은 다음과 같습니다.
+
+* 레이블 예 길이 발언는 다른 모든 철자가 있으므로 LUIS가 정확한 철자와 오타를 배울 수 있습니다. 이 옵션은 맞춤법 검사기를 사용하는 것보다 더 많은 레이블 지정 작업이 필요합니다.
+* 단어의 모든 변형이 포함 된 구 목록을 만듭니다. 이 솔루션을 사용 하면 예제 길이 발언의 단어 변형에 레이블을 추가할 필요가 없습니다. 
 
 ## <a name="publishing-page"></a>게시 페이지
 [게시](luis-how-to-publish-app.md) 페이지에는 **Bing Spell Checker 사용** 확인란이 있습니다. 이는 키를 만들고 엔드포인트 URL이 변경되는 방식을 이해할 수 있는 편리한 기능입니다. 각 발화에 대해 맞춤법을 교정하려면 올바른 엔드포인트 매개 변수를 사용해야 합니다. 

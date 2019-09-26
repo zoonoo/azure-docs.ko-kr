@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 95b4978b66accce0182e58493cb9d600dbe5e35f
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: c0ceea5c86af8d733c838e19f77eaeadc8a12dbb
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277493"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300230"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>QnA Maker에 대 한 문제 해결
 
@@ -49,6 +49,8 @@ QnA Maker는 QnA Maker 포털 내에서 도움이 되는 **도움말** 봇을 �
 ## <a name="manage-the-knowledge-base"></a>기술 자료 관리
 
 ### <a name="i-accidentally-deleted-a-part-of-my-qna-maker-what-should-i-do"></a>내 QnA Maker의 일부를 실수로 삭제했습니다. 어떻게 해야 하나요? 
+
+검색 또는 웹 앱과 같은 QnA Maker 리소스와 함께 생성 된 Azure 서비스를 삭제 하지 마세요. QnA Maker 작동 하기 위해 필요 합니다. 하나를 삭제 하면 QnA Maker 제대로 작동 하지 않습니다.
 
 질문 및 답변 쌍, 파일, URL, 사용자 지정 질문 및 답변, 기술 자료 또는 Azure 리소스를 포함한 모든 삭제는 영구적입니다. 기술 자료를 삭제하기 전에 **설정** 페이지에서 기술 자료를 내보냈는지 확인합니다. 
 
