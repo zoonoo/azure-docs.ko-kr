@@ -84,7 +84,11 @@
     - name: 영역 내에 VM 부하 분산(CLI)
       href: load-balancer-standard-public-zonal-cli.md
     - name: 아웃바운드 규칙 구성
-      href: configure-load-balancer-outbound-cli.md
+      items:
+        - name: 아웃바운드 규칙 구성 - CLI
+          href: configure-load-balancer-outbound-cli.md
+        - name: 아웃바운드 규칙 구성 - PowerShell
+          href: configure-load-balancer-outbound-powershell.md
     - name: REST API를 사용하여 Azure Load Balancer 만들기
       href: create-load-balancer-rest-api.md
     - name: 기본 부하 분산 장치 만들기(템플릿)

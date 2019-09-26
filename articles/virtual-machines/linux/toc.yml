@@ -472,6 +472,8 @@
         - name: 템플릿을 사용하여 디스크 배포
           displayName: 'Azure Resource Manager, ARM'
           href: using-managed-disks-template-deployments.md
+        - name: 디스크에 VHD 업로드 - CLI
+          href: disks-upload-vhd-to-managed-disk-cli.md
         - name: 디스크 크기 조정
           href: expand-disks.md
         - name: 디스크 스냅샷

@@ -47,7 +47,7 @@
           href: security-center-incident.md
         - name: VM 및 서버에 대한 위협 탐지
           href: security-center-alerts-iaas.md
-        - name: 클라우드 네이티브 컴퓨팅에 대한 위협 탐지
+        - name: 클라우드 앱 및 컨테이너에 대한 위협 탐지
           href: security-center-alerts-compute.md
         - name: 데이터 서비스에 대한 위협 탐지
           href: security-center-alerts-data-services.md
@@ -71,7 +71,7 @@
       href: security-center-wdatp.md
     - name: Azure VM의 SQL에 대한 고급 데이터 보안(공개 미리 보기).
       href: security-center-iaas-advanced-data.md
-    - name: App Service 보호
+    - name: App Service를 사용하여 애플리케이션 보호
       href: security-center-app-services.md
     - name: 보안 정책 작업
       href: tutorial-security-policy.md
@@ -91,7 +91,7 @@
       href: security-center-policy-definitions.md
     - name: 전자 메일 알림
       href: security-center-provide-security-contact-details.md
-    - name: 가격 책정 계층
+    - name: 가격
       href: security-center-pricing.md
     - name: 테넌트 수준 표시 유형
       href: security-center-management-groups.md
@@ -147,8 +147,6 @@
   items:
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
-    - name: 서비스 업데이트
-      href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: 기능 및 API 사용 중지(2019년 7월)
       href: security-center-features-retirement-july2019.md
     - name: 엔드포인트 보호 평가 및 권장 사항
@@ -159,25 +157,25 @@
       href: /learn/browse/?term=securityS
     - name: 사용자 데이터 관리
       href: security-center-privacy.md
-    - name: IoT 관리
+    - name: IoT용 Azure Security Center 설명서
       href: 'https://docs.microsoft.com/en-us/azure/asc-for-iot/'
     - name: FAQ
       href: security-center-faq.md
-    - name: Azure Security
+    - name: Azure 보안 설명서
       href: /azure/security/
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: Azure 업데이트
+      href: 'https://azure.microsoft.com/updates/?category=security-identity'
     - name: 준비 로드맵
       href: security-center-readiness-roadmap.md
     - name: 'Azure 보안, 개인 정보 보호 및 규정 준수 블로그'
       href: 'https://blogs.msdn.com/b/azuresecurity/'
-    - name: 스택 오버플로
-      href: 'https://stackoverflow.com/search?q=security-center'
+    - name: Stack Overflow의 Azure Security Center
+      href: 'https://stackoverflow.com/search?q=azure-security-center'
     - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=security-center'
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/security-center/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: 문제 해결
+    - name: 문제 해결 가이드
       href: security-center-troubleshooting-guide.md

@@ -95,22 +95,22 @@
       items:
         - name: 일반 오류
           href: troubleshoot.md
-        - name: 일반적인 경고
-          items:
-            - name: 일반적인 경고
-              href: troubleshoot-alerts.md
-            - name: 손상된 네트워크 구성 수정
-              href: alert-nsg.md
-            - name: 누락된 서비스 주체 복원
-              href: alert-service-principal.md
-            - name: 보안 LDAP 경고
-              href: alert-ldaps.md
         - name: 일치하지 않는 테넌트 오류
           href: mismatched-tenant-error.md
         - name: 일시 중단된 도메인
           href: suspension.md
         - name: 보안 LDAP
           href: tshoot-ldaps.md
+        - name: 알려진 문제
+          items:
+            - name: 일반적인 경고
+              href: troubleshoot-alerts.md
+            - name: 네트워크 경고
+              href: alert-nsg.md
+            - name: 서비스 사용자 경고
+              href: alert-service-principal.md
+            - name: 보안 LDAP 경고
+              href: alert-ldaps.md
 - name: 리소스
   items:
     - name: FAQ

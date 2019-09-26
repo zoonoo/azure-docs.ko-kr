@@ -11,12 +11,12 @@ metadata:
   author: hrasheed-msft
   ms.author: hrasheed
   ms.date: 08/30/2019
-  ms.openlocfilehash: e4504bbfc84dbafcd1efa45c9536a63569230a8a
-  ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+  ms.openlocfilehash: 2e6a0bcc654bbf94bec5c562815aa7591cfabd60
+  ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/23/2019
-  ms.locfileid: "71204120"
+  ms.lasthandoff: 09/25/2019
+  ms.locfileid: "71272225"
 landingContent:
 - title: HDInsight 정보
   linkLists:
@@ -28,7 +28,7 @@ landingContent:
     links:
     - text: HDInsight 구성 요소 및 버전
       url: ./hdinsight-component-versioning.md
-    - text: HDInsight 지원 노드 구성
+    - text: HDInsight 지원 VM 유형
       url: ./hdinsight-supported-node-configuration.md
     - text: 스토리지 옵션 비교
       url: ./hdinsight-hadoop-compare-storage-options.md
@@ -38,6 +38,14 @@ landingContent:
       url: ./hdinsight-hadoop-provision-linux-clusters.md
     - text: Data Lake Store Gen2를 사용하여 클러스터 만들기
       url: ./hdinsight-hadoop-use-data-lake-storage-gen2.md
+  - linkListType: whats-new
+    links:
+    - text: '자동 크기 조정: Hadoop 클러스터 자동 크기 조정'
+      url: ./hdinsight-autoscale-clusters.md
+    - text: HDInsight를 통한 모니터링
+      url: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
+    - text: HDInsight 4.0으로 Apache Hive 테이블 마이그레이션
+      url: ./interactive-query/apache-hive-migrate-workloads.md
 - title: Apache Spark
   linkLists:
   - linkListType: overview

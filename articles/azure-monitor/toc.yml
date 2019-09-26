@@ -431,6 +431,8 @@
                   href: app/asp-net-trace-logs.md
                 - name: 성능 카운터
                   href: app/performance-counters.md
+                - name: EventCounters
+                  href: app/eventcounters.md
                 - name: 종속성
                   href: app/asp-net-dependencies.md
                 - name: ApplicationInsights.config
@@ -519,6 +521,8 @@
                   items:
                     - name: 개요
                       href: platform/diagnostics-extension-overview.md
+                    - name: 로그 수집
+                      href: platform/azure-storage-iis-table.md
                     - name: Windows
                       items:
                         - name: 버전 기록
@@ -644,22 +648,20 @@
               href: insights/service-map.md
             - name: 컴퓨터 그룹
               href: platform/computer-groups.md
-        - name: Azure 리소스
+        - name: Azure 플랫폼
           items:
-            - name: 진단 로그
+            - name: 플랫폼 로그 개요
+              href: platform/platform-logs-overview.md
+            - name: 리소스 로그
               items:
                 - name: 개요
-                  href: platform/diagnostic-logs-overview.md
-                - name: 로그 수집
-                  href: platform/diagnostic-logs-stream-log-store.md
-                - name: Azure Storage에서 수집
-                  href: platform/azure-storage-iis-table.md
+                  href: platform/resource-logs-overview.md
+                - name: Azure Monitor 로그에서 수집
+                  href: platform/resource-logs-collect-workspace.md
                 - name: 스토리지에 보관
-                  href: platform/archive-diagnostic-logs.md
-                - name: Resource Manager 템플릿 사용
-                  href: platform/diagnostic-logs-stream-template.md
-        - name: Azure 구독
-          items:
+                  href: platform/resource-logs-collect-storage.md
+                - name: Event Hubs로 스트림
+                  href: platform/resource-logs-stream-event-hubs.md
             - name: 활동 로그
               items:
                 - name: 개요
@@ -674,6 +676,14 @@
                   href: platform/activity-log-export.md
                 - name: 스키마
                   href: platform/activity-log-schema.md
+            - name: 진단 설정
+              items:
+                - name: 진단 설정 만들기
+                  href: platform/diagnostic-settings.md
+                - name: Resource Manager를 사용하여 진단 설정 만들기
+                  href: platform/diagnostic-settings-template.md
+                - name: Blob 스토리지 형식으로 변경
+                  href: platform/resource-logs-blob-format.md
             - name: Event Hubs로 데이터 스트리밍
               href: platform/stream-monitoring-data-event-hubs.md
             - name: Key Vault 분석
@@ -685,6 +695,7 @@
         - name: 스토리지
           items:
             - name: Storage용 Azure Monitor
+              displayname: 'storage, monitor, insights, storage accounts, azure storage'
               href: insights/storage-insights-overview.md
         - name: 데이터베이스
           items:
@@ -747,7 +758,7 @@
             - name: 구성 관리자 연결
               href: platform/collect-sccm.md
         - name: Event Hubs로 데이터 스트리밍
-          href: platform/diagnostic-logs-stream-event-hubs.md
+          href: platform/resource-logs-stream-event-hubs.md
     - name: 데이터 분석
       items:
         - name: 메트릭

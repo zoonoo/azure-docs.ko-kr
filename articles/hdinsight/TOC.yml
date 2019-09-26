@@ -19,6 +19,8 @@
           href: ./hdinsight-administer-use-powershell.md
     - name: 샘플
       items:
+        - name: Azure CLI 샘플
+          href: ./azure-cli-samples.md
         - name: .NET 샘플
           href: ./hdinsight-sdk-dotnet-samples.md
         - name: Java 샘플
@@ -613,6 +615,8 @@
               href: ./hbase/apache-hbase-provision-vnet.md
         - name: 문제 해결
           items:
+            - name: Apache HBase 성능 문제 해결
+              href: ./hbase/troubleshoot-hbase-performance-issues.md
             - name: hbase hbck가 불일치 반환
               href: ./hbase/hbase-troubleshoot-hbase-hbck-inconsistencies.md
             - name: 연결을 다시 설정하면 발생하는 스토리지 예외

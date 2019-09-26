@@ -9,7 +9,7 @@
       href: v2-overview.md
     - name: 빠른 시작
       items:
-        - name: 개발 환경 설정
+        - name: 테넌트 설정
           href: quickstart-create-new-tenant.md
         - name: 애플리케이션 구성
           items:
@@ -49,7 +49,7 @@
           items:
             - name: Android
               href: quickstart-v2-android.md
-            - name: iOS
+            - name: iOS 및 macOS
               href: quickstart-v2-ios.md
             - name: 범용 Windows 플랫폼
               href: quickstart-v2-uwp.md
@@ -75,7 +75,7 @@
           items:
             - name: Android
               href: tutorial-v2-android.md
-            - name: iOS
+            - name: iOS 및 macOS
               href: tutorial-v2-ios.md
             - name: 범용 Windows 플랫폼
               href: tutorial-v2-windows-uwp.md
@@ -223,12 +223,14 @@
           items:
             - name: 개요
               href: msal-overview.md
-            - name: 마이그레이션
+            - name: ADAL에서 마이그레이션
               items:
                 - name: MSAL.NET으로 마이그레이션
                   href: msal-net-migration.md
                 - name: MSAL.js로 마이그레이션
                   href: msal-compare-msal-js-and-adal-js.md
+                - name: iOS 및 MacOS용 MSAL로 마이그레이션
+                  href: migrate-objc-adal-msal.md
                 - name: broker를 사용하여 ADAL.NET에서 MSAL.NET으로 Xamarin 앱 마이그레이션
                   href: msal-net-migration-ios-broker.md
             - name: 지원되는 인증 흐름
@@ -239,8 +241,6 @@
                   href: msal-acquire-cache-tokens.md
                 - name: v1.0 앱의 범위
                   href: msal-v1-app-scopes.md
-                - name: 토큰 캐시 직렬화(.NET)
-                  href: msal-net-token-cache-serialization.md
             - name: 클라이언트 애플리케이션
               items:
                 - name: 클라이언트 애플리케이션
@@ -257,18 +257,28 @@
               href: msal-handling-exceptions.md
             - name: 로깅
               href: msal-logging.md
-            - name: Single Sign-On(JS)
-              href: msal-js-sso.md
-            - name: 프롬프트 동작(JS)
-              href: msal-js-prompt-behavior.md
-            - name: ADFS 지원(.NET)
-              href: msal-net-adfs-support.md
+            - name: SSO(Single sign-on)
+              items:
+                - name: MSAL.js를 사용한 Single Sign-On
+                  href: msal-js-sso.md
+                - name: iOS 및 macOS용 MSAL을 사용한 Single Sign-On
+                  items:
+                    - name: MSAL 앱 간 SSO
+                      href: single-sign-on-macos-ios.md
+                    - name: ADAL 앱과 MSAL 앱 간의 SSO
+                      href: sso-between-adal-msal-apps-macos-ios.md
+            - name: ADFS와 통합
+              items:
+                - name: MSAL.NET의 ADFS 지원
+                  href: msal-net-adfs-support.md
             - name: Azure AD B2C와 통합
               items:
                 - name: JavaScript
                   href: msal-b2c-overview.md
                 - name: .NET
                   href: msal-net-aad-b2c-considerations.md
+                - name: iOS 및 macOS
+                  href: 'config-authority.md#b2c'
             - name: 고려 사항 및 알려진 문제
               items:
                 - name: MSAL.NET
@@ -283,6 +293,10 @@
                       href: msal-js-known-issues-ie-edge-browsers.md
                     - name: 알려진 문제 - Safari
                       href: msal-js-known-issues-safari-browser.md
+                - name: iOS 및 macOS용 MSAL
+                  items:
+                    - name: SSL 문제
+                      href: ssl-issues.md
         - name: 인증 프로토콜
           items:
             - name: 애플리케이션 형식 및 OAuth2.0
@@ -378,6 +392,8 @@
               items:
                 - name: 캐시에서 토큰 획득
                   href: msal-net-acquire-token-silently.md
+                - name: 토큰 캐시 직렬화
+                  href: msal-net-token-cache-serialization.md
                 - name: 토큰 캐시 지우기
                   href: msal-net-clear-token-cache.md
                 - name: 옵션으로 공용 클라이언트 인스턴스화
@@ -394,6 +410,20 @@
                   href: msal-js-avoid-page-reloads.md
                 - name: 인증 요청에 사용자 지정 상태 전달
                   href: msal-js-pass-custom-state-authentication-request.md
+                - name: 프롬프트 동작
+                  href: msal-js-prompt-behavior.md
+            - name: iOS 및 macOS용 MSAL
+              items:
+                - name: iOS 및 macOS용 Microsoft 인증 라이브러리 차이점
+                  href: msal-differences-ios-macos.md
+                - name: 키 집합 구성
+                  href: howto-v2-keychain-objc.md
+                - name: 브라우저 및 WebViews 사용자 지정
+                  href: customize-webviews.md
+                - name: 사용자 지정 클레임 요청
+                  href: request-custom-claims.md
+                - name: 리디렉션 URI 구성
+                  href: redirect-uris-ios.md
         - name: Visual Studio 작업
           items:
             - name: Active Directory 연결된 서비스 사용
@@ -428,7 +458,7 @@
       href: v1-overview.md
     - name: 빠른 시작
       items:
-        - name: 개발 환경 설정
+        - name: 테넌트 설정
           href: quickstart-create-new-tenant.md
         - name: 애플리케이션 구성
           items:
@@ -468,7 +498,7 @@
           items:
             - name: Android
               href: quickstart-v1-android.md
-            - name: iOS
+            - name: iOS 및 MacOS
               href: quickstart-v1-ios.md
             - name: Windows 데스크톱 .NET
               href: quickstart-v1-dotnet.md

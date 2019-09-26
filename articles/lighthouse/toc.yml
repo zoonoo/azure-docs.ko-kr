@@ -19,7 +19,7 @@
       displayName: scenarios
       href: ./concepts/cross-tenant-management-experience.md
     - name: Azure Marketplace의 관리형 서비스 솔루션
-      displayName: 'managed services offer, azure marketplace'
+      displayName: 'azure marketplace, marketplace, managed service, private, plan'
       href: ./concepts/managed-services-offers.md
     - name: 권장 보안 방법
       displayName: 'mfa, authentication, secure, group'
@@ -27,6 +27,9 @@
     - name: 클라우드 솔루션 공급자 프로그램 고려 사항
       displayName: 'csp, aobo, partner'
       href: ./concepts/cloud-solution-provider.md
+    - name: 엔터프라이즈 시나리오의 Azure Lighthouse
+      displayName: 'corporation, IT, consolidate'
+      href: ./concepts/enterprise.md
 - name: 방법 가이드
   items:
     - name: Azure 위임 리소스 관리에 고객 등록

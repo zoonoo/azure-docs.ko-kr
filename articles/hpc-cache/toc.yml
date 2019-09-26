@@ -18,7 +18,7 @@
       items:
         - name: 스토리지 대상 추가
           href: hpc-cache-add-storage.md
-        - name: 캐시 스토리지로 데이터 이동
+        - name: 스토리지 대상으로 데이터 이동(필요한 경우)
           items:
             - name: 새 Blob 스토리지 사전 로드
               href: hpc-cache-ingest.md
