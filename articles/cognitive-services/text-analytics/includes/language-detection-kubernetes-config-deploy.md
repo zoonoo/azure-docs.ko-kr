@@ -7,16 +7,16 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/21/2019
+ms.date: 09/19/2019
 ms.author: dapine
-ms.openlocfilehash: 2593f07ac30df77936c56785956b9e906ef683be
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: e3051a72a115e711a99ecd68756967e2cef0cc04
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70052123"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130044"
 ---
-## <a name="deploy-the-language-detection-container-to-an-aks-cluster"></a>AKS 클러스터에 언어 감지 컨테이너 배포
+### <a name="deploy-the-language-detection-container-to-an-aks-cluster"></a>AKS 클러스터에 언어 감지 컨테이너 배포
 
 1. Azure CLI를 열고 Azure에 로그인 합니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "70052123"
     code .
     ```
 
-1. 텍스트 편집기 내에서 이름이 .yaml 인 새파일을 만들고 다음 yaml을 붙여넣습니다. `billing/value` 및`apikey/value` 을 사용자의 정보로 바꾸어야 합니다.
+1. 텍스트 편집기 내에서 이름이 *.yaml*인 새 파일을 만들고 다음 yaml을 붙여넣습니다. `billing/value` 및`apikey/value` 을 사용자의 정보로 바꾸어야 합니다.
 
     ```yaml
     apiVersion: apps/v1beta1

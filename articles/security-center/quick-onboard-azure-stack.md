@@ -5,7 +5,6 @@ services: security-center
 documentationcenter: na
 author: pipposera
 manager: dsavage
-editor: ''
 ms.assetid: 8982348a-0624-40c7-8a1e-642a523c7f6b
 ms.service: security-center
 ms.devlang: na
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: fiseraci
-ms.openlocfilehash: 7a630acee079301b95e7e05f5c5333dd116abb68
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 1772fd34a2d79b725b2b5ccaa66adb0b251b7e1d
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563797"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202860"
 ---
 # <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>빠른 시작:  Azure Stack 가상 머신을 Security Center에 온보딩
 Azure 구독을 온보딩한 후 Azure Stack 마켓플레이스에서 **Azure Monitor, Update 및 Configuration Management** 가상 머신 확장을 추가하여 Azure Stack에서 실행 중인 가상 머신을 보호하도록 Security Center를 설정할 수 있습니다.
@@ -81,7 +80,7 @@ Linux 에이전트 문제 해결 방법은 [Azure Log Analytics Linux 에이전�
 
   ![컴퓨팅 블레이드][6]
 
-**계산** 블레이드에는 두 가지 유형의 아이콘이 표시됩니다.
+**컴퓨팅** 블레이드에는 두 가지 유형의 아이콘이 표시됩니다.
 
 ![icon1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) 비 Azure 컴퓨터 
 

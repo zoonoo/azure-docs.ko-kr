@@ -5,14 +5,14 @@ services: terraform
 author: neilpeterson
 ms.service: azure
 ms.topic: quickstart
-ms.date: 02/04/2019
+ms.date: 09/20/2019
 ms.author: nepeters
-ms.openlocfilehash: 57ab3fbc584932cb7d08bda76530bbe95ce61a6f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: c53f3a31b46f00d3207cd8f47dcfbfa131c03666
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699080"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173510"
 ---
 # <a name="create-a-terraform-configuration-for-azure"></a>Azure에 대한 Terraform 구성 파일 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "68699080"
 
 **지금 사용해 보기**를 선택하여 Azure 클라우드 셸을 엽니다. 열리면 `code .`를 입력하여 클라우드 셸 코드 편집기를 엽니다.
 
-```azurecli-interactive
+```bash
 code .
 ```
 
@@ -34,7 +34,7 @@ code .
 
 모두 마치면 파일을 `main.tf`로 저장합니다. 코드 편집기의 오른쪽 상단에 있는 줄임표를 사용하여 이 작업을 수행할 수도 있습니다.
 
-```azurecli-interactive
+```hcl
 resource "azurerm_resource_group" "vote-resource-group" {
   name     = "vote-resource-group"
   location = "westus"
@@ -67,7 +67,7 @@ resource "azurerm_cosmosdb_account" "vote-cosmos-db" {
 
 [terraform init](https://www.terraform.io/docs/commands/init.html) 명령은 작업 디렉터리를 초기화합니다. 클라우드 셸 터미널에서 `terraform init`를 실행하여 새 구성을 배포할 준비를 합니다.
 
-```azurecli-interactive
+```bash
 terraform init
 ```
 
@@ -75,13 +75,13 @@ terraform init
 
 `terraform plan`을 실행하여 새 Terraform 구성을 테스트합니다.
 
-```azurecli-interactive
+```bash
 terraform plan --out plan.out
 ```
 
 [terraform apply](https://www.terraform.io/docs/commands/apply.html)를 사용하여 구성을 적용하고 계획 파일의 이름을 지정합니다. 이 명령은 Azure 구독의 리소스를 배포합니다.
 
-```azurecli-interactive
+```bash
 terraform apply plan.out
 ```
 
@@ -98,7 +98,7 @@ Azure Container Instance를 포함하도록 구성을 업데이트합니다. 컨
 
 구성에는 컨테이너 인스턴스의 FQDN(정규화된 도메인 이름)을 반환하는 출력 블록도 포함됩니다.
 
-```azurecli-interactive
+```hcl
 resource "azurerm_container_group" "vote-aci" {
   name                = "vote-aci"
   location            = "${azurerm_resource_group.vote-resource-group.location}"
@@ -134,13 +134,13 @@ output "dns" {
 
 `terraform plan`을 실행하여 업데이트된 계획을 만들고 변경할 내용을 시각화합니다. Azure Container Instance 리소스가 구성에 추가된 것이 보일 것입니다.
 
-```azurecli-interactive
+```bash
 terraform plan --out plan.out
 ```
 
 마지막으로 `terraform apply`를 실행하여 구성을 적용합니다.
 
-```azurecli-interactive
+```bash
 terraform apply plan.out
 ```
 
@@ -156,7 +156,7 @@ terraform apply plan.out
 
 모두 마친 후에는 [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) 명령을 사용하여 Azure 리소스 및 리소스 그룹을 제거해도 됩니다.
 
-```azurecli-interactive
+```bash
 terraform destroy -auto-approve
 ```
 

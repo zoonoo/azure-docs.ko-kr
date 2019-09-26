@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 08/01/2019
 author: rimman
 ms.author: rimman
-ms.openlocfilehash: 3fd7990043543b92eb3daf8ec699ec58db3387ec
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 0f070cb9a6e300dad0ec9e0b393b09b7f22d2942
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717583"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212585"
 ---
 # <a name="built-in-operational-analytics-in-azure-cosmos-db-with-apache-spark-preview"></a>Apache Spark를 사용하는 Azure Cosmos DB의 기본 제공 운영 분석(preview) 
 
@@ -136,12 +136,6 @@ Azure Cosmos DB의 기본 제공 분석 플랫폼을 사용하면 전 세계 수
 다음 이미지에서는 Azure Cosmos DB Spark 지원이 게임 분석에서 사용되는 방법을 보여 줍니다.
 
 ![게임 분석의 Azure Cosmos DB Spark 지원](./media/spark-api-introduction/gaming-analytics.png)
-
-## <a name="built-in-jupyter-notebooks-support"></a>기본 제공 Jupyter Notebook 지원
-
-Azure Cosmos DB는 Cassandra, MongoDB, SQL, Gremlin 및 테이블과 같은 모든 API에 대하여 기본 제공되는 Jupyter Notebook을 지원합니다. Jupyter Notebook은 Azure Cosmos 계정 내에서 실행되며, 개발자 환경을 향상시킵니다. 모든 Azure Cosmos DB API 및 데이터 모델에 대한 기본 제공 Notebook을 통해 대화형으로 쿼리를 실행할 수 있습니다. 또한 기계 학습 모델을 실행하고 Azure Cosmos 데이터베이스에 저장된 데이터를 분석할 수 있습니다. Jupyter Notebook 환경을 사용하면 다음 그림에 나온 것처럼 저장된 데이터를 분석하고, 기계 학습 모델을 학습하고, Azure Portal의 데이터에 대한 추론을 수행할 수 있습니다.
-
-![Azure Cosmos DB의 Jupyter Notebook 지원](./media/spark-api-introduction/jupyter-notebooks-portal.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: efac8755be8435ae7929fdcb2ecedb4959c363b9
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 953699793d81485e3828b9fb46de8523d2b7674e
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097135"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129996"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Text Analytics API에 대한 언어 및 지역 지원
 
@@ -44,12 +44,12 @@ Text Analytics API는 다양한 언어, 변형, 방언 및 일부 국가/문화�
 
 언어 지원은 처음에는 미리 보기로 롤아웃되었다가 Text Analytics 서비스 전체의 지원 방식과 관계없이, 다른 언어와 별개로 GA(일반 공급) 상태로 서서히 진행됩니다. Text Analytics API가 일반 공급으로 전환되더라도 언어는 미리 보기 상태를 유지할 수 있습니다.
 
-| 언어    | 언어 코드 | 감정 | 키 구 | 명명된 엔터티 인식 |   참고  |
+| 언어    | 언어 코드 | 감정 | 핵심 구 | 명명된 엔터티 인식 |   참고  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | 아랍어      | `ar`          |           |             | ✔ \*                     | |
 | 체코어       | `cs`          |           |             | ✔ \*                     | |
 | 중국어-간체 | `zh-hans`| ✔ \***     |             | ✔         |    |
-| 중국어-번체 | `zh-hant`| ✔ \***     |             | ✔         |    |
+| 중국어-번체 | `zh-hant`| ✔ \***     |             |          |    |
 | 덴마크어      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
 | 네덜란드어       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
 | 영어     | `en`          | ✔ \***       | ✔           |  ✔ \*\*     |      |
@@ -76,7 +76,7 @@ Text Analytics API는 다양한 언어, 변형, 방언 및 일부 국가/문화�
 
 \** * [감정 분석 V3 공개 미리 보기](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview) 에서 사용 가능
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
 [Cognitive Services 설명서 페이지](https://docs.microsoft.com/azure/cognitive-services/)   
 [Cognitive Services 제품 페이지](https://azure.microsoft.com/services/cognitive-services/)

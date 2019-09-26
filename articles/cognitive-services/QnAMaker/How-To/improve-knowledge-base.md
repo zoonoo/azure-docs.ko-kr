@@ -8,16 +8,16 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: b5528d8cd23893248170bdb15588925f3c92c02b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ab4447c8c07f8e8315c0258cc3254e5272ab7582
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934718"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272433"
 ---
-# <a name="use-active-learning-to-improve-your-knowledge-base"></a>활성 학습을 사용 하 여 기술 자료 개선
+# <a name="use-active-learning-to-improve-your-knowledge-base"></a>활성 학습을 사용하여 기술 자료 개선
 
 활성 학습을 사용하면 사용자가 제출한 정보에 따라 질문과 대답 쌍에 대체 질문을 제안하여 기술 자료 품질을 개선할 수 있습니다. 이 제안을 검토한 다음 기존 질문에 추가하거나 거부합니다. 
 
@@ -79,6 +79,8 @@ QnA Maker의 암시적 피드백은 알고리즘을 사용 하 여 점수의 유
     **활성 학습** 을 사용 하도록 설정 하면 기술 자료에서 사용자가 제출한 질문에 따라 정기적인 간격으로 새로운 질문을 제안 합니다. 설정을 다시 전환하여 **활성 학습**을 사용하지 않도록 설정할 수 있습니다.
 
 ## <a name="accept-an-active-learning-suggestion-in-the-knowledge-base"></a>기술 자료에서 활성 학습 제안 수락
+
+활성 학습은 제안을 승인한 후 기술 자료 또는 Search Service를 변경 하 고 저장 및 학습 합니다. 제안을 승인 하면 대체 질문으로 추가 됩니다.
 
 1. 제안 된 질문을 보려면 기술 자료 **편집** 페이지에서 **보기 옵션**을 선택한 다음 **활성 학습 제안 표시**를 선택 합니다. 
 
@@ -194,11 +196,11 @@ Content-Type: application/json
 
 JSON 본문에는 다음과 같은 몇 가지 설정이 있습니다.
 
-|JSON 본문 속성|형식|용도|
+|JSON 본문 속성|type|용도|
 |--|--|--|--|
 |`feedbackRecords`|배열|사용자 의견 목록입니다.|
-|`userId`|string|제안 된 질문을 수락 하는 사람의 사용자 ID입니다. 사용자 ID 형식은 사용자에 게 있습니다. 예를 들어, 전자 메일 주소는 아키텍처에서 유효한 사용자 ID가 될 수 있습니다. 선택 사항입니다.|
-|`userQuestion`|string|사용자 쿼리의 정확한 텍스트입니다. 필수 요소.|
+|`userId`|string|제안 된 질문을 수락 하는 사람의 사용자 ID입니다. 사용자 ID 형식은 사용자에 게 있습니다. 예를 들어, 전자 메일 주소는 아키텍처에서 유효한 사용자 ID가 될 수 있습니다. (선택 사항)|
+|`userQuestion`|string|사용자 쿼리의 정확한 텍스트입니다. 필수.|
 |`qnaID`|number|[Generateanswer 응답](metadata-generateanswer-usage.md#generateanswer-response-properties)에 있는 질문의 ID입니다. |
 
 예제 JSON 본문은 다음과 같습니다.
@@ -387,7 +389,14 @@ async callTrain(stepContext){
 ]
 ```
 
+REST 또는 언어 기반 Sdk를 사용 하 여 이러한 변경 내용을 검토 하려면 다운로드 변경 API를 사용할 수도 있습니다.
+* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
+* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
+
+
 이 앱을 다시 가져오는 경우 활성 학습은 계속 해 서 정보를 수집 하 고 기술 자료에 대 한 제안을 권장 합니다. 
+
+
 
 ## <a name="best-practices"></a>모범 사례
 

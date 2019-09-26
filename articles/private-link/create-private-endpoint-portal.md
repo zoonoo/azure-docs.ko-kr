@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 2b7ad95dc652f2099af75308f05ddd0684e088aa
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 15b4d3208be693a5b8d858d30b663347515f5a68
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104741"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130283"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Azure Portal를 사용하여 프라이빗 엔드포인트 만들기
 
@@ -199,6 +199,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="access-the-sql-database-server-privately-from-the-vm"></a>VM에서 비공개로 SQL 데이터베이스 서버에 액세스
 
 1.  *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
+
 2.  `nslookup myserver.database.windows.net`을 입력합니다. 
 
     다음과 유사한 메시지가 표시됩니다.

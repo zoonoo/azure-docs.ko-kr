@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 09/19/2019
 ms.author: diberry
-ms.openlocfilehash: 72c425a1ec9fb83cc2e9dd1bae2c4f521109f162
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: bb9a9c1d67e52c21d2cb039832d27547a023da9f
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663385"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154676"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>보상 점수는 맞춤 설정의 성공을 나타냅니다.
 
@@ -25,7 +25,7 @@ Personalizer는 보상을 평가하여 기계 학습 모델을 학습시킵니�
 
 ## <a name="use-reward-api-to-send-reward-score-to-personalizer"></a>보상 API를 사용하여 Personalizer에 보상 점수 보내기
 
-보상은 [보상 API](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward)를 통해 Personalizer에 보내집니다. 보상은 -1 및 1 사이의 숫자입니다. Personalizer는 시간이 지남에 따라 가능한 가장 높은 총 보상을 달성할 수 있도록 모델을 학습시킵니다.
+보상은 [보상 API](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward)를 통해 Personalizer에 보내집니다. 일반적으로 보상은 0에서 1 사이의 숫자입니다. 값이-1 인 부정 보상은 특정 시나리오에서 가능 하며, RL (보충 learning)에 익숙한 경우에만 사용 해야 합니다. Personalizer는 시간이 지남에 따라 가능한 가장 높은 총 보상을 달성할 수 있도록 모델을 학습시킵니다.
 
 나중에 며칠이 될 수 있는 사용자 동작이 수행되면 보상을 보냅니다. 이벤트에 보상이 없거나 기본 보상이 있는 것으로 간주될 때까지 Personalizer에서 기다리는 최대 시간은 Azure Portal에서 [보상 대기 시간](#reward-wait-time)으로 구성됩니다.
 
@@ -56,7 +56,7 @@ Rank(순위) 호출 이후의 기간인 [보상 대기 시간](#reward-wait-time
 
 ## <a name="building-up-rewards-with-multiple-factors"></a>여러 요소를 사용하여 보상 작성  
 
-효율적인 맞춤 설정을 위해 여러 요소에 따라 보상 점수(숫자 -1 및 1 사이의 숫자)를 작성할 수 있습니다. 
+효과적인 개인 설정의 경우 여러 요소에 따라 보상 점수를 구축할 수 있습니다. 
 
 예를 들어 다음 규칙을 적용하여 비디오 콘텐츠 목록을 개인에 맞게 설정할 수 있습니다.
 
@@ -80,7 +80,7 @@ Rank(순위) 호출 이후의 기간인 [보상 대기 시간](#reward-wait-time
 
 **보상 대기 시간** 이후에 받은 이벤트에 대한 모든 보상을 버리고 모델 학습에 영향을 주지 않습니다.
 
-보상 점수를 합계하면 최종 보상이 1보다 높거나 -1보다 낮을 수 있습니다. 이 경우 서비스는 실패하지 않습니다.
+보상 점수를 추가 하 여 최종 보상은 예상 점수 범위를 벗어날 수 있습니다. 이 경우 서비스는 실패하지 않습니다.
 
 <!--
 @edjez - is the number ignored if it is outside the acceptable range?

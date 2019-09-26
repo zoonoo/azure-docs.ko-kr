@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 09/19/2019
 ms.author: diberry
-ms.openlocfilehash: 87065709b16a5a0c7076584e8fc33c3830319e4f
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 246e76a0ab94624945723b500ef136e038ab40ec
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999640"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155223"
 ---
 # <a name="where-can-you-use-personalizer"></a>Personalizer를 사용할 수 있는 경우
 
@@ -33,7 +33,7 @@ Personalizer를 적용할 수 있는 경우는 다음과 같습니다.
 * 최상의 선택은 전체 사용자 동작과 총 보상 점수에서 학습할 수 있고 학습해야 합니다.
 * 기계 학습을 맞춤 설정에 사용하는 경우 [사용 책임 지침](ethics-responsible-use.md)과 선택 항목을 따릅니다.
 * 상황별 의사 결정은 일단의 제한된 선택 항목에서 최상의 옵션(작업) 순위를 지정하는 것으로 표현될 수 있습니다.
-* 사용자 동작의 일부 측면을 측정하고 _보상 점수_로 표시하여 순위가 지정된 선택 항목이 애플리케이션에서 효율적으로 작동한 정도를 확인할 수 있습니다. 이는 -1과 1 사이의 숫자입니다.
+* 사용자 동작의 일부 측면을 측정 하 고 _[보상 점수](concept-rewards.md)_ 를 사용 하 여 응용 프로그램에 대 한 순위 선택이 얼마나 잘 작동 하는지 확인할 수 있습니다.
 * 보상 점수는 너무 많은 혼동 또는 외부 요인에 관계하지 않습니다. 실험 기간은 여전히 관련되고 있는 동안 보상 점수를 계산할 수 있을 만큼 충분히 짧습니다.
 * 순위에 대한 컨텍스트는 올바른 선택을 하는 데 도움이 되며 PII(개인 식별 정보)가 포함되지 않은 5개 이상의 [기능](concepts-features.md)의 목록으로 표현할 수 있습니다.
 * 각각의 콘텐츠 선택 항목인 _작업_에 대한 정보는 Personalizer에서 올바른 선택을 하는 데 도움이 될 것으로 생각되는 5개 이상의 [기능](concepts-features.md)의 목록으로 제공됩니다.

@@ -3,9 +3,8 @@ title: Azure Security Center 빠른 시작 - Security Center에 Windows 컴퓨�
 description: 이 빠른 시작은 Windows 컴퓨터에서 Microsoft Monitoring Agent를 프로비전하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -14,13 +13,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
-ms.author: rkarlin
-ms.openlocfilehash: bee4618ff08c89bbdab7413ca7f7f74a266d96dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: memildin
+ms.openlocfilehash: 46fffc40b315109c348247ac09f02f9bb8dbb3b7
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077907"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202787"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>빠른 시작: Azure Security Center에 Windows 컴퓨터 온보딩
 Azure 구독을 온보딩한 후 Microsoft Monitoring Agent를 프로비전하여 Azure 외부(예: 온-프레미스 또는 다른 클라우드)에서 실행되는 리소스에 Security Center를 사용하도록 설정할 수 있습니다.
@@ -77,11 +76,11 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 
 에이전트 설치 및 구성에 대한 자세한 내용은 [Windows 컴퓨터 연결](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard)을 참조하세요.
 
-이제 Azure VM과 비 Azure 컴퓨터를 한곳에서 모니터링할 수 있습니다. **계산** 아래에는 모든 VM 및 컴퓨터의 개요가 권장 사항과 함께 나와 있습니다. 각 열에 하나의 권장 사항 집합이 표시됩니다. 색은 해당 권장 사항에 대한 VM 또는 컴퓨터의 현재 보안 상태를 나타냅니다. Security Center는 보안 경고를 통해서도 이러한 컴퓨터에서 검색된 내용을 표시합니다.
+이제 Azure VM과 비 Azure 컴퓨터를 한곳에서 모니터링할 수 있습니다. **컴퓨팅** 아래에는 모든 VM 및 컴퓨터의 개요가 권장 사항과 함께 나와 있습니다. 각 열에 하나의 권장 사항 집합이 표시됩니다. 색은 해당 권장 사항에 대한 VM 또는 컴퓨터의 현재 보안 상태를 나타냅니다. Security Center는 보안 경고를 통해서도 이러한 컴퓨터에서 검색된 내용을 표시합니다.
 
   ![컴퓨팅 블레이드][6]
 
-**계산** 블레이드에는 두 가지 유형의 아이콘이 표시됩니다.
+**컴퓨팅** 블레이드에는 두 가지 유형의 아이콘이 표시됩니다.
 
 ![icon1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) 비 Azure 컴퓨터
 

@@ -2,7 +2,7 @@
 title: Azure 계정의 프로필 정보 변경 | Microsoft Docs
 description: Azure 관리 계정의 프로필과 연락처 이메일 주소를 변경하는 방법을 설명합니다.
 author: genlin
-manager: alherz
+manager: dcscontentpm
 tags: billing
 ms.assetid: 9d4ef5d9-11fc-4684-ace6-467f4ce26ba8
 ms.service: billing
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dea54f2e692174e12cb2dc1f0e0e0ed9fca127bc
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: e52d1f80f4e4028bd3d450c245ec02b65bcce69c
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68516569"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121652"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>Azure 계정의 프로필 정보 변경
 

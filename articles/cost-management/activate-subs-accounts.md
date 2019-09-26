@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 09/19/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 9999518b81d264cb1e46f3c03ec65379d35aa603
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 53ac79c257e88380d462e5ef69ed494ae9967c07
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242432"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155179"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Cloudyn으로 Azure 구독 및 계정 활성화
 
@@ -87,7 +87,7 @@ Cloudyn 포털을 처음 사용할 때 기업 계약 또는 CSP(클라우드 솔
 
 - *지정된 API 키가 최상위 수준 등록 키가 아닙니다*가 **Cloudyn 설정** 마법사에 표시됨.
 - *직접 등록 – 아니요*가 기업 계약 포털에 표시됨.
-- *지난 30일 간의 사용 데이터가 없습니다. 배포자에게 Azure 계정에 대해 표시를 사용하도록 설정했는지 문의하세요* - Cloudyn 포털에 표시
+- *지난 30일 간의 사용량 현황 데이터가 없습니다. 배포자에게 Azure 계정에 대해 표시를 사용하도록 설정했는지 문의하세요* - Cloudyn 포털에 표시
 
 앞의 메시지는 재판매인 또는 CSP를 통해 Azure 기업계약을 구입했음을 나타냅니다. Cloudyn에서 데이터를 볼 수 있도록 재판매인 또는 CSP가 Azure 계정에 대해 _표시_를 사용하도록 설정해야 합니다.
 
