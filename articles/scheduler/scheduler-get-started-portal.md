@@ -10,17 +10,17 @@ ms.reviewer: klam
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 3b2cfc932c6322df8237ec7cdf820fc4242bfa72
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 48e03f41fa0a39642330288fc05ef709179b4c62
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60531929"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300985"
 ---
 # <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Azure Scheduler를 사용하여 첫 번째 작업을 만들고 예약 - Azure Portal
 
 > [!IMPORTANT]
-> Azure Scheduler는 사용이 중지되며 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)가 대신 제공됩니다. 작업을 예약하려는 경우 [Azure Logic Apps를 대신 사용해 보세요](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> 사용이 [중지](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)되는 Azure Scheduler를 교체 하는 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) . 스케줄러에 설정 된 작업을 계속 하려면 가능한 한 빨리 [Azure Logic Apps로 마이그레이션](../scheduler/migrate-from-scheduler-to-logic-apps.md) 하세요.
 
 이 자습서에서는 얼마나 쉽게 작업을 만들고 예약한 다음, 해당 작업을 모니터링하고 관리할 수 있는지를 보여줍니다. 
 
@@ -38,16 +38,16 @@ Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target
 
 1. **Scheduler 작업** 아래에서 다음 정보를 입력합니다.
 
-   | 자산 | 예제 값 | 설명 |
+   | 속성 | 예제 값 | 설명 |
    |----------|---------------|-------------| 
-   | **Name** | getMicrosoft | 작업의 이름 | 
+   | **이름** | getMicrosoft | 작업의 이름 | 
    | **작업 컬렉션** | <*job-collection-name*> | 작업 컬렉션을 만들거나 기존 컬렉션을 선택합니다. | 
    | **구독** | <*Azure-subscription-name*> | Azure 구독의 이름 | 
    |||| 
 
 1. **작업 설정 - 구성**을 선택하고, 다음 정보를 입력하고, 모두 마쳤으면 **확인**을 선택합니다.
 
-   | 자산 | 예제 값 | 설명 |
+   | 속성 | 예제 값 | 설명 |
    |----------|---------------|-------------| 
    | **작업** | **Http** | 실행할 작업 유형 | 
    | **메서드** | **Get** | 호출할 메서드 | 
@@ -60,7 +60,7 @@ Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target
 
    일회성 작업을 만들 수도 있지만, 이 예제에서는 되풀이 일정을 설정합니다.
 
-   | 자산 | 예제 값 | 설명 |
+   | 속성 | 예제 값 | 설명 |
    |----------|---------------|-------------| 
    | **되풀이** | **정기** | 일회성 작업 또는 되풀이 작업 | 
    | **시작 시간** | <*오늘 날짜*> | 작업의 시작 날짜 | 
@@ -93,7 +93,7 @@ Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target
 
 <a name="properties"></a>
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>속성
 
 작업의 관리 메타데이터를 설명하는 읽기 전용 속성을 보려면 **속성**을 선택합니다.
 
@@ -111,7 +111,7 @@ Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target
 |-------------|-------------| 
 | 모든 형식 | **재시도 정책** 및 **오류 동작**을 변경할 수 있습니다. | 
 | HTTP 및 HTTPS | **메서드**를 허용되는 아무 메서드로 변경할 수 있습니다. 헤더와 기본 인증 정보를 추가, 삭제 또는 변경할 수도 있습니다. | 
-| Storage 큐| 스토리지 계정, 큐 이름, SAS 토큰 및 본문을 변경할 수 있습니다. | 
+| 저장소 큐| 스토리지 계정, 큐 이름, SAS 토큰 및 본문을 변경할 수 있습니다. | 
 | Service Bus | 네임스페이스, 토픽 또는 큐 경로, 인증 설정, 전송 유형, 메시지 속성, 메시지 본문을 변경할 수 있습니다. | 
 ||| 
 

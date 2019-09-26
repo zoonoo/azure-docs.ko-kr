@@ -2,40 +2,34 @@
 title: Azure Security Center에서 데이터 수집 | Microsoft Docs
 description: " Azure Security Center에서 데이터 수집을 활성화하는 방법을 알아봅니다. "
 services: security-center
-documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
+author: memildin
+manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/10/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 12739bf230eb7a2d5afa4edd57dbc2761907ec4e
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.date: 09/10/2019
+ms.author: memildin
+ms.openlocfilehash: 6dcb7fd1ae2dc5ca3a950f5055e79d95f779b029
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231340"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300801"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Security Center에서 데이터 수집
 Security Center는 Azure Vm (가상 머신), 가상 머신 확장 집합, IaaS 컨테이너 및 비 Azure (온-프레미스) 컴퓨터에서 보안 취약성 및 위협에 대 한 모니터링 데이터를 수집 합니다. 데이터는 컴퓨터에서 다양 한 보안 관련 구성 및 이벤트 로그를 읽고 분석을 위해 작업 영역에 데이터를 복사 하는 Log Analytics 에이전트를 사용 하 여 수집 됩니다. 이러한 데이터의 예로는 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, 머신 이름, IP 주소, 로그인된 사용자를 들 수 있습니다. 또한 Log Analytics 에이전트는 작업 영역에 크래시 덤프 파일을 복사 합니다.
 
 누락된 업데이트, 잘못 구성된 OS 보안 설정, 엔드포인트 보호 사용, 상태 및 위협 검색에 대한 가시성을 제공하려면 데이터 컬렉션이 필요합니다. 
 
-이 문서에서는 Log Analytics 에이전트를 설치 하 고 수집 된 데이터를 저장할 Log Analytics 작업 영역을 설정 하는 방법에 대 한 지침을 제공 합니다. 데이터 컬렉션을 사용하도록 설정하려면 두 작업을 모두 수행해야 합니다. 
+이 문서에서는 Log Analytics 에이전트를 설치 하 고 수집 된 데이터를 저장할 Log Analytics 작업 영역을 설정 하는 방법을 설명 합니다. 데이터 컬렉션을 사용하도록 설정하려면 두 작업을 모두 수행해야 합니다. 
 
 > [!NOTE]
 > - 데이터 수집은 계산 리소스 (Vm, 가상 머신 확장 집합, IaaS 컨테이너 및 비 Azure 컴퓨터)에만 필요 합니다. 에이전트를 프로비전하지 않더라도 Azure Security Center를 활용할 수 있지만, 보안 수준이 제한되고 위에 나열된 기능이 지원되지 않습니다.  
 > - 지원되는 플랫폼 목록은 [Azure Security Center에서 지원되는 플랫폼](security-center-os-coverage.md)을 참조하세요.
-> - 새 작업 영역을 사용 하 든 기존 작업 영역을 사용 하 든 관계 없이 Log Analytics 데이터를 저장 하면 데이터 저장소에 대 한 추가 요금이 발생할 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조 하세요.
+> - 새 작업 영역을 사용 하 든 기존 작업 영역을 사용 하 든 관계 없이 Log Analytics 데이터를 저장 하면 데이터 저장소에 대 한 추가 요금이 발생할 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
 ## Log Analytics 에이전트의 자동 프로 비전 사용<a name="auto-provision-mma"></a>
 
-컴퓨터에서 데이터를 수집 하려면 Log Analytics 에이전트가 설치 되어 있어야 합니다.  에이전트 설치는 자동으로 수행 (권장) 하거나 에이전트를 수동으로 설치할 수 있습니다.  
+컴퓨터에서 데이터를 수집 하려면 Log Analytics 에이전트가 설치 되어 있어야 합니다. 에이전트 설치는 자동으로 수행 (권장) 하거나 에이전트를 수동으로 설치할 수 있습니다.  
 
 >[!NOTE]
 > 자동 프로비전은 기본적으로 해제되어 있습니다. 기본적으로 자동 프로비전을 설치하도록 Security Center를 설정하려면 **켜기**로 설정합니다.
@@ -65,7 +59,7 @@ Log Analytics 에이전트의 자동 프로비저닝을 사용 하도록 설정 
 >
 
 ## <a name="workspace-configuration"></a>작업 영역 구성
-Security Center에서 수집된 데이터는 Log Analytics 작업 영역에 저장됩니다.  Security Center에서 작성된 작업 영역에 저장되어 있는 Azure VM이나 직접 만든 기존 작업 영역에서 데이터를 수집할 수 있습니다. 
+Security Center에서 수집된 데이터는 Log Analytics 작업 영역에 저장됩니다. Security Center에서 작성된 작업 영역에 저장되어 있는 Azure VM이나 직접 만든 기존 작업 영역에서 데이터를 수집할 수 있습니다. 
 
 작업 영역 구성은 구독별로 설정되며, 여러 구독에서 동일한 작업 영역을 사용할 수 있습니다.
 
@@ -78,7 +72,7 @@ Security Center가 만든 작업 영역을 선택하려면:
 1. **기본 작업 영역 구성** 아래에서 [Security Center가 만든 작업 영역 사용]을 선택합니다.
    ![가격 책정 계층 선택][10] 
 
-1. **Save**을 클릭합니다.<br>
+1. **저장**을 클릭합니다.<br>
     Security Center는 해당 지리적 위치에 새 리소스 그룹 및 기본 작업 영역을 만들고 에이전트를 해당 작업 영역에 연결합니다. 작업 영역 및 리소스 그룹에 대한 명명 규칙은 다음과 같습니다.<br>
    **작업 영역: DefaultWorkspace-[subscription-ID]-[geo]<br> 리소스 그룹: DefaultResourceGroup-[geo]**
 
@@ -87,19 +81,19 @@ Security Center가 만든 작업 영역을 선택하려면:
 
 > [!NOTE]
 > Security Center에서 만든 작업 영역의 Log Analytics 가격 책정 계층은 Security Center 청구에 영향을 주지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다. 체험 계층의 경우 Security Center는 기본 작업 영역에서 *SecurityCenterFree* 솔루션을 사용하도록 설정합니다. 표준 계층의 경우 Security Center는 기본 작업 영역에서 *Security* 솔루션을 사용하도록 설정합니다.
-> Log Analytics 데이터를 저장 하면 데이터 저장소에 대 한 추가 요금이 발생할 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조 하세요.
+> Log Analytics 데이터를 저장 하면 데이터 저장소에 대 한 추가 요금이 발생할 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
 기존 log analytics 계정에 대 한 자세한 내용은 [기존 log analytics 고객](security-center-faq.md#existingloganalyticscust)을 참조 하세요.
 
 ### <a name="using-an-existing-workspace"></a>기존 작업 영역 사용
 
-기존 Log Analytics 작업 영역을 갖고 있는 고객은 동일한 작업 영역을 사용하고 싶을 것입니다.
+기존 Log Analytics 작업 영역이 이미 있는 경우 동일한 작업 영역을 사용 하는 것이 좋습니다.
 
 기존 Log Analytics 작업 영역을 사용하려면 작업 영역에 대한 읽기 및 쓰기 권한이 필요합니다.
 
 > [!NOTE]
 > 기존 작업 영역에서 사용하도록 설정된 솔루션은 연결된 Azure VM에 적용됩니다. 유료 솔루션의 경우 이로 인해 추가 요금이 발생할 수 있습니다. 데이터 개인 정보를 고려하여, 선택한 작업 영역이 적절한 지리적 영역에 있어야 합니다.
-> Log analytics에 데이터를 저장 하면 데이터 저장소에 대 한 추가 요금이 발생할 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조 하세요.
+> Log analytics에 데이터를 저장 하면 데이터 저장소에 대 한 추가 요금이 발생할 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
 기존 Log Analytics 작업 영역을 선택하려면 다음을 수행합니다.
 
@@ -147,7 +141,7 @@ Security Center가 만든 작업 영역을 선택하려면:
 ## <a name="data-collection-tier"></a>데이터 수집 계층
 Azure Security Center에서 데이터 수집 계층을 선택하면 Log Analytics 작업 영역의 보안 이벤트 스토리지에만 영향을 미칩니다. Log Analytics 에이전트는 Log Analytics 작업 영역에 저장 하도록 선택한 보안 이벤트 계층 (있는 경우)에 관계 없이 Azure Security Center의 위협 검색에 필요한 보안 이벤트를 수집 하 고 분석 합니다. 작업 영역에 보안 이벤트를 저장하도록 선택하면 작업 영역에서 해당 이벤트를 조사, 검색 및 감사할 수 있습니다. 
 > [!NOTE]
-> Log analytics에 데이터를 저장 하면 데이터 저장소에 대 한 추가 요금이 발생할 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조 하세요.
+> Log analytics에 데이터를 저장 하면 데이터 저장소에 대 한 추가 요금이 발생할 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 > 
 > 작업 영역에 저장할 4개 이벤트 집합 중에서 구독 및 작업 영역에 적합한 필터링 정책을 선택할 수 있습니다. 
 
@@ -196,7 +190,7 @@ Microsoft는 **일반** 및 **최소** 이벤트 집합에 포함할 이벤트�
 
    ![필터링 정책 선택][5]
 
-### 기존 에이전트 설치 시 자동 프로비전 <a name="preexisting"></a> 
+### 기존 에이전트를 설치 하는 경우 자동 프로 비전<a name="preexisting"></a> 
 
 다음 사용 사례는 이미 에이전트 또는 확장이 설치된 경우에 자동 프로비전의 작동 방식을 지정합니다. 
 
@@ -217,7 +211,7 @@ Security center는 Log Analytics 에이전트 확장을 기존 Operations Manage
 - 기존 VM 확장이 있음<br>
     - 모니터링 에이전트가 확장으로 설치 될 때 확장 구성은 단일 작업 영역에만 보고 하도록 허용 합니다. Security Center는 사용자 작업 영역에 대한 기존 연결을 재정의하지 않습니다. "보안" 또는 "securityFree" 솔루션이 설치 되어 있으면 Security Center는 이미 연결 된 작업 영역에 있는 VM의 보안 데이터를 저장 합니다. 이 프로세스에서 확장 버전을 최신 버전으로 업그레이드할 수 Security Center.  
     - 기존 작업 영역이 어떤 작업 영역으로 데이터를 전송하는지 확인하려면 [Azure Security Center를 사용하여 연결 유효성을 검사](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/)하는 테스트를 실행하세요. 또는 Log Analytics 작업 영역을 열고, 작업 영역을 선택 하 고, VM을 선택 하 고, Log Analytics 에이전트 연결을 확인할 수 있습니다. 
-    - Log Analytics 에이전트가 클라이언트 워크스테이션에 설치 되 고 기존 Log Analytics 작업 영역에 보고 하는 환경이 있는 경우 [Azure Security Center에서 지 원하는 운영 체제](security-center-os-coverage.md) 목록을 검토 하 여 운영 체제가 지원 되며, 자세한 내용은 [기존 log analytics 고객](security-center-faq.md#existingloganalyticscust) 을 참조 하세요.
+    - Log Analytics 에이전트가 클라이언트 워크스테이션에 설치 되 고 기존 Log Analytics 작업 영역에 보고 하는 환경이 있는 경우 [Azure Security Center에서 지 원하는 운영 체제](security-center-os-coverage.md) 목록을 검토 하 여 운영 체제가 되지. 자세한 내용은 [기존 log analytics 고객](security-center-faq.md#existingloganalyticscust)을 참조 하세요.
  
 ### 자동 프로비전 끄기 <a name="offprovisioning"></a>
 언제든지 보안 정책에서 이 설정을 해제하여 리소스 자동 프로비전을 끌 수 있습니다. 
@@ -284,13 +278,13 @@ Log Analytics 에이전트를 수동으로 설치 하 여 Vm에서 보안 데이
 
    3. 공용 구성 및 프라이빗 구성을 다음 값으로 채웁니다.
      
-           $PublicConf = '{
-               "workspaceId": "WorkspaceID value"
-           }' 
+           $PublicConf = @{
+               "workspaceId"= "<WorkspaceID value>"
+           }
  
-           $PrivateConf = '{
-               "workspaceKey": "<Primary key value>”
-           }' 
+           $PrivateConf = @{
+               "workspaceKey"= "<Primary key value>”
+           }
 
       - Windows VM에 설치하는 경우:
         

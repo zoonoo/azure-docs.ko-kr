@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b5be74b0734a27b02030e2c6995b43ef0c02162
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 0c8a96a4557a500bd4726b8df44ada5df328b7c3
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562147"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71290879"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 액세스 패키지에 대 한 액세스 요청
 
@@ -40,9 +40,9 @@ Azure AD 자격 관리를 사용 하면 액세스 패키지의 수명 동안 자
 
 **필수 역할:** 요청자
 
-1. 작업 중인 프로젝트 또는 비즈니스 관리자에서 전자 메일 또는 메시지를 찾습니다. 전자 메일에는 액세스 권한을 필요로 하는 액세스 패키지에 대 한 링크가 포함 되어야 합니다. 링크는 다음으로 시작 합니다.
-
-    `https://myaccess.microsoft.com`
+1. 작업 중인 프로젝트 또는 비즈니스 관리자에서 전자 메일 또는 메시지를 찾습니다. 전자 메일에는 액세스 권한을 필요로 하는 액세스 패키지에 대 한 링크가 포함 되어야 합니다. 이 링크는 "myaccess"로 시작 하 고, 디렉터리 힌트를 포함 하 고, 다음과 유사한 액세스 패키지 id로 끝납니다.
+ 
+    `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 
 1. 링크를 엽니다.
 

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/28/2019
+ms.date: 09/25/2019
 ms.author: mlottner
-ms.openlocfilehash: cc2dc3a190e3ad06bdc048f2a5770eae2a6990ec
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 4440fec98d1f561da6375bcaadba4282076cc53b
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596823"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299468"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>IoT 필수 조건에 대 한 Azure Security Center
 
-이 문서에서는 IoT 서비스에 대 한 Azure Security Center (ASC)의 다양 한 구성 요소에 대해 설명 하 고, 시작 해야 하는 작업을 설명 하 고, 서비스를 이해 하는 데 도움이 되는 기본 개념을 설명 합니다. 
+이 문서에서는 IoT 서비스에 대 한 Azure Security Center의 다양 한 구성 요소에 대해 설명 하 고, 시작 해야 하는 작업을 설명 하 고, 서비스를 이해 하는 데 도움이 되는 기본 개념을 설명 합니다. 
 
 ## <a name="minimum-requirements"></a>최소 요구 사항
 
@@ -34,20 +34,20 @@ ms.locfileid: "68596823"
 - Azure Security Center (권장)
     - Azure Security Center를 사용 하는 것은 요구 사항이 아니라 권장 사항입니다. Azure Security Center 하지 않으면 IoT Hub 내에서 다른 Azure 리소스를 볼 수 없습니다. 
  
-## <a name="working-with-asc-for-iot-service"></a>IoT 서비스용 ASC 작업
+## <a name="working-with-azure-security-center-for-iot-service"></a>IoT 서비스용 Azure Security Center 작업
 
-ASC for IoT insights 및 보고는 Azure IoT Hub 및 Azure Security Center를 사용 하 여 사용할 수 있습니다. Azure IoT Hub에서 IoT 용 ASC를 사용 하도록 설정 하려면 **소유자** 수준 권한이 있는 계정이 필요 합니다. IoT Hub에서 ASC for IoT를 사용 하도록 설정 하 고 나면 ASC for IoT insights는 Azure IoT Hub의 **보안** 기능과 Azure Security Center의 **iot** 로 표시 됩니다. 
+IoT insights 및 보고에 대 한 Azure Security Center Azure IoT Hub 및 Azure Security Center를 통해 사용할 수 있습니다. Azure IoT Hub에서 IoT에 Azure Security Center을 사용 하도록 설정 하려면 **소유자** 수준의 권한이 있는 계정이 필요 합니다. IoT Hub에서 iot for IoT를 사용 하도록 설정 하 고 나면 IoT insights에 대 한 Azure Security Center Azure IoT Hub의 **보안** 기능과 Azure Security Center의 **iot** 로 표시 됩니다. 
 
 ## <a name="supported-service-regions"></a>지원되는 서비스 지역 
 
-ASC for IoT는 현재 다음 Azure 지역에서 IoT Hub에 대해 지원 됩니다.
+IoT에 대 한 Azure Security Center는 현재 다음 Azure 지역에서 IoT Hub에 대해 지원 됩니다.
   - 미국 중부  
   - East US 
   - 미국 동부 2
   - 미국 중서부
   - 미국 서부
   - 미국 서부2
-  - 미국 중부 남부
+  - 미국 중남부
   - 미국 중북부
   - 캐나다 중부
   - 캐나다 동부 
@@ -68,6 +68,8 @@ ASC for IoT는 현재 다음 Azure 지역에서 IoT Hub에 대해 지원 됩니�
   - 한국 남부 
   - 인도 중부
   - 인도 남부
+
+IoT에 대 한 Azure Security Center 모든 유럽 지역의 모든 트래픽을 유럽 서부 지역 데이터 센터 및 모든 나머지 지역에서 미국 중부 지역 데이터 센터로 라우팅합니다.  
   
 ## <a name="wheres-my-iot-hub"></a>내 IoT Hub 어디에 있나요?
 
@@ -80,7 +82,7 @@ ASC for IoT는 현재 다음 Azure 지역에서 IoT Hub에 대해 지원 됩니�
 
 ## <a name="supported-platforms-for-agents"></a>에이전트에 대해 지원 되는 플랫폼 
 
-ASC for IoT 에이전트는 장치 및 플랫폼의 증가 하는 목록을 지원 합니다. 기존 또는 계획 된 장치 라이브러리를 확인 하려면 [지원 되는 플랫폼 목록](how-to-deploy-agent.md) 을 참조 하세요.  
+IoT 에이전트에 대 한 Azure Security Center는 증가 하는 장치 및 플랫폼 목록을 지원 합니다. 기존 또는 계획 된 장치 라이브러리를 확인 하려면 [지원 되는 플랫폼 목록](how-to-deploy-agent.md) 을 참조 하세요.  
 
 ## <a name="next-steps"></a>다음 단계
 - Azure IoT 보안 [개요](overview.md) 를 참조 하십시오.

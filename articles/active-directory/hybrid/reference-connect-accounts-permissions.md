@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 04/29/2019
+ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5460033902b71174dc3a10615811f657081f0e4
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 6760677a94855c259501103a54a96d687c87910b
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186307"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71290961"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: 계정 및 사용 권한
 
@@ -48,10 +48,15 @@ Azure AD Connect를 실행하는 데 사용되는 이러한 세 가지 계정 �
 
 - **SQL SA 계정(선택 사항)** : SQL Server의 전체 버전을 사용할 때 ADSync 데이터베이스를 만드는 데 사용됩니다.  이 SQL Server는 Azure AD Connect 설치의 로컬 또는 원격일 수 있습니다.  이 계정은 엔터프라이즈 관리자와 동일한 계정일 수 있습니다.  이제 SQL 관리자가 대역 외에서 데이터베이스를 프로비전한 후 데이터베이스 소유권이 있는 Azure AD Connect 관리자가 설치할 수 있습니다.  이에 대한 내용은 [SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치](how-to-connect-install-sql-delegation.md)를 참조하세요.
 
+<<<<<<< HEAD
+>[!IMPORTANT]
+> 빌드 1.4. # # #. #은 더 이상 엔터프라이즈 관리자 또는 도메인 관리자 계정을 AD DS 커넥터 계정으로 사용할 수 없습니다.  **기존 계정 사용**을 지정 하는 경우 엔터프라이즈 관리자 또는 도메인 관리자 계정을 입력 하려고 하면 오류가 표시 됩니다.
+=======
 > [!NOTE]
 > ESAE 관리 포리스트에서 Azure AD Connect에 사용 되는 관리 계정을 관리할 수 있습니다 ("빨간색 포리스트" 라고도 하는).
 > 전용 관리 포리스트를 사용 하면 조직에서 프로덕션 환경 보다 더 강력한 보안 제어를 사용 하는 환경에서 관리 계정, 워크스테이션 및 그룹을 호스트할 수 있습니다.
 > 전용 관리 포리스트에 대 한 자세한 내용은 [Esae 관리 포리스트 디자인 방법](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach) 을 참조 하세요.
+>>>>>>> e683a61b0ed62ae739941410f658a127534e2481
 
 ## <a name="installing-azure-ad-connect"></a>Azure AD Connect를 설치하는 중
 Azure AD Connect 설치 마법사는 두 가지 다른 경로를 제공합니다.
@@ -93,7 +98,7 @@ AD DS Connector 계정은 Windows Server AD에서 읽고 쓰기 위해 만들어
 
 다음은 기본 설치 마법사 페이지, 수집되는 자격 증명 및 용도를 요약한 것입니다.
 
-| 마법사 페이지 | 수집되는 자격 증명 | 필요한 사용 권한 | 사용 대상 |
+| 마법사 페이지 | 수집되는 자격 증명 | 필요한 사용 권한 | 용도 |
 | --- | --- | --- | --- |
 | 해당 사항 없음 |설치 마법사를 실행하는 사용자 |로컬 서버의 관리자 |<li>동기화 서비스 실행과 관련해서 사용되는 ADSync 서비스 계정을 만듭니다. |
 | Azure AD에 연결 |Azure AD 디렉터리 자격 증명 |Azure AD에서 글로벌 관리자 역할 |<li>Azure AD 디렉터리에서 동기화를 사용하도록 설정합니다.</li>  <li>Azure AD에서 진행 중인 동기화 작업에 사용되는 Azure AD Connect 계정을 만듭니다.</li> |
@@ -110,9 +115,9 @@ AD DS Connector 계정은 Windows Server AD에서 읽고 쓰기 위해 만들어
 
 ![기본 설치](./media/reference-connect-accounts-permissions/customize.png)
 
-| 마법사 페이지 | 수집되는 자격 증명 | 필요한 사용 권한 | 사용 대상 |
+| 마법사 페이지 | 수집되는 자격 증명 | 필요한 사용 권한 | 용도 |
 | --- | --- | --- | --- |
-| N/A |설치 마법사를 실행하는 사용자 |<li>로컬 서버의 관리자</li><li>전체 SQL Server를 사용하는 경우 사용자는 SQL의 시스템 관리자(SA)여야 합니다.</li> |기본적으로 엔진 서비스 계정 동기화로 사용되는 로컬 계정을 만듭니다. 계정은 관리자가 특정 계정을 지정하지 않은 경우에 만들어집니다. |
+| 해당 사항 없음 |설치 마법사를 실행하는 사용자 |<li>로컬 서버의 관리자</li><li>전체 SQL Server를 사용하는 경우 사용자는 SQL의 시스템 관리자(SA)여야 합니다.</li> |기본적으로 엔진 서비스 계정 동기화로 사용되는 로컬 계정을 만듭니다. 계정은 관리자가 특정 계정을 지정하지 않은 경우에 만들어집니다. |
 | 동기화 서비스, 서비스 계정 옵션을 설치합니다. |AD 또는 로컬 사용자 계정 자격 증명 |사용자, 권한은 설치 마법사에서 부여됩니다. |관리자가 계정을 지정하는 경우, 이 계정은 동기화 서비스에 대한 서비스 계정으로 사용됩니다. |
 | Azure AD에 연결 |Azure AD 디렉터리 자격 증명 |Azure AD에서 글로벌 관리자 역할 |<li>Azure AD 디렉터리에서 동기화를 사용하도록 설정합니다.</li>  <li>Azure AD에서 진행 중인 동기화 작업에 사용되는 Azure AD Connect 계정을 만듭니다.</li> |
 | 디렉터리 연결 |Azure AD에 연결되는 각 포리스트의 온-프레미스 Active Directory 자격 증명 |사용 권한은 어떤 기능을 사용하는지에 따라 달라지며 AD DS Connector 계정 만들기에서 찾을 수 있음 |계정은 동기화 중에 디렉터리 정보를 읽고 쓰는 데 사용됩니다. |
@@ -151,7 +156,7 @@ Azure AD Connect의 한 버전에서 새 릴리스로 업그레이드하는 경�
 >Azure AD Connect에서는 빌드 1.1.484부터 SQL Database를 업그레이드하기 위해 sysadmin 권한이 필요한 회귀 버그를 도입했습니다.  이 버그는 1.1.647 빌드에서 수정되었습니다.  이 빌드로 업그레이드하는 경우 sysadmin 권한이 필요합니다.  Dbo 권한은 충분하지 않습니다.  sysadmin 권한 없이 Azure AD Connect를 업그레이드하려고 하면 업그레이드에 실패하고 이후로 Azure AD Connect가 더 이상 올바르게 작동하지 않습니다.  Microsoft는 이를 알고 해결하기 위해 노력하고 있습니다.
 
 
-| 보안 주체 | 필요한 사용 권한 | 사용 대상 |
+| 주체 | 필요한 사용 권한 | 사용 대상 |
 | --- | --- | --- |
 | 설치 마법사를 실행하는 사용자 |로컬 서버의 관리자 |이진을 업데이트합니다. |
 | 설치 마법사를 실행하는 사용자 |ADSyncAdmins의 구성원 |동기화 규칙 및 기타 구성을 변경합니다. |
@@ -168,7 +173,7 @@ Express 설정을 사용하는 경우 계정은 동기화에 사용되는 Active
 ### <a name="adsync-service-account"></a>ADSync 서비스 계정
 동기화 서비스는 다양한 계정으로 실행할 수 있습니다. **가상 서비스 계정**(VSA), **그룹 관리 서비스 계정**(gMSA/sMSA) 또는 일반 사용자 계정으로 실행할 수 있습니다. 지원되는 옵션은 새로 설치 시 Connect의 2017년 4월 릴리스에서 변경되었습니다. Azure AD Connect의 이전 버전을 업그레이드하는 경우 이러한 추가 옵션을 사용할 수 없습니다.
 
-| 계정 유형 | 설치 옵션 | Description |
+| 계정 유형 | 설치 옵션 | 설명 |
 | --- | --- | --- |
 | [가상 서비스 계정](#virtual-service-account) | 빠른 및 사용자 지정, 2017년 4월 이후 | 도메인 컨트롤러에서 설치를 제외한 모든 빠른 설치에 사용되는 옵션입니다. 다른 옵션이 사용되지 않는 한 사용자 지정 설치에 대해 기본 옵션입니다. |
 | [그룹 관리 서비스 계정](#group-managed-service-account) | 사용자 지정, 2017년 4월 이후 | 원격 SQL Server를 사용하는 경우에는 그룹 관리 서비스 계정을 사용하는 것이 좋습니다. |

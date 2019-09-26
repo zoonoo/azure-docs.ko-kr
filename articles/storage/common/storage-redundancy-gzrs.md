@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9019e6f72944823d7c256fa5f6b99b0aca84c845
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 321866279e076bfa77d1892e64deaf4b16c08366
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036328"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300640"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>GZRS (지역 중복 저장소) (미리 보기)를 사용 하 여 항상 사용 가능한 Azure Storage 응용 프로그램 빌드
 
@@ -29,7 +29,11 @@ GZRS 저장소 계정을 사용 하 여 가용성 영역을 사용할 수 없게
 
 GZRS 및 RA-GZRS는 현재 다음 지역에서 미리 보기로 제공 됩니다.
 
+- 북유럽
+- 서유럽
 - 미국 동부
+- 미국 동부 2
+- 미국 중부
 
 Microsoft는 추가 Azure 지역에서 GZRS 및 RA GZRS을 계속 사용할 수 있습니다. 지원 되는 지역에 대 한 자세한 내용은 [Azure 서비스 업데이트](https://azure.microsoft.com/updates/) 페이지를 정기적으로 확인 하세요.
 
@@ -107,7 +111,7 @@ LRS, GRS 또는 RA-GRS 계정에서 GZRS 또는 GZRS로 마이그레이션하는
 
 #### <a name="perform-a-live-migration"></a>실시간 마이그레이션 수행
 
-수동 마이그레이션을 사용하면 결국 애플리케이션 가동 중지 시간이 발생할 수 있습니다. 애플리케이션에 고가용성이 필요한 경우 Microsoft에서는 실시간 마이그레이션 옵션도 제공합니다. 실시간 마이그레이션은 가동 중지 시간 없이 내부 마이그레이션입니다.
+수동 마이그레이션을 사용하면 결국 애플리케이션 가동 중지 시간이 발생할 수 있습니다. 애플리케이션에 고가용성이 필요한 경우 Microsoft에서는 실시간 마이그레이션 옵션도 제공합니다. 실시간 마이그레이션은 가동 중지 시간이 없는 즉각적인 마이그레이션입니다.
 
 실시간 마이그레이션 중에는 원본 및 대상 저장소 계정 간에 데이터를 마이그레이션하는 동안 저장소 계정을 사용할 수 있습니다. 실시간 마이그레이션 프로세스 중에는 계정이 내구성 및 가용성에 대 한 SLA를 계속 충족 합니다. 실시간 마이그레이션으로 인 한 가동 중지 시간 또는 데이터 손실은 없습니다.
 
@@ -131,20 +135,20 @@ LRS, GRS 또는 RA-GRS 계정에서 GZRS 또는 GZRS로 마이그레이션하는
 
 1.  **새 지원 요청**을 선택 합니다.
 2. 계정 정보를 기반으로 **기본 사항을** 완료 합니다.   **** 서비스 섹션에서 **Storage 계정 관리**를 선택 하 고 마이그레이션할 계정을 지정 합니다.
-3.  **다음**을 선택 합니다.
+3.  **다음**을 선택합니다.
 4.  **** 문제 섹션에서 다음 값을 지정 합니다.
     - **심각도**: 기본값을 그대로 둡니다.
     - **문제 유형**:  **데이터 마이그레이션**을 선택 합니다.
     - **범주**:  **지역 내에서 (RA-) GZRS로 마이그레이션을**선택 합니다.
     - **제목**: 설명 제목을 입력 합니다 (예: **(RA-) GZRS account migration)** .
     - **세부 정보**: \_  **세부** 정보 상자에 추가 세부 정보를 입력 합니다. 예를 들어 "지역에서 \_ [LRS, GRS]에서 GZRS로 마이그레이션해야 합니다." 또는 "해당 \_ \_ 지역의 [LRS, ra-GRS]에서 RA-GZRS로 마이그레이션해야 합니다."
-5.  **다음**을 선택 합니다.
-6. 연락처 정보 ****  블레이드에서 연락처 정보가 올바른지 확인 합니다.
+5.  **다음**을 선택합니다.
+6.  **연락처 정보** 블레이드에서 연락처 정보가 올바른지 확인 합니다.
 7.  **만들기**를 선택합니다.
 
 지원 담당자는 도움을 요청 하 여 도움을 받을 수 있습니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
 - [Azure Storage 복제](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 - [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복성](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)

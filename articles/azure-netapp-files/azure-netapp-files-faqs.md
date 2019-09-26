@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 09/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 66d0d65065f323f53095782e165f179125aa35ac
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: ec0fa0ba7c7cad698cda0f7b440415c3dbb0236a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264973"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299627"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -139,6 +139,8 @@ Root squash 병합는 현재 지원 되지 않습니다.
 ### <a name="does-azure-netapp-files-support-azure-active-directory"></a>Azure Active Directory 지원 Azure NetApp Files? 
 
 [AD (Azure Active Directory) 도메인 서비스](https://docs.microsoft.com/azure/active-directory-domain-services/overview) 와 [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) 이 둘 다 지원 됩니다. Azure NetApp Files에서 기존 Active Directory 도메인 컨트롤러를 사용할 수 있습니다. 도메인 컨트롤러는 Azure에서 가상 머신으로 또는 Express 경로 또는 S2S VPN을 통해 온-프레미스에 상주할 수 있습니다. Azure NetApp Files은 현재 [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) 에 대 한 AD 조인을 지원 하지 않습니다.
+
+Azure Active Directory Domain Services에서 Azure NetApp Files를 사용 하는 경우 조직 구성 단위 경로는 `OU=AADDC Computers` netapp 계정에 대 한 Active Directory를 구성 하는 경우입니다.
 
 ### <a name="what-versions-of-windows-server-active-directory-are-supported"></a>지원 되는 Windows Server Active Directory 버전은 무엇 인가요?
 

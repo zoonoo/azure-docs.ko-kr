@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 4f325d9fc512fd9f6776fcd799b720aaf60ce472
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c6c7a57a2093445d3922f9349242c9a902df7370
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876756"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300714"
 ---
 # <a name="remote-desktop-client-connections"></a>원격 데스크톱 클라이언트 연결
 
@@ -152,6 +152,11 @@ Windows 7 및 Windows 10 용 원격 데스크톱 클라이언트를 제거 하 �
 **원인:** 사용자가 연결 하려고 하는 Vm은 도메인에 가입 되지 않습니다.
 
 **방법을** 호스트 풀의 일부인 모든 Vm을 도메인 컨트롤러에 가입 시킵니다.
+
+### <a name="error-connectionfailedusersidinformationmismatch"></a>오류: ConnectionFailedUserSIDInformationMismatch
+**원인:** 사용자가 원격 로그인을 사용 하도록 설정 하려고 할 때 사용자의 AD (Azure Active Directory) 토큰에서 SID가 도메인 컨트롤러에서 반환 된 SID와 일치 하지 않습니다. 이 오류는 일반적으로 Windows Server AD에서 원본으로 사용 하는 사용자로 Azure Active Directory Domain Services (Azure AD DS) 환경에 로그인을 시도할 때 발생 합니다.
+
+**방법을** 지금은이 시나리오를 지원 하지 않습니다. Azure Active Directory에서 소스인 사용자만 Azure AD DS에 연결 된 Windows 가상 데스크톱 Vm에 로그인 할 수 있습니다.
 
 ## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>사용자가 연결 되어 있지만 아무것도 표시 되지 않습니다 (피드 없음).
 

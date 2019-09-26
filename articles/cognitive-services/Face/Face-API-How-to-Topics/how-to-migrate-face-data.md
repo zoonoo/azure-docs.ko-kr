@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 09/06/2019
 ms.author: lewlu
-ms.openlocfilehash: 886e0ff353ab270bb823629d2068508531c14fc2
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 49b92037fed6436d28f777761b18cf5f66e03025
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516855"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859166"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>얼굴 데이터를 다른 Face 구독으로 마이그레이션
 
-이 가이드에서는 저장 된 PersonGroup 개체와 같은 얼굴 데이터를 다른 Azure Cognitive Services Face API 구독으로 이동 하는 방법을 보여 줍니다. 데이터를 이동 하려면 Snapshot 기능을 사용 합니다. 이러한 방식으로 작업을 이동 하거나 확장할 때 PersonGroup 또는 FaceList 개체를 반복적으로 작성 하 고 학습할 필요가 없습니다. 예를 들어 무료 평가판 구독을 사용 하 여 PersonGroup 개체를 만들고 유료 구독으로 마이그레이션하려는 경우를 가정해 보겠습니다. 또는 대기업 작업을 위해 지역 간에 얼굴 데이터를 동기화 해야 할 수도 있습니다.
+이 가이드에서는 저장 된 PersonGroup 개체와 같은 얼굴 데이터를 다른 Azure Cognitive Services Face API 구독으로 이동 하는 방법을 보여 줍니다. 데이터를 이동 하려면 Snapshot 기능을 사용 합니다. 이러한 방식으로 작업을 이동 하거나 확장할 때 PersonGroup 또는 FaceList 개체를 반복적으로 작성 하 고 학습할 필요가 없습니다. 예를 들어 무료 평가판 구독을 사용 하 여 PersonGroup 개체를 만들고 유료 구독으로 마이그레이션하려는 경우를 가정해 보겠습니다. 또는 대기업 작업을 위해 다른 지역의 구독에서 얼굴 데이터를 동기화 해야 할 수도 있습니다.
 
 이 동일한 마이그레이션 전략은 LargePersonGroup 및 LargeFaceList 개체에도 적용 됩니다. 이 가이드의 개념을 잘 모르는 경우 [얼굴 인식 개념](../concepts/face-recognition.md) 가이드에서 해당 정의를 참조 하세요. 이 가이드에서는 C#에서 Face API .NET 클라이언트 라이브러리를 사용합니다.
 
@@ -41,7 +41,9 @@ ms.locfileid: "68516855"
 
 ## <a name="create-face-clients"></a>얼굴 클라이언트 만들기
 
-*Program.cs*의 **Main** 메서드에서 원본 및 대상 구독에 대해 두 개의 [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) 인스턴스를 만듭니다. 이 예에서는 동아시아 지역의 Face 구독을 원본으로 사용 하 고 미국 서 부 구독을 대상으로 사용 합니다. 이 예제에서는 한 Azure 지역에서 다른 지역으로 데이터를 마이그레이션하는 방법을 보여 줍니다. 구독이 다른 지역에 있으면 `Endpoint` 문자열을 변경 합니다.
+*Program.cs*의 **Main** 메서드에서 원본 및 대상 구독에 대해 두 개의 [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) 인스턴스를 만듭니다. 이 예에서는 동아시아 지역의 Face 구독을 원본으로 사용 하 고 미국 서 부 구독을 대상으로 사용 합니다. 이 예제에서는 한 Azure 지역에서 다른 지역으로 데이터를 마이그레이션하는 방법을 보여 줍니다. 
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ```csharp
 var FaceClientEastAsia = new FaceClient(new ApiKeyServiceClientCredentials("<East Asia Subscription Key>"))

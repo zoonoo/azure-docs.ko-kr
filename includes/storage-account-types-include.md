@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 280ef8550177a514a6704a8bfab226745222f91e
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 0e5c1974ecb1b3efb8df602c76700b7db04a88d7
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69029823"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310529"
 ---
 Azure Storage는 여러 유형의 저장소 계정을 제공 합니다. 각각의 유형은 서로 다른 기능을 지원하며 고유의 가격 책정 모델이 있습니다. 스토리지 계정을 만들기 전에 애플리케이션에 적합한 계정 유형을 결정하는 데 이러한 차이점을 고려합니다. 스토리지 계정 유형은 다음과 같습니다.
 
@@ -27,11 +27,11 @@ Azure Storage는 여러 유형의 저장소 계정을 제공 합니다. 각각�
 
 | 스토리지 계정 형식 | 지원되는 서비스                       | 지원되는 성능 계층      | 지원되는 액세스 계층         | 복제 옵션               | 배포 모델<div role="complementary" aria-labelledby="deployment-model"><sup>1</sup></div> | 암호화<div role="complementary" aria-labelledby="encryption"><sup>2</sup></div> |
 |----------------------|------------------------------------------|-----------------------------|--------------------------------|-----------------------------------|------------------------------|------------------------|
-| 범용 V2   | Blob, 파일, 큐, 테이블 및 디스크       | 표준, 프리미엄<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | 핫, 쿨, 보관<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS, ZGRS (preview), RA-ZGRS (미리 보기)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Resource Manager             | 암호화됨              |
-| 범용 V1   | Blob, 파일, 큐, 테이블 및 디스크       | 표준, 프리미엄<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | N/A                            | LRS, GRS, RA-GRS                  | Resource Manager, 클래식    | 암호화됨              |
-| 블록 blob 저장소   | Blob(블록 Blob 및 추가 Blob만) | Premium                       | N/A                            | LRS                               | Resource Manager             | 암호화됨              |
-| FileStorage   | 파일만 | Premium                       | N/A                            | LRS                               | Resource Manager             | 암호화됨              |
-| Blob Storage         | Blob(블록 Blob 및 추가 Blob만) | 표준                      | 핫, 쿨, 보관<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS                  | Resource Manager             | 암호화됨              |
+| 범용 V2   | Blob, 파일, 큐, 테이블 및 디스크       | 표준, 프리미엄<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | 핫, 쿨, 보관<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS, GZRS (preview), RA-GZRS (미리 보기)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Resource Manager             | 암호화됨              |
+| 범용 V1   | Blob, 파일, 큐, 테이블 및 디스크       | 표준, 프리미엄<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | 해당 사항 없음                            | LRS, GRS, RA-GRS                  | Resource Manager, 클래식    | 암호화됨              |
+| 블록 blob 저장소   | Blob(블록 Blob 및 추가 Blob만) | Premium                       | 해당 사항 없음                            | LRS                               | Resource Manager             | 암호화됨              |
+| FileStorage   | 파일만 | Premium                       | 해당 사항 없음                            | LRS                               | Resource Manager             | 암호화됨              |
+| Blob 스토리지         | Blob(블록 Blob 및 추가 Blob만) | Standard                      | 핫, 쿨, 보관<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS                  | Resource Manager             | 암호화됨              |
 
 <div id="deployment-model"><sup>1</sup>Azure Resource Manager 배포 모델을 사용하는 것이 좋습니다. 클래식 배포 모델을 사용하는 스토리지 계정도 일부 위치에서는 계속 만들 수 있고 기존 클래식 계정도 계속 지원됩니다. 자세한 내용은 <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model">Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해</a>를 참조하세요.</div>
 

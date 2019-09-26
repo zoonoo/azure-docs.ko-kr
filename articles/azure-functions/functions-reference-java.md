@@ -11,24 +11,52 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: aea1434acdbfd97bcc9096dddd497ef031a74b94
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: e3ab825fbf5b5dba74b67eaa894a38c74ed0b62a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170559"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299387"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
 Azure Functions 런타임은 [JAVA SE 8 LTS (줄루어 8.31.0.2-jre 8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/)를 지원 합니다. 이 가이드에는 Java를 사용한 Azure Functions 작성에 대 한 복잡 한 정보가 포함 되어 있습니다.
 
-Java 함수 `public` 는 주석을 `@FunctionName`사용 하 여 데코레이팅된 메서드입니다. 이 메서드는 Java 함수의 항목을 정의 하며 특정 패키지에서 고유 해야 합니다. 
+다른 언어와 마찬가지로 함수 앱에는 하나 이상의 함수가 있을 수 있습니다. Java 함수 `public` 는 주석을 `@FunctionName`사용 하 여 데코레이팅된 메서드입니다. 이 메서드는 Java 함수의 항목을 정의 하며 특정 패키지에서 고유 해야 합니다. Java로 작성 된 한 함수 앱에는 여러 public 메서드가로 `@FunctionName`주석 처리 된 여러 클래스가 있을 수 있습니다.
 
 이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다. 또한 함수 퀵 스타트를 완료 하 여 [Visual Studio Code](functions-create-first-function-vs-code.md) 또는 [Maven](functions-create-first-java-maven.md)를 사용 하 여 첫 번째 함수를 만들어야 합니다.
 
 ## <a name="programming-model"></a>프로그래밍 모델 
 
 [트리거 및 바인딩](functions-triggers-bindings.md)의 개념은 Azure Functions의 기본입니다. 트리거는 코드 실행을 시작합니다. 바인딩을 사용하면 사용자 지정 데이터 액세스 코드를 작성하지 않고도 데이터를 함수에 전달하고 함수에서 데이터를 반환할 수 있습니다.
+
+## <a name="project-scaffolding"></a>프로젝트 스 캐 폴딩
+
+Java 기반 Azure 함수 프로젝트를 스 캐 폴드 하는 가장 간단한 방법은 archetype를 사용 `Apache Maven` 하는 것입니다. Visual Studio Code에서 프로젝트 생성 마법사와 Eclipse 및 IntelliJ 용 Azure 도구 키트를 찾을 수도 있습니다.
+
+현재 Maven에는 두 개의 Azure Functions archetype 있습니다.
+
+### <a name="java-archetype"></a>Java 원형
+
+이 원형는 다음 groupId 및 artifactId에 게시 됩니다. [azure: 원형](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/).
+
+```
+mvn archetype:generate \
+    -DarchetypeGroupId=com.microsoft.azure \
+    -DarchetypeArtifactId=azure-functions-archetype 
+```
+
+### <a name="kotlin-archetype-preview"></a>Kotlin 원형 (미리 보기)
+
+이 원형는 다음 groupId 및 artifactId에 게시 됩니다 [. azure: kotlin-원형](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/).
+
+```
+mvn archetype:generate \
+    -DarchetypeGroupId=com.microsoft.azure \
+    -DarchetypeArtifactId=azure-functions-kotlin-archetype
+```
+
+이러한 archetype의 소스 코드는 [Azure Maven Archetype GitHub 리포지토리에서](https://github.com/microsoft/azure-maven-archetypes)찾을 수 있습니다.
 
 ## <a name="folder-structure"></a>폴더 구조
 
@@ -56,6 +84,8 @@ FunctionsProject
  | - pom.xml
 ```
 
+_* Kotlin 프로젝트는 여전히 Maven 있으므로 매우 유사 합니다._
+
 공유 [호스트 json](functions-host-json.md) 파일을 사용 하 여 함수 앱을 구성할 수 있습니다. 각 함수에는 자체 코드 파일(.java)과 바인딩 구성 파일(function.json)이 있습니다.
 
 하나의 프로젝트에 둘 이상의 함수를 넣을 수 있습니다. 함수를 별도의 jar에 넣지 않도록 하세요. 대상 `FunctionApp` 디렉터리의는 Azure의 함수 앱에 배포 됩니다.
@@ -69,7 +99,7 @@ FunctionsProject
 > [!IMPORTANT] 
 > 로컬에서 Azure Blob storage, Azure Queue storage 또는 Azure Table storage 트리거를 실행 하려면 [로컬. 설정](/azure/azure-functions/functions-run-local#local-settings-file) 에서 Azure Storage 계정을 구성 해야 합니다.
 
-예제:
+예:
 
 ```java
 public class Function {
@@ -352,7 +382,7 @@ public class Function {
 
 `getLogger` 에서`ExecutionContext`정의 된를 사용 하 여 함수 코드에서 로그를 작성 합니다.
 
-예제:
+예:
 
 ```java
 

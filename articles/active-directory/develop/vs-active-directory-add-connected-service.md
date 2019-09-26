@@ -8,17 +8,16 @@ ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.custom: aaddev, vs-azure
 ms.workload: azure-vs
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 543f976a3284550889545df08e7df53693d02342
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 6c02821a41faa976f8f35984ecf48f425239e6fd
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69511526"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881184"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Visual Studio에서 연결된 서비스를 사용하여 Azure Active Directory 추가
 
@@ -28,7 +27,7 @@ Azure AD(Azure Active Directory)를 사용하여 ASP.NET MVC 웹 애플리케이
 
 현재 Active Directory 연결된 서비스는 ASP.NET Core 애플리케이션을 지원하지 않습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 계정: Azure 계정이 없는 경우 [평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
 - **Visual Studio 2015** 이상 [지금 Visual Studio를 다운로드](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)하세요.

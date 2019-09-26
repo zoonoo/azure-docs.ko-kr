@@ -1,0 +1,53 @@
+---
+title: Azure Active Directory 포털에서 사용자 목록 다운로드 (미리 보기) | Microsoft Docs
+description: Azure Active Directory의 Azure 관리 센터에서 대량으로 사용자 레코드를 다운로드 합니다.
+services: active-directory
+author: curtand
+ms.author: curtand
+manager: mtillman
+ms.date: 07/15/2019
+ms.topic: conceptual
+ms.service: active-directory
+ms.subservice: users-groups-roles
+ms.workload: identity
+ms.custom: it-pro
+ms.reviewer: jeffsta
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 38cc8fd4e063896bbd8843a54f0a01058462c618
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70901452"
+---
+# <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Azure Active Directory 포털에서 사용자 목록 다운로드 (미리 보기)
+
+Azure AD (Azure Active Directory)는 대량 사용자 가져오기 (만들기) 작업을 지원 합니다.
+
+## <a name="bulk-download-service-limits"></a>대량 다운로드 서비스 제한
+
+사용자 목록을 만들기 위한 각 대량 작업은 최대 1 시간 동안 실행할 수 있습니다. 이를 통해 50만 명 이상의 사용자 목록을 만들고 다운로드할 수 있습니다.
+
+## <a name="required-permissions"></a>필요한 권한
+
+Azure AD 관리 센터에서 사용자 목록을 다운로드 하려면 Azure AD에서 하나 이상의 조직 수준 관리자 역할에 할당 된 사용자로 로그인 해야 합니다. 게스트 초대자 및 응용 프로그램 개발자는 관리자 역할로 간주 되지 않습니다.
+
+## <a name="to-download-a-list-of-users"></a>사용자 목록을 다운로드 하려면
+
+1. 조직의 사용자 관리자 계정으로 [AZURE AD 조직에 로그인](https://aad.portal.azure.com) 합니다.
+1. Azure AD에서 **사용자** > **다운로드 사용자**를 선택 합니다.
+1. **사용자 다운로드** 페이지에서 **시작** 을 선택 하 여 사용자 프로필 속성을 나열 하는 CSV 파일을 받습니다. 오류가 있는 경우 대량 작업 결과 페이지에서 결과 파일을 다운로드 하 고 볼 수 있습니다. 파일에는 각 오류의 이유가 포함 되어 있습니다.
+
+   ![다운로드 하려는 사용자를 나열할 위치를 선택 합니다.](./media/users-bulk-download/bulk-download.png)
+
+## <a name="check-status"></a>상태 확인
+
+**대량 작업 결과 (미리 보기)** 페이지에서 보류 중인 대량 요청의 상태를 볼 수 있습니다.
+
+   ![대량 작업 결과 페이지에서 업로드 상태 확인](./media/users-bulk-download/bulk-center.png)
+
+## <a name="next-steps"></a>다음 단계
+
+- [사용자 일괄 추가](users-bulk-add.md)
+- [사용자 대량 삭제](users-bulk-delete.md)
+- [사용자 대량 복원](users-bulk-restore.md)

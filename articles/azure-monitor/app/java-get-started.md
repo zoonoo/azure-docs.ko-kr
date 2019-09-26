@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: lagayhar
-ms.openlocfilehash: 27610280bafa6d8e9e33f84af2d3e9f6c2c9ea5c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 351247041d4e2f857bcb38b38a490c1a160a6a70
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967827"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299585"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
 
@@ -29,10 +29,8 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
 
 다음 작업을 수행해야 합니다.
 
-* JRE 버전 1.7 또는 1.8
+* Java 7 이상
 * [Microsoft Azure](https://azure.microsoft.com/)구독.
-
-Spring 프레임워크를 선호하는 경우 [Application Insights 가이드를 사용하도록 Spring Boot 이니셜라이저 앱을 구성](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)해 보세요.
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Application Insights 계측 키 가져오기
 1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다.
@@ -51,27 +49,16 @@ Spring 프레임워크를 선호하는 경우 [Application Insights 가이드를
 그런 다음 프로젝트 종속성을 새로 고쳐 다운로드한 이진을 가져옵니다.
 
 ```XML
-
-    <repositories>
-       <repository>
-          <id>central</id>
-          <name>Central</name>
-          <url>http://repo1.maven.org/maven2</url>
-       </repository>
-    </repositories>
-
     <dependencies>
       <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>applicationinsights-web</artifactId>
+        <artifactId>applicationinsights-web-auto</artifactId>
+        <!-- or applicationinsights-web for manual web filter registration -->
         <!-- or applicationinsights-core for bare API -->
-        <version>[2.0,)</version>
+        <version>2.5.0</version>
       </dependency>
     </dependencies>
 ```
-
-* *빌드 또는 체크섬 유효성 검사 오류가 있나요?* `<version>2.0.n</version>`과(와) 같은 특정 버전을 사용해 봅니다. [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) 또는 [Maven 아티팩트](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)에서 최신 버전을 찾을 수 있습니다.
-* *새 SDK로 업데이트해야 하는 경우* 프로젝트의 종속성을 새로 고칩니다.
 
 #### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Gradle을 사용하는 경우... <a name="gradle-setup" />
 빌드에 Gradle을 사용하도록 프로젝트가 이미 설정된 경우 다음 코드를 build.gradle 파일에 병합합니다.
@@ -79,34 +66,25 @@ Spring 프레임워크를 선호하는 경우 [Application Insights 가이드를
 그런 다음 프로젝트 종속성을 새로 고쳐 다운로드한 이진을 가져옵니다.
 
 ```gradle
-
-    repositories {
-      mavenCentral()
-    }
-
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '2.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web-auto', version: '2.5.0'
+      // or applicationinsights-web for manual web filter registration
       // or applicationinsights-core for bare API
     }
 ```
-
-#### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>Eclipse를 사용하여 동적 웹 프로젝트를 만드는 경우...
-Java 용 Application Insights SDK 플러그 인을 사용 합니다. 참고: 이 플러그 인을 사용하여 Application insights를 신속하게 실행하더라도(Maven/Gradle을 사용하지 않는다고 가정함)종속성 관리 시스템이 아닙니다. 이와 같이 플러그 인을 업데이트하더라도 프로젝트에 Application Insights 라이브러리를 자동으로 업데이트하지 않습니다.
-
-* *빌드 또는 체크섬 유효성 검사 오류가 있나요?* `version:'2.0.n'`과(와) 같은 특정 버전을 사용해 봅니다. [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) 또는 [Maven 아티팩트](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)에서 최신 버전을 찾을 수 있습니다.
-* *새 SDK로 업데이트하려면* 프로젝트의 종속성을 새로 고칩니다.
 
 #### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>그렇지 않으면 수동으로 종속성을 관리하는 경우...
 [최신 버전](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)을 다운로드하고 필요한 파일을 프로젝트에 복사하여 이전 버전을 교체합니다.
 
 ### <a name="questions"></a>질문...
-* *`-core` 및 `-web` 구성 요소 간에는 어떤 관계가 있나요?*
-  * `applicationinsights-core` 는 최소한의 API를 제공합니다. 이 구성 요소는 항상 필요합니다.
-  * `applicationinsights-web` 은 HTTP 요청 수와 응답 시간을 추적하는 메트릭을 제공합니다. 사용자가 원격 분석 자동 수집을 원하지 않는 경우 이 구성 요소를 생략할 수 있습니다. 예를 들어 사용자 자신의 코드를 작성하려는 경우입니다.
+* *`-web-auto` ,`-web` 및 구성`-core` 요소 간의 관계는 무엇 인가요?*
+  * `applicationinsights-web-auto`런타임에 Application Insights 서브렛 필터를 자동으로 등록 하 여 HTTP 서블릿 요청 수와 응답 시간을 추적 하는 메트릭을 제공 합니다.
+  * `applicationinsights-web`는 또한 HTTP 서블릿 요청 수와 응답 시간을 추적 하는 메트릭을 제공 하지만 응용 프로그램에서 Application Insights 서브렛 필터를 수동으로 등록 해야 합니다.
+  * `applicationinsights-core`응용 프로그램이 서브렛 기반이 아닌 경우와 같이 기본 API만 제공 합니다.
   
 * *SDK를 최신 버전으로 업데이트하려면 어떻게 해야 하나요?*
   * Gradle 또는 Maven을 사용하는 경우...
-    * 빌드 파일을 업데이트하여 최신 버전을 지정하거나 Gradle/Maven의 와일드 카드 구문을 사용하여 최신 버전을 자동으로 포함합니다. 그런 다음, 프로젝트의 종속성을 새로 고칩니다. 와일드 카드 구문은 [Gradle](#gradle-setup) 또는 [Maven](#maven-setup)에 대한 위의 예제에서 볼 수 있습니다.
+    * 빌드 파일을 업데이트 하 여 최신 버전을 지정 합니다.
   * 종속성을 수동으로 관리하는 경우...
     * 최신 버전의 [Java용 Application Insights SDK](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)를 다운로드하여 이전 버전을 대체합니다. 변경 내용은 [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)에 설명되어 있습니다.
 
@@ -116,34 +94,30 @@ ApplicationInsights.xml을 프로젝트의 리소스 폴더에 추가하거나 A
 Azure 포털에서 가져온 계측 키를 대체합니다.
 
 ```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+   <!-- The key from the portal: -->
+   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
 
+   <!-- HTTP request component (not required for bare API) -->
+   <TelemetryModules>
+      <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
+      <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
+      <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
+   </TelemetryModules>
 
-      <!-- The key from the portal: -->
-      <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+   <!-- Events correlation (not required for bare API) -->
+   <!-- These initializers add context data to each event -->
+   <TelemetryInitializers>
+      <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+      <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+      <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
+      <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
+      <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
+   </TelemetryInitializers>
 
-
-      <!-- HTTP request component (not required for bare API) -->
-      <TelemetryModules>
-        <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
-        <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
-        <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
-      </TelemetryModules>
-
-      <!-- Events correlation (not required for bare API) -->
-      <!-- These initializers add context data to each event -->
-
-      <TelemetryInitializers>
-        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
-        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
-        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
-        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
-        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
-
-      </TelemetryInitializers>
-    </ApplicationInsights>
+</ApplicationInsights>
 ```
 
 필요에 따라 애플리케이션에 액세스할 수 있는 위치에 구성 파일이 있으면 됩니다.  `-Dapplicationinsights.configurationDirectory` 시스템 속성은 ApplicationInsights.xml을 포함하는 디렉터리를 지정합니다. 예를 들어 `E:\myconfigs\appinsights\ApplicationInsights.xml`에 있는 구성 파일은 `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"` 속성을 사용하여 구성됩니다.
@@ -155,8 +129,8 @@ Azure 포털에서 가져온 계측 키를 대체합니다.
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>계측 키를 설정하는 다른 방법
 Application Insights SDK는 다음 순서로 키를 찾습니다.
 
-1. 시스템 속성: -DAPPLICATION_INSIGHTS_IKEY=your_ikey
-2. 환경 변수: APPLICATION_INSIGHTS_IKEY
+1. 시스템 속성:-DAPPINSIGHTS_INSTRUMENTATIONKEY = your_ikey
+2. 환경 변수: APPINSIGHTS_INSTRUMENTATIONKEY
 3. 구성 파일: ApplicationInsights.xml
 
 또한 [코드로 설정](../../azure-monitor/app/api-custom-events-metrics.md#ikey)할 수 있습니다.
@@ -170,133 +144,9 @@ Application Insights SDK는 다음 순서로 키를 찾습니다.
     }
 ```
 
-[라이브 메트릭은](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) 코드에서 계측 키를 읽는 것을 지원 하지 않습니다.
+## <a name="4-add-agent"></a>4. 에이전트 추가
 
-## <a name="4-add-an-http-filter"></a>4. HTTP 필터 추가
-마지막 구성 단계는 HTTP 요청 구성 요소가 각 웹 요청을 로그하도록 허용합니다. (완전한 API를 원하는 경우에는 요청되지 않습니다.)
-
-### <a name="spring-boot-applications"></a>Spring Boot 애플리케이션
-구성 클래스에서 Application Insights `WebRequestTrackingFilter`를 등록합니다.
-
-```Java
-package <yourpackagename>.configurations;
-
-import javax.servlet.Filter;
-
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.core.Ordered;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
-import com.microsoft.applicationinsights.TelemetryConfiguration;
-import com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter;
-
-@Configuration
-public class AppInsightsConfig {
-
-    @Bean
-    public String telemetryConfig() {
-        String telemetryKey = System.getenv("<instrumentation key>");
-        if (telemetryKey != null) {
-            TelemetryConfiguration.getActive().setInstrumentationKey(telemetryKey);
-        }
-        return telemetryKey;
-    }
-
-    /**
-     * Programmatically registers a FilterRegistrationBean to register WebRequestTrackingFilter
-     * @param webRequestTrackingFilter
-     * @return Bean of type {@link FilterRegistrationBean}
-     */
-    @Bean
-    public FilterRegistrationBean webRequestTrackingFilterRegistrationBean(WebRequestTrackingFilter webRequestTrackingFilter) {
-        FilterRegistrationBean registration = new FilterRegistrationBean();
-        registration.setFilter(webRequestTrackingFilter);
-        registration.addUrlPatterns("/*");
-        registration.setOrder(Ordered.HIGHEST_PRECEDENCE + 10);
-        return registration;
-    }
-
-
-    /**
-     * Creates bean of type WebRequestTrackingFilter for request tracking
-     * @param applicationName Name of the application to bind filter to
-     * @return {@link Bean} of type {@link WebRequestTrackingFilter}
-     */
-    @Bean
-    @ConditionalOnMissingBean
-
-    public WebRequestTrackingFilter webRequestTrackingFilter(@Value("${spring.application.name:application}") String applicationName) {
-        return new WebRequestTrackingFilter(applicationName);
-    }
-
-
-}
-```
-
-> [!NOTE]
-> Spring Boot 1.3.8 이하를 사용하는 경우 FilterRegistrationBean을 아래 줄로 바꿉니다.
-
-```Java
-    import org.springframework.boot.context.embedded.FilterRegistrationBean;
-```
-
-이 클래스는 `WebRequestTrackingFilter`가 http 필터 체인에서 첫 번째 필터가 되도록 구성합니다. 또한 사용 가능한 경우 운영 체제 환경 변수에서 계측 키를 끌어옵니다.
-
-> Spring Boot 애플리케이션이고 고유한 Spring MVC가 구성되었기 때문에 Spring MVC를 구성하지 않고 웹 http 필터 구성을 사용합니다. Spring MVC 특정 구성은 아래 섹션을 참조하세요.
-
-### <a name="applications-using-webxml"></a>Web.xml를 사용하는 애플리케이션
-프로젝트에서 web.xml 파일을 찾아 열고, 애플리케이션 필터가 구성된 웹앱 노드 아래에 다음 코드를 병합합니다.
-
-가장 정확한 결과를 얻으려면 필터를 다른 모든 필터 전에 매핑해야 합니다.
-
-```XML
-
-    <filter>
-      <filter-name>ApplicationInsightsWebFilter</filter-name>
-      <filter-class>
-        com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter
-      </filter-class>
-    </filter>
-    <filter-mapping>
-       <filter-name>ApplicationInsightsWebFilter</filter-name>
-       <url-pattern>/*</url-pattern>
-    </filter-mapping>
-
-   <!-- This listener handles shutting down the TelemetryClient when an application/servlet is undeployed. -->
-    <listener>
-      <listener-class>com.microsoft.applicationinsights.web.internal.ApplicationInsightsServletContextListener</listener-class>
-    </listener>
-```
-
-#### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>Spring Web MVC 3.1 이상을 사용하는 경우
-Application Insights 패키지를 포함하도록 *-servlet.xml에서 이러한 요소 편집:
-
-```XML
-
-    <context:component-scan base-package=" com.springapp.mvc, com.microsoft.applicationinsights.web.spring"/>
-
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <mvc:mapping path="/**"/>
-            <bean class="com.microsoft.applicationinsights.web.spring.RequestNameHandlerInterceptorAdapter" />
-        </mvc:interceptor>
-    </mvc:interceptors>
-```
-
-#### <a name="if-youre-using-struts-2"></a>Struts 2를 사용하는 경우
-Struts 구성 파일에 이 항목 추가(일반적으로 struts.xml 또는 struts-default.xml이라고 함):
-
-```XML
-
-     <interceptors>
-       <interceptor name="ApplicationInsightsRequestNameInterceptor" class="com.microsoft.applicationinsights.web.struts.RequestNameInterceptor" />
-     </interceptors>
-     <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
-```
-
-기본 스택에 정의된 인터셉터가 있는 경우 해당 인터셉터를 스택에 추가하면 됩니다.
+나가는 HTTP 호출, JDBC 쿼리, 응용 프로그램 로깅 및 더 나은 작업 이름을 캡처하기 위해 [Java 에이전트를 설치](java-agent.md) 합니다.
 
 ## <a name="5-run-your-application"></a>5. 애플리케이션 실행
 응용 프로그램을 디버그 모드로 개발 컴퓨터에서 실행하거나 서버에 게시합니다.
@@ -314,9 +164,9 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
 ![차트를 사용 하 여 Application Insights 오류 창](./media/java-get-started/006-barcharts.png)
 
-> Application Insights는 MVC 애플리케이션에 대한 HTTP 요청 형식을 다음과 같이 가정합니다. `VERB controller/action` 예를들어, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` 및 `GET Home/Product/sdf96vws`은(는) `GET Home/Product`(으)로 그룹화됩니다. 이 그룹화를 통해 요청 수와 같은 의미 있는 집계 및 요청에 대한 평균 실행 시간을 사용할 수 있습니다.
->
->
+<!--
+[TODO update image with 2.5.0 operation naming provided by agent]
+-->
 
 ### <a name="instance-data"></a>인스턴스 데이터
 특정 요청 유형을 클릭하여 개별 인스턴스를 확인합니다.
@@ -362,15 +212,14 @@ Windows에서 실행 되는 스프링 부팅 앱을 Azure 앱 서비스에서 �
 ```
 
 ## <a name="exceptions-and-request-failures"></a>예외 및 요청 실패
-처리 되지 않은 예외가 자동으로 수집 됩니다.
+처리 되지 않은 예외 및 요청 오류는 Application Insights 웹 필터에 의해 자동으로 수집 됩니다.
 
-다른 예외에 대한 데이터를 수집하려면 다음 두 옵션을 사용합니다.
-
-* [코드에 대 한 호출을 코드에 삽입][apiexceptions]합니다.
-* [서버에 Java 에이전트를 설치합니다](java-agent.md). 감시 방법을 지정할 수 있습니다.
+다른 예외에 대 한 데이터를 수집 하기 위해 [코드에서 코드에 코드를 삽입][apiexceptions]하는 호출을 삽입할 수 있습니다.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>메서드 호출 및 외부 종속성 모니터링
 [Java 에이전트를 설치](java-agent.md) 하여 지정된 내부 메서드 및 JDBC를 통해 수행한 호출을 타이밍 데이터와 함께 기록합니다.
+
+자동 작업 명명의 경우 및입니다.
 
 ## <a name="w3c-distributed-tracing"></a>W3C 분산 추적
 
@@ -441,9 +290,6 @@ Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.i
 
 * [웹 페이지에 원격 분석을 추가][usage] 하여 페이지 보기 및 사용자 메트릭을 모니터링합니다.
 * [웹 테스트를 설정][availability] 하여 애플리케이션이 라이브 상태로 유지되며 응답하는지 확인할 수 있습니다.
-
-## <a name="capture-log-traces"></a>로그 추적 캡처
-Application Insights를 사용하여 Log4J, Logback 또는 다른 로깅 프레임워크에서 로그를 분리 및 분할할 수 있습니다. HTTP 요청 및 기타 원격 분석과 로그를 연관지을 수 있습니다. [방법을 알아보세요][javalogs].
 
 ## <a name="send-your-own-telemetry"></a>사용자 고유의 원격 분석 전송
 이제 SDK를 설치한 했으므로 API를 사용하여 사용자 고유의 원격 분석을 전송할 수 있습니다.

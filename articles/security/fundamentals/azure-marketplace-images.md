@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: b574f7c4f30c3bce8bd7d0e234cb523c965772e1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 3d6b1ed2a3800058acba9fe5df2137811afed74a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727574"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300781"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Azure Marketplace의 보안 권장 사항 이미지
 
@@ -56,7 +56,7 @@ ms.locfileid: "68727574"
 | 보안                                                         | 보안 OS 기본 이미지를 사용합니다. Windows Server를 기반으로 하는 모든 이미지의 원본에 사용된 VHD는 Microsoft Azure를 통해 제공되는 Windows Server OS 이미지에서 가져와야 합니다. |
 | 보안                                                         | 모든 최신 보안 업데이트를 설치합니다.                                                                                                                                     |
 | 보안                                                         | 애플리케이션에는 관리자, 루트 및 관리자와 같이 제한된 사용자 이름에 대한 종속성이 없어야 합니다.                                                                |
-| 보안                                                         | 운영 체제 하드 디스크에서는 BitLocker 드라이브 암호화가 지원되지 않습니다. 데이터 디스크에서 BitLocker를 사용할 수 있습니다.                                                            |
+| 보안                                                         | BitLocker 드라이브 암호화은 OS 하드 드라이브와 데이터 하드 드라이브 모두에 대해 사용 하도록 설정 됩니다.                                                             |
 | 보안                                                         | 필요한 Windows Server 역할, 기능, 서비스 및 네트워킹 포트만 사용하도록 설정해 공간을 최소화함으로써 공격 표면을 제한합니다.                         |
 | 보안                                                         | 맬웨어의 소스 코드 및 결과 VM 이미지를 검색합니다.                                                                                                                     |
 | 보안                                                         | Windows Server 이미지 보안 업데이트를 자동 업데이트로 설정합니다.                                                                                                                |

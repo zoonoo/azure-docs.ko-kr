@@ -23,12 +23,15 @@
             - name: 새 Blob 스토리지 사전 로드
               href: hpc-cache-ingest.md
             - name: 대체 데이터 수집 방법
-            - name: 병렬 복사를 사용하여 캐시 채우기
-              href: hpc-cache-ingest-parallelcp.md
-            - name: msrsync를 사용하여 캐시 채우기
-              href: hpc-cache-ingest-msrsync.md
-            - name: 수동 파일 복사를 사용하여 캐시 채우기
-              href: hpc-cache-ingest-manual.md
+              items:
+                - name: 병렬 복사를 사용하여 캐시 채우기
+                  href: hpc-cache-ingest-parallelcp.md
+                - name: msrsync를 사용하여 캐시 채우기
+                  href: hpc-cache-ingest-msrsync.md
+                - name: 수동 파일 복사를 사용하여 캐시 채우기
+                  href: hpc-cache-ingest-manual.md
+    - name: 캐시에 연결
+      href: hpc-cache-mount.md
 - name: 리소스
   items:
     - name: 지원 티켓 열기

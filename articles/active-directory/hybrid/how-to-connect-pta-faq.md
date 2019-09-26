@@ -16,12 +16,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c7199cd8e5dbde1f6ff2f5cea56a4191211c853
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 0d21bf0f2ba7c93a35952d2eb2dd4df49bb3260b
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779079"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71290770"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
 
@@ -41,11 +41,10 @@ ms.locfileid: "68779079"
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>[조건부 액세스](../active-directory-conditional-access-azure-portal.md)는 통과 인증에서 작동하나요?
 
-예. Azure Multi-factor Authentication을 비롯 한 모든 조건부 액세스 기능이 통과 인증을 사용 합니다.
+예. Azure Multi-Factor Authentication을 비롯 한 모든 조건부 액세스 기능이 통과 인증을 사용 합니다.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>통과 인증은 "userPrincipalName" 대신 "Alternate ID"를 사용자 이름으로 지원하나요?
-
-예, 통과 인증은 Azure AD Connect에서 구성될 때 `Alternate ID`를 사용자 이름으로 지원합니다. 전제 조건으로 Azure AD Connect는 온-프레미스 Active Directory `UserPrincipalName` 특성을 Azure AD로 동기화해야 합니다. 자세한 내용은 [Azure AD Connect의 사용자 지정 설치](how-to-connect-install-custom.md)를 참조하세요. 모든 Office 365 애플리케이션에서 `Alternate ID`를 지원하지는 않습니다. 특정 애플리케이션의 설명서 지원 부분을 참조하세요.
+제한 된 범위까지 통과 인증은 Azure AD Connect에서 구성 된 경우 대체 ID를 사용자 이름으로 지원 합니다. 전제 조건으로 Azure AD Connect는 온-프레미스 Active Directory `UserPrincipalName` 특성을 Azure AD로 동기화해야 합니다. 이렇게 하면 온 `UserPrincipalName` -프레미스 AD와 Azure AD의가 동일 하 게 됩니다. 다른 특성을 사용 하 여 온-프레미스 AD에서 Azure AD로 동기화 하는 경우에는 암호 해시 동기화 또는 AD FS을 사용 해야 합니다. 자세한 내용은 [Azure AD Connect의 사용자 지정 설치](how-to-connect-install-custom.md)를 참조하세요. 모든 Office 365 애플리케이션에서 `Alternate ID`를 지원하지는 않습니다. 특정 애플리케이션의 설명서 지원 부분을 참조하세요.
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>암호 해시 동기화가 통과 인증을 대체하는 역할을 하나요?
 

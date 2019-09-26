@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 9/20/2019
+ms.date: 9/25/2019
 ms.author: b-juche
-ms.openlocfilehash: a2cfd7937bff10dae4601cb9727cfe43e4d61ca0
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 3d34caba9512dc0c0b20cf10476f5c38a2fab8ce
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178267"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299662"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -95,6 +95,9 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 
     * **조직 구성 단위 경로**  
         SMB 서버 컴퓨터 계정이 생성 되는 OU (조직 구성 단위)에 대 한 LDAP 경로입니다. 즉, OU = second level, OU = first level입니다. 
+
+        Azure Active Directory Domain Services에서 Azure NetApp Files를 사용 하는 경우 조직 구성 단위 경로는 `OU=AADDC Computers` netapp 계정에 대 한 Active Directory를 구성 하는 경우입니다.
+        
     * **사용자 이름** 및 **암호** 를 포함 한 자격 증명
 
     ![Active Directory 조인](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)

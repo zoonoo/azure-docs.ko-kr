@@ -1,6 +1,6 @@
 ---
 title: Azure Container Registry의 콘텐츠 신뢰
-description: Azure Container Registry에 콘텐츠 신뢰를 사용하도록 설정하고, 서명된 이미지를 푸시 및 풀하는 방법을 알아봅니다.
+description: Azure container registry에 대 한 콘텐츠 신뢰를 사용 하도록 설정 하 고 서명 된 이미지를 푸시하고 풀 하는 방법에 대해 알아봅니다.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/06/2019
 ms.author: danlep
-ms.openlocfilehash: c0d4bd397c68fe3ed2d36404af9230e2316f3362
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: f14d4d32d2423b12786095da17305af605088fb7
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959181"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300433"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Azure Container Registry의 콘텐츠 신뢰
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 2922bbd2e85a671cd17b6042c0b544d3936de884
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 732c93688dbc73cb5a4ce21e4669744be61c5925
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262119"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299558"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
@@ -51,7 +51,7 @@ ms.locfileid: "71262119"
 
  >[!NOTE]
  >사용하는 작업 영역에 대한 Azure Portal의 [데이터 메뉴 Log Analytics 고급 설정](../../azure-monitor/platform/agent-data-sources.md#configuring-data-sources)에서 컬렉션을 구성한 경우 성능 카운터 및 Syslog에 대한 편집 구성 파일을 덮어씁니다. 모든 에이전트에 구성을 사용하지 않도록 설정하려면 Log Analytics **고급 설정**에서 컬렉션을 사용하지 않도록 설정합니다. 또는 단일 에이전트인 경우 다음 명령을 실행합니다.  
-> `sudo su omsagent -c /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable`
+> `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
 ## <a name="installation-error-codes"></a>설치 오류 코드
 

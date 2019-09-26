@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 07/22/2019
-ms.openlocfilehash: cd55e078e14ec34006df05096f161e7bdef39a03
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: ac478a7b75bbac0c5e7f59cbe565ec2bbcd643ce
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827217"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900311"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>데이터 웨어하우스를 Gen2로 업그레이드
 
@@ -63,7 +63,7 @@ Microsoft는 데이터 웨어하우스 실행에 대 한 초급 수준의 비용
 | 아랍에미리트 북부 |2019 년 7 월 20 일 |완료 |
 | 영국 남부 |사용 가능 |진행 중 |
 | 영국 서부 |사용 가능 |진행 중 |
-| 미국 중서부 |2019 년 9 월 1 일 |2019 년 10 월 1 일|
+| 미국 중서부 |2019 년 11 월 1 일 |2019 년 12 월 1 일|
 | 유럽 서부 |사용 가능 |완료 |
 | 미국 서부 |사용 가능 |완료 |
 | 미국 서부 2 |사용 가능 |완료 |

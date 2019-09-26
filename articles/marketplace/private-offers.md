@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: pabutler
-ms.openlocfilehash: 35134d828098af0cff3d585dee600ee1808b00c4
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 3d97fd167f0f946239d4de24bb180796ebb498d3
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013626"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70885881"
 ---
 # <a name="private-offers"></a>프라이빗 제품
 
@@ -29,11 +29,11 @@ ms.locfileid: "69013626"
 
 프라이빗 제품을 사용하면 게시자가 사용자 지정 거래 및 구성을 협상하고 제공하는 데 필요한 유연성 및 컨트롤을 포함한 공용 마켓플레이스의 규모 및 글로벌 가용성을 활용할 수 있습니다. 이러한 기능을 통해 클라우드 마켓플레이스를 신속하게 엔터프라이즈에 도입하게 됩니다.  이제 엔터프라이즈는 기대하고 요구하는 방법으로 제품을 구입하고 판매할 수 있습니다.
 
-프라이빗 제품은 Virtual Machine, Azure 애플리케이션(솔루션 템플릿 또는 관리 애플리케이션으로 구현) 및 SaaS 앱에 사용할 수 있습니다. [클라우드 파트너 포털](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus)을 통해 공용 제품과 같은 프라이빗 제품을 만들고 관리할 수 있습니다.  몇 분 안에 프라이빗 제품에 대한 액세스 권한을 고객에게 부여하거나 해제할 수 있습니다.
+프라이빗 제품은 Virtual Machine, Azure 애플리케이션(솔루션 템플릿 또는 관리 애플리케이션으로 구현) 및 SaaS 앱에 사용할 수 있습니다. [클라우드 파트너 포털](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)을 통해 공용 제품과 같은 프라이빗 제품을 만들고 관리할 수 있습니다.  몇 분 안에 프라이빗 제품에 대한 액세스 권한을 고객에게 부여하거나 해제할 수 있습니다.
 
 ## <a name="creating-private-offers-using-skus-and-plans"></a>SKU 및 계획을 사용하여 프라이빗 제품 만들기
 
-*공용 SKU 또는 계획을 포함한 새 제품 또는 기존 제품*의 경우 게시자는 새로운 SKU 또는 계획을 만들고 프라이빗으로 표시하여 새로운 프라이빗 변형을 쉽게 만들 수 있습니다.  [프라이빗 SKU](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus) 및 계획은 제품의 구성 요소이며 대상 고객에게만 표시되고 구입 가능합니다. 프라이빗 SKU 및 계획은 기본 이미지를 다시 사용하거나 공용 SKU 또는 계획에 이미 게시된 메타데이터를 제공할 수 있습니다. 이 옵션을 통해 게시자가 동일한 기본 이미지의 여러 버전을 게시하고 메타데이터를 제공하지 않고 공용 제품의 여러 프라이빗 변형을 만들 수 있습니다. Virtual Machine 및 Azure 애플리케이션 전용 제품의 경우 프라이빗 SKU가 공용 SKU가 포함된 기본 이미지를 공유하는 경우 제품의 기본 이미지를 변경하면 해당 기본 이미지를 사용하는 모든 공용 및 프라이빗 SKU에 전파됩니다.
+*공용 SKU 또는 계획을 포함한 새 제품 또는 기존 제품*의 경우 게시자는 새로운 SKU 또는 계획을 만들고 프라이빗으로 표시하여 새로운 프라이빗 변형을 쉽게 만들 수 있습니다.  [프라이빗 SKU](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) 및 계획은 제품의 구성 요소이며 대상 고객에게만 표시되고 구입 가능합니다. 프라이빗 SKU 및 계획은 기본 이미지를 다시 사용하거나 공용 SKU 또는 계획에 이미 게시된 메타데이터를 제공할 수 있습니다. 이 옵션을 통해 게시자가 동일한 기본 이미지의 여러 버전을 게시하고 메타데이터를 제공하지 않고 공용 제품의 여러 프라이빗 변형을 만들 수 있습니다. Virtual Machine 및 Azure 애플리케이션 전용 제품의 경우 프라이빗 SKU가 공용 SKU가 포함된 기본 이미지를 공유하는 경우 제품의 기본 이미지를 변경하면 해당 기본 이미지를 사용하는 모든 공용 및 프라이빗 SKU에 전파됩니다.
 
 *프라이빗 SKU 또는 계획을 포함하는 새 제품*의 경우 게시자는 해당 제품을 다른 제품으로 만든 다음, SKU 또는 계획을 프라이빗으로 표시할 수 있습니다. 프라이빗 SKU 또는 계획만 설치된 제품은 제품과 연결되지 않은 고객에 의해 [Azure Marketplace](https://azuremarketplace.microsoft.com) 또는 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)을 통해 검색되거나 액세스될 수 없습니다.
 
@@ -52,4 +52,4 @@ ms.locfileid: "69013626"
 
 ## <a name="next-steps"></a>다음 단계
 
-이러한 새 기능을 활용하려는 경우 [Azure Marketplace](https://azuremarketplace.microsoft.com/sell)에서 판매하기 시작할 수 있습니다.
+개인 제품 사용을 시작 하려면 [전용 sku 및 요금제](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) 가이드의 단계를 따르세요.

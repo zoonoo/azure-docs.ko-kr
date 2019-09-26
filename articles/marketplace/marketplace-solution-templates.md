@@ -6,14 +6,14 @@ author: ellacroi
 manager: nunoc
 ms.service: marketplace
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 9/25/2019
 ms.author: ellacroi
-ms.openlocfilehash: 8d02d942fce7bd51a116cc4c19eac9faca0060ef
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 725be2ee239a879be8200d33acaf566b1d42d446
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561491"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300333"
 ---
 # <a name="azure-applications-solution-template-offer-publishing-guide"></a>Azure 애플리케이션: 솔루션 템플릿 제품 게시 가이드
 
@@ -21,7 +21,7 @@ ms.locfileid: "68561491"
 
 솔루션에 단일 VM 이외의 추가 배포 및 구성 자동화가 필요한 경우, Azure 앱: 솔루션 템플릿 제품 유형을 사용합니다. Azure 앱: 솔루션 템플릿을 사용하여 하나 이상의 VM 프로비전을 자동화할 수 있습니다. 네트워킹 및 스토리지 리소스를 프로비전할 수도 있습니다. Azure 앱: 솔루션 템플릿 제품 형식은 단일 VM 및 전체 IaaS 기반 솔루션에 대한 자동화 이점을 제공합니다.
 
-이러한 솔루션 템플릿은 Marketplace를 통해 배포되고 청구되는 트랜잭션 제품입니다. 사용자에게 표시되는 작업에 대한 호출은 "지금 가져오기"입니다.
+이러한 솔루션 템플릿은 트랜잭션 제안이 아니라 Microsoft의 상용 marketplace를 통해 청구 되는 유료 VM 제품을 배포 하는 데 사용할 수 있습니다. 사용자에게 표시되는 작업에 대한 호출은 "지금 가져오기"입니다.
 
 
 ## <a name="requirements-for-solution-templates"></a>솔루션 템플릿에 대한 요구 사항

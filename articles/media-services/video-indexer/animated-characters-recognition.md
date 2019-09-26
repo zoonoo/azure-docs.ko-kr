@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: juliako
-ms.openlocfilehash: ac31a2945e59df3b57000a0ffdcbca8344e44c18
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 584d3fa787fbd44ad47d21c51ea67f301c04436d
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122316"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300331"
 ---
 # <a name="animated-character-detection-preview"></a>애니메이션 문자 검색 (미리 보기)
 
@@ -91,12 +91,13 @@ Video Indexer 유료 계정을 소유 하 고 있는 경우 먼저 Custom Vision
     1. 새 이름을 입력한 후 새 이름 옆에 있는 확인 아이콘을 클릭합니다. 그러면 새 이름이 Video Indexer 모델에 저장 됩니다.
     1. 원하는 모든 이름 편집을 마친 후 모델을 학습 해야 합니다.
 
-        사용자 지정 페이지를 열고 **애니메이션 문자** 탭을 클릭 합니다. 유료 계정이 있는 경우 아래와 같이 **고객 비전에서 모델 관리** 링크를 클릭할 수 있습니다. 그런 다음 Custom Vision의 모델 페이지로 전달 됩니다. **학습** 단추를 클릭 하 여 모델을 학습 합니다. 
-        
+        사용자 지정 페이지를 열고 **애니메이션 문자** 탭을 클릭 한 다음 **학습** 단추를 클릭 하 여 모델을 학습 합니다.
+         
+        유료 계정이 있는 경우 아래와 같이 **고객 비전에서 모델 관리** 링크를 클릭할 수 있습니다. 그런 다음 **Custom Vision**의 모델 페이지로 전달 됩니다.
+ 
         ![콘텐츠 모델 사용자 지정](./media/animated-characters-recognition/content-model-customization-tab.png)
 
-        평가판 계정이 있는 경우 **고객 비전에서 모델 관리** 링크가 표시 되지 않습니다. 이 경우 **콘텐츠 모델 사용자 지정** 페이지에서 바로 **학습** 을 누를 수 있습니다.
-    1. 학습 된 후에는 해당 모델을 사용 하 여 인덱싱하거나 인덱싱해야는 학습 된 문자를 인식 합니다. 
+     1. 학습 된 후에는 해당 모델을 사용 하 여 인덱싱하거나 인덱싱해야는 학습 된 문자를 인식 합니다. 
     Custom Vision 계정에 대 한 액세스 권한이 있는 유료 계정은 모델 및 태그가 지정 된 이미지를 볼 수 있습니다. [Custom Vision에서 분류자를 개선 하](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier)는 방법에 대해 자세히 알아보세요.
 
 1. 애니메이션 문자를 삭제 합니다.

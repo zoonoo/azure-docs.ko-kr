@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c85d53d05193313f9e166b88beb2a0f82eb197
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 6a575d9f90d166ba69b14e4507d9ed7a54fac574
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618362"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71291025"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 기존 액세스 패키지 편집 및 관리
 
@@ -85,7 +85,7 @@ ms.locfileid: "68618362"
 
 ### <a name="add-an-application-resource-role"></a>응용 프로그램 리소스 역할 추가
 
-사용자에 게 액세스 패키지가 할당 된 경우 azure ad가 azure ad에 페더레이션된 SaaS 응용 프로그램 및 조직의 응용 프로그램을 포함 하 여 Azure AD 엔터프라이즈 응용 프로그램에 대 한 액세스 권한을 자동으로 할당 하도록 할 수 있습니다. 페더레이션된 single sign-on을 통해 Azure AD와 통합 되는 응용 프로그램의 경우 Azure AD는 응용 프로그램에 할당 된 사용자에 대 한 페더레이션 토큰을 발급 합니다.
+사용자에 게 액세스 패키지가 할당 된 경우 azure ad가 azure ad에 페더레이션된 SaaS 응용 프로그램 및 조직의 응용 프로그램을 포함 하 여 Azure AD 엔터프라이즈 응용 프로그램에 대 한 액세스 권한을 자동으로 할당 하도록 할 수 있습니다. 페더레이션된 Single Sign-On를 통해 Azure AD와 통합 되는 응용 프로그램의 경우 Azure AD는 응용 프로그램에 할당 된 사용자에 대 한 페더레이션 토큰을 발급 합니다.
 
 응용 프로그램에는 여러 역할이 있을 수 있습니다. 응용 프로그램을 액세스 패키지에 추가 하는 경우 해당 응용 프로그램에 둘 이상의 역할이 있는 경우 해당 사용자에 대 한 적절 한 역할을 지정 해야 합니다.  응용 프로그램을 개발 하는 경우 [SAML 토큰에서 발급 된 역할 클레임을 구성](../develop/active-directory-enterprise-app-role-management.md)하는 방법에 대 한 문서에서 응용 프로그램에 이러한 역할이 제공 되는 방법에 대해 자세히 알아볼 수 있습니다.
 
@@ -270,7 +270,7 @@ Azure AD는 액세스 패키지에 할당 된 경우 사용자에 게 SharePoint
 
 1. 보려는 요청을 선택 합니다.
 
-    요청에 배달 오류가 있으면 요청 상태가 배달 되지 않음 **이 고 하위** 상태는 **부분적으로 전달**됩니다.
+    요청에 배달 오류가 있으면 요청 **상태가 배달 되지 않음이 고 하위** 상태는 부분적으로 **전달**됩니다.
 
     배달 오류가 있으면 요청 세부 정보 창에 배달 오류가 발생 한 것입니다.
 
@@ -294,7 +294,15 @@ Azure AD는 액세스 패키지에 할당 된 경우 사용자에 게 SharePoint
 
 ## <a name="copy-my-access-portal-link"></a>내 액세스 포털 링크 복사
 
-디렉터리의 대부분의 사용자는 내 액세스 포털에 로그인 하 여 요청할 수 있는 액세스 패키지의 목록을 자동으로 볼 수 있습니다. 그러나 디렉터리에 아직 없는 외부 비즈니스 파트너 사용자의 경우 액세스 패키지를 요청 하는 데 사용할 수 있는 링크를 전송 해야 합니다. 외부 사용자가 액세스 패키지를 사용 하도록 설정 하 고 외부 사용자의 디렉터리에 대 한 정책이 있는 경우 외부 사용자는 내 액세스 포털 링크를 사용 하 여 액세스 패키지를 요청할 수 있습니다.
+디렉터리의 대부분의 사용자는 내 액세스 포털에 로그인 하 여 요청할 수 있는 액세스 패키지의 목록을 자동으로 볼 수 있습니다. 그러나 디렉터리에 아직 없는 외부 비즈니스 파트너 사용자의 경우 액세스 패키지를 요청 하는 데 사용할 수 있는 링크를 전송 해야 합니다. 
+
+내부 비즈니스 파트너에 게 보낼 때 전체 내 액세스 포털 링크를 복사 하는 것이 중요 합니다. 이렇게 하면 파트너가 디렉터리 포털에 액세스 하 여 요청을 수행할 수 있습니다. 
+
+이 링크는 "myaccess"로 시작 하 고, 디렉터리 힌트를 포함 하 고, 액세스 패키지 id로 끝납니다. 링크에 다음이 모두 포함 되어 있는지 확인 합니다.
+
+ `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
+
+외부 사용자가 액세스 패키지를 사용 하도록 설정 하 고 외부 사용자의 디렉터리에 대 한 정책이 있는 경우 외부 사용자는 내 액세스 포털 링크를 사용 하 여 액세스 패키지를 요청할 수 있습니다.
 
 **필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 

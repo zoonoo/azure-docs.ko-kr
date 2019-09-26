@@ -15,12 +15,12 @@ ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 5f273f2eb36b0bd1d6757eb1ffb2403641cd461f
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: c9a156c4cc6e334e04f5a604b91b7b05d9aed390
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801382"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71289602"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 리소스에 대한 기본 제공 역할
 
@@ -38,7 +38,7 @@ ms.locfileid: "70801382"
 | [소유자](#owner) | 리소스 액세스를 비롯한 모든 것을 관리할 수 있습니다. |
 | [기여자](#contributor) | 리소스 액세스 권한을 부여 하는 것을 제외 하 고 모든 항목을 관리할 수 있습니다. |
 | [판독기](#reader) | 모든 것을 볼 수 있지만 변경은 할 수 없습니다. |
-| [AcrDelete](#acrdelete) | acr 삭제 |
+| [AcrDelete](#acrdelete) | ACR 삭제 |
 | [AcrImageSigner](#acrimagesigner) | acr 이미지 서명자 |
 | [AcrPull](#acrpull) | acr pull |
 | [AcrPush](#acrpush) | acr push |
@@ -183,8 +183,8 @@ ms.locfileid: "70801382"
 > | **actions** |  |
 > | * | 모든 유형의 리소스 만들기 및 관리 |
 > | **NotActions** |  |
-> | Microsoft.Authorization/*/Delete | 역할 및 역할 할당 삭제 |
-> | Microsoft.Authorization/*/Write | 역할 및 역할 할당 만들기 |
+> | Microsoft.Authorization/*/Delete | 역할, 정책 할당, 정책 정의 및 정책 집합 정의 삭제 |
+> | Microsoft.Authorization/*/Write | 역할, 역할 할당, 정책 할당, 정책 정의 및 정책 집합 정의 만들기 |
 > | Microsoft.Authorization/elevateAccess/Action | 테넌트 범위에서 호출자에게 사용자 액세스 관리자 액세스 권한을 부여합니다. |
 > | Microsoft.Blueprint/blueprintAssignments/write | 청사진 아티팩트 만들기 또는 업데이트 |
 > | Microsoft.Blueprint/blueprintAssignments/delete | 모든 청사진 아티팩트 삭제 |
@@ -212,8 +212,8 @@ ms.locfileid: "70801382"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | acr 삭제 |
-> | **ID** | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
+> | **설명** | ACR 삭제 |
+> | **Id** | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
 > | **actions** |  |
 > | Microsoft.ContainerRegistry/registries/artifacts/delete | 컨테이너 레지스트리에서 아티팩트를 삭제 합니다. |
 > | **NotActions** |  |
@@ -243,7 +243,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | acr pull |
-> | **ID** | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
+> | **Id** | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
 > | **actions** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | 컨테이너 레지스트리에서 이미지를 끌어오거나 가져옵니다. |
 > | **NotActions** |  |
@@ -258,7 +258,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | acr push |
-> | **ID** | 8311e382-0749-4cb8-b61a-304f252e45ec |
+> | **Id** | 8311e382-0749-4cb8-b61a-304f252e45ec |
 > | **actions** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | 컨테이너 레지스트리에서 이미지를 끌어오거나 가져옵니다. |
 > | Microsoft.ContainerRegistry/registries/push/write | 컨테이너 레지스트리에 이미지를 푸시하거나 작성합니다. |
@@ -305,7 +305,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 서비스 및 API를 관리할 수 있습니다. |
-> | **ID** | 312a565d-c81f-4fd8-895a-4e21e48d571c |
+> | **Id** | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | **actions** |  |
 > | Microsoft.ApiManagement/service/* | API Management 서비스 만들기 및 관리 |
 > | Microsoft.Authorization/*/read | 읽기 권한 부여 |
@@ -394,12 +394,12 @@ ms.locfileid: "70801382"
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## <a name="application-insights-snapshot-debugger"></a>Application Insights 스냅숏 디버거
+## <a name="application-insights-snapshot-debugger"></a>Application Insights 스냅샷 디버거
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | Application Insights 스냅샷 디버거를 사용하여 수집한 디버그 스냅샷을 보고 다운로드할 수 있는 사용자 권한을 제공합니다. 이러한 사용 권한은 [소유자](#owner) 또는 [기여자](#contributor) 역할에 포함되지 않습니다. |
-> | **ID** | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
+> | **Id** | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
@@ -496,12 +496,12 @@ ms.locfileid: "70801382"
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## <a name="avere-contributor"></a>Avere 기여자
+## <a name="avere-contributor"></a>Avere 참가자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | Avere vFXT 클러스터를 만들고 관리할 수 있습니다. |
-> | **ID** | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
+> | **Id** | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Compute/*/read |  |
@@ -536,7 +536,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Avere vFXT 클러스터에서 클러스터를 관리 하는 데 사용 됩니다. |
-> | **ID** | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
+> | **Id** | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
 > | **actions** |  |
 > | Microsoft.Compute/virtualMachines/read | 가상 머신의 속성을 가져옵니다. |
 > | Microsoft.Network/networkInterfaces/read | 네트워크 인터페이스 정의를 가져옵니다.  |
@@ -563,7 +563,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Azure Event Hubs 리소스에 대 한 모든 액세스를 허용 합니다. |
-> | **ID** | f526a384-b230-433a-b45c-95f59c4a2dec |
+> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
 > | **actions** |  |
 > | Microsoft.EventHub/* |  |
 > | **NotActions** |  |
@@ -578,7 +578,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Azure Event Hubs 리소스에 대 한 수신 액세스를 허용 합니다. |
-> | **ID** | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
+> | **Id** | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
 > | **actions** |  |
 > | Microsoft.EventHub/*/eventhubs/consumergroups/read |  |
 > | **NotActions** |  |
@@ -593,7 +593,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Azure Event Hubs 리소스에 대 한 액세스를 보낼 수 있습니다. |
-> | **ID** | 2b629674-e913-4c01-ae53-ef4638d8f975 |
+> | **Id** | 2b629674-e913-4c01-ae53-ef4638d8f975 |
 > | **actions** |  |
 > | Microsoft.EventHub/*/eventhubs/read |  |
 > | **NotActions** |  |
@@ -608,7 +608,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 클러스터 관리자 자격 증명 작업을 나열합니다. |
-> | **ID** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
+> | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | **actions** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | 관리되는 클러스터의 clusterAdmin 자격 증명을 나열합니다. |
 > | **NotActions** |  |
@@ -623,7 +623,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 클러스터 사용자 자격 증명 작업을 나열합니다. |
-> | **ID** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
+> | **Id** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | **actions** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | 관리되는 클러스터의 clusterUser 자격 증명을 나열합니다. |
 > | **NotActions** |  |
@@ -638,7 +638,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Azure maps 계정에서 맵 관련 데이터를 읽을 수 있는 액세스 권한을 부여 합니다. |
-> | **ID** | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | **Id** | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | **actions** |  |
 > | *none* |  |
 > | **NotActions** |  |
@@ -653,7 +653,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Azure Service Bus 리소스에 대 한 모든 액세스를 허용 합니다. |
-> | **ID** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
 > | **actions** |  |
 > | Microsoft.ServiceBus/* |  |
 > | **NotActions** |  |
@@ -668,7 +668,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Azure Service Bus 리소스에 대 한 수신 액세스를 허용 합니다. |
-> | **ID** | 4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0 |
+> | **Id** | 4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0 |
 > | **actions** |  |
 > | Microsoft.ServiceBus/*/queues/read |  |
 > | Microsoft.ServiceBus/*/topics/read |  |
@@ -685,7 +685,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Azure Service Bus 리소스에 대 한 액세스를 보낼 수 있습니다. |
-> | **ID** | 69a216fc-b8fb-44d8-bc22-1f3c2cd27a39 |
+> | **Id** | 69a216fc-b8fb-44d8-bc22-1f3c2cd27a39 |
 > | **actions** |  |
 > | Microsoft.ServiceBus/*/queues/read |  |
 > | Microsoft.ServiceBus/*/topics/read |  |
@@ -719,7 +719,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 백업 서비스를 관리할 수 있지만 자격 증명 모음을 만들고 다른 사용자에 게 액세스 권한을 부여할 수 없습니다. |
-> | **ID** | 5e467623-bb1f-42f4-a55d-6e525e11384b |
+> | **Id** | 5e467623-bb1f-42f4-a55d-6e525e11384b |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Network/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
@@ -749,19 +749,19 @@ ms.locfileid: "70801382"
 > | Microsoft.Storage/storageAccounts/read | 스토리지 계정의 목록을 반환하거나 지정된 스토리지 계정의 속성을 가져옵니다. |
 > | Microsoft.RecoveryServices/Vaults/backupstorageconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupconfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | 보호된 항목에 대한 작업의 유효성을 검사합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | 보호된 항목에 대해 작업 유효성 검사 |
 > | Microsoft.RecoveryServices/Vaults/write | 자격 증명 모음 만들기 작업에서는 '자격 증명 모음' 형식의 Azure 리소스를 만듭니다. |
 > | Microsoft.RecoveryServices/Vaults/backupOperations/read | Recovery Services 자격 증명 모음의 Backup 작업 상태를 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/backupEngines/read | 자격 증명 모음에 등록된 모든 백업 관리 서버를 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | 보호 가능한 컨테이너를 모두 가져옵니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | 보호 가능한 컨테이너 모두 가져오기 |
 > | Microsoft.RecoveryServices/locations/backupStatus/action | Recovery Services 자격 증명 모음의 백업 상태를 반환합니다. |
 > | Microsoft.RecoveryServices/locations/backupPreValidateProtection/action |  |
-> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | 기능의 유효성을 검사합니다. |
+> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | 기능 유효성 검사 |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | 경고를 해결합니다. |
 > | Microsoft.RecoveryServices/operations/read | 작업에서 리소스 공급자에 대한 작업 목록을 반환합니다. |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | 지정된 작업의 작업 상태를 가져옵니다. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | 모든 백업 보호 의도를 나열합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | 모든 백업 보호 의도 나열 |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
 > | *none* |  |
@@ -789,8 +789,8 @@ ms.locfileid: "70801382"
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | 보호 항목의 복구 지점을 가져옵니다. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | 보호 항목의 복구 지점을 복원합니다. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | 보호된 항목에 대한 빠른 항목 복구를 취소합니다. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | 백업 보호 항목을 만듭니다. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | 등록된 모든 컨테이너를 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | 백업 보호 항목 만들기 |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | 등록된 컨테이너를 모두 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | 컨테이너 목록을 새로 고칩니다. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | 백업 작업 만들기 및 관리 |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 작업을 내보냅니다. |
@@ -816,23 +816,23 @@ ms.locfileid: "70801382"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Storage/storageAccounts/read | 스토리지 계정의 목록을 반환하거나 지정된 스토리지 계정의 속성을 가져옵니다. |
 > | Microsoft.RecoveryServices/Vaults/backupstorageconfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | 보호된 항목에 대한 작업의 유효성을 검사합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | 보호된 항목에 대해 작업 유효성 검사 |
 > | Microsoft.RecoveryServices/Vaults/backupOperations/read | Recovery Services 자격 증명 모음의 Backup 작업 상태를 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | 정책 작업의 상태를 가져옵니다. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/write | 등록된 컨테이너를 만듭니다. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/inquire/action | 컨테이너 내의 워크로드를 조회합니다. |
 > | Microsoft.RecoveryServices/Vaults/backupEngines/read | 자격 증명 모음에 등록된 모든 백업 관리 서버를 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | 백업 보호 의도 만들기 |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | 백업 보호 의도를 가져옵니다. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | 보호 가능한 컨테이너를 모두 가져옵니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | 백업 보호 의도 가져오기 |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | 보호 가능한 컨테이너 모두 가져오기 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | 컨테이너의 모든 항목을 가져옵니다. |
 > | Microsoft.RecoveryServices/locations/backupStatus/action | Recovery Services 자격 증명 모음의 백업 상태를 반환합니다. |
 > | Microsoft.RecoveryServices/locations/backupPreValidateProtection/action |  |
-> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | 기능의 유효성을 검사합니다. |
+> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | 기능 유효성 검사 |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | 경고를 해결합니다. |
 > | Microsoft.RecoveryServices/operations/read | 작업에서 리소스 공급자에 대한 작업 목록을 반환합니다. |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | 지정된 작업의 작업 상태를 가져옵니다. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | 모든 백업 보호 의도를 나열합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | 모든 백업 보호 의도 나열 |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
 > | *none* |  |
@@ -877,14 +877,14 @@ ms.locfileid: "70801382"
 > | Microsoft.RecoveryServices/Vaults/backupOperations/read | Recovery Services 자격 증명 모음의 Backup 작업 상태를 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | 정책 작업의 상태를 가져옵니다. |
 > | Microsoft.RecoveryServices/Vaults/backupEngines/read | 자격 증명 모음에 등록된 모든 백업 관리 서버를 반환합니다. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | 백업 보호 의도를 가져옵니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | 백업 보호 의도 가져오기 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | 컨테이너의 모든 항목을 가져옵니다. |
 > | Microsoft.RecoveryServices/locations/backupStatus/action | Recovery Services 자격 증명 모음의 백업 상태를 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | 경고를 해결합니다. |
 > | Microsoft.RecoveryServices/operations/read | 작업에서 리소스 공급자에 대한 작업 목록을 반환합니다. |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | 지정된 작업의 작업 상태를 가져옵니다. |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | 모든 백업 보호 의도를 나열합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | 모든 백업 보호 의도 나열 |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Recovery Services 자격 증명 모음에 대한 사용 세부 정보를 반환합니다. |
 > | **NotActions** |  |
 > | *none* |  |
@@ -898,7 +898,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 결제 데이터에 대해 읽기 권한 허용 |
-> | **ID** | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
+> | **Id** | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Billing/*/read | 대금 청구 정보 읽기 |
@@ -940,7 +940,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Blockchain 멤버 노드에 대 한 액세스를 허용 합니다. |
-> | **ID** | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
+> | **Id** | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
 > | **actions** |  |
 > | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | 기존 Blockchain 구성원 트랜잭션 노드를 가져오거나 나열 합니다. |
 > | **NotActions** |  |
@@ -955,7 +955,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 청사진 정의를 관리할 수 있지만 할당할 수는 없습니다. |
-> | **ID** | 41077137-e803-4205-871c-5a86e6a753b4 |
+> | **Id** | 41077137-e803-4205-871c-5a86e6a753b4 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft. 청사진/청사진/* | 청사진 정의 또는 청사진 아티팩트를 만들고 관리 합니다. |
@@ -974,7 +974,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 는 게시 된 기존 청사진을 할당할 수 있지만 새 청사진을 만들 수는 없습니다. 참고: 사용자 할당 관리 id를 사용 하 여 할당을 수행 하는 경우에만 작동 합니다. |
-> | **ID** | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
+> | **Id** | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft. 청사진/blueprintAssignments/* | 청사진 할당을 만들고 관리 합니다. |
@@ -1170,7 +1170,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Cognitive Services의 키를 만들고, 읽고, 업데이트하고, 삭제 및 관리할 수 있습니다. |
-> | **ID** | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
+> | **Id** | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.CognitiveServices/* |  |
@@ -1201,7 +1201,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Cognitive Services 데이터를 읽을 수 있습니다. |
-> | **ID** | b59867f0-fa02-499b-be73-45a86b5b3e1c |
+> | **Id** | b59867f0-fa02-499b-be73-45a86b5b3e1c |
 > | **actions** |  |
 > | *none* |  |
 > | **NotActions** |  |
@@ -1216,10 +1216,10 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Cognitive Services의 키를 읽고 나열할 수 있습니다. |
-> | **ID** | a97b65f3-24c7-4388-baec-2e87135dc908 |
+> | **Id** | a97b65f3-24c7-4388-baec-2e87135dc908 |
 > | **actions** |  |
 > | Microsoft.CognitiveServices/*/read |  |
-> | Microsoft.CognitiveServices/accounts/listkeys/action | 키 나열 |
+> | Microsoft.CognitiveServices/accounts/listkeys/action | 키를 나열합니다. |
 > | Microsoft.Insights/alertRules/read | 클래식 메트릭 경고 읽기 |
 > | Microsoft.Insights/diagnosticSettings/read | 리소스 진단 설정 읽기 |
 > | Microsoft.Insights/logDefinitions/read | 로그 정의 읽기 |
@@ -1264,7 +1264,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 에서는 Azure Cosmos DB 계정을 관리할 수 있지만 데이터에 액세스할 수는 없습니다. 계정 키 및 연결 문자열에 대 한 액세스를 금지 합니다. |
-> | **ID** | 230815da-be43-4aae-9cb4-875f7bd000aa |
+> | **Id** | 230815da-be43-4aae-9cb4-875f7bd000aa |
 > | **actions** |  |
 > | Microsoft.DocumentDb/databaseAccounts/* |  |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
@@ -1288,7 +1288,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Cosmos DB 데이터베이스 또는 계정의 컨테이너에 대한 복원 요청을 제출할 수 있습니다. |
-> | **ID** | db7b14f2-5adf-42da-9f96-f2ee17bab5cb |
+> | **Id** | db7b14f2-5adf-42da-9f96-f2ee17bab5cb |
 > | **actions** |  |
 > | Microsoft.DocumentDB/databaseAccounts/backup/action | 백업 구성하는 요청 제출 |
 > | Microsoft.DocumentDB/databaseAccounts/restore/action | 복원 요청 제출 |
@@ -1304,7 +1304,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 비용을 확인하고 비용 구성(예: 예산, 내보내기)을 관리할 수 있음 |
-> | **ID** | 434105ed-43f6-45c7-a02f-909b2ba83430 |
+> | **Id** | 434105ed-43f6-45c7-a02f-909b2ba83430 |
 > | **actions** |  |
 > | Microsoft.Consumption/* |  |
 > | Microsoft.CostManagement/* |  |
@@ -1327,7 +1327,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 비용 데이터 및 구성(예: 예산, 내보내기)을 확인할 수 있음 |
-> | **ID** | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
+> | **Id** | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
 > | **actions** |  |
 > | Microsoft.Consumption/*/read |  |
 > | Microsoft.CostManagement/*/read |  |
@@ -1350,7 +1350,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 다른 사람에게 액세스 권한을 부여하는 것을 제외한 모든 항목을 Data Box 서비스에서 관리할 수 있습니다. |
-> | **ID** | add466c9-e687-43fc-8d98-dfcf8d720be5 |
+> | **Id** | add466c9-e687-43fc-8d98-dfcf8d720be5 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
@@ -1370,7 +1370,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 주문하기나 주문 세부 정보 편집 및 다른 사용자에게 액세스 권한 부여 외에 Data Box 서비스를 관리할 수 있습니다. |
-> | **ID** | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
+> | **Id** | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Databox/*/read |  |
@@ -1392,7 +1392,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 데이터 팩터리를 만들고 관리하며 해당 하위 리소스도 만들고 관리합니다. |
-> | **ID** | 673868aa-7521-48a0-acc6-0f60742d39f5 |
+> | **Id** | 673868aa-7521-48a0-acc6-0f60742d39f5 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.DataFactory/dataFactories/* | 데이터 팩터리 및 그 안에 포함된 자식 리소스를 만들고 관리합니다. |
@@ -1467,7 +1467,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Azure DevTest Labs의 가상 머신을 연결, 시작, 다시 시작 및 종료할 수 있습니다. |
-> | **ID** | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
+> | **Id** | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Compute/availabilitySets/read | 가용성 집합의 속성을 가져옵니다. |
@@ -1555,7 +1555,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | EventGrid 이벤트 구독 작업을 관리할 수 있습니다. |
-> | **ID** | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
+> | **Id** | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.EventGrid/eventSubscriptions/* |  |
@@ -1578,7 +1578,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | EventGrid 이벤트 구독을 읽을 수 있습니다. |
-> | **ID** | 2414bbcf-6497-4faf-8c65-045460748405 |
+> | **Id** | 2414bbcf-6497-4faf-8c65-045460748405 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.EventGrid/eventSubscriptions/read | EventSubscription 읽기 |
@@ -1593,12 +1593,12 @@ ms.locfileid: "70801382"
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## <a name="hdinsight-cluster-operator"></a>HDInsight 클러스터 운영자
+## <a name="hdinsight-cluster-operator"></a>HDInsight 클러스터 연산자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | HDInsight 클러스터 구성을 읽고 수정할 수 있습니다. |
-> | **ID** | 61ed4efc-fab3-44fd-b111-e24485cc132a |
+> | **Id** | 61ed4efc-fab3-44fd-b111-e24485cc132a |
 > | **actions** |  |
 > | Microsoft.HDInsight/*/read |  |
 > | Microsoft.HDInsight/clusters/getGatewaySettings/action | HDInsight 클러스터에 대 한 게이트웨이 설정 가져오기 |
@@ -1621,7 +1621,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | HDInsight Enterprise Security Package에 필요한 도메인 서비스 관련 작업을 읽고, 만들고, 수정하고, 삭제할 수 있음 |
-> | **ID** | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
+> | **Id** | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
 > | **actions** |  |
 > | Microsoft.AAD/*/read |  |
 > | Microsoft.AAD/domainServices/*/read |  |
@@ -1746,7 +1746,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 논리 앱을 관리할 수 있지만 해당 앱에 대 한 액세스 권한은 변경할 수 없습니다. |
-> | **ID** | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
+> | **Id** | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | 스토리지 계정의 액세스 키를 나열합니다. |
@@ -1780,7 +1780,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 논리 앱을 읽고 사용 하지 않도록 설정할 수 있지만 편집 하거나 업데이트할 수는 없습니다. |
-> | **ID** | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
+> | **Id** | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/*/read | Insights 경고 규칙을 읽습니다. |
@@ -1810,7 +1810,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 관리되는 애플리케이션 리소스에서 작업을 읽고 수행할 수 있습니다. |
-> | **ID** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
+> | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.Solutions/applications/read | 애플리케이션 목록을 검색합니다. |
@@ -1827,7 +1827,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 관리 앱 및 요청 JIT 액세스에서 리소스를 읽을 수 있습니다. |
-> | **ID** | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
+> | **Id** | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
 > | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
@@ -1887,7 +1887,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 관리 그룹 참가자 역할 |
-> | **ID** | 5d58bcaf-24a5-4b20-bdb6-eed9f69fbe4c |
+> | **Id** | 5d58bcaf-24a5-4b20-bdb6-eed9f69fbe4c |
 > | **actions** |  |
 > | Microsoft.Management/managementGroups/delete | 관리 그룹을 삭제합니다. |
 > | Microsoft.Management/managementGroups/read | 인증된 사용자의 관리 그룹을 나열합니다. |
@@ -1906,7 +1906,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 관리 그룹 독자 역할 |
-> | **ID** | ac63b705-f282-497d-ac71-919bf39d939d |
+> | **Id** | ac63b705-f282-497d-ac71-919bf39d939d |
 > | **actions** |  |
 > | Microsoft.Management/managementGroups/read | 인증된 사용자의 관리 그룹을 나열합니다. |
 > | **NotActions** |  |
@@ -1961,7 +1961,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Azure 리소스에 대한 게시 메트릭 사용 |
-> | **ID** | 3913510d-42f4-4e42-8a64-420c390055eb |
+> | **Id** | 3913510d-42f4-4e42-8a64-420c390055eb |
 > | **actions** |  |
 > | Microsoft.Insights/Register/Action | Microsoft Insights 공급자 등록 |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
@@ -2137,7 +2137,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Security Center에서만: 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제를 수행합니다. |
-> | **ID** | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | **Id** | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Authorization/policyAssignments/* | 정책 할당 만들기 및 관리 |
@@ -2162,7 +2162,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 레거시 역할입니다. 보안 관리자를 대신 사용하세요. |
-> | **ID** | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
+> | **Id** | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.ClassicCompute/*/read | 클래식 가상 머신에 대한 구성 정보 읽기 |
@@ -2186,7 +2186,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Security Center에서만: 권장 사항 및 경고를 보고, 보안 정책을 보고, 보안 상태를 볼 수 있지만 변경할 수는 없습니다. |
-> | **ID** | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
+> | **Id** | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
@@ -2365,7 +2365,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 계정의 공간 앵커를 관리할 수 있지만 삭제할 수는 없습니다. |
-> | **ID** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
+> | **Id** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
 > | **actions** |  |
 > | *none* |  |
 > | **NotActions** |  |
@@ -2385,7 +2385,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 삭제를 포함 하 여 계정의 공간 앵커를 관리할 수 있습니다. |
-> | **ID** | 70bbe301-9835-447d-afdd-19eb3167307c |
+> | **Id** | 70bbe301-9835-447d-afdd-19eb3167307c |
 > | **actions** |  |
 > | *none* |  |
 > | **NotActions** |  |
@@ -2406,7 +2406,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 계정의 공간 앵커 속성을 찾고 읽을 수 있습니다. |
-> | **ID** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
+> | **Id** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
 > | **actions** |  |
 > | *none* |  |
 > | **NotActions** |  |
@@ -2467,12 +2467,12 @@ ms.locfileid: "70801382"
 > | **NotDataActions** |  |
 > | *none* |  |
 
-## <a name="sql-managed-instance-contributor"></a>SQL Managed Instance 기여자
+## <a name="sql-managed-instance-contributor"></a>SQL Managed Instance Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **설명** | SQL 관리 되는 인스턴스 및 필요한 네트워크 구성을 관리할 수 있지만 다른 사용자에 게는 액세스할 수 없습니다. |
-> | **ID** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
+> | **Id** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
 > | **actions** |  |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
@@ -2608,7 +2608,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 저장소 계정 관리를 허용 합니다. 공유 키 권한 부여를 통해 데이터에 액세스 하는 데 사용할 수 있는 계정 키에 대 한 액세스를 제공 합니다. |
-> | **ID** | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
+> | **Id** | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 모든 권한 부여 읽기 |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
@@ -2631,7 +2631,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 저장소 계정 액세스 키를 나열 하 고 다시 생성 하도록 허용 합니다. |
-> | **ID** | 81a9662b-bebf-436f-a333-f67b29880f12 |
+> | **Id** | 81a9662b-bebf-436f-a333-f67b29880f12 |
 > | **actions** |  |
 > | Microsoft.Storage/storageAccounts/listkeys/action | 지정된 스토리지 계정에 대한 액세스 키를 반환합니다. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | 지정된 스토리지 계정에 대한 액세스 키를 다시 생성합니다. |
@@ -2647,7 +2647,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 컨테이너 및 blob Azure Storage 읽고, 쓰고, 삭제 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
-> | **ID** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
+> | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 컨테이너를 삭제 합니다. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 또는 컨테이너 목록을 반환 합니다. |
@@ -2667,7 +2667,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | POSIX 액세스 제어 할당을 포함 하 여 Azure Storage blob 컨테이너 및 데이터에 대 한 모든 권한을 제공 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
-> | **ID** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
+> | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/* | 컨테이너에 대 한 모든 권한 |
 > | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Blob service에 대 한 사용자 위임 키를 반환 합니다. |
@@ -2683,7 +2683,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 컨테이너 및 blob Azure Storage 읽고 나열 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
-> | **ID** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
+> | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 또는 컨테이너 목록을 반환 합니다. |
 > | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Blob service에 대 한 사용자 위임 키를 반환 합니다. |
@@ -2699,7 +2699,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Azure AD 자격 증명으로 서명 된 컨테이너 또는 blob에 대 한 공유 액세스 서명을 만드는 데 사용할 수 있는 사용자 위임 키를 가져옵니다. 자세한 내용은 [사용자 위임 SAS 만들기](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas)를 참조 하세요. |
-> | **ID** | db58b8e5-c6ad-4a2a-8342-4190687cbf4a |
+> | **Id** | db58b8e5-c6ad-4a2a-8342-4190687cbf4a |
 > | **actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Blob service에 대 한 사용자 위임 키를 반환 합니다. |
 > | **NotActions** |  |
@@ -2714,7 +2714,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | SMB를 통한 Azure Storage 파일 공유에 대 한 읽기, 쓰기 및 삭제 액세스를 허용 합니다. |
-> | **ID** | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
+> | **Id** | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
 > | **actions** |  |
 > | *none* |  |
 > | **NotActions** |  |
@@ -2731,7 +2731,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | SMB를 통한 Azure Storage 파일 공유에서 NTFS 권한 액세스를 읽고, 쓰고, 삭제 하 고, 수정할 수 있습니다. |
-> | **ID** | a7264617-510b-434b-a828-9731dc254ea7 |
+> | **Id** | a7264617-510b-434b-a828-9731dc254ea7 |
 > | **actions** |  |
 > | *none* |  |
 > | **NotActions** |  |
@@ -2749,7 +2749,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | SMB를 통해 Azure 파일 공유에 대 한 읽기 액세스를 허용 합니다. |
-> | **ID** | aba4ae5f-2193-4029-9191-0cb91df5e314 |
+> | **Id** | aba4ae5f-2193-4029-9191-0cb91df5e314 |
 > | **actions** |  |
 > | *none* |  |
 > | **NotActions** |  |
@@ -2764,7 +2764,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Azure Storage 큐 및 큐 메시지를 읽고, 쓰고, 삭제 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
-> | **ID** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
+> | **Id** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/delete | 큐를 삭제 합니다. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | 큐 또는 큐 목록을 반환 합니다. |
@@ -2783,7 +2783,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Azure Storage 큐에서 메시지를 피킹 (peeking) 하 고 검색 하 고 삭제 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
-> | **ID** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
+> | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | **actions** |  |
 > | *none* |  |
 > | **NotActions** |  |
@@ -2799,7 +2799,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Azure Storage 큐에 메시지를 추가 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
-> | **ID** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
+> | **Id** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | **actions** |  |
 > | *none* |  |
 > | **NotActions** |  |
@@ -2814,7 +2814,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | Azure Storage 큐 및 큐 메시지를 읽고 나열 합니다. 지정 된 데이터 작업에 필요한 작업에 대 한 자세한 내용은 [blob 호출 및 큐 데이터 작업에 대 한 사용 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요. |
-> | **ID** | 19e7f393-937e-4f77-808e-94535e297925 |
+> | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | 큐 또는 큐 목록을 반환합니다. |
 > | **NotActions** |  |
@@ -2904,7 +2904,7 @@ ms.locfileid: "70801382"
 > | | |
 > | --- | --- |
 > | **설명** | 가상 머신을 관리할 수 있지만 가상머신이나 연결된 가상 네트워크 또는 스토리지 계정에 액세스할 수는 없습니다. |
-> | **ID** | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
+> | **Id** | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 읽기 권한 부여 |
 > | Microsoft.Compute/availabilitySets/* | 컴퓨팅 가용성 집합 만들기 및 관리 |
@@ -2931,7 +2931,7 @@ ms.locfileid: "70801382"
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | 백업 보호 의도 만들기 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | 보호된 항목의 개체 정보를 반환합니다. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | 백업 보호 항목을 만듭니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | 백업 보호 항목 만들기 |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | 모든 보호 정책을 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/write | 보호 정책을 만듭니다. |
 > | Microsoft.RecoveryServices/Vaults/read | 자격 증명 모음 가져오기 작업에서는 '자격 증명 모음' 형식의 Azure 리소스를 나타내는 개체를 가져옵니다. |

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: raymondl
-ms.openlocfilehash: 1d94cff3eb3299692fc4172f5bb5211532ef1002
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2d90fe4d40c51b21deea23675d6b51b972429237
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697833"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390233"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>예제: Text Analytics를 사용하여 핵심 구를 추출하는 방법
 
@@ -74,9 +74,9 @@ ms.locfileid: "68697833"
 
 + **POST** 요청을 만듭니다. 이 요청에 대한 API 문서인 [핵심 구 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6).
 
-+ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용 하 여 키 구 추출에 대 한 HTTP 끝점을 설정 합니다. `/keyPhrases` 리소스(`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`)를 포함해야 합니다.
++ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용 하 여 키 구 추출에 대 한 HTTP 끝점을 설정 합니다. URL에를 `/text/analytics/v2.1/keyPhrases` 포함 해야 합니다. 예를 들어 `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`을 참조하십시오.
 
-+ Text Analytics 작업에 대 한 [액세스 키](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) 를 포함 하도록 요청 헤더를 설정 합니다.
++ Text Analytics 작업에 대한 [액세스 키](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)가 포함되도록 요청 헤더를 설정합니다.
 
 + 이 분석을 위해 준비한 JSON 문서 컬렉션을 요청 본문에 제공합니다.
 

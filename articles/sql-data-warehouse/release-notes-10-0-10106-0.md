@@ -10,12 +10,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: b9058313886484e84000b2b27986280eb1ff30eb
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: f4ee3f78159cb5d9b677f0d43492325754065841
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71145620"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300830"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL Data Warehouse 릴리스 정보
 
@@ -38,6 +38,7 @@ ms.locfileid: "71145620"
 |**Azure 개인 링크 (미리 보기)**|[Azure 개인 링크](https://azure.microsoft.com/blog/announcing-azure-private-link/)를 사용 하 여 Virtual Network (VNet)에서 개인 끝점을 만들고 AZURE SQL DW에 매핑할 수 있습니다. 그런 다음 VNet의 개인 IP 주소를 통해 이러한 리소스에 액세스할 수 있으므로 Azure Express 경로 개인 피어 링 및/또는 VPN gateway를 통해 온-프레미스에서 연결을 사용할 수 있습니다. 전반적으로이를 통해 공용 IP 주소를 열지 않아도 네트워크 구성이 간단해 집니다. 또한 데이터 반출 위험 으로부터 보호할 수 있습니다. 자세한 내용은 [개요](/azure/private-link/private-link-overview) 및 [SQL DW 설명서](/azure/sql-database/sql-database-private-endpoint-overview)를 참조 하세요.|
 |**GA (데이터 검색 & 분류)**|[데이터 검색 및 분류](/azure/sql-database/sql-database-data-discovery-and-classification?toc=/azure/sql-data-warehouse/toc.json) 기능이 이제 일반 공급 됩니다. 이 기능은 데이터베이스의 중요 한 데이터를 **검색, 분류, 레이블 지정 &** 하는 고급 기능을 제공 합니다.|
 |**한 번 클릭으로 통합 Azure Advisor**|이제 SQL Data Warehouse는 개요 블레이드의 Azure Advisor 권장 사항을 사용 하 여 한 번의 클릭 환경을 제공 합니다. 이제 Azure advisor 블레이드로 이동 하는 대신 개요 블레이드에서 권장 사항을 찾을 수 있습니다. [여기](sql-data-warehouse-concept-recommendations.md)에서 권장 사항에 대해 자세히 알아보세요.|
+|**커밋된 읽기 스냅숏 격리 (미리 보기)**|ALTER DATABSE를 사용 하 여 사용자 데이터베이스에 대 한 스냅숏 격리를 사용 하거나 사용 하지 않도록 설정할 수 있습니다.  현재 작업에 영향을 주지 않으려면 데이터베이스 유지 관리 기간 동안이 옵션을 설정 하거나 데이터베이스에 대 한 다른 활성 연결이 없을 때까지 기다릴 수 있습니다. 자세한 내용은 [Alter database set options](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)을 참조 하세요.|
 |**EXECUTE AS (Transact-sql)**| 다음 [으로 실행](/sql/t-sql/statements/execute-as-transact-sql?view=azure-sqldw-latest) 이제 고객이 세션의 실행 컨텍스트를 지정 된 사용자로 설정할 수 있도록 하 SQL Data Warehouse에서 t-sql 지원을 사용할 수 있습니다.|
 |**추가 T-sql 지원**|SQL Data Warehouse에 대 한 T-sql 언어 노출 영역은 다음에 대 한 지원을 포함 하도록 확장 되었습니다. </br> - [FORMAT (Transact-sql)](/sql/t-sql/functions/format-transact-sql?view=azure-sqldw-latest)</br> - [TRY_PARSE (Transact-sql)](/sql/t-sql/functions/try-parse-transact-sql?view=azure-sqldw-latest)</br> - [TRY_CAST (Transact-sql)](/sql/t-sql/functions/try-cast-transact-sql?view=azure-sqldw-latest)</br> - [TRY_CONVERT (Transact-sql)](/sql/t-sql/functions/try-convert-transact-sql?view=azure-sqldw-latest)</br> - [user_token (Transact-sql)](/sql//relational-databases/system-catalog-views/sys-user-token-transact-sql?view=azure-sqldw-latest)|
 

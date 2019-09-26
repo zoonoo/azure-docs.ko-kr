@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
-ms.openlocfilehash: 48cde2f96083779bdeb13ba5f39b68c18b395045
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 9e398fd7d370d30fac87035b27a218834b4fab22
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515369"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899729"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>중요 비즈니스용 계층 - Azure SQL Database
 
@@ -45,6 +45,17 @@ SQL 데이터베이스 엔진 프로세스와 기본 mdf/ldf 파일이 SSD 스�
 ## <a name="when-to-choose-this-service-tier"></a>언제 이 서비스 계층을 선택하나요?
 
 중요 비즈니스용 서비스 계층은 기본 SSD 스토리지에서 짧은 대기 시간 응답(평균1 ~ 2밀리초), 기본 인프라가 실패하는 경우 빠른 복구, 보고서와 분석은 물론, 읽기 전용 쿼리를 무료로 읽을 수 있는 주 데이터베이스의 보조 복제본으로 오프로드할 필요성이 필요한 애플리케이션용으로 설계되었습니다.
+
+일반적인 용도 계층 대신 중요 비즈니스용 서비스 계층을 선택 해야 하는 주요 이유는 다음과 같습니다.
+-   낮은 IO 대기 시간 요구 사항 – 저장소 계층에서 fast 응답이 필요한 워크 로드 (평균 1-2 밀리초)는 중요 비즈니스용 계층을 사용 해야 합니다. 
+-   응용 프로그램과 데이터베이스 간의 빈번한 통신. 응용 프로그램 계층 캐싱 또는 [요청 일괄](sql-database-use-batching-to-improve-performance.md) 처리를 사용할 수 없으며 신속 하 게 처리 해야 하는 많은 SQL 쿼리를 전송 해야 하는 응용 프로그램은 중요 비즈니스용 계층에 적합 합니다.
+-   많은 수의 업데이트 – 삽입, 업데이트 및 삭제 작업을 사용 하 여 `CHECKPOINT` 데이터 파일에 저장 해야 하는 메모리 (더티 페이지)의 데이터 페이지를 수정 합니다. 잠재적인 데이터베이스 엔진 프로세스 충돌 또는 많은 수의 더티 페이지가 있는 데이터베이스의 장애 조치 (failover)로 인해 일반 용도의 계층에서 복구 시간이 늘어날 수 있습니다. 많은 메모리 내 변경을 유발 하는 작업이 있는 경우 중요 비즈니스용 계층을 사용 합니다. 
+-   데이터를 수정 하는 장기 실행 트랜잭션입니다. 더 오랜 시간 동안 열리는 트랜잭션은 로그 크기와 [가상 로그 파일 (VLF)](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch)수를 늘릴 수 있는 로그 파일의 잘림을 방지 합니다. VLF 수가 높으면 장애 조치 (failover) 후 데이터베이스 복구 속도가 느려질 수 있습니다.
+-   무료 보조 읽기 전용 복제본으로 리디렉션될 수 있는 보고 및 분석 쿼리가 포함 된 작업입니다.
+- 복원 력이 향상 되 고 오류에서 복구 속도가 빨라집니다. 시스템 오류가 발생 하는 경우 주 인스턴스의 데이터베이스를 사용할 수 없게 되 고 보조 복제본 중 하나는 즉시 쿼리를 처리할 준비가 된 새로운 읽기/쓰기 주 데이터베이스가 됩니다. 데이터베이스 엔진은 로그 파일에서 트랜잭션을 분석 하 고 다시 실행 하 고 메모리 버퍼의 모든 데이터를 로드할 필요가 없습니다.
+- 고급 데이터 손상 방지-중요 비즈니스용 계층은 비즈니스 연속성을 위해 백그라운드에서 데이터베이스 복제본을 활용 하므로 서비스는 SQL Server 데이터베이스에 사용 되는 것과 동일한 기술인 자동 페이지 복구도 활용 합니다. [미러링 및 가용성 그룹](https://docs.microsoft.com/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring). 복제본이 데이터 무결성 문제로 인해 페이지를 읽을 수 없는 경우 다른 복제본에서 페이지의 새 복사본을 검색 하 여 데이터 손실 또는 고객의 가동 중지 시간 없이 읽을 수 없는 페이지를 대체 합니다. 이 기능은 데이터베이스에 지역 보조 복제본이 있는 경우 일반적인 용도 계층에서 적용할 수 있습니다.
+- Multi-factor configuration의 고가용성-중요 비즈니스용 계층은 일반적인 용도의 계층의 99.99%에 비해 99.995%의 가용성을 보장 합니다.
+- 지역 복제를 사용 하 여 구성 된 빠른 지역 복구-중요 비즈니스용 계층에는 배포 된 시간 100%에 대 한 보장 된 RPO (복구 지점 목표)가 5 초이 고 복구 시간 목표 (RTO)가 30 초입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

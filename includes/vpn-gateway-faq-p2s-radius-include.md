@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 857d29f407c9939143fbb8263be40dadb040efdc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f9b787413dd6e2aaeafd4aa3bcee0eff746abece
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182028"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310546"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
@@ -50,3 +50,7 @@ RADIUS 인증서 인증에서 인증 요청은 실제 인증서 유효성 검사
 ### <a name="does-radius-authentication-work-with-both-ikev2-and-sstp-vpn"></a>RADIUS 인증은 IKEv2 및 SSTP VPN 모두에서 작동합니까?
 
 예, RADIUS 인증은 IKEv2 및 SSTP VPN 모두에서 지원됩니다. 
+
+### <a name="does-radius-authentication-work-with-the-openvpn-client"></a>RADIUS 인증은 OpenVPN 클라이언트에서 작동 하나요?
+
+OpenVPN 클라이언트에는 RADIUS 인증이 지원 되지 않습니다.

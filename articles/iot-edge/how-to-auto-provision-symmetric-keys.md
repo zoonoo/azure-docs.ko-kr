@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c21c0bdce6f6a5cd3c8f634bf400600b30a8ead
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 5a7e7fa011c0287d5e97ad7a8cd2e3ba77f298dd
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414597"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299840"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>대칭 키 증명을 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
 
@@ -29,7 +29,7 @@ Edge를 사용하지 않는 디바이스와 마찬가지로 [Device Provisioning
 
 대칭 키 증명은 Device Provisioning Service 인스턴스로 디바이스를 인증하는 간단한 방법입니다. 이 증명 방법은 디바이스 프로비저닝을 처음 사용하는 개발자나 엄격한 보안 요구 사항이 없는 개발자를 위한 "Hello World" 환경을 나타냅니다. [TPM](../iot-dps/concepts-tpm-attestation.md) 을 사용 하는 장치 증명은 더 안전 하며 보다 엄격한 보안 요구 사항에 사용 해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 활성 IoT Hub
 * 실제 또는 가상 장치
@@ -83,7 +83,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    1. 장치를 처음으로 프로 비전을 요청할 때 **다시 프로 비전 할 때 장치 데이터를 처리 하는 방법을** 선택 합니다.
 
-   1. 원하는 경우 **초기 디바이스 쌍 상태**에 태그 값을 추가합니다. 태그를 사용하여 모듈 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 예를 들어:
+   1. 원하는 경우 **초기 디바이스 쌍 상태**에 태그 값을 추가합니다. 태그를 사용하여 모듈 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
       ```json
       {
@@ -98,13 +98,16 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    1. **항목 사용** 이 **사용**으로 설정 되어 있는지 확인 합니다.
 
-   1.           **저장**을 선택합니다.
+   1. **저장**을 선택합니다.
 
-이제이 장치에 대 한 등록이 있으므로 IoT Edge 런타임은 설치 중에 장치를 자동으로 프로 비전 할 수 있습니다. 장치 키를 만들 때 사용할 등록의 **기본 키** 값을 복사 해야 합니다.
+이제이 장치에 대 한 등록이 있으므로 IoT Edge 런타임은 설치 중에 장치를 자동으로 프로 비전 할 수 있습니다. IoT Edge 런타임을 설치할 때 사용할 등록의 **기본 키** 값을 복사 하거나, 그룹 등록에 사용할 장치 키를 만들려는 경우에만 해야 합니다.
 
 ## <a name="derive-a-device-key"></a>디바이스 키 파생
 
-장치는 프로 비전 중에 등록으로 대칭 키 증명을 수행 하기 위해 고유한 등록 ID와 함께 파생 된 장치 키를 사용 합니다. 장치 키를 생성 하려면 DPS 등록에서 복사한 키를 사용 하 여 장치에 대 한 고유 등록 ID의 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) 을 계산 하 고 그 결과를 Base64 형식으로 변환 합니다.
+> [!NOTE]
+> 이 섹션은 그룹 등록을 사용 하는 경우에만 필요 합니다.
+
+각 장치는 고유한 등록 ID로 파생 된 장치 키를 사용 하 여 프로 비전 중에 등록으로 대칭 키 증명을 수행 합니다. 장치 키를 생성 하려면 DPS 등록에서 복사한 키를 사용 하 여 장치에 대 한 고유 등록 ID의 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) 을 계산 하 고 그 결과를 Base64 형식으로 변환 합니다.
 
 장치 코드에 등록의 기본 또는 보조 키를 포함 하지 마세요.
 
@@ -159,7 +162,10 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 해당 구�
 
 * DPS **ID 범위** 값
 * 만든 장치 **등록 ID**
-* 대칭 키 증명에 대 한 장치의 파생 장치 키
+* DPS 등록에서 복사한 **기본 키** 입니다.
+
+> [!TIP]
+> 그룹 등록의 경우 DPS 등록 키가 아닌 각 장치의 [파생 키](#derive-a-device-key) 가 필요 합니다.
 
 ### <a name="linux-device"></a>Linux 장치
 

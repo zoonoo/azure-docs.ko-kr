@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: a5c60a4c7d4f1b441ec5e8444b10594a1e67d7db
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 22e187bba3782e485685354c203a6273d5bcc618
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932729"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735045"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>대시보드를 사용 하 여 앱을 개선 하는 방법
 
@@ -78,9 +78,9 @@ ms.locfileid: "68932729"
 
 예제 길이 발언를 추가 하는 작업은 다음을 수행 하는 사용자가 수행 해야 합니다.
 
-* 다른 의도에 있는 길이 발언에 대해 높은 수준의 이해를 제공 합니다.
-* 한 의도의 길이 발언 다른 의도와 혼동 될 수 있음을 알고 있습니다.
-* 는 서로 혼동 하는 두 가지 의도를 단일 의도로 축소 하 고 엔터티를 사용 하 여 다른 데이터를 가져올 수 있는지를 결정할 수 있습니다.
+* 는 다른 의도에 있는 길이 발언에 대해 높은 수준의 이해를 제공 합니다.
+* 한 의도의 길이 발언 다른 의도와 혼동 될 수 있는 방법을 알고 있습니다.
+* 는 서로 혼동 하는 두 가지 의도를 단일 의도로 축소 해야 하는지 여부를 결정할 수 있습니다. 이 경우 다른 데이터를 엔터티로 가져와야 합니다.
 
 ### <a name="patterns-and-phrase-lists"></a>패턴 및 문구 목록
 

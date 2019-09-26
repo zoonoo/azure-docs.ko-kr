@@ -4,14 +4,14 @@ description: 분할 되지 않은 기존의 모든 컨테이너를 분할 된 �
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: d51c200ebff0d92b1bcdf2c8e3e0325103e214b7
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 77d70aaa9c1ae5a111a47e08f259c0ce95fd7c92
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615020"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300126"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>분할 되지 않은 컨테이너를 분할 된 컨테이너로 마이그레이션
 
@@ -19,12 +19,12 @@ Azure Cosmos DB는 파티션 키 없이 컨테이너를 만드는 것을 지원 
 
 분할 되지 않은 컨테이너는 레거시 컨테이너 이므로 분할 되지 않은 기존 컨테이너를 분할 된 컨테이너로 마이그레이션하여 저장소 및 처리량을 확장 해야 합니다. Azure Cosmos DB은 분할 되지 않은 컨테이너를 분할 된 컨테이너로 마이그레이션하기 위한 시스템 정의 메커니즘을 제공 합니다. 이 문서에서는 기존의 분할 되지 않은 모든 컨테이너를 분할 된 컨테이너로 자동 마이그레이션하는 방법에 대해 설명 합니다. 모든 언어에서 V3 버전의 Sdk를 사용 하는 경우에만 자동 마이그레이션 기능을 사용할 수 있습니다.
 
-> [!NOTE] 
-> 현재이 문서에 설명 된 단계를 사용 하 여 Azure Cosmos DB MongoDB 및 Gremlin API 계정을 마이그레이션할 수 없습니다. 
+> [!NOTE]
+> 현재이 문서에 설명 된 단계를 사용 하 여 Azure Cosmos DB MongoDB 및 Gremlin API 계정을 마이그레이션할 수 없습니다.
 
 ## <a name="migrate-container-using-the-system-defined-partition-key"></a>시스템 정의 파티션 키를 사용 하 여 컨테이너 마이그레이션
 
-마이그레이션을 지원 하기 위해 Azure Cosmos DB는 파티션 키가 없는 모든 컨테이너에 `/_partitionkey` 명명 된 시스템 정의 파티션 키를 정의 합니다. 컨테이너를 마이그레이션한 후에는 파티션 키 정의를 변경할 수 없습니다. 예를 들어 분할 된 컨테이너로 마이그레이션되는 컨테이너에 대 한 정의는 다음과 같습니다. 
+마이그레이션을 지원 하기 위해 Azure Cosmos DB는 파티션 키가 없는 모든 컨테이너에서 `/_partitionkey` 라는 시스템 정의 파티션 키를 제공 합니다. 컨테이너를 마이그레이션한 후에는 파티션 키 정의를 변경할 수 없습니다. 예를 들어 분할 된 컨테이너로 마이그레이션되는 컨테이너에 대 한 정의는 다음과 같습니다.
 
 ```json
 {
@@ -37,10 +37,10 @@ Azure Cosmos DB는 파티션 키 없이 컨테이너를 만드는 것을 지원 
   },
 }
 ```
- 
-컨테이너를 마이그레이션한 후에는 문서의 다른 속성과 함께 속성을 `_partitionKey` 채워서 문서를 만들 수 있습니다. 속성 `_partitionKey` 은 문서의 파티션 키를 나타냅니다. 
 
-프로 비전 된 처리량을 최적으로 활용 하려면 올바른 파티션 키를 선택 해야 합니다. 자세한 내용은 [파티션 키를 선택 하는 방법](partitioning-overview.md) 문서를 참조 하세요. 
+컨테이너를 마이그레이션한 후에는 문서의 다른 속성과 함께 속성을 `_partitionKey` 채워서 문서를 만들 수 있습니다. 속성 `_partitionKey` 은 문서의 파티션 키를 나타냅니다.
+
+프로 비전 된 처리량을 최적으로 활용 하려면 올바른 파티션 키를 선택 해야 합니다. 자세한 내용은 [파티션 키를 선택 하는 방법](partitioning-overview.md) 문서를 참조 하세요.
 
 > [!NOTE]
 > 모든 언어에서 최신/V3 버전의 Sdk를 사용 하는 경우에만 시스템 정의 파티션 키를 활용할 수 있습니다.
@@ -65,37 +65,37 @@ public class DeviceInformationItem
     [JsonProperty(PropertyName = "deviceId")]
     public string DeviceId { get; set; }
 
-    [JsonProperty(PropertyName = "_partitionKey")]
+    [JsonProperty(PropertyName = "_partitionKey", NullValueHandling = NullValueHandling.Ignore)]
     public string PartitionKey {get {return this.DeviceId; set; }
 }
 
 CosmosContainer migratedContainer = database.Containers["testContainer"];
 
 DeviceInformationItem deviceItem = new DeviceInformationItem() {
-  Id = "1234", 
+  Id = "1234",
   DeviceId = "3cf4c52d-cc67-4bb8-b02f-f6185007a808"
-} 
+}
 
-CosmosItemResponse<DeviceInformationItem > response = 
-  await migratedContainer.Items.CreateItemAsync(
+ItemResponse<DeviceInformationItem > response = 
+  await migratedContainer.CreateItemAsync<DeviceInformationItem>(
     deviceItem.PartitionKey, 
     deviceItem
   );
 
 // Read back the document providing the same partition key
-CosmosItemResponse<DeviceInformationItem> readResponse = 
-  await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>( 
+ItemResponse<DeviceInformationItem> readResponse = 
+  await migratedContainer.ReadItemAsync<DeviceInformationItem>( 
     partitionKey:deviceItem.PartitionKey, 
     id: device.Id
-  ); 
+  );
 
 ```
 
-전체 샘플은 [.net 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples) GitHub 리포지토리를 참조 하세요. 
+전체 샘플은 [.net 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples) GitHub 리포지토리를 참조 하세요.
                       
 ## <a name="migrate-the-documents"></a>문서 마이그레이션
 
-컨테이너 정의는 파티션 키 속성을 사용 하 여 향상 되지만 컨테이너 내의 문서는 자동으로 마이그레이션되지 않습니다. 즉, 시스템 파티션 키 속성 `/_partitionKey` 경로가 기존 문서에 자동으로 추가 되지 않습니다. 파티션 키 없이 만든 문서를 읽고 문서에서 속성을 사용 `_partitionKey` 하 여 다시 작성 하 여 기존 문서를 다시 분할 해야 합니다. 
+컨테이너 정의는 파티션 키 속성을 사용 하 여 향상 되지만 컨테이너 내의 문서는 자동으로 마이그레이션되지 않습니다. 즉, 시스템 파티션 키 속성 `/_partitionKey` 경로가 기존 문서에 자동으로 추가 되지 않습니다. 파티션 키 없이 만든 문서를 읽고 문서에서 속성을 사용 `_partitionKey` 하 여 다시 작성 하 여 기존 문서를 다시 분할 해야 합니다.
 
 ## <a name="access-documents-that-dont-have-a-partition-key"></a>파티션 키가 없는 문서에 액세스
 
@@ -104,7 +104,7 @@ CosmosItemResponse<DeviceInformationItem> readResponse =
 ```csharp
 CosmosItemResponse<DeviceInformationItem> readResponse = 
 await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>( 
-  partitionKey: CosmosContainerSettings.NonePartitionKeyValue, 
+  partitionKey: PartitionKey.None, 
   id: device.Id
 ); 
 

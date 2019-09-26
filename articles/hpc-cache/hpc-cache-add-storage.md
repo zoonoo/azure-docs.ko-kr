@@ -4,14 +4,14 @@ description: Azure HPC 캐시가 장기 파일 저장소에 대해 온-프레미
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: a17952e193f3e03becaab044f55637372bac7b0d
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 7df0727a58f3d70289c5060175572dac1bbb4abb
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181016"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300036"
 ---
 # <a name="add-storage-targets"></a>스토리지 대상 추가
 
@@ -21,11 +21,11 @@ ms.locfileid: "71181016"
 
 저장소 내보내기는 캐시의 가상 네트워크에서 액세스할 수 있어야 합니다. 온-프레미스 하드웨어 저장소의 경우 NFS 저장소 액세스의 호스트 이름을 확인할 수 있는 DNS 서버를 설정 해야 할 수 있습니다. 자세한 내용은 [DNS 액세스](hpc-cache-prereqs.md#dns-access)를 참조 하세요.
 
-Azure HPC 캐시를 만드는 동안 또는 나중에 저장소 대상을 추가할 수 있습니다. 이 절차는 Azure Blob storage를 추가 하는지 아니면 NFS 내보내기를 추가 하는지에 따라 약간 다릅니다. 각각에 대 한 세부 정보는 아래와 같습니다.
+캐시를 만들 때 또는 나중에 저장소 대상을 추가할 수 있습니다. 이 절차는 Azure Blob storage를 추가 하는지 아니면 NFS 내보내기를 추가 하는지에 따라 약간 다릅니다. 각각에 대 한 세부 정보는 아래와 같습니다.
 
 ## <a name="add-storage-targets-while-creating-the-cache"></a>캐시를 만드는 동안 저장소 대상을 추가 합니다.
 
-캐시 생성 마법사의 **저장소 대상** 탭을 사용 하 여 캐시 인스턴스를 만들 때 저장소를 정의할 수 있습니다.
+Azure HPC 캐시 생성 마법사의 **저장소 대상** 탭을 사용 하 여 캐시 인스턴스를 만들 때 저장소를 정의 합니다.
 
 ![스토리지 대상 페이지 스크린샷](media/hpc-cache-storage-targets-pop.png)
 
@@ -39,11 +39,13 @@ Azure Portal에서 캐시 인스턴스를 열고 왼쪽 세로 막대에서 **�
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>새 Azure Blob 저장소 대상 추가
 
-새 Blob 저장소 대상에는 빈 Blob 컨테이너 또는 Azure HPC Cache cloud filesystem 형식의 데이터로 채워지는 컨테이너가 필요 합니다. [Azure blob storage로 데이터 이동](hpc-cache-ingest.md)에서 blob 컨테이너를 미리 로드 하는 방법에 대해 자세히 알아보세요.
+새 Blob 저장소 대상에는 빈 Blob 컨테이너 또는 Azure HPC 캐시 클라우드 파일 시스템 형식의 데이터로 채워지는 컨테이너가 필요 합니다. [Azure blob storage로 데이터 이동](hpc-cache-ingest.md)에서 blob 컨테이너를 미리 로드 하는 방법에 대해 자세히 알아보세요.
 
 Azure Blob 컨테이너를 정의 하려면이 정보를 입력 합니다.
 
 ![새 Azure Blob 저장소 대상에 대 한 정보로 채워진 저장소 대상 추가 페이지의 스크린샷](media/hpc-cache-add-blob.png)
+
+<!-- need to replace screenshot after note text is updated with both required RBAC roles -->
 
 * **저장소 대상 이름** -Azure HPC 캐시에서이 저장소 대상을 식별 하는 이름을 설정 합니다.
 * **대상 유형** - **Blob**을 선택 합니다.
@@ -52,7 +54,7 @@ Azure Blob 컨테이너를 정의 하려면이 정보를 입력 합니다.
   [액세스 역할 추가](#add-the-access-control-roles-to-your-account)에 설명 된 대로 저장소 계정에 액세스 하려면 캐시 인스턴스에 권한을 부여 해야 합니다.
 * **저장소 컨테이너** -이 대상에 대 한 Blob 컨테이너를 선택 합니다.
 
-* **가상 네임 스페이스 경로** -이 저장소 대상에 대 한 클라이언트 연결 filepath를 설정 합니다. 가상 네임 스페이스 기능에 대해 자세히 알아보려면 [집계 된 네임 스페이스 구성](hpc-cache-namespace.md) 을 참조 하세요.
+* **가상 네임 스페이스 경로** -이 저장소 대상에 대 한 클라이언트 쪽 파일 경로를 설정 합니다. 가상 네임 스페이스 기능에 대해 자세히 알아보려면 [집계 된 네임 스페이스 구성](hpc-cache-namespace.md) 을 참조 하세요.
 
 완료 되 면 **확인** 을 클릭 하 여 저장소 대상을 추가 합니다.
 
@@ -98,11 +100,16 @@ NFS 지원 저장소 대상에 대 한 다음 정보를 제공 합니다.
 
 * **사용 모델** - [아래에서 사용 모델 선택](#choose-a-usage-model)에 설명 된 대로 워크플로를 기반으로 하는 데이터 캐싱 프로필 중 하나를 선택 합니다.
 
-여러 네임 스페이스 경로를 만들어 동일한 NFS 저장소 시스템의 다른 내보내기를 나타낼 수 있지만 하나의 저장소 대상에서 모두 만들어야 합니다.
+### <a name="nfs-namespace-paths"></a>NFS 네임 스페이스 경로
 
-각 내보내기에 대해 다음 값을 입력 합니다.
+각 경로가 동일한 저장소 시스템의 다른 내보내기 또는 하위 디렉터리를 나타내는 한 NFS 저장소 대상에는 여러 개의 가상 경로가 있을 수 있습니다.
 
-* **가상 네임 스페이스 경로** -이 저장소 대상에 대 한 클라이언트 연결 filepath를 설정 합니다. 가상 네임 스페이스 기능에 대해 자세히 알아보려면 [집계 된 네임 스페이스 구성](hpc-cache-namespace.md) 을 참조 하세요.
+하나의 저장소 대상에서 모든 경로를 만듭니다.
+<!-- You can create multiple namespace paths to represent different exports on the same NFS storage system, but you must create them all from one storage target. -->
+
+각 네임 스페이스 경로에 대해 다음 값을 입력 합니다. 
+
+* **가상 네임 스페이스 경로** -이 저장소 대상에 대 한 클라이언트 쪽 파일 경로를 설정 합니다. 가상 네임 스페이스 기능에 대해 자세히 알아보려면 [집계 된 네임 스페이스 구성](hpc-cache-namespace.md) 을 참조 하세요.
 
 <!--  The virtual path should start with a slash ``/``. -->
 

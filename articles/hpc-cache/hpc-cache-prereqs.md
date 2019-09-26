@@ -4,14 +4,14 @@ description: Azure HPC 캐시를 사용 하기 위한 필수 구성 요소
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: 29dc5256424ea4fe7c3a72624ce8d1b3d9e59f3c
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: fab85785ea183736b4012c349af143ef3a8c784a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180902"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299908"
 ---
 # <a name="prerequisites-for-azure-hpc-cache-preview"></a>Azure HPC 캐시 (미리 보기)에 대 한 필수 구성 요소
 
@@ -26,7 +26,7 @@ Azure Portal를 사용 하 여 새 Azure HPC 캐시를 만들기 전에 사용�
 
 ## <a name="network-infrastructure"></a>네트워크 인프라
 
-캐시를 사용 하려면 네트워크 관련 옵션 두 개를 설정 해야 합니다.
+캐시를 사용 하려면 먼저 두 개의 네트워크 관련 필수 구성 요소를 설정 해야 합니다.
 
 * Azure HPC 캐시 인스턴스의 전용 서브넷
 * 캐시에서 저장소 및 기타 리소스에 액세스할 수 있도록 DNS 지원
@@ -37,13 +37,13 @@ Azure HPC 캐시에는 다음과 같은 품질의 전용 서브넷이 필요 합
 
 * 서브넷은 사용 가능한 IP 주소가 64 이상 이어야 합니다.
 * 서브넷은 클라이언트 컴퓨터와 같은 관련 서비스에 대해서도 다른 Vm을 호스트할 수 없습니다.
-* 여러 캐시 인스턴스를 사용 하는 경우 각각에는 자체 서브넷이 필요 합니다.
+* 여러 Azure HPC 캐시 인스턴스를 사용 하는 경우 각각에는 자체 서브넷이 필요 합니다.
 
-모범 사례는 캐시에 대 한 새 서브넷을 만드는 것입니다. 캐시를 만드는 과정의 일부로 새 가상 네트워크 및 서브넷을 만들 수 있습니다.
+가장 좋은 방법은 각 캐시에 대 한 새 서브넷을 만드는 것입니다. 캐시를 만드는 과정의 일부로 새 가상 네트워크 및 서브넷을 만들 수 있습니다.
 
 ### <a name="dns-access"></a>DNS 액세스
 
-Azure HPC 캐시는 가상 네트워크 외부의 리소스에 액세스 하는 데 DNS가 필요 합니다. 사용 중인 리소스에 따라 사용자 지정 된 DNS 서버를 설정 하 고 해당 서버와 Azure DNS 서버 간에 전달을 구성 해야 할 수 있습니다. 
+캐시는 가상 네트워크 외부의 리소스에 액세스 하는 데 DNS가 필요 합니다. 사용 중인 리소스에 따라 사용자 지정 된 DNS 서버를 설정 하 고 해당 서버와 Azure DNS 서버 간에 전달을 구성 해야 할 수 있습니다.
 
 * Azure Blob storage 끝점 및 기타 내부 리소스에 액세스 하려면 Azure 기반 DNS 서버가 필요 합니다.
 * 온-프레미스 저장소에 액세스 하려면 저장소 호스트 이름을 확인할 수 있는 사용자 지정 DNS 서버를 구성 해야 합니다.
@@ -56,14 +56,16 @@ Azure 가상 네트워크 [의 리소스에 대 한 이름 확인](https://docs.
 
 캐시 만들기를 시작 하기 전에 이러한 사용 권한 관련 필수 구성 요소를 확인 하십시오.
 
-* Azure HPC 캐시는 가상 Nic (네트워크 인터페이스)를 만들 수 있어야 합니다. 캐시를 만드는 사용자에 게는 Nic를 만들기 위해 구독에서 충분 한 권한이 있어야 합니다.
+* 캐시 인스턴스는 가상 Nic (네트워크 인터페이스)를 만들 수 있어야 합니다. 캐시를 만드는 사용자에 게는 Nic를 만들기 위해 구독에서 충분 한 권한이 있어야 합니다.
 <!-- There are several ways to authorize this access; read [Additional prerequisites](media/preview-prereqs.md) to learn more. -->
 
-* Blob storage를 사용 하는 경우 Azure HPC 캐시 인스턴스는 저장소 계정에 액세스 하기 위한 권한 부여가 필요 합니다. RBAC (역할 기반 액세스 제어)를 사용 하 여 Blob 저장소에 대 한 캐시 액세스를 제공할 수 있습니다. 다음 두 가지 역할이 필요 합니다. 저장소 계정 참가자 및 저장소 Blob 데이터 참가자. [저장소 대상 추가](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account)의 지침을 따릅니다.
+* Blob storage를 사용 하는 경우 Azure HPC 캐시는 저장소 계정에 액세스 하기 위한 권한 부여가 필요 합니다. RBAC (역할 기반 액세스 제어)를 사용 하 여 Blob 저장소에 대 한 캐시 액세스를 제공할 수 있습니다. 다음 두 가지 역할이 필요 합니다. 저장소 계정 기여자 및 저장소 Blob 데이터 참가자. [저장소 대상 추가](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) 의 지침에 따라 역할을 추가 합니다.
 
 ## <a name="storage-infrastructure"></a>저장소 인프라
 
-캐시는 Azure Blob 컨테이너 또는 NFS 하드웨어 저장소 내보내기를 지원 합니다. 캐시를 만들 때 저장소 대상을 정의할 수 있지만 나중에 추가할 수도 있습니다. 
+캐시는 Azure Blob 컨테이너 또는 NFS 하드웨어 저장소 내보내기를 지원 합니다. 캐시를 만들 때 저장소 대상을 정의할 수 있지만 나중에 저장소를 추가할 수도 있습니다.
+
+각 저장소 유형에는 특정 필수 구성 요소가 있습니다. 
 
 ### <a name="nfs-storage-requirements"></a>NFS 저장소 요구 사항
 
@@ -73,7 +75,7 @@ NFS 백 엔드 저장소는 호환 되는 하드웨어/소프트웨어 플랫폼
 
 ### <a name="blob-storage-requirements"></a>Blob 저장소 요구 사항
 
-Azure HPC 캐시에서 Azure Blob 저장소를 사용 하려면 [Azure blob storage로 데이터 이동](hpc-cache-ingest.md)에서 설명한 대로 호환 되는 저장소 계정 및 빈 Blob 컨테이너 또는 Azure HPC 캐시 형식의 데이터로 채워진 컨테이너가 필요 합니다.
+캐시에서 Azure Blob 저장소를 사용 하려면 [Azure blob storage로 데이터 이동](hpc-cache-ingest.md)에서 설명한 대로 호환 되는 저장소 계정 및 빈 Blob 컨테이너 또는 Azure HPC 캐시 형식의 데이터로 채워진 컨테이너가 필요 합니다.
 
 계정 및 컨테이너를 저장소 대상으로 추가 하기 전에 만듭니다.
 
@@ -85,6 +87,7 @@ Azure HPC 캐시에서 Azure Blob 저장소를 사용 하려면 [Azure blob stor
 * 액세스 계층 (기본값): **핫**
 
 캐시와 동일한 위치에 있는 저장소 계정을 사용 하는 것이 좋습니다.
+<!-- need to clarify location - same region or same resource group or same virtual network? -->
 
 또한 Azure storage 계정에 대 한 캐시 응용 프로그램 액세스 권한을 부여 해야 합니다. [저장소 대상 추가](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) 의 설명에 따라 액세스 역할 저장소 계정 참가자 및 저장소 Blob 데이터 참가자를 캐시에 제공 합니다. 저장소 계정 소유자가 아닌 경우 소유자가이 단계를 수행 하도록 합니다.
 

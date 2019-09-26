@@ -4,18 +4,18 @@ description: Azure HPC 캐시에서 사용할 Azure Blob 저장소를 채우는 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: 103470861383ff411cfaa670d70412086045a418
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: c18e1c9afab211a8ac076307eefc9074ae7c99d6
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180714"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300004"
 ---
-# <a name="move-data-to-azure-blob-storage-for-azure-hpc-cache-preview"></a>Azure HPC Cache (미리 보기)를 위해 Azure Blob storage로 데이터 이동
+# <a name="move-data-to-azure-blob-storage"></a>Azure Blob storage로 데이터 이동
 
-워크플로에 데이터를 Azure Blob 저장소로 이동 하는 작업이 포함 된 경우 Azure HPC 캐시를 통해 데이터를 복사 하는 효율적인 전략을 사용 하 고 있는지 확인 합니다.
+워크플로에 데이터를 Azure Blob 저장소로 이동 하는 작업이 포함 된 경우 효율적인 전략을 사용 하 고 있는지 확인 합니다. 저장소 대상으로 정의 하기 전에 새 Blob 컨테이너의 데이터를 미리 로드 하거나, 컨테이너를 추가 하 고, Azure HPC 캐시를 사용 하 여 데이터를 복사할 수 있습니다.
 
 이 문서에서는 Azure HPC 캐시에서 사용할 수 있도록 Blob 저장소로 데이터를 이동 하는 가장 좋은 방법을 설명 합니다.
 
@@ -23,7 +23,7 @@ ms.locfileid: "71180714"
 
 * Azure HPC 캐시는 특수화 된 저장소 형식을 사용 하 여 Blob storage에서 데이터를 구성 합니다. 이것은 Blob storage 대상이 새 빈 컨테이너 이거나 이전에 Azure HPC 캐시 데이터에 사용 된 Blob 컨테이너 여야 하는 이유입니다. ([Avere vFXT For Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) 는이 클라우드 파일 시스템도 사용 합니다.)
 
-* 여러 클라이언트 및 병렬 작업을 사용 하는 경우 Azure HPC 캐시를 통해 데이터를 복사 하는 것이 가장 좋습니다. 한 클라이언트의 단순 복사 명령이 데이터를 느리게 이동 합니다.
+* 여러 클라이언트와 병렬 작업을 사용 하는 경우 Azure HPC 캐시를 통해 백 엔드 저장소 대상으로 데이터를 복사 하는 것이 더 효율적입니다. 한 클라이언트의 단순 복사 명령이 데이터를 느리게 이동 합니다.
 
 Python 기반 유틸리티는 Blob 저장소 컨테이너에 콘텐츠를 로드 하는 데 사용할 수 있습니다. 자세한 내용은 [Blob 저장소에서 데이터 미리 로드](#pre-load-data-in-blob-storage-with-clfsload) 를 참조 하세요.
 
@@ -41,7 +41,7 @@ Avere CLFSLoad 유틸리티는 Azure HPC 캐시 팀의 요청에 의해 제공 �
 
 프로세스의 일반적인 개요는 다음과 같습니다.
 
-1. Python 버전 3.6 이상을 사용 하 여 Linux 시스템 (VM 또는 물리적)을 준비 합니다. (Python 3.7은 성능 향상을 위해 권장 됩니다.)
+1. Python 버전 3.6 이상을 사용 하 여 Linux 시스템 (VM 또는 물리적)을 준비 합니다. 더 나은 성능을 위해 Python 3.7이 권장 됩니다.
 1. Linux 시스템에 Avere-CLFSLoad 소프트웨어를 설치 합니다.
 1. Linux 명령줄에서 전송을 실행 합니다.
 

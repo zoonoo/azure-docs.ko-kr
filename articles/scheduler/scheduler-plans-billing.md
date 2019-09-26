@@ -9,17 +9,17 @@ ms.reviewer: klam
 ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 3a8664497d3d082ec1c7f584188854991e872d50
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b63367ab9686eee66bf3f00dddc2e2efe4cb941
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720436"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300862"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Azure Scheduler의 플랜 및 청구 방식
 
 > [!IMPORTANT]
-> Azure Scheduler는 사용이 중지되며 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)가 대신 제공됩니다. 작업을 예약하려는 경우 [Azure Logic Apps를 대신 사용해 보세요](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> 사용이 [중지](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)되는 Azure Scheduler를 교체 하는 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) . 스케줄러에 설정 된 작업을 계속 하려면 가능한 한 빨리 [Azure Logic Apps로 마이그레이션](../scheduler/migrate-from-scheduler-to-logic-apps.md) 하세요.
 
 ## <a name="job-collection-plans"></a>작업 컬렉션 플랜
 
@@ -32,7 +32,7 @@ Azure Scheduler에서 작업 컬렉션에는 특정 수의 작업이 포함됩�
 | **P20 Premium** | 컬렉션당 작업 1,000개 | 분당 1회. 작업을 1분에 2개 이상 실행할 수는 없습니다. | 각 Azure 구독은 P20 프리미엄 작업 컬렉션을 5,000개까지 포함할 수 있습니다. 컬렉션을 더 많이 사용하려는 경우 <a href="mailto:wapteams@microsoft.com">Microsoft에 문의</a>하세요. | Scheduler 전체 기능 집합 액세스 |
 |||||| 
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 가격 세부 정보는 [Scheduler 가격 책정](https://azure.microsoft.com/pricing/details/scheduler/)을 참조하세요.
 
@@ -80,7 +80,7 @@ P20 프리미엄 작업 컬렉션은 P10 프리미엄 작업 컬렉션과 같은
 
   Scheduler 서비스는 활성 작업 컬렉션(표준 또는 프리미엄)의 수에 따라 요금을 청구합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Azure Scheduler란?](scheduler-intro.md)
 * [Azure Scheduler 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)

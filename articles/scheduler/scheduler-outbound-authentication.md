@@ -9,17 +9,17 @@ ms.reviewer: klam
 ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: 42d6ec93a3382f494b49fb574c4aee5e8eec142a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ea09330fb8d3d97da5fbc197dba9668f1a4f685
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708954"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300856"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Azure Scheduler에 대한 아웃바운드 인증
 
 > [!IMPORTANT]
-> Azure Scheduler는 조만간 사용 중지되고 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)로 대체됩니다. 작업을 예약하려는 경우 [Azure Logic Apps를 대신 사용해 보세요](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> 사용이 [중지](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)되는 Azure Scheduler를 교체 하는 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) . 스케줄러에 설정 된 작업을 계속 하려면 가능한 한 빨리 [Azure Logic Apps로 마이그레이션](../scheduler/migrate-from-scheduler-to-logic-apps.md) 하세요.
 
 Azure Scheduler 작업은 다른 Azure 서비스, Salesforce.com, Facebook, 보안 사용자 지정 웹 사이트 등과 같이 인증이 필요한 서비스를 호출해야 하는 경우가 있습니다. 호출된 서비스에 따라 Scheduler 작업이 요청된 리소스에 액세스할 수 있는지 여부가 결정될 수 있습니다. 
 
@@ -44,12 +44,12 @@ Scheduler는 다음과 같은 인증 모델을 지원합니다.
 
 `ClientCertificate` 모델을 사용하여 인증을 추가할 때 요청 본문에서 다음과 같은 추가 요소를 지정합니다.  
 
-| 요소 | 필수 | 설명 |
+| 요소 | 필요한 공간 | 설명 |
 |---------|----------|-------------|
 | **인증**(부모 요소) | SSL 클라이언트 인증서를 사용하기 위한 인증 개체 |
 | **type** | 예 | 인증 형식입니다. SSL 클라이언트 인증서의 경우 이 값은 `ClientCertificate`입니다. |
 | **pfx** | 예 | PFX 파일의 Base64 인코딩 콘텐츠 |
-| **암호** | 예 | PFX 파일에 액세스하기 위한 암호 |
+| **password** | 예 | PFX 파일에 액세스하기 위한 암호 |
 ||| 
 
 ### <a name="response-body---client-certificate"></a>응답 본문 - 클라이언트 인증서 
@@ -158,18 +158,18 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 }
 ```
 
-## <a name="basic"></a>Basic
+## <a name="basic"></a>기본
 
 ### <a name="request-body---basic"></a>요청 본문 - 기본
 
 `Basic` 모델을 사용하여 인증을 추가할 때 요청 본문에서 다음과 같은 추가 요소를 지정합니다.
 
-| 요소 | 필수 | 설명 |
+| 요소 | 필요한 공간 | 설명 |
 |---------|----------|-------------|
 | **인증**(부모 요소) | 기본 인증을 사용하기 위한 인증 개체 | 
 | **type** | 예 | 인증 형식입니다. 기본 인증의 경우 이 값은 `Basic`입니다. | 
-| **사용자 이름** | 예 | 인증하기 위한 사용자 이름 | 
-| **암호** | 예 | 인증하기 위한 암호 |
+| **username** | 예 | 인증하기 위한 사용자 이름 | 
+| **password** | 예 | 인증하기 위한 암호 |
 |||| 
 
 ### <a name="response-body---basic"></a>응답 본문 - 기본
@@ -180,7 +180,7 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 |---------|-------------|
 | **인증**(부모 요소) | 기본 인증을 사용하기 위한 인증 개체 |
 | **type** | 인증 형식입니다. 기본 인증의 경우 이 값은 `Basic`입니다. |
-| **사용자 이름** | 인증된 사용자 이름 |
+| **username** | 인증된 사용자 이름 |
 ||| 
 
 ### <a name="sample-rest-request---basic"></a>샘플 REST 요청 - 기본
@@ -282,7 +282,7 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 `ActiveDirectoryOAuth` 모델을 사용하여 인증을 추가할 때 요청 본문에서 다음과 같은 추가 요소를 지정합니다.
 
-| 요소 | 필수 | 설명 |
+| 요소 | 필요한 공간 | 설명 |
 |---------|----------|-------------|
 | **인증**(부모 요소) | 예 | ActiveDirectoryOAuth 인증을 사용하기 위한 인증 개체 |
 | **type** | 예 | 인증 형식입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. |
@@ -403,7 +403,7 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 }
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Azure Scheduler란?](scheduler-intro.md)
 * [Azure Scheduler 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)

@@ -6,32 +6,34 @@ author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 09/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 4b41a3862341ef39c1288985d86d86667fbc5866
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 7c4812a63137dc2efc5eab2cb3b9e136a5465e78
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325596"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300451"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container Instances에서 일반적인 문제 해결
 
-이 아티클에서는 컨테이너를 관리하거나 Azure Container Instances에 배포하는 경우 일반적인 문제를 해결하는 방법을 보여줍니다. Faq (질문과 [대답](container-instances-faq.md))를 참조 하세요.
+이 아티클에서는 컨테이너를 관리하거나 Azure Container Instances에 배포하는 경우 일반적인 문제를 해결하는 방법을 보여줍니다. Faq (질문과 [대답](container-instances-faq.md))를 참조 하세요. 
+
+추가 지원이 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에서 사용 가능한 **도움말 + 지원** 옵션을 참조 하세요.
 
 ## <a name="naming-conventions"></a>명명 규칙
 
 컨테이너 사양을 정의할 때 특정 매개 변수에는 명명 제한 사항을 준수해야 합니다. 컨테이너 그룹 속성에 대한 특정 요구 사항이 포함된 테이블은 다음과 같습니다. Azure 명명 규칙에 대한 자세한 내용은 Azure 아키텍처 센터에서 [명명 규칙][azure-name-restrictions]을 참조하세요.
 
-| 범위 | 길이 | 대/소문자 구분 | 유효한 문자 | 제안된 패턴 | 예제 |
+| Scope | 길이 | 대/소문자 구분 | 유효한 문자 | 제안된 패턴 | 예제 |
 | --- | --- | --- | --- | --- | --- |
-| 컨테이너 그룹 이름 | 1-64 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| 컨테이너 이름 | 1-64 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| 컨테이너 포트 | 1에서 65535 사이 |정수 |1에서 65535 사이의 정수 |`<port-number>` |`443` |
-| DNS 이름 레이블 | 5-63 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>` |`frontend-site1` |
-| 환경 변수 | 1-63 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 밑줄(_) |`<name>` |`MY_VARIABLE` |
-| 볼륨 이름 | 5-63 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 소문자, 숫자 및 하이픈 두 개 연속 하이픈을 포함할 수 없습니다. |`<name>` |`batch-output-volume` |
+| 컨테이너 그룹 이름 | 1-64 |대/소문자 구분 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| 컨테이너 이름 | 1-64 |대/소문자 구분 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| 컨테이너 포트 | 1에서 65535 사이 |Integer |1에서 65535 사이의 정수 |`<port-number>` |`443` |
+| DNS 이름 레이블 | 5-63 |대/소문자 구분 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>` |`frontend-site1` |
+| 환경 변수 | 1-63 |대/소문자 구분 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 밑줄(_) |`<name>` |`MY_VARIABLE` |
+| 볼륨 이름 | 5-63 |대/소문자 구분 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 소문자, 숫자 및 하이픈 두 개 연속 하이픈을 포함할 수 없습니다. |`<name>` |`batch-output-volume` |
 
 ## <a name="os-version-of-image-not-supported"></a>지원되지 않는 이미지 OS 버전
 
@@ -200,9 +202,28 @@ Azure에서 다양한 지역별 리소스 부하로 인해 컨테이너 인스�
 
 Azure Container Instances는 컨테이너 그룹을 호스트하는 기본 인프라에 대한 직접 액세스를 노출하지 않습니다. 여기에는 컨테이너의 호스트에서 실행되고 권한 있는 컨테이너를 실행하는 Docker API에 대한 액세스가 포함됩니다. Docker 상호 작용이 필요한 경우 [REST 참조 설명서](https://aka.ms/aci/rest)에서 ACI API가 무엇을 지원하는지 확인하세요. 빠진 부분이 있는 경우 [ACI 피드백 포럼](https://aka.ms/aci/feedback)에서 요청을 제출하세요.
 
-## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>일치하지 않는 포트로 인해 IP에 액세스하지 못할 수 있습니다.
+## <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>포트가 일치 하지 않아 컨테이너 그룹 IP 주소에 액세스 하지 못할 수 있습니다.
 
-Azure Container Instances는 현재 일반 docker 구성과 같은 포트 매핑을 지원하지 않지만 수정 내용이 로드맵에 나와 있습니다. 액세스할 수 있어야 하는 데 액세스할 수 없는 IP가 있으면 `ports` 속성을 사용하여 컨테이너 그룹에 노출한 것과 동일한 포트를 수신하도록 컨테이너 이미지를 구성해야 합니다.
+Azure Container Instances는 일반 docker 구성과 같은 포트 매핑을 아직 지원 하지 않습니다. 컨테이너 그룹의 IP 주소에 액세스할 수 없는 것으로 판단 되는 경우 컨테이너 그룹에서 `ports` 속성을 사용 하 여 컨테이너 그룹에 노출 하는 것과 동일한 포트를 수신 대기 하도록 구성 했는지 확인 합니다.
+
+컨테이너가 컨테이너 이미지에 구성 된 포트에서 수신 대기할 수 있는지 Azure Container Instances 확인 하려면 포트를 노출 하는 `aci-helloworld` 이미지의 배포를 테스트 합니다. 또한 포트에서 `aci-helloworld` 수신 하도록 앱을 실행 합니다. `aci-helloworld`선택적 환경 변수 `PORT` 를 허용 하 여 수신 대기 하는 기본 포트 80을 재정의 합니다. 예를 들어 포트 9000을 테스트 하려면 다음을 수행 합니다.
+
+1. 컨테이너 그룹을 설정 하 여 포트 9000를 표시 하 고 포트 번호를 환경 변수의 값으로 전달 합니다.
+    ```azurecli
+    az container create --resource-group myResourceGroup \
+    --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \
+    --ip-address Public --ports 9000 \
+    --environment-variables 'PORT'='9000'
+    ```
+1. 의 `az container create`명령 출력에서 컨테이너 그룹의 IP 주소를 찾습니다. **Ip**값을 찾습니다. 
+1. 컨테이너가 성공적으로 프로 비전 되 면 브라우저에서 컨테이너 앱의 IP 주소와 포트 (예: `192.0.2.0:9000`)로 이동 합니다. 
+
+    "시작 Azure Container Instances!"가 표시 되어야 합니다. 웹 앱에 표시 되는 메시지입니다.
+1. 컨테이너를 완료 한 후에는 `az container delete` 명령을 사용 하 여 제거 합니다.
+
+    ```azurecli
+    az container delete --resource-group myResourceGroup --name mycontainer
+    ```
 
 ## <a name="next-steps"></a>다음 단계
 
