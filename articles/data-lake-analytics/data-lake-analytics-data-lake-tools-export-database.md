@@ -1,5 +1,5 @@
 ---
-title: Azure Data Lake Tools for Visual Studio를 사용하여 U-SQL 데이터베이스 내보내기
+title: 내보내기 U-SQL 데이터베이스-Azure Data Lake Tools for Visual Studio
 description: Azure Data Lake Tools for Visual Studio를 사용하여 U-SQL 데이터베이스를 내보내고 자동으로 로컬 계정으로 가져오는 방법을 알아봅니다.
 services: data-lake-analytics
 author: yanancai
@@ -9,12 +9,12 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: fe28aa8b88f557d4bbcdabf1de1c4bc6491743ce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e5a52de0342e864cb108d8d590583fe64f72e3b6
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60628576"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315784"
 ---
 # <a name="export-a-u-sql-database"></a>U-SQL 데이터베이스 내보내기
 
@@ -37,7 +37,7 @@ ms.locfileid: "60628576"
 
      **내보내기** 메뉴 옵션을 사용할 수 없는 경우 [도구를 최신 릴리스로 업데이트해야 합니다](https://aka.ms/adltoolsvs).
 
-### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>2단계: 내보낼 개체 구성
+### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>2단계: 내보내려는 개체 구성
 
 큰 데이터베이스의 작은 부분만 필요한 경우 내보내기 마법사에서 내보낼 개체의 하위 집합을 구성할 수 있습니다. 
 
@@ -51,7 +51,7 @@ ms.locfileid: "60628576"
 
 내보내기 대상에 대해 다른 설정을 구성할 수도 있습니다. 구성에 대한 설명은 다음 표에 나와 있습니다.
 
-|구성|설명|
+|Configuration|설명|
 |-------------|-----------|
 |대상 이름|내보내는 데이터베이스 리소스를 저장할 위치를 나타냅니다. 예를 들어 어셈블리, 추가 파일 및 샘플 데이터가 있습니다. 이 이름을 갖는 폴더가 로컬 데이터 루트 폴더 아래에 만들어집니다.|
 |프로젝트 디렉터리|내보내는 U-SQL 스크립트를 저장할 위치를 정의합니다. 모든 데이터베이스 개체 정의는 이 위치에 저장됩니다.|

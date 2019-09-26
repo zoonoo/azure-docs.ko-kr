@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 09/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: b31196887f900153c0dd213913eda2f8b74f4a20
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 0bf95b499a7366dad1e7b78fa4298aa6a42bb5fe
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240467"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316794"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Azure 센티널의 사용 권한
 
@@ -60,7 +60,6 @@ Azure 센티널 전용 RBAC 역할 외에도 azure 및 Log Analytics RBAC 역할
 |--- |---|---|---|---|
 | Azure 센티널 판독기 | -- | -- | -- | X |
 | Azure 센티널 응답자|--|--| X | X |
-| Azure 센티널 인시던트 관리자 | -- | X | X | X |
 | Azure 센티널 기여자 | -- | X | X | X |
 | Azure 센티널 기여자 + 논리 앱 참가자 | X | X | X | X |
 

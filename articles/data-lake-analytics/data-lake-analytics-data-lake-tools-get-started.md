@@ -1,5 +1,5 @@
 ---
-title: Visual Studio를 사용하여 Azure Data Lake Analytics 시작
+title: 쿼리 Azure Data Lake Analytics-Visual Studio
 description: Data Lake Tools for Visual Studio를 설치하고 U-SQL 스크립트를 개발 및 테스트하는 방법을 알아봅니다.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 37fc469e8b7f6cd765a841409a7226346dd21a2d
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: dacce0d4f40f077b5da6221000192a4398da99e0
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914243"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315782"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Data Lake Tools for Visual Studio를 사용하여 U-SQL 스크립트 개발
 
@@ -35,7 +35,7 @@ Azure Data Lake 및 Stream Analytics Tools는 두 가지 Azure 서비스, Azure 
 >    - [Visual Studio 2017 및 2019의 경우](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
 >    - [Visual Studio 2013 및 2015의 경우](https://www.microsoft.com/en-us/download/details.aspx?id=49504)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Visual Studio**: Express를 제외한 모든 버전이 지원 됩니다.
 

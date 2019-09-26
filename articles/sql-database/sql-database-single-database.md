@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: 1dc1d2780dcaf27e0c60cfffe84581c0278491dd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c5de4277915e71763f034596d372554e4f88e204
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566534"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316653"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스란?
 
@@ -59,6 +59,6 @@ SQL Database는 다양한 [기본 제공 보안 및 규정 준수 기능](sql-da
 
 ## <a name="next-steps"></a>다음 단계
 
-- 단일 데이터베이스를 신속하게 시작할 수 있도록 [단일 데이터베이스 빠른 시작 guide.md](sql-database-single-database-quickstart-guide.md)를 시작합니다.
+- 단일 데이터베이스를 신속 하 게 시작 하려면 [단일 데이터베이스 빠른 시작 가이드](sql-database-single-database-quickstart-guide.md)를 시작 하세요.
 - SQL Server 데이터베이스를 Azure로 마이그레이션하는 방법에 대한 자세한 내용은 [Azure SQL Database로 마이그레이션](sql-database-single-database-migrate.md)을 참조하세요.
 - 지원되는 기능에 대한 자세한 내용은 [기능](sql-database-features.md)을 참조하세요.

@@ -1,5 +1,5 @@
 ---
-title: IoT Edge 미리 보기용 IoT 보안 모듈에 대 한 Azure Security Center 이해 | Microsoft Docs
+title: IoT Edge 용 IoT 보안 모듈에 대 한 Azure Security Center 이해 Microsoft Docs
 description: IoT Edge 용 IoT 보안 모듈 Azure Security Center의 아키텍처 및 기능을 이해 합니다.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,18 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 6114fc768ad04ef812f6093d006ec9ad91b17af3
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 148c68234a937efde554ef00a6014cdc1a350f34
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596864"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315901"
 ---
 # <a name="azure-iot-edge-security-module"></a>Azure IoT Edge 보안 모듈
-
-> [!IMPORTANT]
-> IoT Edge 용 IoT 서비스 Azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) 는에 지에서 비즈니스 워크플로를 관리 하 고 수행 하기 위한 강력한 기능을 제공 합니다.
 IoT 환경에서 IoT Edge를 재생 하는 주요 부분은 악의적인 행위자에 게 특히 유용 합니다.

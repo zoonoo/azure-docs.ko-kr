@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 6e3045ba8363965fcfc198356ed68447a187308d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 886dd9b0f3c72fc7649b1e2fc3927cfa87f65312
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123426"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316498"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -91,6 +91,8 @@ Express 경로는 개인 피어 링, Microsoft 피어 링 및 공용 피어 링�
 
 Dynamics 365 및 Common Data Service (CD) 환경은 Azure에서 호스트 되므로 고객은 Azure 리소스에 대 한 기본 Express 경로 지원을 활용 합니다. 라우터 필터에 Dynamics 365/CD 환경이 호스트 되는 Azure 지역이 포함 된 경우 해당 서비스 끝점에 연결할 수 있습니다.
 
+> [!NOTE]
+> [Express 경로 프리미엄](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs#expressroute-premium) 은 Azure express 경로를 통한 Dynamics 365 연결에 필요 **하지 않습니다** .
 
 ## <a name="data-and-connections"></a>데이터 및 연결
 

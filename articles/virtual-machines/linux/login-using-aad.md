@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: cynthn
-ms.openlocfilehash: 0e3996c28750639b227475bf4e0196f3a0c3ab0d
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: e30adf8b694d744e64fb7528b75b85d4a772a723
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163212"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316768"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>미리 보기: Azure Active Directory 인증을 사용 하 여 Azure에서 Linux 가상 머신에 로그인
 
@@ -86,6 +86,9 @@ az vm create \
 VM 및 지원 리소스를 만드는 데 몇 분이 걸립니다.
 
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Azure AD 로그인 VM 확장 설치
+
+> [!NOTE]
+> 이전에 만든 VM에이 exention를 배포 하는 경우 컴퓨터에 최소 1GB의 메모리를 할당 해야 합니다. 그렇지 않으면 확장이 설치 되지 않습니다.
 
 Azure AD 자격 증명을 사용 하 여 Linux VM에 로그인 하려면 Azure Active Directory 로그인 VM 확장을 설치 합니다. VM 확장은 Azure 가상 머신에서 배포 후 구성 및 Automation 작업을 제공하는 작은 애플리케이션입니다. [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set)을 사용하여 *myResourceGroup* 리소스 그룹의 *myVM*이라는 VM에 *AADLoginForLinux* 확장을 설치합니다.
 

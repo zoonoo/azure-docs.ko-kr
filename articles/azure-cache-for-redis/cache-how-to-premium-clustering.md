@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: yegu
-ms.openlocfilehash: 602d77f3d4e8ed10c2c964462bc2dc21240cef5c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a919ccd2a23acf6e1bd04cda8a5dd18782ff31b0
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60541389"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315971"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 Redis 클러스터링을 구성하는 방법
 Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. 이 문서에서는 프리미엄 Azure Cache for Redis에서 클러스터링을 구성하는 방법에 대해 설명합니다.
@@ -121,7 +121,7 @@ Azure Cache for Redis 클러스터링에 대해 자주 묻는 질문과 대답�
 StackExchange.Redis 클라이언트를 통해 동일한 분할된 데이터베이스에서 키를 클러스터링하고 찾아서 작업하는 샘플 코드의 경우 [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 샘플의 [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) 부분을 참조하세요.
 
 ### <a name="what-is-the-largest-cache-size-i-can-create"></a>만들 수 있는 최대 캐시 크기는?
-가장 큰 프리미엄 캐시 크기는 53GB입니다. 최대 10개의 분할된 데이터베이스를 만들 수 있으므로 530GB의 최대 크기를 제공합니다. 더 큰 크기가 필요한 경우 [추가 요청](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase)이 가능합니다. 자세한 내용은 [Azure Cache for Redis 가격](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요.
+최대 프리미엄 캐시 크기는 120 GB입니다. 최대 10 개의 분할를 만들 수 있습니다. 최대 크기는 1.2 TB입니다. 더 큰 크기가 필요한 경우 [추가 요청](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase)이 가능합니다. 자세한 내용은 [Azure Cache for Redis 가격](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요.
 
 ### <a name="do-all-redis-clients-support-clustering"></a>모든 Redis 클라이언트가 클러스터링을 지원하나요?
 현재 일부 클라이언트가 Redis 클러스터링을 지원합니다. 이를 지원하는 클라이언트는 StackExchange.Redis입니다. 다른 클라이언트에 대한 자세한 내용은 [Redis 클러스터 자습서](https://redis.io/topics/cluster-tutorial)의 [클러스터 작업](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) 섹션을 참조하세요. 

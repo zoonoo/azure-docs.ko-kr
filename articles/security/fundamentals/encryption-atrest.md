@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 09/26/2019
 ms.author: barclayn
-ms.openlocfilehash: b506c6f6101e8c5ce71231a8178f70fa5a0914d8
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3b60a6da1e7961c7709bb0b19e91dc6f15a51a1c
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262817"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316771"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 미사용 데이터 암호화
 
@@ -178,7 +178,7 @@ Azure Key Vault에서 고객 관리 키를 사용하는 서버 쪽 암호화 모
 - 키 수명 주기 관리에 대한 책임이 전적으로 고객에게 있습니다.
 - 추가 설치 및 구성 오버헤드
 
-#### <a name="server-side-encryption-using-service-managed-keys-in-customer-controlled-hardware"></a>고객 제어 하드웨어에서 서비스 관리 키를 사용하여 서버 쪽 암호화
+#### <a name="server-side-encryption-using-customer-managed-keys-in-customer-controlled-hardware"></a>고객 제어 하드웨어에서 고객 관리 키를 사용 하는 서버 쪽 암호화
 
 일부 Azure 서비스는 HYOK(Host Your Own Key) 키 관리 모델을 사용할 수 있습니다. 이 관리 모드는 미사용 데이터를 암호화하고 Microsoft의 제어를 벗어나는 전용 리포지토리의 키를 관리해야 하는 시나리오에서 유용합니다. 이 모델에서 서비스는 외부 사이트에서 키를 검색해야 합니다. 성능 및 가용성 보장은 영향을 받으며, 구성은 더 복잡합니다. 또한 암호화 및 암호 해독 작업 중에 DEK에 대한 액세스 권한이 서비스에 있으므로 이 모델에서는 고객이 Azure Key Vault에서 키를 관리하는 경우와 비슷한 방식으로 전반적인 보안을 보장합니다.  따라서 특정 키 관리 요구 사항이 필요하지 않는 한 대부분의 조직에는 이 모델이 적합하지 않습니다. 이러한 제한으로 인해 대부분의 Azure 서비스에서는 고객이 제어하는 하드웨어에서 서버 관리 키를 사용하는 서버 쪽 암호화를 지원하지 않습니다.
 
@@ -273,7 +273,7 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 | Azure Data Catalog               | 예                | -                  | -                  |
 | Azure HDInsight의 Apache Kafka  | 예                | 모든 RSA 길이입니다.   | -                  |
 | Azure Data Explorer              | 예                | -                  | -                  |
-| Azure Data Factory               | 예                | -                  | -                  |
+| Azure Data Factory               | 예                | 예                | -                  |
 | Azure Data Lake Store            | 예                | 예, RSA 2048비트  | -                  |
 | **컨테이너**                   |                    |                    |                    |
 | Azure Kubernetes Service         | 예                | -                  | -                  |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: yegu
-ms.openlocfilehash: 116e54fd39af801cf8941a974da2b72c483097dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05638e17c2f41806a5c8aa3e0c3020eae82bdb60
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60830305"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315963"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Managed Cache Service에서 Azure Cache for Redis로 마이그레이션
 Azure Managed Cache Service를 사용하는 애플리케이션을 Azure Cache for Redis로 마이그레이션하는 작업은 캐싱 애플리케이션에서 사용하는 Managed Cache Service 기능에 따라 애플리케이션을 최소한으로 변경하면서 수행할 수 있습니다. API가 정확히 동일하지 않고 유사하며 캐시에 액세스하는 데 Managed Cache Service를 사용하는 기존 코드의 대부분은 변경을 최소화하면서 다시 사용할 수 있습니다. 이 문서에서는 Azure Cache for Redis를 사용하도록 Managed Cache Service 애플리케이션을 마이그레이션하는 데 필요한 구성과 애플리케이션을 변경하는 방법 및 Azure Cache for Redis의 일부 기능을 Managed Cache Service 캐시의 기능을 구현하는 데 사용할 수 있는 방법을 보여 줍니다.
@@ -62,7 +62,7 @@ Microsoft Azure Cache for Redis를 사용할 수 있는 계층은 다음과 같�
 
 * **기본** – 단일 노드. 최대 53GB까지 여러 개의 크기
 * **표준** – 2노드 주/복제본. 최대 53GB까지 여러 개의 크기 99.9% SLA
-* **프리미엄** – 최대 10개 분할 데이터베이스와 2노드 주/복제본. 6GB ~ 530GB에 이르는 여러 개의 크기 모든 표준 계층 기능과 추가적인 [Redis 클러스터](cache-how-to-premium-clustering.md), [Redis 지속성](cache-how-to-premium-persistence.md) 및 [Azure Virtual Network](cache-how-to-premium-vnet.md) 지원이 포함됩니다. 99.9% SLA
+* **프리미엄** – 최대 10개 분할 데이터베이스와 2노드 주/복제본. 크기가 6gb에서 1.2 TB 사이입니다. 모든 표준 계층 기능과 추가적인 [Redis 클러스터](cache-how-to-premium-clustering.md), [Redis 지속성](cache-how-to-premium-persistence.md) 및 [Azure Virtual Network](cache-how-to-premium-vnet.md) 지원이 포함됩니다. 99.9% SLA
 
 각 계층은 기능과 가격이 다릅니다. 기능에 대해서는 이 가이드의 뒷부분에서 다룹니다. 가격에 대한 자세한 내용은 [캐시 가격 정보](https://azure.microsoft.com/pricing/details/cache/)를 참조하세요.
 

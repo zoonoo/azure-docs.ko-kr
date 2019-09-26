@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: memildin
-ms.openlocfilehash: b8ca4dfe8b1bba169b1234461dc5e8855fef1d7e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: bbb34a0a9d8035ce8cbfd3f3283677133370a9f2
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202290"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316735"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Security Center FAQ(질문과 대답)
 이 FAQ는 증가된 가시성으로 위협을 예방, 감지 및 대응하고 Microsoft Azure 리소스의 보안을 제어하는 서비스인 Azure Security Center에 관한 질문에 답변합니다.
@@ -44,7 +44,7 @@ Security Center는 두 계층으로 제공됩니다.
 **표준 계층**은 인텔리전스, 동작 분석, 변칙 검색, 보안 사고 위협 및 위협 특성 보고서 등 고급 위협 감지 기능을 추가합니다. 표준 계층 무료 평가판을 시작할 수 있습니다. 업그레이드하려면 보안 정책에서 [가격 책정 계층](https://docs.microsoft.com/azure/security-center/security-center-pricing)을 선택합니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
 ### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>에서 조직의 가격 책정 계층 변경을 수행한 사람을 추적 하려면 어떻게 해야 하나요? Azure Security Center
-Azure 구독에는 가격 책정 계층을 변경할 수 있는 권한이 있는 관리자가 여러 개 있을 수 있으므로 사용자는 가격 책정 계층 변경을 수행한 사용자를 알고 싶을 수 있습니다. 이를 사용 하려면 Azure 활동 로그를 사용할 수 있습니다. [여기](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832) 에서 추가 지침을 참조 하세요.
+Azure 구독에는 가격 책정 계층을 변경할 수 있는 권한이 있는 여러 관리자가 있을 수 있습니다. 가격 책정 계층 변경을 수행한 사용자를 확인 하려면 Azure 활동 로그를 사용 합니다. 자세한 내용은 [여기](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)를 참조하세요.
 
 ## <a name="permissions"></a>사용 권한
 Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](../role-based-access-control/built-in-roles.md)을 제공하는 [RBAC(역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md)를 사용합니다.
@@ -59,7 +59,7 @@ Security Center는 Azure Vm (가상 머신), 가상 머신 확장 집합, IaaS �
 ### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Security Center에서 만든 작업 영역에 대 한 Azure Monitor 로그 요금이 청구 되나요?
 아니요. Security Center에서 만든 작업 영역은 노드 요금 청구 당 Azure Monitor 로그에 대해 구성 된 상태에서 Azure Monitor 로그 요금이 발생 하지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다.
 
-- **무료 계층** – Security Center는 기본 작업 영역에서 'SecurityCenterFree' 솔루션을 사용하도록 설정합니다. 체험 계층에 대한 요금이 청구되지 않습니다.
+- **무료 계층** – Security Center는 기본 작업 영역에서 'SecurityCenterFree' 솔루션을 사용하도록 설정합니다. 무료 계층에 대해서는 요금이 청구 되지 않습니다.
 - **표준 계층** – Security Center는 기본 작업 영역에서 'Security' 솔루션을 사용하도록 설정합니다.
 
 자세한 내용은 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요.
@@ -130,12 +130,12 @@ Microsoft Monitoring Agent VM에 직접 설치 되는 경우 (Azure 확장이 �
 
 Linux 컴퓨터의 경우 에이전트 멀티 호 밍은 아직 지원 되지 않습니다. 따라서 기존 에이전트 설치가 검색 되 면 자동 프로비저닝이 발생 하지 않고 컴퓨터의 구성이 변경 되지 않습니다.
 
-등록 구독에 있는 기존 컴퓨터의 경우 2019-03-17 이전에 Security Center 하기 위해 기존 에이전트가 검색 되 면 Microsoft Monitoring Agent 확장이 설치 되지 않으며 컴퓨터에 영향을 주지 않습니다. 이러한 컴퓨터의 경우 해당 컴퓨터에서 에이전트 설치 문제를 해결 하려면 "컴퓨터에서 모니터링 에이전트 상태 문제 해결"을 참조 하세요.
+기존 에이전트를 검색 하는 경우 구독에 있는 기존 컴퓨터의 등록가 17 2019 이전에 Security Center 하면 Microsoft Monitoring Agent 확장이 설치 되지 않으며 컴퓨터에는 영향을 주지 않습니다. 이러한 컴퓨터의 경우 해당 컴퓨터에서 에이전트 설치 문제를 해결 하려면 "컴퓨터에서 모니터링 에이전트 상태 문제 해결"을 참조 하세요.
 
  자세한 내용은 다음 섹션 [VM에 System Center Operations Manager 또는 OMS 직접 에이전트가 이미 설치 되어 있으면 어떻게 되나요?](#scomomsinstalled) 를 참조 하세요.
 
 ### System Center Operations Manager 에이전트가 VM에 이미 설치 되어 있으면 어떻게 되나요?<a name="scomomsinstalled"></a>
-Security center는 기존 System Center Operations Manager 에이전트에 Microsoft Monitoring Agent 확장을 나란히 설치 합니다. 기존 에이전트는 System Center Operations Manager 서버에 정상적으로 계속 보고 합니다. Operations Manager 에이전트와 Microsoft Monitoring Agent는이 프로세스 중에 최신 버전으로 업데이트 되는 공용 런타임 라이브러리를 공유 합니다. 참고-Operations Manager agent의 버전 2012이 설치 되어 있는 경우에는 자동 프로 비전을 설정 하지 마십시오. Operations Manager 서버가 2012 버전인 경우에도 관리 기능이 손실 될 수 있습니다.
+Security center는 기존 System Center Operations Manager 에이전트에 Microsoft Monitoring Agent 확장을 나란히 설치 합니다. 기존 에이전트는 System Center Operations Manager 서버에 정상적으로 계속 보고 합니다. Operations Manager 에이전트와 Microsoft Monitoring Agent는이 프로세스 중에 최신 버전으로 업데이트 되는 공용 런타임 라이브러리를 공유 합니다. 참고-Operations Manager agent의 버전 2012이 설치 되어 있는 경우 자동 프로 비전을 설정 하지 마십시오 (Operations Manager 서버가 2012 버전인 경우에도 관리 기능이 손실 될 수 있음).
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>이러한 확장을 제거할 경우 어떤 영향이 있나요?
 Microsoft Monitoring 확장을 제거하는 경우 Security Center는 VM의 보안 데이터 및 일부 보안 권장 사항을 수집할 수 없고 경고를 사용할 수 없습니다. 24시간 이내에 Security Center는 VM이 확장을 누락하고 확장을 다시 설치했는지 확인합니다.
@@ -147,7 +147,7 @@ Microsoft Monitoring 확장을 제거하는 경우 Security Center는 VM의 보�
 
    ![가격 책정 계층][1]
 
-2. 다음으로 **보안 정책 - 데이터 수집** 블레이드에서 **끄기**를 선택하여 자동 프로비저닝을 해제합니다.
+2. 그런 다음 **보안 정책-데이터 수집** 페이지에서 **끄기** 를 선택 하 여 자동 프로비저닝을 해제 합니다.
    ![데이터 수집][2]
 
 ### <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>자동 에이전트 설치 및 작업 영역 생성을 옵트아웃해야 하나요?
@@ -161,20 +161,20 @@ Microsoft Monitoring 확장을 제거하는 경우 Security Center는 VM의 보�
 
 - Security Center에 의한 자동 에이전트 설치가 전체 구독에 적용됩니다. VM의 하위 집합에 자동 설치를 적용할 수 없습니다. Microsoft Monitoring Agent와 함께 설치할 수 없는 중요한 VM이 있는 경우 자동 프로비전을 옵트아웃해야 합니다.
 - MMA (Microsoft Monitoring Agent) 확장을 설치 하면 에이전트 버전이 업데이트 됩니다. 이는 직접 에이전트 및 System Center Operations Manager 에이전트에 적용 됩니다 (후자의 경우 Operations Manager 및 MMA 공유 공용 런타임 라이브러리-프로세스에서 업데이트 됨). 설치 된 Operations Manager 에이전트가 버전 2012이 고 업그레이드 된 경우 Operations Manager 서버가 2012 버전인 경우에도 관리 기능이 손실 될 수 있습니다. 설치 된 Operations Manager 에이전트가 버전 2012 인 경우 자동 프로 비전을 옵트아웃 하는 것이 좋습니다.
-- 구독 외부의 사용자 지정 작업 영역(중앙 집중식 작업 영역)이 있는 경우 자동 프로비전을 옵트아웃해야 합니다. Microsoft Monitoring Agent 확장을 수동으로 설치하고 Security Center가 연결을 재정의하지 않고 작업 영역에 연결할 수 있습니다.
+- 구독 외부의 사용자 지정 작업 영역 (중앙 작업 영역)이 있는 경우 자동 프로 비전을 옵트아웃 (opt out) 해야 합니다. Microsoft Monitoring Agent 확장을 수동으로 설치하고 Security Center가 연결을 재정의하지 않고 작업 영역에 연결할 수 있습니다.
 - 구독 내에 자신의 사용자 지정 작업 영역이 있고 구독당 작업 영역을 여러 개 만들지 않으려는 경우 두 가지 옵션이 있습니다.
 
    1. 자동 프로비전을 옵트아웃할 수 있습니다. 마이그레이션 후 기본 작업 영역 설정을 [기존 Log Analytics 작업 영역을 사용하려면 어떻게 해야 하나요?](#how-can-i-use-my-existing-log-analytics-workspace)의 설명에 따라 설정합니다.
    2. 또는 마이그레이션이 완료되고, Microsoft Monitoring Agent가 VM에 설치되고, VM이 생성된 작업 영역에 연결되도록 허용합니다. 그런 다음 이미 설치된 에이전트를 재구성하도록 선택하여 기본 작업 영역 설정을 설정하고 자신의 사용자 지정 작업 영역을 선택합니다. 자세한 내용은 [기존 Log Analytics 작업 영역을 사용하려면 어떻게 해야 하나요?](#how-can-i-use-my-existing-log-analytics-workspace)를 참조하세요.
 
 ### <a name="what-are-the-implications-of-opting-out-of-automatic-provisioning"></a>자동 프로비전을 옵트아웃하는 의미는 무엇인가요?
-마이그레이션이 완료되면 Security Center는 VM에서 보안 데이터를 수집할 수 없으며 일부 보안 권장 사항과 경고를 사용할 수 없습니다. 옵트아웃하는 경우 Microsoft Monitoring Agent를 수동으로 설치해야 합니다. [옵트아웃에 권장되는 단계](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning)를 참조하세요.
+마이그레이션이 완료 되 면 VM에서 보안 데이터 Security Center를 수집할 수 없고 일부 보안 권장 사항 및 경고를 사용할 수 없습니다. 옵트아웃 하면 Microsoft Monitoring Agent를 수동으로 설치 합니다. [옵트아웃에 권장되는 단계](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning)를 참조하세요.
 
 ### <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>자동 프로비전을 옵트아웃하는 경우 권장되는 단계는 무엇인가요?
 
-Security Center가 VM의 보안 데이터를 수집하고 권장 사항 및 경고를 제공할 수 있도록 Microsoft Monitoring Agent 확장을 수동으로 설치해야 합니다. 설치 지침에 대해서는 [Windows VM용 에이전트 설치](../virtual-machines/extensions/oms-windows.md) 또는 [Linux VM용 에이전트 설치](../virtual-machines/extensions/oms-linux.md)를 참조하세요.
+Microsoft Monitoring Agent 확장을 수동으로 설치 하 여 Vm에서 보안 데이터를 수집 하 고 권장 사항 및 경고를 제공할 수 Security Center. 설치 지침에 대해서는 [Windows VM용 에이전트 설치](../virtual-machines/extensions/oms-windows.md) 또는 [Linux VM용 에이전트 설치](../virtual-machines/extensions/oms-linux.md)를 참조하세요.
 
-에이전트를 기존 사용자 지정 작업 영역이나 Security Center가 만든 작업 영역에 연결할 수 있습니다. 사용자 지정 작업 영역에 'Security' 또는 'SecurityCenterFree' 솔루션이 활성화되어 있지 않으면 솔루션을 적용해야 합니다. 적용하려면 사용자 지정 작업 영역 또는 구독을 선택하고 **보안 정책 - 가격 책정 계층** 블레이드를 통해 가격 책정 계층을 적용합니다.
+에이전트를 기존 사용자 지정 작업 영역이나 Security Center가 만든 작업 영역에 연결할 수 있습니다. 사용자 지정 작업 영역에 'Security' 또는 'SecurityCenterFree' 솔루션이 활성화되어 있지 않으면 솔루션을 적용해야 합니다. 적용 하려면 사용자 지정 작업 영역 또는 구독을 선택 하 고 **보안 정책 – 가격 책정 계층** 페이지를 통해 가격 책정 계층을 적용 합니다.
 
    ![가격 책정 계층][1]
 
@@ -191,8 +191,8 @@ Microsoft Monitoring Agent를 수동으로 제거할 수 있습니다. Security 
 수동으로 에이전트를 제거하려면:
 
 1.  포털에서 **Log Analytics**을 엽니다.
-2.  Log Analytics 블레이드에서 작업 영역을 선택합니다.
-3.  모니터링하지 않을 각 VM을 선택하고 **연결 끊기**를 선택합니다.
+2.  Log Analytics 페이지에서 작업 영역을 선택 합니다.
+3.  모니터링 하지 않을 Vm을 선택 하 고 **연결 끊기**를 선택 합니다.
 
    ![에이전트 제거][3]
 
@@ -201,7 +201,7 @@ Microsoft Monitoring Agent를 수동으로 제거할 수 있습니다. Security 
 >
 >
 ### <a name="how-do-i-disable-data-collection"></a>데이터 컬렉션을 사용하지 않도록 설정하려면 어떻게 해야 하나요?
-자동 프로비전은 기본적으로 해제되어 있습니다. 보안 정책에서 자동 프로비저닝 설정을 해제하여 언제든지 리소스에서 자동 프로비저닝을 사용하지 않도록 설정할 수 있습니다. 시스템 업데이트, OS 취약성 및 엔드포인트 보호에 대한 보안 경고와 권장 사항을 받으려면 자동 프로비저닝을 사용하는 것이 좋습니다.
+자동 프로비전은 기본적으로 해제되어 있습니다. 보안 정책에서 자동 프로비저닝 설정을 해제하여 언제든지 리소스에서 자동 프로비저닝을 사용하지 않도록 설정할 수 있습니다. 자동 프로 비전은 시스템 업데이트, OS 취약성 및 endpoint protection에 대 한 보안 경고 및 권장 사항을 얻기 위해 매우 권장 됩니다.
 
 데이터 수집을 해제하려면 [Azure Portal에 로그인](https://portal.azure.com)하여 **찾아보기**, **Security Center**, **정책 선택**을 차례로 선택합니다. 자동 프로비저닝을 사용하지 않도록 설정할 구독을 선택합니다. 구독을 선택하면 **보안 정책 - 데이터 수집**이 열립니다. **자동 프로비전**에서 **끔**을 선택합니다.
 
@@ -209,11 +209,11 @@ Microsoft Monitoring Agent를 수동으로 제거할 수 있습니다. Security 
 보안 정책에서 Azure 구독에 대한 데이터 수집을 사용하도록 설정할 수 있습니다. 데이터 수집을 사용하도록 설정하려면 [Azure Portal에 로그인](https://portal.azure.com)하여 **찾아보기**, **Security Center**, **보안 정책**을 차례로 선택합니다. 자동 프로비전을 사용할 구독을 선택합니다. 구독을 선택하면 **보안 정책 - 데이터 수집**이 열립니다. **자동 프로비전**에서 **켬**을 선택합니다.
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>데이터 수집을 사용하도록 설정하면 어떻게 될까요?
-자동 프로비저닝을 사용하도록 설정하면 Security Center는 지원되는 모든 Azure VM 및 새로 만든 Azure VM에 Microsoft Monitoring Agent를 프로비전합니다. 자동 프로비저닝을 사용하는 것이 좋지만 수동 에이전트 설치도 사용할 수 있습니다. [Microsoft Monitoring Agent 확장을 설치하는 방법을 알아봅니다](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
+자동 프로비저닝을 사용하도록 설정하면 Security Center는 지원되는 모든 Azure VM 및 새로 만든 Azure VM에 Microsoft Monitoring Agent를 프로비전합니다. 자동 프로비저닝을 사용 하는 것이 좋지만 수동 에이전트 설치도 사용할 수 있습니다. [Microsoft Monitoring Agent 확장을 설치하는 방법을 알아봅니다](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
 
-에이전트는 프로세스 생성 이벤트 4688 및 이벤트 4688 내의 *CommandLine* 필드를 활성화합니다. VM에서 생성된 새로운 프로세스는 이벤트 로그에서 기록되고 Security Center의 검색 서비스에 의해 모니터링됩니다. 각 새 프로세스에 대해 기록된 세부 정보에 대한 내용은 [4688의 설명 필드](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields)를 참조하세요. 또한 에이전트는 VM에서 생성되는 4688 이벤트를 수집하고 검색에 저장합니다.
+에이전트는 프로세스 생성 이벤트 4688 및 이벤트 4688 내의 *CommandLine* 필드를 활성화합니다. VM에서 생성된 새로운 프로세스는 이벤트 로그에서 기록되고 Security Center의 검색 서비스에 의해 모니터링됩니다. 각 새 프로세스에 대해 기록 된 세부 정보에 대 한 자세한 내용은 [4688의 설명 필드](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields)를 참조 하십시오. 또한 에이전트는 VM에서 생성되는 4688 이벤트를 수집하고 검색에 저장합니다.
 
-또한 에이전트는 [적응형 애플리케이션 제어](security-center-adaptive-application.md)에 데이터 수집을 사용하도록 설정하고, Security Center는 모든 애플리케이션을 허용하도록 감사 모드에서 로컬 AppLocker 정책을 구성합니다. 이렇게 하면 AppLocker가 이벤트를 생성하게 되고, 이 이벤트를 Security Center에서 수집하여 활용합니다. 이 정책은 이미 AppLocker 정책이 구성된 컴퓨터에서는 구성할 수 없습니다. 
+또한 에이전트는 [적응형 애플리케이션 제어](security-center-adaptive-application.md)에 데이터 수집을 사용하도록 설정하고, Security Center는 모든 애플리케이션을 허용하도록 감사 모드에서 로컬 AppLocker 정책을 구성합니다. 이 정책을 통해 AppLocker는 이벤트를 생성 하 여 Security Center에서 수집 하 여 활용 합니다. 이 정책은 이미 AppLocker 정책이 구성된 컴퓨터에서는 구성할 수 없습니다. 
 
 Security Center가 VM에서 의심스러운 작업을 감지하면 고객은 경우 [보안 연락처 정보](security-center-provide-security-contact-details.md)가 제공된 경우 전자 메일을 통해 알림을 받습니다. 경고는 또한 Security Center의 보안 경고 대시보드에 표시됩니다.
 
@@ -239,7 +239,7 @@ Microsoft Monitoring Agent를 Azure 확장으로 설치하는 것이 아니라 V
 ### <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>Security Center에서 기존 Log Analytics 작업 영역에 솔루션을 설치하나요? 요금 청구에 영향을 주는 요인은 무엇인가요?
 Security Center에서 VM이 만든 작업 영역에 이미 연결되어 있는지를 식별하는 경우 Security Center를 통해 가격 책정 계층에 따라 이 작업 영역에서 솔루션을 사용할 수 있습니다. 솔루션이 [솔루션 대상 지정](../operations-management-suite/operations-management-suite-solution-targeting.md)을 통해 관련 Azure VM에만 적용되므로 청구는 동일하게 유지됩니다.
 
-- **체험 계층** – Security Center는 작업 영역에서 'SecurityCenterFree' 솔루션을 설치합니다. 체험 계층에 대한 요금이 청구되지 않습니다.
+- **체험 계층** – Security Center는 작업 영역에서 'SecurityCenterFree' 솔루션을 설치합니다. 무료 계층에 대해서는 요금이 청구 되지 않습니다.
 - **표준 계층** – Security Center가 작업 영역에 'Security' 솔루션을 설치합니다.
 
    ![기본 작업 영역의 솔루션][4]
@@ -275,7 +275,7 @@ Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니�
 보안 정책에 사용하도록 설정된 권장 사항만 여기에 표시됩니다.
 
 ### <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>내 Azure 리소스의 현재 보안 상태를 확인하려면 어떻게 해야 하나요?
-**Security Center 개요** 블레이드는 Compute, Networking, Storage &amp; 데이터 및 애플리케이션별로 분류된 환경의 전반적인 보안 상태를 보여 줍니다. 각 리소스 종류에는 잠재적 보안 취약성이 식별되었는지 나타내는 표시기가 있습니다. 각 타일을 클릭하면 구독의 리소스 인벤토리와 함께 Security Center에서 식별하는 보안 문제 목록이 표시됩니다.
+**Security Center 개요** 페이지에는 계산, 네트워킹, 저장소 & 데이터 및 응용 프로그램 별로 분류 된 환경의 전반적인 보안 상태를 보여 줍니다. 각 리소스 종류에는 잠재적 보안 취약성이 식별되었는지 나타내는 표시기가 있습니다. 각 타일을 클릭하면 구독의 리소스 인벤토리와 함께 Security Center에서 식별하는 보안 문제 목록이 표시됩니다.
 
 ### <a name="what-triggers-a-security-alert"></a>보안 경고를 트리거하는 것은 무엇인가요?
 Azure Security Center는 리소스, 네트워크 및 맬웨어 방지 프로그램과 방화벽 같은 파트너 솔루션에서 자동으로 로그 데이터를 수집, 분석 및 결합합니다. 위협이 감지되었을 때 보안 경고가 생성됩니다. 감지되는 사항의 예:
@@ -319,7 +319,7 @@ Azure Security Center는 Azure 확장을 통해 설치된 맬웨어 방지 프�
 VM에 대한 검색 데이터가 없는 경우 이 메시지가 표시됩니다. Azure Security Center에서 데이터 수집을 사용하도록 설정한 후 검사 데이터가 입력될 때까지는 다소 시간이 걸릴 수 있습니다(1시간 이내). 검색 데이터를 처음 입력한 후에는 검색 데이터가 전혀 없거나 최근 검색 데이터가 없기 때문에 이 메시지가 나타날 수 있습니다. VM이 중지된 상태이면 검사를 수행해도 데이터가 입력되지 않습니다. Windows 에이전트의 보존 정책에 따라 최근에(기본값은 30일) 검색 데이터가 입력되지 않은 경우에도 이 메시지가 나타날 수 있습니다.
 
 ### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>Security Center는 운영 체제 취약점, 시스템 업데이트 및 Endpoint Protection 문제를 얼마나 자주 검사합니까?
-Security Center에서 취약점, 업데이트 및 문제를 검색하는 대기 시간은 다음과 같습니다.
+다음은 취약점, 업데이트 및 문제에 대 한 Security Center 검색에 대 한 대기 시간입니다.
 
 - 운영 체제 보안 구성 - 데이터가 48시간 이내 업데이트됩니다.
 - 시스템 업데이트 – 데이터가 24시간 이내 업데이트됩니다.

@@ -1,26 +1,25 @@
 ---
-title: Azure CLI를 사용하여 Azure Data Lake Analytics 시작
+title: '& 쿼리 Azure Data Lake Analytics 만들기-Azure CLI'
 description: Azure 명령줄 인터페이스를 사용하여 Azure Data Lake Analytics 계정을 만들고 U-SQL 작업을 제출하는 방법을 알아봅니다.
 ms.service: data-lake-analytics
-services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 2af6d499bafb0e00b31d0379baac6a390bd6ca3f
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 94399490453c6a2774f71ef527fd24d543e2a7e2
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626244"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316567"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Azure CLI를 사용하여 Azure Data Lake Analytics 시작
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 이 문서에서는 Azure CLI 명령줄 인터페이스를 사용하여 Azure Data Lake Analytics 계정을 만들고, USQL 작업 및 카탈로그를 제출하는 방법을 설명합니다. 작업은 TSV(탭 분리 값) 파일을 읽고 CSV(쉼표로 구분된 값) 파일로 변환합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 작업을 시작하려면 다음 항목이 필요합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -131,7 +130,7 @@ OUTPUT @a
 
 원본 파일을 다른 위치에 복사하지 않는 한 두 경로를 수정하지 마세요.  출력 폴더가 없는 경우 Data Lake Analytics에서 해당 폴더를 만듭니다.
 
-기본 Data Lake Store 계정에 저장된 파일의 상대 경로를 사용하는 것이 더 쉽습니다. 절대 경로를 사용할 수도 있습니다.  예를 들어:
+기본 Data Lake Store 계정에 저장된 파일의 상대 경로를 사용하는 것이 더 쉽습니다. 절대 경로를 사용할 수도 있습니다.  예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```
 adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
@@ -156,7 +155,7 @@ wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Da
 az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"
 ```
 
-예를 들어:
+예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```
 az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
@@ -187,7 +186,7 @@ az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/Sea
 az dls fs download --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "<Destination Path and File Name>"
 ```
 
-예를 들어:
+예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```
 az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "C:\DLA\myfile.csv"

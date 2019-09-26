@@ -13,30 +13,32 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: fdccf486cacabda4f363f4629a4d6daa4a00c8e4
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 29add1cff184e234cd5dcc5050b94cdd50593731
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597161"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315906"
 ---
-# <a name="introducing-azure-security-center-for-iot"></a>IoT에 대 한 Azure Security Center 소개
+# <a name="introducing-azure-security-center-for-iot"></a>IoT용 Azure Security Center 소개
 
 보안 관리를 통합 하 고 하이브리드 클라우드 워크 로드 및 Azure IoT 솔루션에서 종단 간 위협 검색 및 분석을 가능 하 게 합니다. 
 
-## <a name="protect-iot-and-hybrid-cloud-workloads-against-evolving-cyber-attacks"></a>진화 하는 사이버 공격 으로부터 IoT 및 하이브리드 클라우드 워크 로드 보호
+## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>IoT 장치에서 Azure 클라우드로 전체 IoT 솔루션의 보안을 유지 합니다.
 
-사물 인터넷은 세계를 빠르게 변화 하 고 있습니다. 이제 연결 된 장치와 백 엔드 시스템에서 정보를 파악 하는 기능을 통해 이러한 정보를 강력한 응용 프로그램 및 서비스로 변환 하 여 조직이 뛰어난 운영 및 비즈니스 성과 수준을 달성할 수 있도록 지원할 수 있습니다. 그러나 수십 개의 새 장치를 인터넷에 연결 하 고 일상 생활 및 비즈니스에 통합할 수 있습니다. 보안 운영 팀은 이러한 새로운 공격 화면을 처리할 수 있을 만큼 신속 하 게 해당 보안 전략을 개선 해야 합니다. 다른 시스템과 마찬가지로, 모든 구현 단계에서 IoT 솔루션을 보호 해야 합니다. 
+원활한 에이전트 없는 솔루션 중에서 선택 하거나 에이전트 기반 포괄적인 보안을 활용 하 여 iot Azure Security Center iot 자산 전체에서 모든 장치, IoT Edge 및 IoT Hub에 대 한 위협 방지 및 분석 기능을 제공 합니다.
+
+수십 개의 새 장치를 인터넷에 연결 하 고 일상 생활 및 비즈니스에 통합할 수 있습니다. 보안 운영 팀은 이러한 새로운 공격 화면을 처리할 수 있을 만큼 신속 하 게 해당 보안 전략을 개선 해야 합니다. 다른 시스템과 마찬가지로, 모든 구현 단계에서 IoT 솔루션을 보호 해야 합니다. 
 
 IoT에 대 한 Azure Security Center는에 지, 온-프레미스, Azure 등에서 실행 되는 워크 로드 간에 통합 된 가시성과 제어, 적응 위협 방지, 지능형 위협 검색 및 응답을 제공 하 여 하이브리드 워크 로드 보호를 간소화 합니다. 클라우드. 
 
-![IoT 아키텍처에 대 한 Azure Security Center](./media/architecture/azure-iot-security-architecture.png)
+![IoT용 Azure Security Center 아키텍처](./media/architecture/azure-iot-security-architecture.png)
 
 ### <a name="unified-visibility-and-control"></a>통합 된 표시 유형 및 제어
 
-Azure IoT 솔루션을 포함하여 모든 온-프레미스 및 클라우드 워크로드 전체에서 통합된 보안 보기 기능을 사용할 수 있습니다. 새 장치를 등록 하 고 워크 로드 (리프 장치, Microsoft Edge 장치, IoT Hub)에 보안 정책을 적용 하 여 보안 표준 및 향상 된 보안 상태를 준수 하는지 확인 합니다.
+Azure IoT 솔루션을 포함하여 모든 온-프레미스 및 클라우드 워크로드 전체에서 통합된 보안 보기 기능을 사용할 수 있습니다. 새 장치를 등록 하 고 워크 로드 (리프 장치, Microsoft Edge 장치, IoT Hub)에 보안 정책을 적용 하 여 보안 표준 및 향상 된 보안 상태를 준수 하는지 확인 합니다. 
 
 ### <a name="adaptive-threat-prevention"></a>적응 위협 방지
 

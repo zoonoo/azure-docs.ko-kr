@@ -1,7 +1,6 @@
 ---
-title: Azure PowerShell을 사용하여 Azure Data Lake Analytics 시작
+title: '& 쿼리 Azure Data Lake Analytics 만들기-PowerShell'
 description: Azure PowerShell을 사용하여 Azure Data Lake Analytics 계정을 만들고 U-SQL 작업을 제출합니다.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.topic: conceptual
 ms.date: 05/04/2017
-ms.openlocfilehash: ad0a8ea4d06b5085179d4fd3c162114c00518ce1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8b176434ce450382cc6463e7d21d341a74581ed8
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66156464"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316605"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Data Lake Analytics 시작
 
@@ -22,7 +21,7 @@ ms.locfileid: "66156464"
 
 Azure PowerShell을 사용하여 Azure Data Lake Analytics 계정을 만든 다음 U-SQL 작업을 제출하고 실행하는 방법에 대해 알아봅니다. 데이터 레이크 분석에 대한 자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -127,7 +126,7 @@ Wait-AdlJob -Account $adla -JobId $job.JobId
 Export-AdlStoreItem -Account $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * 다른 도구를 사용하여 같은 자습서를 보려면 페이지 맨 위의 탭 선택기를 클릭합니다.
 * U-SQL을 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7f209ef8bb8c492245b59374c33187dbbe763aa5
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 7f042cfe10bd8ca57d9a2dae511a13a82f053a67
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240486"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316806"
 ---
 # <a name="on-board-azure-sentinel"></a>온-보드 Azure 센티널
 
@@ -37,7 +37,7 @@ ms.locfileid: "71240486"
 
 - 활성 Azure 구독이 없는 경우 시작 하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-- Log Analytics 작업 영역입니다. [Log Analytics 작업 영역을 만드는](../log-analytics/log-analytics-quick-create-workspace.md) 방법 알아보기
+- Log Analytics 작업 영역입니다. [Log Analytics 작업 영역을 만드는 방법](../log-analytics/log-analytics-quick-create-workspace.md)을 알아봅니다. Log Analytics 작업 영역에 대 한 자세한 내용은 [Azure Monitor 로그 배포 디자인](../azure-monitor/platform/design-logs-deployment.md)을 참조 하세요.
 
 -  Azure 센티널을 사용 하도록 설정 하려면 Azure 센티널 작업 영역이 상주 하는 구독에 대 한 참가자 권한이 필요 합니다. 
 - Azure 센티널을 사용 하려면 작업 영역이 속한 리소스 그룹에 대 한 참가자 또는 읽기 권한이 있어야 합니다.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 46045664e9ddeebc45c2dae7c1f0a9f6a0d6b004
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: ad61743751ace9ca0c7eba12ffcea5f15e1157d5
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265160"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316174"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS 분석 미리 보기 솔루션으로 DNS 인프라에 대한 정보 수집
 
@@ -180,9 +180,9 @@ DNS 타일에는 데이터가 수집되는 DNS 서버 수가 포함됩니다. �
 
     ![DnsInventory 로그 검색](./media/dns-analytics/log-search-dnsinventory.png)
     
-### <a name="troubleshooting"></a>문제 해결
+## <a name="troubleshooting"></a>문제 해결
 
-Commopn 문제 해결 단계:
+일반적인 문제 해결 단계:
 
 1. 누락 된 DNS 조회 데이터-이 문제를 해결 하려면 구성를 다시 설정 하거나 포털에서 구성 페이지를 한 번만 로드 하십시오. 다시 설정 하려면 설정을 다른 값으로 변경한 다음 다시 원래 값으로 변경 하 고 구성을 저장 합니다.
 

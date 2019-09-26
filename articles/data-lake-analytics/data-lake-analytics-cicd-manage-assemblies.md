@@ -1,21 +1,17 @@
 ---
-title: Azure Data Lake의 CI/CD 파이프라인에서 U-SQL 어셈블리를 관리하는 모범 사례
+title: CI/CD 파이프라인의 U-SQL 어셈블리 관리-Azure Data Lake
 description: Azure DevOps를 사용하여 CI/CD 파이프라인에서 U-SQL C# 어셈블리를 관리하는 모범 사례를 알아봅니다.
-services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
-ms.reviewer: ''
-ms.assetid: ''
 ms.service: data-lake-analytics
 ms.topic: conceptual
-ms.workload: big-data
 ms.date: 10/30/2018
-ms.openlocfilehash: 27a873fac8bf2b53ee06780b8a348eaaa5c94e97
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e6de10ed712688e4ee9dccc22176e81ad5e574ca
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60334269"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315841"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>CI/CD 파이프라인에서 U-SQL 어셈블리를 관리하는 모범 사례
 
@@ -58,7 +54,7 @@ U-SQL 데이터베이스 프로젝트는 클래스 라이브러리(U-SQL 애플�
 
 7. **관리되는 종속성** 및 **추가 파일**(있는 경우)을 추가합니다. 추가 파일을 추가하는 경우 이 도구는 나중에 상대 경로를 사용하여 로컬 컴퓨터 및 빌드 컴퓨터에서 어셈블리를 찾을 수 있습니다.
 
-**\@_DeployTempDirectory** 편집기 창 아래쪽의 빌드 출력 폴더에는 도구를 가리키는 미리 정의 된 변수입니다. 모든 어셈블리는 빌드 출력 폴더 아래에 어셈블리 이름의 하위 폴더가 있습니다. 모든 DLL 및 추가 파일이 해당 하위 폴더에 있습니다.
+아래쪽의 편집기 창에 있는 _wwwwwwnostnostnostwnostwnostwnostnostnostnostnost  **\@** 모든 어셈블리는 빌드 출력 폴더 아래에 어셈블리 이름의 하위 폴더가 있습니다. 모든 DLL 및 추가 파일이 해당 하위 폴더에 있습니다.
 
 ## <a name="build-a-u-sql-database-project"></a>U-SQL 데이터베이스 프로젝트 빌드
 
