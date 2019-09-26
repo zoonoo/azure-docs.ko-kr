@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d97326430eebcaea64770e99c26ab593b51d5847
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 55da4e3dc9c7f1c1f86a649a654ce41ef59ad839
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476757"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310112"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 테이블 디자인
 
@@ -109,10 +109,13 @@ columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/re
 ## <a name="statistics"></a>통계
 쿼리 최적화 프로그램은 쿼리 실행 계획을 만들 때 열 수준 통계를 사용합니다. 쿼리 성능 향상을 위해, 특히 쿼리 조인에 사용된 개별 열에 대한 통계가 있는 것이 중요합니다. [통계 작성](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic)은 자동으로 수행됩니다.  그러나 통계를 업데이트하는 것은 자동으로 이루어지지 않습니다. 많은 행을 추가하거나 변경한 후에는 통계를 업데이트합니다. 예를 들어 로드 후 통계를 업데이트합니다. 자세한 내용은 [통계 가이드](sql-data-warehouse-tables-statistics.md)를 참조하세요.
 
+## <a name="primary-key-and-unique-key"></a>기본 키 및 고유 키
+기본 키는 비클러스터형이 모두 사용 되는 경우에만 지원 됩니다.  UNIQUE 제약 조건은 적용 되지 않음이 사용 되는 경우에만 지원 됩니다.  [SQL Data Warehouse 테이블 제약 조건을](sql-data-warehouse-table-constraints.md)확인 합니다.
+
 ## <a name="commands-for-creating-tables"></a>테이블을 만드는 명령
 테이블을 새로운 빈 테이블로 만들 수 있습니다. 테이블을 만들고 select 문의 결과로 채울 수도 있습니다. 다음은 테이블을 만드는 T-SQL 명령입니다.
 
-| T-SQL 문 | Description |
+| T-SQL 문 | 설명 |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | 모든 테이블 열과 옵션을 정의하여 빈 테이블을 만듭니다. |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | 외부 테이블을 만듭니다. 테이블 정의는 SQL Data Warehouse에 저장됩니다. 테이블 데이터는 Azure Blob Storage 또는 Azure Data Lake Store에 저장됩니다. |
@@ -128,8 +131,7 @@ columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/re
 ## <a name="unsupported-table-features"></a>지원되지 않는 테이블 기능
 SQL Data Warehouse는 다른 데이터베이스에서 제공하는 테이블 기능을 모두는 아니지만 대부분 지원합니다.  다음 목록은 SQL Data Warehouse에서 지원되지 않는 일부 테이블 기능을 보여 줍니다.
 
-- PRIMARY KEY, FOREIGN KEY, UNIQUE, CHECK [테이블 제약 조건](/sql/t-sql/statements/alter-table-table-constraint-transact-sql)
-
+- 외래 키, Check [테이블 제약 조건](/sql/t-sql/statements/alter-table-table-constraint-transact-sql)
 - [계산된 열](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql)
 - [인덱싱된 뷰](/sql/relational-databases/views/create-indexed-views)
 - [시퀀스](/sql/t-sql/statements/create-sequence-transact-sql)

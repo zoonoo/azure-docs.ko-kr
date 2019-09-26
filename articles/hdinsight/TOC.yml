@@ -219,7 +219,7 @@
               href: ./hdinsight-release-notes.md
             - name: HDInsight 3.6 전체 릴리스 정보
               href: ./hdinsight-release-notes-archive.md
-        - name: FAQ
+        - name: 질문과 대답(FAQ)
           href: ./hdinsight-faq.md
         - name: 클러스터 구성에 대한 세밀한 역할 기반 액세스로 마이그레이션
           href: ./hdinsight-migrate-granular-access-cluster-configurations.md

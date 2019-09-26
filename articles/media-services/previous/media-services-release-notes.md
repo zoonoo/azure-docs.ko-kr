@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: 6fea7b7d3d3ef3b1a46aeeff0bab8fef2a9bf3ad
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 8db677ff94b477992d06a22c367f51c0c6063d69
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860359"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309222"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 
@@ -32,7 +32,7 @@ Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문�
 ## <a name="a-idissuesknown-issues"></a><a id="issues"/>알려진 문제
 ### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>Media Services 관련 일반 문제
 
-| 문제점 | Description |
+| 문제점 | 설명 |
 | --- | --- |
 | REST API에 다양한 일반 HTTP 헤더가 제공되지 않습니다. |REST API를 사용하여 Media Services 애플리케이션을 개발하는 경우 CLIENT-REQUEST-ID, REQUEST-ID, RETURN-CLIENT-REQUEST-ID를 비롯한 몇 가지 일반 HTTP 헤더 필드가 지원되지 않습니다. 이 헤더는 이후 업데이트에서 추가될 예정입니다. |
 | 퍼센트 인코딩은 허용되지 않습니다. |Media Services는 스트리밍 콘텐츠의 URL을 작성할 때 속성의 값을 사용합니다(예: `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. 이름 속성 값에는 !* '();:@&=+$,/?%#[]"와 같은 [퍼센트 인코딩 예약 문자](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 "." 하나만 사용할 수 있습니다. |
@@ -45,6 +45,14 @@ Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문�
 
 ## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>REST API 버전 기록
 Media Services REST API 버전 기록에 대한 자세한 내용은 [Azure Media Services REST API 참조]를 참조하세요.
+
+## <a name="september-2019"></a>9 월 2019
+
+### <a name="deprecation-of-media-processors"></a>미디어 프로세서의 사용 중단
+
+*Azure Media Indexer* 및 *Azure Media Indexer 2*의 사용 중단을 발표 하 고 있습니다. [Azure Media Indexer](media-services-index-content.md) 미디어 프로세서는 2020 년 10 월 1 일에 사용 중지 됩니다. [Azure Media Indexer 2 (미리 보기)](media-services-process-content-with-indexer2.md) 미디어 프로세서는 2020 년 1 월 1 일에 사용 중지 됩니다. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) 이러한 레거시 미디어 프로세서를 대체 합니다.
+
+자세한 내용은 [Azure Media Indexer에서 마이그레이션 및 Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조 하세요.
 
 ## <a name="august-2019"></a>2019년 8월
 

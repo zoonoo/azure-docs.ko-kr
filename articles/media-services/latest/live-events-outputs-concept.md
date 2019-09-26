@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 09/25/2019
 ms.author: juliako
-ms.openlocfilehash: c81c2de180a2c5734f3896d4b6843f2ccccdf45f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 7cb158490bd8a8520e101dbe321b8594cad059f9
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231204"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309677"
 ---
 # <a name="live-events-and-live-outputs"></a>라이브 이벤트 및 라이브 출력
 
@@ -71,11 +71,13 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
 라이브 이벤트를 만들 때 다음 옵션을 지정할 수 있습니다.
 
 * 라이브 이벤트의 스트리밍 프로토콜(현재 RTMP 및 부드러운 스트리밍 프로토콜이 지원됨).<br/>라이브 이벤트 또는 연결된 라이브 출력이 실행 중인 동안에는 프로토콜 옵션을 변경할 수 없습니다. 다른 프로토콜을 요청하는 경우 각각의 스트리밍 프로토콜에 대한 별도의 라이브 이벤트를 만들어야 합니다.  
-* 수집 및 미리 보기에서 IP 제한입니다. 이 라이브 이벤트에 비디오를 수집하도록 허용된 IP 주소를 정의할 수 있습니다. 허용된 IP 주소는 단일 IP 주소(예: '10.0.0.1'), IP 주소 및 CIDR 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1/22') 또는 IP 주소와 점으로 구분된 십진수 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1(255.255.252.0)')로 지정할 수 있습니다.<br/>지정된 IP 주소가 없고 정의된 규칙이 없는 경우, IP 주소가 허용되지 않습니다. 모든 IP 주소를 허용하려면 규칙을 만들고 0.0.0.0/0으로 설정합니다.<br/>IP 주소가 다음 형식 중 하나에 있어야 합니다. 4개의 숫자를 사용하는 IpV4 주소, CIDR 주소 범위.
 * 이벤트를 만들 때 자동 시작을 지정할 수 있습니다. <br/>Autostart가 true로 설정되어 있는 경우 Live Event가 생성 후 시작됩니다. 라이브 이벤트가 실행되는 즉시 청구가 시작됩니다. 추가 청구를 중지하려면 라이브 이벤트 리소스에 대해 명시적으로 Stop을 호출해야 합니다. 또는 스트리밍을 시작할 준비가 되었을 때 이벤트를 시작해도 됩니다. 
 
     자세한 내용은 [라이브 이벤트 상태 및 청구](live-event-states-billing.md)를 참조하세요.
+* 수집 및 미리 보기에서 IP 제한입니다. 이 라이브 이벤트에 비디오를 수집하도록 허용된 IP 주소를 정의할 수 있습니다. 허용된 IP 주소는 단일 IP 주소(예: '10.0.0.1'), IP 주소 및 CIDR 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1/22') 또는 IP 주소와 점으로 구분된 십진수 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1(255.255.252.0)')로 지정할 수 있습니다.<br/>지정된 IP 주소가 없고 정의된 규칙이 없는 경우, IP 주소가 허용되지 않습니다. 모든 IP 주소를 허용하려면 규칙을 만들고 0.0.0.0/0으로 설정합니다.<br/>IP 주소가 다음 형식 중 하나에 있어야 합니다. 4개의 숫자를 사용하는 IpV4 주소, CIDR 주소 범위 형식 중 하나로 허용되는 IP 주소를 지정할 수 있습니다.
 
+    자신의 방화벽에서 특정 Ip를 사용 하도록 설정 하거나 라이브 이벤트의 입력을 Azure IP 주소로 제한 하려는 경우 [Azure 데이터 센터 IP 주소 범위](https://www.microsoft.com/download/details.aspx?id=41653)에서 JSON 파일을 다운로드 합니다. 이 파일에 대 한 자세한 내용을 보려면 페이지에서 **세부 정보** 섹션을 클릭 하세요.
+    
 ## <a name="live-event-ingest-urls"></a>라이브 이벤트 수집 URL
 
 라이브 이벤트가 생성되면 라이브 온-프레미스 인코더에 제공할 수집 URL을 구할 수 있습니다. 라이브 인코더는 이러한 URL을 사용하여 라이브 스트림을 입력합니다. 자세한 내용은 [권장 온-프레미스 라이브 인코더](recommended-on-premises-live-encoders.md)를 참조하세요. 
@@ -109,7 +111,7 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
 ### <a name="live-ingest-url-naming-rules"></a>라이브 수집 URL 명명 규칙
 
 * 아래 *임의* 문자열은 128비트 16진수 숫자입니다(0-9 a-f의 32문자로 구성됨).
-* *액세스 토큰* -베 니 티 모드를 사용할 때 설정 하는 유효한 GUID 문자열입니다. `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` )을 입력합니다.
+* *액세스 토큰* -베 니 티 모드를 사용할 때 설정 하는 유효한 GUID 문자열입니다. 예를 들어, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`을 입력합니다.
 * *스트림 이름* -특정 연결의 스트림 이름을 나타냅니다. 스트림 이름 값은 일반적으로 사용 하는 라이브 인코더에 의해 추가 됩니다. 연결을 설명 하는 이름을 사용 하도록 라이브 인코더를 구성할 수 있습니다 (예: "video1_audio1", "video2_audio1", "stream").
 
 #### <a name="non-vanity-url"></a>비베니티 URL

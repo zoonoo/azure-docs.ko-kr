@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 4865a2b3b02a1e7a6db19418122b66aeb79dd332
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d6cc87947ab861e8de4dbdf754164e195f0f458c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099465"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309312"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -40,22 +40,23 @@ ISE는 실행 지속 시간, 저장소 보존, 처리량, HTTP 요청 및 응답
 > [!IMPORTANT]
 > ISE에서 실행 되는 논리 앱, 기본 제공 트리거, 기본 제공 작업 및 커넥터는 소비 기반 요금제와 다른 가격 책정 계획을 사용 합니다. ISEs에 대 한 가격 책정 및 청구의 작동 방식에 대 한 자세한 [Logic Apps 내용은 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 참조 하세요. 가격 책정 요금은 [Logic Apps 가격 책정](../logic-apps/logic-apps-pricing.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)입니다. 가상 네트워크가 없는 경우 [Azure 가상 네트워크를 만드는](../virtual-network/quick-create-portal.md) 방법을 알아봅니다.
+* [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)입니다. 가상 네트워크가 없는 경우 [Azure 가상 네트워크를 만드는](../virtual-network/quick-create-portal.md) 방법을 알아봅니다. 
 
   * 가상 네트워크에는 ISE에서 리소스를 만들고 배포 하기 위한 4 개의 *빈* 서브넷이 있어야 합니다. 이러한 서브넷을 미리 만들 수도 있고, 한 번에 서브넷을 만들 수 있는 ISE를 만들 때까지 기다릴 수도 있습니다. [서브넷 요구 사항](#create-subnet)에 대해 자세히 알아보세요.
-  
-    > [!NOTE]
-    > Microsoft 클라우드 서비스에 대 한 개인 연결을 제공 하는 [express](../expressroute/expressroute-introduction.md)경로를 사용 하는 경우 다음 경로를 포함 하는 [경로 테이블을 만들고](../virtual-network/manage-route-table.md) 해당 테이블을 ISE에서 사용 하는 각 서브넷과 연결 해야 합니다.
-    > 
-    > **이름**: <*경로 이름*><br>
-    > **주소 접두사**: 0.0.0.0/0<br>
-    > **다음 홉**: 인터넷
+
+  * 서브넷 이름은 알파벳 문자 또는 밑줄로 `<`시작 해야 하 고 `%`,,,,, `?`, `/`등의 `>` `&` `\\`문자를 사용할 수 없습니다. 
 
   * 가상 네트워크가 [이러한 포트를 사용할 수](#ports) 있도록 하 여 ISE가 제대로 작동 하 고 액세스할 수 있도록 해야 합니다.
+
+  * Microsoft 클라우드 서비스에 대 한 개인 연결을 제공 하는 [express](../expressroute/expressroute-introduction.md)경로를 사용 하는 경우 다음 경로를 포함 하는 [경로 테이블을 만들고](../virtual-network/manage-route-table.md) 해당 테이블을 ISE에서 사용 하는 각 서브넷에 연결 해야 합니다.
+
+    **이름**: <*경로 이름*><br>
+    **주소 접두사**: 0.0.0.0/0<br>
+    **다음 홉**: 인터넷
 
 * Azure 가상 네트워크에 사용자 지정 DNS 서버를 사용 하려면 가상 네트워크에 ISE를 배포 하기 전에 다음 단계를 수행 하 [여 해당 서버를 설정](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 합니다. 설정하지 않으면 DNS 서버를 변경할 때마다 ISE도 다시 시작해야 합니다. 이 기능은 ISE 공개 미리 보기에서 사용할 수 있습니다.
 
@@ -79,7 +80,7 @@ ISE는 실행 지속 시간, 저장소 보존, 처리량, HTTP 요청 및 응답
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
 | Azure Logic Apps에서 받는 통신 | 아웃바운드 | 80, 443 | VirtualNetwork | 인터넷 | 포트는 Logic Apps 서비스가 통신 하는 외부 서비스에 의존 합니다. |
 | Azure Active Directory | 아웃바운드 | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
-| Azure Storage 종속성 | 아웃바운드 | 80, 443 | VirtualNetwork | 저장 공간 | |
+| Azure Storage 종속성 | 아웃바운드 | 80, 443 | VirtualNetwork | 스토리지 | |
 | 상호 서브넷 통신 | 인바운드 및 아웃바운드 | 80, 443 | VirtualNetwork | VirtualNetwork | 서브넷 간 통신 |
 | Azure Logic Apps로 보내는 통신 | 인바운드 | 443 | 내부 액세스 끝점: <br>VirtualNetwork <p><p>외부 액세스 끝점: <br>인터넷 <p><p>**참고**: 이러한 끝점은 [ISE 생성 시 선택](#create-environment)된 끝점 설정을 참조 합니다. 자세한 내용은 [끝점 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조 하세요. | VirtualNetwork | 논리 앱에 있는 요청 트리거 또는 webhook를 호출 하는 컴퓨터 또는 서비스의 IP 주소입니다. 이 포트를 닫거나 차단 하면 요청 트리거를 사용 하 여 논리 앱에 대 한 HTTP 호출을 수행할 수 없습니다. |
 | 논리 앱 실행 기록 | 인바운드 | 443 | 내부 액세스 끝점: <br>VirtualNetwork <p><p>외부 액세스 끝점: <br>인터넷 <p><p>**참고**: 이러한 끝점은 [ISE 생성 시 선택](#create-environment)된 끝점 설정을 참조 합니다. 자세한 내용은 [끝점 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조 하세요. | VirtualNetwork | 논리 앱의 실행 기록을 확인 하는 컴퓨터의 IP 주소입니다. 이 포트를 닫거나 차단 해도 실행 기록이 표시 되지 않지만 해당 실행 기록의 각 단계에 대 한 입력 및 출력은 볼 수 없습니다. |
@@ -117,12 +118,12 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
 
    ![환경 세부 정보 제공](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | 속성 | 필수 | Value | 설명 |
+   | 속성 | 필요한 공간 | Value | 설명 |
    |----------|----------|-------|-------------|
    | **구독** | 예 | <*Azure-subscription-name*> | 환경에 사용할 Azure 구독 |
    | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 환경을 만들려는 Azure 리소스 그룹 |
    | **Integration service environment 이름** | 예 | <*environment-name*> | 문자, 숫자, 하이픈 (`-`), 밑줄 (`_`) 및 마침표 (`.`)만 포함할 수 있는 ISE 이름입니다. |
-   | **위치** | 예 | <*Azure-datacenter-region*> | 환경을 배포할 Azure 데이터 센터 지역 |
+   | **Location**: | 예 | <*Azure-datacenter-region*> | 환경을 배포할 Azure 데이터 센터 지역 |
    | **SKU** | 예 | **프리미엄** 또는 **개발자 (SLA 없음)** | 만들고 사용할 ISE SKU입니다. 이러한 Sku 간의 차이점은 [ISE sku](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)를 참조 하세요. <p><p>**중요**: 이 옵션은 ISE를 만들 때만 사용할 수 있으며 나중에 변경할 수 없습니다. |
    | **추가 용량** | 프리미엄: <br>예 <p><p>Developer: <br>해당 사항 없음 | 프리미엄: <br>0 ~ 10 <p><p>Developer: <br>해당 사항 없음 | 이 ISE 리소스에 사용할 추가 처리 단위의 수입니다. 만든 후 용량을 추가 하려면 [ISE 용량 추가](#add-capacity)를 참조 하세요. |
    | **액세스 끝점** | 예 | **내부** 또는 **외부** | Ise에 사용할 액세스 끝점의 유형입니다. ise에서 논리 앱에 대 한 요청 또는 webhook 트리거는 가상 네트워크 외부에서 호출을 받을 수 있는지 여부를 결정 합니다. 끝점 형식은 논리 앱 실행 기록의 입력 및 출력에 대 한 액세스에도 영향을 줍니다. 자세한 내용은 [끝점 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조 하세요. <p><p>**중요**: 이 옵션은 ISE를 만들 때만 사용할 수 있으며 나중에 변경할 수 없습니다. |
@@ -134,13 +135,17 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
 
    **서브넷 만들기**
 
-   사용자 환경에서 리소스를 만들고 배포 하기 위해 ISE에는 어떤 서비스에도 위임 되지 않은 *빈* 서브넷 4 개가 필요 합니다. 환경을 만든 후에는 이러한 서브넷 주소를 변경할 *수 없습니다* . 각 서브넷은 이러한 조건을 충족해야 합니다.
-
-   * 에는 알파벳 문자 또는 밑줄로 시작 `<`하 고 `%`, `\\` `>` `&`,,,, ,등의문자가없습니다.`?``/`
+   사용자 환경에서 리소스를 만들고 배포 하기 위해 ISE에는 어떤 서비스에도 위임 되지 않은 *빈* 서브넷 4 개가 필요 합니다. 환경을 만든 후에는 이러한 서브넷 주소를 변경할 *수 없습니다* .
+   
+   > [!IMPORTANT]
+   > 
+   > 서브넷 이름은 알파벳 문자 또는 밑줄 (숫자 없음) `<`로 시작 해야 하며 `%`, `?` `\\` `>` `&`,,,,, `/`등의 문자를 사용 하지 않습니다.
+   
+   또한 각 서브넷은 다음 요구 사항을 충족 해야 합니다.
 
    * 는 클래스 없는 [CIDR (도메인 간 라우팅) 형식](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 및 클래스 B 주소 공간을 사용 합니다.
 
-   * 각 서브넷에 최소한 `/27` 32 *이상의* 주소가 있어야 하므로 주소 공간에 적어도를 사용 합니다. 예를 들어:
+   * 각 서브넷에 최소한 `/27` 32 *이상의* 주소가 있어야 하므로 주소 공간에 적어도를 사용 *합니다.* 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
      * `10.0.0.0/27`2<sup>(32-27)</sup> 가 2<sup>5</sup> 또는 32 이기 때문에 32 주소가 있습니다.
 

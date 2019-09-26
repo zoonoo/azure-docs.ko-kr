@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 7f97348999f2cab6509afeb44bc704d5109ee0f7
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: f50702688b9a261ed98c2eb3a5892d1bdbe8d11b
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181117"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71308077"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
 
@@ -88,7 +88,7 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
 
 Hadoop 관련 파일은 `/usr/hdp`의 클러스터 노드에서 찾을 수 있습니다. 이 디렉터리에는 다음과 같은 하위 디렉터리가 포함됩니다.
 
-* **2.6.5.3006-29**: 디렉터리 이름은 HDInsight에서 사용되는 Hortonworks Data Platform의 버전입니다. 클러스터에 있는 숫자는 여기에 나열된 것과 다를 수 있습니다.
+* **2.6.5.3006-29**: 디렉터리 이름은 HDInsight에서 사용 하는 Hadoop 플랫폼의 버전입니다. 클러스터에 있는 숫자는 여기에 나열된 것과 다를 수 있습니다.
 * **current**: 이 디렉터리에는 **2.6.5.3006-29** 디렉터리 아래의 하위 디렉터리에 대 한 링크가 포함 되어 있습니다. 이 디렉터리가 있으므로 버전 번호를 기억할 필요가 없습니다.
 
 예제 데이터 및 JAR 파일은 `/example` 및 `/HdiSamples`의 HDFS(Hadoop 분산 파일 시스템)에서 찾을 수 있습니다.

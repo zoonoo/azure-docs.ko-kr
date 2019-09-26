@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e39f294f7902eabef401d4c8145f4f19a07f267f
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: ee8a711a867f8abdc831b0d1d9d0b504b1104955
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71224584"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310118"
 ---
 # <a name="creating-an-incremental-snapshot-preview-for-managed-disks"></a>관리 디스크에 대 한 증분 스냅숏 (미리 보기) 만들기
 
@@ -27,6 +27,7 @@ ms.locfileid: "71224584"
 
 ## <a name="restrictions"></a>Restrictions
 
+- 증분 스냅숏은 현재 미국 서 부 에서만 사용할 수 있습니다.
 - 디스크 크기를 변경한 후에는 현재 증분 스냅숏을 만들 수 없습니다.
 - 현재 증분 스냅숏은 구독 간에 이동할 수 없습니다.
 - 현재는 특정 시간에 특정 스냅숏 패밀리의 최대 5 개 스냅숏의 SAS Uri만 생성할 수 있습니다.
@@ -36,7 +37,7 @@ ms.locfileid: "71224584"
 
 ## <a name="powershell"></a>PowerShell
 
-Azure PowerShell를 사용 하 여 증분 스냅숏을 만들 수 있습니다. 최신 버전의 PowerShell을 로컬로 설치할 수 있습니다. 최신 버전의 Azure PowerShell 필요 하며, 다음 명령을 설치 하거나 기존 설치를 최신 버전으로 업데이트 합니다.
+Azure PowerShell를 사용 하 여 증분 스냅숏을 만들 수 있습니다. 최신 버전의 Azure PowerShell 필요 하며, 다음 명령을 설치 하거나 기존 설치를 최신 버전으로 업데이트 합니다.
 
 ```PowerShell
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
@@ -44,22 +45,24 @@ Install-Module -Name Az -AllowClobber -Scope CurrentUser
 
 이 설치 되 면를 사용 `az login`하 여 PowerShell 세션에 로그인 합니다.
 
+Azure PowerShell를 사용 하 여 증분 스냅숏을 만들려면 구성을 [AzSnapShotConfig](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) `-Incremental` 로 설정 하 고 매개 변수를 사용 하 여 [AzSnapshot](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) `-Snapshot` 를 변수로이를 변수로 전달 합니다.
+
 , `<yourDiskNameHere>` 및을`<yourDesiredSnapShotNameHere>` 사용자의 값으로 바꾸고 다음 스크립트를 사용 하 여 증분 스냅숏을 만들 수 있습니다. `<yourResourceGroupNameHere>`
 
 ```PowerShell
 # Get the disk that you need to backup by creating an incremental snapshot
 $yourDisk = Get-AzDisk -DiskName <yourDiskNameHere> -ResourceGroupName <yourResourceGroupNameHere>
 
-# Create an incremental snapshot by setting:
-# 1. Incremental property
-# 2. SourceUri property with the value of the Id property of the disk
+# Create an incremental snapshot by setting the SourceUri property with the value of the Id property of the disk
 $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk.Location -CreateOption Copy -Incremental 
 New-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere> -SnapshotName <yourDesiredSnapshotNameHere> -Snapshot $snapshotConfig 
+```
 
-# You can identify incremental snapshots of the same disk by using the SourceResourceId and SourceUniqueId properties of snapshots. 
-# SourceResourceId is the Azure Resource Manager resource ID of the parent disk. 
-# SourceUniqueId is the value inherited from the UniqueId property of the disk. If you delete a disk and then create a disk with the same name, the value of the UniqueId property will change. 
-# Following script shows how to get all the incremental snapshots in a resource group of same disk
+`SourceResourceId` 및`SourceUniqueId` 스냅숏의 속성을 사용 하 여 동일한 디스크에서 증분 스냅숏을 식별할 수 있습니다. `SourceResourceId`부모 디스크의 Azure Resource Manager 리소스 ID입니다. `SourceUniqueId`는 디스크의 `UniqueId` 속성에서 상속 된 값입니다. 디스크를 삭제 한 다음 같은 이름으로 새 디스크를 만들면 `UniqueId` 속성의 값이 변경 됩니다.
+
+`SourceResourceId` 및`SourceUniqueId` 를 사용 하 여 특정 디스크와 연결 된 모든 스냅숏의 목록을 만들 수 있습니다. 을 `<yourResourceGroupNameHere>` 값으로 바꾸고 다음 예를 사용 하 여 기존 증분 스냅숏을 나열할 수 있습니다.
+
+```PowerShell
 $snapshots = Get-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere>
 
 $incrementalSnapshots = New-Object System.Collections.ArrayList
@@ -73,6 +76,46 @@ foreach ($snapshot in $snapshots)
 }
 
 $incrementalSnapshots
+```
+
+## <a name="cli"></a>CLI
+
+Azure CLI를 사용 하 여 증분 스냅숏을 만들 수 있습니다 Azure CLI 최신 버전의가 필요 합니다. 다음 명령을 설치 하거나 기존 설치를 최신 버전으로 업데이트 합니다.
+
+```PowerShell
+Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
+```
+
+증분 스냅숏을 만들려면 [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) 를 `--incremental` 매개 변수와 함께 사용 합니다.
+
+다음 `<yourDesiredSnapShotNameHere>`예에서는 `<yourResourceGroupNameHere>`,`<exampleDiskName>`, 및`<exampleLocation>` 를 고유한 값으로 바꾼 다음 예제를 실행 하는 증분 스냅숏을 만듭니다.
+
+```bash
+sourceResourceId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[id]' -o tsv)
+
+az snapshot create -g <yourResourceGroupNameHere> \
+-n <yourDesiredSnapShotNameHere> \
+-l <exampleLocation> \
+--source "$sourceResourceId" \
+--incremental
+```
+
+`SourceResourceId` 및`SourceUniqueId` 스냅숏의 속성을 사용 하 여 동일한 디스크에서 증분 스냅숏을 식별할 수 있습니다. `SourceResourceId`부모 디스크의 Azure Resource Manager 리소스 ID입니다. `SourceUniqueId`는 디스크의 `UniqueId` 속성에서 상속 된 값입니다. 디스크를 삭제 한 다음 같은 이름으로 새 디스크를 만들면 `UniqueId` 속성의 값이 변경 됩니다.
+
+`SourceResourceId` 및`SourceUniqueId` 를 사용 하 여 특정 디스크와 연결 된 모든 스냅숏의 목록을 만들 수 있습니다. 다음 예제에는 특정 디스크와 연결 된 모든 증분 스냅숏이 나열 되지만 일부 설정이 필요 합니다.
+
+이 예제에서는 데이터를 쿼리 하는 데 jq를 사용 합니다. 예제를 실행 하려면 [jq를 설치](https://stedolan.github.io/jq/download/)해야 합니다.
+
+`<yourResourceGroupNameHere>` 및`<exampleDiskName>` 을 사용자의 값으로 바꾸고 jq도 설치한 경우 다음 예제를 사용 하 여 기존 증분 스냅숏을 나열할 수 있습니다.
+
+```bash
+sourceUniqueId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[uniqueId]' -o tsv)
+
+ 
+sourceResourceId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[id]' -o tsv)
+
+az snapshot list -g <yourResourceGroupNameHere> -o json \
+| jq -cr --arg SUID "$sourceUniqueId" --arg SRID "$sourceResourceId" '.[] | select(.incremental==true and .creationData.sourceUniqueId==$SUID and .creationData.sourceResourceId==$SRID)'
 ```
 
 ## <a name="resource-manager-template"></a>Resource Manager 템플릿
@@ -109,32 +152,6 @@ Azure Resource Manager 템플릿을 사용 하 여 증분 스냅숏을 만들 �
   }
   ]
 }
-```
-
-## <a name="cli"></a>CLI
-
-[Az snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create)를 사용 하 여 Azure CLI를 사용 하 여 증분 스냅숏을 만들 수 있습니다. 예제 명령은 다음과 같습니다.
-
-```bash
-az snapshot create -g <exampleResourceGroup> \
--n <exampleSnapshotName> \
--l <exampleLocation> \
---source <exampleVMId> \
---incremental
-```
-
-`--query` [Az snapshot show](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-show)에서 매개 변수를 사용 하 여 CLI의 증분 스냅숏에 대 한 스냅숏을 확인할 수도 있습니다. 이 매개 변수를 사용 하 여 스냅숏의 **sourceresourceid 여야** 및 **sourceuniqueid** 속성을 직접 쿼리할 수 있습니다. Sourceresourceid 여야는 부모 디스크의 Azure Resource Manager 리소스 ID입니다. **Sourceuniqueid** 는 디스크의 **uniqueid** 속성에서 상속 된 값입니다. 디스크를 삭제 한 다음 동일한 이름의 디스크를 만들면 **UniqueId** 속성의 값이 변경 됩니다.
-
-두 쿼리의 예는 다음과 같습니다.
-
-```bash
-az snapshot show -g <exampleResourceGroup> \
--n <yourSnapShotName> \
---query [creationData.sourceResourceId] -o tsv
-
-az snapshot show -g <exampleResourceGroup> \
--n <yourSnapShotName> \
---query [creationData.sourceUniqueId] -o tsv
 ```
 
 ## <a name="next-steps"></a>다음 단계

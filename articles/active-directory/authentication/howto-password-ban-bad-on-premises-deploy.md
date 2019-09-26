@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ad8f24c9d23e9412a4f6e4e5f97692bba2c0c39
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: cfa8e8c570b47eb6437ed6ca6a53f6c8188e18a2
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268679"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71314985"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD 암호 보호 배포
 
@@ -50,7 +50,7 @@ ms.locfileid: "71268679"
    > 프록시 서비스 배포는 도메인 컨트롤러에서 아웃 바운드 직접 인터넷 연결을 사용할 수 있는 경우에도 Azure AD 암호 보호를 배포 하기 위한 필수 요구 사항입니다. 
    >
 * Azure AD 암호 보호 프록시 서비스가 설치 될 모든 컴퓨터에는 .NET 4.7이 설치 되어 있어야 합니다.
-  .NET 4.7은 완전히 업데이트 된 Windows Server에 이미 설치 되어 있어야 합니다. 그렇지 않은 경우 [Windows 용 .NET Framework 4.7 오프 라인 설치 관리자](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows)에서 찾은 설치 관리자를 다운로드 하 여 실행 합니다.
+  .NET 4.7은 완전히 업데이트 된 Windows Server에 이미 설치 되어 있어야 합니다. 필요한 경우 [Windows 용 .NET Framework 4.7 오프 라인 설치 관리자](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows)에서 찾은 설치 관리자를 다운로드 하 여 실행 합니다.
 * Azure AD 암호 보호 구성 요소가 설치 된 도메인 컨트롤러를 비롯 한 모든 컴퓨터에는 유니버설 C 런타임이 설치 되어 있어야 합니다. Windows 업데이트의 모든 업데이트가 있는지 확인 하 여 런타임을 가져올 수 있습니다. 또는 OS 특정 업데이트 패키지에서 가져올 수 있습니다. 자세한 내용은 [Windows에서 유니버설 C 런타임 업데이트](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows)를 참조 하세요.
 * 각 도메인에 있는 하나 이상의 도메인 컨트롤러와 암호 보호를 위해 프록시 서비스를 호스팅하는 하나 이상의 서버 간에 네트워크 연결이 존재 해야 합니다. 이 연결을 통해 도메인 컨트롤러에서 RPC 끝점 매퍼 포트 135 및 프록시 서비스의 RPC 서버 포트에 액세스할 수 있어야 합니다. 기본적으로 RPC 서버 포트는 동적 RPC 포트 이지만 [정적 포트를 사용](#static)하도록 구성할 수 있습니다.
 * Azure AD 암호 보호 프록시 서비스가 설치 될 모든 컴퓨터에는 다음 끝점에 대 한 네트워크 액세스 권한이 있어야 합니다.
@@ -59,9 +59,19 @@ ms.locfileid: "71268679"
     | --- | --- |
     |`https://login.microsoftonline.com`|인증 요청|
     |`https://enterpriseregistration.windows.net`|Azure AD 암호 보호 기능|
+ 
+* Microsoft Azure AD 연결 에이전트 업데이트 프로그램 필수 구성 요소
 
-  또한 [응용 프로그램 프록시 환경 설정 절차](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment)에 지정 된 포트 및 url 집합에 대 한 네트워크 액세스를 사용 하도록 설정 해야 합니다. 이러한 구성 단계는 Microsoft Azure AD Connect Agent 업데이트 프로그램 서비스가 작동할 수 있도록 하는 데 필요 합니다 (이 서비스는 프록시 서비스와 함께 설치 됨). 동일한 컴퓨터에 Azure AD 암호 보호 프록시와 응용 프로그램 프록시를 함께 설치 하는 것은 Microsoft Azure AD 연결 에이전트 업데이트 프로그램 소프트웨어의 버전과의 비 호환성 때문에 권장 되지 않습니다.
-* 도메인 컨트롤러에 프록시 서비스에 로그온 할 수 있는 권한을 부여 하려면 암호 보호를 위해 프록시 서비스를 호스팅하는 모든 컴퓨터를 구성 해야 합니다. 이는 "네트워크에서이 컴퓨터 액세스" 권한 할당을 통해 제어 됩니다.
+  Microsoft Azure AD Connect Agent 업데이트 서비스는 Azure AD 암호 보호 프록시 서비스와 나란히 설치 됩니다. Microsoft Azure AD Connect Agent 업데이트 서비스에서 기능을 사용할 수 있도록 하려면 추가 구성이 필요 합니다.
+
+  사용자 환경에서 http 프록시 서버를 사용 하는 경우 [기존 온-프레미스 프록시 서버 작업](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers)에 지정 된 지침을 따라야 합니다.
+
+  [응용 프로그램 프록시 환경 설정 절차](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment)에 지정 된 포트 및 url 집합에 대해 네트워크 액세스를 사용 하도록 설정 해야 합니다.
+
+  > [!WARNING]
+  > Azure AD 암호 보호 프록시와 응용 프로그램 프록시는 다양 한 버전의 Microsoft Azure AD Connect Agent 업데이트 서비스를 설치 합니다. 즉, 지침이 응용 프로그램 프록시 콘텐츠를 참조 합니다. 이러한 다른 버전은 함께 설치 될 때 호환 되지 않으므로 동일한 컴퓨터에 Azure AD 암호 보호 프록시와 응용 프로그램 프록시를 함께 설치 하는 것은 권장 되지 않습니다.
+
+* 도메인 컨트롤러에 프록시 서비스에 로그온 할 수 있는 권한을 부여 하려면 암호 보호를 위해 프록시 서비스를 호스팅하는 모든 컴퓨터를 구성 해야 합니다. 이 기능은 "네트워크에서이 컴퓨터 액세스" 권한 할당을 통해 제어 됩니다.
 * 암호 보호를 위해 프록시 서비스를 호스트 하는 모든 컴퓨터는 아웃 바운드 TLS 1.2 HTTP 트래픽을 허용 하도록 구성 되어야 합니다.
 * Azure AD를 사용 하 여 암호 보호 및 포리스트에 대 한 프록시 서비스를 등록 하는 전역 관리자 계정.
 * Windows Server Active Directory 포리스트를 Azure AD에 등록할 수 있는 포리스트 루트 도메인의 도메인 관리자 권한이 있는 계정 Active Directory 합니다.
@@ -211,7 +221,7 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
 
    Active Directory 포리스트 등록은 포리스트의 수명 동안 한 번만 필요 합니다. 그런 다음 포리스트의 도메인 컨트롤러 에이전트가 다른 필요한 유지 관리 작업을 자동으로 수행 합니다. 에서 `Register-AzureADPasswordProtectionForest` 포리스트를 성공적으로 실행 한 후에는 cmdlet의 추가 호출이 성공 하지만 필요 하지 않습니다.
 
-   이 `Register-AzureADPasswordProtectionForest` 성공 하려면 프록시 서버의 도메인에서 Windows Server 2012 이상을 실행 하는 도메인 컨트롤러를 하나 이상 사용할 수 있어야 합니다. 그러나이 단계를 수행 하기 전에는 DC 에이전트 소프트웨어를 도메인 컨트롤러에 설치할 필요가 없습니다.
+   이 `Register-AzureADPasswordProtectionForest` 성공 하려면 프록시 서버의 도메인에서 Windows Server 2012 이상을 실행 하는 도메인 컨트롤러를 하나 이상 사용할 수 있어야 합니다. 이 단계를 수행 하기 전에는 DC 에이전트 소프트웨어를 도메인 컨트롤러에 설치할 필요가 없습니다.
 
 1. HTTP 프록시를 통해 통신 하도록 암호 보호를 위한 프록시 서비스를 구성 합니다.
 
@@ -286,7 +296,7 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
 
    패키지를 `AzureADPasswordProtectionDCAgentSetup.msi` 사용 하 여 암호 보호를 위한 DC 에이전트 서비스를 설치 합니다.
 
-   소프트웨어를 설치 하거나 설치를 취소 하려면 다시 시작 해야 합니다. 이는 암호 필터 Dll은 다시 시작에 의해서만 로드 되거나 언로드되는 것 이기 때문입니다.
+   소프트웨어 설치 또는 제거를 다시 시작 해야 합니다. 이 요구 사항은 암호 필터 Dll은 다시 시작 하는 경우에만 로드 되거나 언로드되는 것 이기 때문입니다.
 
    도메인 컨트롤러가 아닌 컴퓨터에는 DC 에이전트 서비스를 설치할 수 있습니다. 이 경우 서비스가 시작 되어 실행 되지만 컴퓨터가 도메인 컨트롤러로 승격 될 때까지 비활성 상태로 유지 됩니다.
 
@@ -304,7 +314,7 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
 
 최신 버전의 프록시 소프트웨어를 제거할 필요는 없습니다. 설치 관리자에서 전체 업그레이드를 수행 합니다. 프록시 소프트웨어를 업그레이드 하는 경우 다시 부팅할 필요가 없습니다. 소프트웨어 업그레이드는 표준 MSI 절차를 사용 하 여 자동화할 수 있습니다. `AzureADPasswordProtectionProxySetup.exe /quiet`예를 들면와 같습니다.
 
-프록시 에이전트는 자동 업그레이드를 지원 합니다. 자동 업그레이드는 프록시 서비스와 함께 설치 되는 Microsoft Azure AD 연결 에이전트 업데이트 서비스를 사용 합니다. 자동 업그레이드는 기본적으로 설정 되어 있으며 `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet을 사용 하 여 사용 하거나 사용 하지 않도록 설정할 수 있습니다. Cmdlet을 `Get-AzureADPasswordProtectionProxyConfiguration` 사용 하 여 현재 설정을 쿼리할 수 있습니다. 자동 업그레이드를 사용 하도록 설정 하는 것이 좋습니다.
+프록시 에이전트는 자동 업그레이드를 지원 합니다. 자동 업그레이드는 프록시 서비스와 나란히 설치 되는 Microsoft Azure AD Connect Agent 업데이트 서비스를 사용 합니다. 자동 업그레이드는 기본적으로 설정 되어 있으며 `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet을 사용 하 여 사용 하거나 사용 하지 않도록 설정할 수 있습니다. Cmdlet을 `Get-AzureADPasswordProtectionProxyConfiguration` 사용 하 여 현재 설정을 쿼리할 수 있습니다. 자동 업그레이드 설정은 항상 사용 하도록 설정 하는 것이 좋습니다.
 
 이 `Get-AzureADPasswordProtectionProxy` cmdlet은 포리스트에 현재 설치 되어 있는 모든 프록시 에이전트의 소프트웨어 버전을 쿼리 하는 데 사용할 수 있습니다.
 
@@ -312,7 +322,7 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
 
 최신 버전의 Azure AD 암호 보호 DC 에이전트 소프트웨어를 사용할 수 있는 경우 최신 버전 `AzureADPasswordProtectionDCAgentSetup.msi` 의 소프트웨어 패키지를 실행 하 여 업그레이드를 수행 합니다. 최신 버전의 소프트웨어는 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=57071)에서 다운로드할 수 있습니다.
 
-현재 버전의 DC 에이전트 소프트웨어를 제거할 필요는 없습니다. 설치 관리자에서 전체 업그레이드를 수행 합니다. DC 에이전트 소프트웨어를 업그레이드할 때는 항상 다시 부팅 해야 합니다 .이는 핵심 Windows 동작으로 인해 발생 합니다. 
+현재 버전의 DC 에이전트 소프트웨어를 제거할 필요는 없습니다. 설치 관리자에서 전체 업그레이드를 수행 합니다. DC 에이전트 소프트웨어를 업그레이드할 때는 항상 다시 부팅 해야 합니다 .이 요구 사항은 핵심 Windows 동작으로 인해 발생 합니다. 
 
 소프트웨어 업그레이드는 표준 MSI 절차를 사용 하 여 자동화할 수 있습니다. `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`예를 들면와 같습니다.
 

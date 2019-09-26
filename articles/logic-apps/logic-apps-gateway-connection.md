@@ -9,16 +9,18 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 09/01/2019
-ms.openlocfilehash: dcb0fe4da968408a261e387c636cc548fa757a09
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: d397adfb6ed2d3aef93bd40d14eb0ad199cdb90c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036666"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309363"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 
-논리 앱에서 온-프레미스 데이터 원본에 액세스하려면 Azure Portal에서 온-프레미스 데이터 게이트웨이 리소스를 만듭니다. 그러면 논리 앱은 [온-프레미스 커넥터](../connectors/apis-list.md#on-premises-connectors)를 사용할 수 있습니다. 이 문서에서는 [로컬 컴퓨터에 게이트웨이를 다운로드 하 여 설치한](../logic-apps/logic-apps-gateway-install.md) *후* Azure 게이트웨이 리소스를 만드는 방법을 보여 줍니다. 게이트웨이에 대 한 자세한 내용은 [게이트웨이의 작동](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service)원리를 참조 하세요.
+논리 앱에서 온-프레미스 데이터 원본에 액세스하려면 Azure Portal에서 온-프레미스 데이터 게이트웨이 리소스를 만듭니다. 그러면 논리 앱은 [온-프레미스 커넥터](../connectors/apis-list.md#on-premises-connectors)를 사용할 수 있습니다. Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 포함 하 여 쓰기 작업을 지원 합니다. 그러나 이러한 작업 [은 페이로드 크기에 제한이](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)있습니다.
+
+이 문서에서는 [로컬 컴퓨터에 게이트웨이를 다운로드 하 여 설치한](../logic-apps/logic-apps-gateway-install.md) *후* Azure 게이트웨이 리소스를 만드는 방법을 보여 줍니다. 게이트웨이에 대 한 자세한 내용은 [게이트웨이의 작동](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service)원리를 참조 하세요. 
 
 > [!TIP]
 > Azure Virtual Network에 연결하려면 대신 [*통합 서비스 환경*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만드는 것을 고려합니다. 
@@ -51,7 +53,7 @@ Azure Logic Apps 온-프레미스 데이터 게이트웨이는 이러한 데이�
 
 게이트웨이 자체는 추가 비용이 발생 하지 않지만 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md) 은 Azure Logic Apps의 이러한 커넥터 및 기타 작업에 적용 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 이미 [로컬 컴퓨터에 온-프레미스 데이터 게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md)했습니다.
 
@@ -79,12 +81,12 @@ Azure Logic Apps 온-프레미스 데이터 게이트웨이는 이러한 데이�
 
 1. **연결 게이트웨이 만들기**에서 게이트웨이 리소스에 대해이 정보를 제공 합니다. 완료되면 **만들기**를 선택합니다.
 
-   | 속성 | Description |
+   | 속성 | 설명 |
    |----------|-------------|
    | **리소스 이름** | 문자, 숫자, 하이픈 (`-`), 밑줄 (`_`), 괄호 (`(`, `)`) 및 마침표 (`.`)만 포함할 수 있는 게이트웨이 리소스 이름입니다. |
    | **구독** | Azure 구독-게이트웨이 설치 및 논리 앱과 동일 해야 합니다. 기본 구독은 로그인하는 데 사용한 Azure 계정을 기반으로 합니다. |
    | **리소스 그룹** | 사용 하려는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) |
-   | **위치** | [게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md)하는 동안 게이트웨이 클라우드 서비스에 대해 선택한 위치와 동일한 지역입니다. 그렇지 않으면 사용자가 선택할 수 있도록 게이트웨이 설치가 **설치 이름** 목록에 표시 되지 않습니다. 논리 앱 위치는 게이트웨이 리소스 위치와 다를 수 있습니다. |
+   | **Location**: | [게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md)하는 동안 게이트웨이 클라우드 서비스에 대해 선택한 위치와 동일한 지역입니다. 그렇지 않으면 사용자가 선택할 수 있도록 게이트웨이 설치가 **설치 이름** 목록에 표시 되지 않습니다. 논리 앱 위치는 게이트웨이 리소스 위치와 다를 수 있습니다. |
    | **설치 이름** | 게이트웨이 설치가 선택되어 있지 않으면 이전에 설치한 게이트웨이를 선택합니다. 이전에 연결 된 게이트웨이 설치는 사용자가 선택할 수 있도록이 목록에 표시 되지 않습니다. |
    |||
 
@@ -149,7 +151,7 @@ Azure 구독에 연결된 모든 API 연결을 찾으려면:
 
 1. 게이트웨이 리소스 메뉴에서 아직 선택하지 않은 경우 **온-프레미스 데이터 게이트웨이**를 선택합니다. 게이트웨이 리소스 도구 모음에서 **삭제**를 선택 합니다.
 
-   예:
+   예를 들어 다음과 같은 가치를 제공해야 합니다.
 
    ![게이트웨이 삭제](./media/logic-apps-gateway-connection/gateway-delete.png)
 

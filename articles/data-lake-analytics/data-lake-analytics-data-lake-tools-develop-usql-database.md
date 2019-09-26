@@ -1,7 +1,6 @@
 ---
-title: U-SQL 데이터베이스 프로젝트를 사용하여 Azure Data Lake용 U-SQL 데이터베이스 개발
+title: U-SQL 데이터베이스 프로젝트 개발-Azure Data Lake
 description: Azure Data Lake Tools for Visual Studio를 사용하여 U-SQL 데이터베이스를 개발하는 방법을 알아봅니다.
-services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
 ms.reviewer: jasonwhowell
@@ -10,12 +9,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 47235fa5676acd8de8a7cc0d969b813837faf0af
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a9b271b5f7d4e53dbf871d03dd43b62b9299aa53
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60628849"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309918"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>U-SQL 데이터베이스 프로젝트를 사용하여 Azure Data Lake용 U-SQL 데이터베이스 개발
 
@@ -57,7 +56,7 @@ U-SQL 데이터베이스 프로젝트를 마우스 오른쪽 단추로 클릭합
 
 U-SQL 데이터베이스 프로젝트에 대한 빌드 출력은 접미사 `.usqldbpack`으로 명명된 U-SQL 데이터베이스 배포 패키지입니다. `.usqldbpack` 패키지는 단일 U-SQL 스크립트의 모든 DDL 문을 **DDL** 폴더에 포함하고, 어셈블리에 대한 모든 DLL 및 추가 파일을 **Temp** 폴더에 포함하는 zip 파일입니다.
 
-에 대해 자세히 알아보세요 [MSBuild 사용 하 여 U-SQL 데이터베이스 프로젝트를 빌드하려면 명령줄 Azure DevOps Services 빌드 및 작업 방식](data-lake-analytics-cicd-overview.md)합니다.
+[MSBuild 명령줄 및 Azure DevOps Services 빌드 작업을 사용 하 여 t-sql 데이터베이스 프로젝트를 빌드하는 방법](data-lake-analytics-cicd-overview.md)에 대해 자세히 알아보세요.
 
 ## <a name="deploy-a-u-sql-database"></a>U-SQL 데이터베이스 배포
 
@@ -100,8 +99,8 @@ Visual Studio에서 U-SQL 데이터베이스 프로젝트 또는 .usqldbpack 패
 
 U-SQL 프로젝트는 U-SQL 데이터베이스 프로젝트를 참조할 수 있습니다. 이러한 참조는 다음 두 워크로드를 영향을 줍니다.
 
-- *프로젝트를 빌드하지*: U-SQL 스크립트를 작성 하기 전에 참조 된 데이터베이스 환경을 설정 합니다. 
-- *로컬 (로컬-프로젝트를)에 대 한 실행된 계정*: 참조 된 데이터베이스 환경 (로컬-프로젝트를)에 배포 된 U-SQL 스크립트를 실행 하기 전에 계정. [여기에서 로컬 실행과 (local-machine) 및 (local-project) 계정 간 차이점에 대해 자세히 알아봅니다](data-lake-analytics-data-lake-tools-local-run.md).
+- *프로젝트 빌드*: U-SQL 스크립트를 빌드하기 전에 참조 된 데이터베이스 환경을 설정 합니다. 
+- 로컬 *프로젝트에 대 한 로컬 실행 계정*: 참조 된 데이터베이스 환경은 U-SQL 스크립트 실행 전에 (로컬 프로젝트) 계정에 배포 됩니다. [여기에서 로컬 실행과 (local-machine) 및 (local-project) 계정 간 차이점에 대해 자세히 알아봅니다](data-lake-analytics-data-lake-tools-local-run.md).
 
 ### <a name="how-to-add-a-u-sql-database-reference"></a>U-SQL 데이터베이스 참조를 추가하는 방법
 

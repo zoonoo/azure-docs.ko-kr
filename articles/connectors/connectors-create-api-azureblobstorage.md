@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 06/20/2019
 tags: connectors
-ms.openlocfilehash: d57ea1a881980203b1c8f216239b27b64f0d71cd
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 8160cd2cb77a56f3d9b13f3c43929cc4ab7565b0
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051046"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309593"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Azure Blob Storage에서 Blob 만들기 및 관리
 
@@ -25,7 +25,7 @@ ms.locfileid: "70051046"
 Azure 웹 사이트에서 업데이트되는 도구가 있다고 가정해 보겠습니다. 이 도구는 논리 앱에 대한 트리거의 역할을 합니다. 이 이벤트가 발생하면 논리 앱에서 Blob Storage 컨테이너의 일부 파일을 업데이트하도록 할 수 있습니다. 이는 논리 앱의 작업입니다.
 
 > [!NOTE]
-> Logic Apps는 방화벽을 통해 Azure Storage 계정에 직접 연결하도록 지원하지 않습니다. 이러한 스토리지 계정에 액세스하려면 다음 옵션 중 하나를 사용합니다.
+> 논리 앱은 [방화벽 규칙이](../storage/common/storage-network-security.md) 있고 동일한 지역에 있는 Azure storage 계정에 직접 액세스할 수 없습니다. 그러나 공용 IP 주소는 지역 간에 통신 하는 데 사용 되기 때문에 논리 앱은 다른 지역에 있는 Azure storage 계정에 액세스할 수 있습니다. 또는 다음 옵션 중 하나를 사용할 수 있습니다.
 >
 > * [통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. Azure Virtual Network의 리소스에 연결할 수 있습니다.
 >
@@ -43,7 +43,7 @@ Azure 웹 사이트에서 업데이트되는 도구가 있다고 가정해 보�
 
   * 전체 파일을 읽고 청크를 암시적으로 사용 하는 Azure Blob Storage **Blob 콘텐츠 가져오기** 작업을 사용 하 여 트리거를 수행 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 

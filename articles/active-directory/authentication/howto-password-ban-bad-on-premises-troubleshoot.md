@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cb4d3e35ae743dbae4c049f515d61b3042e7efe
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 690d49a94ff4f516e24494622ca378eb0794fee9
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952815"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71314926"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Azure AD 암호 보호 문제 해결
 
@@ -56,17 +56,23 @@ Azure AD 암호 보호를 배포한 후 문제를 해결해야 할 수도 있습
 
 ## <a name="dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files"></a>DC 에이전트가 암호 정책 파일을 암호화 하거나 암호 해독할 수 없습니다.
 
-이 문제는 다양 한 증상으로 매니페스트 될 수 있지만 일반적으로 일반적인 근본 원인이 있습니다.
+Azure AD 암호 보호는 Microsoft 키 배포 서비스에서 제공 하는 암호화 및 암호 해독 기능에 중요 한 종속성이 있습니다. 암호화 또는 암호 해독 오류는 다양 한 증상으로 매니페스트 될 수 있으며 몇 가지 잠재적인 원인이 있습니다.
 
-Azure AD 암호 보호는 Windows Server 2012 이상을 실행 하는 도메인 컨트롤러에서 사용할 수 있는 Microsoft 키 배포 서비스에서 제공 하는 암호화 및 암호 해독 기능에 중요 한 종속성이 있습니다. 도메인에 있는 모든 Windows Server 2012 이상 도메인 컨트롤러에서 KDS 서비스를 사용 하도록 설정 하 고 작동 해야 합니다.
+1. KDS 서비스가 사용 하도록 설정 되어 있고 도메인의 모든 Windows Server 2012 이상 도메인 컨트롤러에서 작동 하는지 확인 합니다.
 
-기본적으로 KDS 서비스의 서비스 시작 모드는 수동 (트리거 시작)으로 구성 됩니다. 이 구성은 클라이언트가 처음으로 서비스를 사용 하려고 할 때 요청 시 시작 됨을 의미 합니다. Azure AD 암호 보호를 사용 하려면이 기본 서비스 시작 모드를 사용할 수 있습니다.
+   기본적으로 KDS 서비스의 서비스 시작 모드는 수동 (트리거 시작)으로 구성 됩니다. 이 구성은 클라이언트가 처음으로 서비스를 사용 하려고 할 때 요청 시 시작 됨을 의미 합니다. Azure AD 암호 보호를 사용 하려면이 기본 서비스 시작 모드를 사용할 수 있습니다.
 
-KDS 서비스 시작 모드가 사용 안 함으로 구성 된 경우 Azure AD 암호 보호가 제대로 작동 하려면이 구성을 수정 해야 합니다.
+   KDS 서비스 시작 모드가 사용 안 함으로 구성 된 경우 Azure AD 암호 보호가 제대로 작동 하려면이 구성을 수정 해야 합니다.
 
-이 문제에 대 한 간단한 테스트는 서비스 관리 MMC 콘솔을 통해 또는 다른 관리 도구 (예: 명령 프롬프트 콘솔에서 "net start kdssvc.dll" 실행)를 사용 하 여 KDS 서비스를 수동으로 시작 하는 것입니다. KDS 서비스가 성공적으로 시작 되 고 계속 실행 되 고 있습니다.
+   이 문제에 대 한 간단한 테스트는 서비스 관리 MMC 콘솔을 통해 또는 다른 관리 도구 (예: 명령 프롬프트 콘솔에서 "net start kdssvc.dll" 실행)를 사용 하 여 KDS 서비스를 수동으로 시작 하는 것입니다. KDS 서비스가 성공적으로 시작 되 고 계속 실행 되 고 있습니다.
 
-KDS 서비스를 시작할 수 없는 가장 일반적인 근본 원인은 Active Directory 도메인 컨트롤러 개체가 기본 도메인 컨트롤러 OU의 외부에 위치 하는 것입니다. 이 구성은 KDS 서비스에서 지원 되지 않으며 Azure AD 암호 보호에 적용 되는 제한 사항이 아닙니다. 이 조건에 대 한 해결 방법은 도메인 컨트롤러 개체를 기본 도메인 컨트롤러 OU 아래의 위치로 이동 하는 것입니다.
+   KDS 서비스를 시작할 수 없는 가장 일반적인 근본 원인은 Active Directory 도메인 컨트롤러 개체가 기본 도메인 컨트롤러 OU의 외부에 위치 하는 것입니다. 이 구성은 KDS 서비스에서 지원 되지 않으며 Azure AD 암호 보호에 적용 되는 제한 사항이 아닙니다. 이 조건에 대 한 해결 방법은 도메인 컨트롤러 개체를 기본 도메인 컨트롤러 OU 아래의 위치로 이동 하는 것입니다.
+
+1. Windows Server 2012 r 2에서 Windows Server 2016로의 호환 되지 않는 KDS 암호화 된 버퍼 형식 변경
+
+   KDS 보안 픽스는 KDS 암호화 된 버퍼의 형식을 수정 하는 Windows Server 2016에서 도입 되었습니다. 이러한 버퍼는 Windows Server 2012 및 Windows Server 2012 r 2에서 암호 해독에 실패할 수 있습니다. 역방향은 Windows server 2012에서 KDS 암호화 된 정상 버퍼 이며 windows server 2012 r 2는 windows Server 2016 이상에서 항상 암호를 해독 합니다. Active Directory 도메인의 도메인 컨트롤러에서 이러한 운영 체제를 혼합 하 여 실행 하는 경우 Azure AD 암호 보호 암호 해독 실패가 가끔 보고 될 수 있습니다. 보안 수정의 특성에 따라 이러한 오류의 타이밍 또는 증상을 정확 하 게 예측할 수 없으며, 지정 된 시간에 도메인 컨트롤러에서 데이터를 암호화 하는 Azure AD 암호 보호 DC 에이전트가 명확 하지 않을 수 있습니다.
+
+   Microsoft는이 문제에 대 한 픽스를 조사 하지만 아직 에타를 사용할 수 없습니다. 그 동안에는 Active Directory 도메인에서 호환 되지 않는 이러한 운영 체제를 혼합 하 여 실행 하지 않도록 하는 것 외에이 문제에 대 한 해결 방법이 없습니다. 즉, windows Server 2012 및 Windows Server 2012 R2 도메인 컨트롤러만 실행 하거나 Windows Server 2016 이상 도메인 컨트롤러만 실행 해야 합니다.
 
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>약한 암호는 허용 되지만
 
@@ -80,7 +86,7 @@ KDS 서비스를 시작할 수 없는 가장 일반적인 근본 원인은 Activ
 
 1. 암호 정책이 사용하지 않도록 설정되어 있습니다. 이 구성이 적용 되는 경우 Azure AD 암호 보호 포털을 사용 하 여 사용으로 다시 구성 합니다. [암호 보호 사용](howto-password-ban-bad-on-premises-operations.md#enable-password-protection)을 참조 하세요.
 
-1. 도메인의 모든 도메인 컨트롤러에 DC 에이전트 소프트웨어를 설치 하지 않았습니다. 이 경우 원격 Windows 클라이언트가 암호 변경 작업 중에 특정 도메인 컨트롤러를 대상으로 하도록 하는 것은 어렵습니다. DC 에이전트 소프트웨어가 설치 된 특정 DC의 대상이 성공적으로 지정 된 것으로 생각 되 면 결과에 관계 없이 DC 에이전트 관리자 이벤트 로그를 두 번 확인 하 여 확인할 수 있습니다. 그러면 암호의 결과를 문서화할 이벤트가 하나 이상 있습니다. 유효성 검사. 암호가 변경 된 사용자에 게 존재 하는 이벤트가 없는 경우 다른 도메인 컨트롤러에서 암호 변경을 처리 했을 수 있습니다.
+1. 도메인의 모든 도메인 컨트롤러에 DC 에이전트 소프트웨어를 설치 하지 않았습니다. 이 경우 원격 Windows 클라이언트가 암호 변경 작업 중에 특정 도메인 컨트롤러를 대상으로 하도록 하는 것은 어렵습니다. DC 에이전트 소프트웨어가 설치 된 특정 DC의 대상이 성공적으로 지정 된 경우에는 DC 에이전트 관리자 이벤트 로그를 두 번 확인 하 여 확인할 수 있습니다. 결과와 상관 없이 암호의 결과를 문서화 하는 이벤트가 하나 이상 있습니다. 유효성 검사. 암호가 변경 된 사용자에 게 존재 하는 이벤트가 없는 경우 다른 도메인 컨트롤러에서 암호 변경을 처리 했을 수 있습니다.
 
    대체 테스트로, DC 에이전트 소프트웨어가 설치 된 DC에 직접 로그인 한 상태에서 암호를 변경 하는 것을 시도 합니다. 프로덕션 Active Directory 도메인에는이 방법을 사용할 수 없습니다.
 

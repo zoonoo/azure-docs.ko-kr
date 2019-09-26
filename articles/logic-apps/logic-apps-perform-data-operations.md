@@ -10,12 +10,12 @@ manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: 1b0a7473f1cdfb6aa3533b261979da7c18605a16
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 9271a659e18ab969e801fd8974b05984e11e783c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179356"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309387"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Azure Logic Apps에서 데이터 작업 수행
 
@@ -175,55 +175,93 @@ JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 
 
 ### <a name="customize-table-format"></a>테이블 형식 사용자 지정
 
-기본적으로 **Columns** 속성은 배열 항목을 기준으로 테이블 열을 자동으로 만들도록 설정 되어 있습니다. 
-
-사용자 지정 헤더 및 값을 지정 하려면 다음 단계를 수행 합니다.
+기본적으로 **Columns** 속성은 배열 항목을 기준으로 테이블 열을 자동으로 만들도록 설정 되어 있습니다. 사용자 지정 헤더 및 값을 지정 하려면 다음 단계를 수행 합니다.
 
 1. **열** 목록을 열고 **사용자 지정**을 선택 합니다.
 
 1. **헤더** 속성에서 대신 사용할 사용자 지정 머리글 텍스트를 지정 합니다.
 
-1. **키** 속성에서 대신 사용할 사용자 지정 값을 지정 합니다.
+1. **값** 속성에서 대신 사용할 사용자 지정 값을 지정 합니다.
 
-배열의 값을 참조 하 고 편집 하려면 **CSV 테이블 만들기** 작업의 JSON `@item()` 정의에서 함수를 사용할 수 있습니다.
+배열에서 값을 반환 하려면 **CSV 테이블 만들기** 작업에 [ `item()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#item) 를 사용할 수 있습니다. 루프에서 [ `items()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#items) `For_each` 를 사용할 수 있습니다.
 
-1. 디자이너 도구 모음에서 **코드 보기**를 선택 합니다. 
-
-1. 코드 편집기의 작업 `inputs` 섹션을 편집 하 여 원하는 방식으로 테이블 출력을 사용자 지정 합니다.
-
-이 예에서는 `header` 속성을 빈 값으로 설정 하 고 각 `value` 속성 `columns` 을 역참조 하 여 배열의 머리글이 아닌 열 값만 반환 합니다.
-
-```json
-"Create_CSV_table": {
-   "inputs": {
-      "columns": [
-         { 
-            "header": "",
-            "value": "@item()?['Description']"
-         },
-         { 
-            "header": "",
-            "value": "@item()?['Product_ID']"
-         }
-      ],
-      "format": "CSV",
-      "from": "@variables('myJSONArray')"
-   }
-}
-```
-
-다음은이 예제에서 반환 하는 결과입니다.
+예를 들어, 배열에서 속성 이름이 아닌 속성 값만 포함 하는 테이블 열을 만들려고 한다고 가정 합니다. 이러한 값만 반환 하려면 디자이너 뷰 또는 코드 뷰에서 작업 하기 위해 다음 단계를 수행 합니다. 다음은이 예제에서 반환 하는 결과입니다.
 
 ```text
-Results from Create CSV table action:
-
 Apples,1
 Oranges,2
 ```
 
-디자이너에서 **CSV 테이블 만들기** 작업은 이제 다음과 같이 표시 됩니다.
+#### <a name="work-in-designer-view"></a>디자이너 뷰에서 작업
 
-![열 머리글이 없는 "CSV 테이블 만들기"](./media/logic-apps-perform-data-operations/create-csv-table-no-column-headers.png)
+동작에서 **헤더** 열을 비워 둡니다. **값** 열의 각 행에서 원하는 각 배열 속성을 역참조 합니다. **값** 아래의 각 행은 지정 된 배열 속성의 모든 값을 반환 하 고 테이블의 열이 됩니다.
+
+1. **값**아래의 원하는 각 행에서 편집 상자 내부를 클릭 하 여 동적 콘텐츠 목록이 표시 되도록 합니다.
+
+1. 동적 콘텐츠 목록에서 **식**을 선택합니다.
+
+1. 식 편집기에서 원하는 배열 속성 값을 지정 하는이 식을 입력 하 고 **확인**을 선택 합니다.
+
+   `item()?['<array-property-name>']`
+
+   예를 들어 다음과 같은 가치를 제공해야 합니다.
+
+   * `item()?['Description']`
+   * `item()?['Product_ID']`
+
+   ![역 참조할 식 속성](./media/logic-apps-perform-data-operations/csv-table-expression.png)
+
+1. 원하는 각 배열 속성에 대해 이전 단계를 반복 합니다. 완료 되 면 작업은 다음 예제와 같습니다.
+
+   ![완성 된 식](./media/logic-apps-perform-data-operations/finished-csv-expression.png)
+
+1. 식을 보다 설명적인 버전으로 확인 하려면 코드 뷰로 전환 하 고 디자이너 보기로 이동한 다음 축소 된 작업을 다시 엽니다.
+
+   이제 **CSV 테이블 만들기** 작업은 다음 예제와 같이 표시 됩니다.
+
+   ![확인 된 식이 있고 헤더가 없는 "CSV 테이블 만들기" 작업](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
+
+#### <a name="work-in-code-view"></a>코드 보기에서 작업
+
+작업의 JSON 정의의 `columns` 배열 내에서 `header` 속성을 빈 문자열로 설정 합니다. 각 `value` 속성에 대해 원하는 각 배열 속성을 역참조 합니다.
+
+1. 디자이너 도구 모음에서 **코드 보기**를 선택 합니다.
+
+1. 코드 편집기의 작업 `columns` 배열에서 원하는 배열 값의 각 열에 대해 빈 `header` 속성과이 `value` 식을 추가 합니다.
+
+   ```json
+   {
+      "header": "",
+      "value": "@item()?['<array-property-name>']"
+   }
+   ```
+
+   예를 들어 다음과 같은 가치를 제공해야 합니다.
+
+   ```json
+   "Create_CSV_table": {
+      "inputs": {
+         "columns": [
+            { 
+               "header": "",
+               "value": "@item()?['Description']"
+            },
+            { 
+               "header": "",
+               "value": "@item()?['Product_ID']"
+            }
+         ],
+         "format": "CSV",
+         "from": "@variables('myJSONArray')"
+      }
+   }
+   ```
+
+1. 디자이너 보기로 다시 전환 하 고 축소 된 작업을 다시 엽니다.
+
+   이제 **CSV 테이블 만들기** 작업은이 예제와 같이 나타나고 식이 더 자세한 버전으로 확인 되었습니다.
+
+   ![확인 된 식이 있고 헤더가 없는 "CSV 테이블 만들기" 작업](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
 
 기본 워크플로 정의에서 이 작업에 대한 자세한 내용은 [테이블 작업](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action)을 참조하세요.
 
@@ -288,55 +326,93 @@ Oranges,2
 
 ### <a name="customize-table-format"></a>테이블 형식 사용자 지정
 
-기본적으로 **Columns** 속성은 배열 항목을 기준으로 테이블 열을 자동으로 만들도록 설정 되어 있습니다. 
-
-사용자 지정 헤더 및 값을 지정 하려면 다음 단계를 수행 합니다.
+기본적으로 **Columns** 속성은 배열 항목을 기준으로 테이블 열을 자동으로 만들도록 설정 되어 있습니다. 사용자 지정 헤더 및 값을 지정 하려면 다음 단계를 수행 합니다.
 
 1. **열** 목록을 열고 **사용자 지정**을 선택 합니다.
 
 1. **헤더** 속성에서 대신 사용할 사용자 지정 머리글 텍스트를 지정 합니다.
 
-1. **키** 속성에서 대신 사용할 사용자 지정 값을 지정 합니다.
+1. **값** 속성에서 대신 사용할 사용자 지정 값을 지정 합니다.
 
-배열의 값을 참조 하 고 편집 하려면 **HTML 테이블 만들기** 작업의 JSON `@item()` 정의에서 함수를 사용할 수 있습니다.
+배열에서 값을 반환 하려면 **HTML 테이블 만들기** 작업에 [ `item()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#item) 를 사용할 수 있습니다. 루프에서 [ `items()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#items) `For_each` 를 사용할 수 있습니다.
 
-1. 디자이너 도구 모음에서 **코드 보기**를 선택 합니다. 
-
-1. 코드 편집기의 작업 `inputs` 섹션을 편집 하 여 원하는 방식으로 테이블 출력을 사용자 지정 합니다.
-
-이 예에서는 `header` 속성을 빈 값으로 설정 하 고 각 `value` 속성 `columns` 을 역참조 하 여 배열의 머리글이 아닌 열 값만 반환 합니다.
-
-```json
-"Create_HTML_table": {
-   "inputs": {
-      "columns": [
-         { 
-            "header": "",
-            "value": "@item()?['Description']"
-         },
-         { 
-            "header": "",
-            "value": "@item()?['Product_ID']"
-         }
-      ],
-      "format": "HTML",
-      "from": "@variables('myJSONArray')"
-   }
-}
-```
-
-다음은이 예제에서 반환 하는 결과입니다.
+예를 들어, 배열에서 속성 이름이 아닌 속성 값만 포함 하는 테이블 열을 만들려고 한다고 가정 합니다. 이러한 값만 반환 하려면 디자이너 뷰 또는 코드 뷰에서 작업 하기 위해 다음 단계를 수행 합니다. 다음은이 예제에서 반환 하는 결과입니다.
 
 ```text
-Results from Create HTML table action:
-
-Apples    1
-Oranges   2
+Apples,1
+Oranges,2
 ```
 
-디자이너에서 다음과 같은 방식으로 **HTML 테이블 만들기** 작업을 표시 합니다.
+#### <a name="work-in-designer-view"></a>디자이너 뷰에서 작업
 
-![열 머리글이 없는 "HTML 테이블 만들기"](./media/logic-apps-perform-data-operations/create-html-table-no-column-headers.png)
+동작에서 **헤더** 열을 비워 둡니다. **값** 열의 각 행에서 원하는 각 배열 속성을 역참조 합니다. **값** 아래의 각 행은 지정 된 속성에 대 한 모든 값을 반환 하 고 테이블의 열이 됩니다.
+
+1. **값**아래의 원하는 각 행에서 편집 상자 내부를 클릭 하 여 동적 콘텐츠 목록이 표시 되도록 합니다.
+
+1. 동적 콘텐츠 목록에서 **식**을 선택합니다.
+
+1. 식 편집기에서 원하는 배열 속성 값을 지정 하는이 식을 입력 하 고 **확인**을 선택 합니다.
+
+   `item()?['<array-property-name>']`
+
+   예를 들어 다음과 같은 가치를 제공해야 합니다.
+
+   * `item()?['Description']`
+   * `item()?['Product_ID']`
+
+   ![역 참조할 식 속성](./media/logic-apps-perform-data-operations/html-table-expression.png)
+
+1. 원하는 각 배열 속성에 대해 이전 단계를 반복 합니다. 완료 되 면 작업은 다음 예제와 같습니다.
+
+   ![완성 된 식](./media/logic-apps-perform-data-operations/finished-html-expression.png)
+
+1. 식을 보다 설명적인 버전으로 확인 하려면 코드 뷰로 전환 하 고 디자이너 보기로 이동한 다음 축소 된 작업을 다시 엽니다.
+
+   이제 **HTML 테이블 만들기** 작업은 다음 예제와 같이 표시 됩니다.
+
+   ![확인 된 식이 있고 헤더가 없는 "HTML 테이블 만들기" 작업](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
+
+#### <a name="work-in-code-view"></a>코드 보기에서 작업
+
+작업의 JSON 정의의 `columns` 배열 내에서 `header` 속성을 빈 문자열로 설정 합니다. 각 `value` 속성에 대해 원하는 각 배열 속성을 역참조 합니다.
+
+1. 디자이너 도구 모음에서 **코드 보기**를 선택 합니다.
+
+1. 코드 편집기의 작업 `columns` 배열에서 원하는 배열 값의 각 열에 대해 빈 `header` 속성과이 `value` 식을 추가 합니다.
+
+   ```json
+   {
+      "header": "",
+      "value": "@item()?['<array-property-name>']"
+   }
+   ```
+
+   예를 들어 다음과 같은 가치를 제공해야 합니다.
+
+   ```json
+   "Create_HTML_table": {
+      "inputs": {
+         "columns": [
+            { 
+               "header": "",
+               "value": "@item()?['Description']"
+            },
+            { 
+               "header": "",
+               "value": "@item()?['Product_ID']"
+            }
+         ],
+         "format": "HTML",
+         "from": "@variables('myJSONArray')"
+      }
+   }
+   ```
+
+1. 디자이너 보기로 다시 전환 하 고 축소 된 작업을 다시 엽니다.
+
+   이제 **HTML 테이블 만들기** 작업이이 예제와 같이 나타나고 식이 더 자세한 버전으로 확인 되었습니다.
+
+   ![확인 된 식이 있고 헤더가 없는 "HTML 테이블 만들기" 작업](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
 
 기본 워크플로 정의에서 이 작업에 대한 자세한 내용은 [테이블 작업](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action)을 참조하세요.
 
@@ -588,7 +664,7 @@ JSON (JavaScript Object Notation) 콘텐츠의 속성을 참조 하거나 액세
 
    * 단계 사이에 작업을 추가 하려면 더하기 기호 ( **+** )가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
 
-1. **작업 선택**에서 **기본 제공**을 선택 합니다. 검색 상자에 필터로를 입력 `select` 합니다. 작업 목록에서 **선택** 작업을 선택 합니다.
+1. **작업 선택** 아래에서 **기본 제공**을 선택합니다. 검색 상자에 필터로를 입력 `select` 합니다. 작업 목록에서 **선택** 작업을 선택 합니다.
 
    !["선택" 작업 선택](./media/logic-apps-perform-data-operations/select-select-action.png)
 

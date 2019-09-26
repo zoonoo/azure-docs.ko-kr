@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba51e10503a3aab7afa2e9639453448d03b91852
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 26b00670ad93cceab8f570d3a5f56bd095fa80b5
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170463"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315264"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure Portal에서 엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리
 
@@ -88,7 +88,6 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에 미리 �
 **현재 상태 지우기 및 동기화 다시 시작** 확인란을 선택 하 고 **저장** 위치를 선택 합니다.
 
 * 프로 비전 서비스 중지
-* Azure AD가 관리 하는 계정에 대해 캐시 된 데이터를 덤프 합니다.
 * 서비스를 다시 시작 하 고 초기 주기를 다시 실행 합니다.
 
 이 옵션을 사용 하면 관리자가 프로 비전 배포 프로세스를 다시 시작할 수 있습니다.

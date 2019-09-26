@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: iainfou
-ms.openlocfilehash: e18f990885a25b7e130dfeb5a0a3425530ee11e6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 81d20a973454db600d8be9ce036f001dd41784e7
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086575"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71314999"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Azure AD Domain Services에 대 한 가상 네트워크 디자인 고려 사항 및 구성 옵션
 
@@ -46,7 +46,7 @@ Azure AD DS 관리 되는 도메인은 Azure virtual network의 서브넷에 연
 * Azure AD DS는 자체 서브넷에 배포 되어야 합니다. 기존 서브넷 또는 게이트웨이 서브넷을 사용 하지 마세요.
 * 네트워크 보안 그룹은 Azure AD DS 관리 되는 도메인을 배포 하는 동안 만들어집니다. 이 네트워크 보안 그룹에는 올바른 서비스 통신에 필요한 규칙이 포함 되어 있습니다.
     * 사용자 지정 규칙을 사용 하 여 기존 네트워크 보안 그룹을 만들거나 사용 하지 마세요.
-* Azure AD DS에는 5 개에서 7 개의 IP 주소를 사용 해야 합니다. 서브넷 IP 주소 범위에서이 수의 주소를 제공할 수 있는지 확인 합니다.
+* Azure AD DS에는 3-5 IP 주소가 필요 합니다. 서브넷 IP 주소 범위에서이 수의 주소를 제공할 수 있는지 확인 합니다.
     * 사용 가능한 IP 주소를 제한 하면 Azure AD Domain Services 두 개의 도메인 컨트롤러를 유지 하지 못할 수 있습니다.
 
 다음 예제 다이어그램에서는 Azure AD DS에 고유한 서브넷이 있고 외부 연결용 게이트웨이 서브넷이 있고 응용 프로그램 작업이 가상 네트워크 내의 연결 된 서브넷에 있는 유효한 디자인을 간략하게 설명 합니다.
@@ -105,7 +105,7 @@ Azure AD DS 관리 되는 도메인은 배포 중에 일부 네트워킹 리소�
 
 다음 네트워크 보안 그룹 규칙은 Azure AD DS에서 인증 및 관리 서비스를 제공 하는 데 필요 합니다. Azure AD DS 관리 되는 도메인이 배포 되는 가상 네트워크 서브넷에 대해 이러한 네트워크 보안 그룹 규칙을 편집 하거나 삭제 하지 마세요.
 
-| 포트 번호 | 프로토콜 | 원본                             | Destination | 작업 | 필수 | 용도 |
+| 포트 번호 | Protocol | 원본                             | Destination | 작업 | 필요한 공간 | 용도 |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 443         | TCP      | AzureActiveDirectoryDomainServices | 임의의 값         | Allow  | 예      | Azure AD 테 넌 트와 동기화. |
 | 3389        | TCP      | CorpNetSaw                         | 임의의 값         | Allow  | 예      | 도메인 관리. |

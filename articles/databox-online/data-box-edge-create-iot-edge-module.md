@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: daf7b01725a931b8fa76be14e06e2b32cffe5da6
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: f57a0431bbdafee2d38038d0039b47a34e5454c7
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900644"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315827"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>C# IoT Edge 모듈을 개발 하 여 Data Box Edge에서 파일 이동
 
@@ -40,7 +40,7 @@ Data Box Edge 디바이스는 IoT Edge 모듈을 배포 및 실행할 수 있습
 
 파일이 클라우드 공유에 있으면 Azure Storage 계정으로 자동으로 업로드됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음을 확인합니다.
 
@@ -180,7 +180,7 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
     }
     ```
 
-6. **파이프 메시지 메서드에** 대 한 코드를 제거 하 고 **FileCopy**에 대 한 코드를 삽입 합니다.
+6. **PipeMessage 메서드에** 대 한 코드를 제거 하 고, **FileCopy**에 대 한 코드를 삽입 합니다.
 
     ```
         /// <summary>

@@ -16,12 +16,12 @@ ms.date: 09/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a875e028a38c085d45d062984764cd840983fc3
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 66e53298625e2388e102b5a4e835fe22a9c81a21
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212334"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71314972"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -46,13 +46,8 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 ## <a name="14x0"></a>1.4. X. 0
 
 >[!IMPORTANT]
->하이브리드 Azure AD 조인으로 등록 된 Windows 컴퓨터는 Azure AD에서 장치 개체로 표시 됩니다. 이러한 장치 개체는 조건부 액세스에 사용할 수 있습니다. Windows 10 컴퓨터는 Azure AD Connect을 통해 클라우드와 동기화 됩니다. 낮은 수준의 Windows 컴퓨터는 AD FS 또는 원활한 single sign-on을 사용 하 여 직접 등록 됩니다.
->
->하이브리드 Azure AD 조인에서 구성 된 특정 userCertificate 특성 값을 포함 하는 Windows 10 컴퓨터만 Azure AD Connect 하 여 클라우드와 동기화 되어야 합니다.  이전 버전의 Azure AD Connect이 요구 사항은 엄격 하 게 적용 되지 않았기 때문에 Azure AD에서 불필요 한 장치 개체가 생성 됩니다. 이러한 컴퓨터는 Azure AD에 등록 하기 위한 것이 아니므로 Azure AD의 이러한 장치는 항상 "보류 중" 상태로 높게 유지 됩니다.
->
->이 버전의 Azure AD Connect는 하이브리드 Azure AD에 연결 되도록 올바르게 구성 된 Windows 10 컴퓨터만 동기화 합니다. Azure AD Connect는 [하위 Windows 장치](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices)를 동기화 해서는 안 됩니다.  Azure AD에서 이전에 잘못 동기화 된 모든 장치는 이제 Azure AD에서 삭제 됩니다.  그러나이 변경은 하이브리드 Azure AD 가입을 위해 Azure AD에 올바르게 등록 된 Windows 장치를 삭제 하지 않습니다. 
->
->일부 고객은 Azure AD에서 일부 또는 모든 Windows 장치가 사라질 수 있습니다. 이러한 장치 id는 조건부 액세스 권한 부여 중에 Azure AD에서 사용 되지 않기 때문에 문제가 발생 하지 않습니다. 일부 고객은 다음 방법으로 [다시 방문 해야 할 수 있습니다. 하이브리드 Azure Active Directory 조인 구현을](../../active-directory/devices/hybrid-azuread-join-plan.md) 계획 하 여 Windows 컴퓨터를 올바르게 등록 하 고 이러한 장치가 장치 기반 조건부 액세스에 완전히 참여할 수 있도록 합니다. [하위 수준 windows 장치](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices) 를 삭제 하려고 시도 하는 Azure AD Connect 경우 해당 장치는 [windows 10이 아닌 컴퓨터 MSI에 대 한 Microsoft Workplace Join](https://www.microsoft.com/download/details.aspx?id=53554) 에 의해 생성 된 것이 아니라 다른 Azure AD 기능에서 사용할 수 없습니다.  Azure AD에서 내보내기 삭제 임계값을 초과 하는 컴퓨터/장치 개체의 삭제가 표시 되는 경우 고객은 이러한 삭제를 통과 하도록 허용 하는 것이 좋습니다.
+>이 버전의 Azure AD Connect 일부 고객은 Azure AD에서 Windows 장치의 일부 또는 전체가 사라질 수 있습니다. 이러한 장치 id는 조건부 액세스 권한 부여 중에 Azure AD에서 사용 되지 않기 때문에 문제가 발생 하지 않습니다. 자세한 내용은 [Azure AD Connect 1.4. i x x. x 장치를 이해](reference-connect-device-disappearance.md) 하는 방법 disappearnce을 참조 하세요.
+
 
 ### <a name="release-status"></a>릴리스 상태
 9/10/2019: 자동 업그레이드에 대해서만 릴리스 됨
@@ -63,7 +58,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 - MIIS_Service에 대해 사용 되지 않는 WMI 끝점이 이제 제거 되었다는 알림이 고객에 게 주어 야 합니다. 이제 모든 WMI 작업이 PS cmdlet을 통해 수행 됩니다.
 - AZUREADSSOACC 개체에 대 한 제한 된 위임을 다시 설정 하 여 보안 개선
 - 동기화 규칙을 추가/편집 하는 경우 커넥터 스키마에 있지만 커넥터에 추가 되지 않은 규칙에 사용 된 특성이 있으면 해당 특성이 자동으로 커넥터에 추가 됩니다. 규칙이 적용 되는 개체 형식에 대해서도 마찬가지입니다. 커넥터에 항목이 추가 되 면 커넥터는 다음 동기화 주기에서 전체 가져오기로 표시 됩니다.
-- 엔터프라이즈 또는 도메인 관리자를 커넥터 계정으로 사용 하는 것은 더 이상 지원 되지 않습니다.
+- 엔터프라이즈 또는 도메인 관리자를 커넥터 계정으로 사용 하는 것은 새 AAD Connect 배포에서 더 이상 지원 되지 않습니다. 엔터프라이즈 또는 도메인 관리자를 커넥터 계정으로 사용 하는 현재 AAD Connect 배포는이 릴리스의 영향을 받지 않습니다.
 - 동기화 관리자에서 전체 동기화는 규칙 만들기/편집/삭제 시 실행 됩니다. 전체 가져오기 또는 전체 동기화를 실행 하는 경우 사용자에 게 알리는 모든 규칙 변경 내용에 팝업이 표시 됩니다.
 - ' 커넥터 > 속성 > 연결 ' 페이지에 암호 오류에 대 한 완화 단계를 추가 했습니다.
 - 커넥터 속성 페이지에서 sync service manager에 대 한 사용 중단 경고가 추가 되었습니다. 이 경고는 AADC 마법사를 통해 변경 해야 함을 사용자에 게 알립니다.

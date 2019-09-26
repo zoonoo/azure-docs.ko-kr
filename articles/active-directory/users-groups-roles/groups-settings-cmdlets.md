@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bd79b9a6fa8aedd45f41b64f8f81a908feab71f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: f0f2d3f8d8d2298ec00532205e359ed6f8dbc87a
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882992"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315691"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
 이 문서에서는 Azure Active Directory(Azure AD) PowerShell cmdlet을 사용하여 그룹을 만들고 업데이트하는 방법을 설명합니다. 이 콘텐츠는 Office 365 그룹에만 적용됩니다(통합 그룹이라고도 함). 
@@ -114,19 +114,19 @@ UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 
 | --- | --- |
 |  <ul><li>EnableGroupCreation<li>형식: Boolean<li>기본값: True |관리자가 아닌 사용자에 의해 디렉터리에서 Office 365 그룹 만들기가 허용되는지 여부를 나타내는 플래그입니다. 이 설정에는 Azure Active Directory Premium P1 라이선스가 필요하지 않습니다.|
 |  <ul><li>GroupCreationAllowedGroupId<li>형식: 문자열<li>기본값: “” |EnableGroupCreation == false일 때도 구성원이 Office 365 그룹을 만들도록 허용된 보안 그룹의 GUID입니다. |
-|  <ul><li>UsageGuidelinesUrl<li>형식: String<li>기본값: “” |그룹 사용 지침 링크입니다. |
+|  <ul><li>UsageGuidelinesUrl<li>형식: 문자열<li>기본값: “” |그룹 사용 지침 링크입니다. |
 |  <ul><li>ClassificationDescriptions<li>형식: 문자열<li>기본값: “” | 쉼표로 구분된 분류 설명 목록입니다. ClassificationDescriptions 값은 다음 형식일 때만 유효합니다.<br>$setting ["ClassificationDescriptions"] = "분류: 설명, 분류: 설명"<br>여기서 분류가 ClassificationList의 문자열과 일치 합니다.|
-|  <ul><li>DefaultClassification<li>형식: String<li>기본값: “” | 설정이 지정되지 않은 경우에 그룹의 기본 분류로 사용되는 분류입니다.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>형식: String<li>기본값: “” | Office 365 그룹에 대해 구성된 명명 규칙을 정의하는 최대 64자의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대한 명명 정책 적용](groups-naming-policy.md)을 참조하세요. |
-| <ul><li>CustomBlockedWordsList<li>형식: String<li>기본값: “” | 사용자가 그룹 이름 또는 별칭에서 사용하도록 허용되지 않은 쉼표로 구분된 구의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대한 명명 정책 적용](groups-naming-policy.md)을 참조하세요. |
+|  <ul><li>DefaultClassification<li>형식: 문자열<li>기본값: “” | 설정이 지정되지 않은 경우에 그룹의 기본 분류로 사용되는 분류입니다.|
+|  <ul><li>PrefixSuffixNamingRequirement<li>형식: 문자열<li>기본값: “” | Office 365 그룹에 대해 구성된 명명 규칙을 정의하는 최대 64자의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대한 명명 정책 적용](groups-naming-policy.md)을 참조하세요. |
+| <ul><li>CustomBlockedWordsList<li>형식: 문자열<li>기본값: “” | 사용자가 그룹 이름 또는 별칭에서 사용하도록 허용되지 않은 쉼표로 구분된 구의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대한 명명 정책 적용](groups-naming-policy.md)을 참조하세요. |
 | <ul><li>EnableMSStandardBlockedWords<li>형식: Boolean<li>기본값: “False” | 사용 안 함
-|  <ul><li>AllowGuestsToBeGroupOwner<li>형식: Boolean<li>기본값: 거짓 | 게스트 사용자가 그룹의 소유자일 수 있는지 여부를 나타내는 부울 값입니다. |
+|  <ul><li>AllowGuestsToBeGroupOwner<li>형식: Boolean<li>기본값: False | 게스트 사용자가 그룹의 소유자일 수 있는지 여부를 나타내는 부울 값입니다. |
 |  <ul><li>AllowGuestsToAccessGroups<li>형식: Boolean<li>기본값: True | 게스트 사용자가 Office 365 그룹의 콘텐츠에 액세스할 수 있는지 여부를 나타내는 부울 값입니다.  이 설정에는 Azure Active Directory Premium P1 라이선스가 필요하지 않습니다.|
-|  <ul><li>GuestUsageGuidelinesUrl<li>형식: String<li>기본값: “” | 게스트 사용 지침의 링크 url입니다. |
-|  <ul><li>AllowToAddGuests<li>형식: Boolean<li>기본값: True | 이 디렉터리에 게스트를 추가하는 것이 허용되는지 여부를 나타내는 부울 값입니다.|
+|  <ul><li>GuestUsageGuidelinesUrl<li>형식: 문자열<li>기본값: “” | 게스트 사용 지침의 링크 url입니다. |
+|  <ul><li>AllowAddGuests<li>형식: Boolean<li>기본값: True | 이 디렉터리에 게스트를 추가하는 것이 허용되는지 여부를 나타내는 부울 값입니다.|
 |  <ul><li>ClassificationList<li>형식: 문자열<li>기본값: “” |Office 365 그룹에 적용할 수 있는 유효한 분류 값을 쉼표로 구분한 목록입니다. |
 
-## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>예제: 디렉터리 수준에서 그룹에 대 한 게스트 정책 구성
+## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>예: 디렉터리 수준에서 그룹에 대 한 게스트 정책 구성
 1. 모든 설정 템플릿을 가져옵니다.
    ```powershell
    Get-AzureADDirectorySettingTemplate
@@ -140,9 +140,9 @@ UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 
    ```powershell
    $Setting = $template.CreateDirectorySetting()
    ```  
-4. 그런 다음 AllowToAddGuests 설정을 업데이트 합니다.
+4. 그런 다음 AllowAddGuests 설정을 업데이트 합니다.
    ```powershell
-   $Setting["AllowToAddGuests"] = $False
+   $Setting["AllowAddGuests"] = $False
    ```  
 5. 그런 다음 설정을 적용 합니다.
   
@@ -196,7 +196,7 @@ UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 
    AllowGuestsToAccessGroups     True
    GuestUsageGuidelinesUrl
    GroupCreationAllowedGroupId
-   AllowToAddGuests              True
+   AllowAddGuests              True
    UsageGuidelinesUrl            https://guideline.example.com
    ClassificationList
    EnableGroupCreation           True
@@ -233,7 +233,7 @@ UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 
 
 4. 필요한 값의 설정을 지정합니다.
    ```powershell
-   $SettingCopy["AllowToAddGuests"]=$False
+   $SettingCopy["AllowAddGuests"]=$False
    ```
 5. 이 설정을 적용 하려는 그룹의 ID를 가져옵니다.
    ```powershell
@@ -259,7 +259,7 @@ UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 
    ```
 3. 필요한 경우 그룹의 설정을 업데이트 합니다. 예를 들어
    ```powershell
-   $Setting["AllowToAddGuests"] = $True
+   $Setting["AllowAddGuests"] = $True
    ```
 4. 그런 다음이 특정 그룹에 대 한 설정의 ID를 가져옵니다.
    ```powershell

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 99d21e773fee59780d82004eaa7213598fe7c8bb
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 202414260deacc4b196cd789e923ff00ca650b4d
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066133"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315220"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SAML ID 공급자로 ADFS 추가
 
@@ -23,7 +23,7 @@ ms.locfileid: "71066133"
 
 이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 [사용자 지정 정책을](active-directory-b2c-overview-custom.md) 사용 하 여 ADFS 사용자 계정에 대 한 로그인을 사용 하도록 설정 하는 방법을 보여 줍니다. 사용자 지정 정책에 [SAML 기술 프로필](saml-technical-profile.md)을 추가하여 로그인할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다.
 - 프라이빗 키가 포함된 인증서 .pfx 파일에 액세스할 수 있는지 확인합니다. 자체 서명된 인증서를 생성하고 Azure AD B2C에 업로드할 수 있습니다. Azure AD B2C는 이 인증서를 사용하여 SAML ID 공급자에 보낸 SAML 요청에 서명합니다.
@@ -39,7 +39,7 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 4. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
 5. **정책 키**, **추가**를 차례로 선택합니다.
 6. **옵션**으로는 `Upload`을 선택합니다.
-7. 정책 키의 **이름**을 입력합니다. `SamlCert` 을 입력합니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+7. 정책 키의 **이름**을 입력합니다. 예를 들어, `SamlCert`을 입력합니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
 8. 프라이빗 키가 있는 인증서 .pfx 파일을 찾아 선택합니다.
 9. **만들기**를 클릭합니다.
 
@@ -115,7 +115,7 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 2. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소를 찾아서 전체 콘텐츠를 복사합니다.
 3. *TrustFrameworkExtensions.xml*을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
 4. 이전 단계에서 복사한 **UserJourney** 요소의 전체 콘텐츠를 **UserJourneys** 요소의 자식으로 붙여넣습니다.
-5. 사용자 경험 ID의 이름을 바꿉니다. `SignUpSignInADFS` 을 입력합니다.
+5. 사용자 경험 ID의 이름을 바꿉니다. 예를 들어, `SignUpSignInADFS`을 입력합니다.
 
 ### <a name="display-the-button"></a>단추 표시
 
@@ -139,7 +139,7 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
     ```
 
-    **TechnicalProfileReferenceId**의 값을 앞에서 만든 기술 프로필의 ID로 업데이트합니다. `Contoso-SAML2` 을 입력합니다.
+    **TechnicalProfileReferenceId**의 값을 앞에서 만든 기술 프로필의 ID로 업데이트합니다. 예를 들어, `Contoso-SAML2`을 입력합니다.
 
 3. *TrustFrameworkExtensions.xml* 파일을 저장하고 확인을 위해 다시 업로드합니다.
 
@@ -188,22 +188,14 @@ https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadat
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
 
-Azure AD B2C와의 통신은 테넌트에 만드는 애플리케이션을 통해 수행됩니다. 이 섹션에는 아직 만들지 않은 경우 테스트 애플리케이션을 만들기 위해 완료할 수 있는 선택적 단계가 나와 있습니다.
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 테 넌 트가 포함 된 디렉터리를 선택 하 여 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-4. **애플리케이션**을 선택하고 **추가**를 선택합니다.
-5. 애플리케이션 이름(예: *testapp1*)을 입력합니다.
-6. **웹앱/웹 API**에서 `Yes`를 선택하고 **회신 URL**에 `https://jwt.ms`를 입력합니다.
-7. **만들기**를 클릭합니다.
+[!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
 ### <a name="update-and-test-the-relying-party-file"></a>신뢰 당사자 파일 업데이트 및 테스트
 
 만든 사용자 경험을 시작하는 RP(신뢰 당사자) 파일을 업데이트합니다.
 
 1. 작업 디렉터리에서 *SignUpOrSignIn.xml*의 복사본을 만들고 이름을 바꿉니다. 예를 들어 파일 이름을 *SignUpSignInADFS.xml*로 바꿉니다.
-2. 새 파일을 열고 **TrustFrameworkPolicy**의 **PolicyId** 특성 값을 고유 값으로 업데이트합니다. `SignUpSignInADFS` 을 입력합니다.
+2. 새 파일을 열고 **TrustFrameworkPolicy**의 **PolicyId** 특성 값을 고유 값으로 업데이트합니다. 예를 들어, `SignUpSignInADFS`을 입력합니다.
 3. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예를 들어 `http://contoso.com/B2C_1A_signup_signin_adfs`으로 업데이트할 수 있습니다.
 4. 새로 만든 사용자 경험의 ID(SignUpSignInADFS)와 일치하도록 **DefaultUserJourney**의 **ReferenceId** 특성을 업데이트합니다.
 5. 변경 내용을 저장하고 파일을 업로드한 다음 목록에서 새 정책을 선택합니다.

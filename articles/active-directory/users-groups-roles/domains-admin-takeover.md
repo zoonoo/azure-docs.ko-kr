@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00753ee8d7d128222e9fb773f00a23720813a237
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 44276c911768f588064245c37a1284adeda8138f
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146455"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315718"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Microsoft Azure Active Directory에서 관리자로서 관리되지 않는 디렉터리 인수
 
@@ -101,7 +101,7 @@ Office 365와 같이 SharePoint 및 OneDrive를 포함하는 일부 제품은 �
 
 SharePoint, OneDrive 또는 비즈니스용 Skype를 포함 하는 서비스 계획이 있는 서비스에 대해서는 외부 관리자 인수 지원 되지 않습니다. 예를 들어, Office 무료 구독을 사용 합니다. 
 
-선택적으로 관리되지 않는 테넌트에서 도메인 이름을 제거하고 원하는 테넌트에서 확인하기 위해 [**ForceTakeover** 옵션](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option)을 사용할 수 있습니다. **ForceTakeover 옵션은 사용자를 이동 하거나 구독에 대 한 액세스를 유지 하지 않습니다. 이 옵션은 도메인 이름만 이동 합니다.**
+선택적으로 관리되지 않는 테넌트에서 도메인 이름을 제거하고 원하는 테넌트에서 확인하기 위해 [**ForceTakeover** 옵션](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option)을 사용할 수 있습니다. 
 
 #### <a name="more-information-about-rms-for-individuals"></a>개인용 RMS에 대한 자세한 내용
 

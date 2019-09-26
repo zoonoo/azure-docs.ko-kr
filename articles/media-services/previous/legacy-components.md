@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: 6ff23ca4c66094df18d1d18caac67192059e8f8d
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: d4f4cfc005b2d5a63512245baee5230e9a26cb37
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019408"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309215"
 ---
 # <a name="azure-media-services-legacy-components"></a>Azure Media Services 레거시 구성 요소
 
@@ -26,12 +26,14 @@ ms.locfileid: "70019408"
 
 ## <a name="legacy-components-and-migration-guidance"></a>레거시 구성 요소 및 마이그레이션 지침
 
-### <a name="media-processors"></a>미디어 프로세서
-
 *Windows Azure Media Encoder* (wame) 및 *Azure Media Encoder* (AME) 미디어 프로세서의 사용 중단을 발표 하 고 있습니다. 이러한 프로세서는 2019 년 11 월 30 일에 사용 중지 됩니다.
 
 * [Windows Azure Media Encoder에서 Media Encoder Standard로 마이그레이션](migrate-windows-azure-media-encoder.md)
 * [Azure Media Encoder에서 Media Encoder Standard로 마이그레이션](migrate-azure-media-encoder.md)
+
+또한 *Azure Media Indexer* 및 *Azure Media Indexer 2*의 사용 중단을 발표 하 고 있습니다. [Azure Media Indexer](media-services-index-content.md) 미디어 프로세서는 2020 년 10 월 1 일에 사용 중지 됩니다. [[Azure Media Indexer 2 (미리 보기)](media-services-process-content-with-indexer2.md) 미디어 프로세서는 2019 년 1 월 1 일에 사용 중지 됩니다.  [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) 이러한 레거시 미디어 프로세서를 대체 합니다.
+
+* [Azure Media Indexer Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션합니다](migrate-indexer-v1-v2.md).
 
 ## <a name="next-steps"></a>다음 단계
 

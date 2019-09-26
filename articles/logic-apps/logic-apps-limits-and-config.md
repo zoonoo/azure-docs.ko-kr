@@ -1,5 +1,5 @@
 ---
-title: 제한 및 구성 - Azure Logic Apps | Microsoft Docs
+title: 제한 및 구성-Azure Logic Apps
 description: Azure Logic Apps에 대한 서비스 제한 및 구성 값
 services: logic-apps
 ms.service: logic-apps
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 401b33c28e4ba91a0da5e4ab38f920e173302ea1
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 1479c6665b5d68e0fa16ece7e37f4e2a2457c69a
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242362"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309784"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -119,13 +119,19 @@ Premium SKU에 대 한 처리량 제한은 다음과 같습니다.
 > [!NOTE]
 > 이 SKU에는 확장에 대 한 SLA (서비스 수준 계약) 또는 기능이 없기 때문에 [개발자 SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) 에는 게시 된 제한이 없습니다. 프로덕션 또는 성능 테스트가 아닌 실험, 개발 및 테스트에만이 SKU를 사용 합니다.
 
+<a name="gateway-limits"></a>
+
+## <a name="gateway-limits"></a>게이트웨이 제한
+
+Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 포함 하 여 쓰기 작업을 지원 합니다. 그러나 이러한 작업 [은 페이로드 크기에 제한이](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)있습니다.
+
 <a name="request-limits"></a>
 
 ## <a name="http-limits"></a>HTTP 한도
 
 다음은 단일 HTTP 요청 또는 동기 커넥터 호출에 대한 제한 사항입니다.
 
-#### <a name="timeout"></a>제한 시간
+#### <a name="timeout"></a>시간 제한
 
 일부 커넥터 작업은 비동기 호출을 하거나 웹후크 요청을 수신하므로 이 작업에 대한 시간 제한이 이 제한보다 길 수 있습니다. 자세한 내용은 특정 커넥터에 대한 기술 정보 및 [워크플로 트리거 및 작업](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)을 참조하세요.
 
@@ -203,7 +209,7 @@ ISE에 포함 된 통합 계정 외에 추가 하는 통합 계정에 추가 비
 > [!NOTE]
 > 무료 계층은 프로덕션 시나리오가 아닌 예비 시나리오에만 사용 하세요. 이 계층에서는 처리량과 사용량을 제한하며 SLA(서비스 수준 계약)가 없습니다.
 
-| 아티팩트 | Free | Basic | 표준 |
+| 아티팩트 | 무료 | 기본 | Standard |
 |----------|------|-------|----------|
 | EDI 거래 계약 | 10 | 1 | 1,000 |
 | EDI 거래 업체 | 25 | 2 | 1,000 |

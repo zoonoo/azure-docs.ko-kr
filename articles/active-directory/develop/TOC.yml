@@ -344,6 +344,8 @@
               href: v2-permissions-and-consent.md
             - name: 동의 프레임워크
               href: consent-framework.md
+            - name: 관리자 동의
+              href: v2-admin-consent.md
             - name: 애플리케이션 동의 경험
               href: application-consent-experience.md
         - name: 국가별 클라우드

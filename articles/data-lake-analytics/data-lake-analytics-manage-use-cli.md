@@ -1,5 +1,5 @@
 ---
-title: Azure 명령줄 인터페이스를 사용하여 Azure Data Lake Analytics 관리
+title: Azure CLI를 사용 하 여 Azure Data Lake Analytics 관리
 description: 이 문서에서는 Azure CLI를 사용하여 Data Lake Analytics 작업, 데이터 원본 및 사용자를 관리하는 방법을 설명합니다.
 services: data-lake-analytics
 author: jasonwhowell
@@ -8,12 +8,12 @@ ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: fa7d46d45c350435c0ffba8f3755ad8bea651c3e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d66926d8ba87096537800d22a9c116b7b10d23cf
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387063"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309732"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Azure CLI(명령줄 인터페이스)를 사용하여 Azure Data Lake Analytics 관리
 
@@ -211,7 +211,7 @@ az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
 * [Azure 포털을 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)
 * [Azure 포털을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)

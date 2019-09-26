@@ -1,19 +1,20 @@
 ---
-title: Azure HDInsight-질문과 대답
-description: Azure HDInsight에 대 한 개요를 제공 합니다.
+title: Azure HDInsight 질문과 대답
+description: HDInsight에 대 한 질문과 대답
+keywords: 질문과 대답 (faq)
 author: Ramakoni1
 ms.author: ramakoni
-ms.reviewer: v-miegge
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 4accd8c2f58dd89fb5f918ca6e58e71caeaed57f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 0a718786cc7c72ef4ee9573c3c3e40401c53a315
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212757"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71308058"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: 질문과 대답
 
@@ -27,7 +28,9 @@ ms.locfileid: "71212757"
 
 ### <a name="how-do-i-delete-an-existing-hdinsight-cluster"></a>기존 HDInsight 클러스터를 삭제 어떻게 할까요??
 
-더 이상 사용 하지 않을 때 클러스터를 삭제 하는 방법에 대 한 자세한 내용은 [브라우저, PowerShell 또는 Azure CLI를 사용 하 여 HDInsight 클러스터 삭제](https://docs.microsoft.com/azure/hdinsight/hdinsight-delete-cluster)를 참조 하세요. 단일 클러스터에 대 한 만들기 및 삭제 작업 사이에 최소 30 ~ 60 분이 소요 되는 것이 좋습니다. 그렇지 않으면 작업이 실패 하 고 다음과 같은 오류 메시지가 반환 됩니다.
+더 이상 사용 하지 않을 때 클러스터를 삭제 하는 방법에 대 한 자세한 내용은 [HDInsight 클러스터 삭제](hdinsight-delete-cluster.md)를 참조 하세요.
+
+만들기 및 삭제 작업 사이에 30 ~ 60 분 이상 남겨 둡니다. 그렇지 않으면 다음과 같은 오류 메시지와 함께 작업이 실패할 수 있습니다.
 
 ``Conflict (HTTP Status Code: 409) error when attempting to delete a cluster immediately after creation of a cluster. If you encounter this error, wait until the newly created cluster is in operational state before attempting to delete it.``
 
@@ -55,44 +58,49 @@ Azure의 할당량 한도는 리소스 그룹당 800개 배포입니다. 리소�
 
 할당량 증가를 요청하려면 다음 단계를 수행합니다.
 
-1. Azure Portal로 이동 하 여 도움말 + 지원을 선택 합니다.
-2. 새 지원 요청을 선택 합니다.
-3. 새 지원 요청 페이지의 기본 사항 탭에서 다음 옵션을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동 하 여 **도움말 + 지원**을 선택 합니다.
+   
+1. **새 지원 요청**을 선택합니다.
+   
+1. **새 지원 요청** 페이지의 **기본 사항** 탭에서 다음 정보를 제공 합니다.
+   
+   - **문제 유형:** **서비스 및 구독 제한 (할당량)** 을 선택 합니다.
+   - **구독:** 수정 하려는 구독을 선택 합니다.
+   - **할당량 유형:** **HDInsight**를 선택합니다.
 
-   * 문제 유형: 서비스 및 구독 제한(할당량)
-   * 구독: 수정 하려는 구독
-   * 할당량 유형: HDInsight
-
-자세한 내용은 [코어를 늘리기 위한 지원 티켓 만들기](https://docs.microsoft.com/azure/hdinsight/hdinsight-capacity-planning#quotas)를 참조 하세요.
+자세한 내용은 [코어를 늘리기 위한 지원 티켓 만들기](hdinsight-capacity-planning.md#quotas)를 참조하세요.
 
 ### <a name="what-are-the-various-types-of-nodes-in-an-hdinsight-cluster"></a>HDInsight 클러스터에는 다양 한 유형의 노드가 있나요?
 
 Azure HDInsight 클러스터에는 서로 다른 유형의 가상 머신 또는 노드가 있습니다. 각 노드 유형은 시스템 작업에서 역할을 수행 합니다.
 
-자세한 내용은 [Azure HDInsight 클러스터의 리소스 종류](https://docs.microsoft.com/azure/hdinsight/hdinsight-virtual-network-architecture#resource-types-in-azure-hdinsight-clusters)를 참조 하세요.
+자세한 내용은 [Azure HDInsight 클러스터의 리소스 종류](hdinsight-virtual-network-architecture.md#resource-types-in-azure-hdinsight-clusters)를 참조 하세요.
 
 ## <a name="individual-components"></a>개별 구성 요소
 
 ### <a name="can-i-install-additional-components-on-my-cluster"></a>클러스터에 추가 구성 요소를 설치할 수 있나요?
 
-예, 추가 구성 요소를 설치 하거나 다음 방법 중 하나를 사용 하 여 클러스터 구성을 사용자 지정할 수 있습니다.
+예. 추가 구성 요소를 설치 하거나 클러스터 구성을 사용자 지정 하려면 다음을 사용 합니다.
 
-* 생성 중 또는 이후에 스크립트 사용. 이러한 스크립트는 [스크립트 작업](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)을 통해 호출 됩니다. 이 구성 옵션은 Azure Portal, HDInsight Windows PowerShell cmdlet 또는 HDInsight .NET SDK에서 사용할 수 있습니다. 
-* 클러스터가 프로 비전 된 후 sudo 또는 기타 방법을 사용 합니다.
-* [HDInsight 응용 프로그램 플랫폼](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) 을 사용 하 여 에코 시스템 응용 프로그램을 설치 합니다.
+- 스크립트를 생성 합니다. 스크립트는 스크립트 작업을 통해 호출 됩니다. [스크립트 작업](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)은 Azure Portal, Hdinsight Windows PowerShell Cmdlet 또는 HDINSIGHT .net SDK에서 사용할 수 있는 구성 옵션입니다. 이 구성 옵션은 Azure Portal, HDInsight Windows PowerShell cmdlet 또는 HDInsight .NET SDK에서 사용할 수 있습니다.
+
+- `sudo`또는 클러스터를 프로 비전 한 후 다른 방법을 사용할 수 있습니다.
+  
+- 에코 시스템 응용 프로그램을 설치 하는 [HDInsight 응용 프로그램 플랫폼](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) 입니다.
 
 그러나 Microsoft 지원 팀은 다음과 같은 경우에만 지원을 제공할 수 있습니다.
 
-* 스크립트를 로드할 때 발생 하는 문제 또는 오류입니다. 사용자 지정 스크립트를 실행 하는 동안 발생 하는 모든 오류는 지원 티켓 범위를 벗어납니다. 
-* 클러스터 생성 프로세스에 포함 되는 추가 응용 프로그램입니다. 
+- 스크립트를 로드할 때 발생 하는 문제 또는 오류입니다. 사용자 지정 스크립트를 실행 하는 동안 발생 하는 모든 오류는 지원 티켓 범위를 벗어납니다.
+
+- 클러스터 생성 프로세스에 포함 되는 추가 응용 프로그램입니다. 
 
 지원 되는 구성 요소 목록은 [HDInsight에서 사용할 수 있는 Apache Hadoop 구성 요소 및 버전](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions) 을 참조 하세요.
 
 개별 구성 요소에 대한 지원은 클러스터 유형에 따라 다를 수도 있습니다. 예를 들어 Spark는 Kafka 클러스터에서 지원 되지 않으며 그 반대의 경우도 마찬가지입니다.
 
-클러스터 생성 프로세스 외부의 응용 프로그램 또는 서비스의 경우 각 공급 업체 또는 서비스 공급자에 게 지원을 문의 하십시오. 이러한 작업을 지원 하기 위해 커뮤니티 사이트를 사용할 수도 있습니다. 많은 커뮤니티 사이트를 사용할 수 있습니다. 예를 들어 HDInsight 및 [Stack Overflow](https://stackoverflow.com/questions/tagged/hdinsight) [에 대 한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=hdinsight) 이 있습니다. Apache 프로젝트에는 [Apache 웹 사이트](https://apache.org/)의 프로젝트 사이트도 있습니다. 한 가지 예는 [Hadoop](https://hadoop.apache.org/)입니다.
+클러스터 생성 프로세스 외부의 응용 프로그램 및 서비스에 대 한 지원은 공급 업체 또는 서비스 공급자에 게 문의 하세요. 여러 커뮤니티 지원 사이트를 사용할 수도 있습니다. 예제는 HDInsight 및 [Stack Overflow](https://stackoverflow.com/) [에 대 한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) 입니다. Apache 프로젝트에는 [Apache 웹 사이트](https://apache.org/)의 프로젝트 사이트도 있습니다. 예를 들어 [Hadoop](https://hadoop.apache.org/)이 있습니다. 
 
- Azure 지원과 관련 된 추가 질문은 [Azure 지원 FAQ](https://azure.microsoft.com/en-us/support/faq/)를 참조 하세요.
+Azure 지원에 대 한 자세한 내용은 [Azure 지원 faq](https://azure.microsoft.com/support/faq/)를 참조 하세요.
 
 ### <a name="can-i-upgrade-the-individual-components-that-are-pre-installed-on-the-cluster"></a>클러스터에 미리 설치 된 개별 구성 요소를 업그레이드할 수 있나요?
 
@@ -102,7 +110,7 @@ Azure HDInsight 클러스터에는 서로 다른 유형의 가상 머신 또는 
 
 ### <a name="can-spark-and-kafka-run-on-the-same-hdinsight-cluster"></a>Spark와 Kafka을 동일한 HDInsight 클러스터에서 실행할 수 있나요?
 
-아니요, 동일한 HDInsight 클러스터에서 Apache Kafka 및 Apache Spark를 실행할 수 없습니다. 사용자는 리소스 경합 문제를 방지 하기 위해 각각에 대해 별도의 클러스터를 만들어야 합니다.
+아니요, 동일한 HDInsight 클러스터에서 Apache Kafka 및 Apache Spark를 실행할 수 없습니다. 리소스 경합 문제를 방지 하기 위해 Kafka 및 Spark에 대해 별도의 클러스터를 만듭니다.
 
 ### <a name="how-do-i-change-timezone-in-ambari"></a>Ambari에서 표준 시간대를 변경 어떻게 할까요??
 
@@ -119,7 +127,7 @@ Azure HDInsight 클러스터에는 서로 다른 유형의 가상 머신 또는 
 
 ### <a name="how-can-i-migrate-from-the-existing-metastore-to-azure-sql-server"></a>기존 metastore에서 Azure SQL Server로 마이그레이션하려면 어떻게 해야 하나요? 
 
-SQL Server에서 Azure SQL Server [로 마이그레이션하려면 자습서: DMS](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql)를 사용 하 여 Azure SQL Database 오프 라인에서 단일 데이터베이스 또는 풀링된 데이터베이스로 SQL Server를 마이그레이션합니다.
+SQL Server에서 Azure SQL Server [로 마이그레이션하려면 자습서: DMS](../dms/tutorial-sql-server-to-azure-sql.md)를 사용 하 여 Azure SQL Database 오프 라인에서 단일 데이터베이스 또는 풀링된 데이터베이스로 SQL Server를 마이그레이션합니다.
 
 ### <a name="is-the-hive-metastore-deleted-when-the-cluster-is-deleted"></a>클러스터가 삭제 될 때 Hive metastore 삭제 됩니까?
 
@@ -129,11 +137,11 @@ SQL Server에서 Azure SQL Server [로 마이그레이션하려면 자습서: DM
 
 사용자 지정 metastore: Metastore의 수명 주기는 클러스터의 수명 주기와 연결 되지 않습니다. 따라서 메타 데이터 손실 없이 클러스터를 만들고 삭제할 수 있습니다. HDInsight 클러스터를 삭제 하 고 다시 만든 후에도 Hive 스키마와 같은 메타 데이터가 유지 됩니다.
 
-자세한 내용은 [Azure HDInsight에서 외부 메타데이터 저장소 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores)을 참조하세요.
+자세한 내용은 [Azure HDInsight에서 외부 메타데이터 저장소 사용](hdinsight-use-external-metadata-stores.md)을 참조하세요.
 
 ### <a name="does-migrating-a-hive-metastore-also-migrate-the-default-policies-of-the-ranger-database"></a>Hive metastore 마이그레이션하는 경우에도 레인저 데이터베이스의 기본 정책이 마이그레이션 되나요?
 
-아니요, 정책 정의는 레인저 데이터베이스에 있습니다. 따라서 레인저 데이터베이스를 마이그레이션하면 정책이 마이그레이션되지 않습니다.
+아니요, 정책 정의는 레인저 데이터베이스에 있기 때문에 레인저 데이터베이스를 마이그레이션하면 해당 정책이 마이그레이션됩니다.
 
 ### <a name="can-you-migrate-a-hive-metastore-from-an-enterprise-security-package-esp-cluster-to-a-non-esp-cluster-and-vice-versa"></a>Hive metastore를 ESP (Enterprise Security Package) 클러스터에서 비 ESP 클러스터로 또는 그 반대로 마이그레이션할 수 있나요?
 
@@ -141,7 +149,7 @@ SQL Server에서 Azure SQL Server [로 마이그레이션하려면 자습서: DM
 
 ### <a name="how-can-i-estimate-the-size-of-a-hive-metastore-database"></a>Hive metastore 데이터베이스의 크기를 예측 하려면 어떻게 해야 하나요?
 
-Hive metastore는 Hive 서버에서 사용 하는 데이터 원본에 대 한 메타 데이터를 저장 하는 데 사용 됩니다. 따라서 크기 요구 사항은 Hive에 사용 해야 하는 데이터 원본 수와 데이터 원본의 복잡성에 의해 영향을 받습니다. 따라서이 크기는 선행이 될 수 없습니다. [Hive metastore 모범 사례](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores#hive-metastore-best-practices)에 설명 된 대로 S2 계층에서 시작 하는 50 DTU 및 250 GB의 저장소를 제공 합니다. 병목 상태가 발생 하는 경우 데이터베이스를 확장할 수 있습니다.
+Hive metastore는 Hive 서버에서 사용 하는 데이터 원본에 대 한 메타 데이터를 저장 하는 데 사용 됩니다. 크기 요구 사항은 Hive 데이터 원본의 수와 복잡성에 따라 달라 지 며 앞으로 예측할 수 없습니다. [Hive metastore 모범 사례](hdinsight-use-external-metadata-stores.md#hive-metastore-best-practices)에 설명 된 대로 50 DTU 및 250 GB의 저장소를 제공 하는 S2 계층에서 시작할 수 있으며, 병목 현상이 발생 하면 데이터베이스를 확장할 수 있습니다.
 
 ### <a name="do-you-support-any-other-database-other-than-azure-sql-database-as-an-external-metastore"></a>외부 metastore Azure SQL Database 아닌 다른 데이터베이스를 지원 하나요?
 
@@ -159,53 +167,55 @@ Hive metastore는 Hive 서버에서 사용 하는 데이터 원본에 대 한 �
 
 자세한 내용은 다음 문서를 참조하세요.
 
-* [네트워크 트래픽 제어](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#networktraffic)
-* [개인 끝점을 사용 하 여 가상 네트워크에서 HDInsight 클러스터에 들어오는 트래픽 보안](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
-* [HDInsight 관리 IP 주소](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)
+- [네트워크 트래픽 제어](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#networktraffic)
+
+- [개인 끝점을 사용 하 여 가상 네트워크에서 HDInsight 클러스터에 들어오는 트래픽 보안](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
+
+- [HDInsight 관리 IP 주소](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)
 
 ### <a name="can-i-deploy-an-additional-virtual-machine-within-the-same-subnet-as-an-hdinsight-cluster"></a>HDInsight 클러스터와 동일한 서브넷 내에 추가 가상 컴퓨터를 배포할 수 있나요?
 
 예, HDInsight 클러스터와 동일한 서브넷 내에 추가 가상 컴퓨터를 배포할 수 있습니다. 다음과 같은 구성을 사용할 수 있습니다.
 
-* 에 지 노드: [HDInsight에서 Apache Hadoop 클러스터의 빈에 지 노드 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-use-edge-node)에 설명 된 대로 클러스터에 다른에 지 노드를 추가할 수 있습니다. 
-* 독립 실행형 노드:  독립 실행형 가상 컴퓨터를 동일한 서브넷에 추가 하 고 개인 끝점 `https://<CLUSTERNAME>-int.azurehdinsight.net`을 사용 하 여 해당 가상 컴퓨터에서 클러스터에 액세스할 수 있습니다. 자세한 내용은 [네트워크 트래픽 제어](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#networktraffic)를 참조 하세요.
+- 에 지 노드: [HDInsight에서 Apache Hadoop 클러스터의 빈에 지 노드 사용](hdinsight-apps-use-edge-node.md)에 설명 된 대로 클러스터에 다른에 지 노드를 추가할 수 있습니다.
+
+- 독립 실행형 노드:  독립 실행형 가상 컴퓨터를 동일한 서브넷에 추가 하 고 개인 끝점 `https://<CLUSTERNAME>-int.azurehdinsight.net`을 사용 하 여 해당 가상 컴퓨터에서 클러스터에 액세스할 수 있습니다. 자세한 내용은 [네트워크 트래픽 제어](hdinsight-plan-virtual-network-deployment.md#networktraffic)를 참조 하세요.
 
 ### <a name="can-i-add-an-existing-hdinsight-cluster-to-another-virtual-network"></a>기존 HDInsight 클러스터를 다른 가상 네트워크에 추가할 수 있나요?
 
-아니요, 기존 HDInsight 클러스터를 다른 가상 네트워크에 추가할 수 없습니다. 프로 비전 시 가상 네트워크를 지정 해야 합니다. 프로 비전 하는 동안 가상 네트워크가 지정 되지 않은 경우 배포는 외부에서 액세스할 수 없는 내부 네트워크를 만듭니다. 자세한 내용은 [기존 가상 네트워크에 HDInsight 추가](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#existingvnet)를 참조 하세요.
+너는 할 수 없어요. 프로 비전 시 가상 네트워크를 지정 해야 합니다. 프로 비전 하는 동안 가상 네트워크가 지정 되지 않은 경우 배포는 외부에서 액세스할 수 없는 내부 네트워크를 만듭니다. 자세한 내용은 [기존 가상 네트워크에 HDInsight 추가](hdinsight-plan-virtual-network-deployment.md#existingvnet)를 참조 하세요.
 
 ## <a name="security-and-certificates"></a>보안 및 인증서
 
-Azure HD 정보 클러스터의 맬웨어 보호에 대 한 Microsoft 권장 사항은 무엇 인가요?
+### <a name="what-are-the-recommendations-for-malware-protection-on-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터의 맬웨어 보호에 대 한 권장 사항은 무엇 인가요?
 
-맬웨어 보호에 대 한 자세한 내용은 [Azure Cloud Services 및 Virtual Machines에 대 한 Microsoft 맬웨어 방지](https://docs.microsoft.com/azure/security/fundamentals/antimalware)를 참조 하세요.
+맬웨어 보호에 대 한 자세한 내용은 [Azure Cloud Services 및 Virtual Machines에 대 한 Microsoft 맬웨어 방지](../security/fundamentals/antimalware.md)를 참조 하세요.
 
 ### <a name="how-do-i-create-a-keytab-for-an-hdinsight-esp-cluster"></a>HDInsight ESP 클러스터에 대 한 keytab를 만들 어떻게 할까요? 있나요?
 
-도메인 사용자 이름에 대 한 Kerberos keytab를 만들 수 있습니다. 나중에이 keytab를 사용 하 여 암호를 입력 하지 않고도 원격 도메인에 가입 된 클러스터에 인증할 수 있습니다. 도메인 이름의 대문자를 확인 합니다.
+도메인 사용자 이름에 대 한 Kerberos keytab를 만듭니다. 나중에이 keytab를 사용 하 여 암호를 입력 하지 않고도 원격 도메인에 가입 된 클러스터에 인증할 수 있습니다. 도메인 이름은 대문자입니다.
 
-```
-o ktutil 
-o ktutil: addent -password -p stXX@ DOMAIN.COM -k 1 -e RC4-HMAC 
-o Password for stXX@DOMAIN.COM: provided by lab instructors 
-o ktutil: wkt stXX.keytab 
-o ktutil: q
+```shell
+ktutil
+ktutil: addent -password -p <username>@<DOMAIN.COM> -k 1 -e RC4-HMAC
+Password for <username>@<DOMAIN.COM>: <password>
+ktutil: wkt <username>.keytab
+ktutil: q
 ```
 
 ### <a name="can-i-use-an-existing-azure-active-directory-tenant-to-create-an-hdinsight-cluster-that-has-the-esp"></a>기존 Azure Active Directory 테 넌 트를 사용 하 여 ESP를 포함 하는 HDInsight 클러스터를 만들 수 있나요?
 
-ESP를 사용 하는 HDInsight 클러스터를 만들려면 먼저 Azure Active Directory Domain Services (AAD)를 사용 하도록 설정 해야 합니다. 오픈 소스 Hadoop은 인증을 위해 Kerberos를 사용 합니다 (OAuth와 반대).
+ESP를 사용 하 여 HDInsight 클러스터를 만들려면 먼저 Azure Active Directory Domain Services (Azure AD DS)를 사용 하도록 설정 해야 합니다. 오픈 소스 Hadoop은 인증을 위해 Kerberos를 사용 합니다 (OAuth와 반대).
 
-도메인에 가상 컴퓨터를 가입 시키려면 도메인 컨트롤러가 필요 합니다. AAD-DS는 관리 되는 도메인 컨트롤러입니다. 이는 관리 되는 방식으로 보안 Hadoop 클러스터를 빌드하기 위한 모든 Kerberos 요구 사항을 제공 하는 AAD의 확장으로 간주 됩니다. 관리 서비스인 HDInsight는 종단 간 보안을 제공 하기 위해 AAD와 통합 됩니다.
+Vm을 도메인에 가입 시키려면 도메인 컨트롤러가 있어야 합니다. Azure AD DS는 관리 되는 도메인 컨트롤러 이며 관리 되는 방식으로 보안 Hadoop 클러스터를 빌드하기 위한 모든 Kerberos 요구 사항을 제공 하는 Azure Active Directory의 확장으로 간주 됩니다. 관리 서비스인 HDInsight는 Azure AD DS와 통합 되어 종단 간 보안을 제공 합니다.
 
 ### <a name="can-i-use-a-self-signed-certificate-in-an-aad-ds-secure-ldap-setup-and-provision-an-esp-cluster"></a>AAD DS secure LDAP 설정에서 자체 서명 된 인증서를 사용 하 고 ESP 클러스터를 프로 비전 할 수 있나요?
 
-CA (인증 기관)에서 발급 한 인증서를 사용 하는 것이 좋지만, 자체 서명 된 인증서를 사용 하는 것도 ESP 에서도 지원 됩니다.
+인증 기관에서 발급 한 인증서를 사용 하는 것이 좋지만, 자체 서명 된 인증서를 사용 하는 것도 ESP 에서도 지원 됩니다. 자세한 내용은 다음을 참조하세요.
 
-자세한 내용은 다음을 참조하세요.
+- [Azure Active Directory Domain Services 사용](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
 
-* [Azure AD-DS 사용](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#enable-azure-ad-ds)
-* [자습서: Azure Active Directory Domain Services 관리 되는 도메인에 대 한 보안 LDAP 구성](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps)
+- [자습서: Azure Active Directory Domain Services 관리 되는 도메인에 대 한 보안 LDAP 구성](../active-directory-domain-services/tutorial-configure-ldaps.md)
 
 ### <a name="how-can-i-pull-login-activity-shown-in-ranger"></a>레인저에 표시 된 로그인 작업을 어떻게 끌어올 수 있나요?
 
@@ -220,12 +230,12 @@ Clamscan는 HDInsight 클러스터에서 실행 되 고 Azure 보안 (azsecd)에
 일정을 제어 해야 하는 경우 다음 단계를 사용할 수 있습니다.
 
 1. 다음 명령을 사용 하 여 자동 실행을 사용 하지 않도록 설정 합니다.
-
-   ``/usr/local/vbin/azsecd config -s clamav -d Disabled``
-
-2. Root로이 명령을 실행 하는 cron 작업을 만듭니다.
-
-   ``/usr/local/bin/azsecd manual -s clamav``
+   
+   `/usr/local/vbin/azsecd config -s clamav -d Disabled`
+   
+1. Root로 다음 명령을 실행 하는 Cron 작업을 추가 합니다.
+   
+   `/usr/local/bin/azsecd manual -s clamav`
 
 Cron 작업을 설정 및 실행 하는 방법에 대 한 자세한 내용은 [cron 작업 어떻게 할까요? 설정](https://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job)을 참조 하세요.
 
@@ -233,33 +243,34 @@ Cron 작업을 설정 및 실행 하는 방법에 대 한 자세한 내용은 [c
 
 ### <a name="can-i-add-an-azure-data-lake-storage-gen2-to-an-existing-hdinsight-cluster-as-an-additional-storage-account"></a>기존 HDInsight 클러스터에 Azure Data Lake Storage Gen2 추가 저장소 계정으로 추가할 수 있나요?
 
-아니요. 현재는 blob storage를 기본 저장소로 사용 하는 기존 HDInsight 클러스터에 Azure Data Lake Storage Gen2을 추가할 수 없습니다. 자세한 내용은 [Azure HDInsight 클러스터와 함께 사용 하기 위한 저장소 옵션 비교](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-compare-storage-options)를 참조 하세요. 
+아니요, 현재 blob storage를 기본 저장소로 포함 하는 클러스터에 Azure Data Lake Storage Gen2 Storage 계정을 추가할 수 없습니다. 자세한 내용은 [저장소 옵션 비교](hdinsight-hadoop-compare-storage-options.md)를 참조 하세요.
 
 ### <a name="how-can-i-find-the-currently-linked-service-principal-for-a-data-lake-storage-account"></a>Data Lake storage 계정에 대해 현재 연결 된 서비스 주체를 찾으려면 어떻게 하나요?
 
-포털에서 클러스터 속성의 Data Lake Storage Gen1 액세스를 검토 하 여 이러한 설정을 확인할 수 있습니다. 자세한 내용은 [클러스터 설정 확인](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal#verify-cluster-set-up)을 참조 하세요.
+Azure Portal의 클러스터 속성에서 **Data Lake Storage Gen1 액세스** 에서 설정을 찾을 수 있습니다. 자세한 내용은 [클러스터 설정 확인](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md#verify-cluster-set-up)을 참조 하세요.
  
-HDInsight 클러스터에 대 한 저장소 계정 및 blob 컨테이너의 사용을 계산 하려면 어떻게 해야 하나요?
-다음 절차 중 하나를 사용할 수 있습니다.
+### <a name="how-can-i-calculate-the-usage-of-storage-accounts-and-blob-containers-for-my-hdinsight-clusters"></a>HDInsight 클러스터에 대 한 저장소 계정 및 blob 컨테이너의 사용을 계산 하려면 어떻게 해야 하나요?
 
-* [PowerShell 사용](https://docs.microsoft.com/azure/storage/scripts/storage-blobs-container-calculate-size-powershell)
-* /User/hive/.의 크기를 찾을 수도 있습니다. 다음 명령을 사용 하 여 HDI 클러스터의 휴지통/폴더:
+다음 중 하나를 수행합니다.
 
-   ``hdfs dfs -du -h /user/hive/.Trash/``
+- [PowerShell 사용](../storage/scripts/storage-blobs-container-calculate-size-powershell.md)
+
+- /User/hive/.의 크기를 확인 합니다.다음 명령줄을 사용 하 여 HDInsight 클러스터의 휴지통/폴더:
+  
+  `hdfs dfs -du -h /user/hive/.Trash/`
 
 ### <a name="how-can-i-set-up-auditing-for-my-blob-storage-account"></a>내 blob storage 계정에 대 한 감사를 설정 하려면 어떻게 해야 하나요?
 
-Blob storage 계정을 감사 하려면 [Azure Portal의 저장소 계정 모니터링](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)에 설명 된 절차를 사용 하 여 blob 저장소 계정에 대 한 모니터링을 구성 해야 합니다. HDFS 감사 로그는 로컬 HDFS 파일 시스템에 대해서만 감사 정보를 제공 합니다 (hdfs://mycluster).  원격 저장소에서 수행 되는 작업은 포함 되지 않습니다.
+Blob storage 계정을 감사 하려면 [Azure Portal에서 저장소 계정 모니터링의](../storage/common/storage-monitor-storage-account.md)절차를 사용 하 여 모니터링을 구성 합니다. HDFS 감사 로그는 로컬 HDFS 파일 시스템에 대해서만 감사 정보를 제공 합니다 (hdfs://mycluster).  원격 저장소에서 수행 되는 작업은 포함 되지 않습니다.
 
 ### <a name="how-can-i-transfer-files-between-a-blob-container-and-an-hdinsight-head-node"></a>Blob 컨테이너와 HDInsight 헤드 노드 간에 파일을 전송 하려면 어떻게 해야 하나요?
 
-다음 예제와 같이 헤드 노드에서 셸 스크립트를 실행 하 여 blob 컨테이너와 HDInsight 헤드 노드 간에 파일을 전송할 수 있습니다.
+헤드 노드에서 다음 셸 스크립트와 비슷한 스크립트를 실행 합니다.
 
-```
+```shell
 for i in cat filenames.txt
-
 do
-         hadoop fs -get $i <local destination>
+   hadoop fs -get $i <local destination>
 done
 ```
  
@@ -268,44 +279,39 @@ done
  
 ### <a name="are-there-any-ranger-plugins-for-storage"></a>저장소에 대 한 레인저 플러그 인이 있나요?
 
-현재 blob storage, Azure Data Lake Storage (ADLS) Gen1 또는 Azure Data Lake Storage Gen2에 대 한 레인저 플러그 인이 없습니다. ESP 클러스터의 경우 ADLS를 모범 사례로 사용 하 고 HDFS 도구를 사용 하 여 파일 시스템 수준에서 수동으로 세분화 된 권한을 설정 합니다. 또한 ADLS를 사용 하는 경우 ESP 클러스터는 클러스터 수준에서 AAD를 사용 하 여 파일 시스템 액세스 제어 중 일부를 수행 합니다. 
+현재 blob storage 및 Azure Data Lake Storage Gen1 또는 Gen2에 대 한 레인저 플러그 인이 없습니다. ESP 클러스터의 경우에는 HDFS 도구를 사용 하 여 파일 시스템 수준에서 수동으로 세분화 된 권한을 설정할 수 있으므로 Azure Data Lake Storage을 사용 해야 합니다. 또한 Azure Data Lake Storage 사용 하는 경우 ESP 클러스터는 클러스터 수준에서 Azure Active Directory을 사용 하 여 파일 시스템 액세스 제어 중 일부를 수행 합니다. 
 
-Azure Storage 탐색기를 사용 하 여 다음 문서에 설명 된 절차를 사용 하 여 사용자가 있는 보안 그룹에 데이터 액세스 정책을 할당할 수 있습니다.
+Azure Storage 탐색기를 사용 하 여 사용자의 보안 그룹에 데이터 액세스 정책을 할당할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
-* [Hive 또는 다른 서비스를 사용 하 여 Data Lake Storage Gen2에서 데이터를 쿼리할 수 있도록 Azure AD 사용자에 대 한 권한을 설정 어떻게 할까요??](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services)
-* [Azure Data Lake Storage Gen2와 함께 Azure Storage Explorer를 사용하여 파일 및 디렉터리 수준 사용 권한 설정](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
+- [Hive 또는 다른 서비스를 사용 하 여 Data Lake Storage Gen2에서 데이터를 쿼리할 수 있도록 Azure AD 사용자에 대 한 권한을 설정 어떻게 할까요??](hdinsight-hadoop-use-data-lake-storage-gen2.md#how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services)
+- [Azure Data Lake Storage Gen2와 함께 Azure Storage Explorer를 사용하여 파일 및 디렉터리 수준 사용 권한 설정](/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
 
 ### <a name="can-i-increase-hdfs-storage-on-a-cluster-without-increasing-the-disk-size-of-worker-nodes"></a>작업자 노드의 디스크 크기를 늘리지 않고 클러스터에서 HDFS 저장소를 늘릴 수 있나요?
 
-아니요, 작업자 노드의 디스크 크기를 늘릴 수 없습니다. 디스크 크기를 늘리는 유일한 방법은 클러스터를 삭제 하 고 더 큰 작업자 가상 컴퓨터에 다시 만드는 것입니다.
-
-클러스터를 삭제 하면 데이터가 삭제 되기 때문에 Microsoft는 HDFS를 사용 하 여 데이터를 HDInsight에 저장 하지 않는 것이 좋습니다. 대신 Azure에 데이터를 저장 하는 것이 좋습니다. 클러스터를 확장 하면 HDInsight 클러스터에 용량이 추가 될 수도 있습니다.
+아니요, 작업자 노드의 디스크 크기를 늘릴 수 없습니다. 따라서 디스크 크기를 늘리는 유일한 방법은 클러스터를 삭제 하 고 더 큰 작업자 Vm을 사용 하 여 다시 만드는 것입니다. 클러스터를 삭제 하는 경우 데이터가 삭제 되므로, HDInsight 데이터를 저장 하는 데 HDFS를 사용 하지 마세요. 대신 Azure에 데이터를 저장 합니다. 클러스터를 확장 하면 HDInsight 클러스터에 추가 용량이 추가 될 수도 있습니다.
 
 ## <a name="edge-nodes"></a>에지 노드
 
 ### <a name="can-i-add-an-edge-node-after-the-cluster-has-been-created"></a>클러스터를 만든 후에 지 노드를 추가할 수 있나요?
 
-예, 클러스터를 만들 때 기존 HDInsight 클러스터 또는 새 클러스터에 빈에 지 노드를 추가할 수 있습니다.
-
-자세한 내용은 [HDInsight의 Apache Hadoop 클러스터에서 빈 에지 노드 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-use-edge-node)을 참조하세요.
+클러스터를 만들 때 HDInsight 클러스터 또는 새 클러스터를 만들 수 있습니다. 자세한 내용은 [HDInsight의 Apache Hadoop 클러스터에서 빈 에지 노드 사용](hdinsight-apps-use-edge-node.md)을 참조하세요.
 
 ### <a name="how-can-i-connect-to-an-edge-node"></a>에 지 노드에 연결 하려면 어떻게 해야 하나요?
 
-에 지 노드를 만든 후 22 포트에서 SSH를 사용 하 여에 지 노드에 연결할 수 있습니다. 클러스터 포털에서에 지 노드의 이름을 찾을 수 있습니다 .이 이름은 일반적으로 "-ed"로 끝납니다.
+에 지 노드를 만든 후에는 포트 22에서 SSH를 사용 하 여 연결할 수 있습니다. 클러스터 포털에서에 지 노드의 이름을 찾을 수 있습니다. 이름은 *일반적으로로 종료 됩니다.*
 
 ### <a name="why-are-persisted-scripts-not-running-automatically-on-newly-created-edge-nodes"></a>지속형 스크립트가 새로 생성 된에 지 노드에서 자동으로 실행 되지 않는 이유는 무엇 인가요?
 
-지속형 스크립트는 크기 조정 작업을 통해 클러스터에 추가 되 고에 지 노드에 적용 되지 않는 새 작업자 노드를 사용자 지정 하는 데 사용 됩니다.
+지속형 스크립트를 사용 하 여 크기 조정 작업을 통해 클러스터에 추가 된 새 작업자 노드를 사용자 지정할 수 있습니다. 지속형 스크립트는에 지 노드에 적용 되지 않습니다.
 
 ## <a name="rest-api"></a>REST API
 
 ### <a name="what-are-the-rest-api-calls-to-pull-a-tez-query-view-from-the-cluster"></a>클러스터에서 Tez 쿼리 뷰를 끌어오기 위한 REST API 호출은 무엇 인가요?
 
-다음 REST 끝점을 사용 하 여 응답을 JSON 형식으로 사용 하는 데 필요한 정보를 가져올 수 있습니다. 기본 인증 헤더를 사용 하 여 이러한 요청을 수행할 수 있습니다.
+다음 REST 끝점을 사용 하 여 JSON 형식으로 필요한 정보를 가져올 수 있습니다. 기본 인증 헤더를 사용 하 여 요청을 만듭니다.
 
-* "Tez 쿼리" 보기 – https://`<cluster name>`. azurehdinsight.net/ws/v1/timeline/HIVE_QUERY_ID/
-
-* "Tez DAG" https://`<cluster name>`. azurehdinsight.net/ws/v1/timeline/TEZ_DAG_ID/
+- Tez 쿼리 뷰: *https:\//\<클러스터 이름 >. azurehdinsight. net/ws/v1/timeline/HIVE_QUERY_ID/*
+- Tez Dag View: *https:\/cluster name >. m s o./\<* n e t/w i n g/TEZ_DAG_ID/
 
 ### <a name="how-do-i-retrieve-the-configuration-details-from-hdi-cluster-by-using-an-azure-active-directory-user"></a>Azure Active Directory 사용자를 사용 하 여 HDI 클러스터에서 구성 정보를 검색 어떻게 할까요??
 
@@ -313,17 +319,30 @@ AAD 사용자와 적절 한 인증 토큰을 협상 하려면 다음 형식을 �
 
 * https://`<cluster dnsname>`. azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
 
-### <a name="how-do-i-use-ambari-restful-api-to-monitor-yarn-performance"></a>Ambari restful API를 사용 하 여 YARN 성능을 모니터링할 어떻게 할까요? 있습니까?
+### <a name="how-do-i-use-ambari-restful-api-to-monitor-yarn-performance"></a>Ambari Restful API를 사용 하 여 YARN 성능을 모니터링할 어떻게 할까요? 있습니까?
 
-동일한 VNet 또는 피어 링 VNet에서 말아 넘기기 명령을 호출 하는 경우 다음 명령을 사용 합니다.
+동일한 가상 네트워크 또는 피어 링 가상 네트워크에서 말아 넘기기 명령을 호출 하는 경우 명령은 다음과 같습니다.
 
-``curl -u <cluster login username> -sS -G http://headnodehost:8080/api/v1/clusters/anssenllap/services/YARN/components/NODEMANAGER?fields=metrics/cpu``
+```curl
+curl -u <cluster login username> -sS -G
+http://<headnodehost>:8080/api/v1/clusters/<ClusterName>/services/YARN/components/NODEMANAGER?fields=metrics/cpu
+```
  
-명령이 VNet 또는 피어 링 않은 VNet 외부에서 호출 되는 경우 명령 형식은 다음과 같습니다.
- 
-* 비 ESP 클러스터의 경우:``curl -u <cluster login username> -sS -G https://ClusterName.azurehdinsight.net/api/v1/clusters/ClusterName/services/YARN/components/NODEMANAGER?fields=metrics/cpu``
- 
-* ESP 클러스터의 경우:``curl -u <cluster login username> -sS -G https://ClusterName.azurehdinsight.net/api/v1/clusters/ClusterName/services/YARN/components/NODEMANAGER?fields=metrics/cpu``
+가상 네트워크 외부에서 또는 피어 링이 아닌 가상 네트워크에서 명령을 호출 하는 경우 명령 형식은 다음과 같습니다.
+
+- 비 ESP 클러스터의 경우:
+  
+  ```curl
+  curl -u <cluster login username> -sS -G 
+  https://<ClusterName>.azurehdinsight.net/api/v1/clusters/<ClusterName>/services/YARN/components/NODEMANAGER?fields=metrics/cpu
+  ```
+
+- ESP 클러스터의 경우:
+  
+  ```curl
+  curl -u <cluster login username>-sS -G 
+  https://<ClusterName>.azurehdinsight.net/api/v1/clusters/<ClusterName>/services/YARN/components/NODEMANAGER?fields=metrics/cpu
+  ```
 
 > [!NOTE]
 > 말아가 암호를 묻는 메시지를 표시 합니다. 클러스터 로그인 사용자 이름에 대해 올바른 암호를 입력 해야 합니다.
@@ -340,7 +359,7 @@ AAD 사용자와 적절 한 인증 토큰을 협상 하려면 다음 형식을 �
 
 ### <a name="for-pay-as-you-go-subscriptions-what-happens-after-i-cancel-my-subscription"></a>종 량 제 구독의 경우 구독을 취소 하면 어떻게 되나요?
 
-구독이 취소 된 후 구독에 대 한 자세한 내용은 [구독을 취소 하면 어떻게 되나요?](https://docs.microsoft.com/azure/billing/billing-how-to-cancel-azure-subscription#what-happens-after-i-cancel-my-subscription) 를 참조 하세요.
+구독이 취소 된 후 구독에 대 한 자세한 내용은 [구독을 취소 하면 어떻게 되나요?](/azure/billing/billing-how-to-cancel-azure-subscription) 를 참조 하세요.
 
 ## <a name="hive"></a>Hive
 
@@ -352,8 +371,8 @@ Ambari UI에 1.2만 표시 되기는 하지만 HDInsight 3.6에는 Hive 1.2와 H
 
 ### <a name="what-does-hdinsight-offer-in-terms-of-real-time-stream-processing-capabilities"></a>HDInsight는 실시간 스트림 처리 기능을 기준으로 어떤 기능을 제공 하나요?
 
-Azure HDInsight에서 스트림 처리의 통합 기능에 대 한 자세한 내용은 [azure에서 스트림 처리 기술 선택](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/stream-processing)을 참조 하세요.
+Azure HDInsight에서 스트림 처리의 통합 기능에 대 한 자세한 내용은 [azure에서 스트림 처리 기술 선택](/azure/architecture/data-guide/technology-choices/stream-processing)을 참조 하세요.
 
 ### <a name="is-there-a-way-to-dynamically-terminate-the-head-node-of-the-cluster-when-the-cluster-is-idle-for-a-specific-period"></a>클러스터가 특정 기간 동안 유휴 상태일 때 클러스터의 헤드 노드를 동적으로 종료 하는 방법이 있나요?
 
-아니요, 클러스터의 헤드 노드를 동적으로 종료할 수 없습니다. 이 시나리오에 Azure Data Factory를 사용할 수 있습니다.
+HDInsight 클러스터에서는이 작업을 수행할 수 없습니다. 이러한 시나리오에 Azure Data Factory를 사용할 수 있습니다.

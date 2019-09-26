@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: 362b696351e4faca02fa6ea8aed7e7447454cd34
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: fdcfcbaf99d48a345d2be4da297be1c9139da15c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262032"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71308123"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주
 
@@ -66,6 +66,7 @@ ms.locfileid: "71262032"
 | Azure 방화벽 | 스키마를 사용할 수 없음 |
 | IoT Hub | [IoT Hub 작업](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure Key Vault 로깅](../../key-vault/key-vault-logging.md) |
+| Kubernetes Service |[Azure Kubernetes 로깅](../../aks/view-master-logs.md#log-event-schema) |
 | 부하 분산 장치 |[Azure Load Balancer에 대한 Log analytics](../../load-balancer/load-balancer-monitor-log.md) |
 | 논리 앱 |[Logic Apps B2B 사용자 지정 추적 스키마](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | 네트워크 보안 그룹 |[NSG(네트워크 보안 그룹)에 대한 로그 분석](../../virtual-network/virtual-network-nsg-manage-log.md) |

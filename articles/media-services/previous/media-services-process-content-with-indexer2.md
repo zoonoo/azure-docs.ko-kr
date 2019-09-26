@@ -11,35 +11,34 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
-ms.openlocfilehash: 8aa3082b15886234905edaebbbc9e1458bd7e3f8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: d03c3a15d9bccf93b73d36302f986dffd95c6428
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "69015025"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309239"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Azure Media Indexer 2 미리 보기를 사용하여 미디어 파일 인덱싱
-## <a name="overview"></a>개요
+
+> [!NOTE]
+> [Azure Media Indexer 2](media-services-process-content-with-indexer2.md) 미디어 프로세서는 2020 년 1 월 1 일에 사용 중지 됩니다. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) 이 레거시 미디어 프로세서를 대체 합니다. 자세한 내용은 [Azure Media Indexer에서 마이그레이션 및 Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조 하세요.
+
 **Azure Media Indexer 2 미리 보기** MP(미디어 프로세서)를 사용하여 미디어 파일과 콘텐츠를 검색 가능하도록 설정할 수 있으며 선택 캡션 트랙을 생성할 수 있습니다. [Azure Media Indexer 2 미리 보기](media-services-index-content.md)는 이전 버전의 **Azure Media Indexer**에 비해 보다 빠른 인덱싱을 수행하고 더 광범위한 언어 지원을 제공합니다. 지원되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어(북경어, 간체), 포르투갈어, 아랍어, 러시아어, 일본어 등입니다.
 
 **Azure Media Indexer 2 미리 보기** MP는 현재 미리 보기 상태입니다.
 
 이 문서에서는 **Azure Media Indexer 2 미리 보기**를 사용하여 인덱싱 작업을 만드는 방법을 보여 줍니다.
 
-> [!NOTE]
-> 고려 사항은 다음과 같습니다.
-> 
-> 인덱서 2는 Azure China 및 Azure Government에서 지원되지 않습니다.
-> 
-> 콘텐츠를 인덱싱할 때, 음성이 매우 분명한(배경 음악, 소음, 효과 또는 마이크 소음) 미디어 파일을 사용해야 합니다. 적절한 콘텐츠의 예로는 녹음된 회의, 강의 또는 프레젠테이션이 있습니다. 인덱싱에 적합하지 않을 수 있는 콘텐츠: 영화, TV 프로그램, 오디오 및 사운드 효과가 혼합된 콘텐츠, 배경 소음(기계 소음)이 들어간 녹음 품질이 좋지 않은 콘텐츠.
-> 
-> 
+## <a name="considerations"></a>고려 사항
 
-이 문서에서는 **Azure Media Indexer 2 미리 보기**에 대한 세부 정보를 제공하고 .NET용 Media Services SDK와 함께 사용하는 방법을 보여 줍니다.
-
+고려 사항은 다음과 같습니다.
+ 
+* 인덱서 2는 Azure 중국 21Vianet 및 Azure Government에서 지원 되지 않습니다.
+* 콘텐츠를 인덱싱할 때, 음성이 매우 분명한(배경 음악, 소음, 효과 또는 마이크 소음) 미디어 파일을 사용해야 합니다. 적절한 콘텐츠의 예로는 녹음된 회의, 강의 또는 프레젠테이션이 있습니다. 인덱싱에 적합하지 않을 수 있는 콘텐츠: 영화, TV 프로그램, 오디오 및 사운드 효과가 혼합된 콘텐츠, 배경 소음(기계 소음)이 들어간 녹음 품질이 좋지 않은 콘텐츠.
+ 
 ## <a name="input-and-output-files"></a>입력 및 출력 파일
 ### <a name="input-files"></a>입력 파일
 오디오 또는 비디오 파일

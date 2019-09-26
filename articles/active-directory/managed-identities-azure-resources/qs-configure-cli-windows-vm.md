@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/10/2018
+ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c61313190615c2f30a7d37202bc0f9bcf14d800
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 272315346091bacb15aef02184e1cc72d64ed49d
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66112887"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309811"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Azure CLI를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -33,7 +33,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 - Azure VM에서 시스템 할당 관리 ID를 사용 및 사용하지 않도록 설정
 - Azure VM에서 사용자 할당 관리 ID 추가 및 제거
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#how-does-it-work)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
@@ -107,8 +107,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type='UserAssigned'
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
-> [!NOTE]
-> 사용 하 여 제거 해야 하는 경우 (사용 되지 않음)에 VM 확장을 Azure 리소스에 대 한 관리 되는 id를 프로 비전 [az vm 확장 삭제](https://docs.microsoft.com/cli/azure/vm/)합니다. 자세한 내용은 [VM 확장에서 인증에 대 한 Azure IMDS로 마이그레이션](howto-migrate-vm-extension.md)합니다.
+
 
 ## <a name="user-assigned-managed-identity"></a>사용자 할당 관리 ID
 
@@ -131,7 +130,7 @@ VM을 만드는 중 VM에 사용자 할당 ID를 할당하려면 계정에 [가�
    ```azurecli-interactive
    az identity create -g myResourceGroup -n myUserAssignedIdentity
    ```
-   응답에는 다음과 같이 생성된 사용자가 할당한 관리 ID에 대한 세부 정보가 포함됩니다. 사용자 할당 관리 서비스 id에 할당 된 리소스 ID 값은 다음 단계에서 사용 됩니다.
+   응답에는 다음과 같이 생성된 사용자가 할당한 관리 ID에 대한 세부 정보가 포함됩니다. 사용자 할당 관리 id에 할당 된 리소스 ID 값은 다음 단계에서 사용 됩니다.
 
    ```json
    {

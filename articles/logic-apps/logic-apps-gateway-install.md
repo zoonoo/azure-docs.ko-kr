@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 09/01/2019
-ms.openlocfilehash: a070b224b0cb1378f0ba6729af33840715dc0a29
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7384f058c82699095e1209e677dc5c6f61b57178
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087718"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309864"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -29,7 +29,7 @@ ms.locfileid: "71087718"
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "71087718"
   * 스풀링을 위한 SSD (반도체 드라이브) 저장소
 
   > [!NOTE]
-  > 게이트웨이가 Windows Server 2016 Core를 지원 하지 않습니다.
+  > 게이트웨이가 Windows Server Core를 지원 하지 않습니다.
 
 * **관련 고려 사항**
 
@@ -74,6 +74,8 @@ ms.locfileid: "71087718"
   * 게이트웨이 설치를 위해 선택한 지역은 나중에 논리 앱에 대 한 Azure 게이트웨이 리소스를 만들 때 선택 해야 하는 위치와 동일 합니다. 기본적으로이 지역은 azure 계정을 관리 하는 Azure AD 테 넌 트와 동일한 위치입니다. 그러나 게이트웨이를 설치 하는 동안에는 위치를 변경할 수 있습니다.
 
   * 게이트웨이에는 Power BI에만 적용 되는 표준 모드와 개인 모드의 두 가지 모드가 있습니다. 동일한 컴퓨터에서 동일한 모드로 실행 되는 게이트웨이가 둘 이상 있을 수 없습니다.
+
+  * Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 포함 하 여 쓰기 작업을 지원 합니다. 그러나 이러한 작업 [은 페이로드 크기에 제한이](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)있습니다.
 
 <a name="install-gateway"></a>
 

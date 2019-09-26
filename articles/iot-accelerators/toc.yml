@@ -238,9 +238,7 @@
 - name: 참조 아키텍처
   items:
     - name: 개요
-      href: iot-accelerators-architecture-overview.md
-    - name: 다운로드
-      href: 'https://aka.ms/iotrefarchitecture'
+      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/iot/'
     - name: 파트너 구현
       items:
         - name: Intel 연결 물류 플랫폼
