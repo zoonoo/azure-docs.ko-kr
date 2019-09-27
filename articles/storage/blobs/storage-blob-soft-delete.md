@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b0a03eee06ba114ab929c8c584f382861a006bbc
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 95d133e07725f797ea3c1a903e315d5c7232e1de
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360764"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327615"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure Storage Blob에 대한 일시 삭제
 Azure Storage는 이제 애플리케이션 또는 다른 스토리지 계정 사용자에 의해 잘못 수정되거나 삭제될 때 데이터를 보다 쉽게 복구할 수 있도록 Blob 개체에 대한 일시 삭제를 제공합니다.
 
-## <a name="how-does-it-work"></a>어떻게 작동합니까?
+## <a name="how-does-it-work"></a>작동 원리
 설정하면 일시 삭제를 통해 Blob 또는 Blob 스냅샷이 삭제되는 경우 데이터를 저장 및 복구할 수 있습니다. 이 보호는 덮어쓰기의 결과로 삭제되는 Blob 데이터로 확장합니다.
 
 데이터가 삭제되면 영구적으로 삭제되는 대신 일시 삭제된 상태로 전환됩니다. 일시 삭제가 있고 데이터를 덮어쓰는 경우 일시 삭제된 스냅샷은 덮어쓴 데이터의 상태를 저장하기 위해 생성됩니다. 일시 삭제된 개체는 명시적으로 나열되지 않는 한 표시되지 않습니다. 일시 삭제된 데이터가 영구적으로 만료되기 전에 복구 가능한 기간을 구성할 수 있습니다.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: iainfou
-ms.openlocfilehash: 45fb2daaeaf9ee788207d43d805e070320372ca0
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 19a618bd576687fcb0d92f8e35613e4cdc749e70
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617182"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71320452"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>관리되는 도메인의 암호 및 계정 잠금 정책
 
@@ -30,13 +30,13 @@ Azure Active Directory Domain Services (Azure AD DS)에서 계정 보안을 관�
 
 * 활성화된 Azure 구독.
   * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화 된 구독과 연결 된 Azure Active Directory 테 넌 트.
-  * 필요한 경우 [Azure Active Directory 테 넌 트][create-azure-ad-tenant] 를 만들거나 [사용자 계정에 Azure 구독을 연결][associate-azure-ad-tenant]합니다.
-* Azure AD 테 넌 트에서 사용 하도록 설정 되 고 구성 된 Azure Active Directory Domain Services 관리 되는 도메인입니다.
+* 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
+  * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant] [Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
+* Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
   * 필요한 경우 자습서를 완료 하 여 [Azure Active Directory Domain Services 인스턴스를 만들고 구성][create-azure-ad-ds-instance]합니다.
 * Azure AD DS 관리 되는 도메인에 가입 된 Windows Server 관리 VM입니다.
   * 필요한 경우 자습서를 완료 하 여 [관리 VM을 만듭니다][tutorial-create-management-vm].
-* Azure AD 테 넌 트에서 *AZURE AD DC administrators* 그룹의 구성원 인 사용자 계정
+* Azure AD 테넌트의 *Azure AD DC Administrators* 그룹에 속한 멤버인 사용자 계정
 
 ## <a name="fine-grained-password-policies-fgpp-overview"></a>FGPP (세분화 암호 정책) 개요
 
@@ -90,6 +90,9 @@ Azure에서 및 응용 프로그램을 빌드할 때 사용자 지정 FGPP를 �
 1. 시작 화면에서 **관리 도구**를 선택 합니다. [관리 VM을 만드는][tutorial-create-management-vm]자습서에 설치 된 사용 가능한 관리 도구 목록이 표시 됩니다.
 1. Ou를 만들고 관리 하려면 관리 도구 목록에서 **Active Directory 관리 센터** 을 선택 합니다.
 1. 왼쪽 창에서 Azure AD DS 관리 되는 도메인 (예: *contoso.com*)을 선택 합니다.
+1. **시스템** 컨테이너, **암호 설정** 컨테이너를 차례로 엽니다.
+
+    Azure AD DS 관리 되는 도메인에 대 한 기본 제공 FGPP가 표시 됩니다. 이 기본 제공 FGPP는 수정할 수 없습니다. 대신, 기본 FGPP를 재정의 하는 사용자 지정 FGPP를 새로 만듭니다.
 1. 오른쪽의 **작업** 패널에서 **새로 만들기 > 암호 설정**을 선택 합니다.
 1. **암호 설정 만들기** 대화 상자에서 *Mycustomfgpp*와 같이 정책의 이름을 입력 합니다. 기본 FGPP ( *200*) (예: *1*)를 재정의 하려면 우선 순위를 적절 하 게 설정 합니다.
 

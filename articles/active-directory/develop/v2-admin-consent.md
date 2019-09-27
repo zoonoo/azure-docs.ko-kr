@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 09/26/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e44207429abb5aa03f4850861d49de8c5dcfdf7
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: aa63b1343fcc981629dd96e2209bf26ec2cc2bd5
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310374"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326230"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Microsoft id 플랫폼에 대 한 관리자 동의
 
@@ -95,3 +95,4 @@ http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-
 - [앱을 다중 테넌트로 변환하는 방법](howto-convert-app-to-be-multi-tenant.md) 참조
 - [인증 코드 부여 흐름 중에 OAuth 2.0 프로토콜 계층에서 동의가 어떻게 지원 되는지](v2-oauth2-auth-code-flow.md#request-an-authorization-code)알아보세요.
 - [다중 테 넌 트 응용 프로그램에서 승인 프레임 워크를 사용](active-directory-devhowto-multi-tenant-overview.md) 하 여 "사용자" 및 "관리자" 동의를 구현 함으로써 고급 다중 계층 응용 프로그램 패턴을 지 원하는 방법에 대해 알아봅니다.
+- [AZURE AD 응용 프로그램 동의 환경](application-consent-experience.md) 이해

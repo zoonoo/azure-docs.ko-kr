@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 09/26/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a575d9f90d166ba69b14e4507d9ed7a54fac574
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 4a79cf166025ced6cb08d2f9e24801ea498fdc1c
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71291025"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326370"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 기존 액세스 패키지 편집 및 관리
 
@@ -36,7 +36,7 @@ ms.locfileid: "71291025"
 
 ## <a name="add-resource-roles"></a>리소스 역할 추가
 
-리소스 역할은 리소스와 연결 된 사용 권한 컬렉션입니다. 사용자가 리소스를 요청할 수 있도록 하는 방법은 액세스 패키지에 리소스 역할을 추가 하는 것입니다. 그룹, 응용 프로그램 및 SharePoint 사이트에 대 한 리소스 역할을 추가할 수 있습니다.
+리소스 역할은 리소스와 연결 된 사용 권한 컬렉션입니다. 사용자가 리소스를 요청할 수 있도록 하는 방법은 액세스 패키지에 리소스 역할을 추가 하는 것입니다. 그룹, 팀, 응용 프로그램 및 SharePoint 사이트에 대 한 리소스 역할을 추가할 수 있습니다.
 
 **필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
@@ -50,38 +50,49 @@ ms.locfileid: "71291025"
 
     ![액세스 패키지-리소스 역할 추가](./media/entitlement-management-access-package-edit/resource-roles-add.png)
 
-1. 그룹, 응용 프로그램 또는 SharePoint 사이트를 추가할지 여부에 따라 다음 리소스 역할 섹션 중 하나의 단계를 수행 합니다.
+1. 그룹, 팀, 응용 프로그램 또는 SharePoint 사이트를 추가할지 여부에 따라 다음 리소스 역할 섹션 중 하나의 단계를 수행 합니다.
 
-### <a name="add-a-group-resource-role"></a>그룹 리소스 역할 추가
+### <a name="add-a-group-or-team-resource-role"></a>그룹 또는 팀 리소스 역할 추가
 
-액세스 패키지가 할당 될 때 자격 관리에서 자동으로 그룹에 사용자를 추가할 수 있습니다. 
+권한 부여 관리자가 액세스 패키지에 할당 된 경우 그룹 또는 Microsoft 팀에 자동으로 사용자를 추가할 수 있습니다. 
 
-- 그룹이 액세스 패키지의 일부이 고 해당 액세스 패키지에 사용자가 할당 된 경우 해당 사용자는 아직 없는 경우 해당 그룹에 추가 됩니다.
-- 사용자의 액세스 패키지 할당은 만료 될 때 해당 그룹이 포함 된 다른 액세스 패키지에 대 한 할당을 현재 보유 하 고 있지 않은 한 그룹에서 제거 됩니다.
+- 그룹이 나 팀이 액세스 패키지의 일부이 고 해당 액세스 패키지에 사용자가 할당 된 경우 해당 사용자는 아직 없는 경우 해당 그룹 또는 팀에 추가 됩니다.
+- 사용자의 액세스 패키지 할당은 만료 되는 경우 해당 그룹 또는 팀이 포함 된 다른 액세스 패키지에 대 한 할당을 현재 보유 하 고 있지 않은 한 그룹 또는 팀에서 제거 됩니다.
 
-모든 Office 365 그룹 또는 Azure AD 보안 그룹을 선택할 수 있습니다.  관리자는 카탈로그에 모든 그룹을 추가할 수 있습니다. 카탈로그 소유자는 그룹의 소유자 인 경우 카탈로그에 모든 그룹을 추가할 수 있습니다. 그룹을 선택할 때 다음 Azure AD 제약 조건을 염두에 두어야 합니다.
+[AZURE AD 보안 그룹 또는 Office 365 그룹](../fundamentals/active-directory-groups-create-azure-portal.md)을 선택할 수 있습니다.  관리자는 카탈로그에 모든 그룹을 추가할 수 있습니다. 카탈로그 소유자는 그룹의 소유자 인 경우 카탈로그에 모든 그룹을 추가할 수 있습니다. 그룹을 선택할 때 다음 Azure AD 제약 조건을 염두에 두어야 합니다.
 
-- 게스트를 비롯 한 사용자가 그룹에 멤버로 추가 되 면 해당 그룹의 다른 모든 멤버를 볼 수 있습니다.
+- 게스트를 비롯 한 사용자가 그룹 또는 팀에 멤버로 추가 되는 경우 해당 그룹 또는 팀의 다른 모든 멤버를 볼 수 있습니다.
 - Azure AD는 Azure AD Connect를 사용 하 여 Windows Server Active Directory에서 동기화 되었거나 메일 그룹으로 Exchange Online에서 만든 그룹의 구성원을 변경할 수 없습니다.  
 - 동적 그룹의 멤버 자격은 멤버를 추가 하거나 제거 하 여 업데이트할 수 없으므로 동적 그룹 멤버 자격은 자격 관리와 함께 사용 하기에 적합 하지 않습니다.
 
-1. **액세스 패키지에 리소스 역할 추가** 페이지에서 **그룹** 을 클릭 하 여 그룹 선택 창을 엽니다.
+자세한 내용은 그룹 및 [Office 365 그룹과 Microsoft 팀](/microsoftteams/office-365-groups) [비교](/office365/admin/create-groups/compare-groups) 를 참조 하세요.
 
-1. 액세스 패키지에 포함 하려는 그룹을 선택 합니다.
+1. **액세스 패키지에 리소스 역할 추가** 페이지에서 **그룹 및 팀** 을 클릭 하 여 그룹 선택 창을 엽니다.
+
+1. 액세스 패키지에 포함 하려는 그룹 및 팀을 선택 합니다.
 
     ![액세스 패키지-리소스 역할 추가-그룹 선택](./media/entitlement-management-access-package-edit/group-select.png)
 
 1. **선택**을 클릭합니다.
 
+    그룹이 나 팀을 선택 하면 **하위 유형** 열에 다음 하위 유형 중 하나가 나열 됩니다.
+
+    |  |  |
+    | --- | --- |
+    | 보안 | 리소스에 대 한 액세스 권한을 부여 하는 데 사용 됩니다. |
+    | 배포 | 사용자 그룹에 알림을 보내는 데 사용 됩니다. |
+    | O365 | 팀이 설정 되지 않은 Office 365 그룹 회사 내부와 외부의 사용자 간 공동 작업에 사용 됩니다. |
+    | 팀 | 팀이 사용 하도록 설정 된 Office 365 그룹 회사 내부와 외부의 사용자 간 공동 작업에 사용 됩니다. |
+
 1. **역할** 목록에서 **소유자** 또는 **멤버**를 선택 합니다.
 
     일반적으로 멤버 역할을 선택 합니다. 소유자 역할을 선택 하면 사용자가 다른 멤버나 소유자를 추가 하거나 제거할 수 있습니다.
 
-    ![액세스 패키지-그룹에 대 한 리소스 역할 추가](./media/entitlement-management-access-package-edit/group-role.png)
+    ![액세스 패키지-그룹 또는 팀에 대 한 리소스 역할 추가](./media/entitlement-management-access-package-edit/group-role.png)
 
 1. **추가**를 클릭합니다.
 
-    액세스 패키지에 대 한 기존 할당을 사용 하는 모든 사용자는 추가 될 때 자동으로이 그룹의 구성원이 됩니다.
+    액세스 패키지에 대 한 기존 할당을 사용 하는 모든 사용자는이 그룹 또는 팀이 추가 될 때 자동으로 구성원이 됩니다.
 
 ### <a name="add-an-application-resource-role"></a>응용 프로그램 리소스 역할 추가
 

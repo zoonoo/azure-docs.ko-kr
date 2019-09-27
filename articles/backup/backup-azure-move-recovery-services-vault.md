@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 960ddcc2a082b247951b0f79d0c990acc5e557e1
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 6e95c012aed9fdcfda2b64c310458425df2b9f9e
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210392"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71337882"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Azure 구독 및 리소스 그룹 간에 Recovery Services 자격 증명 모음 이동
 
@@ -38,7 +38,7 @@ Recovery Services 자격 증명 모음에 대 한 리소스 이동은 오스트�
 - 구독 내 또는 새 구독으로 리소스를 이동할지 여부에 따라 클래식 모델을 통해 배포된 리소스의 이동 옵션은 다릅니다. 자세한 내용은 이 [문서](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)를 참조하세요.
 - 자격 증명 모음에 대해 정의된 백업 정책은 자격 증명 모음이 구독 간에 또는 새 리소스 그룹으로 이동 후에 유지됩니다.
 - 구독 및 리소스 그룹에서 IaaS Vm의 Azure Files, Azure File Sync 또는 SQL로 자격 증명 모음을 이동 하는 것은 지원 되지 않습니다.
-- 구독 간에 VM 백업 데이터를 포함하는 자격 증명 모음을 이동하는 경우에는 VM을 동일한 구독으로 이동하고, 동일한 대상 리소스 그룹을 사용하여 백업을 계속해야 합니다.<br>
+- 구독에서 VM 백업 데이터를 포함 하는 자격 증명 모음을 이동 하는 경우에는 Vm을 동일한 구독으로 이동 하 고 이전 구독과 동일한 대상 VM 리소스 그룹 이름을 사용 하 여 백업을 계속 진행 해야 합니다.<br>
 
 > [!NOTE]
 >

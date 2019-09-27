@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 29add1cff184e234cd5dcc5050b94cdd50593731
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: adb1b840fd733353e449224c9ac752e94329bde6
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315906"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326740"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>IoT용 Azure Security Center 소개
 
@@ -30,7 +30,7 @@ ms.locfileid: "71315906"
 
 원활한 에이전트 없는 솔루션 중에서 선택 하거나 에이전트 기반 포괄적인 보안을 활용 하 여 iot Azure Security Center iot 자산 전체에서 모든 장치, IoT Edge 및 IoT Hub에 대 한 위협 방지 및 분석 기능을 제공 합니다.
 
-수십 개의 새 장치를 인터넷에 연결 하 고 일상 생활 및 비즈니스에 통합할 수 있습니다. 보안 운영 팀은 이러한 새로운 공격 화면을 처리할 수 있을 만큼 신속 하 게 해당 보안 전략을 개선 해야 합니다. 다른 시스템과 마찬가지로, 모든 구현 단계에서 IoT 솔루션을 보호 해야 합니다. 
+수십 개의 새 장치를 인터넷에 연결 하 고 일상 생활 및 기업에 통합 하는 경우 보안 운영 팀은 새로운 공격 노출 영역을 수용할 만큼 신속 하 게 보안 전략을 개선 해야 합니다. 다른 시스템과 마찬가지로 IoT 솔루션의 보안을 유지 하기 위해 모든 구현 단계에서 보호가 필요 합니다. 
 
 IoT에 대 한 Azure Security Center는에 지, 온-프레미스, Azure 등에서 실행 되는 워크 로드 간에 통합 된 가시성과 제어, 적응 위협 방지, 지능형 위협 검색 및 응답을 제공 하 여 하이브리드 워크 로드 보호를 간소화 합니다. 클라우드. 
 

@@ -1,20 +1,20 @@
 ---
 title: IOS에서 Windows 가상 데스크톱에 연결-Azure
-description: IOS에서 Windows 가상 데스크톱에 연결 하는 방법
+description: IOS 클라이언트를 사용 하 여 Windows 가상 데스크톱에 연결 하는 방법
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: helohr
-ms.openlocfilehash: 3e77a77dfa2de003722419f861e957d4cb011b71
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 764ed4fefd1a3aba1f0b7812fa2965505aa34161
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310322"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338680"
 ---
-# <a name="connect-from-ios"></a>IOS에서 연결
+# <a name="connect-with-the-ios-client"></a>iOS 클라이언트와 연결
 
 > 적용 대상: iOS 8.0 이상. IPhone, iPad 및 iPod touch와 호환 됩니다.
 
@@ -52,6 +52,6 @@ IOS 베타 클라이언트를 설치 하려면:
 
 피드에 가입한 후에는 피드의 콘텐츠가 정기적으로 자동 업데이트 됩니다. 관리자가 변경한 내용에 따라 리소스를 추가, 변경 또는 제거할 수 있습니다.
 
-## <a name="client-documentation"></a>클라이언트 설명서
+## <a name="next-steps"></a>다음 단계
 
 IOS 베타 클라이언트를 사용 하는 방법에 대 한 자세한 내용은 [ios 클라이언트 시작](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios) 설명서를 참조 하세요.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: memildin
-ms.openlocfilehash: 11e1c837e416a5d2105f494c43823298edfd4355
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 488210e4f2c5d3a8a978079d0c7293ce091d998b
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200501"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338766"
 ---
 # <a name="working-with-security-policies"></a>보안 정책 작업
 
@@ -42,7 +42,7 @@ Security Center를 사용하도록 설정하면 Security Center의 기본 제공
 조직에 구독이 많으면 구독에 대한 액세스, 정책 및 준수를 효율적으로 관리하는 방법이 필요할 수 있습니다. Azure 관리 그룹은 구독 상위 수준의 범위를 제공합니다. "관리 그룹"이라는 컨테이너에 구독을 구성하고 거버넌스 정책을 관리 그룹에 적용합니다. 관리 그룹에 속하는 모든 구독은 관리 그룹에 적용되는 정책을 자동으로 상속합니다. 각 디렉터리에는 "루트" 관리 그룹이라고 하는 단일 최상위 관리 그룹이 부여됩니다. 이 루트 관리 그룹은 모든 관리 그룹과 구독이 루트 관리 그룹까지 접히도록 만들어집니다. 이 루트 관리 그룹은 전역 정책 및 RBAC 할당을 디렉터리 수준에서 적용하는 것을 허용합니다. Azure Security Center에서 사용하기 위해 관리 그룹을 설정하려면 [Azure Security Center에 대한 테넌트 수준 표시 유형 얻기](security-center-management-groups.md)의 지침을 따릅니다.
 
 > [!NOTE]
-> 관리 그룹 및 구독의 계층 구조를 이해하는 것은 중요합니다. 관리 그룹, 루트 관리 및 관리 그룹 액세스에 대해 자세히 알아보려면 [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/index.md#root-management-group-for-each-directory)을 참조하세요.
+> 관리 그룹 및 구독의 계층 구조를 이해하는 것은 중요합니다. 관리 그룹, 루트 관리 및 관리 그룹 액세스에 대해 자세히 알아보려면 [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md#root-management-group-for-each-directory)을 참조하세요.
 >
 
 ## <a name="how-security-policies-work"></a>보안 정책 작동 방법

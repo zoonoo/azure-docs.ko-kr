@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 9664beca514abcbad4eca7c8f9dc1b494018802e
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: deb13b833707849bcbce8bcae7b05aeb5e0bce3b
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535195"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338871"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>AWS 비용 및 사용 보고서 통합 설정 및 구성
 
@@ -42,7 +42,7 @@ AWS에서 청구 및 Cost Management 콘솔의 **비용 & 사용 보고서** 페
     2. 버킷 이름과 새 버킷을 만들 지역을 입력 하 고 **다음**을 선택 합니다.
 10. **이 정책이 올바른지 확인**합니다 .를 선택한 다음 **저장**을 클릭 합니다.
 11. 필드 보고서 경로 접두사에 보고서 이름 앞에 추가할 보고서 경로 접두사를 입력 합니다.
-접두사를 지정 하지 않는 경우 기본 접두사는 보고서에 대해 지정한 이름입니다. 날짜 범위 `/report-name/date-range/` 는 형식입니다.
+접두사를 지정 하지 않는 경우 기본 접두사는 보고서에 대해 지정한 이름입니다. 날짜 범위는 `/report-name/date-range/` 형식입니다.
 12. **시간 단위**에 대해 **매시간**을 선택 합니다.
 13. **보고서 버전 관리**를 위해 각 버전의 보고서에서 이전 버전을 덮어쓸지 아니면 새 보고서를 추가로 사용할지 여부를 선택 합니다.
 14. **에 데이터 통합을 사용 하도록 설정**하는 경우에는 아무 것도 선택 하지 않아도 됩니다.
@@ -73,21 +73,21 @@ Cost Management의 AWS 계정에 대 한 역할 기반 액세스를 사용 하�
     > [!NOTE]
     > **MFA 요구**에 대 한 선택 항목을 변경 하지 마세요. 지워야 합니다.
 8. 완료되면 **다음: 사용 권한**을 클릭합니다.
-9. **정책 만들기**를 선택 합니다. 새 브라우저 탭이 열립니다. 여기에서 정책을 만들 수 있습니다.
+9. **Create policy**(정책 만들기)를 선택합니다. 새 브라우저 탭이 열립니다. 여기에서 정책을 만들 수 있습니다.
 10. **서비스 선택을**선택 합니다.
 
 비용 및 사용 현황 보고서에 대 한 사용 권한 구성:
 
 1. **비용 및 사용 현황 보고서**를 입력 합니다.
-2. **액세스 수준** > 읽기DescribeReportDefinitions > 를 선택 합니다. 이 단계를 통해 Cost Management에서 정의 된 모든 보고서를 읽고 보고서 정의 필수 구성 요소와 일치 하는지 확인할 수 있습니다.
+2. **액세스 수준** > **읽기** > **DescribeReportDefinitions**를 선택 합니다. 이 단계를 통해 Cost Management에서 정의 된 모든 보고서를 읽고 보고서 정의 필수 구성 요소와 일치 하는지 확인할 수 있습니다.
 3. 추가 **권한 추가**를 선택 합니다.
 
 S3 버킷 및 개체에 대 한 사용 권한 구성:
 
 1. **서비스 선택을**선택 합니다.
 2. **S3**을 입력 합니다.
-3. **액세스 수준** > **목록**listbucket를 선택 합니다. >  이 작업은 S3 버킷의 개체 목록을 가져옵니다.
-4. **액세스 수준** > 에서**GetObject** **읽기** > 를 선택 합니다. 이 작업을 통해 대금 청구 파일을 다운로드할 수 있습니다.
+3. **액세스 수준** > **목록** > **listbucket**를 선택 합니다. 이 작업은 S3 버킷의 개체 목록을 가져옵니다.
+4. **액세스 수준** > **읽기** > **GetObject**를 선택 합니다. 이 작업을 통해 대금 청구 파일을 다운로드할 수 있습니다.
 5. **리소스**를 선택 합니다.
 6. **버킷 – ADD ARN**을 선택 합니다.
 7. **버킷 이름**에 .cur 파일을 저장 하는 데 사용 된 버킷을 입력 합니다.
@@ -100,13 +100,13 @@ Cost Explorer에 대 한 사용 권한 구성:
 
 1. **서비스 선택을**선택 합니다.
 2. **Cost Explorer 서비스**를 입력 합니다.
-3. **모든 비용 탐색기 서비스 작업 (\*ce:)** 을 선택 합니다. 이 작업은 컬렉션이 올바른지 유효성을 검사 합니다.
+3. **모든 비용 탐색기 서비스 작업 (ce: \*)** 을 선택 합니다. 이 작업은 컬렉션이 올바른지 유효성을 검사 합니다.
 4. 추가 **권한 추가**를 선택 합니다.
 
 AWS 조직에 대 한 권한 추가:
 
 1. **조직**을 입력 합니다.
-2. **액세스 수준** > **목록**listaccounts를 선택 합니다. >  이 작업은 계정 이름을 가져옵니다.
+2. **액세스 수준** > **목록** > **listaccounts**를 선택 합니다. 이 작업은 계정 이름을 가져옵니다.
 3. **정책 검토**에서 새 정책의 이름을 입력 합니다. 올바른 정보를 입력 했는지 확인 한 다음 **정책 만들기**를 선택 합니다.
 4. 이전 탭으로 돌아가서 브라우저의 웹 페이지를 새로 고칩니다. 검색 창에서 새 정책을 검색 합니다.
 5. 완료되면 **다음: 검토**를 클릭합니다.
@@ -151,12 +151,12 @@ AWS 조직에 대 한 권한 추가:
 다음 정보를 사용 하 여 AWS 커넥터를 만들고 AWS 비용 모니터링을 시작 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Cost Management + 청구** > **Cost Management**로 이동 합니다.
+2. **Cost Management + 청구** > **Cost Management**으로 이동 합니다.
 3. **설정**아래에서 **클라우드 커넥터 (미리 보기)** 를 선택 합니다.  
-    ![클라우드 커넥터 (미리 보기) 설정을](./media/aws-integration-setup-configure/cloud-connectors-preview01.png)보여 주는 예제
+    클라우드 커넥터 (미리 보기) 설정을 보여 주는 ![ ](./media/aws-integration-setup-configure/cloud-connectors-preview01.png).
 4. 페이지 위쪽에서 **+ 추가** 를 선택 하 여 커넥터를 만듭니다.
 5. **AWS 커넥터 만들기** 페이지의 **표시 이름**에 커넥터의 이름을 입력 합니다.  
-    ![AWS 커넥터를 만드는 페이지의 예](./media/aws-integration-setup-configure/create-aws-connector01.png)
+    ![ AWS 커넥터를 만드는 페이지의 예 no__t-1
 6. 필요에 따라 기본 관리 그룹을 선택 합니다. 검색 된 모든 연결 된 계정이 저장 됩니다. 나중에 설정할 수 있습니다.
 7. 미리 보기가 만료 될 때 연속 작업을 보장 하려면 **청구** 섹션에서 **일반 공급 시 1% 자동 요금 청구** 를 선택 합니다. 자동 옵션을 선택 하는 경우 청구 구독을 선택 해야 합니다.
 8. **역할 ARN**에 AWS에서 역할을 설정할 때 사용한 값을 입력 합니다.
@@ -172,7 +172,7 @@ AWS 조직에 대 한 권한 추가:
 
 ## <a name="take-additional-steps"></a>추가 단계 수행
 
-- 아직 없는 경우 [관리 그룹을 설정](../governance/management-groups/index.md#initial-setup-of-management-groups)합니다.
+- 아직 없는 경우 [관리 그룹을 설정](../governance/management-groups/overview.md#initial-setup-of-management-groups)합니다.
 - 새 범위가 범위 선택기에 추가 되었는지 확인 합니다. 최신 데이터를 보려면 **새로 고침** 을 선택 합니다.
 - **클라우드 커넥터** 페이지에서 커넥터를 선택 하 고 **청구 계정으로 이동** 을 선택 하 여 관리 그룹에 연결 된 계정을 할당 합니다.
 
@@ -189,7 +189,7 @@ AWS 조직에 대 한 권한 추가:
 
 ## <a name="set-up-azure-management-groups"></a>Azure 관리 그룹 설정
 
-Azure 구독과 AWS 연결 된 계정을 동일한 관리 그룹에 배치 하 여 클라우드 간 공급자 정보를 볼 수 있는 단일 위치를 만듭니다. 관리 그룹을 사용 하 여 Azure 환경을 아직 구성 하지 않은 경우 [관리 그룹의 초기 설정](../governance/management-groups/index.md#initial-setup-of-management-groups)을 참조 하세요.
+Azure 구독과 AWS 연결 된 계정을 동일한 관리 그룹에 배치 하 여 클라우드 간 공급자 정보를 볼 수 있는 단일 위치를 만듭니다. 관리 그룹을 사용 하 여 Azure 환경을 아직 구성 하지 않은 경우 [관리 그룹의 초기 설정](../governance/management-groups/overview.md#initial-setup-of-management-groups)을 참조 하세요.
 
 비용을 구분 하려면 AWS 연결 된 계정만 포함 하는 관리 그룹을 만들 수 있습니다.
 

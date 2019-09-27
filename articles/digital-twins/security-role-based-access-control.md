@@ -1,19 +1,19 @@
 ---
-title: Azure Digital Twins 역할 기반 액세스 제어 이해 | Microsoft Docs
-description: 역할 기반 액세스 제어를 사용한 Digital Twins의 인증에 대해 알아봅니다.
+title: 역할 기반 액세스 제어 이해-Azure Digital Twins | Microsoft Docs
+description: Azure Digital Twins의 역할 기반 액세스 제어 및 관리 권한에 대해 알아봅니다.
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/17/2019
 ms.author: lyhughes
-ms.openlocfilehash: 6602a4df2c6e313156010102780240ba19fbac95
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 4e29cb488c9b491ec551ead1873e8cfd2d33a93b
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815574"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336726"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Azure Digital Twins의 역할 기반 액세스 제어
 
@@ -49,20 +49,20 @@ RBAC는 권한이 공간 그래프에서 상속된다는 점에서 고유합니�
 
 ### <a name="role-definitions"></a>역할 정의
 
-역할 정의는 사용 권한 및 역할을 구성하는 기타 특성의 컬렉션입니다. 역할 정의에는 해당 역할을 지닌 모든 개체가 수행할 수 있는 *만들기*, *읽기*, *업데이트* 및 *삭제*를 포함한 허용되는 작업이 있습니다. 또한 사용 권한이 적용되는 개체 유형을 지정합니다.
+역할 정의는 사용 권한 및 역할을 구성하는 기타 특성의 컬렉션입니다. 역할 정의에는 해당 역할을 지닌 모든 개체가 수행할 수 있는 *만들기*, *읽기*, *업데이트* 및 *삭제*를 포함한 허용되는 작업이 있습니다. 또한 사용 권한이 적용 되는 개체 유형을 지정 합니다.
 
 [!INCLUDE [digital-twins-roles](../../includes/digital-twins-roles.md)]
 
 >[!NOTE]
 > 이전 역할에 대한 전체 정의를 검색하려면 시스템/역할 API를 쿼리합니다.
-> 자세한 내용은 [역할 할당 만들기 및 관리](./security-create-manage-role-assignments.md#all)를 참조하세요.
+> 자세한 내용은 [역할 할당 만들기 및 관리](./security-create-manage-role-assignments.md#retrieve-all-roles)를 참조하세요.
 
 ### <a name="object-identifier-types"></a>개체 식별자 유형
 
 [!INCLUDE [digital-twins-object-types](../../includes/digital-twins-object-id-types.md)]
 
 >[!TIP]
-> [역할 할당 만들기 및 관리](./security-create-manage-role-assignments.md#grant)를 참조하여 서비스 주체에 권한을 부여하는 방법을 알아봅니다.
+> [역할 할당 만들기 및 관리](./security-create-manage-role-assignments.md#grant-permissions-to-your-service-principal)를 참조하여 서비스 주체에 권한을 부여하는 방법을 알아봅니다.
 
 다음 참조 설명서 문서는 다음을 설명합니다.
 

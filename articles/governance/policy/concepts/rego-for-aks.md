@@ -1,55 +1,55 @@
 ---
-title: 가상 머신의 내용을 감사 하는 방법 이해
-description: Azure Policy Azure Kubernetes Service에서 클러스터를 관리 하 Rego 및 Open 정책 에이전트를 사용 하는 방법에 대해 알아봅니다.
+title: 가상 컴퓨터의 콘텐츠를 감사 하는 방법 이해
+description: Azure Policy에서 Rego를 사용 하 여 Azure Kubernetes Service에서 클러스터를 관리 하는 방법에 대해 알아봅니다.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: fdb392533e28df1d50e90c842d0117385afb254b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e16c40c6a4f3539aa286c4c2d0859459ca18a91c
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67453906"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338359"
 ---
-# <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대 한 Azure 정책 이해
+# <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대 한 Azure Policy 이해
 
-Azure Policy가 통합 된 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md) (AKS) 클러스터에서 대규모로 사항이 및 보호를 중앙 집중화 하 고 일관 된 방식으로 적용 하 합니다.
-사용을 확장 하 여 [게이트 키퍼](https://github.com/open-policy-agent/gatekeeper), _입학 허가 컨트롤러 webhook_ 에 대 한 [열기 정책 에이전트](https://www.openpolicyagent.org/) (불투명) Azure Policy 수 있도록 관리 및 규정 준수 보고 한 곳에서 AKS 클러스터 및 Azure 리소스의 상태입니다.
+Azure Policy는 AKS ( [Azure Kubernetes Service](../../../aks/intro-kubernetes.md) )와 통합 하 여 중앙에서 일관 된 방식으로 클러스터에 대 한 대규모 사항을 및 보호 기능을 적용 합니다.
+Azure 리소스 및 AKS 클러스터의 준수 상태를 한 곳에서 관리 하 고 보고할 수 있도록 하는 Azure Policy [게이트](https://github.com/open-policy-agent/gatekeeper)a ( [Open Policy Agent](https://www.openpolicyagent.org/) )에 대 한 _허용 컨트롤러_ 웹 후크 사용을 확장 합니다.
 
 > [!NOTE]
-> AKS에 대 한 azure Policy는 제한 된 미리 보기로 제공 하 고만 기본 제공 정책 정의 지원 합니다.
+> AKS에 대 한 Azure Policy는 제한 된 미리 보기로 제공 되며 기본 제공 정책 정의만 지원 합니다.
 
 ## <a name="overview"></a>개요
 
-을 사용 하려면 AKS에 대 한 Azure Policy를 사용 하 여 AKS 클러스터를 사용 하 여 다음 작업을 수행 합니다.
+AKS 클러스터에서 AKS에 대 한 Azure Policy를 사용 하도록 설정 하 고 사용 하려면 다음 작업을 수행 합니다.
 
-- [미리 보기 기능 용 옵트인](#opt-in-for-preview)
+- [미리 보기 기능에 대 한 옵트인](#opt-in-for-preview)
 - [Azure Policy 추가 기능 설치](#installation-steps)
 - [AKS에 대 한 정책 정의 할당](#built-in-policies)
-- [유효성 검사에 대 한 대기](#validation-and-reporting-frequency)
+- [유효성 검사 대기](#validation-and-reporting-frequency)
 
-## <a name="opt-in-for-preview"></a>미리 보기에 옵트인
+## <a name="opt-in-for-preview"></a>미리 보기용 옵트인
 
-Azure 정책 추가 기능 설치 또는 서비스 기능 중 하나를 사용 하기 전에 구독의 사용 하도록 설정 해야 합니다 **Microsoft.ContainerService** 리소스 공급자 및 **Microsoft.PolicyInsights**리소스 공급자를 미리 보기에 가입 하려면 승인을 받아야 합니다. 미리 보기에 가입 시키려면 Azure portal 또는 Azure CLI를 사용 하 여 다음이 단계를 수행 합니다.
+Azure Policy 추가 기능을 설치 하거나 서비스 기능을 사용 하도록 설정 하기 전에 구독에서 **ContainerService** 리소스 공급자와 **microsoft policyinsights** 리소스 공급자를 사용 하도록 설정 하 고 나 서 다음으로 승인 해야 합니다. 미리 보기에 조인 합니다. 미리 보기에 조인 하려면 Azure Portal 또는 Azure CLI에서 다음 단계를 수행 합니다.
 
 - Azure Portal:
 
-  1. 등록 된 **Microsoft.ContainerService** 하 고 **Microsoft.PolicyInsights** 리소스 공급자입니다. 단계에 대해서 [리소스 공급자 및 형식](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal)합니다.
+  1. **ContainerService** 및 **microsoft policyinsights** 리소스 공급자를 등록 합니다. 단계는 [리소스 공급자 및 형식](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal)을 참조 하세요.
 
   1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
 
      ![모든 서비스에서 정책 검색](../media/rego-for-aks/search-policy.png)
 
-  1. 선택 **미리 보기 참가** Azure 정책 페이지의 왼쪽에 있습니다.
+  1. Azure Policy 페이지의 왼쪽에서 **조인 미리 보기** 를 선택 합니다.
 
-     ![AKS 미리 보기에 대 한 정책 연결](../media/rego-for-aks/join-aks-preview.png)
+     ![AKS 미리 보기에 대 한 정책 조인](../media/rego-for-aks/join-aks-preview.png)
 
-  1. 행 미리 보기에 추가 하려는 구독을 선택 합니다.
+  1. 미리 보기에 추가 하려는 구독의 행을 선택 합니다.
 
-  1. 선택 된 **옵트인** 구독 목록 맨 위에 있는 단추입니다.
+  1. 구독 목록의 맨 위에 있는 **옵트인** 단추를 선택 합니다.
 
 - Azure CLI:
 
@@ -69,24 +69,24 @@ Azure 정책 추가 기능 설치 또는 서비스 기능 중 하나를 사용 �
   az feature register --namespace Microsoft.PolicyInsights --name AKS-DataplaneAutoApprove
   ```
 
-## <a name="azure-policy-add-on"></a>Azure Policy 추가 기능
+## <a name="azure-policy-add-on"></a>추가 기능 Azure Policy
 
-합니다 _Azure 정책 추가 기능_ 게이트 키퍼 입학 허가 컨트롤러에 Azure Policy 서비스를 연결 하는 Kubernetes에 대 한 합니다. 에 설치 되는 추가 기능에는 _azure 정책_ 네임 스페이스에는 다음 함수를 시행 합니다.
+Kubernetes에 대 한 _Azure Policy 추가 기능_ 에서 게이트 키퍼 허용 컨트롤러에 Azure Policy 서비스를 연결 합니다. _Azure policy_ 네임 스페이스에 설치 되는 추가 기능은 다음 함수를 시행 합니다.
 
-- Azure Policy를 사용 하 여 AKS 클러스터에 대 한 할당 검사
-- 다운로드 하 고 정책 세부 정보를 포함 하 여 캐시 합니다 _rego_ 정책 정의로 **configmaps**
-- AKS 클러스터에서 전체 검색 준수 검사를 실행합니다.
-- Azure Policy에 백업 하는 감사 보고서와 규정 준수 세부 정보
+- AKS 클러스터에 대 한 할당에 대 한 Azure Policy 확인
+- **Configmaps** 로 _rego_ 정책 정의를 포함 하 여 정책 세부 정보를 다운로드 하 고 캐시 합니다.
+- AKS 클러스터에 대 한 전체 검색 준수 검사를 실행 합니다.
+- 감사 및 준수 세부 정보를 다시 Azure Policy에 보고 합니다.
 
 ### <a name="installing-the-add-on"></a>추가 기능 설치
 
-#### <a name="prerequisites"></a>필수 조건
+#### <a name="prerequisites"></a>사전 요구 사항
 
-AKS 클러스터에 추가 기능을 설치 하기 전에 미리 보기 확장을 설치 해야 합니다. 이 단계는 Azure CLI를 사용 하 여 수행 됩니다.
+AKS 클러스터에 추가 기능을 설치 하기 전에 미리 보기 확장을 설치 해야 합니다. 이 단계는 Azure CLI를 통해 수행 됩니다.
 
-1. 이상이 설치 및 구성 수 또는 Azure CLI 버전 2.0.62 필요 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+1. Azure CLI 버전 2.0.62 이상이 설치 및 구성 되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-1. AKS 클러스터의 버전 이어야 합니다. _1.10_ 이상. 다음 스크립트를 사용 하 여 AKS 클러스터 버전의 유효성을 검사 합니다.
+1. AKS 클러스터는 _1.10_ 이상 버전 이어야 합니다. 다음 스크립트를 사용 하 여 AKS 클러스터 버전의 유효성을 검사 합니다.
 
    ```azurecli-interactive
    # Log in first with az login if you're not using Cloud Shell
@@ -95,7 +95,7 @@ AKS 클러스터에 추가 기능을 설치 하기 전에 미리 보기 확장�
    az aks list
    ```
 
-1. 버전을 설치 _0.4.0_ AKS 용 미리 보기 확장의 Azure CLI `aks-preview`:
+1. AKS에 대 한 Azure CLI preview 확장의 버전 _0.4.0_ `aks-preview`을 설치 합니다.
 
    ```azurecli-interactive
    # Log in first with az login if you're not using Cloud Shell
@@ -108,28 +108,28 @@ AKS 클러스터에 추가 기능을 설치 하기 전에 미리 보기 확장�
    ```
 
    > [!NOTE]
-   > 이전에 설치한 경우 합니다 _aks 미리 보기_ 확장을 사용 하 여 업데이트 된 설치는 `az extension update --name aks-preview` 명령입니다.
+   > 이전에 _aks-preview_ 확장을 설치한 경우 `az extension update --name aks-preview` 명령을 사용 하 여 업데이트를 설치 합니다.
 
 #### <a name="installation-steps"></a>설치 단계
 
-필수 구성 요소가 완료 되 면 관리 하려는 AKS 클러스터에서 Azure Policy 추가 기능을 설치 합니다.
+필수 구성 요소가 완료 되 면 관리 하려는 AKS 클러스터에 Azure Policy 추가 기능을 설치 합니다.
 
-- Azure portal
+- Azure Portal
 
-  1. 클릭 하 여 Azure portal에서 AKS 서비스를 시작할 **모든 서비스**, 다음에 대 한 검색 및 선택 **Kubernetes 서비스**합니다.
+  1. **모든 서비스**를 클릭 한 다음 **Kubernetes services**를 검색 하 고 선택 하 여 Azure Portal에서 AKS 서비스를 시작 합니다.
 
   1. AKS 클러스터 중 하나를 선택 합니다.
 
-  1. 선택 **정책 (미리 보기)** Kubernetes 서비스 페이지의 왼쪽에 있습니다.
+  1. Kubernetes service 페이지의 왼쪽에서 **정책 (미리 보기)** 을 선택 합니다.
 
-     ![AKS 클러스터에서 정책](../media/rego-for-aks/policies-preview-from-aks-cluster.png)
+     ![AKS 클러스터의 정책](../media/rego-for-aks/policies-preview-from-aks-cluster.png)
 
-  1. 기본 페이지에서 선택 합니다 **추가 기능을 활성화할** 단추입니다.
+  1. 기본 페이지에서 **추가 기능 사용** 단추를 선택 합니다.
 
-     ![AKS 추가 기능에 대 한 Azure Policy를 사용 하도록 설정](../media/rego-for-aks/enable-policy-add-on.png)
+     ![AKS 추가 기능에 대 한 Azure Policy 사용](../media/rego-for-aks/enable-policy-add-on.png)
 
      > [!NOTE]
-     > 경우는 **추가 기능을 활성화할** 단추는 회색, 구독이 미리 보기에 아직 추가 되지 않았습니다. 참조 [옵트인 미리 보기에 대 한](#opt-in-for-preview) 필요한 단계에 대 한 합니다.
+     > **추가 기능 사용** 단추가 회색으로 표시 되 면 구독이 미리 보기에 아직 추가 되지 않은 것입니다. 필수 단계는 [미리 보기 옵트인 (Opt in)](#opt-in-for-preview) 을 참조 하세요.
 
 - Azure CLI
 
@@ -139,48 +139,48 @@ AKS 클러스터에 추가 기능을 설치 하기 전에 미리 보기 확장�
   az aks enable-addons --addons azure-policy --name MyAKSCluster --resource-group MyResourceGroup
   ```
 
-### <a name="validation-and-reporting-frequency"></a>유효성 검사 및 빈도 보고 합니다.
+### <a name="validation-and-reporting-frequency"></a>유효성 검사 및 보고 빈도
 
-추가 기능 확인 Azure Policy를 사용 하 여 정책 할당의 변경 내용에 대 일 분 마다입니다. 이 새로 고침 주기 동안 추가 기능을 모두 제거 _configmaps_ 에 _azure 정책_ 네임 스페이스 다음 다시 만듭니다 합니다 _configmaps_ 게이트 키퍼 사용에 대 한 합니다.
+추가 기능에서는를 사용 하 여 5 분 마다 정책 할당의 변경 내용에 대 한 Azure Policy를 확인 합니다. 이 새로 고침 주기 동안 추가 기능을 사용 하면 _azure 정책_ 네임 스페이스의 모든 _configmaps_ 이 제거 되 고 게이트 키퍼 사용을 위한 _configmaps_ 이 다시 만들어집니다.
 
 > [!NOTE]
-> 하는 동안를 _클러스터 관리자_ 권한을 가질 수 합니다 _azure 정책_ 네임 스페이스 권장 되거나 되지 네임 스페이스를 변경 하려면 지원 합니다. 수동으로 변경한 새로 고침 주기 동안 손실 됩니다.
+> _클러스터 관리자_ 에 게 _azure 정책_ 네임 스페이스에 대 한 사용 권한이 있는 경우에는 네임 스페이스를 변경 하는 것이 권장 되거나 지원 되지 않습니다. 새로 고침 주기 중에는 수동으로 변경한 내용이 모두 손실 됩니다.
 
-5 분 마다 클러스터의 전체 검색에 대 한 추가 기능을 호출합니다. 클러스터에 시도 된 변경의 게이트 키퍼에서 전체 검색 및 실시간 모든 평가의 세부 정보를 수집, 후 추가 기능 결과에 다시 보고 Azure Policy에 포함할 [준수 세부 정보](../how-to/get-compliance-data.md) 모든 Azure Policy와 같은 할당 합니다. 감사 주기 동안 사용 하는 정책 할당에 대 한 결과만 반환 됩니다.
+5 분 마다 추가 기능에서 클러스터의 전체 검색을 호출 합니다. 클러스터에 대 한 변경의 게이트 키퍼를 통해 전체 검색 및 실시간 평가에 대 한 세부 정보를 수집한 후 추가 기능을 통해 결과를 다시 Azure Policy에 보고 하 여 Azure Policy 할당과 같은 [규정 준수 정보](../how-to/get-compliance-data.md) 에 포함 합니다. 활성 정책 할당의 결과만 감사 주기 중에 반환 됩니다.
 
 ## <a name="policy-language"></a>정책 언어
 
-AKS를 관리 하기 위한 Azure Policy 언어 구조는 기존 정책을 따릅니다. 효과 _EnforceRegoPolicy_ 하며 AKS 클러스터를 관리 하는 데 사용 됩니다 _세부 정보_ 불투명 및 게이트 키퍼를 사용 하 여 작업에 관련 된 속성입니다. 세부 정보 및 예제를 참조 합니다 [EnforceRegoPolicy](effects.md#enforceregopolicy) 적용 합니다.
+AKS를 관리 하기 위한 Azure Policy 언어 구조는 기존 정책의 구조와 같습니다. 효과 _EnforceRegoPolicy_ 는 AKS 클러스터를 관리 하는 데 사용 되며 Opa 및 게이트 키퍼 작업과 관련 된 _세부_ 정보 속성을 사용 합니다. 자세한 내용과 예제는 [EnforceRegoPolicy](effects.md#enforceregopolicy) 효과를 참조 하세요.
 
-일부로 합니다 _details.policy_ Azure Policy는 정책 정의에 속성 추가 기능에 rego 정책의 URI를 전달 합니다. Rego에 불투명 및 게이트 키퍼 유효성을 검사 하거나 변경할 Kubernetes 클러스터에 요청을 지 원하는 언어입니다. Kubernetes 관리에 대 한 기존 표준을 지 Azure 정책을 사용 하면 기존 규칙을 다시 사용 하 고 보고 환경이 통합된 클라우드 준수에 대 한 Azure Policy를 사용 하 여 연결할 수 있습니다. 자세한 내용은 [Rego 란?](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego)합니다.
+정책 정의의 _정보. policy_ 속성의 일부로, Azure Policy는 REGO 정책의 URI를 추가 기능에 전달 합니다. Rego는 Kubernetes 클러스터에 대 한 요청을 유효성 검사 하거나 변경할 수 있도록 OPA 및 게이트 키퍼가 지 원하는 언어입니다. Kubernetes 관리에 대 한 기존 표준을 지원 하 Azure Policy를 사용 하면 기존 규칙을 다시 사용 하 여 통합 된 클라우드 규정 준수 보고 환경을 위한 Azure Policy와 연결할 수 있습니다. 자세한 내용은 [Rego 란?](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego)을 참조 하세요.
 
 ## <a name="built-in-policies"></a>기본 제공 정책
 
-Azure portal을 사용 하 여 AKS를 관리 하기 위한 기본 제공 정책을 찾으려면 다음이 단계를 수행 합니다.
+Azure Portal를 사용 하 여 AKS를 관리 하기 위한 기본 제공 정책을 찾으려면 다음 단계를 수행 합니다.
 
-1. Azure portal에서 Azure Policy 서비스를 시작 합니다. 선택 **모든 서비스** 왼쪽된 창 및 다음에 대 한 검색 및 선택 **정책**합니다.
+1. Azure Portal에서 Azure Policy 서비스를 시작 합니다. 왼쪽 창에서 **모든 서비스** 를 선택 하 고 **정책**을 검색 한 다음 선택 합니다.
 
-1. Azure Policy 페이지의 왼쪽된 창에서 선택 **정의**합니다.
+1. Azure Policy 페이지의 왼쪽 창에서 **정의**를 선택 합니다.
 
-1. Category 드롭다운 목록 상자에서 사용 하 여 **모두 선택** 필터의 선택을 취소 하 여 선택한 **Kubernetes 서비스**합니다.
+1. 범주 드롭다운 목록 상자에서 **모두 선택** 을 사용 하 여 필터를 지운 다음 **Kubernetes service**를 선택 합니다.
 
-1. 정책 정의 선택한 다음 선택 합니다 **할당** 단추입니다.
+1. 정책 정의를 선택한 다음 **할당** 단추를 선택 합니다.
 
 > [!NOTE]
-> AKS 정의 대 한 Azure 정책을 할당할 때 합니다 **범위** AKS 클러스터 리소스를 포함 해야 합니다.
+> AKS 정의에 대 한 Azure Policy를 할당 하는 경우 **범위** 는 AKS 클러스터 리소스를 포함 해야 합니다.
 
-또는 사용 하 여 합니다 [정책 할당-포털](../assign-policy-portal.md) 빠른 시작을 찾고 AKS 정책을 할당 합니다. 'Vm 감사' 샘플 대신 Kubernetes 정책 정의 검색 합니다.
+또는 [정책 할당-포털](../assign-policy-portal.md) 빠른 시작을 사용 하 여 AKS 정책을 찾고 할당 합니다. 샘플 ' vm 감사 ' 대신 Kubernetes 정책 정의를 검색 합니다.
 
 ## <a name="logging"></a>로깅
 
-### <a name="azure-policy-add-on-logs"></a>Azure 정책 추가 로그
+### <a name="azure-policy-add-on-logs"></a>추가 기능 로그 Azure Policy
 
-Azure Policy 추가 기능을 컨테이너/Kubernetes 컨트롤러, AKS 클러스터에서 로그를 유지합니다. 로그에서 노출 되는 **Insights** AKS 클러스터 페이지입니다. 자세한 내용은 [이해 AKS 클러스터 컨테이너에 대 한 Azure Monitor를 사용 하 여 성능](../../../azure-monitor/insights/container-insights-analyze.md)합니다.
+Kubernetes controller/container Azure Policy 추가 기능이 AKS 클러스터에 로그를 보관 합니다. 로그는 AKS 클러스터의 **정보** 페이지에 표시 됩니다. 자세한 내용은 [AKS cluster performance with Azure Monitor for 컨테이너](../../../azure-monitor/insights/container-insights-analyze.md)를 참조 하세요.
 
 ### <a name="gatekeeper-logs"></a>게이트 키퍼 로그
 
-새 리소스 요청에 대 한 게이트 키퍼 로그를 활성화 하려면의 단계에 따라 [을 사용 하도록 설정 하 고 마스터 노드 로그 AKS에서 Kubernetes 검토](../../../aks/view-master-logs.md)합니다.
-리소스에 대 한 새 요청에 거부 된 이벤트를 보려면 쿼리의 예는 다음과 같습니다.
+새 리소스 요청에 대해 게이트 키퍼 로그를 사용 하도록 설정 하려면 [AKS에서 Kubernetes 마스터 노드 로그 사용 및 검토](../../../aks/view-master-logs.md)의 단계를 따르세요.
+다음은 새 리소스 요청에 대해 거부 된 이벤트를 확인 하는 예제 쿼리입니다.
 
 ```kusto
 | where Category == "kube-audit"
@@ -188,25 +188,25 @@ Azure Policy 추가 기능을 컨테이너/Kubernetes 컨트롤러, AKS 클러�
 | limit 100
 ```
 
-게이트 키퍼 컨테이너에서 로그를 보려면의 단계에 따라 [사용 하도록 설정 하 고 마스터 노드 로그 AKS에서 Kubernetes를 검토](../../../aks/view-master-logs.md) 확인 하 고는 _kube apiserver_ 옵션을 **진단 설정** 창입니다.
+게이트 키퍼 컨테이너에서 로그를 보려면 [AKS에서 Kubernetes 마스터 노드 로그 사용 및 검토](../../../aks/view-master-logs.md) 의 단계를 따르고 **진단 설정** 창에서 _kube-apiserver_ 옵션을 선택 합니다.
 
 ## <a name="remove-the-add-on"></a>추가 기능 제거
 
-Azure Policy 추가 기능을 통해 AKS 클러스터에서를 제거 하려면 Azure portal 또는 Azure CLI를 사용 합니다.
+AKS 클러스터에서 Azure Policy 추가 기능을 제거 하려면 Azure Portal 또는 Azure CLI를 사용 합니다.
 
-- Azure portal
+- Azure Portal
 
-  1. 클릭 하 여 Azure portal에서 AKS 서비스를 시작할 **모든 서비스**, 다음에 대 한 검색 및 선택 **Kubernetes 서비스**합니다.
+  1. **모든 서비스**를 클릭 한 다음 **Kubernetes services**를 검색 하 고 선택 하 여 Azure Portal에서 AKS 서비스를 시작 합니다.
 
   1. Azure Policy 추가 기능을 사용 하지 않도록 설정 하려는 AKS 클러스터를 선택 합니다.
 
-  1. 선택 **정책 (미리 보기)** Kubernetes 서비스 페이지의 왼쪽에 있습니다.
+  1. Kubernetes service 페이지의 왼쪽에서 **정책 (미리 보기)** 을 선택 합니다.
 
-     ![AKS 클러스터에서 정책](../media/rego-for-aks/policies-preview-from-aks-cluster.png)
+     ![AKS 클러스터의 정책](../media/rego-for-aks/policies-preview-from-aks-cluster.png)
 
-  1. 기본 페이지에서 선택 합니다 **추가 기능을 사용 하지 않도록 설정** 단추입니다.
+  1. 기본 페이지에서 **추가 기능 사용 안 함** 단추를 선택 합니다.
 
-     ![AKS 추가 기능에 대 한 Azure Policy를 사용 하지 않도록 설정](../media/rego-for-aks/disable-policy-add-on.png)
+     ![AKS 추가 기능에 대 한 Azure Policy 사용 안 함](../media/rego-for-aks/disable-policy-add-on.png)
 
 - Azure CLI
 
@@ -218,10 +218,10 @@ Azure Policy 추가 기능을 통해 AKS 클러스터에서를 제거 하려면 
 
 ## <a name="next-steps"></a>다음 단계
 
-- 예제를 검토 [Azure Policy 샘플](../samples/index.md)합니다.
+- [Azure Policy 샘플](../samples/index.md)에서 예제를 검토 합니다.
 - [Policy 정의 구조](definition-structure.md)를 검토합니다.
 - [정책 효과 이해](effects.md)를 검토합니다.
-- 이해 하는 방법 [프로그래밍 방식으로 정책 만들기](../how-to/programmatically-create.md)합니다.
-- 에 대해 알아봅니다 하는 방법 [규정 준수 데이터를 가져올](../how-to/getting-compliance-data.md)합니다.
-- 설명 하는 방법 [비준수 리소스를 수정](../how-to/remediate-resources.md)합니다.
-- [Azure 관리 그룹으로 리소스 구성](../../management-groups/index.md)을 포함하는 관리 그룹을 검토합니다.
+- [프로그래밍 방식으로 정책을 만드는](../how-to/programmatically-create.md)방법을 알아봅니다.
+- [준수 데이터를 가져오는](../how-to/getting-compliance-data.md)방법에 대해 알아봅니다.
+- [비준수 리소스](../how-to/remediate-resources.md)를 수정 하는 방법에 대해 알아봅니다.
+- [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

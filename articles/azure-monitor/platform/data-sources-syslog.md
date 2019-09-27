@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dc3aa502dccdd4eb4e8bd1a82456656e5d389160
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60240833"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327431"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Azure Monitor의 Syslog 데이터 원본
 Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 애플리케이션은 로컬 컴퓨터에 저장되거나 Syslog 수집기에 배달될 수 있는 메시지를 전송합니다. Linux용 Log Analytics 에이전트를 설치하면 에이전트에 메시지를 전달하도록 로컬 Syslog 디먼이 구성됩니다. 그러면 에이전트는 레코드가 만들어진 Azure Monitor로 해당 메시지를 보냅니다.  
@@ -30,9 +30,9 @@ Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 애플�
 
 ![Syslog 수집](media/data-sources-syslog/overview.png)
 
-다음 기능의 Syslog 수집기와 함께 지원 됩니다.
+Syslog 수집기에서 지원 되는 기능은 다음과 같습니다.
 
-* 커닝
+* 자간
 * 사용자
 * 메일
 * daemon
@@ -46,7 +46,7 @@ Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 애플�
 * ftp
 * local0-local7
 
-다른 기능에 대해 [사용자 지정 로그 데이터 원본을 구성](data-sources-custom-logs.md) Azure Monitor에서.
+다른 기능의 경우 Azure Monitor에서 [사용자 지정 로그 데이터 원본을 구성](data-sources-custom-logs.md) 합니다.
  
 ## <a name="configuring-syslog"></a>Syslog 구성
 Linux용 Log Analytics 에이전트는 해당 구성에 지정된 기능 및 심각도에 따라서만 이벤트를 수집합니다. Azure Portal을 통해 또는 Linux 에이전트의 구성 파일을 관리하여 Syslog를 구성할 수 있습니다.
@@ -58,7 +58,7 @@ Linux용 Log Analytics 에이전트는 해당 구성에 지정된 기능 및 심
 
 ![Syslog 구성](media/data-sources-syslog/configure.png)
 
-기본적으로, 모든 구성 변경은 모든 에이전트로 자동 푸시됩니다. 각 Linux 에이전트에서 Syslog를 수동으로 구성하려면 *내 Linux 컴퓨터에 아래 구성 적용*확인란을 선택 취소합니다.
+기본적으로, 모든 구성 변경은 모든 에이전트로 자동 푸시됩니다. 각 Linux 에이전트에서 Syslog를 수동으로 구성 하려면 *내 컴퓨터에 아래 구성 적용*확인란의 선택을 취소 합니다.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Linux 에이전트에서 Syslog 구성
 [Log Analytics 에이전트가 Linux 클라이언트에 설치](../../azure-monitor/learn/quick-collect-linux-computer.md)되어 있으면 OMS 에이전트는 수집되는 메시지의 기능 및 심각도를 정의하는 기본 syslog 구성 파일을 설치합니다. 이 파일을 수정하여 구성을 변경할 수 있습니다. 구성 파일은 클라이언트가 설치한 Syslog 디먼에 따라 다릅니다.
@@ -201,7 +201,7 @@ Log Analytics 에이전트는 포트 25224에서 로컬 클라이언트의 Syslo
 ## <a name="syslog-record-properties"></a>Syslog 레코드 속성
 Syslog 레코드는 **Syslog** 형식이며, 다음 표의 속성이 있습니다.
 
-| 자산 | 설명 |
+| 속성 | 설명 |
 |:--- |:--- |
 | Computer |이벤트가 수집된 컴퓨터입니다. |
 | Facility |메시지를 생성한 시스템의 부분을 정의합니다. |
@@ -215,9 +215,9 @@ Syslog 레코드는 **Syslog** 형식이며, 다음 표의 속성이 있습니�
 ## <a name="log-queries-with-syslog-records"></a>Syslog 레코드를 포함하는 로그 쿼리
 다음 표에는 Syslog 레코드를 검색하는 로그 쿼리의 여러 예제가 나와 있습니다.
 
-| 쿼리 | 설명 |
+| query | 설명 |
 |:--- |:--- |
-| syslog |모든 Syslog입니다. |
+| Syslog |모든 Syslog입니다. |
 | Syslog &#124; where SeverityLevel == "error" |심각도가 오류인 모든 Syslog 레코드입니다. |
 | Syslog &#124; summarize AggregatedValue = count() by Computer |컴퓨터별 Syslog 레코드 수입니다. |
 | Syslog &#124; summarize AggregatedValue = count() by Facility |기능별 Syslog 레코드 수입니다. |

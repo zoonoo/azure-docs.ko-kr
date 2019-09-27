@@ -38,6 +38,8 @@
           href: create-cluster-database-csharp.md
         - name: Python
           href: create-cluster-database-python.md
+        - name: Azure Resource Manager 템플릿
+          href: create-cluster-database-resource-manager.md
     - name: 데이터 수집
       items:
         - name: 이벤트 허브

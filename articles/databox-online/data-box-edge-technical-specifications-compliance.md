@@ -6,18 +6,37 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/11/2019
+ms.date: 09/26/2019
 ms.author: alkohli
-ms.openlocfilehash: f1199748782c40b2527a8778417588891b84f9fc
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 365507f482217bd804bbd5017d4dbbaf8c187ad2
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910134"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326890"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Azure Data Box Edge 기술 사양
 
 Microsoft Azure Data Box Edge 장치의 하드웨어 구성 요소는이 문서에 설명 된 기술 사양과 규정 표준을 준수 합니다. 기술 사양은 PSUs (전원 공급 장치), 저장소 용량, 엔클로저 및 환경 표준을 설명 합니다. 
+
+## <a name="compute-memory-specifications"></a>계산, 메모리 사양
+
+Data Box Edge 장치에는 계산 및 메모리에 대 한 다음과 같은 사양이 있습니다.
+
+| 사양           | 값                  |
+|-------------------------|----------------------------|
+| CPU    | 2 X 10 코어 CPU                     |
+| 메모리              | 128GB RAM                  |
+
+
+## <a name="fpga-specifications"></a>FPGA 사양
+
+ML (Machine Learning) 시나리오를 가능 하 게 하는 FPGA (필드 프로그래밍 가능 게이트 배열)는 모든 Data Box Edge 장치에 포함 됩니다. 
+
+| 사양           | 값                  |
+|-------------------------|----------------------------|
+| FPGA   | Intel Arria 10 <br> 사용 가능한 심층 신경망 (DNN) 모델은 [CLOUD FPGA 인스턴스에서 지 원하는](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#whats-supported-on-azure)것과 같습니다.| 
+
 
 ## <a name="power-supply-unit-specifications"></a>전원 공급 장치 사양
 

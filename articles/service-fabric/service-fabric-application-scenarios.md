@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/24/2019
 ms.author: atsenthi
-ms.openlocfilehash: 6563d6e7c454f44e1a70d725191e56d3f90315c2
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 91e85f762e05c836fe32f5743cc48afed30ae983
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67052607"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327304"
 ---
 # <a name="service-fabric-application-scenarios"></a>서비스 패브릭 애플리케이션 시나리오
 Azure Service Fabric는 다양 한 유형의 비즈니스 응용 프로그램 및 서비스를 작성 하 고 실행할 수 있는 안정적이 고 유연한 플랫폼을 제공 합니다. 이러한 응용 프로그램 및 마이크로 서비스는 상태 비저장 또는 상태 저장 일 수 있으며 효율성을 최대화 하기 위해 가상 컴퓨터 간에 리소스가 분산 됩니다. 
@@ -68,9 +68,9 @@ Service Fabric 상태 저장 서비스는 데이터베이스 및 기타 데이�
 
 다음 다이어그램은 상태 비저장 응용 프로그램을 디자인 하는 것과 상태 저장 인 응용 프로그램을 디자인 하는 경우의 차이점을 보여 줍니다. [Reliable Services](service-fabric-reliable-services-introduction.md) 및 [Reliable Actors](service-fabric-reliable-actors-introduction.md) 프로그래밍 모델을 활용하여 상태 저장 서비스에서 애플리케이션 복잡성을 줄이고 높은 처리량과 낮은 대기 시간을 달성합니다.
 
-상태 비저장 서비스를 사용 하는 응용 프로그램 예제는 다음과 같습니다. ![상태 비저장 서비스를 사용 하는 응용 프로그램][Image1]
+상태 비저장 서비스를 사용 하는 응용 프로그램 예제는 다음과 같습니다. ![ 상태 비저장 서비스를 사용 하는 응용 프로그램 @ no__t-1
 
-상태 저장 서비스를 사용 하는 응용 프로그램 예제는 다음과 같습니다. ![상태 비저장 서비스를 사용 하는 응용 프로그램][Image2]
+상태 저장 서비스를 사용 하는 응용 프로그램 예제는 다음과 같습니다. ![ 상태 비저장 서비스를 사용 하는 응용 프로그램 @ no__t-1
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -87,5 +87,5 @@ Service Fabric 상태 저장 서비스는 데이터베이스 및 기타 데이�
   * [서비스 패브릭 서비스 크기 조정](service-fabric-concepts-scalability.md)
   * [서비스 패브릭 서비스 분할](service-fabric-concepts-partitioning.md)
 
-[Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
-[Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
+[Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.png
+[Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.png

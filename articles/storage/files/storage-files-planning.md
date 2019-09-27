@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: beb9e1344f5dd3bf4b3c3d293e38a7a28170771c
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 76637c566d85816b3af6d0ed457031e7d4cd4068
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212014"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327662"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 
@@ -96,6 +96,8 @@ Azure Backup는 프리미엄 파일 공유에 사용할 수 있으며 Azure Kube
 
 > [!IMPORTANT]
 > 프리미엄 파일 공유는 저장소 계정을 제공 하는 대부분의 지역에서 더 작은 하위 집합의 ZRS로 LRS와 함께 사용할 수 있습니다. 현재 지역에서 프리미엄 파일 공유를 사용할 수 있는지 확인 하려면 Azure에 대 한 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=storage) 페이지를 참조 하세요. ZRS를 지 원하는 지역을 알아보려면 [지원 범위 및 지역 가용성](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability)을 참조 하세요.
+>
+> 새 지역 및 프리미엄 계층 기능의 우선 순위를 지정 하는 데 도움이 되도록이 [설문 조사](https://aka.ms/pfsfeedback)를 작성해 주세요.
 
 #### <a name="provisioned-shares"></a>프로비전된 공유
 

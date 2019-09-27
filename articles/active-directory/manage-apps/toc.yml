@@ -361,6 +361,8 @@
           href: application-proxy-release-version-history.md
 - name: 리소스
   items:
+    - name: 개발자를 위한 지원 및 도움말 옵션
+      href: /azure/active-directory/develop/developer-support-help-options?context=azure/active-directory/manage-apps/context/manage-apps-context
     - name: Azure 피드백 포럼
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: MSDN 포럼

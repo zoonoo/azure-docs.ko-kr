@@ -1,6 +1,6 @@
 ---
-title: IoT 솔루션 이벤트 집계에 대 한 Azure Security Center 이해 | Microsoft Docs
-description: IoT 서비스 Azure Security Center에서 이벤트를 집계 하는 방법에 대해 알아봅니다.
+title: IoT 이벤트 집계에 대 한 Azure Security Center 이해 | Microsoft Docs
+description: IoT 이벤트 집계에 대 한 Azure Security Center에 대해 알아봅니다.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2019
+ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: b8100fc78eced9aa26fe185a8d68244d8f665ff2
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b1a14cf4c8aec2f3dbfa7bc4fd0800d9fd1fb0aa
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933895"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327310"
 ---
-# <a name="security-agent-event-aggregation"></a>보안 에이전트 이벤트 집계
+# <a name="azure-security-center-for-iot-event-aggregation"></a>IoT 이벤트 집계를 위한 Azure Security Center
 
-IoT 보안 에이전트에 대 한 Azure Security Center 로컬 장치에서 데이터 및 시스템 이벤트를 수집 하 고이 데이터를 처리 및 분석을 위해 Azure 클라우드에 보냅니다. 보안 에이전트는 새로운 프로세스 및 새 연결 이벤트를 포함 하 여 다양 한 유형의 장치 이벤트를 수집 합니다. 새 프로세스와 새 연결 이벤트는 모두 두 번째에 있는 장치에서 자주 발생 하 고, 강력 하 고 포괄적인 보안을 위해 중요 하지만,이로 인해 보안 에이전트가 전송 하는 메시지의 양이 신속 하 게 도달 하거나 초과 하 게 될 수 있습니다 IoT Hub 할당량 및 비용 제한. 그러나 이러한 이벤트는 장치를 보호 하는 데 중요 한 매우 중요 한 보안 정보를 포함 합니다.
+IoT 보안 에이전트에 대 한 Azure Security Center 로컬 장치에서 데이터 및 시스템 이벤트를 수집 하 고이 데이터를 처리 및 분석을 위해 Azure 클라우드에 보냅니다. 보안 에이전트는 새로운 프로세스 및 새 연결 이벤트를 포함 하 여 다양 한 유형의 장치 이벤트를 수집 합니다. 새 프로세스와 새 연결 이벤트는 모두 한 초 안에 장치에서 자주 발생 하는 반면, 강력 하 고 포괄적인 보안에 중요 한 경우 보안 에이전트가 강제로 보내는 메시지 수가 빠르게 도달 하거나 초과 하는 IoT Hub 수 있습니다. 할당량 및 비용 제한. 그러나 이러한 이벤트에는 장치를 보호 하는 데 매우 중요 한 보안 정보가 포함 되어 있습니다.
 
 장치를 보호 하는 동안 추가 할당량과 비용을 줄이기 위해 Azure Security Center IoT 에이전트는 이러한 유형의 이벤트를 집계 합니다.
 
@@ -44,8 +44,8 @@ IoT 보안 에이전트에 대 한 Azure Security Center 로컬 장치에서 데
 
 이벤트는 다음 조건이 충족 될 때만 동일 하 게 간주 됩니다. 
 
-* ProcessCreate 이벤트- **명령줄**, **실행 파일**, **사용자 이름** 및 **userid** 가 동일한 경우
-* ConnectionCreate 이벤트- **명령줄**, **userId**, **방향**, **로컬 주소**, **원격 주소**, **프로토콜** 및 **대상 포트가** 동일한 경우
+* ProcessCreate 이벤트- **명령줄**, **실행 파일**, * * 사용자 이름 및 **userid** 가 동일한 경우
+* ConnectionCreate 이벤트- **명령줄**, **userId**, **방향**, **로컬 주소**, **원격 주소**, * * 프로토콜 및 **대상 포트가** 동일한 경우
 * ProcessTerminate events- **실행 파일** 및 **종료 상태가** 동일한 경우
 
 ### <a name="working-with-aggregated-events"></a>집계 이벤트 작업
@@ -64,14 +64,14 @@ IoT 보안 에이전트에 대 한 Azure Security Center 로컬 장치에서 데
 ## <a name="event-aggregation-twin-configuration"></a>이벤트 집계 쌍 구성
 **Azureiotsecurity** 모듈의 모듈 쌍 id의 [에이전트 구성 개체](how-to-agent-configuration.md) 내에서 IoT 이벤트 집계에 대 한 Azure Security Center 구성을 변경 합니다.
 
-| 구성 이름 | 가능한 값 | 세부 정보 | 설명 |
+| 구성 이름 | 가능한 값 | 설명 | 설명 |
 |:-----------|:---------------|:--------|:--------|
 | aggregationEnabledProcessCreate | boolean | 프로세스 생성 이벤트에 대 한 이벤트 집계 사용/사용 안 함 |
 | aggregationIntervalProcessCreate | ISO8601 Timespan 문자열 | 프로세스 생성 이벤트에 대 한 집계 간격 |
 | aggregationEnabledConnectionCreate | boolean| 연결 생성 이벤트에 대 한 이벤트 집계 사용/사용 안 함 |
 | aggregationIntervalConnectionCreate | ISO8601 Timespan 문자열 | 연결 생성 이벤트에 대 한 집계 간격 |
-| aggregationEnabledProcessTerminate | boolean | 프로세스 종료 이벤트에 대 한 이벤트 집계 사용/사용 안 함 | Windows에만 해당|
-| aggregationIntervalProcessTerminate | ISO8601 Timespan 문자열 | 프로세스 종료 이벤트에 대 한 집계 간격 | Windows에만 해당|
+| aggregationEnabledProcessTerminate | boolean | 프로세스 종료 이벤트에 대 한 이벤트 집계 사용/사용 안 함 | Windows만|
+| aggregationIntervalProcessTerminate | ISO8601 Timespan 문자열 | 프로세스 종료 이벤트에 대 한 집계 간격 | Windows만|
 |
 
 ## <a name="default-configurations-settings"></a>기본 구성 설정

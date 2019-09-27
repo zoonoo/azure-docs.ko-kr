@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a928640aa6d56f0a39011a2cabcf979b4d907a46
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1d95d14398bc6b5acdec89428ebe22a672551a8a
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561475"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338797"
 ---
 # <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>Media Services 동적 암호화를 사용 하 여 콘텐츠 보호
 
@@ -35,7 +35,7 @@ REST API 또는 Media Services 클라이언트 라이브러리를 사용하여 �
 
 ![Media Services 콘텐츠 보호를 위한 워크플로](./media/content-protection/content-protection.svg)
   
-&#42;*동적 암호화는 AES-128 암호화 되지 않은 키, cbcs 및 cbcs를 지원 합니다. 자세한 내용은 [지원 매트릭스](#streaming-protocols-and-encryption-types)를 참조 하세요.*
+&#42;*Dynamic encryption은 AES-128 clear key, CBCS 및 CBCS를 지원 합니다. 자세한 내용은 [지원 매트릭스](#streaming-protocols-and-encryption-types)를 참조 하세요.*
 
 이 문서에서는 Media Services의 콘텐츠 보호를 이해 하는 데 도움이 되는 개념과 용어에 대해 설명 합니다.
 
@@ -68,17 +68,17 @@ REST API 또는 Media Services 클라이언트 라이브러리를 사용하여 �
      ```
 2. 암호화 된 자산을 스트리밍하려면 구성 된 [스트리밍 로케이터](streaming-locators-concept.md) 를 만듭니다. 
   
-   스트리밍 로케이터는 [스트리밍 정책과](streaming-policy-concept.md)연결 해야 합니다. 이 예에서는을 "Predefined_MultiDrmCencStreaming `StreamingLocator.StreamingPolicyName` " 정책으로 설정 합니다. 
+   스트리밍 로케이터는 [스트리밍 정책과](streaming-policy-concept.md)연결 해야 합니다. 이 예에서는 `StreamingLocator.StreamingPolicyName`을 "Predefined_MultiDrmCencStreaming" 정책으로 설정 합니다. 
       
    PlayReady 및 Widevine 암호화가 적용 되 고, 구성 된 DRM 라이선스에 따라 키가 재생 클라이언트에 전달 됩니다. CBCS (FairPlay)를 사용 하 여 스트림을 암호화 하려는 경우에는 "Predefined_MultiDrmStreaming" 정책을 사용 합니다.
 
    또한 스트리밍 로케이터는 정의한 콘텐츠 키 정책과 연결 됩니다.
 3. 테스트 토큰을 만듭니다.
 
-   메서드 `GetTokenAsync` 는 테스트 토큰을 만드는 방법을 보여 줍니다.
+   @No__t-0 메서드는 테스트 토큰을 만드는 방법을 보여 줍니다.
 4. 스트리밍 URL을 작성합니다.
 
-   메서드 `GetDASHStreamingUrlAsync` 는 스트리밍 URL을 작성 하는 방법을 보여 줍니다. 이 경우 URL은 대시 콘텐츠를 스트리밍합니다.
+   @No__t-0 메서드는 스트리밍 URL을 작성 하는 방법을 보여 줍니다. 이 경우 URL은 대시 콘텐츠를 스트리밍합니다.
 
 ### <a name="player-with-an-aes-or-drm-client"></a>AES 또는 DRM 클라이언트를 사용 하는 플레이어 
 
@@ -172,7 +172,7 @@ MPEG 대시 프로토콜은 다음과 같은 컨테이너 형식 및 암호화 �
 
 토큰 제한 콘텐츠 키 정책을 사용 하는 경우 콘텐츠 키는 라이선스/키 요청에서 유효한 JWT 토큰 또는 SWT (단순 웹 토큰)를 제공 하는 클라이언트에만 전송 됩니다. 이 토큰은 STS에서 발급 되어야 합니다. 
 
-Azure AD를 STS로 사용 하거나 사용자 지정 STS를 배포할 수 있습니다. 지정된 키로 서명된 토큰을 만들고 토큰 제한 구성에서 지정한 클레임을 발급하려면 반드시 STS를 구성해야 합니다. Media Services 라이선스/키 배달 서비스는 다음 조건에 모두 해당 하는 경우 요청 된 라이선스 또는 키를 클라이언트에 반환 합니다.
+Azure AD를 STS로 사용 하거나 [사용자 지정 sts](#using-a-custom-sts)를 배포할 수 있습니다. 지정된 키로 서명된 토큰을 만들고 토큰 제한 구성에서 지정한 클레임을 발급하려면 반드시 STS를 구성해야 합니다. Media Services 라이선스/키 배달 서비스는 다음 조건에 모두 해당 하는 경우 요청 된 라이선스 또는 키를 클라이언트에 반환 합니다.
 
 * 토큰이 유효 합니다. 
 * 토큰의 클레임은 라이선스 또는 키에 대해 구성 된 클레임과 일치 합니다.
@@ -199,7 +199,7 @@ Azure AD를 STS로 사용 하거나 사용자 지정 STS를 배포할 수 있습
 * 고객이 사용 하는 IDP (id 공급자)가 STS를 지원 하지 않습니다. 이 경우 사용자 지정 STS가 옵션일 수 있습니다.
 * 고객은 STS를 고객의 구독자 청구 시스템과 통합하는 데 보다 유연하고 긴밀한 제어가 필요할 수 있습니다. 
 
-   예를 들어, 고 대 수 [의 서비스 운영자](https://en.wikipedia.org/wiki/Over-the-top_media_services) 는 프리미엄, 기본 및 스포츠와 같은 여러 구독자 패키지를 제공할 수 있습니다. 이 작업자는 토큰의 클레임을 구독자의 패키지와 일치시켜 특정 패키지의 콘텐츠만 제공되도록 할 수 있습니다. 이 경우 사용자 지정 STS가 필요한 유연성 및 제어를 제공합니다.
+   예를 들어, [고 대 수의 서비스 운영자](https://en.wikipedia.org/wiki/Over-the-top_media_services) 는 프리미엄, 기본 및 스포츠와 같은 여러 구독자 패키지를 제공할 수 있습니다. 이 작업자는 토큰의 클레임을 구독자의 패키지와 일치시켜 특정 패키지의 콘텐츠만 제공되도록 할 수 있습니다. 이 경우 사용자 지정 STS가 필요한 유연성 및 제어를 제공합니다.
 * 토큰에 사용자 지정 클레임을 포함 하 여 서로 다른 DRM 라이선스 매개 변수 (구독 라이선스와 임대 라이선스)를 사용 하는 서로 다른 ContentKeyPolicyOptions 사이에서 선택할 수 있습니다.
 * 토큰에서 액세스 권한을 부여 하는 키의 콘텐츠 키 식별자를 나타내는 클레임을 포함 하려면입니다.
 
@@ -222,13 +222,13 @@ Azure AD를 STS로 사용 하거나 사용자 지정 STS를 배포할 수 있습
 * `EnvelopeEncryption.CustomKeyAcquisitionUrlTemplate`: 최종 사용자 플레이어에 게 키를 전달 하는 사용자 지정 서비스의 URL에 대 한 템플릿입니다. 키를 발급 하는 Azure Media Services을 사용 하는 경우에는 필요 하지 않습니다. 
 
    이 템플릿은 서비스에서 요청에 지정 된 값을 사용 하 여 런타임에 업데이트 하는 대체 가능한 토큰을 지원 합니다.  현재 지원 되는 토큰 값은 다음과 같습니다.
-   * `{AlternativeMediaId}`-StreaminglocAlternativeMediaId의 값으로 대체 됩니다.
-   * `{ContentKeyId}`는 요청 된 키의 식별자 값으로 대체 됩니다.
+   * `{AlternativeMediaId}`은 StreaminglocAlternativeMediaId의 값으로 대체 됩니다.
+   * `{ContentKeyId}`은 요청 된 키의 식별자 값으로 대체 됩니다.
 * `StreamingPolicyPlayReadyConfiguration.CustomLicenseAcquisitionUrlTemplate`: 최종 사용자 플레이어에 게 라이선스를 제공 하는 사용자 지정 서비스의 URL에 대 한 템플릿입니다. 라이선스 발급에 Azure Media Services를 사용 하는 경우에는 필요 하지 않습니다. 
 
    이 템플릿은 서비스에서 요청에 지정 된 값을 사용 하 여 런타임에 업데이트 하는 대체 가능한 토큰을 지원 합니다. 현재 지원 되는 토큰 값은 다음과 같습니다.  
-   * `{AlternativeMediaId}`-StreaminglocAlternativeMediaId의 값으로 대체 됩니다.
-   * `{ContentKeyId}`는 요청 된 키의 식별자 값으로 대체 됩니다. 
+   * `{AlternativeMediaId}`은 StreaminglocAlternativeMediaId의 값으로 대체 됩니다.
+   * `{ContentKeyId}`은 요청 된 키의 식별자 값으로 대체 됩니다. 
 * `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: 이전 템플릿과 동일 합니다. Widevine 전용입니다. 
 * `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: 이전 템플릿과 동일 하며 FairPlay에만 해당 합니다.  
 
@@ -238,13 +238,13 @@ Azure AD를 STS로 사용 하거나 사용자 지정 STS를 배포할 수 있습
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
 ```
 
-`ContentKeyId`에는 요청 된 키의 값이 있습니다. 사용자 측의 `AlternativeMediaId` 엔터티에 요청을 매핑하려는 경우를 사용할 수 있습니다. 예를 들어 `AlternativeMediaId` 를 사용 하 여 사용 권한을 조회할 수 있습니다.
+`ContentKeyId`에는 요청 된 키의 값이 있습니다. 사용자 측의 엔터티에 요청을 매핑하려는 경우 `AlternativeMediaId`을 사용할 수 있습니다. 예를 들어 `AlternativeMediaId`을 사용 하 여 사용 권한을 조회할 수 있습니다.
 
  사용자 지정 라이선스/키 취득 Url을 사용 하는 REST 예제는 [스트리밍 정책-만들기](https://docs.microsoft.com/rest/api/media/streamingpolicies/create)를 참조 하세요.
 
 ## <a name="troubleshoot"></a>문제 해결
 
-`MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` 오류가 발생 하면 적절 한 스트리밍 정책을 지정 해야 합니다.
+@No__t-0 오류가 발생 하면 적절 한 스트리밍 정책을 지정 해야 합니다.
 
 로 `_NOT_SPECIFIED_IN_URL`끝나는 오류가 발생 하면 URL에 암호화 형식을 지정 해야 합니다. 예제입니다. `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)` [스트리밍 프로토콜 및 암호화 유형을](#streaming-protocols-and-encryption-types)참조 하세요.
 
@@ -259,4 +259,4 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 * [액세스 제어를 사용 하 여 다중 DRM 콘텐츠 보호 시스템 디자인](design-multi-drm-system-with-access-control.md)
 * [저장소 쪽 암호화](storage-account-concept.md#storage-side-encryption)
 * [질문과 대답](frequently-asked-questions.md)
-
+* [JSON Web Token 처리기](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)

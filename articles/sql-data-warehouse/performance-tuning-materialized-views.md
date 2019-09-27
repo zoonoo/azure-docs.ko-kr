@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 6ed6e21f16287148c8764dd98bda378451440e58
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 593841ac95c4c6f17f33a8d35d6b3f83a6db1124
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172778"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338902"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>구체화 된 뷰로 성능 조정 
 Azure SQL Data Warehouse의 구체화 된 뷰를 사용 하면 복잡 한 분석 쿼리에 대해 낮은 유지 관리 방법을 제공 하 여 쿼리를 변경 하지 않고 성능을 빠르게 얻을 수 있습니다. 이 문서에서는 구체화 된 뷰 사용에 대 한 일반적인 지침을 설명 합니다.
@@ -49,7 +49,7 @@ Azure SQL Data Warehouse은 표준 및 구체화 된 뷰를 지원 합니다.  �
 
 - Azure SQL Data Warehouse의 최적화 프로그램은 자동으로 배포 된 구체화 된 뷰를 사용 하 여 쿼리 실행 계획을 향상 시킬 수 있습니다.  이 프로세스는 더 빠른 쿼리 성능을 제공 하는 사용자에 게는 투명 하며 구체화 된 뷰에 대 한 직접 참조를 수행 하는 쿼리는 필요 하지 않습니다. 
 
-- 뷰에 대해 낮은 유지 관리가 필요 합니다.  구체화 된 뷰는 뷰를 만들 때 초기 데이터에 대 한 클러스터형 columnstore 인덱스와 증분 데이터 변경 내용에 대 한 델타 저장소 라는 두 곳에 데이터를 저장 합니다.  기본 테이블의 모든 데이터 변경 내용은 동기 방식으로 델타 저장소에 자동으로 추가 됩니다.  백그라운드 프로세스 (튜플 이동 기)는 주기적으로 델타 저장소에서 뷰의 columnstore 인덱스로 데이터를 이동 합니다.  이 디자인에서는 구체화 된 뷰를 쿼리하여 기본 테이블을 직접 쿼리 하는 것과 동일한 데이터를 반환할 수 있습니다. 
+- 뷰에 대해 낮은 유지 관리가 필요 합니다.  기본 테이블의 모든 증분 데이터 변경 내용은 자동으로 구체화 된 뷰에 자동으로 추가 됩니다.  이 디자인에서는 구체화 된 뷰를 쿼리하여 기본 테이블을 직접 쿼리 하는 것과 동일한 데이터를 반환할 수 있습니다. 
 - 구체화 된 뷰의 데이터를 기본 테이블과 다르게 배포할 수 있습니다.  
 - 구체화 된 뷰의 데이터는 일반 테이블의 데이터와 동일한 고가용성 및 복원 력 혜택을 얻습니다.  
  
@@ -90,7 +90,7 @@ Azure 데이터 웨어하우스는 MPP (distributed 대규모 parallel processin
 
 **더 빠른 쿼리 및 비용 간의 균형을 염두에 두어야 합니다.** 
 
-구체화 된 각 뷰에 대해 데이터 저장 비용 및 보기 유지 관리 비용이 있습니다.  기본 테이블의 데이터가 변경 되 면 구체화 된 뷰의 크기가 늘어나고 물리적 구조도 변경 됩니다.  쿼리 성능 저하를 방지 하기 위해 구체화 된 각 뷰는 델타 저장소에서 columnstore 인덱스 세그먼트로 행을 이동 하 고 데이터 변경 내용을 통합 하는 등 데이터 웨어하우스 엔진에서 별도로 유지 관리 됩니다.  구체화 된 뷰 및 기본 테이블 변경 수가 늘어나면 유지 관리 작업은 더 높습니다.   사용자는 모든 구체화 된 뷰에서 발생 한 비용을 쿼리 성능 향상에 따라 오프셋할 수 있는지 확인 해야 합니다.  
+구체화 된 각 뷰에 대해 데이터 저장 비용 및 보기 유지 관리 비용이 있습니다.  기본 테이블의 데이터가 변경 되 면 구체화 된 뷰의 크기가 늘어나고 물리적 구조도 변경 됩니다.  쿼리 성능 저하를 방지 하기 위해 구체화 된 각 뷰는 데이터 웨어하우스 엔진에서 별도로 유지 관리 됩니다.  구체화 된 뷰 및 기본 테이블 변경 수가 늘어나면 유지 관리 작업은 더 높습니다.   사용자는 모든 구체화 된 뷰에서 발생 한 비용을 쿼리 성능 향상에 따라 오프셋할 수 있는지 확인 해야 합니다.  
 
 데이터베이스의 구체화 된 뷰 목록에 대해이 쿼리를 실행할 수 있습니다. 
 
@@ -136,7 +136,7 @@ GROUP BY A, C
 
 **구체화 된 뷰 모니터링** 
 
-구체화 된 뷰는 CCI (클러스터형 columnstore 인덱스)가 있는 테이블과 마찬가지로 데이터 웨어하우스에 저장 됩니다.  구체화 된 뷰에서 데이터를 읽으면 인덱스를 검색 하 고 델타 저장소에서 변경 내용을 적용 하는 작업이 포함 됩니다.  델타 저장소의 행 수가 너무 높으면 구체화 된 뷰에서 쿼리를 확인 하는 것이 기본 테이블을 직접 쿼리 하는 것 보다 시간이 더 오래 걸릴 수 있습니다.  쿼리 성능 저하를 방지 하려면 [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest) 를 실행 하 여 뷰의 overhead_ratio (total_rows/base_view_row)를 모니터링 하는 것이 좋습니다.  Overhead_ratio이 너무 높으면 델타 저장소의 모든 행이 columnstore 인덱스로 이동 되도록 구체화 된 뷰를 다시 작성 하는 것이 좋습니다.  
+구체화 된 뷰는 CCI (클러스터형 columnstore 인덱스)가 있는 테이블과 마찬가지로 데이터 웨어하우스에 저장 됩니다.  구체화 된 뷰에서 데이터를 읽으면 CCI 인덱스 세그먼트를 검색 하 고 기본 테이블에서 증분 변경 내용을 적용 하는 작업이 포함 됩니다. 증분 변경 수가 너무 높으면 구체화 된 뷰에서 쿼리를 확인 하는 것이 기본 테이블을 직접 쿼리 하는 것 보다 시간이 더 오래 걸릴 수 있습니다.  쿼리 성능 저하를 방지 하려면 [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest) 를 실행 하 여 뷰의 overhead_ratio (total_rows/max (1, base_view_row))를 모니터링 하는 것이 좋습니다.  Overhead_ratio이 너무 높으면 구체화 된 뷰를 다시 빌드해야 합니다. 
 
 **구체화 된 뷰 및 결과 집합 캐싱**
 

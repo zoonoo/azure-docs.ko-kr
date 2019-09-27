@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4db4806b6be018bfc53a155627de825bf62d8395
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29f1fc2a6fd23ef3a770f58fd78d5067672136dd
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510104"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326293"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 Android 애플리케이션을 사용하여 로그인
 
 Microsoft ID 플랫폼은 OAuth2 및 OpenID Connect와 같은 개방형 표준을 사용합니다. 이러한 표준을 사용하면 Azure Active Directory B2C와 통합하려는 라이브러리를 활용할 수 있습니다. 다른 라이브러리를 사용할 수 있으려면 타사 라이브러리를 Microsoft ID 플랫폼에 연결하도록 구성하는 방법을 설명하는 이와 같은 연습을 사용할 수 있습니다. [RFC6749 OAuth2 사양](https://tools.ietf.org/html/rfc6749)을 구현하는 대부분의 라이브러리는 Microsoft ID 플랫폼에 연결할 수 있습니다.
 
 > [!WARNING]
-> Microsoft는 타사 라이브러리에 대한 수정 사항을 제공하지 않으며 이러한 라이브러리의 검토를 완료하지 않았습니다. 이 샘플은 기본 시나리오에서 Azure AD B2C와의 호환성이 테스트된 AppAuth라는 타사 라이브러리를 사용합니다. 문제 및 기능 요청은 라이브러리의 오픈 소스 프로젝트로 리디렉션되어야 합니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries)를 참조하세요.  
+> Microsoft는 타사 라이브러리에 대한 수정 사항을 제공하지 않으며 이러한 라이브러리의 검토를 완료하지 않았습니다. 이 샘플은 기본 시나리오에서 Azure AD B2C와의 호환성이 테스트된 AppAuth라는 타사 라이브러리를 사용합니다. 문제 및 기능 요청은 라이브러리의 오픈 소스 프로젝트로 리디렉션되어야 합니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries)를 참조하세요.
 >
 >
 
@@ -34,11 +34,11 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 
-다음으로 B2C 디렉터리에서 앱을 만들어야 합니다. 앱과 안전하게 통신하는 데 필요한 Azure AD 정보를 제공합니다. 모바일 앱을 만들려면 [이러한 지침](active-directory-b2c-app-registration.md)에 따릅니다. 다음을 수행해야 합니다.
+다음으로 Azure AD B2C 테 넌 트에 응용 프로그램을 등록 합니다. 이를 통해 Azure AD는 앱과 안전 하 게 통신 하는 데 필요한 정보를 제공 합니다.
 
-* 애플리케이션에 **네이티브 클라이언트**를 포함합니다.
-* 앱에 할당된 **애플리케이션 ID**를 복사합니다. 이 ID는 나중에 필요합니다.
-* 네이티브 클라이언트 **리디렉션 URI**(예: com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect)를 설정합니다. 이 ID는 나중에도 필요합니다.
+[!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
+
+이후 단계에서 사용할 **응용 프로그램 ID** 를 기록 합니다. 그런 다음 목록에서 응용 프로그램을 선택 하 고 이후 단계에서 사용 하기 위해 **사용자 지정 리디렉션 URI**도 기록 합니다. 예를 들어, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`을 입력합니다.
 
 ## <a name="create-your-user-flows"></a>사용자 흐름 만들기
 
@@ -62,7 +62,7 @@ Azure AD B2C에서 모든 사용자 환경은 [사용자 흐름](active-director
 > AppAuth는 Android API 16(Jellybean) 이상을 지원합니다. API 23 이상을 사용하는 것이 좋습니다.
 >
 
-### <a name="configuration"></a>구성
+### <a name="configuration"></a>Configuration
 
 검색 URI를 지정하거나 권한 부여 엔드포인트와 토큰 엔드포인트 URI를 모두 지정하여 Azure AD B2C와의 통신을 구성할 수 있습니다. 두 경우 모두 다음 정보를 제공해야 합니다.
 
@@ -117,8 +117,8 @@ AuthorizationServiceConfiguration config =
 
 권한 부여 서비스 구성을 구성하거나 검색하면 권한 부여 요청을 생성할 수 있습니다. 요청을 만들려면 다음 정보가 필요합니다.
 
-* 클라이언트 ID(예: 00000000-0000-0000-0000-000000000000)
-* 사용자 지정 스키마를 사용하는 리디렉션 URI(예: com.onmicrosoft.fabrikamb2c.exampleapp://oauthredirect)
+* 이전에 기록한 클라이언트 ID (응용 프로그램 ID)입니다. 예를 들어, `00000000-0000-0000-0000-000000000000`을 입력합니다.
+* 이전에 기록한 사용자 지정 리디렉션 URI입니다. 예를 들어, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`을 입력합니다.
 
 두 항목 모두 [앱을 등록](#create-an-application)할 때 저장해야 합니다.
 
@@ -132,4 +132,3 @@ AuthorizationRequest req = new AuthorizationRequest.Builder(
 ```
 
 프로세스의 나머지 단계를 완료하는 방법은 [AppAuth 가이드](https://openid.github.io/AppAuth-Android/)를 참조하세요. 작업 중인 앱으로 빠르게 시작해야 하는 경우에는 [샘플](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c)을 확인하세요. [README.md](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md)에 나온 단계에 따라 사용자 고유의 Azure AD B2C 구성을 입력합니다.
-

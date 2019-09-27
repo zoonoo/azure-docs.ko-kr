@@ -1,17 +1,17 @@
 ---
 title: Azure 데이터 공유 미리 보기에서 초대 삭제
 description: 초대 삭제
-author: madams0013
+author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: jasonh
-ms.openlocfilehash: 49fd3da721f3a9ef5d9810e88fa15a92709ee2e6
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: eacc4e5edb196d512d3b27b2a0acc72a82e8f0b9
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258684"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327186"
 ---
 # <a name="how-to-delete-an-invitation-to-a-recipient-in-azure-data-share-preview"></a>Azure 데이터 공유 미리 보기에서 받는 사람에 대 한 초대를 삭제 하는 방법
 

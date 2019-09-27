@@ -9,12 +9,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/09/2019
 ms.author: sagupt
-ms.openlocfilehash: a67034752b4c43533a5735b857186ee83934717a
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d641008a7caf4a006344d886aec945a6e8da2568
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935639"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326608"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations"></a>새 권장 사항에 대 한 Azure Advisor 경고 만들기 
 
@@ -24,7 +24,7 @@ Azure Advisor에서 리소스 중 하나에 대 한 새로운 권장 사항을 �
 
 이러한 속성을 사용 하 여 권장 구성 유형을 확인할 수도 있습니다.
 
-* 범주
+* Category
 * 영향 수준
 * 권장 사항 유형
 
@@ -33,7 +33,7 @@ Azure Advisor에서 리소스 중 하나에 대 한 새로운 권장 사항을 �
 * 기존 작업 그룹을 선택 합니다.
 * 새 작업 그룹 만들기
 
-작업 그룹에 대 한 자세한 내용은 [작업 그룹 만들기 및 관리] (... /azure-monitor/-
+작업 그룹에 대해 자세히 알아보려면 [작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md)를 참조하세요.
 
 > [!NOTE] 
 > Advisor 경고는 현재 고가용성, 성능 및 비용 권장 사항에 대해서만 사용할 수 있습니다. 보안 권장 사항은 지원 되지 않습니다. 

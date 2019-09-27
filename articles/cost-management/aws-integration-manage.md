@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 6767644e037c6abb3e3044c8707e923a9137a01c
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 772f6cdde575a9ac669c73ecca039914357ffe2f
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019540"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338891"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Azure에서 AWS 비용 및 사용량 관리
 
@@ -77,20 +77,20 @@ AWS 통합 계정 비용을 보려면 범위 선택기를 열고 AWS 통합 계�
 
 | 차원 | Amazon .CUR 헤더 | 범위 | 주석 |
 | --- | --- | --- | --- |
-| 가용성 영역 | lineitem/AvailabilityZone | All |   |
-| 위치 | 제품/지역 | All |   |
-| 미터 |   | All |   |
-| 미터 범주 | lineItem/ProductCode | All |   |
-| 미터 하위 범주 | lineitem/UsageType | All |   |
-| 작업(Operation) | lineItem/작업 | All |   |
-| Resource | lineItem/ResourceId | All |   |
-| 리소스 형식 | product/instanceType | All | Product/instanceType가 null 이면 lineItem/UsageType이 사용 됩니다. |
-| ResourceGuid | 해당 사항 없음 | All | Azure 측정기 GUID입니다. |
-| 서비스 이름 | product/ProductName | All | Product/ProductName이 null 이면 lineItem/ProductCode가 사용 됩니다. |
+| 가용성 영역 | lineitem/AvailabilityZone | 모두 |   |
+| 위치 | 제품/지역 | 모두 |   |
+| 미터 |   | 모두 |   |
+| 미터 범주 | lineItem/ProductCode | 모두 |   |
+| 미터 하위 범주 | lineitem/UsageType | 모두 |   |
+| 연산 | lineItem/작업 | 모두 |   |
+| 리소스 | lineItem/ResourceId | 모두 |   |
+| 리소스 형식 | product/instanceType | 모두 | Product/instanceType가 null 이면 lineItem/UsageType이 사용 됩니다. |
+| ResourceGuid | 해당 사항 없음 | 모두 | Azure 측정기 GUID입니다. |
+| 서비스 이름 | product/ProductName | 모두 | Product/ProductName이 null 이면 lineItem/ProductCode가 사용 됩니다. |
 | 서비스 계층 |   |   |   |
 | 구독 ID | lineItem/UsageAccountId | 통합 계정 및 관리 그룹 |   |
 | 구독 이름 | 해당 사항 없음 | 통합 계정 및 관리 그룹 | 계정 이름은 AWS 조직 API를 사용 하 여 수집 됩니다. |
-| 태그 | resourceTags/\* | All | _사용자:_ 접두사는 사용자 정의 태그에서 제거 되어 클라우드 간 태그를 허용 합니다. _Aws:_ 접두사는 그대로 남아 있습니다. |
+| 태그 | resourceTags/\* | 모두 | _사용자:_ 접두사는 사용자 정의 태그에서 제거 되어 클라우드 간 태그를 허용 합니다. _Aws:_ 접두사는 그대로 남아 있습니다. |
 | 청구 계정 ID | 청구서/PayerAccountId | 관리 그룹 |   |
 | 청구 계정 이름 | 해당 사항 없음 | 관리 그룹 | 계정 이름은 AWS 조직 API를 사용 하 여 수집 됩니다. |
 | 공급자 | 해당 사항 없음 | 관리 그룹 | AWS 또는 Azure 중 하나입니다. |
@@ -183,4 +183,4 @@ AWS 연결 된 계정 비용에 액세스할 수 있는 권한을 얻는 방법�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 관리 그룹을 사용 하 여 Azure 환경을 아직 구성 하지 않은 경우 [관리 그룹의 초기 설정](../governance/management-groups/index.md#initial-setup-of-management-groups)을 참조 하세요.
+- 관리 그룹을 사용 하 여 Azure 환경을 아직 구성 하지 않은 경우 [관리 그룹의 초기 설정](../governance/management-groups/overview.md#initial-setup-of-management-groups)을 참조 하세요.

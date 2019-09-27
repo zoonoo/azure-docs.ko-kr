@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 09/24/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f033cf57c5a285e94372728677c91e021065fa9
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 1283549ce78535757b7ba42eaf7054538f0c9784
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678210"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326350"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 새 액세스 패키지 만들기
 
@@ -79,7 +79,7 @@ ms.locfileid: "68678210"
 
 **리소스 역할** 탭에서 액세스 패키지에 포함할 리소스를 선택 합니다.  액세스 패키지를 요청 하 고 수신 하는 사용자는 액세스 패키지의 모든 리소스 역할을 받게 됩니다.
 
-1. 추가 하려는 리소스 종류 (**그룹**, **응용 프로그램**또는 **SharePoint 사이트**)를 클릭 합니다.
+1. 추가 하려는 리소스 종류 (**그룹 및 팀**, **응용 프로그램**또는 **SharePoint 사이트**)를 클릭 합니다.
 
 1. 표시 되는 선택 창의 목록에서 하나 이상의 리소스를 선택 합니다.
 
@@ -111,7 +111,7 @@ ms.locfileid: "68678210"
 
 [!INCLUDE [Entitlement management policy](../../../includes/active-directory-entitlement-management-policy.md)]
 
-## <a name="review--create"></a>리뷰 + 만들기
+## <a name="review--create"></a>검토 + 만들기
 
 **검토 + 만들기** 탭에서 설정을 검토 하 고 유효성 검사 오류를 확인할 수 있습니다.
 

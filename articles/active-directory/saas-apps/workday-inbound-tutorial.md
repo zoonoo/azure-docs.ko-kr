@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c357cba8ce2fbe2ad902d5c215f8adbfc99a9f0a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 63176c325fd42c46e988ab3798f46089a43e70bf
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813018"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326782"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성
 
@@ -93,11 +93,12 @@ Workday 통합을 시작하기 전에 다음과 같은 필수 조건을 확인�
 * [여러 Active Directory 도메인과 통합](#integrating-with-multiple-active-directory-domains)
 * [Workday-Active Directory 사용자 특성 매핑 및 변환 계획](#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
-* 전역 관리자 액세스 권한이 있는 유효한 Azure AD Premium P1 이상 구독
+* Workday에서 소스인 온-프레미스 Active Directory 또는 Azure Active Directory으로 프로 비전 되는 모든 사용자에 대 한 유효한 Azure AD Premium P1 이상 구독 라이선스입니다.
+* 프로 비전 에이전트를 구성 하기 위한 Azure AD 전역 관리자 액세스
 * 테스트 및 통합을 위한 Workday 구현 테넌트
 * 테스트 목적으로 시스템 통합 사용자를 만들고 직원 데이터를 변경하기 위한 관리자 권한
 * Active Directory로 사용자 프로비저닝을 위해서는 [온-프레미스 프로비전 에이전트](https://go.microsoft.com/fwlink/?linkid=847801)를 호스트하려면 .NET 4.7.1 이상 런타임과 함께 Windows Server 2012 이상을 실행하는 서버가 필요합니다.
@@ -439,7 +440,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
 8. 다음과 같이 **관리자 자격 증명** 섹션을 완료합니다.
 
-   * **관리자 사용자 이름** – 테넌트 도메인 이름이 추가된 Workday 통합 시스템 계정의 사용자 이름을 입력합니다. 다음과 같이 표시 됩니다. **username\@tenant_name**
+   * **관리자 사용자 이름** – 테넌트 도메인 이름이 추가된 Workday 통합 시스템 계정의 사용자 이름을 입력합니다. **Username @ no__t-1tenant_name** 와 같이 표시 됩니다.
 
    * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
 
@@ -448,7 +449,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
    * **Active Directory 포리스트 -** 에이전트에 등록된 Active Directory 도메인의 “이름”입니다. 드롭다운에서 프로비전을 위한 대상 도메인을 선택합니다. 이 값은 일반적으로 *contoso.com* 형태의 문자열입니다.
 
    * **Active Directory 컨테이너 -** 에이전트가 기본적으로 사용자 계정을 만드는 컨테이너 DN을 입력합니다.
-        예제: *OU=Standard Users,OU=Users,DC=contoso,DC=test*
+        예: *OU=Standard Users,OU=Users,DC=contoso,DC=test*
         
      > [!NOTE]
      > 이 설정은 *parentDistinguishedName* 특성이 특성 매핑에 구성되지 않은 경우에만 사용자 계정 생성에 사용됩니다. 이 설정은 사용자 검색 또는 업데이트 작업에는 사용되지 않습니다. 전체 도메인 하위 트리는 검색 작업의 범위에 속합니다.
@@ -472,7 +473,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
 1. **원본 개체 범위** 필드에서 특성 기반 필터 세트를 정의하여 AD 프로비전 범위에 포함할 Workday 사용자 세트를 선택할 수 있습니다. 기본 범위는 "Workday의 모든 사용자"입니다. 예제 필터:
 
-   * 예제: 100만과 200만 사이의 작업자 Id를 가진 사용자의 범위 (200만 제외)
+   * 예: 100만과 200만 사이의 작업자 Id를 가진 사용자의 범위 (200만 제외)
 
       * 특성: WorkerID
 
@@ -480,7 +481,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
       * 값: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-   * 예제: 정규직 직원만 포함하고 비정규직 직원은 포함하지 않음
+   * 예: 정규직 직원만 포함하고 비정규직 직원은 포함하지 않음
 
       * 특성: EmployeeID
 
@@ -539,7 +540,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 | ---------- | ---------- | ---------- | ---------- |
 | **WorkerID**  |  EmployeeID | **예** | 만들기 작업 시에만 기록 |
 | **PreferredNameData**    |  cn    |   |   만들기 작업 시에만 기록 |
-| **SelectUniqueValue (join ("\@", join (".", \[FirstName\]\@, \[LastName\]), "contoso.com"), join ("", join (".", Mid (\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), join ("\@", join (".", Mid (\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | 만들기 작업 시에만 기록 
+| **SelectUniqueValue (Join ("\@", Join ("."), \[FirstName @ no__t-3, \[LastName @ no__t-5), "contoso.com"), Join ("\@", Join (".", Mid (\[FirstName @ no__t-8, 1, 1), \[LastName @ no__t-10), "contoso.com"), Join ("@no__ t-11 ", Join (". ", Mid (2FirstName @ no__t-13, 1, 2), 4LastName @ no__t-15)," contoso.com "))**   | userPrincipalName     |     | 만들기 작업 시에만 기록 
 | **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         만들기 작업 시에만 기록 |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | 만들기 + 업데이트 |
 | **FirstName**   | givenName       |     |    만들기 + 업데이트 |
@@ -552,7 +553,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 | **AddressLineData**    |  streetAddress  |     |   만들기 + 업데이트 |
 | **Municipality**   |   l   |     | 만들기 + 업데이트 |
 | **CountryReferenceTwoLetter**      |   co |     |   만들기 + 업데이트 |
-| **CountryReferenceTwoLetter**    |  C  |     |         만들기 + 업데이트 |
+| **CountryReferenceTwoLetter**    |  c  |     |         만들기 + 업데이트 |
 | **CountryRegionReference** |  st     |     | 만들기 + 업데이트 |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  만들기 + 업데이트 |
 | **PostalCode**  |   postalCode  |     | 만들기 + 업데이트 |
@@ -615,7 +616,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
 2. **원본 개체 범위** 필드에서 특성 기반 필터 세트를 정의하여 Azure AD 프로비전 범위에 포함할 Workday 사용자 세트를 선택할 수 있습니다. 기본 범위는 “Workday의 모든 사용자”입니다. 예제 필터:
 
-   * 예제: 작업자 ID가 1000000-2000000 사이인 사용자를 범위에 포함
+   * 예: 작업자 ID가 1000000-2000000 사이인 사용자를 범위에 포함
 
       * 특성: WorkerID
 
@@ -623,7 +624,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
       * 값: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-   * 예제: 비정규직 직원만 포함하고 정규직 직원은 포함하지 않음
+   * 예: 비정규직 직원만 포함하고 정규직 직원은 포함하지 않음
 
       * 특성: ContingentID
 
@@ -692,7 +693,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
 8. 다음과 같이 **관리자 자격 증명** 섹션을 완료합니다.
 
-   * **관리 사용자 이름** – 테넌트 도메인 이름이 추가된 Workday 통합 시스템 계정의 사용자 이름을 입력합니다. 다음과 같이 표시 됩니다. *username\@형태 여야 하며*
+   * **관리 사용자 이름** – 테넌트 도메인 이름이 추가된 Workday 통합 시스템 계정의 사용자 이름을 입력합니다. 다음과 같이 표시 됩니다. *username @ no__t-1contoso4*
 
    * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
 
@@ -725,7 +726,7 @@ Workday 프로비전 앱 구성이 완료되면 Azure Portal에서 프로비전 
 
 1. **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
 
-2. **Save**을 클릭합니다.
+2. **저장**을 클릭합니다.
 
 3. 이 작업을 수행하면 초기 동기화가 시작되고, Workday 테넌트에 있는 사용자 수에 따라 동기화에 걸리는 시간이 달라질 수 있습니다. 
 
@@ -1079,7 +1080,7 @@ SelectUniqueValue(
 
 Workday의 신규 채용자가 검색되면(직원 ID가 *21023*이라고 가정) Azure AD 프로비전 서비스는 작업자의 새 AD 사용자 계정을 만들려고 시도하고 그 과정에서 아래 설명된 대로 4개 감사 로그 레코드를 만듭니다.
 
-  [![감사 로그 만들기 ops](media/workday-inbound-tutorial/wd_audit_logs_02.png)](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
+  [![ 감사 로그 만들기 ops](media/workday-inbound-tutorial/wd_audit_logs_02.png)](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
 
 감사 로그 레코드를 클릭하면 **활동 세부 정보** 페이지가 열립니다. 각 로그 레코드 유형에 대해 **활동 세부 정보** 페이지에 표시되는 내용은 다음과 같습니다.
 
@@ -1102,7 +1103,7 @@ Workday의 신규 채용자가 검색되면(직원 ID가 *21023*이라고 가정
 
   이 AD 가져오기 작업에 해당하는 프로비전 에이전트 로그 레코드를 찾으려면 Windows 이벤트 뷰어 로그를 열고 **찾기...** 메뉴 옵션을 사용하여 일치하는 ID/조인 속성 특성 값(이 경우 *21023*)이 포함된 로그 항목을 찾습니다.
 
-  ![Find](media/workday-inbound-tutorial/wd_event_viewer_02.png)
+  ![찾기](media/workday-inbound-tutorial/wd_event_viewer_02.png)
 
   ‘이벤트 ID = 9’인 항목을 찾습니다. 이 항목은 에이전트가 AD 계정을 검색하는 데 사용하는 LDAP 검색 필터를 제공합니다. 이 필터가 고유한 사용자 항목을 검색할 적합한 검색 필터인지 확인할 수 있습니다.
 
@@ -1147,7 +1148,7 @@ Workday의 신규 채용자가 검색되면(직원 ID가 *21023*이라고 가정
 
 관리자 특성은 AD의 참조 특성입니다. 프로비전 서비스가 관리자 특성을 사용자 생성 작업의 일부로 설정하지 않습니다. 오히려 관리자 특성은 해당 사용자의 AD 계정이 만들어진 후 ‘업데이트’ 작업의 일부로 설정됩니다. 위의 예제를 확장하여 직원 ID “21451”을 가진 신규 채용자가 Workday에서 활성화되고 신규 채용자의 관리자(*21023*)에게 이미 AD 계정이 있다고 가정하겠습니다. 이 시나리오에서 사용자 21451에 해당하는 감사 로그를 검색하면 5개의 항목이 표시됩니다.
 
-  [![관리자 업데이트](media/workday-inbound-tutorial/wd_audit_logs_03.png)](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
+  [![Manager 업데이트](media/workday-inbound-tutorial/wd_audit_logs_03.png)](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
 
 처음 네 개의 레코드는 사용자 생성 작업의 일부로 검색한 것과 비슷합니다. 5번째 레코드는 관리자 특성 업데이트와 연결된 내보내기입니다. 로그 레코드는 관리자의 *objectGuid* 특성을 사용하여 수행되는 AD 계정 관리자 업데이트 작업의 결과를 표시합니다.
 
@@ -1241,7 +1242,7 @@ Azure AD 프로비저닝 서비스는 인사 API의[Get_Workers](https://communi
 
 7. **작업**을 **Get_Workers**로 설정합니다.
 
-8.  요청/응답 창 아래의 작은 **구성** 링크를 클릭하여 Workday 자격 증명을 설정합니다. **인증**을 선택하고 Workday 통합 시스템 계정의 사용자 이름 및 암호를 입력합니다. 사용자 이름을 이름\@테 넌 트로 포맷 하 고 **ws-security UsernameToken** 옵션을 선택 된 상태로 둡니다.
+8.  요청/응답 창 아래의 작은 **구성** 링크를 클릭하여 Workday 자격 증명을 설정합니다. **인증**을 선택하고 Workday 통합 시스템 계정의 사용자 이름 및 암호를 입력합니다. 사용자 이름을 name @ no__t-0tenant로 지정 하 고 **Ws-security UsernameToken** 옵션을 선택 된 상태로 둡니다.
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 

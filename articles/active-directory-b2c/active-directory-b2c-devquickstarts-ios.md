@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1f7c864102a4985aa1b2c66e12b42cbe3bc19bca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96221ffc8249f722268ea5778bee4b4389ded26e
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510093"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326594"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: iOS 애플리케이션을 사용하여 로그인
 
@@ -32,11 +32,12 @@ OAuth2 또는 OpenID Connect를 처음 접하는 경우 이 샘플 구성 대부
 Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어야 합니다. 디렉터리는 모든 사용자, 앱, 그룹 등을 위한 컨테이너입니다. 디렉터리가 없는 경우 계속하기 전에 [B2C 디렉터리를 만듭니다](tutorial-create-tenant.md) .
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
-다음으로 B2C 디렉터리에서 앱을 만들어야 합니다. 앱 등록은 앱과 안전하게 통신하는 데 필요한 Azure AD 정보를 제공합니다. 모바일 앱을 만들려면 [이러한 지침](active-directory-b2c-app-registration.md)에 따릅니다. 다음을 수행해야 합니다.
 
-* 애플리케이션에 **네이티브 클라이언트**를 포함합니다.
-* 앱에 할당된 **애플리케이션 ID**를 복사합니다. 이 가이드는 나중에 필요합니다.
-* 사용자 지정 스키마를 사용하는 **리디렉션 URI**(예: com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect)를 설정합니다. 이 URI는 나중에 필요합니다.
+다음으로 Azure AD B2C 테 넌 트에 응용 프로그램을 등록 합니다. 이를 통해 Azure AD는 앱과 안전 하 게 통신 하는 데 필요한 정보를 제공 합니다.
+
+[!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
+
+이후 단계에서 사용할 **응용 프로그램 ID** 를 기록 합니다. 그런 다음 목록에서 응용 프로그램을 선택 하 고 이후 단계에서 사용 하기 위해 **사용자 지정 리디렉션 URI**도 기록 합니다. 예를 들어, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`을 입력합니다.
 
 ## <a name="create-your-user-flows"></a>사용자 흐름 만들기
 Azure AD B2C에서 모든 사용자 환경은 [사용자 흐름](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 애플리케이션은 결합된 로그인 및 등록의 하나의 ID 환경을 포함합니다. 사용자 흐름을 만들 때 다음을 확인합니다.
@@ -58,7 +59,7 @@ Azure AD B2C에서 모든 사용자 환경은 [사용자 흐름](active-director
 > AppAuth는 iOS 7 이상을 지원합니다.  그러나 Google에 소셜 로그인을 지원하려면 iOS 9 이상이 필요한 SFSafariViewController가 필요합니다.
 >
 
-### <a name="configuration"></a>구성
+### <a name="configuration"></a>Configuration
 
 권한 부여 엔드포인트와 토큰 엔드포인트 URI를 모두 지정하여 Azure AD B2C와의 통신을 구성할 수 있습니다.  이러한 URI를 생성하려면 다음 정보가 필요합니다.
 * 테넌트 ID(예: contoso.onmicrosoft.com)
@@ -79,21 +80,22 @@ static NSString *const authorizationEndpoint = @"https://<Tenant_name>.b2clogin.
 다음 코드를 실행하여 AuthorizationServiceConfiguration 개체를 만듭니다.
 
 ```objc
-OIDServiceConfiguration *configuration = 
+OIDServiceConfiguration *configuration =
     [[OIDServiceConfiguration alloc] initWithAuthorizationEndpoint:authorizationEndpoint tokenEndpoint:tokenEndpoint];
 // now we are ready to perform the auth request...
 ```
 
 ### <a name="authorizing"></a>권한 부여
 
-권한 부여 서비스 구성을 구성하거나 검색하면 권한 부여 요청을 생성할 수 있습니다. 요청을 만들려면 다음 정보가 필요합니다.  
-* 클라이언트 ID(예: 00000000-0000-0000-0000-000000000000)
-* 사용자 지정 스키마를 사용하는 리디렉션 URI(예: com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect)
+권한 부여 서비스 구성을 구성하거나 검색하면 권한 부여 요청을 생성할 수 있습니다. 요청을 만들려면 다음 정보가 필요합니다.
+
+* 이전에 기록한 클라이언트 ID (응용 프로그램 ID)입니다. 예를 들어, `00000000-0000-0000-0000-000000000000`을 입력합니다.
+* 이전에 기록한 사용자 지정 리디렉션 URI입니다. 예를 들어, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`을 입력합니다.
 
 두 항목 모두 [앱을 등록](#create-an-application)할 때 저장해야 합니다.
 
 ```objc
-OIDAuthorizationRequest *request = 
+OIDAuthorizationRequest *request =
     [[OIDAuthorizationRequest alloc] initWithConfiguration:configuration
                                                   clientId:kClientId
                                                     scopes:@[OIDScopeOpenID, OIDScopeProfile]
@@ -102,7 +104,7 @@ OIDAuthorizationRequest *request =
                                       additionalParameters:nil];
 
 AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-appDelegate.currentAuthorizationFlow = 
+appDelegate.currentAuthorizationFlow =
     [OIDAuthState authStateByPresentingAuthorizationRequest:request
                                    presentingViewController:self
                                                    callback:^(OIDAuthState *_Nullable authState, NSError *_Nullable error) {

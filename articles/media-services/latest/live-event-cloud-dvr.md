@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services 라이브 이벤트 및 클라우드 DVR | Microsoft Docs
+title: Azure Media Services 시간 이동 및 라이브-VOD (주문형 비디오) 사용 Microsoft Docs
 description: 이 문서에서는 라이브 출력의 정의와 클라우드 DVR 사용 방법에 대해 설명합니다.
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/27/2019
 ms.author: juliako
-ms.openlocfilehash: a10c76dd7fb4ef1e9a45666ff3a3ca0d937d2c94
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: ffcd279830cb49b64ddbb58a888ad7d653918b1b
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231217"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338834"
 ---
-# <a name="using-a-cloud-digital-video-recorder-dvr"></a>클라우드 DVR (디지털 비디오 레코더) 사용
+# <a name="using-time-shifting-and-live-to-vod-video-on-demand"></a>시간 이동 및 라이브-VOD 사용 (주문형 비디오)
 
 Azure Media Services [라이브 출력](https://docs.microsoft.com/rest/api/media/liveoutputs) 개체는 라이브 스트림을 catch 하 고 Media Services 계정의 자산으로 기록 하는 디지털 비디오 레코더와 비슷합니다. 기록 된 콘텐츠는 [자산](https://docs.microsoft.com/rest/api/media/assets) 리소스로 정의 된 컨테이너에 유지 됩니다. 컨테이너는 계정에 연결 된 Azure Storage 계정에 있습니다. 또한 라이브 출력을 사용 하면 보관 기록에 보관 되는 스트림 양 (예: 클라우드 DVR의 용량) 및 뷰어가 라이브 스트림 감시를 시작할 수 있는지 여부와 같은 나가는 라이브 스트림의 일부 속성을 제어할 수 있습니다. 디스크의 보관 파일은 실시간 출력의 **archiveWindowLength** 속성에 지정 된 양의 내용만 보유 하는 순환 보관 "창"입니다. 이 기간을 벗어나는 콘텐츠는 스토리지 컨테이너에서 자동으로 삭제되며 복구할 수 없습니다. ArchiveWindowLength 값은 DVR의 용량을 지정 하는 ISO-8601 timespan 기간 (예: PTHH: MM: SS)을 나타내며 최소 3 분에서 최대 25 시간까지 설정할 수 있습니다.
 

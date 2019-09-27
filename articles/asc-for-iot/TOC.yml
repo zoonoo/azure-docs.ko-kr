@@ -39,6 +39,8 @@
       href: concept-security-alerts.md
     - name: 보안 권장 사항
       href: concept-recommendations.md
+    - name: 기초
+      href: concept-baseline.md
     - name: 이벤트 집계
       href: event-aggregation.md
     - name: 가격 책정 및 관련 비용

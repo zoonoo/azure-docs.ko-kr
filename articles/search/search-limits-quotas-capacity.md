@@ -8,19 +8,19 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
-ms.openlocfilehash: c2d4cae1689701704c866833c99ca616bbd01ec5
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: fd65bb134d9057246a1b8c5cc2986e979713d20b
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300669"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327155"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search의 서비스 제한 사항
 저장소, 워크 로드 및 인덱스, 문서 및 기타 개체의 수량에 대 한 최대 제한은 **무료**, **기본**, **표준**또는 **저장소에 최적화** 된 가격 책정 계층에서 [Azure Search를 프로 비전](search-create-service-portal.md) 하는지 여부에 따라 달라 집니다.
 
-+ **무료** 는 Azure 구독과 함께 제공되는 다중 테넌트 공유 서비스입니다.
++ **무료** 는 Azure 구독과 함께 제공되는 다중 테넌트 공유 서비스입니다. 인덱싱 및 쿼리 요청은 다른 테 넌 트에서 사용 하는 복제본 및 파티션에서 실행 됩니다.
 
-+ **기본**은 소규모의 프로덕션 워크로드를 위한 전용 컴퓨팅 리소스를 제공합니다.
++ **Basic** 은 프로덕션 워크 로드에 대 한 전용 컴퓨팅 리소스를 작은 규모로 제공 하지만 일부 네트워킹 인프라를 다른 테 넌 트와 공유 합니다.
 
 + **표준**은 모든 수준에서 더 많은 스토리지 및 처리 용량으로 전용 컴퓨터에서 실행됩니다. 표준은 4가지 수준인 S1, S2, S3 및 S3 HD로 제공됩니다.
 

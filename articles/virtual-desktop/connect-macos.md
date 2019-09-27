@@ -1,20 +1,20 @@
 ---
 title: MacOS에서 Windows 가상 데스크톱에 연결-Azure
-description: MacOS에서 Windows 가상 데스크톱에 연결 하는 방법
+description: MacOS 클라이언트를 사용 하 여 Windows 가상 데스크톱에 연결 하는 방법입니다.
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: helohr
-ms.openlocfilehash: bf6bfb52bd763eabd88f23701c3d1f240cdf4844
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: fa61d69ae7aa650b6011696fd45d05ba20d2ac8b
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310192"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338698"
 ---
-# <a name="connect-from-macos"></a>MacOS에서 연결
+# <a name="connect-with-the-macos-client"></a>macOS 클라이언트와 연결
 
 > 적용 대상: macOS 10.12 이상
 
@@ -44,6 +44,6 @@ ms.locfileid: "71310192"
 
 피드를 구독 하면 피드의 콘텐츠가 정기적으로 자동 업데이트 됩니다. 관리자가 변경한 내용에 따라 리소스를 추가, 변경 또는 제거할 수 있습니다.
 
-## <a name="client-documentation"></a>클라이언트 설명서
+## <a name="next-steps"></a>다음 단계
 
 MacOS 클라이언트에 대 한 자세한 내용은 [macos 클라이언트 시작](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac) 설명서를 확인 하세요.

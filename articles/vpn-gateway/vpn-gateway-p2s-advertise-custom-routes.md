@@ -5,22 +5,24 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/26/2019
 ms.author: cherylmc
-ms.openlocfilehash: 18a0effcf5157ec2797707db78f9614ef12a4669
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 38250d1cd9853013ba9721ece0201a8df6dd1b4a
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310244"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336285"
 ---
 # <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>P2S VPN 클라이언트에 대 한 사용자 지정 경로 보급
 
 모든 지점 및 사이트 간 VPN 클라이언트에 사용자 지정 경로를 보급 하는 것이 좋습니다. 예를 들어 VNet에서 저장소 끝점을 사용 하도록 설정 하 고 원격 사용자가 VPN 연결을 통해 이러한 저장소 계정에 액세스할 수 있도록 하려고 합니다. 저장소 계정에 대 한 트래픽이 공용 인터넷이 아닌 VPN 터널을 통과 하도록 저장소 끝점의 IP 주소를 모든 원격 사용자에 게 알릴 수 있습니다.
 
+![Azure VPN Gateway 다중 사이트 연결 예제](./media/vpn-gateway-p2s-advertise-custom-routes/custom-routes.png)
+
 ## <a name="to-advertise-custom-routes"></a>사용자 지정 경로를 보급 하려면
 
-사용자 지정 경로를 보급 하려면를 `Set-AzVirtualNetworkGateway cmdlet`사용 합니다. 다음 예제에서는 [Conotoso 계정 테이블](https://contoso.table.core.windows.net)의 IP를 보급 하는 방법을 보여 줍니다.
+사용자 지정 경로를 보급 하려면를 `Set-AzVirtualNetworkGateway cmdlet`사용 합니다. 다음 예에서는 [Contoso 저장소 계정 테이블](https://contoso.table.core.windows.net)의 IP를 보급 하는 방법을 보여 줍니다.
 
 1. *Contoso.table.core.windows.net* 를 Ping 하 고 IP 주소를 적어둡니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
@@ -45,10 +47,10 @@ ms.locfileid: "71310244"
 
 사용자 지정 경로를 보려면 다음 예제를 사용 합니다.
 
-    ```azurepowershell-interactive
-    $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
-    $gw.CustomRoutes | Format-List
-    ```
+  ```azurepowershell-interactive
+  $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
+  $gw.CustomRoutes | Format-List
+  ```
 
 ## <a name="next-steps"></a>다음 단계
 

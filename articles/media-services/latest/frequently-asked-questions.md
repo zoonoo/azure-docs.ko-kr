@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: 28b9c8f343437c20e277d2f3ba53767afa45a5c2
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 6e52a51c82529a98ef679dd747b9c8b7d177b660
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501263"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338828"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 질문과 대답
 
@@ -66,6 +66,14 @@ Media Services v3 라이브 인코딩은 아직 라이브 스트리밍 도중에
 
 PlayReady, Widevine 및와 같은 DRM 시스템은 모두 AES-128 암호화 되지 않은 키와 비교 하 여 콘텐츠를 암호 해독 하는 데 사용 되는 키에 대 한 추가 수준의 암호화를 제공 합니다. 콘텐츠 키는 TLS에서 제공 하는 전송 수준 암호화에 추가 하 여 DRM 런타임에 의해 보호 되는 키로 암호화 됩니다. 또한 암호 해독은 악의적인 사용자가 공격하기에 좀 더 어려운 운영 체제 수준의 보안 환경에서 처리됩니다. DRM은 뷰어가 신뢰할 만한 당사자가 아니고 가장 높은 수준의 보안이 필요한 사용 사례에 권장됩니다.
 
+### <a name="how-to-show-a-video-only-to-users-who-have-a-specific-permission-without-using-azure-ad"></a>Azure AD를 사용 하지 않고 특정 권한이 있는 사용자 에게만 비디오를 표시 하는 방법
+
+특정 토큰 공급자 (예: Azure AD)를 사용할 필요가 없습니다. 비대칭 키 암호화를 사용 하 여 사용자 고유의 [JWT](https://jwt.io/) 공급자 (따라서 STS, 보안 토큰 서비스)를 만들 수 있습니다. 사용자 지정 STS에서 비즈니스 논리를 기준으로 클레임을 추가할 수 있습니다.
+
+발급자, 대상 그룹 및 클레임이 모두 JWT와 ContentKeyPolicy에서 사용 되는 ContentKeyPolicyRestriction 사이에서 정확 하 게 일치 하는지 확인 합니다.
+
+자세한 내용은 [Media Services 동적 암호화를 사용 하 여 콘텐츠 보호](content-protection-overview.md)를 참조 하세요.
+
 ### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>라이선스 또는 키를 요청하는 데 사용하기 전에 JWT 토큰을 가져올 수 있는 방법과 위치는 어떻게 되나요?
 
 1. 프로덕션의 경우 HTTPS 요청 시 JWT 토큰을 발급 하는 STS (보안 토큰 서비스) (웹 서비스)가 있어야 합니다. 테스트를 위해 [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs)에 정의된 **GetTokenAsync** 메서드에 표시된 코드를 사용할 수 있습니다.
@@ -82,7 +90,7 @@ STS에서 사용자 프로필에 따라 서로 다른 클레임(예: "프리미�
 
 [이 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)에 나와 있는 것 처럼 라이선스/키 제공을 구성 하 고 자산을 암호화 하는 Azure Media Services api를 사용 합니다.
 
-참조 항목:
+자세한 내용은 다음을 참조하세요.
 
 - [콘텐츠 보호 개요](content-protection-overview.md)
 - [액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계](design-multi-drm-system-with-access-control.md)

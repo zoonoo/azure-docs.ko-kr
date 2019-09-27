@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: f34efbbca1616c75c13ee3a8bf73bbee1e66dc92
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 7b5ee5bfe4b7498bc13ff0c8582b49fed8478e0a
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241152"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71337794"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>리소스 조직 및 관리에 대한 관리 그룹 만들기
 
@@ -39,7 +39,7 @@ ms.locfileid: "70241152"
 
 1. 관리 그룹 ID 필드를 채웁니다.
 
-   - **관리 그룹 ID**는 이 관리 그룹에 명령을 전송하는 데 사용되는 디렉터리 고유 식별자입니다. 이 식별자는 Azure 시스템 전체에서 이 그룹을 식별하는 데 사용되므로 만든 후에 편집할 수 없습니다. Azure Active Directory ID 인 ID를 사용 하 여 [루트 관리 그룹이](index.md#root-management-group-for-each-directory) 자동으로 만들어집니다. 다른 모든 관리 그룹의 경우 고유 ID를 할당 합니다.
+   - **관리 그룹 ID**는 이 관리 그룹에 명령을 전송하는 데 사용되는 디렉터리 고유 식별자입니다. 이 식별자는 Azure 시스템 전체에서 이 그룹을 식별하는 데 사용되므로 만든 후에 편집할 수 없습니다. Azure Active Directory ID 인 ID를 사용 하 여 [루트 관리 그룹이](overview.md#root-management-group-for-each-directory) 자동으로 만들어집니다. 다른 모든 관리 그룹의 경우 고유 ID를 할당 합니다.
    - 표시 이름 필드는 Azure Portal 내에 표시되는 이름을 포함합니다. 별도 표시 이름은 관리 그룹을 만들 때 사용되는 선택적 필드로, 언제든지 변경할 수 있습니다.  
 
    ![새 관리 그룹을 만들기 위한 옵션 창](./media/create_context_menu.png)  

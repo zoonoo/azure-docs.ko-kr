@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: lagayhar
-ms.openlocfilehash: 351247041d4e2f857bcb38b38a490c1a160a6a70
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: a6e8187a085d637ad3abc650daf15d92b96755a3
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299585"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338105"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
 
@@ -225,7 +225,7 @@ Windows에서 실행 되는 스프링 부팅 앱을 Azure 앱 서비스에서 �
 
 Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.io/trace-context/)을 지원합니다.
 
-수신 SDK 구성은 [상관 관계](correlation.md#w3c-distributed-tracing) 관련 문서에 자세히 설명되어 있습니다.
+수신 SDK 구성은 [상관 관계](correlation.md#telemetry-correlation-in-the-java-sdk) 관련 문서에 자세히 설명되어 있습니다.
 
 발신 SDK 구성은 [Ai-agent.xml](java-agent.md) 파일에서 정의됩니다.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 6853ebf16c1a9d6b0d363277b22c7dd2583d37e5
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 8a39a79f4b3aeacd267a0c4b9351d2400f11d1ff
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013963"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336900"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Azure Digital Twins에서 사용자 정의 함수를 만드는 방법
 
@@ -197,7 +197,7 @@ function process(telemetry, executionContext) {
 
 실행할 사용자 정의 함수에 대한 역할 할당을 만듭니다. 사용자 정의 함수에 대한 역할 할당이 없으면 관리 API와 상호 작용할 수 있는 적절한 권한을 갖지 못하거나 그래프 개체에서 작업을 수행할 수 있는 액세스 권한을 갖지 못합니다. 사용자 정의 함수를 통해 수행할 수 있는 작업은 Azure Digital Twins 관리 API 내 역할 기반 액세스 제어를 통해 지정 및 정의됩니다. 예를 들어 사용자 정의 함수는 특정 역할 또는 특정 액세스 제어 경로를 지정하여 범위를 제한할 수 있습니다. 자세한 내용은 [역할 기반 액세스 제어](./security-role-based-access-control.md) 설명서를 참조하세요.
 
-1. 모든 역할에 대한 [시스템 API를 쿼리](./security-create-manage-role-assignments.md#all)하여 사용자 정의 함수에 할당할 역할 ID를 가져옵니다. 인증된 HTTP GET 요청을 수행함으로써 할 수 있습니다.
+1. 모든 역할에 대한 [시스템 API를 쿼리](./security-create-manage-role-assignments.md#retrieve-all-roles)하여 사용자 정의 함수에 할당할 역할 ID를 가져옵니다. 인증된 HTTP GET 요청을 수행함으로써 할 수 있습니다.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/roles

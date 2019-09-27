@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/23/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 84cca255d8cf768d44e01c8f3a892e3c9830184e
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 9c6d0fcc20afc613094f10e9f3fb7c917ec6fa73
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316705"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327243"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>팀 데이터 과학 프로세스 팀에 대 한 팀 리더 작업
 
@@ -140,7 +140,7 @@ TDSP는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적�
    
    ![가져오기 선택](./media/team-lead-tasks/import-repo.png)
    
-1. **Git 리포지토리 가져오기** 대화 상자에서 **원본 유형**으로 **Git** 을 선택 하 고 **복제 URL**아래에 그룹 공통 템플릿 리포지토리의 url을 입력 합니다. URL은 *https\/:/서버 이름\<>/조직 이름 >/_git/\<리포지토리 이름 >입니다.\<* 예: *https:\//dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+1. **Git 리포지토리 가져오기** 대화 상자에서 **원본 유형**으로 **Git** 을 선택 하 고 **복제 URL**아래에 그룹 공통 템플릿 리포지토리의 url을 입력 합니다. URL은 *https: \/ @ no__t @ no__t-3server name >/\<organization 이름 >/_git/\<repository name >* 입니다. 예: *https: \//dev/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
 1. **가져오기**를 선택합니다. 그룹 템플릿 리포지토리의 콘텐츠를 팀 템플릿 리포지토리로 가져옵니다. 
    
@@ -230,7 +230,7 @@ git push
 > 
 > `git config --global user.name <your name>`
 > 
-> `git config --global user.email \<your email address>`
+> `git config --global user.email <your email address>`
 > 
 > 여러 Git 리포지토리에 커밋하는 경우 모든 Git 리포지토리에 동일한 이름 및 전자 메일 주소를 사용 합니다. 여러 리포지토리에서 Git 작업을 추적 하기 위해 Power BI 대시보드를 빌드할 때 동일한 이름 및 전자 메일 주소를 사용 하는 것이 편리 합니다.
 

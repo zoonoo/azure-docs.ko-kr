@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: bd4d3b9b34f951896e838d5f6f50ca204d329568
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: bc8932a9904a3e4e671edc3e624ff15e7253e1ed
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266602"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326814"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure에 vhd 업로드
 
@@ -40,6 +40,8 @@ Azure에 vhd를 업로드 하려면이 업로드 프로세스에 대해 특별�
 - ActiveUpload-디스크가 업로드를 받을 준비가 되었으며 SAS가 생성 되었음을 의미 합니다.
 
 이러한 상태 중 하나에서 관리 디스크는 실제 디스크 유형에 상관 없이 [표준 HDD 가격](https://azure.microsoft.com/pricing/details/managed-disks/)으로 청구 됩니다. 예를 들어 P10는 S10로 청구 됩니다. 이는 디스크를 VM `revoke-access` 에 연결 하는 데 필요한 관리 디스크에서가 호출 될 때까지 적용 됩니다.
+
+업로드할 빈 표준 HDD를 만들려면 먼저 업로드할 vhd의 파일 크기 (바이트)가 있어야 합니다. 이를 가져오려면 `wc -c <yourFileName>.vhd` 또는 `ls -al <yourFileName>.vhd`을 사용할 수 있습니다. 이 값은 **--upload size 바이트** 매개 변수를 지정할 때 사용 됩니다.
 
 [디스크 만들기](/cli/azure/disk#az-disk-create) cmdlet에서-- **upload** 매개 변수와 **--upload-bytes** 매개 변수를 모두 지정 하 여 업로드할 빈 표준 HDD를 만듭니다.
 

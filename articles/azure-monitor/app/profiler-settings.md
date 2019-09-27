@@ -12,42 +12,75 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 2bc32e28ffd6dd9dab2da61078684791a04709cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12cb8e31617ee6b1e0c8515e66e265f4eccdf3df
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922981"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338042"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler 구성
 
-## <a name="profiler-settings-pane"></a>Profiler 설정 창
+## <a name="updated-profiler-agent"></a>업데이트 된 프로파일러 에이전트
+트리거 기능은 버전 2.6 이상의 프로파일러 에이전트 에서만 작동 합니다. Azure App Service를 실행 하는 경우 에이전트가 자동으로 업데이트 됩니다. 웹 사이트의 Kudu URL로 이동 하 고 \DiagnosticServices (예: https://yourwebsite.scm.azurewebsites.net/diagnosticservices )을 끝에 추가 하는 경우 실행 중인 에이전트의 버전을 확인할 수 있습니다. Application Insights Profiler Webjob의 버전은 2.6 이상 이어야 합니다. 웹 앱을 다시 시작 하 여 업그레이드를 강제로 수행할 수 있습니다. 
 
-Azure Application Insights Profiler 설정 창을 열려면 Application Insights 성능 창으로 이동하여 **Profiler** 단추를 선택합니다.
+VM 또는 클라우드 서비스에서 프로파일러를 실행 하는 경우 Windows Azure 진단 (WAD) 확장 버전 16.0.4 이상이 설치 되어 있어야 합니다. VM에 로그인 하 고이 디렉터리를 살펴보면 WAD의 버전을 확인할 수 있습니다. C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. 디렉터리 이름은 설치 된 WAD의 버전입니다. 새 버전을 사용할 수 있게 되 면 Azure VM 에이전트가 자동으로 WAD를 업데이트 합니다.
 
-![Profiler 창 구성][configure-profiler-entry]
+## <a name="profiler-settings-page"></a>프로파일러 설정 페이지
 
-**Application Insights Profiler 구성** 창에는 다음의 4개 기능이 포함되어 있습니다. 
-* **지금 프로필**: 이 Application Insights 인스턴스에 연결된 모든 앱에 대해 프로파일링 세션이 시작됩니다.
-* **연결된 앱**: 이 Application Insights 리소스에 프로파일링 데이터를 전송하는 애플리케이션의 목록을 표시합니다.
-* **진행 중인 세션**: **지금 프로필**을 선택하면 세션의 상태가 표시됩니다. 
-* **최근 프로파일링 세션**: 이전 프로파일링 세션에 대한 정보가 표시됩니다.
+Azure 애플리케이션 Insights Profiler 설정 창을 열려면 Application Insights 성능 창으로 이동한 다음 **프로파일러 구성** 단추를 선택 합니다.
 
-![주문형 프로파일러][profiler-on-demand]
+![프로파일러 설정 페이지 열기 링크][configure-profiler-entry]
 
-## <a name="app-service-environment"></a>App Service 환경
-Azure App Service Environment가 구성된 방식에 따라 에이전트 상태를 확인하기 위한 호출이 차단될 수 있습니다. 에이전트가 실행되고 있는데도 창에는 에이전트가 실행되고 있지 않다는 메시지가 표시될 수 있습니다. 에이전트가 실행되고 있는지 확인하려면 애플리케이션의 웹 작업을 점검합니다. 모든 앱 설정 값이 올바르며 애플리케이션에 Application Insights 사이트 확장이 설치되어 있으면 Profiler가 실행되고 있는 것입니다. 애플리케이션이 충분한 트래픽을 수신하고 있다면 목록에 최근 프로파일링 세션이 표시되어야 합니다.
+그러면 다음과 같은 페이지가 열립니다.
 
-## <a id="profileondemand"></a> 수동으로 Profiler 트리거
+![프로파일러 설정 페이지][configure-profiler-page]
 
-### <a name="minimum-requirements"></a>최소 요구 사항 
-수동으로 프로파일러 세션을 트리거하는 사용자에 대 한 최소한 "쓰기" 액세스 권한 Application Insights 구성 요소에 대해 해당 역할에 필요 합니다. 대부분의 경우에서이 액세스 권한을 자동으로 만들어지고 추가 작업이 필요. 문제가 있는 경우에 "Application Insights 구성 요소 기여자" 역할이 추가할 구독 범위 역할을 것입니다. [Azure Monitoring과 역할 액세스 제어에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control)합니다.
+**Application Insights Profiler 구성** 페이지에는 다음과 같은 기능이 있습니다.
 
-클릭 한 번으로 Profiler를 수동 트리거할 수 있습니다. 웹 성능 테스트를 실행 중이라고 가정해 보겠습니다. 이 경우 추적을 통해 부하 발생 시의 웹앱 성능을 파악해야 합니다. 부하 테스트를 실행할 시점은 알고 있으므로 추적이 캡처되는 시기를 제어할 수 있어야 합니다. 하지만 샘플링 간격이 무작위이면 추적이 캡처되는 시기를 확인하지 못할 수도 있습니다.
+| | |
+|-|-|
+지금 프로 파일링 | 이 Application Insights 인스턴스에 연결된 모든 앱에 대해 프로파일링 세션이 시작됩니다.
+트리거 | 프로파일러를 실행 하는 트리거를 구성할 수 있습니다. 
+최근 프로파일링 세션 | 이전 프로파일링 세션에 대한 정보가 표시됩니다.
+
+## <a name="profile-now"></a>지금 프로 파일링
+이 옵션을 사용 하면 요청 시 프로 파일링 세션을 시작할 수 있습니다. 이 링크를 클릭 하면이 Application Insights 인스턴스로 데이터를 보내는 모든 프로파일러 에이전트가 프로필 캡처를 시작 합니다. 5 ~ 10 분이 지나면 프로필 세션이 아래 목록에 표시 됩니다.
+
+사용자가 수동으로 프로파일러 세션을 트리거하려면 Application Insights 구성 요소에 대 한 해당 역할에 대 한 최소한의 "쓰기" 액세스 권한이 필요 합니다. 대부분의 경우이 액세스 권한은 자동으로 제공 되며 추가 작업은 필요 하지 않습니다. 문제가 발생 하는 경우 추가할 구독 범위 역할은 "Application Insights 구성 요소 참가자" 역할입니다. [Azure 모니터링을 사용 하 여 역할 액세스 제어에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
+
+## <a name="trigger-settings"></a>트리거 설정
+![트리거 설정 플라이 아웃][trigger-settings-flyout]
+
+메뉴 모음에서 트리거 단추를 클릭 하면 트리거 설정 상자가 열립니다. CPU 또는 메모리 사용 비율이 설정한 수준에 도달 하면 트리거를 설정 하 여 프로 파일링을 시작할 수 있습니다.
+
+| | |
+|-|-|
+설정/해제 단추 | On:이 트리거에서 프로파일러를 시작할 수 있습니다. Off:이 트리거에서 프로파일러를 시작 하지 않습니다.
+메모리 임계값 | 이 메모리 비율을 사용 중인 경우 프로파일러가 시작 됩니다.
+Duration | 트리거될 때 프로파일러가 실행 되는 시간을 설정 합니다.
+휴지 | 프로파일러가 트리거된 후 메모리 또는 CPU 사용량을 다시 확인 하기 전에 프로파일러가 대기 하는 시간을 설정 합니다.
+
+## <a name="recent-profiling-sessions"></a>최근 프로 파일링 세션
+페이지의이 섹션에서는 최근 프로 파일링 세션에 대 한 정보를 보여 줍니다. 프로 파일링 세션은 프로파일러 에이전트가 응용 프로그램을 호스팅하는 컴퓨터 중 하나에서 프로필을 가져오는 기간을 나타냅니다. 행 중 하나를 클릭 하 여 세션에서 프로필을 열 수 있습니다. 각 세션에 대해 다음을 보여 줍니다.
+
+| | |
+|-|-|
+트리거한 사람 | 트리거, 지금 프로 파일링 또는 기본 샘플링을 통해 세션이 시작 된 방법입니다. 
+앱 이름 | 프로 파일링 된 응용 프로그램의 이름입니다.
+컴퓨터 인스턴스 | 프로파일러 에이전트가 실행 되는 컴퓨터의 이름입니다.
+timestamp | 프로필을 캡처한 시간입니다.
+Tracee | 개별 요청에 연결 된 추적 수입니다.
+CPU % | 프로파일러가 실행 되는 동안 사용 된 CPU의 백분율입니다.
+Ram | 프로파일러가 실행 되는 동안 사용 된 메모리의 비율입니다.
+
+## <a id="profileondemand"></a>웹 성능 테스트를 사용 하 여 응용 프로그램에 대 한 트래픽 생성
+
+클릭 한 번으로 Profiler를 수동 트리거할 수 있습니다. 웹 성능 테스트를 실행 중이라고 가정해 보겠습니다. 부하 상태에서 웹 앱이 실행 되는 방식을 이해 하는 데 도움이 되는 추적이 필요 합니다. 부하 테스트를 실행할 시점은 알고 있으므로 추적이 캡처되는 시기를 제어할 수 있어야 합니다. 하지만 샘플링 간격이 무작위이면 추적이 캡처되는 시기를 확인하지 못할 수도 있습니다.
 
 다음 섹션에서는 이 시나리오의 작동 방식에 대해 설명합니다.
 
-### <a name="step-1-optional-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>1단계: (선택 사항) 웹 성능 테스트를 시작하여 웹앱에 트래픽 생성
+### <a name="step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>1단계: 웹 성능 테스트를 시작하여 웹앱에 트래픽 생성
 
 웹앱에 들어오는 트래픽을 이미 있거나 수동으로 트래픽을 생성하려는 경우 이 섹션을 건너뛰고 2단계를 계속 진행합니다.
 
@@ -78,57 +111,13 @@ Azure App Service Environment가 구성된 방식에 따라 에이전트 상태�
 
 Profiler 실행이 완료되면 알림의 지침에 따라 성능 창으로 이동하여 추적을 확인합니다.
 
-## <a name="troubleshoot-the-profiler-on-demand-session"></a>Profiler 주문형 세션 문제 해결
-
-주문형 세션 이후에 Profiler 시간 제한 오류 메시지가 표시될 수 있습니다.
-
-![프로파일러 시간 제한 오류][profiler-timeout]
-
-이 오류는 다음 이유 중 하나로 인해 발생할 수 있습니다.
-
-* 주문형 Profiler 세션은 정상 완료되었지만 Application Insights가 수집된 데이터를 처리하는 데 시간이 예상보다 오래 걸렸습니다.  
-
-  데이터가 15분 내에 처리되지 않으면 포털에 시간 제한 메시지가 표시됩니다. 그러나 잠시 후에는 Profiler 추적이 표시됩니다. 오류 메시지가 나타나면 일단은 무시합니다. 해결하기 위해 적극적으로 노력하고 있습니다.
-
-* 웹앱의 Profiler 에이전트가 주문형 기능을 포함하지 않는 오래된 버전입니다.  
-
-  Application Insights Profiler를 이전에 사용하도록 설정한 경우 주문형 기능 사용을 시작하려면 Profiler 에이전트를 업데이트해야 할 수 있습니다.
-  
-App Services **앱 설정** 창으로 이동하여 다음 설정을 확인합니다.
-* **APPINSIGHTS_INSTRUMENTATIONKEY**: Application Insights에 대한 적절한 계측 키로 바꿉니다.
-* **APPINSIGHTS_PORTALINFO**: ASP.NET
-* **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
-
-위의 값 중 하나라도 설정되어 있지 않으면 다음 단계를 수행하여 최신 사이트 확장을 설치합니다.
-
-1. App Services 포털에서 **Application Insights** 창으로 이동합니다.
-
-    ![App Services 포털에서 Application Insights를 사용하도록 설정][enable-app-insights]
-
-1. **Application Insights** 창에 **업데이트** 단추가 표시되면 해당 단추를 선택하여 Application Insights 사이트 확장을 업데이트합니다. 그러면 최신 Profiler 에이전트가 설치됩니다.
-
-    ![사이트 확장 업데이트][update-site-extension]
-
-1. Profiler를 설정하려면 **변경**, **확인**을 차례로 선택하여 변경 내용을 저장합니다.
-
-    ![앱 인사이트 변경 및 저장][change-and-save-appinsights]
-
-1. App Services의 **앱 설정** 탭으로 돌아가서 다음 값이 설정되어 있는지 확인합니다.
-   * **APPINSIGHTS_INSTRUMENTATIONKEY**: Application Insights에 대한 적절한 계측 키로 바꿉니다.
-   * **APPINSIGHTS_PORTALINFO**: ASP.NET 
-   * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
-
-     ![Profiler의 앱 설정][app-settings-for-profiler]
-
-1. 필요에 따라 **확장**을 선택한 다음 확장 버전을 점검하고 업데이트를 사용할 수 있는지 확인합니다.
-
-    ![확장 업데이트 점검][check-for-extension-update]
-
 ## <a name="next-steps"></a>다음 단계
 [Profiler 사용 및 추적 보기](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/profiler-settings/Profiler-on-demand.png
 [configure-profiler-entry]: ./media/profiler-settings/configure-profiler-entry.png
+[configure-profiler-page]: ./media/profiler-settings/configureBlade.png
+[trigger-settings-flyout]: ./media/profiler-settings/CPUTrigger.png
 [create-performance-test]: ./media/profiler-settings/new-performance-test.png
 [configure-performance-test]: ./media/profiler-settings/configure-performance-test.png
 [load-test-queued]: ./media/profiler-settings/load-test-queued.png

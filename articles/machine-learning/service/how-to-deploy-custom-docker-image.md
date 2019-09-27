@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: b86c0d0de95581f7a47de428ffbf0b161353df83
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 84567b68c85a48d0fc02f6f6a4986d8092215a92
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260756"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326490"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
 
@@ -183,15 +183,16 @@ Microsoft는 공개적으로 액세스할 수 있는 리포지토리에 여러 d
 | 이미지 | 설명 |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Azure Machine Learning에 대 한 기본 이미지 |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0` | ONNX 런타임을 포함 합니다. |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7` | ONNX 런타임 및 CDA 구성 요소를 포함 합니다. |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03` | ONNX 런타임 및 TensorRT를 포함 합니다. |
+| `mcr.microsoft.com/azureml/onnxruntime:latest` | CPU inferecning에 대 한 ONNX 런타임을 포함 합니다. |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | GPU에 대 한 ONNX 런타임 및 UDA를 포함 합니다. |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | ONNX Runtime 및 GPU 용 TensorRT을 포함 합니다. |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm ` | Movidius TM myriadx VPUs을<sup> </sup> 기반으로 하는 Intel 비전<sup></sup> 가속기 디자인에 대 한 Onnx 런타임 및 OpenVINO를 포함 합니다. |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-myriad` | Intel<sup> </sup> Movidius<sup>TM</sup> USB 스틱 용 Onnx Runtime 및 OpenVINO 포함 |
+
+ONNX 런타임 기본 이미지에 대 한 자세한 내용은 GitHub 리포지토리의 [Onnx 런타임 dockerfile 섹션](https://github.com/microsoft/onnxruntime/blob/master/dockerfiles/README.md) 을 참조 하십시오.
 
 > [!TIP]
 > 이러한 이미지는 공개적으로 사용할 수 있으므로 사용 하는 경우 주소, 사용자 이름 또는 암호를 제공할 필요가 없습니다.
-
-> [!IMPORTANT]
-> TensorRT를 사용 하는 Microsoft 이미지는 Microsoft Azure 서비스 에서만 사용 해야 합니다.
 
 자세한 내용은 [Azure Machine Learning 컨테이너](https://github.com/Azure/AzureML-Containers)를 참조 하세요.
 

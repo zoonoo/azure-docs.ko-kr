@@ -1,19 +1,19 @@
 ---
-title: Azure Digital Twins 보안 모범 사례 이해 | Microsoft Docs
-description: Azure Digital Twins 보안 모범 사례
+title: 보안 모범 사례 이해-Azure Digital Twins | Microsoft Docs
+description: Azure Digital Twins 및 사물 인터넷에 대 한 보안 모범 사례에 대해 알아봅니다.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 09/17/2019
 ms.author: v-adgera
-ms.openlocfilehash: f211206bc2408fe55f6742622b5b0e56d1ab4d90
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 181176e00595daa307504d4dea7494aefa7f1942
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656517"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336699"
 ---
 # <a name="security-best-practices"></a>보안 모범 사례
 
@@ -46,7 +46,7 @@ IoT 영역을 안전하게 보호하기 위한 몇 가지 주요 사례는 다�
 > [!div class="checklist"]
 > * 저장, 보관 또는 영구 데이터를 암호화합니다.
 > * 암호 또는 키를 주기적으로 변경하거나 새로 고쳐야 합니다.
-> * 역할에 따라 액세스 및 사용 권한을 신중하게 제한합니다. 아래의 [역할 기반 액세스 제어 모범 사례](#rbac) 섹션을 참조하세요.
+> * 역할에 따라 액세스 및 사용 권한을 신중하게 제한합니다. 아래의 [역할 기반 액세스 제어 모범 사례](#role-based-access-control-best-practices) 섹션을 참조하세요.
 > * 각 네트워크의 장치가 다른 네트워크와 격리 되도록 분할 된 네트워크 토폴로지를 고려 합니다.
 > * 강력한 암호화를 사용합니다. 긴 암호가 필요하고, 보안 프로토콜 및 2단계 인증을 사용합니다.
 
@@ -66,8 +66,6 @@ Azure Digital Twins는 Azure Active Directory를 사용하여 사용자를 인�
 > * 토큰 유효 기간과 토큰이 유효한 상태인지 여부를 확인합니다.
 > * 토큰의 적절한 유효 기간을 설정합니다.
 > * 만료된 토큰을 새로 고칩니다.
-
-<div id="rbac"></div>
 
 ## <a name="role-based-access-control-best-practices"></a>역할 기반 액세스 제어 모범 사례
 

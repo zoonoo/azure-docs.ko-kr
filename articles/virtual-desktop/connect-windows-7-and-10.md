@@ -1,77 +1,60 @@
 ---
-title: Windows 10 또는 Windows 7-Azure에서 Windows 가상 데스크톱 미리 보기에 연결
-description: Windows 10 또는 Windows 7에서 Windows 가상 데스크톱 미리 보기에 연결 하는 방법입니다.
+title: Windows 10 또는 Windows 7에서 Windows 가상 데스크톱 미리 보기에 연결-Azure
+description: Windows 데스크톱 클라이언트를 사용 하 여 Windows 가상 데스크톱에 연결 하는 방법
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: 66b423ea27cc0f9112349964fcfd0d75f08c12bd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 49431f75fb801c683a167e1809724eeeef208561
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620112"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338444"
 ---
-# <a name="connect-from-windows-10-or-windows-7"></a>Windows 10 또는 Windows 7에서 연결
+# <a name="connect-with-the-windows-desktop-client"></a>Windows 데스크톱 클라이언트를 사용 하 여 연결
 
-> 적용 대상: Windows 7 및 Windows 10입니다.
+> 적용 대상: Windows 7 및 Windows 10
 
-다운로드할 수 있는 클라이언트는 사용할 수 있는 Windows 7 및 Windows 10을 실행 하는 장치에서 Windows 가상 데스크톱 미리 보기 리소스에 액세스를 제공 하는 합니다.
+Windows 데스크톱 클라이언트를 사용 하 여 windows 7 또는 Windows 10을 사용 하는 장치에서 Windows 가상 데스크톱 리소스에 액세스할 수 있습니다.
 
 > [!IMPORTANT]
-> 사용 하지 마세요 **RemoteApp 및 데스크톱 연결 (RADC)** 하거나 **원격 데스크톱 연결 (MSTSC)** Windows 가상 데스크톱 클라이언트 중 하나를 지원 하지 않으므로 Windows 가상 데스크톱 리소스에 액세스할 수 있습니다.
+> Windows 가상 데스크톱은 RemoteApp 및 데스크톱 연결 (RADC) 클라이언트 또는 원격 데스크톱 연결 (MSTSC) 클라이언트를 지원 하지 않습니다.
 
-## <a name="install-the-client"></a>클라이언트 설치
+## <a name="install-the-windows-desktop-client"></a>Windows 데스크톱 클라이언트 설치
 
-[다운로드](https://go.microsoft.com/fwlink/?linkid=2068602) 로컬 pc에 클라이언트를 설치 합니다. 설치에는 관리자 권한이 필요합니다.
+현재 다운로드할 수 있는 클라이언트는 다음과 같습니다.
+
+- [Windows 64 비트](https://go.microsoft.com/fwlink/?linkid=2068602)
+
+클라이언트를 더 많은 버전의 Windows에서 사용할 수 있게 되 면이 목록을 업데이트 합니다.
+
+현재 사용자에 대해 관리자 권한이 필요 하지 않은 클라이언트를 설치 하거나 관리자가 클라이언트를 설치 하 고 구성 하 여 장치의 모든 사용자가 액세스할 수 있도록 할 수 있습니다.
+
+설치가 완료 되 면 **원격 데스크톱**을 검색 하 여 시작 메뉴에서 클라이언트를 시작할 수 있습니다.
 
 ## <a name="subscribe-to-a-feed"></a>피드 구독
 
-관리자가 제공 하는 피드를 구독 하 여를 사용할 수 있는 관리 되는 리소스의 목록 가져오기 구독 리소스를 사용할 수 있도록 로컬 PC에 있습니다.
+관리자가 제공한 피드를 구독 하 여 사용할 수 있는 관리 되는 리소스 목록을 가져옵니다. 구독을 통해 로컬 PC에서 리소스를 사용할 수 있습니다.
 
-피드를 구독 합니다.
+피드를 구독 하려면 다음을 수행 합니다.
 
-1. 클라이언트를 시작, 모든 앱 목록에서 조회에 대 한 **원격 데스크톱**합니다.
-1. 선택 **Subscribe** 서비스에 연결 하 고 리소스를 검색할 기본 페이지입니다.
-1. **로그인** 메시지가 표시 되 면 사용자 계정으로 합니다.
+1. Windows 데스크톱 클라이언트를 엽니다.
+2. 기본 페이지에서 **구독** 을 선택 하 여 서비스에 연결 하 고 리소스를 검색 합니다.
+3. 메시지가 표시 되 면 사용자 계정으로 로그인 합니다.
 
-인증이 완료 되 면 이제를 사용할 수 있는 리소스 목록이 표시 됩니다.
+성공적으로 로그인 하면 액세스할 수 있는 리소스 목록이 표시 됩니다.
 
-두 가지 방법 중 하나에서 리소스를 시작할 수 있습니다.
+두 가지 방법 중 하나를 기준으로 리소스를 시작할 수 있습니다.
 
-- 클라이언트의 기본 페이지에서 응용 프로그램을 시작 하는 리소스를 두 번 클릭 합니다.
-- 시작 메뉴에서 다른 앱 평소와 같이 리소스를 시작 합니다.
-  - 검색 표시줄에서 앱에 대 한 검색할 수 있습니다.
+- 클라이언트의 기본 페이지에서 리소스를 두 번 클릭 하 여 시작 합니다.
+- 시작 메뉴에서 일반적인 방법으로 다른 앱에서 리소스를 시작 합니다.
+  - 검색 창에서 앱을 검색할 수도 있습니다.
 
-피드를 구독 한 후 피드의 콘텐츠는 정기적으로 자동으로 업데이트 됩니다. 리소스는 추가, 변경 또는 관리자가 변경에 따라 제거 될 수 있습니다.
+피드를 구독 하 고 나면 피드의 콘텐츠가 정기적으로 자동 업데이트 됩니다. 관리자가 변경한 내용에 따라 리소스를 추가, 변경 또는 제거할 수 있습니다.
 
-## <a name="view-the-details-of-a-feed"></a>피드 세부 정보를 보려면
+## <a name="next-steps"></a>다음 단계
 
-를 구독 한 후 세부 정보 창에 액세스 하 여 피드에 대 한 추가 정보를 볼 수 있습니다.
-
-1. 클라이언트의 기본 페이지에서 줄임표를 선택 ( **...** ) 피드 이름 오른쪽에 있습니다.
-1. 드롭다운 메뉴에서 선택 **세부 정보**합니다.
-1. 세부 정보 창 클라이언트의 오른쪽에 표시 됩니다.
-
-피드에 대 한 유용한 정보를 포함 하는 세부 정보 창:
-
-- URL 및 구독 하는 데 사용 하는 사용자 이름
-- 앱 및 데스크톱의 수
-- 마지막 업데이트 날짜/시간
-- 마지막 업데이트의 상태
-
-필요한 경우에 선택 하 여 수동 업데이트를 시작할 수 있습니다 **지금 업데이트**합니다.
-
-## <a name="unsubscribe-from-a-feed"></a>피드를 구독 취소
-
-이 섹션에서 피드를 구독 취소 하는 방법을 배우게 됩니다. 다른 계정을 사용 하 여 다시 등록 하거나 시스템에서 리소스를 제거 하도록 구독을 취소할 수 있습니다.
-
-1. 클라이언트의 기본 페이지에서 줄임표를 선택 ( **...** ) 피드 이름 오른쪽에 있습니다.
-1. 드롭다운 메뉴에서 선택 **Unsubscribe**합니다.
-1. 검토 및 선택 **계속** 대화 상자에서.
-
-## <a name="update-the-client"></a>클라이언트 업데이트
-
-새 버전의 클라이언트를 사용할 수 있습니다 클라이언트와 Windows 관리 센터에서 알림을 받게 됩니다. 업데이트 프로세스를 시작 하려면 알림을 선택 합니다.
+Windows 데스크톱 클라이언트를 사용 하는 방법에 대 한 자세한 내용은 [Windows 데스크톱 클라이언트 시작](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windowsdesktop)을 참조 하세요.

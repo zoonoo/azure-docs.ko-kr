@@ -1,18 +1,18 @@
 ---
 title: 상업적 Marketplace에서 새로운 Dynamics 365 비즈니스 센터 제품 만들기
 description: Microsoft 파트너 센터에서 상용 Marketplace 포털을 사용 하 여 Azure Marketplace, AppSource 또는 CSP (클라우드 솔루션 공급자) 프로그램을 통해 나열 하거나 판매 하기 위해 새로운 Dynamics 365 Business Central 제품을 만드는 방법입니다.
-author: JnHs
+author: ChJenk
 manager: evansma
-ms.author: jenhayes
+ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: e127d937dfaeb8afaad6b9a95383f0008f5ea898
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 09/26/2019
+ms.openlocfilehash: 8c57fd2a2c9c5c059480f3d6ad48454724e5cc61
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70033274"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327632"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>새 Dynamics 365 비즈니스 센터 제품 만들기
 
@@ -28,7 +28,7 @@ Dynamics 365 비즈니스 센터 제품을 만들기 시작 하려면 먼저 [�
 
 ### <a name="offer-id-and-alias"></a>제품 ID 및 별칭
 
-- **제품 ID**: 계정의 각 제품에 대 한 고유 식별자입니다. 이 ID는 marketplace 제품 및 Azure Resource Manager 템플릿 (해당 하는 경우)에 대 한 URL 주소의 고객에 게 표시 됩니다. 제품 ID는 소문자 영숫자 (하이픈 및 밑줄, 공백 없음) 여야 하 고, 50 문자로 제한 되며, **만들기**를 선택한 후에는 변경할 수 없습니다.  예를 들어 여기에서 *테스트-1* 을 입력 하면 제품 URL은가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`됩니다.
+- **제품 ID**: 계정의 각 제품에 대 한 고유 식별자입니다. 이 ID는 marketplace 제품 및 Azure Resource Manager 템플릿 (해당 하는 경우)에 대 한 URL 주소의 고객에 게 표시 됩니다. 제품 ID는 소문자 영숫자 (하이픈 및 밑줄, 공백 없음) 여야 하 고, 50 문자로 제한 되며, **만들기**를 선택한 후에는 변경할 수 없습니다.  예를 들어 여기에서 *테스트-1-1* 을 입력 하면 제품 URL은-1이 @no__t 됩니다.
 
 - **제품 별칭**: 파트너 센터 내에서 제품을 참조 하는 데 사용 되는 이름입니다. 이 이름은 marketplace에서 사용 되지 않으며 고객에 게 표시 되는 제품 이름 및 기타 값과 다릅니다. **만들기**를 선택한 후에는이 값을 변경할 수 없습니다.
 
@@ -92,7 +92,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 **속성** 페이지를 통해 marketplace에서 제품을 그룹화 하는 데 사용 되는 범주와 산업, 앱 버전 및 제품을 지 원하는 법적 계약을 정의할 수 있습니다. 이 페이지를 완료 한 후 **저장** 을 선택 합니다.
 
-### <a name="category"></a>범주
+### <a name="category"></a>Category
 
 제품을 적절 한 마켓플레이스 검색 영역에 추가 하는 데 사용 되는 최소 1 개 및 최대 3 개 범주를 선택 합니다. 제품이 제품 설명에서 이러한 범주를 어떻게 지원 하는지 확인 해야 합니다. 
 
@@ -110,7 +110,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 사용자 지정 약관을 만드는 대신 표준 계약에 따라 소프트웨어를 제공 하도록 선택할 수 있으며, 고객은 한 번만 심사 하 고 수락 하면 됩니다.
 
-표준 계약은 다음 위치에서 찾을 수 있습니다. https://go.microsoft.com/fwlink/?linkid=2041178
+표준 계약은 https://go.microsoft.com/fwlink/?linkid=2041178 에서 찾을 수 있습니다.
 
 표준 계약을 사용 하려면 **표준 계약 사용?** 상자를 선택 합니다.
 
@@ -170,7 +170,7 @@ Marketplace 검색 결과에서 사용할 수 있는 제품에 대 한 간략 �
 
 조직의 개인 정보 취급 방침에 대 한 URL을 입력 합니다. 사용자는 앱이 개인 정보 법률 및 규정을 준수 하는지 확인 하 고 유효한 개인 정보 취급 방침을 제공 하는 일을 담당 합니다.
 
-### <a name="contacts"></a>연락처
+### <a name="contacts"></a>담당자
 
 이 섹션에서는 **지원 연락처** 와 **엔지니어링 연락처**에 대 한 이름, 전자 메일 및 전화 번호를 제공 해야 합니다. 이 정보는 고객에 게 표시 되지 않지만 Microsoft에서 사용할 수 있으며 CSP 파트너에 게 제공 될 수 있습니다.
 
@@ -194,11 +194,11 @@ Marketplace 검색 결과에서 사용할 수 있는 제품에 대 한 간략 �
 
 #### <a name="screenshots"></a>스크린샷
 
-제품의 작동 방식을 보여 주는 스크린샷 추가 스크린샷을 하나 이상 필요 하며 최대 5 개까지 추가할 수 있습니다. 모든 스크린샷 1280 x 720 픽셀 이어야 합니다.
+제품의 작동 방식을 보여 주는 스크린샷 추가 3 개 이상의 스크린샷을 필요 하며 최대 5 개까지 추가할 수 있습니다. 모든 스크린샷 1280 x 720 픽셀 이어야 합니다.
 
 #### <a name="videos"></a>비디오
 
-필요에 따라 제품을 보여 주는 비디오를 4 개까지 추가할 수 있습니다. 이러한 비디오는 YouTube 및/또는 Vimeo에서 호스팅되어야 합니다. 각 항목에 대해 비디오 이름, 해당 URL 및 비디오의 미리 보기 이미지 (1280 x 720 픽셀)를 입력 합니다.
+필요에 따라 제품을 보여 주는 비디오를 최대 5 개까지 추가할 수 있습니다. 이러한 비디오는 YouTube 및/또는 Vimeo에서 호스팅되어야 합니다. 각 항목에 대해 비디오 이름, 해당 URL 및 비디오의 미리 보기 이미지 (1280 x 720 픽셀)를 입력 합니다.
 
 #### <a name="additional-marketplace-listing-resources"></a>리소스를 나열 하는 추가 마켓플레이스
 
@@ -252,7 +252,7 @@ Marketplace 검색 결과에서 사용할 수 있는 제품에 대 한 간략 �
 
 #### <a name="dependency-package-file"></a>종속성 패키지 파일
 
-제품을 marketplace에 이미 게시 된 다른 확장과 함께 설치 해야 하는 경우에 필요 합니다. 그렇다면 `.app` 또는`.zip` 파일을 여기에 업로드 합니다.
+제품을 marketplace에 이미 게시 된 다른 확장과 함께 설치 해야 하는 경우에 필요 합니다. 이 경우 `.app` 또는 `.zip` 파일을 여기에 업로드 합니다.
 
 ### <a name="url-to-app-installation"></a>앱 설치 URL
 
@@ -295,9 +295,9 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 - **테스트 드라이브 기간** (필수): 테스트 드라이브가 활성 상태로 유지 되는 시간을 시간 수를 정의 하 여 입력 합니다. 이 시간이 지난 후에는 세션이 종료 되 고 더 이상 라이선스 중 하나를 사용 하지 않습니다. 제품의 복잡도에 따라 2-24 시간 값을 설정 하는 것이 좋습니다. 이 기간은 전체 시간 (예: "2" 시간, "1.5"은 유효 하지 않음)으로 설정 된 경우에만 사용할 수 있습니다.  사용자는 시간이 부족 하 고 테스트 드라이브에 다시 액세스 하려는 경우 새 세션을 요청할 수 있습니다.
 
-- **인스턴스 URL** (필수): 고객이 시험 드라이브를 시작 하는 URL입니다. 일반적으로 샘플 데이터가 설치 된 앱을 실행 하는 Dynamics 365 인스턴스의 URL https://testdrive.crm.dynamics.com) 입니다 (예:).
+- **인스턴스 URL** (필수): 고객이 시험 드라이브를 시작 하는 URL입니다. 일반적으로 샘플 데이터가 설치 된 앱을 실행 하는 Dynamics 365 인스턴스의 URL입니다 (예: https://testdrive.crm.dynamics.com) ).
 
-- **인스턴스 웹 API URL** (필수): Microsoft 365 계정에 로그인 하 고 **설정** \&gt;로 이동 하 여 Dynamics 365 인스턴스의 Web API URL을 검색 합니다. **사용자 지정** \&gt; **개발자 리소스** \&gt; **인스턴스 웹 API (서비스 루트 URL)** 에서 여기에 있는 URL을 복사 https://testdrive.crm.dynamics.com/api/data/v9.0) 합니다 (예:).
+- **인스턴스 웹 API URL** (필수): Microsoft 365 계정에 로그인 하 고 **설정** \&gt;으로 이동 하 여 Dynamics 365 인스턴스의 WEB API URL을 검색 합니다. **사용자 지정** \&gt; **개발자 리소스** \&gt; **인스턴스 웹 API (서비스 루트 URL)** 에서 여기에 있는 URL (예: https://testdrive.crm.dynamics.com/api/data/v9.0) )을 복사 합니다.
 
 - **역할 이름** (필수): 사용자 지정 Dynamics 365 시험 사용에서 정의한 보안 역할 이름을 입력 합니다 .이 드라이브는 시험 사용 중에 사용자에 게 할당 됩니다 (예: 테스트 드라이브-역할).
 
@@ -333,7 +333,7 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 - **AZURE AD 앱 ID** (필수): Azure Active Directory (AD) [응용 프로그램 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 입력 합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인 하 고 왼쪽 메뉴에서 Active Directory 탭을 선택한 다음 **앱 등록**를 선택 하 고 나열 된 **응용 프로그램 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 찾습니다.
 
-- **AZURE AD 앱 클라이언트 암호** (필수): Azure AD 응용 프로그램 [클라이언트 암호](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)를 입력 합니다. 이 값을 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인 합니다. 왼쪽 메뉴에서 **Azure Active Directory** 탭을 선택 하 고 **앱 등록**을 선택한 다음 테스트 드라이브 앱을 선택 합니다. 그런 다음 **인증서 및 비밀**을 선택 하 고, **새 클라이언트 암호**를 선택 하 고 , 설명을 입력 하 고, **만료**됨을 선택 하 고, **추가**를 선택 합니다. 값을 복사 해야 합니다. 이 작업을 수행 하기 전에 페이지에서 다른 곳으로 이동 하지 마세요. 그렇지 않으면 값에 액세스할 수 없습니다.
+- **AZURE AD 앱 클라이언트 암호** (필수): Azure AD 응용 프로그램 [클라이언트 암호](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)를 입력 합니다. 이 값을 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인 합니다. 왼쪽 메뉴에서 **Azure Active Directory** 탭을 선택 하 고 **앱 등록**을 선택한 다음 테스트 드라이브 앱을 선택 합니다. 그런 다음 **인증서 및 비밀**을 선택 하 고, **새 클라이언트 암호**를 선택 하 고, 설명을 입력 하 고, **만료**됨 **을 선택 하** 고, **추가**를 선택 합니다. 값을 복사 해야 합니다. 이 작업을 수행 하기 전에 페이지에서 다른 곳으로 이동 하지 마세요. 그렇지 않으면 값에 액세스할 수 없습니다.
 
 다음 섹션으로 이동 하기 전에 **저장** 해야 합니다.
 
@@ -366,7 +366,7 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 ### <a name="key-usage-scenario"></a>주요 사용 시나리오
 
-제품의 키 사용 `.pdf` 시나리오를 나열 하는 파일을 문서 (.pdf 형식)에 pload 해야 합니다. Marketplace에 대 한 제품을 승인 하기 전에 유효성 검사 팀에서 여기에 나열 된 모든 시나리오를 확인할 수 있습니다.
+제품의 키 사용 시나리오를 문서 (.pdf 형식)에 나열 하는 `.pdf` 파일을 pload 해야 합니다. Marketplace에 대 한 제품을 승인 하기 전에 유효성 검사 팀에서 여기에 나열 된 모든 시나리오를 확인할 수 있습니다.
 
 ### <a name="app-tests-automation"></a>앱 테스트 자동화
 

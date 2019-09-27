@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 66bad9c9c647fe87fdcf6b99a8d17f319b1ef9fc
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 41d83d4a6c5aad4c3b575513c6b3e2e25a425829
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479976"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338629"
 ---
 # <a name="understand-and-work-with-scopes"></a>범위 이해 및 작업
 
@@ -37,7 +37,7 @@ Cost Management는 모든 리소스 범위에서 작동 하 여 조직에서 액
 
 Azure는 리소스 관리를 위해 세 가지 범위를 지원 합니다. 각 범위는 비용 관리를 비롯 하 여 액세스 및 관리 관리를 지원 합니다.
 
-- [**관리 그룹**](../governance/management-groups/index.md) -최대 8 수준의 계층 컨테이너는 Azure 구독을 구성 합니다.
+- [**관리 그룹**](../governance/management-groups/overview.md) -최대 8 수준의 계층 컨테이너는 Azure 구독을 구성 합니다.
 
     리소스 종류: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
 
@@ -75,14 +75,14 @@ Cost Management 참가자가 권장 되는 최소 권한 역할입니다. 이를
 
 - [**청구 계정**](../billing/billing-view-all-accounts.md) -EA 등록을 나타냅니다. 이 범위에서 송장이 생성 됩니다. Marketplace 및 예약과 같이 사용량을 기반으로 하지 않는 구매는이 범위 에서만 사용할 수 있습니다. 부서 또는 등록 계정에 표시 되지 않습니다.
 
-    리소스 종류:`Microsoft.Billing/billingAccounts (accountType = Enrollment)`
+    리소스 종류: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
 - **부서** -등록 계정의 선택적 그룹화입니다.
 
-    리소스 종류:`Billing/billingAccounts/departments`
+    리소스 종류: `Billing/billingAccounts/departments`
 
 - **등록 계정** -단일 계정 소유자를 나타냅니다. 는 여러 사용자에 게 액세스 권한을 부여 하는 것을 지원 하지 않습니다.
 
-    리소스 종류:`Microsoft.Billing/billingAccounts/enrollmentAccounts`
+    리소스 종류: `Microsoft.Billing/billingAccounts/enrollmentAccounts`
 
 거 버 넌 스 범위는 단일 디렉터리에 바인딩되어 있지만 EA 청구 범위는 그렇지 않습니다. EA 청구 계정에는 여러 Azure AD 디렉터리의 구독이 있을 수 있습니다.
 
@@ -118,17 +118,17 @@ Microsoft 고객 계약 청구 계정의 범위는 다음과 같습니다.
 
 - **청구 계정** -여러 Microsoft 제품 및 서비스에 대 한 고객 규약을 나타냅니다. 고객 계약 청구 계정은 EA 등록와 기능적으로 동일 하지 않습니다. EA 등록는 청구 프로필에 더 가깝게 정렬 됩니다.
 
-    리소스 종류:`Microsoft.Billing/billingAccounts (accountType = Organization)`
+    리소스 종류: `Microsoft.Billing/billingAccounts (accountType = Organization)`
 
 - **청구 프로필** -청구서에 포함 되는 구독을 정의 합니다. 청구 프로필은에서 송장이 생성 되는 범위 이므로 EA 등록과 동등한 기능입니다. 마찬가지로 사용 하지 않는 구매 (예: 마켓플레이스 및 예약)는이 범위 에서만 사용할 수 있습니다. 송장 섹션에는 포함 되지 않습니다.
 
-    리소스 종류:`Microsoft.Billing/billingAccounts/billingProfiles`
+    리소스 종류: `Microsoft.Billing/billingAccounts/billingProfiles`
 
 - **송장 섹션** -송장 또는 청구 프로필의 구독 그룹을 나타냅니다. 청구서 섹션은 부서와 유사 하며, 여러 사람이 청구서 섹션에 액세스할 수 있습니다.
 
-    리소스 종류:`Microsoft.Billing/billingAccounts/invoiceSections`
+    리소스 종류: `Microsoft.Billing/billingAccounts/invoiceSections`
 
-EA 청구 범위와 달리 고객 계약 _청구 계정은 단일_ 디렉터리에 바인딩되고 여러 Azure AD 디렉터리에 구독을 가질 수 없습니다.
+EA 청구 범위와 달리 고객 계약 청구 계정은 단일 디렉터리에 바인딩되고 여러 Azure AD 디렉터리에 _구독을 가질_ 수 없습니다.
 
 고객 계약 청구 범위는 다음 역할을 지원 합니다.
 
@@ -148,11 +148,11 @@ AWS 통합이 완료 된 후에는 [AWS integration 설정 및 구성](aws-integ
 
 - **외부 청구 계정** -타사 공급 업체와 고객 계약을 나타냅니다. EA 청구 계정과 유사 합니다.
 
-    리소스 종류:`Microsoft.CostManagement/externalBillingAccounts`
+    리소스 종류: `Microsoft.CostManagement/externalBillingAccounts`
     
 - **외부 구독** -타사 공급 업체를 사용 하는 고객 운영 계정을 나타냅니다. 이는 Azure 구독과 유사 합니다.
 
-    리소스 종류:`Microsoft.CostManagement/externalSubscriptions`
+    리소스 종류: `Microsoft.CostManagement/externalSubscriptions`
 
 ## <a name="cloud-solution-provider-csp-scopes"></a>CSP (클라우드 솔루션 공급자) 범위
 
@@ -160,7 +160,7 @@ CSP (클라우드 솔루션 공급자) 파트너는 현재 Cost Management에서
 
 ## <a name="switch-between-scopes-in-cost-management"></a>Cost Management 범위 간 전환
 
-Azure Portal의 모든 Cost Management 보기에는 뷰의 왼쪽 위에 약 **범위** 선택이 포함 됩니다. 이를 사용 하 여 범위를 신속 하 게 변경 합니다. 범위 약 **를** 클릭 하 여 범위 선택기를 엽니다. 여기에는 청구 계정, 루트 관리 그룹 및 루트 관리 그룹에 중첩 되지 않은 구독이 표시 됩니다. 범위를 선택 하려면 배경을 클릭 하 여 강조 표시 하 고 맨 아래에 있는 **선택** 을 클릭 합니다. 구독에서 리소스 그룹과 같은 중첩 된 범위에 대 한 드릴을 하려면 범위 이름 링크를 클릭 합니다. 중첩 된 수준에서 부모 범위를 선택 하려면 범위 선택의 위쪽에서  **&lt;이 범위&gt; 선택** 을 클릭 합니다.
+Azure Portal의 모든 Cost Management 보기에는 뷰의 왼쪽 위에 약 **범위** 선택이 포함 됩니다. 이를 사용 하 여 범위를 신속 하 게 변경 합니다. **범위 약를** 클릭 하 여 범위 선택기를 엽니다. 여기에는 청구 계정, 루트 관리 그룹 및 루트 관리 그룹에 중첩 되지 않은 구독이 표시 됩니다. 범위를 선택 하려면 배경을 클릭 하 여 강조 표시 하 고 맨 아래에 있는 **선택** 을 클릭 합니다. 구독에서 리소스 그룹과 같은 중첩 된 범위에 대 한 드릴을 하려면 범위 이름 링크를 클릭 합니다. 중첩 된 수준에서 부모 범위를 선택 하려면 범위 선택의 맨 위에 있는 **&lt;scope @ no__t-2를 선택** 합니다.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>범위에 대 한 리소스 ID를 식별 합니다.
 
@@ -171,7 +171,7 @@ Cost Management Api를 사용 하는 경우 범위를 아는 것이 중요 합�
 1. Azure Portal 연 다음 서비스 목록에서 **Cost Management + 청구** 로 이동 합니다.
 2. 청구 계정 메뉴에서 **속성** 을 선택 합니다.
 3. 청구 계정 ID를 복사 합니다.
-4. 범위는 다음과 같습니다.`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}"`
+4. 범위는 `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}"`입니다.
 
 ### <a name="billing-profiles"></a>청구 프로필
 
@@ -180,7 +180,7 @@ Cost Management Api를 사용 하는 경우 범위를 아는 것이 중요 합�
 3. 원하는 청구 프로필의 이름을 클릭 합니다.
 4. 청구 프로필 메뉴에서 **속성** 을 선택 합니다.
 5. 청구 계정 및 청구 프로필 Id를 복사 합니다.
-6. 범위는 다음과 같습니다.`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}"`
+6. 범위는 `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}"`입니다.
 
 ### <a name="invoice-sections"></a>청구서 섹션
 
@@ -189,7 +189,7 @@ Cost Management Api를 사용 하는 경우 범위를 아는 것이 중요 합�
 3. 원하는 청구서 섹션의 이름을 클릭 합니다.
 4. 송장 섹션 메뉴에서 **속성** 을 선택 합니다.
 5. 청구 계정 및 청구서 섹션 Id를 복사 합니다.
-6. 범위는 다음과 같습니다.`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}"`
+6. 범위는 `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}"`입니다.
 
 ### <a name="ea-departments"></a>EA 부서
 
@@ -198,7 +198,7 @@ Cost Management Api를 사용 하는 경우 범위를 아는 것이 중요 합�
 3. 원하는 부서의 이름을 클릭 합니다.
 4. 부서 메뉴에서 **속성** 을 선택 합니다.
 5. 청구 계정 및 부서 Id를 복사 합니다.
-6. 범위는 다음과 같습니다.`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}"`
+6. 범위는 `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}"`입니다.
 
 ### <a name="ea-enrollment-account"></a>EA 등록 계정
 
@@ -207,20 +207,20 @@ Cost Management Api를 사용 하는 경우 범위를 아는 것이 중요 합�
 3. 원하는 등록 계정의 이름을 클릭 합니다.
 4. 등록 계정 메뉴에서 **속성** 을 선택 합니다.
 5. 청구 계정 및 등록 계정 Id를 복사 합니다.
-6. 범위는 다음과 같습니다.`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}"`
+6. 범위는 `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}"`입니다.
 
 ### <a name="management-group"></a>관리 그룹
 
 1. Azure Portal를 열고 서비스 목록에서 **관리 그룹** 으로 이동 합니다.
 2. 원하는 관리 그룹으로 이동 합니다.
 3. 테이블에서 관리 그룹 ID를 복사 합니다.
-4. 범위는 다음과 같습니다.`"/providers/Microsoft.Management/managementGroups/{id}"`
+4. 범위는 `"/providers/Microsoft.Management/managementGroups/{id}"`입니다.
 
 ### <a name="subscription"></a>구독
 
 1. Azure Portal를 열고 서비스 목록에서 **구독** 으로 이동 합니다.
 2. 테이블에서 구독 ID를 복사 합니다.
-3. 범위는 다음과 같습니다.`"/subscriptions/{id}"`
+3. 범위는 `"/subscriptions/{id}"`입니다.
 
 ### <a name="resource-groups"></a>리소스 그룹
 
@@ -228,7 +228,7 @@ Cost Management Api를 사용 하는 경우 범위를 아는 것이 중요 합�
 2. 원하는 리소스 그룹의 이름을 클릭 합니다.
 3. 리소스 그룹 메뉴에서 **속성** 을 선택 합니다.
 4. 리소스 ID 필드 값을 복사 합니다.
-5. 범위는 다음과 같습니다.`"/subscriptions/{id}/resourceGroups/{name}"`
+5. 범위는 `"/subscriptions/{id}/resourceGroups/{name}"`입니다.
 
 Cost Management는 현재 [Azure Global](https://management.azure.com) 및 [Azure Government](https://management.usgovcloudapi.net)에서 지원 됩니다. Azure Government에 대 한 자세한 내용은 [Azure 전역 및 정부 API 끝점](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)을 참조 하세요 _._
 

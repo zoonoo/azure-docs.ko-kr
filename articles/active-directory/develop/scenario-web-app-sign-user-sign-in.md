@@ -15,12 +15,12 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09b39cb9db2450b7d200ec725396141f72f1b2f1
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: d5c45005d6a54765458b463acb12c21a1f3b6d0c
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310026"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336773"
 ---
 # <a name="web-app-that-signs-in-users---sign-in-and-sign-out"></a>사용자 로그인 및 로그 아웃 하는 웹 앱
 
@@ -106,7 +106,7 @@ def index():
 
 ---
 
-### <a name="login-action-of-the-controller"></a>`login()`컨트롤러의 동작
+### <a name="login-action-of-the-controller"></a>`Login`컨트롤러의 동작
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -320,7 +320,7 @@ Python 빠른 시작에서 로그 아웃 단추는 [템플릿/인덱스. html # 
 
 ---
 
-### <a name="signout-action-of-the-controller"></a>`Signout()`컨트롤러의 동작
+### <a name="signout-action-of-the-controller"></a>`Signout`컨트롤러의 동작
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -375,13 +375,12 @@ Java에서는 Microsoft id 플랫폼 로그 아웃 끝점을 직접 호출 하 �
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-사용자를 로그 아웃 하는 코드는 [py # L46-L52에 있습니다.](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L46-L52) 
+사용자를 로그 아웃 하는 코드는 [py # L46-L52에 있습니다.](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L47-L48)
 
 ```Python
 @app.route("/logout")
 def logout():
-    session["user"] = None  # Log out from this app from its session
-    # session.clear()  # If you prefer, this would nuke the user's token cache too
+    session.clear()  # Wipe out user and its token cache from session
     return redirect(  # Also need to logout from Microsoft Identity platform
         "https://login.microsoftonline.com/common/oauth2/v2.0/logout"
         "?post_logout_redirect_uri=" + url_for("index", _external=True))

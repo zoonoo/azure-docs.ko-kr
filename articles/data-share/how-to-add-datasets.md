@@ -1,17 +1,17 @@
 ---
-title: Azure 데이터 공유 미리 보기에서 기존 데이터 공유에 데이터 집합 추가
+title: 기존 Azure 데이터 공유 미리 보기에 데이터 집합 추가
 description: 기존 데이터 공유에 데이터 집합 추가
-author: madams0013
+author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: jasonh
-ms.openlocfilehash: 75ac837491927881fd8b7547b0f49a069c3f2d47
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: bd8cd7af72c349060eb035dc32e9ddd1a7f9920e
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70257205"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327517"
 ---
 # <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share-preview"></a>Azure 데이터 공유 미리 보기에서 기존 공유에 데이터 집합을 추가 하는 방법
 
@@ -23,11 +23,11 @@ ms.locfileid: "70257205"
 
 Azure 데이터 공유 미리 보기에서 보낸 공유로 이동 하 여 **데이터 집합** 탭을 선택 합니다. **+ 데이터 집합 추가** 단추를 클릭 하 여 데이터 집합을 더 추가 합니다.
 
-![데이터 집합 추가](./media/how-to/how-to-add-datasets/add-datasets.png)
+![데이터 세트 추가](./media/how-to/how-to-add-datasets/add-datasets.png)
 
 오른쪽 패널에서 추가 하려는 데이터 집합 유형을 선택 하 고 **다음**을 클릭 합니다. 추가 하려는 데이터의 구독 및 리소스 그룹을 선택 합니다. 드롭다운 화살표를 사용 하 여 추가할 데이터 옆의 상자를 찾아 선택 합니다.
 
-![데이터 집합 추가](./media/how-to/how-to-add-datasets/add-datasets-side.png)
+![데이터 세트 추가](./media/how-to/how-to-add-datasets/add-datasets-side.png)
 
 **데이터 집합 추가**를 클릭 하면 데이터 집합이 공유에 추가 됩니다. 참고: 스냅숏이 새 데이터 집합을 볼 수 있도록 하려면 사용자가 스냅숏을 트리거해야 합니다. 구성 된 스냅숏 설정이 있는 경우 소비자는 다음에 예약 된 스냅숏이 완료 되 면 새 데이터 집합을 볼 수 있습니다. 스냅숏 설정이 구성 되지 않은 경우 소비자는 업데이트를 받기 위해 데이터의 전체 또는 증분 복사본을 수동으로 트리거해야 합니다. 스냅숏에 대 한 자세한 내용은 [스냅숏](terminology.md)을 참조 하십시오.
 

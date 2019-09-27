@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 96e939f8e3da58a123d9a6733b71b74c2ff0ba87
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 144b63131be68c9209835a1b8b3a01062245cfdd
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311906"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326590"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Azure Advisor를 사용하여 서비스 비용 절감
 
@@ -21,9 +21,9 @@ Advisor는 유휴 및 사용 미달 리소스를 식별하여 전체적인 Azure
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>사용량이 낮은 인스턴스의 크기를 조정하거나 종료하여 가상 머신 소비 최적화 
 
-특정 애플리케이션 시나리오에서는 기본적으로 사용률이 낮을 수 있으나 가상 머신의 크기와 수를 관리하여 비용을 절감할 수도 있습니다. Advisor는 7 일 동안 가상 머신 사용량을 모니터링 하 고 사용률이 낮은 가상 머신을 식별 합니다. 가상 머신은 CPU 사용률이 5%이 하이 고 네트워크 사용률이 2% 이하인 경우 또는 더 작은 가상 머신 크기로 현재 워크 로드를 수용할 수 있는 경우 사용률이 낮은 것으로 간주 됩니다.
+특정 애플리케이션 시나리오에서는 기본적으로 사용률이 낮을 수 있으나 가상 머신의 크기와 수를 관리하여 비용을 절감할 수도 있습니다. Advisor는 7 일 동안 가상 머신 사용량을 모니터링 하 고 사용률이 낮은 가상 머신을 식별 합니다.  가상 컴퓨터의 CPU 사용률이 5%이 하이 고 네트워크 사용률이 2% 미만이 고 해당 네트워크 사용률이 2% 미만이 고, 현재 작업을 더 작은 가상 컴퓨터 크기로 수용할 수 있는 경우 가상 컴퓨터는 사용률이 낮은 것으로 간주 됩니다.
 
-Advisor에는 가상 머신을 계속 실행할 때의 예상 비용이 표시되므로 해당 가상 머신을 종료하거나 크기를 조정하도록 선택할 수 있습니다.
+권장 되는 작업은 권장 되는 리소스와 관련 하 여 종료 하거나 크기를 조정 하는 것입니다. Advisor에서는 권장 되는 작업 (크기 조정 또는 종료)에 대 한 예상 비용 절감 액을 보여 줍니다. 또한 크기 조정 권장 작업의 경우 Advisor는 현재 및 대상 SKU 정보를 제공 합니다. 
 
 미달 사용 가상 컴퓨터를 더 적극적으로 식별 하려면 구독 별로 CPU 사용률 규칙을 조정할 수 있습니다.
 

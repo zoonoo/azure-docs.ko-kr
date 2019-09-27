@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: af157204ad1e1b28639ae2d8f192b3122afa8147
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: ff9d4bb98a79c379fda2c1a0a0ab9d5e0ec212ce
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299238"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338100"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Java 웹 앱에서 종속성, catch 한 예외 및 메서드 실행 시간 모니터링
 
@@ -122,7 +122,7 @@ AI-Agent.xml에 다음을 추가합니다.
 
 이상적으로는 모든 서비스 W3C 프로토콜을 지원하는 최신 버전의 SDK로 업데이트된 경우입니다. 가능한 한 빨리 W3C를 지원하는 최신 버전의 SDK로 전환하는 것이 좋습니다.
 
-**[수신](correlation.md#w3c-distributed-tracing) 및 발신(에이전트) 구성이 둘 다 정확히 동일**한지 확인합니다.
+**[수신](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps) 및 발신(에이전트) 구성이 둘 다 정확히 동일**한지 확인합니다.
 
 ## <a name="view-the-data"></a>데이터 보기
 Application Insights 리소스에서 집계 된 원격 종속성과 메서드 실행 시간은 [성능 타일 아래][metrics]에 나타납니다.
