@@ -6,19 +6,19 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: article
-ms.date: 09/19/2019
+ms.date: 09/25/2019
 ms.author: dkshir
 ms.custom: security-recommendations
-ms.openlocfilehash: 7253ec04efe914f68e9798fca49233f11c5102ef
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 51abfd086391d1bed53646d22d93ac1348e566a5
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129789"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299802"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>IoT (Azure 사물 인터넷) 배포에 대 한 보안 권장 사항
 
-이 문서에는 Azure App Service에 대 한 보안 권장 사항이 포함 되어 있습니다. 이러한 권장 사항을 구현 하면 공유 책임 모델에 설명 된 대로 보안 의무를 달성 하는 데 도움이 되며 웹 앱 솔루션에 대 한 전반적인 보안을 향상 시킬 수 있습니다. Microsoft에서 서비스 공급자 역할을 수행 하는 데 필요한 사항에 대 한 자세한 내용은 [클라우드 컴퓨팅을 위한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)을 참조 하세요.
+이 문서에는 IoT에 대 한 보안 권장 사항이 포함 되어 있습니다. 이러한 권장 사항을 구현 하면 공유 책임 모델에 설명 된 대로 보안 의무를 달성 하는 데 도움이 됩니다. Microsoft에서 서비스 공급자 역할을 수행 하는 데 필요한 사항에 대 한 자세한 내용은 [클라우드 컴퓨팅을 위한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)을 참조 하세요.
 
 이 문서에 포함 된 일부 권장 사항은 Azure Security Center에서 자동으로 모니터링할 수 있습니다. Azure Security Center는 Azure에서 리소스를 보호 하는 첫 번째 방어선입니다. Azure 리소스의 보안 상태를 주기적으로 분석 하 여 잠재적인 보안 취약성을 식별 합니다. 그런 다음이를 해결 하는 방법에 대 한 권장 사항을 제공 합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "71129789"
 
 ## <a name="recommendations"></a>권장 사항
 
-| 범주 | 권장 | 주석 | ASC에서 지원 됨 |
+| Category | 권장 | 주석 | ASC에서 지원 됨 |
 |-|-|----|--|
 | 일반 | 최신 상태 유지 | 지원 되는 플랫폼, 프로그래밍 언어, 프로토콜 및 프레임 워크의 최신 버전을 사용 합니다. | - |
 | 일반 | 인증 키를 안전 하 게 유지 | 배포 후 장치 Id와 인증 키를 물리적으로 안전 하 게 유지 합니다. 이렇게 하면 악성 장치를 등록 된 장치로 사용 하지 않습니다. | - |

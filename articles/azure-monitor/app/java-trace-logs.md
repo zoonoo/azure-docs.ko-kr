@@ -12,19 +12,37 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/18/2019
 ms.author: mbullwin
-ms.openlocfilehash: 2703c97dc78983ef294b3aa50f7ace879c96f66d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ac9bd6021b5fcec36e3aadfdf4c30020971f3be5
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061237"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299258"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Application Insights에서 Java 추적 로그 탐색
 추적에 Logback 또는 Log4J(v1.2 또는 v2.0)를 사용하는 경우 추적 로그를 살펴보고 검색할 수 있는 Application Insights에 추적 로그를 자동으로 전송할 수 있습니다.
 
+## <a name="using-the-application-insights-java-agent"></a>Application Insights Java 에이전트 사용
+
+`AI-Agent.xml` 파일에서 기능을 사용 하도록 설정 하 여 로그를 자동으로 캡처하도록 Application Insights Java 에이전트를 구성할 수 있습니다.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsightsAgent>
+   <Instrumentation>
+      <BuiltIn enabled="true">
+         <Logging enabled="true" />
+      </BuiltIn>
+   </Instrumentation>
+   <AgentLogger />
+</ApplicationInsightsAgent>
+```
+
+또는 아래 지침을 따를 수 있습니다.
+
 ## <a name="install-the-java-sdk"></a>Java SDK 설치
 
-아직 수행하지 않은 경우 지침을 다라 [Java용 Application Insights SDK][java]를 설치합니다.
+아직 수행 하지 않은 경우 지침에 따라 [Java 용 APPLICATION INSIGHTS SDK][java]를 설치 합니다.
 
 ## <a name="add-logging-libraries-to-your-project"></a>프로젝트에 로깅 라이브러리 추가
 *프로젝트에 적합한 방법을 선택합니다.*
@@ -156,7 +174,7 @@ ms.locfileid: "67061237"
 Application Insights 어펜더는 루트 로거만이 아니라 구성된 모든 로거에 의해 참조될 수 있습니다(위의 코드 샘플에 표시).
 
 ## <a name="explore-your-traces-in-the-application-insights-portal"></a>Application Insights 포털에서 추적 탐색
-이제 Application Insights에 추적을 전송하도록 프로젝트를 구성했으며 [검색][diagnostic] 블레이드의 Application Insights 포털에서 이러한 추적을 보고 검색할 수 있습니다.
+Application Insights에 추적을 전송 하도록 프로젝트를 구성 했으므로 [검색][diagnostic] 블레이드에서 Application Insights 포털에서 이러한 추적을 보고 검색할 수 있습니다.
 
 로거를 통해 제출된 예외는 포털에 예외 원격 분석으로 표시됩니다.
 
