@@ -145,7 +145,7 @@ V 1.1 스키마를 권장 하며 Azure Active Directory 속성이 필요 하지 
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForLinux | string |
-| typeHandlerVersion | 0.1, 1.1 | ssNoversion |
+| typeHandlerVersion | 0.1, 1.1 | int |
 | (0.1 스키마) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
 | (0.1 스키마) AADClientSecret | password | string |
 | (0.1 스키마) AADClientCertificate | thumbprint | string |
