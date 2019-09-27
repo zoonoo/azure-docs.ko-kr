@@ -99,10 +99,10 @@ Windows 용 DSC 확장을 사용 하려면 대상 가상 머신이 azure와 통�
 
 | 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
-| apiVersion | 2018-10-01 | 날짜 |
+| apiVersion | 2018-10-01 | date |
 | publisher | Microsoft.Powershell.DSC | string |
 | type | DSC | string |
-| typeHandlerVersion | 2.77 | ssNoversion |
+| typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>settings(설정) 속성 값
 
