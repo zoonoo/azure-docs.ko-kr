@@ -28,6 +28,10 @@
           href: connect-windows-7-and-10.md
         - name: 웹 브라우저에서 연결
           href: connect-web.md
+        - name: macOS 클라이언트와 연결
+          href: connect-macos.md
+        - name: iOS 클라이언트와 연결
+          href: connect-ios.md
     - name: Azure Resource Manager 템플릿으로 호스트 풀 만들기
       href: create-host-pools-arm-template.md
     - name: PowerShell을 사용한 호스트 풀 만들기

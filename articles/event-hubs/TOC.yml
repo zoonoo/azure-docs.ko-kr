@@ -114,7 +114,7 @@
           href: event-hubs-get-connection-string.md
         - name: 다른 프로토콜을 사용하여 애플리케이션 간에 이벤트 교환
           href: event-hubs-exchange-events-different-protocols.md
-        - name: 프로그래밍 가이드
+        - name: .NET 프로그래밍 가이드
           href: event-hubs-programming-guide.md
         - name: 'Python을 사용하여 이벤트 보내기, 받기 및 캡처'
           href: event-hubs-python.md

@@ -21,7 +21,7 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: IoT Hub에서 IoT용 Azure Security Center 사용
+    - name: IoT Hub에서 IoT용 Azure Security Center 온보드
       href: quickstart-onboard-iot-hub.md
     - name: 솔루션 구성
       href: quickstart-configure-your-solution.md
@@ -73,6 +73,8 @@
       href: how-to-security-data-access.md
     - name: 디바이스 조사
       href: how-to-investigate-device.md
+    - name: 솔루션 사용자 지정
+      href: how-to-customize-solution.md
 - name: 리소스
   items:
     - name: 질문과 대답

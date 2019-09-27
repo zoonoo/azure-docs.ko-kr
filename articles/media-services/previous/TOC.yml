@@ -58,6 +58,8 @@
         - name: Windows Azure Media Encoder에서 마이그레이션
           href: migrate-windows-azure-media-encoder.md
           displayName: WAME
+        - name: 인덱서 v1 및 v2에서 마이그레이션
+          href: migrate-indexer-v1-v2.md
     - name: 관리
       items:
         - name: 계정

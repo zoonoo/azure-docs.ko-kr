@@ -39,7 +39,7 @@ az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resou
 ```
 **ACR 리소스 ID의 형식은 다음과 같습니다.** 
 
-/subscriptions/< subscription-d >/Stggs/< 리소스 그룹 이름 >/providers/Microsoft.ContainerRegistry/registries/{name} 
+/subscriptions/<subscription-d>/Stggs/<리소스 그룹 이름>/providers/Microsoft.ContainerRegistry/registries/{name} 
   
 이 단계를 완료 하는 데 몇 분 정도 걸릴 수 있습니다.
 

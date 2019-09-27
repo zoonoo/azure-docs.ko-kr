@@ -1,78 +1,127 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure의 Resource Manager 설명서
+### YamlMime:Landing
+title: Azure Resource Manager 설명서
+summary: Resource Manager 템플릿은 프로젝트에 대한 인프라 및 구성을 정의하는 JSON(JavaScript Object Notation) 파일입니다.
 metadata:
-  title: 'Azure의 Resource Manager 설명서 - 자습서, 샘플, 참조 및 리소스'
-  description: 일관적이고 반복 가능한 리소스 배포를 위해 Resource Manager를 사용하여 솔루션 리소스를 그룹으로 배포 및 관리하고 템플릿을 만드는 방법에 대해 알아봅니다.
+  title: Azure Resource Manager 설명서
+  description: Azure Resource Manager 템플릿을 개발하고 이를 사용하여 Azure 리소스를 배포하는 방법 알아보기
   services: azure-resource-manager
   ms.service: azure-resource-manager
-  keywords: 'Resource Manager, Azure, DevOps, 자습서, 샘플, 참조, 문서'
-  author: mumian
-  manager: dougeby
-  ms.author: jgao
+  ms.subservice: na
   ms.topic: landing-page
-  ms.date: 12/10/2018
-abstract:
-  description: 'Resource Manager를 사용하여 솔루션 리소스를 그룹으로 배포, 모니터링 및 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 일관적이고 반복 가능한 배포를 위해 리소스 그룹을 설정하고 템플릿을 만드는 방법을 보여 줍니다.'
-sections:
-  - title: 빠른 시작
-    items:
-      - type: paragraph
-        text: 다양한 도구를 사용하여 Azure 리소스를 배포하기 위한 Azure Resource Manager 템플릿을 만듭니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Azure Portal을 사용하여 템플릿 생성
-            href: 'https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: Visual Studio Code를 사용하여 템플릿 만들기
-            href: 'https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-            text: Visual Studio를 사용하여 템플릿 만들기
-            href: 'https://docs.microsoft.com/azure/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy'
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: Azure 리소스를 배포하기 위해 Azure Resource Manager 템플릿을 만드는 방법을 알아봅니다.
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts">Resource Manager 템플릿 참조 사용</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-multiple-instances">Azure 리소스의 여러 인스턴스 만들기</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources">리소스 배포 순서 설정</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-conditions">조건 사용</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-key-vault">Azure Key Vault 통합</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-linked-templates">연결된 템플릿 만들기</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions">가상 머신 확장 배포</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac">SQL 확장 배포</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-secure-artifacts">템플릿 아티팩트 보호</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/deployment-manager-tutorial">안전한 배포 사례 사용</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot">템플릿 배포 문제를 해결</a>합니다.'
-  - title: 샘플
-    items:
-      - type: paragraph
-        text: 공통 배포 작업의 샘플 구성 템플릿입니다.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '<a href="https://azure.microsoft.com/resources/templates/">Azure 빠른 시작 템플릿</a>'
-          - html: '<a href="https://resources.azure.com/">Azure Resource Explorer(미리 보기)</a>'
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 템플릿
-            html: <p><a href="/azure/templates/">템플릿 참조</a></p><p><a href="/azure/resource-group-template-functions">템플릿 함수</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">UI 정의 함수</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">UI 정의 요소</a></p>
-          - title: 명령줄
-            html: <p><a href="/cli/azure/resource">Azure CLI</a></p><p><a href="/powershell/module/az.resources">Azure PowerShell</a></p>
-          - title: 언어
-            html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p><p><a href="/python/api/overview/azure/resources?view=azure-python">Python</a></p>
-          - title: REST (영문)
-            html: <p><a href="/rest/api/resources/">REST API</a></p>
+  ms.collection: na
+  author: mumian
+  ms.author: jgao
+  ms.date: 09/25/2019
+  ms.openlocfilehash: 4981000d942bfa49503a63ce2a82ec994efc3c6e
+  ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 09/26/2019
+  ms.locfileid: "71299503"
+landingContent:
+- title: Resource Manager 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Resource Manager란?
+      url: resource-group-overview.md
+    - text: Resource Manager 템플릿이란?
+      url: template-deployment-overview.md
+  - linkListType: concept
+    links:
+    - text: 모범 사례
+      url: template-best-practices.md
+    - text: 배포 모드
+      url: deployment-modes.md
+    - text: 연결된 템플릿
+      url: resource-group-linked-templates.md
+    - text: 구독 수준 배포
+      url: deploy-to-subscription.md
+    - text: 배포 관리자
+      url: deployment-manager-overview.md
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 템플릿 만들기 - 포털
+      url: resource-manager-quickstart-create-templates-use-the-portal.md
+    - text: 템플릿 만들기 - VS Code
+      url: resource-manager-quickstart-create-templates-use-visual-studio-code.md
+    - text: 템플릿 만들기 - Visual Studio
+      url: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+  - linkListType: tutorial
+    links:
+    - text: 여러 인스턴스 배포
+      url: resource-manager-tutorial-create-multiple-instances.md
+    - text: 배포 순서 설정
+      url: resource-manager-tutorial-create-templates-with-dependent-resources.md
+    - text: Key Vault 통합
+      url: resource-manager-tutorial-use-key-vault.md
+- title: 템플릿 개발
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: VS Code 사용
+      url: resource-manager-tools-vs-code.md
+    - text: 함수 사용
+      url: resource-group-template-functions.md
+    - text: 매개 변수 정의
+      url: template-parameters.md
+    - text: 변수 정의
+      url: template-variables.md
+    - text: 리소스 정의
+      url: child-resource-name-type.md
+    - text: 출력 정의
+      url: template-outputs.md
+  - linkListType: reference
+    links:
+    - text: Azure 빠른 시작 템플릿
+      url: /resources/templates/
+- title: 템플릿 배포
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: PowerShell 사용
+      url: resource-group-template-deploy.md
+    - text: CLI 사용
+      url: resource-group-template-deploy-cli.md
+    - text: 포털 사용
+      url: resource-group-template-deploy-portal.md
+    - text: REST API 사용
+      url: resource-group-template-deploy-rest.md
+- title: 템플릿 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 템플릿 내보내기
+      url: export-template-portal.md
+    - text: CI/CD
+      url: vs-resource-groups-project-devops-pipelines.md
+- title: 리소스 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 리소스 이동
+      url: resource-group-move-resources.md
+    - text: 리소스 태그 지정
+      url: resource-group-using-tags.md
+    - text: 리소스 잠금
+      url: resource-group-lock-resources.md
+- title: 모니터링 및 문제 해결
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 활동 로그 보기
+      url: resource-group-audit.md
+    - text: 배포 작업 보기
+      url: resource-manager-deployment-operations.md
+    - text: 배포 오류 문제 해결
+      url: resource-manager-common-deployment-errors.md
+- title: 참조 콘텐츠 탐색
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 리소스 공급자 및 형식
+      url: resource-manager-supported-services.md
+    - text: 템플릿 참조
+      url: /azure/templates/

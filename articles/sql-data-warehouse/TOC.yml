@@ -155,6 +155,8 @@
               href: sql-data-warehouse-tables-data-types.md
             - name: 분산 테이블
               href: sql-data-warehouse-tables-distribute.md
+            - name: 테이블 제약 조건
+              href: sql-data-warehouse-table-constraints.md
             - name: 인덱스
               href: sql-data-warehouse-tables-index.md
             - name: ID

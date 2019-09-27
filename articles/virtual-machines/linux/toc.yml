@@ -476,6 +476,8 @@
           href: disks-upload-vhd-to-managed-disk-cli.md
         - name: 디스크 크기 조정
           href: expand-disks.md
+        - name: Storage Explorer를 사용하여 디스크 관리
+          href: disks-use-storage-explorer-managed-disks.md
         - name: 디스크 스냅샷
           href: snapshot-copy-managed-disk.md
         - name: 증분 스냅샷 만들기

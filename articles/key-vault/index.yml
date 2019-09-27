@@ -1,91 +1,96 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Key Vault 설명서
+### YamlMime:Landing
+title: Azure Key Vault 설명서
+summary: Key Vault를 사용하여 클라우드 리소스, 앱 및 솔루션에 액세스하고 암호화하는 키를 만들고 유지 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다.
 metadata:
-  title: 'Azure Key Vault 설명서 - 자습서, API 참조 | Microsoft Docs'
-  meta.description: 'Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.'
-  author: msmbaldwin
-  manager: rkarlin
-  layout: LandingPage
+  title: Azure Key Vault 설명서
+  description: Key Vault를 사용하여 클라우드 리소스, 앱 및 솔루션에 액세스하고 암호화하는 키를 만들고 유지 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다.
+  services: key-vault
   ms.service: key-vault
   ms.topic: landing-page
-  ms.date: 09/14/2018
+  author: msmbaldwin
   ms.author: mbaldwin
-abstract:
-  description: 'Azure Key Vault를 사용하여 클라우드 애플리케이션 및 서비스에서 사용하는 암호화 키 및 암호를 보호하고 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 리소스 및 솔루션에 액세스하고 암호화하는 키 및 비밀을 만들고 유지 관리하는 방법을 보여줍니다.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/key-vault/key-vault-overview
-            html: <p>Azure Key Vault와 관련된 기본 개념을 알아봅니다.</p>
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_article.svg'
-            title: 개념
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: ''
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/cli.svg
-            text: Azure CLI
-            href: /azure/key-vault/quick-create-cli
-          - image:
-              src: media/index/logo_powershell.svg
-            text: PowerShell
-            href: /azure/key-vault/quick-create-powershell
-          - image:
-              src: media/index/portal.svg
-            text: Azure Portal
-            href: /azure/key-vault/quick-create-portal
-          - image:
-              src: media/index/logo_NET.svg
-            text: .NET
-            href: /azure/key-vault/quick-create-net
-          - image:
-              src: media/index/logo_nodejs.svg
-            text: Node.js
-            href: /azure/key-vault/quick-create-node
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: 다양한 시나리오에서 Key Vault를 사용하는 방법 알아보기
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/key-vault/tutorial-net-create-vault-azure-web-app">웹 애플리케이션에서 Key Vault 시작</a>
-          - html: <a href="/azure/key-vault/tutorial-net-linux-virtual-machine">Azure Linux Virtual Machine에서 Azure Key Vault를 사용하는 방법</a></li>
-          - html: <a href="/azure/key-vault/tutorial-net-windows-virtual-machine">Azure Windows Virtual Machine에서 Azure Key Vault를 사용하는 방법</a>
-          - html: <a href="/azure/key-vault/tutorial-python-linux-virtual-machine">Azure Linux Virtual Machine에서 Azure Key Vault를 사용하는 방법</a>
-          - html: <a href="/azure/key-vault/tutorial-python-windows-virtual-machine">Azure Windows Virtual Machine에서 Azure Key Vault를 사용하는 방법</a>
-  - title: Microsoft Learn을 통해 기술 쌓기
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Azure Key Vault를 사용하여 서버 앱의 비밀 관리
-            href: /learn/modules/manage-secrets-with-azure-key-vault/
-            image:
-              src: /learn/achievements/manage-secrets-with-azure-key-vault.svg
-              href: /learn/modules/manage-secrets-with-azure-key-vault/
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure-key-vault">더 많은 대화형 학습 보기...</a>
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Commandline
-            html: '<p><a href="/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault">PowerShell</a></p><p><a href="/cli/azure/keyvault">Azure CLI 2</a></p>'
-          - title: 언어
-            html: <p><a href="/dotnet/api/overview/azure/key-vault">.NET</a></p><p><a href="/java/api/overview/azure/keyvault">Java</a></p><p><a href="/python/api/overview/azure/key-vault">Python</a></p><p><a href="/javascript/api/overview/azure/key-vault">Node.JS</a></p>
-          - title: REST (영문)
-            html: <p><a href="/rest/api/keyvault">REST API</a></p>
+  manager: rkarlin
+  ms.date: 09/19/2019
+  ms.openlocfilehash: cbd1ca9ead64bfda8401876ec54487f767363d3c
+  ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 09/26/2019
+  ms.locfileid: "71299783"
+landingContent:
+- title: Azure Key Vault 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Key Vault란?
+      url: key-vault-overview.md
+  - linkListType: concept
+    links:
+    - text: 기본 개념
+      url: basic-concepts.md
+    - text: 일시 삭제
+      url: key-vault-ovw-soft-delete.md
+    - text: 제한
+      url: key-vault-ovw-throttling.md
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure CLI
+      url: quick-create-cli.md
+    - text: Azure PowerShell
+      url: quick-create-powershell.md
+    - text: 포털
+      url: quick-create-portal.md
+    - text: .NET
+      url: quick-create-net.md
+    - text: Node.js
+      url: quick-create-node.md
+- title: 자습서
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 웹 애플리케이션의 Key Vault
+      url: tutorial-net-create-vault-azure-web-app.md
+    - text: Azure Linux Virtual Machine이 포함된 Key Vault
+      url: tutorial-net-linux-virtual-machine.md
+    - text: Azure Windows Virtual Machine이 포함된 Key Vault
+      url: tutorial-net-windows-virtual-machine.md
+    - text: Python이 포함된 Key Vault - Linux
+      url: tutorial-python-linux-virtual-machine.md
+    - text: Python이 포함된 Key Vault - Windows
+      url: tutorial-python-windows-virtual-machine.md
+- title: Key Vault 및 스토리지 키
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure CLI를 사용하여 스토리지 키 관리
+      url: key-vault-ovw-storage-keys.md
+    - text: Azure PowerShell을 사용하여 스토리지 키 관리
+      url: key-vault-overview-storage-keys-powershell.md
+    - text: 코드에서 SAS 토큰 페치
+      url: storage-keys-sas-tokens-code.md
+- title: Key Vault 앱 통합
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 개발자 가이드
+      url: key-vault-developers-guide.md
+    - text: 관리 ID를 사용하여 Key Vault 액세스
+      url: managed-identity.md
+  - linkListType: tutorial
+    links:
+    - text: .NET Azure 웹앱과 함께 Key Vault 사용
+      url: tutorial-net-create-vault-azure-web-app.md
+  - linkListType: reference
+    links:
+    - text: 인증, 요청 및 응답
+      url: authentication-requests-and-responses.md
+    - text: Key Vault REST API 참조
+      url: /rest/api/keyvault/
+- title: Microsoft Learn
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Azure Key Vault를 사용하여 서버 앱의 비밀 관리
+      url: /learn/modules/manage-secrets-with-azure-key-vault/

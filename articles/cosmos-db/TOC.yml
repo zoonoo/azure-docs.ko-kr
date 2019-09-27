@@ -691,6 +691,8 @@
       items:
         - name: Notebook 사용
           href: enable-notebooks.md
+        - name: 기본 제공 Notebook 명령 사용
+          href: use-notebook-features-and-commands.md
     - name: 서버 쪽 프로그래밍
       items:
         - name: '저장 프로시저, 트리거 및 UDF 작성'
