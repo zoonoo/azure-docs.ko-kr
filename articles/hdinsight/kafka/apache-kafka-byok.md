@@ -55,11 +55,11 @@ BYOK를 사용 하도록 설정 된 Kafka 클러스터를 만들려면 다음 �
 
         a. 새 키를 만들려면 **설정** 아래 **키** 메뉴에서 **생성/가져오기**를 선택합니다.
 
-        ![Azure Key Vault에서 새 키를 생성 합니다] . (./media/apache-kafka-byok/kafka-create-new-key.png "Azure Key Vault에서 새 키를 생성 합니다") .
+        ![Azure Key Vault에서 새 키를 생성 합니다](./media/apache-kafka-byok/kafka-create-new-key.png "Azure Key Vault에서 새 키를 생성 합니다") .
 
         b. **옵션**을 **생성**으로 설정하고 키에 이름을 지정합니다.
 
-        ![Apache kafka는 키 이름을 생성] 합니다. (./media/apache-kafka-byok/apache-kafka-create-key.png "키 이름 생성")
+        ![Apache kafka는 키 이름을 생성 합니다.](./media/apache-kafka-byok/apache-kafka-create-key.png "키 이름 생성")
 
         c. 키 목록에서 만든 키를 선택합니다.
 
