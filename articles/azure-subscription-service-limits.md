@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 0f036462eb9b37b4ec783bcf8957d307cc55f7ac
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: ccddd13ddd8c10daba84f959b1cc1f8a4a80deb1
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71018502"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345561"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간이 지남에 따라 목록이 확장 되 고 더 많은 서비스를 포함 하도록 업데이트 됩니다.
@@ -45,7 +45,7 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
 * [API Management](#api-management-limits)
 * [App Service](#app-service-limits)
 * [Application Gateway](#application-gateway-limits)
-* [자동화](#automation-limits)
+* [Automation](#automation-limits)
 * [Azure Cache for Redis](#azure-cache-for-redis-limits)
 * [Azure Cloud Services](#azure-cloud-services-limits)
 * [Azure Cognitive Services](#azure-cognitive-services-limits)
@@ -94,6 +94,7 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
   * [개인 링크](#private-link-limits)
   * [Traffic Manager](#traffic-manager-limits)
   * [Virtual Network](#networking-limits)
+  * [Virtual WAN](#virtual-wan-limits)
 * [Notification Hubs](#notification-hubs-limits)
 * [리소스 그룹](#resource-group-limits)
 * [역할 기반 액세스 제어](#role-based-access-control-limits)
@@ -161,6 +162,9 @@ Azure Machine Learning 계산 할당량의 최신 값은 [Azure Machine Learning
 
 #### <a name="expressroute-limits"></a>Express 경로 제한
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
+
+#### <a name="virtual-wan-limits"></a>가상 WAN 제한
+[!INCLUDE [virtual-wan-limits](../includes/virtual-wan-limits.md)]
 
 #### <a name="application-gateway-limits"></a>Application Gateway 제한
 
@@ -394,7 +398,7 @@ SQL Database 한도에 대해서는 [단일 데이터베이스에 대 한 리소
 ### <a name="sql-data-warehouse-limits"></a>SQL Data Warehouse 제한
 SQL Data Warehouse 한도는 [SQL Data Warehouse 리소스 제한](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md)을 참조 하세요.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 - [Azure 제한 및 향상 이해](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 - [Azure의 가상 컴퓨터 및 클라우드 서비스 크기](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure Cloud Services의 크기](cloud-services/cloud-services-sizes-specs.md)

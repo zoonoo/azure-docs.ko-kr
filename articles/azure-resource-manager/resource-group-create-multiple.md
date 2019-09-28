@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 09/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: b349576f5e9f5410afc29f48e40c38e12168252d
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 3a0761fad32b2cfb0387cca79b6c1c0dc83c8e98
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258891"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345414"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 리소스, 속성 또는 변수 반복
 
@@ -49,7 +49,7 @@ ms.locfileid: "70258891"
 
 반복 횟수를 지정 하려면 count 속성의 값을 제공 합니다. 개수는 800를 초과할 수 없습니다.
 
-개수는 음수일 수 없습니다. Azure PowerShell 2.6 이상 또는 REST API **2019-05-10** 이상 버전을 사용 하 여 템플릿을 배포 하는 경우 count를 0으로 설정할 수 있습니다. 이전 버전의 PowerShell과 REST API는 카운트에 대해 0을 지원 하지 않습니다. 현재 Azure CLI는 개수에 대해 0을 지원 하지 않지만 이후 릴리스에서는 지원이 추가 될 예정입니다.
+개수는 음수일 수 없습니다. Azure PowerShell 2.6 Azure CLI 이상 버전을 사용 하 여 템플릿을 배포 하거나, 2.0.74 이상 또는 REST API **2019-05-10** 이상 버전을 사용 하는 경우 count를 0으로 설정할 수 있습니다. 이전 버전의 PowerShell, CLI 및 REST API는 count에 대해 0을 지원 하지 않습니다.
 
 Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 해 서 사용 합니다. 전체 모드를 사용 하 여 리소스 그룹에 다시 배포 하면 복사 루프를 확인 한 후 템플릿에 지정 되지 않은 모든 리소스가 삭제 됩니다.
 
@@ -113,25 +113,25 @@ Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 �
 복사 작업은 배열의 각 요소를 반복할 수 있으므로 배열을 사용할 때 유용합니다. 배열의 `length` 함수를 사용하여 반복 횟수를 지정하고, `copyIndex`를 사용하여 배열의 현재 인덱스를 검색합니다. 따라서 예제는 다음과 같습니다.
 
 ```json
-"parameters": { 
-  "org": { 
-    "type": "array", 
-    "defaultValue": [ 
-      "contoso", 
-      "fabrikam", 
-      "coho" 
-    ] 
+"parameters": {
+  "org": {
+    "type": "array",
+    "defaultValue": [
+      "contoso",
+      "fabrikam",
+      "coho"
+    ]
   }
-}, 
-"resources": [ 
-  { 
-    "name": "[concat('storage', parameters('org')[copyIndex()])]", 
-    "copy": { 
-      "name": "storagecopy", 
-      "count": "[length(parameters('org'))]" 
-    }, 
+},
+"resources": [
+  {
+    "name": "[concat('storage', parameters('org')[copyIndex()])]",
+    "copy": {
+      "name": "storagecopy",
+      "count": "[length(parameters('org'))]"
+    },
     ...
-  } 
+  }
 ]
 ```
 
@@ -184,7 +184,7 @@ Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 �
 
 * name - 여러 값을 만들 속성의 이름
 * count - 만들 값 수
-* input - 속성에 할당할 값이 포함된 개체  
+* input - 속성에 할당할 값이 포함된 개체
 
 다음 예제는 가상 머신에서 `copy`를 dataDisks 속성에 적용하는 방법을 보여 줍니다.
 
@@ -450,9 +450,9 @@ copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 
       }
     },
     {
-      "apiVersion": "2015-06-15", 
-      "type": "Microsoft.Compute/virtualMachines", 
-      "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[concat('VM', uniqueString(resourceGroup().id))]",
       "dependsOn": ["storagecopy"],
       ...
     }
@@ -488,7 +488,7 @@ copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 
 
 둘 이상의 데이터 세트를 만들려면 데이터 팩터리의 외부로 이동합니다. 데이터 세트는 데이터 팩터리와 같은 수준에 있어야 하지만 여전히 데이터 팩터리의 자식 리소스입니다. 형식 및 이름 속성을 통해 데이터 집합과 데이터 팩터리 간의 관계를 유지합니다. 템플릿의 해당 위치에서 형식을 더 이상 유추할 수 없으므로 `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}` 형식으로 정규화된 형식을 제공해야 합니다.
 
-데이터 팩터리 인스턴스로 부모/자식 관계를 설정하려면 부모 리소스 이름을 포함하는 데이터 집합에 대해 이름을 제공합니다. 사용할 형식: `{parent-resource-name}/{child-resource-name}`.  
+데이터 팩터리 인스턴스로 부모/자식 관계를 설정하려면 부모 리소스 이름을 포함하는 데이터 집합에 대해 이름을 제공합니다. 사용할 형식: `{parent-resource-name}/{child-resource-name}`.
 
 다음 예제에서는 구현을 보여줍니다.
 
@@ -517,7 +517,7 @@ copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 
 
 다음 예제에서는 여러 리소스 또는 속성 인스턴스를 만들기 위한 일반적인 시나리오를 보여 줍니다.
 
-|템플릿  |Description  |
+|템플릿  |설명  |
 |---------|---------|
 |[스토리지 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |이름의 인덱스 번호를 사용하여 여러 스토리지 계정을 배포합니다. |
 |[스토리지 직렬 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |여러 스토리지 계정을 한 번에 하나씩 배포합니다. 이름에는 인덱스 번호가 포함됩니다. |

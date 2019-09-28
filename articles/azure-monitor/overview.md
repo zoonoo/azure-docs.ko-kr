@@ -12,23 +12,28 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 1bc4a7634e864f0e3feb0d33cef3b967e5b6741f
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 140a5cba6926e8711f0b70896ade55c11d332e0d
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262219"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345301"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
-Azure Monitor는 클라우드 및 온-프레미스 환경에서 원격 분석 데이터를 수집, 분석하고 그에 따라 조치를 취하는 포괄적인 솔루션을 제공함으로써 애플리케이션의 성능과 가용성을 최대화합니다. 애플리케이션을 수행하는 방법과 애플리케이션 및 종속된 리소스에 영향을 주는 문제를 사전에 식별하는 방법을 파악할 수 있습니다.
+Azure Monitor는 클라우드 및 온-프레미스 환경에서 원격 분석을 수집, 분석 및 작동 하기 위한 종합적인 솔루션을 제공 하 여 응용 프로그램 및 서비스의 가용성과 성능을 극대화 합니다. 애플리케이션을 수행하는 방법과 애플리케이션 및 종속된 리소스에 영향을 주는 문제를 사전에 식별하는 방법을 파악할 수 있습니다.
 
-> [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
+Azure Monitor에서 수행할 수 있는 작업에 대 한 몇 가지 예는 다음과 같습니다.
+
+- [Application Insights](app/app-insights-overview.md)를 사용 하 여 응용 프로그램 및 종속성에서 문제를 검색 하 고 진단 합니다.
+- [컨테이너의](insights/container-insights-overview.md) [VM용 Azure Monitor](insights/vminsights-overview.md) 및 Azure Monitor와 인프라 문제를 상호 연결 합니다.
+- 문제 해결 및 심층 진단을 위해 [Log Analytics](log-query/log-query-overview.md) 를 사용 하 여 모니터링 데이터를 자세히 살펴봅니다.
+- [스마트 경고](platform/alerts-smartgroups-overview.md) 및 [자동화 된 작업](platform/alerts-action-rules.md)으로 대규모 작업을 지원 합니다.
+- Azure [대시보드](learn/tutorial-logs-dashboards.md) 및 [통합 문서](app/usage-workbooks.md)를 사용 하 여 시각화를 만듭니다.
 
 ## <a name="overview"></a>개요
 다음 다이어그램은 Azure Monitor에 대한 개요를 제공합니다. 다이어그램의 중심에는 Azure Monitor의 두 가지 데이터 사용 기본 유형인 메트릭 및 로그를 저장하는 데이터 저장소가 있습니다. 왼쪽에는 이러한 [데이터 저장소](platform/data-platform.md)를 채우는 [모니터링 데이터의 원본](platform/data-sources.md)이 있습니다. 오른쪽에는 이렇게 수집된 데이터를 사용하여 Azure Monitor가 수행하는 분석, 경고, 외부 시스템으로 스트리밍 등의 여러 함수가 있습니다.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ![Azure Monitor 개요](media/overview/overview.png)
 
