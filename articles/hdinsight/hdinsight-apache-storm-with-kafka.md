@@ -478,7 +478,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
     > [!IMPORTANT]  
     > 클러스터에 대해 두 개 이상의 브로커 호스트가 있을 수 있습니다. 클라이언트에 대한 모든 호스트의 전체 목록을 제공할 필요는 없습니다. 하나 또는 두 개로도 충분합니다.
 
-2. 다음 방법 중 하나를 사용하여 HDInsight 클러스터에서 __Kafka__에 대한 Zookeeper 호스트를 검색합니다.
+2. 다음 방법 중 하나를 사용하여 HDInsight 클러스터에서 __Kafka__ 에 대한 Zookeeper 호스트를 검색합니다.
 
     ```powershell
     $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
