@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e6cfc18f01bb23d0b318ac1b924cf8cbb9f7a2b6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5a0f2922763f8fccb9f3eec8bab4d6eddee7e446
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259988"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350597"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화 된 ML 실험 구성
 
@@ -328,7 +328,7 @@ run = experiment.submit(automl_config, show_output=True)
 
 자동화 된 ML을 사용 하 여 생성 된 모든 모델에는 다음 단계가 포함 됩니다.
 + 자동화 된 기능 엔지니어링 (전처리 = True 인 경우)
-+ Hypermeter 값을 사용 하 여 크기 조정/정규화 및 알고리즘
++ 하이퍼 매개 변수 값을 사용 하 여 크기 조정/정규화 및 알고리즘
 
 자동 ML의 fitted_model 출력에서이 정보를 가져오도록 투명 하 게 만듭니다.
 
@@ -410,7 +410,7 @@ best_run, fitted_model = automl_run.get_output()
    |EngineeringFeatureCount|자동화 된 기능 엔지니어링 변환을 통해 생성 된 기능의 수입니다.|
    |변환|엔지니어링 된 기능을 생성 하기 위해 입력 기능에 적용 되는 변환 목록입니다.|
 
-### <a name="scalingnormalization-and-algorithm-with-hypermeter-values"></a>Hypermeter 값을 사용 하는 크기 조정/정규화 및 알고리즘:
+### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>하이퍼 매개 변수 값을 사용 하는 크기 조정/정규화 및 알고리즘:
 
 파이프라인에 대 한 크기 조정/정규화 및 알고리즘/하이퍼 매개 변수 값을 이해 하려면 fitted_model를 사용 합니다. [크기 조정/정규화에 대해 자세히 알아보세요](concept-automated-ml.md#preprocess). 샘플 출력은 다음과 같습니다.
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: 831ba217e99d1610383320ddf5706c6acfcdf48a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: cd1dc7b55060e8262b300022f5ffd1b4da5f7922
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67848897"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350355"
 ---
 # <a name="streaming-endpoints"></a>스트리밍 엔드포인트 
 
@@ -31,9 +31,14 @@ Media Services 계정을 만들 경우 **기본** 스트리밍 엔드포인트�
 
 ## <a name="naming-convention"></a>명명 규칙
 
-기본 엔드포인트: `{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+스트리밍 URL의 호스트 이름 형식은 `{servicename}-{accountname}-{regionname}.streaming.media.azure.net` (`servicename` = 스트리밍 끝점 이름 또는 라이브 이벤트 이름)입니다. 
 
-추가 엔드포인트: `{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+기본 스트리밍 끝점을 사용 하는 경우 `servicename`이 생략 되므로 URL은 `{accountname}-{regionname}.streaming.azure.net`입니다. 
+
+### <a name="limitations"></a>제한 사항
+
+* 스트리밍 끝점 이름의 최대 값은 24 자입니다.
+* 이름은 `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` 인이 [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) 패턴을 따라야 합니다.
 
 ## <a name="types"></a>유형  
 
@@ -41,7 +46,7 @@ Media Services 계정을 만들 경우 **기본** 스트리밍 엔드포인트�
 
 다음 표에 해당 유형이 설명되어 있습니다.  
 
-|type|배율 단위|Description|
+|type|배율 단위|설명|
 |--------|--------|--------|  
 |**Standard**|0|기본 스트리밍 끝점은 **표준** 형식이 며를 조정 `scaleUnits`하 여 프리미엄 형식으로 변경할 수 있습니다.|
 |**Premium**|>0|**프리미엄** 스트리밍 끝점은 고급 워크 로드에 적합 하며, 확장 가능한 전용 대역폭 용량을 제공 합니다. (스트리밍 단위) 를 조정 `scaleUnits` 하 여 프리미엄 유형으로 이동 합니다. `scaleUnits`는 200Mbps 단위로 구입할 수 있는 전용 송신 용량을 제공합니다. **프리미엄** 유형을 사용할 경우 설정된 각 단위가 애플리케이션에 대한 추가 대역폭 용량을 제공합니다. |
@@ -53,11 +58,11 @@ SLA에 대 한 자세한 내용은 [가격 책정 및 SLA](https://azure.microso
 
 ## <a name="comparing-streaming-types"></a>스트리밍 유형 비교
 
-기능|표준|Premium
+기능|Standard|Premium
 ---|---|---
 처리량 |CDN을 사용 하는 경우 최대 600 Mbps 및 보다 효과적인 처리량을 제공할 수 있습니다.|SU(스트리밍 단위)당 200Mbps 는 CDN을 사용 하는 경우 훨씬 더 효율적인 처리량을 제공할 수 있습니다.
 CDN|Azure CDN, 타사 CDN 또는 CDN 없음.|Azure CDN, 타사 CDN 또는 CDN 없음.
-청구를 계산합니다.| 매일|매일
+청구를 계산합니다.| 일별|일별
 동적 암호화|예|예
 동적 패키징|예|예
 소수 자릿수|대상 처리량까지 자동으로 확장합니다.|추가 SUs
@@ -128,7 +133,7 @@ IP 필터링/G20/사용자 지정 호스트 <sup>1</sup>|예|예
 
 ### <a name="considerations"></a>고려 사항
 
-* Streaming Endpoint `hostname` 및 스트리밍 URL은 CDN을 사용하도록 설정하는지 여부에 관계없이 동일하게 유지됩니다.
+* CDN을 사용 하도록 설정할지 여부에 관계 없이 스트리밍 끝점 `hostname` 및 스트리밍 URL은 동일 하 게 유지 됩니다.
 * CDN을 사용 하거나 사용 하지 않고 콘텐츠를 테스트 하는 기능이 필요한 경우 CDN을 사용 하지 않는 다른 스트리밍 끝점을 만들 수 있습니다.
 
 ### <a name="detailed-explanation-of-how-caching-works"></a>캐싱 작동 방식에 대한 자세한 설명

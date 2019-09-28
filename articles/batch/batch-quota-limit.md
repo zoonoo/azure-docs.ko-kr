@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 1e7d64aabba19f04fb98bd208389dc0b2077bfe4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8b089a1b32ee70479072522372c060713108957c
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094707"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350103"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 서비스 할당량 및 제한
 
@@ -52,7 +52,7 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 | **[노드 간 통신 사용 풀](batch-mpi.md)의 컴퓨팅 노드**  ||
 | Batch 서비스 풀 할당 모드 | 100 |
 | Batch 구독 풀 할당 모드 | 80 |
-| **[사용자 지정 VM 이미지를 사용하여 만든 풀](batch-custom-images.md)** <sup>1</sup>의 컴퓨팅 노드 수 ||
+| **[관리 되는 이미지 리소스로 만든 풀](batch-custom-images.md)의 계산 노드**<sup>1</sup> ||
 | 전용 노드 | 2000 |
 | 우선 순위가 낮은 노드 | 1000 |
 

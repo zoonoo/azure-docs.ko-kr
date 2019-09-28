@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 86ad892f514513840ff33e46921607221896db84
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: c67ca111bf87c9dbfa69c93149d29dbd32767fbd
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315744"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350761"
 ---
 # <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Azure Lab Services에서 랩에서 Linux 가상 머신에 대 한 원격 데스크톱을 사용 하도록 설정
 이 문서에서는 다음 작업을 수행 하는 방법을 보여 줍니다.
@@ -38,7 +38,7 @@ ms.locfileid: "71315744"
 > [!IMPORTANT] 
 > **원격 데스크톱 연결** 을 사용 하도록 설정 하면 Linux 컴퓨터 에서만 **RDP** 포트가 열립니다. 가상 컴퓨터 이미지에 RDP가 이미 설치 되어 구성 되어 있는 경우 (예: Ubuntu Data Science Virtual Machine 이미지)는 추가 단계를 수행 하지 않고 RDP를 통해 Vm에 연결할 수 있습니다.
 > 
-> VM 이미지가 RDP를 설치 하 고 구성 하지 않은 경우에는 처음으로 SSH를 사용 하 여 Linux 컴퓨터에 연결 하 고 RDP 및 GUI 패키지를 설치 하 여 나중에 RDP를 사용 하 여 Linux 컴퓨터에 연결할 수 있도록 해야 합니다. 그런 다음 학생이 학생 Linux Vm에 RDP 할 수 있도록 이미지를 게시 합니다.
+> VM 이미지가 RDP를 설치 하 고 구성 하지 않은 경우에는 처음으로 SSH를 사용 하 여 Linux 컴퓨터에 연결 하 고 RDP 및 GUI 패키지를 설치 하 여 나중에 RDP를 사용 하 여 Linux 컴퓨터에 연결할 수 있도록 해야 합니다. 자세한 내용은 [Azure에서 LINUX VM에 연결 하기 위해 원격 데스크톱 설치 및 구성](../../virtual-machines/linux/use-remote-desktop.md)을 참조 하세요. 그런 다음 학생이 학생 Linux Vm에 RDP 할 수 있도록 이미지를 게시 합니다. 
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 현재 원격 데스크톱 연결은 다음과 같은 운영 체제에서 지원 됩니다.

@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc1e80433a09d8a56f2900ab6b24dd3804db56ac
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 18df43ebf3a20547917ddd372d922741b4cee849
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086765"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350116"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Batch 풀에서 Linux 컴퓨팅 노드 프로비전
 
@@ -38,7 +38,8 @@ Batch에서 컴퓨팅 노드 풀을 만들 때는 노드 크기와 운영 체제
 **Virtual Machine 구성**은 컴퓨팅 노드에 대한 Linux와 Windows 이미지를 제공합니다. 사용 가능한 컴퓨팅 노드 크기는 [Azure에서 가상 머신에 대한 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Linux) 및 [Azure에서 가상 머신에 대한 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Windows)에 나열되어 있습니다. Virtual Machine 구성 노드를 포함하는 풀을 만들 때 노드 크기, 가상 머신 이미지 참조 및 노드에 설치할 Batch 노드 에이전트 SKU도 지정해야 합니다.
 
 ### <a name="virtual-machine-image-reference"></a>가상 머신 이미지 참조
-Batch 서비스는 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하여 가상 머신 구성에서 컴퓨팅 노드를 제공합니다. [Azure Marketplace][vm_marketplace]에서 이미지를 지정 하거나 준비한 사용자 지정 이미지를 제공할 수 있습니다. 사용자 지정 이미지에 대한 자세한 내용은 [사용자 지정 이미지로 풀 만들기](batch-custom-images.md)를 참조하세요.
+
+Batch 서비스는 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하여 가상 머신 구성에서 컴퓨팅 노드를 제공합니다. [Azure Marketplace][vm_marketplace]에서 이미지를 지정 하거나 준비한 사용자 지정 이미지를 제공할 수 있습니다. 사용자 지정 이미지에 대 한 자세한 내용은 [공유 이미지 갤러리를 사용 하 여 풀 만들기](batch-sig-images.md)를 참조 하세요.
 
 가상 머신 이미지 참조를 구성할 때 가상 머신 이미지의 속성을 지정합니다. 가상 머신 이미지 참조를 만들 때 다음 속성이 필요합니다.
 
@@ -214,7 +215,7 @@ ImageReference imageReference = new ImageReference(
 >
 >
 
-| **게시자** | **제안** | **이미지 SKU** | **Version** | **노드 에이전트 SKU ID** |
+| **게시자** | **제안** | **이미지 SKU** | **버전(Version)** | **노드 에이전트 SKU ID** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
 | 일괄 처리(batch) | rendering-centos73 | 렌더링 | 최신 | batch.node.centos 7 |
 | 일괄 처리(batch) | rendering-windows2016 | 렌더링 | 최신 | batch.node.windows amd64 |

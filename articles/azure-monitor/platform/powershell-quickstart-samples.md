@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: ada62fbfa51604a6b3188c27d5c14da40c8ac116
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 886eb8578e004eba3b6fabc1deb42db0fb7fac70
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66400202"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350253"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure Monitor PowerShell 빠른 시작 샘플
 이 문서에서는 Azure Monitor 기능에 액세스할 수 있는 샘플 PowerShell 명령을 보여 줍니다.
@@ -42,7 +42,7 @@ Connect-AzAccount
 Get-AzSubscription
 ```
 
-작업 컨텍스트를 확인 하려면 (구독에 대해 명령이 실행 되는 함), 다음 명령을 사용 합니다.
+작업 컨텍스트 (명령이 실행 되는 구독)를 보려면 다음 명령을 사용 합니다.
 
 ```powershell
 Get-AzContext
@@ -55,9 +55,9 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## <a name="retrieve-activity-log-for-a-subscription"></a>구독에 대한 활동 로그 검색
-사용 된 [Get AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet.  다음은 몇 가지 일반적인 예입니다. 활동 로그 작업의 지난 90 일 동안 보관합니다. 이 시간 결과 이전의 날짜를 사용 하 여 오류 메시지가 발생 합니다.  
+[AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet을 사용 합니다.  다음은 몇 가지 일반적인 예입니다. 활동 로그는 최근 90 일의 작업을 저장 합니다. 이 시간 전에 날짜를 사용 하면 오류 메시지가 생성 됩니다.  
 
-아래 명령에서 사용할 시간 무엇을 확인 하려는 현재 날짜/시간을 참조 하세요.
+현재 날짜/시간을 확인 하 여 아래 명령에 사용할 시간을 확인 합니다.
 ```powershell
 Get-Date
 ```
@@ -101,7 +101,7 @@ Get-AzLog -MaxRecord 10
 `Get-AzLog` 명령은 여러 다른 매개 변수를 지원합니다. 자세한 내용은 `Get-AzLog` 참조를 확인하세요.
 
 > [!NOTE]
-> `Get-AzLog` 명령은 15일 간의 기록만 제공합니다. 사용 하 여 **MaxRecords** 매개 변수를 사용 하면 15 일 이후의 마지막 n 개 이벤트를 쿼리할 수 있습니다. 15일이 지난 이벤트에 액세스하려면 REST API 또는 SDK(SDK를 사용하는 C# 샘플)을 사용합니다. **StartTime**을 포함하지 않으면 **EndTime**에서 1시간을 뺀 값이 기본값입니다. **EndTime**을 포함하지 않으면 현재 시간이 기본값입니다. 모든 시간은 UTC입니다.
+> `Get-AzLog` 명령은 15일 간의 기록만 제공합니다. **-MaxRecords** 매개 변수를 사용 하면 15 일을 초과 하는 마지막 N 개 이벤트를 쿼리할 수 있습니다. 15일이 지난 이벤트에 액세스하려면 REST API 또는 SDK(SDK를 사용하는 C# 샘플)을 사용합니다. **StartTime**을 포함하지 않으면 **EndTime**에서 1시간을 뺀 값이 기본값입니다. **EndTime**을 포함하지 않으면 현재 시간이 기본값입니다. 모든 시간은 UTC입니다.
 > 
 > 
 
@@ -152,12 +152,12 @@ Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resou
 
 | 매개 변수 | 값 |
 | --- | --- |
-| name |simpletestdiskwrite |
+| 이름 |simpletestdiskwrite |
 | 이 경고 규칙의 위치 |East US |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | 생성된 경고의 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec. 정확한 메트릭 이름을 검색하는 방법은 `Get-MetricDefinitions` cmdlet를 참조하세요. |
-| operator |GreaterThan |
+| 적용한 후 |GreaterThan |
 | 임계값(이 메트릭의 경우 수/초) |1 |
 | WindowSize(h:mm:ss 형식) |00:05:00 |
 | 집계(이 경우, 평균 횟수를 사용하는 메트릭 통계) |Average |
@@ -317,7 +317,7 @@ Remove-AzAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 
 ### <a name="add-a-log-profile-without-data-retention"></a>데이터를 보존하지 않는 로그 프로필 추가
 ```powershell
-Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia
+Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Location global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia
 ```
 
 ### <a name="remove-a-log-profile"></a>로그 프로필 제거
@@ -329,14 +329,14 @@ Remove-AzLogProfile -name my_log_profile_s1
 **-RetentionInDays** 속성을 양의 정수로 지정하여 데이터가 보존되는 일 수를 지정할 수 있습니다.
 
 ```powershell
-Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
+Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Location global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
 
 ### <a name="add-log-profile-with-retention-and-eventhub"></a>보존 및 이벤트 허브를 사용하여 로그 프로필 추가
 데이터를 스토리지 계정으로 라우팅하는 방법 외에도 데이터를 이벤트 허브에 스트리밍할 수 있습니다. 이 미리 보기 릴리스에서 스토리지 계정 구성은 필수지만 이벤트 허브 구성은 선택 사항입니다.
 
 ```powershell
-Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
+Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
 
 ## <a name="configure-diagnostics-logs"></a>진단 로그 구성

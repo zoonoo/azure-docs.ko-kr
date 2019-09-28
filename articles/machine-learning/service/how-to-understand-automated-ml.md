@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: 56d8dff7d158cedb4ab33e811cf5134cdbc475ab
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b0024bc12f29a76da02c9f7e62af7727b9af7249
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999439"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350633"
 ---
 # <a name="understand-automated-machine-learning-results"></a>자동화 된 machine learning 결과 이해
 
@@ -26,11 +26,11 @@ ms.locfileid: "70999439"
 + [회귀 모델에 대 한 메트릭, 차트 및 그래프](#regression)
 + [모델 interpretability 및 기능 중요도](#explain-model)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 을 사용해 보세요.
+* Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-* SDK를 사용 하 여 Azure Portal 또는 작업 영역 방문 페이지 (미리 보기)에서 자동화 된 machine learning 실험을 만듭니다.
+* Azure Portal 또는 작업 영역 방문 페이지 (미리 보기)에서 SDK를 사용 하 여 자동화 된 machine learning 실행에 대 한 실험을 만듭니다.
 
     * SDK를 사용 하 여 [분류 모델](how-to-auto-train-remote.md) 또는 [회귀 모델](tutorial-auto-train-models.md) 작성
     * [Azure Portal 또는 작업 영역 방문 페이지 (미리 보기)](how-to-create-portal-experiments.md) 를 사용 하 여 적절 한 데이터를 업로드 하 여 분류 또는 회귀 모델을 만들 수 있습니다.
@@ -106,7 +106,7 @@ weighted_accuracy|가중치가 적용 되는 정확도는 각 예제에 지정 �
 
 예제 1: 정확성이 낮은 분류 모델 ![정확성이 낮은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
 
-예제 2: 정확성이 높은 분류 모델(이상적) ![정확성이 높은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix2.png)
+예 2: 정확성이 높은 분류 모델(이상적) ![정확성이 높은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix2.png)
 
 
 ### <a name="precision-recall-chart"></a>정밀도-리콜 차트
@@ -117,7 +117,7 @@ weighted_accuracy|가중치가 적용 되는 정확도는 각 예제에 지정 �
 
 예제 1: 정밀도와 리콜이 낮은 분류 모델 ![정밀도와 리콜이 낮은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall1.png)
 
-예제 2: ~100% 정밀도 및 ~100% 리콜인 분류 모델(이상적) ![정밀도와 리콜이 높은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
+예 2: ~100% 정밀도 및 ~100% 리콜인 분류 모델(이상적) ![정밀도와 리콜이 높은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
 
 ### <a name="roc"></a>ROC
 
@@ -125,7 +125,7 @@ ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 �
 
 예제 1: 올바른 레이블이 낮고 잘못된 레이블이 높은 분류 모델 ![올바른 레이블이 낮고 잘못된 레이블이 높은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
 
-예제 2: 올바른 레이블이 높고 잘못된 레이블이 낮은 분류 모델 ![올바른 레이블이 높고 잘못된 레이블이 낮은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-2.png)
+예 2: 올바른 레이블이 높고 잘못된 레이블이 낮은 분류 모델 ![올바른 레이블이 높고 잘못된 레이블이 낮은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-2.png)
 
 ### <a name="lift-curve"></a>리프트 곡선
 
@@ -135,7 +135,7 @@ ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 �
 
 예제 1: 임의 선택 모델보다 모델 성능이 더 낮음 ![임의 선택 모델보다 성능이 더 낮은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
 
-예제 2: 임의 선택 모델보다 모델 성능이 더 높음 ![성능이 더 높은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
+예 2: 임의 선택 모델보다 모델 성능이 더 높음 ![성능이 더 높은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
 
 ### <a name="gains-curve"></a>게인 곡선
 
@@ -145,7 +145,7 @@ ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 �
 
 예제 1: 최소 게인의 분류 모델 ![최소 게인의 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve1.png)
 
-예제 2: 상당한 게인의 분류 모델 ![상당한 게인의 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve2.png)
+예 2: 상당한 게인의 분류 모델 ![상당한 게인의 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve2.png)
 
 ### <a name="calibration-plot"></a>보정 플롯
 
@@ -155,7 +155,7 @@ ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 �
 
 예제 1: 잘 보정된 모델 ![ 잘 보정된 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve1.png)
 
-예제 2: 신뢰도가 과도한 모델 ![신뢰도가 과도한 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
+예 2: 신뢰도가 과도한 모델 ![신뢰도가 과도한 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
 
 ## <a name="regression"></a>회귀 결과
 
@@ -192,7 +192,7 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error(�
 
 예제 1: 예측 정확도가 낮은 회귀 모델 ![예측 정확도가 낮은 회귀 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
 
-예제 2: 정확도가 높은 회귀 모델 예측의 정확도가 높은 회귀 [ ![모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2-expanded.png)
+예 2: 정확도가 높은 회귀 모델 예측의 정확도가 높은 회귀 [ ![모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2-expanded.png)
 
 
 
@@ -202,7 +202,7 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error(�
 
 예제 1: 오차에 바이어스가 있는 회귀 모델 ![오차에 바이어스가 있는 회귀 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
 
-예제 2: 오차 분포가 더 균일한 회귀 모델 ![오차 분포가 더 균일한 회귀 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
+예 2: 오차 분포가 더 균일한 회귀 모델 ![오차 분포가 더 균일한 회귀 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
 ## <a name="explain-model"></a>모델 interpretability 및 기능 중요도
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: d6d7b4cda4bd3b3246b9bc5573246546d8020b38
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 73b5c86030d9e106cb3ea24d3100faa56e323815
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597370"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348932"
 ---
 # <a name="application-gateway-components"></a>응용 프로그램 게이트웨이 구성 요소
 
@@ -28,17 +28,17 @@ ms.locfileid: "68597370"
 
 고정 내부 IP 주소와 정적 공용 IP 주소 또는 고정 공용 IP 주소만 지원 하도록 Azure 애플리케이션 Gateway V2 SKU를 구성할 수 있습니다. 고정 내부 IP 주소만 지원 하도록 구성할 수 없습니다.
 
-V1 SKU는 고정 내부 IP 주소 및 동적 공용 IP 주소, 정적 내부 IP 주소, 동적 공용 ip 주소 또는 동적 개인 IP 주소, 동적 개인 ip 주소 또는 동적 개인 ip 주소만 지원 하도록 구성할 수 있습니다. Application Gateway의 동적 IP 주소는 실행 중인 게이트웨이에서 변경 되지 않습니다. 게이트웨이를 중지 하거나 시작 하는 경우에만 변경할 수 있습니다. 시스템 오류, 업데이트, Azure 호스트 업데이트 등은 변경 되지 않습니다. 
+V1 SKU는 고정 또는 동적 내부 IP 주소 및 동적 공용 IP 주소를 지원 하도록 구성할 수 있습니다. Application Gateway의 동적 IP 주소는 실행 중인 게이트웨이에서 변경 되지 않습니다. 게이트웨이를 중지 하거나 시작 하는 경우에만 변경할 수 있습니다. 시스템 오류, 업데이트, Azure 호스트 업데이트 등은 변경 되지 않습니다. 
 
 Application gateway와 연결 된 DNS 이름은 게이트웨이의 수명 주기 동안 변경 되지 않습니다. 따라서 CNAME 별칭을 사용 하 여 application gateway의 DNS 주소를 가리키도록 해야 합니다.
 
 ## <a name="listeners"></a>수신기
 
-수신기는 들어오는 연결 요청을 확인 하는 논리적 엔터티입니다. 요청과 연결 된 프로토콜, 포트, 호스트 및 IP 주소가 수신기 구성과 연결 된 동일한 요소와 일치 하는 경우 수신기는 요청을 수락 합니다.
+수신기는 들어오는 연결 요청을 확인 하는 논리적 엔터티입니다. 요청과 연결 된 프로토콜, 포트, 호스트 이름 및 IP 주소가 수신기 구성과 연결 된 동일한 요소와 일치 하는 경우 수신기는 요청을 수락 합니다.
 
 응용 프로그램 게이트웨이를 사용 하기 전에 하나 이상의 수신기를 추가 해야 합니다. Application gateway에 연결 된 수신기가 여러 개 있을 수 있으며, 동일한 프로토콜에 대해 사용할 수 있습니다.
 
-수신기가 클라이언트에서 들어오는 요청을 감지 하면 응용 프로그램 게이트웨이는 이러한 요청을 백 엔드 풀의 멤버로 라우팅합니다. 응용 프로그램 게이트웨이는 들어오는 요청을 수신 하는 수신기에 대해 정의 된 요청 라우팅 규칙을 사용 합니다.
+수신기가 클라이언트에서 들어오는 요청을 감지 하면 응용 프로그램 게이트웨이는 이러한 요청을 규칙에 구성 된 백 엔드 풀의 멤버로 라우팅합니다.
 
 수신기는 다음 포트 및 프로토콜을 지원 합니다.
 
@@ -49,12 +49,13 @@ Application gateway와 연결 된 DNS 이름은 게이트웨이의 수명 주기
 ### <a name="protocols"></a>프로토콜
 
 Application Gateway는 네 가지 프로토콜을 지원 합니다. HTTP, HTTPS, HTTP/2 및 WebSocket:
+>[!NOTE]
+>Application Gateway 수신기에 연결하는 클라이언트의 경우에만 HTTP/2 프로토콜이 지원됩니다. 백 엔드 서버 풀에 대 한 통신은 항상 HTTP/1.1을 통해입니다. 기본적으로 HTTP/2 지원은 사용할 수 없습니다. 이 기능을 사용 하도록 선택할 수 있습니다.
 
 - 수신기 구성에서 HTTP 및 HTTPS 프로토콜을 지정 합니다.
 - [Websocket 및 HTTP/2 프로토콜](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic) 에 대 한 지원은 기본적으로 제공 되며 [websocket 지원은](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) 기본적으로 사용 하도록 설정 되어 있습니다. WebSocket 지원을 선택적으로 사용하거나 사용하지 않도록 설정하는 사용자 구성 가능 설정은 없습니다. HTTP 및 HTTPS 수신기 모두에서 Websocket을 사용 합니다.
-- Application Gateway 수신기에 연결하는 클라이언트의 경우에만 HTTP/2 프로토콜이 지원됩니다. 백 엔드 서버 풀에 대한 통신은 HTTP/1.1을 통해 이루어집니다. 기본적으로 HTTP/2 지원은 사용할 수 없습니다. 이 기능을 사용 하도록 선택할 수 있습니다.
 
-SSL 종료에 HTTPS 수신기를 사용 합니다. HTTPS 수신기는 암호화 및 암호 해독 작업을 응용 프로그램 게이트웨이로 오프 로드 하므로 웹 서버가 오버 헤드로 부담이 되지 않습니다. 그러면 앱이 자유롭게 비즈니스 논리에 집중할 수 있습니다.
+SSL 종료에 HTTPS 수신기를 사용 합니다. HTTPS 수신기는 암호화 및 암호 해독 작업을 응용 프로그램 게이트웨이로 오프 로드 하므로 웹 서버가 오버 헤드로 부담이 되지 않습니다.
 
 ### <a name="custom-error-pages"></a>사용자 지정 오류 페이지
 
@@ -80,7 +81,7 @@ Application Gateway는 표시 된 순서 대로 수신기를 처리 합니다. �
 
 요청 라우팅 규칙은 수신기에서 트래픽을 라우팅하는 방법을 결정 하기 때문에 응용 프로그램 게이트웨이의 주요 구성 요소입니다. 규칙은 수신기, 백 엔드 서버 풀 및 백 엔드 HTTP 설정을 바인딩합니다.
 
-수신기에서 요청을 수락 하는 경우 요청 라우팅 규칙은 요청을 백 엔드로 전달 하거나 다른 위치로 리디렉션합니다. 요청이 백 엔드로 전달 되는 경우 요청 라우팅 규칙은 전달할 백 엔드 서버 풀을 정의 합니다. 또한 요청 라우팅 규칙은 요청 헤더를 다시 쓸지 여부도 결정 합니다. 하나의 수신기를 하나의 규칙에 연결할 수 있습니다.
+수신기에서 요청을 수락 하는 경우 요청 라우팅 규칙은 요청을 백 엔드로 전달 하거나 다른 위치로 리디렉션합니다. 요청이 백 엔드로 전달 되는 경우 요청 라우팅 규칙은 전달할 백 엔드 서버 풀을 정의 합니다. 요청 라우팅 규칙은 요청 헤더를 다시 쓸지 여부도 결정 합니다. 하나의 수신기를 하나의 규칙에 연결할 수 있습니다.
 
 요청 라우팅 규칙에는 다음과 같은 두 가지 유형이 있습니다.
 

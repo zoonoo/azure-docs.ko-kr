@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2019
+ms.date: 09/27/2019
 ms.author: mlottner
-ms.openlocfilehash: e742848df56e4e2be1b9edf42586e642f0c938cb
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: dc9dcbfd00b5205fa5c66e334b30c76d549d8a42
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933798"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348514"
 ---
 # <a name="pricing-and-associated-costs"></a>가격 책정 및 관련 비용
 
@@ -34,20 +34,17 @@ IoT 가격 책정 모델에 대 한 Azure Security Center는 두 부분으로 �
 
 - IoT Edge 또는 리프 장치의 보안 메시지를 기반으로 하는 메시지 강화 보안 기능을 사용 하 여 비용을 절감 합니다.
 
-  >[!Note]
-  > 또한 보안 메시지는 IoT Hub에 대 한 할당량 소비를 초래 합니다.
 
 자세한 내용은 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조 하세요.
 
 ## <a name="associated-costs"></a>관련 비용
 
-IoT에 대 한 Azure Security Center에는 다음과 같은 두 가지 유형의 연결 된 비용이 있습니다. 이러한 비용은 직접 가격 책정에 포함 되지 않습니다.
+IoT에 대 한 Azure Security Center에는 직접 가격 책정의 일부가 아닌 연결 된 비용이 있습니다.
 
-- IoT Hub 할당량 소비
 
 - 저장소 비용 Log Analytics
 
-설정을 변경 하 여 특정 기능을 옵트아웃 하 여 관련 비용을 줄일 수 있습니다.
+특정 솔루션 기능을 옵트아웃 하 여 관련 비용을 줄일 수 있습니다. 설정을 변경 하 여 옵트아웃 (Opt out) 합니다.
 
 설정을 변경 하려면:
 
@@ -61,8 +58,6 @@ IoT에 대 한 Azure Security Center에는 다음과 같은 두 가지 유형의
 
 |     | 사용법 | 설명 |
 | --- | --- | --- |
-| **IoT Hub 할당량 소비** |  |
-| [장치 작업 내보내기](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) (쌍 내보내기) | 하루 한 번 | 쌍 _메타 데이터 컬렉션_ 사용 안 함 |
 | **Log Analytics 저장소** |  |
 | 장치 권장 사항 및 경고| 서비스에서 생성 하는 보안 권장 사항 및 경고 | 선택 사항 아님 |
 | 원시 보안 데이터| IoT 장치에서 보안 에이전트로 수집 된 원시 보안 데이터 | _원시 장치 보안 이벤트 저장_ 사용 안 함 |
@@ -81,7 +76,7 @@ IoT에 대 한 Azure Security Center에는 다음과 같은 두 가지 유형의
 |
 
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
 - [원시 보안 데이터](how-to-security-data-access.md) 액세스
 - [장치 조사](how-to-investigate-device.md)

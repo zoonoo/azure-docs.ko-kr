@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 249380b5bd9d95e969a9c7a812102b694b9d1e3b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e273d913d07d8d7b77289695a4a28a478a64123a
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726538"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350292"
 ---
 # <a name="azure-storage-security-overview"></a>Azure Storage 보안 개요
 
@@ -86,9 +86,9 @@ Storage 서비스를 암호화에 대해 자세히 알아봅니다.
 
 VM에 대한 디스크 암호화는 Linux 및 Windows 운영 체제에 적합합니다. 또한 주요 자격 증명 모음을 사용하여 디스크 암호화 키 사용을 보호, 관리 및 감사하는 데 도움이 됩니다. VM 디스크의 모든 데이터는 Azure Storage 계정에 산업 표준 암호화 기술을 사용하여 휴지 상태에서 암호화됩니다. Windows용 디스크 암호화 솔루션은 [Microsoft BitLocker 드라이브 암호화](https://technet.microsoft.com/library/cc732774.aspx)를 기반으로 하고, Linux 솔루션은 [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt)를 기반으로 합니다.
 
-자세한 정보
+자세히
 
-* [Windows 및 Linux IaaS Virtual Machines에 대한 Azure 디스크 암호화(영문)](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
+* [Azure Disk Encryption 개요](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview)
 
 ## <a name="firewalls-and-virtual-networks"></a>방화벽 및 가상 네트워크
 
@@ -100,9 +100,9 @@ Azure 스토리지 방화벽 및 가상 네트워크에 대한 자세한 내용�
 
 ## <a name="azure-data-box"></a>Azure Data Box
 
-네트워크를 반드시 사용해야 하는 경우 Data Box, Data Box Disk 및 Data Box Heavy 디바이스를 통해 많은 양의 데이터를 Azure로 전송할 수 있습니다. 이러한 오프라인 데이터 전송 디바이스는 조직과 Azure 데이터 센터 간에 제공됩니다. 이러한 디바이스는 AES 암호화를 사용하여 전송 중인 데이터를 보호할 수 있고, 철저한 업로드 후 삭제 프로세스를 진행하여 디바이스에서 데이터를 삭제합니다.
+네트워크를 사용할 수 없는 경우 Data Box, Data Box Disk 및 Data Box Heavy 디바이스를 통해 많은 양의 데이터를 Azure로 전송할 수 있습니다. 이러한 오프라인 데이터 전송 디바이스는 조직과 Azure 데이터 센터 간에 제공됩니다. 이러한 디바이스는 AES 암호화를 사용하여 전송 중인 데이터를 보호할 수 있고, 철저한 업로드 후 삭제 프로세스를 진행하여 디바이스에서 데이터를 삭제합니다.
 
-Data Box Edge 및 Data Box Gateway는 사이트와 Azure 간에 데이터를 관리하는 네트워크 스토리지 게이트웨이로 작동하는 온라인 데이터 전송 제품입니다. 온-프레미스 네트워크 디바이스인 Data Box Edge는 Azure에 대해 데이터를 전송하고 AI(인공 지능) 지원 컴퓨팅을 사용하여 데이터를 처리합니다. Data Box Gateway는 스토리지 게이트웨이 기능이 포함된 가상 어플라이언스입니다.
+Data Box Edge 및 Data Box Gateway는 사이트와 Azure 간에 데이터를 관리하는 네트워크 스토리지 게이트웨이로 작동하는 온라인 데이터 전송 제품입니다. 온-프레미스 네트워크 디바이스인 Data Box Edge는 Azure와 데이터를 주고받으며 AI(인공 지능) 지원 에지 컴퓨팅을 사용하여 데이터를 처리합니다. Data Box Gateway는 스토리지 게이트웨이 기능이 포함된 가상 어플라이언스입니다.
 
 자세한 정보:
 
@@ -124,6 +124,6 @@ Advanced Threat Protection 경고는 [Azure Security Center](https://azure.micro
 
 Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용하여 키 자격 증명 모음 구독에서 디스크 암호화 키와 암호를 제어하고 관리할 수 있습니다. 또한 가상 머신 디스크에 있는 모든 데이터가 미사용 시 Azure Storage에 암호화되도록 합니다. 키 자격 증명 모음을 사용하여 키 및 정책 사용을 감사해야 합니다.
 
-자세한 정보
+자세히
 
 * [Azure 키 자격 증명 모음이란?](/azure/key-vault/key-vault-overview)

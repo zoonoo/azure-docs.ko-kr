@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: d115b7d56609b95f2ea10b3fee2f8900102b94e4
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 3c8e189e84e0a467125995b3e2d633c285eb7367
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012480"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350056"
 ---
 # <a name="check-for-pool-and-node-errors"></a>풀 및 노드 오류 확인
 
@@ -42,7 +42,7 @@ Azure Batch 풀을 만들고 관리할 때 일부 작업은 즉시 수행됩니�
 - [풀이 가상 네트워크에 있을 때](https://docs.microsoft.com/azure/batch/batch-virtual-network) 리소스가 부족함
   - Batch 계정과 동일한 구독에 부하 분산 장치, 공용 IP 및 네트워크 보안 그룹과 같은 리소스를 만들 수 있습니다. 구독 할당량이 이러한 리소스에 대해 충분한지 확인합니다.
 - 사용자 지정 VM 이미지를 사용하는 큰 풀
-  - 사용자 지정 VM 이미지를 사용하는 큰 풀은 할당 시간이 더 오래 걸릴 수 있으며 크기 조정 오류가 발생할 수 있습니다.  제한 및 구성에 대한 권장 사항을 보려면 [사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](https://docs.microsoft.com/azure/batch/batch-custom-images)를 참조하세요.
+  - 사용자 지정 VM 이미지를 사용하는 큰 풀은 할당 시간이 더 오래 걸릴 수 있으며 크기 조정 오류가 발생할 수 있습니다.  제한 및 구성에 대 한 권장 사항은 [공유 이미지 갤러리를 사용 하 여 풀 만들기](batch-sig-images.md) 를 참조 하세요.
 
 ### <a name="automatic-scaling-failures"></a>자동 크기 조정 실패
 
@@ -94,7 +94,7 @@ Node [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#c
 
 Azure Batch에서는 여러 가지 이유로 [노드 상태](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate)를 **unusable**로 설정할 수 있습니다. 노드 상태를 **unusable**로 설정하면 작업을 노드로 예약할 수 없지만 요금은 여전히 부과됩니다.
 
-[오류가](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) 없는 상태의 노드는 일괄 처리가 VM과 통신할 수 없음을 의미 합니다. 이 경우 Batch는 항상 VM을 복구 하려고 시도 합니다. 일괄 처리는 상태를 **사용할**수 없는 경우에도 응용 프로그램 패키지 또는 컨테이너를 설치 하지 못한 vm은 자동으로 복구 하려고 시도 하지 않습니다.
+[오류가](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) **없는 상태의 노드는 일괄** 처리가 VM과 통신할 수 없음을 의미 합니다. 이 경우 Batch는 항상 VM을 복구 하려고 시도 합니다. 일괄 처리는 상태를 **사용할**수 없는 경우에도 응용 프로그램 패키지 또는 컨테이너를 설치 하지 못한 vm은 자동으로 복구 하려고 시도 하지 않습니다.
 
 Batch가 원인을 확인할 수 있으면 노드 [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) 속성이 그 원인을 보고합니다.
 

@@ -11,12 +11,12 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 ms.date: 07/18/2019
-ms.openlocfilehash: 6b1b706e68b090090ed4268b70b7c9d254f8b629
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 095ecc360e5639a5d47dff4bc4675fc237cf81da
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596702"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348926"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure Key Vault의 고객 관리형 키를 사용하여 Azure SQL 투명한 데이터 암호화: Bring Your Own Key 지원
 
@@ -149,7 +149,7 @@ Azure Key Vault를 사용하여 고가용성을 구성하는 방법은 데이터
 - PowerShell을 사용하여 서로 다른 두 역에 두 개의 Azure Key Vault를 만들어 [키 자격 증명 모음에서 "일시 삭제" 속성을 사용하도록 설정](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell)합니다. 이 옵션은 AKV 포털에서 아직 사용할 수 없지만 SQL에서 필요합니다.
 - 키의 백업 및 복원이 작동하려면 두 개의 Azure Key Vault가 모두 동일한 Azure 지역에서 사용할 수 있는 두 지역에 있어야 합니다.  SQL Geo-DR 요구 사항에 따라 두 개의 Key Vault를 서로 다른 지역에 배치해야 하는 경우 온-프레미스 HSM에서 키를 가져올 수 있는 [BYOK 프로세스](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)를 따릅니다.
 - 첫 번째 키 자격 증명 모음에 다음과 같은 새 키를 만듭니다.  
-  - RSA/RSA-HSA 2048 키
+  - RSA/RSA-HSM 2048 키
   - 만료 날짜 없음
   - 사용하도록 설정되고 가져오기, 키 래핑 및 키 래핑 해제 작업을 수행할 수 있는 권한이 있는 키입니다.
 - 기본 키를 백업하고, 해당 키를 두 번째 키 자격 증명 모음에 복원합니다.  [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) 및 [AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey)를 참조 하세요.

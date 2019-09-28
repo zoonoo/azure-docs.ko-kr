@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 30164824cab19aae9cc9665304eb66f595e082da
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 1349a81bc4f0f3eed4093bbe91abea68264b4021
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162556"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350649"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 모델 배포
 
@@ -467,7 +467,9 @@ def run(request):
 
 유추 구성에서는 예측을 만들도록 모델을 구성 하는 방법을 설명 합니다. 이 구성은 입력 스크립트의 일부가 아닙니다. 항목 스크립트를 참조 하 고 배포에 필요한 모든 리소스를 찾는 데 사용 됩니다. 나중에 모델을 배포할 때 사용 됩니다.
 
-유추 구성은 Azure Machine Learning 환경을 사용 하 여 배포에 필요한 소프트웨어 종속성을 정의할 수 있습니다. 환경을 사용 하 여 교육 및 배포에 필요한 소프트웨어 종속성을 만들고, 관리 하 고, 재사용할 수 있습니다. 다음 예제에서는 작업 영역에서 환경을 로드 한 다음이를 유추 구성과 함께 사용 하는 방법을 보여 줍니다.
+유추 구성은 Azure Machine Learning 환경을 사용 하 여 배포에 필요한 소프트웨어 종속성을 정의할 수 있습니다. 환경을 사용 하 여 교육 및 배포에 필요한 소프트웨어 종속성을 만들고, 관리 하 고, 재사용할 수 있습니다. 환경을 사용 하는 경우 모델 파일 및 제공 된 원본 디렉터리는 실행 중인 컨테이너에 직접 탑재 됩니다. 컨테이너 이미지나 컨테이너 레지스트리에 복사 되지 않습니다.
+
+다음 예제에서는 작업 영역에서 환경을 로드 한 다음이를 유추 구성과 함께 사용 하는 방법을 보여 줍니다.
 
 ```python
 from azureml.core import Environment
@@ -619,7 +621,7 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 서비스에 대 한 토큰 인증을 사용 하도록 설정한 경우 요청 헤더에서 전달자 토큰으로 Azure Machine Learning JWT 토큰을 제공 해야 합니다.
 
 > [!TIP]
-> 서비스를 배포한 후 스키마 JSON 문서를 검색할 수 있습니다. 배포 된 웹 서비스 (예: `service.swagger_uri`)의 [swagger_uri 속성](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) 을 사용 하 여 로컬 웹 서비스의 swagger 파일에 대 한 uri를 가져옵니다.
+> 서비스를 배포한 후 스키마 JSON 문서를 검색할 수 있습니다. 배포 된 웹 서비스의 [swagger_uri 속성](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) (예: `service.swagger_uri`)을 사용 하 여 로컬 웹 서비스의 swagger 파일에 대 한 uri를 가져옵니다.
 
 ### <a name="request-response-consumption"></a>요청-응답 소비
 

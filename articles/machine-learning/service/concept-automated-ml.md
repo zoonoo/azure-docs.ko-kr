@@ -11,16 +11,16 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 32ff1ba599f4f95cc413bc2bb2c3bbc442405022
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 8b38b359821d3d4926085fee8e412fbe06155739
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035716"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350623"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
-AutoML이 라고도 하는 자동화 된 machine learning은 기계 학습 모델 개발의 시간이 많이 걸리는 반복적인 작업을 자동화 하는 프로세스입니다. 이를 통해 데이터 과학자, 분석가 및 개발자는 모델 품질을 유지 하면서도 확장성, 효율성 및 생산성이 높은 ML 모델을 빌드할 수 있습니다. 자동화 된 ML은 [Microsoft Research 부서의](https://arxiv.org/abs/1705.05355)혁신을 기반으로 합니다.
+자동화 된 ML이 라고도 하는 자동화 된 기계 학습은 기계 학습 모델 개발의 시간이 많이 걸리는 반복적인 작업을 자동화 하는 프로세스입니다. 이를 통해 데이터 과학자, 분석가 및 개발자는 모델 품질을 유지 하면서도 확장성, 효율성 및 생산성이 높은 ML 모델을 빌드할 수 있습니다. 자동화 된 ML은 [Microsoft Research 부서의](https://arxiv.org/abs/1705.05355)혁신을 기반으로 합니다.
 
 기존의 기계 학습 모델 개발은 리소스를 많이 사용 하므로 수십 개의 모델을 생성 하 고 비교 하는 데 상당한 도메인 지식과 시간이 필요 합니다. 지정한 대상 메트릭을 사용 하 여 모델을 학습 하 고 조정 하려면 자동화 된 ML을 적용 Azure Machine Learning 합니다. 그런 다음 서비스는 기능 선택과 쌍을 이루는 ML 알고리즘을 반복 하 여 각 반복에서 학습 점수가 있는 모델을 생성 합니다. 점수가 높을수록 데이터를 "맞추기" 하는 것이 더 효율적입니다.
 
@@ -116,6 +116,36 @@ AutoML이 라고도 하는 자동화 된 machine learning은 기계 학습 모�
 
 자동화 된 machine learning에서 기본 앙상블 설정을 변경 [하는 방법을](how-to-configure-auto-train.md#ensemble) 참조 하세요.
 
+## <a name="imbalance"></a>불균형 데이터
+
+불균형 데이터는 기계 학습 분류 시나리오에 대 한 데이터에 일반적으로 있으며 각 클래스에서 불균형 비율을 포함 하는 데이터를 참조 합니다. 이러한 불균형으로 인해 모델의 정확도가 잘못 인식 될 수 있습니다. 입력 데이터는 하나의 클래스를 기준으로 하기 때문에 학습 된 모델이 해당 바이어스를 모방 하 게 됩니다. 
+
+기계 학습 워크플로를 단순화 하는 목표의 일환으로, 자동화 된 ML은와 같은 불균형 데이터를 처리 하는 데 도움이 되는 기본 제공 기능을 제공 합니다. 
+
+- **가중치 열**: 자동 ML은 가중치가 적용 된 열을 입력으로 지원 하 여 데이터의 행이 위쪽 또는 아래쪽으로 이동 하 여 클래스를 "중요" 하 게 만들 수 있습니다. 이 [노트북 예제](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/sample-weight/auto-ml-sample-weight.ipynb) 참조 
+
+- 자동화 된 ML에서 사용 되는 알고리즘은 최대 20:1의 불균형을 적절히 처리할 수 있습니다. 즉, 가장 일반적인 클래스는 가장 일반적인 클래스 보다 데이터에서 20 배 더 많은 행을 가질 수 있습니다.
+
+### <a name="identify-models-with-imbalanced-data"></a>불균형 데이터를 사용 하 여 모델 식별
+
+분류 알고리즘은 일반적으로 정확도로 계산 되므로 모델의 정확도 점수를 확인 하는 것은 불균형 데이터의 영향을 받는 경우를 식별 하는 좋은 방법입니다. 특정 클래스에 대해 매우 높은 정확도 나 매우 낮은 정확도가 있나요?
+
+또한 자동화 된 ML 실행은 다음 차트를 자동으로 생성 하며,이를 통해 모델 분류의 정확성을 이해 하 고 불균형 데이터의 영향을 받을 수 있는 모델을 식별할 수 있습니다.
+
+차트| 설명
+---|---
+[혼동 행렬](how-to-understand-automated-ml.md#confusion-matrix)| 데이터의 실제 레이블에 대해 올바르게 분류 된 레이블을 평가 합니다. 
+[전체 자릿수-회수](how-to-understand-automated-ml.md#precision-recall-chart)| 데이터의 찾은 레이블 인스턴스 비율에 대해 올바른 레이블의 비율을 평가 합니다. 
+[ROC 곡선](how-to-understand-automated-ml.md#roc)| 가양성 레이블의 비율에 대해 올바른 레이블의 비율을 평가 합니다.
+
+### <a name="handle-imbalanced-data"></a>불균형 데이터 처리 
+
+다음 기술에서는 자동화 된 ML 외부의 불균형 데이터를 처리 하는 추가 옵션을 설명 합니다. 
+
+- 더 작은 클래스를 위로 샘플링 하거나 더 큰 클래스를 다운 샘플링 하 여 클래스 불균형에도 재샘플링 합니다. 이러한 방법에는를 처리 하 고 분석 하기 위한 전문 기술이 필요 합니다.
+
+- 불균형 데이터에 대해 더 잘 처리 하는 성능 메트릭을 사용 합니다. 예를 들어 F1 점수는 전체 자릿수 및 회수의 가중치가 적용 된 평균입니다. 전체 자릿수는 분류자의 exactness을 측정 합니다. 낮은 정밀도는 분류자의 완전성을 측정 하는 동안 매우 많은 가양성--,를 나타냅니다. 낮은 회수는 매우 많은 가양성을 나타냅니다. 
+
 ## <a name="use-with-onnx-in-c-apps"></a>앱에서 C# onnx와 함께 사용
 
 Azure Machine Learning를 사용 하면 자동화 된 ML을 사용 하 여 Python 모델을 작성 하 고이를 ONNX 형식으로 변환할 수 있습니다. ONNX 런타임은을 지원 C#하므로, 기록이 필요 하지 않거나 REST 끝점이 도입 하는 C# 네트워크 대기 시간을 제외 하 고 앱에서 자동으로 작성 된 모델을 사용할 수 있습니다. [이 Jupyter 노트북에서](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-with-onnx/auto-ml-classification-with-onnx.ipynb)이 흐름의 예를 사용해 보세요.
@@ -124,7 +154,7 @@ Azure Machine Learning를 사용 하면 자동화 된 ML을 사용 하 여 Pytho
 
 자동화 된 ML은 다음과 같은 다른 Microsoft 솔루션 에서도 사용할 수 있습니다.
 
-|통합|Description|
+|통합|설명|
 |------------|-----------|
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Visual Studio를 사용 하 여 .NET 앱에서 자동 모델 선택 및 학습 ML.NET 자동 ML (미리 보기)을 사용 하 여 Visual Studio Code 합니다.|
 |[HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|HDInsight 클러스터의 Spark에서 자동화 된 ML 학습 작업을 병렬로 확장 하세요.|

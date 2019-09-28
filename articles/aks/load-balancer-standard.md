@@ -5,14 +5,14 @@ services: container-service
 author: zr-msft
 ms.service: container-service
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: d2a0ff5db6707c4f765c71937a7d0f0749401959
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: c9b6f6cf52d71451d2e1de27d0637eeb749b1e0b
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172200"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71349052"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에서 표준 SKU 부하 분산 장치 사용
 
@@ -28,25 +28,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에서는 Azure CLI 버전 2.0.59 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
+CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에서는 Azure CLI 버전 2.0.74 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 기존 서브넷 또는 리소스 그룹을 사용 하는 경우 AKS 클러스터 서비스 주체에 네트워크 리소스를 관리할 수 있는 권한이 있어야 합니다. 일반적으로 위임 된 리소스의 서비스 사용자에 게 *네트워크 참가자* 역할을 할당 합니다. 사용 권한에 대 한 자세한 내용은 [DELEGATE AKS access to Other Azure resources를][aks-sp]참조 하세요.
 
 기본 *기본*이 아닌 *표준* 으로 부하 분산 장치의 SKU를 설정 하는 AKS 클러스터를 만들어야 합니다.
-
-### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
-
-Azure 부하 분산 장치 표준 SKU를 사용 하려면 *aks-preview* CLI 확장 버전 0.4.12 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치한 다음 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ### <a name="limitations"></a>제한 사항
 

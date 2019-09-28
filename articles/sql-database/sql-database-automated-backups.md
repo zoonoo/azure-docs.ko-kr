@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, carlrab, danil
 manager: craigg
-ms.date: 08/22/2019
-ms.openlocfilehash: 551c2c02af7b996a34a138586fd91a77a0455d92
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 09/26/2019
+ms.openlocfilehash: cc6041a228545ffef158e3d627de983a154513a5
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904317"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350935"
 ---
 # <a name="automated-backups"></a>자동화된 백업
 
@@ -46,10 +46,10 @@ SQL Database는 SQL Server 기술을 사용 하 여 매주 [전체 백업](https
 
 | | Azure 포털 | Azure PowerShell |
 |---|---|---|
-| 백업 보존 변경 | [Single Database](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-the-azure-portal) <br/> [Managed Instance](sql-database-automated-backups.md#change-pitr-for-a-managed-instance) | [Single Database](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| 백업 보존 변경 | [Single Database](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-azure-portal) <br/> [Managed Instance](sql-database-automated-backups.md#managed-instance-database) | [Single Database](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | 장기 백업 보존 기간 변경 | [단일 데이터베이스](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Managed Instance-해당 없음  | [Single Database](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups)<br/>Managed Instance-해당 없음  |
 | 특정 시점에서 데이터베이스 복원 | [단일 데이터베이스](sql-database-recovery-using-backups.md#point-in-time-restore) | [단일 데이터베이스](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| 삭제된 데이터베이스 복원 | [단일 데이터베이스](sql-database-recovery-using-backups.md#deleted-database-restore-using-the-azure-portal) | [단일 데이터베이스](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| 삭제된 데이터베이스 복원 | [단일 데이터베이스](sql-database-recovery-using-backups.md#deleted-database-restore-using-azure-portal) | [단일 데이터베이스](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
 | Azure Blob Storage에서 데이터베이스 복원 | 단일 데이터베이스-해당 없음 <br/>Managed Instance-해당 없음  | 단일 데이터베이스-해당 없음 <br/>[Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="how-long-are-backups-kept"></a>백업은 얼마 동안 유지되나요?
@@ -114,15 +114,19 @@ Azure Portal, PowerShell 또는 REST API를 사용 하 여 기본 PITR 백업 �
 > [!NOTE]
 > 이러한 API는 PITR 보존 기간에만 영향을 줍니다. 데이터베이스에 대해 LTR을 구성한 경우에는 영향을 받지 않습니다. LTR 보존 기간을 변경하는 방법에 대한 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
 
-### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Azure Portal을 사용하여 PITR 백업 보존 기간 변경
+### <a name="change-pitr-backup-retention-period-using-azure-portal"></a>Azure Portal를 사용 하 여 PITR 백업 보존 기간 변경
 
 Azure Portal를 사용 하 여 PITR 백업 보존 기간을 변경 하려면 포털 내에서 보존 기간을 변경 하려는 서버 개체로 이동한 후 수정 하려는 서버 개체에 따라 적절 한 옵션을 선택 합니다.
 
-#### <a name="change-pitr-for-a-sql-database-server"></a>SQL Database 서버의 PITR 변경
+#### <a name="single-azure-sql-database"></a>단일 Azure SQL Database
+
+단일 Azure SQL Database에 대 한 PITR 백업 보존 변경은 서버 수준에서 수행 됩니다. 서버 수준에서 변경한 내용은 해당 서버의 데이터베이스에 적용 됩니다. Azure Portal에서 Azure SQL Database server에 대 한 PITR를 변경 하려면 서버 개요 블레이드로 이동 하 여 탐색 메뉴에서 백업 관리를 클릭 한 다음 탐색 모음에서 보존 구성을 클릭 합니다.
 
 ![PITR 변경 Azure Portal](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
-#### <a name="change-pitr-for-a-managed-instance"></a>Managed Instance의 PITR 변경
+#### <a name="managed-instance-database"></a>관리 되는 인스턴스 데이터베이스
+
+SQL Database 관리 되는 인스턴스에 대 한 PITR 백업 보존 변경은 개별 데이터베이스 수준에서 수행 됩니다. Azure Portal에서 인스턴스 데이터베이스의 PITR 백업 보존 기간을 변경 하려면 개별 데이터베이스 개요 블레이드로 이동한 다음 탐색 모음에서 백업 보존 구성을 클릭 합니다.
 
 ![PITR 변경 Azure Portal](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
 

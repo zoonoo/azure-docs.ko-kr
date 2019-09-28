@@ -1,26 +1,26 @@
 ---
-title: Azure Marketplace FAQ
-description: Microsoft Azure Marketplace와 관련된 일반적인 질문과 대답을 소개합니다.
+title: Microsoft 상업적 마켓플레이스 FAQ
+description: Azure Marketplace 및 Microsoft AppSource에 대 한 일반적인 질문에 대 한 답변
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 9/24/2019
+ms.date: 9/26/2019
 ms.author: ellacroi
-ms.openlocfilehash: 6b9cc80dfb397d5bf330d0be947f468e9b802139
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: abc3b3a6be5f8c61c07fb29a6f168c8738733099
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259950"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350390"
 ---
-# <a name="marketplace-faqs"></a>Marketplace FAQ
+# <a name="microsoft-commercial-marketplace-faqs"></a>Microsoft 상업적 마켓플레이스 Faq
 
-Microsoft Azure Marketplace와 관련된 일반적인 질문과 대답을 소개합니다.
+Azure Marketplace 및 Microsoft AppSource에 대 한 일반적인 질문에 대 한 답변입니다.
 
 ## <a name="faq-for-customers"></a>고객 관련 FAQ
 
-### <a name="what-you-need-to-know-about-azure-marketplace"></a>Azure Marketplace에 대해 알아 두어야 할 내용
+### <a name="what-you-need-to-know-about-azure-marketplace-and-microsoft-appsource"></a>Azure Marketplace 및 Microsoft AppSource에 대해 알아야 할 사항
 
 **Azure Marketplace란 무엇인가요?**
 
@@ -253,9 +253,26 @@ Marketplace 서비스 또는 구매와 관련된 기술적인 문제는 판매�
 
 취소 된 라이선스에는이 FAQ에 나와 있는 환불 정책이 적용 됩니다.  취소 된 모든 라이선스는 계정에서 즉시 제거 되며 더 이상 사용할 수 없게 됩니다.
 
+**소비 기반 제안에 대해 환불 지원 되나요?**
+
+사용량에 따른 모든 요금 (시간별 Vm 또는 사용자 지정 미터)은 취소를 통해 계좌가 되지 않습니다. 소비를 발생 한 후 요금은 Microsoft의 상거래 플랫폼에 의해 처리 되며, 환불을 요청 하는 서비스 분쟁 모든 품질은 게시자와 고객 간의 Microsoft 시스템 외부에서 직접 처리 됩니다. 정액 요금 및 요금제를 지 원하는 제안은 표준 환불 정책에 따라 기본 요금 청구 됩니다.
+
+**요금제를 변경할 수 있나요?**
+
+아니요, 월별 및 연간 간에 전환할 수 없습니다.
+
+**고객이 동일한 제품에서 두 요금제를 구매할 수 있나요?**
+
+예, 고객이 동일한 제품에서 두 요금제를 동시에 소유할 수 있습니다.
+
+**환불 하 고 변경 정책 계획을 storefront?**
+
+아니요. 비즈니스 정책은 Azure Marketplace와 Microsoft AppSource 간에 일관 됩니다. 클라우드 솔루션의 파트너가 재판매할 프로그램을 제공 하는 경우 파트너는 고객에 대해 다른 정책을 적용할 수 있습니다.
+
+
 ## <a name="faq-for-publishers"></a>판매자 관련 FAQ
 
-### <a name="what-you-need-to-know-about-azure-marketplace"></a>Azure Marketplace에 대해 알아 두어야 할 내용
+### <a name="what-you-need-to-know-about-azure-marketplace-and-microsoft-appsource"></a>Azure Marketplace 및 Microsoft AppSource에 대해 알아야 할 사항
 
 **Azure Marketplace란 무엇인가요?**
 

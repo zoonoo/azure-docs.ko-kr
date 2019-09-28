@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 06/21/2019
-ms.openlocfilehash: 6b825e61542dabc92baf482ede6c93edc486e059
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 703416d2df103c1ac8db06cbef43600058c250ef
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002350"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350464"
 ---
 # <a name="model-interpretability-with-azure-machine-learning"></a>Azure Machine Learning 모델 interpretability
 
@@ -150,8 +150,7 @@ Python `numpy.array`, `pandas.DataFrame` `explain` , 또는`iml.datatypes.DenseD
     
     # you can use one of the following four interpretable models as a global surrogate to the black box model
     from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
-    from azureml.explain.model.mimic.models.linear_model import LinearExplainableModel
-    from azureml.explain.model.mimic.models.linear_model import SGDExplainableModel
+    from azureml.explain.model.mimic.models.linear_model import LinearExplainableModel,SGDExplainableModel
     from azureml.explain.model.mimic.models.tree_model import DecisionTreeExplainableModel
 
     # "features" and "classes" fields are optional
@@ -210,7 +209,7 @@ Python `numpy.array`, `pandas.DataFrame` `explain` , 또는`iml.datatypes.DenseD
 
     ```python
     # explain the first five data points in the test set
-    local_explanation = explainer.explain_local(x_test[0:4])
+    local_explanation = explainer.explain_local(x_test[0:5])
 
     # sorted feature importance values and feature names
     sorted_local_importance_names = local_explanation.get_ranked_local_names()
@@ -279,7 +278,7 @@ Azure Machine Learning에서 지 원하는 다양 한 계산 대상을 학습할
 
 다음 그림에서는 학습 된 모델을 예측 및 설명과 함께 전체적으로 보여 주는 방법을 제공 합니다.
 
-|그림|Description|
+|그림|설명|
 |----|-----------|
 |데이터 탐색| 예측 값과 함께 데이터 집합에 대 한 개요입니다.|
 |글로벌 중요도|최상위 K (구성 가능 K) 중요 기능을 전역적으로 보여 줍니다. 이 차트는 기본 모델의 전역 동작을 이해 하는 데 유용 합니다.|

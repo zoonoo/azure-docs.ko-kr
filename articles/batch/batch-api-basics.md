@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 08/29/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: bd630fec16ddfb269ead5f1f62af882f52501a86
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 364861e57f37192a3ae454e27fedf732ee8d513e
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390454"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350173"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch를 사용하여 대규모 병렬 컴퓨팅 솔루션 개발
 
@@ -95,7 +95,7 @@ Batch 계정을 만들 때 또는 나중에 저장소 계정을 Batch 계정에 
 
 컴퓨팅 노드는 애플리케이션의 워크로드 중 일부를 처리하도록 전담하는 Azure VM(가상 머신) 또는 클라우드 서비스 VM입니다. 노드의 크기에 따라 노드에 할당되는 CPU 코어 수, 메모리 용량 및 로컬 파일 시스템 크기가 결정됩니다. Azure Cloud Services, [azure Virtual Machines Marketplace][vm_marketplace]의 이미지 또는 준비한 사용자 지정 이미지를 사용 하 여 Windows 또는 Linux 노드의 풀을 만들 수 있습니다. 이러한 옵션에 대한 자세한 내용은 다음 [풀](#pool)을 참조하세요.
 
-노드는 노드의 운영 체제 환경에서 지원하는 실행 파일이나 스크립트를 실행할 수 있습니다. 실행 파일 또는 스크립트 \*에는 .exe \*, .cmd, \*.bat 및 Linux 용 Windows 용 PowerShell 스크립트, 이진 파일, 셸 및 Linux 용 Python 스크립트가 포함 됩니다.
+노드는 노드의 운영 체제 환경에서 지원하는 실행 파일이나 스크립트를 실행할 수 있습니다. 실행 파일 또는 스크립트에는 @no__t 64,, @no__t -1, @no__t -2 및 Linux 용 Windows 용 PowerShell 스크립트, 이진 파일, 셸 및 Linux 용 Python 스크립트가 포함 됩니다.
 
 Batch의 모든 컴퓨팅 노드는 다음 사항도 포함합니다.
 
@@ -149,9 +149,9 @@ Batch 풀을 만들 때 Azure 가상 머신 구성과 풀의 각 컴퓨팅 노�
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Virtual Machine 풀에 대한 사용자 지정 이미지
 
-사용자 지정 이미지를 사용하려면 일반화하여 이미지를 준비해야 합니다. Azure VM에서 사용자 지정 Linux 이미지를 준비하는 방법에 대한 자세한 내용은 [가상 머신 또는 VHD의 이미지를 만드는 방법](../virtual-machines/linux/capture-image.md)을 참조하세요. Azure VM에서 사용자 지정 Windows 이미지를 준비하는 방법에 대한 자세한 내용은 [Azure에서 일반화된 VM의 관리 이미지 만들기](../virtual-machines/windows/capture-image-resource.md)를 참조하세요. 
+사용자 지정 이미지를 사용 하 여 풀을 만드는 방법을 알아보려면 [공유 이미지 갤러리를 사용 하 여 사용자 지정 풀 만들기](batch-sig-images.md)를 참조 하세요.
 
-자세한 요구 사항 및 단계는 [사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](batch-custom-images.md)를 참조하세요.
+또는 [관리 되는 이미지](batch-custom-images.md) 리소스를 사용 하 여 가상 컴퓨터의 사용자 지정 풀을 만들 수 있습니다. Azure VM에서 사용자 지정 Linux 이미지를 준비하는 방법에 대한 자세한 내용은 [가상 머신 또는 VHD의 이미지를 만드는 방법](../virtual-machines/linux/capture-image.md)을 참조하세요. Azure VM에서 사용자 지정 Windows 이미지를 준비하는 방법에 대한 자세한 내용은 [Azure에서 일반화된 VM의 관리 이미지 만들기](../virtual-machines/windows/capture-image-resource.md)를 참조하세요.
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Virtual Machine 풀에서 컨테이너 지원
 
@@ -379,7 +379,7 @@ Batch 서비스는 노드의 파일 시스템 일부를 *루트 디렉터리*로
 
 * **작업 항목**: 이 디렉터리에는 compute 노드에 대 한 작업 및 해당 태스크에 대 한 디렉터리가 포함 되어 있습니다.
 
-* **작업**: 작업 항목 **디렉터리 내** 에서 노드에서 실행 되는 각 작업에 대 한 디렉터리가 만들어집니다. 환경 변수를 `AZ_BATCH_TASK_DIR` 참조 하 여 액세스 합니다.
+* **작업**: 작업 항목 **디렉터리 내** 에서 노드에서 실행 되는 각 작업에 대 한 디렉터리가 만들어집니다. @No__t-0 환경 변수를 참조 하 여 액세스 합니다.
 
     각 태스크 디렉터리 내에서 Batch 서비스는 `AZ_BATCH_TASK_WORKING_DIR` 환경 변수에 의해 고유 경로가 지정되는 작업 디렉터리(`wd`)를 만듭니다. 이 디렉터리는 태스크에 대한 읽기/쓰기 액세스를 제공합니다. 태스크는 이 디렉터리 아래에서 파일을 만들고, 읽고, 업데이트하고, 삭제할 수 있습니다. 이 디렉터리는 태스크에 대해 지정된 *RetentionTime* 제약 조건에 따라 유지됩니다.
 
@@ -519,21 +519,21 @@ Batch 솔루션 내에서 태스크 오류와 애플리케이션 오류를 모�
 
 태스크가 실패한 경우 Batch 클라이언트 애플리케이션 또는 서비스는 실패한 작업의 메타데이터를 검사하여 오동작 노드를 식별할 수 있습니다. 풀의 각 노드에는 고유 ID가 지정되며, 태스크가 실행되는 노드는 태스크 메타데이터에 포함됩니다. 문제 노드를 식별하면 다음과 같은 몇 가지 작업을 수행할 수 있습니다.
 
-* **노드 다시 부팅** ([REST][rest_reboot] | [.NET][net_reboot])
+* **노드 다시 부팅** ([REST][rest_reboot] | [.net][net_reboot])
 
     노드를 다시 시작하면 경우에 따라 충돌 또는 중단 프로세스와 같은 잠재적인 문제를 해소할 수 있습니다. 풀에서 시작 태스크를 사용 하거나 작업이 작업 준비 태스크를 사용 하는 경우 노드가 다시 시작 될 때 실행 됩니다.
-* **노드 이미지로** 다시 설치 ([REST][rest_reimage] | [.NET][net_reimage])
+* **노드 이미지로** 다시 설치 ([REST][rest_reimage] | [.net][net_reimage])
 
     노드에서 운영 체제를 다시 설치합니다. 노드를 다시 시작할 때와 마찬가지로 태스크를 시작하고 노드가 이미지로 다시 설치된 후에 작업 준비 태스크를 다시 실행합니다.
-* **풀에서 노드 제거** ([REST][rest_remove] | [.NET][net_remove])
+* **풀에서 노드 제거** ([REST][rest_remove] | [.net][net_remove])
 
     경우에 따라 풀에서 노드를 완전히 제거해야 합니다.
-* **노드에서 태스크 일정을 사용 하지 않도록 설정** ([REST][rest_offline] | [.NET][net_offline])
+* **노드에서 작업 예약 사용 안 함** ([REST][rest_offline] | [.net][net_offline])
 
     사실상 노드를 오프라인으로 만들기 때문에 해당 노드에 더 이상 작업이 할당되지 않지만 노드가 풀에서 실행되도록 유지할 수 있습니다. 그러면 실패한 태스크에 데이터 손실이나 노드에 추가 작업 오류를 발생시키지 않고 실패의 원인을 조사할 수 있습니다. 예를 들어 노드에서 작업 일정을 사용하지 않도록 설정한 다음, [원격으로 로그인](#connecting-to-compute-nodes)하여 노드의 이벤트 로그를 검사하거나 다른 문제를 해결할 수 있습니다. 조사를 완료 한 후에는 작업 일정 ([REST][rest_online] | [.net][net_online])을 사용 하도록 설정 하 여 노드를 다시 온라인 상태로 만들거나 앞에서 설명한 다른 작업 중 하나를 수행할 수 있습니다.
 
 > [!IMPORTANT]
-> 태스크 일정을 다시 시작, 이미지로 다시 설치, 제거, 사용 안 함 등 이 섹션에서 설명한 작업으로 동작을 수행할 때 노드에서 현재 실행 중인 태스크를 처리하는 방법을 지정할 수 있습니다. 예를 들어 Batch .NET 클라이언트 라이브러리를 사용 하 여 노드에서 작업 예약을 사용 하지 않도록 설정 하는 경우 [않으면 disablecomputenodeschedulingoption][net_offline_option] 열거형 값을 지정 하 여 실행 중인 작업을 **종료할지** **여부를 지정할** 수 있습니다. 다른 노드에서 예약 하거나 작업을 수행 하기 전에 실행 중인 태스크가 완료 될 수 있도록 허용 합니다 (**taskcompletion**).
+> 태스크 일정을 다시 시작, 이미지로 다시 설치, 제거, 사용 안 함 등 이 섹션에서 설명한 작업으로 동작을 수행할 때 노드에서 현재 실행 중인 태스크를 처리하는 방법을 지정할 수 있습니다. 예를 들어 Batch .NET 클라이언트 라이브러리를 사용 하 여 노드에서 작업 예약을 사용 하지 않도록 설정 하는 경우 [않으면 disablecomputenodeschedulingoption][net_offline_option] 열거형 값을 지정 하 여 실행 중인 **작업을** **종료할지** 여부를 지정할 수 있습니다. 다른 노드에서 예약 하거나 작업을 수행 하기 전에 실행 중인 태스크가 완료 될 수 있도록허용 합니다 (taskcompletion).
 >
 >
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: b96b80a735c0caee8a3aabaf19b04fd0e153ba6b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 0908ca232ee38e2b0d461aa9f597558adc4461ef
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034326"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350526"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>TensorBoard 및 Azure Machine Learning를 사용 하 여 실험 실행 및 메트릭 시각화
 
@@ -27,7 +27,7 @@ Azure Machine Learning 실험을 통해 TensorBoard를 시작 하는 방법은 �
 
 + TensorBoard 사용 파일을 기본적으로 출력 하지 않는 실험 (예: Scikit-학습 또는 Azure Machine Learning 실험)의 [경우 `export_to_tensorboard()` 메서드](#export) 를 사용 하 여 실행 기록을 TensorBoard logs로 내보내고 여기에서 TensorBoard를 실행 합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * TensorBoard을 시작 하 고 실험 실행 기록을 보려면 실험에서 이전에 로깅을 사용 하도록 설정 하 여 해당 메트릭과 성능을 추적 해야 합니다.  
 
@@ -81,7 +81,7 @@ tf_code = requests.get("https://raw.githubusercontent.com/tensorflow/tensorflow/
 with open(os.path.join(exp_dir, "mnist_with_summaries.py"), "w") as file:
     file.write(tf_code.text)
 ```
-Mnist 코드 파일 mnist_with_summaries. py에는 `tf.summary.scalar()` `tf.summary.FileWriter()` , `tf.summary.histogram()`등을 호출 하는 줄이 있습니다. 이러한 메서드는 실험의 주요 메트릭을 실행 기록으로 그룹화, 기록 및 태그 합니다. 는 `tf.summary.FileWriter()` 로깅된 실험 메트릭의 데이터를 직렬화 하므로 TensorBoard에서 시각화를 생성할 수 있기 때문에 특히 중요 합니다.
+MNIST 코드 파일 mnist_with_summaries. py에는 `tf.summary.scalar()`, `tf.summary.histogram()`, `tf.summary.FileWriter()` 등을 호출 하는 줄이 있습니다. 이러한 메서드는 실험의 주요 메트릭을 실행 기록으로 그룹화, 기록 및 태그 합니다. 는 `tf.summary.FileWriter()` 로깅된 실험 메트릭의 데이터를 직렬화 하므로 TensorBoard에서 시각화를 생성할 수 있기 때문에 특히 중요 합니다.
 
  ### <a name="configure-experiment"></a>실험 구성
 
@@ -264,7 +264,8 @@ root_run.complete()
 >[!Note]
  실행 이름을 지정 하 여 특정 실행을 TensorBoard로 내보낼 수도 있습니다.`export_to_tensorboard(run_name, logdir)`
 
-TensorBoard 시작 및 중지이 실험의 실행 기록이 내보내지는 후 [start ()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py#start-start-browser-false-) 메서드를 사용 하 여 TensorBoard를 시작할 수 있습니다. 
+### <a name="start-and-stop-tensorboard"></a>TensorBoard 시작 및 중지
+이 실험의 실행 기록을 내보내면 [start ()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py#start-start-browser-false-) 메서드를 사용 하 여 TensorBoard를 시작할 수 있습니다. 
 
 ```Python
 from azureml.tensorboard import Tensorboard

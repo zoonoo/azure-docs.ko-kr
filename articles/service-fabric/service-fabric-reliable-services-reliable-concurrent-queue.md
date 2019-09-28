@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric의 ReliableConcurrentQueue
-description: ReliableConcurrentQueue는 병렬 큐에 추가하고 큐에서 제거할 수 있는 처리량이 높은 큐입니다.
+description: ReliableConcurrentQueue는 병렬 큐 및 dequeues를 허용 하는 처리량이 높은 큐입니다.
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: atsenthi
-ms.openlocfilehash: 8cb35d6265bafe2b259774a55119d33f8ae94fe9
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 776d330e36e6bcafe610bbab54e13ff6c41e2edf
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599247"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350283"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Azure Service Fabric의 ReliableConcurrentQueue 소개
 신뢰할 수 있는 동시 큐는 비동기, 트랜잭션 및 복제된 큐로서 큐에 넣기 및 큐에서 제거 작업에 대한 높은 동시성을 제공합니다. [신뢰할 수 있는 큐](https://msdn.microsoft.com/library/azure/dn971527.aspx)에서 제공한 엄격한 FIFO 순서를 완화하여 처리량이 높고 대기 시간이 짧게 설계되었으며 대신 최상의 순서를 제공합니다.
@@ -45,12 +45,19 @@ ReliableConcurrentQueue의 샘플 사용 사례는 [메시지 큐](https://en.wi
 * 큐는 엄격한 FIFO 순서를 보장하지 않습니다.
 * 큐는 고유한 쓰기를 읽을 수 없습니다. 항목이 트랜잭션 내에서 큐에 삽입된 경우 동일한 트랜잭션 내에서 큐에서 제거하는 사용자에게 표시되지 않습니다.
 * 큐에서 제거는 서로 분리되지 않습니다. 항목 *A*가 트랜잭션 *txnA*라는 큐에서 제거된 경우 *txnA*가 커밋되지 않더라도 항목 *A*는 동시 트랜잭션 *txnB*에 표시되지 않습니다.  *txnA*가 중단되면 *txnB*에서 즉시 *A*를 볼 수 있게 됩니다.
-* *TryPeekAsync* 동작은 *TryDequeueAsync*를 사용한 다음 트랜잭션을 중단하여 구현할 수 있습니다. 이러한 예는 프로그래밍 패턴 섹션에 있습니다.
+* *TryPeekAsync* 동작은 *TryDequeueAsync*를 사용한 다음 트랜잭션을 중단하여 구현할 수 있습니다. 이 동작의 예는 프로그래밍 패턴 섹션에서 찾을 수 있습니다.
 * 개수는 비트랜잭션입니다. 큐에서 요소의 수를 추측하는 데 사용할 수 있지만 특정 시점을 나타내며 의존할 수 없습니다.
-* 큐에서 제거된 항목에서 비용이 많이 드는 처리는 시스템의 성능에 영향을 줄 수 있는 장기 실행 트랜잭션을 방지하기 위해 트랜잭션이 활성화된 동안 수행하면 안됩니다.
+* 큐에 대기 중인 항목에 대 한 비용이 많이 드는 처리는 시스템에 성능에 영향을 줄 수 있는 장기 실행 트랜잭션을 방지 하기 위해 트랜잭션이 활성 상태인 동안에는 수행할 수 없습니다.
 
 ## <a name="code-snippets"></a>코드 조각
 몇 가지 코드 조각 및 예상된 출력에 대해 살펴보겠습니다. 이 섹션에서 예외 처리는 무시됩니다.
+
+### <a name="instantiation"></a>인스턴스화하고
+신뢰할 수 있는 동시 큐의 인스턴스를 만드는 것은 다른 신뢰할 수 있는 컬렉션과 유사 합니다.
+
+```csharp
+IReliableConcurrentQueue<int> queue = await this.StateManager.GetOrAddAsync<IReliableConcurrentQueue<int>>("myQueue");
+```
 
 ### <a name="enqueueasync"></a>EnqueueAsync
 다음은 예상된 출력 뒤에 EnqueueAsync를 사용하기 위한 몇 가지 코드 조각입니다.
@@ -174,7 +181,7 @@ using (var txn = this.StateManager.CreateTransaction())
 이 섹션에서는 ReliableConcurrentQueue를 사용하는 데 도움이 될 수 있는 몇 가지 프로그래밍 패턴을 살펴보겠습니다.
 
 ### <a name="batch-dequeues"></a>큐에서 제거 일괄 처리
-한 번에 큐에서 제거를 수행하는 대신 큐에서 제거를 일괄 처리하는 소비자 작업의 경우 프로그래밍 패턴을 사용하는 것이 좋습니다. 사용자는 모든 일괄 처리 또는 일괄 처리 크기 간에 지연 시간을 제한하도록 선택할 수 있습니다. 다음 코드 조각에서는 이 프로그래밍 모델을 보여줍니다.  이 예제에서 트랜잭션이 커밋된 후에 처리를 수행합니다. 따라서 처리하는 동안 오류가 발생하는 경우 처리되지 않은 항목은 처리되지 않고 손실됩니다.  또는 트랜잭션 범위 내에서 처리를 수행할 수 있지만 그러면 성능에 부정적인 영향을 주고 이미 처리된 항목을 처리해야 할 수 있습니다.
+한 번에 큐에서 제거를 수행하는 대신 큐에서 제거를 일괄 처리하는 소비자 작업의 경우 프로그래밍 패턴을 사용하는 것이 좋습니다. 사용자는 모든 일괄 처리 또는 일괄 처리 크기 간에 지연 시간을 제한하도록 선택할 수 있습니다. 다음 코드 조각에서는 이 프로그래밍 모델을 보여줍니다. 이 예에서는 트랜잭션이 커밋된 후 처리를 수행 하므로 처리 중에 오류가 발생 하는 경우 처리 되지 않은 항목은 처리 되지 않고 손실 됩니다.  또는 트랜잭션 범위 내에서 처리를 수행할 수 있지만 성능에 부정적인 영향을 줄 수 있으며 이미 처리 된 항목을 처리 해야 합니다.
 
 ```
 int batchSize = 5;
@@ -268,9 +275,9 @@ while(!cancellationToken.IsCancellationRequested)
 ```
 
 ### <a name="best-effort-drain"></a>최상의 드레이닝
-데이터 구조의 동시 특성으로 인해 큐의 드레이닝을 보장할 수 없습니다.  큐에서 사용자 작업이 진행되지 않는 경우더라도 TryDequeueAsync에 대한 특정 호출은 이전에 큐에 넣고 커밋된 항목을 반환하지 않을 수 있습니다.  큐에 넣은 항목은 *결국* 큐에서 제거된다고 표시되지만 모든 생산자가 중지되고 새 큐에 넣기 작업이 허용되는 경우에도 독립 소비자는 대역외 통신 메커니즘 없이 큐가 안정적인 상태에 도달했음을 알 수 없습니다. 따라서 드레이닝 작업은 아래와 같이 구현될 때 가장 효율적입니다.
+데이터 구조의 동시 특성으로 인해 큐의 드레이닝을 보장할 수 없습니다.  큐에 대 한 사용자 작업이 진행 되 고 있지 않은 경우에도 TryDequeueAsync에 대 한 특정 호출은 이전에 큐에 배치 되 고 커밋된 항목을 반환 하지 않을 수 있습니다.  큐에 넣은 항목은 *결국* 큐에서 제거된다고 표시되지만 모든 생산자가 중지되고 새 큐에 넣기 작업이 허용되는 경우에도 독립 소비자는 대역외 통신 메커니즘 없이 큐가 안정적인 상태에 도달했음을 알 수 없습니다. 따라서 드레이닝 작업은 아래와 같이 구현될 때 가장 효율적입니다.
 
-사용자는 큐를 비우기 전에 모든 추가 생산자와 소비자 작업을 중지하고 실행 중인 모든 트랜잭션을 커밋하거나 중단할 때까지 기다려야 합니다.  사용자가 예상된 큐의 항목 수를 아는 경우 모든 항목이 큐에서 제거되었음을 알리는 알림을 설정할 수 있습니다.
+사용자는 큐를 비우기 전에 모든 추가 생산자와 소비자 작업을 중지하고 실행 중인 모든 트랜잭션을 커밋하거나 중단할 때까지 기다려야 합니다.  사용자가 큐에서 예상 되는 항목 수를 알고 있는 경우 모든 항목이 큐에서 제거 되었음을 알리는 알림을 설정할 수 있습니다.
 
 ```
 int numItemsDequeued;
@@ -306,7 +313,7 @@ do
 } while (ret.HasValue);
 ```
 
-### <a name="peek"></a>보기
+### <a name="peek"></a>피킹
 ReliableConcurrentQueue는 *TryPeekAsync* API를 제공하지 않습니다. 사용자는 *TryDequeueAsync*를 사용한 다음 트랜잭션을 중단하여 보기 의미 체계를 가져올 수 있습니다. 이 예제에서는 큐에서 제거는 항목의 값이 *10*보다 큰 경우에만 처리됩니다.
 
 ```

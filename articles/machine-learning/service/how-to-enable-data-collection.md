@@ -11,14 +11,17 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: d836b600a39b73f60c0847c5a9642f396fb70d17
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 3c747f25b92d9f165bfeb4468a0e263f102976f9
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002851"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350579"
 ---
 # <a name="collect-data-for-models-in-production"></a>프로덕션 환경에서 모델용 데이터 수집
+
+>[!IMPORTANT]
+> 이 SDK는 곧 사용 중지 되며 [Application Insights를 사용 하 여 간소화 된 데이터 모니터링](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights)으로 대체 될 예정입니다. 
 
 이 문서에서는 azure Kubernetes Cluster (AKS)에 배포한 Azure Machine Learning에서 Azure Blob 저장소로 입력 모델 데이터를 수집 하는 방법을 배울 수 있습니다. 
 
@@ -48,9 +51,9 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 을 사용해 보세요.
+- Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 - Azure Machine Learning 작업 영역, 스크립트가 포함된 로컬 디렉터리 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. [개발 환경 구성 방법](how-to-configure-environment.md) 문서를 사용하여 이러한 필수 구성 요소를 충족하는 방법을 알아보세요.
 

@@ -1,0 +1,54 @@
+---
+title: Azure Cosmos DB 쿼리 언어의 CONCAT
+description: Azure Cosmos DB의 SQL 시스템 함수 CONCAT에 대해 알아봅니다.
+author: ginamr
+ms.service: cosmos-db
+ms.topic: conceptual
+ms.date: 09/13/2019
+ms.author: girobins
+ms.custom: query-reference
+ms.openlocfilehash: 1e61d61a3d64ca7d7808619159e4dfc8e8b33d68
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71351270"
+---
+# <a name="concat-azure-cosmos-db"></a>CONCAT (Azure Cosmos DB)
+ 둘 이상의 문자열 값을 연결한 결과인 문자열을 반환합니다.  
+  
+## <a name="syntax"></a>구문
+  
+```sql
+CONCAT(<str_expr1>, <str_expr2> [, <str_exprN>])  
+```  
+  
+## <a name="arguments"></a>인수
+  
+*str_expr*  
+   다른 값에 연결 하는 문자열 식입니다. @No__t-0 함수에는 두 개 이상의 *str_expr* 인수가 필요 합니다.  
+  
+## <a name="return-types"></a>반환 유형
+  
+  문자열 식을 반환합니다.  
+  
+## <a name="examples"></a>예
+  
+  다음 예제에서는 지정된 값의 연결된 문자열을 반환합니다.  
+  
+```sql
+SELECT CONCAT("abc", "def") AS concat  
+```  
+  
+ 결과 집합은 다음과 같습니다.  
+  
+```json
+[{"concat": "abcdef"}]  
+```  
+  
+
+## <a name="next-steps"></a>다음 단계
+
+- [문자열 함수 Azure Cosmos DB](sql-query-string-functions.md)
+- [시스템 함수 Azure Cosmos DB](sql-query-system-functions.md)
+- [Azure Cosmos DB 소개](introduction.md)

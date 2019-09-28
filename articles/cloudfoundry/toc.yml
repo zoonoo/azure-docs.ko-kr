@@ -11,8 +11,6 @@
       href: /azure/cloudfoundry/create-cloud-foundry-on-azure
     - name: Azure에 CF 앱 배포
       href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
-    - name: PCF에 애플리케이션과 함께 OSBA 사용
-      href: /azure/cloudfoundry/use-osba-pcf-app
     - name: Azure의 CloudFoundry
       href: /azure/virtual-machines/linux/cloudfoundry-get-started
     - name: CF OMS 노즐 배포

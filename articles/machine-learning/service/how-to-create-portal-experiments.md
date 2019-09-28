@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: 3a47977f2589227347582dc6fcaff25120e380d7
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 45207eb1cdc62f2468d8b0c052723337c18d5021
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034821"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350559"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>Azure Machine Learning의 작업 영역 방문 페이지 (미리 보기)를 사용 하 여 자동화 된 machine learning 실험 만들기, 탐색 및 배포
 
@@ -24,20 +24,19 @@ ms.locfileid: "71034821"
 
  더 많은 코드 기반 환경을 선호 하는 경우 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용 하 여 [Python에서 자동화 된 machine learning 실험을 구성할](how-to-configure-auto-train.md) 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 을 사용해 보세요.
+* Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 * Azure Machine Learning 작업 영역 [Azure Machine Learning 작업 영역 만들기를](how-to-manage-workspace.md)참조 하세요.
 
 ## <a name="get-started"></a>시작
 
-
 1. [작업 영역 방문 페이지](https://ml.azure.com/workspaceportal/)에 로그인 합니다. 
 
 1. 구독 및 작업 영역을 선택 합니다. 
 
-1. 왼쪽 창으로 이동 합니다. **제작** 섹션에서 **자동화 된 ML** 을 선택 합니다.
+1. 왼쪽 창으로 이동 합니다. **작성자** 섹션에서 **자동화 된 ML** 을 선택 합니다.
 
 [![Azure Portal 탐색 창](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
@@ -55,11 +54,11 @@ ms.locfileid: "71034821"
 
 1. **새 계산 만들기** 를 선택 하 여이 실험의 계산 컨텍스트를 구성 합니다.
 
-    필드|Description
+    필드|설명
     ---|---
     컴퓨팅 이름| 컴퓨팅 컨텍스트를 식별하는 고유한 이름을 입력합니다.
     가상 머신 크기| 컴퓨팅에 사용할 가상 머신 크기를 선택합니다.
-    추가 설정| *최소 노드*: 계산의 최소 노드 수를 입력 합니다. AML 계산에 대 한 최소 노드 수는 0입니다. 데이터 프로 파일링을 사용 하도록 설정 하려면 하나 이상의 노드가 있어야 합니다. <br> *최대 노드*: 계산의 최대 노드 수를 입력 합니다. 기본값은 AML 계산에 대 한 6 노드입니다.
+    최소/최대 노드 (고급 설정)| 데이터를 프로 파일링 하려면 하나 이상의 노드를 지정 해야 합니다. 계산의 최대 노드 수를 입력 합니다. 기본값은 AML 계산에 대 한 6 노드입니다.
     
     **만들기**를 선택합니다. 새 계산을 만들려면 몇 분 정도 걸릴 수 있습니다.
 
@@ -75,7 +74,7 @@ ms.locfileid: "71034821"
 
     1. 로컬 계산의 파일에서 새 데이터 집합을 만들려면 **찾아보기** 를 선택한 다음 파일을 선택 합니다. 
 
-    1. 데이터 집합에 고유한 이름을 지정 하 고 설명 (선택 사항)을 제공 합니다. 
+    1. 데이터 세트에 고유 이름을 지정하고 선택적 설명을 입력합니다. 
 
     1. **다음** 을 선택 하 여 작업 영역으로 자동으로 만들어진 기본 저장소 컨테이너에 업로드 하거나 실험에 사용할 저장소 컨테이너를 선택 합니다. 
 
@@ -106,10 +105,10 @@ ms.locfileid: "71034821"
 
 1. 필드 고급 설정: 학습 작업을 보다 효율적으로 제어 하는 데 사용할 수 있는 추가 설정입니다. 그렇지 않으면 실험 선택 및 데이터를 기반으로 기본값이 적용 됩니다. 
 
-    고급 설정|Description
+    고급 설정|설명
     ------|------
     기본 메트릭| 모델의 점수를 매기는 데 사용 되는 기본 메트릭입니다. [모델 메트릭에 대해 자세히 알아보세요](how-to-configure-auto-train.md#explore-model-metrics).
-    종료 기준| 이러한 조건 중 하나라도 충족 되 면 학습 작업은 전체 완료 전에 종료 됩니다. <br> *학습 작업 시간(분)* : 학습 작업을 실행할 수 있는 기간입니다.  <br> *최대 반복 횟수*: 학습 작업에서 테스트할 최대 파이프라인 (반복) 수입니다. 작업은 지정 된 반복 횟수를 초과 하 여 실행 되지 않습니다. <br> *메트릭 점수 임계값*:  모든 파이프라인에 대 한 최소 메트릭 점수입니다. 이렇게 하면 정의 된 대상 메트릭이 있는 경우 필요한 것 보다 학습 작업에 더 많은 시간이 걸리지 않습니다.
+    종료 기준| 이러한 조건 중 하나라도 충족 되 면 학습 작업이 중지 됩니다. <br> *학습 작업 시간(분)* : 학습 작업을 실행할 수 있는 기간입니다.  <br> *최대 반복 횟수*: 학습 작업에서 테스트할 최대 파이프라인 (반복) 수입니다. 작업은 지정 된 반복 횟수를 초과 하 여 실행 되지 않습니다. <br> *메트릭 점수 임계값*:  모든 파이프라인에 대 한 최소 메트릭 점수입니다. 이렇게 하면 정의 된 대상 메트릭이 있는 경우 필요한 것 보다 학습 작업에 더 많은 시간이 걸리지 않습니다.
     전처리| 자동화 된 machine learning에서 수행 하는 전처리를 사용 하거나 사용 하지 않도록 설정 하려면 선택 합니다. 전처리는 자동 데이터 정리, 준비 및 변환을 포함 하 여 가상 기능을 생성 합니다. [전처리에 대해 자세히 알아보세요](#preprocess).
     유효성 검사| 학습 작업에서 사용할 교차 유효성 검사 옵션 중 하나를 선택 합니다. [교차 유효성 검사에 대해 자세히 알아보세요](how-to-configure-auto-train.md).
     동시성| 다중 코어 계산을 사용할 때 사용할 다중 코어 제한을 선택 합니다.
@@ -124,7 +123,7 @@ ms.locfileid: "71034821"
 >[!NOTE]
 > 관련이 없는 형식의 기능에 대해 빈 항목이 표시 됩니다.
 
-통계|Description
+통계|설명
 ------|------
 기능| 요약 되는 열의 이름입니다.
 프로필| 유추 된 형식을 기반으로 하는 인라인 시각화입니다. 예를 들어 문자열, 부울 및 날짜에는 값이 포함 되 고, decimals (숫자)에는 근사 히스토그램이 있습니다. 이를 통해 데이터 배포를 빠르게 파악할 수 있습니다.
@@ -134,11 +133,11 @@ ms.locfileid: "71034821"
 최대| 열의 최대값입니다. 
 개수| 열에서 누락 되거나 누락 된 항목의 총 수입니다.
 누락되지 않은 수| 열에서 누락 된 항목의 수입니다. 빈 문자열 및 오류는 값으로 처리 되므로 "누락 된 개수"에 영향을 주지 않습니다.
-변 위치| 각 변 위치의 근사 값을 통해 데이터의 분포를 파악할 수 있습니다.
+분위수| 각 변 위치의 근사 값을 통해 데이터의 분포를 파악할 수 있습니다.
 평균| 열의 산술 평균 또는 평균입니다.
 표준 편차| 이 열의 데이터에 대 한 분산 또는 변형의 크기를 측정 합니다.
-Variance| 이 열의 데이터에 대 한 분포의 평균 값을 측정 한 값입니다. 
-왜곡도| 이 열의 데이터가 정규 분포에서 어떻게 다른 정도를 측정 합니다.
+분산| 이 열의 데이터에 대 한 분포의 평균 값을 측정 한 값입니다. 
+분포| 이 열의 데이터가 정규 분포에서 어떻게 다른 정도를 측정 합니다.
 첨도| 이 열의 데이터가 정규 분포와 비교 되는 정도를 측정 합니다.
 
 <a name="preprocess"></a>

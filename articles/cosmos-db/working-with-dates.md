@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 09/25/2019
-ms.openlocfilehash: ea7880d051303afad01ad8ba4a2d68d7331c6a89
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 9676642e96d437965fef041930b8223241cadeaa
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71291139"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71349032"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Azure Cosmos DB에서 날짜 사용
 Azure Cosmos DB는 네이티브 [JSON](https://www.json.org) 데이터 모델을 통해 스키마 유연성과 풍부한 인덱싱을 제공합니다. 데이터베이스, 컨테이너, 문서 및 저장 프로시저를 포함한 모든 Azure Cosmos DB 리소스는 모델링되어 JSON 문서로 저장됩니다. 이식 가능성을 위한 요구 사항인 JSON(및 Azure Cosmos DB)은 다음과 같은 기본 형식만 지원합니다. String, Number, Boolean, Array, Object 및 Null 그러나 JSON은 유연하므로 개발자와 프레임워크는 이러한 기본형을 사용하여 개체 또는 배열로 구성하여 보다 복잡한 형식을 나타낼 수 있습니다. 
@@ -20,7 +20,9 @@ Azure Cosmos DB는 네이티브 [JSON](https://www.json.org) 데이터 모델을
 
 ## <a name="storing-datetimes"></a>날짜/시간 저장
 
-Azure Cosmos DB은 DateTime 형식을 포함 하지 않는 JSON 형식으로 범위가 지정 됩니다. 따라서 Azure Cosmos DB에서 날짜를 문자열로 저장 해야 합니다. 현재 Azure Cosmos DB는 날짜 지역화를 지원 하지 않습니다. Azure Cosmos DB `YYYY-MM-DDThh:mm:ss.sssZ` 의 DateTime 문자열에 권장 되는 형식은 ISO 8601 UTC 표준을 따릅니다. 이 형식의 문자열 형식을 지정 하면 날짜를 사전순으로 정렬할 수 있습니다. 비 UTC 날짜를 처리 하는 논리는 클라이언트에서 정의 해야 합니다. 대부분의 애플리케이션에서는 다음과 같은 이유로 DateTime의 기본 문자열 표현을 사용할 수 있습니다.
+Azure Cosmos DB는-string, number, boolean, null, array, object 등의 JSON 형식을 지원 합니다. DateTime 형식을 직접 지원 하지 않습니다. 현재 Azure Cosmos DB는 날짜 지역화를 지원 하지 않습니다. 따라서 DateTimes를 문자열로 저장 해야 합니다. Azure Cosmos DB `YYYY-MM-DDThh:mm:ss.sssZ` 의 DateTime 문자열에 권장 되는 형식은 ISO 8601 UTC 표준을 따릅니다. Azure Cosmos DB의 모든 날짜를 UTC로 저장 하는 것이 좋습니다. 날짜 문자열을이 형식으로 변환 하면 날짜를 사전순으로 정렬할 수 있습니다. 비 UTC 날짜를 저장 한 경우에는 클라이언트 쪽에서 논리를 처리 해야 합니다. 현지 DateTime을 UTC로 변환 하려면 오프셋을 JSON에서 속성으로 인식/저장 해야 하며 클라이언트는 오프셋을 사용 하 여 UTC DateTime 값을 계산할 수 있습니다.
+
+대부분의 애플리케이션에서는 다음과 같은 이유로 DateTime의 기본 문자열 표현을 사용할 수 있습니다.
 
 * 문자열을 비교할 수 있으며, 문자열로 변환할 때 DateTime 값의 상대적인 순서는 유지됩니다. 
 * 이 접근 방식에는 JSON 변환에 대해 사용자 지정 코드 또는 속성이 필요하지 않습니다.
