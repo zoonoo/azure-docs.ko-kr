@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
-ms.openlocfilehash: da75ca43a2576e3214d4b67f9eb61c7bad3bd5cc
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: c015b1afbc61e1501e656aaa480ee2a4e19ba094
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073524"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672799"
 ---
 # <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>Azure API Management에서 새 개발자 포털 액세스 및 사용자 지정
 
@@ -39,7 +39,7 @@ ms.locfileid: "70073524"
 
 개발자 포털은 다음과 같은 두 가지 방법으로 빌드할 수 있습니다.
 
-- **관리 버전** -포털을 편집 하 고 사용자 지정 합니다 .이 포털은 API Management 인스턴스에 빌드되고 URL `<your-api-management-instance-name>.developer.azure-api.net`을 통해 액세스할 수 있습니다.
+- **관리 버전** -포털을 편집 하 고 사용자 지정 합니다 .이 포털은 API Management 인스턴스에 기본 제공 되며 URL `<your-api-management-instance-name>.developer.azure-api.net`을 통해 액세스할 수 있습니다.
 - **자체 호스팅 버전** -API Management 인스턴스 외부에서 포털을 배포 하 고 자체 호스트 합니다. 이 방법을 사용 하면 포털의 코드 베이스를 편집 하 고 제공 된 핵심 기능을 확장할 수 있습니다. 세부 정보 및 지침은 [포털의 소스 코드를 사용 하 여 GitHub 리포지토리][1]를 참조 하세요.
 
 ## <a name="managed-access"></a>포털의 관리 되는 버전에 액세스
@@ -79,7 +79,7 @@ ms.locfileid: "70073524"
 
 ### <a name="ive-found-bugs-andor-id-like-to-request-a-feature"></a>버그를 발견 했거나 기능을 요청 하 고 싶습니다.
 
-잘하셨습니다. 사용자 의견을 제공 하거나 기능 요청을 제출 하거나 [GitHub 리포지토리의 문제 섹션](https://github.com/Azure/api-management-developer-portal/issues)을 통해 버그 보고서를 제출할 수 있습니다. 여기서는 `community` 레이블로 표시 된 문제에 대 한 의견을 보내주셔서 감사 합니다.
+잘하셨습니다. 사용자 의견을 제공 하거나 기능 요청을 제출 하거나 [GitHub 리포지토리의 문제 섹션](https://github.com/Azure/api-management-developer-portal/issues)을 통해 버그 보고서를 제출할 수 있습니다. 여기서는 `community` 레이블로 표시 된 문제에 대 한 피드백을 주셔서 감사 합니다.
 
 ### <a name="i-want-to-move-the-content-of-the-new-portal-between-environments-how-can-i-do-that-and-do-i-need-to-go-with-the-self-hosted-version"></a>환경 간에 새 포털의 콘텐츠를 이동 하려고 합니다. 이 작업을 수행 하는 방법 및 자체 호스팅 버전을 사용 하려면 어떻게 해야 하나요?
 
@@ -87,13 +87,21 @@ ms.locfileid: "70073524"
 
 API Management DevOps resource kit를 사용 하 여이 프로세스를 정렬 하는 작업을 진행 중입니다.
 
+### <a name="what-do-i-need-to-configure-for-the-new-portal-to-work-in-my-api-management-service-in-vnet"></a>새 포털이 VNET의 내 API Management 서비스에서 작동 하도록 구성 하려면 어떻게 해야 하나요?
+
+새 개발자 포털이 미리 보기로 제공 되는 동안에는 미국 서 부 지역에서 Azure storage 서비스에 대 한 연결을 허용 하 여 VNET의 API Management 서비스에서 관리 되는 포털이 작동 하도록 해야 합니다. 자세한 내용은 [저장소 설명서](../storage/common/storage-network-security.md#available-virtual-network-regions)에 제공 되어 있습니다.
+
+새 포털이 출시 된 후에는 위의 설정이 더 이상 필요 하지 않습니다.
+
+포털의 자체 호스팅 버전에는 설정에 따라 추가 연결 구성이 필요할 수 있습니다.
+
 ### <a name="how-can-i-select-a-layout-when-creating-a-new-page"></a>새 *페이지*를 만들 때 *레이아웃* 을 선택 하려면 어떻게 해야 하나요?
 
-*레이아웃* 은 url 템플릿과 *페이지* url을 일치 시켜 페이지에 적용 됩니다. 예를 들어 , URL 템플릿이 `/wiki/*` 인 레이아웃은 `/wiki/` 세그먼트가 있는 모든 `/wiki/getting-started` *페이지* (, `/wiki/styles`, 등)에 적용 됩니다.
+*레이아웃* 은 url 템플릿과 *페이지* url을 일치 시켜 페이지에 적용 됩니다. 예를 들어 URL 템플릿이 `/wiki/*` 인 *레이아웃* 은 `/wiki/getting-started`, `/wiki/styles` 등 `/wiki/` 세그먼트가 있는 모든 *페이지* 에 적용 됩니다.
 
 ### <a name="why-doesnt-the-interactive-developer-console-work"></a>대화형 개발자 콘솔이 작동 하지 않는 이유는 무엇 인가요?
 
-CORS와 관련 된 것일 수 있습니다. 대화형 콘솔은 브라우저에서 클라이언트 쪽 API 요청을 만듭니다. API에 [cors 정책을](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) 추가 하 여 cors 문제를 해결할 수 있습니다. 모든 매개 변수를 수동으로 지정할 수 있습니다 (예: 다른 이름으로 https://contoso.com) 원본 사용 또는 와일드 `*` 카드 값 사용).
+CORS와 관련 된 것일 수 있습니다. 대화형 콘솔은 브라우저에서 클라이언트 쪽 API 요청을 만듭니다. API에 [cors 정책을](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) 추가 하 여 cors 문제를 해결할 수 있습니다. 모든 매개 변수를 수동으로 지정할 수 있습니다. 예를 들어 https://contoso.com) 으로 시작 하거나 와일드 카드 `*` 값을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

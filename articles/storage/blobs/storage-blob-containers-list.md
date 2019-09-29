@@ -4,16 +4,16 @@ description: .NET 클라이언트 라이브러리를 사용 하 여 Azure Storag
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: e0197d59cdadd5e9462daf879d915ac2520bc149
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 06454798deb4a5bc5064e28535a837f73c083e1c
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985650"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671294"
 ---
 # <a name="list-blob-containers-with-net"></a>.NET을 사용 하 여 blob 컨테이너 나열
 

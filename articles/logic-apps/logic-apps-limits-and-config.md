@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 9d89bc2318049f068b2bab8c0345605458678b41
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 463cd350eb3c878a7d080cdfa7c8e0fabffd1a93
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350687"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672680"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -264,21 +264,27 @@ ISE에 포함 된 통합 계정 외에 추가 하는 통합 계정에 추가 비
 
 ## <a name="firewall-configuration-ip-addresses"></a>방화벽 구성: IP 주소
 
-동일한 지역의 모든 논리 앱은 동일한 IP 주소 범위를 사용합니다. 논리 앱에서 [http](../connectors/connectors-native-http.md), [http + SWAGGER](../connectors/connectors-native-http-swagger.md)및 기타 http 요청을 사용 하 여 직접 수행 하는 호출을 지원 하려면 Logic Apps에서 사용 하는 *모든* [인바운드](#inbound) *및* [아웃 바운드](#outbound) IP 주소를 사용 하 여 방화벽을 설정 합니다. 서비스, 논리 앱이 있는 지역을 기반으로 합니다. 이러한 주소는 이 섹션의 **인바운드** 및 **아웃바운드** 제목 아래에 표시되고 지역별로 정렬됩니다.
+들어오고 나가는 호출에 사용 하는 Azure Logic Apps IP 주소는 논리 앱이 있는 지역에 따라 달라 집니다. 동일한 지역에 있는 *모든* 논리 앱은 동일한 IP 주소 범위를 사용 합니다.
 
-[Microsoft 관리되는 커넥터](../connectors/apis-list.md)가 호출하도록 지원하려면 논리 앱이 있는 지역에 따라 모든 [아웃바운드](#outbound) IP 주소가 포함되도록 방화벽을 설정합니다. 이러한 주소는 이 섹션의 **아웃바운드** 제목 아래에 표시되고 지역별로 정렬됩니다. ISE (integration service environment)에서 실행 되는 논리 앱의 경우 [이러한 포트를 열어야](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports)합니다.
+> [!NOTE]
+> **Http** 및 **Http + openapi** 요청과 같은 일부 Microsoft Flow 호출은 Azure Logic Apps 서비스를 통해 직접 이동 하 여 여기에 나열 된 IP 주소에서 제공 됩니다. Microsoft Flow에서 사용 하는 IP 주소에 대 한 자세한 내용은 [Microsoft Flow의 제한 및 구성](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration)을 참조 하세요.
 
-사용자 지정 커넥터, [Azure Government](../azure-government/documentation-government-overview.md)및 [Azure 중국 21vianet](https://docs.microsoft.com/azure/china/)의 경우 고정 또는 예약 된 IP 주소를 사용할 수 없습니다.
+* 논리 앱에서 [http](../connectors/connectors-native-http.md), [http + SWAGGER](../connectors/connectors-native-http-swagger.md)및 기타 http 요청을 사용 하 여 직접 수행 하는 호출을 지원 하려면 Logic Apps에서 사용 하는 *모든* [인바운드](#inbound) *및* [아웃 바운드](#outbound) IP 주소를 사용 하 여 방화벽을 설정 합니다. 서비스, 논리 앱이 있는 지역을 기반으로 합니다. 이러한 주소는 이 섹션의 **인바운드** 및 **아웃바운드** 제목 아래에 표시되고 지역별로 정렬됩니다.
+
+* [Microsoft 관리되는 커넥터](../connectors/apis-list.md)가 호출하도록 지원하려면 논리 앱이 있는 지역에 따라 모든 [아웃바운드](#outbound) IP 주소가 포함되도록 방화벽을 설정합니다. 이러한 주소는 이 섹션의 **아웃바운드** 제목 아래에 표시되고 지역별로 정렬됩니다. 
+
+* ISE (integration service environment)에서 실행 되는 논리 앱의 경우 [이러한 포트를 열어야](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports)합니다.
+
+* 논리 앱은 [방화벽 규칙이](https://docs.microsoft.com/azure/storage/common/storage-network-security) 있고 동일한 지역에 있는 Azure storage 계정에 직접 액세스할 수 없습니다. 그러나 공용 IP 주소는 지역 간에 통신 하는 데 사용 되기 때문에 논리 앱은 다른 지역에 있는 Azure storage 계정에 액세스할 수 있습니다. 또는 다음 옵션 중 하나를 사용할 수 있습니다.
+
+  * [통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. Azure Virtual Network의 리소스에 연결할 수 있습니다.
+
+  * API Management를 이미 사용 중인 경우 이 시나리오에 이 서비스를 사용할 수 있습니다. 자세한 내용은 [간단한 엔터프라이즈 통합 아키텍처](https://aka.ms/aisarch)를 참조하세요.
+
+* 사용자 지정 커넥터, [Azure Government](../azure-government/documentation-government-overview.md)및 [Azure 중국 21vianet](https://docs.microsoft.com/azure/china/)의 경우 고정 또는 예약 된 IP 주소를 사용할 수 없습니다.
 
 > [!IMPORTANT]
->
-> 기존 구성이 있는 경우 논리 앱이 있는 지역에 대한 다음 목록의 IP 주소를 포함하여 일치하도록 **2018년 9월 1일 이전까지 가능한 한 빨리** 업데이트하세요.
-
-Logic Apps는 방화벽을 통해 Azure Storage 계정에 직접 연결하도록 지원하지 않습니다. 이러한 스토리지 계정에 액세스하려면 다음 옵션 중 하나를 사용합니다.
-
-* [통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. Azure Virtual Network의 리소스에 연결할 수 있습니다.
-
-* API Management를 이미 사용 중인 경우 이 시나리오에 이 서비스를 사용할 수 있습니다. 자세한 내용은 [간단한 엔터프라이즈 통합 아키텍처](https://aka.ms/aisarch)를 참조하세요.
+> 2018 년 9 월 1 일 이전에 설정한 방화벽 구성을 사용 하는 경우 논리 앱이 있는 지역에 대해 이러한 목록의 현재 IP 주소와 일치 하는지 확인 합니다.
 
 <a name="inbound"></a>
 

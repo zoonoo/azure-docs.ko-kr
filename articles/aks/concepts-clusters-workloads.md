@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: 6120eee5bbd2f385fa8e76da093f7fadccb4904e
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 3792eed170d3e3e1cdd267c0c88d2d2d6c520733
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348979"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672805"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념
 
@@ -76,39 +76,34 @@ AKS에서 클러스터의 노드에 대한 VM 이미지는 현재 Ubuntu Linux �
 
 ### <a name="resource-reservations"></a>리소스 예약
 
-노드 리소스는 AKS에서 클러스터의 일부로 노드 기능을 수행 하는 데 활용 됩니다. 이렇게 하면 AKS에서 사용할 때 노드의 총 리소스와 할당 된 리소스 사이에 discrepency를 만들 수 있습니다. 이는 배포 된 pod에 대 한 요청 및 제한을 설정할 때 주의 해야 합니다.
+노드 리소스는 AKS에서 클러스터의 일부로 노드 기능을 수행 하는 데 활용 됩니다. 이렇게 하면 AKS에서 사용할 때 노드의 총 리소스와 할당 된 리소스 사이에 discrepency를 만들 수 있습니다. 이는 사용자가 배포한 pod에 대 한 요청 및 제한을 설정할 때 주의 해야 합니다.
 
 노드의 할당 된 리소스를 찾으려면 다음을 실행 합니다.
 ```kubectl
-kubectl describe node [NODE_NAME] | grep Allocatable -B 4 -A 3
+kubectl describe node [NODE_NAME]
 
 ```
 
-노드 성능과 기능을 유지 관리 하기 위해 다음 계산 리소스는 각 노드에 예약 됩니다. 노드가 리소스에서 더 크게 증가 함에 따라 관리를 필요로 하는 pod의 사용자 배포로 인해 리소스 예약이 증가 합니다.
+노드 성능 및 기능을 유지 관리 하기 위해 리소스는 AKS 별로 각 노드에 예약 됩니다. 노드가 리소스에서 더 크게 증가 함에 따라 관리를 필요로 하는 pod의 사용자 배포로 인해 리소스 예약이 증가 합니다.
 
 >[!NOTE]
 > OMS와 같은 추가 기능을 사용 하면 추가 노드 리소스가 사용 됩니다.
 
-- **CPU** -노드 유형에 따라 달라 집니다.
+- **Cpu** 예약 cpu는 추가 기능 실행으로 인해 할당 가능한 cpu를 줄일 수 있는 노드 형식 및 클러스터 구성에 따라 달라 집니다.
 
 | 호스트의 CPU 코어 | 1 | 2 | 4 | 8 | 16 | 32|64|
 |---|---|---|---|---|---|---|---|
-|Kubelet (millicores)|60|100|140|180|260|420|740|
+|Kube-예약 (millicores)|60|100|140|180|260|420|740|
 
-- **메모리** -사용 가능한 메모리의 20%, 최대 최대 4 GiB
+- **메모리** 에 대 한 메모리 예약이 프로그레시브 속도로 이어집니다.
+  - 처음 4gb 메모리의 25%
+  - 다음 4gb 메모리의 20% (최대 8gb)
+  - 다음 8gb 메모리의 10% (최대 16gb)
+  - 다음 112 g b 메모리의 6% (최대 128 GB)
+  - 128 GB 이상의 메모리 중 2%
 
 이러한 예약은 애플리케이션에 사용 가능한 CPU 및 메모리 양이 노드 자체에 포함된 양보다 적게 표시될 수 있음을 의미합니다. 실행하는 애플리케이션 수로 인해 리소스 제약 조건이 있는 경우 이러한 예약을 통해 핵심 Kubernetes 구성 요소에 사용 가능한 CPU 및 메모리를 유지할 수 있습니다. 리소스 예약은 변경할 수 없습니다.
 
-예:
-
-- **표준 DS2 v2** 노드 크기에는 2개의 vCPU 및 7GiB 메모리가 포함됩니다.
-    - 7GiB 메모리의 20%는 1.4GiB입니다.
-    - 노드에 사용 가능한 총 메모리는 *(7 - 1.4) = 5.6GiB*입니다.
-    
-- **표준 E4s v3** 노드 크기에는 4개의 vCPU 및 32GiB 메모리가 포함됩니다.
-    - 32GiB 메모리의 20%는 6.4GiB이지만 AKS에서는 최대 4GiB만 예약합니다.
-    - 노드에 사용 가능한 총 메모리는 *(32 - 4) = 28GiB*입니다.
-    
 기본 노드 OS에는 자체 핵심 기능을 완료하는 데 필요한 소량의 CPU 및 메모리 리소스도 필요합니다.
 
 관련 모범 사례는 [AKS의 기본 scheduler 기능에 대 한 모범 사례][operator-best-practices-scheduler]를 참조 하세요.

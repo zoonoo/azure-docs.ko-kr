@@ -4,17 +4,17 @@ description: Azure CLI 및 PowerShell은 Azure Storage blob 및 큐 데이터에
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 32b3f113658a20790e0f149739a882004f12fe21
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: e1c7f4531dee8673cc5b6dfe675e4c793144931e
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640821"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671096"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Azure AD 자격 증명을 사용 하 여 Azure CLI 또는 PowerShell 명령을 실행 하 여 blob 또는 큐 데이터에 액세스
 
@@ -82,7 +82,7 @@ Azure CLI는 blob `--auth-mode` 및 큐 데이터 작업에 대 한 매개 변�
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure PowerShell를 사용 하 여 로그인 하 고 Azure AD 자격 증명을 사용 하 여 Azure Storage에 대해 후속 작업을 실행 하려면 저장소 계정을 참조 하는 저장소 `-UseConnectedAccount` 컨텍스트를 만들고 매개 변수를 포함 합니다.
+Azure PowerShell를 사용 하 여 로그인 하 고 Azure AD 자격 증명을 사용 하 여 Azure Storage에 대해 후속 작업을 실행 하려면 저장소 계정을 참조 하는 저장소 컨텍스트를 만들고 `-UseConnectedAccount` 매개 변수를 포함 합니다.
 
 다음 예제에서는 Azure AD 자격 증명을 사용 하 여 Azure PowerShell에서 새 저장소 계정으로 컨테이너를 만드는 방법을 보여 줍니다. 꺾쇠 괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
 

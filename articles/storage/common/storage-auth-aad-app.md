@@ -4,16 +4,16 @@ description: Azure Active Directory를 사용 하 여 클라이언트 응용 프
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5138fb6338f4ade322414619f8785d77550a91d1
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 0ff2d9b8c0ca891b25dfcd6bf1f19d1541fd1541
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986797"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673229"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-from-a-client-application"></a>클라이언트 응용 프로그램에서 Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
 
@@ -279,7 +279,7 @@ CloudBlockBlob blob = new CloudBlockBlob(
 
 ### <a name="enable-implicit-grant-flow"></a>암시적 허용 흐름 사용
 
-샘플을 실행 하려면 앱 등록에 대 한 암시적 권한 부여 흐름을 구성 해야 할 수 있습니다. 다음 단계를 수행하십시오.
+샘플을 실행 하려면 앱 등록에 대 한 암시적 권한 부여 흐름을 구성 해야 할 수 있습니다. 다음 단계를 수행하세요.
 
 1. Azure Portal에서 앱 등록으로 이동 합니다.
 1. 관리 섹션에서 **인증** 설정을 선택 합니다.

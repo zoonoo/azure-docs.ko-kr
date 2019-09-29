@@ -3,17 +3,17 @@ title: GZRS (지역 중복 저장소) (미리 보기)를 사용 하 여 항상 �
 description: GZRS (지역 중복 저장소)는 GRS (지역 중복 저장소)에서 제공 하는 지역 가동 중단 으로부터 보호 하는 ZRS (영역 중복 저장소)의 고가용성을 결혼 합니다. GZRS 저장소 계정의 데이터는 주 지역의 Azure 가용성 영역에 복제 되 고 지역 재해 로부터 보호 하기 위해 보조 지역에도 복제 됩니다.
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 321866279e076bfa77d1892e64deaf4b16c08366
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 737bad504519a2ec7eee9764593245e0fee28cc3
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300640"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673063"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>GZRS (지역 중복 저장소) (미리 보기)를 사용 하 여 항상 사용 가능한 Azure Storage 응용 프로그램 빌드
 
@@ -55,7 +55,7 @@ GZRS 또는 RA GZRS를 사용 하는 저장소 계정에 데이터를 쓰면 해
 
 저장소 계정에 대해 GZRS를 사용 하도록 설정 하면 저장소 계정에 대 한 기본 끝점 뿐만 아니라 보조 끝점에서 데이터를 읽을 수 있습니다. 보조 끝점은 계정 이름에 접미사 *-보조* 를 추가 합니다. 예를 들어 Blob service `myaccount.blob.core.windows.net`의 기본 끝점이 인 경우 보조 끝점은 `myaccount-secondary.blob.core.windows.net`입니다. 스토리지 계정에 대한 액세스 키는 기본 및 보조 엔드포인트에 대해 동일합니다.
 
-지역 가동 중단이 발생 하는 경우 RA-GZRS을 활용 하려면이 시나리오를 처리 하기 위해 응용 프로그램을 미리 디자인 해야 합니다. 응용 프로그램은 기본 끝점에서 읽고 써야 하지만 주 지역을 사용할 수 없게 되는 경우 보조 끝점을 사용 하도록 전환 해야 합니다. RA를 사용 하 여 고가용성을 설계 하는 방법에 대 한 지침은 [GZRS 또는 GZRS를 사용 하 여 항상 사용 가능한 응용 프로그램 디자인](https://docs.microsoft.com/en-us/azure/storage/common/storage-designing-ha-apps-with-ragrs)을 참조 하세요.
+지역 가동 중단이 발생 하는 경우 RA-GZRS을 활용 하려면이 시나리오를 처리 하기 위해 응용 프로그램을 미리 디자인 해야 합니다. 응용 프로그램은 기본 끝점에서 읽고 써야 하지만 주 지역을 사용할 수 없게 되는 경우 보조 끝점을 사용 하도록 전환 해야 합니다. RA를 사용 하 여 고가용성을 설계 하는 방법에 대 한 지침은 [GZRS 또는 GZRS를 사용 하 여 항상 사용 가능한 응용 프로그램 디자인](https://docs.microsoft.com/azure/storage/common/storage-designing-ha-apps-with-ragrs)을 참조 하세요.
 
 데이터는 보조 지역에 비동기식으로 복제 되므로 보조 지역은 주로 주 지역 뒤에 있습니다. 보조 지역에 복제 된 쓰기 작업을 확인 하기 위해 응용 프로그램은 저장소 계정에 대 한 마지막 동기화 시간을 확인 합니다. 마지막 동기화 시간 이전에 주 지역에 작성 된 모든 쓰기 작업은 보조 지역에 성공적으로 복제 되어 보조 지역에서 읽을 수 있습니다. 마지막 동기화 시간 이후 주 지역에 작성 된 모든 쓰기 작업은 보조 지역으로 복제 될 수도 있고 그렇지 않을 수도 있습니다. 즉, 읽기 작업에 사용할 수 없습니다.
 
@@ -141,7 +141,7 @@ LRS, GRS 또는 RA-GRS 계정에서 GZRS 또는 GZRS로 마이그레이션하는
     - **문제 유형**:  **데이터 마이그레이션**을 선택 합니다.
     - **범주**:  **지역 내에서 (RA-) GZRS로 마이그레이션을**선택 합니다.
     - **제목**: 설명 제목을 입력 합니다 (예: **(RA-) GZRS account migration)** .
-    - **세부 정보**: \_  **세부** 정보 상자에 추가 세부 정보를 입력 합니다. 예를 들어 "지역에서 \_ [LRS, GRS]에서 GZRS로 마이그레이션해야 합니다." 또는 "해당 \_ \_ 지역의 [LRS, ra-GRS]에서 RA-GZRS로 마이그레이션해야 합니다."
+    - **세부 정보**:  **세부 정보** box에 추가 세부 정보를 입력 합니다. 예를 들어 \_ @ no__t-3 지역의 [LRS, GRS]에서 GZRS으로 마이그레이션해야 합니다. " 또는 "\_ @ no__t-1 영역에 있는 [LRS, RA-GRS]에서 RA로 마이그레이션해야 합니다."
 5.  **다음**을 선택합니다.
 6.  **연락처 정보** 블레이드에서 연락처 정보가 올바른지 확인 합니다.
 7.  **만들기**를 선택합니다.

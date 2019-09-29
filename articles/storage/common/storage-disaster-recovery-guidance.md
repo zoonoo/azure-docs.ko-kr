@@ -4,17 +4,17 @@ description: Azure Storage는 지역 중복 스토리지 계정에 대해 계정
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b2cd7232bce674dfa5aa2c6f4b6d9386fa7a189b
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 4a621f8976efe395014c073a6bd7c5d09d19d915
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376458"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671071"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Azure Storage에서 재해 복구 및 스토리지 계정 장애 조치(Failover)(미리 보기)
 
@@ -180,7 +180,7 @@ VM이 종료되면 임시 디스크에 저장된 데이터가 손실됩니다.
 
 중대한 재해로 인해 지역이 손실되는 극단적인 경우 Microsoft는 지역 장애 조치(failover)를 시작할 수 있습니다. 이 경우에 사용자의 조치가 필요하지 않습니다. Microsoft에서 관리하는 장애 조치(failover)가 완료될 때까지 스토리지 계정에 대한 쓰기 액세스 권한이 없습니다. 애플리케이션은 스토리지 계정이 RA-GRS용으로 구성된 경우 보조 지역에서 읽을 수 있습니다. 
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
 * [계정 장애 조치(failover) 시작(미리 보기)](storage-initiate-account-failover.md)
 * [RA-GRS를 사용하여 항상 사용 가능한 애플리케이션 디자인](storage-designing-ha-apps-with-ragrs.md)

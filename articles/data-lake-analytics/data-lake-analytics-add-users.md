@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Analytics 계정에 사용자 추가
-description: 올바르게 Data Lake Analytics 계정에 사용자를 추가하는 방법을 자세히 알아보기
+description: 사용자 추가 마법사 및 Azure PowerShell를 사용 하 여 Data Lake Analytics 계정에 사용자를 올바르게 추가 하는 방법에 대해 알아봅니다.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.openlocfilehash: 8323c4e1b236444f55dab826d2567491f5f0f736
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 16c503fe2d584d5f8256c65bfc49825b300f6a36
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60629325"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672720"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Azure Portal에서 사용자 추가
 

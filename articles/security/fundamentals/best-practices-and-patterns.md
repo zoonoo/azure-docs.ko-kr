@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
-ms.openlocfilehash: 64cac3d200a2cfc3b826dc75bfacc6457a01f294
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e2e829fba9846c2429e362903f5ce49b9344e1bd
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727565"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672622"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Azure 보안 모범 사례 및 패턴
 
@@ -28,7 +28,7 @@ ms.locfileid: "68727565"
 
 모범 사례는 IT 전문가를 위한 리소스로서 유용합니다. 여기에는 보안 Azure 솔루션을 빌드하고 배포하는 디자이너, 설계자, 개발자 및 테스터가 포함될 수 있습니다.
 
-* [Azure 경계 보안 모범 사례](network-best-practices.md)
+* [Azure 경계 보안 모범 사례](https://docs.microsoft.com/en-us/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
 * [Azure 데이터베이스 보안 모범 사례](database-best-practices.md)
 * [Azure 데이터 보안 및 암호화 모범 사례](data-encryption-best-practices.md)
 * [Azure ID 관리 및 액세스 제어 보안 모범 사례](identity-management-best-practices.md)

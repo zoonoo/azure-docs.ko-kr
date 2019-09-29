@@ -4,17 +4,17 @@ description: Azure RA-GZRS 또는 RA GRS storage를 사용 하 여 가동 중단
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 1a5d80d6cd31621f8c3931b1845050f0a212ef08
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: a6d724f834fb8a4c54cd613c61ca90a77a36bdea
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036617"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673124"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>읽기 액세스 지역 중복 저장소를 사용 하 여 항상 사용 가능한 응용 프로그램 디자인
 
@@ -219,7 +219,7 @@ PowerShell 또는 Azure CLI를 사용 하 여 마지막 동기화 시간을 검�
 
 ### <a name="powershell"></a>PowerShell
 
-PowerShell을 사용 하 여 저장소 계정에 대 한 마지막 동기화 시간을 가져오려면 지역에서 복제 통계 가져오기를 지 원하는 Azure Storage 미리 보기 모듈을 설치 합니다. 예:
+PowerShell을 사용 하 여 저장소 계정에 대 한 마지막 동기화 시간을 가져오려면 지역에서 복제 통계 가져오기를 지 원하는 Azure Storage 미리 보기 모듈을 설치 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```powershell
 Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
@@ -235,7 +235,7 @@ $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI를 사용 하 여 저장소 계정에 대 한 마지막 동기화 시간을 가져오려면 저장소 계정의 lastSyncTime 속성을 확인 **geoReplicationStats** . GeoReplicationStats 아래에 중첩 된 속성의 값을 반환 하려면 매개변수를사용`--expand` 합니다. 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
+Azure CLI를 사용 하 여 저장소 계정에 대 한 마지막 동기화 시간을 가져오려면 저장소 계정의 lastSyncTime 속성을 확인 **geoReplicationStats** . @No__t-0 매개 변수를 사용 하 여 **geoReplicationStats**아래에 중첩 된 속성의 값을 반환 합니다. 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
 
 ```azurecli
 $lastSyncTime=$(az storage account show \

@@ -16,20 +16,20 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5844d440da768ae2647ea7f15c4c913f83078ce1
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60244017"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672961"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 변경
 이 문서의 목적은 Azure AD(Active Directory) Connect 동기화에서 기본 구성 변경 방법을 안내하는 것입니다. 몇 가지 일반적인 시나리오를 위한 단계를 제공합니다. 이러한 지식을 바탕으로 사용자의 고유한 비즈니스 규칙에 따라 자체 구성에 대해 간단한 내용을 변경할 수 있습니다.
 
 > [!WARNING]
-> 기본 동기화 규칙을 변경하는 경우 다음번에 Azure AD Connect가 업데이트될 때 이러한 변경 내용이 덮어쓰여지므로 예기치 않거나 원치 않은 동기화 결과가 발생하게 됩니다.
+> 기본 기본 동기화 규칙을 변경한 경우 이러한 변경 내용은 다음에 Azure AD Connect 업데이트 될 때 덮어쓰여집니다. 따라서 예기치 않게 발생 하 고 원치 않는 동기화 결과가 발생할 수 있습니다.
 >
-> 기본 동기화 규칙에는 지문이 포함되어 있습니다. 이들 규칙을 변경하면 지문이 더 이상 일치하지 않습니다. 나중에 Azure AD Connect의 새 릴리스를 적용할 때 문제가 될 수 있습니다. 이 문서에 유일하게 변경하는 방법이 설명되어 있습니다.
+> 기본 기본 동기화 규칙에는 지문이 있습니다. 이들 규칙을 변경하면 지문이 더 이상 일치하지 않습니다. 나중에 Azure AD Connect의 새 릴리스를 적용할 때 문제가 될 수 있습니다. 이 문서에 유일하게 변경하는 방법이 설명되어 있습니다.
 
 ## <a name="synchronization-rules-editor"></a>동기화 규칙 편집기
 동기화 규칙 편집기는 기본 구성을 확인하고 변경하는 데 사용됩니다. **Azure AD Connect** 그룹 아래에 있는 **시작** 메뉴에서 찾을 수 있습니다.  
@@ -266,7 +266,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
 3. **새 규칙 추가** 단추를 클릭하여 새 인바운드 규칙을 만듭니다.
 4. **설명 탭** 아래에서 다음 구성을 제공합니다.
 
-    | 특성 | 값 | 세부 정보 |
+    | 특성 | 값 | 설명 |
     | --- | --- | --- |
     | 이름 | *이름 제공* | 예: *In from AD – User UserType* |
     | 설명 | *설명 제공* |  |
@@ -286,15 +286,15 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
 
 6. **변환** 탭으로 이동하여 원하는 변환 규칙을 구현합니다. 예를 들어 사용하지 않는 온-프레미스 AD 특성(예: extensionAttribute1)을 UserType에 대한 원본 특성으로 지정한 경우 직접 특성 흐름을 구현할 수 있습니다.
 
-    | 흐름 형식 | 대상 특성 | source | 한 번 적용 | 병합 종류 |
+    | 흐름 형식 | 대상 특성 | 원본 | 한 번 적용 | 병합 종류 |
     | --- | --- | --- | --- | --- |
-    | 직접 | UserType | extensionAttribute1 | 선택 취소 되어 있음 | 주 지역에서 |
+    | 직접 | UserType | extensionAttribute1 | 선택 취소 되어 있음 | 업데이트 |
 
     또 다른 예로 UserType 특성의 값을 다른 속성에서 파생할 수 있습니다. 예를 들어 온-프레미스 AD userPrincipalName 특성이 도메인 부분 <em>@partners.fabrikam123.org</em>로 끝나는 경우 모든 사용자를 게스트로 동기화하는 것이 좋습니다. 다음과 같은 식을 구현할 수 있습니다.
 
-    | 흐름 형식 | 대상 특성 | source | 한 번 적용 | 병합 종류 |
+    | 흐름 형식 | 대상 특성 | 원본 | 한 번 적용 | 병합 종류 |
     | --- | --- | --- | --- | --- |
-    | 식 | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"멤버","게스트"),Error("UserType을 결정하기 위한 UserPrincipalName이 없습니다.")) | 선택 취소 되어 있음 | 주 지역에서 |
+    | 식 | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"멤버","게스트"),Error("UserType을 결정하기 위한 UserPrincipalName이 없습니다.")) | 선택 취소 되어 있음 | 업데이트 |
 
 7. **추가**를 클릭하여 인바운드 규칙을 만듭니다.
 
@@ -308,7 +308,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
 3. **새 규칙 추가** 단추를 클릭합니다.
 4. **설명 탭** 아래에서 다음 구성을 제공합니다.
 
-    | 특성 | 값 | 세부 정보 |
+    | 특성 | 값 | 설명 |
     | ----- | ------ | --- |
     | 이름 | *이름 제공* | 예: *Out to AAD – User UserType* |
     | 설명 | *설명 제공* ||
@@ -329,9 +329,9 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
 
 6. **변환 탭**으로 이동하여 다음 변환 규칙을 구현합니다.
 
-    | 흐름 형식 | 대상 특성 | source | 한 번 적용 | 병합 종류 |
+    | 흐름 형식 | 대상 특성 | 원본 | 한 번 적용 | 병합 종류 |
     | --- | --- | --- | --- | --- |
-    | 직접 | UserType | UserType | 선택 취소 되어 있음 | 주 지역에서 |
+    | 직접 | UserType | UserType | 선택 취소 되어 있음 | 업데이트 |
 
 7. **추가**를 클릭하여 아웃바운드 규칙을 만듭니다.
 

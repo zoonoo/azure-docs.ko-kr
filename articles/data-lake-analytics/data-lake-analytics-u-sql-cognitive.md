@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Analytics의 U-SQL 인식 기능
-description: U-SQL에서 인텔리전스 인식 기능을 사용하는 방법에 알아봅니다.
+description: U-SQL에서 인식 기능의 인텔리전스를 사용 하는 방법에 대해 알아봅니다. 이 코드 샘플은 시작 하는 데 도움이 됩니다.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,12 +9,12 @@ ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: bb64f08fae3a211b3ec26177ab2604edc20a8fdd
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 406eb1c9153e1ddbdc196cd64378c17cfa986dac
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315680"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672702"
 ---
 # <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>U-SQL의 인식 기능 시작
 

@@ -4,17 +4,17 @@ description: Azure PowerShell를 사용 하 여 RBAC (역할 기반 액세스 �
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f34e82a0011260ace4ffeed095903b033529a58d
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 967e1754ec4be504669e176a5643186d08efb9d4
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514989"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673187"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-powershell"></a>PowerShell을 사용 하 여 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 데이터 큐
 
@@ -76,7 +76,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="queue-scope"></a>큐 범위
 
-범위가 지정 된 역할을 큐에 할당 하려면 `--scope` 매개 변수의 큐 범위를 포함 하는 문자열을 지정 합니다. 큐의 범위는 다음과 같은 형식입니다.
+범위가 지정 된 역할을 큐에 할당 하려면 `--scope` 매개 변수에 대 한 큐 범위를 포함 하는 문자열을 지정 합니다. 큐의 범위는 다음과 같은 형식입니다.
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue-name>
@@ -108,7 +108,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="resource-group-scope"></a>리소스 그룹 범위
 
-리소스 그룹에 범위가 지정 된 역할을 할당 하려면 `--resource-group` 매개 변수의 리소스 그룹 이름 또는 ID를 지정 합니다. 다음 예에서는 리소스 그룹 수준에서 사용자에 게 **저장소 큐 데이터 판독기** 역할을 할당 합니다. 괄호 안의 샘플 값과 자리 표시자 값을 고유한 값으로 바꿔야 합니다. 
+리소스 그룹에 범위가 지정 된 역할을 할당 하려면 `--resource-group` 매개 변수에 대 한 리소스 그룹 이름 또는 ID를 지정 합니다. 다음 예에서는 리소스 그룹 수준에서 사용자에 게 **저장소 큐 데이터 판독기** 역할을 할당 합니다. 괄호 안의 샘플 값과 자리 표시자 값을 고유한 값으로 바꿔야 합니다. 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `

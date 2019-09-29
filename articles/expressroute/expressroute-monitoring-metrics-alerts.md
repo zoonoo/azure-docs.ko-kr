@@ -2,18 +2,18 @@
 title: 모니터링, 메트릭 및 경고 - Azure ExpressRoute | Microsoft Docs
 description: 이 페이지에서는 ExpressRoute 모니터링에 대한 정보를 제공합니다.
 services: expressroute
-author: cherylmc
+author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: dbe03ef29bd28d465fa671abc915d63d4b038cb2
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 40e5561c9a55595340568ec660cbc6dd6e1eab51
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154776"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672107"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 모니터링, 메트릭 및 경고
 
@@ -72,9 +72,41 @@ ms.locfileid: "71154776"
 
 ![피어 당 ARP 가용성](./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg) 
 
+## <a name="expressroute-direct-metrics"></a>Express 경로 직접 메트릭
+
+### <a name="admin-state---split-by-link"></a>상태 관리-링크로 분할
+Express 경로 직접 포트 쌍의 각 링크에 대 한 관리자 상태를 볼 수 있습니다.
+
+![er 직접 관리 상태](./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg)
+
+### <a name="bits-in-per-second---split-by-link"></a>초당 비트 수-링크로 분할
+Express 경로 직접 포트 쌍의 두 링크에서 초당 비트 수를 볼 수 있습니다. 
+
+![초당 er direct 비트 수](./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg)
+
+### <a name="bits-out-per-second---split-by-link"></a>초 당 비트 아웃-링크로 분할
+Express 경로 직접 포트 쌍의 두 링크에서 초당 비트를 볼 수도 있습니다. 
+
+![er direct 비트/초](./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg)
+
+### <a name="line-protocol---split-by-link"></a>줄 프로토콜-링크로 분할
+Express 경로 직접 포트 쌍의 각 링크에서 줄 프로토콜을 볼 수 있습니다.
+
+![er direct line 프로토콜](./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg)
+
+### <a name="rx-light-level---split-by-link"></a>Rx 라이트 수준-링크로 분할
+각 포트에 대해 Rx 라이트 수준 (Express 경로 다이렉트 포트가 **수신**하는 광원 수준)을 볼 수 있습니다. 정상 Rx light 수준은 일반적으로-10에서 0 dBm 사이입니다.
+
+![er direct line Rx Light 수준](./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg)
+
+### <a name="tx-light-level---split-by-link"></a>Tx 라이트 수준-링크로 분할
+각 포트에 대해 Tx light 수준 (Express 경로 직접 포트가 **전송**하는 광원 수준)을 볼 수 있습니다. 정상적인 Tx light 수준은 일반적으로-10에서 0 dBm 사이의 범위에 속합니다.
+
+![er direct line Rx Light 수준](./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg)
+
 ## <a name="expressroute-gateway-connections-in-bitsseconds"></a>ExpressRoute 게이트웨이 연결(비트/초)
 
-![게이트웨이 연결](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg ) 
+![게이트웨이 연결](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg )
 
 ## <a name="alerts-for-expressroute-gateway-connections"></a>ExpressRoute 게이트웨이 연결에 대한 경고
 

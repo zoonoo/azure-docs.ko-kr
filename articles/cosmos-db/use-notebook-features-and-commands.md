@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: dech
-ms.openlocfilehash: 1eda8271a3b8aa2c9e247252bd755279d23b6e10
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 4a9bd554e0858024d656dbf35d6fb00995e6f4bd
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310348"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672481"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db"></a>Azure Cosmos DB의 기본 제공 노트북 명령 및 기능 사용
 
@@ -25,7 +25,10 @@ Azure Cosmos 계정에 대해 노트북 지원을 사용 하도록 설정한 후
 import sys
 !{sys.executable} -m pip install PackageToBeInstalled –user
 ```
-이 패키지는 Azure Cosmos 계정의 모든 노트북에서 사용할 수 있습니다. 
+이 패키지는 Azure Cosmos 계정 작업 영역에 있는 모든 노트북에서 사용할 수 있습니다. 
+
+> [!TIP]
+> 노트북에 사용자 지정 패키지가 필요한 경우 [작업 영역을 다시 설정](#reset-notebooks-workspace)하는 경우 패키지가 제거 되므로 노트북에 셀을 추가 하 여 패키지를 설치 하는 것이 좋습니다.  
 
 ## <a name="run-a-sql-query"></a>SQL 쿼리 실행
 
@@ -150,6 +153,11 @@ primary_key = os.environ["COSMOS_KEY"]
 ```
 > [!IMPORTANT]
 > ``COSMOS_ENDPOINT`` 및``COSMOS_KEY`` 환경 변수는 SQL API에만 적용 됩니다. 다른 Api의 경우 Cosmos 계정의 **연결 문자열** 또는 **키** 블레이드에서 끝점 및 키를 찾습니다.  
+
+## <a name="reset-notebooks-workspace"></a>전자 필기장 작업 영역 다시 설정
+전자 필기장 작업 영역을 기본 설정으로 다시 설정 하려면 명령 모음에서 **작업 영역 다시 설정** 을 선택 합니다. 그러면 설치 된 모든 사용자 지정 패키지가 제거 되 고 Jupyter 서버가 다시 시작 됩니다. 노트북, 파일 및 Cosmos 리소스는 영향을 받지 않습니다.  
+
+![전자 필기장 작업 영역 다시 설정](media/use-notebook-features-and-commands/reset-workspace.png)
 
 ## <a name="next-steps"></a>다음 단계
 

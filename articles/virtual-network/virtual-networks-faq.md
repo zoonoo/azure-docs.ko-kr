@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 836a9fd0b441ff9669c224dc41537e3c177d7dde
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: a6ba401d9d10e900fef5e2d296e74a07f84162cd
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389700"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71670743"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -200,9 +200,9 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>VNet에 리소스를 배포할 수 있는 전체 Azure 서비스 목록이 있습니까?
 네, 자세한 내용은 [Azure 서비스에 대한 가상 네트워크 통합](virtual-network-for-azure-services.md)을 참조하세요.
 
-### <a name="which-azure-paas-resources-can-i-restrict-access-to-from-a-vnet"></a>VNet에 대한 액세스를 제한할 수 있는 Azure PaaS 리소스는 무엇입니까?
+### <a name="how-can-i-restrict-access-to-azure-paas-resources-from-a-vnet"></a>VNet에서 Azure PaaS 리소스에 대 한 액세스를 제한 하려면 어떻게 해야 하나요?
 
-일부 Azure PaaS 서비스(예: Azure Storage 및 Azure SQL Database)를 통해 배포된 리소스는 가상 네트워크 서비스 엔드포인트를 사용하여 VNet의 리소스만으로 네트워크 액세스를 제한할 수 있습니다. 자세한 내용은 [가상 네트워크 서비스 엔드포인트 개요](virtual-network-service-endpoints-overview.md)를 참조하세요.
+일부 Azure PaaS 서비스 (예: Azure Storage 및 Azure SQL Database)를 통해 배포 된 리소스는 가상 네트워크 서비스 끝점 또는 Azure 개인 링크를 사용 하 여 VNet에 대 한 네트워크 액세스를 제한할 수 있습니다. 자세한 내용은 [가상 네트워크 서비스 끝점 개요](virtual-network-service-endpoints-overview.md), [Azure 개인 링크 개요](../private-link/private-link-overview.md) 를 참조 하세요.
 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>서비스를 VNet 내부 및 외부로 이동할 수 있습니까?
 아니요. 서비스를 VNet 내부 및 외부로 이동할 수 없습니다. 리소스를 다른 VNet으로 옮기려면 리소스를 삭제하고 다시 배포해야 합니다.
@@ -405,7 +405,7 @@ Azure Active Directory (Azure AD)는 서비스 끝점을 기본적으로 지원 
 |Azure 서비스| VNet 규칙에 대한 제한|
 |Azure Storage| 100|
 |Azure SQL| 128|
-|Azure SQL Data Warehouse|  128|
+|Azure SQL 데이터 웨어하우스|  128|
 |Azure KeyVault|    127|
 |Azure Cosmos DB|   64|
 |AZURE 이벤트 허브|   128|

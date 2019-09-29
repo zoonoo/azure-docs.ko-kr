@@ -4,17 +4,17 @@ description: Azure CLI를 사용 하 여 RBAC (역할 기반 액세스 제어)�
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2e29dfde651addb58b767d04bd34e8e5441d54c8
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 606dd88fbad8cbd5c7e24d47dcf71199a25b49a2
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986735"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673201"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 데이터 큐
 
@@ -22,7 +22,7 @@ Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)]
 
 RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스 권한은 구독, 리소스 그룹, 스토리지 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 응용 프로그램 서비스 주체 또는 [azure 리소스에 대 한 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
 
-이 문서에서는 Azure CLI를 사용 하 여 기본 제공 RBAC 역할을 나열 하 고 사용자에 게 할당 하는 방법을 설명 합니다. Azure CLI를 사용 하는 방법에 대 한 자세한 내용은 [AZURE CLI (명령줄 인터페이스)](https://docs.microsoft.com/cli/azure)를 참조 하세요.
+이 문서에서는 Azure CLI를 사용 하 여 기본 제공 RBAC 역할을 나열 하 고 사용자에 게 할당 하는 방법을 설명 합니다. Azure CLI 사용에 대 한 자세한 내용은 [Azure 명령줄 인터페이스 (CLI)](https://docs.microsoft.com/cli/azure)를 참조 하세요.
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>Blob 및 큐의 RBAC 역할
 
@@ -75,7 +75,7 @@ az role assignment create \
 
 ### <a name="queue-scope"></a>큐 범위
 
-범위가 지정 된 역할을 큐에 할당 하려면 `--scope` 매개 변수의 큐 범위를 포함 하는 문자열을 지정 합니다. 큐의 범위는 다음과 같은 형식입니다.
+범위가 지정 된 역할을 큐에 할당 하려면 `--scope` 매개 변수에 대 한 큐 범위를 포함 하는 문자열을 지정 합니다. 큐의 범위는 다음과 같은 형식입니다.
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue>
@@ -109,7 +109,7 @@ az role assignment create \
 
 ### <a name="resource-group-scope"></a>리소스 그룹 범위
 
-리소스 그룹에 범위가 지정 된 역할을 할당 하려면 `--resource-group` 매개 변수의 리소스 그룹 이름 또는 ID를 지정 합니다. 다음 예에서는 리소스 그룹 수준에서 사용자에 게 **저장소 큐 데이터 판독기** 역할을 할당 합니다. 괄호 안의 샘플 값과 자리 표시자 값을 고유한 값으로 바꿔야 합니다.
+리소스 그룹에 범위가 지정 된 역할을 할당 하려면 `--resource-group` 매개 변수에 대 한 리소스 그룹 이름 또는 ID를 지정 합니다. 다음 예에서는 리소스 그룹 수준에서 사용자에 게 **저장소 큐 데이터 판독기** 역할을 할당 합니다. 괄호 안의 샘플 값과 자리 표시자 값을 고유한 값으로 바꿔야 합니다.
 
 ```azurecli-interactive
 az role assignment create \

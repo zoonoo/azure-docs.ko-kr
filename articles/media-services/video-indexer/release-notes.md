@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 09/26/2019
 ms.author: juliako
-ms.openlocfilehash: a7d178972a8c8b413e3c6336c403348f1eb78abb
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 4953160a30e45b9be1ff249b6cd1f74e01bb14f3
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232604"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672651"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
 
@@ -27,6 +27,26 @@ ms.locfileid: "70232604"
 * 알려진 문제
 * 버그 수정
 * 사용되지 않는 기능
+
+## <a name="september-2019"></a>9 월 2019
+ 
+IBC 2019에서 여러 가지 기능이 발표 되었습니다.
+ 
+* 문자 인식 애니메이션 (공개 미리 보기)
+
+    사용자 지정 비전과의 통합을 통해 애니메이션 된 콘텐츠에서 그룹 ad 인식 문자를 검색 하는 기능입니다. 자세한 내용은 [문자 검색에 애니메이션 적용](animated-characters-recognition.md)을 참조 하세요.
+* 다국어 id (공개 미리 보기)
+
+    오디오 트랙에서 여러 언어로 된 세그먼트를 검색 하 고이를 기반으로 다국어 성적 증명서를 만듭니다. 초기 지원: 영어, 스페인어, 독일어 및 프랑스어입니다. 자세한 내용은 [다중 언어 콘텐츠 자동 식별 및 높여줄](multi-language-identification-transcription.md)를 참조 하세요.
+* 사용자 및 위치에 대 한 명명 된 엔터티 추출
+
+    NLP (자연어 처리)를 통해 음성 및 시각적 텍스트에서 브랜드, 위치 및 사람을 추출 합니다.
+* 편집 샷 유형 분류
+
+    종가, 중간 샷, 두 샷, 실내, 실외 등의 편집 형식으로 샷의 태그를 지정 합니다. 자세한 내용은 [편집 샷 유형 검색](scenes-shots-keyframes.md#editorial-shot-type-detection)을 참조 하세요.
+* 토픽 추론 개선-이제 수준 2 포함
+    
+    추론 model 항목은 이제 IPTC 분류의 세부적인 세분성을 지원 합니다. [새 AI 지원 혁신을 Azure Media Services](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/)에 대 한 자세한 내용을 읽으십시오.
 
 ## <a name="august-2019"></a>2019년 8월
  

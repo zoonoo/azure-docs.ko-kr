@@ -4,16 +4,16 @@ description: .NET 클라이언트 라이브러리를 사용 하 여 Azure Storag
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 99773b83f15ea4b386c1078eed510fc233322f0f
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d1218b10eadf0788752bab2aec4b21614666888c
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985681"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671274"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>.NET을 사용 하 여 Azure Storage에서 컨테이너 만들기 또는 삭제
 
@@ -185,7 +185,7 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
 - [컨테이너 작업 만들기](/rest/api/storageservices/create-container)
 - [컨테이너 삭제 작업](/rest/api/storageservices/delete-container)

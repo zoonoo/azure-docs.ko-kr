@@ -8,21 +8,21 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 8fada27f82fea557d7d078f06b5c05e7d1db906d
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 8d0afc5a224e752bdd745ab4df0473a134b4180b
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861244"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671344"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>Node.js SDK v2용 클라이언트 라이브러리를 사용하여 Blob을 업로드, 다운로드 및 나열하는 방법
+# <a name="upload-download-and-list-blobs-using-the-client-library-for-nodejs"></a>Node.js 용 클라이언트 라이브러리를 사용 하 여 blob 업로드, 다운로드 및 나열
 
 이 가이드에서는 Node.js v2용 클라이언트 라이브러리를 사용하여 Blob을 업로드 및 다운로드하고 Azure Blob 스토리지와 함께 나열하는 방법에 대해 알아봅니다.
 
 > [!TIP]
 > Node.js용 Azure Storage 클라이언트 라이브러리의 최신 버전은 v10입니다. 가능한 경우 클라이언트 라이브러리의 최신 버전을 사용 하는 것이 좋습니다. v10을 사용하여 시작하려면 [빠른 시작: JavaScript용 Azure Storage 클라이언트 라이브러리 v10을 사용하여 Blob 업로드, 다운로드, 나열 및 삭제(미리 보기)](storage-quickstart-blobs-nodejs-v10.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

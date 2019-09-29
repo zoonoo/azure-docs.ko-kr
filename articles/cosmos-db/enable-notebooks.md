@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: 34e1d9fe937118a2eafcdd85c153653eb28752d4
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 824a562cb5f0562a235d903fbd4e575bc9c22572
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219249"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672744"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts"></a>Azure Cosmos DB 계정에 대해 노트북 사용
 
@@ -67,3 +67,4 @@ Azure Cosmos DB의 기본 제공 Jupyter 노트북을 사용 하 여 Azure Porta
 ## <a name="next-steps"></a>다음 단계
 
 - [Jupyter 노트북 Azure Cosmos DB](cosmosdb-jupyter-notebooks.md) 의 이점에 대해 알아봅니다.
+- [노트북 기능 및 명령을 사용 하는 방법](use-notebook-features-and-commands.md) 에 대해 알아봅니다.

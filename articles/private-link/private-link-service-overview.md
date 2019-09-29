@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 67bddea31a4bb375657b0df5e21fab1ab3d732f5
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: cad8e3e4f32a8773fe914362b637d39765a23c21
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265549"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672526"
 ---
 # <a name="what-is-azure-private-link-service"></a>Azure 개인 링크 서비스 란?
 
@@ -100,6 +100,7 @@ Azure 개인 링크 서비스는 Azure 개인 링크에서 제공 하는 자체 
 다음은 개인 링크 서비스를 사용할 때의 알려진 제한 사항입니다.
 - 표준 Load Balancer 에서만 지원 됨 
 - IPv4 트래픽만 지원 합니다.
+- TCP 트래픽만 지원 합니다.
 - 동일한 지역의 개인 끝점 에서만 연결할 수 있습니다.
 - Azure Portal에서 환경 만들기 및 관리가 지원 되지 않음
 - 프록시 프로토콜을 사용 하는 클라이언트 연결 정보를 서비스 공급자가 사용할 수 없음

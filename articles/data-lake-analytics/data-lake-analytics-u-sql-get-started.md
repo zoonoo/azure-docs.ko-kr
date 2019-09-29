@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Analytics에서 U-SQL 언어 시작
-description: Azure Data Lake Analytics에서 U-SQL 언어에 대한 기본 사항을 알아봅니다.
+description: Azure Data Lake Analytics에서 U-SQL 언어에 대한 기본 사항을 알아봅니다. 변수를 사용 하 여 파일의 추가 데이터에 대 한 첫 번째 쿼리를 작성 하 고 행 집합을 변환한 다음 데이터를 집계 합니다.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,12 +9,12 @@ ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
-ms.openlocfilehash: 2a138801ba13c6008880e3d24c89d1c23323b853
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 8130679dcc519cecd25abf43902c003ad8047df3
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626227"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672830"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 시작
 U-SQL은 선언적 SQL을 명령적 C#에 결합하여 규모에 관계 없이 데이터를 처리할 수 있도록 하는 언어입니다. U-SQL의 확장성 있는 분산 쿼리 기능을 통해 Azure SQL Database와 같은 관계형 저장소의 데이터를 효율적으로 분석할 수 있습니다. U-SQL을 사용하면 읽기에 대한 스키마를 적용하고 사용자 지정 논리 및 UDF를 삽입하여 구조화되지 않은 데이터를 처리할 수 있습니다. 또한 U-SQL에는 모든 규모에서 실행하는 방법을 세부적으로 제어할 수 있게 해주는 확장성이 포함되어 있습니다. 
@@ -25,9 +25,9 @@ U-SQL은 선언적 SQL을 명령적 C#에 결합하여 규모에 관계 없이 �
 * **U-SQL 언어 구문**에 대한 자세한 내용은 [U-SQL 언어 참조](https://docs.microsoft.com/u-sql/)를 참조하세요.
 * **U-SQL 디자인 철학**을 이해하려면 Visual Studio 블로그 게시물 [Introducing U-SQL – A Language that makes Big Data Processing Easy(U-SQL 소개 - 빅 데이터 처리를 수월하게 해주는 언어)](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서의 U-SQL 샘플을 통해 진행 하기 전에 읽기 및 완료 [자습서: Visual Studio 용 Data Lake Tools를 사용 하 여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)합니다. 이 자습서는 Azure Data Lake Tools for Visual Studio에서 U-SQL을 사용하는 기법에 대해 설명합니다.
+이 문서의 U-SQL 예제를 진행 하기 전에 [Tutorial를 읽고 완료 합니다. Visual Studio @ no__t-0 용 Data Lake 도구를 사용 하 여 T-SQL 스크립트를 개발 합니다. 이 자습서는 Azure Data Lake Tools for Visual Studio에서 U-SQL을 사용하는 기법에 대해 설명합니다.
 
 ## <a name="your-first-u-sql-script"></a>첫 번째 U-SQL 스크립트
 
@@ -55,7 +55,7 @@ OUTPUT @searchlog
 `Duration` 필드의 데이터 형식 옆에 있는 물음표를 보세요. 이는 `Duration` 필드가 null이어도 된다는 것을 의미합니다.
 
 ### <a name="key-concepts"></a>주요 개념
-* **Rowset 변수**: 행 집합을 생성 하는 각 쿼리 식은 변수에 할당할 수 있습니다. U-SQL은 스크립트의 T-SQL 변수 이름 지정 패턴(예: `@searchlog`)을 따릅니다.
+* **행 집합 변수**: 행 집합을 생성 하는 각 쿼리 식은 변수에 할당 될 수 있습니다. U-SQL은 스크립트의 T-SQL 변수 이름 지정 패턴(예: `@searchlog`)을 따릅니다.
 * **EXTRACT** 키워드는 파일에서 데이터를 읽고 읽기에 대한 스키마를 정의합니다. `Extractors.Tsv`는 탭으로 구분된 값 파일에 대한 기본 제공 U-SQL 추출기입니다. 사용자 지정 추출기를 개발할 수 있습니다.
 * **OUTPUT**은 행 집합의 데이터를 파일에 씁니다. `Outputters.Csv()`는 쉼표로 구분된 값 파일을 만들기 위한 기본 제공 U-SQL 출력기입니다. 사용자 지정 출력기를 개발할 수 있습니다.
 

@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: df3f5a3773265249751352ce8d9c966c54bf197d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 5c539570e4127a6715ea63fe8ec617d3cfa83ba1
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091805"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672002"
 ---
-# <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azure-sb-package"></a>Node.js 및 azure-sb 패키지를 사용 하 여 Service Bus 큐를 사용 하는 방법
+# <a name="use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Node.js 및 azure-sb 패키지를 사용 하 여 Azure에서 Service Bus 큐 사용
 > [!div class="op_multi_selector" title1="프로그래밍 언어" title2="Node.js 패키지"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
@@ -31,7 +31,7 @@ ms.locfileid: "71091805"
 
 [Azure-sb](https://www.npmjs.com/package/azure-sb) 패키지는 [Service Bus REST 런타임 api](/rest/api/servicebus/service-bus-runtime-rest)를 사용 합니다. 더 빠른 [amqp 1.0 프로토콜](service-bus-amqp-overview.md)을 사용 하 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 는 새 패키지를 사용 하 여 더 빠르게 환경을 만들 수 있습니다. 새 패키지에 대 한 자세한 내용은 [node.js 및 @azure/service-bus 패키지를 사용 하 여 Service Bus 큐를 사용 하는 방법](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package)을 참조 하세요. 그렇지 않으면 [azure](https://www.npmjs.com/package/azure) 패키지를 사용 하는 방법을 확인 하기 위해 계속 읽어 보세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 - Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) 을 활성화 하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 등록할 수 있습니다.
 - 사용할 큐가 없는 경우 [Azure Portal를 사용 하 여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계에 따라 큐를 만듭니다.
     1. Service Bus **큐**에 대 한 간략 한 **개요** 를 참조 하세요. 

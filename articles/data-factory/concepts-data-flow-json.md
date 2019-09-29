@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: cde42dda47d54c03c50895bc625f99c9350b53e3
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: ad21ddffdb22f7abf999bfa12f4a8ed86f42cfa2
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210690"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673435"
 ---
 # <a name="mapping-data-flow-json-handling"></a>데이터 흐름 JSON 처리 매핑
 
@@ -22,7 +22,7 @@ ms.locfileid: "70210690"
 파생 열 식 편집기를 통해 복잡 한 열을 데이터 흐름에 추가 하는 것이 더 쉽습니다. 새 열을 추가 하 고 편집기를 연 후에는 두 가지 옵션이 있습니다. JSON 구조를 수동으로 입력 하거나 UI를 사용 하 여 하위 열을 대화형으로 추가 합니다.
 
 #### <a name="interactive-ui-json-design"></a>대화형 UI JSON 디자인
-출력 스키마 쪽 창에서 `+` 메뉴를 사용 하 여 새 subcolumns를 추가할 수 있습니다. 하위 ![열 추가 하위](media/data-flow/addsubcolumn.png "열 추가")
+출력 스키마 쪽 창에서 새 하위 열은 `+` 메뉴를 사용 하 여 추가할 수 있습니다. 하위 ![열 추가 하위](media/data-flow/addsubcolumn.png "열 추가")
 
 여기에서 새 열과 하위 열을 동일한 방식으로 추가할 수 있습니다. 복합 필드가 아닌 각 필드에 대해 식 편집기의 오른쪽에 식을 추가할 수 있습니다.
 
@@ -144,7 +144,7 @@ File3.json
 { "json": "record 3" }
 ```
 
-# <a name="higher-order-functions"></a>고차 함수
+## <a name="higher-order-functions"></a>고차 함수
 ## <a name="filter"></a>filter
 제공 된 조건자를 충족 하지 않는 배열에서 요소를 필터링 합니다. 필터에는 #item 조건자 함수의 한 요소에 대 한 참조가 필요 합니다.
 

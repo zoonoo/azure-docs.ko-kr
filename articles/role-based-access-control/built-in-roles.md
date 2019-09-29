@@ -15,12 +15,12 @@ ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c9a156c4cc6e334e04f5a604b91b7b05d9aed390
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: c2066502a6a9d742c347e08d528a2490a390bb7e
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71289602"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672639"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 리소스에 대한 기본 제공 역할
 
@@ -186,8 +186,8 @@ ms.locfileid: "71289602"
 > | Microsoft.Authorization/*/Delete | 역할, 정책 할당, 정책 정의 및 정책 집합 정의 삭제 |
 > | Microsoft.Authorization/*/Write | 역할, 역할 할당, 정책 할당, 정책 정의 및 정책 집합 정의 만들기 |
 > | Microsoft.Authorization/elevateAccess/Action | 테넌트 범위에서 호출자에게 사용자 액세스 관리자 액세스 권한을 부여합니다. |
-> | Microsoft.Blueprint/blueprintAssignments/write | 청사진 아티팩트 만들기 또는 업데이트 |
-> | Microsoft.Blueprint/blueprintAssignments/delete | 모든 청사진 아티팩트 삭제 |
+> | Microsoft.Blueprint/blueprintAssignments/write | 청사진 할당을 만들거나 업데이트 합니다. |
+> | Microsoft.Blueprint/blueprintAssignments/delete | 청사진 할당 삭제 |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |

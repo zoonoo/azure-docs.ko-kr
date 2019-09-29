@@ -4,17 +4,17 @@ description: .NET 클라이언트 라이브러리를 사용 하 여 Azure Storag
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 98ab93bbec8da17dde93c9c343703838b0279994
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 59de768e75a88d7cfa5b68fa306d0e83f1aa0ba3
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900439"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671336"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>.NET (미리 보기)을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
@@ -57,7 +57,7 @@ az ad sp create-for-rbac \
     --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-이 `az ad sp create-for-rbac` 명령은 JSON 형식의 서비스 사용자 속성 목록을 반환 합니다. 이러한 값을 복사 하 여 다음 단계에서 필요한 환경 변수를 만들 수 있습니다.
+@No__t-0 명령은 JSON 형식의 서비스 사용자 속성 목록을 반환 합니다. 이러한 값을 복사 하 여 다음 단계에서 필요한 환경 변수를 만들 수 있습니다.
 
 ```json
 {
@@ -87,7 +87,7 @@ Azure Id 클라이언트 라이브러리는 런타임에 세 가지 환경 변�
 
 ## <a name="add-using-directives"></a>지시문을 사용하여 추가
 
-Azure id 및 `using` Azure Storage 클라이언트 라이브러리의 미리 보기 버전을 사용 하려면 다음 지시문을 코드에 추가 합니다.
+Azure Id 및 Azure Storage 클라이언트 라이브러리의 미리 보기 버전을 사용 하려면 코드에 다음 `using` 지시문을 추가 합니다.
 
 ```csharp
 using System;
@@ -102,7 +102,7 @@ using Azure.Storage.Blobs.Models;
 
 ## <a name="authenticate-the-service-principal"></a>서비스 주체 인증
 
-서비스 사용자를 인증 하려면 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 클래스의 인스턴스를 만듭니다. 생성자 `DefaultAzureCredential` 는 이전에 만든 환경 변수를 읽습니다.
+서비스 사용자를 인증 하려면 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 클래스의 인스턴스를 만듭니다. @No__t-0 생성자는 이전에 만든 환경 변수를 읽습니다.
 
 다음 코드 조각에서는 인증 된 자격 증명을 가져오고이를 사용 하 여 Blob 저장소에 대 한 서비스 클라이언트를 만드는 방법을 보여 줍니다.
 
@@ -165,7 +165,7 @@ UriBuilder fullUri = new UriBuilder()
 };
 ```
 
-## <a name="example-get-a-user-delegation-sas"></a>예제: 사용자 위임 SAS 가져오기
+## <a name="example-get-a-user-delegation-sas"></a>예: 사용자 위임 SAS 가져오기
 
 다음 예제 메서드는 보안 주체를 인증 하 고 사용자 위임 SAS를 만들기 위한 전체 코드를 보여 줍니다.
 
@@ -221,7 +221,7 @@ async static Task<Uri> GetUserDelegationSasBlob(string accountName, string conta
 }
 ```
 
-## <a name="example-read-a-blob-with-a-user-delegation-sas"></a>예제: 사용자 위임 SAS를 사용 하 여 blob 읽기
+## <a name="example-read-a-blob-with-a-user-delegation-sas"></a>예: 사용자 위임 SAS를 사용 하 여 blob 읽기
 
 다음 예제에서는 시뮬레이트된 클라이언트 응용 프로그램에서 이전 예제에서 만든 사용자 위임 SAS를 테스트 합니다. SAS가 유효한 경우 클라이언트 응용 프로그램은 blob의 내용을 읽을 수 있습니다. SAS가 유효 하지 않은 경우 (예: 만료 된 경우) Azure Storage 오류 코드 403 (사용할 수 없음)을 반환 합니다.
 
@@ -273,7 +273,7 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
 - [사용자 위임 키 가져오기 작업](/rest/api/storageservices/get-user-delegation-key)
 - [사용자 위임 SAS (REST API) 만들기](/rest/api/storageservices/create-user-delegation-sas)

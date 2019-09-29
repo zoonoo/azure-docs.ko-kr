@@ -4,17 +4,17 @@ description: Azure CLI를 사용 하 여 Azure Storage에서 Azure Active Direct
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 6ea4dbf07c8ef99c43dbe7add1ae9270056f708c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 077fe69d80ec433d8e37f18e04120102fc8ca390
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164319"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673313"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Azure CLI (미리 보기)를 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
@@ -57,7 +57,7 @@ Azure CLI를 사용 하 여 사용자 위임 SAS를 만들 때 SAS에 서명 하
 
 사용자 위임 키가 유효한 최대 간격은 시작 날짜 로부터 7 일 이므로 시작 시간의 7 일 이내에 SAS에 대 한 만료 시간을 지정 해야 합니다. 사용자 위임 키가 만료 된 후에는 SAS가 유효 하지 않으므로 만료 시간이 7 일을 초과 하는 SAS는 7 일 동안만 유효 합니다.
 
-사용자 위임 SAS를 `--auth-mode login` 만들 때 및 `--as-user parameters` 가 필요 합니다. Azure Storage 에 대 한 `--auth-mode` 요청이 Azure AD 자격 증명으로 인증 되도록 매개 변수에 대 한 로그인을 지정 합니다. 반환 된 sas가 사용자 위임 sas 여야 함을 나타내려면 매개변수를지정합니다.`--as-user`
+사용자 위임 SAS를 만들 때 `--auth-mode login` 및 `--as-user parameters`이 필요 합니다. Azure Storage에 대 한 요청이 Azure AD 자격 증명으로 인증 되도록 `--auth-mode` 매개 변수에 대 한 *로그인* 을 지정 합니다. 반환 된 SAS가 사용자 위임 SAS 여야 함을 나타내려면 `--as-user` 매개 변수를 지정 합니다.
 
 ### <a name="create-a-user-delegation-sas-for-a-container"></a>컨테이너에 대 한 사용자 위임 SAS 만들기
 
@@ -89,7 +89,7 @@ Azure CLI를 사용 하 여 blob에 대 한 사용자 위임 SAS를 만들려면
 
 Blob에서 사용자 위임 SAS에 대해 지원 되는 권한은 추가, 만들기, 삭제, 읽기 및 쓰기입니다. 권한은 단독으로 지정 하거나 조합 하 여 지정할 수 있습니다. 이러한 사용 권한에 대 한 자세한 내용은 [사용자 위임 SAS 만들기](/rest/api/storageservices/create-user-delegation-sas)를 참조 하세요.
 
-다음 구문은 blob에 대 한 사용자 위임 SAS를 반환 합니다. 이 예에서는 SAS `--full-uri` 토큰이 추가 된 blob URI를 반환 하는 매개 변수를 지정 합니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
+다음 구문은 blob에 대 한 사용자 위임 SAS를 반환 합니다. 이 예에서는 SAS 토큰이 추가 된 blob URI를 반환 하는 `--full-uri` 매개 변수를 지정 합니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
 
 ```azurecli-interactive
 az storage blob generate-sas \

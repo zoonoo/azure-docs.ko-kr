@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 34d1ba13689eb820db754c5c0d9573dcdc235205
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a77c0e38db06698e714c3d0c3df0d9a5f028787b
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350828"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672946"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크 로드: 계획 및 배포 검사 목록
 
@@ -102,7 +102,7 @@ ms.locfileid: "71350828"
         - 계획 단계에서 선택한 VM 유형의 최대 저장소 처리량 및 네트워크 처리량과 관련 하 여 Azure Vm의 크기를 평가 하 고 테스트 합니다. 데이터는 다음 위치에서 찾을 수 있습니다.
            -  [Azure의 Windows 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). 크기를 조정 하는 데 *최대 캐시 되지 않은 디스크 처리량* 을 고려 하는 것이 중요 합니다.
            -  [Azure의 Linux 가상 머신에 대 한 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) 크기를 조정 하는 데 *최대 캐시 되지 않은 디스크 처리량* 을 고려 하는 것이 중요 합니다.
-   1. Storage.
+   2. Storage.
         - 최소한 SAP 응용 프로그램 계층을 나타내는 Vm에 대해 [Azure 표준 SSD 저장소](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd) 를 사용 하 고 성능이 중요 하지 않은 dbms를 배포 합니다.
         - 일반적으로 [Azure 표준 HDD 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd)를 사용 하지 않는 것이 좋습니다.
         - 원격으로 성능이 중요 한 모든 DBMS Vm에 대해 [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) 를 사용 합니다.
@@ -111,11 +111,12 @@ ms.locfileid: "71350828"
         - 다양 한 DBMS 형식에 대해 일반적인 [SAP 관련 dbms 설명서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) 및 일반 문서가 가리키는 dbms 관련 설명서를 확인 합니다.
         - SAP HANA에 대 한 자세한 내용은 [Azure에서 인프라 구성 및 작업 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)을 참조 하세요.
         - 디바이스 ID를 사용하여 Azure 데이터 디스크를 Azure Linux VM에 탑재해서는 안됩니다. 대신 UUID(Universally Unique Identifier)를 사용합니다. 예를 들어 Azure 데이터 디스크를 탑재하기 위해 그래픽 도구를 사용하는 경우 주의해야 합니다. /Etc/fstab의 항목을 두 번 확인 하 여 UUID가 디스크를 탑재 하는 데 사용 되는지 확인 합니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk)에서 찾을 수 있습니다.
-   1. Lan.
+   3. Lan.
         - 가상 네트워크 인프라와 여러 Azure 가상 네트워크 내에서 또는 여러 Azure 가상 네트워크 내에서 SAP 응용 프로그램의 배포를 테스트 하 고 평가 합니다.
-        -  단일 Azure 가상 네트워크 내에서 허브 및 스포크 가상 네트워크 아키텍처 접근 방식이 나 마이크로 분할 방법을 평가 합니다. 이 평가판의 기반:- [피어 링 Azure virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)간의 데이터 교환 비용 비용에 대 한 자세한 내용은 [Virtual Network 가격 책정](https://azure.microsoft.com/pricing/details/virtual-network/)을 참조 하세요.
-                  -네트워크 보안 그룹을 변경 하 여 가상 네트워크 내에서 서브넷을 분리 하는 것과는 반대로 Azure virtual network 간 피어 링의 빠른 연결 끊기의 이점입니다. 이 평가는 가상 네트워크의 서브넷에서 호스트 되는 응용 프로그램 또는 Vm이 보안상 위험할 수 있는 경우에 해당 합니다.
-                  -온-프레미스, 외부 세계 및 Azure에서 빌드한 가상 데이터 센터 간의 네트워크 트래픽 중앙 로깅 및 감사
+        -  단일 Azure 가상 네트워크 내에서 허브 및 스포크 가상 네트워크 아키텍처 접근 방식이 나 마이크로 분할 방법을 평가 합니다. 평가 기준:
+               1. [피어 링 Azure virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)간의 데이터 교환 비용 비용에 대 한 자세한 내용은 [Virtual Network 가격 책정](https://azure.microsoft.com/pricing/details/virtual-network/)을 참조 하세요.
+               2. 네트워크 보안 그룹을 변경 하 여 가상 네트워크 내에서 서브넷을 분리 하는 것과는 반대로 Azure virtual network 간 피어 링의 빠른 연결 끊기의 이점입니다. 이 평가는 가상 네트워크의 서브넷에서 호스트 되는 응용 프로그램 또는 Vm이 보안상 위험할 수 있는 경우에 해당 합니다.
+                3. 온-프레미스, 외부 세계 및 Azure에서 빌드한 가상 데이터 센터 간의 네트워크 트래픽에 대 한 중앙 로깅 및 감사
         - SAP 응용 프로그램 계층과 SAP DBMS 계층 간의 데이터 경로를 평가 하 고 테스트 합니다.
             -  Sap 응용 프로그램과 sap NetWeaver, Hybris 또는 S/4HANA를 기반으로 하는 SAP 시스템의 DBMS 계층 간 통신 경로에 [Azure 네트워크 가상 어플라이언스](https://azure.microsoft.com/solutions/network-appliances/) 를 배치 하는 것은 지원 되지 않습니다.
             -  SAP 응용 프로그램 계층 및 SAP DBMS를 피어 링 아닌 다른 Azure virtual network에 배치 하는 것은 지원 되지 않습니다.
@@ -129,13 +130,13 @@ ms.locfileid: "71350828"
         - ILB 배포가 Direct Server Return을 사용 하도록 설정 되었는지 확인 합니다. 이 설정은 DBMS 계층에서 고가용성 구성에 Azure ILBs를 사용 하는 경우 대기 시간을 줄입니다.
         - Linux 게스트 운영 체제와 함께 Azure Load Balancer를 사용 하는 경우 Linux 네트워크 매개 변수 **net.pipe ()** 가 **0**으로 설정 되어 있는지 확인 합니다. 이 권장 사항은 이전 버전의 [SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421)권장 사항과 충돌 합니다. 이제 SAP note가 Azure 부하 분산 장치를 사용 하려면이 매개 변수를 **0** 으로 설정 해야 한다는 상태를 업데이트 합니다.
         - 최적의 네트워크 대기 시간을 얻으려면 [Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/linux/co-location) 을 사용 하는 것이 좋습니다. 자세한 내용은 [SAP 응용 프로그램의 최적의 네트워크 대기 시간에 대 한 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)을 참조 하세요.
-   1. 고가용성 및 재해 복구 배포.
+   4. 고가용성 및 재해 복구 배포.
         - 특정 Azure 가용성 영역을 정의 하지 않고 SAP 응용 프로그램 계층을 배포 하는 경우 sap 대화 상자 인스턴스 또는 단일 SAP 시스템의 미들웨어 인스턴스를 실행 하는 모든 Vm이 [가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability)에 배포 되었는지 확인 합니다.
         - SAP Central Services 및 DBMS에 대 한 고가용성이 필요 하지 않은 경우 SAP 응용 프로그램 계층과 동일한 가용성 집합에 이러한 Vm을 배포할 수 있습니다.
         - 수동 복제를 사용 하 여 고가용성을 위해 SAP Central Services와 DBMS 계층을 보호 하는 경우 SAP Central Services에 대 한 두 노드를 별도의 하나의 가용성 집합과 다른 가용성 집합의 두 DBMS 노드에 저장 합니다.
         - Azure 가용성 영역에 배포 하는 경우 가용성 집합을 사용할 수 없습니다. 하지만 활성 및 수동 중앙 서비스 노드를 서로 다른 두 가용성 영역에 배포 해야 합니다. 대기 시간이 가장 짧은 가용성 영역를 사용 합니다.
           가용성 영역에서 DBMS 및 SAP Central Services 계층에 대 한 Windows 또는 Pacemaker 장애 조치 (failover) 클러스터를 설정 하는 사용 사례에는 [Azure 표준 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) 를 사용 해야 합니다. 영역 배포에는 [기본 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) 를 사용할 수 없습니다.
-   1. 시간 제한 설정입니다.
+   5. 시간 제한 설정입니다.
         - Sap 인스턴스의 SAP NetWeaver 개발자 추적을 확인 하 여 큐에 넣기 서버와 SAP 작업 프로세스 간에 연결이 중단 되지 않는지 확인 합니다. 이러한 두 레지스트리 매개 변수를 설정 하 여 이러한 연결 중단을 방지할 수 있습니다.
             - HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime = 12만. 자세한 내용은 [KeepAliveTime](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10))을 참조 하세요.
             - HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveInterval = 12만. 자세한 내용은 [KeepAliveInterval](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10))를 참조 하세요.
@@ -152,8 +153,8 @@ ms.locfileid: "71350828"
    1. 장애 조치 (failover)를 실행 하는 데 걸리는 시간을 측정 합니다. 시간이 너무 길면 다음을 고려 하십시오.
         - SUSE Linux의 경우 장애 조치 (failover) 속도를 높이기 위해 Azure Fence 에이전트 대신 SBD 장치를 사용 합니다.
         - SAP HANA의 경우 데이터를 다시 로드 하는 데 너무 오래 걸리는 경우 저장소 대역폭을 추가로 프로 비전 하는 것이 좋습니다.
-   1. 백업/복원 순서 및 타이밍을 테스트 하 고 필요한 경우 수정 합니다. 백업 시간이 충분 한지 확인 합니다. 복원 및 시간 복원 작업도 테스트 해야 합니다. RTO가 데이터베이스 또는 VM 복원 프로세스에 의존할 때마다 복원 시간이 RTO Sla 내에 있는지 확인 합니다.
-   1. 지역 간 DR 기능 및 아키텍처를 테스트 합니다.
+   3. 백업/복원 순서 및 타이밍을 테스트 하 고 필요한 경우 수정 합니다. 백업 시간이 충분 한지 확인 합니다. 복원 및 시간 복원 작업도 테스트 해야 합니다. RTO가 데이터베이스 또는 VM 복원 프로세스에 의존할 때마다 복원 시간이 RTO Sla 내에 있는지 확인 합니다.
+   4. 지역 간 DR 기능 및 아키텍처를 테스트 합니다.
 1. 보안 검사.
    1. Azure RBAC (역할 기반 액세스 제어) 아키텍처의 유효성을 테스트 합니다. 목표는 다른 팀의 액세스 및 사용 권한을 분리 하 고 제한 하는 것입니다. 예를 들어 SAP 기본 팀 구성원은 Vm을 배포 하 고 Azure Storage에서 지정 된 Azure virtual network로 디스크를 할당할 수 있어야 합니다. 하지만 SAP 기반 팀은 자신의 가상 네트워크를 만들거나 기존 가상 네트워크의 설정을 변경할 수 없어야 합니다. 네트워크 팀의 구성원은 SAP 응용 프로그램 및 DBMS Vm이 실행 되는 가상 네트워크에 Vm을 배포할 수 없습니다. 이 팀의 구성원이 Vm의 특성을 변경 하거나 Vm 또는 디스크를 삭제할 수도 없어야 합니다.  
    1.  [네트워크 보안 그룹 및 ASC](https://docs.microsoft.com/azure/virtual-network/security-overview) 규칙이 예상 대로 작동 하는지 확인 하 고 보호 된 리소스를 보호 합니다.
@@ -161,9 +162,9 @@ ms.locfileid: "71350828"
    1.  OS 지원 관점에서 가능한 경우 OS 디스크에 대해 [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) 를 사용 합니다.
    1.  너무 많은 암호화 계층을 사용 하 고 있지 않아야 합니다. 경우에 따라 DBMS 투명한 데이터 암호화 메서드 중 하 나와 함께 Azure Disk Encryption를 사용 하는 것이 좋습니다.
 1. 성능 테스트. Sap에서 SAP 추적 및 측정을 기반으로 다음과 같은 비교를 수행 합니다.
-   1. 해당 하는 경우 상위 10 개의 온라인 보고서를 현재 구현과 비교 합니다.
-   1. 해당 하는 경우 상위 10 개의 배치 작업을 현재 구현과 비교 합니다.
-   1. 인터페이스를 통한 데이터 전송을 SAP 시스템으로 비교 합니다. 현재 온-프레미스에서 Azure로 전송 하는 것과 같은 다양 한 위치 간에 전송 되는 것을 알고 있는 인터페이스에 집중 합니다.
+   - 해당 하는 경우 상위 10 개의 온라인 보고서를 현재 구현과 비교 합니다.
+   - 해당 하는 경우 상위 10 개의 배치 작업을 현재 구현과 비교 합니다.
+   - 인터페이스를 통한 데이터 전송을 SAP 시스템으로 비교 합니다. 현재 온-프레미스에서 Azure로 전송 하는 것과 같은 다양 한 위치 간에 전송 되는 것을 알고 있는 인터페이스에 집중 합니다.
 
 
 ## <a name="non-production-phase"></a>비프로덕션 단계 

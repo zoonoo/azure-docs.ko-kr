@@ -4,17 +4,17 @@ description: Azure Portal를 사용 하 여 blob 또는 큐 데이터에 액세�
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8d19724883e6c2b3630de6100b1b4ca9fd9250a1
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 3d5d5bd6400fdf09216124665b6b236b4da2583b
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813362"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673286"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Azure Portal를 사용 하 여 blob 또는 큐 데이터에 액세스
 

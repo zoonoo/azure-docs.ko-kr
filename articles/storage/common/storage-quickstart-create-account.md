@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e72f8c3ed0658765827c4a9b0669c08fefd9044f
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 338ba468fb1442488da78f09fc72a22186cd0a51
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016322"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673211"
 ---
 # <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
@@ -24,7 +24,7 @@ Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등 모든 Az
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -89,7 +89,7 @@ az login
 
 # <a name="templatetabtemplate"></a>[템플릿](#tab/template)
 
-N/A
+해당 사항 없음
 
 ---
 
@@ -133,7 +133,7 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2 
 ```
 
-다른 복제 옵션을 사용 하 여 범용 v2 저장소 계정을 만들려면 아래 테이블에서 해당 하는 값을 원하는 값으로 대체 합니다 .
+다른 복제 옵션을 사용 하 여 범용 v2 저장소 계정을 만들려면 아래 테이블에서 해당 하는 값을 원하는 값으로 **대체 합니다.**
 
 |복제 옵션  |SkuName 매개 변수  |
 |---------|---------|

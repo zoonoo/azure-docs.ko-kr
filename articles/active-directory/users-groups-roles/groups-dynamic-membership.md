@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59450fc93052a1e169d13fab5b80cbc57c169e0f
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: dafc78e49cb0118181bae4522d4cb456509ea2cb
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70909777"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673429"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -64,7 +64,7 @@ user.department -eq "Sales"
 
 단일 식에서 괄호는 선택 사항입니다. 멤버 자격 규칙 본문의 전체 길이는 2,048자를 초과할 수 없습니다.
 
-# <a name="constructing-the-body-of-a-membership-rule"></a>멤버 자격 규칙 본문 구성
+## <a name="constructing-the-body-of-a-membership-rule"></a>멤버 자격 규칙 본문 구성
 
 사용자 또는 디바이스를 그룹에 자동으로 채우는 멤버 자격 규칙은 참 또는 거짓 결과를 가져오는 이진 식입니다. 간단한 규칙의 세 부분은 다음과 같습니다.
 
@@ -79,7 +79,7 @@ user.department -eq "Sales"
 멤버 자격 규칙을 구성하는 데 사용할 수 있는 세 가지 유형의 속성이 있습니다.
 
 - Boolean
-- String
+- 문자열
 - 문자열 컬렉션
 
 단일 식을 만드는 데 사용할 수 있는 사용자 속성은 다음과 같습니다.
@@ -127,7 +127,7 @@ user.department -eq "Sales"
 | 속성 | 허용되는 값 | 사용법 |
 | --- | --- | --- |
 | otherMails |임의의 문자열 값입니다. |(user.otherMails -contains "alias@domain") |
-| ProxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
+| proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 디바이스 규칙에 사용되는 속성은 [디바이스에 대한 규칙](#rules-for-devices)을 참조하세요.
 
@@ -252,7 +252,7 @@ null 값을 참조하는 올바른 방법은 다음과 같습니다.
 | 속성 | 값 | 사용법 |
 | --- | --- | --- |
 | assignedPlans | 컬렉션에 있는 각 개체는 다음 문자열 속성을 표시합니다. capabilityStatus, service, servicePlanId |user.assignedPlans -any(assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
-| ProxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
+| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
 
 ### <a name="using-the--any-and--all-operators"></a>-any 및 -all 연산자 사용
 

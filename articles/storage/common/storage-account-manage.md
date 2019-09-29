@@ -4,15 +4,15 @@ description: Azure Portal에서 액세스 제어 설정 구성, 계정 액세스
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: tamram
-ms.openlocfilehash: 66bdc4bd1e17347419a6eccd7c9532db17b33001
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 60104496006e790887dd9c4b3e4c3196e0ef6444
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303489"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671366"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Azure Portal에서 스토리지 계정 설정 관리
 
@@ -20,11 +20,11 @@ ms.locfileid: "67303489"
 
 ## <a name="access-control"></a>액세스 제어
 
-Azure Storage Blob storage 및 Queue storage를 통해 역할 기반 액세스 제어 (RBAC)에 대 한 Azure Active Directory를 사용한 권한 부여를 지원합니다. Azure AD 사용 하 여 권한 부여에 대 한 자세한 내용은 참조 하세요. [Azure에 대 한 권한 부여 액세스 blob 및 Azure Active Directory를 사용 하 여 큐](storage-auth-aad.md)합니다.
+Azure Storage는 RBAC (역할 기반 액세스 제어)를 통해 Blob storage 및 Queue storage에 대 한 Azure Active Directory 권한 부여를 지원 합니다. Azure AD를 사용한 권한 부여에 대 한 자세한 내용은 [Azure Active Directory를 사용 하 여 azure blob 및 큐에](storage-auth-aad.md)대 한 액세스 권한 부여를 참조 하세요.
 
-Azure Portal의 **액세스 제어** 설정은 RBAC 역할을 사용자, 그룹, 서비스 주체 및 관리 ID에 할당하는 간단한 방법을 제공합니다. RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 참조 하세요. [RBAC 사용 하 여 blob 및 큐 데이터에 대 한 관리 액세스 권한을](storage-auth-aad-rbac.md)합니다.
+Azure Portal의 **액세스 제어** 설정은 RBAC 역할을 사용자, 그룹, 서비스 주체 및 관리 ID에 할당하는 간단한 방법을 제공합니다. RBAC 역할 할당에 대 한 자세한 내용은 [blob에 대 한 액세스 권한 관리 및 rbac를 사용 하 여 데이터 큐](storage-auth-aad-rbac.md)지정을 참조 하세요.
 
-## <a name="tags"></a>태그들
+## <a name="tags"></a>Tags
 
 Azure Storage는 사용자 지정된 분류를 사용하여 Azure 리소스 구성을 위한 Azure Resource Manager 태그를 지원합니다. 스토리지 계정에 태그를 적용하여 논리적 방식으로 구독 내에서 그룹화할 수 있습니다.
 

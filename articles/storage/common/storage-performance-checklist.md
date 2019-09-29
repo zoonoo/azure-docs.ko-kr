@@ -4,16 +4,16 @@ description: 성능이 뛰어난 애플리케이션 개발 시 Azure Storage에�
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 48a5484e2b2b663d0046fc628c02e656c5bd7a25
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e700cf04123bf02c1014aa418189221fbbb0b812
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985158"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71670922"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure Storage 성능 및 확장성 검사 목록
 
@@ -30,7 +30,7 @@ Azure Storage를 사용 하는 모든 응용 프로그램 개발자는이 문서
 * 테이블
 * 큐  
 
-| 완료 | 영역 | 범주 | 질문 |
+| 완료 | 영역 | Category | 질문 |
 | --- | --- | --- | --- |
 | &nbsp; | 모든 서비스 |확장성 목표 |[애플리케이션이 확장성 목표에 도달하지 않도록 설계되어 있습니까?](#subheading1) |
 | &nbsp; | 모든 서비스 |확장성 목표 |[명명 규칙이 부하 분산 향상에 맞게 설계되었습니까?](#subheading47) |
@@ -45,7 +45,7 @@ Azure Storage를 사용 하는 모든 응용 프로그램 개발자는이 문서
 | &nbsp; | 모든 서비스 |.NET 구성 |[.NET이 충분한 수의 스레드를 사용하도록 구성했습니까?](#subheading10) |
 | &nbsp; | 모든 서비스 |.NET 구성 |[가비지 수집 기능이 개선된 .NET 4.5 이상을 사용 중입니까?](#subheading11) |
 | &nbsp; | 모든 서비스 |병렬 처리 |[클라이언트 기능이나 확장성 목표가 오버로드되지 않도록 병렬 처리의 경계를 적절하게 지정했습니까?](#subheading12) |
-| &nbsp; | 모든 서비스 |Tools |[Microsoft 제공 클라이언트 라이브러리와 도구의 최신 버전을 사용하고 있습니까?](#subheading13) |
+| &nbsp; | 모든 서비스 |도구 |[Microsoft 제공 클라이언트 라이브러리와 도구의 최신 버전을 사용하고 있습니까?](#subheading13) |
 | &nbsp; | 모든 서비스 |다시 시도 |[제한 시간 및 오류 제한을 위한 지수 백오프 다시 시도 정책을 사용하고 있습니까?](#subheading14) |
 | &nbsp; | 모든 서비스 |다시 시도 |[애플리케이션에서 다시 시도할 수 없는 오류 발생 시에는 작업을 다시 시도하지 않습니까?](#subheading15) |
 | &nbsp; | Blob |확장성 목표 |[동시에 단일 개체에 액세스하는 클라이언트가 많이 있습니까?](#subheading46) |
@@ -172,7 +172,7 @@ Azure CDN에 대한 자세한 내용은 [Azure CDN](https://azure.microsoft.com/
 
 #### <a name="useful-resources"></a>유용한 리소스
 
-SAS에 대 한 자세한 내용은 [sas (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](storage-sas-overview.md)를 참조 하세요.  
+SAS에 대한 자세한 내용은 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](storage-sas-overview.md)를 참조하세요.  
 
 CORS에 대한 자세한 내용은 [Azure Storage 서비스에 대한 CORS(Cross-Origin Resource Sharing) 지원](https://msdn.microsoft.com/library/azure/dn535601.aspx)을 참조하세요.  
 

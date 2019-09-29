@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Analytics를 사용하여 웹 사이트 로그 분석
-description: 데이터 레이크 분석을 사용하여 웹 사이트 로그를 분석하는 방법에 대해 알아봅니다.
+description: Azure Data Lake Analytics를 사용 하 여 웹 사이트 로그를 분석 하 여 U-SQL 함수 및 쿼리를 실행 하는 방법을 알아봅니다.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,17 +9,17 @@ ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 83742a4f82fb4d67fd258ff0d242847eab634c78
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 04c6d4c74a82ccfbcbb0faecb0dca5ec495f6663
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60334117"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672875"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Azure Data Lake Analytics를 사용하여 웹 사이트 로그 분석
 데이터 레이크 분석을 사용하여 웹 사이트 로그를 분석하는 방법, 특히 웹 사이트를 방문하려고 할 때 참조 페이지에 오류가 발생한 경우에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * **Visual Studio 2015 또는 Visual Studio 2013**.
 * **[Visual Studio용 Data Lake 도구](https://aka.ms/adltoolsvs)** .
 
@@ -168,7 +168,7 @@ U-SQL 애플리케이션은 대부분 U-SQL 스크립트입니다. U-SQL에 대�
 3. **UnsuccessfulResponses.log**를 두 번 클릭합니다.
 4. 출력 작업을 직접 탐색하기 위해 해당 작업의 그래프 뷰 내부에 있는 출력 파일을 두 번 클릭할 수도 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 다른 도구를 사용하여 데이터 레이크 분석을 시작하려면 다음을 참조하십시오.
 
 * [Azure Portal을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)

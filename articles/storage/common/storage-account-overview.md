@@ -4,16 +4,16 @@ description: Azure Storage 계정의 만들기 및 사용을 위한 옵션을 �
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 49e15964ba370cc6dc18491507b906764f1f882c
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 67022c6bd9e237ce24d8e63285f7ebabadca87c6
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640101"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671320"
 ---
 # <a name="azure-storage-account-overview"></a>Azure Storage 계정 개요
 
@@ -115,7 +115,7 @@ Azure Storage는 사용 패턴에 따라 블록 Blob 데이터 액세스를 위�
 
 스토리지 계정의 모든 데이터는 서비스 쪽에서 암호화됩니다. 암호화에 대한 자세한 내용은 [미사용 데이터에 대한 Azure Storage 서비스 암호화](storage-service-encryption.md)를 참조하세요.
 
-## <a name="storage-account-endpoints"></a>Storage 계정 엔드포인트
+## <a name="storage-account-endpoints"></a>스토리지 계정 엔드포인트
 
 스토리지 계정은 데이터에 대해 Azure에서 고유의 네임스페이스를 제공합니다. Azure Storage 계정에 저장한 모든 개체는 고유 계정 이름을 포함하는 주소를 갖습니다. 계정 이름과 Azure Storage 서비스 엔드포인트의 조합이 스토리지 계정의 엔드포인트가 됩니다.
 

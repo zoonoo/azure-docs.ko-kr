@@ -4,17 +4,17 @@ description: .NET 클라이언트 라이브러리를 사용 하 여 컨테이너
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: ca419165d4dea2a04f51e7ab6f60d6e23f418933
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 6840b65dd63422db38759ee01703155088215fd2
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035627"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673351"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>.NET을 사용 하 여 컨테이너 또는 blob에 대 한 서비스 SAS 만들기
 

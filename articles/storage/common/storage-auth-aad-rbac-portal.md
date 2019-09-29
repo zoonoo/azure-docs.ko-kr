@@ -4,17 +4,17 @@ description: Azure Portal에서 RBAC (역할 기반 액세스 제어)를 사용 
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 4c558da6b0a9267c03b26ca1b5f57eb5e7444881
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: ad88066ebf19bdcc9bcdb77309ce76828c09ce47
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515003"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671134"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-in-the-azure-portal"></a>Azure Portal에서 RBAC를 사용 하 여 Azure blob 및 큐 데이터에 대 한 액세스 권한 부여
 
@@ -65,7 +65,7 @@ RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 �
 
     ![RBAC 역할을 할당하는 방법을 보여주는 스크린샷](media/storage-auth-aad-rbac-portal/add-rbac-role.png)
 
-1. **Save**을 클릭합니다. 역할을 할당받은 ID가 해당 역할에 따라 나열되어 표시됩니다. 예를 들어 다음 이미지에서는 추가된 사용자에게 이제 *sample-container*라는 컨테이너의 데이터에 대한 읽기 권한이 있음을 보여줍니다.
+1. **저장**을 클릭합니다. 역할을 할당받은 ID가 해당 역할에 따라 나열되어 표시됩니다. 예를 들어 다음 이미지에서는 추가된 사용자에게 이제 *sample-container*라는 컨테이너의 데이터에 대한 읽기 권한이 있음을 보여줍니다.
 
     ![역할에 할당 된 사용자 목록을 보여 주는 스크린샷](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
 
