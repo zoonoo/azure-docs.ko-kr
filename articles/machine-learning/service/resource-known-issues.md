@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 275cf20329be04e86c2e7c2a613f657733e652df
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8fbb09ecf09008c25c84a11c7b43dfb26450e30a
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213441"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338763"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>알려진 문제 및 문제 해결 Azure Machine Learning
 
@@ -214,3 +214,24 @@ kubectl get secret/azuremlfessl -o yaml
 
 >[!Note]
 >Kubernetes는 암호를 base-64로 인코딩된 형식으로 저장 합니다. 에 `key.pem` `cert.pem` 제공하기`attach_config.enable_ssl`전에 비밀의 및 구성 요소를 64으로 디코드 해야 합니다. 
+
+## <a name="recommendations-for-error-fix"></a>오류 수정에 대 한 권장 사항
+일반적인 관찰을 기준으로 azure ML에서 일반적인 오류 중 일부를 해결 하기 위한 Azure ML 권장 사항은 다음과 같습니다.
+
+### <a name="moduleerrors-no-module-named"></a>ModuleErrors (이름이 지정 된 모듈 없음)
+Azure ML에서 실험을 제출 하는 동안 ModuleErrors를 실행 하는 경우 학습 스크립트는 패키지를 설치 하는 것으로 예상 하지만 추가 되지 않았음을 의미 합니다. 패키지 이름을 제공 하면 Azure ML은 교육에 사용 되는 환경에 패키지를 설치 합니다. 
+
+[추정](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) 를 사용 하 여 실험을 제출 하는 경우 패키지를 설치 하려는 원본에서 기반으로 평가기에서 `pip_packages` 또는 `conda_packages` 매개 변수를 통해 패키지 이름을 지정할 수 있습니다. @No__t-0을 사용 하 여 모든 종속성이 포함 된 iisnode.yml 파일을 지정 하거나 `pip_requirements_file` 매개 변수를 사용 하 여 txt 파일에 모든 pip 요구 사항을 나열할 수도 있습니다.
+
+또한 Azure ML은 Tensorflow, PyTorch, 체 이너 및 추정에 대 한 프레임 워크 관련 제공 합니다. 이러한 추정을 사용 하면 학습에 사용 되는 환경에서 프레임 워크 종속성을 대신 설치할 수 있습니다. 위에서 설명한 대로 추가 종속성을 지정 하는 옵션이 있습니다. 
+ 
+ Azure ML에서 관리 하는 docker 이미지와 해당 콘텐츠는 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 볼 수 있습니다.
+프레임 워크 관련 종속성은 해당 프레임 워크 설명서- [체](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), 고 지 사항 [배우기](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks)에 나열 되어 있습니다.
+
+>[참고!] 특정 패키지가 Azure 기계 학습에서 유지 관리 되는 이미지 및 환경에 추가할 수 있는 것으로 생각 되는 경우 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 GitHub 문제를 제기 하세요. 
+ 
+ ### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>NameError (이름이 정의 되지 않음), AttributeError (개체에 특성이 없음)
+이 예외는 학습 스크립트에서 제공 되어야 합니다. Azure Portal에서 로그 파일을 확인 하 여 지정 되지 않은 특정 이름 또는 특성 오류에 대 한 자세한 정보를 볼 수 있습니다. SDK에서 `run.get_details()`을 사용 하 여 오류 메시지를 확인할 수 있습니다. 또한 실행을 위해 생성 된 모든 로그 파일을 나열 합니다. 학습 스크립트를 확인 하 고 다시 시도 하기 전에 오류를 수정 하세요. 
+
+### <a name="horovod-is-shutdown"></a>Horovod가 종료 되었습니다.
+대부분의 경우이 예외는 horovod를 종료 시킨 프로세스 중 하나에 기본 예외가 있음을 의미 합니다. MPI 작업의 각 순위는 Azure ML의 전용 로그 파일을 가져옵니다. 이러한 로그의 이름은 `70_driver_logs`입니다. 분산 교육의 경우 로그 이름에 `_rank`을 지정 하 여 로그를 쉽게 구분할 수 있습니다. Horovod shutdown이 발생 한 정확한 오류를 찾으려면 모든 로그 파일을 확인 하 고 driver_log 파일의 끝에 `Traceback`이 있는지 확인 하세요. 이러한 파일 중 하나는 실제 기본 예외를 제공 합니다. 
