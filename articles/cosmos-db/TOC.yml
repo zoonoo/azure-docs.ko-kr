@@ -167,7 +167,7 @@
               displayName: 'functions, udf'
               href: sql-query-udfs.md
             - name: 집계
-              displayName: 'functions, aggregate'
+              displayName: 'functions, aggregate, count, sum, min, minimum, max, maximum, avg, average'
               href: sql-query-aggregates.md
             - name: 시스템 함수
               items:
