@@ -8,13 +8,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 1/10/2019
-ms.openlocfilehash: 477b2ec1af4c52f51c3ab20ac2ddf7ef043dfcc7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: 0373b254a900fd34232bb6863c93802fa7b51aab
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994361"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169957"
 ---
 # <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>Azure Kubernetes Service 및 Terraform을 사용하여 Application Gateway 수신 컨트롤러로 Kubernetes 클러스터 만들기
 [AKS(Azure Kubernetes Service)](/azure/aks/)는 호스트된 Kubernetes 환경을 관리합니다. AKS를 사용하면 컨테이너 오케스트레이션 전문 지식 없이도 컨테이너화된 애플리케이션을 쉽고 빠르게 배포 및 관리할 수 있습니다. 또한 애플리케이션을 오프라인으로 변경하지 않고 주문형 리소스를 프로비전하고, 업그레이드하고, 크기 조정하여 진행 중인 작업 및 유지 관리 부담을 제거합니다.
@@ -38,7 +38,7 @@ ms.locfileid: "57994361"
 - **Azure 서비스 주체**: [Azure CLI를 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) 문서의 **서비스 주체 만들기** 섹션에 나온 지침을 따릅니다. appId, displayName 값 및 암호를 기록해 둡니다.
   - 다음 명령을 실행하여 서비스 사용자의 개체 ID를 기록해 둡니다.
 
-    ```bash
+    ```azurecli
     az ad sp list --display-name <displayName>
     ```
 
@@ -82,7 +82,7 @@ Azure 공급자를 선언하는 Terraform 구성 파일을 만듭니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
-    ```JSON
+    ```hcl
     provider "azurerm" {
         version = "~>1.18"
     }
@@ -99,17 +99,21 @@ Azure 공급자를 선언하는 Terraform 구성 파일을 만듭니다.
     ```bash
     :wq
     ```
-   ## <a name="define-input-variables"></a>입력 변수 정의
-   이 배포에 필요한 모든 변수를 나열하는 Terraform 구성 파일 만들기
+
+## <a name="define-input-variables"></a>입력 변수 정의
+이 배포에 필요한 모든 변수를 나열하는 Terraform 구성 파일을 만듭니다.
+
 1. Cloud Shell에서 이름이 `variables.tf`인 파일을 만듭니다.
+
     ```bash
     vi variables.tf
     ```
+
 1. I 키를 선택하여 삽입 모드를 시작합니다.
 
-2. 다음 코드를 편집기에 붙여 넣습니다.
+1. 다음 코드를 편집기에 붙여 넣습니다.
     
-    ```JSON
+    ```hcl
     variable "resource_group_name" {
       description = "Name of the resource group already created."
     }
@@ -254,9 +258,9 @@ Azure 공급자를 선언하는 Terraform 구성 파일을 만듭니다.
 
 1. 다음 코드 블록을 편집기에 붙여 넣습니다.
 
-    a. 재사용을 위해 계산된 변수에 대한 로컬 블록 만들기
+    a. 재사용할 계산 변수에 대한 로컬 블록을 만듭니다.
 
-    ```JSON
+    ```hcl
     # # Locals block for hardcoded names. 
     locals {
         backend_address_pool_name      = "${azurerm_virtual_network.test.name}-beap"
@@ -268,8 +272,10 @@ Azure 공급자를 선언하는 Terraform 구성 파일을 만듭니다.
         app_gateway_subnet_name = "appgwsubnet"
     }
     ```
-    b. 리소스 그룹, 새 사용자 ID에 대한 데이터 원본 만들기
-    ```JSON
+
+    b. 리소스 그룹, 새 사용자 ID에 대한 데이터 원본을 만듭니다.
+
+    ```hcl
     data "azurerm_resource_group" "rg" {
       name = "${var.resource_group_name}"
     }
@@ -284,8 +290,10 @@ Azure 공급자를 선언하는 Terraform 구성 파일을 만듭니다.
       tags = "${var.tags}"
     }
     ```
-    다. 기본 네트워킹 리소스 만들기
-   ```JSON
+
+    다. 기본 네트워킹 리소스를 만듭니다.
+
+    ```hcl
     resource "azurerm_virtual_network" "test" {
       name                = "${var.virtual_network_name}"
       location            = "${data.azurerm_resource_group.rg.location}"
@@ -328,8 +336,10 @@ Azure 공급자를 선언하는 Terraform 구성 파일을 만듭니다.
       tags = "${var.tags}"
     }
     ```
-    d. Application Gateway 리소스 만들기
-    ```JSON
+
+    d. Application Gateway 리소스를 만듭니다.
+
+    ```hcl
     resource "azurerm_application_gateway" "network" {
       name                = "${var.app_gateway_name}"
       resource_group_name = "${data.azurerm_resource_group.rg.name}"
@@ -393,8 +403,10 @@ Azure 공급자를 선언하는 Terraform 구성 파일을 만듭니다.
       depends_on = ["azurerm_virtual_network.test", "azurerm_public_ip.test"]
     }
     ```
-    e. 역할 할당 만들기
-    ```JSON
+
+    e. 역할 할당을 만듭니다.
+
+    ```hcl
     resource "azurerm_role_assignment" "ra1" {
       scope                = "${data.azurerm_subnet.kubesubnet.id}"
       role_definition_name = "Network Contributor"
@@ -424,8 +436,10 @@ Azure 공급자를 선언하는 Terraform 구성 파일을 만듭니다.
       depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
     }
     ```
-    f. Kubernetes 클러스터 만들기
-    ```JSON
+
+    f. Kubernetes 클러스터를 만듭니다.
+
+    ```hcl
     resource "azurerm_kubernetes_cluster" "k8s" {
       name       = "${var.aks_name}"
       location   = "${data.azurerm_resource_group.rg.location}"
@@ -502,7 +516,7 @@ Azure 공급자를 선언하는 Terraform 구성 파일을 만듭니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
-    ```JSON
+    ```hcl
     output "client_key" {
         value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_key}"
     }
@@ -559,7 +573,7 @@ Terraform은 `terraform.tfstate` 파일을 통해 로컬로 상태를 추적합�
 
 1. Cloud Shell에서 Azure Storage 계정에 컨테이너를 만듭니다. &lt;YourAzureStorageAccountName> 및 &lt;YourAzureStorageAccountAccessKey> 자리 표시자를 Azure Storage 계정에 해당하는 값으로 바꾸면 됩니다.
 
-    ```bash
+    ```azurecli
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 
@@ -586,7 +600,7 @@ Terraform은 `terraform.tfstate` 파일을 통해 로컬로 상태를 추적합�
 
 1. 앞에서 만든 다음 변수를 편집기에 붙여 넣습니다.
 
-    ```JSON
+    ```hcl
       resource_group_name = <Name of the Resource Group already created>
 
       location = <Location of the Resource Group>

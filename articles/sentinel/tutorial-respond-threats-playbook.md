@@ -1,5 +1,5 @@
 ---
-title: Azure Sentinel 미리 보기에서 플레이북 실행 | Microsoft Docs
+title: Azure Sentinel에서 플레이북 실행 | Microsoft Docs
 description: 이 문서에서는 Azure Sentinel에서 플레이북을 실행하는 방법을 설명합니다.
 services: sentinel
 documentationcenter: na
@@ -14,20 +14,18 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/21/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 08c88df2f8ccc69f213687209d1d003f3bb1c7b8
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 7ab4c4ba4553e7e5f15e563c67c845758a53766f
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018793"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71229506"
 ---
-# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>자습서: Azure Sentinel 미리 보기에서 자동화된 위협 응답 설정
+# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>자습서: Azure Sentinel에서 자동화된 위협 응답 설정
 
-> [!IMPORTANT]
-> Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
 
 이 자습서를 통해 Azure Sentinel에서 보안 플레이북을 사용하여 Azure Sentinel에서 감지된 보안 관련 문제에 대한 자동화된 위협 응답을 설정할 수 있습니다.
 
@@ -78,7 +76,9 @@ ms.locfileid: "70018793"
 
 6. 템플릿을 새로 빌드하거나 편집할 수 있는 논리 앱 디자이너로 연결됩니다. [Logic Apps](../logic-apps/logic-apps-create-logic-apps-from-templates.md)를 사용하여 플레이북을 만드는 방법에 대한 자세한 내용
 
-7. 빈 플레이북을 만들려는 경우 **모든 커넥터 및 트리거 검색** 필드에서 *Azure Sentinel*을 입력하고 **Azure Sentinel 경고에 대한 응답이 트리거되는 경우**를 선택합니다. <br>플레이북이 만들어지면 **플레이북** 목록에 새 플레이북이 나타납니다. 나타나지 않으면 **새로 고침** 단추를 클릭합니다. 
+7. 빈 플레이북을 만들려는 경우 **모든 커넥터 및 트리거 검색** 필드에서 *Azure Sentinel*을 입력하고 **Azure Sentinel 경고에 대한 응답이 트리거되는 경우**를 선택합니다. <br>플레이북이 만들어지면 **플레이북** 목록에 새 플레이북이 나타납니다. 나타나지 않으면 **새로 고침** 단추를 클릭합니다.
+
+1. **엔터티** 목록(예: 계정, IP 주소 및 호스트) 내에서 관련 엔터티를 가져올 수 있는 **엔터티 가져오기** 함수를 사용합니다. 이렇게 하면 특정 엔터티에 대한 작업을 실행할 수 있습니다.
 
 7. 이제 플레이북을 트리거하는 경우 상황을 정의할 수 있습니다. 작업, 논리 조건, 전환 사례 조건 또는 루프를 추가할 수 있습니다.
 

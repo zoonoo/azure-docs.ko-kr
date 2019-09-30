@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 57c9bd8caf6e8762ed07ac5e6f4ff16171569723
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b3210b97fe6fb0cd16499d5c33538c8e2babe612
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900680"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173662"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>자습서: Azure Service Fabric에서 Java API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 애플리케이션 만들기
 
 이 자습서는 시리즈의 1부입니다. 완료하면, Azure Service Fabric의 상태 저장 백 엔드 서비스에 투표 결과를 저장하는 Java 웹 프런트 엔드가 있는 Voting 애플리케이션이 생깁니다. 이 자습서 시리즈는 작업 중인 Linux 또는 Mac OSX 개발자 컴퓨터가 있어야 합니다. 수동으로 투표 애플리케이션을 만들지 않으려면 완성된 애플리케이션에서 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-java-quickstart)하고 [투표 샘플 애플리케이션을 설명](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application)하기 위해 바로 건너뛸 수 있습니다. 또한 [Java Reliable Services 빠른 시작](service-fabric-quickstart-java-reliable-services.md)을 따르는 것이 좋습니다.
 
-![로컬 Voting 앱](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
+![Service Fabric 투표 샘플](./media/service-fabric-tutorial-create-java-app/service-fabric-java-voting-app-sample.png)
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -60,15 +60,15 @@ ms.locfileid: "70900680"
 
 2. **파일** > **새로 만들기** > **다른** > **Service Fabric** > **Service Fabric 프로젝트**를 사용하여 프로젝트를 만듭니다.
 
-    ![Eclipse의 새 프로젝트 대화 상자](./media/service-fabric-tutorial-create-java-app/create-sf-proj-wizard.png)
+    ![Eclipse의 새 Service Fabric 프로젝트](./media/service-fabric-tutorial-create-java-app/service-fabric-project-wizard.png)
 
 3. **ServiceFabric 프로젝트 마법사** 대화 상자에서 프로젝트 이름을 **Voting**으로 지정하고 **다음**을 선택합니다.
 
-    ![새 서비스 대화 상자에서 Java 상태 비저장 서비스 선택](./media/service-fabric-tutorial-create-java-app/name-sf-proj-wizard.png) 
+    ![새 서비스 대화 상자에서 Java 상태 비저장 서비스 선택](./media/service-fabric-tutorial-create-java-app/name-service-fabric-project-wizard.png) 
 
 4. **서비스 추가** 페이지에서 **상태 비저장 서비스**를 선택하고 서비스 이름을 **VotingWeb**으로 지정합니다. **마침**을 선택하여 프로젝트를 만듭니다.
 
-    ![상태 비저장 서비스 만들기]( ./media/service-fabric-tutorial-create-java-app/createvotingweb.png)
+    ![Service Fabric 프로젝트에 대한 상태 비저장 서비스 만들기]( ./media/service-fabric-tutorial-create-java-app/add-service-fabric-votingweb-service.png)
 
     Eclipse는 애플리케이션 및 서비스 프로젝트를 만들고 패키지 탐색기에 표시합니다.
 
@@ -416,7 +416,7 @@ Service Fabric을 통해 신뢰할 수 있는 컬렉션을 사용하여 일관�
 
 3. Eclipse는 서비스 프로젝트를 만들고 패키지 탐색기에 표시합니다.
 
-    ![Controllers\HomeController.cs](./media/service-fabric-tutorial-create-java-app/packageexplorercompletejava.png)
+    ![Eclipse 프로젝트 탐색기](./media/service-fabric-tutorial-create-java-app/service-fabric-package-explorer-java.png)
 
 ### <a name="add-the-votingdataservicejava-file"></a>VotingDataService.java 파일 추가
 
@@ -557,7 +557,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
 1. 패키지 탐색기에서 **Voting** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **새로 만들기** > **폴더**를 선택합니다. 폴더의 이름을 **VotingRPC/src/rpcmethods**로 지정합니다.
 
-    ![VotingRPC 패키지 만들기](./media/service-fabric-tutorial-create-java-app/createvotingrpcpackage.png)
+    ![Eclipse 패키지 탐색기에서 VotingRPC 패키지 만들기](./media/service-fabric-tutorial-create-java-app/create-voting-rpc-package-java.png)
 
 3. *VotingRPC.java*라는 *Voting/VotingRPC/src/rpcmethods* 아래에 파일을 만들고 **VotingRPC.java** 파일 내부에 다음을 붙여넣습니다. 
 
@@ -720,7 +720,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 - 웹 프런트 엔드 서비스(VotingWeb) - Java 웹 프런트 엔드 서비스로, 웹 페이지를 제공하며 백 엔드 서비스와 통신하기 위한 API를 공개합니다.
 - 백 엔드 서비스(VotingDataService) - Java 웹 서비스로, 투표를 유지하도록 원격 프로시저 호출(RPC)을 통해 호출되는 메서드를 정의합니다.
 
-![애플리케이션 다이어그램](./media/service-fabric-tutorial-create-java-app/walkthroughjavavoting.png)
+![투표 샘플 다이어그램](./media/service-fabric-tutorial-create-java-app/walkthrough-java-voting.png)
 
 애플리케이션에서 작업을 수행하는 경우(항목 추가, 투표, 항목 제거) 다음 이벤트가 발생합니다.
 1. JavaScript가 적절한 요청을 웹 프런트 엔드 서비스의 Web API에 HTTP 요청으로 보냅니다.

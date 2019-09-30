@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5a3ffcc75ac37dac1284d0ffb5af234fd2f376cd
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: ac4d78147820c2cf56549abbec7e1fbc873ea260
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310456"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146909"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>자습서: 지리적 복제 Azure Container Registry에서 웹앱 배포
 
@@ -55,7 +55,11 @@ Azure Container Registry는 컨테이너화된 애플리케이션을 [Web App fo
 | **사이트 이름** | 웹앱에 대한 전역적으로 고유한 이름입니다. 이 예제에서는 `<acrName>-westus` 형식을 사용하여 웹앱이 배포된 레지스트리 및 영역을 쉽게 식별합니다. |
 | **리소스 그룹** | **기존 항목 사용** > `myResourceGroup` |
 | **App Service 계획/위치** | **미국 서부** 영역에 `plan-westus`라는 새 계획을 만듭니다. |
-| **이미지** | `acr-helloworld:v1`
+| **이미지** | `acr-helloworld:v1` |
+| **운영 체제** | Linux |
+
+> [!NOTE]
+> 컨테이너형 앱을 배포하기 위한 새 앱 서비스 계획을 만들 때 애플리케이션을 호스팅하기 위한 기본 계획이 자동으로 선택됩니다. 기본 계획은 운영 체제 설정에 따라 달라집니다.
 
 웹앱을 *미국 서부* 영역에 프로비저닝하려면 **만들기**를 선택합니다.
 
@@ -84,7 +88,8 @@ Docker 이미지가 지리적 복제 컨테이너 레지스트리에서 배포�
 | **사이트 이름** | 웹앱에 대한 전역적으로 고유한 이름입니다. 이 예제에서는 `<acrName>-eastus` 형식을 사용하여 웹앱이 배포된 레지스트리 및 영역을 쉽게 식별합니다. |
 | **리소스 그룹** | **기존 항목 사용** > `myResourceGroup` |
 | **App Service 계획/위치** | **미국 동부** 영역에 `plan-eastus`라는 새 계획을 만듭니다. |
-| **이미지** | `acr-helloworld:v1`
+| **이미지** | `acr-helloworld:v1` |
+| **운영 체제** | Linux |
 
 웹앱을 *미국 동부* 영역에 프로비저닝하려면 **만들기**를 선택합니다.
 

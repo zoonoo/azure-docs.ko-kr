@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: hrasheed
-ms.openlocfilehash: 32e47f688150333ac78091589d8a252641d4c7d6
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: bcf1b967cf8eeab7aae4b720683785309689858e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076990"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71204237"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Kafka의 Apache Spark 정형 스트림 사용
 
@@ -186,12 +186,15 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
 
 4. Notebook 셀에 다음 정보를 입력하여 Notebook에서 사용하는 패키지를 로드합니다. **Ctrl + Enter**를 사용하여 명령을 실행합니다.
 
+Spark 스트리밍에는 마이크로 일괄 처리가 있습니다. 즉, 데이터가 일괄 처리로 제공되고 실행기가 데이터 일괄 처리에서 실행됩니다. 실행기가 일괄 처리를 처리하는 데 걸리는 시간보다 유휴 시간 제한이 적은 경우 실행기는 지속적으로 추가 및 제거됩니다. 실행기 유휴 시간 제한이 일괄 처리 지속 시간 보다 크면 실행기는 제거되지 않습니다. 따라서 **스트리밍 애플리케이션을 실행할 때 spark.dynamicAllocation.enabled를 false로 설정하여 동적 할당을 비활성화하는 것이 좋습니다.**
+
     ```
     %%configure -f
     {
         "conf": {
             "spark.jars.packages": "org.apache.spark:spark-sql-kafka-0-10_2.11:2.2.0",
-            "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11"
+            "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11",
+            "spark.dynamicAllocation.enabled": false
         }
     }
     ```

@@ -4,16 +4,15 @@ description: Azure Portal에서 데이터 가져오기 마법사를 사용하여
 author: lisaleib
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: v-lilei
-ms.openlocfilehash: 14996d0ac9ee4e086a5dccd9275ef694adca06ca
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: fb979a7ff4144694aecad0985c5bce9be2de05bd
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70963190"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265207"
 ---
 # <a name="create-an-azure-search-knowledge-store-in-the-azure-portal"></a>Azure Portal에서 Azure Search 지식 저장소 만들기
 
@@ -56,7 +55,7 @@ Azure Search 인덱서에서 액세스하고 AI 보강 파이프라인을 통해
 ### <a name="get-the-azure-storage-account-connection-string"></a>Azure Storage 계정 연결 문자열 가져오기
 
 1. 포털에서 Azure Storage 계정으로 이동합니다.
-1. 서비스의 왼쪽 탐색 영역에서 [액세스 키]를 클릭합니다.
+1. 서비스의 왼쪽 탐색 영역에서 **액세스 키**를 클릭합니다.
 1. **키 1** 아래에서 *연결 문자열*을 복사하여 저장합니다. 문자열은 `DefaultEndpointsProtocol=https`로 시작합니다. 스토리지 계정 이름과 키는 문자열에 포함되어 있습니다. 이 문자열을 편리하게 유지합니다. 이는 이후 단계에서 필요합니다.
 
 ## <a name="create-and-run-ai-enrichments"></a>AI 보강 만들기 및 실행
@@ -116,7 +115,7 @@ Azure Search 인덱서에서 액세스하고 AI 보강 파이프라인을 통해
 1. **인덱스 이름**에 대해 `hotel-reviews-idx`를 입력합니다.
 1. 특성에 대해 다음과 같이 선택합니다.
     + 모든 필드에 대해 **조회 가능**을 선택합니다.
-    + 다음 필드에서 **필터링 가능** 및 **패싯 가능**을 선택합니다. *Sentiment*, *Language*, *Keyphrases*
+    + 다음 필드에 대해 **필터링 가능**, **패싯 가능**을 선택합니다. *Sentiment*, *Language*, *Keyphrases*
     + *city*, *name*, *reviews_text*, *language*, *Keyphrases* 필드에 대해 **검색 가능**을 선택합니다.
 
     인덱스는 다음 이미지와 비슷합니다. 긴 목록이므로 일부 필드가 이미지에 표시되지 않습니다.

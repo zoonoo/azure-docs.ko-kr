@@ -1,19 +1,19 @@
 ---
 title: '자습서: HDInsight의 Apache Spark로 Azure Event Hubs의 데이터 처리'
 description: 자습서 - Azure HDInsight의 Apache Spark를 Azure Event Hubs에 연결하고 스트리밍 데이터를 처리합니다.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
-ms.openlocfilehash: 2483ba22d3d502479e87ae385bcc837ec87a103c
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: be21b809272a132ee6e63582036c36ad5dcdf4ad
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735346"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266205"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>자습서: HDInsight에서 Azure Event Hubs 및 Apache Spark를 사용하여 트윗 처리
 
@@ -252,7 +252,7 @@ HDInsight를 사용하면 데이터가 Azure Storage 또는 Azure Data Lake Stor
 
 Azure Portal에서 클러스터를 열고 **삭제**를 선택합니다.
 
-![HDInsight 클러스터 삭제](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "HDInsight 클러스터 삭제")
+![클러스터를 삭제하는 HDInsight Azure Portal](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "HDInsight 클러스터 삭제")
 
 또한 리소스 그룹 이름을 선택하여 리소스 그룹 페이지를 연 다음, **리소스 그룹 삭제**를 선택할 수도 있습니다. 리소스 그룹을 삭제하여 HDInsight Spark 클러스터와 기본 스토리지 계정을 삭제합니다.
 

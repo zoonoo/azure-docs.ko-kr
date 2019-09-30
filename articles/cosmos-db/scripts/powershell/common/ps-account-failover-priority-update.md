@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 스크립트 - Azure Cosmos 계정에 대한 장애 조치 우선 순위 변경
-description: Azure PowerShell 스크립트 샘플 - Azure Cosmos 계정에 대한 장애 조치(failover) 우선 순위 변경
+title: Azure PowerShell 스크립트 - Azure Cosmos 계정에 대한 장애 조치(failover) 우선순위 변경 또는 장애 조치(failover) 트리거
+description: Azure PowerShell 스크립트 샘플 - Azure Cosmos 계정에 대한 장애 조치(failover) 우선순위 변경 또는 장애 조치(failover) 트리거
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/06/2019
+ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0aea4e8e01b5f65be0d0ca4bb08082e058cba311
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e4406124a7ea4eac213d830d0e5960e76fb6d364
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603971"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155399"
 ---
-# <a name="change-failover-priority-for-an-azure-cosmos-account-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos 계정에 대한 장애 조치 우선 순위 변경
+# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-account-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos 계정에 대한 장애 조치(failover) 우선순위 변경 또는 장애 조치(failover) 트리거
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -21,7 +21,12 @@ ms.locfileid: "67603971"
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-account-failover-priority-update.ps1 "Update failover priority for an Azure Cosmos account")]
+> [!NOTE]
+> `failoverPriority=0`이 포함된 지역에 대한 변경 내용은 수동 장애 조치(failover)를 트리거하고 수동 장애 조치(failover)를 위해 구성된 계정으로만 수행할 수 있습니다. 다른 모든 지역에 대한 변경 내용은 Cosmos 계정의 장애 조치(failover) 우선순위를 변경하기만 하면 됩니다.
+> [!NOTE]
+> 이 샘플에서는 SQL(Core) API 계정을 사용하는 방법을 보여줍니다. 이 샘플을 다른 API에 사용하려면 관련 속성을 복사하고 API별 스크립트에 적용합니다.
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-failover-priority-update.ps1 "Update failover priority for an Azure Cosmos account or trigger a manual failover")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 

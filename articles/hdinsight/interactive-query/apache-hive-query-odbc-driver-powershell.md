@@ -3,17 +3,17 @@ title: ODBC 드라이버와 PowerShell로 Apache Hive 쿼리 - Azure HDInsight
 description: Microsoft Hive ODBC 드라이버와 PowerShell을 사용하여 Azure HDInsight에서 Apache Hive 클러스터를 쿼리합니다.
 keywords: hive,hive odbc,powershell
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
-ms.author: hrasheed
-ms.openlocfilehash: b02c865e953861b5ac396538fdd0f0623b0e5428
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 04771ddc633c210ce8c7b3c42a9e46cb2f1ed349
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67486066"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122169"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>자습서: ODBC와 PowerShell로 Apache Hive 쿼리
 
@@ -26,7 +26,7 @@ Microsoft ODBC 드라이버는 Apache Hive를 비롯한 여러 종류의 데이�
 > * 클러스터에 연결된 Apache Hive ODBC 데이터 원본 만들기
 > * PowerShell을 사용하여 클러스터의 샘플 정보 쿼리
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -70,7 +70,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    |  Rows fetched per block |많은 수의 레코드를 가져오는 경우 최적의 성능을 위해 이 매개 변수를 조정해야 할 수 있습니다. |
    |  Default string column length, Binary column length, Decimal column scale |데이터 형식 길이 및 정밀도는 데이터가 반환되는 방식에 영향을 줄 수 있습니다. 정밀도 손실 및 잘림으로 인해 잘못된 정보가 반환될 수 있습니다. |
 
-    ![고급 옵션](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "고급 DSN 구성 옵션")
+    ![고급 DSN 구성 옵션](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "고급 DSN 구성 옵션")
 
 1. **테스트**를 선택하여 데이터 원본을 테스트합니다. 데이터 원본이 올바르게 구성된 경우 테스트 결과가 **성공**으로 표시됩니다.  
 

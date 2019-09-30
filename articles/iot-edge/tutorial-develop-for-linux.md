@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 30b1af29d1a7e3a01659353b27d8c997e739e702
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: a523028fb312f030bc453692daceb0f254f844b6
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030988"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240957"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>자습서: Linux 디바이스를 위한 IoT Edge 모듈 개발
 
@@ -63,6 +63,7 @@ IoT Edge 모듈을 개발할 때 개발 머신과 모듈을 결과적으로 배�
 개발 머신:
 
 * 본인의 개발 선호도에 자신의 머신 또는 가상 머신을 사용할 수 있습니다.
+  * 개발 머신에서 중첩된 가상화를 지원하는지 확인합니다. 이 기능은 다음 섹션에서 설치하는 컨테이너 엔진을 실행하는 데 필요합니다.
 * 컨테이너 엔진을 실행할 수 있는 대부분의 운영 체제에서 Linux 디바이스용 IoT Edge 모듈을 개발할 수 있습니다. 이 자습서에서는 Windows 머신을 사용하지만 MacOS 또는 Linux에서 알려진 차이점을 설명합니다. 
 * 이 자습서의 뒷부분에 나오는 모듈 템플릿 패키지를 끌어오려면 [Git](https://git-scm.com/)을 설치하세요.  
 * [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).

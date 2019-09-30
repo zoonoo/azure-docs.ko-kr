@@ -8,19 +8,19 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 06f1c0123d6bdf56b5182605016d2feb80adf18b
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: c4e4a984adc0ec6af99667ff36c009ca730acf48
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172977"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172809"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>자습서: Jenkins 연속 통합 및 배포를 사용하여 GitHub에서 Azure App Service로 배포
 
 이 자습서에는 Jenkins에서 CI(지속적인 통합) 및 CD(연속 배포)를 설정하여 GitHub의 샘플 Java 웹앱을 [Linux의 Azure App Service](/azure/app-service/containers/app-service-linux-intro)로 배포합니다. GitHub로 커밋을 푸시하여 앱을 업데이트하면 Jenkins는 앱을 자동으로 빌드한 후 Azure App Service에 다시 게시합니다. 이 자습서의 샘플 앱은 [Spring Boot](https://projects.spring.io/spring-boot/) 프레임워크를 사용하여 개발했습니다. 
 
-![개요](media/tutorial-jenkins-deploy-web-app-azure-app-service/overview.png)
+![GitHub에서 Azure App Service로 배포 개요](media/tutorial-jenkins-deploy-web-app-azure-app-service/azure-continuous-integration-deployment-overview.png)
 
 이 자습서에서는 다음 작업을 수행합니다.
 
@@ -97,19 +97,19 @@ Jenkins가 GitHub를 모니터링하고, GitHub 포크의 웹앱으로 새 커�
 
 1. **Jenkins 관리** 페이지에서 **시스템 구성**을 선택합니다. 
 
-   ![시스템 구성](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-jenkins-configure-system.png)
+   ![Jenkins에서 시스템 구성](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-jenkins-configure-system.png)
 
 1. **GitHub** 섹션에서 GitHub 서버에 대한 세부 정보를 제공합니다. **GitHub 서버 추가** 목록에서 **GitHub 서버**를 선택합니다. 
 
-   ![GitHub 서버 추가](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-GitHub-server.png)
+   ![Jenkins에 GitHub 서버 추가](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-GitHub-server.png)
 
 1. **후크 관리** 속성을 선택하지 않은 경우 이 속성을 선택합니다. 기타 설정을 지정할 수 있도록 **고급**을 선택합니다. 
 
-   ![더 많은 설정을 위해 "고급" 선택](media/tutorial-jenkins-deploy-web-app-azure-app-service/advanced-GitHub-settings.png)
+   ![GitHub 서버에 대한 고급 Jenkins 설정 지정](media/tutorial-jenkins-deploy-web-app-azure-app-service/advanced-GitHub-settings.png)
 
 1. **추가 GitHub 작업 관리** 목록에서 **로그인 및 암호를 토큰으로 변환**을 선택합니다.
 
-   !["추가 GitHub 작업 관리" 선택](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-additional-actions.png)
+   ![로그인 및 암호를 GitHub에 대한 토큰으로 변환](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-additional-actions.png)
 
 1. GitHub 사용자 이름 및 암호를 입력할 수 있도록 **로그인 및 암호에서**를 선택합니다. 완료되면 **토큰 자격 증명 만들기**를 선택합니다. 그러면 [GitHub PAT(개인용 액세스 토큰)](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)가 만들어집니다.   
 
@@ -181,11 +181,11 @@ Jenkins에서 앱을 빌드하고 배포하기 위한 파이프라인 작업을 
 
 1. Jenkins 홈페이지로 돌아간 후 **새 항목**을 선택합니다. 
 
-   ![“새 항목”을 선택](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-new-item.png)
+   ![Jenkins 파이프라인 만들기](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-new-item.png)
 
 1. 파이프라인 작업의 이름(예: "My-Java-Web-App")을 제공하고 **파이프라인**을 선택합니다. 아래쪽에서 **확인**을 선택합니다.  
 
-   !["파이프라인" 선택](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
+   ![Jenkins 파이프라인 작업 이름 지정](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
 
 1. 사용자 고유의 자격 증명을 사용하지 않아도 Jenkins에서 Azure에 배포할 수 있도록 서비스 주체를 사용하여 Jenkins를 설정합니다.
 
@@ -199,7 +199,7 @@ Jenkins에서 앱을 빌드하고 배포하기 위한 파이프라인 작업을 
       WEB_APP=yourWebAppName
       ```
 
-      !["실행 환경 준비" 선택 및 환경 변수 설정](media/tutorial-jenkins-deploy-web-app-azure-app-service/prepare-environment-for-run.png)
+      ![실행을 위한 환경 준비 및 환경 변수 설정](media/tutorial-jenkins-deploy-web-app-azure-app-service/prepare-environment-for-jenkins-run.png)
 
 1. 완료되면 **저장**을 선택합니다.
 
@@ -254,7 +254,7 @@ Jenkins에서 앱을 빌드하고 배포하기 위한 파이프라인 작업을 
 
 1. Jenkins에서 이전에 만든 파이프라인 작업을 선택합니다. 
 
-   ![웹앱에 대한 파이프라인 작업 선택](media/tutorial-jenkins-deploy-web-app-azure-app-service/select-pipeline-job.png)
+   ![웹앱에 대한 Jenkins 파이프라인 작업 선택](media/tutorial-jenkins-deploy-web-app-azure-app-service/select-pipeline-job.png)
 
 1. 왼쪽 메뉴에서 **구성**을 선택합니다.
 
@@ -272,7 +272,7 @@ Jenkins에서 앱을 빌드하고 배포하기 위한 파이프라인 작업을 
 
    완료되면 파이프라인 정의가 다음 예제와 비슷합니다. 
 
-   ![스크립트에서 파이프라인 지정](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
+   ![스크립트에서 Jenkins 파이프라인 가리키기](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
 
 1. 완료되면 **저장**을 선택합니다.
 

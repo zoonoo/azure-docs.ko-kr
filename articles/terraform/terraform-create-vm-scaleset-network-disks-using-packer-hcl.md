@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/28/2019
-ms.openlocfilehash: 9a80cb7ba44c86d449e4ff4178a2982db302a717
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.date: 09/20/2019
+ms.openlocfilehash: 6feeab9b48715a8fe1f6c6fe11ae90b6be71a57a
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70138335"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173473"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Terraform을 사용하여 Packer 사용자 지정 이미지에서 Azure 가상 머신 확장 집합 만들기
 
@@ -42,9 +42,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 빈 디렉터리에 다음과 같은 이름으로 3개의 새 파일을 만듭니다.
 
-- ```variables.tf``` 이 파일은 템플릿에 사용되는 변수 값을 포함합니다.
-- ```output.tf``` 이 파일은 배포 후에 표시될 설정을 설명합니다.
-- ```vmss.tf``` 이 파일에는 배포 중인 인프라의 코드가 포함되어 있습니다.
+- `variables.tf` : 이 파일은 템플릿에 사용되는 변수 값을 포함합니다.
+- `output.tf` : 이 파일은 배포 후에 표시될 설정을 설명합니다.
+- `vmss.tf` : 이 파일에는 배포 중인 인프라의 코드가 포함되어 있습니다.
 
 ##  <a name="create-the-variables"></a>변수 만들기 
 
@@ -52,7 +52,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 `variables.tf` 파일을 편집하고 다음 코드를 복사한 다음 변경 내용을 저장합니다.
 
-```tf 
+```hcl
 variable "location" {
   description = "The location where resources are created"
   default     = "East US"
@@ -70,7 +70,7 @@ variable "resource_group_name" {
 
 파일을 저장합니다.
 
-Terraform 템플릿을 배포하는 경우 애플리케이션에 액세스하는 데 사용되는 정규화된 도메인 이름을 가져오려고 합니다. Terraform의 ```output``` 리소스 형식을 사용하고 리소스의 ```fqdn``` 속성을 가져옵니다. 
+Terraform 템플릿을 배포하는 경우 애플리케이션에 액세스하는 데 사용되는 정규화된 도메인 이름을 가져오려고 합니다. Terraform의 `output` 리소스 형식을 사용하고 리소스의 `fqdn` 속성을 가져옵니다. 
 
 `output.tf` 파일을 편집하고 다음 코드를 복사하여 가상 머신의 정규화된 도메인 이름을 노출합니다. 
 
@@ -89,9 +89,9 @@ output "vmss_public_ip" {
 
 모든 리소스를 만드는 리소스 그룹이 필요합니다. 
 
-```vmss.tf``` 파일에서 다음 코드를 편집하고 복사합니다. 
+`vmss.tf` 파일에서 다음 코드를 편집하고 복사합니다. 
 
-```tf 
+```hcl
 
 resource "azurerm_resource_group" "vmss" {
   name     = "${var.resource_group_name}"
@@ -145,7 +145,7 @@ resource "azurerm_public_ip" "vmss" {
 terraform init 
 ```
  
-공급자 플러그 인은 Terraform 레지스트리에서 명령을 실행하는 디렉터리의 ```.terraform``` 폴더로 다운로드합니다.
+공급자 플러그 인은 Terraform 레지스트리에서 명령을 실행하는 디렉터리의 `.terraform` 폴더로 다운로드합니다.
 
 다음 명령을 실행하여 Azure에 인프라를 배포합니다.
 
@@ -185,8 +185,7 @@ terraform apply
 
 `vmss.tf` 파일의 끝에 다음 코드를 추가합니다.
 
-```tf
-
+```hcl
 
 resource "azurerm_lb" "vmss" {
   name                = "vmss-lb"
@@ -303,7 +302,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
 
 `variables.tf`에 다음 코드를 추가하여 배포를 사용자 지정합니다.
 
-```tf 
+```hcl
 variable "application_port" {
     description = "The port that you want to expose to the external load balancer"
     default     = 80

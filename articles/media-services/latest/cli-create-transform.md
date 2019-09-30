@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 86f455f25bb41833774bb7ad7d81688aad812b5a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7fea8d997d25d6075e30620e7fd3527003c6a8bb
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236808"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128784"
 ---
 # <a name="cli-example-create-a-transform"></a>CLI 예제: Transform 만들기
 
@@ -31,10 +31,15 @@ ms.locfileid: "65236808"
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
+> [!NOTE]
+> [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)에 대한 사용자 지정 표준 인코더 사전 설정 JSON 파일의 경로만 지정할 수 있습니다. [사용자 지정 변환으로 인코딩](custom-preset-cli-howto.md) 예제를 참조하세요.
+>
+> [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset)을 사용할 때는 파일 이름을 전달할 수 없습니다.
+
 ## <a name="example-script"></a>예제 스크립트
 
 [!code-azurecli-interactive[main](../../../cli_scripts/media-services/create-transform/Create-Transform.sh "Create a transform")]
 
 ## <a name="next-steps"></a>다음 단계
 
-[Media Services 개요](media-services-overview.md)
+[az ams transform(CLI)](https://docs.microsoft.com/cli/azure/ams/transform?view=azure-cli-latest)

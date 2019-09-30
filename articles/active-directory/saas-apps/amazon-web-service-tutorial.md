@@ -1,11 +1,11 @@
 ---
-title: '자습서: AWS(Amazon Web Services)와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: AWS(Amazon Web Services)와 Azure Active Directory SSO(Single Sign-On) 연결 | Microsoft Docs'
 description: Azure Active Directory와 Amazon Web Services(AWS) 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: celested
+ms.reviewer: barbkess
 ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -13,22 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 09/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 672a3571202b92232bd45a42254a43019f6a9796
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: ed1f1b6973d96fdc0bce560877720adfc5e33081
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617338"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170894"
 ---
-# <a name="tutorial-integrate-amazon-web-services-aws-with-azure-active-directory"></a>자습서: Azure Active Directory와 AWS(Amazon Web Services) 통합
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>자습서: AWS(Amazon Web Services)와 Azure Active Directory SSO(Single Sign-On) 연결
 
-이 자습서에서는 AWS(Amazon Web Services)를 Azure AD(Azure Active Directory)와 통합하는 방법에 대해 알아봅니다. Azure AD와 AWS를 통합하면 다음을 수행할 수 있습니다.
+이 자습서에서는 AWS(Amazon Web Services)를 Azure AD(Azure Active Directory)와 통합하는 방법에 대해 알아봅니다. AWS(Amazon Web Services)를 Azure AD와 통합하면 다음을 수행할 수 있습니다.
 
-* Azure AD에서 AWS에 액세스할 수 있는 사용자를 제어합니다.
-* 사용자가 해당 Azure AD 계정으로 AWS에 자동으로 로그인되도록 설정합니다.
+* Azure AD에서 AWS(Amazon Web Services)에 대한 액세스 권한이 있는 사용자를 제어합니다.
+* 사용자가 자신의 Azure AD 계정으로 AWS(Amazon Web Services)에 자동으로 로그온되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
@@ -63,87 +63,93 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다. AWS에서 **SP 및 IDP** 시작 SSO를 지원합니다.
+이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-## <a name="add-aws-from-the-gallery"></a>갤러리에서 AWS 추가
+* AWS(Amazon Web Services)에서 **SP 및 IDP** 시작 SSO 지원
 
-AWS가 Azure AD에 통합되도록 구성하려면 갤러리에서 AWS를 관리형 SaaS 앱 목록에 추가해야 합니다.
+> [!NOTE]
+> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 회사나 학교 계정 또는 개인 Microsoft 계정으로 로그인합니다.
-1. 왼쪽 창에서 **Azure Active Directory** 서비스를 선택합니다.
+## <a name="adding-amazon-web-services-aws-from-the-gallery"></a>갤러리에서 AWS(Amazon Web Services) 추가
+
+Azure AD에 AWS(Amazon Web Services)를 통합하도록 구성하려면 갤러리의 AWS(Amazon Web Services)를 관리되는 SaaS 앱 목록에 추가해야 합니다.
+
+1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
+1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
 1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **AWS(Amazon Web Services)** 를 입력합니다.
 1. 결과 창에서 **AWS(Amazon Web Services)** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-**B.Simon**이라는 테스트 사용자를 사용하여 AWS에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 AWS의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+## <a name="configure-and-test-azure-ad-single-sign-on-for-amazon-web-services-aws"></a>AWS(Amazon Web Services)에 대한 Azure AD Single Sign-On 구성 및 테스트
 
-AWS에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
+**B. Simon**이라는 테스트 사용자를 사용하여 AWS(Amazon Web Services)에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 AWS(Amazon Web Services)의 관련 사용자 간에 연결 관계가 설정되어야 합니다.
 
-1. **Azure AD SSO 구성** - 사용자가 이 기능을 사용할 수 있도록 구성합니다.
-2. **AWS 구성** - 애플리케이션 쪽에서 SSO 설정을 구성합니다.
-3. **Azure AD 테스트 사용자 만들기** - B.Simon을 사용하여 Azure AD SSO를 테스트합니다.
-4. **Azure AD 테스트 사용자 할당** - B.Simon이 Azure AD SSO를 사용할 수 있도록 할당합니다.
-5. **AWS 테스트 사용자 만들기** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 AWS에 만듭니다.
-6. **SSO 테스트** - 구성이 작동하는지 여부를 확인합니다.
+AWS(Amazon Web Services)에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+1. **[AWS(Amazon Web Services) SSO 구성](#configure-amazon-web-services-aws-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+    1. **[AWS(Amazon Web Services) 테스트 사용자 만들기](#create-amazon-web-services-aws-test-user)** - B.Simon의 Azure AD 표현과 연결되는 대응 사용자를 AWS(Amazon Web Services)에 만듭니다.
+1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
+
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **AWS(Amazon Web Services)** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고, **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **AWS(Amazon Web Services)** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고 **Single Sign-On**을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 펜 아이콘을 선택하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
 
-   ![펜 아이콘이 강조 표시된 SAML로 Single Sign-On 설정 페이지의 스크린샷](common/edit-urls.png)
+   ![기본 SAML 구성 편집](common/edit-urls.png)
 
-4. **기본 SAML 구성** 섹션에서 애플리케이션이 미리 구성되어 있으며, 이미 Azure에서 필요한 URL이 미리 채워져 있습니다. 사용자가 **저장**을 선택하여 구성을 저장해야 합니다.
+1. **기본 SAML 구성** 섹션에서 애플리케이션이 미리 구성되어 있으며, 이미 Azure에서 필요한 URL이 미리 채워져 있습니다. 사용자가 **저장**을 선택하여 구성을 저장해야 합니다.
 
-5. 둘 이상의 인스턴스를 구성하는 경우 식별자 값을 제공합니다. 두 번째 인스턴스 이후부터 **#** 기호를 포함한 다음 형식을 사용하여 고유한 SPN 값을 지정합니다.
+1. 둘 이상의 인스턴스를 구성하는 경우 식별자 값을 제공합니다. 두 번째 인스턴스 이후부터 **#** 기호를 포함한 다음 형식을 사용하여 고유한 SPN 값을 지정합니다.
 
     `https://signin.aws.amazon.com/saml#2`
 
-6. AWS 애플리케이션에는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 하는 특정 형식의 SAML 어설션이 필요합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. 펜 아이콘을 선택하여 [사용자 특성] 대화 상자를 엽니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML**을 찾고, **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
-    ![펜 아이콘이 강조 표시된 사용자 특성 대화 상자의 스크린샷](common/edit-attribute.png)
-
-7. 위의 특성 외에도 AWS 애플리케이션에는 SAML 응답에서 다시 전달되는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 SAML 토큰 특성을 추가합니다.
-
-    | Name  | 원본 특성  | 네임스페이스 |
-    | --------------- | --------------- | --------------- |
-    | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-    | 역할            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
-    | SessionDuration             | “900초(15분)에서 43200초(12시간) 사이의 값을 제공합니다.” |  https://aws.amazon.com/SAML/Attributes |
-
-    a. **새 클레임 추가**를 선택하여 **사용자 클레임 관리** 대화 상자를 엽니다.
-
-    ![새 클레임 추가 및 저장이 강조 표시된 사용자 클레임 섹션의 스크린샷](common/new-save-attribute.png)
-
-    ![사용자 클레임 관리 대화 상자의 스크린샷](common/new-attribute-details.png)
-
-    b. **이름**에서 해당 행에 대해 표시된 특성 이름을 입력합니다.
-
-    다. **네임스페이스**에서 해당 행에 대해 표시된 네임스페이스 값을 입력합니다.
-
-    d. **원본**에서 **특성**을 선택합니다.
-
-    e. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 입력합니다.
-
-    f. **확인**을 선택합니다.
-
-    g. **저장**을 선택합니다.
-
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML**을 찾습니다. **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
-
-   ![다운로드가 강조 표시된 SAML 서명 인증서 섹션의 스크린샷](common/metadataxml.png)
+    ![인증서 다운로드 링크](common/metadataxml.png)
 
 1. **AWS(Amazon Web Services) 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
-   ![구성 URL이 강조 표시된 AWS(Amazon Web Services) 설정 섹션의 스크린샷](common/copy-configuration-urls.png)
+    ![구성 URL 복사](common/copy-configuration-urls.png)
 
-### <a name="configure-aws"></a>AWS 구성
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+
+이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
+
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자**를 선택합니다.
+1. **사용자** 속성에서 다음 단계를 수행합니다.
+   1. **이름** 필드에 `B.Simon`을 입력합니다.  
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
+   1. **만들기**를 클릭합니다.
+
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 AWS(Amazon Web Services)에 대한 액세스 권한을 부여합니다.
+
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
+1. 애플리케이션 목록에서 **AWS(Amazon Web Services)** 를 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹**을 선택합니다.
+
+   !["사용자 및 그룹" 링크](common/users-groups-blade.png)
+
+1. **사용자 추가**를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+
+    ![사용자 추가 링크](common/add-assign-user.png)
+
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+
+## <a name="configure-amazon-web-services-aws-sso"></a>Amazon Web Services(AWS) SSO 구성
 
 1. 다른 브라우저 창에서 AWS 회사 사이트에 관리자 권한으로 로그온합니다.
 
@@ -326,50 +332,29 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![켜기가 강조 표시된 설정 섹션의 스크린샷](./media/amazon-web-service-tutorial/provisioning2.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+> [!NOTE]
+> 프로비저닝 서비스는 AWS에서 Azure AD로 역할만 가져옵니다. 이 서비스는 사용자 및 그룹을 Azure AD에서 AWS로 다시 프로비저닝하지 않습니다.
 
-이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
+### <a name="create-amazon-web-services-aws-test-user"></a>AWS(Amazon Web Services) 테스트 사용자 만들기
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** > **사용자** > **모든 사용자**를 차례로 선택합니다.
-1. 화면 위쪽에서 **새 사용자**를 선택합니다.
-1. **사용자** 속성에서 다음 단계를 수행합니다.
-   
-   a. **이름** 필드에 `B.Simon`을 입력합니다.  
-   b. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`   
-   다. **암호 표시**를 선택하고 암호를 적어둡니다. 그런 다음 **만들기**를 선택합니다.
+이 섹션에서는 AWS(Amazon Web Services)에서 B.Simon이라는 사용자를 만듭니다. AWS(Amazon Web Services)에서는 SSO용으로 시스템에서 사용자를 만들 필요가 없으므로 여기에서 작업을 수행할 필요가 없습니다.
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+## <a name="test-sso"></a>SSO 테스트
 
-이 섹션에서는 Azure SSO를 사용할 수 있도록 B.Simon에게 AWS에 대한 액세스 권한을 부여합니다.
+이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
-1. 애플리케이션 목록에서 **AWS(Amazon Web Services)** 를 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고, **사용자 및 그룹**을 선택합니다.
-
-   ![사용자 및 그룹이 강조 표시된 관리 섹션의 스크린샷](common/users-groups-blade.png)
-
-1. **사용자 추가**를 선택합니다. **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
-
-    ![사용자 추가의 스크린샷](common/add-assign-user.png)
-
-1. **사용자 및 그룹** 대화 상자에서 **B.Simon**을 선택합니다. 그런 다음, **선택**을 선택합니다.
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에게 적합한 역할을 선택합니다. 그런 다음, **선택**을 선택합니다.
-1. **할당 추가** 대화 상자에서 **할당**을 선택합니다.
-
-### <a name="test-single-sign-on"></a>Single Sign-On 테스트
-
-액세스 패널에서 AWS 타일을 클릭하면 SSO를 설정한 AWS에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+액세스 패널에서 AWS(Amazon Web Services) 타일을 클릭하면 SSO를 설정하기 위한 AWS(Amazon Web Services)에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
 ## <a name="known-issues"></a>알려진 문제
 
  * **프로비저닝** 섹션에서 **매핑** 하위 섹션에 "로드 중..." 메시지가 표시되고 특성 매핑이 표시되지 않습니다. 현재 지원되는 유일한 프로비저닝 워크플로는 사용자 또는 그룹을 할당하는 중에 선택할 수 있도록 역할을 AWS에서 Azure AD로 가져오는 것입니다. 이에 대한 특성 매핑은 미리 결정되어 있으며 구성할 수 없습니다.
- 
- * **프로비전** 섹션에서는 한 번에 하나의 AWS 테넌트에 대한 하나의 자격 증명 집합만 입력할 수 있습니다. 가져온 모든 역할은 AWS 테넌트에 대한 Azure AD [`servicePrincipal` 개체](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)의 `appRoles` 속성에 기록됩니다. 
- 
-   프로비저닝을 위해 여러 AWS 테넌트(`servicePrincipals`로 표시됨)를 갤러리에서 Azure AD에 추가할 수 있습니다. 그러나 SSO에 사용되는 단일 `servicePrincipal`에 프로비저닝하는 데 사용되는 여러 AWS `servicePrincipals`에서 가져온 역할을 모두 자동으로 작성할 수 없는 알려진 문제가 있습니다. 
-   
+
+ * **프로비전** 섹션에서는 한 번에 하나의 AWS 테넌트에 대한 하나의 자격 증명 집합만 입력할 수 있습니다. 가져온 모든 역할은 AWS 테넌트에 대한 Azure AD [`servicePrincipal` 개체](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)의 `appRoles` 속성에 기록됩니다.
+
+   프로비저닝을 위해 여러 AWS 테넌트(`servicePrincipals`로 표시됨)를 갤러리에서 Azure AD에 추가할 수 있습니다. 그러나 SSO에 사용되는 단일 `servicePrincipal`에 프로비저닝하는 데 사용되는 여러 AWS `servicePrincipals`에서 가져온 역할을 모두 자동으로 작성할 수 없는 알려진 문제가 있습니다.
+
    해결 방법으로 [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)를 사용하여 가져온 모든 `appRoles`를 프로비저닝이 구성된 각 AWS `servicePrincipal`에 추출할 수 있습니다. 그런 다음, 이러한 역할 문자열을 SSO가 구성된 AWS `servicePrincipal`에 추가할 수 있습니다.
- 
+
 * AWS에서 Azure AD로 가져올 수 있으려면 역할이 다음 요구 사항을 충족해야 합니다.
 
   * 역할에는 AWS에 정의된 saml 공급자가 하나만 있어야 합니다.
@@ -378,13 +363,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-<!--Image references-->
+- [Azure AD에서 AWS(Amazon Web Services) 사용해 보기](https://aad.portal.azure.com/)
 
 [11]: ./media/amazon-web-service-tutorial/ic795031.png
 [12]: ./media/amazon-web-service-tutorial/ic795032.png

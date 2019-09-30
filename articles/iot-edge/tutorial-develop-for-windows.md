@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 03b279e6193c55141b80a5fadc9d39c7c1681006
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 6cde60ee31b1654d79affd6e9050f426365ba29f
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915144"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240968"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>자습서: Windows 디바이스를 위한 IoT Edge 모듈 개발
 
@@ -57,6 +57,7 @@ IoT Edge 모듈을 개발할 때 개발 머신과 모듈을 결과적으로 배�
 
 * Windows 10 1809 업데이트 이상
 * 본인의 개발 선호도에 자신의 머신 또는 가상 머신을 사용할 수 있습니다.
+  * 개발 머신에서 중첩된 가상화를 지원하는지 확인합니다. 이 기능은 다음 섹션에서 설치하는 컨테이너 엔진을 실행하는 데 필요합니다.
 * [Git](https://git-scm.com/)를 설치합니다. 
 
 Windows의 Azure IoT Edge 디바이스:
@@ -299,7 +300,7 @@ IotEdgeModule1 코드는 입력 큐의 메시지를 받고 출력 큐를 통해 
 
 3. Visual Studio의 **출력** 섹션에서 IoT Hub에 메시지가 도착하는 것을 확인합니다. 
 
-   두 모듈이 모두 시작하는 데 몇 분 정도 걸릴 수 있습니다. IoT Edge 런타임은 새 배포 매니페스트를 받고, 컨테이너 런타임에서 모듈 이미지를 끌어온 후 각 새 모듈을 시작해야 합니다. 다음과 같은 경우입니다. 
+   두 모듈이 모두 시작하는 데 몇 분 정도 걸릴 수 있습니다. IoT Edge 런타임은 새 배포 매니페스트를 받고, 컨테이너 런타임에서 모듈 이미지를 끌어온 후 각 새 모듈을 시작해야 합니다. 
 
    ![디바이스에서 클라우드로 수신되는 메시지 보기](./media/tutorial-develop-for-windows/view-d2c-messages.png)
 

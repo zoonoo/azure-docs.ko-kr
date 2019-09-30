@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: 9392cfc9c789a757c3ad533a3dbd4719f5292be5
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 809d76791522fa135932baaf6e237570ab0af35a
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931572"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172169"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 자동화된 일정 기반 되풀이 워크플로 만들기
 
@@ -235,7 +235,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 1. 이전 작업 아래에서 **새 단계**를 선택합니다.
 
-1. **작업 선택** 아래에서 **기본 제공**을 선택하고, "조건"을 검색한 다음, **조건** 작업을 선택합니다.
+1. **작업 선택** 아래에서 **기본 제공**을 선택합니다. 검색 상자에서 필터로 “조건”을 입력합니다. 작업 목록에서 **조건** 작업을 선택합니다.
 
    !["조건" 작업 선택](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-condition-action.png)
 
@@ -243,19 +243,19 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 1. 여기서 설명한 대로 **travelTime** 속성 값이 지정된 제한을 초과하는지 확인하는 조건을 작성합니다.
 
-   1. 조건 내에서 조건의 왼쪽에 있는 **값 선택** 상자 내부를 클릭합니다.
+   1. 조건에서 조건의 왼쪽에 있는 **값 선택** 상자 내부를 클릭합니다.
 
-   1. 동적 콘텐츠 목록이 표시되면 **변수** 아래에서 **travelTime** 속성을 선택합니다.
+   1. 표시되는 동적 콘텐츠 목록의 **변수** 아래에서 **travelTime** 속성을 선택합니다.
 
       ![조건 작성의 왼쪽](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-left-side.png)
 
-   1. 비교 상자에서 **보다 큼** 연산자를 선택합니다.
+   1. 가운데 비교 상자에서 **보다 큼** 연산자를 선택합니다.
 
    1. 조건의 오른쪽에 있는 **값 선택** 상자에서 `15` 제한을 입력합니다.
 
       완료되면 조건이 다음 예와 같습니다.
 
-      ![조건 작성](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
+      ![완성된 조건](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
 
 1. 논리 앱을 저장합니다.
 

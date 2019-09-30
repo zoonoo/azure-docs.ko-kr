@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 07/09/2019
-ms.openlocfilehash: e5666a64e4160964e2c1b35707a0f064edb72460
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.date: 09/22/2019
+ms.openlocfilehash: 619c36257f9166492e98d88335d767f358e3feca
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706899"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71179131"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>자습서: DMS를 사용하여 Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스로 온라인 마이그레이션
 
@@ -78,16 +78,16 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 - 테이블 중 하나에 기본 키가 없으면 데이터베이스 및 특정 테이블에서 CDC(변경 데이터 캡처)를 사용하도록 설정합니다.
     > [!NOTE]
     > 아래 스크립트를 사용하여 기본 키가 없는 테이블을 찾을 수 있습니다.
-
+    
     ```sql
     USE <DBName>;
     go
     SELECT is_tracked_by_cdc, name AS TableName
     FROM sys.tables WHERE type = 'U' and is_ms_shipped = 0 AND
     OBJECTPROPERTY(OBJECT_ID, 'TableHasPrimaryKey') = 0;
-     ```
+    ```
 
-    >결과에 'is_tracked_by_cdc'가 '0'인 하나 이상의 테이블이 표시되면, [변경 데이터 캡처 설정 및 해제(SQL Server)](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-2017) 문서에서 설명하는 프로세스에 따라 데이터베이스 및 특정 테이블에 대한 변경 캡처를 사용하도록 설정합니다.
+    결과에 'is_tracked_by_cdc'가 '0'인 하나 이상의 테이블이 표시되면, [변경 데이터 캡처 설정 및 해제(SQL Server)](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-2017) 문서에서 설명하는 프로세스에 따라 데이터베이스 및 특정 테이블에 대한 변경 캡처를 사용하도록 설정합니다.
 
 - 원본 SQL Server에 대한 배포자 역할을 구성합니다.
 
@@ -132,12 +132,12 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 1. DMA에서 새로 만들기(+) 아이콘을 선택한 다음, **평가** 프로젝트 형식을 선택합니다.
 2. 프로젝트 이름을 지정하고, **원본 서버 유형** 텍스트 상자에서 **SQL Server**를 선택하고, **대상 서버 유형** 텍스트 상자에서 **Azure SQL Database**를 선택한 다음, **만들기**를 선택하여 프로젝트를 만듭니다.
 
-    Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스로 마이그레이션할 원본 SQL Server 데이터베이스를 평가할 때 다음 평가 보고서 유형 중 하나 또는 둘 다 선택할 수 있습니다.
+   Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스로 마이그레이션할 원본 SQL Server 데이터베이스를 평가할 때 다음 평가 보고서 유형 중 하나 또는 둘 다 선택할 수 있습니다.
 
    - 데이터베이스 호환성 확인
    - 기능 패리티 확인
 
-     두 보고서 유형이 모두 기본적으로 선택됩니다.
+   두 보고서 유형이 모두 기본적으로 선택됩니다.
 
 3. DMA의 **옵션** 화면에서 **다음**을 선택합니다.
 4. **원본 선택** 화면의 **서버에 연결** 대화 상자에서 SQL Server에 대한 연결 세부 정보를 제공하고 **연결**을 선택합니다.

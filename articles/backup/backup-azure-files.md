@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: d5702576b3353bbc779601c7a5fe91417d73c7a1
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 44a2b0feab19d042de58359a7ea13814415e6c9e
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624348"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71129557"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Azure 파일 공유 백업 및 복원
 이 문서에서는 Azure Portal을 사용하여 [Azure 파일 공유](../storage/files/storage-files-introduction.md)를 백업 및 복원하는 방법을 설명합니다.
@@ -86,13 +86,15 @@ Azure 파일 공유를 위한 백업은 미리 보기로 제공됩니다. 범용
 
    ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/list-of-azure-files-backup-items.png)
 
-3. Azure 파일 공유 목록에서 원하는 파일 공유를 선택합니다. 선택한 파일 공유에 대한 Backup 항목 메뉴가 열립니다.
+3. Azure 파일 공유 목록에서 원하는 파일 공유를 선택합니다. **Backup 항목** 정보가 표시됩니다. **Backup 항목** 메뉴에서 **지금 백업**을 클릭합니다. 이것은 주문형 백업 작업이기 때문에 복구 지점과 연결된 보존 정책이 없습니다.
 
    ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/backup-item-menu.png)
 
-4. Backup 항목 메뉴에서 **지금 백업**을 클릭합니다. 이것은 주문형 백업 작업이기 때문에 복구 지점과 연결된 보존 정책이 없습니다. **지금 백업** 대화 상자가 열립니다. 복구 지점을 보존할 마지막 날을 지정합니다.
+4. **지금 백업** 대화 상자가 열립니다. 복구 지점을 보존할 마지막 날을 지정합니다.
 
    ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/backup-now-menu.png)
+
+5. **확인**을 클릭하여 주문형 백업 작업을 확인합니다.
 
 ## <a name="restore-from-backup-of-azure-file-share"></a>Azure 파일 공유의 백업에서 복원
 복원 지점에서 전체 파일 공유나 개별 파일 또는 폴더를 복원해야 하는 경우 이전 섹션에서 자세히 설명한 것처럼 Backup 항목으로 이동합니다. **공유 복원**을 선택하여 원하는 지점에서 전체 파일 공유를 복원합니다. 표시되는 복원 지점 목록에서, 현재 파일 공유를 덮어쓸 수 있거나 동일한 지역에 있는 대체 파일 공유로 복원할 수 있는 복원 지점을 선택합니다.

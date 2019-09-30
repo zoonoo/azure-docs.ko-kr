@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 08/05/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: e8f943ebaa5dfc06e0bfb04dc1097d6794ec6d05
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 5b041fecfaa5a84ed5a04a3a8c53de10b9efd65b
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616823"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155361"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos DB SQL API 리소스 관리
 
@@ -43,6 +43,7 @@ Azure Cosmos DB의 플랫폼 간 관리를 위해 [Azure CLI](manage-with-cli.md
 * [Azure Cosmos 계정에 대한 키 다시 생성](#regenerate-keys)
 * [Azure Cosmos 계정에 대한 연결 문자열 나열](#list-connection-strings)
 * [Azure Cosmos 계정에 대한 장애 조치 우선 순위 수정](#modify-failover-priority)
+* [Azure Cosmos 계정에 대한 수동 장애 조치 트리거](#trigger-manual-failover)
 
 ### <a id="create-account"></a> Azure Cosmos 계정 만들기
 
@@ -121,7 +122,9 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 * 다중 마스터 사용
 
 > [!NOTE]
-> 이 명령을 사용하면 지역을 추가 및 제거할 수 있지만 장애 조치(failover) 우선순위를 수정하거나 `failoverPriority=0`을 사용하여 지역을 변경할 수 없습니다. 장애 조치 우선 순위를 수정하려면 [Azure Cosmos 계정에 대한 장애 조치 우선 순위 수정](#modify-failover-priority)을 참조하세요.
+> `locations` 영역을 추가하거나 제거하면서 동시에 Azure Cosmos 계정에 대한 다른 속성을 변경할 수 없습니다. 지역 수정은 계정 리소스에 대한 다른 변경 사항보다 별도의 작업으로 수행해야 합니다.
+> [!NOTE]
+> 이 명령을 사용하면 지역을 추가 및 제거할 수 있지만 장애 조치(failover) 우선 순위를 수정하거나 수동 장애 조치(failover)를 트리거할 수 없습니다. [장애 조치(failover) 우선 순위 수정](#modify-failover-priority) 및 [수동 장애 조치(failover) 트리거](#trigger-manual-failover)를 참조하세요.
 
 ```azurepowershell-interactive
 # Get an Azure Cosmos Account (assume it has two regions currently West US 2 and East US 2) and add a third region
@@ -238,23 +241,55 @@ Select-Object $keys
 
 ### <a id="modify-failover-priority"></a> 장애 조치 우선 순위 수정
 
-다중 지역 데이터베이스 계정의 경우 주 쓰기 복제본에서 지역 장애 조치가 발생하면 Cosmos 계정에서 보조 읽기 복제본을 승격시키는 순서를 변경할 수 있습니다. `failoverPriority=0` 수정은 재해 복구 계획을 테스트하기 위한 재해 복구 훈련을 시작하는 데도 사용할 수 있습니다.
+자동 장애 조치(failover)를 사용하여 구성된 계정의 경우 주 복제본을 사용할 수 없게 될 때 Cosmos가 보조 복제본을 주 복제본으로 승격하는 순서를 변경할 수 있습니다.
 
-아래 예제에서는 계정의 현재 장애 조치(failover) 우선순위가 `West US 2 = 0` 및 `East US 2 = 1`이라고 가정하고 지역을 대칭 이동시킵니다.
+아래 예제에서는 현재 장애 조치(failover) 우선 순위 `West US 2 = 0`, `East US 2 = 1`, `South Central US = 2`를 가정합니다.
 
 > [!CAUTION]
 > `failoverPriority=0`에 대한 `locationName`을 변경하면 Azure Cosmos 계정에 대한 수동 장애 조치가 트리거됩니다. 다른 우선 순위 변경은 장애 조치를 트리거하지 않습니다.
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
-# Assume existing priority is "West US 2" = 0 and "East US 2" = 1
+# Assume existing priority is "West US 2" = 0, "East US 2" = 1, "South Central US" = 2
 
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 
 $failoverRegions = @(
-    @{ "locationName"="East US 2"; "failoverPriority"=0 },
-    @{ "locationName"="West US 2"; "failoverPriority"=1 }
+    @{ "locationName"="West US 2"; "failoverPriority"=0 },
+    @{ "locationName"="South Central US"; "failoverPriority"=1 },
+    @{ "locationName"="East US 2"; "failoverPriority"=2 }
+)
+
+$failoverPolicies = @{
+    "failoverPolicies"= $failoverRegions
+}
+
+Invoke-AzResourceAction -Action failoverPriorityChange `
+    -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
+    -ResourceGroupName $resourceGroupName -Name $accountName -Parameters $failoverPolicies
+```
+
+### <a id="trigger-manual-failover"></a> 수동 장애 조치(failover) 트리거
+
+수동 장애 조치(failover)를 사용하여 구성된 계정의 경우 `failoverPriority=0`으로 수정하여 모든 보조 복제본을 주 복제본으로 장애 조치(failover)하고 승격할 수 있습니다. 이 작업은 재해 복구 계획을 테스트하기 위한 재해 복구 훈련을 시작하는 데도 사용할 수 있습니다.
+
+아래 예제에서는 계정의 현재 장애 조치(failover) 우선순위가 `West US 2 = 0` 및 `East US 2 = 1`이라고 가정하고 지역을 대칭 이동시킵니다.
+
+> [!CAUTION]
+> `failoverPriority=0`에 대한 `locationName`을 변경하면 Azure Cosmos 계정에 대한 수동 장애 조치가 트리거됩니다. 다른 우선 순위 변경은 장애 조치(failover)를 트리거하지 않습니다.
+
+```azurepowershell-interactive
+# Change the failover priority for an Azure Cosmos Account
+# Assume existing priority is "West US 2" = 0, "East US 2" = 1, "South Central US" = 2
+
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+
+$failoverRegions = @(
+    @{ "locationName"="South Central US"; "failoverPriority"=0 },
+    @{ "locationName"="East US 2"; "failoverPriority"=1 },
+    @{ "locationName"="West US 2"; "failoverPriority"=2 }
 )
 
 $failoverPolicies = @{

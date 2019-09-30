@@ -1,38 +1,28 @@
 ---
-title: Azure 사용자 지정 공급 기업 만들기 및 활용
-description: 이 자습서에서는 사용자 지정 공급 기업을 만들고 활용하는 방법을 살펴봅니다.
+title: 사용자 지정 공급자 만들기 및 사용
+description: 이 자습서에서는 사용자 지정 공급자를 만들고 사용하는 방법을 살펴봅니다.
 author: jjbfour
 ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: 65a8e60d8216e1da16af987c9e699e24ecaec3ec
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 053cf9fca03bf58cf10c313ae2569ce1918a46b9
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67799132"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71172918"
 ---
-# <a name="authoring-a-restful-endpoint-for-custom-providers"></a>사용자 지정 공급 기업을 위한 RESTful 엔드포인트 작성
+# <a name="create-and-use-a-custom-provider"></a>사용자 지정 공급자 만들기 및 사용
 
-사용자 지정 공급 기업을 사용하면 Azure에서 워크플로를 사용자 지정할 수 있습니다. 사용자 지정 공급 기업은 Azure와 `endpoint` 사이의 계약입니다. 이 자습서에서는 사용자 지정 공급 기업을 만드는 프로세스를 살펴봅니다. Azure 사용자 지정 공급 기업이 생소한 경우에는 [사용자 지정 리소스 공급자에 대한 개요](./custom-providers-overview.md)를 참조하세요.
+사용자 지정 공급자는 Azure와 엔드포인트 사이의 계약입니다. 사용자 지정 공급자를 사용하면 Azure에서 워크플로를 변경할 수 있습니다. 이 자습서에서는 사용자 지정 공급자를 만드는 프로세스를 살펴봅니다. Azure 사용자 지정 공급자가 생소한 경우에는 [Azure 사용자 지정 리소스 공급자에 대한 개요](./custom-providers-overview.md)를 참조하세요.
 
-이 자습서는 다음과 같은 단계로 나뉩니다.
-
-- 사용자 지정 공급 기업이란?
-- 사용자 지정 작업 및 리소스 정의
-- 사용자 지정 공급 기업 배포
-
-이 자습서는 다음 자습서를 기반으로 합니다.
-
-- [사용자 지정 공급 기업을 위한 RESTful 엔드포인트 작성](./tutorial-custom-providers-function-authoring.md)
-
-## <a name="creating-a-custom-provider"></a>사용자 지정 공급 기업 만들기
+## <a name="create-a-custom-provider"></a>사용자 지정 공급자 만들기
 
 > [!NOTE]
-> 이 자습서에서는 엔드포인트 작성에 대한 내용은 다루지 않습니다. RESTful 엔드포인트가 없으면 [RESTful 엔드포인트 작성에 대한 자습서](./tutorial-custom-providers-function-authoring.md)를 참조하세요.
+> 이 자습서에서는 엔드포인트를 작성하는 방법을 보여주지 않습니다. RESTFUL 엔드포인트가 없으면 현재 자습서의 기반이 되는 [RESTful 엔드포인트 작성에 대한 자습서](./tutorial-custom-providers-function-authoring.md)를 참조하세요.
 
-`endpoint`가 만들어지면 사용자 지정 공급 기업을 생성하고 이것과 `endpoint` 간의 계약을 생성할 수 있습니다. 사용자 지정 공급 기업을 통해 엔드포인트 정의 목록을 지정할 수 있습니다.
+엔드포인트를 만든 후에는 공급자와 엔드포인트 간의 계약을 생성하는 사용자 지정 공급자를 만들 수 있습니다. 사용자 지정 공급자를 통해 엔드포인트 정의 목록을 지정할 수 있습니다.
 
 ```JSON
 {
@@ -44,15 +34,15 @@ ms.locfileid: "67799132"
 
 자산 | 필수 | 설명
 ---|---|---
-이름 | *예* | 엔드포인트 정의의 이름입니다. Azure는 이 이름을 API를 통해 '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/{endpointDefinitionName}' 아래에 노출합니다.
-routingType | *아니요* | `endpoint`와의 계약 유형을 결정합니다. 지정하지 않는 경우 기본값은 "Proxy"입니다.
-endpoint | *예* | 요청을 라우팅하는 엔드포인트입니다. 응답은 물론 요청의 부작용도 처리합니다.
+**name** | 예 | 엔드포인트 정의의 이름입니다. Azure는 이 이름을 해당 API를 통해 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders<br>/resourceProviders/{resourceProviderName}/{endpointDefinitionName} 아래에 노출합니다.
+**routingType** | 아니요 | 엔드포인트 계약 형식입니다. 값을 지정하지 않으면 기본값은 “Proxy”입니다.
+**endpoint** | 예 | 요청을 라우팅하는 엔드포인트입니다. 이 엔드포인트는 응답 및 요청의 부작용을 처리합니다.
 
-이 경우 `endpoint`는 Azure Function의 트리거 URL입니다. `<yourapp>`, `<funcname>` 및 `<functionkey>`는 생성한 함수의 값으로 대체해야 합니다.
+**엔드포인트**의 값은 Azure 함수 앱의 트리거 URL입니다. `<yourapp>`, `<funcname>` 및 `<functionkey>` 자리 표시자는 생성한 함수 앱의 값으로 바꾸어야 합니다.
 
-## <a name="defining-custom-actions-and-resources"></a>사용자 지정 작업 및 리소스 정의
+## <a name="define-custom-actions-and-resources"></a>사용자 지정 작업 및 리소스 정의
 
-사용자 지정 공급 기업은 `actions` 및 `resourceTypes`에서 모델링된 엔드포인트 정의 목록을 포함합니다. `actions`는 사용자 지정 공급 기업에서 노출되는 사용자 지정 작업에 매핑되는 반면, `resourceTypes`은 사용자 지정 리소스입니다. 이 자습서의 경우, `myCustomAction`라는 `action`과 `myCustomResources`라는 `resourceType`을 사용하여 사용자 지정 공급 기업을 정의합니다.
+사용자 지정 공급자는 **actions** 및 **resourceTypes** 속성에서 모델링된 엔드포인트 정의 목록을 포함합니다. **actions** 속성은 사용자 지정 공급자가 노출하는 사용자 지정 작업에 매핑되고 **resourceTypes** 속성은 사용자 지정 리소스입니다. 이 자습서에서 사용자 지정 공급자에는 `myCustomAction`이라는 **actions** 속성과 `myCustomResources`라는 **resourceTypes** 속성이 있습니다.
 
 ```JSON
 {
@@ -76,14 +66,12 @@ endpoint | *예* | 요청을 라우팅하는 엔드포인트입니다. 응답은
 }
 ```
 
-`endpoint`는 이전 자습서에서 앞서 만든 함수의 트리거 URL로 대체합니다.
-
-## <a name="deploying-the-custom-provider"></a>사용자 지정 공급 기업 배포
+## <a name="deploy-the-custom-provider"></a>사용자 지정 공급자 배포
 
 > [!NOTE]
-> `endpoint`는 함수 URL로 대체해야 합니다.
+> **엔드포인트** 값을 이전 자습서에서 만든 함수 앱의 트리거 URL로 바꾸어야 합니다.
 
-위의 사용자 지정 공급 기업은 Azure Resource Manager 템플릿을 사용하여 배포할 수 있습니다.
+이전 사용자 지정 공급자는 Azure Resource Manager 템플릿을 사용하여 배포할 수 있습니다.
 
 ```JSON
 {
@@ -116,16 +104,16 @@ endpoint | *예* | 요청을 라우팅하는 엔드포인트입니다. 응답은
 }
 ```
 
-## <a name="using-custom-actions-and-resources"></a>사용자 지정 작업 및 리소스 사용
+## <a name="use-custom-actions-and-resources"></a>사용자 지정 작업 및 리소스 사용
 
-사용자 지정 공급 기업을 만든 후에는 새로운 Azure API를 활용할 수 있습니다. 다음 섹션에서는 사용자 지정 공급 기업을 호출하고 활용하는 방법을 설명합니다.
+사용자 지정 공급자를 만든 후에는 새 Azure API를 사용할 수 있습니다. 다음 탭에서는 사용자 지정 공급자를 호출하고 사용하는 방법을 설명합니다.
 
 ### <a name="custom-actions"></a>사용자 지정 작업
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
-> `{subscriptionId}`와 `{resourceGroupName}`은 사용자 지정 공급 기업이 배포된 구독과 리소스 그룹으로 바꿔야 합니다.
+> `{subscriptionId}` 및 `{resourceGroupName}` 자리 표시자를 사용자 지정 공급자를 배포한 구독 및 리소스 그룹으로 바꾸어야 합니다.
 
 ```azurecli-interactive
 az resource invoke-action --action myCustomAction \
@@ -138,9 +126,9 @@ az resource invoke-action --action myCustomAction \
 
 매개 변수 | 필수 | 설명
 ---|---|---
-action | *예* | 만든 사용자 지정 공급 기업에 정의된 작업의 이름입니다.
-ids | *예* | 만든 사용자 지정 공급 기업의 리소스 ID입니다.
-request-body | *아니요* | `endpoint`로 전송될 요청 본문입니다.
+*action* | 예 | 사용자 지정 공급자에 정의된 작업의 이름입니다.
+*ids* | 예 | 사용자 지정 공급자의 리소스 ID입니다.
+*request-body* | 아니요 | 엔드포인트로 전송될 요청 본문입니다.
 
 # <a name="templatetabtemplate"></a>[템플릿](#tab/template)
 
@@ -153,9 +141,9 @@ request-body | *아니요* | `endpoint`로 전송될 요청 본문입니다.
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
-> `{subscriptionId}`와 `{resourceGroupName}`은 사용자 지정 공급 기업이 배포된 구독과 리소스 그룹으로 바꿔야 합니다.
+> `{subscriptionId}` 및 `{resourceGroupName}` 자리 표시자를 사용자 지정 공급자를 배포한 구독 및 리소스 그룹으로 바꾸어야 합니다.
 
-사용자 지정 리소스 만들기:
+#### <a name="create-a-custom-resource"></a>사용자 지정 리소스 만들기
 
 ```azurecli-interactive
 az resource create --is-full-object \
@@ -171,11 +159,11 @@ az resource create --is-full-object \
 
 매개 변수 | 필수 | 설명
 ---|---|---
-is-full-object | *예* | 속성 개체에 위치, 태그, SKU 및/또는 계획과 같은 다른 옵션이 포함된다는 것을 나타냅니다.
-id | *예* | 사용자 지정 리소스의 리소스 ID입니다. 만든 사용자 지정 공급 기업에 있어야 합니다.
-properties | *예* | `endpoint`로 전송될 요청 본문입니다.
+*is-full-object* | 예 | 속성 개체에 위치, 태그, SKU 또는 계획과 같은 다른 옵션이 포함되는지 여부를 나타냅니다.
+*id* | 예 | 사용자 지정 리소스의 리소스 ID입니다. 이 ID는 사용자 지정 공급자 리소스 ID의 확장입니다.
+*properties* | 예 | 엔드포인트로 전송될 요청 본문입니다.
 
-Azure 사용자 지정 리소스 삭제:
+#### <a name="delete-a-custom-resource"></a>사용자 지정 리소스 삭제
 
 ```azurecli-interactive
 az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/myCustomProvider/myCustomResources/myTestResourceName1
@@ -183,9 +171,9 @@ az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resource
 
 매개 변수 | 필수 | 설명
 ---|---|---
-id | *예* | 사용자 지정 리소스의 리소스 ID입니다. 만든 사용자 지정 공급 기업에 있어야 합니다.
+*id* | 예 | 사용자 지정 리소스의 리소스 ID입니다. 이 ID는 사용자 지정 공급자 리소스 ID의 확장입니다.
 
-Azure 사용자 지정 리소스 검색:
+#### <a name="retrieve-a-custom-resource"></a>사용자 지정 리소스 검색
 
 ```azurecli-interactive
 az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/myCustomProvider/myCustomResources/myTestResourceName1
@@ -193,11 +181,11 @@ az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGr
 
 매개 변수 | 필수 | 설명
 ---|---|---
-id | *예* | 사용자 지정 리소스의 리소스 ID입니다. 만든 사용자 지정 공급 기업에 있어야 합니다.
+*id* | 예 | 사용자 지정 리소스의 리소스 ID입니다. 이 ID는 사용자 지정 공급자 리소스 ID의 확장입니다.
 
 # <a name="templatetabtemplate"></a>[템플릿](#tab/template)
 
-샘플 Azure Resource Manager 템플릿:
+샘플 Resource Manager 템플릿:
 
 ```JSON
 {
@@ -219,18 +207,18 @@ id | *예* | 사용자 지정 리소스의 리소스 ID입니다. 만든 사용�
 
 매개 변수 | 필수 | 설명
 ---|---|---
-resourceTypeName | *예* | 사용자 지정 공급 기업에 정의된 *resourceType*의 `name`입니다.
-resourceProviderName | *예* | 사용자 지정 공급 기업 인스턴스 이름입니다.
-customResourceName | *예* | 사용자 지정 리소스 이름입니다.
+*resourceTypeName* | 예 | 사용자 지정 공급자에 정의된 **resourceTypes** 속성의 `name` 값입니다.
+*resourceProviderName* | 예 | 사용자 지정 공급 기업 인스턴스 이름입니다.
+*customResourceName* | 예 | 사용자 지정 리소스 이름입니다.
 
 ---
 
 > [!NOTE]
-> 사용자 지정 공급 기업 배포 및 사용을 마쳤으면 Azure Function을 비롯한 생성된 모든 리소스를 정리해야 합니다.
+> 사용자 지정 공급자의 배포 및 사용을 마쳤으면 Azure 함수 앱을 비롯한 생성된 모든 리소스를 정리해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 사용자 지정 공급 기업에 대해 알아보았습니다. 다음 문서로 이동하면 사용자 지정 공급 기업을 만들 수 있습니다.
+이 문서에서는 사용자 지정 공급 기업에 대해 알아보았습니다. 자세한 내용은 다음을 참조하세요.
 
 - [방법: Azure REST API에 사용자 지정 작업 추가](./custom-providers-action-endpoint-how-to.md)
 - [방법: Azure REST API에 사용자 지정 리소스 추가](./custom-providers-resources-endpoint-how-to.md)

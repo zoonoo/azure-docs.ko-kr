@@ -1,19 +1,19 @@
 ---
 title: Azure PowerShell 스크립트 - Azure Cosmos 계정 업데이트
-description: Azure PowerShell 스크립트 샘플 - 추가된 지역으로 Azure Cosmos 계정 업데이트
+description: Azure PowerShell 스크립트 샘플 - Azure Cosmos 계정 업데이트 또는 지역 수정
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/06/2019
+ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8fad9b47b4f451f4b77f32038b26d6dc43809a60
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 7d57264daf4036d1823d3da27c248bdca1d7466d
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603944"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154732"
 ---
-# <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>Azure Cosmos 계정을 업데이트하고 PowerShell을 사용하여 지역 추가
+# <a name="update-an-azure-cosmos-account-or-add-modify-regions-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos 계정 업데이트 또는 지역 수정 추가
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -21,7 +21,12 @@ ms.locfileid: "67603944"
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-account-update.ps1 "Update and add regions to an Azure Cosmos account")]
+> [!NOTE]
+> 동일한 작업에서 지역을 수정하고 다른 Cosmos 계정 속성을 변경할 수 없습니다. 이러한 작업은 두 가지 별도의 작업으로 수행되어야 합니다.
+> [!NOTE]
+> 이 샘플에서는 SQL(Core) API 계정을 사용하는 방법을 보여줍니다. 이 샘플을 다른 API에 사용하려면 관련 속성을 복사하고 API별 스크립트에 적용합니다.
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update.ps1 "Add a region to an Azure Cosmos account")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -38,7 +43,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 | 명령 | 메모 |
 |---|---|
 |**Azure 리소스**| |
-| [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) | 리소스를 가져옵니다. |
+| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 리소스를 만듭니다. |
 | [집합 AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | 리소스를 업데이트합니다. |
 |**Azure 리소스 그룹**| |
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |

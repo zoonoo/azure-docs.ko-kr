@@ -7,12 +7,12 @@ ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/31/2019
-ms.openlocfilehash: 10ff8f4645ee1e7023c96174236243a3b85de938
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3d5e8ba8a29481a6f37ffd10f577d354fc5fbf0a
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679116"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161486"
 ---
 <!-- GMinchAQ, 06/18/19 -->
 
@@ -53,7 +53,7 @@ Azure Dev Spaces를 사용하면 종속 요소를 복제하거나 모방할 필�
 
 이 섹션에서는 다음과 같은 Azure 리소스를 만듭니다.
 
-* 이 자습서에 필요한 모든 Auzre 리소스를 포함할 리소스 그룹
+* 이 자습서에 필요한 모든 Azure 리소스를 포함하는 리소스 그룹입니다.
 * [AKS(Azure Kubernetes Service)](https://docs.microsoft.com/azure/aks/) 클러스터
 * ACR 작업을 사용하여 Docker 이미지를 빌드하고 저장할 [ACR(Azure Container Registry)](https://docs.microsoft.com/azure/container-registry/)
 
@@ -263,7 +263,7 @@ Azure Dev Spaces 사용 방법 및 Azure Dev Spaces로 다중 서비스 개발�
 
    이 자격 증명의 **ID**는 다음 섹션에 나오는 KUBE_CONFIG_ID의 값입니다.
 
-## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
+## <a name="create-a-pipeline"></a>파이프라인을 만들기
 
 예제 파이프라인에서 선택한 시나리오는 다음과 같은 실제 패턴을 기반으로 합니다. 끌어오기 요청은 제안된 변경 내용을 빌드한 후 테스트 및 검토를 위해 Azure 개발 공간에 배포하는 CI 파이프라인을 트리거합니다. 검토 결과에 따라 변경 내용이 병합되어 AKS에 배포되거나 삭제됩니다. 마지막으로, 개발자 공간이 제거됩니다.
 

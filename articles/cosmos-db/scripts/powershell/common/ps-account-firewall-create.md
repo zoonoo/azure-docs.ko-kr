@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 스크립트 - Azure Cosmos 계정에 대한 계정 키 및 연결 문자열 작업
-description: Azure PowerShell 스크립트 샘플 - Azure Cosmos 계정에 대한 계정 키 및 연결 문자열 작업
+title: Azure PowerShell 스크립트 - IP 방화벽을 사용하여 Azure Cosmos 계정 만들기
+description: Azure PowerShell 스크립트 샘플 - IP 방화벽을 사용하여 Azure Cosmos 계정 만들기
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1eb9cc4c35584b94d3d16654b1bec253e21a91ff
+ms.openlocfilehash: c0e7d2b4fe1e63b468a4ef8c88310c5d7e115ebe
 ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154754"
+ms.locfileid: "71156518"
 ---
-# <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos 계정에 대한 연결 문자열 및 계정 키 작업
+# <a name="create-an-azure-cosmos-account-with-ip-firewall"></a>IP 방화벽을 사용하여 Azure Cosmos 계정 만들기
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -24,7 +24,7 @@ ms.locfileid: "71154754"
 > [!NOTE]
 > 이 샘플에서는 SQL(Core) API 계정을 사용하는 방법을 보여줍니다. 이 샘플을 다른 API에 사용하려면 관련 속성을 복사하고 API별 스크립트에 적용합니다.
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-keys-connection-strings.ps1 "Connection strings and account keys for Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-firewall-create.ps1 "Create an Azure Cosmos account with IP Firewall")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -41,8 +41,9 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 | 명령 | 메모 |
 |---|---|
 |**Azure 리소스**| |
-| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | 리소스에서 작업을 호출합니다. |
+| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | 리소스를 만듭니다. |
 |**Azure 리소스 그룹**| |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||
 

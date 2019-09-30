@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91c8a2fb278515306848f46206db67b7f37ea2ac
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: bfe426a6b3d087683e615d3212e0693b185c40f0
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034251"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212371"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>자습서: Jamf Pro와 Azure Active Directory SSO 통합
 
@@ -61,7 +61,7 @@ B.Simon이라는 테스트 사용자를 사용하여 Jamf Pro에서 Azure AD SSO
 
 이 섹션에서는 Jamf Pro에서 Azure AD SSO를 구성하고 테스트합니다.
 
-1. [Azure AD에서 SSO 구성](#configure-sso-in-azure-ad) - 사용자가 이 기능을 사용할 수 있도록 합니다.
+1. 사용자가 이 기능을 사용할 수 있도록 [Azure AD에서 SSO를 구성](#configure-sso-in-azure-ad)합니다.
     1. [Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user) - 이 사용자는 B.Simon 계정을 사용하여 Azure AD SSO를 테스트합니다.
     1. [Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user) - B. Simon이 Azure AD에서 SSO를 사용할 수 있도록 합니다.
 1. [Jamf Pro에서 SSO 구성](#configure-sso-in-jamf-pro) - 애플리케이션 쪽에서 SSO 설정을 구성합니다.
@@ -87,7 +87,7 @@ B.Simon이라는 테스트 사용자를 사용하여 Jamf Pro에서 Azure AD SSO
 1. **추가 URL 설정**을 선택합니다. **SP** 시작 모드로 애플리케이션을 구성하려는 경우 **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<subdomain>.jamfcloud.com`
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. Jamf Pro 포털의 Single Sign On 섹션으로부터 자습서의 뒷부분에서 설명하는 실제 식별자 값을 가져옵니다. 식별자 값에서 실제 하위 도메인 값을 추출하고, 해당 하위 도메인 정보를 로그온 URL 및 회신 URL로 사용할 수 있습니다. 또한 Azure Portal의 **기본 SAML 구성** 섹션에 표시된 수식을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. Jamf Pro 포털의 **Single Sign On 섹션**에서 실제 식별자 값을 가져옵니다. 이 자습서의 뒷부분에 설명되어 있습니다. 식별자 값에서 실제 하위 도메인 값을 추출하고, 해당 하위 도메인 정보를 로그온 URL 및 회신 URL로 사용할 수 있습니다. 또한 Azure Portal의 **기본 SAML 구성** 섹션에 표시된 수식을 참조할 수도 있습니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션으로 이동하고, **복사** 단추를 선택하여 **앱 페더레이션 메타데이터 URL**을 복사한 다음, 컴퓨터에 저장합니다.
 

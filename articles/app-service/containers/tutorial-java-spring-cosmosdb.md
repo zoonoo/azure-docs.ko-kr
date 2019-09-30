@@ -8,19 +8,19 @@ ms.service: app-service-web
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.custom: seodec18, seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: 27b30bae80e2959698d71279efbfa2531498d8de
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.custom: seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 582ed374e7895d0b99f25ac033d0d4b1ec99104c
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70171197"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71171482"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>자습서: Linux 및 Azure Cosmos DB에서 Azure App Service를 사용하여 Java Spring Boot Java 웹앱 빌드
 
 이 자습서에서는 Azure에서 Java 웹앱을 빌드하고, 구성하고, 배포하고, 크기를 조정하는 프로세스를 단계별로 설명합니다. 작업이 완료되면 [Linux의 Azure App Service](/azure/app-service/containers)에서 실행되는 [Azure Cosmos DB](/azure/cosmos-db)에 [Spring Boot](https://projects.spring.io/spring-boot/) 애플리케이션 저장 데이터가 생성됩니다.
 
-![Azure App Service에서 실행 중인 Java 앱](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
+![Azure Cosmos DB에 데이터를 저장하는 Spring Boot 애플리케이션](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -169,7 +169,7 @@ bash-3.2$ mvn package spring-boot:run
 
 앱이 시작되면 다음 링크를 사용하여 로컬로 Spring 할 일 앱에 액세스할 수 있습니다. [http://localhost:8080/](http://localhost:8080/)
 
- ![Azure App Service에서 실행 중인 Java 앱](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
+ ![로컬에서 Spring TODO 앱 액세스](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
 “Started TodoApplication” 메시지 대신 예외가 표시되는 경우 이전 단계에서 `bash` 스크립트가 환경 변수를 제대로 내보냈는지, 생성한 Azure Cosmos DB 데이터베이스에 대한 값이 올바른지 확인합니다.
 
@@ -263,7 +263,7 @@ open https://spring-todo-app.azurewebsites.net
 
 주소 표시줄에는 원격 URL에서 실행 중인 앱이 표시됩니다.
 
- ![Azure App Service에서 실행 중인 Java 앱](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-in-app-service.jpg)
+ ![원격 URL로 실행되는 Spring Boot 애플리케이션](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-in-app-service.jpg)
 
 ## <a name="stream-diagnostic-logs"></a>진단 로그 스트림
 

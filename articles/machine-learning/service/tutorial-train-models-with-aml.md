@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c7396baa745196e054c6cb49d349bf7684cd899
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8f3277d76709fe14a5eaa28cc0f562d95c1e4004
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001672"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71128938"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>자습서: Azure Machine Learning에서 MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습
 
@@ -143,11 +143,11 @@ else:
 
 ## <a name="explore-data"></a>데이터 탐색
 
-모델을 학습하기 전에 학습하는 데 사용할 데이터를 파악해야 합니다. 또한 데이터를 클라우드에 복사해야 합니다. 그러면 클라우드 학습 환경에서 액세스할 수 있습니다. 이 섹션에서는 다음 작업을 수행하는 방법에 대해 알아봅니다.
+모델을 학습하기 전에 학습하는 데 사용할 데이터를 파악해야 합니다. 또한 클라우드 학습 환경에서 액세스할 수 있도록 데이터를 클라우드에 업로드해야 합니다. 이 섹션에서는 다음 작업을 수행하는 방법에 대해 알아봅니다.
 
 * MNIST 데이터 세트 다운로드
 * 일부 샘플 이미지 표시
-* 클라우드에 데이터 업로드
+* 클라우드의 작업 영역에 데이터 업로드
 
 ### <a name="download-the-mnist-dataset"></a>MNIST 데이터 세트 다운로드
 
@@ -209,18 +209,29 @@ plt.show()
 
 이제 이러한 이미지의 모양과 예상되는 예측 결과를 이해할 수 있을 것입니다.
 
-### <a name="upload-data-to-the-cloud"></a>클라우드에 데이터 업로드
+### <a name="create-a-filedataset"></a>FileDataset 만들기
 
-Notebook을 실행 중인 컴퓨터에서 학습 데이터를 다운로드하여 사용했습니다.  다음 섹션에서는 원격 Azure Machine Learning 컴퓨팅에 대한 모델을 학습합니다.  또한 원격 컴퓨팅 리소스에는 데이터에 대한 액세스 권한이 필요합니다. 액세스를 제공하려면 작업 영역과 연결된 중앙 집중화된 데이터 저장소에 데이터를 업로드합니다. 이 데이터 저장소는 Azure 데이터 센터에 있는 것처럼 클라우드에서 원격 컴퓨팅 대상을 사용할 때 데이터에 빠르게 액세스할 수 있도록 합니다.
-
-MNIST 파일을 데이터 저장소의 루트에 있는 `mnist` 디렉터리로 업로드합니다. 자세한 내용은 [데이터 저장소에서 데이터 액세스](how-to-access-data.md)를 참조하세요.
+`FileDataset` 개체는 작업 영역 데이터 저장소 또는 공용 URL에서 하나 이상의 파일을 참조합니다. 파일은 모든 형식일 수 있으며, 클래스는 컴퓨팅에 파일을 다운로드하거나 탑재하는 기능을 제공합니다. `FileDataset`를 생성하여 데이터 원본 위치에 대한 참조를 만듭니다. 데이터 세트에 변환을 적용한 경우 데이터 세트에도 저장됩니다. 데이터는 기존 위치에 그대로 남아 있으므로 추가 스토리지 비용이 발생하지 않습니다. 자세한 내용은 `Dataset` 패키지에 대한 [방법](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-register-datasets) 가이드를 참조하세요.
 
 ```python
-ds = ws.get_default_datastore()
-print(ds.datastore_type, ds.account_name, ds.container_name)
+from azureml.core.dataset import Dataset
 
-ds.upload(src_dir=data_folder, target_path='mnist',
-          overwrite=True, show_progress=True)
+web_paths = [
+            'http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz',
+            'http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz',
+            'http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
+            'http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz'
+            ]
+dataset = Dataset.File.from_files(path=web_paths)
+```
+
+`register()` 메서드를 사용하여 데이터 세트를 다른 사용자와 공유하고, 다양한 실험에서 재사용하고, 학습 스크립트에서 이름으로 참조할 수 있도록 작업 영역에 데이터 세트를 등록할 수 있습니다.
+
+```python
+dataset = dataset.register(workspace=ws,
+                           name='mnist dataset',
+                           description='training and test dataset',
+                           create_new_version=True)
 ```
 
 이제 모델 학습을 시작하는 데 필요한 모든 준비가 갖추어졌습니다.
@@ -253,6 +264,7 @@ os.makedirs(script_folder, exist_ok=True)
 import argparse
 import os
 import numpy as np
+import glob
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.externals import joblib
@@ -260,7 +272,7 @@ from sklearn.externals import joblib
 from azureml.core import Run
 from utils import load_data
 
-# let user feed in 2 parameters, the location of the data files (from datastore), and the regularization rate of the logistic regression model
+# let user feed in 2 parameters, the dataset to mount or download, and the regularization rate of the logistic regression model
 parser = argparse.ArgumentParser()
 parser.add_argument('--data-folder', type=str, dest='data_folder', help='data folder mounting point')
 parser.add_argument('--regularization', type=float, dest='reg', default=0.01, help='regularization rate')
@@ -271,10 +283,10 @@ print('Data folder:', data_folder)
 
 # load train and test set into numpy arrays
 # note we scale the pixel intensity values to 0-1 (by dividing it with 255.0) so the model can converge faster.
-X_train = load_data(os.path.join(data_folder, 'train-images.gz'), False) / 255.0
-X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
-y_train = load_data(os.path.join(data_folder, 'train-labels.gz'), True).reshape(-1)
-y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1)
+X_train = load_data(glob.glob(os.path.join(data_folder, '**/train-images-idx3-ubyte.gz'), recursive=True)[0], False) / 255.0
+X_test = load_data(glob.glob(os.path.join(data_folder, '**/t10k-images-idx3-ubyte.gz'), recursive=True)[0], False) / 255.0
+y_train = load_data(glob.glob(os.path.join(data_folder, '**/train-labels-idx1-ubyte.gz'), recursive=True)[0], True).reshape(-1)
+y_test = load_data(glob.glob(os.path.join(data_folder, '**/t10k-labels-idx1-ubyte.gz'), recursive=True)[0], True).reshape(-1)
 print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep = '\n')
 
 # get hold of the current run
@@ -322,19 +334,31 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 * 학습 스크립트 이름(**train.py**)
 * 학습 스크립트에서 필요한 매개 변수
 
-이 자습서에서 이 대상은 AmlCompute입니다. 스크립트 폴더의 모든 파일은 실행을 위해 클러스터 노드에 업로드됩니다. **data_folder**에서 데이터 저장소(`ds.path('mnist').as_mount()`)를 사용하도록 설정되었습니다.
+이 자습서에서 이 대상은 AmlCompute입니다. 스크립트 폴더의 모든 파일은 실행을 위해 클러스터 노드에 업로드됩니다. **data_folder**는 데이터 세트를 사용하도록 설정되었습니다. 먼저 학습에 필요한 종속성을 지정하는 환경 개체를 만듭니다. 
+
+```python
+from azureml.core.environment import Environment
+from azureml.core.conda_dependencies import CondaDependencies
+
+env = Environment('my_env')
+cd = CondaDependencies.create(pip_packages=['azureml-sdk','scikit-learn','azureml-dataprep[pandas,fuse]>=1.1.14'])
+env.python.conda_dependencies = cd
+```
+
+그런 다음, 다음 코드를 사용하여 추정기를 만듭니다.
 
 ```python
 from azureml.train.sklearn import SKLearn
 
 script_params = {
-    '--data-folder': ds.path('mnist').as_mount(),
+    '--data-folder': dataset.as_named_input('mnist').as_mount(),
     '--regularization': 0.5
 }
 
 est = SKLearn(source_directory=script_folder,
               script_params=script_params,
               compute_target=compute_target,
+              environment_definition=env, 
               entry_script='train.py')
 ```
 
