@@ -1,22 +1,22 @@
 ---
-title: PowerShell을 사용 하 여 Windows 가상 데스크톱 미리 보기 호스트 풀 만들기-Azure
-description: PowerShell cmdlet을 사용 하 여 Windows 가상 데스크톱 미리 보기에서 호스트 풀을 만드는 방법
+title: PowerShell을 사용 하 여 Windows 가상 데스크톱 호스트 풀 만들기-Azure
+description: PowerShell cmdlet을 사용 하 여 Windows 가상 데스크톱에서 호스트 풀을 만드는 방법
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 1fb377d482277a4776214d08b879d99f4234ca40
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: a5e228417610a19c38acf9ce2db6e743ec122580
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163670"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679570"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>PowerShell을 사용한 호스트 풀 만들기
 
-호스트 풀은 Windows Virtual Desktop 미리 보기 테넌트 환경 내에서 하나 이상의 동일한 가상 머신 컬렉션입니다. 각 호스트 풀은 사용자가 물리적 데스크톱에서처럼 상호 작용할 수 있는 앱 그룹을 포함할 수 있습니다.
+호스트 풀은 Windows 가상 데스크톱 테 넌 트 환경 내에 있는 하나 이상의 동일한 가상 컴퓨터의 컬렉션입니다. 각 호스트 풀은 사용자가 물리적 데스크톱에서처럼 상호 작용할 수 있는 앱 그룹을 포함할 수 있습니다.
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>PowerShell 클라이언트를 사용 하 여 호스트 풀 만들기
 
@@ -48,7 +48,7 @@ Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGr
 
 **RdsAppGroupUser** cmdlet은 보안 그룹 추가를 지원 하지 않으며 앱 그룹에 한 번에 한 사용자만 추가 합니다. 앱 그룹에 여러 사용자를 추가 하려면 적절 한 사용자 계정 이름을 사용 하 여 cmdlet을 다시 실행 합니다.
 
-다음 cmdlet을 실행 하 여 등록 토큰을 변수로 내보냅니다 .이 변수는 나중에 [가상 컴퓨터를 Windows 가상 데스크톱 호스트 풀에 등록](#register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool)하는 데 사용 됩니다.
+다음 cmdlet을 실행 하 여 등록 토큰을 변수로 내보냅니다 .이 변수는 나중에 [가상 컴퓨터를 Windows 가상 데스크톱 호스트 풀에 등록](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool)하는 데 사용 됩니다.
 
 ```powershell
 $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname>).Token
@@ -64,9 +64,12 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
 - [관리 되는 이미지에서 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [관리 되지 않는 이미지에서 가상 머신 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
+>[!NOTE]
+>Windows 7을 사용 하 여 호스트 OS로 가상 컴퓨터를 배포 하는 경우 만들기 및 배포 프로세스는 약간 다릅니다. 자세한 내용은 [Windows 가상 데스크톱에 windows 7 가상 컴퓨터 배포](deploy-windows-7-virtual-machine.md)를 참조 하세요.
+
 세션 호스트 가상 컴퓨터를 만든 후에는 다른 라이선스를 지불 하지 않고 Windows 또는 Windows Server 가상 컴퓨터를 실행 하기 위해 [세션 호스트 VM에 windows 라이선스를 적용](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) 합니다. 
 
-## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-preview-agent-installations"></a>Windows 가상 데스크톱 미리 보기 에이전트 설치를 위한 가상 컴퓨터 준비
+## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>Windows 가상 데스크톱 에이전트 설치용 가상 컴퓨터 준비
 
 가상 컴퓨터를 준비 하려면 먼저 다음 작업을 수행 해야 합니다. Windows 가상 데스크톱 에이전트를 설치 하 고 Windows 가상 데스크톱 호스트 풀에 가상 컴퓨터를 등록 하려면 다음을 수행 해야 합니다.
 
@@ -84,7 +87,7 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
     >[!NOTE]
     > Azure AD DS(Azure Active Directory Domain Services) 환경에 VM을 조인하는 경우 도메인 가입 사용자가 [AAD DC 관리자 그룹](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group)의 멤버이기도 한지 확인합니다.
 
-## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Windows 가상 데스크톱 미리 보기 호스트 풀에 가상 컴퓨터 등록
+## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Windows 가상 데스크톱 호스트 풀에 가상 컴퓨터 등록
 
 Windows 가상 데스크톱 호스트 풀에 가상 컴퓨터를 등록 하는 것은 Windows 가상 데스크톱 에이전트를 설치 하는 것 만큼 간단 합니다.
 

@@ -6,14 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: 824a562cb5f0562a235d903fbd4e575bc9c22572
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 22bad3b31b8cbe54900b96bd4b327f18916e81a3
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672744"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677157"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts"></a>Azure Cosmos DB 계정에 대해 노트북 사용
+
+> [!IMPORTANT]
+> Azure Cosmos DB에 대 한 기본 제공 노트북은 현재 다음 Azure 지역에서 제공 됩니다. 오스트레일리아 동부, 미국 동부, 미국 동부 2, 서유럽, 미국 중 북부, 동남 아시아, 영국 남부, 유럽 서부 및 미국 서 부 2 노트북을 사용 하려면 전자 필기장을 사용 하 [여 새 계정을 만들거나](#enable-notebooks-in-a-new-cosmos-account) 이러한 지역 중 하나에 있는 [기존 계정에서 노트북을 사용 하도록 설정](#enable-notebooks-in-an-existing-cosmos-account) 합니다.
 
 Azure Cosmos DB의 기본 제공 Jupyter 노트북을 사용 하 여 Azure Portal에서 데이터를 분석 하 고 시각화할 수 있습니다. 이 문서에서는 Azure Cosmos DB 계정에 대해이 기능을 사용 하도록 설정 하는 방법을 설명 합니다.
 
@@ -67,4 +70,3 @@ Azure Cosmos DB의 기본 제공 Jupyter 노트북을 사용 하 여 Azure Porta
 ## <a name="next-steps"></a>다음 단계
 
 - [Jupyter 노트북 Azure Cosmos DB](cosmosdb-jupyter-notebooks.md) 의 이점에 대해 알아봅니다.
-- [노트북 기능 및 명령을 사용 하는 방법](use-notebook-features-and-commands.md) 에 대해 알아봅니다.

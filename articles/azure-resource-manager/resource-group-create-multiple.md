@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: 3a0761fad32b2cfb0387cca79b6c1c0dc83c8e98
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: f97f9dac76ac29cf295b5cedc08f916e85c4e317
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345414"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675095"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 리소스, 속성 또는 변수 반복
 
@@ -57,7 +57,7 @@ Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 �
 
 ## <a name="resource-iteration"></a>리소스 반복
 
-배포 중 리소스의 인스턴스를 하나 이상 만들지 결정해야 할 경우에는 `copy` 요소를 리소스 종류에 추가합니다. Copy 요소에서 반복 횟수와이 루프의 이름을 지정 합니다.
+배포에서 리소스의 인스턴스를 두 개 이상 만들려면 리소스 종류에 `copy` 요소를 추가 합니다. Copy 요소에서 반복 횟수와이 루프의 이름을 지정 합니다.
 
 다음 형식으로 리소스를 여러 번 만듭니다.
 

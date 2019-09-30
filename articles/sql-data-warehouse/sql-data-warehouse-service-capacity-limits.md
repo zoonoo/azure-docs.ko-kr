@@ -10,28 +10,28 @@ ms.subservice: design
 ms.date: 11/14/2018
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: a8f4412861eeaf2cbec360b13c0fe75e99d4fc1d
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 4443f94df9095da3a7ec0e9694b8089033c8d177
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839641"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686433"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse 용량 제한
 Azure SQL Data Warehouse의 다양한 구성 요소에 대해 허용되는 최댓값입니다.
 
 ## <a name="workload-management"></a>워크로드 관리
-| 범주 | 설명 | 최대값 |
+| Category | 설명 | 최대값 |
 |:--- |:--- |:--- |
 | [DWU(데이터 웨어하우스 단위)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |단일 SQL Data Warehouse에 대한 최대 DWU | 1세대: DW6000<br></br>2세대: DW30000c |
-| [DWU(데이터 웨어하우스 단위)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |서버당 기본 DTU |54,000<br></br>기본적으로 각 SQL Server(예: myserver.database.windows.net)에는 DTU 할당량인 54,000이 있으며 최대 DW6000c가 허용됩니다. 이 할당량은 안전을 위한 제한일 뿐입니다. [지원 티켓을 만들고](sql-data-warehouse-get-started-create-support-ticket.md) *할당량*을 요청 형식으로 선택하여 할당량을 늘릴 수 있습니다.  DTU 요구 사항을 계산하려면 7.5를 필요한 총 DWU로 곱하거나 9.0을 필요한 총 cDWU로 곱합니다. 예를 들어:<br></br>DW6000 x 7.5 = 45,000DTU<br></br>DW6000c x 9.0 = 54,000DTU.<br></br>포털의 SQL Server 옵션에서 현재 DTU 사용량을 볼 수 있습니다. 일시 중지되거나 일시 중지되지 않은 데이터베이스는 모두 DTU 할당량에 포함됩니다. |
-| 데이터베이스 연결 |최대 동시 세션을 열고 |1024<br/><br/>열린 동시 세션 수는 선택한 DWU에 따라 달라 집니다. DWU600c 위에 지 원하는 최대 1,024 개의 세션을 엽니다. DWU500c 아래 최대 동시 세션 열기 최대 512 지원 합니다. 동시에 실행할 수 있는 쿼리 수에 제한이 있습니다. 동시성 제한을 초과하는 경우 요청이 처리될 때까지 대기하는 내부 큐로 이동합니다. |
+| [DWU(데이터 웨어하우스 단위)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |서버당 기본 DTU |54,000<br></br>기본적으로 각 SQL server (예: myserver.database.windows.net)에는 최대 9 DW6000c을 허용 하는 54000의 DTU 할당량이 있습니다. 이 할당량은 안전을 위한 제한일 뿐입니다. [지원 티켓을 만들고](sql-data-warehouse-get-started-create-support-ticket.md) *할당량*을 요청 형식으로 선택하여 할당량을 늘릴 수 있습니다.  DTU 요구 사항을 계산하려면 7.5를 필요한 총 DWU로 곱하거나 9.0을 필요한 총 cDWU로 곱합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.<br></br>DW6000 x 7.5 = 45,000DTU<br></br>DW6000c x 9.0 = 54,000DTU.<br></br>포털의 SQL Server 옵션에서 현재 DTU 사용량을 볼 수 있습니다. 일시 중지되거나 일시 중지되지 않은 데이터베이스는 모두 DTU 할당량에 포함됩니다. |
+| 데이터베이스 연결 |최대 동시 열린 세션 |1024<br/><br/>동시에 열린 세션 수는 선택한 DWU에 따라 달라 집니다. DWU600c 이상에서는 최대 1024 개의 오픈 세션을 지원 합니다. DWU500c 및 아래에서 최대 동시 오픈 세션 제한인 512를 지원 합니다. 동시에 실행할 수 있는 쿼리 수에 제한이 있습니다. 동시성 제한을 초과하는 경우 요청이 처리될 때까지 대기하는 내부 큐로 이동합니다. |
 | 데이터베이스 연결 |준비된 문에 대한 최대 메모리 |20MB |
 | [워크로드 관리](resource-classes-for-workload-management.md) |최대 동시 쿼리 수 |128<br/><br/> SQL Data Warehouse는 최대 128개의 동시 쿼리 및 큐에 대기 중인 남은 쿼리를 실행할 수 있습니다.<br/><br/>사용자가 더 높은 리소스 클래스에 할당되거나 SQL Data Warehouse의 [데이터 웨어하우스 단위](memory-and-concurrency-limits.md) 설정이 더 낮을 때 동시 쿼리 수가 감소될 수 있습니다. DMV 쿼리와 같은 일부 쿼리는 항상 실행하도록 허용돼도 동시 쿼리 제한에 영향을 주지 않습니다. 동시 쿼리 실행에 대한 자세한 내용은 [동시성 최댓값](memory-and-concurrency-limits.md#concurrency-maximums) 문서를 참조합니다. |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |최대 GB |DW100당 399GB입니다. 따라서 DWU1000에서 tempdb의 크기는 3.99TB로 조정됩니다. |
 
 ## <a name="database-objects"></a>데이터베이스 개체
-| 범주 | Description | 최대값 |
+| Category | 설명 | 최대값 |
 |:--- |:--- |:--- |
 | 데이터베이스 |최대 크기 | 1세대: 디스크에서 압축된 240TB. 이 공간은 tempdb 또는 로그 공간과 독립적이므로 영구 테이블에만 사용됩니다.  클러스터형 columnstore의 압축에 따른 예상 크기 증가 비율은 5배입니다.  즉, 모든 테이블이 클러스터형 columnstore(기본 테이블 유형)일 때 이러한 압축을 통해 데이터베이스를 약 1PB로 확장할 수 있습니다. <br/><br/> 2세대: rowstore용 240TB/columnstore 테이블용 무제한 스토리지 |
 | Table |최대 크기 |디스크에서 압축된 60TB |
@@ -52,17 +52,17 @@ Azure SQL Data Warehouse의 다양한 구성 요소에 대해 허용되는 최�
 | 보기 |보기 당 열 |1,024 |
 
 ## <a name="loads"></a>로드
-| 범주 | Description | 최대값 |
+| Category | 설명 | 최대값 |
 |:--- |:--- |:--- |
-| Polybase 로드 |행당 MB |1<br/><br/>Polybase는 1MB 보다 작은 행을 로드 합니다. LOB 데이터 형식으로는 클러스터형 Columnstore 인덱스 (CCI) 테이블로 로드 하는 것은 지원 되지 않습니다.<br/><br/> |
+| Polybase 로드 |행당 MB |1<br/><br/>Polybase는 1mb 보다 작은 행을 로드 합니다. CCI (클러스터형 Columnstore 인덱스)를 사용 하 여 LOB 데이터 형식을 테이블로 로드 하는 것은 지원 되지 않습니다.<br/><br/> |
 
 ## <a name="queries"></a>쿼리
-| 범주 | 설명 | 최대값 |
+| Category | 설명 | 최대값 |
 |:--- |:--- |:--- |
-| Query |사용자 테이블에서 쿼리된 쿼리입니다. |1000 |
-| Query |시스템 뷰에서 동시 쿼리입니다. |100 |
-| Query |시스템 뷰에서 쿼리된 쿼리입니다. |1000 |
-| Query |최대 매개 변수 |2098 |
+| query |사용자 테이블에서 쿼리된 쿼리입니다. |1000 |
+| query |시스템 뷰에서 동시 쿼리입니다. |100 |
+| query |시스템 뷰에서 쿼리된 쿼리입니다. |1000 |
+| query |최대 매개 변수 |2098 |
 | 일괄 처리 |최대 크기 |65,536*4096 |
 | 결과 선택 |행 당 열 |4096<br/><br/>결과에는 행마다 4096개 이상의 열이 있어서는 안 됩니다. 항상 4096이 있다고 보장할 수 없습니다. 쿼리 계획에 임시 테이블이 필요한 경우 테이블 당 최대 1024 열이 적용될 수 있습니다. |
 | SELECT |중첩된 하위 쿼리 |32<br/><br/>SELECT 문에는 32개 보다 많은 중첩된 하위 쿼리가 있어서는 안 됩니다. 항상 32가 있다고 보장할 수 없습니다. 예를 들어 조인은 쿼리 계획에 하위 쿼리를 제공할 수 있습니다. 또한 사용 가능한 메모리에서 하위 쿼리의 수를 제한할 수 있습니다. |

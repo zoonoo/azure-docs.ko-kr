@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: helohr
-ms.openlocfilehash: 625515223da12751b7765baa795bc68d2a7b46b4
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 07a45f54eb7c00e20abcfb05979e24493e5b9604
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233245"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676666"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>진단 도구 배포
 
@@ -25,7 +25,7 @@ Windows 가상 데스크톱에 대 한 진단 도구는 다음과 같은 작업�
 - 특정 세션 호스트의 활성 사용자에 게 메시지를 보냅니다.
 - 세션 호스트에서 사용자를 로그 아웃 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 도구의 Azure Resource Manager 템플릿을 배포 하려면 먼저 Azure Active Directory 앱 등록 및 Log Analytics 작업 영역을 만들어야 합니다. 이러한 작업을 수행 하려면 사용자 또는 관리자에 게 다음 권한이 필요 합니다.
 
@@ -98,13 +98,13 @@ PowerShell 스크립트를 실행 하려면 다음을 수행 합니다.
 1. 인터넷 브라우저를 열고 관리자 계정을 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 2. 다음으로 **Log Analytics 작업 영역** 으로 이동 하 여 구성 된 Windows 성능 카운터를 검토 합니다.
 3. **설정** 섹션에서 **고급 설정**을 선택 합니다.
-4. 그런 후 **데이터** > **Windows 성능 카운터** 로 이동 하 여 다음 카운터를 추가 합니다.
+4. 그런 다음, **데이터** > **Windows 성능 카운터** 로 이동 하 여 다음 카운터를 추가 합니다.
 
-    -   논리 디스크 (\*)\|% 사용 가능한 공간
-    -   논리 디스크 (C:\\Avg). 디스크 큐 길이
-    -   Memory (\*)\\사용 가능한 공간 (mb)
-    -   프로세서 정보 (\*)\\프로세서 시간
-    -   세션당 사용자 입력 지연 (\*)\\최대 입력 지연
+    -   논리 디스크 (\*) \|% 사용 가능한 공간
+    -   논리 디스크 (C:) \\Avg. 디스크 큐 길이
+    -   Memory (\*) \\Available Mb
+    -   프로세서 정보 (\*) \\Processor Time
+    -   세션당 사용자 입력 지연 (\*) \\Max 입력 지연
 
 [Azure Monitor의 Windows 및 Linux 성능 데이터 원본](/azure/azure-monitor/platform/data-sources-performance-counters)에서 성능 카운터에 대해 자세히 알아보세요.
 
@@ -131,14 +131,14 @@ Log Analytics 작업 영역에 미리 구성 된 Windows 성능 카운터가 있
 
 1. [Azure Portal](https://portal.azure.com/)에서 **Log Analytics 작업 영역** 으로 이동 하 여 구성 된 Windows 성능 카운터를 검토 합니다.
 2. **설정**아래에서 **고급 설정**을 선택 합니다.
-3. 그런 다음 **데이터** > **Windows 성능 카운터**로 이동 합니다.
+3. 그런 다음, **데이터** > **Windows 성능 카운터**로 이동 합니다.
 4. 다음 카운터가 미리 구성 되어 있는지 확인 합니다.
 
-   - 논리 디스크 (\*)\|사용 가능한 공간 (%): 디스크에서 사용 가능한 총 공간 (%)의 사용 가능한 공간 크기를 표시 합니다.
-   - 논리 디스크 (C:\\Avg). 디스크 큐 길이: C 드라이브에 대 한 디스크 전송 요청의 길이입니다. 짧은 기간 동안 값은 2를 초과 해서는 안 됩니다.
-   - Memory (\*)\\사용 가능 공간 (mb): 시스템에 사용 가능한 메모리 (mb)입니다.
-   - 프로세서 정보 (\*)\\프로세서 시간: 프로세서가 비 유휴 스레드를 실행 하는 데 걸린 시간의 백분율입니다.
-   - 세션당 사용자 입력 지연 (\*)\\최대 입력 지연
+   - 논리 디스크 (\*) \|% 사용 가능한 공간: 디스크에서 사용 가능한 총 공간 (%)의 사용 가능한 공간 크기를 표시 합니다.
+   - 논리 디스크 (C:) \\Avg. 디스크 큐 길이: C 드라이브에 대 한 디스크 전송 요청의 길이입니다. 짧은 기간 동안 값은 2를 초과 해서는 안 됩니다.
+   - Memory (\*) \\Available Mb: 시스템에 사용 가능한 메모리 (mb)입니다.
+   - 프로세서 정보 (\*) \\Processor Time: 프로세서가 비 유휴 스레드를 실행 하는 데 걸린 시간의 백분율입니다.
+   - 세션당 사용자 입력 지연 (\*) \\Max 입력 지연
 
 ### <a name="connect-to-vms-in-your-log-analytics-workspace"></a>Log Analytics 작업 영역에서 Vm에 연결
 
@@ -181,7 +181,7 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 
    ![URI 리디렉션 페이지](media/redirect-uri-page.png)
 
-8. 이제 Azure 리소스로 이동 하 여 템플릿에서 제공한 이름으로 Azure 앱 Services 리소스를 선택 하 고 연결 된 URL로 이동 합니다. 예를 들어 템플릿에서 `contosoapp45`사용한 앱 이름이 인 경우 연결 된 URL은입니다. <https://contosoapp45.azurewebsites.net>
+8. 이제 Azure 리소스로 이동 하 여 템플릿에서 제공한 이름으로 Azure 앱 Services 리소스를 선택 하 고 연결 된 URL로 이동 합니다. (예를 들어 템플릿에서 사용한 앱 이름이-0 @no__t 경우 연결 된 URL은 <https://contosoapp45.azurewebsites.net>)입니다.
 9. 적절한 Azure Active Directory 사용자 계정을 사용하여 로그인합니다.
 10.   **수락**을 선택합니다.
 
@@ -189,8 +189,8 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 
 진단 도구를 사용자에 게 제공 하기 전에 다음 권한이 있는지 확인 합니다.
 
-- 사용자는 log analytics에 대 한 읽기 권한이 필요 합니다. 자세한 내용은 Azure Monitor를 사용 하 여 [역할, 권한 및 보안 시작](/azure/azure-monitor/platform/roles-permissions-security)을 참조 하세요.
--  또한 사용자에 게는 Windows 가상 데스크톱 테 넌 트 (RDS Reader 역할)에 대 한 읽기 권한이 필요 합니다. 자세한 내용은 [Windows 가상 데스크톱 미리 보기의 위임 된 액세스](delegated-access-virtual-desktop.md)를 참조 하세요.
+- 사용자는 log analytics에 대 한 읽기 권한이 필요 합니다. 자세한 내용은 Azure Monitor를 사용 하 여 [역할, 권한 및 보안 시작](/articles/azure-monitor/platform/roles-permissions-security.md)을 참조 하세요.
+-  또한 사용자에 게는 Windows 가상 데스크톱 테 넌 트 (RDS Reader 역할)에 대 한 읽기 권한이 필요 합니다. 자세한 내용은 [Windows 가상 데스크톱의 위임 된 액세스](delegated-access-virtual-desktop.md)를 참조 하세요.
 
 또한 사용자에 게 다음 정보를 제공 해야 합니다.
 
@@ -226,25 +226,25 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 
 ### <a name="windows-performance-counter-thresholds"></a>Windows 성능 카운터 임계값
 
-- 논리 디스크 (\*)\|사용 가능한 공간 (%):
+- 논리 디스크 (\*) \|% 사용 가능한 공간:
 
     - 논리 디스크에서 사용 가능한 총 공간의 비율을 표시 합니다.
     - 임계값: 20% 미만은 비정상으로 표시 됩니다.
 
-- 논리 디스크 (C:\\Avg). 디스크 큐 길이:
+- 논리 디스크 (C:) \\Avg. 디스크 큐 길이:
 
     - 저장소 시스템 조건을 나타냅니다.
     - 임계값: 5 보다 크면 비정상으로 표시 됩니다.
 
-- Memory (\*)\\사용 가능 공간 (mb):
+- Memory (\*) \\Available Mb:
 
     - 시스템에 사용할 수 있는 메모리입니다.
     - 임계값: 비정상으로 표시 된 500 메가바이트 미만.
 
-- 프로세서 정보 (\*)\\프로세서 시간:
+- 프로세서 정보 (\*) \\Processor Time:
 
     - 임계값: 80% 이상이 비정상으로 표시 되어 있습니다.
 
-- [세션당 사용자 입력 지연 (\*)\\최대 입력 지연](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
+- [세션당 사용자 입력 지연 (\*) \\Max 입력 지연](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
     - 임계값: 2000 밀리초 이상 비정상으로 표시 됩니다.

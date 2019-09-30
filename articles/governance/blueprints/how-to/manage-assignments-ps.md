@@ -3,20 +3,20 @@ title: PowerShell을 사용 하 여 할당을 관리 하는 방법
 description: 공식 Azure 청사진 PowerShell 모듈인 Az. 청사진을 사용 하 여 청사진 할당을 관리 하는 방법을 알아봅니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/14/2019
+ms.date: 09/30/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: beaa3f4c5ab272592e7fae5a95b40a9b586aaf65
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 18a22865f97dfa9868bb593cf3e3e461e02988eb
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232898"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687093"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>PowerShell을 사용 하 여 할당을 관리 하는 방법
 
-청사진 Azure PowerShell 모듈을 사용 하 여 청사진 할당을 관리할 수 있습니다. 모듈은 할당 가져오기, 만들기, 업데이트 및 제거를 지원 합니다. 또한 모듈은 기존 청사진 정의에 대 한 세부 정보를 가져올 수 있습니다. 이 문서에서는 모듈을 설치 하 고 사용을 시작 하는 방법을 설명 합니다.
+청사진 Azure PowerShell 모듈을 사용 하 여 청사진 할당을 관리할 수 **있습니다.** 모듈은 할당 가져오기, 만들기, 업데이트 및 제거를 지원 합니다. 또한 모듈은 기존 청사진 정의에 대 한 세부 정보를 가져올 수 있습니다. 이 문서에서는 모듈을 설치 하 고 사용을 시작 하는 방법을 설명 합니다.
 
 ## <a name="add-the-azblueprint-module"></a>Az. 청사진 모듈을 추가 합니다.
 
@@ -41,9 +41,9 @@ PowerShell에 대 한 청사진 모듈은 **Az. 청사진**입니다.
    ```
 
    > [!NOTE]
-   > **Az. 계정이** 이미 설치 되어 있으면를 사용 `-AllowClobber` 하 여 설치를 강제로 수행 해야 할 수 있습니다.
+   > **Az. 계정이** 이미 설치 되어 있으면 `-AllowClobber`을 사용 하 여 설치를 강제로 수행 해야 할 수 있습니다.
 
-1. 모듈을 가져왔는지와 올바른 버전(0.1.0)인지 확인합니다.
+1. 모듈을 가져왔는지 확인 하 고 올바른 버전 (0.2.5) 인지 확인 합니다.
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.Blueprint module
@@ -53,9 +53,9 @@ PowerShell에 대 한 청사진 모듈은 **Az. 청사진**입니다.
 ## <a name="get-blueprint-definitions"></a>청사진 정의 가져오기
 
 할당을 사용 하는 첫 번째 단계는 청사진 정의에 대 한 참조를 가져오는 것입니다.
-Cmdlet `Get-AzBlueprint` 은 청사진 정의를 하나 이상 가져옵니다. Cmdlet은를 사용 하 `-ManagementGroupId {mgId}` 는 관리 그룹 또는 `-SubscriptionId {subId}`구독에 대 한 청사진 정의를 가져올 수 있습니다. **Name** 매개 변수는 청사진 정의를 가져오며 **Managementgroupid** 또는 **SubscriptionId**와 함께 사용 해야 합니다. **버전** 은 **Name** 과 함께 사용 하 여 반환 되는 청사진 정의를 보다 명확 하 게 만들 수 있습니다. **버전**대신, 스위치 `-LatestPublished` 는 가장 최근에 게시 된 버전을 가져와 합니다.
+@No__t-0 cmdlet은 하나 이상의 청사진 정의를 가져옵니다. Cmdlet은 `-ManagementGroupId {mgId}` 또는 `-SubscriptionId {subId}` 인 구독을 사용 하 여 관리 그룹에서 청사진 정의를 가져올 수 있습니다. **Name** 매개 변수는 청사진 정의를 가져오며 **Managementgroupid** 또는 **SubscriptionId**와 함께 사용 해야 합니다. **버전** 은 **Name** 과 함께 사용 하 여 반환 되는 청사진 정의를 보다 명확 하 게 만들 수 있습니다. **버전**대신, 스위치 `-LatestPublished`은 가장 최근에 게시 된 버전을 가져와 합니다.
 
-다음 예에서는를 `Get-AzBlueprint` 사용 하 여 다음과 같이 `{subId}`표시 된 특정 구독에서 ' 101 ' 이라는 청사진 정의의 모든 버전을 가져옵니다.
+다음 예에서는 `Get-AzBlueprint`을 사용 하 여 `{subId}`로 표시 된 특정 구독에서 ' 101-청사진-a s ' 라는 청사진 정의의 모든 버전을 가져옵니다.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -99,9 +99,9 @@ allowedlocations_listOfAllowedLocations                Microsoft.Azure.Commands.
 
 ## <a name="get-blueprint-assignments"></a>청사진 할당 가져오기
 
-청사진 할당이 이미 있는 경우 `Get-AzBlueprintAssignment` cmdlet을 사용 하 여 참조를 가져올 수 있습니다. Cmdlet은 **SubscriptionId** 및 **Name** 을 선택적 매개 변수로 사용 합니다. **SubscriptionId** 를 지정 하지 않으면 현재 구독 컨텍스트가 사용 됩니다.
+청사진 할당이 이미 있는 경우 `Get-AzBlueprintAssignment` cmdlet을 사용 하 여 해당에 대 한 참조를 가져올 수 있습니다. Cmdlet은 **SubscriptionId** 및 **Name** 을 선택적 매개 변수로 사용 합니다. **SubscriptionId** 를 지정 하지 않으면 현재 구독 컨텍스트가 사용 됩니다.
 
-다음 예에서는를 `Get-AzBlueprintAssignment` 사용 하 여 다음과 같이 `{subId}`표시 된 특정 구독에서 ' 할당-잠금-리소스 그룹 ' 이라는 단일 청사진 할당을 가져옵니다.
+다음 예에서는 `Get-AzBlueprintAssignment`을 사용 하 여 `{subId}`로 표시 된 특정 구독에서 ' 할당-잠금-리소스 그룹 ' 이라는 단일 청사진 할당을 가져옵니다.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -131,30 +131,30 @@ ResourceGroups    : ResourceGroup
 
 청사진 할당이 아직 존재 하지 않는 경우 `New-AzBlueprintAssignment` cmdlet을 사용 하 여 만들 수 있습니다. 이 cmdlet은 다음 매개 변수를 사용 합니다.
 
-- **이름** 하다
+- **이름** [필수]
   - 청사진 할당의 이름을 지정 합니다.
   - 는 고유 해야 하며 **SubscriptionId** 에 아직 존재 하지 않아야 합니다.
-- **청사진** 하다
+- **청사진** [필수]
   - 할당할 청사진 정의를 지정 합니다.
-  - 참조 `Get-AzBlueprint` 개체를 가져오는 데 사용
-- **위치** 하다
+  - 참조 개체를 가져오려면 `Get-AzBlueprint`을 사용 합니다.
+- **위치** [필수]
   - 에서 만들 시스템 할당 관리 id 및 구독 배포 개체의 지역을 지정 합니다.
-- **구독** 필드
+- **구독** (선택 사항)
   - 할당이 배포 되는 구독을 지정 합니다.
   - 지정 하지 않으면 현재 구독 컨텍스트가 기본값으로 설정 됩니다.
-- **잠금** 필드
+- **Lock** (선택 사항)
   - 배포 된 리소스에 사용할 [청사진 리소스 잠금을](../concepts/resource-locking.md) 정의 합니다.
   - 지원 되는 옵션: _None_, _AllResourcesReadOnly_, _AllResourcesDoNotDelete_
   - 지정 하지 않으면 기본값은 _None_ 입니다.
-- **SystemAssignedIdentity** 필드
+- **SystemAssignedIdentity** (선택 사항)
   - 할당에 대 한 시스템 할당 관리 id를 만들고 리소스를 배포 하려면 선택 합니다.
   - "Identity" 매개 변수 집합에 대 한 기본값
   - **UserAssignedIdentity** 와 함께 사용할 수 없습니다.
-- **UserAssignedIdentity** 필드
+- **UserAssignedIdentity** (선택 사항)
   - 할당에 사용할 사용자 할당 관리 id를 지정 하 고 리소스를 배포 합니다.
   - "Identity" 매개 변수 집합의 일부
   - **SystemAssignedIdentity** 와 함께 사용할 수 없습니다.
-- **매개 변수** 필드
+- **Parameter** (옵션)
   - 청사진 할당에서 [동적 매개 변수](../concepts/parameters.md#dynamic-parameters) 를 설정 하기 위한 키/값 쌍의 [해시 테이블](/powershell/module/microsoft.powershell.core/about/about_hash_tables) 입니다.
   - 동적 매개 변수의 기본값은 정의의 **defaultValue** 입니다.
   - 매개 변수가 제공 되지 않고 **defaultValue**를 포함 하지 않는 경우 매개 변수는 선택 사항이 아닙니다.
@@ -162,12 +162,17 @@ ResourceGroups    : ResourceGroup
     > [!NOTE]
     > **매개 변수가** securestrings를 지원 하지 않습니다.
 
-- **Resourcegroupparameter** 필드
+- **Resourcegroupparameter** (옵션)
   - 리소스 그룹 아티팩트의 [해시 테이블](/powershell/module/microsoft.powershell.core/about/about_hash_tables)
-  - 각 리소스 그룹 아티팩트 자리 표시자는 해당 리소스 그룹 아티팩트의 **이름** 및/또는 **위치** 를 동적으로 설정 하기 위한 키/값 쌍을 가집니다.
+  - 각 리소스 그룹 아티팩트 자리 표시자에는 리소스 그룹 아티팩트의 **이름** 및 **위치** 를 동적으로 설정 하기 위한 키/값 쌍이 있습니다.
   - 리소스 그룹 매개 변수가 제공 되지 않고 **defaultValue**가 없는 경우 리소스 그룹 매개 변수는 선택 사항이 아닙니다.
+- **AssignmentFile** (선택 사항)
+  - 청사진 할당의 JSON 파일 표현에 대 한 경로입니다.
+  - 이 매개 변수는 **Name**, **청사진**및 **SubscriptionId**와 공통 매개 변수를 포함 하는 PowerShell 매개 변수 집합의 일부입니다.
 
-다음 예에서는로 `Get-AzBlueprint`인출 된 ' 내 청사진 ' 청사진 정의의 ' 1.1 ' 버전에 대 한 새 할당을 만들고, 관리 되는 id 및 할당 개체 위치를 ' westus2 '로 설정 하 고, _allresourcesreadonly를 사용 하 여 리소스를 잠급니다._ 및는 다음과 같이 `{subId}`표시 되는 특정 구독에 대 한 **매개 변수** 및 **resourcegroupparameter** 에 대 한 해시 테이블을 설정 합니다.
+### <a name="example-1-provide-parameters"></a>예제 1: 매개 변수 제공
+
+다음 예에서는 `Get-AzBlueprint`을 사용 하 여 인출 된 ' 내 청사진 ' 청사진 정의의 ' 1.1 ' 버전에 대 한 새 할당을 만들고, 관리 되는 id 및 할당 개체 위치를 ' westus2 '로 설정 하 고, _Allresourcesreadonly_를 사용 하 여 리소스를 잠급니다. 및는 `{subId}`로 표시 되는 특정 구독에 대 한 **매개 변수** 및 **resourcegroupparameter** 에 대 한 해시 테이블을 설정 합니다.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -184,7 +189,7 @@ $bpRGParameters = @{ResourceGroup=@{name='storage_rg';location='westus2'}}
 
 # Create the new blueprint assignment
 $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Blueprint $bpDefinition `
-    -SubscriptionId '{subId}' -Location 'westus2' -Lock AllResourcesReadyOnly `
+    -SubscriptionId '{subId}' -Location 'westus2' -Lock AllResourcesReadOnly `
     -Parameter $bpParameters -ResourceGroupParameter $bpRGParameters
 ```
 
@@ -196,43 +201,87 @@ Id                : /subscriptions/{subId}/providers/Microsoft.Blueprint/bluepri
                     gnments/my-blueprint-assignment
 Scope             : /subscriptions/{subId}
 LastModified      : 2019-03-13
-LockMode          : AllResourcesReadyOnly
+LockMode          : AllResourcesReadOnly
 ProvisioningState : Creating
 Parameters        : {storageAccount_storageAccountType}
 ResourceGroups    : ResourceGroup
 ```
 
+### <a name="example-2-use-a-json-assignment-definition-file"></a>예 2: JSON 할당 정의 파일 사용
+
+다음 예에서는 [예 1](#example-1-provide-parameters)과 거의 동일한 할당을 만듭니다.
+이 예제에서는 cmdlet에 매개 변수를 전달 하는 대신 JSON 할당 정의 파일 및 **AssignmentFile** 매개 변수를 사용 하는 방법을 보여 줍니다. 또한 **excludedPrincipals** 속성은 **잠금의**일부로 구성 됩니다. **ExcludedPrincipals** 에 대 한 PowerShell 매개 변수는 없으며 JSON 할당 정의 파일을 통해 설정 해야만 속성을 구성할 수 있습니다.
+
+```json
+{
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "location": "westus2",
+  "properties": {
+    "description": "Assignment of the 101-blueprint-definition-subscription",
+    "blueprintId": "/subscriptions/{subId}/providers/Microsoft.Blueprint/blueprints/101-blueprints-definition-subscription",
+    "locks": {
+      "mode": "AllResourcesReadOnly",
+      "excludedPrincipals": [
+          "7be2f100-3af5-4c15-bcb7-27ee43784a1f",
+          "38833b56-194d-420b-90ce-cff578296714"
+      ]
+    },
+    "parameters": {
+      "storageAccount_storageAccountType": {
+        "value": "Standard_GRS"
+      }
+    },
+    "resourceGroups": {
+      "ResourceGroup": {
+        "name": "storage_rg",
+        "location": "westus2"
+      }
+    }
+  }
+}
+```
+
+```azurepowershell-interactive
+# Login first with Connect-AzAccount if not using Cloud Shell
+
+# Create the new blueprint assignment
+$bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -SubscriptionId '{subId}' `
+    -AssignmentFile '.\assignment.json'
+```
+
 ## <a name="update-blueprint-assignments"></a>청사진 할당 업데이트
 
-이미 만들어진 청사진 할당을 업데이트 해야 하는 경우도 있습니다. Cmdlet `Set-AzBlueprintAssignment` 은이 작업을 처리 합니다. Cmdlet은 `New-AzBlueprintAssignment` cmdlet이 수행 하는 것과 동일한 매개 변수를 대부분 사용 하므로 할당에 설정 된 모든 항목을 업데이트할 수 있습니다. 이에 대 한 예외는 _이름_, _청사진_및 _SubscriptionId_입니다. 제공 된 값만 업데이트 됩니다.
+이미 만들어진 청사진 할당을 업데이트 해야 하는 경우도 있습니다. @No__t-0 cmdlet은이 작업을 처리 합니다. Cmdlet은 `New-AzBlueprintAssignment` cmdlet과 동일한 매개 변수를 대부분 사용 하 여 할당에 설정 된 모든 항목을 업데이트할 수 있도록 합니다. 예외는 _이름_, _청사진_및 _SubscriptionId_입니다. 제공 된 값만 업데이트 됩니다.
 
 청사진 할당을 업데이트할 때 수행 되는 작업을 이해 하려면 [할당 업데이트 규칙](./update-existing-assignments.md#rules-for-updating-assignments)을 참조 하세요.
 
-- **이름** 하다
+- **이름** [필수]
   - 업데이트할 청사진 할당의 이름을 지정 합니다.
   - 할당을 변경 하는 것이 아니라 업데이트할 할당을 찾는 데 사용 됩니다.
-- **청사진** 하다
+- **청사진** [필수]
   - 청사진 할당의 청사진 정의를 지정 합니다.
-  - 참조 `Get-AzBlueprint` 개체를 가져오는 데 사용
+  - 참조 개체를 가져오려면 `Get-AzBlueprint`을 사용 합니다.
   - 할당을 변경 하는 것이 아니라 업데이트할 할당을 찾는 데 사용 됩니다.
-- **위치** 필드
+- **Location** (선택 사항)
   - 에서 만들 시스템 할당 관리 id 및 구독 배포 개체의 지역을 지정 합니다.
-- **구독** 필드
+- **구독** (선택 사항)
   - 할당이 배포 되는 구독을 지정 합니다.
   - 지정 하지 않으면 현재 구독 컨텍스트가 기본값으로 설정 됩니다.
   - 할당을 변경 하는 것이 아니라 업데이트할 할당을 찾는 데 사용 됩니다.
-- **잠금** 필드
+- **Lock** (선택 사항)
   - 배포 된 리소스에 사용할 [청사진 리소스 잠금을](../concepts/resource-locking.md) 정의 합니다.
   - 지원 되는 옵션: _None_, _AllResourcesReadOnly_, _AllResourcesDoNotDelete_
-- **SystemAssignedIdentity** 필드
+- **SystemAssignedIdentity** (선택 사항)
   - 할당에 대 한 시스템 할당 관리 id를 만들고 리소스를 배포 하려면 선택 합니다.
   - "Identity" 매개 변수 집합에 대 한 기본값
   - **UserAssignedIdentity** 와 함께 사용할 수 없습니다.
-- **UserAssignedIdentity** 필드
+- **UserAssignedIdentity** (선택 사항)
   - 할당에 사용할 사용자 할당 관리 id를 지정 하 고 리소스를 배포 합니다.
   - "Identity" 매개 변수 집합의 일부
   - **SystemAssignedIdentity** 와 함께 사용할 수 없습니다.
-- **매개 변수** 필드
+- **Parameter** (옵션)
   - 청사진 할당에서 [동적 매개 변수](../concepts/parameters.md#dynamic-parameters) 를 설정 하기 위한 키/값 쌍의 [해시 테이블](/powershell/module/microsoft.powershell.core/about/about_hash_tables) 입니다.
   - 동적 매개 변수의 기본값은 정의의 **defaultValue** 입니다.
   - 매개 변수가 제공 되지 않고 **defaultValue**를 포함 하지 않는 경우 매개 변수는 선택 사항이 아닙니다.
@@ -240,12 +289,12 @@ ResourceGroups    : ResourceGroup
     > [!NOTE]
     > **매개 변수가** securestrings를 지원 하지 않습니다.
 
-- **Resourcegroupparameter** 필드
+- **Resourcegroupparameter** (옵션)
   - 리소스 그룹 아티팩트의 [해시 테이블](/powershell/module/microsoft.powershell.core/about/about_hash_tables)
-  - 각 리소스 그룹 아티팩트 자리 표시자는 해당 리소스 그룹 아티팩트의 **이름** 및/또는 **위치** 를 동적으로 설정 하기 위한 키/값 쌍을 가집니다.
+  - 각 리소스 그룹 아티팩트 자리 표시자에는 리소스 그룹 아티팩트의 **이름** 및 **위치** 를 동적으로 설정 하기 위한 키/값 쌍이 있습니다.
   - 리소스 그룹 매개 변수가 제공 되지 않고 **defaultValue**가 없는 경우 리소스 그룹 매개 변수는 선택 사항이 아닙니다.
 
-다음 예에서는 잠금 모드를 변경 하 여로 `Get-AzBlueprint` 가져온 ' 내 청사진 ' 청사진 정의의 버전 ' 1.1 '에 대 한 할당을 업데이트 합니다.
+다음 예에서는 잠금 모드를 변경 하 여 `Get-AzBlueprint`으로 인출 된 ' 내 청사진 ' 청사진 정의의 버전 ' 1.1 '에 대 한 할당을 업데이트 합니다.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -274,9 +323,9 @@ ResourceGroups    : ResourceGroup
 
 ## <a name="remove-blueprint-assignments"></a>청사진 할당 제거
 
-청사진 할당을 제거 하는 시간을 지정 하는 경우 cmdlet `Remove-AzBlueprintAssignment` 은이 작업을 처리 합니다. Cmdlet은 **Name** 또는 **InputObject** 중 하나를 사용 하 여 제거할 청사진 할당을 지정 합니다. **SubscriptionId** 는 _필수_ 이며 모든 경우에 제공 되어야 합니다.
+청사진 할당을 제거 하는 시간이 될 때 `Remove-AzBlueprintAssignment` cmdlet은이 작업을 처리 합니다. Cmdlet은 **Name** 또는 **InputObject** 중 하나를 사용 하 여 제거할 청사진 할당을 지정 합니다. **SubscriptionId** 는 _필수_ 이며 모든 경우에 제공 되어야 합니다.
 
-다음 예에서는를 사용 `Get-AzBlueprintAssignment` 하 여 기존 청사진 할당을 페치 한 다음로 `{subId}`표시 된 특정 구독에서 해당 할당을 제거 합니다.
+다음 예에서는 `Get-AzBlueprintAssignment`으로 기존 청사진 할당을 페치 한 다음 `{subId}`로 표시 된 특정 구독에서 제거 합니다.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -290,7 +339,7 @@ Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '
 
 ## <a name="end-to-end-code-example"></a>종단 간 코드 예제
 
-다음 예에서는 모든 단계를 함께 수행 하 여 청사진 정의를 가져온 다음로 `{subId}`표시 되는 특정 구독에 대 한 청사진 할당을 만들고, 업데이트 하 고, 제거 합니다.
+다음 예에서는 모든 단계를 함께 수행 하 여 청사진 정의를 가져온 다음 `{subId}`으로 표시 된 특정 구독에 대 한 청사진 할당을 만들고, 업데이트 하 고, 제거 합니다.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -310,7 +359,7 @@ $bpRGParameters = @{ResourceGroup=@{name='storage_rg';location='westus2'}}
 
 # Create the new blueprint assignment
 $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Blueprint $bpDefinition `
-    -SubscriptionId '{subId}' -Location 'westus2' -Lock AllResourcesReadyOnly `
+    -SubscriptionId '{subId}' -Location 'westus2' -Lock AllResourcesReadOnly `
     -Parameter $bpParameters -ResourceGroupParameter $bpRGParameters
 #endregion CreateAssignment
 

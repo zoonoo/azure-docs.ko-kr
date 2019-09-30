@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: b1aac19885e2b640063e4840f047916ad51e9656
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2731bbcd6a6b0c8f7d82334c022c017d5eae35f0
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855738"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677010"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Azure IoT Hub Device Provisioning 서비스 자동 프로비전을 사용하여 IoT Hub에 MXChip IoT DevKit 등록
 
-이 문서에서는 Azure IoT Hub Device Provisioning 서비스 [자동 프로비전](concepts-auto-provisioning.md)을 사용하여 Azure IoT Hub에 MXChip IoT DevKit을 등록하는 방법을 설명합니다. 이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
+이 문서에서는 Azure IoT Hub Device Provisioning 서비스 [자동 프로비전](concepts-auto-provisioning.md)을 사용하여 Azure IoT Hub에 MXChip IoT DevKit을 등록하는 방법을 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 * 디바이스에서 Device Provisioning Service의 글로벌 엔드포인트를 구성합니다.
 * UDS(고유 디바이스 비밀)를 사용하여 X.509 인증서를 생성합니다.
@@ -91,9 +91,6 @@ DevKit에 UDS를 저장하려면:
 ## <a name="generate-x509-certificate"></a>X.509 인증서 생성
 
 이 샘플에서 사용되는 [증명 메커니즘](/azure/iot-dps/concepts-device#attestation-mechanism)은 X.509 인증서입니다. 유틸리티를 사용하여 생성해야 합니다.
-
-> [!NOTE]
-> X.509 인증서 생성기는 Windows만 지원합니다.
 
 1. VS Code에서 `F1` 키를 클릭하고 **새 터미널 열기**를 선택하여 터미널 창을 엽니다.
 

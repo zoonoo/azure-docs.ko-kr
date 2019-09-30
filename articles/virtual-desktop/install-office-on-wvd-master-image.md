@@ -1,18 +1,18 @@
 ---
 title: 마스터 VHD 이미지에 Office 설치-Azure
-description: Windows 가상 데스크톱 미리 보기 마스터 이미지에서 Office를 설치 하 고 Azure에 사용자 지정 하는 방법을 설명 합니다.
+description: Windows 가상 데스크톱 마스터 이미지에서 Office를 설치 하 고 Azure에 사용자 지정 하는 방법을 설명 합니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: helohr
-ms.openlocfilehash: 79fe541d1bb3bea8447cf095673111362cec74d2
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 378be7ebc1cc04433d42b6a05d7eafc73a515568
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816438"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679529"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>마스터 VHD 이미지에 Office 설치
 
@@ -23,7 +23,7 @@ ms.locfileid: "68816438"
 또한이 문서에서는 Azure 또는 Hyper-v 관리자에서 프로 비전 된 VM에 대 한 관리자 액세스 권한이 있다고 가정 합니다. 그렇지 않은 경우 [모든 Azure 구독 및 관리 그룹을 관리 하기 위해 액세스 권한 상승](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin)을 참조 하세요.
 
 >[!NOTE]
->이 지침은 조직의 기존 프로세스에 사용할 수 있는 Windows Virtual Desktop 미리 보기 관련 구성에 대한 것입니다.
+>이러한 지침은 조직의 기존 프로세스에서 사용할 수 있는 Windows 가상 데스크톱 특정 구성에 대 한 것입니다.
 
 ## <a name="install-office-in-shared-computer-activation-mode"></a>공유 컴퓨터 정품 인증 모드로 Office 설치
 
@@ -45,7 +45,7 @@ Office 배포 도구를 사용 하려면 구성 XML 파일이 필요 합니다. 
 - 공유 컴퓨터 활성화를 사용 하도록 설정 합니다.
 
 >[!NOTE]
->Visio의 스텐실 검색 기능은 미리 보기 구성 중 Windows 가상 데스크톱에서 작동 하지 않습니다.
+>Visio의 스텐실 검색 기능이 Windows 가상 데스크톱에서 예상 대로 작동 하지 않을 수 있습니다.
 
 이 샘플 구성 XML은 다음과 같습니다.
 
@@ -53,7 +53,7 @@ Office 배포 도구를 사용 하려면 구성 XML 파일이 필요 합니다. 
 - 사용자 단위 모드에서 OneDrive를 설치 합니다. 자세한 내용은 [컴퓨터별 모드로 OneDrive 설치](#install-onedrive-in-per-machine-mode)를 참조 하세요.
 
 >[!NOTE]
->공유 컴퓨터 활성화는 Gpo (그룹 정책 개체) 또는 레지스트리 설정을 통해 설정할 수 있습니다. GPO는 **컴퓨터\\구성 정책\\\\관리 템플릿 Microsoft Office 2016 (컴퓨터)\\라이선스 설정** 에 있습니다.
+>공유 컴퓨터 활성화는 Gpo (그룹 정책 개체) 또는 레지스트리 설정을 통해 설정할 수 있습니다. GPO는 **컴퓨터 구성 @ no__t-1 정책 @ no__t-2 관리 템플릿 @ no__t-3Microsoft Office 2016 (Machine) \\-4 라이선스 설정** 에 있습니다.
 
 Office 배포 도구에는 setup.exe가 포함 되어 있습니다. Office를 설치 하려면 명령줄에서 다음 명령을 실행 합니다.
 
@@ -130,11 +130,11 @@ OneDrive는 일반적으로 사용자별로 설치 됩니다. 이 환경에서 �
 
 다음은 컴퓨터 단위 모드에서 OneDrive를 설치 하는 방법입니다.
 
-1. 먼저, OneDrive 설치 관리자를 준비할 위치를 만듭니다. 로컬 디스크 폴더 또는 [\\\\unc] (file://unc) 위치에 문제가 없습니다.
+1. 먼저, OneDrive 설치 관리자를 준비할 위치를 만듭니다. 로컬 디스크 폴더 또는 [\\ @ no__t-1unc] (file://unc) 위치는 괜찮습니다.
 
-2. 다음 링크를 사용 하 여 OneDriveSetup를 준비 된 위치로 다운로드 합니다.<https://aka.ms/OneDriveWVD-Installer>
+2. @No__t-0 링크를 사용 하 여 준비 위치로 OneDriveSetup를 다운로드 합니다.
 
-3. **\<Excludeapp ID = "OneDrive"/\>** 를 생략 하 여 onedrive에 office를 설치한 경우 다음 명령을 실행 하 여 관리자 권한 명령 프롬프트에서 기존 OneDrive 사용자별 설치를 제거 합니다.
+3. **@No__t-1ExcludeApp ID = "OneDrive"/\>** 를 생략 하 여 onedrive에 office를 설치한 경우 다음 명령을 실행 하 여 관리자 권한 명령 프롬프트에서 기존 OneDrive 사용자별 설치를 제거 합니다.
     
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall

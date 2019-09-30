@@ -1,19 +1,19 @@
 ---
 title: Azure Monitor를 사용 하 여 로그 경고 만들기, 보기 및 관리 Microsoft Docs
 description: Azure Monitor를 사용 하 여 Azure에서 로그 경고 규칙을 작성 하 고, 보고, 관리할 수 있습니다.
-author: msvijayn
+author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: vinagara
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: f4d3a4d9a5785ae350874c400384477da1a6c22e
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: d540912d280302d2ae2166b75fb2d163458d7a61
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774725"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677837"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
 
@@ -40,7 +40,7 @@ ms.locfileid: "68774725"
 
 1. **새 경고 규칙** 단추를 선택하여 Azure에서 새 경고를 만듭니다.
 
-    ![경고 추가](media/alerts-log/AlertsPreviewOption.png)
+    ![Add alert](media/alerts-log/AlertsPreviewOption.png)
 
 1. 경고 만들기 섹션은 *경고 조건 정의*, *경고 세부 정보 정의* 및 *작업 그룹 정의*의 세 부분으로 표시됩니다.
 

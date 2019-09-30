@@ -1,22 +1,22 @@
 ---
 title: 마스터 VHD 이미지 준비 및 사용자 지정-Azure
-description: Azure에 Windows 가상 데스크톱 미리 보기 마스터 이미지를 준비, 사용자 지정 및 업로드 하는 방법입니다.
+description: Azure에 Windows 가상 데스크톱 마스터 이미지를 준비, 사용자 지정 및 업로드 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 8127c0a42ec42a661af31cc489964cc40cb4937d
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 379664fb7170249b8f21ec9826f8b0b6fbe19892
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981071"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679535"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
 
-이 문서에서는 Vm (가상 머신)을 만들고 소프트웨어를 설치 하는 방법을 비롯 하 여 Azure에 업로드할 마스터 VHD (가상 하드 디스크) 이미지를 준비 하는 방법을 설명 합니다. 이 지침은 조직의 기존 프로세스에 사용할 수 있는 Windows Virtual Desktop 미리 보기 관련 구성에 대한 것입니다.
+이 문서에서는 Vm (가상 머신)을 만들고 소프트웨어를 설치 하는 방법을 비롯 하 여 Azure에 업로드할 마스터 VHD (가상 하드 디스크) 이미지를 준비 하는 방법을 설명 합니다. 이러한 지침은 조직의 기존 프로세스에서 사용할 수 있는 Windows 가상 데스크톱 특정 구성에 대 한 것입니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 
@@ -72,7 +72,7 @@ VM에 Office 365 ProPlus 및 OneDrive를 설치 하 [는 경우 마스터 VHD �
 
 로컬 그룹 정책를 통해 자동 업데이트를 사용 하지 않도록 설정 하려면:
 
-1. **Windows 구성\\요소\\Windows업데이트관리템플릿로컬 그룹 정책 편집기을 엽니다.\\**
+1. **로컬 그룹 정책 편집기 @ no__t-1 관리 템플릿 @ no__t-2Windows 구성 요소 @ no__t-3Windows Update**를 엽니다.
 2. **자동 업데이트 구성** 을 마우스 오른쪽 단추로 클릭 하 고 **사용 안 함**으로 설정 합니다.
 
 명령 프롬프트에서 다음 명령을 실행 하 여 자동 업데이트를 사용 하지 않도록 설정할 수도 있습니다.
@@ -109,7 +109,7 @@ Windows Server에서 Windows Defender를 구성 하는 방법에 대 한 자세�
 
 원격 세션 정책을 구성 하려면:
 
-1. **관리 템플릿**Windows구성 > 요소**원격 데스크톱 서비스** **원격 데스크톱 세션 호스트 세션 시간 제한**으로 이동 합니다. >  >  > 
+1. **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스** **@no__t 원격 데스크톱 세션 호스트 5 @no__t** **세션 시간 제한**으로 이동 합니다.
 2. 오른쪽 패널에서 **활성 및 유휴 원격 데스크톱 서비스 세션에 대 한 시간 제한 설정** 정책을 선택 합니다.
 3. 모달 창이 표시 되 면 정책 옵션을 **구성 되지 않음** 에서 **사용** 으로 변경 하 여 정책을 활성화 합니다.
 4. 드롭다운 메뉴의 정책 옵션 아래에서 시간을 **3 시간**으로 설정 합니다.
@@ -134,7 +134,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxId
 1. Active Directory 서버에서 **그룹 정책 관리 콘솔**를 엽니다.
 2. 도메인을 확장 하 고 개체를 그룹 정책 합니다.
 3. 그룹 정책 설정에 대해 만든 **그룹 정책 개체** 를 마우스 오른쪽 단추로 클릭 하 고 **편집**을 선택 합니다.
-4. **그룹 정책 관리 편집기**에서 **컴퓨터 구성** > **정책** > **관리 템플릿** **Windows** 구성요소 >  로 이동 합니다. >  > **장치 및 리소스 리디렉션** **원격 데스크톱 세션 호스트** > 를 원격 데스크톱 서비스 합니다.
+4. **그룹 정책 관리 편집기**에서 **컴퓨터 구성** > **정책** > **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스**로 이동 @no__ t-10**원격 데스크톱 세션 호스트**2**장치 및 리소스 리디렉션**.
 5. **표준 시간대 리디렉션 허용** 설정을 사용 하도록 설정 합니다.
 
 마스터 이미지에서이 명령을 실행 하 여 표준 시간대를 리디렉션할 수도 있습니다.

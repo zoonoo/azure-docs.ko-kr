@@ -1,5 +1,5 @@
 ---
-title: Windows 가상 데스크톱 미리 보기 부하 분산 방법 구성-Azure
+title: Windows 가상 데스크톱 부하 분산 방법 구성-Azure
 description: Windows 가상 데스크톱 환경에 대 한 부하 분산 방법을 구성 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: e1f1ea10dc68e501cfac7ef0cf0383ce78e8f380
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 3a940dbf592087878cb9dd19f856f1a3d94291c5
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163761"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676772"
 ---
-# <a name="configure-the-windows-virtual-desktop-preview-load-balancing-method"></a>Windows 가상 데스크톱 미리 보기 부하 분산 방법 구성
+# <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Windows Virtual Desktop 부하 분산 방법 구성
 
-호스트 풀의 부하 분산 방법을 구성 하면 사용자의 요구에 맞게 Windows 가상 데스크톱 미리 보기 환경을 조정할 수 있습니다.
+호스트 풀에 대해 부하 분산 방법을 구성 하면 사용자의 요구에 맞게 Windows 가상 데스크톱 환경을 조정할 수 있습니다.
 
 >[!NOTE]
 > 사용자에 게는 항상 호스트 풀 내의 세션 호스트에 대 한 1:1 매핑이 있으므로 영구 데스크톱 호스트 풀에는이 내용이 적용 되지 않습니다.
@@ -25,7 +25,7 @@ ms.locfileid: "70163761"
 
 너비 우선 부하 분산은 새로운 비영구 호스트 풀의 기본 구성입니다. 너비 우선 부하 분산은 호스트 풀에서 사용 가능한 모든 세션 호스트에 새 사용자 세션을 배포 합니다. 너비 우선 부하 분산을 구성할 때 호스트 풀의 세션당 최대 세션 제한 수를 설정할 수 있습니다.
 
-먼저 PowerShell 세션에서 사용할 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)(아직 다운로드하고 가져오지 않은 경우). 그런 후 다음 cmdlet을 실행 하 여 계정에 로그인 합니다.
+먼저 PowerShell 세션에서 사용할 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)(아직 다운로드하고 가져오지 않은 경우). 그런 후, 다음 cmdlet을 실행하여 계정에 로그인합니다.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-ms.openlocfilehash: de849701365438b21244d1e46ae657495d16c307
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b6a78fbf2fcb12962b42537965deea6c7912315d
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816395"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676540"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>원격 데스크톱의 그래픽 성능 문제 진단
 
@@ -101,6 +101,6 @@ RDP는 33 밀리초의 평균 인코딩 시간을 지원 하므로 초당 최대
 
 ## <a name="next-steps"></a>다음 단계
 
-- GPU에 최적화 된 Azure 가상 머신을 만들려면 [Windows 가상 데스크톱 미리 보기 환경에 대 한 gpu (그래픽 처리 장치) 가속 구성](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu)을 참조 하세요.
+- GPU에 최적화 된 Azure 가상 머신을 만들려면 [Windows 가상 데스크톱 환경에 대 한 gpu (그래픽 처리 장치) 가속 구성](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu)을 참조 하세요.
 - 문제 해결 및 에스컬레이션 트랙의 개요는 [문제 해결 개요, 사용자 의견 및 지원](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview)을 참조 하세요.
-- 미리 보기 서비스에 대 한 자세한 내용은 [Windows Desktop Preview environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)를 참조 하세요.
+- 서비스에 대 한 자세한 내용은 [Windows 데스크톱 환경](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)을 참조 하세요.

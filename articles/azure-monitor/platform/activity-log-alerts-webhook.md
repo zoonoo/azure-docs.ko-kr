@@ -1,19 +1,19 @@
 ---
 title: 활동 로그 경고에 사용된 웹후크 스키마 이해
 description: 활동 로그 경고가 활성화될 때 웹후크 URL에 게시되는 JSON 스키마에 대해 알아봅니다.
-author: johnkemnetz
+author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/31/2017
-ms.author: johnkem
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: c91c1badaa4b1bc055859d700857cfd4d062babd
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: b9ba809baa8fc4adddfad1344d6f36375cb361c4
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491508"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675206"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 활동 로그 경고에 대한 웹후크
 작업 그룹 정의의 일부로 활동 로그 경고 알림을 받도록 웹후크 엔드포인트를 구성할 수 있습니다. 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 이러한 알림을 다른 시스템으로 라우팅할 수 있습니다. 이 문서는 Webhook에 대한 HTTP POST의 페이로드 형태를 보여 줍니다.
@@ -23,7 +23,7 @@ ms.locfileid: "67491508"
 작업 그룹에 대한 자세한 내용은 [작업 그룹을 만드는](../../azure-monitor/platform/action-groups.md) 방법을 참조하세요.
 
 > [!NOTE]
-> 사용할 수도 있습니다는 [일반적인 경고 스키마](https://aka.ms/commonAlertSchemaDocs)확장할 수 있는 단일 장점이 제공 하는, 및 웹 후크 통합에 대 한 Azure Monitor에서 모든 경고에서 경고 페이로드 통합된 서비스입니다. [일반 경고 스키마 정의에 대해 알아봅니다.](https://aka.ms/commonAlertSchemaDefinitions)
+> 웹 후크 통합을 위해 Azure Monitor의 모든 경고 서비스에서 확장 가능 하 고 통합 된 단일 경고 페이로드를 사용 하는 이점을 제공 하는 [일반적인 경고 스키마](https://aka.ms/commonAlertSchemaDocs)를 사용할 수도 있습니다. [일반적인 경고 스키마 정의에 대해 알아봅니다.](https://aka.ms/commonAlertSchemaDefinitions)
 
 
 ## <a name="authenticate-the-webhook"></a>웹후크 인증
@@ -132,7 +132,7 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 }
 ```
 
-### <a name="recommendation"></a>권장 사항
+### <a name="recommendation"></a>권장
 
 ```json
 {
@@ -260,20 +260,20 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 
 | 요소 이름 | 설명 |
 | --- | --- |
-| status |메트릭 경고에 사용됩니다. 활동 로그 경고에 대해서는 항상 “activated”로 설정합니다. |
+| 상태 |메트릭 경고에 사용됩니다. 활동 로그 경고에 대해서는 항상 “activated”로 설정합니다. |
 | context |이벤트에 대한 컨텍스트입니다. |
 | resourceProviderName |영향을 받는 리소스의 리소스 공급자입니다. |
 | conditionType |항상 "Event"입니다. |
 | name |경고 규칙의 이름입니다. |
 | id |경고의 리소스 ID입니다. |
 | description |경고를 만들 때 설정하는 경고 설명입니다. |
-| subscriptionId |Azure 구독 ID입니다. |
+| SubscriptionId |Azure 구독 ID입니다. |
 | timestamp |요청을 처리하는 Azure 서비스에서 이벤트를 생성한 시간입니다. |
 | resourceId |영향을 받는 리소스의 리소스 ID입니다. |
 | resourceGroupName |영향을 받는 리소스의 리소스 그룹 이름입니다. |
-| properties |이벤트에 대한 세부 정보를 포함하는 `<Key, Value>` 쌍의 집합(즉, `Dictionary<String, String>`)입니다. |
-| event |이벤트에 대한 메타데이터가 포함된 요소입니다. |
-| 권한 부여 |이벤트의 역할 기반 Access Control 속성입니다. 이러한 속성에는 일반적으로 action, role 및 scope이 포함됩니다. |
+| 속성 |이벤트에 대한 세부 정보를 포함하는 `<Key, Value>` 쌍의 집합(즉, `Dictionary<String, String>`)입니다. |
+| 이벤트 |이벤트에 대한 메타데이터가 포함된 요소입니다. |
+| authorization |이벤트의 역할 기반 Access Control 속성입니다. 이러한 속성에는 일반적으로 action, role 및 scope이 포함됩니다. |
 | category |이벤트의 범주. 지원되는 값으로 Administrative, Alert, Security, ServiceHealth, Recommendation이 있습니다. |
 | caller |가용성에 기반한 작업, UPN 클레임 또는 SPN 클레임을 수행한 사용자의 메일 주소입니다. 특정 시스템 호출의 경우 null일 수 있습니다. |
 | correlationId |일반적으로 문자열 형식의 GUID. correlationId가 있는 이벤트는 동일한 상위 작업에 속하며 일반적으로 correlationId를 공유합니다. |
@@ -281,12 +281,12 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 | eventDataId |이벤트에 대한 고유 식별자입니다. |
 | eventSource |이벤트를 생성한 Azure 서비스 또는 인프라의 이름입니다. |
 | httpRequest |요청은 일반적으로 clientRequestId, clientIpAddress 및 HTTP 메서드(예: PUT)를 포함합니다. |
-| level |해당 값은 Critical, Error, Warning 및 Informational 중 하나입니다. |
+| 수준(level) |해당 값은 Critical, Error, Warning 및 Informational 중 하나입니다. |
 | operationId |일반적으로 이벤트 간에 공유되는 GUID로서 단일 작업에 해당합니다. |
 | operationName |작업의 이름입니다. |
-| properties |이벤트의 속성입니다. |
-| status |문자열입니다. 작업의 상태입니다. 일반적인 값으로 Started, In Progress, Succeeded, Failed, Active 및 Resolved가 포함됩니다. |
-| subStatus |일반적으로 해당 REST 호출의 HTTP 상태 코드를 포함합니다. 하위 상태를 설명하는 다른 문자열을 포함할 수도 있습니다. 일반적인 하위 상태 값에는 OK(HTTP 상태 코드:  200), 만들어짐(HTTP 상태 코드: 201), 수락됨(HTTP 상태 코드: 202), 콘텐츠 없음(HTTP 상태 코드: 204), 잘못된 요청(HTTP 상태 코드: 400), 찾을 수 없음(HTTP 상태 코드: 404), 충돌(HTTP 상태 코드: 409), 내부 서버 오류(HTTP 상태 코드: 500), 서비스를 사용할 수 없음(HTTP 상태 코드: 503), 게이트웨이 시간 초과(HTTP 상태 코드: 504). |
+| 속성 |이벤트의 속성입니다. |
+| 상태 |문자열입니다. 작업의 상태입니다. 일반적인 값으로 Started, In Progress, Succeeded, Failed, Active 및 Resolved가 포함됩니다. |
+| subStatus |일반적으로 해당 REST 호출의 HTTP 상태 코드를 포함합니다. 하위 상태를 설명하는 다른 문자열을 포함할 수도 있습니다. 일반적인 하위 상태 값에는 OK(HTTP 상태 코드:  200), 만들어짐(HTTP 상태 코드: 201), 수락됨(HTTP 상태 코드: 202), 콘텐츠 없음(HTTP 상태 코드: 204), 잘못된 요청(HTTP 상태 코드: 400), 찾을 수 없음(HTTP 상태 코드: 404), 충돌(HTTP 상태 코드: 409), 내부 서버 오류(HTTP 상태 코드: 500), 서비스를 사용할 수 없음(HTTP 상태 코드: 503), 게이트웨이 시간 초과(HTTP 상태 코드: 504) 등이 있습니다. |
 
 다른 모든 활동 로그 경고에 대한 특정 스키마 세부 정보는 [Azure 활동 로그 개요](../../azure-monitor/platform/activity-logs-overview.md)를 참조하세요.
 

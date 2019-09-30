@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 50a4ead58cc70524ec464e52ce546b36f9685df5
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3114f082a402fd005797b270cfdcd7527784dbe1
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064543"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679233"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Azure Active Directory B2C 테넌트에 웹 API 애플리케이션 추가
 
- 액세스 토큰을 제공 하는 클라이언트 응용 프로그램에서 요청을 수락 하 고 응답할 수 있도록 테 넌 트에 Web API 리소스를 등록 합니다. 이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에 응용 프로그램을 등록 하는 방법을 보여 줍니다.
+ 액세스 토큰을 제공 하는 클라이언트 응용 프로그램에서 요청을 수락 하 고 응답할 수 있도록 테 넌 트에 web API 리소스를 등록 합니다. 이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에 응용 프로그램을 등록 하는 방법을 보여 줍니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 테 넌 트가 포함 된 디렉터리를 선택 합니다.
@@ -36,22 +36,16 @@ ms.locfileid: "71064543"
 
 범위는 보호된 리소스에 대한 액세스를 제어하는 방법을 제공합니다. 범위는 웹 API에서 범위 기반 액세스 제어를 구현하는 데 사용됩니다. 예를 들어 웹 API 사용자가 읽기 및 쓰기 액세스 권한을 모두 갖고 있을 수도 있고, 읽기 권한만 갖고 있을 수도 있습니다. 이 자습서에서는 범위를 사용하여 웹 API에 대한 읽기 및 쓰기 권한을 정의합니다.
 
-1. **애플리케이션**을 선택한 다음, *webapi1*을 선택합니다.
-2. **게시된 범위**를 선택합니다.
-3. **범위**에 `Read`를 입력하고, 설명에 `Read access to the application`를 입력합니다.
-4. **범위**에 `Write`를 입력하고, 설명에 `Write access to the application`를 입력합니다.
-5. **Save**을 클릭합니다.
-
-게시된 범위는 클라이언트 애플리케이션 사용 권한을 웹 API에 부여하는 데 사용할 수 있습니다.
+[!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
 ## <a name="grant-permissions"></a>권한 부여
 
 애플리케이션에서 보호된 웹 API를 호출하려면 애플리케이션 사용 권한을 API에 부여해야 합니다. 예를 들어 [자습서: Azure Active Directory B2C에서 애플리케이션 등록](tutorial-register-applications.md)의 웹 애플리케이션은 *webapp1*이라는 Azure AD B2C에 만들어집니다. 이 애플리케이션을 사용하여 웹 API를 호출할 수 있습니다.
 
 1. **애플리케이션**을 선택한 다음, 웹 애플리케이션을 선택합니다.
-2. **API 액세스**를 선택한 다음, **추가**를 선택합니다.
-3. **API 선택** 드롭다운에서 *webapi1*을 선택합니다.
-4. **범위 선택** 드롭다운에서, 이전에 정의한 **읽기** 및 **쓰기** 범위를 선택합니다.
-5. **확인**을 클릭합니다.
+1. **API 액세스**를 선택한 다음, **추가**를 선택합니다.
+1. **API 선택** 드롭다운에서 *webapi1*을 선택합니다.
+1. **범위 선택** 드롭다운에서 앞에서 정의한 범위를 선택 합니다. 예를 들어 *demo. read* 및 *demo*.
+1. **확인**을 선택합니다.
 
 애플리케이션이 보호된 웹 API를 호출하도록 등록됩니다. 사용자가 Azure AD B2C로 인증하여 애플리케이션을 사용합니다. 애플리케이션은 Azure AD B2C에서 권한을 부여받아 보호된 웹 API에 액세스합니다.

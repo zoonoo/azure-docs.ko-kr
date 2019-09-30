@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0afefe81e81f8ba83a5c8ac2b0fad61926bbf09
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 86f9b6a6139f329a27914eff7a61d0f59c7f48ad
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268542"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678063"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft id 플랫폼 코드 샘플 (v2.0 끝점)
 
@@ -77,7 +77,8 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 | 모바일(Android, iOS, UWP)   | ![이 이미지는 .NET/C# (Xamarin) 로고를 보여줍니다.](media/sample-v2-code/logo_xamarin.png) | [대화형](msal-authentication-flows.md#interactive) |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |  |
 | 모바일(iOS)       | ![이 이미지는 iOS/목표-C 또는 Swift를 보여 줍니다.](media/sample-v2-code/logo_iOS.png) | [대화형](msal-authentication-flows.md#interactive) |[swift-objc-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |  |
 | 데스크톱 (macOS)       | macOS | [대화형](msal-authentication-flows.md#interactive) |[macOS-swift-v c-native-v2](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) |  |
-| 모바일(Android)   | ![이 이미지는 Android 로고를 표시 합니다.](media/sample-v2-code/logo_Android.png) | [대화형](msal-authentication-flows.md#interactive) |  [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |  |
+| 모바일 (Android-Java)   | ![이 이미지는 Android 로고를 표시 합니다.](media/sample-v2-code/logo_Android.png) | [대화형](msal-authentication-flows.md#interactive) |  [android-Java](https://github.com/Azure-Samples/ms-identity-android-java) |  |
+| 모바일 (Android-Kotlin)   | ![이 이미지는 Android 로고를 표시 합니다.](media/sample-v2-code/logo_Android.png) | [대화형](msal-authentication-flows.md#interactive) |  [android-Kotlin](https://github.com/Azure-Samples/ms-identity-android-kotlin) |  |
 
 ## <a name="daemon-applications"></a>디먼 애플리케이션
 

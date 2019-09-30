@@ -1,19 +1,19 @@
 ---
 title: 클래식 경고 및 모니터링을 Azure Monitor 통합 경고 및 모니터링으로 대체
 description: 이전에 Azure Portal의 경고(클래식) 아래에 표시된 클래식 모니터링 서비스 및 기능의 사용 중지에 대한 개요입니다. 클래식 경고 및 모니터링에는 Azure 리소스에 대한 클래식 메트릭 경고, Application Insights에 대한 클래식 메트릭 경고, Application Insights에 대한 클래식 웹 테스트 경고, Application Insights에 대한 클래식 사용자 지정 메트릭 기반 경고 및 Application Insights SmartDetection v1에 대한 클래식 경고가 포함되어 있습니다.
-author: msvijayn
+author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 2/7/2019
-ms.author: vinagara
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 2ba93ad347783d467d467b72cfa49ffccf309fa0
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: ea50a4f10aa1d794f875cb1eb9601774bec146cd
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147348"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676888"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>클래식 경고 및 모니터링을 Azure Monitor 통합 경고 및 모니터링으로 대체
 
@@ -76,9 +76,9 @@ Azure 리소스에 대해 사용할 수 있는 최신 메트릭은 다음과 같
 
 ## <a name="pricing-for-migrated-alert-rules"></a>마이그레이션된 경고 규칙에 대 한 가격 책정
 
-Azure Monitor [클래식 경고](../../azure-monitor/platform/alerts-classic.overview.md) 를 새로운 경고 환경으로 마이그레이션하는 데 도움이 되는 마이그레이션 도구를 배포 합니다. 마이그레이션된 경고 규칙 및 마이그레이션된 해당 작업 그룹 (email, webhook 또는 LogicApp)은 무료로 제공 됩니다. 임계값, 집계 유형 및 집계 세분성을 편집 하는 기능을 포함 하 여 클래식 경고와 함께 제공 되는 기능은 마이그레이션된 경고 규칙에 따라 계속 무료로 제공 됩니다. 그러나 마이그레이션된 경고 규칙을 편집 하 여 새 경고 플랫폼 기능, 알림 또는 작업 유형을 사용 하는 경우 해당 요금이 적용 됩니다. 경고 규칙 및 알림에 대 한 가격 책정에 대 한 자세한 내용은 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조 하세요.
+Azure Monitor [클래식 경고](../../azure-monitor/platform/alerts-classic.overview.md) 를 새로운 경고 환경으로 마이그레이션하는 데 도움이 되는 마이그레이션 도구를 배포 합니다. 마이그레이션된 경고 규칙과 해당 마이그레이션된 작업 그룹(이메일, 웹후크 또는 LogicApp)은 무료로 유지됩니다. 임계값, 집계 유형 및 집계 세분성을 편집하는 기능을 포함한 기존 알림의 기능은 마이그레이션된 알림 규칙에서 무료로 계속 사용할 수 있습니다. 그러나 새 알림 플랫폼 기능, 알림 또는 작업 유형을 사용하도록 마이그레이션된 알림 규칙을 편집하면 해당 요금이 적용됩니다. 경고 규칙 및 알림에 대 한 가격 책정에 대 한 자세한 내용은 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조 하세요.
 
-다음은 경고 규칙에 대 한 요금이 부과 되는 경우의 예입니다.
+다음은 경고 규칙에 대해 요금이 부과되는 경우의 예제입니다.
 
 - 새 Azure Monitor 플랫폼에 체험 단위를 초과하여 만든 모든 새(마이그레이션되지 않음) 경고 규칙
 - Azure Monitor에 포함된 체험 단위를 초과하여 수집되고 유지된 모든 데이터

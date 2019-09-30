@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: cebf5e80ea59a29efed984097a4157f5238fad5c
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: e3e65a6deadfbcad563a6b64c0a9f48182cdd571
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744972"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686462"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>IP 방화벽 규칙 Azure SQL Database 및 Azure SQL Data Warehouse
 
@@ -38,7 +38,7 @@ ms.locfileid: "70744972"
 
 ### <a name="server-level-ip-firewall-rules"></a>서버 수준 IP 방화벽 규칙
 
-  클라이언트는 이 규칙에 따라 전체 Azure SQL Server, 즉 동일한 SQL Database 서버 내의 모든 데이터베이스에 액세스할 수 있습니다. 규칙은 *master* 데이터베이스에 저장 됩니다.
+  클라이언트는 이 규칙에 따라 전체 Azure SQL Server, 즉 동일한 SQL Database 서버 내의 모든 데이터베이스에 액세스할 수 있습니다. 규칙은 *master* 데이터베이스에 저장 됩니다. Azure SQL Server에 대해 최대 128의 서버 수준 IP 방화벽 규칙을 사용할 수 있습니다.
   
   Azure Portal, PowerShell 또는 Transact-sql 문을 사용 하 여 서버 수준 IP 방화벽 규칙을 구성할 수 있습니다.
   - 포털 또는 PowerShell을 사용 하려면 구독 소유자 또는 구독 참가자 여야 합니다.
@@ -144,7 +144,7 @@ Azure Portal에서 서버 수준 IP 방화벽 규칙을 설정 하려면 Azure S
 
 ### <a name="use-transact-sql-to-manage-ip-firewall-rules"></a>Transact-sql을 사용 하 여 IP 방화벽 규칙 관리
 
-| 카탈로그 뷰 또는 저장 프로시저 | Level | Description |
+| 카탈로그 뷰 또는 저장 프로시저 | Level | 설명 |
 | --- | --- | --- |
 | [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |서버 |현재 서버 수준 IP 방화벽 규칙을 표시합니다. |
 | [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |서버 |서버 수준 IP 방화벽 규칙을 생성 및 업데이트합니다. |
@@ -178,7 +178,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager 모듈은 Azure SQL Database에서 계속 지원 되지만 이제 Az. Sql 모듈에 대 한 모든 개발이 지원 됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 및 AzureRm 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다.
 
-| Cmdlet | Level | Description |
+| Cmdlet | Level | 설명 |
 | --- | --- | --- |
 | [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |서버 |현재 서버 수준 방화벽 규칙 반환 |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |서버 |새 서버 수준 방화벽 규칙 만들기 |

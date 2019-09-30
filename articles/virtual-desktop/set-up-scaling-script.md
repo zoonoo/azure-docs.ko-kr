@@ -1,26 +1,26 @@
 ---
-title: Windows 가상 데스크톱 미리 보기 세션 호스트 자동 크기 조정-Azure
-description: Windows 가상 데스크톱 미리 보기 세션 호스트에 대 한 자동 크기 조정 스크립트를 설정 하는 방법을 설명 합니다.
+title: Windows 가상 데스크톱 세션 호스트 자동 크기 조정-Azure
+description: Windows 가상 데스크톱 세션 호스트에 대 한 자동 크기 조정 스크립트를 설정 하는 방법을 설명 합니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 7babfca617ab42da615518726d1b1d4cafe112b5
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f0d847596ef21af67973b6572737e27e1d015991
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163227"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676482"
 ---
 # <a name="automatically-scale-session-hosts"></a>세션 호스트 자동 크기 조정
 
-Azure의 많은 Windows 가상 데스크톱 미리 보기 배포의 경우 가상 머신 비용은 전체 Windows 가상 데스크톱 배포 비용의 상당 부분을 나타냅니다. 비용을 줄이려면 사용량이 적은 시간에 세션 호스트 Vm (가상 머신)을 종료 하 고 할당을 취소 한 다음 사용량이 가장 많은 시간에 다시 시작 하는 것이 가장 좋습니다.
+Azure의 많은 Windows 가상 데스크톱 배포의 경우 가상 머신 비용은 전체 Windows 가상 데스크톱 배포 비용의 상당 부분을 나타냅니다. 비용을 줄이려면 사용량이 적은 시간에 세션 호스트 Vm (가상 머신)을 종료 하 고 할당을 취소 한 다음 사용량이 가장 많은 시간에 다시 시작 하는 것이 가장 좋습니다.
 
 이 문서에서는 간단한 크기 조정 스크립트를 사용 하 여 Windows 가상 데스크톱 환경에서 세션 호스트 가상 컴퓨터의 크기를 자동으로 조정 합니다. 크기 조정 스크립트의 작동 방식에 대 한 자세한 내용은 [크기 조정 스크립트 작동 방법](#how-the-scaling-script-works) 섹션을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 스크립트를 실행 하는 환경에는 다음 항목이 있어야 합니다.
 
@@ -49,7 +49,7 @@ Azure의 많은 Windows 가상 데스크톱 미리 보기 배포의 경우 가�
 먼저 크기 조정 스크립트를 위한 환경을 준비 합니다.
 
 1. 도메인 관리 계정을 사용 하 여 예약 된 작업을 실행할 VM (scaler VM)에 로그인 합니다.
-2. 크기 조정 스크립트와 해당 구성을 저장할 scaler VM에 폴더를 만듭니다 (예 **: C:\\HostPool1**).
+2. Scaler VM에서 크기 조정 스크립트와 해당 구성을 저장할 폴더를 만듭니다 (예 **: C: \\Scaling**).
 3. [크기 조정 스크립트 리포지토리에서](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) **basicscale. ps1**, **Config.xml**및 **Functions-PSStoredCredentials** 파일 및 **powershellmodules** 폴더를 다운로드 하 고 2 단계에서 만든 폴더에 복사 합니다. Scaler VM에 복사 하기 전에 두 가지 주요 방법으로 파일을 가져올 수 있습니다.
     - 로컬 컴퓨터에 git 리포지토리를 복제 합니다.
     - 각 파일의 **원시** 버전을 확인 하 고 각 파일의 내용을 복사 하 여 텍스트 편집기에 붙여 넣은 다음 해당 파일 이름 및 파일 형식으로 파일을 저장 합니다. 
@@ -72,7 +72,7 @@ Azure의 많은 Windows 가상 데스크톱 미리 보기 배포의 경우 가�
     Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>
     ```
     
-    예를 들어, **KeyPath "c: HostPool1"와 같이 변수 이름으로 설정 합니다\\.**
+    예를 들어, **KeyPath "c: \\Scaling"와 같이 변수 이름으로 설정 합니다.**
 5. **StoredCredential-KeyPath \$KeyPath** cmdlet을 실행 합니다. 메시지가 표시 되 면 호스트 풀을 쿼리할 수 있는 권한이 있는 Windows 가상 데스크톱 자격 증명을 입력 합니다 (호스트 풀이 **config.xml**에서 지정 됨).
     - 다른 서비스 주체 또는 표준 계정을 사용 하는 경우 각 계정에 대해 **StoredCredential-KeyPath \$KeyPath** cmdlet을 한 번 실행 하 여 로컬에 저장 된 자격 증명을 만듭니다.
 6. **StoredCredential** 를 실행 하 여 자격 증명이 성공적으로 만들어졌는지 확인 합니다.
@@ -89,8 +89,8 @@ Azure의 많은 Windows 가상 데스크톱 미리 보기 배포의 경우 가�
 | currentAzureSubscriptionId    | 세션 호스트 Vm이 실행 되는 Azure 구독의 ID입니다.                        |
 | tenantName                    | Windows 가상 데스크톱 테 넌 트 이름                                                    |
 | hostPoolName                  | Windows 가상 데스크톱 호스트 풀 이름                                                 |
-| RDBroker                      | Wvd 서비스의 URL, 기본값 https:\//rdbroker.wvd.microsoft.com             |
-| Username                      | 서비스 사용자 응용 프로그램 ID (AADApplicationId에서와 동일한 서비스 주체를 사용할 수 있음) 또는 multi-factor authentication 없이 표준 사용자 |
+| RDBroker                      | WVD service에 대 한 URL, 기본값 https: \//rdbroker. wvd.             |
+| 사용자 이름                      | 서비스 사용자 응용 프로그램 ID (AADApplicationId에서와 동일한 서비스 주체를 사용할 수 있음) 또는 multi-factor authentication 없이 표준 사용자 |
 | isServicePrincipal            | 허용 되는 값은 **true** 또는 **false**입니다. 사용 되는 두 번째 자격 증명 집합이 서비스 사용자 또는 표준 계정 인지 여부를 나타냅니다. |
 | BeginPeakTime                 | 피크 사용 시간이 시작 되는 경우                                                            |
 | EndPeakTime                   | 최대 사용 시간이 종료 되는 경우                                                              |
@@ -111,7 +111,7 @@ Config.xml 파일을 구성한 후에는 basicScaler 파일을 정기적으로 �
 4. **트리거** 탭으로 이동한 다음 **새로 만들기 ...** 를 선택 합니다.
 5. **새 트리거** 대화 상자의 **고급 설정**에서 **작업 반복** 을 선택 하 고 적절 한 기간 및 기간 (예: **15 분** 또는 **무기한**)을 선택 합니다.
 6. **작업** 탭 및 **새로 만들기** ...를 선택 합니다.
-7. **새 작업** 대화 상자의 **프로그램/스크립트** 필드에 **powershell .exe** 를 입력 하 고 **인수 추가 (선택 사항)** 필드에 **C:\\크기 조정\\basicscale.** p s 1을 입력 합니다.
+7. **새 작업** 대화 상자에서 **프로그램/스크립트** 필드에 **powershell .exe** 를 입력 하 고 **인수 추가 (선택 사항)** 필드에 **C: \\scaling 크기 조정 @** 를 입력 합니다.
 8. **조건** 및 **설정** 탭으로 이동 하 고 **확인** 을 선택 하 여 각에 대 한 기본 설정을 적용 합니다.
 9. 크기 조정 스크립트를 실행 하려는 관리 계정의 암호를 입력 합니다.
 

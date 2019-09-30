@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: e4379c38d90f444102a9bbddbae64a8018defcf8
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: e8a186fbcb04dc29fcf57a2353adcf89ce46b119
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844581"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677925"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Azure IoT Hub에 IoT DevKit AZ3166 연결
 
@@ -31,7 +31,7 @@ Microsoft Azure 서비스를 활용하는 IoT(사물 인터넷) 솔루션을 개
 
 DevKit가 아직 없으세요? [DevKit 시뮬레이터](https://azure-samples.github.io/iot-devkit-web-simulator/)를 시도하거나 [DevKit를 구매](https://aka.ms/iot-devkit-purchase)합니다.
 
-[IoTDevEnvExamples](https://github.com/IoTDevEnvExamples) 리포지토리에서 모든 devkit 자습서에 대 한 소스 코드를 찾을 수 있습니다.
+[코드 샘플 갤러리](https://docs.microsoft.com/samples/browse/?term=mxchip)에서 모든 devkit 자습서에 대 한 소스 코드를 찾을 수 있습니다.
 
 ## <a name="what-you-need"></a>필요한 항목
 
@@ -355,7 +355,7 @@ DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 
 장치 원격 분석을 Azure IoT Hub 전송 하는 방법을 보려면 동일한 폴더에서 `utility.cpp` 파일을 엽니다. IoT DevKit에서 센서 및 주변 장치를 사용 하는 방법을 알아보려면 [API 참조](https://microsoft.github.io/azure-iot-developer-kit/docs/apis/arduino-language-reference/) 를 확인 하세요.
 
-사용 `DevKitMQTTClient` 되는는 [Microsoft Azure IoT sdk 및 C에 대 한 라이브러리](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client) 에서 Azure IoT Hub와 상호 작용 하는 **iothub_client** 의 래퍼입니다.
+사용 되는 `DevKitMQTTClient`은 [Microsoft Azure IoT sdk 및 C에 대 한 라이브러리](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client) 에서 Azure IoT Hub와 상호 작용 하는 **iothub_client** 의 래퍼입니다.
 
 ## <a name="problems-and-feedback"></a>문제 및 피드백
 

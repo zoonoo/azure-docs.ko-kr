@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 886dd9b0f3c72fc7649b1e2fc3927cfa87f65312
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 4fd27acc58f5aaeb9b7680062ad97aaba22dec51
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316498"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686984"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -70,7 +70,7 @@ Express 경로는 개인 피어 링, Microsoft 피어 링 및 공용 피어 링�
 * 대부분의 Azure 서비스가 지원됩니다. 사용하려는 서비스의 지원 유무를 직접 확인해 보세요.<br><br>**다음 서비스는 지원되지 않습니다**.
     * CDN
     * Azure Front Door
-    * Multi-Factor 인증
+    * Multi-factor Authentication 서버 (레거시)
     * Traffic Manager
 
 ### <a name="public-peering"></a>공용 피어링
@@ -84,7 +84,7 @@ Express 경로는 개인 피어 링, Microsoft 피어 링 및 공용 피어 링�
   **다음 서비스는 지원되지 않습니다**.
     * CDN
     * Azure Front Door
-    * Multi-Factor 인증
+    * Multi-factor Authentication 서버 (레거시)
     * Traffic Manager
 
 ### <a name="is-dynamics-365-supported-on-expressroute"></a>Express 경로에서 Dynamics 365이 지원 되나요?

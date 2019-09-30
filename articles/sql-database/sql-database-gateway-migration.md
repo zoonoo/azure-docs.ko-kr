@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 2e578c6bfdfb25eaba3d0c692ff33aa5b0572669
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: a2064e0012abea237c1b4c0c6f7e35119c1aeff5
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306016"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686815"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>최신 게이트웨이로 트래픽 마이그레이션 Azure SQL Database
 
@@ -52,7 +52,7 @@ Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 
 
 ## <a name="what-to-do-you-do-if-youre-affected"></a>영향을 받는 경우 수행할 작업
 
-TCP 포트 1433의 지역에 있는 모든 [Azure SQL Database 게이트웨이 ip 주소](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) 에 대 한 ip 주소에 대 한 아웃 바운드 트래픽 및 방화벽 장치의 포트 범위 11000-11999을 허용 하는 것이 좋습니다. 포트 범위에 대 한 자세한 내용은 [연결 정책](sql-database-connectivity-architecture.md#connection-policy)을 참조 하세요.
+TCP 포트 1433 및 포트 범위 11000-11999에서 지역의 모든 [Azure SQL Database 게이트웨이 ip 주소](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) 에 대 한 ip 주소에 대 한 아웃 바운드 트래픽을 허용 하는 것이 좋습니다. 이 권장 사항은 온-프레미스에서 연결 하는 클라이언트와 서비스 끝점을 통해 연결 하는 클라이언트에 적용 됩니다. 포트 범위에 대 한 자세한 내용은 [연결 정책](sql-database-connectivity-architecture.md#connection-policy)을 참조 하세요.
 
 Microsoft JDBC Driver 버전 4.0을 사용 하 여 응용 프로그램에서 만든 연결은 인증서 유효성 검사에 실패할 수 있습니다. 낮은 버전의 Microsoft JDBC는 인증서의 주체 필드에 CN (일반 이름)을 사용 합니다. 완화 방법은 hostNameInCertificate 속성이 *. database.windows.net로 설정 되어 있는지 확인 하는 것입니다. HostNameInCertificate 속성을 설정 하는 방법에 대 한 자세한 내용은 [SSL 암호화를 사용 하 여 연결](/sql/connect/jdbc/connecting-with-ssl-encryption)을 참조 하세요.
 

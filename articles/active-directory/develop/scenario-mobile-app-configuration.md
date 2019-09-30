@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b731c9936ab85b19428687330044a46c563c49
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 168fbb275f70acd229dfd8f2e3f0d4c325db0f94
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268361"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678025"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 모바일 앱-코드 구성
 
@@ -155,9 +155,13 @@ Android 및 iOS에서 broker를 사용 하도록 설정 합니다.
 - 장치 id입니다. 작업 공간에 연결 된 장치에서 만든 장치 인증서에 액세스 하 여 Azure AD 장치 관련 조건부 액세스 정책을 사용 하도록 설정 합니다.
 - 응용 프로그램 id 확인. 응용 프로그램은 broker를 호출할 때 리디렉션 url을 전달 하 고 broker는이를 확인 합니다.
 
-### <a name="enable-the-brokers-on-xamarin"></a>Xamarin에서 broker 사용
+### <a name="enable-the-broker-on-xamarin"></a>Xamarin에서 broker 사용
 
 이러한 기능 중 하나를 사용 하도록 설정 하려면 `WithBroker()` `PublicClientApplicationBuilder.CreateApplication` 메서드를 호출할 때 매개 변수를 사용 합니다. `.WithBroker()`는 기본적으로 true로 설정 됩니다. [Xamarin.ios](#brokered-authentication-for-xamarinios)에 대 한 다음 단계를 수행 합니다.
+
+### <a name="enable-the-broker-for-msal-for-android"></a>Android에 대 한 MSAL에 broker를 사용 하도록 설정
+
+Android에서 broker를 사용 하는 방법에 대 한 자세한 내용은 [android에서](brokered-auth.md) 조정 된 인증을 참조 하세요. 
 
 ### <a name="enable-the-broker-for-msal-for-ios-and-macos"></a>IOS 및 macOS 용 MSAL에 대해 broker를 사용 하도록 설정
 

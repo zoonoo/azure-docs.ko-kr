@@ -1,5 +1,5 @@
 ---
-title: 웹 브라우저에서 Windows 가상 데스크톱 미리 보기에 연결-Azure
+title: 웹 브라우저에서 Windows 가상 데스크톱에 연결-Azure
 description: 웹 클라이언트를 사용 하 여 Windows 가상 데스크톱에 연결 하는 방법
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: 961eb98bed712e3dde1b1e7ed2ec997e8992e600
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: e7fa1d2b21bfde6495a63676bc2aa1faa07e6bc5
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338671"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676764"
 ---
 # <a name="connect-with-the-web-client"></a>웹 클라이언트를 사용하여 연결
 

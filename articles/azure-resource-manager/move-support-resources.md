@@ -4,14 +4,14 @@ description: 새 리소스 그룹이나 구독으로 이동할 수 있는 Azure 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 09/06/2019
+ms.date: 09/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9dc86fe7876a050fe67ec73a665be6141a4b98da
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: b34c244708c52ec7324c766286aff8ee9340db0b
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801356"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687130"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
 이 문서에서는 Azure 리소스 종류가 이동 작업을 지원하는지 여부에 대한 정보를 제공합니다. 또한 리소스를 이동할 때 고려해 야 할 특수 조건에 대 한 정보를 제공 합니다.
@@ -72,7 +72,6 @@ ms.locfileid: "70801356"
 > - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
-> - [microsoft.dns](#microsoftdns)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft.DomainRegistration](#microsoftdomainregistration)
 > - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
@@ -394,7 +393,7 @@ ms.locfileid: "70801356"
 > | restorepointcollections | 아니요 | 아니요 |
 > | sharedvmimages | 아니요 | 아니요 |
 > | sharedvmimages/버전 | 아니요 | 아니요 |
-> | 스냅숏 | 예 | 예 |
+> | 스냅샷 | 예 | 예 |
 > | virtualmachines | 예 | 예 |
 > | virtualmachines/확장 | 예 | 예 |
 > | virtualmachinescalesets | 예 | 예 |
@@ -462,7 +461,7 @@ ms.locfileid: "70801356"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 리소스 그룹 | 구독 |
 > | ------------- | ----------- | ---------- |
-> | hubs | 예 | 예 |
+> | 허브 | 예 | 예 |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
@@ -542,7 +541,7 @@ ms.locfileid: "70801356"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 리소스 그룹 | 구독 |
 > | ------------- | ----------- | ---------- |
-> | services | 아니요 | 아니요 |
+> | 서비스 | 아니요 | 아니요 |
 > | 서비스/프로젝트 | 아니요 | 아니요 |
 > | slots | 아니요 | 아니요 |
 
@@ -610,21 +609,6 @@ ms.locfileid: "70801356"
 > | labs/virtualmachines | 예 | 아니요 |
 > | schedules | 예 | 예 |
 
-## <a name="microsoftdns"></a>microsoft.dns
-
-> [!div class="mx-tableFixed"]
-> | 리소스 형식 | 리소스 그룹 | 구독 |
-> | ------------- | ----------- | ---------- |
-> | dnszones | 아니요 | 아니요 |
-> | dnszones/a | 아니요 | 아니요 |
-> | dnszones/aaaa | 아니요 | 아니요 |
-> | dnszones/cname | 아니요 | 아니요 |
-> | dnszones/mx | 아니요 | 아니요 |
-> | dnszones/ptr | 아니요 | 아니요 |
-> | dnszones/srv | 아니요 | 아니요 |
-> | dnszones/txt | 아니요 | 아니요 |
-> | trafficmanagerprofiles | 아니요 | 아니요 |
-
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
@@ -644,7 +628,7 @@ ms.locfileid: "70801356"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 리소스 그룹 | 구독 |
 > | ------------- | ----------- | ---------- |
-> | services | 예 | 예 |
+> | 서비스 | 예 | 예 |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
@@ -660,7 +644,7 @@ ms.locfileid: "70801356"
 > | 리소스 형식 | 리소스 그룹 | 구독 |
 > | ------------- | ----------- | ---------- |
 > | clusters | 예 | 예 |
-> | namespaces | 예 | 예 |
+> | 네임스페이스 | 예 | 예 |
 
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
 
@@ -694,7 +678,7 @@ ms.locfileid: "70801356"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 리소스 그룹 | 구독 |
 > | ------------- | ----------- | ---------- |
-> | services | 예 | 예 |
+> | 서비스 | 예 | 예 |
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
@@ -734,7 +718,7 @@ ms.locfileid: "70801356"
 > | notificationrules | 아니요 | 아니요 |
 > | scheduledqueryrules | 예 | 예 |
 > | webtests | 예 | 예 |
-> | workbooks | 예 | 예 |
+> | 통합 문서 | 예 | 예 |
 
 > [!IMPORTANT]
 > 새 구독으로의 이동이 [구독 할당량](../azure-subscription-service-limits.md#azure-monitor-limits)을 초과 하지 않는지 확인 합니다.
@@ -970,7 +954,7 @@ ms.locfileid: "70801356"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 리소스 그룹 | 구독 |
 > | ------------- | ----------- | ---------- |
-> | namespaces | 예 | 예 |
+> | 네임스페이스 | 예 | 예 |
 > | 네임 스페이스/notificationhubs | 예 | 예 |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
@@ -1049,7 +1033,7 @@ ms.locfileid: "70801356"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 리소스 그룹 | 구독 |
 > | ------------- | ----------- | ---------- |
-> | namespaces | 예 | 예 |
+> | 네임스페이스 | 예 | 예 |
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
 
@@ -1104,7 +1088,7 @@ ms.locfileid: "70801356"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 리소스 그룹 | 구독 |
 > | ------------- | ----------- | ---------- |
-> | namespaces | 예 | 예 |
+> | 네임스페이스 | 예 | 예 |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 

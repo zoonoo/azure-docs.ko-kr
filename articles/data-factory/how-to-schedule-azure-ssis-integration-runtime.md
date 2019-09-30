@@ -13,21 +13,21 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d7a4a54f979cd4b14e12c5a57792241f1b2388d2
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: b1f963eb804adc0f40749957e9052f2deba08ef6
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734714"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687100"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>일정에 따라 Azure-SSIS 통합 런타임을 시작하고 중지하는 방법
 이 문서에서는 ADF(Azure Data Factory)를 사용하여 Azure-SSIS IR(통합 런타임)의 시작 및 중지를 예약하는 방법을 설명합니다. Azure-SSIS IR은 SSIS(SQL Server Integration Services) 패키지 전용으로 사용되는 ADF 컴퓨팅 리소스입니다. Azure-SSIS IR 실행 시 관련 비용이 발생합니다. 따라서 일반적으로 Azure에서 SSIS 패키지를 실행해야 할 때만 IR을 실행하고, 더 이상 필요 없으면 중지하는 것이 좋습니다. ADF UI(사용자 인터페이스)/앱 또는 Azure PowerShell을 사용하여 [수동으로 IR을 시작 또는 중지](manage-azure-ssis-integration-runtime.md)할 수 있습니다.
 
 또는 ADF 파이프라인에서 일정에 따라 IR을 시작/중지하는 웹 작업을 만들 수 있습니다. 예를 들어 오전에 일일 ETL 워크로드를 실행하기 전에 IR을 시작하고, 오후에 워크로드가 완료되면 IR을 중지할 수 있습니다.  IR을 시작하고 중지하는 두 웹 작업 간에 SSIS 패키지 실행 작업을 연결할 수도 있습니다. 이렇게 하면 주문형으로, 패키지 실행 전/후에 적시에 IR이 시작/중지됩니다. SSIS 패키지 실행 작업에 대한 자세한 내용은 [SSIS 패키지 실행 작업을 사용하여 ADF 파이프라인에서 SSIS 패키지 실행](how-to-invoke-ssis-package-ssis-activity.md) 문서를 참조하세요.
 
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-create-azure-ssis-runtime-portal.md)의 지침에 따라 프로비전하세요. 
 
 ## <a name="create-and-schedule-adf-pipelines-that-start-and-or-stop-azure-ssis-ir"></a>Azure-SSIS IR을 시작 및/또는 중지하는 ADF 파이프라인 만들기 및 예약
@@ -114,7 +114,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
     1. **역할**에 **참가자**를 선택합니다. 
     2. **액세스 할당**에서 **Azure AD 사용자, 그룹 또는 서비스 보안 주체**를 선택합니다. 
     3. **선택**에서 ADF 이름을 검색하여 선택합니다. 
-    4. **Save**을 클릭합니다.
+    4. **저장**을 클릭합니다.
     
    ![ADF 관리 ID 역할 할당](./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png)
 
@@ -133,7 +133,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
     1. **서버 이름**의 경우 **&lt;Azure SQL Database 서버 이름&gt;.database.windows.net**을 입력합니다.
     2. **옵션 >>** 을 선택합니다.
     3. **데이터베이스에 연결**에 대해 **SSISDB**를 선택합니다.
-    4.           **연결**을 선택합니다. 
+    4. **연결**을 선택합니다. 
     5. **Integration Services 카탈로그** -> **SSISDB** -> 사용자 폴더 -> **프로젝트** -> 사용자 SSIS 프로젝트 -> **패키지**를 펼칩니다. 
     6. SSIS 패키지를 마우스 오른쪽 단추로 클릭하고, **보고서** -> **표준 보고서** -> **모든 실행**을 실행 및 선택합니다. 
     7. 실행되었는지 확인합니다. 
@@ -241,15 +241,15 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
 
 ### <a name="import-adf-modules"></a>ADF 모듈 가져오기
 
-1. 왼쪽 메뉴의 **공유 리소스** 섹션에서 **모듈**을 선택하고, 모듈 목록에 **AzureRM.DataFactoryV2** + **AzureRM.Profile**이 있는지 확인합니다.
+1. 왼쪽 메뉴에서 **공유 리소스** 섹션의 **모듈** 을 선택 하 고 모듈 목록에 **DataFactory** + **az. Profile** 이 있는지 확인 합니다.
 
    ![필요한 모듈 확인](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
-2.  **AzureRM.DataFactoryV2**가 없으면 [AzureRM.DataFactoryV2 모듈](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/)의 PowerShell 갤러리로 이동하여 **Azure Automation에 배포**를 선택하고, Azure Automation 계정을 선택하고, **확인**을 선택합니다. 뒤로 돌아가서 왼쪽 메뉴의 **공유 리소스** 섹션에서 **모듈**을 보려면 **AzureRM.DataFactoryV2** 모듈의 **상태**가 **사용 가능**으로 변경될 때까지 대기합니다.
+2.  **DataFactory**가 없는 경우 [DataFactory 모듈](https://www.powershellgallery.com/packages/Az.DataFactory/)의 PowerShell 갤러리로 이동 하 여 **Azure Automation에 배포**를 선택 하 고 Azure Automation 계정을 선택한 다음 **확인**을 선택 합니다. 왼쪽 메뉴에서 **공유 리소스** 섹션의 **모듈** 보기로 돌아가서 **Az. DataFactory** 모듈의 **상태가** **사용 가능**으로 변경 될 때까지 기다립니다.
 
     ![데이터 팩터리 모듈 확인](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image2.png)
 
-3.  **AzureRM.Profile**이 없으면 [AzureRM.Profile 모듈](https://www.powershellgallery.com/packages/AzureRM.profile/)의 PowerShell 갤러리로 이동하여 **Azure Automation에 배포**를 선택하고, Azure Automation 계정을 선택하고, **확인**을 선택합니다. 뒤로 돌아가서 왼쪽 메뉴의 **공유 리소스** 섹션에서 **모듈**을 보려면 **AzureRM.Profile** 모듈의 **상태**가 **사용 가능**으로 변경될 때까지 대기합니다.
+3.  **Az. profile**을 선택 하지 않은 경우 [az. profile 모듈](https://www.powershellgallery.com/packages/Az.profile/)의 PowerShell 갤러리로 이동 하 여 **Azure Automation에 배포**를 선택 하 고 Azure Automation 계정을 선택한 다음 **확인**을 선택 합니다. 왼쪽 메뉴에서 **공유 리소스** 섹션의 **모듈** 보기로 돌아가서 Az의 **상태가** **사용 가능**으로 변경 될 때까지 기다립니다 **.**
 
     ![프로필 모듈 확인](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image3.png)
 
@@ -336,7 +336,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
     2. **데이터 팩터리 이름**에는 Azure-SSIS IR이 있는 ADF의 이름을 입력합니다. 
     3. **AZURESSISNAME**으로 Azure-SSIS IR의 이름을 입력합니다. 
     4. **OPERATION**에 **START**를 입력합니다. 
-    5.           **확인**을 선택합니다.  
+    5. **확인**을 선택합니다.  
 
    ![Runbook 시작 창](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-window.png)
    

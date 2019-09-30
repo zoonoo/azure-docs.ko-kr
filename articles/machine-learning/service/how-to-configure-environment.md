@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0bd4b1d969de0b54a1836048b5cb5910470f1ffa
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: b4d7a21e8d9b660463f508513c158032be81a35c
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269230"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686976"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -188,7 +188,7 @@ DSVM을 개발 환경으로 사용 하려면 다음을 수행 합니다.
     이 명령은 노트북 및 `automl` 기타 기능을 사용 하 여 기본 Azure Machine Learning SDK를 설치 합니다. `automl` 추가는 대형 설치 이며 자동화 된 기계 학습 실험을 실행 하지 않으려는 경우 괄호에서 제거할 수 있습니다. 또한 `automl` 추가에는 기본적으로 Azure Machine Learning 데이터 준비 SDK가 종속성으로 포함 됩니다.
 
     ```shell
-    pip install azureml-sdk[notebooks, automl]
+    pip install azureml-sdk[notebooks,automl]
     ```
 
    > [!NOTE]

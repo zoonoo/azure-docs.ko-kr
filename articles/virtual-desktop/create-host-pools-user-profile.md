@@ -1,22 +1,22 @@
 ---
 title: 가상 컴퓨터 기반 파일 공유를 사용 하 여 호스트 풀의 FSLogix 프로필 컨테이너 만들기-Azure
-description: 가상 컴퓨터 기반 파일 공유를 사용 하 여 Windows 가상 데스크톱 미리 보기 호스트 풀에 대해 FSLogix 프로필 컨테이너를 설정 하는 방법입니다.
+description: 가상 컴퓨터 기반 파일 공유를 사용 하 여 Windows 가상 데스크톱 호스트 풀에 대해 FSLogix 프로필 컨테이너를 설정 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: cf3d682e4d0c68822267a4e63846d80b632cbdcc
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 9b187696524e96bc13254a24fd8f39d5aeb89e7d
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876804"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676694"
 ---
-# <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>파일 공유를 사용 하 여 호스트 풀에 대 한 프로필 컨테이너 만들기
+# <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>파일 공유를 사용하여 호스트 풀에 대한 프로필 컨테이너 만들기
 
-Windows 가상 데스크톱 미리 보기 서비스는 FSLogix 프로필 컨테이너를 권장 사용자 프로필 솔루션으로 제공 합니다. UPD (사용자 프로필 디스크) 솔루션을 사용 하지 않는 것이 좋습니다 .이 솔루션은 이후 버전의 Windows 가상 데스크톱에서 더 이상 사용 되지 않습니다.
+Windows 가상 데스크톱 서비스는 FSLogix 프로필 컨테이너를 권장 사용자 프로필 솔루션으로 제공 합니다. UPD (사용자 프로필 디스크) 솔루션을 사용 하지 않는 것이 좋습니다 .이 솔루션은 이후 버전의 Windows 가상 데스크톱에서 더 이상 사용 되지 않습니다.
 
 이 문서에서는 가상 머신 기반 파일 공유를 사용 하 여 호스트 풀에 대해 FSLogix 프로필 컨테이너 공유를 설정 하는 방법을 설명 합니다. 추가 FSLogix 설명서는 [fslogix 사이트](https://docs.fslogix.com/)를 참조 하세요.
 
@@ -56,9 +56,9 @@ FSLogix 소프트웨어를 사용 하 여 가상 머신을 구성 하려면 호�
 
 1. 가상 컴퓨터를 만들 때 제공한 자격 증명을 사용 하 여 [가상 컴퓨터에 연결](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) 합니다.
 2. 인터넷 브라우저를 시작 하 고 [이 링크로](https://go.microsoft.com/fwlink/?linkid=2084562) 이동 하 여 FSLogix 에이전트를 다운로드 합니다.
-3. .Zip 파일에서 \\ \\Win32 릴리스또는\\X64\\릴리스로 이동 하 고 FSLogixAppsSetup를 실행 하 여 fslogix 에이전트를 설치 합니다. \\ \\  FSLogix를 설치 하는 방법에 대해 자세히 알아보려면 [Fslogix 다운로드 및 설치](https://docs.microsoft.com/fslogix/install-ht)를 참조 하세요.
+3. .Zip 파일에서 \\ @ no__t-1Win32 @ no__t 또는 \\ @ no__t-4X64 @ no__t로 이동 하 고 **FSLogixAppsSetup** 를 실행 하 여 FSLogix 에이전트를 설치 합니다.  FSLogix를 설치 하는 방법에 대해 자세히 알아보려면 [Fslogix 다운로드 및 설치](https://docs.microsoft.com/fslogix/install-ht)를 참조 하세요.
 4. **프로그램 파일** > **fslogix** > **앱** 으로 이동 하 여 에이전트를 설치 했는지 확인 합니다.
-5. 시작 메뉴에서 관리자 권한으로 **RegEdit** 를 실행 합니다. **컴퓨터\\HKEY_LOCAL_MACHINE\\softwarefslogix로이동합니다\\** .
+5. 시작 메뉴에서 관리자 권한으로 **RegEdit** 를 실행 합니다. **Computer @ no__t-1HKEY_LOCAL_MACHINE @ no__t-2software @ no__t-3FSLogix**로 이동 합니다.
 6. **프로필**이라는 키를 만듭니다.
 7. 프로필 키에 대해 다음 값을 만듭니다.
 

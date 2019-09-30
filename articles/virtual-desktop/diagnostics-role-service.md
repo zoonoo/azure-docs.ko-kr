@@ -1,22 +1,22 @@
 ---
-title: Windows 가상 데스크톱 미리 보기 진단 기능 관련 문제 식별-Azure
-description: Windows 가상 데스크톱 미리 보기 진단 기능 및 사용 방법에 대해 설명 합니다.
+title: Windows 가상 데스크톱 진단 기능-Azure의 문제 식별
+description: Windows 가상 데스크톱 진단 기능 및 사용 방법에 대해 설명 합니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: c07086feef1851f1a6e2a5cda2f541d52a50d91d
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f041889f1594ef3852c8f2393be93bb7a6513b4c
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163487"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676644"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>진단 기능을 사용하여 문제 식별
 
-Windows 가상 데스크톱 미리 보기는 관리자가 단일 인터페이스를 통해 문제를 식별할 수 있도록 하는 진단 기능을 제공 합니다. Windows 가상 데스크톱 역할은 사용자가 시스템과 상호 작용할 때마다 진단 활동을 기록 합니다. 각 로그에는 트랜잭션과 관련 된 Windows 가상 데스크톱 역할, 오류 메시지, 테 넌 트 정보 및 사용자 정보와 같은 관련 정보가 포함 되어 있습니다. 진단 작업은 최종 사용자 및 관리 작업에 의해 생성 되며 세 가지 주요 버킷으로 분류할 수 있습니다.
+Windows 가상 데스크톱은 관리자가 단일 인터페이스를 통해 문제를 식별할 수 있도록 하는 진단 기능을 제공 합니다. Windows 가상 데스크톱 역할은 사용자가 시스템과 상호 작용할 때마다 진단 활동을 기록 합니다. 각 로그에는 트랜잭션과 관련 된 Windows 가상 데스크톱 역할, 오류 메시지, 테 넌 트 정보 및 사용자 정보와 같은 관련 정보가 포함 되어 있습니다. 진단 작업은 최종 사용자 및 관리 작업에 의해 생성 되며 세 가지 주요 버킷으로 분류할 수 있습니다.
 
 * 피드 구독 활동: 최종 사용자가 Microsoft 원격 데스크톱 응용 프로그램을 통해 피드에 연결 하려고 할 때마다 이러한 활동을 트리거합니다.
 * 연결 작업: 최종 사용자가 Microsoft 원격 데스크톱 응용 프로그램을 통해 데스크톱 또는 RemoteApp에 연결 하려고 할 때마다 이러한 작업을 트리거합니다.
@@ -24,7 +24,7 @@ Windows 가상 데스크톱 미리 보기는 관리자가 단일 인터페이스
   
 진단 역할 서비스 자체는 Windows 가상 데스크톱의 일부 이기 때문에 Windows 가상 데스크톱에 연결 되지 않은 연결은 진단 결과에 표시 되지 않습니다. Windows 가상 데스크톱 연결 문제는 최종 사용자에 게 네트워크 연결 문제가 발생 하는 경우에 발생할 수 있습니다.
 
-시작 하려면 PowerShell 세션에서 사용할 [Windows 가상 데스크톱 powershell 모듈을 다운로드 하 고 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) (아직 없는 경우). 그런 후 다음 cmdlet을 실행 하 여 계정에 로그인 합니다.
+시작 하려면 PowerShell 세션에서 사용할 [Windows 가상 데스크톱 powershell 모듈을 다운로드 하 고 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) (아직 없는 경우). 그런 후, 다음 cmdlet을 실행하여 계정에 로그인합니다.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -136,7 +136,7 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
 다음 표에는 관리자가 실행할 수 있는 일반적인 오류가 정리 되어 있습니다.
 
 >[!NOTE]
->이 미리 보기는 전체 오류 분류를 포함 하지 않으며 정기적으로 업데이트 됩니다. 최신 정보를 확인 하려면이 문서를 한 달에 한 번 이상 확인 해야 합니다.
+>이 목록에는 가장 일반적인 오류가 포함 되며 일반 흐름에서 업데이트 됩니다. 최신 정보를 확인 하려면이 문서를 한 달에 한 번 이상 확인 해야 합니다.
 
 ### <a name="external-management-error-codes"></a>외부 관리 오류 코드
 
@@ -176,6 +176,6 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
 
 ## <a name="next-steps"></a>다음 단계
 
-Windows 가상 데스크톱 내의 역할에 대 한 자세한 내용은 [Windows 가상 데스크톱 미리 보기 환경](environment-setup.md)을 참조 하세요.
+Windows 가상 데스크톱의 역할에 대 한 자세한 내용은 [Windows 가상 데스크톱 환경](environment-setup.md)을 참조 하세요.
 
 Windows 가상 데스크톱에 사용할 수 있는 PowerShell cmdlet의 목록을 보려면 [powershell 참조](/powershell/windows-virtual-desktop/overview)를 참조 하세요.

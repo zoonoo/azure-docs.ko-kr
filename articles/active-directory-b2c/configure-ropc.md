@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69924674fba44595e4f5a9702607579d8c7a8bc8
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 8cb5c82e551ed6299f754f518ebeebca0be4964d
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064462"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679312"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Azure AD B2C에서 리소스 소유자 암호 자격 증명 흐름 구성
 
@@ -53,11 +53,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 지원 되는 옵션은 다음�
 
 ## <a name="register-an-application"></a>애플리케이션 등록
 
-1. B2C 설정에서 **애플리케이션**, **추가**를 차례로 선택합니다.
-2. 애플리케이션 이름(예: *ROPC_Auth_app*)을 입력합니다.
-3. **웹앱/Web API**에 대해 **아니요**를 선택한 다음, **네이티브 클라이언트**에 대해 **예**를 선택합니다.
-4. 다른 모든 값은 그대로 둔 다음, **만들기**를 선택합니다.
-5. 새 애플리케이션을 선택하고, 나중에 사용할 수 있도록 애플리케이션 ID를 적어 둡니다.
+[!INCLUDE [active-directory-b2c-appreg-ropc](../../includes/active-directory-b2c-appreg-ropc.md)]
 
 ## <a name="test-the-user-flow"></a>사용자 흐름 테스트
 

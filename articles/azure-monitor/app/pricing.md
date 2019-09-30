@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 09/17/2019
+ms.date: 09/30/2019
 ms.author: dalek
-ms.openlocfilehash: 62f2ea36468e30b20ef08bde21bfde961faae8f9
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 448469d4c1ff15ed2ba814dfaa653c4d3c7e3452
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067023"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677809"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -30,7 +30,7 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 
 ## <a name="pricing-model"></a>가격 책정 모델
 
-[Azure 애플리케이션 Insights][start] 의 가격은 데이터 볼륨 수집을 기반으로 합니다. 각 Application Insights 리소스는 별도의 서비스로 요금이 부과되고 Azure 구독에 대한 청구서에 추가됩니다.
+[Azure 애플리케이션 Insights][start] 의 가격은 데이터 볼륨 수집을 기반으로 하며, 필요에 따라 데이터를 더 오래 보존 합니다. 각 Application Insights 리소스는 별도의 서비스로 요금이 부과되고 Azure 구독에 대한 청구서에 추가됩니다.
 
 ### <a name="data-volume-details"></a>데이터 볼륨 세부 정보
 
@@ -47,13 +47,13 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 
 단일 페이지의 *ping 테스트*에 대해 별도의 요금이 부과되지 않습니다. ping 테스트와 다중 단계 테스트의 원격 분석은 앱의 다른 원격 분석과 동일하게 청구됩니다.
 
-## <a name="review-usage-and-estimate-costs"></a>사용량 검토 및 비용 예상
+## <a name="understand-your-usage-and-estimate-costs"></a>사용량 및 예상 비용 이해
 
 Application Insights를 사용하면 최근 사용 패턴에 따른 예상 비용을 쉽게 파악할 수 있습니다. 시작하려면 Application Insights 리소스의 경우 Azure Portal에서 **사용량 및 예상 비용** 페이지로 이동합니다.
 
 ![가격 책정 선택](./media/pricing/pricing-001.png)
 
-1\. 해당 월의 데이터 볼륨을 검토합니다. 여기에는 서버 및 클라이언트 앱과 가용성 테스트에서 수신되고 보유되는([샘플링](../../azure-monitor/app/sampling.md) 이후) 모든 데이터가 포함됩니다.  
+A. 해당 월의 데이터 볼륨을 검토합니다. 여기에는 서버 및 클라이언트 앱과 가용성 테스트에서 수신되고 보유되는([샘플링](../../azure-monitor/app/sampling.md) 이후) 모든 데이터가 포함됩니다.  
 2\. [다단계 웹 테스트](../../azure-monitor/app/availability-multistep.md)에 대해서는 별도 요금이 부과됩니다. (여기에는 간단한 가용성 테스트는 포함되지 않습니다. 이 테스트의 경우 데이터 볼륨 요금에 포함됩니다.)  
 3\. 지난 달의 데이터 볼륨 추세를 봅니다.  
 4\. 데이터 수집 [샘플링](../../azure-monitor/app/sampling.md)을 사용합니다.   
@@ -110,11 +110,17 @@ systemEvents
 * 별도 계측 키에서 원격 분석을 분할합니다. 
 * 메트릭을 미리 집계합니다. 앱에 TrackMetric에 대한 호출을 추가한 경우 측정 일괄 처리의 평균 및 표준 편차 계산을 허용하는 오버로드를 사용하여 트래픽을 줄일 수 있습니다. 또는 [사전 집계 패키지](https://www.myget.org/gallery/applicationinsights-sdk-labs)를 사용할 수 있습니다.
 
-## <a name="manage-the-maximum-daily-data-volume"></a>최대 일일 데이터 볼륨 관리
+## <a name="manage-your-maximum-daily-data-volume"></a>최대 일일 데이터 볼륨 관리
 
 일일 볼륨 한도를 사용하여 수집된 데이터를 제한할 수 있습니다. 그러나 한도가 충족되는 경우 해당 날짜의 나머지 기간 동안 애플리케이션에서 보낸 모든 원격 분석의 손실이 발생합니다. 애플리케이션이 일일 한도에 도달하는 것은 *권장되지 않습니다*. 일일 한도에 도달한 후 애플리케이션의 상태 및 성능을 추적할 수 없습니다.
 
 일별 볼륨 한도를 사용하는 대신 [샘플링](../../azure-monitor/app/sampling.md)을 사용하여 원하는 수준으로 데이터 볼륨을 조정합니다. 그런 다음, 애플리케이션이 예기치 않게 높은 볼륨의 원격 분석을 보내기 시작하는 경우 "최후의 수단"으로만 일일 한도를 사용합니다.
+
+### <a name="identify-what-daily-data-limit-to-define"></a>정의할 일일 데이터 한도 식별
+
+Application Insights 사용량 및 예상 비용을 검토 하 여 데이터 수집 추세와 정의할 일일 볼륨 상한에 대해 알아보세요. 한도에 도달한 후에는 리소스를 모니터링할 수 없으므로 신중하게 고려해야 합니다. 
+
+### <a name="set-the-daily-cap"></a>일일 상한 설정
 
 일일 한도를 변경 하려면 Application Insights 리소스의 **구성** 섹션에 있는 **사용량 및 예상 비용** 페이지에서 **일일 상한**을 선택 합니다.
 
@@ -160,6 +166,10 @@ Application Insights 리소스에 대 한 기본 보존 기간은 90 일입니�
 ![일별 원격 분석 볼륨 한도 조정](./media/pricing/pricing-005.png)
 
 더 긴 보존을 위해 대금 청구를 사용 하도록 설정 하면 90 일 보다 오래 유지 된 데이터는 현재 Azure Log Analytics 데이터 보존에 대해 청구 되는 것과 동일한 요금으로 청구 됩니다. [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에서 자세히 알아보세요. [이 제안에 투표](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031)하 여 변수 보존 진행률을 최신 상태로 유지 합니다. 
+
+## <a name="data-transfer-charges-using-application-insights"></a>Application Insights를 사용 하 여 데이터 전송 요금
+
+Application Insights 데이터를 전송 하면 데이터 대역폭 요금이 발생할 수 있습니다. [Azure 대역폭 가격 책정 페이지](https://azure.microsoft.com/pricing/details/bandwidth/)에 설명 된 대로, 두 지역에 있는 Azure 서비스 간의 데이터 전송은 일반 요금으로 아웃 바운드 데이터 전송으로 청구 됩니다. 인바운드 데이터 전송은 무료입니다. 그러나이 요금은 매우 작음 (몇%) Application Insights 로그 데이터 수집에 대 한 비용과 비교 합니다. 따라서 Log Analytics에 대 한 비용을 제어 하 여 수집 데이터 볼륨에 집중 해야 하며, [여기서](https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume)는이에 대해 이해 하는 데 도움이 되는 지침을 제공 합니다.   
 
 ## <a name="limits-summary"></a>제한 요약
 
@@ -221,7 +231,7 @@ Operations Management Suite E1 및 E2를 구매 하는 고객은 [이전에 발�
   * 애플리케이션에서 SDK를 사용하여 **roleInstance**를 사용자 지정 값으로 설정하는 경우 기본적으로 이 동일한 값이 노드 수를 결정하는 데 사용됩니다. 
   * 클라이언트 컴퓨터 또는 모바일 디바이스에서 실행되는 앱과 함께 새 SDK 버전을 사용하는 경우, 노드 계산 시 매우 큰 숫자가 반환될 수 있습니다(클라이언트 컴퓨터 또는 모바일 디바이스 수가 많으므로). 
 
-## <a name="automation"></a>자동화
+## <a name="automation"></a>Automation
 
 Azure 리소스 관리를 사용 하 여 가격 책정 계층을 설정 하는 스크립트를 작성할 수 있습니다. [방법을 알아보세요](powershell.md#price).
 

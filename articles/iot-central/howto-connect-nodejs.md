@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 75b900ecb37ae8d092d4e37129b7f39f801c470d
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ccded68cfaa00e6e13e2bb32e114b81108742829
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066438"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686679"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IoT Central 애플리케이션에 일반 클라이언트 애플리케이션 연결(Node.js)
 
@@ -64,7 +64,7 @@ Azure IoT Central 응용 프로그램에서 다음 측정, 장치 속성, 설정
 
 **측정** 페이지에서 다음 이벤트를 추가 합니다.
 
-| 표시 이름 | 필드 이름  | Severity |
+| 표시 이름 | 필드 이름  | severity |
 | ------------ | ----------- | -------- |
 | 과열  | overheat    | 오류    |
 
@@ -164,7 +164,7 @@ Azure IoT Central 응용 프로그램에서 이전 섹션에서 만든 장치 �
     var provisioningHost = 'global.azure-devices-provisioning.net';
     var idScope = '{your Scope ID}';
     var registrationId = '{your Device ID}';
-    var symmetricKey = '{your Primary Key};
+    var symmetricKey = '{your Primary Key}';
     var provisioningSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
     var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvisioningTransport(), provisioningSecurityClient);
     var hubClient;

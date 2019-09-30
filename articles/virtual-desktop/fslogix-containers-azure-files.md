@@ -7,18 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: fe45adc3eb65631c0b127872240f8d76400f9102
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 5e52275cc7215f6c54c2ff6a11faf82114c414b4
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899675"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676606"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 프로필 컨테이너 및 Azure Files
 
-Windows 가상 데스크톱 미리 보기 서비스는 사용자 프로필 솔루션으로 FSLogix 프로필 컨테이너를 권장 합니다. FSLogix는 Windows 가상 데스크톱과 같은 원격 컴퓨팅 환경에서 프로필을 로밍 하도록 설계 되었습니다. 단일 컨테이너에 전체 사용자 프로필을 저장 합니다. 로그인 시이 컨테이너는 기본적으로 지원 되는 VHD (가상 하드 디스크) 및 Hyper-v VHDX (가상 하드 디스크)를 사용 하 여 컴퓨팅 환경에 동적으로 연결 됩니다. 사용자 프로필은 즉시 사용할 수 있으며 시스템에서 네이티브 사용자 프로필과 똑같이 표시 됩니다.
-
-이 문서에서는 Azure Files에 사용 되는 FSLogix 프로필 컨테이너에 대해 설명 합니다. 이 정보는 [3/21에 발표](https://www.microsoft.com/microsoft-365/blog/2019/03/21/windows-virtual-desktop-public-preview/)된 Windows 가상 데스크톱의 컨텍스트에 있습니다.
+Windows 가상 데스크톱 서비스는 사용자 프로필 솔루션으로 FSLogix 프로필 컨테이너를 권장 합니다. FSLogix는 Windows 가상 데스크톱과 같은 원격 컴퓨팅 환경에서 프로필을 로밍 하도록 설계 되었습니다. 단일 컨테이너에 전체 사용자 프로필을 저장 합니다. 로그인 시이 컨테이너는 기본적으로 지원 되는 VHD (가상 하드 디스크) 및 Hyper-v VHDX (가상 하드 디스크)를 사용 하 여 컴퓨팅 환경에 동적으로 연결 됩니다. 사용자 프로필은 즉시 사용할 수 있으며 시스템에서 네이티브 사용자 프로필과 똑같이 표시 됩니다. 이 문서에서는 Windows 가상 데스크톱에서 Azure Files 함수를 사용 하 여 FSLogix 프로필 컨테이너를 사용 하는 방법을 설명 합니다.
 
 ## <a name="user-profiles"></a>사용자 프로필
 
@@ -49,13 +47,13 @@ UPD 및 RUP는 RDSH (원격 데스크톱 세션 호스트) 및 VHD (가상 하�
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
 | **사용자 프로필 디스크 (UPD)** | 예 | 예 | 예 | 예 | 예 | 아니요 | 예 | Win 7 이상 | 예 | |
 | **로밍 사용자 프로필 (RUP), 유지 관리 모드** | 아니요 | 예 | 예 | 예 | 예| 아니요 | 예 | Win 7 이상 | 아니요 | |
-| **Enterprise State Roaming (ESR)** | 예 | 아니요 | 예 | 아니요 | 메모를 참조하세요. | 예 | 아니요 | Win 10 | 아니요 | 서버 SKU에서 함수를 사용 하지만 지원 사용자 인터페이스를 지원 하지 않습니다. |
-| **UE-V (사용자 환경 가상화)** | 예 | 예 | 예 | 아니요 | 예 | 아니요 | 예 | Win 7 이상 | 아니요 |  |
-| **OneDrive 클라우드 파일** | 아니요 | 아니요 | 아니요 | 예 | 메모를 참조하세요. | 메모를 참조하세요.  | 참고 참조 | Win 10 RS3 | 아니요 | 서버 SKU에서 테스트 되지 않았습니다. Azure의 백 엔드 저장소는 동기화 클라이언트에 따라 달라 집니다. 백 엔드 저장소 온-프레미스에 동기화 클라이언트가 필요 합니다. |
+| **Enterprise State Roaming (ESR)** | 예 | 아니요 | 사용자 계정 컨트롤 | 아니요 | 참고 사항 보기 | 예 | 아니요 | Win 10 | 아니요 | 서버 SKU에서 함수를 사용 하지만 지원 사용자 인터페이스를 지원 하지 않습니다. |
+| **UE-V (사용자 환경 가상화)** | 예 | 예 | 예 | 아니요 | 사용자 계정 컨트롤 | 아니요 | 예 | Win 7 이상 | 아니요 |  |
+| **OneDrive 클라우드 파일** | 아니요 | 아니요 | 아니요 | 예 | 참고 사항 보기 | 참고 사항 보기  | 참고 참조 | Win 10 RS3 | 아니요 | 서버 SKU에서 테스트 되지 않았습니다. Azure의 백 엔드 저장소는 동기화 클라이언트에 따라 달라 집니다. 백 엔드 저장소 온-프레미스에 동기화 클라이언트가 필요 합니다. |
 
 #### <a name="performance"></a>성능
 
-성능 요구 사항을 해결 하려면 UPD [(S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) 를 사용 스토리지 공간 다이렉트 해야 합니다. UPD는 SMB (서버 메시지 블록) 프로토콜을 사용 합니다. 사용자가 기록 되는 VM에 프로필을 복사 합니다. S2D를 사용 하는 UPD 서비스의 미리 보기 중에는 Windows 가상 데스크톱에 대해 RDS 팀이 권장 하는 솔루션 이었습니다.  
+성능 요구 사항을 해결 하려면 UPD [(S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) 를 사용 스토리지 공간 다이렉트 해야 합니다. UPD는 SMB (서버 메시지 블록) 프로토콜을 사용 합니다. 사용자가 기록 되는 VM에 프로필을 복사 합니다. S2D를 사용 하는 UPD Windows 가상 데스크톱에 권장 되는 솔루션입니다.  
 
 #### <a name="cost"></a>비용
 
@@ -81,7 +79,7 @@ FSLogix 프로필 컨테이너의 성능 및 기능은 클라우드를 활용 �
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대 한 모범 사례
 
-Windows 가상 데스크톱은 고객이 사용 중인 Vm의 크기, 유형 및 수에 대 한 모든 권한을 제공 합니다. 자세한 내용은 [Windows 가상 데스크톱 미리 보기용 이란?](overview.md)을 참조 하세요.
+Windows 가상 데스크톱은 고객이 사용 중인 Vm의 크기, 유형 및 수에 대 한 모든 권한을 제공 합니다. 자세한 내용은 [Windows 가상 데스크톱 이란?](overview.md)을 참조 하세요.
 
 Windows 가상 데스크톱 환경이 모범 사례를 따르는지 확인 하려면 다음을 수행 합니다.
 

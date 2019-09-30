@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 9bc6cfdcbc67761e99150c730adeb23602232632
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 8b2147ead7c1a6226b68588b9d0dab53da954bf2
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032951"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676953"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL Database 관리 되는 인스턴스 FAQ (질문과 대답)
 
@@ -38,12 +38,19 @@ Azure SQL Database 관리 되는 인스턴스와 온-프레미스 SQL Server 간
 
 버그 및 알려진 문제에 대해서는 [알려진 문제](sql-database-managed-instance-transact-sql-information.md#Issues)를 참조 하세요.
 
+## <a name="where-can-i-find-latest-features-and-the-features-in-public-preview"></a>공개 미리 보기에서 최신 기능과 기능을 어디에서 찾을 수 있나요?
+
+새 기능 및 미리 보기 기능에 대 한 자세한 내용은 [릴리스 정보](/azure/sql-database/sql-database-release-notes?tabs=managed-instance)를 참조 하세요.
+
+## <a name="how-much-time-takes-to-create-or-update-instance-or-to-restore-a-database"></a>인스턴스를 만들거나 업데이트 하는 데 소요 되는 시간 또는 데이터베이스를 복원 하는 데 소요 되는 시간
+
+새 관리 되는 인스턴스를 만들거나 서비스 계층 (vCores, 저장소)을 변경 하는 데 필요한 시간은 여러 요소에 따라 달라 집니다. [관리 작업](/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations) 살펴보기 
+
 ## <a name="can-a-managed-instance-have-the-same-name-as-on-premises-sql-server"></a>관리 되는 인스턴스의 이름이 온-프레미스 SQL Server와 동일할 수 있나요?
 
 관리 되는 인스턴스의 이름은 *database.windows.net*로 끝나야 합니다. 기본값 대신 다른 DNS 영역을 사용 하려면 (예: **mi-이름**. contoso.com) 
 - CliConfig를 사용 하 여 별칭을 정의 합니다. 이 도구는 단지 레지스트리 설정 래퍼 이므로 그룹 정책 또는 스크립트를 사용 하 여 수행할 수도 있습니다.
 - *Trustservercertificate = true* 옵션과 함께 *CNAME* 을 사용 합니다.
-
 
 ## <a name="how-can-i-move-database-from-managed-instance-back-to-sql-server-or-azure-sql-database"></a>관리 되는 인스턴스에서 다시 SQL Server 또는 Azure SQL Database로 데이터베이스를 이동 하려면 어떻게 해야 하나요?
 
@@ -55,7 +62,7 @@ Azure SQL Database 관리 되는 인스턴스와 온-프레미스 SQL Server 간
 
 ## <a name="how-can-i-migrate-my-instance-database-to-a-single-azure-sql-database"></a>내 인스턴스 데이터베이스를 단일 Azure SQL Database 마이그레이션하려면 어떻게 해야 하나요?
 
-한 가지 옵션은 [데이터베이스를 bacpac로 내보낸](sql-database-export.md) 다음 [bacpac 파일을 가져오는]( sql-database-import.md)것입니다. 
+한 가지 옵션은 [데이터베이스를 bacpac로 내보낸](sql-database-export.md) 다음 [bacpac 파일을 가져오는](sql-database-import.md)것입니다. 
 
 데이터베이스가 100 GB 보다 작은 경우에 권장 되는 방법입니다. 데이터베이스의 모든 테이블에 기본 키가 있는 경우 트랜잭션 복제를 사용할 수 있습니다.
 
@@ -125,7 +132,8 @@ IO를 많이 사용 하는 워크 로드의 경우 계산 집약적 워크 로�
 관리 되는 인스턴스 사례 연구:
 
 - [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [powerdetails](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
+- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
 - [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)  
 Azure SQL Database 관리 되는 인스턴스를 배포 하는 것과 관련 된 이점, 비용 및 위험에 대 한 이해를 높이기 위해 Forrester의 학습도 있습니다. [MI의 총 경제 영향](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 

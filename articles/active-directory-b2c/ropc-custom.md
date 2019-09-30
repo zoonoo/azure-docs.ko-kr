@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 414dc4e69fda8ccd79b5a48b19bccee35bd11a45
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 2f3eb2c0071eecb20bbf5616a01c80e55645207a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063698"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678136"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 리소스 소유자 암호 자격 증명 흐름 구성
 
@@ -35,20 +35,13 @@ Azure Active Directory B2C (Azure AD B2C)에서 리소스 소유자 암호 자�
 - **단일 페이지 애플리케이션** - 주로 JavaScript에 작성되는 프런트 엔드 애플리케이션입니다. 애플리케이션은 대체로 AngularJS, Ember.js 또는 Durandal과 같은 프레임워크를 사용하여 작성됩니다.
 - **기밀 클라이언트 흐름** - 애플리케이션 클라이언트 ID의 유효성은 검사하지만 애플리케이션 비밀의 유효성은 검사하지 않습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다.
 
 ## <a name="register-an-application"></a>애플리케이션 등록
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 테 넌 트가 포함 된 디렉터리를 선택 하 여 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-4. **애플리케이션**을 선택하고 **추가**를 선택합니다.
-5. 애플리케이션 이름(예: *ROPC_Auth_app*)을 입력합니다.
-6. **웹앱/Web API**에 대해 **아니요**를 선택한 다음, **네이티브 클라이언트**에 대해 **예**를 선택합니다.
-7. 다른 모든 값은 그대로 둔 다음, **만들기**를 선택합니다.
-8. 새 애플리케이션을 선택하고, 나중에 사용할 수 있도록 애플리케이션 ID를 기록합니다.
+[!INCLUDE [active-directory-b2c-appreg-ropc](../../includes/active-directory-b2c-appreg-ropc.md)]
 
 ##  <a name="create-a-resource-owner-policy"></a>리소스 소유자 정책 만들기
 
