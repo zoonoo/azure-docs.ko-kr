@@ -1,88 +1,65 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Security Center 설명서
+summary: Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보안 관리 및 고급 위협 방지를 제공합니다.
 metadata:
-  title: 'Azure Security Center 설명서 - 자습서, API 참조 | Microsoft Doc'
-  meta.description: 'Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. Learn how to get started with Security Center, apply security policies across your workloads, limit your exposure to threats, and detect and respond to attacks with our quickstarts and tutorials..'
+  title: Azure Security Center 설명서
+  description: 빠른 시작 및 자습서를 사용하여 Security Center를 시작하고, 워크로드를 보호하고, 위험을 제한하고, 공격을 탐지하고 대응하는 방법을 알아봅니다.
   services: security-center
-  author: cmcclister
-  manager: carolz
   ms.service: security-center
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: subservice
   ms.topic: landing-page
-  ms.date: 07/26/18
-  ms.author: cmcclister
-abstract:
-  description: 'Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보안 관리 및 고급 위협 방지를 제공합니다. 빠른 시작 및 자습서를 사용하여 Security Center를 시작하고, 워크로드에 보안 정책을 적용하고, 위협에 대한 노출을 제한하고, 공격에 대응하는 방법을 알아봅니다.'
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: VM 및 컴퓨터를 Security Center에 등록하고 보안 솔루션을 연결하는 방법을 알아봅니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /media/common/i_subscription.svg
-            text: Azure 구독 등록
-            href: /azure/security-center/security-center-get-started
-          - image:
-              src: /media/logos/logo_Windows.svg
-            text: Windows 컴퓨터 등록
-            href: /azure/security-center/quick-onboard-windows-computer
-          - image:
-              src: /media/logos/logo_linux.svg
-            text: Linux 컴퓨터 등록
-            href: /azure/security-center/quick-onboard-linux-computer
-          - image:
-              src: /media/common/i_multi-connect.svg
-            text: 보안 솔루션 연결
-            href: /azure/security-center/quick-security-solutions
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: '보안 정책을 정의하고,악의적인 작업으로부터 리소스를 보호하고,보안 알림 및 인시던트에 대응하는 방법을 알아봅니다.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/security-center/tutorial-security-policy">보안 정책 정의 및 평가</a>
-          - html: <a href="/azure/security-center/tutorial-protect-resources">리소스 보호</a>
-          - html: <a href="/azure/security-center/tutorial-security-incident">보안 인시던트에 대응</a>
-  - title: Microsoft Learn을 통해 기술 쌓기
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: "\_\_Azure의 보안 소개"
-            href: /learn/modules/intro-to-security-in-azure/
-            image:
-              src: /learn/achievements/intro-to-security-in-azure.svg
-              href: /learn/modules/intro-to-security-in-azure/
-      - type: paragraph
-        text: <a href="/learn/browse/?term=security">더 많은 대화형 학습 보기...</a>
-  - title: 동영상 교육
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Azure Security Center를 사용하여 클라우드 리소스 보호 간소화 - Ignite 2018
-            href: 'https://youtu.be/0txX1Y0GXDc'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_azure.svg'
-              href: 'https://youtu.be/0txX1Y0GXDc'
-          - title: Azure Security Center를 사용하여 서버 워크로드 보호 - Ignite 2018
-            href: 'https://youtu.be/Kb_xeIJVROo'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_azure.svg'
-              href: 'https://youtu.be/Kb_xeIJVROo'
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - html: '<a href="https://docs.microsoft.com/rest/api/securitycenter/">REST API 참조</a>'
-          - html: '<a href="https://azure.microsoft.com/updates/?product=security-center">서비스 업데이트</a>'
+  ms.collection: collection
+  author: memildin
+  ms.author: memildin
+  ms.date: 09/26/2019
+  ms.openlocfilehash: 8574c69221d1f0f0528a0ab9b8d27df4ca9a0ef0
+  ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 09/27/2019
+  ms.locfileid: "71327596"
+landingContent:
+- title: Security Center 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Security Center의 핵심 기능은 무엇인가요?
+      url: security-center-intro.md
+    - text: 지원되는 Windows 서버 및 Linux 버전은 무엇인가요?
+      url: security-center-os-coverage.md
+- title: 시작하기
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 보안 정책 구성
+      url: tutorial-security-policy.md
+    - text: Security Center 설정 조정
+      url: security-center-policies-overview.md
+    - text: 보안 상태 평가
+      url: security-center-secure-score.md
+    - text: 고급 보안으로 업그레이드
+      url: security-center-onboarding.md
+    - text: 다른 Azure 보안 제품과 통합
+      url: security-center-alerts-integration.md
+- title: 보안 점수 향상
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 보안 점수란?
+      url: security-center-secure-score.md
+    - text: 보안 권장 사항 수정
+      url: security-center-remediate-recommendations.md
+    - text: 보안 권장 사항 사용자 지정
+      url: tutorial-security-policy.md
+    - text: 권장 사항을 사용하여 보안 강화
+      url: security-center-using-recommendations.md
+- title: 위협 완화
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Just-In-Time 액세스 관리
+      url: security-center-just-in-time.md
+    - text: 적응형 애플리케이션 제어 설정
+      url: security-center-adaptive-application.md
+    - text: 적응형 네트워크 강화 구현
+      url: security-center-adaptive-network-hardening.md

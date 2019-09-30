@@ -24,10 +24,12 @@
   items:
     - name: Windows Virtual Desktop 리소스에 연결
       items:
-        - name: Windows 10 또는 Windows 7에서 연결
+        - name: Windows Desktop 클라이언트와 연결
           href: connect-windows-7-and-10.md
-        - name: 웹 브라우저에서 연결
+        - name: 웹 클라이언트를 사용하여 연결
           href: connect-web.md
+        - name: Android 클라이언트와 연결
+          href: connect-android.md
         - name: macOS 클라이언트와 연결
           href: connect-macos.md
         - name: iOS 클라이언트와 연결
@@ -72,6 +74,8 @@
       href: partners.md
     - name: Windows 10 Enterprise 다중 세션 FAQ
       href: windows-10-multisession-faq.md
+    - name: 데이터 위치
+      href: data-locations.md
 - name: 문제 해결
   items:
     - name: '문제 해결 개요, 피드백 및 지원'

@@ -1,0 +1,39 @@
+### YamlMime:Landing
+title: Azure 관리 그룹 설명서
+summary: Azure 관리 그룹은 리소스와 구독을 구성하는 데 도움이 됩니다.
+metadata:
+  title: Azure 관리 그룹 설명서
+  description: Azure 관리 그룹은 리소스와 구독을 구성하는 데 도움이 됩니다.
+  ms.service: governance
+  ms.topic: landing-page
+  ms.collection: collection
+  author: DCtheGeek
+  ms.author: dacoulte
+  ms.date: 09/26/2019
+  ms.openlocfilehash: 9d91baaec7f1bd0e365f86ea07174d6f9e32725c
+  ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 09/27/2019
+  ms.locfileid: "71341048"
+landingContent:
+- title: Azure 거버넌스 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure의 관리 서비스 개요
+      url: ../azure-management.md
+- title: Azure 관리 그룹 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure 관리 그룹
+      url: ./overview.md
+- title: 리소스 구성
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 관리 그룹 만들기
+      url: ./create.md
+    - text: 리소스 관리
+      url: ./manage.md

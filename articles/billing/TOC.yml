@@ -165,6 +165,8 @@
       href: billing-use-existing-azure-account-for-office-365-subscription.md
 - name: 구독 관리
   items:
+    - name: 구독 상태
+      href: billing-azure-subscription-states.md
     - name: 구독 다시 활성화
       href: billing-subscription-become-disable.md
     - name: 소유권 이전

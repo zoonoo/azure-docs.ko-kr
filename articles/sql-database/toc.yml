@@ -448,6 +448,8 @@
           href: sql-database-geo-replication-portal.md
         - name: 지역 복제를 위한 보안 구성
           href: sql-database-geo-replication-security-config.md
+        - name: 장애 조치(failover) 그룹 구성
+          href: sql-database-configure-failover-group.md
         - name: 메모리 내 기능 사용해보기
           href: sql-database-in-memory-sample.md
         - name: 자동 조정 사용

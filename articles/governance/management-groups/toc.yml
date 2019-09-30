@@ -1,0 +1,16 @@
+- name: Azure 관리 그룹 설명서
+  href: ./index.yml
+- name: 개요
+  expanded: true
+  items:
+    - name: Azure Management
+      href: ../azure-management.md
+    - name: 관리 그룹
+      href: ./overview.md
+- name: 방법 가이드
+  expanded: true
+  items:
+    - name: 관리 그룹 만들기
+      href: ./create.md
+    - name: 리소스 관리
+      href: ./manage.md

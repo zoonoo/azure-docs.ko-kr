@@ -1,75 +1,105 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: IoT용 Azure Security Center 설명서
+summary: IoT용 Azure Security Center는 포괄적인 IoT 디바이스 위협 방지를 제공하는 Azure 기반 클라우드 보안 서비스입니다.
 metadata:
-  title: 'IoT용 Azure Security Center 설명서 - 자습서, 빠른 시작 | Microsoft Doc'
-  meta.description: Azure Security Center for IoT unifies your device security management and enables advanced threat detection and security posture management across your IoT solution.
-  services: asc-for-iot
-  author: mlottner
-  manager: rkarlin
+  title: IoT용 Azure Security Center 설명서
+  description: IoT용 Azure Security Center는 포괄적인 IoT 디바이스 위협 방지를 제공하는 Azure 기반 클라우드 보안 서비스입니다.
+  services: service
   ms.service: asc-for-iot
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: subservice
   ms.topic: landing-page
-  ms.date: 07/23/19
-  ms.author: rkarlin
-abstract:
-  description: "IoT용 Azure Security Center를 사용하여 기존 사이버 보안 보기를 전체 IoT 솔루션으로 확장합니다. 모든 Azure 관련 리소스의 보안에 관해 진정한 파노라마 시각을 얻을 수 있습니다. 빠른 배포 옵션과 IoT Hub 모듈 쌍을 사용한 완벽한 통합으로 다양한 사용자 지정 옵션 및 현재 디바이스 관리 도구와의 간편한 통합을 제공합니다.\_"
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: 'IoT용 Azure Security Center에 대한 IoT Hub를 사용하도록 설정하고, 보안 에이전트를 설치하고, 잠재적 위협에 대한 가시성을 확보하는 방법을 알아봅니다.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/deploy.svg
-            text: IoT용 Azure Security Center 사용
-            href: /azure/asc-for-iot/quickstart-onboard-iot-hub
-          - image:
-              src: media/index/get-started.svg
-            text: IoT용 Azure Security 시작
-            href: /azure/asc-for-iot/getting-started
-  - title: 방법 가이드
-    items:
-      - type: paragraph
-        text: '보안 정책을 정의하고, 악의적인 작업으로부터 디바이스를 보호하고, 보안 경고 및 인시던트에 대응하는 방법을 알아봅니다.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/asc-for-iot/how-to-investigate-device">IoT용 Azure Security Center를 통해 위협 감지</a>
-  - title: Microsoft Learn을 통해 기술 쌓기
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Azure의 보안 소개
-            href: 'https://docs.microsoft.com/learn/azure'
-            image:
-              src: media/index/tutorial.svg
-              href: 'https://docs.microsoft.com/learn/azure'
-  - title: IoT용 Azure Security Center 비디오
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: IoT용 Microsoft Azure Security Center - 개요
-            href: 'https://youtu.be/pq5uSp9u_x0'
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_video.svg'
-              href: 'https://youtu.be/pq5uSp9u_x0'
-          - title: IoT용 Microsoft Azure Security Center - 솔루션
-            href: 'https://www.youtube.com/watch?time_continue=5&v=YOqkahQsKek'
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_video.svg'
-              href: 'https://www.youtube.com/watch?time_continue=5&v=YOqkahQsKek'
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - html: '<a href="https://azure.microsoft.com/updates/?product=iotsecurity">서비스 업데이트</a>'
+  ms.collection: M365-security-compliance
+  author: mlottner
+  ms.author: mlottner
+  ms.date: 09/23/2019
+  ms.openlocfilehash: 5eb0d39d1dbe748b34dd8f5a72ae7796125eae44
+  ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 09/27/2019
+  ms.locfileid: "71348537"
+landingContent:
+- title: IoT용 Azure Security Center 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: IoT용 Azure Security Center란?
+      url: overview.md
+    - text: 솔루션 계획
+      url: service-prerequisites.md
+  - linkListType: architecture
+    links:
+    - text: IoT용 Azure Security Center 아키텍처 이해
+      url: architecture.md
+    - text: IoT용 Azure Security Center 에이전트
+      url: security-agent-architecture.md
+    - text: Edge 보안 모듈
+      url: security-edge-architecture.md
+- title: IoT Hub에 IoT용 Azure Security Center 온보드
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: IoT용 Azure Security Center 시작
+      url: getting-started.md
+    - text: IoT Hub
+      url: iot-hub-integration.md
+    - text: 보안 에이전트
+      url: security-agents.md
+- title: 솔루션 구성
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: IoT Hub에서 IoT용 Azure Security Center 사용
+      url: quickstart-onboard-iot-hub.md
+    - text: 솔루션 구성
+      url: quickstart-configure-your-solution.md
+    - text: IoT용 Azure Security Center 모듈 쌍 만들기
+      url: quickstart-create-security-twin.md
+    - text: 사용자 지정 보안 경고 만들기
+      url: quickstart-create-custom-alerts.md
+- title: 솔루션 사용자 지정
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 에이전트 선택
+      url: how-to-deploy-agent.md
+    - text: Windows에 IoT용 Azure Security Center C# 기반 보안 에이전트 배포
+      url: how-to-deploy-windows-cs.md
+    - text: Linux에 IoT용 Azure Security Center C# 기반 보안 에이전트 배포
+      url: how-to-deploy-linux-cs.md
+    - text: Linux에 IoT용 Azure Security Center C 기반 보안 에이전트 배포
+      url: how-to-deploy-linux-c.md
+    - text: Edge 보안 모듈 배포
+      url: how-to-deploy-edge.md
+    - text: 보안 에이전트 구성
+      url: how-to-agent-configuration.md
+    - text: 사용자 고유의 보안 메시지 보내기
+      url: how-to-send-security-messages.md
+    - text: 원시 보안 데이터 액세스
+      url: how-to-security-data-access.md
+    - text: 디바이스 조사
+      url: how-to-investigate-device.md
+- title: 보안 에이전트 문제 해결
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 보안 에이전트 문제 해결 가이드(Linux)
+      url: troubleshoot-agent.md
+    - text: LocalConfiguration. json 파일 이해 - C 에이전트
+      url: azure-iot-security-local-configuration-c.md
+    - text: Local 구성 파일 이해 - C# 에이전트
+      url: azure-iot-security-local-configuration-csharp.md
+- title: IoT용 Azure Security Center 솔루션 리소스
+  linkLists:
+  - linkListType: video
+    links:
+    - text: IoT용 Azure Security Center란?
+      url: https://youtu.be/pq5uSp9u_x0
+    - text: IoT용 Azure Security Center 이해
+      url: https://www.youtube.com/watch?time_continue=5&v=YOqkahQsKek
+  - linkListType: reference
+    links:
+    - text: 질문과 대답
+      url: resources-frequently-asked-questions.md
+    - text: 가격 책정 및 관련 비용
+      url: concept-pricing.md

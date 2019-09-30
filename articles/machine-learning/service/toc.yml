@@ -49,6 +49,10 @@
         - name: 분류(은행 데이터)
           displayName: 'automl, automated, auto ml, portal, ui'
           href: tutorial-first-experiment-automated-ml.md
+    - name: Machine Learning CLI
+      items:
+        - name: 모델 학습 및 배포
+          href: tutorial-train-deploy-model-cli.md
 - name: 샘플
   items:
     - name: Notebooks
@@ -63,6 +67,9 @@
     - name: 컴퓨팅 대상
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
+    - name: 모델 학습
+      displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
+      href: concept-train-machine-learning-model.md
     - name: 시각적 인터페이스
       displayName: studio
       href: ui-concept-visual-interface.md
@@ -138,7 +145,7 @@
     - name: 모델 학습
       items:
         - name: 학습 환경 설정
-          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+          displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
           href: how-to-set-up-training-targets.md
         - name: 추정기를 사용하여 학습
           items:
