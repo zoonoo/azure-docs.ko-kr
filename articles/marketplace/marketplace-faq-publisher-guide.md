@@ -60,7 +60,7 @@ Azure Marketplace 고객은 Azure용으로/Azure를 기반으로 빌드된 기�
 Azure Marketplace 제품은 다음 방법을 통해 구매할 수 있습니다.
 
 * [웹 기반 storefront](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [Azure Portal] [Azure Portal]
+* [Azure Portal][Azure Portal]
 * [Azure CLI (명령줄 인터페이스)](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]

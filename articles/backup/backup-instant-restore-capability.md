@@ -96,7 +96,7 @@ PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 인스턴트 복원 기능의 일부로 생성되는 스냅샷은 증분 스냅샷입니다.
 
 ### <a name="how-can-i-calculate-the-approximate-cost-increase-due-to-instant-restore-feature"></a>인스턴트 복원 기능으로 인한 대략적인 비용 증가는 어떻게 계산할 수 있나요?
-VM 변동에 따라 다릅니다. 안정된 상태에서는 비용 증가를 스냅샷 보존 기간 * VM당 일일 변동 * GB당 스토리지 비용으로 가정할 수 있습니다.
+VM 변동에 따라 다릅니다. 안정된 상태에서는 비용 증가를 스냅샷 보존 기간 VM당 일일 변동 GB당 스토리지 비용으로 가정할 수 있습니다.
 
 ### <a name="if-the-recovery-type-for-a-restore-point-is-snapshot-and-vault-and-i-perform-a-restore-operation-which-recovery-type-will-be-used"></a>복원 지점의 복구 유형이 “스냅샷 및 자격 증명 모음”이고 복원 작업을 수행하는 경우 어떤 복구 유형이 사용되나요?
 복구 유형이 “스냅샷 및 자격 증명 모음”인 경우 로컬 스냅샷에서 자동으로 복원이 수행되며, 자격 증명 모음에서 수행되는 복원에 비해 훨씬 더 빠릅니다.
