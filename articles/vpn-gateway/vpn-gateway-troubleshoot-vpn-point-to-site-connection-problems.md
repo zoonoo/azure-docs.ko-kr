@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/31/2019
+ms.date: 09/30/2019
 ms.author: genli
-ms.openlocfilehash: 0a32f9a9fde0983a5b97f7342a111d40ef01c686
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: cfa95f2aab5ba270aea0a36b037ae293b36c7b28
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104813"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695535"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>문제 해결: Azure 지점 및 사이트 간 연결 문제
 
@@ -45,7 +45,7 @@ VPN 클라이언트를 사용하여 Azure 가상 네트워크에 연결하려고
 
 2. 다음 인증서가 올바른 위치에 있는지 확인합니다.
 
-    | Certificate | 위치 |
+    | 인증서 | 위치 |
     | ------------- | ------------- |
     | AzureClient.pfx  | Current User\Personal\Certificates |
     | AzureRoot    | Local Computer\Trusted Root Certification Authorities|
@@ -77,14 +77,14 @@ IKEv2에 대해 Windows 10 또는 Server 2016을 준비하려면:
 
 1. 업데이트를 설치합니다.
 
-   | OS 버전 | 날짜 | 번호/링크 |
+   | OS 버전 | Date | 번호/링크 |
    |---|---|---|---|
    | Windows Server 2016<br>Windows 10 버전 1607 | 2018년 1월 17일 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10 버전 1703 | 2018년 1월 17일 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
    | Windows 10 버전 1709 | 2018년 3월 22일 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
    |  |  |  |  |
 
-2. 레지스트리 키 값을 설정합니다. 레지스트리에서 REG_DWORD 키 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` 를 만들거나 1로 설정 합니다.
+2. 레지스트리 키 값을 설정합니다. 레지스트리의 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` REG_DWORD 키를 만들고 1로 설정 합니다.
 
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>VPN 클라이언트 오류: 예기치 않거나 형식이 잘못된 메시지를 수신했습니다.
 
@@ -121,7 +121,7 @@ VPN 클라이언트를 사용하여 Azure 가상 네트워크에 연결하려고
 
 1. 다음 인증서가 올바른 위치에 있는지 확인합니다.
 
-    | Certificate | 위치 |
+    | 인증서 | 위치 |
     | ------------- | ------------- |
     | AzureClient.pfx  | Current User\Personal\Certificates |
     | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
@@ -250,32 +250,6 @@ VPN 클라이언트 구성 패키지를 다운로드하려고 할 때 다음과 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>한 번에 너무 많은 VPN 클라이언트 연결
 
 허용되는 최대 연결 수에 도달했습니다. Azure Portal에서 연결된 클라이언트의 총 수를 볼 수 있습니다.
-
-## <a name="point-to-site-vpn-incorrectly-adds-a-route-for-100008-to-the-route-table"></a>지점 및 사이트 간 VPN은 10.0.0.0/8의 경로를 경로 테이블에 올바르게 않게 추가했습니다.
-
-### <a name="symptom"></a>증상
-
-지점 및 사이트 간 클라이언트에서 VPN 연결을 사용하는 경우 VPN 클라이언트는 Azure 가상 네트워크에 대한 경로를 추가해야 합니다. IP 도우미 서비스는 VPN 클라이언트의 서브넷에 대한 경로를 추가해야 합니다. 
-
-VPN 클라이언트 범위는 10.0.12.0/24와 같은 10.0.0.0/8의 더 작은 서브넷에 속해 있습니다. 10.0.12.0/24에 대한 경로 대신 우선 순위가 더 높은 10.0.0.0/8에 대한 경로가 추가됩니다. 
-
-이 잘못된 경로는 정의된 특정 경로가 없는 10.50.0.0/24와 같은 10.0.0.0/8 범위 내에서 다른 서브넷에 속할 수 있는 다른 온-프레미스 네트워크와의 연결을 중단합니다. 
-
-### <a name="cause"></a>원인
-
-이 동작은 Windows 클라이언트용으로 설계되었습니다. 클라이언트가 PPP IPCP 프로토콜을 사용하는 경우 서버(이 경우에 VPN 게이트웨이)의 터널 인터페이스에 IP 주소를 가져옵니다. 그러나 프로토콜의 제한 사항 때문에 클라이언트에는 서브넷 마스크가 없습니다. 가져올 다른 방법이 없기 때문에 클라이언트는 터널 인터페이스 IP 주소의 클래스에 따라 서브넷 마스크를 추측하려고 합니다. 
-
-따라서 다음과 같은 고정 매핑에 따라 경로가 추가됩니다. 
-
-주소가 클래스 A에 속하는 경우 --> /8 적용
-
-주소가 클래스 B에 속하는 경우 --> /16 적용
-
-주소가 클래스 C에 속하는 경우 --> /24 적용
-
-### <a name="solution"></a>솔루션
-
-다른 네트워크의 경로가 지점 및 사이트 간보다 낮은 메트릭(높은 우선 순위) 또는 가장 긴 접두사 일치로 라우팅 테이블에 삽입되도록 합니다. 
 
 ## <a name="vpn-client-cannot-access-network-file-shares"></a>VPN 클라이언트는 네트워크 파일 공유에 액세스할 수 없습니다.
 

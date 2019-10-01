@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 0bd6222a6f2a2582fb715dbaf364fe23e41630d5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ff3d7d1272f9067f6bf9791c7964f8bf5f71945b
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085118"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709331"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
@@ -54,7 +54,7 @@ ms.locfileid: "70085118"
 
 `ListLogger` 클래스는 `ILogger` 인터페이스를 구현하고 테스트 중에 평가를 위해 내부 메시지 목록에 포함하는 데 사용됩니다.
 
-NullScope.cs 응용 프로그램을 **마우스 오른쪽 단추로 클릭** 하 고 **추가 > 클래스**를 선택 하 고 이름을 로 입력 한 후 다음 코드를 입력 합니다.
+NullScope.cs *응용 프로그램을* **마우스 오른쪽 단추로 클릭** 하 고 **추가 > 클래스**를 선택 하 고 이름을 로 입력 한 후 다음 코드를 입력 합니다.
 
 ```csharp
 using System;
@@ -72,7 +72,7 @@ namespace Functions.Tests
 }
 ```
 
-그런 다음, ListLogger.cs 응용 프로그램을 **마우스 오른쪽 단추로 클릭** 하 고 **추가 > 클래스**를 선택 하 고 이름을 로 입력 한 후 다음 코드를 입력 합니다.
+그런 다음, ListLogger.cs 응용 프로그램을 **마우스 오른쪽 단추로 클릭** 하 고 **추가 > 클래스**를 선택 하 고 이름을 로 입력 한 후 다음 코드를 입력 *합니다.*
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -110,7 +110,7 @@ namespace Functions.Tests
 
 `ListLogger` 클래스는 `ILogger` 인터페이스에서 계약된 대로 다음 멤버를 구현합니다.
 
-- **BeginScope**: 범위는 로깅에 컨텍스트를 추가합니다. 이 경우 테스트는 테스트를 작동할 수 있도록 `NullScope` 클래스의 정적 인스턴스를 가리킵니다.
+- **BeginScope**: 범위는 로깅에 컨텍스트를 추가합니다. 이 경우 테스트는 `NullScope` 클래스의 정적 인스턴스를 가리키기 때문에 테스트가 작동할 수 있습니다.
 
 - **IsEnabled**: `false`의 기본값이 제공됩니다.
 
@@ -311,7 +311,7 @@ module.exports = {
 ```
 이 모듈은 가짜 타이머 인스턴스인 is를 나타내는 `IsPastDue` 속성을 구현합니다.
 
-그런 다음, VS Code Functions 확장을 사용하여 [새 JavaScript HTTP 함수를 만들고](https://code.visualstudio.com/tutorials/functions-extension/getting-started) 이름을 *HttpTrigger*로 지정합니다. 함수가 만들어지면 **index.test.js**라는 동일한 폴더에 새 파일을 추가하고 다음 코드를 추가합니다.
+그런 다음, VS Code Functions 확장을 사용하여 [새 JavaScript HTTP 함수를 만들고](/azure/javascript/tutorial-vscode-serverless-node-01) 이름을 *HttpTrigger*로 지정합니다. 함수가 만들어지면 **index.test.js**라는 동일한 폴더에 새 파일을 추가하고 다음 코드를 추가합니다.
 
 ```javascript
 const httpFunction = require('./index');

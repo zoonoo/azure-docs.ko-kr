@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: c50615b9cbe5c3ca926d893858bb39eeb5720067
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 7c2e727ecb080d1db212e8b45a2c48bac81a3949
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129584"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709321"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Azure Functions를 로컬에서 코딩 및 테스트
 
@@ -38,7 +38,7 @@ ms.locfileid: "71129584"
 ## <a name="next-steps"></a>다음 단계
 
 + Visual Studio 2019을 사용 하 여 컴파일된 C# 함수의 로컬 개발에 대해 자세히 알아보려면 [visual studio를 사용 하 여 Azure Functions 개발](functions-develop-vs.md)을 참조 하세요.
-+ Mac, Linux 또는 Windows 컴퓨터에서 VS Code를 사용하여 함수를 로컬로 개발하는 방법에 대한 자세한 내용은 [Azure Functions에 대한 VS Code 설명서](https://code.visualstudio.com/tutorials/functions-extension/getting-started)를 참조하세요.
++ Mac, Linux 또는 Windows 컴퓨터에서 VS Code를 사용 하 여 함수의 로컬 개발에 대해 자세히 알아보려면 [VS Code에서 Azure Functions 배포](/azure/javascript/tutorial-vscode-serverless-node-01)를 참조 하세요.
 + 명령 프롬프트 또는 터미널에서 함수를 개발하는 방법에 대한 자세한 내용은 [Azure Functions 핵심 도구 작업](functions-run-local.md)을 참조하세요.
 
 <!-- LINKS -->

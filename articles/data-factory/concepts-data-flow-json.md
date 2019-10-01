@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: ad21ddffdb22f7abf999bfa12f4a8ed86f42cfa2
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 69dce46052c18eec7c3f1fa2082907ed62b367d6
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673435"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703336"
 ---
 # <a name="mapping-data-flow-json-handling"></a>데이터 흐름 JSON 처리 매핑
 
@@ -50,7 +50,7 @@ JSON 구조를 수동으로 추가 하려면 새 열을 추가 하 고 편집기
 }
 ```
 
-#### <a name="sample-manual-dsl"></a>샘플 수동 DSL
+#### <a name="sample-manual-script-for-complete-hierarchical-definition"></a>전체 계층 정의에 대 한 예제 수동 스크립트
 ```
 @(
     title=Title,

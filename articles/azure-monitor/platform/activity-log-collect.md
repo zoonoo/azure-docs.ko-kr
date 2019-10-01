@@ -1,6 +1,6 @@
 ---
 title: Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석 | Microsoft Docs
-description: Azure Monitor 로그에서 Azure 활동 로그를 수집 하 고 분석 하 고 모든 Azure 구독에서 Azure 활동 로그를 검색할 모니터링 솔루션을 사용 합니다.
+description: Azure Monitor 로그에서 Azure 활동 로그를 수집 하 고 모니터링 솔루션을 사용 하 여 모든 Azure 구독에서 Azure 활동 로그를 분석 하 고 검색 합니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,68 +11,71 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/19/2019
+ms.date: 09/30/2019
 ms.author: bwren
-ms.openlocfilehash: 5839fd40a128097e400f13acbe4fb6ef90c656b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: affefa96d6e38a88c994938115ddf44bcf8bd36d
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66248131"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695060"
 ---
-# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석
-합니다 [Azure 활동 로그](activity-logs-overview.md) Azure 구독에서 발생 한 구독 수준 이벤트에 대 한 정보를 제공 합니다. 이 문서에서는 Log Analytics 작업 영역으로 활동 로그를 수집 하는 방법 및 Activity Log Analytics를 사용 하는 방법 설명 [모니터링 솔루션](../insights/solutions.md),이 데이터를 분석 하는 것에 대 한 로그 쿼리 및 뷰를 제공 하는 합니다. 
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 합니다.
+Azure [활동 로그](activity-logs-overview.md) 는 azure 구독에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. 이 문서에서는 Log Analytics 작업 영역에 활동 로그를 수집 하는 방법과이 데이터를 분석 하기 위한 로그 쿼리 및 보기를 제공 하는 활동 로그 분석 [모니터링 솔루션](../insights/solutions.md)을 사용 하는 방법을 설명 합니다. 
 
-활동 로그를 Log Analytics 작업 영역에 연결 하는 다음과 같은 이점이 있습니다.
+활동 로그를 Log Analytics 작업 영역에 연결 하면 다음과 같은 이점이 있습니다.
 
-- 분석을 위해 하나의 위치에 여러 Azure 구독에서 활동 로그를 통합 합니다.
-- 90 일 이상에 대 한 활동 로그 항목을 저장 합니다.
-- Azure Monitor에서 수집한 기타 모니터링 데이터를 사용 하 여 활동 로그 데이터 상관 관계를 지정 합니다.
-- 사용 하 여 [쿼리 로그](../log-query/log-query-overview.md) 복잡 한 분석을 수행 하 여 활동 로그 항목에 대 한 깊은 통찰력을 얻을 수 있습니다.
+- 분석을 위해 여러 Azure 구독에서 하나의 위치로 활동 로그를 통합 합니다.
+- 활동 로그 항목을 90 일 보다 오래 저장 합니다.
+- 활동 로그 데이터를 Azure Monitor에 의해 수집 된 다른 모니터링 데이터와 상호 연결 합니다.
+- [로그 쿼리](../log-query/log-query-overview.md) 를 사용 하 여 복잡 한 분석을 수행 하 고 활동 로그 항목에 대 한 심층 통찰력을 얻습니다.
 
 ## <a name="connect-to-log-analytics-workspace"></a>Log Analytics 작업 영역에 연결
-활동 로그를 하나의 작업 영역에 연결 될 수 있지만 단일 작업 영역을 동일한 Azure 테 넌 트에 여러 구독에 대 한 활동 로그에 연결할 수 있습니다. 여러 테 넌 트 컬렉션에 대 한 참조 [서로 다른 Azure Active Directory에서 구독의 Log Analytics 작업 영역으로 Azure 활동 로그 수집 테 넌 트](activity-log-collect-tenants.md)합니다.
+활동 로그는 하나의 작업 영역에만 연결할 수 있지만 동일한 Azure 테 넌 트의 여러 구독에 대해 활동 로그에 단일 작업 영역을 연결할 수 있습니다. 여러 테 넌 트에 걸친 컬렉션의 경우 [다른 Azure Active Directory 테 넌 트의 구독에서 Log Analytics 작업 영역으로 Azure 활동 로그 수집](activity-log-collect-tenants.md)을 참조 하세요.
+
+> [!IMPORTANT]
+> OperationalInsights 및 Microsoft.operationsmanagement 리소스 공급자가 구독에 등록 되지 않은 경우 다음 절차에 따라 오류가 발생할 수 있습니다. 이러한 공급자를 등록 하려면 [Azure 리소스 공급자 및 형식](../../azure-resource-manager/resource-manager-supported-services.md) 을 참조 하세요.
 
 활동 로그를 Log Analytics 작업 영역에 연결 하려면 다음 절차를 따르십시오.
 
-1. **Log Analytics 작업 영역** 메뉴는 Azure 포털에서 활동 로그를 수집 하려면 작업 영역을 선택 합니다.
-1. 에 **작업 영역 데이터 원본** workspace의 메뉴의 섹션 **Azure 활동 로그**합니다.
+1. Azure Portal **Log Analytics 작업 영역** 메뉴에서 작업 영역을 선택 하 여 활동 로그를 수집 합니다.
+1. 작업 영역 메뉴의 **작업 영역 데이터 원본** 섹션에서 **Azure 활동 로그**를 선택 합니다.
 1. 연결 하려는 구독을 클릭 합니다.
 
     ![작업 영역](media/activity-log-export/workspaces.png)
 
-1. 클릭 **Connect** 구독에서 활동 로그는 선택한 작업 영역에 연결 합니다. 구독에 이미 연결 되어 다른 작업 영역, 클릭 **연결 끊기** 먼저 연결을 끊습니다.
+1. **연결** 을 클릭 하 여 구독의 활동 로그를 선택한 작업 영역에 연결 합니다. 구독이 다른 작업 영역에 이미 연결 되어 있는 경우 먼저 **연결 끊기** 를 클릭 하 여 연결을 끊습니다.
 
-    ![작업 영역에 연결](media/activity-log-export/connect-workspace.png)
+    ![작업 영역 연결](media/activity-log-export/connect-workspace.png)
 
 ## <a name="analyze-in-log-analytics-workspace"></a>Log Analytics 작업 영역에서 분석
-항목 라는 테이블에 작업 영역에 쓰입니다 활동 로그를 Log Analytics 작업 영역에 연결할 때 **AzureActivity** 사용 하 여 검색할 수 있는 한 [로그 쿼리](../log-query/log-query-overview.md)합니다. 이 테이블의 구조에 따라 달라 집니다 합니다 [로그 엔트리의 범주](activity-logs-overview.md#categories-in-the-activity-log)합니다. 참조 [Azure 활동 로그 이벤트 스키마](activity-log-schema.md) 각 범주에 대 한 합니다.
+활동 로그를 Log Analytics 작업 영역에 연결 하면 [로그 쿼리](../log-query/log-query-overview.md)를 사용 하 여 검색할 수 있는 **azureactivity** 라는 테이블에 항목이 작업 영역에 기록 됩니다. 이 테이블의 구조는 [로그 항목의 범주](activity-logs-overview.md#categories-in-the-activity-log)에 따라 달라 집니다. 각 범주에 대 한 설명은 [Azure 활동 로그 이벤트 스키마](activity-log-schema.md) 를 참조 하세요.
 
 ## <a name="activity-logs-analytics-monitoring-solution"></a>활동 로그 분석 모니터링 솔루션
-Azure Log Analytics 모니터링 솔루션에 여러 로그 쿼리 및 Log Analytics 작업 영역에 활동 로그 레코드를 분석 하는 것에 대 한 보기를 포함 합니다.
+Azure Log Analytics 모니터링 솔루션에는 Log Analytics 작업 영역에서 활동 로그 레코드를 분석 하기 위한 여러 로그 쿼리 및 뷰가 포함 되어 있습니다.
 
 ### <a name="install-the-solution"></a>솔루션 설치
-절차를 사용 [모니터링 솔루션을 설치할](../insights/solutions.md#install-a-monitoring-solution) 설치 하는 **Activity Log Analytics** 솔루션입니다. 필요한 추가 구성은 없습니다.
+**활동 로그 분석** 솔루션을 설치 하려면 [모니터링 솔루션 설치](../insights/solutions.md#install-a-monitoring-solution) 의 절차를 따르십시오. 추가 구성은 필요 하지 않습니다.
 
 ### <a name="use-the-solution"></a>솔루션 사용
-모니터링 솔루션에서 액세스 되는 **모니터** Azure portal의 메뉴. 선택 **자세한** 에 **Insights** 열려는 섹션의 **개요** 솔루션 타일을 사용 하 여 페이지. 합니다 **Azure 활동 로그** 타일 수가 수가 표시 됩니다 **AzureActivity** 영역의 레코드입니다.
+모니터링 솔루션은 Azure Portal의 **모니터** 메뉴에서 액세스할 수 있습니다. **Insights** 섹션에서 **자세히** 를 선택 하 여 솔루션 타일이 있는 **개요** 페이지를 엽니다. **Azure 활동 로그** 타일에는 작업 영역의 **azureactivity** 레코드 수 수가 표시 됩니다.
 
 ![Azure 활동 로그 타일](media/collect-activity-logs/azure-activity-logs-tile.png)
 
 
-클릭 합니다 **Azure 활동 로그** 열려는 타일 합니다 **Azure 활동 로그** 보기. 보기는 다음 표에 시각화 요소를 포함 합니다. 각 파트는 지정된 된 시간 범위에 대 한 해당 파트의 조건과 일치 하는 최대 10 개 항목을 나열 합니다. 클릭 하 여 모든 일치 하는 레코드를 반환 하는 로그 쿼리를 실행할 수 있습니다 **모두 보기** 파트의 맨 아래에 있습니다.
+Azure **활동 로그** 타일을 클릭 하 여 **azure 활동 로그** 보기를 엽니다. 뷰에는 다음 표의 시각화 파트가 포함 되어 있습니다. 각 파트에는 지정 된 시간 범위에 대 한 해당 부분의 기준과 일치 하는 항목이 최대 10 개까지 나열 됩니다. 파트 아래쪽의 **모두 보기** 를 클릭 하 여 일치 하는 모든 레코드를 반환 하는 로그 쿼리를 실행할 수 있습니다.
 
 ![Azure 활동 로그 대시보드](media/collect-activity-logs/activity-log-dash.png)
 
 | 시각화 요소 | 설명 |
 | --- | --- |
-| Azure 활동 로그 항목 | 상위 10 개 활동 호출자 목록을 표시 및 선택한 날짜 범위에 대 한 레코드 합계 상위 Azure 활동 로그 항목의 가로 막대형 차트를 보여 줍니다. 가로 막대형 차트를 클릭하면 `AzureActivity`에 대한 로그 검색이 실행됩니다. 해당 항목에 대 한 모든 활동 로그 항목을 반환 하는 로그 검색을 실행 하려면 호출자에 게 항목을 클릭 합니다. |
-| 상태별 활동 로그 | 상위 10 개 상태 레코드 목록 및 선택한 날짜 범위에 대 한 Azure 활동 로그 상태의 도넛형 차트를 보여 줍니다. 에 대 한 로그 쿼리를 실행 하려면 차트를 클릭 `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`합니다. 해당 상태 레코드에 대 한 모든 활동 로그 항목을 반환 하는 로그 검색을 실행 하는 상태 항목을 클릭 합니다. |
-| 리소스별 활동 로그 | 활동 로그를 사용 하 여 리소스의 총 수를 표시 하 고 각 리소스에 대 한 10 개 리소스 레코드를 사용 하 여 계산 맨을 나열 합니다. 전체 영역을 클릭하여 `AzureActivity | summarize AggregatedValue = count() by Resource`에 대해 로그 검색을 실행하면 솔루션에 사용할 수 있는 모든 Azure 리소스가 표시됩니다. 해당 리소스에 대 한 모든 활동 레코드를 반환 하는 로그 쿼리를 실행 하는 리소스를 클릭 합니다. |
-| 리소스 공급자별 활동 로그 | 활동 로그를 생성 하는 리소스 공급자의 총 수를 표시 하 고 상위 10 개의 나열 합니다. 전체 영역에 대 한 로그 쿼리를 실행 하려면 클릭 `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`, 모든 Azure 리소스 공급자가 표시 됩니다. 공급자에 대 한 모든 활동 레코드를 반환 하는 로그 쿼리를 실행 하려면 리소스 공급자를 클릭 합니다. |
+| Azure 활동 로그 항목 | 선택한 날짜 범위에 대 한 상위 Azure 활동 로그 항목 레코드 합계의 가로 막대형 차트를 표시 하 고 상위 10 개 활동 호출자의 목록을 표시 합니다. 가로 막대형 차트를 클릭하면 `AzureActivity`에 대한 로그 검색이 실행됩니다. 호출자 항목을 클릭 하면 해당 항목에 대 한 모든 활동 로그 항목을 반환 하는 로그 검색이 실행 됩니다. |
+| 상태별 활동 로그 | 선택한 날짜 범위에 대 한 Azure 활동 로그 상태와 상위 10 개 상태 레코드의 목록에 대 한 도넛형 차트를 표시 합니다. 차트를 클릭 하 `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`에 대 한 로그 쿼리를 실행 합니다. 상태 항목을 클릭 하면 해당 상태 레코드에 대 한 모든 활동 로그 항목을 반환 하는 로그 검색이 실행 됩니다. |
+| 리소스별 활동 로그 | 활동 로그를 포함 하는 총 리소스 수를 표시 하 고 각 리소스에 대 한 레코드 수를 포함 하는 상위 10 개 리소스를 나열 합니다. 전체 영역을 클릭하여 `AzureActivity | summarize AggregatedValue = count() by Resource`에 대해 로그 검색을 실행하면 솔루션에 사용할 수 있는 모든 Azure 리소스가 표시됩니다. 리소스를 클릭 하 여 해당 리소스에 대 한 모든 활동 레코드를 반환 하는 로그 쿼리를 실행 합니다. |
+| 리소스 공급자별 활동 로그 | 활동 로그를 생성 하는 리소스 공급자의 총 수를 표시 하 고 상위 10 개를 나열 합니다. 전체 영역을 클릭 하 여 모든 Azure 리소스 공급자를 보여 주는 `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`에 대 한 로그 쿼리를 실행 합니다. 리소스 공급자를 클릭 하 여 공급자에 대 한 모든 활동 레코드를 반환 하는 로그 쿼리를 실행 합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-- 에 대 한 자세한 정보는 [활동 로그](activity-logs-overview.md)합니다.
-- 에 대 한 자세한 정보는 [Azure Monitor 데이터 플랫폼](data-platform.md)합니다.
-- 사용 하 여 [쿼리 로그](../log-query/log-query-overview.md) 활동 로그에서 자세한 정보를 볼 수 있습니다.
+- [활동 로그](activity-logs-overview.md)에 대해 자세히 알아보세요.
+- [Azure Monitor data platform](data-platform.md)에 대해 자세히 알아보세요.
+- [로그 쿼리](../log-query/log-query-overview.md) 를 사용 하 여 활동 로그에서 자세한 정보를 볼 수 있습니다.

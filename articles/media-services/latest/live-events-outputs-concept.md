@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/30/2019
 ms.author: juliako
-ms.openlocfilehash: efe0aaf7c7d5516401f8c72721121a5dff247b95
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 196565e84ec493352ca9765d5502c9ad8ac7edd3
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350362"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703485"
 ---
 # <a name="live-events-and-live-outputs"></a>라이브 이벤트 및 라이브 출력
 
@@ -86,6 +86,9 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
 * 이름은 `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` 인이 [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) 패턴을 따라야 합니다.
 
 또한 [스트리밍 끝점 명명 규칙](streaming-endpoint-concept.md#naming-convention)을 참조 하세요.
+
+> [!TIP]
+> 라이브 이벤트 이름을 고유 하 게 유지 하기 위해 GUID를 생성 한 다음 모든 하이픈 및 중괄호 (있는 경우)를 제거할 수 있습니다. 문자열은 모든 라이브 이벤트에서 고유 하며 길이가 32이 되도록 보장 됩니다.
 
 ## <a name="live-event-ingest-urls"></a>라이브 이벤트 수집 URL
 

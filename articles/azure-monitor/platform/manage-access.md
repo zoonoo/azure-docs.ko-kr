@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor에서 Log Analytics 작업 영역 관리 | Microsoft Docs
-description: 리소스, 작업 영역 또는 테이블 수준 사용 권한을 사용 하 여 Azure Monitor의 Log Analytics 작업 영역에 저장 된 데이터에 대 한 액세스를 관리할 수 있습니다. 이 문서에서는 방법에 대해 자세히 설명 합니다.
+description: 리소스, 작업 영역 또는 테이블 수준 사용 권한을 사용 하 여 Azure Monitor의 Log Analytics 작업 영역에 저장 된 데이터에 대 한 액세스를 관리할 수 있습니다. 이 문서에서는이를 완료 하는 방법을 자세히 설명 합니다.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 9bf278b76846b98f58126957c589df87524bb8a4
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 920e470a8bc06050219d0f603ab842cfc267e6ce
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034725"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695016"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Azure Monitor의 로그 데이터 및 작업 영역에 대 한 액세스 관리
 
@@ -70,10 +70,10 @@ DefaultWorkspace38917: True
 DefaultWorkspace21532: False
 ```
 
-값은 작업 `False` 영역에 작업 영역 컨텍스트 액세스 모드로 구성 되어 있음을 의미 합니다.  값 `True` 이 이면 작업 영역이 리소스 컨텍스트 액세스 모드로 구성 됩니다.
+값 `False`은 작업 영역이 작업 영역 컨텍스트 액세스 모드로 구성 되었음을 의미 합니다.  값 `True`은 작업 영역이 리소스 컨텍스트 액세스 모드로 구성 되어 있음을 의미 합니다.
 
 > [!NOTE]
-> 작업 영역이 부울 값 없이 반환 되 고 비어 있는 경우 `False` 값의 결과도 일치 합니다.
+> 작업 영역이 부울 값 없이 반환 되 고 비어 있으면 `False` 값의 결과와 일치 합니다.
 >
 
 다음 스크립트를 사용 하 여 특정 작업 영역에 대 한 액세스 제어 모드를 리소스 컨텍스트 권한으로 설정 합니다.
@@ -140,12 +140,12 @@ Azure의 Log Analytics 작업 영역에는 기본 제공되는 2개의 사용자
 
 Log Analytics 독자 역할에는 다음 Azure 작업이 포함됩니다.
 
-| 형식    | 사용 권한 | Description |
+| 형식    | 사용 권한 | 설명 |
 | ------- | ---------- | ----------- |
-| 동작 | `*/read`   | 모든 Azure 리소스 및 리소스 구성 보는 기능. 볼 수 있습니다. <br> 가상 머신 확장 상태 <br> 리소스에 대한 Azure 진단 구성 <br> 모든 리소스의 모든 속성 및 설정입니다. <br> 작업 영역의 경우 작업 영역 설정을 읽고 데이터에 대해 쿼리를 수행 하는 데 무제한의 모든 권한을 허용 합니다. 위의 세부적인 옵션을 참조 하세요. |
-| 동작 | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | 더 이상 사용 되지 않으며 사용자에 게 할당할 필요가 없습니다. |
+| 작업 | `*/read`   | 모든 Azure 리소스 및 리소스 구성 보는 기능. 볼 수 있습니다. <br> 가상 머신 확장 상태 <br> 리소스에 대한 Azure 진단 구성 <br> 모든 리소스의 모든 속성 및 설정입니다. <br> 작업 영역의 경우 작업 영역 설정을 읽고 데이터에 대해 쿼리를 수행 하는 데 무제한의 모든 권한을 허용 합니다. 위의 세부적인 옵션을 참조 하세요. |
+| 작업 | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | 더 이상 사용 되지 않으며 사용자에 게 할당할 필요가 없습니다. |
 | 작업 | `Microsoft.OperationalInsights/workspaces/search/action` | 더 이상 사용 되지 않으며 사용자에 게 할당할 필요가 없습니다. |
-| 동작 | `Microsoft.Support/*` | 지원 사례를 열 수 있습니다. |
+| 작업 | `Microsoft.Support/*` | 지원 사례를 열 수 있습니다. |
 |동작 없음 | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | 데이터 컬렉션 API를 사용하고 에이전트를 설치하는 데 필요한 작업 영역 키 읽는 것 방지. 사용자가 작업 영역에 새 리소스 추가 방지 |
 
 *Log Analytics 참가자* 역할의 멤버는 다음을 수행할 수 있습니다.
@@ -176,7 +176,7 @@ Log Analytics 기여자 역할에는 다음 Azure 작업이 포함됩니다.
 | `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | 스토리지 계정 키를 봅니다. Azure Storage 계정에서 로그를 읽을 Log Analytics 구성 필요 |
 | `Microsoft.Insights/alertRules/*` | 규칙 추가, 업데이트 및 제거 |
 | `Microsoft.Insights/diagnosticSettings/*` | Azure 리소스에 대한 진단 설정 추가, 업데이트 및 제거 |
-| `Microsoft.OperationalInsights/*` | Log Analytics 작업 영역에 대 한 구성을 추가, 업데이트 및 제거 합니다. 작업 영역 고급 설정을 편집 하려면 사용자가 `Microsoft.OperationalInsights/workspaces/write`필요 합니다. |
+| `Microsoft.OperationalInsights/*` | Log Analytics 작업 영역에 대 한 구성을 추가, 업데이트 및 제거 합니다. 작업 영역 고급 설정을 편집 하려면 사용자에 게 `Microsoft.OperationalInsights/workspaces/write`이 필요 합니다. |
 | `Microsoft.OperationsManagement/*` | 관리 솔루션 추가 및 제거 |
 | `Microsoft.Resources/deployments/*` | 디렉터리를 만들고 삭제합니다. 솔루션, 작업 공간 및 자동화 계정 추가 및 제거에 필요 |
 | `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` | 디렉터리를 만들고 삭제합니다. 솔루션, 작업 공간 및 자동화 계정 추가 및 제거에 필요 |
@@ -195,12 +195,12 @@ Log Analytics 기여자 역할에는 다음 Azure 작업이 포함됩니다.
 
 사용자가 리소스 컨텍스트 액세스를 사용 하 여 작업 영역에서 로그를 쿼리하면 해당 리소스에 대해 다음과 같은 사용 권한이 부여 됩니다.
 
-| 사용 권한 | Description |
+| 사용 권한 | 설명 |
 | ---------- | ----------- |
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>예를 들면 다음과 같습니다.<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | 리소스에 대 한 모든 로그 데이터를 볼 수 있습니다.  |
 | `Microsoft.Insights/diagnosticSettings/write` | 이 리소스에 대 한 로그를 설정할 수 있도록 진단 설정을 구성 하는 기능입니다. |
 
-`/read`사용 권한은 일반적으로 기본 제공 [판독기](../../role-based-access-control/built-in-roles.md#reader) 및 [기여자](../../role-based-access-control/built-in-roles.md#contributor) 역할과 같은 사용  _\*/읽기 또는_ _\*_ 사용 권한을 포함 하는 역할에서 부여 됩니다. 특정 작업 또는 전용 기본 제공 역할을 포함 하는 사용자 지정 역할에는이 권한이 포함 되지 않을 수 있습니다.
+`/read` 권한은 일반적으로 기본 제공 [판독기](../../role-based-access-control/built-in-roles.md#reader) 및 [기여자](../../role-based-access-control/built-in-roles.md#contributor) 역할과 같은 _\*/읽기 또는_ _@no__t 4_ 권한을 포함 하는 역할에서 부여 됩니다. 특정 작업 또는 전용 기본 제공 역할을 포함 하는 사용자 지정 역할에는이 권한이 포함 되지 않을 수 있습니다.
 
 다른 테이블에 대 한 다른 액세스 제어를 만들려면 아래의 [테이블당 액세스 제어 정의](#table-level-rbac) 를 참조 하세요.
 
@@ -210,32 +210,40 @@ Log Analytics 기여자 역할에는 다음 Azure 작업이 포함됩니다.
 
     * 작업 영역 **또는 리소스 권한을 사용** 하도록 작업 영역 액세스 제어 모드 구성
 
-    * `*/read` 사용자`Microsoft.Insights/logs/*/read` 에 게 리소스에 대 한 권한을 부여 합니다. 작업 영역에서 [Log Analytics 읽기 권한자](../../role-based-access-control/built-in-roles.md#reader) 역할이 이미 할당 된 경우에는 충분 합니다.
+    * 사용자에 게 해당 리소스에 대 한 `*/read` 또는 `Microsoft.Insights/logs/*/read` 권한을 부여 합니다. 작업 영역에서 [Log Analytics 읽기 권한자](../../role-based-access-control/built-in-roles.md#reader) 역할이 이미 할당 된 경우에는 충분 합니다.
 
 2. 사용자에 게 리소스의 로그 데이터에 대 한 액세스 권한을 부여 하 고 작업 영역에 로그를 보내도록 리소스를 구성 하려면 다음을 수행 합니다.
 
     * 작업 영역 **또는 리소스 권한을 사용** 하도록 작업 영역 액세스 제어 모드 구성
 
-    * 사용자에 게 작업 영역에 대 한 다음 `Microsoft.OperationalInsights/workspaces/read` 권한을 `Microsoft.OperationalInsights/workspaces/sharedKeys/action`부여 합니다. 및. 이러한 권한이 있는 사용자는 작업 영역 수준 쿼리를 수행할 수 없습니다.
+    * 사용자에 게 작업 영역에 대 한 다음 권한을 부여 합니다. `Microsoft.OperationalInsights/workspaces/read` 및 `Microsoft.OperationalInsights/workspaces/sharedKeys/action`. 이러한 권한이 있는 사용자는 작업 영역 수준 쿼리를 수행할 수 없습니다. 작업 영역을 열거 하 고이를 진단 설정 또는 에이전트 구성의 대상으로 사용할 수만 있습니다.
 
-    * 사용자에 게 리소스에 대 한 다음 권한을 `Microsoft.Insights/logs/*/read` 부여 `Microsoft.Insights/diagnosticSettings/write`합니다. 및. 이미이 리소스에 대 한 [Log Analytics 참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할이 할당 된 경우에는 충분 합니다.
+    * 사용자에 게 리소스에 대 한 다음 권한을 부여 합니다. `Microsoft.Insights/logs/*/read` 및 `Microsoft.Insights/diagnosticSettings/write`. 이미 [Log Analytics 참여자](../../role-based-access-control/built-in-roles.md#contributor) 역할에 할당 되었거나 읽기 권한자 역할을 할당 받거나이 리소스에 대 한 @no__t 1 권한이 부여 된 경우에는 충분 합니다.
 
-3. 사용자에 게 리소스의 로그 데이터에 대 한 액세스 권한을 부여 하려면 모든 Azure AD 로그인을 읽고 업데이트 관리 솔루션 로그 데이터를 읽은 후 다음을 수행 합니다.
+3. 보안 이벤트를 읽고 데이터를 보낼 수 없는 경우 사용자에 게 리소스의 로그 데이터에 대 한 액세스 권한을 부여 하려면 다음을 수행 합니다.
+
+    * 작업 영역 **또는 리소스 권한을 사용** 하도록 작업 영역 액세스 제어 모드 구성
+
+    * 사용자에 게 리소스에 대 한 다음 권한을 부여 합니다. `Microsoft.Insights/logs/*/read`.
+
+    * 사용자가 SecurityEvent 형식을 읽을 수 없도록 차단 하는 다음과 같은 NonAction을 추가 합니다. `Microsoft.Insights/logs/SecurityEvent/read`. NonAction은 읽기 권한을 제공 하는 작업 (`Microsoft.Insights/logs/*/read`)과 동일한 사용자 지정 역할에 있어야 합니다. 사용자가이 리소스 또는 구독 또는 리소스 그룹에 할당 된 다른 역할의 읽기 작업을 수행 하는 경우 모든 로그 유형을 읽을 수 있습니다. 이는 예를 들어 판독기 또는 참가자 역할을 사용 하 여 존재 하는 0 @no__t를 상속 하는 경우에도 마찬가지입니다.
+
+4. 사용자에 게 리소스의 로그 데이터에 대 한 액세스 권한을 부여 하 고 모든 Azure AD 로그인을 읽고 작업 영역에서 업데이트 관리 솔루션 로그 데이터를 읽을 수 있도록 하려면 다음을 수행 합니다.
 
     * 작업 영역 **또는 리소스 권한을 사용** 하도록 작업 영역 액세스 제어 모드 구성
 
     * 사용자에 게 작업 영역에 대 한 다음 권한을 부여 합니다. 
 
-        * `Microsoft.OperationalInsights/workspaces/read`– 사용에서 작업 영역을 열거 하 고 Azure Portal 작업 영역 블레이드를 열 수 있습니다.
-        * `Microsoft.OperationalInsights/workspaces/query/read`– 쿼리를 실행할 수 있는 모든 사용자에 게 필요
-        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read`– Azure AD 로그인 로그를 읽을 수 있습니다.
-        * `Microsoft.OperationalInsights/workspaces/query/Update/read`– 업데이트 관리 솔루션 로그를 읽을 수 있습니다.
-        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read`– 업데이트 관리 솔루션 로그를 읽을 수 있습니다.
-        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read`– 업데이트 관리 로그를 읽을 수 있습니다.
-        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read`– 업데이트 관리 솔루션을 사용 하는 데 필요 합니다.
-        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`– 업데이트 관리 솔루션을 사용 하는 데 필요 합니다.
+        * `Microsoft.OperationalInsights/workspaces/read` – 사용 시 작업 영역을 열거 하 고에서 작업 영역 블레이드를 열 수 있습니다 Azure Portal
+        * `Microsoft.OperationalInsights/workspaces/query/read` – 쿼리를 실행할 수 있는 모든 사용자에 게 필요 합니다.
+        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read` – Azure AD 로그인 로그를 읽을 수 있습니다.
+        * `Microsoft.OperationalInsights/workspaces/query/Update/read` – 업데이트 관리 솔루션 로그를 읽을 수 있습니다.
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read` – 업데이트 관리 솔루션 로그를 읽을 수 있습니다.
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read` – 업데이트 관리 로그를 읽을 수 있습니다.
+        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read` – 업데이트 관리 솔루션을 사용 하는 데 필요 합니다.
+        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read` – 업데이트 관리 솔루션을 사용 하는 데 필요 합니다.
 
-    * 사용자에 게 리소스에 대 한 다음 권한을 `*/read` 부여 `Microsoft.Insights/logs/*/read`합니다. 또는. 작업 영역에서 [Log Analytics 읽기 권한자](../../role-based-access-control/built-in-roles.md#reader) 역할이 할당 된 경우에는 충분 합니다.
+    * 사용자에 게 리소스에 대 한 다음 권한을 부여 합니다. `*/read`, 판독기 역할에 할당 됨 또는 `Microsoft.Insights/logs/*/read`입니다. 
 
 ## <a name="table-level-rbac"></a>테이블 수준 RBAC
 

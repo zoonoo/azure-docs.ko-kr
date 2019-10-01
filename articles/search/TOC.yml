@@ -244,7 +244,7 @@
             - name: Azure Portal에서 지식 저장소 만들기
               href: knowledge-store-create-portal.md
             - name: REST 및 Postman을 사용하여 만들기
-              href: knowledge-store-howto.md
+              href: knowledge-store-create-rest.md
             - name: Storage Explorer로 보기
               href: knowledge-store-view-storage-explorer.md
             - name: Power BI로 연결

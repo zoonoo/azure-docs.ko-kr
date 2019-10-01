@@ -6,14 +6,14 @@ services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: anantr
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: a9434bebe82687b14f45b3c375572717d71d0e55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42b4bd7427191bcec531ff883efa0d3297a9fd1f
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60713377"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702853"
 ---
 # <a name="manage-smart-groups"></a>스마트 그룹 관리
 [스마트 그룹](https://aka.ms/smart-groups)은 기계 학습 알고리즘을 사용하여 동시 발생 또는 유사성을 기준으로 경고를 그룹화하므로, 이제 사용자가 각 경고를 개별적으로 관리하는 대신 스마트 그룹을 관리할 수 있습니다. 이 문서에서는 Azure Monitor에서 스마트 그룹을 액세스하고 사용하는 방법을 안내합니다.

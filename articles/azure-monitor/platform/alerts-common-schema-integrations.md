@@ -6,14 +6,14 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/27/2019
-ms.author: anantr
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: f431e5e5f4537d1a5f889457eb81b881e47ee178
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 569b97ecc24306741c3323ce5bc526f88645c1dd
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091779"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702944"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Logic Apps와 공통 경고 스키마를 통합 하는 방법
 
@@ -24,7 +24,7 @@ ms.locfileid: "71091779"
 [일반적인 경고 스키마](https://aka.ms/commonAlertSchemaDocs) 는 다양 한 경고 유형에 대해 표준화 되 고 확장 가능한 JSON 스키마를 제공 합니다. 일반적인 경고 스키마는 웹 후크, runbook 및 논리 앱을 통해 프로그래밍 방식으로 활용할 때 가장 유용 합니다. 이 문서에서는 모든 경고를 처리 하도록 단일 논리 앱을 작성할 수 있는 방법을 보여 줍니다. 다른 프로그래밍 방법에도 동일한 원칙이 적용 될 수 있습니다. 이 문서에서 설명 하는 논리 앱은 [' 필수 ' 필드](alerts-common-schema-definitions.md#essentials)에 대 한 잘 정의 된 변수를 만들고 [경고 유형별](alerts-common-schema-definitions.md#alert-context) 논리를 처리 하는 방법에 대해서도 설명 합니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 이 문서에서는 독자가 다음에 대해 잘 알고 있다고 가정 합니다. 
 * 경고 규칙 설정 ([메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric), [로그](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log), [활동 로그](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log))

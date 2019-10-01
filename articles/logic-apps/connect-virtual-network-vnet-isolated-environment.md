@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 0b04ca5c4bea00221d5a823432b6fc1934badb1a
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 15e1f1c4c8757ca55ec27659a4ca11b1729aebc2
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71320507"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71701939"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -67,17 +67,19 @@ ISE는 실행 지속 시간, 저장소 보존, 처리량, HTTP 요청 및 응답
 
 ## <a name="check-network-ports"></a>네트워크 포트 확인
 
-기존 가상 네트워크에서 ISE를 사용 하는 경우 일반적인 설치 문제는 하나 이상의 차단 된 포트를 포함 하는 것입니다. ISE와 대상 시스템 간에 연결을 만드는 데 사용 하는 커넥터에도 자체 포트 요구 사항이 있을 수 있습니다. 예를 들어 FTP 커넥터를 사용하여 FTP 시스템과 통신하는 경우 명령 전송을 위한 포트 21과 같이 FTP 시스템에서 사용하는 포트가 사용 가능한지 확인합니다.
-
-제약 조건 없이 새 가상 네트워크 및 서브넷을 만든 경우 서브넷 간 트래픽을 제어할 수 있도록 가상 네트워크에서 [NSGs (네트워크 보안 그룹)](../virtual-network/security-overview.md) 를 설정할 필요가 없습니다. 기존 가상 네트워크의 경우 [서브넷 간 네트워크 트래픽을 필터링](../virtual-network/tutorial-filter-network-traffic.md)하 여 *필요* 에 따라 nsgs를 설정할 수 있습니다. 이 경로를 선택 하는 경우 다음 표에 설명 된 대로 NSGs가 있는 가상 네트워크에서 ISE가 특정 포트를 열어 두어야 합니다. 따라서 가상 네트워크에 있는 기존 NSGs 또는 방화벽의 경우 이러한 포트를 열어야 합니다. 이런 방식으로 ISE에 액세스할 수 있으며 ise에 대 한 액세스 권한이 손실 되지 않도록 제대로 작동할 수 있습니다. 그렇지 않으면 필요한 포트를 사용할 수 없는 경우 ISE 작동이 중지 됩니다.
+Azure 가상 네트워크에서 ISE를 사용 하는 경우 일반적인 설치 문제는 하나 이상의 차단 된 포트를 포함 하는 것입니다. ISE와 대상 시스템 간에 연결을 만드는 데 사용 하는 커넥터에도 자체 포트 요구 사항이 있을 수 있습니다. 예를 들어 ftp 커넥터를 사용 하 여 FTP 시스템과 통신 하는 경우 FTP 시스템에서 사용 하는 포트 (예: 송신 명령을 위한 포트 21)를 사용할 수 있는지 확인 합니다. ISE가 계속 해 서 액세스할 수 있고 제대로 작동할 수 있도록 하려면 아래 표에 지정 된 포트를 엽니다. 그렇지 않으면 필요한 포트를 사용할 수 없는 경우 ISE 작동이 중지 됩니다.
 
 > [!IMPORTANT]
-> 서브넷 내부 통신의 경우 ISE를 사용 하려면 해당 서브넷 내에서 모든 포트를 열어야 합니다.
+> 원본 포트는 사용 후 삭제 되므로 모든 규칙에 대해 `*`으로 설정 해야 합니다.
+> 서브넷 내부 통신의 경우 ISE를 사용 하려면 해당 서브넷 내의 모든 포트를 열어야 합니다.
 
-이 표에서는 ISE에서 사용 하는 가상 네트워크의 포트와 이러한 포트가 사용 되는 위치에 대해 설명 합니다. [리소스 관리자 서비스 태그](../virtual-network/security-overview.md#service-tags) 는 보안 규칙을 만들 때 복잡성을 최소화 하는 데 도움이 되는 IP 주소 접두사 그룹을 나타냅니다.
+* 제약 조건 없이 새 가상 네트워크 및 서브넷을 만든 경우 서브넷 간 트래픽을 제어 하기 위해 가상 네트워크에서 [NSGs (네트워크 보안 그룹)](../virtual-network/security-overview.md#network-security-groups) 를 설정할 필요가 없습니다.
 
-> [!NOTE]
-> 원본 포트는 삭제 되기 때문에 모든 규칙 `*` 에 대해로 설정 합니다.
+* 기존 가상 네트워크에서 *필요* 에 따라 [서브넷 간 네트워크 트래픽을 필터링](../virtual-network/tutorial-filter-network-traffic.md)하 여 nsgs를 설정할 수 있습니다. 이 경로를 선택 하는 경우 NSGs를 설정 하려는 가상 네트워크에서 아래 테이블에 지정 된 포트를 열어야 합니다. [Nsg 보안 규칙](../virtual-network/security-overview.md#security-rules)을 사용 하는 경우 TCP 및 UDP 프로토콜이 모두 필요 합니다.
+
+* 이전에 가상 네트워크에 기존 NSGs 또는 방화벽이 있는 경우 아래 표에 지정 된 포트를 열어야 합니다. [Nsg 보안 규칙](../virtual-network/security-overview.md#security-rules)을 사용 하는 경우 TCP 및 UDP 프로토콜이 모두 필요 합니다.
+
+다음은 ISE에서 사용 하는 가상 네트워크의 포트와 이러한 포트가 사용 되는 위치를 설명 하는 테이블입니다. [리소스 관리자 서비스 태그](../virtual-network/security-overview.md#service-tags) 는 보안 규칙을 만들 때 복잡성을 최소화 하는 데 도움이 되는 IP 주소 접두사 그룹을 나타냅니다.
 
 | 용도 | Direction | 대상 포트 | 원본 서비스 태그 | 대상 서비스 태그 | 참고 |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|

@@ -11,12 +11,12 @@ ms.date: 09/14/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c216512aef117a332d3aabfc83ec5615b70b202c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: a8e35254a79ac43b35f45d1a20f3d1f6815f32be
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033820"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702817"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C 감사 로그 액세스
 
@@ -31,7 +31,7 @@ Azure Active Directory B2C (Azure AD B2C)는 B2C 리소스, 발급 된 토큰 �
 
 감사 로그의 **B2C** 범주에는 다음 유형의 작업이 포함됩니다.
 
-|활동 유형 |Description  |
+|활동 유형 |설명  |
 |---------|---------|
 |Authorization |B2C 리소스에 액세스 하는 사용자의 권한 부여와 관련 된 활동 (예: B2C 정책 목록에 액세스 하는 관리자)         |
 |디렉터리 |관리자가 Azure Portal를 사용 하 여 로그인 할 때 검색 되는 디렉터리 특성과 관련 된 작업입니다. |
@@ -50,7 +50,7 @@ Azure Portal의이 이미지 예제에서는 사용자가 외부 id 공급자 (�
 
 활동 세부 정보 패널에는 다음과 같은 관련 정보가 포함 되어 있습니다.
 
-|섹션|필드|Description|
+|섹션|필드|설명|
 |-------|-----|-----------|
 | 활동 | 이름 | 발생 한 작업입니다. 예를 들어 *응용 프로그램에*대 한 Id_token를 실행 하 여 실제 사용자 로그인을 마칩니다. |
 | 초기자(작업자) | ObjectId | 사용자가 로그인 하는 B2C 응용 프로그램의 **개체 ID** 입니다. 이 식별자는 Azure Portal에 표시 되지 않지만 Microsoft Graph API를 통해 액세스할 수 있습니다. |
@@ -94,30 +94,28 @@ Azure AD 보고 API에 대 한 스크립트 또는 응용 프로그램 기반 �
 
 B2C 테 넌 트 내의 기존 Azure Active Directory 응용 프로그램 등록에 대해 이러한 권한을 사용 하도록 설정 하거나 감사 로그 자동화에 사용 하기 위해 특별히 새 응용 프로그램을 만들 수 있습니다.
 
-새 응용 프로그램을 만들고, 필요한 API 권한을 할당 하 고, 클라이언트 암호를 만들려면 다음 단계를 수행 합니다.
+다음 단계를 수행 하 여 응용 프로그램을 등록 하 고 필요한 Microsoft Graph API 권한을 부여한 다음 클라이언트 암호를 만듭니다.
 
-1. Azure Active Directory에 응용 프로그램 등록
-    1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리로 전환 합니다.
-    1. 왼쪽 메뉴에서 **Azure Active Directory** (Azure AD B2C*아님* )를 선택 합니다. 또는 **모든 서비스**를 선택한 다음 **Azure Active Directory**을 검색 하 고 선택 합니다.
-    1. 왼쪽 메뉴의 **관리** 에서 **앱 등록 (레거시)** 를 선택 합니다.
-    1. **새 응용 프로그램 등록** 을 선택 합니다.
-    1. 애플리케이션의 이름을 입력합니다. 예를 들어 *감사 로그 앱*입니다.
-    1. **로그온 url**에 유효한 url을 입력 합니다. 예: *https://localhost* . 이 끝점에 연결할 필요는 없지만 유효한 URL 이어야 합니다.
-    1. **만들기**를 선택합니다.
-    1. **등록 된 앱** 페이지에 표시 되는 **응용 프로그램 ID** 를 기록 합니다. 이후 섹션에 표시 된 예제 PowerShell 스크립트와 같이 자동화 스크립트에서 인증을 위해이 값이 필요 합니다.
-1. API 액세스 권한 할당
-    1. 등록 된 **앱** 개요 페이지에서 **설정**을 선택 합니다.
-    1. **API 액세스**에서 **필요한 권한**을 선택 합니다.
-    1. **추가**를 선택한 다음, **API를 선택**합니다.
-    1. **Microsoft Graph**를 선택 하 고를 **선택**합니다.
-    1. **응용 프로그램 사용 권한**아래에서 **모든 감사 로그 데이터 읽기**를 선택 합니다.
-    1. **선택** 단추를 선택한 다음 **완료**를 선택 합니다.
-    1. **사용 권한 부여**를 선택한 다음, **예**를 선택합니다.
-1. 클라이언트 암호 만들기
-    1. **API 액세스**아래에서 **키**를 선택 합니다.
-    1. 키 **설명** 상자에 키에 대 한 설명을 입력 합니다. 예를 들어 *감사 로그 키*입니다.
-    1. 유효 **기간**을 선택한 다음 **저장**을 선택 합니다.
-    1. 키의 **값**을 기록 합니다. 이후 섹션에 표시 된 예제 PowerShell 스크립트와 같이 자동화 스크립트에서 인증을 위해이 값이 필요 합니다.
+### <a name="register-application-in-azure-active-directory"></a>Azure Active Directory에 응용 프로그램 등록
+
+[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
+
+### <a name="assign-api-access-permissions"></a>API 액세스 권한 할당
+
+1. 등록 된 **앱** 개요 페이지에서 **설정**을 선택 합니다.
+1. **API 액세스**에서 **필요한 권한**을 선택 합니다.
+1. **추가**를 선택한 다음, **API를 선택**합니다.
+1. **Microsoft Graph**를 선택 하 고를 **선택**합니다.
+1. **응용 프로그램 사용 권한**아래에서 **모든 감사 로그 데이터 읽기**를 선택 합니다.
+1. **선택** 단추를 선택한 다음 **완료**를 선택 합니다.
+1. **사용 권한 부여**를 선택한 다음, **예**를 선택합니다.
+
+### <a name="create-client-secret"></a>클라이언트 암호 만들기
+
+1. **API 액세스**아래에서 **키**를 선택 합니다.
+1. 키 **설명** 상자에 키에 대 한 설명을 입력 합니다. 예를 들어 *감사 로그 키*입니다.
+1. 유효 **기간**을 선택한 다음 **저장**을 선택 합니다.
+1. 키의 **값**을 기록 합니다. 이후 섹션에 표시 된 예제 PowerShell 스크립트와 같이 자동화 스크립트에서 인증을 위해이 값이 필요 합니다.
 
 이제 응용 프로그램에 필요한 API 액세스, 응용 프로그램 ID 및 자동화 스크립트에서 사용할 수 있는 키가 있습니다. 스크립트를 사용 하 여 작업 이벤트를 가져오는 방법에 대 한 예제는이 문서의 뒷부분에 있는 PowerShell 스크립트 섹션을 참조 하세요.
 

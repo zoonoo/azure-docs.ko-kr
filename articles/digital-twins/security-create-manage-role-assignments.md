@@ -9,19 +9,16 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: 968ae62344f99edf8eb46eb62a4cf13f300c868f
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 2c43dd7c0700efdd2fbf2f16c57c9c9dc69d3c6b
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815636"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703364"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Azure Digital Twins에서 역할 할당 만들기 및 관리
 
 Azure Digital Twins는 [RBAC](./security-role-based-access-control.md)(역할 기반 액세스 제어)를 사용하여 리소스 액세스를 관리합니다.
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="role-assignments-overview"></a>역할 할당 개요
 
@@ -39,13 +36,13 @@ Azure Digital Twins는 [RBAC](./security-role-based-access-control.md)(역할 �
 
 아래 표에서는 각 특성을 설명합니다.
 
-| 특성 | 이름 | 필수 | 형식 | Description |
+| 특성 | 이름 | 필요한 공간 | 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | roleId | 역할 정의 식별자 | 예 | 문자열 | 원하는 역할 할당의 고유 ID입니다. 시스템 API를 쿼리하거나 아래 표를 검토하여 역할 정의와 해당 식별자를 찾습니다. |
-| objectId | 개체 식별자 | 예 | String | Azure Active Directory ID, 서비스 주체 개체 ID 또는 도메인 이름입니다. 새로운 역할이 할당되는 대상 또는 사람입니다. 연결된 형식에 따라 역할 할당의 형식을 지정해야 합니다. `DomainName` objectIdType의 경우 objectId가 `“@”` 문자로 시작해야 합니다. |
-| objectIdType | 개체 식별자 유형 | 예 | String | 사용되는 개체 식별자의 종류입니다. 아래의 **지원되는 ObjectIdTypes**를 참조하세요. |
+| objectId | 개체 식별자 | 예 | 문자열 | Azure Active Directory ID, 서비스 주체 개체 ID 또는 도메인 이름입니다. 새로운 역할이 할당되는 대상 또는 사람입니다. 연결된 형식에 따라 역할 할당의 형식을 지정해야 합니다. `DomainName` objectIdType의 경우 objectId가 `“@”` 문자로 시작해야 합니다. |
+| objectIdType | 개체 식별자 유형 | 예 | 문자열 | 사용되는 개체 식별자의 종류입니다. 아래의 **지원되는 ObjectIdTypes**를 참조하세요. |
 | path | 공간 경로 | 예 | 문자열 | `Space` 개체의 전체 액세스 경로입니다. 예제입니다. `/{Guid}/{Guid}` 식별자에 전체 그래프에 대한 역할 할당이 필요한 경우 `"/"`를 지정합니다. 이 문자는 루트를 지정하지만 사용하지 않는 것이 좋습니다. 항상 최소 권한 원칙을 준수합니다. |
-| tenantId | 테넌트 식별자 | 다름 | String | 대부분의 경우 Azure Active Directory 테넌트 ID입니다. `DeviceId` 및 `TenantId` ObjectIdTypes에 허용되지 않습니다. `UserId` 및 `ServicePrincipalId` ObjectIdTypes에는 필수입니다. DomainName ObjectIdType에는 선택 사항입니다. |
+| tenantId | 테넌트 식별자 | 다름 | 문자열 | 대부분의 경우 Azure Active Directory 테넌트 ID입니다. `DeviceId` 및 `TenantId` ObjectIdTypes에 허용되지 않습니다. `UserId` 및 `ServicePrincipalId` ObjectIdTypes에는 필수입니다. DomainName ObjectIdType에는 선택 사항입니다. |
 
 ### <a name="supported-role-definition-identifiers"></a>지원되는 역할 정의 식별자
 
@@ -63,7 +60,7 @@ Azure Digital Twins는 [RBAC](./security-role-based-access-control.md)(역할 �
 
 Azure Digital Twins는 역할 할당에 대해 모든 *CREATE*, *READ*, 및 *DELETE* 작업을 지원합니다. *UPDATE* 작업은 역할 할당을 추가하거나, 역할 할당을 제거하거나, 역할 할당이 액세스 권한을 부여하는 [공간 인텔리전스 그래프](./concepts-objectmodel-spatialgraph.md) 노드를 수정하여 처리됩니다.
 
-![역할 할당 엔드포인트][1]
+[![ 역할 할당 끝점](media/security-roles/roleassignments.png)](media/security-roles/roleassignments.png#lightbox)
 
 제공된 Swagger 참조 설명서에는 사용 가능한 모든 API 엔드포인트, 요청 작업 및 정의에 대한 추가 정보도 포함되어 있습니다.
 
@@ -71,23 +68,28 @@ Azure Digital Twins는 역할 할당에 대해 모든 *CREATE*, *READ*, 및 *DEL
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-<div id="grant"></div>
-
 ### <a name="grant-permissions-to-your-service-principal"></a>서비스 주체에 권한 부여
 
 서비스 주체에 대한 권한 부여는 종종 Azure Digital Twins를 사용할 때 수행하는 첫 번째 단계 중 하나입니다. 이 과정에서 다음이 수행됩니다.
 
-1. PowerShell을 통해 Azure에 로그인
+1. [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 또는 [PowerShell](https://docs.microsoft.com/powershell/azure/)을 통해 Azure 인스턴스에 로그인 합니다.
 1. 서비스 주체 정보 획득
 1. 서비스 주체에 원하는 역할 할당
 
 애플리케이션 ID가 Azure Active Directory에서 사용자에게 제공됩니다. Active Directory의 Azure Digital Twins 구성 및 프로비전에 대한 자세한 내용은 [빠른 시작](./quickstart-view-occupancy-dotnet.md)을 읽어보세요.
 
-애플리케이션 ID가 있으면 다음 PowerShell 명령을 실행합니다.
+응용 프로그램 ID가 있으면 다음 명령 중 하나를 실행 합니다. Azure CLI:
 
-```shell
+```azurecli
+az login
+az ad sp show --id <ApplicationId>
+```
+
+Powershell에서:
+
+```powershell
 Login-AzAccount
-Get-AzADServicePrincipal -ApplicationId  <ApplicationId>
+Get-AzADServicePrincipal -ApplicationId <ApplicationId>
 ```
 
 **관리자** 역할이 있는 사용자는 URL에 대해 인증된 HTTP POST 요청을 수행하여 사용자에게 공간 관리자 역할을 할당할 수 있습니다.
@@ -108,11 +110,9 @@ YOUR_MANAGEMENT_API_URL/roleassignments
 }
 ```
 
-<div id="all"></div>
-
 ### <a name="retrieve-all-roles"></a>모든 역할 검색
 
-![시스템 역할][2]
+[![ 시스템 역할](media/security-roles/system.png)](media/security-roles/system.png#lightbox)
 
 사용 가능한 모든 역할(역할 정의)을 나열하려면 다음에 대해 인증된 HTTP GET 요청을 수행합니다.
 
@@ -153,8 +153,6 @@ YOUR_MANAGEMENT_API_URL/system/roles
 ]
 ```
 
-<div id="check"></div>
-
 ### <a name="check-a-specific-role-assignment"></a>특정 역할 할당 확인
 
 특정 역할 할당을 확인하려면 다음에 대해 인증된 HTTP GET 요청을 수행합니다.
@@ -165,8 +163,8 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 
 | **매개 변수 값** | **필수** |  **형식** |  **설명** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  True | String |   UserId objectIdType의 objectId입니다. |
-| YOUR_PATH | True | String |   액세스를 확인할 선택한 경로입니다. |
+| YOUR_USER_ID |  True | 문자열 |   UserId objectIdType의 objectId입니다. |
+| YOUR_PATH | True | 문자열 |   액세스를 확인할 선택한 경로입니다. |
 | YOUR_ACCESS_TYPE |  True | 문자열 |   확인할 액세스 형식입니다. |
 | YOUR_RESOURCE_TYPE | True | 문자열 |  확인할 리소스입니다. |
 
@@ -210,7 +208,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 | --- | --- |
 | *YOUR_ROLE_ASSIGNMENT_ID* | 제거할 역할 할당의 **id** |
 
-DELETE 요청이 성공하면 204 응답 상태가 반환됩니다. 역할 할당이 아직 유지되는지 여부를 [확인](#check)하여 역할 할당 제거를 검토합니다.
+DELETE 요청이 성공하면 204 응답 상태가 반환됩니다. 역할 할당이 아직 유지되는지 여부를 [확인](#check-a-specific-role-assignment)하여 역할 할당 제거를 검토합니다.
 
 ### <a name="create-a-role-assignment"></a>역할 할당 만들기
 
@@ -282,7 +280,3 @@ JSON 본문이 다음 스키마를 준수하는지 확인합니다.
 - Azure Digital Twins 역할 기반 액세스 제어를 검토하려면 [Role-base-access-control](./security-authenticating-apis.md)을 읽어보세요.
 
 - Azure Digital Twins API 인증에 대한 자세한 내용은 [API 인증](./security-authenticating-apis.md)을 읽어보세요.
-
-<!-- Images -->
-[1]: media/security-roles/roleassignments.png
-[2]: media/security-roles/system.png

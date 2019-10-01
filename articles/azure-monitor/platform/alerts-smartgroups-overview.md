@@ -6,14 +6,14 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/15/2018
-ms.author: anantr
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: e0bef0fc4f4b61add24c243af0dac64933ad5bab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 08657163eb170b8d3185ce15bd724f1f55bbe2bd
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60346328"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702867"
 ---
 # <a name="smart-groups"></a>스마트 그룹
 경고를 처리할 때 발생하는 일반적인 문제는 노이즈를 살펴보고 실제로 중요한 사항을 찾아내는 것입니다. 스마트 그룹은 이 문제를 해결하기 위한 것입니다.  
@@ -29,7 +29,7 @@ ms.locfileid: "60346328"
 
 다음 스마트 그룹 상태가 지원됩니다.
 
-| 시스템 상태 | 설명 |
+| State | 설명 |
 |:---|:---|
 | 새로 만들기 | 문제가 방금 검색되었으며 아직 검토되지 않았습니다. |
 | 확인됨 | 관리자가 스마트 그룹을 검토하고 작업을 시작했습니다. |

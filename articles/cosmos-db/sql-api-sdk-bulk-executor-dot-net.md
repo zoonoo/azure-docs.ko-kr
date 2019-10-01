@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: d24481c1364b41f38e4ca7b8f7d726ebc22a1117
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 447f52a08c9e833808508852c4619f6ce1d947e1
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624633"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703379"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET 대량 실행자 라이브러리: 정보 다운로드 
 
@@ -21,7 +21,7 @@ ms.locfileid: "69624633"
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
+> * [Node.JS](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
@@ -61,6 +61,12 @@ ms.locfileid: "69624633"
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
 
 * 대량 실행자 라이브러리가 .NET Core 응용 프로그램과 함께 작동 하도록 지원 되는 대상 프레임 워크 중 하나로 .NET Standard 2.0를 추가 했습니다.
+
+### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
+
+* 특정 시나리오에서 높은 CPU 사용량을 수정 했습니다.
+* 이제 추적은 TraceSource를 사용 합니다. 사용자는 `BulkExecutorTrace` 원본에 대 한 수신기를 정의할 수 있습니다.
+* 거의 크기가 2Mb 가까이 문서를 보낼 때 잠금을 유발할 수 있는 드문 시나리오를 수정 했습니다.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 

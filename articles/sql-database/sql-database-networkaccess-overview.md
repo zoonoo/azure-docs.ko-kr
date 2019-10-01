@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 2d7cc217ff8ae45491c0f9d6b54ea8afea19cd2e
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: b2c1f01e53cfe41b72e3e079059c66e4e2409012
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981235"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703264"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Azure SQL Database 및 데이터 웨어하우스 네트워크 액세스 제어
 
@@ -72,7 +72,9 @@ Ip 기반 방화벽은 클라이언트 컴퓨터의 [ip 주소](sql-database-ser
 ## <a name="virtual-network-firewall-rules"></a>Virtual Network 방화벽 규칙
 
 IP 규칙 외에도 Azure SQL Server 방화벽을 사용 하 여 *가상 네트워크 규칙*을 정의할 수 있습니다.  
-자세한 내용은 [Azure SQL Database에 대한 Virtual Network 서비스 엔드포인트 및 규칙](sql-database-vnet-service-endpoint-rule-overview.md)을 참조하세요.
+자세한 내용은 [Azure SQL Database Virtual Network 서비스 끝점 및 규칙](sql-database-vnet-service-endpoint-rule-overview.md) 을 참조 하거나이 비디오를 시청 하세요.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
 
  ### <a name="azure-networking-terminology"></a>Azure 네트워킹 용어  
 Virtual Network 방화벽 규칙을 탐색 하면서 다음과 같은 Azure 네트워킹 용어를 알고 있어야 합니다.

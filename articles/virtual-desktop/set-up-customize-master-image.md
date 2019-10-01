@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 379664fb7170249b8f21ec9826f8b0b6fbe19892
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 57070b297446badb92ae1df4c435dd54cfe26823
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679535"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710190"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
 
@@ -204,7 +204,7 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-s
 
 이 섹션은 마스터 이미지가 로컬로 생성 된 경우에만 적용 됩니다.
 
-다음 지침에서는 마스터 이미지를 Azure storage 계정에 업로드 하는 방법을 설명 합니다. 아직 Azure storage 계정이 없는 경우 [이 문서의](https://code.visualstudio.com/tutorials/static-website/create-storage) 지침에 따라 새로 만듭니다.
+다음 지침에서는 마스터 이미지를 Azure storage 계정에 업로드 하는 방법을 설명 합니다. 아직 Azure storage 계정이 없는 경우 [이 문서의](/azure/javascript/tutorial-vscode-static-website-node-03) 지침에 따라 새로 만듭니다.
 
 1. 아직 없는 경우 VM 이미지 (VHD)를 고정으로 변환 합니다. 이미지를 고정으로 변환 하지 않으면 이미지를 만들 수 없습니다.
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: ee64a8af35f938def94e369bdb400fed6e2798c0
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: fd56fffe6b11d1c32d7abfe28140127d01933def
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146592"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695050"
 ---
 # <a name="troubleshooting"></a>문제 해결
 
@@ -44,7 +44,7 @@ ms.locfileid: "71146592"
 |    |특정 IP 주소는 부하 분산 장치, 지역 트래픽 관리자, Azure Express 경로를 통해 다시 라우팅되지 않습니다. 
 |    |Azure Express 경로를 사용 하는 경우 [비대칭 라우팅이 발생](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing)하는 경우 패킷을 삭제할 수 있는 시나리오가 있습니다.|
 
-## <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>프로토콜 위반 오류로 인 한 간헐적인 테스트 오류
+## <a name="test-failure-with-a-protocol-violation-error"></a>프로토콜 위반 오류로 인해 테스트 실패
 
 |증상/오류 메시지| 가능한 원인| 가능한 해결 방법 |
 |----|---------|-----|

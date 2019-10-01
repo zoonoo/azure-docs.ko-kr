@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b72bf3c95c1d2217688fbc98a4383aed898f7c0e
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: b498fa6e2a3edc26543b1fda3cc268ba37f113c3
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70192682"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694631"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능 보관
 
@@ -31,6 +31,166 @@ ms.locfileid: "70192682"
 - 버그 수정
 - 사용되지 않는 기능
 - 변경 계획
+
+---
+
+## <a name="march-2019"></a>2019년 3월
+
+### <a name="identity-experience-framework-and-custom-policy-support-in-azure-active-directory-b2c-is-now-available-ga"></a>Azure Active Directory B2C에서 id 경험 프레임 워크 및 사용자 지정 정책 지원 제공 (GA)
+
+**유형:** 새 기능  
+**서비스 범주:** B2C - 소비자 ID 관리  
+**제품 기능:** B2B/B2C
+
+이제 규모에 따라 지원 되는 다음 작업과 Azure SLA를 포함 하 여 Azure AD B2C에서 사용자 지정 정책을 만들 수 있습니다.
+
+- 사용자 지정 정책을 사용 하 여 사용자 지정 인증 사용자 경험를 만들고 업로드 합니다.
+
+- 클레임 공급자 간의 교환으로 사용자 경험을 단계별로 설명합니다.
+
+- 사용자 경험에서 조건부 분기를 정의합니다.
+
+- 실시간 의사 결정 및 통신에서 사용할 클레임을 변환 하 고 매핑합니다.
+
+- 사용자 지정 인증 사용자 경험에서 REST API 사용 서비스를 사용 합니다. 예를 들어 전자 메일 공급자, CRMs 및 독점 권한 부여 시스템이 있습니다.
+
+- OpenIDConnect 프로토콜을 준수 하는 id 공급자와 페더레이션 합니다. 예를 들어 다중 테 넌 트 Azure AD, 소셜 계정 공급자 또는 2 단계 인증 공급자를 사용 합니다.
+
+사용자 지정 정책을 만드는 방법에 대 한 자세한 내용은 [Azure Active Directory B2C의 사용자 지정 정책에 대 한 개발자](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-developer-notes-custom) 정보 및 [사례 연구를 비롯 한 Alex Simon의 블로그 게시물을](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-custom-policies-to-build-your-own-identity-journeys/ba-p/382791)참조 하세요.
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---march-2019"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로운 페더레이션된 앱-3 월 2019
+
+**유형:** 새 기능  
+**서비스 범주:** 엔터프라이즈 앱  
+**제품 기능:** 타사 통합
+
+3 월 2019에 앱 갤러리에 대 한 페더레이션 지원을 통해 이러한 14 개의 새 앱을 추가 했습니다.
+
+[ISEC7 Mobile Exchange Delegate](https://www.isec7.com/english/), [MediusFlow](https://office365.cloudapp.mediusflow.com/), [ePlatform](https://docs.microsoft.com/azure/active-directory/saas-apps/eplatform-tutorial), [Fulcrum](https://docs.microsoft.com/azure/active-directory/saas-apps/fulcrum-tutorial), [ExcelityGlobal](https://docs.microsoft.com/azure/active-directory/saas-apps/excelityglobal-tutorial), [Explanation-Based Auditing System](https://docs.microsoft.com/azure/active-directory/saas-apps/explanation-based-auditing-system-tutorial), [Lean](https://docs.microsoft.com/azure/active-directory/saas-apps/lean-tutorial), [Powerschool Performance Matters](https://docs.microsoft.com/azure/active-directory/saas-apps/powerschool-performance-matters-tutorial), [Cinode](https://cinode.com/), [Iris Intranet](https://docs.microsoft.com/azure/active-directory/saas-apps/iris-intranet-tutorial), [Empactis](https://docs.microsoft.com/azure/active-directory/saas-apps/empactis-tutorial), [SmartDraw](https://docs.microsoft.com/azure/active-directory/saas-apps/smartdraw-tutorial), [Confirmit Horizons](https://docs.microsoft.com/azure/active-directory/saas-apps/confirmit-horizons-tutorial), [TAS](https://docs.microsoft.com/azure/active-directory/saas-apps/tas-tutorial)
+
+앱에 대한 자세한 내용은 [Azure Active Directory와 SaaS 애플리케이션 통합](https://aka.ms/appstutorial)을 참조하세요. Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 자세한 내용은 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](https://aka.ms/azureadapprequest)을 참조하세요.
+
+---
+
+### <a name="new-zscaler-and-atlassian-provisioning-connectors-in-the-azure-ad-gallery---march-2019"></a>Azure AD 갤러리에서 새로운 Zscaler 및 Atlassian 프로 비전 커넥터-3 월 2019
+
+**유형:** 새 기능  
+**서비스 범주:** 앱 프로비전  
+**제품 기능:** 타사 통합
+
+다음 앱의 사용자 계정을 만들고, 업데이트 하 고, 삭제 하는 작업을 자동화 합니다.
+
+[Zscaler](https://aka.ms/ZscalerProvisioning), [Zscaler Beta](https://aka.ms/ZscalerBetaProvisioning), [Zscaler One](https://aka.ms/ZscalerOneProvisioning), [Zscaler 2](https://aka.ms/ZscalerTwoProvisioning), Zscaler [3](https://aka.ms/ZscalerThreeProvisioning), Zscaler [zscloud](https://aka.ms/ZscalerZSCloudProvisioning), [Atlassian cloud](https://aka.ms/atlassianCloudProvisioning)
+
+자동화 된 사용자 계정 프로 비전을 통해 조직의 보안을 강화 하는 방법에 대 한 자세한 내용은 [AZURE AD를 사용 하 여 SaaS 응용 프로그램에 사용자 프로 비전 자동화](https://aka.ms/ProvisioningDocumentation)를 참조 하세요.
+
+---
+
+### <a name="restore-and-manage-your-deleted-office-365-groups-in-the-azure-ad-portal"></a>Azure AD 포털에서 삭제 된 Office 365 그룹 복원 및 관리
+
+**유형:** 새 기능  
+**서비스 범주:** 그룹 관리  
+**제품 기능:** 공동 작업
+
+이제 Azure AD 포털에서 삭제 된 Office 365 그룹을 보고 관리할 수 있습니다. 이렇게 변경 하면 조직에서 필요 하지 않은 모든 그룹을 영구적으로 삭제 하는 것과 함께 복원할 수 있는 그룹을 확인할 수 있습니다.
+
+자세한 내용은 [만료 또는 삭제 된 그룹 복원](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-restore-deleted#view-and-manage-the-deleted-office-365-groups-that-are-available-to-restore)을 참조 하세요.
+
+---
+
+### <a name="single-sign-on-is-now-available-for-azure-ad-saml-secured-on-premises-apps-through-application-proxy-public-preview"></a>이제 응용 프로그램 프록시 (공개 미리 보기)를 통해 Azure AD SAML 보안이 설정 된 온-프레미스 앱에 대해 Single sign-on을 사용할 수 있습니다.
+
+**유형:** 새 기능  
+**서비스 범주:** 앱 프록시  
+**제품 기능:** Access Control
+
+이제 응용 프로그램 프록시를 통해 이러한 앱에 대 한 원격 액세스와 함께 온-프레미스 SAML 인증 앱에 대 한 SSO (Single Sign-On) 환경을 제공할 수 있습니다. 온-프레미스 앱에서 SAML SSO를 설정 하는 방법에 대 한 자세한 내용은 [응용 프로그램 프록시를 사용 하는 온-프레미스 응용 프로그램에 대 한 saml Single Sign-On (미리 보기)](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-on-premises-apps)를 참조 하세요.
+
+---
+
+### <a name="client-apps-in-request-loops-will-be-interrupted-to-improve-reliability-and-user-experience"></a>요청 루프의 클라이언트 앱이 중단 되어 안정성 및 사용자 환경을 개선 합니다.
+
+**유형:** 새 기능  
+**서비스 범주:** 인증(로그인)  
+**제품 기능:** 사용자 인증
+
+클라이언트 앱은 짧은 시간 동안 수백 개의 동일한 로그인 요청을 잘못 발행할 수 있습니다. 이러한 요청은 성공 여부에 관계 없이, 모든 사용자에 대 한 대기 시간이 IDP 모든 사용자에 대 한 대기 시간이 증가 하 고 IDP의 가용성을 줄이도록 합니다.
+
+이 업데이트는 일반 `invalid_grant` 작업의 `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request` 범위를 벗어나 짧은 시간 동안 중복 요청을 여러 번 실행 하는 클라이언트 앱에 오류를 보냅니다. 이 문제가 발생 하는 클라이언트 앱은 대화형 프롬프트를 표시 하 여 사용자가 다시 로그인 하도록 해야 합니다. 이 변경 내용 및이 오류가 발생 하는 경우 앱을 수정 하는 방법에 대 한 자세한 내용은 [인증의 새로운 기능](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#looping-clients-will-be-interrupted)을 참조 하세요.
+
+---
+
+### <a name="new-audit-logs-user-experience-now-available"></a>새 감사 로그 사용자 환경을 지금 사용 가능
+
+**유형:** 변경된 기능  
+**서비스 범주:** 보고  
+**제품 기능:** 모니터링 및 보고
+
+가독성을 높이고 정보를 검색 하는 방법을 개선 하는 데 도움이 되는 새로운 Azure AD **감사 로그** 페이지를 만들었습니다. 새 **감사 로그** 페이지를 표시 하려면 Azure AD의 **작업** 섹션에서 **감사 로그** 를 선택 합니다.
+
+![새 감사 로그 페이지, 샘플 정보 포함](media/whats-new/audit-logs-page.png)
+
+새 **감사 로그** 페이지에 대 한 자세한 내용은 [Azure Active Directory 포털에서 감사 작업 보고서](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs#audit-logs)를 참조 하세요.
+
+---
+
+### <a name="new-warnings-and-guidance-to-help-prevent-accidental-administrator-lockout-from-misconfigured-conditional-access-policies"></a>잘못 구성 된 조건부 액세스 정책에서 실수로 인 한 관리자의 잠금 방지에 도움이 되는 새로운 경고 및 지침
+
+**유형:** 변경된 기능  
+**서비스 범주:** 조건부 액세스  
+**제품 기능:** ID 보안 및 보호
+
+잘못 구성 된 조건부 액세스 정책을 통해 관리자가 실수로 자체 테 넌 트를 잠그지 못하도록 방지 하기 위해 Azure Portal에서 새로운 경고 및 업데이트 된 지침을 만들었습니다. 새 지침에 대 한 자세한 내용은 [Azure Active Directory 조건부 액세스의 서비스 종속성 이란?](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies)을 참조 하세요.
+
+---
+
+### <a name="improved-end-user-terms-of-use-experiences-on-mobile-devices"></a>모바일 장치에 대 한 최종 사용자 사용 환경 개선
+
+**유형:** 변경된 기능  
+**서비스 범주:** 서비스 계약  
+**제품 기능:** 거버넌스
+
+Microsoft는 모바일 장치에서 사용 약관을 검토 하 고 동의 하는 방법을 개선 하는 데 도움이 되는 기존 사용 환경을 업데이트 했습니다. 이제 확대 및 축소 하 고, 뒤로 돌아가서 정보를 다운로드 하 고, 하이퍼링크를 선택할 수 있습니다. 업데이트 된 사용 약관에 대 한 자세한 내용은 [Azure Active Directory 사용 약관 기능](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#what-terms-of-use-looks-like-for-users)을 참조 하세요.
+
+---
+
+### <a name="new-azure-ad-activity-logs-download-experience-available"></a>새 Azure AD 활동 로그 다운로드 환경 사용 가능
+
+**유형:** 변경된 기능  
+**서비스 범주:** 보고  
+**제품 기능:** 모니터링 및 보고
+
+이제 Azure Portal에서 직접 대량의 활동 로그를 다운로드할 수 있습니다. 이 업데이트를 통해 다음을 수행할 수 있습니다.
+
+- 최대 25만 개의 행을 다운로드 합니다.
+
+- 다운로드가 완료 되 면 알림 받기
+
+- 파일 이름을 사용자 지정 합니다.
+
+- 출력 형식 (JSON 또는 CSV)을 결정 합니다.
+
+이 기능 [에 대 한 자세한 내용은 빠른 시작: Azure Portal를 사용 하 여 감사 보고서 다운로드](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-download-audit-report)
+
+---
+
+### <a name="breaking-change-updates-to-condition-evaluation-by-exchange-activesync-eas"></a>호환성이 손상되는 변경 내용: EAS (Exchange ActiveSync)에의 한 조건 평가 업데이트
+
+**유형:** 변경 계획  
+**서비스 범주:** 조건부 액세스  
+**제품 기능:** Access Control
+
+EAS (Exchange ActiveSync)에서 다음과 같은 조건을 평가 하는 방법을 업데이트 하는 중입니다.
+
+- 국가, 지역 또는 IP 주소를 기준으로 하는 사용자 위치
+
+- 로그인 위험
+
+- 디바이스 플랫폼
+
+이전에 조건부 액세스 정책에서 이러한 조건을 사용한 경우 조건 동작이 변경 될 수 있다는 점에 유의 해야 합니다. 예를 들어 이전에 정책에서 사용자 위치 조건을 사용 하는 경우 사용자의 위치를 기준으로 현재 건너뛴 정책을 찾을 수 있습니다.
 
 ---
 
@@ -1965,7 +2125,7 @@ Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 �
 
 Azure AD Premium P1 버전을 사용 하 여 라이선스에 포함 되지 않은 검색은 추가 위험이 검색 된 위험 검색 로그인으로 나타납니다.
 
-자세한 내용은 [Azure Active Directory 위험 탐지](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)를 참조 하세요.
+자세한 내용은 [Azure Active Directory 위험 탐지](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)를 참조하세요.
  
 ---
 

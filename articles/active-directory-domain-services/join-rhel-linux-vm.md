@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.author: iainfou
-ms.openlocfilehash: 9c9b4cdfb77f1605a6730d0735541eeb78dcd323
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: b90650fa2cd343c81b7bbb2fcea24c3a95f537b6
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075537"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702046"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인에 Red Hat Enterprise Linux 가상 컴퓨터 연결
 
@@ -24,7 +24,7 @@ ms.locfileid: "71075537"
 
 이 문서에서는 Azure AD DS 관리 되는 도메인에 Red Hat Enterprise Linux (RHEL) VM을 조인 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -78,14 +78,24 @@ sudo vi /etc/hosts
 
 Vm을 Azure AD DS 관리 되는 도메인에 가입 하려면 VM에 몇 가지 추가 패키지가 필요 합니다. 이러한 패키지를 설치 하 고 구성 하려면 다음을 사용 하 여 `yum`도메인 가입 도구를 업데이트 하 고 설치 합니다.
 
+ **RHEL 7** 
+
 ```console
 sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+```
+
+ **RHEL 6** 
+
+```console
+sudo yum install adcli sssd authconfig krb5-workstation
 ```
 
 ## <a name="join-vm-to-the-managed-domain"></a>VM을 관리 되는 도메인에 가입
 
 필요한 패키지가 VM에 설치 되었으므로 Azure AD DS 관리 되는 도메인에 VM을 가입 시킵니다.
-
+ 
+  **RHEL 7**
+     
 1. `realm discover` 명령을 사용 하 여 Azure AD DS 관리 되는 도메인을 검색 합니다. 다음 예에서는 영역 *CONTOSO.COM*을 검색 합니다. Azure AD DS 관리 되는 도메인 이름을 모두 대문자로 지정 합니다.
 
     ```console
@@ -93,7 +103,7 @@ sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir 
     ```
 
    `realm discover` 명령이 Azure AD DS 관리 되는 도메인을 찾을 수 없는 경우 다음 문제 해결 단계를 검토 합니다.
-
+   
     * VM에서 도메인에 연결할 수 있는지 확인 합니다. `ping contoso.com` 긍정 회신이 반환 되는지 확인 합니다.
     * VM이 Azure AD DS 관리 되는 도메인을 사용할 수 있는 동일한 또는 피어 링 가상 네트워크에 배포 되었는지 확인 합니다.
     * 가상 네트워크에 대 한 DNS 서버 설정이 Azure AD DS 관리 되는 도메인의 도메인 컨트롤러를 가리키도록 업데이트 되었는지 확인 합니다.
@@ -101,10 +111,10 @@ sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir 
 1. 이제 `kinit` 명령을 사용 하 여 Kerberos를 초기화 합니다. *AAD DC 관리자* 그룹에 속한 사용자를 지정 합니다. 필요한 경우 [AZURE AD의 그룹에 사용자 계정을 추가](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)합니다.
 
     Azure AD DS 관리 되는 도메인 이름을 모두 대문자로 입력 해야 합니다. 다음 예에서는 라는 `contosoadmin@contoso.com` 계정이 Kerberos를 초기화 하는 데 사용 됩니다. *AAD DC 관리자* 그룹의 구성원 인 사용자 계정을 입력 합니다.
-
+    
     ```console
     kinit contosoadmin@CONTOSO.COM
-    ```
+    ``` 
 
 1. 마지막으로 `realm join` 명령을 사용 하 여 Azure AD DS 관리 되는 도메인에 컴퓨터를 가입 시킵니다. 이전`kinit`명령에서 지정한 *AAD DC Administrators* 그룹의 구성원 인 동일한 사용자 계정 (예 :)을사용합니다.`contosoadmin@CONTOSO.COM`
 
@@ -118,7 +128,108 @@ VM을 Azure AD DS 관리 되는 도메인에 가입 하는 데 몇 분 정도 �
 Successfully enrolled machine in realm
 ```
 
+  **RHEL 6** 
+
+1. `adcli info` 명령을 사용 하 여 Azure AD DS 관리 되는 도메인을 검색 합니다. 다음 예에서는 영역 *CONTOSO.COM*을 검색 합니다. Azure AD DS 관리 되는 도메인 이름을 모두 대문자로 지정 합니다.
+
+    ```console
+    sudo adcli info contoso.com
+    ```
+    
+   `adcli info` 명령이 Azure AD DS 관리 되는 도메인을 찾을 수 없는 경우 다음 문제 해결 단계를 검토 합니다.
+   
+    * VM에서 도메인에 연결할 수 있는지 확인 합니다. `ping contoso.com` 긍정 회신이 반환 되는지 확인 합니다.
+    * VM이 Azure AD DS 관리 되는 도메인을 사용할 수 있는 동일한 또는 피어 링 가상 네트워크에 배포 되었는지 확인 합니다.
+    * 가상 네트워크에 대 한 DNS 서버 설정이 Azure AD DS 관리 되는 도메인의 도메인 컨트롤러를 가리키도록 업데이트 되었는지 확인 합니다.
+
+1. 먼저 `adcli join` 명령을 사용 하 여 도메인에 가입 합니다 .이 명령은 컴퓨터를 인증 하는 keytab도 만듭니다. *AAD DC Administrators* 그룹의 구성원 인 사용자 계정을 사용 합니다. 
+
+    ```console
+    sudo adcli join contoso.com -U contosoadmin
+    ```
+
+1. 이제 `/ect/krb5.conf`을 구성 하 고 `/etc/sssd/sssd.conf` 파일을 만들어 `contoso.com` Active Directory 도메인을 사용 합니다. 
+   @No__t-0이 사용자의 도메인 이름으로 대체 되었는지 확인 합니다.
+
+    편집기를 사용 하 여 `/ect/krb5.conf` 파일을 엽니다.
+
+    ```console
+    sudo vi /etc/krb5.conf
+    ```
+
+    다음 샘플과 일치 하도록 `krb5.conf` 파일을 업데이트 합니다.
+
+    ```console
+    [logging]
+     default = FILE:/var/log/krb5libs.log
+     kdc = FILE:/var/log/krb5kdc.log
+     admin_server = FILE:/var/log/kadmind.log
+    
+    [libdefaults]
+     default_realm = CONTOSO.COM
+     dns_lookup_realm = true
+     dns_lookup_kdc = true
+     ticket_lifetime = 24h
+     renew_lifetime = 7d
+     forwardable = true
+    
+    [realms]
+     CONTOSO.COM = {
+     kdc = CONTOSO.COM
+     admin_server = CONTOSO.COM
+     }
+    
+    [domain_realm]
+     .CONTOSO.COM = CONTOSO.COM
+     CONTOSO.COM = CONTOSO.COM
+    ```
+    
+   @No__t-0 파일을 만듭니다.
+    
+    ```console
+    sudo vi /etc/sssd/sssd.conf
+    ```
+
+    다음 샘플과 일치 하도록 `sssd.conf` 파일을 업데이트 합니다.
+
+    ```console
+    [sssd]
+     services = nss, pam, ssh, autofs
+     config_file_version = 2
+     domains = CONTOSO.COM
+    
+    [domain/CONTOSO.COM]
+    
+     id_provider = ad
+    ```
+
+1. @No__t-0 권한이 600이 고 루트 사용자가 소유 하 고 있는지 확인 합니다.
+
+    ```console
+    sudo chmod 600 /etc/sssd/sssd.conf
+    sudo chown root:root /etc/sssd/sssd.conf
+    ```
+
+1. @No__t-0을 사용 하 여 VM에 AD Linux 통합에 대해 지시 합니다.
+
+    ```console
+    sudo authconfig --enablesssd --enablesssdauth --update
+    ```
+    
+1. Sssd 서비스를 시작 하 고 사용 하도록 설정 합니다.
+
+    ```console
+    sudo service sssd start
+    sudo chkconfig sssd on
+    ```
+
 VM이 도메인 가입 프로세스를 성공적으로 완료할 수 없는 경우 VM의 네트워크 보안 그룹이 TCP + UDP 포트 464의 아웃 바운드 Kerberos 트래픽을 Azure AD DS 관리 되는 도메인에 대 한 가상 네트워크 서브넷으로 허용 하는지 확인 합니다.
+
+이제 @no__t를 사용 하 여 사용자 AD 정보를 쿼리할 수 있는지 확인 합니다.-0
+
+```console
+sudo getent passwd contosoadmin
+```
 
 ## <a name="allow-password-authentication-for-ssh"></a>SSH에 대 한 암호 인증 허용
 
@@ -140,8 +251,16 @@ VM이 도메인 가입 프로세스를 성공적으로 완료할 수 없는 경�
 
 1. 변경 내용을 적용 하 고 사용자가 암호를 사용 하 여 로그인 하도록 하려면 SSH 서비스를 다시 시작 합니다.
 
+   **RHEL 7** 
+    
     ```console
     sudo systemctl restart sshd
+    ```
+
+   **RHEL 6** 
+    
+    ```console
+    sudo service sshd restart
     ```
 
 ## <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>'AAD DC Administrators' 그룹 sudo 권한 부여

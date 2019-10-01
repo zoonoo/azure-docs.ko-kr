@@ -16,12 +16,12 @@ ms.date: 09/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 467fbc421cdd681d0aab52faf75a4987ee849b15
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: e7555dc44e533945d360a3d2e4120f71f953a6d2
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345513"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709350"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -84,9 +84,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 - 처음 설치 될 때 ADSync 서비스를 시작할 수 없도록 하는 그룹 정책에 대 한 진단 및 문제 해결이 개선 되었습니다.
 - Windows 컴퓨터의 표시 이름이 잘못 작성 된 버그를 수정 했습니다.
 - Windows 컴퓨터에 대 한 OS 형식이 잘못 작성 된 버그를 수정 합니다.
-- 비 Windows 10 컴퓨터가 예기치 않게 동기화 된 버그를 수정 했습니다. 이러한 변경의 효과는 이전에 동기화 된 비 Windows-10 컴퓨터가 이제 삭제 된다는 것입니다. Windows 컴퓨터의 동기화는 Windows 10 장치에만 작동 하는 하이브리드 Azure AD 도메인 가입에만 사용 되기 때문에 어떤 기능에도 영향을 주지 않습니다. 
-- Windows 컴퓨터의 표시 이름이 잘못 작성 된 버그를 수정 합니다.
-- Windows 컴퓨터에 대 한 OS 형식이 잘못 작성 된 버그를 수정 합니다.
+- 비 Windows 10 컴퓨터가 예기치 않게 동기화 된 버그를 수정 했습니다. 이러한 변경의 효과는 이전에 동기화 된 비 Windows-10 컴퓨터가 이제 삭제 된다는 것입니다. Windows 컴퓨터의 동기화는 Windows 10 장치에만 작동 하는 하이브리드 Azure AD 도메인 가입에만 사용 되기 때문에 어떤 기능에도 영향을 주지 않습니다.
 - ADSync PowerShell 모듈에 몇 가지 새로운 (내부) cmdlet을 추가 했습니다.
 
 

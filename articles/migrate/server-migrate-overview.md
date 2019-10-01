@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: raynew
-ms.openlocfilehash: f27982b4e310d9865e497a3e1e10be9948beb928
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9ddb63fcf4d960d2d8ed2671eba83fc38cddcbe4
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640738"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710044"
 ---
 # <a name="select-a-vmware-migration-option"></a>VMware 마이그레이션 옵션 선택
 
@@ -34,7 +34,7 @@ Azure Migrate 서버 마이그레이션 도구를 사용하여 VMware VM을 Azur
 **어플라이언스 배포** | [Azure Migrate 어플라이언스](migrate-appliance.md) 는 온-프레미스에 배포 됩니다. | [Azure Migrate 복제 어플라이언스](migrate-replication-appliance.md) 는 온-프레미스에 배포 됩니다.
 **Site Recovery 호환성** | 형식이. | Site Recovery를 사용 하 여 컴퓨터에 대 한 복제를 설정한 경우 Azure Migrate 서버 마이그레이션에 복제할 수 없습니다.
 **대상 디스크** | 관리 디스크 | 관리 디스크
-**디스크 제한** | OS 디스크: 2TB<br/><br/> 데이터 디스크: 4 TB<br/><br/> 최대 디스크: 60 | OS 디스크: 2TB<br/><br/> 데이터 디스크: 4 TB<br/><br/> 최대 디스크: 63
+**디스크 제한** | OS 디스크: 2TB<br/><br/> 데이터 디스크: 4 TB<br/><br/> 최대 디스크: 60 | OS 디스크: 2TB<br/><br/> 데이터 디스크: 8 TB<br/><br/> 최대 디스크: 63
 **통과 디스크** | 지원되지 않음 | 지원됨
 **UEFI 부팅** | 지원되지 않음 | Azure에서 마이그레이션된 VM은 자동으로 BIOS 부팅 VM으로 변환 됩니다.<br/><br/> OS 디스크에는 최대 4 개의 파티션이 있어야 하 고 볼륨은 NTFS로 포맷 되어야 합니다.
 

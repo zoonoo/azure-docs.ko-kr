@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 9a751956f73ca4a88545e034a32d699c0766dd1d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 85f7ea11638278a010b2a94d9c6472857f51b687
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855370"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710166"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 
@@ -44,7 +44,7 @@ ms.locfileid: "68855370"
 > * [AZCopy](../common/storage-use-azcopy-v10.md)
 > * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Visual Studio Code 확장](https://code.visualstudio.com/tutorials/static-website/getting-started)
+> * [Visual Studio Code 확장](/azure/javascript/tutorial-vscode-static-website-node-01)
 
 ## <a name="viewing-content"></a>콘텐츠 보기
 
@@ -56,11 +56,11 @@ ms.locfileid: "68855370"
 |**Azure CLI** | [Azure CLI를 사용 하 여 웹 사이트 URL을 찾습니다.](storage-blob-static-website-how-to.md#cli-find-url) |
 |**Azure PowerShell 모듈** | [PowerShell을 사용 하 여 웹 사이트 URL 찾기](storage-blob-static-website-how-to.md#powershell-find-url) |
 
-사이트의 URL은 지역 코드를 포함 합니다. 예를 들어 URL `https://contosoblobaccount.z22.web.core.windows.net/` 은 지역 코드 `z22`를 포함 합니다.
+사이트의 URL은 지역 코드를 포함 합니다. 예를 들어 @no__t URL에는-1 @no__t 지역 코드가 포함 됩니다.
 
 이 코드는 URL을 유지 해야 하지만 내부용 으로만 사용 되며, 다른 방법으로는 해당 코드를 사용할 필요가 없습니다.
 
-정적 웹 사이트 호스팅을 사용 하도록 설정할 때 지정한 인덱스 문서는 사용자가 사이트를 열고 특정 파일 (예: `https://contosoblobaccount.z22.web.core.windows.net`)을 지정 하지 않을 때 나타납니다.  
+정적 웹 사이트 호스팅을 사용 하도록 설정할 때 지정한 인덱스 문서는 사용자가 사이트를 열고 특정 파일을 지정 하지 않을 때 나타납니다 (예: `https://contosoblobaccount.z22.web.core.windows.net`).  
 
 서버에서 404 오류를 반환 하 고 웹 사이트를 사용 하도록 설정할 때 오류 문서를 지정 하지 않은 경우 기본 404 페이지가 사용자에 게 반환 됩니다.
 
@@ -74,9 +74,9 @@ ms.locfileid: "68855370"
 
 기본 정적 웹 사이트 끝점에는 영향을 주지 않지만 공용 액세스 수준에 대 한 변경 내용은 주 blob service 끝점에 영향을 줍니다.
 
-예를 들어 **$web** 컨테이너의 공용 액세스 수준을 **Private (익명 액세스 없음)** 에서 **blob (blob에 대 한 익명 읽기 액세스**)로 변경한 경우 기본 정적 웹 사이트 끝점 `https://contosoblobaccount.z22.web.core.windows.net/index.html`에대한공용액세스수준변경 되지 않습니다.
+예를 들어 **$web** 컨테이너의 공용 액세스 수준을 **개인 (익명 액세스 없음)** 에서 **blob (blob에 대 한 익명 읽기 액세스**)로 변경 하는 경우 주 정적 웹 사이트 끝점에 대 한 공용 액세스 수준 `https://contosoblobaccount.z22.web.core.windows.net/index.html`입니다. 변경 되지 않습니다.
 
-그러나 기본 blob 서비스 끝점 `https://contosoblobaccount.blob.core.windows.net/$web/index.html` 에 대 한 공용 액세스는 개인에서 공용으로 변경 됩니다. 이제 사용자는 이러한 두 끝점 중 하나를 사용 하 여 해당 파일을 열 수 있습니다.
+그러나 기본 blob 서비스 끝점에 대 한 공용 액세스 `https://contosoblobaccount.blob.core.windows.net/$web/index.html`은 개인에서 공용으로 변경 됩니다. 이제 사용자는 이러한 두 끝점 중 하나를 사용 하 여 해당 파일을 열 수 있습니다.
 
 ## <a name="content-delivery-network-cdn-and-secure-socket-layer-ssl-support"></a>Content Delivery Network (CDN) 및 SSL (Secure Socket Layer) 지원
 

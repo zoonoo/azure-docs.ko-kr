@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 903492d790cdde93dfe84763de139fe85e26b234
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 02765538ce8a351db539438837b6426c0896d2d4
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218275"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71701886"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API 사용
 
@@ -43,16 +43,9 @@ Azure AD B2C 테 넌 트가 있으면 [Azure Portal](https://portal.azure.com)�
 
 ### <a name="register-application-in-azure-active-directory"></a>Azure Active Directory에 응용 프로그램 등록
 
-B2C 테 넌 트와 함께 Azure AD Graph API을 사용 하려면 Azure Active Directory **앱 등록** 워크플로를 사용 하 여 응용 프로그램을 등록 해야 합니다.
+B2C 테 넌 트와 함께 Azure AD Graph API을 사용 하려면 Azure Active Directory 응용 프로그램 등록 워크플로를 사용 하 여 응용 프로그램을 등록 해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리로 전환 합니다.
-1. 왼쪽 메뉴에서 **Azure Active Directory** (Azure AD B2C*아님* )를 선택 합니다. 또는 **모든 서비스** 를 선택한 다음 **Azure Active Directory**을 검색 하 고 선택 합니다.
-1. 왼쪽 메뉴의 **관리** 에서 **앱 등록 (레거시)** 를 선택 합니다.
-1. **새 응용 프로그램 등록** 을 선택 합니다.
-1. 애플리케이션의 이름을 입력합니다. 예를 들어 *관리 앱*입니다.
-1. **로그온 url**에 유효한 url을 입력 합니다. 예: *https://localhost* . 이 끝점에 연결할 필요는 없지만 유효한 URL 이어야 합니다.
-1. **만들기**를 선택합니다.
-1. **등록 된 앱** 개요 페이지에 표시 되는 **응용 프로그램 ID** 를 기록 합니다. 이후 단계에서 구성에이 값을 사용 합니다.
+[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
 
 ### <a name="assign-api-access-permissions"></a>API 액세스 권한 할당
 
@@ -83,7 +76,7 @@ B2C 테 넌 트와 함께 Azure AD Graph API을 사용 하려면 Azure Active Di
 1. **관리**에서 **역할 및 관리자**를 선택 합니다.
 1. **사용자 관리자** 역할을 선택 합니다.
 1. **할당 추가**를 선택 합니다.
-1. **선택** 텍스트 상자에 이전에 등록 한 응용 프로그램의 이름 (예: *관리 앱*)을 입력 합니다. 검색 결과에 표시 되는 응용 프로그램을 선택 합니다.
+1. **선택** 텍스트 상자에 이전에 등록 한 응용 프로그램의 이름 (예: *managementapp1*)을 입력 합니다. 검색 결과에 표시 되는 응용 프로그램을 선택 합니다.
 1. **추가**를 선택합니다. 권한이 완전히 전파 되는 데 몇 분 정도 걸릴 수 있습니다.
 
 이제 Azure AD B2C 응용 프로그램에 사용자를 삭제 하거나 B2C 테 넌 트에서 암호를 업데이트 하는 데 필요한 추가 권한이 있습니다.

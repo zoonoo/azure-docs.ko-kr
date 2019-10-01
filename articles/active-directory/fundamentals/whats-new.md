@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea6e654037e545a1b969aa2a9b41245fb2892bff
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 2598ce01c749574833d53133ed3aced184e71737
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273817"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694613"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -36,6 +36,132 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 - 변경 계획
 
 이 페이지는 매월 업데이트되므로 정기적으로 다시 방문해 주세요. 6개월 이상된 항목을 찾으려는 경우 [Azure Active Directory의 새로운 기능 아카이브](whats-new-archive.md)에서 찾을 수 있습니다.
+
+---
+
+## <a name="september-2019"></a>9 월 2019
+
+### <a name="my-profile-is-re-naming-and-integrating-with-the-microsoft-office-account-page"></a>내 프로필이 다시 이름이 지정 되 고 Microsoft Office 계정 페이지와 통합 됩니다.
+
+**유형:** 변경 계획  
+**서비스 범주:** 내 프로필/계정  
+**제품 기능:** 공동 작업
+
+10 월부터 내 프로필 환경이 내 계정이 됩니다. 이 변경의 일부로 현재 표시 되는 모든 위치에서 **내 프로필이** **내 계정**으로 변경 됩니다. 이름 변경 및 일부 디자인 개선 사항에 따라 업데이트 된 환경은 Microsoft Office 계정 페이지와의 추가 통합을 제공 합니다. 특히 **개인 정보** 페이지의 office 관련 연락처 기본 설정과 함께 **개요 계정** 페이지에서 office 설치 및 구독에 액세스할 수 있습니다.
+
+내 프로필 (미리 보기) 환경에 대 한 자세한 내용은 [내 프로필 (미리 보기) 포털 개요](https://docs.microsoft.com/azure/active-directory/user-help/myprofile-portal-overview)를 참조 하세요.
+
+---
+
+### <a name="bulk-manage-groups-and-members-using-csv-files-in-the-azure-ad-portal-public-preview"></a>Azure AD 포털에서 CSV 파일을 사용 하 여 그룹 및 구성원 대량 관리 (공개 미리 보기)
+
+**유형:** 새 기능  
+**서비스 범주:** 그룹 관리  
+**제품 기능:** 공동 작업
+
+Azure AD 포털에서 대량 그룹 관리 환경의 공개 미리 보기 가용성을 발표 하 게 되어 기쁘게 생각 합니다. 이제 CSV 파일 및 Azure AD 포털을 사용 하 여 다음을 비롯 한 그룹 및 멤버 목록을 관리할 수 있습니다.
+
+- 그룹에서 구성원 추가 또는 제거
+
+- 디렉터리에서 그룹 목록을 다운로드 하 고 있습니다.
+
+- 특정 그룹에 대 한 그룹 구성원 목록을 다운로드 합니다.
+
+자세한 내용은 [구성원 대량 추가](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-bulk-import-members), 구성원 [대량 제거](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-bulk-remove-members), [구성원 목록 대량 다운로드](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-bulk-download-members)및 [그룹 대량 다운로드 목록을](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-bulk-download)참조 하세요.
+
+---
+
+### <a name="dynamic-consent-is-now-supported-through-a-new-admin-consent-endpoint"></a>이제 새 관리자 동의 끝점을 통해 동적 동의가 지원 됩니다.
+
+**유형:** 새 기능  
+**서비스 범주:** 인증(로그인)  
+**제품 기능:** 사용자 인증
+
+Microsoft는 새 관리자 동의 끝점을 만들어 동적 동의를 지원 합니다 .이 끝점은 Microsoft Id 플랫폼에서 동적 승인 모델을 사용 하려는 앱에 유용 합니다.
+
+이 새 끝점을 사용 하는 방법에 대 한 자세한 내용은 [관리자 동의 끝점 사용](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent)을 참조 하세요.
+
+---
+
+### <a name="new-azure-ad-global-reader-role"></a>새 Azure AD 전역 읽기 권한자 역할
+
+**유형:** 새 기능  
+**서비스 범주:** RBAC  
+**제품 기능:** Access Control
+
+2019 년 9 월 24 일부 터 전역 읽기 권한자 라는 새로운 AD (Azure Active Directory) 역할 출시를 시작 하겠습니다. 이 출시는 프로덕션 및 GCC (Global cloud customer)부터 10 월에 전 세계에 출시 될 예정입니다.
+
+전역 읽기 권한자 역할은 전역 관리자에 해당 하는 읽기 전용입니다. 이 역할의 사용자는 Microsoft 365 서비스에서 설정 및 관리 정보를 읽을 수 있지만 관리 작업을 수행할 수는 없습니다. 조직의 전역 관리자 수를 줄이는 데 도움이 되는 전역 읽기 권한자 역할을 만들었습니다. 전역 관리자 계정은 강력 하 고 공격에 취약 하기 때문에 전역 관리자를 5 개 미만으로 하는 것이 좋습니다. 계획, 감사 또는 조사를 위해 전역 읽기 권한자 역할을 사용 하는 것이 좋습니다. 또한 전역 관리자 역할을 요구 하지 않고 작업을 수행할 수 있도록 Exchange 관리자와 같은 제한 된 다른 관리자 역할과 함께 전역 읽기 권한자 역할을 사용 하는 것이 좋습니다.
+
+전역 읽기 권한자 역할은 새로운 Microsoft 365 관리 센터, Exchange 관리 센터, 팀 관리 센터, Security Center, 준수 센터, Azure AD 관리 센터 및 장치 관리 관리 센터에서 작동 합니다.
+
+>[!NOTE]
+> 공개 미리 보기를 시작할 때 전역 읽기 권한자 역할은 다음에서 작동 하지 않습니다. SharePoint, Privileged Access Management, 고객 Lockbox, 민감도 레이블, 팀 수명 주기, & 호출 분석, 팀 IP 전화 장치 관리 및 팀 앱 카탈로그를 보고 하는 팀입니다. 이러한 모든 서비스는 나중에 역할을 수행 하기 위한 것입니다.
+
+자세한 내용은 [Azure Active Directory의 관리자 역할 권한](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)을 참조 하세요.
+
+---
+
+### <a name="access-an-on-premises-report-server-from-your-power-bi-mobile-app-using-azure-active-directory-application-proxy"></a>Azure Active Directory 응용 프로그램 프록시를 사용 하 여 Power BI Mobile 앱에서 온-프레미스 보고서 서버에 액세스
+
+**유형:** 새 기능  
+**서비스 범주:** 앱 프록시  
+**제품 기능:** Access Control
+
+Power BI 모바일 앱과 Azure AD 응용 프로그램 프록시 간의 새로운 통합을 통해 Power BI 모바일 앱에 안전 하 게 로그인 하 고 온-프레미스 Power BI Report Server에서 호스트 되는 조직의 보고서를 볼 수 있습니다.
+
+앱을 다운로드할 수 있는 위치를 포함 하 여 Power BI Mobile 앱에 대 한 자세한 내용은 [Power BI 사이트](https://powerbi.microsoft.com/mobile/)를 참조 하십시오. Azure AD 응용 프로그램 프록시를 사용 하 여 Power BI 모바일 앱을 설정 하는 방법에 대 한 자세한 내용은 Azure AD 응용 프로그램 프록시를 사용 하 [여 Power BI Mobile에 원격 액세스 사용](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-integrate-with-power-bi)을 참조 하세요.
+
+---
+
+### <a name="new-version-of-the-azureadpreview-powershell-module-is-available"></a>AzureADPreview PowerShell 모듈의 새 버전을 사용할 수 있습니다.
+
+**유형:** 변경된 기능  
+**서비스 범주:** 기타  
+**제품 기능:** 디렉터리
+
+다음을 포함 하 여 Azure AD에서 사용자 지정 역할을 정의 하 고 할당 하는 데 도움이 되는 새 cmdlet이 AzureADPreview 모듈에 추가 되었습니다.
+
+- `Add-AzureADMSFeatureRolloutPolicyDirectoryObject`
+- `Get-AzureADMSFeatureRolloutPolicy`
+- `New-AzureADMSFeatureRolloutPolicy`
+- `Remove-AzureADMSFeatureRolloutPolicy`
+- `Remove-AzureADMSFeatureRolloutPolicyDirectoryObject`
+- `Set-AzureADMSFeatureRolloutPolicy`
+
+---
+
+### <a name="new-version-of-azure-ad-connect"></a>Azure AD Connect의 새 버전
+
+**유형:** 변경된 기능  
+**서비스 범주:** 기타  
+**제품 기능:** 디렉터리
+
+자동 업그레이드 고객을 위해 업데이트 된 버전의 Azure AD Connect를 출시 했습니다. 이 새 버전에는 몇 가지 새로운 기능, 향상 된 기능 및 버그 수정이 포함 되어 있습니다. 이 새 버전에 대 한 자세한 내용은 [Azure AD Connect를 참조 하세요. 버전 릴리스 내역](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#14x0)을 참조하세요.
+
+---
+
+### <a name="azure-multi-factor-authentication-mfa-server-version-802-is-now-available"></a>MFA (Azure Multi-Factor Authentication) 서버, 버전 8.0.2 이제 사용 가능
+
+**유형:** 수정됨  
+**서비스 범주:** MFA  
+**제품 기능:** ID 보안 및 보호
+
+2019 년 7 월 1 일 이전에 MFA 서버를 활성화 한 기존 고객 인 경우 이제 최신 버전의 MFA 서버 (버전 8.0.2)를 다운로드할 수 있습니다. 새 버전에서는 다음을 수행 합니다.
+
+- Azure AD sync가 사용자를 사용 안 함에서 사용으로 변경 하는 경우 사용자에 게 전자 메일이 전송 되도록 하는 문제가 해결 되었습니다.
+
+- 태그 기능을 계속 사용 하면서 고객이 성공적으로 업그레이드할 수 있도록 문제를 해결 했습니다.
+
+- 코소보 (+ 383) 국가 코드가 추가 되었습니다.
+
+- Multifactorauthsvc.log에 일회성 바이패스 감사 로깅을 추가 했습니다.
+
+- 웹 서비스 SDK에 대 한 성능이 향상 되었습니다.
+
+- 기타 사소한 버그를 수정 했습니다.
+
+2019 년 7 월 1 일부 터 Microsoft는 새 배포를 위한 MFA 서버 제공을 중지 했습니다. Multi-factor authentication을 요구 하는 신규 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다. 자세한 내용은 [클라우드 기반 Azure Multi-Factor Authentication 배포 계획](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)을 참조 하세요.
 
 ---
 
@@ -932,165 +1058,5 @@ Azure AD Connect는 전자 메일 경고 시스템을 전환 하 여 일부 고�
 Azure AD Single Sign-On 및 조건부 액세스에 대 한 새로운 지원을 제공 하는 것을 포함 하 여 Microsoft Edge에 대 한 Azure AD 지원 기능이 향상 되었습니다. 이전에 Managed Browser Microsoft Intune 사용한 경우 이제 Microsoft Edge를 대신 사용할 수 있습니다.
 
 조건부 액세스를 사용 하 여 장치 및 앱을 설정 하 고 관리 하는 방법에 대 한 자세한 내용은 조건부 액세스를 사용 하는 클라우드 앱 액세스를 [위한 관리 되는 장치 필요](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) 및 조건부 액세스를 사용 하는 [cloud app access에 승인 된 ](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Microsoft Intune 정책과 함께 Microsoft Edge를 사용 하 여 액세스를 관리 하는 방법에 대 한 자세한 내용은 [Microsoft Intune 정책으로 보호 된 브라우저를 사용 하 여 인터넷 액세스 관리](https://docs.microsoft.com/intune/app-configuration-managed-browser)를 참조 하세요.
-
----
-
-## <a name="march-2019"></a>2019년 3월
-
-### <a name="identity-experience-framework-and-custom-policy-support-in-azure-active-directory-b2c-is-now-available-ga"></a>Azure Active Directory B2C에서 id 경험 프레임 워크 및 사용자 지정 정책 지원 제공 (GA)
-
-**유형:** 새 기능  
-**서비스 범주:** B2C - 소비자 ID 관리  
-**제품 기능:** B2B/B2C
-
-이제 규모에 따라 지원 되는 다음 작업과 Azure SLA를 포함 하 여 Azure AD B2C에서 사용자 지정 정책을 만들 수 있습니다.
-
-- 사용자 지정 정책을 사용 하 여 사용자 지정 인증 사용자 경험를 만들고 업로드 합니다.
-
-- 클레임 공급자 간의 교환으로 사용자 경험을 단계별로 설명합니다.
-
-- 사용자 경험에서 조건부 분기를 정의합니다.
-
-- 실시간 의사 결정 및 통신에서 사용할 클레임을 변환 하 고 매핑합니다.
-
-- 사용자 지정 인증 사용자 경험에서 REST API 사용 서비스를 사용 합니다. 예를 들어 전자 메일 공급자, CRMs 및 독점 권한 부여 시스템이 있습니다.
-
-- OpenIDConnect 프로토콜을 준수 하는 id 공급자와 페더레이션 합니다. 예를 들어 다중 테 넌 트 Azure AD, 소셜 계정 공급자 또는 2 단계 인증 공급자를 사용 합니다.
-
-사용자 지정 정책을 만드는 방법에 대 한 자세한 내용은 [Azure Active Directory B2C의 사용자 지정 정책에 대 한 개발자](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-developer-notes-custom) 정보 및 [사례 연구를 비롯 한 Alex Simon의 블로그 게시물을](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-custom-policies-to-build-your-own-identity-journeys/ba-p/382791)참조 하세요.
-
----
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---march-2019"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로운 페더레이션된 앱-3 월 2019
-
-**유형:** 새 기능  
-**서비스 범주:** 엔터프라이즈 앱  
-**제품 기능:** 타사 통합
-
-3 월 2019에 앱 갤러리에 대 한 페더레이션 지원을 통해 이러한 14 개의 새 앱을 추가 했습니다.
-
-[ISEC7 Mobile Exchange Delegate](https://www.isec7.com/english/), [MediusFlow](https://office365.cloudapp.mediusflow.com/), [ePlatform](https://docs.microsoft.com/azure/active-directory/saas-apps/eplatform-tutorial), [Fulcrum](https://docs.microsoft.com/azure/active-directory/saas-apps/fulcrum-tutorial), [ExcelityGlobal](https://docs.microsoft.com/azure/active-directory/saas-apps/excelityglobal-tutorial), [Explanation-Based Auditing System](https://docs.microsoft.com/azure/active-directory/saas-apps/explanation-based-auditing-system-tutorial), [Lean](https://docs.microsoft.com/azure/active-directory/saas-apps/lean-tutorial), [Powerschool Performance Matters](https://docs.microsoft.com/azure/active-directory/saas-apps/powerschool-performance-matters-tutorial), [Cinode](https://cinode.com/), [Iris Intranet](https://docs.microsoft.com/azure/active-directory/saas-apps/iris-intranet-tutorial), [Empactis](https://docs.microsoft.com/azure/active-directory/saas-apps/empactis-tutorial), [SmartDraw](https://docs.microsoft.com/azure/active-directory/saas-apps/smartdraw-tutorial), [Confirmit Horizons](https://docs.microsoft.com/azure/active-directory/saas-apps/confirmit-horizons-tutorial), [TAS](https://docs.microsoft.com/azure/active-directory/saas-apps/tas-tutorial)
-
-앱에 대한 자세한 내용은 [Azure Active Directory와 SaaS 애플리케이션 통합](https://aka.ms/appstutorial)을 참조하세요. Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 자세한 내용은 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](https://aka.ms/azureadapprequest)을 참조하세요.
-
----
-
-### <a name="new-zscaler-and-atlassian-provisioning-connectors-in-the-azure-ad-gallery---march-2019"></a>Azure AD 갤러리에서 새로운 Zscaler 및 Atlassian 프로 비전 커넥터-3 월 2019
-
-**유형:** 새 기능  
-**서비스 범주:** 앱 프로비전  
-**제품 기능:** 타사 통합
-
-다음 앱의 사용자 계정을 만들고, 업데이트 하 고, 삭제 하는 작업을 자동화 합니다.
-
-[Zscaler](https://aka.ms/ZscalerProvisioning), [Zscaler Beta](https://aka.ms/ZscalerBetaProvisioning), [Zscaler One](https://aka.ms/ZscalerOneProvisioning), [Zscaler 2](https://aka.ms/ZscalerTwoProvisioning), Zscaler [3](https://aka.ms/ZscalerThreeProvisioning), Zscaler [zscloud](https://aka.ms/ZscalerZSCloudProvisioning), [Atlassian cloud](https://aka.ms/atlassianCloudProvisioning)
-
-자동화 된 사용자 계정 프로 비전을 통해 조직의 보안을 강화 하는 방법에 대 한 자세한 내용은 [AZURE AD를 사용 하 여 SaaS 응용 프로그램에 사용자 프로 비전 자동화](https://aka.ms/ProvisioningDocumentation)를 참조 하세요.
-
----
-
-### <a name="restore-and-manage-your-deleted-office-365-groups-in-the-azure-ad-portal"></a>Azure AD 포털에서 삭제 된 Office 365 그룹 복원 및 관리
-
-**유형:** 새 기능  
-**서비스 범주:** 그룹 관리  
-**제품 기능:** 공동 작업
-
-이제 Azure AD 포털에서 삭제 된 Office 365 그룹을 보고 관리할 수 있습니다. 이렇게 변경 하면 조직에서 필요 하지 않은 모든 그룹을 영구적으로 삭제 하는 것과 함께 복원할 수 있는 그룹을 확인할 수 있습니다.
-
-자세한 내용은 [만료 또는 삭제 된 그룹 복원](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-restore-deleted#view-and-manage-the-deleted-office-365-groups-that-are-available-to-restore)을 참조 하세요.
-
----
-
-### <a name="single-sign-on-is-now-available-for-azure-ad-saml-secured-on-premises-apps-through-application-proxy-public-preview"></a>이제 응용 프로그램 프록시 (공개 미리 보기)를 통해 Azure AD SAML 보안이 설정 된 온-프레미스 앱에 대해 Single sign-on을 사용할 수 있습니다.
-
-**유형:** 새 기능  
-**서비스 범주:** 앱 프록시  
-**제품 기능:** Access Control
-
-이제 응용 프로그램 프록시를 통해 이러한 앱에 대 한 원격 액세스와 함께 온-프레미스 SAML 인증 앱에 대 한 SSO (Single Sign-On) 환경을 제공할 수 있습니다. 온-프레미스 앱에서 SAML SSO를 설정 하는 방법에 대 한 자세한 내용은 [응용 프로그램 프록시를 사용 하는 온-프레미스 응용 프로그램에 대 한 saml Single Sign-On (미리 보기)](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-on-premises-apps)를 참조 하세요.
-
----
-
-### <a name="client-apps-in-request-loops-will-be-interrupted-to-improve-reliability-and-user-experience"></a>요청 루프의 클라이언트 앱이 중단 되어 안정성 및 사용자 환경을 개선 합니다.
-
-**유형:** 새 기능  
-**서비스 범주:** 인증(로그인)  
-**제품 기능:** 사용자 인증
-
-클라이언트 앱은 짧은 시간 동안 수백 개의 동일한 로그인 요청을 잘못 발행할 수 있습니다. 이러한 요청은 성공 여부에 관계 없이, 모든 사용자에 대 한 대기 시간이 IDP 모든 사용자에 대 한 대기 시간이 증가 하 고 IDP의 가용성을 줄이도록 합니다.
-
-이 업데이트는 일반 `invalid_grant` 작업의 `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request` 범위를 벗어나 짧은 시간 동안 중복 요청을 여러 번 실행 하는 클라이언트 앱에 오류를 보냅니다. 이 문제가 발생 하는 클라이언트 앱은 대화형 프롬프트를 표시 하 여 사용자가 다시 로그인 하도록 해야 합니다. 이 변경 내용 및이 오류가 발생 하는 경우 앱을 수정 하는 방법에 대 한 자세한 내용은 [인증의 새로운 기능](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#looping-clients-will-be-interrupted)을 참조 하세요.
-
----
-
-### <a name="new-audit-logs-user-experience-now-available"></a>새 감사 로그 사용자 환경을 지금 사용 가능
-
-**유형:** 변경된 기능  
-**서비스 범주:** 보고  
-**제품 기능:** 모니터링 및 보고
-
-가독성을 높이고 정보를 검색 하는 방법을 개선 하는 데 도움이 되는 새로운 Azure AD **감사 로그** 페이지를 만들었습니다. 새 **감사 로그** 페이지를 표시 하려면 Azure AD의 **작업** 섹션에서 **감사 로그** 를 선택 합니다.
-
-![새 감사 로그 페이지, 샘플 정보 포함](media/whats-new/audit-logs-page.png)
-
-새 **감사 로그** 페이지에 대 한 자세한 내용은 [Azure Active Directory 포털에서 감사 작업 보고서](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs#audit-logs)를 참조 하세요.
-
----
-
-### <a name="new-warnings-and-guidance-to-help-prevent-accidental-administrator-lockout-from-misconfigured-conditional-access-policies"></a>잘못 구성 된 조건부 액세스 정책에서 실수로 인 한 관리자의 잠금 방지에 도움이 되는 새로운 경고 및 지침
-
-**유형:** 변경된 기능  
-**서비스 범주:** 조건부 액세스  
-**제품 기능:** ID 보안 및 보호
-
-잘못 구성 된 조건부 액세스 정책을 통해 관리자가 실수로 자체 테 넌 트를 잠그지 못하도록 방지 하기 위해 Azure Portal에서 새로운 경고 및 업데이트 된 지침을 만들었습니다. 새 지침에 대 한 자세한 내용은 [Azure Active Directory 조건부 액세스의 서비스 종속성 이란?](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies)을 참조 하세요.
-
----
-
-### <a name="improved-end-user-terms-of-use-experiences-on-mobile-devices"></a>모바일 장치에 대 한 최종 사용자 사용 환경 개선
-
-**유형:** 변경된 기능  
-**서비스 범주:** 서비스 계약  
-**제품 기능:** 거버넌스
-
-Microsoft는 모바일 장치에서 사용 약관을 검토 하 고 동의 하는 방법을 개선 하는 데 도움이 되는 기존 사용 환경을 업데이트 했습니다. 이제 확대 및 축소 하 고, 뒤로 돌아가서 정보를 다운로드 하 고, 하이퍼링크를 선택할 수 있습니다. 업데이트 된 사용 약관에 대 한 자세한 내용은 [Azure Active Directory 사용 약관 기능](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#what-terms-of-use-looks-like-for-users)을 참조 하세요.
-
----
-
-### <a name="new-azure-ad-activity-logs-download-experience-available"></a>새 Azure AD 활동 로그 다운로드 환경 사용 가능
-
-**유형:** 변경된 기능  
-**서비스 범주:** 보고  
-**제품 기능:** 모니터링 및 보고
-
-이제 Azure Portal에서 직접 대량의 활동 로그를 다운로드할 수 있습니다. 이 업데이트를 통해 다음을 수행할 수 있습니다.
-
-- 최대 25만 개의 행을 다운로드 합니다.
-
-- 다운로드가 완료 되 면 알림 받기
-
-- 파일 이름을 사용자 지정 합니다.
-
-- 출력 형식 (JSON 또는 CSV)을 결정 합니다.
-
-이 기능 [에 대 한 자세한 내용은 빠른 시작: Azure Portal를 사용 하 여 감사 보고서 다운로드](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-download-audit-report)
-
----
-
-### <a name="breaking-change-updates-to-condition-evaluation-by-exchange-activesync-eas"></a>호환성이 손상되는 변경 내용: EAS (Exchange ActiveSync)에의 한 조건 평가 업데이트
-
-**유형:** 변경 계획  
-**서비스 범주:** 조건부 액세스  
-**제품 기능:** Access Control
-
-EAS (Exchange ActiveSync)에서 다음과 같은 조건을 평가 하는 방법을 업데이트 하는 중입니다.
-
-- 국가, 지역 또는 IP 주소를 기준으로 하는 사용자 위치
-
-- 로그인 위험
-
-- 디바이스 플랫폼
-
-이전에 조건부 액세스 정책에서 이러한 조건을 사용한 경우 조건 동작이 변경 될 수 있다는 점에 유의 해야 합니다. 예를 들어 이전에 정책에서 사용자 위치 조건을 사용 하는 경우 사용자의 위치를 기준으로 현재 건너뛴 정책을 찾을 수 있습니다.
 
 ---

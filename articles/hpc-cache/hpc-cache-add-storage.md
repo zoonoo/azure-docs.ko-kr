@@ -4,34 +4,26 @@ description: Azure HPC 캐시가 장기 파일 저장소에 대해 온-프레미
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: 7df0727a58f3d70289c5060175572dac1bbb4abb
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 10/01/2019
+ms.author: rohogue
+ms.openlocfilehash: 302d727ede9604d11972eaa8f46a3e27f204858f
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300036"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710032"
 ---
 # <a name="add-storage-targets"></a>스토리지 대상 추가
 
-*저장소 대상은* Azure HPC 캐시 인스턴스를 통해 액세스 되는 파일에 대 한 백 엔드 저장소입니다. 온-프레미스 하드웨어 시스템과 같은 NFS 저장소를 추가 하거나 Azure Blob에 데이터를 저장할 수 있습니다.
+*저장소 대상은* Azure HPC 캐시 인스턴스를 통해 액세스 되는 파일에 대 한 백 엔드 저장소입니다. NFS 저장소 (예: 온-프레미스 하드웨어 시스템)를 추가 하거나 Azure Blob에 데이터를 저장할 수 있습니다.
 
 한 캐시에 대해 최대 10 개의 서로 다른 저장소 대상을 정의할 수 있습니다. 캐시는 하나의 집계 된 네임 스페이스에 있는 모든 저장소 대상을 제공 합니다.
 
 저장소 내보내기는 캐시의 가상 네트워크에서 액세스할 수 있어야 합니다. 온-프레미스 하드웨어 저장소의 경우 NFS 저장소 액세스의 호스트 이름을 확인할 수 있는 DNS 서버를 설정 해야 할 수 있습니다. 자세한 내용은 [DNS 액세스](hpc-cache-prereqs.md#dns-access)를 참조 하세요.
 
-캐시를 만들 때 또는 나중에 저장소 대상을 추가할 수 있습니다. 이 절차는 Azure Blob storage를 추가 하는지 아니면 NFS 내보내기를 추가 하는지에 따라 약간 다릅니다. 각각에 대 한 세부 정보는 아래와 같습니다.
+캐시를 만든 후 저장소 대상을 추가 합니다. 이 절차는 Azure Blob storage를 추가 하는지 아니면 NFS 내보내기를 추가 하는지에 따라 약간 다릅니다. 각각에 대 한 세부 정보는 아래와 같습니다.
 
-## <a name="add-storage-targets-while-creating-the-cache"></a>캐시를 만드는 동안 저장소 대상을 추가 합니다.
-
-Azure HPC 캐시 생성 마법사의 **저장소 대상** 탭을 사용 하 여 캐시 인스턴스를 만들 때 저장소를 정의 합니다.
-
-![스토리지 대상 페이지 스크린샷](media/hpc-cache-storage-targets-pop.png)
-
-저장소를 추가 하려면 **저장소 대상 추가** 링크를 클릭 합니다.
-
-## <a name="add-storage-targets-from-the-cache"></a>캐시에서 저장소 대상 추가
+## <a name="open-the-storage-targets-page"></a>저장소 대상 페이지 열기
 
 Azure Portal에서 캐시 인스턴스를 열고 왼쪽 세로 막대에서 **저장소 대상** 을 클릭 합니다. 저장소 대상 페이지에는 기존의 모든 대상이 나열 되며 새 대상이 추가 될 수 있는 링크가 제공 됩니다.
 
@@ -107,7 +99,7 @@ NFS 지원 저장소 대상에 대 한 다음 정보를 제공 합니다.
 하나의 저장소 대상에서 모든 경로를 만듭니다.
 <!-- You can create multiple namespace paths to represent different exports on the same NFS storage system, but you must create them all from one storage target. -->
 
-각 네임 스페이스 경로에 대해 다음 값을 입력 합니다. 
+각 네임 스페이스 경로에 대해 다음 값을 입력 합니다.
 
 * **가상 네임 스페이스 경로** -이 저장소 대상에 대 한 클라이언트 쪽 파일 경로를 설정 합니다. 가상 네임 스페이스 기능에 대해 자세히 알아보려면 [집계 된 네임 스페이스 구성](hpc-cache-namespace.md) 을 참조 하세요.
 
@@ -115,7 +107,7 @@ NFS 지원 저장소 대상에 대 한 다음 정보를 제공 합니다.
 
 * **Nfs 내보내기 경로** -nfs 내보내기의 경로를 입력 합니다.
 
-* **하위 디렉터리 경로** -내보내기의 특정 하위 디렉터리를 탑재 하려면 여기에 입력 합니다. 그렇지 않으면이 필드를 비워 둡니다. 
+* **하위 디렉터리 경로** -내보내기의 특정 하위 디렉터리를 탑재 하려면 여기에 입력 합니다. 그렇지 않으면이 필드를 비워 둡니다.
 
 완료 되 면 **확인** 을 클릭 하 여 저장소 대상을 추가 합니다.
 
@@ -124,7 +116,7 @@ NFS 지원 저장소 대상에 대 한 다음 정보를 제공 합니다.
 
 NFS 저장소 시스템을 가리키는 저장소 대상을 만들 때 해당 대상에 대 한 *사용 모델* 을 선택 해야 합니다. 이 모델은 데이터를 캐시 하는 방법을 결정 합니다.
 
-* 매우 읽기-주로 캐시를 사용 하 여 데이터 읽기 액세스를 가속화 하는 경우이 옵션을 선택 합니다. 
+* 매우 읽기-주로 캐시를 사용 하 여 데이터 읽기 액세스를 가속화 하는 경우이 옵션을 선택 합니다.
 
 * 읽기/쓰기-클라이언트가 캐시를 사용 하 여 읽기 및 쓰기를 사용 하는 경우이 옵션을 선택 합니다.
 

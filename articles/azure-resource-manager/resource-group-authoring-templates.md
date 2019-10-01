@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6b027acc5a8a8b7660d5640ff4af335e51fd2dbf
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
-ms.translationtype: HT
+ms.openlocfilehash: b6d479935bc9e4bd731b93d3e027644b9ca4dbe0
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676871"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694967"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 구조 및 구문 이해
 
@@ -88,7 +88,7 @@ ms.locfileid: "71676871"
 
 ### <a name="data-types"></a>데이터 형식
 
-정수 형식의 범위는-2147483648 ~ 2147483647입니다. 그러나 리소스 유형은 정수 속성에 대해 더 낮은 제한을 적용할 수 있습니다.
+인라인 매개 변수로 전달 된 정수의 경우 배포에 사용 하는 SDK 또는 명령줄 도구를 사용 하 여 값 범위를 제한할 수 있습니다. 예를 들어 PowerShell을 사용 하 여 템플릿을 배포 하는 경우 정수 형식의 범위는-2147483648 ~ 2147483647 일 수 있습니다. 이러한 제한을 방지 하려면 [매개 변수 파일](resource-manager-parameter-files.md)에 큰 정수 값을 지정 합니다. 리소스 형식은 정수 속성에 대해 고유한 제한을 적용 합니다.
 
 템플릿에서 부울 및 정수 값을 지정 하는 경우 값을 따옴표로 묶지 마세요. 큰따옴표를 사용 하 여 문자열 값을 시작 하 고 끝에 표시 합니다.
 

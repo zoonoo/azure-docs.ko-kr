@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 06/20/2019
 tags: connectors
-ms.openlocfilehash: 8160cd2cb77a56f3d9b13f3c43929cc4ab7565b0
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: ce59c238e50a1be6879b07e959b236f6181a8ce4
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309593"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703249"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Azure Blob Storage에서 Blob 만들기 및 관리
 
@@ -25,11 +25,12 @@ ms.locfileid: "71309593"
 Azure 웹 사이트에서 업데이트되는 도구가 있다고 가정해 보겠습니다. 이 도구는 논리 앱에 대한 트리거의 역할을 합니다. 이 이벤트가 발생하면 논리 앱에서 Blob Storage 컨테이너의 일부 파일을 업데이트하도록 할 수 있습니다. 이는 논리 앱의 작업입니다.
 
 > [!NOTE]
-> 논리 앱은 [방화벽 규칙이](../storage/common/storage-network-security.md) 있고 동일한 지역에 있는 Azure storage 계정에 직접 액세스할 수 없습니다. 그러나 공용 IP 주소는 지역 간에 통신 하는 데 사용 되기 때문에 논리 앱은 다른 지역에 있는 Azure storage 계정에 액세스할 수 있습니다. 또는 다음 옵션 중 하나를 사용할 수 있습니다.
+>
+> 논리 앱은 [방화벽 규칙이](../storage/common/storage-network-security.md) 있고 동일한 지역에 있는 Azure storage 계정에 직접 액세스할 수 없습니다. 그러나 공용 IP 주소는 지역 간에 통신 하는 데 사용 되기 때문에 논리 앱은 다른 지역에 있는 Azure storage 계정에 액세스할 수 있습니다. 해당 [지역의 관리 되는 커넥터에 대해 아웃 바운드 IP 주소](../logic-apps/logic-apps-limits-and-config.md#outbound)를 허용 해야 합니다. 또는 고급 옵션을 사용할 수 있습니다.
 >
 > * [통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. Azure Virtual Network의 리소스에 연결할 수 있습니다.
 >
-> * API Management를 이미 사용 중인 경우 이 시나리오에 이 서비스를 사용할 수 있습니다. 자세한 내용은 [간단한 엔터프라이즈 통합 아키텍처](https://aka.ms/aisarch)를 참조하세요.
+> * API Management에 전용 계층을 사용 하는 경우 API Management를 사용 하 고 방화벽을 통해 후자의 IP 주소를 허용 하 여 저장소 API를 앞으로 이동할 수 있습니다. 기본적으로 API Management에서 사용 하는 Azure 가상 네트워크를 저장소 계정의 방화벽 설정에 추가 합니다. 그런 다음 API Management 작업 또는 HTTP 작업을 사용 하 여 Azure Storage Api를 호출할 수 있습니다. 그러나이 옵션을 선택 하는 경우 인증 프로세스를 직접 처리 해야 합니다. 자세한 내용은 [간단한 엔터프라이즈 통합 아키텍처](https://aka.ms/aisarch)를 참조하세요.
 
 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요. 커넥터 관련 기술 정보는 [Azure Blob Storage 커넥터 참조](/connectors/azureblobconnector/)를 참조하세요.
 

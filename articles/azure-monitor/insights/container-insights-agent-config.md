@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 2b601825a58fe5739a43df607067acc8d629c5f4
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 7cd915c47fa0661a9da66d7ca3315480ce7d6b98
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558914"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709435"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>컨테이너의 Azure Monitor에 대 한 에이전트 데이터 수집 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "69558914"
 
 ## <a name="configmap-file-settings-overview"></a>ConfigMap 파일 설정 개요
 
-사용자 지정 항목을 처음부터 새로 만들지 않고도 쉽게 편집할 수 있도록 하는 템플릿 ConfigMap 파일이 제공 됩니다. 시작 하기 [전에 configmaps에 대 한](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) Kubernetes 설명서를 검토 하 고 configmaps을 생성, 구성 및 배포 하는 방법을 숙지 해야 합니다. 이렇게 하면 네임 스페이스 당 또는 전체 클러스터에서 stderr 및 stdout을 필터링 할 수 있으며 클러스터의 모든 pod/노드에서 실행 중인 모든 컨테이너에 대해 환경 변수를 필터링 할 수 있습니다.
+사용자 지정 항목을 처음부터 새로 만들지 않고도 쉽게 편집할 수 있도록 하는 템플릿 ConfigMap 파일이 제공 됩니다. 시작 하기 전에 configmaps [에 대 한](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) Kubernetes 설명서를 검토 하 고 configmaps을 생성, 구성 및 배포 하는 방법을 숙지 해야 합니다. 이렇게 하면 네임 스페이스 당 또는 전체 클러스터에서 stderr 및 stdout을 필터링 할 수 있으며 클러스터의 모든 pod/노드에서 실행 중인 모든 컨테이너에 대해 환경 변수를 필터링 할 수 있습니다.
 
 >[!IMPORTANT]
 >컨테이너 작업에서 stdout, stderr 및 환경 변수를 수집 하는 데 지원 되는 최소 에이전트 버전은 ciprod06142019 이상입니다. 스크랩 프로메테우스 메트릭에 대해 지원 되는 최소 에이전트 버전은 ciprod07092019 이상입니다. 에이전트 버전을 확인 하려면 **노드** 탭에서 노드를 선택 하 고 속성 창에서 **에이전트 이미지 태그** 속성의 값을 확인 합니다.  
@@ -41,12 +41,12 @@ ms.locfileid: "69558914"
 
 다음은 데이터 수집을 제어 하도록 구성할 수 있는 설정입니다.
 
-|Key |데이터 형식 |값 |Description |
+|Key |데이터 형식 |값 |설명 |
 |----|----------|------|------------|
 |`schema-version` |문자열 (대/소문자 구분) |v1 |이 ConfigMap을 구문 분석할 때 에이전트에서 사용 하는 스키마 버전입니다. 현재 지원 되는 스키마 버전은 v1입니다. 이 값 수정은 지원 되지 않으며 ConfigMap이 평가 될 때 거부 됩니다.|
 |`config-version` |문자열 | | 소스 제어 시스템/리포지토리에서이 구성 파일의 버전을 추적 하는 기능을 지원 합니다. 허용 되는 최대 문자 수는 10이 고 다른 모든 문자는 잘립니다. |
 |`[log_collection_settings.stdout] enabled =` |Boolean | true 또는 false | Stdout 컨테이너 로그 수집이 설정 되었는지 여부를 제어 합니다. 로 `true` 설정 되 고 stdout 로그 컬렉션에 대 한 네임 스페이스가 제외`log_collection_settings.stdout.exclude_namespaces` 되지 않은 경우 (아래 설정) 클러스터의 모든 pod/노드에 있는 모든 컨테이너에서 stdout 로그가 수집 됩니다. ConfigMaps에 지정 되지 않은 경우 기본값 `enabled = true`은입니다. |
-|`[log_collection_settings.stdout] exclude_namespaces =`|String | 쉼표로 구분 된 배열 |Stdout 로그가 수집 되지 않을 Kubernetes 네임 스페이스의 배열입니다. 이 설정은가로 설정 된 `log_collection_settings.stdout.enabled` 경우에 `true`만 적용 됩니다. ConfigMap에 지정 되지 않은 경우 기본값 `exclude_namespaces = ["kube-system"]`은입니다.|
+|`[log_collection_settings.stdout] exclude_namespaces =`|문자열 | 쉼표로 구분 된 배열 |Stdout 로그가 수집 되지 않을 Kubernetes 네임 스페이스의 배열입니다. 이 설정은가로 설정 된 `log_collection_settings.stdout.enabled` 경우에 `true`만 적용 됩니다. ConfigMap에 지정 되지 않은 경우 기본값 `exclude_namespaces = ["kube-system"]`은입니다.|
 |`[log_collection_settings.stderr] enabled =` |Boolean | true 또는 false |Stderr 컨테이너 로그 수집이 사용 되는지 여부를 제어 합니다. 로 `true` 설정 된 경우 stdout 로그 수집 (`log_collection_settings.stderr.exclude_namespaces` 설정)에 대 한 네임 스페이스가 제외 되지 않으면 클러스터의 모든 pod/노드의 모든 컨테이너에서 stderr 로그가 수집 됩니다. ConfigMaps에 지정 되지 않은 경우 기본값 `enabled = true`은입니다. |
 |`[log_collection_settings.stderr] exclude_namespaces =` |문자열 |쉼표로 구분 된 배열 |Stderr 로그가 수집 되지 않을 Kubernetes 네임 스페이스의 배열입니다. 이 설정은가로 설정 된 `log_collection_settings.stdout.enabled` 경우에 `true`만 적용 됩니다. ConfigMap에 지정 되지 않은 경우 기본값 `exclude_namespaces = ["kube-system"]`은입니다. |
 | `[log_collection_settings.env_var] enabled =` |Boolean | true 또는 false | 환경 변수 컬렉션을 사용할 수 있는지 여부를 제어 합니다. 로 `false`설정 되 면 클러스터의 모든 pod/노드에서 실행 중인 모든 컨테이너에 대해 환경 변수가 수집 되지 않습니다. ConfigMap에 지정 되지 않은 경우 기본값 `enabled = true`은입니다. |
@@ -62,27 +62,27 @@ ms.locfileid: "69558914"
 * 클러스터 전반의 HTTP URL로, 서비스의 나열 된 끝점에서 대상을 검색 하 고, kube와 같은 k8s 서비스를 검색 하 고, 응용 프로그램과 관련 된 pod 주석을 검색 합니다. 이 컨텍스트에서 수집 된 메트릭은 ConfigMap 섹션 *[프로메테우스 data_collection_settings]* 에 정의 됩니다.
 * 노드 전반의 HTTP URL로, 서비스의 나열 된 끝점에서 대상을 검색 합니다. 이 컨텍스트에서 수집 된 메트릭은 ConfigMap 섹션 *[Prometheus_data_collection_settings]* 에 정의 됩니다.
 
-| 엔드포인트 | 범위 | 예제 |
+| 엔드포인트 | Scope | 예제 |
 |----------|-------|---------|
 | Pod 주석 | 클러스터 전체 | 달 <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000" <br>prometheus.io/scheme: "http"` |
-| Kubernetes 서비스 | 클러스터 전체 | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
+| Kubernetes Service | 클러스터 전체 | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
 | url/끝점 | 노드당 및/또는 클러스터 전체 | `http://myurl:9101/metrics` |
 
 URL을 지정 하면 Azure Monitor 컨테이너의 경우에만 끝점을 스크랩 합니다. Kubernetes service를 지정 하면 서비스 이름이 클러스터 DNS 서버를 통해 확인 되어 IP 주소를 가져온 다음 확인 된 서비스가 스크랩 됩니다.
 
-|범위 | Key | 데이터 형식 | 값 | Description |
+|Scope | Key | 데이터 형식 | 값 | 설명 |
 |------|-----|-----------|-------|-------------|
 | 클러스터 전체 | | | | 다음 세 가지 방법 중 하나를 지정 하 여 메트릭에 대 한 끝점을 스크랩. |
-| | `urls` | String | 쉼표로 구분 된 배열 | HTTP 끝점 (IP 주소 또는 올바른 URL 경로 중 하나). 예를 들어 `urls=[$NODE_IP/metrics]`을 참조하십시오. $NODE _IP는 컨테이너 매개 변수에 대 한 특정 Azure Monitor 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. |
+| | `urls` | 문자열 | 쉼표로 구분 된 배열 | HTTP 끝점 (IP 주소 또는 올바른 URL 경로 중 하나). 예를 들어 `urls=[$NODE_IP/metrics]`을 참조하십시오. $NODE _IP는 컨테이너 매개 변수에 대 한 특정 Azure Monitor 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. |
 | | `kubernetes_services` | 문자열 | 쉼표로 구분 된 배열 | Kube에서 메트릭을 스크랩 하는 Kubernetes services의 배열입니다. 예를`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`들면입니다.|
 | | `monitor_kubernetes_pods` | Boolean | true 또는 false | 클러스터 전체 설정 `true` 에서로 설정 된 경우 컨테이너 에이전트의 Azure Monitor는 다음의 프로메테우스 주석을 위해 전체 클러스터에서 Kubernetes pod를 스크랩 합니다.<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Boolean | true 또는 false | Pod의 스크랩를 사용 하도록 설정 합니다. `monitor_kubernetes_pods`은 `true`로 설정해야 합니다. |
-| | `prometheus.io/scheme` | String | http 또는 https | 기본값은 HTTP over scrapping입니다. 필요한 경우를로 `https`설정 합니다. | 
-| | `prometheus.io/path` | String | 쉼표로 구분 된 배열 | 메트릭을 페치할 HTTP 리소스 경로입니다. 메트릭 경로가이 아닌 `/metrics`경우에는이 주석을 사용 하 여 정의 합니다. |
+| | `prometheus.io/scheme` | 문자열 | http 또는 https | 기본값은 HTTP over scrapping입니다. 필요한 경우 `https`으로 설정 합니다. | 
+| | `prometheus.io/path` | 문자열 | 쉼표로 구분 된 배열 | 메트릭을 페치할 HTTP 리소스 경로입니다. 메트릭 경로가이 아닌 `/metrics`경우에는이 주석을 사용 하 여 정의 합니다. |
 | | `prometheus.io/port` | 문자열 | 9102 | 수신 대기할 포트를 지정 합니다. 포트가 설정 되지 않은 경우 기본값은 9102입니다. |
 | 노드 차원 | `urls` | 문자열 | 쉼표로 구분 된 배열 | HTTP 끝점 (IP 주소 또는 올바른 URL 경로 중 하나). 예를 들어 `urls=[$NODE_IP/metrics]`을 참조하십시오. $NODE _IP는 컨테이너 매개 변수에 대 한 특정 Azure Monitor 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. |
 | 노드 전체 또는 클러스터 전체 | `interval` | 문자열 | 60 초 | 컬렉션 간격 기본값은 1 분 (60 초)입니다. *[Prometheus_data_collection_settings]* 및/또는 *[prometheus_data_collection_settings]* 에 대 한 컬렉션을 시간 단위 (예: ns, us (또는 Âμs), ms, s, m, h)로 수정할 수 있습니다. |
-| 노드 전체 또는 클러스터 전체 | `fieldpass`<br> `fielddrop`| String | 쉼표로 구분 된 배열 | 허용 (`fieldpass`) 및 허용 안 함 (`fielddrop`) 목록을 설정 하 여 끝점에서 수집할 특정 메트릭을 지정할 수 있습니다. 먼저 허용 목록을 설정 해야 합니다. |
+| 노드 전체 또는 클러스터 전체 | `fieldpass`<br> `fielddrop`| 문자열 | 쉼표로 구분 된 배열 | 허용 (`fieldpass`) 및 허용 안 함 (`fielddrop`) 목록을 설정 하 여 끝점에서 수집할 특정 메트릭을 지정할 수 있습니다. 먼저 허용 목록을 설정 해야 합니다. |
 
 ConfigMap은 전역 목록이 며 에이전트에 하나의 ConfigMap만 적용 될 수 있습니다. 컬렉션에서 다른 ConfigMap을 과도 하 게 사용할 수 없습니다.
 
@@ -142,7 +142,7 @@ ConfigMap 구성 파일을 구성 하 고 클러스터에 배포 하려면 다�
 
 1. 다음 kubectl 명령을 `kubectl apply -f <configmap_yaml_file.yaml>`실행 하 여 configmap을 만듭니다.
     
-    예를 들어, `kubectl apply -f container-azm-ms-agentconfig.yaml` 같은 형식입니다. 
+    예: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
     
     구성 변경 내용을 적용 하기 전에 완료 하는 데 몇 분 정도 걸릴 수 있으며, 클러스터의 모든 omsagent pod가 다시 시작 됩니다. 다시 시작은 모든 omsagent pod에 대 한 롤링 다시 시작 이지만 동시에 다시 시작 되지 않습니다. 다시 시작이 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과가 `configmap "container-azm-ms-agentconfig" created`포함 됩니다.
 
@@ -163,7 +163,7 @@ config::unsupported/missing config schema version - 'v21' , using defaults
 
 ## <a name="applying-updated-configmap"></a>업데이트 된 ConfigMap 적용
 
-클러스터에 ConfigMap을 이미 배포 했 고 최신 구성으로 업데이트 하려는 경우 이전에 사용 했던 ConfigMap 파일을 편집한 다음 이전과 동일한 명령을 `kubectl apply -f <configmap_yaml_file.yaml`사용 하 여 적용할 수 있습니다.
+클러스터에 ConfigMap을 이미 배포 했 고 최신 구성으로 업데이트 하려는 경우 이전에 사용 했던 ConfigMap 파일을 편집한 다음 이전과 동일한 명령을 사용 하 여 적용할 수 있습니다. `kubectl apply -f <configmap_yaml_file.yaml`.
 
 구성 변경 내용을 적용 하기 전에 완료 하는 데 몇 분 정도 걸릴 수 있으며, 클러스터의 모든 omsagent pod가 다시 시작 됩니다. 다시 시작은 모든 omsagent pod에 대 한 롤링 다시 시작 이지만 동시에 다시 시작 되지 않습니다. 다시 시작이 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과가 `configmap "container-azm-ms-agentconfig" updated`포함 됩니다.
 
@@ -187,6 +187,22 @@ config::unsupported/missing config schema version - 'v21' , using defaults
 ```
 
 ## <a name="review-prometheus-data-usage"></a>프로메테우스 데이터 사용 검토
+
+Azure Monitor으로 스크랩 된 프로메테우스 메트릭을 보려면 "프로메테우스"를 네임 스페이스로 지정 합니다. @No__t-0 kubernetes 네임 스페이스에서 프로메테우스 메트릭을 보는 샘플 쿼리는 다음과 같습니다.
+
+```
+InsightsMetrics 
+| where Namespace contains "prometheus"
+| extend tags=parse_json(Tags)
+| where tostring(tags.namespace) == "default" 
+```
+
+또한 이름으로 프로메테우스 데이터를 직접 쿼리할 수 있습니다.
+
+```
+InsightsMetrics 
+| where Name contains "some_prometheus_metric"
+```
 
 각 메트릭의 수집 볼륨 크기를 매일 GB 단위로 식별 하 여 높은 경우에는 다음 쿼리를 제공 합니다.
 

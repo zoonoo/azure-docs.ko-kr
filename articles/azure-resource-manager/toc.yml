@@ -14,7 +14,7 @@
     - name: 템플릿 만들기 - VS Code
       href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
     - name: 템플릿 만들기 - Visual Studio
-      href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+      href: vs-azure-tools-update-deploy-script-to-az-powershell.md
     - name: 템플릿 만들기 - IntelliJ IDEA
       href: resource-manager-quickstart-create-templates-use-intellij.md
 - name: 자습서

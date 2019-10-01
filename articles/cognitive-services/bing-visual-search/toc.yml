@@ -33,6 +33,8 @@
           href: visual-search-sdk-node.md
         - name: Python 사용
           href: visual-search-sdk-python.md
+        - name: Java 사용
+          href: visual-search-sdk-java.md
 - name: 자습서
   items:
     - name: 이미지 업로드

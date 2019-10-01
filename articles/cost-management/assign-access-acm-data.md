@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2019
+ms.date: 09/30/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 332ec3930a7654fd5aecf1fc71ccb55c16df127f
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f9db07f648956130bb5bdebb23321b0eb14679c7
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105133"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695391"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Cost Management 데이터에 대한 액세스 할당
 
-Azure 엔터프라이즈 계약을 맞은 사용자는 Azure Portal과 EA(기업계약) 포털에 부여된 권한 조합에 따라 Azure Cost Management 데이터에 대한 사용자의 액세스 수준이 정의됩니다. 다른 Azure 계정 유형을 사용하는 사용자의 액세스 수준은 Cost Management 데이터입니다. 이 문서에서는 Cost Management 데이터에 대한 액세스 권한을 할당하는 방법을 안내합니다. 권한 조합이 할당되면 사용자는 액세스 권한이 있는 범위와 Azure Portal에서 선택한 범위에 따라 Cost Management에서 데이터를 봅니다.
+Azure 엔터프라이즈 계약을 맞은 사용자는 Azure Portal과 EA(기업계약) 포털에 부여된 권한 조합에 따라 Azure Cost Management 데이터에 대한 사용자의 액세스 수준이 정의됩니다. 다른 Azure 계정 유형을 사용 하는 사용자의 경우 Azure 역할 기반 액세스 제어를 사용 하 여 Cost Management 데이터에 대 한 사용자의 액세스 수준을 정의 하는 것이 더 간단 합니다. 이 문서에서는 Cost Management 데이터에 대한 액세스 권한을 할당하는 방법을 안내합니다. 권한 조합이 할당되면 사용자는 액세스 권한이 있는 범위와 Azure Portal에서 선택한 범위에 따라 Cost Management에서 데이터를 봅니다.
 
 사용자가 선택한 범위는 Cost Management 전체에서 데이터 통합을 제공하고 비용 정보에 대한 액세스를 제어하는 데 사용됩니다. 범위를 사용하는 경우 사용자는 여러 개의 범위를 선택하지 않습니다. 대신 자식 범위가 롤업하는 더 큰 범위를 선택한 다음, 보려는 대상으로 필터링합니다. 일부 사용자는 자식 범위가 롤업하는 부모 범위에 액세스할 수 없으므로 데이터 통합을 이해해야 합니다.
 
@@ -35,10 +35,10 @@ Cost Management는 다양한 유형의 Azure 계정을 지원합니다. 지원�
 
 Azure EA 구독의 비용 데이터를 보려면 사용자에게 적어도 다음 범위 중 하나 이상에 대한 읽기 액세스 권한이 있어야 합니다.
 
-| **범위(Visual C++)** | **정의되는 위치** | **데이터를 보는 데 필요한 액세스 권한** | **필수 구성 요소 EA 설정** | **데이터 통합 위치** |
+| **범위** | **정의되는 위치** | **데이터를 보는 데 필요한 액세스 권한** | **필수 구성 요소 EA 설정** | **데이터 통합 위치** |
 | --- | --- | --- | --- | --- |
 | 청구 계정<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | 엔터프라이즈 관리자 | 없음 | 기업계약의 모든 구독 |
-| Department | [https://ea.azure.com](https://ea.azure.com/) | 부서 관리자 | **DA 요금 보기** 사용 | 부서에 연결된 등록 계정에 속하는 모든 구독 |
+| 부서 | [https://ea.azure.com](https://ea.azure.com/) | 부서 관리자 | **DA 요금 보기** 사용 | 부서에 연결된 등록 계정에 속하는 모든 구독 |
 | 등록 계정<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | 계정 소유자 | **AO 요금 보기** 사용 | 등록 계정의 모든 구독 |
 | 관리 그룹 | [https://portal.azure.com](https://portal.azure.com/) | Cost Management 읽기 권한자(또는 읽기 권한자) | **AO 요금 보기** 사용 | 관리 그룹 아래의 모든 구독 |
 | 구독 | [https://portal.azure.com](https://portal.azure.com/) | Cost Management 읽기 권한자(또는 읽기 권한자) | **AO 요금 보기** 사용 | 구독의 모든 리소스/리소스 그룹 |
@@ -140,7 +140,7 @@ EA 포털에서 **DA 요금 보기**가 비활성화되면 부서 및 계정의 
 7. **역할** 아래에서 **Cost Management 읽기 권한자**를 선택합니다.
 8. **다음에 대한 액세스 할당** 아래에서 **Azure AD, 사용자, 그룹 또는 애플리케이션**을 선택합니다.
 9. 액세스 권한을 할당하려면 사용자를 검색하여 선택합니다.
-10. **Save**을 클릭합니다.  
+10. **저장**을 클릭합니다.  
     ![관리 그룹에 대한 사용 권한 추가 상자의 예제 정보](./media/assign-access-acm-data/add-permissions.png)
 
 ## <a name="assign-subscription-scope-access"></a>구독 범위 액세스 할당
@@ -155,7 +155,7 @@ EA 포털에서 **DA 요금 보기**가 비활성화되면 부서 및 계정의 
 6. **역할** 아래에서 **Cost Management 읽기 권한자**를 선택합니다.
 7. **다음에 대한 액세스 할당** 아래에서 **Azure AD, 사용자, 그룹 또는 애플리케이션**을 선택합니다.
 8. 액세스 권한을 할당하려면 사용자를 검색하여 선택합니다.
-9. **Save**을 클릭합니다.
+9. **저장**을 클릭합니다.
 
 ## <a name="assign-resource-group-scope-access"></a>리소스 그룹 범위 액세스 할당
 
@@ -169,7 +169,7 @@ EA 포털에서 **DA 요금 보기**가 비활성화되면 부서 및 계정의 
 6. **역할** 아래에서 **Cost Management 읽기 권한자**를 선택합니다.
 7. **다음에 대한 액세스 할당** 아래에서 **Azure AD, 사용자, 그룹 또는 애플리케이션**을 선택합니다.
 8. 액세스 권한을 할당하려면 사용자를 검색하여 선택합니다.
-9. **Save**을 클릭합니다.
+9. **저장**을 클릭합니다.
 
 ## <a name="cross-tenant-authentication-issues"></a>교차 테 넌 트 인증 문제
 

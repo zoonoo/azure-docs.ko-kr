@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 3114f082a402fd005797b270cfdcd7527784dbe1
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
-ms.translationtype: HT
+ms.openlocfilehash: 88ce3931d9f47b8c16251a45e54fa96b97f038e2
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679233"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71693284"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Azure Active Directory B2C 테넌트에 웹 API 애플리케이션 추가
 
@@ -42,10 +42,6 @@ ms.locfileid: "71679233"
 
 애플리케이션에서 보호된 웹 API를 호출하려면 애플리케이션 사용 권한을 API에 부여해야 합니다. 예를 들어 [자습서: Azure Active Directory B2C에서 애플리케이션 등록](tutorial-register-applications.md)의 웹 애플리케이션은 *webapp1*이라는 Azure AD B2C에 만들어집니다. 이 애플리케이션을 사용하여 웹 API를 호출할 수 있습니다.
 
-1. **애플리케이션**을 선택한 다음, 웹 애플리케이션을 선택합니다.
-1. **API 액세스**를 선택한 다음, **추가**를 선택합니다.
-1. **API 선택** 드롭다운에서 *webapi1*을 선택합니다.
-1. **범위 선택** 드롭다운에서 앞에서 정의한 범위를 선택 합니다. 예를 들어 *demo. read* 및 *demo*.
-1. **확인**을 선택합니다.
+[!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
 애플리케이션이 보호된 웹 API를 호출하도록 등록됩니다. 사용자가 Azure AD B2C로 인증하여 애플리케이션을 사용합니다. 애플리케이션은 Azure AD B2C에서 권한을 부여받아 보호된 웹 API에 액세스합니다.

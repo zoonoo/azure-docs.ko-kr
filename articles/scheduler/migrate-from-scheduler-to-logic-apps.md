@@ -9,17 +9,17 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/23/2019
-ms.openlocfilehash: 6b80cbd16ac78f7f347bef9ab8e22c4d67d31058
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 73aa641fc4bb01ef3d06820ecd18b61197ab81e7
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301039"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695494"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Azure Scheduler 작업을 Azure Logic Apps로 마이그레이션
 
 > [!IMPORTANT]
-> 사용이 [중지](#retire-date)되는 Azure Scheduler를 교체 하는 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) . 스케줄러에 설정 된 작업을 계속 하려면이 문서에 따라 가능한 한 빨리 Azure Logic Apps로 이동 하세요.
+> 사용이 [중지](#retire-date)되는 Azure Scheduler를 교체 하는 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) . 스케줄러에 설정 된 작업을 계속 하려면이 문서에 따라 가능한 한 빨리 Azure Logic Apps로 이동 하세요. 
 
 이 문서에서는 Azure Scheduler 대신 Azure Logic Apps를 사용하여 자동화된 워크플로를 만들어서 일회성 및 되풀이 작업을 예약하는 방법을 보여줍니다. Logic Apps를 사용하여 예약된 작업을 만들면 다음과 같은 이점이 있습니다.
 
@@ -38,6 +38,10 @@ ms.locfileid: "71301039"
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * HTTP 요청을 전송하여 논리 앱을 트리거하려면 [Postman 데스크톱 앱](https://www.getpostman.com/apps) 같은 도구를 사용합니다.
+
+## <a name="migrate-by-using-a-script"></a>스크립트를 사용 하 여 마이그레이션
+
+각 Scheduler 작업은 고유 하므로 스케줄러 작업을 Azure Logic Apps으로 마이그레이션하기 위한 단일 크기의 모든 도구가 존재 하지 않습니다. 그러나 [이 스크립트를 편집](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration) 하 여 요구 사항을 충족할 수 있습니다.
 
 ## <a name="schedule-one-time-jobs"></a>일회성 작업 예약
 
@@ -203,7 +207,7 @@ Azure Scheduler에서 기본 작업이 실행에 실패하는 경우 오류 조�
 **A**: 작업을 항상 백업 하는 것이 가장 좋습니다. 이전에 만든 논리 앱이 예상대로 실행되는지 확인한 후 Scheduler 작업을 삭제하거나 사용하지 않도록 설정하세요. 
 
 **Q**: 스케줄러에서 Logic Apps로 작업을 마이그레이션하는 데 도움이 되는 도구가 있나요? <br>
-**A**: 각 Scheduler 작업은 고유 하므로 단일 크기의 모든 도구가 없습니다. 그러나 요구 사항에 맞게 수정할 수 있는 다양한 스크립트가 제공됩니다. 스크립트 가용성은 나중에 다시 확인하세요.
+**A**: 각 Scheduler 작업은 고유 하므로 단일 크기의 모든 도구가 없습니다. 그러나 필요에 따라 [이 스크립트를 편집 하 여 Azure Scheduler 작업을 Azure Logic Apps로 마이그레이션할](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration)수 있습니다.
 
 **Q**: 내 스케줄러 작업 마이그레이션에 대 한 지원은 어디에서 받을 수 있나요? <br>
 **A**: 지원 받을 수 있는 몇 가지 방법은 다음과 같습니다. 

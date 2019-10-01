@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 299799566f0d54cc3fa017b032e15b387fe8cdd5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 876fef2b597e9a7dfd896f2b9697378e745a07f3
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467921"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709822"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용 하는 서버 리스 이벤트 기반 아키텍처
 
@@ -37,7 +37,7 @@ Azure Functions는 [변경 피드에](change-feed.md)연결 하는 가장 간단
 Cosmos DB에 대 한 Azure Functions 트리거를 사용 하 여 Azure 함수를 만드는 작업은 이제 모든 Azure Functions IDE 및 CLI 통합에서 지원 됩니다.
 
 * Visual studio 사용자를 위한 [Visual Studio 확장](../azure-functions/functions-develop-vs.md) 입니다.
-* Visual Studio Code 사용자를 위한 [Visual Studio Core 확장](https://code.visualstudio.com/tutorials/functions-extension/create-function) 입니다.
+* Visual Studio Code 사용자를 위한 [Visual Studio Core 확장](/azure/javascript/tutorial-vscode-serverless-node-01) 입니다.
 * 그리고 마지막으로 [핵심 CLI 도구](../azure-functions/functions-run-local.md#create-func) 를 통해 플랫폼 간 IDE를 독립적으로 사용할 환경을 제공 합니다.
 
 ## <a name="run-your-trigger-locally"></a>로컬에서 트리거 실행

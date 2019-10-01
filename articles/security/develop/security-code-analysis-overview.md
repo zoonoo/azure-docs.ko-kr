@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a7ab908673f60a651db48ae0485592a362741b6d
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: c3e22b34dbb770af2b4a719f8b4eaf040b724c47
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242312"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695423"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Microsoft 보안 코드 분석 정보
 
@@ -45,7 +45,7 @@ Azure DevOps 파이프라인에 Microsoft 보안 코드 분석 도구를 추가 
 
 기본적으로 빌드 작업 및 도구는 최신 상태로 유지 됩니다. 업데이트 된 버전의 도구가 있는 경우이를 다운로드 하 여 설치할 필요가 없습니다. 확장은 사용자를 위해 업데이트를 처리 합니다.
 
-### <a name="under-the-hood"></a>기본적인 이해
+### <a name="under-the-hood"></a>내부 살펴보기
 
 확장의 빌드 작업은의 복잡성을 숨깁니다.
   - 보안 정적 분석 도구를 실행 하 고 있습니다.
@@ -73,7 +73,7 @@ BinSkim는 이진 파일의 컴파일러 설정, 링커 설정 및 기타 보안
 
 ### <a name="microsoft-security-risk-detection"></a>Microsoft 보안 위험 검색
 
-MSRD (Microsoft 보안 위험 검색)은 퍼징 테스트를 위한 클라우드 기반 서비스입니다. 소프트웨어의 악용 가능한 보안 버그를 식별 합니다. 이 서비스에는 별도의 온 보 딩 프로세스가 필요 합니다. 자세한 내용은 [Msrd 개발자 센터](https://docs.microsoft.com/security-risk-detection/)를 참조 하세요.
+MSRD (Microsoft 보안 위험 검색)은 퍼징 테스트를 위한 클라우드 기반 서비스입니다. 소프트웨어의 악용 가능한 보안 버그를 식별 합니다. 이 서비스에는 별도의 구독 및 활성화가 필요 합니다. 자세한 내용은 [Msrd 개발자 센터](https://docs.microsoft.com/security-risk-detection/)를 참조 하세요.
 
 ### <a name="roslyn-analyzers"></a>Roslyn 분석기
 
