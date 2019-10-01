@@ -38,6 +38,8 @@
       href: create-host-pools-arm-template.md
     - name: PowerShell을 사용한 호스트 풀 만들기
       href: create-host-pools-powershell.md
+    - name: Windows Virtual Desktop에서 Windows 7 가상 머신 배포
+      href: deploy-windows-7-virtual-machine.md
     - name: Windows Virtual Desktop 세션 호스트에 Windows 라이선스 적용
       href: apply-windows-license.md
     - name: 파일 공유를 사용하여 호스트 풀에 대한 프로필 컨테이너 만들기
@@ -86,6 +88,8 @@
       href: troubleshoot-set-up-issues.md
     - name: 세션 호스트 가상 머신 구성
       href: troubleshoot-vm-configuration.md
+    - name: Windows Virtual Desktop에서 Windows 7 가상 머신 문제 해결
+      href: troubleshoot-windows-7-vm.md
     - name: 원격 데스크톱 클라이언트 연결
       href: troubleshoot-client-connection.md
     - name: Windows Virtual Desktop PowerShell

@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Windows Virtual Desktop Preview 설명서
+title: Windows Virtual Desktop 설명서
 metadata:
-  title: 'Windows Virtual Desktop Preview 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs'
-  description: Azure용 Windows Virtual Desktop Preview는 클라우드에서 가상화된 다중 사용자 Windows 10 Enterprise 환경입니다.
+  title: 'Windows Virtual Desktop 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs'
+  description: Azure용 Windows Virtual Desktop은 클라우드에서 가상화된 다중 사용자 Windows 10 Enterprise 환경입니다.
   author: Heidilohr
   manager: daveba
   ms.service: virtual-desktop
@@ -17,11 +17,11 @@ sections:
   - title: 개요
     items:
       - type: paragraph
-        text: 'Windows Virtual Desktop Preview에 대한 정보 및 사용 방법을 알아봅니다. 자습서, 방법, 참조 콘텐츠 등을 통해 호스트 풀 및 테넌트를 설정하고 Windows Virtual Desktop 환경에서 사용자에게 역할을 할당하는 방법을 보여줍니다.'
+        text: 'Windows Virtual Desktop에 대한 정보 및 사용 방법을 알아봅니다. 자습서, 방법, 참조 콘텐츠 등을 통해 호스트 풀 및 테넌트를 설정하고 Windows Virtual Desktop 환경에서 사용자에게 역할을 할당하는 방법을 보여줍니다.'
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/virtual-desktop/overview">Windows Virtual Desktop Preview란?</a>
+          - html: <a href="/azure/virtual-desktop/overview">Windows Virtual Desktop이란?</a>
   - title: 단계별 자습서
     items:
       - type: paragraph

@@ -36,13 +36,15 @@
     - name: 10 - VM 제어
       href: tutorial-govern-resources.md
       displayName: scope policy RBAC lock tag
-    - name: 11 - VM 모니터링 및 업데이트
-      href: tutorial-monitoring.md
-    - name: 12 - VM 보안 관리
+    - name: 11 - VM 추적 및 업데이트
+      href: tutorial-config-management.md
+    - name: 12 - VM 모니터링
+      href: tutorial-monitor.md
+    - name: 13 - VM 보안 관리
       href: tutorial-azure-security.md
-    - name: 13 - SQL\IIS 설치\.NET 스택
+    - name: 14 - SQL\IIS\.NET 스택 설치
       href: tutorial-iis-sql.md
-    - name: 14 - SSL로 웹 서버 보안
+    - name: 15 - SSL로 웹 서버 보안
       href: tutorial-secure-web-server.md
 - name: 샘플
   items:

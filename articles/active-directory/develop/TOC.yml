@@ -219,84 +219,6 @@
                   href: scenario-mobile-call-api.md
                 - name: 프로덕션 환경으로 이동
                   href: scenario-mobile-production.md
-        - name: MSAL(Microsoft 인증 라이브러리)
-          items:
-            - name: 개요
-              href: msal-overview.md
-            - name: ADAL에서 마이그레이션
-              items:
-                - name: MSAL.NET으로 마이그레이션
-                  href: msal-net-migration.md
-                - name: MSAL.js로 마이그레이션
-                  href: msal-compare-msal-js-and-adal-js.md
-                - name: iOS 및 MacOS용 MSAL로 마이그레이션
-                  href: migrate-objc-adal-msal.md
-                - name: broker를 사용하여 ADAL.NET에서 MSAL.NET으로 Xamarin 앱 마이그레이션
-                  href: msal-net-migration-ios-broker.md
-            - name: 지원되는 인증 흐름
-              href: msal-authentication-flows.md
-            - name: 토큰 획득 및 캐시
-              items:
-                - name: 토큰 획득 및 캐시
-                  href: msal-acquire-cache-tokens.md
-                - name: v1.0 앱의 범위
-                  href: msal-v1-app-scopes.md
-            - name: 클라이언트 애플리케이션
-              items:
-                - name: 클라이언트 애플리케이션
-                  href: msal-client-applications.md
-                - name: 애플리케이션 구성
-                  href: msal-client-application-configuration.md
-                - name: 애플리케이션 초기화(.NET)
-                  href: msal-net-initializing-client-applications.md
-                - name: 클라이언트 어설션(.NET)
-                  href: msal-net-client-assertions.md
-                - name: 애플리케이션 초기화(JS)
-                  href: msal-js-initializing-client-applications.md
-            - name: 오류 및 예외 처리
-              href: msal-handling-exceptions.md
-            - name: 로깅
-              href: msal-logging.md
-            - name: SSO(Single sign-on)
-              items:
-                - name: MSAL.js를 사용한 Single Sign-On
-                  href: msal-js-sso.md
-                - name: iOS 및 macOS용 MSAL을 사용한 Single Sign-On
-                  items:
-                    - name: MSAL 앱 간 SSO
-                      href: single-sign-on-macos-ios.md
-                    - name: ADAL 앱과 MSAL 앱 간의 SSO
-                      href: sso-between-adal-msal-apps-macos-ios.md
-            - name: ADFS와 통합
-              items:
-                - name: MSAL.NET의 ADFS 지원
-                  href: msal-net-adfs-support.md
-            - name: Azure AD B2C와 통합
-              items:
-                - name: JavaScript
-                  href: msal-b2c-overview.md
-                - name: .NET
-                  href: msal-net-aad-b2c-considerations.md
-                - name: iOS 및 macOS
-                  href: 'config-authority.md#b2c'
-            - name: 고려 사항 및 알려진 문제
-              items:
-                - name: MSAL.NET
-                  items:
-                    - name: 웹 브라우저
-                      href: msal-net-web-browsers.md
-                - name: MSAL.js
-                  items:
-                    - name: IE를 사용한 고려 사항
-                      href: msal-js-use-ie-browser.md
-                    - name: 알려진 문제 - IE와 Microsoft Edge
-                      href: msal-js-known-issues-ie-edge-browsers.md
-                    - name: 알려진 문제 - Safari
-                      href: msal-js-known-issues-safari-browser.md
-                - name: iOS 및 macOS용 MSAL
-                  items:
-                    - name: SSL 문제
-                      href: ssl-issues.md
         - name: 인증 프로토콜
           items:
             - name: 애플리케이션 형식 및 OAuth2.0
@@ -440,6 +362,98 @@
               href: vs-active-directory-webapi-what-happened.md
             - name: 인증 검색 중 오류 발생
               href: vs-active-directory-error.md
+    - name: MSAL(Microsoft 인증 라이브러리)
+      items:
+        - name: 개요
+          href: msal-overview.md
+        - name: 계정 및 테넌트 프로필(Android)
+          href: accounts-overview.md
+        - name: 권한 부여 에이전트(Android)
+          href: authorization-agents.md
+        - name: 조정된 인증(Android)
+          items:
+            - name: 조정된 인증(Android)
+              href: brokered-auth.md
+        - name: 마이그레이션
+          items:
+            - name: MSAL.NET으로 마이그레이션
+              href: msal-net-migration.md
+            - name: MSAL.js로 마이그레이션
+              href: msal-compare-msal-js-and-adal-js.md
+            - name: MSAL.Android로 마이그레이션
+              href: migrate-android-adal-msal.md
+            - name: MSAL.iOS 및 MacOS로 마이그레이션
+              href: migrate-objc-adal-msal.md
+            - name: broker를 사용하여 ADAL.NET에서 MSAL.NET으로 Xamarin 앱 마이그레이션
+              href: msal-net-migration-ios-broker.md
+        - name: 지원되는 인증 흐름
+          href: msal-authentication-flows.md
+        - name: 단일 및 다중 계정 공용 클라이언트 앱(Android)
+          href: single-multi-account.md
+        - name: 토큰 획득 및 캐시
+          items:
+            - name: 토큰 획득 및 캐시
+              href: msal-acquire-cache-tokens.md
+            - name: v1.0 앱의 범위
+              href: msal-v1-app-scopes.md
+        - name: 클라이언트 애플리케이션
+          items:
+            - name: 클라이언트 애플리케이션
+              href: msal-client-applications.md
+            - name: 애플리케이션 구성(.NET)
+              href: msal-client-application-configuration.md
+            - name: 애플리케이션 초기화(.NET)
+              href: msal-net-initializing-client-applications.md
+            - name: 클라이언트 어설션(.NET)
+              href: msal-net-client-assertions.md
+            - name: 애플리케이션 초기화(JS)
+              href: msal-js-initializing-client-applications.md
+        - name: 오류 및 예외 처리
+          href: msal-handling-exceptions.md
+        - name: 로깅
+          href: msal-logging.md
+        - name: SSO(Single sign-on)
+          items:
+            - name: MSAL.js를 사용한 Single Sign-On
+              href: msal-js-sso.md
+            - name: iOS 및 macOS용 MSAL을 사용한 Single Sign-On
+              items:
+                - name: MSAL 앱 간 SSO
+                  href: single-sign-on-macos-ios.md
+                - name: ADAL 앱과 MSAL 앱 간의 SSO
+                  href: sso-between-adal-msal-apps-macos-ios.md
+        - name: ADFS와 통합
+          items:
+            - name: MSAL.NET의 ADFS 지원
+              href: msal-net-adfs-support.md
+        - name: Azure AD B2C와 통합
+          items:
+            - name: Android
+              href: msal-android-b2c.md
+            - name: JavaScript
+              href: msal-b2c-overview.md
+            - name: .NET
+              href: msal-net-aad-b2c-considerations.md
+            - name: iOS 및 macOS
+              href: 'config-authority.md#b2c'
+        - name: 고려 사항 및 알려진 문제
+          items:
+            - name: MSAL.NET
+              items:
+                - name: 웹 브라우저
+                  href: msal-net-web-browsers.md
+            - name: MSAL.js
+              items:
+                - name: IE를 사용한 고려 사항
+                  href: msal-js-use-ie-browser.md
+                - name: 알려진 문제 - IE와 Microsoft Edge
+                  href: msal-js-known-issues-ie-edge-browsers.md
+                - name: 알려진 문제 - Safari
+                  href: msal-js-known-issues-safari-browser.md
+            - name: iOS 및 macOS용 MSAL
+              items:
+                - name: SSL 문제
+                  href: ssl-issues.md
     - name: 참조
       items:
         - name: 인증 라이브러리
@@ -449,6 +463,8 @@
           href: 'https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta'
         - name: 애플리케이션 매니페스트.
           href: reference-app-manifest.md
+        - name: Android MSAL 구성 파일
+          href: msal-configuration.md
         - name: 인증 및 권한 부여 오류 코드
           href: reference-aadsts-error-codes.md
         - name: 주요 변경 내용
