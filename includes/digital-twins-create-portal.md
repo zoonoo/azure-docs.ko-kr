@@ -5,21 +5,21 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: include
-ms.date: 08/16/2019
+ms.date: 09/24/2019
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: 87599c6e0c4bd4313eac154b4d07110cbe4389a0
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 5b88e3f17c1bbf60d38763f7fb349302ae4a920b
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622982"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310512"
 ---
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. 왼쪽 창에서 **리소스 만들기**를 선택합니다. **digital twins**를 검색하여 **Digital Twins**를 선택합니다. **만들기**를 선택하여 배포 프로세스를 시작합니다.
 
-   ![새 Digital Twins 인스턴스를 만들기 위한 선택 항목](./media/create-digital-twins-portal/create-digital-twins.png)
+   [![새 Digital Twins 인스턴스를 만들기 위한 선택 항목](./media/create-digital-twins-portal/create-digital-twins.png)](./media/create-digital-twins-portal/create-digital-twins.png#lightbox)
 
 1. **Digital Twins** 창에서 다음 정보를 입력합니다.
    * **리소스 이름**: Digital Twins 인스턴스의 고유한 이름을 만듭니다.
@@ -27,7 +27,7 @@ ms.locfileid: "69622982"
    * **리소스 그룹**: Digital Twins 인스턴스에 대한 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)을 선택하거나 만듭니다.
    * **위치**: 디바이스에 가장 가까운 위치를 선택합니다.
 
-     ![정보가 입력된 Digital Twins 창](./media/create-digital-twins-portal/create-digital-twins-param.png)
+     [![정보가 입력된 Digital Twins 창](./media/create-digital-twins-portal/create-digital-twins-param.png)](./media/create-digital-twins-portal/create-digital-twins-param.png#lightbox)
 
 1. Digital Twins 정보를 검토한 다음, **만들기**를 선택합니다. Digital Twins 인스턴스가 만들어질 때까지 몇 분 정도 걸릴 수 있습니다. **알림** 창에서 진행 상황을 모니터링할 수 있습니다.
 
@@ -37,4 +37,4 @@ ms.locfileid: "69622982"
 
     **관리 API** URL을 `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/` 형식으로 수정합니다. 애플리케이션은 수정된 URL을 기본 URL로 사용하여 인스턴스 액세스합니다. 수정된 이 URL을 임시 파일에 복사합니다. 다음 섹션에서 필요합니다.
 
-    ![관리 API](./media/create-digital-twins-portal/digital-twins-management-api.png)
+    [![관리 API](./media/create-digital-twins-portal/digital-twins-management-api.png)](./media/create-digital-twins-portal/digital-twins-management-api.png#lightbox)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: 6a1b4ab43a7d87ac1162a7f0a3556d6bc3bfbfab
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 86e69d75c067159a4daa637984a392a393dc46fa
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721252"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211793"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>빠른 시작: Ink Recognizer REST API와 C#으로 디지털 잉크 인식
 
@@ -60,7 +60,7 @@ ms.locfileid: "67721252"
     using Newtonsoft.Json.Linq;
     ```
 
-2. 구독 키 및 엔드포인트에 대한 변수를 만듭니다. 아래는 잉크 인식에 사용할 수 있는 URI입니다. 나중에 API 요청 URl를 만드는 서비스 엔드포인트에 추가됩니다.
+2. 구독 키 및 엔드포인트에 대한 변수를 만듭니다. 아래 엔드포인트를 Ink Recognizer 리소스에 대해 생성된 엔드포인트로 바꿉니다. API에 연결하려면 Ink Recognizer URI에 추가합니다.
 
     ```csharp
     // Replace the subscriptionKey string with your valid subscription key.
@@ -70,7 +70,7 @@ ms.locfileid: "67721252"
     const string dataPath = @"PATH-TO-INK-STROKE-DATA"; 
 
     // URI information for ink recognition:
-    const string endpoint = "https://api.cognitive.microsoft.com";
+    const string endpoint = "https://<your-custom-subdomain>.cognitiveservices.azure.com";
     const string inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 

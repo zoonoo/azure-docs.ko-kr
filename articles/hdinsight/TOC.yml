@@ -17,6 +17,8 @@
           href: ./hdinsight-administer-use-dotnet-sdk.md
         - name: HDInsight 클러스터 관리 - Powershell
           href: ./hdinsight-administer-use-powershell.md
+        - name: ETL 파이프라인 빌드
+          href: ./hdinsight-sales-insights-etl.md
     - name: 샘플
       items:
         - name: Azure CLI 샘플

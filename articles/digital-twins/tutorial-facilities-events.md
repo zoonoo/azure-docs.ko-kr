@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/05/2019
+ms.date: 09/23/2019
 ms.author: alinast
-ms.openlocfilehash: 30d43831b73edc52b461512faecac369f6bf00b0
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: fe2eb357ef89d70512e85db24d22f95cac1bd0ac
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827821"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300085"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>자습서: Logic Apps를 사용하여 Azure Digital Twins 공간으로부터 알림 수신
 
@@ -39,6 +39,9 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 - 샘플을 실행하기 위해 개발 머신에 설치된 [.NET Core SDK 버전 2.1.403 이상](https://www.microsoft.com/net/download) 올바른 버전이 설치되어 있는지 확인하려면 `dotnet --version` 명령을 실행합니다.
 - 알림 이메일을 보내는 Office 365 계정.
 
+> [!TIP]
+> 새 인스턴스를 프로비저닝하는 경우 고유한 Digital Twins 인스턴스 이름을 사용합니다.
+
 ## <a name="integrate-events-with-event-grid"></a>Event Grid와 이벤트 통합
 
 이 섹션에서는 Digital Twins 인스턴스에서 이벤트를 수집할 [Event Grid](../event-grid/overview.md)를 설치하고, Logic Apps와 같은 [이벤트 처리기](../event-grid/event-handlers.md)로 리디렉션합니다.
@@ -55,13 +58,13 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
 1. Event Grid 토픽의 **이름**을 입력하고 **구독**을 선택합니다. Digital Twins 인스턴스에 대해 사용되거나 생성한 **리소스 그룹** 및 **위치**를 선택합니다. **만들기**를 선택합니다. 
 
-    ![Event Grid 토픽 만들기](./media/tutorial-facilities-events/create-event-grid-topic.png)
+    [![Event Grid 토픽 만들기](./media/tutorial-facilities-events/create-event-grid-topic.png)](./media/tutorial-facilities-events/create-event-grid-topic.png#lightbox)
 
 1. 리소스 그룹에서 Event Grid 토픽으로 이동하고, **개요**를 선택하고, **토픽 엔드포인트**의 값을 임시 파일에 복사합니다. 다음 섹션에서 이 URL이 필요합니다. 
 
 1. **액세스 키**를 선택하고, **YOUR_KEY_1** 및 **YOUR_KEY_2**를 임시 파일에 복사합니다. 다음 섹션에서 엔드포인트를 만들려면 이러한 값이 필요합니다.
 
-    ![Event Grid 키](./media/tutorial-facilities-events/event-grid-keys.png)
+    [![Event Grid 키](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
 
 ### <a name="create-an-endpoint-for-the-event-grid-topic"></a>Event Grid 토픽에 대한 엔드포인트 만들기
 
@@ -98,7 +101,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
    이 명령은 Event Grid에 대한 엔드포인트를 만듭니다. 
 
-   ![Event Grid에 대한 엔드포인트](./media/tutorial-facilities-events/dotnet-create-endpoints.png)
+   [![Event Grid에 대한 엔드포인트](./media/tutorial-facilities-events/dotnet-create-endpoints.png)](./media/tutorial-facilities-events/dotnet-create-endpoints.png#lightbox)
 
 ## <a name="notify-events-with-logic-apps"></a>Logic Apps를 사용하여 이벤트 알림
 
@@ -110,7 +113,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
 1. 논리 앱 리소스의 **이름**을 입력하고, **구독**, **리소스 그룹** 및 **위치**를 선택합니다. **만들기**를 선택합니다.
 
-    ![논리 앱 리소스 만들기](./media/tutorial-facilities-events/create-logic-app.png)
+    [![논리 앱 리소스 만들기](./media/tutorial-facilities-events/create-logic-app.png)](./media/tutorial-facilities-events/create-logic-app.png#lightbox)
 
 1. Logic Apps 리소스가 배포되면 연 다음, **논리 앱 디자이너** 창을 엽니다. 
 
@@ -124,7 +127,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
    다. **리소스 이름**에 대한 드롭다운 상자에서 Event Grid 리소스를 선택합니다.
 
-   ![Logic App 디자이너 창](./media/tutorial-facilities-events/logic-app-resource-event.png)
+   [![Logic App 디자이너 창](./media/tutorial-facilities-events/logic-app-resource-event.png)](./media/tutorial-facilities-events/logic-app-resource-event.png#lightbox)
 
 1. **새 단계** 단추를 선택합니다.
 
@@ -156,7 +159,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
     이 페이로드는 가상의 값을 갖고 있습니다. Logic Apps는 이 샘플 페이로드를 사용하여 *스키마*를 생성합니다.
 
-    ![Event Grid에 대한 Logic Apps 구문 분석 JSON 창](./media/tutorial-facilities-events/logic-app-parse-json.png)
+    [![Event Grid에 대한 Logic Apps 구문 분석 JSON 창](./media/tutorial-facilities-events/logic-app-parse-json.png)](./media/tutorial-facilities-events/logic-app-parse-json.png#lightbox)
 
 1. **새 단계** 단추를 선택합니다.
 
@@ -168,7 +171,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
    다. 두 번째 **값 선택** 텍스트 상자에 `UdfCustom`을 입력합니다.
 
-   ![선택된 조건](./media/tutorial-facilities-events/logic-app-condition.png)
+   [![선택된 조건](./media/tutorial-facilities-events/logic-app-condition.png)](./media/tutorial-facilities-events/logic-app-condition.png#lightbox)
 
 1. **true이면** 창에서 다음을 수행합니다.
 
@@ -180,7 +183,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
    d. 동일한 창의 **본문** 아래에 다음과 유사한 텍스트를 입력합니다. **실내 공기질이 저하되었으며 온도를 조정해야 합니다**. **동적 콘텐츠** 목록의 요소를 사용하여 자유롭게 기술하면 됩니다.
 
-   ![Logic Apps "이메일 보내기" 선택 영역](./media/tutorial-facilities-events/logic-app-send-email.png)
+   [![Logic Apps "이메일 보내기" 선택 영역](./media/tutorial-facilities-events/logic-app-send-email.png)](./media/tutorial-facilities-events/logic-app-send-email.png#lightbox)
 
 1. **Logic App 디자이너** 창의 맨 위에서 **저장** 단추를 선택합니다.
 
@@ -188,7 +191,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
 잠시 후 이 Logic Apps 리소스로부터 이메일 알림을 받기 시작합니다. 
 
-   ![메일 알림](./media/tutorial-facilities-events/logic-app-notification.png)
+   [![이메일 알림](./media/tutorial-facilities-events/logic-app-notification.png)](./media/tutorial-facilities-events/logic-app-notification.png#lightbox)
 
 이러한 이메일 수신을 중지하려면 포털에서 Logic Apps 리소스로 이동하고 **개요** 창을 선택합니다. **사용 안 함**을 선택합니다.
 

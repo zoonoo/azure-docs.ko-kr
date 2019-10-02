@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 626a6a5e0449d267b67653c2f63303226dd0c99d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 95a5df4ca14f4be8553c83dfe8b4d09d00341102
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699748"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260389"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>빠른 시작: Windows 가상 머신에서 Azure Files 공유 만들기 및 관리
 
@@ -46,7 +46,7 @@ Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만�
 
     ![파일 선택](./media/storage-files-quick-create-use-windows/click-files.png)
 
-1. **+ 파일 공유**를 선택합니다.
+1. **파일 공유**를 선택합니다.
 
     ![파일 공유 추가 단추 선택](./media/storage-files-quick-create-use-windows/create-file-share.png)
 

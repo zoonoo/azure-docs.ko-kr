@@ -2,7 +2,7 @@
   href: index.yml
 - name: 개요
   items:
-    - name: DMS(Database Migration Service)란?
+    - name: Azure Database Migration Service란 무엇인가요?
       href: dms-overview.md
 - name: 빠른 시작
   items:
@@ -10,41 +10,41 @@
       href: quickstart-create-data-migration-service-portal.md
 - name: 자습서
   items:
-    - name: SQL Server를 Azure SQL DB로 오프라인 마이그레이션
+    - name: SQL Server를 Azure SQL DB 단일 데이터베이스로 오프라인 마이그레이션
       href: tutorial-sql-server-to-azure-sql.md
-    - name: SQL Server를 Azure SQL DB로 온라인 마이그레이션
+    - name: SQL Server를 Azure SQL DB 단일 데이터베이스로 온라인 마이그레이션
       href: tutorial-sql-server-azure-sql-online.md
-    - name: SQL Server를 Azure SQL DB Managed Instance로 오프라인 마이그레이션
+    - name: SQL Server를 Azure SQL DB 관리형 인스턴스로 오프라인 마이그레이션
       href: tutorial-sql-server-to-managed-instance.md
-    - name: SQL Server를 Azure SQL DB Managed Instance로 온라인 마이그레이션
+    - name: SQL Server를 Azure SQL DB 관리형 인스턴스로 온라인 마이그레이션
       href: tutorial-sql-server-managed-instance-online.md
-    - name: RDS SQL Server를 Azure SQL DB 또는 Azure SQL DB Managed Instance 온라인으로 마이그레이션
+    - name: RDS SQL Server를 Azure SQL DB 단일 데이터베이스 또는 Azure SQL DB 관리형 인스턴스로 온라인 마이그레이션
       href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
     - name: MySQL을 Azure DB for MySQL로 온라인 마이그레이션
       href: tutorial-mysql-azure-mysql-online.md
     - name: RDS MySQL을 Azure DB for MySQL로 온라인 마이그레이션
       href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
-    - name: PostgreSQL을 Azure DB for PostgreSQL로 온라인 마이그레이션
+    - name: PostgreSQL을 Azure DB for PostgreSQL 단일 서버로 온라인 마이그레이션
       href: tutorial-postgresql-azure-postgresql-online.md
-    - name: RDS PostgreSQL을 Azure DB for PostgreSQL로 온라인 마이그레이션
+    - name: RDS PostgreSQL을 Azure DB for PostgreSQL 단일 서버로 온라인 마이그레이션
       href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
     - name: MongoDB를 Azure Cosmos DB Mongo API로 오프라인 마이그레이션
       href: tutorial-mongodb-cosmos-db.md
     - name: MongoDB를 Azure Cosmos DB Mongo API로 온라인 마이그레이션
       href: tutorial-mongodb-cosmos-db-online.md
-    - name: Oracle을 Azure Database for PostgreSQL로 온라인 마이그레이션
+    - name: Oracle을 Azure Database for PostgreSQL 단일 서버로 온라인 마이그레이션
       href: tutorial-oracle-azure-postgresql-online.md
 - name: 방법 가이드
   items:
-    - name: PowerShell을 사용하여 SQL Server를 Azure SQL DB로 마이그레이션
+    - name: PowerShell을 사용하여 SQL Server를 Azure SQL DB 단일 데이터베이스로 마이그레이션
       href: howto-sql-server-to-azure-sql-powershell.md
-    - name: PowerShell을 사용하여 SQL Server를 Azure SQL DB MI로 마이그레이션
+    - name: PowerShell을 사용하여 SQL Server를 Azure SQL DB 관리형 인스턴스로 마이그레이션
       href: howto-sql-server-to-azure-sql-mi-powershell.md
     - name: 마이그레이션 작업 모니터링
       href: how-to-monitor-migration-activity.md
-    - name: Azure SQL Database에 SSIS 패키지 마이그레이션
+    - name: Azure SQL Database 단일 데이터베이스에 SSIS 패키지 다시 배포
       href: how-to-migrate-ssis-packages.md
-    - name: Azure SQL Database Managed Instance에 SSIS 패키지 마이그레이션
+    - name: Azure SQL Database 관리형 인스턴스에 SSIS 패키지 다시 배포
       href: how-to-migrate-ssis-packages-managed-instance.md
 - name: 리소스
   expanded: true
@@ -53,7 +53,7 @@
       href: resource-scenario-status.md
     - name: 필수 구성 요소의 개요
       href: pre-reqs.md
-    - name: Azure SQL DB Managed Instance 마이그레이션에 대한 네트워크 토폴로지
+    - name: Azure SQL DB 관리형 인스턴스 마이그레이션에 대한 네트워크 토폴로지
       href: resource-network-topologies.md
     - name: 문제 해결 및 알려진 문제
       items:
@@ -61,11 +61,11 @@
           href: known-issues-troubleshooting-dms-source-connectivity.md
         - name: 일반적인 문제 및 오류 해결
           href: known-issues-troubleshooting-dms.md
-        - name: 알려진 문제 - Azure SQL DB로 온라인 마이그레이션
+        - name: 알려진 문제 - Azure SQL DB 단일 데이터베이스로 온라인 마이그레이션
           href: known-issues-azure-sql-online.md
         - name: 알려진 문제 - Azure DB for MySQL로 온라인 마이그레이션
           href: known-issues-azure-mysql-online.md
-        - name: 알려진 문제 - Azure DB for PostgreSQL로 온라인 마이그레이션
+        - name: 알려진 문제 - Azure DB for PostgreSQL 단일 서버로 온라인 마이그레이션
           href: known-issues-azure-postgresql-online.md
     - name: 동영상
       items:
@@ -89,7 +89,7 @@
       items:
         - name: 데이터 마이그레이션 시나리오에 사용할 수 있는 서비스 및 도구
           href: dms-tools-matrix.md
-        - name: 데이터베이스 마이그레이션 가이드
+        - name: Azure Database 마이그레이션 가이드
           href: 'https://aka.ms/datamigration'
         - name: Data Migration Assistant
           href: 'https://aka.ms/dma'
@@ -97,6 +97,8 @@
           href: 'https://aka.ms/ssma'
         - name: 데이터베이스 실험 도우미
           href: 'https://aka.ms/dea-docs'
+        - name: 데이터 액세스 마이그레이션 도구 키트
+          href: 'https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit'
     - name: 질문과 대답
       href: faq.md
     - name: 사용자 의견 피드백

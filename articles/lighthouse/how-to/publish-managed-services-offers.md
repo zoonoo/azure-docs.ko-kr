@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 4a1adf1be8798f4bb21b89ff0654287a2958146e
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 4781126bc4fcfb6391db42a75553a13e0e4cc4f9
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105256"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155140"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Azure Marketplace에 관리형 서비스 솔루션 게시
 
@@ -24,6 +24,8 @@ ms.locfileid: "71105256"
 > Azure Marketplace에 제품을 게시하지 않으려는 경우 Azure Resource Manager 템플릿을 사용하여 수동으로 고객을 온보딩할 수 있습니다. 자세한 내용은 [Azure 위임 리소스 관리에 고객 온보딩](onboard-customer.md)을 참조하세요.
 
 관리 서비스 제품 게시는 Azure Marketplace에 다른 유형의 제품을 게시하는 것과 비슷합니다. 해당 프로세스에 대해 알아보려면 [Azure Marketplace 및 AppSource 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) 및 [Azure 및 AppSource Marketplace 제품 관리](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers)를 참조하세요. [상업 마켓플레이스 인증 정책](https://docs.microsoft.com/legal/marketplace/certification-policies), 특히 [관리 서비스](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services) 섹션도 검토해야 합니다.
+
+고객이 제품을 추가하면 하나 이상의 특정 구독 또는 리소스 그룹을 위임할 수 있습니다. 그러면 [Azure 위임 리소스 관리에 온보딩](#the-customer-onboarding-process)됩니다. 구독(또는 구독 내의 리소스 그룹)을 온보딩하려면 먼저 **Microsoft.ManagedServices** 리소스 공급자를 수동으로 등록하여 온보딩에 대한 권한을 구독에 부여해야 합니다.
 
 > [!IMPORTANT]
 > 관리형 서비스 제품의 각 플랜에는 해당 플랜을 구입하는 고객의 위임된 리소스 그룹 및/또는 구독에 액세스할 수 있는 테넌트의 Azure AD(Azure Active Directory) 엔터티를 정의하는 **매니페스트 세부 정보** 섹션이 포함되어 있습니다. 여기에 포함하는 모든 그룹(또는 사용자 또는 서비스 주체)이 플랜을 구입하는 모든 고객에 대해 동일한 권한을 갖게 됩니다. 각 고객에 작동할 다른 그룹을 할당하려면 각 고객에게 단독으로 사용되는 별도의 프라이빗 플랜을 게시해야 합니다.

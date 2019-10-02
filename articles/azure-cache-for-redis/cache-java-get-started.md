@@ -14,13 +14,13 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/23/2018
 ms.author: yegu
-ms.custom: mvc, seo-java-august2019
-ms.openlocfilehash: 230bd4c0d53404ca5ac8d7e1385e8b0533880ca7
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.custom: mvc, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 019defe782f8258acfd508745d36a0a6599d2e61
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881144"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273926"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-java"></a>빠른 시작: Java에서 Azure Cache for Redis 사용
 
@@ -135,7 +135,7 @@ mvn exec:java -D exec.mainClass=example.demo.App
 
 아래 예제에서는 이전에 Azure Portal에서 Redis 콘솔을 사용하여 설정된 캐시된 값이 있는 `Message` 키를 볼 수 있습니다. 앱에서 캐시된 값을 업데이트했습니다. 또한 앱에서 `PING` 및 `CLIENT LIST` 명령을 실행했습니다.
 
-![완료된 캐시 앱](./media/cache-java-get-started/cache-app-complete.png)
+![Azure Cache for Redis 앱 완료](./media/cache-java-get-started/azure-cache-redis-complete.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -151,7 +151,7 @@ mvn exec:java -D exec.mainClass=example.demo.App
 
 1. **이름을 기준으로 필터링** 텍스트 상자에 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *TestResources*라는 리소스 그룹을 사용했습니다. 결과 목록의 리소스 그룹에서 **...** 를 선택한 다음, **리소스 그룹 삭제**를 선택합니다.
 
-   ![삭제](./media/cache-java-get-started/cache-delete-resource-group.png)
+   ![Azure 리소스 그룹이 삭제됨](./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png)
 
 1. 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 확인할 리소스 그룹의 이름을 입력하고 **삭제**를 선택합니다.
 

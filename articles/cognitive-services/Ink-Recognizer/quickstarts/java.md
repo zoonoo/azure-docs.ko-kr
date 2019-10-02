@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: b1c739b6355d3b32063e5289720ed1d191611e65
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 36ff0fe4550b140a722ed25f4e372f7c88581211
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721237"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212691"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>빠른 시작: Ink Recognizer REST API와 Java로 디지털 잉크 인식
 
@@ -31,7 +31,7 @@ ms.locfileid: "67721237"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- [JDK(Java&trade; Development Kit) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 이상
+- [Java&trade; Development Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 이상.
 
 - Maven 리포지토리에서 다음과 같은 라이브러리 가져오기
     - [JSON(Java](https://mvnrepository.com/artifact/org.json/json) 패키지)
@@ -58,7 +58,7 @@ ms.locfileid: "67721237"
     import java.nio.file.Paths;
     ```
 
-2. 구독 키 및 엔드포인트에 대한 변수를 만듭니다. 아래는 잉크 인식에 사용할 수 있는 URI입니다. 나중에 API 요청 URL을 만드는 서비스 엔드포인트에 추가됩니다.
+2. 구독 키 및 엔드포인트에 대한 변수를 만듭니다. 아래 엔드포인트를 Ink Recognizer 리소스에 대해 생성된 엔드포인트로 바꿉니다. API에 연결하려면 Ink Recognizer URI에 추가합니다.
 
     ```java
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -66,7 +66,7 @@ ms.locfileid: "67721237"
     // Replace the dataPath string with a path to the JSON formatted ink stroke data file.
     static final String dataPath = "PATH_TO_INK_STROKE_DATA";
     
-    static final String endpoint = "https://api.cognitive.microsoft.com";
+    static final String endpoint = "https://<your-custom-subdomain>.cognitiveservices.azure.com";
     static final String inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 
@@ -135,7 +135,7 @@ static void recognizeInk(String requestData) {
 
 ## <a name="run-the-application-and-view-the-response"></a>애플리케이션을 실행하고 응답 보기
 
-애플리케이션을 실행합니다. 성공 응답이 JSON 형식으로 반환됩니다. [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json)에서 JSON 응답을 찾을 수도 있습니다.
+애플리케이션을 실행합니다. 성공 응답이 JSON 형식으로 반환됩니다. 또한 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json)에서 JSON 응답을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

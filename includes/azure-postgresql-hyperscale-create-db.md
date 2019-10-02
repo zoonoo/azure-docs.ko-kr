@@ -5,15 +5,15 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: include
-ms.date: 05/14/2019
+ms.date: 09/12/2019
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: c07e352288d7dc1d0bf198fd74c8baaded3a2d23
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fadbcf04f1cd474cf2d23963e88016d240272263
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182446"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71279890"
 ---
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -38,27 +38,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    > 여기에서 지정하는 서버 관리자 암호는 서버 및 해당 데이터베이스에 로그인하는 데 필요합니다. 나중에 사용하기 위해 이 정보를 기억하거나 기록합니다.
 
 5. **서버 그룹 구성**을 클릭합니다. 이 섹션의 설정을 변경하지 않고 **저장**을 클릭합니다.
-6. **검토 + 만들기**를 클릭한 다음, **만들기**를 클릭하여 서버를 프로비저닝합니다. 프로비전하는 데 몇 분이 걸립니다.
-7. 배포를 모니터링하도록 페이지가 리디렉션됩니다. 실시간 상태가 **배포 진행 중**에서 **배포가 완료됨**으로 바뀌면 페이지 왼쪽에서 **출력** 메뉴 항목을 클릭합니다.
-8. 출력 페이지에는 코디네이터 호스트 이름이 포함되어 있고, 그 옆에는 이 값을 클립보드에 복사하는 단추가 있습니다. 나중에 사용할 수 있도록 이 정보를 기록해 둡니다.
+6. 페이지 맨 아래의 **다음: 네트워킹 >** 을 선택합니다.
 
-## <a name="configure-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 구성
-
-Azure Database for PostgreSQL - 하이퍼스케일(Citus)(미리 보기) 서비스는 서버 수준 방화벽을 사용합니다. 기본적으로 방화벽은 모든 외부 애플리케이션 및 도구가 코디네이터 노드와 그 내부의 데이터베이스에 연결하지 못하게 차단합니다. 특정 IP 주소 범위에 대해서는 방화벽을 여는 규칙을 추가해야 합니다.
-
-1. 이전에 코디네이터 노드 호스트 이름을 복사한 **출력** 섹션에서 **개요** 메뉴 항목을 다시 클릭합니다.
-
-2. 배포의 서버 그룹의 이름을 찾아서 클릭합니다. (서버 그룹 이름에는 접미사가 *없습니다*. 예를 들어, 이름이 “-c”, “-w0” “-w1”로 끝나는 항목은 서버 그룹이 아닙니다.)
-
-3. 왼쪽 메뉴의 **보안** 아래에서 **방화벽**을 클릭합니다.
-
-4. **+ 현재 클라이언트 IP 주소에 대한 방화벽 규칙 추가** 링크를 클릭합니다.
-
-5. 마지막으로, **저장** 단추를 클릭합니다.
+7. **네트워킹** 탭에서 **공용 엔드포인트** 라디오 단추를 클릭합니다.
+   ![선택된 공용 엔드포인트](./media/azure-postgresql-hyperscale-create-db/network-public-endpoint.png)
+8. **+ 현재 클라이언트 IP 주소 추가** 링크를 클릭합니다.
+   ![추가된 클라이언트 IP](./media/azure-postgresql-hyperscale-create-db/network-add-client-ip.png)
 
    > [!NOTE]
    > Azure PostgreSQL 서버는 5432 포트를 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 5432 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 5432를 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다.
    >
+
+9. **검토 + 만들기**를 클릭한 다음, **만들기**를 클릭하여 서버를 프로비저닝합니다. 프로비전하는 데 몇 분이 걸립니다.
+10. 배포를 모니터링하도록 페이지가 리디렉션됩니다. 실시간 상태가 **배포 진행 중**에서 **배포가 완료됨**으로 바뀌면 페이지 왼쪽에서 **출력** 메뉴 항목을 클릭합니다.
+11. 출력 페이지에는 코디네이터 호스트 이름이 포함되어 있고, 그 옆에는 이 값을 클립보드에 복사하는 단추가 있습니다. 나중에 사용할 수 있도록 이 정보를 기록해 둡니다.
 
 ## <a name="connect-to-the-database-using-psql"></a>psql을 사용하여 데이터베이스에 연결
 

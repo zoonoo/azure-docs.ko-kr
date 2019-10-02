@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 69c63d4eb2e0bfd04bb232cb0cf39965a5b77193
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: be82ab1597021d7198d7936ecd24e4bec64fdf25
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104272"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266911"
 ---
 ## <a name="benefits-of-managed-disks"></a>관리 디스크의 이점
 
@@ -43,15 +43,21 @@ ms.locfileid: "70104272"
 
 [Azure RBAC(역할 기반 액세스 제어)](../articles/role-based-access-control/overview.md)를 사용하여 관리 디스크에 대한 특정 권한을 한 명 이상의 사용자에게 할당할 수 있습니다. 관리 디스크는 읽기, 쓰기(만들기/업데이트), 삭제, [SAS(공유 액세스 서명) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) 검색 등 디스크에 대한 다양한 작업을 공개합니다. 업무를 수행하는 데 필요한 작업에만 액세스 권한을 부여할 수 있습니다. 예를 들어 관리 디스크를 스토리지 계정에 복사하지 말아야 하는 경우에는 해당 관리 디스크에 대한 내보내기 작업에 액세스를 부여하지 않도록 선택할 수 있습니다. SAS URI를 사용하여 관리 디스크를 복사할 수 없도록 하기 위해 관리 디스크에 해당 권한을 부여하지 않도록 선택할 수 있습니다.
 
+### <a name="upload-your-vhd"></a>vhd 업로드
+
+ 직접 업로드를 사용하면 vhd를 Azure 관리 디스크로 쉽게 전송할 수 있습니다. 이전에는 스토리지 계정에 데이터 준비를 포함하는 더 많은 관련 프로세스를 수행해야 했습니다. 이제 단계가 줄어듭니다. Azure에 온-프레미스 VM을 업로드하거나 대규모 관리 디스크에 업로드하는 과정에서 번거로움이 줄어듭니다. 백업 및 복원 프로세스도 간단해집니다. 또한 데이터를 VM에 연결하지 않고도 관리 디스크에 직접 업로드할 수 있으므로 비용이 절감됩니다. 직접 업로드를 사용하여 최대 32TiB 크기의 vhd를 업로드할 수 있습니다.
+
+ vhd를 Azure로 전송하는 방법을 알아보려면 [CLI](../articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) 또는 [PowerShell](../articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md) 문서를 참조하세요.
+
 ## <a name="encryption"></a>암호화
 
-관리 디스크는 두 가지 종류의 암호화를 제공합니다. 첫 번째는 스토리지 서비스에서 수행하는 SSE(스토리지 서비스 암호화)이고, 두 번째는 VM에 대한 OS 및 데이터 디스크에서 사용할 수 있는 Azure Disk Encryption입니다.
+관리 디스크는 두 가지 종류의 암호화를 제공합니다. 첫 번째는 스토리지 서비스에서 수행하는 SSE(스토리지 서비스 암호화)이고, 두 번째는 VM에 대한 OS 및 데이터 디스크에서 사용할 수 있는 ADE(Azure Disk Encryption)입니다.
 
 ### <a name="storage-service-encryption-sse"></a>SSE(Storage 서비스 암호화)
 
 [Azure 스토리지 서비스 암호화](../articles/storage/common/storage-service-encryption.md)는 저장 데이터 암호화를 제공하고, 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호합니다. SSE는 관리 디스크를 사용할 수 있는 모든 지역의 모든 관리 디스크, 스냅샷 및 이미지에서 기본적으로 사용하도록 설정됩니다. 자세한 내용은 [Managed Disks FAQ 페이지](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)를 참조하세요.
 
-### <a name="azure-disk-encryption-ade"></a>ADE(Azure Disk Encryption)
+### <a name="azure-disk-encryption"></a>Azure 디스크 암호화
 
 Azure Disk Encryption을 사용하면 IaaS Virtual Machines에서 사용되는 OS 및 데이터 디스크를 암호화할 수 있습니다. 이 암호화에는 관리되는 디스크가 포함됩니다. Windows의 경우 업계 표준의 BitLocker 암호화 기술을 사용하여 드라이브가 암호화됩니다. Linux의 경우 DM-Crypt 기술을 사용하여 디스크가 암호화됩니다. 이 암호화 프로세스는 Azure Key Vault와 통합되어 디스크 암호화 키를 제어 및 관리할 수 있도록 합니다. 자세한 내용은 [IaaS VM용 Azure Disk Encryption](../articles/security/azure-security-disk-encryption-overview.md)을 참조하세요.
 

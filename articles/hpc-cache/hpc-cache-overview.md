@@ -1,21 +1,21 @@
 ---
-title: Azure HPC Cache 개요
+title: Azure HPC Cache 미리 보기 개요
 description: 고성능 컴퓨팅을 위한 파일 액세스 가속기 솔루션인 Azure HPC Cache에 대해 설명합니다.
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 09/06/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: 77eca3ef58733a616705fdaac1d2880b5a990e8a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 093116a8def69e3f63af9aeb963abc60841cbe85
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036876"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257005"
 ---
-# <a name="what-is-azure-hpc-cache"></a>Azure HPC Cache란?
+# <a name="what-is-azure-hpc-cache-preview"></a>Azure HPC Cache란? (미리 보기)
 
-Azure HPC Cache는 HPC(고성능 컴퓨팅) 작업을 위해 데이터 액세스 속도를 높입니다. Azure에 파일을 캐시하면 데이터가 로컬 데이터 센터 NAS(Network Attached Storage) 환경과 같이 WAN 연결을 통해 저장된 워크플로에서도 클라우드 컴퓨팅의 확장성을 사용할 수 있습니다.
+Azure HPC Cache는 HPC(고성능 컴퓨팅) 작업을 위해 데이터 액세스 속도를 높입니다. Azure에서 파일을 캐싱하여 Azure HPC Cache는 기존 워크플로에 대한 클라우드 컴퓨팅의 확장성을 제공합니다. 이 서비스는 데이터가 로컬 데이터 센터 NAS(Network Attached Storage) 환경과 같이 WAN 연결을 통해 저장된 워크플로에서도 사용할 수 있습니다.
 
 Azure HPC Cache는 Azure Portal에서 쉽게 시작하고 모니터링할 수 있습니다. 기존 NFS 스토리지 또는 새 Blob 컨테이너가 집계된 네임스페이스의 일부로 포함될 수 있으므로, 백 엔드 스토리지 대상을 변경하더라도 클라이언트 액세스가 간소화됩니다.
 
@@ -37,13 +37,13 @@ Azure HPC Cache는 다양한 산업의 광범위한 워크플로에 추가할 �
 
 많은 생명 과학 워크플로에서도 스케일 아웃 파일 캐싱을 활용할 수 있습니다.
 
-게놈 분석 워크플로를 Azure로 포팅하려는 연구 기관은 Azure HPC Cache를 사용하여 쉽게 이동할 수 있습니다. 캐시는 POSIX 파일 액세스를 제공하므로, 기존 클라이언트 쪽 워크플로를 변경 없이 클라우드에서 실행할 수 있습니다.
+게놈 분석 워크플로를 Azure로 포팅하려는 연구 기관은 Azure HPC Cache를 사용하여 쉽게 이동할 수 있습니다. 캐시는 POSIX 파일 액세스를 제공하므로, 클라이언트에서 기존 클라이언트 워크플로를 실행하기 위해 클라이언트 쪽을 변경할 필요가 없습니다.
 
 Azure HPC Cache를 활용하여 보조 분석, 약학 시뮬레이션 또는 AI 기반 이미지 분석과 같은 작업의 효율성을 높일 수도 있습니다.
 
 ### <a name="financial-services-analytics"></a>금융 서비스 분석
 
-Azure HPC Cache는 정량적 분석 계산, 위험 분석 워크로드 및 몬테카를로 시뮬레이션 속도를 높여 금융 서비스 회사에 전략적 의사 결정을 내리기 위한 더 나은 인사이트를 제공할 수 있습니다.
+Azure HPC Cache 배포는 정량적 분석 계산, 위험 분석 워크로드 및 몬테카를로 시뮬레이션 속도를 높여 금융 서비스 회사에 전략적 의사 결정을 내리기 위한 더 나은 인사이트를 제공할 수 있습니다.
 
 ## <a name="region-availability"></a>지역 가용성
 
@@ -57,6 +57,10 @@ Azure HPC Cache는 다음 Azure 지역에서 제공됩니다.
 * 미국 서부 2
 
 최신 가용성 정보를 보려면 [Azure HPC Cache 제품 페이지](https://azure.microsoft.com/services/hpc-cache)를 확인하세요.
+
+## <a name="preview-availability"></a>미리 보기 가용성
+
+Azure HPC Cache 공개 미리 보기는 서비스 품질을 보장하도록 제한됩니다. [이 양식](https://aka.ms/onboard-hpc-cache)을 입력하여 액세스를 요청합니다. 구독이 액세스 목록에 추가된 후에는 테스트 캐시를 만들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/16/2019
+ms.date: 09/20/2019
 ms.author: alinast
-ms.openlocfilehash: 38df195f787407c4beab2f7251cf00c08a739e09
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: bdf37225e815d3848a87b88737daf4b5a5d2560c
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622898"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300044"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>자습서: Azure Digital Twins 미리 보기를 사용하여 건물 프로비전 및 작업 조건 모니터링
 
@@ -37,6 +37,9 @@ ms.locfileid: "69622898"
 - 샘플을 빌드하고 실행하기 위해 개발 머신에 설치된 [.NET Core SDK 버전 2.1.403 이상](https://www.microsoft.com/net/download). 올바른 버전이 설치되어 있는지 확인하려면 `dotnet --version` 명령을 실행합니다. 
 - 샘플 코드를 탐색할 [Visual Studio Code](https://code.visualstudio.com/). 
 
+> [!TIP]
+> 새 인스턴스를 프로비저닝하는 경우 고유한 Digital Twins 인스턴스 이름을 사용합니다.
+
 ## <a name="define-conditions-to-monitor"></a>모니터링할 조건 정의
 
 디바이스 또는 센서 데이터에서 모니터링할 특정 조건 집합, 즉, *선택기*를 정의할 수 있습니다. 그런 다음, *사용자 정의 함수*를 정의할 수 있습니다. 사용자 정의 함수는 선택기에서 지정한 조건이 발생하면 공간 및 디바이스에서 오는 데이터에 대해 사용자 지정 논리를 실행합니다. 자세한 내용은 [데이터 처리 및 사용자 정의 함수](concepts-user-defined-functions.md)를 참조하세요. 
@@ -50,25 +53,23 @@ ms.locfileid: "69622898"
         dataTypeValue: Temperature
 ```
 
-이 선택기는 [첫 번째 자습서](tutorial-facilities-setup.md)에서 추가한 SAMPLE_SENSOR_TEMPERATURE 센서를 추적합니다. 
-
-<a id="udf"></a>
+이 선택기는 [첫 번째 자습서](tutorial-facilities-setup.md)에서 추가한 `SAMPLE_SENSOR_TEMPERATURE` 센서를 추적합니다. 
 
 ## <a name="create-a-user-defined-function"></a>사용자 정의 함수 만들기
 
 사용자 정의 함수를 사용하여 센서 데이터 처리 방식을 사용자 지정할 수 있습니다. 사용자 정의 함수는 선택기에서 설명하는 특정 조건이 충족될 때 Azure Digital Twins 인스턴스 내에서 실행 가능한 사용자 지정 JavaScript 코드입니다. 모니터링하려는 각 센서에 대한 선택기 및 사용자 정의 함수를 만들 수 있습니다. 자세한 내용은 [데이터 처리 및 사용자 정의 함수](concepts-user-defined-functions.md)를 참조하세요. 
 
-샘플 provisionSample.yaml 파일에서, **userdefinedfunctions** 형식으로 시작하는 섹션을 찾아봅니다. 이 섹션에서는 지정된 **이름**을 사용하는 사용자 정의 함수를 프로비전합니다. 이 UDF는 **matcherNames** 아래의 선택기 목록에 따라 작동합니다. UDF에 대한 사용자 고유의 JavaScript 파일을 **스크립트**로 제공하는 방법을 살펴봅니다.
+샘플 *provisionSample.yaml* 파일에서 **userdefinedfunctions** 형식으로 시작하는 섹션을 찾아봅니다. 이 섹션에서는 지정된 **이름**을 사용하는 사용자 정의 함수를 프로비전합니다. 이 UDF는 **matcherNames** 아래의 선택기 목록에 따라 작동합니다. UDF에 대한 사용자 고유의 JavaScript 파일을 **스크립트**로 제공하는 방법을 살펴봅니다.
 
 **roleassignments** 섹션도 살펴봅니다. 사용자 정의 함수에 공간 관리자 역할을 할당합니다. 이 역할을 사용하면 프로비전된 공간에서 오는 이벤트에 액세스할 수 있습니다. 
 
-1. provisionSample.yaml 파일의 `matcherNames` 노드에 다음 줄을 추가하거나 주석 처리를 제거하여 온도 선택기를 포함하도록 UDF를 구성합니다.
+1. *provisionSample.yaml* 파일의 `matcherNames` 노드에 다음 줄을 추가하거나 주석 처리를 제거하여 온도 선택기를 포함하도록 UDF를 구성합니다.
 
     ```yaml
             - Matcher Temperature
     ```
 
-1. 편집기에서 **src\actions\userDefinedFunctions\availability.js** 파일을 엽니다. 이 파일은 provisionSample.yaml의 **script** 요소에서 언급한 파일입니다. 이 파일의 사용자 정의 함수는 실내에서 동작이 감지되지 않고 이산화탄소 농도가 1,000ppm 미만인 조건을 찾습니다. 
+1. 편집기에서 **src\actions\userDefinedFunctions\availability.js** 파일을 엽니다. 이 파일은 *provisionSample.yaml*의 **script** 요소에서 언급한 파일입니다. 이 파일의 사용자 정의 함수는 실내에서 동작이 감지되지 않고 이산화탄소 농도가 1,000ppm 미만인 조건을 찾습니다. 
 
    온도와 다른 조건을 모니터링하도록 JavaScript 파일을 수정합니다. 실내에서 동작이 감지되지 않고, 이산화탄소 농도가 1,000ppm 미만이고, 온도가 화씨 78도 미만인 조건을 찾는 다음 코드 줄을 추가합니다.
 
@@ -135,15 +136,12 @@ ms.locfileid: "69622898"
         if(carbonDioxideValue < carbonDioxideThreshold && !presence) {
             log(`${availableFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
             setSpaceValue(parentSpace.Id, spaceAvailFresh, availableFresh);
-
-            // Set up custom notification for air quality
-            parentSpace.Notify(JSON.stringify(availableFresh));
         }
         else {
             log(`${noAvailableOrFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
             setSpaceValue(parentSpace.Id, spaceAvailFresh, noAvailableOrFresh);
 
-            // Set up custom notification for air quality
+            // Set up custom notification for poor air quality
             parentSpace.Notify(JSON.stringify(noAvailableOrFresh));
         }
     ```
@@ -182,16 +180,14 @@ ms.locfileid: "69622898"
    > [!IMPORTANT]
    > Digital Twins 관리 API에 대한 무단 액세스를 방지하기 위해, **occupancy-quickstart** 애플리케이션에서는 Azure 계정 자격 증명으로 로그인할 것을 요구합니다. 이 애플리케이션은 짧은 기간 동안 자격 증명을 저장하므로 실행할 때 로그인이 필요 없는 경우도 있습니다. 이 프로그램을 처음으로 실행하면, 그리고 그 후에 저장된 자격 증명이 만료되면 애플리케이션의 로그인 페이지로 이동되고 해당 페이지에서 입력할 세션 관련 코드가 제공됩니다. 표시되는 메시지에 따라 Azure 계정으로 로그인하세요.
 
-1. 계정이 인증되면 애플리케이션이 provisionSample.yaml 파일에 구성된 대로 샘플 공간 그래프를 만들기 시작합니다. 프로비전이 완료될 때까지 기다립니다. 몇 분 정도 걸립니다. 완료되면 명령 창의 메시지를 관찰하고, 공간 그래프가 어떻게 생성되는지 살펴봅니다. 애플리케이션이 루트 노드 또는 `Venue`에 IoT 허브를 만드는 방법을 살펴봅니다.
+1. 계정이 인증되면 애플리케이션이 *provisionSample.yaml* 파일에 구성된 대로 샘플 공간 그래프를 만들기 시작합니다. 프로비전이 완료될 때까지 기다립니다. 몇 분 정도 걸립니다. 완료되면 명령 창의 메시지를 관찰하고, 공간 그래프가 어떻게 생성되는지 살펴봅니다. 애플리케이션이 루트 노드 또는 `Venue`에 IoT 허브를 만드는 방법을 살펴봅니다.
 
 1. 명령 창의 출력에서, `Devices` 섹션 아래의 `ConnectionString` 값을 클립보드에 복사합니다. 다음 섹션에서 디바이스 연결을 시뮬레이션하려면 이 값이 필요합니다.
 
-    ![샘플 프로비전](./media/tutorial-facilities-udf/run-provision-sample.png)
+    [![샘플 프로비저닝](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
 > [!TIP]
 > 프로비전 중에 "스레드 종료 또는 애플리케이션 요청으로 인해 I/O 작업이 중단되었습니다"라는 오류 메시지를 받으면 명령을 다시 실행하세요. 네트워크 문제로 인해 HTTP 클라이언트 시간이 초과되면 이 오류가 발생할 수 있습니다.
-
-<a id="simulate"></a>
 
 ## <a name="simulate-sensor-data"></a>센서 데이터 시뮬레이션
 
@@ -209,9 +205,9 @@ ms.locfileid: "69622898"
 
    a. **DeviceConnectionString**: 이전 섹션의 출력 창에 있는 `ConnectionString` 값을 할당합니다. 시뮬레이터가 IoT 허브에 올바르게 연결할 수 있도록 따옴표 안의 이 문자열을 모두 복사해야 합니다.
 
-   b. **센서** 배열의 **HardwareId**: Azure Digital Twins 인스턴스에 프로비전된 센서의 이벤트를 시뮬레이션하는 것이므로, 이 파일의 하드웨어 ID와 센서 이름이 provisionSample.yaml 파일의 `sensors` 노드와 일치해야 합니다.
+   b. **센서** 배열의 **HardwareId**: Azure Digital Twins 인스턴스에 프로비저닝된 센서의 이벤트를 시뮬레이션하는 것이므로, 이 파일의 하드웨어 ID와 센서 이름이 *provisionSample.yaml* 파일의 `sensors` 노드와 일치해야 합니다.
 
-      온도 센서에 대한 새 항목을 추가합니다. appsettings.json의 **센서** 노드는 다음과 같습니다.
+      온도 센서에 대한 새 항목을 추가합니다. *appsettings.json*의 **센서** 노드는 다음과 같습니다.
 
       ```JSON
       "Sensors": [{
@@ -249,9 +245,9 @@ ms.locfileid: "69622898"
 
 출력 창에는 사용자 정의 함수가 실행되어 디바이스 시뮬레이션에서 이벤트를 가로채는 방법이 표시됩니다. 
 
-   ![UDF에 대한 출력](./media/tutorial-facilities-udf/udf-running.png)
+   [![UDF에 대한 출력](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
 
-모니터링 조건이 충족되면 [앞에서](#udf) 살펴본 것처럼 사용자 정의 함수는 관련 메시지와 함께 공간 값을 설정합니다. `GetAvailableAndFreshSpaces` 함수는 콘솔에 메시지를 출력합니다.
+모니터링 조건이 충족되면 [앞에서](#create-a-user-defined-function) 살펴본 것처럼 사용자 정의 함수는 관련 메시지와 함께 공간 값을 설정합니다. `GetAvailableAndFreshSpaces` 함수는 콘솔에 메시지를 출력합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

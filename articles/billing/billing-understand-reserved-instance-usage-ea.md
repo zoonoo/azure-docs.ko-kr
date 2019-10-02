@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 507ad62a917120689bee3f1e293e23c9ab8b0f66
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: f2f5b2ecf096d7dc8babb79a38d00158a2120688
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68598105"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71218068"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>기업계약 예약 비용 및 사용량 가져오기
 
@@ -57,18 +57,20 @@ Azure 사용량 데이터에 제공되는 다른 정보가 변경되었습니다
 - Term - 12개월 또는 36개월입니다.
 - RINormalizationRatio - AdditionalInfo에서 사용할 수 있습니다. 사용량 레코드에 예약이 적용되는 비율입니다. 예약에 인스턴스 크기 유연성을 사용하도록 설정한 경우 다른 크기에 적용될 수 있습니다. 이 값은 사용량 레코드에 예약이 적용된 비율을 보여줍니다.
 
+[필드 정의 참조](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#definitions)
+
 ## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>API를 사용하여 Azure 소비 및 예약 사용량 데이터 가져오기
 
 API를 사용하여 데이터를 가져오거나 Azure Portal에서 데이터를 다운로드할 수 있습니다.
 
-새 데이터를 가져오려면 API 버전 &quot;2019-04-01-preview&quot;를 사용하여 [사용량 세부 정보 API](/rest/api/consumption/usagedetails/list)를 호출합니다. 용어에 대한 자세한 내용은 [사용 약관](billing-understand-your-usage.md)을 참조하세요. 호출자는 [EA Portal](https://ea.azure.com)을 사용하는 기업계약의 엔터프라이즈 관리자여야 합니다. 읽기 전용 엔터프라이즈 관리자도 데이터를 가져올 수 있습니다.
+새 데이터를 가져오려면 [사용량 세부 정보 API](/rest/api/consumption/usagedetails/list)를 호출합니다. 용어에 대한 자세한 내용은 [사용 약관](billing-understand-your-usage.md)을 참조하세요. 호출자는 [EA Portal](https://ea.azure.com)을 사용하는 기업계약의 엔터프라이즈 관리자여야 합니다. 읽기 전용 엔터프라이즈 관리자도 데이터를 가져올 수 있습니다.
 
 데이터는 [기업 고객을 위한 보고 API - 사용량 세부 정보](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)에서 사용할 수 없습니다.
 
 다음은 API 호출 예제입니다.
 
 ```
-https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
+https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
 ```
 
 {enrollmentId} 및 {billingPeriodId}에 대한 자세한 내용은 [사용량 세부 정보 – 나열](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) API 문서를 참조하세요.

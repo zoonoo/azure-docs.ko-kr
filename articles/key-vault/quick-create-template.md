@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/17/2019
 ms.author: jgao
-ms.openlocfilehash: 5a1e0329f8d0227c05924137d5eaddd9658d5b3c
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 1e993ec50694d8672fbe05f982d5dbc45a815abb
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076899"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71161479"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Azure Key Vault에서 비밀 설정 및 검색
 
@@ -58,6 +58,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!code-json[<Azure Resource Manager template create key vault>](~/quickstart-templates/101-key-vault-create/azuredeploy.json)]
 
+템플릿에는 두 개의 Azure 리소스가 정의되어 있습니다.
+
+* **Microsoft.KeyVault/vaults**: Azure Key Vault를 만듭니다.
+* **Microsoft.KeyVault/vaults/secrets**: Key Vault 비밀을 만듭니다.
+
 Azure Key Vault 템플릿 샘플을 더 보려면 [여기](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault)에서 확인할 수 있습니다.
 
 1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿에서 키 자격 증명 모음 및 비밀이 생성됩니다.
@@ -82,6 +87,8 @@ Azure Key Vault 템플릿 샘플을 더 보려면 [여기](https://azure.microso
 3. **구매**를 선택합니다. 키 자격 증명 모음이 성공적으로 배포되면 알림을 받게 됩니다.
 
     ![Resource Manager 템플릿, Key Vault 통합, 배포 포털 알림](./media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
+
+Azure Portal은 템플릿을 배포하는데 사용됩니다. Azure Portal 외에도 Azure PowerShell, Azure CLI 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../azure-resource-manager/resource-group-template-deploy.md)를 참조하세요.
 
 ## <a name="validate-the-deployment"></a>배포 유효성 검사
 

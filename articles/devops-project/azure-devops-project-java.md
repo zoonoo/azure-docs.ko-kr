@@ -16,12 +16,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 monikerRange: vsts
-ms.openlocfilehash: d395855de6bb16841d54821c87a6af6d5d62c11c
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 49514022dc00afcd07002c7a3278c18a606e5ad5
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898064"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203748"
 ---
 # <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>빠른 시작: Azure DevOps Projects를 사용하여 Java 앱에 대한 CI/CD 파이프라인 설정
 
@@ -39,7 +39,7 @@ Azure 구독이 없으면 [Visual Studio Dev Essentials](https://visualstudio.mi
 
 2. **만들기**를 선택합니다.
 
-    ![지속적인 업데이트 구성 시작](_img/azure-devops-project-java/fullbrowser.png)
+    ![DevOps Projects에서 Azure 리소스 만들기](_img/azure-devops-project-java/continuous-delivery-configuration-full-browser.png)
 
 ## <a name="select-a-sample-application-and-azure-service"></a>샘플 애플리케이션 및 Azure 서비스 선택
 
@@ -62,7 +62,7 @@ Java 샘플에는 여러 애플리케이션 프레임워크 선택이 포함됩�
 
 2. **찾아보기**를 선택하여 실행 중인 애플리케이션을 볼 수 있습니다.
 
-    ![대시보드 보기](_img/azure-devops-project-java/dashboardnopreview.png) 
+    ![Azure Portal에서 애플리케이션 대시보드 보기](_img/azure-devops-project-java/azure-devops-application-dashboard.png) 
     
    DevOps Projects에서 CI 빌드 및 릴리스 트리거가 자동으로 구성되었을 것입니다.  이제 웹 사이트에 최신 작업을 자동으로 배포하는 CI/CD 프로세스를 사용하여 Java 앱에서 팀과 협업할 준비가 되었습니다.
 

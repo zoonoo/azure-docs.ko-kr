@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b3607f0b462efceab322e6eaf616268a34b02fb0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 2c63d63e57a23963f17b6773f244973b051b57eb
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142078"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162466"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>이전 버전의 Azure Migrate 사용
 
@@ -78,7 +78,7 @@ VM을 포털에서 검색한 후 그룹화하여 평가를 만듭니다.
 
 **준비 상태** | **State** | **세부 정보**
 --- | --- | ---
-Azure 준비 완료 | 호환성 문제가 없습니다. 컴퓨터를 Azure로 있는 그대로 마이그레이션할 수 있으며, 전체 Azure 지원 방식으로 Azure에서 부팅됩니다. | 준비된 VM의 경우 Azure Migrate는 Azure에서의 VM 크기를 권장합니다.
+Azure 준비 완료 | 호환성 문제가 없습니다. 이 머신은 있는 그대로 Azure로 마이그레이션할 수 있으며, 전체 Azure 지원 방식으로 Azure에서 부팅됩니다. | 준비된 VM의 경우 Azure Migrate는 Azure에서의 VM 크기를 권장합니다.
 조건부 Azure 준비 완료 | 컴퓨터가 Azure에서 부팅될 수 있지만 전체 Azure 지원이 제공되지 않을 수 있습니다. 예를 들어 이전 버전의 Windows Server가 설치된 컴퓨터는 Azure에서 지원되지 않습니다. | Azure Migrate는 준비 상태와 관련된 이슈를 설명하고 수정 단계를 제공합니다.
 Azure를 사용할 준비 안 됨 |  VM이 Azure에서 부팅되지 않습니다. 예를 들어 VM에 4TB보다 큰 디스크가 있는 경우 Azure에서 호스트할 수 없습니다. | Azure Migrate는 준비 상태와 관련된 이슈를 설명하고 수정 단계를 제공합니다.
 준비 상태 알 수 없음 | 일반적으로 데이터를 사용할 수 없기 때문에 Azure Migrate는 Azure 준비 상태를 확인할 수 없습니다.
@@ -91,7 +91,7 @@ Azure를 사용할 준비 안 됨 |  VM이 Azure에서 부팅되지 않습니다
 **속성** | **세부 정보** | **준비 상태**
 --- | --- | ---
 **부팅 유형** | BIOS는 지원됩니다. UEFI는 지원되지 않습니다. | 부팅 유형이 UEFI인 경우 조건부 준비 완료입니다.
-**코어 수** | Azure VM에 대해 최대 코어 수(128)보다 작거나 같은 시스템 코어가 지원됩니다.<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 코어 수를 고려합니다.<br/>쾌적 <br/>인자가 평가 설정에 지정되어 있는 경우 사용된 코어 수와 쾌적 인자를 곱합니다.<br/><br/> 성능 기록이 없으면 Azure Migrate는 쾌적 인자를 적용하지 않고 할당된 코어 수를 사용합니다. | 제한보다 작거나 같은 경우 준비 완료입니다.
+**코어 수** | Azure VM에 대해 최대 코어 수(128)보다 작거나 같은 시스템 코어가 지원됩니다.<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 코어 수를 고려합니다.<br/>쾌적 인자가 평가 설정에 지정되어 있는 경우 사용된 코어 수와 쾌적 인자를 곱합니다.<br/><br/> 성능 기록이 없으면 Azure Migrate는 쾌적 인자를 적용하지 않고 할당된 코어 수를 사용합니다. | 제한보다 작거나 같은 경우 준비 완료입니다.
 **메모리** | Azure VM에 대해 최대 메모리 크기(Azure M 시리즈 Standard_M128m&nbsp;<sup>2</sup>에서 3892GB)보다 작거나 같은 컴퓨터 메모리 크기 [자세히 알아보기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 메모리 크기를 고려합니다.<br/><br/>쾌적 인자가 지정되어 있는 경우 사용된 메모리 크기와 쾌적 인자를 곱합니다.<br/><br/> 기록이 없으면 쾌적 인자를 적용하지 않고 할당된 메모리 크기를 사용합니다.<br/><br/> | 제한 내에 있는 경우 준비 완료입니다.
 **스토리지 디스크** | 할당된 디스크 크기는 4TB(4,096GB) 이하여야 합니다.<br/><br/> 컴퓨터에 연결되는 디스크의 수는 OS 디스크를 포함하여 65개 이하여야 합니다. | 제한 내에 있는 경우 준비 완료입니다.
 **네트워킹** | 컴퓨터에는 32개 이하의 NIC가 연결되어야 합니다. | 제한 내에 있는 경우 준비 완료입니다.
@@ -216,7 +216,7 @@ Azure Migrate에서는 성능 기반 크기 조정을 위해 다음이 필요합
 4. 작업 영역 ID와 키를 복사합니다. 이 옵션은 온-프레미스 컴퓨터에 MMA를 설치할 때 필요합니다.
 
 > [!NOTE]
-> 에이전트의 설치를 자동화하려면 System Center Configuration Manager와 같은 배포 도구 또는 [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration)와 같이 Azure Migrate용 에이전트 배포 솔루션이 들어 있는 파트너 도구를 사용할 수 있습니다.
+> 에이전트의 설치를 자동화하려면 System Center Configuration Manager와 같은 배포 도구 또는 [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration)와 같이 Azure Migrate용 에이전트 배포 솔루션을 제공하는 파트너 도구를 사용할 수 있습니다.
 
 
 #### <a name="install-the-mma-agent-on-a-windows-machine"></a>Windows 머신에 MMA 에이전트 설치

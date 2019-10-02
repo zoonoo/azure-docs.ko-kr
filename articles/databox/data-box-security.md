@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 09/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 3e871b8d4de8ff83e260aded89e09ad5b17b3297
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 678bef1b18d60679be6c296a1fd7beef42f721b7
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799234"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203832"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box 보안 및 데이터 보호
 
@@ -58,7 +58,7 @@ Data Box 내부에서/외부로 전송되는 데이터는 다음 기능을 통�
 
 - 미사용 데이터용 AES 256비트 암호화
 - 처리 중인 데이터에 암호화된 프로토콜 사용 가능
-- Azure로의 업로드가 완료되면 디바이스에서 안전한 데이터 지우기 수행 데이터 지우기는 NIST 800-88r1 표준을 따릅니다. 데이터 지우기 이벤트는 [주문 기록](data-box-logs.md#download-order-history)에 기록됩니다.
+- Azure로의 업로드가 완료되면 디바이스에서 안전한 데이터 지우기 수행 데이터 지우기는 [NIST 800-88r1 표준의 ATA 하드 디스크 드라이브에 대한 부록 A](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)의 지침에 따릅니다. 데이터 지우기 이벤트는 [주문 기록](data-box-logs.md#download-order-history)에 기록됩니다.
 
 ### <a name="data-box-service-protection"></a>Data Box 서비스 보호
 
@@ -106,7 +106,7 @@ Data Box에서 구현되는 보안 지침은 다음과 같습니다.
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | 배송 중의 부적절한 취급으로부터 장치 보호          |
 |[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | 보안 펌웨어 업데이트         |
 |[FIPS 140-2 수준 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | 데이터 보호         |
-|[NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | 데이터 삭제         |
+|[NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)의 ATA 하드 디스크 드라이브용 부록 A      | 데이터 삭제         |
 
 ## <a name="next-steps"></a>다음 단계
 

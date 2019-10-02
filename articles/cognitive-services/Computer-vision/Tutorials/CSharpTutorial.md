@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3da22d11dce1e535763476d906ac45f3da22bc8d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 01e932caf5edc91d5556b60d33e4d100574f93f5
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141278"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170043"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>샘플: C#으로 이미지 처리 앱 탐색
 
@@ -80,8 +80,8 @@ git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Face-Windo
    ![구독 키 관리 페이지](../Images/Vision_UI_Subscription.PNG)  
 1. **구독 키**에 구독 키를 입력합니다.
 1. **엔드포인트**에 엔드포인트 URL을 입력합니다.  
-   예를 들어, Computer Vision 평가판의 구독 키를 사용하는 경우 `https://westcentralus.api.cognitive.microsoft.com`
-   [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)] 엔드포인트 URL을 입력합니다.
+   예를 들어, Computer Vision 평가판의 구독 키를 사용하는 경우 `https://westcentralus.api.cognitive.microsoft.com` 엔드포인트 URL을 입력합니다.  
+   [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. 다음에 샘플 앱을 실행할 때 구독 키 및 엔드포인트 URL을 입력하지 않도록 하려면 **설정 저장**을 선택하여 구독 키 및 엔드포인트 URL을 사용자 컴퓨터에 저장합니다. 이전에 저장된 구독 키 및 엔드포인트 URL을 삭제하려면 **설정 삭제**를 선택합니다.
 
    > [!NOTE]

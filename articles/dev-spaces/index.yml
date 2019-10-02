@@ -1,57 +1,58 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Dev 공간
+### YamlMime:Landing
+title: Azure Dev Spaces 설명서
+summary: Azure Dev Spaces를 사용하면 종속성을 복제하거나 모의하지 않고 AKS(Azure Kubernetes Service)에서 전체 마이크로서비스 애플리케이션을 테스트하고 반복적으로 개발할 수 있습니다. Azure Dev Spaces는 공유 AKS 클러스터에서 팀과 협업하는 부담과 복잡성을 줄입니다. 또한 AKS에서 컨테이너를 직접 실행하고 디버그할 수 있습니다.
 metadata:
-  title: Azure Dev Spaces 설명서 - 빠른 시작
-  meta.description: Rapid Kubernetes development with containers and microservices on Azure.
+  title: Azure Dev Spaces 설명서
+  description: Azure Dev Spaces를 사용하면 종속성을 복제하거나 모의하지 않고 AKS(Azure Kubernetes Service)에서 전체 마이크로서비스 애플리케이션을 테스트하고 반복적으로 개발할 수 있습니다. Azure Dev Spaces는 공유 AKS 클러스터에서 팀과 협업하는 부담과 복잡성을 줄입니다. 또한 AKS에서 컨테이너를 직접 실행하고 디버그할 수 있습니다.
   services: azure-dev-spaces
-  author: zr-msft
   ms.service: azure-dev-spaces
   ms.topic: landing-page
-  ms.date: 07/08/2019
+  author: zr-msft
   ms.author: zarhoads
   manager: gwallace
-abstract:
-  description: Azure Dev Spaces를 사용하면 종속성을 복제하거나 모방할 필요 없이 Azure Kubernetes Service(AKS)에서 실행하여 전체 마이크로서비스 애플리케이션을 테스트하고 반복적으로 개발할 수 있습니다. Azure Dev Spaces는 AKS에서 바로 컨테이너를 실행하고 디버그하여 공유 Azure Kubernetes Service(AKS) 클러스터에서 팀과 협업하는 부담과 복잡성을 줄여줍니다. 이 빠른 시작을 사용하여 Azure Dev Spaces를 사용하는 방법을 알아봅니다.
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: AKS의 마이크로서비스에서 Azure Dev Spaces를 사용하여 협업을 수행하는 방법을 알아봅니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_configure-teams.svg'
-            text: 팀의 일원으로서 마이크로서비스 개발
-            href: quickstart-team-development.md
-      - type: paragraph
-        text: Azure Dev Spaces를 사용하여 내부 루프 개발 환경을 빠르게 반복하고 디버그하는 방법을 알아봅니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: Visual Studio Code 및 Java 사용
-            href: quickstart-java.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: Visual Studio Code 및 .NET Core 사용
-            href: quickstart-netcore.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: Visual Studio Code 및 Node.js 사용
-            href: quickstart-nodejs.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-            text: Visual Studio 및 .NET Core 사용
-            href: quickstart-netcore-visualstudio.md
-      - type: paragraph
-        text: Azure Dev Spaces와 함께 Azure CLI를 사용하여 거의 모든 언어에 대해 마이크로서비스를 개발하는 방법을 알아봅니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Azure CLI를 사용하여 개발
-            href: quickstart-cli.md
+  ms.date: 09/30/2019
+  ms.openlocfilehash: 933273267f72666d91f52471370d41ecee2af870
+  ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 10/01/2019
+  ms.locfileid: "71695640"
+landingContent:
+- title: Azure Dev Spaces 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Dev Spaces란?
+      url: about.md
+  - linkListType: concept
+    links:
+    - text: Azure Dev Spaces의 작동 원리
+      url: how-dev-spaces-works.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Dev Spaces 설치
+      url: how-to/install-dev-spaces.md
+- title: 마이크로서비스 개발 및 테스트
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 마이크로서비스 실행 및 디버그
+      url: quickstart-netcore.md
+    - text: 팀과 함께 마이크로서비스 세트에 대해 협업
+      url: quickstart-team-development.md
+  - linkListType: how-to-guide
+    links:
+    - text: 더 나은 엔드투엔드 테스트를 위해 CI/CD 파이프라인에 Dev Spaces 통합
+      url: how-to/setup-cicd.md
+- title: 고급 시나리오
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 사용자 지정 NuGet 피드 사용
+      url: how-to/use-custom-nuget-feed.md
+    - text: 프라이빗 Helm 리포지토리 사용
+      url: how-to/use-private-helm-repo.md
+    - text: Windows 컨테이너와 상호 작용
+      url: how-to/run-dev-spaces-windows-containers.md
+    - text: 사용자 지정 수신 및 HTTPS에 traefik 사용
+      url: how-to/ingress-https-traefik.md

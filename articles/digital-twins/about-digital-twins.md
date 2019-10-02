@@ -3,18 +3,18 @@ title: Azure Digital Twins 개요 | Microsoft Docs
 description: 공간 인텔리전스를 위한 Azure IoT 솔루션인 Azure Digital Twins에 대해 자세히 알아봅니다.
 author: julieseto
 ms.author: jseto
-ms.date: 08/01/2019
+ms.date: 09/17/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 6bd4e3bb688e92d30a21c39599e2e5bdb7b17dba
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 2b80d0b364330a0effa7b89c620bd935157de290
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736974"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178283"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Azure Digital Twins 개요
 
@@ -33,7 +33,7 @@ Azure Digital Twins는 창고, 사무실, 학교, 병원 및 은행 등 모든 �
 - 건물에 대한 점유율 수준을 분석합니다.
 - 가게에서 가장 분주한 현금 등록기를 찾습니다.
 
-실제 시나리오가 무엇이든 Azure Digital Twins를 통해 해당하는 디지털 인스턴스를 프로비전할 수 있습니다.
+실제 비즈니스 시나리오가 무엇이든 Azure Digital Twins를 통해 해당하는 디지털 인스턴스를 프로비저닝할 수 있습니다.
 
 다음 비디오에서는 Azure Digital Twins를 자세히 살펴봅니다.
 
@@ -45,13 +45,13 @@ Azure Digital Twins에는 다음과 같은 주요 기능이 있습니다.
 
 ### <a name="spatial-intelligence-graph"></a>공간 인텔리전스 그래프
 
-[*공간 인텔리전스 그래프*](./concepts-objectmodel-spatialgraph.md#graph) 또는 *공간 그래프*는 물리적 환경의 가상 표현입니다. 사람, 장소 및 디바이스 간의 관계를 모델링하는 데 사용할 수 있습니다.
+[*공간 인텔리전스 그래프*](./concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph) 또는 *공간 그래프*는 물리적 환경의 가상 표현입니다. 사람, 장소 및 디바이스 간의 관계를 모델링하는 데 사용할 수 있습니다.
 
 이웃 간에 연결된 여러 개의 전력 사용 계량기가 포함된 스마트 유틸리티 앱을 생각해 보세요. 스마트 유틸리티 회사에서는 전력 사용량과 요금 청구를 정확하게 모니터링하고 예측해야 합니다. 각 디바이스와 센서는 청구되는 위치와 고객의 상황에 따라 모델링해야 합니다. 공간 인텔리전스 그래프를 사용하여 이러한 종류의 복잡한 관계를 모델링할 수 있습니다.
 
 ### <a name="digital-twin-object-models"></a>Digital Twins 개체 모델
 
-[Digital Twins 개체 모델](./concepts-objectmodel-spatialgraph.md#model)은 미리 정의된 디바이스 프로토콜 및 데이터 스키마입니다. 이러한 모델은 개발을 가속화하고 간소화하기 위해 솔루션의 도메인별 요구 사항을 조정합니다.
+[Digital Twins 개체 모델](./concepts-objectmodel-spatialgraph.md#digital-twins-object-models)은 미리 정의된 디바이스 프로토콜 및 데이터 스키마입니다. 이러한 모델은 개발을 가속화하고 간소화하기 위해 솔루션의 도메인별 요구 사항을 조정합니다.
 
 예를 들어 공간 점유율 애플리케이션은 캠퍼스, 건물, 층 및 방과 같은 미리 정의된 공간 유형을 사용할 수 있습니다.
 
@@ -93,9 +93,9 @@ Azure Digital Twins는 실제 세계와 해당하는 많은 관계를 나타내�
 
 Azure Digital Twins는 Azure IoT Hub를 사용하여 실제 세계에 맞춰 모든 항목을 최신으로 유지하는 IoT 디바이스 및 센서를 연결합니다. 다음 다이어그램에서는 Azure Digital Twins가 다른 Azure IoT 서비스와 설정된 관계를 보여 줍니다.
 
-![Azure Digital Twins는 Azure IoT Hub를 바탕으로 빌드된 서비스입니다.][1]
+[![Azure Digital Twins는 Azure IoT Hub를 바탕으로 빌드된 서비스입니다.](media/overview/azure-digital-twins-in-iot-ecosystem.png)](media/overview/azure-digital-twins-in-iot-ecosystem.png#lightbox)
 
-IoT에 대한 자세한 내용은 [Azure IoT 기술 및 솔루션](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies)을 참조하세요.
+IoT에 대한 자세한 내용은 [Azure IoT 기술 및 솔루션](../iot-fundamentals/iot-services-and-technologies.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -113,6 +113,3 @@ Azure Digital Twins의 핵심 개념에 알아봅니다.
 
 >[!div class="nextstepaction"]
 >[Digital Twins 개체 모델 및 공간 인텔리전스 그래프 이해](./concepts-objectmodel-spatialgraph.md)
-
-<!-- Images -->
-[1]: media/overview/azure-digital-twins-in-iot-ecosystem.png

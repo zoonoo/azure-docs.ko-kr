@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 07/30/2019
+ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: 60ae2136c3fa934c178de95f51d490e570f45faa
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: ea145239d38a4030423a4517fe02c62b8eefa08a
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845348"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211777"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>예제: Text Analytics를 사용하여 감정 감지
 
@@ -139,7 +139,7 @@ Text Analytics는 기계 학습 분류 알고리즘을 사용하여 0과1 사이
 > [!NOTE]
 > * 감정 분석 v3 요청 형식 및 [데이터 제한](../overview.md#data-limits)은 이전 버전과 동일합니다.
 > * 현재 감정 분석 v3의 특징:
->    * 현재 영어, 중국어 간체 및 일본어를 지원합니다.
+>    * 현재 영어, 프랑스어, 이탈리아어, 일본어, 중국어 간체 및 중국어 번체 언어를 지원합니다.
 >    * `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe` 및 `West US 2` 영역에서 사용할 수 있습니다.
 
 |기능 |설명  |

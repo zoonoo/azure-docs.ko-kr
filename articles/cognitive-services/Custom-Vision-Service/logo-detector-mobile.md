@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: b0a5b110951d7b13110fab935d5ca1333f7f8c1e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bdcf8a0d63b880075cd22c73305afa8cf09a2e3b
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564207"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261982"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>자습서: 카메라 사진에서 Azure 서비스 로고 인식
 
@@ -57,7 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 특정 태그 문자열을 사용하도록 앱이 구성됩니다. *Source\VisualProvision\Services\Recognition\RecognitionService.cs* 파일에서 정의를 확인합니다.
 
-[!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?range=18-33)]
+[!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?name=snippet_constants)]
 
 이미지에 태그를 지정한 다음, 오른쪽으로 이동하여 다음 항목에 태그를 지정합니다. 완료했으면 태그 지정 창을 닫습니다.
 
@@ -73,19 +73,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ![URL 주소 및 API 키가 있는 예측 API 창을 보여 주는 Custom Vision 웹 사이트](media/azure-logo-tutorial/cusvis-endpoint.png)
 
-이미지 파일 URL 및 **Prediction-Key** 값을 *Source\VisualProvision\AppSettings.cs* 파일의 적절한 필드에 복사합니다.
+엔드포인트 URL 및 **Prediction-Key** 값을 *Source\VisualProvision\AppSettings.cs* 파일의 적절한 필드에 복사합니다.
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=22-26)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_cusvis_keys)]
 
 ## <a name="examine-custom-vision-usage"></a>Custom Vision 사용량 검사
 
 *Source/VisualProvision/Services/Recognition/CustomVisionService.cs* 파일을 열고 Custom Vision 키 및 엔드포인트 URL이 앱에서 어떻게 사용되는지 살펴봅니다. **PredictImageContentsAsync** 메서드는 이미지 파일의 바이트 스트림을 취소 토큰과 함께 사용하고(비동기 작업 관리 용도로), Custom Vision 예측 API를 호출하고, 예측 결과를 반환합니다. 
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?range=12-28)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?name=snippet_prediction)]
 
 이 결과는 자체적으로 **예측** 인스턴스 목록을 포함하는 **PredictionResult** 인스턴스 형태입니다. **예측**에는 이미지에서 감지된 태그와 해당 경계 상자 위치가 포함됩니다.
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?range=3-12)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
 앱이 이 데이터를 어떻게 처리하는지 자세히 알아보려면 **GetResourcesAsync** 메서드를 시작합니다. 이 메서드는 *Source/VisualProvision/Services/Recognition/RecognitionService.cs* 파일에 정의되어 있습니다.  
 
@@ -99,7 +99,7 @@ Computer Vision 서비스를 구독하고 키 및 엔드포인트 URL을 가져�
 
 다음으로, *Source\VisualProvision\AppSettings.cs* 파일을 열고 `ComputerVisionEndpoint` 및 `ComputerVisionKey` 변수에 올바른 값을 입력합니다.
 
-[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
+[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_comvis_keys)]
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기
 
@@ -133,7 +133,7 @@ az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongP
 
 `clientId` 및 `tenantId` 값을 기록해 둡니다. 이러한 값을 *Source\VisualProvision\AppSettings.cs* 파일의 적절한 필드에 추가합니다.
 
-[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=8-16)]
+[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
 ## <a name="run-the-app"></a>앱 실행
 

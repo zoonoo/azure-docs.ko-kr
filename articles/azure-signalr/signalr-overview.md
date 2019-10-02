@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 06/20/2019
 ms.author: zhshang
-ms.openlocfilehash: dc7ba3585ec49921c0a0e66185fc5550d3d4a006
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: e7bdc62f7fa46bbacce7f264d8f331ea64b05430
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303600"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273685"
 ---
 # <a name="what-is-azure-signalr-service"></a>Azure SignalR Service란?
 
@@ -26,13 +26,13 @@ Azure SignalR Service는 HTTP를 통해 애플리케이션에 실시간 웹 기�
 
 서버에서 폴링이 필요한 일반적인 실시간 기능에도 Azure SignalR Service를 사용할 수 있습니다.
 
-Azure SignalR Service는 매우 다양한 업계에서 실시간 콘텐츠 업데이트가 필요한 애플리케이션 유형에 사용되었습니다. Azure SignalR Service를 유용하게 활용할 수 있는 예시는 다음과 같습니다.
+Azure SignalR Service는 매우 다양한 업계에서 실시간 콘텐츠 업데이트가 필요한 애플리케이션 유형에 사용되었습니다. 다음에 Azure SignalR Service를 사용하면 좋은 몇 가지 예가 나와 있습니다.
 
 * **높은 빈도 데이터 업데이트:** 게임, 투표, 폴링, 경매
 * **대시보드 및 모니터링:** 회사 대시보드, 금융 시장 데이터, 인스턴트 판매 업데이트, 다중 플레이어 게임 리더 보드, IoT 모니터링
 * **채팅:** 라이브 채팅방, 채팅 봇, 온라인 고객 지원, 실시간 쇼핑 지원, 메신저, 인게임 채팅 등
 * **지도의 실시간 위치:** 물류 추적, 배달 상태 추적, 운송 상태 업데이트, GPS 앱
-* **실시간 타겟팅 광고:** 맞춤형 읽기 시간 푸시 광고 및 제품, 대화형 광고
+* **실시간 타겟팅 광고:** 맞춤형 실시간 푸시 광고 및 제품, 대화형 광고.
 * **협업 앱:** 공동 작성, 화이트보드 앱, 팀 모임 소프트웨어
 * **푸시 알림:** 소셜 네트워크, 메일, 게임, 여행 경보
 * **실시간 브로드캐스트:** 라이브 오디오/비디오 브로드캐스트, 실시간 캡션, 번역, 이벤트/뉴스 브로드캐스트

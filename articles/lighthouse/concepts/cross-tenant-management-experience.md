@@ -4,15 +4,15 @@ description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 07/11/2019
+ms.date: 09/25/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: f6468e62e9969aa87d51e25ed220bf7d4bed989e
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 17a32d50e2e0330218ff51b849cb4f3aeadb3d13
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971561"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309662"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -87,6 +87,10 @@ Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정�
   - 적응형 네트워크 강화로 네트워크 보안 그룹 구성을 강화합니다.
   - 적응형 애플리케이션 제어를 사용하여 서버가 필요한 애플리케이션 및 프로세스만 실행하는지 확인합니다.
   - FIM(파일 무결성 모니터링)을 사용하여 중요한 파일 및 레지스트리 항목의 변경 내용을 모니터링합니다.
+
+[Azure Sentinel](https://docs.microsoft.com/azure/sentinel/multiple-tenants-service-providers):
+
+- 고객 테넌트에서 Azure Sentinel 리소스 관리
 
 [Azure Service Health](https://docs.microsoft.com/azure/service-health/):
 

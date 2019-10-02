@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.custom: seo-java-august2019
-ms.openlocfilehash: 6463a578d514a7bcc9fb703e34f94381e1e9cf65
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.custom: seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 5b1eacb1d0121f2dd0d97807f07042e828fe7932
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981765"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266012"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data"></a>빠른 시작: Azure Cosmos DB Cassandra API 데이터를 관리하는 Java 앱 빌드
 
@@ -152,9 +152,9 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 1. [Azure Portal](https://portal.azure.com/)에서 **연결 문자열**을 선택합니다. 
 
-    ![Azure Portal, 연결 문자열 페이지에서 사용자 이름 보기 및 복사](./media/create-cassandra-java/keys.png)
+    ![Azure Portal, 연결 문자열 페이지에서 사용자 이름 보기 및 복사](./media/create-cassandra-java/copy-username-connection-string-azure-portal.png)
 
-2. 화면 오른쪽에 있는 ![복사 단추](./media/create-cassandra-java/copy.png) 단추를 사용하여 CONTACT POINT 값을 복사합니다.
+2. 화면 오른쪽에 있는 ![복사 단추](./media/create-cassandra-java/copy-button-azure-portal.png) 단추를 사용하여 CONTACT POINT 값을 복사합니다.
 
 3. `C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources` 폴더에서 `config.properties` 파일을 엽니다. 
 
@@ -208,7 +208,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 4. Azure Portal에서 **데이터 탐색기**를 열어 이 새 데이터를 쿼리/수정/사용합니다. 
 
-    ![데이터 탐색기에서 데이터 보기](./media/create-cassandra-java/data-explorer.png)
+    ![데이터 탐색기에서 데이터 보기 - Azure Cosmos DB](./media/create-cassandra-java/view-data-explorer-java-app.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 

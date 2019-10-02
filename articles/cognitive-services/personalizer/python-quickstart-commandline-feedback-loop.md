@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 5b5efa4a8c6d92f9937709f57f99851c90058dda
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 014a5f264b9beed666f718cda52d197381d58876
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067694"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266246"
 ---
 # <a name="quickstart-personalize-client-library-for-python"></a>빠른 시작: Python용 Personalizer 클라이언트 라이브러리
 
@@ -127,6 +127,12 @@ Personalizer 학습 루프는 [순위](#request-a-rank) 및 [보상](#send-a-rew
 [!code-python[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/python/sample.py?name=mainLoop&highlight=9,10,29)]
 
 다음 섹션에서 순위 및 보상 호출에 대해 자세히 살펴보겠습니다.
+
+코드 파일을 실행하기 전에 [콘텐츠 선택을 가져오는](#get-content-choices-represented-as-actions) 다음 메서드를 추가합니다.
+
+* get_user_preference
+* get_user_timeofday
+* get_actions
 
 ## <a name="request-a-rank"></a>순위 요청
 

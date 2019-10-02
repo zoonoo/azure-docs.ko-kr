@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fd3b5766ec2bd8d1babf847598f1fbe5b6511ce7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1db94e683a0dfb3b60b12bc5ac205c766d405d0a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67432840"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299833"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>자습서: IoT Edge의 기계 학습에 사용할 환경 설정
 
@@ -26,7 +26,7 @@ IoT Edge의 엔드투엔드 Azure Machine Learning에 대한 자습서의 이 �
 
 이 단계는 일반적으로 클라우드 개발자가 수행합니다. 일부 소프트웨어는 데이터 과학자도 유용하게 사용할 수 있습니다.
 
-이 문서의 과정에서는 IoT Edge 모듈과 IoT 디바이스의 코딩, 컴파일, 구성 및 배포를 포함하여 다양한 개발자 작업을 수행합니다. 사용 편의를 위해, 여러 필수 구성 요소가 이미 구성되어 있는 Azure 가상 머신을 만드는 PowerShell 스크립트를 미리 작성해 두었습니다. 우리가 만드는 VM은 [중첩 가상화](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization)를 처리할 수 있어야 하므로 DS8V3 머신 크기를 선택했습니다.
+이 문서의 과정에서는 IoT Edge 모듈과 IoT 디바이스의 코딩, 컴파일, 구성 및 배포를 포함하여 다양한 개발자 작업을 수행합니다. 사용 편의를 위해, 여러 필수 구성 요소가 이미 구성되어 있는 Azure 가상 머신을 만드는 PowerShell 스크립트를 미리 작성해 두었습니다. 우리가 만드는 VM은 [중첩 가상화](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization)를 처리할 수 있어야 하므로 [Standard_D8s_v3](../virtual-machines/windows/sizes-general.md#dsv3-series-1) 머신 크기를 선택했습니다.
 
 개발 VM을 설정하려면 다음이 필요합니다.
 

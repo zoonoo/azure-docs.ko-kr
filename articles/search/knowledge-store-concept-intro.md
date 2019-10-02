@@ -5,16 +5,15 @@ manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: overview
 ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: f4308cf0309725fc0ba3b5feb047d04af2ebbe66
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: ec0bf6002d8e90b41c2eed3c21f53e38f0fbbe8f
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638194"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265211"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>Azure Search의 지식 저장소란 무엇인가요?
 
@@ -26,13 +25,13 @@ ms.locfileid: "69638194"
 
 과거에 인지 검색을 사용한 경험이 있으면 기술 세트를 사용하여 보강 시퀀스를 통해 문서를 이동시킨다는 것을 이미 알고 있습니다. 그 결과는 Azure Search 인덱스 또는 지식 저장소의 프로젝션(이 미리 보기의 새로운 기능)일 수 있습니다. 검색 인덱스와 지식 저장소의 두 출력은 물리적으로 서로 다릅니다. 즉 동일한 콘텐츠를 공유하지만 매우 다른 방식으로 저장되고 사용됩니다.
 
-물리적으로 지식 저장소는 파이프라인을 구성하는 방법에 따라 Azure Storage 계정에서 Azure Table 스토리지 또는 Blob 스토리지로 만들어집니다. Azure Storage에 연결할 수 있는 모든 도구 또는 프로세스는 지식 저장소의 콘텐츠를 사용할 수 있습니다.
+물리적으로 지식 저장소는 Azure Storage 계정이라 할 수 있는데, 이 스토리지는 파이프라인을 구성하는 방법에 따라 Azure Table 스토리지이거나 Blob 스토리지, 또는 둘 다일 수도 있습니다. Azure Storage에 연결할 수 있는 모든 도구 또는 프로세스는 지식 저장소의 콘텐츠를 사용할 수 있습니다.
 
 프로젝션은 지식 저장소의 데이터를 구조화하는 메커니즘입니다. 예를 들어 프로젝션을 통해 출력을 단일 Blob으로 저장할지, 아니면 관련 테이블의 컬렉션으로 저장할지 여부를 선택할 수 있습니다. 지식 저장소 콘텐츠를 쉽게 확인할 수 있는 방법은 Azure 스토리지용 기본 제공 [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)를 사용하는 것입니다.
 
 ![파이프라인 다이어그램의 지식 저장소](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "파이프라인 다이어그램의 지식 저장소")
 
-지식 저장소를 사용하려면 인덱싱 파이프라인의 단계별 작업을 정의하는 기술 세트에 `knowledgeStore` 요소를 추가합니다. Azure Search는 실행하는 동안 Azure 스토리지 계정에 공간을 만들고 이 공간을 정의 및 파이프라인에서 만든 콘텐츠로 채웁니다.
+지식 저장소를 사용하려면 인덱싱 파이프라인의 단계별 작업을 정의하는 기술 세트에 `knowledgeStore` 요소를 추가합니다. Azure Search는 실행하는 동안 Azure 스토리지 계정에 공간을 만들고 파이프라인 내에서 만든 정의를 사용하여 보강된 문서를 프로젝션합니다.
 
 ## <a name="benefits-of-knowledge-store"></a>지식 저장소의 이점
 
@@ -105,6 +104,13 @@ AI 기반 인덱싱에 이미 익숙하다면 기술 세트 정의는 각 보강
 
             ], 
             "objects": [ 
+               
+            ]      
+        },
+        { 
+            "tables": [ 
+            ], 
+            "objects": [ 
                 { 
                 "storageContainer": "Reviews", 
                 "format": "json", 
@@ -112,7 +118,7 @@ AI 기반 인덱싱에 이미 익숙하다면 기술 세트 정의는 각 보강
                 "key": "/document/Review/Id" 
                 } 
             ]      
-        }    
+        }        
     ]     
     } 
 }
@@ -132,7 +138,7 @@ AI 기반 인덱싱에 이미 익숙하다면 기술 세트 정의는 각 보강
 
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 
-[Azure 테이블 스토리지](search-howto-indexing-azure-tables.md)는 지식 저장소의 아웃바운드 데이터에 사용할 수 있지만, AI 기반 인덱싱 파이프라인에 대한 인바운드 데이터의 리소스로 사용할 수 없습니다.
+* [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
 ### <a name="2---azure-search-service"></a>2 - Azure Search 서비스
 
@@ -143,17 +149,17 @@ Azure Search는 인덱서 기능을 제공하며, 인덱서는 전체 프로세�
 | Object | REST API | 설명 |
 |--------|----------|-------------|
 | 데이터 원본 | [데이터 원본 만들기](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | 보강된 문서를 만드는 데 사용되는 원본 데이터를 제공하는 외부 Azure 데이터 원본을 식별하는 리소스입니다.  |
-| 기술 세트 | [기술 세트 만들기(api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 인덱싱 중에 보강 파이프라인에 사용되는 [기본 제공 기술](cognitive-search-predefined-skills.md) 및 [사용자 지정 인식 기술](cognitive-search-custom-skill-interface.md)의 사용을 조정하는 리소스입니다. |
+| 기술 세트 | [기술 세트 만들기(api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 인덱싱 중에 보강 파이프라인에 사용되는 [기본 제공 기술](cognitive-search-predefined-skills.md) 및 [사용자 지정 인식 기술](cognitive-search-custom-skill-interface.md)의 사용을 조정하는 리소스입니다. |
 | index | [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Azure Search 인덱스를 표현하는 스키마입니다. 원본 데이터 또는 보강 단계에서 생성되는 필드에 매핑되는 인덱스의 필드(예: 엔터티 인식으로 생성된 조직 이름에 대한 필드)입니다. |
 | 인덱서 | [인덱서 만들기(api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 데이터 원본, 기술 집합, 원본 및 중간 데이터 구조에서 대상 인덱스로 필드 연결 및 인덱스 자체를 포함하는 인덱싱 중에 사용되는 리소스를 정의하는 구성 요소입니다. 데이터 수집 및 보강을 위한 트리거가 인덱서를 실행합니다. 출력은 기술 세트를 통해 보강된 원본 데이터로 채워진 인덱스 스키마를 기반으로 하는 검색 인덱스입니다.  |
 
 ### <a name="3---cognitive-services"></a>3 - Cognitive Services
 
-기술 세트에 지정된 보강은 Cognitive Services의 Computer Vision 및 언어 기능을 기반으로 합니다. Cognitive Services 기능은 기술 세트를 통해 인덱싱 중에 이용됩니다. 기술 세트는 기술의 컴퍼지션이며 기술은 특정 Computer Vision 및 언어 기능에 바인딩됩니다. Cognitive Services를 통합하려면 기술 세트에 [Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)합니다.
+기술 세트에 지정된 보강은 사용자 지정 또는 Cognitive Services의 Computer Vision 및 언어 기능을 기반으로 합니다. Cognitive Services 기능은 기술 세트를 통해 인덱싱 중에 이용됩니다. 기술 세트는 기술의 컴퍼지션이며 기술은 특정 Computer Vision 및 언어 기능에 바인딩됩니다. Cognitive Services를 통합하려면 기술 세트에 [Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)합니다.
 
 ### <a name="4---storage-account"></a>4 - Azure Storage 계정
 
-Azure Search는 Azure Storage 계정 아래에 기술 세트를 구성하는 방법에 따라 BLOB 컨테이너 또는 테이블을 만듭니다. 데이터가 Azure BLOB 또는 테이블 스토리지에서 생성된 경우 이들은 이미 만들어져 있습니다. 그렇지 않으면 Azure 스토리지 계정을 만들어야 합니다. Azure Storage의 테이블 및 개체는 AI 기반 인덱싱 파이프라인에서 만든 보강된 문서를 포함합니다.
+Azure Search는 Azure Storage 계정 아래에 기술 세트 내에서 프로젝션을 구성하는 방법에 따라 Blob 컨테이너 또는 테이블 또는 둘 다를 만듭니다. 데이터가 Azure Blob 또는 테이블 스토리지에서 생성된 경우 별다른 준비 없이 스토리지 계정을 다시 사용하면 됩니다. 그렇지 않으면 Azure 스토리지 계정을 만들어야 합니다. Azure Storage의 테이블 및 개체는 AI 기반 인덱싱 파이프라인에서 만든 보강된 문서를 포함합니다.
 
 스토리지 계정은 기술 세트에 지정됩니다. `api-version=2019-05-06-Preview`에서 기술 세트 정의는 계정 정보를 제공할 수 있도록 지식 저장소 정의를 포함합니다.
 
@@ -179,15 +185,13 @@ Azure Search는 Azure Storage 계정 아래에 기술 세트를 구성하는 방
 
 + BLOB 스토리지는 각 문서에 대한 하나의 통합형 JSON 표시입니다. 기술 세트 한 개에 두 스토리지 옵션을 모두 사용하여 전체 범위의 식을 가져올 수 있습니다.
 
-+ Azure Search는 인덱스의 콘텐츠를 유지합니다. 검색과 관련이 없는 시나리오의 경우, 예를 들어 또 다른 도구에서 검색하는 것이 목표인 경우 파이프라인이 생성하는 인덱스를 삭제할 수 있습니다. 그러나 인덱스를 유지하고 [Search 탐색기](search-explorer.md)와 같은 기본 제공 도구를 콘텐츠와 상호 작용하기 위한 제3의 매체로 사용할 수 있습니다(Storage Explorer 탐색기 및 분석 앱의 이면에서).
-
-문서 콘텐츠와 함께 보강된 문서는 보강을 생성한 기술 세트 버전에 대한 메타데이터를 포함합니다.  
++ Azure Search는 인덱스의 콘텐츠를 유지합니다. 검색과 관련이 없는 시나리오의 경우, 예를 들어 또 다른 도구에서 검색하는 것이 목표인 경우 파이프라인이 생성하는 인덱스를 삭제할 수 있습니다. 그러나 인덱스를 유지하고 [Search 탐색기](search-explorer.md)와 같은 기본 제공 도구를 콘텐츠와 상호 작용하기 위한 제3의 매체로 사용할 수 있습니다(Storage Explorer 탐색기 및 분석 앱의 이면에서).  
 
 ## <a name="inside-a-knowledge-store"></a>지식 저장소 내부
 
-지식 저장소는 주석 캐시 및 프로젝션으로 구성됩니다. *캐시*는 기술에서 나온 결과를 캐시에 저장하고 변경 내용을 추적하기 위해 내부적으로 사용합니다. *프로젝션*은 사용 목적과 일치하는 보강의 스키마 및 구조를 정의합니다. 지식 저장소마다 한 개의 캐시가 있지만 프로젝션은 여러 개가 있을 수 있습니다. 
+ *프로젝션*은 사용 목적과 일치하는 보강의 스키마 및 구조를 정의합니다. 서로 다른 형식 및 모양으로 데이터를 사용하는 애플리케이션이 있는 경우 여러 프로젝션을 정의할 수 있습니다. 
 
-캐시는 언제나 BLOB 컨테이너이지만 테이블 또는 개체로 표현할 수 있습니다.
+프로젝션은 개체 또는 테이블로서 다음과 같이 명시될 수 있습니다.
 
 + 개체인 프로젝션은 BLOB 스토리지에 매핑되며 프로젝션은 컨테이너에 저장됩니다. 컨테이너 내에는 데이터 과학 파이프라인과 같은 시나리오에 대한 JSON의 개체 또는 계층 표시가 있습니다.
 

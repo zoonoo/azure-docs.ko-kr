@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 09/03/2019
+ms.date: 09/19/2019
 ms.author: diberry
-ms.openlocfilehash: 3132d31e9e45718fa95c39a1b8160ea303ded25d
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: e2af5cb193653736a0d75b4194e09d42282d2fa6
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883655"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203795"
 ---
 # <a name="what-is-personalizer"></a>Personalizer란?
 
@@ -39,7 +39,7 @@ Personalizer는 기계 학습 모델을 사용하여 컨텍스트에서 가장 �
 1. Azure Portal에서 개인 설정 서비스의 인스턴스를 만들고 구성합니다. 각 인스턴스는 Personalizer 루프입니다.
 1. SDK를 사용하여 사용자에 대한 정보(_기능_)와 콘텐츠(_작업_)를 통해 Personalizer를 호출합니다. Personalizer를 사용하기 전에 깨끗하고 레이블이 지정된 데이터를 제공할 필요가 없습니다. 
 1. 클라이언트 애플리케이션에서, Personalizer가 선택한 작업을 사용자에게 표시합니다.
-1. SDK를 사용하여 사용자가 Personalizer의 작업을 선택했는지 여부를 나타내는 피드백을 Personalizer에 제공합니다. 이것이 _보상 점수_이며, 일반적으로 -1부터 1 사이입니다.
+1. SDK를 사용하여 사용자가 Personalizer의 작업을 선택했는지 여부를 나타내는 피드백을 Personalizer에 제공합니다. 이는 _[보상 점수](concept-rewards.md)_ 입니다.
 1. Azure Portal에서 분석 결과를 살펴보면서 시스템이 어떻게 작동하고 데이터가 어떻게 개인 설정을 도와주는지 평가합니다.
 
 ## <a name="where-can-i-use-personalizer"></a>Personalizer는 어디서 사용할 수 있나요?
@@ -60,7 +60,7 @@ Personalizer는 사용자 프로필 정보를 지속 및 관리하거나 개별 
 Personalizer 서비스는 다음과 같은 두 가지 API를 제공합니다.
 
 * 사용자에 대한 정보(_기능_) 및 개인 설정할 콘텐츠(_작업_)를 보냅니다. Personalizer는 최상위 작업으로 응답합니다.
-* 순서 지정이 얼마나 잘 작동하는지 일반적으로 0부터 1 사이의 숫자로 Personalizer에 피드백을 보냅니다(이전 섹션에서는 -1부터 1 사이). 
+* 순위가 [보상 점수](concept-rewards.md)로 얼마나 잘 작동하는 지에 대한 피드백을 Personalizer에 보냅니다. 
 
 ![개인 설정에 대한 이벤트의 기본 시퀀스](media/what-is-personalizer/personalization-intro.png)
 

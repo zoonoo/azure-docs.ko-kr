@@ -1,21 +1,18 @@
 ---
-title: '빠른 시작: 지리적 AI 설정'
-titleSuffix: Azure Data Science Virtual Machine
-description: 지역 AI Data Science Virtual Machine을 만들고 구성하는 방법을 알아봅니다. 지역 AI Data Science Virtual Machine은 지리적 데이터를 사용하여 AI 및 ML 솔루션을 만들 수 있는 도구를 제공합니다.
-keywords: 심화 학습, AI, 데이터 과학 도구, 데이터 과학 가상 머신, 지리 공간적 분석
-services: machine-learning
+title: '빠른 시작: Geo AI DSVM 만들기'
+description: 지리 공간적 분석 및 기계 학습을 수행하기 위해 Azure에서 Geo AI Data Science Virtual Machine을 구성하고 만듭니다.
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: quickstart
-ms.date: 03/05/2018
-ms.openlocfilehash: 7afeec3f71cd1af30093801fedabf3f0357ae3d0
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.date: 09/13/2019
+ms.openlocfilehash: 6b32d1f76091d7bbb8f870402020d0ac247d425b
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208054"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170731"
 ---
 # <a name="quickstart-set-up-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>빠른 시작: Azure에서 지리적 AI Virtual Machine 설정 
 
@@ -54,7 +51,7 @@ Geo-DSVM에 포함된 AI 도구는 다음과 같습니다.
     
 - **리소스 그룹**: 새 그룹을 만들거나 구독에서 **비어 있는** 기존 Azure 리소스 그룹을 사용할 수 있습니다.
     
-- **위치**: 가장 적합한 데이터 센터를 선택합니다. 일반적으로 대부분의 데이터가 있거나 네트워크에 가장 빠르게 액세스하기 위해 실제 위치에 가장 가까운 데이터 센터입니다. GPU에서 딥 러닝을 실행하려면 NC 시리즈 GPU VM 인스턴스가 있는 Azure 위치 중 하나를 선택해야 합니다. 현재 이러한 위치는 **미국 동부, 미국 중북부, 미국 중남부, 미국 서부 2, 유럽 북부, 유럽 서부**입니다. 최신 목록은 [지역별 Azure 제품 페이지](https://azure.microsoft.com/regions/services/)를 확인하고 **Compute** 아래에서 **NC 시리즈**를 찾으세요. 
+- **위치**: 가장 적합한 데이터 센터를 선택합니다. 일반적으로 대부분의 데이터가 있거나 네트워크에 가장 빠르게 액세스하기 위해 실제 위치에 가장 가까운 데이터 센터입니다. GPU에서 딥 러닝을 실행하려면 NC 시리즈 GPU VM 인스턴스가 있는 Azure 위치 중 하나를 선택해야 합니다. 현재 이러한 위치는 **미국 동부, 미국 중북부, 미국 중남부, 미국 서부 2, 유럽 북부, 유럽 서부**. 최신 목록은 [지역별 Azure 제품 페이지](https://azure.microsoft.com/regions/services/)를 확인하고 **Compute** 아래에서 **NC 시리즈**를 찾으세요. 
     
     
 **설정**: Geo-DSVM의 GPU에서 딥 러닝을 실행하려면 NC 시리즈 GPU 가상 머신 크기 중 하나를 선택합니다. 그렇지 않으면 CPU 기반 인스턴스 중 하나를 선택할 수 있습니다. VM에 대한 스토리지 계정을 만듭니다. 

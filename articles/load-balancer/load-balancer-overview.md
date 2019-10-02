@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: allensu
-ms.openlocfilehash: fb7c0c31ad91bfdb6ea360c1909a216f0779ebde
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 349d8afd46a06455edcd25e2a7ea48f407d285ef
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274612"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130425"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer란?
 
@@ -171,6 +171,7 @@ _아직 필수적인 것은 아니지만 SKU를 명시적으로 지정하는 것
 
 - Load Balancer는 이러한 특정 IP 프로토콜에 대한 부하 분산 및 포트 전달용 TCP 또는 UDP 제품입니다.  부하 분산 규칙 및 인바운드 NAT 규칙은 TCP 및 UDP에 대해 지원되며 ICMP를 포함한 다른 IP 프로토콜에 대해서는 지원되지 않습니다. Load Balancer가 종료 및 응답하지 않거나 UDP 또는 TCP 흐름의 페이로드와 상호 작용하지 않습니다. 프록시가 아닙니다. 프런트 엔드 연결에 대한 성공적인 유효성 검사는 부하 분산 또는 인바운드 NAT 규칙(TCP 또는 UDP)에 사용된 동일한 프로토콜을 사용하여 대역 내에서 이뤄져야 하며, _그리고_ 하나 이상의 가상 머신은 프런트 엔드에서 응답을 확인하려면 클라이언트에 대한 응답을 생성해야 합니다.  Load Balancer 프런트 엔드에서 대역 내 응답을 수신하지 못하면 어떤 가상 머신도 응답할 수 없음을 나타냅니다.  응답할 수 있는 가상 머신이 없으면 Load Balancer 프런트 엔드와 상호 작용이 불가능합니다.  이는 [SNAT 모조 포트](load-balancer-outbound-connections.md#snat)가 TCP 및 UDP에 대해서만 지원되거나 ICMP를 포함한 다른 모든 IP 프로토콜이 실패하는 경우에 아웃 바운드 연결에도 적용됩니다.  완화할 인스턴스 수준 공용 IP 주소를 할당합니다.
 - 가상 네트워크 내의 개인 IP 주소에서 공용 IP 주소로 전환할 때 [아웃 바운드 연결](load-balancer-outbound-connections.md)을 제공하는 공용 Load Balancer와 달리 공용 및 내부 Load Balancer가 모두 개인 IP 주소 공간에 있으므로 내부 Load Balancer는 내부 Load Balancer의 프런트 엔드에 아웃바운드 연결을 변환하지 않습니다.  이렇게 하면 변환이 필요하지 않은 경우 고유한 내부 IP 주소 공간 내에서 SNAT 포트 소모 가능성이 없습니다.  부작용은 백 엔드 풀의 VM에서 아웃바운드 흐름이 상주하는 풀에 있는 내부 Load Balancer의 프런트 엔드로 흐름을 유도하고 _또_ 자체로 매핑되는 경우, 흐름의 구간 둘 다 일치하지 않으며 흐름이 실패하게 된다는 것입니다.  흐름이 프런트 엔드로 흐름을 생성한 백 엔드 풀에서 동일한 VM에 다시 매핑하지 않은 경우 흐름은 성공하게 됩니다.   흐름이 스스로에게 다시 매핑되는 경우 아웃바운드 흐름은 VM에서 시작돼 프런트 엔드에 나타나며 해당 인바운드 흐름은 VM에서 시작돼 자신에게 나타납니다. 게스트 OS의 관점에서 동일한 흐름의 인바운드 및 아웃 바운드 부분은 가상 머신 내에서 일치하지 않습니다. TCP 스택은 원본과 대상이 일치하지 않으므로 동일한 흐름의 이러한 절반을 동일한 흐름의 일부로서 인식하지 않습니다.  흐름이 백 엔드 풀에서 다른 모든 VM에 매핑되는 경우 흐름의 절반은 일치하며 VM은 성공적으로 흐름에 응답할 수 있습니다.  이 시나리오에 대한 증상은 흐름이 흐름을 처음 시작한 동일한 백 엔드를 반환할 때 일시적인 연결 시간 제한입니다. 이 시나리오를 안전하게 실현하기 위한 몇 가지 일반적인 해결 방법(백 엔드 풀에서 백 엔드 풀 해당 내부 Load Balancer 프런트 엔드로 흐름이 시작)에는 내부 Load Balancer 뒤에 프록시 레이어의 삽입이나 [DSR 스타일 규칙 사용](load-balancer-multivip-overview.md) 중 하나가 포함됩니다.  고객은 타사 프록시 또는 HTTP/HTTPS로 제한된 프록시 시나리오에 대한 대체 내부 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 사용하여 내부 Load Balancer를 결합할 수 있습니다. 완화할 공용 Load Balancer를 사용할 수도 있지만 결과적인 시나리오는 [SNAT 소모](load-balancer-outbound-connections.md#snat)가 발생하기 쉬우며 주의해 관리하지 않는 한 사용하지 말아야 합니다.
+- 일반적으로 부하 분산 규칙에서는 IP 조각을 전달하거나 UDP 및 TCP 패킷의 IP 조각화를 수행할 수 없습니다.  [HA 포트 부하 분산 규칙](load-balancer-ha-ports-overview.md)은 이 일반 문에 대한 예외이며 기존 IP 조각을 전달하는 데 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

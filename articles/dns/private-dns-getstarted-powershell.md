@@ -1,20 +1,20 @@
 ---
-title: Azure PowerShell을 사용하여 Azure DNS 프라이빗 영역 만들기
-description: 이 문서에서는 Azure DNS에서 개인 DNS 영역 및 레코드를 만들고 테스트 합니다. Azure PowerShell을 사용하여 첫 번째 프라이빗 DNS 영역 및 레코드를 만들고 관리하는 단계별 가이드입니다.
+title: 빠른 시작 - Azure PowerShell을 사용하여 Azure 프라이빗 DNS 영역 만들기
+description: 이 문서에서는 Azure DNS에 프라이빗 DNS 영역 및 레코드를 만들고 테스트합니다. Azure PowerShell을 사용하여 첫 번째 프라이빗 DNS 영역 및 레코드를 만들고 관리하는 단계별 가이드입니다.
 services: dns
 author: vhorne
 ms.service: dns
-ms.topic: article
-ms.date: 06/14/2019
+ms.topic: quickstart
+ms.date: 09/20/2019
 ms.author: victorh
-ms.openlocfilehash: 6603929fa7b4c597a846fc299577a9682d8f54e0
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
-ms.translationtype: MT
+ms.openlocfilehash: cf9ca1070461effc69d67614a11b1abd05363310
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854127"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162118"
 ---
-# <a name="create-an-azure-dns-private-zone-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure DNS 프라이빗 영역 만들기
+# <a name="quickstart-create-an-azure-private-dns-zone-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure 프라이빗 DNS 영역 만들기
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
@@ -27,7 +27,7 @@ DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 �
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
-> * DNS 프라이빗 영역 만들기
+> * 프라이빗 DNS 영역 만들기
 > * 테스트 가상 머신 만들기
 > * 추가 DNS 레코드 만들기
 > * 프라이빗 영역 테스트
@@ -36,7 +36,7 @@ DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 �
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-원하는 경우 [Azure CLI](private-dns-getstarted-cli.md)를 사용하여 이 절차를 완료할 수 있습니다.
+원하는 경우 [Azure CLI](private-dns-getstarted-cli.md)를 사용하여 이 빠른 시작을 완료할 수 있습니다.
 
 ## <a name="create-the-resource-group"></a>리소스 그룹 만들기
 
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 ```
 
-## <a name="create-a-dns-private-zone"></a>DNS 프라이빗 영역 만들기
+## <a name="create-a-private-dns-zone"></a>프라이빗 DNS 영역 만들기
 
 DNS 영역은 `New-AzPrivateDnsZone` cmdlet을 사용하여 생성됩니다.
 
@@ -70,7 +70,7 @@ $link = New-AzPrivateDnsVirtualNetworkLink -ZoneName private.contoso.com `
   -VirtualNetworkId $vnet.id -EnableRegistration
 ```
 
-이름 확인을 위한 영역 (자동 호스트 이름 등록 없음)만 만들려면 `-EnableRegistration` 매개 변수를 생략할 수 있습니다.
+이름 확인(자동 호스트 이름 등록 제외)에 대한 영역을 만들려는 경우 `-EnableRegistration` 매개 변수를 생략할 수 있습니다.
 
 ### <a name="list-dns-private-zones"></a>DNS 프라이빗 영역 나열
 
@@ -141,7 +141,7 @@ Get-AzPrivateDnsRecordSet -ZoneName private.contoso.com -ResourceGroupName MyAzu
 이름 확인을 테스트하는 ping 명령을 사용할 수 있습니다. 따라서 인바운드 ICMP 패킷을 허용하도록 두 대의 가상 머신에서 방화벽을 구성합니다.
 
 1. myVM01에 연결하고, 관리자 권한으로 Windows PowerShell 창을 엽니다.
-2. 다음 명령을 실행합니다.
+2. 다음 명령 실행:
 
    ```powershell
    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
@@ -201,7 +201,7 @@ myVM02에서 반복
 
 ## <a name="delete-all-resources"></a>모든 리소스 삭제
 
-더 이상 필요 하지 않은 경우 **MyAzureResourceGroup** 리소스 그룹을 삭제 하 여이 문서에서 만든 리소스를 삭제 합니다.
+더 이상 필요 없다면 **MyAzureResourceGroup** 리소스 그룹을 삭제하여 이 문서에서 만든 리소스를 삭제합니다.
 
 ```azurepowershell
 Remove-AzResourceGroup -Name MyAzureResourceGroup
@@ -209,7 +209,5 @@ Remove-AzResourceGroup -Name MyAzureResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 개인 DNS 영역을 배포 하 고 DNS 레코드를 만든 다음 영역을 테스트 했습니다.
-다음으로, 프라이빗 DNS 영역에 대해 자세히 알아봅니다.
-
-* [프라이빗 도메인에 Azure DNS 사용](private-dns-overview.md)
+> [!div class="nextstepaction"]
+> [Azure DNS Private Zones 시나리오](private-dns-scenarios.md)

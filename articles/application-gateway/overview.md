@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 5f7fd47a096ddd57150a466f85fabcfc2f7045d9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 725b284fa58296aea310f618c000e77d9a0fb4c9
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564874"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146614"
 ---
 # <a name="what-is-azure-application-gateway"></a>Azure Application Gateway란?
 
@@ -35,7 +35,7 @@ Application Gateway는 게이트웨이에서 SSL/TLS 종료를 지원합니다. 
 
 ## <a name="autoscaling"></a>자동 확장
 
-Standard_v2 또는 WAF_v2 SKU에 따른 Application Gateway 또는 WAF 배포는 자동 크기 조정을 지원하며, 변화하는 트래픽 부하 패턴에 따라 확장하거나 축소할 수 있습니다. 또한 자동 크기 조정을 사용하면 프로비전 시 배포 크기 또는 인스턴스 수를 선택할 필요가 없습니다. Application Gateway standard_v2 및 WAF_v2 기능에 대한  자세한 내용은 [자동 크기 조정 v2 SKU](application-gateway-autoscaling-zone-redundant.md)를 참조하세요.
+Standard_v2 또는 WAF_v2 SKU에 따른 Application Gateway 또는 WAF 배포는 자동 크기 조정을 지원하며, 변화하는 트래픽 부하 패턴에 따라 확장하거나 축소할 수 있습니다. 또한 자동 크기 조정을 사용하면 프로비전 시 배포 크기 또는 인스턴스 수를 선택할 필요가 없습니다. Application Gateway Standard_v2 및 WAF_v2 기능에 대한 자세한 내용은 [자동 크기 조정 v2 SKU](application-gateway-autoscaling-zone-redundant.md)를 참조하세요.
 
 ## <a name="zone-redundancy"></a>영역 중복
 
@@ -47,7 +47,7 @@ Standard_v2 WAF_v2 SKU의 애플리케이션 게이트웨이 VIP는 정적 VIP �
 
 ## <a name="web-application-firewall"></a>웹 애플리케이션 방화벽
 
-WAF(웹 응용 프로그램 방화벽)는 일반적인 악용 및 취약점으로부터 웹 응용 프로그램에 대해 중앙 집중화된 보호를 제공하는 Application Gateway의 기능입니다. WAF는 [OWASP(Open Web Application Security Project) 핵심 규칙 집합](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 또는 2.2.9의 규칙에 기반합니다. 
+WAF(웹 애플리케이션 방화벽)는 일반적인 악용 및 취약점으로부터 웹 애플리케이션에 대해 중앙 집중화된 보호를 제공하는 Application Gateway의 기능입니다. WAF는 [OWASP(Open Web Application Security Project) 핵심 규칙 집합](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1(WAF_v2만 해당), 3.0 또는 2.2.9의 규칙에 기반합니다. 
 
 웹 애플리케이션의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 공격으로는 SQL 삽입 공격, 사이트 간 스크립팅 공격 등이 있습니다. 애플리케이션 코드로 이러한 공격을 방어하기란 매우 어려울 수 있으며 애플리케이션 토폴로지의 다양한 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 중앙 집중식 웹 애플리케이션 방화벽을 통해 보안 관리가 훨씬 간단해지고 애플리케이션 관리자에게 위협 또는 침입으로부터 효과적인 보호를 제공합니다. 또한 WAF 솔루션은 각각의 웹 애플리케이션을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 Application Gateway는 웹 애플리케이션 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
 
@@ -63,7 +63,7 @@ URL 경로 기반 라우팅을 사용하여 요청의 URL 경로에 따라 트�
 
 ## <a name="multiple-site-hosting"></a>다중 사이트 호스팅
 
-다중 사이트 호스팅을 통해 동일한 애플리케이션 게이트웨이 인스턴스에서 둘 이상의 웹 사이트를 구성할 수 있습니다. 이 기능을 사용하면 최대 100개의 웹 사이트를 하나의 Application Gateway로 추가하여 배포에 보다 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 풀로 이동할 수 있습니다. 예를 들어 애플리케이션 게이트웨이는 ContosoServerPool 및 FabrikamServerPool이라는 두 개의 서버 풀에서 `contoso.com` 및 `fabrikam.com`에 대한 트래픽을 사용할 수 있습니다.
+다중 사이트 호스팅을 통해 동일한 애플리케이션 게이트웨이 인스턴스에서 둘 이상의 웹 사이트를 구성할 수 있습니다. 이 기능을 사용하면 최대 100개의 웹 사이트를 하나의 Application Gateway에 추가하거나 40개의 WAF(최적의 성능을 위해)를 추가하여 배포를 위한 보다 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 풀로 이동할 수 있습니다. 예를 들어 애플리케이션 게이트웨이는 ContosoServerPool 및 FabrikamServerPool이라는 두 개의 서버 풀에서 `contoso.com` 및 `fabrikam.com`에 대한 트래픽을 사용할 수 있습니다.
 
 `http://contoso.com`에 대한 요청은 ContosoServerPool로 라우팅되고, `http://fabrikam.com`에 대한 요청은 FabrikamServerPool로 라우팅됩니다.
 
@@ -107,6 +107,8 @@ AKS 클러스터 내에서 Pod로 실행되는 Application Gateway 수신 컨트
 
 연결 드레이닝은 예정된 서비스 업데이트 중에 백 엔드 풀 멤버를 정상적으로 제거하는 데 도움이 됩니다. 이 설정은 백 엔드 http 설정을 통해 사용이 가능하며 규칙을 만드는 동안 백 엔드 풀의 모든 멤버에 적용할 수 있습니다. 일단 활성화되면 Application Gateway는 기존 요청이 구성된 제한 시간 내에 완료되도록 하면서 백 엔드 풀의 모든 등록 취소 인스턴스가 새로운 요청을 받지 않도록 합니다. 이는 API 호출에 의해 백엔드 풀에서 명시적으로 제거된 백 엔드 인스턴스와 상태 프로브에 의해 확인된 대로 비정상 상태로 보고된 백엔드 인스턴스에 모두 적용됩니다.
 
+자세한 내용은 [Application Gateway 구성 개요의 연결 드레이닝 섹션](https://docs.microsoft.com/azure/application-gateway/configuration-overview#connection-draining)을 참조하세요.
+
 ## <a name="custom-error-pages"></a>사용자 지정 오류 페이지
 
 Application Gateway를 사용하면 기본 오류 페이지를 표시하는 대신 사용자 지정 오류 페이지를 만들 수 있습니다. 사용자 지정 오류 페이지를 사용하여 자체 브랜딩과 레이아웃을 사용할 수 있습니다.
@@ -127,13 +129,13 @@ Application Gateway는 요청 및 응답 패킷이 클라이언트와 백 엔드
 
 ## <a name="sizing"></a>크기 조정
 
-Application Gateway Standard_v2 및 WAF_v2 SKU는 자동 크기 조정 또는 고정 크기 배포용으로 구성할 수 있습니다. 이러한 SKU는 다른 인스턴스 크기를 제공하지 않습니다.
+Application Gateway Standard_v2 및 WAF_v2 SKU는 자동 크기 조정 또는 고정 크기 배포용으로 구성할 수 있습니다. 이러한 SKU는 다른 인스턴스 크기를 제공하지 않습니다. v2 성능 및 가격 책정에 대한 자세한 내용은 [v2 SKU 자동 크기 조정](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing)을 참조하세요.
 
 Application Gateway Standard 및 WAF SKU는 현재 다음과 같은 세 가지 크기로 제공됩니다. **소형**, **중형** 및 **대형**의 3가지 크기를 제공합니다. 소규모 인스턴스 크기는 개발 및 테스트 시나리오를 위해 사용 됩니다.
 
 Application Gateway의 전체 목록은 [Application Gateway 서비스 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)을 참조하세요.
 
-다음 표에서는 활성화된 SSL 오프로드로 각 애플리케이션 게이트웨이 인스턴스의 평균 성능 처리량을 보여 줍니다.
+다음 표에서는 활성화된 SSL 오프로드로 각 애플리케이션 게이트웨이 v1 인스턴스의 평균 성능 처리량을 보여줍니다.
 
 | 평균 백 엔드 페이지 응답 크기 | 작음 | 중간 | 큰 |
 | --- | --- | --- | --- |

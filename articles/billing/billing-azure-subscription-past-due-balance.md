@@ -15,14 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: banders
-ms.openlocfilehash: 8f2dbc84fe09c825d8ef25aabafba7a672220192
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: cd3c29c4b65f45863647599ae2447584845f27c8
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121721"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300295"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Azure 구독의 미지불금액 해결
+
+이 문서는 Microsoft Online Services 프로그램 계정이 있는 고객에게 적용됩니다.
 
 귀하의 지불이 수신되지 않거나 지불을 처리할 수 없는 경우 이메일이 수신되거나 Azure Portal 또는 계정 센터에 경고가 표시될 수 있습니다.
 [계정 관리자](billing-subscription-transfer.md#whoisaa)인 경우 [Azure Portal](https://portal.azure.com)에서 미납된 요금을 납부할 수 있습니다. 결제를 청구서로 보내려면 청구서 아래쪽에 나열된 위치로 결제 금액을 보냅니다.
@@ -43,6 +45,13 @@ ms.locfileid: "71121721"
 1. 선택한 결제 방법에도 Microsoft 서비스에 대한 미납된 요금이 청구되는 경우 총 미결 잔액에 반영됩니다. 이러한 미납된 요금도 지불해야 합니다.
 1. **지불**을 클릭합니다.
 
+## <a name="troubleshoot-declined-credit-card"></a>거부된 신용 카드 문제 해결
+
+금융 기관에서 신용 카드를 거부한 경우 금융 기관에 연락하여 문제를 해결해야 합니다. 은행에 다음 사항을 확인하세요.
+- 해당 카드에서는 국제 거래가 활성화되어 있습니다.
+- 카드에는 잔액을 지급하기 위한 충분한 신용 한도액 또는 자금이 있습니다.
+- 카드에 반복 결제가 활성화되어 있습니다.
+
 ## <a name="not-getting-billing-email-notifications"></a>청구 전자 메일 알림을 받고 있지 않으면?
 
 계정 관리자인 경우 [알림에 사용되는 전자 메일 주소를 확인합니다](billing-how-to-change-azure-account-profile.md). 정기적으로 확인하는 전자 메일 주소를 사용하는 것이 좋습니다. 전자 메일이 올바른 경우 스팸 폴더를 확인합니다.
@@ -52,6 +61,7 @@ ms.locfileid: "71121721"
 서비스는 취소되고 리소스는 더 이상 사용할 수 없게 됩니다. 귀하의 Azure 데이터는 서비스가 종료된 후 90일 후에 삭제됩니다. 자세한 내용은 [Microsoft 보안 센터 - 데이터 관리 방법](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409)을 참조하세요.
 
 결제가 처리되었으나 구독이 여전히 사용할 수 없게 설정된 경우 [Azure 지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하세요.
+
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 

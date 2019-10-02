@@ -4,15 +4,15 @@ description: 관리형 서비스를 통해 서비스 공급자는 Azure Marketpl
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 07/11/2019
+ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: a6fcf5f1d0ac194d60f834fb8d26db019c538410
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 0a6371a1020182650d83d5e7ec9bb2378b44b557
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810877"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155266"
 ---
 # <a name="managed-services-offers-in-azure-marketplace"></a>Azure Marketplace의 관리형 서비스 솔루션
 
@@ -20,9 +20,9 @@ ms.locfileid: "67810877"
 
 ## <a name="understand-managed-services-offers"></a>관리형 서비스 제품 이해
 
-관리형 서비스는 Azure 위임 리소스 관리를 위해 고객을 온보딩하는 프로세스를 간소화합니다. 고객이 Azure Marketplace에서 제품을 구매한 후에는 조직의 지정된 사용자가 조직의 테넌트 내에서 고객을 위한 관리 작업을 수행할 수 있도록 온보딩해야 하는 구독 및/또는 리소스 그룹을 지정할 수 있습니다.
+관리형 서비스는 Azure 위임 리소스 관리를 위해 고객을 온보딩하는 프로세스를 간소화합니다. 고객이 Azure Marketplace에서 제품을 구매하는 경우 등록해야 하는 구독 및/또는 리소스 그룹을 지정할 수 있습니다. **Microsoft.ManagedServices** 리소스 공급자를 수동으로 등록하여 구독에 먼저 온보딩 권한을 부여해야 합니다.
 
-그런 다음, 고객 또는 서비스 공급자가 고객을 온보딩하기 위해 수행해야 하는 추가 작업은 없습니다. 이것은 [Cloud 파트너 포털](https://cloudpartner.azure.com/)에서 제품을 정의할 때 Azure 위임 리소스 관리를 사용하여 고객 리소스에 액세스할 수 있는 Azure AD 사용자, 그룹 및 서비스 원칙을 지정하는 매니페스트와 액세스 수준을 정의하는 역할을 만들기 때문입니다. 일련의 개별 사용자 또는 애플리케이션 계정이 아닌 Azure AD 그룹에 권한을 할당하므로 액세스 요구 사항이 변경될 때 개별 사용자를 추가하거나 제거할 수 있습니다.
+그런 다음, 조직의 사용자는 [Cloud 파트너 포털](https://cloudpartner.azure.com/)에서 제품을 만들 때 정의한 액세스에 따라 조직의 테넌트 내에서 해당 리소스에 대한 관리 작업을 수행할 수 있습니다. 이것은 Azure 위임 리소스 관리를 사용하여 고객 리소스에 액세스할 수 있는 Azure AD 사용자, 그룹 및 서비스 원칙을 지정하는 매니페스트와 액세스 수준을 정의하는 역할을 통해 수행됩니다. 일련의 개별 사용자 또는 애플리케이션 계정이 아닌 Azure AD 그룹에 권한을 할당하므로 액세스 요구 사항이 변경될 때 개별 사용자를 추가하거나 제거할 수 있습니다.
 
 ## <a name="public-and-private-offers"></a>퍼블릭 및 프라이빗 제품
 

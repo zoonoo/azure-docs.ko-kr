@@ -1,19 +1,19 @@
 ---
 title: Azure Portal을 사용하여 HDInsight에 Apache Kafka 설정
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터를 만드는 방법에 대해 알아봅니다. 또한 Kafka 토픽, 구독자 및 소비자에 대해서도 알아봅니다.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: e0a2eecaa4b2f03fa12353854e75b9fda097675d
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: b66306de6b2afa1e39a91ba3b3981aec4b440e1a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960296"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123577"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터 만들기
 
@@ -38,18 +38,18 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. 왼쪽 메뉴에서 **+ 리소스 만들기** > **Analytics** > **HDInsight**로 이동합니다.
-   
-    ![HDInsight 클러스터 만들기](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
 
-3. **기본**에서 다음 정보를 입력하거나 선택합니다.
+    ![리소스 HDInsight를 만드는 Azure Portal](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
+
+3. **기본** 에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
     | --- | --- |
     | 클러스터 이름 | HDInsight 클러스터에 사용할 고유한 이름입니다. |
     | Subscription | 구독을 선택합니다. |
-    
+
    __클러스터 유형__을 선택하여 **클러스터 구성**을 표시합니다.
-   
+
    ![HDInsight 기본 구성의 Apache Kafka 클러스터](./media/apache-kafka-get-started/custom-basics-kafka1.png)
 
 4. __클러스터 구성__ 에서 다음 값을 선택합니다.
@@ -61,7 +61,7 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
 
     **선택** 단추를 사용하여 클러스터 유형 설정을 저장하고 __기본__ 으로 돌아갑니다.
 
-    ![클러스터 유형 선택](./media/apache-kafka-get-started/apache-kafka-cluster-type.png)
+    ![HDInsight apache kafka 클러스터 유형](./media/apache-kafka-get-started/apache-kafka-cluster-type.png)
 
 5. __기본__ 에서 다음 정보를 입력하거나 선택합니다.
 
@@ -77,7 +77,7 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
 
     데이터의 고가용성을 위해 __세 개의 장애 도메인__ 을 포함하는 지역(위치)을 선택합니다. 영역에서 장애 도메인의 수에 대한 자세한 내용은 [Linux 가상 머신의 가용성](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 문서를 참조하세요.
 
-   ![구독 선택](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
+   ![클러스터 기본 사항을 만드는 Azure Portal](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
 
     __다음__ 을 선택하여 기본 구성을 완료합니다.
 
@@ -105,7 +105,7 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
 
 11. **요약**에서 클러스터에 대한 구성을 검토합니다. __편집__ 링크를 사용하여 올바르지 않은 설정을 변경합니다. 마지막으로, **만들기**를 선택하여 클러스터를 만듭니다.
 
-    ![클러스터 구성 요약](./media/apache-kafka-get-started/kafka-configuration-summary.png)
+    ![kafka 클러스터 구성 요약](./media/apache-kafka-get-started/kafka-configuration-summary.png)
 
     클러스터를 만드는 데 최대 20분이 걸릴 수 있습니다.
 

@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/13/2019
+ms.date: 09/17/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: b07675e25c0380921e24059ff0107fcfe1bb3873
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: a752d7759386828e916f68e5903115220812f3e0
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602100"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123036"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure Media Services v3 개요
 
@@ -69,6 +69,10 @@ Media Services v3를 사용하여 콘텐츠를 인코딩 및 패키징하고, �
 * [비디오 분석 - .NET](analyze-videos-tutorial-with-api.md)
 * [AES-128 동적 암호화 - .NET](protect-with-aes128.md)
     
+### <a name="samples"></a>샘플
+
+[이 샘플 브라우저](https://docs.microsoft.com/samples/browse/?products=azure-media-services)를 사용하여 Azure Media Services 코드 샘플을 찾아볼 수 있습니다.
+
 ### <a name="how-to-guides"></a>방법 가이드
 
 작업을 완료하는 방법을 설명하는 코드 샘플이 포함되어 있습니다. 이 섹션에서는 많은 예제를 찾을 수 있으며, 여기에는 그 중 몇 가지만 나와 있습니다.

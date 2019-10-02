@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 49fa2cd53ebefa811673ea25a1851081f8cfa415
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ab593ae33f11fe3e39846c50e9f43f73f80894ba
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958940"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265971"
 ---
 # <a name="quickstart-personalize-client-library-for-nodejs"></a>빠른 시작: Node.js용 Personalizer 클라이언트 라이브러리
 
@@ -143,6 +143,11 @@ Personalizer 학습 루프는 [순위](#request-a-rank) 및 [보상](#send-a-rew
 [!code-javascript[Create the learning loop](~/samples-personalizer/quickstarts/node/sample.js?name=mainLoop)]
 
 다음 섹션에서 순위 및 보상 호출에 대해 자세히 살펴보겠습니다.
+
+코드 파일을 실행하기 전에 [콘텐츠 선택을 가져오는](#get-content-choices-represented-as-actions) 다음 메서드를 추가합니다.
+
+* getActionsList
+* getContextFeaturesList
 
 ## <a name="request-a-rank"></a>순위 요청
 

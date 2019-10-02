@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 8827aa660d348ef9e42c617067c2837b8697ba6e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 440ebfffec9378e0dad1fd04e0880c90571bb0f1
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876774"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71301011"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Windows Virtual Desktop Preview란? 
 
@@ -76,6 +76,8 @@ Windows Virtual Desktop을 지원하려면 인프라에 다음과 같은 것들�
 * Azure Active Directory와 동기화되는 Windows Server Active Directory입니다. 다음을 통해 설정할 수 있습니다.
   * Azure AD Connect
   * Azure AD Domain Services
+  >[!NOTE]
+  >Windows Virtual Desktop은 Azure Active Directory에서 소싱된 Azure AD Domain Services 사용자만 지원합니다. 현재 Windows Server AD에서 소싱된 사용자는 지원되지 않습니다.
 * Windows Server Active Directory를 포함하거나 그에 연결된 가상 네트워크를 포함하고 있는 Azure 구독
   
 Windows Virtual Desktop에 대해 만드는 Azure 가상 머신은 다음과 같아야 합니다.

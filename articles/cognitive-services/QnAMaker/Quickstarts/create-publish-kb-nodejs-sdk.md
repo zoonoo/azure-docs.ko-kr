@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/07/2019
+ms.date: 09/21/2019
 ms.author: diberry
-ms.openlocfilehash: dcbbaa2f4c6ebe709c879909f873b212f238ff2a
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 6759b8fdf6e68d4f0030fc4eda5eee5d1ce608b1
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375851"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203214"
 ---
 # <a name="quickstart-qna-maker-client-library-for-nodejs"></a>빠른 시작: Node.js용 QnA Maker 클라이언트 라이브러리
 
@@ -122,12 +122,15 @@ JSON 개체를 전송하여 기술 자료를 관리합니다. 즉각적인 작�
 
 [!code-javascript[Create a knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=createkb&highlight=15)]
 
+기술 자료를 성공적으로 만들려면 위의 코드에서 참조되는 [`wait_for_operation`](#get-status-of-an-operation) 함수를 포함해야 합니다. 
 
 ## <a name="update-a-knowledge-base"></a>기술 자료 업데이트
 
 기술 자료 ID와 [add](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#add), [update](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#update) 및 [delete](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#deleteproperty) DTO 개체를 포함하는 [UpdateKbOperationDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest)를 [update](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#update-string--updatekboperationdto--msrest-requestoptionsbase-) 메서드로 전달하여 기술 자료를 업데이트할 수 있습니다. 성공적으로 업데이트되었는지 확인하려면 [Operation.getDetail](#get-status-of-an-operation) 메서드를 사용합니다.
 
 [!code-javascript[Update a knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=updatekb&highlight=19)]
+
+기술 자료를 성공적으로 업데이트하려면 위의 코드에서 참조되는 [`wait_for_operation`](#get-status-of-an-operation) 함수를 포함해야 합니다. 
 
 ## <a name="publish-a-knowledge-base"></a>기술 자료 게시
 
@@ -153,6 +156,9 @@ create 및 update와 같은 일부 메서드는 프로세스가 완료될 때까
 
 애플리케이션 디렉터리에서 `node index.js` 명령을 사용하여 애플리케이션을 실행합니다.
 
+
+이 문서의 모든 코드 조각은 [사용 가능](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js)이며 단일 파일로 실행할 수 있습니다.
+
 ```console
 node index.js
 ```
@@ -171,5 +177,4 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 
 * [QnA Maker API란?](../Overview/overview.md)
 * [기술 자료 편집](../how-to/edit-knowledge-base.md)
-* [사용 현황 분석 가져오기](../how-to/get-analytics-knowledge-base.md)
-* 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js)에서 확인할 수 있습니다.
+* [사용량 현황 분석 가져오기](../how-to/get-analytics-knowledge-base.md)

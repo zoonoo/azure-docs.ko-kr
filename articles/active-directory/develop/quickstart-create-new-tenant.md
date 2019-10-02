@@ -17,14 +17,14 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 703976e328eabb891e76459785484d929e2c5d3b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2c29195e5e597583a5c16c7f1d9494d655f2b317
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853146"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268602"
 ---
-# <a name="quickstart-set-up-a-dev-environment"></a>빠른 시작: 개발 환경 설정
+# <a name="quickstart-set-up-a-tenant"></a>빠른 시작: 테넌트 설정
 
 Microsoft ID 플랫폼을 통해 개발자는 다양한 사용자 지정 Microsoft 365 환경 및 ID를 대상으로 하는 앱을 빌드할 수 있습니다. Microsoft ID 플랫폼 사용을 시작하려면 앱을 등록 및 관리하고, Microsoft 365 데이터에 액세스하고, 사용자 지정 조건부 액세스 및 테넌트 제한을 배포할 수 있는 Azure AD 테넌트라고도 하는 환경에 액세스해야 합니다.
 

@@ -66,6 +66,8 @@
   items:
     - name: Windows Virtual Desktop 환경
       href: environment-setup.md
+    - name: 원격 세션에 대한 대역폭 권장 사항
+      href: bandwidth-recommendations.md
     - name: Windows Virtual Desktop에서 위임된 액세스
       href: delegated-access-virtual-desktop.md
     - name: 호스트 풀 부하 분산 메서드

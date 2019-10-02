@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4d03e5ee5faf39425e1bf927a3c0557b0ad01b82
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e629cbdce55f236e095f606f56adec453b0b17c7
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840112"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299859"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>자습서: 사용자 지정 IoT Edge 모듈 만들기 및 배포
 
@@ -27,7 +27,7 @@ IoT Edge 허브는 모듈 간 통신을 용이하게 합니다. IoT Edge 허브�
 IoT Edge 디바이스는 다음 4가지 작업을 수행하는 데 필요합니다.
 
 * 리프 디바이스로부터 데이터 받기
-* 데이터를 보낸 디바이스에 대한 RUL 예측
+* 데이터를 보낸 디바이스의 RUL(잔여 유효 수명) 예측
 * 디바이스에 대한 RUL만 사용하여 IoT Hub에 메시지 보내기(이 함수는 RUL이 일부 수준 이하로 떨어지는 경우에만 데이터를 보내도록 수정할 수 있음)
 * IoT Edge 디바이스의 로컬 파일에 리프 디바이스 데이터 저장. 이 데이터 파일은 파일 업로드를 통해 정기적으로 IoT Hub에 업로드되어 기계 학습 모델 학습을 구체화합니다. 지속적인 메시지 스트리밍 대신 파일 업로드를 사용하는 것이 더 비용 효율적입니다.
 
@@ -56,7 +56,7 @@ IoT Edge 디바이스는 다음 4가지 작업을 수행하는 데 필요합니�
 
 ## <a name="create-a-new-iot-edge-solution"></a>새 IoT Edge 솔루션 만들기
 
-두 개의 Azure Notebook 중 두 번째 Notebook을 실행하는 동안에 RUL 모델이 포함된 컨테이너 이미지를 만들고 게시했습니다. 이미지 만들기 프로세스의 일환으로, Azure Machine Learning은 이미지를 Azure IoT Edge 모듈로 배포할 수 있는 구성 요소를 기본 제공했습니다. 이 단계에서는 "Azure Machine Learning" 모듈을 사용하여 Azure IoT Edge 솔루션을 만들고, Azure Notebooks를 사용하여 게시한 이미지를 모듈로 가리킵니다.
+두 개의 Azure Notebook 중 두 번째 Notebook을 실행하는 동안에 RUL 모델이 포함된 컨테이너 이미지를 만들고 게시했습니다. 이미지 만들기 프로세스의 일환으로, Azure Machine Learning은 이미지를 Azure IoT Edge 모듈로 배포할 수 있도록 해당 모델을 패키징했습니다. 이 단계에서는 "Azure Machine Learning" 모듈을 사용하여 Azure IoT Edge 솔루션을 만들고, Azure Notebooks를 사용하여 게시한 이미지를 모듈로 가리킵니다.
 
 1. 개발 머신에서 원격 데스크톱 세션을 엽니다.
 

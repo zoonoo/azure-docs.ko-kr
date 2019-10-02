@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 08/05/2019
+ms.date: 09/23/2019
 ms.author: alinast
-ms.openlocfilehash: 0244d6ac51b7cad6b74139c39914223928e2b627
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: db62d2209207a807570e971ef4af5f9b10b06cb8
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827843"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300070"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>자습서: Time Series Insights를 사용하여 Azure Digital Twins 공간의 이벤트 시각화 및 분석
 
@@ -38,6 +38,9 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 - 작업 머신에 다운로드하여 추출한 [Digital Twins C# 샘플](https://github.com/Azure-Samples/digital-twins-samples-csharp).
 - 샘플을 실행하기 위해 개발 머신에 설치된 [.NET Core SDK 버전 2.1.403 이상](https://www.microsoft.com/net/download) 올바른 버전이 설치되어 있는지 확인하려면 `dotnet --version` 명령을 실행합니다.
 
+> [!TIP]
+> 새 인스턴스를 프로비저닝하는 경우 고유한 Digital Twins 인스턴스 이름을 사용합니다.
+
 ## <a name="stream-data-by-using-event-hubs"></a>Event Hubs를 사용하여 데이터 스트리밍
 
 [Event Hubs](../event-hubs/event-hubs-about.md) 서비스를 사용하여 데이터를 스트리밍하는 파이프라인을 만들 수 있습니다. 이 섹션에서는 Azure Digital Twins와 Time Series Insights 인스턴스 사이의 커넥터 역할을 할 이벤트 허브를 만드는 방법을 보여줍니다.
@@ -54,10 +57,10 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
 1. Event Hubs 네임스페이스 배포에서 **개요** 창을 선택한 다음, **리소스로 이동**을 선택합니다.
 
-    ![배포 이후 Event Hubs 네임스페이스](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
+    [![배포 이후 Event Hubs 네임스페이스](./media/tutorial-facilities-analyze/open-event-hub-ns.png)](./media/tutorial-facilities-analyze/open-event-hub-ns.png#lightbox)
 
 1. Event Hubs 네임스페이스의 **개요** 창에서 맨 위에 있는 **Event Hub** 단추를 선택합니다.
-    ![Event Hub 단추](./media/tutorial-facilities-analyze/create-event-hub.png)
+    [![Event Hub 단추](./media/tutorial-facilities-analyze/create-event-hub.png)](./media/tutorial-facilities-analyze/create-event-hub.png#lightbox)
 
 1. 이벤트 허브의 **이름**을 입력하고 **만들기**를 선택합니다.
 
@@ -65,13 +68,13 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
 1. 맨 위에서 **소비자 그룹** 단추를 선택하고, 소비자 그룹 이름을 입력합니다(예: **tsievents**). **만들기**를 선택합니다.
 
-    ![이벤트 허브 소비자 그룹](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
+    [![Event Hub 소비자 그룹](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)](./media/tutorial-facilities-analyze/event-hub-consumer-group.png#lightbox)
 
    소비자 그룹이 생성되면 이벤트 허브 **개요** 창의 맨 아래에 있는 목록에 표시됩니다.
 
 1. 이벤트 허브에 대한 **공유 액세스 정책** 창을 열고, **추가** 단추를 선택합니다. **ManageSend**를 정책 이름으로 입력하고, 모든 확인란이 선택되었는지 확인하고, **만들기**를 선택합니다.
 
-    ![이벤트 허브 연결 문자열](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)
+    [![Event Hub 연결 문자열](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)](./media/tutorial-facilities-analyze/event-hub-connection-strings.png#lightbox)
 
 1. 앞에서 만든 ManageSend 정책을 열고, **연결 문자열--기본 키** 및 **연결 문자열--보조 키** 값을 임시 파일에 복사합니다. 다음 섹션에서 이벤트 허브에 대한 엔드포인트를 만들려면 이러한 값이 필요합니다.
 
@@ -124,21 +127,21 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
    이벤트 허브에 대한 두 개의 엔드포인트가 생성됩니다.
 
-   ![Event Hubs에 대한 엔드포인트](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)
+   [![Event Hubs에 대한 엔드포인트](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png#lightbox)
 
 ## <a name="analyze-with-time-series-insights"></a>Time Series Insights를 사용한 분석
 
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **리소스 만들기**를 선택합니다. 
 
-1. 새 **Time Series Insights** 리소스를 검색하여 선택합니다. **만들기**를 선택합니다.
+1. **Time Series Insights** GA(일반 공급) 리소스를 검색하고 선택합니다. **만들기**를 선택합니다.
 
 1. Time Series Insights 인스턴스의 **이름**을 입력하고 자신의 **구독**을 선택합니다. Digital Twins 인스턴스에 사용한 **리소스 그룹**을 선택하고, **위치**를 선택합니다. 완료되면 **다음: 이벤트 원본** 단추 또는 **이벤트 원본** 탭을 선택합니다.
 
-    ![Time Series Insights 인스턴스를 만드는 선택 영역](./media/tutorial-facilities-analyze/create-tsi.png)
+    [![Time Series Insights 인스턴스를 만드는 선택 영역](./media/tutorial-facilities-analyze/create-tsi.png)](./media/tutorial-facilities-analyze/create-tsi.png#lightbox)
 
 1. **이벤트 원본** 탭에서 **이름**을 입력하고, **원본 유형**으로 **이벤트 허브**를 선택하고, 다른 값이 올바르게 선택되었는지 확인합니다. **이벤트 허브 액세스 정책 이름**으로 **ManageSend**를 선택한 다음, 이전 섹션에서 만든 소비자 그룹을 **이벤트 허브 소비자 그룹**으로 선택합니다. **검토 + 만들기**를 선택합니다.
 
-    ![이벤트 원본을 생성하는 선택 영역](./media/tutorial-facilities-analyze/tsi-event-source.png)
+    [![이벤트 원본을 생성하는 선택 영역](./media/tutorial-facilities-analyze/tsi-event-source.png)](./media/tutorial-facilities-analyze/tsi-event-source.png#lightbox)
 
 1. **검토 + 만들기** 창에서 입력한 정보를 검토하고 **만들기**를 선택합니다.
 
@@ -150,13 +153,13 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
 1. 시뮬레이션된 이벤트가 몇 개 생성되면 Time Series Insights 탐색기로 돌아가서 맨 위에 있는 새로 고침 단추를 선택합니다. 시뮬레이션된 센서 데이터에 대한 분석 차트가 만들어지는 것을 볼 수 있습니다. 
 
-    ![Time Series Insights 탐색기의 차트](./media/tutorial-facilities-analyze/tsi-explorer.png)
+    [![Time Series Insights 탐색기의 차트](./media/tutorial-facilities-analyze/tsi-explorer.png)](./media/tutorial-facilities-analyze/tsi-explorer.png#lightbox)
 
 1. 그런 다음, Time Series Insights 탐색기에서 방, 센서 및 기타 리소스로 여러 이벤트와 데이터에 대한 차트 및 열 지도를 생성할 수 있습니다. 왼쪽에서 **측정값** 및 **분할 기준** 드롭다운 상자를 사용하여 고유한 시각화를 만듭니다. 
 
    예를 들어 **측정값**으로 **이벤트**를 선택하고, **분할 기준**으로 **DigitalTwins-SensorHardwareId**를 선택하여 각 센서의 열 지도를 만듭니다. 열 지도는 다음 이미지와 유사합니다.
 
-   ![Time Series Insights 탐색기의 열 지도](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png)
+   [![Time Series Insights 탐색기의 열 지도](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png)](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png#lightbox)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
