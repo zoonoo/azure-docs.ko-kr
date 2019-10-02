@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/07/2017
+ms.date: 10/1/2019
 ms.author: motanv
-ms.openlocfilehash: d12c5097d4ba5e0ccfe0e2b2cbc8ccd758c32d98
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ea30b59e3195a0229c2584212e2897aaff4ee31
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60865023"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718223"
 ---
 # <a name="testability-scenarios"></a>테스트 용이성 시나리오
 클라우드 인프라 같은 대규모 분산 시스템은 본질적으로 불안정합니다. Azure 서비스 패브릭은 개발자에게 불안정한 인프라를 기반으로 실행되는 서비스를 작성할 수 있는 기능을 제공합니다. 고품질 서비스를 작성하려면 개발자는 이처럼 불안정한 인프라에서 서비스의 안정성을 테스트하도록 유도할 수 있어야 합니다.
@@ -49,11 +49,11 @@ ms.locfileid: "60865023"
 현재 상태에서는 비정상 상황 테스트의 오류 생성 엔진이 안전 오류만 유도합니다. 다시 말해서 외부 오류가 없으면 쿼럼 또는 데이터 손실이 절대 발생하지 않습니다.
 
 ### <a name="important-configuration-options"></a>중요 구성 옵션
-* **TimeToRun**: 성공적으로 완료 하기 전에 테스트를 실행 하는 총 시간입니다. 유효성 검사를 실패하기 전에 테스트가 일찍 완료될 수 있습니다.
-* **MaxClusterStabilizationTimeout**: 최대 크기는 클러스터가 정상 상태가 테스트가 실패 하기 전에 대기할 시간입니다. 클러스터 상태가 정상인지, 서비스 상태가 정상인지, 서비스 파티션에 대해 대상 복제본 세트 크기가 달성되었는지, InBuild 복제본이 없는지에 대한 검사가 수행됩니다.
-* **MaxConcurrentFaults**: 동시 오류의 최대 수는 각 반복에서 유도 합니다. 숫자가 클수록 테스트가 공격적이므로 더 복잡한 장애 조치(failover)와 전환 조합으로 이어집니다. 외부 오류가 없으면 이 숫자를 얼마나 높게 구성하든 쿼럼 또는 데이터 손실이 없습니다.
-* **EnableMoveReplicaFaults**: 사용 하거나 기본 또는 보조 복제본 이동 시키는 오류를 사용 하지 않도록 설정 합니다. 이러한 오류는 기본적으로 해제됩니다.
-* **WaitTimeBetweenIterations**: 오류 및 해당 유효성 검사 후 예: 반복 사이의 대기 시간의 양입니다.
+* **TimeToRun**: 성공으로 완료 하기 전에 테스트가 실행 되는 총 시간입니다. 유효성 검사를 실패하기 전에 테스트가 일찍 완료될 수 있습니다.
+* **MaxClusterStabilizationTimeout**: 클러스터가 정상 상태가 될 때까지 대기 하는 최대 시간으로, 테스트가 실패 합니다. 클러스터 상태가 정상인지, 서비스 상태가 정상인지, 서비스 파티션에 대해 대상 복제본 세트 크기가 달성되었는지, InBuild 복제본이 없는지에 대한 검사가 수행됩니다.
+* **MaxConcurrentFaults**: 각 반복에서 발생 한 최대 동시 오류 수입니다. 숫자가 클수록 테스트가 공격적이므로 더 복잡한 장애 조치(failover)와 전환 조합으로 이어집니다. 외부 오류가 없으면 이 숫자를 얼마나 높게 구성하든 쿼럼 또는 데이터 손실이 없습니다.
+* **EnableMoveReplicaFaults**: 주 복제본 또는 보조 복제본을 이동 시키는 오류를 설정 하거나 해제 합니다. 이러한 오류는 기본적으로 해제됩니다.
+* **WaitTimeBetweenIterations**: 반복 간에 대기 하는 시간 (즉, 오류 및 해당 유효성 검사 후).
 
 ### <a name="how-to-run-the-chaos-test"></a>비정상 상황 테스트를 실행하는 방법
 C# 샘플
@@ -133,6 +133,8 @@ class Test
 
 PowerShell
 
+Service Fabric Powershell 모듈에는 비정상 상황 시나리오를 시작 하는 두 가지 방법이 포함 되어 있습니다. `Invoke-ServiceFabricChaosTestScenario`은 클라이언트 기반 이며, 클라이언트 컴퓨터가 테스트를 통해 중간에 종료 되는 경우 더 이상 오류가 발생 하지 않습니다. 또는 컴퓨터 종료 시 테스트 실행을 유지 하는 일련의 명령이 있습니다. `Start-ServiceFabricChaos`은 Faultanalysisservice의입니다 이라는 상태 저장 서비스와 신뢰할 수 있는 시스템 서비스를 사용 하 여 TimeToRun가 가동 될 때까지 오류가 계속 해 서 발생 되도록 합니다. `Stop-ServiceFabricChaos`은 시나리오를 수동으로 중지 하는 데 사용할 수 있으며-1 @no__t 보고서를 가져옵니다. 자세한 내용은 [Azure Service Fabric Powershell 참조](https://docs.microsoft.com/powershell/module/servicefabric/?view=azureservicefabricps) 및 [Service Fabric 클러스터에서 비정상 상황 제어 유도](service-fabric-controlled-chaos.md)를 참조 하세요.
+
 ```powershell
 $connection = "localhost:19000"
 $timeToRun = 60
@@ -160,10 +162,10 @@ Invoke-ServiceFabricChaosTestScenario -TimeToRunMinute $timeToRun -MaxClusterSta
 장애 조치(failover) 테스트는 선택된 오류를 유도한 후 서비스에 대해 유효성 검사를 실행하여 안정화합니다. 비정상 상황 테스트에서 다중 오류가 가능한 것과는 달리 장애 조치(failover) 테스트는 오류를 한 번에 하나씩만 유도할 수 있습니다. 각 오류 후 서비스 파티션이 구성된 제한 시간 내에 안정화되지 않으면 테스트가 실패합니다. 이 테스트는 안전 오류만 유도합니다. 다시 말해서 외부 오류가 없으면 쿼럼 또는 데이터 손실이 발생하지 않습니다.
 
 ### <a name="important-configuration-options"></a>중요 구성 옵션
-* **PartitionSelector**: 대상으로 하는 파티션을 지정 하는 선택기 개체입니다.
-* **TimeToRun**: 테스트 실행 되는 총 시간입니다.
-* **MaxServiceStabilizationTimeout**: 최대 크기는 클러스터가 정상 상태가 테스트가 실패 하기 전에 대기할 시간입니다. 서비스 상태가 정상인지, 모든 파티션에 대해 대상 복제본 세트 크기가 달성되었는지, InBuild 복제본이 없는지에 대한 검사가 수행됩니다.
-* **WaitTimeBetweenFaults**: 모든 오류 및 유효성 검사 주기 사이 대기할 시간 간격입니다.
+* **PartitionSelector**: 대상으로 지정 해야 하는 파티션을 지정 하는 선택기 개체입니다.
+* **TimeToRun**: 테스트가 완료 되기 전까지 실행 되는 총 시간입니다.
+* **MaxServiceStabilizationTimeout**: 클러스터가 정상 상태가 될 때까지 대기 하는 최대 시간으로, 테스트가 실패 합니다. 서비스 상태가 정상인지, 모든 파티션에 대해 대상 복제본 세트 크기가 달성되었는지, InBuild 복제본이 없는지에 대한 검사가 수행됩니다.
+* **WaitTimeBetweenFaults**: 모든 오류와 유효성 검사 주기 사이에 대기 하는 시간입니다.
 
 ### <a name="how-to-run-the-failover-test"></a>장애 조치(failover) 테스트를 실행하는 방법
 **C#**

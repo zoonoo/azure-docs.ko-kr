@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/01/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 5b74e387c6bee58acbbb7bae320a9bc72a4dda1c
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: b566cc9e45348241cf6ae7b81bd0e471fbf59ba0
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376289"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720031"
 ---
 # <a name="expressroute-virtual-network-gateway-and-fastpath"></a>ExpressRoute 가상 네트워크 게이트웨이 및 FastPath
 Express 경로를 통해 Azure 가상 네트워크와 온-프레미스 네트워크를 연결 하려면 먼저 가상 네트워크 게이트웨이를 만들어야 합니다. 가상 네트워크 게이트웨이는 네트워크 간 exchange IP 경로와 네트워크 트래픽 라우팅의 두 가지 용도로 사용 됩니다. 이 문서에서는 게이트웨이 유형, 게이트웨이 Sku 및 SKU의 예상 성능에 대해 설명 합니다. 또한이 문서에서는 온-프레미스 네트워크의 네트워크 트래픽이 가상 네트워크 게이트웨이를 우회 하 여 성능을 향상 시킬 수 있도록 해 주는 기능인 Express [경로 fastpath](#fastpath)에 대해 설명 합니다.
@@ -60,12 +60,12 @@ Azure Availability Zones에 ExpressRoute 게이트웨이를 배포할 수도 있
 ## <a name="fastpath"></a>FastPath
 Express 경로 가상 네트워크 게이트웨이는 네트워크 경로를 교환 하 고 네트워크 트래픽을 라우팅하는 데 적합 합니다. FastPath는 온-프레미스 네트워크와 가상 네트워크 간의 데이터 경로 성능을 향상 시 키도 록 설계 되었습니다. 사용 하도록 설정 하면 FastPath는 게이트웨이를 우회 하 여 가상 네트워크의 가상 머신으로 네트워크 트래픽을 직접 보냅니다. 
 
-FastPath는 Express 경로 [직접](expressroute-erdirect-about.md) 에서만 사용할 수 있습니다. 즉, [가상 네트워크](expressroute-howto-linkvnet-arm.md) 를 Express 경로 직접 포트에서 만든 express 경로 회로에 연결 하는 경우에만이 기능을 사용 하도록 설정할 수 있습니다. FastPath는 가상 네트워크와 온-프레미스 네트워크 간에 경로를 교환 하기 위해 가상 네트워크 게이트웨이를 만들어야 합니다. 가상 네트워크 게이트웨이는 Ultra Performance 또는 ErGw3AZ 여야 합니다.
+FastPath는 모든 Express 경로 회로에서 사용할 수 있습니다. 가상 네트워크와 온-프레미스 네트워크 간에 경로를 교환 하기 위해 가상 네트워크 게이트웨이를 만들어야 합니다. 가상 네트워크 게이트웨이는 Ultra Performance 또는 ErGw3AZ 여야 합니다.
 
 FastPath는 다음 기능을 지원 하지 않습니다.
 * 게이트웨이 서브넷의 UDR: 가상 네트워크의 게이트웨이 서브넷에 UDR을 적용 하는 경우 온-프레미스 네트워크의 네트워크 트래픽이 가상 네트워크 게이트웨이로 계속 전송 됩니다.
 * VNet 피어 링: 다른 가상 네트워크에 연결 된 가상 네트워크를 피어 링 하 여 온-프레미스 네트워크에서 다른 가상 네트워크 (즉, "스포크" Vnet)에 대 한 네트워크 트래픽을 가상 네트워크로 계속 보냅니다. 관문. 해결 방법은 모든 가상 네트워크를 Express 경로 회로에 직접 연결 하는 것입니다.
-* 기본 Load Balander: 가상 네트워크에 기본 내부 부하 분산 장치를 배포 하거나 가상 네트워크에 배포 하는 Azure PaaS 서비스에서 기본 내부 부하 분산 장치를 사용 하는 경우 온-프레미스 네트워크에서 호스트 되는 가상 Ip에 대 한 네트워크 트래픽이 기본 부하 분산 장치는 가상 네트워크 게이트웨이로 전송 됩니다. 이 솔루션은 기본 부하 분산 장치를 [표준 부하 분산](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview)장치로 업그레이드 하는 것입니다. 
+* 기본 Load Balancer: 가상 네트워크에 기본 내부 부하 분산 장치를 배포 하거나 가상 네트워크에 배포 하는 Azure PaaS 서비스에서 기본 내부 부하 분산 장치를 사용 하는 경우 온-프레미스 네트워크에서 호스트 되는 가상 Ip에 대 한 네트워크 트래픽이 기본 부하 분산 장치는 가상 네트워크 게이트웨이로 전송 됩니다. 이 솔루션은 기본 부하 분산 장치를 [표준 부하 분산](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview)장치로 업그레이드 하는 것입니다. 
  
 ## <a name="resources"></a>REST API 및 PowerShell cmdlet
 가상 네트워크 게이트웨이 구성을 위해 REST API와 PowerShell cmdlet을 사용할 경우 추가 기술 리소스 및 특정 구문 요구 사항에 대해서는 다음 페이지를 참조하세요.

@@ -11,24 +11,26 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: aefd3da1908b2be879b5ba500746fab48e43d5bd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 73c31a60fb14df00f50fefb35ca123298241c61d
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566953"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812378"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>읽기 전용 복제본을 사용 하 여 읽기 전용 쿼리 작업 부하 분산
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-고가용성 [아키텍처](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)의 일부로 프리미엄, 중요 비즈니스용 또는 hyperscale 서비스 계층의 각 데이터베이스는 주 복제본과 여러 보조 복제본으로 자동으로 프로 비전 됩니다. 보조 복제본은 주 복제본과 동일한 계산 크기로 프로 비전 됩니다. 읽기 **확장** 기능을 사용 하면 읽기-쓰기 복제본을 공유 하는 대신 읽기 전용 복제본 중 하나의 용량을 사용 하 여 읽기 전용 작업 SQL Database 부하를 분산할 수 있습니다. 이러한 방식으로 읽기 전용 워크로드는 주 읽기-쓰기 작업에서 격리되고 해당 성능에 영향을 주지 않습니다. 이 기능은 분석과 같이 논리적으로 구분 된 읽기 전용 작업을 포함 하는 응용 프로그램을 위한 것입니다. 추가 비용 없이이 추가 용량을 사용 하 여 성능상의 이점을 얻을 수 있습니다.
+고가용성 [아키텍처](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)의 일부로 프리미엄 및 중요 비즈니스용 서비스 계층의 각 데이터베이스는 주 복제본과 여러 보조 복제본으로 자동으로 프로 비전 됩니다. 보조 복제본은 주 복제본과 동일한 계산 크기로 프로 비전 됩니다. 읽기 **확장** 기능을 사용 하면 읽기-쓰기 복제본을 공유 하는 대신 읽기 전용 복제본 중 하나의 용량을 사용 하 여 읽기 전용 작업 SQL Database 부하를 분산할 수 있습니다. 이러한 방식으로 읽기 전용 워크로드는 주 읽기-쓰기 작업에서 격리되고 해당 성능에 영향을 주지 않습니다. 이 기능은 분석과 같이 논리적으로 구분 된 읽기 전용 작업을 포함 하는 응용 프로그램을 위한 것입니다. 프리미엄 및 중요 비즈니스용 서비스 계층에서 응용 프로그램은 추가 비용 없이이 추가 용량을 사용 하 여 성능상의 이점을 얻을 수 있습니다.
+
+**읽기 확장** 기능은 하나 이상의 보조 복제본이 생성 될 때 hyperscale 서비스 계층 에서도 사용할 수 있습니다. 읽기 전용 작업에 보조 복제본 하나에서 사용할 수 있는 것 보다 많은 리소스가 필요한 경우 보조 복제본을 여러 개 사용할 수 있습니다. Basic, Standard 및 범용 서비스 계층의 고가용성 아키텍처에는 복제본이 포함 되지 않습니다. 이러한 서비스 계층에서는 **읽기 확장** 기능을 사용할 수 없습니다.
 
 다음 다이어그램에서는 중요 비즈니스용 데이터베이스를 사용 하는 방법을 보여 줍니다.
 
 ![읽기 전용 복제본](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-읽기 확장 기능은 새 Premium, 중요 비즈니스용 및 Hyperscale 데이터베이스에서 기본적으로 사용 하도록 설정 됩니다. SQL 연결 문자열이를 사용 `ApplicationIntent=ReadOnly`하 여 구성 된 경우 응용 프로그램은 해당 데이터베이스의 읽기 전용 복제본에 대 한 게이트웨이로 리디렉션됩니다. `ApplicationIntent` 속성을 사용 하는 방법에 대 한 자세한 내용은 [응용 프로그램 의도 지정](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)을 참조 하세요.
+읽기 확장 기능은 새 Premium, 중요 비즈니스용 및 Hyperscale 데이터베이스에서 기본적으로 사용 하도록 설정 됩니다. Hyperscale의 경우 기본적으로 새 데이터베이스에 대해 하나의 보조 복제본이 생성 됩니다. SQL 연결 문자열이를 사용 `ApplicationIntent=ReadOnly`하 여 구성 된 경우 응용 프로그램은 해당 데이터베이스의 읽기 전용 복제본에 대 한 게이트웨이로 리디렉션됩니다. `ApplicationIntent` 속성을 사용 하는 방법에 대 한 자세한 내용은 [응용 프로그램 의도 지정](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)을 참조 하세요.
 
 SQL 연결 문자열의 `ApplicationIntent` 설정에 관계 없이 응용 프로그램이 주 복제본에 연결 되도록 하려면 데이터베이스를 만들 때 또는 구성을 변경할 때 읽기 확장을 명시적으로 해제 해야 합니다. 예를 들어 데이터베이스를 Standard 또는 범용 계층에서 Premium, 중요 비즈니스용 또는 Hyperscale 계층으로 업그레이드 하 고 모든 연결이 주 복제본으로 계속 진행 되도록 하려면 읽기 확장을 사용 하지 않도록 설정 합니다. 사용 하지 않도록 설정 하는 방법에 대 한 자세한 내용은 [읽기 확장 사용 및 사용 안 함](#enable-and-disable-read-scale-out)을 참조 하세요.
 

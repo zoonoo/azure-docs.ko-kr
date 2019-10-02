@@ -4,14 +4,14 @@ description: Azure Cosmos DB의 인덱싱 정책 관리 방법을 알아봅니�
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/28/2019
 ms.author: thweiss
-ms.openlocfilehash: b80a4b8697544a0f7fe7cee99b666a513f53a0d6
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f7d364eb5db5c6d6304944d490468edf8b5ebe2e
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104857"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71811656"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책 관리
 
@@ -334,6 +334,7 @@ Azure Cosmos DB에서 인덱싱 정책은 아래 방법 중 하나를 사용 하
 
 - Azure Portal에서
 - Azure CLI를 사용하여
+- PowerShell 사용
 - SDK 중 하나를 사용하여
 
 [인덱싱 정책 업데이트](index-policy.md#modifying-the-indexing-policy)는 인덱스 변환을 트리거합니다. 이 변환의 진행률을 SDK에서 추적할 수도 있습니다.
@@ -361,21 +362,15 @@ Azure Cosmos 컨테이너는 자체의 인덱싱 정책을 Azure Portal에서 �
 
 ## <a name="use-the-azure-cli"></a>Azure CLI 사용
 
-Azure CLI의 [az cosmosdb collection update](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-update) 명령을 사용하여 컨테이너의 인덱싱 정책에 대한 JSON 정의를 바꿀 수 있습니다.
+사용자 지정 인덱싱 정책을 사용 하 여 컨테이너를 만들려면 [CLI를 사용 하 여 사용자 지정 인덱스 정책을 사용 하 여 컨테이너 만들기](manage-with-cli.md#create-a-container-with-a-custom-index-policy) 를 참조 하세요.
 
-```azurecli-interactive
-az cosmosdb collection update \
-    --resource-group-name $resourceGroupName \
-    --name $accountName \
-    --db-name $databaseName \
-    --collection-name $containerName \
-    --indexing-policy "{\"indexingMode\": \"consistent\", \"includedPaths\": [{ \"path\": \"/*\", \"indexes\": [{ \"dataType\": \"String\", \"kind\": \"Range\" }] }], \"excludedPaths\": [{ \"path\": \"/headquarters/employees/?\" } ]}"
-```
+## <a name="use-powershell"></a>PowerShell 사용
+
+사용자 지정 인덱싱 정책을 사용 하 여 컨테이너를 만들려면 [Powershell을 사용 하 여 사용자 지정 인덱스 정책을 사용 하 여 컨테이너 만들기](manage-with-powershell.md#create-container-custom-index) 를 참조 하세요.
 
 ## <a name="use-the-net-sdk-v2"></a>.NET SDK V2 사용
 
 `IndexingMode` `IncludedPaths` `ExcludedPaths` [.Net SDK v2의 개체는](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 를 변경 하 고 및를 추가 또는 제거할 수 있는 속성을노출합니다.`IndexingPolicy` `DocumentCollection`
-
 
 ```csharp
 // Retrieve the container's details
@@ -406,7 +401,6 @@ long indexTransformationProgress = container.IndexTransformationProgress;
 ## <a name="use-the-net-sdk-v3"></a>.NET SDK V3 사용
 
 `IndexingMode` [.Net SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (사용법에 `IndexingPolicy` 관한 [이 빠른](create-sql-api-dotnet.md) 시작 참조)의 `IncludedPaths` `ExcludedPaths` 개체는를변경하고및를추가하거나제거할수있는속성`ContainerProperties` 을 노출 합니다.
-
 
 ```csharp
 // Retrieve the container's details
@@ -508,7 +502,7 @@ Collection<SpatialType> collectionOfSpatialTypes = new ArrayList<SpatialType>();
 
 SpatialSpec spec = new SpatialSpec();
 spec.setPath("/locations/*");
-collectionOfSpatialTypes.add(SpatialType.Point);          
+collectionOfSpatialTypes.add(SpatialType.Point);
 spec.setSpatialTypes(collectionOfSpatialTypes);
 spatialIndexes.add(spec);
 

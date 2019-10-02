@@ -1,5 +1,5 @@
 ---
-title: App Service 응용 프로그램 시스템 할당 관리 id를 사용 하 여 Azure Key Vault 액세스
+title: 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 액세스
 description: App Service 응용 프로그램에 대 한 관리 되는 id를 만드는 방법 및이를 사용 하 여에 액세스 하는 방법에 대해 알아봅니다 Azure Key Vault
 services: key-vault
 author: msmbaldwin
@@ -9,22 +9,23 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8ac6f9be80d31804089ae2589998079dc7df66b3
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 6c7a9fdb5ed60023a82984fd5be5b424c634e679
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004307"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720260"
 ---
-# <a name="use-an-app-service-managed-identity-to-access-azure-key-vault"></a>App Service 관리 id를 사용 하 여 Azure Key Vault 액세스 
+# <a name="provide-key-vault-authentication-with-a-managed-identity"></a>관리 id를 사용 하 여 Key Vault 인증 제공
 
-이 문서에서는 App Service 응용 프로그램에 대 한 관리 id를 만들고이를 사용 하 여 Azure Key Vault에 액세스 하는 방법을 보여 줍니다. Azure Vm에 호스트 된 응용 프로그램의 경우 [WINDOWS vm 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 액세스](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md)를 참조 하세요. 
+Azure Active Directory에서 관리 되는 id를 사용 하면 앱에서 다른 Azure AD로 보호 되는 리소스에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. 자세한 내용은 [Azure 리소스에 대한 ID 관리](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요. 
 
-Azure Active Directory에서 관리 되는 id를 사용 하면 앱에서 다른 Azure AD로 보호 되는 리소스에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. Azure AD에서 관리 되는 id에 대 한 자세한 내용은 [azure 리소스에 대 한 관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md)를 참조 하세요. 
+이 문서에서는 App Service 응용 프로그램에 대 한 관리 되는 id를 만들고이를 사용 하 여 Azure Key Vault에 액세스 하는 방법을 보여 줍니다. Azure Vm에 호스트 된 응용 프로그램의 경우 [WINDOWS vm 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 액세스](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md)를 참조 하세요.
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 이 가이드를 완료 하려면 다음 리소스가 있어야 합니다. 
 
@@ -32,7 +33,8 @@ Azure Active Directory에서 관리 되는 id를 사용 하면 앱에서 다른 
    - [Azure CLI를 사용 하 여 주요 자격 증명 모음 만들기](quick-create-cli.md)
    - [Azure PowerShell를 사용 하 여 주요 자격 증명 모음 만들기](quick-create-powershell.md)
    - [Azure Portal를 사용 하 여 키 자격 증명 모음을 만듭니다](quick-create-portal.md).
-- Key vault 액세스 권한을 부여 하는 기존 App Service 응용 프로그램입니다. [App Service 설명서](../app-service/overview.md) 의 단계에 따라 신속 하 게 만들 수 있습니다./
+- Key vault 액세스 권한을 부여 하는 기존 App Service 응용 프로그램입니다. [App Service 설명서](../app-service/overview.md)의 단계에 따라 신속 하 게 만들 수 있습니다.
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 또는 [Azure PowerShell](/powershell/azure/overview). 또는 [Azure Portal](http://portal.azure.com)를 사용할 수 있습니다.
 
 
 ## <a name="adding-a-system-assigned-identity"></a>시스템 할당 ID 추가 
@@ -47,7 +49,7 @@ Azure Active Directory에서 관리 되는 id를 사용 하면 앱에서 다른 
 
 1. **관리 ID**를 선택합니다. 
 
-1. **시스템 할당** 탭에서 **상태**를 **켜기**로 바꿉니다. **Save**을 클릭합니다. 
+1. **시스템 할당** 탭에서 **상태**를 **켜기**로 바꿉니다. **저장**을 클릭합니다. 
 
     ![](./media/managed-identity-system-assigned.png)
 
@@ -101,7 +103,7 @@ az functionapp identity assign --name myApp --resource-group myResourceGroup
 
 ### <a name="azure-cli"></a>Azure CLI
 
-응용 프로그램에 키 자격 증명 모음에 대 한 액세스 권한을 부여 하려면 Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 명령을 사용 합니다. 여기에는 위에서 언급 한 **principalid* 를 사용 하 여 **ObjectId** 매개 변수를 제공 합니다.
+응용 프로그램에 키 자격 증명 모음에 대 한 액세스 권한을 부여 하려면 Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 명령을 사용 하 여 위에서 기록한 **principalid** 를 사용 하 여 **ObjectId** 매개 변수를 제공 합니다.
 
 ```azurecli-interactive
 az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-permissions get list 
@@ -109,7 +111,9 @@ az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-perm
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Key Vault 개요](key-vault-overview.md) 참조
-- [Azure Key Vault 개발자 가이드](key-vault-developers-guide.md) 참조
-- [키, 비밀 및 인증서](about-keys-secrets-and-certificates.md) 알아보기
+- [Azure Key Vault 보안: Id 및 액세스 관리 @ no__t-0
+- [액세스 제어 정책을 사용 하 여 Key Vault 인증 제공](key-vault-group-permissions-for-apps.md)
+- [키, 비밀 및 인증서에 대한 정보](about-keys-secrets-and-certificates.md)
+- [키 자격 증명 모음을 보호](key-vault-secure-your-key-vault.md)합니다.
+- [Azure Key Vault 개발자 가이드](key-vault-developers-guide.md)
 - [Azure Key Vault 모범 사례](key-vault-best-practices.md) 검토

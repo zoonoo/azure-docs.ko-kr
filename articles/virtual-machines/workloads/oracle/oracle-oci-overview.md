@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 9947d28cbde7f4804283e03cc07093b9240ca6bf
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 0f35f22d6bd32d75d5c3b07d8a20b4bb7714e247
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240997"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71799552"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Oracle 응용 프로그램 솔루션 Microsoft Azure 및 Oracle 클라우드 인프라 통합 (미리 보기)
 
@@ -28,7 +28,7 @@ Microsoft와 Oracle은 낮은 대기 시간, 높은 처리량의 클라우드 �
 이 클라우드 간 연결을 사용 하 여 다중 계층 응용 프로그램을 분할 하 여 Oracle 클라우드 인프라 (OCI)에서 데이터베이스 계층을 실행 하 고 응용 프로그램 및 다른 계층을 Microsoft Azure 수 있습니다. 이 환경은 단일 클라우드에서 전체 솔루션 스택을 실행 하는 것과 비슷합니다. 
 
 > [!IMPORTANT]
-> 이 클라우드 간 기능은 현재 미리 보기로 제공 되며 [제한이 적용](#preview-limitations)됩니다. Azure와 OCI 간에 짧은 대기 시간 연결을 사용 하도록 설정 하려면 먼저 Azure 구독이이 기능에 대해 목록으로 표시 되어야 합니다. 이 간단한 [설문 조사 양식을](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu)완료 하 여 미리 보기에 등록 해야 합니다. 구독이 등록되면 이메일 회신을 받게 됩니다. 확인 이메일을 받을 때까지는 기능을 사용할 수 없습니다. 이 미리 보기를 사용 하도록 설정 하려면 Microsoft 담당자에 게 문의할 수도 있습니다. 미리 보기 기능에 대 한 액세스는 가용성 및 Microsoft에 의해 제한 될 수 있습니다. 설문 조사 완료는 액세스를 보장 하지 않습니다. 이 미리 보기는 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에 사용할 수 없습니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 Microsoft Azure 미리 보기에 대 한 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
+> 이 클라우드 간 기능은 현재 미리 보기로 제공 되며 [제한이 적용](#preview-limitations)됩니다. Azure와 OCI 사이에 짧은 대기 시간 연결을 설정 하려면 먼저이 기능을 사용 하도록 Azure 구독을 설정 해야 합니다. 이 간단한 [설문 조사 양식을](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu)완료 하 여 미리 보기에 등록 해야 합니다. 구독이 등록되면 이메일 회신을 받게 됩니다. 확인 이메일을 받을 때까지는 기능을 사용할 수 없습니다. 이 미리 보기를 사용 하도록 설정 하려면 Microsoft 담당자에 게 문의할 수도 있습니다. 미리 보기 기능에 대 한 액세스는 가용성 및 Microsoft에 의해 제한 될 수 있습니다. 설문 조사 완료는 액세스를 보장 하지 않습니다. 이 미리 보기는 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에 사용할 수 없습니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 Microsoft Azure 미리 보기에 대 한 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
 Oracle 솔루션을 완전히 Azure 인프라에 배포 하는 데 관심이 있는 경우 [ORACLE VM 이미지 및 Microsoft Azure에 대 한 배포](oracle-vm-solutions.md)를 참조 하세요.
 

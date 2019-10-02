@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: 4f97f6925c482cb282324dcc1c97bbfe2a701643
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ec21c26c705dab94b15c1f76be5e62207b9f206f
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074220"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815678"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 Virtual Network 지원을 구성하는 방법
 Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. VNet은 클라우드의 프라이빗 네트워크입니다. Azure Cache for Redis 인스턴스가 VNet으로 구성되면 공개적으로 주소를 지정할 수 없으며, VNet 내의 가상 머신과 애플리케이션에서만 액세스할 수 있습니다. 이 문서에서는 프리미엄 Azure Cache for Redis에 대한 가상 네트워크 지원을 구성하는 방법에 대해 설명합니다.
@@ -106,41 +106,45 @@ Azure Cache for Redis가 VNet에 호스팅되는 경우 사용되는 포트는 �
 
 7가지 아웃바운드 포트 요구 사항이 있습니다.
 
-- 클라이언트를 통해 인터넷에 모든 아웃 바운드 연결 수의 온-프레미스 감사 장치입니다.
+- 인터넷에 대 한 모든 아웃 바운드 연결은 클라이언트의 온-프레미스 감사 장치를 통해 이루어질 수 있습니다.
 - 포트 중 3개는 Azure Storage 및 Azure DNS에 서비스하는 Azure 엔드포인트로 트래픽을 전송합니다.
 - 나머지 포트는 다양한 범위에 사용되고 내부 Redis 서브넷 통신에도 사용됩니다. 내부 Redis 서브넷 통신에 필요한 서브넷 NSG 규칙은 없습니다.
 
-| 포트 | 방향 | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
+| 포트 | Direction | 전송 프로토콜 | 용도 | 로컬 IP | 원격 IP |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |아웃바운드 |TCP |Azure Storage/PKI(인터넷)에 대한 Redis 종속성 | (Redis 서브넷) |* |
-| 53 |아웃바운드 |TCP/UDP |DNS(인터넷/VNet)에 대한 Redis 종속성 | (Redis 서브넷) | 168.63.129.16 및 169.254.169.254 <sup>1</sup> 고 서브넷에 대 한 사용자 지정 DNS 서버 <sup>3</sup> |
+| 53 |아웃바운드 |TCP/UDP |DNS(인터넷/VNet)에 대한 Redis 종속성 | (Redis 서브넷) | 168.63.129.16 및 169.254.169.254 <sup>1</sup> 및 서브넷 <sup>3</sup> 의 모든 사용자 지정 DNS 서버 |
 | 8443 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) | (Redis 서브넷) |
 | 10221-10231 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) | (Redis 서브넷) |
 | 20226 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 | 13000-13999 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
-| 15000-15999 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
+| 15000-15999 |아웃바운드 |TCP |Redis 및 지역에서 복제에 대 한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) (지역 복제본 피어 서브넷) |
 | 6379-6380 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 
-<sup>1</sup> Microsoft가 소유 하는 다음 IP 주소를 사용 하 여 Azure DNS 사용 되는 호스트 VM을 처리 하 합니다.
+<sup>1</sup> Microsoft에서 소유 하는 이러한 IP 주소는 Azure DNS 서비스를 제공 하는 호스트 VM의 주소를 결정 하는 데 사용 됩니다.
 
-<sup>3</sup> 이상이 사용자 지정 DNS 서버가 없는 포함 된 서브넷 redis 캐시 사용자 지정 DNS를 무시 하는 불필요 합니다.
+<sup>3</sup> 사용자 지정 dns 서버가 없는 서브넷 또는 사용자 지정 dns를 무시 하는 최신 redis 캐시가 필요 하지 않습니다.
+
+#### <a name="geo-replication-peer-port-requirements"></a>지역에서 복제 피어 포트 요구 사항
+
+Azure 가상 네트워크의 캐시 간에 georeplication를 사용 하는 경우 모든 복제본 구성 요소에 대 한 인바운드 및 아웃 바운드 방향 모두에서 전체 서브넷에 대 한 포트 15000-15999의 차단을 해제 하는 것이 좋습니다. 에서 서브넷은 향후 지역 장애 조치 (failover) 시에도 서로 직접 통신할 수 있습니다.
 
 #### <a name="inbound-port-requirements"></a>인바운드 포트 요구 사항
 
 8개의 인바운드 포트 범위 요구 사항이 있습니다. 이러한 범위의 인바운드 요청은 동일한 VNET에서 호스트되는 다른 서비스로부터 인바운드로 진행되거나 Redis 서브넷 통신 내부로 진행됩니다.
 
-| 포트 | 방향 | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
+| 포트 | Direction | 전송 프로토콜 | 용도 | 로컬 IP | 원격 IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |인바운드 |TCP |Redis에 대한 클라이언트 통신, Azure 부하 분산 | (Redis 서브넷) | (Redis 서브넷), 가상 네트워크, Azure Load Balancer <sup>2</sup> |
+| 6379, 6380 |인바운드 |TCP |Redis에 대한 클라이언트 통신, Azure 부하 분산 | (Redis 서브넷) | (Redis 서브넷), Virtual Network, Azure Load Balancer <sup>2</sup> |
 | 8443 |인바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 | 8500 |인바운드 |TCP/UDP |Azure 부하 분산 | (Redis 서브넷) |Azure Load Balancer |
 | 10221-10231 |인바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷), Azure Load Balancer |
 | 13000-13999 |인바운드 |TCP |Redis 클러스터에 대한 클라이언트 통신, Azure 부하 분산 | (Redis 서브넷) |Virtual Network, Azure Load Balancer |
-| 15000-15999 |인바운드 |TCP |Redis 클러스터에 대한 클라이언트 통신, Azure 부하 분산 | (Redis 서브넷) |Virtual Network, Azure Load Balancer |
+| 15000-15999 |인바운드 |TCP |Redis 클러스터에 대 한 클라이언트 통신, Azure 부하 분산 및 지역에서 복제 | (Redis 서브넷) |Virtual Network, Azure Load Balancer, (지역 복제본 피어 서브넷) |
 | 16001 |인바운드 |TCP/UDP |Azure 부하 분산 | (Redis 서브넷) |Azure Load Balancer |
 | 20226 |인바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 
-<sup>2</sup> 서비스 태그를 사용할 수 있습니다 NSG 규칙을 작성 하는 것에 대 한 'AzureLoadBalancer' (Resource Manager) (또는 클래식 ' AZURE_LOADBALANCER').
+<sup>2</sup> nsg 규칙을 작성 하는 데 서비스 태그 ' azureloadbalancer ' (리소스 관리자) (또는 클래식의 경우 ' AZURE_LOADBALANCER ')를 사용할 수 있습니다.
 
 #### <a name="additional-vnet-network-connectivity-requirements"></a>추가 VNET 네트워크 연결 요구 사항
 
@@ -162,7 +166,7 @@ Azure Cache for Redis가 VNet에 호스팅되는 경우 사용되는 포트는 �
 
 - 모든 캐시 노드를 [다시 부팅](cache-administration.md#reboot)합니다. [인바운드 포트 요구 사항](cache-how-to-premium-vnet.md#inbound-port-requirements) 및 [아웃바운드 포트 요구 사항](cache-how-to-premium-vnet.md#outbound-port-requirements)에 설명된 대로 모든 필요한 캐시 종속성에 연결할 수 없는 경우 캐시가 다시 시작되지 않을 수 있습니다.
 - Azure Portal의 캐시 상태에 보고된 대로 캐시 노드가 다시 시작되었으면 다음 테스트를 수행할 수 있습니다.
-  - 캐시와 동일한 VNET 내에 있는 컴퓨터에서 [tcping](https://www.elifulkerson.com/projects/tcping.php)을 사용하여 캐시 엔드포인트(포트 6380 사용)를 ping합니다. 예를 들면 다음과 같습니다.
+  - 캐시와 동일한 VNET 내에 있는 컴퓨터에서 [tcping](https://www.elifulkerson.com/projects/tcping.php)을 사용하여 캐시 엔드포인트(포트 6380 사용)를 ping합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -185,7 +189,7 @@ IP 주소를 통해 호스트에 연결하는 것이 원인일 수 있습니다.
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-DNS 이름을 확인할 수 없는 경우 일부 클라이언트 라이브러리에 StackExchange.Redis 클라이언트에서 제공하는 `sslHost`와 같은 구성 옵션이 포함됩니다. 이 옵션을 사용하면 인증서 유효성 검사에 사용되는 호스트 이름을 재정의할 수 있습니다. 예를 들면 다음과 같습니다.
+DNS 이름을 확인할 수 없는 경우 일부 클라이언트 라이브러리에 StackExchange.Redis 클라이언트에서 제공하는 `sslHost`와 같은 구성 옵션이 포함됩니다. 이 옵션을 사용하면 인증서 유효성 검사에 사용되는 호스트 이름을 재정의할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 

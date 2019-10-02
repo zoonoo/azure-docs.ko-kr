@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 10/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b135838558a493cff0e28a8429d31f5a03a69857
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 922e5a2d5c639d7df380f686ddf7843ab59fca59
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033465"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802368"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>SCIM(System for Cross-Domain Identity Management)을 사용하여 사용자 및 그룹을 Azure Active Directory에서 애플리케이션으로 자동 프로비전
 
@@ -59,7 +59,7 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
 
 **SCIM을 지원하는 애플리케이션을 연결하려면:**
 
-1. [Azure Active Directory 포털](https://aad.portal.azure.com)에 로그인 합니다. 
+1. [Azure Active Directory 포털](https://aad.portal.azure.com)에 로그인 합니다. [개발자 프로그램](https://developer.microsoft.com/office/dev-program) 에 등록 하면 P2 라이선스를 사용 하 여 Azure Active Directory에 대 한 무료 평가판에 액세스할 수 있습니다.
 1. 왼쪽 창에서 **엔터프라이즈 응용 프로그램** 을 선택 합니다. 갤러리에서 추가 된 앱을 포함 하 여 구성 된 모든 앱의 목록이 표시 됩니다.
 1. **+ 새 응용 프로그램** > **모든** > **비 갤러리 응용 프로그램**을 선택 합니다.
 1. 응용 프로그램의 이름을 입력 하 고 **추가** 를 선택 하 여 앱 개체를 만듭니다. 새 앱이 엔터프라이즈 응용 프로그램 목록에 추가 되 고 앱 관리 화면으로 열립니다.
@@ -96,6 +96,9 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
 > [!NOTE]
 > 초기 주기는 서비스가 실행 되는 동안 약 40 분 마다 발생 하는 이후 동기화 보다 수행 하는 데 더 많은 시간이 걸립니다.
 
+**Azure AD 응용 프로그램 갤러리에 응용 프로그램을 게시 하려면:**
+
+둘 이상의 테 넌 트를 사용 하는 응용 프로그램을 빌드하는 경우 Azure AD 응용 프로그램 갤러리에서 사용할 수 있도록 설정할 수 있습니다. 이렇게 하면 조직이 응용 프로그램을 쉽게 검색 하 고 프로 비전을 구성할 수 있습니다. Azure AD 갤러리에 앱을 게시 하 고 다른 사용자가 프로 비전을 사용할 수 있도록 하는 것이 쉽습니다. [여기](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing)서 단계를 확인하세요. 
 ## <a name="understanding-the-azure-ad-scim-implementation"></a>Azure AD SCIM 구현 이해
 
 SCIM 2.0 사용자 관리 API를 지 원하는 응용 프로그램을 작성 하는 경우이 섹션에서는 Azure AD SCIM 클라이언트를 구현 하는 방법과 SCIM 프로토콜 요청 처리 및 응답을 모델링 하는 방법에 대해 자세히 설명 합니다. SCIM 끝점을 구현한 후에는 이전 섹션에서 설명한 절차에 따라 테스트할 수 있습니다.
@@ -1343,7 +1346,7 @@ Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프�
 | mailNickname |externalId |
 | 관리자 |manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
-| objectId |ID |
+| objectId |id |
 | postalCode |addresses[type eq "work"].postalCode |
 | proxy-Addresses |emails[type eq "other"].Value |
 | physical-Delivery-OfficeName |addresses[type eq "other"].Formatted |
@@ -1360,8 +1363,8 @@ Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프�
 | 메일 |emails[type eq "work"].value |
 | mailNickname |displayName |
 | 구성원 |구성원 |
-| objectId |ID |
-| ProxyAddresses |emails[type eq "other"].Value |
+| objectId |id |
+| proxyAddresses |emails[type eq "other"].Value |
 
 ## <a name="allow-ip-addresses-used-by-the-azure-ad-provisioning-service-to-make-scim-requests"></a>Azure AD 프로 비전 서비스에서 사용 하는 IP 주소를 사용 하 여 SCIM 요청 만들기
 

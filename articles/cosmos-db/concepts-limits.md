@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 9b78c18547ef61b388a56a1272b5621cada43806
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 8e22bf53a81d94c5204a76c58b43fed63e32b136
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71120495"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803392"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -33,7 +33,7 @@ ms.locfileid: "71120495"
 | 계정 당 최대 첨부 파일 크기 (첨부 기능을 사용) | 2GB | 
 
 > [!NOTE]
-> 저장소 또는 처리량을 더 많이 필요로 하는 파티션 키가 포함 된 워크 로드를 관리 하는 모범 사례는 [핫 파티션 키 디자인](synthetic-partition-keys.md) 을 참조 하세요.
+> 저장소 또는 처리량을 더 많이 필요로 하는 파티션 키가 있는 작업을 관리 하기 위한 모범 사례에 대해 알아보려면 [가상 파티션 키 만들기](synthetic-partition-keys.md)를 참조 하세요.
 >
 
 Cosmos 컨테이너 (또는 공유 처리량 데이터베이스)의 최소 처리량은 400 RUs 여야 합니다. 컨테이너가 확장 될 때 지원 되는 최소 처리량은 다음 요소에 따라 달라 집니다.

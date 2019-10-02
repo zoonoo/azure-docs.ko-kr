@@ -4,14 +4,14 @@ description: Azure Cosmos 계정에서 방화벽을 지원하도록 IP 액세스
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 534f64b19adb29a0ff7811c50c9698ca33d6966f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d4fab572f31d3187135ea3ac406431ced98828b1
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093551"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815925"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Azure Cosmos DB에서 IP 방화벽 구성
 
@@ -23,7 +23,7 @@ IP 방화벽을 사용하여 Azure Cosmos DB 계정에 저장된 데이터를 �
 
 ## <a id="configure-ip-policy"></a> Azure Portal을 사용하여 IP 방화벽 구성
 
-Azure Portal에서 IP 액세스 제어 정책을 설정하려면 Azure Cosmos DB 계정 페이지로 이동하고 탐색 메뉴에서 **방화벽 및 가상 네트워크**를 선택합니다. **다음에서 액세스 허용** 값을 **선택한 네트워크**로 변경한 다음, **저장**을 선택합니다. 
+Azure Portal에서 IP 액세스 제어 정책을 설정하려면 Azure Cosmos DB 계정 페이지로 이동하고 탐색 메뉴에서 **방화벽 및 가상 네트워크**를 선택합니다. **다음에서 액세스 허용** 값을 **선택한 네트워크**로 변경한 다음, **저장**을 선택합니다.
 
 ![Azure Portal에서 방화벽 페이지를 여는 방법을 보여 주는 스크린샷](./media/how-to-configure-firewall/azure-portal-firewall.png)
 
@@ -43,7 +43,7 @@ IP 액세스 제어가 켜지면 Azure Portal에서는 IP 주소, IP 주소 범�
 |US Gov|52.244.48.71|
 |다른 모든 하위 지역|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 
-다음 스크린샷에 표시된 대로 **Azure Portal에서 액세스하도록 허용** 옵션을 선택하여 Azure Portal에 대한 액세스를 사용하도록 설정할 수 있습니다. 
+다음 스크린샷에 표시된 대로 **Azure Portal에서 액세스하도록 허용** 옵션을 선택하여 Azure Portal에 대한 액세스를 사용하도록 설정할 수 있습니다.
 
 ![Azure Portal 액세스를 사용하도록 설정하는 방법을 보여 주는 스크린샷](./media/how-to-configure-firewall/enable-azure-portal.png)
 
@@ -54,23 +54,23 @@ IP 액세스 제어가 켜지면 Azure Portal에서는 IP 주소, IP 주소 범�
 > [!NOTE]
 > 이 옵션은 Azure에 배포된 다른 고객 구독의 요청을 비롯한 Azure의 모든 요청을 허용하도록 방화벽을 구성합니다. 이 옵션에서 허용된 IP 목록은 광범위하므로 방화벽 정책의 효율성을 제한합니다. 요청이 정적 IP 또는 VNET의 서브넷에서 발생하지 않는 경우에만 이 옵션을 사용합니다. Azure Portal은 Azure에 배포되기 때문에 이 옵션을 선택하면 자동으로 Azure Portal에서 액세스하도록 허용합니다.
 
-다음 스크린샷에 표시된 대로 **공용 Azure 데이터 센터의 연결 허용** 옵션을 선택하여 Azure Portal에 대한 액세스를 사용하도록 설정할 수 있습니다. 
+다음 스크린샷에 표시 된 것 처럼 **Azure 데이터 센터 내에서 연결 허용** 옵션을 선택 하 여 Azure Portal에 대 한 액세스를 사용 하도록 설정할 수 있습니다.
 
 ![Azure Portal에서 방화벽 페이지를 여는 방법을 보여 주는 스크린샷](./media/how-to-configure-firewall/enable-azure-services.png)
 
 ### <a name="requests-from-your-current-ip"></a>현재 IP의 요청
 
-개발을 간소화하기 위해 Azure Portal을 통해 클라이언트 머신의 IP를 식별하여 허용된 목록에 추가할 수 있습니다. 그러면 머신에서 실행되는 앱은 Azure Cosmos DB 계정에 액세스할 수 있습니다. 
+개발을 간소화하기 위해 Azure Portal을 통해 클라이언트 머신의 IP를 식별하여 허용된 목록에 추가할 수 있습니다. 그러면 머신에서 실행되는 앱은 Azure Cosmos DB 계정에 액세스할 수 있습니다.
 
-포털은 클라이언트 IP 주소를 자동으로 검색합니다. 이 주소는 머신의 클라이언트 IP 주소이거나 네트워크 게이트웨이의 IP 주소일 수 있습니다. 프로덕션에 대한 워크로드를 수행하기 전에 이 IP 주소를 제거해야 합니다. 
+포털은 클라이언트 IP 주소를 자동으로 검색합니다. 이 주소는 머신의 클라이언트 IP 주소이거나 네트워크 게이트웨이의 IP 주소일 수 있습니다. 프로덕션에 대한 워크로드를 수행하기 전에 이 IP 주소를 제거해야 합니다.
 
-현재 IP를 IP 목록에 추가하려면 **내 현재 IP 추가**를 선택합니다. **저장**을 선택합니다.
+현재 IP를 IP 목록에 추가하려면 **내 현재 IP 추가**를 선택합니다. 그런 다음 **저장**을 선택합니다.
 
 ![현재 IP의 방화벽 설정을 구성하는 방법을 보여주는 스크린샷](./media/how-to-configure-firewall/enable-current-ip.png)
 
 ### <a name="requests-from-cloud-services"></a>클라우드 서비스의 요청
 
-Azure에서 클라우드 서비스는 Azure Cosmos DB를 사용하여 중간 계층 서비스 논리를 호스팅하는 일반적인 방법입니다. 클라우드 서비스에서 Azure Cosmos DB 계정에 액세스할 수 있게 하려면 [IP 액세스 제어 정책을 구성](#configure-ip-policy)하여 클라우드 서비스의 공용 IP 주소를 Azure Cosmos DB 계정에 연결된 허용된 IP 주소 목록에 추가해야 합니다. 이렇게 하면 클라우드 서비스의 모든 역할 인스턴스가 Azure Cosmos DB 계정에 액세스할 수 있습니다. 
+Azure에서 클라우드 서비스는 Azure Cosmos DB를 사용하여 중간 계층 서비스 논리를 호스팅하는 일반적인 방법입니다. 클라우드 서비스에서 Azure Cosmos DB 계정에 액세스할 수 있게 하려면 [IP 액세스 제어 정책을 구성](#configure-ip-policy)하여 클라우드 서비스의 공용 IP 주소를 Azure Cosmos DB 계정에 연결된 허용된 IP 주소 목록에 추가해야 합니다. 이렇게 하면 클라우드 서비스의 모든 역할 인스턴스가 Azure Cosmos DB 계정에 액세스할 수 있습니다.
 
 다음 스크린샷처럼 Azure Portal에서 클라우드 서비스의 IP 주소를 검색할 수 있습니다.
 
@@ -80,7 +80,7 @@ Azure에서 클라우드 서비스는 Azure Cosmos DB를 사용하여 중간 계
 
 ### <a name="requests-from-virtual-machines"></a>가상 머신의 요청
 
-Azure Cosmos DB를 사용하여 중간 계층 서비스를 호스트하는 데 [가상 머신](https://azure.microsoft.com/services/virtual-machines/) 또는 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용할 수도 있습니다. 가상 머신에서 액세스할 수 있도록 Cosmos DB 계정을 구성하려면 [IP 액세스 제어 정책을 구성](#configure-ip-policy)하여 가상 머신 및/또는 가상 머신 확장 집합의 공용 IP 주소를 Azure Cosmos DB 계정에 허용되는 IP 주소 중 하나로 구성해야 합니다. 
+Azure Cosmos DB를 사용하여 중간 계층 서비스를 호스트하는 데 [가상 머신](https://azure.microsoft.com/services/virtual-machines/) 또는 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용할 수도 있습니다. 가상 머신에서 액세스할 수 있도록 Cosmos DB 계정을 구성하려면 [IP 액세스 제어 정책을 구성](#configure-ip-policy)하여 가상 머신 및/또는 가상 머신 확장 집합의 공용 IP 주소를 Azure Cosmos DB 계정에 허용되는 IP 주소 중 하나로 구성해야 합니다.
 
 다음 스크린샷처럼 Azure Portal에서 가상 머신의 IP 주소를 검색할 수 있습니다.
 
@@ -94,7 +94,7 @@ Azure Cosmos DB를 사용하여 중간 계층 서비스를 호스트하는 데 [
 
 ## <a id="configure-ip-firewall-arm"></a>Resource Manager 템플릿을 사용하여 IP 방화벽 구성
 
-Azure Cosmos DB 계정에 대한 액세스 제어를 구성하려면 Resource Manager 템플릿에서는 허용된 IP 범위 목록과 함께 **ipRangeFilter** 특성을 지정해야 합니다. 이미 배포된 Cosmos 계정에 IP 방화벽을 구성하는 경우 `locations` 배열이 현재 배포된 것과 일치하는지 확인합니다. `locations` 배열과 기타 속성을 동시에 수정할 수 없습니다. Azure Cosmos DB용 ARM 템플릿에 대한 자세한 내용과 예제는 [Azure Cosmos DB용 Azure Resource Manager 템플릿](resource-manager-samples.md)을 참조하세요.
+Azure Cosmos DB 계정에 대한 액세스 제어를 구성하려면 Resource Manager 템플릿에서는 허용된 IP 범위 목록과 함께 **ipRangeFilter** 특성을 지정해야 합니다. 이미 배포된 Cosmos 계정에 IP 방화벽을 구성하는 경우 `locations` 배열이 현재 배포된 것과 일치하는지 확인합니다. `locations` 배열과 기타 속성을 동시에 수정할 수 없습니다. Azure Cosmos DB에 대 한 Azure Resource Manager 템플릿에 대 한 자세한 내용 및 예제는 [Azure Resource Manager 템플릿](resource-manager-samples.md) 을 참조 하세요 Azure Cosmos DB
 
 ```json
 {
@@ -116,29 +116,21 @@ Azure Cosmos DB 계정에 대한 액세스 제어를 구성하려면 Resource Ma
 
 ## <a id="configure-ip-firewall-cli"></a>Azure CLI를 사용하여 IP 액세스 제어 정책 구성
 
-다음 명령은 IP 액세스 제어를 사용하여 Azure Cosmos DB 계정을 만드는 방법을 보여줍니다. 
+다음 명령은 IP 액세스 제어를 사용하여 Azure Cosmos DB 계정을 만드는 방법을 보여줍니다.
 
 ```azurecli-interactive
+# Create a Cosmos DB account with default values and IP Firewall enabled
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+ipRangeFilter='192.168.221.17,183.240.196.255,40.76.54.131'
 
-name="<Azure Cosmos DB account name>"
-resourceGroupName="<Resource group name>"
-
+# Make sure there are no spaces in the comma-delimited list of IP addresses or CIDR ranges.
 az cosmosdb create \
-  --name $name \
-  --kind GlobalDocumentDB \
-  --resource-group $resourceGroupName \
-  --max-interval 10 \
-  --max-staleness-prefix 200 \
-  --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
-```
-
-기존 계정에 대한 방화벽 설정을 업데이트하려면 다음 명령을 실행합니다.
-
-```azurecli-interactive
-az cosmosdb update \
-      --name $name \
-      --resource-group $resourceGroupName \
-      --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+    -n $accountName \
+    -g $resourceGroupName \
+    --locations regionName='West US 2' failoverPriority=0 isZoneRedundant=False \
+    --locations regionName='East US 2' failoverPriority=1 isZoneRedundant=False \
+    --ip-range-filter $ipRangeFilter
 ```
 
 ## <a id="configure-ip-firewall-ps"></a>PowerShell을 사용하여 IP 액세스 제어 정책 구성
@@ -146,48 +138,47 @@ az cosmosdb update \
 다음 스크립트는 IP 액세스 제어를 사용하여 Azure Cosmos DB 계정을 만드는 방법을 보여줍니다.
 
 ```azurepowershell-interactive
-
+# Create a Cosmos DB account with default values and IP Firewall enabled
 $resourceGroupName = "myResourceGroup"
-$accountName = "myaccountname"
+$accountName = "mycosmosaccount"
+$ipRangeFilter = "192.168.221.17,183.240.196.255,40.76.54.131"
 
 $locations = @(
-    @{ "locationName"="West US"; "failoverPriority"=0 },
-    @{ "locationName"="East US"; "failoverPriority"=1 }
+    @{ "locationName"="West US 2"; "failoverPriority"=0; "isZoneRedundant"=False },
+    @{ "locationName"="East US 2"; "failoverPriority"=1, "isZoneRedundant"=False }
 )
 
-# Add local machine's IP address to firewall, InterfaceAlias is your Network Adapter's name
-$ipRangeFilter = Get-NetIPConfiguration | Where-Object InterfaceAlias -eq "Ethernet 2" | Select-Object IPv4Address
-
-$consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
-
+# Make sure there are no spaces in the comma-delimited list of IP addresses or CIDR ranges.
 $CosmosDBProperties = @{
     "databaseAccountOfferType"="Standard";
     "locations"=$locations;
-    "consistencyPolicy"=$consistencyPolicy;
     "ipRangeFilter"=$ipRangeFilter
 }
 
-Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
 ## <a id="troubleshoot-ip-firewall"></a>IP 액세스 제어 정책 관련 문제 해결
 
-다음 옵션을 사용하여 IP 액세스 제어 정책 관련 문제를 해결할 수 있습니다. 
+다음 옵션을 사용하여 IP 액세스 제어 정책 관련 문제를 해결할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure Portal 
+### <a name="azure-portal"></a>Azure Portal
+
 Azure Cosmos DB 계정에 대해 IP 액세스 제어 정책을 사용하도록 설정하면 허용되는 IP 주소 범위 목록 이외의 머신에서 시도하는 계정에 대한 모든 요청이 차단됩니다. 컨테이너 탐색 및 문서 쿼리와 같은 포털 데이터 평면 작업을 사용하도록 설정하려면 포털의 **방화벽** 창을 사용하여 Azure Portal 액세스를 명시적으로 허용해야 합니다.
 
-### <a name="sdks"></a>SDK 
-허용 목록에 없는 머신에서 SDK를 사용하여 Azure Cosmos DB 리소스에 액세스하는 경우 일반적인 **403 사용 권한 없음** 응답이 추가 정보 없이 반환됩니다. 계정에 대해 허용된 IP 목록을 확인하고 Azure Cosmos DB 계정에 올바른 정책 구성이 적용되는지 확인합니다. 
+### <a name="sdks"></a>SDK
+
+허용 목록에 없는 머신에서 SDK를 사용하여 Azure Cosmos DB 리소스에 액세스하는 경우 일반적인 **403 사용 권한 없음** 응답이 추가 정보 없이 반환됩니다. 계정에 대해 허용된 IP 목록을 확인하고 Azure Cosmos DB 계정에 올바른 정책 구성이 적용되는지 확인합니다.
 
 ### <a name="source-ips-in-blocked-requests"></a>차단된 요청의 원본 IP
+
 Azure Cosmos DB 계정에 진단 로깅을 사용하도록 설정합니다. 이러한 로그는 각 요청 및 응답을 보여줍니다. 방화벽 관련 메시지가 403 반환 코드와 함께 로깅됩니다. 이러한 메시지를 필터링하면 차단된 요청에 대한 원본 IP를 확인할 수 있습니다. [Azure Cosmos DB 진단 로깅](logging.md)을 확인합니다.
 
 ### <a name="requests-from-a-subnet-with-a-service-endpoint-for-azure-cosmos-db-enabled"></a>Azure Cosmos DB에 대해 서비스 엔드포인트를 설정한 서브넷의 요청
-Azure Cosmos DB에 대한 서비스 엔드포인트가 활성화된 가상 네트워크에 위치한 서브넷의 요청은 가상 네트워크 및 서브넷 ID를 Azure Cosmos DB 계정에 전송합니다. 이러한 요청에는 원본의 공용 IP가 없으므로 IP 필터에 의해 거부됩니다. 가상 네트워크에 있는 특정 서브넷의 액세스를 허용하려면 [Azure Cosmos DB 계정의 가상 네트워크 및 서브넷 기반 액세스를 구성하는 방법](how-to-configure-vnet-service-endpoint.md)에 설명된 대로 액세스 제어 목록을 추가합니다. 방화벽 규칙을 적용하는 데 최대 15분이 걸릴 수 있습니다.
 
+Azure Cosmos DB에 대한 서비스 엔드포인트가 활성화된 가상 네트워크에 위치한 서브넷의 요청은 가상 네트워크 및 서브넷 ID를 Azure Cosmos DB 계정에 전송합니다. 이러한 요청에는 원본의 공용 IP가 없으므로 IP 필터에 의해 거부됩니다. 가상 네트워크에 있는 특정 서브넷의 액세스를 허용하려면 [Azure Cosmos DB 계정의 가상 네트워크 및 서브넷 기반 액세스를 구성하는 방법](how-to-configure-vnet-service-endpoint.md)에 설명된 대로 액세스 제어 목록을 추가합니다. 방화벽 규칙을 적용하는 데 최대 15분이 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -195,4 +186,3 @@ Azure Cosmos DB 계정에 대한 가상 네트워크 서비스 엔드포인트�
 
 * [Azure Cosmos DB 계정에 대한 가상 네트워크 및 서브넷 액세스 제어](vnet-service-endpoint.md)
 * [Azure Cosmos DB 계정에 대한 가상 네트워크 및 서브넷 기반 액세스 구성](how-to-configure-vnet-service-endpoint.md)
-

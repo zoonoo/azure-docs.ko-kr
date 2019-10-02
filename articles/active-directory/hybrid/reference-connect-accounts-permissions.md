@@ -17,12 +17,12 @@ ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6760677a94855c259501103a54a96d687c87910b
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 8e7bd33d74d9ecf6ebc35981df7255ecc19253c7
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290961"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812590"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: 계정 및 사용 권한
 
@@ -57,6 +57,9 @@ Azure AD Connect를 실행하는 데 사용되는 이러한 세 가지 계정 �
 > 전용 관리 포리스트를 사용 하면 조직에서 프로덕션 환경 보다 더 강력한 보안 제어를 사용 하는 환경에서 관리 계정, 워크스테이션 및 그룹을 호스트할 수 있습니다.
 > 전용 관리 포리스트에 대 한 자세한 내용은 [Esae 관리 포리스트 디자인 방법](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach) 을 참조 하세요.
 >>>>>>> e683a61b0ed62ae739941410f658a127534e2481
+
+> [!NOTE]
+> 초기 설치 후에는 전역 관리자 역할이 필요 하지 않으며 유일 하 게 필요한 계정은 **디렉터리 동기화 계정** 역할 계정입니다. Necssarily 하지 않는 것은 전역 관리자 역할이 있는 계정을 제거 하는 것을 의미 합니다. 마법사를 다시 실행 해야 하는 경우 계정을 완전히 제거 하면 문제가 발생할 수 있으므로 역할을 더 강력한 역할로 변경 하는 것이 좋습니다. Azure AD Connect 마법사를 다시 사용 해야 하는 경우 역할의 권한을 줄여 항상 권한을 다시 상승 시킬 수 있습니다. 
 
 ## <a name="installing-azure-ad-connect"></a>Azure AD Connect를 설치하는 중
 Azure AD Connect 설치 마법사는 두 가지 다른 경로를 제공합니다.

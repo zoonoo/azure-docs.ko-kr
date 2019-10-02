@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 458ba61adba294af99f2265e4907e874ed3a6956
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 59f8035aa69f21196a2134bf6bc1b12f3e5b34c4
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084588"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815704"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration 확장과 Azure Resource Manager 템플릿
 
@@ -175,7 +175,7 @@ Resource Manager 템플릿에 있는 Azure DSC 확장의 **설정** 섹션에서
 }
 ```
 
-## <a name="details"></a>세부 정보
+## <a name="details"></a>설명
 
 | 속성 이름 | 형식 | 설명 |
 | --- | --- | --- |
@@ -236,8 +236,10 @@ DSC 확장 기본 구성 스크립트를 사용하여 다음 표에 나열되어
 
 ```json
 "settings": {
-    "RegistrationUrl" : "[parameters('registrationUrl1')]",
-    "NodeConfigurationName" : "nodeConfigurationNameValue1"
+    "configurationArguments": {
+        "RegistrationUrl" : "[parameters('registrationUrl1')]",
+        "NodeConfigurationName" : "nodeConfigurationNameValue1"
+    }
 },
 "protectedSettings": {
     "configurationArguments": {
@@ -253,7 +255,7 @@ DSC 확장 기본 구성 스크립트를 사용하여 다음 표에 나열되어
 
 다음 예제는 [DSC 확장 처리기 개요](dsc-overview.md)에서 가져온 것입니다.
 이 예제에서는 cmdlet 대신 Resource Manager 템플릿을 사용하여 확장을 배포합니다.
-Iisinstall. p s 1 구성을 저장 하 고 .zip 파일 (예: `iisinstall.zip`)에 배치한 다음 액세스 가능한 URL에 파일을 업로드 합니다.
+IisInstall. p s 1 구성을 저장 하 고 .zip 파일에 넣은 다음 (예: `iisinstall.zip`) 액세스 가능한 URL에 파일을 업로드 합니다.
 이 예제에서는 Azure Blob Storage를 사용하지만 임의의 위치에서 .zip 파일을 다운로드할 수 있습니다.
 
 Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일을 다운로드하고 적절한 PowerShell 함수를 실행하도록 지시합니다.
@@ -359,7 +361,7 @@ Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일을 다�
 **해결 방법**: 잘못 된 값을 유효한 값으로 변경 합니다.
 자세한 내용은 [세부 정보](#details)의 표를 참조하세요.
 
-### <a name="invalid-url"></a>URL이 잘못되었습니다.
+### <a name="invalid-url"></a>잘못된 URL
 
 “ConfigurationData.url이 ‘{0}’입니다. 유효한 URL이 아닙니다.” “DataBlobUri가 ‘{0}’입니다. 유효한 URL이 아닙니다.” “Configuration.url이 ‘{0}’입니다. 유효한 URL이 아닙니다."
 

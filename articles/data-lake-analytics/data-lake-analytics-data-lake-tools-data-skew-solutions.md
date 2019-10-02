@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: 440a36d00334840688f66d0027152d7581b7158c
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 9ff7ba5f04a8c1862f8ef136f8f3f6900f00a431
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309914"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802545"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Azure Data Lake Tools for Visual Studio를 사용하여 데이터 기울이기 문제 해결
 
@@ -165,7 +165,7 @@ SKEWFACTOR 외에도 특정한 기울어진 키 조인 사례에서 다른 조�
 
 결합자 모드의 특성:
 
-- [SqlUserDefinedCombiner(Mode=CombinerMode.Full)]: Every output row potentially depends on all the input rows from left and right with the same key value.
+- SqlUserDefinedCombiner (Mode = Combinermode.inner): 모든 출력 행은 동일한 키 값을 가진 left 및 right의 모든 입력 행에 따라 달라질 수 있습니다.
 
 - SqlUserDefinedCombiner(Mode=CombinerMode.Left): 모든 출력 행은 왼쪽의 단일 입력 행 (그리고 잠재적으로 오른쪽에서 동일한 키 값을 가진 모든 행)에 따라 달라 집니다.
 

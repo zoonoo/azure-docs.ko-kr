@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 09/16/2019
-ms.openlocfilehash: 85ab8a61e0aebadf212217bc88e07e0066eca02b
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 5eaade975adac86b6842d1d8f9f9b8f522d15bca
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146799"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71816074"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>관리 되는 인스턴스 리소스 제한 Azure SQL Database 개요
 
@@ -38,12 +38,27 @@ Azure SQL Database 관리 되는 인스턴스는 두 가지 하드웨어 세대�
 | 하드웨어 | Intel E5-2673 v3(Haswell) 2.4GHz 프로세서, 연결형 SSD, vCore = 1PP(물리적 코어) | Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서, 고속 NVMe SSD, vCore = 1LP(하이퍼스레드) |
 | vCore 수 | 8, 16, 24개 vCore | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | 최대 메모리 (메모리/코어 비율) | vCore당 7GB<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. | vCore당 5.1GB<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. |
-| 최대 메모리 내 OLTP 메모리 | 인스턴스 제한: vCore당 3GB<br/>데이터베이스 제한:<br/> -8 코어: 데이터베이스당 8gb<br/> -16-코어: 데이터베이스당 20GB<br/> -24-코어: 데이터베이스당 36 GB | 인스턴스 제한: vCore 당 2.5 GB<br/>데이터베이스 제한:<br/> -8 코어: 데이터베이스당 13gb<br/> -16-코어: 데이터베이스당 32 GB |
+| 최대 메모리 내 OLTP 메모리 | 인스턴스 제한: 1-vCore 당 1.5 g b| 인스턴스 제한: 0.8-vCore 당 1.65 GB |
 | 최대 인스턴스 예약 된 저장소 |  일반 용도: 8TB<br/>중요 비즈니스용: 1TB | 일반 용도: 8 TB<br/> 중요 비즈니스용 1tb, 2tb 또는 4 TB의 코어 수에 따라 |
 
 > [!IMPORTANT]
 > - Gen4 하드웨어를 단계적으로 확장 하 고 있습니다. Gen5 하드웨어에 새로운 관리 되는 인스턴스를 배포 하는 것이 좋습니다.
 > - 현재 Gen4 하드웨어는 다음 지역 에서만 사용할 수 있습니다. 서유럽, 유럽 서부, 미국 동부, 미국 중 북부, 미국 중부, 미국 서 부 2, 미국 중부, 캐나다 중부, 인도 남부, 동남 아시아 및 한국 중부.
+
+#### <a name="in-memory-oltp-available-space"></a>메모리 내 OLTP 사용 가능한 공간 
+
+메모리 내 OLTP 공간의 양은 vCores 및 하드웨어 생성 수에 따라 달라 집니다. 다음 표에는 메모리 내 OLTP 개체에 사용할 수 있는 메모리 한도가 나열 되어 있습니다.
+
+| VCore 당 메모리 내 OLTP 공간    | **Gen5** | **Gen4** |
+| --- | --- | --- |
+| 4 | 3.14 GB | |   
+| 8 | 6.28 GB | 8GB |
+| 16    | 15.77 GB | 20GB |
+| 24    | 25.25 GB | 36 GB |
+| 32    | 37.94 GB | |
+| 40    | 52.23 GB | |
+| 64    | 99.9 GB   | |
+| 80    | 131.68 GB| |
 
 ### <a name="service-tier-characteristics"></a>서비스 계층 특성
 

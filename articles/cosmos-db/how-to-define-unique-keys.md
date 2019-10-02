@@ -4,14 +4,14 @@ description: Azure Cosmos 컨테이너의 고유 키를 정의하는 방법 알�
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/28/2019
 ms.author: thweiss
-ms.openlocfilehash: 3b950565e0a44f979c11e3eb67b702c4dcb44769
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 2f61afd12a50b1b135419585bfada52d7ef98f3a
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104901"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71811651"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너의 고유 키 정의
 
@@ -33,7 +33,11 @@ ms.locfileid: "71104901"
 
 1. 필요한 경우 **+ 고유 키 추가**를 클릭하여 더 많은 고유 키 항목을 추가합니다.
 
-![Azure Portal의 고유 키 제약 조건 항목 스크린샷](./media/how-to-define-unique-keys/unique-keys-portal.png)
+    ![Azure Portal의 고유 키 제약 조건 항목 스크린샷](./media/how-to-define-unique-keys/unique-keys-portal.png)
+
+## <a name="use-powershell"></a>PowerShell 사용
+
+고유한 키를 사용 하 여 컨테이너를 만들려면 [고유한 키와 TTL을 사용 하 여 Azure Cosmos 컨테이너 만들기](manage-with-powershell.md#create-container-unique-key-ttl) 를 참조 하세요.
 
 ## <a name="use-the-net-sdk-v2"></a>.NET SDK V2 사용
 
@@ -80,6 +84,7 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
 // create a new DocumentCollection object
 DocumentCollection container = new DocumentCollection();
 container.setId("container");
+
 // create array of strings and populate them with the unique key paths
 Collection<String> uniqueKey1Paths = new ArrayList<String>();
 uniqueKey1Paths.add("/firstName");
@@ -87,19 +92,23 @@ uniqueKey1Paths.add("/lastName");
 uniqueKey1Paths.add("/emailAddress");
 Collection<String> uniqueKey2Paths = new ArrayList<String>();
 uniqueKey2Paths.add("/address/zipCode");
+
 // create UniqueKey objects and set their paths
 UniqueKey uniqueKey1 = new UniqueKey();
 UniqueKey uniqueKey2 = new UniqueKey();
 uniqueKey1.setPaths(uniqueKey1Paths);
 uniqueKey2.setPaths(uniqueKey2Paths);
+
 // create a new UniqueKeyPolicy object and set its unique keys
 UniqueKeyPolicy uniqueKeyPolicy = new UniqueKeyPolicy();
 Collection<UniqueKey> uniqueKeys = new ArrayList<UniqueKey>();
 uniqueKeys.add(uniqueKey1);
 uniqueKeys.add(uniqueKey2);
 uniqueKeyPolicy.setUniqueKeys(uniqueKeys);
+
 // set the unique key policy
 container.setUniqueKeyPolicy(uniqueKeyPolicy);
+
 // create the container
 client.createCollection(String.format("/dbs/%s", "database"), container, null);
 ```

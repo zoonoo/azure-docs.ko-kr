@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13c9003baaca11dce5a2192a8183674faddfa6dc
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: bd66df381e11582b30ded5e3b529070357f35ad2
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967292"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720282"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 사용자 및 그룹 할당
 이 문서에서는 Azure AD(Azure Active Directory)에서 애플리케이션에 사용자나 그룹을 할당하는 방법을 설명합니다. 사용자를 먼저 애플리케이션에 할당해야 관리자가 해당 사용자에게 다음 작업을 수행할 권한을 부여할 수 있습니다.
@@ -34,7 +34,7 @@ ms.locfileid: "68967292"
 
 그룹 기반 할당의 사용 가능 여부는 사용권 계약에 따라 결정 됩니다. 그룹 기반 할당은 보안 그룹에 대해서만 지원 됩니다. 중첩 된 그룹 멤버 자격 및 O365 그룹은 현재 지원 되지 않습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 애플리케이션에 사용자 및 그룹을 할당하기 전에 사용자 할당을 요구해야 합니다. 사용자를 할당해야 하도록 설정하려면 다음을 수행합니다.
 
 1. 관리자 계정으로 Azure 포털에 로그인합니다.
@@ -50,7 +50,7 @@ ms.locfileid: "68967292"
 
 애플리케이션에 하나 이상의 사용자를 직접 할당하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
+1.  [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자 또는 비관리자 응용 프로그램 소유자로 로그인 합니다.**
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
@@ -88,7 +88,7 @@ ms.locfileid: "68967292"
 
 애플리케이션에 하나 이상의 그룹을 직접 할당하려면 다음 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
+1.  [**Azure Portal**](https://portal.azure.com/) 를 열고 **전역 관리자 권한** 으로 로그인 하거나 Azure AD Premium 라이선스가 할당 된 비관리자 응용 프로그램 소유자 권한으로 로그인 합니다.
 
 2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 

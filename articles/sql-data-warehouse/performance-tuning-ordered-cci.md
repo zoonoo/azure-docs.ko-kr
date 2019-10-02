@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 41fbebcf4b85f6e48babba30c2d05fedb3e7a5c7
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 74a1a2218020718a05c9d01de96ddf4fccb35eb4
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985299"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802561"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>순서가 지정 된 클러스터형 columnstore 인덱스로 성능 튜닝  
 
@@ -29,7 +29,7 @@ ms.locfileid: "70985299"
 열에 대 한 세그먼트 범위를 확인 하려면 테이블 이름 및 열 이름으로 다음 명령을 실행 합니다.
 
 ```sql
-SELECT o.name, pnp.index_id, pnp.rows, pnp.data_compression_desc, pnp.pdw_node_id, 
+SELECT o.name, pnp.index_id, cls.row_count, pnp.data_compression_desc, pnp.pdw_node_id, 
 pnp.distribution_id, cls.segment_id, cls.column_id, cls.min_data_id, cls.max_data_id, cls.max_data_id-cls.min_data_id as difference
 FROM sys.pdw_nodes_partitions AS pnp
    JOIN sys.pdw_nodes_tables AS Ntables ON pnp.object_id = NTables.object_id AND pnp.pdw_node_id = NTables.pdw_node_id
@@ -37,8 +37,9 @@ FROM sys.pdw_nodes_partitions AS pnp
    JOIN sys.objects AS o ON TMap.object_id = o.object_id
    JOIN sys.pdw_nodes_column_store_segments AS cls ON pnp.partition_id = cls.partition_id AND pnp.distribution_id  = cls.distribution_id
    JOIN sys.columns as cols ON o.object_id = cols.object_id AND cls.column_id = cols.column_id
-WHERE o.name = '<table_name>' and c.name = '<column_name>'
+WHERE o.name = '<Table_Name>' and cols.name = '<Column_Name>' 
 ORDER BY o.name, pnp.distribution_id, cls.min_data_id
+
 ```
 
 ## <a name="data-loading-performance"></a>데이터 로드 성능
@@ -47,7 +48,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 데이터를 정렬 하기 때문에 순서가 지정 되지 않은 CCI 테이블에 데이터를 로드 하는 것 보다 시간이 더 오래 걸릴 수 있습니다.  
 
 다음은 서로 다른 스키마를 사용 하는 테이블로 데이터를 로드 하는 경우의 성능 비교 예제입니다.
-![Performance_comparison_data_loading](media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
+@no__t 0Performance_comparison_data_loading @ no__t-1
  
 ## <a name="reduce-segment-overlapping"></a>겹치는 세그먼트 줄이기
 다음은 CTAS 또는 데이터가 있는 기존 테이블을 통해 새 테이블에 정렬 된 CCI를 만들 때 겹치는 세그먼트를 추가로 줄이는 옵션입니다.

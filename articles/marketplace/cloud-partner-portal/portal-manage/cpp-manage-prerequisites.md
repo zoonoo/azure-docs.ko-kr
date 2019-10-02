@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: 9c55688674fe16f64bfb27788a6e038059694a77
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 09bf8479921c9bd55b98e835a19ea995fa37e20b
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087474"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720077"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Cloud 파트너 포털에서 계정을 관리 하기 위한 필수 조건 
 
@@ -28,8 +28,7 @@ ms.locfileid: "71087474"
 
 ## <a name="registration-steps"></a>등록 단계
 
-다음 표에서는 Microsoft 클라우드 게시자로 완전히 등록 하는 데 필요한 단계를 나열 합니다.  전체 지침은 클라우드 마켓플레이스 게시자 [](https://docs.microsoft.com/azure/marketplace/become-publisher
-)가 됩니다 .를 참조 하세요. 
+다음 표에서는 Microsoft 클라우드 게시자로 완전히 등록 하는 데 필요한 단계를 나열 합니다.  전체 지침은 [클라우드 마켓플레이스 게시자가](https://docs.microsoft.com/azure/marketplace/become-publisher)됩니다 .를 참조 하세요. 
 
 
 |                   단계                   |  결과 등록 또는 리소스                     |

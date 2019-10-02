@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 2118f137f2c0d32f891a170c3509bceee7ba13ed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1f02e01fef95bdd06930aa30479dd16d40675ce
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60764963"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812562"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Azure Monitor에서 Linux 에이전트의 CollectD에서 데이터 수집
 [CollectD](https://collectd.org/)는 주기적으로 애플리케이션의 성능 메트릭 및 시스템 수준 정보를 수집하는 오픈 소스 Linux 디먼입니다. 예제 애플리케이션은 JVM(Java Virtual Machine), MySQL 서버 및 Nginx를 포함합니다. 이 문서에서는 Azure Monitor에서 CollectD의 성능 데이터를 수집하는 방법에 대한 정보를 제공합니다.
@@ -69,13 +69,15 @@ CollectD 구성은 기본값`write_http` 플러그 인을 사용하여 26000 포
       type filter_collectd
     </filter>
 
+> [!NOTE]
+> 기본적으로 CollectD는 10 초 [간격](https://collectd.org/wiki/index.php/Interval)으로 값 읽기로 설정 됩니다. Azure Monitor 로그에 전송 되는 데이터 볼륨에 직접 영향을 주므로 CollectD 구성 내에서이 간격을 조정 하 여 Azure Monitor 로그에 대 한 모니터링 요구 사항과 관련 비용 및 사용량 사이의 균형을 유지 해야 할 수 있습니다.
 
 ## <a name="versions-supported"></a>지원되는 버전
 - Azure Monitor는 현재 CollectD 버전 4.8 이상을 지원합니다.
 - CollectD 메트릭 수집에 Linux용 Log Analytics 에이전트 v1.1.0-217 이상이 필요합니다.
 
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 Azure Monitor에서 CollectD 데이터의 컬렉션을 구성하는 기본 단계는 다음과 같습니다.
 
 1. write_http 플러그 인을 사용하여 Linux용 Log Analytics 에이전트에 데이터를 보내도록 CollectD를 구성합니다.  

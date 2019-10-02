@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: c8d78473a1128dd4f96f2cfa0c14d2d3b1b2c1e9
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 2a707eda6a7e32a95666dd70e196c8da3c3b7834
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300553"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815937"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 데이터 팩터리 경고 및 모니터링
 
@@ -468,6 +468,9 @@ Azure Data Factory 버전 2는 다음 메트릭을 내보냅니다.
 
 몇 분 후에이 데이터 팩터리에 대 한 설정 목록에 새 설정이 표시 됩니다. 진단 로그는 새 이벤트 데이터가 생성 되는 즉시 해당 작업 영역으로 스트리밍됩니다. 이벤트가 내보내지는 때와 Log Analytics에 표시 될 때까지 최대 15 분이 경과 될 수 있습니다.
 
+* _리소스 특정_ 모드에서 _ADFPipelineRun_, _ADFTriggerRun_및 _adfactivityrun_ 테이블로 Azure Data Factory 흐름의 진단 로그
+* _Azure 진단_ 모드에서 진단 로그는 _azurediagnostics_ 테이블로 흐릅니다.
+
 > [!NOTE]
 > Azure 로그 테이블에는 500 개 이상의 열을 사용할 수 없기 때문에 리소스 특정 모드를 선택 하는 것이 좋습니다. 자세한 내용은 [Log Analytics 알려진 제한 사항](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics)을 참조 하세요.
 
@@ -508,6 +511,9 @@ Azure Data Factory 분석을 설치 하면 다음 메트릭을 사용할 수 있
 위의 메트릭을 시각화 하 고, 이러한 메트릭 뒤의 쿼리를 살펴보고, 쿼리를 편집 하 고, 경고를 만들고, 다른 작업을 수행할 수 있습니다.
 
 ![데이터 팩터리에서 파이프라인 실행의 그래픽 표현 "](media/data-factory-monitor-oms/monitor-oms-image8.png)
+
+> [!NOTE]
+> Azure Data Factory 분석 (미리 보기) _은 리소스 관련_ 대상 테이블에 진단 로그를 보냅니다. 다음 테이블에 대 한 쿼리를 작성할 수 있습니다. _ADFPipelineRun_, _ADFTriggerRun_및 _adfactivityrun을 실행_합니다.
 
 ## <a name="alerts"></a>,
 

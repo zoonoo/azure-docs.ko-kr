@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/01/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 5e325f7766e7b0d9764949eb3fbf9753d65db8b3
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: e21bad930bba02e4cbf715a050278ada812e55fa
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619384"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718929"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 사용량 및 비용 관리
 
@@ -31,15 +31,20 @@ Azure Monitor 로그는 기업의 모든 원본에서 하루에 대량의 데이
 
 이 문서에서는 데이터 볼륨 및 스토리지 증가를 사전에 모니터링하는 방법 및 해당 관련 비용을 제어하려면 제한을 정의하는 방법을 검토합니다. 
 
-데이터 비용은 다음 요인에 따라 상당히 좌우될 수 있습니다. 
 
-- 생성되고 작업 영역에 수집된 데이터 볼륨 
-    - 사용하도록 설정된 관리 솔루션 수
-    - 모니터링된 시스템 수
-    - 모니터링된 각 리소스에서 수집된 데이터 형식 
-- 데이터를 보존하기로 결정하는 시간 
+## <a name="pricing-model"></a>가격 책정 모델
 
-## <a name="understand-your-workspaces-usage-and-estimated-cost"></a>작업 영역의 사용량 및 예상 비용 파악
+Log Analytics의 가격은 데이터 볼륨 수집을 기반으로 하며, 필요에 따라 데이터를 더 길게 보존 합니다. 각 Log Analytics 작업 영역은 별도의 서비스로 청구 되며 Azure 구독에 대 한 청구에 기여 합니다. 데이터 수집의 양은 다음 요인에 따라 상당히 길어질 수 있습니다. 
+
+  - 사용하도록 설정된 관리 솔루션 수
+  - 예를 들어 자체 청구 모델을 사용 하는 솔루션의 사용 [Azure Security Center](https://azure.microsoft.com/en-us/pricing/details/security-center/)
+  - 모니터링 되는 Vm 수
+  - 모니터링 되는 각 VM에서 수집 된 데이터 유형 
+
+> [!NOTE]
+> 최근 발표 된 용량 예약 가격 책정 계층은 2019 년 11 월 1 일에 Log Analytics 사용할 수 있습니다. [@No__t-1](Azure Monitor pricing page)에서 자세히 알아보세요.
+
+## <a name="understand-your-usage-and-estimate-costs"></a>사용량 및 예상 비용 이해
 
 Azure Monitor 로그를 사용 하면 최근 사용 패턴에 따른 비용을 쉽게 파악할 수 있습니다. 이렇게 하려면 **Log Analytics 사용량 및 예상 비용** 을 사용 하 여 데이터 사용량을 검토 하 고 분석 합니다. 솔루션별로 수집되는 데이터양, 보유 중인 데이터양, 수집된 데이터양과 포함된 양을 초과하여 추가로 보유 중인 데이터양을 기준으로 한 추정 비용이 표시됩니다.
 
@@ -53,20 +58,20 @@ Azure Monitor 로그를 사용 하면 최근 사용 패턴에 따른 비용을 �
  
 Log Analytics 요금은 Azure 청구서에 추가됩니다. Azure 청구서의 자세한 내용은 Azure Portal의 청구 섹션 또는 [Azure 청구 포털](https://account.windowsazure.com/Subscriptions)에서 참고할 수 있습니다.  
 
-## <a name="daily-cap"></a>일일 상한
+## <a name="manage-your-maximum-daily-data-volume"></a>최대 일일 데이터 볼륨 관리
 
 작업 영역에 대한 일일 한도를 구성하고 일일 수집량을 제한할 수 있지만 목표치가 일일 한도에 도달하지 않도록 주의하십시오.  그렇지 않으면 남은 기간 동안의 데이터가 손실됩니다. 이는 해당 기능이 작업 영역에서 사용할 수 있는 최신 데이터에 의존할 수도 있는 다른 Azure 서비스 및 솔루션에 영향을 줄 수 있습니다.  결과적으로 리소스의 상태 조건이 IT 서비스를 지원할 때 경고를 관찰하고 수신하는 기능이 영향을 받습니다.  일일 한도는 관리 되는 리소스에서 예기치 않은 데이터 볼륨 증가를 관리 하 고 한도 내로 유지 하거나 작업 영역에 대 한 계획 되지 않은 요금을 제한 하려는 경우에 사용 됩니다.  
 
 일일 한도에 도달하면 하루의 나머지 시간 동안 청구 가능한 데이터 형식의 수집을 중지합니다. 선택된 Log Analytics 작업 영역에 대한 페이지의 상단에 경고 배너가 표시되고 작업 이벤트가 **LogManagement** 범주 아래의 *작업* 테이블로 전송됩니다. *일일 한도 아래 정의된 재설정 시간이* 로 설정된 후 데이터 수집이 다시 시작합니다. 일일 데이터 한도에 도달했을 때 알려주도록 구성된 이 작업 이벤트를 기반으로 경고 규칙을 정의하는 것이 좋습니다. 
 
 > [!NOTE]
-> 일일 한도는 Azure Security Center에서 데이터 수집을 중지 하지 않습니다.
+> 일일 한도는 2017 년 6 월 19 일 이전에 Azure Security Center 설치 된 작업 영역을 제외 하 고는 Azure Security Center에서 데이터 수집을 중지 하지 않습니다. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>정의할 일일 데이터 한도 식별
 
 데이터 수집 추세 및 정의할 일일 볼륨 한도를 이해하려면 [Log Analytics 사용량 및 예상 비용](usage-estimated-costs.md)을 검토합니다. 한도에 도달한 후에는 리소스를 모니터링할 수 없으므로 신중하게 고려해야 합니다. 
 
-### <a name="manage-the-maximum-daily-data-volume"></a>최대 일일 데이터 볼륨 관리
+### <a name="set-the-daily-cap"></a>일일 상한 설정
 
 다음 단계에서는 Log Analytics 작업 영역에서 수집 하는 데이터의 양을 관리 하는 한도를 구성 하는 방법을 설명 합니다.  
 
@@ -76,7 +81,7 @@ Log Analytics 요금은 Azure 청구서에 추가됩니다. Azure 청구서의 �
 
     ![데이터 제한 구성 Log Analytics](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
-### <a name="alert-when-daily-cap-reached"></a>일일 상한에 도달한 경우 경고
+### <a name="alert-when-daily-cap-reached"></a>일일 상한에 도달 했을 때 경고
 
 데이터 제한 임계값에 도달하는 경우 Azure Portal에 시각적 큐를 표시하는 반면, 이 동작은 즉각적인 주의가 필요한 운영 문제를 관리하는 방법에 맞출 필요는 없습니다.  경고 알림을 수신하려면 Azure Monitor에서 새 경고 규칙을 만들 수 있습니다.  자세히 알아보려면 [경고를 만들고, 보고, 관리 하는 방법](alerts-metric.md)을 참조 하세요.
 
@@ -106,7 +111,9 @@ Log Analytics 요금은 Azure 청구서에 추가됩니다. Azure 청구서의 �
 
     ![작업 영역 데이터 보존 설정 변경](media/manage-cost-storage/manage-cost-change-retention-01.png)
     
-매개 변수를 `dataRetention` 사용 하 여 [ARM을 통해](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 보존을 설정할 수도 있습니다. 또한 데이터 보존 기간을 30 일로 설정 하는 경우 `immediatePurgeDataOn30Days` 매개 변수를 사용 하 여 이전 데이터의 즉시 제거를 트리거할 수 있습니다 .이는 규정 준수 관련 시나리오에 유용할 수 있습니다. 이 기능은 ARM을 통해서만 노출 됩니다. 
+@No__t-1 매개 변수를 사용 하 여 [ARM을 통해](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 보존을 설정할 수도 있습니다. 또한 데이터 보존 기간을 30 일로 설정 하는 경우 `immediatePurgeDataOn30Days` 매개 변수를 사용 하 여 이전 데이터를 즉시 제거할 수 있습니다 .이는 규정 준수 관련 시나리오에 유용할 수 있습니다. 이 기능은 ARM을 통해서만 노출 됩니다. 
+
+@No__t-0 및 `AzureActivity`의 두 가지 데이터 형식이 기본적으로 90 일 동안 유지 되며, 90 일 보존에 대 한 요금이 부과 되지 않습니다. 이러한 데이터 형식은 데이터 수집 요금에도 무료로 제공 됩니다. 
 
 ## <a name="legacy-pricing-tiers"></a>레거시 가격 책정 계층
 
@@ -131,7 +138,7 @@ Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세�
 3. **가격 책정 계층**에서 가격 책정 계층을 선택하고 **선택**을 클릭합니다.  
     ![선택된 가격 책정 계획](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-매개 변수를 `ServiceTier` 사용 하 여 [ARM을 통해 가격 책정 계층을 설정할](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 수도 있습니다. 
+@No__t-1 매개 변수를 사용 하 여 [ARM을 통해 가격 책정 계층을 설정할](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 수도 있습니다. 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Log Analytics에서 더 이상 데이터를 수집하지 않는 문제 해결
 
@@ -221,7 +228,7 @@ Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 
 ### <a name="data-volume-by-computer"></a>컴퓨터별 데이터 볼륨
 
-컴퓨터별 수집 청구 가능 이벤트의 **크기** 를 확인 하려면 바이트 단위로 크기 `_BilledSize` 를 제공 하는 [속성](log-standard-properties.md#_billedsize)을 사용 합니다.
+컴퓨터별 수집 청구 가능 이벤트의 **크기** 를 보려면 바이트 단위로 크기를 제공 하는 `_BilledSize` [속성](log-standard-properties.md#_billedsize)을 사용 합니다.
 
 ```kusto
 union withsource = tt * 
@@ -230,7 +237,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
-`_IsBillable` [속성](log-standard-properties.md#_isbillable) 은 수집 데이터가 요금을 부과 하는지 여부를 지정 합니다.
+@No__t-0 [속성](log-standard-properties.md#_isbillable) 은 수집 데이터가 요금을 부과 하는지 여부를 지정 합니다.
 
 컴퓨터별 수집 **청구** 가능 이벤트 수를 확인 하려면 다음을 사용 합니다. 
 
@@ -252,7 +259,7 @@ union withsource = tt *
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Azure 리소스, 리소스 그룹 또는 구독에의 한 데이터 볼륨
 
-Azure에서 호스트 되는 노드의 데이터의 __경우,__ 수집 에서 리소스에 대 한 전체 경로를 제공 하는 _resourceid [속성](log-standard-properties.md#_resourceid)을 사용 합니다.
+Azure에서 호스트 **되는 노드의** 데이터의 __경우, 수집에서 리소스__에 대 한 전체 경로를 제공 하는 _resourceid [속성](log-standard-properties.md#_resourceid)을 사용 합니다.
 
 ```kusto
 union withsource = tt * 
@@ -260,7 +267,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
 ```
 
-Azure에서 호스트 `_ResourceId` 되는 노드의 데이터에 대해 __azure 구독__에 수집 청구 가능 이벤트의 **크기** 를 가져올 수 있으며, 다음과 같이 속성을 구문 분석 합니다.
+Azure에서 호스트 되는 노드의 데이터에 대해 수집 속성을 다음과 같이 구문 @no__t 분석 하 여 __azure 구독__에 따라 청구 가능한 이벤트의 **크기** 를 가져올 수 있습니다.
 
 ```kusto
 union withsource = tt * 
@@ -270,7 +277,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
 ```
 
-`subscriptionId` 로`resourceGroup` 변경 하면 Azure 리소스 그룹별 청구 가능한 수집 데이터 볼륨이 표시 됩니다. 
+@No__t-0을 `resourceGroup`로 변경 하면 Azure 리소스 그룹별 청구 가능 수집 데이터 볼륨이 표시 됩니다. 
 
 
 > [!NOTE]
@@ -413,6 +420,10 @@ union withsource = $table Usage
 기존 또는 새 [작업 그룹](action-groups.md)을 지정하거나 만들어서 로그 경고가 조건과 일치하는 경우 알려줍니다.
 
 경고를 수신하는 경우 사용량이 예상보다 더 높은 원인을 해결하려면 다음 섹션의 단계를 사용합니다.
+
+## <a name="data-transfer-charges-using-log-analytics"></a>Log Analytics를 사용 하 여 데이터 전송 요금
+
+Log Analytics 데이터를 전송 하면 데이터 대역폭 요금이 발생할 수 있습니다. [Azure 대역폭 가격 책정 페이지](https://azure.microsoft.com/en-us/pricing/details/bandwidth/)에 설명 된 대로, 두 지역에 있는 Azure 서비스 간의 데이터 전송은 일반 요금으로 아웃 바운드 데이터 전송으로 청구 됩니다. 인바운드 데이터 전송은 무료입니다. 그러나이 요금은 매우 작음 (몇%) Log Analytics 데이터 수집에 대 한 비용과 비교 됩니다. 따라서 Log Analytics에 대 한 비용을 제어 하 여 수집 데이터 볼륨에 집중 해야 하며, [여기서](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#understanding-ingested-data-volume)는이에 대해 이해 하는 데 도움이 되는 지침을 제공 합니다.   
 
 ## <a name="limits-summary"></a>제한 요약
 

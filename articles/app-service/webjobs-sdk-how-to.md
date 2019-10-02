@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 88664238fa7cf21381ad6f95e77e02ad89103556
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 67cd7f82597d306c8bf3c463d11457199aec7277
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850856"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815736"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -37,22 +37,22 @@ ms.locfileid: "68850856"
 > [!NOTE]
 > [Azure Functions](../azure-functions/functions-overview.md) 는 WebJobs SDK를 기반으로 하며,이 문서에서는 일부 항목의 Azure Functions 설명서에 대 한 링크를 제공 합니다. 함수와 WebJobs SDK의 차이점은 다음과 같습니다.
 > * Azure Functions 버전 2. *x* 는 WebJobs SDK 버전 3에 해당 합니다. *x*및 Azure Functions 1. *x* 는 WebJobs SDK 2에 해당 합니다. *x*. 소스 코드 리포지토리는 WebJobs SDK 번호 매기기를 사용 합니다.
-> * Azure Functions C# 클래스 라이브러리에 대 한 샘플 코드는 WebJobs sdk 프로젝트에 `FunctionName` 특성이 필요 하지 않은 경우를 제외 하 고는 WebJobs sdk 코드와 비슷합니다.
+> * Azure Functions C# 클래스 라이브러리의 샘플 코드는 WebJobs sdk 프로젝트에 `FunctionName` 특성이 필요 하지 않은 경우를 제외 하 고는 WebJobs sdk 코드와 비슷합니다.
 > * 일부 바인딩 형식은 http (Webhooks)와 같은 함수 에서만 지원 되며 HTTP를 기반으로 하는 Event Grid 지원 됩니다.
 >
 > 자세한 내용은 [WebJobs SDK과 Azure Functions 비교](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs)를 참조하세요.
 
 ## <a name="webjobs-host"></a>WebJobs 호스트
 
-호스트는 함수의 런타임 컨테이너입니다.  트리거를 수신 대기하고 함수를 호출합니다. 버전 3 *x*, 호스트는의 `IHost`구현입니다. 버전 2에서 *x*에서는 `JobHost` 개체를 사용 합니다. 사용자는 코드에서 호스트 인스턴스를 만들고 동작을 사용자 지정하는 코드를 작성하게 됩니다.
+호스트는 함수의 런타임 컨테이너입니다.  트리거를 수신 대기하고 함수를 호출합니다. 버전 3 *x*, 호스트는 `IHost`의 구현입니다. 버전 2에서 *x*`JobHost` 개체를 사용 합니다. 사용자는 코드에서 호스트 인스턴스를 만들고 동작을 사용자 지정하는 코드를 작성하게 됩니다.
 
 WebJobs SDK를 직접 사용 하 고 Azure Functions를 통해 간접적으로 사용 하는 경우의 주요 차이점입니다. Azure Functions에서 서비스는 호스트를 제어 하 고 코드를 작성 하 여 호스트를 사용자 지정할 수 없습니다. Azure Functions를 사용 하면 호스트 json 파일의 설정을 통해 호스트 동작을 사용자 지정할 수 있습니다. 이러한 설정은 코드와는 달리 문자열이 며 수행할 수 있는 사용자 지정의 종류를 제한 합니다.
 
 ### <a name="host-connection-strings"></a>호스트 연결 문자열
 
-WebJobs SDK는 로컬에서 실행 하는 경우 또는 WebJob 환경에서 Azure에서 실행 하는 경우 파일에서 연결 문자열 Azure Storage 및 Azure Service Bus를 찾습니다. 기본적으로 라는 `AzureWebJobsStorage` 저장소 연결 문자열 설정이 필요 합니다.  
+WebJobs SDK는 로컬에서 실행 하는 경우 또는 WebJob 환경에서 Azure에서 실행 하는 경우 파일에서 연결 문자열 Azure Storage 및 Azure Service Bus를 찾습니다. 기본적으로 `AzureWebJobsStorage` 이라는 저장소 연결 문자열 설정이 필요 합니다.  
 
-버전 2. SDK의 *x* 를 사용 하면 이러한 연결 문자열에 고유한 이름을 사용 하거나 다른 위치에 저장할 수 있습니다. 다음과 같이를 사용 하 여 [`JobHostConfiguration`]코드에서 이름을 설정할 수 있습니다.
+버전 2. SDK의 *x* 를 사용 하면 이러한 연결 문자열에 고유한 이름을 사용 하거나 다른 위치에 저장할 수 있습니다. 다음과 같이 [`JobHostConfiguration`]을 사용 하 여 코드에서 이름을 설정할 수 있습니다.
 
 ```cs
 static void Main(string[] args)
@@ -88,7 +88,7 @@ static void Main(string[] args)
 
 #### <a name="version-3x"></a>버전 3. *x*
 
-버전 3. *x* 는 표준 ASP.NET Core api를 사용 합니다. [인스턴스에서`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) 메서드 [`UseEnvironment`](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) 를 호출 합니다. 이 예제와 같이 `development`라는 문자열을 전달 합니다.
+버전 3. *x* 는 표준 ASP.NET Core api를 사용 합니다. [@No__t-3](/dotnet/api/microsoft.extensions.hosting.hostbuilder) 인스턴스에서 [`UseEnvironment`](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) 메서드를 호출 합니다. 다음 예제와 같이 `development` 이라는 문자열을 전달 합니다.
 
 ```cs
 static void Main()
@@ -109,7 +109,7 @@ static void Main()
 
 #### <a name="version-2x"></a>버전 2. *x*
 
-`JobHostConfiguration` 클래스에는 개발 모드를 사용하도록 설정하는 `UseDevelopmentSettings` 메서드가 있습니다.  다음 예제에서는 개발 설정을 사용하는 방법을 보여줍니다. 로컬에서 실행 `true` 될 때 `Development`반환 하려면 값을 사용 하 여 라는 `AzureWebJobsEnv` 로컬 환경 변수를 설정 합니다. `config.IsDevelopment`
+`JobHostConfiguration` 클래스에는 개발 모드를 사용하도록 설정하는 `UseDevelopmentSettings` 메서드가 있습니다.  다음 예제에서는 개발 설정을 사용하는 방법을 보여줍니다. @No__t-0을 @no__t 반환 하도록 하려면-1을 로컬로 실행 하는 경우 @no__t 값이-3 인 `AzureWebJobsEnv` 라는 로컬 환경 변수를 설정 합니다.
 
 ```cs
 static void Main()
@@ -128,17 +128,17 @@ static void Main()
 
 ### <a name="jobhost-servicepointmanager-settings"></a>동시 연결 관리 (버전 2 *) x*)
 
-버전 3기본적으로 연결 제한은 무한 연결로 설정 됩니다. 어떤 이유로이 제한을 변경 해야 하는 경우 [`MaxConnectionsPerServer`](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) [`WinHttpHandler`](/dotnet/api/system.net.http.winhttphandler) 클래스의 속성을 사용할 수 있습니다.
+버전 3 *기본적으로*연결 제한은 무한 연결로 설정 됩니다. 어떤 이유로이 제한을 변경 해야 하는 경우에는 [`WinHttpHandler`](/dotnet/api/system.net.http.winhttphandler) 클래스의 [`MaxConnectionsPerServer`](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) 속성을 사용할 수 있습니다.
 
 버전 2에서 *x*는 Servicepointmanager를 사용 하 여 호스트에 대 한 동시 연결 수를 제어 합니다 [. defaultconnectionlimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. 2\. *x*에서는 WebJobs 호스트를 시작 하기 전에이 값을 기본값인 2에서 늘려야 합니다.
 
-Flow를 사용 하 `HttpClient` 여 함수에서 수행 하는 모든 나가는 HTTP 요청입니다. `ServicePointManager` 에 `DefaultConnectionLimit`설정 된 값에 도달 하면에서 `ServicePointManager` 큐를 보내기 전에 요청을 시작 합니다. `DefaultConnectionLimit`가 2로 설정되었고 코드에서 HTTP 요청 1,000개를 만든다고 가정해 봅시다. 처음에는 OS까지 전달되는 요청이 2개밖에 없습니다. 나머지 998개는 공간이 생길 때까지 큐에서 대기합니다. 즉, 요청을 했지만 OS에서 대상 서버로 요청이 전송 되지 않았기 때문에 시간이 초과 될수있습니다.`HttpClient` 이와 같은 이유로 로컬 `HttpClient`가 요청을 완료하는 데 10초가 걸리지만 서비스가 200ms 후에 모든 요청을 반환하는 이상한 동작이 관찰될 수 있습니다. 
+@No__t-0을 사용 하 여 함수에서 수행 하는 모든 나가는 HTTP 요청은 `ServicePointManager`을 통해 흐릅니다. @No__t-0에 설정 된 값에 도달한 후 `ServicePointManager`은 큐를 보내기 전에 큐에 대기 하는 요청을 시작 합니다. `DefaultConnectionLimit`가 2로 설정되었고 코드에서 HTTP 요청 1,000개를 만든다고 가정해 봅시다. 처음에는 OS까지 전달되는 요청이 2개밖에 없습니다. 나머지 998개는 공간이 생길 때까지 큐에서 대기합니다. 즉, `HttpClient`은 요청을 했지만 OS에서 대상 서버로 전송 되지 않았기 때문에 제한 시간이 초과 될 수 있습니다. 이와 같은 이유로 로컬 `HttpClient`가 요청을 완료하는 데 10초가 걸리지만 서비스가 200ms 후에 모든 요청을 반환하는 이상한 동작이 관찰될 수 있습니다. 
 
-ASP.NET 응용 프로그램 `Int32.MaxValue`의 기본값은 이며 기본 이상 App Service 계획에서 실행 되는 WebJobs에 대해 잘 작동 합니다. WebJobs에는 일반적으로 Always On 설정이 필요 하며,이는 기본 이상 App Service 요금제 에서만 지원 됩니다.
+ASP.NET 응용 프로그램의 기본값은 `Int32.MaxValue` 이며, 기본 또는 더 높은 App Service 계획에서 실행 되는 WebJobs에 대해 잘 작동 합니다. WebJobs에는 일반적으로 Always On 설정이 필요 하며,이는 기본 이상 App Service 요금제 에서만 지원 됩니다.
 
-WebJob이 무료 또는 공유 App Service 계획에서 실행되는 경우 애플리케이션이 App Service 샌드박스의 제한을 받으며, 현재 [연결 제한은 300개](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#per-sandbox-per-appper-site-numerical-limits)입니다. 에서 `ServicePointManager`바인딩되지 않은 연결 제한이 있으면 sandbox 연결 임계값에 도달 하 여 사이트가 종료 될 가능성이 높습니다. 이 경우 `DefaultConnectionLimit`를 50 또는 100처럼 약간 낮추면 이와 같은 상황을 방지하면서도 충분한 처리량을 계속 제공할 수 있습니다.
+WebJob이 무료 또는 공유 App Service 계획에서 실행되는 경우 애플리케이션이 App Service 샌드박스의 제한을 받으며, 현재 [연결 제한은 300개](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#per-sandbox-per-appper-site-numerical-limits)입니다. @No__t-0에서 바인딩되지 않은 연결 제한이 있으면 sandbox 연결 임계값에 도달 하 여 사이트가 종료 될 가능성이 높습니다. 이 경우 `DefaultConnectionLimit`를 50 또는 100처럼 약간 낮추면 이와 같은 상황을 방지하면서도 충분한 처리량을 계속 제공할 수 있습니다.
 
-이 설정은 HTTP 요청을 만들기 전에 구성해야 합니다. 이러한 이유로 WebJobs 호스트는 설정을 자동으로 조정 하지 않아야 합니다. 호스트를 시작 하기 전에 발생 하는 HTTP 요청이 있을 수 있으며,이로 인해 예기치 않은 동작이 발생할 수 있습니다. 가장 좋은 방법은 다음과 같이를 초기화 `Main` `JobHost`하기 전에 메서드에서 즉시 값을 설정 하는 것입니다.
+이 설정은 HTTP 요청을 만들기 전에 구성해야 합니다. 이러한 이유로 WebJobs 호스트는 설정을 자동으로 조정 하지 않아야 합니다. 호스트를 시작 하기 전에 발생 하는 HTTP 요청이 있을 수 있으며,이로 인해 예기치 않은 동작이 발생할 수 있습니다. 가장 좋은 방법은 다음과 같이-1 @no__t를 초기화 하기 전에 `Main` 메서드에서 즉시 값을 설정 하는 것입니다.
 
 ```csharp
 static void Main(string[] args)
@@ -153,7 +153,7 @@ static void Main(string[] args)
 
 ## <a name="triggers"></a>트리거
 
-함수는 public 메서드 여야 하며 트리거 특성 또는 [`NoAutomaticTrigger`](#manual-triggers) 특성이 하나 있어야 합니다.
+함수는 public 메서드 여야 하며 트리거 특성이 나 [`NoAutomaticTrigger`](#manual-triggers) 특성이 하나 있어야 합니다.
 
 ### <a name="automatic-triggers"></a>자동 트리거
 
@@ -169,13 +169,13 @@ public static void Run(
 }
 ```
 
-특성 `QueueTrigger` 은 큐 메시지가 `myqueue-items` 큐에 나타날 때마다 함수를 호출 하도록 런타임에 지시 합니다. 특성 `Blob` 은 런타임에 큐 메시지를 사용 하 여 *샘플* 작업 항목 컨테이너의 blob을 읽도록 지시 합니다. `myQueueItem` 매개 변수의 함수에 전달 되는 큐 메시지의 내용은 blob의 이름입니다.
+@No__t-0 특성은 큐 메시지가 `myqueue-items` 큐에 나타날 때마다 함수를 호출 하도록 런타임에 지시 합니다. @No__t-0 특성은 큐 메시지를 사용 하 여 *샘플* 작업 항목 컨테이너에서 blob을 읽도록 지시 합니다. @No__t-0 매개 변수에서 함수로 전달 되는 큐 메시지의 내용은 blob의 이름입니다.
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
 ### <a name="manual-triggers"></a>수동 트리거
 
-함수를 수동으로 트리거하려면 다음과 같이 특성을 `NoAutomaticTrigger` 사용 합니다.
+함수를 수동으로 트리거하려면 다음과 같이 `NoAutomaticTrigger` 특성을 사용 합니다.
 
 ```cs
 [NoAutomaticTrigger]
@@ -240,7 +240,7 @@ static void Main(string[] args)
 
 #### <a name="version-3x"></a>버전 3. *x*
 
-버전 3 *x*, 저장소 바인딩이 `Microsoft.Azure.WebJobs.Extensions.Storage` 패키지에 포함 됩니다. 다음과 같이 `ConfigureWebJobs` 메서드에서 확장메서드를호출합니다.`AddAzureStorage`
+버전 3 *x*, 저장소 바인딩은 @no__t 1 패키지에 포함 됩니다. 다음과 같이 `ConfigureWebJobs` 메서드에서 `AddAzureStorage` 확장 메서드를 호출 합니다.
 
 ```cs
 static void Main()
@@ -259,7 +259,7 @@ static void Main()
 }
 ```
 
-다른 트리거 및 바인딩 형식을 사용하려면 해당 항목을 포함하는 NuGet 패키지를 설치하고 확장에서 구현된 `Add<binding>` 확장 메서드를 호출합니다. 예를 들어 Azure Cosmos DB 바인딩을 사용 하려는 경우를 설치 `Microsoft.Azure.WebJobs.Extensions.CosmosDB` 하 고 다음과 같이를 호출 `AddCosmosDB`합니다.
+다른 트리거 및 바인딩 형식을 사용하려면 해당 항목을 포함하는 NuGet 패키지를 설치하고 확장에서 구현된 `Add<binding>` 확장 메서드를 호출합니다. 예를 들어 Azure Cosmos DB 바인딩을 사용 하려면 `Microsoft.Azure.WebJobs.Extensions.CosmosDB`을 설치 하 고 다음과 같이 `AddCosmosDB`을 호출 합니다.
 
 ```cs
 static void Main()
@@ -282,13 +282,13 @@ static void Main()
 
 #### <a name="version-2x"></a>버전 2. *x*
 
-이러한 트리거와 바인딩 형식은 버전 2에 포함 되어 있습니다. `Microsoft.Azure.WebJobs` 패키지의 *x* :
+이러한 트리거와 바인딩 형식은 버전 2에 포함 되어 있습니다. @no__t 패키지의 *x* :
 
-* Blob Storage
+* Blob 스토리지
 * Queue Storage
-* Table Storage
+* 테이블 스토리지
 
-다른 트리거 및 바인딩 형식을 사용하려면 사용하려는 트리거 및 바인딩 형식이 포함된 NuGet 패키지를 설치하고 `JobHostConfiguration` 개체에서 `Use<binding>` 메서드를 호출합니다. 예를 들어 타이머 트리거를 사용 하려면 다음과 같이을 설치 `Microsoft.Azure.WebJobs.Extensions` 하 고 메서드를 호출 `Main` `UseTimers` 합니다.
+다른 트리거 및 바인딩 형식을 사용하려면 사용하려는 트리거 및 바인딩 형식이 포함된 NuGet 패키지를 설치하고 `JobHostConfiguration` 개체에서 `Use<binding>` 메서드를 호출합니다. 예를 들어 타이머 트리거를 사용 하려면 `Microsoft.Azure.WebJobs.Extensions`을 설치 하 고 다음과 같이 `Main` 메서드에서 `UseTimers`을 호출 합니다.
 
 ```cs
 static void Main()
@@ -318,11 +318,11 @@ public class Functions
 }
 ```
 
-에 바인딩하는 [`ExecutionContext`] 프로세스는 SDK 버전에 따라 다릅니다.
+[@No__t-1] 에 바인딩하는 프로세스는 SDK 버전에 따라 다릅니다.
 
 #### <a name="version-3x"></a>버전 3. *x*
 
-다음과 같이 `ConfigureWebJobs` 메서드에서 확장메서드를호출합니다.`AddExecutionContextBinding`
+다음과 같이 `ConfigureWebJobs` 메서드에서 `AddExecutionContextBinding` 확장 메서드를 호출 합니다.
 
 ```cs
 static void Main()
@@ -343,7 +343,7 @@ static void Main()
 
 #### <a name="version-2x"></a>버전 2. *x*
 
-앞에서 언급한 `Microsoft.Azure.WebJobs.Extensions` 패키지는 `UseCore` 메서드를 호출하여 등록할 수 있는 특별한 바인딩 형식을 제공합니다. 이 바인딩을 사용 하면 다음과 같이 [`ExecutionContext`] 사용 되는 함수 시그니처의 매개 변수를 정의할 수 있습니다.
+앞에서 언급한 `Microsoft.Azure.WebJobs.Extensions` 패키지는 `UseCore` 메서드를 호출하여 등록할 수 있는 특별한 바인딩 형식을 제공합니다. 이 바인딩을 사용 하면 함수 시그니처에서 다음과 같이 사용할 수 있는 [`ExecutionContext`] 매개 변수를 정의할 수 있습니다.
 
 ```cs
 class Program
@@ -362,8 +362,8 @@ class Program
 
 일부 트리거와 바인딩의 동작을 구성할 수 있습니다. 이를 구성 하는 프로세스는 SDK 버전에 따라 다릅니다.
 
-* **버전 3. *x*:** `Add<Binding>` 에서`ConfigureWebJobs`메서드를 호출할 때 구성을 설정 합니다.
-* **버전 2. *x*:** 에 전달 `JobHost`하는 구성 개체의 속성을 설정 하 여 구성을 설정 합니다.
+* **버전 3. *x*:** @No__t-1에서 `Add<Binding>` 메서드를 호출할 때 구성을 설정 합니다.
+* **버전 2. *x*:** @No__t-0에 전달 하는 구성 개체의 속성을 설정 하 여 구성을 설정 합니다.
 
 이러한 바인딩 별 설정은 Azure Functions의 [호스트 json 프로젝트 파일](../azure-functions/functions-host-json.md) 의 설정과 동일 합니다.
 
@@ -600,7 +600,7 @@ public static void CreateThumbnail(
 
 경우에 따라 코드에서 큐 이름, blob 이름 또는 컨테이너 또는 테이블 이름을 하드 코딩 하는 대신 지정 하려고 합니다. 예를 들어 구성 파일 또는 환경 변수에서 `QueueTrigger` 특성에 대한 큐 이름을 지정할 수 있습니다.
 
-개체를 `NameResolver` `JobHostConfiguration` 개체에 전달 하 여이 작업을 수행할 수 있습니다. 트리거 또는 바인딩 특성 생성자 매개 변수에 자리 표시자를 포함하면 `NameResolver` 코드가 해당 자리 표시자 위치에 사용할 실제 값을 제공합니다. 자리 표시자를 백분율 (%)로 묶어서 식별할 수 있습니다. 다음과 같이 서명 합니다.
+@No__t-0 개체를 `JobHostConfiguration` 개체에 전달 하 여이 작업을 수행할 수 있습니다. 트리거 또는 바인딩 특성 생성자 매개 변수에 자리 표시자를 포함하면 `NameResolver` 코드가 해당 자리 표시자 위치에 사용할 실제 값을 제공합니다. 자리 표시자를 백분율 (%)로 묶어서 식별할 수 있습니다. 다음과 같이 서명 합니다.
 
 ```cs
 public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
@@ -611,9 +611,9 @@ public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
 
 이 코드를 사용하면 테스트 환경에 `logqueuetest`라는 큐를 사용하고 프로덕션 환경에 `logqueueprod`라는 큐를 사용할 수 있습니다. 하드 코드된 큐 이름 대신 `appSettings` 컬렉션의 항목 이름을 지정합니다.
 
-사용자 지정 항목을 `NameResolver` 제공 하지 않는 경우에는 기본값이 적용 됩니다. 기본값은 앱 설정이나 환경 변수에서 가져옵니다.
+사용자 지정 항목을 제공 하지 않을 경우 적용 되는 기본 `NameResolver`이 있습니다. 기본값은 앱 설정이나 환경 변수에서 가져옵니다.
 
-클래스는 다음과 같이에서 `appSettings`큐 이름을 가져옵니다. `NameResolver`
+@No__t-0 클래스는 다음과 같이 `appSettings`에서 큐 이름을 가져옵니다.
 
 ```cs
 public class CustomNameResolver : INameResolver
@@ -633,7 +633,7 @@ public class CustomNameResolver : INameResolver
 using Microsoft.Extensions.DependencyInjection;
 ```
 
-다음 예제와 같이에서 [`ConfigureServices`] [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder)확장 메서드를 호출 하 여 확인자를 추가 합니다.
+다음 예제와 같이 [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder)에 대 한 [`ConfigureServices`] 확장 메서드를 호출 하 여 해결 프로그램을 추가 합니다.
 
 ```cs
 static async Task Main(string[] args)
@@ -655,7 +655,7 @@ static async Task Main(string[] args)
 
 #### <a name="version-2x"></a>버전 2. *x*
 
-다음과 같이 `JobHost` 클래스를 개체에 전달 합니다. `NameResolver`
+다음과 같이 `NameResolver` 클래스를 `JobHost` 개체에 전달 합니다.
 
 ```cs
  static void Main(string[] args)
@@ -671,7 +671,7 @@ Azure Functions가 예제와 같이 앱 설정에서 값을 가져오도록 `INa
 
 ## <a name="binding-at-runtime"></a>런타임에 바인딩
 
-, `Queue` `IBinder` 또는 와`Table`같은 바인딩 특성을 사용 하기 전에 함수에서 일부 작업을 수행 해야 하는 경우 인터페이스를 사용할 수 있습니다. `Blob`
+@No__t-0, `Blob` 또는 `Table`와 같은 바인딩 특성을 사용 하기 전에 함수에서 일부 작업을 수행 해야 하는 경우 `IBinder` 인터페이스를 사용할 수 있습니다.
 
 다음 예제에서는 입력 큐 메시지를 사용하여 동일한 내용의 새 메시지를 출력 큐에 만듭니다. 출력 큐 이름은 함수 본문에서 코드로 설정됩니다.
 
@@ -694,7 +694,7 @@ public static void CreateQueueMessage(
 Azure Functions 설명서에서는 각 바인딩 형식에 대 한 참조 정보를 제공 합니다. 각 바인딩 참조 문서에서 다음 정보를 찾을 수 있습니다. 이 예제는 저장소 큐를 기반으로 합니다.
 
 * [패키지](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x). WebJobs SDK 프로젝트에서 바인딩에 대 한 지원을 포함 하기 위해 설치 해야 하는 패키지입니다.
-* [예](../azure-functions/functions-bindings-storage-queue.md#trigger---example). 코드 샘플. 클래스 C# 라이브러리 예제는 WebJobs SDK에 적용 됩니다. 특성을 `FunctionName` 생략 하면 됩니다.
+* [예](../azure-functions/functions-bindings-storage-queue.md#trigger---example). 코드 샘플. 클래스 C# 라이브러리 예제는 WebJobs SDK에 적용 됩니다. @No__t-0 특성만 생략 합니다.
 * [특성](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes). 바인딩 형식에 사용할 특성입니다.
 * [구성](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration). 특성 속성 및 생성자 매개 변수에 대 한 설명입니다.
 * [사용 현황](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). 바인딩할 수 있는 형식과 바인딩의 작동 방식에 대 한 정보입니다. 예: 폴링 알고리즘, 포이즌 큐 처리.
@@ -703,9 +703,9 @@ Azure Functions 설명서에서는 각 바인딩 형식에 대 한 참조 정보
 
 ## <a name="disable-attribute"></a>Disable 특성 
 
-특성 [`Disable`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) 을 사용 하 여 함수를 트리거할 수 있는지 여부를 제어할 수 있습니다. 
+[@No__t-1](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) 특성을 사용 하면 함수를 트리거할 수 있는지 여부를 제어할 수 있습니다. 
 
-다음 예제에서 앱 설정 `Disable_TestJob` 의 `1` 값이 또는 `True` (대/소문자 구분 안 함) 이면 함수는 실행 되지 않습니다. 이 경우 런타임에서 *Function 'Functions.TestJob' is disabled* 로그 메시지를 작성합니다.
+다음 예제에서 앱 설정 `Disable_TestJob` @no__t의 값이-1 또는 `True` (대/소문자 구분 안 함) 이면 함수가 실행 되지 않습니다. 이 경우 런타임에서 *Function 'Functions.TestJob' is disabled* 로그 메시지를 작성합니다.
 
 ```cs
 [Disable("Disable_TestJob")]
@@ -721,7 +721,7 @@ Azure Portal에서 앱 설정 값을 변경 하면 WebJob이 다시 시작 되�
 
 ## <a name="timeout-attribute"></a>Timeout 특성
 
-특성 [`Timeout`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TimeoutAttribute.cs) 은 지정 된 시간 내에 완료 되지 않으면 함수를 취소 합니다. 다음 예제에서 함수는 Timeout 특성 없이 1 일 동안 실행 됩니다. Timeout은 15 초 후에 함수가 취소 되도록 합니다.
+[@No__t-1](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TimeoutAttribute.cs) 특성은 지정 된 시간 내에 완료 되지 않으면 함수가 취소 되도록 합니다. 다음 예제에서 함수는 Timeout 특성 없이 1 일 동안 실행 됩니다. Timeout은 15 초 후에 함수가 취소 되도록 합니다.
 
 ```cs
 [Timeout("00:00:15")]
@@ -736,13 +736,13 @@ public static async Task TimeoutJob(
 }
 ```
 
-제한 시간 특성은 클래스 또는 메서드 수준에서 적용할 수 있으며를 사용 `JobHostConfiguration.FunctionTimeout`하 여 전역 시간 제한을 지정할 수 있습니다. 클래스 수준 또는 메서드 수준 시간 제한은 전역 시간 제한을 재정의 합니다.
+제한 시간 특성은 클래스 또는 메서드 수준에서 적용할 수 있으며 `JobHostConfiguration.FunctionTimeout`을 사용 하 여 전역 시간 제한을 지정할 수 있습니다. 클래스 수준 또는 메서드 수준 시간 제한은 전역 시간 제한을 재정의 합니다.
 
 ## <a name="singleton-attribute"></a>Singleton 특성
 
-특성 [`Singleton`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonAttribute.cs) 을 사용 하면 호스트 웹 앱의 인스턴스가 여러 개 있는 경우에도 하나의 함수 인스턴스만 실행 됩니다. [분산 잠금을](#viewing-lease-blobs)사용 하 여이를 수행 합니다.
+[@No__t-1](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonAttribute.cs) 특성은 호스트 웹 앱의 인스턴스가 여러 개 있는 경우에도 하나의 함수 인스턴스만 실행 되도록 합니다. [분산 잠금을](#viewing-lease-blobs)사용 하 여이를 수행 합니다.
 
-이 예제에서는 `ProcessImage` 함수의 단일 인스턴스만 지정 된 시간에 실행 됩니다.
+이 예에서는 지정 된 시간에 `ProcessImage` 함수의 단일 인스턴스만 실행 됩니다.
 
 ```cs
 [Singleton]
@@ -760,7 +760,7 @@ public static async Task ProcessImage([BlobTrigger("images")] Stream image)
 * **ServiceBusTrigger**. `ServiceBusConfiguration.MessageOptions.MaxConcurrentCalls`를 `1`로 설정합니다.
 * **FileTrigger**. `FileProcessor.MaxDegreeOfParallelism`를 `1`로 설정합니다.
 
-이러한 설정을 사용하여 함수가 단일 인스턴스에서 싱글톤으로 실행되도록 할 수 있습니다. 웹 앱이 여러 인스턴스로 확장 될 때 함수의 단일 인스턴스만 실행 되도록 하려면 함수에 수신기 수준 singleton 잠금을 적용 합니다 (`[Singleton(Mode = SingletonMode.Listener)]`). JobHost를 시작 하면 수신기 잠금이 획득 됩니다. 확장된 인스턴스 3개가 동시에 시작되면 인스턴스 중 하나만 잠금을 획득하고 하나의 수신기만 시작됩니다.
+이러한 설정을 사용하여 함수가 단일 인스턴스에서 싱글톤으로 실행되도록 할 수 있습니다. 웹 앱이 여러 인스턴스로 확장 될 때 함수의 단일 인스턴스만 실행 되도록 하려면 함수에 수신기 수준 singleton 잠금 (`[Singleton(Mode = SingletonMode.Listener)]`)을 적용 합니다. JobHost를 시작 하면 수신기 잠금이 획득 됩니다. 확장된 인스턴스 3개가 동시에 시작되면 인스턴스 중 하나만 잠금을 획득하고 하나의 수신기만 시작됩니다.
 
 ### <a name="scope-values"></a>범위 값
 
@@ -784,7 +784,7 @@ public class WorkItem
 
 ### <a name="singletonscopehost"></a>SingletonScope.Host
 
-잠금의 기본 범위는입니다 `SingletonScope.Function`. 즉, 잠금 범위 (blob 임대 경로)가 정규화 된 함수 이름에 연결 됩니다. 함수 간에 잠그려면 동시에 실행 `SingletonScope.Host` 하지 않으려는 모든 함수에서 동일한 범위 ID 이름을 지정 하 고 사용 합니다. 다음 예제에서는 `AddItem` 또는 `RemoveItem`의 인스턴스가 한 번에 하나씩 실행됩니다.
+잠금에 대 한 기본 범위는 0 @no__t입니다. 즉, 잠금 범위 (blob 임대 경로)가 정규화 된 함수 이름에 연결 됩니다. 함수 간에 잠그려면 `SingletonScope.Host`을 지정 하 고 동시에 실행 하지 않으려는 모든 함수에서 동일한 범위 ID 이름을 사용 합니다. 다음 예제에서는 `AddItem` 또는 `RemoveItem`의 인스턴스가 한 번에 하나씩 실행됩니다.
 
 ```csharp
 [Singleton("ItemsLock", SingletonScope.Host)]
@@ -802,7 +802,7 @@ public static void RemoveItem([QueueTrigger("remove-item")] string message)
 
 ### <a name="viewing-lease-blobs"></a>임대 BLOB 보기
 
-WebJobs SDK는 분산 잠금을 구현하기 위해 백그라운드에서 [Azure blob 임대](../storage/common/storage-concurrency.md#pessimistic-concurrency-for-blobs)를 사용합니다. Singleton에서 사용 하는 임대 blob은 `azure-webjobs-host` `AzureWebJobsStorage` 저장소 계정의 컨테이너에서 "잠금" 경로 아래에 있습니다. 예를 들어 앞에서 살펴본 첫 번째 `ProcessImage` 예제의 임대 BLOB 경로가 `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`일 수 있습니다. 모든 경로는 JobHost ID(이 예에서는 061851c758f04938a4426aa9ab3869c0)를 포함합니다.
+WebJobs SDK는 분산 잠금을 구현하기 위해 백그라운드에서 [Azure blob 임대](../storage/common/storage-concurrency.md#pessimistic-concurrency-for-blobs)를 사용합니다. Singleton에서 사용 하는 임대 blob은 "잠금" 경로 아래에 있는 `AzureWebJobsStorage` 저장소 계정의 `azure-webjobs-host` 컨테이너에서 찾을 수 있습니다. 예를 들어 앞에서 살펴본 첫 번째 `ProcessImage` 예제의 임대 BLOB 경로가 `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`일 수 있습니다. 모든 경로는 JobHost ID(이 예에서는 061851c758f04938a4426aa9ab3869c0)를 포함합니다.
 
 ## <a name="async-functions"></a>비동기 함수
 
@@ -816,11 +816,11 @@ WebJobs SDK는 분산 잠금을 구현하기 위해 백그라운드에서 [Azure
 
 웹앱이 여러 인스턴스에서 실행되는 경우 연속적인 WebJob이 각 인스턴스에서 실행되고, 트리거를 기다렸다가 함수를 호출합니다. 더 많은 인스턴스로 확장하여 더 많은 부하를 처리할 수 있도록, 작업을 효율적으로 여러 인스턴스에서 공동으로 공유하도록 설계된 다양한 트리거 바인딩이 있습니다.
 
-큐 및 blob 트리거는 함수가 큐 메시지 또는 blob를 두 번 이상 처리 하지 않도록 자동으로 차단 합니다. 함수는 idempotent 필요가 없습니다.
+일부 트리거는 이중 처리를 발생 시킬 수 있지만 queue 및 blob storage 트리거는 함수가 큐 메시지 또는 blob을 두 번 이상 처리 하는 것을 자동으로 방지 합니다. 자세한 내용은 Azure Functions 설명서에서 [동일한 입력을 위한 디자인](../azure-functions/functions-idempotent.md) 을 참조 하세요.
 
 타이머 트리거는 자동으로 타이머의 한 인스턴스만 실행되도록 보장하므로 예약된 특정 시간에 오직 하나의 함수 인스턴스만 실행됩니다.
 
-호스트 웹 앱의 인스턴스가 여러 개 있는 경우에도 하나의 함수 인스턴스만 실행 되도록 하려면 특성을 [`Singleton`](#singleton-attribute) 사용할 수 있습니다.
+호스트 웹 앱의 인스턴스가 여러 개 있는 경우에도 하나의 함수 인스턴스만 실행 되도록 하려면 [`Singleton`](#singleton-attribute) 특성을 사용할 수 있습니다.
 
 ## <a name="filters"></a>필터
 
@@ -832,23 +832,23 @@ ASP.NET 용으로 개발 된 로깅 프레임 워크를 권장 합니다. [시�
 
 ### <a name="log-filtering"></a>로그 필터링
 
-`ILogger` 인스턴스로 만든 모든 로그에는 `Category` 및 `Level`이 연결됩니다. [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel)는 열거형 이며 정수 코드는 상대적 중요도를 나타냅니다.
+`ILogger` 인스턴스로 만든 모든 로그에는 `Category` 및 `Level`이 연결됩니다. [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel) 은 열거형 이며 정수 코드는 상대적 중요도를 나타냅니다.
 
 |LogLevel    |코드|
 |------------|---|
 |추적       | 0 |
 |디버그       | 1 |
 |정보 | 2 |
-|경고     | 3 |
-|Error       | 4 |
+|Warning     | 3 |
+|오류       | 4 |
 |심각    | 5 |
 |없음        | 6 |
 
-각 범주를 특정 [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel)에 독립적으로 필터링 할 수 있습니다. 예를 들어 Blob 트리거 처리에 대한 모든 로그를 보고 싶지만 그 외에는 `Error` 이상만 보고 싶은 경우가 있습니다.
+각 범주를 개별적으로 특정 [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel)로 필터링 할 수 있습니다. 예를 들어 Blob 트리거 처리에 대한 모든 로그를 보고 싶지만 그 외에는 `Error` 이상만 보고 싶은 경우가 있습니다.
 
 #### <a name="version-3x"></a>버전 3. *x*
 
-버전 3. SDK의 *x* 는 .net Core에 기본 제공 되는 필터링에 의존 합니다. `LogCategories` 클래스를 사용하여 특정 함수, 트리거 또는 사용자의 범주를 정의할 수 있습니다. 또한 및 `Startup` `Results`과 같은 특정 호스트 상태에 대 한 필터를 정의 합니다. 이를 통해 로깅 출력을 미세 조정할 수 있습니다. 정의된 범주 내에 일치 항목이 없는 경우 메시지를 필터링할 것인지 결정할 때 필터가 `Default` 값으로 대체됩니다.
+버전 3. SDK의 *x* 는 .net Core에 기본 제공 되는 필터링에 의존 합니다. `LogCategories` 클래스를 사용하여 특정 함수, 트리거 또는 사용자의 범주를 정의할 수 있습니다. 또한 `Startup` 및 `Results`과 같은 특정 호스트 상태에 대 한 필터를 정의 합니다. 이를 통해 로깅 출력을 미세 조정할 수 있습니다. 정의된 범주 내에 일치 항목이 없는 경우 메시지를 필터링할 것인지 결정할 때 필터가 `Default` 값으로 대체됩니다.
 
 `LogCategories`에는 다음 using 문이 필요합니다.
 
@@ -856,7 +856,7 @@ ASP.NET 용으로 개발 된 로깅 프레임 워크를 권장 합니다. [시�
 using Microsoft.Azure.WebJobs.Logging; 
 ```
 
-다음 예에서는 기본적으로 `Warning` 수준의 모든 로그를 필터링 하는 필터를 생성 합니다. 버전 `Function` 2 `results` 의 에`Host.Results` 해당 하는 및 범주입니다. *x*)는 `Error` 수준에서 필터링 됩니다. 이 필터는 현재 범주를 `LogCategories` 인스턴스의 모든 등록된 수준과 비교하여 가장 긴 일치 항목을 선택합니다. 즉,에 대해 `Host.Triggers` 등록 된 `Host.Triggers.Queue` `Host.Triggers.Blob`수준이 또는와 일치 합니다. `Debug` 따라서 각각을 추가하지 않고도 더 광범위한 범주를 제어할 수 있습니다.
+다음 예에서는 기본적으로 `Warning` 수준의 모든 로그를 필터링 하는 필터를 생성 합니다. @No__t-0 및 `results` 범주 (버전 2 *의 `Host.Results`와 동일) x*)는 @no__t 4 수준에서 필터링 됩니다. 이 필터는 현재 범주를 `LogCategories` 인스턴스의 모든 등록된 수준과 비교하여 가장 긴 일치 항목을 선택합니다. 즉, `Host.Triggers`에 대해 등록 된 @no__t 0 수준이 `Host.Triggers.Queue` 또는 `Host.Triggers.Blob`과 일치 합니다. 따라서 각각을 추가하지 않고도 더 광범위한 범주를 제어할 수 있습니다.
 
 ```cs
 static async Task Main(string[] args)
@@ -885,11 +885,11 @@ static async Task Main(string[] args)
 
 #### <a name="version-2x"></a>버전 2. *x*
 
-버전 2에서 *x* SDK의 경우 `LogCategoryFilter` 클래스를 사용 하 여 필터링을 제어할 수 있습니다. 에 `LogCategoryFilter` 는 초기 `Default` 값 `Information`이 인 속성이 있습니다 `Debug` . `Information` `Warning` `Critical` 즉,,, 또는 수준의 모든 메시지가 기록 되지만 `Error` 또는 `Trace` 수준이 필터링 됩니다.
+버전 2에서 *x* SDK의 경우 `LogCategoryFilter` 클래스를 사용 하 여 필터링을 제어할 수 있습니다. @No__t-0에는 초기 값이 `Information` 인 `Default` 속성이 있습니다. 즉, `Information`, `Warning`, @no__t 또는 @no__t 수준의 모든 메시지가 기록 되지만 `Debug` 또는 `Trace` 수준의 모든 메시지는 필터링 됩니다.
 
-버전 3 `LogCategories` 의와 동일 합니다.사용자는 `CategoryLevels` 속성을 사용 하 여 로깅 출력을 세밀 하 게 조정할 수 있도록 특정 범주에 대 한 로그 수준을 지정할 수 있습니다. `CategoryLevels` 디렉터리 내에 일치 항목이 없는 경우 메시지를 필터링할 것인지 결정할 때 필터가 `Default` 값으로 대체됩니다.
+버전 3의 `LogCategories`과 동일 합니다. *x*`CategoryLevels` 속성을 사용 하면 로깅 출력을 세밀 하 게 조정할 수 있도록 특정 범주에 대 한 로그 수준을 지정할 수 있습니다. `CategoryLevels` 디렉터리 내에 일치 항목이 없는 경우 메시지를 필터링할 것인지 결정할 때 필터가 `Default` 값으로 대체됩니다.
 
-다음 예제는 기본적으로 `Warning` 수준에서 모든 로그를 필터링하는 필터를 작성합니다. `Function` 및`Host.Results`범주는 수준`Error` 에서 필터링 됩니다. `LogCategoryFilter`는 현재 범주를 모든 등록된 `CategoryLevels`와 비교하여 가장 긴 일치 항목을 선택합니다. 따라서에 `Debug` 대해 `Host.Triggers` 등록 된 수준은 또는 `Host.Triggers.Queue` `Host.Triggers.Blob`와 일치 합니다. 따라서 각각을 추가하지 않고도 더 광범위한 범주를 제어할 수 있습니다.
+다음 예제는 기본적으로 `Warning` 수준에서 모든 로그를 필터링하는 필터를 작성합니다. @No__t-0 및 `Host.Results` 범주는 `Error` 수준에서 필터링 됩니다. `LogCategoryFilter`는 현재 범주를 모든 등록된 `CategoryLevels`와 비교하여 가장 긴 일치 항목을 선택합니다. 따라서 `Host.Triggers`에 대해 등록 된 @no__t 0 수준은 `Host.Triggers.Queue` 또는 `Host.Triggers.Blob`과 일치 합니다. 따라서 각각을 추가하지 않고도 더 광범위한 범주를 제어할 수 있습니다.
 
 ```csharp
 var filter = new LogCategoryFilter();
@@ -966,15 +966,15 @@ static void Main()
 
 [`TelemetryConfiguration`]이 생성되면 등록된 모든 [`ITelemetryInitializer`] 유형이 포함됩니다. 자세히 알아보려면 [사용자 지정 이벤트 및 메트릭에 대 한 APPLICATION INSIGHTS API](../azure-monitor/app/api-custom-events-metrics.md)를 참조 하세요.
 
-버전 3 *x*에서는 호스트가 중지 [`TelemetryClient`] 될 때 더 이상를 플러시할 필요가 없습니다. .NET Core 종속성 주입 시스템은 [`TelemetryClient`]를 플러시하는 등록된 `ApplicationInsightsLoggerProvider`를 자동으로 제거합니다.
+버전 3 *x*에서는 호스트가 중지 될 때 더 이상 [`TelemetryClient`] 를 플러시할 필요가 없습니다. .NET Core 종속성 주입 시스템은 [`TelemetryClient`]를 플러시하는 등록된 `ApplicationInsightsLoggerProvider`를 자동으로 제거합니다.
 
 #### <a name="version-2x"></a>버전 2. *x*
 
-버전 2에서WebJobs SDK에 [`TelemetryClient`] 대 한 Application Insights 공급자가 내부적으로 만든는를 사용 [`ServerTelemetryChannel`](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)합니다. Application Insights 엔드포인트를 사용할 수 없거나 들어오는 요청을 제한하는 경우 이 채널은 [웹앱의 파일 시스템에 요청을 저장해 두었다가 나중에 다시 전송](https://apmtips.com/blog/2015/09/03/more-telemetry-channels)합니다.
+버전 2에서 *x*에서 WebJobs SDK에 대 한 Application Insights 공급자에 의해 내부적으로 생성 된 [@no__t 2] 는 [`ServerTelemetryChannel`](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)를 사용 합니다. Application Insights 엔드포인트를 사용할 수 없거나 들어오는 요청을 제한하는 경우 이 채널은 [웹앱의 파일 시스템에 요청을 저장해 두었다가 나중에 다시 전송](https://apmtips.com/blog/2015/09/03/more-telemetry-channels)합니다.
 
 [`TelemetryClient`]는 `ITelemetryClientFactory`를 구현하는 클래스에서 생성합니다. 기본적으로 [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/DefaultTelemetryClientFactory.cs)입니다.
 
-Application Insights 파이프라인의 특정 부분을 수정하려는 경우 사용자 고유의 `ITelemetryClientFactory`를 제공하면 호스트가 해당 클래스를 사용하여 [`TelemetryClient`]를 생성합니다. 예를 들어 다음 코드는 `DefaultTelemetryClientFactory` 를 재정의 하 여의 `ServerTelemetryChannel`속성을 수정 합니다.
+Application Insights 파이프라인의 특정 부분을 수정하려는 경우 사용자 고유의 `ITelemetryClientFactory`를 제공하면 호스트가 해당 클래스를 사용하여 [`TelemetryClient`]를 생성합니다. 예를 들어이 코드는 `DefaultTelemetryClientFactory`을 재정의 하 여 `ServerTelemetryChannel`의 속성을 수정 합니다.
 
 ```csharp
 private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
@@ -996,7 +996,7 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 }
 ```
 
-개체 `SamplingPercentageEstimatorSettings` 는 [적응 샘플링](https://docs.microsoft.com/azure/application-insights/app-insights-sampling)을 구성 합니다. 즉, 특정 고용량 시나리오에서 Application Insights는 원격 분석 데이터의 선택 된 하위 집합을 서버에 보냅니다.
+@No__t-0 개체는 [적응 샘플링](https://docs.microsoft.com/azure/application-insights/app-insights-sampling)을 구성 합니다. 즉, 특정 고용량 시나리오에서 Application Insights는 원격 분석 데이터의 선택 된 하위 집합을 서버에 보냅니다.
 
 원격 분석 팩터리를 만든 후에 Application Insights 로깅 공급자에 전달 합니다.
 

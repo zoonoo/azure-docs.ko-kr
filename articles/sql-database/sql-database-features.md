@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 36bcb8f7a3ee75794741b44f91956950179e5544
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 1d8379d0ee54332ae4971cd9abaa8b153d52084a
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162294"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71816057"
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL Database 기능
 
@@ -35,7 +35,7 @@ Azure SQL Database는 데이터베이스를 관리 하 고 고가용성을 보�
 | **SQL 기능** | **단일 데이터베이스 및 탄력적 풀** | **관리 되는 인스턴스 및 인스턴스 풀** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | 예 - [인증서 저장소](sql-database-always-encrypted.md) 및 [키 자격 증명 모음](sql-database-always-encrypted-azure-key-vault.md) 참조 | 예 - [인증서 저장소](sql-database-always-encrypted.md) 및 [키 자격 증명 모음](sql-database-always-encrypted-azure-key-vault.md) 참조 |
-| [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [고가용성](sql-database-high-availability.md)은 모든 데이터베이스에 포함됩니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명합니다. | [고가용성](sql-database-high-availability.md) 은 모든 데이터베이스에 포함 되며 [사용자가 관리할 수 없습니다](sql-database-managed-instance-transact-sql-information.md#always-on-availability). 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명합니다. |
+| [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [99.995%](sql-database-high-availability.md) 의 모든 데이터베이스에 대해 99.99%의 가용성을 보장 합니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명합니다. | [99.99.](sql-database-high-availability.md) 모든 데이터베이스에 대해 가용성을 보장 하 고 [사용자가 관리할 수 없습니다](sql-database-managed-instance-transact-sql-information.md#always-on-availability). 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명 합니다. [자동 장애 조치 (failover) 그룹](sql-database-auto-failover-group.md) 을 사용 하 여 다른 지역에서 보조 Always On Managed Instance를 구성 합니다. 다른 SQL Server 인스턴스 및 단일 데이터베이스는 Managed Instance의 보조 항목으로 사용할 수 없습니다. |
 | [데이터베이스 연결](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | 아니요 | 아니요 |
 | [감사](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [예](sql-database-auditing.md)| [예](sql-database-managed-instance-auditing.md), 몇 가지 [차이점이](sql-database-managed-instance-transact-sql-information.md#auditing) 있습니다. |
 | [AAD (Azure Active Directory) 인증](sql-database-aad-authentication.md) | 예. AAD 사용자만 | 예. 서버 수준 AAD 로그인을 포함 합니다. |
@@ -57,7 +57,7 @@ Azure SQL Database는 데이터베이스를 관리 하 고 고가용성을 보�
 | [DDL 문](https://docs.microsoft.com/sql/t-sql/statements/statements) | 대부분 - 개별 문 참조 | 예 - [T-SQL 차이점](sql-database-managed-instance-transact-sql-information.md) 참조 |
 | [DDL 트리거](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | 데이터베이스만 |  예 |
 | [분산된 파티션 뷰](https://docs.microsoft.com/sql/t-sql/statements/create-view-transact-sql#partitioned-views) | 아니요 | 예 |
-| [분산된 트랜잭션 - MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | 아니요 - [탄력적 트랜잭션](sql-database-elastic-transactions-overview.md) 참조 |  아니요- [연결 된 서버 차이점](sql-database-managed-instance-transact-sql-information.md#linked-servers) 참조 |
+| [분산된 트랜잭션 - MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | 아니요 - [탄력적 트랜잭션](sql-database-elastic-transactions-overview.md) 참조 |  아니요- [연결 된 서버 차이점](sql-database-managed-instance-transact-sql-information.md#linked-servers)을 참조 하세요. 마이그레이션 중에 여러 분산 SQL Server 인스턴스에서 하나의 관리 되는 인스턴스로 데이터베이스를 통합 해 보세요. |
 | [DML 트리거](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | 대부분 - 개별 문 참조 |  예 |
 | [DMV](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | 대부분 - 개별 DMV 참조 |  예 - [T-SQL 차이점](sql-database-managed-instance-transact-sql-information.md) 참조 |
 | [이벤트 알림](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | 아니요 - [경고](sql-database-insights-alerts-portal.md) 참조 | 아니요 |
@@ -90,7 +90,7 @@ Azure SQL Database는 데이터베이스를 관리 하 고 고가용성을 보�
 | [백업에서 데이터베이스 복원](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | 자동 백업에서만 - [SQL Database 복구](sql-database-recovery-using-backups.md) 참조 | 자동화 된 백업에서 [SQL Database 복구](sql-database-recovery-using-backups.md) 및 Azure Blob Storage에 배치 된 전체 백업에서 [백업 차이점](sql-database-managed-instance-transact-sql-information.md#backup) 참조 |
 | [데이터베이스를 SQL Server으로 복원](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | 아니요. 네이티브 복원 대신 BACPAC 또는 BCP를 사용 합니다. | 아니요. Managed Instance에서 사용 되는 SQL Server 데이터베이스 엔진은 온-프레미스에서 사용 되는 SQL Server의 RTM 버전 보다 더 높습니다. 대신 BACPAC, BCP 또는 트랜잭션 복제를 사용 하십시오. |
 | [의미 체계 검색](https://docs.microsoft.com/sql/relational-databases/search/semantic-search-sql-server) | 아니요 | 아니요 |
-| [Service Broker](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) | 아니요 | 예. 단, 인스턴스 내 에서만 가능 합니다. [Service Broker 차이점](sql-database-managed-instance-transact-sql-information.md#service-broker) 을 참조 하세요. |
+| [Service Broker](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) | 아니요 | 예. 단, 인스턴스 내 에서만 가능 합니다. 원격 Service Broker 경로를 사용 하는 경우 마이그레이션 중에 여러 배포 된 SQL Server 인스턴스의 데이터베이스를 하나의 관리 되는 인스턴스로 통합 하 여 로컬 경로만 사용 하십시오. [Service Broker 차이점](sql-database-managed-instance-transact-sql-information.md#service-broker) 을 참조 하세요. |
 | [서버 구성 설정](https://docs.microsoft.com/sql/database-engine/configure-windows/server-configuration-options-sql-server) | 아니요 | 예 - [T-SQL 차이점](sql-database-managed-instance-transact-sql-information.md) 참조 |
 | [Set 문](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | 대부분 - 개별 문 참조 | 예 - [T-SQL 차이점](sql-database-managed-instance-transact-sql-information.md) 참조|
 | [SQL Server 에이전트](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | 아니요 - [탄력적 작업](elastic-jobs-overview.md) 참조 | 예 - [SQL Server Agent 차이점](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) 참조 |
@@ -133,7 +133,7 @@ Azure platform은 표준 데이터베이스 기능에 추가 값으로 추가 �
 | [지정 시간 데이터베이스 복원](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | 예-대규모 이외의 모든 서비스 계층- [SQL Database 복구](sql-database-recovery-using-backups.md#point-in-time-restore) 참조 | 예 - [SQL Database 복구](sql-database-recovery-using-backups.md#point-in-time-restore) 참조 |
 | 리소스 풀 | 예, [탄력적 풀](sql-database-elastic-pool.md) 로 | 예. 단일 관리 되는 인스턴스는 동일한 리소스 풀을 공유 하는 여러 데이터베이스를 포함할 수 있습니다. 또한 리소스를 공유할 수 있는 [인스턴스 풀 (미리 보기)](sql-database-instance-pools.md) 에 여러 개의 관리 되는 인스턴스를 배포할 수 있습니다. |
 | 규모 확장 또는 축소 (온라인) | 예, 최소 가동 중지 시간으로 DTU 또는 예약 vCores 또는 max storage를 변경할 수 있습니다. | 예, 최소 가동 중지 시간으로 예약 된 vCores 또는 max storage를 변경할 수 있습니다. |
-| SQL 별칭 | 예, [DNS 별칭](dns-alias-overview.md) 을 참조 하세요. | 아니요 |
+| [SQL 별칭](https://docs.microsoft.com/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) | 아니요, [DNS 별칭](dns-alias-overview.md) 을 사용 합니다. | 아니요, [Clicongf](https://techcommunity.microsoft.com/t5/Azure-Database-Support-Blog/Lesson-Learned-33-How-to-make-quot-cliconfg-quot-to-work-with/ba-p/369022) 를 사용 하 여 클라이언트 컴퓨터에서 별칭을 설정 합니다. |
 | [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | 예 | 예 |
 | [SQL 데이터 동기화](sql-database-get-started-sql-data-sync.md) | 예 | 아니요 |
 | [SSAS(SQL Server Analysis Services)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | 아니요, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) 별도의 Azure 클라우드 서비스입니다. | 아니요, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) 별도의 Azure 클라우드 서비스입니다. |
@@ -142,6 +142,7 @@ Azure platform은 표준 데이터베이스 기능에 추가 값으로 추가 �
 | [QPI (Query Performance Insights)](sql-database-query-performance.md) | 예 | 아니요. SQL Server Management Studio 및 Azure Data Studio에서 기본 제공 보고서를 사용 합니다. |
 | [VNet](../virtual-network/virtual-networks-overview.md) | 일부는 [VNet 끝점](sql-database-vnet-service-endpoint-rule-overview.md) 을 사용 하 여 제한 된 액세스를 가능 하 게 합니다. | 예, Managed Instance 고객의 VNet에 삽입 됩니다. [서브넷](sql-database-managed-instance-transact-sql-information.md#subnet) 및 [VNet](sql-database-managed-instance-transact-sql-information.md#vnet) 참조 |
 | VNet 서비스 끝점 | [예](sql-database-vnet-service-endpoint-rule-overview.md) | 아니요 |
+| VNet 글로벌 피어 링 | 예, [개인 IP 및 서비스 끝점](sql-database-vnet-service-endpoint-rule-overview.md) 사용 | 아니요. [VNet 글로벌 피어 링의 부하 분산 장치 제약 조건](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)으로 인해 [Managed Instance 지원 되지](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) 않습니다.
 
 ## <a name="tools"></a>도구
 Azure SQL database는 데이터를 관리 하는 데 도움이 될 수 있는 다양 한 데이터 도구를 지원 합니다.
@@ -161,7 +162,7 @@ Azure SQL database는 데이터를 관리 하는 데 도움이 될 수 있는 �
 | [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | 예 | 예 [버전 18.0 이상](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | 예 | 예 |
 | [SQL Server 프로파일러](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | 아니요 - [확장 이벤트](sql-database-xevent-db-diff-from-svr.md) 참조 | 예 |
-| [System Center Operations Manager-SCOM](https://docs.microsoft.com/system-center/scom/welcome) | [예](https://www.microsoft.com/download/details.aspx?id=38829) | 예, [미리 보기](https://www.microsoft.com/download/details.aspx?id=100306) |
+| [System Center Operations Manager (SCOM)](https://docs.microsoft.com/system-center/scom/welcome) | [예](https://www.microsoft.com/download/details.aspx?id=38829) | 예, [미리 보기](https://www.microsoft.com/download/details.aspx?id=100306) |
 
 ## <a name="migration-methods"></a>마이그레이션 방법
 

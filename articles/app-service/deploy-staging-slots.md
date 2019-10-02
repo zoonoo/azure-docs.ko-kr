@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: 35618b80dc4731f4d679bab9f035987af50730e8
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 436ab0a561349185de58c3783f334ea1dce9001d
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129704"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720122"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -128,7 +128,7 @@ ms.locfileid: "71129704"
 
 2. 원하는 **원본** 및 **대상** 슬롯을 선택합니다. 일반적으로 대상은 프로덕션 슬롯입니다. 또한 **원본 변경** 내용 및 **대상 변경** 탭을 선택 하 고 구성 변경이 예상 되는지 확인 합니다. 완료 되 면 **교환**을 선택 하 여 슬롯을 즉시 교환할 수 있습니다.
 
-    ![교환 완료](./media/web-sites-staged-publishing/SwapImmediately.png)
+    ![전체 교환](./media/web-sites-staged-publishing/SwapImmediately.png)
 
     교환이 실제로 수행 되기 전에 대상 슬롯이 새 설정으로 실행 되는 방식을 확인 하려면 **바꾸기**를 선택 하지 말고 [preview와 바꾸기](#Multi-Phase)의 지침을 따르세요.
 
@@ -139,9 +139,6 @@ ms.locfileid: "71129704"
 <a name="Multi-Phase"></a>
 
 ### <a name="swap-with-preview-multi-phase-swap"></a>미리 보기가 있는 교환(다단계 교환)
-
-> [!NOTE]
-> 미리 보기가 있는 교환은 Linux의 웹앱에서 지원되지 않습니다.
 
 대상 슬롯으로 프로덕션으로 전환 하기 전에 교체 된 설정으로 앱이 실행 되는지 확인 합니다. 또한 원본 슬롯은 바꾸기 완료 전에 준비 중요 한 응용 프로그램에 적합 합니다.
 
@@ -204,7 +201,8 @@ Preview를 사용 하 여 교환 하려면:
 <a name="Warm-up"></a>
 
 ## <a name="specify-custom-warm-up"></a>사용자 지정 준비 지정
-[자동 교환](#Auto-Swap)기능을 사용 하는 경우 일부 앱은 교환 전에 사용자 지정 준비 작업이 필요할 수 있습니다. Web.config `applicationInitialization` 의 구성 요소를 사용 하 여 사용자 지정 초기화 작업을 지정할 수 있습니다. [교환 작업](#AboutConfiguration) 은이 사용자 지정 준비가 완료 될 때까지 대기한 후 대상 슬롯과 교환 합니다. 다음은 web.config 조각 샘플입니다.
+
+일부 앱의 경우 교환 전에 사용자 지정 준비 작업이 필요할 수 있습니다. Web.config `applicationInitialization` 의 구성 요소를 사용 하 여 사용자 지정 초기화 작업을 지정할 수 있습니다. [교환 작업](#AboutConfiguration) 은이 사용자 지정 준비가 완료 될 때까지 대기한 후 대상 슬롯과 교환 합니다. 다음은 web.config 조각 샘플입니다.
 
     <system.webServer>
         <applicationInitialization>
@@ -334,7 +332,61 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
----
+## <a name="automate-with-arm-templates"></a>ARM 템플릿을 사용 하 여 자동화
+
+[ARM 템플릿은](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-deployment-overview) Azure 리소스의 배포 및 구성을 자동화 하는 데 사용 되는 선언적 JSON 파일입니다. ARM 템플릿을 사용 하 여 슬롯을 교환 하려면 *Microsoft 웹/사이트/슬롯* 및 *microsoft 웹/사이트* 리소스에서 두 개의 속성을 설정 합니다.
+
+- `buildVersion`: 슬롯에 배포 된 앱의 현재 버전을 나타내는 문자열 속성입니다. 예를 들면 "v1", "1.0.0.1" 또는 "2019-09-20T11:53:25.2887393-07:00"입니다.
+- `targetBuildVersion`: 슬롯에 포함 되어야 하는 @no__t를 지정 하는 문자열 속성입니다. TargetBuildVersion가 현재 `buildVersion`과 같지 않은 경우 지정 된 `buildVersion` 인 슬롯을 검색 하 여 교환 작업을 트리거합니다.
+
+### <a name="example-arm-template"></a>ARM 템플릿 예제
+
+다음 ARM 템플릿은 스테이징 슬롯의 `buildVersion`을 업데이트 하 고 프로덕션 슬롯에서 `targetBuildVersion`을 설정 합니다. 그러면 두 슬롯이 교환 됩니다. 템플릿은 "준비" 라는 슬롯을 사용 하 여 만든 webapp 이미 있다고 가정 합니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "my_site_name": {
+            "defaultValue": "SwapAPIDemo",
+            "type": "String"
+        },
+        "sites_buildVersion": {
+            "defaultValue": "v1",
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Web/sites/slots",
+            "apiVersion": "2018-02-01",
+            "name": "[concat(parameters('my_site_name'), '/staging')]",
+            "location": "East US",
+            "kind": "app",
+            "properties": {
+                "buildVersion": "[parameters('sites_buildVersion')]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2018-02-01",
+            "name": "[parameters('my_site_name')]",
+            "location": "East US",
+            "kind": "app",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites/slots', parameters('my_site_name'), 'staging')]"
+            ],
+            "properties": {
+                "targetBuildVersion": "[parameters('sites_buildVersion')]"
+            }
+        }        
+    ]
+}
+```
+
+이 ARM 템플릿은 idempotent 됩니다. 즉, 반복적으로 실행 하 여 슬롯의 동일한 상태를 생성할 수 있습니다. 첫 번째 실행 후 `targetBuildVersion`은 현재 `buildVersion`과 일치 하므로 교환이 트리거되지 않습니다.
+
 <!-- ======== Azure CLI =========== -->
 
 <a name="CLI"></a>

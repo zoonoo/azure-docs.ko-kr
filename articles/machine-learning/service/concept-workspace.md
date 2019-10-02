@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/06/2019
-ms.openlocfilehash: 677a52572658f80d9cde4de28dd02d6e957407d2
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: de215502f1ecb55bc331f29057a4f7c3f30b0132
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269206"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720172"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역 이란 무엇 인가요?
 
@@ -66,9 +66,6 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 + 실험, 파이프라인, 모델, 배포 등 기계 학습 아티팩트를 봅니다.
 + 모델 추적 및 모니터링
 
-
-
-
 ## <a name="workspace-management"></a>작업 영역 관리
 
 또한 다음 작업 영역 관리 작업을 수행할 수 있습니다.
@@ -80,7 +77,7 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 | 작업 영역 액세스 관리    | **&check;**   | |  **&check;**    |
 | Notebook VM을 만듭니다. | **&check;**   | |     |
 
-### <a name='create-workspace'></a>작업 영역 만들기
+## <a name='create-workspace'></a>작업 영역 만들기
 
 여러 가지 방법으로 작업 영역을 만들 수 있습니다.
 

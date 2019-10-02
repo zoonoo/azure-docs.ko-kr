@@ -14,18 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 25ae54ea8dd75fae74d4578b33146483ade53e4c
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: e74dd54403ed599aa95e8fc8a94c2bd7a3ca41d8
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240741"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719119"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>일반적인 이벤트 형식을 사용 하 여 외부 솔루션 연결
-
-> [!IMPORTANT]
-> Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Syslog에 로그 파일을 저장할 수 있도록 하는 외부 솔루션을 사용 하 여 Azure 센티널을 연결할 수 있습니다. 어플라이언스를 사용 하 여 로그를 Syslog CEF (일반 이벤트 형식)로 저장할 수 있는 경우 Azure 센티널과 통합 하 여 데이터에서 분석과 쿼리를 쉽게 실행할 수 있습니다.
 
@@ -141,7 +137,7 @@ CEF 형식의 Syslog 메시지를 Syslog 에이전트로 보내도록 보안 솔
 
 7. 오류가 있는지 또는 로그가 도착 하지 않았는지 확인 하려면에서 `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`찾습니다. 로그 형식 불일치 오류가 있는 경우로 `/etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` 이동 하 여 파일 `security_events.conf`을 확인 하 고이 파일에 표시 되는 regex 형식과 일치 하는 로그를 확인 합니다.
 
-8. Syslog 메시지의 기본 크기는 2048 바이트 (2kb)로 제한 되어야 합니다. 로그가 너무 길면 다음 명령을 사용 하 여 security_events를 업데이트 합니다.`message_length_limit 4096`
+8. Syslog 메시지의 기본 크기는 2048 바이트 (2kb)로 제한 되어야 합니다. 로그가 너무 길면 다음 명령을 사용 하 여 security_events를 업데이트 합니다. `message_length_limit 4096`
 
 
 ## <a name="next-steps"></a>다음 단계

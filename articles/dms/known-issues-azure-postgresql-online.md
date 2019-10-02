@@ -1,6 +1,6 @@
 ---
-title: Azure Database for MySQL로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항에 대한 문서 | Microsoft Docs
-description: Azure Database for MySQL로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항에 대해 알아봅니다.
+title: PostgreSQL에서 Azure Database for PostgreSQL로의 온라인 마이그레이션에 대 한 알려진 문제/마이그레이션 제한 사항에 대 한 문서-단일 서버 | Microsoft Docs
+description: PostgreSQL에서 Azure Database for PostgreSQL로의 온라인 마이그레이션에 대 한 알려진 문제/마이그레이션 제한 사항에 대해 알아봅니다.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -10,21 +10,21 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/06/2019
-ms.openlocfilehash: 56758e2962adb41c9876171c89b37263a70ed0e4
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.date: 10/03/2019
+ms.openlocfilehash: 891e8a261e092de0ffcef3941dd48f01942a8030
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743549"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802581"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Azure DB for PostgreSQL로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항
+# <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql-single-server"></a>PostgreSQL에서 Azure DB for PostgreSQL에 대 한 온라인 마이그레이션과의 알려진 문제/마이그레이션 제한 사항-단일 서버
 
-다음 섹션에서는 PostgreSQL에서 Azure Database for PostgreSQL로의 온라인 마이그레이션과 관련된 알려진 문제 및 제한 사항에 대해 설명합니다.
+PostgreSQL에서 Azure Database for PostgreSQL 단일 서버로의 온라인 마이그레이션과 관련 된 알려진 문제 및 제한 사항은 다음 섹션에 설명 되어 있습니다.
 
 ## <a name="online-migration-configuration"></a>온라인 마이그레이션 구성
 
-- 원본 PostgreSQL Server는 버전 9.5.11, 9.6.7 또는 10.3 이상을 실행해야 합니다. 자세한 내용은 [지원되는 PostgreSQL 데이터베이스 버전](../postgresql/concepts-supported-versions.md) 문서를 참조하세요.
+- 원본 PostgreSQL 서버는 9.5.11, 9.6.7 또는 10.3 이상 버전을 실행 해야 합니다. 자세한 내용은 [지원되는 PostgreSQL 데이터베이스 버전](../postgresql/concepts-supported-versions.md) 문서를 참조하세요.
 - 같은 버전의 마이그레이션만 지원됩니다. 예를 들어 PostgreSQL 9.5.11을 Azure Database for PostgreSQL 9.6.7로 마이그레이션할 수는 없습니다.
 
     > [!NOTE]
@@ -32,7 +32,7 @@ ms.locfileid: "70743549"
 
 - **원본 PostgreSQL postgresql.conf** 파일에서 논리 복제를 사용하도록 설정하려면 다음 매개 변수를 설정합니다.
   - **wal_level** = logical
-  - **max_replication_slots** = [마이그레이션할 데이터베이스의 최대 수]. 데이터베이스 4개를 마이그레이션하려면 값을 4로 설정합니다.
+  - **max_replication_slots** = [마이그레이션의 최대 데이터베이스 수]; 4 개의 데이터베이스를 마이그레이션하려면 값을 4로 설정 합니다.
   - **max_wal_senders** = [동시에 실행되는 데이터베이스 수]. 권장 값은 10입니다.
 - DMS 에이전트 IP를 원본 PostgreSQL pg_hba에 추가 합니다.
   1. DMS 인스턴스 프로비전을 완료한 후 DMS IP 주소를 기록해 둡니다.
@@ -73,7 +73,7 @@ ms.locfileid: "70743549"
 
     쿼리 결과에서 외래 키 삭제(두 번째 열)를 실행합니다.
 
-- 대상 Azure Database for PostgreSQL의 스키마에는 트리거가 없어야 합니다. 대상 데이터베이스에서 트리거를 사용하지 않도록 설정하려면 다음 명령을 사용합니다.
+- 대상 Azure Database for PostgreSQL의 스키마는 단일 서버에 트리거가 없어야 합니다. 대상 데이터베이스에서 트리거를 사용하지 않도록 설정하려면 다음 명령을 사용합니다.
 
      ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';

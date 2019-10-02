@@ -8,16 +8,20 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: bbb5b90ffac4a89c14a4a6df51022bb61b10fbb0
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: e5cea36760746eaa63451c9e9955368c71ba4472
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845504"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71816139"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>빠른 시작-사설 클라우드 환경 구성
 
 이 문서에서는 CloudSimple 사설 클라우드를 만들고 사설 클라우드 환경을 설정 하는 방법에 대해 알아봅니다.
+
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
+
+[네트워킹 필수 구성 요소](cloudsimple-network-checklist.md)를 검토 합니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -78,7 +82,7 @@ Azure Portal에서 CloudSimple 포털에 액세스할 수 있습니다.  CloudSi
 2. **VPN Gateway**를 선택 합니다.
 3. **새 VPN Gateway**을 클릭 합니다.
 
-    ![VPN 게이트웨이 만들기](media/create-vpn-gateway.png)
+    ![VPN Gateway 만들기](media/create-vpn-gateway.png)
 
 4. **게이트웨이 구성**의 경우 다음 설정을 지정 하 고 **다음**을 클릭 합니다.
 
@@ -151,7 +155,7 @@ CloudSimple은 사설 클라우드에 대 한 Express 경로 회로를 제공 �
 
 1. VCenter에 액세스 하려면 CloudSimple 포털에서 시작 합니다. 홈 페이지의 **일반 작업**에서 **Vsphere 클라이언트 시작**을 클릭 합니다.  사설 클라우드를 선택 하 고 사설 클라우드에서 **vSphere 클라이언트 시작** 을 클릭 합니다.
 
-    ![VSphere 클라이언트 시작](media/launch-vcenter-from-cloudsimple-portal.png)
+    ![vSphere 클라이언트 시작](media/launch-vcenter-from-cloudsimple-portal.png)
 
 2. VCenter에 액세스 하 고 사용자 이름 및 암호를 사용 하 여 로그인 할 기본 vSphere 클라이언트를 선택 합니다.  기본값은 다음과 같습니다.
     * 사용자 이름: **CloudOwner@cloudsimple.local**
@@ -172,7 +176,7 @@ CloudSimple은 vCenter에 처음 로그인 할 때 암호를 변경 하는 것�
 * 번호 하나 이상의 숫자 문자, 0-9
 * 최대 동일한 인접 문자: 3
 
-    예제: CC 또는 CCC는 암호의 일부로 허용 되지만 CCCC는 허용 되지 않습니다.
+    예: CC 또는 CCC는 암호의 일부로 허용 되지만 CCCC는 허용 되지 않습니다.
 
 요구 사항에 맞지 않는 암호를 설정 하는 경우:
 

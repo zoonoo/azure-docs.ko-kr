@@ -11,12 +11,12 @@ ms.date: 09/14/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a8e35254a79ac43b35f45d1a20f3d1f6815f32be
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: bf9b6a3ad40d46b628bfcdb3fa3e32b2419360c9
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702817"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802089"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C 감사 로그 액세스
 
@@ -112,10 +112,7 @@ B2C 테 넌 트 내의 기존 Azure Active Directory 응용 프로그램 등록�
 
 ### <a name="create-client-secret"></a>클라이언트 암호 만들기
 
-1. **API 액세스**아래에서 **키**를 선택 합니다.
-1. 키 **설명** 상자에 키에 대 한 설명을 입력 합니다. 예를 들어 *감사 로그 키*입니다.
-1. 유효 **기간**을 선택한 다음 **저장**을 선택 합니다.
-1. 키의 **값**을 기록 합니다. 이후 섹션에 표시 된 예제 PowerShell 스크립트와 같이 자동화 스크립트에서 인증을 위해이 값이 필요 합니다.
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 이제 응용 프로그램에 필요한 API 액세스, 응용 프로그램 ID 및 자동화 스크립트에서 사용할 수 있는 키가 있습니다. 스크립트를 사용 하 여 작업 이벤트를 가져오는 방법에 대 한 예제는이 문서의 뒷부분에 있는 PowerShell 스크립트 섹션을 참조 하세요.
 

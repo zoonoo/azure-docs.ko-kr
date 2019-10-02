@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/30/2019
 ms.author: lyhughes
-ms.openlocfilehash: ad51fbe7d2f8e8f115adf03d6333c0747765ee43
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 6d8d6f03847fcd22a6d78c445ae039c73e9badfa
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338598"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719159"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>Api에 연결 및 인증
 
@@ -34,7 +34,10 @@ Azure AD에서 지원되는 [5가지 기본 애플리케이션 시나리오](../
 * 웹 응용 프로그램-web API: 웹 애플리케이션에서 Azure AD로 보호되는 웹 API로부터 리소스를 가져와야 합니다.
 * 웹 API에 대 한 디먼 또는 서버 응용 프로그램: 웹 UI가 없는 데몬 응용 프로그램 또는 서버 응용 프로그램은 Azure AD로 보호 되는 web API에서 리소스를 가져와야 합니다.
 
-Windows Azure 인증 라이브러리는 Active Directory 토큰을 획득하는 여러 가지 방법을 제공합니다. 라이브러리 및 코드 샘플에 대 한 자세한 내용은 [ADAL.NET Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki)를 참조 하세요.
+> [!IMPORTANT]
+> Azure Digital Twins는 다음 인증 라이브러리를 모두 지원 합니다.
+> * 최신 [MSAL (Microsoft 인증 라이브러리)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
+> * [ADAL (Azure Active Directory 인증 라이브러리)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 
 ## <a name="call-digital-twins-from-a-middle-tier-web-api"></a>중간 계층 웹 API에서 Digital Twins 호출
 

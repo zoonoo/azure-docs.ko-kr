@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 8e9cc93a74c299be6fb4898b4af143a43fc079f5
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3c7ba10525dedf213a416d9ce6b55c80539fedd7
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067030"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812199"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>모든 웹 사이트의 가용성 모니터링
 
@@ -31,7 +31,7 @@ ms.locfileid: "71067030"
 
 * [URL ping 테스트](#create-a-url-ping-test): Azure 포털에서 만들 수 있는 간단한 테스트입니다.
 * [다단계 웹 테스트](availability-multistep.md): 더 복잡 한 시나리오를 테스트 하기 위해 재생할 수 있는 웹 요청 시퀀스의 기록입니다. 다중 단계 웹 테스트는 Visual Studio Enterprise에서 만들어지고 실행을 위해 포털에 업로드 됩니다.
-* [사용자 지정 추적 가용성 테스트](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): 메서드 `TrackAvailability()` 를 사용 하 여 고유한 사용자 지정 가용성 테스트를 만들 수 있습니다.
+* [사용자 지정 추적 가용성 테스트](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): 사용자 지정 응용 프로그램을 만들어 가용성 테스트를 실행 하기로 결정 한 경우 `TrackAvailability()` 메서드를 사용 하 여 결과를 Application Insights으로 보낼 수 있습니다.
 
 **Application Insights 리소스 당 최대 100 개의 가용성 테스트를 만들 수 있습니다.**
 
@@ -126,7 +126,7 @@ Azure Portal에서 **리소스** > 만들기**개발자 도구** > **Application
 1. 가용성: 모든 테스트 실행에서 성공한 테스트의 비율입니다.
 2. 테스트 지속 시간: 모든 테스트 실행에서의 평균 테스트 지속 시간입니다.
 
-## <a name="automation"></a>자동화
+## <a name="automation"></a>Automation
 
 * [PowerShell 스크립트를 사용하여 가용성 테스트를 자동으로 설정](../../azure-monitor/app/powershell.md#add-an-availability-test)합니다.
 * 경고가 발생하면 호출되는 [웹후크](../../azure-monitor/platform/alerts-webhooks.md)를 설정합니다.

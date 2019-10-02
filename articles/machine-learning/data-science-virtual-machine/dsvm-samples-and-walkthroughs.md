@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f3d683ffb91639db64000efa2d9791d13d84b79b
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: ad58adb85077a27bce65595738ffdbd92bace9bd
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195669"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802447"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Azure 데이터 과학에 대 한 샘플 Virtual Machines
 
@@ -23,8 +23,12 @@ DSVMs (Azure 데이터 과학 Virtual Machines)은 포괄적인 샘플 코드 �
 > [!NOTE]
 > 데이터 과학 virtual machines에서 Jupyter 노트북을 실행 하는 방법에 대 한 자세한 내용은 [Jupyter 액세스](#access-jupyter) 섹션을 참조 하세요.
 
+## <a name="prerequisites"></a>사전 요구 사항
+
+이러한 샘플을 실행 하려면 Data Science Virtual Machine를 프로 비전 해야 합니다. [Windows](./provision-vm.md) 및 [Ubuntu](./dsvm-ubuntu-intro.md)에 대 한 빠른 시작을 참조 하세요.
+
 ## <a name="available-samples"></a>사용 가능한 샘플
-| 샘플 범주 | Description | 위치 |
+| 샘플 범주 | 설명 | 위치 |
 | ------------- | ------------- | ------------- |
 | R 언어  | 샘플은 Azure 기반 클라우드 데이터 저장소에 연결 하는 방법 및 오픈 소스 R 및 Microsoft Machine Learning Server 비교 하는 방법 등의 시나리오를 보여 줍니다. 또한 Microsoft Machine Learning Server 및 SQL Server에서 모델을 운영 하는 방법을 설명 합니다. <br/> [R 언어](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Python 언어  | 샘플에서는 Azure 기반 클라우드 데이터 저장소에 연결 하는 방법 및 Azure Machine Learning 사용 하는 방법 등의 시나리오를 설명 합니다.  <br/> [Python 언어](#python-language) | <br/>`~notebooks` <br/><br/>|
@@ -42,7 +46,7 @@ DSVMs (Azure 데이터 과학 Virtual Machines)은 포괄적인 샘플 코드 �
 
 ## <a name="access-jupyter"></a>액세스 Jupyter 
 
-Jupyter에 액세스 하려면 바탕 화면 또는 응용 프로그램 메뉴에서 **jupyter** 아이콘을 선택 합니다. DSVM의 Linux 버전에서 Jupyter에 액세스할 수도 있습니다. 웹 브라우저에서 원격으로 액세스 하려면 Ubuntu에서로 `https://<Full Domain Name or IP Address of the DSVM>:8000` 이동 합니다.
+Jupyter에 액세스 하려면 바탕 화면 또는 응용 프로그램 메뉴에서 **jupyter** 아이콘을 선택 합니다. DSVM의 Linux 버전에서 Jupyter에 액세스할 수도 있습니다. 웹 브라우저에서 원격으로 액세스 하려면 Ubuntu의 `https://<Full Domain Name or IP Address of the DSVM>:8000`으로 이동 합니다.
 
 브라우저를 통해 예외를 추가 하 고 Jupyter 액세스를 사용할 수 있도록 설정 하려면 다음 지침을 사용 합니다.
 

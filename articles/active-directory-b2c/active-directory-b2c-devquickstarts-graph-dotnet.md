@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 02765538ce8a351db539438837b6426c0896d2d4
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 2585b47d049047cc191bfc284c4486361917f1ed
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71701886"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802075"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API 사용
 
@@ -49,19 +49,11 @@ B2C 테 넌 트와 함께 Azure AD Graph API을 사용 하려면 Azure Active Di
 
 ### <a name="assign-api-access-permissions"></a>API 액세스 권한 할당
 
-1. 등록 된 **앱** 개요 페이지에서 **설정**을 선택 합니다.
-1. **API 액세스**에서 **필요한 권한**을 선택 합니다.
-1. **Windows Azure Active Directory**를 선택합니다.
-1. **응용 프로그램 사용 권한**에서 **디렉터리 데이터 읽기 및 쓰기**를 선택 합니다.
-1. **저장**을 선택합니다.
-1. **사용 권한 부여**를 선택한 다음, **예**를 선택합니다. 권한이 완전히 전파 되는 데 몇 분 정도 걸릴 수 있습니다.
+[!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
 ### <a name="create-client-secret"></a>클라이언트 암호 만들기
 
-1. **API 액세스**아래에서 **키**를 선택 합니다.
-1. 키 **설명** 상자에 키에 대 한 설명을 입력 합니다. 예를 들면 *관리 키*가 있습니다.
-1. 유효 **기간** 을 선택한 다음 **저장**을 선택 합니다.
-1. 키의 **값**을 기록 합니다. 이후 단계에서 구성에이 값을 사용 합니다.
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 이제 Azure AD B2C 테 넌 트에서 사용자를 *만들고*, *읽고*, *업데이트할* 수 있는 권한을 가진 응용 프로그램이 있습니다. 다음 섹션으로 이동 하 여 사용자 *삭제* 및 *암호 업데이트* 권한을 추가 합니다.
 

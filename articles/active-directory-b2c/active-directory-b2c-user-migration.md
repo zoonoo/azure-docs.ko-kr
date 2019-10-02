@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 20c8fbd1626adaf67b790d500d8bfdeff6f27841
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 8ec61a04d6bb7289f12becf8baebae5e47150897
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702158"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802086"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: 사용자 마이그레이션
 
@@ -59,22 +59,13 @@ Graph API와 통신하려면 먼저 관리자 권한이 있는 서비스 계정�
 
 다음으로, 디렉터리에 쓰는 데 필요한 Azure AD Graph API 권한을 응용 프로그램에 부여 합니다.
 
-1. **설정** 메뉴에서 **필요한 권한**을 선택 합니다.
-1. **Windows Azure Active Directory**를 선택합니다.
-1. **액세스 사용** 창의 **애플리케이션 권한** 아래에서 **디렉터리 데이터 읽기 및 쓰기**를 선택한 다음, **저장**을 선택합니다.
-1. **필요한 권한** 창에서 **권한 부여**를 선택 하 고 **예**를 선택 합니다.
-
-   ![읽기/쓰기 디렉터리 확인란, 저장 및 권한 부여가 강조 표시 됨](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
+[!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
 ### <a name="step-13-create-the-application-secret"></a>1\.3단계: 애플리케이션 비밀 만들기
 
 이후 단계에서 구성 하는 사용자 마이그레이션 응용 프로그램에서 사용할 클라이언트 암호 (키)를 만듭니다.
 
-1. 등록 된 **앱** 페이지에서 **설정**을 선택 합니다.
-1. **키**를 선택합니다.
-1. **암호**에서 이름이 *MyClientSecret* 인 새 키 (클라이언트 암호 라고도 함)를 추가 하 고, 만료 창을 선택 하 고, **저장**을 선택 하 고, 나중에 사용 하기 위해 키 값을 복사 합니다.
-
-    ![Azure Portal 강조 표시 된 응용 프로그램 ID 값 및 키 메뉴 항목](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 이제 Azure AD B2C 테 넌 트에서 사용자를 만들고, 읽고, 업데이트할 수 있는 권한을 가진 응용 프로그램이 있습니다.
 

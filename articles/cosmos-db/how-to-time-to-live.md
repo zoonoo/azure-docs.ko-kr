@@ -4,14 +4,14 @@ description: Azure Cosmos DB에서 TTL(Time to Live)을 구성하고 관리하�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: ddda7b96147892efb38cb0405120db3613e98cf8
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: e36b894ec9c7433bc114145e0de5f519f73486f1
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104865"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815905"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB에서 TTL(Time to Live) 구성
 
@@ -36,10 +36,16 @@ Azure Cosmos DB에서는 컨테이너 수준에서 TTL(Time to Live)을 구성�
 
    ![Azure Portal에서 TTL(Time to Live) 구성](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
 
+* DefaultTimeToLive가 Null인 경우 TTL(Time to Live)이 꺼짐
+* DefaultTimeToLive가 -1인 경우 TTL(Time to Live) 설정이 켜짐(기본값 없음)
+* DefaultTimeToLive가 다른 Int 값(0 제외)을 가진 경우 TTL(Time to Live) 설정이 켜짐
 
-- DefaultTimeToLive가 Null인 경우 TTL(Time to Live)이 꺼짐
-- DefaultTimeToLive가 -1인 경우 TTL(Time to Live) 설정이 켜짐(기본값 없음)
-- DefaultTimeToLive가 다른 Int 값(0 제외)을 가진 경우 TTL(Time to Live) 설정이 켜짐
+## <a name="enable-time-to-live-on-a-container-using-azure-cli-or-powershell"></a>Azure CLI 또는 PowerShell을 사용 하 여 컨테이너에 대해 ttl (time to live) 사용
+
+컨테이너에서 TTL을 만들거나 사용 하도록 설정 하려면을 참조 하세요.
+
+* [Azure CLI를 사용 하 여 TTL이 있는 컨테이너 만들기](manage-with-cli.md#create-a-container-with-ttl)
+* [Powershell을 사용 하 여 TTL이 있는 컨테이너 만들기](manage-with-powershell.md#create-container-unique-key-ttl)
 
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>SDK를 사용하여 컨테이너에서 TTL(Time to Live)을 사용하도록 설정
 
@@ -185,11 +191,10 @@ SalesOrder salesOrder = new SalesOrder
 const itemDefinition = {
           id: "doc",
           name: "sample Item",
-          key: "value", 
+          key: "value",
           ttl: 2
         };
 ```
-
 
 ## <a name="reset-time-to-live"></a>TTL 다시 설정
 
