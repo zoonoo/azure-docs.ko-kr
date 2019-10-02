@@ -24,7 +24,7 @@ ms.locfileid: "70086922"
 
 WebJobs SDK의 버전 2.x에서 호스트는의 `IHost`구현 이며, 버전 2.x에서는 개체를 `JobHost` 사용 합니다.
 
-연결 Durable Functions 샘플은 WebJobs SDK 2.x 버전에서 사용할 수 있습니다. [Durable Functions 리포지토리](https://github.com/azure/azure-functions-durable-extension/)를 다운로드 하거나 복제 하 고 *samples\\\\webjobss00ststststststststststststststststststst\*
+연결 Durable Functions 샘플은 WebJobs SDK 2.x 버전에서 사용할 수 있습니다. [Durable Functions 리포지토리](https://github.com/azure/azure-functions-durable-extension/)를 다운로드 하거나 복제 하 고 *samples\\\\webjobss00ststststststststststststststststststst*
 
 ## <a name="prerequisites"></a>전제 조건
 

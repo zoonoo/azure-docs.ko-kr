@@ -360,7 +360,7 @@ search=Spacious, air-condition* +"Ocean view"
 Azure Search에서 관련성 점수를 조정하는 두 가지 방법이 있습니다.
 
 1. **점수 매기기 프로필**은 규칙 집합을 기준으로 순위가 지정된 결과 목록에서 문서를 승격합니다. 이 문서의 예제에서는 제목 필드와 일치하는 문서가 설명 필드와 일치하는 문서보다 관련성이 높은 것으로 간주할 수 있습니다. 뿐만 아니라 만약 인덱스에 각 호텔의 가격 필드가 있다면 가격이 낮은 문서를 승격할 수 있습니다. [검색 인덱스에 점수 매기기 프로필 추가](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)에 대해 자세히 알아보세요.
-2. **용어 상승**(전체 Lucene 쿼리 구문에만 사용 가능)은 쿼리 트리의 어떤 부분에도 적용할 수 있는 `^` 상승 연산자를 제공합니다. 이 문서의 예제에서 접두사 *air-condition*\*을 검색하는 대신, 정확한 용어 *air-condition*으로 검색하거나 접두사로 검색할 수 있습니다. 하지만 용어 쿼리에 상승을 적용하여(*air-condition^2||air-condition**) 정확한 용어와 일치하는 문서에 더 높은 순위가 부여됩니다. [용어 상승](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost)에 대해 자세히 알아보세요.
+2. **용어 상승**(전체 Lucene 쿼리 구문에만 사용 가능)은 쿼리 트리의 어떤 부분에도 적용할 수 있는 `^` 상승 연산자를 제공합니다. 이 문서의 예제에서 접두사 *air-condition*\*을 검색하는 대신, 정확한 용어 *air-condition*으로 검색하거나 접두사로 검색할 수 있습니다. 하지만 용어 쿼리에 상승을 적용하여(*air-condition^2||air-condition* *) 정확한 용어와 일치하는 문서에 더 높은 순위가 부여됩니다. [용어 상승](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost)에 대해 자세히 알아보세요.
 
 
 ### <a name="scoring-in-a-distributed-index"></a>분산된 인덱스에 점수 매기기
