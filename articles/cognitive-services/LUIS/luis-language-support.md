@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 3b1b31da68d821ff27fa30e75ec1522b9d4875c8
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 94f019205959d63a05ed3d90ede59fece3c05901
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307423"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316346"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS에 대한 언어 및 지역 지원
 
@@ -34,18 +34,18 @@ LUIS는 발화를 다음 언어로 이해합니다.
 |--|--|:--:|:--:|:--:|:--:|
 | 미국 영어 |`en-US` | ✔ | ✔  |✔|✔|
 | *[중국어](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| 네덜란드어 |`nl-NL` |-|  -   |-|✔|
-| 프랑스어 (프랑스) |`fr-FR` |-| ✔ |✔ |✔|
+| 네덜란드어 |`nl-NL` |✔|  -   |-|✔|
+| 프랑스어 (프랑스) |`fr-FR` |✔| ✔ |✔ |✔|
 | 프랑스어(캐나다) |`fr-CA` |-|   -   |-|✔|
-| 독일어 |`de-DE` |-| ✔ |✔ |✔|
+| 독일어 |`de-DE` |✔| ✔ |✔ |✔|
 | 힌디어 | `hi-IN`|-|-|-|-|
-| 이탈리아어 |`it-IT` |-| ✔ |✔|✔|
-| *[일본어](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|주요 구문만|
-| 한국어 |`ko-KR` |-|   -   |-|주요 구문만|
-| 포르투갈어(브라질) |`pt-BR` |-| ✔ |✔ |일부 하위 문화권은 아님|
-| 스페인어(스페인) |`es-ES` |-| ✔ |✔|✔|
+| 이탈리아어 |`it-IT` |✔| ✔ |✔|✔|
+| *[일본어](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|주요 구문만|
+| 한국어 |`ko-KR` |✔|   -   |-|주요 구문만|
+| 포르투갈어(브라질) |`pt-BR` |✔| ✔ |✔ |일부 하위 문화권은 아님|
+| 스페인어(스페인) |`es-ES` |✔| ✔ |✔|✔|
 | 스페인어(멕시코)|`es-MX` |-|  -   |✔|✔|
-| 터키어 | `tr-TR` |-|-|-|감정만|
+| 터키어 | `tr-TR` |✔|-|-|감정만|
 
 
 언어 지원은 [미리 빌드된 엔터티](luis-reference-prebuilt-entities.md) 및 [미리 빌드된 도메인](luis-reference-prebuilt-domains.md)에 따라 다릅니다.
@@ -54,7 +54,7 @@ LUIS는 발화를 다음 언어로 이해합니다.
 
  - `zh-cn` 문화권에서 LUIS는 기존 문자 집합 대신 중국어 간체 문자 집합을 예상합니다.
  - 의도, 엔터티, 기능 및 정규식의 이름은 중국어 또는 로마 문자일 수 있습니다.
- - `zh-cn` 문화권에서 지원 되는 미리 빌드된 도메인에 대 한 자세한 내용은 미리 작성 된 [도메인 참조](luis-reference-prebuilt-domains.md) 를 참조 하세요.
+ - @No__t-1 문화권에서 지원 되는 미리 빌드된 도메인에 대 한 자세한 내용은 미리 작성 된 [도메인 참조](luis-reference-prebuilt-domains.md) 를 참조 하세요.
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ### <a name="japanese-support-notes"></a>*일본어 지원 참고
@@ -103,8 +103,8 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](h
 
 |Culture|버전|용도|
 |--|--|--|
-|독일어<br>`de-de`|1.0.0|복합 단어를 단일 구성 요소로 분할 하는 기계 학습 기반 토크 토큰화를 사용 하 여 단어를 분할 합니다.<br>사용자가 utterance으로 `Ich fahre einen krankenwagen` 들어가면로 `Ich fahre einen kranken wagen`설정 됩니다. `kranken` 및`wagen` 를 다른 엔터티로 독립적으로 표시할 수 있습니다.|
-|독일어<br>`de-de`|1.0.2|단어를 공백으로 분할 하 여 단어를 토큰화.<br> 사용자가 utterance으로 `Ich fahre einen krankenwagen` 들어가면 단일 토큰으로 유지 됩니다. 따라서 `krankenwagen` 는 단일 엔터티로 표시 됩니다. |
+|독일어<br>`de-de`|1.0.0|복합 단어를 단일 구성 요소로 분할 하는 기계 학습 기반 토크 토큰화를 사용 하 여 단어를 분할 합니다.<br>사용자가 utterance으로 `Ich fahre einen krankenwagen`을 입력 하면-1 @no__t로 설정 됩니다. @No__t-0 및 `wagen`을 다른 엔터티로 독립적으로 표시할 수 있습니다.|
+|독일어<br>`de-de`|1.0.2|단어를 공백으로 분할 하 여 단어를 토큰화.<br> 사용자가 utterance로 @no__t를 입력 하면 단일 토큰으로 유지 됩니다. 따라서 `krankenwagen`은 단일 엔터티로 표시 됩니다. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>토크 버전 간 마이그레이션
 <!--

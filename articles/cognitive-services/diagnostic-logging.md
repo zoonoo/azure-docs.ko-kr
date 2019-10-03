@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: cd380b4e2a7c05f0beedc2ab102b268aa4068f66
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 539a35f170b2ee0c94762a30ed9376ca4a416210
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516366"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827909"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Azure Cognitive Services에 대 한 진단 로깅 사용
 
 이 가이드에서는 Azure 인식 서비스에 대 한 진단 로깅을 사용 하도록 설정 하는 단계별 지침을 제공 합니다. 이러한 로그는 문제를 식별 하 고 디버깅 하는 데 사용 되는 리소스 작업에 대 한 풍부 하 고 빈번한 데이터를 제공 합니다. 계속 하기 전에 [Bing Web Search](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/overview), [Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview)또는 [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis)와 같은 하나 이상의 인식 서비스에 대 한 구독이 있는 Azure 계정이 있어야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 진단 로깅을 사용 하도록 설정 하려면 로그 데이터를 저장 하는 위치에 있어야 합니다. 이 자습서에서는 Azure Storage와 Log Analytics를 사용 합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "68516366"
 먼저 Azure Portal를 사용 하 여 진단 로깅을 사용 하도록 설정 합니다.
 
 > [!NOTE]
-> PowerShell 또는 Azure CLI를 사용 하 여이 기능을 사용 하도록 설정 하려면 [Azure 리소스에서 로그 데이터 수집 및](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#diagnostic-settings)사용에 제공 된 지침을 사용 합니다.
+> PowerShell 또는 Azure CLI를 사용 하 여이 기능을 사용 하도록 설정 하려면 [Azure 리소스에서 로그 데이터 수집 및](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)사용에 제공 된 지침을 사용 합니다.
 
 1. Azure Portal로 이동합니다. 그런 다음 Cognitive Services 리소스를 찾아 선택 합니다. 예를 들어 구독을 Bing Web Search 합니다.   
 2. 그런 다음 왼쪽 탐색 메뉴에서 **모니터링** 을 찾아 **진단 설정**을 선택 합니다. 이 화면에는이 리소스에 대해 이전에 만든 모든 진단 설정이 포함 되어 있습니다.
@@ -43,7 +43,7 @@ ms.locfileid: "68516366"
 4. 설정의 이름을 입력 합니다. 그런 다음 **저장소 계정에 보관** 을 선택 하 고 **Log Analytics에 보냅니다**.
 5. 구성 하 라는 메시지가 표시 되 면 진단 로그를 저장 하는 데 사용할 저장소 계정 및 OMS 작업 영역을 선택 합니다. **참고**: 저장소 계정 또는 OMS 작업 영역이 없는 경우 표시 되는 메시지에 따라 하나를 만듭니다.
 6. **감사**, **RequestResponse**및 **allmetrics**을 선택 합니다. 그런 다음 진단 로그 데이터에 대 한 보존 기간을 설정 합니다. 보존 정책이 0으로 설정 된 경우 해당 로그 범주에 대 한 이벤트는 무기한 저장 됩니다.
-7. **Save**을 클릭합니다.
+7. **저장**을 클릭합니다.
 
 로깅 데이터를 쿼리 및 분석에 사용할 수 있을 때까지 최대 2 시간이 걸릴 수 있습니다. 바로 표시 되지 않는 경우 걱정 하지 마세요.
 

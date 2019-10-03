@@ -9,24 +9,24 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: bf2fd053cabeaf85b177e284f86ba378e0e4389e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 9e237b09bd2b0ecc3e91e10697f6c025f73057da
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933413"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677446"
 ---
 # <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>LUIS 앱에 대 한 전화 번호 미리 작성 된 엔터티
 `phonenumber` 엔터티는 국가 코드를 포함하는 다양한 전화 번호를 추출합니다. 이 엔터티를 이미 학습했기 때문에 애플리케이션에 예제 발언을 추가할 필요가 없습니다. `phonenumber` 엔터티는 `en-us` 문화권에서만 지원됩니다. 
 
 ## <a name="types-of-a-phone-number"></a>전화 번호 형식
-`Phonenumber`인식기에서 관리 됨 [-텍스트](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) GitHub 리포지토리
+`Phonenumber`은 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) GitHub 리포지토리에서 관리 됩니다.
 
 ## <a name="resolution-for-this-prebuilt-entity"></a>이 미리 작성 한 엔터티에 대 한 해결 방법
 
-### <a name="api-version-2x"></a>API 버전 2.x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
 
 다음 예제에서는 **builtin.phonenumber** 엔터티의 해결을 보여 줍니다.
 
@@ -58,9 +58,9 @@ ms.locfileid: "68933413"
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Preview API 버전 3(sp3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
 
-다음 JSON은 `verbose` 매개 변수를로 `false`설정 하는입니다.
+다음 JSON은 `verbose` 매개 변수를 `false`로 설정 합니다.
 
 ```json
 {
@@ -82,7 +82,7 @@ ms.locfileid: "68933413"
 }
 ```
 
-다음 JSON은 `verbose` 매개 변수를로 `true`설정 하는입니다.
+다음 JSON은 `verbose` 매개 변수를 `true`로 설정 합니다.
 
 ```json
 {
@@ -117,6 +117,10 @@ ms.locfileid: "68933413"
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>다음 단계
+
+[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
 
 [percentage](luis-reference-prebuilt-percentage.md), [number](luis-reference-prebuilt-number.md) 및 [temperature](luis-reference-prebuilt-temperature.md) 엔터티에 대해 알아봅니다. 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 0d77622e22c297cc29c93a5421da5043e396b929
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 66cdedb402392340d38ab9a72f6f19012c359664
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933573"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677632"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>LUIS 모델에서 문화권별 엔터티
 
@@ -42,9 +42,9 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```zh-CN``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>월<br>week<br>일   |    ✔   |
+[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    ✔   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>날짜<br>daterange<br>Time<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>Time<br>timerange   |    ✔   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -64,7 +64,7 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```nl-NL``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>월<br>week<br>일   |    ✔   |
+[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    ✔   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
 [날짜](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
@@ -86,9 +86,9 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```en-US``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>월<br>week<br>일   |    ✔   |
+[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    ✔   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>날짜<br>daterange<br>Time<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>Time<br>timerange   |    ✔   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   | 
@@ -108,9 +108,9 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```fr-FR``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>월<br>week<br>일   |    ✔   |
+[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    ✔   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>날짜<br>daterange<br>Time<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>Time<br>timerange   |    ✔   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -130,9 +130,9 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```fr-CA``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>월<br>week<br>일   |    ✔   |
+[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    ✔   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>날짜<br>daterange<br>Time<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>Time<br>timerange   |    ✔   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -152,9 +152,9 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```de-DE``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>월<br>week<br>일   |    ✔   |
+[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    ✔   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>날짜<br>daterange<br>Time<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>Time<br>timerange   |    ✔   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -174,7 +174,7 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```it-IT``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>월<br>week<br>일   |    ✔   |
+[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    ✔   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
 [날짜](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
@@ -196,7 +196,7 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```ja-JP``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>월<br>week<br>일   |    ✔   |
+[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    ✔   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
 [날짜](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
@@ -218,7 +218,7 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```ko-KR``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>월<br>week<br>일   |    -   |
+[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    -   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    -   |
 [날짜](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    -   | 
@@ -240,9 +240,9 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```pt-BR``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>월<br>week<br>일   |    ✔   |
+[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    ✔   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>날짜<br>daterange<br>Time<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>Time<br>timerange   |    ✔   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -262,9 +262,9 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```es-ES``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>월<br>week<br>일   |    ✔   |
+[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    ✔   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>날짜<br>daterange<br>Time<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>Time<br>timerange   |    ✔   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -284,9 +284,9 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```es-MX``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>월<br>week<br>일   |    -   |
+[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    -   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>날짜<br>daterange<br>Time<br>timerange   |    -   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>Time<br>timerange   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    -   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 

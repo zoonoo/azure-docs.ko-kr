@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 97684a4668c1d495fa690674f7bd94e064737bd4
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 0707ed3dfee9af27b7cab66c7952d1e7c1d57cb8
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273960"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703207"
 ---
 # <a name="developer-resources-for-language-understanding"></a>Language Understanding에 대 한 개발자 리소스
 
@@ -34,6 +34,8 @@ Azure Cognitive Services 관리 계층을 사용 하 여 Language Understanding 
 ## <a name="language-understanding-authoring-and-prediction-requests"></a>Language Understanding 작성 및 예측 요청
 
 Language Understanding 서비스는 만들어야 하는 Azure 리소스에서 액세스할 수 있습니다. 작성 및 예측 끝점 리소스 라는 두 가지 리소스가 있습니다. 이러한 리소스를 모두 사용 하 여 LUIS 리소스를 제어할 수 있습니다. 
+
+[V3 예측 끝점](luis-migration-api-v3.md)에 대해 알아봅니다.
 
 ### <a name="rest-apis"></a>REST API
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/24/2019
+ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: ca9f8b570ee28b1913c8ec81c66a5b70827c04d6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1757faf8ab2be0b62956b6939ee068929f9275a4
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559963"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695247"
 ---
 # <a name="list-entity"></a>목록 엔터티 
 
@@ -45,45 +45,72 @@ ms.locfileid: "68559963"
 
 이전 발화에서 `paris` 단어는 `Cities` 목록 엔터티의 일부로 paris 항목에 매핑됩니다. 목록 엔터티는 항목 동의어뿐 아니라 항목의 정규화된 이름과도 일치합니다.
 
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 22,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
-
-파리의 동의어를 사용하는 다른 예제 발화:
-
-`book 2 tickets to roissy`
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
 
 ```JSON
-"entities": [
-  {
-    "entity": "roissy",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 23,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
+  "entities": [
+    {
+      "entity": "paris",
+      "type": "Cities",
+      "startIndex": 18,
+      "endIndex": 22,
+      "resolution": {
+        "values": [
+          "Paris"
+        ]
+      }
     }
-  }
-]
+  ]
 ```
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+
+
+쿼리 문자열에 `verbose=false`이 설정 된 경우이는 JSON입니다.
+
+```json
+"entities": {
+    "Cities": [
+        [
+            "Paris"
+        ]
+    ]
+}
+```
+
+쿼리 문자열에 `verbose=true`이 설정 된 경우이는 JSON입니다.
+
+```json
+"entities": {
+    "Cities": [
+        [
+            "Paris"
+        ]
+    ],
+    "$instance": {
+        "Cities": [
+            {
+                "type": "Cities",
+                "text": "paris",
+                "startIndex": 18,
+                "length": 5,
+                "modelTypeId": 5,
+                "modelType": "List Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+* * * 
 
 |데이터 개체|엔터티 이름|값|
 |--|--|--|
-|단순 엔터티|`Customer`|`bob jones`|
+|엔터티 나열|`Cities`|`paris`|
+
 
 ## <a name="next-steps"></a>다음 단계
 

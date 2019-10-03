@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/30/2019
 ms.author: diberry
-ms.openlocfilehash: 376c2efbf3269092d0534870108ef6d753f8743e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: bad581fbc53292b5a7c25157ef839e07f33e131e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962509"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827888"
 ---
 # <a name="personalizer-settings"></a>Personalizer 설정
 
@@ -87,6 +87,21 @@ ms.locfileid: "70962509"
 
 **모델 및 정책**의 리소스 관리 섹션에서 새 학습 정책을 가져오거나 현재 학습 정책을 내보냅니다.
 이전 내보내기에서 학습 정책 파일을 가져오거나 오프 라인 평가 중에 검색 된 최적화 된 정책을 다운로드할 수 있습니다. 이러한 파일을 수동으로 변경 하면 machine learning 성능 및 오프 라인 평가의 정확도에 영향을 주며, Microsoft는 기계 학습 및 평가의 정확도 나 수동으로 편집한 정책으로 인해 발생 하는 서비스 예외를 보장할 수 없습니다.
+
+## <a name="clear-data-for-your-learning-loop"></a>학습 루프의 데이터 지우기
+
+1. Azure Portal에서 Personalizer 리소스에 대 한 **모델 및 정책** 페이지에서 **데이터 지우기**를 선택 합니다.
+1. 모든 데이터를 지우고 학습 루프를 원래 상태로 다시 설정 하려면 3 개의 확인란을 모두 선택 합니다.
+
+    ![Azure Portal에서 Personalizer 리소스의 데이터를 지웁니다.](./media/settings/clear-data-from-personalizer-resource.png)
+
+    |설정|용도|
+    |--|--|
+    |개인 설정 및 보상 데이터를 기록 합니다.|이 로깅 데이터는 오프 라인 평가에 사용 됩니다. 리소스를 다시 설정 하는 경우 데이터를 지웁니다.|
+    |Personalizer 모델을 다시 설정 합니다.|이 모델은 재 학습 마다 변경 됩니다. 이 학습 빈도는 **설정** 페이지의 **모델 업로드 빈도** 에서 지정 합니다. |
+    |학습 정책을 기본값으로 설정 합니다.|오프 라인 평가의 일환으로 학습 정책을 변경한 경우 원래 학습 정책으로 다시 설정 됩니다.|
+
+1. **선택한 데이터 지우기** 를 선택 하 여 지우기 프로세스를 시작 합니다. 상태는 Azure 알림에서 오른쪽 위 탐색에서 보고 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

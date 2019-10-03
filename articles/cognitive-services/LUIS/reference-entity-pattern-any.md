@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/24/2019
+ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: cda6c724a36a73dc34c2bf8e7158e3e3ec92d46b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2239387ffff4c30e1183721a528e666199316bed
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563216"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695102"
 ---
 # <a name="patternany-entity"></a>Pattern.any 엔터티 
 
@@ -41,48 +41,70 @@ Pattern.any 엔터티는 의도 사용자 예제가 아닌 [패턴](luis-how-to-
 |`Was There's A Wocket In My Pocket! written by an American this year?`<br><br>**There's A Wocket In My Pocket!** 은 올해 미국에서 저술되었나요?|
 ||
 
+
+
 ## <a name="example-json"></a>예제 JSON
 
+다음 쿼리를 살펴보십시오.
+
+`where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
+
+패턴으로 추출할 포함 된 폼 이름 사용:
+
+`Understand your responsibilities as a member of the community`
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
+
 ```JSON
-{
-  "query": "where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?",
-  "topScoringIntent": {
-    "intent": "FindForm",
-    "score": 0.999999464
-  },
-  "intents": [
-    {
-      "intent": "FindForm",
-      "score": 0.999999464
-    },
-    {
-      "intent": "GetEmployeeBenefits",
-      "score": 4.883697E-06
-    },
-    {
-      "intent": "None",
-      "score": 1.02040713E-06
-    },
-    {
-      "intent": "GetEmployeeOrgChart",
-      "score": 9.278342E-07
-    },
-    {
-      "intent": "MoveAssetsOrPeople",
-      "score": 9.278342E-07
-    }
-  ],
-  "entities": [
-    {
-      "entity": "understand your responsibilities as a member of the community",
-      "type": "FormName",
-      "startIndex": 18,
-      "endIndex": 78,
-      "role": ""
-    }
-  ]
+"entities": [
+  {
+    "entity": "understand your responsibilities as a member of the community",
+    "type": "FormName",
+    "startIndex": 18,
+    "endIndex": 78,
+    "role": ""
+  }
+```
+
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+
+쿼리 문자열에 `verbose=false`이 설정 된 경우이는 JSON입니다.
+
+```json
+"entities": {
+    "FormName": [
+        "Understand your responsibilities as a member of the community"
+    ]
 }
 ```
+
+쿼리 문자열에 `verbose=true`이 설정 된 경우이는 JSON입니다.
+
+```json
+"entities": {
+    "FormName": [
+        "Understand your responsibilities as a member of the community"
+    ],
+    "$instance": {
+        "FormName": [
+            {
+                "type": "FormName",
+                "text": "Understand your responsibilities as a member of the community",
+                "startIndex": 18,
+                "length": 61,
+                "modelTypeId": 7,
+                "modelType": "Pattern.Any Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+* * * 
 
 ## <a name="next-steps"></a>다음 단계
 

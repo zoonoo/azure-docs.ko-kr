@@ -8,17 +8,45 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: jhakulin
+ms.date: 09/20/2019
+ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: 12eecc4998153cbeedeb907ecad33c56141a50e6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0e4d0eb19da2485b689b1c5d5192e344153aef0b
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559119"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71799965"
 ---
 # <a name="release-notes"></a>릴리스 정보
+## <a name="speech-sdk-170-2019-september-release"></a>Speech SDK 1.7.0: 2019-9 월 릴리스
+
+**새로운 기능**
+*   UWP (Xamarin on 유니버설 Windows 플랫폼), Android 및 iOS에 대 한 beta 지원이 추가 됨
+*   Unity에 대 한 iOS 지원 추가
+*   Android, iOS 및 Linux에서 형식이 alaw, Mulaw, FLAC에 대 한 압축 된 입력 지원을 추가 했습니다.
+*   Service로 메시지를 보내기 위한 연결 클래스에 SendMessageAsync가 추가 되었습니다.
+*   메시지의 속성을 설정 하기 위해 Connection 클래스에 SetMessageProperty를 추가 했습니다.
+*   Java (Jre 및 Android), Python, Swift 및 목표에 대 한 TTS 추가 된 바인딩-C
+*   TTS Os, iOS 및 Android에 대 한 재생 지원을 추가 했습니다.
+*   TTS에 대 한 "단어 경계" 정보를 추가 했습니다.
+
+**버그 수정**
+*   Android 용 Unity 2019에서 IL2CPP 빌드 문제가 수정 됨
+*   Wav 파일 입력에서 잘못 된 헤더의 문제를 해결 했습니다.
+*   일부 연결 속성에서 고유 하지 않은 Uuid와 관련 된 문제가 해결 됨
+*   Swift 바인딩에서 null 허용 여부 지정자에 대 한 몇 가지 경고를 수정 했습니다 (작은 코드를 변경 해야 할 수 있음).
+*   네트워크 로드를 통해 websocket 연결을 비정상적 하는 버그를 수정 했습니다.
+*   iOS: arm7s 아키텍처에 대 한 지원 삭제
+*   때때로 DialogServiceConnector에서 사용 하는 중복 된 임프레션 Id가 발생 하는 Android에서 문제가 해결 되었습니다.
+*   DialogServiceConnector를 사용 하 여 발생 하는 다중 턴 상호 작용 및 오류 보고 (취소 된 이벤트를 통해)의 연결 안정성이 향상 되었습니다.
+*   DialogServiceConnector session 시작은 이제 활성 StartKeywordRecognitionAsync () 동안 ListenOnceAsync ()를 호출 하는 경우를 포함 하 여 이벤트를 정상적으로 제공 합니다.
+*   수신 되는 DialogServiceConnector 활동과 관련 된 충돌을 해결 했습니다. 
+
+**샘플**
+*   Xamarin에 대 한 빠른 시작
+*   Linux ARM64 정보를 사용 하 여 CPP 빠른 시작 업데이트
+*   IOS 정보를 사용 하 여 Unity 빠른 시작 업데이트
 
 ## <a name="speech-sdk-160-2019-june-release"></a>Speech SDK 1.6.0: 2019-6 월 릴리스
 
@@ -48,7 +76,7 @@ ms.locfileid: "68559119"
 *   안정적으로 웹 소켓을 닫는 문제 해결
 *   Linux에서 부하가 매우 높은 상태에서 연결을 여는 동안 가능한 충돌 해결
 *   MacOS 용 framework 번들의 누락 된 메타 데이터에 대 한 수정
-*   Windows `pip install --user` 에서 문제 해결
+*   Windows에서 `pip install --user`과 관련 된 문제 해결
 
 
 ## <a name="speech-sdk-151"></a>Speech SDK 1.5.1
@@ -77,7 +105,7 @@ ms.locfileid: "68559119"
 **향상된 기능/변경 사항**
 
 * 서비스 동작 또는 서비스 결과 (예: 마스킹 및 기타)를 조정 하는 다양 한 인식기 속성이 추가 되었습니다.
-* 이제 인식기 `FromEndpoint`를 만든 경우라도 표준 구성 속성을 통해 인식기를 구성할 수 있습니다.
+* 이제 인식기 `FromEndpoint`을 만든 경우에도 표준 구성 속성을 통해 인식기를 구성할 수 있습니다.
 * 목표-C: `OutputFormat` 속성이 SPXSpeechConfiguration에 추가 되었습니다.
 * SDK는 이제 Linux 배포판으로 Debian 9를 지원 합니다.
 
@@ -112,7 +140,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 
 **향상된 기능/변경 사항**
 
-* Python: 이제 속성을 `properties` 통해 인식 결과의 추가 속성을 노출 합니다.
+* Python: 이제 `properties` 속성을 통해 인식 결과의 추가 속성이 노출 됩니다.
 * 추가 개발 및 디버그 지원을 위해 SDK 로깅 및 진단 정보를 로그 파일로 리디렉션할 수 있습니다 (자세한 내용은 [여기](how-to-use-logging.md)참조).
 * JavaScript: 오디오 처리 성능을 향상 시킵니다.
 
@@ -136,7 +164,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 
 * Speech SDK는 AudioConfig 클래스를 통해 입력 마이크를 선택할 수 있도록 지원합니다. 이를 통해 기본이 아닌 마이크에서 음성 서비스로 오디오 데이터를 스트리밍할 수 있습니다. 자세한 내용은 [오디오 입력 장치 선택](how-to-select-audio-input-devices.md)에 대 한 설명서를 참조 하세요. 이 기능은 JavaScript에서 아직 사용할 수 없습니다.
 * 이제 Speech SDK는 베타 버전의 Unity를 지원합니다. [GitHub 샘플 리포지토리의](https://aka.ms/csspeech/samples)문제 섹션을 통해 피드백을 제공 합니다. 이 릴리스에서는 Windows x86 및 x64(데스크톱 또는 유니버설 Windows 플랫폼 애플리케이션)와 Android(ARM32/64, x86)의 Unity를 지원합니다. 자세한 내용은 [Unity 빠른 시작](quickstart-csharp-unity.md)을 참조하세요.
-* 이전 릴리스에서 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` 제공 된 파일은 더 이상 필요 하지 않습니다. 이제 기능이 핵심 SDK로 통합 되었습니다.
+* 파일 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (이전 릴리스에서 제공 됨)은 더 이상 필요 하지 않습니다. 이제 기능이 핵심 SDK로 통합 되었습니다.
 
 
 **샘플**
@@ -166,7 +194,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
   * 구문 힌트의 초기 지원 및 구현이 제공됩니다.
   * 인식을 위해 서비스 JSON을 사용하는 속성 컬렉션을 반환합니다.
 * 이제 Windows DLL이 버전 리소스를 포함합니다.
-* 인식기 `FromEndpoint` 를 만드는 경우 끝점 URL에 매개 변수를 직접 추가할 수 있습니다. 를 `FromEndpoint` 사용 하면 표준 구성 속성을 통해 인식기를 구성할 수 없습니다.
+* 인식기 @no__t를 만드는 경우-0은 끝점 URL에 직접 매개 변수를 추가할 수 있습니다. @No__t-0을 사용 하면 표준 구성 속성을 통해 인식기를 구성할 수 없습니다.
 
 **버그 수정**
 

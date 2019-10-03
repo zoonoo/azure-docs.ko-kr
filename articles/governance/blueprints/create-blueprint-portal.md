@@ -7,12 +7,12 @@ ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 473e16c610e7dee0b2838cb1a54ef7cd98958889
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 225f5cfe36daaafb7f6ab5d64e77c626e52edaac
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232978"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338189"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>빠른 시작: 포털에서 청사진 정의 및 할당
 
@@ -223,7 +223,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    1. 드롭다운 목록에서 사용 가능한 **제안**을 선택합니다.
 
-   1. 줄임표를 사용하여 구독이 자식이 되는 [관리 그룹](../management-groups/index.md)을 선택합니다.
+   1. 줄임표를 사용하여 구독이 자식이 되는 [관리 그룹](../management-groups/overview.md)을 선택합니다.
 
    1. 페이지의 맨 아래에서 **만들기**를 선택합니다.
 

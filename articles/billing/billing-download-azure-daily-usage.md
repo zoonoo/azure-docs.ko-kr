@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 7d2d7be562eaaa7dd21e63735f5697ffe5a62f8a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 23cd7c3765fc99eb5907aa853d7431d5e247aea6
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67491436"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709721"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Azure 사용량 및 요금 보기 및 다운로드
 
@@ -57,7 +57,7 @@ EA 고객이거나 [Microsoft 고객 계약](#check-your-access-to-a-microsoft-c
 
 ## <a name="download-usage-for-ea-customers"></a>EA 고객의 사용량 다운로드
 
-EA 고객으로 사용량 데이터를 보고 다운로드하려면 요금 보기 정책이 설정된 엔터프라이즈 관리자, 계정 소유자 또는 부서 관리자여야 합니다.
+EA 고객이 사용량 데이터를 살펴보고 다운로드하려면 요금 보기 정책을 사용하도록 설정된 엔터프라이즈 관리자, 계정 소유자 또는 부서 관리자여야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. *Cost Management + 청구*를 검색합니다.

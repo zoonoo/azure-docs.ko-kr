@@ -1,38 +1,41 @@
 ---
 title: 음성 SDK-음성 서비스를 사용 하 여 코덱 압축 오디오 스트리밍
 titleSuffix: Azure Cognitive Services
-description: Speech SDK를 사용하여 압축 오디오를 Azure 음성 서비스로 스트리밍하는 방법을 알아봅니다. C++, C# 및 Linux용 Java에서 사용 가능합니다.
+description: Speech SDK를 사용하여 압축 오디오를 Azure 음성 서비스로 스트리밍하는 방법을 알아봅니다. , C#및 C++Linux 용 java, Android의 java 및 iOS의 목적-C에 사용할 수 있습니다.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: b29b42dea9522526d49c1bda017a522855946def
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8f2896a6289ecaf4046d705da106636258cdadc5
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559545"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802251"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>Speech SDK를 통해 코덱 압축 오디오 입력 사용
 
 Speech SDK의 **압축된 오디오 입력 스트림** API는 PullStream 또는 PushStream을 사용하여 압축 오디오를 음성 서비스로 스트림하는 방법을 제공합니다.
 
 > [!IMPORTANT]
-> 압축 오디오 스트리밍은 C++, C#, 및 Java linux(Ubuntu 16.04, Ubuntu 18.04 Debian 9)에서만 지원됩니다.
-> Speech SDK 버전 1.4.0 이상이 필요 합니다.
+> 스트리밍 압축 입력 오디오는 현재 Linux의 C++, C#및 Java (ubuntu 16.04, ubuntu 18.04, Debian 9)에서 지원 됩니다. [Android의 Java](how-to-use-codec-compressed-audio-input-streams-android.md) 및 [IOS 플랫폼의 목적-C](how-to-use-codec-compressed-audio-input-streams-ios.md) 에서도 지원 됩니다.
+> Speech SDK 버전 1.7.0 이상이 필요 합니다.
 
 Wav/PCM에 대해서는 메인 라인 음성 설명서를 참조하십시오.  Wav/PCM을 제외하고, 다음과 같은 압축 코덱 입력 형식이 지원됩니다.
 
 - MP3
 - OPUS/OGG
+- FLAC
+- Wav 컨테이너의 형식이 ALAW
+- Wav 컨테이너의 MULAW
 
-## <a name="prerequisites-to-using-codec-compressed-audio-input"></a>코덱 압축 오디오 입력을 사용하기 위한 필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-Linux용 Speech SDK를 사용하여 압축 오디오 입력을 사용하려면 다음과 같은 추가 종속성을 설치합니다.
+압축 된 오디오 처리는 [GStreamer](https://gstreamer.freedesktop.org)을 사용 하 여 구현 됩니다. 라이선스 이유로 Gstreamer 이진이 컴파일되지 않고 speech SDK로 연결 되지 않습니다. 따라서 응용 프로그램 개발자는 압축 된 입력 오디오를 사용 하도록 18.04, 16.04 및 Debian 9에 다음을 설치 해야 합니다.
 
 ```sh
 sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly

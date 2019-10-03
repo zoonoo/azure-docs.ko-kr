@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6605aa268a7ee7fe75254df5dbe96e9dfbc71d79
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 7e1ea234bde96ce84259841bbc592bf6373bc639
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71272426"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802804"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>QnA Maker 및 LUIS와 함께 봇을 사용하여 기술 자료 배포
 QnA Maker 기술 자료가 확장되면 단일 모놀리식 집합으로 유지 관리하기가 어려워지며, 기술 자료를 보다 작은 논리적 청크로 분할해야 합니다.
@@ -37,13 +37,13 @@ QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들�
 1. [앱을 만듭니다](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
 1. 각 QnA Maker 기술 자료에 대해 [의도를 추가](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents)합니다. 예제 발언은 QnA Maker 기술 자료의 질문과 일치해야 합니다.
 1. [LUIS 앱을 학습](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train)하고 [LUIS 앱을 게시](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp)합니다.
-1. **관리** 섹션에서 LUIS 앱 ID, LUIS 엔드포인트 키 및 호스트 지역을 기록해 둡니다. 나중에 이러한 값이 필요합니다. 
+1. **관리** 섹션에서 LUIS 앱 ID, LUIS 끝점 키 및 [사용자 지정 도메인 이름을](../../cognitive-services-custom-subdomains.md)적어 둡니다. 나중에 이러한 값이 필요합니다. 
 
 ## <a name="create-qna-maker-knowledge-bases"></a>QnA Maker 기술 자료 만들기
 
 1. [QnA Maker](https://qnamaker.ai)에 로그인합니다.
 1. LUIS 앱의 각 의도에 대해 기술 자료를 [만듭니다](https://www.qnamaker.ai/Create).
-1. 기술 자료를 테스트하고 게시합니다. 각 KB를 게시할 때 KB ID, 호스트( _.azurewebsites.net/qnamaker_ 앞의 하위 도메인) 및 인증 엔드포인트 키를 기록해 둡니다. 나중에 이러한 값이 필요합니다. 
+1. 기술 자료를 테스트하고 게시합니다. 각 KB를 게시할 때 KB ID, 리소스 이름 ( _azurewebsites.net/qnamaker_이전 사용자 지정 하위 도메인) 및 권한 부여 끝점 키를 적어 둡니다. 나중에 이러한 값이 필요합니다. 
 
     이 문서에서는 기술 자료가 모두 동일한 Azure QnA Maker 구독에서 생성된다고 가정합니다.
 
@@ -109,13 +109,13 @@ QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들�
     [Serializable]
     public class QnAMakerService
     {
-        private string qnaServiceHostName;
+        private string qnaServiceResourceName;
         private string knowledgeBaseId;
         private string endpointKey;
 
-        public QnAMakerService(string hostName, string kbId, string endpointkey)
+        public QnAMakerService(string resourceName, string kbId, string endpointkey)
         {
-            qnaServiceHostName = hostName;
+            qnaServiceResourceName = resourceName;
             knowledgeBaseId = kbId;
             endpointKey = endpointkey;
 
@@ -136,7 +136,7 @@ QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들�
         }
         public async Task<string> GetAnswer(string question)
         {
-            string uri = qnaServiceHostName + "/qnamaker/knowledgebases/" + knowledgeBaseId + "/generateAnswer";
+            string uri = qnaServiceResourceName + "/qnamaker/knowledgebases/" + knowledgeBaseId + "/generateAnswer";
             string questionJSON = "{\"question\": \"" + question.Replace("\"","'") +  "\"}";
 
             var response = await Post(uri, questionJSON);
@@ -169,7 +169,7 @@ QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들�
         // QnA Maker global settings
         // assumes all KBs are created with same Azure service
         static string qnamaker_endpointKey = "<QnA Maker endpoint KEY>";
-        static string qnamaker_endpointDomain = "my-qnamaker-s0-s";
+        static string qnamaker_resourceName = "my-qnamaker-s0-s";
         
         // QnA Maker Human Resources Knowledge base
         static string HR_kbID = "<QnA Maker KNOWLEDGE BASE ID>";
@@ -178,8 +178,8 @@ QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들�
         static string Finance_kbID = "<QnA Maker KNOWLEDGE BASE ID>";
 
         // Instantiate the knowledge bases
-        public QnAMakerService hrQnAService = new QnAMakerService("https://" + qnamaker_endpointDomain + ".azurewebsites.net", HR_kbID, qnamaker_endpointKey);
-        public QnAMakerService financeQnAService = new QnAMakerService("https://" + qnamaker_endpointDomain + ".azurewebsites.net", Finance_kbID, qnamaker_endpointKey);
+        public QnAMakerService hrQnAService = new QnAMakerService("https://" + qnamaker_resourceName + ".azurewebsites.net", HR_kbID, qnamaker_endpointKey);
+        public QnAMakerService financeQnAService = new QnAMakerService("https://" + qnamaker_resourceName + ".azurewebsites.net", Finance_kbID, qnamaker_endpointKey);
 
         public BasicLuisDialog() : base(new LuisService(new LuisModelAttribute(
             LUIS_appId,

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: e27635d153e58f96dad7db6870ed1dc3f640236a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f4ebbd4f37422c5aa2fea07a243eb624ec9e2961
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326480"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687016"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 Java Spring 앱 만들기
 
@@ -47,7 +47,7 @@ ms.locfileid: "68326480"
 
 [Spring Initializr](https://start.spring.io/)를 사용하여 새 Spring Boot 프로젝트를 만듭니다.
 
-1. <https://start.spring.io/>로 이동합니다.
+1. [https://www.microsoft.com](<https://start.spring.io/>) 로 이동합니다.
 
 2. 다음 옵션을 지정합니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "68326480"
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.M3</version>
+        <version>1.1.0.M4</version>
     </dependency>
     ```
 

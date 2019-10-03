@@ -9,27 +9,27 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 542173a8756b868603c606307c5b682c68d7db25
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4a1bc9ae7ccf48b9dc8b47b57ea43b9259786d01
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933560"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677679"
 ---
 # <a name="email-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 이메일 미리 빌드된 엔터티
 이메일 추출에는 발언의 전체 이메일 주소가 포함됩니다. 이 엔터티를 이미 학습했기 때문에 이메일을 포함하는 예제 발언을 애플리케이션 의도에 추가할 필요가 없습니다. 이메일 엔터티는 `en-us` 문화권에서만 지원됩니다. 
 
 ## <a name="resolution-for-prebuilt-email"></a>미리 빌드된 이메일의 해결
 
-### <a name="api-version-2x"></a>API 버전 2.x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
 
 다음 예제에서는 **builtin.email** 엔터티의 해결을 보여줍니다.
 
 ```json
 {
-  "query": "please send the information to patti.owens@microsoft.com",
+  "query": "please send the information to patti@contoso.com",
   "topScoringIntent": {
     "intent": "None",
     "score": 0.811592042
@@ -42,27 +42,27 @@ ms.locfileid: "68933560"
   ],
   "entities": [
     {
-      "entity": "patti.owens@microsoft.com",
+      "entity": "patti@contoso.com",
       "type": "builtin.email",
       "startIndex": 31,
       "endIndex": 55,
       "resolution": {
-        "value": "patti.owens@microsoft.com"
+        "value": "patti@contoso.com"
       }
     }
   ]
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Preview API 버전 3(sp3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
 
-다음 JSON은 `verbose` 매개 변수를로 `false`설정 하는입니다.
+다음 JSON은 `verbose` 매개 변수를 `false`로 설정 합니다.
 
 ```json
 {
-    "query": "please send the information to patti.owens@microsoft.com",
+    "query": "please send the information to patti@contoso.com",
     "prediction": {
-        "normalizedQuery": "please send the information to patti.owens@microsoft.com",
+        "normalizedQuery": "please send the information to patti@contoso.com",
         "topIntent": "None",
         "intents": {
             "None": {
@@ -71,7 +71,7 @@ ms.locfileid: "68933560"
         },
         "entities": {
             "email": [
-                "patti.owens@microsoft.com"
+                "patti@contoso.com"
             ]
         }
     }
@@ -79,13 +79,13 @@ ms.locfileid: "68933560"
 ```
 
 
-다음 JSON은 `verbose` 매개 변수를로 `true`설정 하는입니다.
+다음 JSON은 `verbose` 매개 변수를 `true`로 설정 합니다.
 
 ```json
 {
-    "query": "please send the information to patti.owens@microsoft.com",
+    "query": "please send the information to patti@contoso.com",
     "prediction": {
-        "normalizedQuery": "please send the information to patti.owens@microsoft.com",
+        "normalizedQuery": "please send the information to patti@contoso.com",
         "topIntent": "None",
         "intents": {
             "None": {
@@ -94,13 +94,13 @@ ms.locfileid: "68933560"
         },
         "entities": {
             "email": [
-                "patti.owens@microsoft.com"
+                "patti@contoso.com"
             ],
             "$instance": {
                 "email": [
                     {
                         "type": "builtin.email",
-                        "text": "patti.owens@microsoft.com",
+                        "text": "patti@contoso.com",
                         "startIndex": 31,
                         "length": 25,
                         "modelTypeId": 2,
@@ -113,6 +113,10 @@ ms.locfileid: "68933560"
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>다음 단계
+
+[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
 
 [number](luis-reference-prebuilt-number.md), [ordinal](luis-reference-prebuilt-ordinal.md) 및 [percentage](luis-reference-prebuilt-percentage.md)에 대해 알아봅니다. 

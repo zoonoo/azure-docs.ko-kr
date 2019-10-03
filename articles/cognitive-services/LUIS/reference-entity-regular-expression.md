@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/24/2019
+ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: 82cce359f2161800c53ccce7cdb0342bba759d43
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ae46df875d588186cd083134820f349158d7e307
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559941"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695211"
 ---
 # <a name="regular-expression-entity"></a>정규식 엔터티 
 
@@ -32,13 +32,13 @@ ms.locfileid: "68559941"
 
 ## <a name="usage-considerations"></a>사용 고려 사항
 
-정규식이 일치 하는 것 보다 더 일치 하는 것으로 간주 될 수 있습니다. 이에 대 한 예는 `one` 및 `two`와 같은 숫자 단어 일치입니다. 예를 들면 다음 regex를 사용 하 여 숫자 `one` 와 다른 숫자를 일치 시킵니다.
+정규식이 일치 하는 것 보다 더 일치 하는 것으로 간주 될 수 있습니다. 이에 대 한 예는 `one` 및 `two`과 같은 숫자 단어 일치입니다. 예는 다른 숫자와 함께 `one`과 일치 하는 다음과 같은 regex입니다.
 
 ```javascript
 (plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
 ``` 
 
-이 regex 식도와 `phone`같이 이러한 숫자로 끝나는 단어를 찾습니다. 이와 같은 문제를 해결 하려면 regex와 일치 하는 단어 경계를 사용 해야 합니다. 이 예제에서 단어 경계를 사용 하는 regex는 다음 regex에 사용 됩니다.
+이 regex 식은 `phone`과 같이 이러한 숫자로 끝나는 단어도 찾습니다. 이와 같은 문제를 해결 하려면 regex와 일치 하는 단어 경계를 사용 해야 합니다. 이 예제에서 단어 경계를 사용 하는 regex는 다음 regex에 사용 됩니다.
 
 ```javascript
 \b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
@@ -46,35 +46,63 @@ ms.locfileid: "68559941"
 
 ### <a name="example-json"></a>예제 JSON
 
-정규식 엔터티 `kb[0-9]{6}`정의로를 사용 하는 경우 다음 JSON 응답은 쿼리에 `When was kb123456 published?`대해 반환 된 정규식 엔터티를 사용 하는 utterance 예입니다.
+@No__t-0을 정규식 엔터티 정의로 사용할 경우 다음 JSON 응답은 쿼리에 대해 반환 된 정규식 엔터티를 사용 하는 utterance 예입니다.
+
+`When was kb123456 published?`:
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
 
 ```JSON
-{
-  "query": "when was kb123456 published?",
-  "topScoringIntent": {
-    "intent": "FindKBArticle",
-    "score": 0.933641255
-  },
-  "intents": [
-    {
-      "intent": "FindKBArticle",
-      "score": 0.933641255
-    },
-    {
-      "intent": "None",
-      "score": 0.04397359
-    }
-  ],
-  "entities": [
-    {
-      "entity": "kb123456",
-      "type": "KB number",
-      "startIndex": 9,
-      "endIndex": 16
-    }
-  ]
+"entities": [
+  {
+    "entity": "kb123456",
+    "type": "KB number",
+    "startIndex": 9,
+    "endIndex": 16
+  }
+]
+```
+
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+
+
+쿼리 문자열에 `verbose=false`이 설정 된 경우이는 JSON입니다.
+
+```json
+"entities": {
+    "KB number": [
+        "kb123456"
+    ]
 }
 ```
+
+쿼리 문자열에 `verbose=true`이 설정 된 경우이는 JSON입니다.
+
+```json
+"entities": {
+    "KB number": [
+        "kb123456"
+    ],
+    "$instance": {
+        "KB number": [
+            {
+                "type": "KB number",
+                "text": "kb123456",
+                "startIndex": 9,
+                "length": 8,
+                "modelTypeId": 8,
+                "modelType": "Regex Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+* * * 
 
 ## <a name="next-steps"></a>다음 단계
 

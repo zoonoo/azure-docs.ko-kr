@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: overview
 ms.date: 08/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4f9591b26891ab36ccbfa34126fb1ac1bdb9cf52
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f8ec833a469e3c3a9b4c88343a48e109fc5c9728
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164807"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338218"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 개요
 
@@ -59,7 +59,7 @@ Resource Manager를 사용하면 다음을 수행할 수 있습니다.
 
 ## <a name="understand-scope"></a>범위 이해
 
-Azure는 [관리 그룹](../governance/management-groups/index.md), 구독, [리소스 그룹](#resource-groups) 및 리소스라는 네 가지 수준의 범위를 제공합니다. 다음 그림은 세 가지 계층의 예를 보여 줍니다.
+Azure는 [관리 그룹](../governance/management-groups/overview.md), 구독, [리소스 그룹](#resource-groups) 및 리소스라는 네 가지 수준의 범위를 제공합니다. 다음 그림은 세 가지 계층의 예를 보여 줍니다.
 
 ![범위](./media/resource-group-overview/scope-levels.png)
 

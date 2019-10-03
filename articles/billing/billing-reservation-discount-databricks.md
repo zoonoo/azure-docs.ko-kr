@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 7c1855b587ab1d603e9c6ac24a67b0f50065361f
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 9651a61cb7b5c995a46571b7628d5416c08f4161
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67827631"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719657"
 ---
 # <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>Azure Databricks 사전 구매 할인이 적용되는 방법
 
@@ -25,7 +25,7 @@ VM과 달리 사전 구매한 단위는 시간별로 만료되지 않습니다. 
 
 ## <a name="pre-purchase-discount-application"></a>사전 구매 할인 애플리케이션
 
-Databricks 사전 구매는 모든 Databricks 작업 및 계층에 적용됩니다. 사전 구매는 선불 Databricks 커밋 단위의 풀로 간주할 수 있습니다. 작업 또는 계층에 관계없이 사용량은 풀에서 차감됩니다. 사용량은 다음과 같은 비율로 차감됩니다.
+Databricks 사전 구매는 모든 Databricks 작업 및 계층에 적용됩니다. 사전 구매는 선불 Databricks 커밋 단위의 풀로 간주할 수 있습니다. 워크로드 또는 계층에 관계없이 사용량은 풀에서 차감됩니다. 사용량은 다음과 같은 비율로 차감됩니다.
 
 | **워크로드** | **DBU 애플리케이션 비율 — 표준 계층** | **DBU 애플리케이션 비율 — 프리미엄 계층** |
 | --- | --- | --- |

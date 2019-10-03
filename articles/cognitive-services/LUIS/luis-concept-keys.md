@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 5a6c87da7ae62af54990e0a1a2c62065717a201a
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 70e58077fa40ce685324cd24b447886ec3411034
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70256945"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703192"
 ---
-# <a name="authoring-and-runtime-keys"></a>제작 및 런타임 키
+# <a name="authoring-and-runtime-keys"></a>작성 및 런타임 키
 
 
 >[!NOTE]
@@ -29,7 +29,7 @@ LUIS는 두 가지 유형의 Azure 리소스를 사용 합니다. 각 유형에�
 * [작성](#programmatic-key) 하 여 의도, 엔터티 및 레이블 길이 발언, 학습 및 게시를 만들 수 있습니다. LUIS 앱을 게시할 준비가 되 면 앱에 할당 된 [런타임에 대 한 예측 끝점 키](luis-how-to-azure-subscription.md) 가 필요 합니다.
 * [런타임에 대 한 예측 끝점 키](#prediction-endpoint-runtime-key)입니다. 채팅 봇과 같은 클라이언트 응용 프로그램은이 키를 통해 런타임의 **쿼리 예측 끝점** 에 액세스 해야 합니다. 
 
-|Key|용도|인식 서비스`kind`|인식 서비스`type`|
+|Key|용도|인식 서비스 `kind`|인식 서비스 `type`|
 |--|--|--|--|
 |[작성 키](#programmatic-key)|작성, 학습, 게시, 테스트.|`LUIS.Authoring`|`Cognitive Services`|
 |[예측 끝점 런타임 키](#prediction-endpoint-runtime-key)| 사용자 utterance를 사용 하 여 예측 끝점 런타임을 쿼리 하 여 의도 및 엔터티를 확인 합니다.|`LUIS`|`Cognitive Services`|
@@ -83,12 +83,30 @@ Azure Portal에서 제작 키를 만들면 [참가자 역할](#contributions-fro
 ### <a name="use-runtime-key-in-query"></a>쿼리에서 런타임 키 사용
 LUIS runtime 끝점은 두 가지 유형의 쿼리를 수락 합니다 .이 두 가지는 모두 예측 끝점 런타임 키를 사용 하지만 다른 위치에서 사용 됩니다.
 
-런타임에 액세스 하는 데 사용 되는 끝점은 다음 표에 나와 있는 `{region}` 것 처럼 리소스 지역에 고유한 하위 도메인을 사용 합니다. 
+런타임에 액세스 하는 데 사용 되는 끝점은 리소스 지역에 고유한 하위 도메인을 사용 하며 다음 표에 `{region}`으로 표시 됩니다. 
+
+
+#### <a name="v2-prediction-endpointtabv2"></a>[V2 예측 끝점](#tab/V2)
 
 |동사|예제 URL 및 키 위치|
 |--|--|
-|[GET](https://{region}.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?runtime-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>`runtime-key`의 쿼리 문자열 값<br><br>LUIS 엔드포인트 키 할당량 요금을 사용하려면 작성(시작) 키에서 새 엔드포인트 키로 `runtime-key`의 엔드포인트 쿼리 값을 변경합니다. 키를 만들고 할당하지만 `runtime-key`의 엔드포인트 쿼리 값을 변경하지 않는 경우에는 엔드포인트 키 할당량을 사용하지 않습니다.|
-|[POST](https://{region}.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> `Ocp-Apim-Subscription-Key`의 헤더 값<br>런타임 키를 만들고 런타임 키를 할당 하지만의 끝점 쿼리 값을 변경 하지 않는 경우에 `Ocp-Apim-Subscription-Key`는 런타임 키를 사용 하지 않습니다.|
+|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?runtime-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`|
+|[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`|
+
+#### <a name="v3-prediction-endpointtabv3"></a>[V3 예측 끝점](#tab/V3)
+
+|동사|예제 URL 및 키 위치|
+|--|--|
+|[GET](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a91e54c9db63d589f433)|`https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?runtime-key=your-endpoint-key-here&query=turn%20on%20the%20lights`|
+|[POST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a5830f741b27cd03a061)| `https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict`| 
+
+[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+
+* * * 
+
+**가져오기**: LUIS 엔드포인트 키 할당량 요금을 사용하려면 작성(시작) 키에서 새 엔드포인트 키로 `runtime-key`의 엔드포인트 쿼리 값을 변경합니다. 키를 만들고 할당하지만 `runtime-key`의 엔드포인트 쿼리 값을 변경하지 않는 경우에는 엔드포인트 키 할당량을 사용하지 않습니다.
+
+**POST**: @No__t에 대 한 헤더 값 변경-0<br>런타임 키를 만들고 런타임 키를 할당 하지만 `Ocp-Apim-Subscription-Key`에 대 한 끝점 쿼리 값을 변경 하지 않는 경우에는 런타임 키를 사용 하지 않습니다.
 
 이전 URL에 사용되던 앱 ID `df67dcdb-c37d-46af-88e1-8b97951ca1c2`는 [대화형 데모](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)에 사용되는 공용 IoT 앱입니다. 
 
@@ -187,7 +205,7 @@ LUIS 앱을 이동할 수 있습니다. Azure Portal 또는 Azure CLI에서 다�
 
 ## <a name="transfer-of-ownership"></a>소유권 이전
 
-**[리소스 마이그레이션](luis-migration-authoring.md) 앱을 제작 하는 경우**: 
+**[리소스 마이그레이션](luis-migration-authoring.md) 앱을 제작 하는 경우**: 리소스의 소유자는 `contributor`을 추가할 수 있습니다.
 
 **아직 마이그레이션하지 않은 앱의 경우**: 앱을 JSON 파일로 내보냅니다. 다른 LUIS 사용자는 앱을 가져올 수 있으므로 앱 소유자가 됩니다. 새 앱에는 다른 앱 ID가 있습니다.  
 

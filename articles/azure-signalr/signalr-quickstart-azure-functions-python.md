@@ -7,12 +7,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/08/2019
 ms.author: antchu
-ms.openlocfilehash: fbae9d15ba8572a8ae2c493ec85eb0010c2664eb
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 728111548176a0a3212b1677eeb192ccdc47fe88
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886425"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709503"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>빠른 시작: Python을 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
 
@@ -102,4 +102,4 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 이 빠른 시작에서는 VS Code에서 실시간 서버리스 애플리케이션을 빌드하고 실행했습니다. 다음으로는 VS Code에서 Azure Functions를 배포하는 방법에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [VS Code로 Azure Functions 배포](https://code.visualstudio.com/tutorials/functions-extension/getting-started)
+> [VS Code로 Azure Functions 배포](/azure/javascript/tutorial-vscode-serverless-node-01)

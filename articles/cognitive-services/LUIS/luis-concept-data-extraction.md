@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 055cd25f534de5d3cc3ccbe44df88e7111e101a3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ff0a9838d1fcc9db3b6cc25b47c840e01056e6cd
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560755"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703143"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>의도 및 엔터티를 사용 하 여 utterance 텍스트에서 데이터 추출
 LUIS는 사용자의 자연어 발화에서 정보를 가져오는 기능을 제공합니다. 정보는 프로그램, 애플리케이션 또는 챗봇에서 작업을 수행하는 데 사용할 수 있는 방법으로 추출됩니다. 다음 섹션에서는 JSON 예제와 함께 의도 및 엔터티에서 반환되는 데이터에 대해 알아봅니다.
@@ -26,14 +26,26 @@ LUIS는 사용자의 자연어 발화에서 정보를 가져오는 기능을 제
 ## <a name="data-location-and-key-usage"></a>데이터 위치 및 키 사용
 LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 제공합니다. **HTTPS 요청**(POST 또는 GET)에는 스테이징 또는 프로덕션 환경과 같은 일부 선택적 구성과 발화가 포함됩니다.
 
+#### <a name="v2-prediction-endpoint-requesttabv2"></a>[V2 예측 끝점 요청](#tab/V2)
+
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
+
+#### <a name="v3-prediction-endpoint-requesttabv3"></a>[V3 예측 끝점 요청](#tab/V3)
+
+`https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/<appID>/slots/<slot-type>/predict?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&query=book 2 tickets to paris`
+
+[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+
+* * * 
 
 `appID`는 LUIS 앱을 편집하는 동안 URL의 일부(`/apps/` 뒤) 및 LUIS 앱의 **설정** 페이지에서 사용할 수 있습니다. `subscription-key`는 앱을 쿼리하는 데 사용되는 엔드포인트 키입니다. LUIS를 학습시키는 동안 체험 작성/시작 키를 사용할 수 있지만, 엔드포인트 키를 [필요한 LUIS 사용](luis-boundaries.md#key-limits)을 지원하는 키로 변경해야 합니다. `timezoneOffset` 단위는 분입니다.
 
 **HTTPS 응답**에는 스테이징 또는 프로덕션 엔드포인트의 현재 게시된 모델을 기반으로 LUIS가 확인할 수 있는 모든 의도 및 엔터티 정보가 포함됩니다. 엔드포인트 URL은 [LUIS](luis-reference-regions.md) 웹 사이트의 **관리** 섹션에 있는 **키 및 엔드포인트** 페이지에서 찾을 수 있습니다.
 
 ## <a name="data-from-intents"></a>의도의 데이터
-기본 데이터는 상위 점수 **의도 이름**입니다. `MyStore`[빠른 시작](luis-quickstart-intents-only.md)을 사용할 경우 엔드포인트 응답은 다음과 같습니다.
+기본 데이터는 상위 점수 **의도 이름**입니다. 엔드포인트 응답은 다음과 같습니다.
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
 
 ```JSON
 {
@@ -46,11 +58,38 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 }
 ```
 
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+
+```JSON
+{
+  "query": "when do you open next?",
+  "prediction": {
+    "normalizedQuery": "when do you open next?",
+    "topIntent": "GetStoreInfo",
+    "intents": {
+        "GetStoreInfo": {
+            "score": 0.984749258
+        }
+    }
+  },
+  "entities": []
+}
+```
+
+[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+
+* * * 
+
 |데이터 개체|데이터 형식|데이터 위치|값|
 |--|--|--|--|
-|의도|String|topScoringIntent.intent|“GetStoreInfo”|
+|의도|문자열|topScoringIntent.intent|“GetStoreInfo”|
 
-챗봇 또는 LUIS 호출 앱이 둘 이상의 의도 점수를 기반으로 결정을 내리는 경우 쿼리 문자열 매개 변수, `verbose=true`를 설정하여 모든 의도의 점수를 반환합니다. 엔드포인트 응답은 다음과 같습니다.
+두 개 이상의 의도 점수에 따라 의사 결정 봇 또는 LUIS 호출 앱이 결정 되 면 모든 의도의 점수를 반환 합니다.
+
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
+
+Querystring 매개 변수를 `verbose=true`으로 설정 합니다. 엔드포인트 응답은 다음과 같습니다.
 
 ```JSON
 {
@@ -73,14 +112,44 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 }
 ```
 
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+
+Querystring 매개 변수를 `show-all-intents=true`으로 설정 합니다. 엔드포인트 응답은 다음과 같습니다.
+
+```JSON
+{
+    "query": "when do you open next?",
+    "prediction": {
+        "normalizedQuery": "when do you open next?",
+        "topIntent": "GetStoreInfo",
+        "intents": {
+            "GetStoreInfo": {
+                "score": 0.984749258
+            },
+            "None": {
+                 "score": 0.2040639
+            }
+        },
+        "entities": {
+        }
+    }
+}
+```
+
+[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+
+* * * 
+
 의도는 최고 점수에서 최하 점수 순으로 정렬됩니다.
 
 |데이터 개체|데이터 형식|데이터 위치|값|점수|
 |--|--|--|--|:--|
-|의도|String|intents[0].intent|“GetStoreInfo”|0.984749258|
+|의도|문자열|intents[0].intent|“GetStoreInfo”|0.984749258|
 |의도|문자열|intents[1].intent|“None”|0.0168218873|
 
 미리 빌드된 도메인을 추가하는 경우, 의도 이름은 의도뿐 아니라 `Utilties` 또는 `Communication`와 같은 도메인을 나타냅니다.
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
 
 ```JSON
 {
@@ -106,11 +175,39 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 }
 ```
 
-|도메인|데이터 개체|데이터 형식|데이터 위치|값|
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+
+```JSON
+{
+    "query": "Turn on the lights next monday at 9am",
+    "prediction": {
+        "normalizedQuery": "Turn on the lights next monday at 9am",
+        "topIntent": "Utilities.ShowNext",
+        "intents": {
+            "Utilities.ShowNext": {
+                "score": 0.07842206
+            },
+            "Communication.StartOver": {
+                "score": 0.0239675418
+            },
+            "None": {
+                "score": 0.00085447653
+            }
+        },
+        "entities": []
+    }
+}
+```
+
+[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+
+* * * 
+
+|Domain|데이터 개체|데이터 형식|데이터 위치|값|
 |--|--|--|--|--|
-|공공 시설|의도|String|intents[0].intent|“<b>Utilities</b>.ShowNext”|
-|통신|의도|String|intents[1].intent|<b>Communication</b>.StartOver”|
-||의도|String|intents[2].intent|“None”|
+|공공 시설|의도|문자열|intents[0].intent|“<b>Utilities</b>.ShowNext”|
+|통신|의도|문자열|intents[1].intent|<b>Communication</b>.StartOver”|
+||의도|문자열|intents[2].intent|“None”|
 
 
 ## <a name="data-from-entities"></a>엔터티의 데이터
@@ -119,6 +216,8 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 발화의 단일 단어 또는 구문이 둘 이상의 엔터티와 일치할 수 있습니다. 이 경우, 각 일치하는 엔터티는 점수와 함께 반환됩니다.
 
 모든 엔터티는 엔드포인트에서 응답의 **엔터티** 배열로 반환됩니다.
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
 
 ```JSON
 "entities": [
@@ -141,6 +240,18 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 ]
 ```
 
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+
+```JSON
+"entities": {
+    "name":["bob jones"],
+    "number": [3]
+}
+```
+[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+
+* * * 
+
 ## <a name="tokenized-entity-returned"></a>토큰화된 엔터티가 반환됨
 여러 [문화권](luis-language-support.md#tokenization)은 [토큰화된](luis-glossary.md#token) `entity` 값과 함께 엔터티 개체를 반환합니다. LUIS에서 엔터티 개체로 반환한 startIndex 및 endIndex는 새 토큰화된 값에 매핑되지 않고, 원시 엔터티를 프로그래밍 방식으로 추출하기 위해 원래 쿼리에 매핑됩니다. 
 
@@ -162,6 +273,8 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 [미리 빌드된](luis-concept-entity-types.md) 엔터티는 오픈 소스 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 프로젝트를 사용하여 정규식 일치를 기반으로 검색됩니다. 미리 빌드된 엔터티는 엔터티 배열로 반환되며 `builtin::` 접두사가 추가된 형식 이름을 사용합니다. 다음 텍스트는 반환된 미리 빌드된 엔터티가 포함된 예제 발화입니다.
 
 `Dec 5th send to +1 360-555-1212`
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
 
 ```JSON
 "entities": [
@@ -242,6 +355,186 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
   ]
 ```
 
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+
+Querystring 매개 변수를 사용 하지 않고 `verbose=true`을 사용 합니다.
+
+```json
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "date",
+            "values": [
+                {
+                    "timex": "XXXX-12-05",
+                    "value": "2018-12-05"
+                },
+                {
+                    "timex": "XXXX-12-05",
+                    "value": "2019-12-05"
+                }
+            ]
+        }
+    ],
+    "ordinal": [
+        {
+            "offset": 5,
+            "relativeTo": "start"
+        }
+    ],
+    "ordinalV2": [
+        {
+            "offset": 5,
+            "relativeTo": "start"
+        }
+    ],
+    "number": [
+        1360,
+        555,
+        1212
+    ],
+    "phonenumber": [
+        "1 360-555-1212"
+    ]
+}
+```
+
+Querystring 매개 변수를 사용 하 여 `verbose=true`을 사용 합니다.
+
+```json
+
+"entities": {
+    "datetimeV2": [
+        {
+            "type": "date",
+            "values": [
+                {
+                    "timex": "XXXX-12-05",
+                    "value": "2018-12-05"
+                },
+                {
+                    "timex": "XXXX-12-05",
+                    "value": "2019-12-05"
+                }
+            ]
+        }
+    ],
+    "ordinal": [
+        {
+            "offset": 5,
+            "relativeTo": "start"
+        }
+    ],
+    "ordinalV2": [
+        {
+            "offset": 5,
+            "relativeTo": "start"
+        }
+    ],
+    "number": [
+        1360,
+        555,
+        1212
+    ],
+    "phonenumber": [
+        "1 360-555-1212"
+    ],
+    "$instance": {
+        "datetimeV2": [
+            {
+                "type": "builtin.datetimeV2.date",
+                "text": "Dec 5th",
+                "startIndex": 0,
+                "length": 7,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "ordinal": [
+            {
+                "type": "builtin.ordinal",
+                "text": "5th",
+                "startIndex": 4,
+                "length": 3,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "ordinalV2": [
+            {
+                "type": "builtin.ordinalV2",
+                "text": "5th",
+                "startIndex": 4,
+                "length": 3,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "number": [
+            {
+                "type": "builtin.number",
+                "text": "1 360",
+                "startIndex": 17,
+                "length": 5,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            },
+            {
+                "type": "builtin.number",
+                "text": "555",
+                "startIndex": 23,
+                "length": 3,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            },
+            {
+                "type": "builtin.number",
+                "text": "1212",
+                "startIndex": 27,
+                "length": 4,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "phonenumber": [
+            {
+                "type": "builtin.phonenumber",
+                "text": "1 360-555-1212",
+                "startIndex": 17,
+                "length": 14,
+                "score": 1.0,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+
+* * * 
 ## <a name="regular-expression-entity-data"></a>정규식 엔터티 데이터
 
 [정규식 엔터티](reference-entity-regular-expression.md) 는 사용자가 제공 하는 정규식 패턴을 기반으로 엔터티를 추출 합니다.
@@ -270,69 +563,133 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 ## <a name="pattern-roles-data"></a>패턴 역할 데이터
 역할은 엔터티의 컨텍스트 차이입니다.
 
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
+
+엔터티 이름은 `Location` 이며 두 개의 역할이 `Origin`과 `Destination`입니다.
+
 ```JSON
-{
-  "query": "move bob jones from seattle to redmond",
-  "topScoringIntent": {
-    "intent": "MoveAssetsOrPeople",
-    "score": 0.9999998
+"entities": [
+  {
+    "entity": "bob jones",
+    "type": "Employee",
+    "startIndex": 5,
+    "endIndex": 13,
+    "score": 0.922820568,
+    "role": ""
   },
-  "intents": [
-    {
-      "intent": "MoveAssetsOrPeople",
-      "score": 0.9999998
-    },
-    {
-      "intent": "None",
-      "score": 1.02040713E-06
-    },
-    {
-      "intent": "GetEmployeeBenefits",
-      "score": 6.12244548E-07
-    },
-    {
-      "intent": "GetEmployeeOrgChart",
-      "score": 6.12244548E-07
-    },
-    {
-      "intent": "FindForm",
-      "score": 1.1E-09
-    }
-  ],
-  "entities": [
-    {
-      "entity": "bob jones",
-      "type": "Employee",
-      "startIndex": 5,
-      "endIndex": 13,
-      "score": 0.922820568,
-      "role": ""
-    },
-    {
-      "entity": "seattle",
-      "type": "Location",
-      "startIndex": 20,
-      "endIndex": 26,
-      "score": 0.948008537,
-      "role": "Origin"
-    },
-    {
-      "entity": "redmond",
-      "type": "Location",
-      "startIndex": 31,
-      "endIndex": 37,
-      "score": 0.7047979,
-      "role": "Destination"
-    }
-  ]
+  {
+    "entity": "seattle",
+    "type": "Location",
+    "startIndex": 20,
+    "endIndex": 26,
+    "score": 0.948008537,
+    "role": "Origin"
+  },
+  {
+    "entity": "redmond",
+    "type": "Location",
+    "startIndex": 31,
+    "endIndex": 37,
+    "score": 0.7047979,
+    "role": "Destination"
+  }
+]
+```
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+
+V3에서 **역할 이름은** 개체의 기본 이름입니다. 
+
+엔터티 이름은 `Location` 이며 두 개의 역할이 `Origin`과 `Destination`입니다.
+
+Querystring 매개 변수를 사용 하지 않고 `verbose=true`을 사용 합니다.
+
+```json
+"entities": {
+    "Employee": [
+        "bob jones"
+    ],
+    "Origin": [
+        "seattle"
+    ],
+    "Destination": [
+        "redmond"
+    ]
 }
 ```
+
+Querystring 매개 변수를 사용 하 여 `verbose=true`을 사용 합니다.
+
+```json
+"entities": {
+    "Employee": [
+        "bob jones"
+    ],
+    "LocationOrigin": [
+        "seattle"
+    ],
+    "LocationDestination": [
+        "redmond"
+    ],
+    "$instance": {
+        "Employee": [
+            {
+                "type": "Employee",
+                "text": "bob jones",
+                "startIndex": 5,
+                "length": 9,
+                "score": 0.982873261,
+                "modelTypeId": 1,
+                "modelType": "Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "Origin": [
+            {
+                "role": "Origin",
+                "type": "Location",
+                "text": "seattle",
+                "startIndex": 20,
+                "length": 7,
+                "score": 0.9913306,
+                "modelTypeId": 1,
+                "modelType": "Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "Destination": [
+            {
+                "role": "Destination",
+                "type": "Location",
+                "text": "redmond",
+                "startIndex": 31,
+                "length": 7,
+                "score": 0.898179531,
+                "modelTypeId": 1,
+                "modelType": "Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+
+}
+```
+
+[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+
+* * *
 
 ## <a name="patternany-entity-data"></a>Pattern.any 엔터티 데이터
 
 [패턴. any](reference-entity-pattern-any.md) 는 패턴이 시작 되 고 끝나는 위치를 표시 하는 패턴의 템플릿 utterance에만 사용 되는 가변 길이 자리 표시자입니다.  
 
-## <a name="sentiment-analysis"></a>정서 분석
+## <a name="sentiment-analysis"></a>감정 분석
 감정 분석이 구성된 경우 LUIS json 응답에는 감정 분석이 포함됩니다. [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) 설명서에서 감정 분석에 대해 자세히 알아봅니다.
 
 ### <a name="sentiment-data"></a>감정 데이터
@@ -358,6 +715,9 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 
 ### <a name="key-phrase-extraction-entity-data"></a>키 구문 추출 엔터티 데이터
 키 구문 추출 엔터티는 [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)에서 제공하는 발화의 키 구문을 반환합니다.
+
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
 
 ```JSON
 {
@@ -392,13 +752,85 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 }
 ```
 
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+
+[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+
+Querystring 매개 변수를 사용 하지 않고 `verbose=true`을 사용 합니다.
+
+```json
+"entities": {
+    "keyPhrase": [
+        "map of places",
+        "beautiful views",
+        "favorite trail"
+    ]
+}
+```
+
+Querystring 매개 변수를 사용 하 여 `verbose=true`을 사용 합니다.
+
+```json
+"entities": {
+    "keyPhrase": [
+        "map of places",
+        "beautiful views",
+        "favorite trail"
+    ],
+    "$instance": {
+        "keyPhrase": [
+            {
+                "type": "builtin.keyPhrase",
+                "text": "map of places",
+                "startIndex": 11,
+                "length": 13,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            },
+            {
+                "type": "builtin.keyPhrase",
+                "text": "beautiful views",
+                "startIndex": 30,
+                "length": 15,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            },
+            {
+                "type": "builtin.keyPhrase",
+                "text": "favorite trail",
+                "startIndex": 51,
+                "length": 14,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+
+* * *
+
+
 ## <a name="data-matching-multiple-entities"></a>여러 엔터티와 일치하는 데이터
 
 LUIS는 발화에서 검색된 모든 엔터티를 반환합니다. 결과적으로 챗봇은 결과를 기반으로 결정해야 할 수 있습니다. 발화에는 많은 엔터티가 포함될 수 있습니다.
 
 `book me 2 adult business tickets to paris tomorrow on air france`
 
-LUIS 엔드포인트는 여러 엔터티에서 동일한 데이터를 검색할 수 있습니다.
+LUIS 끝점은 서로 다른 엔터티에서 동일한 데이터를 검색할 수 있습니다.
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
 
 ```JSON
 {
@@ -524,11 +956,194 @@ LUIS 엔드포인트는 여러 엔터티에서 동일한 데이터를 검색할 
 }
 ```
 
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+
+-0을 querystring 매개 변수로 @no__t 하지 않습니다.
+
+```json
+"entities": {
+    "TicketsOrder": [
+        {
+            "number": [
+                2
+            ],
+            "PassengerCategory": [
+                "adult"
+            ],
+            "TravelClass": [
+                "business"
+            ]
+        }
+    ],
+    "Location::LocationTo": [
+        "paris"
+    ],
+    "datetimeV2": [
+        {
+            "type": "date",
+            "values": [
+                {
+                    "timex": "2019-09-28",
+                    "value": "2019-09-28"
+                }
+            ]
+        }
+    ],
+    "Airline": [
+        "air france"
+    ]
+}
+```
+
+@No__t-0을 querystring 매개 변수로 사용 합니다.
+
+
+```json
+"entities": {
+    "TicketsOrder": [
+        {
+            "number": [
+                2
+            ],
+            "PassengerCategory": [
+                "adult"
+            ],
+            "TravelClass": [
+                "business"
+            ],
+            "$instance": {
+                "number": [
+                    {
+                        "type": "builtin.number",
+                        "text": "2",
+                        "startIndex": 8,
+                        "length": 1,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ],
+                "PassengerCategory": [
+                    {
+                        "type": "PassengerCategory",
+                        "text": "adult",
+                        "startIndex": 10,
+                        "length": 5,
+                        "score": 0.9503733,
+                        "modelTypeId": 3,
+                        "modelType": "Hierarchical Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ],
+                "TravelClass": [
+                    {
+                        "type": "TravelClass",
+                        "text": "business",
+                        "startIndex": 16,
+                        "length": 8,
+                        "score": 0.950095,
+                        "modelTypeId": 3,
+                        "modelType": "Hierarchical Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "Location::LocationTo": [
+        "paris"
+    ],
+    "datetimeV2": [
+        {
+            "type": "date",
+            "values": [
+                {
+                    "timex": "2019-09-28",
+                    "value": "2019-09-28"
+                }
+            ]
+        }
+    ],
+    "Airline": [
+        "air france"
+    ],
+    "$instance": {
+        "TicketsOrder": [
+            {
+                "type": "TicketsOrder",
+                "text": "2 adult business",
+                "startIndex": 8,
+                "length": 16,
+                "score": 0.942183256,
+                "modelTypeId": 4,
+                "modelType": "Composite Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "Location::LocationTo": [
+            {
+                "type": "Location::LocationTo",
+                "text": "paris",
+                "startIndex": 36,
+                "length": 5,
+                "score": 0.9905354,
+                "modelTypeId": 3,
+                "modelType": "Hierarchical Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "datetimeV2": [
+            {
+                "type": "builtin.datetimeV2.date",
+                "text": "tomorrow",
+                "startIndex": 42,
+                "length": 8,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ],
+        "Airline": [
+            {
+                "type": "Airline",
+                "text": "air france",
+                "startIndex": 54,
+                "length": 10,
+                "score": 0.9455415,
+                "modelTypeId": 1,
+                "modelType": "Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+
+* * *
+
 ## <a name="data-matching-multiple-list-entities"></a>여러 목록 엔터티와 일치하는 데이터
 
 단어나 구가 둘 이상의 목록 엔터티와 일치하는 경우, 엔드포인트 쿼리는 각 목록 엔터티를 반환합니다.
 
 `when is the best time to go to red rock?` 쿼리에서 앱이 둘 이상의 목록에 `red`라는 단어를 갖는 경우 LUIS는 모든 엔터티를 인식하고 엔터티의 배열을 JSON 엔드포인트 응답의 일부로 반환합니다. 
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
 
 ```JSON
 {
@@ -563,6 +1178,101 @@ LUIS 엔드포인트는 여러 엔터티에서 동일한 데이터를 검색할 
   ]
 }
 ```
+
+
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+
+쿼리 문자열에 `verbose=true`을 사용 하지 않습니다.
+
+```JSON
+{
+    "query": "when is the best time to go to red rock",
+    "prediction": {
+        "normalizedQuery": "when is the best time to go to red rock",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.823669851
+            }
+        },
+        "entities": {
+            "Colors": [
+                [
+                    "red"
+                ]
+            ],
+            "Cities": [
+                [
+                    "Destinations"
+                ]
+            ]
+        }
+    }
+}
+```
+
+
+쿼리 문자열에 `verbose=true`을 사용 합니다.
+
+```JSON
+{
+    "query": "when is the best time to go to red rock",
+    "prediction": {
+        "normalizedQuery": "when is the best time to go to red rock",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.823669851
+            }
+        },
+        "entities": {
+            "Colors": [
+                [
+                    "red"
+                ]
+            ],
+            "Cities": [
+                [
+                    "Destinations"
+                ]
+            ],
+            "$instance": {
+                "Colors": [
+                    {
+                        "type": "Colors",
+                        "text": "red",
+                        "startIndex": 31,
+                        "length": 3,
+                        "modelTypeId": 5,
+                        "modelType": "List Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ],
+                "Cities": [
+                    {
+                        "type": "Cities",
+                        "text": "red rock",
+                        "startIndex": 31,
+                        "length": 8,
+                        "modelTypeId": 5,
+                        "modelType": "List Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
+[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+
+* * *
 
 ## <a name="next-steps"></a>다음 단계
 

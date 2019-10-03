@@ -6,16 +6,16 @@ services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 06/16/2019
+ms.topic: conceptual
+ms.date: 09/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: cd31215f578062548c67f8d14e724dc49f73b21c
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: d6519ad5a130eee25ab17135e26d7207047dcf7a
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775000"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327269"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Azure Cognitive Services에 대한 자연어 지원
 
@@ -38,7 +38,7 @@ Azure Cognitive Services에서 지원되는 핵심 언어는 다음과 같습니
 * 스페인어
 
 > [!NOTE]
-> ¹ LUIS 및 Video Indexer: 음성을 텍스트로 변환은 지원되지 않습니다.
+> ¹ LUIS, Video Indexer, Text Analytics 및 음성 텍스트는 지원 되지 않습니다.
 
 ## <a name="additional-language-availability-by-service"></a>서비스별 추가 언어 가용성
 
@@ -94,7 +94,7 @@ Azure Cognitive Services에서 지원되는 핵심 언어는 다음과 같습니
 * [변칙 탐지기 (미리 보기)](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/overview)
 
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
 * [Cognitive Services란?](welcome.md)
 * [계정 만들기](cognitive-services-apis-create-account.md)

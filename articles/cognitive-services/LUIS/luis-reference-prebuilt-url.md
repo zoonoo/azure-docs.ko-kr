@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: b05b4f8638eedc0830c887da59c0c22706a1c4ce
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 77e1c9e64081e20ef064fd8341c54c13940f0dd4
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933379"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677308"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 URL 미리 빌드된 엔터티
 URL 엔터티는 도메인 이름 또는 IP 주소를 사용하여 URL을 추출합니다. 이 엔터티를 이미 학습했기 때문에 URL을 애플리케이션에 포함하는 예제 발언을 추가할 필요가 없습니다. URL 엔터티는 `en-us` 문화권에서만 지원됩니다. 
@@ -26,7 +26,7 @@ URL은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/mas
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>미리 빌드된 URL 엔터티의 해결
 
-### <a name="api-version-2x"></a>API 버전 2.x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
 
 다음 예제에서는 **builtin.url** 엔터티의 해결을 보여 줍니다.
 
@@ -54,9 +54,9 @@ URL은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/mas
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Preview API 버전 3(sp3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
 
-다음 JSON은 `verbose` 매개 변수를로 `false`설정 하는입니다.
+다음 JSON은 `verbose` 매개 변수를 `false`로 설정 합니다.
 
 ```json
 {
@@ -78,7 +78,7 @@ URL은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/mas
 }
 ```
 
-다음 JSON은 `verbose` 매개 변수를로 `true`설정 하는입니다.
+다음 JSON은 `verbose` 매개 변수를 `true`로 설정 합니다.
 
 ```json
 {
@@ -112,6 +112,11 @@ URL은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/mas
 }
 ```
 
+
+* * * 
+
 ## <a name="next-steps"></a>다음 단계
+
+[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
 
 [ordinal](luis-reference-prebuilt-ordinal.md), [number](luis-reference-prebuilt-number.md) 및 [temperature](luis-reference-prebuilt-temperature.md) 엔터티에 대해 알아봅니다.

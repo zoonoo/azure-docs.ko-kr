@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: magoedte
 ms.custom: mvc, seo-javascript-september2019
-ms.openlocfilehash: cdaca0fd3e314ecb5c0b68438eaaf87fbfb699b0
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 72f50754a28f0bbf5648ae64299d28ff13e2ec31
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933041"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703047"
 ---
-# <a name="collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Azure Monitor를 사용하여 하이브리드 환경에서 Linux 컴퓨터의 데이터 수집
+# <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>빠른 시작: Azure Monitor를 사용하여 하이브리드 환경에서 Linux 컴퓨터의 데이터 수집
 
 [Azure Monitor](../overview.md)는 상세한 분석 및 상관 관계 파악을 위해 사용자 환경의 물리적 또는 가상 Linux 컴퓨터 데이터를 Log Analytics 작업 영역으로 직접 수집할 수 있습니다. [Log Analytics 에이전트](../platform/log-analytics-agent.md)를 설치하면 Azure Monitor에서 데이터 센터 또는 다른 클라우드 환경의 데이터를 수집할 수 있습니다. 이 빠른 시작에서는 몇 가지 간단한 단계로 Linux 서버에서 데이터를 구성 및 수집하는 방법을 보여줍니다. Azure Linux VM에 대한 자세한 내용은 [Azure 가상 머신에 대한 데이터 수집](../../azure-monitor/learn/quick-collect-azurevm.md)을 참조하세요.  
 

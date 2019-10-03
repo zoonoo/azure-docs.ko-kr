@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 09/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 97a4673be2a611149806855e792c5bf1f7a0942a
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 530869928f7a25e779cb01f0fe392efdbb54c5ba
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955168"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695110"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>QnA Maker의 기술 자료 수명 주기
 QnA Maker는 모델 변경, 발언 예제, 게시, 엔드포인트 쿼리의 데이터 수집으로 구성된 반복 주기에서 가장 잘 학습합니다. 
@@ -35,7 +35,7 @@ QnA Maker KB(기술 자료) 엔드포인트는 KB의 콘텐츠를 기반으로 �
 
 이  테스트-업데이트 반복 과정은 사용자가 결과에 만족할 때까지 계속됩니다. [기술 자료 테스트](../How-To/test-knowledge-base.md) 방법을 알아보세요.
 
-대량 kb 경우에는 [generateanswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) 와 함께 자동화 된 테스트를 `isTest` 사용 하 고 게시 된 `test` 기술 자료가 아닌 기술 자료를 쿼리 하는 body 속성을 사용 합니다. 
+대량 Kb 경우 [Generateanswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) 를 사용 하 여 자동화 된 테스트를 사용 하 고 게시 된 기술 자료가 아닌 @no__t 기술 자료를 쿼리 하는 `isTest` 본문 속성을 사용 합니다. 
 
 ```json
 {
@@ -49,9 +49,9 @@ QnA Maker KB(기술 자료) 엔드포인트는 KB의 콘텐츠를 기반으로 �
 ## <a name="publish-the-knowledge-base"></a>기술 자료 게시
 기술 자료 테스트를 마쳤으면 기술 자료를 게시할 수 있습니다. 게시는 테스트를 마친 최신 버전의 기술 자료를 **게시된** 기술 자료를 나타내는 전용 Azure Search 인덱스에 푸시합니다. 또한 애플리케이션 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
 
-이러한 방식으로 테스트 버전 기술 자료를 변경하면 이미 게시된 프로덕션 응용프로그램 기술 자료에 영향을 주지 않습니다.
+이러한 방식으로, 테스트 버전의 기술 자료 변경 내용은 프로덕션 애플리케이션에 있을지도 모르는 게시된 버전에 영향을 주지 않습니다.
 
-각각의 기술 자료를 테스트 대상으로 지정할 수 있습니다. Api를 사용 하 여 generateanswer 호출에서 body 속성을 사용 `isTest` 하 여 기술 자료의 테스트 버전을 대상으로 지정할 수 있습니다.
+각각의 기술 자료를 테스트 대상으로 지정할 수 있습니다. Api를 사용 하 여 generateAnswer 호출에서 `isTest` body 속성을 사용 하 여 기술 자료의 테스트 버전을 대상으로 지정할 수 있습니다.
 
 [기술 자료 게시](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) 방법을 알아보세요.
 
@@ -62,12 +62,20 @@ QnA Maker KB(기술 자료) 엔드포인트는 KB의 콘텐츠를 기반으로 �
 
 분석 자료의 내용에 따라 [기술 자료를 적절하게 업데이트](../How-To/edit-knowledge-base.md)하세요.
 
+## <a name="version-control-of-a-knowledge-base"></a>기술 자료의 버전 제어
+
+QnA Maker에서 버전 제어를 제공 하지 않습니다. **설정** 페이지에서 기술 자료를 내보내고 고유한 방법 및 도구를 사용 해야 합니다.
+
+기술 자료를 TSV 또는 XLS 형식으로 내보내는 것은 **설정** 페이지에서 완료 됩니다. 
+
+특정 버전으로 다시 이동 해야 하는 경우 로컬 시스템에서 해당 파일을 가져와야 합니다. **설정** 페이지에서 TSV 또는 XLS 파일을 가져옵니다. 이렇게 하면 현재 기술 자료의 질문과 대답을 가져온 파일의 내용으로 대체 합니다.   
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [신뢰도 점수](./confidence-score.md)
 
-## <a name="see-also"></a>참고자료 
+## <a name="see-also"></a>참조 
 
 [기술 자료](./knowledge-base.md)
 [QnA Maker 개요](../Overview/overview.md)

@@ -8,24 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: c0ceea5c86af8d733c838e19f77eaeadc8a12dbb
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 00d3d63ff1a5b4d5dab0534e039145b97091af87
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300230"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802161"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>QnA Maker에 대 한 문제 해결
 
 QnA Maker 서비스와 관련 하 여 가장 자주 묻는 질문의 큐 레이트 목록은 서비스를 더 빠르게 채택 하 고 더 나은 결과를 생성 하는 데 도움이 됩니다.
 
+<a name="how-to-get-the-qnamaker-service-hostname"></a>
 
-## <a name="how-to-get-the-qnamaker-service-hostname"></a>QnAMaker 서비스 호스트 이름을 가져오는 방법
+## <a name="how-to-get-the-qnamaker-service-endpoint"></a>QnAMaker 서비스 끝점을 가져오는 방법
 
-QnAMaker 서비스 호스트 이름은 QnAMaker 고객 지원팀 또는 UserVoice에 디버깅에 대해 문의할 때 유용합니다. 호스트 이름은 https:// *{hostname}* . AZUREWEBSITES.NET 형식의 URL입니다.
+QnAMaker service 끝점은 QnAMaker 지원 또는 UserVoice에 문의할 때 디버깅 목적으로 유용 합니다. 끝점은 https://your-resource-name.azurewebsites.net 형식의 URL입니다.
     
 1. [Azure Portal](https://portal.azure.com)에서 QnAMaker 서비스(리소스 그룹)로 이동
 
@@ -35,9 +36,9 @@ QnAMaker 서비스 호스트 이름은 QnAMaker 고객 지원팀 또는 UserVoic
 
      ![QnAMaker App Service 선택](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
 
-1. 호스트 이름 URL은 [개요] 섹션에서 사용 가능
+1. 끝점 URL은 개요 섹션에서 사용할 수 있습니다.
 
-    ![QnAMaker 호스트 이름](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
+    ![QnAMaker 끝점](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
     
 
 ## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>QnA Maker 포털에서 도움말 봇 사용
@@ -173,7 +174,7 @@ App service에 대 한 디스크 공간이 가득 찼을 수 있습니다. 디�
 기술 자료에 대 한 다음 정보가 필요 합니다.
 
 * 기술 자료 ID입니다.
-* 기술 자료의 게시 된 끝점 호스트 이름-게시 후 **설정** 페이지에서 찾을 수 있습니다.
+* 기술 자료의 게시 된 끝점 사용자 지정 하위 도메인 이름 (`host` 이라고 함)은 게시 후 **설정** 페이지에서 찾을 수 있습니다.
 * 기술 자료의 게시 된 끝점 키-게시 후 **설정** 페이지에서 찾을 수 있습니다. 
 
 이 정보를 사용 하 여 Azure Portal에서 봇의 app service로 이동 합니다. **설정-> 구성-> 응용 프로그램 설정**에서 해당 값을 변경 합니다.  

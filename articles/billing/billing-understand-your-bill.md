@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/28/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 51143644a62a77a61c4540d9f2ad3dce401c496b
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: ceeacf216b1d3258aa73d86c613d28e00e9480bb
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68610125"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718627"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>Microsoft Azure 청구서 이해
 Azure 청구서를 이해하려면 청구서를 자세한 일별 사용량 파일 및 Azure Portal의 비용 관리 보고서와 비교합니다.

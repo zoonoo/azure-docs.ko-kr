@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/24/2019
+ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: ea258275cf954bc6e06da03324c2ae93de0e7fde
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a5a1ad467074ee0aa55d14d50ae153ac68304e6f
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563244"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695160"
 ---
 # <a name="composite-entity"></a>복합 엔터티 
 
@@ -33,65 +33,149 @@ ms.locfileid: "68563244"
 
 ## <a name="example-json"></a>예제 JSON
 
-다음 utterance을 `Location::ToLocation` 사용 하 여 `number` 미리 작성 된의 복합 엔터티를 고려 합니다.
+다음 utterance을 사용 하 여 미리 작성 된 `number` 및 `Location::ToLocation`의 복합 엔터티를 고려 합니다.
 
-`book 2 tickets to paris`
+`book 2 tickets to cairo`
 
-`2`(number)와 `paris`(ToLocation) 사이에 엔터티에 속하지 않는 단어가 있음을 알 수 있습니다. [LUIS](luis-reference-regions.md) 웹 사이트의 레이블이 지정된 발언에서 사용된 녹색 밑줄은 복합 엔터티를 나타냅니다.
+`2`(number)와 `cairo`(ToLocation) 사이에 엔터티에 속하지 않는 단어가 있음을 알 수 있습니다. [LUIS](luis-reference-regions.md) 웹 사이트의 레이블이 지정된 발언에서 사용된 녹색 밑줄은 복합 엔터티를 나타냅니다.
 
 ![복합 엔터티](./media/luis-concept-data-extraction/composite-entity.png)
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
 
 복합 엔터티는 `compositeEntities` 배열로 반환되고 복합 내의 모든 엔터티도 `entities` 배열로 반환됩니다.
 
 ```JSON
-
-"entities": [
+  "entities": [
     {
-    "entity": "2 tickets to cairo",
-    "type": "ticketInfo",
-    "startIndex": 0,
-    "endIndex": 17,
-    "score": 0.67200166
+      "entity": "2 tickets to cairo",
+      "type": "ticketinfo",
+      "startIndex": 5,
+      "endIndex": 22,
+      "score": 0.9214487
     },
     {
-    "entity": "2",
-    "type": "builtin.number",
-    "startIndex": 0,
-    "endIndex": 0,
-    "resolution": {
+      "entity": "cairo",
+      "type": "builtin.geographyV2.city",
+      "startIndex": 18,
+      "endIndex": 22
+    },
+    {
+      "entity": "2",
+      "type": "builtin.number",
+      "startIndex": 5,
+      "endIndex": 5,
+      "resolution": {
         "subtype": "integer",
         "value": "2"
+      }
     }
-    },
+  ],
+  "compositeEntities": [
     {
-    "entity": "cairo",
-    "type": "builtin.geographyV2",
-    "startIndex": 13,
-    "endIndex": 17
-    }
-],
-"compositeEntities": [
-    {
-    "parentType": "ticketInfo",
-    "value": "2 tickets to cairo",
-    "children": [
+      "parentType": "ticketinfo",
+      "value": "2 tickets to cairo",
+      "children": [
         {
-        "type": "builtin.geographyV2",
-        "value": "cairo"
+          "type": "builtin.number",
+          "value": "2"
         },
         {
-        "type": "builtin.number",
-        "value": "2"
+          "type": "builtin.geographyV2.city",
+          "value": "cairo"
+        }
+      ]
+    }
+  ]
+```    
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+
+쿼리 문자열에 `verbose=false`이 설정 된 경우이는 JSON입니다.
+
+```json
+"entities": {
+    "ticketinfo": [
+        {
+            "number": [
+                2
+            ],
+            "geographyV2": [
+                "cairo"
+            ]
         }
     ]
+}
+```
+
+쿼리 문자열에 `verbose=true`이 설정 된 경우이는 JSON입니다.
+
+```json
+"entities": {
+    "ticketinfo": [
+        {
+            "number": [
+                2
+            ],
+            "geographyV2": [
+                "cairo"
+            ],
+            "$instance": {
+                "number": [
+                    {
+                        "type": "builtin.number",
+                        "text": "2",
+                        "startIndex": 5,
+                        "length": 1,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ],
+                "geographyV2": [
+                    {
+                        "type": "builtin.geographyV2.city",
+                        "text": "cairo",
+                        "startIndex": 18,
+                        "length": 5,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "$instance": {
+        "ticketinfo": [
+            {
+                "type": "ticketinfo",
+                "text": "2 tickets to cairo",
+                "startIndex": 5,
+                "length": 18,
+                "score": 0.9214487,
+                "modelTypeId": 4,
+                "modelType": "Composite Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
     }
-]
-```    
+}
+```
+
+* * * 
+
 
 |데이터 개체|엔터티 이름|값|
 |--|--|--|
 |미리 빌드된 엔터티 - number|“builtin.number”|“2”|
-|미리 작성 한 엔터티-GeographyV2|“Location::ToLocation”|“paris”|
+|미리 작성 한 엔터티-GeographyV2|“Location::ToLocation”|카이로|
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: d11e31366ea5aa15cf7a790eaee800fa2ea6dabe
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: c0c43c779affb4edca78def95906f5adfcc6fac4
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490618"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709459"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 Azure 사용량 및 요금 파일의 용어
 
@@ -87,7 +87,7 @@ productOrderName | 제품 주문의 고유 이름
 consumedService | 사용한 서비스의 이름
 meterId | 미터의 고유 식별자
 meterName | 미터의 이름
-meterCategory | 미터의 분류 범주 이름. 예: *클라우드 서비스*, *네트워킹* 등.
+meterCategory | 측정기에 대한 분류 범주의 이름입니다. 예: *클라우드 서비스*, *네트워킹* 등.
 meterSubCategory | 미터 하위 분류 범주의 이름
 meterRegion | 서비스에 대한 미터를 사용할 수 있는 지역의 이름. 데이터 센터 위치에 따라 가격이 책정되는 특정 서비스에 대한 데이터 센터의 위치를 식별합니다.
 제품 | 구매한 제품의 이름

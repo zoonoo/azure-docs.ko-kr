@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 3d2c3e2bf693f763db13d90961a31e871aa25235
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d12b952d298b41c8d06f0fcac141a45749de9051
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558867"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71799951"
 ---
 # <a name="what-is-text-to-speech"></a>텍스트 음성 변환 이란?
 
@@ -55,7 +55,7 @@ SSML (Speech 합성 Markup Language)은 텍스트 음성 변환 서비스를 사
 텍스트 음성 변환 서비스를 사용 하는 경우 문장 부호를 포함 하 여 음성으로 변환 되는 각 문자에 대 한 요금이 청구 됩니다. SSML 문서 자체에는 요금이 청구 되지 않지만 음소 및 피치와 같이 텍스트를 음성으로 변환 하는 방법을 조정 하는 데 사용 되는 선택적 요소는 청구 가능 문자로 계산 됩니다. 다음은 청구 가능한 항목 목록입니다.
 
 * 요청의 SSML 본문에서 텍스트 음성 변환 서비스에 전달 된 텍스트입니다.
-* `<speak>` 및`<voice>` 태그를 제외한 SSML 형식으로 된 요청 본문의 텍스트 필드에 포함 된 모든 태그
+* @No__t-0 및 `<voice>` 태그를 제외한 SSML 형식으로 된 요청 본문의 텍스트 필드 내 모든 태그
 * 문자, 문장 부호, 공백, 탭, 태그 및 모든 공백 문자
 * 유니코드에 정의된 모든 코드 포인트
 
@@ -93,13 +93,20 @@ SSML (Speech 합성 Markup Language)은 텍스트 음성 변환 서비스를 사
 | [C#, Unity](quickstart-text-to-speech-csharp-unity.md) | Windows, Android | [찾아보기](https://aka.ms/csspeech/csharpref) |
 | [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [찾아보기](https://aka.ms/csspeech/cppref) |
 | [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [찾아보기](https://aka.ms/csspeech/cppref) |
+| [Java](quickstart-text-to-speech-java-jre.md) | Windows, Linux, macOS | [찾아보기](https://aka.ms/csspeech/javaref) |
+| [Java](quickstart-text-to-speech-java-android.md) | Android | [찾아보기](https://aka.ms/csspeech/javaref) |
+| [Objective-C](quickstart-text-to-speech-objectivec-macos.md) | macOS | [찾아보기](https://aka.ms/csspeech/objectivecref) |
+| [Objective-C](quickstart-text-to-speech-objectivec-ios.md) | iOS | [찾아보기](https://aka.ms/csspeech/objectivecref) |
+| [Swift](quickstart-text-to-speech-swift-macos.md) | macOS | [찾아보기](https://aka.ms/csspeech/objectivecref) |
+| [Swift](quickstart-text-to-speech-swift-ios.md) | iOS | [찾아보기](https://aka.ms/csspeech/objectivecref) |
+| [Python](quickstart-text-to-speech-python.md) | 창, Linux, macOS | [찾아보기](https://aka.ms/csspeech/pythonref) |
 
 ### <a name="rest-quickstarts"></a>REST 빠른 시작
 
 | 빠른 시작 (REST) | 플랫폼 | API 참조 |
 |------------|----------|---------------|
 | [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [찾아보기](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Windows, macOS, Linux | [찾아보기](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.JS](quickstart-nodejs-text-to-speech.md) | Windows, macOS, Linux | [찾아보기](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Python](quickstart-python-text-to-speech.md) | Windows, macOS, Linux | [찾아보기](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 
 ## <a name="sample-code"></a>샘플 코드

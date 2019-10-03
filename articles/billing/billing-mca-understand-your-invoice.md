@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/22/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: a5f77120c1d4e8a6721f3bc207132bee19a7772f
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: d514afdc4d9b571346768d283320f9e605e57f57
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68383545"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719738"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Microsoft 고객 계약 청구서의 용어
 
@@ -106,6 +106,6 @@ ms.locfileid: "68383545"
 ## <a name="next-steps"></a>다음 단계
 
 - [청구 프로필 청구서의 요금 이해](billing-mca-understand-your-bill.md)
-- [Azure 청구서 및 일간 사용 현황 데이터를 가져오는 방법](billing-download-azure-invoice-daily-usage-date.md)
+- [Azure 청구서 및 일간 사용량 현황 데이터를 가져오는 방법](billing-download-azure-invoice-daily-usage-date.md)
 - [조직의 Azure 가격 책정 보기](billing-ea-pricing.md)
 - [청구 프로필에 대한 세금 문서 보기](billing-mca-download-tax-document.md)
