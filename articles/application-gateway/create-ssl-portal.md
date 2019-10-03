@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 08/31/2019
+ms.date: 09/27/2019
 ms.author: victorh
-ms.openlocfilehash: b558384fe6bc86cd7b0ebd640407557e23f68ddd
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 53a4fca0c05cd54bae6d01d07e72e1033a247a05
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194570"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327357"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 SSL 종료로 애플리케이션 게이트웨이 구성
 
@@ -82,7 +82,7 @@ Export-PfxCertificate `
    - **리소스 그룹**: 리소스 그룹으로 **myResourceGroupAG**를 선택합니다. 이 리소스 그룹이 없으면 **새로 만들기**를 선택하여 새로 만듭니다.
    - **애플리케이션 게이트웨이 이름**: 애플리케이션 게이트웨이의 이름으로 *myAppGateway*를 입력합니다.
 
-     ![새 애플리케이션 게이트웨이 만들기: 기본 사항](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
+        ![새 애플리케이션 게이트웨이 만들기: 기본 사항](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
 2.  Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워크가 필요합니다. 새 가상 네트워크를 만들거나 기존 가상 네트워크를 선택할 수 있습니다. 이 예제에서는 애플리케이션 게이트웨이를 만들면서 새 가상 네트워크를 만듭니다. 별도의 서브넷으로 Application Gateway 인스턴스가 만들어집니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다.
 
@@ -98,7 +98,7 @@ Export-PfxCertificate `
 
     **확인**을 선택하여 **가상 네트워크 만들기** 창을 닫고 가상 네트워크 설정을 저장합니다.
 
-     ![새 애플리케이션 게이트웨이 만들기: 가상 네트워크](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
+    ![새 애플리케이션 게이트웨이 만들기: 가상 네트워크](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
     
 3. **기본 사항** 탭에서 다른 설정에 대한 기본값을 적용한 다음, **다음: 프런트 엔드**를 선택합니다.
 
@@ -110,7 +110,7 @@ Export-PfxCertificate `
 
 2. **퍼블릭 IP 주소**에 대해 **새로 만들기**를 선택하고 퍼블릭 IP 주소 이름으로 *myAGPublicIPAddress*를 입력한 후 **확인**을 선택합니다. 
 
-     ![새 애플리케이션 게이트웨이 만들기: 프런트 엔드](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
+   ![새 애플리케이션 게이트웨이 만들기: 프런트 엔드](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
 3. 완료되면 **다음: 백 엔드**를 선택합니다.
 
@@ -127,7 +127,7 @@ Export-PfxCertificate `
 
 3. **백 엔드 풀 추가** 창에서 **추가**를 선택하여 백 엔드 풀 구성을 저장하고 **백 엔드** 탭으로 돌아갑니다.
 
-     ![새 애플리케이션 게이트웨이 만들기: 백 엔드](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
+   ![새 애플리케이션 게이트웨이 만들기: 백 엔드](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
 
 4. **백 엔드** 탭에서 **다음: 구성**을 선택합니다.
 
@@ -152,19 +152,19 @@ Export-PfxCertificate `
    - **인증서 이름** - 인증서 이름으로 *mycert1*을 입력합니다.
    - **암호** - *Azure123456!* 를 입력합니다. 암호
   
-      **수신기** 탭에서 다른 설정에 대해 기본값을 그대로 적용한 다음, **백 엔드 대상** 탭을 선택하여 나머지 라우팅 규칙을 구성합니다.
+        **수신기** 탭에서 다른 설정에 대해 기본값을 그대로 적용한 다음, **백 엔드 대상** 탭을 선택하여 나머지 라우팅 규칙을 구성합니다.
 
-   ![새 애플리케이션 게이트웨이 만들기: 수신기](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-listener.png)
+   ![새 애플리케이션 게이트웨이 만들기: 수신기](./media/create-ssl-portal/application-gateway-create-rule-listener.png)
 
 4. **백 엔드 대상** 탭에서 **백 엔드 대상**으로 **myBackendPool**을 선택합니다.
 
 5. **Http 설정**에서 **새로 만들기**를 선택하여 새 HTTP 설정을 만듭니다. HTTP 설정에 따라 라우팅 규칙의 동작이 결정됩니다. 열리는 **HTTP 설정 추가** 창에서 **HTTP 설정 이름**으로 *myHTTPSetting*을 입력합니다. **HTTP 설정 추가** 창에서 다른 설정에 대해 기본값을 그대로 적용한 다음, **추가**를 선택하여 **라우팅 규칙 추가** 창으로 돌아옵니다. 
 
-     ![새 애플리케이션 게이트웨이 만들기: HTTP 설정](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
+   ![새 애플리케이션 게이트웨이 만들기: HTTP 설정](./media/create-ssl-portal/application-gateway-create-httpsetting.png)
 
 6. **라우팅 규칙 추가** 창에서 **추가**를 선택하여 라우팅 규칙을 저장하고 **구성** 탭으로 돌아옵니다.
 
-     ![새 애플리케이션 게이트웨이 만들기: 라우팅 규칙](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
+   ![새 애플리케이션 게이트웨이 만들기: 라우팅 규칙](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
 
 7. 완료되면 **다음: 태그**를 선택하고 **다음: 리뷰 + 만들기**를 클릭합니다.
 
@@ -214,17 +214,17 @@ Export-PfxCertificate `
 
 2. 다음 명령을 실행하여 가상 머신에 IIS를 설치합니다. 
 
-    ```azurepowershell-interactive
-    Set-AzVMExtension `
-      -ResourceGroupName myResourceGroupAG `
-      -ExtensionName IIS `
-      -VMName myVM `
-      -Publisher Microsoft.Compute `
-      -ExtensionType CustomScriptExtension `
-      -TypeHandlerVersion 1.4 `
-      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-      -Location EastUS
-    ```
+   ```azurepowershell-interactive
+          Set-AzVMExtension `
+            -ResourceGroupName myResourceGroupAG `
+            -ExtensionName IIS `
+            -VMName myVM `
+            -Publisher Microsoft.Compute `
+            -ExtensionType CustomScriptExtension `
+            -TypeHandlerVersion 1.4 `
+            -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+            -Location EastUS
+   ```
 
 3. 앞에서 완료한 단계를 사용하여 두 번째 가상 머신을 만들고 IIS를 설치합니다. 가상 머신 이름에 *myVM2*를 사용하고, **VMName** 설정에 **Set-AzVMExtension** cmdlet을 사용합니다.
 

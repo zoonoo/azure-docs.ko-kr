@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 34c85de456e7ec96f3244d327fd53c91ed90d109
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f7bf73561cadab866c08ae279d18bc1bd4655983
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306906"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802966"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-python"></a>빠른 시작: Python을 사용하여 기술 자료에서 질문에 대한 답변 얻기
 
@@ -43,6 +43,8 @@ VSCode를 열고 `get-answer-3x.py`라는 새 파일을 만듭니다.
 `get-answer-3x.py` 파일 맨 위에 프로젝트에 필요한 종속성을 추가합니다.
 
 [!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/get-answer/get-answer-3x.py?range=1-2 "Add the required dependencies")]
+
+<!--TBD - reword this following paragraph -->
 
 호스트 및 경로는 **게시** 페이지에 표시되는 방식과 다릅니다. python 라이브러리는 호스트에서 라우팅를 허용하지 않기 때문입니다. **게시** 페이지에 호스트 일부로 표시되는 라우팅은 해당 경로로 이동되었습니다.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 127c12b6a36f31f91fdce3700c43e2602a5c0194
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 51bd14c536e46291c8720e6c22e2e03a30243ddf
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624532"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827264"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Graph Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos DB Gremlin API에서 대량 작업 수행
 
@@ -73,7 +73,7 @@ catch (Exception e)
 }
 ```
 
-Bulk Executor 라이브러리의 매개 변수에 대한 자세한 내용은 [Azure Cosmos DB 토픽으로 데이터 대량으로 가져오기](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#bulk-import-data-to-azure-cosmos-db)를 참조하세요.
+Bulk Executor 라이브러리의 매개 변수에 대한 자세한 내용은 [Azure Cosmos DB 토픽으로 데이터 대량으로 가져오기](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account)를 참조하세요.
 
 페이로드를 `GremlinVertex` 및 `GremlinEdge` 개체로 인스턴스화해야 합니다. 이러한 개체를 만드는 방법은 다음과 같습니다.
 

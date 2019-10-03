@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a020ef91e52a5d801557399df827d3641bfb974e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 176cde77810a1c75cc18c351969a128fa78348af
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934197"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694918"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Azure Maps를 사용하여 지오펜스 설정
 
@@ -148,10 +148,24 @@ Postman 앱을 열고, 다음 단계에 따라 Azure Maps, 데이터 업로드 A
    }
    ```
 
-5. 보내기를 클릭하고 응답 헤더를 검토합니다. 위치 헤더에는 나중에 사용할 수 있도록 데이터를 다운로드하거나 액세스하기 위한 URI가 포함되어 있습니다. 업로드된 데이터에 대한 고유한 `udId`도 포함되어 있습니다.
+5. 보내기를 클릭하고 응답 헤더를 검토합니다. 요청이 성공하면 **Location**(위치) 헤더에 업로드 요청의 현재 상태를 확인하기 위한 상태 URI가 포함됩니다. 상태 URI는 다음과 같은 형식입니다. 
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
+   ```
+
+6. 상태 URI를 복사하고, 해당 값이 Azure Maps 계정 구독 키인 `subscription-key` 매개 변수를 이 상태 URI에 추가합니다. 상태 URI 형식은 아래와 같습니다.
+
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
+
+7. `udId`를 가져오려면 Postman 앱에서 새 탭을 열고, 작성기 탭에서 GET HTTP 메서드를 선택하고, 상태 URI에서 GET 요청을 수행합니다. 데이터 업로드가 성공하면 응답 본문에 udId가 있습니다. 나중에 사용할 수 있도록 udId를 복사합니다.
+
+   ```JSON
+   {
+    "udid" : "{udId}"
+   }
    ```
 
 ## <a name="set-up-an-event-handler"></a>이벤트 처리기 설정

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: spelluru
-ms.openlocfilehash: fc06d5d36cb6004c79bec79838c8f0d51961d560
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
-ms.translationtype: HT
+ms.openlocfilehash: d1dd059f1a6f9ce96b27d4fe1f214978dfc06a8f
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720151"
+ms.locfileid: "71815995"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Azure 관리 되는 id를 사용 하 여 랩 환경 배포 
 랩 소유자는 관리 되는 id를 사용 하 여 랩에 환경을 배포할 수 있습니다. 이 기능은 환경에 키 자격 증명 모음, 공유 이미지 갤러리 및 환경의 리소스 그룹 외부에 있는 네트워크와 같은 Azure 리소스에 대 한 참조를 포함 하거나 포함 하는 시나리오에서 유용 합니다. 이를 통해 해당 환경의 리소스 그룹으로 제한 되지 않는 샌드박스 환경을 만들 수 있습니다.
@@ -54,7 +54,7 @@ ms.locfileid: "71720151"
 1. Id를 만든 후에는이 id의 리소스 ID를 확인 합니다. 다음 샘플과 같습니다. 
 
     `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>`.
-1. **Fiddler**를 사용 하 여 다음 예제와 비슷한 PUT 명령을 실행 합니다. Service runner 이름에 대해 원하는 이름을 지정할 수 있는 경우에도 id 이름을 사용 하는 것이 좋습니다. 
+1. PUT Https 메서드를 수행 하 여 다음 예제와 비슷한 새 `ServiceRunner` 리소스를 랩에 추가 합니다. Service runner 리소스는 DevTest Labs에서 관리 되는 id를 관리 하 고 제어 하는 프록시 리소스입니다. Service runner 이름은 유효한 이름일 수 있지만 관리 되는 id 리소스의 이름을 사용 하는 것이 좋습니다. 
  
     ```json
     PUT https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Devtestlab/labs/{yourlabname}/serviceRunners/{serviceRunnerName}
