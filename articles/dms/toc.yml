@@ -65,8 +65,10 @@
           href: known-issues-azure-sql-online.md
         - name: 알려진 문제 - Azure DB for MySQL로 온라인 마이그레이션
           href: known-issues-azure-mysql-online.md
-        - name: 알려진 문제 - Azure DB for PostgreSQL 단일 서버로 온라인 마이그레이션
+        - name: 알려진 문제 - PostgreSQL에서 Azure DB for PostgreSQL 단일 서버로 온라인 마이그레이션
           href: known-issues-azure-postgresql-online.md
+        - name: 알려진 문제 - Oracle에서 Azure DB for PostgreSQL 단일 서버로 온라인 마이그레이션
+          href: known-issues-oracle-azure-postgresql-online.md
     - name: 동영상
       items:
         - name: 데이터베이스 마이그레이션 가이드 사용

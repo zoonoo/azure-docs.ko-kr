@@ -261,6 +261,8 @@
       items:
         - name: Python에서 ML 파이프라인 만들기
           href: how-to-create-your-first-pipeline.md
+        - name: ML 파이프라인 디버그 및 문제 해결
+          href: how-to-debug-pipelines.md
         - name: CI/CD용 Azure Pipelines
           displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context

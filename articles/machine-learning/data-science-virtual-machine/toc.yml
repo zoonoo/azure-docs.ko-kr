@@ -4,10 +4,12 @@
 - name: 개요
   expanded: true
   items:
-    - name: Data Science Virtual Machine이란?
+    - name: DSVM(Data Science Virtual Machine)이란?
       href: overview.md
     - name: Geo AI DSVM이란?
       href: geo-ai-dsvm-overview.md
+    - name: DSVM에 포함된 도구
+      href: tools-included.md
 - name: 빠른 시작
   expanded: true
   items:

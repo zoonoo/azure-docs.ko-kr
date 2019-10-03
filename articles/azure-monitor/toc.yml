@@ -830,6 +830,8 @@
                   href: log-query/app-expression.md
                 - name: 작업 영역 식
                   href: log-query/workspace-expression.md
+                - name: 리소스 식
+                  href: log-query/resource-expression.md
                 - name: 애플리케이션 데이터 리소스 통합
                   href: log-query/unify-app-resource-data.md
             - name: 예제 및 지침

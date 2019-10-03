@@ -4,6 +4,8 @@
   items:
     - name: Azure DB for MySQL이란?
       href: overview.md
+    - name: 어떤 MySQL 옵션을 선택해야 하나요?
+      href: select-right-deployment-type.md
 - name: 빠른 시작
   expanded: true
   items:
