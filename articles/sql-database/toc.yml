@@ -448,8 +448,6 @@
           href: sql-database-geo-replication-portal.md
         - name: 지역 복제를 위한 보안 구성
           href: sql-database-geo-replication-security-config.md
-        - name: 장애 조치(failover) 그룹 구성
-          href: sql-database-configure-failover-group.md
         - name: 메모리 내 기능 사용해보기
           href: sql-database-in-memory-sample.md
         - name: 자동 조정 사용
@@ -588,6 +586,8 @@
               href: sql-database-xevent-code-ring-buffer.md
     - name: 기능 구성
       items:
+        - name: 장애 조치(failover) 그룹 구성
+          href: sql-database-configure-failover-group.md
         - name: Azure AD 인증 구성
           href: sql-database-aad-authentication-configure.md
         - name: 조건부 액세스

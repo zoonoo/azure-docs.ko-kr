@@ -9,6 +9,8 @@
   items:
     - name: 시작하기
       href: video-indexer-get-started.md
+    - name: 사용자 초대
+      href: invite-users.md
 - name: 자습서
   items:
     - name: Video Indexer API 사용
