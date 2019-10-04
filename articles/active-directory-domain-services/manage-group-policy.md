@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: iainfou
-ms.openlocfilehash: 5c6d7b3403209710c9086b90abcb0e2ce61a0e8a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 6fe959a661f23673bb5d3e6df630ef4ee25128f7
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612634"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958554"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인의 그룹 정책 관리
 
@@ -31,31 +31,34 @@ Azure Active Directory Domain Services (Azure AD DS)의 사용자 및 컴퓨터 
 
 * 활성화된 Azure 구독.
     * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화 된 구독과 연결 된 Azure Active Directory 테 넌 트.
-    * 필요한 경우 [Azure Active Directory 테 넌 트][create-azure-ad-tenant] 를 만들거나 [사용자 계정에 Azure 구독을 연결][associate-azure-ad-tenant]합니다.
-* Azure AD 테 넌 트에서 사용 하도록 설정 되 고 구성 된 Azure Active Directory Domain Services 관리 되는 도메인입니다.
+* 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
+    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant] [Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
+* Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
     * 필요한 경우 자습서를 완료 하 여 [Azure Active Directory Domain Services 인스턴스를 만들고 구성][create-azure-ad-ds-instance]합니다.
 * Azure AD DS 관리 되는 도메인에 가입 된 Windows Server 관리 VM입니다.
     * 필요한 경우 자습서를 완료 하 여 [Windows SERVER VM을 만들고 관리 되는 도메인에 가입 시킵니다][create-join-windows-vm].
-* Azure AD 테 넌 트에서 *AZURE AD DC administrators* 그룹의 구성원 인 사용자 계정
+* Azure AD 테넌트의 *Azure AD DC Administrators* 그룹에 속한 멤버인 사용자 계정
+
+> [!NOTE]
+> [Azure AD DS의 도메인 컨트롤러에 대 한 액세스 권한이 없기](faqs.md#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop)때문에 관리 되는 도메인에서 그룹 정책 관리 템플릿에 대 한 중앙 저장소를 만들고 사용할 수 없습니다. [Sysvol은 온-프레미스 Azure AD Connect 동기화에 포함 되지](synchronization.md#what-isnt-synchronized-to-azure-ad-ds)않으므로 azure AD를 통해 온-프레미스 중앙 저장소를 만들고 azure AD DS와 동기화 할 수 없습니다.
 
 ## <a name="install-group-policy-management-tools"></a>그룹 정책 관리 도구 설치
 
 그룹 정책 개체 (Gpo)를 만들고 구성 하려면 그룹 정책 관리 도구를 설치 해야 합니다. 이러한 도구는 Windows Server의 기능으로 설치할 수 있습니다. Windows 클라이언트에 관리 도구를 설치 하는 방법에 대 한 자세한 내용은 install [원격 서버 관리 도구 (RSAT)][install-rsat]를 참조 하십시오.
 
 1. 관리 VM에 로그인 합니다. Azure Portal를 사용 하 여 연결 하는 방법에 대 한 단계는 [Windows SERVER VM에 연결][connect-windows-server-vm]을 참조 하세요.
-1. VM에 로그인 할 때 기본적으로 **서버 관리자** 를 열어야 합니다. 그렇지 않은 경우 **시작** 메뉴에서 **서버 관리자**를 선택 합니다.
-1. **서버 관리자** 창의 *대시보드* 창에서 **역할 및 기능 추가**를 선택 합니다.
-1. *역할 및 기능 추가 마법사*의 **시작 하기 전** 페이지에서 **다음**을 선택 합니다.
-1. *설치 유형*에서 **역할 기반 또는 기능 기반 설치** 옵션을 선택 된 채로 두고 **다음**을 선택 합니다.
-1. **서버 선택** 페이지에서 서버 풀의 현재 VM (예: *myvm.contoso.com*)을 선택 하 고 **다음**을 선택 합니다.
+1. VM에 로그인하면 **서버 관리자**가 기본적으로 열립니다. 그렇지 않은 경우 **시작** 메뉴에서 **서버 관리자**를 선택합니다.
+1. **서버 관리자** 창의 *대시보드* 창에서 **역할 및 기능 추가**를 선택합니다.
+1. *역할 및 기능 추가 마법사*의 **시작하기 전에** 페이지에서 **다음**을 선택합니다.
+1. *설치 유형*에서 **역할 기반 또는 기능 기반 설치** 옵션을 선택한 상태로 두고, **다음**을 선택합니다.
+1. **서버 선택** 페이지의 서버 풀에서 현재 VM(예: *myvm.contoso.com*), **다음**을 차례로 선택합니다.
 1. **서버 역할** 페이지에서 **다음**을 클릭합니다.
 1. **기능** 페이지에서 **그룹 정책 관리** 기능을 선택합니다.
 
     ![기능 페이지에서 ' 그룹 정책 관리 '를 설치 합니다.](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management.png)
 
-1. **확인** 페이지에서 **설치**를 선택 합니다. 그룹 정책 관리 도구를 설치 하는 데 1 ~ 2 시간이 걸릴 수 있습니다.
-1. 기능 설치가 완료 되 면 **닫기** 를 선택 하 여 **역할 및 기능 추가** 마법사를 종료 합니다.
+1. **확인** 페이지에서 **설치**를 선택합니다. 그룹 정책 관리 도구를 설치 하는 데 1 ~ 2 시간이 걸릴 수 있습니다.
+1. 기능 설치가 완료되면 **닫기**를 선택하여 **역할 및 기능 추가** 마법사를 종료합니다.
 
 ## <a name="open-the-group-policy-management-console-and-edit-an-object"></a>그룹 정책 관리 콘솔를 열고 개체를 편집 합니다.
 

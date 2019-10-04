@@ -443,7 +443,7 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 1.  Azure Portal으로 다시 이동 합니다. 왼쪽 탐색 창에서 Azure Active Directory 서비스를 선택 하 고 앱 등록를 선택 합니다.
 2.  결과 화면에서 WebApp-OpenIDConnect-DotNet 응용 프로그램을 선택 합니다.
 3.  리디렉션 Uri 섹션의 인증 탭 o에서 콤보 상자에서 웹을 선택 하 고 다음 리디렉션 Uri를 추가 합니다.
-    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.nethttps://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc 고급 설정 섹션에서 로그 아웃 URL을로 설정 합니다. https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
+    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc 고급 설정 섹션에서 로그 아웃 URL을로 설정 합니다. https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
 4.  브랜딩 탭 o에서 홈 페이지 URL을 app service의 주소로 업데이트 합니다 (예: https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net ).
         o 구성을 저장 합니다.
 5.  응용 프로그램이 web api를 호출 하는 경우에는 프로젝트에 필요한 변경 내용을 적용 해야 합니다 .이 경우 localhost 대신 게시 된 API URL을 호출 합니다.

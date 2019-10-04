@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 1339fe66a4925104d459c0491caccdd7db5998a7
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 63678ad7260210d86daf035bfec9bb467a526042
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114456"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950317"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 네트워크 정책을 사용하여 pod 간 트래픽 보호
 
@@ -50,19 +50,14 @@ Azure는 네트워크 정책을 구현 하는 두 가지 방법을 제공 합니
 
 두 구현 모두 Linux *Iptables* 를 사용 하 여 지정 된 정책을 적용 합니다. 정책은 허용 및 허용 되지 않는 IP 쌍 집합으로 변환 됩니다. 이러한 쌍은 IPTable 필터 규칙으로 프로그래밍 됩니다.
 
-네트워크 정책은 Azure CNI (고급) 옵션 에서만 작동 합니다. 구현은 다음과 같은 두 가지 옵션에 따라 다릅니다.
-
-* *Azure 네트워크 정책* -AZURE cni는 노드 내 네트워킹에 대해 VM 호스트에서 브리지를 설정 합니다. 필터링 규칙은 패킷이 브리지를 통과할 때 적용 됩니다.
-* *Calico 네트워크 정책* -AZURE cni는 노드 내 트래픽에 대 한 로컬 커널 경로를 설정 합니다. 정책은 pod의 네트워크 인터페이스에 적용 됩니다.
-
 ### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Azure와 Calico 정책과 해당 기능 간의 차이점
 
 | 기능                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
-| 지원 플랫폼                      | Linux                      | Linux                       |
-| 지원 되는 네트워킹 옵션             | Azure CNI                  | Azure CNI                   |
+| 지원되는 플랫폼                      | Linux                      | Linux                       |
+| 지원 되는 네트워킹 옵션             | Azure CNI                  | Azure CNI 및 kubenet       |
 | Kubernetes 사양 준수 | 지원 되는 모든 정책 유형 |  지원 되는 모든 정책 유형 |
-| 추가 기능                      | 없음                       | 글로벌 네트워크 정책, 글로벌 네트워크 집합 및 호스트 끝점으로 구성 된 확장 정책 모델입니다. CLI를 사용 하 여 이러한 `calicoctl` 확장 기능을 관리 하는 방법에 대 한 자세한 내용은 [calicoctl user reference][calicoctl]를 참조 하세요. |
+| 추가 기능                      | 없음                       | 글로벌 네트워크 정책, 글로벌 네트워크 집합 및 호스트 끝점으로 구성 된 확장 정책 모델입니다. @No__t-0 CLI를 사용 하 여 이러한 확장 기능을 관리 하는 방법에 대 한 자세한 내용은 [calicoctl user reference][calicoctl]를 참조 하세요. |
 | 지원                                  | Azure 지원 및 엔지니어링 팀에서 지원 | Calico 커뮤니티 지원. 추가 유료 지원에 대 한 자세한 내용은 [프로젝트 Calico 지원 옵션][calico-support]을 참조 하세요. |
 | 로깅                                  | IPTables에서 추가/삭제 된 규칙은 */var/log/azure-npm.log* 아래의 모든 호스트에 기록 됩니다. | 자세한 내용은 [Calico 구성 요소 로그][calico-logs] 를 참조 하세요. |
 
@@ -76,7 +71,7 @@ Azure는 네트워크 정책을 구현 하는 두 가지 방법을 제공 합니
 
 먼저, 네트워크 정책을 지 원하는 AKS 클러스터를 만들어 보겠습니다. 네트워크 정책 기능은 클러스터를 만들 때만 사용할 수 있습니다. 기존 AKS 클러스터에서는 네트워크 정책을 사용하도록 설정할 수 없습니다.
 
-AKS 클러스터에서 네트워크 정책을 사용 하려면 [Azure CNI 플러그 인][azure-cni] 을 사용 하 고 고유한 가상 네트워크 및 서브넷을 정의 해야 합니다. 필요한 서브넷 범위를 계획 하는 방법에 대 한 자세한 내용은 [고급 네트워킹 구성][use-advanced-networking]을 참조 하세요.
+Azure 네트워크 정책을 사용 하려면 [azure CNI 플러그 인][azure-cni] 을 사용 하 고 고유한 가상 네트워크 및 서브넷을 정의 해야 합니다. 필요한 서브넷 범위를 계획 하는 방법에 대 한 자세한 내용은 [고급 네트워킹 구성][use-advanced-networking]을 참조 하세요. Calico Network 정책은 동일한 Azure CNI 플러그 인 또는 Kubenet CNI 플러그 인과 함께 사용할 수 있습니다.
 
 다음 예제 스크립트는 다음과 같은 작업을 수행합니다.
 
@@ -84,7 +79,7 @@ AKS 클러스터에서 네트워크 정책을 사용 하려면 [Azure CNI 플러
 * AKS 클러스터에 사용할 Azure AD (Azure Active Directory) 서비스 주체를 만듭니다.
 * 가상 네트워크에서 AKS 클러스터 서비스 주체에 대해 *참가자* 권한을 할당합니다.
 * 정의 된 가상 네트워크에 AKS 클러스터를 만들고 네트워크 정책을 사용 하도록 설정 합니다.
-    * *Azure* 네트워크 정책 옵션이 사용 됩니다. 대신 calico를 네트워크 정책 옵션으로 사용 하려면 `--network-policy calico` 매개 변수를 사용 합니다.
+    * *Azure* 네트워크 정책 옵션이 사용 됩니다. 대신 Calico를 네트워크 정책 옵션으로 사용 하려면 `--network-policy calico` 매개 변수를 사용 합니다. 참고: Calico는 `--network-plugin azure` 또는 `--network-plugin kubenet`과 함께 사용할 수 있습니다.
 
 사용자 고유의 보안 *SP_PASSWORD*를 제공합니다. *RESOURCE_GROUP_NAME* 및 *CLUSTER_NAME* 변수를 바꿀 수 있습니다.
 
@@ -139,7 +134,7 @@ az aks create \
     --network-policy azure
 ```
 
-클러스터를 만드는 데 몇 분이 걸립니다. 클러스터가 준비 되 면 [az aks][az-aks-get-credentials] 명령을 `kubectl` 사용 하 여 Kubernetes 클러스터에 연결 하도록를 구성 합니다. 이 명령은 자격 증명을 다운로드하고 해당 자격 증명을 사용하도록 Kubernetes CLI를 구성합니다.
+클러스터를 만드는 데 몇 분이 걸립니다. 클러스터가 준비 되 면 [az aks get 자격 증명][az-aks-get-credentials] 명령을 사용 하 여 Kubernetes 클러스터에 연결 하도록 @no__t를 구성 합니다. 이 명령은 자격 증명을 다운로드하고 해당 자격 증명을 사용하도록 Kubernetes CLI를 구성합니다.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
@@ -168,7 +163,7 @@ kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace d
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-셸 프롬프트에서를 사용 `wget` 하 여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인 합니다.
+셸 프롬프트에서 `wget`을 사용 하 여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인 합니다.
 
 ```console
 wget -qO- http://backend
@@ -223,7 +218,7 @@ kubectl apply -f backend-policy.yaml
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-셸 프롬프트에서를 사용 `wget` 하 여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인 합니다. 이번에는 제한 시간 값을 *2*초로 설정합니다. 이제 네트워크 정책이 모든 인바운드 트래픽을 차단 하므로 다음 예제에 표시 된 것 처럼 페이지를 로드할 수 없습니다.
+셸 프롬프트에서 `wget`을 사용 하 여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인 합니다. 이번에는 제한 시간 값을 *2*초로 설정합니다. 이제 네트워크 정책이 모든 인바운드 트래픽을 차단 하므로 다음 예제에 표시 된 것 처럼 페이지를 로드할 수 없습니다.
 
 ```console
 $ wget -qO- --timeout=2 http://backend
@@ -278,7 +273,7 @@ kubectl apply -f backend-policy.yaml
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
 ```
 
-셸 프롬프트에서를 사용 `wget` 하 여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인 합니다.
+셸 프롬프트에서 `wget`을 사용 하 여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인 합니다.
 
 ```console
 wget -qO- http://backend
@@ -308,7 +303,7 @@ exit
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-셸 프롬프트에서를 사용 `wget` 하 여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인 합니다. 네트워크 정책은 인바운드 트래픽을 차단 하므로 다음 예제에 표시 된 것 처럼 페이지를 로드할 수 없습니다.
+셸 프롬프트에서 `wget`을 사용 하 여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인 합니다. 네트워크 정책은 인바운드 트래픽을 차단 하므로 다음 예제에 표시 된 것 처럼 페이지를 로드할 수 없습니다.
 
 ```console
 $ wget -qO- --timeout=2 http://backend
@@ -339,7 +334,7 @@ kubectl label namespace/production purpose=production
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-셸 프롬프트에서를 사용 `wget` 하 여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인 합니다.
+셸 프롬프트에서 `wget`을 사용 하 여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인 합니다.
 
 ```console
 wget -qO- http://backend.development
@@ -403,7 +398,7 @@ kubectl apply -f backend-policy.yaml
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-셸 프롬프트에서를 사용 `wget` 하 여 네트워크 정책에서 이제 트래픽을 거부 하는지 확인 합니다.
+셸 프롬프트에서 `wget`을 사용 하 여 네트워크 정책에서 이제 트래픽을 거부 하는지 확인 합니다.
 
 ```console
 $ wget -qO- --timeout=2 http://backend.development
@@ -423,7 +418,7 @@ exit
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
 ```
 
-셸 프롬프트에서를 사용 `wget` 하 여 네트워크 정책에서 트래픽을 허용 하는지 확인 합니다.
+셸 프롬프트에서 `wget`을 사용 하 여 네트워크 정책에서 트래픽을 허용 하는지 확인 합니다.
 
 ```console
 wget -qO- http://backend
@@ -468,9 +463,9 @@ kubectl delete namespace development
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 [aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
-[calicoctl]: https://docs.projectcalico.org/v3.6/reference/calicoctl/
+[calicoctl]: https://docs.projectcalico.org/v3.9/reference/calicoctl/
 [calico-support]: https://www.projectcalico.org/support
-[calico-logs]: https://docs.projectcalico.org/v3.6/maintenance/component-logs
+[calico-logs]: https://docs.projectcalico.org/v3.9/maintenance/component-logs
 [calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 
 <!-- LINKS - internal -->

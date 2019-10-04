@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 08/08/2019
+ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce8c74e5c194dbd971ecb65659c4fc8a7150146d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: cad57e3e7e52ec291819110bab9d8d79f51e5a2f
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882911"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958162"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>매개 변수가 있는 URL을 사용하여 사용자 지정 보기 공유
 
@@ -34,7 +34,7 @@ Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL
 
 예를 들어 `?environmentId=10000000-0000-0000-0000-100000000108`은 환경 ID 매개 변수입니다.
 
-## <a name="time"></a>시간
+## <a name="time"></a>Time
 
 매개 변수가 있는 URL을 사용하여 절대 또는 상대 시간 값을 지정할 수 있습니다.
 
@@ -55,36 +55,36 @@ Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL
 
 허용 되는 값은 Time Series Insights 탐색기 **빠른 시간** 메뉴에 해당 하며 다음을 포함 합니다.
 
-* `1800000`(최근 30 분)
-* `3600000`(지난 60 분)
-* `10800000`(지난 3 시간)
-* `21600000`(지난 6 시간)
-* `43200000`(지난 12 시간)
-* `86400000`(지난 24 시간)
-* `604800000`(최근 7 일)
-* `2592000000`(지난 30 시간)
+* `1800000` (지난 30 분)
+* `3600000` (지난 60 분)
+* `10800000` (지난 3 시간)
+* `21600000` (지난 6 시간)
+* `43200000` (지난 12 시간)
+* `86400000` (지난 24 시간)
+* `604800000` (지난 7 일)
+* `2592000000` (지난 30 시간)
 
 ### <a name="optional-parameters"></a>선택적 매개 변수
 
-매개 `timeSeriesDefinitions=<collection of term objects>` 변수는 Time Series Insights 보기의 조건을 지정 합니다.
+@No__t-0 매개 변수는 Time Series Insights 보기의 조건을 지정 합니다.
 
-| 매개 변수 | URL 항목 | Description |
+| 매개 변수 | URL 항목 | 설명 |
 | --- | --- | --- |
 | **name** | `\<string>` | *조건*의 이름입니다. |
 | **splitBy** | `\<string>` | *분할의 기준*이 되는 열 이름입니다. |
 | **measureName** | `\<string>` | *측정값*의 열 이름입니다. |
 | **predicate** | `\<string>` | 서버 쪽 필터링에 대한 *where* 절입니다. |
-| **useSum** | `true` | 측정값에 sum을 사용 하 여 지정 하는 선택적 매개 변수입니다. </br>  가 선택 된 `Events` 측정값이 면 기본적으로 개수가 선택 됩니다.  </br>  을 `Events` 선택 하지 않으면 기본적으로 평균이 선택 됩니다. |
+| **useSum** | `true` | 측정값에 sum을 사용 하 여 지정 하는 선택적 매개 변수입니다. </br>  @No__t-0이 선택한 측정값 인 경우 개수는 기본적으로 선택 됩니다.  </br>  @No__t-0을 선택 하지 않으면 기본적으로 평균이 선택 됩니다. |
 
-* 키 `multiChartStack=<true/false>` -값 쌍은 차트에서 누적을 사용 합니다.
-* 키 `multiChartSameScale=<true/false>` -값 쌍은 선택적 매개 변수 내의 여러 용어에서 동일한 Y 축 배율을 사용할 수 있도록 합니다.  
-* 를 `timeBucketUnit=<Unit>&timeBucketSize=<integer>` 사용 하면 간격 슬라이더를 조정 하 여 차트에 대 한 보다 세분화 되거나 더 정교 하 고 세분화 된 보기를 제공할 수 있습니다.  
-* `timezoneOffset=<integer>` 매개 변수를 사용 하면 UTC에 대 한 오프셋으로 표시할 차트의 표준 시간대를 설정할 수 있습니다.
+* @No__t-0 키-값 쌍은 차트에서 누적을 사용 하도록 설정 합니다.
+* @No__t-0 키-값 쌍은 선택적 매개 변수 내에서 여러 용어에 동일한 Y 축 배율을 사용할 수 있도록 합니다.  
+* @No__t-0을 사용 하면 간격 슬라이더를 조정 하 여 보다 세분화 되거나 더 정교 하 고 더 세분화 된 차트 보기를 제공할 수 있습니다.  
+* @No__t-0 매개 변수를 사용 하면 UTC에 대 한 오프셋으로 표시할 차트의 표준 시간대를 설정할 수 있습니다.
 
-| 쌍 | Description |
+| 쌍 | 설명 |
 | --- | --- |
-| `multiChartStack=false` | `true`는 기본적으로 사용 하도록 설정 `false` 되므로 스택에 전달 됩니다. |
-| `multiChartStack=false&multiChartSameScale=true` | 용어 전체에서 동일한 Y-축 눈금 사용하려면 스택을 사용하도록 설정해야 합니다.  `false` 기본적으로 이므로 ' t r u e '를 전달 하면이 기능을 사용할 수 있습니다. |
+| `multiChartStack=false` | `true`은 기본적으로 사용 하도록 설정 되므로 `false`을 스택에 전달 합니다. |
+| `multiChartStack=false&multiChartSameScale=true` | 용어 전체에서 동일한 Y-축 눈금 사용하려면 스택을 사용하도록 설정해야 합니다.  기본적으로 0 @no__t 이므로 ' t r u e '를 전달 하면이 기능을 사용할 수 있습니다. |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | 단위 = 일, 시간, 분, 초, 밀리초.  단위는 항상 대문자로 시작합니다. </br> timeBucketSize에 원하는 정수를 전달하여 단위의 수를 정의합니다.  최대 7일까지 설정할 수 있습니다.  |
 | `timezoneOffset=-<integer>` | 정수는 항상 밀리초 단위입니다. </br> 이 기능은 Time Series Insights 탐색기에서 사용 하는 것과 약간 다르며, 여기에서 로컬 (브라우저 시간) 또는 UTC를 선택할 수 있습니다. |
 
@@ -118,7 +118,7 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 
 전체 보기 (차트 포함):
 
-[![차트 보기](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
+[![ 차트 뷰](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,26 +1,26 @@
 ---
-title: Windows 가상 데스크톱에서 테 넌 트 및 호스트 풀 만들기-Azure
-description: Windows 가상 데스크톱 환경에서 테 넌 트 및 세션 호스트 VM (가상 컴퓨터)을 구성할 때 발생 하는 문제를 해결 하는 방법입니다.
+title: 세션 호스트 가상 컴퓨터 구성-Azure
+description: Windows 가상 데스크톱 세션 호스트 가상 컴퓨터를 구성할 때 발생 하는 문제를 해결 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 09/20/2019
+ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: f919ff1efcb094dec4c810f51a1810f2383ea09d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 4c684a2db02b7587b6d81eaf2f034540250fc001
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174086"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71841287"
 ---
-# <a name="tenant-and-host-pool-creation"></a>테넌트 및 호스트 풀 만들기
+# <a name="session-host-virtual-machine-configuration"></a>세션 호스트 가상 머신 구성
 
 이 문서를 사용 하 여 Windows 가상 데스크톱 세션 호스트 Vm (가상 컴퓨터)을 구성할 때 발생 하는 문제를 해결할 수 있습니다.
 
 ## <a name="provide-feedback"></a>피드백 제공
 
-Windows Virtual Desktop이 미리 보기로 제공되는 기간에는 지원 사례를 접수하지 않습니다. [Windows Virtual Desktop 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)를 방문하여 제품 팀 및 활발하게 활동하는 커뮤니티 멤버들과 Windows Virtual Desktop 서비스에 대해 토론해 보세요.
+[Windows Virtual Desktop 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)를 방문하여 제품 팀 및 활발하게 활동하는 커뮤니티 멤버들과 Windows Virtual Desktop 서비스에 대해 토론해 보세요.
 
 ## <a name="vms-are-not-joined-to-the-domain"></a>Vm이 도메인에 가입 되어 있지 않습니다.
 
@@ -329,7 +329,7 @@ Windows 10, 버전 1903으로 업그레이드 하려면 다음을 수행 합니�
 1. 아직 설치 하지 않은 경우 [Windows 10 5 월 2019 업데이트](https://support.microsoft.com/help/4028685/windows-10-get-the-update)를 다운로드 하 여 설치 합니다.
 2. 관리자 계정으로 컴퓨터에 로그인 합니다.
 3. **Gpedit.msc** 를 실행 하 여 그룹 정책 편집기를 엽니다.
-4. 컴퓨터 구성에서 **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스** > 원격 데스크톱 세션 호스트라이선스 > 로 이동 합니다.
+4. 컴퓨터 구성에서 **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스** > 원격 데스크톱 세션 호스트라이선스 > 로 이동 합니다..
 5. **원격 데스크톱 라이선싱 모드 설정을**선택 합니다.
 6. 열리는 창에서 먼저 **사용**을 선택 하 고 옵션 아래에서 다음 이미지와 같이 **사용자 단위로**RD 세션 호스트 서버에 대 한 라이선스 모드를 지정 합니다.
     
@@ -344,7 +344,7 @@ Windows 10, 버전 1903으로 업그레이드 하려면 다음을 수행 합니�
 1. 이미지 OS 버전을 선택 하 라는 메시지가 표시 될 때까지 [Azure Marketplace를 사용 하 여 호스트 풀 만들기](create-host-pools-azure-marketplace.md) 의 지침을 따릅니다. Office365 ProPlus를 사용 하거나 사용 하지 않고 Windows 10 Enterprise 다중 세션 중 하나를 선택할 수 있습니다.
 2. 관리자 계정으로 컴퓨터에 로그인 합니다.
 3. **Gpedit.msc** 를 실행 하 여 그룹 정책 편집기를 엽니다.
-4. 컴퓨터 구성에서 **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스** > 원격 데스크톱 세션 호스트라이선스 > 로 이동 합니다.
+4. 컴퓨터 구성에서 **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스** > 원격 데스크톱 세션 호스트라이선스 > 로 이동 합니다..
 5. **원격 데스크톱 라이선싱 모드 설정을**선택 합니다.
 6. 열리는 창에서 먼저 **사용**을 선택 하 고 옵션에서 사용자별로 RD 세션 호스트 서버에 대 한 라이선스 **모드를 지정**합니다.
 7. **적용**을 선택합니다.
@@ -357,7 +357,7 @@ Windows 10, 버전 1903으로 업그레이드 하려면 다음을 수행 합니�
 
 1. 관리자 계정으로 컴퓨터에 로그인 합니다.
 2. **Gpedit.msc** 를 실행 하 여 그룹 정책 편집기를 엽니다.
-3. 컴퓨터 구성에서 **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스** > 원격 데스크톱 세션 호스트라이선스 > 로 이동 합니다.
+3. 컴퓨터 구성에서 **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스** > 원격 데스크톱 세션 호스트라이선스 > 로 이동 합니다..
 4. **원격 데스크톱 라이선싱 모드 설정을**선택 합니다.
 6. 열리는 창에서 먼저 **사용**을 선택 하 고 옵션 아래에서 다음 이미지와 같이 **사용자 단위로**RD 세션 호스트 서버에 대 한 라이선스 모드를 지정 합니다.
     
@@ -374,7 +374,7 @@ Windows 10, 버전 1903으로 업그레이드 하려면 다음을 수행 합니�
 - Windows 가상 데스크톱에서 VM (가상 컴퓨터)을 구성 하는 동안 발생 하는 문제를 해결 하려면 [세션 호스트 가상 컴퓨터 구성](troubleshoot-vm-configuration.md)을 참조 하세요.
 - Windows 가상 데스크톱 클라이언트 연결 문제를 해결 하려면 [원격 데스크톱 클라이언트 연결](troubleshoot-client-connection.md)을 참조 하세요.
 - Windows 가상 데스크톱과 함께 PowerShell을 사용할 때 발생 하는 문제를 해결 하려면 [Windows 가상 데스크톱 PowerShell](troubleshoot-powershell.md)을 참조 하세요.
-- 미리 보기 서비스에 대 한 자세한 내용은 [Windows 가상 데스크톱 미리 보기 환경](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)을 참조 하세요.
+- 서비스에 대 한 자세한 내용은 [Windows 가상 데스크톱 환경](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)을 참조 하세요.
 - 문제 해결 자습서를 진행하려면 [자습서: 리소스 관리자 템플릿 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)문제를 해결 합니다.
 - 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)를 참조하세요.
 - 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)를 참조하세요.

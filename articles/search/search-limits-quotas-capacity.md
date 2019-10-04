@@ -6,14 +6,14 @@ manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 10/03/2019
 ms.author: heidist
-ms.openlocfilehash: fd65bb134d9057246a1b8c5cc2986e979713d20b
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 2d3b74476def5bdf46a6292996f0af9162b20b43
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327155"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947772"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search의 서비스 제한 사항
 저장소, 워크 로드 및 인덱스, 문서 및 기타 개체의 수량에 대 한 최대 제한은 **무료**, **기본**, **표준**또는 **저장소에 최적화** 된 가격 책정 계층에서 [Azure Search를 프로 비전](search-create-service-portal.md) 하는지 여부에 따라 달라 집니다.
@@ -84,7 +84,7 @@ ms.locfileid: "71327155"
 
 |  무료 | 기본 | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
-|  10000 |&nbsp;1백만 |파티션당 1천 5백만, 서비스당 1억 8천만 |파티션당 6천만, 서비스당 7억 2천만 |파티션당 1억 2천만, 서비스당 14억 |인덱스당 1백만, 파티션당 2억만 |
+|  10000 |1 @ no__t-0million |파티션당 1천 5백만, 서비스당 1억 8천만 |파티션당 6천만, 서비스당 7억 2천만 |파티션당 1억 2천만, 서비스당 14억 |인덱스당 1백만, 파티션당 2억만 |
 
 서비스의 제한 때문에 작업이 차단되는 경우 새 서비스를 만들고 해당 서비스에 모든 콘텐츠를 다시 게시합니다. 백그라운드 작업을 통해 새 하드웨어에 서비스를 원활하게 다시 프로비전할 수 있는 메커니즘은 없습니다.
 
@@ -115,7 +115,7 @@ ms.locfileid: "71327155"
 | 최대 실행 시간 <sup>5</sup> | 1-3분 |24시간 |24시간 |24시간 |24시간 |해당 사항 없음  |24시간 |24시간 |
 | 인식 검색 기능이나 이미지 분석을 통한 Blob 인덱싱의 최대 실행 시간 <sup>5</sup> | 3~10분 |2시간 |2시간 |2시간 |2시간 |해당 사항 없음  |2시간 |2시간 |
 | Blob 인덱서: 최대 Blob 크기(MB) |16 |16 |128 |256 |256 |해당 사항 없음  |256 |256 |
-| Blob 인덱서: Blob에서 추출된 콘텐츠의 최대 문자 |32,000 |64,000 |&nbsp;1억 |&nbsp;1억 |&nbsp;1억 |해당 사항 없음 |&nbsp;1억 |&nbsp;1억 |
+| Blob 인덱서: Blob에서 추출된 콘텐츠의 최대 문자 |32,000 |64,000 |4 @ no__t-0million |4 @ no__t-0million |4 @ no__t-0million |해당 사항 없음 |4 @ no__t-0million |4 @ no__t-0million |
 
 <sup>1</sup> 무료 계층의 인덱서 최대 실행 시간은 Blob 원본의 경우 3분이고 기타 모든 데이터 원본의 경우 1분입니다. Cognitive Services를 호출 하는 AI 인덱싱의 경우 무료 서비스는 하루 20 개의 무료 트랜잭션으로 제한 되며, 여기서 트랜잭션은 보강 파이프라인을 통해 성공적으로 전달 되는 문서로 정의 됩니다.
 
@@ -146,7 +146,19 @@ QPS 예상 값은 모든 고객에 의해 독립적으로 개발되어야 합니
 
 ## <a name="data-limits-cognitive-search"></a>데이터 제한(인식 검색)
 
-[엔터티 인식](cognitive-search-skill-entity-recognition.md), [핵심 구 추출](cognitive-search-skill-keyphrases.md), [감정 분석](cognitive-search-skill-sentiment.md) 및 [언어 감지](cognitive-search-skill-language-detection.md)에 대한 텍스트 분석 리소스로 호출을 만드는 [인식 검색 파이프라인](cognitive-search-concept-intro.md)은 데이터가 제한될 수 있습니다. 레코드의 최대 크기는에 따라 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)측정 되는 5만 자 여야 합니다. 감성 분석기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 사용합니다.
+[엔터티 인식](cognitive-search-skill-entity-recognition.md), [핵심 구 추출](cognitive-search-skill-keyphrases.md), [감정 분석](cognitive-search-skill-sentiment.md) 및 [언어 감지](cognitive-search-skill-language-detection.md)에 대한 텍스트 분석 리소스로 호출을 만드는 [인식 검색 파이프라인](cognitive-search-concept-intro.md)은 데이터가 제한될 수 있습니다. 레코드의 최대 크기는 5만 자 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)로 측정 되어야 합니다. 감성 분석기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 사용합니다.
+
+## <a name="throttling-limits"></a>제한 제한
+
+시스템이 최대 용량에 도달 하면 검색 쿼리 및 인덱싱 요청이 제한 됩니다. 제한은 Api 마다 다르게 동작 합니다. 쿼리 Api (검색/제안/자동 완성) 및 인덱싱 Api는 서비스의 부하에 따라 동적으로 제한 됩니다. 인덱스 Api에는 정적 요청 률 제한이 있습니다. 
+
+인덱스와 관련 된 작업에 대 한 정적 전송률 요청 제한:
+
++ 인덱스 나열 (GET/indexes): 검색 단위당 초당 5
++ Get Index (GET/indexes/myindex): 검색 단위당 초당 10
++ 인덱스 만들기 (사후/인덱스): 검색 단위당 분당 12 개
++ 인덱스 만들기 또는 업데이트 (PUT/indexes/myindex): 검색 단위당 초당 6
++ 인덱스 삭제 (DELETE/indexes/myindex): 검색 단위당 분당 12 개 
 
 ## <a name="api-request-limits"></a>API 요청 제한
 * 요청당 최대 16MB <sup>1</sup>

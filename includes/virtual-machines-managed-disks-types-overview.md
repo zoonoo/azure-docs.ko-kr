@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 87e130d3a4569971bffb9b1ac2e189babb900225
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 3dfc3c309fe3583ddd4307cbfe4e55bf6522ffc3
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997677"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71955870"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure에서 사용할 수 있는 디스크 유형
 
@@ -27,7 +27,7 @@ Azure managed disks는 현재 4 개의 디스크 유형을 제공 합니다. 각
 |---------|---------|---------|---------|---------|
 |디스크 유형   |SSD   |SSD   |SSD   |HDD   |
 |시나리오   |IO 집약적 워크로드 - SAP HANA, 최상위 계층 데이터베이스(예: SQL, Oracle) 및 다른 트랜잭션 집약적 워크로드   |프로덕션 및 성능이 중요한 워크로드   |웹 서버, 적게 사용되는 엔터프라이즈 애플리케이션 및 개발/테스트   |백업, 중요하지 않음, 가끔 액세스   |
-|디스크 크기   |65536 개 (GiB)    |32,767GiB    |32,767GiB   |32,767GiB   |
+|최대 디스크 크기   |65536 개 (GiB)    |32,767GiB    |32,767GiB   |32,767GiB   |
 |최대 처리량   |2000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
 |최대 IOPS   |160,000    |20,000   |6,000   |2,000   |
 

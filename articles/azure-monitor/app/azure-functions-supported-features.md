@@ -3,7 +3,7 @@ title: Azure Application Insights - Azure Functions 지원 기능 | Microsoft Do
 description: Azure Functions에 대한 Application Insights 지원 기능
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: ''
 ms.service: application-insights
 ms.workload: TBD
@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: 0199d8f0c4a76a10fffcab7cf2819643d0ac2d68
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cf39c8b5e204493380c095519e0ff25c3ce19f68
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075352"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959895"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Azure Functions에 대한 Application Insights 지원 기능
 
@@ -25,7 +25,7 @@ Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Applic
 
 ## <a name="supported-features"></a>지원되는 기능
 
-| Azure 기능                       | V1                | V2(Ignite 2018)  | 
+| Azure Functions                       | V1                | V2(Ignite 2018)  | 
 |-----------------------------------    |---------------    |------------------ |
 | **Application Insights .NET SDK**   | **2.5.0**       | **2.9.1**         |
 | | | | 
@@ -66,9 +66,9 @@ Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Applic
 
 Azure Functions를 사용하면 기본적으로 구성에서 샘플링을 사용하도록 설정할 수 있습니다. 자세한 내용은 [샘플링 구성](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling)을 참조하세요.
 
-프로젝트 추적 수동 원격 분석을 위해 Application Insights SDK에 종속, 하는 경우 샘플링 구성 함수를 샘플링 구성과 다른 경우 비정상적인 동작이 발생할 수 있습니다. 
+프로젝트에서 Application Insights SDK에 대 한 종속성을 사용 하 여 수동 원격 분석 추적을 수행 하는 경우 샘플링 구성이 함수의 샘플링 구성과 다를 경우 이상한 동작이 발생할 수 있습니다. 
 
-함수와 동일한 구성을 사용 하는 것이 좋습니다. 사용 하 여 **Functions v2**, 생성자에서 종속성 주입을 사용 하 여 동일한 구성을 가져올 수 있습니다.
+함수와 동일한 구성을 사용 하는 것이 좋습니다. **V2 함수**를 사용 하면 생성자에서 종속성 주입을 사용 하 여 동일한 구성을 가져올 수 있습니다.
 
 ```csharp
 using Microsoft.ApplicationInsights;

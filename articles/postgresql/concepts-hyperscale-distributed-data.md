@@ -1,18 +1,18 @@
 ---
 title: Azure Database for PostgreSQL-Hyperscale (Citus)의 분산 데이터
-description: 서버 그룹에 분산된 테이블 및 분할입니다.
+description: Azure Database for PostgreSQL에서 분산 테이블, 참조 테이블, 로컬 테이블 및 분할에 대해 알아봅니다.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: acc07086f4eaac523cb27e1361cb9cc6d380c695
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 8a0fe871685f2a140cd8272d93f49f594cd2c910
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998032"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947498"
 ---
 # <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)의 분산 데이터
 
@@ -64,13 +64,13 @@ SELECT * from pg_dist_shard;
  (4 rows)
 ```
 
-코디네이터 노드가 행 `github_events`을 보유 하 고 있는 분할 영역을 확인 하려는 경우 행의 분포 열 값을 해시 합니다. 그런 다음 노드는 해시 된\'값을 포함 하는 분할 된 범위를 확인 합니다. 범위는 해시 함수의 이미지가 비연속 합집합이 되도록 정의 됩니다.
+코디네이터 노드가 @no__t 행을 보유 하 고 있는 분할을 확인 하려는 경우 행의 분포 열 값을 해시 합니다. 그런 다음 노드는 해시 된 값을 포함 하는 분할 된 @ no__t-0 범위를 확인 합니다. 범위는 해시 함수의 이미지가 비연속 합집합이 되도록 정의 됩니다.
 
 ### <a name="shard-placements"></a>분할 배치
 
-분할 102027이 해당 행과 연관된다고 가정합니다. 작업자 중 하나에서 호출 `github_events_102027` 된 테이블에서 행을 읽거나 씁니다. 어느 작업자일까요? 이는 메타 데이터 테이블에 의해 완전히 결정 됩니다. 분할 된 작업자에 대 한 분할을 분할 된 배치 라고 합니다.
+분할 102027이 해당 행과 연관된다고 가정합니다. 작업자 중 하나에서 `github_events_102027` 이라는 테이블에서 행을 읽거나 씁니다. 어느 작업자일까요? 이는 메타 데이터 테이블에 의해 완전히 결정 됩니다. 분할 된 작업자에 대 한 분할을 분할 된 배치 라고 합니다.
 
-코디네이터 노드는와 같은 `github_events_102027` 특정 테이블을 참조 하는 조각으로 쿼리를 다시 작성 하 고 해당 하는 작업자의 조각을 실행 합니다. 다음은 분할 된 ID 102027을 보유 하는 노드를 찾기 위해 내부적으로 실행 되는 쿼리의 예입니다.
+코디네이터 노드는 `github_events_102027`과 같은 특정 테이블을 참조 하는 조각으로 쿼리를 다시 작성 하 고 해당 하는 작업자에 대해 해당 조각을 실행 합니다. 다음은 분할 된 ID 102027을 보유 하는 노드를 찾기 위해 내부적으로 실행 되는 쿼리의 예입니다.
 
 ```sql
 SELECT

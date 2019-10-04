@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9ea9240ce5fa791734ab7b650ebdfa56b3f8dced
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 3a6bebfa11294821ff717f221e3e0ddfd68cd65c
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840575"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948218"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights 탐색기
 
@@ -37,7 +37,7 @@ Azure Time Series Insights는 완전히 관리되는 분석, 스토리지 및 �
 >[!NOTE]
 >위의 비디오 <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"Azure IoT 솔루션 가속기를 사용 하 여 Time Series Insights 시작"</a> 을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니다.
 
@@ -67,7 +67,7 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
       - 단계 보간을 사용 하도록 설정 하 고, 최소값과 최대값을 표시 하 고, **측정**옆의 제어판에서 y 축을 조정할 수 있습니다. 표시 된 데이터가 데이터의 개수, 평균 또는 합계 인지를 조정할 수도 있습니다.
       - 동일한 x 축에 대해 볼 수 있는 최대 5 개의 용어를 추가할 수 있습니다. **드롭다운** 단추를 사용 하 여 추가 용어를 추가 하거나 **추가** 를 선택 하 여 새 용어를 추가 합니다.
 
-        [![용어 편집기 패널](media/time-series-insights-explorer/explorer2.png)](media/time-series-insights-explorer/explorer2.png#lightbox)
+        [![Terms 편집기 패널](media/time-series-insights-explorer/explorer2.png)](media/time-series-insights-explorer/explorer2.png#lightbox)
 
       - **조건자**: 조건자를 사용 하면 다음 표에 나열 된 피연산자 집합을 사용 하 여 이벤트를 신속 하 게 필터링 할 수 있습니다. 를 선택 하거나 클릭 하 여 검색을 수행 하는 경우 조건자는 해당 검색에 따라 자동으로 업데이트 됩니다. 지원되는 연산자는 다음과 같습니다.
 
@@ -76,11 +76,11 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
          |`<`, `>`, `<=`, `>=`     |  Double, DateTime, TimeSpan       |         |
          |`=`, `!=`, `<>`     | String, Bool, Double, DateTime, TimeSpan, NULL        |         |
          |IN     | String, Bool, Double, DateTime, TimeSpan, NULL        |  모든 연산자는 같은 형식이거나 NULL 상수여야 합니다.        |
-         |HAS     | String        |  오른쪽에는 상수 문자열 리터럴만 사용할 수 있습니다. 빈 문자열 및 NULL은 허용 되지 않습니다.       |
+         |HAS     | 문자열        |  오른쪽에는 상수 문자열 리터럴만 사용할 수 있습니다. 빈 문자열 및 NULL은 허용 되지 않습니다.       |
 
       - **쿼리 예**
 
-         [![예제 쿼리](media/time-series-insights-explorer/explorer9.png)](media/time-series-insights-explorer/explorer9.png#lightbox)
+         [![Example 쿼리](media/time-series-insights-explorer/explorer9.png)](media/time-series-insights-explorer/explorer9.png#lightbox)
 
 1. **간격 크기** 슬라이더 도구를 사용 하 여 동일한 timespan을 기준으로 간격을 확대 및 축소할 수 있습니다. 슬라이더를 사용 하면 데이터의 세분화 된 고해상도 컷을 볼 수 있는 밀리초 만큼 작은 조각으로 부드러운 추세를 표시 하는 큰 시간 조각 간의 움직임을 보다 정확 하 게 제어할 수 있습니다. 슬라이더의 기본 시작 지점은 해상도, 쿼리 속도 및 세분성의 균형을 유지 하기 위해 선택에서 가장 최적의 데이터 뷰로 설정 됩니다.
 
@@ -88,13 +88,13 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
 
 1. **저장** 명령을 사용 하 여 현재 쿼리를 저장 하 고 환경의 다른 사용자와 공유 합니다. **Open**을 사용 하는 경우 액세스 권한이 있는 환경에서 다른 사용자의 공유 쿼리 및 저장 된 쿼리를 모두 볼 수 있습니다.
 
-   [![쿼리](media/time-series-insights-explorer/explorer3.png)](media/time-series-insights-explorer/explorer3.png#lightbox)
+   [![Queries](media/time-series-insights-explorer/explorer3.png)](media/time-series-insights-explorer/explorer3.png#lightbox)
 
 ## <a name="visualize-data"></a>데이터 가상화
 
 1. 최대 4 개의 고유한 쿼리를 동시에 보려면 **큐브 뷰 보기** 도구를 사용 합니다. **원근감 뷰** 단추는 차트의 오른쪽 위 모퉁이에 있습니다.
 
-   [![큐브 뷰 보기](media/time-series-insights-explorer/explorer4.png)](media/time-series-insights-explorer/explorer4.png#lightbox)
+   [![Perspective 뷰](media/time-series-insights-explorer/explorer4.png)](media/time-series-insights-explorer/explorer4.png#lightbox)
 
 1. 차트를 보고 데이터를 시각적으로 탐색 하 고 **차트** 도구를 사용 합니다.
 
@@ -104,15 +104,15 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
     - 차트 왼쪽의 필터 영역에서 표시 된 모든 데이터 계열을 확인 하 고 값 또는 이름별로 순서를 변경할 수 있습니다. 모든 데이터 계열이 나 고정 또는 고정 해제 된 계열을 볼 수도 있습니다. 단일 데이터 계열을 선택 하 고 다른 열을 기준으로 계열을 분할 하거나, 계열을 새 용어로 추가 하거나, 선택한 계열만 표시 하거나, 선택한 계열을 제외 하거나, 해당 계열을 고정 하거나, 선택한 계열의 이벤트를 탐색할 수 있습니다.
     - 여러 용어를 동시에 볼 때 스택, 스택 제거, 데이터 계열에 대 한 추가 데이터 확인 및 모든 용어에서 동일한 y 축 사용을 수행할 수 있습니다. 차트의 오른쪽 위 모퉁이에 있는 단추를 사용 합니다.
 
-    [![차트 도구](media/time-series-insights-explorer/explorer5.png)](media/time-series-insights-explorer/explorer5.png#lightbox)
+    [![Chart 도구](media/time-series-insights-explorer/explorer5.png)](media/time-series-insights-explorer/explorer5.png#lightbox)
 
 1. **열 지도** 를 사용 하 여 지정 된 쿼리에서 고유 하거나 비정상 데이터 계열을 빠르게 찾을 수 있습니다. 하나의 검색 기간만 열 지도로 시각화할 수 있습니다.
 
-    [![열 지도](media/time-series-insights-explorer/explorer6.png)](media/time-series-insights-explorer/explorer6.png#lightbox)
+    [![Heatmap](media/time-series-insights-explorer/explorer6.png)](media/time-series-insights-explorer/explorer6.png#lightbox)
 
 1. 이벤트를 선택 하거나 마우스 오른쪽 단추로 클릭 하 여 이벤트를 탐색할 때 **이벤트** 패널을 사용할 수 있습니다. 여기에서 원시 이벤트를 보고 이벤트를 JSON 또는 CSV 파일로 내보낼 수 있습니다. Time Series Insights 모든 원시 데이터를 저장 합니다.
 
-    [![이벤트](media/time-series-insights-explorer/explorer7.png)](media/time-series-insights-explorer/explorer7.png#lightbox)
+    [![Events](media/time-series-insights-explorer/explorer7.png)](media/time-series-insights-explorer/explorer7.png#lightbox)
 
 1. 패턴 및 열 통계를 노출 하는 이벤트를 탐색 한 후 **통계** 탭을 선택 합니다.
 

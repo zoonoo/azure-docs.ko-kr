@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/10/2019
+ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ceefb565a82301d2ddedf70d12c0fc564b801229
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d3c810746218e9761ae4c821dc22fef921e62a60
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101216"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719057"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Azure에서 SAP HANA 인프라 구성 및 작업
 이 문서에서는 Azure VM(Virtual Machines)에 배포된 SAP HANA 시스템 운영 및 Azure 인프라 구성을 위한 지침을 제공합니다. 또한 M128s VM SKU용 SAP HANA 스케일 아웃을 위한 구성 정보가 포함됩니다. 이 문서는 다음 내용을 포함하는 표준 SAP 설명서를 대체하기 위한 것이 아닙니다.
@@ -29,7 +29,7 @@ ms.locfileid: "70101216"
 - [SAP installation guides](https://service.sap.com/instguides)(SAP 설치 가이드)
 - [SAP notes](https://sservice.sap.com/notes)(SAP 참고)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 가이드를 사용하려면 다음 Azure 구성 요소에 대한 기본 지식이 필요합니다.
 
 - [Azure 가상 머신](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
@@ -67,7 +67,7 @@ VPN 또는 ExpressRoute를 통한 사이트 간 연결은 프로덕션 시나리
 [SAP 클라우드 플랫폼](https://cal.sap.com/)을 통해 Azure VM 서비스에 전체 설치된 SAP HANA 플랫폼을 배포할 수도 있습니다. 설치 프로세스는 [Azure에서 SAP S/4HANA 또는 BW/4HANA 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) 또는 [여기](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)에서 릴리스된 자동화로 설명되어 있습니다.
 
 >[!IMPORTANT]
-> M208xx_v2 Vm을 사용 하려면 Azure VM 이미지 갤러리에서 SUSE Linux 이미지를 신중 하 게 선택 해야 합니다. 세부 정보를 확인 하려면 메모리 액세스에 최적화 된 [가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series)문서를 참조 하세요. Red Hat은 아직 Mv2 제품군 Vm에서 HANA를 사용 하도록 지원 되지 않습니다. 현재 계획은 Q4/CY2019의 Mv2 VM 제품군에서 HANA를 실행 하는 Red Hat 버전에 대 한 지원을 제공 하는 것입니다. 
+> M208xx_v2 Vm을 사용 하려면 Azure VM 이미지 갤러리에서 Linux 이미지를 신중 하 게 선택 해야 합니다. 세부 정보를 확인 하려면 메모리 액세스에 최적화 된 [가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series)문서를 참조 하세요. 
 > 
 
 
@@ -139,10 +139,8 @@ Azure VM에서 스케일 아웃 구성을 배포하기 위한 최소한의 OS �
 >Azure VM 스케일 아웃 배포에서 대기 노드를 사용할 가능성은 없습니다.
 >
 
-대기 노드를 구성하지 못하는 이유는 두 가지입니다.
+Azure에는 [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)를 사용 하는 기본 nfs 서비스가 있지만 SAP 응용 프로그램 계층에 대해 지원 되는 nfs 서비스는 아직 SAP HANA 인증 되지 않았습니다. 따라서 타사 기능을 활용 하 여 NFS 공유를 구성 해야 합니다. 
 
-- 이 시점에서 Azure에는 네이티브 NFS 서비스가 없습니다. 결과적으로 NFS 공유는 타사 기능을 활용하여 구성해야 합니다.
-- Azure에 배포된 솔루션을 사용하여 SAP HANA에 대한 스토리지 대기 시간 조건을 만족하는 타사 NFS 구성이 없습니다.
 
 따라서 **hana/data** 및 **/hana/log** 볼륨을 공유할 수 없습니다. 단일 노드 중 이러한 볼륨을 공유하지 않으면 스케일 아웃 구성에서 SAP HANA 대기 노드를 사용하지 못합니다.
 
@@ -152,11 +150,15 @@ Azure VM에서 스케일 아웃 구성을 배포하기 위한 최소한의 OS �
 
 SAP HANA 스케일 아웃에 대한 VM 노드의 기본 구성은 다음과 같습니다.
 
-- **/hana/shared**의 경우 SUSE Linux 12 SP3 기반의 고가용성 NFS 클러스터를 빌드합니다. 이 클러스터는 스케일 아웃 구성 및 SAP NetWeaver 또는 BW/4HANA 중앙 서비스의 **/Hana/shared** NFS 공유를 호스팅합니다. 이러한 구성을 빌드하는 데 관한 설명서는 [SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) 문서에서 확인할 수 있습니다.
+- **/Hana/shared**의 경우 항상 사용 가능한 NFS 공유를 구축 해야 합니다. 지금 까지는 항상 사용 가능한 공유로 가져오기 위한 다양 한 가능성이 있습니다. 이러한 문서는 SAP NetWeaver와 함께 설명 됩니다.
+    - [SUSE Linux Enterprise Server에서 Azure Vm의 NFS에 대 한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
+    - [SAP NetWeaver에 대한 Red Hat Enterprise Linux에 있는 Azure VM의 GlusterFS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs)
+    - [SAP 응용 프로그램용 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
+    - [SAP 응용 프로그램에 대해 Azure NetApp Files을 사용 하는 Red Hat Enterprise Linux에서 SAP NetWeaver에 대 한 Azure Virtual Machines 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
 - 모든 다른 디스크 볼륨은 서로 다른 노드 간에 공유되지 **않으며** NFS를 기반으로 하지 **않습니다**. 공유되지 않는 **hana/data** 및 **/hana/log**를 사용한 스케일 아웃 HANA 설치에 관한 설치 구성 및 단계는 이 문서의 뒷부분에서 제공됩니다.
 
 >[!NOTE]
->지금까지 그래픽에 표시된 대로 고가용성 NFS 클러스터는 SUSE Linux에서만 지원됩니다. Red Hat 기반 항상 사용 가능한 NFS 솔루션은 나중에 권고 될 예정입니다.
+>그래픽에 표시 된 대로 항상 사용 가능한 NFS 클러스터는 [SUSE Linux Enterprise Server의 Azure vm에서 nfs에 대 한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)에 설명 되어 있습니다. 기타 가능성은 위의 목록에 설명 되어 있습니다.
 
 노드에 대한 볼륨 크기 조정은 **/hana/shared**를 제외하고는 규모 강화의 경우와 동일합니다. M128s VM SKU의 경우 제안된 크기와 형식은 다음과 같습니다.
 

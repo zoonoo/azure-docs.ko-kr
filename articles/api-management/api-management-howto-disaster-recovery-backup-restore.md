@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: c566dc28338a47c1bf24066436c21544eb7c5c7d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9c97723687484e8af82d63b6fb4999401a69fb2c
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072444"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958541"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -152,7 +152,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 -   `subscriptionId` - 백업하려는 API Management 서비스를 포함하는 구독의 ID입니다.
 -   `resourceGroupName` - Azure API Management 서비스의 리소스 그룹 이름입니다.
 -   `serviceName` - 백업을 만드는 API Management 서비스를 만들 때 지정하는 이름입니다.
--   `api-version`-다음으로 바꾸기`2018-06-01-preview`
+-   `api-version`-`2018-06-01-preview`로 바꿉니다.
 
 요청 본문에서 대상 Azure Storage 계정 이름, 액세스 키, Blob 컨테이너 이름 및 백업 이름을 지정합니다.
 
@@ -174,7 +174,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 -   요청 본문에 지정된 **Container**가 **있어야 합니다**.
 -   백업이 진행되는 동안에는 SKU 업그레이드 또는 다운그레이드, 도메인 이름 변경과 같은 **서비스 관리의 변경을 피하세요**.
 -   백업 복원은 생성 시점부터 **30일 동안만 보장**됩니다.
--   분석 보고서를 만드는 데 사용되는 **사용 현황 데이터**는 백업에 **포함되지 않습니다**. [Azure API Management REST API][azure api management rest api] 를 사용하여 분석 보고서를 주기적으로 검색한 다음 안전하게 보관하세요.
+-   분석 보고서를 만드는 데 사용되는 **사용량 현황 데이터**는 백업에 **포함되지 않습니다**. [Azure API Management REST API][azure api management rest api] 를 사용하여 분석 보고서를 주기적으로 검색한 다음 안전하게 보관하세요.
 -   또한 다음 항목은 백업 데이터에 포함 되지 않습니다. 사용자 지정 도메인 SSL 인증서 및 고객, 개발자 포털 콘텐츠 및 가상 네트워크 통합 설정에서 업로드 하는 중간 또는 루트 인증서입니다.
 -   서비스 백업을 수행하는 빈도는 복구 지점 목표에 영향을 줍니다. 영향을 최소화하려면 정기 백업을 구현함과 동시에 API Management 서비스에 대한 변경을 수행한 후 요청 시 백업도 수행하는 것이 좋습니다.
 -   백업 작업이 진행되는 동안 API, 정책 및 개발자 포털 모양 등의 서비스 구성을 **변경**하는 경우 **해당 내용이 백업에서 제외되고 손실될 수 있습니다**.
@@ -193,7 +193,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 -   `subscriptionId` - 백업을 복원할 API Management 서비스를 포함하는 구독의 ID입니다.
 -   `resourceGroupName` - 백업을 복원할 Azure API Management 서비스를 포함하는 리소스 그룹의 이름입니다.
 -   `serviceName` - 백업을 복원할 API Management 서비스를 만들 때 지정한 이름입니다.
--   `api-version`-다음으로 바꾸기`2018-06-01-preview`
+-   `api-version`-`2018-06-01-preview`로 바꿉니다.
 
 요청 본문에서 백업 파일 위치를 지정합니다. 즉, Azure Storage 계정 이름, 액세스 키, Blob 컨테이너 이름 및 백업 이름을 추가합니다.
 
@@ -218,7 +218,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> 각각 PowerShell _AzApiManagement_ 및 _AzApiManagement_ 명령을 사용 하 여 백업 및 복원 작업을 수행할 수도 있습니다.
+> 각각 PowerShell [_AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) 및 [_AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement) 명령을 사용 하 여 백업 및 복원 작업을 수행할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

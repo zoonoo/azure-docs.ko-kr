@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14e82bc5f58383c37bfd82d793851fc7e927b2f4
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
-ms.translationtype: HT
+ms.openlocfilehash: 61c85d17e88016e5e9067d4be86e1cd290b4b12a
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828451"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948182"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Linux Vm에 대 한 Azure Disk Encryption 
 
@@ -57,6 +57,7 @@ Azure에서 보증 되지 않는 Linux 서버 배포는 Azure Disk Encryption을
 | Ubuntu | 18.04| OS 및 데이터 디스크 |
 | Ubuntu | 16.04| OS 및 데이터 디스크 |
 | Ubuntu | 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](disk-encryption-troubleshooting.md) | OS 및 데이터 디스크 |
+| RHEL | 7.7 | OS 및 데이터 디스크 (아래 참고 참조) |
 | RHEL | 7.6 | OS 및 데이터 디스크 (아래 참고 참조) |
 | RHEL | 7.5 | OS 및 데이터 디스크 (아래 참고 참조) |
 | RHEL | 7.4 | OS 및 데이터 디스크 (아래 참고 참조) |
@@ -64,6 +65,7 @@ Azure에서 보증 되지 않는 Linux 서버 배포는 Azure Disk Encryption을
 | RHEL | 7.2 | OS 및 데이터 디스크 (아래 참고 참조) |
 | RHEL | 6.8 | 데이터 디스크 (아래 참고 참조) |
 | RHEL | 6.7 | 데이터 디스크 (아래 참고 참조) |
+| CentOS | 7.7 | OS 및 데이터 디스크 |
 | CentOS | 7.6 | OS 및 데이터 디스크 |
 | CentOS | 7.5 | OS 및 데이터 디스크 |
 | CentOS | 7.4 | OS 및 데이터 디스크 |

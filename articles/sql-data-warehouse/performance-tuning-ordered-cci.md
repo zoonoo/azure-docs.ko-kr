@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 7adf43110cffdc669b39632521c69ed5d3723257
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: HT
+ms.openlocfilehash: ca0ac228bfe10992b658796d123c8dfbed74947f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71845689"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948173"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>순서가 지정 된 클러스터형 columnstore 인덱스로 성능 튜닝  
 
@@ -44,6 +44,43 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 > [!NOTE] 
 > 순서가 지정 된 CCI 테이블에서 DML 또는 데이터 로드 작업으로 인해 발생 하는 새 데이터는 자동으로 정렬 되지 않습니다.  사용자는 정렬 된 CCI를 다시 작성 하 여 테이블의 모든 데이터를 정렬할 수 있습니다.  
+
+## <a name="query-performance"></a>쿼리 성능
+
+순서가 지정 된 CCI의 쿼리 성능 향상은 쿼리 패턴, 데이터 크기, 데이터 정렬 방법, 세그먼트의 물리적 구조 및 쿼리 실행을 위해 선택한 DWU 및 리소스 클래스에 따라 다릅니다.  사용자는 정렬 된 CCI 테이블을 디자인할 때 순서 열을 선택 하기 전에 이러한 모든 요인을 검토 해야 합니다.
+
+이러한 모든 패턴의 쿼리는 일반적으로 순서가 지정 된 CCI를 사용 하 여 더 빠르게 실행 됩니다.  
+1. 쿼리에 같음, 같지 않음 또는 범위 조건자가 있습니다.
+1. 조건자 열과 정렬 된 CCI 열은 동일 합니다.  
+1. 조건자 열은 정렬 된 CCI 열의 열 서 수와 동일한 순서로 사용 됩니다.  
+ 
+이 예에서 T1 테이블에는 Col_C, Col_B 및 Col_A 시퀀스에서 정렬 된 클러스터형 columnstore 인덱스가 있습니다.
+
+```sql
+
+CREATE CLUSTERED COLUMNSTORE INDEX MyOrderedCCI ON  T1
+ORDER (Col_C, Col_B, Col_A)
+
+```
+
+쿼리 1의 성능은 다른 3 개 쿼리보다 순서가 지정 된 CCI 보다 더 유용할 수 있습니다. 
+
+```sql
+-- Query #1: 
+
+SELECT * FROM T1 WHERE Col_C = 'c' AND Col_B = 'b' AND Col_A = 'a';
+
+-- Query #2
+
+SELECT * FROM T1 WHERE Col_B = 'b' AND Col_C = 'c' AND Col_A = 'a';
+
+-- Query #3
+SELECT * FROM T1 WHERE Col_B = 'b' AND Col_A = 'a';
+
+-- Query #4
+SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
+
+```
 
 ## <a name="data-loading-performance"></a>데이터 로드 성능
 
@@ -85,7 +122,7 @@ OPTION (MAXDOP 1);
 
 ## <a name="examples"></a>예
 
-**A. 정렬 된 열 및 주문 서 수를 확인 하려면:**
+**A. 정렬 된 열 및 순서 서 수를 확인 하려면**
 ```sql
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
 FROM sys.index_columns i 
@@ -93,7 +130,7 @@ JOIN sys.columns c ON i.object_id = c.object_id AND c.column_id = i.column_id
 WHERE column_store_order_ordinal <>0
 ```
 
-**B. 열 서 수를 변경 하려면 순서 목록에서 열을 추가 또는 제거 하거나 CCI에서 정렬 된 CCI로 변경 합니다.**
+**B. 열 서 수를 변경 하려면 order 목록에서 열을 추가 또는 제거 하거나 CCI에서 정렬 된 CCI:** 으로 변경 합니다.
 ```sql
 CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales
 ORDER (ProductKey, SalesAmount)

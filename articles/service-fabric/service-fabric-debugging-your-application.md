@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: b9ab36343dd11bdb5bd7cc1adcf2c8b1b971dab3
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: ee5354845efba0cce92ccf4f11eb3480684e7509
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300675"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947896"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Visual Studio를 사용하여 Service Fabric 애플리케이션 디버그
 > [!div class="op_single_selector"]
@@ -76,14 +76,10 @@ Service Fabric 응용 프로그램이 Azure의 Service Fabric 클러스터에서
 
 > [!NOTE]
 > 이 기능은 [Service Fabric SDK 2.0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) 및 [Azure SDK for .NET 2.9](https://azure.microsoft.com/downloads/)가 필요합니다.    
-> 
-> 
 
 <!-- -->
 > [!WARNING]
 > 원격 디버깅은 실행 중인 애플리케이션에 영향을 미치기 때문에 개발/테스트 시나리오를 위한 것이며 프로덕션 환경에서는 사용되지 않습니다.
-> 
-> 
 
 1. **클라우드 탐색기**에서 클러스터로 이동 합니다. 마우스 오른쪽 단추를 클릭 하 고 **디버깅 사용** 을 선택 합니다.
    
@@ -128,8 +124,6 @@ Service Fabric 응용 프로그램이 Azure의 Service Fabric 클러스터에서
 > [!WARNING]
 > 스트리밍 추적은 실행 중인 애플리케이션에 영향을 미치기 때문에 개발/테스트 시나리오를 위한 것이며 프로덕션 환경에서는 사용되지 않습니다.
 > 프로덕션 시나리오에서는 Azure Diagnostics를 통해 이벤트 전달을 사용해야 합니다.
-> 
-> 
 
 1. **클라우드 탐색기**에서 클러스터로 이동 합니다. 마우스 오른쪽 단추를 클릭 하 고 **스트리밍 추적 사용** 을 선택 합니다.
    

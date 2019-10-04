@@ -1,19 +1,19 @@
 ---
-title: Digital Twins 개체 모델 및 공간 인텔리전스 그래프 이해 | Microsoft Docs
+title: Azure Digital Twins 개체 모델 및 공간 인텔리전스 그래프 이해 | Microsoft Docs
 description: Azure Digital Twins를 사용하여 사람, 장소 및 디바이스 간 관계 모델링
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
-ms.openlocfilehash: 37f2afbd9bae4ca6bccc5062515f166687d8913c
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 67a4aceb157ee3fe1b1d1553efd587a0f2838d88
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71177061"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950004"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Digital Twins 개체 모델 및 공간 인텔리전스 그래프 이해
 
@@ -23,7 +23,7 @@ Digital Twins 개체 모델은 도메인별 개념, 범주 및 속성을 설명�
 
 Digital Twins 개체 모델 및 온톨로지가 작동하면 _공간 그래프_를 채울 수 있습니다. 공간 그래프는 IoT 솔루션과 관련된 공간, 디바이스 및 사람 사이의 여러 관계를 가상으로 표현한 것입니다. 이 다이어그램은 스마트 건물의 온톨로지를 사용하는 공간 그래프의 예제를 보여줍니다.
 
-[![디지털 Twins 공간 그래프 빌드](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
+[![Digital Twins 공간 그래프 빌드](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
 
 공간 그래프는 공간, 디바이스, 센서 및 사용자를 하나로 합칩니다. 각각은 실제 세계를 모델링하는 방식으로 함께 연결됩니다. 이 샘플에서 장소 43은 4개의 층으로 구성되어 있으며 각각 다른 영역이 있습니다. 사용자는 자신의 워크스테이션과 연결되어 있고 그래프 일부에 대한 액세스 권한이 부여됩니다. 관리자는 공간 그래프를 변경하는 권한이 있는 반면 방문자는 특정 건물 데이터만 볼 수 있는 권한이 있습니다.
 

@@ -1,20 +1,20 @@
 ---
 title: Azure Digital Twins 사용자 정의 함수 클라이언트 라이브러리 참조 | Microsoft Docs
 description: Azure Digital Twins 사용자 정의 함수 클라이언트 라이브러리 참조입니다.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: article
 ms.date: 08/12/2019
-ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 14c153a6e5837da28060122a629c8cc5df8262cf
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 36fb8a5588321426ccae7d6c6577fb4b48f3a4db
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013768"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948897"
 ---
 # <a name="user-defined-functions-client-library-reference"></a>사용자 정의 함수 클라이언트 라이브러리 참조
 
@@ -30,7 +30,7 @@ ms.locfileid: "69013768"
 
 **Kind**: 글로벌 함수입니다.
 
-| 매개 변수  | type                | Description  |
+| 매개 변수  | type                | 설명  |
 | ---------- | ------------------- | ------------ |
 | *ID*  | `guid` | 공간 식별자 |
 
@@ -40,7 +40,7 @@ ms.locfileid: "69013768"
 
 **Kind**: 글로벌 함수입니다.
 
-| 매개 변수  | type                | Description  |
+| 매개 변수  | type                | 설명  |
 | ---------- | ------------------- | ------------ |
 | *ID*  | `guid` | 센서 식별자 |
 
@@ -60,7 +60,7 @@ ms.locfileid: "69013768"
 
 **Kind**: 글로벌 함수입니다.
 
-| 매개 변수  | type                | Description  |
+| 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
 | *sensorId*  | `guid` | 센서 식별자 |
 | *dataType*  | `string` | 센서 데이터 형식 |
@@ -71,7 +71,7 @@ ms.locfileid: "69013768"
 
 **Kind**: 글로벌 함수입니다.
 
-| 매개 변수  | type                | Description  |
+| 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
 | *spaceId*  | `guid` | 공간 식별자 |
 | *valueName* | `string` | 공간 속성 이름 |
@@ -82,7 +82,7 @@ ms.locfileid: "69013768"
 
 **Kind**: 글로벌 함수입니다.
 
-| 매개 변수  | type                | Description  |
+| 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | 센서 식별자 |
 | *dataType* | `string` | 센서 데이터 형식 |
@@ -104,7 +104,7 @@ ms.locfileid: "69013768"
 
 **Kind**: 글로벌 함수입니다.
 
-| 매개 변수  | type                | Description  |
+| 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | 공간 식별자 |
 
@@ -114,7 +114,7 @@ ms.locfileid: "69013768"
 
 **Kind**: 글로벌 함수입니다.
 
-| 매개 변수  | type                | Description  |
+| 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | 공간 식별자 |
 
@@ -124,7 +124,7 @@ ms.locfileid: "69013768"
 
 **Kind**: 글로벌 함수입니다.
 
-| 매개 변수  | type                | Description  |
+| 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | 공간 식별자 |
 
@@ -154,7 +154,7 @@ ms.locfileid: "69013768"
 
 **Kind**: 글로벌 함수입니다.
 
-| 매개 변수  | type                | Description  |
+| 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
 | *childSensorId* | `guid` | 센서 식별자 |
 
@@ -164,7 +164,7 @@ ms.locfileid: "69013768"
 
 **Kind**: 글로벌 함수입니다.
 
-| 매개 변수  | type                | Description  |
+| 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
 | *childDeviceId* | `guid` | 디바이스 식별자 |
 
@@ -174,7 +174,7 @@ ms.locfileid: "69013768"
 
 **Kind**: 글로벌 함수입니다.
 
-| 매개 변수  | type                | Description  |
+| 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
 | *childSensorId* | `guid` | 센서 식별자 |
 
@@ -184,7 +184,7 @@ ms.locfileid: "69013768"
 
 **Kind**: 글로벌 함수입니다.
 
-| 매개 변수  | type                | Description  |
+| 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | 공간 식별자 |
 | *propertyName* | `string` | 공간 속성 이름 |
@@ -292,7 +292,7 @@ ms.locfileid: "69013768"
 
 이 함수는 현재 공간에 대한 확장 속성 및 해당 값을 반환합니다.
 
-| 매개 변수  | type                | Description  |
+| 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
 | *propertyName* | `string` | 확장 속성의 이름 |
 
@@ -308,7 +308,7 @@ ms.locfileid: "69013768"
 
 이 함수는 현재 공간의 기록 값을 반환합니다.
 
-| 매개 변수  | type                | Description  |
+| 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
 | *valueName* | `string` | 값의 이름 |
 
@@ -316,11 +316,11 @@ ms.locfileid: "69013768"
 
 이 함수는 지정된 페이로드를 사용하여 알림을 보냅니다.
 
-| 매개 변수  | type                | Description  |
+| 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
 | *payload* | `string` | 알림에 포함할 JSON 페이로드입니다. |
 
-### <a name="device"></a>디바이스
+### <a name="device"></a>장치
 
 ```JSON
 {
@@ -352,7 +352,7 @@ ms.locfileid: "69013768"
 
 이 함수는 현재 디바이스에 대한 확장 속성 및 해당 값을 반환합니다.
 
-| 매개 변수  | type                | Description  |
+| 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
 | *propertyName* | `string` | 확장 속성의 이름 |
 
@@ -400,7 +400,7 @@ ms.locfileid: "69013768"
 
 이 함수는 현재 센서에 대한 확장 속성 및 해당 값을 반환합니다.
 
-| 매개 변수  | type                | Description  |
+| 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
 | *propertyName* | `string` | 확장 속성의 이름 |
 
@@ -416,7 +416,7 @@ ms.locfileid: "69013768"
 
 이 함수는 지정된 페이로드를 사용하여 알림을 보냅니다.
 
-| 매개 변수  | type                | Description  |
+| 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
 | *payload* | `string` | 알림에 포함할 JSON 페이로드입니다. |
 

@@ -1,6 +1,6 @@
 ---
 title: 범위를 벗어난 사용자의 삭제 생략 | Microsoft Docs
-description: 범위를 벗어난 사용자를 삭제 하는 기본 동작을 재정의 하는 방법에 대해 알아봅니다.
+description: 범위 사용자에서 프로 비전 해제의 기본 동작을 재정의 하는 방법에 대해 알아봅니다.
 services: active-directory
 author: cmmdesai
 documentationcenter: na
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/09/2019
+ms.date: 10/03/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a753d8cce3f3b610abab2f78d54d76a05d8bc5cb
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 3b4a8005cf308d5cfce02976e3b2eff39d5fe8c0
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815929"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958644"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>범위를 벗어나는 사용자 계정 삭제 건너뛰기
 
-기본적으로 Azure AD 프로 비전 엔진은 범위를 벗어나는 사용자를 삭제 하거나 사용 하지 않도록 설정 합니다. 그러나 Workday에서 AD 사용자 인바운드 프로 비전과 같은 특정 시나리오의 경우이 동작이 예상과 다를 수 있으며이 기본 동작을 재정의할 수 있습니다.  
+기본적으로 Azure AD 프로 비전 엔진은 범위를 벗어난 사용자를 일시적으로 삭제 하거나 사용 하지 않도록 설정 합니다. 그러나 Workday에서 AD 사용자 인바운드 프로 비전과 같은 특정 시나리오의 경우이 동작이 예상과 다를 수 있으며이 기본 동작을 재정의할 수 있습니다.  
 
 이 가이드에서는 Microsoft Graph API 및 Microsoft Graph API 탐색기를 사용 하 여 범위를 벗어나는 계정 처리를 제어 하는 플래그 ***SkipOutOfScopeDeletions*** 설정 하는 방법을 설명 합니다. 
 * ***SkipOutOfScopeDeletions*** 가 0 (false)으로 설정 된 경우 범위를 벗어나는 계정은 대상에서 사용 하지 않도록 설정 됩니다.
@@ -53,7 +53,7 @@ ms.locfileid: "70815929"
 Microsoft Graph Explorer에서 [servicePrincipalId]를 [1단계](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id)에서 추출된 **ServicePrincipalId**로 바꾸고 다음 GET 쿼리를 실행합니다.
 
 ```http
-   GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs
+   GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
 ```
 
    ![작업 쿼리 가져오기](./media/skip-out-of-scope-deletions/skip-03.png)

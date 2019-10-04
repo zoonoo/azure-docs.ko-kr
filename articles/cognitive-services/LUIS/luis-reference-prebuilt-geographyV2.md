@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: e28b541c1b5aa8f733c9f4ed44fd2ea5296b34d8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 04bc3019a55920351b0e91c87e63b8309d94e34c
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933536"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677603"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 GeographyV2 미리 빌드된 엔터티
 미리 빌드된 geographyV2 엔터티는 위치를 검색합니다. 이 엔터티를 이미 학습했기 때문에 GeographyV2를 애플리케이션 의도에 포함하는 예제 발화를 추가할 필요가 없습니다. GeographyV2 엔터티는 영어 [문화권](luis-reference-prebuilt-entities.md)에서 지원됩니다.
@@ -35,7 +35,7 @@ ms.locfileid: "68933536"
 
 ## <a name="resolution-for-geographyv2-entity"></a>GeographyV2 엔터티의 해결
 
-### <a name="api-version-2x"></a>API 버전 2.x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
 
 다음 예제에서는 **builtin.geographyV2** 엔터티의 해결을 보여 줍니다.
 
@@ -93,9 +93,9 @@ ms.locfileid: "68933536"
 } 
 ```
 
-### <a name="preview-api-version-3x"></a>Preview API 버전 3(sp3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
 
-다음 JSON은 `verbose` 매개 변수를로 `false`설정 하는입니다.
+다음 JSON은 `verbose` 매개 변수를 `false`로 설정 합니다.
 
 ```json
 {
@@ -121,7 +121,7 @@ ms.locfileid: "68933536"
 }
 ```
 
-다음 JSON은 `verbose` 매개 변수를로 `true`설정 하는입니다.
+다음 JSON은 `verbose` 매개 변수를 `true`로 설정 합니다.
 
 ```json
 {
@@ -191,6 +191,10 @@ ms.locfileid: "68933536"
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>다음 단계
+
+[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
 
 [email](luis-reference-prebuilt-email.md), [number](luis-reference-prebuilt-number.md) 및 [ordinal](luis-reference-prebuilt-ordinal.md) 엔터티에 대해 알아봅니다. 

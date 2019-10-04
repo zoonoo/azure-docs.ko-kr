@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/23/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
-ms.openlocfilehash: 2376c77ecc328788c842e045aafb618cbad39b0e
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 0a5059382c26afd6120dc14a1ab2c7e5d281e7a1
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68421435"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695263"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>글로벌 전송 네트워크 아키텍처 및 가상 WAN
 
@@ -21,7 +21,7 @@ ms.locfileid: "68421435"
 
 ![architecture](./media/virtual-wan-global-transit-network-architecture/architecture2.png)
 
-**그림 1: 가상 WAN을 사용 하는 글로벌 전송 네트워크**
+**그림 1: 가상 WAN을 사용 하는 글로벌 전송 네트워크 @ no__t-0
 
 최신 기업은 클라우드 및 온-프레미스에서 하이퍼 분산 응용 프로그램, 데이터 및 사용자 간에 다양 한 연결이 필요 합니다. Azure 가상 WAN은 Vnet, 사이트, 응용 프로그램 및 사용자의 전 세계에 분산 된 집합 간에 다양 한 연결을 가능 하 게 하 여 글로벌 전송 네트워크 아키텍처를 허용 합니다. Azure 가상 WAN은 Microsoft에서 관리 하는 서비스입니다. 이 서비스가 구성 된 모든 네트워킹 구성 요소는 Microsoft에서 호스트 되 고 관리 됩니다. 가상 WAN에 대 한 자세한 내용은 [가상 Wan 개요](virtual-wan-about.md) 문서를 참조 하세요.
 
@@ -42,9 +42,9 @@ Azure 가상 WAN 아키텍처에서 Azure 지역은 분기를 연결 하기 위�
 
 ![허브 및 스포크 글로벌 전송 다이어그램](./media/virtual-wan-global-transit-network-architecture/architecture.png)
 
-**그림 2: 허브 및 스포크**
+**그림 2: 허브 및 스포크 @ no__t-0
 
-그림 2에서는 지리적으로 분산 된 사용자, 물리적 사이트 및 Vnet 클라우드에서 호스트 되는 네트워킹 허브를 통해 상호 연결 된 글로벌 네트워크의 논리적 보기를 보여 줍니다. 이 아키텍처는 네트워킹 끝점 간에 논리적 1 홉 전송 연결을 사용 하도록 설정 합니다. 스포크는 Express 경로 또는 사이트 간 VPN과 같은 다양 한 Azure 네트워킹 서비스에 의해 허브에 연결 되며, 물리적 분기의 경우 VNet 피어 링, Vnet의 경우 VNet 피어 링, 원격 사용자의 경우 지점 및 사이트 간 VPN입니다.
+그림 2에서는 지리적으로 분산 된 사용자, 물리적 사이트 및 Vnet 클라우드에서 호스트 되는 네트워킹 허브를 통해 상호 연결 된 글로벌 네트워크의 논리적 보기를 보여 줍니다. 이 아키텍처는 네트워킹 끝점 간에 논리적 1 홉 전송 연결을 사용 하도록 설정 합니다. 스포크는 Express 경로 또는 사이트 간 VPN과 같은 다양 한 Azure 네트워킹 서비스에 의해 허브에 연결 됩니다. 예를 들어 Vnet에 대 한 VNet 연결, 원격 사용자를 위한 지점 및 사이트 간 VPN을 사용할 수 있습니다.
 
 ## <a name="crossregion"></a>지역 간 연결
 
@@ -58,7 +58,7 @@ Azure 가상 WAN 아키텍처에서 Azure 지역은 분기를 연결 하기 위�
 
 ![트래픽 경로](./media/virtual-wan-global-transit-network-architecture/trafficpath.png)
 
-**그림 3: 가상 WAN 트래픽 경로**
+**그림 3: 가상 WAN 트래픽 경로 @ no__t-0
 
 Azure 가상 WAN은 다음과 같은 글로벌 전송 연결 경로를 지원 합니다. 괄호 안의 문자는 그림 3에 매핑됩니다.
 
@@ -67,11 +67,11 @@ Azure 가상 WAN은 다음과 같은 글로벌 전송 연결 경로를 지원 �
 * 원격 사용자-VNet (c)
 * 원격 사용자-분기 (d)
 * Vnet 피어 링 (e)을 사용 하는 vnet 간
-* Express 경로 Global Reach 
+* ExpressRoute Global Reach 
 
 ### <a name="branchvnet"></a>VNet에 분기
 
-VNet은 Azure 가상 WAN에서 지 원하는 기본 경로입니다. 이 경로를 사용 하 여 Azure Vnet에 배포 된 Azure IAAS enterprise 워크 로드에 분기를 연결할 수 있습니다. 분기는 Express 경로 또는 사이트 간 VPN을 통해 가상 WAN에 연결 될 수 있습니다. 전송은 트래픽은 VNet 연결을 통해 가상 WAN 허브에 연결 되는 Vnet에 연결 됩니다.
+VNet은 Azure 가상 WAN에서 지 원하는 기본 경로입니다. 이 경로를 사용 하 여 Azure Vnet에 배포 된 Azure IAAS enterprise 워크 로드에 분기를 연결할 수 있습니다. 분기는 Express 경로 또는 사이트 간 VPN을 통해 가상 WAN에 연결 될 수 있습니다. 전송은 트래픽은 VNet 연결을 통해 가상 WAN 허브에 연결 되는 Vnet에 연결 됩니다. 가상 WAN은 게이트웨이를 분기 사이트로 자동으로 전송할 수 있으므로 가상 WAN에 대 한 [게이트웨이 전송은](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) 필요 하지 않습니다.
 
 ### <a name="branchbranch"></a>분기 분기
 
@@ -89,7 +89,7 @@ VNet은 Azure 가상 WAN에서 지 원하는 기본 경로입니다. 이 경로�
 
 ### <a name="vnetvnet"></a>Vnet 피어 링을 사용 하 여 vnet 간 전송
 
-여러 Vnet에서 구현 되는 다중 계층 응용 프로그램을 지원 하기 위해 Vnet을 서로 연결 하려면 VNet 피어 링을 사용 합니다. Azure 가상 WAN을 통해 VNet 간 전송 시나리오는 현재 지원 되지 않지만 Azure 로드맵에 있습니다. VNet 피어 링을 통해 Vnet를 연결 하는 것은 서로 연결 해야 하는 Vnet에 대 한 권장 솔루션입니다. [게이트웨이 전송](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) 가상 WAN은 게이트웨이 전송을 자동으로 사용 하기 때문에 가상 WAN에는 (VNet 피어 링의 컨텍스트에서 필요 하지 않음)
+여러 Vnet에서 구현 되는 다중 계층 응용 프로그램을 지원 하기 위해 Vnet을 서로 연결 하려면 VNet 피어 링을 사용 합니다. Azure 가상 WAN을 통해 VNet 간 전송 시나리오는 현재 지원 되지 않지만 Azure 로드맵에 있습니다. VNet 피어 링을 통해 Vnet를 연결 하는 것은 서로 연결 해야 하는 Vnet에 대 한 권장 솔루션입니다. 
 
 ### <a name="globalreach"></a>Express 경로 Global Reach
 

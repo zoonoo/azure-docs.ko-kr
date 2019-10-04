@@ -49,8 +49,8 @@
     - name: 적중 항목 강조 표시 처리
       href: ../Bing-Web-Search/hit-highlighting.md
       maintainContext: true
-    - name: 페이지 소식
-      href: paging-news.md
+    - name: 검색 결과 페이징
+      href: ../Bing-Web-Search/paging-search-results.md
     - name: 크기 조정 및 자르기 썸네일
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md

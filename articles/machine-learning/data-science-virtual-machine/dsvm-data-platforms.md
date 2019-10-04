@@ -6,16 +6,16 @@ keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: conceptual
-ms.date: 03/16/2018
-ms.openlocfilehash: 5dbaf969420f066698a07b8d137d2ba44fc99080
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.date: 10/3/2019
+ms.openlocfilehash: df112889fd7cd8ad1574147072b6e13137945462
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208127"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947534"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Data Science Virtual Machine에서 지원되는 데이터 플랫폼
 
@@ -23,7 +23,7 @@ Data Science Virtual Machine (DSVM)를 사용 하 여 광범위 한 데이터 �
 
 DSVM에서 지원 되는 데이터 플랫폼 도구는 다음과 같습니다.
 
-## <a name="sql-server-2016-developer-edition"></a>SQL Server 2016 Developer Edition
+## <a name="sql-server-2017-developer-edition"></a>SQL Server 2017 디벨로퍼 버전
 
 | | |
 | ------------- | ------------- |
@@ -39,13 +39,13 @@ DSVM에서 지원 되는 데이터 플랫폼 도구는 다음과 같습니다.
 
 ### <a name="setup"></a>설정
 
-데이터베이스 서버는 이미 미리 구성 되어 있으며 SQL Server와 관련 된 Windows 서비스 ( `SQL Server (MSSQLSERVER)`예:)가 자동으로 실행 되도록 설정 되어 있습니다. 수동 단계에서는 Microsoft Machine Learning Server를 사용 하 여 데이터베이스 내 분석을 설정 해야 합니다. SSMS (SQL Server Management Studio)에서 일회성 작업으로 다음 명령을 실행 하 여이 작업을 수행할 수 있습니다. 컴퓨터 관리자로 로그인 한 후에이 명령을 실행 하 여 SSMS에서 새 쿼리를 열고 선택한 데이터베이스가 `master`다음과 같은지 확인 합니다.
+데이터베이스 서버는 이미 미리 구성 되어 있으며 SQL Server (예: `SQL Server (MSSQLSERVER)`)와 관련 된 Windows 서비스가 자동으로 실행 되도록 설정 되어 있습니다. 수동 단계에서는 Microsoft Machine Learning Server를 사용 하 여 데이터베이스 내 분석을 설정 해야 합니다. SSMS (SQL Server Management Studio)에서 일회성 작업으로 다음 명령을 실행 하 여이 작업을 수행할 수 있습니다. 컴퓨터 관리자로 로그인 한 후에이 명령을 실행 하 여 SSMS에서 새 쿼리를 열고 선택한 데이터베이스가 `master` 인지 확인 합니다.
 
         CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS 
 
         (Replace %COMPUTERNAME% with your VM name.)
        
-SQL Server Management Studio를 실행 하려면 프로그램 목록에서 "SQL Server Management Studio"를 검색 하거나 Windows 검색을 사용 하 여 검색 하 고 실행할 수 있습니다. 자격 증명을 입력 하 라는 메시지가 표시 되 면 **Windows 인증** 을 선택 ```localhost``` 하 고 컴퓨터 이름 또는 **SQL Server 이름** 필드에 사용 합니다.
+SQL Server Management Studio를 실행 하려면 프로그램 목록에서 "SQL Server Management Studio"를 검색 하거나 Windows 검색을 사용 하 여 검색 하 고 실행할 수 있습니다. 자격 증명을 입력 하 라는 메시지가 표시 되 면 **Windows 인증** 을 선택 하 고 컴퓨터 이름을 사용 하거나 **SQL Server 이름** 필드에 ```localhost```을 사용 합니다.
 
 ### <a name="how-to-use-and-run-it"></a>사용 및 실행 방법
 
@@ -55,7 +55,7 @@ SQL Server Management Studio를 실행 하려면 프로그램 목록에서 "SQL 
 
 ### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>DSVM에 구성 및 설치 하는 방법 
 
- SQL Server은 표준 방식으로 설치 됩니다. 그것은 `C:\Program Files\Microsoft SQL Server`에서 찾을 수 있습니다. 데이터베이스 내 Machine Learning Server 인스턴스는에 `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES`있습니다. 또한 DSVM에는에 `C:\Program Files\Microsoft\R Server\R_SERVER`설치 되는 별도의 독립 실행형 Machine Learning Server 인스턴스가 있습니다. 이러한 두 Machine Learning Server 인스턴스는 라이브러리를 공유 하지 않습니다.
+ SQL Server은 표준 방식으로 설치 됩니다. 그것은 `C:\Program Files\Microsoft SQL Server`에서 찾을 수 있습니다. 데이터베이스 내 Machine Learning Server 인스턴스는 `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES`에 있습니다. 또한 DSVM에는 `C:\Program Files\Microsoft\R Server\R_SERVER`에 설치 되는 별도의 독립 실행형 Machine Learning Server 인스턴스가 있습니다. 이러한 두 Machine Learning Server 인스턴스는 라이브러리를 공유 하지 않습니다.
 
 
 ## <a name="apache-spark-2x-standalone"></a>Apache Spark 2.x (독립 실행형)
@@ -69,7 +69,7 @@ SQL Server Management Studio를 실행 하려면 프로그램 목록에서 "SQL 
 | DSVM의 관련 도구       | PySpark, Scala<br/>Jupyter (Spark/PySpark 커널)<br/>Microsoft Machine Learning Server, SparkR, Sparklyr <br />Apache Drill      |
 
 ### <a name="how-to-use-it"></a>사용 방법
-`spark-submit` 또는`pyspark` 명령을 실행 하 여 명령줄에서 Spark 작업을 제출할 수 있습니다. 또한 Spark 커널로 새 노트북을 만듦으로써 Jupyter 노트북을 만들 수 있습니다.
+@No__t-0 또는 `pyspark` 명령을 실행 하 여 명령줄에서 Spark 작업을 제출할 수 있습니다. 또한 Spark 커널로 새 노트북을 만듦으로써 Jupyter 노트북을 만들 수 있습니다.
 
 DSVM에서 사용할 수 있는 SparkR, Sparklyr 및 Microsoft Machine Learning Server와 같은 라이브러리를 사용 하 여 R에서 Spark를 사용할 수 있습니다. 앞의 표에서 샘플에 대한 포인터를 참조하세요.
 
@@ -89,9 +89,9 @@ Ubuntu Linux DSVM 버전에서 Microsoft Machine Learning Server Spark 컨텍스
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-을 실행 ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```하 여 더 이상 필요 하지 않은 경우 Hadoop 관련 서비스를 중지할 수 있습니다.
+@No__t-0을 실행 하 여 더 이상 필요 하지 않은 경우 Hadoop 관련 서비스를 중지할 수 있습니다.
 
-원격 spark 컨텍스트 (dsvm의 독립 실행형 spark 인스턴스)에서 MRS를 개발 하 고 테스트 하는 방법을 보여 주는 샘플은 `/dsvm/samples/MRS` 디렉터리에서 제공 되 고 사용할 수 있습니다.
+원격 Spark 컨텍스트 (DSVM의 독립 실행형 Spark 인스턴스)에서 MRS를 개발 하 고 테스트 하는 방법을 보여 주는 샘플은 `/dsvm/samples/MRS` 디렉터리에서 제공 되 고 사용할 수 있습니다.
 
 
 ### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>DSVM에 구성 및 설치 하는 방법 
@@ -103,7 +103,7 @@ Ubuntu Linux DSVM 버전에서 Microsoft Machine Learning Server Spark 컨텍스
 
 Microsoft MMLSpark 기계 학습 라이브러리를 사용 하 여 Azure Blob storage 또는 Azure Data Lake Storage에서 데이터에 액세스 하는 라이브러리는 $SPARK _HOME/jar에 미리 설치 되어 있습니다. 이러한 JAR은 Apache Spark가 시작될 때 자동으로 로드됩니다. 기본적으로 Spark는 로컬 디스크의 데이터를 사용 합니다. 
 
-Blob 저장소 또는 Azure Data Lake Storage에 저장 된 데이터에 액세스 하기 위해 dsvm의 Spark 인스턴스에서는 $SPARK _home/unattend.xml/ `core-site.xml` core-site.xml에 있는 템플릿을 기반으로 파일을 만들고 구성 해야 합니다. 또한 Blob storage에 액세스 하 고 Azure Data Lake Storage 하는 데 적절 한 자격 증명이 있어야 합니다. 템플릿 파일은 Blob 저장소 및 Azure Data Lake Storage 구성에 대 한 자리 표시자를 사용 합니다.
+Blob 저장소 또는 Azure Data Lake Storage에 저장 된 데이터에 액세스 하기 위해 DSVM의 Spark 인스턴스에서 $SPARK _HOME/unattend.xml/core-site.xml에 있는 템플릿을 기반으로 `core-site.xml` 파일을 만들고 구성 해야 합니다. 또한 Blob storage에 액세스 하 고 Azure Data Lake Storage 하는 데 적절 한 자격 증명이 있어야 합니다. 템플릿 파일은 Blob 저장소 및 Azure Data Lake Storage 구성에 대 한 자리 표시자를 사용 합니다.
 
 Azure Data Lake Storage 서비스 자격 증명을 만드는 방법에 대 한 자세한 내용은 [Azure Data Lake Storage Gen1 인증](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)을 참조 하세요. Blob 저장소 또는 Azure Data Lake Storage에 대 한 자격 증명을 core-site.xml 파일에 입력 한 후에는 wasb://또는 adl://의 URI 접두사를 통해 해당 원본에 저장 된 데이터를 참조할 수 있습니다.
 

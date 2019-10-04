@@ -1,19 +1,19 @@
 ---
 title: 보안 모범 사례 이해-Azure Digital Twins | Microsoft Docs
 description: Azure Digital Twins 및 사물 인터넷에 대 한 보안 모범 사례에 대해 알아봅니다.
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-adgera
-ms.openlocfilehash: e98f8a4becad41d27d89de16f598b6fa531ad5e3
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
-ms.translationtype: HT
+ms.openlocfilehash: ba10a6105972eddc8474841b234d2eeddc994f5d
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827657"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948933"
 ---
 # <a name="security-best-practices"></a>보안 모범 사례
 

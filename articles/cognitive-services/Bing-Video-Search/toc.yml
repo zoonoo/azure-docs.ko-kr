@@ -50,7 +50,8 @@
     - name: 인기 비디오 가져오기
       href: trending-videos.md
     - name: 페이지 비디오
-      href: paging-videos.md
+      maintainContext: true
+      href: ../Bing-Web-Search/paging-search-results.md
     - name: 크기 조정 및 자르기 썸네일
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md

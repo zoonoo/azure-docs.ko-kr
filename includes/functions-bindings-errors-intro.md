@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: f771b6b0416c5777c1ebde7e2cf2c4ffc6f375ff
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 178fa7d5f129a12736ec068fca605ba24cd37839
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155289"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71955871"
 ---
 Azure Functions 발생 하는 오류는 다음 원본 중 하나에서 가져올 수 있습니다.
 
@@ -23,7 +23,7 @@ Azure Functions 발생 하는 오류는 다음 원본 중 하나에서 가져올
 - [Application Insights 사용](../articles/azure-functions/functions-monitoring.md)
 - [구조적 오류 처리 사용](#use-structured-error-handling)
 - [멱 등 성 디자인](../articles/azure-functions/functions-idempotent.md)
-- 재시도 정책 구현 (해당 하는 경우)
+- [재시도 정책 구현](../articles/azure-functions/functions-reliable-event-processing.md) (해당 하는 경우)
 
 ### <a name="use-structured-error-handling"></a>구조적 오류 처리 사용
 

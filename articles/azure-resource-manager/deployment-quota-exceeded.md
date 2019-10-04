@@ -4,14 +4,14 @@ description: 리소스 그룹 기록에 배포 수가 800 개를 초과 하는 �
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 755383c9d40c104d50ad9bb7a31b3a00f8348313
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 5bbb686597850aaceff3d3b5c142b0cb1fb0eefd
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827011"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959631"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>배포 수가 800를 초과 하는 경우 오류 해결
 
@@ -31,6 +31,18 @@ ms.locfileid: "71827011"
 az group deployment delete --resource-group exampleGroup --name deploymentName
 ```
 
+5 일이 지난 모든 배포를 삭제 하려면 다음을 사용 합니다.
+
+```azurecli-interactive
+startdate=$(date +%F -d "-5days")
+deployments=$(az group deployment list --resource-group exampleGroup --query "[?properties.timestamp>'$startdate'].name" --output tsv)
+
+for deployment in $deployments
+do
+  az group deployment delete --resource-group exampleGroup --name $deployment
+done
+```
+
 다음 명령을 사용 하 여 배포 기록에서 현재 개수를 가져올 수 있습니다.
 
 ```azurecli-interactive
@@ -43,6 +55,16 @@ az group deployment list --resource-group exampleGroup --query "length(@)"
 
 ```azurepowershell-interactive
 Remove-AzResourceGroupDeployment -ResourceGroupName exampleGroup -Name deploymentName
+```
+
+5 일이 지난 모든 배포를 삭제 하려면 다음을 사용 합니다.
+
+```azurepowershell-interactive
+$deployments = Get-AzResourceGroupDeployment -ResourceGroupName exampleGroup | Where-Object Timestamp -gt ((Get-Date).AddDays(-5))
+
+foreach ($deployment in $deployments) {
+  Remove-AzResourceGroupDeployment -ResourceGroupName exampleGroup -Name $deployment.DeploymentName
+}
 ```
 
 다음 명령을 사용 하 여 배포 기록에서 현재 개수를 가져올 수 있습니다.

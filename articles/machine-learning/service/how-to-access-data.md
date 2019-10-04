@@ -11,16 +11,16 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9de3232bcd7908f775dadff4dc584f2a687b0c68
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 8c9b8489ded264a895d480ed180b411da079e883
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299768"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950113"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Azure storage 서비스의 데이터에 액세스
 
-이 문서에서는 Azure Machine Learning datastores를 통해 Azure storage 서비스에서 데이터에 쉽게 액세스 하는 방법을 알아봅니다. 데이터 저장소는 구독 ID 및 토큰 권한 부여와 같은 연결 정보를 저장 하는 데 사용 됩니다. 데이터 저장소를 사용 하면 스크립트에 연결 정보를 하드 코딩 하지 않고도 저장소에 액세스할 수 있습니다.
+이 문서에서는 Azure Machine Learning datastores를 통해 Azure storage 서비스에서 데이터에 쉽게 액세스 하는 방법을 알아봅니다. 데이터 저장소는 구독 ID 및 토큰 권한 부여와 같은 연결 정보를 저장 하는 데 사용 됩니다. 데이터 저장소를 사용 하면 스크립트에 연결 정보를 하드 코딩 하지 않고도 저장소에 액세스할 수 있습니다. 이러한 [Azure storage 솔루션](#matrix)에서 데이터 저장소를 만들 수 있습니다.
 
 이 방법에는 다음 작업의 예가 나와 있습니다.
 * [데이터 저장소 등록](#access)
@@ -30,55 +30,87 @@ ms.locfileid: "71299768"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-데이터 저장소를 사용하려면 먼저 [작업 영역](concept-workspace.md)이 필요합니다.
+- Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-[새 작업 영역을 만들](how-to-manage-workspace.md)거나 기존 작업 영역을 검색합니다.
+- Azure [Blob 컨테이너](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) 또는 [azure 파일 공유](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)를 사용 하는 azure storage 계정
 
-```Python
-import azureml.core
-from azureml.core import Workspace, Datastore
+- [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)또는 [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com/)에 대 한 액세스 권한이 있습니다.
 
-ws = Workspace.from_config()
-```
+- Azure Machine Learning 작업 영역 
+    - [Azure Machine Learning 작업 영역을 만들거나](how-to-manage-workspace.md) Python SDK를 사용 하 여 기존 작업 영역을 사용 합니다.
+
+        ```Python
+        import azureml.core
+        from azureml.core import Workspace, Datastore
+        
+        ws = Workspace.from_config()
+        ```
 
 <a name="access"></a>
 
-## <a name="register-datastores"></a>데이터 저장소 등록
+## <a name="create-and-register-datastores"></a>데이터 저장소 만들기 및 등록
+
+Azure storage 솔루션을 데이터 저장소로 등록 하면 특정 작업 영역에서 해당 데이터 저장소를 자동으로 만듭니다. Python SDK 또는 작업 영역 방문 페이지를 사용 하 여 데이터 저장소를 만들고 작업 영역에 등록할 수 있습니다.
+
+### <a name="using-the-python-sdk"></a>Python SDK 사용
 
 모든 register 메서드는 [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) 클래스에 있으며 register_azure_ * 형식을 갖습니다.
 
+Register () 메서드를 채우는 데 필요한 정보는 [Azure Portal](https://ms.portal.azure.com)를 통해 찾을 수 있습니다. 왼쪽 창에서 **저장소 계정** 을 선택 하 고 등록 하려는 저장소 계정을 선택 합니다. **개요** 페이지는 계정 이름과 컨테이너 또는 파일 공유 이름과 같은 정보를 제공 합니다. 계정 키 또는 SAS 토큰과 같은 인증 정보를 보려면 왼쪽의 **설정** 창에서 **계정 키** 로 이동 합니다. 
+
 다음 예에서는 Azure Blob 컨테이너 또는 Azure 파일 공유를 데이터 저장소로 등록 하는 방법을 보여 줍니다.
 
-+ **Azure Blob 컨테이너 데이터 저장소**의 경우 다음을 사용 합니다.[`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)
++ **Azure Blob 컨테이너 데이터 저장소**의 경우 [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-) 를 사용 합니다.
 
-  ```Python
-  datastore = Datastore.register_azure_blob_container(workspace=ws, 
-                                                      datastore_name='your datastore name', 
-                                                      container_name='your azure blob container name',
-                                                      account_name='your storage account name', 
+    다음 코드에서는-1을 @no__t 하 여 작업 영역에 `my_datastore` 데이터 저장소를 만들고 등록 합니다. 이 데이터 저장소는 azure storage 계정의 Azure blob 컨테이너 (`my_blob_container`)에 액세스 하며, 제공 된 계정 키를 사용 하 여-1을 @no__t 합니다.
+
+    ```Python
+       datastore = Datastore.register_azure_blob_container(workspace=ws, 
+                                                          datastore_name='my_datastore', 
+                                                          container_name='my_blob_container',
+                                                          account_name='my_storage_account', 
+                                                          account_key='your storage account key',
+                                                          create_if_not_exists=True)
+    ```
+
++ **Azure 파일 공유 데이터 저장소**의 경우 [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)를 사용 합니다. 
+
+    다음 코드에서는-1을 @no__t 하 여 작업 영역에 `my_datastore` 데이터 저장소를 만들고 등록 합니다. 이 데이터 저장소는 Azure storage 계정의 Azure 파일 공유에 액세스 하 고, 제공 된 계정 키를 사용 하 여-1을 @no__t @no__t.
+
+    ```Python
+       datastore = Datastore.register_azure_file_share(workspace=ws, 
+                                                      datastore_name='my_datastore', 
+                                                      file_share_name='my_file_share',
+                                                      account_name='my_storage account', 
                                                       account_key='your storage account key',
                                                       create_if_not_exists=True)
-  ```
-
-+ **Azure 파일 공유 데이터 저장소**의 경우를 [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)사용 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. 
-  ```Python
-  datastore = Datastore.register_azure_file_share(workspace=ws, 
-                                                  datastore_name='your datastore name', 
-                                                  file_share_name='your file share name',
-                                                  account_name='your storage account name', 
-                                                  account_key='your storage account key',
-                                                  create_if_not_exists=True)
-  ```
+    ```
 
 ####  <a name="storage-guidance"></a>스토리지 지침
 
 Azure Blob 컨테이너를 권장 합니다. Blob에는 standard 및 premium storage를 모두 사용할 수 있습니다. 비용이 더 많이 들지만, 특히 큰 데이터 집합에 대해 학습 하는 경우 학습 실행 속도를 향상 시킬 수 있는 더 빠른 처리량 속도 때문에 premium storage를 제안 합니다. 저장소 계정 비용 정보는 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service) 를 참조 하세요.
 
+### <a name="using-the-workspace-landing-page"></a>작업 영역 방문 페이지 사용 
+
+작업 영역 방문 페이지에서 몇 가지 단계를 수행 하 여 새 데이터 저장소를 만듭니다.
+
+1. [작업 영역 방문 페이지](https://ml.azure.com/)에 로그인합니다.
+1. **관리**아래의 왼쪽 창에서 **datastores** 를 선택 합니다.
+1. **+ 새 데이터 저장소**를 선택 합니다.
+1. 새 데이터 저장소 폼을 완성 합니다. 양식은 Azure storage 유형 및 인증 유형 선택에 따라 지능적으로 업데이트 됩니다.
+  
+양식을 채우는 데 필요한 정보는 [Azure Portal](https://ms.portal.azure.com)를 통해 찾을 수 있습니다. 왼쪽 창에서 **저장소 계정** 을 선택 하 고 등록 하려는 저장소 계정을 선택 합니다. **개요** 페이지는 계정 이름과 컨테이너 또는 파일 공유 이름과 같은 정보를 제공 합니다. 계정 키 또는 SAS 토큰과 같은 인증 항목의 경우 왼쪽의 **설정** 창에서 **계정 키** 로 이동 합니다.
+
+다음 예제에서는 Azure blob 데이터 저장소를 만들기 위한 폼의 모양을 보여 줍니다. 
+    
+ ![새 데이터 저장소](media/how-to-access-data/new-datastore-form.png)
+
+
 <a name="get"></a>
 
 ## <a name="get-datastores-from-your-workspace"></a>작업 영역에서 데이터 저장소 가져오기
 
-현재 작업 영역에 등록 된 특정 데이터 저장소를 가져오려면 데이터 저장소 [`get()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) 클래스에서 정적 메서드를 사용 합니다.
+현재 작업 영역에 등록 된 특정 데이터 저장소를 가져오려면 데이터 저장소 클래스에서 [`get()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) 정적 메서드를 사용 합니다.
 
 ```Python
 #get named datastore from current workspace
@@ -93,7 +125,7 @@ for name, datastore in datastores.items():
     print(name, datastore.datastore_type)
 ```
 
-작업 영역을 만들 때 azure Blob 컨테이너와 azure 파일 공유는 각각 및 `workspaceblobstore` `workspacefilestore` 이라는 작업 영역에 등록 됩니다. 작업 영역에 연결 된 저장소 계정에 프로 비전 되는 파일 공유 및 Blob 컨테이너에 대 한 연결 정보를 저장 합니다. 는 기본 데이터 저장소로 설정 됩니다.`workspaceblobstore`
+작업 영역을 만들 때 Azure Blob 컨테이너와 Azure 파일 공유는 각각 `workspaceblobstore` 및 `workspacefilestore` 이라는 작업 영역에 등록 됩니다. 작업 영역에 연결 된 저장소 계정에 프로 비전 되는 파일 공유 및 Blob 컨테이너에 대 한 연결 정보를 저장 합니다. @No__t-0은 기본 데이터 저장소로 설정 됩니다.
 
 작업 영역의 기본 데이터 저장소를 가져오려면 다음 코드를 사용합니다.
 
@@ -101,7 +133,7 @@ for name, datastore in datastores.items():
 datastore = ws.get_default_datastore()
 ```
 
-현재 작업 영역에 대해 다른 기본 데이터 저장소를 정의 하려면 [`set_default_datastore()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-) 작업 영역 개체의 메서드를 사용 합니다.
+현재 작업 영역에 대해 다른 기본 데이터 저장소를 정의 하려면 작업 영역 개체에 대 한 [`set_default_datastore()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-) 메서드를 사용 합니다.
 
 ```Python
 #define default datastore for current workspace
@@ -110,7 +142,7 @@ ws.set_default_datastore('your datastore name')
 
 <a name="up-and-down"></a>
 ## <a name="upload--download-data"></a>데이터 업로드 & 다운로드
-다음 [`upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#upload-src-dir--target-path-none--overwrite-false--show-progress-true-) 예제 [`download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) 에서 설명 하는 및 메서드는에만 적용 되며 [azureblobdatastore 저장소](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py) 및 [azureblobdatastore 저장소](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py) 클래스와 동일 하 게 작동 합니다.
+다음 예제에서 설명 하는 [@no__t 1](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#upload-src-dir--target-path-none--overwrite-false--show-progress-true-) 및 [`download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) 메서드는에만 적용 되며 [Azureblobdatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py) 저장소 및 [azureblobdatastore 저장소](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py) 클래스와 동일 하 게 작동 합니다.
 
 ### <a name="upload"></a>업로드
 
@@ -128,9 +160,9 @@ datastore.upload(src_dir='your source directory',
                  show_progress=True)
 ```
 
-매개 `target_path` 변수는 업로드할 파일 공유 (또는 blob 컨테이너)의 위치를 지정 합니다. 기본 위치는 `None`입니다(데이터가 루트에 업로드됨). `overwrite=True` 에서`target_path` 기존 데이터를 덮어씁니다.
+@No__t-0 매개 변수는 업로드할 파일 공유 (또는 blob 컨테이너)의 위치를 지정 합니다. 기본 위치는 `None`입니다(데이터가 루트에 업로드됨). @No__t-0 `target_path`의 모든 기존 데이터를 덮어씁니다.
 
-또는 메서드를 `upload_files()` 통해 데이터 저장소에 개별 파일 목록을 업로드 합니다.
+또는 `upload_files()` 메서드를 통해 데이터 저장소에 개별 파일 목록을 업로드 합니다.
 
 ### <a name="download"></a>다운로드
 
@@ -142,7 +174,7 @@ datastore.download(target_path='your target path',
                    show_progress=True)
 ```
 
-`target_path` 매개 변수는 데이터를 다운로드할 로컬 디렉터리의 위치입니다. 다운로드할 파일 공유 또는 blob 컨테이너의 폴더 경로를 지정하려면 `prefix`에 해당 경로를 입력합니다. `prefix`가 `None`이면 파일 공유 또는 blob 컨테이너의 모든 콘텐츠가 다운로드됩니다.
+@No__t-0 매개 변수는 데이터를 다운로드할 로컬 디렉터리의 위치입니다. 다운로드할 파일 공유 또는 blob 컨테이너의 폴더 경로를 지정하려면 `prefix`에 해당 경로를 입력합니다. `prefix`가 `None`이면 파일 공유 또는 blob 컨테이너의 모든 콘텐츠가 다운로드됩니다.
 
 <a name="train"></a>
 ## <a name="access-your-data-during-training"></a>학습 중 데이터 액세스
@@ -155,10 +187,10 @@ datastore.download(target_path='your target path',
 Way|메서드|설명|
 ----|-----|--------
 탑재| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-mount--)| 를 사용 하 여 계산 대상에 데이터 저장소를 탑재 합니다.
-다운로드|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-download-path-on-compute-none-)|를 사용 하 여에 지정 `path_on_compute`된 위치에 데이터 저장소의 콘텐츠를 다운로드 합니다. <br><br> 이 다운로드는 실행 전에 발생 합니다.
-업로드|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-upload-path-on-compute-none-)| 를 사용 하 여에 지정 된 `path_on_compute` 위치에서 데이터 저장소에 파일을 업로드 합니다. <br><br> 이 업로드는 실행 후에 수행 됩니다.
+다운로드|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-download-path-on-compute-none-)|를 사용 하 여 `path_on_compute`으로 지정 된 위치에 데이터 저장소의 콘텐츠를 다운로드 합니다. <br><br> 이 다운로드는 실행 전에 발생 합니다.
+업로드|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-upload-path-on-compute-none-)| @No__t-0으로 지정 된 위치에서 데이터 저장소에 파일을 업로드 하는 데 사용 합니다. <br><br> 이 업로드는 실행 후에 수행 됩니다.
 
-데이터 저장소에서 특정 폴더 또는 파일을 참조 하 고 계산 대상에서 사용할 수 있도록 하려면 데이터 저장소 [`path()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#path-path-none--data-reference-name-none-) 메서드를 사용 합니다.
+데이터 저장소의 특정 폴더 또는 파일을 참조 하 여 계산 대상에서 사용할 수 있도록 하려면 데이터 저장소 [`path()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#path-path-none--data-reference-name-none-) 메서드를 사용 합니다.
 
 ```Python
 #to mount the full contents in your storage to the compute target
@@ -168,13 +200,13 @@ datastore.as_mount()
 datastore.path('./bar').as_download()
 ```
 > [!NOTE]
-> 지정 된 `datastore` 또는 `datastore.path` 개체는 형식의 `"$AZUREML_DATAREFERENCE_XXXX"`환경 변수 이름으로 확인 되며, 해당 값은 대상 계산의 탑재/다운로드 경로를 나타냅니다. 대상 계산의 데이터 저장소 경로가 학습 스크립트의 실행 경로와 다를 수 있습니다.
+> 지정 된 모든 `datastore` 또는 `datastore.path` 개체는 해당 값이 대상 계산의 탑재/다운로드 경로를 나타내는 `"$AZUREML_DATAREFERENCE_XXXX"` 형식의 환경 변수 이름으로 확인 됩니다. 대상 계산의 데이터 저장소 경로가 학습 스크립트의 실행 경로와 다를 수 있습니다.
 
 ### <a name="examples"></a>예 
 
-다음 코드 예제는 학습 중 데이터에 [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) 액세스 하기 위한 클래스와 관련 되어 있습니다. 
+다음 코드 예제는 학습 중 데이터에 액세스 하기 위한 [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) 클래스와 관련 되어 있습니다. 
 
-`script_params`entry_script에 대 한 매개 변수를 포함 하는 사전입니다. 이를 사용 하 여 데이터 저장소를 전달 하 고 계산 대상에서 데이터를 사용할 수 있는 방법을 설명 합니다. 종단 간 [자습서](tutorial-train-models-with-aml.md)에서 자세히 알아보세요.
+`script_params`은 entry_script에 대 한 매개 변수를 포함 하는 사전입니다. 이를 사용 하 여 데이터 저장소를 전달 하 고 계산 대상에서 데이터를 사용할 수 있는 방법을 설명 합니다. 종단 간 [자습서](tutorial-train-models-with-aml.md)에서 자세히 알아보세요.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -190,10 +222,10 @@ est = Estimator(source_directory='your code directory',
                 )
 ```
 
-데이터 저장소 목록을 평가기 constructor `inputs` 매개 변수에 전달 하 여 데이터 저장소 간에 데이터를 탑재 하거나 복사할 수도 있습니다. 이 코드 예제는 다음과 같습니다.
-* 학습 스크립트 `datastore1` `train.py` 를 실행 하기 전에 모든 콘텐츠를 계산 대상으로 다운로드 합니다.
-* 가 실행 되기 `'./foo'` 전에 `datastore2` `train.py` 계산 대상에 폴더를 다운로드 합니다.
-* 스크립트가 실행 된 `'./bar.pkl'` `datastore3` 후 계산 대상에서로 파일을 업로드 합니다.
+데이터 저장소 목록을 평가기 생성자 `inputs` 매개 변수로 전달 하 여 데이터 저장소 간에 데이터를 탑재 하거나 복사할 수도 있습니다. 이 코드 예제는 다음과 같습니다.
+* 학습 스크립트 `train.py`이 실행 되기 전에 `datastore1`의 모든 콘텐츠를 계산 대상으로 다운로드 합니다.
+* @No__t-2가 실행 되기 전에 `datastore2`의 `'./foo'` 폴더를 계산 대상으로 다운로드 합니다.
+* 스크립트를 실행 한 후 계산 대상에서 `datastore3`에 @no__t 파일을 업로드 합니다.
 
 ```Python
 est = Estimator(source_directory='your code directory',
@@ -201,6 +233,7 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[datastore1.as_download(), datastore2.path('./foo').as_download(), datastore3.as_upload(path_on_compute='./bar.pkl')])
 ```
+<a name="matrix"></a>
 
 ### <a name="compute-and-datastore-matrix"></a>계산 및 데이터 저장소 행렬
 
@@ -212,13 +245,13 @@ Datastores는 현재 다음 행렬에 나열 된 저장소 서비스에 대 한 
 | Azure Machine Learning 컴퓨팅 |[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ML&nbsp;pipelines](concept-ml-pipelines.md)|[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ML&nbsp;pipelines](concept-ml-pipelines.md)|해당 사항 없음         |해당 사항 없음                                                                         |
 | 가상 머신               |[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                           | [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |해당 사항 없음         |해당 사항 없음                                                                         |
 | HDInsight                      |[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            | [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |해당 사항 없음         |해당 사항 없음                                                                         |
-| 데이터 전송                  |[ML&nbsp;파이프라인](concept-ml-pipelines.md)                                               |해당 사항 없음                                           |[ML&nbsp;파이프라인](concept-ml-pipelines.md)            |[ML&nbsp;파이프라인](concept-ml-pipelines.md)                                                                            |
-| Databricks                     |[ML&nbsp;파이프라인](concept-ml-pipelines.md)                                              |해당 사항 없음                                           |[ML&nbsp;파이프라인](concept-ml-pipelines.md)             |해당 사항 없음                                                                         |
-| Azure Batch                    |[ML&nbsp;파이프라인](concept-ml-pipelines.md)                                               |해당 사항 없음                                           |해당 사항 없음         |해당 사항 없음                                                                         |
-| Azure DataLake 분석       |해당 사항 없음                                           |해당 사항 없음                                           |[ML&nbsp;파이프라인](concept-ml-pipelines.md)             |해당 사항 없음                                                                         |
+| 데이터 전송                  |[ML @ no__t-1pipelines](concept-ml-pipelines.md)                                               |해당 사항 없음                                           |[ML @ no__t-1pipelines](concept-ml-pipelines.md)            |[ML @ no__t-1pipelines](concept-ml-pipelines.md)                                                                            |
+| Databricks                     |[ML @ no__t-1pipelines](concept-ml-pipelines.md)                                              |해당 사항 없음                                           |[ML @ no__t-1pipelines](concept-ml-pipelines.md)             |해당 사항 없음                                                                         |
+| Azure Batch                    |[ML @ no__t-1pipelines](concept-ml-pipelines.md)                                               |해당 사항 없음                                           |해당 사항 없음         |해당 사항 없음                                                                         |
+| Azure DataLake 분석       |해당 사항 없음                                           |해당 사항 없음                                           |[ML @ no__t-1pipelines](concept-ml-pipelines.md)             |해당 사항 없음                                                                         |
 
 > [!NOTE]
-> 매우 반복적이 고 큰 데이터 프로세스가 대신를 사용 하 여 `as_download()` 더 빠르게 실행 되는 시나리오가 있을 수 있습니다 .이는 experimentally의 `as_mount()`유효성을 검사할 수 있습니다.
+> @No__t-1이 아닌 `as_download()`을 사용 하 여 매우 반복적인 큰 데이터 프로세스를 빠르게 실행 하는 시나리오가 있을 수 있습니다. experimentally의 유효성을 검사할 수 있습니다.
 
 ### <a name="accessing-source-code-during-training"></a>학습 중 소스 코드 액세스
 

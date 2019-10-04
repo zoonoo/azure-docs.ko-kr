@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: f6e08f113e29b44e4ec94d14624d62c1c3d48d45
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 15e0b8a5b3ea64148eb78cb376500adac2410a71
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124475"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949663"
 ---
 # <a name="azure-serial-console-for-linux"></a>Linux 용 Azure 직렬 콘솔
 
@@ -32,7 +32,7 @@ Windows 용 직렬 콘솔 설명서는 [windows 용 직렬 콘솔](../windows/se
 > 직렬 콘솔은 일반적으로 글로벌 Azure 지역에서 사용할 수 있습니다. 아직 Azure Government 또는 Azure 중국 클라우드에서는 지원되지 않습니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - VM 또는 가상 머신 확장 집합 인스턴스는 리소스 관리 배포 모델을 사용 해야 합니다. 클래식 배포는 지원되지 않습니다.
 
@@ -46,7 +46,7 @@ Windows 용 직렬 콘솔 설명서는 [windows 용 직렬 콘솔](../windows/se
 
 - Linux 배포에 관련된 설정은 [직렬 콘솔 Linux 배포 가용성](#serial-console-linux-distribution-availability)을 참조하세요.
 
-- 에서 `ttys0`직렬 출력에 대해 VM 또는 가상 머신 확장 집합 인스턴스를 구성 해야 합니다. 이는 Azure 이미지에 대 한 기본값 이지만 사용자 지정 이미지에서이를 다시 확인 하는 것이 좋습니다. 자세한 내용은 [아래](#custom-linux-images)를 참조 하세요.
+- @No__t-0에서 직렬 출력에 대해 VM 또는 가상 머신 확장 집합 인스턴스를 구성 해야 합니다. 이는 Azure 이미지에 대 한 기본값 이지만 사용자 지정 이미지에서이를 다시 확인 하는 것이 좋습니다. 자세한 내용은 [아래](#custom-linux-images)를 참조 하세요.
 
 
 > [!NOTE]
@@ -69,7 +69,7 @@ SUSE        | Azure에서 사용 가능한 최신 SLES 이미지는 직렬 콘�
 Oracle Linux        | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
 
 ### <a name="custom-linux-images"></a>사용자 지정 Linux 이미지
-사용자 지정 Linux VM 이미지에 대해 직렬 콘솔을 사용하도록 설정하려면 */etc/inittab* 파일에서 콘솔 액세스를 사용하도록 설정하여 `ttyS0`에서 터미널을 실행합니다. 예를 들어 `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`을 참조하십시오. TtyS0에서 getty를 생성 해야 할 수도 있습니다. 을 사용 하 여 `systemctl start serial-getty@ttyS0.service`이 작업을 수행할 수 있습니다.
+사용자 지정 Linux VM 이미지에 대해 직렬 콘솔을 사용하도록 설정하려면 */etc/inittab* 파일에서 콘솔 액세스를 사용하도록 설정하여 `ttyS0`에서 터미널을 실행합니다. 예를 들어 `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`을 참조하십시오. TtyS0에서 getty를 생성 해야 할 수도 있습니다. @No__t-0을 사용 하 여이 작업을 수행할 수 있습니다.
 
 또한 직렬 출력의 대상으로 ttys0을 추가 하려고 합니다. 직렬 콘솔을 사용 하도록 사용자 지정 이미지를 구성 하는 방법에 대 한 자세한 내용은 [Azure에서 LINUX VHD 만들기 및 업로드](https://aka.ms/createuploadvhd#general-linux-system-requirements)에서 일반적인 시스템 요구 사항을 참조 하세요.
 
@@ -119,54 +119,52 @@ SSH 구성 문제 | 직렬 콘솔에 액세스하여 설정을 변경합니다. 
 직렬 콘솔은 화면 reader 지원을 기본 제공합니다. 화면 읽기 프로그램을 켠 상태로 탐색하면 화면 읽기 프로그램은 현재 선택한 단추에 대한 alt 텍스트를 큰 소리로 읽을 수 있습니다.
 
 ## <a name="known-issues"></a>알려진 문제
-직렬 콘솔에 관한 몇 가지 문제를 인식하고 있습니다. 이러한 문제 목록 및 완화 단계는 다음과 같습니다. 이러한 문제와 완화는 Vm과 가상 머신 확장 집합 인스턴스 모두에 적용 됩니다.
+직렬 콘솔과 VM의 운영 체제에 대 한 몇 가지 문제를 알고 있습니다. 다음은 이러한 문제 및 Linux Vm에 대 한 완화 단계 목록입니다. 이러한 문제와 완화는 Vm과 가상 머신 확장 집합 인스턴스 모두에 적용 됩니다. 표시 되는 오류와 일치 하지 않는 경우 일반적인 직렬 콘솔 서비스 오류에서 [일반적인 직렬 콘솔 오류](./serial-console-errors.md)를 참조 하세요.
 
 문제점                           |   완화
 :---------------------------------|:--------------------------------------------|
 연결 배너에서 로그인 프롬프트가 표시되지 않으면 **Enter** 키를 누릅니다. | 자세한 내용은 [Enter를 누르면 아무 작업도 수행되지 않습니다](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)를 참조하세요. 이 문제는 Linux가 직렬 포트에 연결 하지 못하는 사용자 지정 VM, 확정 된 어플라이언스 또는 GRUB 구성을 실행 하는 경우 발생할 수 있습니다.
 직렬 콘솔 텍스트는 화면 크기의 일부만 차지합니다(종종 텍스트 편집기를 사용한 이후). | 직렬 콘솔은 창 크기([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt))에 대한 협상을 지원하지 않습니다. 즉, 화면 크기를 업데이트하기 위해 전송된 SIGWINCH 신호가 없으며, VM은 사용자 터미널 크기를 모른다는 것입니다. `resize` 명령에서 제공된 xterm 또는 유사한 유틸리티를 설치한 다음, `resize`를 실행합니다.
 긴 문자열을 붙여넣는 작업이 작동하지 않습니다. | 직렬 콘솔은 터미널에 붙여넣는 문자열의 길이를 2048자로 제한하여 직렬 포트 대역폭을 오버로드하지 않도록 방지합니다.
-직렬 콘솔은 스토리지 계정 방화벽에서 작동하지 않습니다. | 직렬 콘솔은 기본적으로 부트 진단 스토리지 계정에서 사용하도록 설정된 스토리지 계정 방화벽과 함께 작동할 수 없습니다.
-직렬 콘솔는 계층적 네임 스페이스와 Azure Data Lake Storage Gen2를 사용 하는 저장소 계정에서 작동 하지 않습니다. | 이는 계층적 네임 스페이스의 알려진 문제입니다. 이를 완화 하려면 VM의 부트 진단 저장소 계정이 Azure Data Lake Storage Gen2를 사용 하 여 만들어지지 않았는지 확인 합니다. 이 옵션은 저장소 계정을 만드는 경우에만 설정할 수 있습니다. 이 문제를 완화 하기 위해 Azure Data Lake Storage Gen2 사용 하도록 설정 하지 않고 별도의 부트 진단 저장소 계정을 만들어야 할 수 있습니다.
-SLES BYOS 이미지의 키보드 입력이 비정상적입니다. 키보드 입력은 산발적 으로만 인식 됩니다. | Plymouth 패키지에 문제가 있습니다. Plymouth는 시작 화면이 필요 하지 않으므로 Azure에서 실행 해서는 안 되며, Plymouth는 직렬 콘솔을 사용 하는 플랫폼 기능을 방해 합니다. Plymouth를 `sudo zypper remove plymouth` 제거한 후 다시 부팅 합니다. 또는 줄의 끝에를 추가 `plymouth.enable=0` 하 여 GRUB 구성의 커널 줄을 수정 합니다. [부팅 시 부팅 항목을 편집](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)하거나에서 `/etc/default/grub`GRUB_CMDLINE_LINUX 줄을 편집 하 고를 사용 `grub2-mkconfig -o /boot/grub2/grub.cfg`하 여 GRUB를 다시 빌드하고 다시 부팅 하 여이 작업을 수행할 수 있습니다.
+SLES BYOS 이미지의 키보드 입력이 비정상적입니다. 키보드 입력은 산발적 으로만 인식 됩니다. | Plymouth 패키지에 문제가 있습니다. Plymouth는 시작 화면이 필요 하지 않으므로 Azure에서 실행 해서는 안 되며, Plymouth는 직렬 콘솔을 사용 하는 플랫폼 기능을 방해 합니다. @No__t-0으로 Plymouth를 제거한 후 다시 부팅 합니다. 또는 줄의 끝에 `plymouth.enable=0`을 추가 하 여 GRUB 구성의 커널 줄을 수정 합니다. [부팅 시 부팅 항목을 편집](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)하거나 `/etc/default/grub`에서 GRUB_CMDLINE_LINUX 줄을 편집 하 고 `grub2-mkconfig -o /boot/grub2/grub.cfg`로 GRUB를 다시 작성 한 다음 다시 부팅 하 여이 작업을 수행할 수 있습니다.
 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 **Q. 피드백을 보내려면 어떻게 해야 하나요?**
 
-1\. [https://aka.ms/serialconsolefeedback](https://aka.ms/serialconsolefeedback ) 에서 GitHub 문제를 만들어 피드백을 제공해주세요. 또는 (대안으로) azserialhelp@microsoft.com을 통해 또는 https://feedback.azure.com 의 가상 머신 범주에 피드백을 보낼 수 있습니다.
+A. [https://aka.ms/serialconsolefeedback](https://aka.ms/serialconsolefeedback ) 에서 GitHub 문제를 만들어 피드백을 제공해주세요. 또는 (대안으로) azserialhelp@microsoft.com을 통해 또는 https://feedback.azure.com 의 가상 머신 범주에 피드백을 보낼 수 있습니다.
 
 **Q. 직렬 콘솔이 복사/붙여넣기를 지원하나요?**
 
-1\. 예. **Ctrl**+**Shift**+**C** 및 **Ctrl**+**Shift**+**V**를 사용하여 복사하고 터미널에 붙여넣습니다.
+A. 예. **Ctrl**+**Shift**+**C** 및 **Ctrl**+**Shift**+**V**를 사용하여 복사하고 터미널에 붙여넣습니다.
 
 **Q. SSH 연결 대신 직렬 콘솔을 사용할 수 있나요?**
 
-1\. 이렇게 사용하는 것이 기술적으로는 가능해 보일 수 있지만, 직렬 콘솔은 SSH를 통한 연결이 가능하지 않은 상황에서 문제 해결 도구로 주로 사용하도록 디자인되었습니다. 다음 이유 때문에 직렬 콘솔을 SSH 대신 사용하는 것이 좋습니다.
+A. 이렇게 사용하는 것이 기술적으로는 가능해 보일 수 있지만, 직렬 콘솔은 SSH를 통한 연결이 가능하지 않은 상황에서 문제 해결 도구로 주로 사용하도록 디자인되었습니다. 다음 이유 때문에 직렬 콘솔을 SSH 대신 사용하는 것이 좋습니다.
 
 - 직렬 콘솔에는 SSH와 같은 대역폭이 없습니다. 텍스트 전용 연결이므로 추가로 많은 GUI 작업 상호 작용이 어렵습니다.
 - 직렬 콘솔 액세스는 현재 사용자 이름 및 암호를 사용해서만 가능합니다. SSH 키는 사용자 이름/암호 조합보다 훨씬 더 안전하기 때문에 로그인 보안 관점에서는 직렬 콘솔보다 SSH를 사용하는 것이 좋습니다.
 
 **Q. 내 구독에 직렬 콘솔을 사용하거나 사용하지 않도록 설정할 수 있나요?**
 
-1\. 전체 구독 수준에서 직렬 콘솔을 사용하거나 사용하지 않도록 설정하려면 구독에 대한 쓰기 권한이 있어야 합니다. 쓰기 권한이 있는 역할에는 관리자 또는 소유자 역할이 포함됩니다. 사용자 지정 역할에는 쓰기 권한도 있을 수 있습니다.
+A. 전체 구독 수준에서 직렬 콘솔을 사용하거나 사용하지 않도록 설정하려면 구독에 대한 쓰기 권한이 있어야 합니다. 쓰기 권한이 있는 역할에는 관리자 또는 소유자 역할이 포함됩니다. 사용자 지정 역할에는 쓰기 권한도 있을 수 있습니다.
 
 **Q. 내 v m/가상 머신 확장 집합에 대 한 직렬 콘솔에 액세스할 수 있는 사용자는 누구 인가요?**
 
-1\. VM 또는 가상 머신 확장 집합에 대 한 가상 머신 참가자 역할이 있어야 직렬 콘솔에 액세스할 수 있습니다.
+A. VM 또는 가상 머신 확장 집합에 대 한 가상 머신 참가자 역할이 있어야 직렬 콘솔에 액세스할 수 있습니다.
 
 **Q. 내 직렬 콘솔에 아무 것도 표시되지 않으면 어떻게 하나요?**
 
-1\. 사용자의 이미지가 직렬 콘솔 액세스에 대해 잘못 구성되었습니다. 직렬 콘솔을 사용하도록 이미지를 구성하는 방법에 대한 자세한 내용은 [직렬 콘솔 Linux 배포 가용성](#serial-console-linux-distribution-availability)을 참조하세요.
+A. 사용자의 이미지가 직렬 콘솔 액세스에 대해 잘못 구성되었습니다. 직렬 콘솔을 사용하도록 이미지를 구성하는 방법에 대한 자세한 내용은 [직렬 콘솔 Linux 배포 가용성](#serial-console-linux-distribution-availability)을 참조하세요.
 
 **Q. 가상 머신 확장 집합에 대해 직렬 콘솔을 사용할 수 있나요?**
 
-1\. 네, 그래요! [Virtual Machine Scale Sets에 대 한 직렬 콘솔을](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets) 참조 하세요.
+A. 네, 그래요! [Virtual Machine Scale Sets에 대 한 직렬 콘솔을](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets) 참조 하세요.
 
 **Q. SSH 키 인증만 사용 하 여 VM 또는 가상 머신 확장 집합을 설정 하는 경우 여전히 직렬 콘솔을 사용 하 여 내 v m/가상 머신 확장 집합 인스턴스에 연결할 수 있나요?**
 
-1\. 예. 직렬 콘솔에 SSH 키가 필요하지 않기 때문에 사용자 이름/암호 조합을 설정하는 수밖에 없습니다. Azure Portal에서 **암호 재설정**을 선택하고 직렬 콘솔에 로그인하는 데 해당 자격 증명을 사용하여 수행할 수 있습니다.
+A. 예. 직렬 콘솔에 SSH 키가 필요하지 않기 때문에 사용자 이름/암호 조합을 설정하는 수밖에 없습니다. Azure Portal에서 **암호 재설정**을 선택하고 직렬 콘솔에 로그인하는 데 해당 자격 증명을 사용하여 수행할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 직렬 콘솔을 사용하여 [GRUB 및 단일 사용자 모드 액세스](serial-console-grub-single-user-mode.md)

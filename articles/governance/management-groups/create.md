@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 7b5ee5bfe4b7498bc13ff0c8582b49fed8478e0a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 1b53d8a15e6ca1d4fc5a8ed6d58e526fadd12466
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71337794"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949012"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>리소스 조직 및 관리에 대한 관리 그룹 만들기
 
@@ -31,9 +31,13 @@ ms.locfileid: "71337794"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. **모든 서비스** > **관리 그룹**을 선택합니다.
+1. **모든 서비스** > **관리 + 거 버 넌 스**를 선택 합니다.
 
-1. 주 페이지에서 **새 관리 그룹**을 선택합니다.
+1. **Cost Management + 청구** 선택
+
+1. Cost Management + 청구-관리 그룹 페이지에서 **관리 그룹** 을 선택 합니다.
+
+1. **+ 관리 그룹 추가**를 선택 합니다.
 
    ![관리 그룹 사용을 위한 페이지](./media/main.png)
 

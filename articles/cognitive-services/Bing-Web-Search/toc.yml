@@ -54,7 +54,7 @@
     - name: 적중 항목 강조 표시 처리
       href: hit-highlighting.md
     - name: 결과 페이지 표시
-      href: paging-webpages.md
+      href: paging-search-results.md
     - name: 크기 조정 및 자르기 썸네일
       href: resize-and-crop-thumbnails.md
     - name: v5에서 v7로 업그레이드

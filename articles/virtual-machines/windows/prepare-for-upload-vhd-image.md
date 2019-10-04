@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 3922388aaa7dd244b74404e50001e9c87870728d
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
-ms.translationtype: HT
+ms.openlocfilehash: 86ce2ada9ebd19c88414fab33a62dda5ba41ecb0
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937484"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949645"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
 
@@ -54,7 +54,7 @@ Azure Vm에 대 한 지원 정책에 대 한 자세한 내용은 [Azure vm에 �
 ### <a name="use-hyper-v-manager-to-convert-the-disk"></a>Hyper-v 관리자를 사용 하 여 디스크 변환 
 1. Hyper-V 관리자를 열고 왼쪽에서 로컬 컴퓨터를 선택합니다. 컴퓨터 목록 위의 메뉴에서 **작업** > **디스크 편집**을 선택 합니다.
 2. **가상 하드 디스크 찾기** 페이지에서 가상 디스크를 선택 합니다.
-3. **작업 선택** 페이지에서 **변환** > **다음**을 선택 합니다.
+3. **작업 선택** 페이지에서 **Convert** > **다음**을 선택 합니다.
 4. VHDX에서 변환 해야 하는 경우 **VHD** > **다음**을 선택 합니다.
 5. 동적 확장 디스크에서 변환 해야 하는 경우 **고정 크기** > **다음**을 선택 합니다.
 6. 새 VHD 파일을 저장할 경로를 찾아 선택합니다.
@@ -72,7 +72,7 @@ Windows PowerShell의 [Convert-VHD](https://technet.microsoft.com/library/hh8484
 Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd -VHDType Fixed
 ```
 
-이 명령에서 값 `-Path` 을 변환 하려는 가상 하드 디스크의 경로로 바꿉니다. 의 `-DestinationPath` 값을 변환 된 디스크의 새 경로 및 이름으로 바꿉니다.
+이 명령에서 @no__t 값을 변환 하려는 가상 하드 디스크의 경로로 바꿉니다. @No__t의 값을 변환 된 디스크의 새 경로 및 이름으로 바꿉니다.
 
 ### <a name="convert-from-vmware-vmdk-disk-format"></a>VMware VMDK 디스크 형식에서 변환
 [.Vmdk 파일 형식](https://en.wikipedia.org/wiki/VMDK)으로 된 Windows VM 이미지가 있는 경우 [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497) 를 사용 하 여 VHD 형식으로 변환 합니다. 자세한 내용은 [VMWARE .vmdk를 HYPER-V VHD로 변환 하는 방법](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx)을 참조 하세요.
@@ -84,15 +84,14 @@ Azure에 업로드 하려는 VM에서 [관리자 권한 명령 프롬프트 창]
 1. 라우팅 테이블에서 정적 영구 경로를 제거합니다.
    
    * 경로 테이블을 보려면 명령 프롬프트에서 `route print`를 실행합니다.
-   * 섹션을 `Persistence Routes` 확인 합니다. 영구 경로가 있는 경우 `route delete` 명령을 사용 하 여 제거 합니다.
+   * @No__t-0 섹션을 확인 합니다. 영구 경로가 있는 경우 `route delete` 명령을 사용 하 여 제거 합니다.
 2. WinHTTP 프록시를 제거합니다.
    
     ```PowerShell
     netsh winhttp reset proxy
     ```
 
-    Vm이 특정 프록시를 사용 해야 하는 경우 vm이 azure에 연결할 수 있도록 azure IP 주소 ([168.63.129.16](https://blogs.msdn.microsoft.com/mast/2015/05/18/what-is-the-ip-address-168-63-129-16/
-))에 프록시 예외를 추가 합니다.
+    VM이 특정 프록시를 사용 해야 하는 경우 VM이 Azure에 연결할 수 있도록 Azure IP 주소 (@no__t 0168.63.129.16 @ no__t-1)에 프록시 예외를 추가 합니다.
     ```
     $proxyAddress="<your proxy server>"
     $proxyBypassList="<your list of bypasses>;168.63.129.16"
@@ -100,7 +99,7 @@ Azure에 업로드 하려는 VM에서 [관리자 권한 명령 프롬프트 창]
     netsh winhttp set proxy $proxyAddress $proxyBypassList
     ```
 
-3. 디스크 SAN 정책을 [`Onlineall`](https://technet.microsoft.com/library/gg252636.aspx)다음과 같이 설정 합니다.
+3. 디스크 SAN 정책을 [`Onlineall`](https://technet.microsoft.com/library/gg252636.aspx)로 설정 합니다.
    
     ```PowerShell
     diskpart 
@@ -112,10 +111,10 @@ Azure에 업로드 하려는 VM에서 [관리자 권한 명령 프롬프트 창]
     exit   
     ```
 
-4. Windows에 대 한 UTC (협정 세계시) 시간을 설정 합니다. 또한 Windows 시간 서비스 (`w32time` `Automatic`)의 시작 유형을 다음과 같이 설정 합니다.
+4. Windows에 대 한 UTC (협정 세계시) 시간을 설정 합니다. 또한 Windows 시간 서비스의 시작 유형 (`w32time`)을 `Automatic`로 설정 합니다.
    
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" -Value 1 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -Name "RealTimeIsUniversal" -Value 1 -Type DWord -Force
 
     Set-Service -Name w32time -StartupType Automatic
     ```
@@ -124,12 +123,12 @@ Azure에 업로드 하려는 VM에서 [관리자 권한 명령 프롬프트 창]
     ```PowerShell
     powercfg /setactive SCHEME_MIN
     ```
-6. 환경 변수 `TEMP` 및 `TMP` 이 기본값으로 설정 되어 있는지 확인 합니다.
+6. 환경 변수 `TEMP` 및 `TMP`이 기본값으로 설정 되어 있는지 확인 합니다.
 
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -name "TEMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name "TEMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
 
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -name "TMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name "TMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
     ```
 
 ## <a name="check-the-windows-services"></a>Windows 서비스 확인
@@ -153,56 +152,56 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 원격 액세스에 대해 다음 설정이 올바르게 구성 되어 있는지 확인 합니다.
 
 >[!NOTE] 
->를 실행할 `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name <object name> -value <value>`때 오류 메시지가 표시 될 수 있습니다. 이 메시지는 무시 해도 됩니다. 도메인은 그룹 정책 개체를 통해 해당 구성을 푸시하는 것만을 의미 합니다.
+>@No__t-0을 실행 하면 오류 메시지가 표시 될 수 있습니다. 이 메시지는 무시 해도 됩니다. 도메인은 그룹 정책 개체를 통해 해당 구성을 푸시하는 것만을 의미 합니다.
 
 1. RDP(원격 데스크톱 프로토콜)이 활성화되어 있습니다.
    
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server' -Name "fDenyTSConnections" -Value 0 -Type DWord -Force
 
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDenyTSConnections" -Value 0 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -Name "fDenyTSConnections" -Value 0 -Type DWord -Force
     ```
    
 2. RDP 포트가 올바르게 설정 되어 있습니다. 기본 포트는 3389입니다.
    
     ```PowerShell
-   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "PortNumber" -Value 3389 -Type DWord -force
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -Name "PortNumber" -Value 3389 -Type DWord -Force
     ```
     VM을 배포할 때 기본 규칙은 포트 3389에 대해 생성됩니다. 포트 번호를 변경 하려면 VM이 Azure에 배포 된 후에이 작업을 수행 합니다.
 
 3. 수신기가 모든 네트워크 인터페이스에서 수신 대기합니다.
    
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "LanAdapter" -Value 0 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -Name "LanAdapter" -Value 0 -Type DWord -Force
    ```
 4. RDP 연결에 대해 NLA (네트워크 수준 인증) 모드를 구성 합니다.
    
     ```PowerShell
-   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1 -Type DWord -force
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -Name "UserAuthentication" -Value 1 -Type DWord -Force
 
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "SecurityLayer" -Value 1 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -Name "SecurityLayer" -Value 1 -Type DWord -Force
 
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "fAllowSecProtocolNegotiation" -Value 1 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -Name "fAllowSecProtocolNegotiation" -Value 1 -Type DWord -Force
      ```
 
 5. 연결 유지 값을 설정합니다.
     
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveEnable" -Value 1  -Type DWord -force
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveInterval" -Value 1  -Type DWord -force
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "KeepAliveTimeout" -Value 1 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -Name "KeepAliveEnable" -Value 1  -Type DWord -Force
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -Name "KeepAliveInterval" -Value 1  -Type DWord -Force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -Name "KeepAliveTimeout" -Value 1 -Type DWord -Force
     ```
 6. 다시 연결합니다.
     
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDisableAutoReconnect" -Value 0 -Type DWord -force
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fInheritReconnectSame" -Value 1 -Type DWord -force
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fReconnectSame" -Value 0 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -Name "fDisableAutoReconnect" -Value 0 -Type DWord -Force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -Name "fInheritReconnectSame" -Value 1 -Type DWord -Force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -Name "fReconnectSame" -Value 0 -Type DWord -Force
     ```
 7. 동시 연결 수를 제한합니다.
     
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "MaxInstanceCount" -Value 4294967295 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -Name "MaxInstanceCount" -Value 4294967295 -Type DWord -Force
     ```
 8. RDP 수신기에 연결 된 자체 서명 된 인증서를 모두 제거 합니다.
     
@@ -234,7 +233,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 2. PowerShell에서 다음 명령을 실행 하 여 세 개의 방화벽 프로필 (도메인, 개인 및 공용)을 통한 WinRM을 허용 하 고 PowerShell 원격 서비스를 사용 하도록 설정 합니다.
    
    ```PowerShell
-    Enable-PSRemoting -force
+    Enable-PSRemoting -Force
 
     Set-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)" -Enabled True
    ```
@@ -293,16 +292,16 @@ VM이 정상, 보안 및 RDP에 액세스할 수 있는지 확인 합니다.
 
     ```powershell
     # Set up the guest OS to collect a kernel dump on an OS crash event
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name CrashDumpEnabled -Type DWord -force -Value 2
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name DumpFile -Type ExpandString -force -Value "%SystemRoot%\MEMORY.DMP"
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name NMICrashDump -Type DWord -force -Value 1
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -Name CrashDumpEnabled -Type DWord -Force -Value 2
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -Name DumpFile -Type ExpandString -Force -Value "%SystemRoot%\MEMORY.DMP"
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -Name NMICrashDump -Type DWord -Force -Value 1
 
     # Set up the guest OS to collect user mode dumps on a service crash event
     $key = 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps'
     if ((Test-Path -Path $key) -eq $false) {(New-Item -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting' -Name LocalDumps)}
-    New-ItemProperty -Path $key -name DumpFolder -Type ExpandString -force -Value "c:\CrashDumps"
-    New-ItemProperty -Path $key -name CrashCount -Type DWord -force -Value 10
-    New-ItemProperty -Path $key -name DumpType -Type DWord -force -Value 2
+    New-ItemProperty -Path $key -Name DumpFolder -Type ExpandString -Force -Value "c:\CrashDumps"
+    New-ItemProperty -Path $key -Name CrashCount -Type DWord -Force -Value 10
+    New-ItemProperty -Path $key -Name DumpType -Type DWord -Force -Value 2
     Set-Service -Name WerSvc -StartupType Manual
     ```
 4. WMI(Windows Management Instrumentation) (WMI) 리포지토리가 일치 하는지 확인 합니다.
@@ -310,9 +309,9 @@ VM이 정상, 보안 및 RDP에 액세스할 수 있는지 확인 합니다.
     ```PowerShell
     winmgmt /verifyrepository
     ```
-    리포지토리가 손상된 경우 [WMI: 리포지토리가 손상](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not)되었습니다.
+    리포지토리가 손상된 경우 [WMI: 리포지토리가 손상 되었거나 @ no__t-0이 아닙니다.
 
-5. 다른 응용 프로그램에서 포트 3389을 사용 하 고 있지 않은지 확인 합니다. 이 포트는 Azure의 RDP 서비스에 사용됩니다. VM에서 사용 되는 포트를 확인 하려면 다음을 `netstat -anob`실행 합니다.
+5. 다른 응용 프로그램에서 포트 3389을 사용 하 고 있지 않은지 확인 합니다. 이 포트는 Azure의 RDP 서비스에 사용됩니다. VM에서 사용 되는 포트를 확인 하려면 `netstat -anob`을 실행 합니다.
 
     ```PowerShell
     netstat -anob
@@ -407,18 +406,18 @@ VM이 정상, 보안 및 RDP에 액세스할 수 있는지 확인 합니다.
 - [특수화된 디스크에서 VM 만들기](create-vm-specialized.md)
 - [특수화된 VHD 디스크에서 VM 만들기](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
-일반화 된 이미지를 만들려는 경우 Sysprep를 실행 해야 합니다. 자세한 내용은 Sysprep을 사용 [하는 방법을 참조 하세요. 소개](https://technet.microsoft.com/library/bb457073.aspx). 
+일반화 된 이미지를 만들려는 경우 Sysprep를 실행 해야 합니다. 자세한 내용은 [How 사용 방법: 소개 @ no__t-0. 
 
 Windows 기반 컴퓨터에 설치 된 모든 역할 또는 응용 프로그램은 일반화 된 이미지를 지원 하지 않습니다. 따라서이 절차를 실행 하기 전에 Sysprep에서 컴퓨터의 역할을 지원 하는지 확인 합니다. 자세한 내용은 [Sysprep의 서버 역할 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요.
 
 ### <a name="generalize-a-vhd"></a>VHD 일반화
 
 >[!NOTE]
-> 다음 단계를 `sysprep.exe` 실행 한 후 VM을 끕니다. Azure에서 이미지를 만들 때까지 다시 설정 하지 마세요.
+> 다음 단계에서 `sysprep.exe`을 실행 한 후 VM을 끕니다. Azure에서 이미지를 만들 때까지 다시 설정 하지 마세요.
 
 1. Windows VM에 로그인합니다.
 1. 관리자 권한으로 **명령 프롬프트**를 실행합니다. 
-1. 디렉터리를로 `%windir%\system32\sysprep`변경 합니다. 그런 다음, `sysprep.exe`을 실행합니다.
+1. 디렉터리를 `%windir%\system32\sysprep`으로 변경 합니다. 그런 다음, `sysprep.exe`을 실행합니다.
 1. **시스템 준비 도구** 대화 상자에서 **시스템 OOBE(첫 실행 경험) 입력**을 선택하고 **일반화** 확인란을 선택했는지 확인합니다.
 
     ![시스템 준비 도구](media/prepare-for-upload-vhd-image/syspre.png)
@@ -430,7 +429,7 @@ Windows 기반 컴퓨터에 설치 된 모든 역할 또는 응용 프로그램�
 
 
 >[!NOTE]
-> 사용자 지정 *unattend.xml* 파일은 지원 되지 않습니다. `additionalUnattendContent` 속성을 지원 하지만, Azure 프로 비전 에이전트에서 사용 하는 *unattend.xml* 파일에 [microsoft windows-shell-설치](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) 옵션을 추가 하는 기능만 지원 합니다. 예를 들어 [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) 를 사용 하 여 Firstlogoncommands 및 logoncommands를 추가할 수 있습니다. 자세한 내용은 [AdditionalUnattendContent FirstLogonCommands 예](https://github.com/Azure/azure-quickstart-templates/issues/1407)를 참조 하세요.
+> 사용자 지정 *unattend.xml* 파일은 지원 되지 않습니다. @No__t-0 속성은 지원 하지만, Azure 프로 비전 에이전트에서 사용 하는 *unattend.xml* 파일에 [microsoft windows-shell-설치](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) 옵션을 추가 하는 기능만 지원 합니다. 예를 들어 [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) 를 사용 하 여 Firstlogoncommands 및 logoncommands를 추가할 수 있습니다. 자세한 내용은 [AdditionalUnattendContent FirstLogonCommands 예](https://github.com/Azure/azure-quickstart-templates/issues/1407)를 참조 하세요.
 
 
 ## <a name="complete-the-recommended-configurations"></a>권장 구성 완료
@@ -440,7 +439,7 @@ Windows 기반 컴퓨터에 설치 된 모든 역할 또는 응용 프로그램�
 * Azure에서 VM을 만든 후에는 성능 향상을 위해 *임시 드라이브 볼륨* 에 페이지 파일을 배치 하는 것이 좋습니다. 다음과 같이 파일 배치를 설정할 수 있습니다.
 
    ```PowerShell
-   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -Name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -Force
    ```
   데이터 디스크가 VM에 연결 되어 있으면 임시 드라이브 볼륨의 문자는 일반적으로 *D*입니다. 이 지정은 설정 및 사용 가능한 드라이브의 수에 따라 달라질 수 있습니다.
   * 바이러스 백신 소프트웨어에서 제공 하는 스크립트 차단 기능을 사용 하지 않도록 설정 하는 것이 좋습니다. 사용자는 이미지에서 새 VM을 배포할 때 실행 되는 Windows 프로 비전 에이전트 스크립트를 interfer 하 고 차단할 수 있습니다.

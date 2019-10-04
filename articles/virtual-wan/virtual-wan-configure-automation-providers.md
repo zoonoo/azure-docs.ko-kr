@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: 72493f084b89d41c1e0d6ff60c35afa3491b0eda
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 430d90b2b372602072527c49796244c503778a3b
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703453"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959017"
 ---
 # <a name="virtual-wan-partners"></a>Virtual WAN 파트너
 
@@ -23,7 +23,7 @@ ms.locfileid: "71703453"
 ## <a name ="before"></a>자동화를 시작하기 전에
 
 * 디바이스에서 IPsec IKEv1/IKEv2를 지원하는지 확인합니다. [기본 정책](#default)을 참조하세요.
-* Azure Virtual WAN에 대한 연결을 자동화하는 데 사용하는 [REST API](https://docs.microsoft.com/rest/api/azure/)를 참조하세요.
+* Azure 가상 WAN에 대 한 연결을 자동화 하는 데 사용 하는 [REST api](#additional) 를 확인 합니다.
 * Azure Virtual WAN의 포털 환경을 테스트합니다.
 * 그런 다음, 자동화하려는 연결 단계의 부분을 결정합니다. 최소한 자동화하는 것이 좋습니다.
 
@@ -31,7 +31,16 @@ ms.locfileid: "71703453"
   * Azure Virtual WAN에 분기 디바이스 정보 업로드
   * Azure 구성 다운로드 및 분기 디바이스에서 Azure Virtual WAN으로 연결 설정
 
-* Azure Virtual WAN과 함께 예상되는 고객 환경을 이해합니다.
+### <a name ="additional"></a>추가 정보
+
+* 가상 허브 만들기를 자동화 하는 [REST API](https://docs.microsoft.com/rest/api/virtualwan/virtualhubs)
+* 가상 WAN에 대 한 Azure VPN gateway를 자동화 하는 [REST API](https://docs.microsoft.com/rest/api/virtualwan/vpngateways)
+* VPNSite를 Azure VPN Hub에 연결 하는 [REST API](https://docs.microsoft.com/rest/api/virtualwan/vpnconnections)
+* [기본 IPsec 정책](#default)
+
+## <a name ="ae"></a>사용자 환경
+
+Azure Virtual WAN과 함께 예상되는 고객 환경을 이해합니다.
 
   1. 일반적으로 가상 WAN 사용자는 Virtual WAN 리소스를 만들어 프로세스를 시작합니다.
   2. 사용자는 온-프레미스 시스템(사용자의 분기 컨트롤러 또는 VPN 디바이스 프로비저닝 소프트웨어)에 대한 서비스 주체 기반 리소스 그룹 액세스를 설정하여 Azure Virtual WAN으로 분기 정보를 작성합니다.
@@ -41,8 +50,7 @@ ms.locfileid: "71703453"
   6. 솔루션의 이 단계 끝에서 사용자는 분기 디바이스와 가상 허브 간의 원활한 사이트 간 연결을 갖게 됩니다. 다른 허브에서 추가 연결을 설정할 수도 있습니다. 각 연결은 활성-활성 터널입니다. 고객은 터널에 대한 각 링크에 다른 ISP를 사용하도록 선택할 수 있습니다.
   7. CPE 관리 인터페이스에서 문제 해결 및 모니터링 기능을 제공 하는 것이 좋습니다. 일반적인 시나리오에는 "고객이 cpe 문제로 인해 Azure 리소스에 액세스할 수 없음", "CPE 쪽에서 IPsec 매개 변수 표시" 등이 포함 됩니다.
 
-## <a name ="understand"></a>자동화 세부 정보 이해
-
+## <a name ="understand"></a>자동화 세부 정보
 
 ###  <a name="access"></a>액세스 제어
 
@@ -55,19 +63,18 @@ ms.locfileid: "71703453"
 
 ###  <a name="branch"></a>분기 디바이스 정보 업로드
 
-Azure에 분기(온-프레미스 사이트) 정보를 업로드하도록 사용자 환경을 디자인합니다. VPNSite의[REST API](https://docs.microsoft.com/rest/api/virtualwan/vpnsites)를 사용하여 Virtual WAN에서 사이트 정보를 작성할 수 있습니다. 모든 분기 SDWAN/VPN 디바이스를 제공하거나 적절하게 디바이스 사용자 지정을 선택할 수 있습니다.
-
+Azure에 분기 (온-프레미스 사이트) 정보를 업로드 하는 사용자 환경을 디자인 해야 합니다. VPNSite 용 [REST api](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) 를 사용 하 여 가상 WAN에서 사이트 정보를 만들 수 있습니다. 모든 분기 SDWAN/VPN 디바이스를 제공하거나 적절하게 디바이스 사용자 지정을 선택할 수 있습니다.
 
 ### <a name="device"></a>디바이스 구성 다운로드 및 연결
 
-이 단계는 Azure 구성 다운로드 및 분기 디바이스에서 Azure Virtual WAN으로 연결 설정을 포함합니다. 이 단계에서는 공급자를 사용하지 않는 고객은 수동으로 Azure 구성을 다운로드하고 온-프레미스 SDWAN/VPN 디바이스에 적용합니다. 공급자는 이 단계를 자동화해야 합니다. 디바이스 컨트롤러는 'GetVpnConfiguration' REST API를 호출하여 일반적으로 다음 파일과 비슷하게 표시되는 Azure 구성을 다운로드할 수 있습니다.
+이 단계는 Azure 구성 다운로드 및 분기 디바이스에서 Azure Virtual WAN으로 연결 설정을 포함합니다. 이 단계에서는 공급자를 사용하지 않는 고객은 수동으로 Azure 구성을 다운로드하고 온-프레미스 SDWAN/VPN 디바이스에 적용합니다. 공급자는 이 단계를 자동화해야 합니다. 추가 정보는 [REST api](https://docs.microsoft.com/rest/api/virtualwan/vpnsitesconfiguration/download) 다운로드를 참조 하세요. 장치 컨트롤러에서 ' GetVpnConfiguration ' REST API를 호출 하 여 Azure 구성을 다운로드할 수 있습니다.
 
 **구성 정보**
 
   * 가상 허브에 연결된 Azure VNet은 ConnectedSubnet으로 표시됩니다.
   * VPN 연결은 경로 기반 구성을 사용 하 고 IKEv1 및 IKEv2 프로토콜을 모두 지원 합니다.
 
-#### <a name="understanding-the-device-configuration-file"></a>디바이스 구성 파일 이해
+## <a name="devicefile"></a>장치 구성 파일
 
 디바이스 구성 파일에는 온-프레미스 VPN 디바이스를 구성할 때 사용할 설정이 포함되어 있습니다. 이 파일을 볼 때 다음 정보를 확인합니다.
 
@@ -92,7 +99,7 @@ Azure에 분기(온-프레미스 사이트) 정보를 업로드하도록 사용�
         ```
     * BGP, 미리 공유한 키 등의 **Vpngateway 연결 구성 세부 정보**. PSK는 자동으로 생성되는 미리 공유한 키입니다. 사용자 지정 PSK의 개요 페이지에서 연결을 언제든지 편집할 수 있습니다.
   
-#### <a name="example-device-configuration-file"></a>예제 디바이스 구성 파일
+**장치 구성 파일의 예**
 
   ```
   { 
@@ -197,11 +204,7 @@ Azure에 분기(온-프레미스 사이트) 정보를 업로드하도록 사용�
    }
   ```
 
-## <a name="default"></a>IPsec 연결에 대한 기본 정책
-
-[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
-
-### <a name="does-everything-need-to-match-between-the-virtual-hub-vpngateway-policy-and-my-on-premises-sdwanvpn-device-or-sd-wan-configuration"></a>가상 허브 vpngateway 정책과 온-프레미스 SDWAN/VPN 디바이스 또는 SD-WAN 구성 간에 모든 항목이 일치해야 하나요?
+## <a name="default"></a>연결 세부 정보
 
 온-프레미스 SDWAN/VPN 디바이스 또는 SD-WAN 구성은 Azure IPsec/IKE 정책에서 지정한 다음과 같은 알고리즘 및 매개 변수와 일치하거나 해당 항목을 포함해야 합니다.
 
@@ -211,6 +214,12 @@ Azure에 분기(온-프레미스 사이트) 정보를 업로드하도록 사용�
 * IPsec 암호화 알고리즘
 * IPsec 무결성 알고리즘
 * PFS 그룹
+
+### <a name="default"></a>IPsec 연결에 대한 기본 정책 
+
+기본 정책으로 작업할 때 Azure는 IPsec 터널을 설정 하는 동안 초기자와 응답자 역할을 모두 수행할 수 있습니다. Azure는 응답자 전용으로 지원 되지 않습니다.
+
+[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

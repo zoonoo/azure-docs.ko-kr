@@ -15,24 +15,18 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4b48e035476e5381104b442f87dcac03ac11778
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: df8b03d513e2d78083031fbc9a3f6dbc1b7d15d9
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499683"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958562"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 또는 응용 프로그램에 대 한 액세스를 검토 합니다.
 
 Azure Active Directory (Azure AD)는 기업이 azure ad 액세스 검토 라는 기능을 사용 하 여 Azure AD 및 기타 Microsoft Online Services의 그룹 또는 응용 프로그램에 대 한 액세스를 관리 하는 방법을 간소화 합니다.
 
 이 문서에서는 그룹 또는 응용 프로그램에 대 한 자신의 액세스를 검토 하는 방법을 설명 합니다.
-
-## <a name="prerequisites"></a>필수 구성 요소
-
-- Azure AD Premium P2
-
-자세한 내용은 [어떤 사용자에 게 라이선스가 있어야 하나요?](access-reviews-overview.md#which-users-must-have-licenses)를 참조 하세요.
 
 ## <a name="open-the-access-review"></a>액세스 검토 열기
 
@@ -42,11 +36,11 @@ Azure Active Directory (Azure AD)는 기업이 azure ad 액세스 검토 라는 
 
     ![그룹에 대 한 액세스를 검토 하는 Microsoft의 예제 메일](./media/review-your-access/access-review-email.png)
 
-1. 액세스 검토 **링크를** 클릭 하 여 액세스 검토를 엽니다.
+1. **액세스 검토 링크를** 클릭 하 여 액세스 검토를 엽니다.
 
 전자 메일이 없는 경우 다음 단계를 수행 하 여 보류 중인 액세스 검토를 찾을 수 있습니다.
 
-1. 에서 [https://myapps.microsoft.com](https://myapps.microsoft.com)myapps 포털에 로그인 합니다.
+1. [@No__t-1](https://myapps.microsoft.com)에서 myapps 포털에 로그인 합니다.
 
     ![사용 권한이 있는 앱을 나열 하는 MyApps 포털](./media/review-your-access/myapps-access-panel.png)
 

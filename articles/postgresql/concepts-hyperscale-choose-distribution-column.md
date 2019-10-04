@@ -1,18 +1,18 @@
 ---
 title: Azure Database for PostgreSQL-Hyperscale (Citus)에서 배포 열 선택
-description: 일반적인 하이퍼스케일 시나리오에서 분산 열에 대한 적절한 선택
+description: Azure Database for PostgreSQL의 일반적인 하이퍼 확장 시나리오에서 배포 열을 선택 하는 방법에 대해 알아봅니다.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: b0d1f343aa9b125ab0a5a9ab559d0788253037aa
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 0b29567dcd22c79c30e70594066f7ff87c18fdb0
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998182"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947586"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)에서 배포 열 선택
 
@@ -28,7 +28,7 @@ ms.locfileid: "69998182"
 
 Citus (hyperscale)는 쿼리를 검사 하 여 관련 된 테 넌 트 ID를 확인 하 고 일치 하는 테이블 분할 된 테이블을 찾습니다. 분할을 포함하는 단일 작업자 노드로 쿼리를 라우팅합니다. 같은 노드에 있는 모든 관련 데이터를 사용하여 쿼리를 실행하는 것을 공동 배치라고 합니다.
 
-다음 다이어그램에서는 다중 테넌트 데이터 모델에서의 공동 배치를 보여줍니다. Accounts 및 Campaigns 두 개의 테이블을 포함하며, 각각 `account_id`로 분산됩니다. 음영 처리 된 상자는 분할를 나타냅니다. 녹색 분할는 하나의 작업자 노드에 함께 저장 되 고, blue 분할는 다른 작업자 노드에 저장 됩니다. 두 테이블 모두 동일한 계정\_id로 제한 되는 경우 계정 및 캠페인 간 조인 쿼리는 하나의 노드에서 필요한 모든 데이터를 포함 하는 방법을 확인 합니다.
+다음 다이어그램에서는 다중 테넌트 데이터 모델에서의 공동 배치를 보여줍니다. Accounts 및 Campaigns 두 개의 테이블을 포함하며, 각각 `account_id`로 분산됩니다. 음영 처리 된 상자는 분할를 나타냅니다. 녹색 분할는 하나의 작업자 노드에 함께 저장 되 고, blue 분할는 다른 작업자 노드에 저장 됩니다. 두 테이블 모두 동일한 계정 @ no__t-0id로 제한 되는 경우 계정 및 캠페인 간 조인 쿼리는 하나의 노드에서 필요한 모든 데이터를 포함 하는 방법을 확인 합니다.
 
 ![다중 테 넌 트 공동 배치](media/concepts-hyperscale-choosing-distribution-column/multi-tenant-colocation.png)
 
@@ -37,7 +37,7 @@ Citus (hyperscale)는 쿼리를 검사 하 여 관련 된 테 넌 트 ID를 확�
 
 #### <a name="best-practices"></a>모범 사례
 
--   **공통 tenant\_id 열로 분산된 테이블을 파티션합니다.** 예를 들어 테 넌 트가 회사인 SaaS 응용 프로그램에서 테 넌 트\_id는 회사\_id가 될 수 있습니다.
+-   **공통 tenant\_id 열로 분산된 테이블을 파티션합니다.** 예를 들어 테 넌 트가 회사인 SaaS 응용 프로그램에서 테 넌 트 @ no__t-0id는 company @ no__t id가 될 수 있습니다.
 -   **작은 테넌트 간 테이블을 참조 테이블로 변환합니다.** 여러 테넌트가 작은 테이블의 정보를 공유하는 경우 참조 테이블로 분산합니다.
 -   **tenant\_id로 모든 응용 프로그램 쿼리를 필터하여 제한합니다.** 각 쿼리는 한 번에 하나의 테넌트에 대한 정보를 요청해야 합니다.
 

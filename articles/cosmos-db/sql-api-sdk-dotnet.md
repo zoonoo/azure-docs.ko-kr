@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 8017f02e694f5c9e2cd677c7b1f28c5de973d077
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: f8c38c46bd60834c166721f62088d8edb2c722a9
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932581"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949587"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SQL API용 Azure Cosmos DB .NET SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -21,7 +21,7 @@ ms.locfileid: "70932581"
 > * [.NET](sql-api-sdk-dotnet-standard.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
+> * [Node.JS](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
@@ -44,6 +44,14 @@ ms.locfileid: "70932581"
 
 > [!NOTE]
 > .NET Framework를 사용 하는 경우 .NET Standard를 대상으로 하는 [.NET SDK](sql-api-sdk-dotnet-standard.md)의 최신 버전을 참조 하세요. 
+
+### <a name="a-name270270"></a><a name="2.7.0"/>2.7.0
+
+* Order by 쿼리에서 배열 및 개체에 대 한 지원 추가
+* 유효 파티션 키 충돌 처리
+* ThenBy 연산자를 사용 하 여 여러 OrderBy 연산자에 대 한 LINQ 지원 추가
+* 이제 사용자 지정 serialization 설정이 모든 upsert 및 바꾸기 작업에 적용 됩니다.
+* 단일 스레드 작업 scheduler와 함께 작동 하도록 AysncCache 교착 상태 문제가 수정 됨
 
 ### <a name="a-name260260"></a><a name="2.6.0"/>2.6.0
 
@@ -348,7 +356,7 @@ ms.locfileid: "70932581"
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 * 인덱싱 정책 수정 지원이 추가되었습니다.
   * DocumentClient의 새로운 ReplaceDocumentCollectionAsync 메서드
-  * 인덱스 정책 변경 진행률을\<추적 하기 위한 ResourceResponse T >의 새 IndexTransformationProgress 속성
+  * 인덱스 정책 변경 진행률을 추적 하기 위한 ResourceResponse @ no__t->의 새 IndexTransformationProgress 속성
   * 이제 DocumentCollection.IndexingPolicy를 변경할 수 있음
 * 공간 인덱싱 및 쿼리 지원이 추가되었습니다.
   * 점 및 다각형과 같은 공간 형식을 직렬화/역직렬화하기 위한 새로운 Microsoft.Azure.Documents.Spatial 네임스페이스
@@ -390,6 +398,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [합니다](#2.7.0) |2019 년 9 월 23 일 |--- |
 | [2.6.0](#2.6.0) |2019 년 8 월 30 일 |--- |
 | [2.5.1](#2.5.1) |2019 년 7 월 02 일 |--- |
 | [2.4.1](#2.4.1) |6 월 20 일, 2019 |--- |
@@ -455,6 +464,6 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요. 
 

@@ -52,8 +52,9 @@
       href: gif-images.md
     - name: 최신 이미지 가져오기
       href: trending-images.md
-    - name: 이미지의 페이지 표시
-      href: paging-images.md
+    - name: 검색 결과 페이징
+      maintainContext: true
+      href: ../bing-web-search/paging-search-results.md
     - name: 크기 조정 및 자르기 썸네일
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md

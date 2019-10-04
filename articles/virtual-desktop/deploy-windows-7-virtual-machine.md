@@ -5,16 +5,16 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 10/03/2019
 ms.author: helohr
-ms.openlocfilehash: e7f565a995e4c2a5338f08437b0dd336846ba154
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3a6fb67ce531ed8cc028d2d0a8dfc3022544efe0
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679920"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947579"
 ---
-# <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Windows 가상 데스크톱에 Windows 7 가상 컴퓨터 배포
+# <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Windows Virtual Desktop에서 Windows 7 가상 머신 배포
 
 Windows 가상 데스크톱에 Windows 7 VM (가상 컴퓨터)을 배포 하는 프로세스는 이후 버전의 Windows를 실행 하는 Vm과 약간 다릅니다. 이 가이드에서는 Windows 7을 배포 하는 방법을 설명 합니다.
 
@@ -43,9 +43,15 @@ Windows 가상 데스크톱에서 Windows 7 VM을 설정 하려면 다음을 수
      shutdown /r /t 0
      ```
     
+11. [여기](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo) 의 지침에 따라 등록 토큰을 가져옵니다.
+12. Windows [7 용 Windows 가상 데스크톱 에이전트를 다운로드](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm)합니다.
+13. Windows [7 용 Windows 가상 데스크톱 에이전트 관리자을 다운로드](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3)합니다.
+14. Windows 가상 데스크톱 에이전트 설치 관리자를 열고 지침을 따릅니다. 메시지가 표시 되 면 11 단계에서 만든 등록 키를 제공 합니다.
+15. Windows 가상 데스크톱 설치 관리자를 열고 지침을 따릅니다.
+16. 필요에 따라 TCP/3389 포트를 차단 하 여 VM에 대 한 직접 원격 데스크톱 프로토콜 액세스를 제거 합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-이제 windows 7 VM을 Windows 가상 데스크톱에 배포할 준비가 되었습니다. [Windows 가상 데스크톱 에이전트 설치를 위한 가상 머신 준비](create-host-pools-powershell.md#prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations) 의 지침에 따라 배포를 완료 합니다.
+이제 Windows 가상 데스크톱 배포를 사용할 준비가 되었습니다. [최신 버전의 Windows 가상 데스크톱 클라이언트를 다운로드](https://aka.ms/wvd/clients/windows) 하 여 시작 하세요.
 
 Windows 가상 데스크톱의 windows 7에 대 한 알려진 문제 및 문제 해결 지침은 windows [가상 데스크톱의 windows 7 가상 컴퓨터 문제](troubleshoot-windows-7-vm.md)해결에서 문제 해결 문서를 참조 하세요.
-

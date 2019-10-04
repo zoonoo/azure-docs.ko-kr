@@ -1,18 +1,18 @@
 ---
-title: AKS(Azure Kubernetes Service)에서 여러 Pod용 디스크 볼륨을 동적으로 만들기
-description: AKS(Azure Kubernetes Service)에서 여러 Pod에 동시에 사용할 Azure 디스크가 포함된 영구 볼륨을 동적으로 만드는 방법에 대해 알아봅니다.
+title: AKS(Azure Kubernetes Service)에서 Azure 디스크를 사용하여 영구 볼륨을 동적으로 만들어 사용
+description: Azure Kubernetes 서비스 (AKS)에서 Azure 디스크로 영구적 볼륨을 동적으로 만드는 방법에 대해 알아봅니다.
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 0641d613da86aeffa0c4abb0f82ce93c38283156
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 84c06c0ac45a5005646cf7b4fb1e274d0347593c
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "67616090"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958498"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure 디스크를 사용하여 영구 볼륨을 동적으로 만들어 사용
 
@@ -40,7 +40,7 @@ Kubernetes 볼륨에 대 한 자세한 내용은 [AKS의 응용 프로그램에 
 * *managed-premium* 스토리지 클래스는 프리미엄 Azure 디스크를 프로비전합니다.
     * 프리미엄 디스크는 SSD 기반 고성능의 대기 시간이 짧은 디스크에서 지원합니다. 프로덕션 워크로드를 실행하는 VM에 완벽한 디스크입니다. 클러스터의 AKS 노드가 Premium Storage를 사용하는 경우 *managed-premium* 클래스를 선택합니다.
     
-이러한 기본 저장소 클래스를 사용 하면 만든 볼륨 크기를 업데이트할 수 없습니다. 이 기능을 사용 하도록 설정 하려면 기본 저장소 클래스 중 하나에 *allowVolumeExpansion: true* 줄을 추가 하거나 사용자 지정 저장소 클래스를 직접 만듭니다. `kubectl edit sc` 명령을 사용 하 여 기존 저장소 클래스를 편집할 수 있습니다. 저장소 클래스에 대 한 자세한 내용 및 직접 만들기에 대 한 자세한 내용은 [AKS의 응용 프로그램에 대 한 저장소 옵션][storage-class-concepts]을 참조 하세요.
+이러한 기본 저장소 클래스를 사용 하면 만든 볼륨 크기를 업데이트할 수 없습니다. 이 기능을 사용 하도록 설정 하려면 기본 저장소 클래스 중 하나에 *allowVolumeExpansion: true* 줄을 추가 하거나 사용자 지정 저장소 클래스를 직접 만듭니다. @No__t-0 명령을 사용 하 여 기존 저장소 클래스를 편집할 수 있습니다. 저장소 클래스에 대 한 자세한 내용 및 직접 만들기에 대 한 자세한 내용은 [AKS의 응용 프로그램에 대 한 저장소 옵션][storage-class-concepts]을 참조 하세요.
 
 [Kubectl get sc][kubectl-get] 명령을 사용 하 여 미리 만든 저장소 클래스를 확인 합니다. 다음 예제에서는 AKS 클러스터 내에서 사용할 수 있는 미리 생성된 스토리지 클래스를 보여 줍니다.
 

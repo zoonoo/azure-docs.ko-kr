@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 867e8f830542aab712b2bfe32f05dd9469c0da49
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 61be3225f22aca821f8c26522ab37eab0c82bc26
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932531"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677709"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 미리 빌드된 Currency 엔터티
 미리 작성 된 통화 엔터티는 LUIS 앱 문화권과 관계 없이 많은 denominations 및 국가/지역에서 통화를 검색 합니다. 이 엔터티를 이미 학습했기 때문에 currency를 포함하는 예제 발언을 애플리케이션 의도에 추가할 필요가 없습니다. Currency 엔터티는 [여러 문화권](luis-reference-prebuilt-entities.md)에서 지원됩니다. 
@@ -26,7 +26,7 @@ Currency는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blo
 
 ## <a name="resolution-for-currency-entity"></a>Currency 엔터티의 해결
 
-### <a name="api-version-2x"></a>API 버전 2.x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
 
 다음 예제에서는 **builtin.currency** 엔터티의 해결을 보여 줍니다.
 
@@ -64,9 +64,9 @@ Currency는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blo
 
 
 
-### <a name="preview-api-version-3x"></a>Preview API 버전 3(sp3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
 
-다음 JSON은 `verbose` 매개 변수를로 `false`설정 하는입니다.
+다음 JSON은 `verbose` 매개 변수를 `false`로 설정 합니다.
 
 ```json
 {
@@ -91,7 +91,7 @@ Currency는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blo
 }
 ```
 
-다음 JSON은 `verbose` 매개 변수를로 `true`설정 하는입니다.
+다음 JSON은 `verbose` 매개 변수를 `true`로 설정 합니다.
 
 ```json
 {
@@ -128,6 +128,11 @@ Currency는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blo
 }
 ```
 
+
+* * * 
+
 ## <a name="next-steps"></a>다음 단계
+
+[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
 
 [datetimeV2](luis-reference-prebuilt-datetimev2.md), [dimension](luis-reference-prebuilt-dimension.md) 및 [email](luis-reference-prebuilt-email.md) 엔터티에 대해 알아봅니다. 

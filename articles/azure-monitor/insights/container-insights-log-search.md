@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: d6e65331db53be5ba13a75e6b03b271f1071716d
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: ae8dd4cccb6795faa02e6705404644f6ccc24864
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67989826"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948058"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>컨테이너의 Azure Monitor에서 로그를 쿼리 하는 방법
 
@@ -42,7 +42,7 @@ ms.locfileid: "67989826"
 | Kubernetes 클러스터의 컨테이너 부분에 대한 성능 메트릭 | Perf &#124; where ObjectName == “K8SContainer” | CounterName &#40; CpuRequestNanoCores, memoryRequestBytes, CpuLimitNanoCores, MemoryWorkingSetBytes, RestartTimeEpoch, CpuUsageNanoCores, memoryRssBytes&#41;, Countervalue, Timegenerated, countervalue, SourceSystem | 
 | 사용자 지정 메트릭 |`InsightsMetrics` | 컴퓨터, 이름, 네임 스페이스, 원본, SourceSystem, 태그<sup>1</sup>, Timegenerated, Type, Va, _resourceid | 
 
-<sup>1</sup> *Tags* 속성은 해당 메트릭에 대 한 [여러 차원을](../platform/data-platform-metrics.md#multi-dimensional-metrics) 나타냅니다. `InsightsMetrics` 테이블에 수집 및 저장 된 메트릭과 레코드 속성에 대 한 설명에 대 한 자세한 내용은 [InsightsMetrics 개요](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md)를 참조 하세요.
+<sup>1</sup> *Tags* 속성은 해당 메트릭에 대 한 [여러 차원을](../platform/data-platform-metrics.md#multi-dimensional-metrics) 나타냅니다. @No__t-0 테이블에 수집 되 고 저장 되는 메트릭에 대 한 자세한 내용은 [InsightsMetrics 개요](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md)를 참조 하세요.
 
 >[!NOTE]
 >프로메테우스에 대 한 지원은 현재 공개 미리 보기의 기능입니다.
@@ -62,15 +62,16 @@ Azure Monitor 로그는 추세를 찾고, 병목 상태를 진단 하거나, 예
 
 한두 가지 예제로 시작하는 쿼리를 작성한 다음, 요구 사항에 맞게 수정하는 것이 유용한 경우가 많습니다. 고급 쿼리를 작성하는 데 도움이 되도록 다음과 같은 샘플 쿼리를 테스트해 볼 수 있습니다.
 
-| Query | 설명 | 
+| query | 설명 | 
 |-------|-------------|
 | ContainerInventory<br> &#124; project Computer, Name, Image, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; render table | 컨테이너의 수명 주기 정보 모두 나열| 
 | KubeEvents_CL<br> &#124; where not(isempty(Namespace_s))<br> &#124; sort by TimeGenerated desc<br> &#124; render table | kubernetes 이벤트|
 | ContainerImageInventory<br> &#124; summarize AggregatedValue = count() by Image, ImageTag, Running | 이미지 인벤토리 | 
-| **꺾은선형 차트 표시 옵션을 선택**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 컨테이너 CPU | 
-| **꺾은선형 차트 표시 옵션을 선택**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 컨테이너 메모리 |
+| **꺾은선형 차트 표시 옵션을 선택**:<br> 성능<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 컨테이너 CPU | 
+| **꺾은선형 차트 표시 옵션을 선택**:<br> 성능<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 컨테이너 메모리 |
+| InsightsMetrics<br> &#124;where Name = = "requests_count"<br> &#124;TimeGenerated = bin (TimeGenerated, 1m)으로 Val = any (Val) 요약<br> &#124;TimeGenerated asc 별 정렬<br> &#124;project RequestsPerMinute = Val-prev (Val), TimeGenerated <br> &#124;렌더링 막대 차트  | 사용자 지정 메트릭으로 분당 요청 수 |
 
-다음 예는 프로메테우스 메트릭 쿼리입니다. 수집 된 메트릭은 특정 기간 내에 발생 한 오류 수를 확인 하기 위해 개수를 계산 하는 데 사용할 수 있습니다. 데이터 집합은 *partitionKey*에 의해 분할 됩니다. 즉, 고유한 이름, *호스트* *이름*및 *OperationType*집합에 대해 해당 집합에 대 한 하위 쿼리를 실행 합니다.  해당 시간에 대해 기록 된 이전 *Timegenerated* 및 count를 찾아 요금을 확인 합니다.
+다음 예는 프로메테우스 메트릭 쿼리입니다. 수집 된 메트릭은 특정 기간 내에 발생 한 오류 수를 확인 하기 위해 개수를 계산 하는 데 사용할 수 있습니다. 데이터 집합은 *partitionKey*에 의해 분할 됩니다. 즉, 고유한 이름, *호스트* *이름*및 *OperationType*집합에 대해 해당 집합에 대 한 하위 *쿼리를 실행*합니다. 해당 시간에 대해 기록 된 이전 *Timegenerated* 및 count를 찾아 요금을 확인 합니다.
 
 ```
 let data = InsightsMetrics 

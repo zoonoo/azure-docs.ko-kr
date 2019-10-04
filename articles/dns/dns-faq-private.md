@@ -5,28 +5,28 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 10/05/2019
 ms.author: victorh
-ms.openlocfilehash: fca7359f9fa54899bb72be3b939e1a1839dbfbd1
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: cb0cc5e99cc07728d475a9f9e54c7eb6a8c7554e
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155700"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959928"
 ---
 # <a name="azure-private-dns-faq"></a>Azure 프라이빗 DNS FAQ
 
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+Azure 개인 DNS에 대 한 질문과 대답은 다음과 같습니다.
 
 ## <a name="does-azure-dns-support-private-domains"></a>Azure DNS에서는 프라이빗 도메인을 지원하나요?
 
-Azure 사설 DNS 영역 기능을 사용 하 여 개인 도메인에 대 한 지원이 지원 됩니다. 사설 DNS 영역은 인터넷 연결 Azure DNS 영역과 동일한 도구를 사용 하 여 관리 됩니다. 이러한 영역은 지정된 가상 네트워크 내에서만 확인할 수 있습니다. 자세한 내용은 [개요](private-dns-overview.md)를 참조하세요.
+개인 도메인은 Azure 사설 DNS 영역 기능을 사용 하 여 지원 됩니다. 사설 DNS 영역은 지정 된 가상 네트워크 내 에서만 확인할 수 있습니다. 자세한 내용은 [개요](private-dns-overview.md)를 참조하세요.
 
 Azure의 다른 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 인스턴스에 대한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
 
-## <a name="will-azure-dns-private-zones-work-across-azure-regions"></a>Azure DNS Private Zones가 여러 Azure 지역에서 작동하나요?
+## <a name="will-azure-private-dns-zones-work-across-azure-regions"></a>Azure 지역에서 Azure 사설 DNS 영역을 사용할 수 있나요?
 
-예. 프라이빗 영역에서는 Azure 지역의 가상 네트워크 간 DNS 확인이 지원됩니다. 프라이빗 영역은 가상 네트워크를 명시적으로 피어링하지 않아도 작동합니다. 모든 가상 네트워크는 프라이빗 영역에 대한 확인 가상 네트워크로 지정해야 합니다. 한 지역에서 다른 지역으로 이동 하기 위해 TCP/HTTP 트래픽을 피어 링 가상 네트워크가 필요할 수 있습니다.
+예. 프라이빗 영역에서는 Azure 지역의 가상 네트워크 간 DNS 확인이 지원됩니다. 프라이빗 영역은 가상 네트워크를 명시적으로 피어링하지 않아도 작동합니다. 모든 가상 네트워크는 개인 DNS 영역에 연결 되어야 합니다.
 
 ## <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>프라이빗 영역을 위해 가상 네트워크에서 인터넷에 연결되어야 하나요?
 
@@ -34,11 +34,11 @@ Azure의 다른 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 �
 
 ## <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>확인을 위해 여러 가상 네트워크에서 동일한 프라이빗 영역을 사용할 수 있나요?
 
-예. 단일 개인 영역을 사용 하 여 최대 1000 개의 가상 네트워크를 연결할 수 있습니다.
+예. 수천 개의 가상 네트워크와 개인 DNS 영역을 연결할 수 있습니다. 자세한 내용은 [Azure DNS 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-dns-limits) 을 참조 하세요.
 
-## <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-linked-virtual-network-to-a-private-zone"></a>다른 구독에 속한 가상 네트워크를 개인 영역에 연결 된 가상 네트워크로 추가할 수 있나요?
+## <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-linked-to-a-private-zone"></a>다른 구독에 속한 가상 네트워크를 개인 영역에 연결할 수 있나요?
 
-예. 가상 네트워크와 프라이빗 DNS 영역에 대해 쓰기 작업 권한이 있어야 합니다. 쓰기 권한은 여러 RBAC 역할에 부여할 수 있습니다. 예를 들어, 클래식 네트워크 참가자 RBAC 역할에는 가상 네트워크에 대한 쓰기 권한이 있습니다. RBAC 역할에 대한 자세한 내용은 [역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조하세요.
+예. 가상 네트워크와 프라이빗 DNS 영역에 대해 쓰기 작업 권한이 있어야 합니다. 쓰기 권한은 여러 RBAC 역할에 부여할 수 있습니다. 예를 들어 클래식 네트워크 참가자 RBAC 역할에는 가상 네트워크에 대 한 쓰기 권한이 있고 사설 DNS 영역 참가자 역할에는 개인 DNS 영역에 대 한 쓰기 권한이 있습니다. RBAC 역할에 대한 자세한 내용은 [역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조하세요.
 
 ## <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-you-delete-the-virtual-machine"></a>가상 컴퓨터를 삭제 하면 자동으로 등록 된 가상 컴퓨터 DNS 레코드가 개인 영역에 자동으로 삭제 됩니까?
 
@@ -58,40 +58,28 @@ Azure의 다른 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 �
 
 ## <a name="what-happens-when-we-delete-a-linked-virtual-network-thats-linked-to-a-private-zone-do-we-have-to-manually-update-the-private-zone-to-unlink-the-virtual-network-as-a-linked-virtual-network-from-the-zone"></a>개인 영역에 연결 된 연결 된 가상 네트워크를 삭제 하면 어떻게 되나요? 영역에서 가상 네트워크를 연결 된 가상 네트워크로 연결 해제 하기 위해 개인 영역을 수동으로 업데이트 해야 하나요?
 
-예. 먼저 개인 영역에서 연결을 해제 하지 않고 연결 된 가상 네트워크를 삭제 하면 삭제 작업이 성공 합니다. 그렇지만 가상 네트워크가 프라이빗 영역에서 자동으로 연결 해제되지는 않습니다. 수동으로 프라이빗 영역에서 가상 네트워크 연결을 해제해야 합니다. 이러한 이유로, 연결을 삭제하기 전에 먼저 프라이빗 영역에서 가상 네트워크의 연결을 해제합니다.
+아니요. 먼저 개인 영역에서 연결을 해제 하지 않고 연결 된 가상 네트워크를 삭제 하면 삭제 작업이 성공 하 고 DNS 영역에 대 한 링크가 자동으로 지워집니다.
 
 ## <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-privatecontosocom-is-linked-to-a-virtual-network"></a>개인 영역 (예: private.contoso.com)이 가상 네트워크에 연결 된 경우에도 기본 FQDN (internal.cloudapp.net)을 사용 하 여 DNS 확인이 작동 하나요?
 
-예. 프라이빗 영역은 Azure에서 제공한 internal.cloudapp.net 영역을 사용하여 기본 DNS 확인을 대체하지 않습니다. 이 영역은 추가 기능 또는 향상된 기능으로 제공됩니다. Azure에서 제공한 internal.cloudapp.net을 신뢰하는지 또는 사용자 고유의 프라이빗 영역을 신뢰하는지에 관계없이 확인하려는 영역의 FQDN을 사용하도록 합니다.
+예. 사설 영역은 기본 Azure 제공 internal.cloudapp.net 영역을 대체 하지 않습니다. Azure에서 제공한 internal.cloudapp.net을 신뢰하는지 또는 사용자 고유의 프라이빗 영역을 신뢰하는지에 관계없이 확인하려는 영역의 FQDN을 사용하도록 합니다.
 
 ## <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>연결된 가상 네트워크 내의 가상 머신에 사용되는 DNS 접미사가 프라이빗 영역의 DNS 접두사로 변경되나요?
 
 아니요. , 연결된 가상 네트워크의 가상 머신에 사용된 DNS 접미사는 기본 Azure 제공 접미사("*. internal.cloudapp.net")로 유지됩니다. 가상 머신의 이 DNS 접미사를 프라이빗 영역의 DNS 접미사로 수동으로 변경할 수 있습니다.
+이 접미사를 변경 하는 방법에 대 한 지침은 [동적 dns를 사용 하 여 자체 DNS 서버에 호스트 이름 등록](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-ddns#windows-clients) 을 참조 하세요.
 
-## <a name="what-are-the-usage-limits-for-azure-private-dns"></a>Azure 사설 DNS에 대 한 사용 제한은 무엇 인가요?
+## <a name="what-are-the-usage-limits-for-azure-dns-private-zones"></a>Azure DNS 개인 영역에 대 한 사용 제한은 무엇 인가요?
 
-Azure 사설 DNS를 사용 하는 경우 다음과 같은 기본 제한이 적용 됩니다.
-
-| 리소스 | 기본 제한 |
-| --- | --- |
-|구독 당 사설 DNS 영역|1000|
-|사설 DNS 영역별 레코드 집합|25,000|
-|레코드 집합당 레코드|20|
-|개인 DNS 영역별 Virtual Network 링크|1000|
-|자동 등록을 사용 하는 개인 DNS 영역 당 가상 네트워크 링크|100|
-|자동 등록을 사용 하도록 설정한 상태에서 가상 네트워크가 연결 될 수 있는 개인 DNS 영역 수|1|
-|가상 네트워크가 연결 될 수 있는 개인 DNS 영역 수|1000|
-
-## <a name="is-there-portal-support-for-private-zones"></a>프라이빗 영역에 대한 포털 지원이 있나요?
-
-예, Api, PowerShell, CLI 및 Sdk를 통해 이미 생성 된 사설 영역은 Azure Portal에 표시 됩니다.
+Azure DNS 전용 영역에 대 한 사용 제한에 대 한 자세한 내용은 [Azure DNS 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-dns-limits) 을 참조 하세요.
 
 ## <a name="why-dont-my-existing-private-dns-zones-show-up-in-new-portal-experience"></a>기존 개인 DNS 영역이 새 포털 환경에 표시 되지 않는 이유는 무엇 인가요?
 
-Preview 새로 고침 릴리스의 일부로 개인 DNS 영역에 대 한 새로운 리소스 모델을 제공 했습니다. 기존 개인 DNS 영역은 새 포털 환경에 표시 되기 전에 새 리소스 모델로 마이그레이션해야 합니다. 새 리소스 모델로 마이그레이션하는 방법에 대 한 지침은 아래를 참조 하세요.
+미리 보기 API를 사용 하 여 기존 개인 DNS 영역을 만든 경우 이러한 영역을 새 리소스 모델로 마이그레이션해야 합니다. 미리 보기 API를 사용 하 여 만든 사설 DNS 영역은 새 포털 환경에서 표시 되지 않습니다. 새 리소스 모델로 마이그레이션하는 방법에 대 한 지침은 아래를 참조 하세요.
 
 ## <a name="how-do-i-migrate-my-existing-private-dns-zones-to-the-new-model"></a>기존 개인 DNS 영역을 새 모델로 마이그레이션할 어떻게 할까요? 있나요?
-가능한 한 빨리 새 리소스 모델로 마이그레이션하는 것이 좋습니다. 레거시 리소스 모델은 지원 되지만이 모델 위에는 추가 기능이 개발 되지 않습니다. 향후에는 새 리소스 모델을 사용 중단 합니다. 기존 개인 DNS 영역을 새 리소스 모델로 마이그레이션하는 방법에 대 한 지침은[Azure DNS 개인 영역에 대 한 마이그레이션 가이드](private-dns-migration-guide.md)를 참조 하세요.
+
+가능한 한 빨리 새 리소스 모델로 마이그레이션하는 것이 좋습니다. 레거시 리소스 모델은 지원 되지만이 모델 위에는 추가 기능이 개발 되지 않습니다. 향후에는 새 리소스 모델을 위해 사용 중단. 기존 개인 DNS 영역을 새 리소스 모델로 마이그레이션하는 방법에 대 한 지침은[Azure DNS 개인 영역에 대 한 마이그레이션 가이드](private-dns-migration-guide.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

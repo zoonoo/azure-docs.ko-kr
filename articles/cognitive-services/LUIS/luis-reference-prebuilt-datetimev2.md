@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: c4e83ed15c2b15ccb3339ff775b08c8d2dab4c32
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4f46efaeddb0bfe789ef752abdd133c14da514da
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932511"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677700"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 미리 빌드된 DatetimeV2 엔터티
 
@@ -82,8 +82,8 @@ DatetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
 |속성 이름|속성 설명|
 |--|--|
 |timex|[ISO 8601 표준](https://en.wikipedia.org/wiki/ISO_8601) 뒤에 오는 TIMEX 형식으로 표현된 시간, 날짜 또는 날짜 범위와 TimeML 언어를 사용하는 주석에 대한 TIMEX3 특성입니다. 이 주석은 [TIMEX 지침](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf)에 설명됩니다.|
-|type|하위 형식으로,,,,,,, 등의 `datetime`항목 `date` `duration` `daterange` `datetimerange` `time` `timerange` 중하나일수있습니다`set`.|
-|value|**선택** yyyy:MM:dd(날짜), HH:mm:ss(시간) yyyy:MM:dd HH:mm:ss(날짜/시간) 형식의 날짜/시간 개체입니다. `type`이 `duration`인 경우 값은 초(기간)입니다. <br/> `type`이 `datetime` 또는 `date`, `time` 또는 기간인 경우에만 사용됩니다.|
+|type|하위 형식으로 서, `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `set` 항목 중 하나일 수 있습니다.|
+|값|**선택** yyyy:MM:dd(날짜), HH:mm:ss(시간) yyyy:MM:dd HH:mm:ss(날짜/시간) 형식의 날짜/시간 개체입니다. `type`이 `duration`인 경우 값은 초(기간)입니다. <br/> `type`이 `datetime` 또는 `date`, `time` 또는 기간인 경우에만 사용됩니다.|
 
 ## <a name="valid-date-values"></a>유효한 날짜 값
 
@@ -185,6 +185,8 @@ DatetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
 
 다음 예제에서는 LUIS가 **datetimeV2**를 사용하여 시간 범위가 있는 발언을 확인하는 방법을 보여줍니다.
 
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
+
 ```json
   "entities": [
     {
@@ -206,15 +208,15 @@ DatetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
   ]
 ```
 
-## <a name="preview-api-version-3x"></a>Preview API 버전 3(sp3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
 
 API V3에서 DatetimeV2 JSON 응답이 변경 되었습니다. 
 
 API v 2의 변경 내용:
-* `datetimeV2.timex.type`속성은 부모 수준 `datetimev2.type`에서 반환 되기 때문에 더 이상 반환 되지 않습니다. 
-* 속성 이름이로 `datetimeV2.value`바뀌었습니다. `datetimeV2.timex`
+* `datetimeV2.timex.type` 속성은 부모 수준에서 반환 되기 때문에 더 이상 반환 되지 않습니다 `datetimev2.type`. 
+* @No__t-0 속성이 `datetimeV2.value`로 바뀌었습니다.
 
-Utterance `8am on may 2nd 2017`의 경우 V3 버전 DatetimeV2는 다음과 같습니다.
+Utterance의 경우 @no__t의 경우 DatetimeV2의 V3 버전은 다음과 같습니다.
 
 ```JSON
 {
@@ -244,7 +246,7 @@ Utterance `8am on may 2nd 2017`의 경우 V3 버전 DatetimeV2는 다음과 같�
 }
 ```
 
-다음 JSON은 `verbose` 매개 변수를로 `false`설정 하는입니다.
+다음 JSON은 `verbose` 매개 변수를 `false`로 설정 합니다.
 
 ```json
 {
@@ -289,6 +291,9 @@ Utterance `8am on may 2nd 2017`의 경우 V3 버전 DatetimeV2는 다음과 같�
 }
 ```
 
+
+* * * 
+
 ## <a name="deprecated-prebuilt-datetime"></a>미리 작성된 날짜/시간 사용되지 않음
 
 `datetime` 미리 빌드된 엔터티는 더 이상 사용되지 않으며 **datetimeV2**로 바뀌었습니다. 
@@ -301,6 +306,8 @@ LUIS 앱에서 `datetime`을 `datetimeV2`로 바꾸려면 다음 단계를 완�
 4. **datetimeV2**를 선택하고 **저장**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
+[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
 
 [dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) 엔터티 및 [number](luis-reference-prebuilt-number.md)에 대해 알아봅니다. 
 

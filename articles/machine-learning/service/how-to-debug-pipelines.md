@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: trbye
 ms.author: trbye
 author: trevorbye
-ms.date: 10/01/2019
-ms.openlocfilehash: 50593741e185a146c5a376c34da959063198e7d0
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.date: 10/03/2019
+ms.openlocfilehash: 3df95f88c057fa564078dbf05d5dfa4b26150f6a
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71813809"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959650"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Machine learning 파이프라인 디버그 및 문제 해결
 
@@ -27,7 +27,7 @@ ms.locfileid: "71813809"
 
 파이프라인에서 가장 일반적으로 발생 하는 오류 중 하나는 연결 된 스크립트 (데이터 정리 스크립트, 점수 매기기 스크립트 등)가 의도 한 대로 실행 되 고 있지 않거나 원격 계산 컨텍스트에서 Azure Portal 작업 영역에서 디버그 하기 어려운 런타임 오류를 포함 하는 것입니다. 
 
-파이프라인 자체를 로컬로 실행할 수는 없지만, 기본 스크립트를 단위 테스트 하는 것이 전체 파이프라인 실행 기간을 기다리지 않고 스크립트에서 격리에 필요한 작업을 수행 하 고 있는지 확인 하는 쉬운 방법입니다. 이 작업을 수행 하려면 몇 가지 개발 작업이 필요 합니다.
+파이프라인 자체를 로컬로 실행할 수는 없지만 로컬 컴퓨터에서 격리 된 스크립트를 실행 하면 계산 및 환경 빌드 프로세스를 기다릴 필요가 없기 때문에 더 빠르게 디버그할 수 있습니다. 이 작업을 수행 하려면 몇 가지 개발 작업이 필요 합니다.
 
 * 데이터가 클라우드 데이터 저장소에 있는 경우 데이터를 다운로드 하 여 스크립트에 사용할 수 있도록 해야 합니다. 데이터의 작은 샘플을 사용 하는 것은 런타임에 빠르게 중단 하 고 스크립트 동작에 대 한 피드백을 빠르게 얻는 좋은 방법입니다.
 * 중간 파이프라인 단계를 시뮬레이션 하려는 경우 이전 단계에서 특정 스크립트가 예상 하는 개체 유형을 수동으로 빌드해야 할 수 있습니다.
@@ -38,6 +38,9 @@ ms.locfileid: "71813809"
 * 사용자 지정 디버그 구성 연결
 * 실행 일시 중지 및 개체 상태 검사
 * 런타임이 될 때까지 노출 되지 않는 형식 또는 논리 오류를 catch 합니다.
+
+> [!TIP] 
+> 스크립트가 예상 대로 실행 되는지 확인 한 후에는 여러 단계로 이루어진 파이프라인에서 실행을 시도 하기 전에 단일 단계 파이프라인에서 스크립트를 실행 하는 것이 좋습니다.
 
 ## <a name="debugging-scripts-from-remote-context"></a>원격 컨텍스트에서 스크립트 디버깅
 

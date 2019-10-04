@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: c39db870e44d4e810817b70e2793b8805088180e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 325e84ec4489eb2f1f530585af7d3c4bc4b201fc
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932537"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949564"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SQL API에 대한 Azure Cosmos DB .NET Core SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -21,7 +21,7 @@ ms.locfileid: "70932537"
 > * [.NET Standard](sql-api-sdk-dotnet-standard.md)
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
-> * [Node.js](sql-api-sdk-node.md)
+> * [Node.JS](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
@@ -44,6 +44,14 @@ ms.locfileid: "70932537"
 
 > [!NOTE]
 > .NET Core를 사용 하는 경우 .NET Standard를 대상으로 하는 [.NET SDK](sql-api-sdk-dotnet-standard.md)의 최신 버전을 참조 하세요. 
+
+### <a name="a-name270270"></a><a name="2.7.0"/>2.7.0
+
+* Order by 쿼리에서 배열 및 개체에 대 한 지원 추가
+* 유효 파티션 키 충돌 처리
+* ThenBy 연산자를 사용 하 여 여러 OrderBy 연산자에 대 한 LINQ 지원 추가
+* 이제 사용자 지정 serialization 설정이 모든 upsert 및 바꾸기 작업에 적용 됩니다.
+* 단일 스레드 작업 scheduler와 함께 작동 하도록 AysncCache 교착 상태 문제가 수정 됨
 
 ### <a name="a-name260260"></a><a name="2.6.0"/>2.6.0
 
@@ -272,6 +280,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [합니다](#2.7.0) |2019 년 9 월 23 일 |--- |
 | [2.6.0](#2.6.0) |2019 년 8 월 30 일 |--- |
 | [2.5.1](#2.5.1) |2019 년 7 월 02 일 |--- |
 | [2.4.1](#2.4.1) |6 월 20 일, 2019 |--- |
@@ -308,6 +317,6 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 | [1.0.0](#1.0.0) |2016년 12월 21일 |2020 년 8 월 30 일 |
 | [0.1.0-preview](#0.1.0-preview) |2016년 11월 15일 |2015년 12월 31일 |
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요.
 

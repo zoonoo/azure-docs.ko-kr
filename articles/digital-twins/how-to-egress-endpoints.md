@@ -1,19 +1,19 @@
 ---
 title: Azure Digital Twins의 송신 및 엔드포인트 | Microsoft Docs
 description: Azure Digital Twins를 사용하여 엔드포인트를 만드는 방법에 대한 지침입니다.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: alinast
-ms.openlocfilehash: 3c33992ce3c130d6c06e0709a9c4ddcab4fff159
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.date: 10/02/2019
+ms.openlocfilehash: e7516fffb4aa8806062655e39c591e4691e779b1
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013933"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959108"
 ---
 # <a name="egress-and-endpoints"></a>송신 및 엔드포인트
 
@@ -47,7 +47,7 @@ Azure Digital Twins *엔드포인트*는 사용자의 Azure 구독 내 메시지
 }
 ```
 
-| attribute | type | 설명 |
+| 특성 | 형식 | 설명 |
 | --- | --- | --- |
 | id | string | 이벤트에 대한 고유 식별자입니다. |
 | subject | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
@@ -63,7 +63,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 - [Azure Event Grid 이벤트 스키마 참조](../event-grid/event-schema.md)를 검토합니다.
 - [Azure EventGrid Node.js SDK EventGridEvent 참조](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest)를 읽어봅니다.
 
-## <a name="event-types"></a>일정 유형
+## <a name="event-types"></a>이벤트 유형
 
 이벤트 유형은 이벤트의 특성을 분류하며 **eventType** 필드에 설정됩니다. 사용 가능한 이벤트 유형은 다음 목록에 나와 있습니다.
 
@@ -79,7 +79,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 
 **TopologyOperation**은 그래프 변경 내용에 적용됩니다. **subject** 속성은 영향받는 개체의 유형을 지정합니다. 다음 유형의 개체는 이 이벤트를 트리거할 수 있습니다.
 
-- 디바이스
+- 장치
 - DeviceBlobMetadata
 - DeviceExtendedProperty
 - ExtendedPropertyKey

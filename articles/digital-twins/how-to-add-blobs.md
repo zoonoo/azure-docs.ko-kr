@@ -1,20 +1,20 @@
 ---
-title: Azure Digital Twins에서 Blob을 개체에 추가하는 방법 | Microsoft Docs
+title: 개체에 blob을 추가 하는 방법-Azure Digital Twins | Microsoft Docs
 description: Azure Digital Twins에서 Blob을 개체에 추가하는 방법을 알아봅니다.
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/01/2019
-ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 35bc5a4532f040aeb464a91b14adcb540ccc113a
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: HT
+ms.openlocfilehash: 3a278501f1110da0ab332d0e1acf170892be26ee
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71845528"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949120"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Azure Digital Twins에서 개체에 Blob 추가
 
@@ -51,7 +51,7 @@ JSON Blob 메타데이터는 다음과 같은 모델을 준수합니다.
   }
 ```
 
-| 특성 | 형식 | 설명 |
+| 특성 | type | 설명 |
 | --- | --- | --- |
 | **parentId** | String | Blob을 연결할 부모 엔터티(공백, 디바이스 또는 사용자)입니다. |
 | **name** |String | Blob의 이름입니다. |
@@ -106,7 +106,7 @@ Swagger 설명서는 이러한 모델 스키마에 대해 매우 자세하게 �
 }
 ```
 
-| 특성 | 형식 | 설명 |
+| 특성 | type | 설명 |
 | --- | --- | --- |
 | **ID** | 문자열 | Blob의 고유한 식별자입니다. |
 | **name** |String | Blob의 이름입니다. |

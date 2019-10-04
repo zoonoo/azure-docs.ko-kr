@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 412bfee12e50b66a780f33b2bca8c4ecc61d83f7
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 8fee8692b2e09f9e4f5580d60d2f7a5a5cea2858
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219361"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950355"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -169,7 +169,10 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="directory-readersdirectory-readers-permissions"></a>[디렉터리 판독기](#directory-readers-permissions)
 
-[승인 프레임 워크](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)를 지원 하지 않는 레거시 응용 프로그램에만 할당 해야 하는 역할입니다. 사용자에 게 할당 하지 않습니다.
+이 역할의 사용자는 기본 디렉터리 정보를 읽을 수 있습니다. 이 역할은 다음에 사용 해야 합니다.
+* 특정 게스트 사용자 집합에 모든 게스트 사용자에 게 권한을 부여 하는 대신 해당 사용자에 게 읽기 권한을 부여 합니다.
+* "Azure AD 포털에 대 한 액세스를 관리자 만으로 제한"을 "예"로 설정 하면 관리자가 아닌 사용자의 특정 집합을 Azure Portal에 부여할 수 있습니다.
+* 디렉터리에 대 한 액세스 권한을 서비스 주체에 부여 하는 경우. All은 옵션이 아닙니다.
 
 ### <a name="directory-synchronization-accountsdirectory-synchronization-accounts-permissions"></a>[디렉터리 동기화 계정](#directory-synchronization-accounts-permissions)
 

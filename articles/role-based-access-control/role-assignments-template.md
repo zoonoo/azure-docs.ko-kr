@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b7f701cd3ce07099d80bca40e506108bcc9a9da9
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: b4eebf7dac4d388411f570b1546c96e3b82b2a98
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178104"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950053"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>RBAC 및 Azure Resource Manager 템플릿을 사용하여 Azure 리소스에 대한 액세스 관리
 
@@ -33,7 +33,7 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 템플릿을 사용 하려면 다음을 수행 해야 합니다.
 
 - 새 JSON 파일을 만들고 템플릿을 복사 합니다.
-- 역할 `<your-principal-id>` 을 할당할 사용자, 그룹 또는 응용 프로그램의 고유 식별자로 대체 합니다. 식별자의 형식은 `11111111-1111-1111-1111-111111111111`입니다.
+- @No__t-0을 사용자, 그룹 또는 응용 프로그램의 고유 식별자로 대체 하 여 역할을 할당 합니다. 식별자의 형식은 `11111111-1111-1111-1111-111111111111`입니다.
 
 ```json
 {
@@ -159,6 +159,9 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Reader
 ```
 
+> [!NOTE]
+> 동일한 `roleNameGuid` 값을 템플릿의 각 배포에 대 한 매개 변수로 제공 하지 않는 한이 템플릿은 idempotent 되지 않습니다. @No__t-0이 제공 되지 않은 경우 기본적으로 각 배포에 새 GUID가 생성 되 고 후속 배포는 `Conflict: RoleAssignmentExists` 오류로 인해 실패 합니다.
+
 ## <a name="create-a-role-assignment-at-a-resource-scope"></a>리소스 범위에서 역할 할당 만들기
 
 리소스 수준에서 역할 할당을 만들어야 하는 경우 역할 할당의 형식이 다릅니다. 역할을 할당할 리소스의 리소스 공급자 네임 스페이스 및 리소스 형식을 제공 합니다. 또한 역할 할당 이름에 리소스 이름을 포함 합니다.
@@ -180,8 +183,6 @@ az deployment create --location centralus --template-file rbac-test.json --param
 
 - 역할을 할당하기 위한 사용자, 그룹 또는 애플리케이션의 고유 식별자
 - 할당할 역할
-- 역할 할당에 사용 되는 고유 식별자입니다. 또는 기본 식별자를 사용할 수 있습니다.
-
 
 ```json
 {
@@ -203,13 +204,6 @@ az deployment create --location centralus --template-file rbac-test.json --param
             ],
             "metadata": {
                 "description": "Built-in role to assign"
-            }
-        },
-        "roleNameGuid": {
-            "type": "string",
-            "defaultValue": "[newGuid()]",
-            "metadata": {
-                "description": "A new GUID used to identify the role assignment"
             }
         },
         "location": {
@@ -238,7 +232,7 @@ az deployment create --location centralus --template-file rbac-test.json --param
         {
             "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
             "apiVersion": "2018-09-01-preview",
-            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', parameters('roleNameGuid'))]",
+            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', guid(uniqueString(parameters('storageName'))))]",
             "dependsOn": [
                 "[variables('storageName')]"
             ],
@@ -267,12 +261,12 @@ az group deployment create --resource-group ExampleGroup --template-file rbac-te
 
 ## <a name="create-a-role-assignment-for-a-new-service-principal"></a>새 서비스 사용자에 대 한 역할 할당 만들기
 
-새 서비스 주체를 만들고 해당 서비스 주체에 역할을 즉시 할당 하려고 하면 경우에 따라 해당 역할 할당이 실패할 수 있습니다. 예를 들어 관리 되는 id를 새로 만든 다음 동일한 Azure Resource Manager 템플릿에서 해당 서비스 주체에 역할을 할당 하려고 하면 역할 할당이 실패할 수 있습니다. 이 오류가 발생 하는 이유는 복제 지연 일 수 있습니다. 서비스 사용자는 한 지역에 생성 됩니다. 그러나 서비스 사용자를 아직 복제 하지 않은 다른 지역에서 역할 할당이 발생할 수 있습니다. 이 시나리오를 해결 하려면 역할 할당을 만들 `principalType` 때 속성 `ServicePrincipal` 을로 설정 해야 합니다.
+새 서비스 주체를 만들고 해당 서비스 주체에 역할을 즉시 할당 하려고 하면 경우에 따라 해당 역할 할당이 실패할 수 있습니다. 예를 들어 관리 되는 id를 새로 만든 다음 동일한 Azure Resource Manager 템플릿에서 해당 서비스 주체에 역할을 할당 하려고 하면 역할 할당이 실패할 수 있습니다. 이 오류가 발생 하는 이유는 복제 지연 일 수 있습니다. 서비스 사용자는 한 지역에 생성 됩니다. 그러나 서비스 사용자를 아직 복제 하지 않은 다른 지역에서 역할 할당이 발생할 수 있습니다. 이 시나리오를 해결 하려면 역할 할당을 만들 때 `principalType` 속성을 `ServicePrincipal`로 설정 해야 합니다.
 
 다음 템플릿은 다음을 보여줍니다.
 
 - 새 관리 id 서비스 주체를 만드는 방법
-- 다음을 지정 하는 방법`principalType`
+- @No__t 지정 하는 방법-0
 - 리소스 그룹 범위에서 해당 서비스 사용자에 게 참가자 역할을 할당 하는 방법
 
 템플릿을 사용하려면 다음 입력을 지정해야 합니다.

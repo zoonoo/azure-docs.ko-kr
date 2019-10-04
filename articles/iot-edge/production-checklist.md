@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 29a771b93e1d686f7972e7dc4d9e78e5858644d6
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 36465f016eeb066c0e12f6434deb98fd7b10966a
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899395"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958748"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -83,7 +83,7 @@ IoT Edge 디바이스가 연결된 다음, 향후 배포에서 두 런타임 모
 
 ### <a name="be-consistent-with-upstream-protocol"></a>업스트림 프로토콜의 일관성 유지
 
-IoT Edge 장치에서 기본 AMQP와 다른 프로토콜을 사용 하도록 IoT Edge 에이전트를 구성한 경우 이후의 모든 배포에서 동일한 프로토콜을 선언 해야 합니다. 예를 들어 IoT Edge 디바이스가 AMQP 포트를 차단하는 프록시 서버 뒤에 있는 경우 AMQPWS(WebSocket을 통한 AMQP)를 통해 연결하도록 디바이스를 구성했을 수 있습니다. 장치에 모듈을 배포 하는 경우 IoT Edge 에이전트 및 IoT Edge 허브에 대해 동일한 APQPWS 프로토콜을 구성 합니다. 그렇지 않으면 기본 AMQP가 설정을 재정의 하 고 다시 연결 하지 않도록 합니다. 
+IoT Edge 장치에서 기본 AMQP와 다른 프로토콜을 사용 하도록 IoT Edge 에이전트를 구성한 경우 이후의 모든 배포에서 동일한 프로토콜을 선언 해야 합니다. 예를 들어 IoT Edge 디바이스가 AMQP 포트를 차단하는 프록시 서버 뒤에 있는 경우 AMQPWS(WebSocket을 통한 AMQP)를 통해 연결하도록 디바이스를 구성했을 수 있습니다. 장치에 모듈을 배포 하는 경우 IoT Edge 에이전트 및 IoT Edge 허브에 대해 동일한 AMQPWS 프로토콜을 구성 합니다. 그렇지 않으면 기본 AMQP가 설정을 재정의 하 고 다시 연결 하지 않도록 합니다. 
 
 IoT Edge 에이전트 및 IoT Edge 허브 모듈에 대해 UpstreamProtocol 환경 변수만 구성 하면 됩니다. 모든 추가 모듈은 런타임 모듈에 설정된 프로토콜을 채택합니다. 
 
@@ -205,9 +205,9 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 기본적으로 Moby 컨테이너 엔진은 컨테이너 로그 크기 제한을 설정 하지 않습니다. 시간이 지남에 따라 로그를 채우고 디스크 공간이 부족 해질 수 있습니다. 이를 방지 하려면 다음 옵션을 고려 하십시오.
 
-**Option 모든 컨테이너 모듈에 적용 되는 전역 제한 설정**
+**Option: 모든 컨테이너 모듈에 적용 되는 전역 제한 설정 @ no__t-0
 
-컨테이너 엔진 로그 옵션에서 모든 컨테이너 로그의 크기를 제한할 수 있습니다. 다음 예에서는 파일의 크기 및 수 `json-file` 에 대 한 제한으로 로그 드라이버를 (권장)로 설정 합니다.
+컨테이너 엔진 로그 옵션에서 모든 컨테이너 로그의 크기를 제한할 수 있습니다. 다음 예에서는 로그 드라이버를 파일 크기 및 수에 대 한 제한으로 `json-file` (권장)으로 설정 합니다.
 
 ```JSON
 {
@@ -219,7 +219,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 }
 ```
 
-이 정보를 이라는 `daemon.json` 파일에 추가 (또는 추가) 하 고 장치 플랫폼의 올바른 위치에 배치 합니다.
+이 정보를 `daemon.json` 이라는 파일에 추가 하거나 추가 하 고 장치 플랫폼의 올바른 위치에 배치 합니다.
 
 | 플랫폼 | 위치 |
 | -------- | -------- |
@@ -228,9 +228,9 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 변경 내용을 적용 하려면 컨테이너 엔진을 다시 시작 해야 합니다.
 
-**Option 각 컨테이너 모듈의 로그 설정 조정**
+**Option: 각 컨테이너 모듈의 로그 설정 조정 @ no__t-0
 
-각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 예:
+각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```yml
 "createOptions": {
@@ -248,7 +248,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 **Linux 시스템에 대 한 추가 옵션**
 
-* 기본 로깅 드라이버로를 설정 `systemd` `journald` 하 여 [저널](https://docs.docker.com/config/containers/logging/journald/) 에 로그를 보내도록 컨테이너 엔진을 구성 합니다. 
+* 기본 로깅 드라이버로 `journald`를 설정 하 여 `systemd` [저널](https://docs.docker.com/config/containers/logging/journald/) 로 로그를 보내도록 컨테이너 엔진을 구성 합니다. 
 
 * Logrotate 도구를 설치 하 여 장치에서 오래 된 로그를 주기적으로 제거 합니다. 다음 파일 사양을 사용합니다. 
 

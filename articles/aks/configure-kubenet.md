@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: mlearned
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: e1279261de8e26b9e11f55100ce01277650e251b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b233c5dd639bb6652f201727748a081f6a8a4c64
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615755"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950329"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
@@ -38,9 +38,9 @@ Azure CLI 버전 2.0.65 이상이 설치 및 구성 되어 있어야 합니다. 
 
 ![AKS 클러스터를 사용하는 Kubenet 네트워크 모델](media/use-kubenet/kubenet-overview.png)
 
-Azure는 UDR에서 최대 300개의 경로를 지원하므로 400개 노드보다 큰 AKS 클러스터를 사용할 수 없습니다. [가상 노드][virtual-nodes] 또는 네트워크 정책과 같은 AKS 기능은 *kubenet*에서 지원 되지 않습니다.
+Azure는 UDR에서 최대 300개의 경로를 지원하므로 400개 노드보다 큰 AKS 클러스터를 사용할 수 없습니다. AKS [가상 노드][virtual-nodes] 및 Azure 네트워크 정책은 *kubenet*에서 지원 되지 않습니다.  [Calico Network 정책은][calico-network-policies]kubenet에서 지원 되므로 사용할 수 있습니다.
 
-*Azure CNI*를 사용할 경우 각 pod는 IP 서브넷의 IP 주소를 받고, 다른 pod 및 서비스와 직접 통신할 수 있습니다. 클러스터는 사용자가 지정하는 IP 주소 범위만큼 클 수 있습니다. 그러나 IP 주소 범위를 미리 계획해야 하며, 모든 IP 주소는 AKS 노드가 지원할 수 있는 최대 pod 수에 따라 AKS 노드에서 사용됩니다. [Virtual 노드나][virtual-nodes] 네트워크 정책과 같은 고급 네트워크 기능 및 시나리오는 *Azure cni*에서 지원 됩니다.
+*Azure CNI*를 사용할 경우 각 pod는 IP 서브넷의 IP 주소를 받고, 다른 pod 및 서비스와 직접 통신할 수 있습니다. 클러스터는 사용자가 지정하는 IP 주소 범위만큼 클 수 있습니다. 그러나 IP 주소 범위를 미리 계획해야 하며, 모든 IP 주소는 AKS 노드가 지원할 수 있는 최대 pod 수에 따라 AKS 노드에서 사용됩니다. [가상 노드][virtual-nodes] 또는 네트워크 정책 (Azure 또는 calico)과 같은 고급 네트워크 기능 및 시나리오는 *azure cni*에서 지원 됩니다.
 
 ### <a name="ip-address-availability-and-exhaustion"></a>IP 주소 가용성 및 고갈
 
@@ -72,19 +72,16 @@ AKS 클러스터에 사용할 네트워크 플러그 인을 선택할 때는 일
 
 - IP 주소 공간이 제한되어 있습니다.
 - Pod 통신 대부분이 클러스터 내에 있습니다.
-- 가상 노드 또는 네트워크 정책과 같은 고급 기능이 필요하지 않습니다.
+- 가상 노드 또는 Azure 네트워크 정책과 같은 고급 AKS 기능이 필요 하지 않습니다.  [Calico 네트워크 정책을][calico-network-policies]사용 합니다.
 
 다음 경우에 *Azure CNI*를 사용합니다.
 
 - 사용 가능한 IP 주소 공간이 있습니다.
 - Pod 통신 대부분이 클러스터 외부의 리소스를 대상으로 진행됩니다.
 - UDR을 관리하지 않으려고 합니다.
-- 가상 노드 또는 네트워크 정책과 같은 고급 기능이 필요합니다.
+- 가상 노드 또는 Azure 네트워크 정책과 같은 AKS 고급 기능이 필요 합니다.  [Calico 네트워크 정책을][calico-network-policies]사용 합니다.
 
 사용할 네트워크 모델을 결정 하는 데 도움이 되는 자세한 내용은 [네트워크 모델 및 해당 지원 범위 비교][network-comparisons]를 참조 하세요.
-
-> [!NOTE]
-> Kuberouter를 사용 하면 kubenet를 사용할 때 네트워크 정책을 사용 하도록 설정할 수 있으며 AKS 클러스터에 daemonset로 설치할 수 있습니다. Kube-라우터는 아직 베타 버전 이며 Microsoft에서 프로젝트에 대 한 지원을 제공 하지 않습니다.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>가상 네트워크 및 서브넷 만들기
 
@@ -134,7 +131,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-이제 [az role assign create][az-role-assignment-create] 명령을 사용 하 여 가상 네트워크에 대 한 AKS cluster *참여자* 권한에 대 한 서비스 주체를 할당 합니다. 이전 명령의 출력에 표시 된 것 처럼 사용자 고유의  *\<appId >* 제공 하 여 서비스 주체를 만듭니다.
+이제 [az role assign create][az-role-assignment-create] 명령을 사용 하 여 가상 네트워크에 대 한 AKS cluster *참여자* 권한에 대 한 서비스 주체를 할당 합니다. 이전 명령의 출력에 표시 된 것 처럼 사용자 고유의 *\<appId >* 를 제공 하 여 서비스 주체를 만듭니다.
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -142,7 +139,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>가상 네트워크에서 AKS 클러스터 만들기
 
-지금까지 가상 네트워크 및 서브넷을 만들었으며, 서비스 주체가 해당 네트워크 리소스를 사용할 수 있는 권한을 만들고 할당했습니다. 이제 [az AKS create][az-aks-create] 명령을 사용 하 여 가상 네트워크 및 서브넷에 AKS 클러스터를 만듭니다. 이전 명령의 출력에 표시 된 것 처럼 사용자 고유의 서비스 사용자  *\<appId >* 및  *\<암호 >* 을 정의 하 여 서비스 주체를 만듭니다.
+지금까지 가상 네트워크 및 서브넷을 만들었으며, 서비스 주체가 해당 네트워크 리소스를 사용할 수 있는 권한을 만들고 할당했습니다. 이제 [az AKS create][az-aks-create] 명령을 사용 하 여 가상 네트워크 및 서브넷에 AKS 클러스터를 만듭니다. 이전 명령의 출력에 표시 된 것 처럼 사용자 고유의 서비스 사용자 *\<appId >* 및 *\<password >* 를 정의 하 여 서비스 주체를 만듭니다.
 
 또한 다음 IP 주소 범위도 클러스터를 만드는 과정 중에 정의됩니다.
 
@@ -172,6 +169,24 @@ az aks create \
     --client-secret <password>
 ```
 
+> [!Note]
+> [Calico 네트워크 정책을][calico-network-policies] 포함 하도록 AKS 클러스터를 설정 하려는 경우 다음 명령을 사용할 수 있습니다.
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 3 \
+    --network-plugin kubenet --network-policy calico \
+    --service-cidr 10.0.0.0/16 \
+    --dns-service-ip 10.0.0.10 \
+    --pod-cidr 10.244.0.0/16 \
+    --docker-bridge-address 172.17.0.1/16 \
+    --vnet-subnet-id $SUBNET_ID \
+    --service-principal <appId> \
+    --client-secret <password>
+```
+
 AKS 클러스터를 만들면 네트워크 보안 그룹 및 경로 테이블이 생성됩니다. 이러한 네트워크 리소스는 AKS 제어 평면에 의해 관리 됩니다. 네트워크 보안 그룹은 노드의 가상 Nic와 자동으로 연결 됩니다. 경로 테이블은 가상 네트워크 서브넷과 자동으로 연결 됩니다. 네트워크 보안 그룹 규칙 및 경로 테이블 및는 서비스를 만들고 노출할 때 자동으로 업데이트 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -182,6 +197,7 @@ AKS 클러스터를 만들면 네트워크 보안 그룹 및 경로 테이블이
 [dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
+[Calico-network-policies]: https://docs.projectcalico.org/v3.9/security/calico-network-policy
 
 <!-- LINKS - Internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

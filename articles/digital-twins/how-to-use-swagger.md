@@ -1,20 +1,20 @@
 ---
 title: Azure Digital Twins 참조 Swagger를 사용하는 방법 이해 | Microsoft Docs
 description: Azure Digital Twins Swagger 참조 설명서를 사용하는 방법을 알아봅니다.
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/16/2019
-ms.author: v-adgera
+ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1344b86b9fa922dc22870dda495ff367a511b8ca
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 06cbdf6fbba89b6666e6fe3162fd591e93dffecd
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640256"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958881"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger 참조 설명서
 
@@ -112,7 +112,7 @@ Azure Active Directory 등록을 완료 한 후:
 
 1. Swagger 페이지에서 **권한 부여** 단추를 선택 합니다.
 
-    [![Swagger 권한 부여 단추를 선택 합니다.](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
+    [@no__t Swagger 권한 부여 단추를 선택 합니다.](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
 1. 응용 프로그램 ID를 **client_id** 필드에 붙여넣습니다.
 

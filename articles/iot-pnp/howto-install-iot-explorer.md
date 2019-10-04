@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 4e23a440f46b52633a88d0212e08c7b584f61a38
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: f59e449589c7f3027dc8a9daf9d8d12f04831dd7
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932466"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960565"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Azure IoT 탐색기 설치 및 사용
 
@@ -24,12 +24,12 @@ Azure IoT 탐색기는 IoT 플러그 앤 플레이 미리 보기 장치를 조�
 - Azure IoT 탐색기 도구를 설치 하 고 구성 합니다.
 - 도구를 사용 하 여 장치를 조작 하 고 테스트 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure IoT 탐색기 도구를 사용 하려면 다음이 필요 합니다.
 
 - Azure IoT Hub - [Azure CLI를 사용 하 여 iot hub를 만드는 등의](../iot-hub/iot-hub-create-using-cli.md)다양 한 방법으로 Azure 구독에 iot hub를 추가할 수 있습니다. Azure IoT 탐색기 도구를 실행 하려면 IoT hub 연결 문자열이 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-- IoT hub에 등록 된 장치입니다. 다음 Azure CLI 명령을 사용 하 여 장치를 등록할 수 있습니다. `{YourIoTHubName}` 및`{YourDeviceID}` 자리 표시자를 사용자의 값으로 바꾸어야 합니다.
+- IoT hub에 등록 된 장치입니다. 다음 Azure CLI 명령을 사용 하 여 장치를 등록할 수 있습니다. @No__t-0 및 `{YourDeviceID}` 자리 표시자를 해당 값으로 바꾸어야 합니다.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
@@ -65,29 +65,27 @@ IoT 플러그 앤 플레이 장치에 대 한 모델 정의는 공용 리포지�
 
 모델 정의 원본 중 하나를 목록에서 다른 순위에 끌어서 놓을 수 있습니다. 충돌이 발생 하는 경우 순위가 더 높은 정의 원본은 순위가 낮은 소스를 재정의 합니다.
 
-### <a name="overview-page"></a>개요 페이지
+### <a name="view-devices"></a>디바이스 보기
 
-#### <a name="device-overview"></a>장치 개요
+도구는 IoT hub에 연결 된 후 IoT hub에 등록 된 장치 id를 나열 하는 **장치** 목록 페이지를 표시 합니다. 목록의 모든 항목을 확장 하 여 자세한 정보를 볼 수 있습니다.
 
-도구는 IoT hub에 연결 된 후 Azure IoT hub에 등록 된 모든 장치 id의 목록을 표시 하는 개요 페이지를 표시 합니다. 자세한 내용을 보려면 장치를 선택 하세요.
+**장치** 목록 페이지에서 다음을 수행할 수 있습니다.
 
-#### <a name="device-management"></a>디바이스 관리
-
-- 허브에 새 장치를 등록 하려면 **추가**를 선택 합니다. 장치 ID를 입력 합니다. 기본 설정을 사용 하 여 인증 키를 자동 생성 하 고 허브에 대 한 연결을 사용 하도록 설정 합니다.
-- 장치 id를 삭제 하려면 **삭제**를 선택 합니다. 이 작업을 완료 하기 전에 장치 세부 정보를 검토 하 여 올바른 장치 id를 삭제 하 고 있는지 확인 합니다.
-- 도구는 `capabilityID` 및 `interfaceID`의 쿼리를 지원 합니다. `capabilityID` 또는`interfaceID` 를 매개 변수로 추가 하 여 장치를 쿼리 합니다.
+- **추가** 를 선택 하 여 허브에 새 장치를 등록 합니다. 그런 다음 장치 ID를 입력 합니다. 기본 설정을 사용 하 여 인증 키를 자동으로 생성 하 고 허브에 대 한 연결을 사용 하도록 설정 합니다.
+- 장치를 선택 하 고 **삭제** 를 선택 하 여 장치 id를 삭제 합니다. 이 작업을 완료 하기 전에 장치 세부 정보를 검토 하 여 올바른 장치 id를 삭제 하 고 있는지 확인 합니다.
+- @No__t-0 및 `interfaceID`을 기준으로 쿼리 합니다. @No__t-0 또는 `interfaceID`을 매개 변수로 추가 하 여 장치를 쿼리 합니다.
 
 ## <a name="interact-with-a-device"></a>장치와 상호 작용
 
-개요 페이지에서 장치를 두 번 클릭 하면 다음 수준의 세부 정보를 볼 수 있습니다. 두 개의 섹션이 있습니다. **장치** 및 **디지털**쌍
+**장치 목록 페이지** 의 **장치 ID** 열에서 값을 선택 하 여 등록 된 장치에 대 한 세부 정보 페이지를 표시 합니다. 장치에는 두 개의 섹션이 있습니다. **장치** 및 **디지털**쌍
 
-### <a name="device"></a>디바이스
+### <a name="device"></a>장치
 
-이 섹션에는 **장치 id**, **원격 분석**및 **장치** 쌍 탭이 포함 되어 있습니다.
+이 섹션에는 **장치 id**, **장치**쌍 및 **원격 분석** 탭이 포함 되어 있습니다.
 
-- **장치 id 탭에서** 장치 id 정보를 확인 하 고 업데이트할 수 있습니다.
-- 장치가 연결 되어 있으며 데이터를 적극적으로 전송 하는 경우 **원격 분석** 탭에서 원격 분석을 볼 수 있습니다.
-- 장치 쌍 정보는 **장치** 쌍 탭에서 액세스할 수 있습니다.
+- **장치 id 탭에서** [장치 id](../iot-hub/iot-hub-devguide-identity-registry.md) 정보를 확인 하 고 업데이트할 수 있습니다.
+- [장치 쌍 정보는](../iot-hub/iot-hub-devguide-device-twins.md) **장치** 쌍 탭에서 액세스할 수 있습니다.
+- 장치가 연결 되어 있으며 데이터를 적극적으로 전송 하는 경우 **원격 분석** 탭에서 [원격 분석](../iot-hub/iot-hub-devguide-messages-read-builtin.md) 을 볼 수 있습니다.
 
 ### <a name="digital-twin"></a>디지털 쌍
 

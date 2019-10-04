@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 10/01/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e7681afe3f5361b17670312c8391349c650a89d
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
-ms.translationtype: HT
+ms.openlocfilehash: fd752540d078ef57c8b6150edbf9b124bc445fe0
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936782"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949325"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
@@ -83,6 +83,20 @@ NameIDPolicy 특성에 대해 자세히 알아보려면 [Single SIGN-ON SAML 프
 | 확장 특성 1-15 | Azure AD 스키마를 확장하는 데 사용되는 온-프레미스 확장 특성입니다. |
 
 자세한 내용은 [Table 3: 원본 @ no__t에 대 한 유효한 ID 값은 0입니다.
+
+또한 Azure AD에서 정의한 모든 클레임에 상수 (정적) 값을 할당할 수 있습니다. 상수 값을 할당 하려면 다음 단계를 수행 하세요.
+
+1. [Azure Portal](https://portal.azure.com/)의 **사용자 특성 & 클레임** 섹션에서 **편집** 아이콘을 클릭 하 여 클레임을 편집 합니다.
+
+1. 수정 하려는 필수 클레임을 클릭 합니다.
+
+1. 조직 마다 **원본 특성** 에 상수 값을 입력 하 고 **저장**을 클릭 합니다.
+
+    ![Azure Portal에서 클레임 & 사용자 특성 섹션을 엽니다.](./media/active-directory-saml-claims-customization/organization-attribute.png)
+
+1. 상수 값은 아래와 같이 표시 됩니다.
+
+    ![Azure Portal에서 클레임 & 사용자 특성 섹션을 엽니다.](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
 
 ### <a name="special-claims---transformations"></a>특수 클레임-변환
 

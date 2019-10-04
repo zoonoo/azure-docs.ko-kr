@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: pabutler
-ms.openlocfilehash: 3010b63c7c4c575d915789c19b60710194c79196
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 54369e0f2c943c146d186605833198253b960022
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874680"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949535"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge 모듈
 
@@ -82,9 +82,7 @@ IoT Edge 모듈 인증을 받고 Azure Marketplace에 모듈을 게시하기 위
 
 아래 작업을 아직 수행하지 않았다면 수행합니다.
 
-- [Microsoft 파트너 네트워크](https://partner.microsoft.com/membership)에 등록합니다.
-- [Microsoft 계정](https://account.microsoft.com/account/)을 만듭니다(Azure Marketplace 거래 제품의 경우 필수, 다른 사용자도 만드는 것이 좋음).
-- [Marketplace 등록 양식](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)을 제출합니다. 자세한 내용은 [파트너 센터 계정을 만드는](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 방법을 참조 하세요.
+- Marketplace에 [등록](https://azuremarketplace.microsoft.com/sell).
 
 새 제품을 등록하고 만들거나 기존에서 작업하는 경우
 

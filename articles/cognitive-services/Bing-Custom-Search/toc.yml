@@ -60,8 +60,9 @@
     - name: 적중 항목 강조 표시 처리
       href: ../Bing-Web-Search/hit-highlighting.md
       maintainContext: true
-    - name: 웹 페이지를 통한 페이지
-      href: page-webpages.md
+    - name: 검색 결과 페이징
+      href: ../Bing-Web-Search/paging-search-results.md
+      maintainContext: true
 - name: 참고 자료
   items:
     - name: Bing Custom Autosuggest API 참조

@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: a14926dea576e0331cb8c0f8010f060f47faa3e7
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 11e3a9931d424433f2e3fd1f64e2e95a5835b65c
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991154"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960478"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>SQL을 사용하여 Azure Active Directory 인증 구성 및 관리
 
@@ -194,7 +194,7 @@ PowerShell cmdlet을 실행하려면 Azure powershell을 설치하고 실행해�
 
 Azure AD 관리자 프로비전 및 관리에 사용되는 Cmdlet
 
-| Cmdlet 이름 | Description |
+| Cmdlet 이름 | 설명 |
 | --- | --- |
 | [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Azure SQL Server 또는 Azure SQL Data Warehouse에 대한 Azure Active Directory 관리자를 프로비전합니다. (현재 구독 설정에서 수행되어야 함). |
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Azure SQL Server 또는 Azure SQL Data Warehouse에 대한 Azure Active Directory 관리자를 제거합니다. |
@@ -242,7 +242,7 @@ REST API를 사용하여 Azure Active Directory 관리자를 프로비전할 수
 
 또한 다음 CLI 명령을 호출하여 Azure AD 관리자를 구축할 수도 있습니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 |[az sql server ad-admin create](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) |Azure SQL Server 또는 Azure SQL Data Warehouse에 대한 Azure Active Directory 관리자를 프로비전합니다. (현재 구독 설정에서 수행되어야 함). |
 |[az sql server ad-admin delete](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) |Azure SQL Server 또는 Azure SQL Data Warehouse에 대한 Azure Active Directory 관리자를 제거합니다. |
@@ -303,6 +303,9 @@ Azure AD 토큰을 사용하여 연결할 애플리케이션을 나타내는 포
 ```sql
 CREATE USER [appName] FROM EXTERNAL PROVIDER;
 ```
+
+> [!NOTE]
+> 이 명령을 사용 하려면 로그인 한 사용자를 대신 하 여 SQL에서 Azure AD ("외부 공급자")에 액세스 해야 합니다. 경우에 따라 Azure AD에서 SQL로 예외를 다시 반환 하는 상황이 발생 합니다. 이러한 경우 사용자에 게 AAD 관련 오류 메시지를 포함 하는 SQL 오류 33134이 표시 됩니다. 대부분의 경우 오류는 액세스가 거부 되었거나 사용자가 MFA에 등록 하 여 리소스에 액세스 하거나, preauthorization을 통해 자사 응용 프로그램 간의 액세스를 처리 해야 한다는 것을 말합니다. 처음 두 경우의 문제는 일반적으로 사용자의 AAD 테 넌 트에 설정 된 조건부 액세스 정책에 의해 발생 합니다. 사용자가 외부 공급자에 액세스 하지 못하도록 합니다. 응용 프로그램 ' 00000002-0000-0000-c000-000000000000 ' (AAD Graph API의 응용 프로그램 ID)에 대 한 액세스를 허용 하도록 CA 정책을 업데이트 하면 문제를 해결 해야 합니다. Preauthorization를 통해 자사 응용 프로그램 간의 액세스를 처리 해야 하는 경우에는 사용자가 서비스 주체로 로그인 했기 때문에 문제가 발생 합니다. 이 명령은 사용자가 대신 실행 하는 경우 성공 해야 합니다.
 
 > [!TIP]
 > Azure 구독과 연결된 Azure Active Directory 이외의 Azure Active Directory에서 사용자를 직접 만들 수 없습니다. 그러나 연결된 Active Directory에서 가져온 사용자(외부 사용자로 알려짐)인 다른 Active Directory의 멤버는 테넌트 Active Directory의 Active Directory 그룹에 추가할 수 있습니다. 해당 AD 그룹에 대해 포함된 데이터베이스 사용자를 만들면 외부 Active Directory의 사용자는 SQL Database에 액세스할 수 있습니다.
@@ -414,7 +417,7 @@ conn.Open();
 다음 문은 [다운로드 센터](https://go.microsoft.com/fwlink/?LinkID=825643)에서 사용할 수 있는 sqlcmd 버전 13.1을 사용하여 연결합니다.
 
 > [!NOTE]
-> `sqlcmd``-G` 에서 명령을 사용 하면 시스템 id에서 작동 하지 않으며 사용자 계정 로그인이 필요 합니다.
+> `-G` 명령과 `sqlcmd`은 시스템 id에서 작동 하지 않으며 사용자 계정 로그인이 필요 합니다.
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  

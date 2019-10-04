@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: c9ae01b3a8f49b210c363fea20bc3c221d9e837a
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: HT
+ms.openlocfilehash: 83f10eb9dadfda5b87f1da287718f59da17c5110
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71839624"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947611"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>진단 도구 배포
 
@@ -51,14 +51,22 @@ Windows 가상 데스크톱에 대 한 진단 도구는 다음과 같은 작업�
 >API 권한은 Windows 가상 데스크톱 이며 Log Analytics Microsoft Graph API 권한은 Azure Active Directory 응용 프로그램에 추가 됩니다.
 
 1. 관리자 권한으로 PowerShell을 엽니다.
-2. [RDS 템플릿 GitHub 리포지토리](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) 로 이동 하 고 PowerShell에서 **진단에 대 한 AD 앱 등록 만들기** 스크립트를 실행 합니다.
-3.  스크립트에서 앱의 이름을 입력 하 라는 메시지가 표시 되 면 고유한 앱 이름을 입력 합니다.
-4.  그런 다음 스크립트는 관리자 계정으로 로그인 하 라는 메시지를 표시 합니다. [위임 된 관리자 액세스 권한이](delegated-access-virtual-desktop.md)있는 사용자의 자격 증명을 입력 합니다. 관리자에 게는 RDS 소유자 또는 참가자 권한이 있어야 합니다.
+2. 진단 도구에 사용할 Azure 구독에 대 한 소유자 또는 참가자 권한이 있는 계정을 사용 하 여 Azure에 로그인 합니다.
+   ```powershell
+   Login-AzAccount
+   ```
+3. 동일한 계정을 사용 하 여 Azure AD에 로그인 합니다.
+   ```powershell
+   Connect-AzureAD
+   ```
+4. [RDS 템플릿 GitHub 리포지토리](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) 로 이동 하 고 PowerShell에서 **CreateADAppRegistrationforDiagnostics** 스크립트를 실행 합니다.
+5.  스크립트에서 앱의 이름을 입력 하 라는 메시지가 표시 되 면 고유한 앱 이름을 입력 합니다.
+
 
 스크립트가 성공적으로 실행 되 면 출력에 다음과 같은 항목이 표시 됩니다.
 
 -  이제 앱을 확인 하는 메시지에 서비스 사용자 역할 할당이 있습니다.
--  진단 도구를 배포할 때 필요한 인쇄 클라이언트 ID 및 클라이언트 비밀 키입니다.
+-  진단 도구를 배포할 때 필요한 클라이언트 ID 및 클라이언트 비밀 키입니다.
 
 앱을 등록 했으므로 이제 Log Analytics 작업 영역을 구성 해야 합니다.
 
@@ -76,7 +84,7 @@ PowerShell 스크립트를 실행 하 여 Log Analytics 작업 영역을 만들�
 PowerShell 스크립트를 실행 하려면 다음을 수행 합니다.
 
 1.  관리자 권한으로 PowerShell을 엽니다.
-2.  [RDS 템플릿 GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) 리포지토리로 이동 하 고 PowerShell에서 **LogAnalyticsWorkspace에 대 한 Create** 스크립트를 실행 합니다.
+2.  [RDS 템플릿 GitHub 리포지토리](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) 로 이동 하 고 PowerShell에서 **CreateLogAnalyticsWorkspaceforDiagnostics** 스크립트를 실행 합니다.
 3. 매개 변수에 대해 다음 값을 입력합니다.
 
     - **ResourceGroupName**에 대해 리소스 그룹의 이름을 입력 합니다.

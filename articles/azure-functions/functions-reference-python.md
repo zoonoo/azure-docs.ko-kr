@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 7922f07cfe08d0bd58827b59337b86387c624778
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: d74d1c33816b3c028a26335af4c6d5b23b7a2046
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844676"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958481"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -28,9 +28,9 @@ Python의 독립 실행형 함수 샘플 프로젝트에 대해서는 [Python �
 
 ## <a name="programming-model"></a>프로그래밍 모델
 
-Azure Functions는 Python 스크립트에서 입력을 처리 하 고 출력을 생성 하는 상태 비저장 메서드가 될 것으로 예상 합니다. 기본적으로 런타임은 메서드가 `main()` `__init__.py` 파일에서 호출 되는 전역 메서드로 구현 될 것으로 예상 합니다. 또한 [대체 진입점을 지정할](#alternate-entry-point)수 있습니다.
+Azure Functions는 Python 스크립트에서 입력을 처리 하 고 출력을 생성 하는 상태 비저장 메서드가 될 것으로 예상 합니다. 기본적으로 런타임은 `__init__.py` 파일에서 `main()` 이라는 전역 메서드로 구현 될 것으로 예상 합니다. 또한 [대체 진입점을 지정할](#alternate-entry-point)수 있습니다.
 
-트리거와 바인딩의 데이터는 `name` *함수 json* 파일에 정의 된 속성을 사용 하 여 메서드 특성을 통해 함수에 바인딩됩니다. 예를 들어, 아래 _함수인 json_ 은 라는 `req`HTTP 요청에 의해 트리거되는 간단한 함수를 설명 합니다.
+트리거와 바인딩의 데이터는 *함수 json* 파일에 정의 된 `name` 속성을 사용 하 여 메서드 특성을 통해 함수에 바인딩됩니다. 예를 들어, 아래 _함수인 json_ 은 `req` 이라는 HTTP 요청에 의해 트리거되는 간단한 함수를 설명 합니다.
 
 ```json
 {
@@ -73,7 +73,7 @@ def main(req: azure.functions.HttpRequest) -> str:
 
 ## <a name="alternate-entry-point"></a>대체 진입점
 
-필요에 따라 `scriptFile` *함수 json* 파일에서 및 `entryPoint` 속성을 지정 하 여 함수의 기본 동작을 변경할 수 있습니다. 예를 들어 아래에 있는 _main.py_ 파일의 `customentry()` 메서드를 Azure function의 진입점으로 사용 하도록 런타임에 지시 합니다 _._
+필요에 따라 *함수 json* 파일에 `scriptFile` 및 `entryPoint` 속성을 지정 하 여 함수의 기본 동작을 변경할 수 있습니다. 예를 들어 아래 _main.py_ 파일의 `customentry()` 메서드를 Azure function의 진입점으로 사용 하도록 런타임에 지시 합니다 _._
 
 ```json
 {
@@ -123,7 +123,7 @@ Azure의 함수 앱에 함수 프로젝트를 배포할 때 *Functionapp* 폴더
 
 ## <a name="triggers-and-inputs"></a>트리거 및 입력
 
-입력은 Azure Functions에서 트리거 입력과 추가 입력의 두 가지 범주로 나뉩니다. `function.json` 파일에는 차이가 있지만 사용은 Python 코드에서 동일 합니다.  트리거 및 입력 소스에 대 한 연결 문자열 또는 암호는 로컬로 실행할 `local.settings.json` 때 파일의 값에 매핑되고, Azure에서 실행할 때 응용 프로그램 설정에 매핑됩니다. 
+입력은 Azure Functions에서 트리거 입력과 추가 입력의 두 가지 범주로 나뉩니다. @No__t-0 파일에서는 다르지만 사용은 Python 코드에서 동일 합니다.  트리거 및 입력 소스에 대 한 연결 문자열 또는 암호는 로컬로 실행할 때 `local.settings.json` 파일의 값에 매핑되고, Azure에서 실행할 때 응용 프로그램 설정에 매핑됩니다. 
 
 예를 들어 다음 코드는 두 가지 간의 차이점을 보여 줍니다.
 
@@ -173,7 +173,7 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-함수가 호출되면 HTTP 요청이 `req`로 함수에 전달됩니다. 항목은 경로 URL의 _ID_ 를 기반으로 Azure Blob Storage에서 검색 되 고 함수 본문에서로 `obj` 사용할 수 있게 됩니다.  여기서 지정 된 저장소 계정은 함수 앱에서 사용 하는 `AzureWebJobsStorage` 것과 동일한 저장소 계정으로 검색 된 연결 문자열입니다.
+함수가 호출되면 HTTP 요청이 `req`로 함수에 전달됩니다. 항목은 경로 URL의 _ID_ 를 기반으로 Azure Blob Storage에서 검색 되 고 함수 본문에서 `obj`로 사용할 수 있게 됩니다.  여기서 지정 된 저장소 계정은 함수 앱에서 사용 하는 것과 동일한 저장소 계정인에 있는 연결 문자열입니다.
 
 
 ## <a name="outputs"></a>출력
@@ -182,7 +182,7 @@ def main(req: func.HttpRequest,
 
 함수의 반환 값을 출력 바인딩의 값으로 사용하려면 바인딩의 `name` 속성을 `function.json`의 `$return`으로 설정해야 합니다.
 
-여러 출력을 생성 하려면 `set()` [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python) 인터페이스에서 제공 하는 메서드를 사용 하 여 값을 바인딩에 할당 합니다. 예를 들어 다음 함수는 메시지를 큐로 푸시하고 HTTP 응답도 반환할 수 있습니다.
+여러 출력을 생성 하려면 [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python) 인터페이스에서 제공 하는 `set()` 메서드를 사용 하 여 값을 바인딩에 할당 합니다. 예를 들어 다음 함수는 메시지를 큐로 푸시하고 HTTP 응답도 반환할 수 있습니다.
 
 ```json
 {
@@ -238,7 +238,7 @@ def main(req):
 
 다양한 추적 수준에서 콘솔에 쓸 수 있는 추가 로깅 메서드가 제공됩니다.
 
-| 메서드                 | Description                                |
+| 메서드                 | 설명                                |
 | ---------------------- | ------------------------------------------ |
 | **`critical(_message_)`**   | 루트 로거에 위험 수준의 메시지를 기록합니다.  |
 | **`error(_message_)`**   | 루트 로거에 오류 수준의 메시지를 기록합니다.    |
@@ -250,7 +250,7 @@ def main(req):
 
 ## <a name="http-trigger-and-bindings"></a>HTTP 트리거 및 바인딩
 
-HTTP 트리거는 함수인 jon file에 정의 되어 있습니다. 바인딩의 `name` 는 함수의 명명 된 매개 변수와 일치 해야 합니다. 이전 예제에서 바인딩 이름이 `req` 사용 됩니다. 이 매개 변수는 [HttpRequest] 개체 이며 [httpresponse.cache] 개체가 반환 됩니다.
+HTTP 트리거는 함수인 jon file에 정의 되어 있습니다. 바인딩의 `name`은 함수의 명명 된 매개 변수와 일치 해야 합니다. 앞의 예제에서 바인딩 이름 `req`이 사용 됩니다. 이 매개 변수는 [HttpRequest] 개체 이며 [httpresponse.cache] 개체가 반환 됩니다.
 
 [HttpRequest] 개체에서 요청 헤더, 쿼리 매개 변수, 경로 매개 변수 및 메시지 본문을 가져올 수 있습니다. 
 
@@ -278,37 +278,49 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-이 함수에서 `name` query 매개 변수의 값은 [HttpRequest] 개체의 `params` 매개 변수에서 가져옵니다. JSON으로 인코딩된 메시지 본문은 메서드를 `get_json` 사용 하 여 읽습니다. 
+이 함수에서 `name` 쿼리 매개 변수의 값은 [HttpRequest] 개체의 `params` 매개 변수에서 가져옵니다. JSON으로 인코딩된 메시지 본문은 `get_json` 메서드를 사용 하 여 읽습니다. 
 
-마찬가지로 반환 된 [httpresponse.cache] 개체의 `status_code` 응답 `headers` 메시지에 대해 및를 설정할 수 있습니다.
-                                                              
-## <a name="async"></a>Async
+마찬가지로 반환 된 [httpresponse.cache] 개체의 응답 메시지에 대해 `status_code` 및 `headers`을 설정할 수 있습니다.
 
-`async def` 문을 사용 하 여 Azure 함수를 비동기 코 루틴 작성 하는 것이 좋습니다.
+## <a name="concurrency"></a>동시성
+
+기본적으로 Python runtime 함수는 한 번에 하나의 함수 호출만 처리할 수 있습니다. 다음 조건 중 하나 이상으로 인해이 동시성 수준이 충분 하지 않을 수 있습니다.
+
++ 동시에 수행 되는 여러 호출을 처리 하려고 합니다.
++ 많은 수의 i/o 이벤트를 처리 하 고 있습니다.
++ 응용 프로그램이 i/o 바인딩되어 있습니다.
+
+이러한 경우에는를 비동기적으로 실행 하 고 여러 언어 작업자 프로세스를 사용 하 여 성능을 향상 시킬 수 있습니다.  
+
+### <a name="async"></a>Async
+
+@No__t-0 문을 사용 하 여 함수가 비동기 코 루틴 실행 되도록 하는 것이 좋습니다.
 
 ```python
-# Will be run with asyncio directly
-
+# Runs with asyncio directly
 
 async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-Main () 함수가 동기 (한정자 없음) 이면 `asyncio` 스레드 풀에서 함수를 자동으로 실행 합니다.
+@No__t-0 함수가 동기화 된 경우 (`async` 한정자가 없는 경우) 함수는 @no__t 2 스레드 풀에서 자동으로 실행 됩니다.
 
 ```python
-# Would be run in an asyncio thread-pool
-
+# Runs in an asyncio thread-pool
 
 def main():
     some_blocking_socket_io()
 ```
 
+### <a name="use-multiple-language-worker-processes"></a>여러 언어 작업자 프로세스 사용
+
+기본적으로 모든 함수 호스트 인스턴스에는 단일 언어 작업자 프로세스가 있습니다. 그러나 호스트 인스턴스당 여러 언어 작업자 프로세스를 지원할 수 있습니다. 그런 다음 함수 호출은 이러한 언어 작업자 프로세스 간에 균등 하 게 분산 될 수 있습니다. [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) 응용 프로그램 설정을 사용 하 여이 값을 변경할 수 있습니다. 
+
 ## <a name="context"></a>컨텍스트
 
-실행 중에 함수의 호출 컨텍스트를 가져오려면 해당 시그니처에 [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) 인수를 포함 합니다. 
+실행 중에 함수의 호출 컨텍스트를 가져오려면 시그니처에 [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) 인수를 포함 합니다. 
 
-예를 들어:
+예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```python
 import azure.functions
@@ -348,9 +360,9 @@ def main(req):
 
 ## <a name="environment-variables"></a>환경 변수
 
-함수에서 서비스 연결 문자열과 같은 [응용 프로그램 설정은](functions-app-settings.md)실행 중에 환경 변수로 노출 됩니다. 을 선언 `import os` 하 고를 사용 하 여 이러한 설정에 `setting = os.environ["setting-name"]`액세스할 수 있습니다.
+함수에서 서비스 연결 문자열과 같은 [응용 프로그램 설정은](functions-app-settings.md)실행 중에 환경 변수로 노출 됩니다. @No__t-0을 선언 하 고 `setting = os.environ["setting-name"]`을 사용 하 여 이러한 설정에 액세스할 수 있습니다.
 
-다음 예제에서는 라는 `myAppSetting`키를 사용 하 여 [응용 프로그램 설정을](functions-how-to-use-azure-function-app-settings.md#settings)가져옵니다.
+다음 예제에서는 `myAppSetting` 이라는 키를 사용 하 여 [응용 프로그램 설정을](functions-how-to-use-azure-function-app-settings.md#settings)가져옵니다.
 
 ```python
 import logging
@@ -413,7 +425,7 @@ func azure functionapp publish <app name> --build-native-deps
 
 ## <a name="unit-testing"></a>단위 테스트
 
-Python으로 작성 된 함수는 표준 테스트 프레임 워크를 사용 하 여 다른 Python 코드와 같이 테스트할 수 있습니다. 대부분의 바인딩에서 `azure.functions` 패키지에서 적절 한 클래스의 인스턴스를 만들어 모의 입력 개체를 만들 수 있습니다. 패키지를 즉시 사용할 수 없으므로 위의 [Python 버전 및 패키지 관리](#python-version-and-package-management) 섹션에 설명 `requirements.txt` 된 대로 파일을 통해 설치 해야 합니다. [`azure.functions`](https://pypi.org/project/azure-functions/)
+Python으로 작성 된 함수는 표준 테스트 프레임 워크를 사용 하 여 다른 Python 코드와 같이 테스트할 수 있습니다. 대부분의 바인딩에서 `azure.functions` 패키지에서 적절 한 클래스의 인스턴스를 만들어 모의 입력 개체를 만들 수 있습니다. [@No__t-1](https://pypi.org/project/azure-functions/) 패키지는 즉시 사용할 수 없으므로 위의 [Python 버전 및 패키지 관리](#python-version-and-package-management) 섹션에 설명 된 대로 `requirements.txt` 파일을 통해 설치 해야 합니다.
 
 예를 들어 다음은 HTTP 트리거 함수의 모의 테스트입니다.
 
@@ -537,7 +549,7 @@ class TestFunction(unittest.TestCase):
 
 Azure Functions는 CORS (원본 간 리소스 공유)를 지원 합니다. CORS는 [포털](functions-how-to-use-azure-function-app-settings.md#cors) 및 [Azure CLI](/cli/azure/functionapp/cors)를 통해 구성 됩니다. CORS 허용 원본 목록은 함수 앱 수준에서 적용 됩니다. CORS를 사용 하면 응답에 `Access-Control-Allow-Origin` 헤더가 포함 됩니다. 자세한 내용은 [크로스-원본 자원 공유(CORS)](functions-how-to-use-azure-function-app-settings.md#cors)를 참조하십시오.
 
-현재 Python 함수 앱에 대해 허용 되는 원본 목록이 [지원 되지 않습니다](https://github.com/Azure/azure-functions-python-worker/issues/444) . 이러한 제한 때문에 다음 예제와 같이 HTTP 함수 `Access-Control-Allow-Origin` 에서 헤더를 명시적으로 설정 해야 합니다.
+현재 Python 함수 앱에 대해 허용 되는 원본 목록이 [지원 되지 않습니다](https://github.com/Azure/azure-functions-python-worker/issues/444) . 이러한 제한 때문에 다음 예제와 같이 HTTP 함수에서 `Access-Control-Allow-Origin` 헤더를 명시적으로 설정 해야 합니다.
 
 ```python
 def main(req: func.HttpRequest) -> func.HttpResponse:

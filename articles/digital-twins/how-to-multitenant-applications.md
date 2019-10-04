@@ -1,19 +1,19 @@
 ---
 title: Azure Digital Twins에서 다중 테넌트 애플리케이션 사용 | Microsoft Docs
 description: Azure Digital Twins에 대한 다중 테넌트 Azure Active Directory 애플리케이션을 구성하는 방법
-author: mavoge
+ms.author: alinast
+author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: mavoge
-ms.openlocfilehash: 2ee3681640f68839c32e2963b34d5547abb6943b
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.date: 10/02/2019
+ms.openlocfilehash: 070b04b27982b84f101ee4d6f85f4e5b82760092
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976887"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958811"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Azure Digital Twins에서 다중 테넌트 애플리케이션 사용
 
@@ -57,20 +57,16 @@ Azure Digital Twins를 빌드하는 솔루션 개발자는 단일 서비스 또�
   1. **구독**을 엽니다.
   1. **개발자**의 애플리케이션에서 사용할 수 있는 Azure Active Directory 테넌트를 포함한 구독을 선택합니다.
 
-     ![Azure Active Directory 구독][1]
+     [![Azure Active Directory 구독](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
 
   1. **리소스 공급자**를 선택합니다.
   1. **Microsoft.IoTSpaces**를 검색합니다.
   1. **등록**을 선택합니다.
 
-     ![Azure Active Directory 리소스 공급 기업][2]
+     [![Azure Active Directory 리소스 공급자](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
   
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Digital Twins에서 사용자 정의 함수를 사용하는 방법에 대한 자세한 내용은 [Azure Digital Twins 사용자 정의 함수를 만드는 방법](./how-to-user-defined-functions.md)을 참조하세요.
 
 - 역할 기반 액세스 제어를 사용하여 역할 할당에서 애플리케이션을 추가로 보호하는 방법을 알아보려면 [Azure Digital Twins 역할 기반 액세스 제어를 만들고 관리하는 방법](./security-create-manage-role-assignments.md)을 참조하세요.
-
-<!-- Images -->
-[1]: media/multitenant/ad-subscriptions.png
-[2]: media/multitenant/ad-resource-providers.png
