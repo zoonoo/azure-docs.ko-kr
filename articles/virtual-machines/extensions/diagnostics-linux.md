@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: 1da5d8aba92ac5cca5f7cdc281e169ce284b202d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 63008de6d29790333764f4dcca27b8dc03cedbdb
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169181"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838185"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -384,7 +384,7 @@ minSeverity | syslog 심각도 수준입니다(예: "LOG\_ERR" 또는 "LOG\_INFO
 
 요소 | 값
 ------- | -----
-네임스페이스 | (선택 사항) 실행해야 할 쿼리 내의 OMI 네임스페이스입니다. 지정되지 않은 경우 기본값은 [System Center 플랫폼 간 공급자](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation)가 구현한 "root/scx"입니다.
+네임스페이스 | (선택 사항) 실행해야 할 쿼리 내의 OMI 네임스페이스입니다. 지정되지 않은 경우 기본값은 [System Center 플랫폼 간 공급자](https://github.com/Microsoft/SCXcore)가 구현한 "root/scx"입니다.
 query | 실행될 OMI 쿼리입니다.
 table | (선택 사항) 지정된 스토리지 계정의 Azure Storage 테이블입니다([보호 설정](#protected-settings) 참조).
 frequency | (선택 사항) 쿼리 실행 간격(초)입니다. 기본값은 300(5분)이고 최소값은 15초입니다.
@@ -695,7 +695,7 @@ JsonBlob 싱크로 전송된 데이터는 [보호 설정](#protected-settings)�
 또한 다음 UI 도구를 사용하여 Azure Storage의 데이터에 액세스할 수 있습니다.
 
 * Visual Studio 서버 탐색기.
-* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
+* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer")가 있어야 합니다.
 
 Microsoft Azure Storage Explorer의 이 스냅샷 세션은 테스트 VM에서 올바르게 구성된 LAD 3.0 확장에서 생성된 Azure Storage 테이블 및 컨테이너를 보여 줍니다. 이미지가 [샘플 LAD 3.0 구성](#an-example-lad-30-configuration)과 정확히 일치하지는 않습니다.
 

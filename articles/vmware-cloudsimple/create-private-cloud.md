@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: aacdb57c312946a9ec2b17a8d41aa9150efc277d
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a6e3d466321fcd8f32f46359c97f67400a8f86c6
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640982"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828153"
 ---
-# <a name="create-a-cloudsimple-private-cloud"></a>CloudSimple 사설 클라우드 만들기
+# <a name="create-a-cloudsimple-private-cloud"></a>CloudSimple 프라이빗 클라우드 만들기
 
 사설 클라우드는 ESXi 호스트, vCenter, vSAN 및 NSX를 지 원하는 격리 된 VMware 스택입니다. 사설 클라우드는 CloudSimple 포털을 통해 관리 됩니다. 자체 관리 도메인에 자체 vCenter 서버가 있습니다. 스택은 전용 노드 및 isolated 운영 체제 미 설치 하드웨어 노드에서 실행 됩니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "69640982"
 
 5. CloudSimple 포털에서 사설 클라우드의 이름을 제공 합니다.
 6. 사설 클라우드의 **위치** 를 선택 합니다.
-7. Azure에서 구매한 항목과 일치 하는 **노드 유형**을 선택 합니다.  [CS28 또는 CS36 옵션](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku)을 선택할 수 있습니다. 후자 옵션은 최대 계산 및 메모리 용량을 포함 합니다.
+7. Azure에서 구매한 항목과 일치 하는 **노드 유형**을 선택 합니다.
 8. **노드 수**를 지정 합니다.  사설 클라우드를 만들려면 노드가 세 개 이상 필요 합니다.
 
     ![사설 클라우드 만들기-기본 정보](media/create-private-cloud-basic-info.png)

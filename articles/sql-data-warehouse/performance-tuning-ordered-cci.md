@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 74a1a2218020718a05c9d01de96ddf4fccb35eb4
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
-ms.translationtype: MT
+ms.openlocfilehash: 7adf43110cffdc669b39632521c69ed5d3723257
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802561"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71845689"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>순서가 지정 된 클러스터형 columnstore 인덱스로 성능 튜닝  
 
@@ -24,7 +24,7 @@ ms.locfileid: "71802561"
 ## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>정렬 된 클러스터형 columnstore 인덱스 및 순서가 지정 되지 않은 클러스터형 columnstore 인덱스 
 기본적으로 인덱스 옵션 없이 만든 각 Azure 데이터 웨어하우스 테이블에 대해 내부 구성 요소 (인덱스 작성기)는 순서가 지정 되지 않은 클러스터형 columnstore 인덱스 (CCI)를 만듭니다.  각 열의 데이터는 별도의 CCI 행 그룹 세그먼트로 압축 됩니다.  각 세그먼트의 값 범위에 대 한 메타 데이터가 있으므로 쿼리 조건자의 범위 밖에 있는 세그먼트는 쿼리 실행 중에 디스크에서 읽지 않습니다.  CCI는 가장 높은 수준의 데이터 압축을 제공 하 고 읽을 세그먼트 크기를 줄여 쿼리가 더 빠르게 실행 될 수 있도록 합니다. 그러나 인덱스 작성기가 데이터를 세그먼트로 압축 하기 전에 정렬 하지 않으므로 값 범위가 겹치는 세그먼트가 발생 하 여 디스크에서 더 많은 세그먼트를 읽고 쿼리가 완료 되는 데 시간이 오래 걸릴 수 있습니다.  
 
-정렬 된 CCI를 만들 때 Azure SQL Data Warehouse 엔진은 인덱스 작성기가 인덱스 세그먼트로 압축 하기 전에 순서 키를 기준으로 메모리의 데이터를 정렬 합니다.  정렬 된 데이터를 사용 하는 경우 쿼리를 더 효율적으로 분할 하 여 디스크에서 읽을 세그먼트 수가 줄어들기 때문에 더 효율적으로 세그먼트를 제거 하 여 성능을 향상 시킬 수 있습니다.  모든 데이터를 한 번에 메모리에서 정렬할 수 있는 경우 세그먼트 겹치기를 방지할 수 있습니다.  데이터 웨어하우스 테이블의 데이터 크기가 큰 경우이 시나리오는 자주 발생 하지 않습니다.  
+정렬 된 CCI를 만들 때 Azure SQL Data Warehouse 엔진은 인덱스 작성기가 인덱스 세그먼트로 압축 하기 전에 순서 키를 기준으로 메모리의 기존 데이터를 정렬 합니다.  정렬 된 데이터를 사용 하는 경우 쿼리를 더 효율적으로 분할 하 여 디스크에서 읽을 세그먼트 수가 줄어들기 때문에 더 효율적으로 세그먼트를 제거 하 여 성능을 향상 시킬 수 있습니다.  모든 데이터를 한 번에 메모리에서 정렬할 수 있는 경우 세그먼트 겹치기를 방지할 수 있습니다.  데이터 웨어하우스 테이블의 데이터 크기가 큰 경우이 시나리오는 자주 발생 하지 않습니다.  
 
 열에 대 한 세그먼트 범위를 확인 하려면 테이블 이름 및 열 이름으로 다음 명령을 실행 합니다.
 
@@ -42,6 +42,9 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 ```
 
+> [!NOTE] 
+> 순서가 지정 된 CCI 테이블에서 DML 또는 데이터 로드 작업으로 인해 발생 하는 새 데이터는 자동으로 정렬 되지 않습니다.  사용자는 정렬 된 CCI를 다시 작성 하 여 테이블의 모든 데이터를 정렬할 수 있습니다.  
+
 ## <a name="data-loading-performance"></a>데이터 로드 성능
 
 정렬 된 CCI 테이블로 데이터를 로드 하는 성능은 분할 된 테이블로 데이터를 로드 하는 것과 비슷합니다.  
@@ -51,12 +54,24 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 @no__t 0Performance_comparison_data_loading @ no__t-1
  
 ## <a name="reduce-segment-overlapping"></a>겹치는 세그먼트 줄이기
-다음은 CTAS 또는 데이터가 있는 기존 테이블을 통해 새 테이블에 정렬 된 CCI를 만들 때 겹치는 세그먼트를 추가로 줄이는 옵션입니다.
 
-- 더 큰 리소스 클래스를 사용 하 여 인덱스 작성기가 세그먼트를 압축 하기 전에 메모리에서 더 많은 데이터를 한 번에 정렬할 수 있습니다.  인덱스 세그먼트에서 데이터의 물리적 위치를 변경할 수 없습니다.  세그먼트 또는 세그먼트 사이에는 데이터 정렬이 없습니다.  
+겹치는 세그먼트 수는 정렬 된 CCI를 만드는 동안 정렬할 데이터의 크기, 사용 가능한 메모리 및 최대 병렬 처리 수준 (MAXDOP) 설정에 따라 달라 집니다. 다음은 순서가 지정 된 CCI를 만들 때 겹치는 세그먼트를 줄이기 위한 옵션입니다.
 
-- 낮은 병렬 처리 수준을 사용 합니다 (예: DOP = 1).  순서가 지정 된 CCI 생성에 사용 되는 각 스레드는 데이터의 하위 집합에서 작동 하며 로컬로 정렬 됩니다.  여러 스레드에 의해 정렬 된 데이터에는 전역 정렬이 없습니다.  병렬 스레드를 사용 하면 정렬 된 CCI를 만드는 시간을 줄일 수 있지만 단일 스레드를 사용 하는 것 보다 더 겹치는 세그먼트를 생성 합니다. 
+- 더 높은 DWU에서 xlargerc 리소스 클래스를 사용 하 여 인덱스 작성기가 데이터를 세그먼트로 압축 하기 전에 데이터 정렬에 더 많은 메모리를 사용할 수 있습니다.  인덱스 세그먼트에서 데이터의 물리적 위치를 변경할 수 없습니다.  세그먼트 또는 세그먼트 사이에는 데이터 정렬이 없습니다.  
+
+- MAXDOP = 1을 사용 하 여 정렬 된 CCI를 만듭니다.  순서가 지정 된 CCI 생성에 사용 되는 각 스레드는 데이터의 하위 집합에서 작동 하며 로컬로 정렬 됩니다.  여러 스레드에 의해 정렬 된 데이터에는 전역 정렬이 없습니다.  병렬 스레드를 사용 하면 정렬 된 CCI를 만드는 시간을 줄일 수 있지만 단일 스레드를 사용 하는 것 보다 더 겹치는 세그먼트를 생성 합니다.  현재 MAXDOP 옵션은 CREATE TABLE SELECT 명령으로 사용 하 여 정렬 된 CCI 테이블을 만드는 경우에만 지원 됩니다.  CREATE INDEX 또는 CREATE TABLE 명령을 통해 정렬 된 CCI를 만드는 것은 MAXDOP 옵션을 지원 하지 않습니다. 예를 들면 다음과 같습니다.
+
+```sql
+CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX ORDER(c1) )
+AS SELECT * FROM ExampleTable
+OPTION (MAXDOP 1);
+```
 - Azure SQL Data Warehouse 테이블로 로드 하기 전에 정렬 키를 기준으로 데이터를 미리 정렬 합니다.
+
+
+다음은 위의 권장 사항과 겹치지 않는 세그먼트가 0 인 순서가 지정 된 CCI 테이블 배포의 예입니다. 정렬 된 CCI 테이블은 MAXDOP 1 및 xlargerc를 사용 하 여 20GB 힙 테이블에서 CTAS를 통해 DWU1000c 데이터베이스에 생성 됩니다.  CCI는 중복 없이 BIGINT 열에 대해 정렬 됩니다.  
+
+![Segment_No_Overlapping](media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 
 ## <a name="create-ordered-cci-on-large-tables"></a>많은 테이블에 순서가 지정 된 CCI 만들기
 정렬 된 CCI를 만드는 작업은 오프 라인 작업입니다.  파티션이 없는 테이블의 경우에는 순서가 지정 된 CCI 생성 프로세스가 완료 될 때까지 사용자가 데이터에 액세스할 수 없습니다.   분할 된 테이블의 경우 엔진은 파티션에 의해 순서가 지정 된 CCI 파티션을 만들기 때문에, 사용자는 정렬 된 CCI 생성이 아직 진행 되지 않는 파티션에서 데이터에 계속 액세스할 수 있습니다.   이 옵션을 사용 하 여 많은 테이블에서 순서가 지정 된 CCI를 만드는 동안 가동 중지 시간을 최소화할 수 있습니다. 

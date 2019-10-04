@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: ac101c6079eee908a6499f5e6ed8cc3aadffb75a
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 5968a675c3f0f9a2c6426ed73d06e2d116a8ff3b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210304"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827397"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>암호화 된 Azure VM 백업 및 복원
 
@@ -55,7 +55,7 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 
 시작하기 전에 다음을 수행합니다.
 
-1. ADE를 사용 하는 [Windows](../security/azure-security-disk-encryption-windows.md) 또는 [Linux](../security/azure-security-disk-encryption-linux.md) vm이 하나 이상 있는지 확인 합니다.
+1. ADE를 사용 하는 [Windows](../security/azure-security-disk-encryption-windows.md) 또는 [Linux](../virtual-machines/linux/disk-encryption-overview.md) vm이 하나 이상 있는지 확인 합니다.
 2. Azure VM 백업에 대 한 [지원 매트릭스를 검토 합니다](backup-support-matrix-iaas.md) .
 3. 백업 자격 증명 모음이 없는 경우 Recovery Services 백업 자격 증명 모음을 [만듭니다](backup-azure-arm-vms-prepare.md#create-a-vault) .
 4. 이미 백업을 사용 하도록 설정 된 Vm에 대해 암호화를 사용 하도록 설정 하는 경우 백업을 중단 없이 계속 사용할 수 있도록 Key Vault에 액세스할 수 있는 권한이 있는 백업만 제공 하면 됩니다. 이러한 사용 권한을 할당 하는 방법에 [대해 자세히 알아보세요](#provide-permissions) .
@@ -74,12 +74,12 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 
     ![백업 블레이드](./media/backup-azure-vms-encryption/select-backup.png)
 
-3. **워크 로드가 실행 되는** **백업 목표** > 에서 **Azure**를 선택 합니다.
-4. **백업할 항목** 에서 **가상 머신** > **확인**을 선택 합니다.
+3. **백업 목표** > **은 워크 로드가 실행 되 고 있나요?** **Azure**를 선택 합니다.
+4. **백업할 항목** 에서 **가상 컴퓨터** > **확인을**선택 합니다.
 
       ![시나리오 블레이드](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-5. **백업 정책** > 에서**백업 정책을 선택**하 고 자격 증명 모음과 연결할 정책을 선택 합니다. 그런 다음 **확인**을 클릭합니다.
+5. **백업 정책** > **백업 정책을 선택**하 고 자격 증명 모음과 연결할 정책을 선택 합니다. 그런 후 **OK**를 클릭합니다.
     - 백업 정책은 백업이 수행 되는 시기와 저장 기간을 지정 합니다.
     - 드롭다운 메뉴 아래에 기본 정책의 상세 정보가 나열됩니다.
 
@@ -113,7 +113,7 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 2. **백업 항목**에서 **Azure Virtual Machine**을 클릭합니다.
 3. **백업 항목** 목록에서 줄임표 (...)를 클릭 합니다.
 4. **지금 백업**을 클릭합니다.
-5. **지금 백업**에서 달력 컨트롤을 사용 하 여 복구 지점을 유지할 마지막 날을 선택 합니다. 그런 다음 **확인**을 클릭합니다.
+5. **지금 백업**에서 달력 컨트롤을 사용 하 여 복구 지점을 유지할 마지막 날을 선택 합니다. 그런 후 **OK**를 클릭합니다.
 6. 포털 알림을 모니터링합니다. 자격 증명 모음 대시보드 > **백업 작업** > **진행 중**에서 작업 진행률을 모니터링할 수 있습니다. VM의 크기에 따라 초기 백업을 만드는 데 시간이 걸릴 수 있습니다.
 
 
@@ -130,11 +130,11 @@ Azure VM에는 연결 된 Vm과 함께 키와 암호를 백업 하기 위한 읽
 2. 백업 중인 암호화 된 VM과 연결 된 key vault를 선택 합니다.
 3. **액세스 정책** > **새로 추가**를 선택 합니다.
 4. **보안 주체 선택**을 선택 하 고 **백업 관리**를 입력 합니다.
-5. **백업 관리 서비스** > 선택을 선택 합니다.
+5. **백업 관리 서비스**@no__t **-1을 선택 합니다**.
 
     ![백업 서비스 선택](./media/backup-azure-vms-encryption/select-backup-service.png)
 
-6. **액세스 정책** > 추가**템플릿에서 구성 (선택 사항)** 에서 **Azure Backup**를 선택 합니다.
+6. **액세스 정책 추가** > **템플릿에서 구성 (선택 사항)** 에서 **Azure Backup**를 선택 합니다.
     - **키 권한** 및 **비밀 권한**에서 필요한 권한이 미리 입력됩니다.
     - VM이 **Bek만**사용 하 여 암호화 된 경우에는 비밀에 대 한 권한만 필요 하므로 **키 사용 권한에** 대 한 선택 항목을 제거 합니다.
 

@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 10/04/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 6118c4ddf1386ff4cc816148938e1f5ddeaecc9e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 513cf477e8c2899da17ee8e9bdfdb9ad2bedd159
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266089"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828085"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows에 Azure IoT Edge 런타임 설치
 
@@ -121,52 +121,12 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 
 ### <a name="option-2-install-and-automatically-provision"></a>옵션 2: 설치 및 자동으로 프로비전
 
-이 두 번째 옵션에서는 IoT Hub Device Provisioning Service를 사용하여 디바이스를 프로비전합니다. Device Provisioning Service 인스턴스의 **범위 ID** 및 디바이스의 **등록 ID**를 제공합니다. [대칭 키](how-to-auto-provision-symmetric-keys.md)를 사용 하는 경우와 같이 DPS를 사용 하 여 프로 비전 할 때 증명 메커니즘에 따라 추가 값이 필요할 수 있습니다.
+이 두 번째 옵션에서는 IoT Hub Device Provisioning Service를 사용하여 디바이스를 프로비전합니다. 기본 [증명 메커니즘과](../iot-dps/concepts-security.md#attestation-mechanism)관련 된 다른 정보와 함께 장치 프로 비전 서비스 인스턴스의 **범위 ID** 를 제공 합니다.
 
-다음 예제에서는 Windows 컨테이너 및 TPM 증명을 사용 하 여 자동으로 설치 하는 방법을 보여 줍니다.
+* [Windows에서 시뮬레이트된 TPM Edge 장치 만들기 및 프로 비전](how-to-auto-provision-simulated-device-windows.md)
+* [대칭 키 증명을 사용 하 여 IoT Edge 장치 만들기 및 프로 비전](how-to-auto-provision-symmetric-keys.md)
 
-1. 장치 프로 비전 서비스를 설정 하 고, 해당 **범위 ID**를 검색 하 고, TPM 장치를 시뮬레이션 하 고, **등록 ID**를 검색 하 고, 개인을 만들려면 [Windows에서 시뮬레이션 된 TPM IoT Edge 장치 만들기 및 프로 비전](how-to-auto-provision-simulated-device-windows.md) 의 단계를 수행 합니다. 등록이. 장치가 IoT hub에 등록 되 면 다음 설치 단계를 계속 진행 합니다.  
-
-   >[!TIP]
-   >설치 및 테스트를 수행하는 동안 TPM 시뮬레이터를 실행하는 창을 열린 상태로 유지합니다. 
-
-1. PowerShell을 관리자 권한으로 실행합니다.
-
-   >[!NOTE]
-   >PowerShell(x86)이 아닌 IoT Edge를 설치하려면 PowerShell의 AMD64 세션을 사용합니다. 사용 중인 세션 형식을 잘 모르는 경우 다음 명령을 실행합니다.
-   >
-   >```powershell
-   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
-   >```
-
-1. **배포-IoTEdge** 명령은 Windows 컴퓨터가 지원 되는 버전에 있는지 확인 하 고 컨테이너 기능을 설정한 다음 moby 런타임 및 IoT Edge 런타임을 다운로드 합니다. 이 명령은 기본적으로 Windows 컨테이너를 사용 합니다. 
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Deploy-IoTEdge
-   ```
-
-1. 이 시점에서 IoT Core 장치가 자동으로 다시 시작 될 수 있습니다. 다른 Windows 10 또는 Windows Server 장치를 다시 시작 하 라는 메시지가 표시 될 수 있습니다. 그렇다면 장치를 지금 다시 시작 하세요. 장치가 준비 되 면 관리자 권한으로 PowerShell을 다시 실행 합니다.
-
-1. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 이 명령은 Windows 컨테이너를 통한 수동 프로비저닝으로 기본 설정됩니다. 수동 프로 `-Dps` 비전 대신 장치 프로 비전 서비스를 사용 하려면 플래그를 사용 합니다. 를 `{scope ID}` 장치 프로 비전 `{registration ID}` 서비스의 범위 ID로 바꾸고,을 장치에서 등록 ID로 바꾸고,이 둘은 1 단계에서 검색 해야 합니다.
-
-   TPM 증명을 사용 하 여 DPS를 사용 하는 **Initialize IoTEdge** 명령을 사용 합니다.
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID}
-   ```
-
-   **Initialize-IoTEdge** 명령을 사용 하 여 대칭 키 증명에 DPS를 사용 합니다. 장치 `{symmetric key}` 키로 대체 합니다.
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
-   ```
-
-1. [설치 성공 확인](#verify-successful-installation) 의 단계를 사용 하 여 장치에서 IoT Edge 상태를 확인 합니다. 
-
-디바이스를 수동으로 설치하고 프로비전하는 경우 추가 매개 변수를 사용하여 다음과 같이 설치를 수정할 수 있습니다.
+장치를 자동으로 설치 하 고 프로 비전 할 때 다음을 비롯 한 추가 매개 변수를 사용 하 여 설치를 수정할 수 있습니다.
 
 * 트래픽이 프록시 서버를 통과하도록 설정
 * 설치 관리자에서 오프라인 디렉터리를 확인하도록 설정
@@ -302,13 +262,13 @@ Initialize IoTEdge 명령은 장치 연결 문자열 및 작업 세부 정보를
 | **Dps** | 없음 | **매개 변수를 전환**합니다. 프로 비전 유형을 지정 하지 않으면 manual이 기본값입니다.<br><br>DPS(Device Provisioning Service) 범위 ID 및 디바이스의 등록 ID를 제공하여 DPS를 통해 프로비전할 것을 선언합니다.  |
 | **DeviceConnectionString** | IoT Hub에 등록된 IoT Edge 디바이스의 연결 문자열을 작은따옴표 안에 표시합니다. | 수동 설치에 **필요**합니다. 스크립트 매개 변수에 연결 문자열을 제공하지 않을 경우 설치 중에 확인 메시지가 표시됩니다. |
 | **ScopeId** | IoT Hub와 연결된 Device Provisioning Service 인스턴스의 범위 ID입니다. | DPS 설치에 **필요**합니다. 스크립트 매개 변수에 범위 ID를 제공하지 않을 경우 설치 중에 확인 메시지가 표시됩니다. |
-| **RegistrationId** | 디바이스에서 생성된 등록 ID입니다. | DPS 설치에 **필요**합니다. |
+| **RegistrationId** | 디바이스에서 생성된 등록 ID입니다. | TPM 또는 대칭 키 증명을 사용 하는 경우 DPS 설치에 **필요** 합니다. |
 | **SymmetricKey** | DPS를 사용할 때 IoT Edge 장치 id를 프로 비전 하는 데 사용 되는 대칭 키입니다. | 대칭 키 증명을 사용 하는 경우 DPS 설치에 **필요** 합니다. |
 | **ContainerOs** | **Windows** 또는 **Linux** | 컨테이너 운영 체제가 지정 되지 않은 경우 Windows가 기본값입니다.<br><br>Windows 컨테이너의 경우 IoT Edge는 설치에 포함 된 moby 컨테이너 엔진을 사용 합니다. Linux 컨테이너의 경우 설치를 시작하기 전에 컨테이너 엔진을 설치해야 합니다. |
 | **InvokeWebRequestParameters** | 매개 변수 및 값의 해시 테이블입니다. | 설치 중에 여러 개의 웹 요청이 생성됩니다. 이 필드를 사용하여 해당 웹 요청에 대한 매개 변수를 설정합니다. 이 매개 변수는 프록시 서버에 대한 자격 증명을 구성하는 데 유용합니다. 자세한 내용은 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)을 참조하세요. |
 | **AgentImage** | IoT Edge 에이전트 이미지 URI | 기본적으로 새 IoT Edge 설치는 IoT Edge 에이전트 이미지에 대한 최신 롤링 태그를 사용합니다. 이 매개 변수를 사용하여 이미지 버전에 대한 특정 태그를 설정하거나 사용자 고유의 에이전트 이미지를 제공합니다. 자세한 내용은 [IoT Edge 태그 이해](how-to-update-iot-edge.md#understand-iot-edge-tags)를 참조하세요. |
 | **사용자 이름** | 컨테이너 레지스트리 사용자 이름입니다. | -AgentImage 매개 변수를 프라이빗 레지스트리의 컨테이너로 설정한 경우에만 이 매개 변수를 사용합니다. 레지스트리에 대한 액세스 권한이 있는 사용자 이름을 제공합니다. |
-| **암호** | 보안 암호 문자열입니다. | -AgentImage 매개 변수를 프라이빗 레지스트리의 컨테이너로 설정한 경우에만 이 매개 변수를 사용합니다. 레지스트리에 액세스하기 위한 암호를 제공합니다. | 
+| **암호** | 보안 암호 문자열입니다. | -AgentImage 매개 변수를 프라이빗 레지스트리의 컨테이너로 설정한 경우에만 이 매개 변수를 사용합니다. 레지스트리에 액세스하기 위한 암호를 제공합니다. |
 
 ### <a name="update-iotedge"></a>Update-IoTEdge
 

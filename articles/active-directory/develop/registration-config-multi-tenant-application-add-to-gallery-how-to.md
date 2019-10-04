@@ -17,12 +17,12 @@ ms.date: 09/11/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8024130b986d111abe3b470d6b06e86ed6419dc4
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: def5dc82f8cbda93f6ac18f8a2af41d5c82ce5da
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320927"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936760"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Azure AD 애플리케이션 갤러리에 다중 테넌트 애플리케이션 추가
 
@@ -33,7 +33,7 @@ Azure AD(Azure Active Directory)는 클라우드 기반 ID 서비스입니다. [
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>애플리케이션이 SAML 또는 OpenIDConnect를 지원하는 경우
 Azure AD 애플리케이션 갤러리에 나열하려는 다중 테넌트 애플리케이션이 있는 경우 먼저 애플리케이션이 다음 Single Sign-On 기술 중 하나를 지원하는지 확인해야 합니다.
 
-- **OpenID Connect**: 앱을 나열하려면 Azure AD에서 다중 테넌트 애플리케이션을 만들고 애플리케이션에 [Azure AD 승인 프레임워크](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)를 구현합니다. 모든 고객이 애플리케이션에 동의를 제공할 수 있도록 공통 엔드포인트에 로그인 요청을 보냅니다. 토큰에 수신된 테넌트 ID 및 사용자의 UPN을 기반으로 사용자의 액세스를 제어할 수 있습니다. [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)에 설명된 프로세스를 사용하여 애플리케이션을 제출합니다.
+- **OpenID Connect**: 앱을 나열하려면 Azure AD에서 다중 테넌트 애플리케이션을 만들고 애플리케이션에 [Azure AD 승인 프레임워크](https://docs.microsoft.com/azure/active-directory/develop/consent-framework)를 구현합니다. 모든 고객이 애플리케이션에 동의를 제공할 수 있도록 공통 엔드포인트에 로그인 요청을 보냅니다. 토큰에 수신된 테넌트 ID 및 사용자의 UPN을 기반으로 사용자의 액세스를 제어할 수 있습니다. [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)에 설명된 프로세스를 사용하여 애플리케이션을 제출합니다.
 
 - **SAML**: 애플리케이션이 SAML 2.0을 지원하는 경우 앱을 갤러리에 나열할 수 있습니다. [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)의 지침을 따릅니다.
 

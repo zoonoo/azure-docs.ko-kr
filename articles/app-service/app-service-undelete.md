@@ -6,12 +6,12 @@ ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
 ms.service: app-service
-ms.openlocfilehash: a766f7ed7a82874df8ef7506226de0d6f38a5847
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 7b3a21f3cfee806dc94353e0bc6c11e88641ea34
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219544"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827532"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>PowerShell을 사용 하 여 삭제 된 App Service 앱 복원
 
@@ -52,3 +52,5 @@ Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServ
 - **Targetappservice계획 이름**: 앱에 연결 된 App Service 계획
 
 기본적 `Restore-AzDeletedWebApp` 으로는 앱 구성과 콘텐츠를 모두 복원 합니다. 콘텐츠만 복원 하려면이 이상에서 `-RestoreContentOnly` 플래그를 사용 합니다.
+
+전체 참조는 여기에서 확인할 수 있습니다. [복원-AzDeletedWebApp](https://docs.microsoft.com/powershell/module/az.websites/restore-azdeletedwebapp).

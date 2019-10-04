@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 5f6f4ce4fc77533a4d893472298ef3a20f153136
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e3e819fc90e8900219ebc7809adb293369084a72
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567992"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828205"
 ---
 # <a name="in-memory-sample"></a>메모리 내 샘플
 
@@ -24,7 +24,7 @@ Azure SQL Database에서 메모리 내 기술을 사용하면 애플리케이션
 
 이 문서에는 Azure SQL Database의 columnstore 인덱스뿐만 아니라 메모리 내 OLTP의 사용을 보여 주는 두 개의 샘플이 표시됩니다.
 
-참조 항목:
+자세한 내용은 다음을 참조하세요.
 - [메모리 내 OLTP 개요 및 사용 시나리오](https://msdn.microsoft.com/library/mt774593.aspx)(고객 사례 연구 및 시작 정보에 대한 참조 포함)
 - [메모리 내 OLTP에 대한 설명서](https://msdn.microsoft.com/library/dn133186.aspx)
 - [Columnstore 인덱스 가이드](https://msdn.microsoft.com/library/gg492088.aspx)
@@ -49,9 +49,9 @@ Azure SQL Database에서 메모리 내 기술을 사용하면 애플리케이션
 
 2. SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx)를 사용하여 데이터베이스에 연결합니다.
 
-3. [메모리 내 OLTP Transact-SQL 스크립트](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) 를 클립보드에 복사합니다. T-SQL 스크립트는 1단계에서 만든 AdventureWorksLT 샘플 데이터베이스에서 필요한 메모리 내 개체를 만듭니다.
+3. [메모리 내 OLTP Transact-SQL 스크립트](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) 를 클립보드에 복사합니다. T-SQL 스크립트는 1단계에서 만든 AdventureWorksLT 샘플 데이터베이스에서 필요한 메모리 내 개체를 만듭니다.
 
-4. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다. `MEMORY_OPTIMIZED = ON` 절 CREATE TABLE 문이 중요합니다. 예:
+4. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다. `MEMORY_OPTIMIZED = ON` 절 CREATE TABLE 문이 중요합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 
 ```sql
@@ -179,7 +179,7 @@ ostress.exe용 이전 T-SQL 스크립트의 *_ondisk* 버전을 만들려면 *_i
 
 VM 또는 선택한 호스트에서 RML(Replay Markup Language) 유틸리티를 설치합니다. 유틸리티는 ostress.exe를 포함합니다.
 
-참조 항목:
+자세한 내용은 다음을 참조하세요.
 - [메모리 내 OLTP에 대한 샘플 데이터베이스](https://msdn.microsoft.com/library/mt465764.aspx)의 ostress.exe 설명
 - [메모리 내 OLTP에 대한 샘플 데이터베이스](https://msdn.microsoft.com/library/mt465764.aspx)
 - [ostress.exe 설치에 대한 블로그](https://blogs.msdn.com/b/psssql/archive/20../../cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)
@@ -279,7 +279,7 @@ OLTP 워크로드의 실시간 분석의 경우 비클러스터형 columnstore �
    - 정확한 이름을 사용합니다.
    - Premium 서비스 계층을 선택합니다.
 
-2. [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql)을 클립보드에 복사합니다.
+2. [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_analytics_sample.sql)을 클립보드에 복사합니다.
    - T-SQL 스크립트는 1단계에서 만든 AdventureWorksLT 샘플 데이터베이스에서 필요한 메모리 내 개체를 만듭니다.
    - 스크립트는 차원 테이블과 두 개의 팩트 테이블을 만듭니다. 팩트 테이블은 각각 350만 개의 행으로 채워집니다.
    - 스크립트는 완료하는 데 15분 정도 걸릴 수 있습니다.
@@ -302,7 +302,7 @@ OLTP 워크로드의 실시간 분석의 경우 비클러스터형 columnstore �
 #### <a name="key-queries-to-compare-the-columnstore-index"></a>columnstore 인덱스를 비교하는 핵심 쿼리
 
 
-성능 향상을 확인하도록 [실행할 수 있는 여러 유형의 T-SQL 쿼리](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql)가 있습니다. T-SQL 스크립트의 2단계에서 이 쿼리 쌍에 유의하세요. 두 쿼리는 한 줄만 다릅니다.
+성능 향상을 확인하도록 [실행할 수 있는 여러 유형의 T-SQL 쿼리](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/clustered_columnstore_sample_queries.sql)가 있습니다. T-SQL 스크립트의 2단계에서 이 쿼리 쌍에 유의하세요. 두 쿼리는 한 줄만 다릅니다.
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`
@@ -411,7 +411,7 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 
 - [기존 Azure SQL 애플리케이션에서 메모리 내 OLTP 사용](sql-database-in-memory-oltp-migration.md)
 
-#### <a name="tools"></a>Tools
+#### <a name="tools"></a>도구
 
 - [Azure Portal](https://portal.azure.com/)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 4750ba55c08ebac244e7515cae4e998155a79599
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 893e8de5efc523df34e2c1e139082d2b471cb63e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60628884"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828535"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>클라우드 솔루션 공급 기업 프로그램용 StorSimple: 질문과 대답
 
@@ -63,7 +63,7 @@ CSP용 StorSimple 가상 배열은 현재 StorSimple을 사용할 수 있는 모
 - 관리되는 서비스를 제공하여 새로운 비즈니스 모델을 검색할 수도 있습니다.
 
 ### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>StorSimple CSP 파트너에 사용할 수 있는 인센티브는 무엇입니까? 모든 CSP 프로그램 인센티브에 대한 자격이 있습니까?
-인센티브에 대 한 내용은로 이동 [CSP 프로그램 인센티브](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details)합니다.
+성과급에 대 한 자세한 내용은 [CSP 프로그램의 성과급](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details)으로 이동 하세요.
 
 
 ## <a name="deploy-and-manage-storsimple-as-a-partner"></a>파트너로 StorSimple 배포 및 관리
@@ -89,7 +89,7 @@ CSP용 StorSimple 가상 배열은 현재 StorSimple을 사용할 수 있는 모
 CSP 포럼에서 StorSimple을 방문하여 몇 가지 자주 묻는 질문에 대한 답변을 얻을 수 있습니다. 먼저 [Azure Advisor Yammer 그룹](https://www.yammer.com/azureadvisors)에 가입해야 합니다. 다음으로 그룹 - **StorSimple 파트너 조언자**를 검색하고 가입합니다.
 
 ### <a name="how-does-the-support-work-for-storsimple-for-csp"></a>CSP용 StorSimple에 대한 지원은 어떤 방식으로 이루어집니까? 
-CSP에서 StorSimple에 대한 지원 모델은 CSP의 다른 Azure 서비스의 지원 모델과 동일합니다. 자세한 내용은 [CSP에 대한 고객 지원](https://msdn.microsoft.com/partner-center/customer-support)으로 이동합니다. 
+CSP에서 StorSimple에 대한 지원 모델은 CSP의 다른 Azure 서비스의 지원 모델과 동일합니다. 자세한 내용은 [CSP에 대한 고객 지원](/partner-center/csp-overview)으로 이동합니다.
 
 CSP용 StorSimple에 대한 자세한 내용은 다음으로 이동합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machines에서 SQL Server에 대 한 릴리스 정보 | Microsoft Docs
+title: Azure Virtual Machines에서 SQL Server에 대 한 설명서 변경 내용 Microsoft Docs
 description: Azure VM에서 SQL Server에 대 한 새로운 기능 및 향상 된 기능에 대해 알아봅니다.
 services: virtual-machines-windows
 author: MashaMSFT
@@ -12,22 +12,28 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/01/2019
-ms.openlocfilehash: 759bec280b40973cf651dec3741a71d67c01fe04
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: f680eae7f8c4cc2b57e3238a14b793f9b4298a79
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200174"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828588"
 ---
-# <a name="release-notes-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server에 대 한 릴리스 정보
+# <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server에 대 한 설명서 변경
 
-Azure를 사용 하면 기본 제공 SQL Server 이미지를 사용 하 여 VM (가상 머신)을 배포할 수 있습니다. 이 문서에서는 [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)의 최신 SQL Server 릴리스에 대 한 새로운 기능 및 향상 된 기능을 요약 합니다. 이 문서에는 릴리스와 직접적인 관련은 없지만 동일한 시간대에 게시된 주목할 만한 콘텐츠 업데이트도 나열되어 있습니다. 다른 Azure 서비스의 향상 된 기능에 대해서는 [서비스 업데이트](https://azure.microsoft.com/updates)를 참조 하세요.
+Azure를 사용 하면 기본 제공 SQL Server 이미지를 사용 하 여 VM (가상 머신)을 배포할 수 있습니다. 이 문서에서는 [Azure Virtual Machines에서 최신 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)릴리스의 새로운 기능 및 향상 된 기능에 관련 된 설명서 변경 내용을 요약 합니다. 
+
+
+## <a name="october-2019"></a>10 월 2019
+
+| 변경 내용 | 설명 |
+| --- | --- |
+| **성능 최적화 저장소 구성** | 이제 새 SQL Server VM를 만들 때 [저장소 구성을 완전히 사용자 지정할](virtual-machines-windows-sql-server-storage-configuration.md#new-vms) 수 있습니다. |
+| &nbsp; | &nbsp; |
 
 ## <a name="august-2019"></a>2019년 8월
 
-### <a name="service-improvements"></a>서비스 개선 사항
-
-| 서비스 개선 사항 | 설명 |
+| 변경 내용 | 설명 |
 | --- | --- |
 | **Azure 전용 호스트** | [Azure 전용 호스트](virtual-machines-windows-sql-dedicated-host.md)에서 SQL Server VM를 실행할 수 있습니다. |
 | &nbsp; | &nbsp; |
@@ -35,18 +41,16 @@ Azure를 사용 하면 기본 제공 SQL Server 이미지를 사용 하 여 VM (
 
 ## <a name="july-2019"></a>7 월 2019
 
-### <a name="documentation-improvements"></a>설명서 개선
 
-| 설명서 | 설명 |
+| 변경 내용 | 설명 |
 | --- | --- |
 | **다른 지역으로 SQL VM 이동** | Azure Site Recovery를 사용 하 여 [SQL Server VM 한 지역에서 다른 지역으로 마이그레이션할](virtual-machines-windows-sql-move-different-region.md)수 있습니다. |
 | &nbsp; | &nbsp; |
 
 ## <a name="june-2019"></a>2019년 6월
 
-### <a name="service-improvements"></a>서비스 개선 사항
 
-| 서비스 개선 사항 | 설명 |
+| 변경 내용 | 설명 |
 | --- | --- |
 | **새 SQL IaaS 설치 모드** | 이제 SQL Server IaaS 확장을 [경량 모드로](virtual-machines-windows-sql-server-agent-extension.md) 설치 하 여 SQL Server 서비스를 다시 시작 하지 않도록 할 수 있습니다.  |
 | **SQL Server 버전 수정** | 이제 SQL Server VM의 [버전 속성](virtual-machines-windows-sql-change-edition.md) 을 변경할 수 있습니다. |
@@ -57,28 +61,16 @@ Azure를 사용 하면 기본 제공 SQL Server 이미지를 사용 하 여 VM (
 
 ## <a name="may-2019"></a>2019년 5월
 
-### <a name="service-improvements"></a>서비스 개선 사항
-
-| 서비스 개선 사항 | 설명 |
+| 변경 내용 | 설명 |
 | --- | --- |
 | **Azure Portal의 새 SQL Server VM 관리** | 이제 Azure Portal에서 SQL Server VM를 관리 하는 방법이 있습니다. 자세한 내용은 [Azure Portal에서 SQL Server Vm 관리](virtual-machines-windows-sql-manage-portal.md)를 참조 하세요.  | 
 | &nbsp; | &nbsp; |
-
-### <a name="documentation-improvements"></a>설명서 개선
-
-| 설명서 | 설명 |
-| --- | --- |
-| **새 SQL Server VM 관리 포털** | 문서 약 수십 개는 새로운 SQL Server VM 관리 포털 환경으로 업데이트 되었습니다. | 
-| &nbsp; | &nbsp; |
-
 
 
 
 ## <a name="april-2019"></a>2019년 4월
 
-### <a name="service-improvements"></a>서비스 개선 사항
-
-| 서비스 개선 사항 | 설명 |
+| 변경 내용 | 설명 |
 | --- | --- |
 | **SQL Server 2008/2008 R2에 대 한 확장 된 지원** | *를* Azure VM으로 마이그레이션하여 SQL Server 2008 및 SQL Server 2008 r 2에 대 한 [지원을 확장](virtual-machines-windows-sql-server-2008-eos-extend-support.md) 합니다. | 
 | &nbsp; | &nbsp; |
@@ -86,7 +78,7 @@ Azure를 사용 하면 기본 제공 SQL Server 이미지를 사용 하 여 VM (
 
 ## <a name="march-2019"></a>2019년 3월
 
-| 서비스 개선 사항 | 설명 |
+| 변경 내용 | 설명 |
 | --- | --- |
 | **사용자 지정 이미지 지원 가능성** | 이제 [유연한 라이선스](virtual-machines-windows-sql-ahb.md)의 제한 된 기능을 제공 하는 사용자 지정 OS 및 SQL 이미지에 [SQL Server IaaS 확장](virtual-machines-windows-sql-server-agent-extension.md#installation) 을 설치할 수 있습니다. SQL 리소스 공급자를 사용 하 여 사용자 지정 이미지를 등록 하는 경우 라이선스 유형을 "AHUB"로 지정 합니다. 그렇지 않으면 등록이 실패 합니다. | 
 | **명명 된 인스턴스 지원 가능성** | 이제 기본 인스턴스가 제대로 제거 된 경우 명명 된 인스턴스를 사용 하 여 [SQL Server IaaS 확장](virtual-machines-windows-sql-server-agent-extension.md#installation) 을 사용할 수 있습니다. | 
@@ -96,16 +88,18 @@ Azure를 사용 하면 기본 제공 SQL Server 이미지를 사용 하 여 VM (
 
 ## <a name="february-2019"></a>2019년 2월
 
-| 서비스 개선 사항 | 설명 |
+| 변경 내용 | 설명 |
 | --- | --- |
 | **포털 개선** | 이제 [Azure Portal](virtual-machines-windows-sql-ahb.md#change-the-license-for-vms-already-registered-with-the-resource-provider)를 사용 하 여 사용자 라이선스를 사용 하 여 SQL Server VM에 대 한 라이선스 모델을 종 량 제로 변경할 수 있습니다.|
 |**Azure SQL Server VM CLI를 사용 하 여 가용성 그룹 배포 간소화** | 이제 가용성 그룹을 Azure의 SQL Server VM에 배포 하는 것이 더 쉬워졌습니다. [Azure CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) 를 사용 하 여 명령줄에서 Windows 장애 조치 (failover) 클러스터, 내부 부하 분산 장치 및 가용성 그룹 수신기를 만들 수 있습니다. 자세한 내용은 azure [SQL SERVER VM CLI를 사용 하 여 AZURE VM에서 SQL Server에 대 한 Always On 가용성 그룹 구성을](virtual-machines-windows-sql-availability-group-cli.md)참조 하세요. | 
 | &nbsp; | &nbsp; |
 
+## <a name="2018"></a>2018
 
-## <a name="december-2018"></a>2018년 12월
 
-| 서비스 개선 사항 | 설명 |
+### <a name="december-2018"></a>2018년 12월
+
+| 변경 내용 | 설명 |
 | --- | --- |
 | **SQL Server 클러스터에 대 한 새 리소스 공급자** | 새 리소스 공급자 (SqlVirtualMachine/SqlVirtualMachineGroups)는 Windows 장애 조치 (failover) 클러스터의 메타 데이터를 정의 합니다. WSFC (Windows Server 장애 조치 (Failover) 클러스터) 서비스를 부트스트랩 *Sqlvirtualmachinegroups* 에 SQL Server VM를 조인 하 고 VM을 클러스터에 조인 합니다.  |
 |**Azure 빠른 시작 템플릿을 사용 하 여 가용성 그룹 배포의 자동 설정** |이제 Windows 장애 조치 (failover) 클러스터를 만들고, SQL Server Vm에 연결 하 고, 수신기를 만들고, 두 개의 Azure 빠른 시작 템플릿을 사용 하 여 내부 부하 분산 장치를 구성할 수 있습니다. 자세한 내용은 azure 빠른 시작 [템플릿을 사용 하 여 AZURE VM에서 SQL Server에 대 한 Always On 가용성 그룹 구성을](virtual-machines-windows-sql-availability-group-quickstart-template.md)참조 하세요. | 
@@ -113,9 +107,9 @@ Azure를 사용 하면 기본 제공 SQL Server 이미지를 사용 하 여 VM (
 | &nbsp; | &nbsp; |
 
 
-## <a name="november-2018"></a>2018년 11월
+### <a name="november-2018"></a>2018년 11월
 
-| 서비스 개선 사항 | 설명 |
+| 변경 내용 | 설명 |
 | --- | --- |
 | **새 SQL VM 리소스 공급자**: |  새 리소스 공급자 (SqlVirtualMachine)를 통해 SQL Server Vm을 보다 효율적으로 관리할 수가 있습니다. Vm을 등록 하는 방법에 대 한 자세한 내용은 [SQL VM 리소스 공급자를 사용 하 여 Azure에 SQL Server virtual Machine 등록](virtual-machines-windows-sql-register-with-resource-provider.md)을 참조 하세요. |
 |**라이선스 모델 전환** | 이제 Azure CLI 또는 PowerShell을 사용 하 여 SQL Server VM에 대 한 사용량 단위 및 사용자 고유의 라이선스 모델을 전환할 수 있습니다. 자세한 내용은 [Azure에서 SQL Server 가상 컴퓨터에 대 한 라이선스 모델을 변경 하는 방법](virtual-machines-windows-sql-ahb.md)을 참조 하세요. | 

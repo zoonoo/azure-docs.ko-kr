@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 18a19f5f853206b06c617307c761a99033c9f92a
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 4d0e7bc7f491e328f5e9fce291d415452c49c745
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266928"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71830129"
 ---
 메모리 최적화 VM 크기는 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합한 높은 메모리 대 CPU 비율을 제공합니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 
@@ -200,6 +200,8 @@ Premium Storage:  지원됨
 
 Premium Storage 캐싱:  지원됨
 
+M 시리즈 크기는 Intel (R) Xeon (R) CPU E7-8890 v3 @ 2.50 GHz를 기반으로 합니다.   
+
 Write Accelerator  [지원됨](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
 | Size            | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
@@ -239,6 +241,8 @@ Premium Storage:  지원됨
 
 Premium Storage 캐싱:  지원됨
 
+DSv2 시리즈 크기는 Intel (R) Xeon (R) CPU E5-2673 v3 @ 2.40 GHz를 기반으로 합니다.
+
 | Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11_v2&nbsp;<sup>3</sup> |2 |14 |28 |8 |8000/64 (72) |6400/96 |2 / 1500 |
@@ -261,6 +265,8 @@ ACU: 210 - 250
 Premium Storage:  지원되지 않음
 
 Premium Storage 캐싱:  지원되지 않음
+
+DSv2 시리즈 크기는 Intel (R) Xeon (R) CPU E5-2673 v3 @ 2.40 GHz를 기반으로 합니다.
 
 | Size              | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

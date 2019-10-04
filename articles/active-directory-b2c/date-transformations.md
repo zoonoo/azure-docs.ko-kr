@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 077915705c242805d3709b5d52d445288fa5336a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 13c3f3aaf54bc3fb8ef656b5c1ce227fa70cee0b
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064342"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936800"
 ---
 # <a name="date-claims-transformations"></a>날짜 클레임 변환
 
@@ -29,11 +29,11 @@ ms.locfileid: "71064342"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 참고 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | string | 첫 번째 클레임의 유형이며, 두 번째 클레임보다 나중에 나와야 합니다. |
-| inputClaim | rightOperand | string | 두 번째 클레임의 유형이며, 첫 번째 클레임보다 먼저 나와야 합니다. |
+| InputClaim | leftOperand | string | 첫 번째 클레임의 유형이며, 두 번째 클레임보다 나중에 나와야 합니다. |
+| InputClaim | rightOperand | string | 두 번째 클레임의 유형이며, 첫 번째 클레임보다 먼저 나와야 합니다. |
 | InputParameter | AssertIfEqualTo | boolean | 왼쪽 피연산자가 오른쪽 피연산자와 같으면 이 어설션에서 전달해야 하는지 여부를 지정합니다. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | 오른쪽 피연산자가 없으면 이 어설션에서 전달해야 하는지 여부를 지정합니다. |
-| InputParameter | TreatAsEqualIfWithinMillseconds | ssNoversion | 두 날짜 /시간 사이의 시간을 동일하게 간주하도록 허용할 시간(밀리초)을 지정합니다(예: 클럭 스큐). |
+| InputParameter | TreatAsEqualIfWithinMillseconds | int | 두 날짜 /시간 사이의 시간을 동일하게 간주하도록 허용할 시간(밀리초)을 지정합니다(예: 클럭 스큐). |
 
 **AssertDateTimeIsGreaterThan** 클레임 변환은 항상 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)을 통해 호출되는 [유효성 검사 기술 프로필](validation-technical-profile.md)에서 실행됩니다. 자체 어설션된 **DateTimeGreaterThan** 기술 프로필 메타데이터는 기술 프로필에서 사용자에게 제공하는 오류 메시지를 제어합니다.
 
@@ -91,7 +91,7 @@ ms.locfileid: "71064342"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 참고 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | 날짜 | 변환할 ClaimType입니다. |
+| InputClaim | inputClaim | date | 변환할 ClaimType입니다. |
 | OutputClaim | outputClaim | dateTime | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
 
 다음 예제에서는 `dateOfBirth` 클레임(date 데이터 형식)을 다른 `dateOfBirthWithTime` 클레임(dateTime 데이터 형식)으로 변환하는 방법을 보여 줍니다.
@@ -144,8 +144,8 @@ ms.locfileid: "71064342"
 | InputClaim | firstDateTime | dateTime | 두 번째 dateTime보다 이전인지 또는 나중인지를 비교할 첫 번째 dateTime입니다. null 값은 예외를 throw합니다. |
 | InputClaim | secondDateTime | dateTime | 첫 번째 dateTime보다 이전인지 또는 나중인지를 비교할 두 번째 dateTime입니다. Null 값은 현재 datetTime로 처리됩니다. |
 | InputParameter | 적용한 후 | string | same(같음), later than(보다 이후) 또는 earlier than(보다 이전) 값 중 하나입니다. |
-| InputParameter | timeSpanInSeconds | ssNoversion | 첫 번째 datetime에 시간 간격을 추가합니다. |
-| OutputClaim | result | boolean | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
+| InputParameter | timeSpanInSeconds | int | 첫 번째 datetime에 시간 간격을 추가합니다. |
+| OutputClaim | 결과 | boolean | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
 
 이 클레임 변환을 사용하여 두 ClaimTypes가 서로 같은지, 하나가 더 나중인지 또는 이전인지를 확인합니다. 예를 들어 사용자가 TOS(서비스 약관)에 마지막으로 동의한 시간을 저장할 수 있습니다. 3개월 후 사용자에게 TOS에 다시 액세스하도록 요청할 수 있습니다.
 클레임 변환을 실행하려면 먼저 현재 dateTime 및 사용자가 TOS에 마지막으로 동의한 시간을 가져와야 합니다.

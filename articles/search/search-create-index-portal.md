@@ -1,25 +1,25 @@
 ---
 title: Azure Portal에서 Azure Search 인덱스 만들기 - Azure Search
-description: 기본 제공 포털 인덱스 디자이너를 사용하여 Azure Search에 대한 인덱스를 만드는 방법을 알아봅니다.
+description: 기본 제공 포털 인덱스 디자이너를 사용 하 여 Azure Search에 대 한 인덱스를 만드는 방법에 대해 알아봅니다.
 manager: nitinme
 author: heidisteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/16/2019
+ms.date: 10/02/2019
 ms.author: heidist
-ms.openlocfilehash: fec81cd9660348d492b1dabd24ac689f2b06e880
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 4abef5a3030643d4c7b91d2911f350190972f1eb
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638821"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937276"
 ---
 # <a name="create-an-azure-search-index-in-the-portal"></a>포털에서 Azure Search 인덱스 만들기
 
-Azure Search는 프로토타입이나 Azure Search 서비스에서 호스트되는 [검색 인덱스](search-what-is-an-index.md)를 만드는 데 유용한 기본 제공 인덱스 디자이너를 포털에 포함합니다. 이 도구는 스키마 생성에 사용됩니다. 정의를 저장하면 빈 인덱스가 Azure Search에서 완전히 표현됩니다. 검색 가능한 데이터로 로드하는 방식은 사용자가 정합니다.
+Azure Search는 프로토타입이나 Azure Search 서비스에서 호스트되는 [검색 인덱스](search-what-is-an-index.md)를 만드는 데 유용한 기본 제공 인덱스 디자이너를 포털에 포함합니다. 이 도구는 스키마 생성에 사용됩니다. 정의를 저장하면 빈 인덱스가 Azure Search에서 완전히 표현됩니다. 검색 가능한 콘텐츠로 부하를 로드 하는 방법은 사용자가 결정 합니다.
 
-인덱스 디자이너는 인덱스를 만들기 위한 유일한 방법입니다. 프로그래밍 방식으로 [.NET](search-create-index-dotnet.md) 또는 [REST](search-create-index-rest-api.md) API를 사용하여 인덱스를 만들 수 있습니다.
+인덱스 디자이너는 인덱스를 만들기 위한 유일한 방법입니다. 또는 [데이터 가져오기 마법사](search-get-started-portal.md)를 사용 하 여 인덱스를 만들고 로드할 수 있습니다. 마법사는 자신이 만든 인덱스에 대해서만 작동 합니다. 프로그래밍 방식으로 [.NET](search-create-index-dotnet.md) 또는 [REST](search-create-index-rest-api.md) API를 사용하여 인덱스를 만들 수 있습니다.
 
 ## <a name="start-index-designer"></a>인덱스 디자이너 시작
 
@@ -41,15 +41,17 @@ Azure Search는 프로토타입이나 Azure Search 서비스에서 호스트되�
 
 1. 업로드할 문서를 완전히 지정하는 필드를 추가하고 각 필드의 [데이터 형식](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)을 설정합니다. 예를 들어 문서가 *hotel-id*, *hotel-name*, *address*, *city* 및 *region*으로 구성된 경우 인덱스에 각 항목의 해당 필드를 만듭니다. 특성 설정에 대한 도움말은 [아래 섹션의 디자인 지침](#design)을 참조하세요.
 
-2. Edm.String 형식의 *key* 필드를 지정합니다. 이 필드의 값은 각 문서를 고유하게 식별해야 합니다. 기본적으로 필드 이름은 *id*로 지정되지만 문자열이 [명명 규칙](https://docs.microsoft.com/rest/api/searchservice/Naming-rules)을 충족하기만 하면 이름을 변경할 수 있습니다. 예를 들어 필드 컬렉션에 *hotel-id*가 포함된 경우 해당 필드를 키로 선택합니다. 키 필드는 모든 Azure Search 인덱스에 필수이며 문자열이어야 합니다.
+1. 들어오는 데이터가 계층적 이면 스키마에 중첩 된 구조를 나타내는 [복합 형식이](search-howto-complex-data-types.md) 포함 되어야 합니다. 기본 제공 샘플 데이터 집합 호텔은 각 호텔에 대해 일 대 일 관계를 갖는 주소 (여러 개의 하위 필드 포함)를 사용 하는 복합 형식을 보여 주며, 대화방 복합 컬렉션은 여러 개의 대화방에 연결 되어 있습니다. 
 
-3. 각 필드의 특성을 설정합니다. 인덱스 디자이너는 데이터 형식에 유효하지 않은 모든 특성을 제외하지만 포함할 특성을 제안하지는 않습니다. 특성의 용도를 파악하려면 다음 섹션의 지침을 참조하세요.
+1. Edm.String 형식의 *key* 필드를 지정합니다. 키 필드는 모든 Azure Search 인덱스에 필수이며 문자열이어야 합니다. 이 필드의 값은 각 문서를 고유하게 식별해야 합니다. 기본적으로 필드 이름은 *id*로 지정되지만 문자열이 [명명 규칙](https://docs.microsoft.com/rest/api/searchservice/Naming-rules)을 충족하기만 하면 이름을 변경할 수 있습니다. 예를 들어 필드 컬렉션에 *hotel-id*가 포함된 경우 해당 필드를 키로 선택합니다. 
+
+1. 각 필드의 특성을 설정합니다. 인덱스 디자이너는 데이터 형식에 유효하지 않은 모든 특성을 제외하지만 포함할 특성을 제안하지는 않습니다. 특성의 용도를 파악하려면 다음 섹션의 지침을 참조하세요.
 
     Azure Search API 설명서에는 간단한 *호텔* 인덱스를 제공하는 코드 예제가 들어 있습니다. 아래 스크린샷에서는 인덱스 정의 중에 지정된 프랑스어 분석기를 포함한 인덱스 정의를 확인할 수 있으며, 포털에서 연습으로 다시 만들 수 있습니다.
 
     ![Hotels 데모 인덱스](media/search-create-index-portal/field-definitions.png "Hotels 데모 인덱스")
 
-4. 완료되면 **만들기**를 클릭하여 인덱스를 저장하고 만듭니다.
+1. 완료되면 **만들기**를 클릭하여 인덱스를 저장하고 만듭니다.
 
 <a name="design"></a>
 
@@ -78,7 +80,7 @@ Azure Search 인덱스를 만든 후에는 [검색 가능한 데이터를 인덱
 
 또는 [인덱스를 보다 자세히 살펴볼](search-what-is-an-index.md) 수도 있습니다. 필드 컬렉션 외에도 인덱스는 분석기, 확인기, 점수 매기기 프로필 및 CORS 설정도 지정합니다. 포털은 필드, 분석기 및 확인기와 같은 가장 일반적인 요소를 정의하기 위한 탭 페이지를 제공합니다. 다른 요소를 만들거나 수정하려면 REST API 또는 .NET SDK를 만들면 됩니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
  [전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)  
  [Search 서비스 REST API](https://docs.microsoft.com/rest/api/searchservice/) [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)

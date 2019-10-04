@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/05/2019
+ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 4bc4e8e02c5b44c63ee531a295f2b59e91c056bd
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 85e1ebc05ad4ebe1d58716981c0688df0126efb0
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900460"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937236"
 ---
 # <a name="azure-best-practices-for-network-security"></a>네트워크 보안에 대 한 Azure 모범 사례
 이 문서에서는 네트워크 보안을 향상 시키기 위한 Azure 모범 사례 모음을 설명 합니다. 이러한 모범 사례는 Azure 네트워킹에 대한 Microsoft의 경험 그리고 여러분 같은 고객의 경험에서 얻은 것입니다.
@@ -63,7 +63,7 @@ Azure 가상 네트워크는 온-프레미스 네트워크의 Lan과 비슷합�
 **모범 사례**: 간단한 가상 네트워크 및 서브넷을 사용 하지 말고 단순성과 유연성을 확보 하세요.   
 **세부 정보**: 대부분의 조직에서는 처음에 계획 된 것 보다 많은 리소스를 추가 하 고 주소를 다시 할당 하는 것은 노동 집약적입니다. 작은 서브넷을 사용 하면 제한 된 보안 값이 추가 되 고, 네트워크 보안 그룹을 각 서브넷에 매핑하면 오버 헤드가 증가 합니다. 유연 하 게 확장할 수 있도록 서브넷을 광범위 하 게 정의 합니다.
 
-**모범 사례**: [응용 프로그램 보안 그룹](https://docs.microsoft.com/rest/api/virtualnetwork/applicationsecuritygroups)을 정의 하 여 네트워크 보안 그룹 규칙 관리를 간소화 합니다.  
+**모범 사례**: [응용 프로그램 보안 그룹](https://azure.microsoft.com/blog/applicationsecuritygroups/)을 정의 하 여 네트워크 보안 그룹 규칙 관리를 간소화 합니다.  
 **세부 정보**: 나중에 변경 될 수 있거나 많은 네트워크 보안 그룹에서 사용 될 것으로 생각 되는 IP 주소 목록에 대 한 응용 프로그램 보안 그룹을 정의 합니다. 응용 프로그램 보안 그룹의 이름을 명확 하 게 파악 하 여 다른 사용자가 콘텐츠와 목적을 이해할 수 있도록 해야 합니다.
 
 ## <a name="adopt-a-zero-trust-approach"></a>제로 신뢰 접근 방법 도입

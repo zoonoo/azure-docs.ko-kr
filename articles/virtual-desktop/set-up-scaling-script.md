@@ -5,16 +5,16 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: f0d847596ef21af67973b6572737e27e1d015991
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 932fbe6814df8ec324dd3360bcacfcbcf1c19b62
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676482"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71842780"
 ---
-# <a name="automatically-scale-session-hosts"></a>세션 호스트 자동 크기 조정
+# <a name="scale-session-hosts-dynamically"></a>동적으로 세션 호스트 크기 조정
 
 Azure의 많은 Windows 가상 데스크톱 배포의 경우 가상 머신 비용은 전체 Windows 가상 데스크톱 배포 비용의 상당 부분을 나타냅니다. 비용을 줄이려면 사용량이 적은 시간에 세션 호스트 Vm (가상 머신)을 종료 하 고 할당을 취소 한 다음 사용량이 가장 많은 시간에 다시 시작 하는 것이 가장 좋습니다.
 

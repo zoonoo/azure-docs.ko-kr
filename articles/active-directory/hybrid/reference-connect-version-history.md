@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2019
+ms.date: 10/2/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7555dc44e533945d360a3d2e4120f71f953a6d2
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: e6776d7ff21599a1cfab47fd0e4ab0fbef5d3d8c
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709350"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827094"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -42,6 +42,17 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 >새 버전의 Azure AD Connect 릴리스는 서비스의 작업 기능을 보장 하기 위해 몇 가지 품질 제어 단계가 필요 하며,이 프로세스를 진행 하는 동안 새 릴리스의 버전 번호와 릴리스 상태를 업데이트 하는 프로세스입니다. 최신 상태를 반영 합니다.
 이 프로세스를 진행 하는 동안 릴리스 버전 번호는 "1.3. X. 0"과 같이 부 릴리스 번호 위치에 "X"가 표시 됩니다 .이는이 문서의 릴리스 정보가 "1.3"로 시작 하는 모든 버전에 대해 유효 함을 나타냅니다. 릴리스 프로세스를 완료 하는 즉시 릴리스 버전 번호는 가장 최근에 릴리스된 버전으로 업데이트 되 고 릴리스 상태는 "다운로드 및 자동 업그레이드를 위해 릴리스"로 업데이트 됩니다.
 일부 버전의 Azure AD Connect는 자동 업그레이드에 사용할 수 있습니다. 릴리스 상태는 릴리스가 자동 업그레이드 또는 다운로드에만 사용할 수 있는지 여부를 나타냅니다. 자동 업그레이드가 Azure AD Connect 서버에서 활성화된 경우 해당 서버는 자동으로 자동 업그레이드용으로 릴리스되는 최신 버전의 Azure AD Connect로 업그레이드됩니다. 일부 Azure AD Connect 구성을 자동 업그레이드에 사용할 수 있습니다. [자동 업그레이드](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)에 대한 자세한 내용은 이 링크 참조
+
+## <a name="14250"></a>1.4.25.0
+
+### <a name="release-status"></a>릴리스 상태
+9/28/2019: 자동 업그레이드를 위해 배포 하 여 테 넌 트를 선택 합니다. 다운로드에 사용할 수 없습니다.
+
+이 버전은 SSPR (셀프 서비스 암호 재설정) 및 비밀 번호 쓰기 저장과 관련 된 문제가 1.4.18.0 이전 버전에서 자동으로 업그레이드 된 일부 서버를 수정 하는 버그를 수정 합니다.
+
+### <a name="fixed-issues"></a>해결된 문제
+
+특정 상황에서 1.4.18.0 버전으로 자동 업그레이드 된 서버는 업그레이드가 완료 된 후 셀프 서비스 암호 재설정 및 비밀 번호 쓰기 저장을 다시 사용 하도록 설정 하지 않았습니다. 이 자동 업그레이드 릴리스는 해당 문제를 해결 하 고 셀프 서비스 암호 재설정 및 비밀 번호 쓰기 저장을 다시 사용 하도록 설정 합니다.
 
 ## <a name="14180"></a>1.4.18.0
 

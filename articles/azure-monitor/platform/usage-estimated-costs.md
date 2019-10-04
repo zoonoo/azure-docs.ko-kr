@@ -9,22 +9,19 @@ ms.date: 04/18/2019
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 7117e7287f601b306893cb02dc5d7599d7c6224d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 787618b59cd18dd4c38892ddf0861808211671cb
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60453831"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936615"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Azure Monitor의 모니터링 사용량 및 예상 비용
 
 > [!NOTE]
-> 이 문서에서는 다른 가격 책정 모델에 대해 여러 Azure 모니터링 기능에서 사용량 및 예상 비용을 보는 방법을 설명합니다.  관련 정보에 대해서는 다음 문서를 참조하세요.
-> - [Log Analytics에서 데이터 볼륨 및 보존을 제어하여 비용 관리](manage-cost-storage.md)에서는 데이터 보존 기간을 변경하여 비용을 제어하는 방법을 설명합니다.
-> - [Log Analytics에서 데이터 사용 현황 분석](../../azure-monitor/platform/data-usage.md)에서는 데이터 사용량을 분석 및 경고하는 방법을 설명합니다.
-> - [Application Insights에서 가격 책정 및 데이터 볼륨 관리](../../azure-monitor/app/pricing.md)에서는 Application Insights에서 데이터 사용량을 분석하는 방법을 설명합니다.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+> 이 문서에서는 다양 한 가격 책정 모델에 대 한 여러 Azure 모니터링 기능에서 사용량 및 예상 비용을 보는 방법을 설명 합니다. Azure Monitor의 특정 구성 요소에 대 한 관련 문서는 다음과 같습니다.
+> - [Azure Monitor 로그를 사용 하 여 사용량 및 비용 관리](manage-cost-storage.md) 데이터 보존 기간을 변경 하 여 비용을 제어 하는 방법 및 데이터 사용량을 분석 하 고 경고 하는 방법을 설명 합니다.
+> - [Application Insights에 대 한 사용량 및 비용 관리](../../azure-monitor/app/pricing.md) Application Insights에서 데이터 사용량을 분석 하는 방법을 설명 합니다.
 
 Azure Portal의 모니터 허브에서 **사용량 및 예상 비용** 페이지는 [경고, 메트릭, 알림](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) 및 [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/) 등과 같은 핵심 모니터링 기능의 사용량을 설명합니다. 2018년 4월 이전 제공된 요금제 고객의 경우 Insights 및 Analytics 제안을 통해 구매한 Log Analytics 사용량도 여기에 포함됩니다.
 
@@ -42,9 +39,11 @@ Azure Portal의 모니터 허브에서 **사용량 및 예상 비용** 페이지
 
 ![사용량 및 예상 비용 포털 스크린 샷 - 2018년 4월 가격 책정](./media/usage-estimated-costs/003.png)
 
-## <a name="new-pricing-model"></a>새 가격 책정 모델
+## <a name="pricing-model"></a>가격 책정 모델
 
-2018년 4월, [새 모니터링 가격 책정 모델이 릴리스되었습니다](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/).  이 모델은 클라우드 기반이며 사용을 기준으로 한 가격 책정이라는 특징이 있습니다. 노드 기반 약정 없이 사용한 양만큼만 결제합니다. [경고, 메트릭, 알림](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) 및 [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/)에 대해 새 가격 책정 모델의 세부 정보를 제공합니다. 
+2018년 4월, [새 모니터링 가격 책정 모델이 릴리스되었습니다](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/).  이 기능을 통해 클라우드를 편리 하 게 사용할 수 있습니다 ("종 량 제"). 노드 기반 약정 없이 사용한 양만큼만 결제합니다. [경고, 메트릭, 알림](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) 및 [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/)에 대해 새 가격 책정 모델의 세부 정보를 제공합니다. 
+
+종 량 제 모델 외에도 9 월 2019에는 종 량 제 가격과 비교 하 여 25%를 절약할 수 있도록 하는 Log Analytics에 대 한 용량 예약이 추가 되었습니다. 용량 예약 가격 책정을 통해 100 g b/일에 시작 하는 예약을 구매할 수 있습니다. 예약 수준 위의 모든 사용량은 종 량 제 요금으로 청구 됩니다. 용량 예약 가격 책정에 [대해 자세히 알아보세요](https://azure.microsoft.com/pricing/details/monitor/) .
 
 2018년 4월 2일 이후 Log Analytics 또는 Application Insights에 가입한 고객의 경우 새 가격 책정 모델만 선택할 수 있습니다. 이 서비스를 이미 사용하던 고객의 경우 새 가격 책정 모델로의 전환이 선택 사항입니다.
 
@@ -102,14 +101,13 @@ Microsoft Operations Management Suite E1 및 E2를 구매한 고객은 [Log Anal
 
 ## <a name="moving-to-the-new-pricing-model"></a>새 가격 책정 모델로 전환
 
-지정 된 구독의 새 가격 책정 모델을 채택 하기로 한 경우 각 Application Insights 리소스를 열기로 이동 합니다 **사용량 및 예상된 비용** 가격 책정 계층에 기본에서 되지 않는지 확인 수 및 각 Log Analytics로 이동 작업 영역, 열린 각 합니다 **가격 책정 계층** 페이지 및 변경 된 **GB 당 (2018)** 가격 책정 계층. 
+지정 된 구독에 대 한 새 가격 책정 모델을 채택 하기로 결정 한 경우 각 Application Insights 리소스로 이동 하 여 **사용량 및 예상 비용** 을 열고 기본 가격 책정 계층에 있는지를 결정 한 다음 각 Log Analytics 작업 영역으로 이동 하 여 **각 작업 영역을 엽니다. 가격 책정 계층** 페이지 및 **GB 당 (2018)** 가격 책정 계층으로 변경 합니다. 
 
 > [!NOTE]
-> 모든 Application Insights 리소스 및 지정된 된 구독 내에서 Log Analytics 작업 영역에는 최신 가격 책정 모델을 채택 하는 요구 사항 이제 제거 된 큰 유연성 및 좀 더 간편한 구성을 허용 합니다. 
+> 지정 된 구독 내에서 모든 Application Insights 리소스 및 Log Analytics 작업 영역이 최신 가격 책정 모델을 채택 하 여 이제는 더 큰의 기능을 제공 하 고 더 쉽게 구성할 수 있습니다. 
 
 ## <a name="automate-moving-to-the-new-pricing-model"></a>새 가격 책정 모델로 전환 자동화
 
-위에서 설명 했 듯이 동시에, 새 가격 책정 모델로 구독에서 모든 모니터링 리소스를 이동 하는 요구 사항이 없는 이므로 ``migratetonewpricingmodel`` 작업의 영향을 주지 더 이상. 이제 이동할 수 있습니다 Application Insights 리소스 및 Log Analytics 작업 영역 별도로 최신 가격 책정 계층에 있습니다.  
+위에서 언급 한 것 처럼는 더 이상 구독의 모든 모니터링 리소스를 새 가격 책정 모델로 이동 하는 요구 사항이 아니므로 ``migratetonewpricingmodel`` 동작은 더 이상 영향을 주지 않습니다. 이제 Application Insights 리소스 및 Log Analytics 작업 영역을 최신 가격 책정 계층으로 개별적으로 이동할 수 있습니다.  
 
-Application insights를 사용 하 여이 변경을 자동화 설명 되어 있습니다 [집합 AzureRmApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/set-azurermapplicationinsightspricingplan) 사용 하 여 ``-PricingPlan "Basic"`` Log Analytics를 사용 하 여 및 [집합-AzureRmOperationalInsightsWorkspace](https://docs.microsoft.com/powershell/module/AzureRM.OperationalInsights/Set-AzureRmOperationalInsightsWorkspace) 사용 하 여 ``-sku "PerGB2018"``입니다. 
-
+이 변경 내용 자동화는 ``-PricingPlan "Basic"``과 함께 [AzureRmApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/set-azurermapplicationinsightspricingplan) 를 사용 하는 Application Insights에 대해 설명 하 고 [new-azurermoperationalinsightsworkspace](https://docs.microsoft.com/powershell/module/AzureRM.OperationalInsights/Set-AzureRmOperationalInsightsWorkspace) 를 ``-sku "PerGB2018"``과 함께 사용 하 여 Log Analytics 합니다. 

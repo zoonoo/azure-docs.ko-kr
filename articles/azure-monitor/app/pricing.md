@@ -11,26 +11,25 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 09/30/2019
+ms.date: 10/03/2019
 ms.author: dalek
-ms.openlocfilehash: 448469d4c1ff15ed2ba814dfaa653c4d3c7e3452
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3e0bdd42ea19b7029d3f3df4ff9a5a275aec0271
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677809"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936692"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
 > [!NOTE]
-> 이 문서에서는 데이터 사용량 Application Insights를 분석하는 방법을 설명합니다.  관련 정보는 다음 문서를 참조하세요.
-> - [사용량 및 예상 비용 모니터링](../../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md)에서는 다른 가격 책정 모델에 대해 여러 Azure 모니터링 기능에서 사용량 및 예상 비용을 보는 방법을 설명합니다. 또한 가격 책정 모델을 변경하는 방법을 설명합니다.
+> 이 문서에서는 Application Insights에 대 한 비용을 이해 하 고 제어 하는 방법을 설명 합니다.  관련 문서, [사용량 및 예상 비용 모니터링](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs) 은 다양 한 가격 책정 모델에 대 한 여러 Azure 모니터링 기능에서 사용량 및 예상 비용을 보는 방법을 설명 합니다.
 
 Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있으면 [포럼](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights)에 질문을 게시할 수 있습니다.
 
 ## <a name="pricing-model"></a>가격 책정 모델
 
-[Azure 애플리케이션 Insights][start] 의 가격은 데이터 볼륨 수집을 기반으로 하며, 필요에 따라 데이터를 더 오래 보존 합니다. 각 Application Insights 리소스는 별도의 서비스로 요금이 부과되고 Azure 구독에 대한 청구서에 추가됩니다.
+[Azure 애플리케이션 Insights][start] 에 대 한 가격은 데이터 볼륨 수집을 기반으로 하는 종 량 제 모델 이며 필요에 따라 데이터를 더 길게 보존 합니다. 각 Application Insights 리소스는 별도의 서비스로 요금이 부과되고 Azure 구독에 대한 청구서에 추가됩니다. 
 
 ### <a name="data-volume-details"></a>데이터 볼륨 세부 정보
 
@@ -46,6 +45,22 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 [다중 단계 웹 테스트](../../azure-monitor/app/availability-multistep.md)는 추가 요금이 발생합니다. 다중 단계 웹 테스트는 일련의 작업을 수행하는 웹 테스트입니다.
 
 단일 페이지의 *ping 테스트*에 대해 별도의 요금이 부과되지 않습니다. ping 테스트와 다중 단계 테스트의 원격 분석은 앱의 다른 원격 분석과 동일하게 청구됩니다.
+
+## <a name="estimating-the-costs-to-manage-your-application"></a>응용 프로그램을 관리 하는 비용 예측 
+
+Application Insights를 아직 사용 하지 않는 경우 [Azure Monitor 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=monitor) 를 사용 하 여 Application Insights를 사용 하는 비용을 예측할 수 있습니다. 검색 상자에 "Azure Monitor"를 입력 하 고 결과 Azure Monitor 타일을 클릭 하 여 시작 합니다. 페이지 아래쪽으로 스크롤하여 Azure Monitor 하 고 유형 드롭다운에서 Application Insights를 선택 합니다.  여기에서 매월 수집할 데이터의 GB 수를 입력할 수 있으므로 응용 프로그램 모니터링 Application Insights 수집 하는 데이터의 양에 대 한 질문입니다. 
+
+이를 해결 하는 방법은 두 가지입니다. ASP.NET SDK에서 제공 되는 기본 모니터링 및 적응 샘플링을 사용 하거나, 다른 유사한 고객에 따라 데이터 수집을 estimtate 합니다. 
+
+### <a name="data-collection-when-using-sampling"></a>샘플링을 사용 하는 경우 데이터 수집
+
+ASP.NET SDK의 [적응 샘플링](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications)을 사용 하 여 기본 Application Insights 모니터링을 위해 지정 된 최대 트래픽 속도로 유지 되도록 데이터 볼륨을 자동으로 조정 합니다. 응용 프로그램에서 디버깅 또는 사용량이 낮은 경우와 같이 낮은 원격 분석을 생성 하는 경우 볼륨이 구성 된 초당 이벤트 수준 미만인 경우 샘플링 프로세서에 의해 항목이 삭제 되지 않습니다. 높은 볼륨 응용 프로그램의 경우 초당 기본 임계값이 5 인 이벤트의 경우 적응 샘플링은 일별 이벤트 수를 432000 개로 제한 합니다. 일반적인 평균 이벤트 크기인 1kb를 사용 하는 경우이는 응용 프로그램을 호스트 하는 노드당 31 일에 해당 하는 원격 분석 13.4에 해당 합니다. 샘플링은 각 노드에 대해 로컬에서 수행 되기 때문입니다. 
+
+적응 샘플링을 지원 하지 않는 Sdk의 경우 유지할 데이터의 백분율 또는 [ASP.NET, ASP.NET Core 및 Java에 대 한 고정 비율 샘플링을 기준으로 Application Insights에서 데이터를 receved 하는 경우를 샘플링 하는 [수집 샘플링) [https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling ]을 사용할 수 있습니다. ](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites)웹 서버 및 웹 브라우저에서 전송 되는 트래픽을 줄일 수 있는 웹 사이트
+
+### <a name="learn-from-what-similar-customers-collect"></a>비슷한 고객이 수집 하는 내용 살펴보기
+
+Application Insights에 대 한 Azure 모니터링 가격 계산기에서 "응용 프로그램 활동을 기반으로 데이터 볼륨 추정" 기능을 사용 하도록 설정 하면 응용 프로그램에 대 한 입력 (월별 요청 및 월별 페이지 보기)을 제공할 수 있습니다. 경우에 따라 클라이언트 쪽 원격 분석을 수집 하 고 계산기는 비슷한 응용 프로그램에 의해 수집 된 데이터의 중앙값 및 90 번째 백분위 수를 알려 줍니다. 물론 이러한 기능을 사용 하 여 Application Insights 구성의 범위를 확장 합니다 (예: 기본 [샘플링](../../azure-monitor/app/sampling.md), 일부는 샘플링 등). 따라서 샘플링을 사용 하 여 더 낮은 수준 아래로 수집 하는 데이터의 양을 줄이는 컨트롤이 있습니다. 그러나 다른 유사한 고객이 볼 수 있는 것을 이해 하기 위한 출발점입니다. 
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>사용량 및 예상 비용 이해
 
@@ -64,6 +79,12 @@ Application Insights 사용량을 보다 자세히 조사하려면 **메트릭**
 Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구서의 자세한 내용은 Azure Portal의 **청구** 섹션 또는 [Azure 청구 포털](https://account.windowsazure.com/Subscriptions)에서 참고할 수 있습니다. 
 
 ![왼쪽 메뉴에서 청구를 선택합니다.](./media/pricing/02-billing.png)
+
+## <a name="viewing-application-insights-usage-on-your-azure-bill"></a>Azure 청구서에서 Application Insights 사용량 보기 
+
+Azure는 [Azure Cost Management + 청구](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) 허브에서 상당한 유용한 기능을 제공 합니다. 예를 들어 "비용 분석" 기능을 사용 하 여 Azure 리소스에 대 한 소비를 확인할 수 있습니다. 리소스 유형별 필터를 추가 하 여 (Application Insights의 경우 microsoft. insights/구성 요소에) 지출 추적을 볼 수 있습니다.
+
+[Azure Portal에서 사용량을 다운로드](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal)하 여 사용 현황을 더 자세히 파악할 수 있습니다. 다운로드 한 스프레드시트에서 일별 Azure 리소스 별 사용량을 볼 수 있습니다. 이 Excel 스프레드시트에서는 먼저 "측정기 범주" 열을 필터링 하 여 "Application Insights" 및 "Log Analytics"를 표시 한 다음 "contains" 라는 "Instance ID" 열에 필터를 추가 하 여 Application Insights 리소스를 사용 하 여 찾을 수 있습니다. microsoft.  모든 Azure Monitor 구성 요소에 대 한 단일 로그 백 엔드가 있기 때문에 대부분의 Application Insights 사용량은 Log Analytics 측정기 범주를 사용 하 여 미터에 보고 됩니다.  레거시 가격 책정 계층 및 다단계 웹 테스트에 대 한 Application Insights 리소스만 Application Insights 측정기 범주를 사용 하 여 보고 됩니다.  사용량은 "소비 된 수량" 열에 표시 되 고 각 항목에 대 한 단위는 "측정 단위" 열에 표시 됩니다.  [Microsoft Azure 청구서를 이해](https://docs.microsoft.com/azure/billing/billing-understand-your-bill)하는 데 도움이 되는 자세한 정보를 제공 합니다. 
 
 ## <a name="managing-your-data-volume"></a>데이터 볼륨 관리 
 
@@ -156,16 +177,15 @@ Application Insights 사용량 및 예상 비용을 검토 하 여 데이터 수
 
 ## <a name="change-the-data-retention-period"></a>데이터 보존 기간 변경
 
-> [!NOTE]
-> 가능한 문제를 해결 하는 동안이 기능을 일시적으로 제거 했습니다.  2019 년 10 월에 첫 번째 주에 다시 제공 됩니다.
-
 Application Insights 리소스에 대 한 기본 보존 기간은 90 일입니다. 각 Application Insights 리소스에 대해 서로 다른 보존 기간을 선택할 수 있습니다. 사용 가능한 보존 기간의 전체 집합은 30, 60, 90, 120, 180, 270, 365, 550 또는 730 일입니다. 
 
 보존 기간을 변경 하려면 Application Insights 리소스에서 **사용량 및 예상 비용** 페이지로 이동 하 여 **데이터 보존** 옵션을 선택 합니다.
 
 ![일별 원격 분석 볼륨 한도 조정](./media/pricing/pricing-005.png)
 
-더 긴 보존을 위해 대금 청구를 사용 하도록 설정 하면 90 일 보다 오래 유지 된 데이터는 현재 Azure Log Analytics 데이터 보존에 대해 청구 되는 것과 동일한 요금으로 청구 됩니다. [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에서 자세히 알아보세요. [이 제안에 투표](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031)하 여 변수 보존 진행률을 최신 상태로 유지 합니다. 
+@No__t-1 매개 변수를 사용 하 여 [ARM을 통해](https://docs.microsoft.com/azure/azure-monitor/app/powershell) 보존을 설정할 수도 있습니다. 또한 데이터 보존 기간을 30 일로 설정 하는 경우 `immediatePurgeDataOn30Days` 매개 변수를 사용 하 여 이전 데이터를 즉시 제거할 수 있습니다 .이는 규정 준수 관련 시나리오에 유용할 수 있습니다. 이 기능은 ARM을 통해서만 노출 됩니다. 
+
+요금은 12 월 2019 일 초기에 더 긴 보존을 위해 시작 될 때 90 일 보다 오래 유지 되는 데이터는 현재 Azure Log Analytics 데이터 보존에 대해 청구 되는 것과 동일한 요금으로 청구 됩니다. [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에서 자세히 알아보세요. [이 제안에 투표](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031)하 여 변수 보존 진행률을 최신 상태로 유지 합니다. 
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Application Insights를 사용 하 여 데이터 전송 요금
 

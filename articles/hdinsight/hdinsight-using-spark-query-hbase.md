@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/06/2019
-ms.openlocfilehash: e6b3fc4f9badeedbed55f89702933b41a952977b
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.date: 10/02/2019
+ms.openlocfilehash: fdfd026be1a10410cd7c875dbdf0de9660c8412c
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180807"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937628"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Apache Spark를 사용하여 Apache HBase 데이터 읽기 및 쓰기
 
@@ -25,7 +25,7 @@ Apache HBase는 일반적으로 낮은 수준의 API(scans, gets, puts) 또는 A
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-* 클러스터 기본 스토리지에 대한 [URI 체계](hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. 이는 Azure Data Lake Storage Gen1에 대 한 Azure Data Lake Storage Gen2 또는 adl://에 대 한 Azure Blob Storage, abfs://에 대 한 wasb://입니다. Blob Storage에 대해 보안 전송이 사용 되는 경우 URI `wasbs://`는입니다.  또한 [보안 전송](../storage/common/storage-require-secure-transfer.md)을 참조 하세요.
+* 클러스터 기본 스토리지에 대한 [URI 체계](hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. 이는 Azure Data Lake Storage Gen1에 대 한 Azure Data Lake Storage Gen2 또는 adl://에 대 한 Azure Blob Storage, abfs://에 대 한 wasb://입니다. Blob Storage에 대해 보안 전송이 사용 되는 경우 URI `wasbs://`는입니다.  [보안 전송](../storage/common/storage-require-secure-transfer.md)도 참조하세요.
 
 ## <a name="overall-process"></a>전체 프로세스
 
@@ -144,7 +144,7 @@ hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CON
     |}""".stripMargin
     ```
 
-    이 코드는 다음을 수행 합니다.  
+    코드는 다음을 수행합니다.  
 
      a. 이름이 `Contacts`인 HBase 테이블에 대한 카탈로그 스키마를 정의합니다.  
      b. rowkey를 `key`로 식별하고 Spark에서 사용된 열 이름을 HBase에서 사용되는 열 패밀리, 열 이름 및 열 유형으로 매핑합니다.  
@@ -192,8 +192,7 @@ hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CON
 8. `contacts` 테이블에 대해 SQL 쿼리를 실행합니다.
 
     ```scala
-    val query = spark.sqlContext.sql("select personalName, officeAddress from contacts")
-    query.show()
+    spark.sqlContext.sql("select personalName, officeAddress from contacts").show
     ```
 
 9. 다음과 같은 결과가 표시되어야 합니다.

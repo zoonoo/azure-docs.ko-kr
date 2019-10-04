@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 19ccd44888d64967baf82568c1cbb2540f3b3f68
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 75edb385a86be849ec7c165759d3b451eab804f6
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780335"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828520"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric 보안 
 
@@ -152,6 +152,18 @@ user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform de
 
 보호되는 값이 암호화되면 [Service Fabric 애플리케이션에서 암호화된 비밀을 지정](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#specify-encrypted-secrets-in-an-application)하고 [서비스 코드에서 암호화된 비밀을 해독](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#decrypt-encrypted-secrets-from-service-code)합니다.
 
+## <a name="include-certificate-in-service-fabric-applications"></a>Service Fabric 응용 프로그램에 인증서 포함
+
+응용 프로그램에 비밀에 대 한 액세스 권한을 부여 하려면 응용 프로그램 매니페스트에 **SecretsCertificate** 요소를 추가 하 여 인증서를 포함 합니다.
+
+```xml
+<ApplicationManifest … >
+  ...
+  <Certificates>
+    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbrint]"/>
+  </Certificates>
+</ApplicationManifest>
+```
 ## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>MSI(관리 서비스 ID)를 사용하여 Azure 리소스에 Service Fabric 애플리케이션 인증
 
 Azure 리소스에 대한 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-does-it-work)을 참조하세요.
@@ -204,8 +216,8 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 ## <a name="windows-security-baselines"></a>Windows 보안 기준
 [기준을 직접 만드는 것이 아니라 Microsoft 보안 기준과 같이 널리 알려져 있고 잘 테스트 된 업계 표준 구성을 구현 하는 것이 좋습니다](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines). Virtual Machine Scale Sets에서 프로 비전 하는 옵션은 Azure DSC (필요한 상태 구성) 확장 처리기를 사용 하 여 Vm이 온라인 상태가 되 면 프로덕션 소프트웨어를 실행 하는 Vm을 구성 하는 것입니다.
 
-## <a name="azure-firewall"></a>Azure Firewall
-[Azure 방화벽은 Azure Virtual Network 리소스를 보호 하는 관리 되는 클라우드 기반 네트워크 보안 서비스입니다. 기본 제공 되는 고가용성 및 무제한 클라우드 확장성을 갖춘 완전 한 상태 저장 방화벽으로 서의 서비스입니다. ](https://docs.microsoft.com/azure/firewall/overview).이를 통해 와일드 카드를 포함 하 여 지정 된 FQDN (정규화 된 도메인 이름) 목록으로 아웃 바운드 HTTP/S 트래픽을 제한할 수 있습니다. 이 기능에는 SSL 종료가 필요하지 않습니다. Windows 업데이트에 대 한 [Azure 방화벽 FQDN 태그](https://docs.microsoft.com/azure/firewall/fqdn-tags) 를 활용 하 고 Microsoft Windows 업데이트 끝점에 대 한 네트워크 트래픽을 방화벽을 통해 이동할 수 있도록 하는 것이 좋습니다. [템플릿을 사용 하 여 Azure 방화벽 배포](https://docs.microsoft.com/azure/firewall/deploy-template) 리소스 템플릿 정의에 대 한 샘플을 제공 합니다. Service Fabric 응용 프로그램에 공통적인 방화벽 규칙은 클러스터 가상 네트워크에 대해 다음을 허용 하는 것입니다.
+## <a name="azure-firewall"></a>Azure 방화벽
+[Azure 방화벽은 Azure Virtual Network 리소스를 보호 하는 관리 되는 클라우드 기반 네트워크 보안 서비스입니다. 기본 제공 되는 고가용성 및 무제한 클라우드 확장성을 갖춘 완전 한 상태 저장 방화벽 as a service입니다. ](https://docs.microsoft.com/azure/firewall/overview); 이를 통해 와일드 카드를 포함 하 여 지정 된 FQDN (정규화 된 도메인 이름) 목록으로 아웃 바운드 HTTP/S 트래픽을 제한할 수 있습니다. 이 기능에는 SSL 종료가 필요하지 않습니다. Windows 업데이트에 대 한 [Azure 방화벽 FQDN 태그](https://docs.microsoft.com/azure/firewall/fqdn-tags) 를 활용 하 고 Microsoft Windows 업데이트 끝점에 대 한 네트워크 트래픽을 방화벽을 통해 이동할 수 있도록 하는 것이 좋습니다. [템플릿을 사용 하 여 Azure 방화벽 배포](https://docs.microsoft.com/azure/firewall/deploy-template) 리소스 템플릿 정의에 대 한 샘플을 제공 합니다. Service Fabric 응용 프로그램에 공통적인 방화벽 규칙은 클러스터 가상 네트워크에 대해 다음을 허용 하는 것입니다.
 
 - *download.microsoft.com
 - *servicefabric.azure.com

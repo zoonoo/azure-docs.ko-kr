@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 2a707eda6a7e32a95666dd70e196c8da3c3b7834
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 6f5472e42b7ef43123698f01ee76fb0e691aa45e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815937"
+ms.locfileid: "71827795"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 데이터 팩터리 경고 및 모니터링
 
@@ -472,7 +472,7 @@ Azure Data Factory 버전 2는 다음 메트릭을 내보냅니다.
 * _Azure 진단_ 모드에서 진단 로그는 _azurediagnostics_ 테이블로 흐릅니다.
 
 > [!NOTE]
-> Azure 로그 테이블에는 500 개 이상의 열을 사용할 수 없기 때문에 리소스 특정 모드를 선택 하는 것이 좋습니다. 자세한 내용은 [Log Analytics 알려진 제한 사항](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics)을 참조 하세요.
+> Azure 로그 테이블에는 500 개 이상의 열을 사용할 수 없기 때문에 리소스 특정 모드를 선택 하는 것이 좋습니다. 자세한 내용은 [Log Analytics 알려진 제한 사항](../azure-monitor/platform/resource-logs-collect-workspace.md#column-limit-in-azurediagnostics)을 참조 하세요.
 
 ### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>Azure Marketplace에서 Azure Data Factory Analytics 설치
 

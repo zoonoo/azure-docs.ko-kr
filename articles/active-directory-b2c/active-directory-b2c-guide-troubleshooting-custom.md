@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5dee0ef768180057452a232436fc295b36fd756c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 4893025b7d54dad1f1da6c5967d3c1dec99b499b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963746"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71826914"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Azure AD B2C 사용자 지정 정책 및 Identity Experience Framework 문제 해결
 
@@ -52,21 +52,19 @@ XML 규칙 검토가 도움이 될 수도 있습니다. Azure AD B2C는 검색�
 
 > 오류 코드 조각: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 
-* `<TrustFrameworkPolicy\>` 및`<BasePolicy\>` 요소의 TenantId 값이 대상 Azure AD B2C 테 넌 트와 일치 하는지 확인 합니다.
+* @No__t-0 및 `<BasePolicy\>` 요소의 TenantId 값이 대상 Azure AD B2C 테 넌 트와 일치 하는지 확인 합니다.
 
 ## <a name="troubleshoot-the-runtime"></a>런타임 문제 해결
 
-* **지금 실행** 을 `https://jwt.ms` 사용 하 여 웹 또는 모바일 응용 프로그램에 관계 없이 정책을 테스트 합니다. 이 웹 사이트는 신뢰 당사자 애플리케이션처럼 작동합니다. Azure AD B2C 정책에 의해 생성된 JWT(JSON Web Token)의 내용을 표시합니다. 테스트 응용 프로그램을 만들려면 Azure Portal에서 **Azure AD B2C** \> **응용** 프로그램으로 이동 하 고 다음 값을 사용 하 여 응용 프로그램을 추가 합니다.
+* **지금 실행** 및 `https://jwt.ms`을 사용 하 여 웹 또는 모바일 응용 프로그램에 관계 없이 정책을 테스트 합니다. 이 웹 사이트는 신뢰 당사자 애플리케이션처럼 작동합니다. Azure AD B2C 정책에 의해 생성 된 JWT (JSON web token)의 콘텐츠를 표시 합니다.
 
-  * **이름**: TestApp
-  * **웹 앱/웹 API**: 아니요
-  * **Native client**: 아니요
+    토큰 검사를 위해 `https://jwt.ms`으로 리디렉션할 수 있는 테스트 응용 프로그램을 만들려면 다음을 수행 합니다.
 
-  그런 다음를 `https://jwt.ms` **회신 URL**로 추가 합니다.
+    [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
 * 클라이언트 브라우저와 Azure AD B2C 간의 메시지 교환을 추적하려면 [Fiddler](https://www.telerik.com/fiddler)를 사용합니다. 오케스트레이션 단계에서 사용자 환경이 실패한 위치를 확인하는 데 도움이 될 수 있습니다.
 
-* [개발 모드](active-directory-b2c-troubleshoot-custom.md)에서 **Application Insights**를 사용하여 Identity Experience Framework 사용자 환경의 활동을 추적합니다. **개발 모드**에서는 id 공급자, API 기반 서비스, Azure AD B2C 사용자와 같은 기술 프로필에 정의 된 다양 한 클레임 공급자와 Id 경험 프레임 워크 간의 클레임 교환을 관찰할 수 있습니다. 디렉터리 및 기타 서비스 (예: Azure Multi-factor Authentication).
+* [개발 모드](active-directory-b2c-troubleshoot-custom.md)에서 **Application Insights**를 사용하여 Identity Experience Framework 사용자 환경의 활동을 추적합니다. **개발 모드**에서는 id 공급자, API 기반 서비스, Azure AD B2C 사용자와 같은 기술 프로필에 정의 된 다양 한 클레임 공급자와 Id 경험 프레임 워크 간의 클레임 교환을 관찰할 수 있습니다. 디렉터리 및 기타 서비스 (예: Azure Multi-Factor Authentication)
 
 ## <a name="recommended-practices"></a>권장 사례
 

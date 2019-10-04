@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f892857d74150ee42cc2ea4b5c996feac3d1cfa2
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 19e1a5f1534d09246ca85029f45ee918ec57e51f
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695625"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828421"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크 확장
 
@@ -133,7 +133,7 @@ ms.locfileid: "68695625"
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. 데이터 디스크가 크기 조정 되었는지 확인 하려면를 사용 `df -h`합니다. 다음 출력 예제에서는 데이터 드라이브( */dev/sdc1*)가 이제 200GB임을 보여 줍니다.
+1. 데이터 디스크가 크기 조정 되었는지 확인 하려면 `df -h`을 사용 합니다. 다음 출력 예제에서는 데이터 드라이브( */dev/sdc1*)가 이제 200GB임을 보여 줍니다.
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on
@@ -142,4 +142,4 @@ ms.locfileid: "68695625"
 
 ## <a name="next-steps"></a>다음 단계
 * 추가 스토리지가 필요하면 [Linux VM에 데이터 디스크를 추가](add-disk.md)할 수도 있습니다. 
-* 디스크 암호화에 대한 자세한 내용은 [Azure CLI를 사용하여 Linux VM에서 디스크 암호화](encrypt-disks.md)를 참조하세요.
+* 디스크 암호화에 대 한 자세한 내용은 [Linux vm에 대 한 Azure Disk Encryption](disk-encryption-overview.md)를 참조 하세요.

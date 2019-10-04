@@ -4,20 +4,20 @@ description: Azure Resource Manager 템플릿에서 연결된 템플릿을 사�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: b48988c04f6b387a8124a812a836e2b92a9d3ada
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 59af553f4080ca86e964b75234e4d812297d8541
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194390"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827343"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
-솔루션을 배포하려면 단일 템플릿 또는 많은 관련 템플릿이 있는 주 템플릿 중 하나를 사용할 수 있습니다. 관련 템플릿은 주 템플릿에 연결된 별도 파일이거나 주 템플릿 내에 중첩된 템플릿일 수 있습니다.
+솔루션을 배포하려면 단일 템플릿 또는 많은 관련 템플릿이 있는 주 템플릿 중 하나를 사용할 수 있습니다. 관련 템플릿은 주 템플릿에서 연결 된 별도의 파일 이거나 주 템플릿 내에 중첩 된 템플릿을 사용할 수 있습니다.
 
-중소기업에게는 단일 템플릿이 더 간편하게 이해하고 유지 관리할 수 있습니다. 모든 리소스 및 값을 단일 파일에서 볼 수 있습니다. 고급 시나리오의 경우 연결된 템플릿을 통해 솔루션을 대상 구상 요소로 분리하고 템플릿을 재사용할 수 있습니다.
+중소기업에게는 단일 템플릿이 더 간편하게 이해하고 유지 관리할 수 있습니다. 모든 리소스 및 값을 단일 파일에서 볼 수 있습니다. 고급 시나리오의 경우 연결 된 템플릿을 사용 하 여 솔루션을 대상 구성 요소로 나눌 수 있습니다. 이러한 템플릿은 다른 시나리오에서 쉽게 다시 사용할 수 있습니다.
 
 연결된 템플릿을 사용할 때는 배포 중에 매개 변수 값을 받는 기본 템플릿을 만듭니다. 기본 템플릿은 연결된 모든 템플릿을 포함하여 필요에 따라 해당 템플릿에 값을 전달합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "70194390"
 > 연결된 템플릿 또는 중첩된 템플릿의 경우 [증분](deployment-modes.md) 배포 모드만 사용할 수 있습니다.
 >
 
-## <a name="link-or-nest-a-template"></a>템플릿 연결 또는 중첩
+## <a name="deployments-resource"></a>배포 리소스
 
 다른 템플릿에 연결하려면 **배포** 리소스를 기본 템플릿에 추가합니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "70194390"
 
 배포 리소스에 제공하는 속성은 외부 템플릿에 연결하는지 또는 기본 템플릿에 인라인 템플릿을 중첩하는지 여부에 따라 달라집니다.
 
-### <a name="nested-template"></a>중첩된 템플릿
+## <a name="nested-template"></a>중첩된 템플릿
 
 템플릿을 주 템플릿 내에 중첩하려면 **template** 속성을 사용하고 템플릿 구문을 지정합니다.
 
@@ -94,9 +94,17 @@ ms.locfileid: "70194390"
 
 중첩된 템플릿에는 표준 템플릿과 [동일한 속성](resource-group-authoring-templates.md)이 필요합니다.
 
-### <a name="external-template-and-external-parameters"></a>외부 템플릿 및 외부 매개 변수
+## <a name="external-template"></a>외부 템플릿
 
-외부 템플릿과 매개 변수 파일에 연결하려면 **templateLink** 및 **parametersLink**를 사용합니다. 템플릿에 연결할 때 Resource Manager 서비스가 해당 템플릿에 액세스할 수 있어야 합니다. 로컬 네트워크에서만 사용 가능한 파일이나 로컬 파일은 지정할 수 없습니다. **http** 또는 **https** 중 하나를 포함하는 URI 값만 제공할 수 있습니다. 한 가지 옵션은 연결된 템플릿을 스토리지 계정에 배치하고 해당 항목의 URI를 사용하는 것입니다.
+외부 템플릿에 연결 하려면 **Templatelink** 속성을 사용 합니다. 로컬 네트워크에서만 사용 가능한 파일이나 로컬 파일은 지정할 수 없습니다. **http** 또는 **https** 중 하나를 포함하는 URI 값만 제공할 수 있습니다. 리소스 관리자는 템플릿에 액세스할 수 있어야 합니다.
+
+한 가지 옵션은 연결된 템플릿을 스토리지 계정에 배치하고 해당 항목의 URI를 사용하는 것입니다.
+
+외부 파일 또는 인라인으로 외부 템플릿에 대 한 매개 변수를 제공할 수 있습니다.
+
+### <a name="external-parameters"></a>외부 매개 변수
+
+외부 매개 변수 파일을 제공 하는 경우 **parametersLink** 속성을 사용 합니다.
 
 ```json
 "resources": [
@@ -105,15 +113,15 @@ ms.locfileid: "70194390"
     "apiVersion": "2018-05-01",
     "name": "linkedTemplate",
     "properties": {
-    "mode": "Incremental",
-    "templateLink": {
+      "mode": "Incremental",
+      "templateLink": {
         "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
         "contentVersion":"1.0.0.0"
-    },
-    "parametersLink": {
+      },
+      "parametersLink": {
         "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
         "contentVersion":"1.0.0.0"
-    }
+      }
     }
   }
 ]
@@ -121,11 +129,11 @@ ms.locfileid: "70194390"
 
 템플릿 또는 매개 변수에 대한 `contentVersion` 속성을 제공하지 않아도 됩니다. 콘텐츠 버전 값을 제공하지 않으면 현재 버전의 템플릿이 배포됩니다. 콘텐츠 버전 값을 제공하는 경우에는 연결된 템플릿의 버전과 일치해야 합니다. 그렇지 않으면 오류와 함께 배포에 실패합니다.
 
-### <a name="external-template-and-inline-parameters"></a>외부 템플릿 및 인라인 매개 변수
+### <a name="inline-parameters"></a>인라인 매개 변수입니다.
 
 또는 매개 변수를 인라인으로 제공할 수 있습니다. 인라인 매개 변수와 매개 변수 파일에 대한 링크를 둘 다 사용할 수는 없습니다. `parametersLink` 및 `parameters`를 둘 다 지정하면 오류를 발생하며 배포가 실패합니다.
 
-기본 템플릿의 값을 연결된 템플릿에 전달하려면 **매개 변수**를 사용합니다.
+기본 템플릿의 값을 연결 된 템플릿에 전달 하려면 **parameters** 속성을 사용 합니다.
 
 ```json
 "resources": [
@@ -269,7 +277,7 @@ ms.locfileid: "70194390"
 }
 ```
 
-다른 리소스 형식과 마찬가지로 연결된 템플릿과 기타 리소스 간에 종속성을 설정할 수 있습니다. 따라서 다른 리소스에 연결된 템플릿의 출력 값이 필요한 경우 연결된 템플릿이 먼지 배포되었는지 확인해야 합니다. 또는 연결된 템플릿이 다른 리소스에 종속될 경우 연결된 템플릿 이전에 다른 리소스가 배포되었는지 확인해야 합니다.
+다른 리소스 형식과 마찬가지로 연결된 템플릿과 기타 리소스 간에 종속성을 설정할 수 있습니다. 다른 리소스에 연결 된 템플릿의 출력 값이 필요한 경우 연결 된 템플릿이 이전에 배포 되었는지 확인 합니다. 또는 연결된 템플릿이 다른 리소스에 종속될 경우 연결된 템플릿 이전에 다른 리소스가 배포되었는지 확인해야 합니다.
 
 다음 예제에서는 공개 IP 주소를 배포하고 리소스 ID를 반환하는 템플릿을 보여 줍니다.
 
@@ -548,7 +556,7 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 
 다음 예제에서는 연결된 템플릿의 일반적인 사용 방법을 보여 줍니다.
 
-|기본 템플릿  |연결된 템플릿 |Description  |
+|기본 템플릿  |연결된 템플릿 |설명  |
 |---------|---------| ---------|
 |[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[연결된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | 연결된 템플릿에서 문자열을 반환합니다. |
 |[공용 IP 주소가 있는 Load Balancer](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[연결된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |연결된 템플릿에서 공용 IP 주소를 반환하고 부하 분산 장치에서 해당 값을 설정합니다. |

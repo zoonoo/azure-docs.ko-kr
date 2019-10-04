@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 90007a82acce0010504bc06e96801869aea4a87a
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 485aad245df7feae4ca4ee2c68a29ff20afb3ece
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673013"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937513"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -33,9 +33,9 @@ Citrix는 사용자 밀도와 성능을 향상 시키고, 주문형 워크 로�
 
 ![VMware 로고](./media/partners/vmware.png)
 
-Microsoft Azure의 VMware 수평 클라우드를 사용 하면 고유한 Microsoft Azure 인스턴스를 직관적이 고 직관적인 규모의 클라우드 제어 평면에 연결 하 여 가상화를 제공 하기 위한 안전 하 고 포괄적인 클라우드 호스팅 솔루션을 만들 수 있습니다. Windows 응용 프로그램 및 데스크톱. Windows 가상 데스크톱의 릴리스와 함께 VMware는 Microsoft와 협력 하 여 Microsoft Azure에 대 한 수평 클라우드를 사용 하는 고객에 게 Windows 가상 데스크톱의 기능을 확장 했습니다.
-
-승인 된 공급자로 서 Microsoft Azure 고객의 VMware 수평 클라우드는 windows 가상 데스크톱의 모든 이점을 누릴 수 있습니다. 예를 들어 windows 10 Enterprise for 다중 세션, Windows 7에는 최대 3 년간의 무료 연장 보안 업데이트 및 FSLogix가 있습니다. 광범위 한 끝점 지원과 같은 모든 최신 엔터프라이즈급 기능 외에도 기능 글로벌, 클라우드 최적화 된 브로커, 유연한 데스크톱 옵션 및 구성, 사용자 환경 관리, 하이브리드 환경에 대 한 지원입니다. 
+Microsoft Azure의 VMware 수평 클라우드를 사용 하면 고유한 Microsoft Azure 인스턴스를 직관적이 고 직관적인 규모의 클라우드 제어 평면에 연결 하 여 가상화를 제공 하기 위한 안전 하 고 포괄적인 클라우드 호스팅 솔루션을 만들 수 있습니다. Windows 응용 프로그램 및 데스크톱. Windows 가상 데스크톱의 릴리스와 함께 VMware는 Microsoft와 협력 하 여 Microsoft Azure에 대 한 수평 클라우드를 사용 하는 고객에 게 Windows 가상 데스크톱의 기능을 확장 했습니다. 이 기능은 2019 끝까지 Tech Preview에서 사용할 수 있습니다.
+ 
+승인 된 공급자로 서 windows 가상 데스크톱의 이점은 다중 세션을 위한 Windows 10 Enterprise를 비롯 하 여 Microsoft Azure 고객의 VMware 수평 클라우드로 확장 될 예정입니다. Windows 7에는 최대 3 년간의 무료 연장 보안 업데이트가 포함 되어 있습니다. FSLogix. 또한 고객은 폭넓은 끝점 지원과 같은 수평 수준의 클라우드 기능을 받게 됩니다. 클라우드 최적화 전역 브로커; 유연한 데스크톱 옵션 및 구성 사용자 환경 관리 하이브리드 환경을 지원 합니다.
 
 - [Microsoft Azure에서 수평 클라우드의 기술 미리 보기에 등록](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html)합니다.
 - [파트너 웹 사이트로 이동](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html)합니다.
@@ -93,7 +93,7 @@ Nerdio는 Windows 가상 데스크톱을 쉽게 배포 하 고 관리할 수 있
 Nerdio는 Azure 리소스를 쉽게 프로 비전 하 고 배포를 간소화할 수 있도록 하 여 Windows 가상 데스크톱의 가치를 확장 합니다. Azure 용 Nerdio를 사용 하면 Windows 가상 데스크톱을 포함 하 여 2 시간 내에 전체 Azure 환경을 자동으로 배포 하 고 관리할 수 있습니다.
 
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh)하세요.
-- [파트너 웹 사이트로 이동](https://getnerdio.com/academy/windows-virtual-desktop-explained-for-msps/)합니다.
+- [파트너 웹 사이트로 이동](https://getnerdio.com/windows-virtual-desktop/)합니다.
 
 ## <a name="thinprint"></a>ThinPrint
 

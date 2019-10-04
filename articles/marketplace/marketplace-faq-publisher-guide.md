@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 9/26/2019
+ms.date: 10/2/2019
 ms.author: ellacroi
-ms.openlocfilehash: abc3b3a6be5f8c61c07fb29a6f168c8738733099
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 4096b9201afc98f6e5eb239cf9e6883ac69b6e79
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350390"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827981"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Microsoft 상업적 마켓플레이스 Faq
 
@@ -155,7 +155,7 @@ BYOL 솔루션용 라이선스 자격 증명을 확보하고 적용하는 작업
 
 **어떤 종류의 평가판이 지원 되나요?**
 
-무료 평가판 제품은 평가판을 시작 하기 위한 작업을 호출 하는 목록입니다. 이를 통해 고객은 평가판 환경을 설정 하기 위해 게시자가 정의한 웹 사이트로 이동 합니다. 평가판은 첫 달이 무료 인 유료 제품에도 추가할 수 있습니다. 
+게시자는 유료 SaaS 제품 및 VM 이미지에 대 한 1 ~ 3 개월 무료 사용에 대 한 무료 월을 하나 이상 추가할 수 있습니다. 무료 평가판 제품은 평가판을 시작 하기 위한 작업을 호출 하는 목록입니다. 이를 통해 고객은 평가판 환경을 설정 하기 위해 게시자가 정의한 웹 사이트로 이동 합니다. 평가판은 첫 달이 무료 인 유료 제품에도 추가할 수 있습니다. 
 
 **무료 계층 또는 BYOL(사용자 라이선스 필요) 제품을 배포하는 경우 신용 카드 등의 결제 방법을 등록해야 하나요?**
 
@@ -169,6 +169,10 @@ EA(기업계약) 간접 고객의 경우 모든 Azure Marketplace 가격 관련 
 
 예, EA(기업계약) 고객의 경우 등록 관리자가 등록에 포함된 모든 계정에 대해 구매 권한을 해제했다가 일정 시간이 지나 제품을 구매해야 하면 다시 구매 권한을 설정할 수 있습니다. 또한 모든 고객은 Azure Policy를 사용하여 Azure Marketplace 리소스 관리를 포함한 Azure 구독 배포 옵션을 제한할 수 있습니다.
 
+**상업적 marketplace 구매에 대해 지원 되는 결제 방법은 무엇 인가요?**
+
+고객은 신용 카드를 사용 하 여 Azure Marketplace 및 Microsoft AppSource에서 제품을 구매할 수 있습니다. 기존 Azure 구독이 있는 경우 Azure Marketplace에서 구매할 때 계정에 구성 된 지불 방법을 사용 하 고 별도의 품목으로 동일한 청구서에 표시 됩니다. 일부 제품에서는 Azure 현금 약정 금액을 사용 하지만 대부분의 ommercial marketplace 구매는 Azure 인프라 사용이 가능 하지만 기업계약 약정을 그리지 않습니다.
+
 **계정의 Azure 구독 크레딧 또는 현금 약정 금액을 Azure Marketplace 제품에 적용할 수 있나요?**
 
 특정 Azure Marketplace 제품은 Azure 구독 크레딧 또는 현금 약정 금액을 사용할 수 있습니다. 이 프로그램에 포함되는 제품의 전체 목록은 [Azure 현금 약정 금액](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/)을 참조하세요. BYOL 또는 BYOS 옵션은 이러한 제품에 포함되지 않습니다. 다른 모든 Azure Marketplace 제품은 Azure 구독 크레딧 또는 현금 약정 금액을 사용할 수 없습니다. 예를 들어 무료 1 개월 평가판 크레딧, 월간 MSDN 크레딧, Azure 판촉의 크레딧, 현금 약정 잔액 및에서 제공 하는 기타 무료 크레딧을 사용할 수 있습니다. Microsoft.
@@ -176,12 +180,6 @@ EA(기업계약) 간접 고객의 경우 모든 Azure Marketplace 가격 관련 
 **Azure Marketplace 구매에 대해 볼륨 라이선스 할인이 적용되나요?**
 
 아니요. Azure Marketplace의 솔루션을 소유한 판매자가 가격을 설정할 수 있습니다.  Azure Marketplace 구매에는 표준 Microsoft 볼륨 라이선스 할인이 적용되지 않습니다.
-
-**이러한 구독의 요금은 어떻게 결제할 수 있나요? Azure Marketplace 구매 내역은 Azure 청구서에 표시되나요, 아니면 다른 청구서에 표시되나요?**
-
-MOSP- [Microsoft Online 정기 가입 프로그램](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (예: 웹 다이렉트) 고객은 Azure 구독 프로필에 대 한 파일에 있는 것과 동일한 신용 카드로 청구 됩니다. 신용 카드가 등록되어 있지 않으면 Azure Marketplace에서 제품을 구매할 수 없습니다. 신용 카드가 등록되어 있어야 Azure 요금 송장 발행을 특별 면제받을 수 있습니다.
-
-EA(기업계약) 고객의 경우에는 EA에 요금이 청구됩니다. 여기에 나와 있는 특정 Azure Marketplace 제품의 경우 먼저 사용 가능한 현금 약정 금액에서 요금이 차감된 후에 차액이 단일 분기별 송장으로 청구됩니다. EA 간접, 교육 및 정부 고객의 경우 LSP(라이선스 솔루션 공급자)가 요금을 청구합니다.
 
 **Azure Marketplace 구독 정보와 청구 정보는 어디서 확인할 수 있나요?**
 
@@ -197,7 +195,7 @@ CSP (클라우드 솔루션 공급자) 파트너는 고객 보기에서 회사�
 
 **Azure Marketplace에서 구매한 제품의 청구 빈도는 어느 정도인가요?**
 
-설명 된 특정 서비스에 대 한 고객의 경우 처음에는 사용 되는 월간 서비스에 대 한 총 비용으로 감소 한 현금 약정 금액을 사용할 수 있습니다. 기업계약 현금 약정 금액에서 차감되지 않은 모든 Azure Marketplace 제품 비용은 매월 연체 요금으로 청구됩니다. 연간 SaaS 구독은 전체 연도의 서비스에 대해 한 번만 청구 됩니다.
+현금 약정 금액에서 차감되지 않은 모든 Azure Marketplace 제품 비용은 매월 연체 요금으로 청구됩니다. 연간 SaaS 구독은 전체 연도의 서비스에 대해 한 번만 청구 됩니다.
 
 MOSP- [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/) (웹 다이렉트) 고객은 Azure 구독 프로필에 대 한 파일에 있는 것과 동일한 신용 카드를 기준으로 월별 요금이 청구 됩니다. 연간 SaaS 구독은 전체 연도의 서비스에 대해 한 번만 청구 됩니다.
 
@@ -210,10 +208,6 @@ Azure Marketplace에서 구매한 기타 서비스를 EA 구독으로 마이그�
 **Azure Marketplace에서 Virtual Machine 제품에 대 한 *가격*책정, *소프트웨어 가격*및 *총 가격* 간의 차이는 무엇 인가요?**
 
 *가격은* 소프트웨어를 실행 하는 Azure 가상 머신의 비용을 나타냅니다. *소프트웨어 가격은* Azure 가상 머신에서 실행 되는 Marketplace 게시자 소프트웨어의 비용을 나타냅니다. *총 가격은* azure 가상 머신의 총 비용 및 Azure 가상 머신에서 실행 되는 Marketplace 게시자의 소프트웨어를 나타냅니다.
-
-**계정의 Azure 구독 크레딧 또는 현금 금액을 Azure Marketplace 제품을 실행하는 데 필요한 Azure 제품 및 서비스에 적용할 수 있나요?**
-
-예. 계정의 Azure 구독 크레딧 또는 현금 약정 금액을 Azure 제품과 Azure Marketplace 제품에 사용할 수 있습니다. 예를 들어 Azure 현금 약정 금액은 Azure Marketplace에서 가상 컴퓨터 제품의 *가격* 구성 요소에 적용 될 수 있습니다. 그러나 azure 구독 크레딧과 현금 약정 금액은 Azure 가상 머신에서 실행 되는 특정 Marketplace 게시자 소프트웨어 (*소프트웨어 가격*)에만 적용할 수 있습니다.
 
 **Azure Marketplace에서 구매한 제품을 얼마나 사용했는지 알아보려면 어떻게 해야 하나요?**
 

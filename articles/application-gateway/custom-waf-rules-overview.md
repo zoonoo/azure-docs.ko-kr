@@ -7,12 +7,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 9c04f805cf410d2306eda76c84a201a67b022b84
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 154317e558c2c9a22f569f569684cced467900d5
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716617"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937474"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2"></a>웹 응용 프로그램 방화벽 v2의 사용자 지정 규칙
 
@@ -55,7 +55,7 @@ $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-이전 `$BlockRule` 은 Azure Resource Manager의 다음 사용자 지정 규칙에 매핑됩니다.
+이전 `$BlockRule`은 Azure Resource Manager의 다음 사용자 지정 규칙에 매핑됩니다.
 
 ```json
 "customRules": [
@@ -96,8 +96,8 @@ $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
 
 ### <a name="priority-required"></a>우선 순위 [필수]
 
-- 규칙을 평가 하는 순서를 결정 합니다. 값이 낮을수록 규칙의 이전 계산입니다.
--모든 사용자 지정 규칙 간에 고유 해야 합니다. 우선 순위가 100 인 규칙은 우선 순위가 200 인 규칙 보다 먼저 평가 됩니다.
+- 규칙을 평가 하는 순서를 결정 합니다. 값이 낮을수록 규칙의 이전 계산입니다. 허용 되는 범위는 1-100입니다. 
+- 모든 사용자 지정 규칙 간에 고유 해야 합니다. 우선 순위가 40 인 규칙은 우선 순위가 80 인 규칙 보다 먼저 평가 됩니다.
 
 ### <a name="rule-type-required"></a>규칙 유형 [필수]
 
@@ -144,7 +144,7 @@ MatchVariable 컬렉션의 필드에 대해 설명 합니다. 예를 들어 matc
 일치를 시도 하기 전에 변환 이름이 포함 된 문자열의 목록입니다. 이러한 변환은 다음과 같을 수 있습니다.
 
 - 소문자
-- Trim
+- 자르기
 - UrlDecode
 - UrlEncode 
 - RemoveNulls

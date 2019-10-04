@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 77d70aaa9c1ae5a111a47e08f259c0ce95fd7c92
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 3a13f8928ba243195c30200dae0525e72c1c161b
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300126"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71844398"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>분할 되지 않은 컨테이너를 분할 된 컨테이너로 마이그레이션
 
@@ -99,7 +99,7 @@ ItemResponse<DeviceInformationItem> readResponse =
 
 ## <a name="access-documents-that-dont-have-a-partition-key"></a>파티션 키가 없는 문서에 액세스
 
-응용 프로그램은 "CosmosContainerSettings. NonePartitionKeyValue" 라는 특수 시스템 속성을 사용 하 여 파티션 키가 없는 기존 문서에 액세스할 수 있습니다 .이는 마이그레이션되지 않은 문서의 값입니다. 모든 CRUD 및 쿼리 작업에서이 속성을 사용할 수 있습니다. 다음 예제에서는 NonePartitionKey에서 단일 문서를 읽는 샘플을 보여 줍니다. 
+응용 프로그램은 "PartitionKey" 라는 특수 시스템 속성을 사용 하 여 파티션 키가 없는 기존 문서에 액세스할 수 있습니다 .이는 마이그레이션되지 않은 문서의 값입니다. 모든 CRUD 및 쿼리 작업에서이 속성을 사용할 수 있습니다. 다음 예제에서는 NonePartitionKey에서 단일 문서를 읽는 샘플을 보여 줍니다. 
 
 ```csharp
 CosmosItemResponse<DeviceInformationItem> readResponse = 

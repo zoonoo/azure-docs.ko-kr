@@ -4,16 +4,16 @@ ms.service: redis-cache
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: wesmc
-ms.openlocfilehash: 77019068279261a36f8ba40247e5f5694ca77892
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 1ab6243be39bf30bc060ed5745fbf600924743a9
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67182607"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71839197"
 ---
 | 리소스 | 제한 |
 | --- | --- |
-| 캐시 크기 |530GB |
+| 캐시 크기 |1.2TB |
 | 데이터베이스 |64 |
 | 연결 된 최대 클라이언트 |40,000 |
 | 고가용성을 위한 Azure Cache for Redis 복제본 |1 |

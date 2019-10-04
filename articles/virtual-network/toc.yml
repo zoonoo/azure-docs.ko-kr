@@ -230,6 +230,8 @@
           items:
             - name: 서브넷
               href: virtual-network-manage-subnet.md
+            - name: 서브넷 위임
+              href: manage-subnet-delegation.md
             - name: 피어링
               href: virtual-network-manage-peering.md
             - name: DDoS 보호

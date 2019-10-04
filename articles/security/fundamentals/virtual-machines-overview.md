@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 7b33484084b4ada5aeaf89eb90167658ade15ad8
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4aca2a4495d4b6c3669982b2e7757b7252d70f6a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899793"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828565"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure Virtual Machines 보안 개요
 이 문서에서는 가상 컴퓨터에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공 합니다.
@@ -102,7 +102,7 @@ Azure Disk Encryption은 Windows 및 Linux 가상 머신 디스크를 암호화�
 자세한 정보:
 
 * [IaaS VM용 Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview)
-* [빠른 시작: Azure PowerShell을 사용하여 Windows IaaS VM 암호화](../azure-disk-encryption-linux-powershell-quickstart.md)
+* [빠른 시작: Azure PowerShell을 사용하여 Windows IaaS VM 암호화](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
 ## <a name="virtual-machine-backup"></a>가상 머신 백업
 

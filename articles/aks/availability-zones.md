@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 4d76578de0c80570e67db03046c42985500ddcdb
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e8ffb9051220cc80aa12adaa9dc9b1fcc6ddfc20
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914721"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71839990"
 ---
 # <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>미리 보기-가용성 영역를 사용 하는 AKS (Azure Kubernetes Service) 클러스터 만들기
 
@@ -71,9 +71,14 @@ az provider register --namespace Microsoft.ContainerService
 
 AKS 클러스터는 현재 다음 지역에서 가용성 영역을 사용 하 여 만들 수 있습니다.
 
+* 미국 중부
 * 미국 동부 2
+* East US
+* 프랑스 중부
+* 일본 동부
 * 유럽 북부
 * 동남아시아
+* 영국 남부
 * 유럽 서부
 * 미국 서부 2
 

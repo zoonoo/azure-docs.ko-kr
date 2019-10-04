@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fdad2f2dfec6f13fe4a40641db3417f29273349c
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: a0b9166d24bea28bb3271d719e8ffe0b24d71381
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315044"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71826922"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 다중 테넌트 Azure Active Directory에 대한 로그인 설정
 
@@ -58,7 +58,7 @@ ms.locfileid: "71315044"
 1. **정책**에서 **Id 경험 프레임 워크**를 선택 합니다.
 1. **정책 키** 를 선택 하 고 **추가**를 선택 합니다.
 1. **옵션**으로는 `Manual`을 선택합니다.
-1. 정책 키의 **이름**을 입력합니다. 예를 들어, `AADAppSecret`을 입력합니다.  접두사 `B2C_1A_` 는 생성 될 때 키의 이름에 자동으로 추가 되므로 다음 섹션에 있는 XML에 대 한 참조는 *B2C_1A_AADAppSecret*입니다.
+1. 정책 키의 **이름**을 입력합니다. 예를 들어, `AADAppSecret`을 입력합니다.  접두사 `B2C_1A_`은 생성 될 때 키 이름에 자동으로 추가 되므로 다음 섹션의 XML 참조는 *B2C_1A_AADAppSecret*입니다.
 1. **비밀**에서 이전에 기록한 클라이언트 암호를 입력 합니다.
 1. **키 사용**에서 `Signature`를 선택합니다.
 1. **만들기**를 선택합니다.
@@ -187,6 +187,8 @@ ms.locfileid: "71315044"
 3. *TrustFrameworkExtensions.xml* 파일을 저장하고 확인을 위해 다시 업로드합니다.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
+
+Azure AD B2C와의 통신은 B2C 테 넌 트에 등록 하는 응용 프로그램을 통해 발생 합니다. 이 섹션에는 아직 만들지 않은 경우 테스트 애플리케이션을 만들기 위해 완료할 수 있는 선택적 단계가 나와 있습니다.
 
 [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 

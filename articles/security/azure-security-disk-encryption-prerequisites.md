@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/25/2019
+ms.date: 09/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: bd51e70122a5457c8dcf1bd8f2061fe25943e87f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 551918373f8292d798980600d6e0d43add55bd18
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224501"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828280"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk Encryption 필수 구성 요소
 
@@ -70,6 +70,7 @@ Azure에서 보증 되지 않는 Linux 서버 배포는 Azure Disk Encryption을
 | Ubuntu | 18.04| OS 및 데이터 디스크 |
 | Ubuntu | 16.04| OS 및 데이터 디스크 |
 | Ubuntu | 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS 및 데이터 디스크 |
+| RHEL | 7.7 | OS 및 데이터 디스크 (아래 참고 참조) |
 | RHEL | 7.6 | OS 및 데이터 디스크 (아래 참고 참조) |
 | RHEL | 7.5 | OS 및 데이터 디스크 (아래 참고 참조) |
 | RHEL | 7.4 | OS 및 데이터 디스크 (아래 참고 참조) |
@@ -77,6 +78,7 @@ Azure에서 보증 되지 않는 Linux 서버 배포는 Azure Disk Encryption을
 | RHEL | 7.2 | OS 및 데이터 디스크 (아래 참고 참조) |
 | RHEL | 6.8 | 데이터 디스크 (아래 참고 참조) |
 | RHEL | 6.7 | 데이터 디스크 (아래 참고 참조) |
+| CentOS | 7.7 | OS 및 데이터 디스크 |
 | CentOS | 7.6 | OS 및 데이터 디스크 |
 | CentOS | 7.5 | OS 및 데이터 디스크 |
 | CentOS | 7.4 | OS 및 데이터 디스크 |
@@ -181,7 +183,7 @@ Azure에서 보증 되지 않는 Linux 서버 배포는 Azure Disk Encryption을
 
 
 ## <a name="prerequisite-workflow-for-key-vault"></a>Key Vault에 대한 필수 구성 요소 워크플로
-Azure Disk Encryption에 대한 Key Vault 및 Azure AD 필수 구성 요소에 이미 익숙한 경우 [Azure Disk Encryption 필수 구성 요소 PowerShell 스크립트](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 )를 사용할 수 있습니다. 필수 구성 요소 스크립트 사용에 대한 자세한 내용은 [VM 암호화 빠른 시작](azure-disk-encryption-linux-powershell-quickstart.md) 및 [Azure Disk Encryption 부록](azure-security-disk-encryption-appendix.md#bkmk_prereq-script)을 참조하세요. 
+Azure Disk Encryption에 대한 Key Vault 및 Azure AD 필수 구성 요소에 이미 익숙한 경우 [Azure Disk Encryption 필수 구성 요소 PowerShell 스크립트](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 )를 사용할 수 있습니다. 필수 구성 요소 스크립트 사용에 대한 자세한 내용은 [VM 암호화 빠른 시작](../virtual-machines/linux/disk-encryption-powershell-quickstart.md) 및 [Azure Disk Encryption 부록](azure-security-disk-encryption-appendix.md#bkmk_prereq-script)을 참조하세요. 
 
 1. 필요한 경우 리소스 그룹을 만듭니다.
 2. 키 자격 증명 모음을 만듭니다. 

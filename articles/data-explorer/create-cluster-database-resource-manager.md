@@ -7,12 +7,12 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: dfc0cd6686ac4ea1af2beb34edeadd17e4c952e1
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: b8aa87b871b86a8dab3b1984b638366a42708483
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329436"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936886"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure 데이터 탐색기 클러스터 및 데이터베이스 만들기
 
@@ -110,7 +110,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![Azure에 배포](media/create-cluster-database-resource-manager/deploy-2-azure.png)
 
-형식을 사용 하 여 [Azure Portal에서 템플릿을 편집 하 고 배포할](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) 수 있습니다.
+    형식을 사용 하 여 [Azure Portal에서 템플릿을 편집 하 고 배포할](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) 수 있습니다.
 
 1. **기본 사항** 및 **설정** 섹션을 완료 합니다. 고유한 클러스터 및 데이터베이스 이름을 선택 합니다.
 Azure 데이터 탐색기 클러스터와 데이터베이스를 만드는 데 몇 분이 걸립니다.
@@ -140,9 +140,9 @@ Azure 데이터 탐색기 클러스터와 데이터베이스를 만드는 데 �
 1. 셸 콘솔을 마우스 오른쪽 단추로 클릭 한 다음 **붙여넣기**를 선택 합니다.
 Azure 데이터 탐색기 클러스터와 데이터베이스를 만드는 데 몇 분이 걸립니다.
 
-#### <a name="verify-the-deployment-using-powershell"></a>Powershell을 사용 하 여 배포 확인
+#### <a name="verify-the-deployment-using-powershell"></a>PowerShell을 사용 하 여 배포 확인
 
-배포를 확인 하려면 다음 Azure PowerShell 스크립트를 사용 합니다.  Cloud shell이 아직 열려 있으면 첫 번째 줄 (읽기-호스트)을 복사/실행할 필요가 없습니다. PowerShell에서 Azure 데이터 탐색기 리소스를 관리 하는 방법에 대 한 자세한 내용은 [Az. Kusto를](/powershell/module/az.kusto/?view=azps-2.7.0)참조 하세요. 관련 변경
+배포를 확인 하려면 다음 Azure PowerShell 스크립트를 사용 합니다.  Cloud Shell 아직 열려 있으면 첫 번째 줄 (읽기-호스트)을 복사/실행할 필요가 없습니다. PowerShell에서 Azure 데이터 탐색기 리소스를 관리 하는 방법에 대 한 자세한 내용은 [Az. Kusto를](/powershell/module/az.kusto/?view=azps-2.7.0)참조 하세요. 
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
@@ -163,9 +163,9 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
 
 [리소스 정리](create-cluster-database-portal.md#clean-up-resources)의 단계에 따라 Azure Portal에서 리소스를 삭제 합니다.
 
-### <a name="clean-up-resources-using-powershell"></a>Powershell을 사용 하 여 리소스 정리
+### <a name="clean-up-resources-using-powershell"></a>PowerShell을 사용하여 리소스 정리
 
-Cloud shell이 아직 열려 있으면 첫 번째 줄 (읽기-호스트)을 복사/실행할 필요가 없습니다.
+Cloud Shell 아직 열려 있으면 첫 번째 줄 (읽기-호스트)을 복사/실행할 필요가 없습니다.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 09/16/2019
-ms.openlocfilehash: 5eaade975adac86b6842d1d8f9f9b8f522d15bca
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.date: 10/02/2019
+ms.openlocfilehash: a360d836f1ef09b0bb87e2af39aeab0460034cd4
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71816074"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935614"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>관리 되는 인스턴스 리소스 제한 Azure SQL Database 개요
 
@@ -25,13 +25,9 @@ ms.locfileid: "71816074"
 > [!NOTE]
 > 지원되는 기능 및 T-SQL 문의 차이점은 [기능 차이](sql-database-features.md) 및 [T-SQL 문 지원](sql-database-managed-instance-transact-sql-information.md)을 참조하세요. 단일 데이터베이스의 서비스 계층과 관리 되는 인스턴스의 일반적인 differencess [서비스 계층 비교](sql-database-service-tiers-general-purpose-business-critical.md#service-tier-comparison)를 참조 하세요.
 
-## <a name="instance-level-resource-limits"></a>인스턴스 수준 리소스 제한
+## <a name="hardware-generation-characteristics"></a>하드웨어 세대 특성
 
-관리 되는 인스턴스에는 기본 인프라 및 아키텍처에 따라 달라 지는 특성 및 리소스 제한이 있습니다. 제한은 하드웨어 세대 및 서비스 계층에 따라 다릅니다.
-
-### <a name="hardware-generation-characteristics"></a>하드웨어 세대 특성
-
-Azure SQL Database 관리 되는 인스턴스는 두 가지 하드웨어 세대에 배포할 수 있습니다. Gen4 및 Gen5. 하드웨어 생성에는 다음 표에 설명 된 대로 다른 특징이 있습니다.
+관리 되는 인스턴스에는 기본 인프라 및 아키텍처에 따라 달라 지는 특성 및 리소스 제한이 있습니다. Azure SQL Database 관리 되는 인스턴스는 두 가지 하드웨어 세대에 배포할 수 있습니다. Gen4 및 Gen5. 하드웨어 생성에는 다음 표에 설명 된 대로 다른 특징이 있습니다.
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
@@ -39,28 +35,28 @@ Azure SQL Database 관리 되는 인스턴스는 두 가지 하드웨어 세대�
 | vCore 수 | 8, 16, 24개 vCore | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | 최대 메모리 (메모리/코어 비율) | vCore당 7GB<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. | vCore당 5.1GB<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. |
 | 최대 메모리 내 OLTP 메모리 | 인스턴스 제한: 1-vCore 당 1.5 g b| 인스턴스 제한: 0.8-vCore 당 1.65 GB |
-| 최대 인스턴스 예약 된 저장소 |  일반 용도: 8TB<br/>중요 비즈니스용: 1TB | 일반 용도: 8 TB<br/> 중요 비즈니스용 1tb, 2tb 또는 4 TB의 코어 수에 따라 |
+| 최대 인스턴스 예약 된 저장소 |  일반 용도: 8 TB<br/>중요 비즈니스용: 1TB | 일반 용도: 8 TB<br/> 중요 비즈니스용 1tb, 2tb 또는 4 TB의 코어 수에 따라 |
 
 > [!IMPORTANT]
 > - Gen4 하드웨어를 단계적으로 확장 하 고 있습니다. Gen5 하드웨어에 새로운 관리 되는 인스턴스를 배포 하는 것이 좋습니다.
 > - 현재 Gen4 하드웨어는 다음 지역 에서만 사용할 수 있습니다. 서유럽, 유럽 서부, 미국 동부, 미국 중 북부, 미국 중부, 미국 서 부 2, 미국 중부, 캐나다 중부, 인도 남부, 동남 아시아 및 한국 중부.
 
-#### <a name="in-memory-oltp-available-space"></a>메모리 내 OLTP 사용 가능한 공간 
+### <a name="in-memory-oltp-available-space"></a>메모리 내 OLTP 사용 가능한 공간 
 
-메모리 내 OLTP 공간의 양은 vCores 및 하드웨어 생성 수에 따라 달라 집니다. 다음 표에는 메모리 내 OLTP 개체에 사용할 수 있는 메모리 한도가 나열 되어 있습니다.
+[중요 비즈니스용](sql-database-service-tier-business-critical.md) 서비스 계층의 메모리 내 OLTP 공간의 양은 vcores 및 하드웨어 생성 수에 따라 달라 집니다. 다음 표에는 메모리 내 OLTP 개체에 사용할 수 있는 메모리 한도가 나열 되어 있습니다.
 
-| VCore 당 메모리 내 OLTP 공간    | **Gen5** | **Gen4** |
+| 메모리 내 OLTP 공간  | **Gen5** | **Gen4** |
 | --- | --- | --- |
-| 4 | 3.14 GB | |   
-| 8 | 6.28 GB | 8GB |
-| 16    | 15.77 GB | 20GB |
-| 24    | 25.25 GB | 36 GB |
-| 32    | 37.94 GB | |
-| 40    | 52.23 GB | |
-| 64    | 99.9 GB   | |
-| 80    | 131.68 GB| |
+| vCore 4개  | 3.14 GB | |   
+| vCore 8개  | 6.28 GB | 8GB |
+| 16 개 vCores | 15.77 GB | 20GB |
+| 24 개 vCores | 25.25 GB | 36 GB |
+| 32 vCores | 37.94 GB | |
+| 40 vCores | 52.23 GB | |
+| 64 vCores | 99.9 GB    | |
+| 80 vCores | 131.68 GB| |
 
-### <a name="service-tier-characteristics"></a>서비스 계층 특성
+## <a name="service-tier-characteristics"></a>서비스 계층 특성
 
 관리 되는 인스턴스에는 다음과 같은 두 개의 서비스 계층이 있습니다. [범용 및](sql-database-service-tier-general-purpose.md) [중요 비즈니스용](sql-database-service-tier-business-critical.md). 이러한 계층은 아래 표에 설명 된 대로 [다양 한 기능](sql-database-service-tiers-general-purpose-business-critical.md)을 제공 합니다.
 
@@ -75,7 +71,7 @@ Azure SQL Database 관리 되는 인스턴스는 두 가지 하드웨어 세대�
 | 인스턴스당 데이터베이스 파일의 최대 수 | 인스턴스 저장소 크기 또는 [Azure Premium Disk storage 할당 공간](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) 제한에 도달 하지 않는 한 최대 280입니다. | 32767 인스턴스 저장소 크기 제한에 도달 하지 않으면 데이터베이스당 파일 수입니다. |
 | 최대 데이터 파일 크기 | 현재 사용할 수 있는 인스턴스 저장소 크기 (최대 2tb, 648TB) 및 [Azure Premium Disk storage 할당 공간](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files)으로 제한 됩니다. | 현재 사용할 수 있는 인스턴스 저장소 크기 (최대 1tb-4 TB)로 제한 됩니다. |
 | 최대 로그 파일 크기 | 2tb 및 현재 사용할 수 있는 인스턴스 저장소 크기로 제한 됩니다. | 2tb 및 현재 사용할 수 있는 인스턴스 저장소 크기로 제한 됩니다. |
-| 데이터/로그 IOPS(근사치) | 파일당 500~7,500<br/>\*[더 많은 IOPS를 얻기 위해 파일 크기 늘리기](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5.5 k-110 K (1375/vCore)<br/>더 나은 IO 성능을 얻으려면 vCores를 더 추가 합니다. |
+| 데이터/로그 IOPS(근사치) | 인스턴스당 최대 30-40 K IOPS *, 500-7500/파일<br/>\*[더 많은 IOPS를 얻기 위해 파일 크기 늘리기](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5.5 k-110 K (1375 IOPS/vCore)<br/>더 나은 IO 성능을 얻으려면 vCores를 더 추가 합니다. |
 | 로그 쓰기 처리량 한도 (인스턴스당) | vCore당 3MB/초<br/>최대 22 m b/초 | vCore 당 4mb/s<br/>최대 48MB/초 |
 | 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>\*[더 나은 IO 성능을 얻으려면 파일 크기를 늘립니다.](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 제한 되지 않습니다. |
 | 저장소 IO 대기 시간 (근사치) | 5~10ms | 1~2ms |
@@ -88,9 +84,23 @@ Azure SQL Database 관리 되는 인스턴스는 두 가지 하드웨어 세대�
 > - 사용자 및 시스템 데이터베이스의 데이터 및 로그 파일 크기는 최대 스토리지 크기 제한과 비교되는 인스턴스 스토리지 크기에 포함됩니다. <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> 시스템 뷰를 사용하여 데이터베이스에서 사용되는 총 공간을 확인합니다. 오류 로그는 영구적이지 않으며 크기에 포함되지 않습니다. 백업은 스토리지 크기에 포함되지 않습니다.
 > - 또한 처리량 및 IOPS는 관리 되는 인스턴스에 의해 명시적으로 제한 되지 않는 페이지 크기에 따라 달라 집니다.
 > 자동 장애 조치 그룹을 사용 하 여 다른 Azure 지역에서 읽을 수 있는 다른 복제본을 만들 수 있습니다.
+> - 최대 인스턴스 IOPS는 파일 레이아웃 및 워크 로드 배포에 따라 달라 집니다. 예를 들어 각각 최대 5K IOPS를 사용 하 여 7 x 1GB 파일을 만들고 각각 500 IOPS를 사용 하는 7 개의 작은 파일 (128 미만)을 만드는 경우 워크 로드에서 모든 파일을 사용할 수 있는 경우 인스턴스당 38500 IOPS (7x5000 + 7x500)를 가져올 수 있습니다. 일부 IOPS는 자동 백업에도 사용 됩니다.
 
 > [!NOTE]
 > [이 문서에서는 관리 되는 인스턴스 풀의 리소스 제한](sql-database-instance-pools.md#instance-pools-resource-limitations)에 대 한 자세한 정보를 확인 합니다.
+
+### <a name="file-io-characteristics-in-general-purpose-tier"></a>일반적인 용도의 계층의 파일 IO 특성
+
+일반적으로 서비스 계층에서 모든 데이터베이스 파일은 파일 크기에 따라 전용 IOPS 및 처리량을 가져옵니다. 더 큰 파일은 더 많은 IOPS 및 처리량을 얻을 수 있습니다. 데이터베이스 파일의 IO 특성은 다음 표에 나와 있습니다.
+
+| 파일 크기           | 0-128 GiB | 128-256 GiB | 256-512 GiB | 0.5-1 TiB    | 1-2 TiB    | 2-4 TiB | 4-8 TiB |
+|---------------------|-------|-------|-------|-------|-------|-------|-------|
+| 파일당 IOPS       | 500   | 1100 | 2,300              | 5,000              | 7,500              | 7,500              | 12,500   |
+| 파일당 처리량 | 100MiB/초 | 125MiB/초 | 150MiB/초 | 200MiB/초 | 250MiB/초 | 250MiB/초 | 480 MiB/s | 
+
+일부 데이터베이스 파일에서 높은 IO 대기 시간이 발생 하거나 IOPS/처리량이 제한에 도달 하는 것을 확인 한 경우 [파일 크기를 늘려서](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337)성능을 향상 시킬 수 있습니다.
+
+최대 로그 쓰기 처리량과 같은 인스턴스 수준 제한도 있습니다. 따라서 인스턴스 처리량 한도에 도달 하기 때문에 로그 파일의 전체에서 파일에 연결 하지 못할 수 있습니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
 

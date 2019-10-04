@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 88734b0ee05f5193da89f33e1639e4e7a187f225
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 9cee148b6cb17f18c06e98158ac21638cedf519c
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264657"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828754"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
@@ -107,7 +107,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
 ### <a name="authentication"></a>인증
 
-[TIME SERIES INSIGHTS Rest api](https://docs.microsoft.com/rest/api/time-series-insights/)에 대해 인증 된 쿼리를 수행 하려면 선택한 rest 클라이언트 (Postman, JavaScript, C#)를 사용 하 여 유효한 OAuth 2.0 전달자 토큰을 [인증 헤더](/rest/api/apimanagement/authorizationserver/createorupdate) 에 전달 해야 합니다. 
+[TIME SERIES INSIGHTS Rest api](https://docs.microsoft.com/rest/api/time-series-insights/)에 대해 인증 된 쿼리를 수행 하려면 선택한 rest 클라이언트 (Postman, JavaScript, C#)를 사용 하 여 유효한 OAuth 2.0 전달자 토큰을 [인증 헤더](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) 에 전달 해야 합니다. 
 
 > [!IMPORTANT]
 > 토큰은 `https://api.timeseries.azure.com/` 리소스 (토큰의 "대상"이 라고도 함)에 대해 정확 하 게 발급 되어야 합니다.

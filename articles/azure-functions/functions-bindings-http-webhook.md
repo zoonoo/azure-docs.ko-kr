@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 983cf250f3a7188741c41386aac256bfdb28749b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 512da03e6b473055e3a14d64a9ac0e25b8efca56
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097336"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838908"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 트리거 및 바인딩
 
@@ -727,7 +727,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 ![포털에서 함수 키를 관리합니다.](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-[키 관리 API](https://github.com/Azure/azure-functions-host/wiki/Key-management-API)를 사용 하 여 프로그래밍 방식으로 함수 키를 가져올 수 있습니다.
+[키 관리 api](https://github.com/Azure/azure-functions-host/wiki/Key-management-API)를 사용 하 여 프로그래밍 방식으로 함수 키를 가져올 수 있습니다.
 
 ### <a name="api-key-authorization"></a>API 키 권한 부여
 
@@ -740,8 +740,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 키를 요구하지 않는 익명 요청을 허용할 수 있습니다. 마스터 키를 사용하도록 요구할 수도 있습니다. 바인딩 JSON에서 `authLevel` 속성을 사용하여 기본 권한 수준을 변경합니다. 자세한 내용은 [트리거 - 구성](#trigger---configuration)을 참조하세요.
 
 > [!NOTE]
-> 함수를 로컬로 실행할 때는 지정된 권한 부여 수준 설정에 관계없이 권한 부여가 사용하지 않도록 설정됩니다. Azure에 게시하고 나면 트리거의 `authLevel` 설정이 적용됩니다.
-
+> 함수를 로컬로 실행할 때는 지정된 권한 부여 수준 설정에 관계없이 권한 부여가 사용하지 않도록 설정됩니다. Azure에 게시하고 나면 트리거의 `authLevel` 설정이 적용됩니다. [컨테이너에서 로컬로 실행 하](functions-create-function-linux-custom-image.md#run-the-image-locally)는 경우에도 키가 필요 합니다.
 
 
 ### <a name="secure-an-http-endpoint-in-production"></a>프로덕션 환경에서 HTTP 엔드포인트 보호
@@ -800,7 +799,7 @@ HTTP 요청 발신기(sender)에 응답하려면 HTTP 출력 바인딩을 사용
 
 다음 표에서는 *function.json* 파일에 설정된 바인딩 구성 속성을 설명합니다. C# 클래스 라이브러리의 경우 *function.json* 속성에 해당하는 attribute 속성이 없습니다.
 
-|속성  |Description  |
+|속성  |설명  |
 |---------|---------|
 | **type** |`http`로 설정해야 합니다. |
 | **direction** | `out`로 설정해야 합니다. |

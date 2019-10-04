@@ -9,12 +9,12 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c4ddda164a2d8a4e2a4d106c2d7bb8bfcbae3690
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 0e35efc0da929136a889b1611a48a60671ed2af8
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886512"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828325"
 ---
 # <a name="security-controls-for-windows-virtual-machines"></a>Windows Virtual Machines에 대 한 보안 제어
 
@@ -35,11 +35,11 @@ ms.locfileid: "70886512"
 
 | 보안 제어 | 예/아니요 | 참고|
 |---|---|--|
-| Azure 모니터링 지원 (Log analytics, App insights 등)| 예 | Azure에서 [Linux 가상 머신 모니터링 및 업데이트](/azure/virtual-machines/linux/tutorial-monitoring) 및 [azure에서 Windows 가상 머신 모니터링 및 업데이트](/azure/virtual-machines/windows/tutorial-monitoring)를 참조 하세요. |
+| Azure 모니터링 지원 (Log analytics, App insights 등)| 예 | [Azure에서 Windows 가상 머신을 모니터링 하 고 업데이트](tutorial-monitoring.md)합니다. |
 | 제어 및 관리 평면 로깅 및 감사| 예 |  |
 | 데이터 평면 로깅 및 감사 | 아니요 |  |
 
-## <a name="identity"></a>클레임
+## <a name="identity"></a>ID
 
 | 보안 제어 | 예/아니요 | 참고|
 |---|---|--|
@@ -50,7 +50,7 @@ ms.locfileid: "70886512"
 
 | 보안 제어 | 예/아니요 | 참고 |
 |---|---|--|
-| 미사용 서버 쪽 암호화: Microsoft에서 관리 하는 키 | 예 | [Azure에서 Linux 가상 머신을 암호화](/azure/virtual-machines/linux/encrypt-disks) 하 고 [Windows VM에서 가상 디스크를 암호화](/azure/virtual-machines/windows/encrypt-disks)하는 방법을 참조 하세요. |
+| 미사용 서버 쪽 암호화: Microsoft에서 관리 하는 키 | 예 | [WINDOWS VM에서 가상 디스크 암호화](/azure/virtual-machines/windows/encrypt-disks)를 참조 하세요. |
 | 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화)| 예 | Azure Virtual Machines는 [express](/azure/expressroute) 경로 및 VNet 암호화를 지원 합니다. [Vm의 전송 중 암호화를](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)참조 하세요. |
 | 미사용 서버 쪽 암호화: 고객 관리 키 (BYOK) | 예 | 고객 관리 키는 지원 되는 Azure 암호화 시나리오입니다. [Azure 암호화 개요](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)를 참조 하세요.|
 | 열 수준 암호화 (Azure Data Services)| 해당 사항 없음 | |

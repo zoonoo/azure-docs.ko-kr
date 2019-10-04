@@ -13,15 +13,15 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3a014bab0252667c3c70e56399a72de4e5771a86
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: d4b7733ce3ac6db4c39f632401661eefce11d20c
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210106"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827572"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure Virtual Network에 앱 통합
-이 문서에서는 Azure App Service 가상 네트워크 통합 기능 및 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 앱을 사용 하 여 설정 하는 방법을 설명 합니다. [Azure 가상 네트워크][VNETOverview] (Vnet)를 사용 하 여 인터넷 라우팅할 수 없는 네트워크에 많은 Azure 리소스를 저장할 수 있습니다.  
+이 문서에서는 Azure App Service 가상 네트워크 통합 기능 및 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 앱을 사용 하 여 설정 하는 방법을 설명 합니다. [Azure vnet (가상 네트워크][VNETOverview] )를 사용 하면 여러 azure 리소스를 인터넷을 통해 라우팅할 수 없는 네트워크에 저장할 수 있습니다.  
 
 Azure App Service에는 두 가지 변형이 있습니다. 
 
@@ -343,6 +343,6 @@ PowerShell을 사용하여 App Service를 Azure Virtual Network와 통합할 수
 [V2VNETPortal]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
 [VPNERCoex]: ../expressroute/expressroute-howto-coexist-resource-manager.md
 [ASE]: environment/intro.md
-[creategatewaysubnet]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#gatewaysubnet
+[creategatewaysubnet]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw
 [creategateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw
 [setp2saddresses]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool

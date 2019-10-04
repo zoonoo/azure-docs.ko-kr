@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 10/01/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 61c09435606612377781fb382d2d31144e96b07b
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
-ms.translationtype: MT
+ms.openlocfilehash: 35bc5a4532f040aeb464a91b14adcb540ccc113a
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966005"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71845528"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Azure Digital Twins에서 개체에 Blob 추가
 
@@ -55,11 +55,11 @@ JSON Blob 메타데이터는 다음과 같은 모델을 준수합니다.
 | --- | --- | --- |
 | **parentId** | String | Blob을 연결할 부모 엔터티(공백, 디바이스 또는 사용자)입니다. |
 | **name** |String | Blob의 이름입니다. |
-| **type** | String | Blob의 형식으로, *type* 및 *typeId*를 사용할 수 없습니다.  |
+| **type** | 문자열 | Blob의 형식으로, *type* 및 *typeId*를 사용할 수 없습니다.  |
 | **typeId** | Integer | Blob 형식 ID로, *type* 및 *typeId*를 사용할 수 없습니다. |
-| **subtype** | String | Blob 하위 형식으로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
+| **subtype** | 문자열 | Blob 하위 형식으로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
 | **subtypeId** | Integer | Blob의 하위 형식 ID로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
-| **description** | String | Blob의 사용자 지정 설명입니다. |
+| **description** | 문자열 | Blob의 사용자 지정 설명입니다. |
 | **sharing** | String | Blob을 공유할 수 있는지 여부로, 열거형 [`None`, `Tree`, `Global`]입니다. |
 
 Blob 메타데이터는 항상 **Content-type** `application/json`을 포함하는 첫 번째 청크 또는 `.json` 파일로 제공됩니다. 파일 데이터는 두 번째 청크에 제공되고, 지원되는 임의 MIME 형식일 수 있습니다.
@@ -69,8 +69,6 @@ Swagger 설명서는 이러한 모델 스키마에 대해 매우 자세하게 �
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 [Swagger를 사용하는 방법](./how-to-use-swagger.md)을 읽고 참조 설명서를 사용하는 방법을 알아보세요.
-
-<div id="blobModel"></div>
 
 ### <a name="blobs-response-data"></a>Blob 응답 데이터
 
@@ -108,18 +106,18 @@ Swagger 설명서는 이러한 모델 스키마에 대해 매우 자세하게 �
 }
 ```
 
-| 특성 | 형식 | Description |
+| 특성 | 형식 | 설명 |
 | --- | --- | --- |
-| **ID** | String | Blob의 고유한 식별자입니다. |
+| **ID** | 문자열 | Blob의 고유한 식별자입니다. |
 | **name** |String | Blob의 이름입니다. |
 | **parentId** | String | Blob을 연결할 부모 엔터티(공백, 디바이스 또는 사용자)입니다. |
-| **type** | String | Blob의 형식으로, *type* 및 *typeId*를 사용할 수 없습니다.  |
+| **type** | 문자열 | Blob의 형식으로, *type* 및 *typeId*를 사용할 수 없습니다.  |
 | **typeId** | Integer | Blob 형식 ID로, *type* 및 *typeId*를 사용할 수 없습니다. |
-| **subtype** | String | Blob 하위 형식으로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
+| **subtype** | 문자열 | Blob 하위 형식으로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
 | **subtypeId** | Integer | Blob의 하위 형식 ID로, *subtype* 및 *subtypeId*를 사용할 수 없습니다. |
 | **sharing** | String | Blob을 공유할 수 있는지 여부로, 열거형 [`None`, `Tree`, `Global`]입니다. |
-| **description** | String | Blob의 사용자 지정 설명입니다. |
-| **contentInfos** | 배열 | 버전을 포함하는 구조화되지 않은 메타데이터 정보를 지정합니다. |
+| **description** | 문자열 | Blob의 사용자 지정 설명입니다. |
+| **contentInfos** | String | 버전을 포함하는 구조화되지 않은 메타데이터 정보를 지정합니다. |
 | **fullName** | String | Blob의 전체 이름입니다. |
 | **spacePaths** | String | 공간 경로 |
 
@@ -183,15 +181,14 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 마지막으로, [cURL](https://curl.haxx.se/) 사용자는 다음과 같이 동일한 방식으로 다중 파트 양식 요청을 수행할 수 있습니다.
 
-[![장치 blob](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
+[![Device blob](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
 
 ```bash
-curl
- -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs"
- -H "Authorization: Bearer YOUR_TOKEN"
- -H "Accept: application/json"
- -H "Content-Type: multipart/form-data"
- -F "meta={\"ParentId\":\"YOUR_SPACE_ID\",\"Name\":\"My CURL Blob\",\"Type\":\"Map\",\"SubType\":\"GenericMap\",\"Description\":\"A well chosen description\",\"Sharing\":\"None\"};type=application/json"
+curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
+ -H "Authorization: Bearer YOUR_TOKEN" \
+ -H "Accept: application/json" \
+ -H "Content-Type: multipart/form-data" \
+ -F "meta={\"ParentId\":\"YOUR_SPACE_ID\",\"Name\":\"My CURL Blob\",\"Type\":\"Map\",\"SubType\":\"GenericMap\",\"Description\":\"A well chosen description\",\"Sharing\":\"None\"};type=application/json" \
  -F "text=PATH_TO_FILE;type=text/plain"
 ```
 
@@ -207,11 +204,11 @@ curl
 
 다음 섹션에서는 핵심 Blob 관련 API 엔드포인트 및 해당 기능에 대해 설명합니다.
 
-### <a name="devices"></a>디바이스
+### <a name="devices"></a>장치
 
 디바이스에 Blob을 연결할 수 있습니다. 다음 이미지는 관리 API의 Swagger 참조 설명서를 보여줍니다. Blob 사용량에 대한 디바이스 관련 API 엔드포인트와 이를 전달하는 데 필요한 경로 매개 변수를 지정합니다.
 
-[![장치 blob](media/how-to-add-blobs/blobs-device-api-img.png)](media/how-to-add-blobs/blobs-device-api-img.png#lightbox)
+[![Device blob](media/how-to-add-blobs/blobs-device-api-img.png)](media/how-to-add-blobs/blobs-device-api-img.png#lightbox)
 
 예를 들어 Blob을 업데이트하거나 만들고 디바이스에 Blob을 연결하려면 다음에 대해 인증된 HTTP PATCH 요청을 만듭니다.
 
@@ -223,13 +220,13 @@ YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | 원하는 Blob ID |
 
-성공한 요청은 [앞에서 설명한](#blobModel) 대로 JSON 개체를 반환합니다.
+성공한 요청은 [앞에서 설명한](#blobs-response-data) 대로 JSON 개체를 반환합니다.
 
 ### <a name="spaces"></a>공백
 
 Blob을 공간에 연결할 수도 있습니다. 다음 이미지는 Blob 처리를 담당하는 모든 공간 API 엔드포인트를 나열합니다. 이러한 엔드포인트를 전달할 경로 매개 변수도 나열합니다.
 
-[![공간 blob](media/how-to-add-blobs/blobs-space-api-img.png)](media/how-to-add-blobs/blobs-space-api-img.png#lightbox)
+[![ 공간 blob](media/how-to-add-blobs/blobs-space-api-img.png)](media/how-to-add-blobs/blobs-space-api-img.png#lightbox)
 
 예를 들어 공간에 연결된 Blob을 반환하려면 다음에 대한 인증된 HTTP GET 요청을 만듭니다.
 
@@ -241,7 +238,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | 원하는 Blob ID |
 
-성공한 요청은 [앞에서 설명한](#blobModel) 대로 JSON 개체를 반환합니다.
+성공한 요청은 [앞에서 설명한](#blobs-response-data) 대로 JSON 개체를 반환합니다.
 
 동일한 엔드포인트로의 PATCH 요청은 메타데이터 설명을 업데이트하고 Blob의 버전을 만듭니다. HTTP 요청은 필요한 메타 및 다중 파트 양식 데이터와 함께 PATCH 메서드를 통해 수행됩니다.
 
@@ -249,7 +246,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 
 Blob을 사용자 모델에 연결할 수 있습니다(예: 프로필 사진 연결). 다음 이미지는 관련 사용자 API 엔드포인트 및 필요한 경로 매개 변수(예: `id`)를 보여줍니다.
 
-[![사용자 blob](media/how-to-add-blobs/blobs-users-api-img.png)](media/how-to-add-blobs/blobs-users-api-img.png#lightbox)
+[![User blob](media/how-to-add-blobs/blobs-users-api-img.png)](media/how-to-add-blobs/blobs-users-api-img.png#lightbox)
 
 예를 들어 사용자에게 연결된 Blob을 가져오려면 필요한 양식 데이터를 사용하여 인증된 HTTP GET 요청을 수행합니다.
 
@@ -261,7 +258,7 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | 원하는 Blob ID |
 
-성공한 요청은 [앞에서 설명한](#blobModel) 대로 JSON 개체를 반환합니다.
+성공한 요청은 [앞에서 설명한](#blobs-response-data) 대로 JSON 개체를 반환합니다.
 
 ## <a name="common-errors"></a>일반 오류
 

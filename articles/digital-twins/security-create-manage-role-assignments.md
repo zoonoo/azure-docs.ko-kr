@@ -1,20 +1,20 @@
 ---
-title: Azure Digital Twins에서 역할 할당 만들기 및 관리 | Microsoft Docs
-description: Azure Digital Twins에서 역할 할당 만들고 관리합니다.
+title: 역할 할당 만들기 및 관리-Azure Digital Twins | Microsoft Docs
+description: Azure Digital Twins에서 역할 할당을 만들고 관리 하는 방법에 대해 알아봅니다.
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/02/2019
 ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: 2c43dd7c0700efdd2fbf2f16c57c9c9dc69d3c6b
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
-ms.translationtype: MT
+ms.openlocfilehash: 9a9f3398df099eca7d83b38595364956e6b3b76b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703364"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827722"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Azure Digital Twins에서 역할 할당 만들기 및 관리
 
@@ -165,8 +165,8 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 | --- | --- | --- | --- |
 | YOUR_USER_ID |  True | 문자열 |   UserId objectIdType의 objectId입니다. |
 | YOUR_PATH | True | 문자열 |   액세스를 확인할 선택한 경로입니다. |
-| YOUR_ACCESS_TYPE |  True | 문자열 |   확인할 액세스 형식입니다. |
-| YOUR_RESOURCE_TYPE | True | 문자열 |  확인할 리소스입니다. |
+| YOUR_ACCESS_TYPE |  True | 문자열 |   *읽기*, *만들기*, *업데이트*또는 *삭제* |
+| YOUR_RESOURCE_TYPE | True | 문자열 |  *장치*, *deviceblobmetadata*, *deviceblobmetadata*, *extendedpropertykey*, *extendedtype*, *Endpoint*, *키 저장소*, *선택기*, *Ontology*, *Report*,  *RoleDefinition*, *센서*, *SensorExtendedProperty*, *Space*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *System* , *UerDefinedFunction*, *User*, *Userblobmetadata*또는 *userblobmetadata* |
 
 요청이 성공하면 지정된 경로 및 리소스의 사용자에게 액세스 형식이 할당되었는지 여부를 나타내기 위해 부울 `true` 또는 `false`가 반환됩니다.
 
@@ -198,7 +198,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 
 ### <a name="revoke-a-permission"></a>권한 해지
 
-받는 사람으로부터 권한을 해지하려면 인증된 HTTP DELETE 요청을 수행하여 역할 할당을 삭제합니다.
+받는 사람 으로부터 사용 권한을 취소 하려면 인증 된 HTTP DELETE 요청을 만들어 역할 할당을 삭제 합니다.
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID

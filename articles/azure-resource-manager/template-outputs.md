@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 3805e0bb86772836ba4a1c91661477f29d5e0f70
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 0ff1e3cb71bd1bf5ee947eb5204839d48103628b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384048"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827938"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 출력
 
@@ -64,7 +64,7 @@ ms.locfileid: "70384048"
 }
 ```
 
-`reference` 함수는 [중첩된 템플릿](resource-group-linked-templates.md#link-or-nest-a-template)의 출력 섹션에 사용할 수 없습니다. 중첩된 템플릿에서 배포된 리소스의 값을 반환하려면 중첩된 템플릿을 연결된 템플릿으로 변환합니다.
+`reference` 함수는 [중첩된 템플릿](resource-group-linked-templates.md#nested-template)의 출력 섹션에 사용할 수 없습니다. 중첩된 템플릿에서 배포된 리소스의 값을 반환하려면 중첩된 템플릿을 연결된 템플릿으로 변환합니다.
 
 ## <a name="get-output-values"></a>출력 값 가져오기
 
@@ -95,7 +95,7 @@ az group deployment show \
 
 다음 예제에서는 출력을 사용 하는 시나리오를 보여 줍니다.
 
-|템플릿  |Description  |
+|템플릿  |설명  |
 |---------|---------|
 |[변수 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | 복잡한 변수를 만들고 해당 값을 출력합니다. 여기서는 리소스를 배포하지 않습니다. |
 |[공용 IP 주소](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | 공용 IP 주소를 만들고 리소스 ID를 출력합니다. |

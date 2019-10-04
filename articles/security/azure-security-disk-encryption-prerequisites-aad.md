@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/15/2019
+ms.date: 09/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: da3cb81eaeaa3b1609ffe67b2aea92a69b6bb47a
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 07db6c5cecf2b8dec803e73d5775edef3f8906fa
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726262"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828622"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure Disk Encryption 필수 구성 요소(이전 릴리스)
 
@@ -53,6 +53,7 @@ Azure에서 보증 되지 않는 Linux 서버 배포는 Azure Disk Encryption을
 | Ubuntu | 18.04| OS 및 데이터 디스크 |
 | Ubuntu | 16.04| OS 및 데이터 디스크 |
 | Ubuntu | 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS 및 데이터 디스크 |
+| RHEL | 7.7 | OS 및 데이터 디스크 (아래 참고 참조) |
 | RHEL | 7.6 | OS 및 데이터 디스크 (아래 참고 참조) |
 | RHEL | 7.5 | OS 및 데이터 디스크 (아래 참고 참조) |
 | RHEL | 7.4 | OS 및 데이터 디스크 (아래 참고 참조) |
@@ -60,6 +61,7 @@ Azure에서 보증 되지 않는 Linux 서버 배포는 Azure Disk Encryption을
 | RHEL | 7.2 | OS 및 데이터 디스크 (아래 참고 참조) |
 | RHEL | 6.8 | 데이터 디스크 (아래 참고 참조) |
 | RHEL | 6.7 | 데이터 디스크 (아래 참고 참조) |
+| CentOS | 7.7 | OS 및 데이터 디스크 |
 | CentOS | 7.6 | OS 및 데이터 디스크 |
 | CentOS | 7.5 | OS 및 데이터 디스크 |
 | CentOS | 7.4 | OS 및 데이터 디스크 |
@@ -380,7 +382,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
 1. 키 자격 증명 모음을 선택하고, **액세스 정책**, **클릭하여 고급 액세스 정책 표시**로 차례로 이동합니다.
 2. **볼륨 암호화를 위해 Azure Disk Encryption에 대한 액세스 사용**이라는 레이블이 있는 상자를 선택합니다.
 3. 필요한 경우 **배포를 위해 Azure Virtual Machines에 대한 액세스 사용** 및/또는 **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용**을 선택합니다. 
-4. **Save**을 클릭합니다.
+4. **저장**을 클릭합니다.
 
 ![Azure 키 자격 증명 모음에 대한 고급 액세스 정책](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
 

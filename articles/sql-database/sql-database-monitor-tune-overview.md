@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 83ff39e9f3b7f95256466c74011e55ebdc22a7a9
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 5df9df1474489d7f1b1fb4e1089143cca63a3e42
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910519"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935596"
 ---
 # <a name="monitoring-and-performance-tuning"></a>모니터링 및 성능 튜닝
 
@@ -187,7 +187,7 @@ RECOMPILE 힌트를 사용 하는 경우에는 계획이 캐시 되지 않습니
 
 문제를 파악 한 후에는 문제 쿼리를 튜닝 하거나 계산 크기나 서비스 계층을 업그레이드 하 여 CPU 요구 사항을 충족 하기 위해 SQL 데이터베이스의 용량을 늘릴 수 있습니다. 
 
-자세한 내용은 [Azure SQL Database에서 단일 데이터베이스 리소스 크기 조정](sql-database-single-database-scale.md) 및 [Azure SQL Database에서 탄력적 풀 리소스 크기](sql-database-elastic-pool-scale.md)조정을 참조 하세요. 관리 되는 인스턴스의 크기를 조정 하는 방법에 대 한 자세한 내용은 [인스턴스 수준 리소스 제한](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits)을 참조 하세요.
+자세한 내용은 [Azure SQL Database에서 단일 데이터베이스 리소스 크기 조정](sql-database-single-database-scale.md) 및 [Azure SQL Database에서 탄력적 풀 리소스 크기](sql-database-elastic-pool-scale.md)조정을 참조 하세요. 관리 되는 인스턴스의 크기를 조정 하는 방법에 대 한 자세한 내용은 [서비스 계층 리소스 제한](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)을 참조 하세요.
 
 ### <a name="performance-problems-caused-by-increased-workload-volume"></a>작업 볼륨이 증가 하 여 발생 하는 성능 문제
 

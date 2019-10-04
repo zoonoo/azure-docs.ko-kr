@@ -9,30 +9,37 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: b48455b6ea9c1cd74e94c10d8f9f938c20512c02
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 228851a0d528bfb222e5aa19880f856424e95ad1
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414583"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828121"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Linux 가상 머신에서 가상 TPM을 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
 
-[장치 프로 비전 서비스](../iot-dps/index.yml)를 사용 하 여 Azure IoT Edge 장치를 자동으로 프로 비전 할 수 있습니다. 자동 프로비전 프로세스에 익숙하지 않은 경우 계속하기 전에 [자동 프로비전 개념](../iot-dps/concepts-auto-provisioning.md)을 검토하세요. 
+[장치 프로 비전 서비스](../iot-dps/index.yml)를 사용 하 여 Azure IoT Edge 장치를 자동으로 프로 비전 할 수 있습니다. 자동 프로비전 프로세스에 익숙하지 않은 경우 계속하기 전에 [자동 프로비전 개념](../iot-dps/concepts-auto-provisioning.md)을 검토하세요.
 
-이 문서에서는 다음 단계를 사용 하 여 시뮬레이트된 IoT Edge 장치에서 자동 프로 비전 테스트 하는 방법을 보여 줍니다. 
+이 문서에서는 다음 단계를 사용 하 여 시뮬레이트된 IoT Edge 장치에서 자동 프로 비전을 테스트 하는 방법을 보여 줍니다.
 
 * 하드웨어 보안을 위해 시뮬레이션된 TPM(신뢰할 수 있는 플랫폼 모듈)을 사용하여 Hyper-v에서 Linux 가상 머신(VM)을 만듭니다.
 * IoT Hub DPS(Device Provisioning Service)의 인스턴스를 만듭니다.
 * 디바이스에 대한 개별 등록 만들기
 * IoT Edge 런타임 설치 및 IoT Hub에 디바이스 연결
 
-이 문서의 단계는 테스트 목적으로 사용됩니다.
+> [!NOTE]
+> Tpm 2.0는 DPS에서 TPM 증명을 사용 하는 경우 필요 하며, 개별 그룹, 등록 그룹을 만드는 데만 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+> [!TIP]
+> 이 문서에서는 TPM 시뮬레이터를 사용 하 여 DPS 프로 비전을 테스트 하는 방법을 설명 하지만 대부분의 경우 [BROADCOMM OPTIGA @ no__t-1 tpm](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), IoT용 Azure Certified 장치와 같은 실제 tpm 하드웨어에 적용 됩니다.
+>
+> 물리적 장치를 사용 하는 경우이 문서의 [물리적 장치에서 프로 비전 정보 검색](#retrieve-provisioning-information-from-a-physical-device) 섹션으로 건너뛸 수 있습니다.
 
-* [Hyper-V를 사용하도록 설정된](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) Windows 개발 컴퓨터. 이 문서에서는 Ubuntu Server VM을 실행하는 Windows 10을 사용합니다. 
-* 활성 IoT Hub. 
+## <a name="prerequisites"></a>사전 요구 사항
+
+* [Hyper-V를 사용하도록 설정된](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) Windows 개발 컴퓨터. 이 문서에서는 Ubuntu Server VM을 실행하는 Windows 10을 사용합니다.
+* 활성 IoT Hub
+* 시뮬레이션 된 TPM을 사용 하는 경우 ' 워크 로드 [를 C++사용한 데스크톱 개발 '](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크 로드와 함께 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 이상 버전을 사용할 수 있습니다.
 
 ## <a name="create-a-linux-virtual-machine-with-a-virtual-tpm"></a>가상 TPM을 사용하여 Linux 가상 머신 만들기
 
@@ -72,7 +79,7 @@ ms.locfileid: "68414583"
 
 ### <a name="enable-virtual-tpm"></a>가상 TPM 사용
 
-VM을 만든 후 해당 설정을 열어 장치를 autoprovision 수 있는 TPM (가상 신뢰할 수 있는 플랫폼 모듈)을 사용 하도록 설정 합니다. 
+VM을 만든 후에는 해당 설정을 열어 장치를 자동으로 프로 비전 할 수 있는 TPM (가상 신뢰할 수 있는 플랫폼 모듈)을 사용 하도록 설정 합니다.
 
 1. 가상 컴퓨터를 선택한 다음 해당 **설정을**엽니다.
 
@@ -86,18 +93,48 @@ VM을 만든 후 해당 설정을 열어 장치를 autoprovision 수 있는 TPM 
 
 ### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>가상 머신 시작 및 TPM 데이터 수집
 
-가상 머신에서 디바이스의 **등록 ID** 및 **인증 키**를 검색하는 데 사용할 수 있는 C SDK 도구를 빌드합니다. 
+가상 머신에서 장치의 **등록 ID** 및 **인증 키**를 검색 하는 데 사용할 수 있는 도구를 빌드합니다.
 
 1. 가상 컴퓨터를 시작 하 고 연결 합니다.
 
-2. 가상 컴퓨터 내의 메시지에 따라 설치 프로세스를 완료 하 고 컴퓨터를 다시 부팅 합니다. 
+1. 가상 컴퓨터 내의 메시지에 따라 설치 프로세스를 완료 하 고 컴퓨터를 다시 부팅 합니다.
 
-3. VM에 로그인 한 다음 [Linux 개발 환경 설정](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) 의 단계에 따라 C 용 Azure IOT 장치 SDK를 설치 하 고 빌드합니다. 
+1. VM에 로그인 한 다음 [Linux 개발 환경 설정](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) 의 단계에 따라 C 용 Azure IOT 장치 SDK를 설치 하 고 빌드합니다.
 
    >[!TIP]
-   >이 문서에서는 Hyper-v 관리자 연결 응용 프로그램을 통해 쉽게 찾을 수 없는 가상 머신에서 복사 하 여 붙여 넣습니다. Hyper-v 관리자를 통해 가상 컴퓨터에 연결 하 여 해당 IP 주소 `ifconfig`를 검색 하는 것이 좋습니다. 그런 다음 IP 주소를 사용 하 여 SSH `ssh <username>@<ipaddress>`를 통해 연결할 수 있습니다.
+   >이 문서에서는 Hyper-v 관리자 연결 응용 프로그램을 통해 쉽게 찾을 수 없는 가상 머신에서 복사 하 여 붙여 넣습니다. Hyper-v 관리자를 통해 가상 컴퓨터에 연결 하 여 IP 주소를 검색 하는 것을 한 번 `ifconfig`입니다. 그런 다음 IP 주소를 사용 하 여 SSH `ssh <username>@<ipaddress>`를 통해 연결할 수 있습니다.
 
-4. 디바이스 프로비전 정보를 검색하는 C SDK 도구를 빌드하려면 다음 명령을 실행합니다. 
+1. 다음 명령을 실행 하 여 TPM 시뮬레이터에서 장치 프로 비전 정보를 검색 하는 SDK 도구를 빌드합니다.
+
+   ```bash
+   cd azure-iot-sdk-c/cmake
+   cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
+   cd provisioning_client/tools/tpm_device_provision
+   make
+   sudo ./tpm_device_provision
+   ```
+
+1. 명령 창에서 `azure-iot-sdk-c` 디렉터리로 이동 하 고 TPM 시뮬레이터를 실행 합니다. 포트 2321 및 2322에서 소켓을 수신 대기합니다. 이 명령 창을 닫지 마십시오. 이 시뮬레이터는 계속 실행 해야 합니다.
+
+   @No__t-0 디렉터리에서 다음 명령을 실행 하 여 시뮬레이터를 시작 합니다.
+
+   ```bash
+   ./provisioning_client/deps/utpm/tools/tpm_simulator/Simulator.exe
+   ```
+
+1. Visual Studio를 사용 하 여 `azure_iot_sdks.sln` 이라는 `cmake` 디렉터리에 생성 된 솔루션을 열고 빌드 메뉴에서 **솔루션 빌드** 명령을 사용 하 여 **빌드합니다.**
+
+1. Visual Studio의 **솔루션 탐색기** 창에서 **Provision\_Tools** 폴더로 이동합니다. **tpm_device_provision** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정**을 선택합니다.
+
+1. **디버그** 메뉴에서 **시작** 명령 중 하나를 사용 하 여 솔루션을 실행 합니다. 출력 창에는 TPM 시뮬레이터의 **등록 id** 및 **인증 키**가 표시 됩니다 .이 키는 나중에 장치에 대 한 개별 등록을 만들 때 사용 하기 위해 복사 해야 하며, 등록 id 및 인증 키)를 지정 하 고 TPM 시뮬레이터 창을 실행 상태로 둡니다.
+
+## <a name="retrieve-provisioning-information-from-a-physical-device"></a>물리적 장치에서 프로 비전 정보 검색
+
+장치에서 장치의 프로 비전 정보를 검색 하는 데 사용할 수 있는 도구를 빌드합니다.
+
+1. [Linux 개발 환경 설정](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) 의 단계에 따라 C 용 Azure IOT 장치 SDK를 설치 하 고 빌드합니다.
+
+1. 다음 명령을 실행 하 여 TPM 장치에서 장치 프로 비전 정보를 검색 하는 SDK 도구를 빌드합니다.
 
    ```bash
    cd azure-iot-sdk-c/cmake
@@ -106,10 +143,8 @@ VM을 만든 후 해당 설정을 열어 장치를 autoprovision 수 있는 TPM 
    make
    sudo ./tpm_device_provision
    ```
-   >[!TIP]
-   >TPM 시뮬레이터를 사용 하 여 테스트 하는 경우 사용 하도록 설정 하는 추가 `-Duse_tpm_simulator:BOOL=ON` 매개 변수를 추가 해야 합니다. 전체 명령은 `cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..`입니다.
 
-5. **등록 ID** 및 **인증 키**의 값을 복사합니다. 이러한 값을 사용하여 DPS에서 디바이스에 대한 개별 등록을 만듭니다. 
+1. **등록 ID** 및 **인증 키**에 대 한 값을 복사 합니다. 이러한 값을 사용하여 DPS에서 디바이스에 대한 개별 등록을 만듭니다.
 
 ## <a name="set-up-the-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service 설정
 
@@ -130,16 +165,19 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 3. 등록을 구성하려면 **개별 등록 추가**를 선택한 다음, 다음 단계를 완료합니다.  
 
    1. **메커니즘**의 경우 **TPM**을 선택합니다. 
-   
+
    2. 가상 머신에서 복사한 **인증 키** 및 **등록 ID** 를 제공 합니다.
-   
+
+      > [!TIP]
+      > 물리적 TPM 장치를 사용 하는 경우 각 TPM 칩에 고유한 **인증 키**를 확인 해야 하며,이는 연결 된 tpm 칩 제조업체에서 가져옵니다. 예를 들어 인증 키의 SHA-256 해시를 만들어 TPM 장치에 대 한 고유한 **등록 ID** 를 파생할 수 있습니다.
+
    3. 이 가상 머신이 IoT Edge 장치 임을 선언 하려면 **True** 를 선택 합니다. 
-   
+
    4. 디바이스를 연결하려는 링크된 **IoT Hub**를 선택합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 장치 중 하나에 장치가 할당 됩니다. 
-   
+
    5. 원하는 경우 디바이스에 대한 ID를 제공합니다. 디바이스 ID를 사용하여 모듈 배포에 대한 개별 디바이스를 대상으로 할 수 있습니다. 장치 ID를 제공 하지 않으면 등록 ID가 사용 됩니다.
-   
-   6. 원하는 경우 **초기 디바이스 쌍 상태**에 태그 값을 추가합니다. 태그를 사용하여 모듈 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 예: 
+
+   6. 원하는 경우 **초기 디바이스 쌍 상태**에 태그 값을 추가합니다. 태그를 사용하여 모듈 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. 
 
       ```json
       {
@@ -152,7 +190,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
       }
       ```
 
-   7.           **저장**을 선택합니다. 
+   7. **저장**을 선택합니다. 
 
 이제이 장치에 대 한 등록이 있으므로 IoT Edge 런타임은 설치 중에 장치를 자동으로 프로 비전 할 수 있습니다. 
 
@@ -216,35 +254,6 @@ IoT Edge 런타임이 디바이스를 자동으로 프로비전하려면 TPM에 
    ```
 
    올바른 사용 권한이 적용됐는지 확인할 수 없는 경우 머신을 재부팅하여 udev를 새로 고칩니다. 
-
-8. 파일을 재정의하는 IoT Edge 런타임을 엽니다. 
-
-   ```bash
-   sudo systemctl edit iotedge.service
-   ```
-
-9. TPM 환경 변수를 설정하려면 다음 코드를 추가합니다.
-
-   ```input
-   [Service]
-   Environment=IOTEDGE_USE_TPM_DEVICE=ON
-   ```
-
-10. 파일을 저장하고 종료합니다.
-
-11. 재정의가 성공적으로 수행되었는지 확인합니다.
-
-    ```bash
-    sudo systemctl cat iotedge.service
-    ```
-
-    출력이 성공하면 **iotedge** 기본 서비스 변수를 표시한 다음, **override.conf**에서 설정한 환경 변수를 보여줍니다. 
-
-12. 설정을 다시 로드합니다.
-
-    ```bash
-    sudo systemctl daemon-reload
-    ```
 
 ## <a name="restart-the-iot-edge-runtime"></a>IoT Edge 런타임 다시 시작
 

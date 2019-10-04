@@ -6,14 +6,14 @@ author: mlearned
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 54a95186a297cf3604858341fb8f5aba3702bf5a
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 4d736556147797bcd007bdab1b5328deeadea712
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241791"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827362"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -59,7 +59,9 @@ Windows Server 노드(현재 AKS에서 프리뷰)에 대한 Windows Update는 �
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>AKS를 통해 2개의 리소스 그룹이 생성되는 이유는 무엇인가요?
 
-각 AKS 배포는 두 리소스 그룹에 걸쳐 있습니다.
+AKS는 가상 머신 확장 집합, 가상 네트워크 및 관리 디스크를 포함 하 여 다양 한 Azure 인프라 리소스를 기반으로 합니다. 이렇게 하면 AKS에서 제공 하는 관리 되는 Kubernetes 환경 내에서 Azure platform의 많은 핵심 기능을 활용할 수 있습니다. 예를 들어 대부분의 Azure virtual machine 유형은 AKS에서 직접 사용할 수 있으며, 이러한 리소스에 대 한 할인을 자동으로 수신 하는 데 사용할 수 Azure Reservations.
+
+이 아키텍처를 사용 하도록 설정 하기 위해 각 AKS 배포는 다음 두 리소스 그룹에 걸쳐 있습니다.
 
 1. 첫 번째 리소스 그룹을 만듭니다. 이 그룹에는 Kubernetes service 리소스만 포함 됩니다. AKS 리소스 공급자는 배포 하는 동안 두 번째 리소스 그룹을 자동으로 만듭니다. 두 번째 리소스 그룹의 예는 *MC_myResourceGroup_myAKSCluster_eastus*입니다. 이 두 번째 리소스 그룹의 이름을 지정 하는 방법에 대 한 자세한 내용은 다음 섹션을 참조 하세요.
 1. *노드 리소스 그룹*이라고 하는 두 번째 리소스 그룹에는 클러스터와 연결 된 모든 인프라 리소스가 포함 되어 있습니다. 이러한 리소스에는 Kubernetes 노드 VM, 가상 네트워킹 및 스토리지가 포함됩니다. 기본적으로 노드 리소스 그룹의 이름은 *MC_myResourceGroup_myAKSCluster_eastus*와 같습니다. AKS는 클러스터가 삭제 될 때마다 노드 리소스를 자동으로 삭제 하므로 클러스터의 수명 주기를 공유 하는 리소스에 대해서만 사용 해야 합니다.
@@ -159,7 +161,7 @@ AKS 클러스터와 Azure 구독 간에 연결 된 리소스를 이동 하는 �
 
 아니요. 업그레이드 하기 전에 실패 한 상태의 모든 노드를 삭제/제거 하거나 클러스터에서 제거 하세요.
 
-## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>클러스터 삭제를 실행 했지만 오류가 표시 됩니다.`[Errno 11001] getaddrinfo failed` 
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>클러스터 삭제를 실행 했지만 @no__t 오류를 확인 합니다. 
 
 가장 일반적으로이 문제는 하나 이상의 NSGs (네트워크 보안 그룹)가 계속 사용 되 고 클러스터와 연결 된 사용자에 의해 발생 합니다.  제거 하 고 삭제를 다시 시도 하세요.
 

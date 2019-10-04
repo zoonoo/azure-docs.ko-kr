@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 07d52544b584adb02cc60790b7cb63c8aee1e366
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4f3d2eba70be39b23e86ebde3c71dfc7c19a374
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514484"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936715"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>PowerShell을 사용하여 Application Insights 리소스 만들기
 
@@ -46,7 +46,7 @@ ms.locfileid: "66514484"
             "appName": {
                 "type": "string",
                 "metadata": {
-                    "description": "Enter the application name."
+                    "description": "Enter the name of your Application Insights resource."
                 }
             },
             "appType": {
@@ -58,20 +58,39 @@ ms.locfileid: "66514484"
                     "other"
                 ],
                 "metadata": {
-                    "description": "Enter the application type."
+                    "description": "Enter the type of the monitored application."
                 }
             },
             "appLocation": {
                 "type": "string",
-                "defaultValue": "East US",
+                "defaultValue": "eastus",
+                "metadata": {
+                    "description": "Enter the location of your Application Insights resource."
+                }
+            },
+            "retentionInDays": {
+                "type": "int",
+                "defaultValue": 90,
                 "allowedValues": [
-                    "South Central US",
-                    "West Europe",
-                    "East US",
-                    "North Europe"
+                    30,
+                    60,
+                    90,
+                    120,
+                    180,
+                    270,
+                    365,
+                    550,
+                    730
                 ],
                 "metadata": {
-                    "description": "Enter the application location."
+                    "description": "Data retention in days"
+                }
+            },
+            "ImmediatePurgeDataOn30Days": {
+                "type": "bool",
+                "defaultValue": false,
+                "metadata": {
+                    "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
                 }
             },
             "priceCode": {
@@ -82,7 +101,7 @@ ms.locfileid: "66514484"
                     2
                 ],
                 "metadata": {
-                    "description": "1 = Per GB (Basic), 2 = Per Node (Enterprise)"
+                    "description": "Pricing plan: 1 = Per GB (or legacy Basic plan), 2 = Per Node (legacy Enterprise plan)"
                 }
             },
             "dailyQuota": {
@@ -141,6 +160,7 @@ ms.locfileid: "66514484"
                 ],
                 "properties": {
                     "CurrentBillingFeatures": "[variables('pricePlan')]",
+                    "retentionInDays": "[variables('retentionInDays')]",
                     "DataVolumeCap": {
                         "Cap": "[parameters('dailyQuota')]",
                         "WarningThreshold": "[parameters('warningThreshold')]",
@@ -200,7 +220,7 @@ ms.locfileid: "66514484"
 
 |priceCode|계획|
 |---|---|
-|1|Basic|
+|1|기본|
 |2|Enterprise|
 
 * 기본적인 Basic 가격 계획만 사용하려는 경우 템플릿에서 CurrentBillingFeatures 리소스를 생략해도 됩니다.
@@ -449,6 +469,6 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 * [Application Insights 리소스 만들기](powershell-script-create-resource.md) - 템플릿을 사용하지 않는 빠른 방법입니다.
 * [경고 설정](powershell-alerts.md)
 * [웹 테스트 만들기](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
-* [Application Insights에 Azure 진단 보내기](powershell-azure-diagnostics.md)
+* [Application Insights에 Azure Diagnostics 보내기](powershell-azure-diagnostics.md)
 * [GitHub에서 Azure로 배포](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [릴리스 주석 만들기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)

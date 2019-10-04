@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 633287dc735828125754158d857543ee92b388ad
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 2ad6ac4c30572f1b475cba2f699f5842ae3c7528
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315123"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71826990"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책을 사용하여 Twitter 계정으로 로그인을 설정합니다.
 
@@ -153,6 +153,8 @@ Azure AD B2C에서 ID 공급자로 Twitter를 사용하려면 Twitter 애플리�
 3. *TrustFrameworkExtensions.xml* 파일을 저장하고 확인을 위해 다시 업로드합니다.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
+
+Azure AD B2C와의 통신은 B2C 테 넌 트에 등록 하는 응용 프로그램을 통해 발생 합니다. 이 섹션에는 아직 만들지 않은 경우 테스트 애플리케이션을 만들기 위해 완료할 수 있는 선택적 단계가 나와 있습니다.
 
 [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 

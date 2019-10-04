@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: raynew
-ms.openlocfilehash: c54273e0ca8c88a6fe47d5611950acd38f50b4c0
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8e034153a2e98a101527f411c78ace6e46b01b29
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212807"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937519"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -73,7 +73,7 @@ Azure VM 재해 복구에 대 한 새로운 기능이 표에 요약 되어 있�
 
 **기능** | **세부 정보**
 --- | ---
-Storage 계정 | Site Recovery은 이제 Hyper-v에서 Azure로 재해 복구를 위해 방화벽을 사용 하도록 설정 된 저장소 계정 사용을 지원 합니다.  방화벽 사용 저장소 계정을 대상 계정 또는 캐시 저장소로 선택할 수 있습니다. 방화벽이 사용 되는 계정을 사용 하는 경우 신뢰할 수 있는 Microsoft 서비스를 허용 하는 옵션을 사용 하도록 설정 해야 합니다.
+Storage 계정 | Site Recovery은 이제 Hyper-v에서 Azure로 재해 복구를 위해 방화벽을 사용 하도록 설정 된 저장소 계정 사용을 지원 합니다.  방화벽 사용 저장소 계정을 대상 계정 또는 캐시 저장소로 선택할 수 있습니다. 방화벽이 사용 되는 계정을 사용 하는 경우 신뢰할 수 있는 Microsoft 서비스를 허용 하는 옵션을 사용 하도록 설정 해야 합니다.<br/><br/> 이는 System Center VMM이 있거나 없는 Hyper-v Vm에 대해 지원 됩니다.
 
 
 ## <a name="updates-august-2019"></a>업데이트 (8 월 2019)

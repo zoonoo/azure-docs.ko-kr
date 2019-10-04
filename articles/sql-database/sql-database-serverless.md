@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 04e3881b553f639bb2df948b6ad1154f86f1c9da
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 86c03554f5faa1ebb40faa20b6a271f5310ccd4f
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123093"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828226"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>서버를 사용 하지 않는 Azure SQL Database (미리 보기)
 
@@ -171,7 +171,7 @@ Autoresuming는 데이터베이스를 온라인 상태로 만들어야 하는 �
 
    |매개 변수|값 선택|기본값|
    |---|---|---|---|
-   |최소 vCores|최대 vCore 수를 초과하지 않는 {0.5, 1, 2, 4}개 중 하나|0.5개 vCore|
+   |최소 vCore|구성 된 최대 vCores에 따라 다름- [리소스 제한](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)을 참조 하세요.|0.5개 vCore|
    |자동 일시 중지 지연|최소: 60 분 (1 시간)<br>최대: 10,080분(7일)<br>증분: 60분<br>자동 일시 중지 사용 안 함: -1|60분|
 
 > [!NOTE]
@@ -225,7 +225,7 @@ Set-AzSqlDatabase `
 
 ## <a name="modifying-serverless-configuration"></a>서버를 사용 하지 않는 구성 수정
 
-### <a name="maximum-vcores"></a>최대 vCore 수
+### <a name="maximum-vcores"></a>최대 vCore
 
 #### <a name="use-powershell"></a>PowerShell 사용
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 5c90d7b5eefdf8357c0f6f8efb619bd69af12b06
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 53c9dea83fc6d413d7e82194696ffedabcc8cf7b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843267"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71830132"
 ---
 실행하는 애플리케이션에 대해 VM을 안전하게 유지하는 것은 중요합니다. VM 보안은 VM에 대한 보안 액세스 및 데이터의 보안 스토리지를 포함하는 하나 이상의 Azure 서비스 및 기능을 포함할 수 있습니다. 이 문서에서는 VM 및 애플리케이션을 안전하게 유지할 수 있도록 하는 정보를 제공합니다.
 
@@ -25,7 +25,7 @@ Security Center의 Just-In-Time 액세스를 VM 배포에 적용하면 Azure VM�
 
 ## <a name="encryption"></a>암호화
 
-[Windows VM](../articles/virtual-machines/windows/encrypt-disks.md) 및 [Linux VM](../articles/virtual-machines/linux/encrypt-disks.md)의 보안과 규정 준수 상태를 향상시키기 위해 Azure에서 가상 디스크를 암호화할 수 있습니다. Windows VM의 가상 디스크는 미사용 시 BitLocker를 사용하여 암호화됩니다. Linux VM의 가상 디스크는 미사용 시 dm-crypt를 사용하여 암호화됩니다. 
+[Windows VM](../articles/virtual-machines/windows/encrypt-disks.md) 및 [Linux VM](../articles/virtual-machines/linux/disk-encryption-overview.md)의 보안과 규정 준수 상태를 향상시키기 위해 Azure에서 가상 디스크를 암호화할 수 있습니다. Windows VM의 가상 디스크는 미사용 시 BitLocker를 사용하여 암호화됩니다. Linux VM의 가상 디스크는 미사용 시 dm-crypt를 사용하여 암호화됩니다. 
 
 Azure에서 가상 디스크 암호화는 무료입니다. 암호화 키는 소프트웨어 보호를 사용하여 Azure Key Vault에 저장되거나 FIPS 140-2 레벨 2 표준 인증 HSM(하드웨어 보안 모듈)에서 키를 가져오거나 생성할 수 있습니다. 이러한 암호화 키는 VM에 연결된 가상 디스크를 암호화하고 암호를 해독하는 데 사용됩니다. 이러한 암호화 키에 대한 제어를 유지하고 그 사용을 감사할 수 있습니다. Azure Active Directory 서비스 사용자는 VM이 켜지고 꺼지는 경우 이러한 암호화 키 발급을 위한 보안 메커니즘을 제공합니다.
 

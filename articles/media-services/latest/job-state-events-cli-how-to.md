@@ -11,22 +11,22 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: juliako
-ms.openlocfilehash: f6243bbc21466361aed7cbb7193f3a7b7c7e539f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 619d40ab56715b4444d8e5649c7fb3401b3f57ff
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60322687"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937277"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Azure CLI를 사용하여 Event Grid에서 Media Services 이벤트 만들기 및 모니터링
 
-Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 서비스를 사용 하 여 [이벤트 구독](../../event-grid/concepts.md#event-subscriptions) 구독자에 게 이벤트 메시지 경로에 있습니다. Media Services 이벤트에는 데이터 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다. Media Services 이벤트는 eventType 속성이 "Microsoft.Media"로 시작하는 것으로 식별할 수 있습니다. 자세한 내용은 [Media Services 이벤트 스키마](media-services-event-schemas.md)를 참조하세요.
+Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 서비스는 [이벤트 구독](../../event-grid/concepts.md#event-subscriptions) 을 사용 하 여 이벤트 메시지를 구독자로 라우팅합니다. Media Services 이벤트에는 데이터 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다. Media Services 이벤트는 eventType 속성이 "Microsoft.Media"로 시작하는 것으로 식별할 수 있습니다. 자세한 내용은 [Media Services 이벤트 스키마](media-services-event-schemas.md)를 참조하세요.
 
 이 문서에서는 Azure CLI를 사용하여 Azure Media Services 계정에 대한 이벤트를 구독합니다. 그런 다음, 이벤트를 트리거하여 결과를 봅니다. 일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 이 문서에서는 메시지를 수집하고 표시하는 웹앱에 이벤트를 보냅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- 활성 Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
+- 활성화된 Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 - CLI를 로컬로 설치하여 사용하려면 이 문서에서 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
     현재 일부 [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) 명령은 Azure Cloud Shell에서 작동하지 않습니다. CLI를 로컬로 사용하는 것이 좋습니다.
@@ -69,7 +69,7 @@ az account set --subscription mySubscriptionId
     amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
     ```
 
-    예를 들면 다음과 같습니다.
+    예를 들어 다음과 같은 가치를 제공해야 합니다.
 
     ```
     amsResourceId=$(az ams account show --name amsaccount --resource-group amsResourceGroup --query id --output tsv)
@@ -79,15 +79,15 @@ az account set --subscription mySubscriptionId
 
     ```azurecli
     az eventgrid event-subscription create \
-    --resource-id $amsResourceId \
+    --source-resource-id $amsResourceId \
     --name <event_subscription_name> \
     --endpoint <endpoint_URL>
     ```
 
-    예를 들면 다음과 같습니다.
+    예를 들어 다음과 같은 가치를 제공해야 합니다.
 
     ```
-    az eventgrid event-subscription create --resource-id $amsResourceId --name amsTestEventSubscription --endpoint https://amstesteventgrid.azurewebsites.net/api/updates/
+    az eventgrid event-subscription create --source-resource-id $amsResourceId --name amsTestEventSubscription --endpoint https://amstesteventgrid.azurewebsites.net/api/updates/
     ```    
 
     > [!TIP]

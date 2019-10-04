@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 386dc737bb45eec031aaa1a0c55f4478b8302c54
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 05bb8b75fb09f3b8df0a6775874e72bdb04fc65e
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173591"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937532"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력 이해
 
@@ -52,21 +52,20 @@ Stream Analytics의 Azure Data Lake Storage 출력은 현재 Azure 중국 21Vian
 
 관계형 데이터베이스에서 호스팅되는 콘텐츠를 사용 하는 응용 프로그램 또는 본질적으로 관계형 인 데이터에 대 한 출력으로 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 를 사용할 수 있습니다. Stream Analytics 작업은 SQL Database의 기존 테이블에 기록 합니다. 테이블 스키마는 작업 출력에서 필드 및 해당 형식과 정확히 일치 해야 합니다. SQL Database 출력 옵션을 통해 [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) 를 출력으로 지정할 수도 있습니다. 쓰기 처리량을 개선 하는 방법에 대 한 자세한 내용은 [Azure SQL Database를 사용 하 여 출력](stream-analytics-sql-output-perf.md) 에 대 한 Stream Analytics 문서를 참조 하세요.
 
+[Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) 를 출력으로 사용할 수도 있습니다. [Azure SQL Database Managed Instance에서 공용 끝점을 구성](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) 하 고 Azure Stream Analytics에서 다음 설정을 수동으로 구성 해야 합니다. 아래 설정을 수동으로 구성 하 여 연결 된 데이터베이스와 함께 SQL Server를 실행 하는 Azure 가상 컴퓨터도 지원 됩니다.
+
 다음 표에서는 SQL Database 출력을 만들기 위한 속성 이름 및 해당 설명을 나열 합니다.
 
 | 속성 이름 | 설명 |
 | --- | --- |
 | 출력 별칭 |쿼리 출력을 이 데이터베이스로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
 | 데이터베이스 | 출력을 보내는 데이터베이스의 이름입니다. |
-| 서버 이름 | SQL Database 서버 이름입니다. |
+| 서버 이름 | SQL Database 서버 이름입니다. Azure SQL Database Managed Instance의 경우 포트 3342를 지정 해야 합니다. 예를 들어 *sampleserver, 3342* 입니다. |
 | 사용자 이름 | 데이터베이스에 대 한 쓰기 권한이 있는 사용자 이름입니다. Stream Analytics는 SQL 인증만 지원 합니다. |
 | 암호 | 데이터베이스에 연결하는 암호입니다. |
 | Table | 출력을 기록되는 테이블 이름입니다. 테이블 이름은 대/소문자를 구분 합니다. 이 테이블의 스키마는 작업 출력에서 생성 하는 필드 수와 해당 형식에 정확히 일치 해야 합니다. |
 |파티션 구성표 상속| 여러 작성기를 사용 하 여 테이블에 대 한 완전 한 병렬 토폴로지를 사용할 수 있도록 이전 쿼리 단계의 파티션 구성표를 상속 하는 옵션입니다. 자세한 내용은 [Azure SQL Database에 Azure Stream Analytics 출력](stream-analytics-sql-output-perf.md)을 참조하세요.|
 |최대 일괄 처리 수| 모든 bulk insert 트랜잭션과 함께 전송 되는 레코드 수에 대 한 권장 상한입니다.|
-
-> [!NOTE]
-> Azure SQL Database 제품은 Stream Analytics의 작업 출력에 대해 지원 되지만 데이터베이스가 연결 된 SQL Server를 실행 하는 Azure 가상 컴퓨터 또는 SQL Azure Managed Instance는 아직 지원 되지 않습니다. 후속 릴리스에서는 변경될 수 있습니다.
 
 ## <a name="blob-storage-and-azure-data-lake-gen2"></a>Blob storage 및 Azure Data Lake Gen2
 

@@ -18,20 +18,20 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c0625a233b3b4a949feff2e289361a26fc8dc5a
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
-ms.translationtype: MT
+ms.openlocfilehash: 8e7681afe3f5361b17670312c8391349c650a89d
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835349"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936782"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
-현재 Azure Active Directory (Azure AD)는 Azure AD 앱 갤러리에 사전 통합 된 응용 프로그램과 사용자 지정 응용 프로그램을 포함 하 여 대부분의 엔터프라이즈 응용 프로그램에서 SSO (single sign-on)를 지원 합니다. 사용자가 SAML 2.0 프로토콜을 사용하여 Azure AD를 통해 애플리케이션을 인증하면 Azure AD는 (HTTP POST를 통해) 애플리케이션에 토큰을 보냅니다. 그런 다음 애플리케이션이 토큰의 유효성을 검사하고 사용하여 사용자 이름과 암호를 묻는 대신 사용자를 로그인합니다. 이러한 SAML 토큰에는 *클레임*이라는 사용자에 대 한 정보가 포함 되어 있습니다.
+현재 Azure Active Directory (Azure AD)는 Azure AD 앱 갤러리에 사전 통합 된 응용 프로그램과 사용자 지정 응용 프로그램을 포함 하 여 대부분의 엔터프라이즈 응용 프로그램에서 SSO (Single Sign-On)를 지원 합니다. 사용자가 SAML 2.0 프로토콜을 사용하여 Azure AD를 통해 애플리케이션을 인증하면 Azure AD는 (HTTP POST를 통해) 애플리케이션에 토큰을 보냅니다. 그런 다음 애플리케이션이 토큰의 유효성을 검사하고 사용하여 사용자 이름과 암호를 묻는 대신 사용자를 로그인합니다. 이러한 SAML 토큰에는 *클레임*이라는 사용자에 대 한 정보가 포함 되어 있습니다.
 
 ‘클레임’은 해당 사용자에 대해 발급하는 토큰 내에서 ID 공급자가 사용자에 대해 나타내는 정보입니다. [SAML 토큰 ](https://en.wikipedia.org/wiki/SAML_2.0)에서 이러한 데이터는 일반적으로 SAML 특성 문에 포함됩니다. 사용자 고유의 ID는 대개 이름 식별자라고도 하는 SAML Subject에 나타납니다.
 
-기본적으로 azure ad는 사용자를 고유 하 게 식별할 수 있는 사용자의 `NameIdentifier` 사용자 이름 (사용자 계정 이름이 라고도 함) 값이 포함 된 클레임을 포함 하는 응용 프로그램에 SAML 토큰을 발급 합니다. 또한 SAML 토큰에는 사용자의 메일 주소, 이름 및 성을 포함하는 추가 클레임이 포함됩니다.
+기본적으로 Azure ad는 사용자를 고유 하 게 식별할 수 있는 사용자의 사용자 이름 (사용자 계정 이름이 라고도 함) 값이 포함 된 @no__t 0 클레임을 포함 하는 응용 프로그램에 대 한 SAML 토큰을 발급 합니다. 또한 SAML 토큰에는 사용자의 메일 주소, 이름 및 성을 포함하는 추가 클레임이 포함됩니다.
 
 SAML 토큰이 애플리케이션에 발급한 클레임을 보거나 편집하려면 Azure Portal에서 애플리케이션을 엽니다. 그런 다음 **클레임 & 사용자 특성** 섹션을 엽니다.
 
@@ -39,7 +39,7 @@ SAML 토큰이 애플리케이션에 발급한 클레임을 보거나 편집하�
 
 SAML 토큰에 발급된 클레임을 편집해야 할만한 두 가지 이유는 다음과 같습니다.
 
-* 응용 프로그램을 사용 `NameIdentifier` 하려면 또는 NameID 클레임이 Azure AD에 저장 된 사용자 이름 (또는 사용자 계정 이름) 이외의 항목 이어야 합니다.
+* 응용 프로그램을 사용 하려면 `NameIdentifier` 또는 NameID 클레임이 Azure AD에 저장 된 사용자 이름 (또는 사용자 계정 이름) 이외의 항목 이어야 합니다.
 * 애플리케이션이 다른 클레임 URI 또는 클레임 값 집합을 요구하도록 작성되었습니다.
 
 ## <a name="editing-nameid"></a>NameID 편집
@@ -59,13 +59,12 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Azu
 
 **이름 식별자 형식 선택** 드롭다운 목록에서 다음 옵션 중 하나를 선택할 수 있습니다.
 
-| NameID 형식 | Description |
+| NameID 형식 | 설명 |
 |---------------|-------------|
 | **Default** | Azure AD는 기본 원본 형식을 사용 합니다. |
 | **지속적** | Azure AD는 NameID 형식으로 영구를 사용 합니다. |
 | **EmailAddress** | Azure AD는 EmailAddress을 NameID 형식으로 사용 합니다. |
 | **지정 되지 않은** | Azure AD는 NameID 형식으로 지정 되지 않은를 사용 합니다. |
-| **일시적** | Azure AD는 NameID 형식으로 임시를 사용 합니다. |
 
 NameIDPolicy 특성에 대해 자세히 알아보려면 [Single SIGN-ON SAML 프로토콜](single-sign-on-saml-protocol.md)을 참조 하세요.
 
@@ -83,13 +82,13 @@ NameIDPolicy 특성에 대해 자세히 알아보려면 [Single SIGN-ON SAML 프
 | 디렉터리 확장 | [Azure AD Connect 동기화를 사용하여 온-프레미스 Active Directory에서 동기화되는](../hybrid/how-to-connect-sync-feature-directory-extensions.md) 디렉터리 확장입니다. |
 | 확장 특성 1-15 | Azure AD 스키마를 확장하는 데 사용되는 온-프레미스 확장 특성입니다. |
 
-자세한 [내용은 표 3: 원본](active-directory-claims-mapping.md#table-3-valid-id-values-per-source)당 유효한 ID 값입니다.
+자세한 내용은 [Table 3: 원본 @ no__t에 대 한 유효한 ID 값은 0입니다.
 
 ### <a name="special-claims---transformations"></a>특수 클레임-변환
 
 클레임 변환 함수를 사용할 수도 있습니다.
 
-| 함수 | Description |
+| 기능 | 설명 |
 |----------|-------------|
 | **ExtractMailPrefix()** | 전자 메일 주소 또는 사용자 계정 이름에서 도메인 접미사를 제거 합니다. 그러면 전달되는 사용자 이름의 첫 부분만 추출됩니다(예: joe_smith@contoso.com 대신 "joe_smith"). |
 | **Join()** | 확인된 도메인에 특성을 조인합니다. 선택한 사용자 식별자 값에 도메인이 있으면 사용자 이름을 추출하여 선택한 확인된 도메인을 추가합니다. 예를 들어, 사용자 식별자 값으로 이메일(joe_smith@contoso.com)을 선택하고 확인된 도메인으로 contoso.onmicrosoft.com을 선택하면 joe_smith@contoso.onmicrosoft.com이 됩니다. |
@@ -108,13 +107,13 @@ NameIDPolicy 특성에 대해 자세히 알아보려면 [Single SIGN-ON SAML 프
 
 클레임 변환 함수를 사용할 수도 있습니다.
 
-| 함수 | Description |
+| 기능 | 설명 |
 |----------|-------------|
 | **ExtractMailPrefix()** | 전자 메일 주소 또는 사용자 계정 이름에서 도메인 접미사를 제거 합니다. 그러면 전달되는 사용자 이름의 첫 부분만 추출됩니다(예: joe_smith@contoso.com 대신 "joe_smith"). |
 | **Join()** | 두 특성을 조인 하 여 새 값을 만듭니다. 필요에 따라 두 특성 사이에 구분 기호를 사용할 수 있습니다. |
 | **ToLower()** | 선택한 특성의 문자를 소문자로 변환합니다. |
 | **ToUpper()** | 선택한 특성의 문자를 대문자로 변환합니다. |
-| **Contains()** | 입력이 지정 된 값과 일치 하는 경우 특성 또는 상수를 출력 합니다. 그렇지 않으면 일치 하는 항목이 없는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어, 값이 "@contoso.com" 도메인을 포함 하는 경우 해당 값이 사용자의 전자 메일 주소인 클레임을 내보내려면이 고, 그렇지 않으면 사용자 계정 이름을 출력 합니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>*매개 변수 1 (입력)* : user. email<br/>*값*: "@contoso.com"<br/>매개 변수 2 (출력): user. email<br/>매개 변수 3 (일치 하지 않는 경우 출력): user. userprincipalname |
+| **Contains()** | 입력이 지정 된 값과 일치 하는 경우 특성 또는 상수를 출력 합니다. 그렇지 않으면 일치 하는 항목이 없는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어 "@contoso.com" 도메인이 포함 된 경우 값이 사용자의 전자 메일 주소인 클레임을 내보내려면이 고, 그렇지 않으면 사용자 계정 이름을 출력 합니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>*매개 변수 1 (입력)* : user. email<br/>*값*: "@contoso.com"<br/>매개 변수 2 (출력): user. email<br/>매개 변수 3 (일치 하지 않는 경우 출력): user. userprincipalname |
 | **EndWith()** | 입력이 지정 된 값으로 끝나는 경우 특성 또는 상수를 출력 합니다. 그렇지 않으면 일치 하는 항목이 없는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어 employeeid가 "000"으로 끝나는 경우 값이 사용자의 employeeid 인 클레임을 내보내려면이 고, 그렇지 않으면 확장 특성을 출력 하려고 합니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>*매개 변수 1 (입력)* : user. employeeid<br/>*값*: 10000<br/>매개 변수 2 (출력): user. employeeid<br/>매개 변수 3 (일치 하지 않는 경우 출력): user. extensionattribute1 |
 | **StartWith()** | 입력이 지정 된 값으로 시작 하는 경우 특성 또는 상수를 출력 합니다. 그렇지 않으면 일치 하는 항목이 없는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어 국가/지역이 "US"로 시작 하는 경우 값이 사용자의 employeeid 인 클레임을 내보내려면이 고, 그렇지 않으면 확장 특성을 출력 하는 것입니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>*매개 변수 1 (입력)* : user. country<br/>*값*: "당사"<br/>매개 변수 2 (출력): user. employeeid<br/>매개 변수 3 (일치 하지 않는 경우 출력): user. extensionattribute1 |
 | **Extract ()-일치 후** | 지정 된 값과 일치 하는 부분 문자열을 반환 합니다.<br/>예를 들어 입력 값이 "Finance_BSimon" 인 경우 일치 하는 값은 "Finance_"이 고 클레임의 출력은 "따르면"입니다. |

@@ -1,21 +1,20 @@
 ---
-title: 대칭 키 증명을 사용 하는 DPS Autoprovision 장치-Azure IoT Edge | Microsoft Docs
+title: 대칭 키 증명을 사용 하 여 DPS에 장치를 자동으로 프로 비전-Azure IoT Edge | Microsoft Docs
 description: 대칭 키 증명을 사용 하 여 장치 프로 비전 서비스와 Azure IoT Edge에 대 한 자동 장치 프로 비전 테스트
 author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: mrohera
-ms.date: 07/10/2019
+ms.date: 10/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 5a7e7fa011c0287d5e97ad7a8cd2e3ba77f298dd
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 53b1abca25119f4168aaf12a66c4347c53ed0a62
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299840"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828069"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>대칭 키 증명을 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
 
@@ -27,7 +26,7 @@ Edge를 사용하지 않는 디바이스와 마찬가지로 [Device Provisioning
 * 디바이스에 대한 개별 등록을 만듭니다.
 * IoT Edge 런타임을 설치 하 고 IoT Hub에 연결 합니다.
 
-대칭 키 증명은 Device Provisioning Service 인스턴스로 디바이스를 인증하는 간단한 방법입니다. 이 증명 방법은 디바이스 프로비저닝을 처음 사용하는 개발자나 엄격한 보안 요구 사항이 없는 개발자를 위한 "Hello World" 환경을 나타냅니다. [TPM](../iot-dps/concepts-tpm-attestation.md) 을 사용 하는 장치 증명은 더 안전 하며 보다 엄격한 보안 요구 사항에 사용 해야 합니다.
+대칭 키 증명은 Device Provisioning Service 인스턴스로 디바이스를 인증하는 간단한 방법입니다. 이 증명 방법은 디바이스 프로비저닝을 처음 사용하는 개발자나 엄격한 보안 요구 사항이 없는 개발자를 위한 "Hello World" 환경을 나타냅니다. [TPM](../iot-dps/concepts-tpm-attestation.md) 또는 [x.509 인증서](../iot-dps/concepts-security.md#x509-certificates) 를 사용 하는 장치 증명은 더 안전 하며 보다 엄격한 보안 요구 사항에 사용 해야 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -191,9 +190,29 @@ provisioning:
 
 ### <a name="windows-device"></a>Windows 디바이스
 
-지침에 따라 파생 된 장치 키를 생성 한 장치에 IoT Edge 런타임을 설치 합니다. 수동이 아닌 자동 프로비전에 대한 IoT Edge 런타임을 구성해야 합니다.
+파생 된 장치 키를 생성 한 장치에 IoT Edge 런타임을 설치 합니다. 수동 프로 비전이 아니라 자동으로 IoT Edge 런타임을 구성 합니다.
 
-[Windows에서 IoT Edge 설치 및 자동 프로 비전](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+Windows에 IoT Edge를 설치 하는 방법에 대 한 자세한 내용은 컨테이너 관리 및 IoT Edge 업데이트와 같은 작업에 대 한 지침 및 지침을 포함 하 여 [windows에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-windows.md)를 참조 하세요.
+
+1. 관리자 모드에서 PowerShell 창을 엽니다. PowerShell이 아닌 IoT Edge 설치 하는 경우 (x86) PowerShell의 AMD64 세션을 사용 해야 합니다.
+
+1. **배포-IoTEdge** 명령은 Windows 컴퓨터가 지원 되는 버전에 있는지 확인 하 고 컨테이너 기능을 설정한 다음 moby 런타임 및 IoT Edge 런타임을 다운로드 합니다. 이 명령은 기본적으로 Windows 컨테이너를 사용 합니다.
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Deploy-IoTEdge
+   ```
+
+1. 이 시점에서 IoT Core 장치가 자동으로 다시 시작 될 수 있습니다. 다른 Windows 10 또는 Windows Server 장치를 다시 시작 하 라는 메시지가 표시 될 수 있습니다. 그렇다면 장치를 지금 다시 시작 하세요. 장치가 준비 되 면 관리자 권한으로 PowerShell을 다시 실행 합니다.
+
+1. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. @No__t-0 플래그를 사용 하 여 자동 프로비저닝을 사용 하지 않는 한이 명령은 Windows 컨테이너를 사용 하 여 수동으로 프로 비전 합니다.
+
+   , `{scope_id}` `{registration_id}`및 에대한자리표시자값을앞에서수집한데이터로바꿉니다.`{symmetric_key}`
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
+   ```
 
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인
 

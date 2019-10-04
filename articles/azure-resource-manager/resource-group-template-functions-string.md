@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: c30bb47f3f35663a6ffcfc0126758eb82c9dec4e
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: b558e046f3402fdfa127192788d7d3ee1307ddeb
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194768"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937029"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 문자열 함수
 
@@ -412,7 +412,7 @@ base64 표현을 문자열로 변환합니다.
 | objectTrue | Bool | True |
 | objectFalse | Bool | False |
 | arrayTrue | Bool | True |
-| arrayFalse | Bool | 거짓 |
+| arrayFalse | Bool | False |
 
 ## <a name="datauri"></a>dataUri
 
@@ -653,7 +653,7 @@ base64 표현을 문자열로 변환합니다.
 | startsFalse | Bool | False |
 | endsTrue | Bool | True |
 | endsCapTrue | Bool | True |
-| endsFalse | Bool | 거짓 |
+| endsFalse | Bool | False |
 
 ## <a name="first"></a>first
 
@@ -715,7 +715,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | Description |
+| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | formatString | 예 | String | 합성 형식 문자열입니다. |
 | arg1 | 예 | 문자열, 정수 또는 부울 | 서식이 지정 된 문자열에 포함할 값입니다. |
@@ -1283,7 +1283,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | firstOutput | String | 1231231234 |
-| secondOutput | String | 123-123-xxxx |
+| secondOutput | 문자열 | 123-123-xxxx |
 
 ## <a name="skip"></a>건너뛰기
 
@@ -1412,7 +1412,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 | firstOutput | 배열 | [“one”, “two”, “three”] |
 | secondOutput | 배열 | [“one”, “two”, “three”] |
 
-## <a name="startswith"></a>시작 문자
+## <a name="startswith"></a>startswith
 
 `startsWith(stringToSearch, stringToFind)`
 
@@ -1476,7 +1476,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 | startsFalse | Bool | False |
 | endsTrue | Bool | True |
 | endsCapTrue | Bool | True |
-| endsFalse | Bool | 거짓 |
+| endsFalse | Bool | False |
 
 ## <a name="string"></a>String
 
@@ -1676,7 +1676,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
-| stringOutput | String | On |
+| stringOutput | String | on |
 
 ## <a name="tolower"></a>toLower
 
@@ -1914,10 +1914,26 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| baseUri |예 |string |기본 uri 문자열입니다. |
+| baseUri |예 |string |기본 uri 문자열입니다. 이 표 다음에 설명 된 대로 후행 슬래시 ('/')의 처리와 관련 된 동작을 주의 해 서 살펴봅니다.  |
 | relativeUri |예 |string |기본 uri 문자열에 추가할 상대 uri 문자열입니다. |
 
-**baseUri** 매개 변수에 대한 값은 특정 파일을 포함할 수 있지만 URI를 생성하는 경우 기본 경로만 사용됩니다. 예를 들어 `http://contoso.com/resources/azuredeploy.json`을 baseUri 매개 변수로 전달하면 기본 URI는 `http://contoso.com/resources/`가 됩니다.
+* **Baseuri** 가 후행 슬래시로 끝나는 경우 결과는 **relativeUri** **이 뒤에 오는 것** 입니다.
+
+* **BaseUri** 가 후행 슬래시로 끝나지 않는 경우 두 가지 중 하나가 발생 합니다.  
+
+   * **Baseuri** 에 슬래시가 전혀 없는 경우 (앞의 "//"를 제외 하 고) 결과는 **relativeUri** **이 뒤에** 오는 것입니다.
+
+   * **Baseuri** 에 슬래시가 있지만 슬래시가 끝나지 않는 경우 마지막 슬래시의 모든 항목은 **baseuri** 에서 제거 되 고 **결과는** **relativeUri**.
+     
+다음은 몇 가지 예입니다.
+
+```
+uri('http://contoso.org/firstpath', 'myscript.sh') -> http://contoso.org/myscript.sh
+uri('http://contoso.org/firstpath/', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
+uri('http://contoso.org/firstpath/azuredeploy.json', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
+uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://contoso.org/firstpath/azuredeploy.json/myscript.sh
+```
+전체 세부 정보를 보려면 [RFC 3986, 섹션 5](https://tools.ietf.org/html/rfc3986#section-5)에 지정 된 대로 **baseUri** 및 **relativeUri** 매개 변수를 확인 합니다.
 
 ### <a name="return-value"></a>반환 값
 
@@ -1966,7 +1982,7 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 | ---- | ---- | ----- |
 | uriOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| toStringOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="uricomponent"></a>uriComponent
 
@@ -2019,9 +2035,9 @@ URI로 인코딩된 값의 문자열입니다.
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| toStringOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
@@ -2074,9 +2090,9 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| toStringOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="utcnow"></a>utcNow
 

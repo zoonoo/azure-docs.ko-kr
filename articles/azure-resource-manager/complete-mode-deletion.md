@@ -4,14 +4,14 @@ description: 리소스 종류가 Azure Resource Manager 템플릿에서 전체 �
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: d8238dddee041573d9b122e62cec66118c681ef6
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: cdc00ccc61e20865e993a18c72b930d9570896f2
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995256"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937042"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>완료 모드 배포를 위한 Azure 리소스의 삭제
 
@@ -43,7 +43,6 @@ ms.locfileid: "70995256"
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft 청구](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
-> - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
 > - [Microsoft.Blockchain](#microsoftblockchain)
 > - [Microsoft.Blueprint](#microsoftblueprint)
 > - [Microsoft.BotService](#microsoftbotservice)
@@ -126,6 +125,7 @@ ms.locfileid: "70995256"
 > - [Microsoft.NetApp](#microsoftnetapp)
 > - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
+> - [Microsoft ObjectStore](#microsoftobjectstore)
 > - [Microsoft. OffAzure](#microsoftoffazure)
 > - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
 > - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
@@ -201,7 +201,7 @@ ms.locfileid: "70995256"
 > | logs | 아니요 |
 > | reports | 아니요 |
 > | servicehealthmetrics | 아니요 |
-> | services | 아니요 |
+> | 서비스 | 아니요 |
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
@@ -396,6 +396,7 @@ ms.locfileid: "70995256"
 > | billingAccounts/고객 | 아니요 |
 > | billingAccounts/customers/billingSubscriptions | 아니요 |
 > | billingAccounts/customers/initiateTransfer | 아니요 |
+> | billingAccounts/고객/정책 | 아니요 |
 > | billingAccounts/고객/제품 | 아니요 |
 > | billingAccounts/고객/트랜잭션 | 아니요 |
 > | billingAccounts/고객/전송 | 아니요 |
@@ -443,13 +444,6 @@ ms.locfileid: "70995256"
 > | ------------- | ----------- |
 > | mapApis | 예 |
 > | updateCommunicationPreference | 아니요 |
-
-## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
-
-> [!div class="mx-tableFixed"]
-> | 리소스 형식 | 전체 모드 삭제 |
-> | ------------- | ----------- |
-> | BizTalk | 예 |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
@@ -637,10 +631,10 @@ ms.locfileid: "70995256"
 > | Disk; 집합 | 예 |
 > | 디스크 | 예 |
 > | galleries | 예 |
-> | 갤러리/응용 프로그램 | 예 |
-> | 갤러리/응용 프로그램/버전 | 예 |
-> | galleries/images | 예 |
-> | galleries/images/versions | 예 |
+> | 갤러리/응용 프로그램 | 아니요 |
+> | 갤러리/응용 프로그램/버전 | 아니요 |
+> | galleries/images | 아니요 |
+> | galleries/images/versions | 아니요 |
 > | 호스트 그룹 | 예 |
 > | 호스트 그룹/호스트 | 예 |
 > | 이미지 | 예 |
@@ -648,13 +642,11 @@ ms.locfileid: "70995256"
 > | restorePointCollections | 예 |
 > | restorePointCollections/restorePoints | 아니요 |
 > | sharedVMImages | 예 |
-> | sharedVMImages/versions | 예 |
-> | 스냅숏 | 예 |
+> | sharedVMImages/versions | 아니요 |
+> | 스냅샷 | 예 |
 > | virtualMachines | 예 |
 > | virtualMachines/extensions | 예 |
 > | virtualMachines/metricDefinitions | 아니요 |
-> | virtualMachines/scriptJobs | 아니요 |
-> | virtualMachines/\Upups 배포 | 아니요 |
 > | virtualMachineScaleSets | 예 |
 > | virtualMachineScaleSets/extensions | 아니요 |
 > | virtualMachineScaleSets/networkInterfaces | 아니요 |
@@ -773,7 +765,7 @@ ms.locfileid: "70995256"
 > | ExternalSubscriptions/예측 | 아니요 |
 > | ExternalSubscriptions/Query | 아니요 |
 > | 예측 | 아니요 |
-> | Query | 아니요 |
+> | query | 아니요 |
 > | register | 아니요 |
 > | Reportconfigs | 아니요 |
 > | 보고서 | 아니요 |
@@ -869,9 +861,8 @@ ms.locfileid: "70995256"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | services | 예 |
+> | 서비스 | 예 |
 > | services/projects | 예 |
-> | slots | 예 |
 
 ## <a name="microsoftdatashare"></a>DataShare
 
@@ -923,6 +914,9 @@ ms.locfileid: "70995256"
 > | serverGroups | 예 |
 > | 서버 | 예 |
 > | servers/advisors | 아니요 |
+> | servers/privateEndpointConnectionProxies | 아니요 |
+> | servers/privateEndpointConnections | 아니요 |
+> | servers/privateLinkResources | 아니요 |
 > | servers/queryTexts | 아니요 |
 > | servers/recoverableServers | 아니요 |
 > | servers/topQueryStatistics | 아니요 |
@@ -1027,7 +1021,7 @@ ms.locfileid: "70995256"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | services | 예 |
+> | 서비스 | 예 |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
@@ -1047,7 +1041,7 @@ ms.locfileid: "70995256"
 > | 리소스 형식 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | clusters | 예 |
-> | namespaces | 예 |
+> | 네임스페이스 | 예 |
 > | namespaces/authorizationrules | 아니요 |
 > | namespaces/disasterrecoveryconfigs | 아니요 |
 > | namespaces/eventhubs | 아니요 |
@@ -1127,7 +1121,7 @@ ms.locfileid: "70995256"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | services | 예 |
+> | 서비스 | 예 |
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
@@ -1203,6 +1197,7 @@ ms.locfileid: "70995256"
 > | clusters/databases | 아니요 |
 > | clusters/databases/dataconnections | 아니요 |
 > | clusters/databases/eventhubconnections | 아니요 |
+> | 클러스터/sharedidentities | 아니요 |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
@@ -1282,7 +1277,7 @@ ms.locfileid: "70995256"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | offers | 아니요 |
+> | 제안 | 아니요 |
 > | offerTypes | 아니요 |
 > | offerTypes/publishers | 아니요 |
 > | offerTypes/publishers/offers | 아니요 |
@@ -1367,11 +1362,13 @@ ms.locfileid: "70995256"
 > | 리소스 형식 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | netAppAccounts | 예 |
+> | netAppAccounts/backupPolicies | 예 |
 > | netAppAccounts/capacityPools | 예 |
 > | netAppAccounts/capacityPools/볼륨 | 예 |
+> | netAppAccounts/capacityPools/볼륨/백업 | 아니요 |
 > | netAppAccounts/capacityPools/볼륨/mountTargets | 예 |
 > | netAppAccounts/capacityPools/볼륨/스냅숏 | 예 |
-
+> | netAppAccounts/자격 증명 모음 | 아니요 |
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1462,8 +1459,15 @@ ms.locfileid: "70995256"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | namespaces | 예 |
+> | 네임스페이스 | 예 |
 > | namespaces/notificationHubs | 예 |
+
+## <a name="microsoftobjectstore"></a>Microsoft ObjectStore
+
+> [!div class="mx-tableFixed"]
+> | 리소스 형식 | 전체 모드 삭제 |
+> | ------------- | ----------- |
+> | osNamespaces 스페이스 | 예 |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
@@ -1556,7 +1560,7 @@ ms.locfileid: "70995256"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | namespaces | 예 |
+> | 네임스페이스 | 예 |
 > | namespaces/authorizationrules | 아니요 |
 > | namespaces/hybridconnections | 아니요 |
 > | namespaces/hybridconnections/authorizationrules | 아니요 |
@@ -1606,7 +1610,7 @@ ms.locfileid: "70995256"
 > | ------------- | ----------- |
 > | 배포 | 아니요 |
 > | 배포/작업 | 아니요 |
-> | links | 아니요 |
+> | 링크 | 아니요 |
 > | notifyResourceJobs | 아니요 |
 > | providers | 아니요 |
 > | resourceGroups | 아니요 |
@@ -1618,7 +1622,6 @@ ms.locfileid: "70995256"
 > | subscriptions/resources | 아니요 |
 > | subscriptions/tagnames | 아니요 |
 > | subscriptions/tagNames/tagValues | 아니요 |
-> | 태그 | 아니요 |
 > | tenants | 아니요 |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
@@ -1682,6 +1685,7 @@ ms.locfileid: "70995256"
 > | securityStatusesSummaries | 아니요 |
 > | serverVulnerabilityAssessments | 아니요 |
 > | 설정 | 아니요 |
+> | 하위 평가 | 아니요 |
 > | 태스크 | 아니요 |
 > | topologies | 아니요 |
 > | workspaceSettings | 아니요 |
@@ -1715,7 +1719,7 @@ ms.locfileid: "70995256"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | namespaces | 예 |
+> | 네임스페이스 | 예 |
 > | namespaces/authorizationrules | 아니요 |
 > | namespaces/disasterrecoveryconfigs | 아니요 |
 > | namespaces/eventgridfilters | 아니요 |
@@ -1919,7 +1923,7 @@ ms.locfileid: "70995256"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | cancel | 아니요 |
+> | 취소 | 아니요 |
 > | CreateSubscription | 아니요 |
 > | 사용 | 아니요 |
 > | 이름 바꾸기 | 아니요 |
@@ -1966,7 +1970,7 @@ ms.locfileid: "70995256"
 > | 연결 | 예 |
 > | customApis | 예 |
 > | deletedSites | 아니요 |
-> | 함수 | 아니요 |
+> | functions | 아니요 |
 > | hostingEnvironments | 예 |
 > | hostingEnvironments/multiRolePools | 아니요 |
 > | hostingEnvironments/workerPools | 아니요 |

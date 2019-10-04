@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: d2922f79c0b2ef7098e0f51e0c3bf6ab18a1b0e3
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
-ms.translationtype: MT
+ms.openlocfilehash: 3922388aaa7dd244b74404e50001e9c87870728d
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200283"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937484"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
 
@@ -207,7 +207,10 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 8. RDP 수신기에 연결 된 자체 서명 된 인증서를 모두 제거 합니다.
     
     ```PowerShell
-    Remove-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "SSLCertificateSHA1Hash" -force
+    if ((Get-Item -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp').Property -contains "SSLCertificateSHA1Hash")
+    {
+        Remove-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -Name "SSLCertificateSHA1Hash" -Force
+    }
     ```
     이 코드는 VM을 배포할 때 시작할 때 연결할 수 있는지 확인 합니다. 나중에이를 검토 해야 하는 경우 VM이 Azure에 배포 된 후에이 작업을 수행할 수 있습니다.
 
@@ -440,7 +443,8 @@ Windows 기반 컴퓨터에 설치 된 모든 역할 또는 응용 프로그램�
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
    ```
   데이터 디스크가 VM에 연결 되어 있으면 임시 드라이브 볼륨의 문자는 일반적으로 *D*입니다. 이 지정은 설정 및 사용 가능한 드라이브의 수에 따라 달라질 수 있습니다.
-
+  * 바이러스 백신 소프트웨어에서 제공 하는 스크립트 차단 기능을 사용 하지 않도록 설정 하는 것이 좋습니다. 사용자는 이미지에서 새 VM을 배포할 때 실행 되는 Windows 프로 비전 에이전트 스크립트를 interfer 하 고 차단할 수 있습니다.
+  
 ## <a name="next-steps"></a>다음 단계
 * [Resource Manager 배포를 위해 Azure에 Windows VM 이미지 업로드](upload-generalized-managed.md)
 * [Azure Windows VM 정품 인증 문제 해결](troubleshoot-activation-problems.md)

@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 08/27/2019
-ms.openlocfilehash: 485c79bab90295cf9af9ef1dbbc209d46931a485
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 5506f95d532f69286bf29ec8916485bd63ce94da
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984930"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828817"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>데이터베이스 서버에 대한 가상 네트워크 서비스 엔드포인트 및 규칙 사용
 
@@ -91,7 +91,7 @@ Azure SQL Database에 대해 서비스 엔드포인트를 사용하는 경우 �
 
 - **Azure SQL Database 공용 IP에 대한 아웃바운드 필요**: 연결을 허용하려면 Azure SQL Database IP에 대해 NSG(네트워크 보안 그룹)를 열어야 합니다. Azure SQL Database에 대해 NSG [서비스 태그](../virtual-network/security-overview.md#service-tags)를 사용하면 됩니다.
 
-### <a name="expressroute"></a>ExpressRoute
+### <a name="expressroute"></a>Express 경로
 
 공용 피어링 또는 Microsoft 피어링을 위해 온-프레미스에서 [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하는 경우 사용되는 NAT IP 주소를 식별해야 합니다. 공용 피어링의 경우 기본적으로 각 ExpressRoute 회로는 트래픽이 Microsoft Azure 네트워크 백본으로 들어갈 때 Azure 서비스 트래픽에 적용되는 두 개의 NAT IP 주소를 사용합니다. Microsoft 피어링의 경우 사용되는 NAT IP 주소는 고객이 제공하거나 서비스 공급자가 제공합니다. 서비스 리소스에 대한 액세스를 허용하려면 리소스 IP 방화벽 설정에서 이러한 공용 IP 주소를 허용해야 합니다. ExpressRoute 회로 IP 주소를 찾으려면 Azure Portal을 통해 [ExpressRoute에서 지원 티켓을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). [ExpressRoute 공용 및 Microsoft 피어링을 위한 NAT](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)에 대해 자세히 알아보세요.
   
@@ -112,7 +112,7 @@ Azure Storage는 사용자가 Azure Storage 계정에 대한 연결성을 제한
 
 PolyBase는 대개 Azure Storage 계정에서 Azure SQL Data Warehouse로 데이터를 로드하는 데 사용됩니다. 데이터를 로드하는 Azure Storage 계정이 액세스를 VNet 서브넷 집합으로만 제한하는 경우 PolyBase에서 계정으로의 연결은 중단됩니다. Azure SQL Data Warehouse가 VNet으로 보호되는 Azure Storage에 연결되는 PolyBase 가져오기 및 내보내기 시나리오를 사용하도록 설정하는 경우 아래에 설명된 단계를 따르세요.
 
-#### <a name="prerequisites"></a>필수 구성 요소
+#### <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -138,7 +138,7 @@ PolyBase는 대개 Azure Storage 계정에서 Azure SQL Data Warehouse로 데이
    > - 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)를 사용하여 **v2로 업그레이드**해야 합니다.
    > - Azure Data Lake Storage Gen2의 알려진 문제에 대해서는 이 [가이드](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues)를 참조하세요.
     
-1. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가**를 클릭합니다. 1 단계에서와 같이 AAD (Azure Active Direcotory)에 등록 한 Azure SQL Data Warehouse를 호스트 하는 Azure SQL Server에 **저장소 Blob 데이터 참가자** RBAC 역할을 할당 합니다.
+1. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가**를 클릭합니다. 1 단계에서와 같이 AAD (Azure Active Directory에 등록 한 Azure SQL Data Warehouse를 호스팅하는 Azure SQL Server에 **저장소 Blob 데이터 참가자** RBAC 역할을 할당 합니다.
 
    > [!NOTE] 
    > 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. Azure 리소스에 대한 다양한 기본 제공 역할을 보려면 이 [가이드](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)를 참조하세요.
@@ -226,7 +226,7 @@ PowerShell 스크립트로 가상 네트워크 규칙을 만들 수도 있습니
 
 - [Virtual Network 규칙: 작업도][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure SQL Database에 관련된 특정 Virtual Network 서비스 엔드포인트 *형식 이름*으로 태그가 지정된 서브넷이 있어야 합니다.
 

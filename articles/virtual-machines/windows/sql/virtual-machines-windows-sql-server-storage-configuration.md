@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: mathoma
-ms.openlocfilehash: 2705b42849922ce7e3650162b8f1ff78723685c2
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 57a325dd297955296a94db134b6a2a6d58a37f03
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309235"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828606"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM에 대한 스토리지 구성
 
@@ -28,7 +28,7 @@ Azure에서 SQL Server 가상 머신 이미지를 구성하는 경우 포털에�
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 자동화된 스토리지 구성 설정을 사용하려면 가상 머신에는 다음과 같은 특성이 필요합니다.
 
@@ -42,9 +42,28 @@ Azure에서 SQL Server 가상 머신 이미지를 구성하는 경우 포털에�
 
 ### <a name="azure-portal"></a>Azure Portal
 
-SQL Server 갤러리 이미지를 사용하여 Azure VM을 프로비전할 경우 새 VM에 대한 스토리지를 자동으로 구성하도록 선택할 수 있습니다. 스토리지 크기, 성능 제한 및 워크로드 유형을 지정합니다. 다음 스크린샷에서는 SQL VM을 프로비전하는 동안 사용된 스토리지 구성 블레이드를 보여 줍니다.
+SQL Server 갤러리 이미지를 사용 하 여 Azure VM을 프로 비전 할 때 **SQL Server 설정** 탭에서 **구성 변경** 을 선택 하 여 성능 최적화 저장소 구성 페이지를 엽니다. 기본값에서 값을 그대로 두거나 워크 로드에 따라 사용자의 요구에 가장 적합 한 디스크 구성 유형을 수정할 수 있습니다. 
 
 ![프로비전하는 동안 SQL Server VM 스토리지 구성](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
+
+**저장소 최적화**에서 SQL Server 배포 하는 작업의 유형을 선택 합니다. **일반** 최적화 옵션을 사용 하는 경우 기본적으로 최대 5000 개의 데이터 디스크를 사용 하 고 데이터, 트랜잭션 로그 및 TempDB 저장소에 대해 동일한 드라이브를 사용 합니다. **트랜잭션 처리** (OLTP) 또는 **데이터 웨어하우징** 중 하나를 선택 하면 데이터에 대 한 별도의 디스크, 트랜잭션 로그에 대 한 별도의 디스크 및 TempDB에 대 한 로컬 SSD를 사용 합니다. **트랜잭션 처리** 와 **데이터 웨어하우징**간에는 저장소 차이가 없지만 [스트라이프 구성 및 추적 플래그](#workload-optimization-settings)는 변경 됩니다. Premium storage를 선택 하면 캐싱이 데이터 드라이브에 대 한 *읽기 전용* 으로 설정 되 고, 로그 드라이브의 경우에는 [SQL Server VM 성능 모범 사례](virtual-machines-windows-sql-performance.md)에 따라 로그가 설정 되지 *않습니다* . 
+
+![프로비전하는 동안 SQL Server VM 스토리지 구성](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
+
+디스크 구성은 완전히 사용자 지정할 수 있으므로 SQL Server VM 작업에 필요한 저장소 토폴로지, 디스크 유형 및 IOPs를 구성할 수 있습니다. 또한 SQL Server VM 지원 되는 지역 (미국 동부 2, 동남 아시아 및 유럽) 중 하나에 있는 경우 **디스크 유형에** 대 한 옵션으로 UltraSSD (미리 보기)를 사용 하 고 [구독에 대해 ultra disks](/azure/virtual-machines/windows/disks-enable-ultra-ssd)를 사용 하도록 설정할 수 있습니다.  
+
+또한 디스크에 대 한 캐싱을 설정할 수 있습니다. Azure Vm에는 [프리미엄 디스크](/azure/virtual-machines/windows/disks-types#premium-ssd)와 함께 사용 될 때 [Blob Cache](/azure/virtual-machines/windows/premium-storage-performance#disk-caching) 라는 다중 계층 캐싱 기술이 있습니다. Blob 캐시는 캐싱에 사용할 가상 컴퓨터 RAM과 로컬 SSD의 조합을 사용 합니다. 
+
+프리미엄 SSD에 대 한 디스크 캐싱은 *ReadOnly*, *ReadWrite* 또는 *None*이 될 수 있습니다. 
+
+- *읽기 전용* 캐싱은 Premium Storage에 저장 된 SQL Server 데이터 파일에 매우 유용 합니다. *읽기 전용 캐싱은 낮은* 읽기 대기 시간, 높은 읽기 IOPS 및 처리량을 제공 합니다. 읽기는 VM 메모리와 로컬 SSD 내에서 os가 캐시에서 수행 됩니다. 이러한 읽기는 Azure blob storage에서 데이터 디스크를 읽는 것 보다 훨씬 빠릅니다. Premium storage는 디스크 IOPS 및 처리량에 대 한 캐시에서 제공 되는 읽기를 계산 하지 않습니다. 따라서 해당 하는는 총 IOPS ant 처리량을 달성할 수 있습니다. 
+- 로그 파일이 순차적으로 기록 되 고 *ReadOnly* 캐싱을 활용 하지 않으므로 SQL Server 로그 파일을 호스트 하는 디스크에 대 *한 캐시 구성을* 사용 하지 않아야 합니다. 
+- SQL Server에서 *readwrite* 캐시와의 데이터 일관성을 지원 하지 않으므로 *readwrite* 캐싱은 SQL Server 파일을 호스트 하는 데 사용해 서는 안 됩니다. *읽기 전용* blob 캐시의 소비 용량을 기록 하 고 쓰기는 *읽기 전용* blob 캐시 계층을 통해 이동 하면 약간 증가 합니다. 
+
+
+   > [!TIP]
+   > 저장소 구성이 선택한 VM 크기에 적용 되는 제한과 일치 해야 합니다. VM 크기의 성능 끝을 초과 하는 저장소 매개 변수를 선택 하면 오류가 발생 합니다. `The desired performance might not be reached due to the maximum virtual machine disk performance cap.`입니다. 디스크 유형을 변경 하 여 IOPs를 줄이거나 VM 크기를 늘려 성능 cap 제한을 늘립니다. 
+
 
 선택을 기반으로 Azure는 VM을 만든 후에 다음과 같은 스토리지 구성 작업을 수행합니다.
 
@@ -64,6 +83,13 @@ Azure에서 스토리지 설정을 구성하는 방법에 대한 자세한 내�
 * [자동화된 패치를 사용하여 VM 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
 * [AKV 통합을 사용하여 VM 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-keyvault)
 
+### <a name="quickstart-template"></a>빠른 시작 템플릿
+
+다음 빠른 시작 템플릿을 사용 하 여 저장소 최적화를 사용 하 SQL Server VM을 배포할 수 있습니다. 
+
+* [저장소 최적화를 사용 하 여 VM 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage/)
+* [UltraSSD를 사용 하 여 VM 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage-ultrassd)
+
 ## <a name="existing-vms"></a>기존 VM
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
@@ -79,32 +105,11 @@ Azure에서 스토리지 설정을 구성하는 방법에 대한 자세한 내�
 
 ![기존 SQL Server VM에 대한 스토리지 구성](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
 
-표시된 구성 옵션은 전에 이 기능을 사용했는지 여부에 따라 달라 집니다. 처음으로 사용하는 경우 새 드라이브에 대한 스토리지 요구 사항을 지정할 수 있습니다. 이전에 이 기능을 사용하여 드라이브를 만든 경우 해당 드라이브의 스토리지를 확장할 수 있습니다.
+SQL Server VM 만들기 프로세스 중에 구성 된 드라이브에 대 한 디스크 설정을 수정할 수 있습니다. **드라이브 확장** 을 선택 하면 드라이브 수정 페이지가 열리며 여기에서 디스크 유형을 변경 하 고 디스크를 더 추가할 수 있습니다. 
 
-### <a name="use-for-the-first-time"></a>처음으로 사용
+![기존 SQL Server VM에 대한 스토리지 구성](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-drive.png)
 
-이 기능을 처음으로 사용하는 경우 새 드라이브에 대한 스토리지 크기와 성능 제한을 지정할 수 있습니다. 이러한 환경은 프로비전 시 표시되는 것과 비슷합니다. 주요 차이점은 워크로드 유형을 지정하도록 허용되지 않았다는 점입니다. 이 제한은 가상 머신에서 기존 SQL Server 구성을 중단하지 않도록 방지합니다.
 
-Azure는 사양에 따라 새 드라이브를 만듭니다. 이 시나리오에서 Azure는 다음과 같은 스토리지 구성 작업을 수행합니다.
-
-* Premium Storage 데이터 디스크를 만들고 가상 머신에 연결합니다.
-* SQL Server에 액세스할 수 있도록 데이터 디스크를 구성합니다.
-* 지정된 크기와 성능(IOPS 및 처리량) 요구 사항에 따라 스토리지 풀에 데이터 디스크를 구성합니다.
-* 가상 컴퓨터에 새 드라이브와 스토리지 풀을 연결합니다.
-
-Azure에서 스토리지 설정을 구성하는 방법에 대한 자세한 내용은 [스토리지 구성 섹션](#storage-configuration)을 참조하세요.
-
-### <a name="add-a-new-drive"></a>새 드라이브 추가
-
-SQL Server VM에 이미 스토리지를 구성한 경우 스토리지를 확장하면 두 가지 새로운 옵션을 표시합니다. 첫 번째는 새 드라이브를 추가하는 옵션으로 VM의 성능 수준을 높일 수 있습니다.
-
-그러나 드라이브를 추가한 후에 성능 향상을 달성하기 위해 몇 가지 추가 수동 구성을 수행해야 합니다.
-
-### <a name="extend-the-drive"></a>드라이브 확장
-
-스토리지 확장을 위한 다른 옵션은 기존 드라이브를 확장하는 것입니다. 이 옵션으로 사용자의 드라이브에 사용 가능한 스토리지가 증가하지만 성능은 증가하지 않습니다. 스토리지 풀을 만든 후에 스토리지 풀을 사용해서 열 수를 변경할 수 없습니다. 열 수는 병렬 쓰기 수를 결정하며 이는 데이터 디스크에 걸쳐 스트라이프될 수 있습니다. 따라서 추가 데이터 디스크는 성능을 향상시킬 수 없습니다. 쓰여지는 데이터에 더 많은 스토리지 공간을 제공할 수 있습니다. 즉, 이 제한으로 드라이브를 확장할 때 열 수는 추가할 수 있는 데이터 디스크의 최소 수를 결정합니다. 따라서 4개의 데이터 디스크가 있는 스토리지 풀을 만드는 경우 열 수도 4개가 됩니다. 저장소를 확장할 때마다 4 개 이상의 데이터 디스크를 추가 해야 합니다.
-
-![SQL VM에 대한 드라이브 확장](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
 
 ## <a name="storage-configuration"></a>스토리지 구성
 
@@ -139,7 +144,7 @@ Azure는 다음 설정을 사용하여 SQL Server VM에 스토리지 풀을 만�
 
 다음 테이블에서는 사용할 수 있는 세 가지 워크로드 유형 옵션 및 이에 해당하는 최적화를 설명합니다.
 
-| 워크로드 유형 | Description | 최적화 |
+| 워크로드 유형 | 설명 | 최적화 |
 | --- | --- | --- |
 | **일반** |대부분의 워크로드를 지원하는 기본 설정 |없음 |
 | **트랜잭션 처리** |기존의 데이터베이스 OLTP 워크로드용으로 스토리지를 최적화합니다. |추적 플래그 1117<br/>추적 플래그 1118 |

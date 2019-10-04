@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 08/12/2019
+ms.date: 09/30/2019
 ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: fa88bf7f8db9b4fea63429dbfd18f84ee84ccda1
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.openlocfilehash: 1c8237ce4e8b758395567e939c1ed4bda1f297ff
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012213"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827655"
 ---
 역할 기반 액세스 제어는 액세스, 권한 및 역할을 관리하기 위한 상속 중심 보안 전략입니다. 하위 역할은 부모 역할에서 권한을 상속합니다. 권한은 부모 역할에서 상속하지 않고도 할당될 수 있습니다. 필요에 따라 권한을 할당하여 역할을 사용자 지정할 수도 있습니다.
 

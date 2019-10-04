@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 38fdbbf76806325e457f066e6b469a531c27b038
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1e0bc4647476cd5c6aa0f38456ef8890b4ddcaa5
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102222"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828772"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Windows SQL Server 가상 머신 프로비전하는 방법
 
@@ -36,9 +36,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구성된 여러 이미지 중 하나를 선택할 수 있습니다. 다음 단계에서는 SQL Server 2017 이미지 중 하나를 선택하는 방법을 보여줍니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. 필드 **AZURE SQL** 옆의 별표를 선택 하 여 즐겨찾기를 선택 하 고 왼쪽 탐색에 항목으로 추가 합니다. 
-1. **+ 추가** 를 선택 하 여 **SQL 배포 옵션 선택** 페이지를 엽니다. **자세한 정보 표시**를 선택 하 여 추가 정보를 볼 수 있습니다. 
-1. **SQL 가상 컴퓨터** 타일에서 이미지 SQL Server 검색 상자에를 입력  **`2017` 한 다음 무료 SQL Server 라이선스를 선택 합니다. 드롭다운에서 2017 Developer on Windows Server 2016** 를 SQL Server 합니다. 
+1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
+1. **+ 추가**를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. **자세한 정보 표시**를 선택 하 여 추가 정보를 볼 수 있습니다. 
+1. **SQL 가상 컴퓨터** 타일의 SQL Server 이미지 검색 상자에 `2017`을 입력 하 고 ** 무료 SQL Server 라이선스를 선택 합니다. Windows Server 2016의 SQL Server 2017 Developer @ no__t-0 (드롭다운에서) 
 
 
    ![SQL VM 이미지 선택](media/virtual-machines-windows-portal-sql-server-provision/select-sql-vm-image-portal.png)
@@ -54,17 +54,6 @@ SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구�
 
 1. **만들기**를 선택합니다.
 
-
-## <a id="configure"></a> 구성 옵션
-
-SQL Server 가상 컴퓨터를 구성 하는 여러 탭이 있습니다. 이 가이드에서는 다음에 대해 집중적으로 설명 합니다. 
-
-| 단계 | Description |
-| --- | --- |
-| **기본 사항** |[기본 설정 구성](#1-configure-basic-settings) |
-| **선택적 기능** |[선택적 기능 구성](#2-configure-optional-features) |
-| **SQL 서버 설정** |[SQL Server 설정 구성](#3-configure-sql-server-settings) |
-| **검토 + 만들기** | [요약 검토](#4-review--create) |
 
 ## <a name="1-configure-basic-settings"></a>1. 기본 설정 구성
 
@@ -105,7 +94,7 @@ SQL Server 가상 컴퓨터를 구성 하는 여러 탭이 있습니다. 이 가
 
 ### <a name="disks"></a>디스크
 
-디스크 탭 에서 디스크 옵션을 구성 합니다. 
+디스크 탭 **에서** 디스크 옵션을 구성 합니다. 
 
 * **Os 디스크 유형**의 드롭다운에서 os에 사용할 디스크 유형을 선택 합니다. 프리미엄은 프로덕션 시스템에 권장 되지만 기본 VM에는 사용할 수 없습니다. 프리미엄 SSD를 활용 하려면 가상 머신 크기를 변경 합니다. 
 * **고급**아래에서 **Managed Disks**사용에서 **예** 를 선택 합니다.
@@ -141,8 +130,6 @@ SQL Server 가상 컴퓨터를 구성 하는 여러 탭이 있습니다. 이 가
 ## <a name="3-configure-sql-server-settings"></a>3. SQL Server 설정 구성
 
 **SQL Server 설정** 탭에서 SQL Server에 대 한 특정 설정 및 최적화를 구성 합니다. SQL Server에 대해 구성할 수 있는 설정은 다음과 같습니다.
-
-
 
 | 설정 |
 | --- |
@@ -208,24 +195,19 @@ SQL Server 인증을 사용하도록 설정하지 않으면, VM의 로컬 관리
 
 ### <a name="storage-configuration"></a>스토리지 구성
 
-**SQL Server 설정** 탭의 **저장소 구성**에서 **구성 변경** 을 선택 하 여 저장소 요구 사항을 지정 합니다.
+**SQL Server 설정** 탭의 **저장소 구성**에서 **구성 변경** 을 선택 하 여 성능 최적화 저장소 구성 페이지를 열고 저장소 요구 사항을 지정 합니다.
 
+![SQL VM 저장소 구성](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-> [!NOTE]
-> 표준 스토리지를 사용하도록 VM을 수동으로 구성한 경우 이 옵션은 사용할 수 없습니다. 자동 스토리지 최적화는 Premium Storage에서만 사용할 수 있습니다.
-
-> [!TIP]
-> 정지 수와 각 슬라이더의 상한값은 사용자가 선택한 VM 크기에 따라 다릅니다. 더 크고 효율적인 VM이 추가 확장할 수 있습니다.
-
-초당 입/출력 작업(IOPs), 처리량(MB/s) 및 총 스토리지 크기로 요구 사항을 지정할 수 있습니다. 슬라이딩 규모를 사용하여 이 값을 구성합니다. 워크로드에 따라 이러한 스토리지 설정을 변경할 수 있습니다. 포털에는 이러한 요구 사항에 따라 장착 및 구성할 디스크 수를 자동으로 계산합니다.
-
-**다음에 대해 Storage 최적화**에서 다음 옵션 중 하나를 선택합니다.
+**다음에 대해 스토리지 최적화**에서 다음 옵션 중 하나를 선택합니다.
 
 * **일반**은 기본 설정이며 대부분의 워크로드를 지원합니다.
-* **트랜잭션** 처리는 기존의 데이터베이스 OLTP 워크로드용으로 스토리지를 최적화합니다.
+* **트랜잭션 처리** 는 기존의 데이터베이스 OLTP 워크 로드에 대 한 저장소를 최적화 합니다.
 * **데이터 웨어하우징** 은 분석 및 보고 워크로드용으로 스토리지를 최적화합니다.
 
-![SQL VM 저장소 구성](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-storage-configuration.png)
+![SQL VM 저장소 구성](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
+
+기본값에서 값을 그대로 두거나 IOPS 요구에 맞게 저장소 토폴로지를 수동으로 변경할 수 있습니다. 자세한 내용은 [저장소 구성](virtual-machines-windows-sql-server-storage-configuration.md)을 참조 하세요. 
 
 ### <a name="sql-server-license"></a>SQL Server 라이선스
 소프트웨어 보증 고객 인 경우 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/) 를 활용 하 여 고유한 SQL Server 라이선스를 가져오고 리소스를 절약할 수 있습니다. 

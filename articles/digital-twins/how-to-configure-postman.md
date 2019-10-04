@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: v-adgera
-ms.openlocfilehash: f33e5be2408d2ebacd215c5f0601d712197254a7
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
-ms.translationtype: MT
+ms.openlocfilehash: f04946dffd66dcd44743197a0ca8f0fe21624285
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803437"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71844525"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Azure Digital Twins용 Postman을 구성하는 방법
 
@@ -122,7 +122,8 @@ Azure Active Directory 토큰을 가져오기 위해 Postman을 설정 하 고 �
    [![ 콘텐츠 형식 다중 파트/혼합](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. 텍스트가 아닌 데이터를 파일로 직렬화합니다. JSON 데이터는 JSON 파일로 저장됩니다.
-1. **본문** 탭 아래에서 **키** 이름을 할당하고 `file` 또는 `text`를 선택하여 각 파일을 추가합니다.
+1. **본문** 탭에서 `form-data`을 선택 합니다. 
+1. **키** 이름을 할당 하 여 각 파일을 추가 하 고 `file`을 선택 합니다.
 1. 그런 후 **파일 선택** 단추를 사용하여 각 파일을 선택합니다.
 
    [![Postman 클라이언트 예제](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)

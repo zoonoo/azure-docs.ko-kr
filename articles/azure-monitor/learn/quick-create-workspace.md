@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: a68e40b7b1caf184fabb5df62d8b461fa2fa11e2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a9775ce071b6d64d535560a567dcae078900c692
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60539232"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838719"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Azure Portal에서 Log Analytics 작업 영역 만들기
 **Log Analytics 작업 영역** 메뉴를 사용하여 Azure Portal에서 Log Analytics 작업 영역을 만듭니다. Log Analytics 작업 영역은 Azure Monitor 로그 데이터에 대한 고유한 환경입니다. 각 작업 영역에는 자체 데이터 리포지토리 및 구성이 있으며 데이터 원본 및 솔루션은 특정 작업 영역에 데이터를 저장하도록 구성됩니다. 다음 원본에서 데이터를 수집하려는 경우 Log Analytics 작업 영역이 필요합니다.
@@ -42,14 +42,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="create-a-workspace"></a>작업 영역 만들기
 1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.
 
-    ![Azure portal](media/quick-create-workspace/azure-portal-01.png)
+    ![Azure Portal](media/quick-create-workspace/azure-portal-01.png)
   
 2. **추가**를 클릭한 후 다음 항목에 대한 선택 항목을 선택합니다.
 
-   * 새 **Log Analytics 작업 영역**의 이름(예: *DefaultLAWorkspace*)을 지정합니다. 
+   * 새 **Log Analytics 작업 영역**의 이름(예: *DefaultLAWorkspace*)을 지정합니다. 이 이름은 모든 Azure Monitor 구독에서 전역적으로 고유 해야 합니다.
    * 기본으로 선택된 값이 적절하지 않으면 드롭다운 목록에서 선택하여 연결할 **구독**을 선택합니다.
    * **리소스 그룹**의 경우 이미 설정된 기존 리소스 그룹을 사용하도록 선택하거나 새 리소스 그룹을 만듭니다.  
-   * 사용 가능한 **위치**를 선택합니다.  자세한 내용은 참조 하세요 [Log Analytics에서 사용할 수 있는 지역](https://azure.microsoft.com/regions/services/) 및 Azure Monitor에서 검색 합니다 **제품에 대 한 검색** 필드.  
+   * 사용 가능한 **위치**를 선택합니다.  자세한 내용은 [에서 사용할 수 있는 Log Analytics 지역을](https://azure.microsoft.com/regions/services/) 확인 하 고 **제품 검색** 필드에서 Azure Monitor를 검색 합니다.  
    * 2018년 4월 2일 이후에 만들어진 새 구독에서 작업 영역을 만드는 경우 *GB당* 가격 책정 계획이 자동으로 사용되며 가격 책정 계층을 선택할 수 있는 옵션이 제공되지 않습니다.  4월 2일 전에 만들어진 기존 구독 또는 기존 EA(기업계약) 등록과 연결된 구독에서 작업 영역을 만드는 경우 선호하는 가격 책정 계층을 선택합니다.  특정 계층에 대한 자세한 내용은 [Log Analytics 가격 책정 정보](https://azure.microsoft.com/pricing/details/log-analytics/)를 참조하세요.
 
         ![Log Analytics 리소스 블레이드 만들기](media/quick-create-workspace/create-loganalytics-workspace-02.png)  

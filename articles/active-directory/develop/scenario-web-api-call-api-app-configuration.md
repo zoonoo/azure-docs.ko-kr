@@ -15,12 +15,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27b95b82f996368bca312be1c6ada25a7219b66e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 529665a03d2203dcb501b59d7647f4390bdaeb78
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562288"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936734"
 ---
 # <a name="web-api-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 웹 API-코드 구성
 
@@ -110,40 +110,40 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 ```CSharp
 private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityToken jwtToken, ClaimsPrincipal principal, HttpContext httpContext)
 {
- try
- {
-  UserAssertion userAssertion;
-  IEnumerable<string> requestedScopes;
-  if (jwtToken != null)
-  {
-   userAssertion = new UserAssertion(jwtToken.RawData, "urn:ietf:params:oauth:grant-type:jwt-bearer");
-   requestedScopes = scopes ?? jwtToken.Audiences.Select(a => $"{a}/.default");
-  }
-  else
-  {
-   throw new ArgumentOutOfRangeException("tokenValidationContext.SecurityToken should be a JWT Token");
-  }
+    try
+    {
+        UserAssertion userAssertion;
+        IEnumerable<string> requestedScopes;
+        if (jwtToken != null)
+        {
+            userAssertion = new UserAssertion(jwtToken.RawData, "urn:ietf:params:oauth:grant-type:jwt-bearer");
+            requestedScopes = scopes ?? jwtToken.Audiences.Select(a => $"{a}/.default");
+        }
+        else
+        {
+            throw new ArgumentOutOfRangeException("tokenValidationContext.SecurityToken should be a JWT Token");
+        }
 
-  // Create the application
-  var application = BuildConfidentialClientApplication(httpContext, principal);
+        // Create the application
+        var application = BuildConfidentialClientApplication(httpContext, principal);
 
-  // .Result to make sure that the cache is filled-in before the controller tries to get access tokens
-  var result = application.AcquireTokenOnBehalfOf(requestedScopes.Except(scopesRequestedByMsalNet),
-                                                  userAssertion)
-                                        .ExecuteAsync()
-                                        .GetAwaiter().GetResult();
- }
- catch (MsalException ex)
- {
-  Debug.WriteLine(ex.Message);
-  throw;
- }
+        // .Result to make sure that the cache is filled-in before the controller tries to get access tokens
+        var result = application.AcquireTokenOnBehalfOf(requestedScopes.Except(scopesRequestedByMsalNet),
+                                                        userAssertion)
+                                .ExecuteAsync()
+                                .GetAwaiter().GetResult();
+     }
+     catch (MsalException ex)
+     {
+         Debug.WriteLine(ex.Message);
+         throw;
+     }
 }
 ```
 
-## <a name="protocol"></a>프로토콜
+## <a name="protocol"></a>Protocol
 
-대/소문자를 구분 하는 프로토콜에 대 한 자세한 내용은 [Microsoft id 플랫폼 및 OAuth 2.0 For flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) 를 참조 하세요.
+주문형 프로토콜에 대 한 자세한 내용은 [Microsoft id 플랫폼 및 OAuth 2.0 on flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

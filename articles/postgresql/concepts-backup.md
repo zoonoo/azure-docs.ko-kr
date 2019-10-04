@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: bf2e289ad12f459c37a93ad3936c30339ecf663d
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: a4d8cd9f8198002b0b9ade8fe5058de1fcacc68f
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907532"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937345"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에서 백업 및 복원-단일 서버
 
@@ -19,7 +19,7 @@ Azure Database for PostgreSQL은 자동으로 서버 백업을 만들어 사용�
 
 ## <a name="backups"></a>예비
 
-Azure Database for PostgreSQL은 전체, 차등 및 트랜잭션 로그 백업을 수행합니다. 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 필요에 따라 최대 35일까지 구성할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다.
+Azure Database for PostgreSQL은 전체, 차등 및 트랜잭션 로그 백업을 수행 합니다. 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 필요에 따라 최대 35일까지 구성할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다.
 
 ### <a name="backup-frequency"></a>백업 빈도
 

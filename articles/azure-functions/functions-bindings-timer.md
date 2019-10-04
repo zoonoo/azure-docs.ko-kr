@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 77fa97cd339b6498263e12eae9cea50187493a89
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 57b4f018cd044b4f516266dcf9776e82252f7f22
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097107"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937122"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거 
 
@@ -50,7 +50,7 @@ ms.locfileid: "70097107"
 
 ### <a name="c-example"></a>C# 예제
 
-다음 예에서는 분에 5로 나눌 수 있는 값이 있을 때마다 실행 되는 [ C# 함수](functions-dotnet-class-library.md) 를 보여 줍니다 (예: 함수가 18:57:00에서 시작 하는 경우 다음 성능은 19:00:00에 표시 됨). 개체 [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 는 함수에 전달 됩니다.
+다음 예에서는 분에 5로 나눌 수 있는 값이 있을 때마다 실행 되는 [ C# 함수](functions-dotnet-class-library.md) 를 보여 줍니다 (예: 함수가 18:57:00에서 시작 하는 경우 다음 성능은 19:00:00에 표시 됨). [@No__t-1](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 개체가 함수에 전달 됩니다.
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -66,7 +66,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 ### <a name="c-script-example"></a>C# 스크립트 예제
 
-다음 예에서는 *function.json* 파일의 타이머 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 누락된 일정으로 인해 이 함수 호출이 발생했는지를 나타내는 로그를 씁니다. 개체 [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 는 함수에 전달 됩니다.
+다음 예에서는 *function.json* 파일의 타이머 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 누락된 일정으로 인해 이 함수 호출이 발생했는지를 나타내는 로그를 씁니다. [@No__t-1](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 개체가 함수에 전달 됩니다.
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -94,7 +94,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 
 ### <a name="f-example"></a>F# 예제
 
-다음 예제에서는 *function.json* 파일의 타이머 트리거 바인딩 및 바인딩을 사용하는 [F# 스크립트 함수](functions-reference-fsharp.md)를 보여줍니다. 함수는 누락된 일정으로 인해 이 함수 호출이 발생했는지를 나타내는 로그를 씁니다. 개체 [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 는 함수에 전달 됩니다.
+다음 예제에서는 *function.json* 파일의 타이머 트리거 바인딩 및 바인딩을 사용하는 [F# 스크립트 함수](functions-reference-fsharp.md)를 보여줍니다. 함수는 누락된 일정으로 인해 이 함수 호출이 발생했는지를 나타내는 로그를 씁니다. [@No__t-1](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 개체가 함수에 전달 됩니다.
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -226,7 +226,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 |**name** | n/a | 함수 코드에서 타이머 개체를 나타내는 변수의 이름입니다. | 
 |**schedule**|**ScheduleExpression**|[CRON 식](#ncrontab-expressions) 또는 [TimeSpan](#timespan) 값입니다. App Service 계획에서 함수 앱을 실행 중인 경우에만 `TimeSpan`을 사용할 수 있습니다. "%ScheduleAppSetting%" 예제와 같이 앱 설정에서 일정 식을 배치하고 이 속성을 **%** 기호에서 래핑된 앱 설정 이름으로 설정할 수 있습니다. |
 |**runOnStartup**|**RunOnStartup**|`true`인 경우 함수는 런타임이 시작될 때 호출됩니다. 예를 들어 비활성으로 인해 유휴 상태로 전환된 후에 함수 앱이 작동될 때 런타임이 시작됩니다. 함수 변경으로 인해 함수 앱을 다시 시작할 때 및 함수 앱이 확장할 때입니다. 따라서 **runOnStartup**은 특히 프로덕션에서 `true`로 설정되는 경우가 거의 없습니다. |
-|**useMonitor**|**UseMonitor**|`true` 또는 `false`로 설정하여 일정을 모니터링해야 하는지를 나타냅니다. 일정 모니터링은 일정 발생을 유지하여 함수 앱 인스턴스가 다시 시작하는 경우에도 일정을 올바르게 유지하도록 지원합니다. 명시적으로 설정하지 않는 경우 되풀이 간격이 1분을 넘는 큰 일정에서 기본값은 `true`입니다. 분당 한 번 넘게 트리거되는 일정에서 기본값은 `false`입니다.
+|**useMonitor**|**UseMonitor**|`true` 또는 `false`로 설정하여 일정을 모니터링해야 하는지를 나타냅니다. 일정 모니터링은 일정 발생을 유지하여 함수 앱 인스턴스가 다시 시작하는 경우에도 일정을 올바르게 유지하도록 지원합니다. 명시적으로 설정 하지 않은 경우 되풀이 간격이 1 분 보다 크거나 같은 일정의 경우 기본값은 `true`입니다. 분당 한 번 넘게 트리거되는 일정에서 기본값은 `false`입니다.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

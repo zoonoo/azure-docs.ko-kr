@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 3e29bdf41b0421aa4461b11fbf9bc0535179486d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3a072ae64104f8fded49ff6a00f5b58902c39903
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677758"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838582"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
 [Azure에서 로그 경고가 생성 되](alerts-log.md)면 [작업 그룹을 사용](action-groups.md) 하 여 하나 이상의 작업을 수행 하는 옵션을 구성할 수 있습니다. 이 문서에서는 사용 가능한 다양 한 웹 후크 작업을 설명 하 고 사용자 지정 JSON 기반 webhook를 구성 하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> Webhook 통합에 대 한 [일반적인 경고 스키마](https://aka.ms/commonAlertSchemaDocs) 를 사용할 수도 있습니다. 일반적인 경고 스키마는 Azure Monitor의 모든 경고 서비스에서 단일 확장 가능 하 고 통합 된 경고 페이로드를 포함 하는 이점을 제공 합니다. [일반적인 경고 스키마 정의에 대해 알아봅니다.](https://aka.ms/commonAlertSchemaDefinitions)
+> Webhook 통합에 대 한 [일반적인 경고 스키마](https://aka.ms/commonAlertSchemaDocs) 를 사용할 수도 있습니다. 일반적인 경고 스키마는 Azure Monitor의 모든 경고 서비스에서 확장 가능 하 고 통합 된 단일 경고 페이로드를 포함 하는 이점을 제공 합니다. 일반적인 경고 스키마는 로그 경고에 대 한 사용자 지정 JSON 옵션을 사용할 수 없습니다. 경고 규칙 수준에서 수행 했을 수 있는 사용자 지정에 관계 없이 선택 된 경우 일반적인 경고 스키마 페이로드로 지연 됩니다. [일반적인 경고 스키마 정의에 대해 알아봅니다.](https://aka.ms/commonAlertSchemaDefinitions)
 
 ## <a name="webhook-actions"></a>웹후크 작업
 

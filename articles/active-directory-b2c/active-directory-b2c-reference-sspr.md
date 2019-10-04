@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e8137bc0e75595b5f548584bb2d1644de2e0fecd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7903ec669772c3a3858a9c1d514ab3e6de6a2bd4
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508915"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936823"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>고객을 위해 셀프 서비스 암호 재설정 구성
 
@@ -30,6 +30,7 @@ ms.locfileid: "66508915"
 
 1. [Azure Portal](https://portal.azure.com/)에 구독 관리자로 로그인합니다. 이는 동일한 직장이나 학교 계정 또는 디렉터리를 만드는 데 사용한 동일한 Microsoft 계정입니다.
 2. **Azure Active Directory**를 엽니다(왼쪽 탐색 모음).
+3. 옵션 블레이드에서 아래로 스크롤하고 **암호 재설정**을 선택 합니다.
 4. **셀프 서비스 암호 재설정이 사용하도록 설정됨**을 **모두**로 설정합니다. 
 5. 페이지 위쪽에서 **저장**을 클릭합니다. 완료되었습니다!
 

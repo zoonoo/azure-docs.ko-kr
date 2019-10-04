@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 202414260deacc4b196cd789e923ff00ca650b4d
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 80accdc4a14a2246ed91a92f6472490479327e2a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315220"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827201"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SAML ID 공급자로 ADFS 추가
 
@@ -187,6 +187,8 @@ https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadat
 14. 만든 신뢰 당사자 트러스트를 선택하고 **페더레이션 메타데이터에서 업데이트**를 선택한 후 **업데이트**를 클릭합니다.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
+
+Azure AD B2C와의 통신은 B2C 테 넌 트에 등록 하는 응용 프로그램을 통해 발생 합니다. 이 섹션에는 아직 만들지 않은 경우 테스트 애플리케이션을 만들기 위해 완료할 수 있는 선택적 단계가 나와 있습니다.
 
 [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 

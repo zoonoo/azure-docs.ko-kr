@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 80f2e8a8fd41fbafbaf6d30bc1001b86c5dcdd50
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 1fff9c076349d98d7a72c4bf69edb0a2795ac88f
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266378"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937370"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 개인 끝점 이란?
 
@@ -66,7 +66,7 @@ Azure 서비스에 대 한 개인 끝점을 사용 하는 경우 특정 개인 �
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>승인 워크플로를 사용 하 여 개인 링크 리소스에 대 한 액세스 
 다음 연결 승인 방법을 사용 하 여 개인 링크 리소스에 연결할 수 있습니다.
-- 사용자가 소유 하거나 특정 개인 링크 리소스에 대 한 권한이 있는 경우 **자동으로** 승인 됩니다. 필요한 권한은 다음 형식의 개인 링크 리소스 유형을 기반으로 합니다. Microsoft. \<공급자 >/< resource_type >/privateEndpointConnectionApproval/action
+- 사용자가 소유 하거나 특정 개인 링크 리소스에 대 한 권한이 있는 경우 **자동으로** 승인 됩니다. 필요한 권한은 다음 형식의 개인 링크 리소스 유형을 기반으로 합니다. Microsoft. \<Provider >/< resource_type >/privateEndpointConnectionApproval/action
 - 필요한 권한이 없고 액세스를 요청 하는 경우 **수동** 요청 승인 워크플로가 시작 됩니다. 개인 끝점 및 후속 개인 끝점 연결이 "보류 중" 상태로 생성 됩니다. 개인 링크 리소스 소유자는 연결을 승인 해야 합니다. 승인 된 후에는 다음 승인 워크플로 다이어그램에 표시 된 것 처럼 개인 끝점에서 트래픽을 정상적으로 전송할 수 있습니다.  
 
 ![워크플로 승인](media/private-endpoint-overview/private-link-paas-workflow.png)
@@ -124,8 +124,9 @@ Azure는 공용 DNS에서 정식 이름 DNS 레코드 (CNAME)를 만들어 해�
 |NSG (네트워크 보안 그룹) 규칙이 개인 끝점에 적용 되지 않음    |NSG는 개인 끝점에서 지원 되지 않습니다. 개인 끝점을 포함 하는 서브넷에 NSG가 연결 되어 있을 수 있지만 규칙은 개인 끝점에서 처리 하는 트래픽에 적용 되지 않습니다. 서브넷에 개인 끝점을 배포 하려면 [네트워크 정책 적용을 사용 하지 않도록 설정](disable-private-endpoint-network-policy.md) 해야 합니다. NSG는 동일한 서브넷에서 호스트 되는 다른 워크 로드에도 적용 됩니다.   | 원본 클라이언트의 아웃 바운드 트래픽에 대 한 NSG 규칙을 사용 하 여 트래픽을 제어 합니다.        |
 |서비스 끝점 또는 특수 작업에 대해 사용 하도록 설정 된 서브넷에서는 개인 끝점을 만들 수 없습니다.    |전용 끝점은 서비스 끝점에 대해 사용 하도록 설정 된 서브넷 또는 특수 작업으로 위임 된 서브넷에 배포할 수 없습니다.|  개별 서브넷을 만들어 개인 끝점을 배포 합니다.        |
 |개인 끝점은 동일한 지역에 있는 개인 링크 서비스 (고객 소유)에만 매핑될 수 있습니다.    |   다른 지역의 개인 링크 서비스에 대 한 연결은 지원 되지 않습니다.       |  미리 보기 중에는 동일한 지역에 개인 링크 서비스를 배포 해야 합니다.        |
+|  전용 끝점만 있는 피어 링 Virtual Network는 지원 되지 않습니다.   |   다른 워크 로드 없이 피어 링 Virtual Network의 전용 끝점에 연결할 때 지원 되지 않는 경우       | 피어 링 Virtual Network에서 단일 VM을 배포 하 여 연결을 사용 하도록 설정 합니다. |
 |특수 워크 로드는 전용 끝점에 액세스할 수 없습니다.    |   가상 네트워크에 배포 된 다음 서비스는 개인 끝점을 사용 하 여 개인 링크 리소스에 액세스할 수 없습니다.<br>App Service 계획</br>Azure Container Instance</br>Azure NetApp 파일</br>Azure 전용 HSM<br>       |   미리 보기 중에는 완화가 필요 하지 않습니다.       |
-|  포털은 별칭을 사용 하 여 개인 끝점 만들기를 지원 하지 않습니다.  |   포털에서는 리소스 URI를 사용 하 여 개인 끝점을 만들 수 있습니다.      | 리소스 URI를 사용 하 여 개인 끝점 연결 요청        |
+
 
 ## <a name="next-steps"></a>다음 단계
 - [포털을 사용하여 SQL Database Server용 프라이빗 엔드포인트 만들기](create-private-endpoint-portal.md)

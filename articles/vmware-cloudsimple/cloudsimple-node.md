@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 58af69b401400c7b2f663a91de8bf38bc9a296a3
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 729b832c068dcd401fa6e9d2f4af9193d3859a83
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877692"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71845539"
 ---
 # <a name="cloudsimple-nodes-overview"></a>CloudSimple 노드 개요
 
@@ -36,13 +36,14 @@ ms.locfileid: "69877692"
 
 다음 유형의 노드를 구매 또는 예약에 사용할 수 있습니다.
 
-| SKU | CS28-노드 | CS36-노드 |
-|-----|-------------|-------------|
-| CPU | 22.2 g h z, 28 코어 (56 HT) | 22.3 g h z, 36 코어 (72 HT) |
-| RAM | 256GB | 512 GB |
-| 캐시 디스크 |  1.6-TB NVMe | 3.2-TB NVMe |
-| 용량 디스크 | 5.625 TB 원시 | 11.25 TB 원시 |
-| 스토리지 유형 | 모든 플래시 | 모든 플래시 |
+| SKU           | CS28-노드                 | CS36-노드                 | CS36m-노드                |
+|---------------|-----------------------------|-----------------------------|-----------------------------|
+| Region        | 미국 동부, 미국 서부            | 미국 동부, 미국 서부            | 유럽 서부                 |
+| CPU           | 22.2 g h z, 28 코어 (56 HT) | 22.3 g h z, 36 코어 (72 HT) | 22.3 g h z, 36 코어 (72 HT) |
+| RAM           | 256GB                      | 512 GB                      | 576GB                      |
+| 캐시 디스크    | 1.6-TB NVMe                 | 3.2-TB NVMe                 | 3.2-TB NVMe                 |
+| 용량 디스크 | 5.625 TB 원시                | 11.25 TB 원시                | 15.36 TB 원시                |
+| 스토리지 유형  | 모든 플래시                   | 모든 플래시                   | 모든 플래시                   |
 
 ## <a name="limits"></a>제한
 

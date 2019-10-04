@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: d151dbf20e68a2152e9d886a74e51786bb8fbfa6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9854ad7118684e1a5e57b0809d733d812ad64176
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60614477"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828843"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Service Fabric 애플리케이션에서 암호화된 비밀 관리
 이 가이드에서는 Service Fabric 애플리케이션에서 비밀을 관리하는 단계를 안내합니다. 스토리지 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 모든 민감한 정보를 비밀로 처리할 수 있습니다.
@@ -31,13 +31,13 @@ Service Fabric 애플리케이션에서 암호화된 비밀을 사용하는 데�
 
 ## <a name="set-up-an-encryption-certificate-and-encrypt-secrets"></a>암호화 인증서 설정 및 비밀 암호화
 암호화 인증서를 설정하고 이를 사용하여 비밀을 암호화하는 것은 Windows와 Linux 간에 다릅니다.
-* [Windows 클러스터에서 암호화 인증서 설정 및 비밀 암호화][secret-management-windows-specific-link]
-* [Linux 클러스터에서 암호화 인증서 설정 및 비밀 암호화][secret-management-linux-specific-link]
+* [Windows 클러스터에서 암호화 인증서를 설정 하 고 암호를 암호화 합니다.][secret-management-windows-specific-link]
+* [Linux 클러스터에서 암호화 인증서를 설정 하 고 암호를 암호화 합니다.][secret-management-linux-specific-link]
 
 ## <a name="specify-encrypted-secrets-in-an-application"></a>애플리케이션에서 암호화된 비밀 지정
-이전 단계에서 인증서를 사용하여 비밀을 암호화하고 애플리케이션에서 사용할 수 있도록 base-64로 인코딩된 문자열을 생성하는 방법을 설명했습니다. 이 base-64로 인코딩된 문자열을 서비스의 Settings.xml에서 암호화된 [매개 변수][parameters-link]로, 또는 서비스의 ServiceManifest.xml에서 암호화된 [환경 변수][environment-variables-link]로 지정할 수 있습니다.
+이전 단계에서 인증서를 사용하여 비밀을 암호화하고 애플리케이션에서 사용할 수 있도록 base-64로 인코딩된 문자열을 생성하는 방법을 설명했습니다. 이 base-64로 인코딩된 문자열은 서비스의 Servicemanifest.xml에 암호화 된 [매개 변수로][parameters-link] 지정 하거나 서비스의에 암호화 된 [환경 변수로][environment-variables-link] 지정할 수 있습니다.
 
-서비스의 Settings.xml 구성 파일에서 암호화된 [매개 변수][parameters-link]를 `true`로 설정된 `IsEncrypted` 특성을 통해 지정합니다.
+@No__t-1 특성이 `true`로 설정 된 서비스의 설정 .xml 구성 파일에 암호화 된 [매개 변수][parameters-link] 를 지정 합니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -47,13 +47,24 @@ Service Fabric 애플리케이션에서 암호화된 비밀을 사용하는 데�
   </Section>
 </Settings>
 ```
-서비스의 ServiceManifest.xml 파일에서 암호화된 [환경 변수][environment-variables-link]를 `Encrypted`로 설정된 `Type` 특성을 통해 지정합니다.
+@No__t-1 특성을 `Encrypted`로 설정 하 여 서비스의 Servicemanifest.xml 파일에 암호화 된 [환경 변수][environment-variables-link] 를 지정 합니다.
 ```xml
 <CodePackage Name="Code" Version="1.0.0">
   <EnvironmentVariables>
     <EnvironmentVariable Name="MyEnvVariable" Type="Encrypted" Value="I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM=" />
   </EnvironmentVariables>
 </CodePackage>
+```
+
+응용 프로그램 매니페스트에서 인증서를 지정 하 여 Service Fabric 응용 프로그램에 암호를 포함할 수도 있습니다. **SecretsCertificate** 요소를 **applicationmanifest .xml** 에 추가 하 고 원하는 인증서의 지문을 포함 합니다.
+
+```xml
+<ApplicationManifest … >
+  ...
+  <Certificates>
+    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbrint]"/>
+  </Certificates>
+</ApplicationManifest>
 ```
 
 ### <a name="inject-application-secrets-into-application-instances"></a>애플리케이션 비밀을 애플리케이션 인스턴스에 삽입
@@ -119,7 +130,7 @@ await fabricClient.ApplicationManager.CreateApplicationAsync(applicationDescript
 ```
 
 ## <a name="decrypt-encrypted-secrets-from-service-code"></a>서비스 코드에서 암호화된 비밀 해독
-[매개 변수][parameters-link] 및 [환경 변수][environment-variables-link]에 액세스하기 위한 API로 암호화된 값을 손쉽게 해독할 수 있습니다. 암호화된 문자열에는 암호화에 사용된 인증서 정보가 포함되어 있으므로 수동으로 인증서를 지정할 필요가 없습니다. 서비스가 실행되고 있는 노드에 인증서를 설치하기만 하면 됩니다.
+[매개 변수][parameters-link] 및 [환경 변수에][environment-variables-link] 액세스 하기 위한 api를 통해 암호화 된 값의 암호를 쉽게 해독할 수 있습니다. 암호화된 문자열에는 암호화에 사용된 인증서 정보가 포함되어 있으므로 수동으로 인증서를 지정할 필요가 없습니다. 서비스가 실행되고 있는 노드에 인증서를 설치하기만 하면 됩니다.
 
 ```csharp
 // Access decrypted parameters from Settings.xml

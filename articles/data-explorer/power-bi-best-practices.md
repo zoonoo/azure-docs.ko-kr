@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 53bed3fe50afef260ac44f73a9f82e6894015c90
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: e6767c1e03b074f43993e449ca81af951c579090
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349002"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937314"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>Power BI를 사용 하 여 Azure 데이터 탐색기 데이터를 쿼리하고 시각화 하는 방법에 대 한 모범 사례
 
@@ -34,7 +34,7 @@ Tb의 새로운 원시 데이터로 작업 하는 경우 다음 지침에 따라
 
    * [병렬 처리를 향상 시키기 위해 약한 일관성을](/azure/kusto/concepts/queryconsistency)사용 합니다. 이는 데이터의 새로 고침에 영향을 미칠 수 있습니다.
 
-* **효과적인 슬라이서** – [동기화 슬라이서](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-slicers#sync-and-use-slicers-on-other-pages) 를 사용 하 여 보고서가 준비 되기 전에 데이터를 로드 하지 못하도록 할 수 있습니다. 데이터 집합을 구조화 하 고 모든 시각적 개체를 배치한 후 모든 슬라이서를 표시 한 후에는 동기화 슬라이서를 선택 하 여 필요한 데이터만 로드할 수 있습니다.
+* **효과적인 슬라이서** – [동기화 슬라이서](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-slicers#sync-and-use-slicers-on-other-pages) 를 사용 하 여 보고서가 준비 되기 전에 데이터를 로드 하지 못하도록 합니다. 데이터 집합을 구조화 하 고 모든 시각적 개체를 배치한 후 모든 슬라이서를 표시 한 후에는 동기화 슬라이서를 선택 하 여 필요한 데이터만 로드할 수 있습니다.
 
 * **필터 사용** -가능한 한 많은 Power BI 필터를 사용 하 여 Azure 데이터 탐색기 검색에 관련 데이터 분할 집중 합니다.
 
@@ -104,7 +104,7 @@ Kusto 쿼리는 [쿼리 제한](/azure/kusto/concepts/querylimits)에 설명 된
     Source = Kusto.Contents("Help", "Samples", "StormEvents | where State == 'ALABAMA' | take 100", [])
     ```
 
-1. 쿼리의 관련 부분을 매개 변수로 바꿉니다. 쿼리를 여러 부분으로 분할 하 고 매개 변수와 함께 & 부호를 사용 하 여 다시 연결 합니다.
+1. 쿼리의 관련 부분을 매개 변수로 바꿉니다. 쿼리를 여러 부분으로 분할 하 고 매개 변수와 함께 앰퍼샌드 (&)를 사용 하 여 다시 연결 합니다.
 
    예를 들어 위의 쿼리에서 `State == 'ALABAMA'` 는 파트를 가져와서: `State == '` 및 `'` 로 분할 하 고 `State` 매개 변수 사이에 매개 변수를 추가 합니다.
    

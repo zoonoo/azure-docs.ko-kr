@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 846f0ecdd49fc1c501893209b60fa9acc8a32ed2
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: b28d02dd0ca375451f6ff75b1253ae8874bf2ab4
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242326"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828242"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 질문이 있나요? 자세한 내용은 다음 FAQ를 확인 하세요.
@@ -48,7 +48,7 @@ ms.locfileid: "70242326"
 
 눈에 띄는 차이점:
 
-- 도구는 에이전트 $ (빌드용 디렉터리)의 원본 폴더 또는% BUILD_SOURCESDIRECTORY%에서 실행 됩니다. 예를 들면\_,
+- 도구는 에이전트 $ (빌드용 디렉터리)의 원본 폴더 또는% BUILD_SOURCESDIRECTORY%에서 실행 됩니다. 예: C:\agent @ no__t-0work\1\s.
 - 인수의 경로는 이전에 나열 된 원본 디렉터리의 루트를 기준으로 할 수 있습니다. 경로는 절대 경로일 수 있습니다. Azure DevOps 빌드 변수를 사용 하거나 로컬 리소스의 알려진 배포 위치를 사용 하 여 온-프레미스 에이전트를 실행 하 여 절대 경로를 가져옵니다.
 - 도구는 출력 파일 경로 또는 폴더를 자동으로 제공 합니다. 빌드 작업에 대 한 출력 위치를 제공 하는 경우 해당 위치는 빌드 에이전트의 잘 알려진 로그 위치에 대 한 경로로 바뀝니다.
 - 일부 도구에 대해 몇 가지 추가 명령줄 인수를 변경 했습니다. 한 가지 예는 GUI를 시작 하지 않도록 하는 옵션을 추가 하거나 제거 하는 것입니다.
@@ -63,7 +63,7 @@ ms.locfileid: "70242326"
 
 ### <a name="where-are-the-output-files-generated-by-the-tools-saved"></a>도구에서 생성 된 출력 파일은 어디에 저장 되나요? 
 
-빌드 작업은 빌드 에이전트의 잘 알려진이 위치에 대 한 출력 경로를 자동으로 추가 합니다. $ (에이전트로 디렉터리\_) sdt\logss 이 위치를 표준화 하기 때문에 코드 분석 로그를 생성 하거나 소비 하는 모든 팀이 출력에 액세스할 수 있습니다.
+빌드 작업은 빌드 에이전트의 잘 알려진이 위치에 대 한 출력 경로를 자동으로 추가 합니다. $ (에이전트로 디렉터리) \_sdt \ 로그. 이 위치를 표준화 하기 때문에 코드 분석 로그를 생성 하거나 소비 하는 모든 팀이 출력에 액세스할 수 있습니다.
 
 ### <a name="can-i-queue-a-build-to-run-these-tasks-on-a-hosted-build-agent"></a>호스트 된 빌드 에이전트에서 이러한 작업을 실행 하기 위해 빌드를 큐에 대기 시킬 수 있나요? 
 
@@ -123,7 +123,7 @@ ms.locfileid: "70242326"
 
 파일 식은 파일 이름일 수 있습니다. 전체 파일 경로 또는 파일 이름의 basename 될 수도 있습니다. 와일드 카드 지원 되지 않습니다.
 
-다음 예제에서는 \src\JS\lib\angular.js 파일 > 파일 \<을 표시 하지 않는 방법을 보여 줍니다.
+다음 예에서는 \<InputPath > \src\JS\lib\angular.js 파일을 표시 하지 않는 방법을 보여 줍니다.
 
 유효한 비 표시 규칙의 예:
 
@@ -152,12 +152,6 @@ ms.locfileid: "70242326"
 
 #### <a name="what-are-recommended-guidelines-for-managing-secrets"></a>비밀을 관리 하는 데 권장 되는 지침은 무엇 인가요?
 
-하드 코드 된 비밀을 신속 하 게 검색 하 고 위험을 완화 하는 것이 유용 합니다. 그러나 비밀이 체크 인 되지 않도록 하는 것이 훨씬 더 낫습니다.
-
-이러한 측면에서 도움이 되도록 Microsoft는 Visual Studio 용 [Microsoft DevLabs 확장](https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio) 의 일부로 자격 증명 스캐너 코드 분석기의 초기 미리 보기를 릴리스 했습니다. 분석기는 초기 미리 보기 릴리스입니다. 개발자는 코드에서 잠재적 비밀을 검색 하기 위한 인라인 환경을 개발자에 게 제공 합니다. 이를 통해 분석기는 이러한 문제를 실시간으로 해결할 수 있는 기회를 개발자에 게 제공 합니다.
-
-자세한 내용은 [클라우드에서 안전 하 게 암호 관리](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/)블로그 게시물을 참조 하세요.
-
 다음 리소스를 통해 안전 하 게 암호를 관리 하 고 응용 프로그램 내에서 중요 한 정보에 액세스할 수 있습니다.
 
  - [Azure Key Vault](../../key-vault/index.yml)
@@ -167,16 +161,19 @@ ms.locfileid: "70242326"
  - [Azure App Service 및 Azure Functions에서 관리 되는 id](../../app-service/overview-managed-identity.md)
  - [AppAuthentication 라이브러리](../../key-vault/service-to-service-authentication.md)
 
+
+자세한 내용은 [클라우드에서 안전 하 게 암호 관리](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/)블로그 게시물을 참조 하세요.
+
 #### <a name="can-i-write-my-own-custom-searchers"></a>사용자 지정 searchers를 직접 작성할 수 있나요?
 
 자격 증명 스캐너는 일반적으로 buildsearchers 파일에 정의 된 콘텐츠 searchers 집합을 사용 합니다. 이 파일은 **Contentsearcher** 개체를 나타내는 XML 직렬화 된 개체의 배열을 포함 합니다. 이 프로그램은 잘 테스트 된 searchers 집합을 사용 하 여 배포 됩니다. 그러나 사용자 고유의 사용자 지정 searchers 구현할 수 있습니다.
 
 콘텐츠 검색자는 다음과 같이 정의 됩니다.
 
-- **이름**: 자격 증명 스캐너 출력 파일에서 사용 되는 설명이 포함 된 검색자 이름입니다. 검색자 이름에 카멜식 대/소문자 명명 규칙을 사용 하는 것이 좋습니다.
+- **Name**: 자격 증명 스캐너 출력 파일에서 사용 되는 설명이 포함 된 검색자 이름입니다. 검색자 이름에 카멜식 대/소문자 명명 규칙을 사용 하는 것이 좋습니다.
 - **RuleId**: 인 검색자의 안정 된 불투명 ID입니다.
     - 자격 증명 스캐너 기본 검색 프로그램에는 CSCAN0010, CSCAN0020 또는 CSCAN0030와 같은 **RuleId** 값이 할당 됩니다. 마지막 숫자는 정규식 (regex)을 통해 검색자 그룹을 병합 하거나 분리 하기 위해 예약 되어 있습니다.
-    - 사용자 지정 된 사용자에 대 한 **RuleId** 값에는 고유한 네임 스페이스가 있어야 합니다. 이러한 예로는 cscan\<네임\>스페이스 mylnxcn-0006 mylnxcn-0010, cscan\<-\>namespace 0020 및 cscan-\<namespace\>0030가 있습니다.
+    - 사용자 지정 된 사용자에 대 한 **RuleId** 값에는 고유한 네임 스페이스가 있어야 합니다. 예를 들면 CSCAN-\<Namespace @ no__t-10010, CSCAN-\<Namespace @ no__t-30020 및 CSCAN-\<Namespace @ no__t-50030가 포함 됩니다.
     - 정규화 된 검색자 이름은 **RuleId** 값과 검색자 이름의 조합입니다. 예를 들면 CSCAN0010이 있습니다. KeyStoreFiles 및 CSCAN0020. Base64EncodedCertificate.
 - **Resourcematchpattern**: 검색자에 대해 확인할 파일 확장명의 Regex입니다.
 - **Contentsearchpatterns**: 일치 시킬 regex 문을 포함 하는 문자열의 배열입니다. 검색 패턴이 정의 되지 않은 경우에는 **Resourcematchpattern** 값과 일치 하는 모든 파일이 반환 됩니다.
@@ -205,13 +202,13 @@ Roslyn 분석기 태스크가 컴파일의 일부로 실행 되기 때문에 빌
 
 전체 오류 메시지:
 
-오류 코드 1 (으)로 인해 "csc.exe"가 종료 되었습니다. C: \\*bbbb*.dll에서 다음 AAAA 인스턴스를 만들 수 없습니다. 파일 또는 어셈블리 ' 31bf3856ad364e35, Version = x. x. x. x. x X X. x. x X X. x. x X X. x. x*X x*. 시스템은 지정된 파일을 찾을 수 없습니다."
+"csc.exe '이 (가) 종료 되었습니다 (오류 코드 1--C: \\*bbbb*. .dll: 파일 또는 어셈블리 ' 31bf3856ad364e35, Version = x. x. x. x. x X X. x. x X X. x. x X X. x. x*X x*. 시스템은 지정된 파일을 찾을 수 없습니다."
 
 컴파일러가 Roslyn 분석기를 지원 하는지 확인 합니다. **Csc.exe/version** 명령을 실행 하면 2.6 이상 버전 값을 보고 해야 합니다.
 
 경우에 따라 .csproj 파일은 Microsoft.Net에서 패키지를 참조 하 여 빌드 컴퓨터의 Visual Studio 설치를 재정의할 수 있습니다. 특정 버전의 컴파일러를 사용 하지 않으려는 경우 Microsoft.Net에 대 한 참조를 제거 합니다. 그렇지 않으면 참조 된 패키지의 버전도 2.6 이상 인지 확인 합니다.
 
-**Csc.exe/** 오류 로그 옵션에 지정 된 오류 로그 경로를 가져오려고 시도 합니다. 옵션 및 경로는 Roslyn 분석기 빌드 작업에 대 한 로그에 표시 됩니다. 다음과 같이 표시 될 수 있습니다 **./cf:\ts-services-123\_work\456\s\Some\Project\Code\Code.csproj.sarif**
+**Csc.exe/** 오류 로그 옵션에 지정 된 오류 로그 경로를 가져오려고 시도 합니다. 옵션 및 경로는 Roslyn 분석기 빌드 작업에 대 한 로그에 표시 됩니다. 다음과 같이 표시 될 수 있습니다 **./CF:\ts-services-123 @ no__t-1work\456\s\Some\Project\Code\Code.csproj.sarif**
 
 ##### <a name="the-c-compiler-version-isnt-recent-enough"></a>C# 컴파일러 버전이 최신 버전이 아닙니다.
 

@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 9c9d02eeead4ccbed372e9a55d9b551da83caa39
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7af40404550fb78af891563d8256f23620781b24
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68642294"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71841524"
 ---
 # <a name="understanding-the-ip-address-of-your-iot-hub"></a>IoT hub의 IP 주소 이해
 
@@ -34,3 +34,6 @@ nslookup {YourIoTHubName}.azure-devices.net
 
 IoT hub 호스트 이름 또는 도메인에 따라 방화벽 규칙 및 필터링을 만들어 봅니다. 특정 주소에 대 한 아웃 바운드 트래픽만 허용할 수 있는 경우 IoT hub IP 주소를 정기적으로 폴링하고 방화벽 규칙을 업데이트 합니다.
 
+## <a name="support-for-ipv6"></a>I p v 6에 대 한 지원 
+
+I p v 6은 현재 IoT Hub에서 지원 되지 않습니다.

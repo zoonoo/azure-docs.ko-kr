@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 9/25/2019
+ms.date: 10/02/2019
 ms.author: b-juche
-ms.openlocfilehash: 3d34caba9512dc0c0b20cf10476f5c38a2fab8ce
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: bd00c04ecfc211ae4ed410e886c0fe6553bea241
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299662"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827502"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -68,7 +68,11 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 
     지원 되는 네트워크 토폴로지의 [Azure NetApp Files 네트워크 계획에 대 한 지침을](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) 참조 하세요.
 
-    NSGs (네트워크 보안 그룹) 및 방화벽에는 Active Directory 및 DNS 트래픽 요청을 허용 하는 적절 하 게 구성 된 규칙이 있어야 합니다.
+    NSGs (네트워크 보안 그룹) 및 방화벽에는 Active Directory 및 DNS 트래픽 요청을 허용 하는 적절 하 게 구성 된 규칙이 있어야 합니다. 
+
+* Azure NetApp Files 위임 된 서브넷은 모든 로컬 및 원격 도메인 컨트롤러를 포함 하 여 도메인의 모든 Active Directory Domain Services (추가) 도메인 컨트롤러에 연결할 수 있어야 합니다. 그렇지 않으면 서비스 중단이 발생할 수 있습니다.  
+
+    Azure NetApp Files 위임 된 서브넷을 통해 연결할 수 없는 도메인 컨트롤러가 있는 경우 Azure 지원 요청을 제출 하 여 범위를 **전역** (기본값)에서 **사이트**로 변경할 수 있습니다.  Azure NetApp Files은 Azure NetApp Files 위임 된 서브넷 주소 공간이 있는 사이트의 도메인 컨트롤러와만 통신 해야 합니다.
 
     AD 사이트 및 서비스에 대 한 [사이트 토폴로지 디자인을](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) 참조 하세요. 
 

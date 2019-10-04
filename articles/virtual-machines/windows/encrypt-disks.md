@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 6a92ee6fe53b1676c493c54510dd0f6c4b4b5dc9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bee4b108d2747e8c386abe41dc61b5b19aecf4f5
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079559"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828695"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Windows VM에서 가상 디스크 암호화
-VM(가상 머신)의 보안과 규정 준수 상태를 향상시키기 위해 Azure에서 가상 디스크를 암호화할 수 있습니다. 디스크는 Azure Key Vault에 안전하게 보관되는 암호화 키를 사용하여 암호화됩니다. 이러한 암호화 키를 제어하고 용도를 감사할 수 있습니다. 이 문서에서는 Azure PowerShell을 사용하여 Windows VM에서 가상 디스크를 암호화하는 방법을 설명합니다. [Azure CLI를 사용하여 Linux VM을 암호화](../linux/encrypt-disks.md)할 수도 있습니다.
+VM(가상 머신)의 보안과 규정 준수 상태를 향상시키기 위해 Azure에서 가상 디스크를 암호화할 수 있습니다. 디스크는 Azure Key Vault에 안전하게 보관되는 암호화 키를 사용하여 암호화됩니다. 이러한 암호화 키를 제어하고 용도를 감사할 수 있습니다. 이 문서에서는 Azure PowerShell을 사용하여 Windows VM에서 가상 디스크를 암호화하는 방법을 설명합니다. [Azure CLI를 사용하여 Linux VM을 암호화](../linux/disk-encryption-overview.md)할 수도 있습니다.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 

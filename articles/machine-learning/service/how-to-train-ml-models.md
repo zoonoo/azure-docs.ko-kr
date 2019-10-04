@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 43597113c439f2b88bee0834dddc8cb37ec0202a
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 73887c39ebcee2efc4a31925f4aacfffb3c53ca7
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213525"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828048"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>추정기를 사용하여 Azure Machine Learning에서 모델 학습
 
@@ -113,7 +113,7 @@ estimator = Estimator(source_directory='./my-keras-proj',
 `custom_docker_image`| 사용하려는 이미지의 이름입니다. 공용 Docker 리포지토리(여기서는 Docker 허브)에서 사용할 수 있는 이미지만 제공합니다. 프라이빗 Docker 리포지토리의 이미지를 사용하려면 생성자의 `environment_definition` 매개 변수를 대신 사용합니다. [예제를 참조하세요](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| 학습 작업에 사용할 노드의 수입니다. | `1`
 `process_count_per_node`| 각 노드에서 실행할 프로세스(또는 “작업자”)의 수입니다. 여기서는 각 노드에서 사용할 수 있는 `2` GPU를 사용합니다.| `1`
-`distributed_training`| MPI 백 엔드를 사용 하 여 분산 학습을 시작 하기 위한 [MPIConfiguration]('https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py') 개체입니다.  | `None`
+`distributed_training`| MPI 백 엔드를 사용 하 여 분산 학습을 시작 하기 위한 [MPIConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) 개체입니다.  | `None`
 
 
 마지막으로, 학습 작업을 제출합니다.

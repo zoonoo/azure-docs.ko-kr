@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: f041889f1594ef3852c8f2393be93bb7a6513b4c
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 5401260921aee5fc54b50c1222188a6b244a0c5a
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676644"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71840139"
 ---
-# <a name="identify-issues-with-the-diagnostics-feature"></a>진단 기능을 사용하여 문제 식별
+# <a name="identify-and-diagnose-issues"></a>문제 식별 및 진단
 
 Windows 가상 데스크톱은 관리자가 단일 인터페이스를 통해 문제를 식별할 수 있도록 하는 진단 기능을 제공 합니다. Windows 가상 데스크톱 역할은 사용자가 시스템과 상호 작용할 때마다 진단 활동을 기록 합니다. 각 로그에는 트랜잭션과 관련 된 Windows 가상 데스크톱 역할, 오류 메시지, 테 넌 트 정보 및 사용자 정보와 같은 관련 정보가 포함 되어 있습니다. 진단 작업은 최종 사용자 및 관리 작업에 의해 생성 되며 세 가지 주요 버킷으로 분류할 수 있습니다.
 

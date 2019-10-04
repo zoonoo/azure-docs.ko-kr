@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9e50a2705982a022284e1c54bd5ed7360a2d1663
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 7e13e2bed4e881d12737d8e0df0ff0ba2bb2bca9
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390702"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827471"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 리소스 함수
 
@@ -45,7 +45,7 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 
 ### <a name="valid-uses"></a>유효한 용도
 
-목록 함수는 템플릿 또는 배포의 리소스 정의 및 출력 섹션의 속성에만 사용할 수 있습니다. [속성 반복](resource-group-create-multiple.md#property-iteration)에 사용할 경우 식이 리소스 속성에 할당 되기 때문에 `input` 에 대 한 목록 함수를 사용할 수 있습니다. 목록 함수가 확인 되기 전에 `count` 카운트를 확인 해야 하기 때문에이를 사용할 수 없습니다.
+목록 함수는 템플릿 또는 배포의 리소스 정의 및 출력 섹션의 속성에만 사용할 수 있습니다. [속성 반복](resource-group-create-multiple.md#property-iteration)에 사용할 경우 식이 리소스 속성에 할당 되기 때문에 `input`에 대 한 목록 함수를 사용할 수 있습니다. 목록 함수가 확인 되기 전에 카운트를 결정 해야 하므로 `count`과 함께 사용할 수 없습니다.
 
 ### <a name="implementations"></a>구현
 
@@ -400,7 +400,7 @@ SAS 토큰을 가져오려면 만료 시간에 대 한 개체를 전달 합니�
 
 참조 함수는 리소스 정의의 속성과 템플릿 또는 배포의 출력 섹션에서만 사용할 수 있습니다. [속성 반복](resource-group-create-multiple.md#property-iteration)에 사용 되는 경우 식이 리소스 속성에 할당 되기 `input` 때문에에 대 한 참조 함수를 사용할 수 있습니다. 참조 함수가 확인 되기 전에 `count` 카운트를 확인 해야 하기 때문에이를 사용할 수 없습니다.
 
-중첩 된 템플릿의 출력에는 reference 함수를 사용 하여 [중첩 된 템플릿](resource-group-linked-templates.md#nested-template)에 배포한 리소스를 반환할 수 없습니다. 대신, [연결 된 템플릿을](resource-group-linked-templates.md#external-template-and-external-parameters)사용 합니다.
+중첩 된 템플릿의 출력에는 reference 함수를 사용 하여 [중첩 된 템플릿](resource-group-linked-templates.md#nested-template)에 배포한 리소스를 반환할 수 없습니다. 대신, [연결 된 템플릿을](resource-group-linked-templates.md#external-template)사용 합니다.
 
 조건부로 배포 된 리소스에서 **reference** 함수를 사용 하는 경우 리소스가 배포 되지 않은 경우에도 함수가 평가 됩니다.  **참조** 함수가 존재 하지 않는 리소스를 참조 하는 경우 오류가 발생 합니다. **If** 함수를 사용 하 여 리소스가 배포 되는 경우에만 함수가 평가 되도록 합니다. If를 사용 하 고 조건부로 배포 된 리소스를 참조 하는 샘플 템플릿은 [if 함수](resource-group-template-functions-logical.md#if) 를 참조 하세요.
 

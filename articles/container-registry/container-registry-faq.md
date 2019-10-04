@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 293f2a704fecb04bc6b65e49743ea80905f2394f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: b365c914db0ce43da5dac4c5b889c854c0ea0639
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142680"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827400"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대 한 질문과 대답
 
@@ -260,6 +260,7 @@ ACR은 다양 한 수준의 사용 권한을 제공 하는 [사용자 지정 역
 - [업데이트 후 즉시 새 사용자 권한이 적용 되지 않을 수 있습니다.](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [직접 REST API 호출에서 인증 정보는 올바른 형식으로 제공 되지 않습니다.](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Azure Portal에서 내 리포지토리 또는 태그를 모두 나열 하지 않는 이유는 무엇 인가요?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [Azure Portal에서 리포지토리 또는 태그를 가져오는 데 실패 하는 이유는 무엇 인가요?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [Windows에서 http 추적을 수집 어떻게 할까요?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="check-health-with-az-acr-check-health"></a>상태 확인`az acr check-health`
@@ -305,7 +306,7 @@ unauthorized: authentication required
 ```
 
 오류를 해결하려면:
-1. Docker 디먼 구성 `--signature-verification=false` 파일 `/etc/sysconfig/docker`에 옵션을 추가 합니다. 예를 들어:
+1. Docker 디먼 구성 `--signature-verification=false` 파일 `/etc/sysconfig/docker`에 옵션을 추가 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
@@ -410,9 +411,20 @@ curl $redirect_url
 
 Microsoft Edge/IE 브라우저를 사용 하는 경우 최대 100 개의 리포지토리 또는 태그를 볼 수 있습니다. 레지스트리에 100 개 이상의 리포지토리가 있는 경우 Firefox 또는 Chrome 브라우저를 사용 하 여 모두 나열 하는 것이 좋습니다.
 
+### <a name="why-does-the-azure-portal-fail-to-fetch-repositories-or-tags"></a>Azure Portal에서 리포지토리 또는 태그를 가져오는 데 실패 하는 이유는 무엇 인가요?
+
+브라우저에서 리포지토리 또는 태그를 가져오기 위한 요청을 서버로 보내지 못할 수 있습니다. 다음과 같은 여러 가지 이유가 있을 수 있습니다.
+
+* 네트워크 연결 부족
+* 방화벽
+* 광고 차단
+* DNS 오류
+
+네트워크 관리자에 게 문의 하거나 네트워크 구성 및 연결을 확인 하십시오. 또한 브라우저에서 incognito 또는 private 세션을 시도 하 여 오래 된 브라우저 캐시 또는 쿠키를 방지할 수도 있습니다.
+
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Windows에서 http 추적을 수집 어떻게 할까요?
 
-#### <a name="prerequisites"></a>필수 구성 요소
+#### <a name="prerequisites"></a>사전 요구 사항
 
 - Fiddler에서 https 암호 해독 사용:<https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - Docker ui를 통해 프록시를 사용 하도록 Docker를 사용 하도록 설정 합니다.<https://docs.docker.com/docker-for-windows/#proxies>

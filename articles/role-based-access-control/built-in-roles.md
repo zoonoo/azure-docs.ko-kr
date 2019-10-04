@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/27/2019
+ms.date: 09/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c2066502a6a9d742c347e08d528a2490a390bb7e
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 65a049070806fd702497d50236e9d541de2e8b1a
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672639"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71842291"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 리소스에 대한 기본 제공 역할
 
@@ -60,6 +60,9 @@ ms.locfileid: "71672639"
 | [Azure Kubernetes Service 클러스터 관리자 역할](#azure-kubernetes-service-cluster-admin-role) | 클러스터 관리자 자격 증명 작업을 나열합니다. |
 | [Azure Kubernetes Service 클러스터 사용자 역할](#azure-kubernetes-service-cluster-user-role) | 클러스터 사용자 자격 증명 작업을 나열합니다. |
 | [데이터 판독기 Azure Maps (미리 보기)](#azure-maps-data-reader-preview) | Azure maps 계정에서 맵 관련 데이터를 읽을 수 있는 액세스 권한을 부여 합니다. |
+| [Azure 센티널 기여자](#azure-sentinel-contributor) | Azure 센티널 기여자 |
+| [Azure 센티널 판독기](#azure-sentinel-reader) | Azure 센티널 판독기 |
+| [Azure 센티널 응답자](#azure-sentinel-responder) | Azure 센티널 응답자 |
 | [Azure Service Bus 데이터 소유자](#azure-service-bus-data-owner) | Azure Service Bus 리소스에 대 한 모든 액세스를 허용 합니다. |
 | [Azure Service Bus 데이터 수신기](#azure-service-bus-data-receiver) | Azure Service Bus 리소스에 대 한 수신 액세스를 허용 합니다. |
 | [Azure Service Bus 데이터 발신자](#azure-service-bus-data-sender) | Azure Service Bus 리소스에 대 한 액세스를 보낼 수 있습니다. |
@@ -178,7 +181,7 @@ ms.locfileid: "71672639"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 리소스 액세스를 제외한 모든 것을 관리할 수 있습니다. |
+> | **설명** | 리소스 액세스 권한을 부여 하는 것을 제외 하 고 모든 항목을 관리할 수 있습니다. |
 > | **Id** | b24988ac-6180-42a0-ab88-20f7382dd24c |
 > | **actions** |  |
 > | * | 모든 유형의 리소스 만들기 및 관리 |
@@ -645,6 +648,89 @@ ms.locfileid: "71672639"
 > | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Maps/accounts/data/read | Maps 계정에 데이터 읽기 액세스 권한을 부여합니다. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## <a name="azure-sentinel-contributor"></a>Azure 센티널 기여자
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Azure 센티널 기여자 |
+> | **Id** | ab8e14d6-4a74-4a29-9ba8-549422addade |
+> | **actions** |  |
+> | Microsoft SecurityInsights/* |  |
+> | Microsoft.OperationalInsights/workspaces/analytics/query/action | 새 엔진을 사용하여 검색합니다. |
+> | Microsoft.OperationalInsights/workspaces/read | 기존 작업 영역을 가져옵니다. |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/* |  |
+> | Microsoft.OperationsManagement/solutions/read | 기존 OMS 솔루션을 가져옵니다. |
+> | Microsoft.OperationalInsights/workspaces/query/read | 작업 영역의 데이터에서 쿼리를 실행 |
+> | OperationalInsights/작업 영역/데이터 원본/읽기 | 작업 영역의 데이터 원본을 가져옵니다. |
+> | Microsoft Insights/통합 문서/* |  |
+> | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
+> | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
+> | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
+> | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## <a name="azure-sentinel-reader"></a>Azure 센티널 판독기
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Azure 센티널 판독기 |
+> | **Id** | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
+> | **actions** |  |
+> | Microsoft SecurityInsights/*/읽기 |  |
+> | Microsoft.OperationalInsights/workspaces/analytics/query/action | 새 엔진을 사용하여 검색합니다. |
+> | Microsoft.OperationalInsights/workspaces/read | 기존 작업 영역을 가져옵니다. |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/read | 저장된 검색 쿼리를 가져옵니다. |
+> | Microsoft.OperationsManagement/solutions/read | 기존 OMS 솔루션을 가져옵니다. |
+> | Microsoft.OperationalInsights/workspaces/query/read | 작업 영역의 데이터에서 쿼리를 실행 |
+> | OperationalInsights/작업 영역/데이터 원본/읽기 | 작업 영역의 데이터 원본을 가져옵니다. |
+> | Microsoft Insights/통합 문서/읽기 | 통합 문서 읽기 |
+> | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
+> | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
+> | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
+> | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## <a name="azure-sentinel-responder"></a>Azure 센티널 응답자
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Azure 센티널 응답자 |
+> | **Id** | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
+> | **actions** |  |
+> | Microsoft SecurityInsights/*/읽기 |  |
+> | Microsoft SecurityInsights/case/* |  |
+> | Microsoft.OperationalInsights/workspaces/analytics/query/action | 새 엔진을 사용하여 검색합니다. |
+> | Microsoft.OperationalInsights/workspaces/read | 기존 작업 영역을 가져옵니다. |
+> | OperationalInsights/작업 영역/데이터 원본/읽기 | 작업 영역의 데이터 원본을 가져옵니다. |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/read | 저장된 검색 쿼리를 가져옵니다. |
+> | Microsoft.OperationsManagement/solutions/read | 기존 OMS 솔루션을 가져옵니다. |
+> | Microsoft.OperationalInsights/workspaces/query/read | 작업 영역의 데이터에서 쿼리를 실행 |
+> | OperationalInsights/작업 영역/데이터 원본/읽기 | 작업 영역의 데이터 원본을 가져옵니다. |
+> | Microsoft Insights/통합 문서/읽기 | 통합 문서 읽기 |
+> | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
+> | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
+> | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
+> | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -1767,7 +1853,7 @@ ms.locfileid: "71672639"
 > | Microsoft.Web/customApis/* | 사용자 지정 API를 만들고 관리합니다. |
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | App Service 계획의 속성을 가져옵니다. |
-> | Microsoft.Web/sites/functions/listSecrets/action | 비밀 Web Apps 함수를 나열합니다. |
+> | Microsoft.Web/sites/functions/listSecrets/action | 함수 암호를 나열 합니다. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2277,7 +2363,8 @@ ms.locfileid: "71672639"
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | 보호된 항목을 읽습니다. |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | 복제 복구 지점을 읽습니다. |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action | 복제를 복구합니다. |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/action | 보호된 항목을 다시 보호합니다. |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/action | 보호된 항목 다시 보호 |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action | 스위치 보호 컨테이너 |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | 테스트 장애 조치(Failover) |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | 테스트 장애 조치(Failover) 정리 |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | 장애 조치(failover) |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: a6ba401d9d10e900fef5e2d296e74a07f84162cd
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 1a3859e1831f64269e7684072ddf166f29566fd9
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71670743"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828965"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -395,7 +395,7 @@ VNet(가상 네트워크) 서비스 엔드포인트 정책을 통해 가상 네�
 
 ### <a name="does-azure-active-directory-azure-ad-support-vnet-service-endpoints"></a>Azure Active Directory (Azure AD) VNet 서비스 끝점을 지원 하나요?
 
-Azure Active Directory (Azure AD)는 서비스 끝점을 기본적으로 지원 하지 않습니다. VNet 서비스 끝점을 지 원하는 Azure 서비스의 전체 목록은 [여기](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)에서 볼 수 있습니다. 서비스 끝점 지원 서비스에 나열 된 "AzureActiveDirectory" 태그는 서비스 끝점을 ADLS Gen 1로 지 원하는 데 사용 됩니다. ADLS Gen 1에서 Azure Data Lake Storage Gen1에 대 한 가상 네트워크 통합은 가상 네트워크와 Azure Active Directory (Azure AD) 간에 가상 네트워크 서비스 끝점 보안을 사용 하 여 액세스 토큰에 추가 보안 클레임을 생성 합니다. 그런 다음, 이러한 클레임을 사용하여 Data Lake Storage Gen1 계정에 대해 가상 네트워크를 인증하고 액세스를 허용합니다. [Azure Data Lake Store Gen 1 VNet 통합] ()에 대해 자세히 알아보세요. /data-lake-file/data-cke-st-st-st-st-st-st-st-st-st-security-security-st-st-st-st-security-security-security
+Azure Active Directory (Azure AD)는 서비스 끝점을 기본적으로 지원 하지 않습니다. VNet 서비스 끝점을 지 원하는 Azure 서비스의 전체 목록은 [여기](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)에서 볼 수 있습니다. 서비스 끝점 지원 서비스에 나열 된 "AzureActiveDirectory" 태그는 서비스 끝점을 ADLS Gen 1로 지 원하는 데 사용 됩니다. ADLS Gen 1에서 Azure Data Lake Storage Gen1에 대 한 가상 네트워크 통합은 가상 네트워크와 Azure Active Directory (Azure AD) 간에 가상 네트워크 서비스 끝점 보안을 사용 하 여 액세스 토큰에 추가 보안 클레임을 생성 합니다. 그런 다음, 이러한 클레임을 사용하여 Data Lake Storage Gen1 계정에 대해 가상 네트워크를 인증하고 액세스를 허용합니다. [Azure Data Lake Store Gen 1 VNet 통합](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 에 대 한 자세한 정보
 
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>VNet에서 설정할 수 있는 VNet 서비스 엔드포인트 개수에 대한 제한이 있나요?
 가상 네트워크에서 VNet 서비스 엔드포인트의 총수에 대한 제한은 없습니다. Azure 서비스 리소스 (예: Azure Storage 계정)의 경우 서비스는 리소스 보안에 사용 되는 서브넷의 수에 제한을 적용할 수 있습니다. 다음 표에서는 몇 가지 제한 예를 보여 줍니다. 

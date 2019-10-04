@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 6f27aeb65cb9077011e662c165ca26202546db26
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b81495f19ce596d689778e6ab75512d744ae4588
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66130440"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71836561"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Azure PowerShell로 Log Analytics 작업 영역 만들기
 
@@ -41,12 +41,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-설치 하 고 PowerShell을 로컬로 사용 하려는 경우이 자습서는 Azure PowerShell Az 모듈을 필요 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 자습서에는 Azure PowerShell Az 모듈이 필요 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
-사용 하 여 작업 영역 만들기 [새로 만들기-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)합니다. 다음 예제에서는 로컬 머신의 Resource Manager 템플릿을 사용하여 *eastus* 위치의 리소스 그룹 *Lab*에 *TestWorkspace*라는 작업 영역을 생성합니다. JSON 템플릿은 작업 영역의 이름만 사용자에게 입력을 요청하도록 구성되며, 환경에서 표준 구성으로 사용될수 있는 다른 매개 변수에 대해서는 기본값을 지정합니다. 
+[AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)를 사용 하 여 작업 영역을 만듭니다. 다음 예제에서는 로컬 컴퓨터의 리소스 관리자 템플릿을 사용 하 여 *e us* 위치에 작업 영역을 만듭니다. JSON 템플릿은 작업 영역의 이름만 사용자에게 입력을 요청하도록 구성되며, 환경에서 표준 구성으로 사용될수 있는 다른 매개 변수에 대해서는 기본값을 지정합니다. 
 
-지원 되는 지역에 대 한 정보를 참조 하세요 [Log Analytics에서 사용할 수 있는 지역](https://azure.microsoft.com/regions/services/) 및 Azure Monitor에서 검색 합니다 **제품에 대 한 검색** 필드. 
+지원 되는 지역에 대 한 자세한 내용은 [에서 사용할 수 있는 지역 Log Analytics](https://azure.microsoft.com/regions/services/) 를 참조 하 고 **제품 검색** 필드에서 Azure Monitor를 검색 합니다. 
 
 다음 매개 변수는 기본값을 설정합니다.
 
@@ -117,7 +117,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 2. 요구 사항을 충족하도록 템플릿을 편집합니다. 지원되는 속성 및 값은 [Microsoft.OperationalInsights/workspaces 템플릿](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) 참조를 검토하세요. 
 3. 이 파일을 로컬 폴더에 **deploylaworkspacetemplate.json**으로 저장합니다.   
-4. 이제 이 템플릿을 배포할 수 있습니다. 템플릿이 포함된 폴더에서 다음 명령을 사용합니다.
+4. 이제 이 템플릿을 배포할 수 있습니다. 템플릿이 포함 된 폴더에서 다음 명령을 사용 합니다. 작업 영역 이름을 입력 하 라는 메시지가 표시 되 면 모든 Azure 구독에서 전역적으로 고유한 이름을 제공 합니다.
 
     ```powershell
         New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json

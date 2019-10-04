@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e5cea36760746eaa63451c9e9955368c71ba4472
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 1bd84a40236b54d799efcf04eae707aea9c6c945
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71816139"
+ms.locfileid: "71828939"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>빠른 시작-사설 클라우드 환경 구성
 
@@ -42,7 +42,7 @@ ms.locfileid: "71816139"
 
 5. CloudSimple 포털에서 사설 클라우드의 이름을 제공 합니다.
 6. 사설 클라우드의 **위치** 를 선택 합니다.
-7. Azure에서 구매한 항목과 일치 하는 **노드 유형**을 선택 합니다. [CS28 또는 CS36 옵션](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku)을 선택할 수 있습니다. 후자 옵션은 최대 계산 및 메모리 용량을 포함 합니다.
+7. Azure에서 구매한 항목과 일치 하는 **노드 유형**을 선택 합니다.
 8. **노드 수**를 지정 합니다.  사설 클라우드를 만들려면 노드가 세 개 이상 필요 합니다.
 
     ![사설 클라우드 만들기-기본 정보](media/create-private-cloud-basic-info.png)

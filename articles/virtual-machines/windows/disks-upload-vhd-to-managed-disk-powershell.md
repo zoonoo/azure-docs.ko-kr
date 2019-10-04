@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: de9975151270ccce8d4a7abd58210c6550d40464
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 88b5cacf432e467c893dac6fc5839c468b2eafbd
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720332"
+ms.locfileid: "71828652"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure에 vhd 업로드
 
@@ -74,7 +74,7 @@ AzCopy v10를 사용 하 여 생성 한 SAS URI를 지정 하 여 로컬 VHD 파
 이 업로드는 동일한 [표준 HDD](disks-types.md#standard-hdd)와 동일한 처리량을 갖습니다. 예를 들어 S4와 동일한 크기의 경우 최대 60 s p s/s의 처리량이 있습니다. 그러나 S70에 해당 하는 크기의 경우 최대 500 m b/s의 처리량이 있습니다.
 
 ```
-AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas --blob-type PageBlob
+AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
 ```
 
 업로드 중에 sas가 만료 되어 아직를 호출 `revoke-access` 하지 않은 경우에는를 사용 하 여 `grant-access`업로드를 계속 하는 새 sas를 받을 수 있습니다.

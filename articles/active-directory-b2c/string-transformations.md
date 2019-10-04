@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 83379cc194f23ebff977babc7124a7bc90f4bc60
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 77f0b196777ae0f2ff0b870eac0a01b11854190b
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063451"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936801"
 ---
 # <a name="string-claims-transformations"></a>문자열 클레임 변환
 
@@ -29,8 +29,8 @@ ms.locfileid: "71063451"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 참고 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | 비교할 첫 번째 클레임의 형식입니다. |
-| inputClaim | inputClaim2 | string | 비교할 두 번째 클레임의 형식입니다. |
+| InputClaim | inputClaim1 | string | 비교할 첫 번째 클레임의 형식입니다. |
+| InputClaim | inputClaim2 | string | 비교할 두 번째 클레임의 형식입니다. |
 | InputParameter | stringComparison | string | 문자열 비교, 다음 값 중 하나: Ordinal, OrdinalIgnoreCase |
 
 **AssertStringClaimsAreEqual** 클레임 변환은 항상 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)을 통해 호출되는 [유효성 검사 기술 프로필](validation-technical-profile.md)에서 실행됩니다. **UserMessageIfClaimsTransformationStringsAreNotEqual** 자체 어설션된 기술 프로필 메타데이터는 사용자에게 표시되는 오류 메시지를 제어합니다.
@@ -154,8 +154,8 @@ ms.locfileid: "71063451"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 참고 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | 비교할 첫 번째 클레임 형식입니다. |
-| inputClaim | inputClaim2 | string | 비교할 두 번째 클레임 형식입니다. |
+| InputClaim | inputClaim1 | string | 비교할 첫 번째 클레임 형식입니다. |
+| InputClaim | inputClaim2 | string | 비교할 두 번째 클레임 형식입니다. |
 | InputParameter | 적용한 후 | string | 가능한 값은 `EQUAL` 또는 `NOT EQUAL`입니다. |
 | InputParameter | ignoreCase | boolean | 이 비교에서 비교할 문자열의 대/소문자를 무시해야 하는지 여부를 지정합니다. |
 | OutputClaim | outputClaim | boolean | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
@@ -195,7 +195,7 @@ ms.locfileid: "71063451"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 참고 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | 비교할 클레임의 형식입니다. |
+| InputClaim | inputClaim1 | string | 비교할 클레임의 형식입니다. |
 | InputParameter | 적용한 후 | string | 가능한 값은 `EQUAL` 또는 `NOT EQUAL`입니다. |
 | InputParameter | compareTo | string | 문자열 비교, 다음 값 중 하나: Ordinal, OrdinalIgnoreCase |
 | InputParameter | ignoreCase | boolean | 이 비교에서 비교할 문자열의 대/소문자를 무시해야 하는지 여부를 지정합니다. |
@@ -238,8 +238,8 @@ ms.locfileid: "71063451"
 | InputParameter | randomGeneratorType | string | 생성할 임의 값을 지정합니다. `GUID`(Globally Unique ID) 또는 `INTEGER`(숫자)입니다. |
 | InputParameter | stringFormat | string | [선택 사항] 임의 값의 서식을 지정합니다. |
 | InputParameter | base64 | boolean | [선택 사항] 임의 값을 base64로 변환합니다. 문자열 형식을 적용하는 경우에는 문자열 형식 뒤의 값이 base64로 인코딩됩니다. |
-| InputParameter | maximumNumber | ssNoversion | [선택 사항] `INTEGER` randomGeneratorType 전용입니다. 최대 수를 지정합니다. |
-| InputParameter | seed  | ssNoversion | [선택 사항] `INTEGER` randomGeneratorType 전용입니다. 임의 값의 초기값을 지정합니다. 참고: 초기값이 같으면 동일 난수 시퀀스가 생성됩니다. |
+| InputParameter | maximumNumber | int | [선택 사항] `INTEGER` randomGeneratorType 전용입니다. 최대 수를 지정합니다. |
+| InputParameter | seed  | int | [선택 사항] `INTEGER` randomGeneratorType 전용입니다. 임의 값의 초기값을 지정합니다. 참고: 초기값이 같으면 동일 난수 시퀀스가 생성됩니다. |
 | OutputClaim | outputClaim | string | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. 임의 값입니다. |
 
 다음 예제에서는 GUID(Global Unique ID)를 생성합니다. 이 클레임은 임의 UPN(사용자 계정 이름)을 만드는 데 사용됩니다.
@@ -504,7 +504,7 @@ ms.locfileid: "71063451"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 참고 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim | string | 비교할 클레임 형식입니다. |
+| InputClaim | inputClaim | string | 비교할 클레임 형식입니다. |
 | InputParameter | matchTo | string | `inputClaim`과 비교할 문자열입니다. |
 | InputParameter | stringComparison | string | 가능한 값은 `Ordinal` 또는 `OrdinalIgnoreCase`입니다. |
 | InputParameter | stringMatchMsg | string | 문자열이 같으면 설정할 첫 번째 값입니다. |
@@ -553,7 +553,7 @@ ms.locfileid: "71063451"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 참고 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | claimToMatch | string | 비교할 클레임 형식입니다. |
+| InputClaim | claimToMatch | string | 비교할 클레임 형식입니다. |
 | InputParameter | matchTo | string | inputClaim과 비교할 문자열입니다. |
 | InputParameter | stringComparison | string | 가능한 값은 `Ordinal` 또는 `OrdinalIgnoreCase`입니다. |
 | InputParameter | outputClaimIfMatched | string | 문자열이 같으면 설정할 값입니다. |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 3ac5d5d31bb54ce87859a6eec52dbe5948864d4c
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 810ecbd4421eec8e8e809b429270601a0c94d623
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147322"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71840908"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Log Analytics 작업 영역 관리
 
@@ -121,7 +121,7 @@ ms.locfileid: "70147322"
 
 2. 요구 사항을 충족하도록 템플릿을 편집합니다. 지원되는 속성 및 값은 [Microsoft.OperationalInsights/workspaces 템플릿](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) 참조를 검토하세요. 
 3. 이 파일을 로컬 폴더에 **deploylaworkspacetemplate.json**으로 저장합니다.
-4. 이제 이 템플릿을 배포할 수 있습니다. PowerShell 또는 명령줄을 사용 하 여 작업 영역을 만들고 작업 영역 이름 및 위치를 명령의 일부로 지정 합니다.
+4. 이제 이 템플릿을 배포할 수 있습니다. PowerShell 또는 명령줄을 사용 하 여 작업 영역을 만들고 작업 영역 이름 및 위치를 명령의 일부로 지정 합니다. 모든 Azure 구독에서 작업 영역 이름은 전역적으로 고유 해야 합니다.
 
    * PowerShell의 경우 템플릿이 포함된 폴더에서 다음 명령을 사용합니다.
    

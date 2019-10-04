@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 0d0329be0b7f864edbfc3c2aabc08f1742359670
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 004010983b87c333adeb4b20abbe851581917a3a
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066773"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937445"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Hyper-V 평가 및 마이그레이션 지원 매트릭스
 
@@ -65,7 +65,7 @@ Hyper-V VM | 단일 프로젝트에서 최대 35000 Hyper-v Vm을 평가 합니�
 | :-------------------       | :------------------- |
 | **호스트 배포**       | Hyper-v 호스트는 독립 실행형 이거나 클러스터에 배포할 수 있습니다. |
 | **사용 권한**           | Hyper-v 호스트에 대 한 관리자 권한이 필요 합니다. <br/> 또는 관리자 권한을 할당 하지 않으려는 경우 로컬 또는 도메인 사용자 계정을 만들고 이러한 그룹에 사용자를 추가 합니다. 원격 관리 사용자, Hyper-v 관리자 및 성능 모니터 사용자입니다. |
-| **호스트 운영 체제** | Windows Server 2019, Windows Server 2016 또는 Windows Server 2012 R2.<br/> Windows Server 2012를 실행 하는 Hyper-v 호스트에 있는 Vm은 평가할 수 없습니다. |
+| **호스트 운영 체제** | Windows Server 2019, Windows Server 2016 또는 Windows Server 2012 R2.<br/> Windows Server 2012를 실행하는 Hyper-V 호스트에 있는 VM은 평가할 수 없습니다. |
 | **PowerShell 원격 작업**   | 각 호스트에서를 사용 하도록 설정 해야 합니다. |
 | **Hyper-v 복제본**       | Hyper-v 복제본을 사용 하는 경우 (또는 VM 식별자가 같은 vm이 여러 개 있는 경우) Azure Migrate를 사용 하 여 원래 vm과 복제 된 Vm을 모두 검색 하는 경우 Azure Migrate에서 생성 된 평가가 정확 하지 않을 수 있습니다. |
 
@@ -145,7 +145,8 @@ https://download.microsoft.com/download/* | Microsoft 다운로드 사이트에�
 | **Integration Services**       | 운영 체제 정보를 캡처하기 위해 평가 하는 Vm에서 [hyper-v Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) 실행 중 이어야 합니다. |
 | **Azure에 대 한 필수 변경 내용** | 일부 Vm은 Azure에서 실행할 수 있도록 변경 해야 할 수 있습니다. Azure Migrate는 다음 운영 체제에 대해 이러한 변경을 자동으로 수행 합니다.<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> -SUSE Linux Enterprise Server 12 SP1 이상<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> -Debian 7, 8<br/><br/> 다른 운영 체제의 경우 마이그레이션하기 전에 수동으로 조정 해야 합니다. 관련 문서에는이 작업을 수행 하는 방법에 대 한 지침이 포함 되어 있습니다. |
 | **Linux 부팅**                 | /Boot는 전용 파티션에 있는 경우 OS 디스크에 상주해 야 하며 여러 디스크에 분산 되 면 안 됩니다.<br/> /Boot가 루트 (/) 파티션의 일부인 경우 '/' 파티션은 OS 디스크에 있어야 하며 다른 디스크에 걸쳐 있지 않아야 합니다. |
-| **UEFI 부팅**                  | UEFI 부팅이 포함 된 Vm은 마이그레이션을 지원 하지 않습니다.  |
+| **UEFI 부팅**                  | Azure에서 마이그레이션된 VM은 자동으로 BIOS 부팅 VM으로 변환 됩니다. VM은 Windows Server 2012 이상만 실행 해야 합니다. OS 디스크에는 최대 5 개의 파티션이 있어야 하 고 OS 디스크의 크기는 300 미만 이어야 합니다.
+  |
 | **디스크 크기**                  | OS 디스크의 경우 2tb, 데이터 디스크의 경우 4tb
 | **디스크 번호** | VM 당 최대 16 개의 디스크
 | **암호화 된 디스크/볼륨**    | 마이그레이션에 지원 되지 않습니다. |

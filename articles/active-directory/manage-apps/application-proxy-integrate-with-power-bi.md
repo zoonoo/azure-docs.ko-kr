@@ -16,18 +16,18 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3d758b63b56bb84b1cb4e5793731da5eb4f5209
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 6a81ecd855b098ec59c5b6f7761ceebfa7a03fa9
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103869"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936720"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용 하 여 Power BI Mobile에 대 한 원격 액세스 사용
 
 이 문서에서는 Azure AD 응용 프로그램 프록시를 사용 하 여 Power BI mobile 앱이 Power BI Report Server (PBIRS) 및 SQL Server Reporting Services (SSRS) 2016 이상에 연결 하도록 설정 하는 방법을 설명 합니다. 이러한 통합을 통해 회사 네트워크를 벗어난 사용자는 Power BI 모바일 앱에서 해당 Power BI 보고서에 액세스 하 고 Azure AD 인증으로 보호할 수 있습니다. 이 보호에는 조건부 액세스 및 multi-factor authentication과 같은 [보안 이점이](application-proxy-security.md#security-benefits) 포함 됩니다.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 이미 보고서 서비스를 배포 하 고 [응용 프로그램 프록시를 사용 하도록 설정](application-proxy-add-on-premises-application.md)했다고 가정 합니다.
 
@@ -121,6 +121,8 @@ Power BI 모바일 앱에서 연결 하 여 보고서 서비스에 액세스 하
    **Android**Power BI Mobile에 대 한 앱을 구성 하는 경우 공용 클라이언트 형식 (모바일 & 데스크톱)의 다음 리디렉션 uri를 추가 합니다.
    - `urn:ietf:wg:oauth:2.0:oob`
    - `mspbi-adal://com.microsoft.powerbimobile`
+   - `msauth://com.microsoft.powerbim/g79ekQEgXBL5foHfTlO2TPawrbI%3D` 
+   - `msauth://com.microsoft.powerbim/izba1HXNWrSmQ7ZvMXgqeZPtNEU%3D`
 
    > [!IMPORTANT]
    > 응용 프로그램이 올바르게 작동 하려면 리디렉션 Uri를 추가 해야 합니다. IOS 및 Android Power BI Mobile 모두에 대해 앱을 구성 하는 경우, iOS `urn:ietf:wg:oauth:2.0:oob`에 대해 구성 된 리디렉션 Uri 목록에 공용 클라이언트 (모바일 & 데스크톱) 형식의 다음 리디렉션 uri를 추가 합니다.

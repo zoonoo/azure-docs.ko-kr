@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: ddb9dd49af4557e6ff8d38110de4a99a9cf6fed7
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: eb6773d1547499fcd3a73aebf8f17ec61b6dc06a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687014"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827596"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Azure Cache for Redis를 관리하는 방법
 이 항목에서는 Azure Cache for Redis 인스턴스에 대해 [다시 부팅](#reboot) 및 [업데이트 예약](#schedule-updates)과 같은 관리 작업을 수행하는 방법에 대해 설명합니다.
@@ -83,7 +83,7 @@ ms.locfileid: "71687014"
 모든 가격 책정 계층에서 다시 부팅을 사용할 수 있습니다.
 
 ## <a name="schedule-updates"></a>업데이트를 예약
-**업데이트 예약** 블레이드에서는 프리미엄 계층 캐시의 유지 관리 기간을 지정할 수 있습니다. 유지 관리 기간이 지정되면 이 기간 동안 Redis 서버 업데이트가 진행됩니다. 
+**업데이트 예약** 블레이드를 사용 하 여 캐시 인스턴스에 대 한 유지 관리 기간을 지정할 수 있습니다. 유지 관리 기간이 지정되면 이 기간 동안 Redis 서버 업데이트가 진행됩니다. 
 
 > [!NOTE] 
 > 유지 관리 기간은 Redis 서버 업데이트에만 적용되며 Azure 업데이트나 캐시를 호스트하는 VM의 운영 체제에 대한 업데이트에는 적용되지 않습니다.

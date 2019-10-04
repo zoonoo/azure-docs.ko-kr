@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 10/03/2019
 ms.author: mlottner
-ms.openlocfilehash: a9de9924b851024dd36c848203cc3ada2cde208c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: b0f5696b36082375a29e99298395cf16734d5bb4
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329410"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937152"
 ---
 # <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>IoT 기준 및 사용자 지정 검사에 대 한 Azure Security Center
 
@@ -32,7 +32,7 @@ ms.locfileid: "71329410"
 
 ## <a name="baseline-custom-checks"></a>기준 사용자 지정 검사
 
-기준 사용자 지정 검사는 장치의 모듈 id 쌍을 사용 하 여 각 장치 기준에 대 한 검사의 사용자 지정 목록을 설정 합니다. 
+기준 사용자 지정 검사는 장치의 **모듈 id** 쌍을 사용 하 여 각 장치 기준에 대 한 검사의 사용자 지정 목록을 설정 합니다. 
 
 ## <a name="setting-baseline-properties"></a>기준 속성 설정
 
@@ -67,8 +67,8 @@ ms.locfileid: "71329410"
 | 이름| Status | 유효한 값| 기본값| 설명 |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |baselineCustomChecksEnabled|필수: true |유효한 값:  **Boolean** |기본값: **false** |우선 순위가 높은 메시지가 전송 되기 전의 최대 시간 간격입니다.|
-|baselineCustomChecksFilePath |필수: true|유효한 값:  **문자열**, **null** |기본값: **PT5H** |기본 xml 구성의 전체 경로입니다.|
-|baselineCustomChecksFileHash |필수: true|유효한 값:  **문자열**, **null** |기본값: **PT5H** |xml 구성 파일의 `sha256sum`입니다. 추가 정보는 [sha256sum 참조](https://linux.die.net/man/1/sha256sum) 를 사용 합니다. |
+|baselineCustomChecksFilePath |필수: true|유효한 값:  **문자열**, **null** |기본값: **null** |기본 xml 구성의 전체 경로입니다.|
+|baselineCustomChecksFileHash |필수: true|유효한 값:  **문자열**, **null** |기본값: **null** |xml 구성 파일의 `sha256sum`입니다. 추가 정보는 [sha256sum 참조](https://linux.die.net/man/1/sha256sum) 를 사용 합니다. |
 
 추가 기준 예제를 검토 하려면 [사용자 지정 기준 예제-1](https://ascforiot.blob.core.windows.net/public/custom_baseline_example_hyperv_ubuntu1804.xml) 및 [사용자 지정 기준 예제-2](https://ascforiot.blob.core.windows.net/public/oms_audits.xml)를 참조 하세요.
 

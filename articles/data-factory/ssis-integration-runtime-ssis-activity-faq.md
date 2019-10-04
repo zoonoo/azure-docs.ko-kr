@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 8e800ec8a7a2dd52e052547efa51deaad8c9bb45
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: ec5a3ab0a2498e7d9bb24bed1bc0a37194e38e9e
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104914"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936958"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>SSIS integration runtime에서 패키지 실행 문제 해결
 
@@ -121,12 +121,17 @@ SSIS integration runtime에서 많은 패키지가 병렬로 실행 되는 경�
 ### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>오류 메시지: "Microsoft OLE DB Provider for Analysis Services. Hresult 0x80004005 설명: ' COM 오류: COM 오류: mscorlib; 호출 대상이 예외를 throw 했습니다. "
 
 한 가지 가능한 원인은 Azure Multi-Factor Authentication 사용 하도록 설정 된 사용자 이름 또는 암호가 Azure Analysis Services 인증에 대해 구성 되어 있기 때문입니다. 이 인증은 SSIS integration runtime에서 지원 되지 않습니다. Azure Analysis Services 인증을 위해 서비스 주체를 사용 하려고 합니다.
+
 1. [서비스 주체를 사용 하 여 자동화](https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal)에 설명 된 대로 서비스 주체를 준비 합니다.
 2. 연결 관리자에서 **특정 사용자 이름 및 암호 사용**구성: **AppID** 를 username으로 설정 하 고 **clientSecret** 를 암호로 설정 합니다.
 
 ### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>오류 메시지: 관리 ID를 사용할 때 "ADONET 원본에서 다음 오류 메시지와 함께 연결 {GUID}를 가져오지 못했습니다. 관리 id를 사용 하는 경우 ' NT AUTHORITY\ANONYMOUS LOGON ' 사용자에 대 한 로그인이 실패 했습니다.
 
 *ConnectUsingManagedIdentity* 매개 변수가 **True**인 경우 **Active Directory 암호 인증** 으로 연결 관리자의 인증 방법을 구성 하지 않아야 합니다. 대신 *ConnectUsingManagedIdentity* 가 설정 된 경우 무시 되는 **SQL 인증** 으로 구성할 수 있습니다.
+
+### <a name="error-message-0xc020801f-at--odata-source--cannot-acquire-a-managed-connection-from-the-run-time-connection-manager"></a>오류 메시지: "0xC020801F at ..., OData 원본 [...]: 런타임 연결 관리자에서 관리 되는 연결을 가져올 수 없습니다. "
+
+하나는 TLS (전송 계층 보안)가 OData 원본에 필요한 SSIS 통합 런타임에 사용 하도록 설정 되지 않았기 때문입니다. SSIS integration runtime에서 설치 프로그램 사용자 지정을 사용 하 여 TLS를 사용 하도록 설정할 수 있습니다. 자세한 내용은 [ssis에서 Project Online Odata에 연결할 수 없음](https://docs.microsoft.com/office365/troubleshoot/cant-connect-project-online-odata-from-ssis) 및 [Azure ssis 통합 런타임에 대 한 설정 사용자 지정](how-to-configure-azure-ssis-ir-custom-setup.md)에서 확인할 수 있습니다.
 
 ### <a name="error-message-request-staging-task-with-operation-guid--fail-since-error-failed-to-dispatch-staging-operation-with-error-message-microsoftsqlserverintegrationservicesaisagentcoreaisagentexception-failed-to-load-data-proxy"></a>오류 메시지: "작업 guid를 사용 하 여 준비 작업 요청 ... 오류 발생 후 실패: 다음 오류 메시지가 발생 하 여 준비 작업을 디스패치하지 못했습니다. Microsoft.sqlserver.management.integrationservices입니다. Aisagentcore: 데이터 프록시를 로드 하지 못했습니다. "
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: mbullwin
-ms.openlocfilehash: 21a68c1daa3c7a2ab6689a72e23100be7582de1e
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 9b2cb9b16a91220db6fcc193fe64ea674b7103ab
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162181"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937082"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -50,7 +50,7 @@ appInsights.loadAppInsights();
 
 ### <a name="snippet-based-setup"></a>코드 조각 기반 설정
 
-앱에서 NPM를 사용 하지 않는 경우 각 페이지의 맨 위에이 코드 조각을 붙여넣어 Application Insights를 사용 하 여 웹 페이지를 직접 계측할 수 있습니다. 모든 종속성과 관련 된 잠재적인 문제를 모니터링할 수 `<head>` 있도록 섹션에서 첫 번째 스크립트 여야 합니다.
+앱에서 NPM를 사용 하지 않는 경우 각 페이지의 맨 위에이 코드 조각을 붙여넣어 Application Insights를 사용 하 여 웹 페이지를 직접 계측할 수 있습니다. 모든 종속성과 관련 된 잠재적인 문제를 모니터링할 수 `<head>` 있도록 섹션에서 첫 번째 스크립트 여야 합니다. Blazor Server 앱을 사용 하는 경우 `<head>` 섹션에서-0 @no__t 파일의 맨 위에 코드 조각을 추가 합니다.
 
 ```html
 <script type="text/javascript">

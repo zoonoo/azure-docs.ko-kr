@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5806198968d98fea4c5cbf8731358ca4041f0935
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: eb033425d18b472c9da1a2d6a1bb6f166702905e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972879"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828171"
 ---
 # <a name="provision-nodes-for-azure-vmware-solution-by-cloudsimple"></a>CloudSimple로 Azure VMware 솔루션에 대 한 노드 프로 비전
 
@@ -40,7 +40,7 @@ Azure Portal에서 노드를 프로 비전 합니다. 그런 다음 CloudSimple 
 7. 노드를 식별 하는 접두사를 입력 합니다.
 8. 노드 리소스의 위치를 선택 합니다.
 9. 노드 리소스를 호스트할 전용 위치를 선택 합니다.
-10. 노드 형식을 선택 합니다. [CS28 또는 CS36 옵션](cloudsimple-node.md)을 선택할 수 있습니다. 후자 옵션은 최대 계산 및 메모리 용량을 포함 합니다.
+10. [노드 형식을](cloudsimple-node.md)선택 합니다.
 11. 프로 비전 할 노드 수를 선택 합니다.
 12. **검토 + 만들기**를 선택합니다.
 13. 설정을 검토 합니다. 설정을 수정 하려면 **이전**을 클릭 합니다.

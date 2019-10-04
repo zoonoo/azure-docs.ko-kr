@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 54686a96385532e17fe0ac6e59058b91b40c1342
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: b02e819255db0cdf8b9d241f2ec0d41df7494162
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742558"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71844350"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버에 대한 복제 문제 해결
 
@@ -55,35 +55,15 @@ Site Recovery를 사용하여 복제를 사용하도록 설정할 원본 컴퓨�
 
 Site Recovery에서 복제된 가상 머신은 시스템에 중복된 항목이 있으면 Azure Portal에서 사용할 수 없습니다. 오래된 항목을 삭제하고 이 문제를 해결하는 방법에 대한 자세한 내용은 [Azure Site Recovery VMware-Azure: 중복되거나 오래된 항목을 정리하는 방법](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx)을 참조하세요.
 
-## <a name="common-errors-and-solutions"></a>일반적인 오류 및 해결 방법
+## <a name="no-crash-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>마지막 ' XXX ' 분 내에 VM에 사용할 수 있는 크래시 일치 복구 지점이 없습니다.
+
+가장 일반적인 몇 가지 문제는 다음과 같습니다.
 
 ### <a name="initial-replication-issues-error-78169"></a>초기 복제 문제 [오류 78169]
 
 위의 방법으로 연결, 대역폭 또는 시간 동기화 관련 문제가 없는지 확인 하 고 다음을 확인 합니다.
 
 - 바이러스 백신 소프트웨어가 Azure Site Recovery을 차단 하지 않습니다. Azure Site Recovery 에 필요한 폴더 제외에 대해 [자세히](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) 알아보세요.
-
-### <a name="missing-app-consistent-recovery-points-error-78144"></a>앱 일치 복구 지점이 없습니다 [오류 78144]
-
- 이는 VSS (볼륨 섀도 복사본 서비스) 문제로 인해 발생 합니다. 이 문제를 해결하려면: 
- 
-- 설치 된 Azure Site Recovery 에이전트 버전이 최소 9.22.2 인지 확인 합니다. 
-- VSS 공급자가 Windows 서비스에 서비스로 설치 되어 있는지 확인 하 고 구성 요소 서비스 MMC를 확인 하 여 Azure Site Recovery VSS 공급자가 표시 되는지 확인 합니다.
-- VSS 공급자가 설치 되지 않은 경우 [설치 오류 문제 해결 문서](vmware-azure-troubleshoot-push-install.md#vss-installation-failures)를 참조 하세요.
-
-- VSS를 사용 하지 않도록 설정 하는 경우
-    - VSS 공급자 서비스의 시작 유형이 **자동**으로 설정 되어 있는지 확인 합니다.
-    - 다음 서비스를 다시 시작 합니다.
-        - VSS 서비스
-        - Azure Site Recovery VSS 공급자
-        - VDS 서비스
-
-- SQL 또는 Exchange 작업을 실행 하는 경우 이러한 응용 프로그램 기록기의 로그에서 오류가 발생 했는지 확인 합니다. 자주 발생 하는 오류 및 해결 방법은 다음 문서에 캡처됩니다.
-    -  [SQL Server 데이터베이스의 자동 닫기 옵션이 TRUE로 설정 되어 있습니다.](https://support.microsoft.com/help/4504104)
-    - [SQL Server 2008 R2 다시 시도 불가능 한 오류 발생](https://support.microsoft.com/help/4504103)
-    - [SQL Server 2016 및 2017의 알려진 문제](https://support.microsoft.com/help/4493364)
-    - [Exchange Server 2013 및 2016에 대 한 일반적인 문제](https://support.microsoft.com/help/4037535)
-
 
 ### <a name="source-machines-with-high-churn-error-78188"></a>변동 수준이 높은 원본 컴퓨터 [오류 78188]
 
@@ -138,8 +118,21 @@ Site Recovery에서 복제된 가상 머신은 시스템에 중복된 항목이 
     - 위치의 로그에서 오류 정보를 확인 합니다.
         
           C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+3. 마스터 대상을 구성 서버에 등록 하려면 **%PROGRAMDATA%\ASR\Agent**폴더로 이동 하 고 명령 프롬프트에서 다음을 실행 합니다.
+   ```
+   cmd
+   cdpcli.exe --registermt
+
+   net stop obengine
+
+   net start obengine
+
+   exit
+   ```
 
 ## <a name="error-id-78144---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>오류 ID 78144-마지막 ' XXX ' 분 내에 VM에 사용할 수 있는 앱 일치 복구 지점이 없습니다.
+
+VSS 설치 오류 동작을 처리 하기 위해 모바일 에이전트 [9.23](vmware-physical-mobility-service-overview.md##from-923-version-onwards) & [9.27](site-recovery-whats-new.md#update-rollup-39) 버전이 개선 되었습니다. VSS 오류 문제 해결에 대 한 모범 지침은 최신 버전을 확인 하세요.
 
 가장 일반적인 몇 가지 문제는 다음과 같습니다.
 

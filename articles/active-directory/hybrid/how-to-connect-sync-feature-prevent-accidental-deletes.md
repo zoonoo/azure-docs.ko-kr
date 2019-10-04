@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03c09a751119c1d6effa5795f2dbf7da422b7806
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 48f3109b4c87e25444629ca25411894eab8a9d56
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135792"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827138"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect 동기화: 실수로 인한 삭제 방지
 이 항목에서는 Azure AD Connect의 실수로 인한 삭제 방지 기능을 설명합니다.
@@ -58,8 +58,9 @@ Azure AD로 내보내도록 스테이징된 삭제 수가 너무 많을 경우 �
 
 ![커넥터 공간 검색](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
 
-[!NOTE] 모든 삭제가 필요 하지 않은 경우 더 안전한 경로를 다운 하려고 합니다. PowerShell cmdlet `Enable-ADSyncExportDeletionThreshold` 을 사용 하 여 원하지 않는 삭제를 허용할 수 있는 임계값을 사용 하지 않고 새 임계값을 설정할 수 있습니다. 
+[!NOTE] 모든 삭제가 필요 하지 않은 경우 더 안전한 경로를 다운 하려고 합니다. PowerShell cmdlet을 사용 하 여 원하지 않는 삭제를 허용할 수 있는 임계값을 사용 하지 않고 새 임계값을 설정할 수 있습니다 @no__t. 
 
+## <a name="if-all-deletes-are-desired"></a>모든 삭제가 필요한 경우
 모든 삭제를 진행하려면 다음을 수행합니다.
 
 1. 현재 삭제 임계값을 검색하려면 PowerShell cmdlet `Get-ADSyncExportDeletionThreshold`를 실행합니다. Azure AD 전역 관리자 계정 및 암호를 제공합니다. 기본값은 500입니다.

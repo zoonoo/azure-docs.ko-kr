@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 39395c9d082bc40836c14ee4c0d328341f96edca
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 228ca0f43322c271b1a6db55a37c852ca1f66799
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71816107"
+ms.locfileid: "71828898"
 ---
 # <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>빠른 시작-CloudSimple service로 Azure VMware 솔루션 만들기
 
@@ -77,7 +77,7 @@ CloudSimple 사설 클라우드 환경에 대 한 종 량 제 용량을 설정 �
 7. 노드를 식별 하는 접두사를 입력 합니다.
 8. 노드 리소스의 위치를 선택 합니다.
 9. 노드 리소스를 호스트할 전용 위치를 선택 합니다.
-10. 노드 형식을 선택 합니다. [CS28 또는 CS36 옵션](cloudsimple-node.md)을 선택할 수 있습니다. 후자 옵션은 최대 계산 및 메모리 용량을 포함 합니다.
+10. [노드 형식을](cloudsimple-node.md)선택 합니다.
 11. 프로 비전 할 노드 수를 선택 합니다.
 12. **검토 + 만들기**를 선택합니다.
 13. 설정을 검토 합니다. 설정을 수정 하려면 **이전**을 클릭 합니다.

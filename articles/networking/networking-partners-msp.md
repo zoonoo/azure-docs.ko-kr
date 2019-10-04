@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sukishen
-ms.openlocfilehash: 8d71863406eb6e8b032a78f65ab5be97cca91bd7
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: bf62e62e1235c7a37c092e79df57ca518e07ff4b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212892"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828195"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Azure 네트워킹 MSP 파트너 정보
 
@@ -46,6 +46,8 @@ Azure 네트워킹 MSP 파트너에서 제공 하는 관리 되는 클라우드 
 
 [ixreach](https://www.ixreach.com/)
 
+[KINX](https://www.kinx.net/service/cloud/?lang=en)
+
 [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
 
 [Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)
@@ -54,7 +56,9 @@ Azure 네트워킹 MSP 파트너에서 제공 하는 관리 되는 클라우드 
 
 [Tata 통신](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)
 
-[Vandis](https://www.vandis.com/services/azure-migration/)
+[Vandis](https://www.vandis.com/microsoft-azure-practice/)
+
+[유의 IT](https://vigilant.it/manage-cloud-service/)
 
 ## <a name="expressroute"></a>Express 경로 파트너
 

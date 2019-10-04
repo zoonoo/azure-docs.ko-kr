@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 0a718786cc7c72ef4ee9573c3c3e40401c53a315
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 6bff2210e77f7af98c1289b08159a89f42f2a3bd
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71308058"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827618"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: 질문과 대답
 
@@ -310,14 +310,14 @@ Azure Storage 탐색기를 사용 하 여 사용자의 보안 그룹에 데이�
 
 다음 REST 끝점을 사용 하 여 JSON 형식으로 필요한 정보를 가져올 수 있습니다. 기본 인증 헤더를 사용 하 여 요청을 만듭니다.
 
-- Tez 쿼리 뷰: *https:\//\<클러스터 이름 >. azurehdinsight. net/ws/v1/timeline/HIVE_QUERY_ID/*
-- Tez Dag View: *https:\/cluster name >. m s o./\<* n e t/w i n g/TEZ_DAG_ID/
+- Tez 쿼리 뷰: *https: \/ @ no__t @ no__t-3 클러스터 이름 > azurehdinsight/ws/v1/timeline/HIVE_QUERY_ID/*
+- Tez Dag View: *https: \/ @ no__t-2 @ no__t 클러스터 이름 >. azurehdinsight/ws/v1/timeline/TEZ_DAG_ID/*
 
 ### <a name="how-do-i-retrieve-the-configuration-details-from-hdi-cluster-by-using-an-azure-active-directory-user"></a>Azure Active Directory 사용자를 사용 하 여 HDI 클러스터에서 구성 정보를 검색 어떻게 할까요??
 
 AAD 사용자와 적절 한 인증 토큰을 협상 하려면 다음 형식을 사용 하 여 게이트웨이를 진행 합니다.
 
-* https://`<cluster dnsname>`. azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
+* https://`<cluster dnsname>`.azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
 
 ### <a name="how-do-i-use-ambari-restful-api-to-monitor-yarn-performance"></a>Ambari Restful API를 사용 하 여 YARN 성능을 모니터링할 어떻게 할까요? 있습니까?
 
@@ -352,6 +352,10 @@ http://<headnodehost>:8080/api/v1/clusters/<ClusterName>/services/YARN/component
 ### <a name="how-much-does-it-cost-to-deploy-an-hdinsight-cluster"></a>HDInsight 클러스터를 배포 하는 비용은 얼마 인가요?
 
 청구와 관련 된 가격 책정 및 FAQ에 대 한 자세한 내용은 [Azure HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/) 페이지를 참조 하세요.
+
+### <a name="when-does-hdinsight-billing-start--stop"></a>HDInsight 청구 시작 & 중지 하는 시기는 언제 입니까?
+
+클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 청구는 분당 등급이 지정 됩니다.
 
 ### <a name="how-do-i-cancel-my-subscription"></a>내 구독을 취소 어떻게 할까요? 시겠습니까?
 
