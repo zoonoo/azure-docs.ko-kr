@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: 9854ad7118684e1a5e57b0809d733d812ad64176
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b05473fd9868821285853b089fe711aa48f347fc
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828843"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973431"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Service Fabric 애플리케이션에서 암호화된 비밀 관리
 이 가이드에서는 Service Fabric 애플리케이션에서 비밀을 관리하는 단계를 안내합니다. 스토리지 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 모든 민감한 정보를 비밀로 처리할 수 있습니다.
@@ -56,7 +56,7 @@ Service Fabric 애플리케이션에서 암호화된 비밀을 사용하는 데�
 </CodePackage>
 ```
 
-응용 프로그램 매니페스트에서 인증서를 지정 하 여 Service Fabric 응용 프로그램에 암호를 포함할 수도 있습니다. **SecretsCertificate** 요소를 **applicationmanifest .xml** 에 추가 하 고 원하는 인증서의 지문을 포함 합니다.
+응용 프로그램 매니페스트에서 인증서를 지정 하 여 Service Fabric 응용 프로그램에도 암호를 포함 해야 합니다. **SecretsCertificate** 요소를 **applicationmanifest .xml** 에 추가 하 고 원하는 인증서의 지문을 포함 합니다.
 
 ```xml
 <ApplicationManifest … >

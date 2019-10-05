@@ -1,17 +1,17 @@
 ---
 title: Azure Database for MariaDB의 복제본 읽기
-description: 이 문서에서는 Azure Database for MariaDB에 대 한 읽기 복제본을 설명 합니다.
+description: Azure Database for MariaDB에서 읽기 복제본에 대해 알아봅니다. 영역 선택, 복제본 만들기, 복제본에 연결, 복제 모니터링 및 복제 중지에 대해 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 5018cab1213fb99f4c3b07944d0cb3172d1cd2c7
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 29725c302887448689f4aafd86f1f834d81c23ed
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123219"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973588"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 복제본 읽기
 
@@ -40,10 +40,10 @@ GTID 복제에 대 한 자세한 내용은 [Mariadb 복제 설명서](https://ma
 
 [Azure Database for MariaDB 지역](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb)에 마스터 서버를 둘 수 있습니다.  마스터 서버는 쌍을 이루는 지역 또는 유니버설 복제본 지역에 복제본이 있을 수 있습니다. 아래 그림은 마스터 영역에 따라 사용할 수 있는 복제본 영역을 보여 줍니다.
 
-[![복제본 영역 읽기](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[![ 복제본 영역 읽기](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>유니버설 복제본 영역
-마스터 서버가 있는 위치에 관계 없이 항상 다음 지역에서 읽기 복제본을 만들 수 있습니다. 다음은 범용 복제본 지역입니다.
+마스터 서버가 있는 위치에 관계 없이 다음 지역에서 읽기 복제본을 만들 수 있습니다. 지원 되는 범용 복제본 영역에는 다음이 포함 됩니다.
 
 오스트레일리아 동부, 오스트레일리아 남동쪽, 미국 중부, 동아시아, 미국 동부, 미국 동부 2, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 미국 중 북부, 북부 유럽, 미국 동부, 동남 아시아, 영국 남부, 영국 서부, 유럽 서부, 미국 서 부, 미국 서 부 2.
 
@@ -90,7 +90,7 @@ mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
 
 Azure Database for MariaDB은 Azure Monitor에서 **복제 지연 시간 (초)** 을 제공 합니다. 이 메트릭은 복제본에만 사용할 수 있습니다.
 
-이 메트릭은 mariadb `seconds_behind_master` 의 `SHOW SLAVE STATUS` 명령에서 사용할 수 있는 메트릭을 사용 하 여 계산 됩니다.
+이 메트릭은 MariaDB의 `SHOW SLAVE STATUS` 명령에서 사용할 수 있는 `seconds_behind_master` 메트릭을 사용 하 여 계산 됩니다.
 
 복제 지연 시간이 작업에 적합 하지 않은 값에 도달 하는 경우 사용자에 게 알리는 경고를 설정 합니다.
 
@@ -114,7 +114,7 @@ Azure Database for MariaDB은 Azure Monitor에서 **복제 지연 시간 (초)**
 
 ### <a name="master-server-restart"></a>마스터 서버 다시 시작
 
-기존 복제본이 없는 마스터에 대한 복제본을 만들 때 마스터 복제를 준비하기 위해 마스터가 먼저 다시 시작됩니다. 이를 고려하고 사용량이 적은 기간 동안 이러한 작업을 수행합니다.
+기존 복제본이 없는 마스터에 대한 복제본을 만들 때 마스터 복제를 준비하기 위해 마스터가 먼저 다시 시작됩니다. 이를 고려 하 여 사용량이 많지 않은 기간 동안 이러한 작업을 수행 합니다.
 
 ### <a name="new-replicas"></a>새 복제본
 

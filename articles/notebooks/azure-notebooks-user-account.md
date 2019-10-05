@@ -4,21 +4,20 @@ description: Microsoft 계정 또는 회사/학교 계정을 사용하여 Azure 
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 0d657fcc-26bc-41dd-abf0-3e5cfd66e0e0
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: 311f4d612c9deab23e7537b0c53ff3932c312cd4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc93f55a3349498fa82095c2bc2b3178e234c107
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60632142"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973148"
 ---
 # <a name="your-user-account-for-azure-notebooks"></a>Azure Notebooks에 대한 사용자 계정
 
@@ -43,7 +42,7 @@ Microsoft 계정은 Windows, Azure, outlook.com, OneDrive, XBox Live 등의 Micr
 ![새 Microsoft 계정을 만드는 명령](media/accounts/create-new-microsoft-account.png)
 
 > [!Note]
-> 이미 연결된 계정이 있는 이메일 주소로 새 계정을 만들려는 경우 "You can't sign up here with a work or school email address. Use a personal email, such as Gmail or Yahoo!, or get a new Outlook email." (여기에 회사 또는 학교 이메일 주소로 가입할 수 없습니다. Gmail이나 Yahoo! 같은 개인 이메일을 사용하거나 새 Outlook 이메일을 받으세요.)라는 메시지가 표시될 수 있습니다. 이 경우 새 계정을 만들지 않고 회사 이메일 주소로 로그인해 보세요.
+> 이미 연결된 계정이 있는 이메일 주소로 새 계정을 만들려는 경우 "You can't sign up here with a work or school email address. Use a personal email, such as Gmail or Yahoo!, or get a new Outlook email." (회사 또는 학교 이메일 주소로 가입할 수 없습니다. Gmail이나 Yahoo! 같은 개인 이메일을 사용하거나 새 Outlook 이메일을 만드세요.)라는 메시지가 표시될 수 있습니다. 이 경우 새 계정을 만들지 않고 회사 이메일 주소로 로그인해 보세요.
 
 자녀 계정의 경우 Azure Notebooks 액세스가 기본적으로 차단됩니다. 자녀 계정으로 로그인하면 아래 오류가 표시됩니다.
 

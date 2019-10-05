@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: e96d501196a629c7e37de7e5ad66b68863bf556f
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: b2973a8e826ab8cc8da29f1ec9678d6a6e4fa975
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097907"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971861"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes 서비스 (AKS)에서 응용 프로그램 요구 사항을 충족 하도록 클러스터를 자동으로 확장 합니다.
 
@@ -90,7 +90,7 @@ az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
   --node-count 1 \
-  --vm-set-type VirtualMachineScaleSets \
+  ---enable-vmss \
   --enable-cluster-autoscaler \
   --min-count 1 \
   --max-count 3
@@ -104,7 +104,7 @@ az aks create \
 ## <a name="change-the-cluster-autoscaler-settings"></a>클러스터 자동 크기 조정기 설정 변경
 
 > [!IMPORTANT]
-> 구독에서 *여러 에이전트 풀* 기능을 사용 하도록 설정한 경우 [여러 에이전트 풀을 사용 하 여 자동 크기 조정 섹션](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled)으로 건너뜁니다. 여러 에이전트 풀을 사용 하도록 설정한 클러스터는 `az aks nodepool` `az aks`명령 집합을 사용 하 여 대신 노드 풀 특정 속성을 변경 해야 합니다. 아래 지침에서는 여러 노드 풀을 사용 하도록 설정 하지 않은 것으로 가정 합니다. 을 사용 하도록 설정 했는지 확인 하려면를 실행 `az feature  list -o table` 하 고을 `Microsoft.ContainerService/multiagentpoolpreview`찾습니다.
+> 구독에서 *여러 에이전트 풀* 기능을 사용 하도록 설정한 경우 [여러 에이전트 풀을 사용 하 여 자동 크기 조정 섹션](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled)으로 건너뜁니다. 여러 에이전트 풀을 사용 하도록 설정한 클러스터는 `az aks nodepool` 명령 집합을 사용 하 여-1 @no__t 대신 노드 풀 특정 속성을 변경 해야 합니다. 아래 지침에서는 여러 노드 풀을 사용 하도록 설정 하지 않은 것으로 가정 합니다. 사용 하도록 설정 되어 있는지 확인 하려면 `az feature  list -o table`을 실행 하 고 `Microsoft.ContainerService/multiagentpoolpreview`을 찾습니다.
 
 이전 단계에서 AKS 클러스터를 만들거나 기존 노드 풀을 업데이트 하려면 클러스터 autoscaler 최소 노드 수를 *1*로 설정 하 고 최대 노드 수를 *3*으로 설정 했습니다. 애플리케이션 수요가 변경되면 클러스터 자동 크기 조정기의 노드 수를 조정해야 할 수 있습니다.
 
@@ -159,7 +159,7 @@ az aks nodepool update \
   --max-count 5
 ```
 
-[Az aks nodepool update][az-aks-nodepool-update] 를 사용 하 여 클러스터 autoscaler를 사용 하지 않도록 `--disable-cluster-autoscaler` 설정 하 고 매개 변수를 전달할 수 있습니다.
+[Az aks nodepool update][az-aks-nodepool-update] 를 사용 하 여 클러스터 autoscaler를 사용 하지 않도록 설정 하 고 `--disable-cluster-autoscaler` 매개 변수를 전달할 수 있습니다.
 
 ```azurecli-interactive
 az aks nodepool update \

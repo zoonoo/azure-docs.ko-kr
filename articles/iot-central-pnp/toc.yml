@@ -73,8 +73,6 @@
           href: ../iot-central/howto-create-custom-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
         - name: 사용자 지정 분석 만들기
           href: ../iot-central/howto-create-custom-analytics.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-        - name: Power BI에서 데이터 시각화
-          href: ../iot-central/howto-connect-powerbi-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
         - name: 다른 IoT 클라우드 연결
           href: ../iot-central/howto-build-iotc-device-bridge.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - name: 관리

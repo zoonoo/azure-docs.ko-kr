@@ -1,33 +1,37 @@
 ---
-title: Java v7용 클라이언트 라이브러리를 사용하여 Azure Storage에 Blob을 만드는 방법 | Microsoft Docs
-description: 개체(Blob) 스토리지에서 스토리지 계정 및 컨테이너를 만듭니다. 그런 다음, Java v7용 Azure Storage 클라이언트 라이브러리를 사용하여 Azure Storage에 Blob을 업로드하고, Blob을 다운로드하고, 컨테이너의 Blob을 나열합니다.
+title: '빠른 시작: Java SDK 용 Azure Blob storage 클라이언트 라이브러리 v8'
+description: 개체(Blob) 스토리지에서 스토리지 계정 및 컨테이너를 만듭니다. 그런 다음 Java SDK v8 용 Azure Storage 클라이언트 라이브러리를 사용 하 여 blob을 Azure Storage에 업로드 하 고, blob을 다운로드 하 고, 컨테이너에 blob을 나열 합니다.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/04/2019
+ms.date: 10/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 0aa3af754082d91c4a5994e42146d1f1f475f64d
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 87bae74265c4d3abe7301af35888561fcd256717
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390325"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971982"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Java v7용 클라이언트 라이브러리를 사용하여 Blob을 업로드, 다운로드 및 나열하는 방법
+# <a name="quickstart-azure-blob-storage-client-library-for-java-sdk-v8"></a>빠른 시작: Java SDK 용 Azure Blob storage 클라이언트 라이브러리 v8
 
-이 방법 가이드에서는 Java v7용 클라이언트 라이브러리를 사용하여 Azure Blob 스토리지의 컨테이너에 블록 Blob을 업로드, 다운로드 및 나열하는 방법을 알아봅니다.
+Java 용 Azure Blob Storage 클라이언트 라이브러리를 사용 하 여 시작 하세요. Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 솔루션입니다. 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화되어 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+Java 용 Azure Blob Storage 클라이언트 라이브러리를 사용 하 여 다음을 수행 합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* 컨테이너 만들기
+* 컨테이너에 권한 설정
+* Azure Storage에 blob 만들기
+* 로컬 컴퓨터에 blob 다운로드
+* 컨테이너의 모든 blob 나열
+* 컨테이너 삭제
 
-또한 [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)에서 Azure 스토리지 계정을 만듭니다. 스토리지 계정을 만드는 데 도움이 필요한 경우 [스토리지 계정 만들기](../common/storage-quickstart-create-account.md)를 참조하세요.
+## <a name="prerequisites"></a>사전 요구 사항
 
-다음 필수 조건을 갖추고 있는지 확인합니다.
-
-* Maven 통합이 있는 IDE 설치
-
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+* Azure Storage 계정 - [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Maven 통합이 있는 IDE
 * 또는 명령줄에서 작동할 수 있게 Maven 설치 및 구성
 
 이 가이드에서는 "Java 개발자를 위한 Eclipse IDE" 구성으로 [Eclipse](https://www.eclipse.org/downloads/)를 사용합니다.
@@ -205,6 +209,4 @@ sourceFile.deleteOnExit();
 이 문서에서는 Java를 사용하여 로컬 디스크와 Azure Blob 스토리지 간에 파일을 전송하는 방법을 알아보았습니다. Java를 사용하는 방법에 대해 자세히 알려면 GitHub 소스 코드 리포지토리를 계속합니다.
 
 > [!div class="nextstepaction"]
-> [Java용 Microsoft Azure Storage SDK v10](https://github.com/azure/azure-storage-java) 
-> [Java API 참조](https://docs.microsoft.com/java/azure/)
-> [Java용 코드 샘플](../common/storage-samples-java.md)
+> Java [API 참조](https://docs.microsoft.com/java/azure/)@no__t-[Java 용 코드 샘플](../common/storage-samples-java.md) 1 개

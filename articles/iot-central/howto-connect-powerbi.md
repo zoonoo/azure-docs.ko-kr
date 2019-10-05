@@ -5,14 +5,14 @@ ms.service: iot-central
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 06/09/2019
+ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: 897b72dd7b292492e45cdc7401fe1acc5c86ca20
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 3ce2f4304787107d0d6875333e4630dae8d7d1dd
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877466"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973782"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Power BI 대시보드에서 Azure IoT Central 데이터 시각화 및 분석
 
@@ -31,12 +31,19 @@ Azure IoT Central용 Power BI 솔루션을 사용하여 IoT 디바이스의 성�
 
 이 솔루션은 [연속 데이터 내보내기](howto-export-data.md)에서 Azure Blob Storage 계정의 데이터를 가져오는 파이프라인을 설정합니다. 이 데이터는 Azure Functions, Azure Data Factory 및 Azure SQL Database를 거치며 처리 및 변환됩니다. PBIX 파일로 다운로드할 수 있는 Power BI 보고서에서 출력을 시각화하고 분석할 수 있습니다. 이러한 모든 리소스는 필요에 따라 각 구성 요소를 사용자 지정할 수 있도록 Azure 구독에서 생성됩니다.
 
-## <a name="get-the-power-bi-solution-for-azure-iot-centralhttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Microsoft AppSource에서 [Azure IoT Central용 Power BI 솔루션](https://aka.ms/iotcentralpowerbisolutiontemplate)을 가져옵니다.
+> [!Note] 
+> Azure IoT Central Power BI 솔루션은 IoT 플러그 앤 플레이를 지원 하지 않는 IoT Central 앱에서 작동 합니다 (오늘 미리 보기 앱).
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="get-the-power-bi-solution-for-azure-iot-centralhttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Microsoft AppSource에서 [Azure IoT Central용 Power BI 솔루션](https://aka.ms/iotcentralpowerbisolutiontemplate) 다운로드
+
+## <a name="prerequisites"></a>사전 요구 사항
 솔루션을 설정하려면 다음이 필요합니다.
 - Azure 구독에 액세스
-- IoT Central 앱에서 [연속 데이터 내보내기](howto-export-data.md)를 사용하여 내보낸 데이터. Power BI 대시보드를 최대한 활용하려면 측정, 디바이스 및 디바이스 템플릿 스트림을 켜는 것이 좋습니다.
+- IoT 플러그 앤 플레이를 지원 하지 않는 IoT Central 응용 프로그램 (오늘 Preview 앱)
+- IoT Central 앱에서 Azure Blob Storage까지 연속 데이터 내보내기 설정
+    - 데이터 형식이 Avro 인지 확인
+    - Power BI 대시보드를 최대한 활용하려면 측정, 디바이스 및 디바이스 템플릿 스트림을 켜는 것이 좋습니다.
+    - [연속 데이터 내보내기를 설정 하는 방법](howto-export-data-blob-storage.md) 알아보기
 - Power BI Desktop(최신 버전)
 - Power BI Pro(다른 사용자와 대시보드를 공유하려는 경우)
 
@@ -65,7 +72,7 @@ Azure 함수 앱은 Blob Storage에 새 파일을 쓸 때마다 트리거됩니�
 ### <a name="azure-data-factory"></a>Azure Data Factory
 Azure Data Factory는 연결된 서비스로 SQL 데이터베이스에 연결됩니다. 데이터를 처리하고 분석 테이블에 저장하는 저장 프로시저 활동을 실행합니다.
 
-### <a name="azure-sql-database"></a>Azure SQL Database
+### <a name="azure-sql-database"></a>Azure SQL 데이터베이스
 이러한 테이블은 자동으로 생성되어 기본 보고서를 채웁니다. Power BI에서 해당 스키마를 살펴본 다음, 이 데이터를 기반으로 한 사용자 고유의 시각화를 빌드할 수 있습니다.
 
 | 테이블 이름 |

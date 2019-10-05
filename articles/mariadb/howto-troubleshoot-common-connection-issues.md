@@ -1,18 +1,17 @@
 ---
-title: Azure Database for MariaDB에 대한 연결 문제 해결 | Microsoft Docs
-description: Azure Database for MariaDB에 대한 연결 문제를 해결하는 방법을 알아봅니다.
-keywords: MariaDB 연결, 연결 문자열, 연결 문제, 일시적 오류, 연결 오류
+title: Azure Database for MariaDB에 대한 연결 문제 해결
+description: 다시 시도 해야 하는 일시적인 오류, 방화벽 문제 및 중단을 포함 하 여 Azure Database for MariaDB에 대 한 연결 문제를 해결 하는 방법에 대해 알아봅니다.
 author: jan-eng
 ms.author: janeng
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 11/09/2018
-ms.openlocfilehash: f5c5a980a99bac3bf02eaaf9c072861ca753d449
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8354cdc364f221a086f4d2f4ec7da95c55baf6e
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61038499"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973528"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대한 연결 문제 해결
 
@@ -48,7 +47,7 @@ ms.locfileid: "61038499"
 
 * 방화벽 구성: Azure Database for MariaDB 서버 또는 클라이언트 쪽 방화벽에서 연결을 차단하고 있습니다.
 * 클라이언트 쪽 네트워크 재구성: 새 IP 주소 또는 프록시 서버가 추가되었습니다.
-* 사용자 오류: 예를 들어, 있습니다 수 잘못 입력 했을 연결 문자열 또는 누락 된 서버 이름과 같이 연결 매개 변수  *\@servername* 사용자 이름에는 접미사입니다.
+* 사용자 오류: 예를 들어 연결 문자열의 서버 이름 또는 사용자 이름에 *\@servername* 접미사가 누락 된 연결 매개 변수를 잘못 입력 했을 수 있습니다.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>영구적인 연결 문제를 해결하는 단계
 

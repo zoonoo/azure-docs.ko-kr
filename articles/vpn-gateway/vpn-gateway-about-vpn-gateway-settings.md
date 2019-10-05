@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: 063ca5307468da90eb905323f6b145dfdb6654fe
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: fa08ea44722b2def684c269c3f9a0a30a4890a12
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959070"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970900"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway 구성 설정 정보
 
@@ -140,7 +140,7 @@ VPN Gateway를 만들기 전에 게이트웨이 서브넷을 만들어야 합니
 
 게이트웨이 서브넷을 만드는 경우 서브넷이 포함하는 IP 주소의 수를 지정합니다. 게이트웨이 서브넷의 IP 주소는 게이트웨이 VM 및 게이트웨이 서비스에 할당됩니다. 일부 구성에는 다른 구성보다 더 많은 IP 주소가 필요합니다. 
 
-게이트웨이 서브넷 크기를 계획할 때 만들려는 구성에 대 한 설명서를 참조 하세요. 예를 들어 Express 경로/VPN Gateway 공존 구성에는 대부분의 다른 구성 보다 더 큰 게이트웨이 서브넷이 필요 합니다. 또한 이후 추가 구성이 추가될 가능성에 대비하여 게이트웨이 서브넷에 IP 주소가 충분히 포함되어 있는지 확인하려고 할 수 있습니다. 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 게이트웨이 서브넷을 /28 이상으로 만드는 것이 좋습니다(/28, /27, /26 등). 이렇게 하면 대부분의 구성이 적용 됩니다.
+게이트웨이 서브넷 크기를 계획할 때 만들려는 구성에 대 한 설명서를 참조 하세요. 예를 들어 Express 경로/VPN Gateway 공존 구성에는 대부분의 다른 구성 보다 더 큰 게이트웨이 서브넷이 필요 합니다. 또한 이후 추가 구성이 추가될 가능성에 대비하여 게이트웨이 서브넷에 IP 주소가 충분히 포함되어 있는지 확인하려고 할 수 있습니다. 게이트웨이 서브넷을/29만 큼 작게 만들 수 있지만, 사용 가능한 주소 공간이 있는 경우/27 이상의 게이트웨이 서브넷을 만드는 것이 좋습니다 (/27,/26 등). 이렇게 하면 대부분의 구성이 적용 됩니다.
 
 다음 Resource Manager PowerShell 예제에서는 이름이 GatewaySubnet인 게이트웨이 서브넷을 보여 줍니다. CIDR 표기법이 /27을 지정하는 것을 확인할 수 있으며 이는 이번에 존재하는 대부분의 구성에 대한 충분한 IP 주소를 허용합니다.
 

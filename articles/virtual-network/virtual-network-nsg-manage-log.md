@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 07b196b8e7081a6cce1ae87297528c1711b3b8bb
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 047c92f1c50409e6a1716f0ef2f774464bd12a0a
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259449"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972775"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>네트워크 보안 그룹에 대한 진단 로깅
 
 NSG(네트워크 보안 그룹)는 가상 네트워크 서브넷, 네트워크 인터페이스 또는 둘 다에 대한 트래픽을 허용하거나 거부하는 규칙을 포함합니다. NSG에 대한 진단 로깅을 활성화하면 다음과 같은 범주의 정보를 기록할 수 있습니다.
 
-* **이벤트:** 항목은 MAC 주소에 따라 VM에 적용되는 NSG 규칙에 대해 기록됩니다. 이러한 규칙에 대한 상태는 60초마다 수집됩니다.
-* **규칙 카운터:** 트래픽을 허용하거나 거부하기 위해 각 NSG 규칙이 적용된 횟수에 대한 항목을 포함합니다.
+* **이벤트:** 항목은 MAC 주소에 따라 VM에 적용되는 NSG 규칙에 대해 기록됩니다.
+* **규칙 카운터:** 트래픽을 허용하거나 거부하기 위해 각 NSG 규칙이 적용된 횟수에 대한 항목을 포함합니다. 이러한 규칙에 대한 상태는 60초마다 수집됩니다.
 
 진단 로그는 Azure Resource Manager 배포 모델을 통해 배포된 NSG에 대해서만 사용할 수 있습니다. 클래식 배포 모델을 통해 배포된 NSG에 대해 진단 로깅을 사용할 수 없습니다. 두 모델의 이해를 돕기 위해 [Azure 배포 모델 이해](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
@@ -57,7 +57,7 @@ NSG(네트워크 보안 그룹)는 가상 네트워크 서브넷, 네트워크 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행 하는 경우에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행 하는 경우 [필요한 권한이](virtual-network-network-interface.md#permissions)있는 계정으로 `Connect-AzAccount` Azure에 로그인 하려면도 실행 해야 합니다.
+[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행 하는 경우에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행 하는 경우에는 `Connect-AzAccount`을 실행 하 여 [필요한 권한이](virtual-network-network-interface.md#permissions)있는 계정으로 Azure에 로그인 해야 합니다.
 
 진단 로깅을 활성화하려면 기존 NSG의 ID가 필요합니다. 기존 NSG가 없는 경우 [AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)를 사용 하 여 만들 수 있습니다.
 

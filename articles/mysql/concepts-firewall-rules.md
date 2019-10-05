@@ -1,17 +1,17 @@
 ---
 title: MySQL용 Azure 데이터베이스 서버 방화벽 규칙
-description: MySQL용 Azure데이터베이스 서버의 방화벽 규칙에 대해 설명합니다.
+description: Azure Database for MySQL 서버에 대 한 연결을 설정 하는 데 방화벽 규칙을 사용 하는 방법에 대해 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/22/2019
-ms.openlocfilehash: e84dfb35a435e32cd14b244b29044d700c79d14d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 1d75b9e7d997b0c62c7e235187907f0556318efe
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203590"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970417"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>MySQL용 Azure 데이터베이스 서버 방화벽 규칙
 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.
@@ -59,7 +59,7 @@ Microsoft Azure Database for MySQL 서버 서비스에 대한 액세스가 예�
 
    * 클라이언트 컴퓨터 대신 고정 IP 주소를 얻고, 방화벽 규칙에 따라 IP 주소 범위를 추가합니다.
 
-* **서버의 IP가 공개로 표시 됩니다.** Azure Database for MySQL 서버에 대 한 연결은 공개적으로 액세스할 수 있는 Azure 게이트웨이를 통해 라우팅됩니다. 그러나 실제 서버 IP는 방화벽으로 보호 됩니다. 자세한 내용은 [연결 아키텍처 문서](concepts-connectivity-architecture.md)를 참조 하세요. 
+* **서버의 IP가 공개로 표시 됩니다.** Azure Database for MySQL 서버에 대한 연결은 공개적으로 액세스할 수 있는 Azure 게이트웨이를 통해 라우팅됩니다. 그러나 실제 서버 IP는 방화벽으로 보호됩니다. 자세한 내용은 [연결 아키텍처 문서](concepts-connectivity-architecture.md)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -15,28 +15,31 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 09/24/2019
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 4664007bf892b2ae445d6b5174e4f346944e620b
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 3cdec1bb9d4cb44c4cead6d2d208d661bf5da6ae
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71272307"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971870"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure의 Visual Studio 이미지
 미리 구성된 Azure VM(가상 머신)에서 Visual Studio를 사용하면 아무 작업도 하지 않고 실행 중인 개발 환경으로 빠르고 쉽게 이동할 수 있습니다. 다양한 Visual Studio 구성이 적용된 시스템 이미지를 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure)에서 사용할 수 있습니다.
 
 Azure를 처음 사용하세요? [평가판 Azure 계정을 만듭니다](https://azure.microsoft.com/free).
 
+> [!NOTE]
+> 모든 구독에서 Windows 10 이미지를 배포 하는 것은 eligble. 자세한 내용은 [개발/테스트 시나리오에 Azure에서 Windows 클라이언트 사용을](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) 참조 하세요.
+
 ## <a name="what-configurations-and-versions-are-available"></a>어떤 구성 및 버전을 사용할 수 있나요?
 최신 주 버전, Visual Studio 2019, Visual Studio 2017 및 Visual Studio 2015의 이미지는 Azure Marketplace에서 찾을 수 있습니다.  출시 된 각 주 버전에 대해 원래 RTW (출시 된 웹) 버전 및 최신 업데이트 버전이 표시 됩니다.  이러한 각 버전에는 Visual Studio Enterprise 및 Visual Studio Community Edition이 제공됩니다.  이 이미지는 최신 Visual Studio 및 Windows 업데이트가 포함되도록 최소한 매월 업데이트됩니다.  이미지의 이름은 그대로 유지되지만, 각 이미지의 설명에는 설치된 제품 버전 및 이미지의 '당시' 날짜가 포함됩니다.
 
 | 릴리스 버전                                                                                                                                                | 에디션              | 제품 버전   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
-| [Visual Studio 2019: 최신 (버전 16.2)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, Community | 버전 16.3.0    |
+| [Visual Studio 2019: 최신 (버전 16.2) ](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, Community | 버전 16.3.0    |
 | [Visual Studio 2019: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise, Community | 버전 16.0.8    |
-| [Visual Studio 2017: 최신 (버전 15.9)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise, Community | 버전 15.9.16   |
+| [Visual Studio 2017: 최신 (버전 15.9) ](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise, Community | 버전 15.9.16   |
 | [Visual Studio 2017: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise, Community | 버전 15.0.25   |
-| [Visual Studio 2015: 최신 (업데이트 3)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)               | Enterprise, Community | 버전 14.0.25431.01 |
+| [Visual Studio 2015: 최신 (업데이트 3) ](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)               | Enterprise, Community | 버전 14.0.25431.01 |
 
 > [!NOTE]
 > Microsoft 서비스 정책에 따라 최초 릴리스(RTW) 버전의 Visual Studio 2015는 서비스 만료되었습니다. Visual Studio 2015 업데이트 3은 Visual Studio 2015 제품 라인에 대해 제공되는 유일하게 남은 버전입니다.

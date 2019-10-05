@@ -1,17 +1,17 @@
 ---
 title: Azure Database for MySQL의 읽기 복제본
-description: 이 문서에서는 Azure Database for MySQL의 읽기 복제본에 대해 설명합니다.
+description: Azure Database for MySQL에서 읽기 복제본에 대해 알아봅니다. 영역 선택, 복제본 만들기, 복제본에 연결, 복제 모니터링 및 복제 중지에 대해 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: cdcb4832408b9e26e692a055e06bfb55e2fdfe96
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 6ad71cecfd088a92bdd41ae13cb530c286ebea4c
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993111"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970390"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL의 읽기 복제본
 
@@ -19,7 +19,7 @@ ms.locfileid: "70993111"
 
 복제본은 일반 Azure Database for MySQL 서버와 유사한 관리하는 새 서버입니다. 읽기 복제본의 경우, vCore 및 스토리지에 프로비저닝된 컴퓨팅에 대한 비용이 GB/월 단위로 청구됩니다.
 
-MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설명서](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)를 참조하세요.
+MySQL 복제 기능 및 문제에 대 한 자세한 내용은 [mysql 복제 설명서](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)를 참조 하세요.
 
 ## <a name="when-to-use-a-read-replica"></a>읽기 복제본을 사용하는 경우
 
@@ -36,10 +36,10 @@ MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설�
 
 [Azure Database for MySQL 지역](https://azure.microsoft.com/global-infrastructure/services/?products=mysql)에 마스터 서버를 둘 수 있습니다.  마스터 서버는 쌍을 이루는 지역 또는 유니버설 복제본 지역에 복제본이 있을 수 있습니다. 아래 그림은 마스터 영역에 따라 사용할 수 있는 복제본 영역을 보여 줍니다.
 
-[![복제본 영역 읽기](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[![ 복제본 영역 읽기](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>유니버설 복제본 영역
-마스터 서버가 있는 위치에 관계 없이 항상 다음 지역에서 읽기 복제본을 만들 수 있습니다. 다음은 범용 복제본 지역입니다.
+마스터 서버가 있는 위치에 관계 없이 다음 지역에서 읽기 복제본을 만들 수 있습니다. 지원 되는 범용 복제본 영역에는 다음이 포함 됩니다.
 
 오스트레일리아 동부, 오스트레일리아 남동쪽, 미국 중부, 동아시아, 미국 동부, 미국 동부 2, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 미국 중 북부, 북부 유럽, 미국 동부, 동남 아시아, 영국 남부, 영국 서부, 유럽 서부, 미국 서 부, 미국 서 부 2.
 
@@ -63,7 +63,7 @@ MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설�
 
 복제본 만들기 워크플로를 시작하면, 빈 Azure Database for MySQL 서버가 생성됩니다. 새 서버는 마스터 서버에 있는 데이터로 채워집니다. 생성 시간은 마스터의 데이터 양과 지난 주 전체 백업 이후의 시간에 따라 달라집니다. 시간은 몇 분에서 몇 시간까지 걸릴 수 있습니다.
 
-모든 복제본은 저장소 [자동 증가](concepts-pricing-tiers.md#storage-auto-grow)에 대해 사용 하도록 설정 됩니다. 자동 증가 기능을 사용 하면 복제본에 복제 된 데이터를 유지 하 고 저장소 오류로 인 한 복제의 중단을 방지할 수 있습니다.
+모든 복제본은 저장소 [자동 증가](concepts-pricing-tiers.md#storage-auto-grow)에 대해 사용 하도록 설정 됩니다. 자동 증가 기능을 사용 하면 복제본에 복제 된 데이터를 유지 하 고 저장소 오류로 인 한 복제 중단을 방지할 수 있습니다.
 
 [Azure Portal에서 읽기 복제본을 만드는 방법](howto-read-replicas-portal.md)을 알아봅니다.
 
@@ -109,7 +109,7 @@ Azure Database for MySQL은 Azure Monitor에서 **복제 지연 시간(초)** �
 
 ### <a name="master-server-restart"></a>마스터 서버 다시 시작
 
-기존 복제본이 없는 마스터에 대한 복제본을 만들 때 마스터 복제를 준비하기 위해 마스터가 먼저 다시 시작됩니다. 이를 고려하고 사용량이 적은 기간 동안 이러한 작업을 수행합니다.
+기존 복제본이 없는 마스터에 대한 복제본을 만들 때 마스터 복제를 준비하기 위해 마스터가 먼저 다시 시작됩니다. 이를 고려 하 여 사용량이 많지 않은 기간 동안 이러한 작업을 수행 합니다.
 
 ### <a name="new-replicas"></a>새 복제본
 

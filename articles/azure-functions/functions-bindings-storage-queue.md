@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 6c708bfd0f8e49e9a857b9f77fab6224354ff06a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ff0490a7854d0398df925fc56f766470ca9d1618
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097177"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973444"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Queue Storage 바인딩
 
@@ -192,7 +192,7 @@ module.exports = async function (context, message) {
 
 다음 예에서는 트리거를 통해 함수에 전달 되는 큐 메시지를 읽는 방법을 보여 줍니다.
 
-저장소 큐 트리거는 *type* 이로 `queueTrigger`설정 된 *함수인 json* 에 정의 되어 있습니다.
+저장소 큐 트리거는 *type* 이 `queueTrigger`로 설정 된 *함수인 json* 에 정의 되어 있습니다.
 
 ```json
 {
@@ -209,7 +209,7 @@ module.exports = async function (context, message) {
 }
 ```
 
-`func.ServiceBusMessage`   *_Py\__ 코드\_* 는 함수에서 큐 메시지를 읽을 수 있도록 매개 변수를 선언 합니다.
+코드  *_\_init_\_.py* 은 함수에서 큐 메시지를 읽을 수 있도록 매개 변수를 `func.ServiceBusMessage`로 선언 합니다.
 
 ```python
 import logging
@@ -323,7 +323,7 @@ JavaScript에서 `context.bindings.<name>`을 사용하여 큐 항목 페이로�
 
 큐 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 클래스의 속성은 다음과 같습니다.
 
-|속성|형식|Description|
+|속성|형식|설명|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|큐 페이로드(유효한 문자열인 경우) 큐 메시지 페이로드를 문자열로 사용하는 경우 `QueueTrigger`는 *function.json*에서 `name` 속성에 의해 명명된 변수와 동일한 값을 가집니다.|
 |`DequeueCount`|`int`|이 메시지가 큐에서 제거된 횟수입니다.|
@@ -520,7 +520,7 @@ module.exports = function(context) {
 
 다음 예제에서는 단일 및 여러 값을 저장소 큐에 출력 하는 방법을 보여 줍니다. *함수. json* 에 필요한 구성은 두 방법 중 하나입니다.
 
-저장소 큐 바인딩은 *형식이* 로 `queue`설정 된 *함수인 json* 에 정의 됩니다.
+저장소 큐 바인딩은 *형식이* `queue`로 설정 된 *함수인 json* 에 정의 됩니다.
 
 ```json
 {
@@ -566,7 +566,7 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
     return 'OK'
 ```
 
-큐에서 여러 메시지를 만들려면 매개 변수를 적절 한 목록 유형으로 선언 하 고 목록 유형과 `set` 일치 하는 값 배열을 메서드에 전달 합니다.
+큐에서 여러 메시지를 만들려면 매개 변수를 적절 한 목록 유형으로 선언 하 고 목록 유형과 일치 하는 값 배열을 `set` 메서드에 전달 합니다.
 
 ```python
 import azure.functions as func
@@ -675,9 +675,9 @@ JavaScript 함수에서 `context.bindings.<name>`을 사용하여 출력 큐 메
 ```
 
 
-|속성  |Default | Description |
+|속성  |Default | 설명 |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|큐 폴링 사이의 최대 간격입니다. 최소는 00:00:00:00.100 (100 밀리초)이 고 최대 00:01:00 (1 분) 씩 증가 합니다. |
+|maxPollingInterval|00:00:01|큐 폴링 사이의 최대 간격입니다. 최소는 00:00:00:00.100 (100 밀리초)이 고 최대 00:01:00 (1 분) 씩 증가 합니다.  1\.x에서 데이터 형식은 밀리초이 고, 2.x는 TimeSpan입니다.|
 |visibilityTimeout|00:00:00|메시지 처리가 실패하는 경우 재시도 사이의 간격입니다. |
 |batchSize|16|함수 런타임이 동시에 검색하고 병렬로 처리하는 큐 메시지 수입니다. 처리되는 개수가 `newBatchThreshold`로 감소하면 런타임은 다른 일괄 처리를 가져와 해당 메시지의 처리를 시작합니다. 따라서 함수당 처리되는 최대 동시 메시지 수는 `batchSize` + `newBatchThreshold`입니다. 이 제한은 큐 트리거 함수에 개별적으로 적용됩니다. <br><br>하나의 큐에 수신된 메시지에 대해 병렬 실행을 방지하려면 `batchSize`을 1로 설정합니다. 그러나 이 설정은 함수 앱이 단일 VM(가상 머신)에서 실행되는 동안에만 동시성을 제거합니다. 함수 앱이 여러 VM에 확장되면 각 VM은 각 큐 트리거 함수의 인스턴스 하나를 실행할 수 있습니다.<br><br>최대 `batchSize`은 32입니다. |
 |maxDequeueCount|5|포이즌 큐로 이동하기 전에 메시지 처리를 시도할 횟수입니다.|

@@ -6,19 +6,22 @@ manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: e846db86ce95bd32d21727a4a5ec3195458cb9eb
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.date: 10/04/2019
+ms.openlocfilehash: 48ef7aeb1804aca9001288f6babd302b9c3a8347
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936870"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969548"
 ---
 # <a name="create-a-new-saas-offer"></a>새 SaaS 제품 만들기
 
 SaaS (Software as a Service) 제품을 만들기 시작 하려면 먼저 [파트너 센터 계정을 만들고](./create-account.md) **개요** 탭을 선택 하 여 [상용 마켓플레이스 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)를 열어야 합니다.
 
 ![파트너 센터의 상용 마켓플레이스 대시보드](./media/new-offer-overview.png)
+
+>[!Note]
+> 제품이 게시 되 면 파트너 센터에서 만든 제품에 대 한 편집 내용은 시스템 에서만 업데이트 되 고 다시 게시 된 후에도 저장 됩니다. 변경을 수행한 후 게시에 대 한 제품을 제출 했는지 확인 하세요.
 
 \+ **새 제품** 을 선택 합니다. 단추를 클릭 한 다음, 서비스 메뉴 항목 **으로 소프트웨어** 를 선택 합니다. 
 
@@ -35,7 +38,7 @@ SaaS (Software as a Service) 제품을 만들기 시작 하려면 먼저 [파트
 
 - **제품 ID**: 계정의 각 제품에 대 한 고유 식별자입니다. 이 ID는 marketplace 제품 및 Azure Resource Manager 템플릿 (해당 하는 경우)에 대 한 URL 주소의 고객에 게 표시 됩니다. 제품 ID는 소문자, 영숫자 (하이픈 및 밑줄을 포함 하 고 공백 없음) 이어야 합니다. 이는 50 자로 제한 되며, *만들기*를 선택한 후에는 변경할 수 없습니다.  
 예: 테스트-제품-1
-<br>결과 URL은 다음과 같습니다.`https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
+<br>URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
 - **제품 별칭**: 파트너 센터 포털에서 제품을 참조 하는 데 사용 되는 이름입니다. 이 이름은 marketplace에서 사용 되지 않으며 고객에 게 표시 되는 *제품 이름* 및 기타 값과 다릅니다. *만들기*를 선택한 후에는이 값을 변경할 수 없습니다.
 
@@ -93,7 +96,7 @@ SaaS는 요금제 청구 서비스를 사용 하 여 정액 요금, 사용자 �
 
 |**Microsoft에 청구되는 요금**|**$100/월**|
 |:---|:---|
-|Microsoft는 라이선스 비용의 80%를 지불합니다. <br>@no__t-*정규화 된 SaaS 앱의 경우 Microsoft는 90%의 라이선스 비용을 지불* 합니다.|매월 $80.00 <br>*$* 월 90.00 *|
+|Microsoft는 라이선스 비용의 80%를 지불합니다. <br>@no__t-*정규화 된 SaaS 앱의 경우 Microsoft는 90%의 라이선스 비용을 지불* 합니다.|매월 $80.00 <br>*@no__t-* 월 90.00 *|
 
 - 이 예제에서 Microsoft는 귀하의 소프트웨어 라이선스에 대해 고객에 게 $100.00를 청구 하 고 게시자에 게 $80.00을 지불 합니다.
 - **줄어든 Marketplace 서비스 요금** 으로 한정 된 파트너는 2019 년 5 월 2020 일까 야 년 5 월부터 SaaS 제품에 대 한 트랜잭션 요금이 감소 하는 것을 볼 수 있습니다. 이 시나리오에서 Microsoft는 귀하의 소프트웨어 라이선스에 대해 $100.00를 청구 하 고 게시자에 게 $90.00을 지불 합니다.
@@ -107,7 +110,7 @@ SaaS는 요금제 청구 서비스를 사용 하 여 정액 요금, 사용자 �
 #### <a name="csp-program-opt-in"></a>CSP 프로그램 옵트인
 [CSP (클라우드 솔루션 공급자)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) 프로그램을 사용 하면 소프트웨어 제품이 최소의 마케팅 및 판매 투자로 수많은 Microsoft 고객에 게 도달할 수 있습니다.
 
-- **채널이 CSP 프로그램** (확인란)에서 제품을 사용할 수 있도록 설정
+- **Channels: CSP 프로그램에서 사용할 수 있도록 설정 @ no__t-0 (확인란)
 
 CSP 프로그램에서 제품을 사용할 수 있도록 리더로 선택 클라우드 솔루션 공급자는 고객에 게 번들로 제공 되는 솔루션의 일부로 제품을 판매할 수 있습니다. 
 
@@ -137,7 +140,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 시험 사용한 고객에 게 제품을 고객에 게 제공 하는 좋은 방법은 ' 구매 전 시도 '를 선택 하 여 변환 및 높은 우량 잠재 고객을 생성 하는 옵션을 제공 하는 것입니다. [테스트 드라이브에 대해 자세히 알아보세요.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
-- **테스트 드라이브 사용** 상자 
+- **테스트 드라이브 사용** (확인란) 
 
 테스트 드라이브를 사용 하도록 설정 하면 고객이 고정 기간 동안 제품을 사용해 볼 수 있도록 시연 환경을 구성 하 라는 메시지가 표시 됩니다. 
 
@@ -199,7 +202,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 Azure Marketplace 게시자는 사용자 지정 약관을 만드는 대신 표준 계약에 따라 소프트웨어를 제공 하도록 선택할 수 있으며, 고객은 한 번만 심사 하 고 수락 하면 됩니다. 
 
-표준 계약은에서 찾을 https://go.microsoft.com/fwlink/?linkid=2041178 수 있습니다.
+표준 계약은 https://go.microsoft.com/fwlink/?linkid=2041178 에서 찾을 수 있습니다.
 
 #### <a name="terms-of-use"></a>서비스 계약
 
@@ -220,12 +223,12 @@ Azure Marketplace 게시자는 사용자 지정 약관을 만드는 대신 표�
 
 제품 및 마케팅 자산에 대 한 설명을 포함 하 여 marketplace에 표시 되는 세부 정보를 제공 합니다.
 
-- **이름** (필수): 여기서 정의 된 이름은 사용자가 선택한 marketplace의 제품 목록으로 표시 됩니다. 이전 **새 제안** 항목에 따라 이름이 미리 채워집니다.  이는 상표 수 있습니다.  이는 영숫자와 저작권 기호를 제외 하 고는 공백,이 모 지를 포함 해서는 안 되며 50 자로 제한 되어야 합니다.
+- **이름** (필수): 여기서 정의 된 이름은 사용자가 선택한 marketplace의 제품 목록으로 표시 됩니다. 이전 **새 제안** 항목에 따라 이름이 미리 채워집니다.  이는 상표 수 있습니다.  이는 사용자가 상표 및 저작권 기호인 경우를 제외 하 고는이 모 지를 포함 해서는 안 되며 50 자로 제한 되어야 합니다.
 - **요약** (필수): Marketplace 목록 검색 결과에서 사용할 제품에 대 한 간단한 설명을 제공 합니다. 이 필드에는 최대 100 자의 텍스트를 입력할 수 있습니다.
 - **설명** (필수): Marketplace 목록에 표시 되는 제품에 대 한 설명을 제공 합니다. 가치 제안, 주요 이점, 범주 또는 업계 연결, 앱 내 구매 기회, 필요한 공개 및 자세한 내용을 볼 수 있는 링크를 포함 하는 것이 좋습니다.
 이 필드에는 최대 3000 자의 텍스트를 입력할 수 있습니다. 추가 팁은 [유용한 앱 설명 작성](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description)문서를 참조 하세요.
 - **검색 키워드**: 고객이 marketplace에서 제품을 찾는 데 사용할 수 있는 검색 키워드를 최대 3 개까지 입력 합니다.
-- **시작 지침** (필수): 잠재적 고객에 대해 앱 사용을 구성 하 고 시작 하는 방법을 설명 합니다.  이 빠른 시작에는 보다 자세한 온라인 설명서에 대 한 링크가 포함 될 수 있습니다. 이 필드에는 최대 3000 자의 텍스트를 입력할 수 있습니다. 
+- **시작 명령** (필수): 잠재적 고객에 대해 앱 사용을 구성 하 고 시작 하는 방법을 설명 합니다.  이 빠른 시작에는 보다 자세한 온라인 설명서에 대 한 링크가 포함 될 수 있습니다. 이 필드에는 최대 3000 자의 텍스트를 입력할 수 있습니다. 
 
 #### <a name="description"></a>**설명**
 
@@ -311,14 +314,14 @@ Azure Marketplace 게시자는 사용자 지정 약관을 만드는 대신 표�
 #### <a name="links"></a>링크
 
 - **개인 정보 취급 방침** (필수): 조직의 개인 정보 취급 방침에 대 한 링크입니다. 앱이 개인 정보 법률 및 규정을 준수 하는지 확인 하 고 유효한 개인 정보 취급 방침을 제공 해야 합니다.
-- **CSP 프로그램 마케팅 자료** (선택 사항): 제품을 [CSP (클라우드 솔루션 공급자)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) 프로그램으로 확장 하도록 선택 하는 경우 마케팅 자료에 대 한 링크를 제공 해야 합니다. CSP는 CSP 파트너가 제품을 번들, 시장 및 재판매 수 있도록 하 여 제품을 더 광범위 한 범위의 고객으로 확장 합니다. 이러한 대리점은 제품 마케팅에 대 한 자료에 액세스 해야 합니다. 자세한 내용은 [출시 전 서비스](https://partner.microsoft.com/reach-customers/gtm)를 참조 하세요.
-- **유용한 링크** (선택 사항): **제목** 및 **URL**을 제공 하 여 나열 된 앱 또는 관련 서비스에 대 한 선택적 보조 온라인 문서입니다. **+ URL 추가**를 클릭 하 여 유용한 링크를 더 추가 합니다.
+- **CSP 프로그램 마케팅 자료** (옵션): 제품을 [CSP (클라우드 솔루션 공급자)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) 프로그램으로 확장 하도록 선택 하는 경우 마케팅 자료에 대 한 링크를 제공 해야 합니다. CSP는 CSP 파트너가 제품을 번들, 시장 및 재판매 수 있도록 하 여 제품을 더 광범위 한 범위의 고객으로 확장 합니다. 이러한 대리점은 제품 마케팅에 대 한 자료에 액세스 해야 합니다. 자세한 내용은 [출시 전 서비스](https://partner.microsoft.com/reach-customers/gtm)를 참조 하세요.
+- **유용한 링크** (옵션): **제목** 및 **URL**을 제공 하 여 나열 된 앱 또는 관련 서비스에 대 한 선택적 보조 온라인 문서입니다. **+ URL 추가**를 클릭 하 여 유용한 링크를 더 추가 합니다.
 
 #### <a name="contact-information"></a>연락처 정보
 
 - **연락처**: 각 고객 연락처에 대해 직원 **이름** , **전화 번호**및 **전자 메일** 주소를 제공 합니다.  이는 공개적으로 표시 *되지* 않습니다. 지원 **URL** 은 **지원 담당자** 그룹에도 필요 합니다.  이 정보 *는* 공개적으로 표시 됩니다.
 
-**지원 연락처** (필수): 일반 지원에 대 한 질문입니다.
+**지원 담당자** (필수): 일반 지원에 대 한 질문입니다.
 
 **엔지니어링 연락처** (필수): 기술 관련 질문.
 
@@ -358,7 +361,7 @@ Live 게시 전에 제품의 유효성을 검사 하는 데 도움이 되도록 
 
 - **방문 페이지 URL** (필수): Marketplace에서 제품을 확보 한 후 고객이 게 될 사이트 URL을 정의 합니다. 이 URL은 고객이 페이지로 라우팅되는 경우 토큰을 수신 하는 끝점입니다. 이 토큰은 처리 Api에서 해결을 사용 하 여 프로 비전 세부 정보를 교환할 수 있습니다. 이러한 세부 정보 및 수집 하는 다른 항목은 등록을 완료 하 고 구매를 활성화 하는 사용자 환경에서 빌드된 고객 대화형 웹 페이지의 일부로 사용할 수 있습니다.
 
-- **연결 webhook** (필수): Microsoft에서 고객을 대신해서 보내야 하는 모든 비동기 이벤트(예: SaaS 구독이 잘못 되었습니다.) 연결 webhook를 제공 해야 합니다. 웹 후크 시스템이 아직 없는 경우 가장 간단한 구성은 게시 되는 모든 이벤트를 수신 대기 하 고 적절 하 게 처리 하는 HTTP 끝점 논리 앱을 보유 하는 것입니다 (예: https:\//prod-1westus.logic.azure.com:443/work). 자세한 내용은 [Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)을 참조하세요.
+- **연결 webhook** (필수): Microsoft에서 고객을 대신해서 보내야 하는 모든 비동기 이벤트(예: SaaS 구독이 잘못 되었습니다.) 연결 webhook를 제공 해야 합니다. 웹 후크 시스템이 아직 없는 경우 가장 간단한 구성은 게시 되는 이벤트를 수신 하 고 적절 하 게 처리 하는 HTTP 끝점 논리 앱을 보유 하는 것입니다 (예: https: \//1westus: 443/work). ). 자세한 내용은 [Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)을 참조하세요.
 
 - **AZURE AD 테 넌 트 ID** (필수): Azure Portal 내에서는 두 서비스 간의 연결에 대 한 유효성을 검사할 수 있도록 [AD (Azure Active Directory) 앱을 만들어야](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) 합니다. [테 넌 트 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 찾으려면 Azure Active Directory로 이동 하 여 **속성**을 선택한 다음 나열 된 **디렉터리 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 확인 합니다.
 
@@ -377,7 +380,7 @@ Live 게시 전에 제품의 유효성을 검사 하는 데 도움이 되도록 
 - 계획 상태가 **초안** -초안 삭제 인 경우
 - 계획 상태가 **라이브** 인 경우 – 계획 판매 중지 또는 개인 대상 사용자 동기화
 
-**새 계획 만들기** (Microsoft에서 판매 하도록 선택 하는 사용자에 대 한 계획 중 하나)
+**새 계획 만들기** (Microsoft를 통해 판매를 선택 하는 사용자에 대 한 계획 중 하나)
 
 - **계획 ID:** 이 제안의 각 계획에 대 한 고유한 계획 ID를 만듭니다. 이 ID는 제품 URL 및 Azure Resource Manager 템플릿 (해당 하는 경우)의 고객에 게 표시 됩니다. 소문자, 영숫자, 대시 또는 밑줄만 사용 합니다. 이 계획 ID에는 최대 50 자까지 사용할 수 있습니다. 만들기를 선택한 후에는 ID를 수정할 수 없습니다.
 - **계획 이름:** 제품 내에서 선택할 계획을 결정할 때 고객에 게이 이름이 표시 됩니다. 이 제안의 각 계획에 대 한 고유한 제안 이름을 만듭니다. 계획 이름은 동일한 제품에 포함 될 수 있는 소프트웨어 요금제를 구분 하는 데 사용 됩니다 (예: 제품 이름: Windows Server 서 Windows Server 2016, Windows Server 2019).
@@ -413,14 +416,14 @@ Live 게시 전에 제품의 유효성을 검사 하는 데 도움이 되도록 
 >[!Note]
 >불가능 제안을 무료 평가판으로 게시 한 후에는 해당 계획에 대해 사용 하지 않도록 설정할 수 없습니다. 첫 번째 게시에 대해이 설정이 올바른지 확인 하 여 계획을 다시 만들 필요가 없도록 합니다.
 
-현재 무료 평가판에 참여 하는 고객 구독에 대 한 정보를 얻으려면 true 또는 false `isFreeTrial`로 표시 되는 새 API 속성을 사용 합니다. 자세한 내용은 [SaaS Get SUBSCRIPTION API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) 를 참조 하세요.
+현재 무료 평가판에 참여 하는 고객 구독에 대 한 정보를 얻으려면 새 API 속성 `isFreeTrial`을 사용 합니다 .이 속성은 true 또는 false로 표시 됩니다. 자세한 내용은 [SaaS Get SUBSCRIPTION API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) 를 참조 하세요.
 
 >[!Note]
 >Marketplace 계량 서비스를 활용 하는 요금제에 대 한 무료 평가판은 지원 되지 않습니다.
 
 #### <a name="markets"></a>시장
 
-- **시장 편집** 필드
+- **시장 편집** (선택 사항)
 
 모든 요금제는 하나 이상의 시장에서 사용할 수 있어야 합니다. 이 요금제를 사용할 수 있도록 하려는 시장 위치에 대 한 확인란을 선택 합니다. "세금 송금" 국가를 선택 하는 데 사용 되는 검색 상자와 단추를 사용 하 여 Microsoft 송금 판매 및 세금을 대신 사용 합니다. 
 
@@ -458,7 +461,7 @@ Live 게시 전에 제품의 유효성을 검사 하는 데 도움이 되도록 
 
 #### <a name="privacy"></a>개인 정보 취급 방침
 
-- **비공개 계획입니다** . (옵션 확인란)
+- **이 계획은 개인 계획입니다** (선택 사항).
 
 계획을 비공개로 설정 하 고 선택한 제한 된 대상 그룹에만 표시 하려면이 확인란을 선택 합니다. 비공개 계획으로 게시 한 후에는 대상 그룹을 업데이트 하거나 계획을 모든 사용자가 사용할 수 있도록 선택할 수 있습니다. 모든 사용자에 게 표시 되는 계획을 게시 한 후에는 모든 사용자에 게 계속 표시 되어야 합니다. (요금제를 개인 계획으로 다시 구성할 수 없습니다.)
 
@@ -466,7 +469,7 @@ Live 게시 전에 제품의 유효성을 검사 하는 데 도움이 되도록 
 
 이 비공개 요금제에 대 한 액세스 권한이 있는 대상 그룹을 할당 합니다. 지정 된 각 테 넌 트 ID에 대 한 설명을 포함 하는 옵션과 함께 테 넌 트 Id를 사용 하 여 액세스 권한을 할당 합니다. .Csv 스프레드시트 파일을 가져오는 경우 최대 10 개의 테 넌 트 Id를 추가 하거나 2만 고객 테 넌 트 Id를 추가할 수 있습니다.
 
-테 넌 트는 ID가 GUID (GUID (Globally Unique Identifier)로 표시 되 고, 리소스를 식별 하는 데 사용 되는 128 비트 정수) 인 조직의 표현입니다. 조직 또는 앱 개발자가 Microsoft와의 관계를 만들 때(예: Azure, Microsoft Intune 또는 Microsoft 365에 등록) 조직 또는 앱 개발자가 받는 Azure AD의 전용 인스턴스입니다. 각 Azure AD 테넌트는 서로 전혀 다르고 다른 Azure AD 테넌트와 별개입니다. 테 넌 트를 확인 하려면 응용 프로그램을 관리 하는 데 사용 하려는 계정으로 Azure Portal에 로그인 합니다. 테넌트가 있으면 자동으로 로그인되고 계정 이름 바로 아래에 테넌트 이름이 표시됩니다. Azure Portal의 오른쪽 위에 있는 사용자의 계정 이름을 가리켜 사용자의 이름, 이메일, 디렉터리/테넌트 ID(GUID) 및 사용자의 도메인을 표시합니다. 계정이 여러 테넌트와 연결되어 있으면, 계정 이름을 선택하여 테넌트 간에 전환할 수 있는 메뉴를 열 수 있습니다. 각 테넌트가 자기만의 ID를 가지고 있습니다. 에서 도메인 이름 URL을 사용 하 여 조직의 테 넌 트 ID를 조회할 수도 있습니다 [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
+테 넌 트는 ID가 GUID (GUID (Globally Unique Identifier)로 표시 되 고, 리소스를 식별 하는 데 사용 되는 128 비트 정수) 인 조직의 표현입니다. 조직 또는 앱 개발자가 Microsoft와의 관계를 만들 때(예: Azure, Microsoft Intune 또는 Microsoft 365에 등록) 조직 또는 앱 개발자가 받는 Azure AD의 전용 인스턴스입니다. 각 Azure AD 테넌트는 서로 전혀 다르고 다른 Azure AD 테넌트와 별개입니다. 테 넌 트를 확인 하려면 응용 프로그램을 관리 하는 데 사용 하려는 계정으로 Azure Portal에 로그인 합니다. 테넌트가 있으면 자동으로 로그인되고 계정 이름 바로 아래에 테넌트 이름이 표시됩니다. Azure Portal의 오른쪽 위에 있는 사용자의 계정 이름을 가리켜 사용자의 이름, 이메일, 디렉터리/테넌트 ID(GUID) 및 사용자의 도메인을 표시합니다. 계정이 여러 테넌트와 연결되어 있으면, 계정 이름을 선택하여 테넌트 간에 전환할 수 있는 메뉴를 열 수 있습니다. 각 테넌트가 자기만의 ID를 가지고 있습니다. [@No__t-1](https://www.whatismytenantid.com)에서 도메인 이름 URL을 사용 하 여 조직의 테 넌 트 ID를 조회할 수도 있습니다.
 
 SaaS 제공이 테 넌 트 Id를 사용 하 여 개인 사용자를 정의 하는 동안 다른 제품 유형은 Azure 구독 Id (Guid로도 표시 됨)를 사용할 수 있습니다.
 

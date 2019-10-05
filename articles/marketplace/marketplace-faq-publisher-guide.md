@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 10/2/2019
+ms.date: 10/4/2019
 ms.author: ellacroi
-ms.openlocfilehash: 4096b9201afc98f6e5eb239cf9e6883ac69b6e79
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 1c6e381f5f05bc285b50521c9a57e8b5189a7478
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827981"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969574"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Microsoft 상업적 마켓플레이스 Faq
 
@@ -130,7 +130,7 @@ Azure 구독은 게시자의 ISV (독립 소프트웨어 공급 업체) 솔루�
 
 + *사용자 단위:* SaaS 구독은 매월 또는 매년 청구 되는 사용자 단위로 가격이 책정 될 수 있습니다. 
 
-제품 관련 가격 정보는 [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) [Azure Portal]또는의 솔루션 정보 페이지에서 확인할 수 있습니다.
+제품 관련 가격 정보는 [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) 의 솔루션 정보 페이지 또는 [Azure Portal]내에서 찾을 수 있습니다.
 
 > [!Note]
 > 월별 요금을 제외하고는 별도로 명시된 경우가 아니면 모든 가격 책정 모델에 Azure 사용 요금이 적용됩니다.
@@ -171,7 +171,7 @@ EA(기업계약) 간접 고객의 경우 모든 Azure Marketplace 가격 관련 
 
 **상업적 marketplace 구매에 대해 지원 되는 결제 방법은 무엇 인가요?**
 
-고객은 신용 카드를 사용 하 여 Azure Marketplace 및 Microsoft AppSource에서 제품을 구매할 수 있습니다. 기존 Azure 구독이 있는 경우 Azure Marketplace에서 구매할 때 계정에 구성 된 지불 방법을 사용 하 고 별도의 품목으로 동일한 청구서에 표시 됩니다. 일부 제품에서는 Azure 현금 약정 금액을 사용 하지만 대부분의 ommercial marketplace 구매는 Azure 인프라 사용이 가능 하지만 기업계약 약정을 그리지 않습니다.
+고객은 신용 카드를 사용 하 여 Azure Marketplace 및 Microsoft AppSource에서 제품을 구매할 수 있습니다. 기존 Azure 구독이 있는 경우 Azure Marketplace에서 구매할 때 계정에 구성 된 지불 방법을 사용 하 고 별도의 품목으로 동일한 청구서에 표시 됩니다. 일부 제품에서는 Azure 현금 약정 금액을 소비 하지만 대부분의 상업적 marketplace 구매는 Azure 인프라 사용이 가능 하지만 기업계약 약정을 그리지 않습니다.
 
 **계정의 Azure 구독 크레딧 또는 현금 약정 금액을 Azure Marketplace 제품에 적용할 수 있나요?**
 
@@ -375,15 +375,15 @@ Microsoft는 AAD를 통해 모든 Marketplace 사용자를 인증합니다.  추
 
 *O365 앱:*
 
-1.  개발자 계정으로에 로그인 합니다. <https://sellerdashboard.microsoft.com>
+1.  개발자 계정으로 <https://sellerdashboard.microsoft.com>에 로그인 합니다.
 1.  추가 기능을 철회 합니다.
 
     > [!NOTE]
     > 앱은 90 일 후에 기존 목록에서 사라집니다.
 
-*Power BI 앱:*
+**변경 내용이 제안에 반영 되지 않는 이유는 무엇 인가요?**
 
-아래 담당자에게 문의합니다. [Anjana Sompur(Slalom Consulting LLC)](mailto:v-ansomp@microsoft.com)
+파트너 센터 내에서 수행 된 변경 내용은 제품을 다시 게시 한 후에만 시스템 및 스토어에 업데이트 됩니다. 수정 후 게시에 대 한 제안을 제출 했는지 확인 하세요.
 
 ### <a name="benefits-and-go-to-market-gtm-resources"></a>혜택 및 GTM(출시) 리소스
 
@@ -463,6 +463,16 @@ Azure Marketplace은 고객의 청구 주소에 정의 된 대로 141 구입을 
 **무료 계층과 무료 소프트웨어 평가판은 어떻게 다른가요?**
 
 무료 계층 구독 제품은 영구적으로 무료 사용이 가능합니다.  반면 무료 소프트웨어 평가판(지금 사용해 보기) 제품은 제한된 평가 기간 동안만 무료인 유료 구독입니다.
+
+**종단 간 구매 및 프로 비전 흐름의 유효성을 검사 하는 프로세스는 무엇 인가요?**
+
+게시 프로세스 중에 제품 미리 보기에 대 한 액세스 권한이 제공 됩니다. 액세스는 미리 보기 탭에서 지정한 사용자 에게만 제한 되며 다른 사용자에 게는 표시 되지 않는 라이브 제품입니다. 이를 구매 하 고 프로세스를 테스트할 수 있습니다. 그러나 제품의 구성에 따라 전체 금액이 청구 됩니다.
+
+매우 저렴 한 가격으로 구매를 완료 하기 위해 Microsoft는 테스트 비용으로 수락할 수 있는 가격으로 개인 계획을 직접 설정 하는 것을 제안 합니다. 0은 지원 되지만 유료 구독과 같은 전체 환경을 반영 하지 않습니다.
+
+**Microsoft는 표준 정책 외에 환불을 제공 하나요?**
+
+예. 지원 티켓을 통해 요청 하는 경우 Microsoft는 적절 한 것으로 간주 하는 경우 고객에 게 크레딧을 처리 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

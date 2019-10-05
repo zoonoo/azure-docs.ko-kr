@@ -4,10 +4,12 @@
   items:
     - name: QnA Maker란?
       href: Overview/overview.md
+    - name: 새로운 기능
+      href: whats-new.md
 - name: 빠른 시작
   items:
     - name: 새 기술 자료 만들기
-      href: How-To/create-knowledge-base.md
+      href: quickstarts/create-publish-knowledge-base.md
     - name: 메타데이터를 사용하여 질문 추가
       href: quickstarts/add-question-metadata-portal.md
     - name: 답변 구하기

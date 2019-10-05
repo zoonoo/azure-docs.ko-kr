@@ -7,19 +7,19 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: cf04efd8dac3ba4d252701d79c65b1bf56619fe0
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: cf971d71c2566d91bc5a2490d47521725c62b17d
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968250"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973417"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>시스템 할당 관리 id (미리 보기)를 사용 하 여 Service Fabric 응용 프로그램 배포
 
 Azure Service Fabric 응용 프로그램의 관리 되는 id 기능에 액세스 하려면 먼저 클러스터에서 관리 되는 Id 토큰 서비스를 사용 하도록 설정 해야 합니다. 이 서비스는 관리 되는 id를 사용 하 여 Service Fabric 응용 프로그램을 인증 하 고 사용자 대신 액세스 토큰을 가져오는 일을 담당 합니다. 서비스를 사용 하도록 설정 하면 왼쪽 창의 **시스템** 섹션 아래에 있는 Service Fabric Explorer에서 다른 시스템 서비스 옆의 **Fabric:/System/ManagedIdentityTokenService** 이름으로 실행 되는 것을 볼 수 있습니다.
 
 > [!NOTE] 
-> 관리 id를 사용 하 여 Service Fabric 응용 프로그램을 배포 하는 `"2019-06-01-preview"`것은 API 버전부터 지원 됩니다. 응용 프로그램 유형, 응용 프로그램 유형 버전 및 서비스 리소스에 대해 동일한 API 버전을 사용할 수도 있습니다. 지원 되는 최소 Service Fabric 런타임은 6.5 CU2입니다.
+> 관리 id를 사용 하 여 Service Fabric 응용 프로그램을 배포 하는 것은 API 버전 `"2019-06-01-preview"`부터 지원 됩니다. 응용 프로그램 유형, 응용 프로그램 유형 버전 및 서비스 리소스에 대해 동일한 API 버전을 사용할 수도 있습니다. 지원 되는 최소 Service Fabric 런타임은 6.5 CU2입니다. Additoin에서 빌드/패키지 환경의 CU2 이상에는 SF .Net SDK가 있어야 합니다.
 
 ## <a name="system-assigned-managed-identity"></a>시스템 할당 관리 ID
 
@@ -47,7 +47,7 @@ Azure Service Fabric 응용 프로그램의 관리 되는 id 기능에 액세스
       }
     }
 ```
-이 속성은 (Azure Resource Manager 및 관리 되는 id와 Service Fabric 리소스 공급자를 각각 선언 하며,이 리소스는 암시적 (`system assigned`) 관리 id를 포함 해야 합니다.
+이 속성은 (Azure Resource Manager 및 관리 되는 Id와 Service Fabric 리소스 공급자를 각각 선언 하며,이 리소스는 암시적 (@no__t 0) 관리 id를 포함 해야 합니다.
 
 ### <a name="application-and-service-package"></a>응용 프로그램 및 서비스 패키지
 
@@ -76,9 +76,9 @@ Azure Service Fabric 응용 프로그램의 관리 되는 id 기능에 액세스
         </ServiceManifestImport>
       ```
 
-    이 요소는 응용 프로그램의 id를 서비스에 할당 합니다. 이 할당을 사용 하지 않으면 서비스에서 응용 프로그램의 id에 액세스할 수 없게 됩니다. 위의 `SystemAssigned` 코드 조각에서 id (예약 된 키워드)는 이름을 `WebAdmin`가진 서비스의 정의에 매핑됩니다.
+    이 요소는 응용 프로그램의 id를 서비스에 할당 합니다. 이 할당을 사용 하지 않으면 서비스에서 응용 프로그램의 id에 액세스할 수 없게 됩니다. 위의 코드 조각에서 `SystemAssigned` id (예약 된 키워드)는 이름 `WebAdmin` 인 서비스의 정의에 매핑됩니다.
 
-3. 응용 프로그램 매니페스트의 `IdentityBindingPolicy` 정의에서 `ServiceIdentityRef` 설정의 값과 일치 하는 이름을 사용 하 여 **리소스** 섹션 내에 **microsoft.managedidentity** 요소를 추가 하도록 서비스 매니페스트를 업데이트 합니다.
+3. 응용 프로그램 매니페스트의 @no__t 3 정의에서 `ServiceIdentityRef` 설정의 값과 일치 하는 이름을 사용 하 여 **리소스** 섹션 내에 **microsoft.managedidentity** 요소를 추가 하도록 서비스 매니페스트를 업데이트 합니다.
 
     **Servicemanifest.xml**
 
@@ -90,7 +90,7 @@ Azure Service Fabric 응용 프로그램의 관리 되는 id 기능에 액세스
         </ManagedIdentities>
       </Resources>
     ```
-    이는 위에 설명 된 대로 서비스에 대 한 id와 동등한 매핑 이며 서비스 정의의 관점에서 설명 합니다. Id는 응용 프로그램 매니페스트에 선언 된 대로 이름 (`WebAdmin`)으로 참조 됩니다.
+    이는 위에 설명 된 대로 서비스에 대 한 id와 동등한 매핑 이며 서비스 정의의 관점에서 설명 합니다. Id는 응용 프로그램 매니페스트에서 선언 된 이름 (`WebAdmin`)으로 여기에서 참조 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Service Fabric에서 [관리 되는 id 지원](./concepts-managed-identity.md) 검토

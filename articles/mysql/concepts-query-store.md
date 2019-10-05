@@ -1,17 +1,17 @@
 ---
 title: Azure Database for MySQL 쿼리 저장소
-description: 이 문서에서는의 쿼리 저장소 기능에 대해 설명 Azure Database for MySQL
+description: 시간에 따른 성능을 추적 하는 데 도움이 되는 Azure Database for MySQL의 쿼리 저장소 기능에 대해 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 884824b6f6fd8bf5b4c7730813c4363fae018375
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: e938baa21f9d2351b3270f4fa2411bf8ecb547d4
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950589"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972808"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>쿼리 저장소를 사용 하 여 Azure Database for MySQL 성능 모니터링
 
@@ -37,7 +37,7 @@ Azure Database for MySQL의 쿼리 저장소 기능은 시간이 지남에 따�
 ### <a name="enable-query-store-using-the-azure-portal"></a>Azure Portal을 통해 쿼리 저장소 사용
 
 1. Azure Portal에 로그인 하 고 Azure Database for MySQL 서버를 선택 합니다.
-1. 메뉴의 **설정**  **** 섹션에서서버매개변수를선택 합니다.
+1. 메뉴의 **설정** section 섹션 @no__t **서버 매개 변수**를 선택 합니다.
 1. Query_store_capture_mode 매개 변수를 검색 합니다.
 1. 값을 모두로 설정 하 고 **저장**합니다.
 
@@ -75,11 +75,11 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 다음은 쿼리 저장소의 대기 통계를 사용하여 워크로드에 대한 더 많은 통찰력을 얻을 수 있는 방법의 몇 가지 예입니다.
 
-| **관찰** | **동작** |
+| **관찰** | **작업** |
 |---|---|
 |최고 잠금 대기 | 영향을 받는 쿼리에 대한 쿼리 텍스트를 확인하고 대상 엔터티를 식별합니다. 쿼리 저장소에서 자주 실행되거나 오래 실행되는 동일한 엔터티를 수정하는 다른 쿼리를 확인합니다. 이러한 쿼리를 식별한 후 동시성 향상을 위해 애플리케이션 논리를 변경해 보거나 덜 제한적인 격리 수준을 사용합니다. |
-|높은 버퍼 IO 대기 | 쿼리 저장소에서 물리적 읽기 횟수가 많은 쿼리를 찾습니다. IO 대기 시간이 높은 쿼리와 일치 하는 경우에는 검색 대신 검색을 수행 하기 위해 기본 엔터티에 대 한 인덱스를 도입 하는 것이 좋습니다. 이렇게 하면 쿼리의 IO 오버헤드가 최소화됩니다. 포털에서 서버에 대 한 **성능 권장 사항을** 확인 하 여 쿼리를 최적화 하는이 서버에 대 한 인덱스 권장 구성이 있는지 확인 합니다. |
-|높은 메모리 대기 | 쿼리 저장소에서 메모리 사용량이 많은 상위 쿼리를 찾습니다. 이러한 쿼리는 영향을 받는 쿼리의 추가 진행을 지연시킬 수 있습니다. 포털에서 서버에 대 한 **성능 권장 사항을** 확인 하 여 이러한 쿼리를 최적화 하는 인덱스 권장 구성이 있는지 확인 합니다.|
+|높은 버퍼 IO 대기 | 쿼리 저장소에서 물리적 읽기 횟수가 많은 쿼리를 찾습니다. IO 대기 시간이 높은 쿼리와 일치 하는 경우에는 검색 대신 검색을 수행 하기 위해 기본 엔터티에 대 한 인덱스를 도입 하는 것이 좋습니다. 이렇게 하면 쿼리의 IO 오버헤드가 최소화됩니다. 포털에서 서버를 @no__t 1for **성능 권장 사항을**확인 하 여 쿼리를 최적화 하는이 서버에 대 한 인덱스 권장 구성이 있는지 확인 합니다. |
+|높은 메모리 대기 | 쿼리 저장소에서 메모리 사용량이 많은 상위 쿼리를 찾습니다. 이러한 쿼리는 영향을 받는 쿼리의 추가 진행을 지연시킬 수 있습니다. 포털에서 서버를 @no__t 1for **성능 권장 사항을**확인 하 여 이러한 쿼리를 최적화 하는 인덱스 권장 구성이 있는지 확인 합니다.|
 
 ## <a name="configuration-options"></a>구성 옵션
 
@@ -104,11 +104,11 @@ SELECT * FROM mysql.query_store_wait_stats;
 > [!NOTE]
 > 현재 **query_store_capture_mode** 는이 구성을 대체 합니다. 즉, 모든 대기 통계가 작동 하려면 **query_store_capture_mode** 와 **query_store_wait_sampling_capture_mode** 를 모두 사용 하도록 설정 해야 합니다. **Query_store_capture_mode** 가 해제 된 경우 대기 통계는 performance_schema를 사용 하 고 query_text는 쿼리 저장소로 캡처한 후에도 대기 통계가 꺼집니다.
 
- [Azure Portal](howto-server-parameters.md) 또는 [](howto-configure-server-parameters-using-cli.md)Azure CLI를 사용 하 여 매개 변수에 대 한 다른 값을 가져오거나 설정 합니다.
+매개 변수에 다른 값을 가져오거나 설정 하려면 [Azure Portal](howto-server-parameters.md)  또는 [Azure CLI](howto-configure-server-parameters-using-cli.md) 을 사용 합니다.
 
 ## <a name="views-and-functions"></a>보기 및 함수
 
-다음 보기 및 함수를 사용하여 쿼리 저장소를 보고 관리합니다. [권한 선택 public 역할](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) 의 모든 사용자는 이러한 뷰를 사용 하 여 쿼리 저장소의 데이터를 볼 수 있습니다. 이러한 보기는 **mysql** 데이터베이스 에서만 사용할 수 있습니다.
+다음 보기 및 함수를 사용하여 쿼리 저장소를 보고 관리합니다. [권한 선택 public 역할](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) 의 모든 사용자는 이러한 뷰를 사용 하 여 쿼리 저장소의 데이터를 볼 수 있습니다. 이러한 보기는 **mysql** database 에서만 사용할 수 있습니다.
 
 쿼리는 리터럴 및 상수를 제거한 후 구조를 확인하여 정규화됩니다. 리터럴 값을 제외하고 두 쿼리가 동일한 경우에는 동일한 해시를 포함합니다.
 
@@ -171,10 +171,10 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 ## <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제
 
-- MySQL 서버에 매개 변수가 `default_transaction_read_only` 있으면 쿼리 저장소 데이터를 캡처할 수 없습니다.
-- 긴 유니코드 쿼리 (\>= 6000 바이트)를 발견 하면 쿼리 저장소 기능을 중단할 수 있습니다.
+- MySQL 서버에 `default_transaction_read_only` 매개 변수가 있으면 쿼리 저장소 데이터를 캡처할 수 없습니다.
+- 쿼리 저장소 기능이 긴 유니코드 쿼리 (\> = 6000 바이트)를 발견 하면 중단 될 수 있습니다.
 - 대기 통계의 보존 기간은 24 시간입니다.
-- 대기 통계는 샘플 ti를 사용 하 여 이벤트의 비율을 수집 합니다. 매개 변수 `query_store_wait_sampling_frequency`를 사용 하 여 빈도를 수정할 수 있습니다.
+- 대기 통계는 샘플 ti를 사용 하 여 이벤트의 비율을 수집 합니다. -0 @no__t 매개 변수를 사용 하 여 빈도를 수정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

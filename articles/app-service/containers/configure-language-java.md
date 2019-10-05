@@ -4,7 +4,7 @@ description: Linux의 Azure App Service에서 실행되는 Java 앱을 구성하
 keywords: azure app service, 웹 앱, linux, oss, java, java ee, jee, javaee
 services: app-service
 author: bmitchell287
-manager: douge
+manager: barbkess
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 8e47365f74668ba2b93bad2b65a9dc9e83080832
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 26f9bac42ef98f1063194340a5aa20aef6fe316e
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098134"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972943"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux Java 앱 구성
 
@@ -59,7 +59,7 @@ Azure Portal 또는 [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config)를 �
 
 ### <a name="troubleshooting-tools"></a>문제 해결 도구
 
-기본 제공 Java 이미지는 [알파인 Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) 운영 체제를 기반으로 합니다. `apk` 패키지 관리자를 사용 하 여 문제 해결 도구나 명령을 설치 합니다.
+기본 제공 Java 이미지는 [알파인 Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) 운영 체제를 기반으로 합니다. @No__t-0 패키지 관리자를 사용 하 여 문제 해결 도구나 명령을 설치 합니다.
 
 ### <a name="flight-recorder"></a>비행 레코더
 
@@ -82,11 +82,11 @@ Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
 jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/home/jfr_example.jfr"
 ```
 
-30 초 간격 동안를 실행 `jcmd 116 JFR.check`하 여 기록이 수행 되는지 유효성을 검사할 수 있습니다. 그러면 지정 된 Java 프로세스의 모든 기록이 표시 됩니다.
+30 초 간격 동안 `jcmd 116 JFR.check`을 실행 하 여 기록이 발생 하는지 확인할 수 있습니다. 그러면 지정 된 Java 프로세스의 모든 기록이 표시 됩니다.
 
 #### <a name="continuous-recording"></a>연속 녹화
 
-줄루어 비행 레코더를 사용 하 여 런타임 성능 ([원본](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf))에 미치는 영향을 최소화 하면서 Java 응용 프로그램을 지속적으로 프로 파일링 할 수 있습니다. 이렇게 하려면 다음 Azure CLI 명령을 실행 하 여 필요한 구성이 포함 된 JAVA_OPTS 라는 앱 설정을 만듭니다. JAVA_OPTS 앱 설정의 내용은 앱이 시작 될 때 `java` 명령에 전달 됩니다.
+줄루어 비행 레코더를 사용 하 여 런타임 성능 ([원본](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf))에 미치는 영향을 최소화 하면서 Java 응용 프로그램을 지속적으로 프로 파일링 할 수 있습니다. 이렇게 하려면 다음 Azure CLI 명령을 실행 하 여 필요한 구성이 포함 된 JAVA_OPTS 라는 앱 설정을 만듭니다. JAVA_OPTS 앱 설정의 내용은 앱이 시작 될 때 `java` 명령으로 전달 됩니다.
 
 ```azurecli
 az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
@@ -116,7 +116,7 @@ Linux 용 Azure App Service에서는 Azure Portal 및 CLI를 통해 기본 튜�
 
 ### <a name="set-java-runtime-options"></a>Java 런타임 옵션 설정
 
-Tomcat 및 Java SE 환경에서 할당 된 메모리 또는 기타 JVM 런타임 옵션을 설정 하려면 옵션으로 `JAVA_OPTS` 이라는 [앱 설정을](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) 만듭니다. App Service Linux는 시작될 때 이 설정을 Java 런타임에 환경 변수로 전달합니다.
+Tomcat 및 Java SE 환경에서 할당 된 메모리 또는 기타 JVM 런타임 옵션을 설정 하려면 옵션을 사용 하 여 `JAVA_OPTS` 이라는 [앱 설정을](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) 만듭니다. App Service Linux는 시작될 때 이 설정을 Java 런타임에 환경 변수로 전달합니다.
 
 Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에서 `-Xms512m -Xmx1204m`처럼 추가 설정을 포함하는 `JAVA_OPTS`라고 하는 새 앱 설정을 만듭니다.
 
@@ -133,13 +133,13 @@ Maven 플러그 인에서 앱 설정을 구성 하려면 Azure 플러그 인 섹
 
 App Service 계획에서 배포 슬롯 하나를 사용하여 단일 애플리케이션을 실행하는 개발자는 다음 옵션을 사용할 수 있습니다.
 
-- B1 및 S1 인스턴스:`-Xms1024m -Xmx1024m`
-- B2 및 S2 인스턴스:`-Xms3072m -Xmx3072m`
-- B3 및 S3 인스턴스:`-Xms6144m -Xmx6144m`
+- B1 및 S1 인스턴스: `-Xms1024m -Xmx1024m`
+- B2 및 S2 인스턴스: `-Xms3072m -Xmx3072m`
+- B3 및 S3 인스턴스: `-Xms6144m -Xmx6144m`
 
 애플리케이션 힙 설정을 튜닝할 때 App Service 계획 세부 정보를 검토하고 여러 애플리케이션 및 배포 슬롯 요구 사항을 고려하여 최적의 메모리 할당을 찾아보세요.
 
-JAR 응용 프로그램을 배포 하는 경우 기본 제공 이미지가 앱을 올바르게 식별할 수 있도록이 파일의 이름을 *app.config* 로 지정 해야 합니다. Maven 플러그 인은이 이름을 자동으로 바꿉니다. JAR의 이름을 *app.config*로 변경 하지 않으려는 경우에는 명령을 사용 하 여 셸 스크립트를 업로드 하 여 jar을 실행할 수 있습니다. 그런 다음 포털의 구성 섹션에 있는 [시작 파일](app-service-linux-faq.md#built-in-images) 텍스트 상자에이 스크립트의 전체 경로를 붙여넣습니다. 시작 스크립트가 배치 된 디렉터리에서 실행 되지 않습니다. 따라서 항상 절대 경로를 사용 하 여 시작 스크립트의 파일을 참조 합니다 (예 `java -jar /home/myapp/myapp.jar`:).
+JAR 응용 프로그램을 배포 하는 경우 기본 제공 이미지가 앱을 올바르게 식별할 수 있도록이 파일의 이름을 *app.config* 로 지정 해야 합니다. Maven 플러그 인은이 이름을 자동으로 바꿉니다. JAR의 이름을 *app.config*로 변경 하지 않으려는 경우에는 명령을 사용 하 여 셸 스크립트를 업로드 하 여 jar을 실행할 수 있습니다. 그런 다음 포털의 구성 섹션에 있는 [시작 파일](app-service-linux-faq.md#built-in-images) 텍스트 상자에이 스크립트의 전체 경로를 붙여넣습니다. 시작 스크립트가 배치 된 디렉터리에서 실행 되지 않습니다. 따라서 항상 절대 경로를 사용 하 여 시작 스크립트 (예: `java -jar /home/myapp/myapp.jar`)의 파일을 참조 합니다.
 
 ### <a name="turn-on-web-sockets"></a>웹 소켓 켜기
 
@@ -175,7 +175,7 @@ Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에 `-Dfile.en
 
 ### <a name="adjust-startup-timeout"></a>시작 시간 제한 조정
 
-Java 응용 프로그램이 특히 클 경우 시작 시간 제한을 늘려야 합니다. 이렇게 하려면 응용 프로그램 설정을 `WEBSITES_CONTAINER_START_TIME_LIMIT` 만들고 제한 시간이 초과 될 때까지 App Service 대기 해야 하는 시간 (초)으로 설정 합니다. 최대값 `1800` 은 초입니다.
+Java 응용 프로그램이 특히 클 경우 시작 시간 제한을 늘려야 합니다. 이 작업을 수행 하려면 응용 프로그램 설정을 만들고 `WEBSITES_CONTAINER_START_TIME_LIMIT`을 설정 하 고 제한 시간이 초과 될 때까지 App Service 기다려야 하는 시간 (초)으로 설정 합니다. 최대값은 `1800` 초입니다.
 
 ### <a name="pre-compile-jsp-files"></a>JSP 파일 미리 컴파일
 
@@ -191,13 +191,13 @@ Linux용 App Service에서 실행되는 Java 애플리케이션의 [보안 모�
 
 #### <a name="tomcat-and-wildfly"></a>Tomcat 및 Wildfly
 
-Tomcat 또는 Wildfly 응용 프로그램은 주 개체를 Map 개체로 캐스팅 하 여 서블릿에 사용자의 클레임에 직접 액세스할 수 있습니다. Map 개체는 각 클레임 형식을 해당 형식에 대 한 클레임 컬렉션에 매핑합니다. 아래 `request` 코드에서는의 `HttpServletRequest`인스턴스입니다.
+Tomcat 또는 Wildfly 응용 프로그램은 주 개체를 Map 개체로 캐스팅 하 여 서블릿에 사용자의 클레임에 직접 액세스할 수 있습니다. Map 개체는 각 클레임 형식을 해당 형식에 대 한 클레임 컬렉션에 매핑합니다. 아래 코드에서 `request`은 `HttpServletRequest`의 인스턴스입니다.
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
 ```
 
-이제 특정 클레임에 대 `Map` 한 개체를 검사할 수 있습니다. 예를 들어 다음 코드 조각은 모든 클레임 형식을 반복 하 고 각 컬렉션의 내용을 인쇄 합니다.
+이제 특정 클레임에 대 한 `Map` 개체를 검사할 수 있습니다. 예를 들어 다음 코드 조각은 모든 클레임 형식을 반복 하 고 각 컬렉션의 내용을 인쇄 합니다.
 
 ```java
 for (Object key : map.keySet()) {
@@ -221,7 +221,7 @@ public String getScheme()
 public int getServerPort()
 ```
 
-이 기능을 사용 하지 않도록 설정 하려면 `WEBSITE_AUTH_SKIP_PRINCIPAL` `1`값이 인 라는 응용 프로그램 설정을 만듭니다. App Service에 의해 추가 된 모든 서블릿 필터를 사용 하지 않도록 설정 `WEBSITE_SKIP_FILTERS` 하려면 `1`값이 인 이라는 설정을 만듭니다.
+이 기능을 사용 하지 않도록 설정 하려면 값이 `1` 인 `WEBSITE_AUTH_SKIP_PRINCIPAL` 이라는 응용 프로그램 설정을 만듭니다. App Service에 의해 추가 된 모든 서블릿 필터를 사용 하지 않도록 설정 하려면 값이-1 인 `WEBSITE_SKIP_FILTERS` @no__t 값을 만듭니다.
 
 #### <a name="spring-boot"></a>Spring Boot
 
@@ -273,13 +273,13 @@ Spring Boot 개발자는 [Azure Active Directory Spring Boot starter](/java/azur
 
 ### <a name="starting-jar-apps"></a>JAR 앱 시작
 
-기본적으로 App Service는 JAR 응용 프로그램의 이름을 *app.config*로 지정 합니다. 이 이름이 있으면 자동으로 실행 됩니다. Maven 사용자의 경우 *pom .xml*의 `<build>` 섹션에를 포함 `<finalName>app</finalName>` 하 여 JAR 이름을 설정할 수 있습니다. 속성을 `archiveFileName` 설정 하 여 [Gradle에서 동일한 작업을 수행할 수](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) 있습니다.
+기본적으로 App Service는 JAR 응용 프로그램의 이름을 *app.config*로 지정 합니다. 이 이름이 있으면 자동으로 실행 됩니다. Maven 사용자의 경우 *pom .xml*의 `<build>` 섹션에 `<finalName>app</finalName>`을 포함 하 여 JAR 이름을 설정할 수 있습니다. @No__t-1 속성을 설정 하 여 [Gradle에서 동일한 작업을 수행할 수](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) 있습니다.
 
-JAR에 다른 이름을 사용 하려는 경우 JAR 파일을 실행 하는 [시작 명령도](app-service-linux-faq.md#built-in-images) 제공 해야 합니다. 예를 들어, `java -jar my-jar-app.jar`을 입력합니다. 시작 명령에 대 한 값은 포털의 구성 > 일반 설정 아래 또는 라는 `STARTUP_COMMAND`응용 프로그램 설정으로 설정할 수 있습니다.
+JAR에 다른 이름을 사용 하려는 경우 JAR 파일을 실행 하는 [시작 명령도](app-service-linux-faq.md#built-in-images) 제공 해야 합니다. 예를 들어, `java -jar my-jar-app.jar`을 입력합니다. 포털의 시작 명령에 대 한 값은 구성 > 일반 설정에서 설정 하거나 `STARTUP_COMMAND` 이라는 응용 프로그램 설정을 사용 하 여 설정할 수 있습니다.
 
 ### <a name="server-port"></a>서버 포트
 
-App Service Linux는 들어오는 요청을 80 포트에 라우팅합니다. 따라서 응용 프로그램은 포트 80 에서도 수신 대기 해야 합니다. 응용 프로그램의 구성 (예: 스프링의 *응용 프로그램 속성* 파일) 또는 시작 명령 (예 `java -jar spring-app.jar --server.port=80`:)에서이 작업을 수행할 수 있습니다. 일반적인 Java 프레임 워크는 다음 설명서를 참조 하세요.
+App Service Linux는 들어오는 요청을 80 포트에 라우팅합니다. 따라서 응용 프로그램은 포트 80 에서도 수신 대기 해야 합니다. 응용 프로그램의 구성 (예: 스프링의 *응용 프로그램 속성* 파일) 또는 시작 명령 (예: `java -jar spring-app.jar --server.port=80`)에서이 작업을 수행할 수 있습니다. 일반적인 Java 프레임 워크는 다음 설명서를 참조 하세요.
 
 - [Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-properties-and-configuration.html#howto-use-short-command-line-arguments)
 - [SparkJava](http://sparkjava.com/documentation#embedded-web-server)
@@ -288,7 +288,7 @@ App Service Linux는 들어오는 요청을 80 포트에 라우팅합니다. 따
 - [Vertx](https://vertx.io/docs/vertx-core/java/#_start_the_server_listening)
 - [Quarkus](https://quarkus.io/guides/application-configuration-guide)
 
-## <a name="data-sources"></a>데이터 소스
+## <a name="data-sources"></a>데이터 원본
 
 ### <a name="tomcat"></a>Tomcat
 
@@ -300,7 +300,7 @@ App Service Linux는 들어오는 요청을 80 포트에 라우팅합니다. 따
 | MySQL      | `com.mysql.jdbc.Driver`                        | [다운로드](https://dev.mysql.com/downloads/connector/j/)(“플랫폼 독립적” 선택) |
 | SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [다운로드](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
 
-JDBC (Java Database Connectivity) 또는 jpa (Java 지 속성 API)를 사용 하도록 Tomcat를 구성 하려면 먼저 `CATALINA_OPTS` Tomcat에서 읽을 환경 변수를 시작 합니다. [App Service Maven 플러그 인](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)에서 앱 설정을 통해 이러한 값을 설정합니다.
+JDBC (Java Database Connectivity) 또는 JPA (Java 지 속성 API)를 사용 하도록 Tomcat를 구성 하려면 먼저 Tomcat에서 읽은 `CATALINA_OPTS` 환경 변수를 사용자 지정 합니다. [App Service Maven 플러그 인](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)에서 앱 설정을 통해 이러한 값을 설정합니다.
 
 ```xml
 <appSettings>
@@ -311,7 +311,7 @@ JDBC (Java Database Connectivity) 또는 jpa (Java 지 속성 API)를 사용 하
 </appSettings>
 ```
 
-또는 Azure Portal **구성** > **응용 프로그램 설정** 페이지에서 환경 변수를 설정 합니다.
+또는 Azure Portal의 **Configuration** > **응용 프로그램 설정** 페이지에서 환경 변수를 설정 합니다.
 
 다음으로, 데이터 원본을 한 애플리케이션에만 제공할 것인지 또는 Tomcat 서블릿에서 실행 중인 모든 애플리케이션에 제공할 것인지 결정합니다.
 
@@ -319,7 +319,7 @@ JDBC (Java Database Connectivity) 또는 jpa (Java 지 속성 API)를 사용 하
 
 1. 프로젝트의 *META-INF/* 디렉터리에 *컨텍스트별* 파일을 만듭니다. 존재 하지 않는 경우 *META-INF/* 디렉터리를 만듭니다.
 
-2. *컨텍스트별*에서 요소를 `Context` 추가 하 여 데이터 원본을 JNDI 주소에 연결 합니다. `driverClassName` 자리 표시자를 위 테이블에 있는 드라이버의 클래스 이름으로 바꿉니다.
+2. *컨텍스트별*에서 `Context` 요소를 추가 하 여 데이터 원본을 JNDI 주소에 연결 합니다. `driverClassName` 자리 표시자를 위 테이블에 있는 드라이버의 클래스 이름으로 바꿉니다.
 
     ```xml
     <Context>
@@ -352,7 +352,7 @@ JDBC (Java Database Connectivity) 또는 jpa (Java 지 속성 API)를 사용 하
     cp -a /usr/local/tomcat/conf /home/tomcat/conf
     ```
 
-2. *서버 .xml* 의 `<Server>` 요소 내에 컨텍스트 요소를 추가 합니다.
+2. @No__t-1 요소 내에서 *server .xml* 에 컨텍스트 요소를 추가 합니다.
 
     ```xml
     <Server>
@@ -410,7 +410,7 @@ JDBC (Java Database Connectivity) 또는 jpa (Java 지 속성 API)를 사용 하
 
 1. App Service 페이지의 "구성" 섹션에서 문자열의 이름을 설정 하 고, JDBC 연결 문자열을 값 필드에 붙여넣고, 유형을 "Custom"으로 설정 합니다. 필요에 따라이 연결 문자열을 슬롯 설정으로 설정할 수 있습니다.
 
-    이 연결 문자열은 라는 `CUSTOMCONNSTR_<your-string-name>`환경 변수로 응용 프로그램에서 액세스할 수 있습니다. 예를 들어 위에서 만든 연결 문자열의 이름은로 지정 `CUSTOMCONNSTR_exampledb`됩니다.
+    이 연결 문자열은 `CUSTOMCONNSTR_<your-string-name>` 이라는 환경 변수로 응용 프로그램에서 액세스할 수 있습니다. 예를 들어 위에서 만든 연결 문자열의 이름은-0 @no__t로 지정 됩니다.
 
 2. *응용 프로그램 속성* 파일에서 환경 변수 이름을 사용 하 여이 연결 문자열을 참조 합니다. 이 예에서는 다음을 사용 합니다.
 
@@ -480,7 +480,7 @@ JBoss CLI를 통해 모듈 및 해당 종속성을 WildFly 클래스 경로에 �
 모듈에 대 한 파일 및 내용이 있으면 아래 단계에 따라 모듈을 WildFly 응용 프로그램 서버에 추가 합니다.
 
 1. FTP를 사용 하 여 */home* 디렉터리에서 App Service 인스턴스의 위치 (예: */home/site/deployments/tools*)에 파일을 업로드 합니다. 자세한 내용은 [FTP/S를 사용 하 여 Azure App Service에 앱 배포](../deploy-ftp.md)를 참조 하세요.
-2. Azure Portal의 **구성** > **일반 설정** 페이지에서 시작 **스크립트** 필드를 시작 셸 스크립트의 위치 (예: */home/site/deployments/tools/startup.sh*)로 설정 합니다.
+2. Azure Portal **구성** > **일반 설정** 페이지에서 시작 **스크립트** 필드를 시작 셸 스크립트의 위치 (예: */home/site/deployments/tools/startup.sh*)로 설정 합니다.
 3. 포털의 **개요** 섹션에서 **다시 시작** 단추를 누르거나 Azure CLI를 사용 하 여 App Service 인스턴스를 다시 시작 합니다.
 
 ### <a name="configure-data-sources"></a>데이터 원본 구성
@@ -489,13 +489,13 @@ JBoss CLI를 통해 모듈 및 해당 종속성을 WildFly 클래스 경로에 �
 
 이 섹션에서는 앱, App Service 인스턴스 및 Azure 데이터베이스 서비스 인스턴스가 이미 있다고 가정 합니다. 아래 지침은 App Service 이름, 해당 리소스 그룹 및 데이터베이스 연결 정보를 나타냅니다. Azure Portal에서이 정보를 찾을 수 있습니다.
 
-샘플 앱 [을 사용 하 여 처음부터 전체 프로세스를 진행 하려면 자습서: Azure](tutorial-java-enterprise-postgresql-app.md)에서 Java EE 및 postgres 웹 앱을 빌드합니다.
+샘플 앱을 사용 하 여 전체 프로세스를 시작 하는 것을 선호 하는 경우 [Tutorial를 참조 하세요. Azure @ no__t-0에서 Java EE 및 Postgres 웹 앱을 빌드합니다.
 
 다음 단계에서는 기존 App Service 및 데이터베이스를 연결 하기 위한 요구 사항을 설명 합니다.
 
 1. [PostgreSQL](https://jdbc.postgresql.org/download.html), [MySQL](https://dev.mysql.com/downloads/connector/j/)또는 [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)에 대 한 JDBC 드라이버를 다운로드 합니다. 다운로드 한 보관 파일의 압축을 풀어 드라이버 jar 파일을 가져옵니다.
 
-2. *모듈 .xml* 과 같은 이름을 사용 하 여 파일을 만들고 다음 태그를 추가 합니다. PostgreSQL, `org.postgres` MySQL또는`com.microsoft` SQL Server의 경우 자리표시자(꺾쇠괄호포함)를로바꿉니다.`<module name>` `com.mysql` 을 `<JDBC .jar file path>` 이전 단계의 jar 파일 이름으로 바꾸고,을 App Service 인스턴스에 파일을 저장할 위치에 대 한 전체 경로를 포함 합니다. */Home* 디렉터리 아래의 모든 위치를 사용할 수 있습니다.
+2. *모듈 .xml* 과 같은 이름을 사용 하 여 파일을 만들고 다음 태그를 추가 합니다. @No__t-0 자리 표시자 (꺾쇠 괄호 포함)를 PostgreSQL에 대 한 `org.postgres`, MySQL의 경우 `com.mysql`로, SQL Server에 대해 `com.microsoft`으로 바꿉니다. @No__t-0을 이전 단계의 jar 파일 이름으로 바꿉니다 .이 파일의 전체 경로를 포함 하 여 App Service 인스턴스에 파일을 배치 합니다. */Home* 디렉터리 아래의 모든 위치를 사용할 수 있습니다.
 
     ```xml
     <?xml version="1.0" ?>
@@ -510,7 +510,7 @@ JBoss CLI를 통해 모듈 및 해당 종속성을 WildFly 클래스 경로에 �
     </module>
     ```
 
-3. *Datasource-commands* 와 같은 이름으로 파일을 만들고 다음 코드를 추가 합니다. 을 `<JDBC .jar file path>` 이전 단계에서 사용한 값으로 바꿉니다. 이전 `<module file path>` 단계의 파일 이름 및 App Service 경로로 대체 합니다 (예: */home/module.xml*).
+3. *Datasource-commands* 와 같은 이름으로 파일을 만들고 다음 코드를 추가 합니다. @No__t-0을 이전 단계에서 사용한 값으로 바꿉니다. @No__t-0을 이전 단계의 파일 이름 및 App Service 경로로 바꿉니다 (예: */home/module.xml*).
 
     **PostgreSQL**
 
@@ -550,7 +550,7 @@ JBoss CLI를 통해 모듈 및 해당 종속성을 WildFly 클래스 경로에 �
 
     이 파일은 다음 단계에서 설명 하는 시작 스크립트를 통해 실행 됩니다. WildFly 모듈로 JDBC 드라이버를 설치 하 고 해당 WildFly 데이터 원본을 만든 다음 서버를 다시 로드 하 여 변경 내용이 적용 되도록 합니다.
 
-4. *Startup.sh* 와 같은 이름으로 파일을 만들고 다음 코드를 추가 합니다. 을 `<JBoss CLI script>` 이전 단계에서 만든 파일 이름으로 바꿉니다. App Service 인스턴스에 파일을 배치 하는 위치의 전체 경로를 포함 해야 합니다 (예: */home/datasource-commands.cli*).
+4. *Startup.sh* 와 같은 이름으로 파일을 만들고 다음 코드를 추가 합니다. @No__t-0을 이전 단계에서 만든 파일 이름으로 바꿉니다. App Service 인스턴스에 파일을 배치 하는 위치의 전체 경로를 포함 해야 합니다 (예: */home/datasource-commands.cli*).
 
     ```bash
     #!/usr/bin/env bash
@@ -559,7 +559,7 @@ JBoss CLI를 통해 모듈 및 해당 종속성을 WildFly 클래스 경로에 �
 
 5. FTP를 사용 하 여 JDBC 파일, 모듈 XML 파일, JBoss CLI 스크립트 및 시작 스크립트를 App Service 인스턴스에 업로드 합니다. 이전 단계에서 지정한 위치 (예: */home*)에 이러한 파일을 넣습니다. FTP에 대 한 자세한 내용은 [ftp/S를 사용 하 여 Azure App Service에 앱 배포](https://docs.microsoft.com/azure/app-service/deploy-ftp)를 참조 하세요.
 
-6. Azure CLI를 사용 하 여 데이터베이스 연결 정보를 저장 하는 설정을 App Service에 추가 합니다. `<resource group>` 및`<webapp name>` 를 App Service 사용 하는 값으로 바꿉니다. , `<database server name>` ,`<database name>`및 를데이터베이스연결`<admin password>` 정보로 바꿉니다. `<admin name>` Azure Portal에서 App Service 및 데이터베이스 정보를 가져올 수 있습니다.
+6. Azure CLI를 사용 하 여 데이터베이스 연결 정보를 저장 하는 설정을 App Service에 추가 합니다. @No__t-0 및 `<webapp name>`을 App Service 사용 하는 값으로 바꿉니다. @No__t-0, `<database name>`, `<admin name>` 및 `<admin password>`을 데이터베이스 연결 정보로 바꿉니다. Azure Portal에서 App Service 및 데이터베이스 정보를 가져올 수 있습니다.
 
     **PostgreSQL:**
 
@@ -607,7 +607,7 @@ JBoss CLI를 통해 모듈 및 해당 종속성을 WildFly 클래스 경로에 �
 
 다음에는 앱에 대 한 WildFly 구성을 업데이트 하 고 다시 배포 해야 합니다. 다음 단계를 사용합니다.
 
-1. 앱에 대 한 *src/main/resources/META-INF/지 속성* 파일을 열고 요소를 `<jta-data-source>` 찾습니다. 다음과 같이 내용을 바꿉니다.
+1. 앱에 대 한 *src/main/resources/META-INF/지 속성* 파일을 열고 `<jta-data-source>` 요소를 찾습니다. 다음과 같이 내용을 바꿉니다.
 
     **PostgreSQL**
 
@@ -657,7 +657,7 @@ Service Bus를 메시징 메커니즘으로 사용하여 메시지 기반 Bean�
 
 Redis와 함께 Tomcat를 사용 하려면 [PersistentManager](http://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) 구현을 사용 하도록 앱을 구성 해야 합니다. 다음 단계에서는 [Pivotal 세션 관리자](https://github.com/pivotalsoftware/session-managers/tree/master/redis-store) 를 사용 하 여이 프로세스를 설명 합니다. redis.
 
-1. Bash 터미널을 열고를 사용 `export <variable>=<value>` 하 여 다음과 같은 각 환경 변수를 설정 합니다.
+1. Bash 터미널을 열고 `export <variable>=<value>`을 사용 하 여 다음의 각 환경 변수를 설정 합니다.
 
     | 변수                 | 값                                                                      |
     |--------------------------|----------------------------------------------------------------------------|
@@ -710,7 +710,7 @@ Redis와 함께 Tomcat를 사용 하려면 [PersistentManager](http://tomcat.apa
 
 7. Redis 인스턴스의 **고급 설정** 섹션으로 이동 하 여 **SSL을 통해서만 액세스 허용** 을 **아니요**로 설정 합니다. 이렇게 하면 App Service 인스턴스가 Azure 인프라를 통해 Redis 캐시와 통신할 수 있습니다.
 
-8. Redis 계정 정보를 참조 하도록 앱의 *pom .xml* 파일에서 구성을업데이트합니다.`azure-webapp-maven-plugin` 이 파일은 이전에 설정한 환경 변수를 사용 하 여 계정 정보를 원본 파일에서 제외 합니다.
+8. Redis 계정 정보를 참조 하도록 앱의 *pom .xml* 파일에서 `azure-webapp-maven-plugin` 구성을 업데이트 합니다. 이 파일은 이전에 설정한 환경 변수를 사용 하 여 계정 정보를 원본 파일에서 제외 합니다.
 
     필요한 경우 `1.7.0`을 [Azure App Service용 Maven 플러그 인](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)의 최신 버전으로 변경합니다.
 

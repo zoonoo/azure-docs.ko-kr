@@ -1,17 +1,17 @@
 ---
 title: REST API 및 템플릿으로 리소스 배포 | Microsoft Docs
-description: Azure Resource Manager 및 Resource Manager REST API를 사용 하 여 Azure에 리소스를 배포 합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
+description: Azure Resource Manager 및 리소스 관리자 REST API를 사용 하 여 Azure에 리소스를 배포 합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 42f6ce96cf339e90ed0a0dcdbdb3f1b6924430e9
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 5b3170d640257774339697ee7915169c2f5e451f
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206408"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973344"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>리소스 관리자 템플릿과 리소스 관리자 REST API로 리소스 배포
 
@@ -21,27 +21,27 @@ ms.locfileid: "67206408"
 
 ## <a name="deployment-scope"></a>배포 범위
 
-관리 그룹, Azure 구독 또는 리소스 그룹 배포를 대상으로 지정할 수 있습니다. 대부분의 경우에서 리소스 그룹에 배포 대상으로 수 있습니다. 지정된 된 범위에서 정책 및 역할 할당을 적용 하기 위해 관리 그룹 또는 구독 배포를 사용 합니다. 또한 리소스 그룹을 만들고 리소스를 배포할 구독 배포를 사용 합니다. 배포의 범위에 따라 다른 명령을 사용할 수 있습니다.
+관리 그룹, Azure 구독 또는 리소스 그룹에 대 한 배포를 대상으로 지정할 수 있습니다. 대부분의 경우 리소스 그룹에 대 한 배포를 대상으로 합니다. 관리 그룹 또는 구독 배포를 사용 하 여 지정 된 범위에서 정책 및 역할 할당을 적용 합니다. 또한 구독 배포를 사용 하 여 리소스 그룹을 만들고 리소스를 배포 합니다. 배포의 범위에 따라 다른 명령을 사용 합니다.
 
-배포 하는 **리소스 그룹**를 사용 하 여 [배포 만들기](/rest/api/resources/deployments/createorupdate)합니다. 요청에 전송 됩니다.
+**리소스 그룹**에 배포 하려면 [배포-만들기](/rest/api/resources/deployments/createorupdate)를 사용 합니다. 요청은 다음으로 전송 됩니다.
 
 ```HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
 ```
 
-배포 하는 **구독**를 사용 하 여 [Deployments-구독 범위에서 만들기](/rest/api/resources/deployments/createorupdateatsubscriptionscope)합니다. 요청에 전송 됩니다.
+**구독**에 배포 하려면 [배포-구독 범위에서 만들기](/rest/api/resources/deployments/createorupdateatsubscriptionscope)를 사용 합니다. 요청은 다음으로 전송 됩니다.
 
 ```HTTP
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
 ```
 
-배포 하는 **관리 그룹**를 사용 하 여 [배포에서 관리 그룹 범위 만들기](/rest/api/resources/deployments/createorupdateatmanagementgroupscope)합니다. 요청에 전송 됩니다.
+**관리 그룹**에 배포 하려면 [배포-관리 그룹 범위에서 만들기](/rest/api/resources/deployments/createorupdateatmanagementgroupscope)를 사용 합니다. 요청은 다음으로 전송 됩니다.
 
 ```HTTP
 PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
 ```
 
-이 문서의 예제에서는 리소스 그룹 배포를 사용합니다. 구독 배포에 대 한 자세한 내용은 참조 하세요. [구독 수준에서 리소스 그룹 및 리소스를 만드는](deploy-to-subscription.md)합니다.
+이 문서의 예제에서는 리소스 그룹 배포를 사용 합니다. 구독 배포에 대 한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](deploy-to-subscription.md)를 참조 하세요.
 
 ## <a name="deploy-with-the-rest-api"></a>REST API를 사용하여 배포
 
@@ -66,13 +66,15 @@ PUT https://management.azure.com/providers/Microsoft.Management/managementGroups
 
 1. 배포를 실행하기 전에 [템플릿 배포 유효성 검사](/rest/api/resources/deployments/validate) 작업을 실행하여 배포 유효성을 검사합니다. 배포를 테스트할 때는 배포를 실행할 때처럼 정확하게 매개 변수를 제공합니다(다음 단계에 표시됨).
 
-1. 템플릿을 배포 하려면 구독 ID는 배포 이름으로 요청 URI에서에서 리소스 그룹의 이름을 제공 합니다. 
+1. 템플릿을 배포 하려면 구독 ID, 리소스 그룹 이름, 요청 URI의 배포 이름을 제공 합니다. 
 
    ```HTTP
    PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2019-05-01
    ```
 
-   요청 본문에서 템플릿 및 매개 변수 파일에 대 한 링크를 제공 합니다. **mode**가 **Incremental**로 설정되어 있습니다. 전체 배포를 실행하려면 **mode**를 **Complete**로 설정합니다. 이 완전한 모드를 사용할 때는 템플릿에 없는 리소스를 실수로 삭제할 수 있으므로 주의해야 합니다.
+   요청 본문에서 템플릿 및 매개 변수 파일에 대 한 링크를 제공 합니다. 매개 변수 파일에 대 한 자세한 내용은 [리소스 관리자 매개 변수 파일 만들기](resource-manager-parameter-files.md)를 참조 하세요.
+
+   **mode**가 **Incremental**로 설정되어 있습니다. 전체 배포를 실행하려면 **mode**를 **Complete**로 설정합니다. 이 완전한 모드를 사용할 때는 템플릿에 없는 리소스를 실수로 삭제할 수 있으므로 주의해야 합니다.
 
    ```json
    {
@@ -113,7 +115,9 @@ PUT https://management.azure.com/providers/Microsoft.Management/managementGroups
 
     공유 액세스 서명(SAS) 토큰을 사용하여 스토리지 계정을 설정할 수 있습니다. 자세한 내용은 [공유 액세스 서명을 사용하여 액세스 위임](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature)을 참조하세요.
 
-1. 템플릿 및 매개 변수의 파일에 연결하는 대신, 요청 본문에 포함할 수 있습니다. 다음 예제에서는 인라인 템플릿 및 매개 변수를 사용 하 여 요청 본문을 보여 줍니다.
+    매개 변수에 대해 중요한 값(예: 암호)을 제공해야 할 경우 해당 값을 주요 자격 증명 모음에 추가합니다. 앞의 예제에 표시된 대로 배포하는 동안 주요 자격 증명 모음을 검색합니다. 자세한 내용은 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요. 
+
+1. 템플릿 및 매개 변수의 파일에 연결하는 대신, 요청 본문에 포함할 수 있습니다. 다음 예제에서는 템플릿 및 매개 변수 인라인이 포함 된 요청 본문을 보여 줍니다.
 
    ```json
    {
@@ -176,105 +180,16 @@ PUT https://management.azure.com/providers/Microsoft.Management/managementGroups
    }
    ```
 
-1. 템플릿 배포의 상태를 가져오려면 [배포-가져오기](/rest/api/resources/deployments/get)합니다.
+1. 템플릿 배포의 상태를 가져오려면 [배포-get](/rest/api/resources/deployments/get)을 사용 합니다.
 
    ```HTTP
    GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
    ```
 
-## <a name="redeploy-when-deployment-fails"></a>배포 실패 시 다시 배포
-
-이 기능은 라고도 *오류 발생 시 롤백*합니다. 배포가 실패하면 배포 기록에서 이전에 성공한 배포를 자동으로 다시 배포할 수 있습니다. 재배포를 지정하려면 요청 본문에서 `onErrorDeployment` 속성을 사용합니다. 이 기능은 인프라 배포에 대 한 알려진된 좋은 상태로 했습니다를이 상태로 되돌리려는 경우에 유용 합니다. 주의 및 제한 사항이 있습니다.
-
-- 재배포는 동일한 매개 변수를 사용 하 여 이전에 실행 했던 대로 실행 됩니다. 매개 변수를 변경할 수 없습니다.
-- 이전 배포를 사용 하 여 실행 되는 [전체 모드](./deployment-modes.md#complete-mode)합니다. 이전 배포에 포함 되지 모든 리소스가 삭제 되 고 모든 리소스 구성을 이전 상태로 설정 됩니다. 완벽 하 게 이해 해야 합니다 [배포 모드](./deployment-modes.md)합니다.
-- 리소스에만 영향을 줍니다 재배포, 모든 데이터 변경 내용은 영향을 받지 않습니다.
-- 이 기능은 리소스 그룹 배포의 경우 구독 수준 배포에만 지원 됩니다. 구독 수준 배포에 대 한 자세한 내용은 참조 하세요. [구독 수준에서 리소스 그룹 및 리소스를 만드는](./deploy-to-subscription.md)합니다.
-
-이 옵션을 사용하려면 배포가 배포 기록에서 식별될 수 있도록 고유한 이름을 지정해야 합니다. 고유한 이름이 없으면 현재 실패한 배포가 기록에서 이전에 성공한 배포를 덮어쓸 수 있습니다. 루트 수준 배포에만 이 옵션을 사용할 수 있습니다. 중첩된 템플릿의 배포는 다시 배포할 수 없습니다.
-
-현재 배포가 실패할 경우 마지막으로 성공적으로 배포를 다시 배포하려면 다음을 사용합니다.
-
-```json
-{
-  "properties": {
-    "templateLink": {
-      "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
-      "contentVersion": "1.0.0.0"
-    },
-    "mode": "Incremental",
-    "parametersLink": {
-      "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
-      "contentVersion": "1.0.0.0"
-    },
-    "onErrorDeployment": {
-      "type": "LastSuccessful",
-    }
-  }
-}
-```
-
-현재 배포가 실패할 경우 특정 배포를 다시 배포하려면 다음을 사용합니다.
-
-```json
-{
-  "properties": {
-    "templateLink": {
-      "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
-      "contentVersion": "1.0.0.0"
-    },
-    "mode": "Incremental",
-    "parametersLink": {
-      "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
-      "contentVersion": "1.0.0.0"
-    },
-    "onErrorDeployment": {
-      "type": "SpecificDeployment",
-      "deploymentName": "<deploymentname>"
-    }
-  }
-}
-```
-
-지정된 배포는 분명히 성공했을 것입니다.
-
-## <a name="parameter-file"></a>매개 변수 파일
-
-배포 중에 매개 변수 값을 전달하는 데 매개 변수 파일을 사용하려면 다음 예와 유사한 형식의 JSON 파일을 만들어야 합니다.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "webSiteName": {
-            "value": "ExampleSite"
-        },
-        "webSiteHostingPlanName": {
-            "value": "DefaultPlan"
-        },
-        "webSiteLocation": {
-            "value": "West US"
-        },
-        "adminPassword": {
-            "reference": {
-               "keyVault": {
-                  "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-               },
-               "secretName": "sqlAdminPassword"
-            }
-        }
-   }
-}
-```
-
-매개 변수 파일 크기는 64KB보다 클 수 없습니다.
-
-매개 변수에 대해 중요한 값(예: 암호)을 제공해야 할 경우 해당 값을 주요 자격 증명 모음에 추가합니다. 앞의 예제에 표시된 대로 배포하는 동안 주요 자격 증명 모음을 검색합니다. 자세한 내용은 [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)을 참조하세요. 
-
 ## <a name="next-steps"></a>다음 단계
 
+- 오류가 발생할 때 성공적인 배포로 롤백하려면 [성공적인 배포에 대 한 오류 발생 시 롤백](rollback-on-error.md)을 참조 하세요.
 - 리소스 그룹에 있지만 템플릿에 정의되지 않은 리소스를 처리하는 방법을 지정하려면 [Azure Resource Manager 배포 모드](deployment-modes.md)를 참조하세요.
 - 비동기 REST 작업 처리에 대해 알아보려면 [Azure 비동기 작업 추적](resource-manager-async-operations.md)을 참조하세요.
-- 템플릿에 대 한 자세한 내용은 참조 하세요 [구조 및 Azure Resource Manager 템플릿의 구문 이해](resource-group-authoring-templates.md)합니다.
+- 템플릿에 대 한 자세한 내용은 [Azure Resource Manager 템플릿의 구조 및 구문 이해](resource-group-authoring-templates.md)를 참조 하세요.
 

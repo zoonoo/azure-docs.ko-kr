@@ -4,12 +4,12 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 25928ef35da1ce4b3824303a5d46749c32aa701f
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 1190798b234f9c73e02fda41c03ffa296246be63
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "69626371"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71975322"
 ---
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "69626371"
 | 태그 키 길이 |512 |512 |
 | 태그 값 길이 |256 |256 |
 
-<sup>1</sup> 리소스 그룹당 800 배포 제한에 도달 하면 더 이상 필요 하지 않은 기록에서 배포를 삭제 합니다. 배포 기록에서 항목을 삭제 해도 배포 된 리소스에는 영향을 주지 않습니다. Azure CLI에서 [az group deployment delete](/cli/azure/group/deployment)를 사용하거나 PowerShell에서 [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment)를 사용하여 기록에서 항목을 삭제할 수 있습니다.  지속적인 통합 및 지속적인 업데이트 (CI/CD) 시나리오에서 배포 삭제를 자동화 하는 PowerShell 스크립트는 [remove-deployments](https://gist.github.com/bmoore-msft/ed33fb940dafb09380174b7fca57651f)를 참조 하세요.
+<sup>1</sup> 리소스 그룹당 800 배포 제한에 도달 하면 더 이상 필요 하지 않은 기록에서 배포를 삭제 합니다. 배포 기록에서 항목을 삭제 해도 배포 된 리소스에는 영향을 주지 않습니다. 자세한 내용은 [배포 수가 800를 초과 하는 경우 오류 해결](../articles/azure-resource-manager/deployment-quota-exceeded.md)을 참조 하세요.
 
 #### <a name="template-limits"></a>템플릿 제한
 

@@ -6,13 +6,13 @@ manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/26/2019
-ms.openlocfilehash: 8c57fd2a2c9c5c059480f3d6ad48454724e5cc61
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.date: 10/04/2019
+ms.openlocfilehash: 78702b52b1a5c490bfd6273c3f4e575c6e3c20fb
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327632"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969604"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>새 Dynamics 365 비즈니스 센터 제품 만들기
 
@@ -21,6 +21,9 @@ ms.locfileid: "71327632"
 Dynamics 365 비즈니스 센터 제품을 만들기 시작 하려면 먼저 [파트너 센터 계정을 만들고](./create-account.md) **개요** 페이지가 선택 된 상태로 [상용 마켓플레이스 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)를 열어야 합니다.
 
 ![파트너 센터의 상용 마켓플레이스 대시보드](./media/new-offer-overview.png)
+
+>[!Note]
+> 제품이 게시 되 면 파트너 센터에서 만든 제품에 대 한 편집 내용은 시스템 에서만 업데이트 되 고 다시 게시 된 후에도 저장 됩니다. 변경을 수행한 후 게시에 대 한 제품을 제출 했는지 확인 하세요.
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
@@ -269,13 +272,13 @@ Marketplace 검색 결과에서 사용할 수 있는 제품에 대 한 간략 �
 - [Azure 리소스 관리자](#technical-configuration-for-azure-resource-manager-test-drive)
 - [Dynamics 365](#technical-configuration-for-dynamics-365-test-drive)
 - [논리 앱](#technical-configuration-for-logic-app-test-drive)
-- [Power BI](#technical-configuration-not-required-for-power-bi-test-drives) (기술 구성 필요 없음)
+- [Power BI](#technical-configuration-not-required-for-power-bi-test-drives) (기술 구성이 필요 하지 않음)
 
 ### <a name="technical-configuration-for-azure-resource-manager-test-drive"></a>Azure Resource Manager 테스트 드라이브에 대 한 기술 구성
 
 솔루션을 구성 하는 모든 Azure 리소스를 포함 하는 배포 템플릿입니다. 이 시나리오에 맞는 제품은 Azure 리소스만 사용 합니다. [Azure Resource Manager 테스트 드라이브](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)를 설정 하는 방법에 대해 자세히 알아보세요.
 
-- **지역** (필수): 현재 테스트 드라이브를 사용 하도록 설정할 수 있는 26 개의 Azure 지원 지역이 있습니다. 일반적으로 가장 큰 수의 고객을 예상 하는 지역에서 테스트 드라이브를 사용할 수 있도록 하 여 최상의 성능을 위해 가장 가까운 지역을 선택할 수 있게 합니다. 구독에서 선택 하는 각 지역에 필요한 모든 리소스를 배포할 수 있는지 확인 해야 합니다.
+- **영역** (필수): 현재 테스트 드라이브를 사용 하도록 설정할 수 있는 26 개의 Azure 지원 지역이 있습니다. 일반적으로 가장 큰 수의 고객을 예상 하는 지역에서 테스트 드라이브를 사용할 수 있도록 하 여 최상의 성능을 위해 가장 가까운 지역을 선택할 수 있게 합니다. 구독에서 선택 하는 각 지역에 필요한 모든 리소스를 배포할 수 있는지 확인 해야 합니다.
 
 - **인스턴스**: 제품을 사용할 수 있는 지역 수로 곱할 유형 (핫 또는 콜드) 및 사용할 수 있는 인스턴스 수를 선택 합니다.
 
@@ -305,7 +308,7 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 모든 사용자 지정 제품은 다양 한 복잡 한 솔루션 아키텍처를 포함 하는이 유형의 테스트 드라이브 배포 템플릿을 사용 해야 합니다. 논리 앱 테스트 드라이브를 설정 하는 방법에 대 한 자세한 내용은 GitHub의 [작업](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) 및 [고객 참여](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) 를 참조 하세요.
 
-- **영역** (필수, 단일 선택 드롭다운 목록): 현재 테스트 드라이브를 사용 하도록 설정할 수 있는 26 개의 Azure 지원 지역이 있습니다. 논리 앱에 대 한 리소스는 선택한 지역에 배포 됩니다. 논리 앱에 특정 지역에 저장 된 사용자 지정 리소스가 있는 경우 여기에서 해당 지역이 선택 되어 있는지 확인 합니다. 가장 좋은 방법은 포털의 Azure 구독에서 논리 앱을 로컬로 완전히 배포 하 고이를 선택 하기 전에 제대로 작동 하는지 확인 하는 것입니다.
+- **Region** (필수, 단일 선택 드롭다운 목록): 현재 테스트 드라이브를 사용 하도록 설정할 수 있는 26 개의 Azure 지원 지역이 있습니다. 논리 앱에 대 한 리소스는 선택한 지역에 배포 됩니다. 논리 앱에 특정 지역에 저장 된 사용자 지정 리소스가 있는 경우 여기에서 해당 지역이 선택 되어 있는지 확인 합니다. 가장 좋은 방법은 포털의 Azure 구독에서 논리 앱을 로컬로 완전히 배포 하 고이를 선택 하기 전에 제대로 작동 하는지 확인 하는 것입니다.
 
 - **최대 동시 테스트 드라이브** (필수): 테스트 드라이브를 한 번에 사용할 수 있는 최대 고객 수를 설정 합니다. 이러한 테스트 드라이브는 이미 배포 되어 있으므로 고객이 배포를 기다리지 않고 즉시 액세스할 수 있습니다.
 
@@ -327,7 +330,7 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 - **Azure 구독 ID** (Azure Resource Manager 및 논리 앱에 필요): 리소스 사용량 보고 및 청구를 위해 Azure 계정 서비스에 대 한 액세스 권한을 부여 하려면 구독 ID를 입력 합니다. 아직 없는 경우 테스트 드라이브에 사용할 [별도의 Azure 구독을 만드는](https://docs.microsoft.com/azure/billing/billing-create-subscription) 것이 좋습니다. [Azure Portal](https://portal.azure.com/) 에 로그인 하 고 왼쪽 메뉴의 **구독** 탭으로 이동 하 여 Azure 구독 ID를 찾을 수 있습니다. 이 탭을 선택 하면 구독 ID (예: "a83645ac-1234-5ab6-6789-1h234g764ghty")가 표시 됩니다.
 
-- **AZURE AD 테 넌 트 ID** (필수): AD (Azure Active Directory) [테 넌 트 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 입력 합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인 하 고 왼쪽 메뉴에서 Active Directory 탭을 선택한 다음 * * 속성을 선택 하 고 나열 된 **디렉터리 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 찾습니다. 에서 도메인 이름 URL을 사용 하 여 조직의 테 넌 트 ID를 조회할 수도 있습니다 [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
+- **AZURE AD 테 넌 트 ID** (필수): AD (Azure Active Directory) [테 넌 트 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 입력 합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인 하 고 왼쪽 메뉴에서 Active Directory 탭을 선택한 다음 * * 속성을 선택 하 고 나열 된 **디렉터리 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 찾습니다. [@No__t-1](https://www.whatismytenantid.com)에서 도메인 이름 URL을 사용 하 여 조직의 테 넌 트 ID를 조회할 수도 있습니다.
 
 - **AZURE AD 테 넌 트 이름** (동적 365에 필요): Azure Active Directory (AD) 이름을 입력 합니다. 이 이름을 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인 하 고, 오른쪽 위 모서리에 있는 테 넌 트 이름이 계정 이름 아래에 나열 됩니다.
 
@@ -343,13 +346,13 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 - **설명** (필수): 사용자가 제품을 확보할 지 여부를 결정 하는 데 도움이 되는 테스트 드라이브, 표시 되는 내용, 탐색할 기능 및 관련 정보를 설명 합니다. 이 필드에는 최대 3000 자의 텍스트를 입력할 수 있습니다. 
 
-- **액세스 정보** (Azure Resource Manager 및 논리 테스트 드라이브에 필요 함): 이 시험 사용에 액세스 하 고 사용 하기 위해 고객이 알아야 할 사항을 설명 합니다. 제품 사용에 대 한 시나리오와 고객이 테스트 드라이브를 통해 기능에 액세스 하기 위해 알아야 하는 사항을 정확히 살펴봅니다. 이 필드에는 최대 1만 자의 텍스트를 입력할 수 있습니다.
+- **액세스 정보** (Azure Resource Manager 및 논리 테스트 드라이브에 필요): 이 시험 사용에 액세스 하 고 사용 하기 위해 고객이 알아야 할 사항을 설명 합니다. 제품 사용에 대 한 시나리오와 고객이 테스트 드라이브를 통해 기능에 액세스 하기 위해 알아야 하는 사항을 정확히 살펴봅니다. 이 필드에는 최대 1만 자의 텍스트를 입력할 수 있습니다.
 
 - **사용자 설명서** (필수): 테스트 드라이브 환경을 자세히 연습 합니다. 사용자 설명서는 시험 사용에 대 한 고객의 의견을 정확 하 게 파악 하 고 있을 수 있는 질문에 대 한 참조로 사용할 수 있습니다. 업로드 후 파일은 PDF 형식 이어야 하며 (최대 255 자) 이름이 지정 되어야 합니다.
 
-- **비디오 비디오** 추가 (선택 사항): 비디오는 YouTube 또는 Vimeo에 업로드 하 고 링크 및 미리 보기 이미지 (533 x 324 픽셀)를 사용 하 여 여기에서 참조할 수 있으므로 고객은의 기능을 사용 하는 방법을 비롯 하 여 테스트 드라이브를 보다 잘 이해할 수 있도록 정보를 단계별로 볼 수 있습니다. 혜택을 강조 하는 제품 및 이해 시나리오입니다.
-  - **이름** 하다
-  - **URL (YouTube 또는 Vimeo만 해당)** 하다
+- **Videos: Add 비디오 @ no__t-0 (선택 사항): 비디오는 YouTube 또는 Vimeo에 업로드 하 고 링크 및 미리 보기 이미지 (533 x 324 픽셀)를 사용 하 여 여기에서 참조할 수 있으므로 고객은의 기능을 사용 하는 방법을 비롯 하 여 테스트 드라이브를 보다 잘 이해할 수 있도록 정보를 단계별로 볼 수 있습니다. 혜택을 강조 하는 제품 및 이해 시나리오입니다.
+  - **이름** (필수)
+  - **URL (YouTube 또는 Vimeo만 해당)** (필수)
   - **미리 보기 (533 x 324 px)** : 이미지 파일은 PNG 형식 이어야 합니다.
 
 ## <a name="supplemental-content"></a>추가 콘텐츠

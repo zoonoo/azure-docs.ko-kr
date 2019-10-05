@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9fb62d74025869c3442308f9e4ac9fb8fc02669b
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 96a8b8d33f713faf96e7a96b32e9e41ca669e6cb
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266547"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970829"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Azure Portal에서 사이트 간 연결 만들기
 
@@ -42,17 +42,16 @@ ms.locfileid: "71266547"
 
 이 문서의 예제에서는 다음 값을 사용합니다. 이러한 값을 사용하여 테스트 환경을 만들거나 이 값을 참조하여 이 문서의 예제를 보다 정확하게 이해할 수 있습니다. 특정 게이트웨이 설정에 대한 자세한 내용은 [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md)를 참조하세요.
 
-* **VNet 이름:** VNet1
+* **가상 네트워크 이름:** VNet1
 * **주소 공간:** 10.1.0.0/16
 * **구독:** 사용할 구독
 * **리소스 그룹:** TestRG1
-* **위치:** East US
+* **지역:** East US
 * **서브넷:** 프런트 엔드: 10.1.0.0/24, 백 엔드: 10.1.1.0/24(이 연습의 선택 사항)
-* **게이트웨이 서브넷 이름:** GatewaySubnet(포털에서 자동으로 채워짐)
-* **게이트웨이 서브넷 주소 범위**: 10.1.255.0/27
+* **게이트웨이 서브넷 주소 범위:** 10.1.255.0/27
 * **가상 네트워크 게이트웨이 이름:** VNet1GW
-* **공용 IP**: VNet1GWIP
-* **VPN 유형**: 경로 기반
+* **공용 IP 주소 이름:** VNet1GWIP
+* **VPN 유형:** 경로 기반
 * **연결 형식:** 사이트 간(IPsec)
 * **게이트웨이 유형:** VPN
 * **로컬 네트워크 게이트웨이 이름:** Site1
@@ -69,6 +68,16 @@ ms.locfileid: "71266547"
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
+### <a name="example-settings"></a>예제 설정
+
+* **인스턴스 세부 정보 > 영역:** East US
+* **가상 네트워크 Virtual Network >:** VNet1
+* **인스턴스 세부 정보 > 이름:** VNet1GW
+* **인스턴스 세부 정보 > 게이트웨이 유형:** VPN
+* **인스턴스 세부 정보 > VPN 유형:** 경로 기반
+* **Virtual Network > 게이트웨이 서브넷 주소 범위:** 10.1.255.0/27
+* **공용 ip 주소 > 공용 IP 주소 이름:** VNet1GWIP
+
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
@@ -77,6 +86,13 @@ ms.locfileid: "71266547"
 ## <a name="LocalNetworkGateway"></a>3. 로컬 네트워크 게이트웨이 만들기
 
 로컬 네트워크 게이트웨이는 일반적으로 온-프레미스 위치를 가리킵니다. Azure가 참조할 수 있는 사이트 이름을 지정한 다음, 연결을 만들 온-프레미스 VPN 디바이스의 IP 주소를 지정합니다. 또한 VPN Gateway를 통해 VPN 디바이스로 라우팅될 IP 주소 접두사를 지정합니다. 사용자가 지정하는 주소 접두사는 온-프레미스 네트워크에 있는 접두사입니다. 온-프레미스 네트워크가 변경되거나 VPN 디바이스에서 공용 IP 주소를 변경해야 하는 경우 나중에 값을 쉽게 업데이트할 수 있습니다.
+
+**예제 값**
+
+* **Name:** Site1
+* **리소스 그룹:** TestRG1
+* **위치:** East US
+
 
 [!INCLUDE [Add a local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-include.md)]
 

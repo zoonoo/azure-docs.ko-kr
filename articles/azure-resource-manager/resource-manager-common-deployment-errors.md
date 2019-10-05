@@ -6,20 +6,20 @@ author: tfitzmac
 keywords: 배포 오류 Azure 배포, Azure에 배포
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 08/30/2019
+ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0e03cd3747fe6770be7dddaf36d634547ed75b39
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: ac700592a63e88936593c24f8f7ce06a08e289ce
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718951"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972682"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
 이 문서에서는 일반적인 Azure 배포 오류 중 일부에 대해 설명하고 오류를 해결하기 위한 정보를 제공합니다. 배포 오류에 대한 오류 코드를 찾을 수 없는 경우 [오류 코드 찾기](#find-error-code)를 참조하세요.
 
-이 문서에서 오류 코드에 대 한 정보를 찾고 해당 정보를 제공 하지 않는 경우 알려주세요. 이 페이지의 맨 아래에서 피드백을 남길 수 있습니다. 사용자 의견은 GitHub 문제를 통해 추적 됩니다. 
+이 문서에서 오류 코드에 대 한 정보를 찾고 해당 정보를 제공 하지 않는 경우 알려주세요. 이 페이지의 맨 아래에서 피드백을 남길 수 있습니다. 사용자 의견은 GitHub 문제를 통해 추적 됩니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -34,7 +34,9 @@ ms.locfileid: "71718951"
 | AuthorizationFailed | 계정 또는 서비스 주체가 배포를 완료하는 데 충분한 권한이 없습니다. 계정이 속한 역할 및 배포 범위에 대한 액세스 권한을 확인합니다.<br><br>필요한 리소스 공급자가 등록 되지 않은 경우이 오류가 나타날 수 있습니다. | [Azure 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md)<br><br>[등록 오류 해결](resource-manager-register-provider-errors.md) |
 | BadRequest | Resource Manager에서 예상한 것과 일치하지 않는 배포 값을 보냈습니다. 문제 해결에 도움이 되는 내부 상태 메시지를 확인합니다. | [템플릿 참조](/azure/templates/) 및 [지원되는 위치](resource-location.md) |
 | 충돌 | 리소스의 현재 상태에서 허용되지 않는 작업을 요청하고 있습니다. 예를 들어 디스크 크기 조정은 VM을 만들거나 VM의 할당을 취소할 때만 허용됩니다. | |
-| DeploymentActive | 이 리소스 그룹에 대한 동시 배포가 완료될 때까지 기다립니다. | |
+| DeploymentActiveAndUneditable 때 | 이 리소스 그룹에 대한 동시 배포가 완료될 때까지 기다립니다. | |
+| DeploymentNameInvalidCharacters | 배포 이름에는 문자, 숫자, '-', '. ' 또는 ' _ '만 사용할 수 있습니다. | |
+| DeploymentNameLengthLimitExceeded | 배포 이름은 64 자로 제한 됩니다.  | |
 | DeploymentFailed | DeploymentFailed 오류는 해결하는 데 필요한 세부 정보를 제공하지 않는 일반 오류입니다. 자세한 정보를 제공하는 오류 코드에 대해서는 오류 세부 정보를 살펴봅니다. | [오류 코드 찾기](#find-error-code) |
 | DeploymentQuotaExceeded | 리소스 그룹당 800개 배포 제한에 도달하면 기록에서 더 이상 필요하지 않은 배포를 삭제합니다. | [배포 수가 800를 초과 하는 경우 오류 해결](deployment-quota-exceeded.md) |
 | DnsRecordInUse | DNS 레코드 이름은 고유해야 합니다. 다른 이름을 입력 하십시오. | |
@@ -124,13 +126,13 @@ az group deployment operation list --name exampledeployment -g examplegroup --qu
 
 ![배포 실패](./media/resource-manager-common-deployment-errors/deployment-failed.png)
 
-오류 메시지 및 오류 코드가 표시됩니다. 두 개의 오류 코드가 있습니다. 첫 번째 오류 코드(**DeploymentFailed**)는 오류를 해결하는 데 필요한 세부 정보를 제공하지 않는 일반 오류입니다. 두 번째 오류 코드(**StorageAccountNotFound**)는 필요한 세부 정보를 제공합니다. 
+오류 메시지 및 오류 코드가 표시됩니다. 두 개의 오류 코드가 있습니다. 첫 번째 오류 코드(**DeploymentFailed**)는 오류를 해결하는 데 필요한 세부 정보를 제공하지 않는 일반 오류입니다. 두 번째 오류 코드(**StorageAccountNotFound**)는 필요한 세부 정보를 제공합니다.
 
 ![오류 세부 정보](./media/resource-manager-common-deployment-errors/error-details.png)
 
 ## <a name="enable-debug-logging"></a>디버그 로깅 활성화
 
-무엇이 잘못되었는지 알려면 요청 및 응답에 대한 정보가 더 필요한 경우가 있습니다. 배포 중에 추가 정보가 기록되도록 요청할 수 있습니다. 
+무엇이 잘못되었는지 알려면 요청 및 응답에 대한 정보가 더 필요한 경우가 있습니다. 배포 중에 추가 정보가 기록되도록 요청할 수 있습니다.
 
 ### <a name="powershell"></a>PowerShell
 

@@ -1,21 +1,21 @@
 ---
-title: Azure Database for MariaDB의 비즈니스 연속성 개요
-description: Azure Database for MariaDB의 비즈니스 연속성 개요입니다.
+title: Azure Database for MariaDB의 비즈니스 연속성 이해
+description: Azure Database for MariaDB 서비스를 사용 하는 경우 비즈니스 연속성 (지정 시간 복원, 데이터 센터 중단, 지역 복원)에 대해 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 4c64f920bf56195ad53ac8acbf3f9199090f0a8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d364c3a5fafaca514baade25cd3f5b4c0f10dc26
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61043019"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973605"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-mariadb"></a>Azure Database for MariaDB의 비즈니스 연속성 개요
+# <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 비즈니스 연속성 이해
 
-이 개요에서는 Azure Database for MariaDB에서 비즈니스 연속성 및 재해 복구를 위해 제공하는 기능에 대해 설명합니다. 데이터 손실을 유발하거나 데이터베이스 및 애플리케이션을 사용할 수 없게 될 수 있는 중단 이벤트로부터 복구하는 옵션에 대해 알아봅니다. 사용자 또는 애플리케이션 오류가 데이터 무결성에 영향을 주거나, Azure 지역에 가동 중단이 발생하거나, 애플리케이션에 유지 관리가 필요할 때 수행할 작업을 알아봅니다.
+이 문서에서는 비즈니스 연속성 및 재해 복구를 위해 Azure Database for MariaDB에서 제공 하는 기능을 설명 합니다. 데이터 손실을 유발하거나 데이터베이스 및 애플리케이션을 사용할 수 없게 될 수 있는 중단 이벤트로부터 복구하는 옵션에 대해 알아봅니다. 사용자 또는 애플리케이션 오류가 데이터 무결성에 영향을 주거나, Azure 지역에 가동 중단이 발생하거나, 애플리케이션에 유지 관리가 필요할 때 수행할 작업을 알아봅니다.
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>비즈니스 연속성을 제공하는 데 사용할 수 있는 기능
 

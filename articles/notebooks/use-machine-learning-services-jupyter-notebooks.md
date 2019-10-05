@@ -4,21 +4,20 @@ description: Azure Notebooks에서 사용할 수 있는 Azure Machine Learning S
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 0dc4fc31-ae1c-422c-ac34-7b025e6651b4
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: c99f815bd58b03dbc43ba742577259be5638fef9
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: f591758fa6e51c420a090aa62d5160320fe15fe8
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035745"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973024"
 ---
 # <a name="use-azure-machine-learning-service-in-a-notebook"></a>Notebook에서 Azure Machine Learning Service 사용
 
@@ -28,7 +27,7 @@ Azure Notebooks는 [Azure Machine Learning Service](/azure/machine-learning/serv
 
 1. [Azure Notebooks](https://notebooks.azure.com/)에 로그인합니다.
 1. **내 프로젝트** 를 선택 하 여 프로젝트 대시보드로 이동 합니다.
-1. Github 리포지토리 업로드 (위쪽 화살표) 단추를 선택 하 여 **github 리포지토리 업로드** 팝업을 엽니다.
+1. Github 리포지토리 **업로드 (위쪽** 화살표) 단추를 선택 하 여 **github 리포지토리 업로드** 팝업을 엽니다.
 1. 팝업에서 **GitHub 리포지토리**에는 `Azure/MachineLearningNotebooks`, **프로젝트 이름**에는 "Azure Machine Learning Service"와 같은 프로젝트 이름, **프로젝트 ID**에는 식별자를 입력하고, 원하는 경우 **공용**을 선택 취소한 다음, **가져오기**를 선택합니다.
 
     ![Notebooks 계정으로 Azure Machine Learning Notebook 샘플 가져오기](media/azureml-import-project.png)

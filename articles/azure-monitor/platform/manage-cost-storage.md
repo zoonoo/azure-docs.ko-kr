@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: fa0bd847596a601875d5662da1c000a5b1388eef
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: e1875ebdb62cfc6d606465b863215513aaa47c02
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960272"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972913"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 사용량 및 비용 관리
 
@@ -161,7 +161,11 @@ Azure는 [Azure Cost Management + 청구](https://docs.microsoft.com/azure/cost-
 
 @No__t-0 및 `AzureActivity` 데이터 형식은 사용자 지정 보존으로 설정할 수 없습니다. 기본 작업 영역 보존 또는 90 일의 최대값을 사용 합니다. 
 
-ARM에 직접 연결 하 여 데이터 형식으로 보존을 설정 하는 좋은 도구는 OSS 도구 [ARMclient](https://github.com/projectkudu/ARMClient)입니다.  [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) 및 [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)에서 ARMclient에 대해 자세히 알아보세요. 
+ARM에 직접 연결 하 여 데이터 형식으로 보존을 설정 하는 좋은 도구는 OSS 도구 [ARMclient](https://github.com/projectkudu/ARMClient)입니다.  [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) 및 [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)에서 ARMclient에 대해 자세히 알아보세요.  ARMClient를 사용 하 여 securityevent 데이터를 730 일 보존으로 설정 하는 예제는 다음과 같습니다.
+
+```
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview "{properties: {retentionInDays: 730}}"
+```
 
 > [!NOTE]
 > 개별 데이터 형식에 대 한 보존 설정을 사용 하 여 데이터 보존에 대 한 비용을 줄일 수 있습니다.  10 월 2019 (이 기능이 릴리스된 경우)부터 수집 된 데이터의 경우 일부 데이터 형식에 대 한 보존을 줄이면 시간이 지남에 따라 보존 비용이 줄어들 수 있습니다.  이전에 수집 된 데이터의 경우 개별 유형에 대해 보존 기간을 낮게 설정 해도 보존 비용은 영향을 받지 않습니다.  

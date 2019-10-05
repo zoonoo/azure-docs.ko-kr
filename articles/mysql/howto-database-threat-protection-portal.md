@@ -1,17 +1,17 @@
 ---
-title: Advanced Threat Protection - Azure Database for MySQL | Microsoft Docs
-description: Threat Protection은 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색합니다.
+title: Advanced Threat Protection-Azure Database for MySQL
+description: 데이터베이스에 대 한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색 하도록 Advanced Threat Protection을 구성 하는 방법에 대해 알아봅니다.
 author: bolzmj
 ms.author: mbolz
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: 76f6c15fc1e186e254c4edbb53a2a0ccf7050b3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe058433cfe4c6c9f89f14d2c74e33ff1b8372ac
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61458982"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970494"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Azure Database for MySQL용 Advanced Threat Protection
 
@@ -54,7 +54,7 @@ Advanced Threat Detection은 고급 보안 기능용 통합 패키지인 Advance
 
 ## <a name="explore-threat-detection-alerts"></a>위협 검색 경고 살펴보기
 
-SQL Database 위협 감지는 경고를 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 통합합니다. Azure Portal의 데이터베이스 및 SQL ATP 블레이드 내에 있는 라이브 SQL 위협 감지 타일은 활성 위협의 상태를 추적합니다.
+SQL Database 위협 감지는 경고를 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 통합합니다. 라이브 SQL 위협 검색 타일은 데이터베이스 및 Azure Portal의 SQL ATP 페이지에서 활성 위협의 상태를 추적 합니다.
 
 **보안 위협 경고**를 클릭하면 Azure Security Center 경고 페이지가 열리고 데이터베이스에서 감지된 활성 SQL 위협에 대한 개요가 제공됩니다.
 

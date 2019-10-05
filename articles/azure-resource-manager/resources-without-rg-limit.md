@@ -4,14 +4,14 @@ description: 리소스 그룹에 800 개 이상의 인스턴스를 포함할 수
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 7/30/2019
+ms.date: 10/4/2019
 ms.author: tomfitz
-ms.openlocfilehash: eec448dcbf1c550b6b0a0ee0f17505fd6ddd3c74
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 6677290999049dead40f39e9a840735810c7c763
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194747"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973316"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>리소스 그룹당 800 인스턴스로 제한 되지 않는 리소스
 
@@ -38,8 +38,12 @@ ms.locfileid: "70194747"
 
 * 디스크
 * 이미지
-* 스냅숏
+* 스냅샷
 * virtualMachines
+
+## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
+
+* containerGroups
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
@@ -68,7 +72,7 @@ ms.locfileid: "70194747"
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
-* services
+* 서비스
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
@@ -81,6 +85,14 @@ ms.locfileid: "70194747"
 
 * integrationAccounts
 * workflows
+
+## <a name="microsoftnetapp"></a>Microsoft.NetApp
+
+* netAppAccounts
+* netAppAccounts/capacityPools
+* netAppAccounts/capacityPools/볼륨
+* netAppAccounts/capacityPools/볼륨/mountTargets
+* netAppAccounts/capacityPools/볼륨/스냅숏
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -132,6 +144,15 @@ ms.locfileid: "70194747"
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
 * jobcollections
+
+## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
+
+* 애플리케이션
+* containerGroups
+* gateways
+* 네트워크
+* 비밀
+* 볼륨
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 

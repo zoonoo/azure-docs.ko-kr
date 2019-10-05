@@ -6,18 +6,17 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: bwren
-ms.openlocfilehash: dabc336a1f92169ab573e7cf29e1a7a069ae20b1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 164d1db1a80ef577792740f67a27a856a4ba4c3b
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262039"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972920"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Azure Monitor에 대 한 모니터링 데이터의 원본
 Azure Monitor는 [로그](data-platform-logs.md) 및 [메트릭을](data-platform-metrics.md)포함 하는 [일반적인 모니터링 데이터 플랫폼](data-platform.md) 을 기반으로 합니다. 이 플랫폼에 데이터를 수집 하면 Azure Monitor의 공통 도구 집합을 사용 하 여 여러 리소스의 데이터를 함께 분석할 수 있습니다. 모니터링 데이터는 특정 시나리오를 지원 하기 위해 다른 위치로 전송 될 수도 있으며, 일부 리소스는 로그 나 메트릭에 수집 되기 전에 다른 위치에 기록 될 수 있습니다.
@@ -61,8 +60,8 @@ Azure 테넌트와 관련된 원격 분석은 Azure Active Directory와 같은 �
 | Destination | 설명 | 참조 |
 |:---|:---|:---|
 | Azure Monitor 로그 | 다른 모니터링 데이터를 사용 하 여 분석 하기 위해 Azure Monitor에서 수집 되도록 Azure AD 로그를 구성 합니다. | [Azure Monitor 로그와 Azure AD 로그 통합 (미리 보기)](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Azure Storage | Azure AD 로그를 보관을 위해 Azure Storage로 내보냅니다. | [자습서: Azure storage 계정 (미리 보기)에 Azure AD 로그 보관](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Event Hubs | Event Hubs를 사용 하 여 Azure AD 로그를 다른 위치로 스트리밍합니다. | [자습서: Azure 이벤트 허브 (미리 보기)](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)에 Azure Active Directory 로그를 스트리밍합니다. |
+| Azure Storage | Azure AD 로그를 보관을 위해 Azure Storage로 내보냅니다. | [자습서: Azure storage 계정 (미리 보기)에 Azure AD 로그 보관 ](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| Event Hubs | Event Hubs를 사용 하 여 Azure AD 로그를 다른 위치로 스트리밍합니다. | [자습서: Azure Active Directory 로그를 Azure 이벤트 허브 (미리 보기) ](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)으로 스트리밍합니다. |
 
 
 

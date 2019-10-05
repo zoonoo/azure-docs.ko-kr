@@ -1,17 +1,17 @@
 ---
-title: Azure Database for MySQL에서 성능 튜닝 및 데이터베이스 유지 관리를 위해 sys_schema를 사용하는 방법
-description: 이 문서에서는 Azure Database for MySQL에서 sys_schema를 사용하여 성능 문제를 찾고 데이터베이스를 유지 관리하는 방법을 설명합니다.
+title: Sys_schema를 사용 하 여 성능을 조정 하 고 Azure Database for MySQL 유지 관리
+description: Sys_schema를 사용 하 여 성능 문제를 찾고 Azure Database for MySQL에서 데이터베이스를 유지 관리 하는 방법을 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 08/01/2018
-ms.openlocfilehash: 993c77056c09c1dc21d5317ddbfe8e937341718d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7dc6b4744c74c56803127f63a8a6f29ca5a15090
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61422374"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972786"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 성능 튜닝 및 데이터베이스 유지 관리를 위해 sys_schema를 사용하는 방법
 

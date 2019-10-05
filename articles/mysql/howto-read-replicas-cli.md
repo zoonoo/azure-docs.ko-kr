@@ -1,17 +1,17 @@
 ---
-title: Azure Database for MySQL Azure CLI에서 읽기 복제본 만들기 및 관리 REST API
-description: 이 문서에서는 Azure CLI를 사용 하 여 Azure Database for MySQL에서 읽기 복제본을 설정 하 고 관리 하는 방법을 설명 REST API
+title: 복제본 읽기 & 관리-Azure Database for MySQL
+description: Azure CLI 또는 REST API를 사용 하 여 Azure Database for MySQL에서 읽기 복제본을 설정 하 고 관리 하는 방법을 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/14/2019
-ms.openlocfilehash: 5bec4e7284e78506372d395bf022055fa31998e3
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 741b50bdb2ec9c8d29a9f759e46209856de3a49c
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993546"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970318"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Azure CLI 및 REST API를 사용 하 여 Azure Database for MySQL에서 읽기 복제본을 만들고 관리 하는 방법
 
@@ -20,7 +20,7 @@ ms.locfileid: "70993546"
 ## <a name="azure-cli"></a>Azure CLI
 Azure CLI를 사용 하 여 읽기 복제본을 만들고 관리할 수 있습니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - 마스터 서버로 사용할 [Azure Database for MySQL 서버](quickstart-create-mysql-server-database-using-azure-portal.md) 
@@ -38,7 +38,7 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 
 `az mysql server replica create` 명령에는 다음과 같은 매개 변수가 필요합니다.
 
-| 설정 | 예제 값 | Description  |
+| 설정 | 예제 값 | 설명  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  복제본 서버가 만들어지는 리소스 그룹입니다.  |
 | name | mydemoreplicaserver | 만들어지는 새 복제본 서버의 이름입니다. |
@@ -67,7 +67,7 @@ az mysql server replica list --server-name mydemoserver --resource-group myresou
 
 `az mysql server replica list` 명령에는 다음과 같은 매개 변수가 필요합니다.
 
-| 설정 | 예제 값 | Description  |
+| 설정 | 예제 값 | 설명  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  복제본 서버가 만들어지는 리소스 그룹입니다.  |
 | 서버 이름 | mydemoserver | 마스터 서버의 이름 또는 ID입니다. |
@@ -85,7 +85,7 @@ az mysql server replica stop --name mydemoreplicaserver --resource-group myresou
 
 `az mysql server replica stop` 명령에는 다음과 같은 매개 변수가 필요합니다.
 
-| 설정 | 예제 값 | Description  |
+| 설정 | 예제 값 | 설명  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  복제본 서버가 있는 리소스 그룹입니다.  |
 | name | mydemoreplicaserver | 복제를 중지할 복제본 서버의 이름입니다. |

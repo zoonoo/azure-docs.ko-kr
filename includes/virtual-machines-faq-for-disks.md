@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ffc77d2a175d300be306b1566324b2551e38aeab
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 155ca71ae30559cc79e090a8a7bbc12c896b637f
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266877"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973009"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -293,6 +293,10 @@ Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용 하 여 �
 **Managed Disk를 만들 경우 Azure Storage 서비스 암호화를 기본적으로 사용하나요?**
 
 예.
+
+**부팅 볼륨이 관리 디스크에서 기본적으로 암호화 되나요?**
+
+예. 기본적으로 OS 디스크를 포함 하 여 모든 관리 디스크가 암호화 됩니다.
 
 **암호화 키는 누가 관리하나요?**
 

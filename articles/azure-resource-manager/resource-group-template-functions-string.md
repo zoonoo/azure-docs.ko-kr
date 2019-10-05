@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: b558e046f3402fdfa127192788d7d3ee1307ddeb
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 93f17ea9d2ffa33d1dca9da3eb60f75165e8ed61
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937029"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973326"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 문자열 함수
 
@@ -1097,7 +1097,7 @@ int입니다.
 
 NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함수와 다릅니다. 동일한 매개 변수를 사용 하 여 guid를 호출 하면 매번 동일한 식별자를 반환 합니다. 특정 환경에 대해 동일한 GUID를 안정적으로 생성 해야 하는 경우 guid를 사용 합니다. 테스트 환경에 리소스를 배포 하는 것과 같이 매번 다른 식별자가 필요한 경우 newGuid를 사용 합니다.
 
-[이전에 성공한 배포](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)를 다시 배포 하는 옵션을 사용 하는 경우 이전 배포에 newguid를 사용 하는 매개 변수가 포함 된 경우 매개 변수는 다시 평가 되지 않습니다. 대신 이전 배포의 매개 변수 값이 롤백 배포에서 자동으로 다시 사용 됩니다.
+[이전에 성공한 배포](rollback-on-error.md)를 다시 배포 하는 옵션을 사용 하는 경우 이전 배포에 newguid를 사용 하는 매개 변수가 포함 된 경우 매개 변수는 다시 평가 되지 않습니다. 대신 이전 배포의 매개 변수 값이 롤백 배포에서 자동으로 다시 사용 됩니다.
 
 테스트 환경에서는 짧은 시간 동안만 지속 되는 리소스를 반복적으로 배포 해야 할 수 있습니다. 고유 이름을 생성 하는 대신 [uniqueString](#uniquestring) 와 함께 newguid를 사용 하 여 고유한 이름을 만들 수 있습니다.
 
@@ -2110,7 +2110,7 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 
 이 함수는 매개 변수의 기본값에 대해서만 식 내에서 사용할 수 있습니다. 템플릿의 다른 위치에서이 함수를 사용 하면 오류가 반환 됩니다. 함수는 호출 될 때마다 다른 값을 반환 하므로 템플릿의 다른 부분에서는 허용 되지 않습니다. 동일한 매개 변수를 사용 하 여 동일한 템플릿을 배포 하는 것은 안정적으로 동일한 결과를 생성 하지 않습니다.
 
-[이전에 성공한 배포](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)를 다시 배포 하는 옵션을 사용 하는 경우 이전 배포에 utcNow를 사용 하는 매개 변수가 포함 된 경우 매개 변수는 다시 평가 되지 않습니다. 대신 이전 배포의 매개 변수 값이 롤백 배포에서 자동으로 다시 사용 됩니다.
+[이전에 성공한 배포](rollback-on-error.md)를 다시 배포 하는 옵션을 사용 하는 경우 이전 배포에 utcNow를 사용 하는 매개 변수가 포함 된 경우 매개 변수는 다시 평가 되지 않습니다. 대신 이전 배포의 매개 변수 값이 롤백 배포에서 자동으로 다시 사용 됩니다.
 
 기본값에 대해 utcNow 함수를 사용 하는 템플릿을 다시 배포 해야 합니다. 다시 배포 하는 경우 매개 변수에 대 한 값을 제공 하지 않으면 함수가 재평가 됩니다. 새 리소스를 만드는 대신 기존 리소스를 업데이트 하려면 이전 배포에서 매개 변수 값을 전달 합니다.
 

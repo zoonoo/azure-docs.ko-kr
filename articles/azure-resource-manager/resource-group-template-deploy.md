@@ -6,18 +6,16 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1f9fb786933d03b27be47c9f778a5f1575ca17c2
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 88aabb676d3a15dd2efff3acd751818301519ae1
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69970901"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972699"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>리소스 관리자 템플릿과 Azure PowerShell로 리소스 배포
 
 Resource Manager 템플릿으로 Azure PowerShell을 사용하여 Azure에 리소스를 배포하는 방법을 알아봅니다. Azure 솔루션 배포 및 관리 개념에 대한 자세한 내용은 [Azure Resource Manager 개요](resource-group-overview.md)를 참조하세요.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deployment-scope"></a>배포 범위
 
@@ -39,7 +37,7 @@ New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 
 이 문서의 예제에서는 리소스 그룹 배포를 사용 합니다. 구독 배포에 대 한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](deploy-to-subscription.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 배포할 템플릿이 필요 합니다. 아직 없는 경우 Azure 빠른 시작 템플릿 리포지토리에서 [예제 템플릿을](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) 다운로드 하 고 저장 합니다. 이 문서에 사용된 로컬 파일 이름은 **c:\MyTemplates\azuredeploy.json**입니다.
 
@@ -96,37 +94,6 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 ```
 
 셸에 코드를 붙여넣으려면 셸 내부를 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
-
-## <a name="redeploy-when-deployment-fails"></a>배포 실패 시 다시 배포
-
-이 기능을 *오류 발생 시 롤백*이 라고도 합니다. 배포가 실패하면 배포 기록에서 이전에 성공한 배포를 자동으로 다시 배포할 수 있습니다. 재배포를 지정하려면 배포 명령에 `-RollbackToLastDeployment` 또는 `-RollBackDeploymentName` 매개 변수를 사용합니다. 이 기능은 인프라 배포에 대 한 알려진 양호한 상태를가지고 있으며이 상태로 되돌리려는 경우에 유용 합니다. 몇 가지 주의 사항과 제한 사항이 있습니다.
-
-- 재배포는 동일한 매개 변수를 사용 하 여 이전에 실행 된 것과 동일 하 게 실행 됩니다. 매개 변수를 변경할 수 없습니다.
-- 이전 배포는 [전체 모드](./deployment-modes.md#complete-mode)를 사용 하 여 실행 됩니다. 이전 배포에 포함 되지 않은 모든 리소스는 삭제 되 고 모든 리소스 구성은 이전 상태로 설정 됩니다. [배포 모드](./deployment-modes.md)를 완전히 이해 해야 합니다.
-- 재배포는 리소스에만 영향을 주며 데이터 변경 내용은 영향을 받지 않습니다.
-- 이 기능은 구독 수준 배포가 아닌 리소스 그룹 배포 에서만 지원 됩니다. 구독 수준 배포에 대 한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](./deploy-to-subscription.md)를 참조 하세요.
-
-이 옵션을 사용하려면 배포가 배포 기록에서 식별될 수 있도록 고유한 이름을 지정해야 합니다. 고유한 이름이 없으면 현재 실패한 배포가 기록에서 이전에 성공한 배포를 덮어쓸 수 있습니다. 루트 수준 배포에만 이 옵션을 사용할 수 있습니다. 중첩된 템플릿의 배포는 다시 배포할 수 없습니다.
-
-성공한 마지막 배포를 다시 배포하려면 `-RollbackToLastDeployment` 매개 변수를 플래그로 추가합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -Name ExampleDeployment02 `
-  -ResourceGroupName $resourceGroupName `
-  -TemplateFile c:\MyTemplates\azuredeploy.json `
-  -RollbackToLastDeployment
-```
-
-특정 배포를 다시 배포하려면 `-RollBackDeploymentName` 매개 변수를 사용하고 배포의 이름을 제공합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -Name ExampleDeployment02 `
-  -ResourceGroupName $resourceGroupName `
-  -TemplateFile c:\MyTemplates\azuredeploy.json `
-  -RollBackDeploymentName ExampleDeployment01
-```
-
-지정된 배포는 분명히 성공했을 것입니다.
 
 ## <a name="pass-parameter-values"></a>매개 변수 값 전달
 
@@ -220,7 +187,7 @@ Test-AzResourceGroupDeployment : After parsing a value an unexpected character w
 
 ## <a name="next-steps"></a>다음 단계
 
-- 둘 이상의 지역에서 서비스를 안전하게 출시하려면 [Azure Deployment Manager](deployment-manager-overview.md)를 참조하세요.
+- 오류가 발생할 때 성공적인 배포로 롤백하려면 [성공적인 배포에 대 한 오류 발생 시 롤백](rollback-on-error.md)을 참조 하세요.
 - 리소스 그룹에 있지만 템플릿에 정의되지 않은 리소스를 처리하는 방법을 지정하려면 [Azure Resource Manager 배포 모드](deployment-modes.md)를 참조하세요.
 - 템플릿에서 매개 변수를 정의하는 방법을 이해하려면 [Azure Resource Manager 템플릿의 구조 및 구문 이해](resource-group-authoring-templates.md)를 참조하세요.
 - SAS 토큰이 필요한 템플릿을 배포하는 데 관한 내용은 [SAS 토큰으로 프라이빗 템플릿 배포](resource-manager-powershell-sas-token.md)를 참조하세요.

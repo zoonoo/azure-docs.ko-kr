@@ -1,19 +1,19 @@
 ---
-title: Azure Database for MariaDB 저장 프로시저
-description: 이 문서에서는 Azure Database for MariaDB와 관련 된 저장 프로시저를 소개 합니다.
+title: Azure Database for MariaDB 관리 저장 프로시저
+description: Azure Database for MySQL에서 데이터 복제를 구성 하 고, 표준 시간대를 설정 하 고, 쿼리를 중지 하는 데 도움이 되는 저장 프로시저에 대해 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: d9daaf619a19c0f4e4a591d4bbb4925679fd1fcb
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 0a33edeac735502964427ddc3b05076fb9fac969
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174904"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973463"
 ---
-# <a name="azure-database-for-mariadb-stored-procedures"></a>Azure Database for MariaDB 저장 프로시저
+# <a name="azure-database-for-mariadb-management-stored-procedures"></a>Azure Database for MariaDB 관리 저장 프로시저
 
 저장 프로시저는 Azure Database for MariaDB 서버에서 사용할 수 있으며,이를 통해 MariaDB 서버를 관리할 수 있습니다. 여기에는 서버의 연결, 쿼리 및 입력 데이터 복제 설정 관리가 포함 됩니다.  
 
@@ -39,9 +39,9 @@ Azure Database for MariaDB에서 마스터와 복제본 사이에 입력 데이�
 
 |**저장 프로시저 이름**|**입력 매개 변수**|**출력 매개 변수**|**사용 정보**|
 |-----|-----|-----|-----|
-|*mysql. az _kill*|processlist_id|해당 사항 없음|[`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command와 동일 합니다. 는 연결을 실행 하는 모든 문을 종료 한 후 제공 된 processlist_id 연결 된 연결을 종료 합니다.|
-|*mysql. az _kill_query*|processlist_id|해당 사항 없음|[`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command와 동일 합니다. 는 연결이 현재 실행 중인 문을 종료 합니다. 연결 자체의 활성 상태를 유지 합니다.|
-|*mysql. az _load_l*|해당 사항 없음|해당 사항 없음|`time_zone` 매개 변수를 명명 된 값으로 설정할 수 있도록 표준 시간대 테이블을 로드 합니다 (예: "US/태평양").|
+|*mysql. az _kill*|processlist_id|해당 사항 없음|[@No__t-1](https://dev.mysql.com/doc/refman/8.0/en/kill.html) 명령과 동일 합니다. 는 연결을 실행 하는 모든 문을 종료 한 후 제공 된 processlist_id 연결 된 연결을 종료 합니다.|
+|*mysql. az _kill_query*|processlist_id|해당 사항 없음|[@No__t-1](https://dev.mysql.com/doc/refman/8.0/en/kill.html) 명령과 동일 합니다. 는 연결이 현재 실행 중인 문을 종료 합니다. 연결 자체의 활성 상태를 유지 합니다.|
+|*mysql. az _load_l*|해당 사항 없음|해당 사항 없음|@No__t-0 매개 변수를 명명 된 값으로 설정할 수 있도록 표준 시간대 테이블을 로드 합니다 (예: "US/태평양").|
 
 ## <a name="next-steps"></a>다음 단계
 - [입력 데이터 복제](howto-data-in-replication.md) 를 설정 하는 방법을 알아봅니다.

@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 09/24/2019
+ms.date: 10/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 12d3f06ca349413231d69fc9de7b9d2f36645b23
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: ed828a09843648b129b701c9afd22aac9e2fa9b0
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273769"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970824"
 ---
 1. 포털의 왼쪽에서 **+ 리소스 만들기**를 클릭하고 검색에서 '가상 네트워크 게이트웨이'를 입력합니다. 검색 결과에서 **가상 네트워크 게이트웨이**를 찾아서 항목을 클릭합니다. **가상 네트워크 게이트웨이** 페이지에서 **만들기**를 클릭 합니다. 그러면 **가상 네트워크 게이트웨이 만들기** 페이지가 열립니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "71273769"
 
       **가상 네트워크**: 이 게이트웨이를 추가할 가상 네트워크를 선택합니다.
 
-      **게이트웨이 서브넷 주소 범위**: 이 필드는 선택한 가상 네트워크에 게이트웨이 서브넷이 없는 경우에만 표시 됩니다. 게이트웨이 서브넷이 아직 없는 경우 범위를 입력 합니다. 가능 하면 범위를/27 이상 (/26,/25 등)으로 설정 합니다.
+      **게이트웨이 서브넷 주소 범위**: 이 필드는 VNet에 게이트웨이 서브넷이 없는 경우에만 표시 됩니다. 가능 하면 범위를/27 이상 (/26,/25 등)으로 설정 합니다. /28 보다 작은 범위는 만들지 않는 것이 좋습니다. 게이트웨이 서브넷이 이미 있는 경우 가상 네트워크로 이동 하 여 게이트웨이 서브넷 세부 정보를 볼 수 있습니다. **서브넷** 을 클릭 하 여 범위를 확인 합니다. 범위를 변경 하려는 경우에는 게이트웨이 서브넷을 삭제 하 고 다시 만들 수 있습니다.
 
    **공용 IP 주소**: 이 설정은 VPN Gateway에 연결되는 공용 IP 주소 개체를 지정합니다. VPN Gateway가 생성될 때 공용 IP 주소가 이 개체에 동적으로 할당됩니다. 게이트웨이가 삭제되고 다시 만들어지는 경우에만 공용 IP 주소가 변경됩니다. VPN Gateway의 크기 조정, 다시 설정 또는 기타 내부 유지 관리/업그레이드 시에는 변경되지 않습니다.
 

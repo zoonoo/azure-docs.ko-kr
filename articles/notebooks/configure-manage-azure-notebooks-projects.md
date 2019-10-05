@@ -4,21 +4,20 @@ description: Azure Notebooks UI 및 터미널 직접 액세스를 통해 프로�
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/13/2019
 ms.author: kraigb
-ms.openlocfilehash: 0440e498451ee141fa03851b78418caf911d0e32
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fca98594be08f04b2f266f3aa574837ac024ecf4
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596749"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973121"
 ---
 # <a name="manage-and-configure-projects"></a>프로젝트 관리 및 구성
 
@@ -37,7 +36,7 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 
 ## <a name="compute-tier"></a>컴퓨팅 계층
 
-기본적으로 프로젝트에서 실행 합니다 **무료 계산** 4GB의 메모리 및 1GB의 데이터 남용을 방지 하기 위해 제한 되는 계층입니다. 이러한 제한 사항을 무시 하 고 Azure 구독에서 프로 비전 하면 다른 가상 컴퓨터를 사용 하 여 계산 능력을 높일 수 있습니다. 자세한 내용은 [데이터 과학 Virtual Machines를 사용 하는 방법을](use-data-science-virtual-machine.md)합니다.
+기본적으로 프로젝트는 악성을 방지 하기 위해 4GB의 메모리와 1GB의 데이터로 제한 되는 **무료 계산** 계층에서 실행 됩니다. 이러한 제한을 무시 하 고 Azure 구독에서 프로 비전 한 다른 가상 머신을 사용 하 여 계산 능력을 높일 수 있습니다. 자세한 내용은 [데이터 과학을 사용 하는 방법 Virtual Machines](use-data-science-virtual-machine.md)을 참조 하세요.
 
 ## <a name="edit-project-metadata"></a>프로젝트 메타데이터 편집
 
@@ -46,7 +45,7 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 | 설정 | 설명 |
 | --- | --- |
 | 프로젝트 이름 | Azure Notebooks에서 표시용으로 사용하는 프로젝트의 식별 이름입니다. "Hello World in Python"을 예로 들 수 있습니다. |
-| 프로젝트 ID | 프로젝트를 공유하기 위해 사용하는 URL의 일부가 되는 사용자 지정 식별자입니다. 문자, 숫자 및 하이픈만 사용할 수 있습니다, 30 자로 제한 됩니다 및 될 수 없습니다.이 ID는 [프로젝트 ID가 예약](create-clone-jupyter-notebooks.md#reserved-project-ids)합니다. 무엇을 사용해야 할지 잘 모르겠으면 일반적인 규칙에 따라 프로젝트 이름의 소문자 버전을 사용하세요. 이때 공백은 "my-notebook-project"처럼 하이픈으로 바뀝니다(길이 제한 때문에 잘릴 수 있음). |
+| 프로젝트 ID | 프로젝트를 공유하기 위해 사용하는 URL의 일부가 되는 사용자 지정 식별자입니다. 이 ID는 문자, 숫자 및 하이픈만 사용할 수 있으며, 30 자로 제한 되며, [예약 된 프로젝트 id](create-clone-jupyter-notebooks.md#reserved-project-ids)가 될 수 없습니다. 무엇을 사용해야 할지 잘 모르겠으면 일반적인 규칙에 따라 프로젝트 이름의 소문자 버전을 사용하세요. 이때 공백은 "my-notebook-project"처럼 하이픈으로 바뀝니다(길이 제한 때문에 잘릴 수 있음). |
 | 공용 프로젝트 | 이 옵션을 설정하면 링크가 있는 사람은 누구든지 프로젝트에 액세스할 수 있습니다. 프라이빗 프로젝트를 만들려면 이 옵션의 선택을 취소합니다. |
 | 복제본 숨기기 | 이 옵션을 설정하면 다른 사용자가 이 프로젝트에 대해 만들어진 복제본 목록을 볼 수 없습니다. 복제본 숨기기는 강의에 Notebook을 사용하는 경우처럼 같은 조직에 속하지 않은 여러 사람이 공유하는 프로젝트에 유용합니다. |
 
@@ -79,15 +78,15 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 
 ![파일 팝업 메뉴의 명령](media/project-file-commands.png)
 
-| 명령 | 바로 가기 키 | 액션(Action) |
+| 명령 | 바로 가기 키 | 작업 |
 | --- | --- | --- |
 | 실행 | r(또는 클릭) | Notebook 파일을 실행합니다. 다른 파일 형식은 보는 용도로 열립니다.  |
 | 링크 복사 | y | 파일 링크를 클립보드에 복사합니다. |
 | Jupyter 랩에서 실행 | j | Jupyter가 일반적으로 제공하는 환경보다 개발자 중심의 인터페이스인 JupyterLab에서 Notebook을 실행합니다. |
 | 미리 보기 | p | 파일의 HTML 미리 보기를 엽니다. Notebook의 경우 미리 보기는 Notebook의 읽기 전용 렌더링입니다. 자세한 내용은 [미리 보기](#preview) 섹션을 참조하세요. |
-| 파일 편집 | I | 편집할 파일을 엽니다. |
-| 다운로드 | 일 | 폴더의 파일 또는 콘텐츠를 포함하고 있는 Zip 파일을 다운로드합니다. |
-| 이름 바꾸기 | 하나 | 파일 또는 폴더의 새 이름을 요청합니다. |
+| 파일 편집 | i | 편집할 파일을 엽니다. |
+| 다운로드 | d | 폴더의 파일 또는 콘텐츠를 포함하고 있는 Zip 파일을 다운로드합니다. |
+| 이름 바꾸기 | a | 파일 또는 폴더의 새 이름을 요청합니다. |
 | 삭제 | x | 확인을 요청한 다음, 프로젝트에서 파일을 영구적으로 제거합니다. 삭제 작업은 실행 취소할 수 없습니다. |
 | 이동 | 분 | 파일을 같은 프로젝트의 다른 폴더로 이동합니다. |
 
@@ -97,12 +96,12 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 
 미리 보기 페이지는 바로 가기 키를 사용하여 여러 도구 모음 명령을 지원합니다.
 
-| 명령 | 바로 가기 키 | 액션(Action) |
+| 명령 | 바로 가기 키 | 작업 |
 | --- | --- | --- |
-| 공유 | 초 | 링크를 획득하고, 소셜 미디어에 공유하고, 포함할 HTML을 획득하고, 이메일을 보낼 수 있는 공유 팝업을 표시합니다. |
-| 클론 | C  | Notebook을 계정에 복제합니다. |
+| 공유 | s | 링크를 획득하고, 소셜 미디어에 공유하고, 포함할 HTML을 획득하고, 이메일을 보낼 수 있는 공유 팝업을 표시합니다. |
+| 복제 | c  | Notebook을 계정에 복제합니다. |
 | 실행 | r | 실행 권한이 있는 경우 Notebook을 실행합니다. |
-| 다운로드 | 일 | Notebook의 복사본을 다운로드합니다. |
+| 다운로드 | d | Notebook의 복사본을 다운로드합니다. |
 
 ## <a name="configure-the-project-environment"></a>프로젝트 환경 구성
 

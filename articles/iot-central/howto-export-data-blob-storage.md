@@ -4,30 +4,30 @@ description: Azure IoT Central 애플리케이션에서 Azure Blob Storage에 �
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 07/08/2019
+ms.date: 09/26/2019
 ms.topic: conceptual
 ms.service: iot-central
-manager: peterpr
-ms.openlocfilehash: 7366072dbf6b000981899a56ca1c8cfe6af6f04a
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+manager: corywink
+ms.openlocfilehash: 7ee9d2bf32fcec5f5f4435fe09916f437d6323ee
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876040"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971645"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Azure Blob Storage에 데이터 내보내기
 
-[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
 *이 항목의 내용은 관리자에게 적용됩니다.*
 
-이 문서에서는 Azure IoT Central의 연속 데이터 내보내기 기능을 사용 하 여 주기적으로 **Azure Blob storage 계정**으로 데이터를 내보내는 방법을 설명 합니다. Apache Avro 형식의 파일로 **측정값**, **디바이스** 및 **디바이스 템플릿**을 내보낼 수 있습니다. 내보낸 데이터는 Azure Machine Learning의 학습 모델 또는 Microsoft Power BI의 장기 추세 분석과 같은 콜드 경로 분석에 사용할 수 있습니다.
+이 문서에서는 Azure IoT Central의 연속 데이터 내보내기 기능을 사용 하 여 주기적으로 **Azure Blob storage 계정** 또는 **Azure Data Lake Storage Gen2 storage 계정**으로 데이터를 내보내는 방법을 설명 합니다. **측정**, **장치**및 **장치 템플릿을** JSON 또는 Apache Avro 형식의 파일로 내보낼 수 있습니다. 내보낸 데이터는 Azure Machine Learning의 학습 모델 또는 Microsoft Power BI의 장기 추세 분석과 같은 콜드 경로 분석에 사용할 수 있습니다.
 
 > [!Note]
 > 연속 데이터 내보내기를 켜면 그 시점 이후의 데이터만 얻게 됩니다. 현재는 연속 데이터 내보내기가 꺼져 있는 시간의 데이터를 검색할 수 없습니다. 더 많은 기록 데이터를 유지하려면 연속 데이터 내보내기를 일찍 켜세요.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - IoT Central 애플리케이션에서 관리자여야 함
 
@@ -36,17 +36,15 @@ ms.locfileid: "69876040"
 
 내보낼 기존 저장소가 없는 경우 다음 단계를 수행 합니다.
 
-## <a name="create-storage-account"></a>Storage 계정 만들기
-
-1. [Azure Portal에서 새 스토리지 계정](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)을 만듭니다. [Azure Storage 문서](https://aka.ms/blobdocscreatestorageaccount)에서 자세히 알아볼 수 있습니다.
-2. 계정 유형은 **범용** 또는 **Blob Storage** 중에 선택합니다.
-3. 구독을 선택합니다. 
+1. [Azure Portal에서 새 스토리지 계정](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)을 만듭니다. 새 [Azure Blob storage 계정](https://aka.ms/blobdocscreatestorageaccount) 또는 [Azure Data Lake Storage v2 저장소 계정](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account)만들기에 대해 자세히 알아볼 수 있습니다.
 
     > [!Note] 
-    > 이제 종량제 IoT Central 애플리케이션에 대한 구독과 **동일하지 않은** 다른 구독으로 데이터를 내보낼 수 있습니다. 이 경우 연결 문자열을 사용하여 연결합니다.
+    > ADLS v2 storage 계정으로 데이터를 내보내도록 선택 하는 경우 **계정 종류** 를 **blobstorage**로 선택 해야 합니다. 
 
-4. 스토리지 계정에 컨테이너를 만듭니다. 스토리지 계정으로 이동합니다. **Blob 서비스**에서 **Blob 찾아보기**를 선택합니다. 위쪽에서 **+ 컨테이너** 를 선택 하 여 새 컨테이너를 만듭니다.
+    > [!Note] 
+    > 종 량 제 IoT Central 응용 프로그램에 대 한 것과 다른 구독에서 저장소 계정으로 데이터를 내보낼 수 있습니다. 이 경우 연결 문자열을 사용하여 연결합니다.
 
+2. 스토리지 계정에 컨테이너를 만듭니다. 스토리지 계정으로 이동합니다. **Blob 서비스**에서 **Blob 찾아보기**를 선택합니다. 맨 위에서 **+ 컨테이너**를 선택하여 새 컨테이너를 만듭니다.
 
 ## <a name="set-up-continuous-data-export"></a>연속 데이터 내보내기 설정
 
@@ -54,19 +52,17 @@ ms.locfileid: "69876040"
 
 1. IoT Central 애플리케이션에 로그인합니다.
 
-2. 왼쪽 메뉴에서 **연속 데이터 내보내기**를 선택 합니다.
+2. 왼쪽 메뉴에서 **데이터 내보내기**를 선택 합니다.
 
     > [!Note]
-    > 왼쪽 메뉴에 연속 데이터 내보내기가 표시되지 않는 경우 앱의 관리자가 아닌 것입니다. 관리자에게 데이터 내보내기를 설정하도록 요청합니다.
-
-    ![새 cde 이벤트 허브 만들기](media/howto-export-data/export_menu1.png)
+    > 왼쪽 메뉴에 데이터 내보내기가 표시 되지 않는 경우 앱의 관리자가 아닙니다. 관리자에게 데이터 내보내기를 설정하도록 요청합니다.
 
 3. 오른쪽 위에 있는 **+ 새로 만들기** 단추를 선택 합니다. 내보내기의 대상으로 **Azure Blob Storage** 를 선택 합니다. 
 
     > [!NOTE] 
     > 앱당 최대 내보내기 수는 5개입니다. 
 
-    ![새 연속 데이터 내보내기 만들기](media/howto-export-data/export_new1.png)
+    ![새 연속 데이터 내보내기 만들기](media/howto-export-data/export-new2.png)
 
 4. 드롭다운 목록 상자에서 **저장소 계정 네임 스페이스**를 선택 합니다. **연결 문자열 입력**인 목록의 마지막 옵션을 선택할 수도 있습니다. 
 
@@ -76,34 +72,41 @@ ms.locfileid: "69876040"
     > [!NOTE] 
     > 7일 평가판 앱의 경우 연결 문자열을 통해서만 연속 데이터 내보내기를 구성할 수 있습니다. 7일 평가판 앱에는 연결된 Azure 구독이 없기 때문입니다.
 
-    ![새 cde 이벤트 허브 만들기](media/howto-export-data/export-create-blob.png)
+    ![Blob에 대 한 새 내보내기 만들기](media/howto-export-data/export-create-blob2.png)
 
-5. (선택 사항) **연결 문자열 입력**을 선택한 경우 연결 문자열을 붙여넣을 수 있는 새 상자가 나타납니다. 다음 항목의 연결 문자열을 가져오려면
-    - 저장소 계정 Azure Portal의 저장소 계정으로 이동 합니다.
-        - **설정**아래에서 **액세스 키** 를 선택 합니다.
-        - key1 연결 문자열 또는 key2 연결 문자열 중 하나를 복사합니다.
+5. (선택 사항) **연결 문자열 입력**을 선택한 경우 연결 문자열을 붙여넣을 수 있는 새 상자가 나타납니다. 저장소 계정에 대 한 연결 문자열을 가져오려면 Azure Portal의 저장소 계정으로 이동 하 고, [ **설정**] 아래에서 [ **액세스 키** ]를 선택 합니다. key1 연결 문자열 또는 key2 연결 문자열 복사
  
-6. 드롭다운 목록 상자에서 컨테이너를 선택 합니다.
+6. 드롭다운 목록 상자에서 컨테이너를 선택 합니다. 컨테이너가 없는 경우 Azure Portal의 저장소 계정으로 이동 합니다.
+    - **Blob service**에서 **blob**을 선택 합니다. **+ 컨테이너** 를 클릭 하 고 컨테이너에 이름을 지정 합니다. 데이터에 대 한 공용 액세스 수준을 선택 합니다 (모든 데이터는 연속 데이터 내보내기와 함께 사용 됨). [Azure Storage 문서](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)에서 자세히 알아보세요.
 
-7. **데이터 내보내기** 아래에서 형식을 **켜기**로 설정하여 내보낼 각 데이터 형식을 지정합니다.
+7. 선호 하는 **데이터 형식을** 선택 합니다. JSON 또는 [Apache Avro](https://avro.apache.org/docs/current/index.html) 형식입니다.
 
-6. 연속 데이터 내보내기를 켜려면 **데이터 내보내기**가 **켬**인지 확인합니다. **저장**을 선택합니다.
+8. **데이터 내보내기** 아래에서 형식을 **켜기**로 설정하여 내보낼 각 데이터 형식을 지정합니다.
 
-   ![연속 데이터 내보내기 구성](media/howto-export-data/export-list-blob.png)
+9. 연속 데이터 내보내기를 설정 하려면 **데이터 내보내기** 토글이 **on**으로 설정 되어 있는지 확인 합니다. **저장**을 선택합니다.
 
-7. 몇 분 후에 데이터가 선택한 대상에 표시됩니다.
+   ![연속 데이터 내보내기 구성](media/howto-export-data/export-list-blob2.png)
+
+10. 몇 분 후에 데이터는 저장소 계정에 표시 됩니다.
 
 
-## <a name="export-to-azure-blob-storage"></a>Azure Blob Storage에 내보내기
+## <a name="path-structure"></a>경로 구조
 
-측정값, 디바이스 및 디바이스 템플릿 데이터가 1분에 1번 스토리지 계정으로 내보내지며, 각 파일에는 마지막으로 내보낸 이후의 일괄 변경 사항이 포함되어 있습니다. 내보낸 데이터는 [Apache Avro](https://avro.apache.org/docs/current/index.html) 형식이며, 3개의 폴더로 내보내집니다. 스토리지 계정의 기본 경로는 다음과 같습니다.
-- 메시지: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-- 디바이스: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-- 디바이스 템플릿: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+측정값, 디바이스 및 디바이스 템플릿 데이터를 1분마다 한 번 스토리지 계정으로 내보내며, 각 파일에는 마지막으로 내보낸 이후의 일괄 변경 내용이 포함됩니다. 내보낸 데이터는 JSON 또는 Avro 형식의 3 개 폴더에 배치 됩니다. 스토리지 계정의 기본 경로는 다음과 같습니다.
+- 메시지: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
+- 장치: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
+- 장치 템플릿: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
+
+파일로 이동 하 고 **Blob 편집** 탭을 선택 하 여 Azure Portal에서 내보낸 파일을 찾아볼 수 있습니다.
+
+## <a name="data-format"></a>데이터 서식 
 
 ### <a name="measurements"></a>측정값
 
 내보낸 측정값 데이터에는 해당 시간에 IoT Central이 모든 디바이스에서 받은 모든 새 메시지가 포함되어 있습니다. 내보낸 파일은 [IoT Hub 메시지 라우팅](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c)에서 Blob 스토리지로 내보낸 메시지 파일과 동일한 형식을 사용합니다.
+
+> [!NOTE]
+> 장치가 `contentType: application/JSON`과 `contentEncoding:utf-8` (또는 `utf-16`, `utf-32`) 인 메시지를 보내고 있는지 확인 합니다. 예는 [IoT Hub 설명서](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-body) 를 참조 하세요.
 
 > [!NOTE]
 > 측정값을 보내는 디바이스는 디바이스 ID로 표시됩니다(아래 섹션 참조). 디바이스 이름을 가져오려면 디바이스 스냅샷을 내보냅니다. 디바이스 레코드의 **deviceId**와 일치하는 **connectionDeviceId**를 사용하여 각 메시지 레코드의 상관 관계를 지정합니다.
@@ -111,16 +114,16 @@ ms.locfileid: "69876040"
 다음 예제에서는 디코딩된 Avro 파일의 레코드를 보여 줍니다.
 
 ```json
-{
-    "EnqueuedTimeUtc": "2018-06-11T00:00:08.2250000Z",
-    "Properties": {},
-    "SystemProperties": {
-        "connectionDeviceId": "<connectionDeviceId>",
-        "connectionAuthMethod": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
-        "connectionDeviceGenerationId": "<generationId>",
-        "enqueuedTime": "2018-06-11T00:00:08.2250000Z"
-    },
-    "Body": "{\"humidity\":80.59100954598546,\"magnetometerX\":0.29451796907056726,\"magnetometerY\":0.5550332126050068,\"magnetometerZ\":-0.04116681874733441,\"connectivity\":\"connected\",\"opened\":\"triggered\"}"
+{ 
+  "EnqueuedTimeUtc":"2019-06-11T00:00:08.2250000Z",
+  "Properties":{},
+  "SystemProperties":{ 
+    "connectionDeviceId":"<deviceId>",
+    "connectionAuthMethod":"{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+    "connectionDeviceGenerationId":"<generationId>",
+    "enqueuedTime":"2019-06-11T00:00:08.2250000Z"
+  },
+  "Body":"{\"humidity\":80.59100954598546,\"magnetometerX\":0.29451796907056726,\"magnetometerY\":0.5550332126050068,\"magnetometerZ\":-0.04116681874733441,\"connectivity\":\"connected\",\"opened\":\"triggered\"}"
 }
 ```
 
@@ -144,33 +147,33 @@ ms.locfileid: "69876040"
 >
 > 각 디바이스가 속하는 디바이스 템플릿은 디바이스 템플릿 ID로 표시됩니다. 디바이스 템플릿 이름을 가져오려면 디바이스 템플릿 스냅샷을 내보내야 합니다.
 
-디코딩된 Avro 파일의 A 레코드는 다음과 같을 수 있습니다.
+내보낸 파일은 레코드 당 한 줄을 포함 합니다. 다음 예에서는 디코딩되는 Avro 형식의 레코드를 보여 줍니다.
 
 ```json
-{
-    "id": "<id>",
-    "name": "Refrigerator 2",
-    "simulated": true,
-    "deviceId": "<deviceId>",
-    "deviceTemplate": {
-        "id": "<template id>",
-        "version": "1.0.0"
+{ 
+  "id":"<id>",
+  "name":"Refrigerator 2",
+  "simulated":true,
+  "deviceId":"<deviceId>",
+  "deviceTemplate":{ 
+    "id":"<template id>",
+    "version":"1.0.0"
+  },
+  "properties":{ 
+    "cloud":{ 
+      "location":"New York",
+      "maintCon":true,
+      "tempThresh":20
     },
-    "properties": {
-        "cloud": {
-            "location": "New York",
-            "maintCon": true,
-            "tempThresh": 20
-        },
-        "device": {
-            "lastReboot": "2018-02-09T22:22:47.156Z"
-        }
-    },
-    "settings": {
-        "device": {
-            "fanSpeed": 0
-        }
+    "device":{ 
+      "lastReboot":"2018-02-09T22:22:47.156Z"
     }
+  },
+  "settings":{ 
+    "device":{ 
+      "fanSpeed":0
+    }
+  }
 }
 ```
 
@@ -192,79 +195,79 @@ ms.locfileid: "69876040"
 > [!NOTE]
 > 마지막 스냅샷 이후에 삭제된 디바이스 템플릿은 내보내지지 않습니다. 현재는 삭제된 디바이스 템플릿을 나타내는 표시기가 스냅샷에 없습니다.
 
-디코딩된 Avro 파일의 A 레코드는 다음과 같을 수 있습니다.
+내보낸 파일은 레코드 당 한 줄을 포함 합니다. 다음 예에서는 디코딩되는 Avro 형식의 레코드를 보여 줍니다.
 
 ```json
-{
-    "id": "<id>",
-    "name": "Refrigerated Vending Machine",
-    "version": "1.0.0",
-    "measurements": {
-        "telemetry": {
-            "humidity": {
-                "dataType": "double",
-                "name": "Humidity"
-            },
-            "magnetometerX": {
-                "dataType": "double",
-                "name": "Magnetometer X"
-            },
-            "magnetometerY": {
-                "dataType": "double",
-                "name": "Magnetometer Y"
-            },
-            "magnetometerZ": {
-                "dataType": "double",
-                "name": "Magnetometer Z"
-            }
-        },
-        "states": {
-            "connectivity": {
-                "dataType": "enum",
-                "name": "Connectivity"
-            }
-        },
-        "events": {
-            "opened": {
-                "name": "Door Opened",
-                "category": "informational"
-            }
-        }
+{ 
+  "id":"<id>",
+  "name":"Refrigerated Vending Machine",
+  "version":"1.0.0",
+  "measurements":{ 
+    "telemetry":{ 
+      "humidity":{ 
+        "dataType":"double",
+        "name":"Humidity"
+      },
+      "magnetometerX":{ 
+        "dataType":"double",
+        "name":"Magnetometer X"
+      },
+      "magnetometerY":{ 
+        "dataType":"double",
+        "name":"Magnetometer Y"
+      },
+      "magnetometerZ":{ 
+        "dataType":"double",
+        "name":"Magnetometer Z"
+      }
     },
-    "settings": {
-        "device": {
-            "fanSpeed": {
-                "dataType": "double",
-                "name": "Fan Speed",
-                "initialValue": 0
-            }
-        }
+    "states":{ 
+      "connectivity":{ 
+        "dataType":"enum",
+        "name":"Connectivity"
+      }
     },
-    "properties": {
-        "cloud": {
-            "location": {
-                "dataType": "string",
-                "name": "Location",
-                "initialValue": "Seattle"
-            },
-            "maintCon": {
-                "dataType": "boolean",
-                "name": "Maintenance Contract",
-                "initialValue": true
-            },
-            "tempThresh": {
-                "dataType": "double",
-                "name": "Temperature Alert Threshold",
-                "initialValue": 30
-            }
-        },
-        "device": {
-            "lastReboot": {
-                "dataType": "dateTime",
-                "name": "Last Reboot"
-            }
-        }
+    "events":{ 
+      "opened":{ 
+        "name":"Door Opened",
+        "category":"informational"
+      }
     }
+  },
+  "settings":{ 
+    "device":{ 
+      "fanSpeed":{ 
+        "dataType":"double",
+        "name":"Fan Speed",
+        "initialValue":0
+      }
+    }
+  },
+  "properties":{ 
+    "cloud":{ 
+      "location":{ 
+        "dataType":"string",
+        "name":"Location",
+        "initialValue":"Seattle"
+      },
+      "maintCon":{ 
+        "dataType":"boolean",
+        "name":"Maintenance Contract",
+        "initialValue":true
+      },
+      "tempThresh":{ 
+        "dataType":"double",
+        "name":"Temperature Alert Threshold",
+        "initialValue":30
+      }
+    },
+    "device":{ 
+      "lastReboot":{ 
+        "dataType":"dateTime",
+        "name":"Last Reboot"
+      }
+    }
+  }
 }
 ```
 

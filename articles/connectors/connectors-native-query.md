@@ -9,18 +9,17 @@ editor: ''
 tags: connectors
 ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
 ms.service: logic-apps
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 10332b95e0d385d7155003efcc52b4bae3969313
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60538246"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973760"
 ---
 # <a name="get-started-with-the-query-action"></a>쿼리 작업 시작
 쿼리 작업을 사용하면 배치 및 배열을 통해 다음을 수행하는 워크플로를 완료할 수 있습니다.
@@ -56,7 +55,7 @@ ms.locfileid: "60538246"
 ## <a name="query-action"></a>쿼리 작업
 여기에는 이 커넥터가 지원하는 동작에 대한 세부 정보가 나와 있습니다. 커넥터에는 한 개의 가능한 작업이 있습니다.
 
-| 액션(Action) | 설명 |
+| 작업 | 설명 |
 | --- | --- |
 | 배열 필터링 |배열에 있는 각 항목에 대한 조건을 평가하고 결과를 반환 |
 
@@ -79,7 +78,7 @@ HTTP 요청에 대한 출력 세부 정보는 다음과 같습니다.
 
 | 속성 이름 | 데이터 형식 | 설명 |
 | --- | --- | --- |
-| 필터링된 배열 |array |각 필터링된 결과에 대한 개체를 포함하는 배열 |
+| 필터링된 배열 |배열 |각 필터링된 결과에 대한 개체를 포함하는 배열 |
 
 ## <a name="next-steps"></a>다음 단계
 이제 플랫폼을 사용해 보고 [논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인할 수 있습니다.

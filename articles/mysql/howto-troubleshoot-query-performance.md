@@ -1,17 +1,17 @@
 ---
 title: Azure Database for MySQL에서 쿼리 성능 문제를 해결하는 방법
-description: 이 문서에서는 EXPLAIN을 사용하여 Azure Database for MySQL에서 쿼리 성능 문제를 해결하는 방법을 설명합니다.
+description: 설명을 사용 하 여 Azure Database for MySQL에서 쿼리 성능 문제를 해결 하는 방법에 대해 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/28/2018
-ms.openlocfilehash: 819e2393619766d46385cdd6fe550fff1e1a7631
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d58721f1fedd234b3c400a82035048d8e70f8c32
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60720215"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972864"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>EXPLAIN을 사용하여 Azure Database for MySQL에서 쿼리 성능을 프로파일링하는 방법
 **EXPLAIN**은 쿼리를 최적화하는 편리한 도구입니다. EXPLAIN 문은 SQL 문이 어떻게 실행되는지에 대한 정보를 얻는 데 사용할 수 있습니다. 다음 출력은 EXPLAIN 문의 실행 예제입니다.
@@ -163,7 +163,7 @@ possible_keys: NULL
  
 ## <a name="conclusion"></a>결론
  
-EXPLAIN과 다른 유형의 인덱스를 사용하면 성능이 크게 향상될 수 있습니다. 테이블에 인덱스가 있다고 해서 MySQL이 해당 인덱스를 쿼리에 반드시 사용할 수 있는 것은 아닙니다. 항상 EXPLAIN을 사용하여 가정을 검증하고 인덱스를 사용하여 쿼리를 최적화하십시오.
+EXPLAIN과 다른 유형의 인덱스를 사용하면 성능이 크게 향상될 수 있습니다. 테이블에 인덱스가 있으면 MySQL이이를 쿼리에 사용할 수 있다는 의미는 아닙니다. 항상 EXPLAIN을 사용하여 가정을 검증하고 인덱스를 사용하여 쿼리를 최적화하십시오.
 
 
 ## <a name="next-steps"></a>다음 단계

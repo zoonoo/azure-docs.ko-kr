@@ -1,0 +1,374 @@
+---
+title: Microsoft Azure SQL Database 연결 문제 해결 | Microsoft Docs
+description: Microsoft Azure SQL Database 연결 문제 해결
+services: sql-database
+ms.service: sql-database
+ms.topic: troubleshooting
+author: v-miegge
+ms.author: ramakoni
+ms.reviewer: ''
+ms.date: 09/27/2019
+ms.openlocfilehash: 3717b36e37f7d9cca206b5a9e8e3cded50393748
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71974423"
+---
+# <a name="troubleshooting-connectivity-issues-with-microsoft-azure-sql-database"></a>Microsoft Azure SQL Database 연결 문제 해결
+
+Azure SQL Database에 대한 연결이 실패하면 오류 메시지가 표시됩니다. SQL Azure 데이터베이스 재구성, 방화벽 설정, 연결 시간 제한 또는 잘못된 로그인 정보로 인해 연결 문제가 발생할 수 있습니다. 또한 일부 Azure SQL Database 리소스에 대 한 최대 제한에 도달 하는 경우 Azure SQL Database에 연결할 수 없습니다.
+
+## <a name="error-40613-database--x--on-server--y--is-not-currently-available"></a>오류 40613: 서버 < y >의 데이터베이스 < x >을 (를) 현재 사용할 수 없습니다.
+
+**자세한 오류**
+
+``40613: Database <DBname> on server <server name> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of '<Tracing ID>'.``
+
+이 문제를 해결하려면:
+
+1. 알려진 작동 중단에 대 한 [Microsoft Azure 서비스 대시보드](https://status.azure.com/status) 를 확인 합니다. 
+2. 알려진 중단이 없으면 [Microsoft Azure 지원 웹 사이트로](http://azure.microsoft.com/support/options) 이동 하 여 지원 사례를 엽니다.
+
+자세한 내용은 ["서버의 데이터베이스를 현재 사용할 수 없습니다." 오류 문제 해결](https://docs.microsoft.com/azure/sql-database/sql-database-troubleshoot-common-connection-issues#troubleshoot-transient-errors)을 참조 하세요.
+
+## <a name="a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-sql-server"></a>SQL Server에 대 한 연결을 설정 하는 동안 네트워크 관련 또는 인스턴스 관련 오류가 발생 했습니다.
+
+응용 프로그램에서 서버에 연결할 수 없기 때문에 문제가 발생 합니다.
+
+이 문제를 해결 하려면 아래 섹션에서 **일반적인 연결 문제를 해결 하는 단계**를 순서 대로 수행 합니다.
+
+## <a name="the-server-was-not-found-or-was-not-accessible-errors-26-40-10053"></a>서버를 찾을 수 없거나 액세스할 수 없습니다 (오류 26, 40, 10053).
+
+### <a name="error-26-error-locating-serverinstance-specified"></a>오류 26: 지정 된 서버/인스턴스를 찾는 동안 오류가 발생 했습니다.
+
+**자세한 오류**
+
+``System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.(provider: SQL Network Interfaces, error: 26 – Error Locating Server/Instance Specified)``
+
+### <a name="error-40-could-not-open-a-connection-to-sql-server"></a>오류 40: SQL Server에 대한 연결을 열 수 없습니다.
+
+**자세한 오류**
+
+``A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)``
+
+### <a name="error-10053-a-transport-level-error-has-occurred-when-receiving-results-from-the-server"></a>오류 10053: 서버에서 결과를 받을 때 전송 수준 오류가 발생했습니다.
+
+**자세한 오류**
+
+``10053: A transport-level error has occurred when receiving results from the server. (Provider: TCP Provider, error: 0 - An established connection was aborted by the software in your host machine)``
+
+이러한 문제는 응용 프로그램에서 서버에 연결할 수 없기 때문에 발생 합니다.
+
+이 문제를 해결 하려면 아래 섹션에서 **일반적인 연결 문제를 해결 하는 단계**를 순서 대로 수행 합니다.
+
+## <a name="cannot-connect-to--servername--due-to-firewall-issues"></a>방화벽 문제로 인해 < servername >에 연결할 수 없습니다.
+
+### <a name="error-40615-cannot-connect-to--servername-"></a>오류 40615: < Servername >에 연결할 수 없습니다.
+
+이 문제를 해결 하려면 [Azure Portal를 사용 하 여 SQL Database에 대 한 방화벽 설정을 구성 합니다.](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)
+
+### <a name="error-5-cannot-connect-to--servername-"></a>오류 5: < Servername >에 연결할 수 없습니다.
+
+이 문제를 해결 하려면 클라이언트와 인터넷 간의 모든 방화벽에서 아웃 바운드 연결에 대 한 포트 1433가 열려 있는지 확인 합니다. 
+
+자세한 내용은 [SQL Server 액세스를 허용하도록 Windows 방화벽 구성](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 참조하세요.
+
+## <a name="unable-to-login-to-the-server-errors-18456-40531"></a>서버에 로그인 할 수 없습니다 (오류 18456, 40531).
+
+### <a name="login-failed-for-user--user-name-"></a>사용자 ' < 사용자 이름 > '에 대해 로그인 하지 못했습니다.
+
+**자세한 오류**
+
+``Login failed for user '<User name>'.This session has been assigned a tracing ID of '<Tracing ID>'. Provide this tracing ID to customer support when you need assistance. (Microsoft SQL Server, Error: 18456)``
+
+이 문제를 해결 하려면 올바른 SQL 사용자 이름 및 암호를 제공 하도록 서비스 관리자에 게 문의 하십시오.
+
+일반적으로 서비스 관리자는 다음 단계를 사용하여 로그인을 추가할 수 있습니다.
+
+1. SSMS (SQL Server Management Studio)를 사용 하 여 서버에 로그인 합니다.
+2. 다음 SQL 쿼리를 사용하여 로그인 이름이 비활성화되었는지 확인합니다.
+
+   ```
+   SELECT name, is_disabled FROM sys.sql_logins
+   ```
+
+3. 해당 이름이 비활성화된 경우 다음 문을 사용하여 활성화합니다. 
+
+   ```
+   Alter login <User name> enable
+   ```
+
+4. SQL 로그인 사용자 이름이 없으면 SSMS를 사용 하 여 만듭니다.
+
+   1. **보안**을 두 번 클릭하여 확장합니다. 
+   2. 마우스 오른쪽 단추로 **로그인**을 클릭한 다음 **새 로그인**을 선택합니다. 
+   3. 자리 표시자로 생성된 스크립트에서 다음 SQL 쿼리를 편집하고 실행할 수 있습니다.
+ 
+   ```
+   CREATE LOGIN <SQL_login_name, sysname, login_name>
+   WITH PASSWORD = ‘<password, sysname, Change_Password>’
+   GO
+   ```       
+5. **데이터베이스**를 두 번 클릭합니다. 
+6. 사용자에게 권한을 부여하려는 데이터베이스를 선택합니다.
+7. **보안**을 두 번 클릭합니다. 
+8. 마우스 오른쪽 단추로 **사용자**를 클릭한 다음 **새 사용자**를 선택합니다. 
+9. 자리 표시자로 생성된 스크립트에서 다음 SQL 쿼리를 편집하고 실행할 수 있습니다. 
+
+   ```
+   CREATE USER <user_name, sysname, user_name>          
+   FOR LOGIN <login_name, sysname, login_name>
+   WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>
+   GO
+   
+   -- Add user to the database owner role
+
+   EXEC sp_addrolemember N’db_owner’, N’<user_name, sysname, user_name>’
+   GO
+   ```
+   
+   > [!NOTE]
+   > @No__t-0을 사용 하 여 특정 사용자를 특정 데이터베이스 역할에 매핑할 수도 있습니다. 
+
+자세한 내용은 [Azure SQL Database에서 데이터베이스 및 로그인 관리](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins)를 참조하세요.
+
+## <a name="connection-timeout-expired-errors"></a>연결 시간 제한 만료 오류
+
+### <a name="systemdatasqlclientsqlexception-0x80131904-connection-timeout-expired"></a>SqlException (0x80131904): 연결 제한 시간이 만료 되었습니다.
+
+**자세한 오류**
+
+``System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired. The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement. This could be because the pre-login handshake failed or the server was unable to respond back in time. The duration spent while attempting to connect to this server was - [Pre-Login] initialization=3; handshake=29995;``
+
+### <a name="systemdatasqlclientsqlexception-0x80131904-timeout-expired"></a>SqlException (0x80131904): 제한 시간이 만료 되었습니다.
+
+**자세한 오류**
+
+``System.Data.SqlClient.SqlException (0x80131904): Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding.``
+
+### <a name="systemdataentitycoreentityexception-the-underlying-provider-failed-on-open"></a>System.object. EntityException: 기본 공급자가 열기에 실패 했습니다.
+
+**자세한 오류**
+
+``System.Data.Entity.Core.EntityException: The underlying provider failed on Open. -> System.Data.SqlClient.SqlException: Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding. -> System.ComponentModel.Win32Exception: The wait operation timed out``
+
+### <a name="cannot-connect-to--server-name-"></a>< 서버 이름 >에 연결할 수 없습니다. ' '
+
+**자세한 오류**
+
+``Cannot connect to <server name>.ADDITIONAL INFORMATION:Connection Timeout Expired. The timeout period elapsed during the post-login phase. The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections. The duration spent while attempting to connect to this server was - [Pre-Login] initialization=231; handshake=983; [Login] initialization=0; authentication=0; [Post-Login] complete=13000; (Microsoft SQL Server, Error: -2) For help, click: http://go.microsoft.com/fwlink?ProdName=Microsoft%20SQL%20Server&EvtSrc=MSSQLServer&EvtID=-2&LinkId=20476 The wait operation timed out``
+
+이러한 예외는 연결 또는 쿼리 문제로 인해 발생할 수 있습니다. 연결 문제로 인해이 오류가 발생 하는 것을 확인 하려면 **연결 문제로 인해 오류가 발생 했는지 확인**아래의 섹션을 확인 하십시오.
+
+응용 프로그램에서 서버에 연결할 수 없기 때문에 연결 제한 시간이 발생 합니다. 이 문제를 해결 하려면 아래 섹션에서 **일반적인 연결 문제를 해결 하는 단계**를 순서 대로 수행 합니다.
+
+## <a name="transient-errors-errors-40197-40545"></a>일시적인 오류 (오류 40197, 40545)
+
+### <a name="error-40197-the-service-has-encountered-an-error-processing-your-request-please-try-again-error-code--code-"></a>오류 40197: 서비스에서 요청을 처리하는 오류가 발생했습니다. 다시 시도하세요. 코드 > 오류 코드 <
+
+백 엔드에서 재구성/장애 조치 (failover) 중에 일시적인 오류가 발생 하 여이 문제가 발생 합니다.
+
+이 문제를 해결 하려면 짧은 기간 동안 기다린 후 다시 시도 하세요. 문제가 지속 되는 경우를 제외 하 고는 지원 사례가 필요 하지 않습니다.
+
+가장 좋은 방법은 재시도 논리가 준비 되어 있는지 확인 하는 것입니다. 재시도 논리에 대 한 자세한 내용은 [SQL Database 일시적 오류 및 연결 오류 문제 해결](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues)을 참조 하세요.
+
+## <a name="connection-terminated-due-to-hitting-some-system-defined-limit"></a>일부 시스템 정의 제한에 도달 하 여 연결이 종료 되었습니다.
+
+### <a name="error-10928-resource-id-d"></a>오류 10928: 리소스 ID: %d입니다.
+
+**자세한 오류**
+
+``10928: Resource ID: %d. The %s limit for the database is %d and has been reached. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. The Resource ID value in error message indicates the resource for which limit has been reached. For sessions, Resource ID = 2.``
+
+이 문제를 해결 하려면 다음 방법 중 하나를 시도해 보세요.
+
+* 장기 실행 쿼리가 있는지 여부를 확인 합니다.
+
+  > [!NOTE]
+  > 이는 반드시 문제를 해결할 수 없는 전적 방법입니다.
+
+  1. 다음 SQL 쿼리를 실행 하 여 [_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 뷰를 확인 하 여 차단 요청을 확인 합니다.
+
+     ```
+     SELECT * FROM dm_exec_requests
+     ```
+
+  2. 헤드 차단기에 대 한 **입력 버퍼** 를 확인 합니다.
+  3. 헤드 차단기 쿼리를 조정 합니다.
+
+    심층 문제 해결 절차는 [내 쿼리가 클라우드에서 제대로 실행 되나요?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)를 참조 하세요.
+
+* 블로킹 및 장기 실행 쿼리를 처리 하는 것에도 불구 하 고 데이터베이스가 지속적으로 제한에 도달한 경우 새 미리 보기 버전 중 하나로 업그레이드 하는 것이 좋습니다 (예: [Standard 또는 Premium edition](https://azure.microsoft.com/pricing/details/sql-database/)).
+
+SQL Database 가격 책정 옵션에 대 한 자세한 내용은 [Azure SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/single/)을 검토 하십시오.
+
+동적 관리 뷰에 대 한 자세한 내용은 [시스템 동적 관리 뷰](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)를 참조 하세요.
+
+이 오류 메시지에 대 한 자세한 내용은 [SQL Database Azure SQL Database 서버에 대 한 리소스 제한](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server)을 참조 하세요.
+
+### <a name="error-10929-resource-id-1"></a>오류 10929: 리소스 ID: 1.
+
+**자세한 오류**
+
+``10929: Resource ID: 1. The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. Otherwise, please try again later.``
+
+이 오류에 대 한 자세한 내용은 [SQL Database 클라이언트 프로그램에 대 한 오류 메시지](https://docs.microsoft.com/azure/sql-database/sql-database-develop-error-messages) 를 참조 하세요.
+
+### <a name="error-40501-the-service-is-currently-busy"></a>오류 40501: 서비스가 현재 사용 중입니다.
+
+**자세한 오류**
+
+``40501: The service is currently busy. Retry the request after 10 seconds. Incident ID: %ls. Code: %d.``
+
+이는 리소스 제한을 초과 했음을 나타내는 엔진 제한 오류입니다.
+
+리소스 제한에 대 한 자세한 내용은 [데이터베이스 서버 리소스 제한](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server)을 참조 하세요.
+
+### <a name="error-40544--the-database-has-reached-its-size-quota"></a>오류 40544: 데이터베이스가 크기 할당량에 도달 했습니다.
+
+**자세한 오류**
+
+``40544: The database has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions. Incident ID: <ID>. Code: <code>.``
+
+이 오류는 데이터베이스가 크기 할당량에 도달 했을 때 발생 합니다.
+
+다음 단계는 문제를 해결 하거나 고려할 수 있는 추가 옵션을 제공 하는 데 도움이 될 수 있습니다.
+
+1. Azure Portal에서 대시보드를 사용 하 여 데이터베이스의 현재 크기를 확인 합니다.
+
+   > [!NOTE]
+   > 가장 많은 공간을 사용 하는 테이블과 정리에 대 한 잠재적인 후보를 식별 하기 위해 다음 SQL 쿼리를 사용할 수 있습니다.
+
+   ```
+   SELECT o.name,
+    a.SUM(p.row_count) AS 'Row Count',
+    b.SUM(p.reserved_page_count) * 8.0 / 1024 AS 'Table Size (MB)'
+   FROM sys.objects o
+   JOIN sys.dm_db_partition_stats p on p.object_id = o.object_id
+   GROUP BY o.name
+   ORDER BY [Table Size (MB)] DESC
+   ```
+
+2. 현재 크기가 버전에 대해 지원 되는 최대 크기를 초과 하지 않는 경우 ALTER DATABASE를 사용 하 여 MAXSIZE 설정을 늘릴 수 있습니다. 
+3. 데이터베이스 크기가 이미 버전에 대해 지원 되는 최대 크기를 초과 하는 경우 다음 단계 중 하나를 수행할 수 있습니다.
+   1. 일반 데이터베이스 정리 작업 (자르기/삭제 등을 사용 하 여 원치 않는 데이터 정리 또는 SSIS, bcp 등을 사용 하 여 데이터 이동)을 수행 합니다.
+   2. 데이터를 분할 또는 삭제하거나 인덱스를 삭제하거나 가능한 해결 방법에 대한 설명서를 참조하십시오. 
+   
+   *  데이터베이스 크기를 조정 하려면 [단일 데이터베이스 리소스 크기 조정](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-scale) 및 [탄력적 풀 리소스 크기 조정](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool-scale)을 참조 하세요.
+
+### <a name="error-40549-session-is-terminated-because-you-have-a-long-running-transaction"></a>오류 40549: 실행 시간이 긴 트랜잭션이 있으므로 세션이 종료됩니다.
+
+**자세한 오류**
+
+``40549: Session is terminated because you have a long-running transaction. Try shortening your transaction.``
+
+이 오류 메시지가 반복적으로 발생 하는 경우 다음 단계에 따라이 문제를 해결 하십시오. 
+
+1. 다음 SQL 스크립트를 실행 하 여 total_elapsed_time 열에 대 한 값이 높은 열려 있는 세션을 보려면 _exec_requests 보기를 확인 합니다.
+
+   ```
+   SELECT * FROM dm_exec_requests
+   ```
+2. 장기 실행 쿼리의 입력 버퍼를 확인 합니다. 
+3. 쿼리를 튜닝 합니다.
+
+또한 쿼리를 일괄 처리 하는 것이 좋습니다. 일괄 처리에 대 한 자세한 내용은 [일괄 처리를 사용 하 여 SQL Database 응용 프로그램 성능 향상](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance)을 참조 하세요.
+
+심층 문제 해결 절차는 [내 쿼리가 클라우드에서 제대로 실행 되나요?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)를 참조 하세요.
+
+### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>오류 40551: 과도 한 TEMPDB 사용으로 인해 세션이 종료 되었습니다.
+
+**자세한 오류**
+
+``40551: The session has been terminated because of excessive TEMPDB usage. Try modifying your query to reduce the temporary table space usage.``
+
+이 문제를 해결 하려면 다음 단계를 수행 합니다.
+
+1. 쿼리를 변경 하 여 임시 테이블 공간 사용량을 줄입니다. 
+2. 임시 개체가 더 이상 필요 하지 않은 경우 삭제 합니다. 
+3. 테이블을 자르거나 사용 하지 않는 테이블을 제거 합니다.
+
+### <a name="error-40552-the-session-has-been-terminated-because-of-excessive-transaction-log-space-usage"></a>오류 40552: 과도한 트랜잭션 로그 공간 사용으로 인해 세션이 종료되었습니다.
+
+**자세한 오류**
+
+``40552: The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction.``
+
+이 문제를 해결 하려면 다음 방법을 따르세요. 
+
+* 이 문제는 삽입, 업데이트 또는 삭제 작업으로 인해 발생 합니다. 일괄 처리 또는 분할을 여러 개의 작은 트랜잭션으로 구현 하 여 즉시 작동 하는 행 수를 줄여 보세요.
+* 이 문제는 인덱스 다시 작성 작업으로 인해 발생 합니다. 테이블의 영향을 받는 행 수 * (업데이트 되는 필드의 평균 크기 (바이트) + 80) < 2gb를 준수 하는지 확인 합니다.
+
+  > [!NOTE]
+  > 인덱스를 다시 작성 하는 경우 업데이트 되는 필드의 평균 크기는 평균 인덱스 크기로 대체 되어야 합니다.
+
+### <a name="error-40553-the-session-has-been-terminated-because-of-excessive-memory-usage"></a>오류 40553: 과도한 메모리 사용으로 인해 세션이 종료되었습니다.
+
+**자세한 오류**
+
+``40553 : The session has been terminated because of excessive memory usage. Try modifying your query to process fewer rows.``
+
+이 문제를 해결 하려면 쿼리를 최적화 해 보세요.
+
+심층 문제 해결 절차는 [내 쿼리가 클라우드에서 제대로 실행 되나요?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)를 참조 하세요.
+
+
+### <a name="cannot-open-database-master-requested-by-the-login-the-login-failed"></a>로그인에서 요청한 데이터베이스 "master"를 열 수 없습니다. 로그인이 실패했습니다.
+
+이 문제는 계정에 master 데이터베이스에 대 한 액세스 권한이 없기 때문에 발생 합니다. 그러나 기본적으로 SSMS (SQL Server Management Studio)는 master 데이터베이스에 연결을 시도 합니다.
+
+이 문제를 해결하려면 다음 단계를 따릅니다.
+
+1. SSMS의 로그인 화면에서 **옵션**을 클릭 한 다음 **연결 속성**을 클릭 합니다. 
+2. **데이터베이스에 연결**에서 사용자의 기본 데이터베이스 이름을 기본 로그인 데이터베이스로 입력 하 고 **연결**을 클릭 합니다.
+
+   ![cannot-open-database-master](media/troubleshoot-connectivity-issues-microsoft-azure-sql-database/cannot-open-database-master.png)
+
+## <a name="confirm-whether-an-error-is-due-to-a-connectivity-issue"></a>연결 문제로 인해 오류가 발생 했는지 확인 합니다.
+
+연결 문제로 인해 오류가 발생 했는지 여부를 확인 하려면 호출을 표시 하는 프레임에 대 한 스택 추적을 검토 하 여 다음과 같은 연결을 엽니다 ( **SqlConnection** 클래스에 대 한 참조 확인).
+
+```
+System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+ at System.Data.SqlClient.SqlConnection.Open()
+ at AzureConnectionTest.Program.Main(String[] args)
+ClientConnectionId:<Client connection ID>
+```
+
+쿼리 문제로 인해 예외가 발생 하는 경우 다음과 유사한 호출 스택이 표시 됩니다 ( **SqlCommand** 클래스에 대 한 참조를 확인). 이러한 시나리오에서는 [쿼리를 조정](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)합니다.
+
+```
+  at System.Data.SqlClient.SqlCommand.ExecuteReader()
+  at AzureConnectionTest.Program.Main(String[] args)
+  ClientConnectionId:<Client ID>
+```
+미세 조정 성능에 대 한 추가 지침은 다음을 참조 하세요.
+
+* [Azure SQL 인덱스 및 통계를 유지 관리 하는 방법](https://techcommunity.microsoft.com/t5/Azure-Database-Support-Blog/How-to-maintain-Azure-SQL-Indexes-and-Statistics/ba-p/368787)
+* [Azure SQL Database에서 쿼리 성능 수동 조정](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance)
+* [동적 관리 뷰를 사용 하 여 성능 Azure SQL Database 모니터링](https://docs.microsoft.com/azure/sql-database/sql-database-monitoring-with-dmvs)
+* [Azure SQL Database에서 쿼리 저장소 운영](https://docs.microsoft.com/azure/sql-database/sql-database-operate-query-store)
+
+
+## <a name="steps-to-fix-common-connection-issues"></a>일반적인 연결 문제를 해결 하는 단계
+
+1. 응용 프로그램 서버에서 TCP IP가 클라이언트 프로토콜로 사용 되는지 확인 합니다. 자세한 내용은 [클라이언트 프로토콜 구성](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-client-protocols)을 참조 하세요. SQL Server 도구가 설치 되어 있지 않은 응용 프로그램 서버에서 **cliconfg.exe** (SQL Server Client Network Utility)를 실행 하 여 TCP IP를 사용 하도록 설정 했는지 확인 합니다. 
+2. 응용 프로그램의 연결 문자열을 확인 하 여 올바르게 구성 되었는지 확인 합니다. 예를 들어 연결 문자열이 올바른 포트 (1433) 및 정규화 된 서버 이름을 지정 하는지 확인 합니다.
+[SQL Server 연결 정보 가져오기](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms#get-sql-server-connection-information)를 참조 하세요.
+3. 연결 **제한 시간**을 늘립니다. Microsoft는 30 초 이상 연결 제한 시간을 사용 하는 것을 권장 합니다. 
+4. [SSMS (SQL Server Management Studio)](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms), UDL 파일, ping 및 텔넷을 사용 하 여 응용 프로그램 서버와 Azure SQL 데이터베이스 간의 연결을 테스트 합니다. 자세한 내용은 연결 문제 [SQL Server 문제 해결](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) 및 [연결 문제](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues#diagnostics)해결을 참조 하세요.
+
+   > [!NOTE]
+   > 문제 해결 단계로 다른 클라이언트 컴퓨터에서 연결을 테스트할 수도 있습니다.
+
+5. 가장 좋은 방법은 재시도 논리가 준비 되어 있는지 확인 하는 것입니다. 재시도 논리에 대 한 자세한 내용은 [SQL Database 일시적 오류 및 연결 오류 문제 해결](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues)을 참조 하세요.
+
+위의 단계를 수행 해도 문제가 해결 되지 않으면 더 많은 데이터를 수집 하 여 지원 담당자에 게 문의 하세요. 응용 프로그램이 클라우드 서비스인 경우 로깅을 사용 하도록 설정 합니다. 이 단계에서는 실패의 UTC 타임 스탬프를 반환 합니다. 또한 SQL Azure는 추적 ID를 반환 합니다. [Microsoft 고객 지원 서비스](http://azure.microsoft.com/support/options/) 는이 정보를 사용할 수 있습니다. 
+
+로깅을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [Azure App Service에서 웹 앱에 대 한 진단 로깅 사용](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/)을 참조 하세요.
+
+**관련 문서**
+
+* [Azure SQL 연결 아키텍처](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture)<br>
+* [Azure SQL Database 및 데이터 웨어하우스 네트워크 액세스 제어](https://docs.microsoft.com/azure/sql-database/sql-database-networkaccess-overview)

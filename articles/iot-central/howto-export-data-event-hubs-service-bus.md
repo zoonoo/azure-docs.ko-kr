@@ -8,12 +8,12 @@ ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: e6df6a1f751106f62cdfecc3a7b5efb0fe4c63bf
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 732ce570f8235d1f147055af6972c2a8d12599dc
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875990"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971611"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Azure IoT Central에서 데이터 내보내기
 
@@ -27,15 +27,15 @@ ms.locfileid: "69875990"
 > 연속 데이터 내보내기를 켜면 그 시점 이후의 데이터만 얻게 됩니다. 현재는 연속 데이터 내보내기가 꺼져 있는 시간의 데이터를 검색할 수 없습니다. 더 많은 기록 데이터를 유지하려면 연속 데이터 내보내기를 일찍 켜세요.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - IoT Central 애플리케이션에서 관리자여야 함
 
 ## <a name="set-up-export-destination"></a>내보내기 대상 설정
 
-내보낼 기존 Event Hubs/Service Bus 없는 경우 다음 단계를 수행 합니다.
+내보낼 기존 Event Hubs/Service Bus 없는 경우 다음 단계에 따라 해당 항목을 만듭니다.
 
-## <a name="create-event-hubs-namespace"></a>Event Hubs 네임스페이스 만들기
+### <a name="create-event-hubs-namespace"></a>Event Hubs 네임스페이스 만들기
 
 1. [Azure Portal에서 새 Event Hubs 네임스페이스](https://ms.portal.azure.com/#create/Microsoft.EventHub)를 만듭니다. [Azure Event Hubs 문서](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)에서 자세히 알아볼 수 있습니다.
 2. 구독을 선택합니다. 
@@ -44,7 +44,7 @@ ms.locfileid: "69875990"
     > 이제 종량제 IoT Central 애플리케이션에 대한 구독과 **동일하지 않은** 다른 구독으로 데이터를 내보낼 수 있습니다. 이 경우 연결 문자열을 사용하여 연결합니다.
 3. Event Hubs 네임스페이스에서 이벤트 허브를 만듭니다. 네임스페이스로 이동한 다음, 맨 위에서 **+ 이벤트 허브**를 선택하여 이벤트 허브 인스턴스를 만듭니다.
 
-## <a name="create-service-bus-namespace"></a>Service Bus 네임스페이스 만들기
+### <a name="create-service-bus-namespace"></a>Service Bus 네임스페이스 만들기
 
 1. [Azure Portal에서 새 Service Bus 네임스페이스](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5)를 만듭니다. [Azure Service Bus 문서](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal)에서 자세히 알아볼 수 있습니다.
 2. 구독을 선택합니다. 
@@ -66,14 +66,12 @@ ms.locfileid: "69875990"
     > [!Note]
     > 왼쪽 메뉴에 연속 데이터 내보내기가 표시되지 않는 경우 앱의 관리자가 아닌 것입니다. 관리자에게 데이터 내보내기를 설정하도록 요청합니다.
 
-    ![새 cde 이벤트 허브 만들기](media/howto-export-data/export_menu1.png)
-
 3. 오른쪽 위에 있는 **+ 새로 만들기** 단추를 선택 합니다. **Azure Event Hubs** 중 하나를 선택 하거나 내보내기의 대상으로 **Azure Service Bus** 합니다. 
 
     > [!NOTE] 
     > 앱당 최대 내보내기 수는 5개입니다. 
 
-    ![새 연속 데이터 내보내기 만들기](media/howto-export-data/export_new1.png)
+    ![새 연속 데이터 내보내기 만들기](media/howto-export-data/export-new2.png)
 
 4. 드롭다운 목록 상자에서 **Event Hubs 네임 스페이스/Service Bus 네임 스페이스**를 선택 합니다. **연결 문자열 입력**인 목록의 마지막 옵션을 선택할 수도 있습니다. 
 
@@ -83,7 +81,7 @@ ms.locfileid: "69875990"
     > [!NOTE] 
     > 7일 평가판 앱의 경우 연결 문자열을 통해서만 연속 데이터 내보내기를 구성할 수 있습니다. 7일 평가판 앱에는 연결된 Azure 구독이 없기 때문입니다.
 
-    ![새 cde 이벤트 허브 만들기](media/howto-export-data/export_create1.png)
+    ![새 cde 이벤트 허브 만들기](media/howto-export-data/export-eh.png)
 
 5. (선택 사항) **연결 문자열 입력**을 선택한 경우 연결 문자열을 붙여넣을 수 있는 새 상자가 나타납니다. 다음 항목의 연결 문자열을 가져오려면
     - Event Hubs 또는 Service Bus Azure Portal의 네임 스페이스로 이동 합니다.
@@ -95,14 +93,12 @@ ms.locfileid: "69875990"
 
 7. **데이터 내보내기** 아래에서 형식을 **켜기**로 설정하여 내보낼 각 데이터 형식을 지정합니다.
 
-6. 연속 데이터 내보내기를 켜려면 **데이터 내보내기**가 **켬**인지 확인합니다. **저장**을 선택합니다.
+8. 연속 데이터 내보내기를 설정 하려면 **데이터 내보내기** 토글이 **on**으로 설정 되어 있는지 확인 합니다. **저장**을 선택합니다.
 
-    ![연속 데이터 내보내기 구성](media/howto-export-data/export_list1.png)
-
-7. 몇 분 후에 데이터가 선택한 대상에 표시됩니다.
+9. 몇 분 후에 데이터가 선택한 대상에 표시됩니다.
 
 
-## <a name="export-to-azure-event-hubs-and-azure-service-bus"></a>Azure Event Hubs 및 Azure Service Bus로 내보내기
+## <a name="data-format"></a>데이터 서식
 
 측정값, 디바이스 및 디바이스 템플릿 데이터는 이벤트 허브, Service Bus 큐 또는 토픽으로 거의 실시간으로 내보냅니다. 내보낸 측정값 데이터에는 측정값 자체의 값뿐만 아니라 디바이스가 IoT Central에 보낸 전체 메시지가 포함됩니다. 내보낸 디바이스 데이터에는 모든 디바이스의 속성 및 설정 변경 내용이 포함되고, 디바이스 템플릿에는 모든 디바이스 템플릿의 변경 내용이 포함됩니다. 내보낸 데이터는 “body” 속성에 포함되고 JSON 형식입니다.
 
@@ -146,7 +142,7 @@ IoT Central이 디바이스에서 메시지를 받은 후 빠르게 새 메시�
     "x-opt-enqueued-time": 1539381030200
   },
   "sequenceNumber": 25325,
-  "enqueuedTimeUtc": "2018-10-12T21:50:30.200Z",
+  "enqueuedTimeUtc": "2018-10-02T21:50:30.200Z",
   "offset": "<offset>",
   "properties": {
     "content_type": "application/json",
@@ -155,7 +151,7 @@ IoT Central이 디바이스에서 메시지를 받은 후 빠르게 새 메시�
 }
 ```
 
-### <a name="devices"></a>디바이스
+### <a name="devices"></a>장치
 
 디바이스 데이터를 포함하는 메시지는 몇 분마다 이벤트 허브 또는 Service Bus 큐 또는 토픽으로 전송됩니다. 이는 몇 분마다 메시지 배치가 데이터와 함께 도착함을 의미합니다.
 - 추가된 새 디바이스
@@ -211,7 +207,7 @@ IoT Central이 디바이스에서 메시지를 받은 후 빠르게 새 메시�
   },
   "partitionKey": "<partitionKey>",
   "sequenceNumber": 39740,
-  "enqueuedTimeUtc": "2018-10-11T16:22:39.654Z",
+  "enqueuedTimeUtc": "2018-10-02T16:22:39.654Z",
   "offset": "<offset>",
 }
 ```
@@ -236,62 +232,62 @@ IoT Central이 디바이스에서 메시지를 받은 후 빠르게 새 메시�
 다음 예제는 이벤트 허브 또는 Service Bus 큐 또는 토픽에 있는 디바이스 템플릿 데이터 관련 메시지를 보여 줍니다.
 
 ```json
-{
-  "body": {
-    "id": "<id>",
-    "version": "1.0.0",
-    "name": "<templateName>",
-    "measurements": {
-      "telemetry": {
-        "humidity": {
-          "dataType": "double",
-          "name": "humidity"
+{ 
+  "body":{ 
+    "id":"<id>",
+    "version":"1.0.0",
+    "name":"<templateName>",
+    "measurements":{ 
+      "telemetry":{ 
+        "humidity":{ 
+          "dataType":"double",
+          "name":"humidity"
         },
-        "pressure": {
-          "dataType": "double",
-          "name": "pressure"
+        "pressure":{ 
+          "dataType":"double",
+          "name":"pressure"
         },
-        "temp": {
-          "dataType": "double",
-          "name": "temperature"
+        "temp":{ 
+          "dataType":"double",
+          "name":"temperature"
         }
       }
     },
-    "properties": {
-      "cloud": {
-        "location": {
-          "dataType": "string",
-          "name": "Location"
+    "properties":{ 
+      "cloud":{ 
+        "location":{ 
+          "dataType":"string",
+          "name":"Location"
         }
       },
-      "device": {
-        "dieNumber": {
-          "dataType": "double",
-          "name": "Die Number"
+      "device":{ 
+        "dieNumber":{ 
+          "dataType":"double",
+          "name":"Die Number"
         }
       }
     },
-    "settings": {
-      "device": {
-        "fanSpeed": {
-          "dataType": "double",
-          "name": "Fan Speed",
-          "initialValue": 0
+    "settings":{ 
+      "device":{ 
+        "fanSpeed":{ 
+          "dataType":"double",
+          "name":"Fan Speed",
+          "initialValue":0
         }
       }
     }
   },
-  "annotations": {
-    "iotcentral-message-source": "deviceTemplates",
-    "x-opt-partition-key": "<partitionKey>",
-    "x-opt-sequence-number": 25315,
-    "x-opt-offset": "<offset>",
-    "x-opt-enqueued-time": 1539274985085
+  "annotations":{ 
+    "iotcentral-message-source":"deviceTemplates",
+    "x-opt-partition-key":"<partitionKey>",
+    "x-opt-sequence-number":25315,
+    "x-opt-offset":"<offset>",
+    "x-opt-enqueued-time":1539274985085
   },
-  "partitionKey": "<partitionKey>",
-  "sequenceNumber": 25315,
-  "enqueuedTimeUtc": "2018-10-11T16:23:05.085Z",
-  "offset": "<offset>",
+  "partitionKey":"<partitionKey>",
+  "sequenceNumber":25315,
+  "enqueuedTimeUtc":"2018-10-02T16:23:05.085Z",
+  "offset":"<offset>"
 }
 ```
 

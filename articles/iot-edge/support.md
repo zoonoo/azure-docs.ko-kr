@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 81d19552b56de540f235960c498c64e7b276320c
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 781884b0973ca42db542f53d452dbaaf7a7f1fa7
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030973"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973289"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 지원 시스템
 
@@ -35,8 +35,7 @@ Azure IoT Edge 모듈은 컨테이너로 구현 되므로 IoT Edge 컨테이너 
 <br>
 <center>
 
-![Moby를 컨테이너 런타임으로](./media/support/only-moby-for-production.png)
-</center>
+![Moby as container runtime @ no__t-1 @ no__t-2
 
 ## <a name="operating-systems"></a>운영 체제
 Azure IoT Edge는 컨테이너를 실행할 수 있는 대부분의 운영 체제에서 실행 됩니다. 그러나 이러한 모든 시스템은 동일 하 게 지원 되지 않습니다. 운영 체제는 사용자가 사용할 수 있는 지원 수준을 나타내는 계층으로 그룹화됩니다.
@@ -52,8 +51,7 @@ Azure IoT Edge는 컨테이너를 실행할 수 있는 대부분의 운영 체�
 <br>
 <center>
 
-![호스트 OS가 게스트 OS와 일치](./media/support/edge-on-device.png)
-</center>
+![Host OS는 게스트 OS @ no__t-1 @ no__t-2와 일치 합니다.
 
 ### <a name="tier-1"></a>계층 1
 
@@ -61,33 +59,35 @@ Azure IoT Edge는 컨테이너를 실행할 수 있는 대부분의 운영 체�
 
 | 운영 체제 | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
-| Raspbian-stretch |  | ![Raspbian Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
-| Ubuntu Server 16.04 | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | 공개 미리 보기  |
-| Ubuntu Server 18.04 | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | 공개 미리 보기 |
-| Windows 10 IoT Enterprise, 빌드 17763 | ![Windows 10 IoT Enterprise + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| Windows Server 2019, 빌드 17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| Windows Server IoT 2019, 빌드 17763 | ![Windows Server IoT 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| Windows 10 IoT Core, 빌드 17763 | ![Windows IoT Core + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| Raspbian Stretch |  | ![Raspbian Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
+| [Ubuntu Server 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | 공개 미리 보기  |
+| [Ubuntu Server 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | 공개 미리 보기 |
+| [Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/windows-iot-core), 빌드 17763 | ![Windows IoT Core + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| [Windows 10 IoT Enterprise](https://docs.microsoft.com/windows/iot-core/windows-iot-enterprise), 빌드 17763 | ![Windows 10 IoT Enterprise + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| [Windows Server 2019](https://docs.microsoft.com/windows-server/get-started-19/rel-notes-19), 빌드 17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| [Windows Server IoT 2019](https://docs.microsoft.com/windows/iot-core/windows-server), 빌드 17763 | ![Windows Server IoT 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 
 
 위에 나열 된 Windows 운영 체제는 Windows에서 Windows 컨테이너를 실행 하는 장치에 대 한 요구 사항입니다. 프로덕션에 대해 유일 하 게 지원 되는 구성입니다. Windows 용 Azure IoT Edge 설치 패키지를 사용 하면 Windows에서 Linux 컨테이너를 사용할 수 있습니다. 그러나이 구성은 개발 및 테스트용 으로만 사용할 수 있습니다. 자세한 내용은 [Windows에서 IoT Edge를 사용 하 여 Linux 컨테이너 실행](how-to-install-iot-edge-windows-with-linux.md)을 참조 하세요.
 
 ### <a name="tier-2"></a>계층 2
 
-다음 표에 나열 된 시스템은 Azure IoT Edge 호환 되는 것으로 간주 되지만 적극적으로 테스트 하거나 유지 관리 되지 않습니다. 
+다음 표에 나열 된 시스템은 Azure IoT Edge 호환 되는 것으로 간주 되지만 Microsoft에서 적극적으로 테스트 하거나 유지 관리 하지는 않습니다.
 
 | 운영 체제 | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
-| CentOS 7.5 | ![CentOS + AMD64](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM64](./media/tutorial-c-module/green-check.png) |
-| Debian 8 | ![Debian 8 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM64](./media/tutorial-c-module/green-check.png) |
-| Debian 9 | ![Debian 9 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM64](./media/tutorial-c-module/green-check.png) |
-| Debian 10<sup>1</sup> | ![Debian 10 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM64](./media/tutorial-c-module/green-check.png) |
-| RHEL 7.5 | ![RHEL 7.5 + AMD64](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM64](./media/tutorial-c-module/green-check.png) |
-| Ubuntu 16.04 | ![Ubuntu 16.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16.04 + ARM64](./media/tutorial-c-module/green-check.png) |
-| Ubuntu 18.04 | ![Ubuntu 18.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM64](./media/tutorial-c-module/green-check.png) |
-| Wind River 8 | ![바람 강 8 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| Yocto | ![Yocto + AMD64](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM64](./media/tutorial-c-module/green-check.png) |
-| Raspbian Buster<sup>1</sup> |  | ![Raspbian Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspbian Buster + ARM64](./media/tutorial-c-module/green-check.png) |
+| [CentOS 7.5](https://wiki.centos.org/Manuals/ReleaseNotes/CentOS7.1804) | ![CentOS + AMD64](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Debian 8](https://www.debian.org/releases/jessie/) | ![Debian 8 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Debian 9](https://www.debian.org/releases/stretch/) | ![Debian 9 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Debian 10](https://www.debian.org/releases/buster/) <sup>1</sup> | ![Debian 10 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [전문가 Embedded Linux Flex OS](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![전문가 Embedded Linux Flex OS + AMD64](./media/tutorial-c-module/green-check.png) | ![전문가 Embedded Linux Flex OS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![전문가 Embedded Linux Flex OS + ARM64](./media/tutorial-c-module/green-check.png) |
+| [전문가 Embedded Linux 전체 운영 체제](https://www.mentor.com/embedded-software/linux/mel-omni-os/) | ![전문가 Embedded Linux 전체 OS + AMD64](./media/tutorial-c-module/green-check.png) |  | ![전문가 Embedded Linux 전체 OS + ARM64](./media/tutorial-c-module/green-check.png) |
+| [RHEL 7.5](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.5_release_notes/index) | ![RHEL 7.5 + AMD64](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Ubuntu 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu 16.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16.04 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Ubuntu 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu 18.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [바람 강 8](https://docs.windriver.com/category/os-wind_river_linux) | ![바람 강 8 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| [Yocto](https://www.yoctoproject.org/) | ![Yocto + AMD64](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM64](./media/tutorial-c-module/green-check.png) |
+| Raspbian Buster <sup>1</sup> |  | ![Raspbian Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspbian Buster + ARM64](./media/tutorial-c-module/green-check.png) |
 
 <sup>1</sup> Debian Raspian Buster를 포함 한 시스템은 지원 하지 않는 IoT Edge OpenSSL 버전을 사용 합니다. IoT Edge를 설치 하기 전에 다음 명령을 사용 하 여 이전 버전을 설치 합니다. 
 
@@ -101,8 +101,7 @@ sudo apt-get install libssl1.0.2
 <br>
 <center>
 
-![VM의 Azure IoT Edge](./media/support/edge-on-vm.png)
-</center>
+VM의 ![Azure IoT Edge @ no__t-1 @ no__t-2
 
 ## <a name="minimum-system-requirements"></a>최소 시스템 요구 사항
 Azure IoT Edge는 Raspberry Pi3만큼 작은 디바이스부터 서버 등급 하드웨어까지 잘 실행됩니다. 시나리오에 적합 한 하드웨어를 선택 하는 것은 실행 하려는 워크 로드에 따라 달라 집니다. 최종 디바이스 결정은 복잡할 수 있습니다. 그러나 기존 노트북이나 데스크톱에서 쉽게 솔루션 프로토타입 생성을 시작할 수 있습니다.

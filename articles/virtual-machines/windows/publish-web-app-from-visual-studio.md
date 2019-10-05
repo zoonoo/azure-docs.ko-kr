@@ -3,7 +3,7 @@ title: Visual Studio에서 Azure VM에 웹앱 게시
 description: Visual Studio에서 Azure Virtual Machine으로 ASP.NET 웹 애플리케이션 게시
 services: virtual-machines-windows
 author: ghogen
-manager: douge
+manager: jillfra
 tags: azure-service-management
 ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
 ms.prod: visual-studio-dev15
@@ -13,18 +13,18 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 4b8e3ddf1cf5d61f730ce01a35ee0813b47ad2d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e5db9b4e46019aa386057d51d956ff11d90f498
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66305928"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970871"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Visual Studio에서 Azure Virtual Machine으로 ASP.NET 웹앱 게시
 
-이 문서에서는 ASP.NET 웹 응용 프로그램을 사용 하 여 Azure 가상 머신 (VM)를 게시 하는 방법을 설명 합니다 **Microsoft Azure Virtual Machines** Visual Studio 2019에 게시 기능입니다.  
+이 문서에서는 Visual Studio 2019의 **Microsoft Azure Virtual Machines** 게시 기능을 사용 하 여 Azure VM (가상 머신)에 ASP.NET 웹 응용 프로그램을 게시 하는 방법을 설명 합니다.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려면 VM 을 올바르게 설정해야 합니다.
 
 - 컴퓨터를 ASP.NET 웹 애플리케이션을 실행하도록 구성하고 WebDeploy를 컴퓨터에 설치해야 합니다.
@@ -34,7 +34,7 @@ Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려�
 ## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>Visual Studio를 사용하여 Azure VM에 ASP.NET 웹앱 게시
 다음 섹션에서는 Azure Virtual Machine에 기존 ASP.NET 웹 애플리케이션을 게시하는 방법을 설명합니다.
 
-1. Visual Studio 2019에 웹 앱 솔루션을 엽니다.
+1. Visual Studio 2019에서 웹 앱 솔루션을 엽니다.
 2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택합니다.
 3. 페이지 오른쪽의 화살표를 사용하여 **Microsoft Azure Virtual Machines**가 나올 때까지 게시 옵션을 탐색합니다.  
 
@@ -58,7 +58,7 @@ Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려�
 
 7. 확인을 클릭하여 게시를 시작합니다.
 
-8. 자격 증명을 묻는 메시지가 나타나면 사용자 이름 및 대상 게시 권한으로 구성 된 VM에서 사용자 계정의 암호를 제공 합니다. 이러한 자격 증명은 일반적으로 관리자 사용자 이름 및 VM을 만들 때 사용 되는 암호입니다.  
+8. 자격 증명을 입력 하 라는 메시지가 표시 되 면 게시 권한으로 구성 된 대상 VM에 사용자 계정의 사용자 이름 및 암호를 제공 합니다. 이러한 자격 증명은 일반적으로 VM을 만들 때 사용 되는 관리자 사용자 이름 및 암호입니다.  
 
    ![WebDeploy 로그인]
 
@@ -99,14 +99,14 @@ Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려�
 ![게시 설정 - 연결 페이지]
 
 #### <a name="save-user-name-and-password"></a>사용자 이름 및 암호 저장
-- 게시할 때마다 인증 정보를 제공 하지 마세요. 이렇게 하려면 채우기는 **사용자 이름** 및 **암호** 필드 및 선택 합니다 **암호 저장** 상자.
+- 게시할 때마다 인증 정보를 제공 하지 마십시오. 이렇게 하려면 **사용자 이름** 및 **암호** 필드를 입력 하 고 **암호 저장** 상자를 선택 합니다.
 - **연결 유효성 검사** 단추를 사용하여 올바른 정보를 입력했는지 확인합니다.
 
 #### <a name="deploy-to-clean-web-server"></a>깨끗한 웹 서버에 배포
 
-- 각각의 업로드 후 웹 응용 프로그램의 깨끗 한 사본이 웹 서버에는 다른 파일이 남아 이전 배포에서 확인할 수 있습니다 및 확인 하려는 경우는 **대상에서 추가 파일 제거** 합니다 에서확인란을 **설정** 탭 합니다.
+- 각 업로드 후 웹 서버에 웹 응용 프로그램의 완전 한 복사본이 있고 이전 배포에서 다른 파일이 남아 있지 않은지 확인 하려면 **설정** 탭에서 **대상에서 추가 파일 제거** 확인란을 선택 합니다.
 
-- 경고: 이 설정 사용 하 여 게시 웹 서버 (wwwroot 디렉터리)에 있는 모든 파일을 삭제 합니다. 이 옵션을 사용하여 게시하기 전에 컴퓨터의 상태를 알고 있어야 합니다. 
+- 경고: 이 설정을 사용 하 여 게시 하면 웹 서버 (wwwroot 디렉터리)에 있는 모든 파일이 삭제 됩니다. 이 옵션을 사용하여 게시하기 전에 컴퓨터의 상태를 알고 있어야 합니다. 
 
 ![게시 설정 - 설정 페이지]
 
