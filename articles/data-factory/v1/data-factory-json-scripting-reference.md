@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 69218cedcd5d775fe6e499086663aa124f6bfe25
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
+ms.lasthandoff: 10/04/2019
 ms.locfileid: "70735997"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 스크립팅 참조
@@ -50,8 +50,8 @@ ms.locfileid: "70735997"
 | name | 파이프라인의 이름입니다. 작업 또는 파이프라인이 수행되도록 구성된 작업을 나타내는 이름을 지정합니다.<br/><ul><li>최대 문자 수: 260</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |예 |
 | description |작업 또는 파이프라인이 무엇에 사용되는지 설명하는 텍스트입니다. | 아니요 |
 | activities | 활동의 목록을 포함합니다. | 예 |
-| start |파이프라인에 대한 시작 날짜-시간입니다. [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)에 있어야 합니다. 예를 들어: 2014-10-14T16:32:41. <br/><br/>예를 들어 EST 시간처럼 현지 시간을 지정할 수 있습니다. 예: `2016-02-27T06:00:00**-05:00`(오전 6시 동부 표준시)<br/><br/>start 및 end 속성은 함께 파이프라인의 활성 기간을 지정합니다. 출력 조각은 이 활성 기간에만 생성됩니다. |아니요<br/><br/>end 속성에 대한 값을 지정하는 경우 반드시 start 속성에 대한 값도 지정해야 합니다.<br/><br/>파이프라인을 만들 때에는 시작 및 종료 시간을 비워 둘 수 있습니다. 파이프라인을 실행할 활성 기간을 설정하려면 두 값 모두를 지정해야 합니다. 파이프라인을 만들 때 시작 및 종료 시간을 지정 하지 않으면 나중에 AzDataFactoryPipelineActivePeriod cmdlet을 사용 하 여 설정할 수 있습니다. |
-| end |파이프라인에 대한 종료 날짜-시간입니다. 지정된 경우 ISO 형식에 있어야 합니다. 예를 들어: 2014-10-14T17:32:41 <br/><br/>예를 들어 EST 시간처럼 현지 시간을 지정할 수 있습니다. 예: `2016-02-27T06:00:00**-05:00`(오전 6시 동부 표준시)<br/><br/>파이프라인을 무기한 실행하려면 end 속성 값으로 9999-09-09를 지정합니다. |아니요 <br/><br/>시작 속성에 대한 값을 지정하는 경우 반드시 끝 속성에 대한 값도 지정해야 합니다.<br/><br/>**start** 속성에 대한 참조를 확인합니다. |
+| start |파이프라인에 대한 시작 날짜-시간입니다. [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)에 있어야 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. 2014-10-14T16:32:41. <br/><br/>예를 들어 EST 시간처럼 현지 시간을 지정할 수 있습니다. 예: `2016-02-27T06:00:00**-05:00`(오전 6시 동부 표준시)<br/><br/>start 및 end 속성은 함께 파이프라인의 활성 기간을 지정합니다. 출력 조각은 이 활성 기간에만 생성됩니다. |아니요<br/><br/>end 속성에 대한 값을 지정하는 경우 반드시 start 속성에 대한 값도 지정해야 합니다.<br/><br/>파이프라인을 만들 때에는 시작 및 종료 시간을 비워 둘 수 있습니다. 파이프라인을 실행할 활성 기간을 설정하려면 두 값 모두를 지정해야 합니다. 파이프라인을 만들 때 시작 및 종료 시간을 지정 하지 않으면 나중에 AzDataFactoryPipelineActivePeriod cmdlet을 사용 하 여 설정할 수 있습니다. |
+| end |파이프라인에 대한 종료 날짜-시간입니다. 지정된 경우 ISO 형식에 있어야 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. 2014-10-14T17:32:41 <br/><br/>예를 들어 EST 시간처럼 현지 시간을 지정할 수 있습니다. 예: `2016-02-27T06:00:00**-05:00`(오전 6시 동부 표준시)<br/><br/>파이프라인을 무기한 실행하려면 end 속성 값으로 9999-09-09를 지정합니다. |아니요 <br/><br/>시작 속성에 대한 값을 지정하는 경우 반드시 끝 속성에 대한 값도 지정해야 합니다.<br/><br/>**start** 속성에 대한 참조를 확인합니다. |
 | isPaused |파이프라인을 true로 설정하면 실행되지 않습니다. 기본값 = false입니다. 이 속성을 사용하여 활성화 또는 비활성화할 수 있습니다. |아니요 |
 | pipelineMode |파이프라인에 대한 실행을 예약하는 메서드입니다. 허용되는 값은 scheduled(기본), onetime입니다.<br/><br/>‘Scheduled’는 파이프라인이 활성 기간(시작 및 종료 시간)에 따라 지정된 시간 간격으로 실행된다는 것을 나타냅니다. ‘Onetime’은 파이프라인이 한 번만 실행된다는 것을 나타냅니다. 현재는, Onetime 파이프라인이 생성된 후에 수정/업데이트가 불가능합니다. 일회성 설정에 대한 세부 정보는 [일회성 파이프라인](data-factory-create-pipelines.md#onetime-pipeline)을 참조하세요. |아니요 |
 | expirationTime |생성 후에 파이프라인이 유효하고 프로비전된 상태로 유지해야 하는 시간입니다. 활성 작업, 실패한 작업 또는 보류 중인 작업이 없는 경우 만료 시간이 되면 파이프라인은 자동으로 삭제됩니다. |아니요 |
@@ -83,7 +83,7 @@ ms.locfileid: "70735997"
 
 다음 표에서는 activity JSON 정의 내의 속성을 설명합니다.
 
-| Tag | 설명 | 필수 |
+| 태그 | 설명 | 필수 |
 | --- | --- | --- |
 | name |활동의 이름입니다. 활동을 수행하도록 구성된 작업을 나타내는 이름을 지정합니다.<br/><ul><li>최대 문자 수: 260</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |예 |
 | description |활동의 용도를 설명하는 텍스트입니다. |아니요 |
@@ -100,12 +100,12 @@ ms.locfileid: "70735997"
 
 | 속성 | 허용된 값 | Default Value | 설명 |
 | --- | --- | --- | --- |
-| concurrency |정수 <br/><br/>최댓값: 10 |1 |작업의 동시 실행 수입니다.<br/><br/>다른 조각에 발생할 수 있는 병렬 작업 실행 횟수를 결정합니다. 예를 들어 활동이 사용 가능한 많은 데이터 집합을 거쳐야 하는 경우 동시성 값을 높이면 데이터 처리가 빨라집니다. |
+| concurrency |Integer <br/><br/>최댓값: 10 |1 |작업의 동시 실행 수입니다.<br/><br/>다른 조각에 발생할 수 있는 병렬 작업 실행 횟수를 결정합니다. 예를 들어 활동이 사용 가능한 많은 데이터 집합을 거쳐야 하는 경우 동시성 값을 높이면 데이터 처리가 빨라집니다. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |처리 중인 데이터 조각의 순서를 결정합니다.<br/><br/>예를 들어 2개의 조각이 있으며(각각 오후 4시 및 오후 5시에 발생) 둘 다 실행 보류 상태입니다. executionPriorityOrder를 설정하여 NewestFirst가 되도록 하면 오후 5시에 조각이 먼저 처리됩니다. 마찬가지로 executionPriorityORder를 OldestFIrst로 설정하면 오후 4시의 조각이 처리됩니다. |
-| 다시 시도 |정수<br/><br/>최대값이 10이 될 수 있음 |0 |조각에 대한 데이터 처리 전에 다시 시도 횟수가 실패로 표시됩니다. 데이터 조각에 대한 활동 실행은 지정된 재시도 횟수까지 다시 시도됩니다. 재시도는 실패 후 가능한 한 빨리 수행합니다. |
-| timeout 제한 |TimeSpan |00:00:00 |활동에 대한 시간 제한입니다. 예제: 00:10:00(시간 제한 10분을 의미함)<br/><br/>값이 지정되지 않거나 0인 경우 시간 제한은 무한입니다.<br/><br/>조각의 데이터 처리 시간이 시간 제한 값을 초과하면 취소되고 시스템이 처리를 다시 시도합니다. 다시 시도 횟수는 다시 시도 속성에 따라 달라집니다. 시간 제한이 발생할 때 상태는 TimedOut으로 설정됩니다. |
-| delay |TimeSpan |00:00:00 |조각의 데이터 처리 작업이 시작되기 전에 지연을 지정합니다.<br/><br/>데이터 조각에 대한 활동의 실행은 지연이 예상된 실행 시간을 지난 후에 시작됩니다.<br/><br/>예제: 00:10:00(10분 지연을 의미함) |
-| longRetry |정수<br/><br/>최댓값: 10 |1 |조각 실행이 실패하기 전까지의 긴 재시도 횟수입니다.<br/><br/>longRetry 시도는 longRetryInterval에 따라 간격이 조정됩니다. 따라서 재시도 간의 시간을 지정해야 하는 경우 longRetry를 사용합니다. Retry 및 longRetry를 둘 다 지정하면 각 longRetry 시도에는 Retry 시도가 포함되고 최대 시도 횟수는 Retry * longRetry가 됩니다.<br/><br/>예를 들어 활동 정책에 다음 설정이 있는 경우:<br/>다시 시도: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>실행할 조각이 하나뿐이며(Waiting 상태) 작업 실행이 매번 실패한다고 가정합니다. 우선 3번 연속 실행 시도를 합니다. 시도한 후 각 조각 상태는 다시 시도입니다. 처음 3번 시도 후에 조각 상태는 LongRetry입니다.<br/><br/>한 시간(즉, longRetryInteval의 값) 후에 3번 연속 실행이 다시 시도됩니다. 그 후에 조각 상태가 실패이면 다시 시도는 더 이상 시도하지 않습니다. 즉, 전체적으로 6번의 시도가 일어납니다.<br/><br/>모든 실행에 성공하면 조각 상태는 준비 상태가 되며 더 이상 다시 시도하지 않습니다.<br/><br/>longRetry는 종속 데이터가 명확하지 않은 시간에 도착하거나 데이터 처리가 발생하는 전체적인 환경을 신뢰할 수 없는 상황에서 사용될 수 있습니다. 이러한 경우 하나씩 다시 시도를 수행해도 도움이 되지 않을 수 있으며 특정 시간 간격 후에 시도할 경우 출력이 나타납니다.<br/><br/>주의: longRetry 또는 longRetryInterval에 높은 값을 설정하지 마세요. 일반적으로 더 높은 값을 지정하면 다른 시스템 문제가 발생합니다. |
+| retry |Integer<br/><br/>최대값이 10이 될 수 있음 |0 |조각에 대한 데이터 처리 전에 다시 시도 횟수가 실패로 표시됩니다. 데이터 조각에 대한 활동 실행은 지정된 재시도 횟수까지 다시 시도됩니다. 재시도는 실패 후 가능한 한 빨리 수행합니다. |
+| timeout 제한 |TimeSpan |00:00:00 |활동에 대한 시간 제한입니다. 예: 00:10:00(시간 제한 10분을 의미함)<br/><br/>값이 지정되지 않거나 0인 경우 시간 제한은 무한입니다.<br/><br/>조각의 데이터 처리 시간이 시간 제한 값을 초과하면 취소되고 시스템이 처리를 다시 시도합니다. 다시 시도 횟수는 다시 시도 속성에 따라 달라집니다. 시간 제한이 발생할 때 상태는 TimedOut으로 설정됩니다. |
+| delay |TimeSpan |00:00:00 |조각의 데이터 처리 작업이 시작되기 전에 지연을 지정합니다.<br/><br/>데이터 조각에 대한 활동의 실행은 지연이 예상된 실행 시간을 지난 후에 시작됩니다.<br/><br/>예: 00:10:00(10분 지연을 의미함) |
+| longRetry |Integer<br/><br/>최댓값: 10 |1 |조각 실행이 실패하기 전까지의 긴 재시도 횟수입니다.<br/><br/>longRetry 시도는 longRetryInterval에 따라 간격이 조정됩니다. 따라서 재시도 간의 시간을 지정해야 하는 경우 longRetry를 사용합니다. Retry 및 longRetry를 둘 다 지정하면 각 longRetry 시도에는 Retry 시도가 포함되고 최대 시도 횟수는 Retry * longRetry가 됩니다.<br/><br/>예를 들어 활동 정책에 다음 설정이 있는 경우:<br/>다시 시도: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>실행할 조각이 하나뿐이며(Waiting 상태) 작업 실행이 매번 실패한다고 가정합니다. 우선 3번 연속 실행 시도를 합니다. 시도한 후 각 조각 상태는 다시 시도입니다. 처음 3번 시도 후에 조각 상태는 LongRetry입니다.<br/><br/>한 시간(즉, longRetryInteval의 값) 후에 3번 연속 실행이 다시 시도됩니다. 그 후에 조각 상태가 실패이면 다시 시도는 더 이상 시도하지 않습니다. 즉, 전체적으로 6번의 시도가 일어납니다.<br/><br/>모든 실행에 성공하면 조각 상태는 준비 상태가 되며 더 이상 다시 시도하지 않습니다.<br/><br/>longRetry는 종속 데이터가 명확하지 않은 시간에 도착하거나 데이터 처리가 발생하는 전체적인 환경을 신뢰할 수 없는 상황에서 사용될 수 있습니다. 이러한 경우 하나씩 다시 시도를 수행해도 도움이 되지 않을 수 있으며 특정 시간 간격 후에 시도할 경우 출력이 나타납니다.<br/><br/>주의: longRetry 또는 longRetryInterval에 높은 값을 설정하지 마세요. 일반적으로 더 높은 값을 지정하면 다른 시스템 문제가 발생합니다. |
 | longRetryInterval |TimeSpan |00:00:00 |긴 다시 시도 간의 지연 |
 
 ### <a name="typeproperties-section"></a>typeProperties 섹션
@@ -246,10 +246,10 @@ typeProperties 섹션은 각 활동마다 다릅니다. 변환 활동에는 type
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
 | name | 연결된 서비스의 이름입니다. | 예 |
-| properties - type | 연결된 서비스의 형식입니다. 예를 들어: Azure Storage, Azure SQL Database. |
+| properties - type | 연결된 서비스의 형식입니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. Azure Storage, Azure SQL Database. |
 | typeProperties | typeProperties 섹션에는 각 데이터 저장소 또는 컴퓨팅 환경마다 다른 요소가 있습니다. 모든 데이터 저장소 연결 서비스는 데이터 저장소 섹션을, 모든 컴퓨팅 연결 서비스는 [컴퓨팅 환경](#compute-environments)을 참조하세요. |
 
-## <a name="dataset"></a>데이터 집합
+## <a name="dataset"></a>데이터 세트
 Azure Data Factory의 데이터 세트는 다음과 같이 정의됩니다.
 
 ```json
@@ -316,7 +316,7 @@ structure:
 
 | 속성 | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
-| 빈도 |데이터 세트 조각 생성을 위한 시간 단위를 지정합니다.<br/><br/><b>지원되는 빈도</b>: Minute, Hour, Day, Week, Month |예 |NA |
+| frequency |데이터 세트 조각 생성을 위한 시간 단위를 지정합니다.<br/><br/><b>지원되는 빈도</b>: Minute, Hour, Day, Week, Month |예 |NA |
 | interval |빈도 승수를 지정합니다.<br/><br/>"빈도 x 간격"은 조각을 생성하는 빈도를 결정합니다.<br/><br/>데이터 세트를 시간 단위로 조각화해야 하는 경우 <b>frequency</b>를 <b>Hour</b>로, <b>interval</b>을 <b>1</b>로 설정합니다.<br/><br/><b>참고</b>: 빈도를 Minute(분)으로 지정하면 15 이상으로 간격을 설정하는 것이 좋습니다. |예 |NA |
 | style |간격의 시작/끝에 조각을 생성해야 하는지를 지정합니다.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Frequency를 Month로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 월의 마지막 날에 생성합니다. style을 StartOfInterval로 설정하는 경우 조각을 달의 첫 번째 날에 생성합니다.<br/><br/>frequency를 Day로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 일의 마지막 시간에 생성합니다.<br/><br/>Frequency를 Hour로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 시간의 끝에 생성합니다. 예를 들어 오후 1~2시 기간에 대한 조각은 오후 2시에 생성됩니다. |아니요 |EndOfInterval |
 | anchorDateTime |스케줄러에서 사용하는 시간에 절대 위치를 정의하여 데이터 세트 조각 경계를 컴퓨팅합니다. <br/><br/><b>참고</b>: AnchorDateTime에 빈도보다 더 세분화된 날짜 부분이 있는 경우 더 세분화된 부분을 무시합니다. <br/><br/>예를 들어 <b>간격</b>이 <b>매시간</b>으로 설정됩니다(frequency: hour and interval: 1)이고 <b>AnchorDateTime</b>에서 <b>분 및 초</b>를 포함하는 경우 AnchorDateTime의 <b>분 및 초</b> 부분은 무시됩니다. |아니요 |01/01/0001 |
@@ -334,10 +334,10 @@ structure:
 
 데이터 세트 정의의 **정책** 섹션에서 데이터 세트 조각이 충족해야 하는 기준 또는 조건을 정의합니다.
 
-| 정책 이름 | 설명 | 에 적용 | 필수 | 기본값 |
+| 정책 이름 | 설명 | 에 적용 | 필요한 공간 | 기본값 |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |**Azure Blob** 에서 데이터가 최소 크기 요구 사항(메가바이트)을 충족하는지 확인합니다. |Azure Blob |아니요 |NA |
-| minimumRows |**Azure SQL 데이터베이스** 또는 **Azure 테이블**에서 데이터가 최소 행 수를 포함하는지 확인합니다. |<ul><li>Azure SQL Database</li><li>Azure 테이블</li></ul> |아니요 |NA |
+| minimumRows |**Azure SQL 데이터베이스** 또는 **Azure 테이블**에서 데이터가 최소 행 수를 포함하는지 확인합니다. |<ul><li>Azure SQL 데이터베이스</li><li>Azure 테이블</li></ul> |아니요 |NA |
 
 **예제:**
 
@@ -354,7 +354,7 @@ structure:
 
 데이터 세트가 Azure Data Factory에서 생성되지 않는 한 **external**로 표시되어야 합니다. 이 설정은 작업 또는 파이프라인 연결을 활용하고 있지 않는 한 파이프라인에서 첫 번째 작업의 입력에 일반적으로 적용됩니다.
 
-| name | Description | 필수 | Default Value |
+| name | 설명 | 필요한 공간 | Default Value |
 | --- | --- | --- | --- |
 | dataDelay |지정된 조각에 대한 외부 데이터의 가용성 확인을 지연하는 시간입니다. 예를 들어 데이터를 매시간 사용할 수 있는 경우 외부 데이터를 볼 수 있고 해당 조각이 준비(Ready) 상태인지 확인하기 위한 검사는 dataDelay를 사용하여 지연시킬 수 있습니다.<br/><br/>를 사용하여 지연할 수 있습니다.  예를 들어 현재 오후 1시이고 이 값이 10 분이라면 유효성 검사는 오후 1시 10분에 시작합니다.<br/><br/>이 설정은 과거의 조각(조각 종료 시간 + dataDelay < Now를 사용한 조각)에는 영향을 주지 않아 아무런 지연 없이 처리됩니다.<br/><br/>23:59보다 큰 시간은 `day.hours:minutes:seconds` 형식을 사용하여 지정해야 합니다. 예를 들어 24시간을 지정하려면 24:00:00을 사용하는 대신 1.00:00:00을 사용합니다. 24:00:00을 사용하면 24일(24.00:00:00)로 처리됩니다. 1일 4시간의 경우 1:04:00:00을 지정합니다. |아니요 |0 |
 | retryInterval |오류 발생과 다음 다시 시도 사이의 대기 시간입니다. 시도가 실패하는 경우 다음 시도는 retryInterval 이후입니다. <br/><br/>오후 1시가 되면 첫 번째 시도를 시작합니다. 첫 번째 유효성 검사를 완료하는 데 걸리는 기간이 1분이고 작업이 실패하는 경우 다음 다시 시도는 1시 + 1분(기간) + 1분(다시 시도 간격) = 오후 1시 2분입니다. <br/><br/>과거 조각의 경우 지연이 없습니다. 재시도는 곧바로 이뤄집니다. |아니요 |00:01:00 (1분) |
@@ -371,7 +371,7 @@ structure:
 
 관심 있는 저장소 링크를 클릭하여 복사 활동의 연결된 서비스, 데이터 세트 및 소스/싱크에 대한 JSON 스키마를 확인하세요.
 
-| 범주 | 데이터 저장소
+| Category | 데이터 저장소
 |:--- |:--- |
 | **Azure** |[Azure Blob Storage](#azure-blob-storage) |
 | &nbsp; |Azure Data Lake Store |
@@ -392,7 +392,7 @@ structure:
 | &nbsp; |[Teradata](#teradata) |
 | **NoSQL** |[Cassandra](#cassandra) |
 | &nbsp; |[MongoDB](#mongodb) |
-| **파일** |[Amazon S3](#amazon-s3) |
+| **최근에 사용한 파일** |[Amazon S3](#amazon-s3) |
 | &nbsp; |[파일 시스템](#file-system) |
 | &nbsp; |[FTP](#ftp) |
 | &nbsp; |[HDFS](#hdfs) |
@@ -411,7 +411,7 @@ structure:
 #### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
 **계정 키**를 사용하여 Azure 스토리지 계정을 데이터 팩터리에 연결하려면 Azure Storage 연결된 서비스를 만듭니다. Azure Storage 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureStorage**로 설정합니다. 그런 다음 **typeProperties** 섹션에서 다음 속성을 지정하면 됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 |:--- |:--- |:--- |
 | connectionString |connectionString 속성에 대한 Azure Storage에 연결하는 데 필요한 정보를 지정합니다. |예 |
 
@@ -432,7 +432,7 @@ structure:
 #### <a name="azure-storage-sas-linked-service"></a>Azure Storage SAS 연결된 서비스
 Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사용하여 Azure Storage 계정을 Azure Data Factory에 연결할 수 있습니다. 이 서비스는 스토리지의 모든/특정 리소스(Blob/컨테이너)에 대해 제한된/시간 제한 액세스를 데이터 팩터리에 제공합니다. 공유 액세스 서명을 사용하여 Azure 스토리지 계정을 데이터 팩터리에 연결하려면 Azure Storage SAS 연결된 서비스를 만듭니다. Azure Storage SAS 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureStorageSas**로 설정합니다. 그런 다음 **typeProperties** 섹션에서 다음 속성을 지정하면 됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 |:--- |:--- |:--- |
 | sasUri |BLOB, 컨테이너, 테이블 등의 Azure Storage 리소스에 공유 액세스 서명 URI를 지정합니다. |예 |
 
@@ -452,13 +452,13 @@ Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사�
 
 이러한 연결된 서비스에 대한 자세한 내용은 [Azure Blob Storage 커넥터](data-factory-azure-blob-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 Azure Blob 데이터 세트를 정의하려면 데이터 세트의 **type**을 **AzureBlob**으로 설정합니다. 그런 다음 **typeProperties** 섹션에서 다음 Azure Blob 특정 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | folderPath |Blob Storage에서 컨테이너 및 폴더에 대한 경로입니다. 예제: myblobcontainer\myblobfolder\ |예 |
-| fileName |Blob의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다.<br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 Blob에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 세트에 대한 folderPath에 모든 Blob을 포함합니다.<br/><br/>FileName이 출력 데이터 집합에 대해 지정 되지 않은 경우 생성 된 파일의 이름은 다음 형식 `Data.<Guid>.txt` 으로 지정 됩니다 (예:). Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아니요 |
+| fileName |Blob의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다.<br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 Blob에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 세트에 대한 folderPath에 모든 Blob을 포함합니다.<br/><br/>FileName이 출력 데이터 집합에 대해 지정 되지 않은 경우 생성 된 파일의 이름은 `Data.<Guid>.txt` 형식입니다 (예:). Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아니요 |
 | partitionedBy |partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. |아니요 |
 | format | 다음 포맷 형식이 지원됩니다. **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**입니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
 | compression | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
@@ -495,11 +495,11 @@ Azure Blob 데이터 세트를 정의하려면 데이터 세트의 **type**을 *
 ### <a name="blobsource-in-copy-activity"></a>복사 활동의 BlobSource
 Azure Blob Storage에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **BlobSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | recursive |하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True(기본값), False |아니요 |
 
-#### <a name="example-blobsource"></a>예제: **BlobSource**
+#### <a name="example-blobsource"></a>예: **BlobSource**
 ```json
 {
     "name": "SamplePipeline",
@@ -538,11 +538,11 @@ Azure Blob Storage에서 데이터를 복사하는 경우 복사 활동의 **sou
 ### <a name="blobsink-in-copy-activity"></a>복사 활동의 BlobSink
 Azure Blob Storage에 데이터를 복사하는 경우 복사 활동의 **sink type**을 **BlobSink**로 설정하고 **sink** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | copyBehavior |원본이 BlobSource 또는 FileSystem인 경우 복사 동작을 정의합니다. |<b>PreserveHierarchy</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/><b>FlattenHierarchy</b>: 원본 폴더의 모든 파일은 대상 폴더의 첫 번째 수준에 있게 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><br/><b>MergeFiles(기본값):</b> 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. |아니요 |
 
-#### <a name="example-blobsink"></a>예제: BlobSink
+#### <a name="example-blobsink"></a>예: BlobSink
 
 ```json
 {
@@ -597,7 +597,7 @@ Azure Data Lake Store 연결된 서비스를 정의하려면 연결된 서비스
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예(서비스 주체 인증의 경우) |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. | 예(서비스 주체 인증의 경우) |
 | 테넌트(tenant) | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 예(서비스 주체 인증의 경우) |
-| 권한 부여(authorization) | **Data Factory 편집기**에서 **권한 부여** 단추를 클릭하고 자격 증명을 입력합니다. 그러면 자동 생성된 authorization URL이 이 속성에 할당됩니다. | 예(사용자 자격 증명 인증의 경우)|
+| authorization | **Data Factory 편집기**에서 **권한 부여** 단추를 클릭하고 자격 증명을 입력합니다. 그러면 자동 생성된 authorization URL이 이 속성에 할당됩니다. | 예(사용자 자격 증명 인증의 경우)|
 | sessionid | OAuth 권한 부여 세션에서 가져온 OAuth 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있으며 이 설정은 Data Factory 편집기를 사용하는 경우 자동으로 생성됩니다. | 예(사용자 자격 증명 인증의 경우) |
 
 #### <a name="example-using-service-principal-authentication"></a>예제: 서비스 주체 인증 사용
@@ -635,13 +635,13 @@ Azure Data Lake Store 연결된 서비스를 정의하려면 연결된 서비스
 
 자세한 내용은 [Azure Data Lake Store 커넥터](data-factory-azure-datalake-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 Azure Data Lake Store 데이터 세트를 정의하려면 데이터 세트의 **type**을 **AzureDataLakeStore**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 |:--- |:--- |:--- |
 | folderPath |Azure 데이터 레이크 저장소의 컨테이너 및 폴더에 대한 경로입니다. |예 |
-| fileName |Azure 데이터 레이크 저장소에 있는 파일의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 파일에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 세트에 대한 folderPath에 모든 파일을 포함합니다.<br/><br/>FileName이 출력 데이터 집합에 대해 지정 되지 않은 경우 생성 된 파일의 이름은 다음 형식 `Data.<Guid>.txt` 으로 지정 됩니다 (예:). Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아니요 |
+| fileName |Azure 데이터 레이크 저장소에 있는 파일의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 파일에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 세트에 대한 folderPath에 모든 파일을 포함합니다.<br/><br/>FileName이 출력 데이터 집합에 대해 지정 되지 않은 경우 생성 된 파일의 이름은 `Data.<Guid>.txt` 형식입니다 (예:). Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아니요 |
 | partitionedBy |partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. |아니요 |
 | format | 다음 포맷 형식이 지원됩니다. **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**입니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
 | compression | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
@@ -685,11 +685,11 @@ Azure Data Lake Store에서 데이터를 복사하는 경우 복사 활동의 **
 
 **AzureDataLakeStoreSource**는 **typeProperties** 섹션에서 다음 속성을 지원합니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | recursive |하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True(기본값), False |아니요 |
 
-#### <a name="example-azuredatalakestoresource"></a>예제: AzureDataLakeStoreSource
+#### <a name="example-azuredatalakestoresource"></a>예: AzureDataLakeStoreSource
 
 ```json
 {
@@ -732,11 +732,11 @@ Azure Data Lake Store에서 데이터를 복사하는 경우 복사 활동의 **
 ### <a name="azure-data-lake-store-sink-in-copy-activity"></a>복사 활동의 Azure Data Lake Store 싱크
 Azure Data Lake Store에 데이터를 복사하는 경우 복사 활동의 **sink type**을 **AzureDataLakeStoreSink**로 설정하고 **sink** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | copyBehavior |복사 동작을 지정합니다. |<b>PreserveHierarchy</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/><b>FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 만들어집니다. 대상 파일은 자동 생성된 이름으로 만들어집니다.<br/><br/><b>MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. |아니요 |
 
-#### <a name="example-azuredatalakestoresink"></a>예제: AzureDataLakeStoreSink
+#### <a name="example-azuredatalakestoresink"></a>예: AzureDataLakeStoreSink
 ```json
 {
     "name": "SamplePipeline",
@@ -784,7 +784,7 @@ Azure Data Lake Store에 데이터를 복사하는 경우 복사 활동의 **sin
 ### <a name="linked-service"></a>연결된 서비스
 Azure Cosmos DB 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **DocumentDb**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| **Property** | **설명** | **필수** |
+| **속성** | **설명** | **필수** |
 | --- | --- | --- |
 | connectionString |Azure Cosmos DB 데이터베이스에 연결하는 데 필요한 정보를 지정합니다. |예 |
 
@@ -803,10 +803,10 @@ Azure Cosmos DB 연결된 서비스를 정의하려면 연결된 서비스의 **
 ```
 자세한 내용은 [Azure Cosmos DB 커넥터](data-factory-azure-documentdb-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 Azure Cosmos DB 데이터 세트를 정의하려면 데이터 세트의 **type**을 **DocumentDbCollection**으로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| **Property** | **설명** | **필수** |
+| **속성** | **설명** | **필수** |
 | --- | --- | --- |
 | collectionName |Azure Cosmos DB 컬렉션의 이름입니다. |예 |
 
@@ -835,7 +835,7 @@ Azure Cosmos DB 데이터 세트를 정의하려면 데이터 세트의 **type**
 Azure Cosmos DB에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **DocumentDbCollectionSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
 
-| **Property** | **설명** | **허용되는 값** | **필수** |
+| **속성** | **설명** | **허용되는 값** | **필수** |
 | --- | --- | --- | --- |
 | query |데이터를 읽는 쿼리를 지정합니다. |Azure Cosmos DB에서 지원하는 쿼리 문자열입니다. <br/><br/>예: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |아니요 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |문서가 중첩됨을 나타내는 특수 문자 |모든 character입니다. <br/><br/>Azure Cosmos DB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입니다. Azure 데이터 팩터리를 사용하면 nestingSeparator, 즉 위 예에서 "."를 통해 계층 구조를 표시할 수 있습니다. 테이블 정의에서 "Name.First", "Name.Middle" 및 "Name.Last"에 따르면 구분 기호를 사용하여 복사 작업이 3개의 자식 요소(처음, 중간 및 마지막)가 있는 "Name" 개체를 생성합니다. |아니요 |
@@ -881,11 +881,11 @@ Azure Cosmos DB에서 데이터를 복사하는 경우 복사 활동의 **source
 ### <a name="azure-cosmos-db-collection-sink-in-copy-activity"></a>복사 작업의 Azure Cosmos DB 컬렉션 싱크
 Azure Cosmos DB에 데이터를 복사하는 경우 복사 작업의 **sink type**을 **DocumentDbCollectionSink**로 설정하고 **sink** 섹션에서 다음 속성을 지정합니다.
 
-| **Property** | **설명** | **허용되는 값** | **필수** |
+| **속성** | **설명** | **허용되는 값** | **필수** |
 | --- | --- | --- | --- |
 | nestingSeparator |중첩된 해당 문서를 나타내는 원본 열 이름에 특수 문자가 필요합니다. <br/><br/>위의 예에서 출력 테이블의 `Name.First`는 Cosmos DB 문서에서 다음 JSON 구조를 생성합니다.<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |중첩 수준을 구분하는데 사용되는 문자입니다.<br/><br/>기본값은 `.`.(점)입니다. |중첩 수준을 구분하는데 사용되는 문자입니다. <br/><br/>기본값은 `.`.(점)입니다. |
-| writeBatchSize |문서를 작성하는 Azure Cosmos DB 서비스에 대한 병렬 요청 수입니다.<br/><br/>이 속성을 사용하여 Azure Cosmos DB 간 데이터를 복사하는 경우 성능을 미세 조정할 수 있습니다. Azure Cosmos DB에 더 많은 병렬 요청이 전송되기 때문에 writeBatchSize 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 하지만 오류 메시지: “요청 빈도가 높습니다."를 발생시킬 수 있는 제한을 방지해야 합니다.<br/><br/>제한은 문서의 크기, 문서에서 용어의 수, 대상 컬렉션의 인덱싱 정책 등 여러 가지 요인으로 결정됩니다. 복사 활동의 경우 더 나은 컬렉션(예: S3)을 사용하여 가장 많은 처리량(2,500 요청 단위/초)을 제공할 수 있습니다. |정수 |아니요(기본값: 5) |
-| writeBatchTimeout |시간이 초과 되기 전에 완료하려는 작업을 위한 대기 시간입니다. |TimeSpan<br/><br/> 예제: “00:30:00”(30분) |아니요 |
+| writeBatchSize |문서를 작성하는 Azure Cosmos DB 서비스에 대한 병렬 요청 수입니다.<br/><br/>이 속성을 사용하여 Azure Cosmos DB 간 데이터를 복사하는 경우 성능을 미세 조정할 수 있습니다. Azure Cosmos DB에 더 많은 병렬 요청이 전송되기 때문에 writeBatchSize 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 하지만 오류 메시지: “요청 빈도가 높습니다."를 발생시킬 수 있는 제한을 방지해야 합니다.<br/><br/>제한은 문서의 크기, 문서에서 용어의 수, 대상 컬렉션의 인덱싱 정책 등 여러 가지 요인으로 결정됩니다. 복사 활동의 경우 더 나은 컬렉션(예: S3)을 사용하여 가장 많은 처리량(2,500 요청 단위/초)을 제공할 수 있습니다. |Integer |아니요(기본값: 5) |
+| writeBatchTimeout |시간이 초과 되기 전에 완료하려는 작업을 위한 대기 시간입니다. |TimeSpan<br/><br/> 예: “00:30:00”(30분) |아니요 |
 
 #### <a name="example"></a>예제
 
@@ -929,12 +929,12 @@ Azure Cosmos DB에 데이터를 복사하는 경우 복사 작업의 **sink type
 
 자세한 내용은 [Azure Cosmos DB 커넥터](data-factory-azure-documentdb-connector.md#copy-activity-properties) 문서를 참조하세요.
 
-## <a name="azure-sql-database"></a>Azure SQL Database
+## <a name="azure-sql-database"></a>Azure SQL 데이터베이스
 
 ### <a name="linked-service"></a>연결된 서비스
 Azure SQL Database 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureSqlDatabase**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | connectionString |Azure SQL Database 인스턴스에 연결하는 데 필요한 정보를 connectionString 속성에 대해 지정합니다. |예 |
 
@@ -953,10 +953,10 @@ Azure SQL Database 연결된 서비스를 정의하려면 연결된 서비스의
 
 자세한 내용은 [Azure SQL 커넥터](data-factory-azure-sql-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 Azure SQL Database 데이터 세트를 정의하려면 데이터 세트의 **type**을 **AzureSqlTable**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 Azure SQL Database 인스턴스에서 테이블 또는 보기의 이름입니다. |예 |
 
@@ -992,7 +992,7 @@ Azure SQL Database 데이터 세트를 정의하려면 데이터 세트의 **typ
 Azure SQL Database에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **SqlSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | sqlReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `select * from MyTable`. |아니오 |
 | sqlReaderStoredProcedureName |원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. |저장 프로시저의 이름입니다. |아니요 |
@@ -1045,9 +1045,9 @@ Azure SQL Database에서 데이터를 복사하는 경우 복사 활동의 **sou
 ### <a name="sql-sink-in-copy-activity"></a>복사 활동의 SQL 싱크
 Azure SQL Database에 데이터를 복사하는 경우 복사 활동의 **sink type**을 **SqlSink**로 설정하고 **sink** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
-| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |TimeSpan<br/><br/> 예제: “00:30:00”(30분) |아니요 |
+| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |TimeSpan<br/><br/> 예: “00:30:00”(30분) |아니요 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 |정수(행 수) |아니요(기본값: 10000) |
 | sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. |쿼리 문입니다. |아니요 |
 | sliceIdentifierColumnName |자동 생성된 조각 식별자를 입력할 복사 활동의 열 이름을 지정합니다. 이 식별자는 복사 활동을 다시 실행할 때 특정 조각의 데이터를 정리하는 데 사용됩니다. |이진(32) 데이터 형식이 있는 열의 열 이름입니다. |아니요 |
@@ -1100,12 +1100,12 @@ Azure SQL Database에 데이터를 복사하는 경우 복사 활동의 **sink t
 
 자세한 내용은 [Azure SQL 커넥터](data-factory-azure-sql-connector.md#copy-activity-properties) 문서를 참조하세요.
 
-## <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+## <a name="azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스
 
 ### <a name="linked-service"></a>연결된 서비스
 Azure SQL Data Warehouse 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureSqlDW**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | connectionString |connectionString 속성에 대한 Azure SQL Data Warehouse 인스턴스에 연결하는 데 필요한 정보를 지정합니다. |예 |
 
@@ -1127,10 +1127,10 @@ Azure SQL Data Warehouse 연결된 서비스를 정의하려면 연결된 서비
 
 자세한 내용은 [Azure SQL Data Warehouse 커넥터](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 Azure SQL Data Warehouse 데이터 세트를 정의하려면 데이터 세트의 **type**을 **AzureSqlDWTable**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | tableName |연결된 서비스에서 참조하는 Azure SQL Data Warehouse 데이터베이스에 있는 테이블 또는 보기의 이름입니다. |예 |
 
@@ -1167,7 +1167,7 @@ Azure SQL Data Warehouse 데이터 세트를 정의하려면 데이터 세트의
 Azure SQL Data Warehouse에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **SqlDWSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | sqlReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `select * from MyTable`을 참조하십시오. |아니요 |
 | sqlReaderStoredProcedureName |원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. |저장 프로시저의 이름입니다. |아니요 |
@@ -1221,7 +1221,7 @@ Azure SQL Data Warehouse에서 데이터를 복사하는 경우 복사 활동의
 ### <a name="sql-dw-sink-in-copy-activity"></a>복사 활동의 SQL DW 싱크
 Azure SQL Data Warehouse에 데이터를 복사하는 경우 복사 활동의 **sink type**을 **SqlDWSink**로 설정하고 **sink** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. |쿼리 문입니다. |아니요 |
 | allowPolyBase |BULKINSERT 메커니즘 대신 PolyBase(있는 경우)를 사용할지 여부를 나타냅니다. <br/><br/> **PolyBase를 사용하여 SQL Data Warehouse에 데이터를 로드하는 것이 좋습니다.** |True <br/>False(기본값) |아니요 |
@@ -1231,7 +1231,7 @@ Azure SQL Data Warehouse에 데이터를 복사하는 경우 복사 활동의 **
 | rejectSampleValue |PolyBase가 거부된 행의 비율을 다시 계산하기 전에 검색할 행 수를 결정합니다. |1, 2, … |예. **rejectType**이 **백분율**인 경우 |
 | useTypeDefault |PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)를 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. |True, False(기본값) |아니요 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 |정수(행 수) |아니요(기본값: 10000) |
-| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |TimeSpan<br/><br/> 예제: “00:30:00”(30분) |아니요 |
+| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |TimeSpan<br/><br/> 예: “00:30:00”(30분) |아니요 |
 
 #### <a name="example"></a>예제
 
@@ -1284,7 +1284,7 @@ Azure SQL Data Warehouse에 데이터를 복사하는 경우 복사 활동의 **
 ### <a name="linked-service"></a>연결된 서비스
 Azure Search 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureSearch**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | -------- | ----------- | -------- |
 | URL | Azure Search 서비스의 URL입니다. | 예 |
 | Key | Azure Search 서비스의 관리자 키입니다. | 예 |
@@ -1306,7 +1306,7 @@ Azure Search 연결된 서비스를 정의하려면 연결된 서비스의 **typ
 
 자세한 내용은 [Azure Search 커넥터](data-factory-azure-search-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 Azure Search 데이터 세트를 정의하려면 데이터 세트의 **type**을 **AzureSearchIndex**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
 | 속성 | 설명 | 필수 |
@@ -1338,9 +1338,9 @@ Azure Search 데이터 세트를 정의하려면 데이터 세트의 **type**을
 ### <a name="azure-search-index-sink-in-copy-activity"></a>복사 활동의 Azure Search 인덱스 싱크
 Azure Search 인덱스에 데이터를 복사하는 경우 복사 활동의 **sink type**을 **AzureSearchIndexSink**로 설정하고 **sink** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. | 병합(기본값)<br/>Upload| 아니요 |
+| WriteBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. | 병합(기본값)<br/>업로드| 아니요 |
 | WriteBatchSize | 버퍼 크기가 writeBatchSize에 도달한 경우 Azure Search 인덱스에 데이터를 업로드합니다. | 1~1,000입니다. 기본값은 1,000입니다. | 아니요 |
 
 #### <a name="example"></a>예제
@@ -1439,10 +1439,10 @@ Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사�
 
 이러한 연결된 서비스에 대한 자세한 내용은 [Azure Table Storage 커넥터](data-factory-azure-table-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 Azure Table 데이터 세트를 정의하려면 데이터 세트의 **type**을 **AzureTable**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 Azure 테이블 데이터베이스 인스턴스에서 테이블의 이름입니다. |예. azureTableSourceQuery 없이 tableName을 지정하면 테이블의 모든 레코드를 대상에 복사합니다. 또한 azureTableSourceQuery를 지정하면 쿼리를 만족 하는 테이블의 레코드를 대상에 복사합니다. |
 
@@ -1478,7 +1478,7 @@ Azure Table 데이터 세트를 정의하려면 데이터 세트의 **type**을 
 ### <a name="azure-table-source-in-copy-activity"></a>복사 활동의 Azure Table 소스
 Azure Table Storage에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **AzureTableSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | azureTableSourceQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |Azure 테이블 쿼리 문자열. 다음 섹션의 예제를 참조하세요. |아니요. azureTableSourceQuery 없이 tableName을 지정하면 테이블의 모든 레코드를 대상에 복사합니다. 또한 azureTableSourceQuery를 지정하면 쿼리를 만족 하는 테이블의 레코드를 대상에 복사합니다. |
 | azureTableSourceIgnoreTableNotFound |존재하지 않는 테이블의 예외를 받아들이는지를 나타냅니다. |TRUE<br/>FALSE |아니요 |
@@ -1531,14 +1531,14 @@ Azure Table Storage에서 데이터를 복사하는 경우 복사 활동의 **so
 ### <a name="azure-table-sink-in-copy-activity"></a>복사 활동의 Azure Table 싱크
 Azure Table Storage에 데이터를 복사하는 경우 복사 활동의 **sink type**을 **AzureTableSink**로 설정하고 **sink** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | azureTableDefaultPartitionKeyValue |싱크에서 사용할 수 있는 기본 파티션 키 값입니다. |문자열 값 |아니요 |
 | azureTablePartitionKeyName |해당 값이 파티션 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 AzureTableDefaultPartitionKeyValue가 파티션 키로 사용됩니다. |열 이름 |아니요 |
 | azureTableRowKeyName |해당 열 값이 행 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 각 행에 GUID를 사용합니다. |열 이름 |아니요 |
 | azureTableInsertType |Azure 테이블에 데이터를 삽입하는 모드입니다.<br/><br/>이 속성은 출력 테이블에서 파티션 및 행 키가 일치하는 기존 행의 값을 바꿀지 또는 병합할지 제어합니다. <br/><br/>이러한 설정(병합 및 바꾸기)이 작동하는 방법을 알아보려면 [엔터티 삽입 또는 병합](https://msdn.microsoft.com/library/azure/hh452241.aspx) 및 [엔터티 삽입 또는 바꾸기](https://msdn.microsoft.com/library/azure/hh452242.aspx)를 참조하세요. <br/><br> 이 설정은 테이블 수준이 아니라 행 수준에서 적용되며, 두 옵션 모두 출력 테이블에서 입력에 존재하지 않는 행을 삭제하지 않습니다. |병합(기본값)<br/>replace |아니요 |
 | writeBatchSize |WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. |정수(행 수) |아니요(기본값: 10000) |
-| writeBatchTimeout |WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. |TimeSpan<br/><br/>예제: “00:20:00”(20분) |No (기본적으로 스토리지 클라이언트 기본 시간 제한 값인 90초로 설정) |
+| writeBatchTimeout |WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. |TimeSpan<br/><br/>예: “00:20:00”(20분) |No (기본적으로 스토리지 클라이언트 기본 시간 제한 값인 90초로 설정) |
 
 #### <a name="example"></a>예제
 
@@ -1590,7 +1590,7 @@ Azure Table Storage에 데이터를 복사하는 경우 복사 활동의 **sink 
 ### <a name="linked-service"></a>연결된 서비스
 Amazon Redshift 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AmazonRedshift**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | 서버 |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |예 |
 | port |Amazon Redshift 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트 수입니다. |아니요. 기본값: 5439 |
@@ -1618,10 +1618,10 @@ Amazon Redshift 연결된 서비스를 정의하려면 연결된 서비스의 **
 
 자세한 내용은 Amazon Redshift 커넥터 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 Amazon Redshift 데이터 세트를 정의하려면 데이터 세트의 **type**을 **RelationalTable**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 Amazon Redshift 데이터베이스에서 테이블의 이름입니다. |아니요(**RelationalSource**의 **쿼리**가 지정된 경우) |
 
@@ -1650,7 +1650,7 @@ Amazon Redshift 데이터 세트를 정의하려면 데이터 세트의 **type**
 ### <a name="relational-source-in-copy-activity"></a>복사 활동의 Relational 소스
 Amazon Redshift에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **RelationalSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `select * from MyTable`을 참조하십시오. |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
@@ -1702,7 +1702,7 @@ Amazon Redshift에서 데이터를 복사하는 경우 복사 활동의 **source
 ### <a name="linked-service"></a>연결된 서비스
 IBM DB2 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **OnPremisesDB2**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | server |DB2 서버의 이름입니다. |예 |
 | database |DB2 데이터베이스의 이름입니다. |예 |
@@ -1732,10 +1732,10 @@ IBM DB2 연결된 서비스를 정의하려면 연결된 서비스의 **type**�
 ```
 자세한 내용은 IBM DB2 커넥터 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 DB2 데이터 세트를 정의하려면 데이터 세트의 **type**을 **RelationalTable**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 DB2 데이터베이스 인스턴스에서 테이블의 이름입니다. tableName은 대/소문자를 구분합니다. |아니요(**RelationalSource**의 **쿼리**가 지정된 경우)
 
@@ -1769,7 +1769,7 @@ DB2 데이터 세트를 정의하려면 데이터 세트의 **type**을 **Relati
 IBM DB2에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **RelationalSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `"query": "select * from "MySchema"."MyTable""`을 참조하십시오. |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
@@ -1818,7 +1818,7 @@ IBM DB2에서 데이터를 복사하는 경우 복사 활동의 **source type**�
 ### <a name="linked-service"></a>연결된 서비스
 MySQL 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **OnPremisesMySql**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | 서버 |MySQL 서버의 이름입니다. |예 |
 | database |MySQL 데이터베이스의 이름입니다. |예 |
@@ -1850,10 +1850,10 @@ MySQL 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 
 
 자세한 내용은 [MySQL 커넥터](data-factory-onprem-mysql-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 MySQL 데이터 세트를 정의하려면 데이터 세트의 **type**을 **RelationalTable**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 MySQL 데이터베이스 인스턴스에서 테이블의 이름입니다. |아니요(**RelationalSource**의 **쿼리**가 지정된 경우) |
 
@@ -1887,7 +1887,7 @@ MySQL 데이터 세트를 정의하려면 데이터 세트의 **type**을 **Rela
 MySQL 데이터베이스에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **RelationalSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `select * from MyTable`을 참조하십시오. |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
@@ -1940,7 +1940,7 @@ MySQL 데이터베이스에서 데이터를 복사하는 경우 복사 활동의
 ### <a name="linked-service"></a>연결된 서비스
 Oracle 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **OnPremisesOracle**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | driverType | Oracle Database로 데이터를 복사하거나 Oracle Database에서 데이터를 복사하는 데 사용할 드라이버를 지정합니다. 허용되는 값은 **Microsoft** 또는 **ODP**(기본값)입니다. 드라이버 세부 정보에 대해서는 지원되는 버전 및 설치 섹션을 참조하세요. | 아니요 |
 | connectionString | connectionString 속성에 대한 Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. | 예 |
@@ -1963,10 +1963,10 @@ Oracle 연결된 서비스를 정의하려면 연결된 서비스의 **type**을
 
 자세한 내용은 [Oracle 커넥터](data-factory-onprem-oracle-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 Oracle 데이터 세트를 정의하려면 데이터 세트의 **type**을 **OracleTable**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 Oracle 데이터베이스에 있는 테이블의 이름입니다. |아니요(**OracleSource**의 **oracleReaderQuery**가 지정된 경우) |
 
@@ -2003,7 +2003,7 @@ Oracle 데이터 세트를 정의하려면 데이터 세트의 **type**을 **Ora
 ### <a name="oracle-source-in-copy-activity"></a>복사 활동의 Oracle 소스
 Oracle 데이터베이스에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **OracleSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | oracleReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `select * from MyTable` <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select * from MyTable` |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
@@ -2055,9 +2055,9 @@ Oracle 데이터베이스에서 데이터를 복사하는 경우 복사 활동�
 ### <a name="oracle-sink-in-copy-activity"></a>복사 활동의 Oracle 싱크
 Oracle 데이터베이스에 데이터를 복사하는 경우 복사 활동의 **sink type**을 **OracleSink**로 설정하고 **sink** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
-| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |TimeSpan<br/><br/> 예제: 00:30:00(30분). |아니요 |
+| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |TimeSpan<br/><br/> 예: 00:30:00(30분). |아니요 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 |정수(행 수) |아니요(기본값: 100) |
 | sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. |쿼리 문입니다. |아니요 |
 | sliceIdentifierColumnName |자동 생성된 조각 식별자를 입력할 복사 활동의 열 이름을 지정합니다. 이 식별자는 복사 활동을 다시 실행할 때 특정 조각의 데이터를 정리하는 데 사용됩니다. |이진(32) 데이터 형식이 있는 열의 열 이름입니다. |아니요 |
@@ -2109,7 +2109,7 @@ Oracle 데이터베이스에 데이터를 복사하는 경우 복사 활동의 *
 ### <a name="linked-service"></a>연결된 서비스
 PostgreSQL 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **OnPremisesPostgreSql**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | 서버 |PostgreSQL 서버의 이름입니다. |예 |
 | database |PostgreSQL 데이터베이스의 이름입니다. |예 |
@@ -2140,10 +2140,10 @@ PostgreSQL 연결된 서비스를 정의하려면 연결된 서비스의 **type*
 ```
 자세한 내용은 [PostgreSQL 커넥터](data-factory-onprem-postgresql-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 PostgreSQL 데이터 세트를 정의하려면 데이터 세트의 **type**을 **RelationalTable**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 PostgreSQL 데이터베이스 인스턴스에서 테이블의 이름입니다. tableName은 대/소문자를 구분합니다. |아니요(**RelationalSource**의 **쿼리**가 지정된 경우) |
 
@@ -2176,7 +2176,7 @@ PostgreSQL 데이터 세트를 정의하려면 데이터 세트의 **type**을 *
 PostgreSQL 데이터베이스에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **RelationalSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: "query": "select * from \"MySchema\".\"MyTable\"". |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
@@ -2228,7 +2228,7 @@ PostgreSQL 데이터베이스에서 데이터를 복사하는 경우 복사 활�
 ### <a name="linked-service"></a>연결된 서비스
 SAP BW(Business Warehouse) 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **SapBw**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-속성 | 설명 | 허용되는 값 | 필수
+속성 | 설명 | 허용되는 값 | 필요한 공간
 -------- | ----------- | -------------- | --------
 서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | string | 예
 systemNumber | SAP BW 시스템의 시스템 번호. | 문자열로 표현되는 두 자리 10진수. | 예
@@ -2259,7 +2259,7 @@ encryptedCredential | 암호화된 자격 증명 문자열. | string | 아니요
 
 자세한 내용은 [SAP Business Warehouse 커넥터](data-factory-sap-business-warehouse-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 SAP BW 데이터 세트를 정의하려면 데이터 세트의 **type**을 **RelationalTable**로 설정합니다. **RelationalTable** 형식의 SAP BW 데이터 세트에 대해 지원되는 type별 속성은 없습니다.
 
 #### <a name="example"></a>예제
@@ -2285,9 +2285,9 @@ SAP BW 데이터 세트를 정의하려면 데이터 세트의 **type**을 **Rel
 SAP Business Warehouse에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **RelationalSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
-| 쿼리 | SAP BW 인스턴스에서 데이터를 읽을 MDX 쿼리를 지정합니다. | MDX 쿼리. | 예 |
+| query | SAP BW 인스턴스에서 데이터를 읽을 MDX 쿼리를 지정합니다. | MDX 쿼리. | 예 |
 
 #### <a name="example"></a>예제
 
@@ -2338,7 +2338,7 @@ SAP Business Warehouse에서 데이터를 복사하는 경우 복사 활동의 *
 ### <a name="linked-service"></a>연결된 서비스
 SAP HANA 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **SapHana**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-속성 | Description | 허용되는 값 | 필수
+속성 | 설명 | 허용되는 값 | 필요한 공간
 -------- | ----------- | -------------- | --------
 서버 | SAP HANA 인스턴스가 상주하는 서버의 이름. 서버에서 사용자 지정된 포트를 사용하는 경우 `server:port`를 지정합니다. | string | 예
 authenticationType | 인증 유형입니다. | string. "Basic" 또는 "Windows" | 예
@@ -2367,7 +2367,7 @@ encryptedCredential | 암호화된 자격 증명 문자열. | string | 아니요
 ```
 자세한 내용은 [SAP HANA 커넥터](data-factory-sap-hana-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 SAP HANA 데이터 세트를 정의하려면 데이터 세트의 **type**을 **RelationalTable**로 설정합니다. **RelationalTable** 형식의 SAP HANA 데이터 세트에 대해 지원되는 type별 속성은 없습니다.
 
 #### <a name="example"></a>예제
@@ -2392,9 +2392,9 @@ SAP HANA 데이터 세트를 정의하려면 데이터 세트의 **type**을 **R
 ### <a name="relational-source-in-copy-activity"></a>복사 활동의 Relational 소스
 SAP HANA 데이터 저장소에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **RelationalSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
-| 쿼리 | SAP HANA 인스턴스에서 데이터를 읽을 SQL 쿼리를 지정합니다. | SQL 쿼리. | 예 |
+| query | SAP HANA 인스턴스에서 데이터를 읽을 SQL 쿼리를 지정합니다. | SQL 쿼리. | 예 |
 
 
 #### <a name="example"></a>예제
@@ -2465,7 +2465,7 @@ SAP HANA 데이터 저장소에서 데이터를 복사하는 경우 복사 활�
 ```
 
 
-#### <a name="example-json-for-using-sql-authentication"></a>예제: SQL 인증을 사용하는 JSON
+#### <a name="example-json-for-using-sql-authentication"></a>예: SQL 인증을 사용하는 JSON
 
 ```json
 {
@@ -2479,7 +2479,7 @@ SAP HANA 데이터 저장소에서 데이터를 복사하는 경우 복사 활�
     }
 }
 ```
-#### <a name="example-json-for-using-windows-authentication"></a>예제: Windows 인증을 사용하는 JSON
+#### <a name="example-json-for-using-windows-authentication"></a>예: Windows 인증을 사용하는 JSON
 
 사용자 이름 및 암호가 지정된 경우 게이트웨이는 이러한 정보를 사용해 지정된 사용자 계정을 가장하여 온-프레미스 SQL Server Database에 연결합니다. 그렇지 않은 경우 게이트웨이는 게이트웨이의 보안 컨텍스트(시작 계정)를 사용하여 SQL Server에 직접 연결합니다.
 
@@ -2500,10 +2500,10 @@ SAP HANA 데이터 저장소에서 데이터를 복사하는 경우 복사 활�
 
 자세한 내용은 [SQL Server 커넥터](data-factory-sqlserver-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 SQL Server 데이터 세트를 정의하려면 데이터 세트의 **type**을 **SqlServerTable**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 SQL Server 데이터베이스 인스턴스에서 테이블 또는 보기의 이름입니다. |예 |
 
@@ -2539,7 +2539,7 @@ SQL Server 데이터 세트를 정의하려면 데이터 세트의 **type**을 *
 SQL Server 데이터베이스에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **SqlSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | sqlReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `select * from MyTable`을 참조하십시오. 입력 데이터 세트에 의해 참조되는 데이터베이스의 여러 테이블을 참조할 수 있습니다. 지정하지 않는 경우 실행되는 SQL 문: select from MyTable. |아니요 |
 | sqlReaderStoredProcedureName |원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. |저장 프로시저의 이름입니다. |아니요 |
@@ -2606,9 +2606,9 @@ sqlReaderQuery 또는 sqlReaderStoredProcedureName을 지정하지 않으면 str
 ### <a name="sql-sink-in-copy-activity"></a>복사 활동의 SQL 싱크
 SQL Server 데이터베이스에 데이터를 복사하는 경우 복사 활동의 **sink type**을 **SqlSink**로 설정하고 **sink** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
-| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |TimeSpan<br/><br/> 예제: “00:30:00”(30분) |아니요 |
+| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |TimeSpan<br/><br/> 예: “00:30:00”(30분) |아니요 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 |정수(행 수) |아니요(기본값: 10000) |
 | sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. 자세한 내용은 반복성 섹션을 참조하세요. |쿼리 문입니다. |아니요 |
 | sliceIdentifierColumnName |자동 생성된 조각 식별자를 입력할 복사 활동의 열 이름을 지정합니다. 이 식별자는 복사 활동을 다시 실행할 때 특정 조각의 데이터를 정리하는 데 사용됩니다. 자세한 내용은 반복성 섹션을 참조하세요. |이진(32) 데이터 형식이 있는 열의 열 이름입니다. |아니요 |
@@ -2667,7 +2667,7 @@ SQL Server 데이터베이스에 데이터를 복사하는 경우 복사 활동�
 ### <a name="linked-service"></a>연결된 서비스
 Sybase 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **OnPremisesSybase**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | 서버 |Sybase 서버의 이름입니다. |예 |
 | database |Sybase 데이터베이스의 이름입니다. |예 |
@@ -2698,10 +2698,10 @@ Sybase 연결된 서비스를 정의하려면 연결된 서비스의 **type**을
 
 자세한 내용은 [Sybase 커넥터](data-factory-onprem-sybase-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 Sybase 데이터 세트를 정의하려면 데이터 세트의 **type**을 **RelationalTable**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 Sybase 데이터베이스 인스턴스에서 테이블의 이름입니다. |아니요(**RelationalSource**의 **쿼리**가 지정된 경우) |
 
@@ -2736,7 +2736,7 @@ Sybase 데이터 세트를 정의하려면 데이터 세트의 **type**을 **Rel
 Sybase 데이터베이스에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **RelationalSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `select * from MyTable`을 참조하십시오. |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
@@ -2787,7 +2787,7 @@ Sybase 데이터베이스에서 데이터를 복사하는 경우 복사 활동�
 ### <a name="linked-service"></a>연결된 서비스
 Teradata 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **OnPremisesTeradata**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | 서버 |Teradata 서버의 이름입니다. |예 |
 | authenticationType |Teradata 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명, 기본 및 Windows입니다. |예 |
@@ -2814,7 +2814,7 @@ Teradata 연결된 서비스를 정의하려면 연결된 서비스의 **type**�
 
 자세한 내용은 [Teradata 커넥터](data-factory-onprem-teradata-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 Teradata Blob 데이터 세트를 정의하려면 데이터 세트의 **type**을 **RelationalTable**로 설정합니다. 현재 Teradata 데이터 세트에 대해 지원되는 형식 속성은 없습니다.
 
 #### <a name="example"></a>예제
@@ -2846,7 +2846,7 @@ Teradata Blob 데이터 세트를 정의하려면 데이터 세트의 **type**�
 ### <a name="relational-source-in-copy-activity"></a>복사 활동의 Relational 소스
 Teradata 데이터베이스에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **RelationalSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `select * from MyTable`을 참조하십시오. |예 |
 
@@ -2901,9 +2901,9 @@ Teradata 데이터베이스에서 데이터를 복사하는 경우 복사 활동
 ### <a name="linked-service"></a>연결된 서비스
 Cassandra 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **OnPremisesCassandra**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
-| 호스트 |Cassandra 서버에 대한 하나 이상의 IP 주소 또는 호스트 이름.<br/><br/>모든 서버에 동시에 연결하려면 쉼표로 구분된 IP 주소 또는 호스트 이름 목록을 지정합니다. |예 |
+| host |Cassandra 서버에 대한 하나 이상의 IP 주소 또는 호스트 이름.<br/><br/>모든 서버에 동시에 연결하려면 쉼표로 구분된 IP 주소 또는 호스트 이름 목록을 지정합니다. |예 |
 | port |Cassandra 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. |아니요. 기본값: 9042 |
 | authenticationType |Basic 또는 Anonymous |예 |
 | username |사용자 계정의 사용자 이름을 지정합니다. |예. authenticationType은 Basic으로 설정됩니다. |
@@ -2932,10 +2932,10 @@ Cassandra 연결된 서비스를 정의하려면 연결된 서비스의 **type**
 
 자세한 내용은 [Cassandra 커넥터](data-factory-onprem-cassandra-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 Cassandra 데이터 세트를 정의하려면 데이터 세트의 **type**을 **CassandraTable**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | keyspace |Cassandra 데이터베이스의 키스페이스 또는 스키마의 이름입니다. |예(**CassandraSource**의 **query**가 정의되지 않은 경우) |
 | tableName |Cassandra 데이터베이스에 있는 테이블의 이름입니다. |예(**CassandraSource**의 **query**가 정의되지 않은 경우) |
@@ -2973,7 +2973,7 @@ Cassandra 데이터 세트를 정의하려면 데이터 세트의 **type**을 **
 ### <a name="cassandra-source-in-copy-activity"></a>복사 활동의 Cassandra 소스
 Cassandra에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **CassandraSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 또는 CQL 쿼리입니다. [CQL 참조](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)를 참조하세요. <br/><br/>SQL 쿼리를 사용할 경우 **keyspace name.table name** 을 지정하여 쿼리하려는 테이블을 나타냅니다. |아니요(데이터 세트의 tableName 및 keyspace가 정의된 경우) |
 | consistencyLevel |일관성 수준은 클라이언트 애플리케이션에 데이터를 반환하기 전에 읽기 요청에 응답해야 하는 복제본 수를 지정합니다. Cassandra는 데이터의 지정된 수의 복제본이 읽기 요청을 충족하는지 확인합니다. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. 자세한 내용은 [데이터 일관성 구성](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) 을 참조하세요. |아니요. 기본값은 ONE입니다. |
@@ -3028,7 +3028,7 @@ Cassandra에서 데이터를 복사하는 경우 복사 활동의 **source type*
 ### <a name="linked-service"></a>연결된 서비스
 MongoDB 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **OnPremisesMongoDB**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | 서버 |MongoDB 서버의 IP 주소 또는 호스트 이름입니다. |예 |
 | port |MongoDB 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. |선택 사항, 기본값: 27017 |
@@ -3038,7 +3038,7 @@ MongoDB 연결된 서비스를 정의하려면 연결된 서비스의 **type**�
 | authSource |인증에 대한 자격 증명을 확인하는 데 사용하려는 MongoDB 데이터베이스의 이름입니다. |선택 사항(기본 인증을 사용하는 경우). 기본값: 관리자 계정 및 databaseName 속성을 사용하는 지정된 데이터베이스를 사용합니다. |
 | databaseName |액세스하려는 MongoDB 데이터베이스의 이름입니다. |예 |
 | gatewayName |데이터 저장소에 액세스하는 게이트웨이의 이름입니다. |예 |
-| encryptedCredential |게이트웨이에 의해 암호화된 자격 증명입니다. |Optional |
+| encryptedCredential |게이트웨이에 의해 암호화된 자격 증명입니다. |선택 |
 
 #### <a name="example"></a>예제
 
@@ -3063,10 +3063,10 @@ MongoDB 연결된 서비스를 정의하려면 연결된 서비스의 **type**�
 
 자세한 내용은 [MongoDB 커넥터](data-factory-on-premises-mongodb-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 MongoDB 데이터 세트를 정의하려면 데이터 세트의 **type**을 **MongoDbCollection**으로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | collectionName |MongoDB 데이터베이스에 있는 컬렉션의 이름입니다. |예 |
 
@@ -3095,7 +3095,7 @@ MongoDB 데이터 세트를 정의하려면 데이터 세트의 **type**을 **Mo
 #### <a name="mongodb-source-in-copy-activity"></a>복사 활동의 MongoDB 소스
 MongoDB에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **MongoDbSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 문자열입니다. 예를 들어 `select * from MyTable`을 참조하십시오. |아니요(**데이터 세트**의 **collectionName**이 지정된 경우) |
 
@@ -3170,15 +3170,15 @@ Amazon S3 연결된 서비스를 정의하려면 연결된 서비스의 **type**
 
 자세한 내용은 [Amazon S3 커넥터](data-factory-amazon-simple-storage-service-connector.md#linked-service-properties) 문서를 참조 하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 Amazon S3 데이터 세트를 정의하려면 데이터 세트의 **type**을 **AmazonS3**으로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
-| bucketName |S3 버킷 이름입니다. |String |예 |
+| bucketName |S3 버킷 이름입니다. |문자열 |예 |
 | Key |S3 개체 키입니다. |문자열 |아니요 |
-| prefix |S3 개체 키에 대한 접두사입니다. 이 접두사로 시작하는 키를 가진 개체가 선택됩니다. 키가 비어 있을 때에만 적용됩니다. |String |아니요 |
-| version |S3 버전 관리를 사용하도록 설정되면 S3 개체의 버전입니다. |String |아니요 |
+| prefix |S3 개체 키에 대한 접두사입니다. 이 접두사로 시작하는 키를 가진 개체가 선택됩니다. 키가 비어 있을 때에만 적용됩니다. |문자열 |아니요 |
+| version |S3 버전 관리를 사용하도록 설정되면 S3 개체의 버전입니다. |문자열 |아니요 |
 | format | 다음 포맷 형식이 지원됩니다. **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**입니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 | |
 | compression | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 | |
 
@@ -3186,7 +3186,7 @@ Amazon S3 데이터 세트를 정의하려면 데이터 세트의 **type**을 **
 > [!NOTE]
 > bucketName + 키는 S3 개체의 위치를 지정합니다. 여기서 버킷은 S3 개체에 대한 루트 컨테이너이며 키는 S3 개체의 전체 경로입니다.
 
-#### <a name="example-sample-dataset-with-prefix"></a>예제: 접두사를 사용한 샘플 데이터 세트
+#### <a name="example-sample-dataset-with-prefix"></a>예: 접두사를 사용한 샘플 데이터 세트
 
 ```json
 {
@@ -3209,7 +3209,7 @@ Amazon S3 데이터 세트를 정의하려면 데이터 세트의 **type**을 **
     }
 }
 ```
-#### <a name="example-sample-data-set-with-version"></a>예제: 샘플 데이터 집합 (버전 포함)
+#### <a name="example-sample-data-set-with-version"></a>예: 샘플 데이터 집합 (버전 포함)
 
 ```json
 {
@@ -3234,7 +3234,7 @@ Amazon S3 데이터 세트를 정의하려면 데이터 세트의 **type**을 **
 }
 ```
 
-#### <a name="example-dynamic-paths-for-s3"></a>예제: S3에 대한 동적 경로
+#### <a name="example-dynamic-paths-for-s3"></a>예: S3에 대한 동적 경로
 이 샘플에서는 Amazon S3 데이터 세트의 키 및 bucketName 속성에 대해 고정 값을 사용합니다.
 
 ```json
@@ -3257,7 +3257,7 @@ Amazon S3 데이터 세트의 접두사 속성에 대해서도 동일하게 수�
 Amazon S3에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **FileSystemSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | recursive |S3 개체를 디렉터리 아래에 재귀적으로 나열할 것인지를 지정합니다. |True/False |아니요 |
 
@@ -3316,7 +3316,7 @@ Amazon S3에서 데이터를 복사하는 경우 복사 활동의 **source type*
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |type 속성은 **OnPremisesFileServer**로 설정되어야 합니다. |예 |
-| 호스트 |복사할 폴더의 루트 경로를 지정하고 있습니다. 문자열에서 특수 문자로 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 연결된 서비스 및 데이터 세트 정의 샘플을 참조하세요. |예 |
+| host |복사할 폴더의 루트 경로를 지정하고 있습니다. 문자열에서 특수 문자로 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 연결된 서비스 및 데이터 세트 정의 샘플을 참조하세요. |예 |
 | userid |서버에 대한 액세스 권한이 있는 사용자의 ID를 지정합니다. |아니요(encryptedCredential을 선택하는 경우) |
 | password |사용자(userid)의 암호를 지정합니다. |아니요(encryptedcredential을 선택하는 경우) |
 | encryptedCredential |AzDataFactoryEncryptValue cmdlet을 실행 하 여 가져올 수 있는 암호화 된 자격 증명을 지정 합니다. |아니요(일반 텍스트에 userid 및 암호를 지정하는 경우) |
@@ -3330,7 +3330,7 @@ Amazon S3에서 데이터를 복사하는 경우 복사 활동의 **source type*
 | 원격 공유 폴더: <br/><br/>예: \\\\myserver\\share\\\* 또는 \\\\myserver\\share\\folder\\subfolder\\\* |\\\\\\\\myserver\\\\share |.\\\\ 또는 folder\\\\subfolder |
 
 
-#### <a name="example-using-username-and-password-in-plain-text"></a>예제: 일반 텍스트에 사용자 이름 및 암호 사용
+#### <a name="example-using-username-and-password-in-plain-text"></a>예: 일반 텍스트에 사용자 이름 및 암호 사용
 
 ```json
 {
@@ -3347,7 +3347,7 @@ Amazon S3에서 데이터를 복사하는 경우 복사 활동의 **source type*
 }
 ```
 
-#### <a name="example-using-encryptedcredential"></a>예제: encryptedcredential 사용
+#### <a name="example-using-encryptedcredential"></a>예: encryptedcredential 사용
 
 ```json
 {
@@ -3365,10 +3365,10 @@ Amazon S3에서 데이터를 복사하는 경우 복사 활동의 **source type*
 
 자세한 내용은 [파일 시스템 커넥터](data-factory-onprem-file-system-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 파일 시스템 데이터 세트를 정의하려면 데이터 세트의 **type**을 **FileShare**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | folderPath |폴더의 하위 경로를 지정하고 있습니다. 문자열에서 특수 문자로 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 연결된 서비스 및 데이터 세트 정의 샘플을 참조하세요.<br/><br/>이 속성을 **partitionBy**와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예 |
 | fileName |폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath** 에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt`(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
@@ -3442,7 +3442,7 @@ Amazon S3에서 데이터를 복사하는 경우 복사 활동의 **source type*
 ### <a name="file-system-source-in-copy-activity"></a>복사 활동의 파일 시스템 소스
 파일 시스템에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **FileSystemSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | recursive |하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True, False(기본값) |아니요 |
 
@@ -3492,7 +3492,7 @@ Amazon S3에서 데이터를 복사하는 경우 복사 활동의 **source type*
 ### <a name="file-system-sink-in-copy-activity"></a>복사 활동의 파일 시스템 싱크
 파일 시스템에 데이터를 복사하는 경우 복사 활동의 **sink type**을 **FileSystemSink**로 설정하고 **sink** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | copyBehavior |원본이 BlobSource 또는 FileSystem인 경우 복사 동작을 정의합니다. |**PreserveHierarchy:** 대상 폴더에서 파일 계층 구조를 유지합니다. 즉, 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/>**FlattenHierarchy:** 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 만들어집니다. 대상 파일은 자동 생성된 이름으로 만들어집니다.<br/><br/>**MergeFiles:** 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 병합되는 파일 이름은 지정된 파일 이름/Blob 이름이 적용됩니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. |아니요 |
 
@@ -3550,7 +3550,7 @@ FTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **
 
 | 속성 | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
-| 호스트 |FTP 서버의 이름 또는 IP 주소 |예 |&nbsp; |
+| host |FTP 서버의 이름 또는 IP 주소 |예 |&nbsp; |
 | authenticationType |인증 유형 지정 |예 |기본, 익명 |
 | username |FTP 서버에 액세스하는 사용자 |아니요 |&nbsp; |
 | password |사용자(사용자 이름) 암호 |아니요 |&nbsp; |
@@ -3560,7 +3560,7 @@ FTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **
 | enableSsl |SSL/TLS 채널을 통해 FTP를 사용할지 여부 |아니요 |true |
 | enableServerCertificateValidation |SSL/TLS 채널을 통해 FTP를 사용할 때 서버 SSL 인증서 유효성 검사를 사용할지 지정 |아니요 |true |
 
-#### <a name="example-using-anonymous-authentication"></a>예제: 익명 인증 사용
+#### <a name="example-using-anonymous-authentication"></a>예: 익명 인증 사용
 
 ```json
 {
@@ -3575,7 +3575,7 @@ FTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **
 }
 ```
 
-#### <a name="example-using-username-and-password-in-plain-text-for-basic-authentication"></a>예제: 일반 텍스트에 사용자 이름 및 암호를 기본 인증에 사용
+#### <a name="example-using-username-and-password-in-plain-text-for-basic-authentication"></a>예: 일반 텍스트에 사용자 이름 및 암호를 기본 인증에 사용
 
 ```json
 {
@@ -3592,7 +3592,7 @@ FTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **
 }
 ```
 
-#### <a name="example-using-port-enablessl-enableservercertificatevalidation"></a>예제: 포트, enableSsl, enableServerCertificateValidation 사용
+#### <a name="example-using-port-enablessl-enableservercertificatevalidation"></a>예: 포트, enableSsl, enableServerCertificateValidation 사용
 
 ```json
 {
@@ -3612,7 +3612,7 @@ FTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **
 }
 ```
 
-#### <a name="example-using-encryptedcredential-for-authentication-and-gateway"></a>예제: 인증 및 게이트웨이에 encryptedCredential 사용
+#### <a name="example-using-encryptedcredential-for-authentication-and-gateway"></a>예: 인증 및 게이트웨이에 encryptedCredential 사용
 
 ```json
 {
@@ -3631,10 +3631,10 @@ FTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **
 
 자세한 내용은 [FTP 커넥터](data-factory-ftp-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 FTP 데이터 세트를 정의하려면 데이터 세트의 **type**을 **FileShare**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | folderPath |폴더에 대한 하위 경로. 문자열의 특수 문자에 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 연결된 서비스 및 데이터 세트 정의 샘플을 참조하세요.<br/><br/>이 속성을 **partitionBy**와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예
 | fileName |폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath** 에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt`(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
@@ -3674,7 +3674,7 @@ FTP 데이터 세트를 정의하려면 데이터 세트의 **type**을 **FileSh
 ### <a name="file-system-source-in-copy-activity"></a>복사 활동의 파일 시스템 소스
 FTP 서버에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **FileSystemSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | recursive |하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True, False(기본값) |아니요 |
 
@@ -3736,7 +3736,7 @@ HDFS 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 | gatewayName |데이터 팩터리 서비스가 HDFS에 연결하는 데 사용해야 하는 게이트웨이의 이름. |예 |
 | encryptedCredential |[AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) access 자격 증명의 출력입니다. |아니요 |
 
-#### <a name="example-using-anonymous-authentication"></a>예제: 익명 인증 사용
+#### <a name="example-using-anonymous-authentication"></a>예: 익명 인증 사용
 
 ```json
 {
@@ -3753,7 +3753,7 @@ HDFS 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 }
 ```
 
-#### <a name="example-using-windows-authentication"></a>예제: Windows 인증 사용
+#### <a name="example-using-windows-authentication"></a>예: Windows 인증 사용
 
 ```json
 {
@@ -3773,13 +3773,13 @@ HDFS 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 
 자세한 내용은 HDFS 커넥터 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 HDFS 데이터 세트를 정의하려면 데이터 세트의 **type**을 **FileShare**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | folderPath |파일의 경로입니다. 예: `myfolder`<br/><br/>문자열의 특수 문자에 이스케이프 문자 '\'를 사용합니다. 예: 폴더\하위 폴더의 경우 폴더\\\\하위 폴더를 지정하고 d:\samplefolder의 경우 d:\\\\samplefolder를 지정합니다.<br/><br/>이 속성을 **partitionBy**와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예 |
-| fileName |폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath** 에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt`예를 들면 다음과 같습니다. Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아니요 |
+| fileName |폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath** 에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt` (예:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아니요 |
 | partitionedBy |동적 folderPath, 시계열 데이터에 대한 filename을 지정하는 데 partitionedBy를 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대해 매개 변수화됩니다. |아니요 |
 | format | 다음 포맷 형식이 지원됩니다. **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**입니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
 | compression | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
@@ -3814,7 +3814,7 @@ HDFS에서 데이터를 복사하는 경우 복사 활동의 **source type**을 
 
 **FileSystemSource**는 다음 속성을 지원합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | recursive |하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True, False(기본값) |아니요 |
 
@@ -3862,9 +3862,9 @@ HDFS에서 데이터를 복사하는 경우 복사 활동의 **source type**을 
 ### <a name="linked-service"></a>연결된 서비스
 SFTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **Sftp**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
-| 호스트 | SFTP 서버의 이름 또는 IP 주소입니다. |예 |
+| host | SFTP 서버의 이름 또는 IP 주소입니다. |예 |
 | port |SFTP 서버가 수신하는 포트입니다. 기본값은 다음과 같습니다. 21 |아니요 |
 | authenticationType |인증 유형을 지정합니다. 허용되는 값은 다음과 같습니다. **Basic**, **SshPublicKey**. <br><br> 더 많은 속성 및 각 속성의 JSON 샘플은 기본 인증 사용 및 [SSH 공개 키 인증 사용](#using-ssh-public-key-authentication) 섹션을 참조하세요. |예 |
 | skipHostKeyValidation | 호스트 키 유효성 검사를 건너뛸지 여부를 지정합니다. | 아니요. 기본값: false |
@@ -3872,11 +3872,11 @@ SFTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 | gatewayName |온-프레미스 SFTP 서버에 연결하기 위한 데이터 관리 게이트웨이의 이름입니다. | 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에는 필수입니다. |
 | encryptedCredential | SFTP 서버 액세스를 위한 암호화된 자격 증명입니다. 복사 마법사 또는 ClickOnce 팝업 대화 상자에서 기본 인증(사용자 이름 + 암호) 또는 SshPublicKey 인증(사용자 이름 + 프라이빗 키 경로 또는 콘텐츠)를 지정할 때 자정으로 생성됩니다. | 아니요. 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
 
-#### <a name="example-using-basic-authentication"></a>예제: 기본 인증 사용
+#### <a name="example-using-basic-authentication"></a>예: 기본 인증 사용
 
 기본 인증을 사용하려면 `authenticationType`을 `Basic`으로 설정하고, 마지막 섹션에서 소개한 SFTP 커넥터 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | username | SFTP 서버에 액세스하는 사용자. |예 |
 | password | 사용자(사용자 이름) 암호. | 예 |
@@ -3900,7 +3900,7 @@ SFTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 }
 ```
 
-#### <a name="example-basic-authentication-with-encrypted-credential"></a>예제: **암호화된 자격 증명으로 기본 인증**
+#### <a name="example-basic-authentication-with-encrypted-credential"></a>예: **암호화된 자격 증명으로 기본 인증**
 
 ```json
 {
@@ -3925,7 +3925,7 @@ SFTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 
 기본 인증을 사용하려면 `authenticationType`을 `SshPublicKey`으로 설정하고, 마지막 섹션에서 소개한 SFTP 커넥터 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | username |SFTP 서버에 액세스하는 사용자 |예 |
 | privateKeyPath | 게이트웨이에서 액세스할 수 있는 프라이빗 키 파일의 절대 경로를 지정합니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다. <br><br> 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
@@ -3951,7 +3951,7 @@ SFTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 }
 ```
 
-#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>예제: **프라이빗 키 콘텐츠를 사용한 SshPublicKey 인증**
+#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>예: **프라이빗 키 콘텐츠를 사용한 SshPublicKey 인증**
 
 ```json
 {
@@ -3973,10 +3973,10 @@ SFTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 
 자세한 내용은 [SFTP 커넥터](data-factory-sftp-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 SFTP 데이터 세트를 정의하려면 데이터 세트의 **type**을 **FileShare**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | folderPath |폴더에 대한 하위 경로. 문자열의 특수 문자에 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 연결된 서비스 및 데이터 세트 정의 샘플을 참조하세요.<br/><br/>이 속성을 **partitionBy**와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예 |
 | fileName |폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath** 에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt`(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
@@ -4015,7 +4015,7 @@ SFTP 데이터 세트를 정의하려면 데이터 세트의 **type**을 **FileS
 ### <a name="file-system-source-in-copy-activity"></a>복사 활동의 파일 시스템 소스
 SFTP 소스에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **FileSystemSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | recursive |하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True, False(기본값) |아니요 |
 
@@ -4069,7 +4069,7 @@ SFTP 소스에서 데이터를 복사하는 경우 복사 활동의 **source typ
 ### <a name="linked-service"></a>연결된 서비스
 HTTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **Http**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | url | 웹 서버에 대한 기본 URL입니다. | 예 |
 | authenticationType | 인증 유형을 지정합니다. 허용되는 값은 다음과 같습니다. **익명**, **기본**, **다이제스트**, **Windows**, **ClientCertificate**. <br><br> 각 인증 형식에 대한 더 많은 속성 및 JSON 샘플은 표 아래 섹션을 참조하세요. | 예 |
@@ -4077,10 +4077,10 @@ HTTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 | gatewayName | 온-프레미스 HTTP 소스에 연결하기 위한 데이터 관리 게이트웨이의 이름입니다. | 온-프레미스 HTTP 소스에서 데이터를 복사하는 경우에는 필수입니다. |
 | encryptedCredential | HTTP 엔드포인트 액세스를 위한 암호화된 자격 증명입니다. 복사 마법사 또는 ClickOnce 팝업 대화 상자에서 인증 정보를 구성할 때 자동 생성됩니다. | 아니요. 온-프레미스 HTTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
 
-#### <a name="example-using-basic-digest-or-windows-authentication"></a>예제: Basic, Digest 또는 Windows 인증 사용
+#### <a name="example-using-basic-digest-or-windows-authentication"></a>예: Basic, Digest 또는 Windows 인증 사용
 `authenticationType`을 `Basic`, `Digest` 또는 `Windows`로 설정하고, 위에서 소개한 HTTP 커넥터 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | username | HTTP 엔드포인트 액세스를 위한 사용자 이름입니다. | 예 |
 | password | 사용자(사용자 이름) 암호. | 예 |
@@ -4100,11 +4100,11 @@ HTTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 }
 ```
 
-#### <a name="example-using-clientcertificate-authentication"></a>예제: ClientCertificate 인증 사용
+#### <a name="example-using-clientcertificate-authentication"></a>예: ClientCertificate 인증 사용
 
 기본 인증을 사용하려면 `authenticationType`을 `ClientCertificate`로 설정하고, 위에서 소개한 HTTP 커넥터 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | embeddedCertData | PFX(개인 정보 교환) 파일의 이진 데이터에 대해 Base64로 인코딩된 콘텐츠 | `embeddedCertData` 또는 `certThumbprint`를 지정합니다. |
 | certThumbprint | 게이트웨이 컴퓨터의 인증서 저장소에 설치된 인증서의 지문입니다. 온-프레미스 HTTP 소스에서 데이터를 복사하는 경우에만 적용됩니다. | `embeddedCertData` 또는 `certThumbprint`를 지정합니다. |
@@ -4154,10 +4154,10 @@ HTTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 
 자세한 내용은 [HTTP 커넥터](data-factory-http-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 HTTP 데이터 세트를 정의하려면 데이터 세트의 **type**을 **Http**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 |:--- |:--- |:--- |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. <br><br> 동적 URL을 구성하려면 [데이터 팩터리 함수 및 시스템 변수](data-factory-functions-variables.md)를 사용할 수 있습니다. 예제: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"` | 아니요 |
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **GET** 또는 **POST**입니다. | 아니요. 기본값은 `GET`입니다. |
@@ -4213,7 +4213,7 @@ HTTP 데이터 세트를 정의하려면 데이터 세트의 **type**을 **Http*
 ### <a name="http-source-in-copy-activity"></a>복사 활동의 HTTP 소스
 HTTP 소스에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **HttpSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(TimeSpan)입니다. 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. | 아니요. 기본값: 00:01:40 |
 
@@ -4267,7 +4267,7 @@ HTTP 소스에서 데이터를 복사하는 경우 복사 활동의 **source typ
 ### <a name="linked-service"></a>연결된 서비스
 OData 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **OData**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | url |OData 서비스의 URL입니다. |예 |
 | authenticationType |OData 소스에 연결하는 데 사용되는 인증 형식입니다. <br/><br/> 클라우드 OData의 경우 가능한 값은 익명, 기본 및 OAuth입니다(Azure Data Factory는 현재 Azure Active Directory 기반 OAuth만 지원). <br/><br/> 온-프레미스 OData의 경우 가능한 값은 익명, 기본 및 Windows입니다. |예 |
@@ -4344,10 +4344,10 @@ OData 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 
 
 자세한 내용은 [OData 커넥터](data-factory-odata-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 OData 데이터 세트를 정의하려면 데이터 세트의 **type**을 **ODataResource**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | path |OData 리소스에 대한 경로 |아니요 |
 
@@ -4382,7 +4382,7 @@ OData 데이터 세트를 정의하려면 데이터 세트의 **type**을 **ODat
 ### <a name="relational-source-in-copy-activity"></a>복사 활동의 Relational 소스
 OData 소스에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **RelationalSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 예제 | 필수 |
+| 속성 | Description | 예제 | 필요한 공간 |
 | --- | --- | --- | --- |
 | query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |"?$select=Name, Description&$top=5" |아니요 |
 
@@ -4437,7 +4437,7 @@ OData 소스에서 데이터를 복사하는 경우 복사 활동의 **source ty
 ### <a name="linked-service"></a>연결된 서비스
 ODBC 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **OnPremisesOdbc**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | connectionString |선택적 암호화된 자격 증명 및 연결 문자열의 비 액세스 자격 증명 부분입니다. 다음 섹션의 예제를 참조하십시오. |예 |
 | credential 증명 |드라이버 관련 속성 값 형식에 지정된 연결 문자열의 액세스 자격 증명 부분입니다. 예: `“Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”.` |아니요 |
@@ -4480,7 +4480,7 @@ ODBC 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 }
 ```
 
-#### <a name="example-using-anonymous-authentication"></a>예제: 익명 인증 사용
+#### <a name="example-using-anonymous-authentication"></a>예: 익명 인증 사용
 
 ```json
 {
@@ -4499,10 +4499,10 @@ ODBC 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 
 자세한 내용은 [ODBC 커넥터](data-factory-odbc-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 ODBC 데이터 세트를 정의하려면 데이터 세트의 **type**을 **RelationalTable**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | tableName |ODBC 데이터 저장소에 있는 테이블의 이름입니다. |예 |
 
@@ -4537,7 +4537,7 @@ ODBC 데이터 세트를 정의하려면 데이터 세트의 **type**을 **Relat
 ### <a name="relational-source-in-copy-activity"></a>복사 활동의 Relational 소스
 ODBC 데이터 저장소에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **RelationalSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `select * from MyTable`을 참조하십시오. |예 |
 
@@ -4591,9 +4591,9 @@ ODBC 데이터 저장소에서 데이터를 복사하는 경우 복사 활동의
 ### <a name="linked-service"></a>연결된 서비스
 Salesforce 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **Salesforce**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
-| environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br><br> -기본값은 "https:\//login.salesforce.com"입니다. <br> - 샌드박스에서 데이터를 복사하려면 "https://test.salesforce.com"을 지정합니다. <br> -사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 "https://[domain].my.salesforce.com"을 지정합니다. |아니요 |
+| environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br><br> -기본값은 "https: \//로그인. m s c"입니다. <br> - 샌드박스에서 데이터를 복사하려면 "https://test.salesforce.com"을 지정합니다. <br> -사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 "https://[domain].my.salesforce.com"을 지정합니다. |아니요 |
 | username |사용자 계정의 사용자 이름을 지정합니다. |예 |
 | password |사용자 계정으로 password를 지정합니다. |예 |
 | securityToken |사용자 계정에 대한 보안 토큰을 지정합니다. 보안 토큰을 재설정하거나 가져오는 방법에 대한 자세한 내용은 [보안 토큰 가져오기](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 를 참조하세요. 일반적인 보안 토큰에 대해 자세히 알아보려면 [보안 및 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)를 참조하세요. |예 |
@@ -4616,10 +4616,10 @@ Salesforce 연결된 서비스를 정의하려면 연결된 서비스의 **type*
 
 자세한 내용은 [Salesforce 커넥터](data-factory-salesforce-connector.md#linked-service-properties) 문서를 참조하세요.
 
-### <a name="dataset"></a>데이터 집합
+### <a name="dataset"></a>데이터 세트
 Salesforce 데이터 세트를 정의하려면 데이터 세트의 **type**을 **RelationalTable**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | tableName |Salesforce에 있는 테이블의 이름입니다. |아니요(**RelationalSource**의 **query**가 지정된 경우) |
 
@@ -4655,7 +4655,7 @@ Salesforce 데이터 세트를 정의하려면 데이터 세트의 **type**을 *
 ### <a name="relational-source-in-copy-activity"></a>복사 활동의 Relational 소스
 Salesforce에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **RelationalSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필요한 공간 |
 | --- | --- | --- | --- |
 | query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 또는 [SOQL(Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리입니다. 예제: `select * from MyTable__c` |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
@@ -4714,7 +4714,7 @@ Salesforce에서 데이터를 복사하는 경우 복사 활동의 **source type
 ### <a name="linked-service"></a>연결된 서비스
 웹 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **Web**으로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | Url |웹 원본에 대한 URL입니다. |예 |
 | authenticationType |익명 |예 |
@@ -4937,9 +4937,9 @@ Azure Machine Learning 연결된 서비스를 만들어 데이터 팩터리에 M
 ### <a name="linked-service"></a>연결된 서비스
 다음 표에서는 Azure Machine Learning 연결된 서비스의 Azure JSON 정의에 사용된 속성에 대해 설명합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
-| 형식 |형식 속성은 **AzureML**로 설정해야 합니다. |예 |
+| type |형식 속성은 **AzureML**로 설정해야 합니다. |예 |
 | mlEndpoint |일괄 처리 점수 매기기 URL입니다. |예 |
 | apiKey |게시된 작업 영역 모델의 API입니다. |예 |
 
@@ -4965,9 +4965,9 @@ Azure Machine Learning 연결된 서비스를 만들어 데이터 팩터리에 M
 
 다음 표에서는 Azure Data Lake Analytics 연결된 서비스의 JSON 정의에 사용된 속성에 대해 설명합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
-| 형식 |형식 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. |예 |
+| type |형식 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. |예 |
 | accountName |Azure 데이터 레이크 분석 계정 이름입니다. |예 |
 | dataLakeAnalyticsUri |Azure 데이터 레이크 분석 URI입니다. |아니요 |
 | 권한 부여 |Data Factory 편집기에서 **권한 부여** 단추를 클릭하고 OAuth 로그인을 완료하면 인증 코드가 자동으로 검색됩니다. |예 |
@@ -5019,7 +5019,7 @@ SQL Server 연결된 서비스를 만들고 [저장 프로시저 활동](data-fa
 ```
 
 
-#### <a name="example-json-for-using-sql-authentication"></a>예제: SQL 인증을 사용하는 JSON
+#### <a name="example-json-for-using-sql-authentication"></a>예: SQL 인증을 사용하는 JSON
 
 ```json
 {
@@ -5033,7 +5033,7 @@ SQL Server 연결된 서비스를 만들고 [저장 프로시저 활동](data-fa
     }
 }
 ```
-#### <a name="example-json-for-using-windows-authentication"></a>예제: Windows 인증을 사용하는 JSON
+#### <a name="example-json-for-using-windows-authentication"></a>예: Windows 인증을 사용하는 JSON
 
 사용자 이름 및 암호가 지정된 경우 게이트웨이는 이러한 정보를 사용해 지정된 사용자 계정을 가장하여 온-프레미스 SQL Server Database에 연결합니다. 그렇지 않은 경우 게이트웨이는 게이트웨이의 보안 컨텍스트(시작 계정)를 사용하여 SQL Server에 직접 연결합니다.
 
@@ -5073,7 +5073,7 @@ activities | 설명
 ## <a name="hdinsight-hive-activity"></a>HDInsight Hive 작업
 Hive 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 다음과 같아야 합니다. **HDInsightHive**. 먼저 HDInsight 연결된 서비스를 만들고 해당 이름을 **linkedServiceName** 속성의 값으로 지정해야 합니다. 활동의 type을 HDInsightHive로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | 스크립트(script) |Hive 스크립트 인라인 지정 |아니요 |
 | scriptPath |.NET용 File Storage 시작 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아니요 |
@@ -5119,7 +5119,7 @@ Hive 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 ## <a name="hdinsight-pig-activity"></a>HDInsight Pig 작업
 Pig 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 다음과 같아야 합니다. **HDInsightPig**. 먼저 HDInsight 연결된 서비스를 만들고 해당 이름을 **linkedServiceName** 속성의 값으로 지정해야 합니다. 활동의 type을 HDInsightPig로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | script |Pig 스크립트 인라인 지정 |아니요 |
 | scriptPath |Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아니요 |
@@ -5171,7 +5171,7 @@ Pig 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동
 ## <a name="hdinsight-mapreduce-activity"></a>HDInsight MapReduce 작업
 MapReduce 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 다음과 같아야 합니다. **HDInsightMapReduce**. 먼저 HDInsight 연결된 서비스를 만들고 해당 이름을 **linkedServiceName** 속성의 값으로 지정해야 합니다. 활동의 type을 HDInsightMapReduce로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | jarLinkedService | JAR 파일이 포함된 Azure Storage에 대한 연결된 서비스의 이름입니다. | 예 |
 | jarFilePath | Azure Storage의 JAR 파일에 대한 경로입니다. | 예 |
@@ -5229,7 +5229,7 @@ MapReduce 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 
 ## <a name="hdinsight-streaming-activity"></a>HDInsight 스트리밍 작업
 Hadoop 스트리밍 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 다음과 같아야 합니다. **HDInsightStreaming**. 먼저 HDInsight 연결된 서비스를 만들고 해당 이름을 **linkedServiceName** 속성의 값으로 지정해야 합니다. 활동의 type을 HDInsightStreaming으로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 | --- | --- |
 | mapper | 매퍼 실행 파일의 이름입니다. 예제에서는 cat.exe가 매퍼 실행 파일입니다.|
 | reducer | 리듀서 실행 파일의 이름입니다. 예제에서는 wc.exe가 리듀서 실행 파일입니다. |
@@ -5293,7 +5293,7 @@ Hadoop 스트리밍 활동 JSON 정의에서 다음 속성을 지정할 수 있�
 ## <a name="hdinsight-spark-activity"></a>HDInsight Spark 작업
 Spark 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 다음과 같아야 합니다. **HDInsightSpark**. 먼저 HDInsight 연결된 서비스를 만들고 해당 이름을 **linkedServiceName** 속성의 값으로 지정해야 합니다. 활동의 type을 HDInsightSpark로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | -------- | ----------- | -------- |
 | rootPath | Spark 파일이 포함된 Azure Blob 컨테이너 및 폴더입니다. 파일 이름은 대/소문자를 구분합니다. | 예 |
 | entryFilePath | Spark 코드/패키지의 루트 폴더에 대한 상대 경로입니다. | 예 |
@@ -5348,7 +5348,7 @@ Spark 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 ## <a name="machine-learning-batch-execution-activity"></a>Machine Learning Batch 실행 작업
 Azure Machine Learning studio Batch 실행 작업 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 다음과 같아야 합니다. **AzureMLBatchExecution**. Azure Machine Learning 연결 된 서비스를 먼저 만들고 이름을 **linkedServiceName** 속성의 값으로 지정 해야 합니다. 활동의 type을 AzureMLBatchExecution로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-속성 | 설명 | 필수
+속성 | 설명 | 필요한 공간
 -------- | ----------- | --------
 webServiceInput | Azure Machine Learning Studio 웹 서비스에 대한 하나의 입력(input)으로 전달되는 데이터 세트입니다. 이 데이터 세트는 활동의 입력에도 포함되어야 합니다. |webServiceInput 또는 webServiceInputs를 사용합니다. |
 webServiceInputs | Azure Machine Learning Studio 웹 서비스에 대한 여러 입력(inputs)으로 전달되는 데이터 세트를 지정합니다. 웹 서비스에서 여러 입력을 사용하는 경우 webServiceInput 속성 대신 webServiceInputs 속성을 사용합니다. **webServiceInputs**에서 참조하는 데이터 세트는 또한 **입력** 작업에 포함되어야 합니다. | webServiceInput 또는 webServiceInputs를 사용합니다. |
@@ -5404,7 +5404,7 @@ JSON 예제에서 배포된 Azure Machine Learning 웹 서비스는 판독기와
 ## <a name="machine-learning-update-resource-activity"></a>Machine Learning 업데이트 리소스 활동
 Azure Machine Learning studio 리소스 업데이트 작업 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 다음과 같아야 합니다. **AzureMLUpdateResource**. Azure Machine Learning 연결 된 서비스를 먼저 만들고 이름을 **linkedServiceName** 속성의 값으로 지정 해야 합니다. 활동의 type을 AzureMLUpdateResource로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-속성 | 설명 | 필수
+속성 | 설명 | 필요한 공간
 -------- | ----------- | --------
 trainedModelName | 다시 학습된 모델의 이름입니다. | 예 |
 trainedModelDatasetName | 재학습 작업으로 반환된 iLearner 파일을 가리키는 데이터 세트입니다. | 예 |
@@ -5471,7 +5471,7 @@ trainedModelDatasetName | 재학습 작업으로 반환된 iLearner 파일을 �
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL 작업
 U-SQL 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 다음과 같아야 합니다. **DataLakeAnalyticsU-SQL**. Azure Data Lake Analytics 연결된 서비스를 만들고 해당 이름을 **linkedServiceName** 속성의 값으로 지정해야 합니다. 활동의 type을 DataLakeAnalyticsU-SQL로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 |:--- |:--- |:--- |
 | scriptPath |U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. |아니요(스크립트를 사용하는 경우) |
 | scriptLinkedService |스크립트가 포함된 스토리지를 Data Factory에 연결하는 연결된 서비스입니다. |아니요(스크립트를 사용하는 경우) |
@@ -5539,12 +5539,12 @@ U-SQL 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 저장 프로시저 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 다음과 같아야 합니다. **SqlServerStoredProcedure**. 다음 연결된 서비스 중 하나를 만들고 해당 연결된 서비스의 이름을 **linkedServiceName** 속성의 값으로 지정해야 합니다.
 
 - SQL Server
-- Azure SQL Database
-- Azure SQL Data Warehouse
+- Azure SQL 데이터베이스
+- Azure SQL 데이터 웨어하우스
 
 활동의 type을 SqlServerStoredProcedure로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
 | storedProcedureName |출력 테이블에서 사용하는 연결된 서비스로 표시되는 Azure SQL 데이터베이스 또는 Azure SQL Data Warehouse의 저장 프로시저 이름을 지정합니다. |예 |
 | storedProcedureParameters |저장 프로시저 매개 변수의 값을 지정합니다. 매개 변수에 대해 null을 전달해야 하는 경우 구문: "param1": null(모두 소문자)을 사용합니다. 이 속성을 사용하는 방법에 대한 자세한 내용은 다음 샘플을 참조하세요. |아니요 |
@@ -5584,7 +5584,7 @@ U-SQL 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 ## <a name="net-custom-activity"></a>.NET 사용자 지정 작업
 .NET 사용자 지정 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 다음과 같아야 합니다. **DotNetActivity**. Azure HDInsight 연결된 서비스 또는 Azure Batch 연결된 서비스를 만들고 해당 연결된 서비스의 이름을 **linkedServiceName** 속성의 값으로 지정해야 합니다. 활동의 type을 DotNetActivity로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | 설명 | 필요한 공간 |
 |:--- |:--- |:--- |
 | AssemblyName | 어셈블리의 이름입니다. 이 예제에서는 **MyDotnetActivity.dll**입니다. | 예 |
 | EntryPoint |IDotNetActivity 인터페이스를 구현하는 클래스의 이름입니다. 이 예제에서는 **MyDotNetActivityNS.MyDotNetActivity**입니다. 여기서 MyDotNetActivityNS는 네임스페이스이고, MyDotNetActivity는 클래스입니다.  | 예 |
