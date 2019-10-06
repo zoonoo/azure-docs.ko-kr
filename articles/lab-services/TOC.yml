@@ -220,6 +220,8 @@
               href: connect-environment-lab-virtual-network.md
             - name: 중첩된 템플릿을 사용하여 테스트 환경 구성
               href: deploy-nested-template-environments.md
+            - name: Azure 관리 ID를 사용하여 환경 배포
+              href: use-managed-identities-environments.md
         - name: 재사용 가능한 템플릿 관리
           items:
             - name: 사용자 지정 이미지와 수식 비교
