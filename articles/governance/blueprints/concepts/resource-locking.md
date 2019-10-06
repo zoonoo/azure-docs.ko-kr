@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 8d3cee73d8614c4aea2d2883cdcf2f049b1b8f67
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 5c62fdb698dddf293d339904fd0c854052d636eb
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232941"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981039"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Azure Blueprints의 리소스 잠금 이해
 
@@ -25,7 +24,7 @@ ms.locfileid: "70232941"
 
 청사진 할당의 아티팩트에서 생성되는 리소스에는 다음과 같은 네 가지 상태가 있습니다. **잠겨있지 않음**, **읽기 전용**, **편집/삭제할 수 없음** 또는 **삭제할 수 없음**입니다. 각 아티팩트 형식은 **잠겨있지 않음** 상태일 수 있습니다. 다음 표를 사용하여 리소스의 상태를 확인할 수 있습니다.
 
-|모드|아티팩트 리소스 형식|State|Description|
+|모드|아티팩트 리소스 형식|State|설명|
 |-|-|-|-|
 |잠그지 않음|*|잠겨있지 않음|리소스는 청사진에 의해 보호되지 않습니다. 이 상태는 또한 청사진 할당 외부에서 **읽기 전용** 또는 **삭제 안 함** 리소스 그룹 아티팩트에 추가된 리소스에 사용됩니다.|
 |읽기 전용|리소스 그룹|편집/삭제할 수 없음|리소스 그룹이 읽기 전용이며 리소스 그룹의 태그를 수정할 수 없습니다. **잠겨 있지 않음** 리소스는 이 리소스 그룹에서 추가, 이동, 변경 또는 삭제할 수 있습니다.|

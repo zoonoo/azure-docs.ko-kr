@@ -2,18 +2,17 @@
 title: Blueprint 샘플 인덱스
 description: Azure Blueprints에서 배포하는 규정 준수 및 표준 환경 샘플의 인덱스입니다.
 author: DCtheGeek
-manager: carmonm
 ms.service: blueprints
 ms.topic: sample
 ms.date: 09/24/2019
 ms.author: dacoulte
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d54d60728b9ad0cc72a6cbc81b380b2511d732a8
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: f5f29ec3aa5dd87a891d53847bf5a3be3a121e63
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219815"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978380"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 

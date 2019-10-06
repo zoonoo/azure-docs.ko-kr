@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: f4eb1b69a1464cacaf666e49f4aff7422d63611d
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 906cff017c3f80cb1bdd369453b18564d19eb492
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264525"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981166"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights 미리 보기 사용 사례
 
@@ -38,7 +38,7 @@ Azure Time Series Insights는 종단 간 플랫폼 제공 서비스입니다. �
 
 수십억 개의 이벤트를 즉시 살펴보고 분석하여 이상 현상을 포착하고 데이터에서 숨겨진 추세를 발견하세요. Time Series Insights는 IoT 및 DevOps 분석 워크로드에 대한 거의 실시간에 가까운 성능을 제공합니다.
 
-[![데이터 탐색기](media/v2-update-use-cases/data-explorer.svg)](media/v2-update-use-cases/data-explorer.svg#lightbox)
+[![Data 탐색기](media/v2-update-use-cases/data-explorer.svg)](media/v2-update-use-cases/data-explorer.svg#lightbox)
 
 대부분의 고객은 Time Series Insights의 두드러진 기능 중 하나인 정보를 얻는 데 필요한 최소한의 시간에 동의 합니다.
 
@@ -56,11 +56,11 @@ Time Series Insights에 저장된 데이터와 상호 작용하는 세 가지 �
 
 - 시작하는 두 번째 방법은 JavaScript SDK를 사용하여 신속하게 웹 애플리케이션에 강력한 차트와 그래프를 포함하는 것입니다. 코드 몇 줄이면 강력한 쿼리를 작성할 수 있습니다. 꺾은선형 차트, 원형 차트, 가로 막대형 차트, 열 지도, 데이터 표 등을 채우는 데 사용됩니다. 이 모든 요소는 SDK를 사용하여 기본적으로 존재합니다. 또한 SDK는 Time Series Insights 쿼리 API를 추상화합니다. 이러한 API를 사용하여 대시보드에 표시할 데이터를 쿼리하는 SQL과 유사한 조건자를 작성할 수 있습니다. 하이브리드 프레젠테이션 레이어 솔루션의 경우 Time Series Insights는 매개 변수가 있는 URL을 제공합니다. 이러한 URL은 데이터를 심층 분석할 수 있도록 Time Series Insights 미리 보기 탐색기와의 끊김 없는 연결점을 제공합니다.
 
-    * JavaScript SDK에 대해 자세히 알아보려면 [TIME SERIES INSIGHTS JS 클라이언트 라이브러리](tutorial-explore-js-client-lib.md) 및 [Time Series Insights 클라이언트](https://github.com/Microsoft/tsiclient) 설명서를 참조 하세요.
+    * JavaScript SDK에 대해 자세히 알아보려면 [TIME SERIES INSIGHTS JS 클라이언트 라이브러리](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) 및 [Time Series Insights 클라이언트](https://github.com/Microsoft/tsiclient) 설명서를 참조 하세요.
 
     * [Azure Time Series Insights Preview 탐색기에서 데이터 시각화](time-series-insights-update-explorer.md)를 검토 하 여 url 및 새 UI를 공유 하는 방법에 대해 자세히 알아보세요.
 
-- 시작하는 세 번째 방법은 Time Series Insights에 저장된 데이터를 쿼리하는 강력한 API를 사용하는 것입니다. Time Series Insights `from`에는 `to` ,`first`, 및`last`와 같은 임시 연산자가 있습니다. `average`여기에는 `min` ,`max` ,,`DateHistogram`, 및와 같은 집계 및 변환이 있습니다. `split by` `order by` 또한,,, `has`, 및 `and` `or` `in` 와같은`greater than`필터링 연산자 가있습니다.`REGEX` 이 모든 연산자는 다운스트림 애플리케이션이 데이터에서 흥미로운 추세 및 패턴을 신속하게 찾을 수 있게 해줍니다. 이러한 연산자를 사용하여 자체 제작 시각화를 채우고 이상 현상을 발견할 수 있습니다.
+- 시작하는 세 번째 방법은 Time Series Insights에 저장된 데이터를 쿼리하는 강력한 API를 사용하는 것입니다. Time Series Insights에는 `from`, `to`, `first` 및 `last`과 같은 임시 연산자가 있습니다. @No__t-0, `min`, `max`, `split by`, `order by` 및 `DateHistogram`와 같은 집계 및 변환이 있습니다. 또한 `has`, `in`, `and`, `or`, `greater than` 및 `REGEX`와 같은 필터링 연산자가 있습니다. 이 모든 연산자는 다운스트림 애플리케이션이 데이터에서 흥미로운 추세 및 패턴을 신속하게 찾을 수 있게 해줍니다. 이러한 연산자를 사용하여 자체 제작 시각화를 채우고 이상 현상을 발견할 수 있습니다.
 
 ## <a name="operational-analysis-and-driving-process-efficiency"></a>운영 분석 및 프로세스 효율성 확보
 

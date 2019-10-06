@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 08/21/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: 4cd4d89f276770cba401d7941a975fad8e49c8cd
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: abf6d22f2010db9bff97c7a93354c1cf8e1e1644
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000533"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976616"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Azure 리소스 그래프를 사용 하 여 오류 문제 해결
 
@@ -69,11 +68,11 @@ Azure 리소스 그래프를 쿼리 하는 고객은 _500_ (내부 서버 오류
 
 #### <a name="cause"></a>원인
 
-Azure 리소스 그래프 REST API는 `Content-Type` **application/json**의만 지원 합니다. 일부 REST 도구 또는 에이전트는 REST API에서 지원 하지 않는 **텍스트/일반**으로 기본 됩니다.
+Azure 리소스 그래프 REST API는 **application/json**의 @no__t 0만 지원 합니다. 일부 REST 도구 또는 에이전트는 REST API에서 지원 하지 않는 **텍스트/일반**으로 기본 됩니다.
 
 #### <a name="resolution"></a>해결 방법
 
-Azure 리소스 그래프를 쿼리 하는 데 사용 하는 도구 또는 에이전트에 `Content-Type` **application/json**에 대해 구성 된 REST API 헤더가 있는지 확인 합니다.
+Azure 리소스 그래프를 쿼리 하는 데 사용 하는 도구 또는 에이전트에 **application/json**에 대해 구성 된 REST API 헤더 @no__t 있는지 확인 합니다.
 ### <a name="rest-403"></a>시나리오: 목록의 모든 구독에 대 한 읽기 권한이 없습니다.
 
 #### <a name="issue"></a>문제점

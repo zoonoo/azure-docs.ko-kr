@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cee148b6cb17f18c06e98158ac21638cedf519c
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: e98c004b802711c83558bf4d7ec86c418679836b
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828754"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981141"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
@@ -33,7 +33,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
 1. Azure Active Directory에 [응용 프로그램을 등록](#azure-active-directory-app-registration) 합니다.
 1. [Time Series Insights 환경에 대 한 데이터 액세스](#granting-data-access)권한을 응용 프로그램에 부여 합니다.
-1. **응용 프로그램 ID** 및 **클라이언트 암호** 를 사용 하 여 `https://api.timeseries.azure.com/` [클라이언트 앱](#client-app-initialization)에서 토큰을 가져옵니다. 그런 다음 토큰을 사용하여 Time Series Insights API를 호출할 수 있습니다.
+1. **응용 프로그램 ID** 및 **클라이언트 암호** 를 사용 하 여 [클라이언트 앱](#client-app-initialization)의 `https://api.timeseries.azure.com/`에서 토큰을 가져옵니다. 그런 다음 토큰을 사용하여 Time Series Insights API를 호출할 수 있습니다.
 
 **3 단계**에 따라 응용 프로그램 및 사용자 자격 증명을 분리 하면 다음 작업을 수행할 수 있습니다.
 
@@ -59,15 +59,15 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
 1. Time Series Insights 환경의 경우 **데이터 액세스 정책** 을 선택 하 고 **추가**를 선택 합니다.
 
-   [![Time Series Insights 환경에 새 데이터 액세스 정책 추가](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
+   [![ Time Series Insights 환경에 새 데이터 액세스 정책 추가](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
 
 1. **사용자 선택** 대화 상자에서 **응용 프로그램 이름** 또는 응용 프로그램 **ID** Azure Active Directory 앱 등록 섹션에서 붙여넣습니다.
 
-   [![사용자 선택 대화 상자에서 응용 프로그램을 찾습니다.](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
+   [![ 사용자 선택 대화 상자에서 응용 프로그램을 찾습니다.](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
 
 1. 역할을 선택 합니다. 데이터 또는 **참가자** 를 쿼리하여 데이터를 쿼리하고 참조 데이터를 변경 하려면 **Reader** 를 선택 합니다. **확인**을 선택합니다.
 
-   [![사용자 역할 선택 대화 상자에서 읽기 권한자 또는 참가자를 선택 합니다.](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
+   [사용자 역할 선택 대화 상자에서 ![Pick 또는 참가자 선택](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
 
 1. **확인을**선택 하 여 정책을 저장 합니다.
 
@@ -111,27 +111,27 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
 > [!IMPORTANT]
 > 토큰은 `https://api.timeseries.azure.com/` 리소스 (토큰의 "대상"이 라고도 함)에 대해 정확 하 게 발급 되어야 합니다.
-> * 따라서 [Postman](https://www.getpostman.com/) **authurl** 은 다음을 준수 합니다.`https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+> * 따라서 [Postman](https://www.getpostman.com/) **authurl** 은 `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`를 준수 합니다.
 
 > [!TIP]
-> [Javascript 클라이언트 SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)를 사용 하 여 프로그래밍 방식으로 Time Series Insights api를 사용 하 여 인증 하는 방법을 보려면 [Azure Time Series Insights Javascript 클라이언트 라이브러리 탐색](tutorial-explore-js-client-lib.md#authentication) 자습서를 참조 하세요.
+> 차트 및 그래프와 함께 [JavaScript 클라이언트 sdk](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) 를 사용 하 여 프로그래밍 방식으로 Time Series Insights api를 사용 하 여 인증 하는 방법을 보려면 호스트 된 AZURE TIME SERIES INSIGHTS [클라이언트 sdk 샘플 시각화](https://tsiclientsample.azurewebsites.net/) 를 참조 하세요.
 
 ### <a name="http-headers"></a>HTTP 헤더
 
 필요한 요청 헤더:
 
-- `Authorization`인증 및 권한 부여의 경우 유효한 OAuth 2.0 전달자 토큰을 인증 헤더에 전달 해야 합니다. 토큰은 `https://api.timeseries.azure.com/` 리소스 (토큰의 "대상"이 라고도 함)에 대해 정확 하 게 발급 되어야 합니다.
+- @no__t 인증 및 권한 부여의 경우 유효한 OAuth 2.0 전달자 토큰을 인증 헤더에 전달 해야 합니다. 토큰은 `https://api.timeseries.azure.com/` 리소스 (토큰의 "대상"이 라고도 함)에 대해 정확 하 게 발급 되어야 합니다.
 
 선택적 요청 헤더:
 
-- `Content-type`-만 `application/json` 지원 됩니다.
+- `Content-type`-1 @no__t만 지원 됩니다.
 - `x-ms-client-request-id`-클라이언트 요청 ID입니다. 서비스에서이 값을 기록 합니다. 서비스에서 서비스에 대 한 작업을 추적할 수 있습니다.
 - `x-ms-client-session-id`-클라이언트 세션 ID입니다. 서비스에서이 값을 기록 합니다. 서비스에서 서비스 간 관련 작업 그룹을 추적할 수 있습니다.
 - `x-ms-client-application-name`-이 요청을 생성 한 응용 프로그램의 이름입니다. 서비스에서이 값을 기록 합니다.
 
 응답 헤더:
 
-- `Content-type`-만 `application/json` 지원 됩니다.
+- `Content-type`-1 @no__t만 지원 됩니다.
 - `x-ms-request-id`-서버에서 생성 된 요청 ID입니다. Microsoft에 문의 하 여 요청을 조사 하는 데 사용할 수 있습니다.
 
 ### <a name="http-parameters"></a>HTTP 매개 변수
@@ -143,7 +143,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
 선택적 URL 쿼리 문자열 매개 변수:
 
-- `timeout=<timeout>`– 요청 실행을 위한 서버 쪽 시간 제한입니다. [환경 이벤트 가져오기](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) 및 [환경 집계](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) api에만 적용 됩니다. 제한 시간 값은 ISO 8601 기간 형식 이어야 합니다. 예 `"PT20S"` 를 들어, 범위 `1-30 s`내에 있어야 합니다. 기본값은 `30 s`여야 합니다.
+- `timeout=<timeout>` – 요청 실행을 위한 서버 쪽 시간 제한입니다. [환경 이벤트 가져오기](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) 및 [환경 집계](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) api에만 적용 됩니다. 제한 시간 값은 ISO 8601 기간 형식 이어야 합니다 (예: `"PT20S"`). @no__t 범위에 있어야 합니다. 기본값은 `30 s`여야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

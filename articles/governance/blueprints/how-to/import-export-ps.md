@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/03/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: f7bc3610841bcc3c40435f077073ffa0d55acd93
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 30e734c99a87364acfba9a58d83fe9a377958607
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70243179"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978453"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>PowerShell을 사용 하 여 청사진 정의 가져오기 및 내보내기
 
@@ -25,9 +24,9 @@ Azure 청사진은 Azure Portal를 통해 완벽 하 게 관리할 수 있습니
   - 테스트 환경에서 청사진 정의의 자동화 된 테스트
   - CI/CD (연속 통합 및 연속 배포) 파이프라인 지원
 
-코드에 따라 청사진 정의를 관리 하는 것은 어떤 이유로 든 도움이 됩니다. 이 문서에서는 [Az. 청사진](https://powershellgallery.com/packages/Az.Blueprint/) 모듈 `Import-AzBlueprintWithArtifact` 에서 `Export-AzBlueprintWithArtifact` 및 명령을 사용 하는 방법을 보여 줍니다.
+코드에 따라 청사진 정의를 관리 하는 것은 어떤 이유로 든 도움이 됩니다. 이 문서에서는 [Az. 청사진](https://powershellgallery.com/packages/Az.Blueprint/) 모듈에서 `Import-AzBlueprintWithArtifact` 및 `Export-AzBlueprintWithArtifact` 명령을 사용 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 Azure 청사진에 대 한 일반적인 실무 지식을 전제로 합니다. 아직 수행 하지 않은 경우 다음 문서를 진행 합니다.
 
@@ -35,16 +34,16 @@ Azure 청사진은 Azure Portal를 통해 완벽 하 게 관리할 수 있습니
 - [배포 단계](../concepts/deployment-stages.md) 및 [청사진 수명 주기](../concepts/lifecycle.md) 에 대해 자세히 알아보세요.
 - PowerShell을 사용 하 여 청사진 정의 및 할당 [만들기](../create-blueprint-powershell.md) 및 [관리](./manage-assignments-ps.md)
 
-아직 설치 하지 않은 경우 [az. 청사진 모듈 추가](./manage-assignments-ps.md#add-the-azblueprint-module) 의 지침에 따라 PowerShell 갤러리에서 **az. 청사진** 모듈을 설치 하 고 유효성을 검사 합니다.
+아직 설치되지 않은 경우 [Az.Blueprint 모듈 추가](./manage-assignments-ps.md#add-the-azblueprint-module)를 수행하여 PowerShell 갤러리에서 **Az.Blueprint** 모듈을 설치하고 유효성을 검사합니다.
 
 ## <a name="folder-structure-of-a-blueprint-definition"></a>청사진 정의의 폴더 구조
 
 청사진을 내보내고 가져오는 방법을 살펴보기 전에 청사진 정의를 구성 하는 파일이 어떻게 구조화 되었는지 살펴보겠습니다. 청사진 정의는 자체 폴더에 저장 해야 합니다.
 
 > [!IMPORTANT]
-> `Import-AzBlueprintWithArtifact` Cmdlet의 **Name** 매개 변수에 값을 전달 하지 않으면 청사진 정의가 저장 되는 폴더의 이름이 사용 됩니다.
+> @No__t cmdlet의 **name** 매개 변수에 값을 전달 하지 않으면 청사진 정의가 저장 되는 폴더의 이름이 사용 됩니다.
 
-명명 `blueprint.json`되어야 하는 청사진 정의와 함께 청사진 정의가 구성 된 아티팩트입니다. 각 아티팩트는 이라는 `artifacts`하위 폴더에 있어야 합니다.
+@No__t-0으로 명명 되어야 하는 청사진 정의와 함께 청사진 정의가 구성 된 아티팩트입니다. 각 아티팩트는 `artifacts` 이라는 하위 폴더에 있어야 합니다.
 청사진 정의의 구조는 폴더의 JSON 파일로 다음과 같이 표시 되어야 합니다.
 
 ```text
@@ -64,16 +63,16 @@ Azure 청사진은 Azure Portal를 통해 완벽 하 게 관리할 수 있습니
 
 청사진 정의를 내보내는 단계는 간단 합니다. 청사진 정의를 내보내면 소스 제어에 공유, 백업 또는 배치 하는 데 유용할 수 있습니다.
 
-- **청사진** 하다
+- **청사진** [필수]
   - 청사진 정의를 지정 합니다.
-  - 참조 `Get-AzBlueprint` 개체를 가져오는 데 사용
-- **OutputPath** 하다
+  - 참조 개체를 가져오려면 `Get-AzBlueprint`을 사용 합니다.
+- **OutputPath** [필수]
   - 청사진 정의 JSON 파일을 저장할 경로를 지정 합니다.
   - 출력 파일은 청사진 정의의 이름이 포함 된 하위 폴더에 있습니다.
-- **버전** 필드
+- **Version** (선택 사항)
   - **청사진** 참조 개체에 둘 이상의 버전에 대 한 참조가 포함 된 경우 출력할 버전을 지정 합니다.
 
-1. 다음과 같이 `{subId}`표시 된 구독에서 내보낼 청사진 정의에 대 한 참조를 가져옵니다.
+1. @No__t-0으로 표시 된 구독에서 내보낼 청사진 정의에 대 한 참조를 가져옵니다.
 
    ```azurepowershell-interactive
    # Login first with Connect-AzAccount if not using Cloud Shell
@@ -82,7 +81,7 @@ Azure 청사진은 Azure Portal를 통해 완벽 하 게 관리할 수 있습니
    $bpDefinition = Get-AzBlueprint -SubscriptionId '{subId}' -Name 'MyBlueprint' -Version '1.1'
    ```
 
-1. `Export-AzBlueprintWithArtifact` Cmdlet을 사용 하 여 지정 된 청사진 정의를 내보냅니다.
+1. @No__t-0 cmdlet을 사용 하 여 지정 된 청사진 정의를 내보냅니다.
 
    ```azurepowershell-interactive
    Export-AzBlueprintWithArtifact -Blueprint $bpDefinition -OutputPath 'C:\Blueprints'
@@ -94,19 +93,19 @@ Azure 청사진은 Azure Portal를 통해 완벽 하 게 관리할 수 있습니
 
 기본 제공 청사진 정의의 예는 [GitHub 리포지토리 Azure Blueprint](https://github.com/Azure/azure-blueprints/tree/master/samples/builtins)를 참조 하세요.
 
-- **이름** 하다
+- **이름** [필수]
   - 새 청사진 정의의 이름을 지정 합니다.
-- **Inputpath** 하다
+- **Inputpath** [필수]
   - 청사진 정의를 만들 경로를 지정 합니다.
   - [필요한 폴더 구조](#folder-structure-of-a-blueprint-definition) 와 일치 해야 합니다.
-- **Managementgroupid** 필드
+- **Managementgroupid** (선택 사항)
   - 현재 컨텍스트 기본값이 아닌 경우 청사진 정의를 저장할 관리 그룹 ID입니다.
   - **Managementgroupid** 또는 **SubscriptionId** 를 지정 해야 합니다.
-- **SubscriptionId** 필드
+- **SubscriptionId** (선택 사항)
   - 현재 컨텍스트 기본값이 아닌 경우 청사진 정의를 저장할 구독 ID입니다.
   - **Managementgroupid** 또는 **SubscriptionId** 를 지정 해야 합니다.
 
-1. `Import-AzBlueprintWithArtifact` Cmdlet을 사용 하 여 지정 된 청사진 정의를 가져옵니다.
+1. @No__t-0 cmdlet을 사용 하 여 지정 된 청사진 정의를 가져옵니다.
 
    ```azurepowershell-interactive
    # Login first with Connect-AzAccount if not using Cloud Shell

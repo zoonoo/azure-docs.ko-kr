@@ -7,13 +7,12 @@ ms.author: dacoulte
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: b5cf0cf5dc8a0964d981c5537b6fa41f1c6c2058
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 2e810c810fd2c143f3d3e43a6ff1df87a150fa3b
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968498"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981638"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>캐나다 연방 PMM 청사진 샘플 배포
 
@@ -99,8 +98,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 아티팩트 이름|아티팩트 형식|매개 변수 이름|설명|
 |-|-|-|-|
 |\[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포 |정책 할당 |Linux VM용 Log Analytics 작업 영역 |자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../../../azure-monitor/learn/quick-create-workspace.md)를 참조 하세요. |
-|\[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포 |정책 할당 |선택 사항: 범위에 추가할 Linux OS를 지원하는 VM 이미지 목록 |빈 배열은 선택적 매개 변수를 표시 하는 데 사용할 수 있습니다.`[]` |
-|\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포 |정책 할당 |선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록 |빈 배열은 선택적 매개 변수를 표시 하는 데 사용할 수 있습니다.`[]` |
+|\[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포 |정책 할당 |선택 사항: 범위에 추가할 Linux OS를 지원하는 VM 이미지 목록 |빈 배열은 선택적 매개 변수가 없음을 나타내는 데 사용 될 수 있습니다. `[]` |
+|\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포 |정책 할당 |선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록 |빈 배열은 선택적 매개 변수가 없음을 나타내는 데 사용 될 수 있습니다. `[]` |
 |\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포 |정책 할당 |Windows VM용 Log Analytics 작업 영역 |자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../../../azure-monitor/learn/quick-create-workspace.md)를 참조 하세요. |
 |\[미리 보기\]: 캐나다 연방 PMM 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |VM을 구성해야 하는 Log Analytics 작업 영역 ID |VM을 구성해야 하는 Log Analytics 작업 영역의 ID(GUID)입니다. |
 |\[미리 보기\]: 캐나다 연방 PMM 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |진단 로그를 사용해야 하는 리소스 종류 목록 |진단 로그 설정이 사용 하도록 설정 되지 않은 경우 감사할 리소스 종류 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)에서 확인할 수 있습니다. |
@@ -117,8 +116,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이제 캐나다 연방 PMM 샘플을 배포 하는 단계를 검토 했으므로 다음 문서를 방문 하 여 개요 및 컨트롤 매핑에 대해 알아보세요.
 
 > [!div class="nextstepaction"]
-> [캐나다 연방 pmm 청사진-개요](./index.md)
-> [캐나다 연방 pmm 청사진-제어 매핑](./control-mapping.md)
+> [캐나다 연방 PMM 청사진-개요](./index.md)
+> [캐나다 연방 Pmm 청사진-제어 매핑](./control-mapping.md)
 
 청사진 및 사용 방법에 대한 추가 문서:
 

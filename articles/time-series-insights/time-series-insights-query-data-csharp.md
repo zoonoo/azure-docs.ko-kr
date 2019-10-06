@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 353e3463c2be552210847ac3fe17bbfe2cec58c7
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 5928a8ee048b608d691ecea33d186838ec743e4b
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958126"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981133"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>를 사용 하 여 Azure Time Series Insights GA 환경에서 데이터 쿼리C#
 
@@ -45,4 +45,4 @@ NuGet 패키지 `Microsoft.IdentityModel.Clients.ActiveDirectory` 및 `Newtonsof
 
 - 쿼리에 대 한 자세한 내용은 [쿼리 API 참조를 참조](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api)하세요.
 
-- Time Series Insights에 [JavaScript 단일 페이지 앱을 연결](tutorial-create-tsi-sample-spa.md) 하는 방법을 참조 하세요.
+- [클라이언트 SDK를 사용 하 여 JavaScript 앱을 연결 하 여](https://github.com/microsoft/tsiclient) Time Series Insights 하는 방법을 참조 하세요.

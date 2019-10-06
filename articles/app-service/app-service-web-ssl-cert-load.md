@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 6820daf34e63fd48e83c645e7509a3256bc8435b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0c8c270681794621b2a12671d4bcf350cd6cc4d8
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066984"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981108"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Azure App Service의 애플리케이션 코드에서 SSL 인증서 사용
 
@@ -62,16 +62,16 @@ az webapp config ssl upload --name <app-name> --resource-group <resource-group-n
 
 ## <a name="make-the-certificate-accessible"></a>인증서에 액세스할 수 있도록 설정
 
-앱 코드에서 업로드 되거나 가져온 인증서를 사용 하려면 <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>에서 다음 명령을 실행 하 여 앱 `WEBSITE_LOAD_CERTIFICATES` 설정으로 지문을 액세스할 수 있도록 설정 합니다.
+앱 코드에서 업로드 되거나 가져온 인증서를 사용 하려면 <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>에서 다음 명령을 실행 하 여 `WEBSITE_LOAD_CERTIFICATES` 앱 설정으로 지문을 액세스할 수 있도록 설정 합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>
 ```
 
-모든 인증서에 액세스할 수 있도록 하려면 값을로 `*`설정 합니다.
+모든 인증서에 액세스할 수 있도록 하려면 값을 `*`으로 설정 합니다.
 
 > [!NOTE]
-> 이 설정은 [현재 User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) 저장소에 지정 된 인증서를 대부분의 가격 책정 계층에 배치 하지만 **격리** 계층 (즉, 앱이 [App Service Environment](environment/intro.md)에서 실행 됨)에서 [로컬 Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) 에 인증서를 배치 합니다. 보관.
+> 이 설정은 [현재 User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) 저장소에 지정 된 인증서를 대부분의 가격 책정 계층에 배치 하지만 앱이 **격리** 계층에서 실행 되는 경우 (즉, 앱이 [App Service Environment](environment/intro.md)에서 실행 되는 경우) 로컬에서 체크 인해야 할 수 있습니다. [ 대신 Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) 저장소입니다.
 >
 
 ![앱 설정 구성](./media/app-service-web-ssl-cert-load/configure-app-setting.png)
@@ -112,13 +112,13 @@ certStore.Close();
 
 응용 프로그램 디렉터리에서 인증서 파일을 로드 해야 하는 경우 [Git](deploy-local-git.md)대신 [FTPS](deploy-ftp.md) 를 사용 하 여 업로드 하는 것이 좋습니다 (예:). 원본 제어에서 벗어난 개인 인증서와 같은 중요 한 데이터를 유지 해야 합니다.
 
-.NET 코드에서 직접 파일을 로드 하는 경우에도 라이브러리는 현재 사용자 프로필이 로드 되었는지 확인 합니다. 현재 사용자 프로필을 로드 하려면 <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>에서 다음 `WEBSITE_LOAD_USER_PROFILE` 명령을 사용 하 여 앱 설정을 설정 합니다.
+.NET 코드에서 직접 파일을 로드 하는 경우에도 라이브러리는 현재 사용자 프로필이 로드 되었는지 확인 합니다. 현재 사용자 프로필을 로드 하려면 <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>에서 다음 명령을 사용 하 여 `WEBSITE_LOAD_USER_PROFILE` 앱 설정을 설정 합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
 ```
 
-이 설정이 설정 되 면 다음 C# 예제에서는 앱 리포지토리의 `mycert.pfx` `certs` 디렉터리에서 이라는 인증서를 로드 합니다.
+이 설정이 설정 되 면 다음 C# 예제에서는 앱 리포지토리의 `certs` 디렉터리에서 `mycert.pfx` 이라는 인증서를 로드 합니다.
 
 ```csharp
 using System;
