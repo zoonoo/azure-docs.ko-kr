@@ -85,7 +85,7 @@
           href: join-rhel-linux-vm.md
         - name: Ubuntu Server
           href: join-ubuntu-linux-vm.md
-    - name: Azure AD DS에 애플리케이션 배포
+    - name: 애플리케이션 배포
       items:
         - name: Azure AD 애플리케이션 프록시 배포
           href: deploy-azure-app-proxy.md
@@ -95,11 +95,17 @@
       items:
         - name: 일반 오류
           href: troubleshoot.md
-        - name: 일치하지 않는 테넌트 오류
+        - name: 도메인 조인 문제
+          href: troubleshoot-domain-join.md
+        - name: 계정 잠금
+          href: troubleshoot-account-lockout.md
+        - name: 로그인 문제
+          href: troubleshoot-sign-in.md
+        - name: 일치하지 않는 테넌트 오류 해결
           href: mismatched-tenant-error.md
         - name: 일시 중단된 도메인
           href: suspension.md
-        - name: 보안 LDAP
+        - name: 보안 LDAP 문제
           href: tshoot-ldaps.md
         - name: 알려진 문제
           items:

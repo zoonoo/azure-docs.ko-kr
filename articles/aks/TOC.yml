@@ -191,6 +191,8 @@
       items:
         - name: 서비스 주체 만들기
           href: kubernetes-service-principal.md
+        - name: 관리 ID 사용(미리 보기)
+          href: use-managed-identity.md
         - name: 클러스터 구성 파일에 대한 액세스 제한
           href: control-kubeconfig-access.md
         - name: 네트워크 정책을 사용하여 Pod 트래픽 보안

@@ -241,6 +241,8 @@
           items:
             - name: 사용자 프로비전 문제 해결
               href: application-provisioning-config-problem.md
+            - name: 격리 상태
+              href: application-provisioning-quarantine-status.md
             - name: 프로비저닝 로그
               href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
             - name: 매핑을 위한 특성 동기화 - 갤러리 앱
@@ -357,6 +359,8 @@
           href: provisioning-agent-release-version-history.md
     - name: 온-프레미스 앱에 대한 애플리케이션 프록시
       items:
+        - name: 애플리케이션 프록시 FAQ
+          href: application-proxy-faq.md
         - name: 애플리케이션 프록시 버전 내역
           href: application-proxy-release-version-history.md
 - name: 리소스

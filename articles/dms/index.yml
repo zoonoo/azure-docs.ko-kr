@@ -5,15 +5,15 @@ metadata:
   description: " Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 여러 데이터베이스 원본에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션하는 방법을 알아봅니다."
   author: HJToland3
   ms.author: jtoland
-  ms.date: 10/02/2019
+  ms.date: 10/04/2019
   ms.service: dms
   ms.topic: landing-page
-  ms.openlocfilehash: e3688c4795590fa2b74421055a6cf6f80d2d2d17
-  ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+  ms.openlocfilehash: 41b2733152a93705c81134ccbb75866bf6f0af1b
+  ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/02/2019
-  ms.locfileid: "71802140"
+  ms.lasthandoff: 10/03/2019
+  ms.locfileid: "71842999"
 landingContent:
 - title: Azure Database Migration Service 정보
   linkLists:
@@ -55,7 +55,7 @@ landingContent:
     links:
     - text: 블로그 보기
       url: https://techcommunity.microsoft.com/t5/Microsoft-Data-Migration/bg-p/MicrosoftDataMigration
-- title: SQL Server를 Azure SQL Database 단일 데이터베이스로 마이그레이션
+- title: Azure SQL Database로 SQL Server 마이그레이션
   linkLists:
   - linkListType: tutorial
     links:
@@ -63,22 +63,6 @@ landingContent:
       url: tutorial-sql-server-azure-sql-online.md
     - text: SQL Server를 Azure SQL DB 단일 데이터베이스로 오프라인 마이그레이션
       url: tutorial-sql-server-to-azure-sql.md
-    - text: RDS SQL Server를 Azure SQL DB 단일 데이터베이스 또는 Azure SQL DB 관리형 인스턴스로 온라인 마이그레이션
-      url: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
-  - linkListType: how-to-guide
-    links:
-    - text: PowerShell을 사용하여 SQL Server를 Azure SQL DB 단일 데이터베이스로 마이그레이션
-      url: howto-sql-server-to-azure-sql-powershell.md
-    - text: Azure SQL Database 단일 데이터베이스에 SSIS 패키지 다시 배포
-      url: how-to-migrate-ssis-packages.md
-  - linkListType: concept
-    links:
-    - text: 알려진 문제 - Azure SQL DB 단일 데이터베이스로 온라인 마이그레이션
-      url: known-issues-azure-sql-online.md
-- title: SQL Server를 Azure SQL Database 관리형 인스턴스로 마이그레이션
-  linkLists:
-  - linkListType: tutorial
-    links:
     - text: SQL Server를 Azure SQL DB 관리형 인스턴스로 온라인 마이그레이션
       url: tutorial-sql-server-managed-instance-online.md
     - text: SQL Server를 Azure SQL DB 관리형 인스턴스로 오프라인 마이그레이션
@@ -87,19 +71,25 @@ landingContent:
       url: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
   - linkListType: how-to-guide
     links:
+    - text: PowerShell을 사용하여 SQL Server를 Azure SQL DB 단일 데이터베이스로 마이그레이션
+      url: howto-sql-server-to-azure-sql-powershell.md
     - text: PowerShell을 사용하여 SQL Server를 Azure SQL DB 관리형 인스턴스로 마이그레이션
       url: howto-sql-server-to-azure-sql-mi-powershell.md
+    - text: Azure SQL Database 단일 데이터베이스에 SSIS 패키지 다시 배포
+      url: how-to-migrate-ssis-packages.md
     - text: Azure SQL Database 관리형 인스턴스에 SSIS 패키지 다시 배포
       url: how-to-migrate-ssis-packages-managed-instance.md
   - linkListType: concept
     links:
+    - text: 알려진 문제 - Azure SQL DB 단일 데이터베이스로 온라인 마이그레이션
+      url: known-issues-azure-sql-online.md
     - text: Azure SQL DB 관리형 인스턴스 마이그레이션에 대한 네트워크 토폴로지
       url: resource-network-topologies.md
   - linkListType: video
     links:
     - text: SQL Server 2008을 Azure SQL Database 관리형 인스턴스로 마이그레이션
       url: https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/
-- title: PostgreSQL을 Azure Database for PostgreSQL 단일 서버로 마이그레이션
+- title: PostgreSQL을 Azure Database for PostgreSQL로 마이그레이션
   linkLists:
   - linkListType: tutorial
     links:
@@ -109,7 +99,7 @@ landingContent:
       url: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
   - linkListType: concept
     links:
-    - text: 알려진 문제 - Azure DB for PostgreSQL 단일 서버로 온라인 마이그레이션
+    - text: 알려진 문제 - PostgreSQL에서 Azure DB for PostgreSQL 단일 서버로 온라인 마이그레이션
       url: known-issues-azure-postgresql-online.md
   - linkListType: video
     links:
@@ -145,6 +135,10 @@ landingContent:
     links:
     - text: Oracle을 Azure DB for PostgreSQL 단일 서버로 온라인 마이그레이션
       url: tutorial-oracle-azure-postgresql-online.md
+  - linkListType: concept
+    links:
+    - text: 알려진 문제 - Oracle에서 Azure DB for PostgreSQL 단일 서버로 온라인 마이그레이션
+      url: known-issues-oracle-azure-postgresql-online.md
   - linkListType: video
     links:
     - text: Oracle을 Azure SQL Database 단일 데이터베이스로 마이그레이션

@@ -6,52 +6,73 @@
       href: resource-group-overview.md
     - name: 템플릿 개요
       href: template-deployment-overview.md
-- name: 빠른 시작
-  expanded: true
-  items:
-    - name: 템플릿 만들기 - 포털
-      href: resource-manager-quickstart-create-templates-use-the-portal.md
-    - name: 템플릿 만들기 - VS Code
-      href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
-    - name: 템플릿 만들기 - Visual Studio
-      href: vs-azure-tools-update-deploy-script-to-az-powershell.md
-    - name: 템플릿 만들기 - IntelliJ IDEA
-      href: resource-manager-quickstart-create-templates-use-intellij.md
 - name: 자습서
   items:
-    - name: 템플릿 참조 활용
-      href: resource-manager-tutorial-create-encrypted-storage-accounts.md
-    - name: 여러 인스턴스 만들기
-      displayName: 'iteration,copy'
-      href: resource-manager-tutorial-create-multiple-instances.md
-    - name: 리소스 배포 순서 설정
-      displayName: 'dependent resources, dependency'
-      href: resource-manager-tutorial-create-templates-with-dependent-resources.md
-    - name: 조건 사용
-      href: resource-manager-tutorial-use-conditions.md
-    - name: 키 자격 증명 모음 통합
-      displayName: secrets
-      href: resource-manager-tutorial-use-key-vault.md
-    - name: 연결된 템플릿 만들기
-      href: resource-manager-tutorial-create-linked-templates.md
-    - name: VM 확장 배포
-      displayName: virtual machine extensions
-      href: resource-manager-tutorial-deploy-vm-extensions.md
-    - name: SQL 확장 배포
-      href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
-    - name: 아티팩트 보호
-      href: resource-manager-tutorial-secure-artifacts.md
-    - name: Azure Pipelines를 사용한 연속 통합
-      displayName: DevOps
-      href: resource-manager-tutorial-use-azure-pipelines.md
-    - name: 안전한 배포 사례 사용
-      displayName: adm
-      href: deployment-manager-tutorial.md
-    - name: 배포 관리자에서 상태 검사 사용
-      displayName: adm
-      href: deployment-manager-tutorial-health-check.md
-    - name: 템플릿 배포 문제 해결
-      href: resource-manager-tutorial-troubleshoot.md
+    - name: 초급자
+      items:
+        - name: 1 - 첫 번째 템플릿 만들기
+          href: template-tutorial-create-first-template.md
+        - name: 2 - 리소스 추가
+          href: template-tutorial-add-resource.md
+        - name: 3 - 매개 변수 추가
+          href: template-tutorial-add-parameters.md
+        - name: 4 - 템플릿 함수 추가
+          href: template-tutorial-add-functions.md
+        - name: 5 - 변수 추가
+          href: template-tutorial-add-variables.md
+        - name: 6 - 출력 추가
+          href: template-tutorial-add-outputs.md
+        - name: 7 - 내보낸 템플릿 사용
+          href: template-tutorial-export-template.md
+        - name: 8 - 빠른 시작 템플릿 사용
+          href: template-tutorial-quickstart-template.md
+        - name: 9 - 태그 추가
+          href: template-tutorial-add-tags.md
+        - name: 10 - 매개 변수 파일 사용
+          href: template-tutorial-use-parameter-file.md
+    - name: 고급
+      items:
+        - name: 템플릿 만들기 - 포털
+          href: resource-manager-quickstart-create-templates-use-the-portal.md
+        - name: 템플릿 만들기 - VS Code
+          href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
+        - name: 템플릿 만들기 - Visual Studio
+          href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+        - name: 템플릿 만들기 - IntelliJ IDEA
+          href: resource-manager-quickstart-create-templates-use-intellij.md
+        - name: 템플릿 참조 활용
+          href: resource-manager-tutorial-create-encrypted-storage-accounts.md
+        - name: 여러 인스턴스 만들기
+          displayName: 'iteration,copy'
+          href: resource-manager-tutorial-create-multiple-instances.md
+        - name: 리소스 배포 순서 설정
+          displayName: 'dependent resources, dependency'
+          href: resource-manager-tutorial-create-templates-with-dependent-resources.md
+        - name: 조건 사용
+          href: resource-manager-tutorial-use-conditions.md
+        - name: 키 자격 증명 모음 통합
+          displayName: secrets
+          href: resource-manager-tutorial-use-key-vault.md
+        - name: 연결된 템플릿 만들기
+          href: resource-manager-tutorial-create-linked-templates.md
+        - name: VM 확장 배포
+          displayName: virtual machine extensions
+          href: resource-manager-tutorial-deploy-vm-extensions.md
+        - name: SQL 확장 배포
+          href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
+        - name: 아티팩트 보호
+          href: resource-manager-tutorial-secure-artifacts.md
+        - name: Azure Pipelines를 사용한 연속 통합
+          displayName: DevOps
+          href: resource-manager-tutorial-use-azure-pipelines.md
+        - name: 안전한 배포 사례 사용
+          displayName: adm
+          href: deployment-manager-tutorial.md
+        - name: 배포 관리자에서 상태 검사 사용
+          displayName: adm
+          href: deployment-manager-tutorial-health-check.md
+        - name: 템플릿 배포 문제 해결
+          href: resource-manager-tutorial-troubleshoot.md
 - name: 샘플
   items:
     - name: 리소스 관리자 템플릿
@@ -76,8 +97,8 @@
           href: deployment-manager-health-check.md
     - name: Resource Manager 및 클래식 배포
       href: resource-manager-deployment-model.md
-    - name: 기본 제공 보안 컨트롤
-      href: azure-resource-manager-security-controls.md
+    - name: Azure 공통 보안 특성
+      href: azure-resource-manager-security-attributes.md
 - name: 방법
   items:
     - name: 템플릿 만들기
@@ -221,8 +242,6 @@
           href: resource-manager-common-deployment-errors.md
         - name: AccountNameInvalid
           href: resource-manager-storage-account-name-errors.md
-        - name: DeploymentQuotaExceeded
-          href: deployment-quota-exceeded.md
         - name: InvalidTemplate
           href: resource-manager-invalid-template-errors.md
         - name: Linux 배포 문제

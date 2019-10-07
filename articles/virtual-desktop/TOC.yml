@@ -54,7 +54,7 @@
       href: install-office-on-wvd-master-image.md
     - name: Windows Virtual Desktop용 GPU 구성
       href: configure-vm-gpu.md
-    - name: 세션 호스트 자동 크기 조정
+    - name: 세션 호스트를 동적으로 크기 조정
       href: set-up-scaling-script.md
     - name: Windows Virtual Desktop 사용자용 피드를 사용자 지정
       href: customize-feed-for-virtual-desktop-users.md
@@ -84,7 +84,7 @@
   items:
     - name: '문제 해결 개요, 피드백 및 지원'
       href: troubleshoot-set-up-overview.md
-    - name: 진단 기능을 사용하여 문제 식별
+    - name: 문제 식별 및 진단
       href: diagnostics-role-service.md
     - name: 테넌트 및 호스트 풀 만들기
       href: troubleshoot-set-up-issues.md

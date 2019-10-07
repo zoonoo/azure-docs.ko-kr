@@ -82,6 +82,8 @@
       href: functions-deployment-technologies.md
     - name: 이벤트 및 메시징
       items:
+        - name: 안정적인 이벤트 처리
+          href: functions-reliable-event-processing.md
         - name: 동일한 입력을 위한 디자인
           href: functions-idempotent.md
     - name: 트리거 및 바인딩

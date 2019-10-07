@@ -77,20 +77,22 @@
     - name: 평가 만들기
       href: how-to-create-assessment.md
     - name: SQL Server 데이터베이스 평가
-      href: 'https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json&view=sql-server-2017'
+      href: 'https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb'
     - name: 평가 사용자 지정
       href: how-to-modify-assessment.md
     - name: 마이그레이션 도구 추가
       href: how-to-migrate.md
-    - name: 규모 평가 및 마이그레이션
-      items:
-        - name: 다수의 VMware VM 평가
-          href: scale-vmware-assessment.md
-        - name: 다수의 Hyper-V VM 평가
-          href: scale-hyper-v-assessment.md
-        - name: 많은 수의 VM의 마이그레이션 자동화
-          href: how-to-migrate-at-scale.md
-    - name: 마이그레이션 예제-Contoso 시리즈
+    - name: 마이그레이션을 위한 머신 준비
+      href: prepare-for-migration.md
+- name: 규모 평가 및 마이그레이션
+  items:
+    - name: 다수의 VMware VM 평가
+      href: scale-vmware-assessment.md
+    - name: 다수의 Hyper-V VM 평가
+      href: scale-hyper-v-assessment.md
+    - name: 많은 수의 VM의 마이그레이션 자동화
+      href: how-to-migrate-at-scale.md
+    - name: '마이그레이션 예제, Contoso 시리즈'
       href: contoso-migration-overview.md
 - name: 문제 해결
   items:

@@ -143,6 +143,10 @@
       items:
         - name: 보안 및 정책
           href: security-policy.md
+        - name: Azure 디스크 암호화
+          href: disk-encryption-overview.md
+        - name: 기본 제공 보안 컨트롤
+          href: virtual-machines-linux-security-controls.md
     - name: 상태 및 수명 주기
       href: states-lifecycle.md
     - name: 모니터링
@@ -151,8 +155,6 @@
       href: backup-recovery.md
     - name: 인프라 지침
       href: infrastructure-example.md
-    - name: 기본 제공 보안 컨트롤
-      href: virtual-machines-linux-security-controls.md
 - name: 방법 가이드
   items:
     - name: VM 만들기
@@ -179,7 +181,29 @@
         - name: Just-In-Time 액세스
           href: ../../security-center/security-center-just-in-time.md
         - name: 암호화
-          href: encrypt-disks.md
+          items:
+            - name: Linux용 디스크 암호화 시나리오
+              href: disk-encryption-linux.md
+            - name: Azure CLI를 사용한 VM 암호화
+              href: disk-encryption-cli-quickstart.md
+            - name: Azure PowerShell을 사용한 VM 암호화
+              href: disk-encryption-powershell-quickstart.md
+            - name: Azure Disk Encryption용 Key Vault
+              href: disk-encryption-key-vault.md
+            - name: 디스크 암호화 샘플 스크립트
+              href: disk-encryption-sample-scripts.md
+            - name: 디스크 암호화 문제 해결
+              href: disk-encryption-troubleshooting.md
+            - name: 디스크 암호화 FAQ
+              href: disk-encryption-faq.md
+            - name: 디스크 암호화 - 이전 버전(AAD)
+              items:
+                - name: 개요
+                  href: disk-encryption-overview-aad.md
+                - name: Azure Disk Encryption용 Key Vault
+                  href: disk-encryption-key-vault-aad.md
+                - name: Linux용 디스크 암호화 시나리오
+                  href: disk-encryption-linux-aad.md
         - name: 액세스 제어 사용
           href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: 정책 사용
