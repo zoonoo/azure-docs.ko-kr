@@ -123,7 +123,7 @@ ms.locfileid: "70092621"
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.OSTCExtensions | string |
 | type | CustomScriptForLinux | string |
-| typeHandlerVersion | 1.5 | ssNoversion |
+| typeHandlerVersion | 1.5 | int |
 | fileUris(예) | https://github.com/MyProject/Archive/MyPythonScript.py | 배열 |
 | commandToExecute(예) | python MyPythonScript.py \<my-param1\> | string |
 | enableInternalDNSCheck | true | boolean |
