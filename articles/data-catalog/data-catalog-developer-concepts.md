@@ -143,7 +143,7 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 <tr><td></td><td>콘텐츠</td><td>string</td><td>이 데이터 자산에 액세스하는 방법에 대한 지침입니다. 콘텐츠는 URL, 메일 주소 또는 명령 집합일 수 있습니다.</td></tr>
 
 <tr><td>TableDataProfile("tableDataProfiles")</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>numberOfRows</td></td><td>ssNoversion</td><td>데이터 집합의 행 수입니다.</td></tr>
+<tr><td></td><td>numberOfRows</td></td><td>int</td><td>데이터 집합의 행 수입니다.</td></tr>
 <tr><td></td><td>크기</td><td>long</td><td>데이터 집합의 크기(바이트)입니다.  </td></tr>
 <tr><td></td><td>schemaModifiedTime</td><td>string</td><td>스키마가 마지막으로 수정된 시간입니다.</td></tr>
 <tr><td></td><td>dataModifiedTime</td><td>string</td><td>데이터 집합이 마지막으로 수정된 시간입니다(데이터 추가, 수정 또는 삭제).</td></tr>
@@ -185,7 +185,7 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 <tr><td>Column</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>string</td><td>열 또는 특성의 이름입니다.</td></tr>
 <tr><td></td><td>type</td><td>string</td><td>열 또는 특성의 데이터 형식입니다. 허용되는 형식은 자산의 데이터 소스 형식에 따라 달라집니다.  형식의 하위 집합만 지원됩니다.</td></tr>
-<tr><td></td><td>maxLength</td><td>ssNoversion</td><td>열 또는 특성에 허용되는 최대 길이입니다. 데이터 소스에서 파생됩니다. 일부 소스 형식에만 적용됩니다.</td></tr>
+<tr><td></td><td>maxLength</td><td>int</td><td>열 또는 특성에 허용되는 최대 길이입니다. 데이터 소스에서 파생됩니다. 일부 소스 형식에만 적용됩니다.</td></tr>
 <tr><td></td><td>자릿수</td><td>byte</td><td>열 또는 특성에 대한 자릿수입니다. 데이터 소스에서 파생됩니다. 일부 소스 형식에만 적용됩니다.</td></tr>
 <tr><td></td><td>isNullable</td><td>Boolean</td><td>열에 null 값의 허용 여부. 데이터 소스에서 파생됩니다. 일부 소스 형식에만 적용됩니다.</td></tr>
 <tr><td></td><td>expression</td><td>string</td><td>값에 계산된 열이 있는 경우 이 필드에는 값을 표현하는 식이 포함됩니다. 데이터 소스에서 파생됩니다. 일부 소스 형식에만 적용됩니다.</td></tr>
@@ -197,8 +197,8 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 <tr><td></td><td>최대 </td><td>string</td><td>데이터 집합의 최대값입니다.</td></tr>
 <tr><td></td><td>avg </td><td>double</td><td>데이터 집합의 평균 값입니다.</td></tr>
 <tr><td></td><td>stdev </td><td>double</td><td>데이터 집합의 표준 편차입니다.</td></tr>
-<tr><td></td><td>nullCount </td><td>ssNoversion</td><td>데이터 집합에 있는 null 값의 개수입니다.</td></tr>
-<tr><td></td><td>distinctCount  </td><td>ssNoversion</td><td>데이터 집합에 있는 고유한 값의 개수입니다.</td></tr>
+<tr><td></td><td>nullCount </td><td>int</td><td>데이터 집합에 있는 null 값의 개수입니다.</td></tr>
+<tr><td></td><td>distinctCount  </td><td>int</td><td>데이터 집합에 있는 고유한 값의 개수입니다.</td></tr>
 
 
 </table>
