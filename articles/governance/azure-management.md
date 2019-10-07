@@ -2,17 +2,16 @@
 title: Azure 관리 개요 - Azure 거버넌스
 description: Azure 관리 도구의 콘텐츠에 대한 링크가 포함된 Azure 애플리케이션 및 리소스 관리 영역에 대한 개요입니다.
 author: DCtheGeek
-manager: carmonm
 ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: 958f82ef94a08adaf2bbae1ef8ceefae5db289ea
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 2535b64380f67da440698c7577840d5319e6ca4f
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780806"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978542"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Azure의 관리 서비스 개요
 

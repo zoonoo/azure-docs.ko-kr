@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: c6e35d688581d0839e12806117e63c7d71fbc459
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 54bb0b4f21752b91ceb9d4004c153ff4d95006aa
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231504"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976769"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Azure Resource Graph 쿼리 언어 이해
 
@@ -54,9 +53,9 @@ Resource Graph에서 사용하는 쿼리 언어를 알아보는 가장 좋은 �
 
 ## <a name="escape-characters"></a>이스케이프 문자
 
-`.` 또는`$`를 포함 하는 속성과 같은 일부 속성 이름은 쿼리에서 래핑해야 하거나 이스케이프 해야 합니다. 그렇지 않으면 속성 이름이 잘못 해석 되어 예상한 결과를 제공 하지 않습니다.
+@No__t-0 또는 `$`을 포함 하는 속성 이름 (예:)은 쿼리에서 래핑해야 하거나 이스케이프 해야 합니다. 그렇지 않으면 속성 이름이 잘못 해석 되 고 예상 된 결과를 제공 하지 않습니다.
 
-- `.`-다음과 같이 속성 이름을 래핑합니다.`['propertyname.withaperiod']`
+- `.`-`['propertyname.withaperiod']`과 같이 속성 이름을 래핑합니다.
   
   _Odata_속성을 래핑하는 쿼리 예제:
 
@@ -68,17 +67,17 @@ Resource Graph에서 사용하는 쿼리 언어를 알아보는 가장 좋은 �
 
   - **bash** - `\`
 
-    Bash에서 속성  _\$형식을_ 이스케이프 하는 예제 쿼리는 다음과 같습니다.
+    Bash에서 _\$type_ 속성을 이스케이프 처리 하는 예제 쿼리입니다.
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
     ```
 
-  - **cmd** -문자를 `$` 이스케이프 하지 않습니다.
+  - **cmd** -`$` 문자를 이스케이프 하지 않습니다.
 
   - **PowerShell** - ``` ` ```
 
-    PowerShell에서 속성  _\$형식을_ 이스케이프 하는 예제 쿼리는 다음과 같습니다.
+    PowerShell에서 _\$type_ 속성을 이스케이프 처리 하는 예제 쿼리입니다.
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type

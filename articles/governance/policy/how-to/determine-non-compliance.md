@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: a0faaeee369a2227f6018141e5aa5d18c9037e9d
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 556a8029b9b5f831ac3ace7ed0fcc474fb2e262e
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161989"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978103"
 ---
 # <a name="determine-causes-of-non-compliance"></a>규정 비준수의 원인 확인
 
@@ -192,7 +191,7 @@ Audit that an application is installed inside Windows VMs.                Compli
 Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
 ```
 
-## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>변경 내용 (미리 보기)
+## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/> 변경 기록 (미리 보기)
 
 새 **공개 미리 보기**의 일부로, [전체 모드 삭제](../../../azure-resource-manager/complete-mode-deletion.md)를 지 원하는 모든 Azure 리소스에 대 한 최근 14 일간의 변경 기록을 사용할 수 있습니다. 변경 기록은 변경이 검색된 시간 및 각 변경의 _시각적 차이_에 대한 세부 정보를 제공합니다. 변경 내용 검색은 리소스 관리자 속성이 추가, 제거 또는 변경 될 때 트리거됩니다.
 

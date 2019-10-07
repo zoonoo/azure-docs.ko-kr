@@ -7,13 +7,12 @@ ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 21c5ad69a5e2b09e973b7b348690f554fca5dbe2
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: e2109c5b524c0b38886327bf4c1ea7087380b40f
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802319"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978237"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>영국 공식 및 영국 NHS 청사진 샘플 배포
 
@@ -96,7 +95,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 테이블은 청사진 아티팩트 매개 변수의 목록을 제공합니다.
 
-아티팩트 이름|아티팩트 형식|매개 변수 이름|Description|
+아티팩트 이름|아티팩트 형식|매개 변수 이름|설명|
 |-|-|-|-|
 |영국 공식 또는 영국 NHS에 대 한 청사진 이니셔티브|정책 할당 |진단 로그를 감사 하는 리소스 유형 (정책: 영국 공식 또는 영국 NHS에 대 한 청사진 이니셔티브 |진단 로그 설정이 사용 되는 경우 감사할 리소스 종류 목록입니다.  허용 되는 값은 [Azure 진단 로그에 대해 지원 되는 서비스, 스키마 및 범주](../../../../azure-monitor/platform/diagnostic-logs-schema.md)를 참조 하세요. |
 |\[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포 |정책 할당 |선택 사항: 범위에 추가할 Linux OS가 지원 되는 VM 이미지 목록 (정책: \[미리 보기\]: Linux Vm에 대 한 Log Analytics 에이전트 배포) |필드 기본값은 _none_입니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../../../azure-monitor/learn/quick-create-workspace.md)를 참조 하세요. |
@@ -107,8 +106,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 UK 공식 및 영국 NHS 청사진 샘플을 배포 하는 단계를 검토 했으므로 다음 문서를 방문 하 여 개요 및 컨트롤 매핑에 대해 알아보세요.
 
 > [!div class="nextstepaction"]
-> [Uk 공식 및 영국 nhs 청사진-개요](./index.md)
-> [영국 공식 및 영국 nhs 청사진-컨트롤 매핑](./control-mapping.md)
+> [UK 공식 및 영국 NHS 청사진-개요](./index.md)
+> [영국 공식 및 영국 Nhs 청사진-컨트롤 매핑](./control-mapping.md)
 
 청사진 및 사용 방법에 대한 추가 문서:
 

@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: 06a5ffbef2b841acc7ea7ecc82d05dfccbc0cab1
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 991cfb54dc511c284c5f5d0cf1807d5dd42b34ea
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147012"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978066"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -26,7 +25,7 @@ Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효�
 - [거부](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [사용 안 함](#disabled)
-- [EnforceRegoPolicy](#enforceregopolicy) 모드
+- [EnforceRegoPolicy](#enforceregopolicy) (미리 보기)
 - [변경](#modify)
 
 ## <a name="order-of-evaluation"></a>평가 순서
@@ -97,7 +96,7 @@ Azure Resource Manager를 통해 리소스를 만들거나 업데이트 하는 �
 
 ## <a name="modify"></a>수정
 
-Modify는 만들거나 업데이트 하는 동안 리소스에 대 한 태그를 추가, 업데이트 또는 제거 하는 데 사용 됩니다. 일반적인 예는 costCenter와 같은 리소스에 대 한 태그를 업데이트 하는 것입니다. 수정 정책은 항상 `mode` _인덱싱된_로 설정 되어야 합니다. 기존 비준수 리소스는 [재구성 작업](../how-to/remediate-resources.md)을 통해 수정할 수 있습니다.
+Modify는 만들거나 업데이트 하는 동안 리소스에 대 한 태그를 추가, 업데이트 또는 제거 하는 데 사용 됩니다. 일반적인 예는 costCenter와 같은 리소스에 대 한 태그를 업데이트 하는 것입니다. 수정 정책에는 항상 _인덱싱된_로 설정 된 @no__t 0이 있어야 합니다. 기존 비준수 리소스는 [재구성 작업](../how-to/remediate-resources.md)을 통해 수정할 수 있습니다.
 단일 수정 규칙에는 원하는 수의 작업이 있을 수 있습니다.
 
 > [!IMPORTANT]
@@ -116,14 +115,14 @@ Modify는 만들거나 업데이트 하는 동안 리소스에 대 한 태그를
 - **roleDefinitionIds** [required]
   - 이 속성은 구독에서 액세스할 수 있는 역할 기반 액세스 제어 역할 ID와 일치하는 문자열 배열을 포함해야 합니다. 자세한 내용은 [수정 - 정책 정의 구성](../how-to/remediate-resources.md#configure-policy-definition)을 참조하세요.
   - 정의 된 역할에는 [참가자](../../../role-based-access-control/built-in-roles.md#contributor) 역할에 부여 된 모든 작업이 포함 되어야 합니다.
-- **작업** 하다
+- **작업** [필수]
   - 일치 하는 리소스에서 완료할 모든 태그 작업의 배열입니다.
   - 속성
-    - **작업** 하다
+    - **작업** [필수]
       - 일치 하는 리소스에 대해 수행할 작업을 정의 합니다. 옵션은 _Addorreplace_, _Add_, _Remove_입니다. _추가는 추가_ [효과와 유사](#append) 하 게 동작 합니다.
-    - **필드** 하다
+    - **필드** [필수]
       - 추가, 대체 또는 제거할 태그입니다. 태그 이름은 다른 [필드](./definition-structure.md#fields)에 대 한 동일한 명명 규칙을 따라야 합니다.
-    - **값** 필드
+    - **값** (선택 사항)
       - 태그를 설정할 값입니다.
       - **작업이** _addorreplace_ 또는 _Add_인 경우이 속성은 필수입니다.
 
@@ -131,9 +130,9 @@ Modify는 만들거나 업데이트 하는 동안 리소스에 대 한 태그를
 
 **작업** 속성 배열을 사용 하면 단일 정책 정의에서 여러 가지 방법으로 여러 태그를 변경할 수 있습니다. 각 작업은 **작업**, **필드**및 **값** 속성으로 구성 됩니다. 작업은 수정 작업이 태그에 수행할 작업을 결정 하 고, 필드는 변경 되는 태그를 결정 하며, 값은 해당 태그에 대 한 새 설정을 정의 합니다. 아래 예제에서는 다음과 같은 태그를 변경 합니다.
 
-- 다른 값이 이미 있는 경우에도 태그를"Test"로설정합니다.`environment`
-- 태그 `TempResource`를 제거 합니다.
-- 정책 할당에 구성 된 정책 매개 변수 _DeptName_ 에 태그를설정합니다.`Dept`
+- 다른 값이 이미 있는 경우에도 `environment` 태그를 "Test"로 설정 합니다.
+- -0 @no__t 태그를 제거 합니다.
+- @No__t-0 태그를 정책 할당에 구성 된 정책 매개 변수 _DeptName_ 설정 합니다.
 
 ```json
 "details": {
@@ -167,7 +166,7 @@ Modify는 만들거나 업데이트 하는 동안 리소스에 대 한 태그를
 
 ### <a name="modify-examples"></a>예제 수정
 
-예제 1: 태그를 `environment` 추가 하 고 기존 `environment` 태그를 "Test"로 바꿉니다.
+예제 1: @No__t-0 태그를 추가 하 고 기존 `environment` 태그를 "Test"로 바꿉니다.
 
 ```json
 "then": {
@@ -187,7 +186,7 @@ Modify는 만들거나 업데이트 하는 동안 리소스에 대 한 태그를
 }
 ```
 
-예 2: 태그를 제거 하 고 `environment` 태그를 추가 하거나 기존 `environment` 태그를 매개 변수화 된 값으로 바꿉니다. `env`
+예 2: @No__t-0 태그를 제거 하 고 `environment` 태그를 추가 하거나 기존 `environment` 태그를 매개 변수가 있는 값으로 바꿉니다.
 
 ```json
 "then": {
@@ -241,7 +240,7 @@ Modify는 만들거나 업데이트 하는 동안 리소스에 대 한 태그를
 
 ### <a name="audit-evaluation"></a>감사 평가
 
-Audit는 리소스를 만들거나 업데이트 하는 동안 Azure Policy에서 확인 한 마지막 효과입니다. 그런 다음 리소스를 리소스 공급자에 게 보냅니다. Azure Policy 감사는 리소스 요청 및 평가 주기와 동일하게 작동합니다. Azure Policy 작업을 `Microsoft.Authorization/policies/audit/action` 활동 로그에 추가 하 고 리소스를 비규격으로 표시 합니다.
+Audit는 리소스를 만들거나 업데이트 하는 동안 Azure Policy에서 확인 한 마지막 효과입니다. 그런 다음 리소스를 리소스 공급자에 게 보냅니다. Azure Policy 감사는 리소스 요청 및 평가 주기와 동일하게 작동합니다. Azure Policy 작업 로그에 `Microsoft.Authorization/policies/audit/action` 작업을 추가 하 고 리소스를 비규격으로 표시 합니다.
 
 ### <a name="audit-properties"></a>감사 속성
 
@@ -263,7 +262,7 @@ AuditIfNotExists는 **if** 조건과 일치하는 리소스에서 감사를 활�
 
 ### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists 평가
 
-리소스 공급 기업이 리소스 만들기 또는 업데이트 요청을 처리하고 성공 상태 코드를 반환한 후 AuditIfNotExists가 실행됩니다. 관련된 리소스가 없거나 **ExistenceCondition**에서 정의된 리소스가 true로 평가되지 않는 경우 감사가 발생합니다. Azure Policy는 감사 `Microsoft.Authorization/policies/audit/action` 효과와 동일한 방식으로 작업을 활동 로그에 추가 합니다. 트리거되는 경우 **if** 조건을 충족하는 리소스는 비호환으로 표시되는 리소스입니다.
+리소스 공급 기업이 리소스 만들기 또는 업데이트 요청을 처리하고 성공 상태 코드를 반환한 후 AuditIfNotExists가 실행됩니다. 관련된 리소스가 없거나 **ExistenceCondition**에서 정의된 리소스가 true로 평가되지 않는 경우 감사가 발생합니다. Azure Policy는 감사 효과와 동일한 방식으로 활동 로그에 `Microsoft.Authorization/policies/audit/action` 작업을 추가 합니다. 트리거되는 경우 **if** 조건을 충족하는 리소스는 비호환으로 표시되는 리소스입니다.
 
 ### <a name="auditifnotexists-properties"></a>AuditIfNotExists 속성
 
@@ -274,7 +273,7 @@ AuditIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
   - **Details. type** 이 if condition 리소스 아래의 리소스 유형인 **경우** 정책은 평가 된 리소스의 범위 내에서이 **형식의** 리소스를 쿼리 합니다. 그렇지 않으면 평가 된 리소스와 동일한 리소스 그룹 내에서 정책 쿼리가 실행 됩니다.
 - **Name**(옵션)
   - 일치하는 리소스의 정확한 이름을 지정하고 정책에서 지정된 형식의 모든 리소스 대신 하나의 특정 리소스를 인출하도록 합니다.
-  - **If. field. 형식** 및 **. details. 형식의** 조건 값이 일치 하는 경우에는 **이름이** _필요_ 하며 `[field('name')]`이 여야 합니다. 그러나 [감사](#audit) 효과를 대신 고려해 야 합니다.
+  - **If. field. 형식** 및 **. details. 형식** 에 대 한 조건 값이 일치 하는 경우에는 **이름이** _필요_ 하며-4를 @no__t 해야 합니다. 그러나 [감사](#audit) 효과를 대신 고려해 야 합니다.
 - **ResourceGroupName**(옵션)
   - 다른 리소스 그룹에서 오는 관련된 리소스의 일치를 허용합니다.
   - **type**이 **if** 조건 리소스의 아래에 있는 리소스인 경우 적용되지 않습니다.
@@ -345,7 +344,7 @@ DeployIfNotExists 효과의 **details** 속성에는 일치 시킬 관련 리소
   - **if** 조건 리소스 아래의 리소스를 인출하려는 시도로 시작한 다음, **if** 리소스 조건와 동일한 리소스 그룹 내에서 쿼리합니다.
 - **Name**(옵션)
   - 일치하는 리소스의 정확한 이름을 지정하고 정책에서 지정된 형식의 모든 리소스 대신 하나의 특정 리소스를 인출하도록 합니다.
-  - **If. field. 형식** 및 **. details. 형식의** 조건 값이 일치 하는 경우에는 **이름이** _필요_ 하며 `[field('name')]`이 여야 합니다.
+  - **If. field. 형식** 및 **. details. 형식** 에 대 한 조건 값이 일치 하는 경우에는 **이름이** _필요_ 하며-4를 @no__t 해야 합니다.
 - **ResourceGroupName**(옵션)
   - 다른 리소스 그룹에서 오는 관련된 리소스의 일치를 허용합니다.
   - **type**이 **if** 조건 리소스의 아래에 있는 리소스인 경우 적용되지 않습니다.
@@ -432,7 +431,7 @@ DeployIfNotExists 효과의 **details** 속성에는 일치 시킬 관련 리소
 
 ## <a name="enforceregopolicy"></a>EnforceRegoPolicy
 
-이 효과는의 `Microsoft.ContainerService.Data`정책 정의 *모드* 와 함께 사용 됩니다. [Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego) 로 정의 된 허용 제어 규칙을 전달 하 여 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)에서 [정책 에이전트](https://www.openpolicyagent.org/) (opa)를 여는 데 사용 됩니다.
+이 효과는 `Microsoft.ContainerService.Data`의 정책 정의 *모드* 에서 사용 됩니다. [Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego) 로 정의 된 허용 제어 규칙을 전달 하 여 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)에서 [정책 에이전트](https://www.openpolicyagent.org/) (opa)를 여는 데 사용 됩니다.
 
 > [!NOTE]
 > [Kubernetes에 대 한 Azure Policy](rego-for-aks.md) 는 공개 미리 보기로 제공 되며 기본 제공 정책 정의만 지원 합니다.
@@ -448,9 +447,9 @@ EnforceRegoPolicy 효과의 **details** 속성에는 rego 허용 제어 규칙�
 
 - **policyId** [required]
   - Rego 허용 제어 규칙에 매개 변수로 전달 되는 고유 이름입니다.
-- **정책** 하다
+- **정책** [필수]
   - Rego 허용 제어 규칙의 URI를 지정 합니다.
-- **policyParameters** 필드
+- **policyParameters** [선택 사항]
   - Rego 정책에 전달할 매개 변수 및 값을 정의 합니다.
 
 ### <a name="enforceregopolicy-example"></a>EnforceRegoPolicy 예제

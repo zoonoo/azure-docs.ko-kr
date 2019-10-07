@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: 695e04dcbc7762c85dd0dd9aaff6e5fd9fe99348
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 047e9cab8d7776fc3b5353aebc571e28ad780ae8
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155570"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977945"
 ---
 # <a name="programmatically-create-policies"></a>프로그래밍 방식으로 정책 만들기
 
@@ -91,7 +90,7 @@ ms.locfileid: "71155570"
 
    _ContosoRG_를 원하는 리소스 그룹의 이름으로 바꿉니다.
 
-   의`New-AzPolicyAssignment` **범위** 매개 변수는 관리 그룹, 구독, 리소스 그룹 또는 단일 리소스와 함께 작동 합니다. 이 매개 변수는 `Get-AzResourceGroup`의 **ResourceId** 속성이 반환하는 전체 리소스 경로를 사용합니다. 각 컨테이너에 대한 **Scope** 패턴은 다음과 같습니다. `{rName}`, `{rgName}`, `{subId}` 및 `{mgName}`을 각각 리소스 이름, 리소스 그룹 이름, 구독 ID 및 관리 그룹 이름으로 바꿉니다.
+   @No__t-1의 **범위** 매개 변수는 관리 그룹, 구독, 리소스 그룹 또는 단일 리소스와 함께 작동 합니다. 이 매개 변수는 `Get-AzResourceGroup`의 **ResourceId** 속성이 반환하는 전체 리소스 경로를 사용합니다. 각 컨테이너에 대한 **Scope** 패턴은 다음과 같습니다. `{rName}`, `{rgName}`, `{subId}` 및 `{mgName}`을 각각 리소스 이름, 리소스 그룹 이름, 구독 ID 및 관리 그룹 이름으로 바꿉니다.
    `{rType}`은 리소스의 **리소스 종류**로 바꿉니다(예: VM에 대한 `Microsoft.Compute/virtualMachines`).
 
    - 리소스 - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`

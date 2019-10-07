@@ -6,20 +6,19 @@ ms.author: dacoulte
 ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: b2b38fe2d9a2bf4c645e5b1cda4b8fba356353d3
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 27cf1539fc98b2ad7f1b82e194989c1619ab99fb
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181193"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980701"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
 리소스 정책 정의는 Azure Policy에서 리소스에 대한 규칙을 설정하는 데 사용됩니다. 각 정의는 리소스 규정 준수 및 리소스가 규정을 준수하지 않을 때 적용되는 영향에 대해 설명합니다.
 규칙을 정의하여 비용을 제어하고 리소스를 보다 쉽게 관리할 수 있습니다. 예를 들어, 특정 유형의 가상 머신만 허용되게 지정할 수 있습니다. 또는 모든 리소스가 특정 태그를 갖도록 요구할 수 있습니다. 정책은 모든 자식 리소스에 의해 상속됩니다. 리소스 그룹에 정책을 적용하면 해당 리소스 그룹의 모든 리소스에 해당 정책을 적용할 수 있습니다.
 
-여기에서는 Azure Policy에서 사용하는 스키마를 찾을 수 있습니다. [https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-01-01/policydefinitions](/azure/templates/microsoft.authorization/2019-01-01/policydefinitions)
+정책 정의 스키마는 [https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json) 에 있습니다.
 
 JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 요소가 포함됩니다.
 
@@ -84,7 +83,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 ### <a name="resource-provider-modes"></a>리소스 공급자 모드
 
-현재 유일 하 게 지원 되는 리소스 `Microsoft.ContainerService.Data` 공급자 모드는 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)에서 허용 컨트롤러 규칙을 관리 하기 위한 것입니다.
+현재 지원 되는 리소스 공급자 모드는 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)에서 허용 컨트롤러 규칙을 관리 하는 데 0 @no__t입니다.
 
 > [!NOTE]
 > [Kubernetes에 대 한 Azure Policy](rego-for-aks.md) 는 공개 미리 보기로 제공 되며 기본 제공 정책 정의만 지원 합니다.
@@ -247,7 +246,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 **like** 및 **notLike** 조건을 사용하는 경우 값에 와일드카드 `*`를 제공합니다.
 값에 와일드카드 `*`를 두 개 이상 포함하면 안 됩니다.
 
-**Match** 및 **notmatch** 조건을 사용 하는 경우 `#` `.` 숫자 `?` 를 일치 시키고 문자를 일치 시키고 모든 문자를 일치 시키고 기타 모든 문자를 해당 실제 문자와 일치 하도록를 제공 합니다.
+**Match** 및 **notmatch** 조건을 사용 하는 경우 `#`를 제공 하 여 숫자를 일치 시키고, @no__t 문자에 대 한 `?`을 제공 하 고, 모든 문자를 일치 시키고, 다른 모든 문자를 해당 실제 문자와 일치 시킵니다.
 **match** 및 **notMatch**는 대/소문자를 구분합니다. 대/소문자를 구분하지 않는 대안은 **matchInsensitively** 및 **notMatchInsensitively**에서 확인할 수 있습니다. 예를 들어 [여러 이름 패턴 허용](../samples/allow-multiple-name-patterns.md)을 참조하세요.
 
 ### <a name="fields"></a>필드
@@ -367,7 +366,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 }
 ```
 
-위의 예제 정책 규칙은 [substring ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) 을 사용 하 여 **이름의** 처음 세 문자를 **abc**와 비교 합니다. **Name** 이 3 자 보다 짧으면 함수는 `substring()` 오류를 발생 합니다. 이 오류가 발생 하면 정책이 **거부** 효과가 됩니다.
+위의 예제 정책 규칙은 [substring ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) 을 사용 하 여 **이름의** 처음 세 문자를 **abc**와 비교 합니다. **Name** 이 3 자 보다 짧으면 `substring()` 함수는 오류를 발생 합니다. 이 오류가 발생 하면 정책이 **거부** 효과가 됩니다.
 
 대신 [if ()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) 함수를 사용 하 여 **이름이** 3 자 **보다 짧아 오류를 발생** 시 키 지 않고 abc의 처음 세 문자가 **abc** 와 같은지 확인 합니다.
 
@@ -385,7 +384,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 }
 ```
 
-수정 된 정책 규칙 `if()` 을 사용 하 여은 `substring()` 3 자 미만의 값을 가져오기 전에 **이름** 길이를 확인 합니다. **Name** 이 너무 짧으면 "abc로 시작 하지 않음" 값이 반환 되 고 **abc**와 비교 됩니다. **Abc** 로 시작 하지 않는 짧은 이름의 리소스는 여전히 정책 규칙에 실패 하지만 평가 하는 동안 더 이상 오류가 발생 하지 않습니다.
+수정 된 정책 규칙을 사용 하 `if()`은 3 자 미만의 값에 `substring()`를 가져오기 전에 **이름** 길이를 확인 합니다. **Name** 이 너무 짧으면 "abc로 시작 하지 않음" 값이 반환 되 고 **abc**와 비교 됩니다. **Abc** 로 시작 하지 않는 짧은 이름의 리소스는 여전히 정책 규칙에 실패 하지만 평가 하는 동안 더 이상 오류가 발생 하지 않습니다.
 
 ### <a name="effect"></a>영향
 
@@ -517,7 +516,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
 ' Normal ' 별칭은 필드를 단일 값으로 나타냅니다. 이 필드는 전체 값 집합을 정의 된 대로 정확 하 게 지정 해야 하는 경우에만 정확 하 게 일치 하는 비교 시나리오를 위한 것입니다.
 
-**[\*]** 별칭을 사용 하면 배열의 각 요소 값 및 각 요소의 특정 속성을 비교할 수 있습니다. 이 방법을 사용 하면 ' 있는 경우 ', ' 있는 경우 ', ' 모든 ' 시나리오에 대 한 요소 속성을 비교할 수 있습니다. 예를 들어 **\*ipRules []** 를 사용 하는 경우, 예를 들어 모든 _동작이_ _거부_되는지 여부를 확인 하 _는 것을_ 확인할 수 있습니다. 이 샘플 규칙은 **ipRules [\*]. value** 가 **10.0.4.1** 에 일치 하는지 확인 하 고 하나 이상의 일치 항목을 찾을 수 없는 경우에만 **effectType** 을 적용 합니다.
+**[@No__t-1]** 별칭을 사용 하면 배열의 각 요소 값 및 각 요소의 특정 속성을 비교할 수 있습니다. 이 방법을 사용 하면 ' 있는 경우 ', ' 있는 경우 ', ' 모든 ' 시나리오에 대 한 요소 속성을 비교할 수 있습니다. **IpRules [\*]** 을 사용 하는 경우 예를 들어 모든 _동작이_ _거부_인지 확인 하는 것이 고, 존재 하는 규칙 수 또는 IP _값_ 에 대해 걱정 하지 않습니다. 이 샘플 규칙은 **ipRules [\*]** **10.0.4.1** 의 일치 항목을 확인 하 고 하나 이상의 일치 항목을 찾을 수 없는 경우에만 **effectType** 을 적용 합니다.
 
 ```json
 "policyRule": {

@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: da4e9626b2bf5b180cddba012af81059dd8b67fe
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 6d2395dcfae5d512412048a683a7f1397967499e
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883275"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978656"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>을 사용 하 여 Azure Time Series Insights 미리 보기 환경에서 데이터 쿼리C#
 
@@ -31,7 +31,7 @@ ms.locfileid: "68883275"
 1. 웹 소켓 요청의 예로, 관심 환경에 대해 이벤트 집계 데이터를 요청합니다. 전체 가용성 시간 범위에 대한 데이터가 요청됩니다.
 
 > [!NOTE]
-> 이 예제 코드는 에서도 사용할 수 [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample)있습니다.
+> 이 예제 코드는 [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample)에서도 사용할 수 있습니다.
 
 ## <a name="c-example"></a>C# 예제
 
@@ -44,4 +44,4 @@ ms.locfileid: "68883275"
 
 - 쿼리에 대 한 자세한 내용은 [쿼리 API 참조를 참조](https://docs.microsoft.com/rest/api/time-series-insights/preview-query)하세요.
 
-- Time Series Insights에 [JavaScript 단일 페이지 앱을 연결](tutorial-create-tsi-sample-spa.md) 하는 방법을 참조 하세요.
+- [클라이언트 SDK를 사용 하 여 JavaScript 앱을 연결 하 여](https://github.com/microsoft/tsiclient) Time Series Insights 하는 방법을 참조 하세요.

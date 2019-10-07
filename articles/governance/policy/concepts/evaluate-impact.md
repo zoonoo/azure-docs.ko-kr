@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: b24a0e9f3f557ea2ac425db7caeed63959d18dd8
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 2aee31d3e874f709d5ec30ed4ddc0ba0445d4130
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181406"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980756"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy"></a>새 Azure 정책의 영향 평가
 
@@ -38,7 +37,7 @@ Azure Policy은 Azure 리소스를 비즈니스 표준으로 관리 하 고 규�
 ## <a name="audit-existing-resources"></a>기존 리소스 감사
 
 새 정책 정의를 사용 하 여 새로운 또는 업데이트 된 리소스를 관리 하기 전에 테스트 리소스 그룹과 같은 기존 리소스의 제한 된 하위 집합을 평가 하는 방법을 확인 하는 것이 가장 좋습니다. 정책 할당에서 [적용 모드](./assignment-structure.md#enforcement-mode)
-사용_안 함_ (DoNotEnforce)을 사용 [하 여 트리거](./effects.md) 또는 활동 로그 항목이 생성 되지 않도록 합니다.
+ 사용_안 함_ (DoNotEnforce)을 사용 [하 여 트리거](./effects.md) 또는 활동 로그 항목이 생성 되지 않도록 합니다.
 
 이 단계를 통해 작업 흐름에 영향을 주지 않고 기존 리소스에 대 한 새 정책의 호환성 결과를 평가할 수 있습니다. 호환 되는 리소스가 비규격 (_거짓 긍정_)으로 표시 되 고 비준수로 간주 되는 모든 리소스가 올바르게 표시 되는지 확인 합니다.
 리소스의 초기 하위 집합이 예상 대로 유효성을 검사 한 후에는 모든 기존 리소스에 대 한 평가를 천천히 확장 합니다.

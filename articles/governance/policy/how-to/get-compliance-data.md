@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: d9aadc477c3f39cfbb108d2f3eece0c9e0b06264
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: ff50619d7b3d5bc803e8ee8d9e4cbf4389a4191f
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70239156"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978095"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 준수 데이터 가져오기
 
@@ -91,9 +90,9 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 | 리소스 상태 | 영향 | 정책 평가 | 준수 상태 |
 | --- | --- | --- | --- |
 | 있음 | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | 비준수 |
-| 있음 | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | 거짓 | 준수 |
+| 있음 | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | 준수 |
 | 단추를 사용하여 새 | Audit, AuditIfNotExist\* | True | 비준수 |
-| 단추를 사용하여 새 | Audit, AuditIfNotExist\* | 거짓 | 준수 |
+| 단추를 사용하여 새 | Audit, AuditIfNotExist\* | False | 준수 |
 
 \* Append, DeployIfNotExist 및 AuditIfNotExist 효과는 IF 문이 TRUE여야 합니다.
 또한 이 효과는 비준수가 되려면 존재 조건이 FALSE가 되어야 합니다. TRUE인 경우 IF 조건이 관련 리소스에 대한 존재 조건의 평가를 트리거합니다.
@@ -313,7 +312,7 @@ Connect-AzAccount
 - `Start-AzPolicyRemediation`
 - `Stop-AzPolicyRemediation`
 
-예제: 가장 많은 수의 호환되지 않는 리소스를 포함하는 가장 많이 할당된 정책에 대한 상태 요약 가져오기
+예: 가장 많은 수의 호환되지 않는 리소스를 포함하는 가장 많이 할당된 정책에 대한 상태 요약 가져오기
 
 ```azurepowershell-interactive
 PS> Get-AzPolicyStateSummary -Top 1
@@ -324,7 +323,7 @@ PolicyAssignments     : {/subscriptions/{subscriptionId}/resourcegroups/RG-Tags/
                         oft.authorization/policyassignments/37ce239ae4304622914f0c77}
 ```
 
-예제: 가장 최근에 평가된 리소스에 대한 상태 레코드 가져오기(기본값은 내림차순 타임스탬프 기준).
+예: 가장 최근에 평가된 리소스에 대한 상태 레코드 가져오기(기본값은 내림차순 타임스탬프 기준).
 
 ```azurepowershell-interactive
 PS> Get-AzPolicyState -Top 1
@@ -350,7 +349,7 @@ PolicyDefinitionAction     : deny
 PolicyDefinitionCategory   : tbd
 ```
 
-예제: 호환되지 않는 모든 가상 네트워크 리소스에 대한 세부 정보 가져오기
+예: 호환되지 않는 모든 가상 네트워크 리소스에 대한 세부 정보 가져오기
 
 ```azurepowershell-interactive
 PS> Get-AzPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
@@ -376,7 +375,7 @@ PolicyDefinitionAction     : deny
 PolicyDefinitionCategory   : tbd
 ```
 
-예제: 특정 날짜 후에 발생한 호환되지 않는 가상 네트워크 리소스와 관련된 이벤트 가져오기
+예: 특정 날짜 후에 발생한 호환되지 않는 가상 네트워크 리소스와 관련된 이벤트 가져오기
 
 ```azurepowershell-interactive
 PS> Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
@@ -413,7 +412,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor 로그
 
-구독에 연결 된 [활동 로그 분석 솔루션](../../../azure-monitor/platform/activity-log-collect.md) `AzureActivity` 에서 `AzureActivity` [Log Analytics 작업 영역](../../../log-analytics/log-analytics-overview.md) 을 사용 하는 경우 간단한 kusto 쿼리 및를 사용 하 여 평가 주기에서 비준수 결과를 볼 수도 있습니다. 테이블. Azure Monitor 로그의 세부 정보를 사용하여 비준수 여부를 감시하도록 경고를 구성할 수 있습니다.
+구독에 연결 된 [활동 로그 분석 솔루션](../../../azure-monitor/platform/activity-log-collect.md) 에서 `AzureActivity` 인 [Log Analytics 작업 영역](../../../log-analytics/log-analytics-overview.md) 을 사용 하는 경우 간단한 kusto 쿼리와 `AzureActivity` 테이블을 사용 하 여 평가 주기에서 비준수 결과를 볼 수도 있습니다. Azure Monitor 로그의 세부 정보를 사용하여 비준수 여부를 감시하도록 경고를 구성할 수 있습니다.
 
 
 ![Azure Monitor 로그를 사용 하 여 Azure Policy 준수](../media/getting-compliance-data/compliance-loganalytics.png)

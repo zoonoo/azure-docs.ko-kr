@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: d6ca7827200815cf9b9b1c7ac697d06f9c6b306d
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 219a3c56f9e4e4c9e132fa759b017fac63ade766
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147059"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977984"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure Policy를 사용하여 비준수 리소스 수정
 
@@ -161,7 +160,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
 ### <a name="create-a-remediation-task-through-azure-cli"></a>Azure CLI를 통해 재구성 작업을 만듭니다.
 
-Azure CLI를 사용 하 여 **수정 작업** 을 만들려면 `az policy remediation` 명령을 사용 합니다. 를 `{subscriptionId}` 구독`{myAssignmentId}` ID로 바꾸고를 **deployifnotexists** 로 바꾸고 정책 할당 ID를 **수정** 합니다.
+Azure CLI를 사용 하 여 **수정 작업** 을 만들려면 `az policy remediation` 명령을 사용 합니다. @No__t-0을 구독 ID로 바꾸고 `{myAssignmentId}`을 **Deployifnotexists** 로 바꾸고 정책 할당 ID를 **수정** 합니다.
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -174,7 +173,7 @@ az policy remediation create --name myRemediation --policy-assignment '/subscrip
 
 ### <a name="create-a-remediation-task-through-azure-powershell"></a>Azure PowerShell를 통해 재구성 작업을 만듭니다.
 
-Azure PowerShell를 사용 하 여 **수정 작업** 을 만들려면 `Start-AzPolicyRemediation` 명령을 사용 합니다. 를 `{subscriptionId}` 구독`{myAssignmentId}` ID로 바꾸고를 **deployifnotexists** 로 바꾸고 정책 할당 ID를 **수정** 합니다.
+Azure PowerShell를 사용 하 여 **수정 작업** 을 만들려면 `Start-AzPolicyRemediation` 명령을 사용 합니다. @No__t-0을 구독 ID로 바꾸고 `{myAssignmentId}`을 **Deployifnotexists** 로 바꾸고 정책 할당 ID를 **수정** 합니다.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

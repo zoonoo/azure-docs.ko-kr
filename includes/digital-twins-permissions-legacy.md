@@ -7,15 +7,17 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 08/16/2019
+ms.date: 10/03/2019
 ms.custom: include file
-ms.openlocfilehash: 690ff402c632bfc28f1a9a218677e9772f5a3200
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 7e0396c032a9f3dc26b82648604624446d6ad191
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949934"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978605"
 ---
+## <a name="azure-active-directory-legacy-registration"></a>Azure Active Directory 레거시 등록
+
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **Azure Active Directory**를 연 다음, **속성** 창을 엽니다. **디렉터리 ID**를 임시 파일에 복사합니다. 이 값은 다음 섹션에서 샘플 애플리케이션을 구성하는 데 사용됩니다.
 
     [![Azure Active Directory Directory ID](./media/digital-twins-permissions-legacy/aad-app-reg-tenant.png)](./media/digital-twins-permissions-legacy/aad-app-reg-tenant.png#lightbox)

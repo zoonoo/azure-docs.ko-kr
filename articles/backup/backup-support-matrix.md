@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 6b79b34b1db6c201a8f132e4c608e251edb3666a
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 9671ddcf98ae97c0a3df49cce008faf403f5dcd2
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735415"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981103"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup에 대 한 지원 매트릭스
 
@@ -45,7 +45,7 @@ Azure Backup는 Recovery Services 자격 증명 모음을 사용 하 여 백업�
 
 온-프레미스 컴퓨터를 백업 하려는 경우 다음 같습니다 지원 됩니다.
 
-**Machine** | **백업 대상** | **위치** | **기능**
+**머신** | **백업 대상** | **Location**: | **기능**
 --- | --- | --- | ---
 **MARS 에이전트를 사용한 Windows 머신 직접 백업** | 파일, 폴더, 시스템 상태 | Recovery Services 자격 증명 모음에 백업 합니다. | 하루에 세 번 백업<br/><br/> 앱 인식 백업 없음<br/><br/> 파일, 폴더, 볼륨 복원
 **MARS 에이전트를 사용한 Linux 머신 직접 백업** | 백업이 지원 되지 않음
@@ -59,13 +59,13 @@ Azure Backup는 Recovery Services 자격 증명 모음을 사용 하 여 백업�
 **제한** | **세부 정보**
 --- | ---
 **Azure VM 데이터 디스크** | 16 개로 제한
-**Azure VM 데이터 디스크 크기** | 개별 디스크는 최대 4095 GB를 사용할 수 있습니다.
+**Azure VM 데이터 디스크 크기** | VM의 모든 디스크에 대해 최대 30tb의 각 디스크 크기와 최대 256 TB를 결합 하 여 가상 머신의 백업을 지원 합니다.
 
 ### <a name="azure-vm-backup-options"></a>Azure VM 백업 옵션
 
 Azure Vm을 백업 하려는 경우 다음 같습니다 지원 됩니다.
 
-**Machine** | **백업 대상** | **위치** | **기능**
+**머신** | **백업 대상** | **Location**: | **기능**
 --- | --- | --- | ---
 **VM 확장을 사용 하 여 Azure VM 백업** | 전체 VM | 자격 증명 모음에 백업 합니다. | VM에 백업을 사용하도록 설정할 때 설치된 확장<br/><br/> 하루에 한 번 백업 합니다.<br/><br/> Windows Vm에 대 한 앱 인식 백업 Linux Vm에 대 한 파일 일치 백업 사용자 지정 스크립트를 사용 하 여 Linux 컴퓨터에 대 한 앱 일관성을 구성할 수 있습니다.<br/><br/> VM 또는 디스크를 복원 합니다.<br/><br/> Azure VM을 온-프레미스 위치에 백업할 수 없습니다.
 **MARS 에이전트를 사용 하 여 Azure VM 백업** | 파일, 폴더, 시스템 상태 | 자격 증명 모음에 백업 합니다. | 하루에 세 번 백업 합니다.<br/><br/> 전체 VM이 아닌 특정 파일 또는 폴더를 백업 하려는 경우 MARS 에이전트는 VM 확장과 함께 실행할 수 있습니다.
@@ -114,7 +114,7 @@ Azure Backup은 전송 중 및 미사용 데이터에 대 한 암호화를 지�
 - Azure Backup은 Azure Disk Encryption을 지원하며, Windows 가상 머신의 BitLocker와 Linux 가상 머신의 **dm-crypt**를 사용합니다.
 - 백 엔드에서 Azure Backup는 미사용 데이터를 보호 하는 [Azure Storage 서비스 암호화](../storage/common/storage-service-encryption.md)를 사용 합니다.
 
-**Machine** | **전송 중** | **저장**
+**머신** | **전송 중** | **저장**
 --- | --- | ---
 **DPM/MABS를 사용 하지 않는 온-프레미스 Windows 컴퓨터** | ![예][green] | ![예][green]
 **Azure VM** | ![예][green] | ![예][green]
@@ -128,7 +128,7 @@ Backup은 다음 표에 요약 된 것 처럼 백업 트래픽의 압축을 지�
 - Azure Vm의 경우 VM 확장은 저장소 네트워크를 통해 Azure storage 계정에서 직접 데이터를 읽으므로이 트래픽을 압축할 필요가 없습니다.
 - DPM 또는 MABS를 사용 하는 경우 데이터를 백업 하기 전에 압축 하 여 대역폭을 절약할 수 있습니다.
 
-**Machine** | **MABS/DPM에 압축(TCP)** | **자격 증명 모음으로 압축 (HTTPS)**
+**머신** | **MABS/DPM에 압축(TCP)** | **자격 증명 모음으로 압축 (HTTPS)**
 --- | --- | ---
 **온-프레미스 Windows 머신 직접 백업** | NA | ![예][green]
 **VM 확장을 사용 하 여 Azure Vm 백업** | NA | NA

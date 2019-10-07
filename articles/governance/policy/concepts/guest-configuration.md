@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: 51129f89f45d65007f8a7f37df0353121ebdbdd8
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: ac8d4d2519ce918a943cfe1e93ed2c5c7afd9a47
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338374"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978049"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -122,7 +121,7 @@ Azure Policy는 게스트 구성 리소스 공급자 **complianceStatus** 속성
 > [!NOTE]
 > **AuditIfNotExists** 정책에서 결과를 반환 하려면 **Deployifnotexists** 정책이 필요 합니다. **Deployifnotexists**가 없으면 **AuditIfNotExists** 정책에 "0/0" 리소스가 상태로 표시 됩니다.
 
-할당에 사용할 정의를 그룹화할 수 있도록, 게스트 구성을 위한 모든 기본 제공 정책은 이니셔티브에 포함됩니다. *[미리 보기]: Linux 및 Windows 컴퓨터* 내의 암호 보안 설정 감사는 18 개의 정책을 포함 합니다. 그리고 Window용 **DeployIfNotExists** 및 **AuditIfNotExists** 쌍 6개와 Linux용 쌍 3개가 있습니다. [정책 정의](definition-structure.md#policy-rule) 논리는 대상 운영 체제만 평가 되는지 확인 합니다.
+할당에 사용할 정의를 그룹화할 수 있도록, 게스트 구성을 위한 모든 기본 제공 정책은 이니셔티브에 포함됩니다. *[미리 보기]: Linux 및 Windows 컴퓨터 내에서 암호 보안 설정 감사 @ no__t-0에는 18 개의 정책이 포함 됩니다. 그리고 Window용 **DeployIfNotExists** 및 **AuditIfNotExists** 쌍 6개와 Linux용 쌍 3개가 있습니다. [정책 정의](definition-structure.md#policy-rule) 논리는 대상 운영 체제만 평가 되는지 확인 합니다.
 
 ### <a name="multiple-assignments"></a>여러 할당
 
@@ -141,11 +140,11 @@ Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindo
 
 Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
 
-여기서 `<version>` 는 현재 버전 번호를 참조 합니다.
+여기서 `<version>`은 현재 버전 번호를 참조 합니다.
 
 ### <a name="collecting-logs-remotely"></a>원격으로 로그 수집
 
-게스트 구성 구성 또는 모듈 문제를 해결 하는 첫 번째 단계는 `Test-GuestConfigurationPackage` [게스트 구성 패키지 테스트](../how-to/guest-configuration-create.md#test-a-guest-configuration-package)의 단계에 따라 cmdlet을 사용 하는 것입니다.
+게스트 구성 구성 또는 모듈 문제를 해결 하는 첫 번째 단계는 [게스트 구성 패키지 테스트](../how-to/guest-configuration-create.md#test-a-guest-configuration-package)의 단계에 따라 `Test-GuestConfigurationPackage` cmdlet을 사용 하는 것입니다.
 실패 한 경우 클라이언트 로그를 수집 하면 문제를 진단 하는 데 도움이 될 수 있습니다.
 
 #### <a name="windows"></a>Windows
