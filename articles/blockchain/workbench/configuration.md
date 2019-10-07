@@ -78,7 +78,7 @@ Azure Blockchain Workbench 애플리케이션은 구성 메타데이터 및 스�
 | bool     | 부울 데이터 형식입니다. |
 | 계약(contract) | 계약 형식의 주소입니다. |
 | 열거형     | 명명된 값의 열거형 집합입니다. 열거형 형식을 사용하는 경우 EnumValues 목록도 지정합니다. 태그 값은 255자로 제한됩니다. 유효한 값 문자에는 대/소문자(A-Z, a-z)와 숫자(0-9)가 포함됩니다. [Solidity에서 예제 구성 및 사용](#example-configuration-of-type-enum)을 참조하세요. |
-| ssNoversion      | 정수 데이터 형식입니다. |
+| int      | 정수 데이터 형식입니다. |
 | money    | 돈 데이터 형식입니다. |
 | state    | 워크플로 상태입니다. |
 | string  | 문자열 데이터 형식입니다. 최대 4000자입니다. [예제 구성](#example-configuration-of-type-string)을 참조하세요. |
