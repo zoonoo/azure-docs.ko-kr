@@ -41,8 +41,8 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | Description |
 |:--- |:--- |:--- |:--- | 
-|operand1 |예 |ssNoversion |더할 첫 번째 숫자입니다. |
-|operand2 |예 |ssNoversion |더할 두 번째 숫자입니다. |
+|operand1 |예 |int |더할 첫 번째 숫자입니다. |
+|operand2 |예 |int |더할 두 번째 숫자입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -113,7 +113,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | Description |
 |:--- |:--- |:--- |:--- |
 | loopName | 아니요 | string | 반복을 가져오기 위한 루프의 이름입니다. |
-| offset |아니요 |ssNoversion |0부터 시작하는 반복 값에 더할 숫자입니다. |
+| offset |아니요 |int |0부터 시작하는 반복 값에 더할 숫자입니다. |
 
 ### <a name="remarks"></a>설명
 
@@ -158,8 +158,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |예 |ssNoversion |나누어지는 수입니다. |
-| operand2 |예 |ssNoversion |나누는 데 사용되는 정수입니다. 0일 수 없습니다. |
+| operand1 |예 |int |나누어지는 수입니다. |
+| operand2 |예 |int |나누는 데 사용되는 정수입니다. 0일 수 없습니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -254,7 +254,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="int" />
 
-## <a name="int"></a>ssNoversion
+## <a name="int"></a>int
 `int(valueToConvert)`
 
 지정된 값을 정수로 변환합니다.
@@ -451,8 +451,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| operand1 |예 |ssNoversion |나누어지는 수입니다. |
-| operand2 |예 |ssNoversion |나누는 데 사용되는 정수로, 0일 수 없습니다. |
+| operand1 |예 |int |나누어지는 수입니다. |
+| operand2 |예 |int |나누는 데 사용되는 정수로, 0일 수 없습니다. |
 
 ### <a name="return-value"></a>반환 값
 나머지를 나타내는 정수입니다.
@@ -521,8 +521,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| operand1 |예 |ssNoversion |곱할 첫 번째 숫자입니다. |
-| operand2 |예 |ssNoversion |곱할 두 번째 숫자입니다. |
+| operand1 |예 |int |곱할 첫 번째 숫자입니다. |
+| operand2 |예 |int |곱할 두 번째 숫자입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -592,8 +592,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | Description |
 |:--- |:--- |:--- |:--- |
-| operand1 |예 |ssNoversion |빼는 피감수입니다. |
-| operand2 |예 |ssNoversion |빼는 감수입니다. |
+| operand1 |예 |int |빼는 피감수입니다. |
+| operand2 |예 |int |빼는 감수입니다. |
 
 ### <a name="return-value"></a>반환 값
 빼기를 나타내는 정수입니다.
