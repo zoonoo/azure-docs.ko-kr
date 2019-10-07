@@ -111,6 +111,14 @@
           href: acu.md
         - name: vCPU 할당량
           href: quotas.md
+        - name: 예약 인스턴스
+          items:
+            - name: VM 선불
+              href: prepay-reserved-vm-instances.md
+            - name: Azure 예약이란?
+              href: ../../billing/billing-save-compute-costs-reservations.md
+            - name: VM 인스턴스 크기 유연성
+              href: reserved-vm-instance-size-flexibility.md
         - name: 벤치마크 점수
           href: compute-benchmark-scores.md
     - name: 보증 배포
@@ -302,16 +310,6 @@
           href: ../../azure-monitor/platform/alerts-metric.md
         - name: 로그 경고 만들기
           href: ../../azure-monitor/platform/alerts-log.md
-    - name: 비용 관리
-      items:
-        - name: VM 선불 - Azure 예약
-          href: prepay-reserved-vm-instances.md
-        - name: Azure 소프트웨어 플랜 선결제
-          href: prepay-suse-software-charges.md
-        - name: Azure 예약이란?
-          href: ../../billing/billing-save-compute-costs-reservations.md
-        - name: VM 인스턴스 크기 유연성
-          href: reserved-vm-instance-size-flexibility.md
     - name: 이미지 사용
       items:
         - name: 공유 이미지 갤러리
@@ -378,8 +376,6 @@
           href: manage-availability.md
         - name: 근접 배치 그룹 만들기
           href: proximity-placement-groups.md
-        - name: 수직 확장
-          href: vertical-scaling-automation.md
         - name: 가용성 영역에서 VM 만들기
           href: create-cli-availability-zone.md
     - name: 자동화 도구 사용
