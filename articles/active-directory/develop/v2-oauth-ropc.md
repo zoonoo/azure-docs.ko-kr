@@ -94,7 +94,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | --------- | ------ | ----------- |
 | `token_type` | 문자열 | 항상 `Bearer`로 설정합니다. |
 | `scope` | 공백으로 구분된 문자열 | 액세스 토큰이 반환된 경우 이 매개 변수는 액세스 토큰이 유효한 범위를 나열합니다. |
-| `expires_in`| ssNoversion | 포함된 액세스 토큰이 유효한 시간(초)입니다. |
+| `expires_in`| int | 포함된 액세스 토큰이 유효한 시간(초)입니다. |
 | `access_token`| 불투명 문자열 | 요청된 [범위](v2-permissions-and-consent.md)에 대해 발급되었습니다. |
 | `id_token` | JWT | 원래 `scope` 매개 변수에 `openid` 범위가 포함된 경우에 발급됩니다. |
 | `refresh_token` | 불투명 문자열 | 원래 `scope` 매개 변수에 `offline_access`가 포함된 경우에 발급됩니다. |
