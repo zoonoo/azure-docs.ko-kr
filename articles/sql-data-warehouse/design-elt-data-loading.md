@@ -55,7 +55,7 @@ PolyBase는 UTF-8 및 UTF-16으로 인코딩된 구분된 텍스트 파일에서
 | :-------------------: | :----------------------------------------------------------: |
 |        TINYINT        |                           TINYINT                            |
 |       SMALLINT        |                           SMALLINT                           |
-|          ssNoversion          |                             ssNoversion                              |
+|          int          |                             int                              |
 |        BIGINT         |                            BIGINT                            |
 |        boolean        |                             bit                              |
 |        double         |                            FLOAT                             |
