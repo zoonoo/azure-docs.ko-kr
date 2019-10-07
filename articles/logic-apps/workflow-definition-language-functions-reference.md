@@ -2271,7 +2271,7 @@ indexOf('hello world', 'world')
 
 <a name="int"></a>
 
-### <a name="int"></a>ssNoversion
+### <a name="int"></a>int
 
 문자열에 대한 정수 버전을 반환합니다.
 
