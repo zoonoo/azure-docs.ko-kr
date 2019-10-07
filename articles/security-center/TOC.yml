@@ -147,6 +147,8 @@
   items:
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+    - name: 릴리스 정보
+      href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: 기능 및 API 사용 중지(2019년 7월)
       href: security-center-features-retirement-july2019.md
     - name: 엔드포인트 보호 평가 및 권장 사항

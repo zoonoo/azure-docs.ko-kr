@@ -114,22 +114,34 @@
           href: sisense.md
     - name: 관리
       items:
-        - name: 클러스터 상태 확인
-          href: check-cluster-health.md
-        - name: 클러스터 VM SKU 선택
-          href: manage-cluster-choose-sku.md
-        - name: 클러스터 수평적 크기 조정 관리
-          href: manage-cluster-horizontal-scaling.md
-        - name: 클러스터 수직적 크기 조정 관리
-          href: manage-cluster-vertical-scaling.md
-        - name: 클러스터 보안 관리
-          href: manage-cluster-security.md
-        - name: 데이터베이스 권한 관리
-          href: manage-database-permissions.md
-        - name: 데이터 삭제
-          href: delete-data.md
-        - name: 중복 데이터 처리
-          href: dealing-with-duplicates.md
+        - name: 프로비전
+          items:
+            - name: 클러스터 VM SKU 선택
+              href: manage-cluster-choose-sku.md
+            - name: 클러스터 수평적 크기 조정 관리
+              href: manage-cluster-horizontal-scaling.md
+            - name: 클러스터 수직적 크기 조정 관리
+              href: manage-cluster-vertical-scaling.md
+            - name: 클러스터 보안 관리
+              href: manage-cluster-security.md
+            - name: 클러스터 상태 확인
+              href: check-cluster-health.md
+        - name: 데이터베이스
+          items:
+            - name: 데이터베이스 권한 관리
+              href: manage-database-permissions.md
+            - name: 정책
+              items:
+                - name: 'C#'
+                  href: database-table-policies-csharp.md
+                - name: Python
+                  href: database-table-policies-python.md
+        - name: Data
+          items:
+            - name: 데이터 삭제
+              href: delete-data.md
+            - name: 중복 데이터 처리
+              href: dealing-with-duplicates.md
     - name: 모니터
       items:
         - name: 진단 로그를 사용하여 수집 모니터링
