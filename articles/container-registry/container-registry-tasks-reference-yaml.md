@@ -160,8 +160,8 @@ steps:
 | `network` | 개체(object) | Optional |
 | `ports` | [string, string, ...] | Optional |
 | `pull` | bool | Optional |
-| `repeat` | ssNoversion | Optional |
-| `retries` | ssNoversion | Optional |
+| `repeat` | int | Optional |
+| `retries` | int | Optional |
 | `retryDelay` | int(초) | Optional |
 | `secret` | 개체(object) | Optional |
 | `startDelay` | int(초) | Optional |
@@ -277,8 +277,8 @@ steps:
 | `network` | 개체(object) | Optional |
 | `ports` | [string, string, ...] | Optional |
 | `pull` | bool | Optional |
-| `repeat` | ssNoversion | Optional |
-| `retries` | ssNoversion | Optional |
+| `repeat` | int | Optional |
+| `retries` | int | Optional |
 | `retryDelay` | int(초) | Optional |
 | `secret` | 개체(object) | Optional |
 | `startDelay` | int(초) | Optional |
@@ -378,8 +378,8 @@ steps:
 | `ports` | [string, string, ...] | 예 | 컨테이너에서 호스트로 게시 되는 포트의 배열입니다. |  없음 |
 | `pull` | bool | 예 | 캐싱 동작을 방지 하기 위해 실행 하기 전에 컨테이너를 강제로 풀 할지 여부를 지정 합니다. | `false` |
 | `privileged` | bool | 예 | 컨테이너를 특권 모드에서 실행할지 여부를 지정 합니다. | `false` |
-| `repeat` | ssNoversion | 예 | 컨테이너 실행을 반복 하기 위한 다시 시도 횟수입니다. | 0 |
-| `retries` | ssNoversion | 예 | 컨테이너의 실행이 실패 한 경우 다시 시도 하는 횟수입니다. 컨테이너의 종료 코드가 0이 아닌 경우에만 재시도를 시도 합니다. | 0 |
+| `repeat` | int | 예 | 컨테이너 실행을 반복 하기 위한 다시 시도 횟수입니다. | 0 |
+| `retries` | int | 예 | 컨테이너의 실행이 실패 한 경우 다시 시도 하는 횟수입니다. 컨테이너의 종료 코드가 0이 아닌 경우에만 재시도를 시도 합니다. | 0 |
 | `retryDelay` | int(초) | 예 | 컨테이너 실행 재시도 사이의 지연 시간 (초)입니다. | 0 |
 | `secret` | 개체(object) | 예 | [Azure 리소스에 대 한](container-registry-tasks-authentication-managed-identity.md)Azure Key Vault 암호 또는 관리 되는 id를 식별 합니다. | 없음 |
 | `startDelay` | int(초) | 예 | 컨테이너 실행을 지연 하는 시간 (초)입니다. | 0 |
