@@ -44,7 +44,7 @@ Reliable State Manager에는 다음 형식에 대한 기본 제공 직렬 변환
 - Decimal
 - double
 - FLOAT
-- ssNoversion
+- int
 - uint
 - long
 - ulong
