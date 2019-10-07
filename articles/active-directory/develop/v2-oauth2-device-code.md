@@ -80,8 +80,8 @@ scope=user.read%20openid%20profile
 |`device_code`     | String | 클라이언트와 권한 서버 간의 세션을 확인하는 데 사용되는 긴 문자열입니다. 클라이언트는이 매개 변수를 사용 하 여 권한 부여 서버에서 액세스 토큰을 요청 합니다. |
 |`user_code`       | 문자열 | 보조 장치에서 세션을 식별 하는 데 사용 되는 사용자에 게 표시 되는 간단한 문자열입니다.|
 |`verification_uri`| URI | 로그인하기 위해 사용자가 `user_code`을(를) 사용하여 이동하는 URI입니다. |
-|`expires_in`      | ssNoversion | `device_code` 및 `user_code`의 만료 전 시간(초)입니다. |
-|`interval`        | ssNoversion | 클라이언트가 폴링 요청 간에 대기해야 하는 시간(초)입니다. |
+|`expires_in`      | int | `device_code` 및 `user_code`의 만료 전 시간(초)입니다. |
+|`interval`        | int | 클라이언트가 폴링 요청 간에 대기해야 하는 시간(초)입니다. |
 | `message`        | String | 사용자에 대한 지침이 포함된 사람이 읽을 수 있는 문자열입니다. 이는 `?mkt=xx-XX` 양식의 요청에 **쿼리 매개 변수**를 포함하고 적절한 언어 문화권 코드를 채워서 지역화할 수 있습니다. |
 
 ## <a name="authenticating-the-user"></a>사용자 인증 중
@@ -135,7 +135,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 | --------- | ------ | ----------- |
 | `token_type` | 문자열| 항상 “전달자입니다. |
 | `scope` | 공백으로 구분된 문자열 | 액세스 토큰이 반환된 경우, 이는 액세스 토큰이 유효한 범위를 나열합니다. |
-| `expires_in`| ssNoversion | 포함된 액세스 토큰이 유효하기 전의 시간(초)입니다. |
+| `expires_in`| int | 포함된 액세스 토큰이 유효하기 전의 시간(초)입니다. |
 | `access_token`| 불투명 문자열 | 요청된 [범위](v2-permissions-and-consent.md)에 대해 발급되었습니다.  |
 | `id_token`   | JWT | 원래 `scope` 매개 변수에 `openid` 범위가 포함된 경우에 발급됩니다.  |
 | `refresh_token` | 불투명 문자열 | 원래 `scope` 매개 변수에 `offline_access`가 포함된 경우에 발급됩니다.  |
