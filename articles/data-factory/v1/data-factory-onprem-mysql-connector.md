@@ -315,7 +315,7 @@ MySQL에 데이터를 이동하는 경우 MySQL 형식에서 .NET 형식으로 �
 | enum |문자열 |
 | FLOAT |Single |
 | int unsigned |Int64 |
-| ssNoversion |Int32 |
+| int |Int32 |
 | integer unsigned |Int64 |
 | integer |Int32 |
 | long varbinary |Byte[] |
