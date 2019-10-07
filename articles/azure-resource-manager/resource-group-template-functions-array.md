@@ -1093,8 +1093,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | Description |
 |:--- |:--- |:--- |:--- |
-| startingInteger |예 |ssNoversion |배열에서 첫 번째 정수입니다. |
-| numberofElements |예 |ssNoversion |배열에 있는 정수의 수입니다. |
+| startingInteger |예 |int |배열에서 첫 번째 정수입니다. |
+| numberofElements |예 |int |배열에 있는 정수의 수입니다. |
 
 ### <a name="return-value"></a>반환 값
 
