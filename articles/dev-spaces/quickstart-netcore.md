@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 162a020351efb27fe25b566918ddda555fac35eb
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: b65dc5ed5d6d69ecde2108fcc322e27999704123
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772612"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815850"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>빠른 시작: Azure Dev Spaces(Visual Studio Code)를 사용하는 Kubernetes에서 Visual Studio Code 및 .NET Core로 디버그 및 반복
 
@@ -24,6 +24,11 @@ ms.locfileid: "70772612"
 - Azure에서 관리되는 Kubernetes 클러스터를 사용하여 Azure Dev Spaces를 설정합니다.
 - Visual Studio Code를 사용하여 컨테이너에서 반복적으로 코드를 개발합니다.
 - Visual Studio Code의 개발 공간에서 코드를 디버그합니다.
+
+Azure Dev Spaces를 통해 다음을 사용하여 디버그하고 반복할 수도 있습니다.
+- [Java 및 Visual Studio Code](quickstart-java.md)
+- [Node.js 및 Visual Studio Code](quickstart-nodejs.md)
+- [.NET Core 및 Visual Studio](quickstart-netcore-visualstudio.md)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -44,6 +49,9 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --gen
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>AKS 클러스터에서 Azure Dev Spaces를 사용하도록 설정
 
 `use-dev-spaces` 명령을 사용하여 AKS 클러스터에서 Dev Spaces를 사용하도록 설정하고 프롬프트의 지시를 따릅니다. 아래 명령은 *MyResourceGroup* 그룹의 *MyAKS* 클러스터에서 Dev Spaces를 사용하도록 설정하고 *기본* 개발 공간을 만듭니다.
+
+> [!NOTE]
+> `use-dev-spaces` 명령은 Azure Dev Spaces CLI가 아직 설치되지 않은 경우에도 설치합니다. Azure Cloud Shell에는 Azure Dev Spaces CLI를 설치할 수 없습니다.
 
 ```cmd
 $ az aks use-dev-spaces -g MyResourceGroup -n MyAKS

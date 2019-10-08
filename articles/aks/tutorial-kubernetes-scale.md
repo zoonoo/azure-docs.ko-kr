@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 4e36362fd42a147ee900005d84b0af1b4839aae1
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 7dd0000d6797411d56143f8a977e4c478d551858
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70965125"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694732"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 크기 조정
 
@@ -113,7 +113,7 @@ Azure Vote 앱에 최소 부하를 적용한 상태로 몇 분이 지나면 Pod 
 
 ## <a name="manually-scale-aks-nodes"></a>수동으로 AKS 노드 크기 조정
 
-이전 자습서에서 명령을 사용하여 Kubernetes 클러스터를 만든 경우 한 개의 노드가 있습니다. 클러스터에 대한 컨테이너 워크로드를 더 늘리거나 줄일 계획인 경우 수동으로 노드 수를 조정할 수 있습니다.
+이전 자습서의 명령을 사용하여 Kubernetes 클러스터를 만든 경우 두 개의 노드가 있습니다. 클러스터에 대한 컨테이너 워크로드를 더 늘리거나 줄일 계획인 경우 수동으로 노드 수를 조정할 수 있습니다.
 
 다음 예제에서는 *myAKSCluster*라는 Kubernetes 클러스터의 노드 수를 3개로 늘립니다. 이 명령은 완료되는 데 2~3분이 걸립니다.
 

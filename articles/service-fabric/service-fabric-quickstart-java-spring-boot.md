@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 2aa5879ee3960bd5d26855ac7e7c3e12994ee54e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 4ec6addb348b8c13f124ec225e056d2003a93c38
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861337"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703516"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>빠른 시작: Azure Service Fabric에 Java Spring Boot 앱 배포
 
@@ -28,7 +28,7 @@ ms.locfileid: "70861337"
 
 이 빠른 시작에서는 Spring 웹 사이트의 [시작](https://spring.io/guides/gs/spring-boot/) 샘플을 사용합니다. 이 빠른 시작에서는 친숙한 명령줄 도구를 사용하여 Spring Boot 샘플을 Service Fabric 애플리케이션으로 배포하는 방법을 안내합니다. 작업이 완료되면 Service Fabric에서 Spring Boot 시작 샘플을 사용합니다.
 
-![애플리케이션 스크린샷](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
+![Spring Boot Service Fabric 샘플](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 
@@ -79,7 +79,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
 1. 각 프롬프트에 다음 세부 정보를 입력합니다.
 
-    ![Yeoman 항목](./media/service-fabric-quickstart-java-spring-boot/yeomanspringboot.png)
+    ![Spring Boot Yeoman 항목](./media/service-fabric-quickstart-java-spring-boot/yeoman-entries-spring-boot.png)
 
 1. `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` 폴더에 `entryPoint.sh`라는 파일을 만듭니다. `entryPoint.sh` 파일에 다음을 추가합니다. 
 
@@ -147,7 +147,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
     로컬 클러스터를 시작하는 데 몇 시간이 걸립니다. 클러스터가 완전히 작동 중인지 확인하려면 **http://localhost:19080** 에서 Service Fabric Explorer에 액세스합니다. 5개의 정상 노드는 로컬 클러스터가 작동되어 실행 중임을 나타냅니다. 
     
-    ![로컬 클러스터 정상](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
+    ![정상 노드를 표시하는 Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-healthy-nodes.png)
 
 1. `gs-spring-boot/SpringServiceFabric` 폴더를 엽니다.
 1. 다음 명령을 실행하여 로컬 클러스터에 연결합니다.
@@ -163,7 +163,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
 1. 즐겨찾는 웹 브라우저를 열고 `http://localhost:8080`에 액세스하여 애플리케이션에 액세스합니다.
 
-    ![애플리케이션 프런트 엔드](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
+    ![Spring Boot Service Fabric 샘플](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
 
 이제 Service Fabric 클러스터에 배포된 Spring Boot 애플리케이션에 액세스할 수 있습니다.
 
@@ -178,7 +178,7 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `http://localhost:19080`
 1. 트리 뷰에서 **fabric:/SpringServiceFabric/SpringGettingStarted** 노드 옆에 있는 줄임표( **...** )를 선택하고 **서비스 크기 조정**을 선택합니다.
 
-    ![Service Fabric Explorer Scale Service](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
+    ![Service Fabric Explorer 크기 조정 서비스 샘플](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-scale-sample.png)
 
     이제 서비스의 인스턴스 수를 조정하도록 선택할 수 있습니다.
 
@@ -196,7 +196,7 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 
 1. 트리 뷰에서 **fabric:/SpringServiceFabric/SpringGettingStarted** 노드를 선택하고 파티션 노드(GUID로 표현됨)를 확장합니다.
 
-    ![Service Fabric Explorer Scale Service 완료](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
+    ![Service Fabric Explorer 크기 조정 서비스 완료](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-partition-node.png)
 
     서비스에는 3개의 인스턴스가 있고, 트리 뷰에는 인스턴스가 실행되는 노드가 표시됩니다.
 
@@ -209,10 +209,10 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `http://localhost:19080`
 1. 서비스의 인스턴스를 실행하는 노드 옆에 있는 줄임표( **...** )를 선택하고 노드를 다시 시작합니다.
 
-    ![Service Fabric Explorer 다시 시작 노드](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
+    ![Service Fabric Explorer 다시 시작 노드](./media/service-fabric-quickstart-java-spring-boot/service=fabric-explorer-restart=node.png)
 1. 서비스의 인스턴스가 다른 노드로 이동되고, 애플리케이션에서 가동 중지 시간이 발생하지 않습니다.
 
-    ![Service Fabric Explorer 다시 시작 노드 성공](./media/service-fabric-quickstart-java-spring-boot/sfxfailedover.png)
+    ![Service Fabric Explorer 다시 시작 노드 성공](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-service-moved.png)
 
 ## <a name="next-steps"></a>다음 단계
 

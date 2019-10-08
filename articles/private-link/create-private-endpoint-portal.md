@@ -7,18 +7,22 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 15b4d3208be693a5b8d858d30b663347515f5a68
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: d7c2aee3ad73552a57776af5ce6585b36518d169
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130283"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687064"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Azure Portal를 사용하여 프라이빗 엔드포인트 만들기
 
 프라이빗 엔드포인트는 Azure에서 프라이빗 링크를 만드는 데 사용되는 기본 구성 요소입니다. 프라이빗 엔드포인트는 VM(Virtual Machines) 같은 Azure 리소스가 프라이빗 링크 리소스와 비공개로 통신할 수 있게 해줍니다. 이 빠른 시작에서는 Azure PowerShell을 통해 Azure Virtual Network에 VM을 만들고, Azure 프라이빗 엔드포인트를 사용하는 SQL Database Server를 만드는 방법에 대해 알아봅니다. 그러면 VM에서 SQL Database Server에 안전하게 액세스할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+
+
+> [!NOTE]
+> 프라이빗 엔드포인트는 동일한 서브넷에 있는 서비스 엔드포인트와 함께 허용되지는 않습니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -210,30 +214,31 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     Name:    myserver.privatelink.database.windows.net
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
-3. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
+    ```
+3. [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)를 설치합니다.
 
-4. In **Connect to server**, enter or select this information:
+4.  **서버에 연결**에서 다음 정보를 입력하거나 선택합니다.
 
-    | Setting | Value |
+    | 설정 | 값 |
     | ------- | ----- |
-    | Server type| Select **Database Engine**.|
-    | Server name| Select *myserver.database.windows.net* |
-    | User name | Enter a password provided during the SQL server creation. |
-    |Password |Enter a password provided during the SQL server creation. |
-    |Remember password|Select **Yes**.|
+    | 서버 유형| **데이터베이스 엔진**을 선택합니다.|
+    | 서버 이름| *myserver.database.windows.net*을 선택합니다. |
+    | 사용자 이름 | SQL Server를 만들 때 입력한 암호를 입력합니다. |
+    |암호 |SQL Server를 만들 때 입력한 암호를 입력합니다. |
+    |암호 기억|**예**를 선택합니다.|
     |||
-1. Select **Connect**.
-2. Browse databases from left menu.
-3. (Optionally) Create or query information from mydatabase.
-4. Close the remote desktop connection to *myVm*. 
+1.  **연결**을 선택합니다.
+2. 왼쪽 메뉴에서 데이터베이스를 찾아봅니다.
+3. (선택 사항) Mydatabase에서 정보를 만들거나 쿼리합니다.
+4.  *myVm*에 대한 원격 데스크톱 연결을 닫습니다. 
 
-## Clean up resources 
-When you're done using the private endpoint, SQL server, and the VM, delete the resource group and all of the resources it contains: 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
-2. Select **Delete resource group**. 
-3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+## <a name="clean-up-resources"></a>리소스 정리 
+프라이빗 엔드포인트, SQL Server 및 VM을 다 사용했으면 리소스 그룹과 리소스 그룹에 포함된 모든 리소스를 삭제합니다. 
+1. 포털 맨 위에 있는  **검색**  상자에  *myResourceGroup* 을 입력하고 검색 결과에서  *myResourceGroup* 을 선택합니다. 
+2.  **리소스 그룹 삭제**를 선택합니다. 
+3.  **리소스 그룹 이름 입력** 에 대해 myResourceGroup을 입력하고  **삭제**를 선택합니다.
 
-## Next steps
+## <a name="next-steps"></a>다음 단계
 
-In this quickstart, you created a VM on a virtual network, a SQL database server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the SQL database server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint?](private-endpoint-overview.md).
+이 빠른 시작에서는 가상 네트워크, SQL 데이터베이스 서버 및 프라이빗 액세스를 위한 프라이빗 엔드포인트에서 VM을 만들었습니다. 인터넷에서 하나의 VM에 연결하고 프라이빗 링크를 사용하여 SQL 데이터베이스 서버에 안전하게 전달했습니다. 프라이빗 엔드포인트에 대해 자세히 알아보려면 [Azure 프라이빗 엔드포인트란?](private-endpoint-overview.md)을 참조하세요.
 

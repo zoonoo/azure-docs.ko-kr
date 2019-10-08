@@ -4,15 +4,15 @@ description: 고객을 Azure 위임 리소스 관리에 등록하여 고유한 �
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 09/19/2019
+ms.date: 09/30/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: a199dde6b9e36683b817f908e385aabcc431ce16
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: b2e935a3a5ff2b6da99ad693f2d4e924ae811caf
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155121"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694839"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Azure 위임 리소스 관리에 고객 등록
 
@@ -113,11 +113,11 @@ az role definition list --name "<roleName>" | grep name
 
 ## <a name="create-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 만들기
 
-고객을 온보딩하려면 다음을 포함하는 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) 템플릿을 만들어야 합니다.
+고객을 온보딩하려면 다음 정보가 포함된 제품에 대한 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) 템플릿을 만들어야 합니다. Azure Portal의 [서비스 공급자 페이지](view-manage-service-providers.md)에서 제품 세부 정보를 볼 때 **mspOfferName** 및 **mspOfferDescription** 값이 고객에게 표시됩니다.
 
 |필드  |정의  |
 |---------|---------|
-|**mspName**     |서비스 공급자 이름         |
+|**mspOfferName**     |이 정의를 설명하는 이름입니다. 이 값은 고객에게 제품의 제목으로 표시됩니다.         |
 |**mspOfferDescription**     |제품에 대한 간단한 설명(예: "Contoso VM 관리 제품")      |
 |**managedByTenantId**     |테넌트 ID         |
 |**권한 부여**     |테넌트의 사용자/그룹/SPN에 대한 **principalid** 값으로, 각 값은 고객이 권한 부여의 목적을 이해하는 데 도움이 되는 **principalIdDisplayName** 값을 가지며, 액세스 수준을 지정하는 기본 제공 **roleDefinitionId** 값에 매핑되어 있습니다.         |
@@ -132,9 +132,9 @@ az role definition list --name "<roleName>" | grep name
 |구독(Azure Marketplace 게시된 제품을 사용하는 경우)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> 여기에 설명된 프로세스에서는 온보딩되는 각 구독에 대해 별도의 배포가 필요합니다.
-> 
-> 여러 다른 구독 내에서 여러 리소스 그룹을 온보딩하는 경우에도 별도의 배포가 필요합니다. 그러나 단일 구독 내에 여러 리소스 그룹을 온보딩하는 것은 하나의 배포에서 수행할 수 있습니다.
+> 여기에 설명된 프로세스에서는 온보딩되는 각 구독에 대해 별도의 배포가 필요합니다. 여러 다른 구독 내에서 여러 리소스 그룹을 온보딩하는 경우에도 별도의 배포가 필요합니다. 그러나 단일 구독 내에 여러 리소스 그룹을 온보딩하는 것은 하나의 배포에서 수행할 수 있습니다.
+>
+> 동일한 구독 또는 구독 내의 리소스 그룹에 여러 제품이 적용되는 경우 별도의 배포도 필요합니다. 적용된 각 제품은 다른 **mspOfferName**을 사용해야 합니다.
 
 다음 예제에서는 구독을 온보딩하는 데 사용할 수정된 **resourceProjection.parameters.json** 파일을 보여 줍니다. 리소스 그룹 매개 변수 파일([rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management) 폴더에 있음)은 유사하지만 온보딩할 특정 리소스 그룹을 식별하기 위한 **rgName** 매개 변수를 포함합니다.
 
@@ -143,7 +143,7 @@ az role definition list --name "<roleName>" | grep name
     "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "mspName": {
+        "mspOfferName": {
             "value": "Fabrikam Managed Services - Interstellar"
         },
         "mspOfferDescription": {

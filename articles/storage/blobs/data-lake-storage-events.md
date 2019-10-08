@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Data Lake Storage Gen2 이벤트를 사용하여 Databricks 델타 테이블 업데이트 | Microsoft Docs'
+title: '자습서: 데이터 레이크 캡처 패턴을 구현하여 Azure Databricks Delta 테이블 업데이트 | Microsoft Docs'
 description: 이 자습서에서는 Event Grid 구독, Azure Function 및 Azure Databricks 작업을 사용하여 Azure Data Lake Storage Gen2에 저장된 테이블에 데이터 행을 삽입하는 방법을 보여 줍니다.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
-ms.openlocfilehash: 5a85e3b16a5a93fedd6a2257f5601b0673f825ad
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 03a07e70c967f92fe5dcc7c951aeea299b050405
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904649"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326983"
 ---
-# <a name="tutorial-use-azure-data-lake-storage-gen2-events-to-update-a-databricks-delta-table"></a>자습서: Azure Data Lake Storage Gen2 이벤트를 사용하여 Databricks 델타 테이블 업데이트
+# <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>자습서: 데이터 레이크 캡처 패턴을 구현하여 Databricks Delta 테이블 업데이트
 
 이 자습서에서는 계층 구조 네임스페이스가 있는 스토리지 계정에서 이벤트를 처리하는 방법을 보여 줍니다.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6cde60ee31b1654d79affd6e9050f426365ba29f
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 0c7d88d76a3fea87b3cfe4032186140f38c263d3
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240968"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71693401"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>자습서: Windows 디바이스를 위한 IoT Edge 모듈 개발
 
@@ -134,7 +134,7 @@ Azure IoT Edge Tools 확장에서는 Visual Studio에서 지원되는 모든 IoT
    | ----- | ----- |
    | Visual Studio 템플릿 | **C# 모듈**을 선택합니다. | 
    | 모듈 이름 | 기본값 **IotEdgeModule1**을 그대로 사용합니다. | 
-   | 리포지토리 URL | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 모듈 프로젝트 이름 값에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. <br><br> 마지막 이미지 리포지토리는 \<레지스트리 이름\>.azurecr.io/iotedgemodule1과 같습니다. |
+   | 리포지토리 URL | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 모듈 프로젝트 이름 값에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에 있는 컨테이너 레지스트리의 **개요 페이지**에서 **Login 서버** 값을 검색할 수 있습니다. <br><br> 마지막 이미지 리포지토리는 \<레지스트리 이름\>.azurecr.io/iotedgemodule1과 같습니다. |
 
       ![대상 디바이스, 모듈 유형 및 컨테이너 레지스트리에 대해 프로젝트 구성](./media/tutorial-develop-for-windows/add-module-to-solution.png)
 
@@ -143,33 +143,38 @@ Azure IoT Edge Tools 확장에서는 Visual Studio에서 지원되는 모든 IoT
 Visual Studio 창에 새 프로젝트가 로드되면 생성된 다음 파일을 살펴보고 이해합니다. 
 
 * **CSharpTutorialApp**이라는 IoT Edge 프로젝트입니다.
-    * **Modules** 폴더에는 프로젝트에 포함된 모듈에 대한 포인터가 포함되어 있습니다. 이 경우 IotEdgeModule1이어야 합니다. 
-    * **deployment.template.json** 파일은 배포 매니페스트를 만드는 데 도움이 되는 템플릿입니다. *배포 매니페스트*는 디바이스에 배포하려는 모듈, 구성 방법 및 모듈끼리 및 모듈-클라우드 간에 통신하는 방법을 정확히 정의하는 파일입니다. 
+  * **Modules** 폴더에는 프로젝트에 포함된 모듈에 대한 포인터가 포함되어 있습니다. 이 경우 IotEdgeModule1이어야 합니다. 
+  * 숨겨진 **.env** 파일은 컨테이너 레지스트리의 자격 증명을 저장합니다. 이러한 자격 증명은 IoT Edge 디바이스와 공유되므로 이러한 디바이스에서 컨테이너 이미지를 끌어올 수 있습니다.
+  * **deployment.template.json** 파일은 배포 매니페스트를 만드는 데 도움이 되는 템플릿입니다. *배포 매니페스트*는 디바이스에 배포하려는 모듈, 구성 방법 및 모듈끼리 및 모듈-클라우드 간에 통신하는 방법을 정확히 정의하는 파일입니다.
+    > [!TIP]
+    > 레지스트리 자격 증명 섹션에서 솔루션을 만들 때 제공한 정보로 주소가 자동으로 채워집니다. 단, 사용자 이름 및 암호는 .env 파일에 저장된 변수를 참조합니다. 이러한 방식은 보안을 위한 것입니다. .env 파일은 Git에서 무시되지만 배포 템플릿은 무시되지 않기 때문입니다.
 * IoT Edge 모듈 프로젝트: **IotEdgeModule1**.
-    * **program.cs** 파일은 프로젝트 템플릿과 함께 제공되는 기본 C# 모듈 코드를 포함합니다. 기본 모듈은 소스에서 입력을 가져와 IoT Hub에 전달합니다. 
-    * **module.json** 파일은 전체 이미지 리포지토리, 이미지 버전, 지원되는 각 플랫폼에 사용할 Dockerfile을 비롯하여 모듈에 대한 세부 정보를 포함합니다.
+  * **program.cs** 파일은 프로젝트 템플릿과 함께 제공되는 기본 C# 모듈 코드를 포함합니다. 기본 모듈은 소스에서 입력을 가져와 IoT Hub에 전달합니다. 
+  * **module.json** 파일은 전체 이미지 리포지토리, 이미지 버전, 지원되는 각 플랫폼에 사용할 Dockerfile을 비롯하여 모듈에 대한 세부 정보를 포함합니다.
 
 ### <a name="provide-your-registry-credentials-to-the-iot-edge-agent"></a>IoT Edge 에이전트에 레지스트리 자격 증명 제공
 
-IoT Edge 런타임은 IoT Edge 디바이스에 컨테이너 이미지를 끌어오기 위해 레지스트리 자격 증명이 필요합니다. 이러한 자격 증명을 배포 템플릿에 추가합니다. 
+IoT Edge 런타임은 IoT Edge 디바이스에 컨테이너 이미지를 끌어오기 위해 레지스트리 자격 증명이 필요합니다. IoT Edge 확장은 Azure에서 컨테이너 레지스트리 정보를 가져와서 배포 템플릿에 채우려고 합니다.
 
-1. **deployment.template.json** 파일을 엽니다.
+1. 모듈 솔루션에서 **deployment.template.json** 파일을 엽니다.
 
-2. **registryCredentials** 속성을 $edgeAgent desired 속성에서 찾습니다. 
-
-3. 다음 형식에 따라 자격 증명을 사용하여 속성을 업데이트합니다. 
+1. 원하는 $edgeAgent 속성에서 **registryCredentials** 속성을 찾아 올바른 정보가 포함되어 있는지 확인합니다.
 
    ```json
    "registryCredentials": {
      "<registry name>": {
-       "username": "<username>",
-       "password": "<password>",
+       "username": "$CONTAINER_REGISTRY_USERNAME_<registry name>",
+       "password": "$CONTAINER_REGISTRY_PASSWORD_<registry name>",
        "address": "<registry name>.azurecr.io"
      }
    }
    ```
 
-4. deployment.template.json 파일을 저장합니다. 
+1. 모듈 솔루션의 **.env** 파일을 엽니다. (솔루션 탐색기에는 기본적으로 숨겨져 있으므로 표시하려면 **모든 파일 표시** 단추를 선택해야 할 수도 있습니다.)
+
+1. Azure Container Registry에서 복사한 **사용자 이름** 및 **암호** 값을 추가합니다.
+
+1. .env 파일에 변경 내용을 저장합니다.
 
 ### <a name="review-the-sample-code"></a>샘플 코드 검토
 

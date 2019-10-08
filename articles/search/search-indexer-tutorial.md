@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: d0f0abade5d1eea952c5abde293ae90745ee9b04
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 1ba0a965de356cfbe7d9a1cfc8d6d2e8da092934
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640644"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327170"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C# 자습서: Azure Search 인덱서를 사용하여 Azure SQL 데이터베이스 탐색
 
@@ -230,7 +230,7 @@ public string HotelName { get; set; }
 
 + **appsettings.json**에 있는 데이터베이스 연결 정보입니다. 해당 항목은 포털에서 가져온 ADO.NET 연결 문자열이며 데이터베이스에 유효한 사용자 이름 및 암호를 포함하도록 수정되어야 합니다. 사용자 계정에는 데이터를 검색할 수 있는 권한이 있어야 합니다.
 
-+ 리소스 제한 공유 (체험) 서비스에 3개의 인덱스, 인덱서 및 데이터 원본이라는 제한이 있습니다. 최대 제한 시 서비스는 새 개체를 만들 수 없습니다.
++ 리소스 제한 무료 계층에는 3개의 인덱스, 인덱서 및 데이터 원본이 제한되어 있습니다. 최대 제한 시 서비스는 새 개체를 만들 수 없습니다.
 
 ## <a name="search-the-index"></a>인덱스 검색 
 

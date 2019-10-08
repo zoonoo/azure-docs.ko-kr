@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2019
+ms.date: 10/01/2019
 ms.author: pafarley
-ms.openlocfilehash: 73c9f80a830b41df2afbb5eda4aede0f3c9ef665
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 27884d83b9ca828a81922d27fe958334665e664a
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968390"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719530"
 ---
 # <a name="quickstart-computer-vision-client-library-for-net"></a>빠른 시작: .NET용 Computer Vision 클라이언트 라이브러리
 
@@ -185,9 +185,9 @@ Computer Vision .NET SDK의 주요 기능 중 일부를 처리하는 클래스�
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_faces)]
 
-### <a name="detect-adult-or-racy-content"></a>성인 또는 외설 콘텐츠 감지
+### <a name="detect-adult-racy-or-gory-content"></a>성인, 외설 또는 폭력 콘텐츠 검색
 
-다음 코드는 이미지에 있는 성인 또는 외설 콘텐츠의 검색된 상태를 출력합니다. 자세한 내용은 [성인/외설 콘텐츠](../concept-detecting-adult-content.md)를 참조하세요.
+다음 코드는 이미지에 있는 성인 콘텐츠의 검색된 상태를 출력합니다. 자세한 내용은 [성인, 외설, 폭력 콘텐츠](../concept-detecting-adult-content.md)를 참조하세요.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_adult)]
 

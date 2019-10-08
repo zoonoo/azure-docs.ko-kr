@@ -1,22 +1,22 @@
 ---
-title: Windows Virtual Desktop 미리 보기에서 테넌트 만들기 - Azure
-description: Azure Active Directory에서 Windows Virtual Desktop Preview 테넌트를 설정하는 방법을 설명합니다.
+title: Windows Virtual Desktop에서 테넌트 만들기 - Azure
+description: Azure Active Directory에서 Windows Virtual Desktop 테넌트를 설정하는 방법을 설명합니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/06/2019
 ms.author: helohr
-ms.openlocfilehash: 66441e852ebe0a391a5807b90eeadae230130815
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 04a65442e86168239f08fb71303b8d9e9e152e72
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734461"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679463"
 ---
-# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>자습서: Windows Virtual Desktop 미리 보기에서 테넌트 만들기
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>자습서: Windows Virtual Desktop에서 테넌트 만들기
 
-Windows Virtual Desktop 미리 보기에서 테넌트를 만드는 것은 데스크톱 가상화 솔루션을 빌드하기 위한 첫 번째 단계입니다. 테넌트는 하나 이상의 호스트 풀로 구성된 그룹입니다. 각 호스트 풀은 Azure에서 가상 머신으로 실행되고 Windows Virtual Desktop 서비스에 등록된 여러 세션 호스트로 구성됩니다. 또한 각 호스트 풀은 사용자에게 원격 데스크톱 및 원격 애플리케이션 리소스를 게시하는 데 사용되는 하나 이상의 앱 그룹으로 구성됩니다. 테넌트를 사용하여 호스트 풀을 빌드하고, 앱 그룹을 만들고, 사용자를 할당하고, 서비스를 통한 연결을 설정할 수 있습니다.
+Windows Virtual Desktop에서 테넌트를 만드는 것은 데스크톱 가상화 솔루션을 빌드하기 위한 첫 번째 단계입니다. 테넌트는 하나 이상의 호스트 풀로 구성된 그룹입니다. 각 호스트 풀은 Azure에서 가상 머신으로 실행되고 Windows Virtual Desktop 서비스에 등록된 여러 세션 호스트로 구성됩니다. 또한 각 호스트 풀은 사용자에게 원격 데스크톱 및 원격 애플리케이션 리소스를 게시하는 데 사용되는 하나 이상의 앱 그룹으로 구성됩니다. 테넌트를 사용하여 호스트 풀을 빌드하고, 앱 그룹을 만들고, 사용자를 할당하고, 서비스를 통한 연결을 설정할 수 있습니다.
 
 이 자습서에서는 다음 방법을 알아봅니다.
 
@@ -107,7 +107,7 @@ Azure 구독 ID를 찾으려면
 3. **구독 ID**를 검색한 후 클립보드 아이콘이 나타날 때까지 값 위로 마우스를 가져갑니다. 클립보드 아이콘을 선택하고 나중에 **AzureSubscriptionId** 값으로 사용할 수 있게 편리한 위치에 붙여넣습니다.
    ![Azure 구독 속성의 스크린샷입니다. 복사하여 붙여넣을 "구독 ID"의 클립보드 아이콘 위로 마우스를 가져가고 있습니다.](media/tenant-subscription-id.png)
 
-## <a name="create-a-windows-virtual-desktop-preview-tenant"></a>Windows Virtual Desktop 미리 보기 테넌트 만들기
+## <a name="create-a-windows-virtual-desktop-tenant"></a>Windows Virtual Desktop 테넌트 만들기
 
 Windows Virtual Desktop 서비스에 Azure Active Directory 쿼리 권한을 부여했고, 사용자 계정에 TenantCreator 역할을 부여했으면, Windows Virtual Desktop 테넌트를 만들 수 있습니다.
 

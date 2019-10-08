@@ -8,20 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/30/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 06e2a772bfad7b1964f813a6cb6266efe61c6ccf
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c5a1af0b26f30cac39a76c4480848fbe1d75477b
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70206859"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803110"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>빠른 시작: Java를 사용하여 QnA Maker 기술 자료 만들기
 
 이 빠른 시작에서는 QnA Maker 기술 자료 샘플을 프로그래밍 방식으로 만드는 방법을 안내합니다. QnA Maker는 [데이터 원본](../Concepts/data-sources-supported.md)에서 반구조화된 콘텐츠(예: FAQ)의 질문과 답변을 자동으로 추출합니다. 기술 자료 모델은 API 요청 본문에 전송된 JSON에 정의되어 있습니다.
 
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
+
+## <a name="prerequisites"></a>필수 조건
+
+* [Go 1.10.1](https://golang.org/dl/)
+* [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키와 엔드포인트(리소스 이름 포함)를 검색하려면 Azure Portal에서 리소스에 대해 **빠른 시작**을 선택합니다.
+
+[샘플 코드](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java)는 Java가 포함된 QnA Maker GitHub 리포지토리에서 사용할 수 있습니다.
 
 ## <a name="create-a-knowledge-base-file"></a>기술 자료 파일 만들기
 
@@ -34,7 +43,11 @@ ms.locfileid: "70206859"
 [!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=1-5 "Add the required dependencies")]
 
 ## <a name="add-the-required-constants"></a>필요한 상수 추가
-앞부분의 필수 종속성 뒤에서, QnA Maker에 액세스하는 데 필요한 `CreateKB` 클래스에 필수 상수를 추가합니다. `subscriptionKey` 변수의 값을 사용자 고유의 QnA Maker 키로 바꿉니다. 클래스를 종료하기 위해 마지막 중괄호를 추가할 필요가 없습니다. 이 빠른 시작의 마지막에 나오는 최종 코드 조각입니다.
+앞부분의 필수 종속성 뒤에서, QnA Maker에 액세스하는 데 필요한 `CreateKB` 클래스에 필수 상수를 추가합니다. 
+
+[QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키와 리소스 이름을 검색하려면 QnA Maker에 대한 Azure Portal에서 리소스에 대해 **빠른 시작**을 선택합니다. 
+
+클래스를 종료하기 위해 마지막 중괄호를 추가할 필요가 없습니다. 이 빠른 시작의 마지막에 나오는 최종 코드 조각입니다.
 
 [!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=26-34 "Add the required constants")]
 

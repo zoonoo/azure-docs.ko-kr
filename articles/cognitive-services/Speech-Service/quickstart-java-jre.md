@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 음성 인식, Java(Windows, Linux) - Speech Service'
+title: '빠른 시작: 음성 인식, Java(Windows, Linux, macOS) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 컴퓨터의 마이크에서 사용자 음성을 캡처하고 전사하는 간단한 Java 애플리케이션을 만드는 방법을 알아봅니다.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 498e41b08133113be9789ef49291b8e2bb0f3705
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9438cd1345d324b068db8837216afb39241cb2a2
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68554105"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802479"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>빠른 시작: Java용 Speech SDK를 사용하여 음성 인식
 
-빠른 시작은 [음성 음성 번역](quickstart-translate-speech-java-jre.md) 및 [음성 우선 가상 도우미](quickstart-virtual-assistant-java-jre.md)에도 사용할 수 있습니다.
+빠른 시작은 [음성 번역](quickstart-translate-speech-java-jre.md), [음성 우선 가상 도우미](quickstart-virtual-assistant-java-jre.md) 및 [음성 합성](quickstart-text-to-speech-java-jre.md)에도 사용할 수 있습니다.
 
 원하는 경우 다른 프로그래밍 언어 및/또는 환경을 선택합니다.<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
@@ -95,6 +95,7 @@ F11 키를 누르거나 **실행** > **디버그**를 선택합니다.
 
 ## <a name="see-also"></a>참고 항목
 
-- [빠른 시작: 음성 번역, Java(Windows, Linux)](quickstart-translate-speech-java-jre.md)
+- [빠른 시작: 음성 번역, Java(Windows, Linux, macOS)](quickstart-translate-speech-java-jre.md)
+- [빠른 시작: 음성 합성, Java(Windows, Linux, macOS)](quickstart-text-to-speech-java-jre.md)
 - [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
 - [언어 모델 사용자 지정](how-to-customize-language-model.md)

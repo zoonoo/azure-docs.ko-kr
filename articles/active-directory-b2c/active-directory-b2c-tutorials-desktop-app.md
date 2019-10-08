@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9a3c11c7303d467a1a993c49d983131639683239
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3740a032db6ca9fd0fb88ce348610684d9f895bc
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064871"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326323"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 원시 클라이언트 애플리케이션에서 인증을 사용하도록 설정
 
@@ -37,20 +37,9 @@ ms.locfileid: "71064871"
 
 ## <a name="add-the-native-client-application"></a>원시 클라이언트 애플리케이션 추가
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-4. **애플리케이션**을 선택하고 **추가**를 선택합니다.
-5. 애플리케이션의 이름을 입력합니다. 예를 들어 *nativeapp1*과 같습니다.
-6. **웹앱/웹 API 포함**에 **아니요**를 선택합니다.
-7. **원시 클라이언트 포함**에 **예**를 선택합니다.
-8. **리디렉션 URI**에 사용자 지정 체계를 사용하는 유효한 리디렉션 URI를 입력합니다. 리디렉션 URI를 선택하는 경우 다음과 같은 두 가지 중요한 고려 사항이 있습니다.
+[!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-    - **고유** - 리디렉션 URI의 체계는 모든 애플리케이션에 대해 고유해야 합니다. 보기 `com.onmicrosoft.contoso.appname://redirect/path`에서 `com.onmicrosoft.contoso.appname`은 구성표입니다. 이 패턴을 따라야 합니다. 두 애플리케이션이 동일한 체계를 공유하는 경우 애플리케이션을 선택하기 위한 옵션이 제공됩니다. 사용자가 잘못된 항목을 선택하면 로그인이 실패합니다.
-    - **전체** - 리디렉션 URI에는 체계 및 경로가 있어야 합니다. 경로는 도메인 다음에 하나 이상의 포워드 슬래시를 포함해야 합니다. 예를 들어 `//contoso/`는 실행되고 `//contoso`는 실행되지 않습니다. 리디렉션 URI가 밑줄 등의 특수 문자를 포함하지 않는지 확인합니다.
-
-9. **만들기**를 클릭합니다.
-10. 속성 페이지에서 샘플을 구성할 때 사용할 애플리케이션 ID를 기록합니다.
+이후 단계에서 사용할 **애플리케이션 ID**를 기록합니다.
 
 ## <a name="configure-the-sample"></a>샘플 구성
 

@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: e9d17b0bdeb89fc03c0f089b84a89a5203c39566
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: cdd09a860c3840823661e30c9f8ebcb900574531
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717420"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803217"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-ios-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 iOS에서 Swift로 음성 인식
+
+빠른 시작은 [음성 합성](quickstart-text-to-speech-swift-ios.md)에도 사용할 수 있습니다.
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -34,7 +36,7 @@ ms.locfileid: "68717420"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Cognitive Services 음성 SDK의 현재 버전은 `1.6.0`입니다. 이 자습서의 내용은 이전 버전의 SDK에 대한 변경 없이 작동하지 않습니다.
+이 자습서는 1.6.0 이전 버전의 SDK에서는 작동하지 않습니다.
 
 iOS용 Cognitive Services Speech SDK는 프레임워크 번들로 배포됩니다.
 Xcode 프로젝트에서 [CocoaPod](https://cocoapods.org/)로 사용하거나, https://aka.ms/csspeech/macosbinary 에서 다운로드하거나, 수동으로 연결할 수 있습니다. 이 가이드에서는 CocoaPod를 사용합니다.
@@ -62,7 +64,7 @@ Xcode를 시작하고, **파일** > **새로 만들기** > **프로젝트**를 �
 ## <a name="add-the-sample-code"></a>샘플 코드 추가
 
 1. 이름이 `MicrosoftCognitiveServicesSpeech-Bridging-Header.h`인 새 헤더 파일을 helloworld 프로젝트 내 `helloworld` 디렉터리에 배치하고 다음 코드를 이 파일에 붙여넣습니다.  
-   [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
+   [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
 1. *Objective-C 브리징 헤더* 필드 ![헤더 속성](media/sdk/qs-swift-ios-bridging-header.png)에서 helloworld 대상의 Swift 프로젝트 설정에 브리징 헤더에 대한 상대 경로 `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h`를 추가합니다.
 1. 자동으로 생성된 `AppDelegate.swift` 파일의 콘텐츠를 다음으로 바꿉니다.  
    [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/AppDelegate.swift#code)]
@@ -75,7 +77,7 @@ Xcode를 시작하고, **파일** > **새로 만들기** > **프로젝트**를 �
 
 1. 해당 [설치 지침](https://guides.cocoapods.org/using/getting-started.html)에 설명된 대로 CocoaPod 종속성 관리자를 설치합니다.
 1. 샘플 앱이 있는 디렉터리(`helloworld`)로 이동합니다. 해당 디렉터리에 이름이 `Podfile`인 텍스트 파일 및 다음과 같은 콘텐츠를 배치합니다.  
-   [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/Podfile)]
+   [!code-ruby[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/Podfile)]
 1. 터미널에서 `helloworld` 디렉터리로 이동해 `pod install` 명령을 실행합니다. 이렇게 하면 종속성으로 샘플 앱 및 Speech SDK가 모두 포함되는 `helloworld.xcworkspace` Xcode 작업 영역이 생성됩니다. 이 작업 영역은 다음에서 사용됩니다.
 
 ## <a name="build-and-run-the-sample"></a>샘플 빌드 및 실행

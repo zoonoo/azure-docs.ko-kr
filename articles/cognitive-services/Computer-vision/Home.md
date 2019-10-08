@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 915388b850b1b046dae91a20540881480694a944
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: db62f003f7eb8dd272305b86712cf1d721797114
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967052"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719550"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
 
-Azure의 Computer Vision 서비스는 개발자에게 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 대한 액세스를 제공합니다. 이미지를 분석하려면 이미지를 업로드하거나 이미지 URL을 지정할 수 있습니다. 이미지 처리 알고리즘은 관심 있는 시각적 기능에 따라 콘텐츠를 다양한 방식으로 분석할 수 있습니다. 예를 들어 Computer Vision은 이미지에 성인용 또는 선정적인 콘텐츠가 포함되어 있는지 확인하거나 이미지에서 모든 사람 얼굴을 찾을 수 있습니다.
+Azure의 Computer Vision 서비스는 개발자에게 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 대한 액세스를 제공합니다. 이미지를 분석하려면 이미지를 업로드하거나 이미지 URL을 지정할 수 있습니다. 이미지 처리 알고리즘은 관심 있는 시각적 기능에 따라 콘텐츠를 다양한 방식으로 분석할 수 있습니다. 예를 들어 Computer Vision은 이미지에 성인 콘텐츠가 포함되어 있는지 확인하거나 이미지에서 모든 사람 얼굴을 찾을 수 있습니다.
 
 네이티브 SDK를 사용하거나 REST API를 직접 호출하여 애플리케이션에서 Computer Vision을 사용할 수 있습니다. 이 페이지는 Computer Vision에서 수행할 수 있는 작업을 광범위하게 다룹니다.
 
@@ -52,7 +52,7 @@ Computer Vision [Read API](concept-recognizing-text.md#read-api)를 사용하여
 
 ## <a name="moderate-content-in-images"></a>이미지 콘텐츠 조정
 
-Computer Vision을 사용하여 이미지에서 [성인 및 외설 콘텐츠를 감지](concept-detecting-adult-content.md)하고 둘 모두에 대한 신뢰도 점수를 반환할 수 있습니다. 기본 설정에 맞게 슬라이딩 눈금에 성인용 및 선정적인 콘텐츠를 감지하도록 필터를 설정할 수 있습니다.
+Computer Vision을 사용하여 이미지에서 [성인 콘텐츠를 감지](concept-detecting-adult-content.md)하고 다양한 분류에 대한 신뢰도 점수를 반환할 수 있습니다. 콘텐츠 플래그 지정 임계값은 기본 설정에 맞게 슬라이딩 배율로 설정할 수 있습니다.
 
 ## <a name="use-containers"></a>컨테이너 사용
 

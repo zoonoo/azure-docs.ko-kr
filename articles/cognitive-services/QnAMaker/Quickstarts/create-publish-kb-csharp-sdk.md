@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/21/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 8e52a37376e91e5c529cddd9b211d81c4b2fa442
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 31bd85ca9b106758dbb7bfd399b7a493ea7fea9f
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203846"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803098"
 ---
 # <a name="quickstart-qna-maker-client-library-for-net"></a>빠른 시작: .NET용 QnA Maker 클라이언트 라이브러리
 
@@ -30,6 +30,8 @@ ms.locfileid: "71203846"
 
 [참조 설명서](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/) | [C# 샘플](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp)
 
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
@@ -41,7 +43,7 @@ ms.locfileid: "71203846"
 
 Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 QnA Maker용 리소스를 만듭니다. 
 
-리소스에서 키를 가져온 후 `QNAMAKER_SUBSCRIPTION_KEY`라는 키에 대해 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
+리소스에 대한 키와 엔드포인트를 가져온 후 `QNAMAKER_SUBSCRIPTION_KEY`라는 키에 대해 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication). 리소스 이름은 엔드포인트 URL의 일부로 사용됩니다.
 
 ### <a name="create-a-new-c-application"></a>새 C# 애플리케이션 만들기
 
@@ -113,13 +115,16 @@ JSON 개체를 전송하여 기술 자료를 관리합니다. 즉각적인 작�
 
 다음으로, 키를 사용하여 [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.apikeyserviceclientcredentials?view=azure-dotnet) 개체를 만들고, 엔드포인트에 이를 사용하여 [QnAMakerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient?view=azure-dotnet) 개체를 만듭니다.
 
-키가 `westus` 영역에 없는 경우 이 샘플 코드에 표시된 대로 **Endpoint** 변수의 위치를 변경합니다. 이 위치는 Azure Portal에서 QnA Maker 리소스에 대한 **개요** 페이지에서 찾을 수 있습니다.
+**Endpoint** 변수 `<your-custom-domain>`을 사용자 지정 도메인의 이름으로 변경합니다. 이 위치는 Azure Portal에서 QnA Maker 리소스에 대한 **개요** 페이지에서 찾을 수 있습니다.
 
-[!code-csharp[Authorization to resource key](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=Authorization)]
+```csharp
+var subscriptionKey = Environment.GetEnvironmentVariable("QNAMAKER_SUBSCRIPTION_KEY");
+var client = new QnAMakerClient(new ApiKeyServiceClientCredentials(subscriptionKey)) { Endpoint = "https://<your-custom-domain>.api.cognitive.microsoft.com" };
+```
 
 ## <a name="authenticate-the-runtime-for-generating-an-answer"></a>응답을 생성하기 위한 런타임 인증
 
-**main** 메서드에서 `QNAMAKER_ENDPOINT_HOSTNAME` 및 `QNAMAKER_ENDPOINT_KEY`라는 환경 변수로부터 가져온 사용자 리소스의 Azure 키에 대한 변수를 만듭니다. 기술 자료를 게시할 때 이러한 값이 반환됩니다. 게시한 후 QnA Maker 포털의 **설정** 페이지에서 이러한 설정을 찾을 수 있습니다. 
+**main** 메서드에서 `QNAMAKER_ENDPOINT_HOSTNAME` 및 `QNAMAKER_ENDPOINT_KEY`라는 환경 변수로부터 가져온 리소스의 인증에 대한 변수를 만듭니다. 기술 자료를 게시할 때 이러한 값이 반환됩니다. 게시한 후 QnA Maker 포털의 **설정** 페이지에서 이러한 설정을 찾을 수 있습니다. 
 
 기술 자료를 쿼리하는 [QnAMakerRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerruntimeclient?view=azure-dotnet)를 만들어 답변을 생성하거나 활성 학습으로부터 학습합니다.
 

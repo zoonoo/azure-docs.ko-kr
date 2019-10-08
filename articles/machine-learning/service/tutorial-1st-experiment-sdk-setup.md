@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 08/28/2019
-ms.openlocfilehash: 9bc5b9688a8cd568b47fe2dad88d6d007ceca0c4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.date: 09/25/2019
+ms.openlocfilehash: 3bbda22689bb330acc836173162a64b840f1bbd8
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004053"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828045"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>자습서: Python SDK로 첫 번째 ML 실험 만들기 시작
 
@@ -25,44 +25,65 @@ ms.locfileid: "71004053"
 
 > [!div class="checklist"]
 > * 다음 자습서에서 사용할 [Azure Machine Learning 작업 영역](concept-workspace.md)을 만듭니다.
+> * 자습서 Notebook을 작업 영역의 사용자 폴더로 복제합니다.
 > * Azure Machine Learning Python SDK가 설치되고 미리 구성된 클라우드 기반 Jupyter Notebook VM을 만듭니다.
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
 
-Azure Machine Learning 작업 영역은 기계 학습 모델을 실험하고, 학습시키고, 배포하는 데 사용하는 클라우드의 기본 리소스입니다. Azure 구독 및 리소스 그룹을 SDK에서 쉽게 사용되는 개체에 연결합니다. Azure Machine Learning 작업 영역이 이미 있으면 [다음 섹션](#azure)으로 건너뜁니다. 그렇지 않으면 지금 작업 영역을 새로 만듭니다.
+Azure Machine Learning 작업 영역은 기계 학습 모델을 실험하고, 학습시키고, 배포하는 데 사용하는 클라우드의 기본 리소스입니다. Azure 구독 및 리소스 그룹을 서비스에서 사용하기 쉬운 개체에 연결합니다. 
+
+Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통해 작업 영역을 만듭니다. 
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="azure"></a>클라우드 Notebook 서버 만들기
+>[!IMPORTANT] 
+> **작업 영역** 및 **구독**을 적어 둡니다. 올바른 작업 영역에 실험을 만들려면 이 정보가 필요합니다. 
+
+
+## <a name="azure"></a>Notebook 폴더 복제
 
 이 예에서는 작업 영역의 클라우드 Notebook 서버를 설치하지 않는 미리 구성된 환경으로 사용합니다. 환경, 패키지 및 종속성을 제어하려면 [사용자 고유의 환경](how-to-configure-environment.md#local)을 사용합니다.
 
-작업 영역에서 Juffyter Notebook을 사용하여 시작할 클라우드 리소스를 만듭니다. 이 리소스는 Azure Machine Learning을 실행하는 데 필요한 모든 항목이 미리 구성된 클라우드 기반 Linux 가상 머신입니다.
+모든 기술 수준의 데이터 과학 전문가용 데이터 과학 시나리오를 수행하기 위한 기계 학습 도구를 포함하는 통합 인터페이스인 작업 영역 방문 페이지(미리 보기)에서 다음 실험 설정 및 실행 단계를 완료합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 작업 영역을 엽니다.  포털에서 작업 영역을 찾는 방법을 잘 모르는 경우 [작업 영역을 찾는 방법](how-to-manage-workspace.md#view)을 참조하세요.
+1. [작업 영역 방문 페이지](https://ml.azure.com/)에 로그인합니다.
 
-1. Azure Portal의 작업 영역 페이지에서 왼쪽에 있는 **Notebook VM**을 선택합니다.
+1. 해당 구독과 직접 만든 작업 영역을 선택합니다.
 
-1. **+ 새로 만들기**를 선택하여 Notebook VM을 만듭니다.
+1. 왼쪽에서 **Notebooks 및 파일**을 선택합니다.
 
-     ![새 VM 선택](./media/tutorial-1st-experiment-sdk-setup/add-workstation.png)
+1. **samples** 폴더를 엽니다.
 
-1. VM 이름을 제공합니다. 
-   + Notebook VM 이름은 2~16자 사이여야 합니다. 유효한 문자는 문자, 숫자 및 - 문자입니다.  
-   + 이름은 Azure 구독 전체에서 고유해야 합니다.
+1. **tutorials** 폴더의 오른쪽에 있는 **“...”** 을 선택한 다음, **복제**를 선택합니다.
 
-1. 그런 다음 **만들기**를 선택합니다. VM을 설정하는 데 시간이 걸릴 수 있습니다.
+    ![폴더 복제](media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
 
-1. 상태가 **실행 중**으로 바뀔 때까지 기다립니다.
-   VM이 실행되면 **Notebook VM** 섹션을 사용하여 Jupyter 웹 인터페이스를 시작합니다.
+1. 작업 영역에 액세스하는 각 사용자에 대해 표시되는 폴더가 있습니다.  **tutorial** 폴더를 복제할 폴더를 선택합니다.
 
-1. VM에 대한 **URI** 열에서 **Jupyter**를 선택합니다.
+## <a name="a-nameopenselect-a-vm-to-run-the-notebook"></a><a name="open">Notebook을 실행할 VM 선택
 
-    ![Jupyter Notebook 서버 시작](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
+1. **사용자 파일**에서 폴더를 연 다음, 복제된 **tutorials** 폴더를 엽니다.
 
-   이 링크는 Notebook 서버를 시작하고, 새 브라우저 탭에서 Jupyter Notebook 웹 페이지를 엽니다.  이 링크는 VM을 만든 사용자만 사용할 수 있습니다. 작업 영역의 각 사용자는 자신의 고유한 VM을 만들어야 합니다.
+    ![자습서 폴더 열기](media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png)
+
+    > [!IMPORTANT]
+    > **samples** 폴더에서 Notebook을 볼 수 있지만 해당 폴더에서 Notebook을 실행할 수는 없습니다.  Notebook을 실행하려면 **사용자 파일** 섹션에서 복제된 버전의 Notebook을 열어야 합니다.
+    
+1. **tutorials** 폴더에서 **tutorial-1st-experiment-sdk-train.ipynb** 파일을 선택합니다.
+
+1. 위쪽 바에서 Notebook을 실행하는 데 사용할 Notebook VM을 선택합니다. 이러한 VM은 Azure Machine Learning을 실행하는 데 필요한 모든 항목을 사용하여 미리 구성됩니다. 작업 영역의 사용자가 만든 VM 중에서 선택할 수 있습니다. 
+
+1. VM을 찾을 수 없는 경우 **+ 새 VM**을 선택하여 VM을 만듭니다.
+
+    ![VM 만들기](media/tutorial-1st-experiment-sdk-setup/no-vm.png)
+
+    1. VM을 만들 때 이름을 입력합니다.  이름은 2~16자 사이여야 합니다. 유효한 문자는 문자, 숫자 및 문자이며 Azure 구독에서 고유해야 합니다.
+
+    1. 그런 다음 **만들기**를 선택합니다. VM을 설정하는 데 약 5분이 걸릴 수 있습니다.
+
+1. VM을 사용할 수 있게 되면 맨 위 도구 모음에 표시됩니다.  이제 도구 모음에서 **모두 실행**을 사용하거나 Notebook의 코드 셀에 **Shift + Enter**를 사용하여 Notebook을 실행할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

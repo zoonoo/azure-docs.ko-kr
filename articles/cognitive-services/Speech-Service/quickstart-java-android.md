@@ -10,19 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: c9b63685ae73fb4e056c72a640d6c4049e98b8b8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2f728231c01056ecb8709f84f13e834ef3618dc8
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559499"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803307"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Android의 Java에서 음성 인식
+
+빠른 시작은 [음성 합성](quickstart-text-to-speech-java-android.md) 및 [음성 우선 가상 도우미](quickstart-virtual-assistant-java-android.md)에도 사용할 수 있습니다.
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 이 문서에서는 Cognitive Services Speech SDK를 사용하여 음성을 텍스트로 변환하는 Android용 Java 애플리케이션을 개발하는 방법을 설명합니다.
-이 애플리케이션은 Speech SDK Maven 패키지 버전 1.6.0 및 Android Studio 3.3을 기반으로 합니다.
+이 애플리케이션은 Speech SDK Maven 패키지 및 Android Studio 3.3을 기반으로 합니다.
 Speech SDK는 현재 32/64비트 ARM 및 Intel x86/x64 호환 프로세서를 탑재한 Android 디바이스와 호환됩니다.
 
 > [!NOTE]

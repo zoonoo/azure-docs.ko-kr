@@ -1,35 +1,34 @@
 ---
 title: '빠른 시작: 음성 인식, Unity - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: 이 가이드에 따라 Unity 및 Unity용 Speech SDK(베타)를 사용하여 음성을 텍스트로 변환하는 애플리케이션을 만듭니다. 작업을 마치면 컴퓨터의 마이크를 사용하여 실시간으로 음성을 텍스트로 변환할 수 있습니다.
+description: 이 가이드에 따라 Unity 및 Unity용 Speech SDK를 사용하여 음성을 텍스트로 변환하는 애플리케이션을 만듭니다. 작업을 마치면 컴퓨터의 마이크를 사용하여 실시간으로 음성을 텍스트로 변환할 수 있습니다.
 services: cognitive-services
 author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 09/17/2019
 ms.author: jhakulin
-ms.openlocfilehash: 1b6e60edd86cff2d657b562f05351e20571c0909
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a7ac6831fd21fcc0dc425b57f5d73d8c328f9350
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815429"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803484"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>빠른 시작: Unity용 Speech SDK(베타)를 사용하여 음성 인식
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity"></a>빠른 시작: Unity용 Speech SDK를 사용하여 음성 인식
 
 빠른 시작은 [텍스트 음성 변환](quickstart-text-to-speech-csharp-unity.md)에도 사용할 수 있습니다.
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-이 가이드에 따라 [Unity](https://unity3d.com/) 및 Unity용 Speech SDK(베타)를 사용하여 음성을 텍스트로 변환하는 애플리케이션을 만듭니다.
+이 가이드에 따라 [Unity](https://unity3d.com/) 및 Unity용 Speech SDK를 사용하여 음성을 텍스트로 변환하는 애플리케이션을 만듭니다.
 완료되면 디바이스와 대화하여 실시간으로 음성을 텍스트로 변환할 수 있습니다.
 Unity를 처음 사용하는 경우 애플리케이션을 개발하기 전에 먼저 [Unity 사용자 설명서](https://docs.unity3d.com/Manual/UnityManual.html)를 검토하는 것이 좋습니다.
 
 > [!NOTE]
-> Unity용 Speech SDK는 현재 베타 버전입니다.
-> Windows 데스크톱(x86 및 x64) 또는 유니버설 Windows 플랫폼(x86, x64, ARM/ARM64)과 Android(x86, ARM32/64)를 지원합니다.
+> Unity용 Speech SDK는 Windows 데스크톱(x86 및 x64) 또는 유니버설 Windows 플랫폼(x86, x64, ARM/ARM64), Android(x86, ARM32/64) 및 iOS(x64 시뮬레이터, ARM32 및 ARM64)를 지원합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -37,7 +36,7 @@ Unity를 처음 사용하는 경우 애플리케이션을 개발하기 전에 �
 
 - [Unity 2018.3 이상](https://store.unity.com/)([UWP ARM64 지원이 추가된 Unity 2019.1](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal) 포함)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/). Visual Studio 2017 버전 15.9 이상도 허용됩니다.
-  - ARM64를 지원하려면 [ARM64용 선택적 빌드 도구 및 ARM64용 Windows 10 SDK](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/)를 설치합니다.
+- Windows ARM64를 지원하려면 [ARM64용 선택적 빌드 도구 및 ARM64용 Windows 10 SDK](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/)를 설치합니다.
 - Speech Service에 대한 구독 키 [무료로 가져올 수 있습니다](get-started.md).
 - 컴퓨터의 마이크에 액세스합니다.
 
@@ -62,7 +61,7 @@ Unity용 Speech SDK를 설치하려면 다음 단계를 수행합니다.
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-1. Unity 자산 패키지(.unitypackage)로 패키지된 [Unity용 Speech SDK(베타)](https://aka.ms/csspeech/unitypackage)를 다운로드하여 엽니다. 자산 패키지가 열리면 **Unity 패키지 가져오기** 대화 상자가 표시됩니다.
+1. Unity 자산 패키지(.unitypackage)로 패키지된 [Unity용 Speech SDK](https://aka.ms/csspeech/unitypackage)를 다운로드하여 엽니다. 자산 패키지가 열리면 **Unity 패키지 가져오기** 대화 상자가 표시됩니다.
 
    [![Unity 편집기의 Unity 패키지 가져오기 대화 상자](media/sdk/qs-csharp-unity-01-import.png)](media/sdk/qs-csharp-unity-01-import.png#lightbox)
 1. 모든 파일이 선택되었는지 확인하고, **가져오기**를 선택합니다. 잠시 후에 Unity 자산 패키지를 프로젝트로 가져옵니다.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/25/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e9be7ef5c4f37c66f7cbf2c6226936438b367108
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 357cc23c9dedb49dfd19dc897102762066ffd1b2
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515157"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679356"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기
 
@@ -53,7 +53,7 @@ ms.locfileid: "68515157"
 
 물리적 위치에 해당하는 사이트를 필요한 만큼 만듭니다. 예를 들어 NY에 지사가 있고, 런던에 지사가 있고, LA에 지사가 있는 경우 3개의 사이트를 별도로 만들 수 있습니다. 이 사이트에는 온-프레미스 VPN 디바이스 엔드포인트가 포함됩니다. 이 때, 사이트에 대한 프라이빗 주소 공간은 하나만 지정할 수 있습니다.
 
-1. 만든 WAN을 클릭합니다. WAN 페이지의 **WAN 아키텍처**에서 **VPN 사이트**를 클릭하여 VPN 사이트 페이지를 엽니다.
+1. 만든 WAN을 클릭합니다. WAN 페이지의 **Virtual WAN 아키텍처**에서 **VPN 사이트**를 클릭하여 VPN 사이트 페이지를 엽니다.
 2. **VPN 사이트** 페이지에서 **+사이트 만들기**를 클릭합니다.
 3. **사이트 만들기** 페이지에서 다음 필드를 채웁니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "68515157"
    * **프라이빗 주소 공간** - 온-프레미스 사이트에 있는 IP 주소 공간입니다. 이 주소 공간으로 향하는 트래픽은 로컬 사이트로 라우팅됩니다.
    * **구독** - 구독을 확인합니다.
    * **리소스 그룹** - 사용하려는 리소스 그룹입니다.
-   * **위치**:
+   * **위치**
 4. **고급 표시**를 클릭하여 고급 설정을 표시합니다. 
 
    **BGP**를 선택하여 BGP를 사용하도록 설정하면, Azure에서 이 사이트에 대해 만든 모든 연결에서 이 기능을 사용하도록 설정됩니다. Virtual WAN에서 BGP를 구성하는 것은 Azure VPN 게이트웨이에서 BGP를 구성하는 것과 같습니다. 온-프레미스 BGP 피어 주소는 VPN 디바이스의 공용 IP 주소 또는 VPN 사이트의 VNet 주소 공간과 같으면 *절대 안 됩니다*. VPN 디바이스에서 BGP 피어 IP에 다른 IP 주소를 사용하세요. 디바이스에서 루프백 인터페이스에 할당한 주소가 될 수 있습니다. 그러나 APIPA(169.254.*x*.*x*) 주소는 *안 됩니다*. 위치를 나타내는 해당 로컬 네트워크 게이트웨이에서 이 주소를 지정합니다. BGP 필수 조건은 [Azure VPN Gateway의 BGP 정보](../vpn-gateway/vpn-gateway-bgp-overview.md)를 참조하세요.

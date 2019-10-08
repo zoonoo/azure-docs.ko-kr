@@ -12,12 +12,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, 
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: ece47c86fba6bc975a4146f596fa001014352a4f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 41dea16f7938d391f8cdf03e1a731e8082f74b26
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725852"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695483"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-and-net-core-on-kubernetes-with-azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces를 사용하여 Kubernetes에서 Visual Studio 및 .NET Core로 디버깅 및 반복
 
@@ -26,6 +26,11 @@ ms.locfileid: "68725852"
 - Azure에서 관리되는 Kubernetes 클러스터를 사용하여 Azure Dev Spaces를 설정합니다.
 - Visual Studio를 사용하여 컨테이너에서 반복적으로 코드를 개발합니다.
 - Visual Studio를 사용하여 클러스터에서 실행되는 코드를 디버깅합니다.
+
+Azure Dev Spaces를 통해 다음을 사용하여 디버그하고 반복할 수도 있습니다.
+- [Java 및 Visual Studio Code](quickstart-java.md)
+- [Node.js 및 Visual Studio Code](quickstart-nodejs.md)
+- [.NET Core 및 Visual Studio Code](quickstart-netcore.md)
 
 ## <a name="prerequisites"></a>필수 조건
 

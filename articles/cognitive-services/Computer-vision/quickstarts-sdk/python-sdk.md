@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2019
+ms.date: 10/01/2019
 ms.author: pafarley
-ms.openlocfilehash: 8d47ae84fd489b4841d8bcf7755da6c30cf6035d
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: ab6a0d5c2a4c4623506d90b76b77462abb8fe4af
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967011"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719488"
 ---
 # <a name="quickstart-computer-vision-client-library-for-python"></a>빠른 시작: Python용 Computer Vision 클라이언트 라이브러리
 
@@ -64,7 +64,7 @@ Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로
 다음을 사용하여 클라이언트 라이브러리를 설치할 수 있습니다.
 
 ```console
-pip install --upgrade azure-cognitiveservices-Computer Vision
+pip install --upgrade azure-cognitiveservices-vision-computervision
 ```
 
 ## <a name="object-model"></a>개체 모델
@@ -128,7 +128,7 @@ Computer Vision Python SDK의 주요 기능 중 일부를 처리하는 클래스
 
 다음 코드는 이미지의 회사 브랜드 및 로고를 감지하여 콘솔에 출력합니다. 자세한 내용은 [브랜드 감지](../concept-brand-detection.md)를 참조하세요.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_objects)]
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_brands)]
 
 ### <a name="detect-faces"></a>얼굴 감지
 
@@ -136,9 +136,9 @@ Computer Vision Python SDK의 주요 기능 중 일부를 처리하는 클래스
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_faces)]
 
-### <a name="detect-adult-or-racy-content"></a>성인 또는 외설 콘텐츠 감지
+### <a name="detect-adult-racy-or-gory-content"></a>성인, 외설 또는 폭력 콘텐츠 검색
 
-다음 코드는 이미지에 있는 성인 또는 외설 콘텐츠의 검색된 상태를 출력합니다. 자세한 내용은 [성인/외설 콘텐츠](../concept-detecting-adult-content.md)를 참조하세요.
+다음 코드는 이미지에 있는 성인 콘텐츠의 검색된 상태를 출력합니다. 자세한 내용은 [성인, 외설, 폭력 콘텐츠](../concept-detecting-adult-content.md)를 참조하세요.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_adult)]
 

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: cbb86dd4b24cb325b8ea6708ebc2ffc89a697757
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 402bf198981641db74a86bbc420fab83124f0b47
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553402"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802027"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>빠른 시작: Java용 Speech SDK를 사용하여 음성 번역
 
-빠른 시작은 [음성 텍스트 변환](quickstart-java-jre.md) 및 [음성 우선 가상 도우미](quickstart-virtual-assistant-java-jre.md)에도 사용할 수 있습니다.
+빠른 시작은 [음성 텍스트 변환](quickstart-java-jre.md), [텍스트 음성 변환](quickstart-text-to-speech-java-jre.md) 및 [음성 우선 가상 도우미](quickstart-virtual-assistant-java-jre.md)에도 사용할 수 있습니다.
 
 이 빠른 시작에서는 컴퓨터의 마이크에서 사용자 음성을 캡처하고, 음성을 변환하고, 변환된 텍스트를 실시간으로 명령줄에 변환하는 간단한 Java 애플리케이션을 만듭니다. 이 애플리케이션은 64비트 Windows, 64비트 Linux(Ubuntu 16.04, Ubuntu 18.04, Debian 9) 또는 macOS 10.13 이상에서 실행되도록 설계되었으며 Speech SDK Maven 패키지 및 Eclipse Java IDE를 사용하여 빌드됩니다.
 

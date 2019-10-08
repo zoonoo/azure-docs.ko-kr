@@ -1,22 +1,22 @@
 ---
-title: Azure Marketplace를 사용하여 Windows Virtual Desktop 미리 보기 호스트 풀 만들기 - Azure
-description: Azure Marketplace를 사용하여 Windows Virtual Desktop 미리 보기 호스트 풀을 만드는 방법입니다.
+title: Azure Marketplace를 사용하여 Windows Virtual Desktop 호스트 풀 만들기 - Azure
+description: Azure Marketplace를 사용하여 Windows Virtual Desktop 호스트 풀을 만드는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: d6628f1522880f650bfd8c728fe46fd050a8e6a0
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c0b93529872de774e1a6e915ef8254c5c0e0a1a9
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208389"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676701"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>자습서: Azure Marketplace를 사용하여 호스트 풀 만들기
 
-호스트 풀은 Windows Virtual Desktop 미리 보기 테넌트 환경 내에서 하나 이상의 동일한 가상 머신 컬렉션입니다. 각 호스트 풀은 사용자가 물리적 데스크톱에서처럼 상호 작용할 수 있는 앱 그룹을 포함할 수 있습니다.
+호스트 풀은 Windows Virtual Desktop 테넌트 환경 내에서 하나 이상의 동일한 가상 머신 컬렉션입니다. 각 호스트 풀은 사용자가 물리적 데스크톱에서처럼 상호 작용할 수 있는 앱 그룹을 포함할 수 있습니다.
 
 이 자습서에서는 Microsoft Azure Marketplace 제품을 사용하여 Windows Virtual Desktop 테넌트 내에서 호스트 풀을 만드는 방법을 설명합니다. 작업은 다음과 같습니다.
 
@@ -80,7 +80,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 3. Active Directory 서버에 연결되어 있는 가상 네트워크를 선택한 다음, 가상 머신을 호스트하는 서브넷을 선택합니다.
 4. **확인**을 선택합니다.
 
-### <a name="windows-virtual-desktop-preview-tenant-information"></a>Windows Virtual Desktop 미리 보기 테넌트 정보
+### <a name="windows-virtual-desktop-tenant-information"></a>Windows Virtual Desktop 테넌트 정보
 
 **Windows Virtual Desktop 테넌트 정보** 블레이드의 경우:
 

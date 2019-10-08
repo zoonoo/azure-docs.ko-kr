@@ -7,12 +7,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/10/2019
-ms.openlocfilehash: e08287fec79ec634d6e2353328854e19565533ca
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: fcd115b672e4e2677cb7ad48fc94905747d66781
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204041"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675103"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>빠른 시작: Windows용 Data Science Virtual Machine 설정
 
@@ -20,7 +20,8 @@ Windows Data Science Virtual Machine을 준비하고 실행합니다.
 
 ## <a name="prerequisite"></a>필수 요소
 
-Windows Data Science Virtual Machine을 만들려면 Azure 구독이 있어야 합니다. [Azure를 무료로 사용해 봅니다](https://azure.com/free).
+Windows Data Science Virtual Machine을 만들려면 Azure 구독이 있어야 합니다. [Azure 평가판 체험하기](https://azure.com/free).
+Azure 체험 계정은 GPU 사용 가상 머신 SKU를 지원하지 않습니다.
 
 ## <a name="create-your-dsvm"></a>DSVM 만들기
 

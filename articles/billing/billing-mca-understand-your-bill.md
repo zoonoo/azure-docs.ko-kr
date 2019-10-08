@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: ee250589133abb1944ff17e39dc650cbae4279c6
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 8ab6cf061531a1ef3c72b2f36d25932c7498d291
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490669"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345275"
 ---
 # <a name="understand-charges-on-your-microsoft-customer-agreement-invoice"></a>Microsoft 고객 계약 청구서의 요금 이해
 
@@ -115,7 +115,7 @@ Microsoft 고객 계약의 청구 계정에서, 요금은 청구서가 작성되
 
 3. 청구 프로필을 선택합니다. 액세스 권한에 따라 청구 계정을 선택해야 할 수도 있습니다. 청구 계정에서 **청구 프로필**을 선택한 다음, 청구 프로필을 선택합니다.
 
-4. 페이지 왼쪽에서 **모든 구독**을 선택합니다.
+4. 페이지 왼쪽에 있는 **모든 구독**을 선택합니다.
 
 5. Azure 구독 페이지에는 청구 프로필의 각 구독에 대한 이번 달과 지난 달 요금이 표시 됩니다. 월간 누계 요금은 이번 달의 보류 중인 요금이며 이번 달의 청구서가 생성될 때 청구됩니다. 지난 달의 청구서가 아직 생성되지 않은 경우 지난 달의 요금 역시 보류 중 요금입니다.
 
@@ -177,6 +177,6 @@ WA_Subscription의 자세한 사용 요금을 확인하려면 Azure 사용량 �
 
 청구서 및 세부 사용량에 대해 자세히 알아보세요.
 
-- [Azure 청구서 및 일간 사용 현황 데이터를 가져오는 방법](billing-download-azure-invoice-daily-usage-date.md)
+- [Azure 청구서 및 일간 사용량 현황 데이터를 가져오는 방법](billing-download-azure-invoice-daily-usage-date.md)
 - [Microsoft 고객 계약 청구서의 용어 이해](billing-mca-understand-your-invoice.md)
 - [Microsoft 고객 계약 사용량 CSV 파일의 용어 이해](billing-mca-understand-your-usage.md)

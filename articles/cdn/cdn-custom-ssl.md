@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 10/1/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 10e0f24642d54c43d6c818773d0eb17815ab784b
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: b6ac528d0d2916f513be4e2a72bff061bdad8e58
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996912"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718642"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
@@ -190,7 +190,7 @@ CNAME 레코드가 올바른 형식이면 DigiCert는 사용자 지정 도메인
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>사용자 지정 도메인이 CDN 엔드포인트에 매핑되지 않음
 
 >[!NOTE]
->**Akamai의 Azure CDN**을 사용하는 경우, 사용자 지정 도메인은 위에서 설명된 대로 CNAME 레코드로 CDN 엔드포인트에 매핑되어야 합니다.  이 기능은 현재 백로그로 제공됩니다. 
+>**Akamai의 Azure CDN**을 사용하는 경우 자동 도메인 유효성 검사를 사용하도록 다음 CNAME을 설정해야 합니다. "_acme-challenge.<custom domain hostname> -> CNAME -> <custom domain hostname>.ak-acme-challenge.azureedge.net"
 
 CNAME 레코드 항목에 cdnverify 하위 도메인이 포함된 경우 이 단계의 나머지 지침을 따릅니다.
 

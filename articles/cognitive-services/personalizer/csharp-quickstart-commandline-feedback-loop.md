@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/12/2019
+ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 2289c21fcc172c8dffd7d6b3f9c0e2e11736e71a
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 174f0f3d8984e102e098b4c981d3784f50c7d7c6
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265993"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345227"
 ---
 # <a name="quickstart-personalize-client-library-for-net"></a>빠른 시작: .NET용 Personalizer 클라이언트 라이브러리
 
@@ -33,9 +33,17 @@ ms.locfileid: "71265993"
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * 최신 버전의 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
 
-## <a name="setting-up"></a>설치
+## <a name="using-this-quickstart"></a>이 빠른 시작 사용
 
-### <a name="create-a-personalizer-azure-resource"></a>Personalizer Azure 리소스 만들기
+이 빠른 시작을 사용하는 몇 가지 단계가 있습니다.
+
+* Azure Portal에서 Personalizer 리소스 만들기
+* Azure Portal의 Personalizer 리소스에 대한 **설정 페이지**에서 모델 업데이트 빈도 변경
+* 코드 편집기에서 코드 파일을 만들고 코드 파일을 편집합니다.
+* 명령줄 또는 터미널의 명령줄에서 SDK 설치
+* 명령줄 또는 터미널에서 코드 파일 실행
+
+## <a name="create-a-personalizer-azure-resource"></a>Personalizer Azure 리소스 만들기
 
 Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Personalizer용 리소스를 만듭니다. 또한 다음을 수행할 수 있습니다.
 
@@ -50,15 +58,15 @@ Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로
 
 Azure Portal의 **빠른 시작** 페이지에서 키와 엔드포인트 값을 모두 확인할 수 있습니다.
 
-### <a name="change-the-model-update-frequency"></a>모델 업데이트 빈도 변경
+## <a name="change-the-model-update-frequency"></a>모델 업데이트 빈도 변경
 
-Azure Portal의 Personalizer 리소스에서 **모델 업데이트 빈도**를 10초로 변경합니다. 이렇게 하면 서비스가 빠르게 학습되어 각 반복에 대한 상위 작업이 변경되는 상태를 확인할 수 있습니다.
+Azure Portal의 **설정 페이지**에 있는 Personalizer 리소스에서 **모델 업데이트 빈도**를 10초로 변경합니다. 이렇게 하면 서비스가 빠르게 학습되어 각 반복에 대한 상위 작업이 변경되는 상태를 확인할 수 있습니다.
 
 ![모델 업데이트 빈도 변경](./media/settings/configure-model-update-frequency-settings.png)
 
 Personalizer 루프가 처음 인스턴스화되면 학습을 위한 Reward API 호출이 없으므로 모델이 없습니다. 순위 호출은 각 항목에 대해 동일한 확률을 반환합니다. 애플리케이션은 RewardActionId의 출력을 사용하여 항상 콘텐츠의 순위를 매겨야 합니다.
 
-### <a name="create-a-new-c-application"></a>새 C# 애플리케이션 만들기
+## <a name="create-a-new-c-application"></a>새 C# 애플리케이션 만들기
 
 선호하는 편집기 또는 IDE에서 .NET Core 애플리케이션을 새로 만듭니다. 
 
@@ -84,7 +92,7 @@ Build succeeded.
 ...
 ```
 
-### <a name="install-the-sdk"></a>SDK 설치
+## <a name="install-the-sdk"></a>SDK 설치
 
 애플리케이션 디렉터리 내에서 다음 명령을 사용하여 .NET용 Personalizer 클라이언트 라이브러리를 설치합니다.
 

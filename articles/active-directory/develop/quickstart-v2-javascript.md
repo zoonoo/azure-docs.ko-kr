@@ -16,25 +16,22 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 988c73236d9f5ef360ded03bca36a4bb24ebd308
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: c41dedf6b4fe52ba3250ada14b0cca6bbeb636af
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290828"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827124"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>빠른 시작: JavaScript 단일 페이지 애플리케이션에서 사용자를 로그인하고 액세스 토큰 획득
 
-이 빠른 시작에서는 JavaScript SPA(단일 페이지 애플리케이션)에서 개인 계정, 회사 및 학교 계정에 로그인하는 방법을 설명하는 코드 샘플을 사용하는 방법을 알아봅니다. 또한 JavaScript SPA는 Microsoft Graph API 또는 웹 API를 호출하는 액세스 토큰을 가져올 수 있습니다.
-
-![이 빠른 시작에서 샘플 앱의 작동 방식](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+이 빠른 시작에서는 코드 샘플을 사용하여 JavaScript SPA(단일 페이지 애플리케이션)에서 개인 계정, 회사 및 학교 계정의 사용자에 로그인하는 방법을 알아봅니다. 또한 JavaScript SPA는 Microsoft Graph API 또는 웹 API를 호출하는 액세스 토큰을 가져올 수 있습니다. (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작에서는 다음과 같은 설정이 필요합니다.
-* Node.js 서버를 사용하여 프로젝트를 실행하려면 [Node.js](https://nodejs.org/en/download/)를 다운로드하여 설치합니다.
-* 프로젝트 파일을 편집하려면 [Visual Studio Code](https://code.visualstudio.com/download)를 다운로드하여 설치합니다.
-* 프로젝트를 Visual Studio 솔루션으로 실행하려면 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)를 다운로드하여 설치합니다.
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Node.js](https://nodejs.org/en/download/).
+* [Visual Studio Code](https://code.visualstudio.com/download)(프로젝트 파일 편집) 또는 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)(프로젝트를 Visual Studio 솔루션으로 실행) 중 하나입니다.
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>빠른 시작 애플리케이션 등록 및 다운로드
@@ -81,8 +78,6 @@ ms.locfileid: "71290828"
 * Node.js를 사용하여 웹 서버로 프로젝트를 실행하려면 [주요 프로젝트 파일을 다운로드](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)합니다. 파일을 열려면 [Visual Studio Code](https://code.visualstudio.com/)와 같은 편집기를 사용합니다.
 
 * (선택 사항) IIS 서버에서 프로젝트를 실행하려면 [Visual Studio 프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)합니다. zip 파일을 로컬 폴더(예: *C:\Azure-Samples*)에 추출합니다.
-
-
 
 #### <a name="step-3-configure-your-javascript-app"></a>3단계: JavaScript 앱 구성
 
@@ -144,6 +139,10 @@ var msalConfig = {
 브라우저가 애플리케이션을 로드한 후에는 **로그인**을 선택합니다. 사용자가 처음으로 로그인하면 애플리케이션이 사용자 프로필에 액세스하고 로그인할 수 있도록 동의하라는 메시지가 표시됩니다. 성공적으로 로그인한 후에는 사용자 프로필 정보가 페이지에 표시되어야 합니다.
 
 ## <a name="more-information"></a>자세한 정보
+
+### <a name="how-the-sample-works"></a>샘플 작동 방식
+
+![이 빠른 시작에서 샘플 앱의 작동 방식](media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
 ### <a name="msaljs"></a>msal.js
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 83e378b9349bc3cec90bc0c80a801d452f2bf3db
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 58d751628bf667949487832c9352aeb6a972faf8
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081736"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348821"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM의 사용자 지정 이미지 만들기
 
@@ -110,6 +110,8 @@ az vm create \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
+
+단일 이미지에서 동시 배포 수를 VM 20개로 제한하는 것이 좋습니다. 동일한 사용자 지정 이미지에서 20개가 넘는 VM에 대한 대규모 동시 배포를 계획하는 경우 여러 이미지 복제본과 함께 [Shared Image Gallery](shared-image-galleries.md)를 사용해야 합니다. 
 
 ## <a name="image-management"></a>이미지 관리 
 

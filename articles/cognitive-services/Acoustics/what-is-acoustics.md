@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 51bfcc47961e870fb7fb87b26a78aea0f1564d46
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 65678f08399f378b8580eed79e49197dd4d84c64
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390302"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71351140"
 ---
 # <a name="what-is-project-acoustics"></a>프로젝트 Acoustics란?
 Project Acoustics는 3D 대화형 환경을 위한 파동 음향 엔진입니다. 수동 영역 표시 또는 CPU를 많이 사용하는 레이트레이싱(raytracing)을 요구하지 않고도 복잡한 장면에서 폐색, 장애, 포털링(portaling) 및 반향 효과와 같은 파동 효과를 모델링합니다. 게임 엔진과 오디오 미들웨어 통합도 포함됩니다. Project Acoustics의 원칙은 정적 조명과 비슷합니다. 즉, 세부적인 물리학을 오프라인으로 베이킹하여 물리적 기준을 제공하며, 의미 있는 디자인 컨트롤이 포함된 간단한 런타임을 사용하여 가상 세계의 음향 효과를 위한 미적 목표를 충족합니다.
@@ -31,7 +31,7 @@ Project Acoustics의 주요 혁신은 실제 음파 기반 음향 시뮬레이�
 ![장면을 통한 웨이브 전파의 수평 2D 슬라이스를 보여주는 애니메이션](media/wave-simulation.gif)
 
 ## <a name="video-presentation-from-gdc-2019-30-min"></a>GDC 2019의 동영상 프레젠테이션(~30분)
-[![Project Acoustics 동영상](https://img.youtube.com/vi/uY4G-GUAQIE/0.jpg)](https://www.youtube.com/watch?v=uY4G-GUAQIE "동영상을 재생하려면 클릭")
+[![Project Acoustics 비디오](https://img.youtube.com/vi/uY4G-GUAQIE/0.jpg)](https://www.youtube.com/watch?v=uY4G-GUAQIE "비디오를 재생하려면 클릭")
 
 ## <a name="setup"></a>설정
 [Project Acoustics Unity 통합](unity-integration.md)은 끌어서 놓기이며 Unity 오디오 엔진 플러그 인을 포함합니다. Project Acoustics C# 컨트롤 구성 요소를 각 오디오 개체에 연결하여 Unity 오디오 원본 제어를 강화합니다.
@@ -58,11 +58,10 @@ Project Acoustics 편집기 플러그 인은 다음 플랫폼에서 사용할 �
 ## <a name="download"></a>다운로드
 * [Project Acoustics Unity 플러그 인 및 샘플](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
 * [Project Acoustics Unreal & Wwise 플러그 인 및 샘플](https://www.microsoft.com/download/details.aspx?id=58090)
-  * Xbox 이진 파일 및 지원이 필요하면 아래 등록 양식을 통해 문의해 주세요.
+  * Xbox 이진 파일 및 기타 지원이 필요하면 아래 [포럼](https://github.com/microsoft/ProjectAcoustics/issues)을 통해 문의해 주세요.
 
 ## <a name="contact-us"></a>문의처
 * [Project Acoustics 토론 및 문제 보고](https://github.com/microsoft/ProjectAcoustics/issues)
-* [Project Acoustics 업데이트를 받기 위한 등록](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## <a name="next-steps"></a>다음 단계
 * [Unity 또는 Unreal](unity-quickstart.md)용 [Project Acoustics 빠른 시작](unreal-quickstart.md)을 시도합니다.

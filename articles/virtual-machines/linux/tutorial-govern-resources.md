@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.topic: tutorial
-ms.date: 10/12/2018
+ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 7bd204789f99fa299300ff47003857e9ecc6085e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5fa14ef30d45a9a28cc690761ec33b5bfaaac6a7
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103613"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676513"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>자습서: Azure CLI를 사용한 Linux 가상 머신 거버넌스에 대해 알아보기
 
@@ -26,7 +26,7 @@ ms.locfileid: "70103613"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Azure CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+Azure CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
 ## <a name="understand-scope"></a>범위 이해
 
@@ -56,7 +56,7 @@ az group create --name myResourceGroup --location "East US"
 
 개별 사용자에게 역할을 할당하는 대신 비슷한 동작을 수행해야 하는 사용자에게 Azure Active Directory 그룹을 사용하기가 더 쉽습니다. 그런 다음, 해당 그룹에 적절한 역할을 할당합니다. 이 문서에서는 가상 머신 관리에 기존 그룹을 사용하거나, 포털을 사용하여 [Azure Active Directory 그룹을 만듭니다](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-새 그룹을 만들거나 기존 그룹을 찾은 뒤 [az role assignment create](/cli/azure/role/assignment) 명령을 사용하여 새로운 Azure Active Directory 그룹을 리소스 그룹에 대한 Virtual Machine 기여자 역할에 할당합니다.
+새 그룹을 만들거나 기존 그룹을 찾은 뒤 [az role assignment create](https://docs.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) 명령을 사용하여 새로운 Azure Active Directory 그룹을 리소스 그룹에 대한 Virtual Machine 기여자 역할에 할당합니다.
 
 ```azurecli-interactive
 adgroupId=$(az ad group show --group <your-group-name> --query objectId --output tsv)
@@ -70,7 +70,7 @@ az role assignment create --assignee-object-id $adgroupId --role "Virtual Machin
 
 ## <a name="azure-policy"></a>Azure Policy
 
-[Azure Policy](../../governance/policy/overview.md)는 구독의 모든 리소스가 회사 표준을 따르도록 관리하는 데 유용합니다. 사용 중인 구독에 이미 여러 개의 정책 정의가 있습니다. 사용 가능한 정책 정의를 보려면 [az policy definition list](/cli/azure/policy/definition) 명령을 사용합니다.
+[Azure Policy](../../governance/policy/overview.md)는 구독의 모든 리소스가 회사 표준을 따르도록 관리하는 데 유용합니다. 사용 중인 구독에 이미 여러 개의 정책 정의가 있습니다. 사용 가능한 정책 정의를 보려면 [az policy definition list](https://docs.microsoft.com/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-list) 명령을 사용합니다.
 
 ```azurecli-interactive
 az policy definition list --query "[].[displayName, policyType, name]" --output table
@@ -82,7 +82,7 @@ az policy definition list --query "[].[displayName, policyType, name]" --output 
 * 가상 머신에 대한 SKU를 제한합니다.
 * 관리 디스크를 사용하지 않는 가상 머신을 감사합니다.
 
-다음 예제에서는 표시 이름을 기준으로 세 가지 정책 정의를 검색합니다. [az policy assignment create](/cli/azure/policy/assignment) 명령을 사용하여 해당 정의를 리소스 그룹에 할당합니다. 일부 정책의 경우 매개 변수 값을 제공하여 허용된 값을 지정합니다.
+다음 예제에서는 표시 이름을 기준으로 세 가지 정책 정의를 검색합니다. [az policy assignment create](https://docs.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) 명령을 사용하여 해당 정의를 리소스 그룹에 할당합니다. 일부 정책의 경우 매개 변수 값을 제공하여 허용된 값을 지정합니다.
 
 ```azurecli-interactive
 # Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
@@ -144,7 +144,7 @@ az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --ge
 
 관리 잠금을 만들거나 삭제하려면 `Microsoft.Authorization/locks/*` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 **소유자** 및 **사용자 액세스 관리자**에게만 이러한 작업의 권한이 부여됩니다.
 
-가상 머신 및 네트워크 보안 그룹을 잠그려면 [az lock create](/cli/azure/lock) 명령을 사용합니다.
+가상 머신 및 네트워크 보안 그룹을 잠그려면 [az lock create](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest#az-resource-lock-create) 명령을 사용합니다.
 
 ```azurecli-interactive
 # Add CanNotDelete lock to the VM
@@ -176,7 +176,7 @@ Azure 리소스에 [태그](../../azure-resource-manager/resource-group-using-ta
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
-가상 머신에 태그를 적용하려면 [az resource tag](/cli/azure/resource) 명령을 사용합니다. 리소스의 기존 태그는 유지되지 않습니다.
+가상 머신에 태그를 적용하려면 [az resource tag](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list) 명령을 사용합니다. 리소스의 기존 태그는 유지되지 않습니다.
 
 ```azurecli-interactive
 az resource tag -n myVM \
@@ -187,7 +187,7 @@ az resource tag -n myVM \
 
 ### <a name="find-resources-by-tag"></a>태그로 리소스 찾기
 
-태그 이름 및 값을 사용하여 리소스를 찾으려면 [az resource list](/cli/azure/resource) 명령을 사용합니다.
+태그 이름 및 값을 사용하여 리소스를 찾으려면 [az resource list](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list) 명령을 사용합니다.
 
 ```azurecli-interactive
 az resource list --tag Environment=Test --query [].name
@@ -205,7 +205,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-잠금이 해제될 때까지는 잠긴 네트워크 보안 그룹을 삭제할 수 없습니다. 잠금을 제거하려면 잠금의 ID를 검색하고 [az lock delete](/cli/azure/lock) 명령을 입력합니다.
+잠금이 해제될 때까지는 잠긴 네트워크 보안 그룹을 삭제할 수 없습니다. 잠금을 제거하려면 잠금의 ID를 검색하고 [az lock delete](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest#az-resource-lock-delete) 명령을 입력합니다.
 
 ```azurecli-interactive
 vmlock=$(az lock show --name LockVM \
@@ -219,7 +219,7 @@ nsglock=$(az lock show --name LockNSG \
 az lock delete --ids $vmlock $nsglock
 ```
 
-더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group) 명령을 사용하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다. VM에 대한 SSH 세션을 종료한 후 다음과 같이 리소스를 삭제합니다.
+더 이상 필요하지 않은 경우 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 사용하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다. VM에 대한 SSH 세션을 종료한 후 다음과 같이 리소스를 삭제합니다.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
@@ -236,8 +236,8 @@ az group delete --name myResourceGroup
 > * 잠금을 사용하여 중요한 리소스 보호
 > * 결제 및 관리에 대한 리소스 태그 지정
 
-고가용성 가상 머신에 대해 자세히 알아보려면 다음 자습서로 이동합니다.
+다음 자습서로 진행하여 가상 머신에서 변경 내용을 식별하고 패키지 업데이트를 관리하는 방법에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [가상 머신 모니터링](tutorial-monitoring.md)
+> [가상 머신 관리](tutorial-config-management.md)
 

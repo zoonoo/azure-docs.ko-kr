@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 03a036ce5381130af4bbcea88c87d77cd93cf6a9
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: e2816d8e6fdd900473cceebb20c96794f3f9f0f9
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743879"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350883"
 ---
 # <a name="azure-storage-samples"></a>Azure Storage 샘플
 
@@ -40,13 +40,7 @@ Python 샘플을 탐색하려면 [Python Storage 클라이언트 라이브러리
 ## <a name="nodejs-samples"></a>Node.js 샘플
 Node.js 샘플을 탐색하려면 [Node.js Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-node)를 다운로드합니다.
 
-* [Blob 업로더](https://github.com/Azure/azure-storage-node/tree/master/examples/blobuploader)
-* [Blob 업로드 및 다운로드](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/blobuploaddownloadsample.js)
-* [연속 토큰](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js)
-* [다시 시도 정책](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/retrypolicysample.js)
-* [공유 액세스 서명](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/sassample.js)
-* [스냅샷](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/snapshotsample.js)
-* [테이블 쿼리](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/tablequerysample.js)
+* [JavaScript/Node.js를 사용한 Azure Storage 샘플](storage-samples-javascript.md)
 
 ## <a name="c-samples"></a>C++ 샘플
 C++ 샘플을 탐색하려면 [C++ Storage 클라이언트 라이브러리](https://www.nuget.org/packages/wastorage/) 를 NuGet에서 다운로드합니다.
@@ -71,4 +65,5 @@ C++ 샘플을 탐색하려면 [C++ Storage 클라이언트 라이브러리](http
 
 * [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
 * [Java를 사용한 Azure Storage 샘플](storage-samples-java.md)
+* [JavaScript를 사용한 Azure Storage 샘플](storage-samples-javascript.md)
 * [Python을 사용한 Azure Storage 샘플](storage-samples-python.md)

@@ -10,16 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 08/01/2019
 ms.author: aahi
-ms.openlocfilehash: 59a4d79cc68c57faf54bde3d42370fb17a317325
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 28dbcde723e25577545cfd44fed9ef00249d8f30
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725553"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694902"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>빠른 시작: Python용 Anomaly Detector 클라이언트 라이브러리
 
-.NET용 Anomaly Detector 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Anomaly Detector 서비스를 사용하면 업계, 시나리오 또는 데이터 양에 관계없이 가장 적합한 모델을 자동으로 사용하여 시계열 데이터의 변칙을 찾을 수 있습니다.
+Python용 Anomaly Detector 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Anomaly Detector 서비스를 사용하면 업계, 시나리오 또는 데이터 양에 관계없이 가장 적합한 모델을 자동으로 사용하여 시계열 데이터의 변칙을 찾을 수 있습니다.
 
 Python용 Anomaly Detector 클라이언트 라이브러리를 사용하여 다음을 수행할 수 있습니다.
 
@@ -70,7 +70,7 @@ Anomaly Detector 응답은 사용된 메서드에 따라 [LastDetectResponse](ht
 
 ## <a name="code-examples"></a>코드 예제 
 
-이 코드 조각은 .NET용 Anomaly Detector 클라이언트 라이브러리를 사용하여 다음을 수행하는 방법을 보여줍니다.
+이러한 코드 조각은 Python용 Anomaly Detector 클라이언트 라이브러리를 사용하여 다음을 수행하는 방법을 보여줍니다.
 
 * [클라이언트 인증](#authenticate-the-client)
 * [파일에서 시계열 데이터 세트 로드](#load-time-series-data-from-a-file)

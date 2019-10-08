@@ -1,22 +1,22 @@
 ---
-title: PowerShell을 사용하여 Windows Virtual Desktop 미리 보기 서비스 주체 만들기 및 역할 할당 - Azure
-description: Windows Virtual Desktop 미리 보기에서 PowerShell을 사용하여 서비스 주체를 만들고 역할을 할당하는 방법을 설명합니다.
+title: PowerShell을 사용하여 Windows Virtual Desktop 서비스 주체 만들기 및 역할 할당 - Azure
+description: Windows Virtual Desktop에서 PowerShell을 사용하여 서비스 주체를 만들고 역할을 할당하는 방법을 설명합니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: dbde4ccede7f27ae494c8326babc7ec69b4a1266
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 87057d29d9d95ac0ebca298e40ca0d8c2aa9b0b1
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984999"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679627"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>자습서: PowerShell을 사용하여 서비스 주체 만들기 및 역할 할당
 
-서비스 주체는 특정 목적에 대한 역할 및 권한을 할당하도록 Azure Active Directory에서 만들 수 있는 ID입니다. Windows Virtual Desktop 미리 보기에서 다음 목적을 위해 서비스 주체를 만들 수 있습니다.
+서비스 주체는 특정 목적에 대한 역할 및 권한을 할당하도록 Azure Active Directory에서 만들 수 있는 ID입니다. Windows Virtual Desktop에서 다음을 수행할 서비스 주체를 만들 수 있습니다.
 
 - 특정 Windows Virtual Desktop 관리 작업 자동화
 - Windows Virtual Desktop에 대해 Azure Resource Manager 템플릿을 실행하는 경우 MFA 필요 사용자 대신 자격 증명으로 사용

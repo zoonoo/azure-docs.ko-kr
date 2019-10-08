@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b8637bb1a1ba397750bd04c88c6535fa3d1caa0
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: bdb1ae92b17bef281e3b82a8c1a21344fa37f0da
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309631"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345541"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>빠른 시작: iOS 또는 macOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -94,11 +94,11 @@ ms.locfileid: "71309631"
 > 1. Zip 파일을 추출하고 XCode에서 프로젝트를 엽니다.
 > 1. **ViewController.swift**를 편집하고, 'let kClientID'로 시작하는 줄을 다음 코드 조각으로 바꿉니다. `kClientID` 값은 이 빠른 시작의 앞부분에서 포털에 앱을 등록할 때 저장한 클라이언트 ID로 업데이트해야 합니다.
 >    ```swift
->    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
+>    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. 프로젝트 설정을 엽니다. **ID** 섹션에서 포털에 입력한 **번들 식별자**를 입력합니다.
 > 1. iOS 전용으로, **Info.plist**를 마우스 오른쪽 단추로 클릭하고 **파일 열기 형식** > **소스 코드**를 선택합니다.
-> 1. iOS 전용으로, dict 루트 노드 아래에서 `Enter_the_bundle_Id_Here`를 포털에서 입력한 ***번들 ID***로 바꿉니다.
+> 1. iOS 전용으로, dict 루트 노드 아래에서 `CFBundleURLSchemes`를 포털에서 입력한 ***번들 ID***로 바꿉니다.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -120,7 +120,7 @@ ms.locfileid: "71309631"
 > 1. Zip 파일을 추출하고 XCode에서 프로젝트를 엽니다.
 > 1. **ViewController.swift**를 편집하고, 'let kClientID'로 시작하는 줄을 다음 코드 조각으로 바꿉니다. `kClientID` 값은 이 빠른 시작의 앞부분에서 포털에 앱을 등록할 때 저장한 clientID로 업데이트해야 합니다.
 >    ```swift
->    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
+>    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. 프로젝트 설정을 엽니다. **ID** 섹션에서 포털에 입력한 **번들 식별자**를 입력합니다.
 > 1. iOS 전용으로, **Info.plist**를 마우스 오른쪽 단추로 클릭하고 **파일 열기 형식** > **소스 코드**를 선택합니다.

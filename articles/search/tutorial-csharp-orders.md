@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.author: v-pettur
 author: PeterTurcan
 ms.date: 06/21/2019
-ms.openlocfilehash: 32e253b4e131d753ab6937d0aa2a49bda471e091
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 684ce33e5ecf587aa2030a817680f2d405225117
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466513"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327658"
 ---
 # <a name="c-tutorial-order-the-results---azure-search"></a>C# 자습서: 결과 정렬 - Azure Search
 
@@ -320,7 +320,7 @@ ms.locfileid: "67466513"
 
     ![객실 요금 범위 표시](./media/tutorial-csharp-create-first-app/azure-search-orders-rooms.png)
 
-객실이 이미 요금을 기준으로 정렬된 경우에도 검색 매개 변수의 **OrderBy** 속성은 가장 저렴한 객실 요금을 제공하기 위해 **Rooms.BaseRate**와 같은 항목을 허용하지 않습니다. 객실 요금에 따라 정렬된 샘플 데이터 세트의 호텔을 표시하려면 홈 컨트롤러에서 결과를 정렬하고 이러한 결과를 원하는 순서대로 보기에 보내야 합니다.
+객실이 이미 요금을 기준으로 정렬된 경우에도 검색 매개 변수의 **OrderBy** 속성은 가장 저렴한 객실 요금을 제공하기 위해 **Rooms.BaseRate**와 같은 항목을 허용하지 않습니다. 이 경우 객실은 요금에 따라 정렬되지 않습니다. 객실 요금에 따라 정렬된 샘플 데이터 세트의 호텔을 표시하려면 홈 컨트롤러에서 결과를 정렬하고 이러한 결과를 원하는 순서대로 보기에 보내야 합니다.
 
 ## <a name="order-results-based-on-multiple-values"></a>여러 값 기준의 결과 정렬
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 0aa4286d8cb630f221613bebd13f7ea722224ac6
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 993064a36bd12c95e83ffb7c9635c3e4dfcec0f0
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70068838"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803338"
 ---
 # <a name="what-are-the-speech-services"></a>Speech Services란?
 
@@ -41,6 +41,8 @@ Speech Services는 음성-텍스트 변환, 텍스트-음성 변환 및 음성 �
 
 Azure Speech Services의 새로운 기능에 대해 알아봅니다.
 
+* 2019년 9월
+  * Speech SDK 1.7.0이 릴리스되었습니다. 업데이트, 향상된 기능 및 알려진 문제의 전체 목록은 [릴리스 정보](releasenotes.md)를 참조하세요.
 * 2019년 8월
   * **새 자습서**: [음성 SDK, C#으로 음성을 지원하도록 봇 설정](tutorial-voice-enable-your-bot-speech-sdk.md)
   * `en-US-JessaNeural` 음성에 대해 새 말하기 스타일 [`chat`](speech-synthesis-markup.md#adjust-speaking-styles)를 추가했습니다. 

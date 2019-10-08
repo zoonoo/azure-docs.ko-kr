@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: bidishac
-ms.openlocfilehash: b1be09a2af712277ccaad827b8e84e24ed9f5c5c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c5a6042e4b181190849b3759325e4aab0c22413b
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553254"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71800029"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>빠른 시작: Speech SDK Java를 사용하여 음성 우선 가상 도우미 만들기
 
-빠른 시작은 [음성 텍스트 변환](quickstart-java-jre.md) 및 [음성 번역](quickstart-translate-speech-java-jre.md)에도 사용할 수 있습니다.
+빠른 시작은 [음성 텍스트 변환](quickstart-java-jre.md), [텍스트 음성 변환](quickstart-text-to-speech-java-jre.md) 및 [음성 번역](quickstart-translate-speech-java-jre.md)에도 사용할 수 있습니다.
 
 이 문서에서는 [Cognitive Services Speech SDK](speech-sdk.md)를 사용하여 Java 콘솔 애플리케이션을 만듭니다. 이 애플리케이션은 이전에 Direct Line Speech 채널을 사용하도록 만들고 구성한 봇에 연결하고, 음성 요청을 보내고, 음성 응답 작업을 반환합니다(구성된 경우). 이 애플리케이션은 Speech SDK Maven 패키지와 Windows, Ubuntu Linux 또는 macOS 기반의 Eclipse Java IDE를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
 

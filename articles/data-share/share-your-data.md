@@ -1,17 +1,17 @@
 ---
-title: 자습서 - Azure Data Share 미리 보기를 사용하여 고객 및 파트너와 데이터 공유
+title: '자습서: 조직 외부에서 공유 - Azure Data Share 미리 보기'
 description: 자습서 - Azure Data Share 미리 보기를 사용하여 고객 및 파트너와 데이터 공유
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: 01888f3656765b922c1b646e7ca8e07d81e799f3
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: f7df46a6a6f149ef0228fda8c967469a25dc3d50
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838434"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327409"
 ---
 # <a name="tutorial-share-your-data-using-azure-data-share-preview"></a>자습서: Azure Data Share 미리 보기를 사용하여 데이터 공유
 

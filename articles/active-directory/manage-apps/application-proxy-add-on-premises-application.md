@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 09/30/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe6da9b1557293ee9002681c6ce90c1c6c62a25b
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: c3f3d7eb0fe544316aec1ce1ece45b2c7c1d9085
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231264"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694725"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
 
@@ -50,6 +50,9 @@ Azure AD에 온-프레미스 애플리케이션을 추가하려면 다음이 필
 
 1. 실제로 애플리케이션 서버에 가깝게 커넥터 서버를 배치하여 커넥터와 애플리케이션 간 성능을 최적화합니다. 자세한 내용은 [네트워크 토폴로지 고려 사항](application-proxy-network-topology.md)을 참조하세요.
 1. 커넥터 서버와 웹 애플리케이션 서버는 동일한 Active Directory 도메인에 속하거나 트러스팅 도메인에 걸쳐 있어야 합니다. 동일한 도메인 또는 트러스팅 도메인에 서버를 배치하는 것은 IWA(Windows 통합 인증) 및 KCD(Kerberos 제한된 위임)에서 SSO(Single Sign-On)을 사용하기 위한 요구 사항입니다. 커넥터 서버 및 웹 애플리케이션 서버가 다른 Active Directory 도메인에 위치한 경우 Single Sign-On에 대해 리소스 기반 위임을 사용해야 합니다. 자세한 내용은 [애플리케이션 프록시를 사용하는 Single Sign-On용 KCD](application-proxy-configure-single-sign-on-with-kcd.md)를 참조하세요.
+
+> [!WARNING]
+> Azure AD Password Protection Proxy를 배포한 경우 동일한 머신에 Azure AD Application Proxy와 Azure AD Password Protection Proxy를 함께 설치하지 마세요. Azure AD Application Proxy 및 Azure AD Password Protection Proxy는 다른 버전의 Azure AD Connect Agent Updater 서비스를 설치합니다. 이러한 서로 다른 버전은 동일한 머신에 함께 설치하면 호환되지 않습니다.
 
 #### <a name="tls-requirements"></a>TLS 요구 사항
 
@@ -115,7 +118,7 @@ TLS 1.2를 사용하도록 설정하려면:
 1. 서비스 약관을 참고하세요. 준비되면 **사용 약관 동의 및 다운로드**를 선택합니다.
 1. 창의 맨 아래에서 **실행**을 선택하여 커넥터를 설치합니다. 설치 마법사가 열립니다.
 1. 마법사의 지침에 따라 서비스를 설치합니다. Azure AD 테넌트에 대한 애플리케이션 프록시에서 커넥터를 등록하라는 메시지가 나타나면 애플리케이션 관리자 자격 증명을 제공합니다.
-    - IE(Internet Explorer)에서 **IE 보안 강화 구성**이 **켜기**로 설정되어 있으면 등록 화면이 표시되지 않을 수 있습니다. 액세스하려면 오류 메시지의 지침에 따릅니다. **Internet Explorer 보안 강화 구성**이 **꺼짐**으로 설정되어 있는지 확인하세요.
+    - IE(Internet Explorer)에서 **IE 보안 강화 구성**이 **켜기**로 설정되어 있으면 등록 화면이 표지되지 않을 수 있습니다. 액세스하려면 오류 메시지의 지침에 따릅니다. **Internet Explorer 보안 강화 구성**이 **꺼짐**으로 설정되어 있는지 확인하세요.
 
 ### <a name="general-remarks"></a>일반적인 설명
 

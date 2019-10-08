@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop 미리 보기 호스트 풀을 만들어 서비스 업데이트 유효성 검사 - Azure
+title: Windows Virtual Desktop 호스트 풀을 만들어 서비스 업데이트 유효성 검사 - Azure
 description: 프로덕션에 업데이트를 출시하기 전에 서비스 업데이트를 모니터링하는 유효성 검사 호스트 풀을 만드는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 3843a03b3b6d41520b121e5088fb13eac956e6fa
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: c294bb41afae1257add0c96a9f77adad3f871849
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163588"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676669"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>자습서: 서비스 업데이트의 유효성을 검사하기 위한 호스트 풀 만들기
 
-호스트 풀은 Windows Virtual Desktop 미리 보기 테넌트 환경 내에서 하나 이상의 동일한 가상 머신 컬렉션입니다. 호스트 풀을 프로덕션 환경에 배포하기 전에 유효성 검사 호스트 풀을 만드는 것이 좋습니다. 서비스 업데이트는 프로덕션 환경에 배포되기 전에 모니터링할 수 있도록 유효성 검사 호스트 풀에 먼저 적용됩니다. 유효성 검사 호스트 풀이 없으면 오류를 유발하는 변경을 감지하지 못하여 프로덕션 환경의 사용자에게 가동 중지 시간이 발생할 수 있습니다.
+호스트 풀은 Windows Virtual Desktop 테넌트 환경 내에서 하나 이상의 동일한 가상 머신 컬렉션입니다. 호스트 풀을 프로덕션 환경에 배포하기 전에 유효성 검사 호스트 풀을 만드는 것이 좋습니다. 서비스 업데이트는 프로덕션 환경에 배포되기 전에 모니터링할 수 있도록 유효성 검사 호스트 풀에 먼저 적용됩니다. 유효성 검사 호스트 풀이 없으면 오류를 유발하는 변경을 감지하지 못하여 프로덕션 환경의 사용자에게 가동 중지 시간이 발생할 수 있습니다.
 
 앱에서 최신 업데이트가 문제 없이 작동되려면 유효성 검사 호스트 풀이 프로덕션 환경의 호스트 풀과 최대한 유사해야 합니다. 사용자는 프로덕션 호스트 풀과 마찬가지로, 유효성 검사 호스트 풀에도 자주 연결해야 합니다. 호스트 풀에 대한 테스트를 자동화한 경우 유효성 검사 호스트 풀에 자동화된 테스트를 포함해야 합니다.
 
@@ -71,7 +71,7 @@ cmdlet의 결과는 다음 출력과 비슷해야 합니다.
 
 ## <a name="update-schedule"></a>업데이트 일정
 
-미리 보기에서 서비스 업데이트는 대략 월별 주기로 발생합니다. 주요 이슈가 있는 경우 중요 업데이트가 좀 더 자주 제공됩니다.
+매월 서비스 업데이트가 수행됩니다. 주요 이슈가 있는 경우 중요 업데이트가 좀 더 자주 제공됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

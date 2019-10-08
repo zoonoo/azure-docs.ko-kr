@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/02/2019
 ms.author: dylankil
-ms.openlocfilehash: 5e33108c9fc674abaf980a1272cca31aa21cffff
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 6404a5d49bd7af1ed5d74299f03eda8d0bb14b89
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990395"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326424"
 ---
 # <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>자습서: Python 샘플 프로젝트를 사용하여 몰입형 리더 시작
 
@@ -113,7 +113,7 @@ pip install jinja2
 virtualenv를 설치합니다. 격리된 Python 환경을 만드는 도구입니다.
 
 ```cmd
-pip install pip install virtualenv
+pip install virtualenv
 ```
 
 virtualenvwrapper-win을 설치합니다. virtualenvwrapper의 기본 개념은 virtualenv를 쉽게 사용할 수 있게 하는 것입니다.
@@ -126,6 +126,12 @@ requests 모듈을 설치합니다. requests는 Python으로 작성된 Apache2 �
 
 ```cmd
 pip install requests
+```
+
+python-dotenv 모듈을 설치합니다. 이 모듈은 .env 파일에서 키-값 쌍을 읽고 환경 변수에 추가합니다.
+
+```cmd
+pip install python-dotenv
 ```
 
 가상 환경을 만듭니다.
@@ -251,6 +257,12 @@ requests 모듈을 설치합니다. requests는 Python으로 작성된 Apache2 �
 
 ```bash
 pip install requests --user
+```
+
+python-dotenv 모듈을 설치합니다. 이 모듈은 .env 파일에서 키-값 쌍을 읽고 환경 변수에 추가합니다.
+
+```bash
+pip install python-dotenv --user
 ```
 
 가상 환경을 유지하려는 폴더를 선택하고, 다음 명령을 실행합니다.

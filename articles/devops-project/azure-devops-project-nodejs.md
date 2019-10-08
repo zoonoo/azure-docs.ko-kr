@@ -16,14 +16,14 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc, seo-javascript-september2019
 monikerRange: vsts
-ms.openlocfilehash: c59df73e7fa1d19db4c83a1c9a317f9b69ec8a37
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 9fc276626d2a863f7f2e53cd7312ab8b3be513dd
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091178"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815777"
 ---
-#  <a name="create-a-cicd-pipeline-for--nodejs-with-azure-devops-projects"></a>Azure DevOps Projects를 사용하여 Node.js용 CI/CD 파이프라인 만들기 
+#  <a name="quickstart-create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-projects"></a>빠른 시작: Azure DevOps Projects를 사용하여 Node.js용 Azure Pipelines에서 CI/CD 파이프라인 만들기
 
 Azure DevOps Projects는 Azure Pipelines에서 Node.js 앱에 대한 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 설정하고 Azure 리소스를 만드는 간소화된 환경을 제공합니다.  
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 0afe5897c723e22405d9bde2e9c9e729d0373a06
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a2e43b72bda65c5f1e7515888ac33b0ac806e64c
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553674"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803251"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>빠른 시작: Python을 사용하여 텍스트 음성 변환
 
@@ -101,7 +101,7 @@ def get_token(self):
 그런 다음, SSML(Speech Synthesis Markup Language)을 사용하여 요청 본문을 구성합니다. 이 샘플에서는 구조체를 정의하고 이전에 만든 `tts` 입력을 사용합니다.
 
 >[!NOTE]
-> 이 샘플에서는 `ZiraRUS` 음성 글꼴을 사용합니다. Microsoft 제공 음성/언어의 전체 목록은 [언어 지원](language-support.md)을 참조하세요.
+> 이 샘플에서는 `Guy24KRUS` 음성 글꼴을 사용합니다. Microsoft 제공 음성/언어의 전체 목록은 [언어 지원](language-support.md)을 참조하세요.
 > 브랜드의 고유하고 인식 가능한 음성을 만들려면 [사용자 지정 음성 글꼴 만들기](how-to-customize-voice-font.md)를 참조하세요.
 
 마지막으로 서비스에 대한 요청을 만듭니다. 요청이 성공하고 200 상태 코드가 반환되면 음성 응답이 타임스탬프가 있는 파일에 기록됩니다.
@@ -173,5 +173,6 @@ python tts.py
 ## <a name="see-also"></a>참고 항목
 
 * [텍스트를 음성으로 변환 API 참조](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
+* [Python 및 Speech SDK를 사용하여 텍스트 음성 변환](quickstart-text-to-speech-python.md)
 * [사용자 지정 음성 글꼴 만들기](how-to-customize-voice-font.md)
 * [사용자 지정 음성을 만들기 위한 음성 샘플 녹음](record-custom-voice-samples.md)

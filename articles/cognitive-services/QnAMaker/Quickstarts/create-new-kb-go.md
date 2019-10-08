@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: a6ee10c998af564630ae1aefd01ec2f4e360abf8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8c96bea6fc55d45a7e2d790f355f6fe19323029d
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563057"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803451"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>빠른 시작: Go를 사용하여 QnA Maker 기술 자료 만들기
 
@@ -25,10 +25,14 @@ ms.locfileid: "68563057"
 * [KB 만들기](https://go.microsoft.com/fwlink/?linkid=2092179)
 * [작업 세부 정보 가져오기](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 * [Go 1.10.1](https://golang.org/dl/)
-* [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키를 검색하려면 대시보드의 **리소스 관리**에서 **키**를 선택합니다. 
+* [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키와 엔드포인트(리소스 이름 포함)를 검색하려면 Azure Portal에서 리소스에 대해 **빠른 시작**을 선택합니다.
+
+[샘플 코드](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/blob/master/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go)는 Go가 포함된 QnA Maker GitHub 리포지토리에서 사용할 수 있습니다.
 
 ## <a name="create-a-knowledge-base-go-file"></a>기술 자료 Go 파일 만들기
 

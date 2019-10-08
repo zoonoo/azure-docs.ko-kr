@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 01a2b9d5bad7d490f5ee9f6a21af5bc1308bdab1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d87fd06b45d1d3636c442d962daa79cf526e74f2
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553649"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803277"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 iOS에서 Objective-C로 음성 인식
+
+빠른 시작은 [음성 합성](quickstart-text-to-speech-objectivec-ios.md)에도 사용할 수 있습니다.
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -34,8 +36,6 @@ ms.locfileid: "68553649"
 ## <a name="get-the-speech-sdk-for-ios"></a>iOS용 Speech SDK 가져오기
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-Cognitive Services 음성 SDK의 현재 버전은 `1.6.0`입니다.
 
 iOS용 Cognitive Services Speech SDK는 현재 Cocoa Framework로 배포됩니다.
 [여기](https://aka.ms/csspeech/iosbinary)에서 다운로드할 수 있습니다. 홈 디렉터리에 파일을 다운로드합니다.
@@ -87,7 +87,7 @@ UI는 프로젝트의 일부로 `Main.storyboard`에 설정되어 있습니다.
     <string>Need microphone access for speech recognition from microphone.</string>
     ```
 
-## <a name="building-and-running-the-sample"></a>샘플 빌드 및 실행
+## <a name="build-and-run-the-sample"></a>샘플 빌드 및 실행
 
 1. 디버그 출력을 표시되도록 설정합니다(**뷰** > **디버그 영역** > **콘솔 활성화**).
 1. **제품** > **대상** 메뉴의 목록에서 앱에 대한 대상으로 개발 머신에 연결된 iOS 시뮬레이터 또는 iOS 디바이스를 선택합니다.

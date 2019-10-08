@@ -1,21 +1,21 @@
 ---
 title: '자습서: Azure HDInsight에서 Spark Machine Learning 애플리케이션 빌드'
 description: 자습서 - Jupyter Notebook을 사용하여 HDInsight Spark 클러스터에서 Apache Spark Machine Learning 애플리케이션을 빌드하는 방법에 대한 단계별 지침입니다.
-ms.service: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.author: hrasheed
-ms.openlocfilehash: e1a52072ab3309454742d2d3e8582b58a33666e3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e77414da964d548b64250bbf98f86bee1529f2ab
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448699"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327001"
 ---
-# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Spark Machine Learning 애플리케이션 빌드 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Spark Machine Learning 애플리케이션 빌드
 
 이 자습서에서는 [Jupyter Notebook](https://jupyter.org/)을 사용하여 Azure HDInsight에 대한 [Apache Spark](https://spark.apache.org/) 기계 학습 애플리케이션을 빌드하는 방법을 알아봅니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "67448699"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* HDInsight의 Apache Spark 클러스터입니다. [Apache Spark 클러스터 만들기](./apache-spark-jupyter-spark-sql-use-portal.md)를 참조하세요.
+* HDInsight의 Apache Spark. [Apache Spark 클러스터 만들기](./apache-spark-jupyter-spark-sql-use-portal.md)를 참조하세요.
 
 * HDInsight의 Spark에서 Jupyter Notebook을 사용하는 방법 이해. 자세한 내용은 [HDInsight의 Apache Spark로 데이터 로드 및 쿼리 실행](./apache-spark-load-data-run-query.md)을 참조하세요.
 
@@ -43,7 +43,7 @@ ms.locfileid: "67448699"
 
 1. PySpark 커널을 사용하여 Jupyter 노트북을 만듭니다. 자세한 지침은 [Jupyter 노트북 만들기](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook)를 참조하세요.
 
-1. 이 시나리오에 필요한 형식을 가져옵니다. 빈 셀에 다음 코드 조각을 붙여넣은 다음 **SHIFT + ENTER**를 누릅니다. 
+1. 이 시나리오에 필요한 형식을 가져옵니다. 빈 셀에 다음 코드 조각을 붙여넣은 다음 **SHIFT + ENTER**를 누릅니다.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -60,7 +60,7 @@ ms.locfileid: "67448699"
     from numpy import array
     ```
 
-3. 데이터(hvac.csv)를 로드하고, 구문 분석하고, 모델 학습에 사용합니다. 
+1. 데이터(hvac.csv)를 로드하고, 구문 분석하고, 모델 학습에 사용합니다.
 
     ```PySpark
     # Define a type called LabelDocument
@@ -72,7 +72,7 @@ ms.locfileid: "67448699"
         if (values[3] > values[2]):
             hot = 1.0
         else:
-            hot = 0.0        
+            hot = 0.0
 
         textValue = str(values[4]) + " " + str(values[5])
 
@@ -87,7 +87,7 @@ ms.locfileid: "67448699"
 
     코드 조각에서 목표 온도와 실제 온도를 비교하는 함수를 정의합니다. 실제 온도가 큰 경우 건물이 더운 것이고 값이 **1.0**으로 표시됩니다. 그렇지 않으면 건물이 추운 것이고, 값이 **0.0**으로 표시됩니다.
 
-4. tokenizer, hashingTF 및 lr의 세 단계로 구성된 Spark 기계 학습 파이프라인을 구성합니다.
+1. tokenizer, hashingTF 및 lr의 세 단계로 구성된 Spark 기계 학습 파이프라인을 구성합니다.
 
     ```PySpark
     tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
@@ -98,18 +98,18 @@ ms.locfileid: "67448699"
 
     파이프라인 및 작동 방법에 대한 자세한 내용은 [Apache Spark Machine Learning 파이프라인](https://spark.apache.org/docs/latest/ml-pipeline.html)을 참조하세요.
 
-5. 학습 문서에 파이프라인을 맞춥니다.
+1. 학습 문서에 파이프라인을 맞춥니다.
 
     ```PySpark
     model = pipeline.fit(training)
     ```
 
-6. 학습 문서를 확인하여 애플리케이션 진행 상태의 검사점을 설정합니다.
+1. 학습 문서를 확인하여 애플리케이션 진행 상태의 검사점을 설정합니다.
 
     ```PySpark
     training.show()
     ```
-   
+
     다음과 유사하게 출력됩니다.
 
     ```output
@@ -145,7 +145,7 @@ ms.locfileid: "67448699"
 
     실제 온도가 건물이 춥다는 것을 의미하는 대상 온도보다 얼마나 작은지 확인합니다. 학습 결과에 따르면 첫 번째 행의 **label** 값이 **0.0**이며, 이는 건물이 덥지 않다는 것을 의미합니다.
 
-7. 학습된 모델에 대해 실행할 데이터 집합을 준비합니다. 이렇게 하려면, 시스템 ID 및 시스템 연수(학습 출력에 **SystemInfo**로 표시)에 전달합니다. 그러면 모델이 해당 시스템 ID 및 시스템 연수를 가진 건물이 더울지(1.0으로 표시), 아니면 추울지(0.0으로 표시) 예측합니다.
+1. 학습된 모델에 대해 실행할 데이터 집합을 준비합니다. 이렇게 하려면, 시스템 ID 및 시스템 연수(학습 출력에 **SystemInfo**로 표시)에 전달합니다. 그러면 모델이 해당 시스템 ID 및 시스템 연수를 가진 건물이 더울지(1.0으로 표시), 아니면 추울지(0.0으로 표시) 예측합니다.
 
     ```PySpark
     # SystemInfo here is a combination of system ID followed by system age
@@ -159,7 +159,7 @@ ms.locfileid: "67448699"
         .map(lambda x: Document(*x)).toDF()
     ```
 
-8. 마지막으로 테스트 데이터에서 예측을 수행합니다.
+1. 마지막으로 테스트 데이터에서 예측을 수행합니다.
 
     ```PySpark
     # Make predictions on test documents and print columns of interest
@@ -182,9 +182,10 @@ ms.locfileid: "67448699"
 
    예측의 첫 번째 행에서 ID가 20이고 시스템 연수가 25년인 HVAC 시스템의 경우 건물이 덥습니다(**prediction=1.0**). DenseVector(0.49999)의 첫 번째 값은 prediction 0.0에 해당하고, 두 번째 값(0.5001)은 prediction 1.0에 해당합니다. 출력에서 두 번째 값이 약간만 높더라도 모델은 **prediction=1.0**을 보여 줍니다.
 
-10. Notebook을 종료하여 리소스를 해제합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 선택합니다. 그러면 Notebook이 종료된 후 닫힙니다.
+1. Notebook을 종료하여 리소스를 해제합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 선택합니다. 그러면 Notebook이 종료된 후 닫힙니다.
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Spark Machine Learning에 대한 Anaconda scikit-learn 라이브러리 사용
+
 HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포함되어 있습니다. Machine Learning에 대한 **scikit-learn** 라이브러리도 있습니다. 또한 라이브러리에는 Jupyter 노트북에서 직접 샘플 애플리케이션을 빌드하는 데 사용할 수 있는 다양한 데이터 집합이 포함되어 있습니다. scikit-learn 라이브러리 사용에 대한 예제는 [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html)을 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
@@ -201,7 +202,7 @@ HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포�
 
 1. **삭제**를 선택합니다. **예**를 선택합니다.
 
-![HDInsight 클러스터 삭제](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "HDInsight 클러스터 삭제")
+![HDInsight 클러스터를 삭제하는 Azure Portal](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "HDInsight 클러스터 삭제")
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Azure Dev Spaces를 사용하여 AKS에서 마이크로서비스 배포
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: b845a176497891f55990c560e719832c6eaebb73
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 58cb436a7c2ba0d6a49f5138e46a1f92cdc97a94
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842529"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815833"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes-using-azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces를 사용하여 Kubernetes의 애플리케이션 개발
 이 가이드에서는 다음을 수행하는 방법을 배우게 됩니다.
@@ -40,6 +40,9 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --gen
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>AKS 클러스터에서 Azure Dev Spaces를 사용하도록 설정
 
 `use-dev-spaces` 명령을 사용하여 AKS 클러스터에서 Dev Spaces를 사용하도록 설정하고 프롬프트의 지시를 따릅니다. 아래 명령은 *MyResourceGroup* 그룹의 *MyAKS* 클러스터에서 Dev Spaces를 사용하도록 설정하고 *기본* 개발 공간을 만듭니다.
+
+> [!NOTE]
+> `use-dev-spaces` 명령은 Azure Dev Spaces CLI가 아직 설치되지 않은 경우에도 설치합니다. Azure Cloud Shell에는 Azure Dev Spaces CLI를 설치할 수 없습니다.
 
 ```cmd
 $ az aks use-dev-spaces -g MyResourceGroup -n MyAKS

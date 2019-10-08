@@ -1,22 +1,22 @@
 ---
-title: Windows Virtual Desktop Preview란?  - Azure
-description: Windows Virtual Desktop Preview의 개요입니다.
+title: Windows Virtual Desktop이란?  - Azure
+description: Windows Virtual Desktop의 개요입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 440ebfffec9378e0dad1fd04e0880c90571bb0f1
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 97087b7fdc6e4cdaccf922a1c72f35284c7a7040
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301011"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676562"
 ---
-# <a name="what-is-windows-virtual-desktop-preview"></a>Windows Virtual Desktop Preview란? 
+# <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란? 
 
-현재 공개 미리 보기로 제공되는 Windows Virtual Desktop Preview는 클라우드에서 실행되는 데스크톱 및 애플리케이션 가상화 서비스입니다.
+Windows Virtual Desktop은 클라우드에서 실행되는 데스크톱 및 앱 가상화 서비스입니다.
 
 Azure에서 Windows Virtual Desktop을 실행하면 다음과 같은 작업이 가능합니다.
 
@@ -88,7 +88,19 @@ Windows Virtual Desktop에 대해 만드는 Azure 가상 머신은 다음과 같
 >[!NOTE]
 >Azure 구독이 필요한 분들은 [1개월 평가판에 가입](https://azure.microsoft.com/free/)하시면 됩니다. Azure 평가판 버전을 사용하는 경우 Windows Server Active Directory와 Azure Active Directory가 동기화 상태를 유지하도록 Azure AD Domain Services를 사용해야 합니다.
 
-Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스크톱과 앱, 그리고 Microsoft가 Azure에 서비스로 호스팅하는 관리 솔루션으로 구성됩니다. 공개 미리 보기 기간에는 데스크톱과 앱을 모든 Azure 지역의 VM(가상 머신)에 배포할 수 있으며, 이러한 VM의 관리 솔루션과 데이터는 미국(미국 동부 2 지역의)에 상주합니다. 따라서 공개 미리 보기 기간에는 서비스를 테스트할 때 데이터가 미국으로 전송됩니다. 서비스가 일반 공급되는 시점부터 관리 솔루션 및 데이터 지역화의 범위를 모든 Azure 지역으로 확장하기 시작할 예정입니다.
+Windows Virtual Desktop용으로 만드는 Azure 가상 머신에는 다음 URL에 대한 아웃바운드 TCP 443 액세스 권한이 있어야 합니다.
+
+* *.wvd.microsoft.com
+* \*.blob.core.windows.net
+* *.core.windows.net
+* \*.servicebus.windows.net
+* prod.warmpath.msftcloudes.com
+* catalogartifact.azureedge.net
+
+>[!NOTE]
+>이러한 URL을 여는 것은 신뢰할 수 있는 Windows Virtual Desktop 배포에 필수적입니다. 이러한 URL에 대한 액세스를 차단하는 것은 지원되지 않으며 서비스 기능에 영향을 줍니다. 이러한 URL은 Windows Virtual Desktop 사이트 및 리소스에만 해당하고 Azure AD와 같은 다른 서비스에 대한 URL은 포함하지 않습니다.
+
+Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스크톱과 앱, 그리고 Microsoft가 Azure에 서비스로 호스팅하는 관리 솔루션으로 구성됩니다. 데스크톱과 앱을 모든 Azure 지역의 VM(가상 머신)에 배포할 수 있으며, 이러한 VM의 관리 솔루션과 데이터는 미국(미국 동부 2 지역의)에 상주합니다. 따라서 미국으로 데이터가 전송될 수 있습니다.
 
 최적의 성능을 얻을 수 있도록 네트워크가 다음 요구 사항을 충족하는지 확인합니다.
 
@@ -108,11 +120,28 @@ Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스
 Windows Virtual Desktop은 다음 OS 이미지를 지원합니다.
 
 * Windows 10 Enterprise 다중 세션
+* Windows 10 Enterprise
+* Windows 7 Enterprise
+* Windows Server 2019
 * Windows Server 2016
+* Windows Server 2012 R2
+
+사용 가능한 자동화 및 배포 옵션은 다음 표에 나와 있는 것처럼 사용자가 선택한 OS 및 버전에 따라 달라집니다. 
+
+|운영 체제|Azure 이미지 갤러리|수동 VM 배포|Azure Resource Manager 템플릿 통합|Azure Marketplace에서 호스트 풀 프로비저닝|Windows Virtual Desktop 에이전트 업데이트|
+|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
+|Windows 10 다중 세션, 버전 1903|예|예|예|예|자동|
+|Windows 10 다중 세션, 버전 1809|예|예|아니요|아니요|자동|
+|Windows 10 Enterprise, 버전 1903|예|예|예|예|자동|
+|Windows 10 Enterprise, 버전 1809|예|예|아니요|아니요|자동|
+|Windows 7 Enterprise|예|예|아니요|아니요|설명서|
+|Windows Server 2019|예|예|아니요|아니요|자동|
+|Windows Server 2016|예|예|예|예|자동|
+|Windows Server 2012 R2|예|예|아니요|아니요|자동|
 
 ## <a name="next-steps"></a>다음 단계
 
 시작하려면 테넌트를 만들어야 합니다. 테넌트를 만드는 자세한 방법을 알아보려면 테넌트 만들기 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Windows Virtual Desktop Preview에서 테넌트 만들기](tenant-setup-azure-active-directory.md)
+> [Windows Virtual Desktop에서 테넌트 만들기](tenant-setup-azure-active-directory.md)

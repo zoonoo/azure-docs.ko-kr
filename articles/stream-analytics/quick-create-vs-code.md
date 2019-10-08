@@ -4,15 +4,15 @@ description: 이 빠른 시작에서는 Visual Studio Code를 사용하여 Strea
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 05/06/2019
+ms.date: 09/16/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 894f43a7da0abd129123d5c4ddf2bb95347c42c5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 3301be3a067982cb90e663fe3782319eb0b90ba0
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825334"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673139"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>빠른 시작: Visual Studio Code(미리 보기)에서 Azure Stream Analytics 클라우드 작업 만들기
 
@@ -60,8 +60,8 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
    
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
-   |구독  | \<구독\> |  사용할 Azure 구독을 선택합니다. |
-   |리소스 그룹   |   asaquickstart-resourcegroup  |   **새로 만들기**를 선택하고 계정의 새로운 리소스 그룹 이름을 입력합니다. |
+   |Subscription  | \<구독\> |  사용할 Azure 구독을 선택합니다. |
+   |Resource group   |   asaquickstart-resourcegroup  |   **새로 만들기**를 선택하고 계정의 새로운 리소스 그룹 이름을 입력합니다. |
    |지역  |  \<사용자와 가장 가까운 지역 선택\> | IoT Hub를 호스트할 수 있는 지리적 위치를 선택합니다. 사용자와 가장 가까운 위치를 사용합니다. |
    |IoT Hub 이름  | MyASAIoTHub  |   IoT Hub의 이름을 선택합니다.   |
 
@@ -95,7 +95,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
    ![Storage 계정 개요](./media/quick-create-vs-code/blob-storage.png)
 
-4. **Blob 서비스** 페이지에서 **컨테이너**를 선택하고, 컨테이너에 *container1*과 같은 이름을 지정합니다. **공용 액세스 수준**을 **개인(익명 액세스 없음)** 으로 유지하고 **확인**을 선택합니다.
+4. **Blob 서비스** 페이지에서 **컨테이너**를 선택하고, 컨테이너에 *container1*과 같은 이름을 지정합니다. **공용 액세스 수준**을 **프라이빗(익명 액세스 없음)** 으로 유지하고 **확인**을 선택합니다.
 
    ![Blob 컨테이너 만들기](./media/quick-create-vs-code/create-blob-container.png)
 
@@ -120,6 +120,25 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 > [!Note]
 > 명령 팔레트에서 입력 및 출력을 추가할 때 해당 경로가 **asaproj.json**에 자동으로 추가됩니다. 입력 또는 출력을 추가하거나 제거할 때 **asaproj.json**에서 수동으로 추가 또는 제거해야 합니다. 각 **asaproj.json**에서 경로를 지정하여 입력 및 출력을 한 장소에 배치하고 여러 작업에서 참조할 수 있습니다.
 
+## <a name="define-the-transformation-query"></a>변환 쿼리 정의
+
+1. 프로젝트 폴더의 **myASAproj.asaql** 파일을 엽니다.
+
+2. 다음 쿼리를 추가합니다.
+
+   ```sql
+   SELECT * 
+   INTO Output
+   FROM Input
+   HAVING Temperature > 27
+   ```
+## <a name="test-with-sample-data"></a>샘플 데이터를 사용한 테스트
+클라우드에서 쿼리를 실행하기 전에 로컬 샘플 데이터로 쿼리를 테스트하여 쿼리 논리를 확인할 수 있습니다.
+
+자세한 내용은 [샘플 데이터를 사용한 테스트](vscode-local-run.md) 지침을 따르세요. 
+
+ ![VS Code의 샘플 데이터를 사용한 테스트](./media/quick-create-vs-code/vscode-localrun.gif)
+
 ## <a name="define-an-input"></a>입력 정의
 
 1. **Ctrl+Shift+P** 키를 선택하여 명령 팔레트를 열고 **ASA: Add Input**을 입력합니다.
@@ -134,7 +153,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
    ![Visual Studio Code에서 ASA 스크립트 선택](./media/quick-create-vs-code/asa-script.png)
 
-4. 입력 파일 이름을 **IotHub.json**으로 입력합니다.
+4. 입력 파일 이름을 **IotHub**로 입력합니다.
 
 5. **IoTHub.json**을 다음 값으로 편집합니다. 아래에 언급되지 않은 필드는 기본값을 유지합니다. CodeLens를 사용하여 문자열을 입력하거나, 드롭다운 목록에서 선택하거나, 파일에서 직접 텍스트를 변경할 수 있습니다.
 
@@ -142,8 +161,11 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
    |-------|---------------|-----------|
    |Name|입력|작업의 입력을 식별하는 이름을 입력합니다.|
    |IotHubNamespace|MyASAIoTHub|IoT Hub의 이름을 선택하거나 입력합니다. IoT Hub 이름은 동일한 구독에 만들어진 경우에 자동으로 감지됩니다.|
-   |엔드포인트|메시징| |
    |SharedAccessPolicyName|iothubowner| |
+
+   ![Visual Studio Code에서 입력 구성](./media/quick-create-vs-code/configure-input.png)
+
+
 
 ## <a name="define-an-output"></a>출력 정의
 
@@ -155,9 +177,9 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
 3. 이 출력을 사용할 ASA 쿼리 스크립트를 선택합니다.
 
-4. 출력 파일 이름을 **BlobStorage.json**으로 입력합니다.
+4. 출력 파일 이름을 **BlobStorage**로 입력합니다.
 
-5. **BlobStorage.json**을 다음 값으로 편집합니다. 아래에 언급되지 않은 필드는 기본값을 유지합니다. CodeLens를 사용하여 문자열을 입력하거나 드롭다운 목록에서 선택할 수 있습니다.
+5. **BlobStorage**를 다음 값으로 편집합니다. 아래에 언급되지 않은 필드는 기본값을 유지합니다. CodeLens를 사용하여 드롭다운 목록에서 선택하거나 문자열을 입력할 수 있습니다. 
 
    |설정|제안 값|설명|
    |-------|---------------|-----------|
@@ -166,18 +188,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
    |컨테이너|container1|스토리지 계정에서 만든 기존 컨테이너를 선택합니다.|
    |경로 패턴|output|컨테이너 내에서 만들 파일 경로 이름을 입력합니다.|
 
-## <a name="define-the-transformation-query"></a>변환 쿼리 정의
-
-1. 프로젝트 폴더의 **myASAproj.asaql** 파일을 엽니다.
-
-2. 다음 쿼리를 추가합니다.
-
-   ```sql
-   SELECT * 
-   INTO Output
-   FROM Input
-   HAVING Temperature > 27
-   ```
+ ![Visual Studio Code에서 출력 구성](./media/quick-create-vs-code/configure-output.png)
 
 ## <a name="compile-the-script"></a>스크립트 컴파일
 
@@ -211,7 +222,10 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
 5. **Azure에 제출**을 선택합니다. 출력 창에서 로그를 볼 수 있습니다. 
 
-6. 작업이 만들어지면 Stream Analytics 탐색기에서 볼 수 있습니다.
+6. 작업이 생성되면 **Stream Analytics Explore**에서 볼 수 있습니다.
+
+![Stream Analytics 탐색기에서 작업 나열](./media/quick-create-vs-code/list-job.png)
+
 
 ## <a name="run-the-iot-simulator"></a>IoT 시뮬레이터 실행
 

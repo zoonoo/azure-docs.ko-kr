@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/13/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: ad7986a0c4b0d59322ccebcaa6b1c70776164c48
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 4393609bf426c6ae99c48a5d84162526aeff6fb7
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015700"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803510"
 ---
 # <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>빠른 시작: Node.js용 QnA Maker REST API
 
@@ -32,10 +32,13 @@ Node.js용 QnA Maker REST API를 사용하여 다음을 수행합니다.
 
 [참조 설명서](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Node.js 샘플](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
 
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * 현재 버전의 [Node.js](https://nodejs.org)
+* [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키와 엔드포인트(리소스 이름 포함)를 검색하려면 Azure Portal에서 리소스에 대해 **빠른 시작**을 선택합니다.
 
 ## <a name="setting-up"></a>설치
 
@@ -43,7 +46,7 @@ Node.js용 QnA Maker REST API를 사용하여 다음을 수행합니다.
 
 Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 QnA Maker용 리소스를 만듭니다. 
 
-리소스에서 키를 가져온 후 `QNAMAKER_RESOURCE_KEY` 및 `QNAMAKER_AUTHORING_ENDPOINT`라는 리소스에 대해 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication). Azure Portal에서 리소스의 **빠른 시작** 페이지에 있는 키와 호스트 값을 사용합니다.
+리소스에서 키를 가져온 후 `QNAMAKER_RESOURCE_KEY` 및 `QNAMAKER_AUTHORING_ENDPOINT`라는 리소스에 대해 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication). Azure Portal에서 리소스의 **빠른 시작** 페이지에 있는 키와 엔드포인트 값을 사용합니다.
 
 ### <a name="create-a-new-nodejs-application"></a>새 Node.js 애플리케이션 만들기
 
@@ -165,5 +168,5 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 
 * [QnA Maker API란?](../Overview/overview.md)
 * [기술 자료 편집](../how-to/edit-knowledge-base.md)
-* [사용 현황 분석 가져오기](../how-to/get-analytics-knowledge-base.md)
+* [사용량 현황 분석 가져오기](../how-to/get-analytics-knowledge-base.md)
 * 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/rest-api/rest-api.js)에서 확인할 수 있습니다.

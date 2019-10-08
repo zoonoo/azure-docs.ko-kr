@@ -7,12 +7,12 @@ ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 64f0517eece5efcd928b18c7f040fb88c3c36546
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 35bc0445494c1d72b833eecd9a8e5bec7ab10423
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309532"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350790"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>캐나다 연방 PBMM 청사진 샘플의 컨트롤 매핑
 
@@ -87,7 +87,7 @@ Azure SQL Database에 대한 고급 데이터 보안의 데이터 검색 및 분
 
 ## <a name="ac-17-1-remote-access--automated-monitoring--control"></a>AC-17 (1) 원격 액세스 | 자동화된 모니터링/제어
 
-이 청사진을 사용하면 Azure App Service 애플리케이션의 원격 디버깅이 해제되어 있는지 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의 및 암호 없이 계정에서 원격 연결을 허용하는 Linux 가상 머신을 감사하는 정책 정의를 할당하여 원격 액세스를 모니터링하고 제어할 수 있습니다. 또한 이 청사진은 스토리지 계정에 제한 없이 액세스할 수 있는 Azure Policy 정의를 할당합니다. 이러한 지표를 모니터링하면 원격 액세스 방법이 보안 정책을 준수하는 데 도움이 될 수 있습니다.
+이 청사진은 Azure App Service 애플리케이션에 대한 원격 디버깅이 해제되어 있는지 모니터링하는 데 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 원격 액세스를 모니터링하고 제어할 수 있습니다. 이 청사진은 암호 없이 계정에서 원격 연결을 허용하는 Linux 가상 머신을 감사하는 정책 정의도 할당합니다. 또한 청사진은 스토리지 계정에 제한 없이 액세스를 모니터링하는 데 도움이 되는 Azure Policy 정의를 할당합니다. 이러한 지표를 모니터링하면 원격 액세스 방법이 보안 정책을 준수하는 데 도움이 될 수 있습니다.
 
 - \[미리 보기\]: 암호 없는 계정의 원격 연결을 허용하는 Linux VM 감사
 - \[미리 보기\]: 암호 없는 계정의 원격 연결을 허용하는 Linux VM을 감사하기 위한 요구 사항 배포

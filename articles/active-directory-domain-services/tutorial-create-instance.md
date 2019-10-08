@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 8c346b75b30737645721d8b39a655a85ed446fae
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 536ada668db724ca50d7db820aff173f7222bab2
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71229537"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336851"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>자습서: Azure Active Directory Domain Services 인스턴스 만들기 및 구성
 
@@ -42,7 +42,8 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant] [Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD DS를 사용하도록 설정하려면 Azure AD 테넌트에 *글로벌 관리자* 권한이 필요합니다.
 * 필요한 Azure AD DS 리소스를 만들려면 Azure 구독에 *기여자* 권한이 필요합니다.
-* [셀프 서비스 암호 재설정][configure-sspr]을 수행하도록 Azure AD 테넌트를 구성해야 합니다.
+
+Azure AD DS에는 필요하지 않지만 Azure AD 테넌트에 대해 [SSPR(셀프 서비스 암호 재설정)을 구성][configure-sspr]하는 것이 좋습니다. 사용자는 SSPR 없이 암호를 변경할 수 있지만 해당 암호를 잊어서 재설정해야 하는 경우 SSPR가 도움이 됩니다.
 
 > [!IMPORTANT]
 > Azure AD DS 관리 도메인을 만든 후에는 인스턴스를 다른 리소스 그룹, 가상 네트워크, 구독 등으로 이동할 수 없습니다. Azure AD DS 인스턴스를 배포할 때 가장 적합한 구독, 리소스 그룹, 지역 및 가상 네트워크를 선택합니다.

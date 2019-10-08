@@ -7,12 +7,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/10/2019
-ms.openlocfilehash: f50d784b7518bd01a3a0069cb474296d359420a8
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 951191422e80ef6224cd140beed782de31cb3822
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200031"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677855"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>빠른 시작: Linux(Ubuntu)용 Data Science Virtual Machine 설정
 
@@ -21,6 +21,7 @@ Ubuntu Data Science Virtual Machine을 준비하고 실행합니다.
 ## <a name="prerequisites"></a>필수 조건
 
 Windows Data Science Virtual Machine을 만들려면 Azure 구독이 있어야 합니다. [Azure 평가판 체험하기](https://azure.com/free).
+Azure 체험 계정은 GPU 사용 가상 머신 SKU를 지원하지 않습니다.
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Linux용 데이터 과학 Virtual Machine 만들기
 
@@ -49,7 +50,7 @@ Linux용 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는
        * **지역**: 가장 적합한 데이터 센터를 선택합니다. 가장 빠른 네트워크 액세스를 위해 대부분의 데이터가 있거나 물리적 위치에 가장 가까운 데이터 센터입니다. [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 대해 자세히 알아보세요.
        * **이미지**: 기본값을 그대로 둡니다.
        * **크기**: 일반 워크로드에 적합한 크기가 자동으로 채워집니다. [Azure의 Linux VM 크기](../../virtual-machines/linux/sizes.md)에 대해 자세히 읽어보세요.
-       * **인증 형식**: 더 빨리 설치하려면 "암호"를 선택하세요. 
+       * **인증 형식**: 더 빨리 설치하려면 "암호"를 선택합니다. 
          
          > [!NOTE]
          > JupyterHub를 사용하려면 "암호"를 선택해야 합니다. JupyterHub는 SSH 공개 키를 사용하도록 구성되지 *않기* 때문입니다.

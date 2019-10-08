@@ -13,15 +13,15 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: 0f0f4da38b6b9b315508d956075840907fd46fd4
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 9042d5e89dd64e1c405b2657a191a766a2e37f75
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883801"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71349981"
 ---
 # <a name="what-is-application-insights"></a>Application Insights란?
-Application Insights는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. 이를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. 성능 이상을 자동으로 감지합니다. 사용자가 문제를 진단하고 앱을 사용하여 실제로 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다.  성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. .NET, Node.js 및 Java EE, 호스트된 온-프레미스, 하이브리드 또는 퍼블릭 클라우드를 포함하여 다양한 플랫폼에서 앱과 함께 작동합니다. DevOps 프로세스와 통합되며, 다양한 개발 도구와의 연결 지점을 갖고 있습니다. Visual Studio App Center를 통합하여 모바일 앱에서 원격 분석을 모니터링하고 분석할 수 있습니다.
+[Azure Monitor](../overview.md)의 기능인 Application Insights는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. 이를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. 성능 이상을 자동으로 감지합니다. 사용자가 문제를 진단하고 앱을 사용하여 실제로 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다.  성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. .NET, Node.js 및 Java EE, 호스트된 온-프레미스, 하이브리드 또는 퍼블릭 클라우드를 포함하여 다양한 플랫폼에서 앱과 함께 작동합니다. DevOps 프로세스와 통합되며, 다양한 개발 도구와의 연결 지점을 갖고 있습니다. Visual Studio App Center를 통합하여 모바일 앱에서 원격 분석을 모니터링하고 분석할 수 있습니다.
 
 ## <a name="how-does-application-insights-work"></a>Application Insights의 작동 방식
 애플리케이션에 작은 계측 패키지를 설치하고 Microsoft Azure 포털에서 Application Insights 리소스를 설정합니다. 이 계측 기능이 앱을 모니터링하고 원격 분석 데이터를 Azure Monitor에 보냅니다. 애플리케이션을 어디서나 실행할 수 있습니다. Azure에 호스트할 필요가 없습니다.
@@ -61,7 +61,7 @@ Application Insights는 애플리케이션 팀에서 앱의 작동 방식과 사
 | [**스마트 검색 및 수동 경고**](../../azure-monitor/app/proactive-diagnostics.md)<br/>자동 경고는 앱의 일반적인 원격 분석 패턴에 맞게 조정되고, 일반적인 패턴을 벗어나는 항목이 있으면 트리거합니다. 특정 수준의 사용자 지정 또는 표준 메트릭에 대해 [경고를 설정](../../azure-monitor/app/alerts.md)할 수도 있습니다. |![경고 샘플](./media/app-insights-overview/alerts-tn.png) |
 | [**애플리케이션 맵**](../../azure-monitor/app/app-map.md)<br/>주요 메트릭 및 경고가 포함된 앱의 구성 요소입니다. |![애플리케이션 맵](./media/app-insights-overview/appmap-tn.png)  |
 | [**프로파일러**](../../azure-monitor/app/profiler.md)<br/>샘플링된 요청의 실행 프로필을 검사합니다. |![프로파일러](./media/app-insights-overview/profiler.png) |
-| [**사용 현황 분석**](../../azure-monitor/app/usage-overview.md)<br/>사용자 구분 및 재방문 주기를 분석합니다.|![재방문 주기 도구](./media/app-insights-overview/retention.png) |
+| [**사용량 현황 분석**](../../azure-monitor/app/usage-overview.md)<br/>사용자 구분 및 재방문 주기를 분석합니다.|![재방문 주기 도구](./media/app-insights-overview/retention.png) |
 | [**인스턴스 데이터에 대한 진단 검색**](../../azure-monitor/app/diagnostic-search.md)<br/>요청, 예외, 종속성 호출, 로그 추적 및 페이지 보기와 같은 이벤트를 검색하고 필터링할 수 있습니다.  |![원격 분석 검색](./media/app-insights-overview/search-tn.png) |
 | [**집계된 데이터에 대한 메트릭 탐색기**](../../azure-monitor/app/metrics-explorer.md)<br/>요청, 오류 및 예외의 비율과 응답 시간, 페이지 로드 시간과 같은 집계된 데이터를 탐색, 필터링 및 분할할 수 있습니다. |![메트릭](./media/app-insights-overview/metrics-tn.png) |
 | [**대시보드**](../../azure-monitor/app/overview-dashboard.md)<br/>여러 리소스의 데이터를 매시업한 후 다른 사용자와 공유할 수 있습니다. 다중 구성 요소 애플리케이션에서 사용하거나 단체방에 연속으로 표시하는 데 유용합니다. |![대시보드 샘플](./media/app-insights-overview/dashboard-tn.png) |

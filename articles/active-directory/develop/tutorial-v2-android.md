@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a53a0d5ea8405c116d0286d3b67b1640f98ed96d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0a26a7fc27fa13d86eb3b82fd4be70e5b371581f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852451"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677974"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Android 앱에서 사용자 로그인 및 Microsoft Graph 호출
 
@@ -49,7 +49,7 @@ ms.locfileid: "68852451"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 이 자습서에는 Android Studio 버전 16 이상(19 이상 권장)이 필요합니다.
+* 이 자습서에는 Android Studio 버전 3.5가 필요합니다.
 
 ## <a name="create-a-project"></a>프로젝트 만들기
 
@@ -59,15 +59,16 @@ ms.locfileid: "68852451"
 2. **기본 작업**을 선택하고 **다음**을 선택합니다.
 3. 애플리케이션의 이름을 지정합니다.
 4. 패키지 이름을 저장합니다. 나중에 Azure Portal에 입력할 것입니다.
-5. **최소 API 수준**을 **API 19** 이상으로 설정하고 **마침**을 클릭합니다.
-6. 프로젝트 보기의 드롭다운 목록에서 **프로젝트**를 선택하여 소스 및 소스가 아닌 프로젝트 파일을 표시하고, **app/build.gradle**을 열고, `targetSdkVersion`을 `27`로 설정합니다.
+5. 언어를 **Kotlin**에서 **Java**로 변경합니다.
+6. **최소 API 수준**을 **API 19** 이상으로 설정하고 **마침**을 클릭합니다.
+7. 프로젝트 보기의 드롭다운 목록에서 **프로젝트**를 선택하여 소스 및 소스가 아닌 프로젝트 파일을 표시하고, **app/build.gradle**을 열고, `targetSdkVersion`을 `28`로 설정합니다.
 
 ## <a name="register-your-application"></a>애플리케이션 등록
 
 1. [Azure 포털](https://aka.ms/MobileAppReg)로 이동합니다.
 2. [앱 등록 블레이드](https://ms.portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)를 열고 **+새 등록**을 클릭합니다.
 3. 앱의 **이름**을 입력한 다음, 리디렉션 URI를 설정하지 않고 **등록**을 클릭합니다.
-4. 나타나는 창의 **관리** 섹션에서 **인증** >  **+ 플랫폼 추가** > **Android**를 선택합니다.
+4. 나타나는 창의 **관리** 섹션에서 **인증** >  **+ 플랫폼 추가** > **Android**를 선택합니다. (이 섹션을 보려면 블레이드 상단 근처에 있는 "새 환경으로 전환"을 선택해야 할 수도 있습니다.)
 5. 프로젝트의 패키지 이름을 입력합니다. 코드를 다운로드한 경우 이 값은 `com.azuresamples.msalandroidapp`입니다.
 6. **Android 앱 구성** 페이지의 **서명 해시** 섹션에서 **개발 서명 해시 생성**을 클릭합니다. 플랫폼에 사용할 KeyTool 명령을 복사합니다.
 
@@ -83,8 +84,8 @@ ms.locfileid: "68852451"
 
 1. Android Studio의 프로젝트 창에서 **app\src\main\res**로 이동합니다.
 2. **res**를 마우스 오른쪽 단추로 클릭하고 **새로 만들기** > **디렉터리**를 선택합니다. 새 디렉터리 이름으로 `raw`를 입력하고 **확인**을 클릭합니다.
-3. **app** > **src** > **res** > **raw**에 `auth_config.json`이라는 새 JSON 파일을 만들고, 앞에서 저장한 MSAL 구성을 붙여넣습니다. 자세한 내용은 [MSAL 구성](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)을 참조하세요.
-4. **app** > **src** > **main** > **AndroidManifest.xml**에 아래의 `BrowserTabActivity` 작업을 추가합니다. 이 항목은 다음과 같이 Microsoft에서 인증을 완료한 후 애플리케이션을 콜백할 수 있게 해줍니다.
+3. **app** > **src** > **main** > **res** > **raw**에서 `auth_config.json`이라는 새 JSON 파일을 만들고, 앞에서 저장한 MSAL 구성을 붙여넣습니다. 자세한 내용은 [MSAL 구성](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)을 참조하세요.
+4. **app** > **src** > **main** > **AndroidManifest.xml**에서 아래의 `BrowserTabActivity` 작업을 애플리케이션 본문에 추가합니다. 이 항목은 다음과 같이 Microsoft에서 인증을 완료한 후 애플리케이션을 콜백할 수 있게 해줍니다.
 
     ```xml
     <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
@@ -114,7 +115,7 @@ ms.locfileid: "68852451"
 ### <a name="create-the-apps-ui"></a>앱의 UI 만들기
 
 1. Android Studio 프로젝트 창에서 **app** > **src** > **main** > **res** > **layout**으로 이동하여 **activity_main.xml**을 연 다음, **텍스트** 보기를 엽니다.
-2. 작업 레이아웃을 변경합니다(예: `<androidx.coordinatorlayout.widget.CoordinatorLayout`에서 `<androidx.coordinatorlayout.widget.LinearLayout`으로 변경).
+2. 작업 레이아웃을 변경합니다(예: `<androidx.coordinatorlayout.widget.CoordinatorLayout`에서 `<androidx.coordinatorlayout.widget.DrawerLayout`으로 변경). 
 3. `android:orientation="vertical"` 속성을 `LinearLayout` 노드에 추가합니다.
 4. 다음 코드를 `LinearLayout` 노드에 붙여넣어 현재 내용을 바꿉니다.
 
@@ -176,13 +177,13 @@ ms.locfileid: "68852451"
 
     ```gradle  
     implementation 'com.android.volley:volley:1.1.1'
-    implementation 'com.microsoft.identity.client:msal:0.3.+'
+    implementation 'com.microsoft.identity.client:msal:1.0.+'
     ```
 
 ### <a name="use-msal"></a>MSAL 사용
 
 앱에 MSAL을 추가하여 사용하도록 `MainActivity.java` 내부에서 변경 작업을 수행합니다.
-Android Studio 프로젝트 창에서 **app** > **src** > **main** > **java** > **com.example.msal**로 이동하여 `MainActivity.java`를 엽니다.
+Android Studio 프로젝트 창에서 **app** > **src** > **main** > **java** > **com.example.(앱)** 로 이동하여 `MainActivity.java`를 엽니다.
 
 #### <a name="required-imports"></a>꼭 가져와야 하는 항목
 

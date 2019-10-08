@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 8c551e5c61c091e46870efcc8bffcb669aa78ea9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cb0050f79f2f6a38b9cd58ee87aa88899f0f5a15
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100327"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674998"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>자습서: Azure PowerShell을 사용한 Windows 가상 머신 관리에 대해 알아보기
 
@@ -235,8 +235,8 @@ Remove-AzResourceGroup -Name myResourceGroup
 > * 잠금을 사용하여 중요한 리소스 보호
 > * 결제 및 관리에 대한 리소스 태그 지정
 
-고가용성 가상 머신에 대해 자세히 알아보려면 다음 자습서로 이동합니다.
+다음 자습서로 진행하여 Linux 가상 머신에서 변경 내용을 식별하고 패키지 업데이트를 관리하는 방법에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [가상 머신 모니터링](tutorial-monitoring.md)
+> [가상 머신 관리](tutorial-config-management.md)
 

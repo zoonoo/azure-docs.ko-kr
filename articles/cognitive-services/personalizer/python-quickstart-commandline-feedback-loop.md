@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/12/2019
+ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 014a5f264b9beed666f718cda52d197381d58876
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 4409f04f9fd370b862ee62f9595ffca9fe6e4406
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266246"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802541"
 ---
 # <a name="quickstart-personalize-client-library-for-python"></a>빠른 시작: Python용 Personalizer 클라이언트 라이브러리
 
@@ -33,9 +33,19 @@ Python용 Personalizer 클라이언트 라이브러리를 시작합니다. 이�
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
 
-## <a name="setting-up"></a>설치
+## <a name="using-this-quickstart"></a>이 빠른 시작 사용
 
-### <a name="create-a-personalizer-azure-resource"></a>Personalizer Azure 리소스 만들기
+
+이 빠른 시작을 사용하는 몇 가지 단계가 있습니다.
+
+* Azure Portal에서 Personalizer 리소스 만들기
+* Azure Portal의 Personalizer 리소스에 대한 **설정 페이지**에서 모델 업데이트 빈도 변경
+* 코드 편집기에서 코드 파일을 만들고 코드 파일을 편집합니다.
+* 명령줄 또는 터미널의 명령줄에서 SDK 설치
+* 명령줄 또는 터미널에서 코드 파일 실행
+
+
+## <a name="create-a-personalizer-azure-resource"></a>Personalizer Azure 리소스 만들기
 
 Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://portal.azure.com/) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Personalizer용 리소스를 만듭니다. 자세한 내용은 [Azure Portal을 사용하여 Cognitive Services 리소스를 만드는 방법](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 참조하세요. 또한 다음을 수행할 수 있습니다.
 
@@ -50,7 +60,7 @@ Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로
 Azure Portal의 **빠른 시작** 페이지에서 키와 엔드포인트 값을 모두 확인할 수 있습니다.
 
 
-### <a name="install-the-python-library-for-personalizer"></a>Personalizer용 Python 라이브러리 설치
+## <a name="install-the-python-library-for-personalizer"></a>Personalizer용 Python 라이브러리 설치
 
 다음 명령을 사용하여 Python용 Personalizer 클라이언트 라이브러리를 설치합니다.
 
@@ -58,11 +68,9 @@ Azure Portal의 **빠른 시작** 페이지에서 키와 엔드포인트 값을 
 pip install azure-cognitiveservices-personalizer
 ```
 
-Visual Studio IDE를 사용하는 경우 클라이언트 라이브러리는 다운로드 가능한 NuGet 패키지로 제공됩니다.
+## <a name="change-the-model-update-frequency"></a>모델 업데이트 빈도 변경
 
-### <a name="change-the-model-update-frequency"></a>모델 업데이트 빈도 변경
-
-Azure Portal의 Personalizer 리소스에서 **모델 업데이트 빈도**를 10초로 변경합니다. 이렇게 하면 서비스가 빠르게 학습되어 각 반복에 대한 상위 작업이 변경되는 상태를 확인할 수 있습니다.
+Azure Portal의 **설정 페이지**에 있는 Personalizer 리소스에서 **모델 업데이트 빈도**를 10초로 변경합니다. 이렇게 하면 서비스가 빠르게 학습되어 각 반복에 대한 상위 작업이 변경되는 상태를 확인할 수 있습니다.
 
 ![모델 업데이트 빈도 변경](./media/settings/configure-model-update-frequency-settings.png)
 
@@ -92,13 +100,15 @@ Personalizer 클라이언트는 키가 포함된 Microsoft.Rest.ServiceClientCre
 
 ## <a name="add-the-dependencies"></a>종속성 추가
 
-선호하는 편집기 또는 IDE에서 프로젝트 디렉터리의 **Program.cs** 파일을 엽니다. 기존 `using` 코드를 다음 `using` 지시문으로 바꿉니다.
+프로젝트 디렉터리의 원하는 편집기나 IDE에서 **sample.py** 파일을 엽니다. 다음을 추가합니다.
 
 [!code-python[Add module dependencies](~/samples-personalizer/quickstarts/python/sample.py?name=Dependencies)]
 
 ## <a name="add-personalizer-resource-information"></a>Personalizer 리소스 정보 추가
 
-**Program** 클래스에서 환경 변수에서 가져온 리소스의 Azure 키 및 엔드포인트에 대한 `PERSONALIZER_RESOURCE_KEY` 및 `PERSONALIZER_RESOURCE_ENDPOINT` 이름의 변수를 만듭니다. 애플리케이션을 시작한 후에 환경 변수를 만든 경우 해당 변수에 액세스하려면 이를 실행 중인 편집기, IDE 또는 셸을 닫고 다시 로드해야 합니다. 이 메서드는 이 빠른 시작의 뒷부분에서 만들어집니다.
+환경 변수에서 가져온 리소스의 Azure 키 및 엔드포인트에 대한 `PERSONALIZER_RESOURCE_KEY` 및 `PERSONALIZER_RESOURCE_ENDPOINT` 이름의 변수를 만듭니다. 애플리케이션을 시작한 후에 환경 변수를 만든 경우 해당 변수에 액세스하려면 이를 실행 중인 편집기, IDE 또는 셸을 닫고 다시 로드해야 합니다. 이 메서드는 이 빠른 시작의 뒷부분에서 만들어집니다.
+
+리소스 이름은 엔드포인트 URL(`https://<your-resource-name>.api.cognitive.microsoft.com/`)의 일부입니다.
 
 [!code-python[Create variables to hold the Personalizer resource key and endpoint values found in the Azure portal.](~/samples-personalizer/quickstarts/python/sample.py?name=AuthorizationVariables)]
 
@@ -110,7 +120,7 @@ Personalizer 클라이언트는 키가 포함된 Microsoft.Rest.ServiceClientCre
 
 ## <a name="get-content-choices-represented-as-actions"></a>작업으로 표현되는 콘텐츠 선택 항목 가져오기
 
-작업은 Personalizer에서 순위가 지정되도록 하려는 콘텐츠 선택 항목을 나타냅니다. 다음 메서드를 Program 클래스에 추가하여 시간 및 현재 음식 기본 설정에 대한 명령줄에서 사용자의 입력을 가져옵니다.
+작업은 Personalizer에서 순위가 지정되도록 하려는 콘텐츠 선택 항목을 나타냅니다. 다음 메서드를 추가하여 당일 및 현재 음식 기본 설정에 대한 명령줄에서 사용자 입력을 가져옵니다.
 
 [!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=getActions)]
 
@@ -122,7 +132,7 @@ Personalizer 클라이언트는 키가 포함된 Microsoft.Rest.ServiceClientCre
 
 Personalizer 학습 루프는 [순위](#request-a-rank) 및 [보상](#send-a-reward) 호출의 주기입니다. 이 빠른 시작에서는 각 순위 호출을 수행하여 콘텐츠를 맞춤 설정한 다음, 보상 호출을 수행하여 서비스에서 콘텐츠의 순위를 얼마나 잘 지정했는지를 Personalizer에 알려줍니다. 
 
-프로그램의 `main` 메서드에 있는 다음 코드는 명령줄에서 사용자에게 해당 기본 설정을 요청하고, 해당 정보를 Personalizer로 보내어 순위를 지정하고, 고객에게 순위가 지정된 선택 항목을 제시하여 목록에서 선택한 다음, 서비스에서 선택 항목의 순위를 얼마나 잘 지정했는지 알려주는 주기를 반복합니다.
+다음 코드는 명령줄에서 사용자에게 해당 기본 설정을 요청하고, 해당 정보를 Personalizer로 보내어 순위를 지정하고, 고객에게 순위가 지정된 선택 항목을 제시하여 목록에서 선택한 다음, 서비스에서 선택 항목의 순위를 얼마나 잘 지정했는지 알려주는 주기를 반복합니다.
 
 [!code-python[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/python/sample.py?name=mainLoop&highlight=9,10,29)]
 

@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: b66306de6b2afa1e39a91ba3b3981aec4b440e1a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f11cbdab59548906f751116a2ca7b9c545b25d91
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123577"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677879"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터 만들기
 
-Apache Kafka는 오픈 소스 분산형 스트리밍 플랫폼입니다. 게시-구독 메시지 큐와 유사한 기능을 제공하므로 메시지 브로커로 자주 사용됩니다. 
+Apache Kafka는 오픈 소스 분산형 스트리밍 플랫폼입니다. 게시-구독 메시지 큐와 유사한 기능을 제공하므로 메시지 브로커로 자주 사용됩니다.
 
 이 빠른 시작에서는 Azure Portal을 사용하여 [Apache Kafka](https://kafka.apache.org) 클러스터를 만드는 방법에 대해 알아봅니다. 또한 Apache Kafka를 사용하여 메시지를 받거나 보내기 위해 제공되는 유틸리티를 사용하는 방법을 알아봅니다.
 
@@ -37,75 +37,64 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. 왼쪽 메뉴에서 **+ 리소스 만들기** > **Analytics** > **HDInsight**로 이동합니다.
+1. 왼쪽 메뉴에서 **+ 리소스 만들기** > **Analytics** > **HDInsight**로 이동합니다.
 
     ![리소스 HDInsight를 만드는 Azure Portal](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
 
-3. **기본** 에서 다음 정보를 입력하거나 선택합니다.
+1. **기본 사항**에서 다음 값을 입력하거나 선택합니다.
 
-    | 설정 | 값 |
-    | --- | --- |
-    | 클러스터 이름 | HDInsight 클러스터에 사용할 고유한 이름입니다. |
-    | Subscription | 구독을 선택합니다. |
+    |자산  |설명  |
+    |---------|---------|
+    |Subscription    |  Azure 구독을 선택합니다. |
+    |Resource group     | 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.  리소스 그룹은 Azure 구성 요소의 컨테이너입니다.  이 경우 리소스 그룹에는 HDInsight 클러스터 및 종속 Azure Storage 계정이 포함되어 있습니다. |
+    |클러스터 이름   | Hadoop 클러스터에 사용할 이름을 입력합니다. HDInsight의 모든 클러스터는 동일한 DNS 네임스페이스를 공유하므로 이 이름은 고유해야 합니다. 이름은 문자, 숫자 및 하이픈을 포함하여 최대 59자로 구성할 수 있습니다. 이름의 첫 번째 및 마지막 문자에는 하이픈을 사용할 수 없습니다. |
+    |위치    | 클러스터를 만들려는 Azure 위치를 선택합니다.  성능 향상을 위해 가까운 곳을 선택합니다. |
+    |클러스터 유형| **클러스터 유형 선택**을 선택합니다. 그런 다음, 클러스터 유형으로 **Kafka**를 선택합니다.|
+    |버전|클러스터 유형에 대한 기본 버전이 지정됩니다. 다른 버전을 지정하려면 드롭다운 목록에서 선택합니다.|
+    |클러스터 로그인 사용자 이름 및 암호    | 기본 로그인 이름은 **admin**입니다. 암호는 10자 이상이어야 하며, 숫자, 대문자, 소문자 및 영숫자가 아닌 문자(' " ` 문자 제외\)를 각각 하나 이상 포함해야 합니다. "Pass@word1"과 같은 일반적인 암호를 **제공하지 않았는지** 확인합니다.|
+    |SSH(보안 셸) 사용자 이름 | 기본 사용자 이름은 **sshuser**입니다.  SSH 사용자 이름에 다른 이름을 입력할 수 있습니다. |
+    |SSH에 클러스터 로그인 암호 사용| 클러스터 로그인 사용자에 대해 입력한 것과 동일한 암호를 SSH 사용자에 사용하려면 이 확인란을 선택합니다.|
 
-   __클러스터 유형__을 선택하여 **클러스터 구성**을 표시합니다.
-
-   ![HDInsight 기본 구성의 Apache Kafka 클러스터](./media/apache-kafka-get-started/custom-basics-kafka1.png)
-
-4. __클러스터 구성__ 에서 다음 값을 선택합니다.
-
-    | 설정 | 값 |
-    | --- | --- |
-    | 클러스터 유형 | Kafka |
-    | 버전 | Kafka 1.1.0(HDI 3.6) |
-
-    **선택** 단추를 사용하여 클러스터 유형 설정을 저장하고 __기본__ 으로 돌아갑니다.
-
-    ![HDInsight apache kafka 클러스터 유형](./media/apache-kafka-get-started/apache-kafka-cluster-type.png)
-
-5. __기본__ 에서 다음 정보를 입력하거나 선택합니다.
-
-    | 설정 | 값 |
-    | --- | --- |
-    | 클러스터 로그인 사용자 이름 | 클러스터에서 호스트되는 웹 서비스 또는 REST API에 액세스할 때의 로그인 이름입니다. 기본값(admin)을 유지합니다. |
-    | 클러스터 로그인 암호 | 클러스터에서 호스트되는 웹 서비스 또는 REST API에 액세스할 때의 로그인 암호입니다. |
-    | SSH(보안 셸) 사용자 이름 | SSH를 통해 클러스터에 액세스할 때 사용되는 로그인입니다. 기본적으로 암호는 클러스터 로그인 암호와 동일합니다. |
-    | 리소스 그룹 | 클러스터를 만들어 놓은 리소스 그룹입니다. |
-    | 위치 | 클러스터를 만들어 놓은 Azure 지역입니다. |
+   ![클러스터 기본 사항을 만드는 Azure Portal](./media/apache-kafka-get-started/azure-portal-cluster-basics-blank.png)
 
     각 Azure 지역(위치)은 _장애 도메인_을 제공합니다. 장애 도메인은 Azure 데이터 센터에 있는 기본 하드웨어의 논리적 그룹입니다. 장애 도메인마다 공통 전원과 네트워크 스위치를 공유합니다. HDInsight 클러스터 내의 노드를 구현하는 가상 머신과 관리 디스크는 이러한 장애 도메인에 분산되어 있습니다. 이 아키텍처에서는 실제 하드웨어 오류의 잠재적 영향을 제한합니다.
 
     데이터의 고가용성을 위해 __세 개의 장애 도메인__ 을 포함하는 지역(위치)을 선택합니다. 영역에서 장애 도메인의 수에 대한 자세한 내용은 [Linux 가상 머신의 가용성](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 문서를 참조하세요.
 
-   ![클러스터 기본 사항을 만드는 Azure Portal](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
+    페이지 맨 아래에서 **다음: Storage >>** 탭을 선택하여 스토리지 설정으로 이동합니다.
 
-    __다음__ 을 선택하여 기본 구성을 완료합니다.
+1. **스토리지** 탭에서 다음 값을 입력합니다.
 
-6. 이 빠른 시작에서는 기본 보안 설정을 유지합니다. Enterprise Security 패키지에 대해 자세히 알아보려면 [Azure Active Directory Domain Services를 사용하여 Enterprise Security Package로 HDInsight 클러스터 구성](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)을 참조하세요. Apache Kafka 디스크 암호화에 고유한 키를 사용하는 방법을 알아보려면 [Azure HDInsight에서 Apache Kafka에 대한 고유한 키 가져오기](apache-kafka-byok.md)를 참조하세요.
+    |자산  |설명  |
+    |---------|---------|
+    |기본 스토리지 유형|기본값 **Azure Storage**를 사용합니다.|
+    |선택 방법|기본값 **목록에서 선택**을 사용합니다.|
+    |기본 스토리지 계정|드롭다운 목록을 사용하여 기존 스토리지 계정을 선택하거나 **새로 만들기**를 선택합니다. 새 계정을 만드는 경우 이름의 길이가 3~24자여야 하고, 숫자 및 소문자만 포함할 수 있습니다.|
+    |컨테이너|자동으로 채워진 값을 사용합니다.|
+
+    ![HDInsight Linux에서 클러스터 스토리지 값 제공 시작](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "HDInsight 클러스터를 만들기 위한 스토리지 값 제공")
+
+    **보안 + 네트워킹** 탭을 선택합니다.
+
+1. 이 빠른 시작에서는 기본 보안 설정을 유지합니다. Enterprise Security 패키지에 대해 자세히 알아보려면 [Azure Active Directory Domain Services를 사용하여 Enterprise Security Package로 HDInsight 클러스터 구성](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)을 참조하세요. Apache Kafka 디스크 암호화에 고유한 키를 사용하는 방법을 알아보려면 [Azure HDInsight에서 Apache Kafka에 대한 고유한 키 가져오기](apache-kafka-byok.md)를 참조하세요.
 
    클러스터를 가상 네트워크에 연결하려는 경우에는 **가상 네트워크** 드롭다운에서 가상 네트워크를 선택합니다.
 
-   ![가상 네트워크에 클러스터 추가](./media/apache-kafka-get-started/kafka-security-config.png)
+   ![가상 네트워크에 클러스터 추가](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vn.png)
 
-7. **Storage**에서 Storage 계정을 선택하거나 만듭니다. 이 문서의 단계에서는 다른 필드를 기본값으로 둡니다. __다음__ 단추를 사용하여 스토리지 구성을 저장합니다. Data Lake Storage Gen2를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
+    **구성 + 가격 책정** 탭을 선택합니다.
 
-   ![HDInsight에 대한 스토리지 계정 설정 지정](./media/apache-kafka-get-started/storage-configuration.png)
+1. HDInsight에서 Apache Kafka의 가용성을 보장하려면 **작업자 노드**에 대한 __노드 수__ 항목을 3 이상으로 설정해야 합니다. 기본값은 4입니다.
 
-8. __애플리케이션(선택 사항)__ 에서 __다음__ 을 선택하여 기본 설정을 사용해서 계속 진행합니다.
+    **작업자 노드당 표준 디스크** 항목은 HDInsight에서 Apache Kafka의 확장성을 구성합니다. HDInsight의 Apache Kafka는 클러스터에서 가상 머신의 로컬 디스크를 사용하여 데이터를 저장합니다. Apache Kafka는 입출력이 많으므로 높은 처리량과 노드당 더 많은 스토리지를 제공하기 위해 [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md)를 사용합니다. 관리 디스크 유형은 __표준__ (HDD) 또는 __프리미엄__ (SSD)일 수 있습니다. 디스크 유형은 작업자 노드(Apache Kafka broker)에서 사용하는 VM 크기에 따라 달라집니다. 프리미엄 디스크는 DS 및 GS 시리즈 VM에 자동으로 사용됩니다. 다른 모든 VM 유형은 표준을 사용합니다.
 
-9. __클러스터 크기__ 에서 __다음__  을 선택하여 기본 설정을 사용해서 계속 진행합니다.
+   ![Apache Kafka 클러스터 크기 설정](./media/apache-kafka-get-started/azure-portal-cluster-configuration-pricing-kafka.png)
 
-    HDInsight에서 Apache Kafka의 가용성을 보장하려면 __작업자 노드 수__ 항목을 3 이상으로 설정해야 합니다. 기본값은 4입니다.
+    **검토 + 만들기** 탭을 선택합니다.
 
-    **작업자 노드 항목당 디스크**에 따라 HDInsight에서 Apache Kafka의 확장성이 구성됩니다. HDInsight의 Apache Kafka는 클러스터에서 가상 머신의 로컬 디스크를 사용하여 데이터를 저장합니다. Apache Kafka는 입출력이 많으므로 높은 처리량과 노드당 더 많은 스토리지를 제공하기 위해 [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md)를 사용합니다. 관리 디스크 유형은 __표준__ (HDD) 또는 __프리미엄__ (SSD)일 수 있습니다. 디스크 유형은 작업자 노드(Apache Kafka broker)에서 사용하는 VM 크기에 따라 달라집니다. 프리미엄 디스크는 DS 및 GS 시리즈 VM에 자동으로 사용됩니다. 다른 모든 VM 유형은 표준을 사용합니다.
+1. 클러스터에 대한 구성을 검토합니다. 잘못된 설정을 변경합니다. 마지막으로, **만들기**를 선택하여 클러스터를 만듭니다.
 
-   ![Apache Kafka 클러스터 크기 설정](./media/apache-kafka-get-started/apace-kafka-cluster-size.png)
-
-10. __고급 설정__ 에서 __다음__  을 선택하여 기본 설정을 사용해서 계속 진행합니다.
-
-11. **요약**에서 클러스터에 대한 구성을 검토합니다. __편집__ 링크를 사용하여 올바르지 않은 설정을 변경합니다. 마지막으로, **만들기**를 선택하여 클러스터를 만듭니다.
-
-    ![kafka 클러스터 구성 요약](./media/apache-kafka-get-started/kafka-configuration-summary.png)
+    ![kafka 클러스터 구성 요약](./media/apache-kafka-get-started/azure-portal-cluster-review-create-kafka.png)
 
     클러스터를 만드는 데 최대 20분이 걸릴 수 있습니다.
 
@@ -150,7 +139,7 @@ Kafka를 사용할 때는 *Apache Zookeeper* 및 *Broker* 호스트를 알고 �
 이 섹션에서는 클러스터에서 Apache Ambari REST API에서 호스트 정보를 가져옵니다.
 
 1. 간단한 명령줄 JSON 프로세서인 [jq](https://stedolan.github.io/jq/)를 설치합니다. 이 유틸리티는 JSON 문서를 구문 분석하는 데 사용되며, 호스트 정보를 구문 분석할 때 유용합니다. 열린 SSH 연결에서 다음 명령을 실행하여 `jq`를 설치합니다.
-   
+
     ```bash
     sudo apt -y install jq
     ```
@@ -200,7 +189,7 @@ Kafka를 사용할 때는 *Apache Zookeeper* 및 *Broker* 호스트를 알고 �
     ```
 
     이 명령은 다음 텍스트와 유사한 정보를 반환합니다.
-   
+
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
 ## <a name="manage-apache-kafka-topics"></a>Apache Kafka 토픽 관리
@@ -213,7 +202,7 @@ Kafka는 *토픽*에 데이터 스트림을 저장합니다. 토픽을 관리하
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
     ```
 
-    이 명령은 `$KAFKAZKHOSTS`에 저장된 호스트 정보를 사용하여 Zookeeper에 연결합니다. 그런 후 **test**라는 Apache Kafka 토픽을 만듭니다. 
+    이 명령은 `$KAFKAZKHOSTS`에 저장된 호스트 정보를 사용하여 Zookeeper에 연결합니다. 그런 후 **test**라는 Apache Kafka 토픽을 만듭니다.
 
     * 이 토픽에 저장된 데이터는 8개의 파티션에 분할됩니다.
 
@@ -267,11 +256,11 @@ Kafka는 토픽에 *레코드*를 저장합니다. *생산자*에서 레코드�
 앞에서 만든 test 토픽에 레코드를 저장한 다음, 소비자를 통해 레코드를 읽으려면 다음 단계를 사용합니다.
 
 1. 토픽에 레코드를 작성하려면 SSH 연결에서 `kafka-console-producer.sh` 유틸리티를 사용합니다.
-   
+
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test
     ```
-   
+
     이 명령 후 빈 줄에 도달합니다.
 
 2. 빈 줄에 문자 메시지를 입력하고 Enter 키를 누릅니다. 이와 같은 방식으로 메시지 몇 개를 입력한 후 **Ctrl + C** 키를 사용하여 일반 프롬프트로 돌아갑니다. 각 줄은 별도의 레코드로 Apache Kafka 토픽에 전송됩니다.
@@ -302,7 +291,7 @@ Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 
 > [!WARNING]  
 > 클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 분 단위로 청구되므로 더 이상 사용하지 않으면 항상 클러스터를 삭제해야 합니다.
-> 
+>
 > HDInsight 클러스터의 Apache Kafka를 삭제하면 Kafka에 저장된 데이터가 모두 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/12/2019
+ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: ab593ae33f11fe3e39846c50e9f43f73f80894ba
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: b7ea28f98340d3c3547b0ed66771b3982a03143d
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265971"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345254"
 ---
 # <a name="quickstart-personalize-client-library-for-nodejs"></a>빠른 시작: Node.js용 Personalizer 클라이언트 라이브러리
 
@@ -31,11 +31,21 @@ Node.js용 Personalizer 클라이언트 라이브러리를 시작합니다. 이�
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-* 현재 버전의 [Node.js](https://nodejs.org)
+* 현재 버전의 [Node.js](https://nodejs.org) 및 NPM.
 
-## <a name="setting-up"></a>설치
+## <a name="using-this-quickstart"></a>이 빠른 시작 사용
 
-### <a name="create-a-personalizer-azure-resource"></a>Personalizer Azure 리소스 만들기
+
+이 빠른 시작을 사용하는 몇 가지 단계가 있습니다.
+
+* Azure Portal에서 Personalizer 리소스 만들기
+* Azure Portal의 Personalizer 리소스에 대한 **설정 페이지**에서 모델 업데이트 빈도 변경
+* 코드 편집기에서 코드 파일을 만들고 코드 파일을 편집합니다.
+* 명령줄 또는 터미널의 명령줄에서 SDK 설치
+* 명령줄 또는 터미널에서 코드 파일 실행
+
+
+## <a name="create-a-personalizer-azure-resource"></a>Personalizer Azure 리소스 만들기
 
 Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Personalizer용 리소스를 만듭니다. 또한 다음을 수행할 수 있습니다.
 
@@ -50,7 +60,7 @@ Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로
 Azure Portal의 **빠른 시작** 페이지에서 키와 엔드포인트 값을 모두 확인할 수 있습니다.
 
 
-### <a name="create-a-new-nodejs-application"></a>새 Node.js 애플리케이션 만들기
+## <a name="create-a-new-nodejs-application"></a>새 Node.js 애플리케이션 만들기
 
 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 앱에 대한 새 디렉터리를 만들고 이 디렉터리로 이동합니다. 
 
@@ -64,7 +74,7 @@ mkdir myapp && cd myapp
 npm init -y
 ```
 
-### <a name="install-the-nodejs-library-for-personalizer"></a>Personalizer용 Node.js 라이브러리 설치
+## <a name="install-the-nodejs-library-for-personalizer"></a>Personalizer용 Node.js 라이브러리 설치
 
 다음 명령을 사용하여 Node.js용 Personalizer 클라이언트 라이브러리를 설치합니다.
 
@@ -78,9 +88,9 @@ npm install @azure/cognitiveservices-personalizer --save
 npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 ```
 
-### <a name="change-the-model-update-frequency"></a>모델 업데이트 빈도 변경
+## <a name="change-the-model-update-frequency"></a>모델 업데이트 빈도 변경
 
-Azure Portal의 Personalizer 리소스에서 **모델 업데이트 빈도**를 10초로 변경합니다. 이렇게 하면 서비스가 빠르게 학습되어 각 반복에 대한 상위 작업이 변경되는 상태를 확인할 수 있습니다.
+Azure Portal의 **설정 페이지**에 있는 Personalizer 리소스에서 **모델 업데이트 빈도**를 10초로 변경합니다. 이렇게 하면 서비스가 빠르게 학습되어 각 반복에 대한 상위 작업이 변경되는 상태를 확인할 수 있습니다.
 
 ![모델 업데이트 빈도 변경](./media/settings/configure-model-update-frequency-settings.png)
 

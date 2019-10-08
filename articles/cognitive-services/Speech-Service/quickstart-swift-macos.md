@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/28/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 64f02a33a3aeecddf751b8293542776bf5819574
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 5ccfecc2bc61940f72844f43ec81826536cfe89a
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061890"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803221"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-macos-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 macOS에서 Swift로 음성 인식
+
+빠른 시작은 [음성 합성](quickstart-text-to-speech-swift-macos.md)에도 사용할 수 있습니다.
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -34,7 +36,7 @@ ms.locfileid: "70061890"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Cognitive Services 음성 SDK의 현재 버전은 `1.6.0`입니다. 이 자습서의 내용은 이전 버전의 SDK에 대한 변경 없이 작동하지 않습니다.
+이 자습서는 1.6.0 이전 버전의 SDK에서는 작동하지 않습니다.
 
 macOS용 Cognitive Services Speech SDK는 프레임워크 번들로 배포됩니다.
 Xcode 프로젝트에서 [CocoaPod](https://cocoapods.org/)로 사용하거나, https://aka.ms/csspeech/macosbinary 에서 다운로드하거나, 수동으로 연결할 수 있습니다. 이 가이드에서는 CocoaPod를 사용합니다.

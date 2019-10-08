@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c2d877a1dc611e02e9fbc245df230ca669a2ae4
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: b94607691b662dcfcf0e166cd5c339b00ed0573d
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70171438"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326691"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>자습서: Slack과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -87,7 +87,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<companyname>.slack.com` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 `https://<your Slack company>.slack.com` 패턴을 사용하는 URL을 입력합니다.
 
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://slack.com` URL을 입력합니다.
 
@@ -136,7 +136,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 다른 웹 브라우저 창에서 Slack 회사 사이트에 관리자로 로그인합니다.
 
-2. **Microsoft Azure AD**, **팀 설정**으로 차례로 이동합니다.
+2. 왼쪽에 있는 여유 회사 이름으로 이동(이 경우 **Microsoft Azure AD** 로 설정됨)한 후, 다음 스크린샷에 표시된 것처럼 **Team 설정**으로 이동합니다.
 
      ![앱 쪽에서 Single Sign-On 구성](./media/slack-tutorial/tutorial_slack_001.png)
 

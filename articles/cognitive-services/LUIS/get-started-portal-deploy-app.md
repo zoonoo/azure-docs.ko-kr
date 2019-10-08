@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/02/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 4e9ecdad0fb4d02f160977fa28a484b2a3a5bb30
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: f640921e6f48559db3f1414551d6ed974df15e4f
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70257086"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703216"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>빠른 시작: LUIS 포털에서 앱 배포
 
@@ -87,43 +87,50 @@ LUIS에 대한 새 리소스를 만들 때마다 LUIS 앱에 리소스를 할당
 
 1. 새 리소스 이름과 연결된 엔드포인트 URL을 선택합니다. 그러면 예측 엔드포인트 런타임에 `GET`을 요청하도록 올바르게 구성된 URL이 포함된 웹 브라우저가 열립니다.
 
-1. URL 끝부분의 `q=`는 **쿼리**를 의미하는 약어이며 사용자의 발화가 GET 요청에 추가되는 위치입니다. 이전 빠른 시작의 끝부분에 사용한 것과 동일한 사용자 발화를 `q=` 뒤에 입력합니다.
+## <a name="prediction-endpoint-request"></a>예측 엔드포인트 요청
 
-    ```Is there a form named hrf-234098```
+<!-- V3FIX -->
 
-    브라우저에 클라이언트 애플리케이션이 받게 될 JSON과 동일한 응답이 표시됩니다.
+URL 끝부분의 `q=`는 **쿼리**를 의미하는 약어이며 사용자의 발화가 GET 요청에 추가되는 위치입니다. 이전 빠른 시작의 끝부분에 사용한 것과 동일한 사용자 발화를 `q=` 뒤에 입력합니다.
 
-    ```JSON
+```Is there a form named hrf-234098```
+
+브라우저에 클라이언트 애플리케이션이 받게 될 JSON과 동일한 응답이 표시됩니다.
+
+```JSON
+{
+"query": "Is there a form named hrf-234098",
+"topScoringIntent": {
+    "intent": "FindForm",
+    "score": 0.9768753
+},
+"intents": [
     {
-    "query": "Is there a form named hrf-234098",
-    "topScoringIntent": {
-        "intent": "FindForm",
-        "score": 0.9768753
+    "intent": "FindForm",
+    "score": 0.9768753
     },
-    "intents": [
-        {
-        "intent": "FindForm",
-        "score": 0.9768753
-        },
-        {
-        "intent": "None",
-        "score": 0.0216071066
-        }
-    ],
-    "entities": [
-        {
-        "entity": "hrf-234098",
-        "type": "Human Resources Form Number",
-        "startIndex": 22,
-        "endIndex": 31
-        }
-      ]
+    {
+    "intent": "None",
+    "score": 0.0216071066
     }
-    ```
+],
+"entities": [
+    {
+    "entity": "hrf-234098",
+    "type": "Human Resources Form Number",
+    "startIndex": 22,
+    "endIndex": 31
+    }
+    ]
+}
+```
 
-    이 응답은 이전 자습서의 기본 테스트 창보다 더 자세한 정보를 제공합니다. 이와 동일한 수준의 정보를 테스트 창에 표시하려면 앱을 게시해야 합니다. 앱을 게시한 후 테스트 창에서 **게시된 버전과 비교**를 선택합니다. 게시된 테스트 창의 **JSON 보기 표시**를 사용하여 이전 단계와 동일한 JSON을 볼 수 있습니다. 이 방법으로 현재 작업 중인 앱과 엔드포인트에 게시된 앱을 비교할 수 있습니다.
+이 응답은 이전 자습서의 기본 테스트 창보다 더 자세한 정보를 제공합니다. 이와 동일한 수준의 정보를 테스트 창에 표시하려면 앱을 게시해야 합니다. 앱을 게시한 후 테스트 창에서 **게시된 버전과 비교**를 선택합니다. 게시된 테스트 창의 **JSON 보기 표시**를 사용하여 이전 단계와 동일한 JSON을 볼 수 있습니다. 이 방법으로 현재 작업 중인 앱과 엔드포인트에 게시된 앱을 비교할 수 있습니다.
 
-    [![현재 편집 중인 앱 버전과 게시된 앱 버전 비교](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
+[![현재 편집 중인 앱 버전과 게시된 앱 버전 비교](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
+
+
+
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

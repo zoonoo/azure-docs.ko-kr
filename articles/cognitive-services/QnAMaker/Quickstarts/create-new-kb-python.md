@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 43ae6e7100efd923c81a0f9b94867a9101549d9b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9114d491be1ae11623264c3beaf7c26f1fa143de
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559859"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803135"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>빠른 시작: Python을 사용하여 QnA Maker 기술 자료 만들기
 
@@ -25,10 +25,12 @@ ms.locfileid: "68559859"
 * [KB 만들기](https://go.microsoft.com/fwlink/?linkid=2092179)
 * [작업 세부 정보 가져오기](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 * [Python 3.7](https://www.python.org/downloads/)
-* QnA Maker 서비스가 있어야 합니다. 키를 검색하려면 대시보드의 [리소스 관리] 아래에서 [키]를 선택합니다.
+* [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키와 엔드포인트(리소스 이름 포함)를 검색하려면 Azure Portal에서 리소스에 대해 **빠른 시작**을 선택합니다. 
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
@@ -43,7 +45,7 @@ ms.locfileid: "68559859"
 [!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=1-1 "Add the required dependencies")]
 
 ## <a name="add-the-required-constants"></a>필요한 상수 추가
-앞서의 필요한 종속성 뒤에 QnA Maker에 액세스하는 데 필요한 상수를 추가합니다. `subscriptionKey` 변수의 값을 사용자 고유의 QnA Maker 키로 바꿉니다.
+앞서의 필요한 종속성 뒤에 QnA Maker에 액세스하는 데 필요한 상수를 추가합니다. `<your-qna-maker-subscription-key>` 및 `<your-resource-name>`의 값을 고유한 QnA Maker 키 및 리소스 이름으로 바꿉니다.
 
 [!code-python[Add the required constants](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=5-13 "Add the required constants")]
 

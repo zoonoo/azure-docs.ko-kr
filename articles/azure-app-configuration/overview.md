@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 985845197f8a1ece76fe0a620f05194109f51bd6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 1db46e8562006e1b60e4f51ca88220aeca5fb2a8
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408673"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687036"
 ---
 # <a name="what-is-azure-app-configuration"></a>Azure App Configuration이란?
 
@@ -75,3 +75,4 @@ App Configuration은 애플리케이션 비밀을 저장하는 데 사용되는 
 * [Azure Function 빠른 시작](./quickstart-azure-function-csharp.md)
 * [Java Spring 빠른 시작](./quickstart-java-spring-app.md)
 * [ASP.NET Core 기능 플래그 빠른 시작](./quickstart-feature-flag-aspnet-core.md)
+* [Spring Boot 기능 플래그 빠른 시작](./quickstart-feature-flag-spring-boot.md)

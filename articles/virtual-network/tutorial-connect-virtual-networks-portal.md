@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 943cad871330e2f3b6e13b33dca582ab545fe4be
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a83980c3d4d03f53a19918ed213c965e50baa406
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726574"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720049"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
 
@@ -52,8 +52,8 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     |---|---|
     |Name|myVirtualNetwork1|
     |주소 공간|10.0.0.0/16|
-    |구독| 구독을 선택합니다.|
-    |리소스 그룹| **새로 만들기**를 선택하고 *myResourceGroup*을 입력합니다.|
+    |Subscription| 구독을 선택합니다.|
+    |Resource group| **새로 만들기**를 선택하고 *myResourceGroup*을 입력합니다.|
     |위치| **미국 동부**를 선택합니다.|
     |서브넷 이름|Subnet1|
     |서브넷 주소 범위|10.0.0.0/24|
@@ -66,7 +66,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     |---|---|
     |Name|myVirtualNetwork2|
     |주소 공간|10.1.0.0/16|
-    |리소스 그룹| **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다.|
+    |Resource group| **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다.|
     |서브넷 주소 범위|10.1.0.0/24|
 
 ## <a name="peer-virtual-networks"></a>가상 네트워크 피어링
@@ -80,27 +80,18 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
     |설정|값|
     |---|---|
-    |Name|myVirtualNetwork1-myVirtualNetwork2|
-    |구독| 구독을 선택합니다.|
-    |가상 네트워크|myVirtualNetwork2 - *myVirtualNetwork2* 가상 네트워크를 선택하려면 **가상 네트워크**을 선택한 다음, **myVirtualNetwork2**를 선택합니다. 동일한 지역 또는 다른 지역의 가상 네트워크를 선택할 수 있습니다.|
+    |myVirtualNetwork1에서 원격 가상 네트워크로의 피어링 이름|myVirtualNetwork1-myVirtualNetwork2 - 페이지가 처음 로드될 때 여기에 "원격 가상 네트워크"라는 구가 표시됩니다. 원격 가상 네트워크를 선택한 후 "원격 가상 네트워크"라는 구가 원격 가상 네트워크의 이름으로 바뀝니다.|
+    |Subscription| 구독을 선택합니다.|
+    |가상 네트워크|myVirtualNetwork2 - *myVirtualNetwork2* 가상 네트워크를 선택하려면 **가상 네트워크**을 선택한 다음, **myVirtualNetwork2(myResourceGroup)** 를 선택합니다. 동일한 지역 또는 다른 지역의 가상 네트워크를 선택할 수 있습니다.|
+    |myVirtualNetwork2에서 myVirtualNetwork1로 피어링 이름 지정|myVirtualNetwork2-myVirtualNetwork1|
 
-    ![공용 설정](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
+    ![공용 설정](./media/tutorial-connect-virtual-networks-portal/peering-settings-bidirectional.png)
 
-    **피어링 상태**는 다음 그림에 표시된 대로 *시작됨*입니다.
+    **피어링 상태**는 다음 그림에 표시된 대로 *연결됨*입니다.
 
-    ![피어링 상태](./media/tutorial-connect-virtual-networks-portal/peering-status.png)
+    ![피어링 상태](./media/tutorial-connect-virtual-networks-portal/peering-status-connected.png)
 
     상태가 표시되지 않으면 브라우저를 새로 고칩니다.
-
-4. Azure Portal 맨 위에 있는 **검색** 상자에 *MyVirtualNetwork2*를 입력하기 시작합니다. 검색 결과에 **myVirtualNetwork2**가 표시되면 선택합니다.
-5. 다음과 같은 변경 내용을 사용하여 다시 2-3단계를 완료한 다음, **확인**을 선택합니다.
-
-    |설정|값|
-    |---|---|
-    |Name|myVirtualNetwork2-myVirtualNetwork1|
-    |가상 네트워크|myVirtualNetwork1|
-
-    **피어링 상태**는 *연결됨*입니다. 또한 Azure에서 *myVirtualNetwork2-myVirtualNetwork1* 피어링의 피어링 상태가 *시작됨*에서 *연결됨*으로 변경되었습니다. 두 가상 네트워크 피어링의 피어링 상태가 *연결됨*이 될 때까지 가상 네트워크 피어링이 완전히 설정되지 않습니다. 
 
 ## <a name="create-virtual-machines"></a>가상 머신 만들기
 
@@ -117,7 +108,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     |Name|myVm1|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
-    |리소스 그룹| **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다.|
+    |Resource group| **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다.|
     |위치| **미국 동부**를 선택합니다.|
 4. **크기 선택**에서 VM 크기를 선택합니다.
 5. **설정**에 대해 다음 값을 선택하고 **확인**을 선택합니다.

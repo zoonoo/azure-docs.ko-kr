@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: cb365517c581ebf83026046f385496afd3e28d7f
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3f25bbbbc8b3f34bdb89ba8797b042826a88ca8d
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261576"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815961"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>빠른 시작: Gremlin 콘솔을 사용하여 Azure Cosmos DB 그래프 데이터베이스 만들기, 쿼리 및 트래버스
 
@@ -55,7 +55,7 @@ Gremlin 콘솔은 Groovy/Java 기반이며 Linux, Mac 및 Windows에서 실행�
 
     설정|제안 값|설명
     ---|---|---
-    호스트|[*account-name*.gremlin.cosmos.azure.com]|다음 스크린샷이 표시됩니다. 후행 :443/를 제거하고 대괄호로 묶은 Azure Portal의 개요 페이지에서 Gremlin URI 값입니다.
+    호스트|[*account-name*.**gremlin**.cosmos.azure.com]|다음 스크린샷이 표시됩니다. 후행 :443/이 제거된 대괄호로 묶은 Azure Portal의 개요 페이지에있는 **Gremlin URI** 값입니다. 참고: 나중에 Gremlin 쿼리를 실행할 때 "호스트가 적시에 응답하지 않음" 예외가 발생할 가능성이 있는 [*account-name*.documents.azure.com]으로 끝나는 URI가 **아닌** Gremlin 값을 사용해야 합니다. 
     포트|443|443으로 설정합니다.
     사용자 이름|*사용자 이름*|`/dbs/<db>/colls/<coll>` 양식의 리소스에서 `<db>`은 데이터베이스 이름이고 `<coll>`은 컬렉션 이름입니다.
     암호|*기본 키*| 아래에서 두 번째 스크린샷을 참조하세요. 기본 키 상자에 있는 Azure Portal의 키 페이지에서 검색할 수 있는 기본 키입니다. 상자의 왼쪽에서 복사 단추를 사용하여 값을 복사합니다.
@@ -85,7 +85,7 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 1. 터미널에서 `:remote connect tinkerpop.server conf/remote-secure.yaml`을 실행하여 앱 서비스에 연결합니다.
 
     > [!TIP]
-    > `No appenders could be found for logger` 오류가 발생하면 2단계에 설명된 대로 remote-secure.yaml 파일의 직렬 변환기 값을 업데이트했는지 확인합니다. 
+    > `No appenders could be found for logger` 오류가 발생하면 2단계에 설명된 대로 remote-secure.yaml 파일의 직렬 변환기 값을 업데이트했는지 확인합니다. 구성이 올바른 경우 이 경고는 콘솔 사용에 영향을 주지 않으므로 무시해도 됩니다. 
 
 1. 그런 다음, `:remote console`을 실행하여 모든 콘솔 명령을 원격 서버에 리디렉션합니다.
 

@@ -9,14 +9,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 09/30/2019
 ms.author: banders
-ms.openlocfilehash: 8e87bcb9f7d05fd5041623693c96f8c737758c32
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: e382b4bf12b53573f3506474837093456f9b84c6
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490976"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709627"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>다른 제품으로 Azure 구독 변경
 
@@ -101,7 +101,7 @@ Azure 제안은 사용자가 소유한 Azure 구독의 *유형*을 말합니다.
 
 전환한 날 모든 미결제 요금에 대한 송장이 생성됩니다. 그런 다음, 새 제안의 가격 책정 조건에 따라 구독 요금이 청구됩니다. 구독 요금 청구일은 제안을 변경한 날짜로 변경됩니다. 제품 변경 전 사용 및 요금 청구 데이터는 보존되지 않으므로 전환하기 전에 복사본을 다운로드하는 것이 좋습니다.
 
-### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>종량제 요금을 사용하는 구독에서 [클라우드 솔루션 공급자](https://partner.microsoft.com/Solutions/cloud-reseller-overview)(CSP) 또는 [기업 계약](https://azure.microsoft.com/pricing/enterprise-agreement/)(EA)으로 마이그레이션할 수 있나요?
+### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-provider-csp-or-enterprise-agreement-ea"></a>종량제 요금을 사용하는 구독에서 CSP(클라우드 솔루션 공급자) 또는 EA(기업 계약)로 마이그레이션할 수 있나요?
 
 * CSP에 마이그레이션하려면 [CSP에 Azure 종량제 구독 마이그레이션](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp)을 참조하세요.
 * EA로 전환하려면 등록 관리자에게 계정을 EA에 추가해 달라고 요청해야 합니다. 초대 전자 메일의 지침에 따라 구독을 EA 등록 아래로 이동하세요. 자세한 내용은 EA 포털에서 [기존 계정 연결](https://ea.azure.com/helpdocs/associateExistingAccount)을 참조하세요.

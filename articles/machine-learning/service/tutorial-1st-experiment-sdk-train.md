@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/03/2019
-ms.openlocfilehash: b5d3a687adc8ecefcf581f7eda3b9e13d1973c62
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c775b16eaa15ccd7115f4770bf197545a9de2500
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004029"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828025"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>자습서: 첫 번째 ML 모델 학습
 
@@ -35,21 +35,15 @@ ms.locfileid: "71004029"
 
 자습서의 이 부분에서는 1부의 마지막에 열린 샘플 Jupyter Notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`에서 코드를 실행합니다. 이 문서에서는 Notebook에 있는 동일한 코드를 안내합니다.
 
-## <a name="launch-jupyter-web-interface"></a>Jupyter 웹 인터페이스 시작
+## <a name="open-the-notebook"></a>Notebook 열기
 
-1. Azure Portal의 작업 영역 페이지에서 왼쪽에 있는 **Notebook VM**을 선택합니다.
+1. [작업 영역 방문 페이지](https://ml.azure.com/)에 로그인합니다.
 
-1. 이 자습서의 1부에서 만든 VM에 대한 **URI** 열에서 **Jupyter**를 선택합니다.
+1. [1부](tutorial-1st-experiment-sdk-setup.md#open)에 표시된 대로 폴더에서 **tutorial-1st-experiment-sdk-train.ipynb**를 엽니다.
 
-    ![Jupyter Notebook 서버 시작](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
 
-   이 링크는 Notebook 서버를 시작하고, 새 브라우저 탭에서 Jupyter Notebook 웹 페이지를 엽니다.  이 링크는 VM을 만든 사용자만 사용할 수 있습니다. 작업 영역의 각 사용자는 자신의 고유한 VM을 만들어야 합니다.
-
-1. Jupyter Notebook 웹 페이지에서 사용자 이름인 최상위 폴더 이름을 선택합니다.  
-
-   이 폴더는 Notebook VM 자체가 아니라 작업 영역 [스토리지 계정](concept-workspace.md#resources)에 있습니다.  Notebook VM을 삭제하는 경우 모든 작업을 그대로 유지할 수 있습니다.  나중에 새 Notebook VM를 만들면 이 동일한 폴더가 로드됩니다. 자신의 작업 영역을 다른 사용자와 공유하면 해당 사용자에게 해당 폴더가 표시되고 자신에게도 해당 사용자의 폴더가 표시됩니다.
-
-1. `samples-*` 하위 디렉터리를 연 다음, 같은 이름의 `.yml` 파일이 **아닌** Jupyter Notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`를 엽니다. 
+> [!Warning]
+> Jupyter 인터페이스에서 *새로운* Notebook을 만들지 **마세요**. Notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`에는 이 자습서에 **필요한 모든 코드 및 데이터**가 포함되어 있습니다.
 
 ## <a name="connect-workspace-and-create-experiment"></a>작업 영역 연결 및 실험 만들기
 
@@ -57,7 +51,7 @@ ms.locfileid: "71004029"
 > 이 문서의 나머지 부분에는 Notebook에 표시되는 것과 동일한 콘텐츠가 포함되어 있습니다.  
 >
 > 코드를 실행할 때 함께 읽도록 하려면 지금 Jupyter Notebook으로 전환합니다. 
-> Notebook에서 단일 코드 셀을 실행하려면 코드 셀을 클릭하고 **Shift+Enter** 키를 누릅니다. 또는 위쪽 메뉴에서 **셀 > 모두 실행**을 선택하여 전체 Notebook을 실행합니다.
+> Notebook에서 단일 코드 셀을 실행하려면 코드 셀을 클릭하고 **Shift+Enter** 키를 누릅니다. 또는 상단 도구 모음에서 **모두 실행**을 선택하여 전체 Notebook을 실행합니다.
 
 `Workspace` 클래스를 가져오고 `from_config().` 함수를 사용하여 `config.json` 파일에서 구독 정보를 로드합니다. 이 함수는 기본적으로 현재 디렉터리에서 JSON 파일을 찾지만 `from_config(path="your/file/path")`를 사용하여 파일을 가리키는 경로 매개 변수를 지정할 수도 있습니다. 클라우드 Notebook 서버에서 파일은 루트 디렉터리에 자동으로 있습니다.
 
@@ -197,7 +191,7 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 Azure Machine Learning 자습서를 실행할 계획이라면 이 섹션을 완료하지 마세요.
+다른 Azure Machine Learning 자습서를 실행하려면 이 섹션을 완료하지 마세요.
 
 ### <a name="stop-the-notebook-vm"></a>Notebook VM 중지
 

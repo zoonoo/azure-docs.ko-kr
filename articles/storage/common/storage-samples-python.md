@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 5d823059842bf539f00ad372127fc8b636c74b65
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 3fc18646270bbec3836845bcf317afc2c1d3a6df
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70745970"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71351166"
 ---
 # <a name="azure-storage-samples-using-python"></a>Python을 사용한 Azure Storage 샘플
 
@@ -99,4 +99,5 @@ Azure Storage 클라이언트 라이브러리를 설치하고 시작하는 방�
 
 * .NET: [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
 * Java: [Java를 사용한 Azure Storage 샘플](storage-samples-java.md)
+* JavaScript/node.js: [JavaScript를 사용한 Azure Storage 샘플](storage-samples-javascript.md)
 * 모든 기타 언어: [Azure Storage 샘플](storage-samples.md)

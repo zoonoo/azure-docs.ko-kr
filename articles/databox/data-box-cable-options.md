@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 4759676eff03606998759a586f758b7a26ead23d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 661cec672aa02f62b479b7f5831adfdaff9e6b21
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077550"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316564"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Azure Data Box의 케이블 연결 옵션
 
@@ -74,7 +74,7 @@ ms.locfileid: "58077550"
 
 다음 단계를 수행하여 디바이스에 케이블을 연결합니다.
 
-1. 서버의 RJ45 이더넷 케이블을 구성할 MGMT 포트에 바로 사용합니다.
+1. 구성을 위해 별도의 컴퓨터에서 MGMT 포트로 직접 RJ45 이더넷 케이블을 사용합니다.
 2. DATA 3용 RJ45나 SFP+ 케이블을 통해 서버에 DATA 1 또는 DATA 2를 연결합니다. 성능 향상을 위해 10GbE DATA 1 또는 DATA 2 포트를 사용하는 것이 좋습니다. 데이터 포트는 10GbE 스위치를 통해 데이터가 있는 서버에 연결됩니다.
 3. 디바이스에 연결하는 데 사용할 노트북의 이더넷 어댑터에 다음을 구성합니다.
 

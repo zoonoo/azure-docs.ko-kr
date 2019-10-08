@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: e0c85dba22a7c689631a853bc22d58d1cc4093aa
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 2a07e392170fb9e6993f4c560a4896a468d90820
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104998"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338496"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>자습서: 몰입형 판독기(Node.js) 시작
 
@@ -68,7 +68,7 @@ ClientSecret => Azure AD Application Service Principal password
 Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 ````
 
-값을 얻었으면 _.env_라는 새 파일을 만들고, 다음 코드를 이 파일에 붙여넣고, 위의 사용자 지정 속성 값을 입력합니다.
+값을 얻었으면 _.env_라는 새 파일을 만들고, 다음 코드를 이 파일에 붙여넣고, 위의 사용자 지정 속성 값을 입력합니다. 따옴표 또는 "{" 및 "}" 문자를 포함하지 마세요.
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -85,44 +85,50 @@ SUBDOMAIN={YOUR_SUBDOMAIN}
 require('dotenv').config();
 ```
 
-_routes\index.js_ 파일을 열고 파일 맨 위에 다음 코드를 추가합니다.
+_routes\index.js_ 파일을 열고 콘텐츠를 다음 코드로 바꿉니다.
+
+이 코드는 서비스 사용자 암호를 사용하여 Azure AD 인증 토큰을 획득하는 API 엔드포인트를 만듭니다. 하위 도메인도 검색합니다. 그런 다음, 토큰과 하위 도메인을 포함하는 개체를 반환합니다.
 
 ```javascript
 var request = require('request');
-```
+var express = require('express');
+var router = express.Router();
 
-이제 다음 코드를 이 줄 바로 아래에 추가합니다. 이 코드는 서비스 사용자 암호를 사용하여 Azure AD 인증 토큰을 획득한 다음, 해당 토큰을 반환하는 API 엔드포인트를 만듭니다. 하위 도메인을 검색하는 두 번째 엔드포인트도 있습니다.
-
-```javascript
-router.get('/getimmersivereadertoken', function(req, res) {
-  request.post ({
-          headers: {
-              'content-type': 'application/x-www-form-urlencoded'
-          },
-          url: `https://login.windows.net/${process.env.TENANT_ID}/oauth2/token`,
-          form: {
-              grant_type: 'client_credentials',
-              client_id: process.env.CLIENT_ID,
-              client_secret: process.env.CLIENT_SECRET,
-              resource: 'https://cognitiveservices.azure.com/'
-          }
-      },
-      function(err, resp, token) {
-          if (err) {
-              return res.status(500).send('CogSvcs IssueToken error');
-          }
-
-          return res.send(JSON.parse(token).access_token);
-      }
+router.get('/getimmersivereaderlaunchparams', function(req, res) {
+    request.post ({
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded'
+                },
+                url: `https://login.windows.net/${process.env.TENANT_ID}/oauth2/token`,
+                form: {
+                    grant_type: 'client_credentials',
+                    client_id: process.env.CLIENT_ID,
+                    client_secret: process.env.CLIENT_SECRET,
+                    resource: 'https://cognitiveservices.azure.com/'
+                }
+        },
+        function(err, resp, tokenResponse) {
+                if (err) {
+                    return res.status(500).send('CogSvcs IssueToken error');
+                }
+        
+                const token = JSON.parse(tokenResponse).access_token;
+                const subdomain = process.env.SUBDOMAIN;
+                return res.send({token: token, subdomain: subdomain});
+        }
   );
 });
-
-router.get('/subdomain', function (req, res) {
-    return res.send(process.env.SUBDOMAIN);
+ 
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
 });
+
+module.exports = router;
+
 ```
 
-권한 없는 사용자가 토큰을 획득하여 몰입형 리더 서비스 및 청구에 사용하지 못하도록 **getimmersivereadertoken** API 엔드포인트를 인증 형식(예: [OAuth](https://oauth.net/2/))으로 보호해야 하며, 이 작업은 이 자습서의 범위를 벗어납니다.
+권한 없는 사용자가 토큰을 획득하여 몰입형 리더 서비스 및 청구에 사용하지 못하도록 **getimmersivereaderlaunchparams** API 엔드포인트를 인증 형식(예: [OAuth](https://oauth.net/2/))으로 보호해야 하며, 이 작업은 이 자습서의 범위를 벗어납니다.
 
 ## <a name="launch-the-immersive-reader-with-sample-content"></a>샘플 콘텐츠를 사용하여 몰입형 판독기 시작
 
@@ -139,52 +145,42 @@ router.get('/subdomain', function (req, res) {
     extends layout
 
     block content
-      h2(id='title') Geography
-      p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
-      div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
-      script.
-
-        function getImmersiveReaderTokenAsync() {
-            return new Promise((resolve, reject) => {
-                $.ajax({
-                    url: '/getimmersivereadertoken',
-                    type: 'GET',
-                    success: token => {
-                        resolve(token);
-                    },
-                    error: err => {
-                        console.log('Error in getting token!', err);
-                        reject(err);
-                    }
-                });
-            });
-        }
-
-        function getSubdomainAsync() {
-            return new Promise((resolve, reject) => {
-                $.ajax({
-                    url: '/subdomain',
-                    type: 'GET',
-                    success: subdomain => { resolve(subdomain); },
-                    error: err => { reject(err); }
-                });
-            });
-        }
-
-        async function launchImmersiveReader() {
-            const content = {
-                title: document.getElementById('title').innerText,
-                chunks: [{
-                    content: document.getElementById('content').innerText + '\n\n',
-                    lang: 'en'
-                }]
-            };
-
-            const token = await getImmersiveReaderTokenAsync();
-            const subdomain = await getSubdomainAsync();
-
-            ImmersiveReader.launchAsync(token, subdomain, content);
-        }
+          h2(id='title') Geography
+          p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
+          div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
+          script.
+        
+            function getImmersiveReaderLaunchParamsAsync() {
+                    return new Promise((resolve, reject) => {
+                        $.ajax({
+                                url: '/getimmersivereaderlaunchparams',
+                                type: 'GET',
+                                success: data => {
+                                        resolve(data);
+                                },
+                                error: err => {
+                                        console.log('Error in getting token and subdomain!', err);
+                                        reject(err);
+                                }
+                        });
+                    });
+            }
+        
+            async function launchImmersiveReader() {
+                    const content = {
+                            title: document.getElementById('title').innerText,
+                            chunks: [{
+                                    content: document.getElementById('content').innerText + '\n\n',
+                                    lang: 'en'
+                            }]
+                    };
+            
+                    const launchParams = await getImmersiveReaderLaunchParamsAsync();
+                    const token = launchParams.token;
+                    const subdomain = launchParams.subdomain;
+            
+                    ImmersiveReader.launchAsync(token, subdomain, content);
+            }
     ```
 
 3. 이제 웹앱이 준비되었습니다. 다음을 실행하여 앱을 실행합니다.
@@ -220,13 +216,13 @@ router.get('/subdomain', function (req, res) {
 
 기본적으로 몰입형 판독기 인터페이스의 언어는 브라우저의 언어 설정과 일치합니다. 다음 코드를 통해 몰입형 판독기 인터페이스의 언어를 지정할 수도 있습니다.
 
-1. _views\index.pug_에서 `ImmersiveReader.launchAsync(token, content)` 호출을 아래 코드로 바꿉니다.
+1. _views\index.pug_에서 `ImmersiveReader.launchAsync(token, subdomain, content)` 호출을 아래 코드로 바꿉니다.
 
     ```javascript
     const options = {
         uiLang: 'fr',
     }
-    ImmersiveReader.launchAsync(token, content, options);
+    ImmersiveReader.launchAsync(token, subdomain, content, options);
     ```
 
 2. _http://localhost:3000_ 으로 이동합니다. 몰입형 판독기를 시작하면 인터페이스가 프랑스어로 표시됩니다.

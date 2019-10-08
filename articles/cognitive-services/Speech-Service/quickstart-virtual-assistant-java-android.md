@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 1c203bb39a90fdb1c77c3a2c844318a748df7c63
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f5b8623c835b4188d098ab2acf842abef30138e9
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559207"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71800047"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-in-java-on-android-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Android에서 Java로 음성 우선 가상 도우미 만들기
 
-[음성 텍스트 변환](quickstart-java-android.md)에 대한 빠른 시작도 사용할 수 있습니다.
+빠른 시작은 [음성 텍스트 변환](quickstart-java-android.md) 및 [텍스트 음성 변환](quickstart-text-to-speech-java-android.md)에도 사용할 수 있습니다.
 
 이 문서에서는 [Speech SDK](speech-sdk.md)를 사용하여 Android용 Java로 음성 우선 가상 도우미를 빌드합니다. 이 애플리케이션은 이미 작성하고 [Direct Line Speech 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)로 구성한 봇에 연결합니다. 그런 다음, 봇에 음성 요청을 보내고 음성 지원 응답 작업을 제공합니다.
 

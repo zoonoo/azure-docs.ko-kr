@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: e5b8cd01a64274e58927a5647897b1f9d86f7c24
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: f0888b25258f6a7830df1195995159432b19907d
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390863"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802814"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>자습서: C#을 사용하여 기술 자료를 만든 후 질문에 답변하기
 
@@ -41,7 +41,7 @@ ms.locfileid: "70390863"
 ## <a name="prerequisites"></a>필수 조건
 
 * 최신 [**Visual Studio Community Edition**](https://www.visualstudio.com/downloads/)
-* [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키를 검색하려면 대시보드의 **리소스 관리**에서 **키**를 선택합니다. 
+* [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키와 리소스 이름을 검색하려면 QnA Maker에 대한 Azure Portal에서 리소스에 대해 **빠른 시작**을 선택합니다. 
 
 > [!NOTE] 
 > 전체 솔루션 파일은 [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base)에서 사용할 수 있습니다.
@@ -146,13 +146,13 @@ API 호출은 성공적인 게시에 대해 응답 본문에 내용이 없는 20
 다른 응답의 경우 해당 응답은 변경되지 않은 채 반환됩니다.
 
 ## <a name="generating-an-answer"></a>답변 생성
-이 프로그램이 KB에 액세스하여 질문을 전송하고 최적의 답변을 받으려면 KB 세부 정보 API의 _엔드포인트 호스트_와 Endpoints API의 _기본 엔드포인트 키_가 필요합니다. 이러한 메서드는 다음 섹션에 답변 생성 메서드와 함께 제공됩니다. 
+이 프로그램이 KB에 액세스하여 질문을 전송하고 최적의 답변을 받으려면 KB 세부 정보 API의 _리소스 이름_과 Endpoints API의 _기본 엔드포인트 키_가 필요합니다. 이러한 메서드는 다음 섹션에 답변 생성 메서드와 함께 제공됩니다. 
 
 다음 표에서는 데이터를 사용하여 URI를 생성하는 방법을 보여줍니다.
 
 |답변 URI 템플릿 생성|
 |--|
-|https://**HOSTNAME**.azurewebsites.net/qnamaker/knowledgebases/**KBID**/generateAnswer|
+|https://**your-resource-name**.azurewebsites.net/qnamaker/knowledgebases/**KBID**/generateAnswer|
 
 _기본 엔드포인트_는 답변 생성 요청을 인증하는 헤더로 전달됩니다.
 
@@ -169,7 +169,7 @@ _기본 엔드포인트_는 답변 생성 요청을 인증하는 헤더로 전�
 ```
 
 ## <a name="get-kb-details"></a>KB 세부 정보 가져오기
-KB 세부 정보를 가져오려면 다음 메서드를 추가합니다. 이러한 세부 정보에는 KB의 호스트 이름이 포함됩니다. 호스트 이름은 QnA Maker 리소스를 만들 때 입력한 QnA Maker Azure 웹 서비스의 이름입니다. 
+KB 세부 정보를 가져오려면 다음 메서드를 추가합니다. 이러한 세부 정보에는 다음 JSON에서 `hostName`으로 알려진 KB의 리소스 이름이 포함되어 있습니다. 리소스 이름은 QnA Maker 리소스를 만들 때 입력한 QnA Maker 리소스의 이름입니다. 
 
 [!code-csharp[Get KB Details](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=260-273 "Add publish method")]
 

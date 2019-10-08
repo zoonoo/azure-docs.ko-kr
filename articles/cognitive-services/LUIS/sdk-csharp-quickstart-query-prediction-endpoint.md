@@ -8,16 +8,16 @@ ms.service: cognitive-services
 services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: c0b534848232d60929722e2036f69f4b6e670a4a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4d7c02d8cf37f155af1fd9c0d5de7fa8ec948c4b
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563147"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703119"
 ---
-# <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>빠른 시작: C# .NET SDK를 통해 예측 엔드포인트 쿼리
+# <a name="quickstart-query-v2-prediction-endpoint-with-c-net-sdk"></a>빠른 시작: C# .NET SDK를 통해 V2 예측 엔드포인트 쿼리
 
 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)에서 찾은 .NET SDK를 사용하여 LUIS(Language Understanding)에 사용자 발화를 보내고 사용자 의도의 예측을 수신합니다. 
 

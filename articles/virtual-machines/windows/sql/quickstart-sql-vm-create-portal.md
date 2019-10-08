@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3ba804f76f8d443c0b49a9b4e5425333f01f0b9a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bbf127f105f0ef22a23f00541396c2ac66b0e5f9
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102339"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828371"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 SQL Server 2017 Windows 가상 머신 만들기
 
@@ -81,9 +81,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 **SQL Server 설정** 탭에서 다음 옵션을 구성합니다.
 
 1. **보안 및 네트워킹**에서 **SQL 연결**에 _공개(인터넷_)를 선택하고 포트를 `1401`로 변경하여 공개 시나리오에서 잘 알려진 포트 번호를 사용하지 않도록 합니다. 
-1. **SQL 인증** 아래에서 **사용**을 선택합니다. SQL 로그인은 VM에 구성한 동일한 사용자 이름 및 암호로 설정됩니다. **Azure Key Vault 통합** 및 **스토리지 구성**에 기본 설정을 사용합니다.  
+1. **SQL 인증** 아래에서 **사용**을 선택합니다. SQL 로그인은 VM에 구성한 동일한 사용자 이름 및 암호로 설정됩니다. [**Azure Key Vault 통합**](virtual-machines-windows-ps-sql-keyvault.md)에 대한 기본 설정을 사용합니다. **스토리지 구성**은 기본 SQL Server VM 이미지에 사용할 수 없지만 [스토리지 구성](virtual-machines-windows-sql-server-storage-configuration.md#new-vms)에서 다른 이미지에 사용할 수 있는 옵션에 대한 자세한 정보를 찾을 수 있습니다.  
 
    ![SQL 서버 보안 설정](media/quickstart-sql-vm-create-portal/sql-server-settings.png)
+
 
 1. 필요한 경우 다른 설정을 변경한 후 **검토 + 만들기**를 선택합니다. 
 

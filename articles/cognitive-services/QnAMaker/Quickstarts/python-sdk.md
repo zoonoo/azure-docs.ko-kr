@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/21/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 90712012f904f7b098af01433fee4a97ee8f2160
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 81e5ac5e5017330d2c5ea8bf5b269c4ce70b495b
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203766"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802828"
 ---
 # <a name="quickstart-qna-maker-client-library-for-python"></a>빠른 시작: python용 QnA Maker 클라이언트 라이브러리
 
@@ -29,6 +29,8 @@ python용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 �
 
 [참조 설명서](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-knowledge-qnamaker) | [패키지(pypi)](https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/) | [Python 샘플](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py)
 
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
@@ -40,7 +42,7 @@ python용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 �
 
 Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 QnA Maker용 리소스를 만듭니다. 
 
-리소스에서 키를 가져온 후 `QNAMAKER_KEY` 및 `QNAMAKER_HOST`라는 리소스에 대해 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication). Azure Portal에 있는 키와 호스트 값을 사용합니다.
+리소스에서 키를 가져온 후 `QNAMAKER_KEY` 및 `QNAMAKER_HOST`라는 리소스에 대해 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication). Azure Portal에 있는 키와 엔드포인트 값을 사용합니다.
 
 ### <a name="install-the-python-library-for-qna-maker"></a>QnA Maker용 python 라이브러리 설치
 
@@ -82,7 +84,7 @@ pip install azure-cognitiveservices-knowledge-qnamaker
 |환경 변수|python 변수|예|
 |--|--|--|
 |`QNAMAKER_KEY`|`subscription_key`|32자 GUID|
-|`QNAMAKER_HOST`|`host`|`https://westus.api.cognitive.microsoft.com`|
+|`QNAMAKER_HOST`|`host`|`https://your-resource-name.api.cognitive.microsoft.com` - `your-resource-name`을 고유한 리소스 이름으로 변경|
 ||||
 
 [!code-python[Azure resource variables](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=resourcekeys)]

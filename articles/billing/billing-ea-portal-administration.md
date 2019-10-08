@@ -4,16 +4,16 @@ description: 이 문서에서는 관리자가 Azure EA Portal에서 수행하는
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2019
+ms.date: 09/25/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 236a8d6d280e75102df84fec5ab3df51f7ba355b
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 87947fb29d8fa7dd86818caef139e776c04c7650
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105476"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71308097"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA Portal 관리
 
@@ -31,7 +31,7 @@ ms.locfileid: "71105476"
 
 Azure EA 관리자가 부서를 만들면 Azure 엔터프라이즈 관리자는 부서 관리자를 추가하고 각 부서 관리자를 부서에 연결할 수 있습니다. 부서 관리자는 새 계정을 만들 수 있습니다. Azure EA 구독을 만들려면 새 계정이 필요합니다.
 
-부서 추가에 대한 자세한 내용은 Azure EA 부서 만들기를 참조하세요.
+부서 관리자 추가에 대한 자세한 내용은 [Azure EA 부서 관리자 만들기](billing-ea-portal-get-started.md#add-a-department-admin)를 참조하세요.
 
 ## <a name="enterprise-user-roles"></a>엔터프라이즈 사용자 역할
 
@@ -124,14 +124,14 @@ Azure 계정에 대한 자세한 내용은 계정 추가를 참조하세요.
 
 등록 양도를 요청할 때 다음 정보를 입력하세요.
 
-- 원본 등록의 경우 양도할 등록 번호 및 계정
-- 대상 등록의 경우 대상 등록 번호
+- 원본 등록의 경우 이전할 등록 번호 및 계정입니다.
+- 대상 등록의 경우 이전할 등록 번호입니다.
 - 등록 양도 발효 날짜는 대상 등록의 시작 날짜 또는 이후 날짜입니다. 선택한 날짜는 이미 발급된 초과분 청구서의 사용량에 영향을 주지 않습니다.
 
 그 외에도 등록 양도 전에 다음과 같은 사항을 염두에 두어야 합니다.
 
 - 대상 및 원본 등록에는 EA 관리자의 승인이 필요합니다.
-  - 경우에 따라 Microsoft에서 원본 등록 EA 관리자의 추가 승인을 요청할 수 있습니다.
+  - 경우에 따라 Microsoft는 원본 등록 EA 관리자에게 추가 승인을 요청할 수 있습니다.
 - 등록을 양도해도 요구 사항이 충족되지 않는 경우 계정 양도를 고려해 보세요.
 - 지정한 계정만 양도됩니다. 모든 계정을 양도해 달라고 요청할 수 있습니다.
 - 원본 등록의 상태는 활성/확장됨으로 유지됩니다. 등록이 만료될 때까지 계속 사용할 수 있습니다.
@@ -208,7 +208,7 @@ _적용 기간 종료 날짜 임박_ 및 _비활성화 및 프로비전 해제 �
 6. 연락처를 추가하고, 필요한 경우 **추가**를 클릭합니다.
 7. **저장**을 클릭합니다.
 
-![연락처를 추가하는 방법을 보여주는 예제 ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
+![연락처 추가 상자를 보여주는 예제 ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
 
 ## <a name="azure-sponsorship-offer"></a>Azure 스폰서쉽 제안
 Azure 스폰서쉽 제안은 제한적인 후원을 받는 Microsoft Azure 계정입니다. 이 제안은 Microsoft에서 선별한 제한된 고객에게만 이메일 초대를 통해 제공됩니다. Microsoft Azure 스폰서쉽 제안 자격이 되는 고객의 계정 ID로 이메일 초대장이 전송됩니다.

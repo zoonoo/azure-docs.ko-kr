@@ -4,18 +4,18 @@ description: 이 빠른 시작에서는 Azure Database for PostgreSQL - 단일 �
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.custom: mvc, devcenter
+ms.custom: seo-javascript-september2019
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 7e59e9b53143dcbea1c78f4c6131080ec8e9ea2c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 072e2fca4d7d0c90e9e4e66b9ba2b63ef45723db
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966743"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719950"
 ---
-# <a name="azure-database-for-postgresql---single-server-use-nodejs-to-connect-and-query-data"></a>Azure Database for PostgreSQL - 단일 서버: Node.js를 사용하여 데이터 연결 및 쿼리
+# <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>빠른 시작: Node.js를 사용하여 Azure Database for PostgreSQL - 단일 서버의 데이터 연결 및 쿼리
 이 빠른 시작에서는 [Node.js](https://nodejs.org/) 애플리케이션을 사용하여 Azure Database for PostgreSQL에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서의 단계에서는 개발자가 Node.js를 사용하여 개발하는 것에 익숙하고 Azure Database for PostgreSQL 작업에 익숙하지 않다고 가정합니다.
 
 ## <a name="prerequisites"></a>필수 조건

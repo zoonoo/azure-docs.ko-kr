@@ -1,22 +1,22 @@
 ---
-title: Windows Virtual Desktop 미리 보기의 앱 그룹 관리 - Azure
-description: Azure Active Directory에서 Windows Virtual Desktop Preview 테넌트를 설정하는 방법을 설명합니다.
+title: Windows Virtual Desktop에 대한 앱 그룹 관리 - Azure
+description: Azure Active Directory에서 Windows Virtual Desktop 테넌트를 설정하는 방법을 설명합니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 2bec7e490443727fa294e7be9412bb20ae66e691
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: e158c0a6090493bec0169c144f030300de921516
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163248"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679445"
 ---
-# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>자습서: Windows Virtual Desktop Preview의 앱 그룹 관리
+# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop"></a>자습서: Windows Virtual Desktop에 대한 앱 그룹 관리
 
-새 Windows Virtual Desktop Preview 호스트 풀에 대해 생성된 기본 앱 그룹도 전체 데스크톱을 게시합니다. 뿐만 아니라 호스트 풀에 대한 하나 이상의 RemoteApp 애플리케이션 그룹을 만들 수 있습니다. 이 자습서에 따라 RemoteApp 앱 그룹을 만들고 개별 **시작** 메뉴 앱을 게시합니다.
+새 Windows Virtual Desktop 호스트 풀에 대해 생성된 기본 앱 그룹도 전체 데스크톱을 게시합니다. 뿐만 아니라 호스트 풀에 대한 하나 이상의 RemoteApp 애플리케이션 그룹을 만들 수 있습니다. 이 자습서에 따라 RemoteApp 앱 그룹을 만들고 개별 **시작** 메뉴 앱을 게시합니다.
 
 이 자습서에서는 다음 방법을 알아봅니다.
 
