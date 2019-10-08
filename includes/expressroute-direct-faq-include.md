@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: include
-ms.date: 07/09/2019
+ms.date: 10/07/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 43d1942b1413569d77c6c17fee9fff14dc83c924
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 9c53aac47e965a6eba681008d6b6476142190ef8
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68362572"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72023086"
 ---
 ### <a name="what-is-expressroute-direct"></a>ExpressRoute Direct란?
 
@@ -29,19 +29,20 @@ ExpressRoute Direct는 고객에게 전 세계에 전략적으로 분산된 피�
 
 * 암스테르담
 * 암스테르담2
-* Auckland 
+* 오클랜드 
 * 시카코
 * 댈러스
-* Dublin
+* 더블린
 * 홍콩 특별 행정구
 * 런던
+* 런던2
 * Melbourne
 * New York City
 * 퍼스
 * 샌안토니오
 * Seattle
 * 서울
-* 실리콘 밸리
+* 실리콘밸리
 * 싱가포르 2 
 * 시드니
 * 타이베이

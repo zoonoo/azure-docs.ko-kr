@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 05bb8b75fb09f3b8df0a6775874e72bdb04fc65e
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 5e05acf515aacaada96bd6e493c1a2bf24d7c5ab
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937532"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030771"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력 이해
 
@@ -42,13 +42,13 @@ Stream Analytics의 Azure Data Lake Storage 출력은 현재 Azure 중국 21Vian
 | 경로 접두사 패턴 | 지정 된 Data Lake Store 계정 내에서 파일을 작성 하는 데 사용 되는 파일 경로입니다. {Date} 및 {time} 변수의 인스턴스를 하나 이상 지정할 수 있습니다.<br /><ul><li>예제 1: folder1/logs/{date}/{time}</li><li>예제 2: folder1/logs/{date}</li></ul><br />만든 폴더 구조의 타임 스탬프는 현지 시간이 아닌 UTC를 따릅니다.<br /><br />파일 경로 패턴에 후행 슬래시 (/)가 포함 되어 있지 않으면 파일 경로의 마지막 패턴이 파일 이름 접두사로 처리 됩니다. <br /><br />이 경우 새 파일이 만들어집니다.<ul><li>출력 스키마의 변경</li><li>작업의 외부 또는 내부 다시 시작</li></ul> |
 | 날짜 형식 | (선택 사항) 접두사 경로에 날짜 토큰을 사용하는 경우 파일을 구성하는 날짜 형식을 선택할 수 있습니다. 예: YYYY/MM/DD |
 |시간 형식 | (선택 사항) 접두사 경로에 시간 토큰을 사용하는 경우 파일을 구성하는 시간 형식을 지정합니다. 현재 지원되는 유일한 값은 HH입니다. |
-| 이벤트 serialization 형식 | 출력 데이터에 대 한 serialization 형식입니다. JSON, CSV 및 Avro를 지원합니다.|
+| 이벤트 직렬화 형식 | 출력 데이터에 대 한 serialization 형식입니다. JSON, CSV 및 Avro를 지원합니다.|
 | 인코딩 | CSV 또는 JSON 형식을 사용 하는 경우 인코딩을 지정 해야 합니다. 지금은 지원되는 인코딩 형식이 UTF-8뿐입니다.|
 | 구분 기호 | CSV serialization에만 적용 됩니다. Stream Analytics는 CSV 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다.|
 | 형식 | JSON serialization에만 적용 됩니다. **줄 구분** 은 각 JSON 개체를 새 줄로 구분 하 여 출력 형식을 지정 하도록 지정 합니다. **배열은** 출력의 형식을 JSON 개체의 배열로 지정 합니다. 이 배열은 작업이 중지되거나 Stream Analytics가 다음 시간 범위로 이동되었을 때만 닫힙니다. 일반적으로는 출력 파일을 쓰는 동안 특별 한 처리가 필요 하지 않으므로 줄로 구분 된 JSON을 사용 하는 것이 좋습니다.|
 | 인증 모드 | [관리 id](stream-analytics-managed-identities-adls.md) 또는 사용자 토큰을 사용 하 여 Data Lake Storage 계정에 대 한 액세스 권한을 부여할 수 있습니다. 액세스 권한을 부여 하 고 나면 사용자 계정 암호를 변경 하거나이 작업에 대 한 Data Lake Storage 출력을 삭제 하거나 Stream Analytics 작업을 삭제 하 여 액세스를 해지할 수 있습니다. |
 
-## <a name="sql-database"></a>SQL 데이터베이스
+## <a name="sql-database"></a>SQL Database
 
 관계형 데이터베이스에서 호스팅되는 콘텐츠를 사용 하는 응용 프로그램 또는 본질적으로 관계형 인 데이터에 대 한 출력으로 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 를 사용할 수 있습니다. Stream Analytics 작업은 SQL Database의 기존 테이블에 기록 합니다. 테이블 스키마는 작업 출력에서 필드 및 해당 형식과 정확히 일치 해야 합니다. SQL Database 출력 옵션을 통해 [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) 를 출력으로 지정할 수도 있습니다. 쓰기 처리량을 개선 하는 방법에 대 한 자세한 내용은 [Azure SQL Database를 사용 하 여 출력](stream-analytics-sql-output-perf.md) 에 대 한 Stream Analytics 문서를 참조 하세요.
 
@@ -79,12 +79,12 @@ Azure Blob storage는 클라우드에 구조화 되지 않은 대량의 데이�
 | ------------------- | ---------------------------------------------------------------------------------|
 | 출력 별칭        | 쿼리 출력을 이 Blob Storage로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
 | Storage 계정     | 출력을 전송 하는 저장소 계정의 이름입니다.               |
-| 스토리지 계정 키 | 스토리지 계정과 연결된 비밀 키입니다.                              |
-| 스토리지 컨테이너   | Azure Blob service에 저장 된 blob에 대 한 논리적 그룹화입니다. Blob service에 Blob을 업로드하는 경우 해당 Blob에 대한 컨테이너를 지정해야 합니다. |
-| 경로 패턴 | (선택 사항) 지정 된 컨테이너 내에서 blob를 작성 하는 데 사용 되는 파일 경로 패턴입니다. <br /><br /> 경로 패턴에서 하나 이상의 날짜 및 시간 변수 인스턴스를 사용 하 여 blob이 작성 되는 빈도를 지정 하도록 선택할 수 있습니다. <br /> {date}, {time} <br /><br />사용자 지정 Blob 분할을 사용하여 이벤트 데이터에서 파티션 Blob까지 하나의 사용자 지정 {field} 이름을 지정할 수 있습니다. 필드 이름은 영숫자이며 공백, 하이픈 및 밑줄을 포함할 수 있습니다. 사용자 지정 필드에 대한 제한은 다음을 포함합니다. <ul><li>필드 이름은 대/소문자를 구분 하지 않습니다. 예를 들어, 서비스는 열 "ID"와 열 "id"를 구분할 수 없습니다.</li><li>중첩 된 필드는 허용 되지 않습니다. 대신 작업 쿼리에 별칭을 사용 하 여 필드를 "평면화" 합니다.</li><li>식을 필드 이름으로 사용할 수 없습니다.</li></ul> <br />이 기능을 사용하면 경로에 사용자 지정 날짜/시간 형식 지정자 구성을 사용할 수 있습니다. 사용자 지정 날짜 및 시간 형식은 {datetime:\<specifier>} 키워드로 묶어 한 번에 하나씩만 지정해야 합니다. 지정자 >에 \<허용 되는 입력은 yyyy, MM, M, dd, d, HH, H, MM, M, ss 또는 s입니다. {Datetime:\<지정자 >} 키워드는 경로에서 여러 번 사용 하 여 사용자 지정 날짜/시간 구성을 구성할 수 있습니다. <br /><br />예를 들면 다음과 같습니다. <ul><li>예제 1: cluster1/logs/{date}/{time}</li><li>예제 2: cluster1/logs/{date}</li><li>예제 3: cluster1/{client_id}/{date}/{time}</li><li>예제 4: cluster1/{datetime:ss}/{myField} where the query is: SELECT data.myField AS myField FROM 입력</li><li>예제 5: cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br />만든 폴더 구조의 타임 스탬프는 현지 시간이 아닌 UTC를 따릅니다.<br /><br />파일 이름 지정에는 다음 규칙이 사용 됩니다. <br /><br />{경로 접두사 패턴}/schemaHashcode_Guid_Number.extension<br /><br />예제 출력 파일:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br />이 기능에 대 한 자세한 내용은 [Azure Stream Analytics 사용자 지정 blob 출력 분할](stream-analytics-custom-path-patterns-blob-storage-output.md)을 참조 하세요. |
+| Storage 계정 키 | 스토리지 계정과 연결된 비밀 키입니다.                              |
+| 저장소 컨테이너   | Azure Blob service에 저장 된 blob에 대 한 논리적 그룹화입니다. Blob service에 Blob을 업로드하는 경우 해당 Blob에 대한 컨테이너를 지정해야 합니다. |
+| 경로 패턴 | (선택 사항) 지정 된 컨테이너 내에서 blob를 작성 하는 데 사용 되는 파일 경로 패턴입니다. <br /><br /> 경로 패턴에서 하나 이상의 날짜 및 시간 변수 인스턴스를 사용 하 여 blob이 작성 되는 빈도를 지정 하도록 선택할 수 있습니다. <br /> {date}, {time} <br /><br />사용자 지정 Blob 분할을 사용하여 이벤트 데이터에서 파티션 Blob까지 하나의 사용자 지정 {field} 이름을 지정할 수 있습니다. 필드 이름은 영숫자이며 공백, 하이픈 및 밑줄을 포함할 수 있습니다. 사용자 지정 필드에 대한 제한은 다음을 포함합니다. <ul><li>필드 이름은 대/소문자를 구분 하지 않습니다. 예를 들어, 서비스는 열 "ID"와 열 "id"를 구분할 수 없습니다.</li><li>중첩 된 필드는 허용 되지 않습니다. 대신 작업 쿼리에 별칭을 사용 하 여 필드를 "평면화" 합니다.</li><li>식을 필드 이름으로 사용할 수 없습니다.</li></ul> <br />이 기능을 사용하면 경로에 사용자 지정 날짜/시간 형식 지정자 구성을 사용할 수 있습니다. 사용자 지정 날짜 및 시간 형식은 {datetime:\<specifier>} 키워드로 묶어 한 번에 하나씩만 지정해야 합니다. @No__t-0specifier >에 허용 되는 입력은 yyyy, MM, M, dd, d, HH, H, MM, M, ss 또는 s입니다. {Datetime: \<specifier >} 키워드는 경로에서 여러 번 사용 하 여 사용자 지정 날짜/시간 구성을 구성할 수 있습니다. <br /><br />예를 들면 다음과 같습니다. <ul><li>예제 1: cluster1/logs/{date}/{time}</li><li>예제 2: cluster1/logs/{date}</li><li>예제 3: cluster1/{client_id}/{date}/{time}</li><li>예제 4: cluster1/{datetime:ss}/{myField} where the query is: SELECT data.myField AS myField FROM 입력</li><li>예제 5: cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br />만든 폴더 구조의 타임 스탬프는 현지 시간이 아닌 UTC를 따릅니다.<br /><br />파일 이름 지정에는 다음 규칙이 사용 됩니다. <br /><br />{경로 접두사 패턴}/schemaHashcode_Guid_Number.extension<br /><br />예제 출력 파일:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br />이 기능에 대 한 자세한 내용은 [Azure Stream Analytics 사용자 지정 blob 출력 분할](stream-analytics-custom-path-patterns-blob-storage-output.md)을 참조 하세요. |
 | 날짜 형식 | (선택 사항) 접두사 경로에 날짜 토큰을 사용하는 경우 파일을 구성하는 날짜 형식을 선택할 수 있습니다. 예: YYYY/MM/DD |
 | 시간 형식 | (선택 사항) 접두사 경로에 시간 토큰을 사용하는 경우 파일을 구성하는 시간 형식을 지정합니다. 현재 지원되는 유일한 값은 HH입니다. |
-| 이벤트 serialization 형식 | 출력 데이터에 대한 직렬화 형식입니다. JSON, CSV, Avro 및 Parquet가 지원 됩니다. |
+| 이벤트 직렬화 형식 | 출력 데이터에 대한 직렬화 형식입니다. JSON, CSV, Avro 및 Parquet가 지원 됩니다. |
 |최소 행 (Parquet에만 해당)|일괄 처리당 최소 행 수입니다. Parquet의 경우 모든 일괄 처리는 새 파일을 만듭니다. 현재 기본값은 2000 행이 고 허용 되는 최대 값은 1만 행입니다.|
 |최대 시간 (Parquet에만 해당)|일괄 처리당 최대 대기 시간입니다. 이 시간 후에는 최소 행 요구 사항이 충족 되지 않은 경우에도 일괄 처리가 출력에 기록 됩니다. 현재 기본값은 1 분이 고 허용 되는 최대값은 2 시간입니다. Blob 출력에 경로 패턴 빈도가 있는 경우 대기 시간은 파티션 시간 범위 보다 높을 수 없습니다.|
 | 인코딩    | CSV 또는 JSON 형식을 사용 하는 경우 인코딩을 지정 해야 합니다. 지금은 지원되는 인코딩 형식이 UTF-8뿐입니다. |
@@ -116,10 +116,10 @@ Blob 저장소를 출력으로 사용 하는 경우 다음과 같은 경우에 �
 | 이벤트 허브 정책 이름 | 이벤트 허브의 **구성** 탭에서 만들 수 있는 공유 액세스 정책입니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. |
 | 이벤트 허브 정책 키 | 이벤트 허브 네임 스페이스에 대 한 액세스를 인증 하는 데 사용 되는 공유 액세스 키입니다. |
 | 파티션 키 열 | (선택 사항) 이벤트 허브 출력에 대 한 파티션 키를 포함 하는 열입니다. |
-| 이벤트 serialization 형식 | 출력 데이터에 대 한 serialization 형식입니다. JSON, CSV 및 Avro를 지원합니다. |
+| 이벤트 직렬화 형식 | 출력 데이터에 대 한 serialization 형식입니다. JSON, CSV 및 Avro를 지원합니다. |
 | 인코딩 | CSV 및 JSON의 경우 UTF-8이 이번에만 지원되는 인코딩 형식입니다. |
 | 구분 기호 | CSV serialization에만 적용 됩니다. Stream Analytics는 CSV 형식에서 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다. |
-| 형식 | JSON serialization에만 적용 됩니다. **줄 구분** 은 각 JSON 개체를 새 줄로 구분 하 여 출력 형식을 지정 하도록 지정 합니다. **배열은** 출력의 형식을 JSON 개체의 배열로 지정 합니다. 이 배열은 작업이 중지되거나 Stream Analytics가 다음 시간 범위로 이동되었을 때만 닫힙니다. 일반적으로는 출력 파일을 쓰는 동안 특별 한 처리가 필요 하지 않으므로 줄로 구분 된 JSON을 사용 하는 것이 좋습니다. |
+| 형식 | JSON serialization에만 적용 됩니다. **줄 구분** 은 각 JSON 개체를 새 줄로 구분 하 여 출력 형식을 지정 하도록 지정 합니다. **배열은** 출력의 형식을 JSON 개체의 배열로 지정 합니다. 이 배열은 작업이 중지되거나 Stream Analytics가 다음 시간 범위로 이동되었을 때만 닫힙니다. 일반적으로는 출력 파일을 쓰는 동안 특별 한 처리가 필요 하지 않으므로 줄로 구분 된 JSON을 사용 하는 것이 좋습니다. 자세한 내용은 [출력 일괄 처리 크기](#output-batch-size) 섹션을 참조 하세요. |
 | 속성 열 | (선택 사항) 페이로드가 아닌 보내는 메시지의 사용자 속성으로 연결 해야 하는 쉼표로 구분 된 열입니다. 이 기능에 대 한 자세한 내용은 [출력에 대 한 사용자 지정 메타 데이터 속성](#custom-metadata-properties-for-output)섹션에 있습니다. |
 
 ## <a name="power-bi"></a>Power BI
@@ -165,7 +165,7 @@ float | Double
 ### <a name="update-the-schema"></a>스키마 업데이트
 Stream Analytics는 출력의 첫 번째 이벤트 집합을 기반으로 데이터 모델 스키마를 유추합니다. 나중에 필요한 경우 원본 스키마에 맞지 않을 수 있는 들어오는 이벤트를 수용 하도록 데이터 모델 스키마가 업데이트 됩니다.
 
-행에서 동적 스키마 업데이트를 방지 하기 위해 쿼리를사용하지않습니다.`SELECT *` 잠재적 성능 영향 외에도 결과에 소요 되는 시간이 불확실 해질 수 있습니다. Power BI 대시보드에 표시 해야 하는 정확한 필드를 선택 합니다. 또한 데이터 값은 선택한 데이터 형식을 준수해야 합니다.
+@No__t-0 쿼리를 사용 하 여 행 간 동적 스키마 업데이트를 방지 합니다. 잠재적 성능 영향 외에도 결과에 소요 되는 시간이 불확실 해질 수 있습니다. Power BI 대시보드에 표시 해야 하는 정확한 필드를 선택 합니다. 또한 데이터 값은 선택한 데이터 형식을 준수해야 합니다.
 
 
 이전/현재 | Int64 | 문자열 | DateTime | Double
@@ -175,7 +175,7 @@ Double | Double | 문자열 | 문자열 | Double
 문자열 | String | String | String | 문자열 
 DateTime | 문자열 | 문자열 |  DateTime | 문자열
 
-## <a name="table-storage"></a>테이블 스토리지
+## <a name="table-storage"></a>Table Storage
 
 [Azure Table Storage](../storage/common/storage-introduction.md)는 가용성이 높고 확장성이 큰 스토리지를 제공하므로, 애플리케이션이 사용자 요구에 맞게 자동으로 확장할 수 있습니다. 테이블 저장소는 Microsoft의 NoSQL 키/특성 저장소로, 스키마에 대 한 제약 조건이 더 작은 구조화 된 데이터에 사용할 수 있습니다. Azure Table Storage는 지속적이고 효율적인 검색을 위해 데이터를 저장하는 데 사용할 수 있습니다.
 
@@ -185,10 +185,10 @@ DateTime | 문자열 | 문자열 |  DateTime | 문자열
 | --- | --- |
 | 출력 별칭 |쿼리 출력을 이 Table Storage로 보내기 위해 쿼리에서 사용되는 이름입니다. |
 | Storage 계정 |출력을 전송 하는 저장소 계정의 이름입니다. |
-| 스토리지 계정 키 |스토리지 계정과 연결된 선택키입니다. |
+| Storage 계정 키 |스토리지 계정과 연결된 선택키입니다. |
 | 테이블 이름 |테이블의 이름입니다. 테이블이 존재 하지 않는 경우 생성 됩니다. |
 | 파티션 키 |파티션 키를 포함 하는 출력 열의 이름입니다. 파티션 키는 엔터티의 기본 키의 첫 번째 부분을 형성 하는 테이블 내의 파티션에 대 한 고유 식별자입니다. 크기는 최대 1kb 일 수 있는 문자열 값입니다. |
-| 행 키 |행 키를 포함 하는 출력 열의 이름입니다. 행 키는 파티션 내의 엔터티에 대 한 고유 식별자입니다. 엔터티의 기본 키에서 두 번째 부분을 형성합니다. 행 키는 최대 1kb의 크기를 가질 수 있는 문자열 값입니다. |
+| 행 키. |행 키를 포함 하는 출력 열의 이름입니다. 행 키는 파티션 내의 엔터티에 대 한 고유 식별자입니다. 엔터티의 기본 키에서 두 번째 부분을 형성합니다. 행 키는 최대 1kb의 크기를 가질 수 있는 문자열 값입니다. |
 | 일괄 처리 크기 |배치 작업에 대한 레코드 수입니다. 기본값(100)은 대부분의 작업에 충분합니다. 이 설정을 수정 하는 방법에 대 한 자세한 내용은 [Batch 작업 사양 표](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) 를 참조 하세요. |
 
 ## <a name="service-bus-queues"></a>Service Bus 큐
@@ -200,11 +200,11 @@ DateTime | 문자열 | 문자열 |  DateTime | 문자열
 | 속성 이름 | 설명 |
 | --- | --- |
 | 출력 별칭 |쿼리 출력을이 Service Bus 큐로 보내기 위해 쿼리에서 사용 되는 식별 이름입니다. |
-| 서비스 버스 네임스페이스 |메시징 엔터티 집합에 대 한 컨테이너입니다. |
+| Service Bus 네임스페이스 |메시징 엔터티 집합에 대 한 컨테이너입니다. |
 | 큐 이름 |Service Bus 큐의 이름입니다. |
 | 큐 정책 이름 |큐를 만들 때 큐의 **구성** 탭에서 공유 액세스 정책을 만들 수도 있습니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. |
 | 큐 정책 키 |Service Bus 네임스페이스에 대한 액세스를 인증하는 데 사용되는 공유 액세스 키입니다. |
-| 이벤트 serialization 형식 |출력 데이터에 대 한 serialization 형식입니다. JSON, CSV 및 Avro를 지원합니다. |
+| 이벤트 직렬화 형식 |출력 데이터에 대 한 serialization 형식입니다. JSON, CSV 및 Avro를 지원합니다. |
 | 인코딩 |CSV 및 JSON의 경우 UTF-8이 이번에만 지원되는 인코딩 형식입니다. |
 | 구분 기호 |CSV serialization에만 적용 됩니다. Stream Analytics는 CSV 형식에서 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다. |
 | 형식 |JSON 형식에만 적용할 수 있습니다. **줄 구분** 은 각 JSON 개체를 새 줄로 구분 하 여 출력 형식을 지정 하도록 지정 합니다. **배열은** 출력의 형식을 JSON 개체의 배열로 지정 합니다. |
@@ -213,7 +213,7 @@ DateTime | 문자열 | 문자열 |  DateTime | 문자열
 
 파티션 수는 [Service Bus SKU 및 크기에 따라](../service-bus-messaging/service-bus-partitioning.md) 달라집니다. 파티션 키는 각 파티션에 대한 고유 정수 값입니다.
 
-## <a name="service-bus-topics"></a>Service Bus 항목
+## <a name="service-bus-topics"></a>Service Bus 토픽
 Service Bus 큐는 보낸 사람에서 받는 사람으로의 일대일 통신 방법을 제공 합니다. [Service Bus 항목](https://msdn.microsoft.com/library/azure/hh367516.aspx) 에서는 일 대 다 형태의 통신을 제공 합니다.
 
 다음 표에서는 Service Bus 토픽 출력을 만들기 위한 속성 이름 및 해당 설명을 나열 합니다.
@@ -221,11 +221,11 @@ Service Bus 큐는 보낸 사람에서 받는 사람으로의 일대일 통신 �
 | 속성 이름 | 설명 |
 | --- | --- |
 | 출력 별칭 |쿼리 출력을이 Service Bus 토픽으로 보내기 위해 쿼리에서 사용 되는 식별 이름입니다. |
-| 서비스 버스 네임스페이스 |메시징 엔터티 집합에 대 한 컨테이너입니다. 새 이벤트 허브를 만들 때 Service Bus 네임스페이스도 만들었습니다. |
+| Service Bus 네임스페이스 |메시징 엔터티 집합에 대 한 컨테이너입니다. 새 이벤트 허브를 만들 때 Service Bus 네임스페이스도 만들었습니다. |
 | 항목 이름 |토픽은 이벤트 허브 및 큐와 유사한 메시징 엔터티입니다. 장치 및 서비스에서 이벤트 스트림을 수집 하도록 설계 되었습니다. 항목을 만들 때 특정 이름도 지정 됩니다. 구독을 만들지 않으면 토픽으로 전송 된 메시지를 사용할 수 없으므로 토픽 아래에 구독이 하나 이상 있는지 확인 합니다. |
-| 항목 정책 이름 |Service Bus 토픽을 만들 때 항목의 **구성** 탭에서 공유 액세스 정책을 만들 수도 있습니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. |
-| 항목 정책 키 |Service Bus 네임스페이스에 대한 액세스를 인증하는 데 사용되는 공유 액세스 키입니다. |
-| 이벤트 serialization 형식 |출력 데이터에 대 한 serialization 형식입니다. JSON, CSV 및 Avro를 지원합니다. |
+| 토픽 정책 이름 |Service Bus 토픽을 만들 때 항목의 **구성** 탭에서 공유 액세스 정책을 만들 수도 있습니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. |
+| 토픽 정책 키 |Service Bus 네임스페이스에 대한 액세스를 인증하는 데 사용되는 공유 액세스 키입니다. |
+| 이벤트 직렬화 형식 |출력 데이터에 대 한 serialization 형식입니다. JSON, CSV 및 Avro를 지원합니다. |
 | 인코딩 |CSV 또는 JSON 형식을 사용 하는 경우 인코딩을 지정 해야 합니다. 지금은 지원되는 인코딩 형식이 UTF-8뿐입니다. |
 | 구분 기호 |CSV serialization에만 적용 됩니다. Stream Analytics는 CSV 형식에서 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다. |
 | 속성 열 | (선택 사항) 페이로드가 아닌 보내는 메시지의 사용자 속성으로 연결 해야 하는 쉼표로 구분 된 열입니다. 이 기능에 대 한 자세한 내용은 [출력에 대 한 사용자 지정 메타 데이터 속성](#custom-metadata-properties-for-output)섹션에 있습니다. |
@@ -255,7 +255,7 @@ Stream Analytics의 Azure Cosmos DB 출력은 현재 Azure 중국 21Vianet 및 A
 | 컨테이너 이름 | 사용할 컨테이너 이름 Cosmos DB에 존재 해야 합니다. 예:  <br /><ul><li> _MyContainer_: "MyContainer" 라는 컨테이너가 있어야 합니다.</li>|
 | 문서 ID |(선택 사항) 삽입 또는 업데이트 작업의 기반이 되는 기본 키를 지정 하는 데 사용 되는 출력 이벤트의 필드 이름입니다.
 
-## <a name="azure-functions"></a>Azure Functions
+## <a name="azure-functions"></a>Azure 기능
 Azure Functions는 인프라를 명시적으로 프로 비전 하거나 관리 하지 않고도 요청 시 코드를 실행 하는 데 사용할 수 있는 서버를 사용 하지 않는 계산 서비스입니다. 이를 통해 Azure 또는 파트너 서비스에서 발생 하는 이벤트에 의해 트리거되는 코드를 구현할 수 있습니다. 트리거에 응답 하는 이러한 Azure Functions 기능을 사용 하면 Azure Stream Analytics에 대 한 자연 스러운 출력이 됩니다. 이 출력 어댑터를 사용 하 여 Stream Analytics Azure Functions에 연결 하 고 다양 한 이벤트에 대 한 응답으로 스크립트 또는 코드 조각을 실행할 수 있습니다.
 
 Stream Analytics의 Azure Functions 출력은 현재 Azure 중국 21Vianet 및 Azure 독일 (T-sql 국제) 지역에서 사용할 수 없습니다.
@@ -284,11 +284,11 @@ Azure Stream Analytics는 Azure 함수에서 413 ("http 요청 엔터티 너무 
 지원 되는 출력: 
 * Service Bus 큐 
 * Service Bus 항목 
-* Event Hubs 
+* 이벤트 허브 
 
-다음 예제에서는 메타 데이터 `DeviceId` `DeviceStatus` 에 두 필드를 추가 합니다. 
+다음 예제에서는 @no__t 두 필드를 추가 합니다.-0 및 `DeviceStatus`을 메타 데이터에 추가 합니다. 
 * 쿼리: `select *, DeviceId, DeviceStatus from iotHubInput`
-* 출력 구성:`DeviceId,DeviceStatus`
+* 출력 구성: `DeviceId,DeviceStatus`
 
 ![속성 열](./media/stream-analytics-define-outputs/10-stream-analytics-property-columns.png)
 
@@ -298,10 +298,10 @@ Azure Stream Analytics는 Azure 함수에서 413 ("http 요청 엔터티 너무 
 
 ## <a name="system-properties-for-service-bus-queue-and-topic-outputs"></a>Service Bus 큐 및 항목 출력에 대 한 시스템 속성 
 보내는 service bus 큐 또는 토픽 메시지에 쿼리 열을 [시스템 속성](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) 으로 연결할 수 있습니다. 이러한 열은 페이로드로 이동 하지 않습니다. 대신 해당 BrokeredMessage [system 속성이](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) 쿼리 열 값으로 채워집니다.
-이러한 시스템 속성은에서 `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`지원 됩니다.
+이러한 시스템 속성은 `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`입니다.
 이러한 열의 문자열 값은 해당 시스템 속성 값 형식으로 구문 분석 되 고 구문 분석 오류는 데이터 오류로 처리 됩니다.
 이 필드는 JSON 개체 형식으로 제공 됩니다. 이 형식에 대 한 자세한 내용은 다음과 같습니다.
-* 중괄호로 {}묶여 있습니다.
+* 중괄호로 묶은 {}입니다.
 * 키/값 쌍으로 작성 됩니다.
 * 키와 값은 문자열 이어야 합니다.
 * 키는 시스템 속성 이름 이며 값은 쿼리 열 이름입니다.
@@ -311,9 +311,9 @@ Azure Stream Analytics는 Azure 함수에서 413 ("http 요청 엔터티 너무 
 이 속성을 사용 하는 방법을 보여 줍니다.
 
 * 쿼리: `select *, column1, column2 INTO queueOutput FROM iotHubInput`
-* 시스템 속성 열:`{ "MessageId": "column1", "PartitionKey": "column2"}`
+* 시스템 속성 열: `{ "MessageId": "column1", "PartitionKey": "column2"}`
 
-그러면 service bus 큐 메시지의 값이로 `column1`설정 되 고 PartitionKey가의 값 `column2`으로 설정 됩니다. `MessageId`
+그러면 service bus 큐 메시지의 @no__t @no__t 값으로 설정 되 고 PartitionKey가 `column2` 값으로 설정 됩니다.
 
 ## <a name="partitioning"></a>분할
 
@@ -323,16 +323,16 @@ Azure Stream Analytics는 Azure 함수에서 413 ("http 요청 엔터티 너무 
 | --- | --- | --- | --- |
 | Azure Data Lake Store | 예 | 경로 접두사 패턴에 {date} 및 {time} 토큰을 사용 합니다. 날짜 형식 (예: YYYY/MM/DD, DD/MM/YYYY 또는 MM-DD-YYYY)을 선택 합니다. HH는 시간 형식에 사용 됩니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
 | Azure SQL 데이터베이스 | 예, 사용 하도록 설정 해야 합니다. | 쿼리의 PARTITION BY 절을 기반으로 합니다. | 분할 상속 옵션을 사용 하도록 설정 하면는 [완전히 병렬화 쿼리에](stream-analytics-scale-jobs.md)대 한 입력 분할을 따릅니다. Azure SQL Database으로 데이터를 로드할 때 더 나은 쓰기 처리량을 달성 하는 방법에 대 한 자세한 내용은 [Azure SQL Database Azure Stream Analytics 출력](stream-analytics-sql-output-perf.md)을 참조 하세요. |
-| Azure Blob 스토리지 | 예 | 경로 패턴에서 이벤트 필드의 {date} 및 {time} 토큰을 사용 합니다. 날짜 형식 (예: YYYY/MM/DD, DD/MM/YYYY 또는 MM-DD-YYYY)을 선택 합니다. HH는 시간 형식에 사용 됩니다. 단일 사용자 지정 이벤트 특성 {fieldname} 또는 {datetime:\<specifier>}로 Blob 출력을 분할할 수 있습니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
+| Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요. | 예 | 경로 패턴에서 이벤트 필드의 {date} 및 {time} 토큰을 사용 합니다. 날짜 형식 (예: YYYY/MM/DD, DD/MM/YYYY 또는 MM-DD-YYYY)을 선택 합니다. HH는 시간 형식에 사용 됩니다. 단일 사용자 지정 이벤트 특성 {fieldname} 또는 {datetime:\<specifier>}로 Blob 출력을 분할할 수 있습니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
 | Azure Event Hubs | 예 | 예 | 파티션 맞춤에 따라 달라집니다.<br /> 이벤트 허브 출력에 대 한 파티션 키가 업스트림 (이전) 쿼리 단계와 동일 하 게 정렬 된 경우 작성기의 수는 이벤트 허브 출력의 파티션 수와 동일 합니다. 각 작성자는 [EventHubSender 클래스](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) 를 사용 하 여 이벤트를 특정 파티션으로 보냅니다. <br /> 이벤트 허브 출력에 대 한 파티션 키가 업스트림 (이전) 쿼리 단계와 맞지 않는 경우 작성자 수는 이전 단계에서의 파티션 수와 동일 합니다. 각 작성자는 **EventHubClient** 의 [sendbatchasync 클래스](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) 를 사용 하 여 모든 출력 파티션에 이벤트를 보냅니다. |
 | Power BI | 아니요 | 없음 | 이 오류에는 이 작업을 적용할 수 없습니다. |
 | Azure Table Storage | 예 | 모든 출력 열입니다.  | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
 | Azure Service Bus 항목 | 예 | 자동으로 선택됩니다. 파티션 수는 [Service Bus SKU 및 크기](../service-bus-messaging/service-bus-partitioning.md)에 따라 달라집니다. 파티션 키는 각 파티션에 대 한 고유한 정수 값입니다.| 출력 항목의 파티션 수와 동일합니다.  |
 | Azure Service Bus 큐 | 예 | 자동으로 선택됩니다. 파티션 수는 [Service Bus SKU 및 크기](../service-bus-messaging/service-bus-partitioning.md)에 따라 달라집니다. 파티션 키는 각 파티션에 대 한 고유한 정수 값입니다.| 출력 큐의 파티션 수와 동일합니다. |
 | Azure Cosmos DB | 예 | 쿼리의 PARTITION BY 절을 기반으로 합니다. | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
-| Azure Functions | 예 | 쿼리의 PARTITION BY 절을 기반으로 합니다. | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
+| Azure 기능 | 예 | 쿼리의 PARTITION BY 절을 기반으로 합니다. | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
 
-쿼리에서 ( [INTO INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) 절을 사용 하 여 `INTO <partition count>` 출력 기록기의 수를 제어할 수도 있습니다 .이 절은 원하는 작업 토폴로지를 달성 하는 데 도움이 될 수 있습니다. 출력 어댑터가 분할되지 않은 경우 한 입력 파티션에 데이터가 없으면 지연 도착 시간까지 지연될 수 있습니다. 이러한 경우 출력이 단일 기록기에 병합 되어 파이프라인에서 병목 현상이 발생할 수 있습니다. 지연 도착 정책에 대해 자세히 알아보려면 [Azure Stream Analytics 이벤트 순서 고려 사항](stream-analytics-out-of-order-and-late-events.md)을 참조 하세요.
+쿼리에서 `INTO <partition count>` ( [INTO INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) 절을 사용 하 여 출력 기록기의 수를 제어할 수도 있습니다 .이 절은 원하는 작업 토폴로지를 달성 하는 데 도움이 될 수 있습니다. 출력 어댑터가 분할되지 않은 경우 한 입력 파티션에 데이터가 없으면 지연 도착 시간까지 지연될 수 있습니다. 이러한 경우 출력이 단일 기록기에 병합 되어 파이프라인에서 병목 현상이 발생할 수 있습니다. 지연 도착 정책에 대해 자세히 알아보려면 [Azure Stream Analytics 이벤트 순서 고려 사항](stream-analytics-out-of-order-and-late-events.md)을 참조 하세요.
 
 ## <a name="output-batch-size"></a>출력 일괄 처리 크기
 Azure Stream Analytics는 가변 크기 일괄 처리를 사용 하 여 이벤트를 처리 하 고 출력에 씁니다. 일반적으로 Stream Analytics 엔진은 한 번에 하나의 메시지를 작성 하지 않으며 효율성을 위해 일괄 처리를 사용 합니다. 들어오는 이벤트와 나가는 이벤트의 비율이 높으면 Stream Analytics 큰 일괄 처리를 사용 합니다. 송신 속도가 낮은 경우 대기 시간을 낮게 유지하기 위해 더 작은 일괄 처리를 사용합니다.
@@ -343,14 +343,14 @@ Azure Stream Analytics는 가변 크기 일괄 처리를 사용 하 여 이벤�
 | :--- | :--- | :--- |
 | Azure Data Lake Store | [Data Lake Storage 제한](../azure-subscription-service-limits.md#data-lake-store-limits)을 참조 하세요. | 쓰기 작업당 최대 4mb를 사용 합니다. |
 | Azure SQL 데이터베이스 | 최대 일괄 처리 수를 사용 하 여 구성할 수 있습니다. 1만 기본적으로 단일 대량 삽입 당 최대 및 100의 최소 행 수입니다.<br />[AZURE SQL 제한](../sql-database/sql-database-resource-limits.md)을 참조 하세요. |  모든 일괄 처리는 처음에 최대 일괄 처리 수로 대량 삽입 됩니다. 일괄 처리는 SQL에서 재시도 가능한 오류를 기준으로 절반 (최소 일괄 처리 수까지)으로 분할 됩니다. |
-| Azure Blob 스토리지 | [Azure Storage 제한](../azure-subscription-service-limits.md#storage-limits)을 참조 하세요. | 최대 blob 블록 크기는 4mb입니다.<br />최대 blob bock 수는 5만입니다. |
-| Azure Event Hubs  | 메시지 당 256 KB 또는 1mb입니다. <br />[Event Hubs 제한](../event-hubs/event-hubs-quotas.md)을 참조 하세요. |  입력/출력 분할이 정렬 되지 않은 경우 각 이벤트는 개별적 `EventData` 으로 압축 되 고 최대 메시지 크기까지 일괄 처리로 전송 됩니다. 이는 [사용자 지정 메타 데이터 속성이](#custom-metadata-properties-for-output) 사용 되는 경우에도 마찬가지입니다. <br /><br />  입력/출력 분할이 정렬 되 면 여러 이벤트가 단일 `EventData` 인스턴스로 압축 되어 최대 메시지 크기까지 전송 되며 전송 됩니다. |
+| Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요. | [Azure Storage 제한](../azure-subscription-service-limits.md#storage-limits)을 참조 하세요. | 최대 blob 블록 크기는 4mb입니다.<br />최대 blob bock 수는 5만입니다. |
+| Azure Event Hubs  | 메시지 당 256 KB 또는 1mb입니다. <br />[Event Hubs 제한](../event-hubs/event-hubs-quotas.md)을 참조 하세요. |  입력/출력 분할이 정렬 되지 않은 경우 각 이벤트는 `EventData`에 개별적으로 압축 되 고 최대 메시지 크기까지 일괄 처리로 전송 됩니다. 이는 [사용자 지정 메타 데이터 속성이](#custom-metadata-properties-for-output) 사용 되는 경우에도 마찬가지입니다. <br /><br />  입력/출력 분할이 정렬 된 경우 여러 이벤트는 최대 메시지 크기까지 단일 `EventData` 인스턴스로 압축 되 고 전송 됩니다. |
 | Power BI | [Power BI REST API 제한](https://msdn.microsoft.com/library/dn950053.aspx)을 참조 하세요. |
 | Azure Table Storage | [Azure Storage 제한](../azure-subscription-service-limits.md#storage-limits)을 참조 하세요. | 기본값은 단일 트랜잭션 당 100 엔터티입니다. 필요에 따라 더 작은 값으로 구성할 수 있습니다. |
 | Azure Service Bus 큐   | 표준 계층의 경우 메시지당 256, 프리미엄 계층의 경우 1MB입니다.<br /> [Service Bus 제한](../service-bus-messaging/service-bus-quotas.md)을 참조 하세요. | 메시지당 단일 이벤트를 사용 합니다. |
 | Azure Service Bus 항목 | 표준 계층의 경우 메시지당 256, 프리미엄 계층의 경우 1MB입니다.<br /> [Service Bus 제한](../service-bus-messaging/service-bus-quotas.md)을 참조 하세요. | 메시지당 단일 이벤트를 사용 합니다. |
 | Azure Cosmos DB   | [Azure Cosmos DB 제한](../azure-subscription-service-limits.md#azure-cosmos-db-limits)을 참조 하세요. | 일괄 처리 크기와 쓰기 빈도는 Azure Cosmos DB 응답에 따라 동적으로 조정 됩니다. <br /> Stream Analytics에서 결정 한 제한 사항은 없습니다. |
-| Azure Functions   | | 기본 일괄 처리 크기는 262144 바이트 (256 KB)입니다. <br /> 일괄 처리당 기본 이벤트 수는 100입니다. <br /> 일괄 처리 크기는 구성 가능하며 Stream Analytics [출력 옵션](#azure-functions)에서 증가 또는 감소될 수 있습니다.
+| Azure 기능   | | 기본 일괄 처리 크기는 262144 바이트 (256 KB)입니다. <br /> 일괄 처리당 기본 이벤트 수는 100입니다. <br /> 일괄 처리 크기는 구성 가능하며 Stream Analytics [출력 옵션](#azure-functions)에서 증가 또는 감소될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

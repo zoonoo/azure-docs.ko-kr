@@ -7,16 +7,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 6f3f06ff54fc76416ba63f4f09835897d546f8dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf58db14398026da62ed13c66be815be8fe166a2
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61349969"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029896"
 ---
 # <a name="azure-data-factory-window-transformation"></a>Azure Data Factory 창 변환
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 창 변환에서는 데이터 스트림에서 열의 창 기반 집계를 정의합니다. 식 작성기에서는 LEAD, LAG, NTILE, CUMEDIST, RANK 등과 같은 데이터 또는 기간(SQL OVER 절)을 기반으로 하는 다른 유형의 집계를 정의할 수 있습니다. 이러한 집계를 포함하는 출력에 새 필드가 생성됩니다. 또한 필드별 선택적 그룹화를 포함할 수 있습니다.
 
@@ -48,4 +48,4 @@ Over 절의 다른 부분은 ```Order By```를 설정하는 것입니다. 이렇
 
 ## <a name="next-steps"></a>다음 단계
 
-단순 group by 집계를 찾으려는 경우 사용 된 [집계 변환](data-flow-aggregate.md)
+간단한 그룹별 집계를 찾고 있는 경우 [집계 변환을](data-flow-aggregate.md) 사용 합니다.

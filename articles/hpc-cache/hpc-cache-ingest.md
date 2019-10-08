@@ -4,14 +4,14 @@ description: Azure HPC 캐시에서 사용할 Azure Blob 저장소를 채우는 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: c18e1c9afab211a8ac076307eefc9074ae7c99d6
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 10/07/2019
+ms.author: rohogue
+ms.openlocfilehash: 6c505e6918071b61a4152b0b421ed7cee3282206
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300004"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024479"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Azure Blob storage로 데이터 이동
 
@@ -27,7 +27,7 @@ ms.locfileid: "71300004"
 
 Python 기반 유틸리티는 Blob 저장소 컨테이너에 콘텐츠를 로드 하는 데 사용할 수 있습니다. 자세한 내용은 [Blob 저장소에서 데이터 미리 로드](#pre-load-data-in-blob-storage-with-clfsload) 를 참조 하세요.
 
-로드 유틸리티를 사용 하지 않으려는 경우 또는 기존 저장소 대상에 콘텐츠를 추가 하려는 경우 [AZURE HPC 캐시를 통해 데이터 복사](#copy-data-through-the-azure-hpc-cache)의 병렬 데이터 수집 팁을 따르세요. 
+로드 유틸리티를 사용 하지 않으려는 경우 또는 기존 저장소 대상에 콘텐츠를 추가 하려는 경우 [AZURE HPC 캐시를 통해 데이터 복사](#copy-data-through-the-azure-hpc-cache)의 병렬 데이터 수집 팁을 따르세요.
 
 ## <a name="pre-load-data-in-blob-storage-with-clfsload"></a>CLFSLoad를 사용 하 여 Blob storage에 데이터 미리 로드
 
@@ -58,9 +58,9 @@ Avere CLFSLoad 유틸리티에는 다음 정보가 필요 합니다.
 
 Avere CLFSLoad 유틸리티를 사용 하지 않으려는 경우 또는 기존 Blob 저장소 대상에 많은 양의 데이터를 추가 하려는 경우 캐시를 통해 복사할 수 있습니다. Azure HPC 캐시는 여러 클라이언트를 동시에 제공 하도록 설계 되었으므로 캐시를 통해 데이터를 복사 하려면 여러 클라이언트에서 병렬 쓰기를 사용 해야 합니다.
 
-![다중 클라이언트, 다중 스레드 데이터 이동을 보여주는 다이어그램: 왼쪽 위의 온-프레미스 하드웨어 스토리지 아이콘에 여러 개의 화살표가 있습니다. 화살표는 네 개의 클라이언트 머신을 가리킵니다. 각 클라이언트 컴퓨터에서 세 개의 화살표가 Azure HPC 캐시를 가리킵니다. Azure HPC 캐시에서 여러 화살표가 Blob storage를 가리킵니다.](media/hpc-cache-parallel-ingest.png) 
+![다중 클라이언트, 다중 스레드 데이터 이동을 보여주는 다이어그램: 왼쪽 위의 온-프레미스 하드웨어 스토리지 아이콘에 여러 개의 화살표가 있습니다. 화살표는 네 개의 클라이언트 머신을 가리킵니다. 각 클라이언트 컴퓨터에서 세 개의 화살표가 Azure HPC 캐시를 가리킵니다. Azure HPC 캐시에서 여러 화살표가 Blob storage를 가리킵니다.](media/hpc-cache-parallel-ingest.png)
 
-일반적으로 ``copy`` 한 저장소 시스템에서 다른 저장소 시스템으로 데이터를 전송 하는 데 사용 하는 또는명령은한번에하나의파일만복사하는단일스레드프로세스입니다.``cp`` 즉, 파일 서버는 한 번에 하나의 파일만 수집 캐시의 리소스가 낭비 됩니다.
+일반적으로 한 저장소 시스템에서 다른 저장소 시스템으로 데이터를 전송 하는 데 사용 하는 @no__t 0 또는 @no__t 명령은 한 번에 하나의 파일만 복사 하는 단일 스레드 프로세스입니다. 즉, 파일 서버는 한 번에 하나의 파일만 수집 캐시의 리소스가 낭비 됩니다.
 
 이 섹션에서는 Azure HPC 캐시를 사용 하 여 Blob 저장소로 데이터를 이동 하는 다중 클라이언트 다중 스레드 파일 복사 시스템을 만들기 위한 전략을 설명 합니다. 여러 클라이언트와 단순 복사 명령을 사용하여 효율적인 데이터 복사에 사용할 수 있는 파일 전송 개념 및 결정 사항에 대해 설명합니다.
 
@@ -77,11 +77,11 @@ Avere CLFSLoad 유틸리티를 사용 하지 않으려는 경우 또는 기존 B
 
 Azure HPC 캐시로 병렬 데이터 수집에 대 한 전략은 다음과 같습니다.
 
-* 수동 복사-미리 정의 된 파일 또는 경로 집합에 대해 백그라운드에서 한 번에 둘 이상의 복사 명령을 실행 하 여 클라이언트에서 다중 스레드 복사를 수동으로 만들 수 있습니다. 자세한 내용은 [AZURE HPC 클라우드 데이터 수집-수동 복사 방법](hpc-cache-ingest-manual.md) 을 참조 하세요.
+* 수동 복사-미리 정의 된 파일 또는 경로 집합에 대해 백그라운드에서 한 번에 둘 이상의 복사 명령을 실행 하 여 클라이언트에서 다중 스레드 복사를 수동으로 만들 수 있습니다. 자세한 내용은 [AZURE HPC 캐시 데이터 수집-수동 복사 방법](hpc-cache-ingest-manual.md) 을 참조 하세요.
 
-* 에서 ``msrsync`` 부분적으로  -  ``rsync`` 자동화 된 복사는 여러 병렬 프로세스를 실행 하는 래퍼 유틸리티입니다. ``msrsync`` 자세한 내용은 [AZURE HPC 캐시 데이터 수집-msrsync 메서드](hpc-cache-ingest-msrsync.md)를 참조 하세요.
+* @No__t를 사용 하 여 부분적으로 자동화 된 복사-0 @ no__t-1 @ no__t-2는 여러 병렬 ``rsync`` 프로세스를 실행 하는 래퍼 유틸리티입니다. 자세한 내용은 [AZURE HPC 캐시 데이터 수집-msrsync 메서드](hpc-cache-ingest-msrsync.md)를 참조 하세요.
 
-* 스크립팅된 복사 ``parallelcp`` - [Azure HPC 캐시 데이터 수집-병렬 복사 스크립트 메서드에서](hpc-cache-ingest-parallelcp.md)병렬 복사 스크립트를 만들고 실행 하는 방법을 알아봅니다.
+* @No__t를 사용 하 여 스크립팅된 복사-0- [AZURE HPC 캐시 데이터 수집-병렬 복사 스크립트 메서드에서](hpc-cache-ingest-parallelcp.md)병렬 복사 스크립트를 만들고 실행 하는 방법을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

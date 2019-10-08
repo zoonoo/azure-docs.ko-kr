@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/02/2019
-ms.openlocfilehash: df9e6e3a9116b9a4490d8847e9a9d3e9e112f4f7
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.date: 10/03/2019
+ms.openlocfilehash: 16b0fdcbae51b30e14fbf7ea4d98699dfaf19804
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098785"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035745"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>스크립트 작업을 사용 하 여 Azure HDInsight 클러스터 사용자 지정
 
@@ -157,13 +157,9 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>클러스터를 만드는 동안 Azure Portal에서 스크립트 동작 사용
 
-1. [Apache Hadoop, Apache Spark, Apache Kafka 등을 사용하여 HDInsight에서 클러스터 설정](hdinsight-hadoop-provision-linux-clusters.md)에서 설명한 대로 클러스터를 만들기 시작합니다. 클러스터를 만드는 동안 __클러스터 요약__ 페이지가 표시됩니다. __클러스터 요약__ 페이지에서 __고급 설정__에 대한 __편집__ 링크를 선택합니다.
+1. [Azure Portal를 사용 하 여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)에서 설명한 대로 클러스터 만들기를 시작 합니다. 클러스터를 만드는 동안 6 단계, **스크립트 동작**에 도착 합니다. **선택적** >  **+ 새 항목 전송**으로 이동 합니다.
 
-    ![Azure Portal 클러스터 고급 설정](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
-
-1. __고급 설정__ 섹션에서 __스크립트 작업__을 선택합니다. __스크립트 동작__ 섹션에서 __+ 새로운 항목 제출__을 선택합니다.
-
-    ![포털 스크립트 작업 새 제출](./media/hdinsight-hadoop-customize-cluster-linux/add-new-script-action.png)
+    ![Azure Portal 클러스터 스크립트 동작](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-classic-script-action.png)
 
 1. __스크립트 선택__ 항목을 사용하여 미리 만들어져 있는 스크립트를 선택합니다. 사용자 지정 스크립트를 사용하려면 __사용자 지정__을 선택합니다. 그런 다음, 스크립트에 대한 __이름__ 및 __Bash 스크립트 URI__를 제공합니다.
 
@@ -185,7 +181,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
     ![HDInsight 다중 스크립트 작업](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
-    스크립트 추가가 완료되면 __선택__, __다음__ 단추를 차례로 선택하여 __클러스터 요약__ 섹션으로 돌아갑니다.
+    스크립트 추가가 완료 되 면 __선택__ 단추를 선택 하 고 __다음__ 단추를 선택 하 여 __클러스터 요약__ 섹션으로 이동 합니다.
 
 1. 클러스터를 만들려면 __클러스터 요약__ 선택 영역에서 __만들기__를 선택합니다.
 
@@ -235,9 +231,7 @@ HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사�
 
 [Azure Portal](https://portal.azure.com)로 이동합니다.
 
-1. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.
-
-1. **ANALYTICS** 아래에서 **HDInsight 클러스터**를 선택합니다.
+1. 왼쪽 메뉴에서 **모든 서비스** >  **Analytics** > **HDInsight 클러스터**로 이동 합니다.
 
 1. 목록에서 클러스터를 선택합니다. 그러면 기본 보기가 열립니다.
 
@@ -336,9 +330,7 @@ HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.
-
-1. **ANALYTICS** 아래에서 **HDInsight 클러스터**를 선택합니다.
+1. 왼쪽 메뉴에서 **모든 서비스** > **Analytics** > **HDInsight 클러스터**로 이동 합니다.
 
 1. 목록에서 클러스터를 선택합니다. 그러면 기본 보기가 열립니다.
 
@@ -403,8 +395,8 @@ HDInsight 서비스에서는 두 가지 유형의 오픈 소스 구성 요소를
 
   * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager
   * [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) Hive 쿼리 언어
-  * [Apache Mahout](https://mahout.apache.org/) 
-    
+  * [Apache Mahout](https://mahout.apache.org/)
+
     클러스터 구성 요소의 전체 목록은 [HDInsight에서 사용할 수 있는 Apache Hadoop 구성 요소 및 버전은?](hdinsight-component-versioning.md)에서 사용할 수 있습니다.
 
 * **사용자 지정 구성 요소**. 클러스터 사용자는 커뮤니티에서 사용할 수 있거나 직접 만든 구성 요소를 워크로드에 설치하거나 사용할 수 있습니다.

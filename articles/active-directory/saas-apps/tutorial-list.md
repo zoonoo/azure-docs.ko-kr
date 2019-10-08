@@ -17,12 +17,12 @@ ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49a87346d76bbf1502a073f4bcb4d11eb659929d
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 4594d54f245c8fb96e62d7f193816e1031138ec0
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67358146"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026141"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>SaaS 애플리케이션과 Azure Active Directory를 통합하는 방법에 대한 자습서
 
@@ -34,7 +34,7 @@ Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketp
 
 | 로고 | Single Sign-On에 대한 애플리케이션 자습서 | 사용자 프로비전에 대한 애플리케이션 자습서 |
 | :--- | :--- | :--- |
-| ![로고](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Atlassian Cloud-사용자 프로 비전](atlassian-cloud-provisioning-tutorial.md)|
+| ![로고](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Atlassian 클라우드-사용자 프로 비전](atlassian-cloud-provisioning-tutorial.md)|
 | ![로고](./media/tutorial-list/active-directory-saas-servicenow-tutorial.png)| [ServiceNow](servicenow-tutorial.md)|[ServiceNow - 사용자 프로비전](servicenow-provisioning-tutorial.md)|
 | ![로고](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Slack - 사용자 프로비전](slack-provisioning-tutorial.md)|
 | ![로고](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| |
@@ -50,7 +50,7 @@ Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketp
 | ![로고](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba 클라우드 서비스 (역할 기반 SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
 | ![로고](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Cloud Platform](google-apps-tutorial.md)| [Google Cloud Platform-사용자 프로 비전](google-apps-provisioning-tutorial.md) |
 | ![로고](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce - 사용자 프로비전](salesforce-provisioning-tutorial.md) |
-| ![로고](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [SAP 클라우드 Id 플랫폼인](saphana-tutorial.md)| |
+| ![로고](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [SAP 클라우드 Id 플랫폼](saphana-tutorial.md)|[SAP 클라우드 Id 플랫폼-프로 비전](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) |
 
 ## <a name="oneclick-sso"></a>OneClick SSO
 
@@ -64,7 +64,7 @@ Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketp
 | ![로고](./media/tutorial-list/active-directory-saas-freedcamp-tutorial.png)| [Freedcamp](freedcamp-tutorial.md)|     |
 | ![로고](./media/tutorial-list/active-directory-saas-freshservice-tutorial.png)| [Freshservice](freshservice-tutorial.md)|     |
 | ![로고](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](jamfprosamlconnector-tutorial.md)|     |
-| ![로고](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [기술 원격 LMS](knowledge-anywhere-lms-tutorial.md)|     |
+| ![로고](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [지식 있는 모든 LMS](knowledge-anywhere-lms-tutorial.md)|     |
 | ![로고](./media/tutorial-list/active-directory-saas-soloinsight-cloudgate-sso-tutorial.png)| [Soloinsight-CloudGate SSO](soloinsight-cloudgate-sso-tutorial.md)|       |
 | ![로고](./media/tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](xaitporter-tutorial.md)|       |
 | ![로고](./media/tutorial-list/active-directory-saas-yodeck-tutorial.png)| [Yodeck](yodeck-tutorial.md)|        |

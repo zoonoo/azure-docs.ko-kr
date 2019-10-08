@@ -10,40 +10,37 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/20/2019
+ms.date: 10/7/2019
 ms.author: raiye
-ms.openlocfilehash: 6168e877022eccd9cbe818c20e81266cc3ea1f69
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 736cb30942646788ee6f365f67244d27f1aa0316
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169357"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035186"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 업데이트는 항상 도입 된 특정 [제품군][family-explain] 에 대해 항상 전달 됩니다.
 
 ## <a name="september-2019-guest-os"></a>2019 년 9 월 게스트 OS
 
->[!NOTE]
->9 월 게스트 OS는 현재 자동 업데이트를 위해 구성 된 클라우드 서비스 Vm에 출시 됩니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 9 월 게스트 OS에는 다음 패치가 포함 되어 있습니다. 이 목록은 변경될 수 있습니다.
-
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
-|  Rel 19-09   |  [4516046]  |  Internet Explorer   |  2.90, 3.77, 4.70  |  2019 년 9 월 10 일  |
-|  Rel 19-09   |  [4516115]  |  깜박임   |  2.90, 3.77, 4.70, 5.35, 6.11  |  2019 년 9 월 10 일  |
-|  Rel 19-09   |  [4512578]  |  최신 누적 업데이트   |  6.11  |  2019 년 9 월 10 일  |
-|  Rel 19-09   |  [4514366]  |  .NET Framework 3.5 및 4.7.2   |  6.11  |  2019 년 9 월 10 일  |
-|  Rel 19-09   |  [4516044]  |  최신 누적 업데이트   |  5.35  |  2019 년 9 월 10 일  |
-|  Rel 19-09   |  [4516064]  |  Windows 보안   |  4.7  |  2019 년 9 월 10 일  |
-|  Rel 19-09   |  [4514350]  |  .NET Framework 3.5   |  4.7  |  2019 년 9 월 10 일  |
-|  Rel 19-09   |  [4514341]  |  .NET Framework 4.5.2   |  4.7  |  2019 년 9 월 10 일  |
-|  Rel 19-09   |  [4516062]  |  Windows 보안   |  3.77  |  2019 년 9 월 10 일  |
-|  Rel 19-09   |  [4514349]  |  .NET Framework 3.5   |  3.77  |  2019 년 9 월 10 일  |
-|  Rel 19-09   |  [4514342]  |  .NET Framework 4.5.2   |  3.77  |  2019 년 9 월 10 일  |
-|  Rel 19-09   |  [4516033]  |  Windows 보안   |  2.9  |  2019 년 9 월 12 일  |
-|  Rel 19-09   |  [4512488]  |  비보안   |  4.7  |  8 월 13 일, 2019  |
-|  Rel 19-09   |  [4512518]  |  비보안   |  3.77  |  8 월 13 일, 2019  |
-|  Rel 19-09   |  [4512506]  |  비보안   |  2.9  |  8 월 13 일, 2019  |
+|  Rel 19-09   |  [4516046]  |  Internet Explorer   |  [2.90], [3.77], [4.70]  |  2019 년 9 월 10 일  |
+|  Rel 19-09   |  [4516115]  |  깜박임   |  [2.90], [3.77], [4.70], [5.35], [6.11]  |  2019 년 9 월 10 일  |
+|  Rel 19-09   |  [4512578]  |  최신 누적 업데이트   |  [6.11]  |  2019 년 9 월 10 일  |
+|  Rel 19-09   |  [4514366]  |  .NET Framework 3.5 및 4.7.2   |  [6.11]  |  2019 년 9 월 10 일  |
+|  Rel 19-09   |  [4516044]  |  최신 누적 업데이트   |  [5.35]  |  2019 년 9 월 10 일  |
+|  Rel 19-09   |  [4516064]  |  Windows 보안   |  [4.70]  |  2019 년 9 월 10 일  |
+|  Rel 19-09   |  [4514350]  |  .NET Framework 3.5   |  [4.70]  |  2019 년 9 월 10 일  |
+|  Rel 19-09   |  [4514341]  |  .NET Framework 4.5.2   |  [4.70]  |  2019 년 9 월 10 일  |
+|  Rel 19-09   |  [4516062]  |  Windows 보안   |  [3.77]  |  2019 년 9 월 10 일  |
+|  Rel 19-09   |  [4514349]  |  .NET Framework 3.5   |  [3.77]  |  2019 년 9 월 10 일  |
+|  Rel 19-09   |  [4514342]  |  .NET Framework 4.5.2   |  [3.77]  |  2019 년 9 월 10 일  |
+|  Rel 19-09   |  [4516033]  |  Windows 보안   |  [2.90]  |  2019 년 9 월 12 일  |
+|  Rel 19-09   |  [4512488]  |  비보안   |  [4.70]  |  8 월 13 일, 2019  |
+|  Rel 19-09   |  [4512518]  |  비보안   |  [3.77]  |  8 월 13 일, 2019  |
+|  Rel 19-09   |  [4512506]  |  비보안   |  [2.90]  |  8 월 13 일, 2019  |
 
 [4516046]: https://support.microsoft.com/kb/4516046
 [4516115]: https://support.microsoft.com/kb/4516115
@@ -60,6 +57,11 @@ ms.locfileid: "71169357"
 [4512488]: https://support.microsoft.com/kb/4512488
 [4512518]: https://support.microsoft.com/kb/4512518
 [4512506]: https://support.microsoft.com/kb/4512506
+[6.11]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.35]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.70]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.77]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.90]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="august-2019-guest-os"></a>2019 년 8 월 게스트 OS

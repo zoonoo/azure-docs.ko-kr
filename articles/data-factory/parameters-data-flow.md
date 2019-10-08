@@ -6,16 +6,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 998f8080509e7ba18ea1a759dff2ed8b8742c910
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 733d3f9c4079193107f22178bdbde3a3ecf0e7ca
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253095"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028218"
 ---
 # <a name="mapping-data-flow-parameters"></a>데이터 흐름 매개 변수 매핑
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Azure Data Factory의 데이터 흐름 매핑은 매개 변수 사용을 지원 합니다. 데이터 흐름 정의 내에서 매개 변수를 정의할 수 있습니다. 그러면 식 전체에서 사용할 수 있습니다. 매개 변수 값은 데이터 흐름 실행 작업을 통해 호출 파이프라인에서 설정할 수 있습니다. 데이터 흐름 활동 식의 값을 설정 하는 세 가지 옵션이 있습니다.
 
@@ -40,7 +40,7 @@ Azure Data Factory의 데이터 흐름 매핑은 매개 변수 사용을 지원 
 
 ## <a name="use-parameters-in-your-data-flow"></a>데이터 흐름에서 매개 변수 사용
 
-* 변환 식 내에서 매개 변수 값을 사용할 수 있습니다. 식 작성기의 매개 변수 탭에서 매개 변수 목록을 찾을 수 있습니다. ![데이터 흐름 매개 변수 사용](media/data-flow/params9.png "데이터 흐름 매개 변수 사용")
+* 변환 식 내에서 매개 변수 값을 사용할 수 있습니다. 식 작성기의 매개 변수 탭에서 매개 변수 목록을 찾을 수 있습니다. 데이터 ![흐름 매개 변수]사용(media/data-flow/params9.png "데이터 흐름 매개 변수 사용")
 
 * 매개 변수는 원본 및 싱크 변환 설정에 대 한 동적 값을 구성 하는 데도 사용 됩니다. 구성 가능한 필드 내부를 클릭 하면 "동적 항목 추가" 링크가 표시 됩니다. 이 단추를 클릭 하면 매개 변수를 사용 하 여 동적 값을 사용할 수 있는 식 작성기로 이동 합니다. ![데이터 흐름 동적 콘텐츠](media/data-flow/params6.png "데이터 흐름 동적 콘텐츠")
 
@@ -48,9 +48,9 @@ Azure Data Factory의 데이터 흐름 매핑은 매개 변수 사용을 지원 
 
 매개 변수를 사용 하 여 데이터 흐름을 만들었으면 데이터 흐름 실행 작업을 사용 하 여 파이프라인에서 실행할 수 있습니다. 파이프라인 캔버스에 활동을 추가 하면 활동의 ' 매개 변수 ' 탭에서 사용 가능한 데이터 흐름 매개 변수가 표시 됩니다.
 
-![데이터 흐름 매개 변수 설정](media/data-flow/parameter-assign.png "데이터 흐름 매개 변수 설정")
+데이터 흐름 ![매개 변수]설정(media/data-flow/parameter-assign.png "데이터 흐름 매개 변수 설정")
 
-매개 변수 데이터 형식이 문자열인 경우 입력란을 클릭 하 여 매개 변수 값을 설정 하면 파이프라인 또는 데이터 흐름 식을 입력 하도록 선택할 수 있습니다. 파이프라인 식을 선택 하는 경우 파이프라인 식 패널이 표시 됩니다. 을 사용 하 여 `'@{<expression>}'`문자열 보간 구문 내에 파이프라인 함수를 포함 해야 합니다. 예를 들면 다음과 같습니다.
+매개 변수 데이터 형식이 문자열인 경우 입력란을 클릭 하 여 매개 변수 값을 설정 하면 파이프라인 또는 데이터 흐름 식을 입력 하도록 선택할 수 있습니다. 파이프라인 식을 선택 하는 경우 파이프라인 식 패널이 표시 됩니다. @No__t-0을 사용 하 여 문자열 보간 구문 내에 파이프라인 함수를 포함 해야 합니다. 예를 들면 다음과 같습니다.
 
 ```'@{pipeline().RunId}'```
 

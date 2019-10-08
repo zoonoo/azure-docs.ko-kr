@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: 45200e7620326dedcee92c579843e61bb07ff68e
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: b232df010190a95d12d5a57f076a4c1bf336cea4
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610259"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026588"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -90,7 +90,7 @@ ms.locfileid: "68610259"
 - 인도 남부
 - 일본 동부
 - 일본 서부
-- US Gov 버지니아
+- 미국 정부 버지니아
 
 Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 - 캐나다 중부
@@ -112,7 +112,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 - 한국 중부
 - 인도 중부
 - 일본 동부
-- US Gov 버지니아
+- 미국 정부 버지니아
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>흐름 로그를 설정하려는 NSG가 작업 영역과 다른 지역에 있어도 되나요?
 
@@ -143,8 +143,8 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 흐름 로깅이 제대로 작동하려면 Microsoft.Insights 공급자를 등록해야 합니다. Microsoft.Insights 공급자가 구독에 등록되어 있는지 확실하지 않은 경우, 다음 명령에서 *xxxxx-xxxxx-xxxxxx-xxxx*를 바꾼 후 PowerShell에서 다음 명령을 실행합니다.
 
 ```powershell-interactive
-**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>솔루션을 구성했습니다. 그런데 왜 대시보드에 아무 것도 표시되지 않나요?

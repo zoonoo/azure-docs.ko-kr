@@ -1,19 +1,19 @@
 ---
 title: HDInsight에서 Azure Active Directory으로 Enterprise Security Package
 description: Azure Active Directory Domain Services를 사용하여 HDInsight Enterprise Security Package 클러스터를 설정 및 구성하는 방법을 알아봅니다.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18
-ms.date: 04/23/2019
-ms.openlocfilehash: aa18c4a078edf579e8d9c4c09df99100dfcea148
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.date: 10/02/2019
+ms.openlocfilehash: 5989aca2b577621c31fe486877ea006cb25d47b5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918322"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030366"
 ---
 # <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>HDInsight에서 Azure Active Directory Domain Services를 사용 하 여 Enterprise Security Package 구성
 
@@ -82,27 +82,27 @@ Azure AD-DS를 사용하도록 설정하면 로컬 DNS(도메인 이름 서비�
 
 Azure AD-DS 인스턴스와 HDInsight 클러스터를 동일한 Azure Virtual Network에 배치하는 것이 더 쉽습니다. 다른 VNET을 사용할 계획인 경우 HDI VM이 도메인 컨트롤러를 인식할 수 있도록 해당 가상 네트워크를 피어링해야 합니다. 자세한 내용은 [가상 네트워크 피어링](../../virtual-network/virtual-network-peering-overview.md)을 참조하세요. 
 
-VNET이 피어링된 후에는 사용자 지정 DNS 서버를 사용하도록 HDInsight VNET을 구성하고 Azure AD-DS 프라이빗 IP를 DNS 서버 주소로 입력합니다. 두 VNET이 동일한 DNS 서버를 사용하는 경우 사용자 지정 도메인 이름이 올바른 IP로 확인되고 HDInsight에서 연결할 수 있게 됩니다. 예를 들어 도메인 이름이이 `contoso.com` `ping contoso.com` 단계 다음에 오는 경우는 올바른 Azure AD DS IP로 확인 되어야 합니다.
+VNET이 피어링된 후에는 사용자 지정 DNS 서버를 사용하도록 HDInsight VNET을 구성하고 Azure AD-DS 프라이빗 IP를 DNS 서버 주소로 입력합니다. 두 VNET이 동일한 DNS 서버를 사용하는 경우 사용자 지정 도메인 이름이 올바른 IP로 확인되고 HDInsight에서 연결할 수 있게 됩니다. 예를 들어 도메인 이름이 `contoso.com` 인 경우이 단계를 수행한 후에는-1 @no__t 올바른 Azure AD DS IP로 확인 되어야 합니다.
 
 ![피어링된 VNET에 대한 사용자 지정 DNS 서버 구성](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
-HDInsight 서브넷에서 NSG(네트워크 보안 그룹) 규칙을 사용하는 경우 인바운드 및 아웃바운드 트래픽에 대해 [필수 IP](../hdinsight-management-ip-addresses.md)를 허용해야 합니다. 
+HDInsight 서브넷에서 NSG (네트워크 보안 그룹) 규칙을 사용 하는 경우 인바운드 및 아웃 바운드 트래픽 모두에 대해 [필요한 ip](../hdinsight-management-ip-addresses.md) 를 허용 해야 합니다.
 
 네트워킹이 올바르게 설정되었는지 **테스트**하려면 Windows VM을 HDInsight VNET/서브넷에 조인하고 도메인 이름을 ping한 다음(IP로 확인되어야 함), **ldp.exe**를 실행하여 Azure AD-DS 도메인에 액세스합니다. 그런 다음, **이 Windows VM을 도메인에 조인**하여 클라이언트와 서버 간에 필요한 모든 RPC 호출이 성공했는지 확인합니다. **nslookup**을 사용하여 스토리지 계정 또는 외부 DB(예: 외부 Hive metastore 또는 Ranger DB)에 대한 네트워킹 액세스를 확인할 수도 있습니다.
-AAD-DS가 NSG로 보호되는 경우 [필요한 모든 포트](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers)가 AAD-DS 서브넷 네트워크 보안 그룹 규칙의 허용 목록에 추가되어야 합니다. 이 Windows VM의 도메인 가입이 성공하면 다음 단계로 넘어가서 ESP 클러스터를 만들 수 있습니다.
+AAD-DS가 NSG로 보호되는 경우 [필요한 모든 포트](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers)가 AAD-DS 서브넷 네트워크 보안 그룹 규칙의 허용 목록에 추가되어야 합니다. 이 windows VM의 도메인 가입에 성공 하면 다음 단계를 계속 하 여 ESP 클러스터를 만들 수 있습니다.
 
 ## <a name="create-a-hdinsight-cluster-with-esp"></a>ESP로 HDInsight 클러스터 만들기
 
-이전 단계를 올바르게 설정한 후에 할 일은 ESP가 활성화된 HDInsight 클러스터를 만드는 것입니다. HDInsight 클러스터를 만들 때 **사용자 지정** 탭에서 Enterprise Security Package를 사용하도록 설정할 수 있습니다. 배포에 Azure Resource Manager 템플릿을 사용하는 것을 선호하는 경우 마지막 "요약" 페이지에서 포털 환경을 한 번 사용하여 미리 채워진 템플릿을 다운로드해 두면 나중에 재사용할 수 있습니다.
+이전 단계를 올바르게 설정한 후에 할 일은 ESP가 활성화된 HDInsight 클러스터를 만드는 것입니다. HDInsight 클러스터를 만들 때 **보안 + 네트워킹** 탭에서 Enterprise Security Package를 사용 하도록 설정할 수 있습니다. 배포에 Azure Resource Manager 템플릿을 사용 하려는 경우 포털 환경을 한 번 사용 하 고 나중에 다시 사용할 수 있도록 **검토 + 만들기** 페이지에서 미리 채워진 템플릿을 다운로드 합니다.
 
 > [!NOTE]  
 > ESP 클러스터 이름의 처음 6자는 사용자 환경에서 고유해야 합니다. 예를 들어 여러 VNET에 다수의 ESP 클러스터가 있는 경우 클러스터 이름의 처음 6자가 고유하게 하는 명명 규칙을 선택해야 합니다.
 
-![Azure HDInsight Enterprise Security Package 도메인 유효성 검사](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate.png)
+![Azure HDInsight Enterprise Security Package 도메인 유효성 검사](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-esp.png)
 
-ESP를 사용하도록 설정하면 Azure AD-DS와 관련된 일반적인 구성 오류가 자동으로 검색되고 유효성이 검사됩니다. 이러한 오류를 해결 한 후에는 다음 단계를 진행할 수 있습니다. 
+ESP를 사용하도록 설정하면 Azure AD-DS와 관련된 일반적인 구성 오류가 자동으로 검색되고 유효성이 검사됩니다. 이러한 오류를 수정한 후 다음 단계를 계속 진행할 수 있습니다.
 
-![Azure HDInsight Enterprise Security Package의 도메인 유효성 검사 실패](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate-failed.png)
+![Azure HDInsight Enterprise Security Package의 도메인 유효성 검사 실패](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-esp-error.png)
 
 ESP로 HDInsight 클러스터를 만드는 경우 다음 매개 변수를 제공해야 합니다.
 
@@ -112,13 +112,9 @@ ESP로 HDInsight 클러스터를 만드는 경우 다음 매개 변수를 제공
 
 - **LDAPS URL**: 예제입니다. `ldaps://contoso.com:636`
 
-다음 스크린샷에서는 Azure Portal의 성공적인 구성을 보여줍니다.
-
-![Azure HDInsight ESP Active Directory Domain Services 구성](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png)을 선택합니다.
-
 만든 관리 ID는 새 클러스터를 만들 때 사용자 할당 관리 ID 드롭다운에서 선택할 수 있습니다.
 
-![Azure HDInsight ESP Active Directory Domain Services 관리 id](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png)을 선택합니다.
+![Azure HDInsight ESP Active Directory Domain Services 관리 id](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-identity.png)을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

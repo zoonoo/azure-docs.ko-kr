@@ -13,57 +13,57 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: bca0f0de7de321060635459c4435525f650c7467
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 42ec213a191ff460b05f94dff401fbed1a3bd510
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446313"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025072"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Azure를 사용하여 Xamarin.Forms 앱 만들기
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 > [!NOTE]
-> Visual Studio App Center는 모바일 앱 개발을 위한 중앙 새 및 통합 서비스에 투자 합니다. 개발자가 사용할 수 **빌드**를 **테스트** 하 고 **배포** 연속 통합 및 배달 파이프라인을 설정 하는 서비스입니다. 개발자 상태 및 사용 하 여 해당 앱의 사용량을 모니터링할 수 있습니다, 앱을 배포한 후 합니다 **Analytics** 하 고 **진단** , 서비스를 사용 하 여 사용자와 소통 하세요를 **푸시** 서비스입니다. 개발자가 활용할 수도 있습니다 **인증** 해당 사용자를 인증 하 고 **데이터** 유지 하 고 클라우드에 앱 데이터 동기화 서비스. 체크 아웃 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started) 지금 합니다.
->
+> Visual Studio App Center은 모바일 앱 개발에 대 한 종단 간 및 통합 서비스의 중심을 지원 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다.
+> 모바일 응용 프로그램에서 클라우드 서비스를 통합 하려는 경우 현재 App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 에 등록 하세요.
 
 ## <a name="overview"></a>개요
 이 자습서에서는 Azure App Service의 Mobile Apps 기능을 백 엔드로 사용하여 클라우드 기반 백 엔드 서비스를 Xamarin.Forms 모바일 앱에 추가하는 방법을 보여줍니다. 새 Mobile Apps 백 엔드와 앱 데이터를 Azure에 저장하는 간단한 할 일 모음 Xamarin.Forms 앱을 만듭니다.
 
 이 자습서를 완료해야 다른 모든 Xamarin.Forms용 Mobile Apps 자습서를 진행할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 앱을 가져올 수 있습니다. 이러한 앱은 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-* Visual Studio Tools for Xamarin에서 Visual Studio 2017 이상 버전에서는 또는 mac 용 Visual Studio 참조 된 [Xamarin 설치 페이지][Install Xamarin] 지침에 대 한 합니다.
+* Xamarin에 대 한 Visual Studio Tools Visual Studio 2017 이상 또는 Mac용 Visual Studio. 자세한 내용은 [Xamarin 설치 페이지][Install Xamarin] 를 참조 하세요.
 
-* (선택 사항) iOS 앱을 빌드하려면 Xcode 9.0 이상이 있는 Mac이 필요합니다. Mac 용 visual Studio iOS 앱 또는 Visual Studio 2017 개발에 사용할 수 있습니다 또는 나중에 사용할 수 있습니다 (으로 Mac이 네트워크에서 사용할 수 있습니다).
+* (선택 사항) iOS 앱을 빌드하려면 Xcode 9.0 이상이 있는 Mac이 필요합니다. IOS 앱을 개발 하는 데 사용할 수 Mac용 Visual Studio 또는 Mac을 네트워크에서 사용할 수 있는 경우 Visual Studio 2017 이상을 사용할 수 있습니다.
 
 ## <a name="create-a-new-mobile-apps-back-end"></a>새 Mobile Apps 백 엔드 만들기
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>데이터베이스 연결을 만들고 클라이언트와 서버 프로젝트 구성
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>데이터베이스 연결을 만들고 클라이언트 및 서버 프로젝트를 구성 합니다.
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="run-the-xamarinforms-solution"></a>Xamarin.Forms 솔루션 실행
+## <a name="run-the-xamarinforms-solution"></a>Xamarin Forms 솔루션 실행
 
-Visual Studio Tools Xamarin 솔루션을 열고 필요에 대 한 참조를 [Xamarin 설치 지침][Install Xamarin]합니다. 도구를 이미 설치한 경우 다음 단계에 따라 솔루션을 다운로드하고 엽니다.
+Xamarin에 대 한 Visual Studio Tools는 솔루션을 여는 데 필요 합니다. [xamarin 설치 지침][Install Xamarin]을 참조 하세요. 도구를 이미 설치한 경우 다음 단계에 따라 솔루션을 다운로드하고 엽니다.
 
 ### <a name="visual-studio-windows-and-mac"></a>Visual Studio (Windows 및 Mac)
 
-1. 로 이동 합니다 [Azure portal](https://portal.azure.com/) 만든 모바일 앱으로 이동 합니다. 에 `Overview` 블레이드에서 모바일 앱에 대 한 공용 엔드포인트 URL 찾습니다. 예제-내 앱 이름 "test123"에 대 한 sitename 됩니다 https://test123.azurewebsites.net 합니다.
+1. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 만든 모바일 앱으로 이동 합니다. @No__t-0 블레이드에서 모바일 앱에 대 한 공용 끝점 인 URL을 찾습니다. 예-내 앱 이름 "test123"에 대 한 sitename은 https://test123.azurewebsites.net 이 됩니다.
 
-2. 파일을 열고 `Constants.cs` 이 폴더에서 xamarin.forms/ZUMOAPPNAME 합니다. 응용 프로그램 이름이 `ZUMOAPPNAME`합니다.
+2. 이 폴더-xamarin.ios/ZUMOAPPNAME 폴더에서 `Constants.cs` 파일을 엽니다. 응용 프로그램 이름은 `ZUMOAPPNAME`입니다.
 
-3. `Constants.cs` 클래스를 대체 `ZUMOAPPURL` 위의 공용 끝점을 사용 하 여 변수입니다.
+3. @No__t-0 클래스에서 `ZUMOAPPURL` 변수를 위의 공용 끝점으로 바꿉니다.
 
     `public static string ApplicationURL = @"ZUMOAPPURL";`
 
-    됩니다.
+    않게
 
     `public static string ApplicationURL = @"https://test123.azurewebsites.net";`
     

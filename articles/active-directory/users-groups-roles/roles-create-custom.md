@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f008cdf80e15e2737fea19f72ec6703932cf301f
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: b1a5aee1be7580956c32947e9bda7e2928a006c3
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382815"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026393"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 역할 만들기 및 할당
 
@@ -30,8 +30,8 @@ Azure AD 개요 페이지의 [역할 및 관리자](https://portal.azure.com/#bl
 
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>앱 등록 관리에 대 한 액세스 권한을 부여 하는 새 사용자 지정 역할 만들기
 
-1. Azure ad 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [azure ad 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
-1.  **Azure Active Directory** > **역할 및 관리자** > **새 사용자 지정 역할**을 선택 합니다.
+1. Azure ad 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [AZURE ad 관리 센터](https://aad.portal.azure.com) with 로그인 합니다.
+1. **Azure Active Directory** > **역할 및 관리자**@no__t 3**새 사용자 지정 역할**을 선택 합니다.
 
    ![역할 및 관리자 페이지에서 역할 만들기 또는 편집](./media/roles-create-custom/new-custom-role.png)
 
@@ -44,7 +44,7 @@ Azure AD 개요 페이지의 [역할 및 관리자](https://portal.azure.com/#bl
 
       ![사용 권한 탭에서 사용자 지정 역할에 대 한 사용 권한 선택](./media/roles-create-custom/permissions-tab.png)
 
-   1. 다음으로 검색 표시줄에 "기본"을 입력 하 고 `microsoft.directory/applications/basic/update` 사용 권한을 선택한 후 **다음**을 클릭 합니다.
+   1. 다음으로 검색 표시줄에 "기본"을 입력 하 고 `microsoft.directory/applications/basic/update` 권한을 선택한 후 **다음**을 클릭 합니다.
 1. **검토 + 만들기** 탭에서 사용 권한을 검토 하 고 **만들기**를 선택 합니다.
 
 사용자 지정 역할이 할당할 수 있는 역할 목록에 표시 됩니다.
@@ -122,7 +122,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
     ```
 
-    본문
+    Body
 
     ``` HTTP
    {
@@ -151,7 +151,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
     ```
 
-    본문
+    Body
 
     ``` HTTP
    {

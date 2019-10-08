@@ -1,23 +1,23 @@
 ---
-title: PostgreSQL-Azure CLI를 사용 하 여 단일 서버에 대 한 서버 로그 액세스 및 구성
-description: 이 문서에는 구성 및 PostgreSQL-Azure CLI 명령줄을 사용 하 여 단일 서버에 대 한 Azure Database에서 서버 로그에 액세스 하는 방법을 설명 합니다.
+title: Azure CLI를 사용 하 여 PostgreSQL 서버에 대 한 서버 로그 구성 및 액세스
+description: 이 문서에서는 Azure CLI 명령줄을 사용 하 여 Azure Database for PostgreSQL 단일 서버에서 서버 로그를 구성 하 고 액세스 하는 방법을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 4702db31ffeb15481584b9638f5be1aa640ff39e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb33debaa23ad8625b6ddc1cc63738b13bcd19e1
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067204"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023632"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Azure CLI를 사용하여 서버 로그 구성 및 액세스
 Azure CLI(명령줄 인터페이스)를 사용하여 PostgreSQL 서버 오류 로그를 다운로드할 수 있습니다. 그러나 트랜잭션 로그에 대한 액세스는 지원되지 않습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [Azure Database for PostgreSQL 서버](quickstart-create-server-database-azure-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) 명령줄 유틸리티 또는 브라우저의 Azure Cloud Shell
@@ -25,7 +25,7 @@ Azure CLI(명령줄 인터페이스)를 사용하여 PostgreSQL 서버 오류 �
 ## <a name="configure-logging"></a>로깅 구성
 쿼리 로그 및 오류 로그에 액세스하도록 서버를 구성할 수 있습니다. 오류 로그에는 자동 진공, 연결 및 검사점 정보가 포함될 수 있습니다.
 1. 로깅을 설정합니다.
-2. 쿼리 로깅을 사용하려면 **log\_statement** 및 **log\_min\_duration\_statement**를 업데이트합니다.
+2. 쿼리 로깅을 사용하려면 **log\_statement** 및 **log\_min\_duration\_statement**를 업데이트합니다.
 3. 보존 기간을 업데이트합니다.
 
 자세한 내용은 [서버 구성 매개 변수 사용자 지정](howto-configure-server-parameters-using-cli.md)을 참조하세요.

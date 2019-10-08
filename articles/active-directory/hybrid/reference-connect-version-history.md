@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/2/2019
+ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6776d7ff21599a1cfab47fd0e4ab0fbef5d3d8c
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 5132581c3d79db88dabc3c20ac3b962226d8a12d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827094"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025838"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -34,7 +34,7 @@ Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure A
 항목 |  설명
 --------- | --------- |
 Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스를 [이전 버전에서 최신 버전으로 업그레이드](how-to-upgrade-previous-version.md) 하는 다른 방법입니다.
-필요한 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](reference-connect-accounts-permissions.md#upgrade)을 참조하세요.
+필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](reference-connect-accounts-permissions.md#upgrade)을 참조하세요.
 
 다운로드 | [Azure AD Connect 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771).
 
@@ -44,6 +44,8 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 일부 버전의 Azure AD Connect는 자동 업그레이드에 사용할 수 있습니다. 릴리스 상태는 릴리스가 자동 업그레이드 또는 다운로드에만 사용할 수 있는지 여부를 나타냅니다. 자동 업그레이드가 Azure AD Connect 서버에서 활성화된 경우 해당 서버는 자동으로 자동 업그레이드용으로 릴리스되는 최신 버전의 Azure AD Connect로 업그레이드됩니다. 일부 Azure AD Connect 구성을 자동 업그레이드에 사용할 수 있습니다. [자동 업그레이드](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)에 대한 자세한 내용은 이 링크 참조
 
 ## <a name="14250"></a>1.4.25.0
+
+
 
 ### <a name="release-status"></a>릴리스 상태
 9/28/2019: 자동 업그레이드를 위해 배포 하 여 테 넌 트를 선택 합니다. 다운로드에 사용할 수 없습니다.
@@ -56,12 +58,15 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 
 ## <a name="14180"></a>1.4.18.0
 
+>[!WARNING]
+>이 버전의 Azure AD Connect로 업그레이드 한 후 일부 고객이 기존 하이브리드 Azure AD 조인 장치에서 문제가 발생 하는 인시던트를 조사 하 고 있습니다. 하이브리드 Azure AD 조인을 배포한 고객에 게는 이러한 문제의 근본 원인이 완전히 이해 되 고 완화 될 때까지이 버전으로의 업그레이드를 연기 하는 것을 권장 합니다. 가능한 한 빨리 추가 정보를 제공 합니다.
+
 >[!IMPORTANT]
 >이 버전의 Azure AD Connect 일부 고객은 Azure AD에서 Windows 장치의 일부 또는 전체가 사라질 수 있습니다. 이러한 장치 id는 조건부 액세스 권한 부여 중에 Azure AD에서 사용 되지 않기 때문에 문제가 발생 하지 않습니다. 자세한 내용은 [Azure AD Connect 1.4. i x x. x 장치를 이해](reference-connect-device-disappearance.md) 하는 방법 disappearnce을 참조 하세요.
 
 
 ### <a name="release-status"></a>릴리스 상태
-9/25/2019: 자동 업그레이드 및 다운로드를 위해 릴리스 됨
+9/25/2019: 인시던트 조사가 완료 될 때까지 수동 다운로드에서 제거 되었습니다.
 
 ### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 - 새로운 문제 해결 도구는 "사용자 동기화 안 함", "그룹 동기화 안 함" 또는 "그룹 구성원 동기화 안 함" 시나리오를 해결 하는 데 도움이 됩니다.
@@ -103,7 +108,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 >[!IMPORTANT]
 >Azure AD Connect 성공적으로 업그레이드 된 경우에도 O365 포털에 업데이트 된 버전이 반영 되지 않는 Azure AD Connect 이전 버전에서 1.3.21.0로 업그레이드 하는 것과 관련 된 알려진 문제가 있습니다.
 >
-> 이 문제를 해결 하려면 **adsync** 모듈을 가져온 다음 Azure AD Connect 서버에서`Set-ADSyncDirSyncConfiguration` powershell cmdlet을 실행 해야 합니다.  다음 단계를 사용할 수 있습니다.
+> 이 문제를 해결 하려면 **Adsync** 모듈을 가져온 다음 Azure AD Connect 서버에서 @ no__t-1 powershell cmdlet을 실행 해야 합니다.  다음 단계를 사용할 수 있습니다.
 >
 >1. 관리자로 모드에서 Powershell 열기
 >2. `Import-Module "ADSync"`를 실행합니다.
@@ -810,7 +815,7 @@ CBool(
 * 고객이 그룹 개체에 대한 sAMAccountName, domainNetBios 및 domainFQDN과 사용자 개체에 대한 distinguishedName을 전달하는 사용자 지정 동기화 규칙을 만들 수 있도록 스키마가 다음과 같이 변경되었습니다.
 
   * 다음 특성이 MV 스키마에 추가되었습니다.
-    * 그룹: 계정 이름
+    * 그룹: AccountName
     * 그룹: domainNetBios
     * 그룹: domainFQDN
     * 사용자: distinguishedName

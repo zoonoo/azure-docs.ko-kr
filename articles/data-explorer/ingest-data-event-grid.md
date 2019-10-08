@@ -7,14 +7,19 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 3c2407472cd15326c295f70c69606fc5ee663f72
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
-ms.translationtype: HT
+ms.openlocfilehash: 9557923fc2228e8508acaa7e15d1729ac3d29538
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996786"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028368"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Event Grid 알림을 구독하여 Azure Data Explorer에 Blob 수집
+
+> [!div class="op_single_selector"]
+> * [포털](ingest-data-event-grid.md)
+> * [C#](data-connection-event-grid-csharp.md)
+> * [Python](data-connection-event-grid-python.md)
 
 Azure Data Explorer는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장이 가능한 데이터 탐색 서비스로서, Blob 컨테이너에 기록된 Blob에서 지속적인 수집(데이터 로딩)을 제공합니다. 
 
@@ -100,10 +105,10 @@ Azure Data Explorer에서 Event Hubs가 데이터를 보낼 테이블을 만듭�
     **설정** | **제안 값** | **필드 설명**
     |---|---|---|
     | 데이터 연결 이름 | *test-hub-connection* | Azure Data Explorer에서 만들 연결의 이름입니다.|
-    | 저장소 계정 구독 | 구독 ID | 스토리지 계정이 있는 구독 ID입니다.|
+    | 스토리지 계정 구독 | 구독 ID | 스토리지 계정이 있는 구독 ID입니다.|
     | Storage 계정 | *gridteststorage* | 이전에 만든 스토리지 계정의 이름입니다.|
-    | 이벤트 표 | *test-grid-connection* | 만든 Event Grid의 이름입니다. |
-    | Event Hubs 이름 | *test-hub* | 만든 이벤트 허브입니다. 이 필드는 Event Grid를 선택하며 자동으로 채워집니다. |
+    | Event Grid | *test-grid-connection* | 만든 Event Grid의 이름입니다. |
+    | 이벤트 허브 이름 | *test-hub* | 만든 이벤트 허브입니다. 이 필드는 Event Grid를 선택하며 자동으로 채워집니다. |
     | 소비자 그룹 | *test-group* | 만든 이벤트 허브에 정의된 소비자 그룹입니다. |
     | | |
 
@@ -112,7 +117,7 @@ Azure Data Explorer에서 Event Hubs가 데이터를 보낼 테이블을 만듭�
      **설정** | **제안 값** | **필드 설명**
     |---|---|---|
     | Table | *TestTable* | **TestDatabase**에 만든 테이블입니다. |
-    | 데이터 서식 | *JSON* | 지원되는 형식은 Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV 및 TXT입니다. 지원 되는 압축 옵션: Zip 및 GZip |
+    | 데이터 형식 | *JSON* | 지원되는 형식은 Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV 및 TXT입니다. 지원 되는 압축 옵션: Zip 및 GZip |
     | 열 매핑 | *TestMapping* | **TestDatabase**에서 생성된 것으로, 들어오는 JSON 데이터를 **TestTable**의 열 이름 및 데이터 형식에 매핑.|
     | | |
     
@@ -186,7 +191,7 @@ Event Grid를 다시 사용하지 않으려는 경우, 비용이 발생하지 �
 
 1. Azure Portal에서 맨 왼쪽에 있는 **리소스 그룹**을 선택한 다음, 만든 리소스 그룹을 선택합니다.  
 
-    왼쪽 메뉴가 접혀 있으면 ![확장 단추](media/ingest-data-event-grid/expand.png) 클릭하여 펼칩니다.
+    왼쪽 메뉴가 접혀 있으면 ![[확장] 단추를](media/ingest-data-event-grid/expand.png) 클릭하여 펼칩니다.
 
    ![삭제할 리소스 그룹 선택](media/ingest-data-event-grid/delete-resources-select.png)
 

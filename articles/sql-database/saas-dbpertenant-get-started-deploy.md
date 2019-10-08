@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: d5326a3a154ed6f193b5527a0150ad84c843c273
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d5f64f0a9abfa736c1db0e562b6f18ecfc1f6de5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570451"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023836"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>SQL Database로 테넌트별 데이터베이스 패턴을 사용하는 다중 테넌트 SaaS 앱 배포 및 탐색
 
@@ -36,7 +36,7 @@ ms.locfileid: "68570451"
 
 [관련된 일련의 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)에서는 다양한 SaaS 디자인 및 관리 패턴을 탐색합니다. 이 자습서는 이 초기 배포 이후에도 빌드됩니다. 자습서를 사용하는 경우 제공된 스크립트를 검토하여 다양한 SaaS 패턴을 구현하는 방법을 확인할 수 있습니다. 스크립트는 SaaS 애플리케이션 개발을 간소화하는 SQL Database의 기능을 보여줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 Azure PowerShell이 설치되어 있는지 확인합니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
@@ -114,7 +114,7 @@ ms.locfileid: "68570451"
 
     ![이벤트 허브](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
-2. 이벤트 허브에서  **Fabrikam Jazz Club** 을 선택합니다.
+2. 이벤트 허브에서 **Fabrikam 재즈 클럽** 을 선택 합니다.
 
     ![이벤트](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
@@ -126,7 +126,7 @@ Wingtip 애플리케이션에서는  [*Azure Traffic Manager*](../traffic-manag
 
     이전 형식의 부분을 다음 표에서 설명합니다.
 
-    | URL 부분        | Description       |
+    | URL 부분        | 설명       |
     | :-------------- | :---------------- |
     | http://events.wingtip-dpt | Wingtip 앱의 이벤트 부분입니다.<br /><br /> *-dpt*는 Wingtip Tickets의 *테넌트당 데이터베이스* 구현을 다른 구현과 구분합니다. 다른 구현의 예로는 테넌트당 *단일* 앱( *-sa*) 또는 *다중 테넌트 데이터베이스*( *-mt*) 구현 등이 있습니다. |
     | . *&lt;user&gt;* | 예제에서 *af1*입니다. |
@@ -220,14 +220,14 @@ Events Hub를 새로 고치면 목록에 새 테넌트가 나타납니다.
 
 테넌트 컬렉션에 대해 부하 실행을 시작했으므로 배포된 리소스 중 일부를 살펴보겠습니다.
 
-1.  [Azure Portal](https://portal.azure.com)에서 SQL 서버 목록으로 이동합니다. 그런 다음,  **catalog-dpt-&lt;USER&gt;**   서버를 엽니다.
+1.  [Azure Portal](https://portal.azure.com)에서 SQL 서버 목록으로 이동합니다. 그런 다음, **catalog-dpt-&lt;USER&gt;** 서버를 엽니다.
     - 카탈로그 서버에는 두 가지 데이터베이스인 **tenantcatalog** 및 **basetenantdb**(새 테넌트를 만들기 위해 복사한 템플릿 데이터베이스)가 포함됩니다.
 
    ![데이터베이스](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. SQL 서버 목록으로 이동합니다.
 
-3. 테넌트 데이터베이스를 보관하는 **tenants1-dpt-&lt;USER&gt;**   서버를 엽니다.
+3. 테넌트 데이터베이스가 있는 **tenants1-dpt-&lt;USER&gt;** 서버를 엽니다.
 
 4. 다음 항목을 확인합니다.
 
@@ -240,7 +240,7 @@ Events Hub를 새로 고치면 목록에 새 테넌트가 나타납니다.
 
 *LoadGenerator.ps1*을 몇 분 동안 실행한 후에 일부 모니터링 기능을 살펴보기에 충분한 데이터를 사용할 수 있어야 합니다. 이러한 기능은 풀 및 데이터베이스에 빌드됩니다.
 
-**tenants1-dpt-&lt;user&gt;** 서버로 이동하고,  **Pool1** 을 선택하여 풀의 리소스 사용률을 확인합니다. 다음 차트에서 부하 생성기를 1시간 동안 실행했습니다.
+**tenants1-dpt-&lt;user&gt;** 서버로 이동하고, **Pool1**을 선택하여 풀의 리소스 사용률을 확인합니다. 다음 차트에서 부하 생성기를 1시간 동안 실행했습니다.
 
    ![풀 모니터링](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 

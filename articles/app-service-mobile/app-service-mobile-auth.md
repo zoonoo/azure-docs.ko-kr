@@ -12,14 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: 1d40f1992a5c68872de6e0fa2fc04a1a25abe674
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3c7329638bd8a5d9e466864d780b7784304fa874
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098601"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027479"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Azure App Service에서 모바일 앱에 대한 인증 및 권한 부여
+
+> [!NOTE]
+> Visual Studio App Center은 모바일 앱 개발에 대 한 종단 간 및 통합 서비스의 중심을 지원 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다.
+> 모바일 응용 프로그램에서 클라우드 서비스를 통합 하려는 경우 현재 App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 에 등록 하세요.
 
 이 문서에서는 App Service 백 엔드를 사용하여 네이티브 모바일 앱을 개발할 때 인증 및 권한 부여가 작동하는 방법에 대해 설명합니다. App Service에서 통합된 인증 및 권한 부여를 제공하므로 모바일 앱은 App Service의 코드를 변경하지 않고 사용자를 로그인할 수 있습니다. 애플리케이션을 보호하고 사용자 단위당 데이터로 작업하는 쉬운 방법을 제공합니다. 
 

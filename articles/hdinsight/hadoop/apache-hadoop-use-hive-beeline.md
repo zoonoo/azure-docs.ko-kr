@@ -2,17 +2,17 @@
 title: Apache Hive와 Apache Beeline 사용 - Azure HDInsight
 description: Beeline 클라이언트를 사용하여 HDInsight에서 Hadoop과 Hive 쿼리를 실행하는 방법을 알아봅니다. Beeline은 JDBC를 통한 HiveServer2 작업을 위한 유틸리티입니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/03/2019
-ms.author: hrasheed
-ms.openlocfilehash: 8a1bb4f0315be70cfe8debab0ee9eb1e4b576738
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.date: 10/03/2019
+ms.openlocfilehash: d6063daa649b507057fd2a4468c32dad1cd35eec
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181121"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030433"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive와 Apache Beeline 클라이언트 사용
 
@@ -24,7 +24,7 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 
 ### <a name="from-an-ssh-session"></a>SSH 세션에서
 
-SSH 세션에서 클러스터 헤드 노드에 연결 하는 경우 포트 `headnodehost` `10001`에서 주소에 연결할 수 있습니다.
+SSH 세션에서 클러스터 헤드 노드에 연결 하는 경우-1 @no__t 포트에서 `headnodehost` 주소에 연결할 수 있습니다.
 
 ```bash
 beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
@@ -40,20 +40,20 @@ Azure Virtual Network를 통해 클라이언트에서 HDInsight로 연결 하는
 beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 ```
 
-을 `<headnode-FQDN>` 클러스터 헤드 노드의 정규화 된 도메인 이름으로 바꿉니다. 헤드 노드의 정규화된 도메인 이름을 찾으려면 [Apache Ambari REST API를 사용하여 HDInsight 관리](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 문서의 정보를 사용합니다.
+@No__t-0을 클러스터 헤드 노드의 정규화 된 도메인 이름으로 바꿉니다. 헤드 노드의 정규화된 도메인 이름을 찾으려면 [Apache Ambari REST API를 사용하여 HDInsight 관리](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 문서의 정보를 사용합니다.
 
 ---
 
 ### <a name="to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos"></a>Kerberos를 사용 하는 HDInsight Enterprise Security Package (ESP) 클러스터
 
-클라이언트에서 클러스터의 동일한 영역에 있는 컴퓨터의 AAD (Azure Active Directory)-DS에 연결 된 Enterprise Security Package (ESP) 클러스터에 연결 하는 경우 도메인 이름과 `<AAD-Domain>` 도메인 사용자 계정의 이름도 지정 해야 합니다. 클러스터 `<username>`에 액세스할 수 있는 권한:
+클라이언트에서 클러스터의 동일한 영역에 있는 컴퓨터의 Azure Active Directory (AAD)-DS에 연결 된 Enterprise Security Package (ESP) 클러스터에 연결 하는 경우에는 도메인 @no__t 이름 ()을 지정 해야 합니다. 클러스터에 액세스 `<username>`:
 
 ```bash
 kinit <username>
 beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
 ```
 
-`<username>`을 클러스터에 액세스할 수 있는 권한이 있는 도메인의 계정 이름으로 바꿉니다. 을 `<AAD-DOMAIN>` 클러스터가 조인 된 AAD (Azure Active Directory)의 이름으로 바꿉니다. `<AAD-DOMAIN>` 값에 대문자 문자열을 사용 합니다. 그렇지 않으면 자격 증명을 찾을 수 없습니다. 필요한 `/etc/krb5.conf` 경우 영역 이름을 확인 합니다.
+`<username>`을 클러스터에 액세스할 수 있는 권한이 있는 도메인의 계정 이름으로 바꿉니다. @No__t-0을 클러스터가 조인 된 Azure Active Directory (AAD)의 이름으로 바꿉니다. @No__t-0 값에 대문자 문자열을 사용 합니다. 그렇지 않으면 자격 증명을 찾을 수 없습니다. 필요한 경우 영역 이름 `/etc/krb5.conf`을 확인 합니다.
 
 ---
 
@@ -81,7 +81,7 @@ Apache Spark는 자체적으로 HiveServer2를 구현하며, HiveServer2는 종�
 
 #### <a name="through-public-or-private-endpoints"></a>공용 또는 개인 끝점을 통해
 
-사용 된 연결 문자열은 약간 다릅니다. 이를 포함 `httpPath=/hive2` 하는 `httpPath/sparkhive2`대신 다음을 수행 합니다.
+사용 된 연결 문자열은 약간 다릅니다. @No__t를 포함 하는 대신-0 `httpPath/sparkhive2`입니다.
 
 ```bash 
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
@@ -111,13 +111,11 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 * HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
-* 클러스터의 기본 저장소에 대 한 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme) 를 확인 합니다. 예 `wasb://` 를 들어 `abfs://` Azure Storage, Azure Data Lake Storage Gen2, `adl://` Azure Data Lake Storage Gen1의 경우입니다. Azure Storage에 대해 보안 전송이 사용 되는 경우 URI `wasbs://`는입니다. 자세한 내용은 [보안 전송](../../storage/common/storage-require-secure-transfer.md)을 참조 하세요.
+* 클러스터의 기본 저장소에 대 한 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme) 를 확인 합니다. 예를 들어 Azure Storage에 대 한 `wasb://`, Azure Data Lake Storage Gen2의 경우-1 @no__t @no__t의 경우 Azure Data Lake Storage Gen1입니다. Azure Storage에 대해 보안 전송이 사용 되는 경우 URI는-0 @no__t 됩니다. 자세한 내용은 [보안 전송](../../storage/common/storage-require-secure-transfer.md)을 참조 하세요.
 
-
-* 옵션 1: SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. 이 문서에 나온 대부분의 단계는 SSH 세션에서 클러스터까지 Beeline을 사용한다고 가정합니다.
+* 옵션 1: SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. 이 문서의 단계는 대부분 SSH 세션에서 클러스터로 Beeline를 사용 하 고 있다고 가정 합니다.
 
 * 옵션 2:  로컬 Beeline 클라이언트입니다.
-
 
 ## <a id="beeline"></a>Hive 쿼리 실행
 
@@ -137,7 +135,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 3. Beeline 명령은 일반적으로 `!` 문자로 시작합니다. 예를 들어 `!help`는 도움말을 표시합니다. 그러나 일부 명령에서는 `!`를 생략할 수 있습니다. 예를 들어 `help`도 작동합니다.
 
-    HiveQL 문을 실행하는 데 사용되는 `!sql`이 있습니다. 그러나 HiveQL은 너무 일반적으로 사용되어 이전의 `!sql`를 생략할 수 있습니다. 다음 두 문은 동일합니다.
+    HiveQL 문을 실행 하는 데 사용 되는 `!sql`이 있습니다. 그러나 HiveQL은 너무 일반적으로 사용되어 이전의 `!sql`를 생략할 수 있습니다. 다음 두 문은 동일합니다.
 
     ```hiveql
     !sql show tables;
@@ -193,7 +191,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
     이러한 문은 다음 작업을 수행합니다.
 
-    * `DROP TABLE` - 테이블이 있으면 삭제됩니다.
+    * `DROP TABLE`-테이블이 있으면 삭제 됩니다.
 
     * `CREATE EXTERNAL TABLE` - Hive에서 **외부** 테이블을 만듭니다. 외부 테이블만 테이블 정의를 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.
 
@@ -203,7 +201,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
     * `SELECT` - 열 **t4**에 값 **[ERROR]** 가 포함된 모든 행의 수를 선택합니다. 이 값을 포함하는 세 개의 행이 있으므로 이 쿼리는 **3** 값을 반환합니다.
 
-    * `INPUT__FILE__NAME LIKE '%.log'` - Hive는 디렉터리의 모든 파일에 스키마를 적용하려고 합니다. 이 경우 디렉터리에 스키마와 일치하지 않는 파일이 포함되어 있습니다. 결과에 가비지 데이터가 나타나는 것을 방지하기 위해 이 명령문은 .log로 끝나는 파일의 데이터만 반환해야 함을 Hive에게 알립니다.
+    * `INPUT__FILE__NAME LIKE '%.log'` - Hive는 디렉터리의 모든 파일에 스키마를 적용하려고 합니다. 이 경우 디렉터리에는 스키마와 일치 하지 않는 파일이 포함 됩니다. 결과에 가비지 데이터가 나타나는 것을 방지하기 위해 이 명령문은 .log로 끝나는 파일의 데이터만 반환해야 함을 Hive에게 알립니다.
 
    > [!NOTE]  
    > 외부 원본에서 기본 데이터를 업데이트하길 원하는 경우에는 외부 테이블을 사용해야 합니다. 예를 들어 자동화된 데이터 업로드 프로세스 또는 MapReduce 작업이 있습니다.
@@ -255,7 +253,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
     이러한 문은 다음 작업을 수행합니다.
 
-   * **CREATE TABLE IF NOT EXISTS** - 테이블이 아직 없으면 테이블을 만듭니다. **EXTERNAL** 키워드가 사용되지 않으므로 이 문은 내부 테이블을 만듭니다. 내부 테이블은 Hive 데이터 웨어하우스에 저장되며 Hive에 서 완전히 관리됩니다.
+   * **CREATE TABLE 존재 하지 않는 경우** -테이블이 아직 없으면 만들어집니다. **EXTERNAL** 키워드가 사용 되지 않으므로이 문은 내부 테이블을 만듭니다. 내부 테이블은 Hive 데이터 웨어하우스에 저장되며 Hive에 서 완전히 관리됩니다.
    * **STORED AS ORC** - 데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. ORC 형식은 Hive 데이터를 저장하기 위해 고도로 최적화되고 효율적인 형식입니다.
    * **덮어쓰기 삽입... SELECT** - **[ERROR]** 가 포함된 **log4jLogs** 테이블에서 행을 선택하고 데이터를 **errorLogs** 테이블에 삽입합니다.
 
@@ -290,9 +288,6 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
         3 rows selected (1.538 seconds)
 
-
-
-
 ## <a id="summary"></a><a id="nextsteps"></a>다음 단계
 
 HDInsight의 Hive에 대한 보다 일반적인 내용은 다음 문서를 참조하세요.
@@ -303,26 +298,3 @@ HDInsight에서 Hadoop을 사용하여 작업할 수 있는 다른 방법에 대
 
 * [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 Apache Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
-
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-[apache-tez]: https://tez.apache.org
-[apache-hive]: https://hive.apache.org/
-[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
-[hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-
-
-[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
-
-[putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
-
-
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-
-
-[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx

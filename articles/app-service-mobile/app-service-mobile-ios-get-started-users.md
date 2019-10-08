@@ -14,19 +14,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 88e278ced5cbddb132cdc2f760864df119762088
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 674d5f783f43011ba154b668cea4ec41f6a945f5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449130"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025273"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>iOS 앱에 인증 추가
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
-> Visual Studio App Center는 모바일 앱 개발을 위한 중앙 새 및 통합 서비스에 투자 합니다. 개발자가 사용할 수 **빌드**를 **테스트** 하 고 **배포** 연속 통합 및 배달 파이프라인을 설정 하는 서비스입니다. 개발자 상태 및 사용 하 여 해당 앱의 사용량을 모니터링할 수 있습니다, 앱을 배포한 후 합니다 **Analytics** 하 고 **진단** , 서비스를 사용 하 여 사용자와 소통 하세요를 **푸시** 서비스입니다. 개발자가 활용할 수도 있습니다 **인증** 해당 사용자를 인증 하 고 **데이터** 유지 하 고 클라우드에 앱 데이터 동기화 서비스. 체크 아웃 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-users) 지금 합니다.
->
+> Visual Studio App Center은 모바일 앱 개발에 대 한 종단 간 및 통합 서비스의 중심을 지원 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다.
+> 모바일 응용 프로그램에서 클라우드 서비스를 통합 하려는 경우 현재 App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 에 등록 하세요.
 
 이 자습서에서는 지원되는 ID 공급자를 사용하여 [iOS 빠른 시작] 에 인증을 추가합니다. 이 자습서는 먼저 완료해야 하는 [iOS 빠른 시작] 를 기반으로 합니다.
 
@@ -81,7 +81,7 @@ Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 �
     }
     ```
 
-    Google을 ID 공급자로 사용하지 않는 경우 *google*을 *microsoftaccount*, *twitter*, *facebook* 또는 *windowsazureactivedirectory*로 변경합니다. Facebook을 사용 해야 합니다 [Facebook 도메인을 허용 목록][1] 앱에서.
+    Google을 ID 공급자로 사용하지 않는 경우 *google*을 *microsoftaccount*, *twitter*, *facebook* 또는 *windowsazureactivedirectory*로 변경합니다. Facebook을 사용 하는 경우 앱에서 [facebook 도메인을 허용 목록][1] 해야 합니다.
 
     **urlScheme**을 애플리케이션에 대한 고유한 이름으로 바꿉니다.  urlScheme은 Azure Portal의 **외부 리디렉션 Url 허용** 필드에 지정한 URL 체계 프로토콜과 같아야 합니다. urlScheme은 인증 요청이 완료된 후 인증 콜백에서 애플리케이션으로 다시 전환하는 데 사용됩니다.
 
@@ -114,7 +114,7 @@ Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 �
     }
     ```
 
-   `#pragma mark - Core Data stack` 줄 바로 앞에 다음 코드를 추가합니다.  대체는 _appname_ 1 단계에서 사용한 urlScheme 값입니다.
+   `#pragma mark - Core Data stack` 줄 바로 앞에 다음 코드를 추가합니다.  _Appname_ 을 1 단계에서 사용한 urlscheme 값으로 바꿉니다.
 
 5. `AppName-Info.plist` 파일을 열고(AppName을 앱 이름으로 바꿈) 다음 코드를 추가합니다.
 
@@ -167,7 +167,7 @@ Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 �
     }
     ```
 
-    Google을 ID 공급자로 사용하지 않는 경우 *google*을 *microsoftaccount*, *twitter*, *facebook* 또는 *windowsazureactivedirectory*로 변경합니다. Facebook을 사용 해야 합니다 [Facebook 도메인을 허용 목록][1] 앱에서.
+    Google을 ID 공급자로 사용하지 않는 경우 *google*을 *microsoftaccount*, *twitter*, *facebook* 또는 *windowsazureactivedirectory*로 변경합니다. Facebook을 사용 하는 경우 앱에서 [facebook 도메인을 허용 목록][1] 해야 합니다.
 
     **urlScheme**을 애플리케이션에 대한 고유한 이름으로 바꿉니다.  urlScheme은 Azure Portal의 **외부 리디렉션 Url 허용** 필드에 지정한 URL 체계 프로토콜과 같아야 합니다. urlScheme은 인증 요청이 완료된 후 인증 콜백에서 애플리케이션으로 다시 전환하는 데 사용됩니다.
 
@@ -192,7 +192,7 @@ Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 �
     }
     ```
 
-    대체는 _appname_ 1 단계에서 사용한 urlScheme 값입니다.
+    _Appname_ 을 1 단계에서 사용한 urlscheme 값으로 바꿉니다.
 
 4. `AppName-Info.plist` 파일을 열고(AppName을 앱 이름으로 바꿈) 다음 코드를 추가합니다.
 
@@ -216,7 +216,7 @@ Xcode에서 **실행** 을 눌러 앱을 시작합니다. 앱이 인증되지 �
 
 5. *Run*을 눌러 앱을 시작한 다음 로그인합니다. 로그인할 때 할 일 목록을 보고 업데이트할 수 있어야 합니다.
 
-App Service 인증은 Apples Inter-App Communication을 사용합니다.  이 주제에 대 한 자세한 내용은 참조는 [Apple 설명서][2]
+App Service 인증은 Apples Inter-App Communication을 사용합니다.  이 주제에 대 한 자세한 내용은 [Apple 설명서][2] 를 참조 하세요.
 <!-- URLs. -->
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist

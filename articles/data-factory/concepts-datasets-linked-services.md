@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 788fee724f381ab317b97a682aa21d17ec1ffa9d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c4daa5989013ba8d5c5a7136fe0878fae64f0357
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137307"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030567"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure 데이터 팩터리의 데이터 세트
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -70,12 +70,12 @@ Data Factory의 데이터 집합은 다음과 같은 JSON 형식으로 정의 �
 -------- | ----------- | -------- |
 name | 데이터 세트의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  예 |
 type | 데이터 세트의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |
-구조 | 데이터 세트의 스키마입니다. 자세한 내용은 [데이터 집합 스키마](#dataset-structure-or-schema)를 참조 하세요. | 아니요 |
+structure | 데이터 세트의 스키마입니다. 자세한 내용은 [데이터 집합 스키마](#dataset-structure-or-schema)를 참조 하세요. | 아니요 |
 typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azure SQL 테이블). 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |
 
 ### <a name="data-flow-compatible-dataset"></a>데이터 흐름 호환 데이터 집합
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 [데이터 흐름이](concepts-data-flow-overview.md) 호환 되는 데이터 집합 형식 목록은 [지원 되는 데이터 집합 형식](#dataset-type) 을 참조 하세요. 데이터 흐름에 대해 호환 되는 데이터 집합에는 변환에 대 한 세분화 된 데이터 집합 정의가 필요 합니다. 따라서 JSON 정의는 약간 다릅니다. _구조_ 속성 대신 데이터 흐름에 호환 되는 데이터 집합에는 _스키마_ 속성이 있습니다.
 

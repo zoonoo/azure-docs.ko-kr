@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: 8d7bb201a9d01725f933105a4a0beb85c82ca105
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: d1de29124825a7f398b9722bb2455d1105e9c9f7
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203704"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023648"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>솔루션에 대한 올바른 IoT Hub 계층 선택
 
@@ -39,7 +39,7 @@ IoT Hub의 표준 계층은 모든 기능을 활성화하고 양방향 통신 �
 | ---------- | ---------- | ------------- |
 | [디바이스-클라우드 원격 분석](iot-hub-devguide-messaging.md) | 예 | 예 |
 | [디바이스당 ID](iot-hub-devguide-identity-registry.md) | 예 | 예 |
-| [메시지 라우팅](iot-hub-devguide-messages-read-custom.md) 및 [Event Grid 통합](iot-hub-event-grid.md) | 예 | 예 |
+| [메시지 라우팅](iot-hub-devguide-messages-read-custom.md), [메시지 강화](iot-hub-message-enrichments-overview.md)및 [Event Grid 통합](iot-hub-event-grid.md) | 예 | 예 |
 | [HTTP, AMQP 및 MQTT 프로토콜](iot-hub-devguide-protocols.md) | 예 | 예 |
 | [디바이스 프로비저닝 서비스](../iot-dps/about-iot-dps.md) | 예 | 예 |
 | [모니터링 및 진단](iot-hub-monitor-resource-health.md) | 예 | 예 |

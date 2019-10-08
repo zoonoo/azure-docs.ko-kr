@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8cb5c82e551ed6299f754f518ebeebca0be4964d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: ca17d049d988b2bc8b60249d99c03f70c555d3fb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679312"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023745"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Azure AD B2C에서 리소스 소유자 암호 자격 증명 흐름 구성
 
@@ -25,7 +25,7 @@ ROPC(리소스 소유자 암호 자격 증명) 흐름은 신뢰 당사자라고�
 
 Azure Active Directory B2C (Azure AD B2C)에서 지원 되는 옵션은 다음과 같습니다.
 
-- **네이티브 클라이언트**: 코드가 사용자 쪽 디바이스에서 실행될 때 인증 중에 사용자 상호 작용이 발생합니다. 이 디바이스는 Android와 같은 네이티브 운영 체제에서 실행되거나 JavaScript와 같은 브라우저에서 실행되는 모바일 애플리케이션일 수 있습니다.
+- **네이티브 클라이언트**: 코드가 사용자 쪽 디바이스에서 실행될 때 인증 중에 사용자 상호 작용이 발생합니다. 장치는 Android 및 iOS와 같은 네이티브 운영 체제에서 실행 되는 모바일 응용 프로그램 일 수 있습니다.
 - **공용 클라이언트 흐름**: 애플리케이션에서 수집한 사용자 자격 증명만 API 호출에서 전송됩니다. 애플리케이션의 자격 증명은 전송되지 않습니다.
 - **새 클레임 추가**: ID 토큰 콘텐츠를 변경하여 새 클레임을 추가할 수 있습니다.
 

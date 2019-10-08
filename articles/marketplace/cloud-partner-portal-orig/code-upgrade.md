@@ -1,34 +1,22 @@
 ---
-title: 최신 플랫폼으로 코드를 업그레이드 합니다. | Azure Marketplace
-description: 이 항목에서는 Microsoft Dynamics 365 Operations 플랫폼 버전을 최신 플랫폼 릴리스로 업그레이드하는 방법을 설명합니다.
+title: 최신 플랫폼으로 코드 업그레이드 | Azure Marketplace
+description: PC 문서에 연결 된이 CPP 문서는 사용 되지 않습니다. "이 항목에서는 Microsoft Dynamics 365 for Operations platform 버전을 최신 플랫폼 릴리스로 업그레이드 하는 방법에 대해 설명 합니다."
 services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: aedc2c7474de0fe068a329eb2205e9bb08e62c3a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: ea3aff527f6dbd6e6da2010529ad575440504d6a
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935278"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034946"
 ---
 # <a name="upgrading-code-to-the-latest-platform"></a>최신 플랫폼으로 코드 업그레이드
 
-이 문서에서는 Microsoft Dynamics 365 Operations 플랫폼 버전을 최신 플랫폼 릴리스로 업그레이드하는 방법을 설명합니다.
+[Cloud 파트너 포털](https://cloudpartner.azure.com/) 는 더 이상 재무 및 운영 제품에 대 한 Dynamics 365의 생성 및 관리를 지원 하지 않습니다. 대신이 기능은 Microsoft [파트너 센터 포털로](https://partner.microsoft.com/)이동 되었습니다. 자세한 내용은 [Operations 제안의 새 Dynamics 365 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer)를 참조 하세요.
 
-## <a name="overview"></a>개요
-
-Microsoft Dynamics 365 Operations 플랫폼은 다음과 같은 구성 요소로 이루어져 있습니다.
-
-AOS(Application Object Server), 데이터 관리 프레임워크, 보고 및 BI(비즈니스 인텔리전스) 프레임워크, 개발 도구, 분석 서비스 등의 Dynamics 365 for Operations 플랫폼 이진 파일. 다음 AOT(애플리케이션 개체 트리) 패키지
-
-1. 애플리케이션 플랫폼
-2. Application Foundation
-3. Test Essentials
-
-**중요**: 작업 플랫폼에 대 한 최신 Dynamics 365 이동 하려면 작업 구현에 대 한 Dynamics 365 모든 플랫폼에 속하는 AOT 패키지 (overlayering) 사용자 지정을 사용할 수 없습니다. 이 제한은 플랫폼 연속 업데이트를 원활하게 진행할 수 있도록 플랫폼 업데이트 3에서 도입되었습니다. 플랫폼 업데이트 3 이전 버전의 플랫폼에서 실행 중이라면 이 문서 끝부분의 이전 빌드에서 플랫폼 업데이트 3으로 업그레이드 섹션을 참조하세요.
-
-코드 업그레이드에 대한 자세한 내용은 [여기](https://docs.microsoft.com/dynamics365/operations/dev-itpro/migration-upgrade/upgrade-latest-platform-update)를 참조하세요.
+운영 제안의 새 Dynamics 365을 만들기 전에 [파트너 센터 계정 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 를 읽은 다음 **개요** 페이지가 선택 된 상태로 [상용 마켓플레이스 대시보드](https://partner.microsoft.com/dashboard/directory) 를 열어야 합니다. [작업 제안의 새 Dynamics 365 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) 의 지침에 따라 제품을 만듭니다.

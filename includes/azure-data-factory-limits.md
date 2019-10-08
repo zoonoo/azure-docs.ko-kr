@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 5/30/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: c92bb8b2adb3e91e691e9fd1c17a7ee43e84fd11
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 6dc846ab6af0ed4d6d48c6f6db0abbce06427c36
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "68362573"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035886"
 ---
 Azure Data Factory은 고객 구독이 서로 다른 작업 으로부터 보호 되도록 하기 위해 다음과 같은 기본 제한이 적용 되는 다중 테 넌 트 서비스입니다. 구독에 대 한 최대 제한 값을 높이려면 지원 담당자에 게 문의 하세요.
 
@@ -27,7 +27,7 @@ Azure Data Factory은 고객 구독이 서로 다른 작업 으로부터 보호 
 | 팩터리의 모든 파이프라인에서 공유 되는 데이터 팩터리 당 동시 파이프라인 실행 | 10000  | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | [Azure Integration Runtime 지역별](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) 구독 당 동시 외부 활동 실행 수<br><small>외부 활동은 integration runtime에서 관리 되지만 Databricks, 저장 프로시저, HDInsights 등을 포함 하 여 연결 된 서비스에서 실행 됩니다.</small> | 3000 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | [Azure Integration Runtime 지역별](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) 구독 당 동시 파이프라인 작업 실행 수 <br><small>파이프라인 활동은 integration runtime (Lookup, GetMetadata 및 Delete 포함)에서 실행 됩니다.</small>| 1000 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| [Azure Integration Runtime 지역별](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) 구독 당 동시 작성 작업<br><small>연결 테스트를 포함 하 여 폴더 목록과 테이블 목록을 찾아보고 데이터를 미리 봅니다. | 200 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| [Azure Integration Runtime 지역별](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) 구독 당 동시 작성 작업<br>@no__t-테스트 연결을 포함 하 여 폴더 목록과 테이블 목록을 찾아보고 데이터를 미리 봅니다. | 200 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 동시 데이터 통합 단위 [Azure Integration Runtime 지역](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) 당 구독 당<sup>1</sup> 소비| 지역 그룹 1<sup>2</sup>: 6000<br>영역 그룹 2<sup>2</sup>: 3000<br>영역 그룹 3<sup>2</sup>: 1500 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 컨테이너에 대 한 내부 활동을 포함 하는 파이프라인 당 최대 활동 | 40 | 40 |
 | 단일 자체 호스팅 통합 런타임에 대해 만들 수 있는 연결 된 통합 런타임 최대 수 | 100 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
@@ -36,7 +36,7 @@ Azure Data Factory은 고객 구독이 서로 다른 작업 으로부터 보호 
 | ForEach 병렬 처리 | 20 | 50 |
 | 식당 문자 | 8,192 | 8,192 |
 | 최소 연속 창 트리거 간격 | 15분 | 15분 |
-| 파이프라인 작업 실행에 대 한 최대 시간 제한 | 7일 | 7일 |
+| 파이프라인 작업 실행에 대 한 최대 시간 제한 | 7 일 | 7 일 |
 | 파이프라인 개체에 대 한 개체당 바이트 수<sup>3</sup> | 200KB | 200KB |
 | 데이터 집합 및 연결 된 서비스 개체에 대 한 개체당 바이트<sup>3</sup> | 100KB | 2000 KB |
 | 복사 작업 실행 당 데이터 통합 단위<sup>1</sup> | 256 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
@@ -44,12 +44,16 @@ Azure Data Factory은 고객 구독이 서로 다른 작업 으로부터 보호 
 | API 호출 읽기 | 12500/h<br/><br/> 이 제한은 Azure Data Factory가 아닌 Azure Resource Manager가 부과합니다. | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 분당 모니터링 쿼리 | 1,000 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 분당 엔터티 CRUD 작업 | 50 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| 데이터 흐름 디버그 세션의 최대 시간 | 8 시간 | 8 시간 |
+| 팩터리 당 동시 데이터 흐름 수 | 50 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| 사용자 당 팩터리 당 동시 데이터 흐름 디버그 세션 수 | 3 | 3 |
+| 데이터 흐름 Azure IR TTL 제한 | 4 시간 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 
 <sup>1</sup> diu (데이터 통합 단위)는 클라우드-클라우드 복사 작업에 사용 되며, [데이터 통합 단위 (버전 2)](../articles/data-factory/copy-activity-performance.md#data-integration-units)에서 자세히 알아보세요. 요금 청구에 대 한 자세한 내용은 [Azure Data Factory 가격 책정](https://azure.microsoft.com/pricing/details/data-factory/)을 참조 하세요.
 
 <sup>2</sup> [Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) 데이터 호환성, 효율성 및 네트워크 송신 비용 절감을 위해 [전역적으로 사용할 수 있습니다](https://azure.microsoft.com/global-infrastructure/services/) . 
 
-| 영역 그룹 | 영역 | 
+| 영역 그룹 | Regions | 
 | -------- | ------ |
 | 지역 그룹 1 | 미국 중부, 미국 동부, 동 미국, 북부 유럽, 유럽 서부, 미국 서 부, 미국 서 부 2 |
 | 영역 그룹 2 | 오스트레일리아 동부, 오스트레일리아 남동쪽, 브라질 남부, 인도 중부, 일본 동부, 미국 Northcentral, 미국 미국, 동남 아시아, 미국 서 부 중부 |

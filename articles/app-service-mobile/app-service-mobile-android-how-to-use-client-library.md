@@ -13,18 +13,18 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 6a6db136926a7f9d631c717f5cab6c025d97fb48
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: b67e0eaabe63707455eaa6cd4b235ec828dddff3
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67443532"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025451"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android용 Azure Mobile Apps SDK를 사용하는 방법
 
 > [!NOTE]
-> Visual Studio App Center은 모바일 앱 개발에 대 한 새롭고 통합 된 서비스를 투자 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다. 지금 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-how-to-use-client-library) 확인 하세요.
->
+> Visual Studio App Center은 모바일 앱 개발에 대 한 종단 간 및 통합 서비스의 중심을 지원 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다.
+> 모바일 응용 프로그램에서 클라우드 서비스를 통합 하려는 경우 현재 App Center [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 에 등록 하세요.
 
 이 가이드에서는 Mobile Apps용 Android 클라이언트 SDK를 사용하여 다음과 같은 일반적인 시나리오를 구현하는 방법을 보여줍니다.
 
@@ -112,7 +112,7 @@ MobileServiceClient mClient = new MobileServiceClient(
 
 클라이언트는 활동 또는 컨텍스트(예제의 `this` 매개 변수)에 대한 액세스도 필요합니다.  MobileServiceClient 생성은 `AndroidManifest.xml` 파일에 언급된 활동의 `onCreate()` 메서드 내에서 수행되어야 합니다.
 
-가장 좋은 방법은 서버 통신을 자체(singleton 패턴) 클래스로 추상화하는 것입니다.  이런 경우 서비스를 적절히 구성하려면 활동을 생성자 내에서 전달해야 합니다.  예:
+가장 좋은 방법은 서버 통신을 자체(singleton 패턴) 클래스로 추상화하는 것입니다.  이런 경우 서비스를 적절히 구성하려면 활동을 생성자 내에서 전달해야 합니다.  예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```java
 package com.example.appname.services;
@@ -201,7 +201,7 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Mobile Apps 백 엔드에 추가 테이블을 만드는 방법을 알아보려면 [방법: 테이블 컨트롤러][15] 정의 (.net 백 엔드) 또는 동적 스키마 (node.js 백 엔드) [를 사용 하 여 테이블 정의][16] .
+Mobile Apps 백 엔드에 추가 테이블을 만드는 방법을 알아보려면 [방법: 테이블 컨트롤러 @ no__t-0 (.NET 백 엔드)을 정의 하거나 동적 스키마 (node.js 백 엔드) [를 사용 하 여 테이블을 정의][16] 합니다.
 
 Azure Mobile Apps 백 엔드 테이블은 5개의 특수 필드를 정의하며 이 중 4개는 클라이언트에서 사용할 수 있습니다.
 
@@ -211,7 +211,7 @@ Azure Mobile Apps 백 엔드 테이블은 5개의 특수 필드를 정의하며 
 * `byte[] version`: 일반적으로 문자열로 표시되며 버전도 서버에 의해 설정됩니다.
 * `boolean deleted`: 레코드가 삭제되었지만 아직 제거되지 않았음을 나타냅니다.  `deleted`를 클래스에서 속성으로 사용하지 마십시오.
 
-`id` 필드는 필수입니다.  `updatedAt` 필드 및 `version` 필드는 오프라인 동기화에(각각 증분 동기화 및 충돌 해결을 위해) 사용됩니다.  `createdAt` 필드는 참조 필드이며 클라이언트에서 사용되지 않습니다.  이름은 속성의 "across-the-wire" 이름이며 조정할 수 없습니다.  그러나 [gson][3] 라이브러리를 사용 하 여 개체와 "유선" 이름 간의 매핑을 만들 수 있습니다.  예를 들어:
+`id` 필드는 필수입니다.  `updatedAt` 필드 및 `version` 필드는 오프라인 동기화에(각각 증분 동기화 및 충돌 해결을 위해) 사용됩니다.  `createdAt` 필드는 참조 필드이며 클라이언트에서 사용되지 않습니다.  이름은 속성의 "across-the-wire" 이름이며 조정할 수 없습니다.  그러나 [gson][3] 라이브러리를 사용 하 여 개체와 "유선" 이름 간의 매핑을 만들 수 있습니다.  예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```java
 package com.example.zumoappname;
@@ -314,7 +314,7 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-앞의 예제는 모든 결과(서버가 설정한 최대 페이지 크기까지)를 반환합니다.  `.execute()` 메서드는 백 엔드에서 쿼리를 실행합니다.  Mobile Apps 백 엔드에 전송 하기 전에 쿼리가 [OData v3][19] 쿼리로 변환 됩니다.  수신되면 Mobile Apps 백 엔드는 SQL Azure 인스턴스에서 쿼리를 실행하기 전에 SQL 문으로 변환합니다.  네트워크 활동에는 시간이 걸리므로 메서드는 `.execute()` 을 [`ListenableFuture<E>`][18]반환 합니다.
+앞의 예제는 모든 결과(서버가 설정한 최대 페이지 크기까지)를 반환합니다.  `.execute()` 메서드는 백 엔드에서 쿼리를 실행합니다.  Mobile Apps 백 엔드에 전송 하기 전에 쿼리가 [OData v3][19] 쿼리로 변환 됩니다.  수신되면 Mobile Apps 백 엔드는 SQL Azure 인스턴스에서 쿼리를 실행하기 전에 SQL 문으로 변환합니다.  네트워크 활동에는 시간이 걸리므로 `.execute()` 메서드는 [`ListenableFuture<E>`][18]를 반환 합니다.
 
 ### <a name="filtering"></a>반환된 데이터 필터링
 
@@ -460,7 +460,7 @@ do {
 
 ### <a name="chaining"></a>방법: 쿼리 메서드 연결
 
-백 엔드 테이블을 쿼리하는 데 사용되는 메서드를 연결할 수 있습니다. 쿼리 메서드를 연결하면 정렬 및 페이징되는 필터링된 행의 특정 열을 선택할 수 있습니다. 상당히 복잡한 논리 필터를 만들 수 있습니다.  각 쿼리 메서드는 쿼리 개체를 반환합니다. 일련의 메서드를 종료하고 실제로 쿼리를 실행하려면 **execute** 메서드를 호출합니다. 예를 들어:
+백 엔드 테이블을 쿼리하는 데 사용되는 메서드를 연결할 수 있습니다. 쿼리 메서드를 연결하면 정렬 및 페이징되는 필터링된 행의 특정 열을 선택할 수 있습니다. 상당히 복잡한 논리 필터를 만들 수 있습니다.  각 쿼리 메서드는 쿼리 개체를 반환합니다. 일련의 메서드를 종료하고 실제로 쿼리를 실행하려면 **execute** 메서드를 호출합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -530,7 +530,7 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 }
 ```
 
-어댑터의 **getView** 메서드를 다시 정의합니다. 예:
+어댑터의 **getView** 메서드를 다시 정의합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```java
     @Override

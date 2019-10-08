@@ -7,16 +7,16 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 68c0da5a7fe2b02c6115a8c1bbc24feb95e12adb
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5eff92352251febca1d4e7033618372dc929d987
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003695"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029414"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>데이터 흐름 매핑의 스키마 드리프트
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 스키마 드리프트는 소스가 메타 데이터를 자주 변경 하는 경우입니다. 필드, 열 및 형식을 즉석에서 추가, 제거 또는 변경할 수 있습니다. 스키마 드리프트를 처리 하지 않으면 데이터 흐름이 업스트림 데이터 원본 변경에 취약 해질 수 있습니다. 들어오는 열과 필드가 이러한 원본 이름에 연결 되기 때문에 들어오는 열과 필드가 변경 되 면 일반적인 ETL 패턴이 실패 합니다.
 
@@ -52,7 +52,7 @@ Azure Data Factory은 데이터 흐름을 다시 컴파일할 필요 없이 일�
 
 데이터 흐름에 데이터베이스가 드리프트 열이 있는 경우 다음 방법을 사용 하 여 변환에서 열에 액세스할 수 있습니다.
 
-* 이름 또는 위치 `byName` 번호로 열을 명시적으로 참조 하려면 및식을사용합니다.`byPosition`
+* @No__t-0 및 `byName` 식을 사용 하 여 이름 또는 위치 번호를 기준으로 열을 명시적으로 참조할 수 있습니다.
 * 이름, 스트림, 위치 또는 형식의 조합에 대해 일치 하도록 파생 열 또는 집계 변환에 열 패턴을 추가 합니다.
 * 패턴을 통해 데이터베이스가 드리프트 열을 열 별칭과 일치 시키려면 Select 또는 Sink 변환에 규칙 기반 매핑을 추가 합니다.
 
@@ -62,11 +62,11 @@ Azure Data Factory은 데이터 흐름을 다시 컴파일할 필요 없이 일�
 
 데이터베이스가 드리프트 열을 명시적으로 참조 하기 위해 데이터 미리 보기 빠른 작업을 통해 이러한 열에 대 한 매핑을 빠르게 생성할 수 있습니다. [디버그 모드가](concepts-data-flow-debug-mode.md) 설정 되 면 데이터 미리 보기 탭으로 이동 하 고 **새로 고침** 을 클릭 하 여 데이터 미리 보기를 가져옵니다. Data factory가 데이터베이스가 드리프트 열이 있는 것으로 감지 되 면 **데이터베이스가 드리프트 매핑** 을 클릭 하 고 스키마 뷰 다운스트림의 모든 데이터베이스가 드리프트 열을 참조할 수 있는 파생 열을 생성할 수 있습니다.
 
-![지도 데이터베이스가 드리프트](media/data-flow/mapdrifted1.png "지도 데이터베이스가 드리프트")
+![Map 데이터베이스가 드리프트](media/data-flow/mapdrifted1.png "map 데이터베이스가 드리프트")
 
-생성 된 파생 열 변환에서 각 데이터베이스가 드리프트 열은 검색 된 이름 및 데이터 형식에 매핑됩니다. 위의 데이터 미리 보기에서 ' movieId ' 열은 정수로 검색 됩니다. **Map 데이터베이스가 드리프트** 을 클릭 하면 파생 열 `toInteger(byName('movieId'))` 에 movieId가 정의 되 고 다운스트림 변환의 스키마 뷰에 포함 됩니다.
+생성 된 파생 열 변환에서 각 데이터베이스가 드리프트 열은 검색 된 이름 및 데이터 형식에 매핑됩니다. 위의 데이터 미리 보기에서 ' movieId ' 열은 정수로 검색 됩니다. **Map 데이터베이스가 드리프트** 을 클릭 한 후 MovieId은 파생 열에 `toInteger(byName('movieId'))`로 정의 되 고 다운스트림 변환의 스키마 뷰에 포함 됩니다.
 
-![지도 데이터베이스가 드리프트](media/data-flow/mapdrifted2.png "지도 데이터베이스가 드리프트")
+![Map 데이터베이스가 드리프트](media/data-flow/mapdrifted2.png "map 데이터베이스가 드리프트")
 
 ## <a name="next-steps"></a>다음 단계
 [데이터 흐름 식 언어](data-flow-expression-functions.md)에서 열 패턴에 대 한 추가 기능 및 "byName" 및 "byPosition"를 포함 하는 스키마 드리프트를 찾을 수 있습니다.

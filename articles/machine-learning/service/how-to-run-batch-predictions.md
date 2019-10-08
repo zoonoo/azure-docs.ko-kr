@@ -10,12 +10,12 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: 3997f327bd6512eeee2cb5e7a0af802f12d1727a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 910974eac6a67c9c9fe68c502f2876ef68bb94eb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034307"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028528"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인을 사용 하 여 대량 데이터 집합에서 일괄 처리 예측 실행
 
@@ -28,7 +28,7 @@ ms.locfileid: "71034307"
 
 다음 단계에서는 [기계 학습 파이프라인](concept-ml-pipelines.md) 을 만들어 미리 학습 된 컴퓨터 비전 모델 ([개시-V3](https://arxiv.org/abs/1512.00567))을 등록 합니다. 그런 다음 미리 학습 된 모델을 사용 하 여 Azure Blob storage 계정에서 사용할 수 있는 이미지에 대 한 일괄 처리 점수 매기기를 수행 합니다. 채점에 사용되는 이 이미지는 [ImageNet](http://image-net.org/) 데이터 세트에서 레이블되지 않은 이미지입니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -193,7 +193,7 @@ model = Model.register(
 >[!Warning]
 >다음 코드는 [샘플 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/pipeline-batch-scoring.ipynb)에서 사용되는 [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/batch_scoring.py)에 포함된 샘플일 뿐입니다. 시나리오에 대한 고유의 채점 스크립트를 만들어야 합니다.
 
-`batch_score.py` 스크립트를 실행하면  *dataset_path*의 입력 이미지,  *model_dir의 미리 학습된 모델*을 가져와서 *results-label.txt* 을  *output_dir*로 출력합니다.
+@No__t-0 스크립트는 *model_dir* 에서 미리 학습 된 *dataset_path*의 입력 이미지를 사용 하 고 results-label를 *output_dir*에 출력 *합니다* .
 
 ```python
 # Snippets from a sample scoring script

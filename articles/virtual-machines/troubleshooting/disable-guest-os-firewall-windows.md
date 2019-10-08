@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 9ae8620b803fa9a911f44840a5fff5d190a316a1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 6883d046078b5dccd2f1e83e87b41ca83edc92e3
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086526"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030590"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Azure VM에서 게스트 OS 방화벽 사용 안 함
 
@@ -92,7 +92,7 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
 
 1.  문제 해결을 위한 VM에서 레지스트리 편집기를 시작한 다음, **파일** > **네트워크 레지스트리 연결**로 이동합니다.
 
-2.   *TARGET MACHINE*\SYSTEM 분기를 열고, 다음 값을 지정합니다.
+2.  *대상 컴퓨터*\SYSTEM 분기를 열고 다음 값을 지정 합니다.
 
     ```
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\EnableFirewall           -->        0 
@@ -102,13 +102,13 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
 
 3.  서비스를 다시 시작합니다. 이 작업은 원격 레지스트리를 사용할 수 없으므로 서비스 제거 콘솔을 사용해야 합니다.
 
-4.   **Services.msc** 인스턴스를 엽니다.
+4.  **Services.msc**의 인스턴스를 엽니다.
 
 5.  **서비스(로컬)** 을 클릭합니다.
 
 6.  **다른 컴퓨터에 연결**을 선택합니다.
 
-7.  문제가 있는 VM의  **사설 IP 주소(DIP)**  를 입력합니다.
+7.  문제 VM의 **개인 IP 주소 (DIP)** 를 입력 합니다.
 
 8.  로컬 방화벽 정책을 다시 시작합니다.
 

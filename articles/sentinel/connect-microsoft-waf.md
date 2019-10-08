@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9d85b5a72c2e37719348d61250d167eb9a5688a1
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: e7dc1e6c1bb1ca81ada59cb3dae8fecbc6452b7f
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240035"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029778"
 ---
 # <a name="connect-data-from-microsoft-web-application-firewall"></a>Microsoft 웹 응용 프로그램 방화벽에서 데이터 연결
 
@@ -40,10 +40,10 @@ Microsoft 웹 응용 프로그램 방화벽을 배포 하 고 데이터를 가�
     
 1. Azure 센티널 포털에서 **데이터 커넥터**를 선택 합니다.
 1. 데이터 커넥터 페이지에서 **Waf** 타일을 선택 합니다.
-1. [Application Gateway 리소스로](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) 이동한 후 waf를 선택 합니다.
-    1.  **진단 설정**을 선택 합니다.
-    1. 테이블에서 **+ 진단 설정 추가** 를 선택 합니다.
-    1.  **진단 설정** 페이지에서 **이름을** 입력 하 고 **Log Analytics 보내기를**선택 합니다.
+1. [Application Gateway 리소스](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) and 이동한 후 waf를 선택 합니다.
+    1. **진단 설정**을 선택합니다.
+    1. 테이블에서 **+ 진단 설정 추가** 를 선택 합니다.
+    1. **진단 설정** 페이지에서 **이름을** 입력 하 고 **Log Analytics 보내기를**선택 합니다.
     1. **Log Analytics 작업 영역** 에서 Azure 센티널 작업 영역을 선택 합니다.
     1. 분석 하려는 로그 유형을 선택 합니다. 권장 사항: ApplicationGatewayAccessLog 및 ApplicationGatewayFirewallLog.
 1. Microsoft 웹 응용 프로그램 방화벽 경고에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 **Azurediagnostics**를 검색 합니다.

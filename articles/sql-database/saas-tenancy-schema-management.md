@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/19/2018
-ms.openlocfilehash: 7b238044fd3795ae2f49c2fa21367e6499a65672
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 95d13c997d3871815ebd541e5985eb9fef726a76
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570121"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029748"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Azure SQL Database를 사용하여 SaaS 애플리케이션에서 테넌트별 데이터베이스 패턴으로 스키마 관리
  
@@ -85,8 +85,8 @@ Wingtip Tickets 앱에서 각 테넌트 데이터베이스에는 지원되는 �
 
 1. SSMS에서 카탈로그 서버 *catalog-dpt-&lt;user&gt;.database.windows.net*에 접속합니다. 
 1. SSMS에서 ...\\Learning Modules\\Schema Management\\DeployReferenceData.sql 파일을 엽니다.
-1. 문을 수정 합니다. SET @wtpUser = &lt;user&gt; 를 사용 하 고, 테 넌 트 당 SaaS 데이터베이스 앱을 배포할 때 사용 되는 사용자 값으로 대체 합니다.
-1. _Jobagent_ 데이터베이스에 연결 되어 있는지 확인 하 고 **f5** 키를 눌러 스크립트를 실행 합니다.
+1. 문을 수정 합니다. @No__t-0 = &lt; User @ no__t를 설정 하 고, 테 넌 트 당 SaaS 데이터베이스 앱을 배포할 때 사용한 사용자 값으로 대체 합니다.
+1. _jobagent_ 데이터베이스에 접속되어 있는지 확인하고 **F5** 키를 눌러 스크립트를 실행합니다.
 
 *DeployReferenceData.sql* 스크립트에서 다음과 같은 요소를 살펴봅니다.
 * **sp\_add\_target\_group**은 대상 그룹 이름 DemoServerGroup을 생성합니다.

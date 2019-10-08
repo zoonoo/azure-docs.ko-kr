@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: rohogue
-ms.openlocfilehash: 302d727ede9604d11972eaa8f46a3e27f204858f
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: dbcc68bacf8a11a7a85d5fad7fb4435fd03c7f93
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710032"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024566"
 ---
 # <a name="add-storage-targets"></a>스토리지 대상 추가
 
@@ -37,13 +37,16 @@ Azure Blob 컨테이너를 정의 하려면이 정보를 입력 합니다.
 
 ![새 Azure Blob 저장소 대상에 대 한 정보로 채워진 저장소 대상 추가 페이지의 스크린샷](media/hpc-cache-add-blob.png)
 
-<!-- need to replace screenshot after note text is updated with both required RBAC roles -->
+<!-- need to replace screenshot after note text is updated with both required RBAC roles and also with correct search term -->
 
 * **저장소 대상 이름** -Azure HPC 캐시에서이 저장소 대상을 식별 하는 이름을 설정 합니다.
 * **대상 유형** - **Blob**을 선택 합니다.
 * **저장소 계정** -참조할 컨테이너가 있는 계정을 선택 합니다.
 
   [액세스 역할 추가](#add-the-access-control-roles-to-your-account)에 설명 된 대로 저장소 계정에 액세스 하려면 캐시 인스턴스에 권한을 부여 해야 합니다.
+
+  사용할 수 있는 저장소 계정 종류에 대 한 자세한 내용은 [Blob 저장소 요구 사항](hpc-cache-prereqs.md#blob-storage-requirements)을 참조 하세요.
+
 * **저장소 컨테이너** -이 대상에 대 한 Blob 컨테이너를 선택 합니다.
 
 * **가상 네임 스페이스 경로** -이 저장소 대상에 대 한 클라이언트 쪽 파일 경로를 설정 합니다. 가상 네임 스페이스 기능에 대해 자세히 알아보려면 [집계 된 네임 스페이스 구성](hpc-cache-namespace.md) 을 참조 하세요.
@@ -54,7 +57,7 @@ Azure Blob 컨테이너를 정의 하려면이 정보를 입력 합니다.
 
 Azure HPC 캐시는 [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/index) 를 사용 하 여 캐시 응용 프로그램이 Azure Blob 저장소 대상에 대 한 저장소 계정에 액세스 하도록 권한을 부여 합니다.
 
-저장소 계정 소유자는 "StorageCache 리소스 공급자" 사용자에 대 한 역할 [저장소 계정 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) 및 [저장소 Blob 데이터 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) 를 명시적으로 추가 해야 합니다.
+저장소 계정 소유자는 "HPC 캐시 리소스 공급자" 사용자에 대 한 역할 [저장소 계정 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) 및 [저장소 Blob 데이터 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) 를 명시적으로 추가 해야 합니다.
 
 이렇게 하려면 나중에 또는 Blob 저장소 대상을 추가 하는 페이지의 링크를 클릭 하면 됩니다.
 
@@ -62,13 +65,16 @@ RBAC 역할을 추가 하는 단계:
 
 1. 저장소 계정에 대 한 **액세스 제어 (IAM)** 페이지를 엽니다. ( **저장소 대상 추가** 페이지의 링크를 선택 하면 선택한 계정에 대해이 페이지가 자동으로 열립니다.)
 
-1. 페이지 맨 **+** 위에서를 클릭 하 고 **역할 할당 추가**를 선택 합니다.
+1. 페이지 맨 위에 있는 **+** 을 클릭 하 고 **역할 할당 추가**를 선택 합니다.
 
 1. 목록에서 "저장소 계정 참가자" 역할을 선택 합니다.
 
 1. **액세스 할당** 필드에서 기본값 ("Azure AD 사용자, 그룹 또는 서비스 사용자")을 선택 된 채로 둡니다.  
 
-1. **Select** 필드에서 "storagecache"를 검색 합니다.  이 문자열은 "HPC 캐시 리소스 공급자" 라는 보안 주체 하나에 일치 해야 합니다. 해당 보안 주체를 클릭 하 여 선택 합니다.
+1. **선택** 필드에서 "hpc"를 검색 합니다.  이 문자열은 "HPC 캐시 리소스 공급자" 라는 하나의 서비스 사용자와 일치 해야 합니다. 해당 보안 주체를 클릭 하 여 선택 합니다.
+
+   > [!NOTE]
+   > "Hpc" 검색이 작동 하지 않는 경우 "storagecache" 문자열을 대신 사용해 보세요. 조기에 미리 보기에 가입한 사용자는 서비스 사용자에 대해 이전 이름을 사용 해야 할 수 있습니다.
 
 1. **저장** 단추를 클릭 하 여 저장소 계정에 역할 할당을 추가 합니다.
 

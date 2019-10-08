@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: b295ab442e70772a86d6699e1063c7a1c728f1a7
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 17083029f2377037b99abfa3ce8371661eccb957
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091128"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029981"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 서버 로그-단일 서버
 Azure Database for PostgreSQL에서는 쿼리 및 오류 로그를 생성합니다. 쿼리 및 오류 로그는 구성 오류 및 최적 상태가 아닌 성능 문제를 식별하고, 문제를 해결하고, 복구하는 데 사용될 수 있습니다. 단, 트랜잭션 로그 액세스 권한은 포함되지 않습니다. 
@@ -24,7 +24,7 @@ Azure Database for PostgreSQL에서는 쿼리 및 오류 로그를 생성합니�
 이러한 매개 변수에 대한 자세한 내용은 PostgreSQL의 [오류 보고 및 로깅](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) 설명서를 참조하세요. Azure Database for PostgreSQL 매개 변수를 구성하는 방법을 알아보려면 [포털 설명서](howto-configure-server-parameters-using-portal.md) 또는 [CLI 설명서](howto-configure-server-parameters-using-cli.md)를 참조하세요.
 
 ## <a name="access-server-logs-through-portal-or-cli"></a>포털 또는 CLI를 통해 서버 로그 액세스
-로그를 사용하도록 설정한 경우 [Azure Portal](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md) 및 Azure REST API를 사용하여 Azure Database for PostgreSQL 로그 스토리지에서 로그에 액세스할 수 있습니다. 로그 파일은 1시간마다 또는 100MB 크기가 될 때마다(둘 중 먼저 도달할 때) 순환됩니다. 서버에 연결된  **log\_retention\_period** 매개 변수를 사용하여 이 로그 스토리지의 보존 기간을 설정할 수 있습니다. 기본값은 3일이며 최대값은 7일입니다. 로그 파일을 저장하기에 충분한 스토리지를 서버에 할당해야 합니다. Azure 진단 로그는 이 보존 매개 변수를 통해 제어되지 않습니다.
+로그를 사용하도록 설정한 경우 [Azure Portal](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md) 및 Azure REST API를 사용하여 Azure Database for PostgreSQL 로그 스토리지에서 로그에 액세스할 수 있습니다. 로그 파일은 1시간마다 또는 100MB 크기가 될 때마다(둘 중 먼저 도달할 때) 순환됩니다. 서버에 연결된 **log\_retention\_period** 매개 변수를 사용하여 이 로그 스토리지의 보존 기간을 설정할 수 있습니다. 기본값은 3일이며 최대값은 7일입니다. 로그 파일을 저장하기에 충분한 스토리지를 서버에 할당해야 합니다. Azure 진단 로그는 이 보존 매개 변수를 통해 제어되지 않습니다.
 
 
 ## <a name="diagnostic-logs"></a>진단 로그
@@ -55,7 +55,7 @@ Azure Portal를 사용 하 여 진단 로그를 사용 하도록 설정 하려�
 | ResourceProvider | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
 | ResourceId | 리소스 URI |
-| Resource | 서버의 이름입니다. |
+| Resource | 서버의 이름 |
 | Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | 로깅 수준(예: LOG, ERROR, NOTICE) |
@@ -65,7 +65,7 @@ Azure Portal를 사용 하 여 진단 로그를 사용 하도록 설정 하려�
 | ColumnName | 열 이름(해당하는 경우) |
 | SchemaName | 스키마 이름(해당하는 경우) |
 | DatatypeName | 데이터 형식 이름(해당하는 경우) |
-| LogicalServerName | 서버의 이름입니다. | 
+| LogicalServerName | 서버의 이름 | 
 | _ResourceId | 리소스 URI |
 | Prefix | 로그 줄의 접두사 |
 

@@ -7,14 +7,19 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: a0568d3c3258fe082fe8451820fe7a25390cfe78
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
-ms.translationtype: HT
+ms.openlocfilehash: 102cfa81c6093ff1aeefdd8d1937143a25cf76f5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996775"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028484"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Event Hub에서 Azure Data Explorer로 데이터 수집
+
+> [!div class="op_single_selector"]
+> * [포털](ingest-data-event-hub.md)
+> * [C#](data-connection-event-hub-csharp.md)
+> * [Python](data-connection-event-hub-python.md)
 
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기에서는 빅 데이스트리터 밍 플랫폼이자 이벤트 수집 서비스인 이벤트 허브에서 데이터를 수집(로드)하는 기능을 제공합니다. [Event Hubs](/azure/event-hubs/event-hubs-about)에서는 초당 수백만 개의 이벤트를 거의 실시간으로 처리할 수 있습니다. 이 문서에서는 이벤트 허브를 만들고, Azure 데이터 탐색기에서 연결 하 고, 시스템을 통해 데이터 흐름을 확인 합니다.
 
@@ -42,7 +47,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
     **Azure에 배포** 단추를 선택하면 Azure Portal에서 배포 양식을 작성할 수 있는 페이지로 이동하게 됩니다.
 
-    ![Azure에 배포](media/ingest-data-event-hub/deploy-to-azure.png)
+    ![Deploy to Azure](media/ingest-data-event-hub/deploy-to-azure.png)
 
 1. 이벤트 허브를 만들려는 구독을 선택하고 이름이 *test-hub-rg*인 리소스 그룹을 만듭니다.
 
@@ -112,7 +117,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
     |---|---|---|
     | 데이터 연결 이름 | *test-hub-connection* | Azure 데이터 탐색기에서 만들 연결의 이름입니다.|
     | 이벤트 허브 네임스페이스 | 고유한 네임스페이스 이름 | 앞에서 선택한 네임스페이스를 식별하는 이름입니다. |
-    | Event Hubs | *test-hub* | 앞에서 만든 이벤트 허브입니다. |
+    | 이벤트 허브 | *test-hub* | 앞에서 만든 이벤트 허브입니다. |
     | 소비자 그룹 | *test-group* | 앞에서 만든 이벤트 허브에 정의된 소비자 그룹입니다. |
     | 이벤트 시스템 속성 | 관련 속성 선택 | [이벤트 허브 시스템 속성](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations)입니다. 이벤트 메시지 마다 여러 레코드가 있는 경우 시스템 속성이 첫 번째 속성에 추가 됩니다. 시스템 속성을 추가 하는 경우 선택한 속성을 포함 하도록 테이블 스키마 및 [매핑을](/azure/kusto/management/mappings) [만들거나](/azure/kusto/management/tables#create-table) [업데이트](/azure/kusto/management/tables#alter-table-and-alter-merge-table) 합니다. |
     | | |
@@ -125,7 +130,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
      **설정** | **제안 값** | **필드 설명**
     |---|---|---|
     | Table | *TestTable* | **TestDatabase**에 만든 테이블입니다. |
-    | 데이터 서식 | *JSON* | 지원 되는 형식은 Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE 및 TXT입니다. 지원 되는 압축 옵션: GZip |
+    | 데이터 형식 | *JSON* | 지원 되는 형식은 Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE 및 TXT입니다. 지원 되는 압축 옵션: GZip |
     | 열 매핑 | *TestMapping* | **Testdatabase**에서 만든 [매핑으로](/azure/kusto/management/mappings) , 들어오는 JSON 데이터를 **testdatabase**의 열 이름 및 데이터 형식에 매핑합니다. JSON, MULTILINE JSON 또는 AVRO 및 다른 형식에 대한 선택 사항이 필요합니다.|
     | | |
 
@@ -199,7 +204,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
 1. Azure Portal에서 맨 왼쪽에 있는 **리소스 그룹**을 선택한 다음, 만든 리소스 그룹을 선택합니다.  
 
-    왼쪽 메뉴가 접혀 있으면 ![확장 단추](media/ingest-data-event-hub/expand.png) 클릭하여 펼칩니다.
+    왼쪽 메뉴가 접혀 있으면 ![[확장] 단추를](media/ingest-data-event-hub/expand.png) 클릭하여 펼칩니다.
 
    ![삭제할 리소스 그룹 선택](media/ingest-data-event-hub/delete-resources-select.png)
 

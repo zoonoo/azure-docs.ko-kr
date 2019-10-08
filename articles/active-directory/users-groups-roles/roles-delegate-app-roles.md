@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5479bc7f4e65f23a2e2dcf7deb91742fe50610
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 1d5a29ca7ed4eb23c2e0edd4d39cc2920e779acb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382495"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025519"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Azure Active Directory에서 앱 등록 권한 위임
 
@@ -61,10 +61,10 @@ ms.locfileid: "70382495"
 
 ### <a name="to-assign-an-owner-to-an-enterprise-application"></a>엔터프라이즈 응용 프로그램에 소유자를 할당 하려면
 
-1. 조직의 응용 프로그램 관리자 또는 클라우드 응용 프로그램 관리자에 게 적합 한 계정을 사용 하 여 [Azure AD 조직](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) 에 로그인 합니다.
-1. 조직의 [앱 등록 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) 에서 앱을 선택 하 여 앱에 대 한 개요 페이지를 엽니다.
-1.  **** 소유자 를 선택 하 여 앱에 대 한 소유자 목록을 표시 합니다.
-1.  **** 추가 를 선택 하 여 앱에 추가할 소유자를 하나 이상 선택 합니다.
+1. 응용 프로그램 관리자 또는 조직에 대 한 클라우드 응용 프로그램 관리자에 게 적합 한 계정을 사용 하 여 [AZURE AD 조직](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with 로그인 합니다.
+1.  [앱 등록 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)에서 조직을 @no__t 1for 앱을 선택 하 여 앱에 대 한 개요 페이지를 엽니다.
+1. **소유자**를 선택하여 앱의 소유자 목록을 확인합니다.
+1. **추가**를 선택하여 앱에 추가할 소유자를 하나 이상 선택합니다.
 
 > [!IMPORTANT]
 > 사용자 및 서비스 주체는 응용 프로그램 등록의 소유자가 될 수 있습니다. 사용자만 엔터프라이즈 응용 프로그램의 소유자가 될 수 있습니다. 그룹을 소유자로 할당할 수 없습니다.

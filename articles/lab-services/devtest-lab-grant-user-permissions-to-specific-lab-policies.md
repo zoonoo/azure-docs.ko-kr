@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 10/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 70469a9e8737a9df18628951a061c97081c74080
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b31f3e68fbabc32f301fdcd8066a3bfbf1c2dbd
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127381"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028444"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>특정 랩 정책에 사용자 권한 부여
 ## <a name="overview"></a>개요
@@ -30,12 +30,12 @@ ms.locfileid: "62127381"
 
 DevTest Lab에서 정책은 RBAC 작업 **Microsoft.DevTestLab/labs/policySets/policies/** 를 지원하는 리소스 종류입니다. 각 랩 정책은 정책 리소스 종류에 속한 리소스이며 RBAC 역할에 범위로 할당할 수 있습니다.
 
-예를 들어 사용자 읽기/쓰기 권한을 부여 하기 위해 합니다 **허용 된 VM 크기** 정책을 사용 하는 사용자 지정 역할을 만듭니다 합니다 **Microsoft.DevTestLab/labs/policySets/policies/** 작업 에 다음이 사용자 지정 역할의 범위에 적절 한 사용자를 할당 **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**합니다.
+예를 들어 사용자에 게 허용 되는 **VM 크기** 정책에 대 한 읽기/쓰기 권한을 부여 하려면 **Microsoft. devtestlab/Labs/policysets/policy/** action과 함께 작동 하는 사용자 지정 역할을 만든 다음 적절 한 사용자를 할당 합니다. 이 사용자 지정 역할은 **Microsoft DevTestLab/labs/policySets/정책/AllowedVmSizesInLab**의 범위에 있습니다.
 
 RBAC의 사용자 지정 역할에 대한 자세한 내용은 [사용자 지정 역할 액세스 제어](../role-based-access-control/custom-roles.md)를 참조하세요.
 
 ## <a name="creating-a-lab-custom-role-using-powershell"></a>PowerShell을 사용하여 랩 사용자 지정 역할 만들기
-시작 하기 위해 해야 [Azure PowerShell 설치](/powershell/azure/install-az-ps)합니다. 
+시작 하려면 [Azure PowerShell를 설치](/powershell/azure/install-az-ps)해야 합니다. 
 
 Azure PowerShell cmdlet을 설정한 후 다음 작업을 수행할 수 있습니다.
 
@@ -45,13 +45,13 @@ Azure PowerShell cmdlet을 설정한 후 다음 작업을 수행할 수 있습�
 
 다음 PowerShell 스크립트는 이러한 작업을 수행하는 방법의 예제를 보여 줍니다.
 
-    ‘List all the operations/actions for a resource provider.
+    # List all the operations/actions for a resource provider.
     Get-AzProviderOperation -OperationSearchString "Microsoft.DevTestLab/*"
 
-    ‘List actions in a particular role.
+    # List actions in a particular role.
     (Get-AzRoleDefinition "DevTest Labs User").Actions
 
-    ‘Create custom role.
+    # Create custom role.
     $policyRoleDef = (Get-AzRoleDefinition "DevTest Labs User")
     $policyRoleDef.Id = $null
     $policyRoleDef.Name = "Policy Contributor"
@@ -62,7 +62,7 @@ Azure PowerShell cmdlet을 설정한 후 다음 작업을 수행할 수 있습�
     $policyRoleDef = (New-AzRoleDefinition -Role $policyRoleDef)
 
 ## <a name="assigning-permissions-to-a-user-for-a-specific-policy-using-custom-roles"></a>사용자 지정 역할을 사용하여 특정 정책에 대해 사용자에게 권한 할당
-사용자 지정 역할을 정의하고 나면 사용자에게 이 역할을 할당할 수 있습니다. 사용자 지정 역할을 사용자에게 할당하려면 먼저 해당 사용자를 나타내는 **ObjectId** 를 가져와야 합니다. 이렇게 하려면 사용 합니다 **Get AzADUser** cmdlet.
+사용자 지정 역할을 정의하고 나면 사용자에게 이 역할을 할당할 수 있습니다. 사용자 지정 역할을 사용자에게 할당하려면 먼저 해당 사용자를 나타내는 **ObjectId** 를 가져와야 합니다. 이렇게 하려면 **AzADUser** cmdlet을 사용 합니다.
 
 다음 예제에서 **SomeUser** 사용자의 *ObjectId* 는 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3입니다.
 
@@ -72,7 +72,7 @@ Azure PowerShell cmdlet을 설정한 후 다음 작업을 수행할 수 있습�
     -----------                    ----                           --------
     someuser@hotmail.com                                          05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3
 
-했으면 합니다 **ObjectId** 사용자 및 사용자 지정 역할 이름을 사용 하 여 사용자에 게 해당 역할을 할당할 수 있습니다는 **새로 만들기-AzRoleAssignment** cmdlet:
+사용자의 **ObjectId** 와 사용자 지정 역할 이름이 있으면 **AzRoleAssignment** cmdlet을 사용 하 여 해당 역할을 사용자에 게 할당할 수 있습니다.
 
     PS C:\>New-AzRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab
 

@@ -7,12 +7,12 @@ ms.date: 10/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 87bae74265c4d3abe7301af35888561fcd256717
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: c88202c41a7ee6b6d215bd185aeca580bcc88eef
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71971982"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030457"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-java-sdk-v8"></a>빠른 시작: Java SDK 용 Azure Blob storage 클라이언트 라이브러리 v8
 
@@ -209,4 +209,4 @@ sourceFile.deleteOnExit();
 이 문서에서는 Java를 사용하여 로컬 디스크와 Azure Blob 스토리지 간에 파일을 전송하는 방법을 알아보았습니다. Java를 사용하는 방법에 대해 자세히 알려면 GitHub 소스 코드 리포지토리를 계속합니다.
 
 > [!div class="nextstepaction"]
-> Java [API 참조](https://docs.microsoft.com/java/azure/)@no__t-[Java 용 코드 샘플](../common/storage-samples-java.md) 1 개
+> Java [API 참조](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy)@no__t-[Java 용 코드 샘플](../common/storage-samples-java.md) 1 개

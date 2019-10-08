@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9e7d6a027a60590396446479aecf1644ef753ecf
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 24e36e231d80a82362333b7a711f94cf627816ac
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130164"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029247"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Azure Backup 서비스를 사용 하 여 Azure VM 백업 관리
 
@@ -49,7 +49,7 @@ Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음
 
     ![Backup 항목 타일을 엽니다.](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-6.  **백업 항목** 블레이드에서 보호 된 vm 목록을 볼 수 있습니다. 이 예에서 자격 증명 모음은 하나의 가상 머신 demobackup을 보호 합니다.  
+6. **백업 항목** 블레이드에서 보호 된 vm 목록을 볼 수 있습니다. 이 예에서 자격 증명 모음은 하나의 가상 머신 demobackup을 보호 합니다.  
 
     ![백업 항목 블레이드 보기](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
@@ -66,7 +66,7 @@ Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음
 
     ![Backup 항목 타일을 엽니다.](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-3.  **백업 항목** 블레이드에서 최근 복원 시점 시간을 사용 하 여 보호 된 vm 및 마지막 백업 상태 목록을 볼 수 있습니다.
+3. **백업 항목** 블레이드에서 최근 복원 시점 시간을 사용 하 여 보호 된 vm 및 마지막 백업 상태 목록을 볼 수 있습니다.
 
     ![백업 항목 블레이드 보기](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 

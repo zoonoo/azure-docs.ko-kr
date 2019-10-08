@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 8e9e1189c3eb9de273926645ad0d4cfde5ba1c49
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 483ac9380fa8d58f294112cb6c80e0393fa01589
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260033"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028982"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>GitHub 작업을 사용 하 여 지속적인 배달
 
@@ -23,15 +23,15 @@ ms.locfileid: "71260033"
 
 GitHub 작업에서 [워크플로](https://help.github.com/articles/about-github-actions#workflow) 는 github 리포지토리에서 정의 하는 자동화 된 프로세스입니다. 이 프로세스는 github에서 함수 앱 프로젝트를 빌드하고 배포 하는 방법을 GitHub에 알려 줍니다. 
 
-워크플로는 리포지토리의 `/.github/workflows/` 경로에 있는 yaml (.yml) 파일에 의해 정의 됩니다. 이 정의는 워크플로를 구성 하는 다양 한 단계와 매개 변수를 포함 합니다. 
+워크플로는 리포지토리의 `/.github/workflows/` 경로에 있는 YAML (.yml) 파일에 의해 정의 됩니다. 이 정의는 워크플로를 구성 하는 다양 한 단계와 매개 변수를 포함 합니다. 
 
 Azure Functions 워크플로의 경우 파일에는 다음과 같은 세 개의 섹션이 있습니다. 
 
 | 섹션 | 태스크 |
 | ------- | ----- |
-| **인증** | <ol><li>서비스 주체를 정의 합니다.</li><li>GitHub 비밀을 만듭니다.</li></ol>|  
+| **인증** | <ol><li>서비스 주체를 정의 합니다.</li><li>게시 프로필을 다운로드 합니다.</li><li>GitHub 비밀을 만듭니다.</li></ol>|
 | **빌드** | <ol><li>환경을 설정 합니다.</li><li>함수 앱을 빌드합니다.</li></ol> |
-| **배포** | <ol><li>함수 앱을 배포 합니다.</li></ol>| 
+| **배포** | <ol><li>함수 앱을 배포 합니다.</li></ol>|
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기
 
@@ -43,16 +43,27 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 이 예제에서는 리소스의 자리 표시자를 구독 ID, 리소스 그룹 및 함수 앱 이름으로 바꿉니다. 출력은 함수 앱에 대 한 액세스를 제공 하는 역할 할당 자격 증명입니다. GitHub에서 인증 하는 데 사용할 수 있는이 JSON 개체를 복사 합니다.
 
+> [!NOTE]
+> 인증을 위해 게시 프로필을 사용 하기로 결정 한 경우에는 서비스 주체를 만들 필요가 없습니다.
+
 > [!IMPORTANT]
 > 최소한의 액세스 권한을 부여 하는 것이 항상 좋은 방법입니다. 이전 예제의 범위가 전체 리소스 그룹이 아닌 특정 함수 앱으로 제한 되기 때문입니다.
+
+## <a name="download-the-publishing-profile"></a>게시 프로필 다운로드
+
+앱의 **개요** 페이지로 이동 하 고 **게시 프로필 가져오기**를 클릭 하 여 functionapp의 게시 프로필을 다운로드할 수 있습니다.
+
+   ![게시 프로필 다운로드](media/functions-how-to-github-actions/get-publish-profile.png)
+
+파일의 내용을 복사 합니다.
 
 ## <a name="configure-the-github-secret"></a>GitHub 암호 구성
 
 1. [GitHub](https://github.com)에서 리포지토리를 찾아보고 **설정** > **비밀** > **새 비밀 추가**를 선택 합니다.
 
-    ![비밀 추가](media/functions-how-to-github-actions/add-secret.png)
+   ![비밀 추가](media/functions-how-to-github-actions/add-secret.png)
 
-1. 값 `AZURE_CREDENTIALS` 에 대 한 **이름** 및 복사 된 명령 출력에를 사용한 다음 **비밀 추가**를 선택 합니다. 
+1. **이름** 에는-0을 사용 하 고, **값**에 복사 된 명령 출력을 @no__t 사용 하는 경우 **암호 추가**를 선택 합니다. 게시 프로필을 사용 하는 경우 **값**에는-0을 사용 하 고 값 **에는 파일** 콘텐츠를 @no__t 합니다.
 
 이제 GitHub에서 Azure의 함수 앱에 인증할 수 있습니다.
 
@@ -187,7 +198,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 ## <a name="deploy-the-function-app"></a>함수 앱 배포
 
-함수 앱에 코드를 배포 하려면 `Azure/functions-action` 작업을 사용 해야 합니다. 이 작업에는 두 개의 매개 변수가 있습니다.
+함수 앱에 코드를 배포 하려면 `Azure/functions-action` 동작을 사용 해야 합니다. 이 작업에는 두 개의 매개 변수가 있습니다.
 
 |매개 변수 |설명  |
 |---------|---------|
@@ -195,7 +206,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 |_**슬롯-이름**_ | 필드 배포 하려는 [배포 슬롯](functions-deployment-slots.md) 의 이름입니다. 슬롯은 함수 앱에 이미 정의 되어 있어야 합니다. |
 
 
-다음 예에서는의 `functions-action`버전 1을 사용 합니다.
+다음 예에서는 `functions-action`의 버전 1을 사용 합니다.
 
 ```yaml
     - name: 'Run Azure Functions Action'
@@ -207,7 +218,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 ## <a name="next-steps"></a>다음 단계
 
-전체 워크플로를 보려면 [Azure GitHub 작업 워크플로 샘플 리포지토리](https://github.com/Azure/actions-workflow-samples) 에서 이름에 포함 `functionapp` 된 파일 중 하나를 참조 하세요. 이러한 샘플을 워크플로의 시작 지점으로 사용할 수 있습니다.
+전체 워크플로를 보려면 이름에 `functionapp` 인 [Azure GitHub 작업 워크플로 샘플 리포지토리의](https://github.com/Azure/actions-workflow-samples) 파일 중 하나를 참조 하세요. 이러한 샘플을 워크플로의 시작 지점으로 사용할 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [GitHub 동작에 대 한 자세한 정보](https://help.github.com/en/articles/about-github-actions)

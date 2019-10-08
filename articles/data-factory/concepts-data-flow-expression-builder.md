@@ -6,16 +6,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: 67a6de6d85a58f48af4761e0b5d5b0a1a4d74b1a
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 9862866d5cddb227d9417ac15db6b8ea851507e6
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703404"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030300"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Mapping Data Flow 식 작성기
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Azure Data Factory Mapping Data Flow에는 데이터 변환 식을 입력할 수 있는 식 상자가 있습니다. 해당 상자에 데이터 흐름의 열, 필드, 변수, 매개 변수, 함수를 사용합니다. 식을 작성하려면 변환 내의 식 텍스트 상자를 클릭할 때 시작되는 식 작성기를 사용합니다. 변환에 사용할 열을 선택할 때 “계산 열” 옵션이 표시되는 경우도 있습니다. 이 옵션을 클릭해도 식 작성기가 시작됩니다.
 

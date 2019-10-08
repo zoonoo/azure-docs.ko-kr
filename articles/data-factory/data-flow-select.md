@@ -6,15 +6,15 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 3c81ec5e213364ed6f159fd20e12879a098caad4
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 289f98fdc2f39449cdeede9ee46fb39847ae2cb5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774982"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029275"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>데이터 흐름 매핑 선택 변환
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 열 선택도 (열 수 줄이기), 별칭 열 및 스트림 이름 및 열 다시 정렬에 대해이 변환을 사용 합니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "68774982"
 * 개별 열의 별칭을 지정하려면 “모두 선택”을 선택 취소하고 맨 아래에 있는 열 매핑을 사용합니다.
 * 입력 또는 출력 메타 데이터에서 중복 열을 제거 하려면 중복 건너뛰기를 선택 합니다.
 
-![중복 항목 건너뛰기](media/data-flow/select-skip-dup.png "중복 항목 건너뛰기")
+![중복]항목(media/data-flow/select-skip-dup.png "건너뛰기") 중복 항목 건너뛰기
 
 * 중복 항목을 건너뛰도록 선택 하면 검사 탭에 결과가 표시 됩니다. ADF는 처음 발견 되는 열을 유지 하 고 동일한 열의 각 후속 항목이 흐름에서 제거 되었음을 알 수 있습니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "68774982"
 ## <a name="mapping"></a>매핑
 기본적으로 Select 변환은 모든 열을 자동으로 매핑하여 들어오는 모든 열을 출력의 동일한 이름으로 전달 합니다. 선택 설정에서 설정 된 출력 스트림 이름은 스트림의 새 별칭 이름을 정의 합니다. 자동 맵에 대 한 선택 집합을 유지 하는 경우 모든 열을 포함 하 여 전체 스트림의 별칭을 지정할 수 있습니다.
 
-![변환 규칙 선택](media/data-flow/rule2.png "규칙 기반 매핑")
+![변환 규칙](media/data-flow/rule2.png "규칙 기반 매핑") 선택
 
 열을 별칭, 제거, 이름 바꾸기 또는 순서를 변경 하려는 경우 먼저 "자동 매핑"을 해제 해야 합니다. 기본적으로 "모든 입력 열" 이라는 기본 규칙이 입력 된 것을 볼 수 있습니다. 들어오는 모든 열이 해당 출력의 동일한 이름에 매핑되도록 항상 허용 하려는 경우이 규칙을 그대로 둘 수 있습니다.
 

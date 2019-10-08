@@ -13,30 +13,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 4318c4b4d8f1b1f0974d0fae0a2ae5bd6e94b593
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 3a5517c31cdac0bf6f5ea386a8614d15521d4479
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076527"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035541"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Azure 관리 ID와 통합
 
 Azure Active Directory [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 사용하면 클라우드 애플리케이션에 대한 비밀 관리를 간소화할 수 있습니다. 관리 ID를 사용하면 실행되는 Azure 컴퓨팅 서비스에 대해 만들어진 서비스 주체를 사용하도록 코드를 설정할 수 있습니다. Azure Key Vault 또는 로컬 연결 문자열에 저장된 별도의 자격 증명 대신 관리 ID를 사용합니다. 
 
-Azure App Configuration과 .NET Core, .NET 및 Java Spring 클라이언트 라이브러리에는 MSI(관리 서비스 ID) 지원이 기본적으로 제공됩니다. MSI는 사용할 필요가 없지만 사용하는 경우 비밀이 포함된 액세스 토큰이 필요하지 않습니다. 코드에 액세스하려면 앱 구성 저장소에 대한 서비스 엔드포인트만 알고 있어야 합니다. 이 URL은 비밀을 공개하지 않으면서 코드에 직접 포함시킬 수 있습니다.
+Azure App Configuration과 .NET Core, .NET 및 Java Spring 클라이언트 라이브러리에는 MSI(관리 서비스 ID) 지원이 기본적으로 제공됩니다. MSI는 사용할 필요가 없지만 사용하는 경우 비밀이 포함된 액세스 토큰이 필요하지 않습니다. 코드는 서비스 끝점만 사용 하 여 앱 구성 저장소에 액세스할 수 있습니다. 이 URL은 비밀을 공개하지 않으면서 코드에 직접 포함시킬 수 있습니다.
 
 이 자습서에서는 MSI를 활용하여 App Configuration에 액세스하는 방법을 보여줍니다. 빠른 시작에 소개된 웹앱을 기반으로 합니다. 계속 진행하기 전에 먼저 [App Configuration을 사용하여 ASP.NET Core 앱 만들기](./quickstart-aspnet-core-app.md)를 완료합니다.
 
+또한이 자습서에서는 선택적으로 MSI를 앱 구성의 Key Vault 참조와 함께 사용할 수 있는 방법을 보여 줍니다. 이렇게 하면 Key Vault에 저장 된 암호 및 앱 구성의 구성 값에 원활 하 게 액세스할 수 있습니다. 이 기능을 탐색 하려면 먼저 [ASP.NET Core를 사용 하 여 Key Vault 참조 사용](./use-key-vault-references-dotnet-core.md) 을 완료 합니다.
+
 이 자습서의 단계는 임의의 코드 편집기를 사용하여 수행할 수 있습니다. [Visual Studio Code](https://code.visualstudio.com/)는 Windows, macOS 및 Linux 플랫폼에서 사용할 수 있는 훌륭한 옵션입니다.
 
-이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
+이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * App Configuration에 대한 관리 ID 액세스 권한을 부여합니다.
 > * App Configuration에 연결할 때 관리 ID를 사용하도록 앱을 구성합니다.
+> * 필요에 따라 앱 구성 Key Vault 참조를 통해 Key Vault에 연결할 때 관리 id를 사용 하도록 앱을 구성 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
@@ -63,23 +66,25 @@ Azure App Configuration과 .NET Core, .NET 및 Java Spring 클라이언트 라�
 
 1. [Azure Portal](https://portal.azure.com)에서 **모든 리소스**를 선택하고, 빠른 시작에서 만든 앱 구성 저장소를 선택합니다.
 
-2. **액세스 제어(IAM)** 를 선택합니다.
+1. **액세스 제어(IAM)** 를 선택합니다.
 
-3. **액세스 권한 확인** 탭의 **역할 할당 추가** 카드 UI에서 **추가**를 선택합니다.
+1. **액세스 권한 확인** 탭의 **역할 할당 추가** 카드 UI에서 **추가**를 선택합니다.
 
-4. **역할** 아래에서 **기여자**를 선택합니다. **다음에 대한 액세스 할당**의 **시스템이 할당한 관리 ID** 아래에서 **App Service**를 선택합니다.
+1. **역할** 아래에서 **기여자**를 선택합니다. **다음에 대한 액세스 할당**의 **시스템이 할당한 관리 ID** 아래에서 **App Service**를 선택합니다.
 
-5. **구독** 아래에서 Azure 구독을 선택합니다. 앱의 App Service 리소스를 선택합니다.
+1. **구독** 아래에서 Azure 구독을 선택합니다. 앱의 App Service 리소스를 선택합니다.
 
-6. **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
     ![관리형 ID 추가](./media/add-managed-identity.png)
+
+1. 선택 사항: Key Vault에 대 한 액세스 권한을 부여 하려는 경우 [관리 id를 사용 하 여 Key Vault 인증 제공](https://docs.microsoft.com/azure/key-vault/managed-identity)의 지침을 따르세요.
 
 ## <a name="use-a-managed-identity"></a>관리 ID 사용
 
 1. Azure Portal에서 구성 화면으로 이동한 다음 **액세스 키** 탭을 클릭 하 여 앱 구성 저장소에 대 한 URL을 찾습니다.
 
-2. *appsettings.json*을 열고 다음 스크립트를 추가합니다. *\<Service_endpoint >* (대괄호 포함)를 앱 구성 저장소에 대 한 URL로 바꿉니다. 
+1. *appsettings.json*을 열고 다음 스크립트를 추가합니다. 괄호를 포함 하 여 *\<service_endpoint >* 를 앱 구성 저장소에 대 한 URL로 바꿉니다. 
 
     ```json
     "AppConfig": {
@@ -87,7 +92,7 @@ Azure App Configuration과 .NET Core, .NET 및 Java Spring 클라이언트 라�
     }
     ```
 
-3. *Program.cs*를 열고 `config.AddAzureAppConfiguration()` 메서드를 대체하여 `CreateWebHostBuilder` 메서드를 업데이트합니다.
+1. 앱 구성에 직접 저장 된 값에만 액세스 하려면 *Program.cs*를 열고 `config.AddAzureAppConfiguration()` 메서드를 대체 하 여 `CreateWebHostBuilder` 메서드를 업데이트 합니다.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -100,6 +105,24 @@ Azure App Configuration과 .NET Core, .NET 및 Java Spring 클라이언트 라�
             })
             .UseStartup<Startup>();
     ```
+
+1. 앱 구성 값을 사용 하 고 Key Vault 참조를 사용 하려면 아래와 같이 *Program.cs*를 열고 `CreateWebHostBuilder` 메서드를 업데이트 합니다. 그러면 `AzureServiceTokenProvider`을 사용 하 여 새 `KeyVaultClient`이 생성 되 고이 참조가 `UseAzureKeyVault` 메서드에 대 한 호출에 전달 됩니다.
+
+    ```csharp
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
+                    AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
+                    KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+                    
+                    config.AddAzureAppConfiguration(options => options.ConnectWithManagedIdentity(settings["AppConfig:Endpoint"])).UseAzureKeyVault(kvClient));
+                })
+                .UseStartup<Startup>();
+    ```
+
+    이제 다른 앱 구성 키와 마찬가지로 Key Vault 참조에 액세스할 수 있습니다. 구성 공급자는 Key Vault에 인증 하 고 값을 검색 하도록 구성 된 `KeyVaultClient`을 사용 합니다.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -114,7 +137,7 @@ Kudu 빌드 서버를 사용하여 앱에 로컬 Git 배포를 사용하도록 �
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### <a name="enable-local-git-with-kudu"></a>Kudu로 로컬 Git을 사용하도록 설정
-앱에 대 한 로컬 git 리포지토리가 아직 없는 경우 앱의 프로젝트 디렉터리에서 다음 명령을 실행 하 여 앱을 초기화 해야 합니다.
+앱에 대 한 로컬 git 리포지토리가 없으면 하나를 초기화 해야 합니다. 이렇게 하려면 앱의 프로젝트 디렉터리에서 다음 명령을 실행 합니다.
 
 ```cmd
 git init

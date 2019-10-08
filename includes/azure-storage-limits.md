@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/19/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: b51d984726cfd178189e7fe1a994c35c7efaed36
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a48c1352e4628d8e1776a9479aceac7c294a2ea1
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124090"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72023069"
 ---
 다음 표에서는 Azure 범용 v1, v2 및 Blob storage 계정에 대 한 기본 제한을 설명 합니다. *수신* 제한은 저장소 계정으로 전송 되는 요청의 모든 데이터를 나타냅니다. *송신* 한도는 저장소 계정에서 받은 응답의 모든 데이터를 나타냅니다.
 
@@ -31,7 +31,8 @@ ms.locfileid: "71124090"
 
 <sup>1</sup> Azure Standard Storage 계정은 요청에의 한 수신에 대해 더 높은 용량 제한과 더 높은 제한을 지원 합니다. 수신에 대한 계정 제한을 늘리도록 요청하려면 [Azure 고객 지원팀](https://azure.microsoft.com/support/faq/)에 문의하세요. 자세한 내용은 더 [큰 규모의 저장소 계정 발표](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)를 참조 하세요.
 
-<sup>2</sup> 읽기 액세스를 사용 하는 경우 (RA-GRS/RA-GZRS) 보조 위치에 대 한 송신 대상은 기본 위치와 동일 합니다. [Azure Storage 복제](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 옵션은 다음과 같습니다.[!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
+<sup>2</sup> 읽기 액세스를 사용 하는 경우 (RA-GRS/RA-GZRS) 보조 위치에 대 한 송신 대상은 기본 위치와 동일 합니다. [Azure Storage 복제](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 옵션은 다음과 같습니다.  
+[!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
 
 > [!NOTE]
 > 대부분의 시나리오에서는 범용 v2 저장소 계정을 사용 하는 것이 좋습니다. 가동 중지 시간 없이 데이터를 복사할 필요 없이 일반적인 용도의 v1 또는 Azure Blob storage 계정을 범용 v2 계정으로 쉽게 업그레이드할 수 있습니다.

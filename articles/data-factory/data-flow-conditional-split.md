@@ -6,16 +6,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: dd51cc2d5f95598154b76b5da8e3fc9e4801100d
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: fec2b09b9dc471135d9cdd00ac2465728a47bdbf
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104943"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026924"
 ---
 # <a name="mapping-data-flow-conditional-split-transformation"></a>데이터 흐름 조건부 분할 변환 매핑
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ![조건부 분할 도구 상자](media/data-flow/conditionalsplit2.png "조건부 분할 도구 상자")
 

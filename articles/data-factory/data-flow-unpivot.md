@@ -7,16 +7,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 160ff8bbcb8ce5a4f1f32245cc366281640c5919
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28fedf96ec178aae0615129421bdae7721a66105
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61348319"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029935"
 ---
-# <a name="azure-data-factory-unpivot-transformation"></a>Azure Data Factory를 피벗 해제 변환
+# <a name="azure-data-factory-unpivot-transformation"></a>Azure Data Factory 피벗 해제 변환
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ADF Mapping Data Flow의 피벗 해제는 단일 레코드에 있는 여러 열의 값을 단일 열의 값이 동일한 여러 레코드로 확장하여 비정규화된 데이터 세트를 보다 정규화된 버전으로 전환하는 방법으로 사용합니다.
 
@@ -42,7 +42,7 @@ ADF Mapping Data Flow의 피벗 해제는 단일 레코드에 있는 여러 열�
 
 (선택 사항) 행 값에서 검색된 각 새 열 이름에 추가할 접두사, 중간 및 접미사를 사용한 이름 지정 패턴을 설정할 수 있습니다.
 
-예를 들어 “Sales”를 “Region”으로 피벗하는 경우 단순히 각 판매 값에서 새 열 값이 제공됩니다. 예를 들면 다음과 같습니다. “25”, “50”, “1000”, ... 그러나 접두사 값으로 “Sales”를 설정하면 “Sales”가 값에 접두사로 추가됩니다.
+예를 들어 “Sales”를 “Region”으로 피벗하는 경우 단순히 각 판매 값에서 새 열 값이 제공됩니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. “25”, “50”, “1000”, ... 그러나 접두사 값으로 “Sales”를 설정하면 “Sales”가 값에 접두사로 추가됩니다.
 
 <img src="media/data-flow/unpivot3.png" width="400">
 
@@ -54,4 +54,4 @@ ADF Mapping Data Flow의 피벗 해제는 단일 레코드에 있는 여러 열�
 
 ## <a name="next-steps"></a>다음 단계
 
-사용 된 [피벗 변환](data-flow-pivot.md) 피벗 행을 열 수 있습니다.
+[피벗 변환을](data-flow-pivot.md) 사용 하 여 행을 열로 피벗 합니다.

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2bf7118d1f4be065969312d1fb9b0cf77e820d48
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b0a7221107f05ff2239bd77cc18e7ffedc18efc1
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262875"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023587"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>SQL VM 리소스 공급자를 사용 하 여 Azure에 SQL Server 가상 머신 등록
 
@@ -42,6 +42,11 @@ SQL VM 리소스 공급자를 활용 하려면 SQL VM 리소스 공급자를 구
 
   > [!NOTE]
   > 리소스 공급자를 등록 하는 것과 관련 된 추가 라이선스 요구 사항은 없습니다. SQL VM 리소스 공급자를 사용 하 여 등록 하면 각 리소스에 대 한 라이선스 등록 양식을 관리 하는 대신 Azure 하이브리드 혜택을 사용할 수 있도록 Microsoft에 알리는 간단한 방법을 제공 합니다. 
+
+SQL VM 리소스 공급자 사용의 이점에 대 한 자세한 내용은 다음 [channel9](https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure?WT.mc_id=dataexposed-c9-niner) 비디오를 참조 하세요. 
+
+<iframe src="https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Azure에서 자동 설치 SQL Server 경우 SQL VM 리소스 공급자의 혜택-Microsoft Channel 9 비디오"></iframe>
+
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -157,9 +162,9 @@ Azure Portal, Azure CLI 또는 PowerShell을 사용 하 여 SQL Server VM SQL VM
 
 ![SQL RP 등록을 사용 하 여 상태 확인](media/virtual-machines-windows-sql-register-with-rp/verify-registration-status.png)
 
-### <a name="command-line"></a>명령줄
+### <a name="command-line"></a>명령 줄
 
-Az CLI 또는 PowerShell을 사용 하 여 현재 SQL Server VM 등록 상태를 확인 합니다. `ProvisioningState`등록이 성공 `Succeeded` 했는지 여부를 표시 합니다. 
+Az CLI 또는 PowerShell을 사용 하 여 현재 SQL Server VM 등록 상태를 확인 합니다. 등록에 성공 하면 `ProvisioningState` @no__t 표시 됩니다. 
 
 # <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
 
@@ -216,7 +221,7 @@ PowerShell을 사용 하 여 SQL Server IaaS 에이전트의 현재 모드를 �
 
     ![가상 머신에서 SQL Server 서비스를 다시 시작 하는 것에 동의 하는 확인란](media/virtual-machines-windows-sql-server-agent-extension/enable-full-mode-iaas.png)
 
-### <a name="command-line"></a>명령줄
+### <a name="command-line"></a>명령 줄
 
 # <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
 
@@ -256,7 +261,7 @@ SQL VM 리소스 공급자에 SQL Server VM를 등록 하려면 구독에 리소
 ![공급자 수정](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 
 
-### <a name="command-line"></a>명령줄
+### <a name="command-line"></a>명령 줄
 
 Az CLI 또는 PowerShell을 사용 하 여 Azure 구독에 SQL VM 리소스 공급자를 등록 합니다. 
 

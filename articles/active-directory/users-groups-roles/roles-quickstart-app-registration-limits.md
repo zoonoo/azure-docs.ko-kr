@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f883741577de22f66cd7a9bfaf733aa3c59b879b
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: c91de3de743d168bea207f27fb162486ea625a63
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707683"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026273"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>빠른 시작: 무제한 앱 등록을 만들 수 있는 권한 부여
 
@@ -26,14 +26,14 @@ ms.locfileid: "68707683"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisite"></a>필수 조건
+## <a name="prerequisite"></a>사전 요구 사항
 
 Azure AD 사용자 지정 역할을 만들고 할당 하는 데 필요한 최소 권한 있는 역할은 권한 있는 역할 관리자입니다.
 
 ## <a name="create-a-new-custom-role-using-the-azure-ad-portal"></a>Azure AD 포털을 사용 하 여 새 사용자 지정 역할 만들기
 
-1. Azure ad 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [azure ad 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
-1.  **Azure Active Directory**를 선택 하 고 **역할 및 관리자**를 선택한 다음 **새 사용자 지정 역할**을 선택 합니다.
+1. Azure ad 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [AZURE ad 관리 센터](https://aad.portal.azure.com) with 로그인 합니다.
+1. **Azure Active Directory**를 선택 하 고 **역할 및 관리자**를 선택한 다음 **새 사용자 지정 역할**을 선택 합니다.
 
     ![역할 및 관리자 페이지에서 역할 만들기 또는 편집](./media/roles-create-custom/new-custom-role.png)
 
@@ -49,12 +49,12 @@ Azure AD 사용자 지정 역할을 만들고 할당 하는 데 필요한 최소
 
 ### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>Azure AD 포털을 사용 하 여 사용자에 게 역할 할당
 
-1. Azure ad 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [azure ad 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
-1.  **Azure Active Directory** 선택 하 고 **역할 및 관리자**를 선택 합니다.
+1. Azure ad 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [AZURE ad 관리 센터](https://aad.portal.azure.com) with 로그인 합니다.
+1. **Azure Active Directory** 선택 하 고 **역할 및 관리자**를 선택 합니다.
 1. 응용 프로그램 등록 작성자 역할을 선택 하 고 **할당 추가**를 선택 합니다.
 1. 원하는 사용자를 선택 하 고 **선택** 을 클릭 하 여 사용자를 역할에 추가 합니다.
 
-완료되었습니다! 이 빠른 시작에서는 무제한 개수의 앱 등록을 만들 수 있는 권한이 있는 사용자 지정 역할을 성공적으로 만든 후 해당 역할을 사용자에 게 할당 합니다.
+완료되었습니다. 이 빠른 시작에서는 무제한 개수의 앱 등록을 만들 수 있는 권한이 있는 사용자 지정 역할을 성공적으로 만든 후 해당 역할을 사용자에 게 할당 합니다.
 
 > [!TIP]
 > Azure AD 포털을 사용 하 여 응용 프로그램에 역할을 할당 하려면 할당 페이지의 검색 상자에 응용 프로그램의 이름을 입력 합니다. 응용 프로그램은 기본적으로 목록에 표시 되지 않지만 검색 결과에 반환 됩니다.
@@ -141,7 +141,7 @@ $customRole = New-AzureAdRoleDefinition -RolePermissions $rolePermissions -Displ
 https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
 ```
 
-본문
+Body
 
 ```HTTP
 {
@@ -178,7 +178,7 @@ https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
 https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
-본문
+Body
 
 ``` HTTP
 {

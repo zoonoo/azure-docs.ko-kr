@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a33c6f6621e7fc7944bc116b27e5f26de88f77d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0abc7c4ae370a894c46eda38df41d64a6ef2cd91
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389571"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027707"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure Monitor 경고를 사용하여 복잡한 작업을 트리거하는 방법
 
@@ -26,7 +26,7 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../../azure-monitor/plat
 
 -   각 경고 유형에 대한 논리 앱을 만듭니다.
 
--   논리 앱에 해당 경고 유형에 대 한 샘플 페이로드를 가져옵니다.
+-   각 경고 유형에 대 한 샘플 페이로드를 논리 앱으로 가져옵니다.
 
 -   논리 앱 동작을 정의합니다.
 
@@ -38,7 +38,7 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../../azure-monitor/plat
 
 1.  Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
 
-2.   **논리 앱**을 검색하여 선택한 다음,  **만들기**를 선택합니다.
+2.  **논리 앱**을 검색하여 선택한 다음, **만들기**를 선택합니다.
 
 3.  논리 앱 **이름**을 지정하고 **리소스 그룹** 등을 선택합니다.
 
@@ -58,7 +58,7 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../../azure-monitor/plat
 
     ![샘플 페이로드를 사용](media/action-groups-logic-app/use-sample-payload-button.png "샘플 페이로드 사용")
 
-8.  복사 하 고 대화 상자에 다음 샘플 페이로드를 붙여 넣습니다.
+8.  다음 샘플 페이로드를 복사 하 여 대화 상자에 붙여 넣습니다.
 
     ```json
         {
@@ -140,7 +140,7 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../../azure-monitor/plat
 Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만들기 프로세스는 몇 가지 변경을 제외하고는 [활동 로그 경고 만들기](#create-an-activity-log-alert-administrative)와 비슷합니다.
 
 - 1-7단계는 동일합니다.
-- 8 단계에 대 한 HTTP 요청 트리거를 위한 다음 샘플 페이로드를 사용 합니다.
+- 8 단계의 경우 HTTP 요청 트리거에 대 한 다음 샘플 페이로드를 사용 합니다.
 
     ```json
     {
@@ -228,7 +228,7 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
 메트릭 경고 만들기 프로세스는 몇 가지 변경을 제외하고는 [활동 로그 경고 만들기](#create-an-activity-log-alert-administrative)와 비슷합니다.
 
 - 1-7단계는 동일합니다.
-- 8 단계에 대 한 HTTP 요청 트리거를 위한 다음 샘플 페이로드를 사용 합니다.
+- 8 단계의 경우 HTTP 요청 트리거에 대 한 다음 샘플 페이로드를 사용 합니다.
 
     ```json
     {

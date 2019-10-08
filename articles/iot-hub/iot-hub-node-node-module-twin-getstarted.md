@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 3796017af643c993871757482ed17d1765cd6494
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: e33987d382a2afd93644a413084339fcd330d2e2
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802410"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029706"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>IoT Hub 모듈 id 및 모듈 쌍 시작 (node.js)
 
@@ -32,7 +32,7 @@ ms.locfileid: "70802410"
 > [!NOTE]
 > 디바이스와 솔루션 백 엔드에서 실행하기 위해 두 애플리케이션을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 정보는 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Node.js 버전 10.0. x 이상 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) Windows 또는 Linux에서이 자습서에 대 한 node.js를 설치 하는 방법을 설명 합니다.
 
@@ -54,9 +54,9 @@ ms.locfileid: "70802410"
 
 1. 코드를 저장할 디렉터리를 만듭니다.
 
-2. 이 디렉터리 내부에서 먼저  **npm init -y** 를 실행하여 기본값으로 빈 package.json을 만듭니다. 코드의 프로젝트 파일입니다.
+2. 이 디렉터리 내부에서 먼저 **npm init -y**를 실행하여 기본값으로 빈 package.json을 만듭니다. 코드의 프로젝트 파일입니다.
 
-3.  **Npm install-S iothub\@modules-preview** 를 실행 하 여 **node_modules** 하위 디렉터리 내에 서비스 SDK를 설치 합니다.
+3. **Npm install-S azure-iothub @ no__t-1modules-preview** 를 실행 하 여 **node_modules** 하위 디렉터리 내에 서비스 SDK를 설치 합니다.
 
     > [!NOTE]
     > 하위 디렉터리 이름 node_modules는 ‘module’이라는 단어를 사용하여 “노드 라이브러리”를 나타냅니다. 여기서 이 용어는 IoT Hub 모듈과 아무 관계도 없습니다.
@@ -133,7 +133,7 @@ node add.js를 사용하여 실행합니다. 그러면 디바이스 ID에 대한
 
    ![Azure Portal 모듈 세부 정보](./media/iot-hub-node-node-module-twin-getstarted/module-detail.png)
 
-2. 위의 단계에서와 마찬가지로 장치 코드에 대 한 디렉터리를 만들고 NPM를 사용 하 여 장치를 초기화 하 고 장치 SDK를 설치 합니다 (**NPM\@** ).
+2. 위의 단계에서와 마찬가지로 장치 코드에 대 한 디렉터리를 만들고 NPM를 사용 하 여 장치를 초기화 하 고 장치 SDK를 설치 합니다 (**NPM install-S no__t-amqp @-1modules-preview**).
 
    > [!NOTE]
    > npm install 명령의 속도가 느린 것처럼 보일 수도 있습니다. 이 명령은 패키지 리포지토리에서 많은 코드를 끌어오고 있으므로 잠시 기다려 주세요.
@@ -192,7 +192,7 @@ node add.js를 사용하여 실행합니다. 그러면 디바이스 ID에 대한
     });
     ```
 
-4. 이제  **node twin.js** 명령을 사용하여 실행합니다.
+4. 이제 **node twin.js** 명령을 사용하여 실행합니다.
 
    ```cmd/sh
    F:\temp\module_twin>node twin.js

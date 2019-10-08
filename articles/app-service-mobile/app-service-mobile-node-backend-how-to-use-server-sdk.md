@@ -14,16 +14,20 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 6eaaeba8a36bcba8134d605889185fb8827dd05c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 74a522f8761c2eeaf329c90ae35aef0f44c40254
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851185"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027198"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Mobile Apps Node.js SDK를 사용하는 방법
 
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
+
+> [!NOTE]
+> Visual Studio App Center은 모바일 앱 개발에 대 한 종단 간 및 통합 서비스의 중심을 지원 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다.
+> 모바일 응용 프로그램에서 클라우드 서비스를 통합 하려는 경우 현재 App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 에 등록 하세요.
 
 이 문서에서는 Azure App Service의 Mobile Apps 기능에서 Node.js 백 엔드로 작업하는 방법을 보여 주는 자세한 정보와 예를 제공합니다.
 
@@ -38,7 +42,7 @@ Mobile Apps는 모바일에 최적화된 데이터 액세스 Web API를 웹 애�
 
 [GitHub의 샘플 디렉터리]에서 각 사용 사례에 대한 샘플을 찾을 수 있습니다.
 
-## <a name="supported-platforms"></a>지원 플랫폼
+## <a name="supported-platforms"></a>지원되는 플랫폼
 
 Mobile Apps Node.js SDK는 노드의 최신 LTS 릴리스 이상을 지원합니다. 현재 최신 LTS 버전은 노드 v4.5.0입니다. 다른 버전의 노드는 작동할 수는 있지만 지원되지 않습니다.
 
@@ -135,7 +139,7 @@ Visual Studio 2015는 IDE 내에서 Node.js 애플리케이션 개발하도록 �
 
     파일을 저장합니다.
 
-1. 응용 프로그램을 로컬로 실행 하거나 (API가에서 `http://localhost:3000`제공 됨) Azure에 게시 합니다.
+1. 응용 프로그램을 로컬로 실행 하거나 (API가 `http://localhost:3000`에서 제공 됨) Azure에 게시 합니다.
 
 ### <a name="create-node-backend-portal"></a>Azure Portal을 사용하여 Node.js 백 엔드 만들기
 
@@ -192,7 +196,7 @@ var mobile = azureMobileApps({ homePage: true });
 
 azure-mobile-apps Node.js 서버 SDK는 Azure SQL Database에 저장된 데이터 테이블을 Web API로 노출하는 메커니즘을 제공합니다. 다섯 가지 작업을 제공합니다.
 
-| 연산 | Description |
+| 연산 | 설명 |
 | --- | --- |
 | GET /tables/*tablename* |테이블의 모든 레코드를 가져옵니다. |
 | GET /tables/*tablename*/:id |테이블의 특정 레코드를 가져옵니다. |
@@ -370,7 +374,7 @@ module.exports = {
 
 azureMobile.js 파일에서 대부분의 설정은 [Azure Portal]에서 동일한 앱 설정을 포함합니다. 다음 목록을 사용하여 **앱 설정**에서 앱을 구성합니다.
 
-| 앱 설정 | azureMobile.js 설정 | Description | 유효한 값 |
+| 앱 설정 | azureMobile.js 설정 | 설명 | 유효한 값 |
 |:--- |:--- |:--- |:--- |
 | **MS_MobileAppName** |name |앱의 이름 |string |
 | **MS_MobileLoggingLevel** |logging.level |로깅할 메시지의 최소 로그 수준 |error, warning, info, verbose, debug, silly |

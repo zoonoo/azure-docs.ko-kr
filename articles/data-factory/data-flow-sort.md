@@ -1,22 +1,22 @@
 ---
-title: Azure Data Factory 데이터 흐름 정렬 변환 매핑
-description: Azure Data Factory 데이터 정렬 변환 매핑
+title: Azure Data Factory 매핑 데이터 흐름 정렬 변환
+description: Azure Data Factory 매핑 데이터 정렬 변환
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: d0482d1081c16dc89e7371c4c33de9b2bb4e4c2e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9d2699c870de21daea9ce421c79f089c04b99fa
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61348389"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029133"
 ---
-# <a name="azure-data-factory-data-flow-sort-transformations"></a>Azure Data Factory 데이터 흐름 정렬 변환
+# <a name="azure-data-factory-data-flow-sort-transformations"></a>데이터 흐름 정렬 변환 Azure Data Factory
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ![정렬 설정](media/data-flow/sort.png "정렬")
 
@@ -35,4 +35,4 @@ ADF Data Flow는 데이터가 여러 노드 및 파티션에 분산된 빅 데�
 
 ## <a name="next-steps"></a>다음 단계
 
-정렬 후 사용 하려는 [집계 변환](data-flow-aggregate.md)
+정렬 후 [집계 변환을](data-flow-aggregate.md) 사용 하는 것이 좋습니다.

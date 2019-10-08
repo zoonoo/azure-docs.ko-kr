@@ -7,16 +7,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 18f713198ef9aa45cb72a6718c0f7b086c019258
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48cf9d58c8acd85e545a5bcb5104d7069670e349
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61348555"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029331"
 ---
 # <a name="mapping-data-flow-join-transformation"></a>데이터 흐름 조인 변환 매핑
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 조인을 사용하여 Data Flow에서 두 테이블의 데이터를 결합합니다. 왼쪽 관계가 될 변환을 클릭하고 도구 상자에서 조인 변환을 추가합니다. 조인 변환 내부에서 오른쪽 관계가 될 데이터 흐름의 다른 데이터 스트림을 선택합니다.
 
@@ -24,11 +24,11 @@ ms.locfileid: "61348555"
 
 ## <a name="join-types"></a>조인 유형
 
-조인 유형을 선택 하는 것은 조인 변환에 대 한 필수입니다.
+조인 변환에는 조인 유형을 선택 해야 합니다.
 
 ### <a name="inner-join"></a>내부 조인
 
-내부 조인은 양쪽 테이블의 열 조건과 일치 하는 행만 전달 합니다.
+내부 조인은 두 테이블의 열 조건과 일치 하는 행만 통과 시킵니다.
 
 ### <a name="left-outer"></a>왼쪽 우선 외부
 
@@ -40,11 +40,11 @@ ms.locfileid: "61348555"
 
 ### <a name="full-outer"></a>완전 외부
 
-완전 외부 모든 열을 생성 하 고 다른 테이블의 열에 대해 NULL 값을 사용 하 여 양쪽에서 행 없음.
+Full Outer는 양쪽의 모든 열과 행을 생성 하 고 다른 테이블에는 없는 열에 대해 NULL 값을 생성 합니다.
 
 ### <a name="cross-join"></a>크로스 조인
 
-식을 사용 하 여 두 스트림의 교차곱을 지정 합니다. 사용자 지정 조인 조건을 만들려면 다음과 같이 사용할 수 있습니다.
+식을 사용 하 여 두 스트림의 교차곱을 지정 합니다. 이를 사용 하 여 사용자 지정 조인 조건을 만들 수 있습니다.
 
 ## <a name="specify-join-conditions"></a>조인 조건 지정
 
@@ -54,11 +54,11 @@ ms.locfileid: "61348555"
 
 ## <a name="join-performance-optimizations"></a>조인 성능 최적화
 
-SSIS와 같은 도구의 병합 조인과 달리, ADF Data Flow의 조인은 필수 병합 조인 작업이 아닙니다. 따라서 조인 키를 먼저 정렬할 필요가 없습니다. 조인 작업은 Spark의 최적 조인 작업을 기준으로 Databricks를 사용하여 Spark에서 발생합니다. 브로드캐스트/맵 쪽 조인:
+SSIS와 같은 도구의 병합 조인과 달리, ADF Data Flow의 조인은 필수 병합 조인 작업이 아닙니다. 따라서 조인 키를 먼저 정렬할 필요가 없습니다. 조인 작업은 Spark에서 최적의 조인 작업을 기반으로 수행 됩니다. 브로드캐스트/맵 쪽 조인:
 
 ![조인 변환 최적화](media/data-flow/joinoptimize.png "조인 최적화")
 
-데이터 세트가 Databricks 작업자 노드 메모리에 맞으면 조인 성능을 최적화할 수 있습니다. 조인 작업에서 데이터의 분할을 지정하여 작업자당 메모리에 더 잘 맞는 데이터 세트를 만들 수도 있습니다.
+데이터 집합을 작업자 노드 메모리에 맞출 수 있는 경우 조인 성능을 최적화할 수 있습니다. 조인 작업에서 데이터의 분할을 지정하여 작업자당 메모리에 더 잘 맞는 데이터 세트를 만들 수도 있습니다.
 
 ## <a name="self-join"></a>셀프 조인
 
@@ -70,8 +70,8 @@ SSIS와 같은 도구의 병합 조인과 달리, ADF Data Flow의 조인은 필
 
 ## <a name="composite-and-custom-keys"></a>복합 및 사용자 지정 키
 
-사용자 지정 및 복합 키 조인 변환 내에서 즉석에서 빌드할 수 있습니다. 각 관계 행 옆의 더하기 기호 (+)를 사용 하 여 추가 조인 열에 대 한 행을 추가 합니다. 또는 식 작성기는 즉석에서 조인 값에 대 한 새 키 값을 계산 합니다.
+조인 변환 내에서 즉시 사용자 지정 및 복합 키를 빌드할 수 있습니다. 각 관계 행 옆에 더하기 기호 (+)를 사용 하 여 추가 조인 열에 행을 추가 합니다. 또는 즉석 조인 값에 대해 식 작성기에서 새 키 값을 계산 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-데이터를 조인한 후 할 수 있습니다 [새 열을 만듭니다](data-flow-derived-column.md) 하 고 [대상 데이터 저장소로 데이터를 싱크](data-flow-sink.md)합니다.
+데이터를 조인한 후에는 [새 열을 만들고](data-flow-derived-column.md) [데이터를 대상 데이터 저장소로 싱크](data-flow-sink.md)할 수 있습니다.

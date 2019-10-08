@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: dead041845c123672d881a8538644b56c34a58a2
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 36e48e86ed3cf7138f7ff5efe89d08c07df87f25
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845592"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028264"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>클라우드의 새 DBA - Azure SQL Database의 단일 데이터베이스 및 풀링된 데이터베이스 관리
 
@@ -42,7 +42,7 @@ ms.locfileid: "70845592"
 [Azure Portal](https://portal.azure.com/)에서 데이터베이스를 선택 하 고 **모니터링** 차트를 클릭 하 여 개별 데이터베이스 사용률을 모니터링할 수 있습니다. 그러면 **메트릭** 창이 나타나며 **차트 편집** 단추를 클릭하면 이 창을 변경할 수 있습니다. 다음 메트릭을 추가합니다.
 
 - CPU 비율
-- DTU 백분율
+- DTU 비율
 - 데이터 IO 비율
 - 데이터베이스 크기 비율
 
@@ -66,8 +66,8 @@ Azure SQL DB에 백업을 만들지는 않으며 그럴 필요가 없습니다. 
 
 |서비스 계층|보존 기간(일)|
 |---|:---:|
-|Basic|7|
-|표준|35|
+|기본|7|
+|Standard|35|
 |Premium|35|
 |||
 
@@ -274,15 +274,15 @@ Azure Portal은 개요 창에서 데이터베이스를 선택하고 차트를 �
 
 지난 1시간 동안의 리소스 소비 통계 기록을 반환하려면 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 동적 관리 뷰를, 지난 14일에 대한 기록을 반환하려면 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 시스템 카탈로그 뷰를 쿼리하면 됩니다.
 
-#### <a name="query-performance-insight"></a>Query Performance Insight
+#### <a name="query-performance-insight"></a>쿼리
 
 [Query Performance Insight](sql-database-query-performance.md)를 사용하면 상위 리소스 소비량 쿼리 및 특정 데이터베이스에 대한 장기 실행 쿼리 기록을 볼 수 있습니다. 리소스 사용률, 기간 및 실행 빈도별로 최상위 쿼리를 신속하게 식별할 수 있습니다. 쿼리를 추적하고 재발을 검색할 수 있습니다. 이 기능을 사용하려면 [쿼리 저장소](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)가 데이터베이스에 대해 사용할 수 있도록 설정되고 활성화되어야 합니다.
 
-![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
+![쿼리](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
 #### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure Monitor 로그의 Azure SQL 분석 (미리 보기)
 
-[Azure Monitor 로그](../azure-monitor/insights/azure-sql.md) 를 사용 하면 주요 Azure SQL Azure 성능 메트릭을 수집 하 고 시각화할 수 있으며,이를 통해 최대 15만 개의 sql database 및 5000 sql 탄력적 풀을 지원할 수 있습니다. 그것을 사용하여 알림을 모니터링하고 받을 수 있습니다. 여러 Azure 구독 및 탄력적 풀에서 SQL Database 및 탄력적 풀 메트릭을 모니터링할 수 있으며 애플리케이션 스택의 각 레이어에서 문제를 식별하는 데 사용할 수 있습니다.
+[Azure Monitor 로그](../azure-monitor/insights/azure-sql.md) 를 사용 하면 주요 Azure sql database 성능 메트릭을 수집 하 고 시각화할 수 있으며,이를 통해 최대 15만 개의 sql database 및 5000 sql 탄력적 풀을 지원할 수 있습니다. 그것을 사용하여 알림을 모니터링하고 받을 수 있습니다. 여러 Azure 구독 및 탄력적 풀에서 SQL Database 및 탄력적 풀 메트릭을 모니터링할 수 있으며 애플리케이션 스택의 각 레이어에서 문제를 식별하는 데 사용할 수 있습니다.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>성능 문제를 발견했습니다. SQL Database 문제 해결 방법은 SQL Server와는 어떻게 다른가요?
 

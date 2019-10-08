@@ -7,17 +7,17 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: 9fff9f13e5ce6bf8a7805f7794d3e71eb4030104
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ffc724ef5133ee25643a966d2b6d8448a4c3a920
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065692"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023603"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Azure CLI를 사용하여 서버 로그 구성 및 액세스
 Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for MariaDB 서버 로그를 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [Azure Database for MariaDB 서버](quickstart-create-mariadb-server-database-using-azure-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) 또는 브라우저의 Azure Cloud Shell
@@ -25,7 +25,7 @@ Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for Mar
 ## <a name="configure-logging-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대한 로깅 구성
 다음 단계를 수행하여 MariaDB 느린 쿼리 로그에 액세스하도록 서버를 구성할 수 있습니다.
 1. **slow\_query\_log** 매개 변수를 켜기로 설정하여 로깅을 사용합니다.
-2. **long\_query\_time** 및 **log\_slow\_admin\_statements**와 같은 다른 매개 변수를 조정합니다.
+2. **long\_query\_time** 및 **log\_slow\_admin\_statements**와 같은 다른 매개 변수를 조정합니다.
 
 Azure CLI를 통해 이러한 매개 변수 값을 설정하는 방법을 알아보려면 [서버 매개 변수를 구성하는 방법](howto-configure-server-parameters-cli.md)을 참조하세요.
 
@@ -38,7 +38,7 @@ az mariadb server configuration list --resource-group myresourcegroup --server m
 ```
 
 ## <a name="list-logs-for-azure-database-for-mariadb-server"></a>Azure Database for MariaDB 서버에 대한 로그 나열
-서버에 대해 사용할 수 있는 느린 쿼리 로그 파일을 나열 하려면 다음을 실행 합니다 [az mariadb 서버 로그 목록](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list) 명령입니다.
+서버에 사용할 수 있는 저속 쿼리 로그 파일을 나열 하려면 [az mariadb server-logs list](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list) 명령을 실행 합니다.
 
 **myresourcegroup** 리소스 그룹에 있는 **mydemoserver.mariadb.database.azure.com** 서버에 대한 로그 파일을 나열할 수 있습니다. 그런 다음, **log\_files\_list.txt**라는 텍스트 파일에 로그 파일 목록을 전송합니다.
 ```azurecli-interactive
@@ -53,4 +53,4 @@ az mariadb server-logs download --name mysql-slow-mydemoserver-2018110800.log --
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- 에 대 한 자세한 [MariaDB 용 Azure 데이터베이스의 느린 쿼리 로그](concepts-server-logs.md)합니다.
+- [Azure Database for MariaDB의 저속 쿼리 로그](concepts-server-logs.md)에 대해 알아봅니다.

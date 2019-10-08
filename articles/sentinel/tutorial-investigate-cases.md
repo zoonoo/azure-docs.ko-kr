@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 026689b68244052c3ad7cb50cd90d7319b6760ef
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: fbab3eff3d7f742c2542e4264ef1b2124c5f15e5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71229411"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024615"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>자습서: Azure 센티널을 사용 하 여 인시던트 조사
 
@@ -35,7 +35,7 @@ ms.locfileid: "71229411"
 > [!div class="checklist"]
 > * 인시던트 조사
 > * 조사 그래프 사용
-> * 위협에 응답
+> * 위협에 대응
 
 인시던트는 여러 경고를 포함할 수 있습니다. 특정 조사에 대 한 모든 관련 증거의 집계입니다. **분석** 페이지에서 만든 분석 규칙에 따라 인시던트가 생성 됩니다. 심각도 및 상태와 같은 경고와 관련 된 속성은 인시던트 수준에서 설정 됩니다. Azure 센티널에서 찾고 있는 위협 종류와이를 찾는 방법을 알 수 있게 되 면 인시던트를 조사 하 여 검색 된 위협을 모니터링할 수 있습니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "71229411"
 
 ## <a name="how-to-investigate-incidents"></a>인시던트를 조사 하는 방법
 
-1.  **인시던트**를 선택 합니다.  **** 인시던트 페이지를 사용 하면 보유 한 인시던트 수, 열려 있는 수, **진행**중인 것으로 설정 된 수 및 닫힌 횟수를 알 수 있습니다. 각 인시던트에 대해 발생 한 시간 및 인시던트의 상태를 확인할 수 있습니다. 심각도를 확인 하 여 먼저 처리할 인시던트를 결정 합니다.
+1. **인시던트**를 선택 합니다. **인시던트** 페이지를 사용 하면 보유 한 인시던트 수, 열려 있는 수, **진행**중인 것으로 설정 된 수 및 닫힌 횟수를 알 수 있습니다. 각 인시던트에 대해 발생 한 시간 및 인시던트의 상태를 확인할 수 있습니다. 심각도를 확인 하 여 먼저 처리할 인시던트를 결정 합니다.
 
     ![인시던트 심각도 보기](media/tutorial-investigate-cases/incident-severity.png)
 
@@ -78,14 +78,14 @@ ms.locfileid: "71229411"
 
 조사 그래프를 사용 하려면 다음을 수행 합니다.
 
-1. 인시던트를 선택 하 고 **조사**를 선택 합니다. 그러면 조사 그래프로 이동 합니다. 그래프는 경고에 직접 연결 된 엔터티를 설명 하 고 각 리소스를 추가로 연결 합니다.
+1. 인시던트를 선택 하 고 **조사**를 선택 합니다. 그러면 조사 그래프로 이동 합니다. 그래프는 경고에 직접 연결 된 엔터티를 설명 하 고 각 리소스를 추가로 연결 합니다.
 
    > [!IMPORTANT] 
    > 분석 규칙을 설정할 때 엔터티 매핑 필드를 사용한 경우에만 인시던트를 조사할 수 있습니다. 조사 그래프에서 원본 인시던트에 엔터티를 포함 해야 합니다.
 
-   ![맵 보기](media/tutorial-investigate-cases/map1.png)
+   ![지도 보기](media/tutorial-investigate-cases/map1.png)
 
-1. 엔터티를 선택 하면 해당 엔터티에 대 한 정보를 검토할 수 있는 **엔터티** 창이 열립니다.
+1. 엔터티를 선택 하면 해당 엔터티에 대 한 정보를 검토할 수 있는 **엔터티 창이 열립니다** .
 
     ![지도에서 엔터티 보기](media/tutorial-investigate-cases/map-entities.png)
   
@@ -97,7 +97,7 @@ ms.locfileid: "71229411"
 
     ![관련 경고 보기](media/tutorial-investigate-cases/related-alerts.png)
 
-1. 각 탐색 쿼리에 대해 **이벤트\>** 를 선택 하 여 Log Analytics에 사용 되는 원시 이벤트 결과와 쿼리를 여는 옵션을 선택할 수 있습니다.
+1. 각 탐색 쿼리에 대해 **이벤트 @ no__t-1**을 선택 하 여 Log Analytics에 사용 되는 원시 이벤트 결과와 쿼리를 여는 옵션을 선택할 수 있습니다.
 
 1. 인시던트를 이해 하기 위해 그래프는 병렬 타임 라인을 제공 합니다.
 

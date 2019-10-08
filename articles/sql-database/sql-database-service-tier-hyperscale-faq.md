@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/06/2019
-ms.openlocfilehash: 8c35877c7de2fa89a8fe7a94c11787814183df9e
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 10/02/2019
+ms.openlocfilehash: 6f2ef181e7f61696245a4413d7a28d84801f2838
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162263"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72032877"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL 하이퍼스케일 데이터베이스에 대한 FAQ
 
@@ -37,7 +37,7 @@ ms.locfileid: "71162263"
 
 ### <a name="how-does-the-hyperscale-service-tier-differ-from-the-general-purpose-and-business-critical-service-tiers"></a>하이퍼스케일 서비스 계층과 범용 및 중요 비즈니스용 서비스 계층의 차이점
 
-VCore 기반 서비스 계층은 기본적으로 가용성, 저장소 유형 및 IOPs에 따라 구분 됩니다.
+VCore 기반 서비스 계층은 기본적으로 가용성, 저장소 유형 및 IOPS에 따라 구분 됩니다.
 
 - 범용 서비스 계층은 대부분의 비즈니스 워크로드에 적합하며 IO 대기 시간 또는 장애 조치(failover) 시간이 최우선 순위가 아니고 균형 잡힌 컴퓨팅 및 스토리지 옵션 세트를 제공합니다.
 - 하이퍼스케일 서비스 계층은 매우 큰 데이터베이스 워크로드에 최적화되어 있습니다.
@@ -45,14 +45,14 @@ VCore 기반 서비스 계층은 기본적으로 가용성, 저장소 유형 및
 
 | | 리소스 형식 | 범용 |  하이퍼스케일 | 중요 비즈니스용 |
 |:---:|:---:|:---:|:---:|:---:|
-| **적합한 대상** |모두|  대부분의 비즈니스 워크로드. 예산 중심의 균형 잡힌 컴퓨팅 및 스토리지 옵션을 제공합니다. | 대용량 데이터 요구 사항 및 유동적인 스토리지 크기 자동 조정 및 컴퓨팅 규모 조정 기능이 있는 데이터 애플리케이션. | 트랜잭션 속도가 높고 지연 시간이 적은 OLTP 애플리케이션. 다수의 격리된 복제본을 사용하여 장애에 대해 최고의 복원력을 제공합니다.|
+| **적합한 대상** |모두|예산 중심의 균형 잡힌 컴퓨팅 및 스토리지 옵션을 제공합니다.|대부분의 비즈니스 워크로드. 자동 크기 조정 저장소 크기는 최대 100 TB, 유체 수직 및 수평 계산 크기 조정, 빠른 데이터베이스 복원입니다.|트랜잭션 속도가 높고 IO 대기 시간이 낮은 OLTP 응용 프로그램 는 동시에 업데이트 된 여러 복제본을 사용 하 여 오류 및 빠른 장애 조치에 가장 높은 복원 력을 제공 합니다|
 |  **리소스 종류** ||단일 데이터베이스/탄력적 풀/관리되는 인스턴스 | 단일 데이터베이스 | 단일 데이터베이스/탄력적 풀/관리되는 인스턴스 |
 | **컴퓨팅 크기**|단일 데이터베이스/탄력적 풀* | vCore 1~80개 | vCore 1~80개* | vCore 1~80개 |
 | |Managed Instance | vCore 8, 16, 24, 32, 40, 64, 80개 | 해당 사항 없음 | vCore 8, 16, 24, 32, 40, 64, 80개 |
 | **저장소 유형** | 모두 |프리미엄 원격 스토리지(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 스토리지(인스턴스별) | 초고속 로컬 SSD 스토리지(인스턴스별) |
 | **스토리지 크기** | 단일 데이터베이스/탄력적 풀 | 5GB~4TB | 최대 100TB | 5GB~4TB |
 | | Managed Instance  | 32GB~8TB | 해당 사항 없음 | 32GB~4TB |
-| **IO 처리량** | 단일 데이터베이스** | vCore당 500 IOPS(최대 7,000 IOPS) | Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 유효 IOPs는 워크 로드에 따라 달라 집니다. | 5000 IOPS(최대 200,000 IOPS)|
+| **IOPS** | 단일 데이터베이스** | vCore당 500 IOPS(최대 7,000 IOPS) | Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 유효 IOPS는 워크 로드에 따라 달라 집니다. | 5000 IOPS(최대 200,000 IOPS)|
 | | Managed Instance | 파일의 크기에 따라 다름 | 해당 사항 없음 | Managed Instance: 파일의 크기에 따라 다름|
 |**Availability**|모두|복제본 1개, 읽기 확장 없음, 로컬 캐시 없음 | 여러 복제본, 최대 4 개의 읽기 확장, 부분 로컬 캐시 | 복제본 3개, 읽기 확장 1개, 영역 중복 HA, 전체 로컬 캐시 |
 |**백업**|모두|RA-GRS, 7-35일(기본값: 7일)| RA-GRS, 7 일, 상수 시간 지정 시간 복구 (PITR) | RA-GRS, 7-35일(기본값: 7일) |
@@ -61,7 +61,7 @@ VCore 기반 서비스 계층은 기본적으로 가용성, 저장소 유형 및
 
 ### <a name="who-should-use-the-hyperscale-service-tier"></a>하이퍼스케일 서비스 계층을 사용해야 하는 경우
 
-하이퍼스케일 서비스 계층은 주로 대규모 온-프레미스 SQL Server 데이터베이스를 보유하고 있으며 클라우드로 전환하여 애플리케이션을 최신화하려는 고객 또는 Azure SQL Database를 이미 사용하고 있으며 데이터 증가에 대한 잠재력을 상당히 확대시키려는 고객에게 적합합니다. 하이퍼스케일은 고성능과 고가용성을 모두 원하는 고객에게도 적합합니다. 하이퍼스케일을 통해 얻을 수 있는 사항:
+하이퍼 크기 조정 서비스 계층은 온-프레미스 SQL Server 데이터베이스가 크고 클라우드로 이동 하거나 이미 Azure SQL Database를 사용 하 고 있는 고객을 위해 응용 프로그램을 현대화 하는 고객을 위한 것입니다. 데이터베이스 증가가 발생할 수 있습니다. 하이퍼스케일은 고성능과 고가용성을 모두 원하는 고객에게도 적합합니다. 하이퍼스케일을 통해 얻을 수 있는 사항:
 
 - 최대 100TB의 데이터베이스 크기 지원
 - 데이터베이스 크기에 관계없이 빠른 데이터베이스 백업(백업은 파일 스냅샷을 기반으로 함)
@@ -173,7 +173,7 @@ Hyperscale 데이터베이스에서 복원 력은 저장소 수준에서 제공 
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>데이터베이스가 증가하는 증분의 크기는 얼마인가요?
 
-1GB
+각 데이터 파일은 10gb 씩 증가 합니다. 여러 데이터 파일이 동시에 증가할 수 있습니다.
 
 ### <a name="is-the-storage-in-sql-database-hyperscale-local-or-remote"></a>SQL Database 하이퍼스케일의 스토리지는 로컬인가요 아니면 원격인가요?
 
@@ -217,9 +217,9 @@ Hyperscale 데이터베이스에서 복원 력은 저장소 수준에서 제공 
 
 예. 일부 Azure SQL Database 기능은 아직 제한 된 장기 보존 백업을 비롯 하 여 Hyperscale에서 지원 되지 않습니다. 하이퍼스케일로 데이터베이스를 마이그레이션한 후에는 해당 기능이 작동을 중지합니다.  이러한 제한 사항은 일시적일 것으로 간주 됩니다.
 
-### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>온-프레미스 SQL Server 데이터베이스나 SQL Server 가상 머신 데이터베이스를 하이퍼스케일로 이동할 수 있나요?
+### <a name="can-i-move-my-on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>온-프레미스 SQL Server 데이터베이스 또는 내 SQL Server 가상 머신 데이터베이스를 Hyperscale으로 이동할 수 있나요?
 
-예. 기존의 모든 마이그레이션 기술(예: BACPAC, 트랜잭션 복제, 논리 데이터 로딩)을 사용하여 하이퍼스케일로 마이그레이션할 수 있습니다. [Azure Database Migration Service](../dms/dms-overview.md)도 참조하세요.
+예. 모든 기존 마이그레이션 기술을 사용 하 여 트랜잭션 복제 및 기타 데이터 이동 기술 (대량 복사, Azure Data Factory, Azure Databricks, SSIS)을 비롯 한 하이퍼 규모로 마이그레이션할 수 있습니다. [Azure Database Migration Service](../dms/dms-overview.md)도 참조하세요.
 
 ### <a name="what-is-my-downtime-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>온-프레미스 또는 가상 머신 환경에서 하이퍼스케일로 마이그레이션하는 동안 가동 중지 시간은 얼마나 되며 어떻게 최소화할 수 있나요?
 
@@ -228,11 +228,13 @@ Hyperscale 데이터베이스에서 복원 력은 저장소 수준에서 제공 
 
 ### <a name="how-much-time-would-it-take-to-bring-in-x-amount-of-data-to-sql-database-hyperscale"></a>양이 X인 데이터를 SQL Database 하이퍼스케일로 가져오는 데 시간이 얼마나 걸리나요?
 
-Hyperscale은 새/변경 된 데이터의 100 m b/초를 소비할 수 있습니다.
+Hyperscale은 새로운/변경 된 데이터의 100 m b/초를 사용할 수 있지만, 데이터를 Azure SQL 데이터베이스로 이동 하는 데 필요한 시간은 사용 가능한 네트워크 처리량, 원본 읽기 속도 및 대상 Hyperscale 데이터베이스 서비스 수준 목표의 영향도 받습니다.
 
 ### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-and-sql-data-warehouse"></a>Blob Storage의 데이터를 읽을 수 있고 빠른 로딩(Polybase 및 SQL Data Warehouse와 같은)이 가능한가요?
 
 Azure Storage의 데이터를 읽을 수 있고 하이퍼스케일 데이터베이스에 데이터를 로드할 수 있습니다(일반 단일 데이터베이스를 사용하는 것처럼). Azure SQL Database에서는 현재 Polybase가 지원되지 않습니다. [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/)를 사용하거나 [SQL용 Spark 커넥터](sql-database-spark-connector.md)를 사용하여 [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/)에서 Spark 작업을 실행하여 Polybase를 수행할 수 있습니다. SQL에 대한 Spark 커넥터는 대량 삽입을 지원합니다.
+
+BULK INSERT 또는 OPENROWSET을 사용 하 여 Azure Blob 저장소에서 데이터를 대량으로 읽을 수도 있습니다. [Azure Blob Storage 데이터에 대 한 대량 액세스의 예](https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location)입니다.
 
 하이퍼스케일에서는 단순 복구 또는 대량 로깅 모델이 지원되지 않습니다. 고가용성을 제공하려면 전체 복구 모델이 필요합니다. 하지만 하이퍼스케일은 새로운 로그 아키텍처 때문에 단일 Azure SQL 데이터베이스에 비해 빠른 데이터 삽입 속도를 제공합니다.
 
@@ -364,12 +366,12 @@ IOPS 및 IO 대기 시간은 워크 로드 패턴에 따라 달라 집니다.  �
 
 ### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-node-using-ssms--other-client-tools"></a>SSMS/다른 클라이언트 도구를 사용 하 여 보조 계산 노드에 성공적으로 연결 되었는지 확인 하는 어떻게 할까요?
 
-SSMS/기타 클라이언트 도구 `SELECT DATABASEPROPERTYEX ( '<database_name>' , 'updateability' )`를 사용 하 여 다음 t-sql 쿼리를 실행할 수 있습니다.
-연결이 읽기 전용 `READ_ONLY` 보조 `READ_WRITE` 노드를 가리키거나 연결이 주 노드를 가리키는 경우 결과는입니다.
+SSMS/기타 클라이언트 도구를 사용 하 여 다음 T-sql 쿼리를 실행할 수 있습니다. `SELECT DATABASEPROPERTYEX ( '<database_name>' , 'updateability' )`.
+연결이 읽기 전용 보조 노드를 가리키는 경우에는 `READ_ONLY`이 고 @no__t, 연결이 주 노드를 가리키는 경우에는-1이 반환 됩니다.
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>읽기-확장 복제본 전용 엔드포인트를 만들 수 있나요?
 
-아니요. 를 지정 `ApplicationIntent=ReadOnly`하 여 읽기 확장 복제본에만 연결할 수 있습니다.
+아니요. @No__t-0을 지정 하 여 읽기 확장 복제본에만 연결할 수 있습니다.
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>시스템에서 읽기 워크로드에 대한 지능적인 부하 분산이 수행되나요?
 
@@ -381,7 +383,7 @@ SSMS/기타 클라이언트 도구 `SELECT DATABASEPROPERTYEX ( '<database_name>
 
 ### <a name="do-i-get-different-temp-db-sizing-for-my-primary-compute-and-my-additional-secondary-compute-nodes"></a>기본 컴퓨팅 노드와 추가적인 보조 컴퓨팅 노드에 대해 temp db 크기가 달라지나요?
 
-아니요. `tempdb` 는 계산 크기 프로 비전에 따라 구성 되 고, 보조 계산 노드의 크기는 기본 계산과 동일 합니다.
+아니요. @No__t-0은 계산 크기 프로 비전에 따라 구성 되 고, 보조 계산 노드의 크기는 기본 계산과 동일 합니다.
 
 ### <a name="can-i-add-indexes-and-views-on-my-secondary-compute-nodes"></a>보조 컴퓨팅 노드에 인덱스와 보기를 추가할 수 있나요?
 

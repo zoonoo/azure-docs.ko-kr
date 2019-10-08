@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d4b7733ce3ac6db4c39f632401661eefce11d20c
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a6d0cba41e694e154da32a878cb4c076aae13e65
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827572"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034718"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure Virtual Network에 앱 통합
 이 문서에서는 Azure App Service 가상 네트워크 통합 기능 및 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 앱을 사용 하 여 설정 하는 방법을 설명 합니다. [Azure vnet (가상 네트워크][VNETOverview] )를 사용 하면 여러 azure 리소스를 인터넷을 통해 라우팅할 수 없는 네트워크에 저장할 수 있습니다.  
@@ -63,6 +63,10 @@ VNet 통합에서 지원하지 않는 다음 몇 가지 항목이 있습니다.
 * NetBios
 
 ## <a name="regional-vnet-integration"></a>지역 VNet 통합 
+
+> [!NOTE]
+> 피어 링은 아직 Linux 기반 App Service에서 사용할 수 없습니다.
+>
 
 앱과 동일한 지역에서 VNet 통합을 Vnet와 함께 사용 하는 경우 32 개 이상의 주소가 있는 위임 된 서브넷을 사용 해야 합니다. 서브넷은 다른 항목에 사용할 수 없습니다. 앱에서 수행 되는 아웃 바운드 호출은 위임 된 서브넷의 주소에서 생성 됩니다. 이 버전의 VNet 통합을 사용 하는 경우 VNet의 주소에서 호출이 수행 됩니다. VNet에서 주소를 사용 하면 앱이 다음을 수행할 수 있습니다.
 
@@ -112,7 +116,7 @@ VNet과의 앱 연결을 끊으려면 **연결 끊기**를 선택합니다. 그�
 
 기본 제공 이미지를 사용 하 여 Linux에서 App Service를 사용 하는 경우 지역 VNet 통합 기능은 추가 변경 없이 작동 합니다. Web App for Containers 사용 하는 경우 VNet 통합을 사용 하기 위해 docker 이미지를 수정 해야 합니다. Docker 이미지에서 하드 코드 된 포트 번호를 사용 하는 대신 포트 환경 변수를 주 웹 서버의 수신 대기 포트로 사용 합니다. 포트 환경 변수는 컨테이너 시작 시간에 App Service 플랫폼에 의해 자동으로 설정 됩니다. SSH를 사용 하는 경우 지역 VNet 통합을 사용 하는 경우 SSH_PORT 환경 변수에 지정 된 포트 번호를 수신 하도록 SSH 디먼을 구성 해야 합니다.
 
-### <a name="service-endpoints"></a>서비스 끝점
+### <a name="service-endpoints"></a>서비스 엔드포인트
 
 새 VNet 통합 기능을 사용하면 서비스 엔드포인트를 사용할 수 있습니다.  앱에서 서비스 엔드 포인트를 사용하려면 새 VNet 통합을 사용하여 선택한 VNet에 연결한 다음, 통합에 사용한 서브넷에서 서비스 엔드포인트를 구성합니다. 
 

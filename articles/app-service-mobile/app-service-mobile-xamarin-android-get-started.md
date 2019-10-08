@@ -14,19 +14,19 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: eed900ee54f62056eceeb35a43a4ba6526b049ca
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a94b302ad813094cb4ce67e4bffc3dd43586366b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447082"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027053"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Xamarin.Android 앱 만들기
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 > [!NOTE]
-> Visual Studio App Center는 모바일 앱 개발을 위한 중앙 새 및 통합 서비스에 투자 합니다. 개발자가 사용할 수 **빌드**를 **테스트** 하 고 **배포** 연속 통합 및 배달 파이프라인을 설정 하는 서비스입니다. 개발자 상태 및 사용 하 여 해당 앱의 사용량을 모니터링할 수 있습니다, 앱을 배포한 후 합니다 **Analytics** 하 고 **진단** , 서비스를 사용 하 여 사용자와 소통 하세요를 **푸시** 서비스입니다. 개발자가 활용할 수도 있습니다 **인증** 해당 사용자를 인증 하 고 **데이터** 유지 하 고 클라우드에 앱 데이터 동기화 서비스. 체크 아웃 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-android-get-started) 지금 합니다.
->
+> Visual Studio App Center은 모바일 앱 개발에 대 한 종단 간 및 통합 서비스의 중심을 지원 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다.
+> 모바일 응용 프로그램에서 클라우드 서비스를 통합 하려는 경우 현재 App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 에 등록 하세요.
 
 ## <a name="overview"></a>개요
 이 자습서에서는 Xamarin Android 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 자세한 내용은 [Mobile Apps 정의](app-service-mobile-value-prop.md)를 참조하세요.
@@ -37,10 +37,10 @@ ms.locfileid: "67447082"
 
 이 자습서를 완료해야 다른 모든 Xamarin Android 앱용 Mobile Apps 자습서를 진행할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
-* 활성 Azure 계정. 계정이 아직 없으면 Azure 평가판에 등록하고 최대 10개의 무료 Mobile Apps을 가져옵니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하십시오.
+* 활성 Azure 계정. 계정이 아직 없으면 Azure 평가판에 등록하고 최대 10개의 무료 Mobile Apps을 가져옵니다. 자세한 내용은 참조 하세요 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)합니다.
 * Xamarin이 포함된 Visual Studio입니다. 지침은 [Visual Studio 및 Xamarin을 위한 설치 및 설정](/visualstudio/cross-platform/setup-and-install) 을 참조하세요.
 
 ## <a name="create-an-azure-mobile-app-backend"></a>새 Azure Mobile App 백 엔드 만들기
@@ -50,25 +50,25 @@ ms.locfileid: "67447082"
 
 이제 모바일 클라이언트 애플리케이션에서 사용할 수 있는 Azure 모바일 앱 백 엔드를 프로비저닝했습니다. 다음으로, 간단한 "할 일 목록" 백 엔드에 대한 서버 프로젝트를 다운로드하고 Azure에 게시합니다.
 
-## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>데이터베이스 연결을 만들고 클라이언트와 서버 프로젝트 구성
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>데이터베이스 연결을 만들고 클라이언트 및 서버 프로젝트를 구성 합니다.
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="run-the-xamarinandroid-app"></a>Xamarin.Android 앱 실행
-1. Xamarin.Android 프로젝트를 엽니다.
+## <a name="run-the-xamarinandroid-app"></a>Xamarin Android 앱 실행
+1. Xamarin Android 프로젝트를 엽니다.
 
-2. 로 이동 합니다 [Azure portal](https://portal.azure.com/) 만든 모바일 앱으로 이동 합니다. 에 `Overview` 블레이드에서 모바일 앱에 대 한 공용 엔드포인트 URL 찾습니다. 예제-내 앱 이름 "test123"에 대 한 sitename 됩니다 https://test123.azurewebsites.net 합니다.
+2. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 만든 모바일 앱으로 이동 합니다. @No__t-0 블레이드에서 모바일 앱에 대 한 공용 끝점 인 URL을 찾습니다. 예-내 앱 이름 "test123"에 대 한 sitename은 https://test123.azurewebsites.net 이 됩니다.
 
-3. 파일을 열고 `ToDoActivity.cs` 이 폴더에서 xamarin.android/ZUMOAPPNAME/ToDoActivity.cs 합니다. 응용 프로그램 이름이 `ZUMOAPPNAME`합니다.
+3. 이 폴더에서 `ToDoActivity.cs` 파일을 엽니다.-xamarin/ZUMOAPPNAME/Todoactivity.java. 응용 프로그램 이름은 `ZUMOAPPNAME`입니다.
 
-4. `ToDoActivity` 클래스를 대체 `ZUMOAPPURL` 위의 공용 끝점을 사용 하 여 변수입니다.
+4. @No__t-0 클래스에서 `ZUMOAPPURL` 변수를 위의 공용 끝점으로 바꿉니다.
 
     `const string applicationURL = @"ZUMOAPPURL";`
 
-    됩니다.
+    않게
     
     `const string applicationURL = @"https://test123.azurewebsites.net";`
     
-5. 배포 하 고 앱을 실행 하려면 F5 키를 누릅니다.
+5. F5 키를 눌러 응용 프로그램을 배포 하 고 실행 합니다.
 
 6. 앱에서 *자습서 완료* 등의 의미 있는 텍스트를 입력한 후 **추가** 단추를 클릭합니다.
 

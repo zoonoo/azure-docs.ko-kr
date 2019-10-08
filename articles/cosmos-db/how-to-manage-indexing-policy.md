@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: thweiss
-ms.openlocfilehash: f7d364eb5db5c6d6304944d490468edf8b5ebe2e
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 46d0124eb701b0c2d779a96c8efd50ba43e8fc07
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811656"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034443"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책 관리
 
@@ -42,7 +42,7 @@ Azure Cosmos DB에서 데이터는 각 컨테이너에 대해 정의된 [인덱�
     }
 ```
 
-이 인덱싱 정책은, ```kind``` ```dataType```및를 기본값으로 수동으로 설정 하는 아래와 ```precision``` 동일 합니다. 이러한 속성은 더 이상 명시적으로 설정할 필요가 없으며, 위의 예제와 같이 인덱싱 정책에서 완전히 생략할 수 있습니다.
+이 인덱싱 정책은 ```kind```, ```dataType```, ```precision```를 기본값으로 수동으로 설정 하는 아래와 동일 합니다. 이러한 속성은 더 이상 명시적으로 설정할 필요가 없으며, 위의 예제와 같이 인덱싱 정책에서 완전히 생략할 수 있습니다.
 
 ```json
     {
@@ -96,7 +96,7 @@ Azure Cosmos DB에서 데이터는 각 컨테이너에 대해 정의된 [인덱�
     }
 ```
 
-이 인덱싱 정책은, ```kind``` ```dataType```및를 기본값으로 수동으로 설정 하는 아래와 ```precision``` 동일 합니다. 이러한 속성은 더 이상 명시적으로 설정할 필요가 없으며, 위의 예제와 같이 인덱싱 정책에서 완전히 생략할 수 있습니다.
+이 인덱싱 정책은 ```kind```, ```dataType```, ```precision```를 기본값으로 수동으로 설정 하는 아래와 동일 합니다. 이러한 속성은 더 이상 명시적으로 설정할 필요가 없으며, 위의 예제와 같이 인덱싱 정책에서 완전히 생략할 수 있습니다.
 
 ```json
     {
@@ -320,7 +320,7 @@ WHERE c.name = "Tim" AND c.age > 18
 
 ### <a name="no-indexing"></a>인덱싱 안 함
 
-이 정책은 인덱싱이 해제 됩니다. 가 `indexingMode` 로`none`설정 된 경우에는 컨테이너에서 TTL을 설정할 수 없습니다.
+이 정책은 인덱싱이 해제 됩니다. @No__t-0이 `none`로 설정 된 경우에는 컨테이너에 TTL을 설정할 수 없습니다.
 
 ```json
     {
@@ -370,7 +370,7 @@ Azure Cosmos 컨테이너는 자체의 인덱싱 정책을 Azure Portal에서 �
 
 ## <a name="use-the-net-sdk-v2"></a>.NET SDK V2 사용
 
-`IndexingMode` `IncludedPaths` `ExcludedPaths` [.Net SDK v2의 개체는](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 를 변경 하 고 및를 추가 또는 제거할 수 있는 속성을노출합니다.`IndexingPolicy` `DocumentCollection`
+[.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 의 `DocumentCollection` 개체는 `IndexingMode`을 변경 하 고 `IncludedPaths` 및 `ExcludedPaths`를 추가 하거나 제거할 수 있는 `IndexingPolicy` 속성을 노출 합니다.
 
 ```csharp
 // Retrieve the container's details
@@ -400,7 +400,7 @@ long indexTransformationProgress = container.IndexTransformationProgress;
 
 ## <a name="use-the-net-sdk-v3"></a>.NET SDK V3 사용
 
-`IndexingMode` [.Net SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (사용법에 `IndexingPolicy` 관한 [이 빠른](create-sql-api-dotnet.md) 시작 참조)의 `IncludedPaths` `ExcludedPaths` 개체는를변경하고및를추가하거나제거할수있는속성`ContainerProperties` 을 노출 합니다.
+[.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) 의 @no__t 개체 (사용법에 관한 [이 빠른](create-sql-api-dotnet.md) 시작 참조)는 `IndexingMode`를 변경 하 고 `IncludedPaths` 및 `ExcludedPaths`을 추가 하거나 제거할 수 있는 @no__t 3 속성을 제공 합니다.
 
 ```csharp
 // Retrieve the container's details
@@ -424,7 +424,7 @@ containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<Co
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-인덱스 변환 `RequestOptions` 진행률을 추적 하려면 `PopulateQuotaInfo` 속성 `true`을 설정 하는 개체를 전달 하 고 `x-ms-documentdb-collection-index-transformation-progress` 응답 헤더에서 값을 검색 합니다.
+인덱스 변환 진행률을 추적 하려면 `PopulateQuotaInfo` 속성을 설정 하는 `RequestOptions` 개체를 `true`로 전달한 다음 `x-ms-documentdb-collection-index-transformation-progress` 응답 헤더에서 값을 검색 합니다.
 
 ```csharp
 // retrieve the container's details
@@ -459,44 +459,34 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
 
 [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)(해당 사용법에 관한 [이 빠른 시작](create-sql-api-java.md) 참조)의 `DocumentCollection` 개체는 `getIndexingPolicy()` 및 `setIndexingPolicy()` 메서드를 표시합니다. 해당 메서드가 조작하는 `IndexingPolicy` 개체를 사용하여 인덱싱 모드를 변경하고 포함된 경로 및 제외된 경로를 추가 또는 제거할 수 있습니다.
 
-컨테이너의 세부 정보를 검색 합니다.
-
 ```java
+// Retrieve the container's details
 Observable<ResourceResponse<DocumentCollection>> containerResponse = client.readCollection(String.format("/dbs/%s/colls/%s", "database", "container"), null);
 containerResponse.subscribe(result -> {
 DocumentCollection container = result.getResource();
 IndexingPolicy indexingPolicy = container.getIndexingPolicy();
-```
 
-인덱싱 모드를 일관 되 게 설정
-
-```java
+// Set the indexing mode to consistent
 indexingPolicy.setIndexingMode(IndexingMode.Consistent);
-```
 
-포함 된 경로 추가
+// Add an included path
 
-```java
 Collection<IncludedPath> includedPaths = new ArrayList<>();
 ExcludedPath includedPath = new IncludedPath();
-includedPath.setPath("/age/*");
+includedPath.setPath("/*");
 includedPaths.add(includedPath);
 indexingPolicy.setIncludedPaths(includedPaths);
-```
 
-제외 된 경로 추가
+// Add an excluded path
 
-```java
 Collection<ExcludedPath> excludedPaths = new ArrayList<>();
 ExcludedPath excludedPath = new ExcludedPath();
 excludedPath.setPath("/name/*");
 excludedPaths.add(excludedPath);
 indexingPolicy.setExcludedPaths(excludedPaths);
-```
 
-공간 인덱스 추가
+// Add a spatial index
 
-```java
 Collection<SpatialSpec> spatialIndexes = new ArrayList<SpatialSpec>();
 Collection<SpatialType> collectionOfSpatialTypes = new ArrayList<SpatialType>();
 
@@ -508,20 +498,17 @@ spatialIndexes.add(spec);
 
 indexingPolicy.setSpatialIndexes(spatialIndexes);
 
-```
+// Add a composite index
 
-복합 인덱스 추가
-
-```java
 Collection<ArrayList<CompositePath>> compositeIndexes = new ArrayList<>();
 ArrayList<CompositePath> compositePaths = new ArrayList<>();
 
 CompositePath nameCompositePath = new CompositePath();
-nameCompositePath.setPath("/name/*");
+nameCompositePath.setPath("/name");
 nameCompositePath.setOrder(CompositePathSortOrder.Ascending);
 
 CompositePath ageCompositePath = new CompositePath();
-ageCompositePath.setPath("/age/*");
+ageCompositePath.setPath("/age");
 ageCompositePath.setOrder(CompositePathSortOrder.Descending);
 
 compositePaths.add(ageCompositePath);
@@ -529,12 +516,11 @@ compositePaths.add(nameCompositePath);
 
 compositeIndexes.add(compositePaths);
 indexingPolicy.setCompositeIndexes(compositeIndexes);
-```
 
-변경 내용으로 컨테이너 업데이트
+// Update the container with changes
 
-```java
  client.replaceCollection(container, null);
+});
 ```
 
 컨테이너에 대한 인덱스 변환 진행률을 추적하려면 채워야 할 할당량 정보를 요청하는 `RequestOptions` 개체를 전달한 다음, `x-ms-documentdb-collection-index-transformation-progress` 응답 헤더에서 값을 검색합니다.

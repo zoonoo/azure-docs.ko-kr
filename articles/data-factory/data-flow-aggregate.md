@@ -6,23 +6,23 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 778aefc05a9b12648e60d752a3c281cb18323125
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 0201cbdd05cd8aae4afb92b459bf58fb5ff6a142
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314236"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026983"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 집계 변환 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 집계 변환에서는 데이터 스트림의 열 집계를 정의합니다. 식 작성기를 사용 하면 SUM, MIN, MAX 및 COUNT와 같은 여러 유형의 집계를 정의 하 여 기존 또는 계산 된 열을 기준으로 그룹화 할 수 있습니다.
 
 ## <a name="group-by"></a>Group By
 기존 열을 선택 하거나 집계에 대해 group by 절로 사용할 새 계산 열을 만듭니다. 기존 열을 사용 하려면 드롭다운에서 원하는 열을 선택 합니다. 새 계산 열을 만들려면 절 위로 마우스를 이동 하 고 ' 계산 열 '을 클릭 합니다. 이렇게 하면 [데이터 흐름 식 작성기](concepts-data-flow-expression-builder.md)가 열립니다. 계산 열을 만들었으면 ' 이름으로 ' 필드 아래에 출력 열 이름을 입력 합니다. 추가 group by 절을 추가 하려는 경우 기존 절 위로 마우스를 이동 하 고 ' + '를 클릭 합니다.
 
-![설정 별 집계 변환 그룹](media/data-flow/agg.png "설정 별 집계 변환 그룹")
+설정 ![별 집계 변환 그룹화](media/data-flow/agg.png "설정 별 집계 변환 그룹화")
 
 > [!NOTE]
 > Group by 절은 집계 변환에서 선택 사항입니다.

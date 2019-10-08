@@ -6,16 +6,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 69dce46052c18eec7c3f1fa2082907ed62b367d6
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 37db3e153e8dfcbc1120fcb1f6d2f77187edc78e
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703336"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029656"
 ---
 # <a name="mapping-data-flow-json-handling"></a>데이터 흐름 JSON 처리 매핑
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ## <a name="creating-json-structures-in-expression-editor"></a>식 편집기에서 JSON 구조 만들기
 ### <a name="derived-column-transformation"></a>파생 열 변환
@@ -185,7 +185,7 @@ sort(['a3', 'b2', 'c1'],
         iif(#item1 >= #item2, 1, -1)) => ['a3', 'b2', 'c1']
 ```
 
-## <a name="contains"></a>다음 값을 포함하는 경우
+## <a name="contains"></a>contains
 제공 된 배열의 요소가 제공 된 조건자에서 true로 평가 되 면 true를 반환 합니다. Contains에는 #item 조건자 함수의 한 요소에 대 한 참조가 필요 합니다.
 
 ### <a name="examples"></a>예

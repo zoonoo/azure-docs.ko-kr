@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: c92dd48e81512b79fb72cbb751303504d1036594
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: df24f846f1600685803fdd485f1810d66e32ae37
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71982035"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028680"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>윤리적 해킹 클래스를 학습 하기 위한 랩 설정 
 이 문서에서는 윤리적 해킹의 법적 고 지에 초점을 맞춘 클래스를 설정 하는 방법을 보여 줍니다. 윤리적 해킹 커뮤니티에서 사용 되는 방법인 침투 테스트는 누군가가 악의적인 공격자가 악용할 수 있는 취약성을 보여 주기 위해 시스템 또는 네트워크에 대 한 액세스 권한을 얻으려고 할 때 발생 합니다. 
@@ -32,7 +32,7 @@ ms.locfileid: "71982035"
 
 [이 자습서](tutorial-setup-classroom-lab.md) 에 따라 새 랩을 만들고 다음 설정을 적용 합니다.
 
-| 가상 컴퓨터 크기 | 이미지 |
+| 가상 머신 크기 | 이미지 |
 | -------------------- | ----- | 
 | 중간 (중첩 된 가상화) | Windows Server 2019 Datacenter |
 
@@ -128,7 +128,11 @@ Rapid7 Metasploitable 이미지는 보안 취약성으로 의도적으로 구성
 ## <a name="cost"></a>비용  
 이 랩의 비용을 예측 하려는 경우 다음 예제를 사용할 수 있습니다. 
  
-20 시간의 예약 된 클래스 시간 및 숙제 또는 할당에 대 한 10 시간의 할당량을 포함 하는 25 개의 학생 클래스의 경우 랩 가격은 다음과 같습니다. 25 개 학생 * (20 + 10) 시간 * 55 랩 단위 * 0.01 USD/시간 = 412.50 가격 책정에 대 한 자세한 내용은 [Azure Lab Services 가격 책정](https://azure.microsoft.com/pricing/details/lab-services/)을 참조 하세요.
+20 시간의 예약 된 클래스 시간 및 숙제 또는 할당에 대 한 10 시간의 할당량을 포함 하는 25 개의 학생 클래스의 경우 랩 가격은 다음과 같습니다. 
+
+25 개 학생 * (20 + 10) 시간 * 55 랩 단위 * 0.01 USD/시간 = 412.50 USD 
+
+가격 책정에 대 한 자세한 내용은 [Azure Lab Services 가격 책정](https://azure.microsoft.com/pricing/details/lab-services/)을 참조 하세요.
 
 ## <a name="conclusion"></a>결론
 이 문서에서는 윤리적 해킹 클래스의 랩을 만드는 단계를 안내 합니다. 통과 테스트를 위해 호스트 가상 컴퓨터 내에 두 개의 가상 컴퓨터를 만들기 위한 중첩 된 가상화를 설정 하는 단계가 포함 되어 있습니다.

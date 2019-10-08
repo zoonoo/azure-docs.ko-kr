@@ -13,20 +13,20 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 898bf082874a1e9bf26dd094a6a0fe55417c9d8e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 44b3259745877ddb43e643f1fa8307e100ca8b38
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851074"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025249"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps용 iOS 클라이언트 라이브러리를 사용하는 방법
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center은 모바일 앱 개발에 대 한 새롭고 통합 된 서비스를 투자 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다. 지금 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=/app-service-mobile-ios-how-to-use-client-library) 확인 하세요.
->
+> Visual Studio App Center은 모바일 앱 개발에 대 한 종단 간 및 통합 서비스의 중심을 지원 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다.
+> 모바일 응용 프로그램에서 클라우드 서비스를 통합 하려는 경우 현재 App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 에 등록 하세요.
 
 ## <a name="overview"></a>개요
 이 가이드에서는 최신 [Azure Mobile Apps IOS SDK][1]를 사용 하 여 일반적인 시나리오를 수행 하는 방법을 알려줍니다. Azure Mobile Apps를 처음 접하는 경우 먼저 [Azure Mobile Apps 빠른 시작] 을 완료하여 백 엔드를 만들고, 테이블을 만든 다음 미리 빌드된 iOS Xcode 프로젝트를 다운로드합니다. 이 가이드에서는 클라이언트 쪽 iOS SDK에 초점을 둡니다. 백 엔드의 서버 쪽 SDK에 대한 자세한 내용은 서버 SDK 사용 방법을 참조하세요.
@@ -440,7 +440,7 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 사용자 지정 API를 사용하여 백 엔드 기능을 노출할 수 있습니다. 테이블 작업에 매핑할 필요는 없습니다. 더 효율적으로 메시징을 제어할 수 있으며 헤더의 읽기/설정 및 응답의 본문 형식을 변경할 수도 있습니다.
 
-사용자 지정 API를 호출하려면 `MSClient.invokeAPI`를 호출합니다. 요청 및 응답 콘텐츠는 JSON으로 간주됩니다. 다른 미디어 유형을 사용 하려면 [의 `invokeAPI`다른 오버 로드를 사용 ][5]합니다.  `POST` 요청 대신 `GET` 요청을 하려면 GET 요청에는 메시지의 본문이 없기 때문에 매개 변수를 `HTTPMethod`에서 `"GET"` 및 `body`에서 `nil`으로 설정합니다. 사용자 지정 API가 다른 HTTP 동사를 지원하는 경우 `HTTPMethod`을(를) 적절하게 변경합니다.
+사용자 지정 API를 호출하려면 `MSClient.invokeAPI`를 호출합니다. 요청 및 응답 콘텐츠는 JSON으로 간주됩니다. 다른 미디어 유형을 사용 하려면 [-1 @no__t의 다른 오버 로드를 사용][5]합니다.  `POST` 요청 대신 `GET` 요청을 하려면 GET 요청에는 메시지의 본문이 없기 때문에 매개 변수를 `HTTPMethod`에서 `"GET"` 및 `body`에서 `nil`으로 설정합니다. 사용자 지정 API가 다른 HTTP 동사를 지원하는 경우 `HTTPMethod`을(를) 적절하게 변경합니다.
 
 **Objective-C**:
 
@@ -521,7 +521,7 @@ let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 
 Azure App Service 모바일 백 엔드를 호출할 때 완료 블록에 `NSError` 매개 변수가 포함됩니다. 오류가 발생하면 이 매개 변수는 null이 아닌 값입니다. 앞의 코드 조각에서 보여준 것처럼, 코드에서 이 매개 변수를 확인하고 필요한 경우 오류를 처리해야 합니다.
 
-[`<WindowsAzureMobileServices/MSError.h>`][6] `MSErrorResponseKey`이 파일은`MSErrorServerItemKey`, 및 상수를 정의 합니다. `MSErrorRequestKey` 오류와 관련된 데이터를 더 가져오는 방법은 다음과 같습니다.
+@No__t- [1][6] 파일은 상수 `MSErrorResponseKey`, `MSErrorRequestKey` 및 `MSErrorServerItemKey`를 정의 합니다. 오류와 관련된 데이터를 더 가져오는 방법은 다음과 같습니다.
 
 **Objective-C**:
 

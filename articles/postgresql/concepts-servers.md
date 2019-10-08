@@ -1,17 +1,17 @@
 ---
-title: Azure Database for PostgreSQL-단일 서버에서에서 서버 개념
+title: Azure Database for PostgreSQL의 서버 개념-단일 서버
 description: 이 문서에서는 Azure Database for PostgreSQL - 단일 서버 작업에 대한 고려 사항 및  지침을 제공합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: bc135e58d0fbabc809f3718915e9f4e35b8ed875
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd7c24489e8ac7b26cb703923ddf9cbb741cfd68
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067151"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029973"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버
 이 문서에서는 Azure Database for PostgreSQL - 단일 서버 작업에 대한 고려 사항 및 지침을 제공합니다.
@@ -64,6 +64,6 @@ Azure Database for PostgreSQL에서 구성 가능한 매개 변수는 Postgres�
 
 ## <a name="next-steps"></a>다음 단계
 - 서비스 개요는  [Azure Database for PostgreSQL 개요](overview.md)를 참조하세요.
--  **서비스 계층**에 따른 특정 리소스 할당량 및 제한 사항에 대한 자세한 내용은  [서비스 계층](concepts-pricing-tiers.md)을 참조하세요.
+- **서비스 계층**에 따른 특정 리소스 할당량 및 제한 사항에 대 한 자세한 내용은 [서비스 계층](concepts-pricing-tiers.md)을 참조 하세요.
 - 서비스 연결에 대한 자세한 내용은  [Azure Database for PostgreSQL에 대한 연결 라이브러리](concepts-connection-libraries.md)를 참조하세요.
 - [Azure Portal](howto-configure-server-parameters-using-portal.md) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md)를 통해 서버 매개 변수를 보고 편집합니다.

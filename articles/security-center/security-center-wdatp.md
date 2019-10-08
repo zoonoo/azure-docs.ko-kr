@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: 07934e3c7d9f61ecb4153e6a169882509a81dc75
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: fb401226e9697afb71dfa7a30f9814e07c3422c2
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241036"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028090"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Azure Security Center으로 Microsoft Defender Advanced Threat Protection
 
@@ -70,7 +70,7 @@ Security Center에 서버를 등록 하려면 이동을 클릭 하 여 Microsoft
 
 ## <a name="enable-microsoft-defender-atp-integration"></a>Microsoft Defender ATP 통합 사용
 
-Microsoft Defender ATP 통합이 사용 하도록 설정 되어 있는지 확인 하려면 **Security center** > **가격 책정 & 설정** 을 선택 하 > 구독을 클릭 합니다.
+Microsoft Defender ATP 통합이 사용 하도록 설정 되어 있는지 확인 하려면 **Security center** > **가격 책정 & 설정** > 구독을 클릭 합니다.
 여기서 현재 사용하도록 설정된 통합을 확인할 수 있습니다.
 
   ![Microsoft Defender ATP 통합을 사용 하도록 설정 된 Azure Security Center 위협 검색 설정 페이지](media/security-center-wdatp/enable-integrations.png)
@@ -107,7 +107,7 @@ Microsoft Defender ATP 통합이 사용 하도록 설정 되어 있는지 확인
 
 3. 명령이 성공 하면 Azure Security Center 대시보드 및 Microsoft Defender ATP 포털에 새 경고가 표시 됩니다. 이 경고가 표시되려면 몇 분 정도 걸릴 수 있습니다.
 
-4. Security Center에서 경고를 검토하려면 **보안 경고** >  **의심스러운 Powershell 명령줄**로 이동합니다.
+4. Security Center에서 경고를 검토하려면 **보안 경고** >  **의심스러운 Powershell 명령줄**로 이동합니다.
 
 5. 조사 창에서 링크를 선택 하 여 Microsoft Defender ATP 포털로 이동 합니다.
 

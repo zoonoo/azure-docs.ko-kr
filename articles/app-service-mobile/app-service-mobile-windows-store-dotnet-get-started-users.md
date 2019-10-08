@@ -1,6 +1,6 @@
 ---
 title: UWP(유니버설 Windows 플랫폼) 앱에 인증 추가 | Microsoft Docs
-description: Azure App Service Mobile Apps를 사용 하 여 다양 한 등의 id 공급자를 사용 하 여 유니버설 Windows 플랫폼 (UWP) 앱의 사용자를 인증 하는 방법을 알아봅니다. AAD, Google, Facebook, Twitter 및 Microsoft
+description: Azure App Service Mobile Apps를 사용 하 여 다음을 비롯 한 다양 한 id 공급자를 사용 하 여 UWP (유니버설 Windows 플랫폼) 앱의 사용자를 인증 하는 방법을 알아봅니다. AAD, Google, Facebook, Twitter 및 Microsoft.
 services: app-service\mobile
 documentationcenter: windows
 author: elamalani
@@ -14,19 +14,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 9a3a6a8d063836094c1285a5ab4c17ee403fc347
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ae1a4c7570a4430c9961109c425298e356c9fa9a
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440229"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027076"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Windows 앱에 인증 추가
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
-> Visual Studio App Center는 모바일 앱 개발을 위한 중앙 새 및 통합 서비스에 투자 합니다. 개발자가 사용할 수 **빌드**를 **테스트** 하 고 **배포** 연속 통합 및 배달 파이프라인을 설정 하는 서비스입니다. 개발자 상태 및 사용 하 여 해당 앱의 사용량을 모니터링할 수 있습니다, 앱을 배포한 후 합니다 **Analytics** 하 고 **진단** , 서비스를 사용 하 여 사용자와 소통 하세요를 **푸시** 서비스입니다. 개발자가 활용할 수도 있습니다 **인증** 해당 사용자를 인증 하 고 **데이터** 유지 하 고 클라우드에 앱 데이터 동기화 서비스. 체크 아웃 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-users) 지금 합니다.
->
+> Visual Studio App Center은 모바일 앱 개발에 대 한 종단 간 및 통합 서비스의 중심을 지원 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다.
+> 모바일 응용 프로그램에서 클라우드 서비스를 통합 하려는 경우 현재 App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 에 등록 하세요.
 
 ## <a name="overview"></a>개요
 이 항목에서는 모바일 앱에 클라우드 기반 인증을 추가하는 방법을 보여줍니다. 이 자습서에서는 Azure App Service가 지원하는 ID 공급자를 사용하여 Mobile Apps용 UWP(유니버설 Windows 플랫폼) 빠른 시작 프로젝트에 인증을 추가합니다. 모바일 앱 백 엔드에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.

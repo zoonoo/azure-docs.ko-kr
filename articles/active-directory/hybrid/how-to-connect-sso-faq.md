@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b12acf083e83d42ff3e8d6967d747f4bb2d93543
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 7241c8dfbedb24f95c29ea9e1c3f763218a5668d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960192"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025666"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory Seamless Single Sign-On: 질문과 대답
 
@@ -96,7 +96,10 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
    1. `$creds = Get-Credential`를 호출합니다. 메시지가 표시되면 의도한 AD 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.
 
    > [!NOTE]
-   > 의도된 AD 포리스트를 찾기 위해 도메인 관리자의 사용자 이름을 사용합니다. 해당 항목은 UPN(사용자 계정 이름)(johndoe@contoso.com) 형식이나 도메인 정규화 SAM 계정 이름(contoso\johndoe 또는 contoso.com\johndoe) 형식으로 제공됩니다. 도메인 정규화 SAM 계정 이름을 사용하는 경우 사용자 이름의 도메인 부분을 사용하여 [DNS를 사용하는 도메인 관리자의 도메인 컨트롤러를 찾습니다](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). 대신 UPN을 사용하는 경우 적절한 도메인 컨트롤러를 찾기 전에 [도메인 정규화 SAM 계정 이름으로 변환](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa)합니다.
+   >도메인 관리자 자격 증명 사용자 이름은 SAM 계정 이름 형식 (예 contoso\johndoe 또는 com\johndoe)으로 입력 해야 합니다. 사용자 이름의 도메인 부분을 사용 하 여 DNS를 사용 하는 도메인 관리자의 도메인 컨트롤러를 찾습니다.
+
+   >[!NOTE]
+   >사용 되는 도메인 관리자 계정은 보호 된 사용자 그룹의 구성원이 아니어야 합니다. 이 경우 작업이 실패 합니다.
 
    2. `Update-AzureADSSOForest -OnPremCredentials $creds`를 호출합니다. 이 명령은 이 특정 AD 포리스트에서 `AZUREADSSOACC` 컴퓨터 계정에 대한 Kerberos 암호 해독 키를 업데이트하고 Azure AD에서 키를 업데이트 합니다.
    3. 기능을 설정한 각 AD 포리스트에 대해 위의 단계를 반복합니다.

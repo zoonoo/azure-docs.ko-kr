@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0acd4c2793c7c13fb687f591d01e6d8753f71bdc
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 9b246fe9b09f2939663b4fb74ee1da703264d533
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181151"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028931"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션
 
@@ -177,7 +177,7 @@ HDInsight는 기본적으로 클러스터와 연결된 Azure Storage 계정의 �
 
 7. **Add** 단추를 클릭하여 이 키 및 값을 저장한 후 **Save** 단추를 클릭하여 구성 변경을 저장합니다. 메시지가 나타나면 변경에 대한 설명(예: &quot;SAS 스토리지 액세스 추가&quot;)을 추가하고 **저장**을 클릭합니다.
 
-8. Ambari 웹 UI의 왼쪽 목록에서 HDFS를 선택한 다음, 오른쪽의 Service Actions 드롭다운 목록에서  **영향을 받은 모든 항목 다시 시작**을 선택합니다. 메시지가 나타나면  **모두 다시 시작 확인**을 선택합니다.
+8. Ambari 웹 UI의 왼쪽 목록에서 HDFS를 선택한 다음 오른쪽의 서비스 작업 드롭다운 목록에서 **영향을 받는 모두 다시 시작** 을 선택 합니다. 메시지가 나타나면 **모두 다시 시작 확인**을 선택합니다.
 
 9. MapReduce2 및 YARN에 대해 이 프로세스를 반복합니다.
 

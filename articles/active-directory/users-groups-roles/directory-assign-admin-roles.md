@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27b5a8a7667419e0e3345fb453eefd840368b643
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
-ms.translationtype: HT
+ms.openlocfilehash: 3992ea29d3d81262b5d9b8b126c8fca54feca67d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001680"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026388"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -66,7 +66,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 * 디렉터리 읽기 권한자
 * 게스트 초대자
 * 메시지 센터 읽기 권한자
-* 보고서 읽기 권한자
+* 보고서 구독자
 
 > [!IMPORTANT]
 > 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 자격 증명을 변경할 수 있습니다. 사용자의 자격 증명을 변경한다는 것은 사용자의 ID 및 사용 권한을 가정할 수 있음을 의미할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
@@ -212,6 +212,22 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 >
 >
 
+### <a name="global-readerglobal-reader-permissions"></a>[전역 판독기](#global-reader-permissions)
+
+이 역할의 사용자는 Microsoft 365 서비스에서 설정 및 관리 정보를 읽을 수 있지만 관리 작업을 수행할 수는 없습니다. 전역 판독기는 전역 관리자에 해당 하는 읽기 전용입니다. 계획, 감사 또는 조사를 위해 전역 관리자 대신 전역 판독기를 할당 합니다. 전역 판독기를 Exchange 관리자와 같은 제한 된 다른 관리자 역할과 함께 사용 하 여 전역 관리자 역할을 호출 하지 않고 작업을 보다 쉽게 수행할 수 있도록 합니다. 전역 판독기는 새로운 Microsoft 365 관리 센터, Exchange 관리 센터, 팀 관리 센터, Security center, 준수 센터, Azure AD 관리 센터 및 장치 관리 관리 센터에서 작동 합니다. 
+
+> [!NOTE]
+> 전역 판독기 역할에는 다음과 같은 제한 사항이 있습니다.
+>* SharePoint 관리 센터-SharePoint 관리 센터는 전역 읽기 권한자 역할을 지원 하지 않습니다. 따라서 [M365 관리 센터](https://admin.microsoft.com/Adminportal/Home#/homepage)의 관리 센터 아래 왼쪽 창에는 ' SharePoint '가 표시 되지 않습니다. Https://{테 넌 트 이름}-admin.sharepoint.com로 이동 하는 경우 액세스가 거부 됩니다. 
+>* [AZURE AD 포털](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) -전역 읽기 권한자는 엔터프라이즈 앱의 프로 비전 모드를 읽을 수 없습니다.
+>* [M365 관리 센터](https://admin.microsoft.com/Adminportal/Home#/homepage) -전역 판독기는 cusomter lockbox 요청을 읽을 수 없습니다. M365 관리 센터의 왼쪽 창에 있는 지원에서 고객 lockbox 요청 탭을 찾을 수 없습니다.
+>* [M365 Security Center](https://security.microsoft.com/homepage) -전역 판독기에서 민감도 및 보존 레이블을 읽을 수 없습니다. M365 Security Center의 분류에서 왼쪽 창의 민감도 레이블, 보존 레이블 및 레이블 분석 탭을 찾을 수 없습니다.
+>* [팀 관리 센터](https://admin.teams.microsoft.com) -전역 읽기 권한자는 팀 수명 주기, 보고서 & 호출 분석, IP 전화 장치 관리 및 앱 카탈로그를 읽을 수 없습니다.
+>* [PAM (Privileged Access Management)](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) 은 전역 판독기를 지원 하지 않습니다.
+> 
+> 이러한 기능에 대 한 지원은 시간이 지남에 따라 제공 됩니다.
+>
+
 ### <a name="guest-inviterguest-inviter-permissions"></a>[게스트 초대자](#guest-inviter-permissions)
 
 이 역할의 사용자는 **멤버가 초대할 수 있음** 사용자 설정을 아니요로 설정하는 경우 Azure Active Directory B2B 게스트 사용자 초대를 관리할 수 있습니다. B2B 협업에 대한 자세한 내용은 [Azure AD B2B 협업 정보](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 참조하세요. 다른 권한은 포함되지 않습니다.
@@ -224,7 +240,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 * 게스트 초대자
 * 기술 지원팀 관리자
 * 메시지 센터 읽기 권한자
-* 보고서 읽기 권한자
+* 보고서 구독자
 
 > [!IMPORTANT]
 > 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 암호를 변경할 수 있습니다. 사용자의 암호를 변경한다는 것은 사용자의 ID 및 권한을 가정할 수 있다는 것을 의미합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
@@ -404,7 +420,7 @@ Windows Defender ATP 및 EDR | 경고를 확인 하 고 조사 합니다. Window
 | --- | --- |
 |일반적인 사용 권한|<p>사용자 및 그룹 만들기</p><p>사용자 보기 만들기 및 관리</p><p>Office 지원 티켓 관리<p>암호 만료 정책 업데이트|
 |<p>모든 관리자를 포함한 모든 사용자에게</p>|<p>라이선스 관리</p><p>사용자 계정 이름을 제외한 모든 사용자 속성 관리</p>
-|비관리자 또는 다음의 제한된 관리자 역할의 사용자에만 적용:<ul><li>디렉터리 읽기 권한자<li>게스트 초대자<li>기술 지원팀 관리자<li>메시지 센터 읽기 권한자<li>보고서 읽기 권한자<li>사용자 관리자|<p>삭제 및 복원</p><p>사용 안 함 및 사용</p><p>새로 고침 토큰 무효화</p><p>사용자 계정 이름을 포함한 모든 사용자 속성 관리</p><p>암호 다시 설정</p><p>(FIDO) 디바이스 키 업데이트</p>|
+|비관리자 또는 다음의 제한된 관리자 역할의 사용자에만 적용:<ul><li>디렉터리 읽기 권한자<li>게스트 초대자<li>기술 지원팀 관리자<li>메시지 센터 읽기 권한자<li>보고서 구독자<li>사용자 관리자|<p>삭제 및 복원</p><p>사용 안 함 및 사용</p><p>새로 고침 토큰 무효화</p><p>사용자 계정 이름을 포함한 모든 사용자 속성 관리</p><p>암호 재설정</p><p>(FIDO) 디바이스 키 업데이트</p>|
 
 > [!IMPORTANT]
 > 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 암호를 변경할 수 있습니다. 사용자의 암호를 변경한다는 것은 사용자의 ID 및 권한을 가정할 수 있다는 것을 의미합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
@@ -966,6 +982,76 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 | --- | --- |
 | microsoft.aad.b2c/identityProviders/allTasks | Azure Active Directory B2C에서 id 공급자를 읽고 구성 합니다. |
 
+### <a name="global-reader-permissions"></a>전역 판독기 권한
+전역 관리자가 편집할 수 있는 모든 항목을 읽을 수 있지만 편집할 수는 없습니다. 
+
+> [!NOTE]
+> 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위의 [역할 설명](#global-reader) 을 참조 하세요.
+>
+>
+
+| **actions** | **설명** |
+| --- | --- |
+| microsoft 상거래. 청구/allEntities/읽기   | Office 365 청구의 모든 측면을 읽습니다. |
+| microsoft. directory/administrativeUnits/basic/read    | Azure Active Directory에서 administrativeUnits의 기본 속성을 읽습니다. |
+| microsoft. directory/administrativeUnits/members/read  | Azure Active Directory에서 administrativeUnits.members 속성을 읽습니다. |
+| microsoft. 디렉터리/응용 프로그램/기본/읽기   | Azure Active Directory에서 애플리케이션의 기본 속성을 읽습니다. |
+| microsoft. 디렉터리/응용 프로그램/소유자/읽기  | Azure Active Directory에서 applications.owners 속성을 읽습니다. |
+| microsoft. 디렉터리/응용 프로그램/정책/읽기    | Azure Active Directory에서 applications.policies 속성을 읽습니다. |
+| microsoft. directory/연락처/기본/읽기   | Azure Active Directory에서 연락처의 표준 속성을 읽습니다. |
+| microsoft. directory/연락처/memberOf/읽기    | Azure Active Directory에서 contacts.memberOf 속성을 읽습니다. |
+| microsoft. directory/계약/기본/읽기  | Azure Active Directory에서 계약의 기본 속성을 읽습니다. |
+| microsoft. 디렉터리/장치/기본/읽기    | Azure Active Directory에서 디바이스의 기본 속성을 읽습니다. |
+| microsoft. 디렉터리/장치/memberOf/읽기 | Azure Active Directory에서 devices.memberOf 속성을 읽습니다. |
+| microsoft. directory/devices/Devices.registeredowners/read | Azure Active Directory에서 devices.registeredOwners 속성을 읽습니다. |
+| microsoft. directory/devices/Devices.registeredusers/read  | Azure Active Directory에서 devices.registeredUsers 속성을 읽습니다. |
+| microsoft. directory/directoryRoles/basic/read | Azure Active Directory에서 directoryRoles의 기본 속성을 읽습니다. |
+| microsoft. directory/directoryRoles/eligibleMembers/read   | Azure Active Directory에서 directoryRoles.eligibleMembers 속성을 읽습니다. |
+| microsoft. directory/directoryRoles/members/read   | Azure Active Directory에서 directoryRoles.members 속성을 읽습니다. |
+| microsoft. 디렉터리/도메인/기본/읽기    | Azure Active Directory에서 도메인의 기본 속성을 읽습니다. |
+| microsoft. directory/groups/appRoleAssignments/read    | Azure Active Directory에서 Groups.AppRoleAssignments 속성을 읽습니다. |
+| microsoft. directory/groups/basic/read | Azure Active Directory에서 그룹의 기본 속성을 읽습니다. |
+| microsoft. directory/groups/hiddenMembers/read | Azure Active Directory에서 groups.hiddenMembers 속성을 읽습니다. |
+| microsoft. directory/groups/memberOf/read  | Azure Active Directory에서 groups.memberOf 속성을 읽습니다. |
+| microsoft. 디렉터리/그룹/멤버/읽기   | Azure Active Directory에서 groups.members 속성을 읽습니다. |
+| microsoft. directory/groups/소유자/읽기    | Azure Active Directory에서 groups.owners 속성을 읽습니다. |
+| microsoft. 디렉터리/그룹/설정/읽기  | Azure Active Directory에서 groups.settings 속성을 읽습니다. |
+| microsoft. directory/groupSettings/basic/read  | Azure Active Directory에서 groupSettings의 기본 속성을 읽습니다. |
+| microsoft. directory/groupSettingTemplates/basic/read  | Azure Active Directory에서 groupSettingTemplates의 기본 속성을 읽습니다. |
+| microsoft. directory/oAuth2PermissionGrants/basic/read | Azure Active Directory에서 oAuth2PermissionGrants의 기본 속성을 읽습니다. |
+| microsoft. directory/조직/기본/읽기   | Azure Active Directory에서 조직의 기본 속성을 읽습니다. |
+| microsoft. directory/조직/trustedCAsForPasswordlessAuth/읽기   | Azure Active Directory에서 organization.trustedCAsForPasswordlessAuth 속성을 읽습니다. |
+| microsoft. 디렉터리/정책/표준/읽기    | Azure Active Directory에서 표준 정책을 읽습니다. |
+| microsoft. directory/roleAssignments/basic/read    | Azure Active Directory에서 roleAssignments의 기본 속성을 읽습니다. |
+| microsoft. directory/roleDefinitions/기본/읽기    | Azure Active Directory에서 roleDefinitions의 기본 속성을 읽습니다. |
+| microsoft. directory/servicePrincipals/appRoleAssignedTo/read  | Azure Active Directory에서 servicePrincipals.appRoleAssignedTo 속성을 읽습니다. |
+| microsoft. directory/servicePrincipals/appRoleAssignments/read | Azure Active Directory에서 servicePrincipals.appRoleAssignments 속성을 읽습니다. |
+| microsoft. directory/servicePrincipals/basic/read  | Azure Active Directory에서 servicePrincipals의 기본 속성을 읽습니다. |
+| microsoft. directory/servicePrincipals/memberOf/read   | Azure Active Directory에서 servicePrincipals.memberOf 속성을 읽습니다. |
+| microsoft. directory/servicePrincipals/oAuth2PermissionGrants/basic/read   | Azure Active Directory에서 servicePrincipals.oAuth2PermissionGrants 속성을 읽습니다. |
+| microsoft. directory/servicePrincipals/ownedObjects/read   | Azure Active Directory에서 servicePrincipals.ownedObjects 속성을 읽습니다. |
+| microsoft. directory/servicePrincipals/소유자/읽기 | Azure Active Directory에서 servicePrincipals.owners 속성을 읽습니다. |
+| microsoft. directory/servicePrincipals/정책/읽기   | Azure Active Directory에서 servicePrincipals.policies 속성을 읽습니다. |
+| microsoft.directory/signInReports/allProperties/read  | Azure Active Directory에서 signInReports에 대한 모든 속성(권한 있는 속성 포함)을 읽습니다. |
+| microsoft. directory/subscribedSkus/basic/read | Azure Active Directory에서 subscribedSkus의 기본 속성을 읽습니다. |
+| microsoft. directory/users/appRoleAssignments/read | Azure Active Directory에서 users.appRoleAssignments 속성을 읽습니다. |
+| microsoft. directory/users/basic/read  | Azure Active Directory에서 사용자의 기본 속성을 읽습니다. |
+| microsoft. directory/users/directReports/read  | Azure Active Directory에서 users.directReports 속성을 읽습니다. |
+| microsoft. directory/사용자/관리자/읽기    | Azure Active Directory에서 users.manager 속성을 읽습니다. |
+| microsoft. directory/users/memberOf/read   | Azure Active Directory에서 users.memberOf 속성을 읽습니다. |
+| microsoft. directory/users/oAuth2PermissionGrants/basic/read   | Azure Active Directory에서 users.oAuth2PermissionGrants 속성을 읽습니다. |
+| microsoft. directory/users/ownedDevices/read   | Azure Active Directory에서 users.ownedDevices 속성을 읽습니다. |
+| microsoft. directory/users/ownedObjects/read   | Azure Active Directory에서 users.ownedObjects 속성을 읽습니다. |
+| microsoft. directory/users/registeredDevices/read  | Azure Active Directory에서 users.registeredDevices 속성을 읽습니다. |
+| microsoft. directory/users/strongAuthentication/read   | MFA 자격 증명 정보와 같은 강력한 인증 속성을 읽습니다. |
+| office365/allEntities/읽기 | Exchange Online의 모든 측면을 읽습니다. |
+| microsoft.office365.messageCenter/messages/read   | microsoft.office365.messageCenter에서 메시지를 읽습니다. |
+| microsoft.office365.messageCenter/securityMessages/read   | microsoft.office365.messageCenter에서 securityMessages를 읽습니다. |
+| microsoft.office365.protectionCenter/allEntities/read | Office 365 보호 센터의 모든 측면을 읽습니다. |
+| office365. securityComplianceCenter/allEntities/read | Office365의 모든 표준 속성을 읽습니다. securityComplianceCenter. |
+| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
+| office365/allEntities/표준/읽기   | Office365 포털의 모든 리소스에 대 한 표준 속성을 읽습니다. |
+
 ### <a name="guest-inviter-permissions"></a>게스트 초대자 권한
 ‘멤버가 게스트를 초대할 수 있음’ 설정에 관계없이 게스트 사용자를 초대할 수 있습니다.
 
@@ -1519,13 +1605,13 @@ Microsoft Teams 서비스를 관리할 수 있습니다.
 Azure Information Protection 관리자 | Azure Information Protection 관리자 | 7495fdc4-34c4-4d15-a289-98788ce399fd
 B2C 사용자 흐름 관리자 | B2C 사용자 흐름 관리자 | 6e591065-9bad-43ed-90f3-e9424366d2f0
 B2C 사용자 흐름 특성 관리자 | B2C 사용자 흐름 특성 관리자 | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
-B2C IEF 키 세트 관리자 | B2C IEF 키 세트 관리자 | aaf43236-0c0d-4d5f-883a-6955382ac081
+B2C IEF 키 집합 관리자 | B2C IEF 키 집합 관리자 | aaf43236-0c0d-4d5f-883a-6955382ac081
 B2C IEF 정책 관리자 | B2C IEF 정책 관리자 | 3edaf663-341e-4475-9f94-5c398ef6c070
 대금 청구 관리자 | 대금 청구 관리자 | b0f54661-2d74-4c50-afa3-1ec803f12efe
 클라우드 애플리케이션 관리자 | 클라우드 애플리케이션 관리자 | 158c047a-c907-4556-b7ef-446551a6b5f7
 클라우드 디바이스 관리자 | 클라우드 디바이스 관리자 | 7698a772-787b-4ac8-901f-60d6b08affd2
 회사 관리자 | 전역 관리자 | 62e90394-69f5-4237-9190-012177145e10
-준수 관리자 | 준수 관리자 | 17315797-102d-40b4-93e0-432062caca18
+규정 준수 관리자 | 규정 준수 관리자 | 17315797-102d-40b4-93e0-432062caca18
 준수 데이터 관리자 | 준수 데이터 관리자 | e6d1a23a-da11-4be4-9570-befc86d067a7
 조건부 액세스 관리자 | 조건부 액세스 관리자 | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
 CRM 서비스 관리자 | Dynamics 365 관리자 | 44367163-eba1-44c3-98af-f5787879f96a
@@ -1533,38 +1619,39 @@ CRM 서비스 관리자 | Dynamics 365 관리자 | 44367163-eba1-44c3-98af-f5787
 데스크톱 분석 관리자 | 데스크톱 분석 관리자 | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 디바이스 관리자 | 장치 관리자 | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 디바이스 연결 | 장치 조인 | 9c094953-4995-41c8-84c8-3ebb9b32c93f
-디바이스 관리자 | 장치 관리자 | 2b499bcd-da44-4968-8aec-78e1674fa64d
+디바이스 관리 | 장치 관리자 | 2b499bcd-da44-4968-8aec-78e1674fa64d
 디바이스 사용자 | 장치 사용자 | d405c6df-0af8-4e3b-95e4-4d06e542189e
 디렉터리 읽기 권한자 | 디렉터리 읽기 권한자 | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 디렉터리 동기화 계정 | 디렉터리 동기화 계정 | d29b2b05-8046-44ba-8758-1e26182fcf32
-디렉터리 쓰기 권한자 | 디렉터리 쓰기 권한자 | 9360feb5-f418-4baa-8175-e2a00bac4301
+디렉터리 작성자 | 디렉터리 작성자 | 9360feb5-f418-4baa-8175-e2a00bac4301
 Exchange 서비스 관리자 | Exchange 관리자 | 29232cdf-9323-42fd-ade2-1d097af3e4de
-외부 ID 공급자 관리자 | 외부 ID 공급자 관리자 | be2f45a1-457d-42af-a067-6ec1fa63bc45
+외부 Id 공급자 관리자 | 외부 Id 공급자 관리자 | be2f45a1-457d-42af-a067-6ec1fa63bc45
+전역 판독기 | 전역 판독기 | f2ef992c-3afb-46b9-b7cf-a126ee74c451
 게스트 초대자 | 게스트 초대자 | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 기술 지원팀 관리자 | 암호 관리자 | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Intune 서비스 관리자 | Intune 관리자 | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Kaizala 관리자 | Kaizala 관리자 | 74ef975b-6605-40af-a5d2-b9539d836353
 라이선스 관리자 | 라이선스 관리자 | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
 Lync 서비스 관리자 | 비즈니스용 Skype 관리자 | 75941009-915a-4869-abe7-691bff18279e
-메시지 센터 개인 정보 읽기 권한자 | 메시지 센터 프라이버시 읽기 권한자 | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
-메시지 센터 읽기 권한자 | 메시지 센터 읽기 권한자 | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
+메시지 센터 개인 정보 읽기 권한자 | 메시지 센터 개인 정보 읽기 권한자 | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
+메시지 센터 읽기 권한자 | 메시지 센터 판독기 | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
 파트너 계층1 지원 | 파트너 계층1 지원 | 4ba39ca4-527c-499a-b93d-d9b492c50246
 파트너 계층2 지원 | 파트너 계층2 지원 | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 암호 관리자 | 암호 관리자 | 966707d0-3269-4727-9be2-8c3a10f19b9d
 Power BI 서비스 관리자 | Power BI 관리자 | a9ea8996-122f-4c74-9520-8edcd192826c
 권한 있는 인증 관리자 | 권한 있는 인증 관리자 | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
 권한 있는 역할 관리자 | 권한 있는 역할 관리자 | e8611ab8-c189-46e8-94e1-60213ab1f814
-보고서 읽기 권한자 | 보고서 읽기 권한자 | 4a5d8f65-41da-4de4-8968-e035b65339cf
-검색 관리자 | 검색 관리자 | 0964bb5e-9bdb-4d7b-ac29-58e794862a40
+보고서 구독자 | 보고서 읽기 권한자 | 4a5d8f65-41da-4de4-8968-e035b65339cf
+관리자 검색 | 관리자 검색 | 0964bb5e-9bdb-4d7b-ac29-58e794862a40
 검색 편집기 | 검색 편집기 | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
 보안 관리자 | 보안 관리자 | 194ae4cb-b126-40b2-bd5b-6091b380977d
 보안 운영자 | 보안 운영자 | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
-보안 읽기 권한자 | 보안 읽기 권한자 | 5d6b6bb7-de71-4623-b4af-96380a352509
+보안 판독기 | 보안 판독기 | 5d6b6bb7-de71-4623-b4af-96380a352509
 서비스 지원 관리자 | 서비스 관리자 | f023fd81-a637-4b56-95fd-791ac0226033
 SharePoint 서비스 관리자 | SharePoint 관리자 | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
-Teams 커뮤니케이션 관리자 | Teams 커뮤니케이션 관리자 | baf37b3a-610e-45da-9e62-d9d1e5e8914b
-Teams 커뮤니케이션 지원 엔지니어 | Teams 커뮤니케이션 지원 엔지니어 | f70938a0-fc10-4177-9e90-2178f8765737
-Teams 커뮤니케이션 지원 전문가 | Teams 커뮤니케이션 지원 전문가 | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
+Teams 통신 관리자 | Teams 통신 관리자 | baf37b3a-610e-45da-9e62-d9d1e5e8914b
+Teams 통신 지원 엔지니어 | Teams 통신 지원 엔지니어 | f70938a0-fc10-4177-9e90-2178f8765737
+Teams 통신 지원 전문가 | Teams 통신 지원 전문가 | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Teams 서비스 관리자 | Teams 서비스 관리자 | 69091246-20e8-4a56-aa4d-066075b2a7a8
 사용자 | 사용자 | a0b1b346-4d3e-4e8b-98f8-753987be4970
 사용자 계정 관리자 | 사용자 관리자 | fe930be7-5e62-47db-91af-98c3a49a38b1
@@ -1574,7 +1661,7 @@ Teams 서비스 관리자 | Teams 서비스 관리자 | 69091246-20e8-4a56-aa4d-
 
 다음 역할은 사용할 수 없습니다. 해당 역할은 사용되지 않으며 향후 Azure AD에서 제거됩니다.
 
-* 애드혹 라이선스 관리자
+* 임시 라이선스 관리자
 * 디바이스 연결
 * 디바이스 관리
 * 디바이스 사용자

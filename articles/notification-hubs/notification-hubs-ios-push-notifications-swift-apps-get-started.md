@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: miparker
 ms.reviewer: jowargo
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: b830538f81d1696c34db3e4f66a07346c17bcdcc
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8dae5bcc082ba5dd0953e3e97f609e4031547a35
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211962"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030648"
 ---
 # <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>자습서: Notification Hubs REST API를 사용 하는 Swift iOS 앱에 대 한 푸시 알림
 
@@ -75,7 +75,7 @@ ms.locfileid: "71211962"
 
 1. 새 프로젝트에 대 한 옵션을 설정 하는 경우:
 
-   1. Apple 개발자 포털에서 **번들 식별자** 를 설정할 때 사용한 **제품 이름** (pushdemo) 및 **조직 식별자** (`com.<organization>`)를 지정 합니다.
+   1. Apple 개발자 포털에서 **번들 식별자** 를 설정할 때 사용한 **제품 이름** (Pushdemo) 및 **조직 식별자** (`com.<organization>`)를 지정 합니다.
 
    1. **앱 ID** 가 설정 된 **팀** 을 선택 합니다.
 
@@ -100,7 +100,7 @@ ms.locfileid: "71211962"
 
    ![Notification Hubs Essentials 요약](./media/notification-hubs-ios-push-notifications-swift-apps-get-started/hub-essentials.png)
 
-   **액세스 정책** 으로 이동 하 고와 `DefaultFullSharedAccessSignature`같은 해당 **액세스 정책**을 선택 하 여 **notificationHubKeyName** 및 **notificationHubKey** 값을 찾을 수도 있습니다. 그 후에는 `SharedAccessKey=` `SharedAccessKeyName=` `notificationHubKeyName` 기본연결문자열에서접두사가인값을복사하고에접두사가접두사로추가된값`notificationHubKey`을 복사 합니다.
+   **액세스 정책** 으로 이동 하 고 해당 **액세스 정책**(예: `DefaultFullSharedAccessSignature`)을 선택 하 여 **notificationHubKeyName** 및 **notificationHubKey** 값을 찾을 수도 있습니다. 그런 다음 **기본 연결 문자열** 에서 접두사 앞에 `SharedAccessKeyName=`을 사용 하 고 @no__t에는-1을 사용 하 고 `notificationHubKey`에는 `SharedAccessKey=`의 값을 복사 합니다.
 
    연결 문자열은 다음 형식 이어야 합니다.
 
@@ -108,15 +108,15 @@ ms.locfileid: "71211962"
    Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<notificationHubKeyName>;SharedAccessKey=<notificationHubKey>
    ```
 
-   이를 간단 하 게 유지 `DefaultFullSharedAccessSignature` 하려면 토큰을 사용 하 여 알림을 보내도록 지정 합니다. 실제로 알림을 받으려는 `DefaultListenSharedAccessSignature` 경우에는를 선택 하는 것이 좋습니다.
+   간단 하 게 유지 하려면 토큰을 사용 하 여 알림을 보낼 수 있도록 `DefaultFullSharedAccessSignature`을 지정 합니다. 실제로 `DefaultListenSharedAccessSignature`은 알림을 받으려는 경우에 더 적합 합니다.
 
 1. **프로젝트 탐색기**에서 **프로젝트 이름을** 선택한 다음 **일반** 탭을 선택 합니다.
 
-1. **Id** 를 찾은 다음 **번들 식별자** 값이 이전 단계의 **앱 ID** 에 `com.<organization>.PushDemo`사용 되는 값인와 일치 하도록 설정 합니다.
+1. **Id** 를 찾은 다음,-2 (이전 단계의 **앱 ID** 에 사용 되는 값) @no__t와 일치 하도록 **번들 식별자** 값을 설정 합니다.
 
 1. **서명**을 찾은 다음 **Apple Developer 계정**에 적절 한 **팀** 을 선택 합니다. **팀** 값은 인증서와 프로필을 생성 한 값과 일치 해야 합니다.
 
-1. Xcode는 **번들 식별자**를 기반으로 적절 한 **프로 비전 프로필** 값을 자동으로 끌어옵니다. 새 **프로 비전 프로필** 값이 표시 되지 않으면 **Xcode** > **기본 설정** > **계정** > 보기를 선택 하 여 **서명 id** 에 대 한 프로필을 새로 고쳐 보세요. **세부 정보**. **서명 id**를 선택 하 고 오른쪽 아래에 있는 **새로 고침** 단추를 선택 하 여 프로필을 다운로드 합니다.
+1. Xcode는 **번들 식별자**를 기반으로 적절 한 **프로 비전 프로필** 값을 자동으로 끌어옵니다. 새 **프로 비전 프로필** 값이 표시 되지 않으면 **Xcode** > **기본 설정** > **계정** > **자세히 보기**를 선택 하 여 **서명 id** 에 대 한 프로필을 새로 고칩니다. **서명 id**를 선택 하 고 오른쪽 아래에 있는 **새로 고침** 단추를 선택 하 여 프로필을 다운로드 합니다.
 
 1. **기능** 탭을 선택 하 고 **푸시 알림이** 활성화 되어 있는지 확인 합니다.
 
@@ -286,7 +286,7 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
 
 1. [UNIX Epoch 시간](https://en.wikipedia.org/wiki/Unix_time) 형식의 만료 시간을 계산 하는 것은 1970 년 1 월 1 일 자정 utc 이후 경과 된 시간 (초)입니다.
 1. 액세스 하려고 하는 리소스를 나타내는 **Resourceurl** 의 형식을 지정 합니다 .이 url은 백분율 인코딩 및 소문자입니다. **Resourceurl** 의 형식은 `'https://<namespace>.servicebus.windows.net/<hubName>'`입니다.
-1. 로`'<UrlEncodedResourceUrl>\n<ExpiryEpoch>'`형식이 지정 된 **stringtosign**을 준비 하는 중입니다.
+1. @No__t-1로 형식이 지정 된 **Stringtosign**을 준비 하는 중입니다.
 1. **Stringtosign** 값의 HMAC-SHA256 해시를 사용 하 여 **서명을** 계산 하 고 Base64 인코딩을 사용 합니다. 해시 값은 각 **권한 부여 규칙**에 대 한 **연결 문자열** 의 **키** 부분과 함께 사용 됩니다.
 1. % 인코딩 되도록 Base64 인코딩된 **서명의** 서식을 지정 합니다.
 1. **UrlEncodedSignature**, **ExpiryEpoch**, **KeyName**및 **UrlEncodedResourceUrl** 값을 사용 하 여 필요한 형식으로 토큰을 생성 합니다.
@@ -297,7 +297,7 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
 
 브리징 헤더를 추가 하 고 구성 하려면 다음을 수행 합니다.
 
-1. Xcode에서 **파일** > **새로 만들기** > 파일헤더 **파일**을 선택 합니다.>  헤더 파일의 이름을 **BridgingHeader**로 합니다.
+1. Xcode에서 **file** > **New** > **File** > **헤더 파일**을 선택 합니다. 헤더 파일의 이름을 **BridgingHeader**로 합니다.
 
 1. 파일을 편집 하 여 **CommonHMAC**를 가져옵니다.
 
@@ -313,11 +313,11 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
 
 1. 브리징 헤더를 참조 하도록 대상의 **빌드 설정을** 업데이트 합니다.
 
-   1.  **빌드 설정** 탭을 열고 **Swift 컴파일러** 섹션으로 스크롤합니다.
+   1. **빌드 설정** 탭을 열고 **Swift 컴파일러** 섹션으로 스크롤합니다.
 
-   1.  **설치 목표-C 호환성 헤더** 옵션이 **예**로 설정 되어 있는지 확인 합니다.
+   1. **설치 목표-C 호환성 헤더** 옵션이 **예**로 설정 되어 있는지 확인 합니다.
 
-   1. `'<ProjectName>/BridgingHeader.h'` **목적-C 브리징 헤더** 옵션에 파일 경로를 입력 합니다. 이는 브리징 헤더의 파일 경로입니다.
+   1. **목표-C 브리징 헤더** 옵션에 `'<ProjectName>/BridgingHeader.h'` 파일 경로를 입력 합니다. 이는 브리징 헤더의 파일 경로입니다.
 
    이러한 옵션을 찾을 수 없는 경우 **기본** 또는 **사용자 지정**이 아닌 **모든** 보기가 선택 되어 있는지 확인 합니다.
 

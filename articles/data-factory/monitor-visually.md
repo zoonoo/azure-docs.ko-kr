@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 99ae0139d7b12c0bfb87030d2b749b12834a4f96
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f7c27bde3806684045bc43f8ff99eefb14c8d04a
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141092"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029148"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Azure Data Factory를 시각적으로 모니터링하는 방법에 대해 알아봅니다
 Azure Data Factory는 클라우드 기반 데이터 통합 서비스입니다. 데이터 이동 및 데이터 변환을 오케스트레이션 하 고 자동화 하기 위해 클라우드에서 데이터 기반 워크플로를 만드는 데 사용할 수 있습니다. Azure Data Factory를 사용 하 여 다음을 수행할 수 있습니다.
@@ -46,10 +46,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 | 동작 | 활동 실행을 보는 데 사용할 수 있는 단일 작업 |
 | 실행 시작 | 파이프라인 실행에 대 한 시작 날짜 및 시간 (MM/DD/YYYY, HH: MM: SS AM/PM) |
 | Duration | 실행 기간 (HH:MM:SS) |
-| 트리거 기준 | 수동 트리거 또는 예약 된 트리거 |
+| 트리거 주체 | 수동 트리거 또는 예약 된 트리거 |
 | Status | **실패**, **성공**또는 **진행 중** |
 | 매개 변수 | 파이프라인 실행에 대 한 매개 변수 (이름/값 쌍) |
-| Error | 파이프라인 실행 오류 (있는 경우) |
+| 오류 | 파이프라인 실행 오류 (있는 경우) |
 | 실행 ID | 파이프라인 실행 ID입니다. |
 
 ![파이프라인 실행 모니터링에 대 한 목록 보기](media/monitor-visually/pipeline-runs.png)
@@ -66,7 +66,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 | Status | **실패**, **성공**또는 **진행 중** |
 | 입력 | 활동 입력을 설명 하는 JSON 배열입니다. |
 | 출력 | 활동 출력을 설명 하는 JSON 배열입니다. |
-| Error | 작업 실행 오류 (있는 경우) |
+| 오류 | 작업 실행 오류 (있는 경우) |
 
 ![작업 실행 모니터링에 대 한 목록 보기](media/monitor-visually/activity-runs.png)
 
@@ -161,7 +161,7 @@ Gantt 보기를 사용 하 여 파이프라인 및 활동 실행을 빠르게 �
 
 ## <a name="alerts"></a>,
 
-Data Factory의 지원되는 메트릭에 대해 경고를 발생시킬 수 있습니다. Data Factory 모니터링 페이지에서**경고 & 메트릭**  **모니터링** > 을 선택 하 여 시작 합니다.
+Data Factory의 지원되는 메트릭에 대해 경고를 발생시킬 수 있습니다. Data Factory 모니터링 페이지에서 **모니터링** > **경고 & 메트릭을** 선택 하 여 시작 합니다.
 
 ![데이터 팩터리 모니터 페이지](media/monitor-visually/alerts01.png)
 
@@ -171,7 +171,7 @@ Data Factory의 지원되는 메트릭에 대해 경고를 발생시킬 수 있�
 
 ### <a name="create-alerts"></a>경고 만들기
 
-1.  새 경고 **규칙** 을 선택 하 여 새 경고를 만듭니다.
+1.  새 경고 **규칙** 을 선택 하 여 새 경고를 만듭니다.
 
     ![새 경고 규칙 단추](media/monitor-visually/alerts02.png)
 

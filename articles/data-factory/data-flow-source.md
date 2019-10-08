@@ -6,16 +6,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 16bc4c2651d5571bce823aa9c69f823d7fede8af
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: c3c24e9dc674ac29c8ca4d0d445cc3f572cda71e
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801649"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029222"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>매핑 데이터 흐름에 대 한 원본 변환 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 원본 변환은 데이터 흐름에 대 한 데이터 원본을 구성 합니다. 데이터 흐름을 디자인할 때 첫 번째 단계는 항상 원본 변환을 구성 합니다. 원본을 추가 하려면 데이터 흐름 캔버스에서 **원본 추가** 상자를 클릭 합니다.
 
@@ -30,8 +30,8 @@ ms.locfileid: "70801649"
 * Azure Blob Storage
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* Azure SQL Data Warehouse
-* Azure SQL Database
+* Azure SQL 데이터 웨어하우스
+* Azure SQL 데이터베이스
 
 Azure Data Factory는 80 개의 기본 커넥터에 액세스할 수 있습니다. 데이터 흐름에 이러한 다른 원본의 데이터를 포함 하려면 복사 작업을 사용 하 여 지원 되는 준비 영역 중 하나에 해당 데이터를 로드 합니다.
 
@@ -70,14 +70,14 @@ Azure Blob Storage 또는 Azure Data Lake Storage와 같은 파일 기반 데이
 
 와일드 카드 예제:
 
-* ```*```모든 문자 집합을 나타냅니다.
-* ```**```재귀 디렉터리 중첩을 나타냅니다.
-* ```?```한 문자를 대체 합니다.
-* ```[]```대괄호 안에 있는 하나 이상의 문자를 찾습니다.
+* ```*```은 모든 문자 집합을 나타냅니다.
+* ```**```은 재귀 디렉터리 중첩을 나타냅니다.
+* ```?```은 한 문자를 대체 합니다.
+* ```[]```은 대괄호 안에 있는 문자 중 하 나와 일치 합니다.
 
-* ```/data/sales/**/*.csv```/Data/clas 아래의 모든 csv 파일을 가져옵니다.
-* ```/data/sales/20??/**```20 세기의 모든 파일을 가져옵니다.
-* ```/data/sales/2004/*/12/[XY]1?.csv```12 월의 2004에서 X 또는 Y 접두사가 2 자리 숫자로 시작 하는 csv 파일을 모두 가져옵니다.
+* ```/data/sales/**/*.csv```은/data/sales 아래의 모든 csv 파일을 가져옵니다.
+* ```/data/sales/20??/**```은 20 세기의 모든 파일을 가져옵니다.
+* ```/data/sales/2004/*/12/[XY]1?.csv```은 X 또는 Y 접두사가 2 자리 숫자로 시작 하는 12 월 2004의 모든 csv 파일을 가져옵니다.
 
 **파티션 루트 경로:** 파일 원본에 ```key=value``` 형식으로 분할 된 폴더가 있는 경우 (예: year = 2019) 해당 파티션 폴더 트리의 최상위 수준을 데이터 흐름 데이터 스트림의 열 이름에 할당할 수 있습니다.
 
@@ -120,13 +120,13 @@ Azure Blob Storage 또는 Azure Data Lake Storage와 같은 파일 기반 데이
 
 모든 원본 설정은 [매핑 데이터 흐름의 변환 식 언어](data-flow-expression-functions.md)를 사용 하 여 식으로 지정할 수 있습니다. 동적 콘텐츠를 추가 하려면 설정 패널에서 필드 내부를 클릭 하거나 마우스로 가리킵니다. **동적 콘텐츠 추가**에 대 한 하이퍼링크를 클릭 합니다. 그러면 식, 정적 리터럴 값 또는 매개 변수를 사용 하 여 동적으로 값을 설정할 수 있는 식 작성기가 시작 됩니다.
 
-![매개 변수](media/data-flow/params6.png "매개 변수")
+![Parameters](media/data-flow/params6.png "매개 변수")
 
 ## <a name="sql-source-options"></a>SQL 원본 옵션
 
 원본이 SQL Database 또는 SQL Data Warehouse 인 경우 **원본 옵션** 탭에서 추가 SQL 관련 설정을 사용할 수 있습니다. 
 
-**입력** 소스를 테이블에 표시할지 (에 ```Select * from <table-name>```해당 하는) 선택 하거나 사용자 지정 SQL 쿼리를 입력 합니다.
+**입력** 원본을 테이블에 표시할지 (```Select * from <table-name>```과 동일) 선택 하거나 사용자 지정 SQL 쿼리를 입력 합니다.
 
 **쿼리**: 입력 필드에서 쿼리를 선택 하는 경우에는 원본에 대 한 SQL 쿼리를 입력 합니다. 이 설정은 데이터 집합에서 선택한 테이블을 재정의 합니다. **Order by** 절은 여기서 지원 되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * From udfGetData ()** 는 테이블을 반환 하는 SQL의 UDF입니다. 이 쿼리는 데이터 흐름에서 사용할 수 있는 원본 테이블을 생성 합니다.
 
@@ -135,7 +135,7 @@ Azure Blob Storage 또는 Azure Data Lake Storage와 같은 파일 기반 데이
 **격리 수준**: 매핑 데이터 흐름에서 SQL 원본의 기본값은 커밋되지 않은 읽기입니다. 여기에서 격리 수준을 다음 값 중 하나로 변경할 수 있습니다.
 * 커밋된 읽기
 * 커밋되지 않은 읽기
-* 반복 읽기
+* 반복 가능한 읽기
 * 직렬화 가능
 * 없음 (격리 수준 무시)
 
@@ -145,7 +145,7 @@ Azure Blob Storage 또는 Azure Data Lake Storage와 같은 파일 기반 데이
 
 데이터 집합의 스키마와 마찬가지로 원본의 프로젝션은 원본 데이터의 데이터 열, 형식 및 형식을 정의 합니다. SQL 및 Parquet와 같은 대부분의 데이터 집합 형식에 대해 원본 프로젝션은 데이터 집합에 정의 된 스키마를 반영 하도록 수정 됩니다. 원본 파일이 강력 하 게 형식화 되지 않은 경우 (예: Parquet 파일이 아닌 플랫 csv 파일) 원본 변환의 각 필드에 대 한 데이터 형식을 정의할 수 있습니다.
 
-![투영 탭의 설정](media/data-flow/source3.png "프로젝션")
+![투영 탭 프로젝션의 설정](media/data-flow/source3.png "")
 
 텍스트 파일에 정의 된 스키마가 없는 경우 데이터 형식 **검색** 을 선택 하 여 Data Factory에서 데이터 형식을 샘플링 하 고 유추 하도록 합니다. 기본 데이터 형식을 자동으로 검색 하려면 **기본 형식 정의** 를 선택 합니다. 
 
@@ -167,7 +167,7 @@ SQL Database 원본에서 데이터를 분할할 필요가 없지만 파티션�
 
 쿼리에 따라 연결을 분할 하도록 선택할 수 있습니다. WHERE 조건자의 내용을 입력 합니다. 예를 들어 연도 > 1980를 입력 합니다.
 
-데이터 흐름 매핑 내의 최적화에 대 한 자세한 내용은 [최적화 탭](concepts-data-flow-optimize-tab.md)을 참조 하세요.
+데이터 흐름 매핑 내의 최적화에 대 한 자세한 내용은 [최적화 탭](concepts-data-flow-overview.md#optimize)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

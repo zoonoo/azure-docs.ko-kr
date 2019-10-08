@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: danlep
-ms.openlocfilehash: ad7f93bb3934ca01b7f45c0bd4b5cc8be81ea54b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 05f1bcd5e80d7c06fbaca1abe89c84f6743a5979
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325533"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034981"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure Virtual Network에 컨테이너 인스턴스 배포
 
@@ -29,6 +29,7 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공되며 일부 [제한 사항이 적용](#preview-limitations)됩니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
+
 
 ## <a name="virtual-network-deployment-limitations"></a>가상 네트워크 배포 제한 사항
 
@@ -263,6 +264,10 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 ```
 
 ### <a name="delete-network-resources"></a>네트워크 리소스 삭제
+
+
+> [!NOTE]
+> 네트워크 프로필을 제거 하는 동안 오류가 발생 하는 경우 플랫폼에서 2-3 일을 허용 하 여 자동으로 문제를 완화 하 고 삭제를 다시 시도 합니다. 네트워크 프로필을 제거 하는 동안 문제가 계속 되 면 [지원 reqest을 엽니다.](https://azure.microsoft.com/support/create-ticket/)
 
 이 기능의 초기 미리 보기에서는 앞에서 만든 네트워크 리소스를 삭제하려면 여러 명령을 추가로 실행해야 합니다. 이 문서의 이전 섹션에 나왔던 예제 명령을 사용하여 가상 네트워크와 서브넷을 만들었다면 아래 스크립트를 사용하여 해당 네트워크 리소스를 삭제할 수 있습니다.
 

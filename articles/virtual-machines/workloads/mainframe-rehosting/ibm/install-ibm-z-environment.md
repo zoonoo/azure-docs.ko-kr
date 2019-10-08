@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 7ba3323f0811f3f9b76d73796264bf17712a1179
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 67af4eae03b773fad9cf38964152c1fb9d623bd5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841331"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025946"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Azure에서 IBM zD & T 개발/테스트 환경 설치
 
@@ -39,7 +39,7 @@ ZD & T의 모든 버전은 Windows Server가 아닌 x86 Linux 시스템 에서�
 
 이 문서에서는 Azure에서 Z 개발 및 테스트 환경 (zD & T) Enterprise Edition을 설정 하는 방법을 보여 줍니다. 그런 다음 zD & T Enterprise Edition 웹 서버를 사용 하 여 Azure에서 Z 기반 환경을 만들고 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 > [!NOTE]
 > IBM에서는 zD & T Enterprise Edition을 개발/테스트 환경에만 설치할 수 있으며 프로덕션 환경에서는 설치할 수*없습니다* .
@@ -62,11 +62,11 @@ ZD & T의 모든 버전은 Windows Server가 아닌 x86 Linux 시스템 에서�
 
 3. **연결** 단추를 통해 VM의 **개요** 블레이드에 표시 된 SSH 자격 증명을 가져옵니다. **Ssh** 탭을 선택 하 고 ssh logon 명령을 클립보드에 복사 합니다.
 
-4. 로컬 PC에서 [Bash 셸에](/azure/cloud-shell/quickstart) 로그온 하 여 명령을 붙여넣습니다. 이 파일은 **ssh\<사용자 id\>\@IP\<주소\>** 형식입니다. 자격 증명을 입력 하 라는 메시지가 표시 되 면 해당 자격 증명을 입력 하 여 홈 디렉터리에 대 한 연결을 설정 합니다.
+4. 로컬 PC에서 [Bash 셸에](/azure/cloud-shell/quickstart) 로그온 하 여 명령을 붙여넣습니다. **Ssh @ no__t-1 사용자 id @ no__t-2 @ no__t-3 @ no__t-4IP 주소 @ no__t-5**형식으로 됩니다. 자격 증명을 입력 하 라는 메시지가 표시 되 면 해당 자격 증명을 입력 하 여 홈 디렉터리에 대 한 연결을 설정 합니다.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>서버에 설치 파일을 복사 합니다.
 
-웹 서버의 설치 파일은 **zdt\_Install\_EE\_v 12.0.0.1. tgz**입니다. IBM에서 제공 하는 미디어에 포함 되어 있습니다. Ubuntu VM에이 파일을 업로드 해야 합니다.
+웹 서버의 설치 파일은 **Zdt @ no__t-1Install @ no__t-2EE\_V12.0.0.1.tgz**입니다. IBM에서 제공 하는 미디어에 포함 되어 있습니다. Ubuntu VM에이 파일을 업로드 해야 합니다.
 
 1. 명령줄에서 다음 명령을 입력 하 여 새로 만든 이미지에서 모든 항목이 최신 상태 인지 확인 합니다.
 
@@ -91,7 +91,7 @@ ZD & T의 모든 버전은 Windows Server가 아닌 x86 Linux 시스템 에서�
 
 ## <a name="install-the-enterprise-edition"></a>Enterprise Edition 설치
 
-1. 다음 명령을 사용 하 여 zdt 디렉터리로 이동 하 고\_zdt\_Install\_EE 12.0.0.1. tgz 파일의 압축을 해제 합니다.
+1. 다음 명령을 사용 하 여 ZDT 디렉터리로 이동 하 고 ZDT @ no__t-0Install @ no__t-1EE\_V12.0.0.1.tgz 파일의 압축을 해제 합니다.
 
     ```
     cd ZDT
@@ -104,7 +104,7 @@ ZD & T의 모든 버전은 Windows Server가 아닌 x86 Linux 시스템 에서�
     ./ZDT_Install_EE_V12.0.0.0.x86_64
     ```
 
-3. 1 을 선택 하 여 엔터프라이즈 서버를 설치 합니다.
+3. **1** 을 선택 하 여 엔터프라이즈 서버를 설치 합니다.
 
 4. **Enter** 키를 누르고 사용권 계약을 자세히 읽습니다. 라이선스의 끝에 **예** 를 입력 하 여 계속 합니다.
 

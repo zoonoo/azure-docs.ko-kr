@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 083a7e7ad4ac40a7782936e664a9136d0452e93d
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 69fe370029cef391b8ee483ffdee5c588df41d58
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694672"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030663"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Linux에서 셸 스크립팅을 학습할 랩 설정
-이 문서에서는 Linux에서 셸 스크립팅을 학습 하도록 랩을 설정 하는 방법을 보여 줍니다. 스크립팅은 관리자가 반복적인 작업을 방지할 수 있도록 하는 시스템 관리의 유용한 부분입니다. 이 샘플 시나리오에서 클래스는 기존 bash 스크립트와 향상 된 스크립트를 포함 합니다. 향상 된 스크립트는 bash 명령과 Ruby를 결합 하는 스크립트입니다. 이 접근 방식을 사용 하면 Ruby에서 데이터를 전달 하 고, 셸에 상호 작용할 수 있습니다. 
+이 문서에서는 Linux에서 셸 스크립팅을 학습 하도록 랩을 설정 하는 방법을 보여 줍니다. 스크립팅은 관리자가 반복적인 작업을 방지할 수 있도록 하는 시스템 관리의 유용한 부분입니다. 이 샘플 시나리오에서 클래스는 기존 bash 스크립트와 향상된 스크립트를 포함합니다. 향상된 스크립트는 bash 명령과 Ruby를 결합하는 스크립트입니다. 이 접근 방식을 사용하면 Ruby에서 데이터를 전달하고, bash 명령이 셸과 상호 작용할 수 있습니다. 
 
-이러한 스크립팅 클래스를 사용 하는 학생이 linux 가상 머신을 사용 하 여 Linux의 기본 사항을 알아보고 bash 셸 스크립팅에 익숙해질 수 있습니다. Linux 가상 머신은 원격 데스크톱 액세스를 사용 하도록 설정 되 고 [gedit](https://help.gnome.org/users/gedit/stable/) 및 [Visual Studio Code](https://code.visualstudio.com/) 텍스트 편집기가 설치 되어 제공 됩니다.
+이러한 스크립팅 클래스를 수강하는 학생은 Linux 가상 머신을 통해 Linux의 기본 사항을 알아보고 bash 셸 스크립팅에 익숙해질 수 있습니다. Linux 가상 머신은 원격 데스크톱 액세스를 사용하도록 설정되어 있고 [gedit](https://help.gnome.org/users/gedit/stable/) 및 [Visual Studio Code](https://code.visualstudio.com/) 텍스트 편집기가 설치 되어 있습니다.
 
 ## <a name="lab-configuration"></a>랩 구성
 이 랩을 설정 하려면 시작 하려면 Azure 구독이 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독이 있으면 Azure Lab Services에서 새 랩 계정을 만들거나 기존 랩 계정을 사용할 수 있습니다. 새 랩 계정 만들기에 대 한 다음 자습서를 참조 하세요. [자습서를 통해 랩 계정을 설정할 수](tutorial-setup-lab-account.md)있습니다.
@@ -83,7 +83,9 @@ Ruby는 bash 스크립트와 함께 사용할 수 있는 오픈 소스 동적 �
 ## <a name="cost"></a>비용 
 이 랩의 비용을 예측 하려는 경우 다음 예제를 사용할 수 있습니다.
  
-20 시간의 예약 된 클래스 시간 및 숙제 또는 할당에 대 한 10 시간의 할당량을 포함 하는 25 개의 학생 클래스의 경우 랩 가격은 다음과 같습니다. 25 개 학생 * (20 + 10) 시간 * 20 개의 랩 단위 * 0.01 USD/시간당 = 150 USD
+20 시간의 예약 된 클래스 시간 및 숙제 또는 할당에 대 한 10 시간의 할당량을 포함 하는 25 개의 학생 클래스의 경우 랩 가격은 다음과 같습니다. 
+
+25 개 학생 * (20 + 10) 시간 * 20 개의 랩 단위 * 0.01 USD/시간당 = 150 USD
 
 가격 책정에 대 한 자세한 내용은 다음 문서에서 찾을 수 있습니다. [가격 책정을 Azure Lab Services](https://azure.microsoft.com/pricing/details/lab-services/)합니다.
 

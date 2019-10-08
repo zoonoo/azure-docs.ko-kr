@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 4523d7bf8f6c0ffc0ebfbc57d20a19baec08c91b
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 99def93a20a365dd0ff5fc27e9c52909ee30bd83
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720349"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028125"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>GZRS (지역 중복 저장소) (미리 보기)를 사용 하 여 항상 사용 가능한 Azure Storage 응용 프로그램 빌드
 
@@ -35,7 +35,7 @@ GZRS 및 RA-GZRS는 현재 다음 지역에서 미리 보기로 제공 됩니다
 - 미국 동부 2
 - 미국 중부
 
-Microsoft는 추가 Azure 지역에서 GZRS 및 RA GZRS을 계속 사용할 수 있습니다. 지원 되는 지역에 대 한 자세한 내용은 [Azure 서비스 업데이트](https://azure.microsoft.com/updates/) 페이지를 정기적으로 확인 하세요.
+Microsoft는 추가 Azure 지역에서 GZRS 및 RA GZRS을 계속 사용할 수 있습니다. 지원 되는 지역에 대 한 자세한 내용은 [Azure 서비스 업데이트](https://azure.microsoft.com/updates/)  페이지를 정기적으로 확인 하세요.
 
 미리 보기 가격 책정에 대 한 자세한 내용은 [blob](https://azure.microsoft.com/pricing/details/storage/blobs), [파일](https://azure.microsoft.com/pricing/details/storage/files/), [큐](https://azure.microsoft.com/pricing/details/storage/queues/)및 [테이블](https://azure.microsoft.com/pricing/details/storage/tables/)에 대 한 GZRS 미리 보기 가격 책정을 참조 하세요.
 
@@ -49,11 +49,11 @@ GZRS 또는 RA GZRS를 사용 하는 저장소 계정에 데이터를 쓰면 해
 > [!IMPORTANT]
 > 비동기 복제는 데이터를 주 지역에 쓰고 보조 지역에 복제 되는 시간 사이에 지연이 발생 합니다. 지역 재해의 경우 주 지역에서 해당 데이터를 복구할 수 없으면 보조 지역에 아직 복제되지 않은 변경 내용이 손실될 수 있습니다.
 
-저장소 계정을 만들 때 해당 계정의 데이터를 복제 하는 방법을 지정 하 고 해당 계정에 대 한 주 지역도 지정 합니다. 지리적으로 복제 된 계정에 대 한 쌍을 이루는 보조 지역은 주 지역에 따라 결정 되며 변경할 수 없습니다. Azure에서 지원 되는 지역에 대 한 최신 정보는 비즈니스 연속성 [및 재해 복구 (BCDR) (영문)를 참조 하세요. Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조하세요. GZRS 또는 RA-GZRS를 사용 하 여 저장소 계정을 만드는 방법에 대 한 자세한 내용은 [저장소 계정 만들기](storage-quickstart-create-account.md)를 참조 하세요.
+저장소 계정을 만들 때 해당 계정의 데이터를 복제 하는 방법을 지정 하 고 해당 계정에 대 한 주 지역도 지정 합니다. 지리적으로 복제 된 계정에 대 한 쌍을 이루는 보조 지역은 주 지역에 따라 결정 되며 변경할 수 없습니다. Azure에서 지원 되는 지역에 대 한 최신 정보는 @ no__t-0Business 연속성 및 재해 복구 (BCDR)를 참조 하세요. Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조하세요. GZRS 또는 RA-GZRS를 사용 하 여 저장소 계정을 만드는 방법에 대 한 자세한 내용은 [저장소 계정 만들기](storage-quickstart-create-account.md)를 참조 하세요.
 
 ### <a name="use-ra-gzrs-for-high-availability"></a>고가용성을 위해 RA GZRS 사용
 
-저장소 계정에 대해 GZRS를 사용 하도록 설정 하면 저장소 계정에 대 한 기본 끝점 뿐만 아니라 보조 끝점에서 데이터를 읽을 수 있습니다. 보조 끝점은 계정 이름에 접미사 *-보조* 를 추가 합니다. 예를 들어 Blob service `myaccount.blob.core.windows.net`의 기본 끝점이 인 경우 보조 끝점은 `myaccount-secondary.blob.core.windows.net`입니다. 스토리지 계정에 대한 액세스 키는 기본 및 보조 엔드포인트에 대해 동일합니다.
+저장소 계정에 대해 GZRS를 사용 하도록 설정 하면 저장소 계정에 대 한 기본 끝점 뿐만 아니라 보조 끝점에서 데이터를 읽을 수 있습니다. 보조 끝점은 계정 이름에 접미사 *-보조* 를 추가 합니다. 예를 들어 Blob service의 기본 끝점이 @ no__t-0 인 경우 보조 끝점은 @ no__t-1입니다. 스토리지 계정에 대한 액세스 키는 기본 및 보조 엔드포인트에 대해 동일합니다.
 
 지역 가동 중단이 발생 하는 경우 RA-GZRS을 활용 하려면이 시나리오를 처리 하기 위해 응용 프로그램을 미리 디자인 해야 합니다. 응용 프로그램은 기본 끝점에서 읽고 써야 하지만 주 지역을 사용할 수 없게 되는 경우 보조 끝점을 사용 하도록 전환 해야 합니다. RA를 사용 하 여 고가용성을 설계 하는 방법에 대 한 지침은 [GZRS 또는 GZRS를 사용 하 여 항상 사용 가능한 응용 프로그램 디자인](https://docs.microsoft.com/azure/storage/common/storage-designing-ha-apps-with-ragrs)을 참조 하세요.
 
@@ -115,7 +115,7 @@ LRS, GRS 또는 RA-GRS 계정에서 GZRS 또는 GZRS로 마이그레이션하는
 
 실시간 마이그레이션 중에는 원본 및 대상 저장소 계정 간에 데이터를 마이그레이션하는 동안 저장소 계정을 사용할 수 있습니다. 실시간 마이그레이션 프로세스 중에는 계정이 내구성 및 가용성에 대 한 SLA를 계속 충족 합니다. 실시간 마이그레이션으로 인 한 가동 중지 시간 또는 데이터 손실은 없습니다.
 
-범용 v2 계정만 GZRS/RA-GZRS을 지원 하므로 GZRS/RA-GZRS로 실시간 마이그레이션 요청을 제출 하기 전에 계정을 일반 용도의 v2로 업그레이드 해야 합니다. 자세한 내용은 [Azure storage 계정 개요](https://docs.microsoft.com/azure/storage/common/storage-account-overview) 및 [범용 v2 저장소 계정으로 업그레이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)를 참조 하세요.
+범용 v2 계정만 GZRS/RA-GZRS을 지원 하므로 GZRS/RA-GZRS로 실시간 마이그레이션 요청을 제출 하기 전에 계정을 일반 용도의 v2로 업그레이드 해야 합니다. 자세한 내용은 [Azure storage 계정 개요](https://docs.microsoft.com/azure/storage/common/storage-account-overview)  및 [범용 v2 저장소 계정으로 업그레이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)를 참조 하세요.
 
 마이그레이션이 완료 되 면 저장소 계정의 복제 설정이 **GZRS (지역 중복 저장소)** 또는 **읽기 액세스 지역 중복 저장소 (RA-GZRS)** 로 업데이트 됩니다. 서비스 끝점, 액세스 키, SAS (공유 액세스 서명) 및 기타 모든 계정 구성 옵션은 변경 되지 않고 그대로 유지 됩니다.
 
@@ -125,7 +125,7 @@ LRS, GRS 또는 RA-GRS 계정에서 GZRS 또는 GZRS로 마이그레이션하는
 - 계정에 데이터가 있어야 합니다.
 - 동일한 지역 내에서만 데이터를 마이그레이션할 수 있습니다.
 - 표준 스토리지 계정 유형만 실시간 마이그레이션을 지원합니다. 프리미엄 스토리지 계정은 수동으로 마이그레이션해야 합니다.
-- GZRS 또는 GZRS 계정에서 LRS, GRS 또는 RA-GRS 계정으로 실시간 마이그레이션은 지원 되지 않습니다. 수동으로 데이터를 새 저장소 계정 또는 기존 저장소 계정으로 이동 해야 합니다.
+- GZRS 또는 GZRS 계정에서 LRS, GRS 또는 RA-GRS 계정으로 실시간 마이그레이션은 지원 되지 않습니다. 데이터를 수동으로 새로운 스토리지 계정 또는 기존 스토리지 계정으로 이동해야 합니다.
 - RA-GRS에서 RA-GZRS로 실시간 마이그레이션을 요청할 수 있습니다. 그러나 RA-GRS에서 GZRS로의 마이그레이션은 지원 되지 않습니다. 이 경우 GZRS에 대 한 실시간 마이그레이션을 요청한 다음 GZRS를 사용 하도록 저장소 계정을 수동으로 변환 해야 합니다.
 - 관리 디스크는 LRS만 지원 하며 GZRS 또는 RA-GZRS로 마이그레이션할 수 없습니다. 가용성 집합과 통합 하는 방법에 대해서는 [Azure managed Disks 소개](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets)를 참조 하세요.
 - 표준 SSD Managed Disks에 대 한 스냅숏 및 이미지를 표준 HDD 저장소에 저장 하 고 [LRS, ZRS, GZRS 및 RA-GZRS 옵션 중에서 선택할](https://azure.microsoft.com/pricing/details/managed-disks/)수 있습니다.
@@ -133,18 +133,18 @@ LRS, GRS 또는 RA-GRS 계정에서 GZRS 또는 GZRS로 마이그레이션하는
 
 실시간 마이그레이션을 요청 하려면 [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)을 사용 합니다. 포털에서 GZRS 또는 RA-GZRS로 마이그레이션할 저장소 계정을 선택 하 고 다음 지침을 따릅니다.
 
-1.  **새 지원 요청**을 선택 합니다.
-2. 계정 정보를 기반으로 **기본 사항을** 완료 합니다.   **서비스** 섹션에서  **Storage 계정 관리** 를 선택 하 고 마이그레이션할 계정을 지정 합니다.
-3.  **다음**을 선택합니다.
-4.  **** 문제 섹션에서 다음 값을 지정 합니다.
+1. **새 지원 요청**을 선택 합니다.
+2. 사용자 계정 정보를 기반으로 **기본 사항**을 완료합니다. **서비스** 섹션에서 **Storage 계정 관리** 를 선택 하 고 마이그레이션할 계정을 지정 합니다.
+3. **다음**을 선택합니다.
+4. **문제** 섹션에서 다음 값을 지정합니다.
     - **심각도**: 기본값을 그대로 둡니다.
-    - **문제 유형**:  **데이터 마이그레이션**을 선택 합니다.
-    - **범주**:  **지역 내에서 (RA-) GZRS로 마이그레이션을**선택 합니다.
-    - **제목**: 설명 제목을 입력 합니다 (예: **(RA-) GZRS account migration)** .
-    - **세부 정보**:  **세부 정보** box에 추가 세부 정보를 입력 합니다. 예를 들어 \_ @ no__t-3 지역의 [LRS, GRS]에서 GZRS으로 마이그레이션해야 합니다. " 또는 "\_ @ no__t-1 영역에 있는 [LRS, RA-GRS]에서 RA로 마이그레이션해야 합니다."
-5.  **다음**을 선택합니다.
-6.  **연락처 정보** 블레이드에서 연락처 정보가 올바른지 확인 합니다.
-7.  **만들기**를 선택합니다.
+    - **문제 유형**: **데이터 마이그레이션**을 선택합니다.
+    - **범주**: **지역 내에서 (RA-) GZRS로 마이그레이션을**선택 합니다.
+    - **제목**: 설명 제목을 입력 합니다 (예: **(RA-) GZRS account migration)** .
+    - **세부 정보**: **세부** 정보 상자에 추가 세부 정보를 입력 합니다. 예를 들어 \_ @ no__t-2 지역의 [LRS, GRS]에서 GZRS로 마이그레이션해야 합니다. " 또는 "\_ @ no__t-1 영역에 있는 [LRS, RA-GRS]에서 RA로 마이그레이션해야 합니다."
+5. **다음**을 선택합니다.
+6. **연락처 정보** 블레이드에서 연락처 정보가 올바른지 확인합니다.
+7. **만들기**를 선택합니다.
 
 지원 담당자는 도움을 요청 하 여 도움을 받을 수 있습니다.
 

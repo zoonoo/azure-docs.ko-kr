@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: fdb34173e0ca52f57a004e3a5b4a076e423ff5bd
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 6d61b94a50716966ac0b3c75551ddd9d8e291965
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240099"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024465"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>자습서: 기본으로 위협 감지
 
@@ -29,7 +29,7 @@ ms.locfileid: "71240099"
 > 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
- [데이터 원본을](quickstart-onboard.md) Azure 센티널에 연결 하 고 나면 의심 스러운 상황이 발생 하면 알림이 표시 됩니다. 이 작업을 수행할 수 있도록 Azure 센티널은 기본 제공 되는 기본 제공 템플릿을 제공 합니다. 이러한 템플릿은 알려진 위협, 일반적인 공격 벡터 및 의심 스러운 활동 에스컬레이션 체인을 기반으로 Microsoft의 보안 전문가 및 분석가 팀에서 설계 되었습니다. 이러한 템플릿을 사용 하도록 설정 하면 사용자 환경에서 의심 스러운 활동을 자동으로 검색 합니다. 사용자의 요구에 따라 활동을 검색 하거나 필터링 하기 위해 많은 템플릿을 사용자 지정할 수 있습니다. 이러한 템플릿에서 생성 된 경고는 사용자 환경에서 할당 하 고 조사할 수 있는 인시던트를 만듭니다.
+ [데이터 원본](quickstart-onboard.md) 을 Azure 센티널에 연결한 후 의심 스러운 상황이 발생 하면이를 알려 줍니다. 이 작업을 수행할 수 있도록 Azure 센티널은 기본 제공 되는 기본 제공 템플릿을 제공 합니다. 이러한 템플릿은 알려진 위협, 일반적인 공격 벡터 및 의심 스러운 활동 에스컬레이션 체인을 기반으로 Microsoft의 보안 전문가 및 분석가 팀에서 설계 되었습니다. 이러한 템플릿을 사용 하도록 설정 하면 사용자 환경에서 의심 스러운 활동을 자동으로 검색 합니다. 사용자의 요구에 따라 활동을 검색 하거나 필터링 하기 위해 많은 템플릿을 사용자 지정할 수 있습니다. 이러한 템플릿에서 생성 된 경고는 사용자 환경에서 할당 하 고 조사할 수 있는 인시던트를 만듭니다.
 
 이 자습서는 Azure 센티널로 위협을 검색 하는 데 도움이 됩니다.
 
@@ -39,9 +39,9 @@ ms.locfileid: "71240099"
 
 ## <a name="about-out-of-the-box-detections"></a>기본 검색 정보
 
-모든 기본 검색을 보려면 **분석** , **규칙 템플릿**으로 차례로 이동 합니다. 이 탭에는 모든 Azure 센티널 기본 제공 규칙이 포함 되어 있습니다.
+모든 기본 검색을 보려면 **분석** , **규칙 템플릿**으로 차례로 이동 합니다. 이 탭에는 Azure Sentinel 기본 제공 규칙이 모두 포함됩니다.
 
-   ![기본 제공 검색을 사용 하 여 Azure 센티널에서 위협 찾기](media/tutorial-detect-built-in/view-oob-detections.png)
+   ![기본 제공 탐지를 사용하여 Azure Sentinel로 위협 요소 찾기](media/tutorial-detect-built-in/view-oob-detections.png)
 
 다음 템플릿 유형을 사용할 수 있습니다.
 
@@ -54,11 +54,11 @@ ms.locfileid: "71240099"
 
 1. 기본 제공 템플릿을 사용 하려면 **규칙 만들기** 를 클릭 하 여 해당 템플릿을 기반으로 하는 새 활성 규칙을 만듭니다. 각 항목에는 자동으로 확인 되는 필수 데이터 원본 목록이 있으며이로 인해 **만들기 규칙이** 비활성화 될 수 있습니다.
   
-   ![기본 제공 검색을 사용 하 여 Azure 센티널에서 위협 찾기](media/tutorial-detect-built-in/use-built-in-template.png)
+   ![기본 제공 탐지를 사용하여 Azure Sentinel로 위협 요소 찾기](media/tutorial-detect-built-in/use-built-in-template.png)
  
 1. 그러면 선택한 템플릿에 따라 규칙 만들기 마법사가 열립니다. 모든 세부 정보는 자동으로 채워지며, **예약 된 규칙** 또는 **Microsoft 보안 규칙**의 경우 조직에 더 잘 맞도록 논리를 사용자 지정 하거나 기본 제공 템플릿을 기반으로 하는 추가 규칙을 만들 수 있습니다. 규칙 만들기 마법사의 단계를 수행 하 고 템플릿을 기반으로 규칙 만들기를 완료 한 후에는 **활성 규칙** 탭에 새 규칙이 표시 됩니다.
 
-마법사의 필드에 대 한 자세한 내용은 [자습서: 의심 스러운 위협을](tutorial-detect-threats-custom.md)검색 하는 사용자 지정 분석 규칙을 만듭니다.
+마법사의 필드에 대 한 자세한 내용은 다음을 참조 하세요. [Tutorial: 의심 스러운 위협 (@ no__t-0)을 검색 하는 사용자 지정 분석 규칙을 만듭니다.
 
 
 

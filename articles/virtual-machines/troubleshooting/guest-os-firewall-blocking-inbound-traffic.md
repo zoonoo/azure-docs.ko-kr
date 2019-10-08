@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 6e90b164fac4ea1123f5f9a43eea1169d93d9a04
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 0cbd1a24f5c460e248d55777735da6809befba63
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154033"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028803"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM 게스트 OS 방화벽이 인바운드 트래픽 차단
 
@@ -102,7 +102,7 @@ RDP 트래픽을 포함한 모든 인바운드 연결을 차단하도록 게스�
 
 #### <a name="mitigation-2"></a>해결 방법 2
 
-1.  방화벽 프로필을 쿼리하여 인바운드 방화벽 정책이  *BlockInboundAlways*로 설정되었는지 확인합니다.
+1.  방화벽 프로필을 쿼리하여 인바운드 방화벽 정책이 *BlockInboundAlways*로 설정 되었는지 여부를 확인 합니다.
 
     ```cmd
     netsh advfirewall show allprofiles | more
@@ -115,7 +115,7 @@ RDP 트래픽을 포함한 모든 인바운드 연결을 차단하도록 게스�
     >    * *BlockInbound*: 트래픽을 허용하는 규칙이 없으면 모든 인바운드 트래픽이 차단됩니다.
     >    * *BlockInboundAlways*: 모든 방화벽 규칙이 무시되고 모든 트래픽이 차단됩니다.
 
-2.   *DefaultInboundAction* 을 편집하여 트래픽을  **허용** 하도록 프로필을 설정합니다. 이렇게 하려면 다음 명령을 실행합니다.
+2.  *DefaultInboundAction* 를 편집 하 여 트래픽을 **허용** 하도록 이러한 프로필을 설정 합니다. 이렇게 하려면 다음 명령을 실행합니다.
 
     ```cmd
     netsh advfirewall set allprofiles firewallpolicy allowinbound,allowoutbound
@@ -138,7 +138,7 @@ RDP 트래픽을 포함한 모든 인바운드 연결을 차단하도록 게스�
 
 2.  복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
 
-3.  [디스크 관리] 콘솔에서 디스크의 플래그가  **온라인** 으로 지정되었는지 확인합니다. 연결된 시스템 디스크에 할당된 드라이브 문자를 적어 둡니다.
+3.  디스크 관리 콘솔에서 디스크의 플래그가 **온라인**으로 지정되었는지 확인합니다. 연결된 시스템 디스크에 할당된 드라이브 문자를 적어 둡니다.
 
 #### <a name="mitigation-1"></a>해결 방법 1
 
@@ -150,7 +150,7 @@ RDP 트래픽을 포함한 모든 인바운드 연결을 차단하도록 게스�
 
 2.  복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
 
-3.  시스템 디스크가 복구 VM에 연결되면 디스크 관리 콘솔에서 디스크의 플래그가  **온라인** 으로 지정되었는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
+3.  시스템 디스크를 복구 VM에 연결한 후 디스크 관리 콘솔에서 디스크가 **온라인** 으로 플래그가 지정 되었는지 확인 합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
 
 4.  관리자 권한 CMD 인스턴스를 열고 다음 스크립트를 실행합니다.
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ef060127840838778a00fdabd2d56b2ef23d6f4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3abc221295a90dfbf7e46e3bd5bff1c8c0937162
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082692"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035009"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
 
@@ -159,7 +159,7 @@ GPU 디바이스 상태를 쿼리하려면 VM에 대해 SSH를 실행하고 드�
 
 동일한 가용성 집합 또는 VM 확장 집합의 단일 배치 그룹에 배포된 NC24r과 같은 RDMA 지원 N 시리즈 VM에서 RDMA 네트워크 연결을 사용할 수 있습니다. RDMA 네트워크는 Intel MPI 5.x 이상 버전을 사용하여 실행되는 애플리케이션에 대한 MPI(Message Passing Interface) 트래픽을 지원합니다. 추가 요구 사항은 다음과 같습니다.
 
-### <a name="distributions"></a>분포
+### <a name="distributions"></a>배포
 
 N 시리즈 VM에서 RDMA 연결을 지원하는 Azure Marketplace의 이미지 중 하나에서 RDMA 지원 N 시리즈 VM을 배포합니다.
   
@@ -190,7 +190,7 @@ NV 또는 NVv3 시리즈 Vm에 NVIDIA GRID 드라이버를 설치 하려면 각 
    
    sudo apt-get install linux-azure -y
    ```
-3. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NVv2 VM에서 NVIDIA 드라이버만 사용합니다.) 이렇게 하려면 다음 내용을 사용 하 여 `/etc/modprobe.d` 라는 `nouveau.conf` 파일을 만듭니다.
+3. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NVv2 VM에서 NVIDIA 드라이버만 사용합니다.) 이 작업을 수행 하려면 다음 내용으로 `nouveau.conf` 이라는 @no__t에 파일을 만듭니다.
 
    ```
    blacklist nouveau
@@ -230,7 +230,7 @@ NV 또는 NVv3 시리즈 Vm에 NVIDIA GRID 드라이버를 설치 하려면 각 
    EnableUI=FALSE
    ```
    
-9. 다음을 제거 합니다 `/etc/nvidia/gridd.conf` (있는 경우).
+9. @No__t에서 다음을 제거 합니다 (있는 경우).
  
    ```
    FeatureType=0
@@ -254,7 +254,7 @@ NV 또는 NVv3 시리즈 Vm에 NVIDIA GRID 드라이버를 설치 하려면 각 
    sudo yum install hyperv-daemons
    ```
 
-2. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NV2 VM에서 NVIDIA 드라이버만 사용합니다.) 이렇게 하려면 다음 내용을 사용 하 여 `/etc/modprobe.d` 라는 `nouveau.conf` 파일을 만듭니다.
+2. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NV2 VM에서 NVIDIA 드라이버만 사용합니다.) 이 작업을 수행 하려면 다음 내용으로 `nouveau.conf` 이라는 @no__t에 파일을 만듭니다.
 
    ```
    blacklist nouveau
@@ -302,7 +302,7 @@ NV 또는 NVv3 시리즈 Vm에 NVIDIA GRID 드라이버를 설치 하려면 각 
    IgnoreSP=FALSE
    EnableUI=FALSE 
    ```
-9. 다음을 제거 합니다 `/etc/nvidia/gridd.conf` (있는 경우).
+9. @No__t에서 다음을 제거 합니다 (있는 경우).
  
    ```
    FeatureType=0
@@ -362,6 +362,7 @@ fi
 ## <a name="troubleshooting"></a>문제 해결
 
 * `nvidia-smi`를 사용하여 지속성 모드를 설정할 수 있으므로 카드를 쿼리해야 할 때 명령 출력이 더 빠릅니다. 지속성 모드를 설정하려면 `nvidia-smi -pm 1`을 실행합니다. VM을 다시 시작하면 모드 설정이 사라집니다. 모드 설정은 시작할 때 실행되도록 항상 스크립팅할 수 있습니다.
+* NVIDIA VERDA 드라이버를 최신 버전으로 업데이트 하 고 RDMA connectivcity가 더 이상 작동 하지 않는 경우 [rdma 드라이버를 다시 설치](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) 하 여 해당 연결을 reistablish 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

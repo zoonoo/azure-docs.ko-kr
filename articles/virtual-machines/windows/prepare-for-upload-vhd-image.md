@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 86ce2ada9ebd19c88414fab33a62dda5ba41ecb0
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: b834f14450196e8d377177bf10c80fbb05a10a57
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949645"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030026"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
 
@@ -395,6 +395,9 @@ VM이 정상, 보안 및 RDP에 액세스할 수 있는지 확인 합니다.
 |                         | CVE-2018-0886  | KB4103718               | KB4103730                | KB4103725       | KB4103723                                               | KB4103731                  | KB4103727                                       | KB4103721                                       |
 |                         |                | KB4103712          | KB4103726          | KB4103715|                                                         |                            |                                                 |                                                 |
        
+> [!NOTE]
+> VM을 프로 비전 하는 동안 실수로 인 한 재부팅을 방지 하려면 모든 Windows 업데이트 설치를 완료 하 고 보류 중인 업데이트가 없는지 확인 하는 것이 좋습니다. 이 작업을 수행 하는 한 가지 방법은 가능한 모든 Windows 업데이트를 설치 하 고 Sysprep 명령을 실행 하기 전에 한 번 다시 부팅 하는 것입니다.
+
 ### Sysprep 사용 시기 결정<a id="step23"></a>    
 
 시스템 준비 도구 (Sysprep)는 Windows 설치를 다시 설정 하기 위해 실행할 수 있는 프로세스입니다. Sysprep은 모든 개인 데이터를 제거 하 고 여러 구성 요소를 다시 설정 하 여 "기본 제공" 환경을 제공 합니다. 

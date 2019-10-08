@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: d04d62d66b4ba22437e6d854566f8bbf5536a6fc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a4a0431a8d40f7905805e0a7d902988b7eb26208
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66121110"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035051"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>S2S VPN 또는 VNet 간 연결에 대한 IPsec/IKE 정책 구성
 
@@ -109,7 +109,7 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 | 2                         | DHGroup2                 | PFS2         | 1024비트 MODP  |
 | 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048비트 MODP  |
 | 19                        | ECP256                   | ECP256       | 256비트 ECP    |
-| 20                        | ECP384                   | ECP284       | 384비트 ECP    |
+| 20                        | ECP384                   | ECP384       | 384비트 ECP    |
 | 24                        | DHGroup24                | PFS24        | 2048비트 MODP  |
 
 자세한 내용은 [RFC3526](https://tools.ietf.org/html/rfc3526) 및 [RFC5114](https://tools.ietf.org/html/rfc5114)를 참조하세요.

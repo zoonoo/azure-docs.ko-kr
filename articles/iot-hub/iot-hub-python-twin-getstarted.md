@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: 565330528638bb6c8e0458a9761e2cf9fa4e3d2a
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 729371ede8df3dc21f70bc5742de52f2be874507
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001463"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030010"
 ---
 # <a name="get-started-with-device-twins-python"></a>디바이스 쌍 시작(Python)
 
@@ -27,7 +27,7 @@ ms.locfileid: "71001463"
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
@@ -70,7 +70,7 @@ ms.locfileid: "71001463"
    from iothub_service_client import IoTHubDeviceTwin, IoTHubError
    ```
 
-4. 다음 코드를 추가합니다. 을 `[IoTHub Connection String]` (를) [iot hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 iot hub 연결 문자열로 바꿉니다. 을 `[Device Id]` [IoT hub에서 새 장치 등록](#register-a-new-device-in-the-iot-hub)에 등록 한 장치 ID로 바꿉니다.
+4. 다음 코드를 추가합니다. @No__t-0을 [iot hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 iot hub 연결 문자열로 바꿉니다. @No__t-0을 [IoT hub에서 새 장치 등록](#register-a-new-device-in-the-iot-hub)에 등록 한 장치 ID로 바꿉니다.
   
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -171,7 +171,7 @@ ms.locfileid: "71001463"
     from azure.iot.device import IoTHubModuleClient
     ```
 
-4. 다음 코드를 추가합니다. 자리 표시자 `[IoTHub Device Connection String]` 값을 [IoT hub에서 새 장치 등록](#register-a-new-device-in-the-iot-hub)에서 복사한 장치 연결 문자열로 바꿉니다.
+4. 다음 코드를 추가합니다. @No__t-0 자리 표시자 값을 [IoT hub에서 새 장치 등록](#register-a-new-device-in-the-iot-hub)에서 복사한 장치 연결 문자열로 바꿉니다.
 
     ```python
     CONNECTION_STRING = "[IoTHub Device Connection String]"
@@ -187,7 +187,7 @@ ms.locfileid: "71001463"
             print(patch)
 
     def iothub_client_init():
-        client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
+        client = IoTHubModuleClient.create_from_connection_string(CONNECTION_STRING)
         return client
 
     def iothub_client_sample_run():

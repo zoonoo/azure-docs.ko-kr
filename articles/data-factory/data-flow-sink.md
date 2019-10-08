@@ -6,33 +6,33 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 24ad0f2e917420c327577851cabc9e5bdbad2825
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: be2ab5605f7fa60ebb78493f714648d458e82a6c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515658"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029230"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>데이터 흐름에 대 한 싱크 변환
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 데이터 흐름을 변환한 후에는 데이터를 대상 데이터 집합으로 싱크할 수 있습니다. 싱크 변환에서 대상 출력 데이터에 대 한 데이터 집합 정의를 선택 합니다. 데이터 흐름에 필요한 만큼 싱크 변환을 수행할 수 있습니다.
 
 들어오는 데이터의 스키마 드리프트 및 변경 내용을 고려 하려면 출력 데이터 집합에 정의 된 스키마가 없는 폴더에 출력 데이터를 싱크 합니다. 원본에서 **스키마 드리프트 허용** 을 선택 하 여 원본에서 열 변경을 수행할 수도 있습니다. 그런 다음 싱크의 모든 필드를 자동으로 매핑합니다.
 
-![자동 매핑 옵션을 포함 하는 싱크 탭의 옵션](media/data-flow/sink1.png "싱크 1")
+![싱크 탭의 옵션 (자동 매핑 옵션](media/data-flow/sink1.png "싱크 1 포함)")
 
 들어오는 모든 필드를 싱크 하려면 **자동 지도**를 설정 합니다. 대상에 싱크로 필드를 선택 하거나 대상의 필드 이름을 변경 하려면 **자동 지도**를 해제 합니다. 그런 다음 **매핑** 탭을 열어 출력 필드를 매핑합니다.
 
-![매핑 탭의 옵션](media/data-flow/sink2.png "싱크 2")
+![매핑 탭](media/data-flow/sink2.png "싱크 2") 의 옵션
 
 ## <a name="output"></a>출력 
 Azure Blob 저장소 또는 Data Lake Storage 싱크 형식의 경우 변환 된 데이터를 폴더에 출력 합니다. Spark는 싱크 변환에서 사용 하는 파티션 구성표를 기반으로 분할 된 출력 데이터 파일을 생성 합니다. 
 
 **최적화** 탭에서 파티션 구성표를 설정할 수 있습니다. Data Factory 하 여 출력을 단일 파일로 병합 하려면 **단일 파티션**을 선택 합니다.
 
-![최적화 탭의 옵션](media/data-flow/opt001.png "싱크 옵션")
+![최적화 탭](media/data-flow/opt001.png "싱크 옵션") 의 옵션
 
 ## <a name="field-mapping"></a>필드 매핑
 싱크 변환의 **매핑** 탭에서 왼쪽의 들어오는 열을 오른쪽의 대상에 매핑할 수 있습니다. 데이터 흐름을 파일로 싱크할 때 Data Factory는 항상 폴더에 새 파일을 씁니다. 데이터베이스 데이터 집합에 매핑할 때 삽입, 업데이트, upsert 또는 삭제에 대 한 데이터베이스 테이블 작업 옵션을 선택 합니다.
@@ -43,7 +43,7 @@ Azure Blob 저장소 또는 Data Lake Storage 싱크 형식의 경우 변환 된
 
 들어오는 필드 집합을 대상에 항상 매핑하고 유연한 스키마 정의를 완전히 수락 하려면 **스키마 드리프트 허용**을 선택 합니다.
 
-![매핑 탭-데이터 집합의 열에 매핑되는 필드 표시](media/data-flow/multi1.png "여러 옵션")
+![매핑 탭-데이터 집합의 열에 매핑된 필드]를(media/data-flow/multi1.png "여러 옵션") 으로 표시 합니다.
 
 열 매핑을 다시 설정 하려면 **다시 매핑**을 선택 합니다.
 
@@ -79,7 +79,7 @@ Azure Blob 저장소 또는 Data Lake Storage 싱크 형식의 경우 변환 된
 
 데이터베이스 설정 선택:
 
-![SQL 싱크 옵션을 표시 하는 설정 탭](media/data-flow/alter-row2.png "SQL 옵션")
+![Sql 싱크 옵션 Sql 옵션을 보여 주는 설정 탭](media/data-flow/alter-row2.png "")
 
 * **업데이트 방법**: 기본값은 삽입을 허용 하는 것입니다. 원본에서 새 행 삽입을 중지 하려면 **삽입 허용** 을 선택 취소 합니다. 행을 업데이트, upsert 또는 삭제 하려면 먼저 해당 작업에 대 한 태그 행에 alter row 변환을 추가 합니다. 
 * **테이블 다시 만들기**: 데이터 흐름이 끝나기 전에 대상 테이블을 삭제 하거나 만듭니다.
@@ -88,12 +88,12 @@ Azure Blob 저장소 또는 Data Lake Storage 싱크 형식의 경우 변환 된
 * **준비 사용**: Azure 데이터 웨어하우스를 싱크 데이터 집합으로 로드할 때 PolyBase를 사용 합니다.
 * **사전 및 사후 SQL 스크립트**: 이전 (전처리) 및 이후 (사후 처리) 데이터를 싱크 데이터베이스에 기록 하기 전에 실행할 여러 줄 SQL 스크립트를 입력 합니다.
 
-![사전 및 사후 SQL 처리 스크립트](media/data-flow/prepost1.png "SQL 처리 스크립트")
+sql 처리 스크립트 ![사전 및 사후 스크립트](media/data-flow/prepost1.png "sql 처리 스크립트")
 
 > [!NOTE]
 > 데이터 흐름에서 Data Factory를 지시 하 여 대상 데이터베이스에 새 테이블 정의를 만들 수 있습니다. 테이블 정의를 만들려면 새 테이블 이름이 있는 싱크 변환의 데이터 집합을 설정 합니다. SQL 데이터 집합의 테이블 이름 아래에서 **편집** 을 선택 하 고 새 테이블 이름을 입력 합니다. 그런 다음 싱크 변환에서 **schema 드리프트**를 사용 하도록 설정 합니다. **가져오기 스키마** 를 **없음**으로 설정 합니다.
 
-![테이블 이름을 편집할 위치를 보여 주는 SQL 데이터 집합 설정](media/data-flow/dataset2.png "SQL 스키마")
+![테이블 이름 Sql 스키마를 편집 하는 위치를 보여 주는 sql 데이터 집합 설정](media/data-flow/dataset2.png "")
 
 > [!NOTE]
 > 데이터베이스 싱크에서 행을 업데이트 하거나 삭제 하는 경우 키 열을 설정 해야 합니다. 이 설정을 사용 하면 변경 행 변환이 DML (데이터 이동 라이브러리)의 고유 행을 확인할 수 있습니다.

@@ -8,20 +8,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/07/2019
 ms.author: makromer
-ms.openlocfilehash: 7db410e97046b6d251eb73e754e40eab09a2ee64
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.date: 10/07/2019
+ms.openlocfilehash: cbfa1acac34187263f8c4203e41bbe61d7e4c745
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981776"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030518"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Azure Data Factory의 데이터 흐름 작업
 
 데이터 흐름 작업을 사용 하 여 데이터 흐름 매핑을 통해 데이터를 변환 하 고 이동 합니다. 데이터 흐름을 처음 접하는 경우 [데이터 흐름 매핑 개요](concepts-data-flow-overview.md) 를 참조 하세요.
-
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 ## <a name="syntax"></a>구문
 
@@ -51,7 +49,7 @@ ms.locfileid: "71981776"
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | 설명 | 허용되는 값 | 필요한 공간
+속성 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
 데이터 | 실행 되는 데이터 흐름에 대 한 참조입니다. | DataFlowReference | 예
 integrationRuntime | 데이터 흐름이 실행 되는 계산 환경 | IntegrationRuntimeReference | 예

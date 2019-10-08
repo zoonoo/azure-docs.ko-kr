@@ -14,26 +14,25 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: af0a4af2bec29e68175d2e15203a02507f08bfeb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2abced3bd7f1afe5e447a60c73da26fa302ced98
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446352"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027379"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure Mobile Apps에 관리되는 클라이언트를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center는 모바일 앱 개발을 위한 중앙 새 및 통합 서비스에 투자 합니다. 개발자가 사용할 수 **빌드**를 **테스트** 하 고 **배포** 연속 통합 및 배달 파이프라인을 설정 하는 서비스입니다. 개발자 상태 및 사용 하 여 해당 앱의 사용량을 모니터링할 수 있습니다, 앱을 배포한 후 합니다 **Analytics** 하 고 **진단** , 서비스를 사용 하 여 사용자와 소통 하세요를 **푸시** 서비스입니다. 개발자가 활용할 수도 있습니다 **인증** 해당 사용자를 인증 하 고 **데이터** 유지 하 고 클라우드에 앱 데이터 동기화 서비스. 체크 아웃 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-dotnet-how-to-use-client-library) 지금 합니다.
->
+> Visual Studio App Center은 모바일 앱 개발에 대 한 종단 간 및 통합 서비스의 중심을 지원 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다.
+> 모바일 응용 프로그램에서 클라우드 서비스를 통합 하려는 경우 현재 App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 에 등록 하세요.
 
 ## <a name="overview"></a>개요
-이 가이드에서는 Windows 및 Xamarin 앱용 Azure App Service Mobile Apps에 관리되는 클라이언트 라이브러리를 사용하는 일반적인 시나리오를 수행하는 방법을 보여 줍니다. Mobile Apps를 처음 접하는 경우 먼저 [Azure Mobile Apps 빠른 시작][1] 자습서를 완료하는 것이 좋습니다. 이 가이드에서는 클라이언트 쪽 관리되는 SDK에 초점을 둡니다. Mobile Apps 용 서버 쪽 Sdk에 대 한 자세히 알아보려면에 대 한 설명서를 참조 합니다 [.NET 서버 SDK][2] or the
-[Node.js Server SDK][3]합니다.
+이 가이드에서는 Windows 및 Xamarin 앱용 Azure App Service Mobile Apps에 관리되는 클라이언트 라이브러리를 사용하는 일반적인 시나리오를 수행하는 방법을 보여 줍니다. Mobile Apps를 처음 접하는 경우 먼저 [Azure Mobile Apps 빠른 시작][1] 자습서를 완료하는 것이 좋습니다. 이 가이드에서는 클라이언트 쪽 관리되는 SDK에 초점을 둡니다. Mobile Apps에 대 한 서버 쪽 Sdk에 대해 자세히 알아보려면 [.Net 서버 sdk][2] 또는 [node.js 서버 sdk][3]에 대 한 설명서를 참조 하세요.
 
 ## <a name="reference-documentation"></a>참조 설명서
-클라이언트 SDK에 대한 참조 설명서는 [Azure Mobile Apps.NET 클라이언트 참조][4]합니다.
+클라이언트 SDK에 대한 참조 설명서는 [Azure Mobile Apps .net 클라이언트 참조][4].
 [Azure 샘플 GitHub 리포지토리][5]에서 몇 가지 클라이언트 샘플을 찾을 수 있습니다.
 
 ## <a name="supported-platforms"></a>지원되는 플랫폼
@@ -65,16 +64,15 @@ public class TodoItem
 }
 ```
 
-합니다 [JsonPropertyAttribute][6] 정의 하는 데 사용 되는 *PropertyName* 클라이언트 필드와 테이블 필드 간의 매핑.
+[JsonPropertyAttribute][6] 는 클라이언트 필드와 테이블 필드 간의 *PropertyName* 매핑을 정의 하는 데 사용 됩니다.
 
-Mobile Apps 백 엔드에서 테이블을 만드는 방법에 알아보려면 참조를 [.NET 서버 SDK 토픽][7]
-or the [Node.js Server SDK topic][8]합니다. 빠른 시작을 사용하여 Azure Portal에서 Mobile App 백 엔드를 만든 경우 [Azure Portal] 에서 **쉬운 테이블**설정을 사용할 수도 있습니다.
+Mobile Apps 백 엔드에서 테이블을 만드는 방법을 알아보려면 [.Net 서버 sdk 토픽][7] 또는 [node.js 서버 sdk 항목][8]을 참조 하세요. 빠른 시작을 사용하여 Azure Portal에서 Mobile App 백 엔드를 만든 경우 [Azure Portal] 에서 **쉬운 테이블**설정을 사용할 수도 있습니다.
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>방법: 관리형 클라이언트 SDK 패키지 설치
 다음 메서드 중 하나를 사용하여 [NuGet][9]에서 Mobile Apps용 관리되는 클라이언트 SDK 패키지를 설치합니다.
 
 * **Visual Studio**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭한 다음, `Microsoft.Azure.Mobile.Client` 패키지를 검색하고 **설치**를 클릭합니다.
-* **Xamarin Studio** 프로젝트를 마우스 오른쪽 단추로 클릭, 클릭 **추가** > **NuGet 패키지 추가**를 검색 합니다 `Microsoft.Azure.Mobile.Client` 패키지를 찾은 다음 클릭 **패키지 추가** .
+* **Xamarin Studio** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **추가** > **NuGet 패키지 추가**를 클릭 한 다음 `Microsoft.Azure.Mobile.Client` 패키지를 검색 하 고 **패키지 추가**를 클릭 합니다.
 
 기본 활동 파일에 다음 **using** 문을 추가합니다.
 
@@ -86,8 +84,7 @@ using Microsoft.WindowsAzure.MobileServices;
 > Android 프로젝트에서 참조하는 모든 지원 패키지의 버전이 동일해야 합니다. SDK에는 Android 플랫폼에 대한 `Xamarin.Android.Support.CustomTabs` 종속성이 있으므로 프로젝트에서 최신 지원 패키지를 사용하는 경우 충돌 방지를 위해 필수 버전이 포함된 이 패키지를 직접 설치해야 합니다.
 
 ### <a name="symbolsource"></a>방법: Visual Studio에서 디버그 작업
-Microsoft.Azure.Mobile 네임 스페이스에 대 한 기호에 사용할 수 있습니다 [SymbolSource][10] .  Refer to the
-[SymbolSource instructions][11] SymbolSource를 Visual Studio 통합할 수 있습니다.
+Microsoft.Azure.Mobile 네임스페이스의 기호는 [SymbolSource][10]에 있습니다.  SymbolSource를 Visual Studio와 통합하려면 [SymbolSource 지침][11] 을 참조하세요.
 
 ## <a name="create-client"></a>Mobile Apps 클라이언트 만들기
 다음 코드는 모바일 앱 백 엔드에 액세스하는 데 사용되는 [MobileServiceClient][12] 개체를 만듭니다.
@@ -385,7 +382,7 @@ await table.DeleteAsync(jo);
 
 Mobile Apps는 Mobile App 백 엔드의 각 테이블에 대해 정의된 `version` 시스템 속성 열을 사용하는 각 항목의 변경 내용을 추적하여 낙관적 동시성 제어를 지원합니다. 레코드가 업데이트될 때마다 Mobile Apps는 해당 레코드의 `version` 속성을 새 값으로 설정합니다. 각 업데이트 요청 중에 요청에 포함된 레코드의 `version` 속성이 서버에 있는 레코드의 동일 속성과 비교됩니다. 요청과 함께 전달된 버전이 백 엔드와 일치하지 않는 경우 클라이언트 라이브러리는 `MobileServicePreconditionFailedException<T>` 예외를 발생시킵니다. 예외에 포함된 형식은 백 엔드의 레코드이며 서버 버전의 레코드를 포함하고 있습니다. 그러면 애플리케이션은 이 정보를 사용하여 변경을 커밋하기 위해 백 엔드의 올바른 `version` 값으로 업데이트 요청을 다시 실행할지 여부를 결정할 수 있습니다.
 
-낙관적 동시성을 사용하기 위해 `version` 시스템 속성의 테이블 클래스에 대해 열을 정의합니다. 예를 들면 다음과 같습니다.
+낙관적 동시성을 사용하기 위해 `version` 시스템 속성의 테이블 클래스에 대해 열을 정의합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```csharp
 public class TodoItem
@@ -527,10 +524,10 @@ PullOptions pullOptions = new PullOptions
 1. Visual Studio에서 솔루션 > **솔루션에 대한 NuGet 패키지 관리...** 를 마우스 오른쪽 단추로 클릭한 후 솔루션의 모든 프로젝트에서 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 패키지를 검색하고 설치합니다.
 2. (선택 사항) Windows 디바이스를 지원하려면 다음 SQLite 런타임 패키지 중 하나를 설치합니다.
 
-   * **Windows 8.1 런타임:** 설치할 [Windows 8.1 용 SQLite][3]합니다.
-   * **Windows Phone 8.1:** 설치할 [Windows Phone 8.1 용 SQLite][4]합니다.
-   * **유니버설 Windows 플랫폼** 설치 [유니버설 Windows 용 SQLite][5]합니다.
-3. (선택 사항). Windows 디바이스의 경우, **참조** > **참조 추가...** , **Windows** 폴더 &gt; **확장**을 펼친 후, **Visual C++ 2013 Runtime for Windows** SDK와 함께 해당 **SQLite for Windows** SDK를 사용하도록 설정합니다.
+   * **Windows 8.1 런타임:** [Windows 8.1 용 SQLite를][3]설치 합니다.
+   * **Windows Phone 8.1:** [Windows Phone 8.1 용 SQLite를][4]설치 합니다.
+   * **유니버설 Windows 플랫폼** [유니버설 Windows 용 SQLite를][5]설치 합니다.
+3. (선택 사항) Windows 디바이스의 경우, **참조** > **참조 추가...** , **Windows** 폴더 &gt; **확장**을 펼친 후, **Visual C++ 2013 Runtime for Windows** SDK와 함께 해당 **SQLite for Windows** SDK를 사용하도록 설정합니다.
     SQLite SDK 이름은 Windows 플랫폼마다 약간 다릅니다.
 
 테이블 참조를 만들기 전에, 로컬 저장소를 준비해야 합니다.
@@ -546,7 +543,7 @@ await this.client.SyncContext.InitializeAsync(store);
 클라이언트를 만든 후 저장소 초기화는 일반적으로 즉시 이루어집니다.  **OfflineDbPath**는 모든 플랫폼에서 사용하기에 적합한 이름이어야 합니다.  경로가 정규화 된 경로인 경우 (즉, 슬래시로 시작), 해당 경로를 사용 합니다.  경로가 정규화되지 않은 경우 파일은 플랫폼 특정 위치에 배치됩니다.
 
 * IOS 및 Android 디바이스에 대한 기본 경로는 "개인 파일" 폴더입니다.
-* Windows 장치에 대한 기본 경로는 애플리케이션별 "AppData" 폴더입니다.
+* Windows 디바이스에 대한 기본 경로는 애플리케이션별 &quot;AppData&quot; 폴더입니다.
 
 `GetSyncTable<>` 메서드를 사용하여 테이블 참조를 가져올 수 있습니다.
 
@@ -623,7 +620,7 @@ var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Ne
 이 양식은 형식화된 메서드 호출이며 **MarkAllResult** 반환 형식을 정의해야 합니다. 형식화된 메서드와 형식화되지 않은 메서드가 모두 지원됩니다.
 
 InvokeApiAsync() 메소드는 API가 '/'로 시작하는 경우를 제외하고 호출하려는 API 앞에 '/api/'를 추가합니다.
-예를 들면 다음과 같습니다.
+예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 * `InvokeApiAsync("completeAll",...)` - 백 엔드에서 /api/completeAll 호출
 * `InvokeApiAsync("/.auth/me",...)` - 백 엔드에서 /.auth/me 호출

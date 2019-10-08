@@ -6,15 +6,15 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 0b68007f8c3383997f0d31888198af866d38b590
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 1412f7d822d83a8712d27dd4e86311567d6ac714
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178641"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029305"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Azure 데이터 팩터리 피벗 변환
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ADF Data Flow의 피벗을 하나 이상의 그룹화 열의 고유한 행 값이 개별 열로 변환되는 집계로 사용합니다. 기본적으로, 행 값을 새 열로 피벗할 수 있습니다(데이터를 메타데이터로 변환).
 
@@ -60,7 +60,7 @@ ADF Data Flow 식 언어를 사용하여 식 작성기의 피벗 열 변환을 �
 
 피벗은 행 값에 따라 새 열 이름을 동적으로 생성 합니다. 이러한 새 열을 나중에 데이터 흐름에서 참조할 수 있는 메타 데이터로 전환할 수 있습니다. 이렇게 하려면 데이터 미리 보기 탭을 클릭 합니다. 피벗 변환에 의해 생성 된 모든 새 열은 테이블 헤더에 "데이터베이스가 드리프트" 아이콘이 표시 됩니다. "Map 데이터베이스가 드리프트" 단추를 클릭 하 여 이러한 새 열을 데이터 흐름의 모델에 포함 되도록 설정 합니다.
 
-![열 피벗](media/data-flow/newpivot1.png "데이터베이스가 드리프트 Pivot 열 매핑")
+![피벗 열](media/data-flow/newpivot1.png "데이터베이스가 드리프트 피벗 열 매핑")
 
 ### <a name="landing-new-columns-in-sink"></a>싱크에 새 열 방문
 

@@ -6,16 +6,16 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: ee0a3c41edd144c1220cdc9b5a5463b43bef5551
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 69e001530de238f5d38c46b0a238a087f4487d9c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973547"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023671"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>쿼리 저장소를 사용 하 여 Azure Database for MariaDB 성능 모니터링
 
-**적용 대상:**  9Iadb 10.2 용 azure 데이터베이스
+**적용 대상:** Azure Database for MariaDB 10.2
 
 > [!IMPORTANT]
 > 쿼리 저장소 미리 보기 상태입니다.
@@ -37,14 +37,14 @@ Azure Database for Mariadb의 쿼리 저장소 기능은 시간이 지남에 따
 ### <a name="enable-query-store-using-the-azure-portal"></a>Azure Portal을 통해 쿼리 저장소 사용
 
 1. Azure Portal에 로그인 하 고 Azure Database for MariaDB 서버를 선택 합니다.
-1. 메뉴의 **설정** section 섹션 @no__t **서버 매개 변수**를 선택 합니다.
+1. 메뉴의 **설정** 섹션에서 **서버 매개 변수**를 선택합니다.
 1. Query_store_capture_mode 매개 변수를 검색 합니다.
-1. 값을 모두로 설정 하 고 **저장**합니다.
+1. 값을 모두로 설정 하 고 **저장**합니다.
 
 쿼리 저장소에서 대기 통계를 활성화하려면 다음을 수행합니다.
 
 1. Query_store_wait_sampling_capture_mode 매개 변수를 검색 합니다.
-1. 값을 모두로 설정 하 고 **저장**합니다.
+1. 값을 모두로 설정 하 고 **저장**합니다.
 
 데이터의 첫 번째 일괄 처리가 mysql 데이터베이스에 유지 되는 데 최대 20 분이 걸립니다.
 
@@ -78,8 +78,8 @@ SELECT * FROM mysql.query_store_wait_stats;
 | **관찰** | **작업** |
 |---|---|
 |최고 잠금 대기 | 영향을 받는 쿼리에 대한 쿼리 텍스트를 확인하고 대상 엔터티를 식별합니다. 쿼리 저장소에서 자주 실행되거나 오래 실행되는 동일한 엔터티를 수정하는 다른 쿼리를 확인합니다. 이러한 쿼리를 식별한 후 동시성 향상을 위해 애플리케이션 논리를 변경해 보거나 덜 제한적인 격리 수준을 사용합니다. |
-|높은 버퍼 IO 대기 | 쿼리 저장소에서 물리적 읽기 횟수가 많은 쿼리를 찾습니다. IO 대기 시간이 높은 쿼리와 일치 하는 경우에는 검색 대신 검색을 수행 하기 위해 기본 엔터티에 대 한 인덱스를 도입 하는 것이 좋습니다. 이렇게 하면 쿼리의 IO 오버헤드가 최소화됩니다. 포털에서 서버를 @no__t 1for **성능 권장 사항을**확인 하 여 쿼리를 최적화 하는이 서버에 대 한 인덱스 권장 구성이 있는지 확인 합니다. |
-|높은 메모리 대기 | 쿼리 저장소에서 메모리 사용량이 많은 상위 쿼리를 찾습니다. 이러한 쿼리는 영향을 받는 쿼리의 추가 진행을 지연시킬 수 있습니다. 포털에서 서버를 @no__t 1for **성능 권장 사항을**확인 하 여 이러한 쿼리를 최적화 하는 인덱스 권장 구성이 있는지 확인 합니다.|
+|높은 버퍼 IO 대기 | 쿼리 저장소에서 물리적 읽기 횟수가 많은 쿼리를 찾습니다. IO 대기 시간이 높은 쿼리와 일치 하는 경우에는 검색 대신 검색을 수행 하기 위해 기본 엔터티에 대 한 인덱스를 도입 하는 것이 좋습니다. 이렇게 하면 쿼리의 IO 오버헤드가 최소화됩니다. 포털에서 서버에 대한 **성능 권장 사항**을 확인하여 쿼리를 최적화하는 이 서버에 대한 인덱스 권장 사항이 있는지 확인합니다. |
+|높은 메모리 대기 | 쿼리 저장소에서 메모리 사용량이 많은 상위 쿼리를 찾습니다. 이러한 쿼리는 영향을 받는 쿼리의 추가 진행을 지연시킬 수 있습니다. 포털에서 서버에 대한 **성능 권장 사항**을 확인하여 이러한 쿼리를 최적화하는 인덱스 권장 사항이 있는지 확인합니다.|
 
 ## <a name="configuration-options"></a>구성 옵션
 
@@ -108,7 +108,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 ## <a name="views-and-functions"></a>보기 및 함수
 
-다음 보기 및 함수를 사용하여 쿼리 저장소를 보고 관리합니다. [권한 선택 public 역할](howto-create-users.md#create-additional-admin-users) 의 모든 사용자는 이러한 뷰를 사용 하 여 쿼리 저장소의 데이터를 볼 수 있습니다. 이러한 보기는 **mysql** database 에서만 사용할 수 있습니다.
+다음 보기 및 함수를 사용하여 쿼리 저장소를 보고 관리합니다. [권한 선택 public 역할](howto-create-users.md#create-additional-admin-users) 의 모든 사용자는 이러한 뷰를 사용 하 여 쿼리 저장소의 데이터를 볼 수 있습니다. 이러한 보기는 **mysql** 데이터베이스 에서만 사용할 수 있습니다.
 
 쿼리는 리터럴 및 상수를 제거한 후 구조를 확인하여 정규화됩니다. 리터럴 값을 제외하고 두 쿼리가 동일한 경우에는 동일한 해시를 포함합니다.
 

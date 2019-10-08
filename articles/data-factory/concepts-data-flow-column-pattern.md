@@ -6,16 +6,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 4df831c1329ab13f19e6ecf979e404d4a90e5f72
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 535656f315f65ffb7aa241618fe9e73b8246b71f
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219754"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027855"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>데이터 흐름 매핑 열 패턴
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 하드 코드된 열 이름 대신 패턴을 기준으로 템플릿 열을 만들 수 있도록 “열 패턴” 아이디어를 지원하는 Azure Data Factory Data Flow 변환도 있습니다. 식 작성기 내에서이 기능을 사용 하 여 정확한 특정 필드 이름을 요구 하는 대신 변환에 대 한 열과 일치 하는 패턴을 정의할 수 있습니다. 패턴은 특히 텍스트 파일 또는 NoSQL 데이터베이스에서 열을 변경 하는 경우 들어오는 원본 필드가 자주 변경 되는 경우에 유용 합니다. 이 상태를 "스키마 드리프트" 라고도 합니다.
 
@@ -50,11 +50,11 @@ ms.locfileid: "71219754"
 
 ## <a name="pattern-matching-special-columns"></a>특수 열 패턴 일치
 
-* `$$`는 디자인 타임에 디버그 모드에서 그리고 런타임에 실행 될 때 일치 하는 각 항목의 이름으로 변환 합니다.
-* `name`들어오는 각 열의 이름을 나타냅니다.
-* `type`들어오는 각 열의 데이터 형식을 나타냅니다.
-* `stream`흐름의 각 스트림이나 변환에 연결 된 이름을 나타냅니다.
-* `position`데이터 흐름에서 열의 서 수 위치입니다.
+* `$$`은 디버그 모드에서 디자인 타임에 일치 하는 각 항목의 이름과 런타임에 실행 시 일치 하는 항목으로 변환 합니다.
+* `name`은 들어오는 각 열의 이름을 나타냅니다.
+* `type`은 들어오는 각 열의 데이터 형식을 나타냅니다.
+* `stream`은 흐름의 각 스트림 또는 변환과 관련 된 이름을 나타냅니다.
+* `position`은 데이터 흐름에서 열의 서 수 위치입니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 데이터 변환에 대 한 ADF 매핑 데이터 흐름 [식 언어](https://aka.ms/dataflowexpressions) 에 대 한 자세한 정보

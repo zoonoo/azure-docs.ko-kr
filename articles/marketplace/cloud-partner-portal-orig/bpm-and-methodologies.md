@@ -1,36 +1,22 @@
 ---
 title: 비즈니스 프로세스 라이브러리 | Azure Marketplace
-description: 비즈니스 프로세스 라이브러리 및 관련 방법론에 대해 설명합니다.
+description: 이 CPP 문서 및 PC에 연결 된 문서를 사용 하지 않습니다. "비즈니스 프로세스 라이브러리 및 방법론에 대 한 설명"입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 870e77f3390c820278970f5ffda002b4826b82a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: f29d82a187027c3eee9d89258b6cf6c166089e70
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935617"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034400"
 ---
 # <a name="business-process-libraries"></a>비즈니스 프로세스 라이브러리
 
-비즈니스 프로세스 라이브러리는 종단 간 시나리오의 작업 가이드이며 마케팅 콘텐츠와 정확하게 일치해야 합니다. 비즈니스 프로세스 라이브러리의 각 비즈니스 프로세스에는 [작업 기록](https://docs.microsoft.com/dynamics365/operations/dev-itpro/user-interface/task-recorder)이 연결되어 있어야 합니다. Dynamics 365 for Operations 외부의 프로세스가 있으면 BPM 라이브러리에 Visio를 연결하세요.
+[Cloud 파트너 포털](https://cloudpartner.azure.com/) 는 더 이상 재무 및 운영 제품에 대 한 Dynamics 365의 생성 및 관리를 지원 하지 않습니다. 대신이 기능은 Microsoft [파트너 센터 포털로](https://partner.microsoft.com/)이동 되었습니다. 자세한 내용은 [Operations 제안의 새 Dynamics 365 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer)를 참조 하세요.
 
-자세한 내용은 [비즈니스 프로세스 모델러](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/business-process-modeler-libraries-lcs-solutions)를 참조하세요.
-
-## <a name="methodologies"></a>방법론
-
-Microsoft Dynamics용 LCS(라이프사이클 서비스)에서는 반복/예측 가능성이 더 높은 구현 프로젝트 환경을 구축하는 데 사용할 수 있는 방법론을 제공합니다. 제공되는 방법론 중 하나를 사용할 수도 있고 직접 방법론을 만들 수도 있습니다. 방법론을 사용하면 프로젝트를 쉽게 추적하고 관련 상황을 보고할 수 있습니다.
-
-방법론은 단계, 작업 및 중요 시점으로 구성됩니다. 각 단계에는 여러 작업이 포함될 수 있으며, 그 중 일부 작업은 필수 항목입니다. 모든 작업이 완료된 단계는 완료로 표시할 수 있습니다. 단계 완료 예상 시간에 중요 시점을 만들 수도 있습니다. LCS 프로젝트에 포함된 방법론은 다음과 같습니다.
-
-- 구현
-- 확인 단계
-- 학습 개발
-- 솔루션 마이그레이션 및 만들기
-- 솔루션 사용
-
-자세한 내용은 [LCS 방법론](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lifecycle-services/create-methodology)을 참조하세요.
+운영 제안의 새 Dynamics 365을 만들기 전에 [파트너 센터 계정 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 를 읽은 다음 **개요** 페이지가 선택 된 상태로 [상용 마켓플레이스 대시보드](https://partner.microsoft.com/dashboard/directory) 를 열어야 합니다. [작업 제안의 새 Dynamics 365 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) 의 지침에 따라 제품을 만듭니다.

@@ -12,12 +12,12 @@ ms.date: 04/11/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4002c14ed6340a0e1a89ee295d47c98436515775
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0c416d7279dd558b8a793064e295b7654925b1c8
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561776"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034897"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자 프로필 정보 추가 또는 업데이트
 프로필 사진, 작업 관련 정보 및 Azure AD(Azure Active Directory)를 사용하는 일부 설정을 비롯하여 사용자 프로필 정보를 추가합니다. 새 사용자를 추가하는 방법에 대한 자세한 내용은 [Azure Active Directory에서 사용자를 추가 또는 삭제하는 방법](add-users-azure-active-directory.md)을 참조하세요.
@@ -46,11 +46,11 @@ ms.locfileid: "68561776"
 
     - **설정.** 사용자가 Azure Active Directory 테넌트에 로그인할 수 있는지 여부를 결정합니다. 사용자의 전역 위치를 지정할 수도 있습니다.
 
-    - **연락처 정보.** 사용자의 관련 연락처 정보를 추가합니다. 예를 들면 주소 또는 휴대폰 번호가 있습니다.
+    - **연락처 정보.** 사용자의 전화 또는 모바일 연락처 정보를 제외 하 고 사용자에 대 한 관련 연락처 정보를 추가 합니다 (전역 관리자만 관리자 역할의 사용자를 업데이트할 수 있음).
 
     - **인증 연락처 정보.** 이 정보를 확인하여 사용자의 활성 전화 번호와 메일 주소가 있는지 확인합니다. 이 정보는 Azure Active Directory에서 로그인 중인 사용자가 실제로 사용자인지 확인하는 데 사용됩니다. 인증 연락처 정보는 전역 관리자만 업데이트할 수 있습니다.
 
-4.           **저장**을 선택합니다.
+4. **저장**을 선택합니다.
 
     사용자에 대한 모든 변경 내용이 저장됩니다.
 

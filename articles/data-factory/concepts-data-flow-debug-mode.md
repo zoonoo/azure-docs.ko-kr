@@ -7,16 +7,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 7d1023f6c46c15b6f982193350923f5c91cdc4b9
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 925e52f9f62860d8cd0951b9e72af09cbb7800fc
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801716"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027809"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapping Data Flow 디버그 모드
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ## <a name="overview"></a>개요
 
@@ -24,9 +24,9 @@ ms.locfileid: "70801716"
 
 ![디버그 슬라이더](media/data-flow/debugbutton.png "디버그 슬라이더")
 
-슬라이더를 켜면 사용할 integration runtime 구성을 선택 하 라는 메시지가 표시 됩니다. AutoResolveIntegrationRuntime가 선택 된 경우 60 분의 일반 계산 코어 8 개를 포함 하는 클러스터가 분리 됩니다. 데이터 흐름 통합 런타임에 대 한 자세한 내용은 [데이터 흐름 성능](concepts-data-flow-performance.md#increase-size-of-your-compute-engine-in-azure-integration-runtime)을 참조 하세요.
+슬라이더를 켜면 사용할 integration runtime 구성을 선택 하 라는 메시지가 표시 됩니다. AutoResolveIntegrationRuntime가 선택 된 경우 60 분의 일반 계산 코어 8 개를 포함 하는 클러스터가 분리 됩니다. 데이터 흐름 통합 런타임에 대 한 자세한 내용은 [데이터 흐름 성능](concepts-data-flow-performance.md#increasing-compute-size-in-azure-integration-runtime)을 참조 하세요.
 
-![IR 선택 항목 디버그](media/data-flow/debugbutton2.png "IR 선택 항목 디버그")
+![Ir 선택]디버그(media/data-flow/debugbutton2.png "ir 선택") 디버그
 
 디버그 모드를 설정 하면 활성 Spark 클러스터로 데이터 흐름을 대화형으로 작성할 수 있습니다. Azure Data Factory에서 디버그를 끄면 세션이 닫힙니다. 디버그 세션이 켜진 시간 동안 Azure Databricks에서 부과되는 시간당 요금에 유의해야 합니다.
 
@@ -67,15 +67,15 @@ Data Flow에서 디버그 모드로 실행하는 경우에는 데이터가 싱�
 
 데이터 미리 보기가 표시 되 면 빠른 변환을 생성 하 여 열을 형식 캐스팅, 제거 또는 수정할 수 있습니다. 열 머리글을 클릭 한 다음 데이터 미리 보기 도구 모음에서 옵션 중 하나를 선택 합니다.
 
-![빠른 작업](media/data-flow/quick-actions1.png "빠른 작업")
+![빠른 작업](media/data-flow/quick-actions1.png "빠른") 작업
 
 수정을 선택 하면 데이터 미리 보기가 즉시 새로 고쳐집니다. 오른쪽 위 모서리에서 **확인** 을 클릭 하 여 새 변환을 생성 합니다.
 
-![빠른 작업](media/data-flow/quick-actions2.png "빠른 작업")
+![빠른 작업](media/data-flow/quick-actions2.png "빠른") 작업
 
 **형식 캐스팅** 및 **Modify** 는 파생 열 변환을 생성 하 고 **Remove** 는 Select 변환을 생성 합니다.
 
-![빠른 작업](media/data-flow/quick-actions3.png "빠른 작업")
+![빠른 작업](media/data-flow/quick-actions3.png "빠른") 작업
 
 > [!NOTE]
 > 데이터 흐름을 편집 하는 경우 빠른 변환을 추가 하기 전에 데이터 미리 보기를 다시 인출 해야 합니다.

@@ -12,19 +12,22 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/18/2019
 ms.author: mbullwin
-ms.openlocfilehash: ac9bd6021b5fcec36e3aadfdf4c30020971f3be5
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 99a18125fa5ce07a46fcc1af554fd03746ebf110
+ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299258"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72038141"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Application Insights에서 Java 추적 로그 탐색
 추적에 Logback 또는 Log4J(v1.2 또는 v2.0)를 사용하는 경우 추적 로그를 살펴보고 검색할 수 있는 Application Insights에 추적 로그를 자동으로 전송할 수 있습니다.
 
+> [!TIP]
+> 응용 프로그램에 대해 Application Insights 계측 키를 한 번만 설정 하면 됩니다. Java 스프링과 같은 프레임 워크를 사용 하는 경우 앱 구성의 다른 위치에 키를 이미 등록 했을 수 있습니다.
+
 ## <a name="using-the-application-insights-java-agent"></a>Application Insights Java 에이전트 사용
 
-`AI-Agent.xml` 파일에서 기능을 사용 하도록 설정 하 여 로그를 자동으로 캡처하도록 Application Insights Java 에이전트를 구성할 수 있습니다.
+@No__t-0 파일에서 기능을 사용 하도록 설정 하 여 로그를 자동으로 캡처하도록 Application Insights Java 에이전트를 구성할 수 있습니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

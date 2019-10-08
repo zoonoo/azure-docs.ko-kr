@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 09/06/2019
 ms.author: juliako
-ms.openlocfilehash: 618aa58fe8553789c831ca933ae6be73843b93dd
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 2d01828cb61937b45665e953a13795b5346a5f1b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801395"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030536"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -34,7 +34,7 @@ ms.locfileid: "70801395"
 
 자세한 내용은 [Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](migrate-from-v2-to-v3.md#known-issues)을 참조하세요.
 
-## <a name="september-2019"></a>9 월 2019
+## <a name="september-2019"></a>2019년 9월
 
 Media Services v3은 라이브 이벤트의 라이브 선형 인코딩의 24 시간 x 365 일 미리 보기를 발표 하 고 있습니다.
  
@@ -88,7 +88,7 @@ Media Services는 대한민국 중부 및 대한민국 남부 지역에서 사�
 
 자세한 내용은 [Media Services v3이 존재 하는 클라우드 및 지역](azure-clouds-regions.md)을 참조 하세요.
 
-### <a name="performance-improvements"></a>성능 향상
+### <a name="performance-improvements"></a>성능 개선
 
 Media Services 성능 개선을 포함 하는 업데이트를 추가 했습니다.
 
@@ -236,7 +236,7 @@ Media Services v3에 지원되는 언어: .NET Core, Java, Node.js, Ruby, Typesc
 
 CMAF를 지원하는 Apple HLS(iOS 11+) 및 MPEG-DASH 플레이어에 대해 CMAF 및 'cbcs' 암호화가 지원됩니다.
 
-### <a name="video-indexer"></a>Video Indexer
+### <a name="video-indexer"></a>비디오 인덱서
 
 Video Indexer GA 릴리스가 8월에 발표되었습니다. 현재 지원되는 기능에 대한 자세한 내용은 [Video Indexer란?](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)을 참조하세요. 
 
@@ -275,4 +275,5 @@ Media Services v3 CLI 또는 API를 통해 9월 28일에서 10월 12일 사이�
 
 ## <a name="next-steps"></a>다음 단계
 
-[개요](media-services-overview.md)
+- [개요](media-services-overview.md)
+- [Media Services v2 릴리스 정보](../previous/media-services-release-notes.md)

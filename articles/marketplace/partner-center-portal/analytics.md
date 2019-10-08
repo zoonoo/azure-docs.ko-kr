@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: 87ecf534fa7d4f3609882f5f18b314c246e388bd
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: b48e0cddfe4880382147e7bfb634335f10d6f5f9
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036639"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028854"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>파트너 센터의 상업적 Marketplace에 대 한 분석
 
@@ -26,6 +26,7 @@ Microsoft 파트너 센터의 분석 보고서에 액세스 하 여 판매를 �
 |[주문과](#orders-dashboard)|그래픽 및 다운로드 가능한 형식으로 주문에 대 한 정보|
 |[고객](#customer-dashboard)|그래픽 및 다운로드 가능한 형식으로 제공 되는 증가 추세를 비롯 한 고객에 대 한 정보|
 |[다운로드](#downloads-dashboard)|최근 30 일 동안의 다운로드 요청 목록|
+|[등급 및 리뷰](#ratings-and-reviews)| 고객의 등급 및 리뷰에 대 한 정보는 획득 한 제품에 대 한 정보를 유지 합니다.
 
 ## <a name="summary-dashboard"></a>요약 대시보드
 
@@ -238,13 +239,13 @@ Microsoft 파트너 센터의 분석 보고서에 액세스 하 여 판매를 �
 | Azure 라이선스 유형: 클라우드 솔루션 공급자 | 고객, 주문 | 재판매인 역할을 하는 클라우드 솔루션 공급자를 통해 최종 고객이 Azure 및 Marketplace 제품을 조달받습니다.|
 | Azure 라이선스 유형: Enterprise | 고객, 주문 | Microsoft와 직접 체결하는 기업계약을 통해 최종 고객이 Azure 및 Marketplace 제품을 조달받습니다.|
 | Azure 라이선스 유형: 대리점을 통해 엔터프라이즈  | 고객, 주문 | 최종 고객은 Microsoft와의 기업계약을 용이 하 게 하는 재판매인을 통해 Azure 및 Marketplace 제품을 procures 합니다.|  |
-| Azure 라이선스 유형: 종량제| 고객, 주문 | 최종 고객은 Microsoft에 직접 서명 하는 "종 량 제" 계약을 통해 Azure 및 Marketplace 제품을 procures.||
+| Azure 라이선스 유형: 종 량 제| 고객, 주문 | 최종 고객은 Microsoft에 직접 서명 하는 "종 량 제" 계약을 통해 Azure 및 Marketplace 제품을 procures.||
 | 클라우드 인스턴스 이름| 주문| VM이 배포된 Microsoft Cloud입니다.||
 | 클라우드 인스턴스 이름: Azure 글로벌| 주문| 공용 글로벌 Microsoft 클라우드.|| |
 | 클라우드 인스턴스 이름: Azure Government | 주문| 다음 정부 중 하나인 정부 관련 Microsoft 클라우드: 중국, 독일 또는 대한민국.| |
 | 고객 구/군/시| 고객| 고객이 제공한 도시 이름입니다. 도시는 고객의 Azure 구독에서 구/군/시와 다를 수 있습니다.||
 | 고객 통신 언어  | 고객| 고객이 통신용으로 선택한 기본 설정 언어입니다.||
-| 고객 회사 이름 | 고객, 주문 | 고객이 제공한 회사 이름입니다. 이름은 고객의 Azure 구독에 있는 이름과 다를 수 있습니다.|  |
+| 고객 회사 이름 | 고객, 주문 | 고객이 제공한 회사 이름입니다. 이름은 고객의 Azure 구독에서 구/군/시와 다를 수 있습니다.|  |
 | 고객 국가 | 고객, 주문 | 고객이 제공한 국가 이름입니다. Country는 고객의 Azure 구독에 있는 국가와 다를 수 있습니다.|  |
 | 고객 이메일| 고객| 최종 고객이 제공한 전자 메일 주소입니다. 전자 메일은 고객의 Azure 구독에 있는 전자 메일 주소와 다를 수 있습니다.||
 | 고객 이름| 고객| 고객이 제공한 이름입니다. 이름은 고객의 Azure 구독에 제공 된 이름과 다를 수 있습니다.| |
@@ -259,7 +260,7 @@ Microsoft 파트너 센터의 분석 보고서에 액세스 하 여 판매를 �
 | Marketplace 라이선스 유형| 주문| Marketplace 제품의 청구 방법입니다.||
 | Marketplace 라이선스 유형: Azure를 통해 청구| 주문| Microsoft가 이 Marketplace 제품의 대리인으로 게시자 대신 고객에게 대금을 청구합니다. (종량제 신용 카드 또는 기업 송장)||
 | Marketplace 라이선스 유형: 자신의 라이선스 가져오기 | 주문| VM을 배포 하려면 고객이 제공한 라이선스 키가 필요 합니다. Microsoft는 marketplace를 통해 귀하의 제품을 나열 하기 위해 고객에 게 요금을 청구 하지 않습니다.||
-| Marketplace 라이선스 유형: Free| 주문| 제품은 모든 사용자에 게 무료로 구성 됩니다. Microsoft는이 제품 사용에 대해 고객에 게 요금을 청구 하지 않습니다.||
+| Marketplace 라이선스 유형: 무료| 주문| 제품은 모든 사용자에 게 무료로 구성 됩니다. Microsoft는이 제품 사용에 대해 고객에 게 요금을 청구 하지 않습니다.||
 | Marketplace 라이선스 유형: Microsoft as 재판매인  | 주문| Microsoft가 이 Marketplace 제품의 재판매인 역할을 합니다.|  |
 | Marketplace 구독 ID | 고객, 주문 | 고객이 Marketplace 제품을 구매 하는 데 사용한 Azure 구독과 연결 된 고유 식별자입니다. ID는 이전에 Azure 구독 GUID 였습니다.||
 | 제품 이름  | 주문| Marketplace 제품의 이름입니다.|| |
@@ -273,7 +274,7 @@ Microsoft 파트너 센터의 분석 보고서에 액세스 하 여 판매를 �
 | 제안 유형: IoT Edge 모듈 | 주문| Azure IoT Edge 모듈은 IoT Edge에서 관리 되는 가장 작은 계산 단위 이며 Microsoft 서비스 (예: Azure Stream Analytics), 타사 서비스 또는 고유한 솔루션 관련 코드를 포함할 수 있습니다. |
 | 제안 유형: 응용 프로그램 Power BI | 주문| Power BI와 통합 된 응용 프로그램을 배포할 때 Power BI 응용 프로그램 제안 유형을 사용 합니다.|  |
 | 제안 유형: SaaS 응용 프로그램| 주문| SaaS 앱 제품 유형을 사용하면 고객이 SaaS 기반, 기술 솔루션을 구독으로 구매할 수 있습니다.||
-| 제안 유형: 가상 머신 | 주문| 고객과 연결된 구독에 가상 어플라이언스를 배포할 경우 가상 머신 제품 형식을 사용합니다.||
+| 제안 유형: Virtual Machine | 주문| 고객과 연결된 구독에 가상 어플라이언스를 배포할 경우 가상 머신 제품 형식을 사용합니다.||
 | 제안 유형: Visual Studio Marketplace 확장  | 주문| Azure DevOps 확장 개발자가 이전에 제공 하는 제품 유형입니다. Azure DevOps 확장을 전달 하는 개발자는 자신의 확장을 고객에 게 직접 판매할 수 있습니다. 내선 번호는 유료 또는 평가판을 포함 하 여 구성할 수 있습니다. |
 | 주문 취소 날짜| 주문| Marketplace 주문이 취소된 날짜입니다.||
 | 주문 ID| 주문| Marketplace 서비스의 고객 주문에 대 한 고유 식별자입니다. 가상 컴퓨터 사용량 기반 제안은 주문에 연결 되지 않습니다.| |
@@ -285,3 +286,38 @@ Microsoft 파트너 센터의 분석 보고서에 액세스 하 여 판매를 �
 | 공급자 이름| 고객| Microsoft와 최종 고객 간의 관계에 관련 된 공급자의 이름입니다. 고객이 대리점을 통해 엔터프라이즈 인 경우 재판매인이 됩니다. CSP (클라우드 솔루션 공급자)가 관련 된 경우이는 CSP가 됩니다.|
 | SKU| 주문| 게시 하는 동안 정의 된 SKU 이름입니다. 제품에는 많은 Sku가 있을 수 있지만 SKU는 단일 제품에만 연결 될 수 있습니다.||
 | 평가판 종료 날짜| 주문| 이 주문의 평가 기간이 종료되었거나 종료될 예정인 날짜입니다.||
+
+## <a name="ratings-and-reviews"></a>평점 및 리뷰
+
+두 마켓플레이스에서 고객이 찾아보거나 검색 하 고 구매할 때 제공 하는 제품에 대 한 등급과 리뷰를 남길 수 있습니다. 새 등급 또는 리뷰를 제출 하 고 이미 제출 된 등급 또는 리뷰를 업데이트 하거나 삭제할 수 있습니다. 리뷰는 제품의 제품 표시 페이지의 리뷰 탭에 있는 Azure marketplace 또는 AppSource에 게시 됩니다. 고객은 등급 또는 리뷰에 대 한 이름을 포함 하거나 익명으로 게시할 수 있습니다.  
+
+> [!NOTE]
+> 고객은 자신이 소유 하는 등급과 리뷰만 변경할 수 있습니다.
+
+**등급 & 검토 대시보드** 는 고객 활동의 추세와 통찰력을 표시 합니다. 다음을 그래픽으로 표현 합니다.
+
+- 등급 & 리뷰  
+- 의견 검토
+
+### <a name="marketplace-storefront-tabs"></a>Marketplace storefront 탭
+
+게시자는 AppSource & Azure Marketplace 탭에서 제품 메트릭을 별도로 볼 수 있습니다. 특정 제품 메트릭을 보려면 드롭다운에서 **제안** 을 선택 합니다.
+
+![파트너 센터 분석 제안 드롭다운](./media/analyze-offer-dropdown.png)
+
+### <a name="ratings-and-reviews-summary"></a>등급 및 리뷰 요약
+
+등급 & 검토 요약 섹션에는 선택한 날짜 범위에 대 한 아래 메트릭이 표시 됩니다.
+
+- **평균 등급:** 선택한 제품에 대해 고객이 제출한 모든 등급의 가중치 평균 별 등급입니다.
+- **등급 분석:** 등급을 제출한 고객의 수 별 등급 분석 가로 막대형 차트는 실제 및 수정 된 등급 (업데이트 된 등급 수)으로 누적 됩니다.
+- **총 등급:** 전송 된 전체 등급의 수입니다. 이 개수에는 검토를 포함 하거나 포함 하지 않는 등급도 포함 됩니다.
+- **검토가 포함 된 등급:** 제출 된 리뷰 수입니다.
+
+![파트너 센터의 등급 및 리뷰 요약 분석](./media/analyze-ratings-summary.png)
+
+### <a name="review-comments"></a>의견 검토
+
+검토는 게시 된 시간 순으로 표시 됩니다. 기본 보기에는 모든 검토가 표시 됩니다. 드롭다운 메뉴의 **필터** 를 사용 하 여 별 등급 별 리뷰를 통해 필터링 할 수 있습니다. 검토에 표시 되는 키워드를 검색할 수도 있습니다.  
+
+![파트너 센터 분석 검토 설명](./media/analyze-reviews.png)

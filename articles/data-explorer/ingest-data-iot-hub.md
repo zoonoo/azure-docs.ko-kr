@@ -7,14 +7,19 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: ef66e6a69b6d33b16a558293fe29b8adf51cd137
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
-ms.translationtype: HT
+ms.openlocfilehash: 9f1bd795af2802af642d48b4a16a55425c5f4c7f
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996765"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028481"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>IoT Hub에서 Azure 데이터 탐색기로 데이터 수집 (미리 보기)
+
+> [!div class="op_single_selector"]
+> * [포털](ingest-data-iot-hub.md)
+> * [C#](data-connection-iot-hub-csharp.md)
+> * [Python](data-connection-iot-hub-python.md)
 
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기는 빅 데이터 스트리밍 플랫폼과 IoT 수집 서비스인 IoT Hub에서 수집 (데이터 로드)을 제공 합니다.
 
@@ -93,7 +98,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
      **설정** | **제안 값** | **필드 설명**
     |---|---|---|
     | Table | *TestTable* | **Testdb**에서 만든 테이블입니다. |
-    | 데이터 서식 | *JSON* | 지원 되는 형식은 Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE 및 TXT입니다. |
+    | 데이터 형식 | *JSON* | 지원 되는 형식은 Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE 및 TXT입니다. |
     | 열 매핑 | *TestMapping* | **Testdb**에서 만든 [매핑으로](/azure/kusto/management/mappings) , 들어오는 JSON 데이터를 **testdb**의 열 이름 및 데이터 형식에 매핑합니다. JSON, 여러 줄 JSON 및 AVRO에 필요 하 고 다른 형식의 경우 선택적입니다.|
     | | |
 
@@ -164,7 +169,7 @@ IoT Hub를 다시 사용 하지 않으려는 경우 비용을 발생 시 키 지
 
 1. Azure Portal에서 맨 왼쪽에 있는 **리소스 그룹**을 선택한 다음, 만든 리소스 그룹을 선택합니다.  
 
-    왼쪽 메뉴가 접혀 있으면 ![확장 단추](media/ingest-data-event-hub/expand.png) 클릭하여 펼칩니다.
+    왼쪽 메뉴가 접혀 있으면 ![[확장] 단추를](media/ingest-data-event-hub/expand.png) 클릭하여 펼칩니다.
 
    ![삭제할 리소스 그룹 선택](media/ingest-data-event-hub/delete-resources-select.png)
 
