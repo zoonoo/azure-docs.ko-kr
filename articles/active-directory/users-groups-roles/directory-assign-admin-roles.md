@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fee8692b2e09f9e4f5580d60d2f7a5a5cea2858
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 27b5a8a7667419e0e3345fb453eefd840368b643
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950355"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001680"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -398,13 +398,13 @@ Windows Defender ATP 및 EDR | 경고를 확인 하 고 조사 합니다. Window
 
 ### <a name="user-administratoruser-administrator-permissions"></a>[사용자 관리자](#user-administrator-permissions)
 
-이 역할을 가진 사용자는 사용자를 만들고 몇 가지 제한 사항이 있는 사용자의 모든 측면을 관리할 수 있습니다 (아래 참조). 암호 만료 정책을 업데이트할 수 있습니다. 또한 이 역할의 사용자는 모든 그룹을 만들고 관리할 수 있습니다. 이 역할은 사용자 보기를 만들고 관리하며, 지원 티켓을 관리하고, 서비스 상태를 모니터링하는 기능도 포함합니다.
+이 역할을 가진 사용자는 사용자를 만들고 몇 가지 제한 사항이 있는 사용자의 모든 측면을 관리할 수 있습니다 (아래 참조). 암호 만료 정책을 업데이트할 수 있습니다. 또한 이 역할의 사용자는 모든 그룹을 만들고 관리할 수 있습니다. 이 역할은 사용자 보기를 만들고 관리하며, 지원 티켓을 관리하고, 서비스 상태를 모니터링하는 기능도 포함합니다. 사용자 관리자는 대부분의 관리자 역할에서 사용자에 대 한 일부 사용자 속성을 관리할 권한이 없습니다. 이 제한에 대 한 예외인 역할은 다음 표에 나열 되어 있습니다.
 
 | | |
 | --- | --- |
 |일반적인 사용 권한|<p>사용자 및 그룹 만들기</p><p>사용자 보기 만들기 및 관리</p><p>Office 지원 티켓 관리<p>암호 만료 정책 업데이트|
 |<p>모든 관리자를 포함한 모든 사용자에게</p>|<p>라이선스 관리</p><p>사용자 계정 이름을 제외한 모든 사용자 속성 관리</p>
-|비관리자 또는 다음의 제한된 관리자 역할의 사용자에만 적용:<ul><li>디렉터리 읽기 권한자<li>게스트 초대자<li>기술 지원팀 관리자<li>메시지 센터 읽기 권한자<li>보고서 읽기 권한자<li>사용자 관리자|<p>삭제 및 복원</p><p>사용 안 함 및 사용</p><p>새로 고침 토큰 무효화</p><p>사용자 계정 이름을 포함한 모든 사용자 속성 관리</p><p>암호 다시 설정</p><p>(FIDO) 디바이스 키 업데이트</p>
+|비관리자 또는 다음의 제한된 관리자 역할의 사용자에만 적용:<ul><li>디렉터리 읽기 권한자<li>게스트 초대자<li>기술 지원팀 관리자<li>메시지 센터 읽기 권한자<li>보고서 읽기 권한자<li>사용자 관리자|<p>삭제 및 복원</p><p>사용 안 함 및 사용</p><p>새로 고침 토큰 무효화</p><p>사용자 계정 이름을 포함한 모든 사용자 속성 관리</p><p>암호 다시 설정</p><p>(FIDO) 디바이스 키 업데이트</p>|
 
 > [!IMPORTANT]
 > 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 암호를 변경할 수 있습니다. 사용자의 암호를 변경한다는 것은 사용자의 ID 및 권한을 가정할 수 있다는 것을 의미합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.

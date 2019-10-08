@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 2fc2b847c18cecbcea3c137312b18bb274398cc6
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: b3329ccb3edb3077a45e3bbf9ba7b48d7e3a93a2
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326633"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996239"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Python을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
 
@@ -35,54 +35,59 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 Azure Data Explorer(Kusto)용 Python 패키지를 설치하려면 경로에 Python이 있는 명령 프롬프트를 엽니다. 다음 명령을 실행합니다.
 
 ```
+pip install azure-common
 pip install azure-mgmt-kusto
-pip install adal
-pip install msrestazure
 ```
+## <a name="authentication"></a>인증
+이 문서의 예제를 실행 하려면 리소스에 액세스할 수 있는 Azure AD 응용 프로그램 및 서비스 주체가 필요 합니다. [AZURE ad 응용 프로그램 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) 를 선택 하 여 무료 Azure Ad 응용 프로그램을 만들고 구독 범위에서 역할 할당을 추가 합니다. 또한 `Directory (tenant) ID`, `Application ID` 및 `Client Secret`를 가져오는 방법을 보여 줍니다.
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Azure Data Explorer 클러스터 만들기
 
 1. 다음 명령을 사용하여 클러스터를 만듭니다.
 
     ```Python
-    from azure.mgmt.kusto.kusto_management_client import KustoManagementClient
+    from azure.mgmt.kusto import KustoManagementClient
     from azure.mgmt.kusto.models import Cluster, AzureSku
-    from adal import AuthenticationContext
-    from msrestazure.azure_active_directory import AdalAuthentication
+    from azure.common.credentials import ServicePrincipalCredentials
 
+    #Directory (tenant) ID
     tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    #Application ID
     client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    #Client Secret
     client_secret = "xxxxxxxxxxxxxx"
     subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
-    context = AuthenticationContext('https://login.microsoftonline.com/{}'.format(tenant_id))
-    credentials = AdalAuthentication(context.acquire_token_with_client_credentials,
-                                         resource="https://management.core.windows.net/",
-                                         client_id=client_id,
-                                         client_secret=client_secret)
+    credentials = ServicePrincipalCredentials(
+        client_id=client_id,
+        secret=client_secret,
+        tenant=tenant_id
+    )
 
     location = 'Central US'
-    sku = 'D13_v2'
+    sku_name = 'Standard_D13_v2'
     capacity = 5
+    tier = "Standard"
     resource_group_name = 'testrg'
     cluster_name = 'mykustocluster'
-    cluster = Cluster(location=location, sku=AzureSku(name=sku, capacity=capacity))
+    cluster = Cluster(location=location, sku=AzureSku(name=sku_name, capacity=capacity, tier=tier))
     
     kustoManagementClient = KustoManagementClient(credentials, subscription_id)
     
     cluster_operations = kustoManagementClient.clusters
     
-    cluster_operations.create_or_update(resource_group_name, cluster_name, cluster)
+    poller = cluster_operations.create_or_update(resource_group_name, cluster_name, cluster)
     ```
 
    |**설정** | **제안 값** | **필드 설명**|
    |---|---|---|
    | cluster_name | *mykustocluster* | 원하는 클러스터 이름입니다.|
-   | sku | *D13_v2* | 클러스터에 사용될 SKU입니다. |
+   | sku_name | *Standard_D13_v2* | 클러스터에 사용될 SKU입니다. |
+   | 계층 | *Standard* | SKU 계층입니다. |
+   | 용량 | *number* | 클러스터의 인스턴스 수입니다. |
    | resource_group_name | *testrg* | 클러스터가 만들어질 리소스 그룹 이름입니다. |
 
-    사용 가능한 선택적 매개 변수(예: 클러스터 용량)가 추가로 있습니다.
-    
-1. [*자격 증명*](/azure/python/python-sdk-azure-authenticate)을 설정합니다.
+    > [!NOTE]
+    > **클러스터 만들기** 는 장기 실행 작업입니다. **Create_or_update** 메서드는 lropoller의 인스턴스를 반환 합니다. 자세한 정보를 보려면 [lropoller 러 클래스](/python/api/msrest/msrest.polling.lropoller?view=azure-python) 를 참조 하세요.
 
 1. 다음 명령을 실행하여 클러스터가 성공적으로 만들어졌는지 확인합니다.
 
@@ -109,7 +114,8 @@ pip install msrestazure
                         soft_delete_period=softDeletePeriod,
                         hot_cache_period=hotCachePeriod)
     
-    database_operations.create_or_update(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName, parameters = _database)
+    #Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+    poller =database_operations.create_or_update(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName, parameters = _database)
     ```
 
    |**설정** | **제안 값** | **필드 설명**|

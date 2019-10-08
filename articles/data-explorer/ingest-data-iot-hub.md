@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 327fd5352a3f067638c7f9ceb51e2de9e284d845
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: ef66e6a69b6d33b16a558293fe29b8adf51cd137
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947842"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996765"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>IoT Hub에서 Azure 데이터 탐색기로 데이터 수집 (미리 보기)
 
@@ -80,8 +80,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
     | IoT Hub | IoT Hub 이름 |
     | 공유 액세스 정책 | 공유 액세스 정책의 이름입니다. 읽기 권한이 있어야 합니다. |
     | 소비자 그룹 |  IoT Hub 기본 제공 끝점에 정의 된 소비자 그룹 |
-    | 이벤트 시스템 속성 | 이벤트 메시지 마다 여러 레코드가 있는 경우 [IoT Hub 이벤트 시스템 속성이](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages) 첫 번째 속성에 추가 됩니다.|
-    | | 
+    | 이벤트 시스템 속성 | [IoT Hub 이벤트 시스템 속성](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages)입니다. 시스템 속성을 추가 하는 경우 선택한 속성을 포함 하도록 테이블 스키마 및 [매핑을](/azure/kusto/management/mappings) [만들거나](/azure/kusto/management/tables#create-table) [업데이트](/azure/kusto/management/tables#alter-table-and-alter-merge-table) 합니다. | | | 
 
     > [!NOTE]
     > [수동 장애 조치 (failover)](/azure/iot-hub/iot-hub-ha-dr#manual-failover)의 경우 데이터 연결을 다시 만들어야 합니다.
@@ -95,7 +94,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
     |---|---|---|
     | Table | *TestTable* | **Testdb**에서 만든 테이블입니다. |
     | 데이터 서식 | *JSON* | 지원 되는 형식은 Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE 및 TXT입니다. |
-    | 열 매핑 | *TestMapping* | Testdb에서 만든 매핑으로, 들어오는 JSON 데이터를 **testdb**의 열 이름 및 데이터 형식에 매핑합니다. JSON, 여러 줄 JSON 및 AVRO에 필요 하 고 다른 형식의 경우 선택적입니다.|
+    | 열 매핑 | *TestMapping* | **Testdb**에서 만든 [매핑으로](/azure/kusto/management/mappings) , 들어오는 JSON 데이터를 **testdb**의 열 이름 및 데이터 형식에 매핑합니다. JSON, 여러 줄 JSON 및 AVRO에 필요 하 고 다른 형식의 경우 선택적입니다.|
     | | |
 
     > [!NOTE]

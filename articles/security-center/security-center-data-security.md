@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: 30f4358bea2670cfa8d825bf1ef75feeba7ea851
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 3c63283a1a13e2deb178a53dfc5045d371d6a28a
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202347"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996925"
 ---
 # <a name="azure-security-center-data-security"></a>Azure Security Center 데이터 보안
 고객이 위협을 방지, 감지 및 대응하는 데 도움을 주기 위해 Azure Security Center에서는 구성 정보, 메타데이터, 이벤트 로그, 크래시 덤프 파일 등을 포함한 보안 관련 데이터를 수집하고 처리합니다. Microsoft는 코딩부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다.
@@ -80,7 +80,7 @@ Azure Security Center를 무료로 사용하는 경우 보안 정책의 가상 �
 
 고객은 아래와 같이 다른 데이터 스트림에서 데이터와 관련된 Security Center를 사용할 수 있습니다.
 
-* **Azure 작업**: 모든 보안 경고, 승인된 Security Center [just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) 요청 및 [적응 애플리케이션 컨트롤](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)에서 생성된 모든 경고입니다.
+* **Azure 활동**: 모든 보안 경고, 승인 된 Security Center [just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) 요청 및 [적응 응용 프로그램 컨트롤](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)에 의해 생성 된 모든 경고입니다.
 * **Azure Monitor logs**: 모든 보안 경고입니다.
 
 

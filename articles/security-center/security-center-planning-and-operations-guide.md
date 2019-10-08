@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 62387fe7ddbde75e79724c77dd7eeedd5cae64c3
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: abcd6dc8c50b819dd02347b938602af7f2152d04
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201862"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996626"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure Security Center 계획 및 작업 가이드
 이 가이드는 IT (정보 기술) 전문가, IT 설계자, 정보 보안 분석가 및 클라우드 관리자가 Azure Security Center 사용을 계획 하는 데 사용 됩니다.
@@ -203,7 +203,7 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 
 ### <a name="hardening-access-and-applications"></a>액세스 및 애플리케이션 강화
 
-또한 보안 작업의 일환으로 VM에 대한 액세스 권한을 제한하는 예방 조치를 채택하고 VM에서 실행되는 애플리케이션을 제어해야 합니다. Azure VM에 인바운드 트래픽을 잠금으로써 공격에 대한 노출을 줄이고 동시에 필요할 때 VM에 쉽게 연결할 수 있는 액세스 권한을 제공합니다. [Just in Time VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) 액세스 기능을 사용하여 VM에 대한 액세스 권한을 강화합니다.
+또한 보안 작업의 일환으로 VM에 대한 액세스 권한을 제한하는 예방 조치를 채택하고 VM에서 실행되는 애플리케이션을 제어해야 합니다. Azure VM에 인바운드 트래픽을 잠금으로써 공격에 대한 노출을 줄이고 동시에 필요할 때 VM에 쉽게 연결할 수 있는 액세스 권한을 제공합니다. Vm에 대 한 액세스를 강화 하려면 [JUST-IN-TIME vm](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) 액세스 기능을 사용 합니다.
 
 [적응 응용 프로그램 컨트롤](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) 을 사용 하 여 Azure에 있는 vm에서 실행할 수 있는 응용 프로그램을 제한할 수 있습니다. 다른 이점 중 하나는 맬웨어에 대해 Vm을 강화 하는 데 도움이 됩니다. Machine learning을 사용 하 여 VM에서 실행 되는 프로세스를 분석 Security Center 허용 목록 규칙을 만드는 데 도움이 됩니다.
 

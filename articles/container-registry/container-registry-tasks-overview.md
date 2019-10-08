@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: danlep
-ms.openlocfilehash: c62987031a73aa4840c1d036689a3c52fb4dc4a0
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e2686dcd5615c42abf78cbf4575bab6008024718
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914674"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001391"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>ACR 작업을 사용 하 여 컨테이너 이미지 빌드 및 유지 관리 자동화
 
@@ -44,7 +44,7 @@ ACR 작업은 컨테이너 이미지 및 기타 아티팩트를 빌드하고 유
 
 첫 번째 코드 줄을 커밋하기 전에, ACR 작업의 빠른 [작업](container-registry-tutorial-quick-task.md) 기능은 컨테이너 이미지 빌드를 Azure에 오프로드하여 통합 개발 환경을 제공할 수 있습니다. 빠른 작업을 사용하면 코드를 커밋하기 전에 자동화된 빌드 정의를 확인하고 잠재적인 문제점을 발견할 수 있습니다.
 
-친숙 `docker build` 한 형식을 사용 하는 경우 Azure CLI의 [az acr build][az-acr-build] 명령은 [컨텍스트](#context-locations) (빌드할 파일 집합)를 사용 하 여 acr 작업을 보내고, 기본적으로 완료 되 면 빌드된 이미지를 레지스트리에 푸시합니다.
+친숙 한 `docker build` 형식을 사용 하면 Azure CLI의 [az acr build][az-acr-build] 명령이 [컨텍스트](#context-locations) (빌드할 파일 집합)를 사용 하 여 acr 작업을 보내고, 기본적으로 완료 시 빌드된 이미지를 레지스트리에 푸시합니다.
 
 소개는 Azure Container Registry에서 [컨테이너 이미지를 빌드하고 실행](container-registry-quickstart-task-cli.md) 하는 빠른 시작을 참조 하세요.  
 
@@ -124,15 +124,16 @@ Dockerfile에서 이미지 빌드의 경우 기본 이미지가 다음 위치 �
 | GitHub 마스터 분기 | GitHub 리포지토리의 마스터(또는 다른 기본) 분기 내에 있는 파일.  | `https://github.com/gituser/myapp-repo.git` |
 | GitHub 분기 | GitHub 리포지토리의 특정 분기.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | GitHub 하위 폴더 | GitHub 리포지토리의 하위 폴더 내에 있는 파일. 예제에서는 분기와 하위 폴더 사양의 조합을 보여 줍니다. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| Azure DevOps 하위 폴더 | Azure 리포지토리의 하위 폴더 내 파일. 예제에서는 분기와 하위 폴더 사양의 조합을 보여 줍니다. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | 원격 Tarball | 원격 웹 서버의 압축된 아카이브에 있는 파일. | `http://remoteserver/myapp.tar.gz` |
 
 ## <a name="image-platforms"></a>이미지 플랫폼
 
-기본적으로 ACR 작업은 Linux OS 및 amd64 아키텍처용 이미지를 빌드합니다. 다른 아키텍처에 대 한 Windows 이미지 또는 Linux 이미지를 빌드하기 위한 태그를지정합니다.`--platform` Os를 지정 하 고 필요에 따라 OS/아키텍처 형식으로 지원 되는 아키텍처 `--platform Linux/arm`를 지정 합니다 (예:). ARM 아키텍처의 경우 필요에 따라 OS/아키텍처/변형 형식 (예 `--platform Linux/arm64/v8`:)에서 variant를 지정 합니다.
+기본적으로 ACR 작업은 Linux OS 및 amd64 아키텍처용 이미지를 빌드합니다. @No__t-0 태그를 지정 하 여 다른 아키텍처에 대 한 Windows 이미지 또는 Linux 이미지를 빌드합니다. Os를 지정 하 고 필요에 따라 OS/아키텍처 형식으로 지원 되는 아키텍처를 지정 합니다 (예: `--platform Linux/arm`). ARM 아키텍처의 경우 필요에 따라 OS/아키텍처/변형 형식 (예: `--platform Linux/arm64/v8`)에서 variant를 지정 합니다.
 
 | OS | 아키텍처|
 | --- | ------- | 
-| Linux | amd64<br/>arm<br/>arm64<br/>386 |
+| Linux | amd64<br/>암<br/>arm64<br/>386 |
 | Windows | amd64 |
 
 ## <a name="view-task-logs"></a>작업 로그 보기

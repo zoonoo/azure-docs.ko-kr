@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b38b359821d3d4926085fee8e412fbe06155739
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: e9bc0cf3ab0d168a55ab04913bdc71eed5c5fced
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350623"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001221"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -37,6 +37,14 @@ ms.locfileid: "71350623"
 + 데이터 과학 모범 사례 활용
 + Agile 문제 제공-해결
 
+자동화 된 일반적인 ML 사용 사례는 다음과 같습니다.
++ [사기 감지](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)
++ [마케팅 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing/auto-ml-classification-bank-marketing.ipynb)
++ [수요 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
++ [판매 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)
++ [성능 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance/auto-ml-regression-hardware-performance.ipynb)
++ [재질 내구성 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-concrete-strength/auto-ml-regression-concrete-strength.ipynb)
+
 ## <a name="how-automated-ml-works"></a>자동화 된 ML 작동 방법
 
 **Azure Machine Learning**를 사용 하 여 다음 단계를 통해 자동화 된 ML 학습 실험을 디자인 하 고 실행할 수 있습니다.
@@ -55,7 +63,7 @@ ms.locfileid: "71350623"
 
 학습 하는 동안 Azure Machine Learning는 여러 알고리즘 및 매개 변수를 시도 하는 많은 수의 병렬 파이프라인을 만듭니다. 실험에 정의 된 종료 조건에 도달 하면 중지 됩니다.
 
-실행 중에 수집 된 [메트릭을 포함](how-to-understand-automated-ml.md) 하는 로그 된 실행 정보를 검사할 수도 있습니다. 학습 실행은 모델 및 데이터 전처리를 포함`.pkl` 하는 Python 직렬화 된 개체 (파일)를 생성 합니다.
+실행 중에 수집 된 [메트릭을 포함](how-to-understand-automated-ml.md) 하는 로그 된 실행 정보를 검사할 수도 있습니다. 학습 실행은 모델 및 데이터 전처리를 포함 하는 Python 직렬화 된 개체 (`.pkl` 파일)를 생성 합니다.
 
 모델 빌드를 자동화 하는 동안 생성 된 모델에 [중요 하거나 관련 된 기능을 배울](how-to-configure-auto-train.md#explain) 수도 있습니다.
 
@@ -74,7 +82,7 @@ ms.locfileid: "71350623"
 
 자동화 된 모든 기계 학습 실험에서 데이터는 알고리즘의 성능을 향상 시킬 수 있도록 자동으로 확장 되거나 정규화 됩니다.  모델 학습 중에는 다음 크기 조정 또는 정규화 기술 중 하나가 각 모델에 적용 됩니다.
 
-|정규화&nbsp;확장&&nbsp;| 설명 |
+|크기 조정 @ no__t-0 @ no__t-1 @ no__t 정규화| 설명 |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | 단위 분산의 평균 및 크기 조정을 제거 하 여 기능 표준화  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | 해당 열의 최소값과 최대값을 기준으로 각 기능의 크기를 조정 하 여 기능을 변환 합니다.  |
@@ -90,7 +98,7 @@ ms.locfileid: "71350623"
 
 + Azure Portal: **고급 설정** 에서 [다음 단계](how-to-create-portal-experiments.md)에 따라 **전처리** 확인란을 선택 합니다.
 
-+ Python SDK: 클래스에 대해를 지정 `"preprocess": True` 합니다. [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)
++ Python SDK: [@No__t 2 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)에 대해 `"preprocess": True`을 지정 합니다.
 
 
 ## <a name="time-series-forecasting"></a>시계열 예측
@@ -165,7 +173,7 @@ Azure Machine Learning를 사용 하면 자동화 된 ML을 사용 하 여 Pytho
 
 자동화 된 machine learning을 사용 하 여 모델을 작성 하는 방법 및 예제를 참조 하세요.
 
-+ 자습서를 [따릅니다. Azure 자동화 Machine Learning를 사용 하 여 자동으로 회귀 모델 학습](tutorial-auto-train-models.md)
++ @No__t-0Tutorial를 따르세요. Azure 자동화 Machine Learning @ no__t를 사용 하 여 회귀 모델을 자동으로 학습 합니다.
 
 + 자동 학습 실험의 설정 구성:
   + Azure Portal 인터페이스 또는 작업 영역 방문 페이지 (미리 보기)에서 [다음 단계를 사용](how-to-create-portal-experiments.md)합니다.

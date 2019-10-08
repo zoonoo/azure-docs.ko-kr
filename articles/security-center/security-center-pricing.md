@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: memildin
-ms.openlocfilehash: 0663e97dabe8b5f50ee9605f0bc9319c7a2aa13c
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 356bfc28984ecc1bc6990c10378a3df155593e94
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201232"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996712"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>보안 강화를 위해 Security Center의 표준 계층으로 업그레이드
 Azure Security Center는 Azure, 온-프레미스 및 기타 클라우드용으로 통합 보안 관리 및 고급 위협 보호 기능을 제공합니다. 또한 하이브리드 클라우드 작업을 확인하고 제어하는 기능, 위협에 대한 노출을 줄이는 적극적인 방어 기능, 그리고 빠르게 발전하는 사이버 공격에 대응할 수 있는 지능형 검색 기능을 제공합니다.
@@ -45,10 +45,10 @@ Security Center는 두 계층으로 제공됩니다.
 4. **표준**을 선택하여 업그레이드합니다.
 5. **저장**을 클릭합니다.
 
-(이미지의 가격은 예를 들어 목적 으로만 사용 됩니다.) ![Security Center 가격 책정](./media/security-center-pricing/get-standard.png)
+(이미지의 가격은 예를 들어 목적 으로만 사용 됩니다.) ![Security Center 가격 책정 @ no__t-1
 
 > [!NOTE]
-> 모든 Security Center 기능을 사용하도록 설정하려면 해당하는 가상 머신이 포함된 구독에 표준 가격 책정 계층을 적용해야 합니다. 작업 영역에 대해 가격 책정을 구성해도 Just-In-Time VM 액세스, 적응형 애플리케이션 제어 및 Azure 리소스에 대한 네트워크 검색 기능은 사용하도록 설정되지 않습니다.
+> 모든 Security Center 기능을 사용하도록 설정하려면 해당하는 가상 머신이 포함된 구독에 표준 가격 책정 계층을 적용해야 합니다. 작업 영역에 대 한 가격 책정 구성은 just-in-time VM 액세스, 적응 응용 프로그램 제어 및 Azure 리소스에 대 한 네트워크 검색을 사용 하도록 설정 하지 않습니다.
 >
 >
 
@@ -64,7 +64,7 @@ Security Center에서는 다음을 비롯하여 하이브리드 클라우드 작
 이 문서에서는 Security Center의 가격 책정 방식에 대해 알아보았습니다. 표준 계층의 강화된 보안 및 고급 위협 보호에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
 - [고급 위협 감지](security-center-threat-report.md)
-- [Just-In-Time VM 액세스 제어](security-center-just-in-time.md)
+- [Just-in-time VM 액세스 제어](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png

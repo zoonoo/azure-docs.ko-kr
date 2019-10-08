@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 704c1cdf95424bffa19e0946d13fa45d1b520753
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 9a043d07004870c00c656b655d56a1526f8993d8
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959944"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000501"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>관리 되는 인스턴스 T-sql의 차이점, 제한 사항 및 알려진 문제
 
@@ -110,7 +110,7 @@ Azure Blob Storage에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이
 
 [CREATE CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql) 및 [BACKUP CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/backup-certificate-transact-sql)를 참조하세요. 
  
-**해결 방법**: 인증서 또는 개인 키에 대 한 스크립트를 .sql 파일로 저장 하 고 이진 파일에서 만듭니다.
+**해결 방법**: 인증서의 백업을 만들고 백업을 복원 하는 대신 [인증서 이진 콘텐츠 및 개인 키를 가져와서 .sql 파일로 저장 하 고 이진에서 만듭니다](https://docs.microsoft.com/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database).
 
 ```sql
 CREATE CERTIFICATE  

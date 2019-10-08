@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 3f427726a128eed426a64bc533075ba0cdde9544
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 7a0f1f7dd79be250370fa97096a0cbf6dfc7f637
+ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241074"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71982845"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 
@@ -184,11 +184,14 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
     SSRS 구성에 대해 다음 값을 사용합니다. 
     - 서비스 계정: ' 기본 제공 계정 사용 '은 네트워크 서비스 여야 합니다.
-    - 웹 서비스 URL: ' 가상 디렉터리 '는 ReportServer_ 여야 합니다.<SQLInstanceName>
-    - 데이터 DatabaseName은 ReportServer $ 여야 합니다.<SQLInstanceName>
-    - 웹 포털 URL: ' 가상 디렉터리 '는 Reports_ 여야 합니다.<SQLInstanceName>
+    - 웹 서비스 URL: ' 가상 디렉터리 '는 ReportServer_ @ no__t-0 이어야 합니다.
+    - 데이터 DatabaseName은 ReportServer $ <SQLInstanceName> 이어야 합니다.
+    - 웹 포털 URL: ' 가상 디렉터리 '는 Reports_ @ no__t-0 이어야 합니다.
 
     SSRS 구성에 대해 [자세히 알아봅니다](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017).
+
+    > [!NOTE]
+    > MABS의 데이터베이스로 사용 되는 SQL Server에 대 한 라이선스는 [Microsoft Online Services 약관](https://www.microsoft.com/en-us/licensing/product-licensing/products) (OST)의 적용을 받습니다. OST에 따라 MABS와 함께 제공 되는 SQL Server는 MABS의 데이터베이스로만 사용할 수 있습니다.
 
 4. Microsoft Azure Backup 서버 파일을 설치할 위치를 입력하고 **다음**을 클릭합니다.
 

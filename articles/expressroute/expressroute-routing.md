@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9bc0d1b31ebeaecce8b4be8699cf87811047b6f9
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 77c90cccbbfa5865878ae4dc47e5009697560ed3
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123253"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001308"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 라우팅 요구 사항
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 라우팅을 설치하고 관리해야 합니다. 일부 연결 공급자는 라우팅을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 이 서비스를 제공하는지를 확인합니다. 제공하지 않는 경우 다음 요구 사항을 준수해야 합니다.
@@ -238,8 +238,8 @@ Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 �
 | US Gov 아이오와 | 12076분 51109초 |
 | US Gov 버지니아 | 12076분 51105초 |
 | US Gov 텍사스 | 12076:51108 |
-| US DoD 중부 | 12076:51209 |
-| US DoD 동부 | 12076:51205 |
+| 미국 국방부 중부 | 12076:51209 |
+| 미국 국방부 동부 | 12076:51205 |
 
 
 | **국가별 클라우드의 서비스** | **BGP 커뮤니티 값** |

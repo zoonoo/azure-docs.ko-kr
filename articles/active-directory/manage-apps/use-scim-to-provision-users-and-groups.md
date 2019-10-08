@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9344feeadc5f4146c3b3f853082cd9255100af5c
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: b5c24a2340775712f1105448b2aacfdc9a75f1a6
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949641"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001715"
 ---
 # <a name="scim-user-provisioning-with-azure-active-directory"></a>Azure Active Directory로 SCIM 사용자 프로 비전
 
-SCIM (도메인 간 Id 관리)에 대 한 시스템은 시스템에서 id가 관리 되는 방식에 더 많은 일관성을 유지 하는 표준화 된 프로토콜 및 스키마입니다. 응용 프로그램이 사용자 관리를 위해 SCIM 끝점을 지 원하는 경우 Azure AD 사용자 프로 비전 서비스는 할당 된 사용자 및 그룹을이 끝점에 생성, 수정 또는 삭제 하는 요청을 보낼 수 있습니다.
+[Scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards)(도메인 간 id 관리)에 대 한 시스템은 시스템에서 id가 관리 되는 방식에 더 많은 일관성을 유지 하는 표준화 된 프로토콜 및 스키마입니다. 응용 프로그램이 사용자 관리를 위해 SCIM 끝점을 지 원하는 경우 Azure AD 사용자 프로 비전 서비스는 할당 된 사용자 및 그룹을이 끝점에 생성, 수정 또는 삭제 하는 요청을 보낼 수 있습니다.
 
 Azure AD에서 [사전 통합 된 자동 사용자 프로 비전](../saas-apps/tutorial-list.md) 을 지 원하는 대부분의 응용 프로그램은 사용자 변경 알림을 받는 수단으로 scim을 구현 합니다.  이 외에도, 고객은 Azure Portal에서 일반 "비 갤러리" 통합 옵션을 사용 하 여 [Scim 2.0 프로토콜 사양의](https://tools.ietf.org/html/rfc7644) 특정 프로필을 지 원하는 응용 프로그램을 연결할 수 있습니다.
 

@@ -15,12 +15,12 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac78029ba2d1f45ef67ef0d858fdd2917bd4a97a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 3ef652b05f62218ee1d0e72543bfa546f0c14abe
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033333"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001701"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제
 
@@ -56,18 +56,15 @@ Azure Active Directory (Azure AD)를 사용 하면 Dropbox, Salesforce, ServiceN
 
 **AZURE AD 프로 비전 서비스** 는 각 응용 프로그램 공급 업체에서 제공 하는 사용자 관리 API 끝점에 연결 하 여 SaaS 앱 및 기타 시스템에 사용자를 프로 비전 합니다. 이러한 사용자 관리 API 엔드포인트를 사용하면 Azure AD에서 프로그래밍 방식으로 사용자를 만들고, 업데이트하고, 제거할 수 있습니다. 선택한 응용 프로그램의 경우 프로 비전 서비스는 그룹 및 역할과 같은 추가 id 관련 개체를 만들고 업데이트 하 고 제거할 수도 있습니다.
 
-![Azure AD 프로 비전](./media/user-provisioning/provisioning0.PNG)
-서비스*그림 1: Azure AD Provisioning Service*
+![Azure AD 프로 비전 서비스 @ no__t-1 @ no__t-2Figure 1: Azure AD Provisioning Service*
 
-![아웃 바운드 사용자 프로](./media/user-provisioning/provisioning1.PNG)
-비전 워크플로*그림 2: Azure AD에서 인기 있는 SaaS 애플리케이션으로의 “아웃바운드” 사용자 프로비저닝 워크플로*
+![Outbound 바운드 사용자 프로 비전 워크플로 @ no__t-1 @ no__t-2Figure 2: Azure AD에서 인기 있는 SaaS 애플리케이션으로의 “아웃바운드” 사용자 프로비저닝 워크플로*
 
-![인바운드 사용자 프로 비전](./media/user-provisioning/provisioning2.PNG)
-워크플로*그림 3: 인기 있는 HCM(Human Capital Management) 애플리케이션에서 Azure Active Directory 및 Windows Server Active Directory로의 “인바운드”사용자 프로비저닝 워크플로*
+![ 인바운드 사용자 프로 비전 워크플로 @ no__t-1 @ no__t-2Figure 3: 인기 있는 HCM(Human Capital Management) 애플리케이션에서 Azure Active Directory 및 Windows Server Active Directory로의 “인바운드”사용자 프로비저닝 워크플로*
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Azure AD 자동 사용자 프로비전에서 사용할 수 있는 애플리케이션과 시스템은 무엇입니까?
 
-Azure AD는 널리 사용 되는 많은 SaaS 앱 및 인적 자원 시스템에 대 한 사전 통합 된 지원과 SCIM 2.0 표준의 특정 부분을 구현 하는 앱에 대 한 일반 지원을 제공 합니다.
+Azure AD는 널리 사용 되는 많은 SaaS 앱 및 인적 자원 시스템에 대 한 사전 통합 된 지원과 [Scim 2.0 표준](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)의 특정 부분을 구현 하는 앱에 대 한 일반 지원을 제공 합니다.
 
 ### <a name="pre-integrated-applications"></a>사전 통합된 애플리케이션
 
@@ -93,7 +90,7 @@ Azure Active Directory 포털을 사용 하 여 선택한 응용 프로그램에
 1. **+ 새 응용** 프로그램을 선택 하 여 응용 프로그램을 추가 합니다. 시나리오에 따라 다음 중 하나를 추가 합니다.
 
    - 사용자 **고유의 앱 추가** 옵션은 사용자 지정 개발 된 scim 통합을 지원 합니다.
-   - **갤러리** > **추천 응용 프로그램** 의 추가 기능 섹션에 있는 모든 응용 프로그램은 자동 프로 비전을 지원 합니다. 추가 애플리케이션을 보려면 [사용자 프로비전에 대한 애플리케이션 자습서 목록](../saas-apps/tutorial-list.md)을 참조하세요.
+   - **갤러리에서 추가** > **추천 응용 프로그램** 섹션의 모든 응용 프로그램은 자동 프로 비전을 지원 합니다. 추가 애플리케이션을 보려면 [사용자 프로비전에 대한 애플리케이션 자습서 목록](../saas-apps/tutorial-list.md)을 참조하세요.
 
 1. 세부 정보를 입력 하 고 **추가**를 선택 합니다. 새 앱이 엔터프라이즈 응용 프로그램 목록에 추가 되 고 응용 프로그램 관리 화면으로 열립니다.
 1. **프로 비전** 을 선택 하 여 앱에 대 한 사용자 계정 프로 비전 설정을 관리 합니다.
@@ -128,7 +125,7 @@ Azure AD가 소스 시스템인 경우 프로비저닝 서비스는 [Azure AD Gr
 
 1. [특성 매핑](customize-application-attributes.md)에 정의된 모든 특성을 검색하여 소스 시스템에서 모든 사용자와 그룹을 쿼리합니다.
 1. 구성된 [할당](assign-user-or-group-access-portal.md) 또는 [특성 기반 범위 지정 필터](define-conditional-rules-for-provisioning-user-accounts.md)를 사용하여 반환된 사용자 및 그룹을 필터링합니다.
-1. 사용자가 할당 되거나 프로 비전 범위에 있는 경우 서비스는 지정 된 [일치 특성](customize-application-attributes.md#understanding-attribute-mapping-properties)을 사용 하 여 대상 시스템에 일치 하는 사용자를 쿼리 합니다. 예제: 원본 시스템의 userPrincipal 이름이 일치하는 특성이고 대상 시스템의 userName에 매핑되는 경우, 프로비전 서비스는 대상 시스템에서 원본 시스템의 userPrincipal 이름 값과 일치하는 userNames를 쿼리합니다.
+1. 사용자가 할당 되거나 프로 비전 범위에 있는 경우 서비스는 지정 된 [일치 특성](customize-application-attributes.md#understanding-attribute-mapping-properties)을 사용 하 여 대상 시스템에 일치 하는 사용자를 쿼리 합니다. 예: 원본 시스템의 userPrincipal 이름이 일치하는 특성이고 대상 시스템의 userName에 매핑되는 경우, 프로비전 서비스는 대상 시스템에서 원본 시스템의 userPrincipal 이름 값과 일치하는 userNames를 쿼리합니다.
 1. 대상 시스템에서 일치 하는 사용자를 찾을 수 없는 경우 소스 시스템에서 반환 된 특성을 사용 하 여 생성 됩니다. 사용자 계정을 만든 후 프로 비전 서비스는 새 사용자에 대 한 대상 시스템의 ID를 검색 하 고 캐시 합니다 .이 ID는 해당 사용자에 대 한 모든 이후 작업을 실행 하는 데 사용 됩니다.
 1. 일치 하는 사용자가 있는 경우 원본 시스템에서 제공 하는 특성을 사용 하 여 업데이트 됩니다. 사용자 계정이 일치 한 후 프로 비전 서비스는 새 사용자에 대 한 대상 시스템의 ID를 검색 하 고 캐시 합니다 .이 ID는 해당 사용자에 대 한 모든 이후 작업을 실행 하는 데 사용 됩니다.
 1. 특성 매핑에 "참조" 특성이 포함 되어 있으면 서비스는 대상 시스템에서 추가 업데이트를 수행 하 여 참조 된 개체를 만들고 연결 합니다. 예를 들어 대상 시스템에 있는 한 사용자의 “Manager” 특성이 대상 시스템에서 생성된 다른 사용자에 연결되어 있을 수 있습니다.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc633780d8b816d8fc2e313bb1955a5719979efe
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: ab48579c6eda085d77e2a6ab080b0a4a1ce806bd
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240863"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000320"
 ---
 # <a name="what-is-passwordless"></a>암호 없음이란?
 
@@ -57,15 +57,15 @@ FIDO 동맹에 의해 FIDO2 인증 되는 많은 키가 있지만, Microsoft는 
 
 다음 공급자는 FIDO2를 사용 하는 것과 호환 되는 것으로 알려진 다양 한 폼 팩터 보안 키를 제공 합니다. Microsoft는 고객이 FIDO 동맹 뿐만 아니라 공급 업체에 연락 하 여 이러한 키의 보안 속성을 평가 하도록 권장 합니다.
 
-| 공급자 | Contact |
+| 공급자 | 연락처 |
 | --- | --- |
 | Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
 | Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |
 | HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
-| Ensurity | [https://ensurity.com/contact-us.html](https://ensurity.com/contact-us.html) |
+| Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
 | eWBM | [https://www.ewbm.com/page/sub1_5](https://www.ewbm.com/page/sub1_5) |
 
-사용자가이 목록에서 장치를 가져오려는 경우에는에 문의 [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com)하세요.
+이 목록에서 장치를 구입 하려는 경우에는 [-1 @no__t](mailto:Fido2Request@Microsoft.com)문의 하세요.
 
 FIDO2 보안 키는 매우 보안이 중요 하거나, 전화를 두 번째 요소로 사용 하지 않거나 사용할 수 없는 시나리오 또는 직원이 있는 기업에 게 유용한 옵션입니다.
 

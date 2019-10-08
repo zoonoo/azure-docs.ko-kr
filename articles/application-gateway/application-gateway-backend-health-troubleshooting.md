@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: surmb
-ms.openlocfilehash: 8f90cc3b41eab1847b0d4483b92a282d46af765b
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 71e1f8be2af5556d86996175e8a1ddbccc9c7de1
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309299"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001679"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Application Gateway의 백 엔드 상태 문제 해결
 ==================================================
@@ -81,13 +81,13 @@ BackendAddressPoolsText : [
 **세부 정보** 열에 표시 되는 메시지는 문제에 대 한 자세한 정보를 제공 하 고,이에 따라 문제 해결을 시작할 수 있습니다.
 
 > [!NOTE]
-> 기본 프로브 요청 \<은 프로토콜\>:://127.0.0.1: port\>/형식으로\<전송 됩니다. 예를 http://127.0.0.1:80 들어 포트 80에 대 한 http 프로브의 경우입니다. 200 ~ 399의 HTTP 상태 코드만 정상으로 간주 됩니다. 프로토콜 및 대상 포트는 HTTP 설정에서 상속 됩니다. 다른 프로토콜, 호스트 이름 또는 경로를 검색 하 고 다른 상태 코드를 정상으로 인식 Application Gateway 하려면 사용자 지정 프로브를 구성 하 고 HTTP 설정과 연결 합니다.
+> 기본 프로브 요청은 \<protocol @ no__t-1://127.0.0.1: \<port @ no__t-3/형식으로 전송 됩니다. 예를 들어 포트 80에 대 한 http 프로브의 경우 http://127.0.0.1:80 입니다. 200 ~ 399의 HTTP 상태 코드만 정상으로 간주 됩니다. 프로토콜 및 대상 포트는 HTTP 설정에서 상속 됩니다. 다른 프로토콜, 호스트 이름 또는 경로를 검색 하 고 다른 상태 코드를 정상으로 인식 Application Gateway 하려면 사용자 지정 프로브를 구성 하 고 HTTP 설정과 연결 합니다.
 
 <a name="error-messages"></a>오류 메시지
 ------------------------
 #### <a name="backend-server-timeout"></a>백 엔드 서버 시간 제한
 
-**메시지:** 백 엔드에서 application gateway\'에 응답 하는 데 걸린 시간은 프로브 설정의 시간 제한 임계값 보다 작습니다.
+**메시지:** 백 엔드가 application gateway에 응답 하는 데 걸린 시간 @ no__t-0 상태 프로브는 프로브 설정의 시간 제한 임계값 보다 큼입니다.
 
 **원인:** Application Gateway 백 엔드 서버에 대 한 HTTP (S) 프로브 요청을 보내면 구성 된 기간 동안 백엔드 서버에서 응답을 기다립니다. 백 엔드 서버가 구성 된 기간 (시간 제한 값) 내에 응답 하지 않으면 구성 된 시간 제한 기간 내에 응답을 다시 시작할 때까지 비정상으로 표시 됩니다.
 
@@ -131,7 +131,7 @@ BackendAddressPoolsText : [
 
 **해결 방법:** 이 오류가 표시 되 면 다음 단계를 수행 합니다.
 
-1.  브라우저 또는 PowerShell을 사용 하 여 HTTP 설정에 설명 된 포트에서 백 엔드 서버에 연결할 수 있는지 여부를 확인 합니다. 예를 들어 다음 명령을 실행 합니다.`Test-NetConnection -ComputerName
+1.  브라우저 또는 PowerShell을 사용 하 여 HTTP 설정에 설명 된 포트에서 백 엔드 서버에 연결할 수 있는지 여부를 확인 합니다. 예를 들어 다음 명령을 실행 합니다. `Test-NetConnection -ComputerName
     www.bing.com -Port 443`
 
 1.  언급 된 포트가 원하는 포트가 아닌 경우 백 엔드 서버에 연결할 Application Gateway의 올바른 포트 번호를 입력 합니다.
@@ -155,7 +155,7 @@ BackendAddressPoolsText : [
     ```
 1.  NSG 또는 UDR 관련 문제를 찾을 수 없는 경우 클라이언트에서 구성 된 포트에 TCP 세션을 설정할 수 없도록 하는 응용 프로그램 관련 문제에 대 한 백 엔드 서버를 확인 합니다. 확인 해야 할 몇 가지 사항은 다음과 같습니다.
 
-    a.  명령 프롬프트 (Win + R-\> cmd)를 열고를 입력 `netstat`한 다음 enter 키를 선택 합니다.
+    a.  명령 프롬프트 (Win + R-\> cmd)를 열고 `netstat`을 입력 한 다음 Enter 키를 선택 합니다.
 
     b.  서버가 구성 된 포트에서 수신 대기 하 고 있는지 여부를 확인 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
     ```
@@ -168,15 +168,15 @@ BackendAddressPoolsText : [
 
 #### <a name="http-status-code-mismatch"></a>HTTP 상태 코드 불일치
 
-**메시지:** 백 엔드\'HTTP 응답의 상태 코드가 프로브 설정과 일치 하지 않습니다. 예상: {HTTPStatusCode0} Received: {HTTPStatusCode1}.
+**메시지:** 백 엔드 @ no__t-0 HTTP 응답의 상태 코드가 프로브 설정과 일치 하지 않습니다. 예상: {HTTPStatusCode0} Received: {HTTPStatusCode1}.
 
-**원인:** TCP 연결을 설정 하 고 SSL 핸드셰이크가 완료 된 후 (SSL을 사용 하도록 설정 된 경우) Application Gateway는 프로브를 백 엔드 서버에 HTTP GET 요청으로 보냅니다. 앞에서 설명한 대로 \<기본 프로브는 protocol\>://127.0.0.1:\<port\>/로, r 200 ~ 399의 응답 상태 코드를 정상으로 간주 합니다. 서버에서 다른 상태 코드를 반환 하는 경우이 메시지는 비정상으로 표시 됩니다.
+**원인:** TCP 연결을 설정 하 고 SSL 핸드셰이크가 완료 된 후 (SSL을 사용 하도록 설정 된 경우) Application Gateway는 프로브를 백 엔드 서버에 HTTP GET 요청으로 보냅니다. 앞에서 설명한 대로 기본 프로브는-0protocol @ no__t-1://127.0.0.1: \<port @ no__t-3/를 @no__t 하 고, r 200 ~ 399의 응답 상태 코드를 정상으로 간주 합니다. 서버에서 다른 상태 코드를 반환 하는 경우이 메시지는 비정상으로 표시 됩니다.
 
 **해결 방법:** 백 엔드 서버의 응답 코드에 따라 다음 단계를 수행할 수 있습니다. 몇 가지 일반적인 상태 코드는 다음과 같습니다.
 
 | **오류** | **actions** |
 | --- | --- |
-| 프로브 상태 코드 불일치: 수신 401 | 백 엔드 서버에 인증이 필요한 지 여부를 확인 합니다. Application Gateway 프로브는이 시점에서 인증을 위해 자격 증명을 전달할 수 없습니다. 프로브 상태 \"코드 일치\" 에서 HTTP 401을 허용 하거나 서버에서 인증을 요구 하지 않는 경로를 검색 합니다. | |
+| 프로브 상태 코드 불일치: 수신 401 | 백 엔드 서버에 인증이 필요한 지 여부를 확인 합니다. Application Gateway 프로브는이 시점에서 인증을 위해 자격 증명을 전달할 수 없습니다. 프로브 상태 코드 일치에 \"HTTP 401 @ no__t-1을 허용 하거나 서버에서 인증을 요구 하지 않는 경로를 검색 합니다. | |
 | 프로브 상태 코드 불일치: 수신 403 | 액세스가 금지 되었습니다. 백 엔드 서버에서 경로에 대 한 액세스가 허용 되는지 여부를 확인 합니다. | |
 | 프로브 상태 코드 불일치: 수신 404 | 페이지를 찾을 수 없습니다. 백 엔드 서버에서 호스트 이름 경로에 액세스할 수 있는지 여부를 확인 합니다. 호스트 이름 또는 경로 매개 변수를 액세스할 수 있는 값으로 변경 합니다. | |
 | 프로브 상태 코드 불일치: 수신 405 | Application Gateway에 대 한 프로브 요청은 HTTP GET 메서드를 사용 합니다. 서버에서이 메서드를 허용 하는지 여부를 확인 합니다. | |
@@ -189,7 +189,7 @@ BackendAddressPoolsText : [
 
 #### <a name="http-response-body-mismatch"></a>HTTP 응답 본문 불일치
 
-**메시지:** 백 엔드\'의 HTTP 응답 본문이 프로브 설정과 일치 하지 않습니다. 받은 응답 본문에 {string}이 (가) 없습니다.
+**메시지:** 백 엔드 @ no__t-0 HTTP 응답의 본문이 프로브 설정과 일치 하지 않습니다. 받은 응답 본문에 {string}이 (가) 없습니다.
 
 **원인:** 사용자 지정 프로브를 만들 때 응답 본문의 문자열을 일치 시켜 백 엔드 서버를 정상으로 표시 하는 옵션을 사용할 수 있습니다. 예를 들어, 일치 하는 문자열로 "권한 없음"을 허용 하도록 Application Gateway를 구성할 수 있습니다. 프로브 요청에 대 한 백 엔드 서버 응답이 **인증 되지 않은**문자열을 포함 하는 경우 정상으로 표시 됩니다. 그렇지 않으면이 메시지와 함께 비정상으로 표시 됩니다.
 
@@ -216,9 +216,9 @@ SSL 인증서를 신뢰할 수 있도록 하려면 Application Gateway의 신뢰
 
 1.  Win + R을 선택 하거나 **시작** 단추를 마우스 오른쪽 단추로 클릭 한 다음 **실행**을 선택 합니다.
 
-1.  을 `certmgr.msc` 입력 하 고 enter 키를 선택 합니다. **시작** 메뉴에서 인증서 관리자를 검색할 수도 있습니다.
+1.  @No__t-0을 입력 하 고 Enter 키를 선택 합니다. **시작** 메뉴에서 인증서 관리자를 검색할 수도 있습니다.
 
-1.  일반적으로에서 `\Certificates - Current User\\Personal\\Certificates\`인증서를 찾아 엽니다.
+1.  일반적으로 `\Certificates - Current User\\Personal\\Certificates\`에서 인증서를 찾아 엽니다.
 
 1.  루트 인증서를 선택 하 고 **인증서 보기**를 선택 합니다.
 
@@ -259,20 +259,22 @@ OpenSSL> s_client -connect 10.0.0.4:443 -servername www.example.com -showcerts
 ```
 출력에 반환 되는 인증서의 전체 체인이 표시 되지 않으면 루트 인증서를 포함 하 여 전체 체인으로 인증서를 다시 내보냅니다. 백 엔드 서버에서 해당 인증서를 구성 합니다. 
 
-연결 됨 (00000188) \
-depth = 0 OU = 도메인 컨트롤의 유효성을 검사 \*했습니다. CN =. example.com \
-확인 오류: num = 20: 로컬 발급자 인증서를 가져올 수 없습니다. \
-반환 확인: 1 \
-depth = 0 OU = 도메인 컨트롤의 유효성을 검사 \*했습니다. CN =. example.com \
-확인 오류: num = 21: 첫 번째 인증서를 확인할 수 없습니다. \
-반환 확인: 1 \
-\-\-\-\
-인증서 체인 \
- 0 s:/OU = 도메인 컨트롤의 유효성을 검사 한/CN = *. 예: .com \
-   i:/C = US/ST = 애리조나/L = Scottsdale/O = godaddy, inc. =http://certs.godaddy.com/repository//CN=Go 아빠 보안 인증 기관-G2 \
-\-----BEGIN CERTIFICATE-----\
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
-\-----최종 인증서-----
+```
+  CONNECTED(00000188)\
+  depth=0 OU = Domain Control Validated, CN = \*.example.com\
+  verify error:num=20:unable to get local issuer certificate\
+  verify return:1\
+  depth=0 OU = Domain Control Validated, CN = \*.example.com\
+  verify error:num=21:unable to verify the first certificate\
+  verify return:1\
+  \-\-\-\
+  Certificate chain\
+   0 s:/OU=Domain Control Validated/CN=*.example.com\
+     i:/C=US/ST=Arizona/L=Scottsdale/O=GoDaddy.com, Inc./OU=http://certs.godaddy.com/repository//CN=Go Daddy Secure Certificate Authority - G2\
+  \-----BEGIN CERTIFICATE-----\
+  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
+  \-----END CERTIFICATE-----
+```
 
 #### <a name="backend-certificate-invalid-common-name-cn"></a>백 엔드 인증서의 잘못 된 CN (일반 이름)
 
@@ -300,7 +302,7 @@ Windows의 경우:
 
 1.  **Certmgr.exe** 를 입력 하 고 enter 키를 선택 합니다. **시작** 메뉴에서 인증서 관리자를 검색할 수도 있습니다.
 
-1.  인증서 (일반적으로 `\Certificates - Current User\\Personal\\Certificates`)를 찾아서 인증서를 엽니다.
+1.  인증서를 찾아 (일반적으로 `\Certificates - Current User\\Personal\\Certificates`에서) 인증서를 엽니다.
 
 1.  **세부 정보** 탭에서 인증서 **주체**를 확인 합니다.
 
@@ -317,7 +319,7 @@ OpenSSL를 사용 하는 Linux의 경우:
 
 #### <a name="backend-certificate-is-invalid"></a>백 엔드 인증서가 잘못 되었습니다.
 
-**메시지:** 백 엔드 인증서가 잘못 되었습니다. 현재 \"날짜는 인증서의\" 유효 기간 및 \"유효\" 기간 범위 내에 있지 않습니다.
+**메시지:** 백 엔드 인증서가 잘못 되었습니다. 현재 날짜는 인증서의 @ no__t-1과 \"Valid to @ no__t-3 날짜 범위에서 유효 하지 @no__t 않습니다.
 
 **원인:** 모든 인증서에는 유효 범위가 제공 되며 서버의 SSL 인증서가 유효 하지 않으면 HTTPS 연결이 안전 하지 않습니다. 현재 데이터는 **valid from** 및 **valid to** 범위 내에 있어야 합니다. 그렇지 않으면 인증서가 유효 하지 않은 것으로 간주 되 고, Application Gateway 백엔드 서버를 비정상으로 표시 하는 보안 문제가 발생할 수 있습니다.
 

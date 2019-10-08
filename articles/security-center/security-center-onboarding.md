@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: memildin
-ms.openlocfilehash: 7448516e464a379e27abd45834b31760fca3fedd
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 01cc625767cbf437031f503cf4b0d4dc59b62e08
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201860"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996307"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>보안 개선을 위해 Azure Security Center 표준 계층으로 온보딩
 Security Center 표준 계층으로 업그레이드하면 하이브리드 클라우드 작업을 위해 강화된 보안 관리 및 위협 방지 기능을 활용할 수 있습니다.  표준 평가판을 사용해 볼 수 있습니다. 자세한 내용은 Security Center [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
@@ -111,7 +111,7 @@ Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 �
 
 - [데이터 수집 활성화](security-center-enable-data-collection.md)
 - [위협 인텔리전스 보고서](security-center-threat-report.md)
-- [Just-In-Time VM 액세스](security-center-just-in-time.md)
+- [Just-in-time VM 액세스](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-onboarding/onboard.png

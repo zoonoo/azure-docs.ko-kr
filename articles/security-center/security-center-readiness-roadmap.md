@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: a5d11be7d4fbe7f23b5584775c5d9a57c2214155
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b2b4dc1aa9486e432fb2fae48343c21fba620221
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200992"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996682"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Security Center 준비 로드맵
 이 문서에서는 Azure Security Center를 시작하는 데 도움이 되는 준비 로드맵을 제공합니다.
@@ -89,16 +89,16 @@ Security Center에서는 Security Center 표준 계층이 적용되지 않은 �
 
 ## <a name="advanced-cloud-defense"></a>고급 클라우드 방어
 
-Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 수 있습니다. 이러한 기능에는 JIT(Just-In-Time) VM(가상 머신) 액세스 및 적응형 애플리케이션 제어가 포함됩니다.
+Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 수 있습니다. 이러한 기능에는 적시에 VM (가상 머신) 액세스 및 적응 응용 프로그램 제어가 포함 됩니다.
 
 다음 리소스를 사용하여 Security Center에서 이러한 기능을 사용하는 방법을 알아봅니다.
 
 비디오  
-* [Azure Security Center – Just-In-Time VM 액세스](https://youtu.be/UOQb2FcdQnU)
+* [Azure Security Center – Just-in-time VM 액세스](https://youtu.be/UOQb2FcdQnU)
 * [Azure Security Center - 적응형 애플리케이션 컨트롤](https://youtu.be/wWWekI1Y9ck)
 
 아티클    
-* [Just-In-Time을 사용하여 가상 머신 액세스 관리](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+* [Just-in-time을 사용 하 여 가상 머신 액세스 관리](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 * [Azure Security Center의 적응형 애플리케이션 제어](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 
 ## <a name="hands-on-activities"></a>실습 활동

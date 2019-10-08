@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 7b266a21aabf37765de4f4f94cd3939cec697585
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: b87676e773c4b7714a3b5ef21a6be703e0e3761a
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058510"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001385"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SQL Server 간에 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Azure Data Factory의 버전을 선택 합니다."]
@@ -48,7 +48,7 @@ SQL Server 데이터베이스에서 지원 되는 모든 싱크 데이터 저장
 >[!NOTE]
 >지금은이 커넥터에서 SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) 지원 되지 않습니다. 이 문제를 해결 하려면 [일반 odbc 커넥터](connector-odbc.md) 와 SQL Server ODBC 드라이버를 사용할 수 있습니다. ODBC 드라이버 다운로드 및 연결 문자열 구성에서 [이 지침](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) 을 따르세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -65,13 +65,13 @@ SQL Server 연결 된 서비스에 대해 지원 되는 속성은 다음과 같�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **SqlServer**로 설정해야 합니다. | 예 |
-| connectionString |SQL 인증 또는 Windows 인증을 사용 하 여 SQL Server 데이터베이스에 연결 하는 데 필요한 **connectionString** 정보를 지정 합니다. 다음 샘플을 참조하세요.<br/>이 필드를 **SecureString** 으로 표시 하 여 Azure Data Factory에 안전 하 게 저장 합니다. Azure Key Vault에 암호를 입력할 수도 있습니다. SQL 인증 인 경우 연결 문자열에서 `password` 구성을 끌어옵니다. 자세한 내용은 표 다음에 나오는 JSON 예를 참조 하 고 [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md)합니다. |예 |
+| connectionString |SQL 인증 또는 Windows 인증을 사용 하 여 SQL Server 데이터베이스에 연결 하는 데 필요한 **connectionString** 정보를 지정 합니다. 다음 샘플을 참조하세요.<br/>이 필드를 **SecureString** 으로 표시 하 여 Azure Data Factory에 안전 하 게 저장 합니다. Azure Key Vault에 암호를 입력할 수도 있습니다. SQL 인증 인 경우 연결 문자열에서 `password` 구성을 가져옵니다. 자세한 내용은 표 다음에 나오는 JSON 예를 참조 하 고 [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md)합니다. |예 |
 | userName |Windows 인증을 사용 하는 경우 사용자 이름을 지정 합니다. **domainname\\username**을 예로 들 수 있습니다. |아니요 |
 | password |사용자 이름에 대해 지정한 사용자 계정의 암호를 지정 합니다. 이 필드를 **SecureString** 으로 표시 하 여 Azure Data Factory에 안전 하 게 저장 합니다. 또는 [Azure Key Vault에 저장 된 암호를 참조할](store-credentials-in-key-vault.md)수 있습니다. |아니요 |
 | connectVia | 이 [Integration Runtime](concepts-integration-runtime.md)은 데이터 저장소에 연결하는 데 사용됩니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정 하지 않으면 기본 Azure 통합 런타임이 사용 됩니다. |아니요 |
 
 >[!TIP]
->오류 코드 "usererrorfailedtoconnecttosqlserver"와 함께 오류가 발생 하 고 "데이터베이스에 대 한 세션 한도는 XXX 이며이에 도달 했습니다." 라는 메시지가 표시 되 `Pooling=false` 면 연결 문자열에를 추가 하 고 다시 시도 합니다.
+>오류 코드 "UserErrorFailedToConnectToSqlServer"와 함께 오류가 발생 하 고 "데이터베이스에 대 한 세션 제한 값이 XXX 이며이에 도달 했습니다" 라는 메시지가 표시 되 면 연결 문자열에 `Pooling=false`을 추가 하 고 다시 시도 합니다.
 
 **예제 1: SQL 인증 사용**
 
@@ -94,7 +94,7 @@ SQL Server 연결 된 서비스에 대해 지원 되는 속성은 다음과 같�
 }
 ```
 
-**예제 2: Azure Key Vault에서 암호를 사용 하 여 SQL 인증 사용**
+**예제 2: Azure Key Vault @ no__t에서 암호를 사용 하 여 SQL 인증 사용-0
 
 ```json
 {
@@ -160,7 +160,7 @@ SQL Server 데이터베이스에서 데이터를 복사 하려면 다음 속성�
 | type | 데이터 세트의 type 속성을 **SqlServerTable**로 설정해야 합니다. | 예 |
 | schema | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
 | table | 테이블/뷰의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
-| tableName | 스키마가 포함 된 테이블/뷰의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 워크 로드의 경우 `schema` 및 `table`를 사용 합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
+| tableName | 스키마가 포함 된 테이블/뷰의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 워크 로드의 경우 `schema` 및 `table`을 사용 합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
 **예제**
 
@@ -201,9 +201,9 @@ SQL Server의 데이터를 복사하려면 복사 작업의 원본 형식을 **S
 **주의할 사항:**
 
 - **Sqlreaderquery** 가 **sqlsource**에 지정 되 면 복사 작업은 SQL Server 원본에 대해이 쿼리를 실행 하 여 데이터를 가져옵니다. 저장 프로시저가 매개 변수를 사용하는 경우에는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수도 있습니다.
-- **Sqlreaderquery** 또는 **sqlReaderStoredProcedureName**를 지정 하지 않으면 JSON 데이터 집합의 "structure" 섹션에 정의 된 열이 쿼리를 생성 하는 데 사용 됩니다. 쿼리가 `select column1, column2 from mytable` SQL Server에 대해 실행 됩니다. 데이터 세트 정의에 "structure"가 없는 경우 테이블에서 모든 열이 선택됩니다.
+- **Sqlreaderquery** 또는 **sqlReaderStoredProcedureName**를 지정 하지 않으면 JSON 데이터 집합의 "structure" 섹션에 정의 된 열이 쿼리를 생성 하는 데 사용 됩니다. 쿼리 `select column1, column2 from mytable`은 SQL Server에 대해 실행 됩니다. 데이터 세트 정의에 "structure"가 없는 경우 테이블에서 모든 열이 선택됩니다.
 
-**예제: SQL 쿼리 사용**
+**예제: SQL 쿼리 사용 @ no__t-0
 
 ```json
 "activities":[
@@ -301,13 +301,13 @@ SQL Server에 데이터를 복사하려면 복사 작업의 싱크 형식을 **S
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 type 속성은 **SqlSink**로 설정해야 합니다. | 예 |
 | writeBatchSize |*일괄*처리당 SQL 테이블에 삽입할 행 수입니다.<br/>허용되는 값은 행 수에 해당하는 정수입니다. 기본적으로 Azure Data Factory는 행 크기에 따라 적절 한 일괄 처리 크기를 동적으로 결정 합니다. |아니요 |
-| writeBatchTimeout |이 속성은 시간이 초과되기 전에 완료하려는 배치 삽입 작업의 대기 시간을 지정합니다.<br/>허용 되는 값은 timespan입니다. 예는 30 분 동안 "00:30:00"입니다. |아니요 |
+| writeBatchTimeout |이 속성은 시간이 초과되기 전에 완료하려는 배치 삽입 작업의 대기 시간을 지정합니다.<br/>허용 되는 값은 timespan입니다. 예는 30 분 동안 "00:30:00"입니다. 값을 지정 하지 않으면 기본적으로 시간 제한이 "02:00:00"이 됩니다. |아니요 |
 | preCopyScript |이 속성은 SQL Server에 데이터를 쓰기 전에 실행할 복사 작업에 대 한 SQL 쿼리를 지정 합니다. 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |아니요 |
 | sqlWriterStoredProcedureName | 원본 데이터를 대상 테이블에 적용하는 방법을 정의하는 저장 프로시저의 이름입니다. <br/>이 저장 프로시저는 *배치마다 호출*됩니다. 한 번만 실행 되 고 원본 데이터 (예: 삭제 또는 자르기)와 관련이 없는 작업의 경우 `preCopyScript` 속성을 사용 합니다. | 아니요 |
 | storedProcedureTableTypeParameterName |저장 프로시저에 지정 된 테이블 형식의 매개 변수 이름입니다.  |아니요 |
 | sqlWriterTableType |저장 프로시저에 사용할 테이블 형식 이름입니다. 복사 작업에서는 이동 중인 데이터를 이 테이블 형식의 임시 테이블에서 사용할 수 있습니다. 그러면 저장 프로시저 코드가 복사 중인 데이터를 기존 데이터와 병합할 수 있습니다. |아니요 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 및 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니요 |
-| tableOption | 원본 스키마에 따라 존재 하지 않는 경우 싱크 테이블을 자동으로 만들지 여부를 지정 합니다. 싱크가 저장 프로시저를 지정 하거나 준비 된 복사본이 복사 작업에 구성 되어 있으면 자동 테이블 만들기가 지원 되지 않습니다. 허용 되는 값 `none` 은 (기본값) `autoCreate`,입니다. |아니요 |
+| tableOption | 원본 스키마에 따라 존재 하지 않는 경우 싱크 테이블을 자동으로 만들지 여부를 지정 합니다. 싱크가 저장 프로시저를 지정 하거나 준비 된 복사본이 복사 작업에 구성 되어 있으면 자동 테이블 만들기가 지원 되지 않습니다. 허용 되는 값은 `none` (기본값), `autoCreate`입니다. |아니요 |
 
 **예제 1: 데이터 추가**
 
@@ -342,7 +342,7 @@ SQL Server에 데이터를 복사하려면 복사 작업의 싱크 형식을 **S
 ]
 ```
 
-**예제 2: 복사 하는 동안 저장 프로시저 호출**
+**예제 2: Copy @ no__t에서 저장 프로시저 호출-0
 
 자세한 내용은 [SQL 싱크에서 저장 프로시저 호출](#invoke-a-stored-procedure-from-a-sql-sink)을 참조하세요.
 

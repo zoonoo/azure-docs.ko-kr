@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
 ms.author: memildin
-ms.openlocfilehash: 7de0d7bacdf2194b3e1a303842c56a6a017d8d62
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 28761b78b49ad0774594b45db4587c710fc7d810
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202773"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996730"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Azure Security Center의 적응 네트워크 강화
 Azure Security Center에서 적응 네트워크 강화를 구성 하는 방법에 대해 알아봅니다.
@@ -131,9 +131,9 @@ Security Center에서 권장 하지 않은 "허용" 규칙을 추가할 수 있�
 
 ### 규칙 <a name ="delete-rule"></a> 삭제
 
-필요한 경우 권장 규칙을 삭제할 수 있습니다. 예를 들어 제안 된 규칙을 적용 하면 합법적인 트래픽을 차단할 수 있음을 확인할 수 있습니다.
+필요한 경우 현재 세션에 대 한 권장 규칙을 삭제할 수 있습니다. 예를 들어 제안 된 규칙을 적용 하면 합법적인 트래픽을 차단할 수 있음을 확인할 수 있습니다.
 
-*적응 네트워크 강화 규칙을 삭제 하려면:*
+*현재 세션에 대 한 적응 네트워크 강화 규칙을 삭제 하려면 다음을 수행 합니다.*
 
 1. **규칙** 탭에서 규칙 행의 끝에 있는 점 세 개 (...)를 클릭 하 고 **삭제**를 클릭 합니다.  
 

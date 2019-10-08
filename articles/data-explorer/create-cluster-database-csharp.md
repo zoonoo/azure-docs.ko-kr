@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 4a3f37c232fcd7a0fcbdac051ed36916ef5c2868
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 35f11ee9bce4dc7c68e12749f69d2f2e4253d4bc
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326673"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996252"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>C#을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
 
@@ -38,40 +38,50 @@ Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등�
 
 1. 인증에 사용할 [Microsoft.IdentityModel.Clients.ActiveDirectory nuget 패키지](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)를 설치합니다.
 
+## <a name="authentication"></a>인증
+이 문서의 예제를 실행 하려면 리소스에 액세스할 수 있는 Azure AD 응용 프로그램 및 서비스 주체가 필요 합니다. [AZURE ad 응용 프로그램 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) 를 선택 하 여 무료 Azure Ad 응용 프로그램을 만들고 구독 범위에서 역할 할당을 추가 합니다. 또한 `Directory (tenant) ID`, `Application ID` 및 `Client Secret`를 가져오는 방법을 보여 줍니다.
+
 ## <a name="create-the-azure-data-explorer-cluster"></a>Azure Data Explorer 클러스터 만들기
 
 1. 다음 코드를 사용하여 클러스터를 만듭니다.
 
     ```csharp
-    var resourceGroupName = "testrg";
-    var clusterName = "mykustocluster";
-    var location = "Central US";
-    var sku = new AzureSku("D13_v2", 5);
-    var cluster = new Cluster(location, sku);
-
-    var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantName}");
-    var credential = new ClientCredential(clientId: "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx", clientSecret: "xxxxxxxxxxxxxx");
+    var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
+    var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
+    var clientSecret = "xxxxxxxxxxxxxx";//Client Secret
+    var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+    var authenticationContext = new AuthenticationContext($"https://login.windows.net/{tenantId}");
+    var credential = new ClientCredential(clientId, clientSecret);
     var result = await authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential);
 
     var credentials = new TokenCredentials(result.AccessToken, result.AccessTokenType);
 
     var kustoManagementClient = new KustoManagementClient(credentials)
     {
-        SubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+        SubscriptionId = subscriptionId
     };
 
-    kustoManagementClient.Clusters.CreateOrUpdate(resourceGroupName, clusterName, cluster);
+    var resourceGroupName = "testrg";
+    var clusterName = "mykustocluster";
+    var location = "Central US";
+    var skuName = "Standard_D13_v2";
+    var tier = "Standard";
+    var capacity = 5;
+    var sku = new AzureSku(skuName, tier, capacity);
+    var cluster = new Cluster(location, sku);
+    await kustoManagementClient.Clusters.CreateOrUpdateAsync(resourceGroupName, clusterName, cluster);
     ```
 
    |**설정** | **제안 값** | **필드 설명**|
    |---|---|---|
    | clusterName | *mykustocluster* | 원하는 클러스터 이름입니다.|
-   | sku | *D13_v2* | 클러스터에 사용될 SKU입니다. |
+   | skuName | *Standard_D13_v2* | 클러스터에 사용될 SKU입니다. |
+   | 계층 | *Standard* | SKU 계층입니다. |
+   | 용량 | *number* | 클러스터의 인스턴스 수입니다. |
    | resourceGroupName | *testrg* | 클러스터가 만들어질 리소스 그룹 이름입니다. |
 
-    사용 가능한 선택적 매개 변수(예: 클러스터 용량)가 추가로 있습니다.
-
-1. [자격 증명](https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)을 설정합니다.
+    > [!NOTE]
+    > **클러스터 만들기** 는 장기 실행 작업 이므로 CreateOrUpdate 대신 CreateOrUpdateAsync를 사용 하는 것이 좋습니다. 
 
 1. 다음 명령을 실행하여 클러스터가 성공적으로 만들어졌는지 확인합니다.
 
@@ -91,7 +101,7 @@ Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등�
     var databaseName = "mykustodatabase";
     var database = new Database(location: location, softDeletePeriod: softDeletePeriod, hotCachePeriod: hotCachePeriod);
 
-    kustoManagementClient.Databases.CreateOrUpdate(resourceGroupName, clusterName, databaseName, database);
+    await kustoManagementClient.Databases.CreateOrUpdateAsync(resourceGroupName, clusterName, databaseName, database);
     ```
 
    |**설정** | **제안 값** | **필드 설명**|

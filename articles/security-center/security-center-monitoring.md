@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: b7bb67ec052244689b2775c280ff39a2121da3fa
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 57d47712fe20fac0bf370a9a100a07a37d7aa753
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201688"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996674"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Azure Security Center를 사용하여 보안 태세 강화
 이 문서는 보안 태세를 강화하는 데 도움이 됩니다. Azure Security Center의 모니터링 기능을 사용하여 리소스를 최대한 강력하게 보호하고 정책 준수를 모니터링하세요.
@@ -34,7 +34,7 @@ ms.locfileid: "71201688"
 - 가상 머신, 네트워크 보안 그룹 및 엔드포인트와 같은 네트워크 리소스를 모니터링하고 보안 향상을 위한 권장 사항을 받으려면 [Azure Security Center에서 네트워크 보호](security-center-network-recommendations.md)를 참조하세요. 
 - SQL Server 및 스토리지 계정과 같은 데이터 및 스토리지 리소스를 모니터링하고 보안 향상을 위한 권장 사항을 받으려면 [Azure Security Center에서 Azure SQL 서비스 및 데이터 보호](security-center-sql-service-recommendations.md)를 참조하세요. 
 - MFA 및 계정 권한을 비롯한 ID 및 액세스 리소스를 모니터링하고 보안 향상을 위한 권장 사항을 받으려면 [Azure Security Center에서 ID 및 액세스 모니터링](security-center-identity-access.md)을 참조하세요. 
-- 리소스에 대한 Just-In-Time 액세스를 모니터링하려면 [Just-In-Time을 사용하여 가상 머신 액세스 관리](security-center-just-in-time.md)를 참조하세요. 
+- 리소스에 대 한 just-in-time 액세스를 모니터링 하려면 자세한 내용은 just-in-time을 [사용 하 여 가상 머신 액세스 관리](security-center-just-in-time.md) 를 참조 하세요. 
 
 
 권장 사항을 적용하는 방법에 대한 자세한 내용은 [Azure Security Center에서 보안 권장 사항 구현](security-center-recommendations.md)을 참조하세요.

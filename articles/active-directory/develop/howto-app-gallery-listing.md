@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a97c10303a1ce74e53f46c21176c876faed307e7
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: bd20928816a30ad2843ce6c876bd77152dcd69e1
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958647"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001742"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열
 
@@ -36,7 +36,7 @@ ms.locfileid: "71958647"
 - 갤러리에서 빠른 검색에 애플리케이션을 제공합니다.
 - 무료, 기본 및 프리미엄 Azure AD 고객은 이 통합을 모두 사용할 수 있습니다.
 - 상호 고객을 위한 단계별 구성 자습서가 있습니다.
-- SCIM (도메인 간 Id 관리)을 위해 시스템을 사용 하는 고객은 동일한 앱에 대 한 프로 비전을 사용할 수 있습니다.
+- [Scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(도메인 간 id 관리)을 위해 시스템을 사용 하는 고객은 동일한 앱에 대 한 프로 비전을 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

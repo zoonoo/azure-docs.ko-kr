@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: ac700592a63e88936593c24f8f7ce06a08e289ce
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 185570992ad0308b500da30bca212a0495bcb0fa
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972682"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001630"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
@@ -44,6 +44,7 @@ ms.locfileid: "71972682"
 | InUseSubnetCannotBeDeleted | 리소스를 업데이트 하려고 할 때이 오류가 발생할 수 있으며, 리소스를 삭제 하 고 만들어 요청을 처리 합니다. 변경되지 않은 모든 값을 지정해야 합니다. | [리소스 업데이트](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | 해당 테넌트에 대한 액세스 토큰을 가져옵니다. 계정이 속한 테넌트의 토큰만 가져올 수 있습니다. | |
 | InvalidContentLink | 사용할 수 없는 중첩 된 템플릿에 연결 하려고 시도 했을 수 있습니다. 중첩된 템플릿에 제공된 URI를 다시 한 번 확인합니다. 스토리지 계정에 해당 템플릿이 있는 경우 액세스 가능한 URI인지 확인합니다. SAS 토큰을 전달 해야 할 수도 있습니다. 현재 [Azure Storage 방화벽](../storage/common/storage-network-security.md)뒤에 있는 저장소 계정에 있는 템플릿에 연결할 수 없습니다. 템플릿을 GitHub와 같은 다른 리포지토리로 이동 하는 것이 좋습니다. | [연결된 템플릿](resource-group-linked-templates.md) |
+| InvalidDeploymentLocation | 구독 수준에서 배포 하는 경우 이전에 사용한 배포 이름에 대해 다른 위치를 제공 했습니다. | [구독 수준 배포](deploy-to-subscription.md) |
 | InvalidParameter | 리소스에 대해 제공한 값 중 하나가 예상 값과 일치하지 않습니다. 이 오류는 다양한 조건으로 인해 발생할 수 있습니다. 예를 들어 암호가 완전하지 않거나 Blob 이름이 올바르지 않을 수 있습니다. 오류 메시지에는 수정 해야 하는 값이 표시 됩니다. | |
 | InvalidRequestContent | 배포 값에 인식할 수 없는 값이 포함 되어 있거나 필수 값이 누락 되었습니다. 리소스 종류에 대한 값을 확인합니다. | [템플릿 참조](/azure/templates/) |
 | InvalidRequestFormat | 배포를 실행할 때 디버그 로깅을 사용 하도록 설정 하 고 요청 내용을 확인 합니다. | [디버그 로깅](#enable-debug-logging) |

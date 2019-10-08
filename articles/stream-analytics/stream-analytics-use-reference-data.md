@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 8d094113107d8c49e34779cf8be62ecd71cb8cce
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 3bf90812abcef30b6bf300ba00ebd9f4186229cb
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937196"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000393"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream Analytics에서 조회에 대한 참조 데이터 사용
 
@@ -33,12 +33,12 @@ Stream Analytics는 참조 데이터에 대한 스토리지 계층으로 Azure B
 |---------|---------|
 |입력 별칭   | 이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다.   |
 |스토리지 계정   | Blob이 위치한 스토리지 계정의 이름입니다. Stream Analytics 작업과 동일한 구독에 있으면 드롭다운에서 선택할 수 있습니다.   |
-|스토리지 계정 키   | 스토리지 계정과 연결된 비밀 키입니다. 스토리지 계정이 Stream Analytics 작업과 동일한 구독에 있으면 자동으로 채워집니다.   |
+|저장소 계정 키   | 스토리지 계정과 연결된 비밀 키입니다. 스토리지 계정이 Stream Analytics 작업과 동일한 구독에 있으면 자동으로 채워집니다.   |
 |스토리지 컨테이너   | 컨테이너는 Microsoft Azure Blob service에 저장된 Blob에 대한 논리적 그룹화를 제공합니다. Blob service에 Blob을 업로드하는 경우 해당 Blob에 대한 컨테이너를 지정해야 합니다.   |
 |경로 패턴   | 지정된 컨테이너 내에서 Blob을 찾는 데 사용되는 경로입니다. 경로 내에서 다음 두 변수의 인스턴스 중 하나 이상을 지정하도록 선택할 수도 있습니다.<BR>{date}, {time}<BR>예 1: products/{date}/{time}/product-list.csv<BR>예 2: products/{date}/product-list.csv<BR>예 3: product-list.csv<BR><br> Blob이 지정된 경로에 없는 경우, Stream Analytics 작업은 Blob이 사용 가능해질 때까지 무기한 대기합니다.   |
 |날짜 형식[선택 사항]   | 지정한 경로 패턴 내에서 {date}를 사용한 경우 Blob이 구성되는 날짜 형식을 지원되는 형식 드롭다운에서 선택할 수 있습니다.<BR>예: YYYY/MM/DD, MM/DD/YYYY 등   |
 |시간 형식[선택 사항]   | 지정한 경로 패턴 내에서 {time}을 사용한 경우 Blob이 구성되는 시간 형식을 지원되는 형식 드롭다운에서 선택할 수 있습니다.<BR>예: HH, HH/mm 또는 HH-mm  |
-|이벤트 Serialization 형식   | 쿼리가 예상대로 작동하는지 확인하려면 Stream Analytics은 들어오는 데이터 스트림으로 사용 중인 직렬화 형식을 알고 있어야 합니다. 참조 데이터에 대해 지원되는 형식은 CSV 및 JSON입니다.  |
+|이벤트 직렬화 형식   | 쿼리가 예상대로 작동하는지 확인하려면 Stream Analytics은 들어오는 데이터 스트림으로 사용 중인 직렬화 형식을 알고 있어야 합니다. 참조 데이터에 대해 지원되는 형식은 CSV 및 JSON입니다.  |
 |인코딩   | 지금은 지원되는 인코딩 형식이 UTF-8뿐입니다.  |
 
 ### <a name="static-reference-data"></a>정적 참조 데이터
@@ -60,7 +60,7 @@ Azure Stream Analytics는 1분 간격으로 새로 고친 참조 데이터 Blob�
 > 
 > 이에 대한 예외는 시간을 거슬러 데이터를 재처리해야 하는 작업이거나 작업을 최초로 시작할 때입니다. 시작 시점에 작업은 지정된 작업 시작 시간 이전에 생성된 가장 최근 Blob을 찾습니다. 이렇게 하면 작업을 시작할 때 **비어 있지 않은** 참조 데이터가 설정됩니다. 찾을 수 없는 경우 작업은 다음 진단 `Initializing input without a valid reference data blob for UTC time <start time>`을 표시합니다.
 
-Stream Analytics에서 참조 데이터 정의를 업데이트하는 데 필요한 업데이트된 Blob을 만드는 작업을 오케스트레이션하는 데 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)를 사용할 수 있습니다. 데이터 팩터리는 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 기반의 데이터 통합 서비스입니다. 데이터 팩터리는 [많은 수의 클라우드 기반 및 온-프레미스 데이터 저장소 연결](../data-factory/copy-activity-overview.md) 을 지원하고 사용자가 지정한 정기적인 일정으로 데이터를 쉽게 이동할 수 있도록 지원합니다. 미리 정의된 일정에 따라 새로 고쳐지는 Stream Analytics를 위한 참조 데이터를 생성하는 데이터 팩터리 파이프라인 설정 방법에 대한 단계별 지침과 자세한 내용은 이 [GitHub 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs)을 확인하세요.
+Stream Analytics에서 참조 데이터 정의를 업데이트하는 데 필요한 업데이트된 Blob을 만드는 작업을 오케스트레이션하는 데 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)를 사용할 수 있습니다. 데이터 팩터리는 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 기반의 데이터 통합 서비스입니다. 데이터 팩터리는 [많은 수의 클라우드 기반 및 온-프레미스 데이터 저장소 연결](../data-factory/copy-activity-overview.md) 을 지원하고 사용자가 지정한 정기적인 일정으로 데이터를 쉽게 이동할 수 있도록 지원합니다. 미리 정의된 일정에 따라 새로 고쳐지는 Stream Analytics를 위한 참조 데이터를 생성하는 데이터 팩터리 파이프라인 설정 방법에 대한 단계별 지침과 자세한 내용은 이 [GitHub 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs)을 확인하세요.
 
 ### <a name="tips-on-refreshing-blob-reference-data"></a>Blob 참조 데이터 새로 고침 팁
 

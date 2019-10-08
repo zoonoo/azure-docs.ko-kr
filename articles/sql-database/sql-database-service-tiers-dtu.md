@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 03f16987941f79f9161ccbc172bb2ca1a7139384
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: e735d8832912f5b512b7cfe015ca47efbe641da7
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773201"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000432"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU 기반 구매 모델에서 서비스 계층
 
@@ -31,16 +31,16 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 서비스 계층을 선택하는 작업은 주로 비즈니스 연속성, 스토리지 및 성능 요구 사항에 따라 다릅니다.
 
-||Basic|표준|Premium|
+||기본|표준|Premium|
 | :-- | --: |--:| --:|
 |대상 워크로드|개발 및 프로덕션|개발 및 프로덕션|개발 및 프로덕션|
 |작동 시간 SLA|99.99%|99.99%|99.99%|
-|백업 보존|7일|35일|35일|
+|최대 백업 보존|7일|35일|35일|
 |CPU|낮음|낮음, 보통, 높음|보통, 높음|
 |IO 처리량(근사치) |DTU 당 1-5 IOPS| DTU 당 1-5 IOPS | DTU 당 25iops|
 |IO 대기 시간(근사치)|5ms(읽기), 10ms(쓰기)|5ms(읽기), 10ms(쓰기)|2ms(읽기/쓰기)|
 |Columnstore 인덱싱 |해당 사항 없음|S3 이상|지원됨|
-|메모리 내 OLTP|N/A|해당 사항 없음|지원됨|
+|메모리 내 OLTP|해당 사항 없음|해당 사항 없음|지원됨|
 |||||
 
 > [!NOTE]
@@ -50,7 +50,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 컴퓨팅 크기는 단일 데이터베이스에 대해서는 DTU(데이터베이스 트랜잭션 단위), 탄력적 풀에 대해서는 eDTU(탄력적 데이터베이스 트랜잭션 단위)로 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-purchase-models.md#dtu-based-purchasing-model)을 참조하세요.
 
-||Basic|표준|Premium|
+||기본|표준|Premium|
 | :-- | --: | --: | --: |
 | 최대 스토리지 크기 | 2GB | 1TB | 4 TB  |
 | 최대 DTU | 5 | 3000 | 4000 | 
@@ -103,7 +103,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 워크로드는 아래 표와 같이 9가지 트랜잭션 유형으로 구성되어 있습니다. 각 트랜잭션은 다른 트랜잭션과 크게 대비되도록 데이터베이스 엔진 및 시스템 하드웨어에서 특정 시스템 집합의 특성을 강조하도록 설계되었습니다. 이 방식에서는 다양한 구성 요소가 전반적 성능에 미치는 영향을 쉽게 평가할 수 있습니다. 예를 들어 "읽기 작업이 많은" 트랜잭션은 디스크에서 많은 읽기 작업을 만듭니다.
 
-| 트랜잭션 유형 | Description |
+| 트랜잭션 유형 | 설명 |
 | --- | --- |
 | 적은 읽기 작업 |SELECT, 메모리 내, 읽기 전용 |
 | 중간 읽기 작업 |SELECT, 대부분 메모리 내, 읽기 전용 |
@@ -165,8 +165,8 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 | 서비스 클래스 | 처리량 측정 | 응답 시간 요구 사항 |
 | --- | --- | --- |
 | Premium |초당 트랜잭션 수 |0\.5초에서 95 백분위수 |
-| 표준 |분당 트랜잭션 수 |1\.0초에서 90 백분위수 |
-| Basic |시간당 트랜잭션 수 |2\.0초에서 80 백분위수 |
+| Standard |분당 트랜잭션 수 |1\.0초에서 90 백분위수 |
+| 기본 |시간당 트랜잭션 수 |2\.0초에서 80 백분위수 |
 
 ## <a name="next-steps"></a>다음 단계
 

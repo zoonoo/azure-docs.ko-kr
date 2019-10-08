@@ -14,22 +14,22 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 5c539570e4127a6715ea63fe8ec617d3cfa83ba1
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.custom: seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: 1aba29f8ed7cacb8f2911ae2d37358869e6a7730
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672002"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001129"
 ---
 # <a name="use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Node.js 및 azure-sb 패키지를 사용 하 여 Azure에서 Service Bus 큐 사용
 > [!div class="op_multi_selector" title1="프로그래밍 언어" title2="Node.js 패키지"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
-이 자습서에서는 node.js 응용 프로그램을 만들어 [azure-sb](https://www.npmjs.com/package/azure-sb) 패키지를 사용 하 여 Service Bus 큐에서 메시지를 보내고 받는 방법에 대해 알아봅니다. 샘플은 JavaScript로 작성 되었으며 내부적으로 패키지를 `azure-sb` 사용 하는 node.js [Azure 모듈](https://www.npmjs.com/package/azure) 을 사용 합니다.
+이 자습서에서는 node.js 응용 프로그램을 만들어 [Azure-sb](https://www.npmjs.com/package/azure-sb) 패키지를 사용 하 여 Azure Service Bus 큐에서 메시지를 보내고 받는 방법에 대해 알아봅니다. 샘플은 JavaScript로 작성 되었으며 내부적으로 Azure-sb 패키지를 사용 하는 node.js [azure 모듈](https://www.npmjs.com/package/azure) 을 사용 합니다.
 
-[Azure-sb](https://www.npmjs.com/package/azure-sb) 패키지는 [Service Bus REST 런타임 api](/rest/api/servicebus/service-bus-runtime-rest)를 사용 합니다. 더 빠른 [amqp 1.0 프로토콜](service-bus-amqp-overview.md)을 사용 하 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 는 새 패키지를 사용 하 여 더 빠르게 환경을 만들 수 있습니다. 새 패키지에 대 한 자세한 내용은 [node.js 및 @azure/service-bus 패키지를 사용 하 여 Service Bus 큐를 사용 하는 방법](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package)을 참조 하세요. 그렇지 않으면 [azure](https://www.npmjs.com/package/azure) 패키지를 사용 하는 방법을 확인 하기 위해 계속 읽어 보세요.
+[Azure-sb](https://www.npmjs.com/package/azure-sb) 패키지는 [Service Bus REST 런타임 api](/rest/api/servicebus/service-bus-runtime-rest)를 사용 합니다. 더 빠른 [Amqp 1.0 프로토콜](service-bus-amqp-overview.md)을 사용 하는 새 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 을 사용 하 여 더 빠르게 환경을 만들 수 있습니다. 새 패키지에 대 한 자세한 내용은 [node.js 및 @azure/service-bus 패키지](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package)를 사용 하 여 Service Bus 큐를 사용 하는 방법을 참조 하세요. 그렇지 않으면 [azure](https://www.npmjs.com/package/azure) 패키지를 사용 하는 방법을 확인 하기 위해 계속 읽어 보세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 - Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) 을 활성화 하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 등록할 수 있습니다.
@@ -75,7 +75,7 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>Azure Service Bus 연결 설정
-Azure 모듈은 `AZURE_SERVICEBUS_CONNECTION_STRING` 환경 변수를 읽어 Service Bus에 연결하는 데 필요한 정보를 가져옵니다. 이 환경 변수가 설정 되지 않은 경우를 호출할 `createServiceBusService`때 계정 정보를 지정 해야 합니다.
+Azure 모듈은 `AZURE_SERVICEBUS_CONNECTION_STRING` 환경 변수를 읽어 Service Bus에 연결하는 데 필요한 정보를 가져옵니다. 이 환경 변수가 설정 되지 않은 경우 `createServiceBusService`을 호출할 때 계정 정보를 지정 해야 합니다.
 
 Azure 웹 사이트에 대 한 [Azure Portal][Azure portal] 환경 변수를 설정 하는 예제는 저장소를 [사용 하는 Node.js 웹 응용 프로그램][Node.js Web Application with Storage]을 참조 하세요.
 
@@ -124,7 +124,7 @@ function handle (requestOptions, next)
 function (returnObject, finalCallback, next)
 ```
 
-이 콜백에서 `returnObject` (서버에 대 한 요청의 응답)를 처리 한 후 콜백이 있으면 다른 필터를 계속 처리 하거나 서비스 호출 `next` 을 종료 하는를 호출 `finalCallback`해야 합니다. .
+이 콜백에서 @no__t (서버에 대 한 요청의 응답)를 처리 한 후 콜백이 다른 필터를 계속 처리 하려면 `next`을 호출 하거나 서비스 호출을 종료 하는 `finalCallback`를 호출 해야 합니다.
 
 재시도 논리를 구현하는 두 개의 필터는 Node.js용 Azure SDK, `ExponentialRetryPolicyFilter` 및 `LinearRetryPolicyFilter`를 포함합니다. 다음 코드는 `ExponentialRetryPolicyFilter`를 사용하는 `ServiceBusService` 개체를 만듭니다.
 
@@ -158,7 +158,7 @@ Service Bus 큐는 [표준 계층](service-bus-premium-messaging.md)에서 256KB
 
 수신 작업의 일부로 메시지를 읽고 삭제 하는 기본 동작은 가장 간단한 모델 이며, 오류가 발생할 때 응용 프로그램에서 메시지를 처리 하지 않아도 되도록 허용할 수 있는 시나리오에 가장 적합 합니다. 이 동작에 대한 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. Service Bus는 메시지를 사용 되는 것으로 표시 했기 때문에 응용 프로그램이 다시 시작 되 고 메시지를 다시 사용 하기 시작할 때 충돌 전에 사용 된 메시지는 누락 됩니다.
 
-매개 변수를 true로 설정 하면 수신은 2 단계 작업이 되므로 누락 된 메시지를 허용할 수 없는 응용 프로그램을 지원할 수 있습니다. `isPeekLock` Service Bus는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 애플리케이션에 반환합니다. 애플리케이션은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후, `deleteMessage` 메서드를 호출하고 삭제될 메시지를 매개 변수로 제공하여 수신 프로세스의 두 번째 단계를 완료합니다. `deleteMessage` 메서드는 메시지를 사용 중인 것으로 표시하고 큐에서 제거합니다.
+@No__t-0 매개 변수를 **true**로 설정 하면 수신은 2 단계 작업이 되므로 누락 된 메시지를 허용할 수 없는 응용 프로그램을 지원할 수 있습니다. Service Bus는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 애플리케이션에 반환합니다. 애플리케이션은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후, `deleteMessage` 메서드를 호출하고 삭제될 메시지를 매개 변수로 제공하여 수신 프로세스의 두 번째 단계를 완료합니다. `deleteMessage` 메서드는 메시지를 사용 중인 것으로 표시하고 큐에서 제거합니다.
 
 다음 예제에서는 `receiveQueueMessage`를 사용하여 메시지를 받고 처리하는 방법을 보여줍니다. 먼저 메시지를 받고 삭제한 다음 **true**로 설정된 `isPeekLock`을 사용하여 메시지를 받고 `deleteMessage`를 사용하여 메시지를 삭제합니다.
 

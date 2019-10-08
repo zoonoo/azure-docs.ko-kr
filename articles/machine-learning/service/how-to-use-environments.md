@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 2056970a91a90fc14528b13650472722a235c354
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 4d4d83e12d284ce760b8a7e87fd42e6c8ebb4850
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350491"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001219"
 ---
 # <a name="create-and-manage-reusable-environments-for-training-and-deployment-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 학습 및 배포를 위한 재사용 가능한 환경을 만들고 관리 합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "71350491"
 
 로컬 계산의 환경 개체를 사용 하 여 학습 스크립트를 개발 하 고, 대규모로 모델 학습을 위해 동일한 환경을 Azure Machine Learning 계산에서 재사용 하 고, 동일한 환경에서 모델을 배포할 수 있습니다.
 
-다음은 동일한 환경 개체를 학습을 위한 실행 구성과 웹 서비스 배포에 대 한 추론 및 배포 구성에서 모두 사용할 수 있음을 보여 줍니다.
+다음은 동일한 환경 개체를 학습을 위한 실행 구성과 웹 서비스 배포에 대 한 유추 및 배포 구성에서 모두 사용할 수 있음을 보여 줍니다.
 
 ![Machine learning 워크플로의 환경 다이어그램](./media/how-to-use-environments/ml-environment.png)
 
@@ -160,7 +160,7 @@ Conda, pip 또는 private wheel 파일을 사용 하 여 환경에 패키지를 
 
 Conda 패키지 리포지토리에서 패키지를 사용할 수 있는 경우 pip 설치에 Conda를 사용 하는 것이 좋습니다. 그 이유는 Conda 패키지에는 일반적으로 더 안정적인 설치를 수행 하는 미리 빌드된 이진 파일이 포함 되어 있기 때문입니다.
 
-`scikit-learn`다음 예제에서는 [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) 및 `myenv` `pillow` [메서드`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-) 를 사용 하 여 특히 버전 0.21.3 및 패키지를 환경에 추가 합니다.
+다음 예에서는 `scikit-learn`, 특히 버전 0.21.3 및 `pillow` 패키지를 환경에 추가 합니다. `myenv`는 각각 [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) 및 [`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-) 메서드를 사용 합니다.
 
 ```python
 from azureml.core import Environment
@@ -178,7 +178,7 @@ myenv.python.conda_dependencies=conda_dep
 
 ### <a name="private-wheel-files"></a>개인 휠 파일
 
-먼저 정적 [`add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#add-private-pip-wheel-workspace--file-path--exist-ok-false-) 메서드를 사용 하 여 작업 영역 저장소에 업로드 한 다음 저장소 url을 캡처하고 URL `add_pip_package()` 을 메서드에 전달 하 여 전용 pip 휠 파일을 사용할 수 있습니다.
+정적 [`add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#add-private-pip-wheel-workspace--file-path--exist-ok-false-) 메서드를 사용 하 여 먼저 작업 영역 저장소에 업로드 한 다음 저장소 url을 캡처하고 URL을 `add_pip_package()` 메서드에 전달 하 여 전용 pip 휠 파일을 사용할 수 있습니다.
 
 ```python
 # During environment creation the service replaces the URL by secure SAS URL, so your wheel file is kept private and secure
@@ -207,7 +207,7 @@ myenv.register(workspace=ws)
 
 ### <a name="get-existing-environments"></a>기존 환경 가져오기
 
-환경 클래스는 작업 영역에서 이름, 목록 또는 특정 학습 실행으로 기존 환경을 검색 하는 데 사용할 수 있는 메서드를 제공 합니다. 문제 해결 또는 감사를 위해 재현 가능성
+환경 클래스는 작업 영역에서 이름, 목록 또는 문제 해결 또는 감사를 위한 특정 학습 실행, 재현 가능성 등의 기존 환경을 검색 하는 데 사용할 수 있는 메서드를 제공 합니다.
 
 #### <a name="view-list-of-environments"></a>환경 목록 보기
 
@@ -216,7 +216,7 @@ myenv.register(workspace=ws)
 #### <a name="get-environment-by-name"></a>이름을 기준으로 환경 가져오기
 
 이름 및 버전으로 특정 환경을 가져올 수도 있습니다.
-다음 코드는 [get ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#get-workspace--name--version-none-) 메서드를 사용 하 여 `1` `ws` 작업 영역에서 환경의 버전 `myenv` 을 검색 합니다.
+다음 코드는 [get ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#get-workspace--name--version-none-) 메서드를 사용 하 여 `ws` 작업 영역에서 `myenv` 환경의 버전 `1`을 검색 합니다.
 
 ```python
 restored_environment = Environment.get(workspace=ws,name="myenv",version="1")
@@ -224,7 +224,7 @@ restored_environment = Environment.get(workspace=ws,name="myenv",version="1")
 
 #### <a name="training-run-specific-environment"></a>학습 실행 특정 환경
 
-학습을 완료 한 후 특정 실행에 사용 되는 환경을 가져오려면 Run 클래스에서 [get_environment ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-environment--)메서드를 사용 합니다.
+학습을 완료 한 후 특정 실행에 사용 되는 환경을 가져오려면 Run 클래스에서 [get_environment ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-environment--) 메서드를 사용 합니다.
 
 ```python
 from azureml.core import Run
@@ -243,22 +243,22 @@ Run.get_environment()
 
 ```python
 from azureml.core import Image
-build = env.build()
+build = env.build(workspace=ws)
 build.wait_for_completion(show_output=True)
 ```
 
 ## <a name="docker-and-environments"></a>Docker 및 환경
 
- AzureMachineLearning`Environments` 클래스의 [dockersection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) 을 사용 하면 학습 실행이 실행 되는 게스트 운영 체제에 대 한 세부 정보를 사용자 지정 하 고 제어할 수 있습니다.
+ Azure Machine Learning `Environments` 클래스의 [Dockersection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) 을 사용 하면 학습 실행이 실행 되는 게스트 운영 체제에 대 한 세부 정보를 사용자 지정 하 고 제어할 수 있습니다.
 
-`enable` Docker를 사용 하는 경우 서비스는 docker 이미지를 빌드하고 해당 docker 컨테이너 내에서 사양을 사용 하 여 Python 환경을 만듭니다. 이렇게 하면 학습 실행에 대 한 추가 격리 및 재현 가능성 제공 됩니다.
+Docker를 @no__t 하는 경우 서비스는 docker 이미지를 빌드하고 해당 Docker 컨테이너 내에서 사양을 사용 하 여 Python 환경을 만듭니다. 이렇게 하면 학습 실행에 대 한 추가 격리 및 재현 가능성 제공 됩니다.
 
 ```python
 # Creates the environment inside a Docker container.
 myenv.docker.enabled = True
 ```
 
-빌드된 후에는 기본적으로 작업 영역과 연결 된 Azure Container Registry에 Docker 이미지가 표시 됩니다.  리포지토리 이름의 형식은 *azureml/azureml_ @ no__t-1uuid @ no__t-2*입니다. *Uuuid*(고유 식별자) 부분은 환경 구성에서 계산 된 해시에 해당 합니다. 이렇게 하면 서비스에서 지정 된 환경에 해당 하는 이미지가 다시 사용 하기 위해 이미 있는지 여부를 확인할 수 있습니다.
+빌드된 후에는 기본적으로 작업 영역과 연결 된 Azure Container Registry에 Docker 이미지가 표시 됩니다.  리포지토리 이름의 형식은 *azureml/azureml_ @ no__t-1uuid @ no__t-2*입니다. 고유 식별자 (*uuid*) 부분은 환경 구성에서 계산 된 해시에 해당 합니다. 이렇게 하면 서비스에서 지정 된 환경에 해당 하는 이미지가 다시 사용 하기 위해 이미 있는지 여부를 확인할 수 있습니다.
 
 또한 서비스는 Ubuntu Linux 기반 [기본 이미지](https://github.com/Azure/AzureML-Containers)중 하나를 자동으로 사용 하 고 지정 된 Python 패키지를 설치 합니다. 기본 이미지에는 CPU 및 GPU 버전이 있습니다. Azure Machine Learning 서비스는 사용할 버전을 자동으로 검색 합니다.
 
@@ -269,7 +269,7 @@ myenv.docker.base_image_registry="your_registry_location"
 ```
 
 > [!NOTE]
-> 사용자 지정 Docker `environment.python.user_managed_dependencies=False` 이미지를 사용 하는 동안를 지정 하는 경우, 서비스는 이미지 내에서 Conda 환경을 빌드하고 기본 이미지에 설치 했을 수 있는 Python 라이브러리를 사용 하는 대신 해당 환경에서 실행을 실행 합니다. 사용자가 설치 된 `True` 패키지를 사용 하도록 매개 변수를로 설정 합니다.
+> 사용자 지정 Docker 이미지를 사용 하는 동안 `environment.python.user_managed_dependencies=False`을 지정 하는 경우 서비스는 이미지 내에서 Conda 환경을 빌드하고 기본 이미지에 설치 했을 수 있는 Python 라이브러리를 사용 하는 대신 해당 환경에서 실행을 실행 합니다. 매개 변수를 `True`으로 설정 하 여 설치 된 패키지를 사용 합니다.
 
 ## <a name="using-environments-for-training"></a>교육 환경 사용
 
@@ -300,7 +300,7 @@ run = exp.submit(runconfig)
 ```
 
 > [!NOTE]
-> 실행 기록을 사용 하지 않도록 설정 하거나 스냅숏을 실행 하려면의 설정을 `ScriptRunConfig.run_config.history`사용 합니다.
+> 실행 기록을 사용 하지 않도록 설정 하거나 스냅숏을 실행 하려면 `ScriptRunConfig.run_config.history`에서 설정을 사용 합니다.
 
 실행 구성에서 환경을 지정 하지 않으면 실행을 제출할 때 서비스에서 기본 환경을 만듭니다.
 
@@ -330,11 +330,11 @@ run = experiment.submit(sk_est)
 
 ## <a name="using-environments-for-web-service-deployment"></a>웹 서비스 배포를 위한 환경 사용
 
-모델을 웹 서비스로 배포할 때 환경을 사용할 수 있습니다. 이를 통해 학습 및 추론 계산에서 정확히 동일한 라이브러리를 사용 하 여 모델을 학습, 테스트 및 배포할 수 있는 재현 가능한 연결 워크플로를 사용할 수 있습니다.
+모델을 웹 서비스로 배포할 때 환경을 사용할 수 있습니다. 이렇게 하면 학습 및 유추 계산 모두에서 정확히 동일한 라이브러리를 사용 하 여 모델을 학습, 테스트 및 배포할 수 있는 재현 가능한 연결 워크플로를 사용할 수 있습니다.
 
 웹 서비스를 배포 하려면 배포 개체, [배포 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-)에 환경, 유추 계산, 점수 매기기 스크립트 및 등록 된 모델을 결합 합니다. [웹 서비스 배포](how-to-deploy-and-where.md)에 대해 자세히 알아보세요.
 
-이 예제에서는 ACI (Azure Container Instance)에 해당 모델을 배포 하려는 학습 실행을 완료 했다고 가정 합니다. 웹 서비스를 빌드할 때 모델 및 점수 매기기 파일이 이미지에 탑재 되 고 Azure Machine Learning 추론 스택이 이미지에 추가 됩니다.
+이 예제에서는 학습 실행을 완료 하 고 ACI (Azure Container Instance)에 해당 모델을 배포 하려는 경우를 가정 합니다. 웹 서비스를 빌드할 때 모델 및 점수 매기기 파일이 이미지에 탑재 되 고 Azure Machine Learning 유추 스택이 이미지에 추가 됩니다.
 
 ```python
 from azureml.core.model import InferenceConfig, Model

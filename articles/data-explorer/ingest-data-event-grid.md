@@ -1,26 +1,26 @@
 ---
 title: Azure Data Explorer에 Azure Blob 수집
-description: 이 문서에서는 Event Grid 구독을 사용 하 여 Azure 데이터 탐색기로 저장소 계정 데이터를 전송 하는 방법을 알아봅니다.
+description: 이 문서에서는 Event Grid 구독을 사용 하 여 Azure 데이터 탐색기에 저장소 계정 데이터를 보내는 방법에 대해 알아봅니다.
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 5854a8974a4d2a9dbc1aa690dc2340fd806f4219
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 3c2407472cd15326c295f70c69606fc5ee663f72
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490127"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996786"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Event Grid 알림을 구독하여 Azure Data Explorer에 Blob 수집
 
 Azure Data Explorer는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장이 가능한 데이터 탐색 서비스로서, Blob 컨테이너에 기록된 Blob에서 지속적인 수집(데이터 로딩)을 제공합니다. 
 
-이 문서에서는 설정 하는 방법을 알아봅니다는 [Azure Event Grid](/azure/event-grid/overview) 구독 및 이벤트 허브를 통해 Azure 데이터 탐색기로 경로 이벤트입니다. 시작하려면 Azure Event Hubs로 알림을 전송하는 이벤트 구독이 있는 스토리지 계정이 있어야 합니다. 그런 다음, Event Grid 데이터 연결을 만들어서 시스템 전반의 데이터 흐름을 볼 수 있습니다.
+이 문서에서는 [Azure Event Grid](/azure/event-grid/overview) 구독을 설정 하 고 이벤트 허브를 통해 Azure 데이터 탐색기에 이벤트를 라우팅하는 방법에 대해 알아봅니다. 시작하려면 Azure Event Hubs로 알림을 전송하는 이벤트 구독이 있는 스토리지 계정이 있어야 합니다. 그런 다음, Event Grid 데이터 연결을 만들어서 시스템 전반의 데이터 흐름을 볼 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독. [평가판 Azure 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * [클러스터 및 데이터베이스](create-cluster-database-portal.md)
@@ -38,7 +38,7 @@ Azure Data Explorer는 로그 및 원격 분석 데이터에 사용 가능한 �
 
     **설정** | **제안 값** | **필드 설명**
     |---|---|---|
-    | Name | *test-grid-connection* | 만들려는 Event Grid의 이름입니다.|
+    | 이름 | *test-grid-connection* | 만들려는 Event Grid의 이름입니다.|
     | 이벤트 스키마 | *Event Grid 스키마* | Event Grid에 사용해야 하는 스키마입니다. |
     | 항목 종류 | *저장소 계정* | Event Grid 항목의 종류입니다. |
     | 항목 리소스 | *gridteststorage* | 사용자 스토리지 계정의 이름입니다. |
@@ -77,7 +77,7 @@ Azure Data Explorer에서 Event Hubs가 데이터를 보낼 테이블을 만듭�
 
 ## <a name="create-an-event-grid-data-connection-in-azure-data-explorer"></a>Azure Event Grid에서 Event Grid 데이터 연결 만들기
 
-이제 Azure Data Explorer에서 Event Grid에 연결합니다. 그러면 Blob 컨테이너로 유입되는 데이터가 테스트 테이블로 스트리밍됩니다.
+이제 Azure 데이터 탐색기에서 Event Grid에 연결 하 여 blob 컨테이너로 흐르는 데이터가 테스트 테이블로 스트리밍됩니다. 
 
 1. 도구 모음에서 **알림**을 선택하여 이벤트 허브 배포가 정상적으로 완료되었는지 확인합니다.
 
@@ -100,10 +100,10 @@ Azure Data Explorer에서 Event Hubs가 데이터를 보낼 테이블을 만듭�
     **설정** | **제안 값** | **필드 설명**
     |---|---|---|
     | 데이터 연결 이름 | *test-hub-connection* | Azure Data Explorer에서 만들 연결의 이름입니다.|
-    | 스토리지 계정 구독 | 구독 ID | 스토리지 계정이 있는 구독 ID입니다.|
+    | 저장소 계정 구독 | 구독 ID | 스토리지 계정이 있는 구독 ID입니다.|
     | Storage 계정 | *gridteststorage* | 이전에 만든 스토리지 계정의 이름입니다.|
-    | Event Grid | *test-grid-connection* | 만든 Event Grid의 이름입니다. |
-    | 이벤트 허브 이름 | *test-hub* | 만든 이벤트 허브입니다. 이 필드는 Event Grid를 선택하며 자동으로 채워집니다. |
+    | 이벤트 표 | *test-grid-connection* | 만든 Event Grid의 이름입니다. |
+    | Event Hubs 이름 | *test-hub* | 만든 이벤트 허브입니다. 이 필드는 Event Grid를 선택하며 자동으로 채워집니다. |
     | 소비자 그룹 | *test-group* | 만든 이벤트 허브에 정의된 소비자 그룹입니다. |
     | | |
 
@@ -111,8 +111,8 @@ Azure Data Explorer에서 Event Hubs가 데이터를 보낼 테이블을 만듭�
 
      **설정** | **제안 값** | **필드 설명**
     |---|---|---|
-    | 테이블 | *TestTable* | **TestDatabase**에 만든 테이블입니다. |
-    | 데이터 형식 | *JSON* | 지원되는 형식은 Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV 및 TXT입니다. 압축 옵션을 지원 합니다. Zip 또는 GZip |
+    | Table | *TestTable* | **TestDatabase**에 만든 테이블입니다. |
+    | 데이터 서식 | *JSON* | 지원되는 형식은 Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV 및 TXT입니다. 지원 되는 압축 옵션: Zip 및 GZip |
     | 열 매핑 | *TestMapping* | **TestDatabase**에서 생성된 것으로, 들어오는 JSON 데이터를 **TestTable**의 열 이름 및 데이터 형식에 매핑.|
     | | |
     
@@ -157,7 +157,7 @@ Azure Storage 리소스와 상호 작용하는 몇 가지 기본 Azure CLI 명�
 > [!NOTE]
 > Azure Data Explorer에는 데이터 수집을 위한 집계(일괄 처리) 정책이 있으며, 이는 수집 프로세스를 최적화하도록 설계되었습니다.
 기본적으로 정책은 5 분으로 구성됩니다.
-정책은 나중에 필요에 따라 변경할 수 있습니다. 이 문서는 몇 분 정도 대기 시간을 예상할 수 있습니다.
+정책은 나중에 필요에 따라 변경할 수 있습니다. 이 문서에서는 몇 분의 대기 시간을 예측할 수 있습니다.
 
 1. Azure Portal의 Event Grid에서 앱이 실행되는 동안 작업이 급증하는 것을 볼 수 있습니다.
 
@@ -186,7 +186,7 @@ Event Grid를 다시 사용하지 않으려는 경우, 비용이 발생하지 �
 
 1. Azure Portal에서 맨 왼쪽에 있는 **리소스 그룹**을 선택한 다음, 만든 리소스 그룹을 선택합니다.  
 
-    왼쪽 메뉴가 접혀 있으면 ![[확장] 단추를](media/ingest-data-event-grid/expand.png) 클릭하여 펼칩니다.
+    왼쪽 메뉴가 접혀 있으면 ![확장 단추](media/ingest-data-event-grid/expand.png) 클릭하여 펼칩니다.
 
    ![삭제할 리소스 그룹 선택](media/ingest-data-event-grid/delete-resources-select.png)
 
@@ -196,4 +196,4 @@ Event Grid를 다시 사용하지 않으려는 경우, 비용이 발생하지 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 데이터 탐색기에서 데이터를 쿼리 합니다.](web-query-data.md)
+* [Azure 데이터 탐색기에서 데이터 쿼리](web-query-data.md)

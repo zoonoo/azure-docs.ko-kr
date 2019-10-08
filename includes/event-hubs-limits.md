@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: a20481ea42a0772ab42322e912cfce67877734d6
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 8c836582798f40cf6e9ffff264c1612cb4037f74
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71830130"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996884"
 ---
 다음 표에서는 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)에 한정 된 할당량 및 제한을 제공 합니다. Event Hubs 가격에 대한 자세한 내용은 [Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요.
 
@@ -55,5 +55,5 @@ Event Hubs Dedicated 제품은 최소 4 시간 사용으로 고정 된 월별 �
 | 파티션 | CU 당 2000 |
 | 소비자 그룹 | CU 당 제한 없음, 이벤트 허브 당 1000 |
 | 조정된 연결 | 100,000개 포함 |
-| 메시지 보존기간 | CU 당 최대 7 일, 10TB 포함 |
+| 메시지 보존기간 | CU 당 90 일, 10TB 포함 |
 | 캡처 | 포함 |

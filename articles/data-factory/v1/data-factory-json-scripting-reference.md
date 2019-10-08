@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 69218cedcd5d775fe6e499086663aa124f6bfe25
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
+ms.lasthandoff: 10/07/2019
 ms.locfileid: "70735997"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 스크립팅 참조
@@ -4939,7 +4939,7 @@ Azure Machine Learning 연결된 서비스를 만들어 데이터 팩터리에 M
 
 | 속성 | 설명 | 필요한 공간 |
 | --- | --- | --- |
-| type |형식 속성은 **AzureML**로 설정해야 합니다. |예 |
+| 형식 |형식 속성은 **AzureML**로 설정해야 합니다. |예 |
 | mlEndpoint |일괄 처리 점수 매기기 URL입니다. |예 |
 | apiKey |게시된 작업 영역 모델의 API입니다. |예 |
 
@@ -4958,7 +4958,7 @@ Azure Machine Learning 연결된 서비스를 만들어 데이터 팩터리에 M
 }
 ```
 
-## <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
+## <a name="azure-data-lake-analytics"></a>Azure 데이터 레이크 분석
 파이프 라인에서 **데이터 레이크 분석 U-SQL 작업**을 사용하기 전에 Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 연결하는 [Azure 데이터 레이크 분석](data-factory-usql-activity.md) 연결 서비스를 만듭니다.
 
 ### <a name="linked-service"></a>연결된 서비스
@@ -5234,7 +5234,7 @@ Hadoop 스트리밍 활동 JSON 정의에서 다음 속성을 지정할 수 있�
 | mapper | 매퍼 실행 파일의 이름입니다. 예제에서는 cat.exe가 매퍼 실행 파일입니다.|
 | reducer | 리듀서 실행 파일의 이름입니다. 예제에서는 wc.exe가 리듀서 실행 파일입니다. |
 | input | 매퍼의 입력 파일(위치 포함)입니다. `"wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt"` 예제에서 adfsample은 Blob 컨테이너이고, example/data/Gutenberg는 폴더이며, davinci.txt는 Blob입니다. |
-| 출력 | 리듀서의 출력 파일(위치 포함)입니다. Hadoop 스트리밍 작업의 출력이 이 속성에 지정된 위치에 기록됩니다. |
+| output | 리듀서의 출력 파일(위치 포함)입니다. Hadoop 스트리밍 작업의 출력이 이 속성에 지정된 위치에 기록됩니다. |
 | filePaths | 매퍼 및 리듀서 실행 파일의 경로입니다. "adfsample/example/apps/wc.exe" 예에서 adfsample은 Blob 컨테이너, example/apps는 폴더, wc.exe는 실행 파일입니다. |
 | fileLinkedService | filePaths 섹션에 지정된 파일이 포함된 Azure 스토리지를 나타내는 Azure Storage 연결된 서비스입니다. |
 | arguments | MapReduce 프로그램에 대해 쉼표로 구분된 인수 목록입니다. 런타임에 MapReduce 프레임워크의 몇 개 인수(예: mapreduce.job.tags)가 추가로 표시됩니다. MapReduce 인수로 사용자 인수를 구분하려면 다음 예제와 같이 인수로 옵션과 값을 모두 사용하는 것이 좋습니다(-s, --input, --output 등은 바로 뒤에 해당 값이 있는 옵션임). |
