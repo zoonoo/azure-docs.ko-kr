@@ -20,6 +20,11 @@
     - name: Python 사용
       href: python-quickstart-commandline-feedback-loop.md
       displayName: 'code, sample, quickstart, python'
+- name: 자습서
+  items:
+    - name: Azure Notebook 사용
+      href: tutorial-use-azure-notebook-generate-loop-data.md
+      displayName: 'jupyter, notebook, python, cell, graph, chart, aggregate, model update frequency'
 - name: 개념
   items:
     - name: Personalizer의 작동 원리

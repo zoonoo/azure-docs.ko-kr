@@ -71,6 +71,8 @@
         - name: 배포 관리자에서 상태 검사 사용
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
+        - name: VS 배포 스크립트를 Az Powershell로 업데이트
+          href: vs-azure-tools-update-deploy-script-to-az-powershell.md
         - name: 템플릿 배포 문제 해결
           href: resource-manager-tutorial-troubleshoot.md
 - name: 샘플
@@ -141,14 +143,17 @@
           displayName: deployment
           href: resource-group-template-deploy-portal.md
         - name: 배포 - CLI
-          displayName: 'deployment,rollback on error,redeploy'
+          displayName: deployment
           href: resource-group-template-deploy-cli.md
         - name: 배포 - PowerShell
-          displayName: 'deployment,rollback on error,redeploy'
+          displayName: deployment
           href: resource-group-template-deploy.md
         - name: 배포 - REST API
-          displayName: 'deployment,rollback on error,redeploy'
+          displayName: deployment
           href: resource-group-template-deploy-rest.md
+        - name: 오류 발생 시 다시 배포
+          displayName: rollback
+          href: rollback-on-error.md
         - name: SAS 토큰을 사용하여 템플릿 보호
           href: secure-template-with-sas-token.md
         - name: 여러 리소스 그룹 또는 구독에 배포

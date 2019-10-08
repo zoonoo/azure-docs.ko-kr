@@ -94,7 +94,8 @@
               href: concepts-connectivity-architecture.md
         - name: 비즈니스 연속성
           items:
-            - name: 개요
+            - name: 비즈니스 연속성 소개
+              displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
               href: concepts-business-continuity.md
             - name: Backup 및 복원
               href: concepts-backup.md

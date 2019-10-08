@@ -778,29 +778,35 @@
   items:
     - name: 용어집
       href: sql-database-glossary-terms.md
-    - name: Microsoft Learn을 통해 기술 쌓기
-      href: /learn/browse/?products=azure-sql-database
-    - name: SQL Server 블로그
-      href: 'https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database'
-    - name: Microsoft Azure 블로그
-      href: 'https://azure.microsoft.com/blog/'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: 공용 데이터 집합
-      href: sql-database-public-data-sets.md
-    - name: 연결 문제 해결
-      href: 'https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database'
-    - name: 가격
-      href: 'https://azure.microsoft.com/pricing/details/sql-database/'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'
-    - name: 스택 오버플로
-      href: 'https://stackoverflow.com/questions/tagged/sql-azure'
-    - name: 동영상
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'
-    - name: 서비스 업데이트
-      href: 'https://azure.microsoft.com/updates/?service=sql-database'
     - name: 아키텍처 센터
       href: /azure/architecture/
+    - name: Microsoft Learn을 통해 기술 쌓기
+      href: /learn/browse/?products=azure-sql-database
     - name: 고객 사례
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
+    - name: Microsoft Azure 블로그
+      href: 'https://azure.microsoft.com/blog/'
+    - name: MSDN 포럼
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'
+    - name: 공용 데이터 집합
+      href: sql-database-public-data-sets.md
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/sql-database/'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?service=sql-database'
+    - name: SQL Server 블로그
+      href: 'https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/sql-azure'
+    - name: 문제 해결
+      items:
+        - name: 연결 문제
+          href: troubleshoot-connectivity-issues-microsoft-azure-sql-database.md
+        - name: 문제 해결
+          items:
+            - name: 가져오기/내보내기 서비스 중단
+              href: azure-sql-database-hangs-importing-exporting.md
+    - name: 동영상
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'

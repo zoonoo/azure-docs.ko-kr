@@ -371,7 +371,7 @@
               href: delete-vault.md
     - name: 앱에 대한 재해 복구
       items:
-        - name: Azure로 온-프레미스 앱에 대한 재해 복구 설정
+        - name: 온-프레미스 앱에 대한 재해 복구 정보
           href: site-recovery-workload.md
         - name: Active Directory 및 DNS
           href: site-recovery-active-directory.md

@@ -1,43 +1,91 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Migrate 설명서
+summary: Azure Migrate를 사용하여 Azure 클라우드로 마이그레이션합니다. Azure Migrate는 온-프레미스 워크로드를 Azure로 검색, 평가 및 마이그레이션하기 위한 중앙 허브를 제공합니다. 이 허브는 Azure Migrate 도구와 ISV(독립 소프트웨어 공급업체)의 통합 도구를 제공합니다.
 metadata:
-  title: 'Azure Migrate 설명서 - 자습서, API 참조 | Microsoft Docs'
-  description: Azure로의 마이그레이션을 위해 온-프레미스 컴퓨터를 평가하는 방법에 대해 알아봅니다.
-  services: migration-planner
-  author: rayne-wiselman
-  manager: carmonm
-  ms.service: migration
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  title: Azure Migrate 설명서
+  description: Azure Migrate를 사용하여 Azure 클라우드로 마이그레이션합니다. Azure Migrate는 온-프레미스 워크로드를 Azure로 검색, 평가 및 마이그레이션하기 위한 중앙 허브를 제공합니다. 이 허브는 Azure Migrate 도구와 ISV(독립 소프트웨어 공급업체)의 통합 도구를 제공합니다.
+  ms.service: azure-migrate
   ms.topic: landing-page
-  ms.date: 11/22/2017
+  ms.collection: collection
+  author: rayne-wiselman
   ms.author: raynew
-abstract:
-  description: 'Azure Migrate를 사용하면 Azure 클라우드로 쉽게 마이그레이션할 수 있습니다. Azure Migrate는 온-프레미스 워크로드와 클라우드 VM의 검색, 평가 및 마이그레이션을 추적할 수 있는 중앙 허브를 제공합니다. 이 허브는 평가 및 마이그레이션에 사용되는 Azure Migrate 도구뿐 아니라 ISV(독립 소프트웨어 공급업체)의 통합 도구를 제공합니다.'
-sections:
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: VMware VM을 평가하고 Azure로 마이그레이션하는 방법을 알아봅니다.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-prepare-vmware">평가 후 Azure로 마이그레이션할 VMware VM 준비</a>
-          - html: <a href="tutorial-assess-vmware">Azure로 마이그레이션할 VMware VM 평가</a>
-          - html: <a href="tutorial-migrate-vmware">에이전트 없는 마이그레이션을 사용하여 VMware VM을 Azure로 마이그레이션</a>
-          - html: <a href="tutorial-migrate-vmware-agent">에이전트 기반 마이그레이션을 사용하여 VMware VM을 Azure로 마이그레이션</a>
-      - type: paragraph
-        text: Hyper-V VM을 평가하고 Azure로 마이그레이션하는 방법을 알아봅니다.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-prepare-hyper-v">평가 후 Azure로 마이그레이션할 Hyper-V VM 준비</a>
-          - html: <a href="tutorial-assess-hyper-v">Azure로 마이그레이션할 Hyper-V VM 평가</a>
-          - html: <a href="tutorial-migrate-hyper-v">Hyper-V VM을 Azure로 마이그레이션</a>
-      - type: paragraph
-        text: '물리적 서버, 가상화된 머신 및 클라우드 VM을 Azure로 마이그레이션하는 방법을 알아봅니다.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="tutorial-migrate-physical-virtual-machines">물리적 서버 또는 가상화된 서버를 Azure로 마이그레이션</a>
+  ms.date: 10/07/2019
+  ms.openlocfilehash: 494bb2f7ec6076bbc7b3b891cd0cb525ae53c5d1
+  ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 10/07/2019
+  ms.locfileid: "72001145"
+landingContent:
+- title: Azure Migrate 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Migrate란?
+      url: ./migrate-services-overview.md
+    - text: Azure Migrate의 새로운 기능
+      url: ./whats-new.md
+    - text: 일반적인 질문
+      url: ./resources-faq.md
+- title: 시작하기
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 서버 평가를 사용하여 VMware VM 평가
+      url: ./tutorial-prepare-vmware.md
+    - text: 서버 평가를 사용하여 Hyper-V VM 평가
+      url: ./tutorial-prepare-hyper-v.md
+    - text: 서버 마이그레이션을 사용하여 VMware VM 마이그레이션
+      url: ./server-migrate-overview.md
+    - text: 서버 마이그레이션을 사용하여 Hyper-V VM 마이그레이션
+      url: ./tutorial-migrate-hyper-v.md
+    - text: 서버 마이그레이션을 사용하여 물리적 서버/VM 마이그레이션
+      url: ./tutorial-migrate-physical-virtual-machines.md
+- title: 배포 시작
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: 서버 평가에 대한 모범 사례 검토
+      url: ./best-practices-assessment.md
+    - text: Azure Migrate 어플라이언스 배포에 대해 알아보기
+      url: ./migrate-replication-appliance.md
+    - text: Azure Migrate 지원 매트릭스 검토
+      url: migrate-support-matrix.md
+    - text: VMware 지원 매트릭스 검토
+      url: migrate-support-matrix-vmware.md
+    - text: Hyper-V 지원 매트릭스 검토
+      url: migrate-support-matrix-hyper-v.md
+- title: 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 마이그레이션 도구 추가
+      url: ./how-to-migrate.md
+    - text: VMware 평가 크기 조정
+      url: ./scale-vmware-assessment.md
+    - text: 마이그레이션 자동화 및 크기 조정
+      url: ./how-to-migrate-at-scale.md
+    - text: 평가 및 마이그레이션 문제 해결
+      url: ./troubleshooting-general.md
+- title: 자세한 정보
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: VMware 에이전트 기반 마이그레이션 아키텍처
+      url: ./agent-based-migration-architecture.md
+    - text: Hyper-V 마이그레이션 아키텍처
+      url: ./hyper-v-migration-architecture.md
+    - text: 평가에 대한 자세한 정보
+      url: ./concepts-assessment-calculation.md
+    - text: 종속성 시각화에 대한 자세한 정보
+      url: ./concepts-dependency-visualization.md
+- title: 참여하기
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 서비스 기능 요청
+      url: https://feedback.azure.com/forums/907195-azure-migrate
+    - text: 포럼 질문하기
+      url: https://social.msdn.microsoft.com/forums/azure/home?forum=AzureMigrate
+    - text: Azure Tech Community
+      url: https://techcommunity.microsoft.com/t5/Azure-Migration/bd-p/AzureMigration

@@ -92,7 +92,7 @@
       href: scale-hyper-v-assessment.md
     - name: 많은 수의 VM의 마이그레이션 자동화
       href: how-to-migrate-at-scale.md
-    - name: '마이그레이션 예제, Contoso 시리즈'
+    - name: 마이그레이션 예제(Contoso 시리즈)
       href: contoso-migration-overview.md
 - name: 문제 해결
   items:
