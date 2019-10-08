@@ -92,8 +92,6 @@
               href: classroom-labs/how-to-connect-peer-virtual-network.md
             - name: 공유 이미지 갤러리 연결 또는 분리
               href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
-            - name: 템플릿 VM에서 중첩된 가상화 사용
-              href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
         - name: 클래스룸 랩 만들기 및 구성(교사)
           items:
             - name: 클래스룸 랩 만들기 및 관리
@@ -112,6 +110,8 @@
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
             - name: 가상 머신의 암호 설정 또는 재설정
               href: classroom-labs/how-to-set-virtual-machine-passwords.md
+            - name: 템플릿 VM에서 중첩된 가상화 사용
+              href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
         - name: 클래스룸 랩에서 VM에 연결(학생)
           items:
             - name: 클래스룸 랩 액세스
