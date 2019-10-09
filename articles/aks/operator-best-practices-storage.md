@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.author: mlearned
-ms.openlocfilehash: b42cdae634a6c2d8d994225d4cb6b440a99918e5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8e5f394987de06feaeb9a635face643eecc97cb9
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67614586"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174216"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 스토리지 및 백업 모범 사례
 
@@ -36,7 +36,7 @@ AKS(Azure Kubernetes Services)에서 클러스터를 만들고 관리할 때 애
 
 | 사용 사례 | 볼륨 플러그 인 | 한 번 읽기/쓰기 | 여러 번 읽기 전용 | 여러 번 읽기/쓰기 | Windows Server 컨테이너 지원 |
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
-| 공유 구성       | Azure Files   | 예 | 예 | 예 | 예 |
+| 공유 구성       | Azure 파일   | 예 | 예 | 예 | 예 |
 | 구조화된 앱 데이터        | Azure 디스크   | 예 | 아니오  | 아니요  | 예 |
 | 구조화되지 않은 데이터, 파일 시스템 작업 | [BlobFuse (미리 보기)][blobfuse] | 예 | 예 | 예 | 아니요 |
 
@@ -92,7 +92,7 @@ PVC(영구 볼륨 클레임)를 사용하면 필요에 따라 스토리지를 �
 
 **모범 사례 지침** -Velero 또는 Azure Site Recovery와 같이 저장소 유형에 적절 한 도구를 사용 하 여 데이터를 백업 합니다. 이러한 백업의 무결성 및 보안을 확인합니다.
 
-애플리케이션이 디스크 또는 파일에 유지되는 데이터를 저장 및 사용할 경우에는 해당 데이터의 백업 또는 스냅샷을 정기적으로 생성해야 합니다. Azure 디스크는 기본 제공 스냅샷 기술을 사용할 수 있습니다. 스냅샷 작업을 수행하기 전에 애플리케이션이 디스크에 쓰기를 플러시하기 위한 후크가 필요할 수 있습니다. [Velero][velero] 는 추가 클러스터 리소스 및 구성과 함께 영구 볼륨을 백업할 수 있습니다. [응용 프로그램에서 상태를 제거할][remove-state]수 없는 경우 영구적 볼륨에서 데이터를 백업 하 고 복원 작업을 정기적으로 테스트 하 여 데이터 무결성 및 필요한 프로세스를 확인 합니다.
+애플리케이션이 디스크 또는 파일에 유지되는 데이터를 저장 및 사용할 경우에는 해당 데이터의 백업 또는 스냅샷을 정기적으로 생성해야 합니다. Azure 디스크는 기본 제공 스냅샷 기술을 사용할 수 있습니다. 스냅숏 작업을 수행 하기 전에 디스크에 쓰기를 플러시하는 응용 프로그램을 확인 해야 할 수 있습니다. [Velero][velero] 는 추가 클러스터 리소스 및 구성과 함께 영구 볼륨을 백업할 수 있습니다. [응용 프로그램에서 상태를 제거할][remove-state]수 없는 경우 영구적 볼륨에서 데이터를 백업 하 고 복원 작업을 정기적으로 테스트 하 여 데이터 무결성 및 필요한 프로세스를 확인 합니다.
 
 다양한 데이터 백업 방법의 제한 사항을 이해하고 스냅샷 전에 데이터를 중지해야 하는지를 확인합니다. 데이터 백업을 수행해도 클러스터 배포의 애플리케이션 환경을 복원하지 못할 수 있습니다. 이러한 시나리오에 대 한 자세한 내용은 [AKS의 비즈니스 연속성 및 재해 복구에 대 한 모범 사례][best-practices-multi-region]를 참조 하세요.
 

@@ -9,12 +9,12 @@ manager: rkarlin
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 570bf7968b3d6fac44dc770a7fda1e0784dbdcf9
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 7d7e69e8ad0c5b14ac7ed8b941a7949f4f675812
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886474"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176762"
 ---
 # <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets에 대 한 보안 제어
 
@@ -39,7 +39,7 @@ ms.locfileid: "70886474"
 | 제어 및 관리 평면 로깅 및 감사| 예 |  |
 | 데이터 평면 로깅 및 감사 | 아니요 |  |
 
-## <a name="identity"></a>클레임
+## <a name="identity"></a>ID
 
 | 보안 제어 | 예/아니요 | 참고|
 |---|---|--|
@@ -50,7 +50,7 @@ ms.locfileid: "70886474"
 
 | 보안 제어 | 예/아니요 | 참고 |
 |---|---|--|
-| 미사용 서버 쪽 암호화: Microsoft에서 관리 하는 키 | 예 | [Azure에서 Linux 가상 머신을 암호화](/azure/virtual-machines/linux/encrypt-disks) 하 고 [Windows VM에서 가상 디스크를 암호화](/azure/virtual-machines/windows/encrypt-disks)하는 방법을 참조 하세요. |
+| 미사용 서버 쪽 암호화: Microsoft에서 관리 하는 키 | 예 | [Azure에서 Linux 가상 머신을 암호화](/azure/virtual-machines/linux/disk-encryption-linux) 하 고 [Windows VM에서 가상 디스크를 암호화](/azure/virtual-machines/windows/encrypt-disks)하는 방법을 참조 하세요. |
 | 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화)| 예 | Azure Virtual Machines는 [express](/azure/expressroute) 경로 및 VNet 암호화를 지원 합니다. [Vm의 전송 중 암호화를](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)참조 하세요. |
 | 미사용 서버 쪽 암호화: 고객 관리 키 (BYOK) | 예 | 고객 관리 키는 지원 되는 Azure 암호화 시나리오입니다. [Azure 암호화 개요](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms)를 참조 하세요.|
 | 열 수준 암호화 (Azure Data Services)| 해당 사항 없음 | |

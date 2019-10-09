@@ -1,18 +1,18 @@
 ---
 title: Azure Data Share 미리 보기 문제 해결
-description: Azure Data Share 미리 보기와 관련된 문제를 해결하는 방법에 대해 알아봅니다.
+description: Azure 데이터 공유 미리 보기를 사용 하 여 데이터 공유를 만들거나 받을 때 초대 및 오류와 관련 된 문제를 해결 하는 방법에 대해 알아봅니다.
 services: data-share
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.openlocfilehash: 62b386f4648074bbf1f002e162151253e5b43bc9
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 592a2d464aed8c39dfd11734beccbd0399d75fd9
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71320288"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169217"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share-preview"></a>Azure Data Share 미리 보기의 일반적인 문제 해결
 

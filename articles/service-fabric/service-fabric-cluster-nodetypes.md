@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
-ms.author: chackdan
-ms.openlocfilehash: f929ca1cd0fe6f2a94864ae3eb4df28e7b1927db
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.author: pepogors
+ms.openlocfilehash: cec134f9e71f86cd0ed17912f1a3c76adc9a4164
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200464"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167315"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric 노드 형식 및 가상 머신 확장 집합
 [가상 머신 확장 집합](/azure/virtual-machine-scale-sets)은 Azure 컴퓨팅 리소스입니다. 확장 집합을 사용하여 가상 머신 컬렉션을 배포 및 관리할 수 있습니다. Azure Service Fabric 클러스터에서 정의한 각 노드 형식은 별도의 확장 집합을 설정합니다.  ServiceFabric 가상 머신 확장에 의해 확장 집합의 각 가상 머신에 설치 되는 Service Fabric 런타임입니다. 각 노드 형식을 독립적으로 확장 또는 축소하고, 각 클러스터 노드에서 실행되는 OS SKU를 변경하고, 다른 포트의 집합을 열고, 다른 용량 메트릭을 사용할 수 있습니다.
@@ -34,7 +34,7 @@ ms.locfileid: "71200464"
 확장 집합을 확대하는 경우 새 인스턴스가 생성됩니다. 새 확장 집합 인스턴스 이름은 일반적으로 확장 집합 이름 + 다음 인스턴스 번호입니다. 이 예제에서는 BackEnd_5입니다.
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>확장 집합 부하 분산 장치를 노드 형식 및 확장 집합에 매핑
-Azure Portal에 클러스터를 배포했거나 샘플 Azure Resource Manager 템플릿을 사용한 경우 리소스 그룹의 모든 리소스가 목록에 열거됩니다. 각 확장 집합 또는 노드 형식에 대해 부하 분산 장치를 확인할 수 있습니다. 부하 분산 장치 이름은 다음 형식을 사용 합니다. **LB-&lt;노드 유형 이름&gt;** 입니다. 다음 그림에서처럼 LB-sfcluster4doc-0을 예로 들 수 있습니다.
+Azure Portal에 클러스터를 배포했거나 샘플 Azure Resource Manager 템플릿을 사용한 경우 리소스 그룹의 모든 리소스가 목록에 열거됩니다. 각 확장 집합 또는 노드 형식에 대해 부하 분산 장치를 확인할 수 있습니다. 부하 분산 장치 이름은 다음 형식을 사용 합니다. **LB-&lt; 노드 유형 이름 @ no__t-2**. 다음 그림에서처럼 LB-sfcluster4doc-0을 예로 들 수 있습니다.
 
 ![리소스][Resources]
 

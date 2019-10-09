@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 941a218dbda2c27a598e5a53f2b947184ee78085
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b92fe0a8073437d2cf0e908b4e734a0c01c342eb
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121213"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169677"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure Web Apps에 대한 오픈 소스 기술 FAQ
 
@@ -187,24 +187,24 @@ App Service에는 기본 제공 메일 기능이 없습니다. 앱에서 메일�
 
 최근에 Azure로 마이그레이션한 경우 WordPress가 이전 도메인 URL로 리디렉션될 수 있습니다. 이 문제의 원인은 MySQL 데이터베이스의 설정 때문입니다.
 
-WordPress Buddy+는 데이터베이스에서 직접 리디렉션 URL을 업데이트하는 데 사용할 수 있는 Azure 사이트 확장입니다. WordPress Buddy+ 사용에 대한 자세한 내용은 [WordPress tools and MySQL migration with WordPress Buddy+](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)(WordPress Buddy+를 사용한 WordPress 도구 및 MySQL 마이그레이션)를 참조하세요.
+WordPress Buddy+는 데이터베이스에서 직접 리디렉션 URL을 업데이트하는 데 사용할 수 있는 Azure 사이트 확장입니다. WordPress Buddy+ 사용에 대한 자세한 내용은 [WordPress tools and MySQL migration with WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)(WordPress Buddy+를 사용한 WordPress 도구 및 MySQL 마이그레이션)를 참조하세요.
 
 또는 SQL 쿼리 또는 PHPMyAdmin을 사용하여 리디렉션 URL을 수동으로 업데이트하려면 [WordPress: Redirecting to wrong URL](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/)(WordPress: 잘못된 URL로 리디렉션)을 참조하세요.
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>내 WordPress 로그인 암호를 어떻게 변경할 수 있나요?
 
-WordPress 로그인 암호를 기억하지 못하는 경우 WordPress Buddy+를 사용하여 암호를 업데이트할 수 있습니다. 암호를 다시 설정하려면 WordPress Buddy+ Azure 사이트 확장을 설치하고 [WordPress tools and MySQL migration with WordPress Buddy+](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)(WordPress Buddy+를 사용한 WordPress 도구 및 MySQL 마이그레이션)에 설명된 단계를 완료합니다.
+WordPress 로그인 암호를 기억하지 못하는 경우 WordPress Buddy+를 사용하여 암호를 업데이트할 수 있습니다. 암호를 다시 설정하려면 WordPress Buddy+ Azure 사이트 확장을 설치하고 [WordPress tools and MySQL migration with WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)(WordPress Buddy+를 사용한 WordPress 도구 및 MySQL 마이그레이션)에 설명된 단계를 완료합니다.
 
 ## <a name="i-cant-sign-in-to-wordpress-how-do-i-resolve-this"></a>WordPress에 로그인할 수 없습니다. 이 문제를 해결하려면 어떻게 해야 하나요?
 
-최근에 플러그 인을 설치한 후 WordPress에서 잠긴 것을 알았다면 잘못된 플러그 인이 있을 수 있습니다. WordPress Buddy+는 WordPress에서 플러그 인을 사용하지 않도록 설정할 수 있는 Azure 사이트 확장입니다. 자세한 내용은 [WordPress tools and MySQL migration with WordPress Buddy+](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)(WordPress Buddy+를 사용한 WordPress 도구 및 MySQL 마이그레이션)를 참조하세요.
+최근에 플러그 인을 설치한 후 WordPress에서 잠긴 것을 알았다면 잘못된 플러그 인이 있을 수 있습니다. WordPress Buddy+는 WordPress에서 플러그 인을 사용하지 않도록 설정할 수 있는 Azure 사이트 확장입니다. 자세한 내용은 [WordPress tools and MySQL migration with WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)(WordPress Buddy+를 사용한 WordPress 도구 및 MySQL 마이그레이션)를 참조하세요.
 
 ## <a name="how-do-i-migrate-my-wordpress-database"></a>내 WordPress 데이터베이스를 마이그레이션하려면 어떻게 하나요?
 
 WordPress 웹 사이트에 연결된 MySQL 데이터베이스를 마이그레이션할 수 있는 다양한 옵션이 있습니다.
 
 * 개발자: [명령 프롬프트 또는 PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/) 사용
-* 비 개발자: [WordPress Buddy+](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/) 사용
+* 비 개발자: [WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/) 사용
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>WordPress의 보안을 강화하려면 어떻게 해야 하나요?
 

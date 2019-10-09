@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 4f2aa4b848172ab8b6a7e74de7dc1bc5f80639a1
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.author: atsenthi
+ms.openlocfilehash: cae701e34c3934e8ba8a289e7804e8852f6b5288
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335653"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167382"
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Service Fabric 애플리케이션의 용량 계획
 이 문서에서는 Azure Service Fabric 애플리케이션을 실행하는 데 필요한 리소스(CPU, RAM, 디스크 스토리지) 양을 추정하는 방법을 배웁니다. 대부분의 경우 시간이 지나면서 리소스 요구 사항도 변합니다. 일반적으로 서비스를 개발/테스트하는 단계에서는 리소스가 적게 필요하고, 프로덕션 단계로 넘어가서 애플리케이션의 인기가 높아지면 더 많은 리소스가 필요하게 됩니다. 애플리케이션을 설계할 때에는 현재의 장기 요구 사항을 고려하고 고객의 높은 요구 사항에 따라 서비스를 확장할 수 있도록 선택을 내리도록 합니다.

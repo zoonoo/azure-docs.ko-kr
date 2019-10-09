@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 02c27faa4ac45165747d5eb450e75f666ba7d013
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 62d2a2533bf7b5b0e9e98d09c34583e55403753f
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703478"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174754"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -154,7 +154,7 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 포함 
 
 | 이름 | 제한 | 참고 |
 | ---- | ----- | ----- |
-| 재시도 횟수 | 90 | 기본값은 4입니다. 기본값을 변경하려면 [정책 매개 변수 재시도](../logic-apps/logic-apps-workflow-actions-triggers.md)를 사용합니다. |
+| 다시 시도 횟수 | 90 | 기본값은 4입니다. 기본값을 변경하려면 [정책 매개 변수 재시도](../logic-apps/logic-apps-workflow-actions-triggers.md)를 사용합니다. |
 | 재시도 최대 지연 시간 | 1일 | 기본값을 변경하려면 [정책 매개 변수 재시도](../logic-apps/logic-apps-workflow-actions-triggers.md)를 사용합니다. |
 | 재시도 최소 지연 시간 | 5초 | 기본값을 변경하려면 [정책 매개 변수 재시도](../logic-apps/logic-apps-workflow-actions-triggers.md)를 사용합니다. |
 ||||
@@ -275,7 +275,7 @@ ISE에 포함 된 통합 계정 외에 추가 하는 통합 계정에 추가 비
 
 * ISE (integration service environment)에서 실행 되는 논리 앱의 경우 [이러한 포트를 열어야](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports)합니다.
 
-* 논리 앱은 [방화벽 규칙이](../storage/common/storage-network-security.md) 있고 동일한 지역에 있는 Azure storage 계정에 직접 액세스할 수 없습니다. 그러나 공용 IP 주소는 지역 간에 통신 하는 데 사용 되기 때문에 논리 앱은 다른 지역에 있는 Azure storage 계정에 액세스할 수 있습니다. 해당 [지역의 관리 되는 커넥터에 대해 아웃 바운드 IP 주소](../logic-apps/logic-apps-limits-and-config.md#outbound)를 허용 해야 합니다. 또는 고급 옵션을 사용할 수 있습니다.
+* 논리 앱은 [방화벽 규칙이](../storage/common/storage-network-security.md) 있고 동일한 지역에 있는 Azure storage 계정에 직접 액세스할 수 없습니다. 그러나 [지역에서 관리 되는 커넥터에 대해 아웃 바운드 IP 주소](../logic-apps/logic-apps-limits-and-config.md#outbound)를 허용 하는 경우 논리 앱은 azure Table Storage 커넥터 또는 azure Queue Storage 커넥터를 사용 하는 경우를 제외 하 고는 다른 지역의 저장소 계정에 액세스할 수 있습니다. Table Storage 또는 Queue Storage에 액세스 하려면 HTTP 트리거와 작업을 계속 사용할 수 있습니다. 그렇지 않으면 다음에서 고급 옵션을 사용할 수 있습니다.
 
   * [통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. Azure Virtual Network의 리소스에 연결할 수 있습니다.
 

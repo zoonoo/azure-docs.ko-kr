@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: 05794cfaf6a550d32acdfb731a5f477111e65606
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: c924e59a50994827eb2e9be40caa7021c7e4ac3c
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011411"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174476"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Azure에서 IPv6 이중 스택 응용 프로그램 배포-PowerShell (미리 보기)
 
@@ -31,7 +31,7 @@ ms.locfileid: "70011411"
 
 PowerShell을 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에는 Azure PowerShell 모듈 버전 6.9.0 이상이 필요 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Azure에서 이중 스택 응용 프로그램을 배포 하기 전에 다음 Azure PowerShell를 사용 하 여이 미리 보기 기능에 대 한 구독을 구성 해야 합니다.
 
 다음과 같이 등록 합니다.
@@ -239,7 +239,7 @@ $nsg = New-AzNetworkSecurityGroup `
 ```
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *myVnet*이라는 가상 네트워크와 *mySubnet*을 만듭니다.
+[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *Mysubnet*을 사용 하 여 *dsvnet* 이라는 가상 네트워크를 만듭니다.
 
 ```azurepowershell-interactive
 # Create dual stack subnet
@@ -323,7 +323,7 @@ $VM2 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location
 ```
 
 ## <a name="determine-ip-addresses-of-the-ipv4-and-ipv6-endpoints"></a>IPv4 및 IPv6 끝점의 IP 주소 확인
-을 사용 하 여 `get-AzNetworkInterface`이 배포에 사용 되는 IP를 요약 하려면 리소스 그룹의 모든 네트워크 인터페이스 개체를 가져옵니다. 또한를 사용 `get-AzpublicIpAddress`하 여 IPv4 및 IPv6 끝점의 Load Balancer 프런트 엔드 주소를 가져옵니다.
+@No__t-0으로이 배포에 사용 되는 IP를 요약 하려면 리소스 그룹의 모든 네트워크 인터페이스 개체를 가져옵니다. 또한 `get-AzpublicIpAddress`을 사용 하 여 IPv4 및 IPv6 끝점의 Load Balancer 프런트 엔드 주소를 가져옵니다.
 
 ```azurepowershell-interactive
 $rgName= "dsRG1"
@@ -364,7 +364,7 @@ foreach ($NIC in $NICsInRG) {
 ## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Azure Portal에서 IPv6 이중 스택 가상 네트워크 보기
 다음과 같이 Azure Portal에서 IPv6 이중 스택 가상 네트워크를 볼 수 있습니다.
 1. 포털의 검색 창에서 *Dsvnet*을 입력 합니다.
-2. 검색 결과에 **myVirtualNetwork**가 표시되면 선택합니다. 그러면 *Dsvnet*이라는 이중 스택 가상 네트워크의 **개요** 페이지가 시작 됩니다. 이중 스택 가상 네트워크는 *Dssubnet*이라는 이중 스택 서브넷에 있는 IPv4 및 IPv6 구성을 모두 사용 하 여 두 개의 nic를 표시 합니다.
+2. **Dsvnet** 이 검색 결과에 표시 되 면 선택 합니다. 그러면 *Dsvnet*이라는 이중 스택 가상 네트워크의 **개요** 페이지가 시작 됩니다. 이중 스택 가상 네트워크는 *Dssubnet*이라는 이중 스택 서브넷에 있는 IPv4 및 IPv6 구성을 모두 사용 하 여 두 개의 nic를 표시 합니다.
 
   ![Azure의 IPv6 이중 스택 가상 네트워크](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 

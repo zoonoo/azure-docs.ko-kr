@@ -4,17 +4,17 @@ description: 다운스트림 또는 리프 장치를 Azure IoT Edge 게이트웨
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/07/2019
+ms.date: 10/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 822e58d1d35cfb9b62565ca78ea2277b8d194bc0
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: c37c3ed2031746d7c476850749bb3dc613252654
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266115"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176802"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결
 
@@ -183,17 +183,23 @@ Windows 호스트에서 OpenSSL 또는 다른 TLS 라이브러리를 사용하�
 이 섹션에서는 Azure IoT Python 디바이스 클라이언트를 IoT Edge 게이트웨이에 연결하기 위한 샘플 애플리케이션을 소개합니다. 
 
 1. [Python 샘플에 대 한 Azure IoT 장치 SDK](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios)에서 **send_message** 샘플을 가져옵니다. 
-2. Edge 컨테이너에서 실행 중인지 또는 디버그 시나리오 `EdgeHubConnectionString` 에서 및 `EdgeModuleCACertificateFile` 환경 변수를 설정 했는지 확인 합니다.
+2. IoT Edge 컨테이너에서 실행 되 고 있는지 또는 디버그 시나리오에서 @no__t 0 및 @no__t 1 환경 변수가 설정 되어 있는지 확인 합니다.
 3. 디바이스에서 샘플을 실행하는 방법에 대한 지침은 SDK 설명서를 참조하세요. 
 
 
 ## <a name="test-the-gateway-connection"></a>게이트웨이 연결 테스트
 
-모든 것이 올바르게 설정 되었는지 테스트 하는 샘플 명령입니다. “확인된 OK”라는 메시지가 표시됩니다.
+다음 샘플 명령을 사용 하 여 다운스트림 장치를 게이트웨이 장치에 연결할 수 있는지 테스트 합니다. 
 
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
+
+이 명령은 MQTTS (포트 8883)를 통한 연결을 테스트 합니다. 다른 프로토콜을 사용 하는 경우 필요에 따라 AMQPS (5671) 또는 HTTPS (433)에 대해 명령을 조정 합니다.
+
+체인의 모든 인증서에 대 한 정보를 포함 하 여이 명령의 출력은 길어질 수 있습니다. 연결에 성공 하면 `Verification: OK` 또는 `Verify return code: 0 (ok)`과 같은 줄이 표시 됩니다.
+
+![게이트웨이 연결 확인](./media/how-to-connect-downstream-device/verification-ok.png)
 
 ## <a name="troubleshoot-the-gateway-connection"></a>게이트웨이 연결 문제 해결
 

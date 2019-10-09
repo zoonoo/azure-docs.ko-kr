@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 8/04/2019
-ms.openlocfilehash: c56e6e004fe7f63725b5f6f4b9c71f60cc7b91ed
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 5f98cb29bd61c674ef7d7e6af781760fe81a5085
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68829113"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177882"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Azure Data Factory를 사용 하 여 Amazon s 3에서 Azure Storage로 데이터를 마이그레이션합니다. 
 
@@ -136,7 +136,6 @@ S 3에서 Azure Blob Storage로 데이터를 마이그레이션하기 위해 생
 
 ![가격 책정-테이블](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
 
-
 ### <a name="additional-references"></a>추가 참조 
 - [Amazon Simple Storage Service connector](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service)
 - [Azure Blob Storage 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
@@ -149,6 +148,10 @@ S 3에서 Azure Blob Storage로 데이터를 마이그레이션하기 위해 생
 - [분할 된 시간 파일 이름에 따라 증분 방식으로 파일 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
 - [LastModifiedDate에 따라 새 파일 및 변경 된 파일 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
 - [ADF 가격 책정 페이지](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
+
+## <a name="template"></a>템플릿
+
+Amazon s 3에서 Azure Data Lake Storage Gen2로 구성 된 수백만 개의 파일로 구성 된 페타바이트 데이터를 마이그레이션하기 위해 시작 하는 [템플릿은](solution-template-migration-s3-azure.md) 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

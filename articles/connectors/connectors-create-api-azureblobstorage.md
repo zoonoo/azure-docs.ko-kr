@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 06/20/2019
 tags: connectors
-ms.openlocfilehash: ce59c238e50a1be6879b07e959b236f6181a8ce4
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 98a811508d5fa65135c224536b668145ea0808d0
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703249"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176078"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Azure Blob Storage에서 Blob 만들기 및 관리
 
@@ -24,10 +24,11 @@ ms.locfileid: "71703249"
 
 Azure 웹 사이트에서 업데이트되는 도구가 있다고 가정해 보겠습니다. 이 도구는 논리 앱에 대한 트리거의 역할을 합니다. 이 이벤트가 발생하면 논리 앱에서 Blob Storage 컨테이너의 일부 파일을 업데이트하도록 할 수 있습니다. 이는 논리 앱의 작업입니다.
 
-> [!NOTE]
+> [!IMPORTANT]
 >
-> 논리 앱은 [방화벽 규칙이](../storage/common/storage-network-security.md) 있고 동일한 지역에 있는 Azure storage 계정에 직접 액세스할 수 없습니다. 그러나 공용 IP 주소는 지역 간에 통신 하는 데 사용 되기 때문에 논리 앱은 다른 지역에 있는 Azure storage 계정에 액세스할 수 있습니다. 해당 [지역의 관리 되는 커넥터에 대해 아웃 바운드 IP 주소](../logic-apps/logic-apps-limits-and-config.md#outbound)를 허용 해야 합니다. 또는 고급 옵션을 사용할 수 있습니다.
->
+> 논리 앱은 [방화벽 규칙이](../storage/common/storage-network-security.md) 있고 동일한 지역에 있는 Azure storage 계정에 직접 액세스할 수 없습니다. 그러나 [지역에서 관리 되는 커넥터에 대해 아웃 바운드 IP 주소](../logic-apps/logic-apps-limits-and-config.md#outbound)를 허용 하는 경우 논리 앱은 azure Table Storage 커넥터 또는 azure Queue Storage 커넥터를 사용 하는 경우를 제외 하 고는 다른 지역의 저장소 계정에 액세스할 수 있습니다. Table Storage 또는 Queue Storage에 액세스 하려면 HTTP 트리거와 작업을 계속 사용할 수 있습니다. 
+> 그렇지 않으면 다음에서 고급 옵션을 사용할 수 있습니다.
+> 
 > * [통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. Azure Virtual Network의 리소스에 연결할 수 있습니다.
 >
 > * API Management에 전용 계층을 사용 하는 경우 API Management를 사용 하 고 방화벽을 통해 후자의 IP 주소를 허용 하 여 저장소 API를 앞으로 이동할 수 있습니다. 기본적으로 API Management에서 사용 하는 Azure 가상 네트워크를 저장소 계정의 방화벽 설정에 추가 합니다. 그런 다음 API Management 작업 또는 HTTP 작업을 사용 하 여 Azure Storage Api를 호출할 수 있습니다. 그러나이 옵션을 선택 하는 경우 인증 프로세스를 직접 처리 해야 합니다. 자세한 내용은 [간단한 엔터프라이즈 통합 아키텍처](https://aka.ms/aisarch)를 참조하세요.
@@ -96,7 +97,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
    ![작업 추가](./media/connectors-create-api-azureblobstorage/add-action.png) 
 
-   기존 단계 간에 작업을 추가하려면 연결 화살표 위로 마우스를 이동합니다. 표시 되는 더하기 기호 **+** ()를 선택 하 고 **작업 추가**를 선택 합니다.
+   기존 단계 간에 작업을 추가하려면 연결 화살표 위로 마우스를 이동합니다. 표시 되는 더하기 기호 ( **+** )를 선택 하 고 **작업 추가**를 선택 합니다.
 
 3. 검색 상자에서 "azure blob"을 필터로 입력합니다. 작업 목록에서 원하는 작업을 선택합니다.
 

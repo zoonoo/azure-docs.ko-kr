@@ -23,9 +23,9 @@
       href: storage-sync-files-extend-servers.md
 - name: 개념
   items:
-    - name: Azure Files 정보
+    - name: Azure Files 배포에 대한 계획
       href: storage-files-planning.md
-    - name: Azure 파일 동기화 정보
+    - name: Azure 파일 동기화 배포에 대한 계획
       href: storage-sync-files-planning.md
     - name: 클라우드 계층화 정보
       href: storage-sync-cloud-tiering.md

@@ -13,22 +13,18 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38cc8fd4e063896bbd8843a54f0a01058462c618
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: c59a0b40065be1554e79186227cd2e90d68e7222
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901452"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174203"
 ---
 # <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Azure Active Directory 포털에서 사용자 목록 다운로드 (미리 보기)
 
 Azure AD (Azure Active Directory)는 대량 사용자 가져오기 (만들기) 작업을 지원 합니다.
 
-## <a name="bulk-download-service-limits"></a>대량 다운로드 서비스 제한
-
-사용자 목록을 만들기 위한 각 대량 작업은 최대 1 시간 동안 실행할 수 있습니다. 이를 통해 50만 명 이상의 사용자 목록을 만들고 다운로드할 수 있습니다.
-
-## <a name="required-permissions"></a>필요한 권한
+## <a name="required-permissions"></a>필요한 사용 권한
 
 Azure AD 관리 센터에서 사용자 목록을 다운로드 하려면 Azure AD에서 하나 이상의 조직 수준 관리자 역할에 할당 된 사용자로 로그인 해야 합니다. 게스트 초대자 및 응용 프로그램 개발자는 관리자 역할로 간주 되지 않습니다.
 
@@ -45,6 +41,10 @@ Azure AD 관리 센터에서 사용자 목록을 다운로드 하려면 Azure AD
 **대량 작업 결과 (미리 보기)** 페이지에서 보류 중인 대량 요청의 상태를 볼 수 있습니다.
 
    ![대량 작업 결과 페이지에서 업로드 상태 확인](./media/users-bulk-download/bulk-center.png)
+
+## <a name="bulk-download-service-limits"></a>대량 다운로드 서비스 제한
+
+사용자 목록을 만들기 위한 각 대량 작업은 최대 1 시간 동안 실행할 수 있습니다. 이를 통해 50만 명 이상의 사용자 목록을 만들고 다운로드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

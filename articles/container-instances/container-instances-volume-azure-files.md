@@ -9,19 +9,22 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 25cac6a66baeb1587e4b5ba3f0923ca9c4394706
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 686c20aeb22c16298967aa6f73ee829472f4ea0c
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68325494"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72175930"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Azure Container Instances에서 Azure 파일 공유 탑재
 
-Azure Container Instances는 기본적으로 상태 비저장 방식으로 작동합니다. 컨테이너의 작동이 중단되거나 중지되면 모든 상태가 손실됩니다. 컨테이너 수명이 지난 후에도 상태를 유지하려면 외부 저장소에서 볼륨을 탑재해야 합니다. 이 문서에서는 Azure Container Instances에서 사용하기 위해 [Azure Files](../storage/files/storage-files-introduction.md)를 사용하여 만든 Azure 파일 공유를 탑재하는 방법을 보여줍니다. Azure Files는 산업 표준 SMB(서버 메시지 블록) 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure Container Instances에서 Azure 파일 공유를 사용하면 Azure Virtual Machines에서 Azure 파일 공유를 사용하는 것과 유사한 파일 공유 기능을 제공합니다.
+Azure Container Instances는 기본적으로 상태 비저장 방식으로 작동합니다. 컨테이너의 작동이 중단되거나 중지되면 모든 상태가 손실됩니다. 컨테이너 수명이 지난 후에도 상태를 유지하려면 외부 저장소에서 볼륨을 탑재해야 합니다. 이 문서에 나와 있는 것 처럼 [Azure Files](../storage/files/storage-files-introduction.md)를 사용 하 여 만든 Azure 파일 공유를 탑재할 수 Azure Container Instances. Azure Files는 산업 표준 SMB(서버 메시지 블록) 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure Container Instances에서 Azure 파일 공유를 사용하면 Azure Virtual Machines에서 Azure 파일 공유를 사용하는 것과 유사한 파일 공유 기능을 제공합니다.
 
 > [!NOTE]
-> 현재 Azure 파일 공유를 탑재하는 작업은 Linux 컨테이너로만 제한되어 있습니다. Windows 컨테이너에 모든 기능을 제공 하기 위해 작업 하는 동안 [개요](container-instances-overview.md#linux-and-windows-containers)에서 현재 플랫폼 차이를 찾을 수 있습니다.
+> 현재 Azure 파일 공유를 탑재하는 작업은 Linux 컨테이너로만 제한되어 있습니다. [개요](container-instances-overview.md#linux-and-windows-containers)에서 현재 플랫폼 차이점을 찾습니다.
+>
+> 컨테이너 인스턴스에 Azure Files 공유를 탑재 하는 것은 Docker [바인드 탑재](https://docs.docker.com/storage/bind-mounts/)와 비슷합니다. 파일이 나 디렉터리가 있는 컨테이너 디렉터리에 공유를 탑재 하는 경우 이러한 파일이 나 디렉터리는 탑재로 가려져 컨테이너가 실행 되는 동안에는 액세스할 수 없습니다.
+>
 
 ## <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
 
@@ -79,7 +82,7 @@ az container create \
     --azure-file-volume-mount-path /aci/logs/
 ```
 
-이 `--dns-name-label` 값은 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유 해야 합니다. 명령을 실행한 결과 **DNS 이름 레이블** 오류 메시지가 표시되는 경우에는 이전 명령의 값을 업데이트합니다.
+@No__t-0 값은 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유 해야 합니다. 명령을 실행한 결과 **DNS 이름 레이블** 오류 메시지가 표시되는 경우에는 이전 명령의 값을 업데이트합니다.
 
 ## <a name="manage-files-in-mounted-volume"></a>탑재된 볼륨의 파일 관리
 
@@ -95,9 +98,9 @@ az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --
 
 컨테이너 그룹을 배포 하 고 Azure CLI 및 [Yaml 템플릿을](container-instances-multi-container-yaml.md)사용 하 여 컨테이너에서 볼륨을 탑재할 수도 있습니다. 여러 컨테이너로 구성된 컨테이너 그룹을 배포할 때에는 YAML 템플릿을 사용하여 배포하는 것이 좋습니다.
 
-다음 yaml 템플릿은 `aci-hellofiles` 이미지를 사용 하 여 만든 하나의 컨테이너를 사용 하 여 컨테이너 그룹을 정의 합니다. Azure 파일 공유를 탑재 하는 컨테이너는 이전에 볼륨으로 만들어집니다. 표시 되는 경우 파일 공유를 호스트 하는 저장소 계정에 대 한 이름 및 저장소 키를 입력 합니다. 
+다음 YAML 템플릿은 `aci-hellofiles` 이미지를 사용 하 여 만든 컨테이너 하나를 사용 하 여 컨테이너 그룹을 정의 합니다. Azure 파일 공유를 탑재 하는 *컨테이너는 이전* 에 볼륨으로 만들어집니다. 표시 되는 경우 파일 공유를 호스트 하는 저장소 계정에 대 한 이름 및 저장소 키를 입력 합니다. 
 
-CLI 예제에서와 같이이 값 `dnsNameLabel` 은 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유 해야 합니다. 필요한 경우 YAML 파일의 값을 업데이트 합니다.
+CLI 예제에서와 같이 `dnsNameLabel` 값은 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유 해야 합니다. 필요한 경우 YAML 파일의 값을 업데이트 합니다.
 
 ```yaml
 apiVersion: '2018-10-01'
@@ -135,7 +138,7 @@ tags: {}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Yaml 템플릿을 사용 하 여 배포 하려면 이전 yaml을 이라는 `deploy-aci.yaml`파일에 저장 한 다음 `--file` 매개 변수를 사용 하 여 [az container create][az-container-create] 명령을 실행 합니다.
+YAML 템플릿을 사용 하 여 배포 하려면 이전 YAML을 `deploy-aci.yaml` 이라는 파일에 저장 한 다음, `--file` 매개 변수를 사용 하 여 [az container create][az-container-create] 명령을 실행 합니다.
 
 ```azurecli
 # Deploy with YAML template
@@ -147,11 +150,11 @@ CLI 및 YAML 배포 외에도 컨테이너 그룹을 배포 하 고 Azure [리�
 
 먼저 템플릿의 `volumes`컨테이너 그룹의 배열`properties` 섹션을 채웁니다. 
 
-그런 다음 볼륨을 탑재 하려는 각 컨테이너에 대해 컨테이너 정의의 `volumeMounts` `properties` 섹션에서 배열을 채웁니다.
+그런 다음 볼륨을 탑재 하려는 각 컨테이너에 대해 컨테이너 정의의 `properties` 섹션에 `volumeMounts` 배열을 채웁니다.
 
-다음 리소스 관리자 템플릿은 `aci-hellofiles` 이미지를 사용 하 여 만든 컨테이너 하나를 사용 하 여 컨테이너 그룹을 정의 합니다. Azure 파일 공유를 탑재 하는 컨테이너는 이전에 볼륨으로 만들어집니다. 표시 되는 경우 파일 공유를 호스트 하는 저장소 계정에 대 한 이름 및 저장소 키를 입력 합니다. 
+다음 리소스 관리자 템플릿은 `aci-hellofiles` 이미지를 사용 하 여 만든 하나의 컨테이너를 사용 하 여 컨테이너 그룹을 정의 합니다. Azure 파일 공유를 탑재 하는 *컨테이너는 이전* 에 볼륨으로 만들어집니다. 표시 되는 경우 파일 공유를 호스트 하는 저장소 계정에 대 한 이름 및 저장소 키를 입력 합니다. 
 
-이전 예에서와 같이이 값은 `dnsNameLabel` 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유 해야 합니다. 필요한 경우 템플릿의 값을 업데이트 합니다.
+이전 예에서와 같이 `dnsNameLabel` 값은 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유 해야 합니다. 필요한 경우 템플릿의 값을 업데이트 합니다.
 
 ```JSON
 {
@@ -220,7 +223,7 @@ CLI 및 YAML 배포 외에도 컨테이너 그룹을 배포 하 고 Azure [리�
 }
 ```
 
-리소스 관리자 템플릿을 사용 하 여 배포 하려면 앞의 JSON을 이라는 `deploy-aci.json`파일에 저장 한 다음 `--template-file` 매개 변수를 사용 하 여 [az group deployment create][az-group-deployment-create] 명령을 실행 합니다.
+리소스 관리자 템플릿으로 배포 하려면 위의 JSON을 `deploy-aci.json` 이라는 파일에 저장 한 다음 `--template-file` 매개 변수를 사용 하 여 [az group deployment create][az-group-deployment-create] 명령을 실행 합니다.
 
 ```azurecli
 # Deploy with Resource Manager template
@@ -230,9 +233,9 @@ az group deployment create --resource-group myResourceGroup --template-file depl
 
 ## <a name="mount-multiple-volumes"></a>여러 볼륨 탑재
 
-컨테이너 인스턴스에서 여러 볼륨을 탑재하려면 [Azure Resource Manager 템플릿](/azure/templates/microsoft.containerinstance/containergroups) 또는 YAML 파일을 사용하여 배포해야 합니다. 템플릿 또는 yaml 파일을 사용 하려면 템플릿의 `volumes` `properties` 섹션에서 배열을 채워서 공유 세부 정보를 제공 하 고 볼륨을 정의 합니다. 
+컨테이너 인스턴스에서 여러 볼륨을 탑재하려면 [Azure Resource Manager 템플릿](/azure/templates/microsoft.containerinstance/containergroups) 또는 YAML 파일을 사용하여 배포해야 합니다. 템플릿 또는 YAML 파일을 사용 하려면 템플릿의 `properties` 섹션에서 `volumes` 배열을 채워서 공유 세부 정보를 제공 하 고 볼륨을 정의 합니다. 
 
-예를 `volumes` 들어 저장소 계정 *mystorageaccount*에 *share1* 및 *share2* 라는 두 개의 Azure Files 공유를 만든 경우 리소스 관리자 템플릿의 배열은 다음과 유사 하 게 표시 됩니다.
+예를 들어 저장소 계정 *Mystorageaccount*에 *share1* 및 *share2* 라는 두 개의 Azure Files 공유를 만든 경우 리소스 관리자 템플릿의 @no__t 3 배열은 다음과 유사 하 게 표시 됩니다.
 
 ```JSON
 "volumes": [{

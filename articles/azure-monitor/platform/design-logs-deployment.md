@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2019
 ms.author: magoedte
-ms.openlocfilehash: fa3c8b8cee0b8621a6a2800655f62a3d339f67c3
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 24eb8440ed4746b51b92ce371b5d58b8d55de9a3
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211992"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177603"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Azure Monitor 로그 배포 디자인
 
@@ -32,7 +32,7 @@ Log Analytics 작업 영역이 제공하는 정보:
 
 * 데이터 저장소에 대 한 지리적 위치입니다.
 * 권장 되는 디자인 전략 중 하나에 따라 다른 사용자에 게 액세스 권한을 부여 하 여 데이터를 격리 합니다.
-* [가격 책정 계층](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [보존](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)및 [데이터 50,](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap)같은 설정의 구성에 대 한 범위입니다.
+* [가격 책정 계층](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [보존](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)및 [데이터 50,](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#manage-your-maximum-daily-data-volume)같은 설정의 구성에 대 한 범위입니다.
 
 이 문서에서는 디자인 및 마이그레이션 고려 사항, 액세스 제어 개요 및 IT 조직에 권장 되는 디자인 구현을 이해 하는 방법에 대 한 자세한 개요를 제공 합니다.
 

@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
-ms.author: chackdan
-ms.openlocfilehash: 826e7e953bd713bb623ec469b45c56012601490b
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.author: pepogors
+ms.openlocfilehash: 3fd1716fa7b9c32bb5b5e49598139b6a5e728692
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030811"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166588"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric에서 역방향 프록시 설정 및 구성
 역방향 프록시는 Service Fabric 클러스터에서 실행되는 마이크로 서비스를 통해 http 엔드포인트가 있는 다른 서비스를 검색하고 통신할 수 있도록 하는 선택적 Azure Service Fabric 서비스입니다. 자세한 내용은 [Azure Service Fabric의 역방향 프록시](service-fabric-reverseproxy.md)를 참조하세요. 이 문서에서는 클러스터에서 역방향 프록시를 설정하고 구성하는 방법에 대해 설명합니다. 

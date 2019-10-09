@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB에 대 한 Advanced Threat Protection
 description: 미사용 데이터의 암호화 및 구현 방법을 Azure Cosmos DB 하는 방법에 대해 알아봅니다.
-author: monhaber
+author: rkarlin
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: v-mohabe
+ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 035c7e9ed5ab33c89a2a55b1133294db434bfe81
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 2b12d639e734502113b6afdd7250fca6a520c687
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70123890"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176016"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 Advanced Threat Protection
 
@@ -31,7 +31,7 @@ Azure Cosmos DB에 대 한 Advanced Threat Protection은 Azure Cosmos DB 계정�
 
 ### <a name="set-up-atp-using-the-portal"></a>포털을 사용 하 여 ATP 설정
 
-1. 에서 [https://portal.azure.com](https://portal.azure.com/)Azure Portal를 시작 합니다.
+1. [@No__t-1](https://portal.azure.com/)에서 Azure Portal를 시작 합니다.
 
 2. Azure Cosmos DB 계정의 **설정** 메뉴에서 **고급 보안**을 선택 합니다.
 
@@ -92,7 +92,7 @@ Azure Cosmos DB 작업에 대 한 예외가 발생할 경우 의심 스러운 �
 
 또한 경고 세부 정보 및 권장 조치를 사용 하 여 전자 메일 알림이 전송 됩니다. 다음 그림은 경고 전자 메일의 예를 보여 줍니다.
 
- ![경고 정보](./media/cosmos-db-advanced-threat-protection/cosmos-db-alert.png)
+ ![경고 세부 정보](./media/cosmos-db-advanced-threat-protection/cosmos-db-alert.png)
 
 ## <a name="cosmos-db-atp-alerts"></a>ATP 경고 Cosmos DB
 

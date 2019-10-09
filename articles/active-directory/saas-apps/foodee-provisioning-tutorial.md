@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: abf2a752eaf0f1d0a9a8b07072dfc0b4c1ae45b7
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 97ecf3ea324f43753030f415c8a5e254b87595e5
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812714"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170081"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Foodee 구성
 
@@ -118,7 +118,7 @@ Azure AD 응용 프로그램 갤러리에서 Foodee를 추가 하려면 다음�
 
 1. **관리자 자격 증명**아래에서 다음을 수행 합니다.
 
-   a. **테 넌 트 URL** 상자에 이전에 검색 한 **https://concierge.food.ee/scim/v2** 값을 입력 합니다.
+   a. **테 넌 트 URL** 상자에 이전에 검색 한 **https: \//concierge/v2 im/v2** 값을 입력 합니다.
 
    b. **비밀 토큰** 상자에 이전에 검색 한 **API 토큰** 값을 입력 합니다.
    

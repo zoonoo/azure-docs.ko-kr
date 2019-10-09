@@ -1,17 +1,17 @@
 ---
 title: Azure 데이터 공유 미리 보기에 대 한 역할 및 요구 사항
-description: Azure 데이터 공유 미리 보기에 대 한 역할 및 요구 사항
+description: 데이터 공급자 및 데이터 소비자가 Azure 데이터 공유 미리 보기에서 데이터를 공유 하는 데 필요한 액세스 제어 역할 및 요구 사항에 대해 알아봅니다.
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: 7bf98f8774551292574d4f1951eba44657fa7de0
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c0841f6386440776c6ea719f9932a53cada9d9c4
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307351"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166384"
 ---
 # <a name="roles-and-requirements-for-azure-data-share-preview"></a>Azure 데이터 공유 미리 보기에 대 한 역할 및 요구 사항
 
@@ -30,9 +30,9 @@ Azure 데이터 공유는 Azure 서비스 (이전에는 Msi)의 관리 되는 Id
 | |  |  |
 |---|---|---|
 |**저장소 유형**|**Data Provider 원본 저장소 계정**|**데이터 소비자 대상 저장소 계정**|
-|Azure Blob Storage| Storage Blob 데이터 Reader | Storage Blob 데이터 Contributor
+|Azure Blob Storage| 저장소 Blob 데이터 판독기 | Storage Blob 데이터 Contributor
 |Azure Data Lake Gen1 | 소유자 | 지원되지 않음
-|Azure Data Lake Gen2 | Storage Blob 데이터 Reader | Storage Blob 데이터 Contributor
+|Azure Data Lake Gen2 | 저장소 Blob 데이터 판독기 | Storage Blob 데이터 Contributor
 |
 ### <a name="data-providers"></a>데이터 공급자 
 Azure 데이터 공유에 데이터 집합을 추가 하려면 데이터 공급자 데이터 공유 리소스 관리 id를 Storage Blob 데이터 판독기 역할에 추가 해야 합니다. 사용자가 Azure를 통해 데이터 집합을 추가 하 고 저장소 계정의 소유자 이거나 Microsoft. 권한 부여/역할 할당/쓰기 권한이 할당 된 사용자 지정 역할의 멤버인 경우 Azure 데이터 공유 서비스에서 자동으로이 작업을 수행 합니다. 
@@ -48,7 +48,7 @@ Azure Data Lake Gen1에서 데이터를 공유 하는 경우 역할 할당은 �
 1. **역할 할당 추가를**선택 합니다.
 1. *역할*아래에서 *저장소 Blob 데이터 판독기*를 선택 합니다.
 1. *선택*아래에서 Azure 데이터 공유 계정의 이름을 입력 합니다.
-1. *Save*을 클릭합니다.
+1. *저장*을 클릭합니다.
 
 ### <a name="data-consumers"></a>데이터 소비자
 데이터를 받으려면 데이터 소비자 데이터 공유 리소스 관리 id를 Storage Blob 데이터 참가자 역할에 추가 해야 합니다. 이 역할은 Azure 데이터 공유 서비스에서 저장소 계정에 쓸 수 있도록 하는 데 필요 합니다. 사용자가 Azure를 통해 데이터 집합을 추가 하 고 저장소 계정의 소유자 이거나 Microsoft. 권한 부여/역할 할당/쓰기 권한이 할당 된 사용자 지정 역할의 멤버인 경우 Azure 데이터 공유 서비스에서 자동으로이 작업을 수행 합니다. 
@@ -62,7 +62,7 @@ Azure Data Lake Gen1에서 데이터를 공유 하는 경우 역할 할당은 �
 1. **역할 할당 추가를**선택 합니다.
 1. *역할*아래에서 *저장소 Blob 데이터 참가자*를 선택 합니다. 
 1. *선택*아래에서 Azure 데이터 공유 계정의 이름을 입력 합니다.
-1. *Save*을 클릭합니다.
+1. *저장*을 클릭합니다.
 
 REST Api를 사용 하 여 데이터를 공유 하는 경우의 데이터 공유 계정을 적절 한 역할에 추가 하 여 이러한 역할 할당을 수동으로 만들어야 합니다. 
 

@@ -12,12 +12,12 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 748f49a3f6f36617271a1497ccac6c63821a7693
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 53f808570a298c8e576b6df7b4654196ffc56813
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024647"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177500"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service에서 WebJobs로 백그라운드 작업 실행
 
@@ -171,7 +171,7 @@ when making changes in one don't forget the other two.
 
 ## <a name="ncrontab-expressions"></a>NCRONTAB 식
 
-다음 예제와 같이 포털에 [NCRONRAB 식을](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) 입력 하거나 WebJob *.zip* 파일의 루트에 `settings.job` 파일을 포함할 수 있습니다.
+다음 예제와 같이 포털에 [NCRONTAB 식을](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) 입력 하거나 WebJob *.zip* 파일의 루트에 `settings.job` 파일을 포함할 수 있습니다.
 
 ```json
 {

@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c8a96a4557a500bd4726b8df44ada5df328b7c3
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 2aaa58d3027fecdbfdf594e5712cbdbd758380a7
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290879"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169827"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 액세스 패키지에 대 한 액세스 요청
 
@@ -38,9 +38,9 @@ Azure AD 자격 관리를 사용 하면 액세스 패키지의 수명 동안 자
 
 첫 번째 단계는 액세스 패키지에 대 한 액세스를 요청할 수 있는 내 액세스 포털에 로그인 하는 것입니다.
 
-**필수 역할:** 요청자
+**필수 역할:** 요청
 
-1. 작업 중인 프로젝트 또는 비즈니스 관리자에서 전자 메일 또는 메시지를 찾습니다. 전자 메일에는 액세스 권한을 필요로 하는 액세스 패키지에 대 한 링크가 포함 되어야 합니다. 이 링크는 "myaccess"로 시작 하 고, 디렉터리 힌트를 포함 하 고, 다음과 유사한 액세스 패키지 id로 끝납니다.
+1. 작업 중인 프로젝트 또는 비즈니스 관리자에서 전자 메일 또는 메시지를 찾습니다. 전자 메일에는 액세스 권한을 필요로 하는 액세스 패키지에 대 한 링크가 포함 되어야 합니다. 이 링크는 "myaccess"로 시작 하 고, 디렉터리 힌트를 포함 하 고, 다음과 유사한 액세스 패키지 ID로 끝납니다.
  
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 
@@ -54,7 +54,7 @@ Azure AD 자격 관리를 사용 하면 액세스 패키지의 수명 동안 자
 
 내 액세스 포털에서 액세스 패키지를 찾았으면 요청을 제출할 수 있습니다.
 
-**필수 역할:** 요청자
+**필수 역할:** 요청
 
 1. 목록에서 액세스 패키지를 찾습니다.  필요한 경우 검색 문자열을 입력 하 고 **이름**, **카탈로그**또는 **리소스** 필터를 선택 하 여 검색할 수 있습니다.
 
@@ -83,7 +83,7 @@ Azure AD 자격 관리를 사용 하면 액세스 패키지의 수명 동안 자
 
 액세스 요청을 제출 하 고 요청이 아직 **보류 중인 승인** 상태에 있는 경우 요청을 취소할 수 있습니다.
 
-**필수 역할:** 요청자
+**필수 역할:** 요청
 
 1. 내 액세스 포털의 왼쪽에서 **요청 기록** 을 클릭 하 여 요청 목록과 상태를 표시 합니다.
 
@@ -99,7 +99,7 @@ Azure AD 자격 관리를 사용 하면 액세스 패키지의 수명 동안 자
 
 여러 정책이 적용 되는 액세스 패키지에 대 한 액세스를 요청 하는 경우 정책을 선택 하 라는 메시지가 표시 될 수 있습니다. 예를 들어 액세스 패키지 관리자는 두 개의 내부 직원 그룹에 대해 두 개의 정책으로 액세스 패키지를 구성할 수 있습니다. 첫 번째 정책은 60 일에 대 한 액세스를 허용 하 고 승인을 받아야 할 수 있습니다. 두 번째 정책은 2 일간의 액세스를 허용할 수 있으며 승인이 필요 하지 않습니다. 이 시나리오가 발생 하는 경우 사용 하려는 정책을 선택 해야 합니다.
 
-**필수 역할:** 요청자
+**필수 역할:** 요청
 
 ## <a name="next-steps"></a>다음 단계
 

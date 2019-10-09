@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: e2b407733bcab7bc854e8e3703e53eb474f3425b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 3c50ee149f5bcdda6cbb697830945cdc7f7a15f4
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60615061"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167278"
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric 애플리케이션 업그레이드
 Azure Service Fabric 애플리케이션은 서비스의 컬렉션입니다. 업그레이드가 진행되는 동안 Service Fabric은 새로운 [애플리케이션 매니페스트](service-fabric-application-and-service-manifests.md)를 이전 버전과 비교하여 애플리케이션의 어떤 서비스를 업데이트해야 하는지 결정합니다. 서비스 패브릭은 이전 버전의 버전 번호를 가진 서비스 매니페스트의 버전 번호를 비교합니다. 서비스가 변경되지 않으면 해당 서비스가 업그레이드되지 않습니다.

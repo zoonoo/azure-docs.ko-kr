@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 8fe0bf9c8827b7248195f89377176fd834845e32
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 5e693a219c4a430f742ebd27878518ebb99ce5da
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60615236"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167363"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Visual Studio를 사용하여 서비스 패브릭 애플리케이션 업그레이드 자습서
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "60615236"
 
 Azure 서비스 패브릭을 사용하면 변경된 서비스만 업그레이드하고, 업그레이드 프로세스를 통해 애플리케이션 상태를 모니터링하여 클라우드 애플리케이션 업그레이드 프로세스를 간소화할 수 있습니다. 문제가 발생할 경우 애플리케이션이 자동으로 이전 버전으로 롤백합니다. Service Fabric 애플리케이션 업그레이드는 *가동 중지 시간 없이*애플리케이션을 업그레이드합니다. 이 자습서에서는 Visual Studio를 사용하여 롤링 업그레이드를 완료하는 방법을 설명합니다.
 
-## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>1단계: 빌드 및 시각적 개체 샘플을 게시
+## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>1단계: 시각적 개체 샘플 빌드 및 게시
 먼저 GitHub에서 [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) 애플리케이션을 다운로드합니다. 그런 후 애플리케이션 프로젝트 **VisualObjects**를 마우스 오른쪽 단추로 클릭하고 Service Fabric 메뉴 항목에서 **게시** 명령을 선택하여 애플리케이션을 구축 및 게시합니다.
 
 ![서비스 패브릭 애플리케이션의 상황에 맞는 메뉴][image1]
@@ -43,7 +43,7 @@ Azure 서비스 패브릭을 사용하면 변경된 서비스만 업그레이드
 
 이제 대화 상자에서 **게시** 를 클릭할 수 있습니다. [클러스터 및 애플리케이션을 보는 Service Fabric 탐색기](service-fabric-visualizing-your-cluster.md)를 사용할 수 있습니다. Visual Objects 애플리케이션에는 브라우저의 주소 표시줄에 [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/)를 입력해서 이동할 수 있는 웹 서비스가 있습니다.  화면에서 10개의 부동 시각적 개체가 움직이는 것을 볼 수 있을 것입니다.
 
-**참고:** 에 배포 하는 경우 `Cloud.xml` 프로필 (Azure 서비스 패브릭)에 응용 프로그램에서 사용할 수 해야 **http://{ServiceFabricName}. { Region}.cloudapp.azure.com:8081/visualobjects/** 합니다. 부하 분산 장치에 `8081/TCP`가 구성되었는지 확인합니다(Serivce Fabric 인스턴스와 동일한 리소스 그룹에 부하 분산 장치 찾기).
+**참고:** @No__t-0 프로필 (Azure Service Fabric)에 배포 하는 경우 응용 프로그램을 **http://{ServiceFabricName}에서 사용할 수 있습니다. Region}. cloudapp. .com: 8081/visualobjects/** . 부하 분산 장치에 `8081/TCP`가 구성되었는지 확인합니다(Serivce Fabric 인스턴스와 동일한 리소스 그룹에 부하 분산 장치 찾기).
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>2단계: 시각적 개체 샘플 업데이트
 1단계에서 배포된 버전에서 알 수 있듯이 시각적 개체는 회전하지 않습니다. 이 애플리케이션을 시각적 개체도 회전하도록 업그레이드하겠습니다.

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 7b395bd6024beb52b9263ac4fe655b5328a8e662
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
+ms.lasthandoff: 10/09/2019
 ms.locfileid: "70933148"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Durable Functions 형식 및 기능 (Azure Functions)
@@ -40,17 +40,17 @@ Orchestrator 함수 및 해당 기능에 대 한 자세한 내용은 지 [속성
 > [!NOTE]
 > 활동 함수는 *적어도 한 번* 실행 되도록 보장 하므로 가능 하면 활동 함수 논리를 *idempotent* 하는 것이 좋습니다.
 
-활동 [트리거](durable-functions-bindings.md#activity-trigger) 를 사용 하 여 활동 함수를 정의 합니다. .NET 함수는 [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) 을 매개 변수로 받습니다. 트리거를 다른 serializeable 개체에 바인딩하여 함수에 입력을 전달할 수도 있습니다. JavaScript에서 `<activity trigger binding name>` [ 개체`context.bindings` ](../functions-reference-node.md#bindings)의 속성을 통해 입력에 액세스할 수 있습니다. 작업 함수에는 단일 값만 전달할 수 있습니다. 여러 값을 전달 하려면 튜플, 배열 또는 복합 형식을 사용 해야 합니다.
+활동 [트리거](durable-functions-bindings.md#activity-trigger) 를 사용 하 여 활동 함수를 정의 합니다. .NET 함수는 [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) 을 매개 변수로 받습니다. 트리거를 다른 serializeable 개체에 바인딩하여 함수에 입력을 전달할 수도 있습니다. JavaScript에서 [`context.bindings` 개체](../functions-reference-node.md#bindings)의 `<activity trigger binding name>` 속성을 통해 입력에 액세스할 수 있습니다. 작업 함수에는 단일 값만 전달할 수 있습니다. 여러 값을 전달 하려면 튜플, 배열 또는 복합 형식을 사용 해야 합니다.
 
 > [!NOTE]
 > Orchestrator 함수 에서만 작업 함수를 트리거할 수 있습니다.
 
 ## <a name="entity-functions"></a>Entity 함수
 
-엔터티 함수는 작은 상태를 읽고 업데이트 하기 위한 작업을 정의 합니다. 이러한 상태 저장 엔터티를 *내구성이 있는 엔터티로*자주 참조 합니다. 오 케 스트레이 터 함수와 마찬가지로 엔터티 함수는 특수 트리거 유형인 *엔터티 트리거*를 사용 하는 함수입니다. 클라이언트 함수 또는 orchestrator 함수에서 호출할 수도 있습니다. Orchestrator 함수와 달리 entity 함수는 특정 코드 제약 조건을 포함 하지 않습니다. 또한 엔터티 함수는 제어 흐름을 통해 상태를 암시적으로 표시 하지 않고 명시적으로 상태를 관리 합니다.
+엔터티 함수는 작은 상태를 읽고 업데이트 하기 위한 작업을 정의 합니다. 이러한 상태 저장 엔터티를 *내구성이 있는 엔터티로*자주 참조 합니다. 오케스트레이터 함수와 마찬가지로 엔터티 함수는 특수 트리거 유형인 *엔터티 트리거*를 사용하는 함수입니다. 클라이언트 함수 또는 orchestrator 함수에서 호출할 수도 있습니다. Orchestrator 함수와 달리 entity 함수는 특정 코드 제약 조건을 포함 하지 않습니다. 또한 엔터티 함수는 제어 흐름을 통해 상태를 암시적으로 나타내지 않고 명시적으로 관리합니다.
 
 > [!NOTE]
-> 엔터티 함수 및 관련 기능은 Durable Functions 2.0 이상 에서만 사용할 수 있습니다. 엔터티 함수는 현재 공개 미리 보기로 제공 됩니다.
+> 엔터티 함수 및 관련 기능은 Durable Functions 2.0 이상에서만 사용할 수 있습니다. 엔터티 함수는 현재 공개 미리 보기로 있습니다.
 
 엔터티 함수에 대 한 자세한 내용은 지 [속성 엔터티](durable-functions-entities.md) 문서를 참조 하세요.
 

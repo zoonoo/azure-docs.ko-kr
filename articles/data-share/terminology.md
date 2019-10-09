@@ -1,17 +1,17 @@
 ---
 title: Azure 데이터 공유 미리 보기 용어
-description: Azure 데이터 공유 미리 보기 용어
+description: Azure 데이터 공유 미리 보기에서 사용 되는 리소스를 설명 하는 데 사용 되는 일반적인 용어에 대해 알아봅니다 (데이터 공급자, 데이터 소비자, 데이터 공유, 공유 구독, 스냅숏, 초대, 받는 사람).
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: b78a1b250f46c2ddd2b36e19590c4a94ca3ab3fb
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: dd3235b7d87d8e02f44a440741b90f675263d147
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844695"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166284"
 ---
 # <a name="azure-data-share-preview-concepts"></a>Azure 데이터 공유 미리 보기 개념 
 
@@ -47,9 +47,9 @@ Azure 데이터 공유 미리 보기에는 데이터 공유와 관련 된 몇 �
 
 데이터 공급자가이 설정을 사용 하도록 설정 하면 되풀이 간격을 선택할 수 있습니다. 되풀이 간격은 매시간 또는 매일 일 수 있습니다. 
 
-데이터 소비자는 증분 업데이트를 받기 위해이 스냅숏 일정에 옵트인 (opt in) 할 수 있습니다. 여기에는 새 스냅숏을 처음 생성 한 이후 변경 된 데이터가 포함 됩니다. 
+데이터 소비자는 증분 업데이트를 받기 위해이 스냅숏 일정을 옵트인 (opt in) 할 수 있습니다. 여기에는 새 스냅숏을 처음 생성 한 이후 변경 된 데이터가 포함 됩니다. 
 
-## <a name="invitation"></a>초대
+## <a name="invitation"></a>받은
 
 데이터 공급자는 여러 수신자를 데이터 공유에 초대할 수 있습니다. 데이터 공유에 받는 사람을 추가 하 여이 작업을 수행할 수 있습니다. 데이터 공유를 만든 후에도 초대를 추가할 수 있습니다. 
 

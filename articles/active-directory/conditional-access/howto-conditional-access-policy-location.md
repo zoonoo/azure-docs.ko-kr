@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b31fc3aed0d412646d9924e87170dffcd5145409
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: c782c8bb2807017053375b45560685acf78161e7
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576603"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169979"
 ---
 # <a name="conditional-access-block-access-by-location"></a>조건부 액세스: 위치별 액세스 차단
 
@@ -24,7 +24,7 @@ ms.locfileid: "69576603"
 
 ## <a name="define-locations"></a>위치 정의
 
-1. 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
+1. 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
 1. **Azure Active Directory** > **조건부 액세스**로 이동 합니다.
 1. **새 위치**를 선택 합니다.
 1. 위치에 이름을 지정 합니다.
@@ -37,22 +37,22 @@ ms.locfileid: "69576603"
 
 ## <a name="create-a-conditional-access-policy"></a>조건부 액세스 정책 만들기
 
-1. 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
+1. 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
 1. **Azure Active Directory** > **조건부 액세스**로 이동 합니다.
 1. **새 정책**을 선택합니다.
 1. 정책에 이름을 지정 합니다. 조직에서 정책 이름에 대해 의미 있는 표준을 만드는 것이 좋습니다.
 1. **할당**아래에서 **사용자 및 그룹** 을 선택 합니다.
    1. **포함**아래에서 **모든 사용자**를 선택 합니다.
    1. **완료** 를 선택합니다.
-1. **클라우드 앱 또는 작업** > 에**는** **모든 클라우드 앱**을 선택 하 고 **완료**를 선택 합니다.
+1. **클라우드 앱 또는 작업**@no__t에서 다음을**포함**하 여 **모든 클라우드 앱**을 선택 하 고 **완료**를 선택 합니다.
 1. **조건** > **위치**에 있습니다.
    1. **구성** 을 **예** 로 설정 합니다.
    1. **선택한 위치** 선택 **포함**
    1. 조직에 대해 만든 차단 된 위치를 선택 합니다.
-   1. 완료 **선택** > 을 > 클릭 합니다.
-1. **액세스 제어** > **블록**아래에서 **선택**을 선택 합니다.
+   1. **선택** > **완료** > **완료**를 클릭 합니다.
+1. **액세스 제어** > **블록**에서 **선택**을 선택 합니다.
 1. 설정을 확인 하 고 **정책 사용** 을 **켜기**로 설정 합니다.
-1. 만들기 를 선택 하 여 정책을 사용 하도록 설정 합니다.
+1. 만들기 **를 선택 하** 여 정책을 사용 하도록 설정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

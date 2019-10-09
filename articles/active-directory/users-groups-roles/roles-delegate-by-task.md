@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3799496d13259c943847625a2cf6a39a8edb1d35
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 5933fdd9932bd8c13ab0f231d677ce06112662ed
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207251"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169765"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Azure Active Directory에서 관리 작업별 관리자 역할
 
@@ -35,7 +35,7 @@ ms.locfileid: "70207251"
 모든 사용자에 대한 기능이 비활성화되면 애플리케이션 등록 만들기 | 응용 프로그램 개발자 | 클라우드 애플리케이션 관리자, 애플리케이션 관리자
 커넥터 그룹 만들기 | 애플리케이션 관리자 | 
 커넥터 그룹 삭제 | 애플리케이션 관리자 | 
-응용 프로그램 프록시 사용 안 함 | 애플리케이션 관리자 | 
+애플리케이션 프록시 사용 안 함 | 애플리케이션 관리자 | 
 커넥터 서비스 다운로드 | 애플리케이션 관리자 | 
 모든 구성 읽기 | 애플리케이션 관리자 | 
 
@@ -90,7 +90,7 @@ B2C 감사 로그 읽기 | 글로벌 관리자([설명서 참조](https://docs.m
 알림 구성 | 기여자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | 소유자
 설정 구성 | 소유자([설명서 참조](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | 
 동기화 알림 구성 | 기여자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | 소유자
-ADFS 보안 보고서 읽기 | 보안 읽기 권한자 | 기여자, 소유자
+ADFS 보안 보고서 읽기 | 보안 판독기 | 기여자, 소유자
 모든 구성 읽기 | 읽기 권한자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | 기여자, 소유자
 동기화 오류 읽기 | 읽기 권한자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | 기여자, 소유자
 동기화 서비스 읽기 | 읽기 권한자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | 기여자, 소유자
@@ -106,7 +106,7 @@ ADFS 보안 보고서 읽기 | 보안 읽기 권한자 | 기여자, 소유자
 도메인 관리 | 전역 관리자 | 
 모든 구성 읽기 | 디렉터리 읽기 권한자 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 
-## <a name="domain-services"></a>도메인 서비스
+## <a name="domain-services"></a>Domain Services
 
 태스크 | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
@@ -121,9 +121,9 @@ Azure AD Domain Services 인스턴스 만들기 | 전역 관리자 |
 디바이스 사용 안 함 | 클라우드 디바이스 관리자 | 
 디바이스 사용 | 클라우드 디바이스 관리자 | 
 기본 구성 읽기 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-BitLocker 키 읽기 | 보안 읽기 권한자 | 암호 관리자, 보안 관리자
+BitLocker 키 읽기 | 보안 판독기 | 암호 관리자, 보안 관리자
 
-## <a name="enterprise-applications"></a>엔터프라이즈 응용 프로그램
+## <a name="enterprise-applications"></a>Enterprise 애플리케이션
 
 태스크 | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
@@ -134,7 +134,7 @@ Microsoft Graph 또는 Azure AD Graph에 대한 애플리케이션 권한에 동
 엔터프라이즈 애플리케이션 만들기 | 클라우드 애플리케이션 관리자 | 애플리케이션 관리자
 애플리케이션 프록시 관리 | 애플리케이션 관리자 | 
 사용자 설정 관리 | 전역 관리자 | 
-그룹 또는 앱의 액세스 검토 읽기 | 보안 읽기 권한자 | 보안 관리자, 사용자 관리자
+그룹 또는 앱의 액세스 검토 읽기 | 보안 판독기 | 보안 관리자, 사용자 관리자
 모든 구성 읽기 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 엔터프라이즈 애플리케이션 할당 업데이트 | 엔터프라이즈 애플리케이션 소유자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 클라우드 애플리케이션 관리자, 애플리케이션 관리자
 엔터프라이즈 애플리케이션 소유자 업데이트 | 엔터프라이즈 애플리케이션 소유자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 클라우드 애플리케이션 관리자, 애플리케이션 관리자
@@ -146,7 +146,7 @@ Single Sign-On 속성 업데이트 | 엔터프라이즈 애플리케이션 소�
 ## <a name="entitlement-management"></a>권한 관리
 태스크 | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
-카탈로그에 리소스 추가 | 사용자 관리자 | 권한 관리를 사용 하 여이 작업을 카탈로그 소유자에 게 위임할 수 있습니다 ([설명서 참조](../governance/entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)).
+카탈로그에 리소스 추가 | 사용자 관리자 | 권한 관리를 사용 하 여이 작업을 카탈로그 소유자에 게 위임할 수 있습니다 ([설명서 참조](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)).
 카탈로그에 SharePoint Online 사이트 추가 | 전역 관리자
 
 
@@ -178,9 +178,9 @@ MFA 정책을 구성하고 설정/해제| 보안 관리자 |
 주간 다이제스트 구성 | 보안 관리자| 
 모든 위험 검색 해제 | 보안 관리자 | 
 취약점 수정 또는 해결 | 보안 관리자 | 
-모든 구성 읽기 | 보안 읽기 권한자 | 
-모든 위험 검색 읽기 | 보안 읽기 권한자 | 
-취약점 읽기 | 보안 읽기 권한자 | 
+모든 구성 읽기 | 보안 판독기 | 
+모든 위험 검색 읽기 | 보안 판독기 | 
+취약점 읽기 | 보안 판독기 | 
 
 ## <a name="licenses"></a>라이선스
 
@@ -208,11 +208,11 @@ MFA 정책을 구성하고 설정/해제| 보안 관리자 |
 
 태스크 | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
-선택한 사용자가 생성한 모든 기존 앱 암호 삭제 | 전역 관리자 | 
+선택한 사용자가 생성한 기존의 모든 앱 암호 삭제 | 전역 관리자 | 
 MFA 사용 | 전역 관리자 | 
 MFA 사용 | 전역 관리자 | 
 MFA 서비스 설정 관리 | 전역 관리자 | 
-연락처 메서드를 다시 제공하도록 선택된 사용자 요구 | 인증 관리자 | 
+선택한 사용자가 연락 방법을 다시 제공해야 함 | 인증 관리자 | 
 모든 저장된 디바이스에서 다단계 인증 복원  | 인증 관리자 | 
 
 ## <a name="mfa-server"></a>MFA 서버
@@ -237,7 +237,7 @@ MFA 서비스 설정 관리 | 전역 관리자 |
 태스크 | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 ID 공급자 관리 | 전역 관리자 | 
-설정을관리 | 전역 관리자 | 
+설정 관리 | 전역 관리자 | 
 사용 약관 관리 | 전역 관리자 | 
 모든 구성 읽기 | 전역 관리자 | 
 
@@ -259,15 +259,15 @@ ID 공급자 관리 | 전역 관리자 |
 ---- | --------------------- | ----------------
 역할에 사용자 할당 | 권한 있는 역할 관리자 | 
 역할 설정 구성 | 권한 있는 역할 관리자 | 
-감사 활동 보기 | 보안 독자 | 
-역할 멤버 자격 보기 | 보안 독자 | 
+감사 활동 보기 | 보안 판독기 | 
+역할 멤버 자격 보기 | 보안 판독기 | 
 
 ## <a name="roles-and-administrators"></a>역할 및 관리자
 
 태스크 | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 역할 할당 관리 | 권한 있는 역할 관리자 | 
-Azure AD 역할의 액세스 검토 읽기  | 보안 읽기 권한자 | 보안 관리자, 권한 있는 역할 관리자
+Azure AD 역할의 액세스 검토 읽기  | 보안 판독기 | 보안 관리자, 권한 있는 역할 관리자
 모든 구성 읽기 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 
 ## <a name="security---authentication-methods"></a>보안 - 인증 방법
@@ -294,31 +294,31 @@ VPN 연결 인증서 삭제 | 조건부 액세스 관리자 | 보안 관리자
 사용자 지정 컨트롤 관리 | 조건부 액세스 관리자 | 보안 관리자
 명명된 위치 관리 | 조건부 액세스 관리자 | 보안 관리자
 사용 약관 관리 | 조건부 액세스 관리자 | 보안 관리자
-모든 구성 읽기 | 보안 독자 | 보안 관리자
-명명된 위치 읽기 | 보안 독자 | 조건부 액세스 관리자, 보안 관리자
+모든 구성 읽기 | 보안 판독기 | 보안 관리자
+명명된 위치 읽기 | 보안 판독기 | 조건부 액세스 관리자, 보안 관리자
 
 ## <a name="security---identity-security-score"></a>보안 - ID 보안 점수
 
 태스크 | 최소 권한 역할 | 추가 역할 | 
 ---- | --------------------- | ----------------
-모든 구성 읽기 | 보안 독자 | 보안 관리자
-보안 점수 읽기 | 보안 독자 | 보안 관리자
+모든 구성 읽기 | 보안 판독기 | 보안 관리자
+보안 점수 읽기 | 보안 판독기 | 보안 관리자
 이벤트 상태 업데이트 | 보안 관리자 | 
 
 ## <a name="security---risky-sign-ins"></a>보안 - 위험한 로그인
 
 태스크 | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
-모든 구성 읽기 | 보안 읽기 권한자 | 
-위험한 로그인 읽기 | 보안 읽기 권한자 | 
+모든 구성 읽기 | 보안 판독기 | 
+위험한 로그인 읽기 | 보안 판독기 | 
 
 ## <a name="security---users-flagged-for-risk"></a>보안 - 위험 플래그가 지정된 사용자
 
 태스크 | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 모든 이벤트 해제 | 보안 관리자 | 
-모든 구성 읽기 | 보안 읽기 권한자 | 
-위험 플래그가 지정된 사용자 읽기 | 보안 읽기 권한자 | 
+모든 구성 읽기 | 보안 판독기 | 
+위험 플래그가 지정된 사용자 읽기 | 보안 판독기 | 
 
 ## <a name="users"></a>사용자
 

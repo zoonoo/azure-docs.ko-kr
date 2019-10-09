@@ -1,5 +1,5 @@
 ---
-title: Azure AD 자격 관리 (미리 보기)에서 카탈로그 만들기 및 관리-Azure Active Directory
+title: Azure AD 자격 관리 (미리 보기)에서 리소스 카탈로그 만들기 및 관리-Azure Active Directory
 description: Azure Active Directory 자격 관리 (미리 보기)에서 리소스의 새 컨테이너를 만들고 패키지에 액세스 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1654e0a8cd11ac1c7a2f4ef0667d0e99187c2374
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: a1a6d7901368d19cf5ca8221bc00f426980e6f48
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618321"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169918"
 ---
-# <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리에서 카탈로그 만들기 및 관리 (미리 보기)
+# <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 리소스 카탈로그 만들기 및 관리
 
 > [!IMPORTANT]
 > Azure AD(Azure Active Directory) 권한 관리는 현재 공개 미리 보기로 제공됩니다.
@@ -36,9 +36,7 @@ ms.locfileid: "68618321"
 
 **필수 역할:** 전역 관리자, 사용자 관리자 또는 카탈로그 작성자
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-
-1. **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **카탈로그**를 클릭 합니다.
 
@@ -72,11 +70,13 @@ ms.locfileid: "68618321"
 
 1. **리소스 추가**를 클릭 합니다.
 
-1. 리소스 종류를 클릭 합니다. **그룹**, **응용 프로그램**또는 **SharePoint 사이트**.
+1. 리소스 종류를 클릭 합니다. **그룹, 팀**, **응용 프로그램**또는 **SharePoint 사이트**.
 
     추가 하려는 리소스가 표시 되지 않거나 리소스를 추가할 수 없는 경우 필요한 Azure AD 디렉터리 역할 및 자격 관리 역할이 있는지 확인 합니다. 필요한 역할이 있는 사용자에 게 카탈로그에 리소스를 추가 해야 할 수도 있습니다. 자세한 내용은 [카탈로그에 리소스를 추가 하는 데 필요한 역할](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)을 참조 하세요.
 
 1. 카탈로그에 추가할 유형의 리소스를 하나 이상 선택 합니다.
+
+    ![카탈로그에 리소스 추가](./media/entitlement-management-catalog-create/catalog-add-resources.png)
 
 1. 완료 되 면 **추가**를 클릭 합니다.
 
@@ -98,6 +98,26 @@ ms.locfileid: "68618321"
 
 1. **제거** 를 클릭 하거나 줄임표 ( **...** )를 클릭 한 다음 **리소스 제거**를 클릭 합니다.
 
+## <a name="add-additional-catalog-owners"></a>카탈로그 소유자 추가
+
+카탈로그를 만든 사용자가 첫 번째 카탈로그 소유자가 됩니다. 카탈로그 관리를 위임 하려면 사용자를 카탈로그 소유자 역할에 추가 합니다. 이렇게 하면 카탈로그 관리 책임을 공유 하는 데 도움이 됩니다. 
+
+사용자를 카탈로그 소유자 역할에 할당 하려면 다음 단계를 수행 합니다.
+
+**필수 역할:** 전역 관리자, 사용자 관리자 또는 카탈로그 소유자
+
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+
+1. 왼쪽 메뉴에서 **카탈로그** 를 클릭 한 다음 관리자를 추가 하려는 카탈로그를 엽니다.
+
+1. 왼쪽 메뉴에서 **역할 및 관리자**를 클릭 합니다.
+
+    ![역할 및 관리자 카탈로그](./media/entitlement-management-shared/catalog-roles-administrators.png)
+
+1. **소유자 추가** 를 클릭 하 여 이러한 역할에 대 한 멤버를 선택 합니다.
+
+1. **선택** 을 클릭 하 여 이러한 멤버를 추가 합니다.
+
 ## <a name="edit-a-catalog"></a>카탈로그 편집
 
 카탈로그에 대 한 이름 및 설명을 편집할 수 있습니다. 사용자는 액세스 패키지의 세부 정보에서이 정보를 볼 수 있습니다.
@@ -112,7 +132,7 @@ ms.locfileid: "68618321"
 
 1. 카탈로그의 이름 또는 설명을 편집 합니다.
 
-1. **Save**을 클릭합니다.
+1. **저장**을 클릭합니다.
 
 ## <a name="delete-a-catalog"></a>카탈로그 삭제
 
@@ -130,5 +150,4 @@ ms.locfileid: "68618321"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [카탈로그 작성자 추가](entitlement-management-delegate.md#add-a-catalog-creator)
-- [액세스 패키지 만들기 및 관리](entitlement-management-access-package-create.md)
+- [액세스 관리를 위임 하 여 패키지 관리자 액세스](entitlement-management-delegate-managers.md)

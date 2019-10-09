@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: eb7deacc068661ca9a4f473ee2d36b7d4464c81c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 91dc87cd6bda93663fb4b4eae3d498ae56ba4b3e
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199462"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169605"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 문제 해결 및 제한 사항
 
@@ -36,7 +36,7 @@ Azure Cloud Shell의 문제 해결에 대해 알려진 해결 방법은 다음�
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>잠긴 네트워크 환경에서 Cloud Shell을 사용하지 않도록 설정
 
-- **세부 정보**: 관리자는 사용자를 위해 Cloud Shell에 대한 액세스를 사용하지 않도록 설정할 수 있습니다. Cloud Shell은 거부될 수 있는 `ux.console.azure.com` 도메인에 대한 액세스를 활용하여 portal.azure.com, shell.azure.com, Visual Studio Code Azure 계정 확장 및 docs.microsoft.com을 포함한 Cloud Shell의 진입점에 대한 액세스를 중단합니다.
+- **세부 정보**: 관리자는 사용자를 위해 Cloud Shell에 대한 액세스를 사용하지 않도록 설정할 수 있습니다. Cloud Shell는 거부 될 수 있는 `ux.console.azure.com` 도메인에 대 한 액세스를 활용 하 고, portal.azure.com, shell.azure.com, Visual Studio Code Azure 계정 확장 및 docs.microsoft.com를 비롯 한 Cloud Shell의 진입점에 대 한 액세스를 중지 합니다.
 - **해결 방법**: 네트워크 설정을 통해 `ux.console.azure.com`에 대한 액세스를 사용자 환경으로 제한합니다. Cloud Shell 아이콘은 portal.azure.com에 여전히 존재하지만 서비스에 성공적으로 연결되지 않습니다.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>스토리지 대화 상자 - 오류: 403 RequestDisallowedByPolicy
@@ -54,7 +54,7 @@ Azure Cloud Shell의 문제 해결에 대해 알려진 해결 방법은 다음�
 - **해결 방법**: https 요청 및 websocket 요청을 *.console.azure.com의 도메인에 보낼 수 있도록 네트워크 설정을 구성했는지 확인합니다.
 
 ### <a name="set-your-cloud-shell-connection-to-support-using-tls-12"></a>TLS 1.2를 사용하여 지원을 위한 Cloud Shell 연결 설정
- - **세부 정보**: Cloud Shell에 연결하는 데 사용할 TLS 버전을 정의하려면 브라우저 특정 설정을 지정해야 합니다.
+ - **세부 정보**: Cloud Shell 연결에 대 한 TLS 버전을 정의 하려면 브라우저 관련 설정을 지정 해야 합니다.
  - **해결 방법**: 브라우저의 보안 설정으로 이동하고 "TLS 1.2 사용" 옆의 확인란을 선택합니다.
 
 ## <a name="bash-troubleshooting"></a>Bash 문제 해결
@@ -199,3 +199,5 @@ PowerShell:
   $token= ((Invoke-WebRequest -Uri "$env:MSI_ENDPOINT`?resource=https://management.core.windows.net/" -Headers @{Metadata='true'}).content |  ConvertFrom-Json).access_token
   Invoke-WebRequest -Method Delete -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
   ```
+## <a name="azure-government-limitations"></a>Azure Government 제한 사항
+Azure Government Azure Cloud Shell은 Azure Portal을 통해서만 액세스할 수 있습니다.

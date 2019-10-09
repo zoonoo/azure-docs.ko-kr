@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 10/07/2019
 ms.author: juliako
-ms.openlocfilehash: 2d01828cb61937b45665e953a13795b5346a5f1b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 34d68974366eb17704b4ea1291bd1d29a0eea95a
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030536"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168627"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -36,16 +36,38 @@ ms.locfileid: "72030536"
 
 ## <a name="september-2019"></a>2019년 9월
 
+###  <a name="media-services-v3"></a>Media Services v3  
+
+#### <a name="live-linear-encoding-of-live-events"></a>라이브 이벤트의 라이브 선형 인코딩
+
 Media Services v3은 라이브 이벤트의 라이브 선형 인코딩의 24 시간 x 365 일 미리 보기를 발표 하 고 있습니다.
- 
+
+###  <a name="media-services-v2"></a>Media Services v2  
+
+#### <a name="deprecation-of-media-processors"></a>미디어 프로세서의 사용 중단
+
+*Azure Media Indexer* 및 *Azure Media Indexer 2 Preview*의 사용 중단을 발표 하 고 있습니다. [Azure Media Indexer](../previous/media-services-index-content.md) 미디어 프로세서는 2020 년 10 월 1 일에 사용 중지 됩니다. [Azure Media Indexer 2 Preview](../previous/media-services-process-content-with-indexer2.md) 미디어 프로세서는 2020 년 1 월 1 일에 사용 중지 됩니다. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) 이러한 레거시 미디어 프로세서를 대체 합니다.
+
+자세한 내용은 [Azure Media Indexer에서 마이그레이션 및 Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](../previous/migrate-indexer-v1-v2.md)을 참조 하세요.
+
 ## <a name="august-2019"></a>2019년 8월
 
-### <a name="south-africa-regional-pair-is-open-for-media-services"></a>Media Services에 대 한 동남 공화국 지역 쌍이 열려 있습니다. 
+###  <a name="media-services-v3"></a>Media Services v3  
+
+#### <a name="south-africa-regional-pair-is-open-for-media-services"></a>Media Services에 대 한 동남 공화국 지역 쌍이 열려 있습니다. 
 
 현재 남아프리카 북부와 남아프리카 공화국 지역에서 Media Services를 사용할 수 있습니다.
 
 자세한 내용은 [Media Services v3이 존재 하는 클라우드 및 지역](azure-clouds-regions.md)을 참조 하세요.
 
+###  <a name="media-services-v2"></a>Media Services v2  
+
+#### <a name="deprecation-of-media-processors"></a>미디어 프로세서의 사용 중단
+
+2019 년 11 월 30 일에 사용이 중지 되는 wame ( *Windows Azure Media Encoder* ) 및 *Azure Media Encoder* (AME) 미디어 프로세서의 사용 중단을 발표 하 고 있습니다.
+
+자세한 내용은 [WAME to Media Encoder Standard로 마이그레이션](https://go.microsoft.com/fwlink/?LinkId=2101334) 및 [AME를 Media Encoder Standard로 마이그레이션](https://go.microsoft.com/fwlink/?LinkId=2101335)을 참조 하세요.
+ 
 ## <a name="july-2019"></a>7 월 2019
 
 ### <a name="content-protection"></a>콘텐츠 보호

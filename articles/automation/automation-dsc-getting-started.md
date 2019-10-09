@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 60cd2d21167739e824489e30ebd187a5fc0cc12d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55950892bec71fdff50cdd0e0b1aae107d845739
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61074572"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169742"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Azure Automation 상태 구성 시작하기
 
@@ -22,12 +22,12 @@ ms.locfileid: "61074572"
 
 이 문서에서는 Azure Automation 상태 구성 사용에 대한 단계별 가이드를 제공합니다. 이 문서에 설명된 단계를 수행하지 않고 이미 설정된 샘플 환경을 원하는 경우 다음 Resource Manager 템플릿을 사용할 수 있습니다. [Azure Automation 관리되는 노드 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration) 이 템플릿은 Azure Automation 상태 구성에 의해 관리되는 Azure VM을 포함하는 완료된 Azure Automation 상태 구성 환경을 설정합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 예제를 완료하려면 다음이 필요합니다.
 
 - Azure Automation 계정. Azure Automation 실행 계정 만들기에 대한 지침은 [Azure 실행 계정](automation-sec-configure-azure-runas-account.md)을 참조하세요.
-- Azure Resource Manager VM (클래식 아님) 실행 되는 [지원 되는 운영 체제](automation-dsc-overview.md#operating-system-requirements)합니다. VM 만들기에 대한 지침은 [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- [지원 되는 운영 체제](automation-dsc-overview.md#operating-system-requirements)를 실행 하는 Azure Resource Manager VM (클래식이 아님) VM 만들기에 대한 지침은 [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## <a name="creating-a-dsc-configuration"></a>DSC 구성 만들기
 
@@ -149,14 +149,14 @@ Azure Automation 상태 구성을 사용하여 Azure VM(클래식 및 Resource M
 1. **Virtual Machine**의 세부 정보 페이지에서 **+ 연결**을 클릭합니다.
 
    > [!IMPORTANT]
-   > 실행 하는 Azure Resource Manager VM 이어야 합니다는 [지원 되는 운영 체제](automation-dsc-overview.md#operating-system-requirements)합니다.
+   > 이는 [지원 되는 운영 체제](automation-dsc-overview.md#operating-system-requirements)를 실행 하는 Azure Resource Manager VM 이어야 합니다.
 
 2. **등록** 페이지의 **노드 구성 이름** 상자에서 VM에 적용하려는 노드 구성의 이름을 선택합니다. 이 시점에서 이름을 제공하는 것은 선택 사항입니다. 노드를 온보드한 후 할당된 노드 구성을 변경할 수 있습니다.
    **필요한 경우 노드 다시 부팅**을 선택한 다음, **확인**을 클릭합니다.
 
    ![등록 블레이드의 스크린샷](./media/automation-dsc-getting-started/RegisterVM.png)
 
-   지정한 노드 구성이 **구성 모드 빈도**에서 지정된 간격으로 VM에 적용되고 VM은 **새로 고침 빈도**에서 지정된 간격으로 노드 구성에 대한 업데이트를 확인합니다. 이러한 값을 사용하는 방법에 대한 자세한 내용은 [로컬 구성 관리자 구성](https://msdn.microsoft.com/PowerShell/DSC/metaConfig)을 참조하세요.
+   지정한 노드 구성이 **구성 모드 빈도**에서 지정된 간격으로 VM에 적용되고 VM은 **새로 고침 빈도**에서 지정된 간격으로 노드 구성에 대한 업데이트를 확인합니다. 이러한 값을 사용하는 방법에 대한 자세한 내용은 [로컬 구성 관리자 구성](/powershell/scripting/dsc/managing-nodes/metaConfig)을 참조하세요.
 
 Azure는 VM 온보딩 프로세스를 시작합니다. 완료되면 Automation 계정에서 **상태 구성(DSC)** 페이지의 **노드** 탭에 VM이 표시됩니다.
 

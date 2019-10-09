@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ebf4a0f892e65bf96e07e333cf5446d3036108a0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: aacedeb2c047d1abfc5affdcf94404abbb2c7b62
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099806"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168607"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스)를 설치하고 구성하는 방법
 
@@ -45,7 +45,7 @@ HANA 설치를 시작 하기 전에 다음의 유효성을 검사 합니다.
 
 Microsoft에서 HANA 대규모 인스턴스 단위를 받은 후 다음 설정의 유효성을 검사하고 필요에 따라 조정합니다.
 
-HANA Large Instance를 받고 인스턴스에 대 한 액세스 및 연결을 설정한 후 **첫 번째 단계** 는 인스턴스가 Azure Portal의 올바른 SKU 및 OS와 함께 표시 되는지 여부를 Azure Portal 확인 하는 것입니다. 검사를 수행 하는 데 필요한 단계에 대 한 [Azure Portal 통해 AZURE HANA Large Instances 제어](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal) 를 읽습니다.
+HANA Large Instance를 받고 인스턴스에 대 한 액세스 및 연결을 설정한 후 **첫 번째 단계** 는 인스턴스가 올바른 SKU 및 OS와 함께 표시 되는지 여부를 Azure Portal 확인 하는 것입니다. 검사를 수행 하는 데 필요한 단계에 대 한 [Azure Portal 통해 AZURE HANA Large Instances 제어](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal) 를 읽습니다.
 
 HANA Large Instance를 받고 인스턴스에 대 한 액세스 및 연결을 설정한 후에 **두 번째 단계** 는 os 공급자에 인스턴스의 os를 등록 하는 것입니다. 이 단계에는 Azure의 VM에 배포된 SUSE SMT 인스턴스에 SUSE Linux OS를 등록하는 작업이 포함됩니다. 
 
@@ -142,15 +142,15 @@ Azure 가상 네트워크를 설계하고 해당 가상 네트워크를 HANA 대
 
 아키텍처의 이더넷 세부 정보에 대한 자세한 내용은 [HLI 지원 시나리오](hana-supported-scenario.md)를 참조하세요.
 
-## <a name="storage"></a>저장 공간
+## <a name="storage"></a>스토리지
 
-Azure (Large Instances)의 SAP HANA에 대 한 저장소 레이아웃은 SAP 권장 지침을 `service management` 통해 azure에서 SAP HANA에 의해 구성 됩니다. 이 지침은 [SAP HANA 스토리지 요구 사항](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 백서에 나와 있습니다. 
+Azure (Large Instances)의 SAP HANA에 대 한 저장소 레이아웃은 SAP 권장 지침을 통해 Azure `service management`에서 SAP HANA에 의해 구성 됩니다. 이 지침은 [SAP HANA 스토리지 요구 사항](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 백서에 나와 있습니다. 
 
 각기 다른 HANA 대규모 인스턴스 SKU가 포함된 다양한 볼륨의 대략적인 크기는 [Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 문서화되어 있습니다.
 
 스토리지 볼륨에 대한 명명 규칙은 아래 테이블에 나열되어 있습니다.
 
-| 스토리지 사용량 | 탑재 이름 | 볼륨 이름 | 
+| 스토리지 사용 | 탑재 이름 | 볼륨 이름 | 
 | --- | --- | ---|
 | HANA data | /hana/data/SID/mnt0000\<m> | 스토리지 IP:/hana_data_SID_mnt00001_tenant_vol |
 | HANA log | /hana/log/SID/mnt0000\<m> | 스토리지 IP:/hana_log_SID_mnt00001_tenant_vol |
@@ -172,7 +172,7 @@ HANA/log/backup 볼륨은 데이터베이스 백업용 볼륨으로 지원되지
 
 제공된 스토리지 외에도 1TB 단위로 추가 스토리지 용량을 구입할 수 있습니다. 이 추가 스토리지는 HANA 대규모 인스턴스에 새 볼륨으로 추가할 수 있습니다.
 
-Azure `service management`에서 SAP HANA를 사용 하 여 온 보 딩 하는 동안 고객은 sidadm 사용자 및 sapsys 그룹에 대 한 사용자 ID (UID) 및 그룹 id (GID)를 지정 합니다. 예를 들면 다음과 같습니다. 지정합니다(예: 1000,500). SAP HANA 시스템을 설치하는 동안 동일한 값을 사용해야 합니다. 한 단위에 여러 개의 HANA 인스턴스를 배포하려고 하므로 다수의 볼륨 세트(인스턴스당 하나씩)를 갖게 됩니다. 결과적으로 배포 시 다음을 정의해야 합니다.
+Azure @no__t에서 SAP HANA를 사용 하 여 온 보 딩 하는 동안 고객은 sidadm 사용자 및 sapsys 그룹에 대 한 사용자 ID (UID) 및 그룹 ID (GID)를 지정 합니다. 예를 들면 다음과 같습니다. 지정합니다(예: 1000,500). SAP HANA 시스템을 설치하는 동안 동일한 값을 사용해야 합니다. 한 단위에 여러 개의 HANA 인스턴스를 배포하려고 하므로 다수의 볼륨 세트(인스턴스당 하나씩)를 갖게 됩니다. 결과적으로 배포 시 다음을 정의해야 합니다.
 
 - 다양한 HANA 인스턴스의 SID(sidadm은 여기서 파생됨)
 - 다양한 HANA 인스턴스의 메모리 크기. 인스턴스당 메모리 크기는 각각의 개별적인 볼륨 세트에서 볼륨 크기를 정의합니다.

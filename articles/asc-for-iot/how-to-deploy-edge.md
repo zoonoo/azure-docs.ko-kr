@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 10/08/2019
 ms.author: mlottner
-ms.openlocfilehash: bb6a975d2a2fc2cc3e65fa8969f8b005be8b1417
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 128265cd3e69cd27bab6538c9eb376410439824d
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299712"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176669"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>IoT Edge 장치에 보안 모듈 배포
 
@@ -48,7 +48,7 @@ ms.locfileid: "71299712"
     - 다음 명령을 실행 하 여 AuditD가 활성 상태 인지 확인 합니다. 
    
     `sudo systemctl status auditd`<br>
-    - 예상 응답은 다음과 같습니다.`active (running)` 
+    - 예상 응답은 `active (running)`입니다. 
         
 
 ### <a name="deployment-using-azure-portal"></a>Azure Portal를 사용 하 여 배포
@@ -70,7 +70,7 @@ IoT 용 Azure Security Center에 대 한 IoT Edge 배포를 만드는 세 가지
 
 #### <a name="step-1-add-modules"></a>1단계: 모듈 추가
 
-1. **모듈 추가** 탭의 **배포 모듈** 영역에서 **AzureSecurityCenterforIoT**를 클릭 합니다. 
+1. **모듈 추가** 탭의 **배포 모듈** 영역에서 **AzureSecurityCenterforIoT**에 대 한 **구성** 옵션을 클릭 합니다. 
    
 1. **이름을** **azureiotsecurity**로 변경 합니다.
 1. **이미지 URI** 를 **mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0**로 변경 합니다.
@@ -95,10 +95,13 @@ IoT 용 Azure Security Center에 대 한 IoT Edge 배포를 만드는 세 가지
 1. 모듈 쌍 **의 desired 속성 설정** 이 선택 되어 있는지 확인 하 고 구성 개체를로 변경 합니다.
       
     ``` json
-    "desired": {
-        "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
-          } 
-        }
+    { 
+       "properties.desired":{ 
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{ 
+
+          }
+       }
+    }
     ```
 
 1. **저장**을 클릭합니다.
@@ -110,13 +113,25 @@ IoT 용 Azure Security Center에 대 한 IoT Edge 배포를 만드는 세 가지
          
     ``` json
     { 
-    "HostConfig":{
-                    "PortBindings":{
-                    "8883/tcp": [{"HostPort": "8883"}],
-                    "443/tcp": [{"HostPort": "443"}],
-                    "5671/tcp": [{"HostPort": "5671"}]
-                    }
-        }
+       "HostConfig":{ 
+          "PortBindings":{ 
+             "8883/tcp":[ 
+                { 
+                   "HostPort":"8883"
+                }
+             ],
+             "443/tcp":[ 
+                { 
+                   "HostPort":"443"
+                }
+             ],
+             "5671/tcp":[ 
+                { 
+                   "HostPort":"5671"
+                }
+             ]
+          }
+       }
     }
     ```
 1. **저장**을 클릭합니다.
@@ -125,16 +140,15 @@ IoT 용 Azure Security Center에 대 한 IoT Edge 배포를 만드는 세 가지
 
 #### <a name="step-2-specify-routes"></a>2단계: 경로 지정 
 
-1. **경로 지정** 탭에서 **azureiotsecurity** 모듈에서 **$upstream**로 메시지를 전달 하는 경로 (명시적 또는 암시적)가 있는지 확인 합니다. 
-1. **다음**을 클릭합니다.
+1. **경로 지정** 탭에서 다음 예제에 따라 **azureiotsecurity** 모듈에서 **$upstream** 로 메시지를 전달 하는 경로 (명시적 또는 암시적)가 있는지 확인 한 **후 다음을 클릭 합니다.** 
 
-    ~~~Default implicit route
-    "route": "FROM /messages/* INTO $upstream" 
-    ~~~
+~~~Default implicit route
+"route": "FROM /messages/* INTO $upstream" 
+~~~
 
-    ~~~Explicit route
-    "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
-    ~~~
+~~~Explicit route
+"ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
+~~~
 
 #### <a name="step-3-review-deployment"></a>3단계: 배포 검토
 
@@ -166,7 +180,7 @@ IoT 용 Azure Security Center에 대 한 IoT Edge 배포를 만드는 세 가지
 
    `sudo docker logs azureiotsecurity`
    
-1. 자세한 로그를 보려면 **azureiotsecurity** 모듈 배포 `logLevel=Debug`에 다음 환경 변수를 추가 합니다.
+1. 자세한 로그를 보려면 **azureiotsecurity** 모듈 배포에 다음 환경 변수를 추가 합니다. `logLevel=Debug`.
 
 ## <a name="next-steps"></a>다음 단계
 

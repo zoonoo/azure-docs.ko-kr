@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 9e3df59af33d6e5fdd1024d42c34dc2b4ed3184e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 40ce5c4f73daac2b88d3a59e46d43dba10db0954
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873187"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177987"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>장치-클라우드 IoT Hub 메시지에 대 한 메시지 강화 (미리 보기)
 
@@ -29,7 +29,7 @@ ms.locfileid: "69873187"
 
 * 보강을 적용 해야 하는 하나 이상의 [끝점](iot-hub-devguide-endpoints.md) 입니다.
 
-**키** 가 문자열입니다. 키에는 영숫자와 특수 문자 (하이픈 (`-`), 밑줄 (`_`) 및 마침표 (`.`)만 사용할 수 있습니다.
+**키** 가 문자열입니다. 키에는 영숫자 문자 또는 하이픈 (`-`), 밑줄 (`_`) 및 마침표 (`.`)와 같은 특수 문자만 사용할 수 있습니다.
 
 **값** 은 다음 중 하나일 수 있습니다.
 
@@ -78,7 +78,7 @@ Event Grid으로 끝점을 선택 하 여 Event Grid에 게시 되는 메시지�
 
 * 강화 메시지는 디지털 쌍 변경 이벤트 ( [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부)에 적용 되지 않습니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 메시지 강화는 추가 요금 없이 사용할 수 있습니다. 현재 IoT Hub에 메시지를 보낼 때 요금이 청구 됩니다. 메시지가 여러 끝점으로 이동 하더라도 해당 메시지에 대해 한 번만 요금이 청구 됩니다.
 
@@ -90,8 +90,8 @@ Event Grid으로 끝점을 선택 하 여 Event Grid에 게시 되는 메시지�
 
 IoT Hub로 메시지를 라우팅하는 방법에 대 한 자세한 내용은 다음 문서를 확인 하세요.
 
-* [메시지 개선 자습서](tutorial-message-enrichments.md)
+* [메시지 강화 자습서](tutorial-message-enrichments.md)
 
 * [IoT Hub 메시지 라우팅을 사용 하 여 다른 끝점으로 장치-클라우드 메시지 보내기](iot-hub-devguide-messages-d2c.md)
 
-* [자습서: IoT Hub 라우팅](tutorial-routing.md)
+* [자습서: IoT Hub routing @ no__t-0

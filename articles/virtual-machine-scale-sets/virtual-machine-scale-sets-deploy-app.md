@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 09145612821cb669e26e3ccb8d15611112eca700
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 996006c60e754437f8f863c7e7a72c929ed77f2c
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60618628"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166202"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>가상 머신 확장 세트에 애플리케이션 배포
 
@@ -45,9 +45,9 @@ Azure 플랫폼 이미지 중 하나를 사용하여 확장 집합에서 인스�
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>PowerShell DSC를 사용하여 Windows VM에 앱 설치
-[PowerShell DSC(Desired State Configuration)](https://msdn.microsoft.com/powershell/dsc/overview)는 대상 컴퓨터의 구성을 정의하는 관리 플랫폼입니다. DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법을 정의합니다. LCM(로컬 구성 관리자) 엔진은 푸시된 구성에 따라 요청된 작업을 처리하는 각 대상 노드에서 실행됩니다.
+[PowerShell DSC(Desired State Configuration)](/powershell/scripting/dsc/overview/overview)는 대상 컴퓨터의 구성을 정의하는 관리 플랫폼입니다. DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법을 정의합니다. LCM(로컬 구성 관리자) 엔진은 푸시된 구성에 따라 요청된 작업을 처리하는 각 대상 노드에서 실행됩니다.
 
-PowerShell DSC 확장을 사용하면 PowerShell을 통해 확장 집합의 VM 인스턴스를 사용자 지정할 수 있습니다. 다음 예제를 참조하세요.
+PowerShell DSC 확장을 사용하면 PowerShell을 통해 확장 집합의 VM 인스턴스를 사용자 지정할 수 있습니다. 다음 예제가 하는 일:
 
 - VM 인스턴스가 GitHub에서 DSC 패키지를 다운로드하도록 지시합니다( *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip* ).
 - 설치 스크립트를 실행하도록 확장을 설정합니다(`configure-http.ps1`).

@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: 430d90b2b372602072527c49796244c503778a3b
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 2f847d8db983303d46b465f4f80bff65eeff632f
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959017"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168499"
 ---
 # <a name="virtual-wan-partners"></a>Virtual WAN 파트너
 
@@ -215,11 +215,13 @@ Azure에 분기 (온-프레미스 사이트) 정보를 업로드 하는 사용�
 * IPsec 무결성 알고리즘
 * PFS 그룹
 
-### <a name="default"></a>IPsec 연결에 대한 기본 정책 
+### <a name="default"></a>IPsec 연결에 대한 기본 정책
 
-기본 정책으로 작업할 때 Azure는 IPsec 터널을 설정 하는 동안 초기자와 응답자 역할을 모두 수행할 수 있습니다. Azure는 응답자 전용으로 지원 되지 않습니다.
+[!INCLUDE [IPsec Default](../../includes/virtual-wan-ipsec-include.md)]
 
-[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
+### <a name="custom"></a>IPsec 연결에 대 한 사용자 지정 정책
+
+[!INCLUDE [IPsec Custom](../../includes/virtual-wan-ipsec-custom-include.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

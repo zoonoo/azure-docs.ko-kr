@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 6df6bb5c0be4bf1779541a815bd933965024809f
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: e2faf444aa411f0e60f1b5c7b1f811abc2f6b63a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960399"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176678"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux용 DSC 확장(Microsoft.OSTCExtensions.DSCForLinux)
 
 DSC(Desired State Configuration)는 구성을 코드로 사용하여 IT 및 개발 인프라를 관리할 수 있게 하는 관리 플랫폼입니다.
 
-> ! 참고 Linux 용 DSC 확장 및 [linux 용 Azure Monitor 가상 머신 확장](/virtual-machines/extensions/oms-linux) 은 현재 충돌을 제공 하며 side-by-side 구성에서 지원 되지 않습니다.  즉, 동일한 VM에서 두 솔루션을 함께 사용 하면 안 됩니다.
+> ! 참고 Linux 용 DSC 확장 및 [linux 용 Azure Monitor 가상 머신 확장](/azure/virtual-machines/extensions/oms-linux) 은 현재 충돌을 제공 하며 side-by-side 구성에서 지원 되지 않습니다.  즉, 동일한 VM에서 두 솔루션을 함께 사용 하면 안 됩니다.
 
 DSCForLinux 확장은 Microsoft에서 게시하고 지원합니다. 확장은 OMI 및 DSC 에이전트를 Azure 가상 머신에 설치합니다. DSC 확장에서는 다음 작업도 수행할 수 있습니다.
 
@@ -41,14 +41,14 @@ DSCForLinux 확장은 Microsoft에서 게시하고 지원합니다. 확장은 OM
 
 ### <a name="operating-system"></a>운영 체제
 
-DSC Linux 확장은 다음을 제외한 모든 [Azure 보증 Linux 배포판](/virtual-machines/linux/endorsed-distros)을 지원합니다.
+DSC Linux 확장은 다음을 제외한 모든 [Azure 보증 Linux 배포판](/azure/virtual-machines/linux/endorsed-distros)을 지원합니다.
 
 | 배포 | 버전 |
 |---|---|
 | Debian | 모든 버전 |
 | Ubuntu| 18.04 |
  
-### <a name="internet-connectivity"></a>인터넷에 연결
+### <a name="internet-connectivity"></a>인터넷 연결
 
 DSCForLinux 확장을 사용하려면 대상 가상 머신이 인터넷에 연결되어 있어야 합니다. 예를 들어 등록 확장에는 Automation 서비스에 대한 연결이 필요합니다. Push, Pull, Install과 같은 다른 작업의 경우 Azure 스토리지/Github에 연결해야 합니다. 이러한 연결은 고객이 제공하는 설정에 따라 달라집니다.
 
@@ -305,7 +305,7 @@ $ azure vm extension set <vm-name> DSCForLinux Microsoft.OSTCExtensions <version
 $ azure vm extension list
 ```
 
-#### <a name="212-resource-manager"></a>2.1.2. Resource Manager
+#### <a name="212-resource-manager"></a>2.1.2. 리소스 관리자
 다음을 실행하여 Azure Resource Manager 모드로 전환할 수 있습니다.
 ```
 $ azure config mode arm

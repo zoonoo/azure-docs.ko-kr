@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 69e001530de238f5d38c46b0a238a087f4487d9c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d68934174c3bbb53bba4eb786ac79ab94725151b
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023671"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166225"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>쿼리 저장소를 사용 하 여 Azure Database for MariaDB 성능 모니터링
 
@@ -104,7 +104,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 > [!NOTE]
 > 현재 **query_store_capture_mode** 는이 구성을 대체 합니다. 즉, 모든 대기 통계가 작동 하려면 **query_store_capture_mode** 와 **query_store_wait_sampling_capture_mode** 를 모두 사용 하도록 설정 해야 합니다. **Query_store_capture_mode** 가 해제 된 경우 대기 통계는 performance_schema를 사용 하 고 query_text는 쿼리 저장소로 캡처한 후에도 대기 통계가 꺼집니다.
 
- [Azure Portal](howto-server-parameters.md) 를 사용 하 여 매개 변수에 대 한 다른 값을 가져오거나 설정 합니다.
+[Azure Portal](howto-server-parameters.md) 를 사용 하 여 매개 변수에 대 한 다른 값을 가져오거나 설정 합니다.
 
 ## <a name="views-and-functions"></a>보기 및 함수
 

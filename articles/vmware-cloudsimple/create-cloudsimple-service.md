@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d6d4af28d79b2375e774da98d4fdb1ad9dc22063
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 99194c42dbc6ef07301be517021bf0fb4b4e7c23
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035731"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173499"
 ---
 # <a name="create-the-azure-vmware-solution-by-cloudsimple-service"></a>CloudSimple service에서 Azure VMware 솔루션 만들기
 
@@ -30,10 +30,10 @@ CloudSimple로 Azure VMware 솔루션을 시작 하려면 Azure Portal에서 Clo
 
 1. **모든 서비스**를 선택합니다.
 2. **Cloudsimple 서비스**를 검색 합니다.
-    ![CloudSimple Service 검색](media/create-cloudsimple-service-search.png)
+    ![ 검색 CloudSimple Service @ no__t-1
 3. **Cloudsimple 서비스**를 선택 합니다.
 4. **추가** 를 클릭 하 여 새 서비스를 만듭니다.
-    ![CloudSimple Service 추가](media/create-cloudsimple-service-add.png)
+    ![Add CloudSimple Service @ no__t-1
 5. CloudSimple 서비스를 만들려는 구독을 선택 합니다.
 6. 서비스에 대 한 리소스 그룹을 선택 합니다. 새 리소스 그룹을 추가 하려면 **새로 만들기**를 클릭 합니다.
 7. 서비스를 식별 하는 이름을 입력 합니다.
@@ -46,5 +46,6 @@ CloudSimple로 Azure VMware 솔루션을 시작 하려면 Azure Portal에서 Clo
 
 ## <a name="next-steps"></a>다음 단계
 
+* [노드를 프로 비전](create-nodes.md) 하는 방법 알아보기
 * [사설 클라우드를 만드는](create-private-cloud.md) 방법 알아보기
 * [사설 클라우드 환경을 구성](quickstart-create-private-cloud.md) 하는 방법 알아보기

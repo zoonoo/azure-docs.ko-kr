@@ -6,6 +6,16 @@
       href: resource-group-overview.md
     - name: 템플릿 개요
       href: template-deployment-overview.md
+- name: 빠른 시작
+  items:
+    - name: 템플릿 만들기 - 포털
+      href: resource-manager-quickstart-create-templates-use-the-portal.md
+    - name: 템플릿 만들기 - VS Code
+      href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
+    - name: 템플릿 만들기 - Visual Studio
+      href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+    - name: 템플릿 만들기 - IntelliJ IDEA
+      href: resource-manager-quickstart-create-templates-use-intellij.md
 - name: 자습서
   items:
     - name: 초급자
@@ -32,14 +42,6 @@
           href: template-tutorial-use-parameter-file.md
     - name: 고급
       items:
-        - name: 템플릿 만들기 - 포털
-          href: resource-manager-quickstart-create-templates-use-the-portal.md
-        - name: 템플릿 만들기 - VS Code
-          href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
-        - name: 템플릿 만들기 - Visual Studio
-          href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
-        - name: 템플릿 만들기 - IntelliJ IDEA
-          href: resource-manager-quickstart-create-templates-use-intellij.md
         - name: 템플릿 참조 활용
           href: resource-manager-tutorial-create-encrypted-storage-accounts.md
         - name: 여러 인스턴스 만들기

@@ -15,12 +15,12 @@ ms.date: 10/16/2018
 ms.author: cephalin
 ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: 7c899bae6cf36e68664a3ce60939f72a4b5bd1ab
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 9569928882bcaaa1d2406c9af1b2197c2ba6e93d
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001201"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177510"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Azure App Service에 대한 SSL 인증서 구입 및 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "71001201"
 > App Service Certificates는 Azure 또는 비 Azure 서비스에 대해 사용할 수 있으며 App Services로 제한되지 않습니다. 그렇게 하려면 어디서든 사용할 수 있는 App Service Certificate의 로컬 PFX 복사본을 만들어야 합니다. 자세한 내용은 [App Service Certificate의 로컬 PFX 복사본 만들기](https://blogs.msdn.microsoft.com/benjaminperkins/2017/04/12/export-an-azure-app-service-certificate-pfx-powershell/)를 참고하세요.
 >
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드를 수행하려면 다음이 필요합니다.
 
@@ -47,10 +47,10 @@ ms.locfileid: "71001201"
 
 다음 표를 사용하여 인증서를 구성할 수 있습니다. 작업을 마쳤으면 **만들기**를 클릭합니다.
 
-| 설정 | Description |
+| 설정 | 설명 |
 |-|-|
 | 이름 | App Service Certificate에 대한 식별 이름입니다. |
-| Naked 도메인 호스트 이름 | 여기에서 루트 도메인을 지정 합니다. 발급 된 인증서는 루트 도메인과 `www` 하위 도메인을 모두 보호 합니다. 발급 된 인증서에서 일반 이름 필드는 루트 도메인을 포함 하 고, 주체 대체 이름 필드는 `www` 도메인을 포함 합니다. 하위 도메인만 보호하려면 여기에 하위 도메인의 정규화된 도메인 이름을 지정합니다(예: `mysubdomain.contoso.com`).|
+| Naked 도메인 호스트 이름 | 여기에서 루트 도메인을 지정 합니다. 발급 된 인증서는 루트 도메인과 `www` 하위 도메인을 *모두* 보호 합니다. 발급 된 인증서에서 일반 이름 필드는 루트 도메인을 포함 하 고, 주체 대체 이름 필드는 `www` 도메인을 포함 합니다. 하위 도메인만 보호하려면 여기에 하위 도메인의 정규화된 도메인 이름을 지정합니다(예: `mysubdomain.contoso.com`).|
 | 구독 | 웹앱이 호스팅된 데이터 센터입니다. |
 | 리소스 그룹 | 인증서를 포함하는 리소스 그룹입니다. 예를 들어, 새로운 리소스 그룹을 사용하거나 App Service 앱과 동일한 리소스 그룹을 선택할 수 있습니다. |
 | 인증서 SKU | 표준 인증서 또는 [와일드 카드 인증서](https://wikipedia.org/wiki/Wildcard_certificate) 여부에 관계없이 만들려는 인증서 유형을 결정합니다. |
@@ -66,7 +66,7 @@ ms.locfileid: "71001201"
 
 [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 되는 Azure 서비스입니다. App Service Certificate에 대해 선택한 스토리지입니다.
 
-**Key Vault 상태** 페이지에서 **Key Vault 리포지토리**를 클릭하여 새 자격 증명 모음을 만들거나 기존 자격 증명 모음을 선택합니다. 새 자격 증명 모음을 만들려면 다음 표를 사용하여 자격 증명 모음을 구성하고 만들기를 클릭합니다. 동일한 구독 및 리소스 그룹 내에서 새로운 Key Vault 생성을 참조하세요.
+**Key Vault 상태** 페이지에서 **Key Vault 리포지토리**를 클릭하여 새 자격 증명 모음을 만들거나 기존 자격 증명 모음을 선택합니다. 새 자격 증명 모음을 만들도록 선택 하는 경우 다음 표를 참조 하 여 자격 증명 모음을 구성 하 고 **만들기**를 클릭 합니다.
 
 | 설정 | 설명 |
 |-|-|
@@ -111,7 +111,7 @@ ms.locfileid: "71001201"
 
 다음 표를 사용하여 **SSL 바인딩** 대화 상자에서 바인딩을 구성한 다음, **바인딩 추가**를 클릭합니다.
 
-| 설정 | Description |
+| 설정 | 설명 |
 |-|-|
 | Hostname | SSL 바인딩을 추가할 도메인 이름입니다. |
 | 프라이빗 인증서 지문 | 바인딩할 인증서입니다. |
@@ -121,7 +121,7 @@ ms.locfileid: "71001201"
 
 `HTTP://<domain_name>` 대신 `HTTPS://<domain_name>`을 사용하여 앱에 방문하여 인증서가 올바르게 구성되었는지 확인합니다.
 
-## <a name="rekey-certificate"></a>인증서 키 다시 생성
+## <a name="rekey-certificate"></a>인증서 다시 생성
 
 인증서의 개인 키가 손상 되었다고 생각 되는 경우 인증서를 다시 만들 수 있습니다. [App Service 인증서](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택 하 고 왼쪽 탐색 모음에서 키 다시 생성 **및 동기화** 를 선택 합니다.
 
