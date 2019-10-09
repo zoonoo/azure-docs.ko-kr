@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: ca0ac228bfe10992b658796d123c8dfbed74947f
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 0aecb2309743ffecc2fb68435192224c6c690aee
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948173"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035116"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>순서가 지정 된 클러스터형 columnstore 인덱스로 성능 튜닝  
 
@@ -43,7 +43,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> 순서가 지정 된 CCI 테이블에서 DML 또는 데이터 로드 작업으로 인해 발생 하는 새 데이터는 자동으로 정렬 되지 않습니다.  사용자는 정렬 된 CCI를 다시 작성 하 여 테이블의 모든 데이터를 정렬할 수 있습니다.  
+> 순서가 지정 된 CCI 테이블에서 DML 또는 데이터 로드 작업으로 인해 발생 하는 새 데이터는 자동으로 정렬 되지 않습니다.  사용자는 정렬 된 CCI를 다시 작성 하 여 테이블의 모든 데이터를 정렬할 수 있습니다.  Azure SQL Data Warehouse에서 columnstore 인덱스 다시 작성은 오프 라인 작업입니다.  분할 된 테이블의 경우 다시 작성은 한 번에 하나의 파티션으로 수행 됩니다.  다시 작성 되는 파티션의 데이터는 "오프 라인" 이며 해당 파티션에 대해 다시 작성이 완료 될 때까지 사용할 수 없습니다. 
 
 ## <a name="query-performance"></a>쿼리 성능
 
@@ -84,11 +84,17 @@ SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
 
 ## <a name="data-loading-performance"></a>데이터 로드 성능
 
-정렬 된 CCI 테이블로 데이터를 로드 하는 성능은 분할 된 테이블로 데이터를 로드 하는 것과 비슷합니다.  
-데이터를 정렬 하기 때문에 순서가 지정 되지 않은 CCI 테이블에 데이터를 로드 하는 것 보다 시간이 더 오래 걸릴 수 있습니다.  
+정렬 된 CCI 테이블로 데이터를 로드 하는 성능은 분할 된 테이블과 유사 합니다.  데이터 정렬 작업으로 인해 순서가 지정 된 CCI 테이블에 데이터를 로드 하는 데 시간이 오래 걸릴 수 있지만 나중에 순서가 지정 된 CCI를 사용 하 여 쿼리를 더 빠르게 실행할 수 있습니다.  
 
 다음은 서로 다른 스키마를 사용 하는 테이블로 데이터를 로드 하는 경우의 성능 비교 예제입니다.
-@no__t 0Performance_comparison_data_loading @ no__t-1
+
+![Performance_comparison_data_loading](media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
+
+
+다음은 CCI와 정렬 된 CCI 간의 쿼리 성능 비교 예제입니다.
+
+![Performance_comparison_data_loading](media/performance-tuning-ordered-cci/occi_query_performance.png)
+
  
 ## <a name="reduce-segment-overlapping"></a>겹치는 세그먼트 줄이기
 
@@ -116,7 +122,7 @@ OPTION (MAXDOP 1);
 1.  대상 대량 테이블 (테이블 A 라고 함)에 파티션을 만듭니다.
 2.  테이블 A와 동일한 테이블 및 파티션 스키마를 사용 하 여 빈 정렬 된 CCI 테이블 (테이블 B 라고 함)을 만듭니다.
 3.  테이블 A에서 테이블 B로 파티션 하나를 전환 합니다.
-4.  ALTER INDEX < Ordered_CCI_Index를 실행 하 여 테이블 B에서 다시 작성 > 하 여 전환 된 파티션을 다시 작성 합니다.  
+4.  테이블 B에서 ALTER INDEX < Ordered_CCI_Index > REBUILD PARTITION = < Partition_ID >를 실행 하 여 전환 된 파티션을 다시 작성 합니다.  
 5.  표 A의 각 파티션에 대해 3 단계와 4 단계를 반복 합니다.
 6.  모든 파티션이 테이블 A에서 테이블 B로 전환 되 고 다시 작성 된 후 테이블 A를 삭제 하 고 테이블 B의 이름을 Table A로 변경 합니다. 
 

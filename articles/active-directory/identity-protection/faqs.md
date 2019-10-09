@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e30f8264870272fc12dcb7e15b37e5fd30688bcb
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 8d36b513b6835088b5120072906667cd30af505d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126519"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025735"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Azure Active Directory ID 보호 FAQ
 
@@ -41,6 +41,6 @@ ms.locfileid: "70126519"
 
 ## <a name="how-can-i-sort-users-in-users-flagged-for-risk"></a>'위험에 대한 플래그가 지정된 사용자'의 사용자를 어떻게 정렬할 수 있나요?
 
-**A:** 위험 플래그가 지정된 사용자 보고서는 **위험 플래그가 지정된 사용자** 페이지의 위쪽에서 **다운로드** 를 클릭하여 다운로드합니다. 그런 다음, [마지막으로 업데이트한 날짜(UTC)]를 포함한 사용 가능한 필드에 따라 다운로드된 데이터를 정렬할 수 있습니다.
+**A:** **위험 플래그가 지정 된 사용자** 페이지의 위쪽에서 **다운로드** 를 클릭 하 여 위험 플래그가 지정 된 사용자 보고서를 다운로드 합니다. 그런 다음, [마지막으로 업데이트한 날짜(UTC)]를 포함한 사용 가능한 필드에 따라 다운로드된 데이터를 정렬할 수 있습니다.
 
 ---

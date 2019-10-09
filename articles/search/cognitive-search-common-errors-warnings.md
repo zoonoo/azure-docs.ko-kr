@@ -9,19 +9,26 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: abmotley
-ms.openlocfilehash: 18befbfb924129518ac32a7fdddaa9ee573840b0
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: b5a161e570489e6382f2226ab5dc9a1c34dc67df
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936480"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028325"
 ---
 # <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-search"></a>Azure Search AI 보강 파이프라인의 일반적인 오류 및 경고
 
 이 문서에서는 Azure Search AI 보강 중 발생할 수 있는 일반적인 오류 및 경고에 대 한 정보 및 솔루션을 제공 합니다.
 
 ## <a name="errors"></a>오류
-오류 수가 [' maxfaileditems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures)를 초과 하면 인덱싱이 중지 됩니다. 다음 섹션에서는 오류를 해결 하는 데 도움이 될 수 있으므로 인덱싱을 계속할 수 있습니다.
+오류 수가 [' Maxfaileditems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures)를 초과 하면 인덱싱이 중지 됩니다. 
+
+인덱서를 통해 이러한 오류를 무시 하 고 "실패 한 문서"를 건너뛰도록 하려면 [여기](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers)에 설명 된 대로 `maxFailedItems` 및 `maxFailedItemsPerBatch`을 업데이트 하는 것이 좋습니다.
+
+> [!NOTE]
+> 문서 키 (사용 가능한 경우)와 함께 실패 한 각 문서는 인덱서 실행 상태에서 오류로 표시 됩니다. 오류가 허용 되도록 인덱서를 설정한 경우 [인덱스 api](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 를 활용 하 여 나중에 수동으로 문서를 업로드할 수 있습니다.
+
+다음 섹션에서는 오류를 해결 하는 데 도움이 될 수 있으므로 인덱싱을 계속할 수 있습니다.
 
 ### <a name="could-not-read-document"></a>문서를 읽을 수 없습니다.
 인덱서가 데이터 소스에서 문서를 읽을 수 없습니다. 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
@@ -51,6 +58,14 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 | 문서 키가 잘못 되었습니다. | 문서 키는 1024 자를 초과할 수 없습니다. | 유효성 검사 요구 사항에 맞게 문서 키를 수정 합니다. |
 | 필드에 필드 매핑을 적용할 수 없습니다. | 매핑 함수 `'functionName'`을 (를) @no__t 필드에 적용할 수 없습니다. 배열은 null 일 수 없습니다. 매개 변수 이름: 바이트 | 인덱서에 정의 된 [필드 매핑을](search-indexer-field-mappings.md) 두 번 확인 하 고 실패 한 문서의 지정 된 필드의 데이터와 비교 합니다. 필드 매핑 또는 문서 데이터를 수정 해야 할 수도 있습니다. |
 | 필드 값을 읽을 수 없습니다. | 인덱스 `'fieldIndex'`에서 `'fieldName'` 열의 값을 읽을 수 없습니다. 서버에서 결과를 받을 때 전송 수준 오류가 발생했습니다. (공급자: TCP 공급자, 오류: 0-기존 연결이 원격 호스트에 의해 강제로 끊겼습니다.) | 이러한 오류는 일반적으로 데이터 원본의 기본 서비스와 관련 된 예기치 않은 연결 문제로 인해 발생 합니다. 나중에 인덱서를 통해 문서를 다시 실행 해 보세요. |
+
+### <a name="could-not-index-document"></a>문서를 인덱싱할 수 없습니다.
+문서를 읽고 처리 했지만 인덱서가 검색 인덱스에 추가할 수 없습니다. 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
+
+| Reason | 예제 | 작업 |
+| --- | --- | --- |
+| 필드에 너무 많은 용어가 있습니다. | 문서의 용어가 [32 KB 제한](search-limits-quotas-capacity.md#api-request-limits) 보다 큽니다. | 필드가 필터링 가능, 패싯 가능 또는 정렬 가능으로 구성 되지 않도록 하 여이 제한을 피할 수 있습니다.
+| 문서가 너무 커서 인덱싱할 수 없습니다. | 문서가 [최대 api 요청 크기](search-limits-quotas-capacity.md#api-request-limits) 보다 큽니다. | [대량 데이터 집합을 인덱싱하는 방법](search-howto-large-index.md)
 
 ### <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>기술 입력 ' languageCode '에 다음 언어 코드 ' X, Y, Z '가 하나 이상 잘못 되었습니다.
 다운스트림 기술에 대 한 선택적 `languageCode` 입력으로 전달 된 값 중 하나 이상이 지원 되지 않습니다. 이 문제는 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) 의 출력을 후속 기술로 전달 하 고 출력이 해당 다운스트림 기술에서 지원 되는 것 보다 많은 언어로 구성 된 경우에 발생할 수 있습니다.
@@ -110,7 +125,19 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 
 @No__t-0 매개 변수에 대해 설정할 수 있는 최대값은 230 초입니다.  사용자 지정 기술이 230 초 내에 일관 되 게 실행할 수 없는 경우 단일 실행 내에서 처리할 문서 수가 줄어들기 때문에 사용자 지정 기술 `batchSize`을 줄이는 것이 좋습니다.  @No__t-0을 1로 이미 설정한 경우에는 230 초 이내에 실행할 수 있도록 기술을 다시 작성 해야 합니다. 그렇지 않으면 단일 사용자 지정 기술에 대 한 실행 시간이 최대 230 초가 되도록 여러 사용자 지정 기술로 분할할 수 있습니다. 자세한 내용은 [사용자 지정 기술 설명서](cognitive-search-custom-skill-web-api.md) 를 참조 하십시오.
 
-##  <a name="warnings"></a>경고
+### <a name="could-not-mergeorupload--delete-document-to-the-search-index"></a>' @No__t-0 '을 (를) 할 수 없습니다. | 검색 인덱스에 대 한 ' `Delete` ' 문서
+
+문서를 읽고 처리 했지만 인덱서가 검색 인덱스에 추가할 수 없습니다. 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
+
+| Reason | 예제 | 작업 |
+| --- | --- | --- |
+| 문서의 용어가 [32 KB 제한](search-limits-quotas-capacity.md#api-request-limits) 보다 큽니다. | 필드에 너무 많은 용어가 있습니다. | 필드가 필터링 가능, 패싯 가능 또는 정렬 가능으로 구성 되지 않도록 하 여이 제한을 피할 수 있습니다.
+| 문서가 [최대 api 요청 크기](search-limits-quotas-capacity.md#api-request-limits) 보다 큽니다. | 문서가 너무 커서 인덱싱할 수 없습니다. | [대량 데이터 집합을 인덱싱하는 방법](search-howto-large-index.md)
+| 쿼리가 나 인덱싱 등의 다른 부하에서 서비스를 하 고 있으므로 대상 인덱스에 연결 하는 데 문제가 있습니다 (재시도 후 지속 됨). | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 검색 서비스의 부하가 높습니다. | [Search 서비스 확장](search-capacity-planning.md)
+| 서비스 업데이트를 위해 검색 서비스를 패치 하 고 있거나 토폴로지를 다시 구성 하는 중입니다. | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 검색 서비스가 현재 다운 되었거나 검색 서비스에서 전환 중입니다. | [SLA 설명서](https://azure.microsoft.com/support/legal/sla/search/v1_0/) 당 99.9%의 가용성을 위해 3 개 이상의 복제본을 사용 하 여 서비스를 구성 합니다.
+| 기본 계산/네트워킹 리소스에서 오류가 발생 했습니다 (드문 경우). | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 알 수 없는 오류가 발생 했습니다. | 실패 상태에서 선택할 수 있도록 [일정에 따라 실행](search-howto-schedule-indexers.md) 되도록 인덱서를 구성 합니다.
+
+##  <a name="warnings"></a>기록
 경고는 인덱싱을 중지 하지 않지만 예기치 않은 결과가 발생할 수 있는 조건을 표시 합니다. 작업 수행 여부는 데이터와 시나리오에 따라 달라 집니다.
 
 ### <a name="skill-input-was-truncated"></a>기술 입력이 잘렸습니다.

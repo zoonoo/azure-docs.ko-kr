@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 10/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 5e1fe6252f396a4585b5d7d7190728b79229d5c7
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6c8d25a9df49323866e99487ef6c648dede40ec4
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073982"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033962"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Azure Monitor에 Windows 컴퓨터 연결
 
@@ -51,7 +51,11 @@ Windows용 Log Analytics 에이전트를 설치하려면 Log Analytics 작업 �
 5. **작업 영역 ID** 및 **기본 키**를 복사한 후 즐겨찾는 편집기에 붙여넣습니다.    
    
 ## <a name="configure-agent-to-use-tls-12"></a>TLS 1.2를 사용하도록 에이전트 구성
-Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) 프로토콜을 사용하도록 구성하려면 아래 단계에 따라 가상 머신에 에이전트를 설치하기 전이나 나중에 활성화하면 됩니다.   
+Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) 프로토콜을 사용하도록 구성하려면 아래 단계에 따라 가상 머신에 에이전트를 설치하기 전이나 나중에 활성화하면 됩니다.
+
+>[!NOTE]
+>TLS 1.2를 사용 하도록 Windows Server 2008 SP2 x 64를 실행 하는 VM을 구성 하는 경우 다음 단계를 수행 하기 전에 먼저 다음 [SHA-2 코드 서명 지원 업데이트](https://support.microsoft.com/help/4474419/sha-2-code-signing-support-update) 를 설치 해야 합니다. 
+>
 
 1. 다음 레지스트리 하위 키를 찾습니다. **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
 2. TLS 1.2 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2** 의 **프로토콜** 아래에 하위 키를 만듭니다.
@@ -97,7 +101,7 @@ Windows 에이전트와 Log Analytics 서비스 간의 통신에 [TLS 1.2](https
 
 |MMA 관련 옵션                   |참고         |
 |---------------------------------------|--------------|
-| NOAPM=1                               | 선택적 매개 변수입니다. .NET 애플리케이션 성능 모니터링 없이 에이전트를 설치합니다.|   
+| NOAPM=1                               | 선택적 매개 변수. .NET 애플리케이션 성능 모니터링 없이 에이전트를 설치합니다.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = 작업 영역에 보고하도록 에이전트 구성                |
 |OPINSIGHTS_WORKSPACE_ID                | 추가할 작업 영역의 작업 영역 ID(guid)                    |
 |OPINSIGHTS_WORKSPACE_KEY               | 작업 영역에서 처음 인증하는 데 사용되는 작업 영역 키 |

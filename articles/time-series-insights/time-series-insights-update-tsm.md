@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2a740d8ee0eb50cfa01f36bd8f5590a58e1e6627
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 8f4ed6de5ff47efa441c371b80670c500f57c9bb
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931923"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034051"
 ---
 # <a name="time-series-model"></a>시계열 모델
 
@@ -25,7 +25,7 @@ ms.locfileid: "68931923"
 
 시계열 모델은 디바이스 및 비 디바이스 엔터티를 컨텍스트화하기 때문에 쿼리 및 탐색에서 중요한 역할을 합니다. 시계열 모델에 유지되는 데이터는 저장된 수식을 활용하여 시계열 쿼리 계산을 구동합니다.
 
-[![시계열 모델 개요](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
+[![ 시계열 모델 개요](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
 
 ## <a name="key-capabilities"></a>주요 기능
 
@@ -82,9 +82,9 @@ Time Series Insights 형식에는 변수가 있으며, 이러한 변수는 이�
 
 다음 행렬은 변수 정의에 대한 범례로 작동합니다.
 
-[![형식 변수 정의 테이블](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
+[![Type 변수 정의 테이블](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
 
-| 정의 | Description |
+| 정의 | 설명 |
 | --- | ---|
 | 변수 종류 |  *숫자* 및 *집계* 종류가 지원 됩니다. |
 | 변수 필터 | 변수 필터는 조건에 따라 계산에 넣을 행 수를 제한하는 선택적 필터 절을 지정합니다. |

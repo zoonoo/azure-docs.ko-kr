@@ -15,15 +15,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: d277786fd08e1448b3d5ccf4fd45055fe069e4c0
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 6481d95db27df9e0b957d61bef24a1cc40b243e7
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097771"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025320"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
+
+> [!NOTE]
+> Visual Studio App Center은 모바일 앱 개발에 대 한 종단 간 및 통합 서비스의 중심을 지원 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다.
+> 모바일 응용 프로그램에서 클라우드 서비스를 통합 하려는 경우 현재 App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 에 등록 하세요.
 
 이 항목은 주요 Azure App Service Mobile Apps 시나리오에서 .NET 백 엔드 서버 SDK를 사용하는 방법을 보여줍니다. Azure Mobile Apps SDK를 사용하면 ASP.NET 애플리케이션에서 모바일 클라이언트를 사용하여 작업할 수 있습니다.
 
@@ -54,7 +58,7 @@ Visual Studio 설치 관리자를 통해 Azure 워크로드를 설치하여 Visu
 1. **새 프로젝트** 대화를 엽니다(**파일** > **새로 만들기** > **프로젝트...** 에서).
 2. **Visual C#** 를 확장하고 **웹**을 선택합니다.
 3. **ASP.NET 웹 애플리케이션(.NET Framework)** 을 선택합니다.
-4. 프로젝트 이름을 입력합니다. 그런 다음 **확인**을 클릭합니다.
+4. 프로젝트 이름을 입력합니다. 그런 후 **OK**를 클릭합니다.
 5. 템플릿 목록에서 **Azure 모바일 앱**을 선택합니다.
 6. **확인**을 클릭하여 솔루션을 만듭니다.
 7. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택한 다음, 게시 대상으로 **App Service**를 선택합니다.
@@ -67,7 +71,7 @@ Visual Studio에서 Azure Mobile Apps 프로젝트를 만들기 위해 [.net 용
 1. **새 프로젝트** 대화를 엽니다(**파일** > **새로 만들기** > **프로젝트...** 에서).
 2. **템플릿** > **Visual C#** 를 확장하고 **웹**을 선택합니다.
 3. **ASP.NET 웹 애플리케이션**을 선택합니다.
-4. 프로젝트 이름을 입력합니다. 그런 다음 **확인**을 클릭합니다.
+4. 프로젝트 이름을 입력합니다. 그런 후 **OK**를 클릭합니다.
 5. *ASP.NET 4.5.2 템플릿*아래에서 **Azure Mobile App**을 선택합니다. **클라우드에 호스트** 를 선택하여 클라우드에 이 프로젝트를 게시할 수 있는 모바일 백 엔드를 만듭니다.
 6. **확인**을 클릭합니다.
 
@@ -166,7 +170,7 @@ Azure 포털의 빠른 시작 서버에서 **UseDefaultConfiguration()** 을 호
 2. Mobile DbContext 클래스에 테이블 참조를 구성합니다.
 3. 테이블 컨트롤러를 만듭니다.
 
-데이터 전송 개체(DTO)는 `EntityData`에서 상속하는 일반 C# 개체입니다.  예를 들어:
+데이터 전송 개체(DTO)는 `EntityData`에서 상속하는 일반 C# 개체입니다.  예를 들어 다음과 같은 가치를 제공해야 합니다.
 
     public class TodoItem : EntityData
     {

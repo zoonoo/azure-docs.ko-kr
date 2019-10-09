@@ -1,47 +1,21 @@
 ---
-title: 연락처 탭을 제공 하는 Dynamics 365 for Customer Engagement | Azure Marketplace
-description: AppSource Marketplace에서 Dynamics 365 for Customer Engagement 제안에 대한 연락처 정보를 구성합니다.
+title: Dynamics 365 for Customer Engagement 제품 연락처 탭 | Azure Marketplace
+description: PC 문서에 연결 된이 CPP 문서는 사용 되지 않습니다. "AppSource Marketplace에서 고객 참여 제안의 경우 Dynamics 365에 대 한 연락처 정보를 구성 합니다."
 services: Dynamics 365 for Customer Engagement, Azure, AppSource, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: ChJenk
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: cdd3d01c9295ef5ae8e7bc1936b5926fb38cfe77
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 8a04d7d6f5913a100ab6c4187a42a4d6c470cbda
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942507"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033912"
 ---
 # <a name="azure-application-contacts-tab"></a>Azure 애플리케이션 연락처 탭
 
-**연락처** 탭을 사용하여 Dynamics 365 for Customer Engagement 제안에 대한 엔지니어링 및 고객 지원 정보를 제공합니다.
+[Cloud 파트너 포털](https://cloudpartner.azure.com/) 는 Dynamics 365 Customer Engagement 제품의 생성 및 관리를 더 이상 지원 하지 않습니다. 대신이 기능은 Microsoft [파트너 센터 포털로](https://partner.microsoft.com/)이동 되었습니다. 자세한 내용은 [Customer Engagement에 대 한 새 Dynamics 365 만들기 & PowerApps 제품](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer)을 참조 하세요.
 
-![제안에 대한 연락처 탭](./media/dynce-contacts-tab.png)
-
-
-## <a name="specify-customer-and-engineering-contacts"></a>고객 및 엔지니어링 담당자 지정
-
-기본 **엔지니어링 담당자**를 정의하고 제안에 사용하기 위해 제공하는 값은 다음과 같습니다. 필수 필드는 별표(*)로 표시됩니다.
-
-|    필드        |  설명                    |
-|    ---------    |  ---------------                |
-|  **이름\***       |  앱에 대한 엔지니어링 담당자의 이름입니다. 이 연락처는 Microsoft에서 기술 관련 통신을 받게 됩니다.   |
-|  **전자 메일\***      |  엔지니어링 담당자의 이메일 주소  |
-|  **Phone\***      |  엔지니어링 담당자의 전화 번호  |
-|  |  |
-
-기본 **고객 지원 담당자**를 정의하고 제안에 사용하기 위해 제공하는 값은 다음과 같습니다.
-
-|    필드        |   설명                   |
-|    ---------    |  ---------------                |
-|  **이름\***       |  앱에 대한 고객 지원 담당자의 이름입니다. 이 연락처는 Microsoft에서 지원 관련 통신을 받게 됩니다.   |
-|  **전자 메일\***      |  고객 지원 담당자의 이메일 주소  |
-|  **Phone\***      |  고객 지원 담당자의 전화 번호  |
-|  |  |
-
-
-## <a name="next-steps"></a>다음 단계
-
-제안에 대한 [기술 자산](./cpp-create-technical-assets.md)이 필요하다고 확인되면 [Dynamics 365 for Customer Engagement 제안을 게시](./cpp-publish-offer.md)할 준비가 되었습니다.
+새 Dynamics 365 for Customer Engagement 제품을 만들기 전에 [파트너 센터 계정 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) 를 읽은 다음 **개요** 페이지가 선택 된 상태에서 [상업용 마켓플레이스 대시보드](https://partner.microsoft.com/dashboard/directory) 를 열어야 합니다. [고객 Engagement에 대 한 새 Dynamics 365 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) 의 지침에 따라 제품을 만듭니다. PowerApps 제품 &.
