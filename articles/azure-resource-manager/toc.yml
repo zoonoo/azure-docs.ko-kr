@@ -134,8 +134,7 @@
           href: resource-group-linked-templates.md
         - name: 여러 인스턴스 만들기
           href: resource-group-create-multiple.md
-        - name: 구독에서 리소스 그룹 및 리소스 만들기
-          displayName: subscription level deployment
+        - name: 구독 수준 리소스
           href: deploy-to-subscription.md
     - name: 템플릿 배포
       items:

@@ -4,14 +4,14 @@ description: Azure Resource Manager에 대 한 모든 리소스 공급자 네임
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 10/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 3df481245db8d737032d1abf5906a2ffe949a2fe
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: e8bcaf1e55b042f8dfd8bba2e2113894a67e8b13
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275701"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035616"
 ---
 # <a name="resource-providers-for-azure-services"></a>Azure 서비스에 대 한 리소스 공급자
 
@@ -30,8 +30,9 @@ ms.locfileid: "70275701"
 | Microsoft.AnalysisServices | [Azure Analysis Services](/azure/analysis-services/) |
 | Microsoft.ApiManagement | [API Management](../api-management/index.yml) |
 | Microsoft.AppConfiguration | core |
+| Microsoft.Attestation | Azure 증명 서비스 |
 | Microsoft.Authorization | [Azure Resource Manager](index.yml) |
-| Microsoft.Automation | [자동화](../automation/index.yml) |
+| Microsoft.Automation | [Automation](../automation/index.yml) |
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../active-directory-b2c/index.yml) |
 | Microsoft.AzureStack | core |
 | Microsoft.Batch | [일괄 처리](../batch/index.yml) |
@@ -45,6 +46,7 @@ ms.locfileid: "70275701"
 | Microsoft.Capacity | core |
 | Microsoft.Cdn | [Content Delivery Network](../cdn/index.yml) |
 | Microsoft.CertificateRegistration | [인증서 App Service](../app-service/web-sites-purchase-ssl-web-site.md) |
+| Microsoft. ChangeAnalysis | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.ClassicCompute | 클래식 배포 모델 가상 컴퓨터 |
 | Microsoft.ClassicInfrastructureMigrate | 클래식 배포 모델 마이그레이션 |
 | Microsoft.ClassicNetwork | 클래식 배포 모델 가상 네트워크 |
@@ -52,13 +54,14 @@ ms.locfileid: "70275701"
 | Microsoft.ClassicSubscription | 클래식 배포 모델 |
 | Microsoft.CognitiveServices | [Cognitive Services](/azure/cognitive-services/) |
 | Microsoft.Commerce | core |
-| Microsoft.Compute | [Virtual Machines](/azure/virtual-machines/) |
+| Microsoft.Compute | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) |
 | Microsoft.Consumption | [Cost Management](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Container Instances](/azure/container-instances/) |
 | Microsoft.ContainerRegistry | [Container Registry](/azure/container-registry/) |
 | Microsoft.ContainerService | [AKS(Azure Kubernetes Service)](/azure/aks/) |
 | Microsoft.ContentModerator | [Azure Content Moderator](../cognitive-services/content-moderator/index.yml) |
 | Microsoft.CostManagement | [Cost Management](/azure/cost-management/) |
+| CostManagementExports | [Cost Management](/azure/cost-management/) |
 | Microsoft.CustomerInsights | Customer Insights |
 | Microsoft.CustomerLockbox | Microsoft Azure에 대 한 고객 Lockbox |
 | Microsoft.CustomProviders | [Azure 사용자 지정 공급자](../managed-applications/custom-providers-overview.md) |
@@ -70,11 +73,14 @@ ms.locfileid: "70275701"
 | Microsoft.DataLakeAnalytics | [Data Lake Analytics](/azure/data-lake-analytics/) |
 | Microsoft.DataLakeStore | [Azure Data Lake Store](../storage/blobs/data-lake-storage-introduction.md) |
 | Microsoft.DataMigration | [Azure Database Migration Service](/azure/dms/) |
+| DataShare | [Azure 데이터 공유](/azure/data-share/) |
 | Microsoft.DBforMariaDB | [Azure Database for MariaDB](/azure/mariadb/) |
 | Microsoft.DBforMySQL | [Azure Database for MySQL](/azure/mysql/) |
 | Microsoft.DBforPostgreSQL | [Azure Database for PostgreSQL](/azure/postgresql/) |
+| Microsoft DesktopVirtualization | [Windows 가상 데스크톱](/azure/virtual-desktop/) |
 | Microsoft.DeploymentManager | [Azure 배포 관리자](deployment-manager-overview.md) |
 | Microsoft.Devices | [IoT Hub](/azure/iot-hub/)<br />[IoT Hub Device Provisioning Service](/azure/iot-dps/) |
+| Microsoft DevOps | [Azure DevOps](/azure/devops/) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](/azure/dev-spaces/) |
 | Microsoft.DevTestLab | [Azure Lab Services](../lab-services/index.yml) |
 | Microsoft.DocumentDB | [Azure Cosmos DB](../cosmos-db/index.yml) |
@@ -89,6 +95,7 @@ ms.locfileid: "70275701"
 | Microsoft.HardwareSecurityModules | [Azure 전용 HSM](../dedicated-hsm/index.yml) |
 | Microsoft.HDInsight | [HDInsight](../hdinsight/index.yml) |
 | Microsoft.HealthcareApis | [Azure API for FHIR](../healthcare-apis/index.yml) |
+| Microsoft.HybridData | [StorSimple](/azure/storsimple/) |
 | Microsoft.ImportExport | [Azure 가져오기/내보내기](../storage/common/storage-import-export-service.md) |
 | microsoft.insights | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.Intune | [Intune](/intune/) |
@@ -107,12 +114,14 @@ ms.locfileid: "70275701"
 | Microsoft.MachineLearningServices | [Machine Learning 서비스](../machine-learning/index.yml) |
 | Microsoft.ManagedIdentity | [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/index.yml) |
 | Microsoft.ManagedLab | [Azure Lab Services](../lab-services/index.yml) |
+| Microsoft ManagedServices | [Azure Lighthouse](/azure/lighthouse/) |
 | Microsoft.Management | [관리 그룹](/azure/governance/management-groups/) |
 | Microsoft.Maps | [Azure Maps](../azure-maps/index.yml) |
 | Microsoft.Marketplace | core |
 | Microsoft.MarketplaceApps | core |
 | Microsoft.MarketplaceOrdering | core |
 | Microsoft.Media | [Media Services](../media-services/index.yml) |
+| Microservices4Spring | [Azure의 Spring](/azure/java/spring-framework/) |
 | Microsoft.Migrate | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](/azure/spatial-anchors/) |
 | Microsoft.NetApp | [Azure NetApp Files](../azure-netapp-files/index.yml) |
@@ -121,6 +130,7 @@ ms.locfileid: "70275701"
 | Microsoft.OffAzure | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.OperationalInsights | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.OperationsManagement | [Azure Monitor](../azure-monitor/index.yml) |
+| Microsoft.Peering | Microsoft Azure 피어 링 서비스 |
 | Microsoft.PolicyInsights | [Azure Policy](../governance/policy/index.yml) |
 | Microsoft.Portal | [Azure Portal](/azure/azure-portal/) |
 | Microsoft.PowerBI | [Power BI](/power-bi/power-bi-overview) |
@@ -134,15 +144,17 @@ ms.locfileid: "70275701"
 | Microsoft.Scheduler | [Scheduler](/azure/scheduler/) |
 | Microsoft.Search | [Azure Search](../search/index.yml) |
 | Microsoft.Security | [Security Center](../security-center/index.yml) |
+| Microsoft SecurityInsights | [Azure Sentinel](/azure/sentinel/) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../service-fabric/index.yml) |
 | Microsoft.ServiceFabricMesh | [Service Fabric Mesh](../service-fabric-mesh/index.yml) |
 | Microsoft.SignalRService | [Azure SignalR Service](../azure-signalr/index.yml) |
 | Microsoft.SiteRecovery | [Site Recovery](../site-recovery/index.yml) |
 | Microsoft.Solutions | [Azure Managed Applications](../managed-applications/index.yml) |
-| Microsoft.Sql | [Azure SQL Database](../sql-database/index.yml) |
+| Microsoft.Sql | [Azure SQL Database](../sql-database/index.yml)<br />[SQL Data Warehouse](/azure/sql-data-warehouse/) |
 | Microsoft.SqlVirtualMachine | [Azure Virtual Machines의 SQL Server](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) |
 | Microsoft.Storage | [저장소](../storage/index.yml) |
+| Microsoft.StorageCache | [Azure HPC 캐시](/azure/hpc-cache/) |
 | Microsoft.StorageSync | [저장소](../storage/index.yml) |
 | Microsoft.StorSimple | [StorSimple](/azure/storsimple/) |
 | Microsoft.StreamAnalytics | [Stream Analytics](../stream-analytics/index.yml) |
