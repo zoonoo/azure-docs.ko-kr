@@ -1,17 +1,17 @@
 ---
-title: 관리 그룹을 변경, 삭제 또는 관리 하는 방법-Azure 거 버 넌 스
+title: 관리 그룹으로 작업 하는 방법-Azure 거 버 넌 스
 description: 관리 그룹 계층 구조를 살펴보고, 유지 관리하고, 업데이트하고, 삭제하는 방법을 알아봅니다.
 author: rthorn17
 ms.service: governance
 ms.date: 05/22/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 28bfabd5c28fe833050551e7be690c0ea3d1e6a0
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 57695157119b81580777c0581adccb267e7e9faa
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338951"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255936"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 40f0a667ffa23010ef00ed105454ab305171cc19
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 11924b44a51767df68372cd94c581b2feaa8ac25
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812513"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72247107"
 ---
 ### <a name="number-of-fault-domains-per-region"></a>지역당 장애 도메인 수
 
@@ -23,16 +23,16 @@ ms.locfileid: "67812513"
 | 미국 중북부    | 3                       |
 | 미국 중남부    | 3                       |
 | 미국 중서부     | 2                       |
-| 캐나다 중부      | 3                      |
+| 캐나다 중부      | 3                       |
 | 캐나다 동부         | 2                       |
 |                     |                         |
-| 북유럽        | 3                       |
-| 서유럽         | 3                       |
+| 유럽 북부        | 3                       |
+| 유럽 서부         | 3                       |
 | 영국 남부            | 2                       |
 | 영국 서부             | 2                       |
 |                     |                         |
-| 동아시아           | 2                       |
-| 동남아시아     | 2                       |
+| 아시아 동부           | 2                       |
+| 아시아 남동부     | 2                       |
 | 일본 동부          | 2                       |
 | 일본 서부          | 2                       |
 | 인도 남부         | 2                       |
@@ -42,6 +42,11 @@ ms.locfileid: "67812513"
 | 한국 남부         | 2                       |
 | 아랍에미리트 북부           | 2                       |
 |                     |                         |
+| 중국 동부          | 2                       |
+| 중국 동부 2        | 2                       |
+| 중국 북부         | 2                       |
+| 중국 북부 2       | 2                       |
+|
 | 오스트레일리아 동부      | 2                       |
 | 오스트레일리아 남동부 | 2                       |
 | 오스트레일리아 중부   | 2                       |

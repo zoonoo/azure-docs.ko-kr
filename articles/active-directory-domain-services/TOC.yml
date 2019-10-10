@@ -25,6 +25,8 @@
       href: powershell-create-instance.md
 - name: 개념
   items:
+    - name: 관리 기본 사항
+      href: administration-concepts.md
     - name: 일반적인 배포 시나리오
       href: scenarios.md
     - name: Azure AD DS 동기화 작동 방법

@@ -1,6 +1,6 @@
 ---
-title: SSIS 패키지 실행 작업으로 SSIS 패키지 실행 - Azure | Microsoft Docs
-description: 이 문서에서는 Azure Data Factory 파이프라인에서 SSIS 패키지 실행 작업을 사용하여 SSIS(SQL Server Integration Services) 패키지를 실행하는 방법을 설명합니다.
+title: SSIS 패키지 실행 작업을 사용 하 여 SSIS 패키지 실행-Azure | Microsoft Docs
+description: 이 문서에서는 SSIS 패키지 실행 작업을 사용 하 여 Azure Data Factory 파이프라인에서 SSIS (SQL Server Integration Services) 패키지를 실행 하는 방법을 설명 합니다.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -13,110 +13,122 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 9057cefa5108924c57dbc85bbb895b31e804a51c
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 965bb0641aac3224ac98820006f308e6b5fb0f71
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000650"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255649"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Azure Data Factory에서 SSIS 패키지 실행 작업을 사용하여 SSIS 패키지 실행
-이 문서에서는 SSIS 패키지 실행 작업을 사용 하 여 Azure Data Factory (ADF) 파이프라인에서 SSIS (SQL Server Integration Services) 패키지를 실행 하는 방법을 설명 합니다. 
+이 문서에서는 SSIS 패키지 실행 작업을 사용 하 여 Azure Data Factory 파이프라인에서 SSIS (SQL Server Integration Services) 패키지를 실행 하는 방법을 설명 합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure-SSIS IR 프로비저닝](tutorial-create-azure-ssis-runtime-portal.md)을 참조하세요.
+@No__t-0Tutorial의 단계별 지침을 수행 하 여 아직 없는 경우 Azure SSIS IR (통합 런타임)을 만듭니다. Azure-SSIS IR 프로비저닝](tutorial-create-azure-ssis-runtime-portal.md)을 참조하세요.
 
 ## <a name="run-a-package-in-the-azure-portal"></a>Azure Portal에서 패키지 실행
-이 섹션에서는 ADF UI(사용자 인터페이스)/앱을 사용하여 SSIS 패키지를 실행하는 SSIS 패키지 실행 작업이 있는 ADF 파이프라인을 만듭니다.
+이 섹션에서는 Data Factory UI (사용자 인터페이스) 또는 앱을 사용 하 여 SSIS 패키지를 실행 하는 SSIS 패키지 실행 작업으로 Data Factory 파이프라인을 만듭니다.
 
 ### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>SSIS 패키지 실행 작업으로 파이프라인 만들기
-이 단계에서는 ADF UI/앱을 사용하여 파이프라인을 만듭니다. 파이프라인에 SSIS 패키지 실행 작업을 추가하고 SSIS 패키지를 실행하도록 구성합니다. 
+이 단계에서는 Data Factory UI 또는 응용 프로그램을 사용 하 여 파이프라인을 만듭니다. 파이프라인에 SSIS 패키지 실행 작업을 추가하고 SSIS 패키지를 실행하도록 구성합니다. 
 
-1. Azure Portal의 ADF 개요/홈페이지에서 **작성자 및 모니터** 타일을 클릭하여 별도의 탭에서 ADF UI/앱을 시작합니다. 
+1. Azure Portal Data Factory 개요 또는 홈 페이지에서 **작성자 & 모니터** 타일을 선택 하 여 별도의 탭에서 Data Factory UI 또는 앱을 시작 합니다. 
 
-   ![데이터 팩터리 홈페이지](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
+   ![Data Factory 홈페이지](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 
-   **시작** 페이지에서 **파이프라인 만들기**를 클릭합니다. 
+   **시작** 페이지에서 **파이프라인 만들기**를 선택합니다. 
 
    ![시작 페이지](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
 
-2. **작업** 도구 상자에서 **일반**을 펼치고, **SSIS 패키지 실행** 작업을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 
+1. **작업** 도구 상자에서 **일반**을 확장 합니다. 그런 다음 **SSIS 패키지 실행** 작업을 파이프라인 디자이너 화면으로 끌어 옵니다. 
 
    ![SSIS 패키지 실행 작업을 디자이너 화면으로 끌기](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
 
-3. SSIS 패키지 실행 작업의 **일반** 탭에서 작업 이름과 설명을 입력합니다. 선택적 시간 제한 및 다시 시도 값을 설정합니다.
+1. SSIS 패키지 실행 작업의 **일반** 탭에서 작업에 대 한 이름 및 설명을 제공 합니다. 선택적 **시간 제한** 및 **다시 시도** 값을 설정 합니다.
 
    ![일반 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-4. SSIS 패키지 실행 작업의 **설정** 탭에서 패키지를 실행 하려는 Azure-SSIS IR를 선택 합니다. 패키지에서 Windows 인증을 사용 하 여 데이터 저장소에 액세스 하는 경우 (예: 온-프레미스의 SQL Server/파일 공유, Azure Files 등) **windows 인증** 확인란을 선택 하 고 패키지 실행 자격 증명 (**도메인** )에 대 한 값을 입력 합니다. **사용자 이름 암호)** /. / 또는 Azure Key Vault (AKV)에 저장 된 암호를 해당 값으로 사용할 수 있습니다. 이렇게 하려면 관련 자격 증명 옆의 **AZURE KEY VAULT** 확인란을 클릭 하 고, 기존 AKV 연결 된 서비스를 선택/편집 하거나, 새 서비스를 만든 다음, 자격 증명 값에 대 한 비밀 이름/버전을 선택 합니다.  AKV 연결 된 서비스를 만들거나 편집할 때 기존 AKV를 선택/편집 하거나 새 항목을 만들 수 있지만 아직 수행 하지 않은 경우 AKV에 대 한 ADF 관리 id 액세스 권한을 부여 하세요. 다음과 같은 형식 `<AKV linked service name>/<secret name>/<secret version>`으로 암호를 직접 입력할 수도 있습니다. 패키지를 실행하는 데 32비트 런타임이 필요한 경우 **32비트 런타임** 확인란을 선택합니다. 
+1. SSIS 패키지 실행 작업의 **설정** 탭에서 패키지를 실행 하려는 Azure-SSIS IR를 선택 합니다. 패키지에서 Windows 인증을 사용 하 여 데이터 저장소에 액세스 하는 경우 (예: SQL server 또는 온-프레미스의 파일 공유 또는 Azure Files) **windows 인증** 확인란을 선택 합니다. **도메인**, **사용자 이름**및 **암호** 상자에 패키지 실행 자격 증명의 값을 입력 합니다. 
 
-   **패키지 위치**에서 **SSISDB**, **파일 시스템 (패키지)** 또는 **파일 시스템 (프로젝트)** 을 선택 합니다. Azure SQL Database server/Managed Instance에서 호스트 하는 SSISDB (SSIS 카탈로그)를 사용 하 여 Azure-SSIS IR 프로 비전 된 경우 자동으로 선택 되는 패키지 위치로 **ssisdb** 를 선택 하는 경우 패키지를 실행할 패키지를 지정 해야 합니다. SSISDB에 배포 됩니다. Azure-SSIS IR 실행 중이 고 **수동 항목** 확인란이 선택 취소 된 경우 SSISDB에서 기존 폴더/프로젝트/패키지/환경을 찾아보고 선택할 수 있습니다. **새로 고침** 단추를 클릭하여 새로 추가한 폴더/프로젝트/패키지/환경을 찾아서 선택할 수 있도록 SSISDB에서 페치합니다. 패키지 실행을 위한 환경을 찾아보거나 선택 하려면 해당 환경을 SSISDB 아래의 동일한 폴더에서 참조로 추가 하도록 프로젝트를 미리 구성 해야 합니다. 자세한 내용은 [SSIS 환경 만들기/매핑](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014)을 참조 하세요.
+    또는 Azure 키 자격 증명 모음에 저장 된 암호를 해당 값으로 사용할 수 있습니다. 이렇게 하려면 관련 자격 증명 옆의 **AZURE KEY VAULT** 확인란을 선택 합니다. 기존 key vault 연결 된 서비스를 선택 하거나 편집 하거나 새로 만듭니다. 그런 다음 자격 증명 값에 대 한 보안 이름 또는 버전을 선택 합니다.
 
-   **로깅 수준**에서 패키지 실행에 대해 사전 정의된 로깅 범위를 선택합니다. 사용자 지정 로깅 이름을 대신 입력하려면 **사용자 지정** 확인란을 선택합니다. 
+    Key vault 연결 된 서비스를 만들거나 편집할 때 기존 주요 자격 증명 모음을 선택 하거나 편집 하거나 새 자격 증명 모음을 만들 수 있습니다. 아직 수행 하지 않은 경우 키 자격 증명 모음에 대 한 Data Factory 관리 id 액세스 권한을 부여 해야 합니다. @No__t-0 형식으로 암호를 직접 입력할 수도 있습니다. 패키지에서 32 비트 런타임을 실행 해야 하는 경우 **32 비트 런타임** 확인란을 선택 합니다.
+
+   **패키지 위치**에서 **SSISDB**, **파일 시스템 (패키지)** 또는 **파일 시스템 (프로젝트)** 을 선택 합니다. Azure SQL Database 서버 또는 관리 되는 인스턴스에서 호스팅되는 SSIS 카탈로그 (SSISDB)를 사용 하 여 Azure-SSIS IR 프로 비전 된 경우 자동으로 선택 되는 패키지 위치로 **ssisdb** 를 선택 하는 경우 배포 된 패키지를 실행할 패키지를 지정 합니다. SSISDB로 전환 합니다. 
+
+    Azure-SSIS IR 실행 중이 고 **수동 항목** 확인란의 선택을 취소 한 경우 SSISDB에서 기존 폴더, 프로젝트, 패키지 또는 환경을 찾아서 선택 합니다. 새로 추가 된 폴더, 프로젝트, 패키지 또는 환경을 검색 및 선택에 사용할 수 있도록 SSISDB에서 페치 하려면 **새로 고침** 을 선택 합니다. 패키지 실행을 위한 환경을 찾아보거나 선택 하려면 해당 환경을 SSISDB 아래의 동일한 폴더에서 참조로 추가 하도록 프로젝트를 미리 구성 해야 합니다. 자세한 내용은 [SSIS 환경 만들기 및 매핑](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014)을 참조 하세요.
+
+   **로깅 수준**에서 패키지 실행에 대해 사전 정의된 로깅 범위를 선택합니다. 사용자 지정 된 로깅 이름을 대신 입력 하려면 **사용자 지정** 확인란을 선택 합니다. 
 
    ![설정 탭의 속성 설정 - 자동](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
-   Azure-SSIS IR 실행 되 고 있지 않거나 **수동 항목** 확인란을 선택 하면 SSISDB의 패키지 및 환경 경로를 `<folder name>/<project name>/<package name>.dtsx` 및 `<folder name>/<environment name>`형식으로 직접 입력할 수 있습니다.
+   Azure-SSIS IR 실행 중이 아니거나 **수동 항목** 확인란이 선택 되어 있는 경우 SSISDB의 패키지 및 환경 경로를 `<folder name>/<project name>/<package name>.dtsx` 및 `<folder name>/<environment name>` 형식으로 직접 입력 합니다.
 
    ![설정 탭의 속성 설정 - 수동](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-   Azure-SSIS IR SSISDB 없이 프로 비전 된 경우 자동으로 선택 되는 패키지 위치로 **파일 시스템 (패키지)** 을 선택 하는 경우에는 UNC (범용 명명 규칙) 경로를 사용 하 여 실행할 패키지를 지정 해야 합니다. 패키지 경로에`.dtsx`패키지 파일 ()이 있습니다. 예를 들어 Azure Files에 패키지를 저장 하는 경우 패키지 경로는가 `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`됩니다. 
+   Azure-SSIS IR SSISDB 없이 프로 비전 된 경우 자동으로 선택 되는 패키지 위치로 **파일 시스템 (패키지)** 을 선택 하는 경우 패키지 파일에 대 한 UNC (범용 명명 규칙) 경로를 제공 하 여 실행할 패키지를 지정 합니다 (@no __t-1)을 (를) **패키지 경로** 상자에 있습니다. 예를 들어 Azure Files에 패키지를 저장 하는 경우 패키지 경로는-0 @no__t 됩니다. 
    
-   패키지를 별도의 파일에 구성 하는 경우 구성`.dtsConfig` **경로**에 구성 파일 ()에 대 한 UNC 경로도 제공 해야 합니다. 예를 들어 Azure Files에 구성을 저장 하는 경우 해당 구성 경로는가 `\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`됩니다.
+   패키지를 별도의 파일에 구성 하는 경우 구성 **경로** 상자에 구성 파일에 대 한 UNC 경로 (`.dtsConfig`)도 제공 해야 합니다. 예를 들어 Azure Files에 구성을 저장 하는 경우 해당 구성 경로는-0 @no__t 됩니다.
 
    ![설정 탭의 속성 설정 - 수동](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
 
-   패키지 위치로 **파일 시스템 (프로젝트)** 을 선택 하는`.ispac``.dtsx` **경우 프로젝트 경로에 프로젝트 파일 ()에 대 한 UNC 경로를 제공 하 여 실행할 패키지를 지정 하 고 프로젝트의 패키지 파일 ()을 패키지 이름**입니다. 예를 들어 Azure Files에 프로젝트를 저장 하는 경우 프로젝트 경로는가 `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`됩니다.
+   패키지 위치로 **파일 시스템 (프로젝트)** 을 선택 하는 경우 프로젝트 **경로** 상자에 프로젝트 @no__t 파일에 대 한 UNC 경로를 제공 하 고 패키지 **이름** 에 프로젝트의 패키지 파일 (`.dtsx`)을 제공 하 여 실행할 패키지를 지정 합니다. box. 예를 들어 Azure Files에 프로젝트를 저장 하는 경우 프로젝트 경로는-0 @no__t 됩니다.
 
    ![설정 탭의 속성 설정 - 수동](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
 
-   다음으로 프로젝트/패키지/구성 파일에 액세스 하기 위한 자격 증명을 지정 해야 합니다. 이전에 패키지 실행 자격 증명의 값을 입력 한 경우 (위 참조) **패키지 실행 자격 증명과 동일** 확인란을 선택 하 여 다시 사용할 수 있습니다. 그렇지 않으면 패키지 액세스 자격 증명 (**도메인**/**사용자 이름**/**암호**)에 대 한 값을 입력 해야 합니다. 예를 들어 Azure Files에서 프로젝트/패키지/구성을 저장 하는 경우 **도메인** 은 `Azure`이 고 **사용자 이름은** `<storage account name>` `<storage account key>`이며 **암호** 는입니다. 또는 AKV에 저장 된 암호를 해당 값으로 사용할 수 있습니다 (위 참조). 이러한 자격 증명은 패키지 실행 태스크의 패키지 및 자식 패키지에 액세스 하는 데 사용 됩니다. 여기에는 패키지에 지정 된 것을 비롯 한 구성 뿐만 아니라 자체 경로/동일한 프로젝트가 포함 됩니다. 
-   
-   SQL Server Data Tools (SSDT)를 통해 패키지를 만들 때 **EncryptAllWithPassword**/**EncryptSensitiveWithPassword** 보호 수준을 사용한 경우 암호화에 암호 값을 입력 해야 합니다.  **암호**. 또는 AKV에 저장 된 암호를 해당 값으로 사용할 수 있습니다 (위 참조). **EncryptSensitiveWithUserKey** 보호 수준을 사용한 경우 구성 파일 또는 **SSIS 매개 변수**/**연결 관리자**/속성에서 중요 한 값을 다시 입력 해야 합니다.탭을 재정의 합니다 (아래 참조). **EncryptAllWithUserKey** 보호 수준을 사용한 경우에는 지원 되지 않으므로 SSDT 또는 `dtutil` 명령줄 유틸리티를 통해 다른 보호 수준을 사용 하도록 패키지를 다시 구성 해야 합니다. 
-   
-   **로깅 수준**에서 패키지 실행에 대해 사전 정의된 로깅 범위를 선택합니다. 사용자 지정 로깅 이름을 대신 입력하려면 **사용자 지정** 확인란을 선택합니다. 패키지에 지정할 수 있는 표준 로그 공급자를 사용 하 여 패키지 실행을 기록 하려면 **로깅 경로**에 UNC 경로를 제공 하 여 로그 폴더를 지정 해야 합니다. 예를 들어 Azure Files에 로그를 저장 하는 경우 로깅 경로는가 `\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`됩니다. 하위 폴더는 각 개별 패키지 실행에 대해이 경로에 만들어지고 SSIS 패키지 실행 작업 실행 ID 후에 이름이 지정 됩니다 .이 ID는 5 분 마다 로그 파일이 생성 됩니다. 
-   
-   마지막으로 로그 폴더에 액세스 하기 위한 자격 증명도 지정 해야 합니다. 이전에 패키지 액세스 자격 증명에 대 한 값을 입력 한 경우 (위 참조) **패키지 액세스 자격 증명과 동일** 확인란을 선택 하 여 다시 사용할 수 있습니다. 그렇지 않으면 로깅 액세스 자격 증명 (**도메인**/**사용자 이름**/**암호**)에 대 한 값을 입력 해야 합니다. 예를 들어 Azure Files에 로그를 저장 하는 경우 **도메인** 은 `Azure`이 고 **사용자 이름은** `<storage account name>` `<storage account key>`이며 **암호** 는입니다. 또는 AKV에 저장 된 암호를 해당 값으로 사용할 수 있습니다 (위 참조). 이러한 자격 증명은 로그를 저장 하는 데 사용 됩니다. 
-   
-   위에서 언급 한 모든 UNC 경로에 대해 정규화 된 파일 이름은 260 자 미만 이어야 하며, 디렉터리 이름은 248 자 미만 이어야 합니다.
+   그런 다음 프로젝트, 패키지 또는 구성 파일에 액세스 하기 위한 자격 증명을 지정 합니다. 이전에 패키지 실행 자격 증명의 값을 입력 한 경우 (이전 참조) **패키지 실행 자격 증명과 동일** 확인란을 선택 하 여 다시 사용할 수 있습니다. 그렇지 않으면 **도메인**, **사용자 이름**및 **암호** 상자에 패키지 액세스 자격 증명 값을 입력 합니다. 예를 들어 Azure Files에서 프로젝트, 패키지 또는 구성을 저장 하는 경우 @no__t 도메인은-0이 고, 사용자 @no__t 이름은-1이 고, 암호는 `<storage account key>`입니다. 
 
-5. SSIS 패키지 실행 작업에 대 한 **Ssis 매개 변수** 탭에서 Azure-SSIS IR 실행 되 고 있는 경우 **SSISDB** 를 패키지 위치로 선택 하 고 **설정** 탭의 **수동 항목** 확인란을 선택 취소 합니다. 기존 SSIS SSISDB에서 선택한 프로젝트/패키지의 매개 변수는 값을 할당할 수 있도록 표시 됩니다. 그렇지 않으면 매개 변수를 하나씩 입력하여 수동으로 값을 할당할 수 있습니다. 패키지 실행에 성공하려면 매개 변수가 있고 올바르게 입력되었는지 확인합니다. 
+   또는 키 자격 증명 모음에 저장 된 암호를 해당 값으로 사용할 수 있습니다 (이전 참조). 이러한 자격 증명은 패키지 실행 태스크의 패키지 및 자식 패키지에 액세스 하는 데 사용 됩니다. 여기에는 패키지에 지정 된 구성 뿐만 아니라 자체 경로 또는 동일한 프로젝트도 포함 됩니다. 
    
-   SSDT을 통해 패키지를 만들 때 **EncryptSensitiveWithUserKey** 보호 수준을 사용 하 고 패키지 위치로 **파일**/시스템 (**프로젝트) 파일 시스템 (프로젝트)** 을 선택한 경우에도 다시 입력 해야 합니다. 구성 파일 또는이 탭에서 값을 할당 하는 중요 한 매개 변수입니다. 
+   SQL Server Data Tools를 통해 패키지를 만들 때 **EncryptAllWithPassword** 또는 **EncryptSensitiveWithPassword** 보호 수준을 사용한 경우 **암호화 암호** 상자에 암호 값을 입력 합니다. 또는 키 자격 증명 모음에 저장 된 암호를 해당 값으로 사용할 수 있습니다 (이전 참조). **EncryptSensitiveWithUserKey** 보호 수준을 사용한 경우 구성 파일 또는 **SSIS 매개 변수**, **연결 관리자**또는 **속성 재정의** 탭에서 중요 한 값을 다시 입력 합니다 (뒷부분 참조). 
+
+   **EncryptAllWithUserKey** 보호 수준을 사용 하는 경우 지원 되지 않습니다. SQL Server Data Tools 또는 `dtutil` 명령줄 유틸리티를 통해 다른 보호 수준을 사용 하려면 패키지를 다시 구성 해야 합니다. 
    
-   매개 변수에 값을 할당할 때 식, 함수, ADF 시스템 변수 및 ADF 파이프라인 매개 변수/변수를 사용 하 여 동적 콘텐츠를 추가할 수 있습니다. 또는 AKV에 저장 된 암호를 해당 값으로 사용할 수 있습니다 (위 참조).
+   **로깅 수준**에서 패키지 실행에 대해 사전 정의된 로깅 범위를 선택합니다. 사용자 지정 된 로깅 이름을 대신 입력 하려면 **사용자 지정** 확인란을 선택 합니다. 패키지에 지정할 수 있는 표준 로그 공급자를 사용 하 여 패키지 실행을 기록 하려면 **로깅 경로** 상자에 UNC 경로를 제공 하 여 로그 폴더를 지정 합니다. 예를 들어 Azure Files에 로그를 저장 하는 경우 로깅 경로는-0 @no__t 됩니다. 하위 폴더는 각 개별 패키지 실행에 대해이 경로에 만들어지고 SSIS 패키지 실행 작업 실행 ID (5 분 마다 로그 파일이 생성 됨) 이후에 이름이 지정 됩니다. 
+   
+   마지막으로 로그 폴더에 액세스 하기 위한 자격 증명을 지정 합니다. 이전에 패키지 액세스 자격 증명에 대 한 값을 입력 한 경우 (이전 참조) **패키지 액세스 자격 증명과 동일** 확인란을 선택 하 여 다시 사용할 수 있습니다. 그렇지 않으면 **도메인**, **사용자 이름**및 **암호** 상자에 로깅 액세스 자격 증명 값을 입력 합니다. 예를 들어 Azure Files에 로그를 저장 하는 경우 @no__t 도메인은-0이 고 사용자 @no__t 이름은-1 이며 암호는 `<storage account key>`가 됩니다. 
+
+    또는 키 자격 증명 모음에 저장 된 암호를 해당 값으로 사용할 수 있습니다 (이전 참조). 이러한 자격 증명은 로그를 저장 하는 데 사용 됩니다. 
+   
+   앞에서 언급 한 모든 UNC 경로에 대해 정규화 된 파일 이름은 260 자 미만 이어야 합니다. 디렉터리 이름은 248 자 미만 이어야 합니다.
+
+1. SSIS 패키지 실행 작업의 **Ssis 매개 변수** 탭에서 Azure-SSIS IR 실행 되 고 있는 경우 **SSISDB** 를 패키지 위치로 선택 하 고 **설정** 탭의 **수동 항목** 확인란의 선택을 취소 합니다. 기존 SSIS 선택한 프로젝트 또는 SSISDB의 패키지에 값을 할당 하는 데 사용할 수 있는 매개 변수가 표시 됩니다. 그렇지 않으면 값을 하나씩 입력 하 여 수동으로 값을 할당할 수 있습니다. 패키지 실행이 성공적으로 실행 되 고 올바르게 입력 되었는지 확인 합니다. 
+   
+   SQL Server Data Tools를 통해 패키지를 만들 때 **EncryptSensitiveWithUserKey** 보호 수준을 사용 하는 경우 패키지 위치로 **파일 시스템 (패키지)** 또는 **파일 시스템 (프로젝트)** 을 선택한 경우에도 다시 입력 해야 합니다. 구성 파일 또는이 탭에서 값을 할당 하는 중요 한 매개 변수입니다. 
+   
+   매개 변수에 값을 할당할 때 식, 함수, Data Factory 시스템 변수 및 Data Factory 파이프라인 매개 변수 또는 변수를 사용 하 여 동적 콘텐츠를 추가할 수 있습니다. 또는 키 자격 증명 모음에 저장 된 암호를 해당 값으로 사용할 수 있습니다 (이전 참조).
 
    ![SSIS 매개 변수 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
-6. SSIS 패키지 실행 작업에 대 한 **연결 관리자** 탭에서 Azure-SSIS IR 실행 되 고 있는 경우 **SSISDB** 가 패키지 위치로 선택 되 고 **설정** 탭의 **수동 항목** 확인란이 선택 취소 되어 있습니다. 기존 SSISDB에서 선택한 프로젝트/패키지의 연결 관리자가 표시 되어 속성에 값을 할당할 수 있습니다. 그렇지 않으면 값을 하나씩 입력 하 여 해당 속성에 값을 수동으로 할당할 수 있습니다. 이러한 값이 존재 하 고 패키지 실행이 성공 하기 위해 올바르게 입력 되었는지 확인 하세요. 
+1. SSIS 패키지 실행 작업의 **연결 관리자** 탭에서 Azure-SSIS IR 실행 되 고 있는 경우 **SSISDB** 가 패키지 위치로 선택 되 고 **설정** 탭의 **수동 항목** 확인란이 선택 취소 되어 있습니다. 선택한 프로젝트 또는 SSISDB의 패키지에 대 한 연결 관리자가 표시 되어 속성에 값을 할당할 수 있습니다. 그렇지 않으면 값을 하나씩 입력 하 여 속성에 수동으로 값을 할당할 수 있습니다. 패키지 실행이 성공적으로 실행 되 고 올바르게 입력 되었는지 확인 합니다. 
    
-   SSDT을 통해 패키지를 만들 때 **EncryptSensitiveWithUserKey** 보호 수준을 사용 하 고 패키지 위치로 **파일**/시스템 (**프로젝트) 파일 시스템 (프로젝트)** 을 선택한 경우에도 다시 입력 해야 합니다. 구성 파일 또는이 탭에서 값을 할당 하는 데 중요 한 연결 관리자 속성 
+   SQL Server Data Tools를 통해 패키지를 만들 때 **EncryptSensitiveWithUserKey** 보호 수준을 사용 하는 경우 패키지 위치로 **파일 시스템 (패키지)** 또는 **파일 시스템 (프로젝트)** 을 선택한 경우에도 다시 입력 해야 합니다. 구성 파일 또는이 탭에서 값을 할당 하는 데 중요 한 연결 관리자 속성 
    
-   연결 관리자 속성에 값을 할당할 때 식, 함수, ADF 시스템 변수 및 ADF 파이프라인 매개 변수/변수를 사용 하 여 동적 콘텐츠를 추가할 수 있습니다. 또는 AKV에 저장 된 암호를 해당 값으로 사용할 수 있습니다 (위 참조).
+   연결 관리자 속성에 값을 할당할 때 식, 함수, Data Factory 시스템 변수 및 Data Factory 파이프라인 매개 변수 또는 변수를 사용 하 여 동적 콘텐츠를 추가할 수 있습니다. 또는 키 자격 증명 모음에 저장 된 암호를 해당 값으로 사용할 수 있습니다 (이전 참조).
 
    ![연결 관리자 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
-7. SSIS 패키지 실행 작업의 **속성 재정의** 탭에서 선택한 패키지의 기존 속성 경로를 하나씩 입력 하 여 수동으로 값을 할당할 수 있습니다. 값이 존재 하 고 패키지에 대해 올바르게 입력 되었는지 확인 하세요. 실행이 성공 하려면 (예: 사용자 변수의 값을 재정의 하려면) 형식 `\Package.Variables[User::<variable name>].Value`으로 해당 경로를 입력 합니다. 
+1. SSIS 패키지 실행 작업의 **속성 재정의** 탭에서 선택한 패키지의 기존 속성 경로를 하나씩 입력 하 여 수동으로 값을 할당 합니다. 패키지 실행이 성공적으로 실행 되 고 올바르게 입력 되었는지 확인 합니다. 예를 들어 사용자 변수의 값을 재정의 하려면 `\Package.Variables[User::<variable name>].Value` 형식으로 해당 경로를 입력 합니다. 
    
-   SSDT을 통해 패키지를 만들 때 **EncryptSensitiveWithUserKey** 보호 수준을 사용 하 고 패키지 위치로 **파일**/시스템 (**프로젝트) 파일 시스템 (프로젝트)** 을 선택한 경우에도 다시 입력 해야 합니다. 구성 파일 또는이 탭에서 값을 할당 하는 중요 한 속성 
+   SQL Server Data Tools를 통해 패키지를 만들 때 **EncryptSensitiveWithUserKey** 보호 수준을 사용 하는 경우 패키지 위치로 **파일 시스템 (패키지)** 또는 **파일 시스템 (프로젝트)** 을 선택한 경우에도 다시 입력 해야 합니다. 구성 파일 또는이 탭에서 값을 할당 하는 중요 한 속성 
    
-   속성에 값을 할당할 때 식, 함수, ADF 시스템 변수 및 ADF 파이프라인 매개 변수/변수를 사용 하 여 동적 콘텐츠를 추가할 수 있습니다.
+   속성에 값을 할당할 때 식, 함수, Data Factory 시스템 변수 및 Data Factory 파이프라인 매개 변수 또는 변수를 사용 하 여 동적 콘텐츠를 추가할 수 있습니다.
 
    ![속성 재정의 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
 
-   구성 파일 및 *SSIS 매개 변수* 탭에서 할당 된 값은/연결 관리자**속성 재정의** 탭을 사용 하 여 재정의할 수 있지만 **연결 관리자** 탭에서 할당 된 값은 재정의할 수 있습니다. 또한 **속성 재정의** 탭을 사용 하 여 재정의 합니다.
+   구성 파일 및 **SSIS 매개 변수** 탭에서 할당 된 값은 **연결 관리자** 또는 **속성 재정의** 탭을 사용 하 여 재정의할 수 있습니다. **속성 재정의** 탭을 사용 하 여 **연결 관리자** 탭에서 할당 된 값을 재정의할 수도 있습니다.
 
-8. 파이프라인 구성에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사**를 클릭합니다. **파이프라인 유효성 검사 보고서**를 닫으려면 **>>** 를 클릭합니다.
+1. 파이프라인 구성의 유효성을 검사 하려면 도구 모음에서 **유효성 검사** 를 선택 합니다. **파이프라인 유효성 검사 보고서**를 닫으려면 **>>** 를 선택 합니다.
 
-9. **모두 게시** 단추를 클릭하여 ADF에 파이프라인을 게시합니다. 
+1. Data Factory에 파이프라인을 게시 하려면 **모두 게시**를 선택 합니다. 
 
 ### <a name="run-the-pipeline"></a>파이프라인 실행
 이 단계에서는 파이프라인 실행을 트리거합니다. 
 
-1. 파이프라인 실행을 트리거하려면 도구 모음에서 **트리거**를 클릭하고 **지금 트리거**를 클릭합니다. 
+1. 파이프라인 실행을 트리거하려면 도구 모음에서 **트리거** 를 선택 하 고 **지금 트리거**를 선택 합니다. 
 
    ![지금 트리거](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-trigger.png)
 
@@ -124,15 +136,15 @@ Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure-SSIS IR �
 
 ### <a name="monitor-the-pipeline"></a>파이프라인 모니터링
 
-1. 왼쪽의 **모니터** 탭으로 전환합니다. 다른 정보(예: 실행 시작 시간)와 함께 파이프라인 실행 및 해당 상태를 확인합니다. 보기를 새로 고치려면 **새로 고침**을 클릭합니다.
+1. 왼쪽의 **모니터** 탭으로 전환합니다. 파이프라인 실행 및 해당 상태를 **실행 시작** 시간과 같은 다른 정보와 함께 볼 수 있습니다. 보기를 새로 고치려면 **새로 고침**을 선택합니다.
 
    ![파이프라인 실행](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 
-2. **작업** 열에서 **작업 실행 보기** 링크를 클릭합니다. 파이프라인에는 하나의 작업(SSIS 패키지 실행 작업)만 있으므로 하나의 작업 실행만 파이프라인으로 표시됩니다.
+2. **작업** 열에서 **활동 실행 보기** 링크를 선택합니다. 파이프라인에는 하나의 활동만 있으므로 하나의 활동 실행만 표시 됩니다. SSIS 패키지 실행 작업입니다.
 
-   ![활동 실행](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
+   ![작업 실행](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
 
-3. Azure SQL 서버의 SSISDB 데이터베이스에 대해 다음 **쿼리**를 실행하여 패키지가 실행되었는지 확인할 수 있습니다. 
+3. SQL server의 SSISDB 데이터베이스에 대해 다음 쿼리를 실행 하 여 패키지가 실행 되었는지 확인 합니다. 
 
    ```sql
    select * from catalog.executions
@@ -140,30 +152,30 @@ Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure-SSIS IR �
 
    ![패키지 실행 확인](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-4. 파이프라인 활동 실행의 출력에서 SSISDB 실행 ID를 가져오고 ID를 사용 하 여 SSMS (SQL Server Management Studio)에서 더 포괄적인 실행 로그 및 오류 메시지를 확인할 수도 있습니다.
+4. 파이프라인 작업 실행의 출력에서 SSISDB 실행 ID를 가져오고 ID를 사용 하 여 SQL Server Management Studio에서 보다 포괄적인 실행 로그 및 오류 메시지를 확인할 수도 있습니다.
 
    ![실행 ID를 가져옵니다.](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
 
 ### <a name="schedule-the-pipeline-with-a-trigger"></a>트리거를 사용하여 파이프라인 예약
 
-또한 파이프라인이 일정대로(시간별, 일별, 등) 실행되도록 파이프라인에 대해 예약된 트리거를 만들 수도 있습니다. 예를 들어 [데이터 팩터리 만들기 - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule)를 참조하세요.
+파이프라인이 일정에 따라 실행 되도록 파이프라인에 대해 예약 된 트리거를 만들 수도 있습니다 (예: 매시간 또는 매일). 예를 들어 [데이터 팩터리 만들기 - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule)를 참조하세요.
 
 ## <a name="run-a-package-with-powershell"></a>PowerShell을 사용하여 패키지 실행
-이 섹션에서는 Azure PowerShell을 사용하여 SSIS 패키지를 실행하는 SSIS 패키지 실행 작업이 있는 ADF 파이프라인을 만듭니다. 
+이 섹션에서는 Azure PowerShell를 사용 하 여 SSIS 패키지를 실행 하는 SSIS 패키지 실행 작업을 사용 하 여 Data Factory 파이프라인을 만듭니다. 
 
 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-az-ps)의 단계별 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
 
-### <a name="create-an-adf-with-azure-ssis-ir"></a>Azure-SSIS IR이 있는 ADF 만들기
-이미 Azure-SSIS IR이 프로비전된 기존 ADF를 사용하거나 [자습서: PowerShell을 통해 Azure에 SSIS 패키지 배포](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure-powershell)의 단계별 지침에 따라 Azure-SSIS IR이 있는 새 ADF를 만들 수 있습니다.
+### <a name="create-a-data-factory-with-azure-ssis-ir"></a>Azure-SSIS IR를 사용 하 여 데이터 팩터리 만들기
+이미 Azure-SSIS IR 프로 비전 된 기존 데이터 팩터리를 사용 하거나 Azure-SSIS IR를 사용 하 여 새 데이터 팩터리를 만들 수 있습니다. @No__t-0Tutorial의 단계별 지침을 따르세요. PowerShell을 통해 Azure에 SSIS 패키지 배포](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure-powershell)의 단계별 지침에 따라 Azure-SSIS IR이 있는 새 ADF를 만들 수 있습니다.
 
 ### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>SSIS 패키지 실행 작업으로 파이프라인 만들기 
 이 단계에서는 SSIS 패키지 실행 작업으로 파이프라인을 만듭니다. 이 작업은 SSIS 패키지를 실행합니다. 
 
-1. 다음 예제와 비슷한 내용이 포함된 **RunSSISPackagePipeline.json**이라는 JSON 파일을 **C:\ADF\RunSSISPackage** 폴더에 만듭니다.
+1. 다음 예제와 유사한 내용이 있는 *C:\ADF\RunSSISPackage* 폴더에 *RunSSISPackagePipeline* 이라는 json 파일을 만듭니다.
 
    > [!IMPORTANT]
-   > 파일을 저장 하기 전에 개체 이름/설명/경로, 속성/매개 변수 값, 암호 및 기타 변수 값을 바꿉니다. 
-
+   > 파일을 저장 하기 전에 개체 이름, 설명 및 경로, 속성 또는 매개 변수 값, 암호 및 기타 변수 값을 바꿉니다. 
+    
    ```json
    {
        "name": "RunSSISPackagePipeline",
@@ -269,7 +281,7 @@ Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure-SSIS IR �
    }
    ```
 
-   파일 시스템/파일 공유/Azure Files에 저장 된 패키지를 실행 하려면 다음과 같이 패키지/로그 위치 속성에 대 한 값을 입력할 수 있습니다.
+   파일 시스템, 파일 공유 또는 Azure Files에 저장 된 패키지를 실행 하려면 다음과 같이 패키지 또는 로그 위치 속성에 대 한 값을 입력 합니다.
 
    ```json
    {
@@ -306,7 +318,7 @@ Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure-SSIS IR �
                                    "store": {
                                        "referenceName": "myAKV",
                                        "type": "LinkedServiceReference"
-                                   },
+                           },
                                    "secretName": "MyAccountKey"
                                }
                            }
@@ -318,7 +330,7 @@ Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure-SSIS IR �
    }
    ```
 
-   파일 시스템/파일 공유/Azure Files에 저장 된 프로젝트 내에서 패키지를 실행 하려면 다음과 같이 패키지 위치 속성에 대 한 값을 입력할 수 있습니다.
+   파일 시스템, 파일 공유 또는 Azure Files에 저장 된 프로젝트 내에서 패키지를 실행 하려면 다음과 같이 패키지 위치 속성에 대 한 값을 입력 합니다.
 
    ```json
    {
@@ -349,7 +361,7 @@ Azure-SSIS IR(Integration Runtime)이 없는 경우 [자습서: Azure-SSIS IR �
    }
    ```
 
-2. Azure PowerShell에서 `C:\ADF\RunSSISPackage` 폴더로 전환합니다.
+2. Azure PowerShell에서 *C:\ADF\RunSSISPackage* 폴더로 전환 합니다.
 
 3. **RunSSISPackagePipeline**파이프라인을 만들려면 **AzDataFactoryV2Pipeline** cmdlet을 실행 합니다.
 
@@ -381,7 +393,7 @@ $RunId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactor
 
 ### <a name="monitor-the-pipeline"></a>파이프라인 모니터링
 
-다음 PowerShell 스크립트를 실행하여 데이터 복사가 완료될 때까지 지속적으로 파이프라인 실행 상태를 검사합니다. PowerShell 창에서 다음 스크립트를 복사/붙여넣기하고 ENTER 키를 누릅니다. 
+다음 PowerShell 스크립트를 실행하여 데이터 복사가 완료될 때까지 지속적으로 파이프라인 실행 상태를 검사합니다. PowerShell 창에서 다음 스크립트를 복사 하거나 붙여넣고 Enter 키를 선택 합니다. 
 
 ```powershell
 while ($True) {
@@ -402,13 +414,13 @@ while ($True) {
 }   
 ```
 
-Azure Portal을 사용하여 파이프라인을 모니터링 할 수도 있습니다. 단계별 지침은 [파이프라인 모니터링](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)을 참조하세요.
+Azure Portal를 사용 하 여 파이프라인을 모니터링할 수도 있습니다. 단계별 지침은 [파이프라인 모니터링](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)을 참조하세요.
 
 ### <a name="schedule-the-pipeline-with-a-trigger"></a>트리거를 사용하여 파이프라인 예약
-이전 단계에서는 파이프라인을 주문형으로 실행했습니다. 일정 트리거를 만들어 파이프라인을 예약형으로 실행할 수도 있습니다(매시간, 매일 등).
+이전 단계에서는 요청 시 파이프라인을 실행 했습니다. 일정에 따라 일정에 따라 파이프라인을 실행 하는 일정 트리거를 만들 수도 있습니다 (예: 매시간 또는 매일).
 
-1. **C:\ADF\RunSSISPackage** 폴더에 다음 내용이 포함된 **MyTrigger.json**이라는 JSON 파일을 만듭니다. 
-
+1. *C:\ADF\RunSSISPackage* 폴더에 다음 내용이 포함 된 *mytrigger. json* 이라는 json 파일을 만듭니다. 
+        
    ```json
    {
        "properties": {
@@ -432,29 +444,30 @@ Azure Portal을 사용하여 파이프라인을 모니터링 할 수도 있습�
        }
    }    
    ```
-2. **Azure PowerShell**에서 **C:\ADF\RunSSISPackage** 폴더로 전환합니다.
-3. 트리거를 만드는 **AzDataFactoryV2Trigger** cmdlet을 실행 합니다. 
+    
+1. Azure PowerShell에서 *C:\ADF\RunSSISPackage* 폴더로 전환 합니다.
+1. 트리거를 만드는 **AzDataFactoryV2Trigger** cmdlet을 실행 합니다. 
 
    ```powershell
    Set-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
                                    -DataFactoryName $DataFactory.DataFactoryName `
                                    -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
    ```
-4. 기본적으로 트리거는 중지된 상태입니다. **AzDataFactoryV2Trigger** cmdlet을 실행 하 여 트리거를 시작 합니다. 
+1. 기본적으로 트리거는 중지된 상태입니다. **AzDataFactoryV2Trigger** cmdlet을 실행 하 여 트리거를 시작 합니다. 
 
    ```powershell
    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
                                      -DataFactoryName $DataFactory.DataFactoryName `
                                      -Name "MyTrigger" 
    ```
-5. **AzDataFactoryV2Trigger** cmdlet을 실행 하 여 트리거가 시작 되었는지 확인 합니다. 
+1. **AzDataFactoryV2Trigger** cmdlet을 실행 하 여 트리거가 시작 되었는지 확인 합니다. 
 
    ```powershell
    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `
                                    -DataFactoryName $DataFactoryName `
                                    -Name "MyTrigger"     
    ```    
-6. 한 시간 후에 다음 명령을 실행합니다. 예를 들어 현재 시간이 오후 3:25(UTC)인 경우 오후 4시(UTC)에 명령을 실행합니다. 
+1. 한 시간 후에 다음 명령을 실행합니다. 예를 들어 현재 시간이 오후 3:25(UTC)인 경우 오후 4시(UTC)에 명령을 실행합니다. 
     
    ```powershell
    Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName `
@@ -464,7 +477,7 @@ Azure Portal을 사용하여 파이프라인을 모니터링 할 수도 있습�
                                       -TriggerRunStartedBefore "2017-12-09"
    ```
 
-   Azure SQL Server의 SSISDB 데이터베이스에 대해 다음 쿼리를 실행하여 패키지가 실행되었는지 확인할 수 있습니다. 
+   SQL server의 SSISDB 데이터베이스에 대해 다음 쿼리를 실행 하 여 패키지가 실행 되었는지 확인 합니다. 
 
    ```sql
    select * from catalog.executions
@@ -472,4 +485,4 @@ Azure Portal을 사용하여 파이프라인을 모니터링 할 수도 있습�
 
 ## <a name="next-steps"></a>다음 단계
 다음 블로그 게시물을 참조하십시오.
--   [ADF 파이프라인에서 SSIS 작업을 사용하여 ETL/ELT 워크플로 현대화 및 확장](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)
+- [Azure Data Factory 파이프라인에서 SSIS 작업을 사용 하 여 ETL/ELT 워크플로 현대화 및 확장](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)

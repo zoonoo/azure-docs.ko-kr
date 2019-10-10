@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
-ms.author: v-erkell
-ms.openlocfilehash: fe096b2e2a75cc89e3ce5ef905d8e4c347cc153a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: ac7db46a681fcde6bfcbb7695e2d66724f738918
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409834"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256219"
 ---
 # <a name="enable-support-uploads"></a>지원 업로드 사용
 
@@ -42,6 +42,6 @@ The Avere vFXT for Azure는 클러스터에 대한 지원 데이터를 자동으
 
 ## <a name="next-steps"></a>다음 단계
 
-온-프레미스를 추가 해야 할 경우 또는 기존 클라우드 클러스터에 저장소 시스템의 지침을 따릅니다 [저장소 구성](avere-vfxt-add-storage.md)합니다. 
+클러스터에 온-프레미스 또는 기존 클라우드 저장소 시스템을 추가 해야 하는 경우 [저장소 구성](avere-vfxt-add-storage.md)의 지침을 따르세요. 
 
 클러스터에 클라이언트를 연결할 준비가 되었으면 [Avere vFXT 클러스터 탑재](avere-vfxt-mount-clients.md)를 읽어보세요.

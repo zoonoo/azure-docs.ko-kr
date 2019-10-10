@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: b118740f3a57e168c5dfb071c199bcf424bd5113
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: a0ceb5aa82b0d38ab5d2567689e3e131ba781ce9
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295569"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254994"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Azure Monitor 로그에서 쿼리 검색
 Azure Monitor 로그 쿼리는 테이블 이름 또는 검색 명령을 사용하여 시작할 수 있습니다. 이 자습서는 검색 기반 쿼리를 다룹니다. 각 메서드에 대한 이점이 있습니다.
@@ -50,7 +50,7 @@ search in (Event, SecurityEvent) "error"
 ```
 
 ### <a name="table-and-column-scoping"></a>테이블 및 열 범위 지정
-기본적으로 **search**는 데이터 집합의 모든 열을 평가합니다. 특정 열만을 검색하려면 이 구문을 사용합니다.
+기본적으로 **search**는 데이터 집합의 모든 열을 평가합니다. 특정 열 (아래 예제에서는 명명 된 *원본* )만 검색 하려면 다음 구문을 사용 합니다.
 
 ```Kusto
 search in (Event) Source:"error"
@@ -58,7 +58,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> `:` 대신 `==`를 사용하는 경우 결과는 이 대/소문자 구분에서 *Source* 열에 정확한 값 "error"가 있는 레코드를 포함합니다. 사용 하 여 ':' 레코드를 포함 하는 위치 *소스* 값이 "오류 코드 404" 또는 "Error"입니다.
+> `:` 대신 `==`를 사용하는 경우 결과는 이 대/소문자 구분에서 *Source* 열에 정확한 값 "error"가 있는 레코드를 포함합니다. ': '을 사용 하는 경우 *원본* 에 "오류 코드 404" 또는 "오류"와 같은 값이 있는 레코드가 포함 됩니다.
 
 ## <a name="case-sensitivity"></a>대/소문자 구분
 기본적으로 용어 검색은 대/소문자를 구분하지 않으므로 "dns"를 검색하면 "DNS", "dns" 또는 "Dns"와 같은 결과가 발생할 수 있습니다. 대/소문자를 구분하여 검색하려면 `kind` 옵션을 사용합니다.

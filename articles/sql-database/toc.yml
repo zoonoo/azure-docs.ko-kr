@@ -198,22 +198,20 @@
                   href: /sql/connect/ruby/ruby-driver-for-sql-server
     - name: '백업, 복원, 고가용성(BCDR)'
       items:
-        - name: 백업을 사용한 복구
-          href: sql-database-recovery-using-backups.md
-        - name: 가속 데이터베이스 복구
-          href: sql-database-accelerated-database-recovery.md
-        - name: 중단 복구 지침
-          href: sql-database-disaster-recovery.md
-        - name: 복구 훈련
-          href: sql-database-disaster-recovery-drills.md
         - name: 비즈니스 연속성
           href: sql-database-business-continuity.md
         - name: 고가용성
           href: sql-database-high-availability.md
-        - name: 자동화된 백업
-          href: sql-database-automated-backups.md
-        - name: 장기 백업 보존
-          href: sql-database-long-term-retention.md
+        - name: Backup
+          items:
+            - name: 자동화된 백업
+              href: sql-database-automated-backups.md
+            - name: 백업을 사용한 복구
+              href: sql-database-recovery-using-backups.md
+            - name: 가속 데이터베이스 복구
+              href: sql-database-accelerated-database-recovery.md
+            - name: 장기 백업 보존
+              href: sql-database-long-term-retention.md
         - name: 장애 조치(failover) 그룹 및 지역에서 복제
           items:
             - name: 활성 지역 복제
@@ -222,6 +220,10 @@
               href: sql-database-auto-failover-group.md
             - name: 복제본에 대한 보안 구성
               href: sql-database-geo-replication-security-config.md
+            - name: 중단 복구 지침
+              href: sql-database-disaster-recovery.md
+            - name: 복구 훈련
+              href: sql-database-disaster-recovery-drills.md
     - name: 모니터링 및 튜닝
       items:
         - name: 설명서 모니터링 및 튜닝

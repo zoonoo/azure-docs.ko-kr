@@ -16,12 +16,12 @@ ms.date: 09/11/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1f4afe1c31ae964aab82664de12144185069af5a
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: f7e9b738a55248678a207f0b298ef65e6c2761a4
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71145666"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240142"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Microsoft id 플랫폼 모범 사례 및 권장 사항
 
@@ -50,7 +50,7 @@ ms.locfileid: "71145666"
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | [응용 프로그램에 대 한 브랜딩 지침](howto-add-branding-in-azure-ad-apps.md)을 따릅니다. |
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 응용 프로그램에 대 한 의미 있는 이름 및 로고를 제공 합니다. 이 정보는 [응용 프로그램의 동의 프롬프트](application-consent-experience.md)에 표시 됩니다. 사용자가 합리적인 의사 결정을 내릴 수 있도록 이름 및 로고가 회사/제품을 대표 하는지 확인 합니다. 모든 상표를 위반 하지 않는지 확인 합니다. |
 
-## <a name="privacy"></a>개인 정보 취급 방침
+## <a name="privacy"></a>개인 정보 보호
 
 |   |   |
 |---|---|
@@ -60,7 +60,7 @@ ms.locfileid: "71145666"
 
 |   |   |
 |---|---|
-| ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 리디렉션 Uri 관리: <ul><li>모든 리디렉션 Uri의 소유권을 유지 하 고 DNS 레코드를 최신으로 유지 합니다.</li><li>Uri에서 와일드 카드 (*)를 사용 하지 않습니다.</li><li>웹 앱의 경우 모든 Uri가 안전 하 고 암호화 되어 있는지 확인 합니다 (예: https 체계 사용).</li><li>공용 클라이언트의 경우 플랫폼 특정 리디렉션 Uri (주로 iOS 및 Android 용)를 사용 합니다. 그렇지 않으면 앱을 다시 호출할 때 충돌을 방지 하기 위해 많은 양의 임의성으로 리디렉션 Uri를 사용 합니다.</li><li>격리 된 웹 에이전트에서 앱을 사용 하는 경우를 사용할 https://login.microsoftonline.com/common/oauth2/nativeclient 수 있습니다.</li><li>사용 되지 않거나 불필요 한 리디렉션 Uri를 정기적으로 검토 하 고 트리밍합니다.</li></ul> |
+| ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 리디렉션 Uri 관리: <ul><li>모든 리디렉션 Uri의 소유권을 유지 하 고 DNS 레코드를 최신으로 유지 합니다.</li><li>Uri에서 와일드 카드 (*)를 사용 하지 않습니다.</li><li>웹 앱의 경우 모든 Uri가 안전 하 고 암호화 되어 있는지 확인 합니다 (예: https 체계 사용).</li><li>공용 클라이언트의 경우 플랫폼 특정 리디렉션 Uri (주로 iOS 및 Android 용)를 사용 합니다. 그렇지 않으면 앱을 다시 호출할 때 충돌을 방지 하기 위해 많은 양의 임의성으로 리디렉션 Uri를 사용 합니다.</li><li>격리 된 웹 에이전트에서 앱을 사용 하는 경우 https://login.microsoftonline.com/common/oauth2/nativeclient 을 사용할 수 있습니다.</li><li>사용 되지 않거나 불필요 한 리디렉션 Uri를 정기적으로 검토 하 고 트리밍합니다.</li></ul> |
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 응용 프로그램이 디렉터리에 등록 된 경우 앱 등록 소유자 목록을 최소화 하 고 수동으로 모니터링 합니다. |
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 명시적으로 필요한 경우가 아니면 [OAuth2 암시적 권한 부여 흐름](v2-oauth2-implicit-grant-flow.md) 에 대 한 지원을 사용 하도록 설정 하지 마세요. [여기](v1-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant)에서 유효한 시나리오에 대해 알아보세요. |
 | ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) | 사용자 이름/암호를 초과 하 여 이동 합니다. 사용자 암호를 직접 처리 하는 [ROPC (리소스 소유자 암호 자격 증명 흐름)](v2-oauth-ropc.md)를 사용 하지 마세요. 이 흐름에는 높은 수준의 신뢰 및 사용자 노출이 필요 하며, 더 안전 하 고 다른 흐름을 사용할 수 없는 경우에만 사용 해야 합니다. 이 흐름은 DevOps와 같은 일부 시나리오에서는 여전히 필요하지만, 이 흐름을 사용하면 애플리케이션에 제약이 발생합니다.  최신 접근 방법은 [인증 흐름 및 응용 프로그램 시나리오](authentication-flows-app-scenarios.md)를 참조 하세요.|

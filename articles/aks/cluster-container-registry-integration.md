@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: mlearned
-ms.openlocfilehash: ab744efd205d826cb7ae2c3eda7bba28f4a9bee0
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: d9d432c073872e7bb7f3562979e78989faea65eb
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097798"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241087"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증
 
@@ -39,7 +39,7 @@ az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resou
 ```
 **ACR 리소스 ID의 형식은 다음과 같습니다.** 
 
-/subscriptions/<subscription-d>/Stggs/<리소스 그룹 이름>/providers/Microsoft.ContainerRegistry/registries/{name} 
+/subscriptions/\<subscription-id @ no__t-1/resourceGroups/\<resource-name @ no__t-3/providers/Microsoft.containerregistry//\<name @-5 
   
 이 단계를 완료 하는 데 몇 분 정도 걸릴 수 있습니다.
 
@@ -61,7 +61,7 @@ az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
 
 ## <a name="log-in-to-your-acr"></a>ACR에 로그인
 
-다음 명령을 사용 하 여 ACR에 로그인 합니다.  매개 변수 <acrname> 를 ACR 이름으로 바꿉니다.  예를 들어 기본값은 **aks > acr <** 입니다.
+다음 명령을 사용 하 여 ACR에 로그인 합니다.  @No__t-0 매개 변수를 ACR 이름으로 바꿉니다.  예를 들어 기본값은 **aks > acr <** 입니다.
 
 ```azurecli
 az acr login -n <acrName>

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: d74d1c33816b3c028a26335af4c6d5b23b7a2046
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 4fd73f528ac823a8e794a880f87dd5f8872e1251
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958481"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243269"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -331,7 +331,7 @@ def main(req: azure.functions.HttpRequest,
     return f'{context.invocation_id}'
 ```
 
-[**Context**](/python/api/azure-functions/azure.functions.context?view=azure-python) 클래스에는 다음과 같은 메서드가 있습니다.
+[**Context**](/python/api/azure-functions/azure.functions.context?view=azure-python) 클래스에는 다음과 같은 문자열 특성이 있습니다.
 
 `function_directory`  
 함수가 실행되는 디렉터리입니다.
@@ -423,7 +423,7 @@ func azure functionapp publish <app name> --build-native-deps
 
 종속성을 빌드하고 CD (지속적인 업데이트) 시스템을 사용 하 여 게시 하려면 [Azure Pipelines을 사용](functions-how-to-azure-devops.md)합니다. 
 
-## <a name="unit-testing"></a>단위 테스트
+## <a name="unit-testing"></a>유닛 테스트
 
 Python으로 작성 된 함수는 표준 테스트 프레임 워크를 사용 하 여 다른 Python 코드와 같이 테스트할 수 있습니다. 대부분의 바인딩에서 `azure.functions` 패키지에서 적절 한 클래스의 인스턴스를 만들어 모의 입력 개체를 만들 수 있습니다. [@No__t-1](https://pypi.org/project/azure-functions/) 패키지는 즉시 사용할 수 없으므로 위의 [Python 버전 및 패키지 관리](#python-version-and-package-management) 섹션에 설명 된 대로 `requirements.txt` 파일을 통해 설치 해야 합니다.
 

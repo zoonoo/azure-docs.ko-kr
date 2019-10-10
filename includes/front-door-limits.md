@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: deca0034996f6c8ddcac71cd4f191c1a0659b655
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 37ebe2f0c5cbbaca712e69ab4484379ecf0f4830
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67333384"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72237404"
 ---
 | 리소스 | 기본/최대 제한 |
 | --- | --- |
@@ -24,7 +24,7 @@ ms.locfileid: "67333384"
 | 백 엔드 풀 당 백 엔드 | 100 |
 | 라우팅 규칙에 일치하는 경로 패턴 | 25 |
 | 정책당 사용자 지정 웹 애플리케이션 방화벽 규칙 | 10 |
-| 리소스당 웹 애플리케이션 방화벽 정책 | 100 |
+| 구독 당 웹 응용 프로그램 방화벽 정책 | 100 |
 | 사용자 지정 규칙에 따라 웹 응용 프로그램 방화벽 일치 조건 | 10 |
 | 일치 조건 당 웹 응용 프로그램 방화벽 IP 주소 범위 | 600 |
 | 웹 응용 프로그램 방화벽 문자열 일치 조건 별 값 일치 | 10 |
@@ -53,4 +53,5 @@ ms.locfileid: "67333384"
 | **업로드** |  각 CTE 업로드가 2gb 미만인 경우에는 제한이 없습니다. | 크기는 2gb 보다 클 수 없습니다. |
 
 ### <a name="other-limits"></a>기타 제한
-- 최대 URL 크기-8192 바이트-원시 URL의 최대 길이 (체계 + 호스트 이름 + 포트 + 경로 + URL의 쿼리 문자열)-최대 쿼리 문자열 크기-4096 바이트-쿼리 문자열의 최대 길이 (바이트)를 지정 합니다.
+- 최대 URL 크기-8192 바이트-원시 URL의 최대 길이 (체계 + 호스트 이름 + 포트 + 경로 + URL의 쿼리 문자열)를 지정 합니다.
+- 최대 쿼리 문자열 크기-4096 바이트-쿼리 문자열의 최대 길이 (바이트)를 지정 합니다.

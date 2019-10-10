@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 ms.author: raynew
-ms.openlocfilehash: c330afb2c5d315b3d386d1477669f1aab2f6e6f9
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 908d681b271aa8acdb0898676c33d396461d8f9a
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972072"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255192"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>VMware VM 또는 물리적 서버에서 보조 사이트로 재해 복구하기 위한 지원 매트릭스
 
@@ -25,6 +25,17 @@ ms.locfileid: "69972072"
 > [!NOTE]
 > 온-프레미스 VMware VM 및 물리적 서버 복제는 InMage Scout에서 제공합니다. InMage Scout는 Azure Site Recovery 서비스 구독에 포함되어 있습니다.
 
+## <a name="end-of-support-announcement"></a>지원 종료 알림
+온-프레미스 VMware 또는 물리적 데이터 센터 간의 복제에 대 한 Site Recovery 시나리오는 지원 종료에 도달 하 고 있습니다.
+
+- 8 월 2018부터, Recovery Services 자격 증명 모음에서 시나리오를 구성할 수 없으며, 자격 증명 모음에서 InMage Scout software를 다운로드할 수 없습니다. 기존 배포는 계속 지원됩니다.
+- - 2020년 12월 31일부터 시나리오가 지원되지 않습니다.
+기존 파트너는 지원이 종료될 때까지 시나리오에 새 고객을 온보드할 수 있습니다.
+- 2018년 및 2019년에 두 가지 업데이트가 릴리스될 예정입니다.
+
+    - 업데이트 7: 네트워크 구성 및 규정 준수 문제를 수정하고 TLS 1.2 지원을 제공합니다.
+    - 업데이트 8: Linux 운영 체제 RHEL/CentOS 7.3/7.4/7.5 및 SUSE 12에 대한 지원이 추가됩니다.
+    - 업데이트 8 이후 추가적인 업데이트는 릴리스되지 않습니다. 업데이트 8에 추가된 운영 체제에 대한 핫픽스 지원 및 최상의 노력을 기반으로 한 버그 수정이 제한됩니다.
 
 ## <a name="host-servers"></a>호스트 서버
 
@@ -55,7 +66,7 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 
 
 ## <a name="network-configuration---hostguest-vm"></a>네트워크 구성 - 호스트/게스트 VM
 
-**구성** | **지원됨**  
+**Configuration** | **지원됨**  
 --- | --- 
 호스트 - NIC 팀 | 예 
 호스트 - VLAN | 예 
@@ -68,7 +79,7 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 
 게스트 VM - 다중 NIC | 예
 
 
-## <a name="storage"></a>저장 공간
+## <a name="storage"></a>스토리지
 
 ### <a name="host-storage"></a>호스트 스토리지
 
@@ -81,11 +92,11 @@ SAN(ISCSI) | 예
 
 ### <a name="guest-or-physical-server-storage"></a>게스트 또는 물리적 서버 스토리지
 
-**구성** | **지원됨** 
+**Configuration** | **지원됨** 
 --- | --- 
 VMDK | 예 
 VHD/VHDX | 해당 사항 없음 
-2세대 VM | N/A 
+2세대 VM | 해당 사항 없음 
 공유 클러스터 디스크 | 예 
 암호화된 디스크 | 아니요 
 UEFI| 예 
@@ -101,7 +112,7 @@ RDM | 예
 
 ## <a name="vaults"></a>자격 증명 모음
 
-**동작** | **지원됨** 
+**작업** | **지원됨** 
 --- | --- 
 리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) | 아니요 
 리소스 그룹 간에 스토리지, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아니요 

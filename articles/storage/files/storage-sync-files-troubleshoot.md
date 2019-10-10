@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e07d154ce5dae8a461bf9db19303db685f8a4152
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 6771164c26c51e40d80d0c82b42f04c4f95c4c37
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103073"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255097"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -41,7 +41,7 @@ PDC 역할 소유자가 Windows Server 2008 R2 이하 OS 버전에 있는 Active
 
 이 문제를 해결하려면 PDC 역할을 Windows Server 2012 R2 이상을 실행 중인 다른 도메인 컨트롤러로 전송한 다음, 동기화를 설치합니다.
 
-<a id="server-registration-prerequisites"></a>**서버 등록에는 다음과 같은 메시지가 표시 됩니다. "필수 구성 요소가 누락되었습니다."**
+<a id="server-registration-prerequisites"></a>**Server 등록에는 다음 메시지가 표시 됩니다. "필수 구성 요소가 누락되었습니다."**
 
 이 메시지는 Az 또는 AzureRM PowerShell 모듈이 PowerShell 5.1에 설치 되지 않은 경우 나타납니다. 
 
@@ -56,7 +56,7 @@ PowerShell 5.1에 Az 또는 AzureRM 모듈을 설치 하려면 다음 단계를 
     - [AzureRM 모듈]( https://go.microsoft.com/fwlink/?linkid=856959)
 3. ServerRegistration.exe를 실행하고 마법사를 완료하여 서버를 Storage 동기화 서비스에 등록합니다.
 
-<a id="server-already-registered"></a>**서버 등록에는 다음과 같은 메시지가 표시 됩니다. “서버가 이미 등록되었습니다.”라는 메시지가 표시됩니다.** 
+<a id="server-already-registered"></a>**Server 등록에는 다음 메시지가 표시 됩니다. “서버가 이미 등록되었습니다.”라는 메시지가 표시됩니다.** 
 
 ![“This server is already registered”(서버가 이미 등록되었습니다.) 오류 메시지가 있는 서버 등록 대화 상자의 스크린샷](media/storage-sync-files-troubleshoot/server-registration-1.png)
 
@@ -185,7 +185,7 @@ Set-AzStorageSyncServerEndpoint `
 > [!Note]  
 > 등록된 서버 블레이드의 서버 상태가 "오프라인으로 나타남"인 경우 [서버 엔드포인트가 "활동 없음" 또는 "보류 중" 상태이며, 등록된 서버 블레이드의 서버 상태가 "오프라인으로 나타남"](#server-endpoint-noactivity) 섹션에서 설명하는 단계를 수행하세요.
 
-## <a name="sync"></a>Sync
+## <a name="sync"></a>동기화
 <a id="afs-change-detection"></a>**SMB 또는 포털을 통해 Azure 파일 공유에 직접 파일을 만든 경우 해당 파일이 동기화 그룹의 서버에 동기화되는 데 얼마나 걸리나요?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
@@ -1010,6 +1010,17 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 > [!NOTE]
 > 파일이 회수에 실패하면 이벤트 ID 9006이 원격 분석 이벤트 로그에 1시간에 한 번 기록됩니다(오류 코드 하나당 이벤트 하나가 기록). 문제를 진단하기 위해 추가 정보가 필요한 경우 운영 및 진단 이벤트 로그를 사용해야 합니다.
 
+### <a name="recall-errors-and-remediation"></a>회수 오류 및 수정
+
+| HRESULT | HRESULT(10진) | 오류 문자열 | 문제점 | 업데이트 관리 |
+|---------|-------------------|--------------|-------|-------------|
+| 0x80070079 | -121 | ERROR_SEM_TIMEOUT | I/o 시간 제한으로 인해 파일을 회수 하지 못했습니다. 이 문제는 여러 가지 이유로 발생할 수 있습니다. 예를 들어 서버 리소스 제약 조건, 네트워크 연결 불량 또는 Azure storage 문제 (예: 제한)가 발생할 수 있습니다. | 아무 조치도 취할 필요가 없습니다. 오류가 몇 시간 동안 지속 되 면 지원 사례를 여세요. |
+| 0x80070036 | -2147024842 | ERROR_NETWORK_BUSY | 네트워크 문제로 인해 파일을 회수 하지 못했습니다.  | 오류가 계속 발생 하면 Azure 파일 공유에 대 한 네트워크 연결을 확인 합니다. |
+| 0x80c80037 | -2134376393 | ECS_E_SYNC_SHARE_NOT_FOUND | 서버 끝점이 삭제 되어 파일을 회수 하지 못했습니다. | 이 문제를 해결 하려면 [서버 끝점을 삭제 한 후 서버에서 계층화 된 파일에 액세스할 수 없음](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint)을 참조 하세요. |
+| 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | 액세스 거부 오류로 인해 파일을 회수 하지 못했습니다. 저장소 계정에 대 한 방화벽 및 가상 네트워크 설정을 사용 하도록 설정 하 고 서버에 저장소 계정에 대 한 액세스 권한이 없는 경우이 문제가 발생할 수 있습니다. | 이 문제를 해결 하려면 배포 가이드의 [방화벽 및 가상 네트워크 설정 구성](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings) 섹션에 설명 된 단계를 수행 하 여 서버 IP 주소 또는 가상 네트워크를 추가 합니다. |
+| 0x80c86002 | -2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | Azure 파일 공유에서 액세스할 수 없기 때문에 파일을 회수 하지 못했습니다. | 이 문제를 해결 하려면 파일이 Azure 파일 공유에 있는지 확인 합니다. 파일이 Azure 파일 공유에 있으면 최신 Azure File Sync 에이전트 버전으로 업그레이드 합니다. |
+| 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | 저장소 계정에 대 한 권한 부여 실패로 인해 파일을 회수 하지 못했습니다. | 이 문제를 해결 하려면 [저장소 계정에 대 한 액세스 권한이 Azure File Sync](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac)있는지 확인 하세요. |
+
 ### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>서버 끝점을 삭제 한 후 서버에서 계층화 된 파일에 액세스할 수 없음
 서버 끝점을 삭제 하기 전에 파일을 회수 하지 않으면 서버의 계층화 된 파일에 액세스할 수 없게 됩니다.
 
@@ -1044,7 +1055,7 @@ $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 
 <a id="remove-orphaned"></a>**분리 된 계층화 된 파일을 제거 하는 방법** 
 
-*옵션 1: 분리 된 계층화 된 파일 삭제*
+*옵션 1: 분리 된 계층화 된 파일 삭제 @ no__t-0
 
 이 옵션은 Windows Server에서 분리 된 계층화 된 파일을 삭제 하지만 30 일 후에는 다시 만들기로 인해 존재 하거나 다른 동기화 그룹에 연결 된 경우 서버 끝점을 제거 해야 합니다. 파일 충돌은 서버 끝점을 다시 만들기 전에 Windows Server 또는 Azure 파일 공유에서 파일이 업데이트 되는 경우에 발생 합니다.
 
@@ -1077,7 +1088,7 @@ $orphanFilesRemoved.OrphanedTieredFiles > DeletedOrphanFiles.txt
 
 7. 선택 사항: 3 단계에서 삭제 한 경우 서버 끝점을 다시 만듭니다.
 
-*옵션 2: Azure 파일 공유를 탑재 하 고 서버에서 분리 된 파일을 로컬로 복사 합니다.*
+*옵션 2: Azure 파일 공유를 탑재 하 고 서버에서 분리 된 파일을 로컬로 복사 @ no__t-0
 
 이 옵션은 서버 끝점을 제거 하지 않아도 되지만 전체 파일을 로컬로 복사 하는 데 충분 한 디스크 공간이 필요 합니다.
 
@@ -1128,7 +1139,7 @@ $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 5. 문제를 재현합니다. 작업을 완료하면 **D** 키를 입력합니다.
 6. 로그 및 추적 파일을 포함하는 .zip 파일은 사용자가 지정한 출력 디렉터리에 저장됩니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 - [Azure 파일 동기화 모니터링](storage-sync-files-monitoring.md)
 - [Azure Files 질문과 대답](storage-files-faq.md)
 - [Windows에서 Azure Files 문제 해결](storage-troubleshoot-windows-file-connection-problems.md)

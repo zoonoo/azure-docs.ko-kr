@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 5326e765701a42323ea62df8d35128c4117b2ed9
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: a75c64ebb6ba3eeffeccd98cf41365fe96218573
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981426"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255902"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure Policy 할당 구조
 
@@ -58,12 +58,11 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 
 ## <a name="enforcement-mode"></a>적용 모드
 
-**EnforcementMode** 속성은 [Azure 활동 로그](../../../azure-monitor/platform/activity-logs-overview.md)에서 정책 효과를 시작 하거나 항목을 트리거하지 않고 기존 리소스에 대 한 정책 결과를 테스트 하는 기능을 고객에 게 제공 합니다.
-이 시나리오를 일반적으로 "What If" 이라고 하며 안전 배포 방법에 맞춥니다.
+**EnforcementMode** 속성은 [Azure 활동 로그](../../../azure-monitor/platform/activity-logs-overview.md)에서 정책 효과를 시작 하거나 항목을 트리거하지 않고 기존 리소스에 대 한 정책 결과를 테스트 하는 기능을 고객에 게 제공 합니다. 이 시나리오를 일반적으로 "What If" 이라고 하며 안전 배포 방법에 맞춥니다. **enforcementMode** 는 [사용 하지 않도록 설정](./effects.md#disabled) 된 효과와 다릅니다. 이러한 효과는 리소스 평가가 전혀 발생 하지 않도록 방지 합니다.
 
 이 속성의 값은 다음과 같습니다.
 
-|모드 |JSON 값 |형식 |수동으로 재구성 |활동 로그 항목 |설명 |
+|모드 |JSON 값 |type |수동으로 재구성 |활동 로그 항목 |설명 |
 |-|-|-|-|-|-|
 |Enabled |기본값 |string |예 |예 |정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 됩니다. |
 |사용 안 함 |DoNotEnforce |string |예 |아니요 | 정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 되지 않습니다. |

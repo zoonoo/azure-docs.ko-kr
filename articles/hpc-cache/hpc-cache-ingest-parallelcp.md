@@ -5,17 +5,17 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.author: v-erkell
-ms.openlocfilehash: 852b4e692a4316c7701c8c179039104bee561949
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.author: rohogue
+ms.openlocfilehash: 4899f946cb358693c969def3fa740af64675d934
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180961"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254524"
 ---
 # <a name="azure-hpc-cache-preview-data-ingest---parallel-copy-script-method"></a>Azure HPC 캐시 (미리 보기) 데이터 수집-병렬 복사 스크립트 메서드
 
-이 문서에서는 스크립트를 ``parallelcp`` 만들고이를 사용 하 여 Azure HPC 캐시에서 사용할 Blob 저장소 컨테이너로 데이터를 이동 하는 방법에 대 한 지침을 제공 합니다.
+이 문서에서는 ``parallelcp`` 스크립트를 만들고이 스크립트를 사용 하 여 Azure HPC 캐시에서 사용할 Blob 저장소 컨테이너로 데이터를 이동 하는 방법에 대 한 지침을 제공 합니다.
 
 Azure HPC 캐시의 Blob 저장소로 데이터를 이동 하는 방법에 대 한 자세한 내용은 azure [Hpc 캐시로 Azure blob storage로 데이터 이동](hpc-cache-ingest.md)을 참조 하세요.
 
@@ -75,11 +75,11 @@ EOM
 
 ## <a name="parallel-copy-example"></a>병렬 복사 예제
 
-이 예제에서는 병렬 복사 스크립트를 사용 하 ``glibc`` 여 Azure HPC 캐시에서 원본 파일을 사용 하 여 컴파일합니다.
+이 예제에서는 병렬 복사 스크립트를 사용 하 여 Azure HPC 캐시의 원본 파일을 사용 하 ``glibc``을 컴파일합니다.
 
 원본 파일은 Azure HPC 캐시 탑재 지점에 캐시 되 고 개체 파일은 로컬 하드 드라이브에 저장 됩니다.
 
-이 예에서는 및 ``-j`` ``make`` 옵션과 함께 병렬 복사 스크립트를 사용 하 여 병렬화를 얻습니다.
+이 예에서는 병렬 복사 스크립트와 ``-j`` 및 ``make`` 옵션을 사용 하 여 병렬화를 얻습니다.
 
 ```bash
 sudo apt-get update

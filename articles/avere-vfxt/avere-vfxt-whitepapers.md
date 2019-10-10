@@ -3,15 +3,15 @@ title: 백서 및 사례 연구 - Avere vFTX for Azure
 description: Avere vFXT for Azure를 보여주고 사용 방법을 소개하는 다운로드 가능한 백서, 사례 연구 및 기타 문서의 링크입니다.
 ms.service: avere-vfxt
 author: ekpgh
-ms.author: v-erkell
+ms.author: rohogue
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.openlocfilehash: cf111f2ebe4233ea5d02cf5c7fbc0967655475d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 257164a7417d4356c83cd1804939973b7029a4f1
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409195"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255333"
 ---
 # <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>Azure vFTX for Azure 백서 및 기타 리소스 
 

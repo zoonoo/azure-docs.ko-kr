@@ -1,17 +1,17 @@
 ---
-title: 컴퓨터의 콘텐츠를 감사 하는 방법 이해
+title: 가상 컴퓨터의 콘텐츠를 감사 하는 방법 알아보기
 description: Azure Policy 게스트 구성을 사용 하 여 Azure 컴퓨터 내에서 설정을 감사 하는 방법을 알아봅니다.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: ac8d4d2519ce918a943cfe1e93ed2c5c7afd9a47
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 82279e6937fccfbbef13f9580f76cd344593b0df
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978049"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255840"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -77,7 +77,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 |게시자|이름|버전|
 |-|-|-|
-|정식|Ubuntu Server|14.04, 16.04, 18.04|
+|Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|2012 datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
 |Microsoft|Windows 클라이언트|Windows 10|

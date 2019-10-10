@@ -1,18 +1,18 @@
 ---
 title: 샘플-캐나다 연방 PMM 청사진-배포 단계
-description: TheCanada 연방 PMM 청사진 샘플의 단계를 배포 합니다.
+description: 청사진 아티팩트 매개 변수 세부 정보를 포함 하는 캐나다 연방 PMM 청사진 샘플에 대 한 단계를 배포 합니다.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 2e810c810fd2c143f3d3e43a6ff1df87a150fa3b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 0e799de92f25c688b41d3ac5718fe3a2b7a8aba0
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981638"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249004"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>캐나다 연방 PMM 청사진 샘플 배포
 
@@ -107,7 +107,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |\[미리 보기\]: 캐나다 연방 PMM 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |Windows VM 관리자 그룹에 포함해야 하는 사용자 목록 |관리자 로컬 그룹에 포함해야 하는 구성원의 세미콜론으로 구분된 목록입니다. 예: `Administrator; myUser1; myUser2` |
 |스토리지 계정에 Advanced Threat Protection 배포 |정책 할당 |영향 |정책 효과에 대 한 정보는 [Azure Policy 효과 이해](../../../policy/concepts/effects.md)에서 확인할 수 있습니다. |
 |SQL Server에 감사 배포 |정책 할당 |보존 기간 값(일)(0은 보존 기간에 제한이 없음을 표시) |보존 일 수 (선택 사항, 지정 되지 않은 경우 _180_ 일) |
-|SQL Server에 감사 배포 |정책 할당 |SQL 서버 감사를 위한 스토리지 계정의 리소스 그룹 이름 |감사는 Azure Storage 계정의 감사 로그에 데이터베이스 이벤트를 씁니다. 저장소 계정은 해당 지역의 모든 서버에서 공유 하는 SQL Server 생성 된 각 지역에서 만들어집니다. 중요-감사를 적절 하 게 수행 하려면 리소스 그룹 또는 저장소 계정을 삭제 하거나 이름을 변경 하지 마십시오. |
+|SQL Server에 감사 배포 |정책 할당 |SQL Server 감사를 위한 스토리지 계정의 리소스 그룹 이름 |감사는 Azure Storage 계정의 감사 로그에 데이터베이스 이벤트를 씁니다. 저장소 계정은 해당 지역의 모든 서버에서 공유 하는 SQL Server 생성 된 각 지역에서 만들어집니다. 중요-감사를 적절 하 게 수행 하려면 리소스 그룹 또는 저장소 계정을 삭제 하거나 이름을 변경 하지 마십시오. |
 |네트워크 보안 그룹에 대한 진단 설정 배포 |정책 할당 |네트워크 보안 그룹 진단을 위한 스토리지 계정 접두사 |이 접두사는 생성 된 저장소 계정 이름을 구성 하기 위해 네트워크 보안 그룹 위치와 결합 됩니다. |
 |네트워크 보안 그룹에 대한 진단 설정 배포 |정책 할당 |네트워크 보안 그룹 진단을 위한 스토리지 계정의 리소스 그룹 이름(있어야 함) |저장소 계정이 만들어진 리소스 그룹입니다. 이 리소스 그룹은 이미 있어야 합니다. |
 

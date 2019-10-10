@@ -5,43 +5,43 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.author: v-erkell
-ms.openlocfilehash: 7ded66c29f12b8f68746726ca6c126bffbc51f0d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: 6ddf950bf2d138a94675ee394109a0d227ea206b
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60410332"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255461"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT 클러스터 배포
 
 이 절차에서는 Azure Marketplace에서 제공되는 배포 마법사를 사용하는 과정을 안내합니다. 이 마법사는 Azure Resource Manager 템플릿을 사용하여 클러스터를 자동으로 배포합니다. 양식에 매개 변수를 입력하고 **만들기**를 클릭하면 Azure에서 다음 단계가 자동으로 완료됩니다.
 
-* 배포 하 고 클러스터를 관리 하는 데 필요한 소프트웨어를 포함 하는 기본 VM은 클러스터 컨트롤러를 만듭니다.
-* 리소스 그룹 및 새 요소를 만드는 등 가상 네트워크 인프라를 설정 합니다.
+* 클러스터를 배포 하 고 관리 하는 데 필요한 소프트웨어를 포함 하는 기본 VM 인 클러스터 컨트롤러를 만듭니다.
+* 새 요소 만들기를 포함 하 여 리소스 그룹 및 가상 네트워크 인프라를 설정 합니다.
 * 클러스터 노드 Vm을 만들고 Avere 클러스터로 구성 합니다.
-* 요청 된 경우 새 Azure Blob 컨테이너를 만들고 클러스터 코어 필터가로 구성 합니다.
+* 요청 된 경우에서 새 Azure Blob 컨테이너를 만들고 클러스터 코어 필터 구성 합니다.
 
-이 문서의 지침을 따른 후 가상 네트워크, 서브넷, 컨트롤러 및 다음 다이어그램에 표시 된 대로 vFXT 클러스터 해야 합니다. 이 다이어그램에 새 Blob 저장소 컨테이너 (새 저장소 계정에 표시 되지 않음) 및 서브넷 내에서 Microsoft storage에 대 한 서비스 끝점을 포함 하는 선택적 Azure Blob core 필터가 보여 줍니다. 
+이 문서의 지침을 수행 하면 다음 다이어그램에 표시 된 것 처럼 가상 네트워크, 서브넷, 컨트롤러 및 vFXT 클러스터가 만들어집니다. 이 다이어그램은 새 Blob 저장소 컨테이너 (표시 되지 않음) 및 서브넷 내 Microsoft 저장소에 대 한 서비스 끝점을 포함 하는 선택적 Azure Blob core 필터를 보여 줍니다. 
 
-![Avere 클러스터 구성 요소를 사용 하 여 세 개의 동심 사각형을 보여 주는 다이어그램입니다. 외부 사각형 '리소스 그룹' 레이블이 지정 되며 '(선택 사항) 저장소 Blob' 레이블이 육각형을 포함 합니다. 다음 사각형은 레이블이 지정 된 ' 가상 네트워크: 10.0.0.0/16' 모든 고유한 구성 요소를 포함 하지 않습니다. 가장 안쪽의 사각형 'Subnet:10.0.0.0/24' 레이블이 지정 되며 '클러스터 컨트롤러', 'vFXT 노드 (vFXT 클러스터)' 라는 3 개의 Vm 및 육각형 '서비스 끝점' 레이블이 지정 된 스택을 레이블이 지정 된 VM을 포함 합니다. 연결 서비스 끝점 (즉 서브넷 내에서) 및 blob storage (이 리소스 그룹에 vnet 및 서브넷 외부) 화살표가 있습니다. 화살표는 서브넷 및 가상 네트워크 경계를 통과합니다.](media/avere-vfxt-deployment.png)  
+![Avere 클러스터 구성 요소가 포함 된 세 개의 동심 사각형을 보여 주는 다이어그램입니다. 외부 사각형에는 ' 리소스 그룹 ' 레이블이 지정 되 고 ' Blob storage (선택 사항) ' 레이블이 지정 된 육각형이 포함 됩니다. 다음 사각형의 레이블은 ' 가상 네트워크: 10.0.0.0/16 ' 및에는 고유한 구성 요소가 포함 되어 있지 않습니다. 가장 안쪽의 사각형에는 ' Subnet: 10.0.0.0/24 ' 레이블이 지정 되 고 ' Cluster controller ' 레이블이 지정 된 VM, ' vFXT nodes (vFXT Cluster) ' 레이블이 지정 된 3 개의 Vm 스택, ' Service endpoint ' 레이블이 지정 된 육각형이 포함 됩니다. 서비스 끝점 (서브넷 내부) 및 blob 저장소 (리소스 그룹의 서브넷 및 vnet 외부)를 연결 하는 화살표가 있습니다. 화살표는 서브넷 및 가상 네트워크 경계를 통과 합니다.](media/avere-vfxt-deployment.png)  
 
 만들기 템플릿을 사용하기 전에 다음 필수 구성 요소가 충족되었는지 확인하세요.  
 
 1. [새 구독](avere-vfxt-prereqs.md#create-a-new-subscription)
 1. [구독 소유자 권한](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [vFXT 클러스터에 대한 할당량](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [저장소 서비스 끝점 (필요한 경우)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) 필요-blob 저장소를 만들고 기존 가상 네트워크를 사용 하 여 배포
+1. [Storage 서비스 끝점 (필요한 경우)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) -기존 가상 네트워크를 사용 하 여 배포 하 고 blob 저장소를 만드는 데 필요 합니다.
 
 클러스터 배포 단계 및 계획에 대한 자세한 내용은 [Avere vFXT 시스템 계획](avere-vfxt-deploy-plan.md) 및 [배포 개요](avere-vfxt-deploy-overview.md)를 참조하세요.
 
 ## <a name="create-the-avere-vfxt-for-azure"></a>Avere vFXT for Azure 만들기
 
-Avere 검색 하 고 "Azure ARM 템플릿에 대 한 Avere vFXT"를 선택 하 여 Azure portal에서 생성 템플릿에 액세스 합니다. 
+Avere를 검색 하 고 "Avere vFXT for Azure ARM Template"을 선택 하 여 Azure Portal에서 생성 템플릿에 액세스 합니다. 
 
-![브라우저 창에 이동 경로 "새로 만들기 > Marketplace > 모두"와 함께 Azure Portal이 표시됩니다. 모두 페이지, 검색 필드에 용어 "avere" 및 "Azure ARM 템플릿에 대 한 Avere vFXT" 두 번째 결과 빨간색으로 강조 표시에 설명 된 합니다.](media/avere-vfxt-template-choose.png)
+![브라우저 창에 이동 경로 "새로 만들기 > Marketplace > 모두"와 함께 Azure Portal이 표시됩니다. 모든 페이지에서 검색 필드는 "avere" 라는 용어를 포함 하 고 두 번째 결과는 "Avere vFXT for Azure ARM Template"을 빨간색으로 표시 하 여 강조 표시 합니다.](media/avere-vfxt-template-choose.png)
 
-Avere vFXT Azure ARM 템플릿 페이지에 대 한 세부 정보를 읽은 후 다음 클릭 **만들기** 시작 합니다. 
+Avere vFXT for Azure ARM 템플릿 페이지에서 세부 정보를 읽은 후 **만들기** 를 클릭 하 여 시작 합니다. 
 
 ![배포 템플릿의 첫 페이지가 표시된 Azure Marketplace](media/avere-vfxt-deploy-first.png)
 
@@ -91,13 +91,13 @@ Avere vFXT Azure ARM 템플릿 페이지에 대 한 세부 정보를 읽은 후 
 
 * **Avere vFXT 클러스터 이름** - 클러스터에 고유한 이름을 지정합니다. 
 
-* **크기** -이 섹션에서는 클러스터 노드에 대해 사용할 VM 유형을 표시 합니다. 권장된 옵션 하나만 있지만 합니다 **크기를 변경** 링크는이 인스턴스 유형 및 가격 책정 계산기에 대 한 링크에 대 한 정보를 사용 하 여 테이블을 엽니다.  
+* **크기** -이 섹션에서는 클러스터 노드에 사용 되는 VM 유형을 보여 줍니다. 권장 옵션은 하나 뿐 이지만 **크기 변경** 링크를 사용 하면이 인스턴스 유형에 대 한 세부 정보 및 가격 계산기에 대 한 링크가 있는 테이블이 열립니다.  
 
 * **노드당 캐시 크기** - 클러스터 캐시는 여러 클러스터 노드에 분산되므로 Avere vFXT 클러스터의 총 캐시 크기는 노드당 캐스 크기에 노드 수를 곱한 값입니다. 
 
-  권장 구성은 노드당 Standard_E32s_v3 노드에 대 한 4TB를 사용 하는 것입니다.
+  권장 구성은 Standard_E32s_v3 노드에 대해 노드당 4tb를 사용 하는 것입니다.
 
-* **가상 네트워크** -클러스터를 저장할 새 vnet을 정의 하거나에 설명 된 필수 구성 요소를 충족 하는 기존 vnet을 선택할 [Avere vFXT 시스템을 계획](avere-vfxt-deploy-plan.md#resource-group-and-network-infrastructure)합니다. 
+* **가상 네트워크** -클러스터를 보관 하는 새 vnet을 정의 하거나 [Avere vFXT 시스템 계획](avere-vfxt-deploy-plan.md#resource-group-and-network-infrastructure)에 설명 된 전제 조건을 충족 하는 기존 vnet을 선택 합니다. 
 
   > [!NOTE]
   > 새 가상 네트워크를 만드는 경우 클러스터 컨트롤러에 공용 IP 주소가 지정되므로 새 사설망에 액세스할 수 있습니다. 기존 가상 네트워크를 선택하는 경우에는 공용 IP 주소 없이 클러스터 컨트롤러가 구성됩니다. 
@@ -107,25 +107,25 @@ Avere vFXT Azure ARM 템플릿 페이지에 대 한 세부 정보를 읽은 후 
   >  * 컨트롤러에 공용 IP 주소를 설정하지 않은 경우 다른 점프 호스트, VPN 연결 또는 ExpressRoute를 사용하여 클러스터에 액세스해야 합니다. 예를 들어 VPN 연결이 이미 구성된 가상 네트워크 내에 컨트롤러를 만듭니다.
   >  * 공용 IP 주소가 있는 컨트롤러를 만드는 경우 컨트롤러 VM을 네트워크 보안 그룹으로 보호해야 합니다. 기본적으로 Avere vFXT for Azure 배포에서는 보안 네트워크 그룹이 생성되며, 공용 IP 주소가 있는 컨트롤러가 포트 22에만 인바운드 액세스할 수 있도록 제한합니다. 액세스 범위를 IP 원본 주소 범위로 고정(클러스터 액세스에 사용하려는 컴퓨터의 연결만 허용)하면 시스템을 추가로 보호할 수 있습니다.
 
-  클러스터 서브넷의 Ip만을 잠긴 네트워크 액세스 제어와 Azure Blob storage에 대 한 저장소 서비스 끝점을 사용 하 여 템플릿 배포도 새 vnet을 구성 합니다. 
+  또한 배포 템플릿은 Azure Blob 저장소에 대 한 저장소 서비스 끝점을 사용 하 여 새 vnet을 구성 하 고, 네트워크 액세스 제어를 클러스터 서브넷의 Ip로만 잠 궜 습니다. 
 
 * **서브넷** - 기존 가상 네트워크에서 서브넷을 선택하거나 새 서브넷을 만듭니다. 
 
-* **만들기 및 blob storage 사용** -선택 **true** 새 Azure Blob 컨테이너를 만들고 새 Avere vFXT 클러스터에 대 한 백 엔드 저장소로 구성 합니다. 이 옵션에는 또한 클러스터와 클러스터 서브넷 내에서 Microsoft 저장소 서비스 끝점을 동일한 리소스 그룹 내에서 새 저장소 계정을 만듭니다. 
+* **Blob 저장소 만들기 및 사용** -새 Azure blob 컨테이너를 만들고 새 Avere vFXT 클러스터에 대 한 백 엔드 저장소로 구성 하려면 **true** 를 선택 합니다. 또한이 옵션은 클러스터와 동일한 리소스 그룹 내에 새 저장소 계정을 만들고 클러스터 서브넷 내에 Microsoft storage 서비스 끝점을 만듭니다. 
   
-  기존 가상 네트워크를 제공 하는 경우 클러스터를 만들기 전에 저장소 서비스 끝점을 있어야 합니다. (자세한 내용은 [Avere vFXT 시스템을 계획](avere-vfxt-deploy-plan.md).)
+  기존 가상 네트워크를 제공 하는 경우 클러스터를 만들기 전에 저장소 서비스 끝점이 있어야 합니다. 자세한 내용은 [Avere vFXT 시스템 계획](avere-vfxt-deploy-plan.md)을 참조 하세요.
 
   새 컨테이너를 만들지 않으려면 이 필드를 **false**로 설정합니다. 이 경우 클러스터를 만든 후 스토리지를 연결하고 구성해야 합니다. 지침은 [스토리지 구성](avere-vfxt-add-storage.md)을 읽으세요. 
 
-* **(신규) 저장소 계정** -새 저장소 계정 이름을 입력 하는 새 Azure Blob 컨테이너 만들기. 
+* **(새) 저장소 계정** -새 Azure Blob 컨테이너를 만드는 경우 새 저장소 계정의 이름을 입력 합니다. 
 
 ## <a name="validation-and-purchase"></a>유효성 검사 및 구매
 
-3 페이지 구성을 요약 하 고 매개 변수 유효성을 검사 합니다. 유효성 검사가 정상적으로 완료되면 **확인** 단추를 클릭하여 계속 진행합니다. 
+3 페이지는 구성을 요약 하 고 매개 변수의 유효성을 검사 합니다. 유효성 검사가 정상적으로 완료되면 **확인** 단추를 클릭하여 계속 진행합니다. 
 
 ![배포 템플릿 3페이지 - 유효성 검사](media/avere-vfxt-deploy-3.png)
 
-4 페이지에서 필요한 모든 연락처 정보를 입력 하 고 클릭 합니다 **만들기** 단추 Azure 클러스터에 대 한 Avere vFXT을 만들고 약관에 동의 합니다. 
+4 페이지에서 필요한 연락처 정보를 입력 하 고 **만들기** 단추를 클릭 하 여 약관에 동의 하 고 Azure 클러스터에 대 한 Avere vFXT를 만듭니다. 
 
 ![배포 템플릿 4페이지 - 약관, 만들기 단추](media/avere-vfxt-deploy-4.png)
 

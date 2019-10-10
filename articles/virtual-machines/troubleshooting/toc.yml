@@ -56,11 +56,11 @@
     - name: SSH 문제 해결
       href: troubleshoot-ssh-connection.md
     - name: 파일 시스템 오류 해결
-      href: 'https://support.microsoft.com/help/3213321'
+      href: linux-recovery-cannot-start-file-system-errors.md
     - name: 커널 관련 부팅 문제 해결
       href: 'https://support.microsoft.com/help/4091524'
     - name: fstab 오류 해결
-      href: 'https://support.microsoft.com/help/3206699'
+      href: linux-virtual-machine-cannot-start-fstab-errors.md
     - name: 자세한 SSH 문제 해결
       href: detailed-troubleshoot-ssh-connection.md
 - name: 일반적인 오류 메시지

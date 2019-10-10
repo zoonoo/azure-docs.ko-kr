@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: c9b6f6cf52d71451d2e1de27d0637eeb749b1e0b
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 55ded9a733baaac7fbc78621bd625d57d1d37ad1
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349052"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255483"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에서 표준 SKU 부하 분산 장치 사용
 
@@ -145,7 +145,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster
 
 클러스터에서 부하 분산 장치를 사용 하려면 서비스 유형이 *LoadBalancer*인 서비스 매니페스트를 만듭니다. 부하 분산 장치가 작동 하는 것을 표시 하려면 클러스터에서 실행할 샘플 응용 프로그램을 사용 하 여 다른 매니페스트를 만듭니다. 이 샘플 응용 프로그램은 부하 분산 장치를 통해 노출 되며 브라우저를 통해 볼 수 있습니다.
 
-다음 예제와 같이 `sample.yaml` 라는 매니페스트를 만듭니다.
+다음 예제와 같이 `sample.yaml` 이라는 매니페스트를 만듭니다.
 
 ```yaml
 apiVersion: apps/v1
@@ -221,7 +221,7 @@ spec:
           value: "azure-vote-back"
 ```
 
-위의 매니페스트는 두 개의 배포 인 *azure-투표* 와 *azure-투표*를 구성 합니다. 부하 분산 장치를 사용 하 여 노출 되도록 *azure-투표-프런트* 배포를 구성 하려면 다음 예제 `standard-lb.yaml` 와 같이 라는 매니페스트를 만듭니다.
+위의 매니페스트는 두 개의 배포 인 *azure-투표* 와 *azure-투표*를 구성 합니다. 부하 분산 장치를 사용 하 여 노출 되도록 *azure-투표-프런트* 배포를 구성 하려면 다음 예제와 같이 `standard-lb.yaml` 이라는 매니페스트를 만듭니다.
 
 ```yaml
 apiVersion: v1
@@ -245,7 +245,7 @@ kubectl apply -f sample.yaml
 kubectl apply -f standard-lb.yaml
 ```
 
-이제 *표준* SKU 부하 분산 장치는 샘플 응용 프로그램을 노출 하도록 구성 됩니다. [Kubectl get][kubectl-get] 을 사용 하 여 *azure-투표* 의 서비스 세부 정보를 확인 하 여 부하 분산 장치의 공용 IP를 확인 합니다. 부하 분산 장치의 공용 IP 주소는 *외부 ip* 열에 표시 됩니다. 다음 예와 같이 IP 주소를 *\<보류 중\>* 에서 실제 외부 IP 주소로 변경 하는 데 1 ~ 2 분 정도 걸릴 수 있습니다.
+이제 *표준* SKU 부하 분산 장치는 샘플 응용 프로그램을 노출 하도록 구성 됩니다. [Kubectl get][kubectl-get] 을 사용 하 여 *azure-투표* 의 서비스 세부 정보를 확인 하 여 부하 분산 장치의 공용 IP를 확인 합니다. 부하 분산 장치의 공용 IP 주소는 *외부 ip* 열에 표시 됩니다. 다음 예와 같이 IP 주소를 *\< pending @ no__t-2* 에서 실제 외부 IP 주소로 변경 하는 데 1 ~ 2 시간이 걸릴 수 있습니다.
 
 ```
 $ kubectl get service azure-vote-front
@@ -254,12 +254,12 @@ NAME                TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)       
 azure-vote-front    LoadBalancer   10.0.227.198   52.179.23.131   80:31201/TCP   16s
 ```
 
-브라우저에서 공용 IP로 이동 하 여 샘플 응용 프로그램이 표시 되는지 확인 합니다. 위의 예제에서 공용 IP `52.179.23.131`는입니다.
+브라우저에서 공용 IP로 이동 하 여 샘플 응용 프로그램이 표시 되는지 확인 합니다. 위의 예제에서 공용 IP는 `52.179.23.131`입니다.
 
-![Azure Vote로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Azure Vote로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 > [!NOTE]
-> 부하 분산 장치를 내부로 구성 하 고 공용 IP를 노출 하지 않을 수도 있습니다. 부하 분산 장치를 내부로 구성 하려면 `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` *LoadBalancer* 서비스에 주석으로 추가 합니다. [여기][internal-lb-yaml]에서 내부 부하 분산 장치에 대 한 자세한 정보 뿐만 아니라 yaml 매니페스트 예제를 볼 수 있습니다.
+> 부하 분산 장치를 내부로 구성 하 고 공용 IP를 노출 하지 않을 수도 있습니다. 부하 분산 장치를 내부로 구성 하려면 `service.beta.kubernetes.io/azure-load-balancer-internal: "true"`을 *LoadBalancer* 서비스에 대 한 주석으로 추가 합니다. [여기][internal-lb-yaml]에서 내부 부하 분산 장치에 대 한 자세한 정보 뿐만 아니라 yaml 매니페스트 예제를 볼 수 있습니다.
 
 ## <a name="optional---scale-the-number-of-managed-public-ips"></a>선택 사항-관리 되는 공용 Ip 수를 조정 합니다.
 
@@ -276,7 +276,7 @@ az aks update \
 
 위의 예에서는 *Myresourcegroup*의 *myAKSCluster* 클러스터에 대 한 관리 되는 아웃 바운드 공용 ip 수를 *2* 로 설정 합니다. 
 
-또한 매개 변수를 `--load-balancer-managed-outbound-ip-count` 추가 하 고 원하는 값으로 설정 하 여 클러스터를 만들 때 *부하 분산 장치-관리-ip 카운트* 매개 변수를 사용 하 여 초기에 관리 되는 아웃 바운드 공용 ip 수를 설정할 수 있습니다. 관리 되는 아웃 바운드 공용 Ip의 기본 수는 1입니다.
+또한 `--load-balancer-managed-outbound-ip-count` 매개 변수를 추가 하 고 원하는 값으로 설정 하 여 클러스터를 만들 때 *부하 분산 장치-관리-ip 카운트* 매개 변수를 사용 하 여 초기에 관리 되는 아웃 바운드 공용 ip 수를 설정할 수 있습니다. 관리 되는 아웃 바운드 공용 Ip의 기본 수는 1입니다.
 
 ## <a name="optional---provide-your-own-public-ips-or-prefixes-for-egress"></a>선택 사항-사용자 고유의 공용 Ip 또는 송신에 대 한 접두사를 제공 합니다.
 

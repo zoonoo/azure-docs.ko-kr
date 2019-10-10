@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 288fa54a1a6dd4eb05f953a4490bf7736d6d7ff8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 9bea8da4f0d694be3a39a8f5dfaca8e54ce2773d
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931243"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255653"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Azure Active Directory 보고서에 Azure Monitor 통합 문서를 사용 하는 방법
 
@@ -41,7 +41,7 @@ ms.locfileid: "70931243"
  
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 통합 문서 모니터링을 사용 하려면 다음이 필요 합니다.
 
@@ -49,11 +49,18 @@ ms.locfileid: "70931243"
 
 - [Log Analytics 작업 영역](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)입니다.
 
+- Log analytics 작업 영역에 대 한 [액세스](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions)
+- Azure Active Directory의 다음 역할 (Azure Active Directory 포털을 통해 Log Analytics에 액세스 하는 경우)
+    - 보안 관리자
+    - 보안 판독기
+    - 보고서 구독자
+    - 전역 관리자
+
 ## <a name="roles"></a>역할
 다음 역할 중 하나에 있어야 하며 통합 문서를 관리 하기 위해 [기본 Log Analytics 작업 영역에 액세스할](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) 수 있어야 합니다.
 -   전역 관리자
 -   보안 관리자
--   보안 읽기 권한자
+-   보안 판독기
 -   보고서 구독자
 -   응용 프로그램 관리자
 

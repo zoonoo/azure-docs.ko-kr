@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 48ef7aeb1804aca9001288f6babd302b9c3a8347
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: d035f26e4b550eb1e5d2cca161f14880814a15f6
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969548"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244152"
 ---
 # <a name="create-a-new-saas-offer"></a>새 SaaS 제품 만들기
 
@@ -129,7 +129,7 @@ Marketplace 목록을 만들어 Microsoft로 비즈니스를 홍보 하세요. M
 > [!NOTE]
 > 평가판 링크를 통해 응용 프로그램에서 수신 하는 토큰은 Azure AD를 통해 사용자 정보를 가져와서 앱에서 계정 만들기를 자동화 하는 데만 사용할 수 있습니다. 이 토큰을 사용 하는 인증에는 MSA (Microsoft 계정)가 지원 되지 않습니다.
 
-##### <a name="contact-me"></a>나에게 연락
+##### <a name="contact-me"></a>연락처
 CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보를 수집 합니다. 고객에 게 정보를 공유할 수 있는 권한을 요청 하는 메시지가 표시 됩니다. 제품을 찾은 제품 이름, ID 및 marketplace 원본과 함께 이러한 고객 세부 정보는 구성 된 CRM 시스템으로 전송 됩니다. CRM을 구성 하는 방법에 대 한 자세한 내용은 [연결 리드 management](#connect-lead-management)를 참조 하세요. 
 
 ## <a name="example-marketplace-offer-listing"></a>Marketplace 제품 목록 예
@@ -160,18 +160,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 ## <a name="connect-lead-management"></a>리드 관리 연결
 
-마켓플레이스에 제품을 나열 하 고 CRM (고객 관계 관리) 시스템을 연결 하 여 고객에 게 직접 연결 하 여 고객에 게 관심이 나 배포한 후 즉시 고객 연락처 정보를 받을 수 있도록 합니다. 제품은.
-
-- **리드 대상 선택** (드롭다운 메뉴): 고객 리드를 보내려는 CRM 시스템에 대 한 연결 세부 정보를 제공 합니다. 
-
-파트너 센터는 리드 관리를 위해 다음과 같은 CRM 시스템을 지원 합니다. 설치 지침에 대 한 링크를 선택 합니다.
-
-- Azure Blob – 연락처 전자 메일, 컨테이너 이름 및 저장소 계정 연결 문자열을 제공 합니다. 
-- [Azure 테이블](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) – 연락처 전자 메일 및 저장소 계정 연결 문자열을 제공 합니다. 
-- [DYNAMICS CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) – 연락처 전자 메일, URL 및 인증 모드 (Office 365 또는 Azure Active Directory)를 제공 합니다.
-- [Https 끝점](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) – 연락처 전자 메일 및 HTTPS 끝점 URL을 제공 합니다. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) – 연락처 전자 메일, 양식 Id, MUNCHKIN 계정 id 및 서버 id를 제공 합니다.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) -연락처 전자 메일 및 조직 ID를 제공 합니다. 
+[!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
 #### <a name="additional-lead-management-resources"></a>추가 리드 관리 리소스
 - [리드 관리 Faq](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
@@ -188,7 +177,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 ### <a name="category"></a>Category
 제품을 적절 한 마켓플레이스 검색 영역으로 그룹화 하는 데 사용 되는 최소 1 개 (1) 및 최대 3 개 범주를 선택 합니다. 제품 설명에서 제품이 이러한 범주를 어떻게 지원 하는지 확인 하세요. 
 
-### <a name="industry"></a>업종
+### <a name="industry"></a>산업
 제품을 적절 한 마켓플레이스 검색 영역으로 그룹화 하는 데 사용 되는 최대 2 개의 산업을 선택 합니다. 제품이 특정 업계에 국한 되지 않은 경우 하나를 선택 하지 마세요. 제품 설명에서 선택 된 산업을 지 원하는 방법을 확인 하세요. 
 
 ### <a name="app-version"></a>앱 버전
@@ -430,7 +419,7 @@ Live 게시 전에 제품의 유효성을 검사 하는 데 도움이 되도록 
 
 요금제에 대 한 가격을 미국 달러 (USD)로 설정 하 고 다른 시장 위치를 추가 하는 경우 새 시장의 가격은 현재 환율이 따라 계산 됩니다. 게시 하기 전에 항상 각 시장의 가격을 검토 해야 합니다. 변경 내용을 저장 한 후 "가격 (.xlsx) 내보내기" 링크를 사용 하 여 가격 책정을 검토할 수 있습니다.
 
-#### <a name="pricing"></a>가격 책정
+#### <a name="pricing"></a>가격
 
 - **가격 책정 모델**: 균등형 (Flat rate or) 기반
 
@@ -459,7 +448,7 @@ Live 게시 전에 제품의 유효성을 검사 하는 데 도움이 되도록 
 
 모든 사용자 또는 선택한 특정 대상에 게 표시 되도록 각 계획을 구성 하는 옵션이 있습니다. Azure AD 테 넌 트 Id를 사용 하 여이 제한 된 대상 그룹의 멤버 자격을 할당할 수 있습니다.
 
-#### <a name="privacy"></a>개인 정보 취급 방침
+#### <a name="privacy"></a>개인 정보 보호
 
 - **이 계획은 개인 계획입니다** (선택 사항).
 

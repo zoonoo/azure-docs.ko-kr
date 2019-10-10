@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: d5f3b98048cb04eab15479c3a9f5d27f16df1f3a
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 242eaf06b9cd0b3783a626ab13eb0cb92300652f
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309749"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249064"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm에서 SQL 데이터베이스 백업 및 복원
 
@@ -261,7 +261,7 @@ Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLDat
 
 ```powershell
 $SQLInstance = Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLInstance -VaultId $targetVault.ID -Name "<Protectable Item name>" -ServerName "<Server Name>"
-Enable-AzRecoveryServicesBackupAutoProtection -InputItem $SQLInstance -BackupManagementType AzureWorkload -WorkloadType MSSQL -Policy $targetPolicy -VaultId $targetvault.ID
+Enable-AzRecoveryServicesBackupAutoProtection -InputItem $SQLInstance -BackupManagementType AzureWorkload -WorkloadType MSSQL -Policy $NewSQLPolicy -VaultId $targetvault.ID
 ```
 
 Start-autoprotection 의도가 제공 되 면 새로 추가 된 Db를 가져오기 위해 컴퓨터로 조회 하는 작업이 8 시간 마다 예약 된 백그라운드 작업으로 수행 됩니다.
@@ -501,7 +501,7 @@ Register-AzRecoveryServicesBackupContainer -Container $SQLContainer -BackupManag
 
 ### <a name="stop-protection"></a>보호 중지
 
-#### <a name="retain-data"></a>데이터 보관
+#### <a name="retain-data"></a>데이터 보존
 
 사용자가 보호를 중지 하려는 경우 [AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS cmdlet을 사용할 수 있습니다. 이렇게 하면 예약 된 백업이 중지 되지만 지금까지 백업 된 데이터는 영구적으로 유지 됩니다.
 

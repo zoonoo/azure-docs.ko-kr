@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 35c317c4b73e9a22e3b0d6192abcfc2a596066b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ee92ad6e0687018f69044bf3edde76b9f98cee52
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60598270"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255594"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>System Center Configuration Manager를 사용하여 모바일 서비스 설치 자동화
 
@@ -24,9 +24,9 @@ ms.locfileid: "60598270"
 
 이 문서에서는 System Center Configuration Manager 2012 R2를 사용하여 배포 작업을 설명합니다. **9.9.4510.1** 버전 이상의 모바일 서비스를 사용하는 것으로 가정합니다.
 
-또는 사용 하 여 모바일 서비스 설치를 자동화할 수 있습니다 [Azure Automation DSC](vmware-azure-mobility-deploy-automation-dsc.md)합니다.
+또는 [AZURE AUTOMATION DSC](vmware-azure-mobility-deploy-automation-dsc.md)를 사용 하 여 모바일 서비스 설치를 자동화할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 1. Configuration Manager와 같은 소프트웨어 배포 도구가 사용자 환경에 이미 배포되어 있어야 합니다.
 2. Site Recovery를 사용하여 보호하려는 모든 **Windows 서버**와 모든 **Linux 서버**에 각각 하나씩, 총 두 개의 [디바이스 컬렉션](https://technet.microsoft.com/library/gg682169.aspx)을 만들어야 합니다.
@@ -170,7 +170,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
 8. **이 표준 프로그램에 대한 정보 지정** 페이지에서 다음 입력을 제공하고 **다음**을 클릭합니다. (다른 입력은 해당 기본값을 사용할 수 있습니다.)
 
-   | **매개 변수 이름** | **값** |
+   | **매개 변수 이름** | **Value** |
    |--|--|
    | 이름 | Microsoft Azure Mobility Service(Windows) 설치 |
    | 명령 줄 | install.bat |
@@ -178,10 +178,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
    ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
 
-9. 다음 페이지에서 대상 운영 체제를 선택합니다. 모바일 서비스는 Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2에만 설치할 수 있습니다.
-
-   ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2.png)
-
+9. 다음 페이지에서 대상 운영 체제를 선택합니다. 
 10. 마법사를 완료하려면 **다음**을 두 번 클릭합니다.
 
 
@@ -395,7 +392,7 @@ cd /tmp
 
 8. **이 표준 프로그램에 대한 정보 지정** 페이지에서 다음 입력을 제공하고 **다음**을 클릭합니다. (다른 입력은 해당 기본값을 사용할 수 있습니다.)
 
-    | **매개 변수 이름** | **값** |
+    | **매개 변수 이름** | **Value** |
    |--|--|
    | 이름 | Microsoft Azure Mobility Service(Linux) 설치 |
    | 명령 줄 | ./install_linux.sh |

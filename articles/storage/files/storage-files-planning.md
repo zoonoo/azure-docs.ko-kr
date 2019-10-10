@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 76637c566d85816b3af6d0ed457031e7d4cd4068
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 075eaaa188307e4320337ef21fd0875942e9e7e7
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327662"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249346"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 
@@ -184,7 +184,7 @@ GRS는 데이터를 보조 지역의 다른 데이터 센터에 복제하지만,
 
 GRS를 사용 하는 저장소 계정의 경우 모든 데이터는 먼저 LRS (로컬 중복 저장소)를 사용 하 여 복제 됩니다. 업데이트는 먼저 기본 위치에 커밋되고 LRS를 사용하여 복제됩니다. 그런 다음, 업데이트는 GRS를 사용하여 보조 지역에 비동기적으로 복제됩니다. 데이터가 보조 위치에 기록되는 경우 LRS를 사용하여 해당 위치 내에도 복제됩니다.
 
-주 지역 및 보조 지역에서 모두 별도의 장애 도메인에서 복제본을 관리하고, 스토리지 배율 단위 내에서 도메인을 업그레이드합니다. 스토리지 배율 단위는 데이터 센터 내의 기본 복제 단위입니다. 이 수준의 복제는 LRS에서 제공 됩니다. 자세한 내용은 LRS (로컬 [중복 저장소)를 참조 하세요. Azure Storage에 대한 저렴한 데이터 중복성](../common/storage-redundancy-lrs.md)을 참조하세요.
+주 지역 및 보조 지역에서 모두 별도의 장애 도메인에서 복제본을 관리하고, 스토리지 배율 단위 내에서 도메인을 업그레이드합니다. 스토리지 배율 단위는 데이터 센터 내의 기본 복제 단위입니다. 이 수준의 복제는 LRS에서 제공 됩니다. 자세한 내용은 [Locally (로컬 중복 저장소)를 참조 하세요. Azure Storage에 대한 저렴한 데이터 중복성](../common/storage-redundancy-lrs.md)을 참조하세요.
 
 사용할 복제 옵션을 결정할 때 다음 사항에 유의하세요.
 
@@ -204,25 +204,25 @@ GRS를 사용 하는 저장소 계정의 경우 모든 데이터는 먼저 LRS (
 - LRS/ZRS to GRS/GZRS 계정 변환은 더 큰 파일 공유 미리 보기에 구독이 수락 된 후 생성 되는 새 저장소 계정에서 사용할 수 없습니다.
 
 
-### <a name="regional-availability"></a>지역별 가용성
+### <a name="regional-availability"></a>국가별 가용성
 
 표준 파일 공유는 최대 5 TiB의 모든 지역에서 사용할 수 있습니다. 특정 지역에서 100 TiB 한도를 사용할 수 있습니다. 이러한 지역은 다음 표에 나와 있습니다.
 
 |Region |지원 되는 중복성 |기존 저장소 계정 지원 |포털 지원 * |
 |-------|---------|---------|---------|
 |오스트레일리아 동부 |LRS     |아니요    |예|
-|오스트레일리아 남동부|LRS     |아니요    |아직 준비되지 않음|
-|인도 중부  |LRS     |아니요    |아직 준비되지 않음|
-|아시아 동부      |LRS     |아니요    |아직 준비되지 않음|
-|East US        |LRS     |아니요    |아직 준비되지 않음|
-|프랑스 중부 |LRS, ZRS|아니요    |LRS-예, ZRS-아직|
+|오스트레일리아 남동부|LRS |아니요    |예|
+|인도 중부  |LRS     |아니요    |예|
+|아시아 동부      |LRS     |아니요    |예|
+|East US        |LRS     |아니요    |예|
+|프랑스 중부 |LRS, ZRS|아니요    |예|
 |프랑스 남부   |LRS     |아니요    |예|
 |유럽 북부   |LRS     |아니요    |아직 준비되지 않음|
-|인도 남부    |LRS     |아니요    |아직 준비되지 않음|
+|인도 남부    |LRS     |아니요    |예|
 |동남아시아 |LRS, ZRS|아니요    |예|
-|미국 중서부|LRS     |아니요    |아직 준비되지 않음|
+|미국 중서부|LRS     |아니요    |예|
 |유럽 서부    |LRS, ZRS|아니요    |예|
-|미국 서부        |LRS     |아니요    |아직 준비되지 않음|
+|미국 서부        |LRS     |아니요    |예|
 |미국 서부 2      |LRS, ZRS|아니요    |예|
 
 

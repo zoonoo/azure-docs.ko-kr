@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.author: v-erkell
-ms.openlocfilehash: 6d35d5cdeafb80a36f910d71393802a3affb4df8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: 86b63e6d9799387347093e469015fbd3019069d1
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515893"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255050"
 ---
 # <a name="configure-storage"></a>스토리지 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "60515893"
 
 ## <a name="create-a-core-filer"></a>코어 파일러 만들기
 
-"코어 파일러"는 백 엔드 저장소 시스템에 대한 vFXT 용어입니다. 스토리지는 NetApp 또는 Isilon과 같은 하드웨어 NAS 어플라이언스이거나 클라우드 개체 스토리지일 수 있습니다. 코어 파일러에 대한 자세한 내용은 [Avere 클러스터 설정 가이드](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers)에서 찾을 수 있습니다.
+&quot;코어 파일러&quot;는 백 엔드 스토리지 시스템에 대한 vFXT 용어입니다. 스토리지는 NetApp 또는 Isilon과 같은 하드웨어 NAS 어플라이언스이거나 클라우드 개체 스토리지일 수 있습니다. 코어 파일러에 대한 자세한 내용은 [Avere 클러스터 설정 가이드](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers)에서 찾을 수 있습니다.
 
 코어 파일러를 추가하려면 다음 두 가지 주요 유형 중 하나의 코어 파일러를 선택합니다.
 
@@ -72,7 +72,7 @@ NAS 코어 파일러를 추가하는 단계는 다음과 같습니다.
 Azure Blob Storage를 vFXT 클러스터의 백 엔드 스토리지로 사용하려면 코어 파일러로 추가할 빈 컨테이너가 필요합니다.
 
 > [!TIP] 
-> Avere vFXT 클러스터를 만드는 동시에 Blob 컨테이너를 만들도록 선택하면 배포 템플릿 또는 스크립트가 스토리지 컨테이너를 만들어 코어 파일러로 정의한 다음 vFXT 클러스터 만들기의 일환으로 네임스페이스 접합을 만듭니다. 또한 템플릿은 클러스터의 가상 네트워크 내에서 저장소 서비스 끝점을 만듭니다. 
+> Avere vFXT 클러스터를 만드는 동시에 Blob 컨테이너를 만들도록 선택하면 배포 템플릿 또는 스크립트가 스토리지 컨테이너를 만들어 코어 파일러로 정의한 다음 vFXT 클러스터 만들기의 일환으로 네임스페이스 접합을 만듭니다. 또한이 템플릿은 클러스터의 가상 네트워크 내에 저장소 서비스 끝점을 만듭니다. 
 
 Blob Storage를 클러스터에 추가하려면 다음 작업이 필요합니다.
 
@@ -118,7 +118,7 @@ Blob Storage를 클러스터에 추가하려면 다음 작업이 필요합니다
 
 1. 다음 정보를 입력하여 클라우드 코어 파일러에 대한 자격 증명을 만듭니다. 
 
-   | 필드 | Value |
+   | 필드 | 값 |
    | --- | --- |
    | 자격 증명 이름 | 설명이 포함된 이름 |
    | 서비스 유형 | (Azure Storage 액세스 키 선택) |

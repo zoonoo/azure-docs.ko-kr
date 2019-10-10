@@ -1,17 +1,17 @@
 ---
-title: Azure HPC 캐시 만들기 (미리 보기)
+title: Azure HPC Cache 만들기(미리 보기)
 description: Azure HPC Cache 인스턴스를 만드는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: 68ae316dff1518dd8115006764c6cc3036f59e4a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.author: rohogue
+ms.openlocfilehash: fa6408d33504c6ac73eacec079e9c08acd4cece2
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299927"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255273"
 ---
 # <a name="plan-the-aggregated-namespace"></a>집계형 네임스페이스 계획
 
@@ -42,7 +42,7 @@ Azure HPC 캐시에서이 가상 파일 시스템을 관리 하기 때문에 클
 
 캐시를 통해 쉽게 액세스할 수 있도록 하려면 다음 가상 네임 스페이스 경로를 사용 하 여 저장소 대상을 만드는 것이 좋습니다.
 
-| 백 엔드 저장소 시스템 <br/> (NFS 파일 경로 또는 Blob 컨테이너) | 가상 네임스페이스 경로 |
+| 백 엔드 저장소 시스템 <br/> (NFS 파일 경로 또는 Blob 컨테이너) | 가상 네임 스페이스 경로 |
 |-----------------------------------------|------------------------|
 | /goldline/templates/acme2017/sku798     | /templates/sku798      |
 | /goldline/templates/acme2017/sku980     | /templates/sku980      |
@@ -57,7 +57,7 @@ NFS 원본 경로는 동일한 내보내기의 하위 디렉터리 이므로 동
 | *IP 주소 또는 호스트 이름* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
 | *IP 주소 또는 호스트 이름* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
 
-클라이언트 응용 프로그램은 캐시를 탑재 하 고 집계 된 네임 스페이스 파일 경로 ``/source`` ``/templates/sku798``, 및 ``/templates/sku980``에 쉽게 액세스할 수 있습니다.
+클라이언트 응용 프로그램은 캐시를 탑재 하 고 집계 된 네임 스페이스 파일 경로 ``/source``, ``/templates/sku798`` 및 ``/templates/sku980``에 쉽게 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

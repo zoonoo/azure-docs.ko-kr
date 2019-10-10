@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
-ms.author: v-erkell
-ms.openlocfilehash: 42a2055b9a49d6d9f8f4930cb3704fe581f41724
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: d812c472d16f23148b929a2ba60f29663c0145a1
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409994"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256259"
 ---
 # <a name="avere-vfxt-demo-projects"></a>Avere vFXT 데모 프로젝트
 
@@ -26,7 +26,7 @@ ms.locfileid: "60409994"
 
 ## <a name="high-performance-computing"></a>고성능 컴퓨팅
 
-* [Azure VM(Virtual Machine) 부팅 시간 향상에 대한 모범 사례](https://github.com/Azure/Avere/blob/master/docs/azure_vm_provision_best_practices.md) - 수천 개의 계산 클라이언트를 빠르게 구동할 때 Avere vFXT for Azure를 사용하여 부팅 시간을 향상시키는 재현 가능한 테스트입니다.
+* [Azure VM(Virtual Machine) 부팅 시간 향상에 대한 모범 사례](https://github.com/Azure/Avere/blob/master/docs/azure_vm_provision_best_practices.md) - 수천 개의 컴퓨팅 클라이언트를 빠르게 구동할 때 Avere vFXT for Azure를 사용하여 부팅 시간을 향상시키는 재현 가능한 테스트입니다.
 
 ## <a name="vfxt-performance"></a>vFXT 성능 
 

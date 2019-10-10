@@ -3,20 +3,17 @@ title: Azure Data Factory Mapping Data Flow 조회 변환
 description: Azure Data Factory Mapping Data Flow 조회 변환
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/03/2019
-ms.openlocfilehash: ef72b7aed12afd1cee47b11bc7584d1e53bf2af5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.date: 10/03/2019
+ms.openlocfilehash: d762bddbe098e30cbf9e9c02da3c06073a358b12
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029332"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249243"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory Mapping Data Flow 조회 변환
-
-
 
 조회를 사용하여 다른 원본의 참조 데이터를 Data Flow에 추가합니다. 조회 변환에는 참조 테이블을 가리키고 키 필드가 일치하는 정의된 원본이 필요합니다.
 
@@ -24,7 +21,9 @@ ms.locfileid: "72029332"
 
 수신 스트림 필드와 참조 원본 필드 간의 일치에 사용할 키 필드를 선택합니다. Data Flow 디자인 캔버스에서 조회의 오른쪽 항목으로 사용할 새 원본을 먼저 만들어야 합니다.
 
-일치 항목이 발견되면 참조 원본의 결과 행과 열이 데이터 흐름에 추가됩니다. Data Flow의 끝에서 싱크에 포함할 관심 필드를 선택할 수 있습니다.
+일치 항목이 발견되면 참조 원본의 결과 행과 열이 데이터 흐름에 추가됩니다. Data Flow의 끝에서 싱크에 포함할 관심 필드를 선택할 수 있습니다. 또는 조회 후에 선택 변환을 사용 하 여 필드 목록을 정리 하 고 유지 하려는 두 스트림의 필드만 유지 합니다.
+
+조회 변환은 왼쪽 우선 외부 조인과 동등한 기능을 수행 합니다. 따라서 왼쪽 소스의 모든 행이 오른쪽의 일치 항목과 결합 된 것을 볼 수 있습니다. 조회에 일치 하는 값이 여러 개 있거나 조회 식을 사용자 지정 하려는 경우 조인 변환으로 전환 하 고 크로스 조인을 사용 하는 것이 좋습니다. 이렇게 하면 실행 시 발생 가능한 카티션 곱을 피할 수 있습니다.
 
 ## <a name="match--no-match"></a>일치/일치 하지 않음
 
@@ -38,7 +37,7 @@ Data Factory에서 데이터 흐름은 스케일 아웃 Spark 환경에서 실�
 
 ### <a name="broadcast-join"></a>브로드캐스트 조인
 
-왼쪽 및/또는 오른쪽 브로드캐스트 조인을 선택 하 여 ADF를 요청 하 여 조회 관계의 양쪽에 있는 전체 데이터 집합을 메모리에 푸시합니다.
+왼쪽 및/또는 오른쪽 브로드캐스트 조인을 선택 하 여 ADF를 요청 하 여 조회 관계의 양쪽에 있는 전체 데이터 집합을 메모리에 푸시합니다. 작은 데이터 집합의 경우 조회 성능을 크게 향상 시킬 수 있습니다.
 
 ### <a name="data-partitioning"></a>데이터 분할
 

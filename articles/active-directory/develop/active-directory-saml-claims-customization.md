@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd752540d078ef57c8b6150edbf9b124bc445fe0
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: f4f26c82d4cda6ce3d8bf01c7fd52fa579e86dcf
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949325"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240239"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
@@ -66,7 +66,7 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Azu
 | **EmailAddress** | Azure AD는 EmailAddress을 NameID 형식으로 사용 합니다. |
 | **지정 되지 않은** | Azure AD는 NameID 형식으로 지정 되지 않은를 사용 합니다. |
 
-NameIDPolicy 특성에 대해 자세히 알아보려면 [Single SIGN-ON SAML 프로토콜](single-sign-on-saml-protocol.md)을 참조 하세요.
+임시 NameID도 지원 되지만 드롭다운에서 사용할 수 없으며 Azure 측에서 구성할 수 없습니다. NameIDPolicy 특성에 대해 자세히 알아보려면 [Single SIGN-ON SAML 프로토콜](single-sign-on-saml-protocol.md)을 참조 하세요.
 
 ### <a name="attributes"></a>특성
 

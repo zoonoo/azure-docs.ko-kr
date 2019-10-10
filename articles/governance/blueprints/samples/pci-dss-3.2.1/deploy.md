@@ -1,18 +1,18 @@
 ---
 title: 샘플-PCI DSS v 3.2.1 청사진-배포 단계
-description: 지불 카드 업계 Data Security Standard v 3.2.1 청사진 샘플의 단계를 배포 합니다.
+description: 청사진 아티팩트 매개 변수 세부 정보를 포함 하는 지불 카드 업계 Data Security Standard v 3.2.1 청사진 샘플에 대 한 단계를 배포 합니다.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: f95f9a592085fd93fba5e6b11a1a75609eb70295
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: fa409b873ea1dd0c0970ebc694ad68673df4d033
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980933"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248851"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>PCI DSS v 3.2.1 청사진 샘플 배포
 
@@ -98,9 +98,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |아티팩트 이름|아티팩트 형식|매개 변수 이름|설명|
 |-|-|-|-|
 |\[Preview @ no__t-1 감사 PCI v 3.2.1:2018 컨트롤 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포|정책 할당|리소스 종류 목록 | 선택한 리소스 종류에 대 한 감사 진단 설정입니다. 기본값은 모든 리소스를 선택 합니다.| 
-|허용 되는 위치|정책 할당|허용 되는 위치 목록|에 배포 되는 리소스에 허용 되는 데이터 센터 위치 목록입니다. 이 목록은 원하는 Azure 위치에 전역적으로 사용자 지정할 수 있습니다. 허용할 위치를 선택 합니다.| 
+|허용되는 위치|정책 할당|허용 되는 위치 목록|에 배포 되는 리소스에 허용 되는 데이터 센터 위치 목록입니다. 이 목록은 원하는 Azure 위치에 전역적으로 사용자 지정할 수 있습니다. 허용할 위치를 선택 합니다.| 
 |리소스 그룹에 허용 되는 위치|정책 할당 |허용 되는 위치 |이 정책을 사용 하면 조직에서 리소스 그룹을 만들 수 있는 위치를 제한할 수 있습니다. 지역 규정 준수 요구 사항을 적용하는 데 사용합니다.| 
-|SQL Server에 감사 배포|정책 할당|보존 기간(일)|데이터 보존 일 수입니다. 기본값은 180 이지만 PCI에는 365이 필요 합니다.| 
+|SQL Server에 감사 배포|정책 할당|보존 기간 (일)|데이터 보존 일 수입니다. 기본값은 180 이지만 PCI에는 365이 필요 합니다.| 
 |SQL Server에 감사 배포|정책 할당|저장소 계정에 대 한 리소스 그룹 이름|감사에서는 데이터베이스 이벤트를 Azure Storage 계정의 감사 로그에 씁니다(스토리지 계정은 한 지역의 모든 서버에서 공유할 수 있는 SQL Server가 만들어진 각 지역에 만들어짐).| 
 
 ## <a name="next-steps"></a>다음 단계

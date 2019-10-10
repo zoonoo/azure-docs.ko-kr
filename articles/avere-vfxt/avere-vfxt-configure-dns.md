@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
-ms.author: v-erkell
-ms.openlocfilehash: 9fd9eaf1e62d063026e0e656346baaaade87064f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: c28189bf227a6a81ae9e72e889a0dc598cd7949e
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60410338"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256272"
 ---
 # <a name="avere-cluster-dns-configuration"></a>Avere 클러스터 DNS 구성
 
@@ -41,8 +41,7 @@ DNS 서버의 사용 여부를 결정할 때 다음 사항에 유의하세요.
 
 vserver 클러스터는 왼쪽에 표시되고, IP 주소는 가운데와 오른쪽에 표시되어 있습니다. 그림과 같이 A 레코드와 포인터를 사용하여 각 클라이언트 액세스 지점을 구성합니다.
 
-![Avere 클러스터 라운드 로빈 DNS 다이어그램](media/avere-vfxt-rrdns-diagram.png) 
-<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
+![Avere 클러스터 라운드 로빈 DNS 다이어그램 @ no__t-1<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
 
 각 클라이언트 측 IP 주소에는 클러스터에서 내부적으로 사용할 수 있도록 고유한 이름이 있어야 합니다. (이 다이어그램에서 클라이언트 IP는 명확성을 위해 vs1-client-IP-*로 명명되었지만, 프로덕션에서는 client*와 같이 좀 더 간결하게 사용해야 합니다.)
 

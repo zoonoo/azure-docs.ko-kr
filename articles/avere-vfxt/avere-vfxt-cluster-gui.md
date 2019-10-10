@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: 830be92d37f304598cca05c3ac80973158c38a59
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: rohogue
+ms.openlocfilehash: 098ed98c1680fa2ea38c377e9e34719ba778b175
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439982"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255023"
 ---
 # <a name="access-the-vfxt-cluster"></a>vFXT 클러스터에 액세스
 
@@ -29,15 +29,15 @@ vFXT 클러스터는 프라이빗 가상 네트워크 내에 있으므로 SSH �
 
 ## <a name="create-an-ssh-tunnel"></a>SSH 터널 만들기 
 
-Linux 기반의 명령줄에서 SSH 터널 또는 Windows 10 클라이언트 시스템을 만들 수 있습니다. 
+Linux 기반 또는 Windows 10 클라이언트 시스템의 명령줄에서 SSH 터널을 만들 수 있습니다. 
 
-SSH 터널링이 폼을 사용 하 여 명령을 사용 합니다. 
+SSH 터널링 명령을 다음 형식으로 사용 합니다. 
 
 ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_public_IP*
 
 이 명령은 클러스터 컨트롤러의 IP 주소를 통해 클러스터의 관리 IP 주소에 연결합니다.
 
-예제:
+예:
 
 ```sh
 ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
@@ -53,7 +53,7 @@ SSH 공개 키를 사용하여 클러스터를 만들고 일치하는 키가 클
 
   터널을 만들었을 때 클러스터 IP 주소에 연결했으므로 브라우저에서 localhost IP 주소를 사용해야 합니다. 8443 이외의 로컬 포트를 사용한 경우 포트 번호를 대신 사용합니다.
 
-* VPN 또는 ExpressRoute를 사용하여 클러스터에 도달하는 경우 브라우저에서 클러스터 관리 IP 주소로 이동합니다. 예제: ``https://203.0.113.51``
+* VPN 또는 ExpressRoute를 사용하여 클러스터에 도달하는 경우 브라우저에서 클러스터 관리 IP 주소로 이동합니다. 예: ``https://203.0.113.51``
 
 브라우저에 따라 **고급**을 클릭하고 페이지로 계속 진행하는 것이 안전한지 확인해야 할 수 있습니다.
 

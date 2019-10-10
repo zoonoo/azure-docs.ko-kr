@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: v-erkell
-ms.openlocfilehash: 04bc7c4d2ff96ef8b403449cf58d131bdc22a101
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.author: rohogue
+ms.openlocfilehash: 292844f611008b6dafbed4e46cad07c45dbecc54
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624106"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255989"
 ---
 # <a name="open-a-support-ticket-for-the-azure-fxt-edge-filer"></a>Azure FXT Edge 필터에 대 한 지원 티켓을 엽니다.
 
@@ -26,11 +26,11 @@ Azure Portal를 사용 하 여 Microsoft 고객 서비스 및 지원을 통해 �
    ![빈 지원 요청 양식 스크린샷](media/fxt-support-blank.png)
 
 1. 요청 양식을 작성 합니다.  
-    1. **기본 사항** 탭에서 **문제 유형** ``Technical``을 선택 합니다. 
+    1. **기본 사항** 탭에서 **문제 유형** ``Technical``를 선택 합니다. 
     1. 구독을 선택합니다. 
     1. **서비스**에서 **Azure Fxt Edge 필터**를 선택 합니다. **모든 서비스** 필터 컨트롤을 클릭 하 여이를 찾아야 할 수도 있습니다. 
     1. **요약** 을 입력 하 고 **문제 유형을**선택 합니다. 
-    ![빈 지원 요청 양식 스크린샷](media/fxt-support-populated.png) 
+    ![-빈 지원 요청 양식 @ no__t-1의 스크린샷 
     1. 계속하려면 **다음** 을 클릭합니다. 
 1. **세부** 정보 탭에서 문제에 대 한 정보 및 사용자에 게 연락 하는 방법을 추가 합니다. 문제와 관련 된 파일을 업로드할 수 있습니다. 
 1. **검토 + 만들기**에서 정보를 확인 하 고 **만들기** 단추를 클릭 하 여 요청을 제출 합니다.

@@ -1,7 +1,7 @@
 ---
-title: 여러 입력-Microsoft Genomics를 사용 하 여 워크플로 제출
-titleSuffix: Azure
-description: 이 문서에는 경우 입력된 파일에 여러 개의 FASTQ 또는 BAM 파일을 동일한 샘플에서 가져온를 Microsoft Genomics 서비스에 워크플로 제출 하는 방법을 보여 줍니다. 이미 msgen 클라이언트가 설치 되어 있고 서비스를 통해 샘플 데이터를 성공적으로 실행 했습니다.
+title: 여러 입력을 사용 하 여 워크플로 제출
+titleSuffix: Microsoft Genomics
+description: 이 문서에서는 입력 파일이 동일한 샘플의 여러 FASTQ 또는 BAM 파일인 경우 Microsoft Genomics 서비스에 워크플로를 제출 하는 방법을 보여 줍니다.
 services: genomics
 ms.service: genomics
 author: grhuynh
@@ -9,20 +9,20 @@ manager: cgronlund
 ms.author: grhuynh
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 399b1ed735ce1b7a3fca1d27155863f6bfa18776
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b426015906a8e17674123c0c3ad2fccb9c43798f
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60780881"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248562"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>동일한 샘플의 여러 입력을 사용하여 워크플로 제출
 
-이 문서에서는 입력된 파일이 여러 FASTQ 또는 BAM 파일 경우 Microsoft Genomics 서비스에 워크플로를 제출 하는 방법을 보여 줍니다 **동일한 샘플에서 가져온**합니다. 예를 들어 시퀀서의 여러 레인에서 **동일한 샘플**을 실행한 경우 시퀀서는 각 레인별로 한 쌍의 FASTQ 파일을 출력할 수 있습니다. 정렬 및 변이 추출 전에 이러한 FASTQ 파일을 연결하는 대신 이러한 입력을 모두 `msgen` 클라이언트에 직접 제출할 수 있습니다. `msgen` 클라이언트의 출력은 .bam, .bai, .vcf 파일을 포함한 파일의 **단일 집합**입니다. 
+이 문서에서는 입력 파일이 **동일한 샘플에서 가져온**여러 fastq 또는 BAM 파일인 경우 Microsoft Genomics 서비스에 워크플로를 제출 하는 방법을 보여 줍니다. 예를 들어 시퀀서의 여러 레인에서 **동일한 샘플**을 실행한 경우 시퀀서는 각 레인별로 한 쌍의 FASTQ 파일을 출력할 수 있습니다. 정렬 및 변이 추출 전에 이러한 FASTQ 파일을 연결하는 대신 이러한 입력을 모두 `msgen` 클라이언트에 직접 제출할 수 있습니다. `msgen` 클라이언트의 출력은 .bam, .bai, .vcf 파일을 포함한 파일의 **단일 집합**입니다. 
 
 그러나 같은 제출에서 FASTQ와 BAM 파일을 혼합**할 수** 없습니다. 또한 여러 개인의 여러 FASTQ 또는 BAM 파일은 **제출할 수 없습니다**. 
 
-이 문서에서는 `msgen` 클라이언트를 이미 설치하여 실행하고 있으며 Azure Storage를 사용하는 방법을 잘 알고 있다고 가정합니다. 제공된 된 샘플 데이터를 사용 하 여 워크플로 성공적으로 제출한 경우이 문서를 진행할 준비가 되었습니다. 
+이 문서에서는 `msgen` 클라이언트를 이미 설치하여 실행하고 있으며 Azure Storage를 사용하는 방법을 잘 알고 있다고 가정합니다. 제공 된 샘플 데이터를 사용 하 여 워크플로를 성공적으로 제출 하면이 문서를 진행할 준비가 된 것입니다. 
 
 
 ## <a name="multiple-bam-files"></a>여러 개의 BAM 파일

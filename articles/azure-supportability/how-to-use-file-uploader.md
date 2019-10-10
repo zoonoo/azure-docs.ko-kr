@@ -1,26 +1,19 @@
 ---
 title: Microsoft Azure 새 지원 요청 파일 업로드 유틸리티 지침 | Microsoft Docs
 description: Microsoft Azure 새 지원 요청 파일 업로드 유틸리티를 사용할 경우의 지침을 설명합니다.
-services: ''
-documentationcenter: ''
 author: genlin
-manager: dcscontentpm
-editor: ''
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.service: azure-supportability
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 088835f6983814bbe47afeeec210ac41964e7863
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f01c70a2a077e28e8de5118332b780f27dc9ec93
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121170"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248680"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Microsoft Azure 새 지원 요청 파일 업로드 유틸리티 지침
 [지원 요청을 만들 때](https://portal.azure.com/#create/Microsoft.Support)파일 업로드 유틸리티를 사용하면 진단 파일이나 인시던트에 관련된 다른 파일을 쉽게 업로드할 수 있습니다.  

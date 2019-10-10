@@ -1,18 +1,18 @@
 ---
 title: 샘플-영국 공식 및 영국 NHS 청사진-배포 단계
-description: UK 공식 및 영국 NHS 청사진 샘플의 단계를 배포 합니다.
+description: 청사진 아티팩트 매개 변수 세부 정보를 포함 하 여 영국 공식 및 UK NHS 청사진 샘플에 대 한 단계를 배포 합니다.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: e2109c5b524c0b38886327bf4c1ea7087380b40f
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: c2c6089d9c600626a93906e460ef1c662c32cb59
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978237"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248285"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>영국 공식 및 영국 NHS 청사진 샘플 배포
 

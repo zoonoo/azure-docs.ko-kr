@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 09/06/2019
-ms.openlocfilehash: 6f5d865b5a12ce8989631deee7ebda49dbe1ab12
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.date: 10/09/2019
+ms.openlocfilehash: b876fba2ae10c4f8b973ad1bb0c98bfa95c7f481
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103192"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249309"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 
@@ -80,11 +80,11 @@ ms.locfileid: "71103192"
 
 - **장애 조치 그룹 읽기-쓰기 수신기**
 
-  현재 주 URL을 가리키는 DNS CNAME 레코드입니다. 장애 조치 그룹을 만들 때 자동으로 생성 되며 장애 조치 (failover) 후 주 복제본이 변경 되 면 읽기-쓰기 SQL 작업을 주 데이터베이스에 투명 하 게 다시 연결할 수 있습니다. SQL Database 서버에서 장애 조치 (failover) 그룹을 만들 때 수신기 URL에 대 한 DNS CNAME 레코드는로 `<fog-name>.database.windows.net`구성 됩니다. 관리 되는 인스턴스에서 장애 조치 (failover) 그룹을 만들 때 수신기 URL에 대 한 DNS CNAME 레코드는 `<fog-name>.zone_id.database.windows.net`로 구성 됩니다.
+  현재 주 URL을 가리키는 DNS CNAME 레코드입니다. 장애 조치 그룹을 만들 때 자동으로 생성 되며 장애 조치 (failover) 후 주 복제본이 변경 되 면 읽기-쓰기 SQL 작업을 주 데이터베이스에 투명 하 게 다시 연결할 수 있습니다. SQL Database 서버에서 장애 조치 (failover) 그룹을 만들 때 수신기 URL에 대 한 DNS CNAME 레코드는 `<fog-name>.database.windows.net`으로 구성 됩니다. 관리 되는 인스턴스에서 장애 조치 (failover) 그룹을 만들 때 수신기 URL에 대 한 DNS CNAME 레코드는 `<fog-name>.zone_id.database.windows.net`으로 구성 됩니다.
 
 - **장애 조치 그룹 읽기 전용 수신기**
 
-  보조 데이터베이스의 URL을 가리키는 읽기 전용 수신기를 가리키는 DNS CNAME 레코드가 생성됩니다. 이 파일은 장애 조치 (failover) 그룹을 만들 때 자동으로 생성 되며, 지정 된 부하 분산 규칙을 사용 하 여 읽기 전용 SQL 워크 로드를 보조 복제본에 투명 하 게 연결할 수 있도록 허용 합니다. SQL Database 서버에서 장애 조치 (failover) 그룹을 만들 때 수신기 URL에 대 한 DNS CNAME 레코드는로 `<fog-name>.secondary.database.windows.net`구성 됩니다. 관리 되는 인스턴스에서 장애 조치 (failover) 그룹을 만들 때 수신기 URL에 대 한 DNS CNAME 레코드는 `<fog-name>.zone_id.secondary.database.windows.net`로 구성 됩니다.
+  보조 데이터베이스의 URL을 가리키는 읽기 전용 수신기를 가리키는 DNS CNAME 레코드가 생성됩니다. 이 파일은 장애 조치 (failover) 그룹을 만들 때 자동으로 생성 되며, 지정 된 부하 분산 규칙을 사용 하 여 읽기 전용 SQL 워크 로드를 보조 복제본에 투명 하 게 연결할 수 있도록 허용 합니다. SQL Database 서버에서 장애 조치 (failover) 그룹을 만들 때 수신기 URL에 대 한 DNS CNAME 레코드는 `<fog-name>.secondary.database.windows.net`으로 구성 됩니다. 관리 되는 인스턴스에서 장애 조치 (failover) 그룹을 만들 때 수신기 URL에 대 한 DNS CNAME 레코드는 `<fog-name>.zone_id.secondary.database.windows.net`으로 구성 됩니다.
 
 - **자동 장애 조치 정책**
 
@@ -92,7 +92,7 @@ ms.locfileid: "71103192"
 
 - **읽기 전용 장애 조치 정책**
 
-  기본적으로 읽기 전용 수신기에 대한 장애 조치가 사용되지 않습니다. 이렇게 하면 보조 서버가 오프라인 상태일 때 주 서버의 성능이 영향을 받지 않습니다. 그러나 보조 서버가 복구될 때까지 읽기 전용 세션이 연결할 수 없음을 의미합니다. 읽기 전용 세션의 가동 중지 시간을 허용할 수 없고 주 복제본의 잠재적인 성능 저하를 발생 시킬 수 있는 비용으로 주 복제본을 읽기 전용 및 읽기-쓰기 트래픽에 대해 일시적으로 사용할 수 없는 경우 읽기 전용 수신기에 대 한 장애 조치 (failover)를 사용 하도록 설정할 수 있습니다. 속성을 `AllowReadOnlyFailoverToPrimary` 구성 합니다. 이 경우 보조 데이터베이스를 사용할 수 없는 경우 읽기 전용 트래픽이 자동으로 주 데이터베이스로 리디렉션됩니다.
+  기본적으로 읽기 전용 수신기에 대한 장애 조치가 사용되지 않습니다. 이렇게 하면 보조 서버가 오프라인 상태일 때 주 서버의 성능이 영향을 받지 않습니다. 그러나 보조 서버가 복구될 때까지 읽기 전용 세션이 연결할 수 없음을 의미합니다. 읽기 전용 세션의 가동 중지 시간을 허용할 수 없고 주 복제본의 잠재적인 성능 저하를 발생 시킬 수 있는 비용으로 주 복제본을 읽기 전용 및 읽기-쓰기 트래픽에 대해 일시적으로 사용할 수 없는 경우 읽기 전용 수신기에 대 한 장애 조치 (failover)를 사용 하도록 설정할 수 있습니다. `AllowReadOnlyFailoverToPrimary` 속성을 구성 합니다. 이 경우 보조 데이터베이스를 사용할 수 없는 경우 읽기 전용 트래픽이 자동으로 주 데이터베이스로 리디렉션됩니다.
 
 - **계획된 장애 조치**
 
@@ -112,7 +112,7 @@ ms.locfileid: "71103192"
 
 - **데이터 손실이 있는 유예 기간**
 
-  주 및 보조 데이터베이스가 비동기 복제를 사용하여 동기화되기 때문에 장애 조치로 인해 데이터가 손실될 수 있습니다. 애플리케이션의 데이터 손실 허용 오차를 반영하도록 자동 장애 조치 정책을 사용자 지정할 수 있습니다. 를 구성 `GracePeriodWithDataLossHours`하 여 데이터가 손실 될 수 있는 장애 조치 (failover)를 시작 하기 전에 시스템에서 대기 하는 시간을 제어할 수 있습니다.
+  주 및 보조 데이터베이스가 비동기 복제를 사용하여 동기화되기 때문에 장애 조치로 인해 데이터가 손실될 수 있습니다. 애플리케이션의 데이터 손실 허용 오차를 반영하도록 자동 장애 조치 정책을 사용자 지정할 수 있습니다. @No__t-0을 구성 하면 데이터 손실이 발생할 수 있는 장애 조치 (failover)를 시작 하기 전에 시스템에서 대기 하는 시간을 제어할 수 있습니다.
 
 - **여러 장애 조치 그룹**
 
@@ -155,7 +155,7 @@ ms.locfileid: "71103192"
 
 - **읽기 전용 워크로드에 읽기 전용 수신기 사용**
 
-  특정 데이터가 부실해도 정상적으로 수행 가능한 논리적으로 격리된 읽기 전용 작업이 있는 경우에는 애플리케이션에서 보조 데이터베이스를 사용할 수 있습니다. 읽기 전용 세션의 경우 `<fog-name>.secondary.database.windows.net`을 서버 URL로 사용하면 자동으로 보조 데이터베이스에 연결됩니다. 또한를 사용 `ApplicationIntent=ReadOnly`하 여 연결 문자열 읽기 의도를 표시 하는 것이 좋습니다. 장애 조치 (failover) 후에 읽기 전용 작업을 다시 연결 하거나 보조 서버가 오프 라인 상태가 되는 경우에는 장애 조치 정책의 `AllowReadOnlyFailoverToPrimary` 속성을 구성 해야 합니다. 
+  특정 데이터가 부실해도 정상적으로 수행 가능한 논리적으로 격리된 읽기 전용 작업이 있는 경우에는 애플리케이션에서 보조 데이터베이스를 사용할 수 있습니다. 읽기 전용 세션의 경우 `<fog-name>.secondary.database.windows.net`을 서버 URL로 사용하면 자동으로 보조 데이터베이스에 연결됩니다. 또한 `ApplicationIntent=ReadOnly`을 사용 하 여 연결 문자열 읽기 의도를 표시 하는 것이 좋습니다. 장애 조치 (failover) 후에 읽기 전용 작업을 다시 연결할 수 있는지 또는 보조 서버가 오프 라인 상태가 된 경우에는 장애 조치 정책의 `AllowReadOnlyFailoverToPrimary` 속성을 구성 해야 합니다. 
 
 - **성능 저하에 대한 대비**
 
@@ -166,7 +166,7 @@ ms.locfileid: "71103192"
 
 - **데이터 손실에 대비**
 
-  중단이 감지 되 면 SQL은에 지정 된 `GracePeriodWithDataLossHours`기간 동안 대기 합니다. 기본값은 1시간입니다. 데이터 손실을 감당할 수 없는 경우 24 시간 등 충분히 큰 `GracePeriodWithDataLossHours` 숫자로 설정 해야 합니다. 수동 그룹 장애 조치(failover)를 사용하여 보조 데이터베이스에서 주 데이터베이스로 장애 복구할 수 있습니다.
+  중단이 감지 되 면 SQL은 `GracePeriodWithDataLossHours`으로 지정 된 기간 동안 대기 합니다. 기본값은 1시간입니다. 데이터 손실을 감당할 수 없는 경우 `GracePeriodWithDataLossHours`을 24 시간 등의 충분히 큰 숫자로 설정 해야 합니다. 수동 그룹 장애 조치(failover)를 사용하여 보조 데이터베이스에서 주 데이터베이스로 장애 복구할 수 있습니다.
 
   > [!IMPORTANT]
   > 지역 복제를 사용하는 800개 이하의 DTU 및 250개 초과의 데이터베이스가 있는 탄력적 풀에는 계획된 장애 조치 지연 및 성능 저하가 포함된 문제가 발생할 수 있습니다.  이러한 문제는 지역에서 복제 엔드포인트가 지리적으로 광범위하게 분리되어 있거나 여러 보조 엔드포인트가 각 데이터베이스에 대해 사용되는 경우 쓰기 집약적 작업에 발생할 가능성이 높습니다.  이러한 문제의 증상은 지역에서 복제 지연이 시간에 따라 증가하는 경우에 표시됩니다.  이러한 지연은 [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database)를 사용하여 모니터링할 수 있습니다.  이러한 문제가 발생하는 경우 완화 방안에는 풀 DTU의 수를 늘리거나 동일한 풀에 지역에서 복제된 데이터베이스 수를 줄이는 방법이 있습니다.
@@ -186,7 +186,7 @@ ms.locfileid: "71103192"
 
 - **주 인스턴스와 동일한 DNS 영역에 보조 인스턴스 만들기**
 
-  장애 조치(failover) 후 주 인스턴스에 대한 무중단 연결을 보장하려면 주 인스턴스와 보조 인스턴스가 동일한 DNS 영역에 있어야 합니다. 이는 동일한 SAN (다중 도메인) 인증서를 사용 하 여 장애 조치 (failover) 그룹의 두 인스턴스 중 하나에 대 한 클라이언트 연결을 인증할 수 있도록 보장 합니다. 애플리케이션이 프로덕션 배포에 사용할 준비가 되면 다른 지역에 보조 인스턴스를 만들고 주 인스턴스와 DNS 영역을 공유하는지 확인합니다. Azure Portal, PowerShell 또는 REST API를 사용 `DNS Zone Partner` 하 여 선택적 매개 변수를 지정 하 여이 작업을 수행할 수 있습니다. 
+  장애 조치(failover) 후 주 인스턴스에 대한 무중단 연결을 보장하려면 주 인스턴스와 보조 인스턴스가 동일한 DNS 영역에 있어야 합니다. 이는 동일한 SAN (다중 도메인) 인증서를 사용 하 여 장애 조치 (failover) 그룹의 두 인스턴스 중 하나에 대 한 클라이언트 연결을 인증할 수 있도록 보장 합니다. 애플리케이션이 프로덕션 배포에 사용할 준비가 되면 다른 지역에 보조 인스턴스를 만들고 주 인스턴스와 DNS 영역을 공유하는지 확인합니다. Azure Portal, PowerShell 또는 REST API를 사용 하 여 `DNS Zone Partner` 선택적 매개 변수를 지정 하 여이 작업을 수행할 수 있습니다. 
 
 > [!IMPORTANT]
 > 서브넷에서 만든 첫 번째 인스턴스는 동일한 서브넷에 있는 모든 후속 인스턴스의 DNS 영역을 결정 합니다. 즉, 동일한 서브넷의 두 인스턴스는 서로 다른 DNS 영역에 속할 수 없습니다.   
@@ -199,7 +199,7 @@ ms.locfileid: "71103192"
 
 - **서로 다른 구독에서 관리 되는 인스턴스 간의 장애 조치 (failover) 그룹 만들기**
 
-  서로 다른 두 구독에서 관리 되는 인스턴스 간에 장애 조치 (failover) 그룹을 만들 수 있습니다. PowerShell API를 사용 하는 경우 보조 인스턴스에 대 한 `PartnerSubscriptionId` 매개 변수를 지정 하 여 수행할 수 있습니다. REST API 사용 하는 `properties.managedInstancePairs` 경우 매개 변수에 포함 된 각 인스턴스 ID에는 자체 subscriptionID가 있을 수 있습니다. 
+  서로 다른 두 구독에서 관리 되는 인스턴스 간에 장애 조치 (failover) 그룹을 만들 수 있습니다. PowerShell API를 사용 하는 경우 보조 인스턴스에 대 한 `PartnerSubscriptionId` 매개 변수를 지정 하 여 수행할 수 있습니다. REST API를 사용 하는 경우 `properties.managedInstancePairs` 매개 변수에 포함 된 각 인스턴스 ID에는 고유한 subscriptionID가 있을 수 있습니다. 
   
   > [!IMPORTANT]
   > Azure Portal은 여러 구독에서 장애 조치 (failover) 그룹을 지원 하지 않습니다.
@@ -223,7 +223,7 @@ ms.locfileid: "71103192"
   > [!NOTE]
   > 특정 서비스 계층에서 Azure SQL Database는 [읽기 전용 복제본](sql-database-read-scale-out.md)을 사용하여 읽기 전용 복제본의 용량 및 연결 문자열의 `ApplicationIntent=ReadOnly` 매개 변수를 통해 읽기 전용 쿼리 워크로드를 부하를 분산할 수 있도록 지원합니다. 지역 복제된 보조 데이터베이스를 구성한 경우 이 기능을 사용하여 주 위치 또는 지역 복제된 위치에 있는 읽기 전용 복제본에 연결할 수 있습니다.
   > - 주 위치의 읽기 전용 복제본에 연결하려면 `<fog-name>.zone_id.database.windows.net`을 사용합니다.
-  > - 보조 위치의 읽기 전용 복제본에 연결 하려면를 사용 `<fog-name>.secondary.zone_id.database.windows.net`합니다.
+  > - 보조 위치의 읽기 전용 복제본에 연결 하려면 `<fog-name>.secondary.zone_id.database.windows.net`을 사용 합니다.
 
 - **성능 저하에 대한 대비**
 
@@ -304,15 +304,12 @@ ms.locfileid: "71103192"
 > [!NOTE]
 > 장애 조치 그룹 구성의 일부로 보조 데이터베이스를 만든 경우 보조 데이터베이스를 다운그레이드하지 않는 것이 좋습니다. 이렇게 하면 장애 조치가 활성화된 후 데이터 계층에서 일반 워크로드를 처리할 수 있을 만큼 충분한 용량을 갖출 수 있습니다.
 
-> [!IMPORTANT]
-> 장애 조치 (failover) 그룹의 구성원 인 Managed Instance 업그레이드 또는 다운 그레이드는 현재 지원 되지 않습니다.
-
 ## <a name="preventing-the-loss-of-critical-data"></a>중요한 데이터 손실 방지
 
-광역 네트워크의 높은 대기 시간으로 인해 연속 복사는 비동기 복제 메커니즘을 사용합니다. 비동기 복제를 수행하면 오류가 발생하는 경우에 일부 데이터 손실은 불가피합니다. 그러나 일부 애플리케이션은 데이터 손실이 없어야 합니다. 이러한 중요한 업데이트를 보호하기 위해 애플리케이션 개발자는 트랜잭션을 커밋한 후 즉시 [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 시스템 프로시저를 호출할 수 있습니다. 를 `sp_wait_for_database_copy_sync` 호출 하면 마지막으로 커밋된 트랜잭션이 보조 데이터베이스로 전송 될 때까지 호출 스레드가 차단 됩니다. 그러나 전송된 트랜잭션이 보조 데이터베이스에서 재생 및 커밋될 때까지 기다리지 않습니다. `sp_wait_for_database_copy_sync`는 특정 연속 복사 링크로 범위가 지정 됩니다. 주 데이터베이스에 대한 연결 권한이 있는 모든 사용자는 이 프로시저를 호출할 수 있습니다.
+광역 네트워크의 높은 대기 시간으로 인해 연속 복사는 비동기 복제 메커니즘을 사용합니다. 비동기 복제를 수행하면 오류가 발생하는 경우에 일부 데이터 손실은 불가피합니다. 그러나 일부 애플리케이션은 데이터 손실이 없어야 합니다. 이러한 중요한 업데이트를 보호하기 위해 애플리케이션 개발자는 트랜잭션을 커밋한 후 즉시 [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 시스템 프로시저를 호출할 수 있습니다. @No__t를 호출 하면 마지막으로 커밋된 트랜잭션이 보조 데이터베이스로 전송 될 때까지 호출 스레드가 차단 됩니다. 그러나 전송된 트랜잭션이 보조 데이터베이스에서 재생 및 커밋될 때까지 기다리지 않습니다. `sp_wait_for_database_copy_sync`은 특정 연속 복사 링크로 범위가 지정 됩니다. 주 데이터베이스에 대한 연결 권한이 있는 모든 사용자는 이 프로시저를 호출할 수 있습니다.
 
 > [!NOTE]
-> `sp_wait_for_database_copy_sync`장애 조치 (failover) 후 데이터 손실을 방지 하지만 읽기 액세스를 위해 전체 동기화를 보장 하지는 않습니다. `sp_wait_for_database_copy_sync` 프로시저 호출로 인 한 지연 시간은 매우 중요할 수 있으며 호출 시 트랜잭션 로그의 크기에 따라 달라 집니다.
+> `sp_wait_for_database_copy_sync`은 장애 조치 (failover) 후 데이터 손실을 방지 하지만 읽기 액세스를 위해 전체 동기화를 보장 하지는 않습니다. @No__t-0 프로시저 호출로 인 한 지연은 매우 중요할 수 있으며 호출 시 트랜잭션 로그의 크기에 따라 달라 집니다.
 
 ## <a name="failover-groups-and-point-in-time-restore"></a>장애 조치(failover) 그룹 및 지정 시간 복원
 
@@ -324,7 +321,7 @@ ms.locfileid: "71103192"
 
 ### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: 단일 데이터베이스 및 탄력적 풀을 사용하여 SQL Database 장애 조치(failover) 관리
 
-| Cmdlet | Description |
+| Cmdlet | 설명 |
 | --- | --- |
 | [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
 | [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | 서버에서 장애 조치 그룹을 제거하고 그룹에 포함된 모든 보조 데이터베이스를 삭제합니다. |
@@ -340,7 +337,7 @@ ms.locfileid: "71103192"
 
 ### <a name="powershell-managing-sql-database-failover-groups-with-managed-instances"></a>PowerShell: 관리 되는 인스턴스를 사용 하 여 SQL database 장애 조치 그룹 관리 
 
-| Cmdlet | Description |
+| Cmdlet | 설명 |
 | --- | --- |
 | [AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
 | [AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |장애 조치 그룹의 구성을 수정합니다.|
@@ -351,7 +348,7 @@ ms.locfileid: "71103192"
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API: 단일 및 풀링된 데이터베이스를 사용하여 SQL Database 장애 조치(failover) 그룹 관리
 
-| API | Description |
+| API | 설명 |
 | --- | --- |
 | [장애 조치(failover) 그룹 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | 장애 조치(failover) 그룹을 만들거나 업데이트합니다. |
 | [장애 조치(failover) 그룹 삭제](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | 서버에서 장애 조치 그룹을 제거합니다. |
@@ -364,7 +361,7 @@ ms.locfileid: "71103192"
 
 ### <a name="rest-api-manage-failover-groups-with-managed-instances"></a>REST API: 관리 되는 인스턴스를 사용 하 여 장애 조치 그룹 관리
 
-| API | Description |
+| API | 설명 |
 | --- | --- |
 | [장애 조치(failover) 그룹 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | 장애 조치(failover) 그룹을 만들거나 업데이트합니다. |
 | [장애 조치(failover) 그룹 삭제](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | 서버에서 장애 조치 그룹을 제거합니다. |

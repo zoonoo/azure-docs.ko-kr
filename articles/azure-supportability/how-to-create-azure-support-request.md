@@ -2,32 +2,27 @@
 title: Azure 지원 요청을 만드는 방법 | Microsoft Docs
 description: Azure 지원 요청을 만드는 방법을 알아봅니다.
 services: Azure Supportability
-documentationcenter: ''
 author: ganganarayanan
 manager: scotthit
-editor: ''
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.service: azure-supportability
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
-ms.openlocfilehash: 462a14d7845c6723a3482e50b01c50e3d913beee
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 0195cc86875b075e00e9305d803b8d637905db78
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71072075"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248703"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Azure 지원 요청을 만드는 방법
 ## <a name="summary"></a>요약
 Azure 고객은 Azure Portal([https://portal.azure.com](https://portal.azure.com))에서 지원 요청을 만들고 관리할 수 있습니다.
 
 > [!NOTE]
-> Azure Portal에 대 한 주석 erical [https://portal.azure.com](https://portal.azure.com) 사용은 독일의 Azure Portal입니다.[https://portal.microsoftazure.de](https://portal.microsoftazure.de)   
-> 미국 정부에 대 한 Azure Portal입니다.[https://portal.azure.us](https://portal.azure.us)
+> 주석 Erical 사용에 대 한 Azure Portal는 독일의 [https://portal.azure.com](https://portal.azure.com) Azure Portal [https://portal.microsoftazure.de](https://portal.microsoftazure.de)  입니다.  
+> 미국 정부 기관의 Azure Portal은 [https://portal.azure.us](https://portal.azure.us) 입니다.
 
 
 고객의 의견에 따라 다음 세 가지 기본 목표에 초점을 맞춰 지원 요청 환경을 업데이트했습니다.

@@ -1,21 +1,21 @@
 ---
-title: 비즈니스 연속성 - Microsoft Genomics | Microsoft Docs
-titleSuffix: Azure
-description: 이 개요에서는 Microsoft Genomics가 비즈니스 연속성 및 재해 복구를 위해 제공하는 기능에 대해 설명합니다. 데이터 손실을 야기할 수 있는 Azure 지역 가동 중단과 같은 재해 이벤트에서 복구하기 위한 옵션에 대해 알아봅니다.
+title: 비즈니스 연속성 개요
+titleSuffix: Microsoft Genomics
+description: 이 개요에서는 Microsoft Genomics가 비즈니스 연속성 및 재해 복구를 위해 제공하는 기능에 대해 설명합니다.
 keywords: 비즈니스 연속성, 재해 복구
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/06/2018
-ms.openlocfilehash: 7a51477dbbf6f4e50959a6d979342961c7e49ad9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 28a4a53851155c56e8d34981862bf52a3a2cf15b
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60641112"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249187"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Microsoft Genomics를 사용한 비즈니스 연속성 개요
 이 개요에서는 Microsoft Genomics가 비즈니스 연속성 및 재해 복구를 위해 제공하는 기능에 대해 설명합니다. 데이터 손실을 야기할 수 있는 Azure 지역 가동 중단과 같은 재해 이벤트에서 복구하기 위한 옵션에 대해 알아봅니다. 
@@ -30,7 +30,7 @@ ms.locfileid: "60641112"
 
 
 ### <a name="manually-failover-microsoft-genomics-workflows-to-another-region"></a>Microsoft Genomics 워크플로를 다른 지역으로 수동 장애 조치(Failover)
-지역 데이터 센터 가동 중단의 경우 개별 데이터 주권 및 비즈니스 연속성 요구 사항에 따라, 보조 지역에 Microsoft Genomics 워크플로를 전송하도록 선택할 수 있습니다. Microsoft Genomics 워크플로를 수동으로 장애 조치(Failover)하려면 다른 지역별 Genomics 계정을 사용하고 해당 지역별 Genomics 및 스토리지 계정 자격 증명으로 작업을 전송합니다.
+지역별 데이터 센터가 중단 되 면 개별 데이터 주권 및 비즈니스 연속성 요구 사항에 따라 보조 지역에 Microsoft Genomics 워크플로를 제출 하도록 선택할 수 있습니다. Microsoft Genomics 워크플로를 수동으로 장애 조치(Failover)하려면 다른 지역별 Genomics 계정을 사용하고 해당 지역별 Genomics 및 스토리지 계정 자격 증명으로 작업을 전송합니다.
 
 특히 다음을 수행해야 합니다.
 * Azure Portal을 사용하여 보조 지역에서 Genomics 계정을 만듭니다. 

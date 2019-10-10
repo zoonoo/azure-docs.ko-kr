@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
-ms.author: v-erkell
-ms.openlocfilehash: a3d6cb745c782d2a7166208f2a8dd1202a330b15
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: f4696d9e2d45e99089c9a723024067bf3b2aabcc
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60410122"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255443"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>vFXT 클러스터로 데이터 이동 - 병렬 데이터 수집 
 
@@ -145,7 +145,7 @@ cp /mnt/source/file8* /mnt/destination3/ & \
 
 마지막으로, 클라이언트 기능에 도달한 경우 더 많은 복사 스레드 또는 추가 탑재 지점을 추가해도 추가 파일 수/초 또는 바이트 수/초가 증가하지 않습니다. 이 경우 자체의 파일 복사 프로세스 집합을 실행할 동일한 탑재 지점 집합을 사용하여 다른 클라이언트를 배포할 수 있습니다. 
 
-예제:
+예:
 
 ```bash
 Client1: cp -R /mnt/source/dir1/dir1a /mnt/destination/dir1/ &

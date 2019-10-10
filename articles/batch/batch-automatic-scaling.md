@@ -11,19 +11,19 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
-ms.date: 06/20/2017
+ms.date: 10/08/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2014b00a82a6d56bf58b471336c6d809721abea9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bdea67d682bab335de02e55f5864460e3daefb95
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095429"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254953"
 ---
-# <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Batch 풀에서 컴퓨팅 노드의 크기를 조정하는 자동 크기 조정 수식 만들기
+# <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Batch 풀에서 계산 노드의 크기를 조정 하기 위한 자동 수식 만들기
 
-Azure Batch는 정의한 매개 변수에 따라 풀을 자동으로 크기 조정합니다. 자동 크기 조정을 사용하면 작업 요구가 증가함에 따라 Batch에서 풀에 노드를 동적으로 추가하고, 감소함에 따라 컴퓨팅 노드를 제거합니다. Batch 애플리케이션에서 사용하는 컴퓨팅 노드 수를 자동으로 조정하여 시간과 비용을 모두 절약할 수 있습니다. 
+Azure Batch는 정의한 매개 변수에 따라 풀을 자동으로 크기 조정합니다. 자동 크기 조정을 사용하면 작업 요구가 증가함에 따라 Batch에서 풀에 노드를 동적으로 추가하고, 감소함에 따라 컴퓨팅 노드를 제거합니다. Batch 애플리케이션에서 사용하는 컴퓨팅 노드 수를 자동으로 조정하여 시간과 비용을 모두 절약할 수 있습니다.
 
 사용자가 정의한 *자동 크기 조정 수식*에 연결하면 컴퓨팅 노드 풀에서 자동으로 크기를 조정할 수 있습니다. Batch 서비스는 자동 크기 조정 수식을 사용하여 워크로드를 실행하는 데 필요한 컴퓨팅 노드의 수를 결정합니다. Compute 노드는 전용 노드이거나 [우선 순위가 낮은 노드](batch-low-pri-vms.md)일 수 있습니다. Batch는 주기적으로 수집되는 서비스 메트릭 데이터에 응답합니다. Batch는 이 메트릭 데이터를 사용하여 구성 가능한 간격으로 수식에 따라 풀의 컴퓨팅 노드 수를 조정합니다.
 
@@ -39,6 +39,7 @@ Azure Batch는 정의한 매개 변수에 따라 풀을 자동으로 크기 조�
 >
 
 ## <a name="automatic-scaling-formulas"></a>자동 크기 조정 수식
+
 자동 크기 조정 수식은 하나 이상의 문을 포함하는 사용자가 정의한 문자열 값입니다. 자동 크기 조정 수식은 풀의 [autoScaleFormula][rest_autoscaleformula] 요소 (batch REST) 또는 [Cloudpool. AutoScaleFormula][net_cloudpool_autoscaleformula] 속성 (batch .net)에 할당 됩니다. Batch 서비스는 처리할 다음 간격을 위해 풀의 대상 컴퓨팅 노드 수를 결정하는 수식을 사용합니다. 수식 문자열은 8KB를 초과할 수 없고, 세미콜론으로 구분된 구문을 100개까지 포함할 수 있으며, 줄 바꿈과 주석을 포함할 수 있습니다.
 
 자동 크기 조정 수식은 Batch 자동 크기 조정 "언어"로 고려할 수 있습니다. 수식 문은 자유 형식이고 서비스가 정의한 변수(Batch 서비스에 의해 정의된 변수) 및 사용자가 정의한 변수(사용자가 정의한 변수)를 포함할 수 있습니다. 기본 제공 형식, 연산자 및 함수를 사용하여 이러한 값에 다양한 작업을 수행할 수 있습니다. 예를 들어 문은 다음과 같은 형태일 수 있습니다.
@@ -60,15 +61,17 @@ $variable2 = function2($OtherServiceDefinedVariable, $variable1);
 
 ### <a name="sample-autoscale-formulas"></a>샘플 자동 크기 조정 수식
 
-다음은 대부분의 시나리오에서 작동 하도록 조정할 수 있는 두 가지 자동 크기 조정 수식의 예입니다. 예제 수식 `startingNumberOfVMs` `maxNumberofVMs` 에서 변수와 변수는 필요에 맞게 조정할 수 있습니다.
+다음은 대부분의 시나리오에서 작동 하도록 조정할 수 있는 두 가지 자동 크기 조정 수식의 예입니다. 예제 수식의 변수 `startingNumberOfVMs` 및 `maxNumberofVMs`은 요구 사항에 맞게 조정할 수 있습니다.
 
-#### <a name="pending-tasks"></a>작업 보류 중
+#### <a name="pending-tasks"></a>보류 중인 작업
+
 ```
 startingNumberOfVMs = 1;
 maxNumberofVMs = 25;
 pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
 pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
 $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
+$NodeDeallocationOption = taskcompletion;
 ```
 
 이 자동 크기 조정 수식을 사용하면 풀은 단일 VM으로 처음에 생성됩니다. `$PendingTasks` 메트릭은 실행 중이거나 큐에 대기 중인 작업의 수를 정의합니다. 수식은 지난 180초 동안 보류 중인 작업의 평균 수를 찾고 이에 따라 `$TargetDedicatedNodes` 변수를 설정합니다. 수식은 전용 노드의 목표 수가 25개 VM을 절대로 초과하지 않도록 합니다. 새 작업이 제출되면 풀은 자동으로 증가합니다. 작업이 완료되면 VM은 하나씩 비워지고 자동 크기 조정 수식은 풀을 축소합니다.
@@ -76,15 +79,18 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 이 수식은 전용 노드를 크기 조정하지만 우선 순위가 낮은 노드를 크기 조정하는 데 적용되도록 수정할 수 있습니다.
 
 #### <a name="preempted-nodes"></a>선점 노드 
+
 ```
 maxNumberofVMs = 25;
 $TargetDedicatedNodes = min(maxNumberofVMs, $PreemptedNodeCount.GetSample(180 * TimeInterval_Second));
 $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicatedNodes);
+$NodeDeallocationOption = taskcompletion;
 ```
 
-이 예에서는 우선 순위가 낮은 25 개 노드로 시작 하는 풀을 만듭니다. 낮은 우선 순위의 노드가 선점 될 때마다 전용 노드로 대체 됩니다. 첫 번째 예제와 같이 변수는 `maxNumberofVMs` 풀이 25 개의 vm을 초과 하지 않도록 합니다. 이 예제는 우선 순위가 낮은 Vm을 활용 하는 동시에 풀의 수명 동안 고정 된 수의 preemptions 발생 하도록 보장 하는 데 유용 합니다.
+이 예에서는 우선 순위가 낮은 25 개 노드로 시작 하는 풀을 만듭니다. 낮은 우선 순위의 노드가 선점 될 때마다 전용 노드로 대체 됩니다. 첫 번째 예제와 마찬가지로 `maxNumberofVMs` 변수는 풀이 25 개의 Vm을 초과 하지 않도록 합니다. 이 예제는 우선 순위가 낮은 Vm을 활용 하는 동시에 풀의 수명 동안 고정 된 수의 preemptions 발생 하도록 보장 하는 데 유용 합니다.
 
 ## <a name="variables"></a>변수
+
 자동 크기 조정 수식에는 **서비스 정의** 및 **사용자 정의** 변수를 모두 사용할 수 있습니다. 서비스 정의 변수는 Batch 서비스에 기본 제공되어 있습니다. 서비스 정의 변수 일부는 읽기-쓰기이고, 일부는 읽기 전용입니다. 사용자 정의 변수는 사용자가 정의한 변수입니다. 이전 섹션에 나온 예제 수식에서 `$TargetDedicatedNodes` 및 `$PendingTasks`는 서비스 정의 변수입니다. 변수 `startingNumberOfVMs` 및 `maxNumberofVMs`는 사용자 정의 변수입니다.
 
 > [!NOTE]
@@ -100,11 +106,11 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 | --- | --- |
 | $TargetDedicatedNodes |풀에 대한 전용 컴퓨팅 노드의 대상 수입니다. 풀에서 항상 원하는 수의 노드에 도달할 수 없으므로 전용 노드의 수가 목표 수로 지정됩니다. 예를 들어 풀에서 최초 목표에 도달하기 전에 자동 크기 조정 평가에 따라 전용 노드의 목표 수가 수정되는 경우 풀에서 목표에 도달하지 못할 수 있습니다. <br /><br /> 목표가 배치 계정 노드 또는 코어 할당량을 초과하는 경우 Batch 서비스 구성으로 만든 계정의 풀에서 해당 목표에 도달하지 못할 수 있습니다. 목표가 구독의 공유 코어 할당량을 초과하는 경우 사용자 구독 구성으로 만든 계정의 풀에서 해당 목표에 도달하지 못할 수 있습니다.|
 | $TargetLowPriorityNodes |풀에 대한 우선 순위가 낮은 컴퓨팅 노드의 목표 수입니다. 풀에서 항상 원하는 수의 노드에 도달할 수 없으므로 우선 순위가 낮은 노드의 수가 목표 수로 지정됩니다. 예를 들어 풀에서 최초 목표에 도달하기 전에 자동 크기 조정 평가에 따라 우선 순위가 낮은 노드의 목표 수가 수정되는 경우 풀에서 목표에 도달하지 못할 수 있습니다. 목표가 Batch 계정 노드 또는 코어 할당량을 초과하는 경우 풀에서 해당 목표에 도달하지 못할 수도 있습니다. <br /><br /> 우선 순위가 낮은 컴퓨팅 노드에 대한 자세한 내용은 [Batch(미리 보기)에서 낮은 우선 순위 VM 사용](batch-low-pri-vms.md)을 참조하세요. |
-| $NodeDeallocationOption |풀에서 컴퓨팅 노드가 제거되는 경우 발생하는 작업입니다. 가능한 값은<ul><li>**requeue** - 태스크를 즉시 종료하고 일정을 재조정하도록 작업 큐에 다시 배치합니다.<li>**terminate** - 태스크를 즉시 종료하고 작업 큐에서 제거합니다.<li>**taskcompletion** - 현재 실행 중인 태스크가 완료되기를 기다린 다음 풀에서 해당 노드를 제거합니다.<li>**retaineddata** - 노드의 모든 로컬 태스크 보유 데이터가 정리되기를 기다린 다음 풀에서 해당 노드를 제거합니다.</ul> |
+| $NodeDeallocationOption |풀에서 컴퓨팅 노드가 제거되는 경우 발생하는 작업입니다. 가능한 값은<ul><li>**다시 대기**--기본값입니다. 작업을 즉시 종료 하 고 다시 예약할 수 있도록 작업 큐에 다시 저장 합니다. 이 작업을 수행 하면 대상 노드의 수가 최대한 빠르게 도달 하지만, 실행 중인 작업이 중단 되 고 다시 시작 해야 하는 작업을 수행 하 여 작업을 다시 시작 해야 하므로 효율성이 떨어질 수 있습니다. <li>**terminate** - 태스크를 즉시 종료하고 작업 큐에서 제거합니다.<li>**taskcompletion** - 현재 실행 중인 태스크가 완료되기를 기다린 다음 풀에서 해당 노드를 제거합니다. 작업이 중단 및 다시 큐에 포함 되는 것을 방지 하려면이 옵션을 사용 합니다. <li>**retaineddata** - 노드의 모든 로컬 태스크 보유 데이터가 정리되기를 기다린 다음 풀에서 해당 노드를 제거합니다.</ul> |
 
 이러한 서비스 정의 변수의 값을 가져와서 Batch 서비스의 메트릭을 기반으로 하여 조정할 수 있습니다.
 
-| 읽기 전용 서비스 정의 변수 | Description |
+| 읽기 전용 서비스 정의 변수 | 설명 |
 | --- | --- |
 | $CPUPercent |평균 CPU 사용량 비율. |
 | $WallClockSeconds |사용된 시간(초) 수. |
@@ -132,6 +138,7 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 >
 
 ## <a name="types"></a>유형
+
 수식에 지원되는 형식은 다음과 같습니다.
 
 * double
@@ -161,6 +168,7 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
   * TimeInterval_Year
 
 ## <a name="operations"></a>작업
+
 이전 섹션에서 나열된 형식에서 허용되는 연산은 다음과 같습니다.
 
 | 연산 | 지원되는 연산자 | 결과 형식 |
@@ -187,7 +195,7 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 ## <a name="functions"></a>함수
 이러한 미리 정의된 **함수** 는 자동 크기 조정 수식을 정의하는 데 사용할 수 있습니다.
 
-| 함수 | 반환 형식 | 설명 |
+| 기능 | 반환 형식 | 설명 |
 | --- | --- | --- |
 | avg(doubleVecList) |double |doubleVecList에 있는 모든 값의 평균 값을 반환합니다. |
 | len(doubleVecList) |double |doubleVecList에서 만든 벡터의 길이를 반환합니다. |
@@ -209,13 +217,14 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 | time(string dateTime="") |timestamp |매개 변수가 전달되지 않는 경우 현재 시간의 타임스탬프 또는 매개 변수가 전달되는 경우 dateTime 문자열의 타임스탬프를 반환합니다. 지원되는 dateTime 형식은 W3C-DTF 및 RFC 1123입니다. |
 | val(doubleVec v, double i) |double |시작 인덱스가 0인 벡터 v의 위치 i 요소 값을 반환합니다. |
 
-앞의 표에서 설명하는 함수 중 일부는 목록을 인수로 허용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec*의 조합입니다. 예를 들어:
+앞의 표에서 설명하는 함수 중 일부는 목록을 인수로 허용할 수 있습니다. 쉼표로 구분된 목록은 *double* 및 *doubleVec*의 조합입니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
 *doubleVecList* 값은 평가 전 단일 *doubleVec*으로 변환됩니다. 예를 들어 `v = [1,2,3]`의 경우 `avg(v)` 호출은 `avg(1,2,3)` 호출과 동일합니다. `avg(v, 7)` 호출은 `avg(1,2,3,7)` 호출과 동일합니다.
 
 ## <a name="getsampledata"></a>샘플 데이터 가져오기
+
 자동 크기 조정 수식은 Batch 서비스에서 제공한 메트릭 데이터(샘플)에서 작동합니다. 수식은 서비스에서 가져온 값에 따라 풀 크기를 늘리거나 줄입니다. 앞에서 설명한 서비스 정의 변수는 해당 개체에 연결된 데이터에 액세스하는 다양한 메서드를 제공하는 개체입니다. 예를 들어, 다음 식은 최근 5분 동안의 CPU 사용률을 얻기 위한 요청을 보여 줍니다.
 
 ```
@@ -228,7 +237,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 | GetSamplePeriod() |기록 샘플 데이터 집합에서 가져온 샘플의 기간을 반환합니다. |
 | Count() |메트릭 기록에 있는 총 샘플 수를 반환합니다. |
 | HistoryBeginTime() |메트릭에 대해 사용 가능한 가장 오래된 데이터 샘플의 타임스탬프를 반환합니다. |
-| GetSamplePercent() |지정된 시간 간격에 사용할 수 있는 샘플의 백분율을 반환합니다. 예를 들어:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>반환된 샘플의 백분율이 지정한 `samplePercent`보다 작은 경우 `GetSample` 메서드가 실패하기 때문에 `GetSamplePercent` 메서드를 사용하여 먼저 확인할 수 있습니다. 그런 다음 비효율적인 샘플이 존재하는 경우 자동 크기 조정 평가를 중단하지 않고 대체 작업을 수행할 수 있습니다. |
+| GetSamplePercent() |지정된 시간 간격에 사용할 수 있는 샘플의 백분율을 반환합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>반환된 샘플의 백분율이 지정한 `samplePercent`보다 작은 경우 `GetSample` 메서드가 실패하기 때문에 `GetSamplePercent` 메서드를 사용하여 먼저 확인할 수 있습니다. 그런 다음 비효율적인 샘플이 존재하는 경우 자동 크기 조정 평가를 중단하지 않고 대체 작업을 수행할 수 있습니다. |
 
 ### <a name="samples-sample-percentage-and-the-getsample-method"></a>샘플, 샘플 비율 및 *GetSample()* 메서드
 자동 크기 조정 수식의 핵심 작업은 작업 및 리소스 메트릭 데이터를 가져오고 데이터를 기반으로 풀 크기를 조정하는 것입니다. 따라서 자동 크기 조정 수식이 메트릭 데이터(샘플)과 상호 작용하는 방식을 명확히 이해해야 합니다.
@@ -253,7 +262,7 @@ Batch 서비스는 정기적으로 작업 및 리소스 메트릭의 샘플을 �
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-위의 줄이 Batch에 의해 확인된 경우 다양한 샘플을 값의 벡터로 반환합니다. 예를 들어:
+위의 줄이 Batch에 의해 확인된 경우 다양한 샘플을 값의 벡터로 반환합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
@@ -275,12 +284,13 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 >
 
 ## <a name="metrics"></a>metrics
+
 수식을 정의할 때 리소스 및 작업 메트릭을 모두 사용할 수 있습니다. 가져오고 평가한 메트릭 데이터를 기반으로 하는 풀의 전용 노드 대상 수를 조정합니다. 각 메트릭에 대한 자세한 내용은 위의 [변수](#variables) 섹션을 참조하세요.
 
 <table>
   <tr>
     <th>메트릭</th>
-    <th>Description</th>
+    <th>설명</th>
   </tr>
   <tr>
     <td><b>Resource</b></td>
@@ -321,13 +331,15 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 </table>
 
 ## <a name="write-an-autoscale-formula"></a>자동 크기 조정 수식 작성
+
 위의 구성 요소를 사용하는 구문을 구성하여 자동 크기 조정 수식을 작성한 다음 해당 구문을 완전한 수식으로 결합합니다. 이 섹션에서는 몇 가지 실제 크기 조정을 결정할 수 있는 자동 크기 조정 수식 예제를 만듭니다.
 
 먼저 새 자동 크기 조정 수식에 대한 요구 사항을 정의합니다. 수식은 다음과 같아야 합니다.
 
 1. CPU 사용량이 많은 경우 풀에 있는 전용 컴퓨팅 노드의 목표 수를 늘립니다.
-2. CPU 사용량이 적은 경우 풀에 있는 전용 컴퓨팅 노드의 목표 수를 줄입니다.
-3. 전용 노드의 최대 수는 항상 400으로 제한합니다.
+1. CPU 사용량이 적은 경우 풀에 있는 전용 컴퓨팅 노드의 목표 수를 줄입니다.
+1. 전용 노드의 최대 수는 항상 400으로 제한합니다.
+1. 노드 수를 줄이는 경우 태스크를 실행 하는 노드를 제거 하지 마십시오. 필요한 경우 태스크가 노드 제거를 마칠 때까지 기다립니다.
 
 CPU 사용량이 많은 동안 노드 수를 늘리려면, 지난 10분 동안 CPU 최소 평균 사용량이 70%를 초과한 경우에만 사용자 정의 변수(`$totalDedicatedNodes`)를 전용 노드의 현재 목표 수의 110%인 값으로 채우는 문을 정의합니다. 그렇지 않으면 전용 노드의 현재 수에 대한 값을 사용합니다.
 
@@ -377,7 +389,7 @@ Batch [sdk](batch-apis-tools.md#azure-accounts-for-batch-development), batch [RE
 1. (선택 사항) [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) 속성을 설정합니다(기본값: 15 분).
 1. [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) 또는 [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync)로 풀을 커밋합니다.
 
-다음 코드 조각에서는 .NET에서 자동 크기 조정 가능한 풀을 만듭니다. 풀의 자동 크기 조정 수식에서 전용 노드의 목표 수를 월요일에는 5로, 그 외 다른 요일에는 1로 설정합니다. [자동 크기 조정 간격](#automatic-scaling-interval)은 30분으로 설정됩니다. 이 문서의 다른 코드 조각과 C# 이 문서의 `myBatchClient` 다른 코드 조각은 [batchclient][net_batchclient] 클래스의 올바르게 초기화 된 인스턴스입니다.
+다음 코드 조각에서는 .NET에서 자동 크기 조정 가능한 풀을 만듭니다. 풀의 자동 크기 조정 수식에서 전용 노드의 목표 수를 월요일에는 5로, 그 외 다른 요일에는 1로 설정합니다. [자동 크기 조정 간격](#automatic-scaling-interval)은 30분으로 설정됩니다. 이 문서 및이 문서의 C# 다른 코드 조각에서 `myBatchClient`은 [batchclient][net_batchclient] 클래스의 올바르게 초기화 된 인스턴스입니다.
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(
@@ -455,7 +467,7 @@ response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formu
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>기존 풀에서 자동 크기 조정 사용
 
-Batch SDK마다 자동 크기 조정을 사용하도록 설정하는 방법을 제공합니다. 예를 들어:
+Batch SDK마다 자동 크기 조정을 사용하도록 설정하는 방법을 제공합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 * [Batchclient. PoolOperations. EnableAutoScaleAsync][net_enableautoscaleasync] (Batch .net)
 * [풀에서 자동 크기 조정 사용][rest_enableautoscale] (REST API)
@@ -634,9 +646,11 @@ Error:
 ```
 
 ## <a name="example-autoscale-formulas"></a>자동 크기 조정 수식 예제
+
 풀의 컴퓨팅 리소스 양을 조정하는 여러 가지 방법을 보여 주는 몇 가지 수식을 살펴보겠습니다.
 
 ### <a name="example-1-time-based-adjustment"></a>예제 1: 시간 기반 조정
+
 요일과 시간에 따라 풀 크기를 조정한다고 가정합니다. 이 예제에서는 풀의 노드 수를 적절히 늘리거나 줄이는 방법을 보여 줍니다.
 
 먼저 수식에서 현재 시간을 가져옵니다. 평일(1-5)에 근무 시간(오전 8시-오후 6시)인 경우, 대상 풀 크기는 20개의 노드로 설정됩니다. 그렇지 않으면 10개 노드로 설정됩니다.
@@ -647,9 +661,11 @@ $workHours = $curTime.hour >= 8 && $curTime.hour < 18;
 $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5;
 $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
+$NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-2-task-based-adjustment"></a>예제 2: 작업 기반 조정
+### <a name="example-2-task-based-adjustment"></a>예 2: 작업 기반 조정
+
 이 예에서는 풀 크기는 큐에 있는 작업의 수에 따라 조정 됩니다. 주석과 줄 바꿈은 모두 수식 문자열에 허용됩니다.
 
 ```csharp
@@ -664,11 +680,12 @@ $targetVMs = $tasks > 0? $tasks:max(0, $TargetDedicatedNodes/2);
 // The pool size is capped at 20, if target VM value is more than that, set it
 // to 20. This value should be adjusted according to your use case.
 $TargetDedicatedNodes = max(0, min($targetVMs, 20));
-// Set node deallocation mode - keep nodes active only until tasks finish
+// Set node deallocation mode - let running tasks finish before removing a node
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-3-accounting-for-parallel-tasks"></a>예제 3: 병렬 작업용 계정
+### <a name="example-3-accounting-for-parallel-tasks"></a>예 3: 병렬 작업용 계정
+
 이 예제에서는 작업의 수에 따라 풀 크기를 조정합니다. 또한이 수식은 풀에 대해 설정 된 [cloudpool.maxtaskspercomputenode][net_maxtasks] 값을 고려 합니다. 이 방법은 [병렬 작업 실행](batch-parallel-node-tasks.md)이 풀에서 사용된 경우에 특히 유용합니다.
 
 ```csharp
@@ -690,6 +707,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-4-setting-an-initial-pool-size"></a>예제 4: 초기 풀 크기 설정
+
 이 예제에서는 초기 기간 동안 풀 크기를 지정된 노드 수로 설정하는 자동 크기 조정 수식이 있는 C# 코드 조각을 보여 줍니다. 그런 다음 초기 기간이 경과한 후 실행 중이고 활성화된 작업 수를 기반으로 풀 크기를 조정합니다.
 
 다음 코드 조각의 수식은 다음과 같습니다.
@@ -714,6 +732,7 @@ string formula = string.Format(@"
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 * [동시 노드 작업으로 Azure Batch 컴퓨팅 리소스 사용 극대화](batch-parallel-node-tasks.md)는 풀의 컴퓨팅 노드에서 여러 작업을 동시에 실행할 수 있는 방법을 자세히 설명합니다. 자동 크기 조정 외에도 이 기능은 일부 워크로드에 대한 작업 기간을 줄여서 비용을 절약하는 데 도움이 될 수 있습니다.
 * 다른 효율성 부스터의 경우 Batch 애플리케이션이 Batch 서비스를 최적화하여 쿼리하도록 합니다. 잠재적으로 수천 개의 컴퓨팅 노드 또는 작업의 상태를 쿼리할 때 네트워크를 교차하는 데이터의 양을 제한하는 방법을 알아보려면 [효율적인 Azure Batch 서비스 쿼리](batch-efficient-list-queries.md)를 참조하세요.
 

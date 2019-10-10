@@ -8,16 +8,16 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: 1d4243457f51f11db5bc9681b29d27293fbc6250
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: e89a8f98d92e92fa8afe93340576b14ff1dd5051
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949061"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249192"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Azure Digital Twins의 역할 기반 액세스 제어
 
-Azure Digital Twins를 사용하면 공간 그래프의 특정 데이터, 리소스 및 작업에 대해 정확히 액세스 제어할 수 있습니다. 이 작업은 RBAC(역할 기반 액세스 제어)라는 세분화된 역할 및 권한 관리를 통해 수행됩니다. RBAC는 _역할_ 및 _역할 할당_으로 구성됩니다. 역할은 권한 수준을 식별합니다. 역할 할당은 역할을 사용자나 디바이스와 연결합니다.
+Azure Digital Twins를 사용 하면 공간 그래프의 특정 데이터, 리소스 및 작업에 대 한 정확한 액세스를 제어할 수 있습니다. 이를 위해 [역할 기반 액세스 제어](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC) 라고 하는 세분화 된 역할 및 권한 관리를 통해 수행 됩니다. RBAC는 _역할_ 및 _역할 할당_으로 구성됩니다. 역할은 권한 수준을 식별합니다. 역할 할당은 역할을 사용자나 디바이스와 연결합니다.
 
 RBAC를 사용하여 권한을 다음에 부여할 수 있습니다.
 
@@ -84,3 +84,5 @@ Azure Digital Twins 역할 할당은 개체(사용자, Azure AD 테넌트 등)�
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Digital Twins 역할 할당 만들기 및 관리에 대한 자세한 내용은 [역할 할당 만들기 및 관리](./security-create-manage-role-assignments.md)를 참조하세요.
+
+- [Azure 용 RBAC](https://docs.microsoft.com/azure/role-based-access-control/)에 대해 자세히 알아보세요.

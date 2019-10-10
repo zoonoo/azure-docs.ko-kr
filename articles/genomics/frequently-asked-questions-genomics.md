@@ -1,28 +1,28 @@
 ---
-title: 'Microsoft Genomics: 일반적인 질문-질문과 대답 | Microsoft Docs'
-titleSuffix: Azure
+title: 일반적인 질문-FAQ
+titleSuffix: Microsoft Genomics
 description: Microsoft Genomics에 대해 고객이 일반적으로 하는 질문에 대한 답입니다.
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: d36a2c6379a95cc67a55c2cc266ced94b4a0179a
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 80a656ee687b71fcaf09a02d70d0a5a4300186bc
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672225"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249237"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: 일반적인 질문
 
 이 문서에는 Microsoft Genomics와 관련될 수 있는 주요 질문이 나열되어 있습니다. Microsoft Genomics 서비스에 대한 자세한 내용은 [Microsoft Genomics란?](overview-what-is-genomics.md)을 참조하세요. 문제 해결 방법에 대한 자세한 내용은 [문제 해결 가이드](troubleshooting-guide-genomics.md)를 참조하세요. 
 
 
-## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>Microsoft Genomics에서 GATK4 워크플로 어떻게 실행 합니까?
-Microsoft Genomics 서비스를 config.txt 파일을 지정 하려면 process_name `gatk4`합니다. 참고 일반 청구 요금 청구는 있습니다.
+## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>Microsoft Genomics에서 GATK4 워크플로를 실행할 어떻게 할까요? 있나요?
+Microsoft Genomics 서비스의 config.xml 파일에서 process_name를 `gatk4`으로 지정 합니다. 정기적인 청구 요금으로 요금이 청구 됩니다.
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Microsoft Genomics의 SLA는 무엇인가요?

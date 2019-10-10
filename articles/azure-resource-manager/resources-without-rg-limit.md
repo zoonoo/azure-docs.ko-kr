@@ -4,14 +4,14 @@ description: 리소스 그룹에 800 개 이상의 인스턴스를 포함할 수
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/4/2019
+ms.date: 10/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6677290999049dead40f39e9a840735810c7c763
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0f9db618b69ff692350f333b8a4a4354f4980169
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973316"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249129"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>리소스 그룹당 800 인스턴스로 제한 되지 않는 리소스
 
@@ -32,11 +32,11 @@ ms.locfileid: "71973316"
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
-* botServices-제한을 연장 하려면 지원 담당자에 게 문의 하세요.
+* botServices-기본적으로 800 인스턴스로 제한 됩니다. 지원에 문의 하 여이 제한을 늘릴 수 있습니다.
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
-* 디스크
+* disks
 * 이미지
 * 스냅샷
 * virtualMachines
@@ -58,21 +58,21 @@ ms.locfileid: "71973316"
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
-* 서버
+* servers
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
-* 서버
+* servers
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
 * serverGroups
-* 서버
+* servers
 * serversv2
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
-* 서비스
+* services
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
@@ -128,7 +128,7 @@ ms.locfileid: "71973316"
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
-* publicIPAddresses-제한을 연장 하려면 지원 담당자에 게 문의 하세요.
+* publicIPAddresses-기본적으로 800 인스턴스로 제한 됩니다. 지원에 문의 하 여이 제한을 늘릴 수 있습니다.
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
@@ -139,7 +139,7 @@ ms.locfileid: "71973316"
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
-* workspaceCollections-제한을 연장 하려면 지원 담당자에 게 문의 하세요.
+* workspaceCollections-기본적으로 800 인스턴스로 제한 됩니다. 지원에 문의 하 여이 제한을 늘릴 수 있습니다.
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
@@ -150,9 +150,9 @@ ms.locfileid: "71973316"
 * 애플리케이션
 * containerGroups
 * gateways
-* 네트워크
+* networks
 * 비밀
-* 볼륨
+* volumes
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
@@ -161,7 +161,7 @@ ms.locfileid: "71973316"
 ## <a name="microsoftweb"></a>Microsoft.Web
 
 * apiManagementAccounts/apis
-* 사이트
+* sites
 
 ## <a name="next-steps"></a>다음 단계
 

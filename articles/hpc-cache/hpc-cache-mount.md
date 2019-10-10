@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: ea23331ebc75b5ede22c9f7357a9e0de12d819e2
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.author: rohogue
+ms.openlocfilehash: 3257cf92c628650fc50e0a36ec37fcab920aba2f
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299961"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254575"
 ---
 # <a name="mount-the-azure-hpc-cache-preview"></a>Azure HPC 캐시 (미리 보기) 탑재
 
@@ -25,7 +25,7 @@ Mount 명령은 다음 두 요소로 구성 됩니다.
 ![오른쪽 아래에 있는 탑재 주소 목록 주위에 강조 표시 상자가 있는 Azure HPC 캐시 인스턴스의 개요 페이지 스크린샷](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE] 
-> 캐시 탑재 주소는 캐시의 서브넷 내에 있는 네트워크 인터페이스에 해당 합니다. 리소스 그룹에서 이러한 nic는로 끝나는 `-cluster-nic-` 이름 및 숫자로 나열 됩니다. 이러한 인터페이스를 변경 하거나 삭제 하지 마세요. 캐시를 사용할 수 없게 됩니다.
+> 캐시 탑재 주소는 캐시의 서브넷 내에 있는 네트워크 인터페이스에 해당 합니다. 리소스 그룹에서 이러한 Nic는 `-cluster-nic-`으로 끝나는 이름 및 숫자로 나열 됩니다. 이러한 인터페이스를 변경 하거나 삭제 하지 마세요. 캐시를 사용할 수 없게 됩니다.
 
 가상 네임 스페이스 경로는 **저장소 대상** 페이지에 표시 됩니다. 개별 저장소 대상 이름을 클릭 하 여 관련 된 집계 네임 스페이스 경로를 포함 하 여 세부 정보를 확인 합니다.
 
@@ -45,7 +45,7 @@ root@test-client:/tmp# sudo mount 10.0.0.28:/blob-demo-0722 ./hpccache/ -orw,tcp
 root@test-client:/tmp# 
 ```
 
-이 명령이 성공적으로 완료 되 면 저장소 내보내기의 내용이 클라이언트의 ``hpccache`` 디렉터리에 표시 됩니다.
+이 명령이 성공한 후에는 클라이언트의 ``hpccache`` 디렉터리에 저장소 내보내기의 내용이 표시 되어야 합니다.
 
 > [!NOTE] 
 > 클라이언트는 캐시를 보관 하는 가상 네트워크 및 서브넷에 액세스할 수 있어야 합니다. 예를 들어 동일한 가상 네트워크 내에서 클라이언트 Vm을 만들거나 외부에서 액세스 하기 위해 가상 네트워크에서 끝점, 게이트웨이 또는 다른 솔루션을 사용 합니다. 캐시의 서브넷 내에 호스트 될 수 있는 다른 항목이 없다는 것을 명심 하십시오.

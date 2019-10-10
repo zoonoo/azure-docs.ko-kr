@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 86875643950e11f1e5030676c1ab3825039749ed
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8f7349310f72c8cccc7b1906239ece3038dd7861
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203528"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249209"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 
@@ -39,7 +39,7 @@ Azure Red Hat OpenShift가 지원 되는 글로벌 지역 목록은 지원 되�
 
 ## <a name="what-cluster-operations-are-available"></a>사용할 수 있는 클러스터 작업은 무엇 인가요?
 
-계산 노드 수를 확장 하거나 축소할 수만 있습니다. 리소스를 만든 후에는 `Microsoft.ContainerService/openShiftManagedClusters` 다른 수정 작업을 수행할 수 없습니다. 최대 계산 노드 수는 20 개로 제한 됩니다.
+계산 노드 수를 확장 하거나 축소할 수만 있습니다. @No__t-0 리소스를 만든 후에는 다른 수정 작업을 수행할 수 없습니다. 최대 계산 노드 수는 20 개로 제한 됩니다.
 
 ## <a name="what-virtual-machine-sizes-can-i-use"></a>어떤 가상 머신 크기를 사용할 수 있나요?
 
@@ -59,11 +59,11 @@ Azure Red Hat OpenShift 클러스터에서 사용할 수 있는 가상 머신 �
 
 ## <a name="is-the-docker-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>Docker 레지스트리는 외부에서 사용할 수 있으므로 Jenkins와 같은 도구를 사용할 수 있나요?
 
-그러나에서 `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` Docker 레지스트리를 사용할 수 있지만 강력한 저장소 내구성 보장은 제공 되지 않습니다. [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)를 사용할 수도 있습니다.
+Docker 레지스트리는 `https://docker-registry.apps.<clustername>.<region>.azmosa.io/`에서 사용할 수 있지만 강력한 저장소 내구성 보장은 제공 되지 않습니다. [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)를 사용할 수도 있습니다.
 
 ## <a name="is-cross-namespace-networking-supported"></a>네임 스페이스 간 네트워킹이 지원 되나요?
 
-고객 및 개별 프로젝트 관리자는 개체를 사용 하 여 `NetworkPolicy` 프로젝트 단위로 상호 네임 스페이스 네트워킹 (거부 포함)을 사용자 지정할 수 있습니다.
+고객 및 개별 프로젝트 관리자는 `NetworkPolicy` 개체를 사용 하 여 프로젝트 별로 상호 네임 스페이스 네트워킹 (거부 포함)을 사용자 지정할 수 있습니다.
 
 ## <a name="can-an-admin-manage-users-and-quotas"></a>관리자가 사용자 및 할당량을 관리할 수 있나요?
 
@@ -71,7 +71,7 @@ Azure Red Hat OpenShift 클러스터에서 사용할 수 있는 가상 머신 �
 
 ## <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>클러스터를 특정 Azure AD 사용자로만 제한할 수 있나요?
 
-예. Azure ad 응용 프로그램을 구성 하 여 클러스터에 로그인 할 수 있는 Azure AD 사용자를 제한할 수 있습니다. 자세한 [내용은 방법: 사용자 집합으로 앱 제한](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
+예. Azure ad 응용 프로그램을 구성 하 여 클러스터에 로그인 할 수 있는 Azure AD 사용자를 제한할 수 있습니다. 자세한 내용은 [How to: 사용자 집합으로 앱 제한 @ no__t-0
 
 ## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>클러스터가 여러 Azure 지역에 계산 노드를 가질 수 있나요?
 
@@ -85,15 +85,15 @@ Azure Red Hat OpenShift 클러스터에서 사용할 수 있는 가상 머신 �
 
 예. Azure Red Hat OpenShift와 함께 OSBA를 사용할 수 있습니다. 자세한 내용은 [Azure에 대 한 Open Service Broker](https://github.com/Azure/open-service-broker-azure#openshift-project-template) 를 참조 하세요.
 
-## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>다른 구독의 가상 네트워크에 피어 링 하려고 했지만 `Failed to get vnet CIDR` 오류가 발생 했습니다.
+## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>다른 구독의 가상 네트워크에 피어 링 하려고 하지만 `Failed to get vnet CIDR` 오류가 발생 했습니다.
 
-가상 네트워크가 있는 구독에서 공급자를에 등록 `Microsoft.ContainerService` 해야 합니다.`az provider register -n Microsoft.ContainerService --wait` 
+가상 네트워크가 있는 구독에서 `Microsoft.ContainerService` 공급자 `az provider register -n Microsoft.ContainerService --wait`을 등록 해야 합니다. 
 
 ## <a name="what-is-the-azure-red-hat-openshift-aro-maintenance-process"></a>Azure Red Hat OpenShift (ARO) 유지 관리 프로세스는 무엇 인가요?
 
 ARO는 업그레이드, etcd 데이터 백업 및 복원, 클라우드 공급자 시작 유지 관리의 세 가지 유형이 있습니다.
 
-+ 업그레이드에는 소프트웨어 업그레이드와 CVEs가 포함 됩니다. CVE 업데이트는를 실행 `yum update` 하 여 시작 시 발생 하며 즉각적인 완화를 위해 제공 됩니다.  병렬로 새 이미지 빌드는 나중에 클러스터 만들기를 위해 만들어집니다.
++ 업그레이드에는 소프트웨어 업그레이드와 CVEs가 포함 됩니다. CVE 업데이트는 `yum update`을 실행 하 여 시작 시 발생 하며 즉각적인 완화를 위해 제공 됩니다.  병렬로 새 이미지 빌드는 나중에 클러스터 만들기를 위해 만들어집니다.
 
 + Etcd 데이터의 백업 및 관리는 작업에 따라 클러스터 가동 중지 시간이 필요할 수 있는 자동화 된 프로세스입니다. Etcd 데이터베이스가 백업에서 복원 되는 경우 가동 중지 시간이 발생 합니다. Etcd를 매시간 백업 하 고 최근 6 시간 동안 백업을 유지 합니다.
 
@@ -129,9 +129,9 @@ Etcd 수준에서 암호화 되지 않습니다. 이 기능을 설정 하는 옵
 
 Syslog, docker 로그, 저널 및 dmesg는 관리 서비스에서 처리 되며 고객에 게 노출 되지 않습니다.
 
-## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>사용자가 노드 수준에서 CPU/메모리와 같은 메트릭에 액세스 하 여 확장, 문제 해결 등의 작업을 수행 하는 방법에 대해 알아봅니다. ARO 클러스터에서 실행 `kubectl top` 되지 않는 것 같습니다.
+## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>사용자가 노드 수준에서 CPU/메모리와 같은 메트릭에 액세스 하 여 확장, 문제 해결 등의 작업을 수행 하는 방법에 대해 알아봅니다. ARO 클러스터에서 `kubectl top`을 실행 하지 않는 것 같습니다.
 
-`kubectl top`Red Hat OpenShift에서 사용할 수 없습니다. 지원 메트릭 원본 (Heapster (사용 되지 않음) 또는 메트릭-서버 (incubating 또는 alpha)이 필요 합니다 .이는 OpenShift 모니터링 스택에 포함 되지 않습니다.
+Red Hat OpenShift에서는 `kubectl top`을 사용할 수 없습니다. 지원 메트릭 원본 (Heapster (사용 되지 않음) 또는 메트릭-서버 (incubating 또는 alpha)이 필요 합니다 .이는 OpenShift 모니터링 스택에 포함 되지 않습니다.
 
 ## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>ARO의 기본 pod 스케줄러 구성은 무엇입니까?
 
@@ -189,7 +189,7 @@ Azure AD 통합을 통해이를 달성할 수 있습니다. 
 
 각 Azure Red Hat OpenShift 클러스터는 특정 고객을 전담 하며 고객의 구독 내에 있습니다. 
 
-## <a name="can-we-choose-any-persistent-storage-solution-ocs"></a>영구적 저장소 솔루션을 선택할 수 있습니다. OCS? 
+## <a name="can-we-choose-any-persistent-storage-solution-like-ocs"></a>OCS와 같은 영구 저장소 솔루션을 선택할 수 있나요? 
 
 두 개의 저장소 클래스를 선택할 수 있습니다. Azure 디스크 및 Azure 파일.
 

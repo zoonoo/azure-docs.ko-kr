@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: d756f9dfbd0012f884bb0c4a1e27efc76d613234
-ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
+ms.openlocfilehash: ed231bc05d58a40c93cea74081c027e5b49f5306
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71982833"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254498"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Azure Security Center에서 사용할 수 있는 지원 되는 기능
 
 > [!NOTE]
->일부 기능은 표준 계층 에서만 사용할 수 있습니다. Security Center의 표준 계층에 아직 등록 하지 않은 경우 무료 평가판 기간을 사용할 수 있습니다. 자세한 내용은 [Security Center 가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
+>일부 기능은 표준 계층 에서만 사용할 수 있습니다. Security Center의 표준 계층에 아직 등록 하지 않은 경우 무료 평가판 기간을 사용할 수 있습니다. 자세한 내용은 [Security Center 가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조 하세요.
 
 다음 섹션에서는 지원 되는 [플랫폼](security-center-os-coverage.md)에 사용할 수 있는 Security Center 기능을 보여 줍니다.
 
@@ -35,39 +35,39 @@ ms.locfileid: "71982833"
 
 > [!div class="mx-tableFixed"]
 
-|서버|Windows|||Linux|||가격 책정|
+|서버|Windows|||Linux|||가격|
 |----|----|----|----|----|----|----|----|
 |**환경**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
 ||**Virtual Machine**|**Virtual Machine Scale Set**||**Virtual Machine**|**Virtual Machine Scale Set**|
-|가상 컴퓨터 동작 분석 위협 검색 경고|✔|✔|✔|✔(지원되는 버전에서만)|✔(지원되는 버전에서만)|✔|권장 사항 (무료) 위협 검색 (표준)|
-|네트워크 기반 위협 탐지 경고|✔|✔|X|✔|✔|X|Standard|
-|Microsoft Defender ATP 통합|✔(지원되는 버전에서만)|✔(지원되는 버전에서만)|✔|X|X|X|Standard|
-|누락된 패치|✔|✔|✔|✔|✔|✔|무료|
-|보안 구성|✔|✔|✔|✔|✔|✔|무료|
-|Endpoint protection 평가|✔|✔|✔|X|X|X|무료|
-|Just-in-time VM 액세스|✔|X|X|✔|X|X|Standard|
-|적응형 애플리케이션 제어|✔|X|✔|✔|X|✔|Standard|
-|파일 무결성 모니터링|✔|✔|✔|✔|✔|✔|Standard|
-|디스크 암호화 평가|✔|✔|X|✔|✔|X|무료|
-|타사 배포|✔|X|X|✔|X|X|무료|
-|NSG 평가|✔|✔|X|✔|✔|X|무료|
-|Fileless 위협 탐지|✔|✔|✔|X|X|X|Standard|
-|네트워크 맵|✔|✔|X|✔|✔|X|Standard|
-|적응형 네트워크 강화|✔|X|X|✔|X|X|Standard|
+|[Microsoft Defender ATP 통합](https://docs.microsoft.com/azure/security-center/security-center-wdatp)|✔(지원되는 버전에서만)|✔(지원되는 버전에서만)|✔|X|X|X|Standard|
+|[가상 컴퓨터 동작 분석 위협 검색 경고](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas)|✔|✔|✔|✔(지원되는 버전에서만)|✔(지원되는 버전에서만)|✔|권장 사항 (무료) 위협 검색 (표준)|
+|[Fileless 위협 검색 경고](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas#fileless-attack-detection-)|✔|✔|✔|X|X|X|Standard|
+|[네트워크 기반 위협 검색 경고](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer#azure-network-layer)|✔|✔|X|✔|✔|X|Standard|
+|[Just-in-time VM 액세스](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|✔|X|X|✔|X|X|Standard|
+|[파일 무결성 모니터링](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)|✔|✔|✔|✔|✔|✔|Standard|
+|[적응 애플리케이션 컨트롤](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)|✔|X|✔|✔|X|✔|Standard|
+|[네트워크 맵](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations#network-map)|✔|✔|X|✔|✔|X|Standard|
+|[적응 네트워크 강화](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)|✔|X|X|✔|X|X|Standard|
 |적응형 네트워크 제어|✔|✔|X|✔|✔|X|Standard|
-|규정 준수 대시보드 & 보고서|✔|✔|✔|✔|✔|✔|Standard|
+|[규정 준수 대시보드 & 보고서](https://docs.microsoft.com/azure/security-center/security-center-compliance-dashboard)|✔|✔|✔|✔|✔|✔|Standard|
 |Docker에서 호스트 되는 IaaS 컨테이너의 권장 사항 및 위협 감지|X|X|X|✔|✔|✔|Standard|
+|누락 된 OS 패치 평가|✔|✔|✔|✔|✔|✔|무료|
+|보안 잘못 평가|✔|✔|✔|✔|✔|✔|무료|
+|[Endpoint protection 평가](https://docs.microsoft.com/azure/security-center/security-center-services#supported-endpoint-protection-solutions-)|✔|✔|✔|X|X|X|무료|
+|디스크 암호화 평가|✔|✔|X|✔|✔|X|무료|
+|타사 취약성 평가|✔|X|X|✔|X|X|무료|
+|[네트워크 보안 평가]()|✔|✔|X|✔|✔|X|무료|
 
 ### 지원 되는 endpoint protection 솔루션<a name="endpoint-supported"></a>
 
 아래 표에는 다음 정보의 행렬이 나와 있습니다.
 
  - Azure Security Center를 사용하여 각 솔루션을 자동으로 설치할 수 있는지 여부
- - Security Center에서 검색할 수 있는 Endpoint Protection 솔루션. 이러한 Endpoint Protection 솔루션 중 하나가 검색되더라도 Security Center에 솔루션을 설치하는 것이 좋다는 메시지가 표시되지는 않습니다.
+ - Security Center에서 검색할 수 있는 Endpoint Protection 솔루션. 이 목록에서 endpoint protection 솔루션을 검색 하는 경우 Security Center 설치 하지 않는 것이 좋습니다.
 
 이러한 각 보호에 대 한 권장 사항이 생성 되는 경우에 대 한 자세한 내용은 [Endpoint Protection 평가 및 권장 사항](security-center-endpoint-protection.md)을 참조 하세요.
 
-| Endpoint Protection| 플랫폼 | Security Center 설치 | Security Center 검색 |
+| 엔드포인트 보호| 플랫폼 | Security Center 설치 | Security Center 검색 |
 |------|------|-----|-----|
 | Windows Defender(Microsoft 맬웨어 방지 프로그램)| Windows Server 2016| 아니오, OS에 기본 제공| 예 |
 | System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2(아래 참고 참조) | 확장을 통해 | 예 |
@@ -77,7 +77,7 @@ ms.locfileid: "71982833"
 | McAfee v10+ | Linux 서버 제품군  | 아니요 | 예 **\*** |
 | Sophos V9 +| Linux 서버 제품군  | 아니요 | 예 **\***  |
 
- **\*** 검사 상태 및 지원 데이터는 현재 보호 된 구독과 연결 된 Log Analytics 작업 영역 에서만 사용할 수 있으며 Azure Security Center 포털에는 반영 되지 않습니다.
+ **\*** 현재는 보호 된 구독과 연결 된 Log Analytics 작업 영역 에서만 검사 상태와 지원 데이터를 사용할 수 있습니다. Azure Security Center 포털에는 반영 되지 않습니다.
 
 > [!NOTE]
 >
@@ -95,9 +95,9 @@ Azure Security Center에서 지 원하는 PaaS 리소스는 다음과 같습니�
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
 |CosmosDB|X| ✔|
-|Blob 스토리지|✔| ✔|
+|Blob Storage|✔| ✔|
 |Storage 계정|✔| NA|
-|앱 서비스|✔| ✔|
+|App Service|✔| ✔|
 |기능|✔| X|
 |클라우드 서비스|✔| X|
 |VNet|✔| NA|
@@ -105,7 +105,7 @@ Azure Security Center에서 지 원하는 PaaS 리소스는 다음과 같습니�
 |NIC|✔| NA|
 |NSG|✔| NA|
 |구독|✔ **| ✔|
-|배치 계정|✔| X|
+|Batch 계정|✔| X|
 |Service fabric 계정|✔| X|
 |Automation 계정|✔| X|
 |부하 분산 장치|✔| X|
@@ -113,11 +113,11 @@ Azure Security Center에서 지 원하는 PaaS 리소스는 다음과 같습니�
 |Service Bus 네임스페이스|✔| X|
 |Stream Analytics|✔| X|
 |이벤트 허브 네임스페이스|✔| X|
-|Logic Apps|✔| X|
+|논리 앱|✔| X|
 |Redis|✔| NA|
 |Data Lake Analytics|✔| X|
 |Data Lake Store|✔| X|
-|키 자격 증명 모음|✔| X|
+|주요 자격 증명 모음|✔| X|
 
 \* 이러한 기능은 현재 공개 미리 보기로 지원됩니다.
 

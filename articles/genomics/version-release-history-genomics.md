@@ -1,20 +1,20 @@
 ---
-title: 버전 릴리스 기록 - Microsoft Genomics
-titleSuffix: Azure
-description: Microsoft Genomics는 수정 사항 및 새로운 기능으로 Microsoft Genomics Python 클라이언트를 정기적으로 업데이트합니다.
+title: 버전 릴리스 내역
+titleSuffix: Microsoft Genomics
+description: 수정 사항 및 새로운 기능을 위해 Microsoft Genomics Python 클라이언트 업데이트의 릴리스 기록
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2019
-ms.openlocfilehash: 2037bcf173951769f1627f809352ef60afce2d50
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 03bbbed53cd0494e8507a156d0fadac8dcd4297a
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60780953"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249148"
 ---
 # <a name="version-release-history"></a>버전 릴리스 내역
 Microsoft Genomics 팀은 수정 사항 및 새로운 기능으로 Microsoft Genomics Python 클라이언트를 정기적으로 업데이트합니다. 
