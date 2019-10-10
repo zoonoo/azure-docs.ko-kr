@@ -57,8 +57,10 @@
       href: tutorial-global-distribution-sql-api.md
 - name: 샘플
   items:
-    - name: .NET 샘플
+    - name: .NET V2 SDK 샘플
       href: sql-api-dotnet-samples.md
+    - name: .NET V3 SDK 샘플
+      href: sql-api-dotnet-v3sdk-samples.md
     - name: Java 샘플
       href: sql-api-java-samples.md
     - name: 모든 Java 샘플
@@ -1022,6 +1024,8 @@
           href: odbc-driver.md
     - name: Cosmos DB로 데이터 마이그레이션
       items:
+        - name: 데이터를 Cosmos DB로 마이그레이션하는 옵션
+          href: cosmosdb-migrationchoices.md
         - name: Striim을 사용하여 SQL API로 마이그레이션
           href: cosmosdb-sql-api-migrate-data-striim.md
         - name: Striim을 사용하여 Cassandra API로 마이그레이션

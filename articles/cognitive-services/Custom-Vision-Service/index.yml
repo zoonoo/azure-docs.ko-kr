@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: 사용자 지정 비전 설명서
-summary: Azure Custom Vision은 사용자 고유의 이미지 분류자를 빌드, 배포 및 향상시킬 수 있는 인지 서비스입니다. 이미지 분류자는 이미지의 시각적 특성에 따라 레이블(클래스를 나타냄)을 해당 이미지에 적용하는 AI 서비스입니다.
+summary: Custom Vision은 사용자 고유의 이미지 분류자를 빌드, 배포 및 개선할 수 있는 인지 서비스입니다. 이미지 분류자는 이미지의 시각적 특성에 따라 레이블(클래스를 나타냄)을 해당 이미지에 적용하는 AI 서비스입니다.
 metadata:
   title: 사용자 지정 비전 설명서
-  description: Azure Custom Vision은 사용자 고유의 이미지 분류자를 빌드, 배포 및 향상시킬 수 있는 인지 서비스입니다. 이미지 분류자는 이미지의 시각적 특성에 따라 레이블(클래스를 나타냄)을 해당 이미지에 적용하는 AI 서비스입니다.
+  description: Custom Vision은 사용자 고유의 이미지 분류자를 빌드, 배포 및 개선할 수 있는 인지 서비스입니다. 이미지 분류자는 이미지의 시각적 특성에 따라 레이블(클래스를 나타냄)을 해당 이미지에 적용하는 AI 서비스입니다.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: custom-vision
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 931f67bd0f5c73426781da39ded3bcfff0a8dea3
-  ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+  ms.openlocfilehash: 5be5dcd64345de32e37413932869574391573c60
+  ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/24/2019
-  ms.locfileid: "71211981"
+  ms.lasthandoff: 10/09/2019
+  ms.locfileid: "72176179"
 landingContent:
 - title: Custom Vision 정보
   linkLists:

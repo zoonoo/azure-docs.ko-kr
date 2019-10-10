@@ -137,23 +137,6 @@
           href: how-to-train-with-datasets.md
     - name: 모델 학습
       items:
-        - name: 학습 환경 설정
-          displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
-          href: how-to-set-up-training-targets.md
-        - name: 추정기를 사용하여 학습
-          items:
-            - name: 학습에서 추정 만들기
-              href: how-to-train-ml-models.md
-            - name: Scikit-learn 사용
-              href: how-to-train-scikit-learn.md
-            - name: TensorFlow 사용
-              href: how-to-train-tensorflow.md
-            - name: Keras 사용
-              href: how-to-train-keras.md
-            - name: PyTorch 사용
-              href: how-to-train-pytorch.md
-            - name: Chainer 사용
-              href: how-to-train-chainer.md
         - name: 시각적 인터페이스 사용
           displayName: sample visual interface experiments
           items:
@@ -175,25 +158,29 @@
             - name: 비행 지연 예측
               displayName: 'classification, studio'
               href: how-to-ui-sample-classification-predict-flight-delay.md
-        - name: hyperparameters 조정
-          displayName: parameter
-          href: how-to-tune-hyperparameters.md
-        - name: 학습 시 Key Vault 사용
-          displayName: secrets keyvault
-          href: how-to-use-secrets-in-runs.md
-    - name: 실험 추적 및 모니터링
-      items:
-        - name: '시작, 모니터링 또는 실행 취소'
-          displayName: 'cancel, fail, status, child run'
-          href: how-to-manage-runs.md
-        - name: 학습 실행에 대한 메트릭 로그
-          href: how-to-track-experiments.md
-        - name: MLflow로 실험 추적
-          displayName: 'log, monitor, metrics'
-          href: how-to-use-mlflow.md
-        - name: TensorBoard로 시각화 실행
-          displayName: 'log, monitor, metrics'
-          href: how-to-monitor-tensorboard.md
+        - name: ML용 추정기 사용
+          items:
+            - name: 학습에서 추정 만들기
+              href: how-to-train-ml-models.md
+            - name: 학습 환경 설정
+              displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+              href: how-to-set-up-training-targets.md
+            - name: hyperparameters 조정
+              displayName: parameter
+              href: how-to-tune-hyperparameters.md
+            - name: 학습 시 Key Vault 사용
+              displayName: secrets keyvault
+              href: how-to-use-secrets-in-runs.md
+        - name: Scikit-learn
+          href: how-to-train-scikit-learn.md
+        - name: TensorFlow
+          href: how-to-train-tensorflow.md
+        - name: Keras
+          href: how-to-train-keras.md
+        - name: PyTorch
+          href: how-to-train-pytorch.md
+        - name: Chainer
+          href: how-to-train-chainer.md
     - name: 기계 학습 자동화
       displayName: 'automl, auto ml'
       items:
@@ -210,6 +197,19 @@
           href: how-to-auto-train-forecast.md
         - name: 차트 및 메트릭 이해
           href: how-to-understand-automated-ml.md
+    - name: 실험 추적 및 모니터링
+      items:
+        - name: '시작, 모니터링 또는 실행 취소'
+          displayName: 'cancel, fail, status, child run'
+          href: how-to-manage-runs.md
+        - name: 학습 실행에 대한 메트릭 로그
+          href: how-to-track-experiments.md
+        - name: MLflow로 실험 추적
+          displayName: 'log, monitor, metrics'
+          href: how-to-use-mlflow.md
+        - name: TensorBoard로 시각화 실행
+          displayName: 'log, monitor, metrics'
+          href: how-to-monitor-tensorboard.md
     - name: 모델 배포 및 제공
       items:
         - name: 배포 위치 및 방법

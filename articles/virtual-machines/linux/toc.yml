@@ -196,6 +196,8 @@
               href: disk-encryption-cli-quickstart.md
             - name: Azure PowerShell을 사용한 VM 암호화
               href: disk-encryption-powershell-quickstart.md
+            - name: Azure Portal을 사용한 VM 암호화
+              href: disk-encryption-portal-quickstart.md
             - name: Azure Disk Encryption용 Key Vault
               href: disk-encryption-key-vault.md
             - name: 디스크 암호화 샘플 스크립트

@@ -110,7 +110,7 @@
           href: groups-naming-policy.md
         - name: 그룹 만료 참조
           href: groups-lifecycle.md
-        - name: 만료되거나 삭제된 그룹 복원
+        - name: 삭제된 그룹 복원
           href: groups-restore-deleted.md
         - name: 그룹 설정 관리
           href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
@@ -134,7 +134,7 @@
           href: licensing-groups-resolve-problems.md
         - name: 사용자를 그룹 라이선스로 변경
           href: licensing-groups-migrate-users.md
-        - name: 사용자의 라이선스 변경
+        - name: 사용자 또는 그룹의 라이선스 변경
           href: licensing-groups-change-licenses.md
         - name: 추가 시나리오
           href: licensing-group-advanced.md
@@ -168,7 +168,7 @@
           href: roles-delegate-by-task.md
         - name: Microsoft 365 역할
           href: roles-m365-workload-docs.md
-        - name: 관리자 역할 보안
+        - name: 역할 보안
           items:
             - name: 역할 보안 계획
               href: directory-admin-roles-secure.md

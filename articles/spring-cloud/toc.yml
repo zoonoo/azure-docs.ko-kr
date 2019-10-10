@@ -1,0 +1,62 @@
+- name: Azure Spring Cloud 설명서
+  href: index.yml
+  displayName: Azure Spring Cloud
+- name: 개요
+  href: spring-cloud-overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 포털을 사용하여 Spring Cloud 앱 시작
+      href: spring-cloud-quickstart-launch-app-portal.md
+    - name: Azure CLI를 사용하여 Spring Cloud 앱 시작
+      href: spring-cloud-quickstart-launch-app-cli.md
+    - name: 원본에서 Spring Cloud 앱 시작
+      href: spring-cloud-launch-from-source.md
+    - name: Maven를 사용하여 Java Spring 앱 시작
+      href: spring-cloud-quickstart-launch-app-maven.md
+- name: 자습서
+  items:
+    - name: 배포용 Java Spring 앱 준비
+      href: spring-cloud-tutorial-prepare-app-deployment.md
+    - name: Config 서버 설정
+      href: spring-cloud-tutorial-config-server.md
+    - name: 수동으로 애플리케이션 크기 조정
+      href: spring-cloud-tutorial-scale-manual.md
+    - name: 분산 추적 및 App Insights를 사용하여 애플리케이션 모니터링
+      href: spring-cloud-tutorial-distributed-tracing.md
+    - name: Azure CosmosDB에 애플리케이션 바인딩
+      href: spring-cloud-tutorial-bind-cosmos.md
+    - name: Redis용 Azure Cache를 사용하여 애플리케이션 바인딩
+      href: spring-cloud-tutorial-bind-redis.md
+    - name: Azure MySQL에 애플리케이션 바인딩
+      href: spring-cloud-tutorial-bind-mysql.md
+- name: 개념
+  items:
+    - name: Azure Spring Cloud 할당량 및 제한 이해
+      href: spring-cloud-quotas.md
+    - name: Azure Spring Cloud의 메트릭 이해
+      href: spring-cloud-concept-metrics.md
+- name: 방법 가이드
+  items:
+    - name: 'Azure Spring Cloud 애플리케이션을 시작, 중지 및 삭제하는 방법'
+      href: spring-cloud-howto-start-stop-delete.md
+    - name: 스테이징 환경을 설정하는 방법
+      href: spring-cloud-howto-staging-environment.md
+    - name: 서비스 등록 사용
+      href: spring-cloud-service-registration.md
+    - name: 애플리케이션 로그 및 메트릭 분석
+      href: diagnostic-services.md
+    - name: Azure Spring Cloud에서 CI/CD 파이프라인 자동화
+      href: spring-cloud-howto-cicd.md
+    - name: Azure Spring Cloud에서 영구 스토리지 사용
+      href: spring-cloud-howto-persistent-storage.md
+- name: 참고 자료
+  items:
+    - name: Azure CLI 플러그 인
+      href: spring-cloud-cli-reference.md
+    - name: 리소스
+      href: spring-cloud-resources.md
+    - name: 질문과 대답
+      href: spring-cloud-faq.md
+    - name: 문제 해결 가이드
+      href: spring-cloud-troubleshoot.md

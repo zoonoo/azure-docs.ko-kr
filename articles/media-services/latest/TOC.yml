@@ -4,6 +4,8 @@
   items:
     - name: Media Services 정보
       href: media-services-overview.md
+    - name: Media Services의 새로운 기능
+      href: release-notes.md
 - name: 자습서
   expanded: true
   items:
@@ -343,8 +345,6 @@
           href: 'https://aka.ms/ams-v3-ruby-sdk'
     - name: Azure Media Services 탐색기
       href: 'https://github.com/Azure/Azure-Media-Services-Explorer'
-    - name: 릴리스 정보
-      href: release-notes.md
     - name: 할당량 및 제한 사항
       href: limits-quotas-constraints.md
     - name: FAQ
