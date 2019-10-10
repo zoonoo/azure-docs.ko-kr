@@ -2,23 +2,17 @@
 title: SKU 시리즈 사용할 수 없음 | Microsoft Docs
 description: 이 지역의 선택한 구독에 대해 일부 SKU 시리즈를 사용할 수 없습니다.
 services: Azure Supportability
-documentationcenter: ''
 author: stevendotwang
-manager: rajatk
-editor: ''
 ms.service: azure-supportability
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: xingwan
-ms.openlocfilehash: a57899e36a6716a6fd59cb018119c225b7396c0d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e317ae1ad88cf162f1d55a06d19e7b3b0b88ce60
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60649131"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249036"
 ---
 # <a name="region-or-sku-unavailable"></a>지역 또는 SKU 사용할 수 없음
 이 문서에서는 Azure 구독에 지역 또는 VM SKU에 대한 액세스 권한이 없는 문제를 해결하는 방법을 설명합니다.
@@ -56,7 +50,7 @@ Message: This size is currently unavailable in this location for this subscripti
 
 ### <a name="when-creating-a-support-request-to-increase-compute-core-quota-a-region-or-a-sku-family-is-not-available-for-selection"></a>컴퓨팅 코어 할당량을 늘리도록 지원을 요청할 때 지역 또는 SKU 제품군을 선택할 수 없습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 먼저 비즈니스 요구를 충족하는 대체 지역 또는 SKU를 사용하는 것이 좋습니다. 적합한 지역 또는 SKU를 찾을 수 없다면 다음 단계를 수행하여 "구독 관리" [지원을 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)합니다.
 
 
@@ -71,7 +65,7 @@ Message: This size is currently unavailable in this location for this subscripti
   - 배포하거나 구입하려고 계획 중인 지역, SKU 및 가상 머신 인스턴스 수를 지정하세요
 
 
-![문제](./media/SKU-series-unavailable/ProblemSubMgmt.png)
+![문제점](./media/SKU-series-unavailable/ProblemSubMgmt.png)
 
 -   연락처 정보를 입력하고 "만들기"를 클릭합니다.
 

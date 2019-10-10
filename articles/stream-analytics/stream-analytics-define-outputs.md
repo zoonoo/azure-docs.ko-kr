@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: d867cceb3e7261f658e2406617144c9150e36f2a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 20da8abff943e71deb5d5ec8b7bd6411c176e2e3
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173430"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244543"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력 이해
 
@@ -104,7 +104,7 @@ Blob 저장소를 출력으로 사용 하는 경우 다음과 같은 경우에 �
 
 ## <a name="event-hubs"></a>Event Hubs
 
-[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) 서비스는 확장성이 뛰어난 게시-구독 이벤트 수집기입니다. 초당 수 백만의 이벤트를 수집할 수 있습니다. 출력으로 이벤트 허브를 사용 하는 한 가지 방법은 Stream Analytics 작업의 출력이 다른 스트리밍 작업의 입력이 되는 경우입니다.
+[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) 서비스는 확장성이 뛰어난 게시-구독 이벤트 수집기입니다. 초당 수 백만의 이벤트를 수집할 수 있습니다. 출력으로 이벤트 허브를 사용 하는 한 가지 방법은 Stream Analytics 작업의 출력이 다른 스트리밍 작업의 입력이 되는 경우입니다. 최대 메시지 크기 및 일괄 처리 크기 최적화에 대 한 자세한 내용은 [출력 일괄 처리 크기](#output-batch-size) 섹션을 참조 하세요.
 
 이벤트 허브에서 출력으로 데이터 스트림을 구성 하는 몇 가지 매개 변수가 필요 합니다.
 
@@ -119,7 +119,7 @@ Blob 저장소를 출력으로 사용 하는 경우 다음과 같은 경우에 �
 | 이벤트 직렬화 형식 | 출력 데이터에 대 한 serialization 형식입니다. JSON, CSV 및 Avro를 지원합니다. |
 | 인코딩 | CSV 및 JSON의 경우 UTF-8이 이번에만 지원되는 인코딩 형식입니다. |
 | 구분 기호 | CSV serialization에만 적용 됩니다. Stream Analytics는 CSV 형식에서 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다. |
-| 형식 | JSON serialization에만 적용 됩니다. **줄 구분** 은 각 JSON 개체를 새 줄로 구분 하 여 출력 형식을 지정 하도록 지정 합니다. **배열은** 출력의 형식을 JSON 개체의 배열로 지정 합니다. 이 배열은 작업이 중지되거나 Stream Analytics가 다음 시간 범위로 이동되었을 때만 닫힙니다. 일반적으로는 출력 파일을 쓰는 동안 특별 한 처리가 필요 하지 않으므로 줄로 구분 된 JSON을 사용 하는 것이 좋습니다. 자세한 내용은 [출력 일괄 처리 크기](#output-batch-size) 섹션을 참조 하세요. |
+| 형식 | JSON serialization에만 적용 됩니다. **줄 구분** 은 각 JSON 개체를 새 줄로 구분 하 여 출력 형식을 지정 하도록 지정 합니다. **배열은** 출력의 형식을 JSON 개체의 배열로 지정 합니다.  |
 | 속성 열 | (선택 사항) 페이로드가 아닌 보내는 메시지의 사용자 속성으로 연결 해야 하는 쉼표로 구분 된 열입니다. 이 기능에 대 한 자세한 내용은 [출력에 대 한 사용자 지정 메타 데이터 속성](#custom-metadata-properties-for-output)섹션에 있습니다. |
 
 ## <a name="power-bi"></a>Power BI

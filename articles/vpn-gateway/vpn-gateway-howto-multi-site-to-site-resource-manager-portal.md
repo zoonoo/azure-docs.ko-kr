@@ -2,25 +2,18 @@
 title: '여러 VPN 게이트웨이 사이트 간 연결을 VNet에 추가: Azure Portal: Resource Manager| Microsoft Docs'
 description: 기존 연결이 있는 VPN Gateway에 다중 사이트 S2S 연결 추가
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: f3e8b165-f20a-42ab-afbb-bf60974bb4b1
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4b9f007e00d0912687b723bd4f7e747da893948d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2c32fd35bbc6de1f010013c40a06af69052d3f5
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60760461"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244614"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>기존 VPN 게이트웨이 연결이 있는 VNet에 사이트 간 연결 추가
 
@@ -32,7 +25,7 @@ ms.locfileid: "60760461"
 
 이 문서는 Azure Portal을 사용하여 기존 연결이 있는 VPN 게이트웨이에 S2S(사이트 간) 연결을 추가하는 데 도움이 됩니다. 이러한 유형의 연결을 "다중 사이트" 구성이라고 합니다. S2S 연결, 사이트 간 연결 또는 VNet 간 연결이 이미 있는 VNet에 S2S 연결을 추가할 수 있습니다. 연결을 추가하는 데 몇 가지 제한이 있습니다. 구성을 시작하기 전에 확인하려면 이 문서의 [시작 하기 전에](#before) 섹션을 확인합니다. 
 
-이 문서는 RouteBased VPN 게이트웨이가 있는 리소스 관리자 VNet에 적용됩니다. 이러한 단계가 ExpressRoute/사이트 간 공존 연결 구성에는 적용되지 않습니다. 공존 연결에 대한 자세한 내용은 [xpress 경로/S2S 공존 연결](../expressroute/expressroute-howto-coexist-resource-manager.md)을 참조하세요.
+이 문서는 RouteBased VPN 게이트웨이가 있는 리소스 관리자 VNet에 적용됩니다. 이러한 단계는 새로운 Express 경로/사이트 간 공존 연결 구성에는 적용 되지 않습니다. 그러나 이미 존재 하는 기존 구성에 새 VPN 연결을 추가 하는 경우에는 다음 단계를 사용할 수 있습니다. 공존 연결에 대한 자세한 내용은 [xpress 경로/S2S 공존 연결](../expressroute/expressroute-howto-coexist-resource-manager.md)을 참조하세요.
 
 ### <a name="deployment-models-and-methods"></a>배포 모델 및 메서드
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
@@ -44,7 +37,7 @@ ms.locfileid: "60760461"
 ## <a name="before"></a>시작하기 전에
 다음 사항을 확인합니다.
 
-* ExpressRoute/S2S 공존 연결을 만들지 않습니다.
+* 새 공존 Express 경로 및 VPN Gateway 구성을 구성 하지 않습니다.
 * 기존 연결로 Resource Manager 배포 모델을 사용하여 만든 가상 네트워크가 있습니다.
 * VNet용 가상 네트워크 게이트웨이는 RouteBased입니다. PolicyBased VPN 게이트웨이가 있다면 가상 네트워크 게이트웨이를 삭제하고 새 VPN 게이트웨이를 RouteBased로 만들어야 합니다.
 * 어떠한 주소 범위도 이 Vnet이 연결하고 있는 Vnet에 대해 겹치지 않습니다.

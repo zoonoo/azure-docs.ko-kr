@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: 352833b12c00abbefcf7016d27dfb580ee25e450
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: dce359d1567ee763cd988e778b1e0e44475388cc
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409267"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255361"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Avere vFXT 만들기 준비
 
@@ -32,14 +32,14 @@ Azure Portal에 새 Azure 구독을 만들려면 다음을 수행합니다.
 
 구독에 대한 소유자 권한이 있는 사용자는 vFXT 클러스터를 만들어야 합니다. 소프트웨어 서비스 약관에 동의 하 고 다른 작업을 수행 하려면 구독 소유자 권한이 필요 합니다. 
 
-몇 가지 해결 방법 시나리오가 Azure 클러스터에 대 한는 Avere vFTX 만들려면 비 소유자 수 있도록 합니다. 이러한 시나리오에는 리소스를 제한 하 고는 생성기에 대 한 추가 역할 할당 포함 됩니다. 두 경우 모두, 구독 소유자는 또한 해야 [Avere vFXT 소프트웨어 조건에 동의](#accept-software-terms) 미리 합니다. 
+비 소유자가 Azure 클러스터용 Avere vFTX를 만들 수 있도록 하는 몇 가지 해결 방법이 있습니다. 이러한 시나리오에는 리소스를 제한 하 고 작성자에 게 추가 역할을 할당 하는 작업이 포함 됩니다. 두 경우 모두 구독 소유자는 미리 [Avere vFXT 소프트웨어 용어](#accept-software-terms) 를 미리 수락 해야 합니다. 
 
-| 시나리오 | 제한 | Avere vFXT 클러스터를 만드는 데 필요한 액세스 역할 | 
+| 시나리오 | Restrictions | Avere vFXT 클러스터를 만드는 데 필요한 액세스 역할 | 
 |----------|--------|-------|
-| 리소스 그룹 관리자 | 가상 네트워크, 클러스터 컨트롤러 및 클러스터 노드를 리소스 그룹 내에서 만들어야 합니다. | [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 하 고 [참가자](../role-based-access-control/built-in-roles.md#contributor) 대상 리소스 그룹으로 범위가 지정 둘 다 역할 | 
-| 외부 vnet | 클러스터 컨트롤러와 클러스터 노드는 리소스 그룹 내에서 생성 되지만 다른 리소스 그룹에 기존 가상 네트워크는 | (1) [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 하 고 [참가자](../role-based-access-control/built-in-roles.md#contributor) vFXT 리소스 그룹 및 (2) 범위의 역할 [Virtual Machine 참여자](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [사용자 액세스 관리자 권한](../role-based-access-control/built-in-roles.md#user-access-administrator), 및 [Avere 참가자](../role-based-access-control/built-in-roles.md#avere-contributor) VNET 리소스 그룹으로 범위가 지정 된 역할입니다. |
+| 리소스 그룹 관리자 | 가상 네트워크, 클러스터 컨트롤러 및 클러스터 노드는 리소스 그룹 내에 만들어야 합니다. | [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 및 [참가자](../role-based-access-control/built-in-roles.md#contributor) 역할, 둘 다 대상 리소스 그룹으로 범위가 지정 됩니다. | 
+| 외부 vnet | 클러스터 컨트롤러와 클러스터 노드가 리소스 그룹 내에 만들어지지만 다른 리소스 그룹의 기존 가상 네트워크는 사용 됩니다. | (1) [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 및 [참가자](../role-based-access-control/built-in-roles.md#contributor) 역할이 vFXT 리소스 그룹으로 범위가 지정 됩니다. 그리고 (2) [가상 머신 참가자](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator)및 [AVERE 참여자](../role-based-access-control/built-in-roles.md#avere-contributor) 역할 범위를 VNET 리소스 그룹으로 지정 합니다. |
  
-에 설명 된 대로 미리 사용자 지정 역할 기반 액세스 제어 (RBAC) 역할을 만드는 사용자에 게 권한을 할당 하는 대안 [이 문서에서는](avere-vfxt-non-owner.md)합니다. 이 방법을 사용하는 경우 해당 사용자에게 매우 많은 권한이 제공됩니다. 
+또 다른 방법은 [이 문서](avere-vfxt-non-owner.md)에 설명 된 대로 사용자 지정 RBAC (역할 기반 액세스 제어) 역할을 미리 만들고 사용자에 게 권한을 할당 하는 것입니다. 이 방법을 사용하는 경우 해당 사용자에게 매우 많은 권한이 제공됩니다. 
 
 ## <a name="quota-for-the-vfxt-cluster"></a>vFXT 클러스터에 대한 할당량
 
@@ -77,25 +77,25 @@ Azure Portal에 새 Azure 구독을 만들려면 다음을 수행합니다.
    az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
    ```
 
-## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>가상 네트워크 (필요한 경우)에서 저장소 서비스 끝점 만들기
+## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>가상 네트워크에 저장소 서비스 끝점 만들기 (필요한 경우)
 
-A [서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md) Azure Blob 트래픽이 로컬 virtual network 외부 라우팅 하지 않고 유지 합니다. 백 엔드 데이터 저장소에 대 한 Azure Blob을 사용 하는 Azure 클러스터에 대 한 모든 Avere vFXT에 대 한 것이 좋습니다. 
+[서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md) 은 Azure Blob 트래픽을 가상 네트워크 외부로 라우팅하는 대신 로컬에 유지 합니다. 백 엔드 데이터 저장소에 Azure Blob을 사용 하는 모든 Avere vFXT for Azure 클러스터에 권장 됩니다. 
 
-기존 vnet을 제공 하 고 클러스터 만들기의 일환으로 백 엔드 저장소에 대 한 새 Azure Blob 컨테이너를 만드는 하는 경우 서비스 끝점을 Microsoft storage에 대 한 vnet에 있어야 합니다. 이 끝점은 클러스터를 만들기 전에 존재 해야 합니다 또는 생성에 실패 합니다. 
+클러스터를 만드는 과정에서 기존 vnet을 제공 하 고 백 엔드 저장소에 대 한 새 Azure Blob 컨테이너를 만드는 경우 vnet for Microsoft 저장소에 서비스 끝점이 있어야 합니다. 이 끝점은 클러스터를 만들기 전에 존재 해야 합니다. 그렇지 않으면 만들기가 실패 합니다. 
 
-저장소 서비스 끝점을 나중에 저장소를 추가 하는 경우에 Azure Blob storage를 사용 하는 Azure 클러스터에 대 한 모든 Avere vFXT에 권장 됩니다. 
+저장소 서비스 끝점은 나중에 저장소를 추가 하는 경우에도 Azure Blob storage를 사용 하는 모든 Avere vFXT for Azure 클러스터에 권장 됩니다. 
 
 > [!TIP] 
-> * 클러스터 만들기의 일환으로 새 가상 네트워크를 만들려는 경우이 단계를 건너뜁니다. 
-> * 이 단계는 클러스터를 만드는 동안 Blob storage를 만들지 않는 경우에 선택 사항입니다. 이 경우 만들 수 있습니다 서비스 끝점을 나중에 Azure Blob을 사용 하려는 경우.
+> * 클러스터 만들기의 일부로 새 가상 네트워크를 만드는 경우이 단계를 건너뜁니다. 
+> * 클러스터를 만드는 동안 Blob 저장소를 만들지 않는 경우이 단계는 선택 사항입니다. 이 경우 나중에 Azure Blob을 사용 하기로 결정 한 경우 서비스 끝점을 만들 수 있습니다.
 
-Azure portal에서 저장소 서비스 끝점을 만듭니다. 
+Azure Portal에서 저장소 서비스 끝점을 만듭니다. 
 
 1. 포털의 왼쪽에서 **가상 네트워크**를 클릭합니다.
 1. 클러스터에 대 한 vnet을 선택 합니다. 
 1. 왼쪽에서 **서비스 엔드포인트**를 클릭합니다.
 1. 위쪽에서 **추가**를 클릭합니다.
-1. 로 서비스를 중지할 ``Microsoft.Storage`` 클러스터의 서브넷을 선택 합니다.
+1. 서비스를 ``Microsoft.Storage``으로 두고 클러스터의 서브넷을 선택 합니다.
 1. 아래쪽에서 **추가**를 클릭합니다.
 
    ![서비스 엔드포인트를 만드는 단계에 대한 주석이 있는 Azure Portal 스크린샷](media/avere-vfxt-service-endpoint.png)

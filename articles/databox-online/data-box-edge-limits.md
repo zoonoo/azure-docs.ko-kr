@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box Edge 제한 | Microsoft Docs
-description: Azure 데이터 상자의 가장자리에 대 한 시스템 제한 및 권장된 크기를 설명합니다.
+description: Azure Data Box Edge에 대 한 시스템 제한 및 권장 크기를 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: b454b563cdb870ca8f07a45b796dc6b1e272502d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9adfc1ef355c31f0bfeeb6c3b194d62426b7b9b3
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924595"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244310"
 ---
-# <a name="azure-data-box-edge-limits"></a>Azure 데이터 가장자리가 상자의 제한
+# <a name="azure-data-box-edge-limits"></a>Azure Data Box Edge 제한
 
 Microsoft Azure Data Box Edge 솔루션을 배포 및 운영하면서 이러한 제한을 고려합니다.
 
@@ -29,9 +29,9 @@ Microsoft Azure Data Box Edge 솔루션을 배포 및 운영하면서 이러한 
 
 | 설명 | 값 |
 |---|---|
-|디바이스 당 파일 수 |1억 |
-|디바이스 당 공유 수 |24 |
-|컨테이너 당 공유 수 |1 |
+|아니요. 디바이스당 파일 수 |1억 |
+|아니요. 디바이스당 공유 수 |24 |
+|아니요. 컨테이너당 공유 수 |1 |
 |공유에 기록되는 최대 파일 크기| 5TB |
 
 ## <a name="azure-storage-limits"></a>Azure Storage 제한
@@ -53,4 +53,4 @@ Microsoft Azure Data Box Edge 솔루션을 배포 및 운영하면서 이러한 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Data Box Gateway 배포 준비](data-box-gateway-deploy-prep.md)
+- [Azure Data Box Edge 배포 준비](data-box-edge-deploy-prep.md)

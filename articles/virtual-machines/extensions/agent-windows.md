@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: 7c163dd48e53a3116d58cb94988f2822ddede5e5
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 24c7f6c1488d7a78a16aafef88177f7045eb2492
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169133"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244647"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure Virtual Machines 에이전트 개요
 Microsoft Azure VM 에이전트(가상 머신 에이전트)는 Azure 패브릭 컨트롤러와 VM(가상 머신)의 상호 작용을 관리하는 안전하고 간단한 프로세스입니다. VM 에이전트는 Azure 가상 머신 확장을 설정하고 실행하는 데 기본적인 역할을 수행합니다. VM 확장을 사용하면 소프트웨어 설치 및 구성과 같은 VM의 배포 후 구성을 설정할 수 있습니다. 또한 VM 확장을 사용하면 VM의 관리 암호를 다시 설정하는 등의 복구 기능도 사용할 수 있습니다. Azure VM 에이전트가 없으면 VM 확장을 실행할 수 없습니다.
@@ -68,7 +68,7 @@ msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /q
 ```
 
 ### <a name="prerequisites"></a>사전 요구 사항
-Windows VM 에이전트는 .Net Framework 4.0를 사용 하 여 Windows Server 2008 R2 (64 비트) 이상을 실행 해야 합니다.
+Windows VM 에이전트는 .Net Framework 4.0를 사용 하 여 Windows Server 2008 R2 (64 비트) 이상을 실행 해야 합니다. [Azure의 가상 머신 에이전트에 대 한 최소 버전 지원을](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) 참조 하세요.
 
 ## <a name="detect-the-vm-agent"></a>VM 에이전트 검색
 
@@ -110,6 +110,8 @@ Microsoft VM에 로그인하면 작업 관리자를 사용하여 실행 중인 �
 ## <a name="upgrade-the-vm-agent"></a>VM 에이전트 업그레이드
 Windows용 Azure VM 에이전트는 자동으로 업그레이드됩니다. 새 VM이 Azure에 배포되면 VM 프로비전 시 최신 VM 에이전트가 제공됩니다. 사용자 지정 VM 이미지는 이미지를 만들 때 새 VM 에이전트를 포함하도록 수동으로 업데이트해야 합니다.
 
+## <a name="windows-guest-agent-automatic-logs-collection"></a>Windows 게스트 에이전트 자동 로그 수집
+Windows 게스트 에이전트에는 일부 로그를 자동으로 수집 하는 기능이 있습니다. 이 기능은 CollectGuestLogs 프로세스에 의해 컨트롤러입니다. PaaS Cloud Services 및 IaaS Virtual Machines 모두에 대해 존재 하며,이는 VM에서 일부 진단 로그를 자동으로 수집 하 & 오프 라인 분석에 사용할 수 있도록 하는 것입니다. 수집 된 로그는 이벤트 로그, OS 로그, Azure 로그 및 일부 레지스트리 키입니다. VM의 호스트로 전송 되는 ZIP 파일을 생성 합니다. 그런 다음이 ZIP 파일을 검토 하 여 엔지니어링 팀과 지원 전문가에 게 VM을 소유 하는 고객의 요청에 대 한 문제를 조사할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 VM 확장에 대한 자세한 내용은 [Azure 가상 머신 확장 및 기능 개요](overview.md)를 참조하세요.

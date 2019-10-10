@@ -17,12 +17,12 @@ ms.date: 04/19/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e4f0f81c5f135e885fe06d4fb4fa67514e8781b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 8d202cb0cc2d073326a5bcc8fb0d540c232afa98
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988151"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240902"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Azure Monitor를 사용 하 여 ArcSight와 Azure Active Directory 로그 통합
 
@@ -36,7 +36,7 @@ ms.locfileid: "68988151"
 * Azure AD 활동 로그를 포함하는 Azure 이벤트 허브입니다. [활동 로그를 이벤트 허브로 스트림](quickstart-azure-monitor-stream-logs-to-event-hub.md)하는 방법을 알아봅니다. 
 * ArcSight Syslog NG Daemon SmartConnector(SmartConnector) 또는 ArcSight Load Balancer의 구성된 인스턴스입니다. 이벤트를 ArcSight Load Balancer로 보내면 부하 분산 장치는 이어서 SmartConnector로 보냅니다.
 
-[Azure Monitor 이벤트 허브용 ArcSight SmartConnector의 구성 가이드](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)를 다운로드하고 엽니다. 이 가이드에는 Azure Monitor용 ArcSight SmartConnector를 설치하고 구성하는 데 필요한 단계가 포함되어 있습니다. 
+[Azure Monitor 이벤트 허브용 ArcSight SmartConnector의 구성 가이드](https://community.microfocus.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/8/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)를 다운로드하고 엽니다. 이 가이드에는 Azure Monitor용 ArcSight SmartConnector를 설치하고 구성하는 데 필요한 단계가 포함되어 있습니다. 
 
 ## <a name="integrate-azure-ad-logs-with-arcsight"></a>ArcSight와 Azure AD 로그 통합
 

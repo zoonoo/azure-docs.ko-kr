@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9a1366b24e4e46a93af777753debb1cce7c0f0ce
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: cc7e7b334791194cd4f8ebbd2038e9c1877eb297
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71826964"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240213"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Google 계정으로 로그인하도록 설정
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 [사용자 지정 정책을](active-directory-b2c-overview-custom.md) 사용 하 여 Google 계정에서 사용자에 대 한 로그인을 사용 하도록 설정 하는 방법을 보여 줍니다.
+이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 [사용자 지정 정책을](active-directory-b2c-overview-custom.md) 사용 하 여 Google 계정을 사용 하 여 사용자에 대 한 로그인을 사용 하도록 설정 하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 0d877dafc4ab4f8ec4edb0a94450fa9c5dfcd0bb
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 09ba4bc9e5ac496a7d1d65ff145d56818e53116e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850239"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243346"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>원하는 상태로 서버 구성 및 드리프트 관리
 
@@ -27,14 +27,14 @@ Azure Automation 상태 구성을 사용하면 서버 구성을 지정하고 시
 > - 관리되는 노드에 노드 구성 할당
 > - 관리되는 노드에 대한 준수 상태 확인
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - Azure Automation 계정. Azure Automation 실행 계정 만들기에 대한 지침은 [Azure 실행 계정](automation-sec-configure-azure-runas-account.md)을 참조하세요.
 - Windows Server 2008 R2 이상을 실행하는 Azure Resource Manager VM(클래식 아님). VM 만들기에 대한 지침은 [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 - Azure PowerShell 모듈 버전 3.6 이상 - `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
-- DSC(필요한 상태 구성)와 익숙함. DSC에 대한 자세한 내용은 [Windows PowerShell 필요한 상태 구성 개요](https://docs.microsoft.com/powershell/dsc/overview)를 참조하세요.
+- DSC(필요한 상태 구성)와 익숙함. DSC에 대한 자세한 내용은 [Windows PowerShell 필요한 상태 구성 개요](/powershell/scripting/dsc/overview/overviews)를 참조하세요.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
@@ -48,7 +48,7 @@ Connect-AzureRmAccount
 
 이 자습서에서는 IIS가 VM에 설치되도록 하는 간단한 DSC 구성을 사용합니다.
 
-DSC 구성에 대한 자세한 내용은 [DSC 구성](/powershell/dsc/configurations)을 참조하세요.
+DSC 구성에 대한 자세한 내용은 [DSC 구성](/powershell/scripting/dsc/configurations/configurations)을 참조하세요.
 
 텍스트 편집기에서 다음을 입력하고 로컬에서 `TestConfig.ps1`로 저장합니다.
 
@@ -65,7 +65,7 @@ configuration TestConfig {
 ```
 
 > [!NOTE]
-> DSC 리소스를 제공 하는 여러 모듈을 가져와야 하는 고급 시나리오에서는 각 모듈의 구성에 고유한 `Import-DscResource` 줄이 있는지 확인 합니다.
+> DSC 리소스를 제공 하는 여러 모듈을 가져와야 하는 고급 시나리오에서는 각 모듈이 구성에서 고유한 `Import-DscResource` 줄을 사용 하는지 확인 합니다.
 
 `Import-AzureRmAutomationDscConfiguration` cmdlet을 호출하여 구성을 Automation 계정에 업로드합니다.
 
@@ -77,7 +77,7 @@ configuration TestConfig {
 
 DSC 구성을 노드에 할당하려면 먼저 노드 구성으로 컴파일해야 합니다.
 
-구성 컴파일에 대한 자세한 내용은 [DSC 구성](/powershell/dsc/configurations)을 참조하세요.
+구성 컴파일에 대한 자세한 내용은 [DSC 구성](/powershell/scripting/dsc/configurations/configurations)을 참조하세요.
 
 `Start-AzureRmAutomationDscCompilationJob` cmdlet을 호출하여 `TestConfig` 구성을 노드 구성으로 컴파일합니다.
 
@@ -116,7 +116,7 @@ Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -Automati
 
 관리되는 노드에 대한 구성 속성 설정에 대한 자세한 내용은 [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode)를 참조하세요.
 
-DSC 구성 설정에 대한 자세한 내용은 [로컬 구성 관리자 구성](/powershell/dsc/metaconfig)을 참조하세요.
+DSC 구성 설정에 대한 자세한 내용은 [로컬 구성 관리자 구성](/powershell/scripting/dsc/managing-nodes/metaConfig)을 참조하세요.
 
 ## <a name="assign-a-node-configuration-to-a-managed-node"></a>관리되는 노드에 노드 구성 할당
 
@@ -132,7 +132,7 @@ Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAcc
 
 그러면 등록된 DSC 노드(`DscVm`)에 노드 구성(`TestConfig.WebServer`)이 할당됩니다.
 기본적으로 DSC 노드에서는 30분마다 노드 구성이 준수되는지 확인합니다.
-준수 확인 간격을 변경하는 방법에 대한 자세한 내용은 [로컬 구성 관리자 구성](/PowerShell/DSC/metaConfig)을 참조하세요.
+준수 확인 간격을 변경하는 방법에 대한 자세한 내용은 [로컬 구성 관리자 구성](/powershell/scripting/dsc/managing-nodes/metaConfig)을 참조하세요.
 
 ## <a name="working-with-partial-configurations"></a>부분 구성 작업
 

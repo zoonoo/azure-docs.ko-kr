@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b53cb65ec99637dadb16ed9d97c495571be956d7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4512b79873d7f770b32a452a02c53bc5575bdac
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61073915"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243597"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>사용 예제: Automation State Configuration 및 Chocolatey를 사용하여 Virtual Machines에 연속 배포
 
@@ -36,7 +36,7 @@ DevOps 업계에는 연속 통합 파이프라인의 여러 시점에서 개발�
 [apt-get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) 같은 패키지 관리자는 Linux 분야에서 잘 알려져 있지만 Windows 분야에서는 그렇지 않습니다.
 [Chocolatey](https://chocolatey.org/)도 마찬가지입니다. Scott Hanselman의 [블로그](https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx)에서 이 항목에 대해 잘 소개하고 있습니다. 간단히 말해 Chocolatey를 사용하면 패키지의 중앙 리포지토리에 있는 패키지를 명령줄을 사용하여 Winodws 시스템에 설치할 수 있습니다. 자체 리포지토리를 만들어 관리할 수 있고 Chocolatey가 사용자가 지정한 수 만큼의 리포지토리에서 패키지를 설치할 수 있습니다.
 
-DSC(필요한 상태 구성)([개요](/powershell/dsc/overview))는 컴퓨터에 원하는 구성을 선언할 수 있는 PowerShell 도구입니다. 예를 들어, "Chocolatey와 IIS를 설치하고 포트 80을 개방하며 웹 사이트 설치의 1.0.0 버전을 원합니다."라고 말할 수 있습니다. DSC LCM(로컬 구성 관리자)이 이러한 구성을 구현합니다. DSC 풀 서버가 컴퓨터에 대한 구성 리포지토리를 담고 있습니다. 각 컴퓨터의 LCM이 주기적인 검사를 통해 자신의 구성이 저장된 구성과 일치하는지 확인합니다. 상태를 보고하거나, 컴퓨터를 저장된 구성과 일치하는 상태로 되돌리는 작업을 수행할 수 있습니다. 풀 서버에서 저장된 구성을 편집하여 컴퓨터나 컴퓨터 집합이 변경된 구성과 일치하게 만들 수 있습니다.
+DSC(필요한 상태 구성)([개요](/powershell/scripting/dsc/overview/overview))는 컴퓨터에 원하는 구성을 선언할 수 있는 PowerShell 도구입니다. 예를 들어, "Chocolatey와 IIS를 설치하고 포트 80을 개방하며 웹 사이트 설치의 1.0.0 버전을 원합니다."라고 말할 수 있습니다. DSC LCM(로컬 구성 관리자)이 이러한 구성을 구현합니다. DSC 풀 서버가 컴퓨터에 대한 구성 리포지토리를 담고 있습니다. 각 컴퓨터의 LCM이 주기적인 검사를 통해 자신의 구성이 저장된 구성과 일치하는지 확인합니다. 상태를 보고하거나, 컴퓨터를 저장된 구성과 일치하는 상태로 되돌리는 작업을 수행할 수 있습니다. 풀 서버에서 저장된 구성을 편집하여 컴퓨터나 컴퓨터 집합이 변경된 구성과 일치하게 만들 수 있습니다.
 
 Azure Automation은 사용자가 일정 및 전역 변수와 같은 Runbook, 노드, 자산을 사용하여 다양한 작업을 자동화할 수 있도록 하는 Microsoft Azure의 관리되는 서비스입니다.
 Azure Automation State Configuration은 PowerShell DSC 도구를 포함하도록 자동화 기능을 확장합니다. 여기서 알맞은 [개요](automation-dsc-overview.md)를 제공합니다.
@@ -44,14 +44,14 @@ Azure Automation State Configuration은 PowerShell DSC 도구를 포함하도록
 DSC 리소스는 네트워크 관리, Active Directory 또는 SQL Server 등과 같은 특정 기능을 갖는 코드 모듈입니다. Chocolatey DSC 리소스는 NuGet 서버 액세스(서로 간), 패키지 다운로드, 패키지 설치 방법 등을 이해하고 있습니다. 여러 다른 DSC 리소스는 [PowerShell 갤러리](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title)에 있습니다.
 이러한 모듈은 사용자가 구성에서 사용할 수 있게 Azure Automation State Configuration 풀 서버에 설치됩니다.
 
-리소스 관리자 템플릿은 네트워크, 서브넷, 네트워크 보안, 라우팅, 부하 분산 장치, NIC, VM 등의 인프라를 생성하는 선언적인 방법을 제공합니다. 다음 [문서](../azure-resource-manager/resource-manager-deployment-model.md)에서는 Resource Manager 배포 모델(선언적)을 Azure 서비스 관리(ASM 또는 클래식) 배포 모델(명령적)을 비교하고 핵심 리소스 공급자, 계산, 스토리지 및 네트워크에 대해 설명합니다.
+리소스 관리자 템플릿은 네트워크, 서브넷, 네트워크 보안, 라우팅, 부하 분산 장치, NIC, VM 등의 인프라를 생성하는 선언적인 방법을 제공합니다. 다음 [문서](../azure-resource-manager/resource-manager-deployment-model.md)에서는 Resource Manager 배포 모델(선언적)을 Azure 서비스 관리(ASM 또는 클래식) 배포 모델(명령적)을 비교하고 핵심 리소스 공급자, 컴퓨팅, 스토리지 및 네트워크에 대해 설명합니다.
 
 Resource Manager 템플릿의 핵심 기능은 프로비전되었을 때 VM에 VM 확장을 설치하는 것입니다. VM 확장에는 사용자 지정 스크립트 실행, 바이러스 백신 소프트웨어 설치, DSC 구성 스크립트 실행 등과 같은 특정 기능이 있습니다. VM 확장에는 여러 다른 형식이 있습니다.
 
 ## <a name="quick-trip-around-the-diagram"></a>간략히 다이어그램 둘러보기
 
 맨 위쪽부터 코드를 작성하고 빌드 및 테스트한 다음 설치 패키지를 만듭니다.
-Chocolatey는 MSI, MSU, ZIP 등과 같은 다양한 형태의 설치 패키지를 처리할 수 있습니다. 또한 Chocolatey의 기본 기능이 부족할 경우 PowerShell을 완전히 활용하여 실제 설치를 수행할 수 있습니다. 패키지를 위치 연결할 – 패키지 리포지토리에 넣습니다. 이 사용 예는 Auzre Blob Storage 계정의 공용 폴더를 사용하지만 어디에나 있을 수 있습니다. Chocolatey는 패키지 메타데이터의 관리를 위해 NuGet 서버 및 기타 제품과 기본적으로 연동됩니다. [이 문서](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) 에서는 이러한 옵션에 대해 설명합니다. 이 사용 예는 NuGet을 사용합니다. Nuspec은 패키지에 관한 메타데이터입니다. Nuspec은 NuPkg에 "컴파일"되어 NuGet 서버에 저장됩니다. 구성에서 이름으로 패키지를 요청하고 NuGet 서버를 참조할 경우 Chocolatey DSC 리소스(이제 VM에 있음)가 패키지를 포착하여 설치합니다. 특정 버전의 패키지를 요청할 수도 있습니다.
+Chocolatey는 MSI, MSU, ZIP 등과 같은 다양한 형태의 설치 패키지를 처리할 수 있습니다. 또한 Chocolatey의 기본 기능이 부족할 경우 PowerShell을 완전히 활용하여 실제 설치를 수행할 수 있습니다. 패키지 리포지토리를 통해 연결할 수 있는 위치에 패키지를 배치 합니다. 이 사용 예는 Auzre Blob Storage 계정의 공용 폴더를 사용하지만 어디에나 있을 수 있습니다. Chocolatey는 패키지 메타데이터의 관리를 위해 NuGet 서버 및 기타 제품과 기본적으로 연동됩니다. [이 문서](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) 에서는 이러한 옵션에 대해 설명합니다. 이 사용 예는 NuGet을 사용합니다. Nuspec은 패키지에 관한 메타데이터입니다. Nuspec은 NuPkg에 "컴파일"되어 NuGet 서버에 저장됩니다. 구성에서 이름으로 패키지를 요청하고 NuGet 서버를 참조할 경우 Chocolatey DSC 리소스(이제 VM에 있음)가 패키지를 포착하여 설치합니다. 특정 버전의 패키지를 요청할 수도 있습니다.
 
 그림의 왼쪽 하단에는 Azure Resource Manager 템플릿이 있습니다. 이 사용 예에서는 VM 확장이 VM을 Azure Automation State Configuration 풀 서버(즉, 풀 서버)에 노드로 등록합니다. 구성은 풀 서버에 저장됩니다.
 사실 일반 텍스트로 1번, MOF 파일로 컴파일 1번 등(이에 대해 알고 있는 상황), 두 번 저장됩니다. 포털에서 MOF는 "노드 구성"입니다(단순 "구성"과 반대). 노드와 관련한 아티팩트이므로 노드가 그 구성을 알고 있습니다. 아래의 세부 정보는 노드 구성을 노드에 할당하는 방법을 보여줍니다.
@@ -185,7 +185,7 @@ Get-AzureRmAutomationDscCompilationJob `
 각 버전이 QA를 전달하고 배포를 승인할 때마다 패키지를 만들고 nuspec 및 nupkg를 NuGet 서버에 업데이트하며 배포합니다. 또한 구성(위의 4단계)은 새 버전 번호와 일치하도록 업데이트되어야 합니다. 끌어오기 서버로 전송되고 컴파일되어야 합니다.
 해당 지점부터 업데이트를 끌어오고 설치하는 작업은 해당 구성에 종속되는 VM의 역할입니다. 이러한 각각의 업데이트는 하나 또는 두 줄의 PowerShell로 간단합니다. Azure DevOps의 경우 일부는 빌드에서 서로 연결될 수 있는 빌드 작업에 캡슐화됩니다. 이 [문서](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery)에 자세한 내용이 나와 있습니다. 이 [GitHub 리포지토리](https://github.com/Microsoft/vso-agent-tasks) 는 사용 가능한 다양한 빌드 작업을 자세히 설명합니다.
 
-## <a name="notes"></a>메모
+## <a name="notes"></a>참고
 
 이 사용 예에서는 Azure 갤러리의 일반 Windows Server 2012 R2 이미지에서 VM으로 시작합니다. 아무 저장된 이미지에서나 시작하고 DSC 구성을 통해 조정을 진행할 수 있습니다.
 그러나 이미지에 반영되는 구성을 변경하는 작업은 DSC를 사용하여 구성을 동적으로 업데이트하는 작업보다 훨씬 어렵습니다.

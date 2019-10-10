@@ -1,7 +1,7 @@
 ---
-title: Microsoft Genomics-공유 액세스 서명을 사용 하 여 워크플로 제출
-titleSuffix: Azure
-description: 이 문서에서는 msgen 클라이언트가 설치 되어 있고 서비스를 통해 샘플 데이터를 성공적으로 실행 했는지를 가정 합니다.
+title: 공유 액세스 서명을 사용 하는 워크플로
+titleSuffix: Microsoft Genomics
+description: 이 문서에서는 저장소 계정 키 대신 SAS (공유 액세스 서명)를 사용 하 여 Microsoft Genomics 서비스에 워크플로를 제출 하는 방법을 보여 줍니다.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,18 +9,18 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: 833067f53f53f347ce091a64702d44a78cde836f
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: d6228762b9a1299d8e9229f7a0f73dc7d0bca2b2
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657111"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248577"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>스토리지 계정 키 대신 SAS를 사용하여 Microsoft Genomics에 워크플로 제출 
 
-이 문서에서는 워크플로를 포함 하는 config.txt 파일을 사용 하 여 Microsoft Genomics 서비스에 제출 하는 방법을 보여 줍니다 [공유 액세스 서명 (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 저장소 계정 키 대신 합니다. 이 기능은 config.txt 파일에 표시되는 스토리지 계정 키를 포함하는 것에 대한 보안 문제가 있는 경우에 유용할 수 있습니다. 
+이 문서에서는 저장소 계정 키 대신 [SAS (공유 액세스 서명)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 를 포함 하는 config.xml 파일을 사용 하 여 Microsoft Genomics 서비스에 워크플로를 제출 하는 방법을 보여 줍니다. 이 기능은 config.txt 파일에 표시되는 스토리지 계정 키를 포함하는 것에 대한 보안 문제가 있는 경우에 유용할 수 있습니다. 
 
-이 문서에서는 `msgen` 클라이언트를 이미 설치하여 실행하고 있으며 Azure Storage를 사용하는 방법을 잘 알고 있다고 가정합니다. 제공된 된 샘플 데이터를 사용 하 여 워크플로 성공적으로 제출한 경우이 문서를 진행할 준비가 되었습니다. 
+이 문서에서는 `msgen` 클라이언트를 이미 설치하여 실행하고 있으며 Azure Storage를 사용하는 방법을 잘 알고 있다고 가정합니다. 제공 된 샘플 데이터를 사용 하 여 워크플로를 성공적으로 제출 하면이 문서를 진행할 준비가 된 것입니다. 
 
 ## <a name="what-is-a-sas"></a>SAS는 무엇인가요?
 [SAS(공유 액세스 서명)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)는 스토리지 계정의 리소스에 대한 위임된 권한을 제공합니다. SAS로 계정 키를 공유하지 않고 스토리지 계정의 리소스에 대한 액세스를 승인할 수 있습니다. 이는 애플리케이션에서 공유 액세스 서명을 사용하는 중요한 점입니다. SAS는 계정 키를 손상시키지 않고 스토리지 리소스를 공유할 수 있는 보안 방법입니다.
@@ -33,14 +33,14 @@ Microsoft Genomics에 제출된 SAS는 입력 및 출력 파일이 저장되는 
 Microsoft Genomics 서비스에 전송된 각 워크플로에 대해 두 개 이상의 SAS 토큰이 필요합니다(각 입력 파일에 대해 하나, 출력 컨테이너에 대해 하나).
 
 입력 파일에 대한 SAS에는 다음과 같은 속성이 있어야 합니다.
-1.  범위(계정, 컨테이너, Blob): Blob
-2.  만료: 지금부터 48시간
-3.  권한: 읽기
+ - 범위(계정, 컨테이너, Blob): Blob
+ - 만료: 지금부터 48시간
+ - 권한: 읽기
 
 출력 컨테이너에 대한 SAS에는 다음과 같은 속성이 있어야 합니다.
-1.  범위(계정, 컨테이너, Blob): 컨테이너
-2.  만료: 지금부터 48시간
-3.  권한: 읽기, 쓰기, 삭제
+ - 범위(계정, 컨테이너, Blob): 컨테이너
+ - 만료: 지금부터 48시간
+ - 권한: 읽기, 쓰기, 삭제
 
 
 ## <a name="create-a-sas-for-the-input-files-and-the-output-container"></a>입력 파일 및 출력 컨테이너에 대한 SAS 만들기

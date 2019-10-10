@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 991cfb54dc511c284c5f5d0cf1807d5dd42b34ea
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: eb15aa3c6dbe0f4db62a2029a3c97b4475ab53a2
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978066"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255874"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -44,6 +44,9 @@ Azure Resource Manager를 통해 리소스를 만들거나 업데이트 하는 �
 ## <a name="disabled"></a>사용 안 함
 
 이 효과는 테스트 상황 또는 정책 정의가 효과를 매개 변수화한 경우에 유용합니다. 이러한 유연성을 사용하면 해당 정책의 모든 할당을 사용하지 않도록 설정하는 대신 단일 할당을 사용하지 않도록 설정할 수 있습니다.
+
+사용할 수 없는 효과에 대 한 대안은 정책 할당에 설정 된 **enforcementMode** 입니다.
+**EnforcementMode** 를 _사용 하지 않도록 설정_하면 리소스는 계속 평가 됩니다. 활동 로그와 같은 로깅 및 정책 효과가 발생 하지 않습니다. 자세한 내용은 [정책 할당-적용 모드](./assignment-structure.md#enforcement-mode)를 참조 하세요.
 
 ## <a name="append"></a>추가
 

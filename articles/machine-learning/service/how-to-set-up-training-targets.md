@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7c3bae2fff9e20ed9427c72b5f5f632d975f9f94
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: bce04a14a13d5b3615963f298f35af0d2fc480bb
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034425"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244428"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>모델 학습을 위한 계산 대상 설정 및 사용 
 
@@ -68,7 +68,7 @@ ML 파이프라인은 파이프라인에서 고유한 계산 단위인 여러 **
 > [!TIP]
 > ML 파이프라인은 모델을 학습 하는 경우 실행 구성 또는 추정를 사용할 수 있습니다.
 
-ML 파이프라인은 모델을 트레인 할 수 있지만 학습 후 모델을 학습 하 고 배포 하기 전에 데이터를 준비할 수도 있습니다. 파이프라인의 주요 사용 사례 중 하나는 일괄 처리 점수 매기기입니다. 자세한 내용은 [파이프라인: Machine learning 워크플로](concept-ml-pipelines.md)를 최적화 합니다.
+ML 파이프라인은 모델을 트레인 할 수 있지만 학습 후 모델을 학습 하 고 배포 하기 전에 데이터를 준비할 수도 있습니다. 파이프라인의 주요 사용 사례 중 하나는 일괄 처리 점수 매기기입니다. 자세한 내용은 [Pipelines을 참조 하세요. Machine learning 워크플로 @ no__t를 최적화 합니다.
 
 ## <a name="set-up-in-python"></a>Python에서 설정
 
@@ -106,7 +106,7 @@ Azure Machine Learning 컴퓨팅에는 할당할 수 있는 코어 수와 같은
 Azure Machine Learning 컴퓨팅을 런타임에 컴퓨팅 대상으로 만들 수 있습니다. 실행에 대해 컴퓨팅이 자동으로 만들어집니다. 실행이 완료되면 컴퓨팅이 자동으로 삭제됩니다. 
 
 > [!NOTE]
-> 사용할 최대 노드 수를 지정 하려면 일반적으로 노드 수로 설정 `node_count` 합니다. 현재이 작업을 수행 하지 못하게 하는 버그가 있습니다 (04/04/2019). 이 문제를 해결 하려면 실행 `amlcompute._cluster_max_node_count` 구성의 속성을 사용 합니다. 예를 들어, `run_config.amlcompute._cluster_max_node_count = 5`을 입력합니다.
+> 사용할 최대 노드 수를 지정 하려면 일반적으로 `node_count`을 노드 수로 설정 합니다. 현재이 작업을 수행 하지 못하게 하는 버그가 있습니다 (04/04/2019). 이 문제를 해결 하려면 실행 구성의 `amlcompute._cluster_max_node_count` 속성을 사용 합니다. 예를 들어, `run_config.amlcompute._cluster_max_node_count = 5`을 입력합니다.
 
 > [!IMPORTANT]
 > Azure Machine Learning 컴퓨팅의 실행 기반 만들기는 현재 미리 보기로 제공됩니다. 하이퍼 매개 변수 튜닝 또는 자동화된 Machine Learning을 사용 중인 경우에는 실행 기반 만들기를 사용하지 마세요. 하이퍼 매개 변수 튜닝 또는 자동화된 기계 학습을 사용하려면 [영구적 컴퓨팅](#persistent) 대상을 대신 만듭니다.
@@ -206,7 +206,7 @@ Azure HDInsight는 빅 데이터 분석을 위한 인기 있는 플랫폼입니�
 
    try:
     # if you want to connect using SSH key instead of username/password you can provide parameters private_key_file and private_key_passphrase
-    attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azureinsight.net', 
+    attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azurehdinsight.net', 
                                                           ssh_port=22, 
                                                           username='<ssh-username>', 
                                                           password='<ssh-pwd>')
@@ -295,7 +295,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
  
 1. __애플리케이션__에서 __컴퓨팅__을 선택합니다.
 
-    [![계산 탭 보기](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
+    [![View 계산 탭](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
 
 ### <a id="portal-create"></a>컴퓨팅 대상 만들기
 
@@ -379,7 +379,7 @@ Azure Machine Learning에 대 한 [VS Code 확장](how-to-vscode-tools.md#create
 > [!IMPORTANT]
 > 학습 실행을 제출 하면 학습 스크립트가 포함 된 디렉터리의 스냅숏이 만들어지고 계산 대상으로 전송 됩니다. 또한 작업 영역에 실험의 일부로 저장 됩니다. 파일을 변경 하 고 실행을 다시 제출 하면 변경 된 파일만 업로드 됩니다.
 >
-> 파일이 스냅숏에 포함 되지 않도록 하려면 디렉터리에 [.gitignore](https://git-scm.com/docs/gitignore) 또는 `.amlignore` 파일을 만들고 파일을 추가 합니다. 이 `.amlignore` 파일은 [.gitignore](https://git-scm.com/docs/gitignore) 파일과 동일한 구문과 패턴을 사용 합니다. 두 파일이 모두 있는 경우 `.amlignore` 파일이 우선적으로 적용 됩니다.
+> 파일이 스냅숏에 포함 되지 않도록 하려면 디렉터리에 [.gitignore](https://git-scm.com/docs/gitignore) 또는 `.amlignore` 파일을 만들고 파일을 추가 합니다. @No__t-0 파일은 [.gitignore](https://git-scm.com/docs/gitignore) 파일과 동일한 구문과 패턴을 사용 합니다. 두 파일이 모두 있는 경우 `.amlignore` 파일이 우선적으로 적용 됩니다.
 > 
 > 자세한 내용은 [스냅샷](concept-azure-machine-learning-architecture.md#snapshots)을 참조하세요.
 
@@ -406,7 +406,7 @@ Azure Machine Learning에 대 한 [VS Code 확장](how-to-vscode-tools.md#create
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=amlcompute_submit)]
 
 > [!TIP]
-> 이 예에서는 기본적으로 학습에 계산 대상의 노드 하나를 사용 합니다. 둘 이상의 노드를 사용 하려면 실행 구성의 `node_count` 을 원하는 노드 수로 설정 합니다. 예를 들어 다음 코드는 학습에 사용 되는 노드 수를 4로 설정 합니다.
+> 이 예에서는 기본적으로 학습에 계산 대상의 노드 하나를 사용 합니다. 둘 이상의 노드를 사용 하려면 실행 구성의 `node_count`을 원하는 노드 수로 설정 합니다. 예를 들어 다음 코드는 학습에 사용 되는 노드 수를 4로 설정 합니다.
 >
 > ```python
 > src.run_config.node_count = 4
@@ -422,7 +422,7 @@ Azure Machine Learning에 대 한 [VS Code 확장](how-to-vscode-tools.md#create
 
 ## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Azure Machine Learning CLI를 사용 하 여 실행 구성 만들기 및 실행 제출
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 및 [Machine Learning CLI 확장](reference-azure-machine-learning-cli.md) 을 사용 하 여 실행 구성을 만들고 여러 계산 대상에서 실행을 제출할 수 있습니다. 다음 예에서는 기존 Azure Machine Learning 작업 영역 있고 CLI 명령을 사용 하 여 `az login` Azure에 로그인 한 것으로 가정 합니다. 
+[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 및 [Machine Learning CLI 확장](reference-azure-machine-learning-cli.md) 을 사용 하 여 실행 구성을 만들고 여러 계산 대상에서 실행을 제출할 수 있습니다. 다음 예에서는 기존 Azure Machine Learning 작업 영역 있고 `az login` CLI 명령을 사용 하 여 Azure에 로그인 한 것으로 가정 합니다. 
 
 ### <a name="create-run-configuration"></a>실행 구성 만들기
 
@@ -432,7 +432,7 @@ Azure Machine Learning에 대 한 [VS Code 확장](how-to-vscode-tools.md#create
 az ml folder attach
 ```
 
-이 명령은 다양 한 계산 `.azureml` 대상에 대 한 템플릿 실행 구성 파일을 포함 하는 하위 폴더를 만듭니다. 이러한 파일을 복사 및 편집 하 여 Python 패키지를 추가 하거나 Docker 설정을 변경 하는 등의 방법으로 구성을 사용자 지정할 수 있습니다.  
+이 명령은 다른 계산 대상의 템플릿 실행 구성 파일을 포함 하는 하위 폴더 `.azureml`을 만듭니다. 이러한 파일을 복사 및 편집 하 여 Python 패키지를 추가 하거나 Docker 설정을 변경 하는 등의 방법으로 구성을 사용자 지정할 수 있습니다.  
 
 ### <a name="structure-of-run-configuration-file"></a>실행 구성 파일의 구조
 

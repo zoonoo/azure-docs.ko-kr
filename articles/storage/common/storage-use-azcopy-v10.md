@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: bb816658faff9fb924d075e0fca17e9643c18e40
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 980156284b27478163760b1f833a91ba7cddec21
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694753"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244796"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -67,7 +67,7 @@ AD (Azure Active Directory)를 사용 하거나 SAS (공유 액세스 서명) �
 
 이 표를 가이드로 사용 합니다.
 
-| 스토리지 형식 | 현재 지원 되는 권한 부여 방법 |
+| 스토리지 유형 | 현재 지원 되는 권한 부여 방법 |
 |--|--|
 |**Blob Storage** | Azure AD & SAS |
 |**Blob 저장소 (계층적 네임 스페이스)** | Azure AD & SAS |
@@ -287,7 +287,7 @@ URL은이 명령의 출력에 표시 됩니다. 그런 다음 스크립트에서
 
 | 운영 체제  | 명령 |
 |--------|-----------|
-| **Linux** | `wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz tar -xf azcopyv10.tar --strip-components=1 ./azcopy` |
+| **Linux** | `wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1` |
 | **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
 
 ### <a name="escape-special-characters-in-sas-tokens"></a>SAS 토큰의 이스케이프 특수 문자

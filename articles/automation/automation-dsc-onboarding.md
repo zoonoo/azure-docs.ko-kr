@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: c05ac7a1894fc3e159ef8fc2b3dd2654714faccf
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: cf95a66cf68cf0b33444a17cf762bae79db4b50c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70965179"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243428"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드
 
@@ -29,7 +29,7 @@ Azure Automation 상태 구성을 사용하는 이점에 대해 자세히 알려
 
 Azure Automation 상태 구성을 다양한 머신의 관리에 사용할 수 있습니다.
 
-- Azure 가상 컴퓨터
+- Azure 가상 머신
 - Azure 가상 머신(기본)
 - Amazon Web Services(AWS) EC2 인스턴스
 - 온-프레미스나 Azure/AWS 이외의 클라우드에 있는 실제/가상 Windows 컴퓨터
@@ -43,7 +43,7 @@ Azure Automation 상태 구성을 다양한 머신의 관리에 사용할 수 �
 
 다음 섹션에서는 Azure Automation 상태 구성에 대해 각 머신 형식을 온보드하는 방법을 간략히 설명합니다.
 
-## <a name="azure-virtual-machines"></a>Azure 가상 컴퓨터
+## <a name="azure-virtual-machines"></a>Azure 가상 머신
 
 Azure Automation 상태 구성을 사용하면 Azure Portal, Azure Resource Manager 템플릿 또는 PowerShell을 사용하는 구성 관리를 위해 Azure 가상 머신을 간편하게 온보드할 수 있습니다. 내부적으로, VM에 대해 관리자가 원격으로 작업할 필요 없이 Azure VM 필요 상태 구성 확장은 VM을 Azure Automation 상태 구성에 등록합니다.
 Azure VM DSC(Desired State Configuration) 확장은 비동기적으로 실행되므로 진행 상황을 추적하거나 문제를 해결하는 단계는 뒤에 나오는 [**Azure 가상 머신 온보드 문제 해결**](#troubleshooting-azure-virtual-machine-onboarding) 섹션에서 제공됩니다.
@@ -56,7 +56,7 @@ Azure VM DSC(Desired State Configuration) 확장은 비동기적으로 실행되
 
 컴퓨터에 필요한 상태 확장이 설치된 PowerShell이 없고 전원 상태가 실행 중인 경우 **연결**을 클릭합니다.
 
-**등록**에서 사용 사례에 필요한 [PowerShell DSC 로컬 Configuration Manager 값](/powershell/dsc/managing-nodes/metaconfig)과 선택적으로 VM에 할당할 노드 구성을 입력합니다.
+**등록**에서 사용 사례에 필요한 [PowerShell DSC 로컬 Configuration Manager 값](/powershell/scripting/dsc/managing-nodes/metaConfig)과 선택적으로 VM에 할당할 노드 구성을 입력합니다.
 
 ![온보딩](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
@@ -100,7 +100,7 @@ AWS DSC 도구 키트를 사용하여 Azure Automation 상태 구성에 의한 �
 온-프레미스 또는 다른 클라우드 환경에서 실행 되는 Linux 서버는 [Azure에 대 한 아웃 바운드 액세스](automation-dsc-overview.md#network-planning)권한이 있는 한 Azure Automation 상태 구성으로 등록 될 수도 있습니다.
 
 1. 최신 버전의 [Linux용 PowerShell 필요한 상태 구성](https://github.com/Microsoft/PowerShell-DSC-for-Linux)이 Azure Automation 상태 구성에 온보드하려는 머신에 설치되어 있는지 확인합니다.
-1. [PowerShell DSC 로컬 구성 관리자 기본값](/powershell/dsc/metaconfig4)이 사용자 사용 사례와 일치하는 경우 Azure Automation 상태 구성에서 끌어오고 보고하는 **모든** 머신을 온보드하려 합니다.
+1. [PowerShell DSC 로컬 구성 관리자 기본값](/powershell/scripting/dsc/managing-nodes/metaConfig4)이 사용자 사용 사례와 일치하는 경우 Azure Automation 상태 구성에서 끌어오고 보고하는 **모든** 머신을 온보드하려 합니다.
 
    - Azure Automation 상태 구성에 온보드할 각 Linux 머신에서 `Register.py`를 사용하여 PowerShell DSC 로컬 구성 관리자 기본값을 통해 온보드합니다.
 
@@ -134,7 +134,7 @@ AWS DSC 도구 키트를 사용하여 Azure Automation 상태 구성에 의한 �
 
 ## <a name="generating-dsc-metaconfigurations"></a>DSC 메타 구성 생성
 
-일반적으로 모든 컴퓨터를 Azure Automation 상태 구성으로 등록 하려면 dsc 에이전트가 Azure Automation 상태 구성에서 끌어오거나 보고 하도록 지시 하는 [dsc 메타](/powershell/dsc/metaconfig) 구성을 생성할 수 있습니다. Azure Automation 상태 구성에 대한 DSC 메타 구성은 PowerShell DSC 구성 또는 Azure Automation PowerShell cmdlet을 사용하여 생성될 수 있습니다.
+일반적으로 모든 컴퓨터를 Azure Automation 상태 구성으로 등록 하려면 dsc 에이전트가 Azure Automation 상태 구성에서 끌어오거나 보고 하도록 지시 하는 [dsc 메타](/powershell/scripting/dsc/managing-nodes/metaConfig) 구성을 생성할 수 있습니다. Azure Automation 상태 구성에 대한 DSC 메타 구성은 PowerShell DSC 구성 또는 Azure Automation PowerShell cmdlet을 사용하여 생성될 수 있습니다.
 
 > [!NOTE]
 > DSC 메타 구성은 관리를 위해 Automation 계정에 컴퓨터를 등록하는 데 필요한 암호를 포함합니다. 사용한 후에 만들거나 삭제한 DSC 메타 구성을 제대로 보호해야 합니다.
@@ -319,7 +319,7 @@ Azure VM DSC(Desired State Configuration) 확장의 상태를 확인하거나 �
 머신을 Azure Automation 상태 구성의 DSC 노드로 등록한 후 해당 노드를 나중에 등록해야 하는 많은 이유가 있습니다.
 
 - Windows Server 2019 이전의 Windows Server 버전에서는 각 노드가 1 년 후에 만료 되는 인증에 대해 고유한 인증서를 자동으로 협상 합니다. 현재 PowerShell DSC 등록 프로토콜이 만료가 임박한 인증서를 자동으로 갱신할 수 없으므로 1년 기한 후 노드를 다시 등록해야 합니다. 다시 등록하기 전에 각 노드가 Windows Management Framework 5.0 RTM을 실행 중인지 확인합니다. 노드의 인증 인증서가 만료되고 노드가 다시 등록되지 않으면, 노드가 Azure Automation과 통신할 수 없으며 '응답 없음'으로 표시됩니다. 노드 만료 시점으로부터 90일 안이나, 인증서 만료 이후에 재등록을 수행하면 새 인증서를 생성하여 사용하게 됩니다.  이 문제에 대 한 해결 방법은 Windows Server 2019 이상에 포함 되어 있습니다.
-- ConfigurationMode와 같은 노드의 초기 등록 중에 설정된 [PowerShell DSC 로컬 구성 관리자 값](/powershell/dsc/metaconfig4)을 변경하려면 현재 DSC 에이전트 값은 다시 등록을 통해 변경될 수 있습니다. 한 가지 예외는 노드에 할당된 노드 구성입니다. 이는 직접 Azure Automation DSC에서 변경될 수 있습니다.
+- ConfigurationMode와 같은 노드의 초기 등록 중에 설정된 [PowerShell DSC 로컬 구성 관리자 값](/powershell/scripting/dsc/managing-nodes/metaConfig4)을 변경하려면 현재 DSC 에이전트 값은 다시 등록을 통해 변경될 수 있습니다. 한 가지 예외는 노드에 할당된 노드 구성입니다. 이는 직접 Azure Automation DSC에서 변경될 수 있습니다.
 
 다시 등록은 이 문서에서 설명하는 등록 방법 중 하나를 사용하여 처음에 노드를 등록한 동일한 방법으로 수행될 수 있습니다. 다시 등록하기 전에 Azure Automation 상태 구성에서 노드를 등록 취소할 필요가 없습니다.
 

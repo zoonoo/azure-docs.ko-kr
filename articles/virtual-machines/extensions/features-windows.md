@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a19b6bd8da82498aae45657d30883db14efd9343
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: a8027a1290b4b771c17a1e748c06f3b86fa0bf95
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174084"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244598"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 머신 확장 및 기능
 
@@ -35,7 +35,7 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 Automatio
 각각 특정 사용 사례가 있는 몇 가지 다른 Azure VM 확장을 사용할 수 있습니다. 일부 사례:
 
 - Windows용 DSC 확장을 사용하여 VM에 PowerShell의 필요한 상태 구성을 적용합니다. 자세한 내용은 [Azure 필요한 상태 구성 확장](dsc-overview.md)을 참조하세요.
-- Microsoft Monitoring Agent VM 확장을 사용하여 VM의 모니터링을 구성합니다. 자세한 내용은 [Azure vm을 Azure Monitor 로그에 연결](../../log-analytics/log-analytics-azure-vm-extension.md)을 참조 하세요.
+- Log Analytics 에이전트 VM 확장을 사용 하 여 VM 모니터링을 구성 합니다. 자세한 내용은 [Azure vm을 Azure Monitor 로그에 연결](../../log-analytics/log-analytics-azure-vm-extension.md)을 참조 하세요.
 - Chef를 사용하여 Azure VM을 구성합니다. 자세한 내용은 [Chef를 사용하여 Azure VM 배포 자동화](../windows/chef-automation.md)를 참조하세요.
 - Datadog 확장으로 Azure 인프라의 모니터링을 구성합니다. 자세한 내용은 [Datadog 블로그](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)를 참조하세요.
 
@@ -65,14 +65,14 @@ Windows 게스트 에이전트는 여러 OS에서 실행되지만 확장 프레�
 
 #### <a name="network-access"></a>네트워크 액세스
 
-확장 패키지는 Azure Storage 확장 리포지토리에서 다운로드되고, 확장 상태 업로드는 Azure Storage에 게시됩니다. 에이전트의 [지원](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) 버전을 사용하는 경우 에이전트를 사용하여 에이전트 통신을 위한 Azure 패브릭 컨트롤러에 통신을 리디렉션할 수 있는 것처럼 VM 지역에서 Azure Storage에 대한 액세스 권한을 허용하지 않아도 됩니다. 지원되지 않는 버전의 에이전트가 설치된 경우 VM의 해당 지역에서 Azure Storage에 대한 아웃바운드 액세스 권한을 허용해야 합니다.
+확장 패키지는 Azure Storage 확장 리포지토리에서 다운로드되고, 확장 상태 업로드는 Azure Storage에 게시됩니다. [지원 되](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) 는 버전의 에이전트를 사용 하는 경우 VM 지역에서 Azure Storage에 대 한 액세스를 허용할 필요가 없습니다. 에이전트를 사용 하 여 에이전트 통신을 위해 Azure 패브릭 컨트롤러로 통신을 리디렉션할 수 있습니다. 개인 IP 168.63.129.16의 특권 채널 지원되지 않는 버전의 에이전트가 설치된 경우 VM의 해당 지역에서 Azure Storage에 대한 아웃바운드 액세스 권한을 허용해야 합니다.
 
 > [!IMPORTANT]
-> 게스트 방화벽을 사용하여 *168.63.129.16*에 대한 액세스를 차단한 경우 확장은 위와 관계 없이 실패합니다.
+> 게스트 방화벽 또는 프록시를 사용 하 여 *168.63.129.16* 에 대 한 액세스를 차단 하는 경우에는 위의 방법에 관계 없이 확장이 실패 합니다. 포트 80, 443 및 32526가 필요 합니다.
 
-에이전트는 확장 패키지 및 보고 상태를 다운로드하는 데 사용할 수 있습니다. 예를 들어 확장을 설치하는 데 GitHub에서 스크립트(사용자 지정 스크립트)를 다운로드해야 하거나 Azure Storage(Azure Backup)에 대한 액세스 권한이 필요한 경우 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 확장마다 고유한 권한의 애플리케이션이므로 요구 사항이 다릅니다. Azure Storage에 대한 액세스 권한이 필요한 확장의 경우 [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)에 Azure NSG 서비스 태그를 사용하여 액세스할 수 있습니다.
+에이전트는 확장 패키지 및 보고 상태를 다운로드하는 데 사용할 수 있습니다. 예를 들어 확장을 설치하는 데 GitHub에서 스크립트(사용자 지정 스크립트)를 다운로드해야 하거나 Azure Storage(Azure Backup)에 대한 액세스 권한이 필요한 경우 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 확장마다 고유한 권한의 애플리케이션이므로 요구 사항이 다릅니다. Azure Storage 또는 Azure Active Directory에 대 한 액세스가 필요한 확장의 경우 [Azure NSG 서비스 태그](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) 를 사용 하 여 저장소 또는 AzureActiveDirectory에 대 한 액세스를 허용할 수 있습니다.
 
-Windows 게스트 에이전트는 에이전트 트래픽 요청을 리디렉션하는 프록시 서버를 지원하지 않습니다.
+Windows 게스트 에이전트는를 통해 에이전트 트래픽 요청을 리디렉션하는 프록시 서버를 지원 하지 않습니다. 즉, Windows 게스트 에이전트는 사용자 지정 프록시 (있는 경우)를 사용 하 여 인터넷 또는 IP를 통해 호스트에 있는 리소스에 액세스 합니다. 168.63.129.16.
 
 ## <a name="discover-vm-extensions"></a>VM 확장 검색
 

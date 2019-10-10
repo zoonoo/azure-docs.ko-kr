@@ -1,5 +1,5 @@
 ---
-title: Azure 용 Ansible 모듈 및 버전 매트릭스 | Microsoft Docs
+title: Azure용 Ansible 모듈 및 버전 매트릭스
 description: Azure용 Ansible 모듈 및 버전 매트릭스
 keywords: Ansible, 역할, 매트릭스, 버전, Azure, DevOps
 ms.topic: reference
@@ -8,22 +8,22 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: b3396b2f4639cc7298b77810dbaafadd308d6b24
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18654500a78178c46e72f9f6cd01e8507fa179f0
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230985"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241537"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible 모듈 및 버전 매트릭스
 
-Ansible에는 Azure 리소스 프로비저닝 및 구성에 사용할 모듈 모음이 포함되어 있습니다. 이러한 리소스에는 가상 머신포함, 확장 집합, 네트워킹 서비스 및 컨테이너 서비스가 포함됩니다. 이 문서에서는 Azure 및 제공 하는 Ansible 버전에 대 한 다양 한 Ansible 모듈을 나열 합니다.
+Ansible에는 Azure 리소스 프로비저닝 및 구성에 사용할 모듈 모음이 포함되어 있습니다. 이러한 리소스에는 가상 머신포함, 확장 집합, 네트워킹 서비스 및 컨테이너 서비스가 포함됩니다. 이 문서에는 Azure에 대 한 다양 한 Ansible 모듈과 이러한 모듈이 제공 되는 Ansible 버전이 나열 되어 있습니다.
 
 ## <a name="ansible-modules-for-azure"></a>Azure용 Ansible 모듈
 
-원격 호스트에서 직접 또는 플레이 북을 통해 다음 모듈을 실행할 수 있습니다.
+다음 모듈은 원격 호스트에서 직접 실행 하거나 플레이 북을 통해 실행할 수 있습니다.
 
-이러한 모듈은 Ansible의 공식 릴리스 및 다음 Microsoft 플레이 북 역할에서 사용할 수 있습니다.
+이러한 모듈은 Ansible 공식 릴리스와 다음 Microsoft 플레이 북 역할에서 사용할 수 있습니다.
 
 | Azure용 Ansible 모듈                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansible 2.8 | Ansible 역할 | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|--------------|--------------| 
@@ -86,13 +86,13 @@ Ansible에는 Azure 리소스 프로비저닝 및 구성에 사용할 모듈 모
 | azure_rm_virtualnetwork                     | 예          | 예                         | 예          | 예          | 예          | 예          |
 | azure_rm_virtualnetwork_facts               | 예          | 예                         | 예          | 예          | 예          | 예          |
 | azure_rm_virtualnetworkpeering              | -            | -                         | -          | -            | 예          | 예          |
-| **스토리지**                    |           |                          |                          |                            |           |           |
+| **저장소**                    |           |                          |                          |                            |           |           |
 | azure_rm_manageddisk                        | 예          | 예                         | 예          | 예          | 예          | 예          |
 | azure_rm_manageddisk_facts                  | 예          | 예                         | 예          | 예          | 예          | 예          |
 | azure_rm_storageaccount                     | 예          | 예                         | 예          | 예          | 예          | 예          |
 | azure_rm_storageaccount_facts               | 예          | 예                         | 예          | 예          | 예          | 예          |
 | azure_rm_storageblob                        | 예          | 예                         | 예          | 예          | 예          | 예          |
-| **웹**                    |           |                          |                          |                             |           |           |
+| **Web**                    |           |                          |                          |                             |           |           |
 | azure_rm_appserviceplan                     | -            | -                         | -          | 예          | 예          | 예          |
 | azure_rm_appserviceplan_facts               | -            | -                         | -          | 예          | 예          | 예          |
 | azure_rm_webapp                             | -            | -                         | -          | 예          | 예          | 예          |
@@ -190,10 +190,10 @@ Ansible에는 Azure 리소스 프로비저닝 및 구성에 사용할 모듈 모
 
 ## <a name="introduction-to-playbook-role-for-azure"></a>Azure에 대한 플레이북 역할 소개
 
-합니다 [azure_preview_module 플레이 북 역할](https://galaxy.ansible.com/Azure/azure_preview_modules/) 모든 최신 Azure 모듈을 포함 합니다. 공식 Ansible 릴리스보다 업데이트 및 버그 수정이 더 적절하게 수행됩니다. Ansible을 사용 하 여 목적으로 프로 비전 하는 Azure 리소스에 대 한 경우 설치 하는 것이 좋습니다는 `azure_preview_module` 플레이 북 역할입니다.
+[Azure_preview_module 플레이 북 역할](https://galaxy.ansible.com/Azure/azure_preview_modules/) 은 모든 최신 azure 모듈을 포함 합니다. 공식 Ansible 릴리스보다 업데이트 및 버그 수정이 더 적절하게 수행됩니다. Azure 리소스 프로 비전을 위해 Ansible를 사용 하는 경우 `azure_preview_module` 플레이 북 역할을 설치 하는 것이 좋습니다.
 
-`azure_preview_module` 플레이 북 역할은 3 주마다 릴리스됩니다.
+@No__t-0 플레이 북 역할은 3 주마다 릴리스됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-플레이 북 역할에 대 한 자세한 내용은 참조 하세요. [재사용 가능한 플레이 북 만들기](https://docs.ansible.com/ansible/latest/playbooks_reuse.html)합니다. 
+플레이 북 역할에 대 한 자세한 내용은 [재사용 가능한 플레이 북 만들기](https://docs.ansible.com/ansible/latest/playbooks_reuse.html)를 참조 하세요. 

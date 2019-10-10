@@ -7,18 +7,18 @@ ms.date: 9/20/2019
 ms.topic: conceptual
 ms.service: azure-functions
 manager: gwallace
-ms.openlocfilehash: fa35e5bea7b0d7f2435a8ad31b9195d2fd35a45c
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 0ff41eb511ad4513fc9bf5a2ded7ef47b08d12ab
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181263"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243316"
 ---
 # <a name="estimating-consumption-plan-costs"></a>소비 계획의 비용 예측
 
 현재는 Azure Functions에서 실행 되는 앱에 대 한 호스팅 계획의 세 가지 유형이 있으며 각 계획에는 고유한 가격 책정 모델이 있습니다. 
 
-| 플랜 | 설명 |
+| 계획 | 설명 |
 | ---- | ----------- |
 | [**소비율**](functions-scale.md#consumption-plan) | 함수 앱이 실행 되는 시간에 대해서만 요금이 청구 됩니다. 이 요금제에는 구독 별로 [무료 부여][가격 책정 페이지] 포함 되어 있습니다.|
 | [**유료**](functions-scale.md#premium-plan) | 는 소비 계획과 동일한 기능 및 크기 조정 메커니즘을 제공 하지만 향상 된 성능 및 VNET 액세스를 제공 합니다. 비용은 선택한 가격 책정 계층을 기준으로 합니다. 자세한 내용은 [Azure Functions Premium 요금제](functions-premium-plan.md)를 참조 하세요. |
@@ -34,7 +34,7 @@ Durable Functions 소비 계획에서 실행할 수도 있습니다. Durable Fun
 
 단일 함수 실행의 실행 *비용은* *GB 초*단위로 측정 됩니다. 실행 비용은 메모리 사용량과 실행 시간을 결합 하 여 계산 됩니다. 더 많은 메모리를 소비 하는 함수를 사용 하 여 더 많은 비용을 위해 실행 하는 함수입니다. 
 
-함수에서 사용 되는 메모리 양이 일정 하 게 유지 되는 경우를 고려 합니다. 이 경우 비용을 계산 하는 것은 간단한 곱셈입니다. 예를 들어 함수가 3 초 동안 0.5 GB를 사용 한다고 가정 합니다. 실행 비용은 `0.5GB * 3s = 1.5 GB-seconds`입니다. 
+함수에서 사용 되는 메모리 양이 일정 하 게 유지 되는 경우를 고려 합니다. 이 경우 비용을 계산 하는 것은 간단한 곱셈입니다. 예를 들어 함수가 3 초 동안 0.5 GB를 사용 한다고 가정 합니다. 그런 다음 실행 비용을 0 @no__t 합니다. 
 
 시간이 지남에 따라 메모리 사용이 변경 되기 때문에 계산은 기본적으로 시간에 따른 메모리 사용량의 정수 계열입니다.  시스템은 일정 한 간격으로 프로세스의 메모리 사용량 (자식 프로세스와 함께)을 샘플링 하 여이 계산을 수행 합니다. [가격 책정 페이지]에 설명 된 대로 메모리 사용량은 가장 가까운 128-MB 버킷으로 반올림 됩니다. 프로세스에서 160 MB를 사용 하는 경우 256 MB에 대해 요금이 청구 됩니다. 계산은 동일한 프로세스에서 여러 동시 함수 실행 인 동시성을 고려 합니다.
 
@@ -61,11 +61,11 @@ Durable Functions 소비 계획에서 실행할 수도 있습니다. Durable Fun
 
 + **트리거 및 바인딩**: [함수 바인딩에](functions-triggers-bindings.md) 대 한 입력을 읽고 출력을 쓰는 데 걸리는 시간은 실행 시간으로 계산 됩니다. 예를 들어 함수가 출력 바인딩을 사용 하 여 Azure storage 큐에 메시지를 쓰는 경우 실행 시간에는 함수 비용 계산에 포함 된 메시지를 큐에 쓰는 데 걸리는 시간이 포함 됩니다. 
 
-+ **비동기 실행**: 함수가 비동기 요청의 결과를 기다리는 시간 (`await` 에서 C#)은 실행 시간으로 계산 됩니다. GB 초 계산은 함수의 시작 및 종료 시간과 해당 기간 동안의 메모리 사용을 기반으로 합니다. CPU 작업을 기준으로 해당 시간에 발생 하는 것은 계산에서 제외 됩니다. 비동기 작업 중에 [Durable Functions](durable/durable-functions-overview.md)를 사용 하 여 비용을 절감할 수 있습니다. Orchestrator 함수에서 기다립니다에 소요 된 시간에 대해서는 요금이 청구 되지 않습니다.
++ **비동기 실행**: 함수가 비동기 요청의 결과를 기다리는 시간 (의 C#`await`)은 실행 시간으로 계산 됩니다. GB 초 계산은 함수의 시작 및 종료 시간과 해당 기간 동안의 메모리 사용을 기반으로 합니다. CPU 작업을 기준으로 해당 시간에 발생 하는 것은 계산에서 제외 됩니다. 비동기 작업 중에 [Durable Functions](durable/durable-functions-overview.md)를 사용 하 여 비용을 절감할 수 있습니다. Orchestrator 함수에서 기다립니다에 소요 된 시간에 대해서는 요금이 청구 되지 않습니다.
 
 ## <a name="view-execution-data"></a>실행 데이터 보기
 
-[청구서](/billing/billing-download-azure-invoice.md)에서 실제 청구 된 비용과 함께 **총 실행** 수, 함수 및 **실행 시간 함수**에 대 한 비용 관련 데이터를 볼 수 있습니다. 그러나이 송장 데이터는 과거 송장 기간에 대 한 월별 집계입니다. 
+[청구서](/azure/billing/billing-download-azure-invoice)에서 실제 청구 된 비용과 함께 **총 실행** 수, 함수 및 **실행 시간 함수**에 대 한 비용 관련 데이터를 볼 수 있습니다. 그러나이 송장 데이터는 과거 송장 기간에 대 한 월별 집계입니다. 
 
 함수의 비용 영향을 보다 잘 이해 하기 위해 Azure Monitor를 사용 하 여 함수 앱에서 현재 생성 하 고 있는 비용 관련 메트릭을 볼 수 있습니다. [Azure Portal] 또는 REST api에서 [Azure Monitor 메트릭 탐색기](../azure-monitor/platform/metrics-getting-started.md) 를 사용 하 여이 데이터를 가져올 수 있습니다.
 
@@ -73,9 +73,9 @@ Durable Functions 소비 계획에서 실행할 수도 있습니다. Durable Fun
 
 [Azure Monitor 메트릭 탐색기](../azure-monitor/platform/metrics-getting-started.md) 를 사용 하 여 소비 계획 함수 앱에 대 한 비용 관련 데이터를 그래픽 형식으로 볼 수 있습니다. 
 
-1. **검색 서비스, 리소스 및 문서** 에서 [Azure Portal] 맨 위에 있는 **서비스**에서 **모니터** 를 검색 `monitor` 하 고 선택 합니다.
+1. **검색 서비스, 리소스 및 문서** 에서 [Azure Portal] 맨 위에 있는 `monitor`를 검색 하 고 **서비스**아래에서 **모니터** 를 선택 합니다.
 
-1. 왼쪽에서 **메트릭** > **을 선택한**다음 이미지 아래의 설정을 사용 하 여 함수 앱을 선택 합니다.
+1. 왼쪽에서 **메트릭**을 선택 하  > **리소스**를 선택한 다음 이미지 아래의 설정을 사용 하 여 함수 앱을 선택 합니다.
 
     ![함수 앱 리소스 선택](media/functions-consumption-costing/select-a-resource.png)
 
@@ -101,13 +101,13 @@ Durable Functions 소비 계획에서 실행할 수도 있습니다. Durable Fun
 
 실행 단위 수가 실행 수보다 훨씬 크므로 차트에는 실행 단위만 표시 됩니다.
 
-이 차트에서는 2 시간 동안 사용 `Function Execution Units` 된 총 11억1000만 (MB)를 표시 합니다. GB-초로 변환 하려면 1024000으로 나눕니다. 이 예제에서 함수 앱은 GB- `1110000000 / 1024000 = 1083.98` 초를 사용 했습니다. 이 값을 사용 하 여 실행 시간에 대 한 무료 권한을 이미 사용 하 고 있다고 가정 하 여이 두 시간에 대 한 비용을 제공 하는 [함수 가격 책정 페이지][가격 책정 페이지]페이지에서 현재 가격을 곱합니다. 
+이 차트는 2 시간 동안 사용 된 총 11억1000만 @no__t (MB-밀리초 단위로 측정 됨)를 보여 줍니다. GB-초로 변환 하려면 1024000으로 나눕니다. 이 예제에서는 함수 앱이 `1110000000 / 1024000 = 1083.98` GB-초를 사용 했습니다. 이 값을 사용 하 여 실행 시간에 대 한 무료 권한을 이미 사용 하 고 있다고 가정 하 여이 두 시간에 대 한 비용을 제공 하는 [함수 가격 책정 페이지][가격 책정 페이지]페이지에서 현재 가격을 곱합니다. 
 
 ### <a name="azure-cli"></a>Azure CLI
 
 [Azure CLI](/cli/azure/) 에는 메트릭을 검색 하는 명령이 있습니다. CLI는 로컬 명령 환경에서 사용 하거나 [Azure Cloud Shell](../cloud-shell/overview.md)를 사용 하 여 포털에서 직접 사용할 수 있습니다. 예를 들어 다음 [az monitor 메트릭 list](/cli/azure/monitor/metrics#az-monitor-metrics-list) 명령은 이전에 사용 된 것과 동일한 기간에 매시간 데이터를 반환 합니다.
 
-명령을 실행 하는 `<AZURE_SUBSCRIPTON_ID>` Azure 구독 ID로 바꾸어야 합니다.
+@No__t-0을 명령을 실행 하는 Azure 구독 ID로 바꾸어야 합니다.
 
 ```azurecli-interactive
 az monitor metrics list --resource /subscriptions/<AZURE_SUBSCRIPTION_ID>/resourceGroups/metrics-testing-consumption/providers/Microsoft.Web/sites/metrics-testing-consumption --metric FunctionExecutionUnits,FunctionExecutionCount --aggregation Total --interval PT1H --start-time 2019-09-11T21:46:00Z --end-time 2019-09-11T23:18:00Z
@@ -192,7 +192,7 @@ az monitor metrics list --resource /subscriptions/<AZURE_SUBSCRIPTION_ID>/resour
   ]
 }
 ```
-이 특정 응답은에서 `2019-09-11T21:46` 까지 앱이 11억1000만 (1083.98 g b/초)를 `2019-09-11T23:18`사용 하는 시간을 표시 합니다.
+이 특정 응답은 `2019-09-11T21:46`에서 `2019-09-11T23:18` (1083.98 g b-초)의 11억1000만를 사용 하는 것을 보여 줍니다.
 
 ## <a name="determine-memory-usage"></a>메모리 사용량 확인
 
@@ -210,14 +210,14 @@ performanceCounters
 
 결과는 다음 예제와 같습니다.
 
-| 타임 \[스탬프 UTC\]          | name          | 값       |
+| timestamp \[UTC @ no__t-1          | name          | 값       |
 |----------------------------|---------------|-------------|
-| 9/12/2019, 1:05:14\.947 AM | 전용 바이트 | 209932288 |
-| 9/12/2019, 1:06:14\.994 AM | 전용 바이트 | 212189184 |
-| 9/12/2019, 1:06:30\.010 AM | 전용 바이트 | 231714816 |
-| 9/12/2019, 1:07:15\.040 AM | 전용 바이트 | 210591744 |
-| 9/12/2019, 1:12:16\.285 AM | 전용 바이트 | 216285184 |
-| 9/12/2019, 1:12:31\.376 AM | 전용 바이트 | 235806720 |
+| 9/12/2019, 1:05:14 @ NO__T-0947 AM | 프라이빗 바이트 | 209932288 |
+| 9/12/2019, 1:06:14 @ NO__T-0994 AM | 프라이빗 바이트 | 212189184 |
+| 9/12/2019, 1:06:30 @ NO__T-MYLNXCN-0006 MYLNXCN-0010 AM | 프라이빗 바이트 | 231714816 |
+| 9/12/2019, 1:07:15 @ NO__T-0040 AM | 프라이빗 바이트 | 210591744 |
+| 9/12/2019, 1:12:16 @ NO__T-0285 AM | 프라이빗 바이트 | 216285184 |
+| 9/12/2019, 1:12:31 @ NO__T-0376 AM | 프라이빗 바이트 | 235806720 |
 
 ## <a name="function-level-metrics"></a>함수 수준 메트릭
 
@@ -232,9 +232,9 @@ customMetrics
 
 | name                       | averageDurationMilliseconds |
 |----------------------------|-----------------------------|
-| QueueTrigger AvgDurationMs | 16\.087                     |
-| QueueTrigger MaxDurationMs | 90\.249                     |
-| QueueTrigger MinDurationMs | 8\.522                      |
+| QueueTrigger AvgDurationMs | 16 @ no__t-0087                     |
+| QueueTrigger MaxDurationMs | 90 @ no__t-0249                     |
+| QueueTrigger MinDurationMs | 8 @ no__t-0522                      |
 
 ## <a name="next-steps"></a>다음 단계
 

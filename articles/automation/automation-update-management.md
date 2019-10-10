@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 253fc940cfb42aa9bf7e93dd631d2ca596f7db6f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3e2781229974ed872d477579d6c738822f910df6
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677860"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243507"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -59,7 +59,7 @@ Linux 컴퓨터의 경우 호환성 검사는 기본적으로 매시간 수행 �
 
 예약 된 배포는 컴퓨터를 명시적으로 지정 하거나 특정 컴퓨터 집합의 로그 검색을 기반으로 하는 [컴퓨터 그룹](../azure-monitor/platform/computer-groups.md) 또는 [Azure 쿼리](#azure-machines) 를 선택 하 여 해당 업데이트를 수신 하는 대상 컴퓨터를 정의 합니다. 지정 된 조건에 따라 Azure Vm을 동적으로 선택 합니다. 이러한 그룹은 솔루션을 사용 하도록 설정 하는 관리 팩을 가져오는 컴퓨터를 확인 하는 데에만 사용 되는 [범위 구성과](../azure-monitor/insights/solution-targeting.md)다릅니다.
 
-또한 업데이트를 설치할 수 있는 기간을 승인 및 설정하는 일정을 지정합니다. 이러한 기간을 유지 관리 기간 이라고 합니다. 다시 부팅이 필요 하 고 적절 한 재부팅 옵션을 선택한 경우 유지 관리 기간 10 분이 다시 부팅 되도록 예약 됩니다. 패치가 예상 보다 오래 걸리고 유지 관리 기간에 10 분 미만이 면 다시 부팅이 발생 하지 않습니다.
+또한 업데이트를 설치할 수 있는 기간을 승인 및 설정하는 일정을 지정합니다. 이러한 기간을 유지 관리 기간 이라고 합니다. 다시 부팅이 필요 하 고 적절 한 재부팅 옵션을 선택한 경우 유지 관리 기간이 20 분 이면 다시 부팅 하도록 예약 됩니다. 패치가 예상 보다 오래 걸리고 유지 관리 기간에 20 분 미만이 면 다시 부팅이 발생 하지 않습니다.
 
 Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Runbook은 볼 수 없으며 구성이 필요하지 않습니다. 업데이트 배포가 생성되면 업데이트 배포는 포함된 컴퓨터에 대해 지정된 시간에 마스터 업데이트 Runbook을 시작하는 일정을 만듭니다. 이 마스터 Runbook은 각 에이전트에서 하위 Runbook을 시작하여 필수 업데이트를 설치합니다.
 
@@ -339,7 +339,7 @@ $WUSettings.Save()
 
 ### <a name="disable-automatic-installation"></a>자동 설치 사용 안 함
 
-Azure Vm은 기본적으로 사용 하도록 설정 된 업데이트를 자동으로 설치 합니다. 이렇게 하면 업데이트 관리에 의해 설치 되도록 예약 하기 전에 업데이트를 설치할 수 있습니다. `NoAutoUpdate` 레지스트리 키를로 설정 하 여이 동작을 `1`사용 하지 않도록 설정할 수 있습니다. 다음 PowerShell 코드 조각은이 작업을 수행 하는 한 가지 방법을 보여 줍니다.
+Azure Vm은 기본적으로 사용 하도록 설정 된 업데이트를 자동으로 설치 합니다. 이렇게 하면 업데이트 관리에 의해 설치 되도록 예약 하기 전에 업데이트를 설치할 수 있습니다. @No__t-0 레지스트리 키를 `1`로 설정 하 여이 동작을 사용 하지 않도록 설정할 수 있습니다. 다음 PowerShell 코드 조각은이 작업을 수행 하는 한 가지 방법을 보여 줍니다.
 
 ```powershell
 $AutoUpdatePath = "HKLM:SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
@@ -396,7 +396,7 @@ https://dev.loganalytics.io/).
 
 #### <a name="single-azure-vm-assessment-queries-windows"></a>단일 Azure VM 평가 쿼리(Windows)
 
-VMUUID 값을 쿼리 중인 가상 머신의 VM GUID로 바꿉니다. Azure Monitor 로그에서 다음 쿼리를 실행 하 여 사용 해야 하는 VMUUID를 찾을 수 있습니다.`Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
+VMUUID 값을 쿼리 중인 가상 머신의 VM GUID로 바꿉니다. Azure Monitor 로그에서 다음 쿼리를 실행 하 여 사용 해야 하는 VMUUID를 찾을 수 있습니다. `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>누락 업데이트 요약
 
@@ -425,7 +425,7 @@ Update
 
 #### <a name="single-azure-vm-assessment-queries-linux"></a>단일 Azure VM 평가 쿼리(Linux)
 
-일부 Linux 배포판의 경우 Azure Resource Manager에서 제공 하는 VMUUID 값 및 Azure Monitor 로그에 저장 되는 값과 [endian](https://en.wikipedia.org/wiki/Endianness) 일치 하지 않습니다. 다음 쿼리는 엔디언의 일치 여부를 확인합니다. 결과를 적절히 반환하려면 VMUUID 값을 GUID의 big-endian 및 little-endian 형식으로 바꿉니다. Azure Monitor 로그에서 다음 쿼리를 실행 하 여 사용 해야 하는 VMUUID를 찾을 수 있습니다.`Update | where Computer == "<machine name>"
+일부 Linux 배포판의 경우 Azure Resource Manager에서 제공 하는 VMUUID 값 및 Azure Monitor 로그에 저장 되는 값과 [endian](https://en.wikipedia.org/wiki/Endianness) 일치 하지 않습니다. 다음 쿼리는 엔디언의 일치 여부를 확인합니다. 결과를 적절히 반환하려면 VMUUID 값을 GUID의 big-endian 및 little-endian 형식으로 바꿉니다. Azure Monitor 로그에서 다음 쿼리를 실행 하 여 사용 해야 하는 VMUUID를 찾을 수 있습니다. `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>누락 업데이트 요약

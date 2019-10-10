@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dafc78e49cb0118181bae4522d4cb456509ea2cb
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: bb9b3a4add951079ab918d3ac02ca5e38eff6161
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673429"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241163"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -43,7 +43,7 @@ Azure AD는 중요 한 규칙을 더 신속 하 게 만들고 업데이트 하�
 - 5 개 이상의 식이 있는 규칙
 - 부하 직원 규칙
 - [연산자 우선 순위](groups-dynamic-membership.md#operator-precedence) 설정
-- [복잡 한 식이 포함 된 규칙](groups-dynamic-membership.md#rules-with-complex-expressions) 예를 들어`(user.proxyAddresses -any (_ -contains "contoso"))`
+- [복잡 한 식이 포함 된 규칙](groups-dynamic-membership.md#rules-with-complex-expressions) 예 `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
 > 규칙 작성기가 텍스트 상자에 생성 된 일부 규칙을 표시 하지 못할 수 있습니다. 규칙 작성기에서 규칙을 표시할 수 없는 경우 메시지가 표시 될 수 있습니다. 규칙 빌더는 지원 되는 구문, 유효성 검사 또는 동적 그룹 규칙의 처리를 어떤 식으로든 변경 하지 않습니다.
@@ -342,7 +342,7 @@ device.objectid -ne null
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-사용자 지정 확장 속성은 온-프레미스 Windows Server AD 또는 연결된 SaaS 애플리케이션에서 동기화되며 `user.extension_[GUID]__[Attribute]` 형식입니다.
+사용자 지정 확장 속성은 온-프레미스 Windows Server AD 또는 연결된 SaaS 애플리케이션에서 동기화되며 `user.extension_[GUID]_[Attribute]` 형식입니다.
 
 * [GUID]는 Azure AD에서 속성을 만든 애플리케이션에 대한 Azure AD의 고유 식별자입니다.
 * [Attribute]는 Azure AD에서 만든 속성의 이름입니다.
@@ -350,7 +350,7 @@ device.objectid -ne null
 사용자 지정 확장 속성을 사용하는 규칙의 예제는 다음과 같습니다.
 
 ```
-user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
+user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 ```
 
 사용자 지정 속성 이름은 [Graph 탐색기]를 사용하여 사용자 속성을 쿼리하고 속성 이름을 검색하여 디렉터리에서 찾을 수 있습니다. 또한 동적 사용자 그룹 규칙 작성기에서 **사용자 지정 확장 속성 가져오기**를 선택하여 고유한 앱 ID를 입력하고 동적 구성원 규칙을 만들 때 사용할 사용자 지정 확장 속성 전체 목록을 받을 수 있습니다. 이 목록을 새로 고침하여 해당 앱에 대한 새로운 사용자 지정 확장 속성을 가져올 수도 있습니다.

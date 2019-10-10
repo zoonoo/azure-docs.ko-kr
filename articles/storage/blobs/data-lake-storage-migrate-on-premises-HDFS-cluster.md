@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: ff23b27b73918734e10a481cbe9b1f77519b8764
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 508c67f73bc0e11330b5772b1c1ba3f9bee5e231
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847265"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255676"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Azure Data Box를 사용 하 여 온-프레미스 HDFS 저장소에서 Azure Storage 데이터를 마이그레이션합니다.
 
@@ -27,7 +27,7 @@ Data Box 장치를 사용 하 여 Hadoop 클러스터의 온-프레미스 HDFS �
 > * 장치를 Microsoft에 다시 배송 합니다.
 > * 데이터를 Data Lake Storage Gen2로 이동 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 마이그레이션을 완료 하려면 이러한 항목이 필요 합니다.
 
@@ -59,11 +59,11 @@ Blob/Object storage의 REST Api를 통해 데이터를 Data Box 장치에 복사
 
 2. 액세스 저장소 계정 및 데이터 업로드 대화 상자에서 **Blob service 끝점** 및 **저장소 계정 키**를 복사 합니다. Blob service 끝점에서 `https://` 및 후행 슬래시를 생략 합니다.
 
-    이 경우 끝점 `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`은입니다. 사용할 URI의 호스트 부분은 `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`입니다. 예제는 [http를 통해 REST에 연결](/azure/databox/data-box-deploy-copy-data-via-rest)하는 방법을 참조 하세요. 
+    이 경우 끝점은 `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`입니다. 사용할 URI의 호스트 부분은 `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`입니다. 예제는 [http를 통해 REST에 연결](/azure/databox/data-box-deploy-copy-data-via-rest)하는 방법을 참조 하세요. 
 
      !["저장소 계정 액세스 및 데이터 업로드" 대화 상자](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
-3. 각 노드에 끝점과 Data Box 또는 Data Box Heavy 노드 IP 주소를 `/etc/hosts` 추가 합니다.
+3. 각 노드의 @no__t 0에 끝점과 Data Box 또는 Data Box Heavy 노드 IP 주소를 추가 합니다.
 
     ```    
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
@@ -71,9 +71,9 @@ Blob/Object storage의 REST Api를 통해 데이터를 Data Box 장치에 복사
 
     DNS에 다른 메커니즘을 사용 하는 경우 Data Box 끝점을 확인할 수 있는지 확인 해야 합니다.
 
-4. 셸 변수 `azjars` 를 `hadoop-azure` 및 `azure-storage` jar 파일의 위치로 설정 합니다. 이러한 파일은 Hadoop 설치 디렉터리에서 찾을 수 있습니다.
+4. 셸 변수 `azjars`을 `hadoop-azure` 및 `azure-storage` jar 파일의 위치로 설정 합니다. 이러한 파일은 Hadoop 설치 디렉터리에서 찾을 수 있습니다.
 
-    이러한 파일이 있는지 확인 하려면 명령을 `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure`사용 합니다. 자리 표시자 `<hadoop_install_dir>` 를 Hadoop을 설치한 디렉터리의 경로로 바꿉니다. 정규화 된 경로를 사용 해야 합니다.
+    이러한 파일이 있는지 확인 하려면 다음 명령을 사용 합니다. `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure`. @No__t-0 자리 표시자를 Hadoop을 설치한 디렉터리의 경로로 바꿉니다. 정규화 된 경로를 사용 해야 합니다.
 
     예를 들면 다음과 같습니다.
 
@@ -88,13 +88,13 @@ Blob/Object storage의 REST Api를 통해 데이터를 Data Box 장치에 복사
     -mkdir -p  wasb://<container_name>@<blob_service_endpoint>/<destination_directory>
     ```
 
-    * 자리 표시자 `<blob_service_endpoint>` 를 blob service 끝점의 이름으로 바꿉니다.
+    * @No__t-0 자리 표시자를 blob service 끝점의 이름으로 바꿉니다.
 
-    * 자리 표시자 `<account_key>` 를 계정의 액세스 키로 바꿉니다.
+    * @No__t-0 자리 표시자를 계정의 액세스 키로 바꿉니다.
 
-    * 자리 표시자 `<container-name>` 를 컨테이너의 이름으로 바꿉니다.
+    * @No__t-0 자리 표시자를 컨테이너의 이름으로 바꿉니다.
 
-    * 자리 표시자 `<destination_directory>` 를 데이터를 복사할 대상 디렉터리의 이름으로 바꿉니다.
+    * @No__t-0 자리 표시자를 데이터를 복사할 대상 디렉터리의 이름으로 바꿉니다.
 
 6. 목록 명령을 실행 하 여 컨테이너 및 디렉터리를 만들었는지 확인 합니다.
 
@@ -105,11 +105,11 @@ Blob/Object storage의 REST Api를 통해 데이터를 Data Box 장치에 복사
     -ls -R  wasb://<container_name>@<blob_service_endpoint>/
     ```
 
-   * 자리 표시자 `<blob_service_endpoint>` 를 blob service 끝점의 이름으로 바꿉니다.
+   * @No__t-0 자리 표시자를 blob service 끝점의 이름으로 바꿉니다.
 
-   * 자리 표시자 `<account_key>` 를 계정의 액세스 키로 바꿉니다.
+   * @No__t-0 자리 표시자를 계정의 액세스 키로 바꿉니다.
 
-   * 자리 표시자 `<container-name>` 를 컨테이너의 이름으로 바꿉니다.
+   * @No__t-0 자리 표시자를 컨테이너의 이름으로 바꿉니다.
 
 7. Hadoop HDFS에서 이전에 만든 컨테이너에 Data Box Blob 저장소로 데이터를 복사 합니다. 복사할 디렉터리를 찾을 수 없는 경우이 명령은 자동으로 만듭니다.
 
@@ -123,19 +123,19 @@ Blob/Object storage의 REST Api를 통해 데이터를 Data Box 장치에 복사
            wasb://<container_name>@<blob_service_endpoint>/<destination_directory>
     ```
 
-    * 자리 표시자 `<blob_service_endpoint>` 를 blob service 끝점의 이름으로 바꿉니다.
+    * @No__t-0 자리 표시자를 blob service 끝점의 이름으로 바꿉니다.
 
-    * 자리 표시자 `<account_key>` 를 계정의 액세스 키로 바꿉니다.
+    * @No__t-0 자리 표시자를 계정의 액세스 키로 바꿉니다.
 
-    * 자리 표시자 `<container-name>` 를 컨테이너의 이름으로 바꿉니다.
+    * @No__t-0 자리 표시자를 컨테이너의 이름으로 바꿉니다.
 
-    * 자리 표시자 `<exlusion_filelist_file>` 를 파일 제외 목록을 포함 하는 파일의 이름으로 바꿉니다.
+    * @No__t-0 자리 표시자를 파일 제외 목록을 포함 하는 파일의 이름으로 바꿉니다.
 
-    * 자리 표시자 `<source_directory>` 를 복사 하려는 데이터가 포함 된 디렉터리의 이름으로 바꿉니다.
+    * @No__t-0 자리 표시자를 복사 하려는 데이터가 포함 된 디렉터리의 이름으로 바꿉니다.
 
-    * 자리 표시자 `<destination_directory>` 를 데이터를 복사할 대상 디렉터리의 이름으로 바꿉니다.
+    * @No__t-0 자리 표시자를 데이터를 복사할 대상 디렉터리의 이름으로 바꿉니다.
 
-    옵션은 `hadoop-azure*.jar` 및 종속`azure-storage*.jar` 파일 을`distcp`사용할 수 있도록 하는 데 사용 됩니다. `-libjars` 일부 클러스터에 대해이 문제가 이미 발생 했을 수 있습니다.
+    @No__t-0 옵션은 `hadoop-azure*.jar`과 종속 `azure-storage*.jar` 파일을 `distcp`에 사용할 수 있도록 하는 데 사용 됩니다. 일부 클러스터에 대해이 문제가 이미 발생 했을 수 있습니다.
 
     다음 예에서는 `distcp` 명령을 사용 하 여 데이터를 복사 하는 방법을 보여 줍니다.
 
@@ -151,9 +151,9 @@ Blob/Object storage의 REST Api를 통해 데이터를 Data Box 장치에 복사
   
     복사 속도를 향상 시키려면 다음을 수행 합니다.
 
-    * 매퍼 수를 변경해 보세요. 위의 예제는 = 4 `m` 매퍼를 사용 합니다.
+    * 매퍼 수를 변경해 보세요. 위의 예제에서는 `m` = 4 매퍼를 사용 합니다.
 
-    * 병렬로 여러 번 `distcp` 실행 해 보세요.
+    * 여러 @no__t를 병렬로 실행 해 보세요.
 
     * 규모가 작은 파일은 작은 파일 보다 성능이 뛰어납니다.
 
@@ -194,23 +194,23 @@ Azure Data Factory를 사용 하거나 Azure 기반 Hadoop 클러스터를 사�
     hadoop distcp -Dfs.azure.account.key.<source_account>.dfs.windows.net=<source_account_key> abfs://<source_container> @<source_account>.dfs.windows.net/<source_path> abfs://<dest_container>@<dest_account>.dfs.windows.net/<dest_path>
     ```
 
-    * `<source_account>` 및`<dest_account>` 자리 표시자를 원본 및 대상 저장소 계정의 이름으로 바꿉니다.
+    * @No__t-0 및 `<dest_account>` 자리 표시자를 원본 및 대상 저장소 계정의 이름으로 바꿉니다.
 
-    * `<source_container>` 및`<dest_container>` 자리 표시자를 원본 및 대상 컨테이너의 이름으로 바꿉니다.
+    * @No__t-0 및 `<dest_container>` 자리 표시자를 원본 및 대상 컨테이너의 이름으로 바꿉니다.
 
-    * `<source_path>` 및`<dest_path>` 자리 표시자를 원본 및 대상 디렉터리 경로로 바꿉니다.
+    * @No__t-0 및 `<dest_path>` 자리 표시자를 원본 및 대상 디렉터리 경로로 바꿉니다.
 
-    * 자리 표시자 `<source_account_key>` 를 데이터를 포함 하는 저장소 계정의 액세스 키로 바꿉니다.
+    * @No__t-0 자리 표시자를 데이터를 포함 하는 저장소 계정의 액세스 키로 바꿉니다.
 
     이 명령은 저장소 계정에 있는 데이터와 메타 데이터를 모두 Data Lake Storage Gen2 저장소 계정에 복사 합니다.
 
 ### <a name="create-a-service-principal-for-your-azure-data-lake-storage-gen2-account"></a>Azure Data Lake Storage Gen2 계정에 대 한 서비스 주체 만들기
 
-서비스 주체 [를 만들려면 방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)를 참조하세요.
+서비스 주체를 만들려면 [How to: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)를 참조하세요.
 
 * 문서의 [애플리케이션을 역할에 할당](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) 섹션에 있는 단계를 수행할 때 **Storage Blob 데이터 참가자** 역할을 서비스 주체에 할당해야 합니다.
 
-* 문서, 응용 프로그램 ID 및 클라이언트 암호 값의 [로그인에 대 한 값 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션의 단계를 텍스트 파일로 수행할 때 곧 이 값들이 필요합니다.
+* 문서의 [로그인에 사용할 값 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션의 단계를 수행 하는 경우 응용 프로그램 ID 및 클라이언트 암호 값을 텍스트 파일에 저장 합니다. 곧 이 값들이 필요합니다.
 
 ### <a name="generate-a-list-of-copied-files-with-their-permissions"></a>사용 권한이 있는 복사 된 파일의 목록을 생성 합니다.
 
@@ -228,7 +228,7 @@ sudo -u hdfs ./copy-acls.sh -s /{hdfs_path} > ./filelist.json
 
 ### <a name="generate-a-list-of-identities-and-map-them-to-azure-active-directory-add-identities"></a>Id 목록을 생성 하 고 id를 Azure Active Directory (추가) id에 매핑합니다.
 
-1. 스크립트를 `copy-acls.py` 다운로드 합니다. 이 문서의 [도우미 스크립트 다운로드 및 실행에 대 한에 지 노드 설정](#download-helper-scripts) 섹션을 참조 하세요.
+1. @No__t-0 스크립트를 다운로드 합니다. 이 문서의 [도우미 스크립트 다운로드 및 실행에 대 한에 지 노드 설정](#download-helper-scripts) 섹션을 참조 하세요.
 
 2. 이 명령을 실행 하 여 고유한 id 목록을 생성 합니다.
 
@@ -237,11 +237,11 @@ sudo -u hdfs ./copy-acls.sh -s /{hdfs_path} > ./filelist.json
    ./copy-acls.py -s ./filelist.json -i ./id_map.json -g
    ```
 
-   이 스크립트는 추가 기반 id `id_map.json` 에 매핑해야 하는 id를 포함 하는 라는 파일을 생성 합니다.
+   이 스크립트는 추가 기반 id에 매핑해야 하는 id를 포함 하는 `id_map.json` 이라는 파일을 생성 합니다.
 
 3. 텍스트 편집기에서 `id_map.json` 파일을 엽니다.
 
-4. 파일에 표시 되는 각 JSON 개체에 대해 적절 한 `target` 매핑된 id를 사용 하 여 AAD UPN (사용자 계정 이름) 또는 ObjectId (OID)의 특성을 업데이트 합니다. 작업을 완료 한 후 파일을 저장 합니다. 이 파일은 다음 단계에서 필요 합니다.
+4. 파일에 표시 되는 각 JSON 개체에 대해 적절 한 매핑된 id를 사용 하 여 AAD UPN (사용자 계정 이름) 또는 ObjectId (OID)의 `target` 특성을 업데이트 합니다. 작업을 완료 한 후 파일을 저장 합니다. 이 파일은 다음 단계에서 필요 합니다.
 
 ### <a name="apply-permissions-to-copied-files-and-apply-identity-mappings"></a>복사한 파일에 사용 권한 적용 및 id 매핑 적용
 
@@ -253,9 +253,9 @@ sudo -u hdfs ./copy-acls.sh -s /{hdfs_path} > ./filelist.json
 
 * `<storage-account-name>` 자리 표시자를 스토리지 계정 이름으로 바꿉니다.
 
-* 자리 표시자 `<container-name>` 를 컨테이너의 이름으로 바꿉니다.
+* @No__t-0 자리 표시자를 컨테이너의 이름으로 바꿉니다.
 
-* `<application-id>` 및`<client-secret>` 자리 표시자를 서비스 주체를 만들 때 수집한 응용 프로그램 ID 및 클라이언트 암호로 바꿉니다.
+* @No__t-0 및 `<client-secret>` 자리 표시자를 서비스 주체를 만들 때 수집한 응용 프로그램 ID 및 클라이언트 암호로 바꿉니다.
 
 ## <a name="appendix-split-data-across-multiple-data-box-devices"></a>부록: 여러 Data Box 장치 간에 데이터 분할
 
@@ -303,7 +303,7 @@ sudo -u hdfs ./copy-acls.sh -s /{hdfs_path} > ./filelist.json
 
 데이터가 단일 Data Box 장치의 크기를 초과 하지 않는 경우 다음 섹션으로 진행할 수 있습니다.
 
-1. 상승 된 권한으로 이전 섹션 `generate-file-list` 의 지침에 따라 다운로드 한 스크립트를 실행 합니다.
+1. 상승 된 권한으로 이전 섹션의 지침에 따라 다운로드 한 `generate-file-list` 스크립트를 실행 합니다.
 
    명령 매개 변수에 대 한 설명은 다음과 같습니다.
 

@@ -11,24 +11,24 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 07/17/2019
-ms.openlocfilehash: 588fac1fc48396584188eec44f21a7005dc8ed96
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9b15ebc40e99c1cd454396ccde5cca6b1a46abbc
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567549"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244756"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance에 대한 사용자 지정 DNS 구성
 
 Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 내에서 Azure SQL Database Managed Instance를 배포해야 합니다. 프라이빗 호스트 이름이 Managed Instance에서 확인되어야 하는 몇 가지 시나리오(예: db 메일, 클라우드 또는 하이브리드 환경의 다른 SQL 인스턴스에 연결된 서버)가 있습니다. 이 경우에 Azure 내에서 사용자 지정 DNS를 구성해야 합니다. 
 
-Managed Instance는 내부 작동에 동일한 DNS를 사용 하므로 공용 도메인 이름을 확인할 수 있도록 사용자 지정 DNS 서버를 구성 해야 합니다.
+Managed Instance는 내부 작동에 동일한 DNS를 사용 하기 때문에 공용 도메인 이름을 확인할 수 있도록 사용자 지정 DNS 서버를 구성 합니다.
 
-   > [!IMPORTANT]
-   > 메일 서버, SQL Server 및 기타 서비스가 프라이빗 DNS 영역에 있는 경우에도 항상 FQDN(정규화된 도메인 이름)을 사용합니다. 예를 들어 단순 `smtp`가 제대로 확인되지 않으므로 메일 서버에 `smtp.contoso.com`을 사용합니다.
+> [!IMPORTANT]
+> 항상 메일 서버, SQL Server 인스턴스 및 다른 서비스에 대해 FQDN (정규화 된 도메인 이름)을 사용 합니다 .이는 개인 DNS 영역 내에 있더라도 예를 들어 `smtp`이 올바르게 확인 되지 않으므로 메일 서버에 `smtp.contoso.com`을 사용 합니다. 동일한 가상 네트워크 내에서 SQL Vm을 참조 하는 연결 된 서버 또는 복제를 만들려면 FQDN과 기본 DNS 접미사도 필요 합니다. 예를 들어, `SQLVM.internal.cloudapp.net`을 입력합니다. 자세한 내용은 [자체 DNS 서버를 사용 하는 이름 확인](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)을 참조 하세요.
 
-   > [!IMPORTANT]
-   > 가상 네트워크 DNS 서버를 업데이트 하면 Managed Instance에 즉시 영향을 주지 않습니다. Managed Instance DNS 구성은 DHCP 임대가 만료 된 후 또는 플랫폼이 upgarade 된 후에 업데이트 됩니다. **사용자는 첫 번째 Managed Instance을 만들기 전에 가상 네트워크 DNS 구성을 설정 하는 것이 좋습니다.**
+> [!IMPORTANT]
+> 가상 네트워크 DNS 서버를 업데이트 하면 Managed Instance에 즉시 영향을 주지 않습니다. Managed Instance DNS 구성은 DHCP 임대가 만료 된 후 또는 플랫폼이 upgarade 된 후 (어느 쪽이 든 먼저 발생 하는 경우) 업데이트 됩니다. **사용자는 첫 번째 Managed Instance을 만들기 전에 가상 네트워크 DNS 구성을 설정 하는 것이 좋습니다.**
 
 ## <a name="next-steps"></a>다음 단계
 

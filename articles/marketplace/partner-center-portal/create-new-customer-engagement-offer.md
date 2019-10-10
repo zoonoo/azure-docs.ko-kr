@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: f1d5f97328af699cb7245212b709c750a970392a
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 703b8b5732109faed1523c678af612e7fc8dab6d
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969533"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244093"
 ---
 # <a name="create-a-new-dynamics-365-for-customer-engagement--powerapps-offer"></a>고객 Engagement & PowerApps 제품에 대 한 새 Dynamics 365 만들기
 
@@ -56,7 +56,7 @@ ms.locfileid: "71969533"
 > [!NOTE]
 > 평가판 링크를 통해 응용 프로그램에서 수신 하는 토큰은 앱에서 계정 만들기를 자동화 하는 Azure Active Directory (Azure AD)를 통해 사용자 정보를 가져오는 데만 사용할 수 있습니다. 이 토큰을 사용 하는 인증에 대해서는 Microsoft 계정이 지원 되지 않습니다.
 
-#### <a name="contact-me"></a>나에게 연락
+#### <a name="contact-me"></a>연락처
 
 CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보를 수집 합니다. 고객에 게 정보를 공유할 수 있는 권한을 요청 하는 메시지가 표시 됩니다. 제품을 찾은 제품 이름, ID 및 marketplace 원본과 함께 이러한 고객 세부 정보는 구성 된 CRM 시스템으로 전송 됩니다. CRM을 구성 하는 방법에 대 한 자세한 내용은 [연결 리드 management](#connect-lead-management)를 참조 하세요. 
 
@@ -85,7 +85,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 ## <a name="connect-lead-management"></a>리드 관리 연결
 
-[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
+[!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
 자세한 내용은 [리드 관리 개요](./commercial-marketplace-get-customer-leads.md) 를 참조 하세요.
 
@@ -99,7 +99,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 최소 1 자에서 최대 3 개의 범주를 선택 합니다. 이러한 기능은 제품을 적절 한 마켓플레이스 검색 영역에 추가 하는 데 사용 됩니다. 제품이 제품 설명에서 이러한 범주를 어떻게 지원 하는지 확인 해야 합니다. 
 
-### <a name="industry"></a>업종
+### <a name="industry"></a>산업
 
 필요에 따라 marketplace에서 제품을 범주화 하는 데 도움이 되는 최대 2 개의 산업을 선택할 수 있습니다. 제품이 특정 업계에 국한 되지 않는 경우이 섹션을 비워 둡니다. 제품이 제품 설명에서 선택한 산업을 어떻게 지원 하는지 확인 해야 합니다. 
 
@@ -177,7 +177,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 조직의 개인 정보 취급 방침에 대 한 URL을 입력 합니다. 사용자는 앱이 개인 정보 법률 및 규정을 준수 하는지 확인 하 고 유효한 개인 정보 취급 방침을 제공 하는 일을 담당 합니다.
 
-### <a name="contacts"></a>담당자
+### <a name="contacts"></a>연락처
 
 이 섹션에서는 **지원 연락처** 와 **엔지니어링 연락처**에 대 한 이름, 전자 메일 및 전화 번호를 제공 해야 합니다. 이 정보는 고객에 게 표시 되지 않지만 Microsoft에서 사용할 수 있으며 CSP 파트너에 게 제공 될 수 있습니다.
 
@@ -195,7 +195,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 다음 세 가지 크기의 제품 로고를 제공할 수 있습니다. **작음 (48 x 48)** , **큼 (216 x 216)** 및 **와이드 (255 x 115)** . 작은 크기와 크기가 필요 합니다.
 
-#### <a name="hero"></a>영웅
+#### <a name="hero"></a>Hero
 
 주인공 이미지는 선택 사항입니다. 제공 하는 경우 815 x 290 픽셀을 측정 해야 합니다.
 

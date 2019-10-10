@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 5/8/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b79ed7ea3113f097f767ad7ff8bdc47b4e4916eb
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 338977c236ebb8f1b800eb6c28747a010e708300
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883558"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244230"
 ---
 # <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
 
@@ -58,9 +58,9 @@ HSM은 SSL(Secure Sockets Layer), 데이터 암호화, PKI(공개 키 인프라)
 
 Microsoft는 Dedicated HSM 서비스를 통해 Gemalto SafeNet Luna Network HSM만 제공하며, 고객이 제공하는 디바이스를 호스팅할 수 없습니다.
 
-### <a name="q-does-azure-dedicated-hsm-support-payment-pinetf-features"></a>Q: Azure 전용 HSM은 지불 (PIN/ETF) 기능을 지원 하나요?
+### <a name="q-does-azure-dedicated-hsm-support-payment-pineft-features"></a>Q: Azure 전용 HSM은 지불 (PIN/EFT) 기능을 지원 하나요?
 
-Azure 전용 HSM 서비스는 SafeNet Luna Network HSM 7(모델 A790) 디바이스를 사용합니다. 이러한 디바이스는 결제 HSM 특정 기능(예: PIN 또는 ETF)이나 인증을 지원하지 않습니다. 향후 지불 Hsm을 지원 하기 위해 Azure 전용 HSM 서비스를 원하는 경우 Microsoft 계정 담당자에 게 피드백을 전달 하세요.
+Azure 전용 HSM 서비스는 SafeNet Luna Network HSM 7(모델 A790) 디바이스를 사용합니다. 이러한 장치는 결제 HSM 특정 기능 (예: PIN 또는 EFT) 또는 인증을 지원 하지 않습니다. 향후 지불 Hsm을 지원 하기 위해 Azure 전용 HSM 서비스를 원하는 경우 Microsoft 계정 담당자에 게 피드백을 전달 하세요.
 
 ### <a name="q-which-azure-regions-is-dedicated-hsm-available-in"></a>Q: 에서 사용할 수 있는 Azure 지역은 전용 HSM은 무엇 인가요?
 

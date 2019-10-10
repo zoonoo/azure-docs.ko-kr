@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 8e00053d5ce7c481b026d2fe0ce590d7b8799d8a
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: ff4367194f06a8a6895c9c16252b01c3b94995d3
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075448"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241251"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>미리 보기-Azure CLI를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
 
@@ -69,7 +69,7 @@ az feature register --name WindowsPreview --namespace Microsoft.ContainerService
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
 ```
 
-등록 상태가 인 `Registered`경우 ctrl + C를 눌러 상태 모니터링을 중지 합니다.  그런 다음 [az provider register][az-provider-register] 명령을 사용 하 여 *ContainerService* 리소스 공급자의 등록을 새로 고칩니다.
+등록 상태가 `Registered` 인 경우 Ctrl + C를 눌러 상태 모니터링을 중지 합니다.  그런 다음 [az provider register][az-provider-register] 명령을 사용 하 여 *ContainerService* 리소스 공급자의 등록을 새로 고칩니다.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -141,7 +141,7 @@ az aks create \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
-    --vm-set-type VirtualMachineScaleSets \
+    --enable-vmss \
     --network-plugin azure
 ```
 
@@ -153,7 +153,7 @@ az aks create \
 
 ## <a name="add-a-windows-server-node-pool"></a>Windows Server 노드 풀 추가
 
-기본적으로 AKS 클러스터는 Linux 컨테이너를 실행할 수 있는 노드 풀로 생성 됩니다. 명령을 `az aks nodepool add` 사용 하 여 Windows Server 컨테이너를 실행할 수 있는 추가 노드 풀을 추가 합니다.
+기본적으로 AKS 클러스터는 Linux 컨테이너를 실행할 수 있는 노드 풀로 생성 됩니다. @No__t-0 명령을 사용 하 여 Windows Server 컨테이너를 실행할 수 있는 추가 노드 풀을 추가 합니다.
 
 ```azurecli
 az aks nodepool add \
@@ -165,7 +165,7 @@ az aks nodepool add \
     --kubernetes-version 1.14.6
 ```
 
-위의 명령은 *npwin* 라는 새 노드 풀을 만들고 *myAKSCluster*에 추가 합니다. Windows Server 컨테이너를 실행 하기 위해 노드 풀을 만들 때 *노드-vm 크기* 의 기본값은 *Standard_D2s_v3*입니다. *노드-vm 크기* 매개 변수를 설정 하도록 선택 하는 경우 [제한 된 vm 크기][restricted-vm-sizes]목록을 확인 하세요. 권장 되는 최소 크기는 *Standard_D2s_v3*입니다. 위의 명령은를 실행할 `az aks create`때 생성 되는 기본 vnet의 기본 서브넷도 사용 합니다.
+위의 명령은 *npwin* 라는 새 노드 풀을 만들고 *myAKSCluster*에 추가 합니다. Windows Server 컨테이너를 실행 하기 위해 노드 풀을 만들 때 *노드-vm 크기* 의 기본값은 *Standard_D2s_v3*입니다. *노드-vm 크기* 매개 변수를 설정 하도록 선택 하는 경우 [제한 된 vm 크기][restricted-vm-sizes]목록을 확인 하세요. 권장 되는 최소 크기는 *Standard_D2s_v3*입니다. 위의 명령은 `az aks create`을 실행할 때 생성 되는 기본 vnet에서 기본 서브넷을 사용 합니다.
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
 

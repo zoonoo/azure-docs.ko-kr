@@ -9,16 +9,16 @@ ms.author: robreed
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 55950892bec71fdff50cdd0e0b1aae107d845739
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: f943aac4a91217983963fac6f8d0b2b3ba6895a1
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169742"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243618"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Azure Automation 상태 구성 시작하기
 
-이 문서에서는 Azure Automation 상태 구성으로 만들기, 가져오기 및 구성 컴파일링, 관리할 머신 온보딩 및 보고서 보기 등과 같은 가장 일반적인 작업을 수행하는 방법을 설명합니다. Azure Automation 상태 구성에 대한 개요는 [Azure Automation 상태 구성 개요](automation-dsc-overview.md)를 참조하세요. DSC(필요한 상태 구성) 설명서는 [Windows PowerShell 필요한 상태 구성 개요](/powershell/dsc/overview)를 참조하세요.
+이 문서에서는 Azure Automation 상태 구성으로 만들기, 가져오기 및 구성 컴파일링, 관리할 머신 온보딩 및 보고서 보기 등과 같은 가장 일반적인 작업을 수행하는 방법을 설명합니다. Azure Automation 상태 구성에 대한 개요는 [Azure Automation 상태 구성 개요](automation-dsc-overview.md)를 참조하세요. DSC(필요한 상태 구성) 설명서는 [Windows PowerShell 필요한 상태 구성 개요](/powershell/scripting/dsc/overview/overview)를 참조하세요.
 
 이 문서에서는 Azure Automation 상태 구성 사용에 대한 단계별 가이드를 제공합니다. 이 문서에 설명된 단계를 수행하지 않고 이미 설정된 샘플 환경을 원하는 경우 다음 Resource Manager 템플릿을 사용할 수 있습니다. [Azure Automation 관리되는 노드 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration) 이 템플릿은 Azure Automation 상태 구성에 의해 관리되는 Azure VM을 포함하는 완료된 Azure Automation 상태 구성 환경을 설정합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "72169742"
 
 ## <a name="creating-a-dsc-configuration"></a>DSC 구성 만들기
 
-노드를 할당하는 방법에 따라 [웹 서버](/powershell/dsc/configurations) Windows 기능(IIS)의 존재 또는 부재를 확인하는 간단한 **DSC 구성**을 만듭니다.
+노드를 할당하는 방법에 따라 [웹 서버](/powershell/scripting/dsc/configurations/configurations) Windows 기능(IIS)의 존재 또는 부재를 확인하는 간단한 **DSC 구성**을 만듭니다.
 
 1. [VSCode](https://code.visualstudio.com/docs)(또는 임의의 텍스트 편집기)를 시작합니다.
 1. 다음 텍스트를 입력합니다.
@@ -61,7 +61,7 @@ ms.locfileid: "72169742"
     ```
 1. 파일을 `TestConfig.ps1`(으)로 저장합니다.
 
-이 구성은 각 노드 블록에서 [웹 서버](/powershell/dsc/windowsfeatureresource)기능의 존재 또는 부재를 확인하는 하나의 리소스, **WindowsFeature 리소스** 를 호출합니다.
+이 구성은 각 노드 블록에서 [웹 서버](/powershell/scripting/dsc/reference/resources/windows/windowsfeatureresource)기능의 존재 또는 부재를 확인하는 하나의 리소스, **WindowsFeature 리소스** 를 호출합니다.
 
 ## <a name="importing-a-configuration-into-azure-automation"></a>Azure Automation으로 구성 가져오기
 
@@ -94,7 +94,7 @@ ms.locfileid: "72169742"
 ## <a name="compiling-a-configuration-in-azure-automation"></a>Azure Automation에서 구성 컴파일
 
 노드에 원하는 상태를 적용하려면 먼저 해당 상태를 정의하는 DSC 구성을 하나 이상의 노드 구성(MOF 문서)으로 컴파일한 다음 Automation DSC 끌어오기 서버에 배치해야 합니다. Azure Automation 상태 구성에서 구성 컴파일에 대한 자세한 설명은 [Azure Automation 상태 구성에서 구성을 컴파일](automation-dsc-compile.md)을 참조하세요.
-구성 컴파일에 대한 자세한 내용은 [DSC 구성](/powershell/dsc/configurations)을 참조하세요.
+구성 컴파일에 대한 자세한 내용은 [DSC 구성](/powershell/scripting/dsc/configurations/configurations)을 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽에서 **모든 리소스**를 클릭한 다음 Automation 계정의 이름을 클릭합니다.
@@ -195,7 +195,7 @@ Azure Automation 상태 구성이 관리되는 노드에 대한 일관성 검사
 - 노드의 이름, IP 주소 및 구성 모드.
 
 **원시 보고서 보기** 를 클릭하여 노드가 서버에 전송하는 실제 데이터를 확인할 수 있습니다.
-해당 데이터 사용에 대한 자세한 내용은 [DSC 보고서 서버 사용](/powershell/dsc/reportserver)을 참조하세요.
+해당 데이터 사용에 대한 자세한 내용은 [DSC 보고서 서버 사용](/powershell/scripting/dsc/pull-server/reportserver)을 참조하세요.
 
 노드가 온보드된 후 첫 번째 보고서를 사용할 수 있기 전까지 다소 시간이 걸릴 수 있습니다. 노드를 온보드한 후 첫 번째 보고서에 대해 최대 30분을 기다려야 합니다.
 
@@ -233,6 +233,6 @@ Azure Automation DSC에 의해 노드를 더 이상 관리하지 않으려는 �
 
 - [Azure Automation 상태 구성 개요](automation-dsc-overview.md)
 - [Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드](automation-dsc-onboarding.md)
-- [Windows PowerShell 필요한 상태 구성 개요](/powershell/dsc/overview)
+- [Windows PowerShell 필요한 상태 구성 개요](/powershell/scripting/dsc/overview/overview)
 - [Azure Automation 상태 구성 cmdlets](/powershell/module/azurerm.automation/#automation)
 - [Azure Automation 상태 구성 가격 책정](https://azure.microsoft.com/pricing/details/automation/)

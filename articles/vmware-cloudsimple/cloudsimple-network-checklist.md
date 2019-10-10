@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a83112c1555d50976e5a20106b877f5c0099a5f3
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: bfb170036293dc9f519259dc92737f30380aa84a
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178152"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244817"
 ---
 # <a name="networking-prerequisites-for-azure-vmware-solution-by-cloudsimple"></a>CloudSimple의 Azure VMware 솔루션에 대 한 네트워킹 필수 조건
 
@@ -58,6 +58,7 @@ Express 경로를 [통해 온-프레미스 네트워크에서 사설 클라우�
 
 ## <a name="next-steps"></a>다음 단계
 
+* [사설 클라우드에 액세스 하기 위한 온-프레미스 방화벽 설정](on-premises-firewall-configuration.md)
 * [빠른 시작-CloudSimple service 만들기](quickstart-create-cloudsimple-service.md)
 * [빠른 시작-사설 클라우드 구성](quickstart-create-private-cloud.md)
 * [Azure 네트워크 연결](cloudsimple-azure-network-connection.md) 에 대 한 자세한 정보

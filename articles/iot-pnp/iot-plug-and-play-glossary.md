@@ -3,18 +3,18 @@ title: 용어 설명-IoT 플러그 앤 플레이 미리 보기 | Microsoft Docs
 description: 개념-IoT 플러그 앤 플레이 미리 보기와 관련 된 일반적인 용어의 용어입니다.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 08/29/2019
+ms.date: 10/10/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 7b37912c58312644059f3990b4776514e081a4bb
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: a5c9d2d54fcce1179e43c38027db23c3d7e557e8
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858837"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249297"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>IoT 플러그 앤 플레이 미리 보기용 용어 설명
 
@@ -97,6 +97,7 @@ IoT 플러그 앤 플레이 장치 클라이언트 응용 프로그램을 빌드
 
 - 장치 연결 문자열은 iot [플러그 앤 플레이 장치가](#iot-plug-and-play-device) iot hub의 장치 지향 끝점에 연결 하는 데 사용 됩니다. 장치의 클라이언트 코드는 연결 문자열을 사용 하 여 IoT hub와의 보안 연결을 설정 합니다.
 - 연결 문자열 IoT Hub 백 엔드 솔루션 및 도구를 사용 하 여 IoT Hub의 서비스 지향 끝점에 안전 하 게 연결할 수 있습니다. 이러한 솔루션 및 도구는 IoT hub와 연결 된 장치를 관리 합니다.
+- 회사 모델 리포지토리 연결 문자열을 사용 하면 백 엔드 솔루션과 도구를 사용 하 여 [회사 모델 리포지토리에](#company-model-repository)안전 하 게 연결할 수 있습니다. 이러한 솔루션 및 도구는 리포지토리에서 [장치 기능 모델](#device-capability-model) 및 [인터페이스](#interface) 를 사용 하거나 관리 합니다.
 
 ## <a name="device-capability-model"></a>디바이스 기능 모델
 
@@ -114,7 +115,7 @@ IoT 플러그 앤 플레이 장치 클라이언트 응용 프로그램을 빌드
 
 [장치 개발자](#device-developer) 는 디지털 쌍 [정의 언어](#digital-twin-definition-language) 를 사용 하 여 [IoT 플러그 앤 플레이 장치의](#iot-plug-and-play-device)기능을 모델링 합니다. 모델 리포지토리를 사용 하 여 모델을 공유할 수 있습니다. 장치 개발자는 모델에서 기본 장치 코드를 생성할 수 있습니다. [솔루션 개발자](#solution-developer) 는 모델에서 IoT 솔루션을 구성할 수 있습니다.
 
-## <a name="device-provisioning-service"></a>디바이스 프로비전 서비스
+## <a name="device-provisioning-service"></a>Device Provisioning Service
 
 [Azure IoT Central](#azure-iot-central) 는 장치 프로 비전 서비스를 사용 하 여 모든 장치 등록 및 연결을 관리 합니다. 자세한 내용은 [Azure IoT Central에서 장치 연결](../iot-central/concepts-connectivity-pnp.md)을 참조 하세요. 장치 프로 비전 서비스를 사용 하 여 IoT Hub 기반 IoT 솔루션에 대 한 장치 등록 및 연결을 관리할 수도 있습니다. 자세한 내용은 [Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 장치 프로 비전](../iot-dps/about-iot-dps.md)을 참조 하세요.
 

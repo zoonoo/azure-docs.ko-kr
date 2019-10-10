@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8b7b02c164021ac084dccf5663122620b2af1b15
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 662fa342b3a18f726b418c496ff3fda937445301
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972899"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244779"
 ---
 # <a name="vpn-gateways-overview"></a>VPN gateway 개요
 
@@ -63,6 +63,10 @@ VPN gateway를 사용 하면 사설 클라우드의 온-프레미스 서비스�
 | 완벽 한 전달 보안 그룹 (PFS 그룹) | 없음 | 없음 | 없음 |
 | 수명 시간 | 1800 초 | 1800 초 | 1800 초 |
 | 데이터 크기 | 4GB | 4GB | 4GB |
+
+
+> [!IMPORTANT]
+> VPN 장치에서 TCP MSS 고정 (1200)를 설정 합니다. 또는 VPN 장치에서 MSS 고정을 지원 하지 않는 경우 터널 인터페이스의 MTU를 1240 바이트로 설정할 수 있습니다.
 
 ## <a name="point-to-site-vpn-gateway"></a>지점 및 사이트 간 VPN gateway
 

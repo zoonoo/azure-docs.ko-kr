@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.author: v-erkell
-ms.openlocfilehash: be9205fdf7fec0661d7382ed0d1bedf47487b15e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: bcdba7f14147714c5e29c13bfe9e20fa44a27ef9
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409773"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256196"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Avere vFXT 클러스터 관리
 
@@ -21,7 +21,7 @@ ms.locfileid: "60409773"
 
 다음 표에는 각 작업에 사용할 수 있는 도구에 대한 개요가 나와 있습니다. 
 
-| 조치 | Avere 제어판 | vfxt.py  | Azure portal |
+| 작업 | Avere 제어판 | vfxt.py  | Azure Portal |
 | --- | --- | --- | --- |
 | 클러스터 노드 추가 | no | 예 | no |
 | 클러스터 노드 제거 | 예 | no | no |
@@ -36,9 +36,9 @@ ms.locfileid: "60409773"
 
 ## <a name="about-stopped-instances-in-azure"></a>Azure에서 중지된 인스턴스 정보
 
-Azure VM을 종료하거나 중지하면 계산 비용이 발생하지 않지만 스토리지 비용은 계속 지불해야 합니다. vFXT 노드 또는 전체 vFXT 클러스터를 종료하고 다시 시작하지 않으려면 Azure Portal을 사용하여 관련 VM을 삭제해야 합니다. 
+Azure VM을 종료하거나 중지하면 컴퓨팅 비용이 발생하지 않지만 스토리지 비용은 계속 지불해야 합니다. vFXT 노드 또는 전체 vFXT 클러스터를 종료하고 다시 시작하지 않으려면 Azure Portal을 사용하여 관련 VM을 삭제해야 합니다. 
 
-Azure Portal에서 *중지된* 노드(다시 시작할 수 있음)는 Azure Portal에서 **중지됨** 상태를 표시하고, *삭제된* 노드는 **중지됨(할당 취소됨)** 상태를 표시하며, 더 이상 계산 또는 스토리지 요금이 발생되지 않습니다.
+Azure Portal에서 *중지된* 노드(다시 시작할 수 있음)는 Azure Portal에서 **중지됨** 상태를 표시하고, *삭제된* 노드는 **중지됨(할당 취소됨)** 상태를 표시하며, 더 이상 컴퓨팅 또는 스토리지 요금이 발생되지 않습니다.
 
 VM을 삭제하기 전에 Avere 제어판 또는 vfxt.py 옵션을 통해 클러스터를 중지하거나 종료하여 변경된 모든 데이터가 캐시에서 백 엔드 스토리지로 기록되었는지 확인합니다.
 
@@ -98,7 +98,7 @@ Avere 제어판과 마찬가지로, vfxt.py 작업은 클러스터 또는 노드
 * 클러스터에 대한 리소스 그룹 이름 및 클러스터와 동일하지 않은 경우 네트워크 및 스토리지 리소스에 대한 리소스 그룹 이름
 * 클러스터 위치
 * 클러스터 네트워크 및 서브넷 
-* 클러스터 노드 액세스 역할 (기본 제공 역할을 사용 하 여 [Avere 연산자](../role-based-access-control/built-in-roles.md#avere-operator))
+* 클러스터 노드 액세스 역할 (기본 제공 역할 [Avere 연산자](../role-based-access-control/built-in-roles.md#avere-operator)사용)
 * 클러스터 관리 IP 주소 및 관리 암호 
 * 추가할 노드 수(1, 2 또는 3)
 * 노드 인스턴스 유형 및 캐시 크기 값 
@@ -187,7 +187,7 @@ vFXT 노드로 사용되는 하나 이상의 인스턴스를 영구적으로 삭
 
 ### <a name="delete-additional-cluster-resources-from-the-azure-portal"></a>Azure Portal에서 추가 클러스터 리소스 삭제
 
-vFXT 클러스터에 대해 특별히 추가 리소스를 만든 경우 클러스터 분해의 일환으로 해당 리소스를 제거하는 것이 좋습니다. 필요한 데이터를 또는 다른 프로젝트와 공유 되는 모든 항목을 포함 하는 요소를 제거 하지 않습니다.
+vFXT 클러스터에 대해 특별히 추가 리소스를 만든 경우 클러스터 분해의 일환으로 해당 리소스를 제거하는 것이 좋습니다. 필요한 데이터가 포함 된 요소나 다른 프로젝트와 공유 되는 항목을 제거 하지 마십시오.
 
 클러스터 노드를 삭제하는 것 외에도 다음 구성 요소를 제거하는 것이 좋습니다. 
 

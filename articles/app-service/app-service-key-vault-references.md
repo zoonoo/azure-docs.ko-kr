@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: cf4eade598de24e323a8c8647a64921f8797e3a2
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 311a9fc887db399cb16d6cbb2bcec665a7ddfce7
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686745"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240113"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>App Service 및 Azure Functions의 Key Vault 참조 사용(미리 보기)
 
 > [!NOTE] 
-> Key Vault 참조는 현재 미리 보기로 제공됩니다.
+> 현재 Key Vault 참조는 미리 보기 상태 이며, 현재 Linux 소비 계획에서 지원 되지 않습니다.
 
 이 항목에서는 코드 변경 없이도 App Service 또는 Azure Functions 애플리케이션에서 Azure Key Vault의 비밀을 사용하는 방법을 보여 줍니다. [Azure Key Vault](../key-vault/key-vault-overview.md)는 액세스 정책 및 감사 기록에 대한 전체 제어와 함께 중앙 집중식 비밀 관리를 제공하는 서비스입니다.
 

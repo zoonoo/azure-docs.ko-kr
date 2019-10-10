@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
-ms.author: v-erkell
-ms.openlocfilehash: 41065b4ac6bc486e204c2bfd72b78ba8722270c4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: c461b379629927e8f367fad9bfc70b87413f47b7
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409359"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255390"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Avere vFXT 클러스터 탑재  
 
@@ -78,7 +78,7 @@ vserver 경로는 *IP 주소*와 *네임스페이스 접합*에 대한 경로의
 
 클러스터가 Blob Storage와 함께 만들어진 경우 네임스페이스 경로는 `/msazure`입니다.
 
-예제: ``mount 10.0.0.12:/msazure /mnt/vfxt``
+예: ``mount 10.0.0.12:/msazure /mnt/vfxt``
 
 클러스터를 만든 후 스토리지를 추가한 경우 네임스페이스 접합 경로는 접합을 만들 때 **네임스페이스 경로**에 설정한 값에 해당합니다. 예를 들어 ``/avere/files``를 네임스페이스 경로로 사용한 경우 클라이언트에서 *IP_address*:/avere/files를 해당 로컬 탑재 지점에 탑재합니다.
 

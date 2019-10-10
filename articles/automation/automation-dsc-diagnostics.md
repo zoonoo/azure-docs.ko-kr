@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6b7feb1b980054ba224173d5054907879a88cdd5
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5905afdb9832f32e837dc4496e4a951fca41b8b0
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952869"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243542"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Azure Monitor 로그에 Azure Automation 상태 구성 보고 데이터 전달
 
@@ -31,7 +31,7 @@ Azure Monitor 로그를 사용 하 여 다음을 수행할 수 있습니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Monitor 로그에 Automation 상태 구성 보고서 보내기를 시작 하려면 다음이 필요 합니다.
 
@@ -78,7 +78,7 @@ Automation 상태 구성 데이터에 대 한 Azure Monitor 로그와의 통합�
 
 ![로그 검색 단추](media/automation-dsc-diagnostics/log-search-button.png)
 
-**로그 검색** 블레이드가 열리고 각 상태 구성 노드에 대한 **DscNodeStatusData** 작업과 해당 노드에 적용된 노드 구성에서 호출된 각 [DSC 리소스](/powershell/dsc/resources)에 대한 **DscResourceStatusData** 작업이 표시됩니다.
+**로그 검색** 블레이드가 열리고 각 상태 구성 노드에 대한 **DscNodeStatusData** 작업과 해당 노드에 적용된 노드 구성에서 호출된 각 [DSC 리소스](/powershell/scripting/dsc/resources/resources)에 대한 **DscResourceStatusData** 작업이 표시됩니다.
 
 **DscResourceStatusData** 작업에는 실패한 모든 DSC 리소스에 대한 오류 정보가 포함됩니다.
 
@@ -126,7 +126,7 @@ Azure Automation의 진단은 Azure Monitor 로그에 두 범주의 레코드를
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
-| 속성 | Description |
+| 속성 | 설명 |
 | --- | --- |
 | TimeGenerated |준수 확인이 실행된 날짜 및 시간입니다. |
 | OperationName |DscNodeStatusData |
@@ -137,7 +137,7 @@ Azure Automation의 진단은 Azure Monitor 로그에 두 범주의 레코드를
 | ConfigurationMode | 구성이 노드에 적용되는 방식입니다. 사용 가능한 값은 __"ApplyOnly"__ , __"ApplyandMonitior"__ 및 __"ApplyandAutoCorrect"__ 입니다. <ul><li>__ApplyOnly__: DSC는 구성을 적용하며, 새 구성이 대상 노드에 푸시되지 않거나 서버에서 새 구성을 가져올 때 아무 작업도 수행하지 않습니다. 새 구성의 애플리케이션이 초기에 적용된 후 DSC는 이전에 구성된 상태에서 달라졌는지 여부를 확인하지 않습니다. DSC는 __ApplyOnly__가 적용되기 전에 성공할 때까지 구성을 적용하려고 합니다. </li><li> __ApplyAndMonitor__: 기본값입니다. LCM는 새 구성을 적용합니다. 새 구성의 애플리케이션이 초기에 적용된 후 대상 노드가 원하는 상태에서 다른 상태로 바뀌면 DSC는 불일치 상황을 로그에 보고합니다. DSC는 __ApplyAndMonitor__가 적용되기 전에 성공할 때까지 구성을 적용하려고 합니다.</li><li>__ApplyAndAutoCorrect__: DSC는 새 구성을 적용합니다. 새 구성의 애플리케이션이 초기에 적용된 후 대상 노드가 원하는 상태에서 다른 상태로 바뀌면 DSC는 불일치 상황을 로그에 보고하고 현재 구성을 다시 적용합니다.</li></ul> |
 | HostName_s | 관리되는 노드의 이름입니다. |
 | IPAddress | 관리되는 노드의 IPv4 주소입니다. |
-| 범주 | DscNodeStatus |
+| Category | DscNodeStatus |
 | Resource | Azure Automation 계정의 이름입니다. |
 | Tenant_g | 호출자에 대한 테넌트를 식별하는 GUID입니다. |
 | NodeId_g |관리되는 노드를 식별하는 GUID입니다. |
@@ -163,7 +163,7 @@ Azure Automation의 진단은 Azure Monitor 로그에 두 범주의 레코드를
 | OperationName |DscResourceStatusData|
 | ResultType |리소스가 규정을 준수하는지 여부입니다. |
 | NodeName_s |관리되는 노드의 이름입니다. |
-| 범주 | DscNodeStatus |
+| Category | DscNodeStatus |
 | Resource | Azure Automation 계정의 이름입니다. |
 | Tenant_g | 호출자에 대한 테넌트를 식별하는 GUID입니다. |
 | NodeId_g |관리되는 노드를 식별하는 GUID입니다. |

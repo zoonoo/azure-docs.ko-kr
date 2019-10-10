@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 58aa310316a31eb63ca8dd614b60fb4bad73d997
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 3d9c6c9b73f8887d4fdb85da277b2e27d8f5221c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960000"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243559"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Azure Automation 상태 구성에서 DSC 구성 컴파일
 
@@ -124,7 +124,7 @@ PSCredentials을 매개 변수로 전달하는 방법에 대한 정보는 아래
 
 ### <a name="compiling-configurations-in-azure-automation-that-contain-composite-resources"></a>복합 리소스를 포함 하는 Azure Automation에서 구성 컴파일
 
-**복합 리소스**를 사용하면 구성 내에서 중첩된 리소스로 DSC 구성을 사용할 수 있습니다. 이렇게 하면 단일 리소스에 여러 구성을 적용할 수 있습니다. [복합 리소스: DSC 구성을 리소스로 사용](/powershell/dsc/authoringresourcecomposite)에서 **복합 리소스**에 대해 자세히 알아보세요.
+**복합 리소스**를 사용하면 구성 내에서 중첩된 리소스로 DSC 구성을 사용할 수 있습니다. 이렇게 하면 단일 리소스에 여러 구성을 적용할 수 있습니다. [복합 리소스: DSC 구성을 리소스로 사용](/powershell/scripting/dsc/resources/authoringresourcecomposite)에서 **복합 리소스**에 대해 자세히 알아보세요.
 
 > [!NOTE]
 > **복합 리소스** 를 포함 하는 구성이 올바르게 컴파일되도록 하려면 먼저 복합 리소스가 의존 하는 DSC 리소스를에서 Azure Automation로 먼저 가져와야 합니다.

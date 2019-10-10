@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 36465f016eeb066c0e12f6434deb98fd7b10966a
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 599b5b075f32294f9e68c776c4a7744283e9c269
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958748"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244036"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -177,9 +177,11 @@ Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구�
    | mcr.microsoft.com  | 443 | Microsoft 컨테이너 레지스트리 |
    | global.azure-devices-provisioning.net  | 443 | DPS 액세스(선택 사항) |
    | \*.azurecr.io | 443 | 개인 및 타사 컨테이너 레지스트리 |
-   | \*.blob.core.windows.net | 443 | 이미지 델타 다운로드 | 
+   | \*.blob.core.windows.net | 443 | Blob 저장소에서 Azure Container Registry 이미지 델타 다운로드  | 
    | \*.azure-devices.net | 5671, 8883, 443 | IoT Hub 액세스 |
    | \*.docker.io  | 443 | Docker 허브 액세스 (옵션) |
+
+이러한 방화벽 규칙 중 일부는 Azure Container Registry에서 상속 됩니다. 자세한 내용은 [방화벽 뒤에 있는 Azure container registry에 액세스 하는 규칙 구성](../container-registry/container-registry-firewall-access-rules.md)을 참조 하세요.
 
 ### <a name="configure-communication-through-a-proxy"></a>프록시를 통한 통신 구성
 

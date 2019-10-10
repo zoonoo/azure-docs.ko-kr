@@ -8,12 +8,12 @@ ms.date: 07/25/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 8a96c5b2d39967c8ee82f48e880bac9270a58c36
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 3843eb2e906e3fb8d390e509e17117b7849ac220
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844791"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244710"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>AzCopy 구성, 최적화 및 문제 해결
 
@@ -32,7 +32,7 @@ AzCopy에 대 한 프록시 설정을 구성 하려면 `https_proxy` 환경 변�
 
 | 운영 체제 | 명령  |
 |--------|-----------|
-| **Windows** | 명령 프롬프트에서 다음을 사용 합니다.`set https_proxy=<proxy IP>:<proxy port>`<br> PowerShell에서 다음을 사용 합니다.`$env:https_proxy="<proxy IP>:<proxy port>"`|
+| **Windows** | 명령 프롬프트에서 `set https_proxy=<proxy IP>:<proxy port>`을 사용 합니다.<br> PowerShell에서 다음을 사용 합니다. `$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
 | **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
@@ -40,13 +40,13 @@ AzCopy에 대 한 프록시 설정을 구성 하려면 `https_proxy` 환경 변�
 
 ## <a name="optimize-throughput"></a>처리량 최적화
 
-이 `cap-mbps` 플래그를 사용 하 여 처리량 데이터 속도를 최대값으로 지정할 수 있습니다. 예를 들어 다음 명령은 초당 처리량을 메가 `10` 비트 (MB)로 제한 합니다.
+@No__t-0 플래그를 사용 하 여 처리량 데이터 속도를 최대값으로 지정할 수 있습니다. 예를 들어 다음 명령은 @no__t 처리량을 초당-0 메가 비트 (MB)로 제한 합니다.
 
 ```azcopy
 azcopy cap-mbps 10
 ```
 
-작은 파일을 전송할 때 처리량이 줄어들 수 있습니다. 환경 변수를 `AZCOPY_CONCURRENCY_VALUE` 설정 하 여 처리량을 늘릴 수 있습니다. 이 변수는 발생할 수 있는 동시 요청 수를 지정 합니다.  컴퓨터에 5 개 미만의 Cpu가 있는 경우이 변수의 값은로 `32`설정 됩니다. 그렇지 않으면 기본값은 16에 Cpu 수를 곱한 값과 같습니다. 이 변수의 `300`최대 기본값은 이지만이 값을 더 높거나 낮게 수동으로 설정할 수 있습니다.
+작은 파일을 전송할 때 처리량이 줄어들 수 있습니다. @No__t-0 환경 변수를 설정 하 여 처리량을 늘릴 수 있습니다. 이 변수는 발생할 수 있는 동시 요청 수를 지정 합니다.  컴퓨터에 5 개 미만의 Cpu가 있는 경우이 변수의 값은 `32`으로 설정 됩니다. 그렇지 않으면 기본값은 16에 Cpu 수를 곱한 값과 같습니다. 이 변수의 최대 기본값은 0 @no__t 이지만이 값을 더 높거나 낮게 수동으로 설정할 수 있습니다.
 
 | 운영 체제 | 명령  |
 |--------|-----------|
@@ -54,11 +54,11 @@ azcopy cap-mbps 10
 | **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 | **MacOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 
-을 사용 `azcopy env` 하 여이 변수의 현재 값을 확인 합니다.  값이 비어 있으면 변수는 `AZCOPY_CONCURRENCY_VALUE` 의 `300`기본값으로 설정 됩니다.
+이 변수의 현재 값을 확인 하려면 `azcopy env`을 사용 합니다.  값이 비어 있으면 `AZCOPY_CONCURRENCY_VALUE` 변수가 기본값 `300`로 설정 됩니다.
 
 ## <a name="change-the-location-of-the-log-files"></a>로그 파일의 위치 변경
 
-기본적으로 로그 파일은 Windows의 `%USERPROFILE\\.azcopy` 디렉터리 또는 `$HOME\\.azcopy` Mac 및 Linux의 디렉터리에 있습니다. 이러한 명령을 사용 하 여 필요한 경우이 위치를 변경할 수 있습니다.
+기본적으로 로그 파일은 Windows의 `%USERPROFILE%\.azcopy` 디렉터리 또는 Mac 및 Linux의 `$HOME\\.azcopy` 디렉터리에 있습니다. 이러한 명령을 사용 하 여 필요한 경우이 위치를 변경할 수 있습니다.
 
 | 운영 체제 | 명령  |
 |--------|-----------|
@@ -66,28 +66,28 @@ azcopy cap-mbps 10
 | **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
 | **MacOS** | `export AZCOPY_LOG_LOCATION=<value>` |
 
-을 사용 `azcopy env` 하 여이 변수의 현재 값을 확인 합니다. 값이 비어 있으면 로그가 기본 위치에 기록 됩니다.
+이 변수의 현재 값을 확인 하려면 `azcopy env`을 사용 합니다. 값이 비어 있으면 로그가 기본 위치에 기록 됩니다.
 
 ## <a name="change-the-default-log-level"></a>기본 로그 수준 변경
 
-기본적으로 AzCopy 로그 수준은로 `INFO`설정 됩니다. 로그의 자세한 정도를 줄여서 디스크 공간을 절약 하려는 경우 ``--log-level`` 옵션을 사용 하 여이 설정을 덮어씁니다. 
+기본적으로 AzCopy 로그 수준은 `INFO`으로 설정 됩니다. 로그의 자세한 정도를 줄이기 위해 디스크 공간을 절약 하려면 ``--log-level`` 옵션을 사용 하 여이 설정을 덮어씁니다. 
 
-사용 가능한 로그 수준은 `DEBUG`, `INFO`, `WARNING`, `ERROR` ,`PANIC` 및`FATAL`입니다.
+사용 가능한 로그 수준은 `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC` 및 `FATAL`입니다.
 
 ## <a name="troubleshoot-issues"></a>문제 해결
 
 AzCopy는 모든 작업에 대해 로그 및 계획 파일을 만듭니다. 로그를 사용하여 잠재적 문제를 조사하고 해결할 수 있습니다. 
 
-로그에는 실패 상태 (`UPLOADFAILED`, `COPYFAILED`및 `DOWNLOADFAILED`), 전체 경로 및 실패 한 이유가 포함 됩니다.
+로그에는 실패 상태 (`UPLOADFAILED`, `COPYFAILED`, `DOWNLOADFAILED`), 전체 경로 및 오류의 원인이 포함 됩니다.
 
-기본적으로 로그 및 계획 파일은 Windows의 `%USERPROFILE\\.azcopy` 디렉터리 또는 `$HOME\\.azcopy` Mac 및 Linux의 디렉터리에 있습니다.
+기본적으로 로그 및 계획 파일은 Windows의 `%USERPROFILE\\.azcopy` 디렉터리 또는 Mac 및 Linux의 `$HOME\\.azcopy` 디렉터리에 있습니다.
 
 > [!IMPORTANT]
 > Microsoft 지원에 대 한 요청을 제출 하거나, 타사와 관련 된 문제를 해결 하는 경우 실행 하려는 명령의 교정 된 버전을 공유 합니다. 이렇게 하면 SAS를 실수로 공유 하지 않습니다. 수정 버전은 로그 파일의 시작 부분에서 찾을 수 있습니다.
 
 ### <a name="review-the-logs-for-errors"></a>오류에 대한 로그 검토
 
-다음 명령을 사용 `UPLOADFAILED` 하 여 `04dc9ca9-158f-7945-5933-564021086c79` 로그에서 상태의 모든 오류를 가져옵니다.
+다음 명령은 `04dc9ca9-158f-7945-5933-564021086c79` 로그에서 `UPLOADFAILED` 상태의 모든 오류를 가져옵니다.
 
 **Windows (PowerShell)**
 

@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4e07274f7abf87360c054edd3fe0ade1c09907a7
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: eeaa709b88ca795d906fe3688301b4cd7d8c726e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178593"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244124"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Express 경로 직접 포트에서 MACsec 구성
 
@@ -130,6 +130,9 @@ Set-AzExpressRoutePort -ExpressRoutePort $erDirect
 ```
 
 이 시점에서 MACsec은 Microsoft 쪽의 Express 경로 직접 포트에서 사용 하지 않도록 설정 됩니다.
+
+### <a name="test-connectivity"></a>연결 테스트
+Express 경로 직접 포트에서 MACsec (MACsec 키 업데이트 포함)을 구성한 후 회로의 BGP 세션이 실행 중인지 [확인](expressroute-troubleshooting-expressroute-overview.md) 합니다. 포트에 아직 회로가 없으면 먼저 만든 후 회로의 Microsoft 피어 링 또는 Azure 개인 피어 링을 설정 하세요. Macsec 키 불일치를 포함 하 여 macsec이 잘못 구성 된 경우, 네트워크 장치와 Microsoft 네트워크 장치 간에는 계층 2의 ARP 해상도와 계층 3의 BGP 설정이 표시 되지 않습니다. 모든 항목이 올바르게 구성 된 경우 BGP 경로를 양방향으로 올바르게 보급 했 고 응용 프로그램 데이터가 Express 경로를 통해 적절 하 게 전달 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 1. [Express 경로 직접에서 Express 경로 회로 만들기](expressroute-howto-erdirect.md)

@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 967a4542b3910b563dc30bde674e12fffdd12f48
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 685b6bda09026e64154590afd66bdfbec43b8b1e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559418"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243538"
 ---
 # <a name="configuration-based-on-stig"></a>STIG 기반 구성
 
@@ -36,7 +36,7 @@ ms.locfileid: "69559418"
 많은 조직에서 규칙에 대 한 [예외를 문서화](https://github.com/microsoft/powerstig#powerstigdata) 하 고 대규모로 해당 데이터를 관리 해야 합니다.
 PowerSTIG는 단일 파일에서 전체 설정 범위를 처리 하지 않고 구성의 각 영역을 처리 하는 [복합 리소스](https://github.com/microsoft/powerstig#powerstigdsc) 를 제공 하 여 문제를 해결 합니다.
 
-구성이 생성 된 후에는 [DSC 구성 스크립트](/powershell/dsc/configurations) 를 사용 하 여 mof 파일을 생성 하 고 [Azure Automation에 mof 파일을 업로드할](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)수 있습니다.
+구성이 생성 된 후에는 [DSC 구성 스크립트](/powershell/scripting/dsc/configurations/configurations) 를 사용 하 여 mof 파일을 생성 하 고 [Azure Automation에 mof 파일을 업로드할](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)수 있습니다.
 그런 다음 [온-프레미스](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) 또는 [Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) 에서 서버를 등록 하 여 구성을 가져옵니다.
 
 PowerSTIG를 사용해 보려면 [PowerShell 갤러리](http://www.powershellgallery.com) 를 방문 하 여 솔루션을 다운로드 하거나 "프로젝트 사이트"를 클릭 하 여 [설명서](https://github.com/microsoft/powerstig)를 확인 하세요.
