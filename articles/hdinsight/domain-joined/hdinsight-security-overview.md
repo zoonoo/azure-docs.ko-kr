@@ -30,13 +30,13 @@ Azure HDInsight는 엔터프라이즈 보안 요구 사항을 처리할 수 있�
 
 HDInsight의 경계 보안은 [가상 네트워크](../hdinsight-plan-virtual-network-deployment.md)를 통해 달성됩니다. 엔터프라이즈 관리자는 클러스터를 VNET(가상 네트워크) 내에 만들고, NSG(네트워크 보안 그룹)를 사용하여 VNET에 대한 액세스를 제한할 수 있습니다. 인바운드 NSG 규칙에 허용된 IP 주소만 HDInsight 클러스터와 통신할 수 있습니다. 이 구성은 경계 보안을 제공합니다.
 
-또한 VNET에 배포된 모든 클러스터에는 클러스터 게이트웨이에 대한 프라이빗 HTTP 액세스를 위해 VNET 내부의 개인 IP로 확인되는 프라이빗 엔드포인트가 있습니다.
+또한 VNET에 배포된 모든 클러스터에는 클러스터 게이트웨이에 대한 프라이빗 HTTP 액세스를 위해 VNET 내부의 개인 IP로 확인되는 프라이빗 끝점이 있습니다.
 
 ### <a name="authentication"></a>인증
 
 HDInsight의 [Enterprise Security Package](apache-domain-joined-architecture.md)는 Active Directory 기반 인증, 다중 사용자 지원 및 역할 기반 액세스 제어를 제공합니다. Active Directory 통합은 [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)를 사용하여 이루어집니다. 이러한 기능을 사용하면 관리형 Active Directory 도메인에 조인된 HDInsight 클러스터를 만들 수 있습니다. 그런 다음, 클러스터에서 인증하고 로그인할 수 있는 엔터프라이즈의 직원 목록을 구성할 수 있습니다.
 
-이 설정을 통해 기업 직원은 해당 도메인 자격 증명을 사용하여 클러스터 노드에 로그인할 수 있습니다. 또한 클러스터와의 상호 작용하기 위해 해당 도메인 자격 증명을 사용하여 Apache Ambari 뷰, ODBC, JDBC, PowerShell 및 REST API 등의 다른 승인된 엔드포인트로 인증할 수도 있습니다. 
+이 설정을 통해 기업 직원은 해당 도메인 자격 증명을 사용하여 클러스터 노드에 로그인할 수 있습니다. 또한 클러스터와의 상호 작용하기 위해 해당 도메인 자격 증명을 사용하여 Apache Ambari 뷰, ODBC, JDBC, PowerShell 및 REST API 등의 다른 승인된 끝점으로 인증할 수도 있습니다. 
 
 ### <a name="authorization"></a>권한 부여
 
@@ -50,7 +50,7 @@ Hadoop 관리자는 Apache Ranger의 플러그인을 사용하여 Apache [Hive](
 
 클러스터 리소스에 대한 모든 액세스를 감사하는 작업은 리소스의 무단 또는 실수로 실행된 액세스를 추적하는 데 필요합니다. 권한 없는 사용자로부터 HDInsight 클러스터 리소스를 보호하고 데이터를 보호하는 것만큼 중요합니다.
 
-관리자는 HDInsight 클러스터 리소스 및 데이터에 대한 모든 액세스를 확인하고 보고할 수 있습니다. 관리자는 Apache Ranger가 지원되는 엔드포인트에서 만들어진 액세스 제어 정책에 대한 모든 변경 내용을 확인하고 보고할 수도 있습니다. 
+관리자는 HDInsight 클러스터 리소스 및 데이터에 대한 모든 액세스를 확인하고 보고할 수 있습니다. 관리자는 Apache Ranger가 지원되는 끝점에서 만들어진 액세스 제어 정책에 대한 모든 변경 내용을 확인하고 보고할 수도 있습니다. 
 
 Apache Ranger 및 Ambari 감사 로그와 ssh 액세스 로그에 액세스하려면 [Azure Monitor를 사용하도록 설정](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing)하고 감사 레코드를 제공하는 테이블을 살펴봅니다.
 
@@ -73,7 +73,7 @@ HDInsight 클러스터용 데이터 저장소(Azure Blob 스토리지 및 Azure 
 | 데이터 액세스 보안 | Azure Data Lake Storage Gen1 및 Gen2에 대한 [ACL(액세스 제어 목록)](../../storage/blobs/data-lake-storage-access-control.md) 구성  | 고객 |
 |  | 스토리지 계정에서 ["보안 전송 필요"](../../storage/common/storage-require-secure-transfer.md) 속성을 사용하도록 설정 | 고객 |
 |  | [Azure Storage 방화벽](../../storage/common/storage-network-security.md) 및 가상 네트워크 구성 | 고객 |
-|  | Cosmos DB 및 [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)에 대해 [Azure 가상 네트워크 서비스 엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 구성 | 고객 |
+|  | Cosmos DB 및 [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)에 대해 [Azure 가상 네트워크 서비스 끝점](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 구성 | 고객 |
 |  | 전송 중인 데이터에 [TLS 암호화](../../storage/common/storage-security-tls.md)를 사용하도록 설정 | 고객 |
 |  | Azure Storage 암호화용 [고객 관리형 키](../../storage/common/storage-encryption-keys-portal.md) 구성 | 고객 |
 | 애플리케이션 및 미들웨어 보안 | AAD-DS와 통합 및 [인증 구성](apache-domain-joined-configure-using-azure-adds.md) | 고객 |
