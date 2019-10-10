@@ -1,17 +1,17 @@
 ---
 title: Azure 데이터 공유 미리 보기에서 받는 사람 추가
-description: 기존 데이터 공유에 받는 사람 추가
+description: Azure 데이터 공유 미리 보기에서 기존 데이터 공유에 받는 사람을 추가 하는 방법에 대해 알아봅니다.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: e496f67616f7ebcf4c086c8d01680b95f9cafcf8
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 1deda63f7f440116eaf47c41fa00c8b5f7566dcf
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71320312"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169180"
 ---
 # <a name="how-to-add-a-recipient-to-an-existing-data-share-in-azure-data-share-preview"></a>Azure 데이터 공유 미리 보기에서 기존 데이터 공유에 받는 사람을 추가 하는 방법
 

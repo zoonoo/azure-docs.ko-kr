@@ -1,23 +1,26 @@
 ---
-title: 소스 코드에서 스프링 클라우드 응용 프로그램 시작
+title: '빠른 시작: 소스 코드에서 스프링 클라우드 응용 프로그램 시작'
 description: 소스 코드에서 직접 Azure 스프링 클라우드 응용 프로그램을 시작 하는 방법을 알아봅니다.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 9/27/2019
 ms.author: jeconnoc
-ms.openlocfilehash: a161b38ab6d23ad86df1ef7e843640276ba486bf
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: 445cac1494828362d54a8c15e68d27f01b165841
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038809"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170526"
 ---
 # <a name="launch-your-spring-cloud-application-from-source-code"></a>소스 코드에서 스프링 클라우드 응용 프로그램 시작
 
 Azure 스프링 클라우드를 사용 하면 java 소스 코드나 미리 작성 된 JAR에서 직접 응용 프로그램을 시작할 수 있습니다. 이 문서에서는 필요한 단계를 안내 합니다.
 
-## <a name="initial-requirements"></a>초기 요구 사항
+## <a name="prerequisites"></a>사전 요구 사항
+
+>[!Note]
+> 이 빠른 시작을 시작 하기 전에 Azure 구독에서 Azure 스프링 클라우드에 액세스할 수 있는지 확인 합니다.  미리 보기 서비스로 구독을 허용 목록에 추가할 수 있도록 사용자에 게 연락 하도록 요청 합니다.  Azure 스프링 클라우드의 기능을 탐색 하려면이 양식 @ no__t-1을 입력 @no__t 하세요.
 
 시작 하기 전에 Azure 구독에 필요한 종속성이 있는지 확인 합니다.
 

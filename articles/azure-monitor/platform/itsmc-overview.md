@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 31d9307d23d308192b362d9570911c86a7dd8372
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: eb9d803bcc9667c26acecbfd098a3022b7421478
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051842"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177659"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -83,7 +83,7 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 
 연결을 만들려면 ITSM 커넥터 솔루션과의 연결을 허용하도록 ITSM 도구를 준비해야 합니다.  
 
-연결하려는 ITSM 제품에 따라 다음 단계를 사용합니다.
+연결 하려는 ITSM 제품에 따라 다음 단계를 사용 합니다.
 
 - [SCSM(System Center Service Manager)](../../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
 - [ServiceNow](../../azure-monitor/platform/itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
@@ -188,14 +188,14 @@ ServiceDeskWorkItemType_s="Incident"
 - State
 - 긴급도
 - 영향
-- Priority
+- 우선 순위
 - 에스컬레이션
 - 만든 사람
 - 해결한 사람
 - 종결한 사람
-- Source
+- 원본
 - 할당 대상
-- 범주
+- Category
 - 제목
 - 설명
 - 만든 날짜
@@ -211,52 +211,52 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 **필드**
 - ServiceDeskConnectionName
-- 서비스 창구 ID
+- 서비스 데스크 ID
 - 만든 사람
 - 종결한 사람
-- Source
+- 원본
 - 할당 대상
 - 제목
 - 형식
-- 범주
+- Category
 - 시스템 상태
 - 에스컬레이션
 - 충돌 상태
 - 긴급도
-- Priority
+- 우선 순위
 - 위험
 - 영향
 - 할당 대상
 - 만든 날짜
 - 종결한 날짜
-- 마지막 수정 날짜
+- 마지막으로 수정한 날짜
 - 요청한 날짜
 - 예상된 시작 날짜
 - 예상된 종료 날짜
 - 작업 시작 날짜
 - 작업 종료 날짜
-- Description
+- 설명
 - Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>ServiceNow 인시던트에 대한 출력 데이터
 
 | Log Analytics 필드 | ServiceNow 필드 |
 |:--- |:--- |
-| ServiceDeskId_s| 숫자 |
+| ServiceDeskId_s| Number |
 | IncidentState_s | State |
 | Urgency_s |긴급도 |
 | Impact_s |영향|
-| Priority_s | Priority |
+| Priority_s | 우선 순위 |
 | CreatedBy_s | 보고자 |
 | ResolvedBy_s | 해결한 사람|
 | ClosedBy_s  | 종결한 사람 |
 | Source_s| 연락처 유형 |
 | AssignedTo_s | 할당 대상  |
-| Category_s | 범주 |
+| Category_s | Category |
 | Title_s|  간단한 설명 |
 | Description_s|  참고 |
 | CreatedDate_t|  열림 |
-| ClosedDate_t| 닫힘|
+| ClosedDate_t| closed|
 | ResolvedDate_t|해결됨|
 | Computer  | 구성 항목 |
 
@@ -264,16 +264,16 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 | Log Analytics | ServiceNow 필드 |
 |:--- |:--- |
-| ServiceDeskId_s| 숫자 |
+| ServiceDeskId_s| Number |
 | CreatedBy_s | 요청자 |
 | ClosedBy_s | 종결한 사람 |
 | AssignedTo_s | 할당 대상  |
 | Title_s|  간단한 설명 |
 | Type_s|  형식 |
-| Category_s|  범주 |
+| Category_s|  Category |
 | CRState_s|  State|
 | Urgency_s|  긴급도 |
-| Priority_s| Priority|
+| Priority_s| 우선 순위|
 | Risk_s| 위험|
 | Impact_s| 영향|
 | RequestedDate_t  | 요청한 날짜 |
@@ -282,7 +282,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   예상된 종료 날짜 |
 | WorkStartDate_t  | 실제 시작 날짜 |
 | WorkEndDate_t | 실제 종료 날짜|
-| Description_s | Description |
+| Description_s | 설명 |
 | Computer  | 구성 항목 |
 
 
@@ -305,7 +305,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 3.  Service Bus Relay 네임스페이스 만들기에 실패한 경우 구독에 필요한 리소스 공급자가 등록되어 있는지 확인합니다. 등록되지 않은 경우 Azure Portal에서 수동으로 서비스 버스 릴레이 네임스페이스를 만듭니다. Azure Portal에서 [하이브리드 연결을 만드는](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) 동안 만들 수도 있습니다.
 
 
-## <a name="contact-us"></a>문의
+## <a name="contact-us"></a>문의처
 
 IT Service Management Connector에 대해 질문이나 의견이 있는 경우 [omsitsmfeedback@microsoft.com ](mailto:omsitsmfeedback@microsoft.com)으로 문의하세요.
 

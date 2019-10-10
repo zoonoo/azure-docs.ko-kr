@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: ffc245402965cdcd62bb210d79bd95db5444f964
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: ba2288ecebbeda97b3cd9c24ae930be6af193ab8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954632"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177727"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 규모에 맞게 모니터링
 
@@ -236,7 +236,7 @@ Log Analytics의 모든 경고 및 모니터링 요구 사항을 충족 하거�
 1. **새 경고 규칙** 을 선택 하 여 **규칙 만들기** 페이지를 엽니다. 
 1. [Azure Monitor를 사용 하 여 활동 로그 경고 만들기, 보기 및 관리](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)의 단계를 수행 하 여 경고를 만듭니다.
 
-   ![새로운 경고 규칙](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
+   ![새 경고 규칙](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
 여기서 리소스는 Recovery Services 자격 증명 모음 자체입니다. 활동 로그를 통해 알림이 받으려는 모든 자격 증명 모음에 대해 동일한 단계를 반복 합니다. 이 경고는 이벤트를 기반으로 하기 때문에 조건에는 임계값, 기간 또는 빈도가 없습니다. 관련 활동 로그가 생성 되는 즉시 경고가 발생 합니다.
 
@@ -247,7 +247,7 @@ Log Analytics의 모든 경고 및 모니터링 요구 사항을 충족 하거�
 활동 로그를 통해 알림을 받을 수는 있지만, 대규모로 모니터링 하기 위해 활동 로그가 아닌 Log Analytics를 사용 하는 것이 좋습니다. 이유는 다음과 같습니다.
 
 - **제한 된 시나리오**: 활동 로그를 통한 알림은 Azure VM 백업에만 적용 됩니다. 모든 Recovery Services 자격 증명 모음에 대해 알림을 설정 해야 합니다.
-- **정의 맞춤**: 예약 된 백업 작업은 활동 로그의 최신 정의와 일치 하지 않습니다. 대신 [진단 로그](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs)에 맞춥니다. 이 맞춤은 활동 로그 채널을 통해 흐르는 데이터가 변경 될 때 예기치 않은 효과를 발생 시킵니다.
+- **정의 맞춤**: 예약 된 백업 작업은 활동 로그의 최신 정의와 일치 하지 않습니다. 대신 [진단 로그](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-resource-logs-in-a-workspace)에 맞춥니다. 이 맞춤은 활동 로그 채널을 통해 흐르는 데이터가 변경 될 때 예기치 않은 효과를 발생 시킵니다.
 - **활동 로그 채널 문제**: Recovery Services 자격 증명 모음에서 Azure Backup 펌프 활동 로그는 새 모델을 따릅니다. 아쉽게도이 변경 내용은 Azure Government, Azure 독일 및 Azure 중국 21Vianet에서 활동 로그를 생성 하는 것에 영향을 줍니다. 이러한 클라우드 서비스 사용자가 Azure Monitor의 활동 로그에서 경고를 만들거나 구성 하는 경우 경고가 트리거되지 않습니다. 또한 모든 Azure 공용 지역에서 사용자가 [Recovery Services 활동 로그를 Log Analytics 작업 영역으로 수집](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs)하면 이러한 로그가 표시 되지 않습니다.
 
 Log Analytics 작업 영역을 사용 하 여 Azure Backup으로 보호 되는 모든 작업에 대해 대규모로 모니터링 하 고 경고 합니다.

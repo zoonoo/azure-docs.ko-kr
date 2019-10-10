@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 15724adfc6eb875f3d2d5b6d3ecbbb54135a7265
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 90ccc89f80da7c2abce324c077f0fb1a436b8d44
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671419"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72171024"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Azure의 가상 머신에서 인프라 자동화 도구 사용
 Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리하려면 일종의 자동화가 필요합니다. 완벽한 Azure 인프라 배포 및 관리 수명 주기를 자동화할 수 있는 다양한 도구와 솔루션이 있습니다. 이 문서에서는 Azure에서 사용할 수 있는 인프라 자동화 도구 중 일부를 소개합니다. 이러한 도구는 일반적으로 다음 방법 중 하나에 적합합니다.
@@ -64,15 +64,15 @@ Azure Marketplace에서 cloud-init 활성화 이미지를 사용할 수 있도�
 
 
 ## <a name="powershell-dsc"></a>PowerShell DSC
-[PowerShell DSC(Desired State Configuration)](https://msdn.microsoft.com/powershell/dsc/overview)는 대상 컴퓨터의 구성을 정의하는 관리 플랫폼입니다. 또한 DSC는 [OMI(Open Management Infrastructure) 서버](https://collaboration.opengroup.org/omi/)를 통해 Linux에서 사용할 수 있습니다.
+[PowerShell DSC(Desired State Configuration)](/powershell/scripting/dsc/overview/overview)는 대상 컴퓨터의 구성을 정의하는 관리 플랫폼입니다. 또한 DSC는 [OMI(Open Management Infrastructure) 서버](https://collaboration.opengroup.org/omi/)를 통해 Linux에서 사용할 수 있습니다.
 
 DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법을 정의합니다. LCM(로컬 구성 관리자) 엔진은 푸시된 구성에 따라 요청된 작업을 처리하는 각 대상 노드에서 실행됩니다. 풀 서버는 중앙 호스트에서 실행되어 DSC 구성 및 관련 리소스를 저장하는 웹 서비스이며, 각 대상 호스트의 LCM 엔진과 통신하여 필요한 구성을 제공하고 준수 여부를 보고합니다.
 
 방법 배우기:
 
 - [기본 DSC 구성 만들기](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart)
-- [DSC 풀 서버 구성](https://msdn.microsoft.com/powershell/dsc/pullserver)
-- [Linux용 DSC 사용](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted)
+- [DSC 풀 서버 구성](/powershell/scripting/dsc/pull-server/pullserver)
+- [Linux용 DSC 사용](/powershell/scripting/dsc/getting-started/lnxgettingstarted)
 
 
 ## <a name="azure-custom-script-extension"></a>Azure 사용자 지정 스크립트 확장

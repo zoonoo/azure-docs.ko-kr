@@ -5,96 +5,137 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: 9a64c6e476910ab4fe983fa949680f05fdded3ae
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 030ea87018e1a2d438e3e4d728af76e429efda08
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70161852"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169011"
 ---
-# <a name="azure-iot-sdks-platform-support"></a>Azure IoT SDK 플랫폼 지원
+# <a name="azure-iot-device-sdks-platform-support"></a>Azure IoT 장치 Sdk 플랫폼 지원
 
-[Azure IoT SDK](iot-hub-devguide-sdks.md)는 광범위한 언어 및 플랫폼 지원을 통해 IoT Hub 및 Device Provisioning Service와 상호 작용하는 라이브러리 집합입니다. SDK는 가장 일반적인 플랫폼에서 실행되며, 개발자는 [이식 지침](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)에 따라 C SDK를 특정 플랫폼에 이식할 수 있습니다. 
+Microsoft는 Azure IoT Hub 지원 장치의 universe를 지속적으로 확장 하기 위해 노력 하 고 있습니다. Microsoft는 GitHub에 오픈 소스 장치 Sdk를 게시 하 여 장치를 Azure IoT Hub 및 장치 프로 비전 서비스에 연결할 수 있도록 지원 합니다. 장치 Sdk는 C, .NET (C#), Java, Node.js 및 Python에 사용할 수 있습니다. Microsoft는 각 SDK를 테스트 하 여 [Microsoft sdk 및 장치 플랫폼 지원](#microsoft-sdks-and-device-platform-support) 섹션에서 설명 하는 지원 되는 구성에서 실행 되는지 확인 합니다.
 
-Microsoft는 다양한 운영 체제/플랫폼/프레임워크를 지원하며, Azure IoT C SDK를 사용하여 확장할 수 있습니다. 일부는 팀에서 공식적으로 지원하며, 사용자에게 필요한 지원 수준을 나타내는 계층으로 그룹화됩니다. *완벽하게 지원되는 플랫폼*은 Microsoft에서 다음을 보장한다는 것을 의미합니다.
+장치 Sdk 외에도 Microsoft는 고객과 개발자가 자신의 장치를 Azure IoT에 연결할 수 있는 몇 가지 다른 수단을 제공 합니다.
 
-- 마스터 및 LTS 지원 버전에 대한 엔드투엔드 테스트를 지속적으로 빌드하고 실행합니다.  다양한 버전 간에 테스트 범위를 제공하기 위해 일반적으로 최신 LTS 버전과 가장 인기 있는 버전을 테스트합니다.  동일한 플랫폼의 다른 버전은 플랫폼 버전 호환성을 통해 지원될 수 있습니다.
-- 해당되는 경우 설치 지침 또는 패키지를 제공합니다.
-- GitHub에서 플랫폼을 완전히 지원합니다.
+* Microsoft는 다양 한 파트너 회사와 협업 하 여 해당 하드웨어 플랫폼용 Azure IoT C SDK에 따라 개발 키트를 게시할 수 있도록 지원 합니다.
 
-또한 파트너 목록을 통해 C SDK를 더 많은 플랫폼에 이식했으며 PAL(플랫폼 추상화 계층)을 유지 관리하고 있습니다. [IoT용 Azure Certified 디바이스 카탈로그](https://catalog.azureiotsolutions.com/)에는 다양한 SDK가 테스트된 OS 플랫폼 목록도 있습니다. 또한 SDK는 제한된 테스트 및 지원을 통해 다음 플랫폼에서 정기적으로 구축됩니다.
+* Microsoft는 Microsoft 신뢰할 수 있는 파트너와 협력 하 여 Azure IoT에 대해 테스트 되 고 인증 된 장치 집합을 지속적으로 제공 합니다. 이러한 장치의 최신 목록은 [Azure IoT 장치 카탈로그에 대 한 인증](https://catalog.azureiotsolutions.com/)을 참조 하세요.
 
-* MBED2
-* Arduino
-* Windows CE 2013(2018년 10월 사용 중단)
-* .NET Standard 1.3(.NET Core 2.1 및 .NET Framework 4.7 포함)
-* Xamarin iOS, Android, UWP
+* Microsoft는 개발자가 SDK를 플랫폼으로 쉽게 이식할 수 있도록 하는 Azure IoT Hub 장치 C SDK에서 PAL (플랫폼 추상화 계층)을 제공 합니다. 자세히 알아보려면 [C SDK 포팅 지침](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)을 참조 하세요.
 
-## <a name="supported-platforms"></a>지원 플랫폼
+이 항목에서는 Microsoft Sdk 및 Microsoft Sdk에서 지 원하는 플랫폼 구성과 위에 나열 된 다른 옵션에 대 한 정보를 제공 합니다.
 
-다양한 플랫폼이 지원됩니다.
+## <a name="microsoft-sdks-and-device-platform-support"></a>Microsoft Sdk 및 장치 플랫폼 지원
+
+Microsoft는 GitHub에서 다음 언어에 대 한 오픈 소스 Sdk를 게시 합니다. C, .NET (C#), Node.js, Java 및 Python이 있습니다. 이 섹션에는 Sdk 및 해당 종속성이 나열 되어 있습니다. Sdk는 이러한 종속성을 충족 하는 모든 장치 플랫폼에서 지원 됩니다.
+
+나열 된 각 Sdk에 대해 Microsoft:
+
+* 는 널리 사용 되는 여러 플랫폼에서 GitHub에 있는 관련 SDK의 마스터 분기에 대 한 종단 간 테스트를 지속적으로 빌드하고 실행 합니다.  여러 컴파일러 버전에서 테스트 검사를 제공 하기 위해 일반적으로 최신 LTS 버전 및 가장 인기 있는 버전을 테스트 합니다.
+
+* 해당 하는 경우 설치 지침 또는 설치 패키지를 제공 합니다.
+
+* 는 오픈 소스 코드, 고객 기여 경로 및 GitHub 문제를 포함 한 제품 팀 참여를 포함 하는 GitHub에서 Sdk를 완벽 하 게 지원 합니다.
 
 ### <a name="c-sdk"></a>C SDK
 
-| OS                  | 아키텍처 | 컴파일러             | TLS 라이브러리       |
-|---------------------|------|----------------------|-------------------|
-| Ubuntu 16.04 LTS    | X64  | gcc-5.4.0            | openssl - 1.0.2g |
-| Ubuntu 18.04 LTS    | X64  | gcc-7.3              | WolfSSL – 1.13    |
-| Ubuntu 18.04 LTS    | X64  | Clang 6.0.X          | Openssl – 1.1.0g  |
-| OSX 10.13.4         | x64  | XCode 9.4.1          | 네이티브 OSX        |
-| Windows Server 2016 | X64  | Visual Studio 14.0.X | SChannel          |
-| Windows Server 2016 | x86  | Visual Studio 14.0.X | SChannel          |
-| Debian 9 Stretch    | x64  | gcc-7.3              | Openssl – 1.1.0f  |
+[Azure IoT Hub C 장치 SDK](https://github.com/Azure/azure-iot-sdk-c) 는로 테스트 되 고 다음과 같은 구성을 지원 합니다.
+
+| OS                  | TLS 라이브러리                  | 추가 요구 사항                                                                     |
+|---------------------|------------------------------|---------------------------------------------------------------------------------------------|
+| Linux               | OpenSSL, WolfSSL 또는 BearSSL | Berkeley 소켓</br></br>POSIX (이식 가능한 운영 체제 인터페이스)                       |
+| iOS 12.2            | OpenSSL 또는 네이티브 OSX        | OSX 10.13.4에서 에뮬레이트된 XCode                                                               |
+| Windows 10 제품군   | SChannel                     |                                                                                             |
+| Mbed OS 5.4         | Mbed TLS 2                   | [MXChip IoT dev kit](https://microsoft.github.io/azure-iot-developer-kit/)                  |
+| Azure Sphere OS     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/en-us/services/azure-sphere/get-started/) |
 
 ### <a name="python-sdk"></a>Python SDK
 
-| OS                  | 아키텍처 | 컴파일러   | TLS 라이브러리 |
-|---------------------|------|------------|-------------|
-| Windows Server 2016 | x86  | Python 2.7 | openssl     |
-| Windows Server 2016 | X64  | Python 2.7 | openssl     |
-| Windows Server 2016 | x86  | Python 3.5 | openssl     |
-| Windows Server 2016 | X64  | Python 3.5 | openssl     |
-| Ubuntu 18.04 LTS    | x86  | Python 2.7 | openssl     |
-| Ubuntu 18.04 LTS    | x86  | Python 3.4 | openssl     |
-| MacOS High Sierra   | X64  | Python 2.7 | openssl     |
+[Azure IoT Hub Python 장치 SDK](https://github.com/Azure/azure-iot-sdk-python) 는를 사용 하 여 테스트 하 고 다음 구성을 지원 합니다.
+
+| OS                  | 컴파일러                       |
+|---------------------|--------------------------------|
+| Linux               | Python 2.7, 3.4, 3.5, 3.6, 3.7 |
+| MacOS High Sierra   | Python 2.7, 3.4, 3.5, 3.6, 3.7 |
+| Windows 10 제품군   | Python 2.7, 3.4, 3.5, 3.6, 3.7 |
 
 ### <a name="net-sdk"></a>.NET SDK
 
-| OS                  | 아키텍처 | 프레임워크            | 표준          |
-|---------------------|------|----------------------|-------------------|
-| Ubuntu 16.04 LTS    | X64  | .NET Core 2.1        | .NET Standard 2.0 |
-| Windows Server 2016 | X64  | .NET Core 2.1        | .NET Standard 2.0 |
-| Windows Server 2016 | X64  | .NET Framework 4.7   | .NET Standard 2.0 |
-| Windows Server 2016 | X64  | .NET Framework 4.5.1 | 해당 사항 없음               |
+[Azure IoT Hub .net (C#) 장치 SDK](https://github.com/Azure/azure-iot-sdk-csharp) 는로 테스트 되 고 다음과 같은 구성을 지원 합니다.
+
+| OS                                   | Standard                                                   |
+|--------------------------------------|------------------------------------------------------------|
+| Linux                                | .NET Core 2.1                                              |
+| Windows 10 Desktop 및 Server Sku   | .NET Core 2.1, .NET Framework 4.5.1 또는 .NET Framework 4.7 |
 
 ### <a name="nodejs-sdk"></a>Node.js SDK
 
-| OS                                           | 아키텍처 | 노드 버전    |
-|----------------------------------------------|------|-----------------|
-| Ubuntu 16.04 LTS(Node 6 Docker 이미지 사용) | X64  | LTS 및 Current |
-| Windows Server 2016                          | X64  | LTS 및 Current |
+[Azure IoT Hub node.js 장치 SDK](https://github.com/Azure/azure-iot-sdk-node) 는를 사용 하 여 테스트 하 고 다음 구성을 지원 합니다.
+
+| OS                  | 노드 버전    |
+|---------------------|-----------------|
+| Linux               | LTS 및 Current |
+| Windows 10 제품군   | LTS 및 Current |
 
 ### <a name="java-sdk"></a>Java SDK
 
-| OS                  | 아키텍처 | Java 버전 |
-|---------------------|------|--------------|
-| Ubuntu 16.04 LTS    | X64  | Java 8       |
-| Windows Server 2016 | X64  | Java 8       |
-| Android API 28 | X64  | Java 8       |
-| Android 사물 | X64  | Java 8      |
+[Azure IoT Hub Java 장치 SDK](https://github.com/Azure/azure-iot-sdk-java) 는를 사용 하 여 테스트 하 고 다음 구성을 지원 합니다.
 
-## <a name="partner-supported-platforms"></a>파트너 지원 플랫폼
+| OS                     | Java 버전 |
+|------------------------|--------------|
+| Android API 28         | Java 8       |
+| Linux x64             | Java 8       |
+| Windows 10 제품군 x64  | Java 8       |
 
-고객은 Azure IoT C SDK를 이식하여, 특히 SDK의 PAL(플랫폼 추상화 계층)을 만들어서 플랫폼 지원을 확장할 수 있습니다. Microsoft는 파트너와 협력하여 확장된 지원을 제공합니다. 파트너 목록은 C SDK를 더 많은 플랫폼에 이식하고 PAL을 유지 관리합니다.
+## <a name="partner-supported-development-kits"></a>파트너 지원 개발 키트
+
+Microsoft는 다양 한 파트너와 협력 하 여 여러 마이크로프로세서 아키텍처에 대 한 개발 키트를 제공 합니다. 이러한 파트너는 Azure IoT C SDK를 플랫폼으로 이식 했습니다. 파트너는 SDK의 PAL (플랫폼 추상화 계층)을 만들고 유지 관리 합니다. Microsoft는 이러한 파트너와 협력 하 여 확장 된 지원을 제공 합니다.
 
 | 파트너             | 장치                            | 링크                     | 지원 |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
-| OPC 클래식            | Qualcomm MDM9206 LTE IoT 모뎀     | [IoT SDK용 Qualcomm LTE](https://developer.qualcomm.com/software/lte-iot-sdk) | [포럼](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
-| ST Microelectronics | STM32L4 시리즈 <br/> STM32F4 시리즈 <br/>  STM32F7 시리즈 <br/>  IoT 노드용 STM32L4 Discovery Kit    | [X-CUBE-CLOUD](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-cloud.html) <br/> [X-CUBE-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-azure.html) <br/> [P-NUCLEO-AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html) <br/> [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            | [지원](https://www.st.com/content/st_com/en/support/support-home.html)
-| PROFINET   | CC3220SF 실행 패드 </br> CC3220S 실행 패드 </br> CC3235SF 실행 패드 </br> CC3235S 실행 패드 </br> MSP432E4 실행 패드 | [SimpleLink용 Azure IoT 플러그 인](https://github.com/TexasInstruments/azure-iot-pal-simplelink) | [TI E2E 포럼](https://e2e.ti.com) <br/> [CC3220에 대한 TI E2E 포럼](https://e2e.ti.com/support/wireless_connectivity/simplelink_wifi_cc31xx_cc32xx/) <br/> [MSP432E4에 대한 TI E2E 포럼](https://e2e.ti.com/support/microcontrollers/msp430/) |
+| Qualcomm            | Qualcomm MDM9206 LTE IoT 모뎀     | [IoT SDK용 Qualcomm LTE](https://developer.qualcomm.com/software/lte-iot-sdk) | [포럼](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
+| ST Microelectronics | STM32L4 시리즈 <br/> STM32F4 시리즈 <br/>  STM32F7 시리즈 <br/>  IoT 노드용 STM32L4 Discovery Kit    | [X-CUBE-AZURE](https://www.st.com/en/embedded-software/x-cube-azure.html) <br/>  <br/> [P-NUCLEO-AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html) <br/> [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            | [지원](https://www.st.com/content/st_com/en/support/support-home.html)
+| Texas Instruments   | CC3220SF 실행 패드 </br> CC3220S 실행 패드 </br> CC3235SF 실행 패드 </br> CC3235S 실행 패드 </br> MSP432E4 실행 패드 | [SimpleLink용 Azure IoT 플러그 인](https://github.com/TexasInstruments/azure-iot-pal-simplelink) | [TI E2E 포럼](https://e2e.ti.com) <br/> [CC3220에 대한 TI E2E 포럼](https://e2e.ti.com/support/wireless_connectivity/simplelink_wifi_cc31xx_cc32xx/) <br/> [MSP432E4에 대한 TI E2E 포럼](https://e2e.ti.com/support/microcontrollers/msp430/) |
+
+## <a name="porting-the-microsoft-azure-iot-c-sdk"></a>Microsoft Azure IoT C SDK 포팅
+
+장치 플랫폼에 이전 섹션 중 하나가 적용 되지 않는 경우 Azure IoT C SDK 포팅을 고려할 수 있습니다. C SDK를 이식할 때 주로 SDK의 PAL (platform 추상화 계층)을 구현 해야 합니다. PAL은 장치 간의 붙이기를 제공 하 고 SDK의 상위 수준 기능을 제공 하는 기본 형식을 정의 합니다. 자세한 내용은 [포팅 지침](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)을 참조 하세요.
+
+## <a name="microsoft-partners-and-certified-azure-iot-devices"></a>Microsoft 파트너 및 인증 된 Azure IoT 장치
+
+Microsoft는 Azure IoT 테스트와 인증 된 장치로 Azure IoT universe를 지속적으로 확장 하기 위해 많은 파트너와 협력 합니다.
+
+* Azure IoT 인증 장치를 찾아보려면 [IoT용 Microsoft Azure Certified 장치 카탈로그](https://catalog.azureiotsolutions.com/)를 참조 하세요.
+
+* Microsoft 신뢰할 수 있는 파트너에 대 한 자세한 내용을 알아보거나 Microsoft 신뢰할 수 있는 파트너가 되는 방법에 대 한 자세한 내용은 [Microsoft Azure 인증 된 사물 인터넷 신뢰할 수 있는](https://azure.microsoft.com/en-us/marketplace/certified-iot-partners/)파트너를 참조 하세요.
+
+## <a name="connecting-to-iot-hub-without-an-sdk"></a>SDK 없이 IoT Hub에 연결
+
+IoT Hub 장치 Sdk 중 하나를 사용할 수 없는 경우 HTTPS 요청 및 응답을 보내고 받을 수 있는 모든 응용 프로그램에서 [IOT HUB REST api](https://docs.microsoft.com/en-us/rest/api/iothub/) 를 사용 하 여 IoT Hub에 직접 연결할 수 있습니다.
+
+## <a name="support-and-other-resources"></a>지원 및 기타 리소스
+
+Azure IoT 장치 Sdk를 사용 하는 동안 문제가 발생 하는 경우 지원을 검색 하는 몇 가지 방법이 있습니다. 다음 채널 중 하나를 시도할 수 있습니다.
+
+**버그 보고** – 장치 sdk의 버그는 관련 GitHub 프로젝트의 문제 페이지에서 보고할 수 있습니다. 프로젝트에서 제품 업데이트로 신속하게 문제를 해결합니다.
+
+* [Azure IoT Hub C SDK 문제](https://github.com/Azure/azure-iot-sdk-c/issues)
+
+* [Azure IoT Hub .NET (C#) SDK 문제](https://github.com/Azure/azure-iot-sdk-csharp/issues)
+
+* [Java SDK 문제 Azure IoT Hub](https://github.com/Azure/azure-iot-sdk-java/issues)
+
+* [Node.js SDK 문제 Azure IoT Hub](https://github.com/Azure/azure-iot-sdk-node/issues)
+
+* [Python SDK 문제 Azure IoT Hub](https://github.com/Azure/azure-iot-sdk-python/issues)
+
+**Microsoft 고객 지원 팀** - [지원 계획이](https://azure.microsoft.com/support/plans/) 있는 사용자는 [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)에서 직접 새 지원 요청을 만들어 Microsoft 고객 지원 팀에 참여할 수 있습니다.
+
+**기능 요청** – Azure IoT 기능 요청은 제품의 [사용자 의견 페이지](https://feedback.azure.com/forums/321918-azure-iot)를 통해 추적 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

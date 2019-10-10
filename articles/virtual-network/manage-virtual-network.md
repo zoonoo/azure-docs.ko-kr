@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 235a82c6bba4165790c370c2641ee6cd41f10840
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 04cd5035d012e7846cc97a5a057fd71ebe103ce3
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64700477"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168743"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>가상 네트워크 만들기, 변경 또는 삭제
 
@@ -25,7 +25,7 @@ ms.locfileid: "64700477"
 
 가상 네트워크를 만들고 삭제하는 방법 및 기존 가상 네트워크의 DNS 서버 및 IP 주소 공간과 같은 설정을 변경하는 방법에 대해 알아봅니다. 가상 네트워크를 처음 사용하는 경우, [가상 네트워크 개요](virtual-networks-overview.md)를 참조하거나 [자습서](quick-create-portal.md)를 완료하여 자세히 알아볼 수 있습니다. 가상 네트워크에 서브넷이 포함됩니다. 서브넷을 만들고, 변경하고, 삭제하는 방법에 대해 알아보려면 [서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 이 문서에서 설명하는 모든 섹션의 단계를 수행하기 전에 다음 작업을 완료해야 합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "64700477"
 
 1. **+ 리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택합니다.
 2. 다음 설정에 대한 값을 입력하거나 선택한 다음 **만들기**를 선택합니다.
-   - **이름**: 이름은 가상 네트워크를 만들려고 선택하는 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)에서 고유해야 합니다. 가상 네트워크를 만든 후 이름을 변경할 수 없습니다. 시간이 지남에 따라 여러 가상 네트워크를 만들 수 있습니다. 명명 제안에 대해서는 [명명 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions)을 참조하세요. 명명 규칙을 따르면 여러 가상 네트워크를 보다 쉽게 관리할 수 있습니다.
+   - **Name**: 이름은 가상 네트워크를 만들려고 선택하는 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)에서 고유해야 합니다. 가상 네트워크를 만든 후 이름을 변경할 수 없습니다. 시간이 지남에 따라 여러 가상 네트워크를 만들 수 있습니다. 명명 제안에 대해서는 [명명 규칙](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming)을 참조하세요. 명명 규칙을 따르면 여러 가상 네트워크를 보다 쉽게 관리할 수 있습니다.
    - **주소 공간**: 가상 네트워크의 주소 공간은 CIDR 표기법으로 지정된 하나 이상의 겹치지 않는 주소 범위로 구성됩니다. 정의하는 주소 범위는 공용 또는 프라이빗 주소가 될 수 있습니다(RFC 1918). 주소 범위를 공용으로 정의하든 프라이빗으로 정의하든 가상 네트워크 내, 상호 연결된 가상 네트워크 및 가상 네트워크에 연결된 모든 온-프레미스 네트워크에서만 주소 범위에 연결할 수 있습니다. 다음 주소 범위는 추가할 수 없습니다.
      - 224.0.0.0/4(멀티캐스트)
      - 255.255.255.255/32(브로드캐스트)
@@ -63,9 +63,9 @@ ms.locfileid: "64700477"
      - **서브넷 주소 범위**: 범위는 가상 네트워크에 대해 입력한 주소 공간 내에 있어야 합니다. 지정할 수 있는 최소 범위는 /29이며, 서브넷에 대해 8개의 IP 주소를 제공합니다. Azure는 프로토콜 준수를 위해 각 서브넷의 첫 번째 및 마지막 주소를 예약합니다. 세 개의 추가 주소가 Azure 서비스를 사용하기 위해 예약되어 있습니다. 결과적으로 서브넷 주소 범위가 /29인 가상 네트워크에는 세 개의 IP 주소만 사용할 수 있습니다. 가상 네트워크를 VPN Gateway에 연결하려면 게이트웨이 서브넷을 만들어야 합니다. [게이트웨이 서브넷에 대한 특정 주소 범위 고려 사항](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)에서 대해 자세히 알아보세요. 특정 조건에서 서브넷을 만든 후에 주소 범위를 변경할 수 있습니다. 서브넷 주소 범위를 변경하는 방법에 대한 자세한 내용은 [서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요.
      - **구독**: [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)을 선택합니다. 둘 이상의 Azure 구독에서 동일한 가상 네트워크를 사용할 수 없습니다. 그러나 단일 구독의 가상 네트워크를 [가상 네트워크 피어링](virtual-network-peering-overview.md)이 있는 다른 구독의 가상 네트워크에 연결할 수 있습니다. 가상 네트워크에 연결하는 모든 Azure 리소스는 가상 네트워크와 동일한 구독에 있어야 합니다.
      - **리소스 그룹**: 기존 [리소스 그룹](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups)을 선택하거나 새 리소스 그룹을 만듭니다. 가상 네트워크에 연결하는 Azure 리소스는 가상 네트워크와 동일한 리소스 그룹 또는 다른 리소스 그룹에 있을 수 있습니다.
-     - **Location**: 지역이라고도 하는 Azure [위치](https://azure.microsoft.com/regions/)를 선택합니다. 가상 네트워크는 하나의 Azure 위치에만 있을 수 있습니다. 그러나 VPN Gateway를 사용하여 서로 다른 위치에 있는 가상 네트워크를 연결할 수 있습니다. 가상 네트워크에 연결하는 모든 Azure 리소스는 가상 네트워크와 동일한 위치에 있어야 합니다.
+     - **위치**: 지역이라고도 하는 Azure [위치](https://azure.microsoft.com/regions/)를 선택합니다. 가상 네트워크는 하나의 Azure 위치에만 있을 수 있습니다. 그러나 VPN Gateway를 사용하여 서로 다른 위치에 있는 가상 네트워크를 연결할 수 있습니다. 가상 네트워크에 연결하는 모든 Azure 리소스는 가상 네트워크와 동일한 위치에 있어야 합니다.
 
-**명령**
+**도구**
 
 - Azure CLI: [az network vnet create](/cli/azure/network/vnet)
 - PowerShell: [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)
@@ -85,7 +85,7 @@ ms.locfileid: "64700477"
    - **서브넷**: 가상 네트워크 내에 있는 서브넷 목록이 표시됩니다. 서브넷을 추가하고 제거하는 방법에 대한 자세한 내용은 [서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요.
    - **DNS 서버**: Azure 내부 DNS 서버 또는 사용자 지정 DNS 서버에서 가상 네트워크에 연결된 디바이스에 대한 이름 확인을 제공하는지 여부를 지정할 수 있습니다. Azure Portal을 사용하여 가상 네트워크를 만들 때 기본적으로 Azure의 DNS 서버가 가상 네트워크 내에서 이름을 확인하는 데 사용됩니다. DNS 서버를 수정하려면 이 문서의 [DNS 서버 변경](#change-dns-servers)에서 설명하는 단계를 완료합니다.
    - **피어링**: 구독에 기존 피어링이 있는 경우 여기에 나열됩니다. 기존 피어링에 대한 설정을 보거나, 피어링을 만들거나 변경하거나 삭제할 수 있습니다. 피어링에 대한 자세히 내용은 [가상 네트워크 피어링](virtual-network-peering-overview.md)을 참조하세요.
-   - **Properties**: 가상 네트워크의 리소스 ID 및 해당 Azure 구독을 포함하여 가상 네트워크에 대한 설정을 표시합니다.
+   - **속성**: 가상 네트워크의 리소스 ID 및 해당 Azure 구독을 포함하여 가상 네트워크에 대한 설정을 표시합니다.
    - **다이어그램**: 가상 네트워크에 연결된 모든 디바이스를 시각적으로 보여 줍니다. 다이어그램에는 디바이스에 대한 몇 가지 중요한 정보가 있습니다. 이 보기에서 디바이스를 관리하려면 다이어그램에서 디바이스를 선택합니다.
    - **일반적인 Azure 설정**: 일반적인 Azure 설정에 대한 자세한 내용은 다음 정보를 참조하세요.
      - [활동 로그](../azure-monitor/platform/activity-logs-overview.md)
@@ -94,7 +94,7 @@ ms.locfileid: "64700477"
      - [잠금](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [Automation 스크립트](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
-**명령**
+**도구**
 
 - Azure CLI: [az network vnet show](/cli/azure/network/vnet)
 - PowerShell: [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork)
@@ -125,7 +125,7 @@ ms.locfileid: "64700477"
     - **주소 범위 제거**: 제거할 주소 범위의 오른쪽에 있는 **...** 를 선택한 후 **제거**를 선택합니다. 주소 범위에 서브넷이 있으면 해당 주소 범위를 제거할 수 없습니다. 주소 범위를 제거하려면 먼저 주소 범위에 있는 모든 서브넷(및 서브넷의 모든 리소스)을 삭제해야 합니다.
 5. **저장**을 선택합니다.
 
-**명령**
+**도구**
 
 - Azure CLI: [az network vnet update](/cli/azure/network/vnet)
 - PowerShell: [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)
@@ -147,7 +147,7 @@ ms.locfileid: "64700477"
 5. **저장**을 선택합니다.
 6. 가상 네트워크에 연결된 VM을 다시 시작하여 새 DNS 서버 설정을 할당합니다. VM이 다시 시작될 때까지 현재 DNS 설정을 계속 사용합니다.
 
-**명령**
+**도구**
 
 - Azure CLI: [az network vnet update](/cli/azure/network/vnet)
 - PowerShell: [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)
@@ -162,16 +162,16 @@ ms.locfileid: "64700477"
 4. **삭제**를 선택합니다.
 5. 가상 네트워크 삭제를 확인하려면 **예**를 선택합니다.
 
-**명령**
+**도구**
 
 - Azure CLI: [azure network vnet delete](/cli/azure/network/vnet)
 - PowerShell: [Remove-AzVirtualNetwork](/powershell/module/az.network/remove-azvirtualnetwork)
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 가상 네트워크에서 작업을 수행하려면 다음 표에 나열된 적절한 작업이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정을 할당해야 합니다.
 
-| 액션(Action)                                  |   이름                                |
+| 작업                                  |   이름                                |
 |---------------------------------------- |   --------------------------------    |
 |Microsoft.Network/virtualNetworks/read   |   가상 네트워크 읽기              |
 |Microsoft.Network/virtualNetworks/write  |   가상 네트워크 만들기 또는 업데이트  |

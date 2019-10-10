@@ -16,16 +16,16 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2598ce01c749574833d53133ed3aced184e71737
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 616a637df20e43c20faadaf3db9243c28f94de34
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694613"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174742"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
->이 URL을 복사 하 고이 URL을 붙여 넣어 업데이트에 대 한이 페이지 `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` 를 다시 ![방문 하는 시기](./media/whats-new/feed-icon-16x16.png) 에 대 한 알림 받기: RSS 피드 판독기 아이콘 피드 판독기.
+>이 URL을 복사 하 고 붙여넣어 업데이트에 대 한이 페이지를 다시 방문 해야 하는 경우에 대 한 알림이 표시 됩니다 @no__t.-1 @no__t RSS 피드 판독기 아이콘 @ no__t-2 피드 판독기.
 
 Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확인할 수 있도록 이 문서에서는 다음과 같은 정보를 제공합니다.
 
@@ -39,7 +39,7 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 
 ---
 
-## <a name="september-2019"></a>9 월 2019
+## <a name="september-2019"></a>2019년 9월
 
 ### <a name="my-profile-is-re-naming-and-integrating-with-the-microsoft-office-account-page"></a>내 프로필이 다시 이름이 지정 되 고 Microsoft Office 계정 페이지와 통합 됩니다.
 
@@ -137,7 +137,7 @@ Power BI 모바일 앱과 Azure AD 응용 프로그램 프록시 간의 새로�
 **서비스 범주:** 기타  
 **제품 기능:** 디렉터리
 
-자동 업그레이드 고객을 위해 업데이트 된 버전의 Azure AD Connect를 출시 했습니다. 이 새 버전에는 몇 가지 새로운 기능, 향상 된 기능 및 버그 수정이 포함 되어 있습니다. 이 새 버전에 대 한 자세한 내용은 [Azure AD Connect를 참조 하세요. 버전 릴리스 내역](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#14x0)을 참조하세요.
+자동 업그레이드 고객을 위해 업데이트 된 버전의 Azure AD Connect를 출시 했습니다. 이 새 버전에는 몇 가지 새로운 기능, 향상 된 기능 및 버그 수정이 포함 되어 있습니다. 이 새 버전에 대 한 자세한 내용은 [Azure AD Connect를 참조 하세요. 버전 릴리스 내역](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#14250)을 참조하세요.
 
 ---
 
@@ -262,7 +262,7 @@ Azure AD P1 또는 P2 구독에서 사용할 수 있는 사용자 지정 역할�
 
 모바일 앱을 조직에 등록 한 사용자는 이제 Microsoft Authenticator 앱에서 알림을 승인 하거나 모바일 앱 또는 하드웨어 토큰에서 코드를 입력 하 여 자신의 암호를 다시 설정할 수 있습니다.
 
-자세한 내용은 작동 방법을 [참조 하세요. Azure AD 셀프 서비스 암호 재설정](https://aka.ms/authappsspr)을 참조하세요. 사용자 환경에 대 한 자세한 내용은 [자신의 회사 또는 학교 암호 재설정 개요](https://docs.microsoft.com/azure/active-directory/user-help/user-help-password-reset-overview)를 참조 하세요.
+자세한 내용은 작동 방식 [을 참조 하세요. Azure AD 셀프 서비스 암호 재설정](https://aka.ms/authappsspr)을 참조하세요. 사용자 환경에 대 한 자세한 내용은 [자신의 회사 또는 학교 암호 재설정 개요](https://docs.microsoft.com/azure/active-directory/user-help/user-help-password-reset-overview)를 참조 하세요.
 
 ---
 
@@ -272,7 +272,7 @@ Azure AD P1 또는 P2 구독에서 사용할 수 있는 사용자 지정 역할�
 **서비스 범주:** 인증(로그인)  
 **제품 기능:** 사용자 인증
 
-Azure AD 인증 라이브러리 (ADAL.NET) 버전 5.0.0-preview부터 앱 개발자는 [웹 앱 및 웹 api에 대 한 계정 당 캐시 하나를 직렬화](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api)해야 합니다. 그렇지 않은 경우의 `UserAssertion`일부 특정 사용 사례와 함께 [진행 중인 흐름](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-app-configuration#on-behalf-of-flow)을 사용 하는 일부 시나리오에서는 권한 상승이 발생할 수 있습니다. 이 취약점을 방지 하기 위해 ADAL.NET는 이제 시나리오를 대신해 MSAL.NET (Microsoft authentication library for dotnet) 공유 캐시를 무시 합니다.
+Azure AD 인증 라이브러리 (ADAL.NET) 버전 5.0.0-preview부터 앱 개발자는 [웹 앱 및 웹 api에 대 한 계정 당 캐시 하나를 직렬화](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api)해야 합니다. 그렇지 않은 경우에는 `UserAssertion`의 특정 사용 사례와 함께 단계별 [흐름](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-app-configuration#on-behalf-of-flow)을 사용 하는 일부 시나리오에서 권한 상승이 발생할 수 있습니다. 이 취약점을 방지 하기 위해 ADAL.NET는 이제 시나리오를 대신해 MSAL.NET (Microsoft authentication library for dotnet) 공유 캐시를 무시 합니다.
 
 이 문제에 대 한 자세한 내용은 [인증 라이브러리 권한 상승 취약점 Azure Active Directory](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1258)을 참조 하세요.
 
@@ -300,7 +300,7 @@ Azure AD 인증 라이브러리 (ADAL.NET) 버전 5.0.0-preview부터 앱 개발
 
 AzureAD 및 AzureAD Preview PowerShell 모듈에 대 한 새로운 업데이트를 사용할 수 있습니다.
 
-- AzureAD 모듈 `-Filter` 의 `Get-AzureADDirectoryRole` 매개 변수에 새 매개 변수가 추가 되었습니다. 이 매개 변수를 사용 하면 cmdlet에서 반환 되는 디렉터리 역할을 필터링 할 수 있습니다.
+- AzureAD 모듈의 `Get-AzureADDirectoryRole` 매개 변수에 새 `-Filter` 매개 변수가 추가 되었습니다. 이 매개 변수를 사용 하면 cmdlet에서 반환 되는 디렉터리 역할을 필터링 할 수 있습니다.
 - 다음을 포함 하 여 Azure AD에서 사용자 지정 역할을 정의 하 고 할당 하는 데 도움이 되는 새 cmdlet이 AzureADPreview 모듈에 추가 되었습니다.
 
     - `Get-AzureADMSRoleAssignment`
@@ -331,13 +331,13 @@ Azure Portal에서 사용할 수 있는 동적 그룹 규칙 작성기에 대 �
 **서비스 범주:** 액세스 검토  
 **제품 기능:** ID 거버넌스
 
-앱에서 그룹 멤버 자격 및 앱 할당에 `AccessReview.ReadWrite.Membership`대 한 액세스 검토를 자동으로 만들고 검색할 수 있도록 하는 새로운 Microsoft Graph 앱 권한가 도입 되었습니다. 로그인 한 사용자 컨텍스트를 요구 하지 않고, 예약 된 작업 또는 자동화의 일부로이 사용 권한을 사용할 수 있습니다.
+앱에서 그룹 멤버 자격 및 앱 할당에 대 한 액세스 검토를 자동으로 만들고 검색할 수 있도록 하는 새로운 Microsoft Graph 앱 권한 (`AccessReview.ReadWrite.Membership`)이 도입 되었습니다. 로그인 한 사용자 컨텍스트를 요구 하지 않고, 예약 된 작업 또는 자동화의 일부로이 사용 권한을 사용할 수 있습니다.
 
 자세한 내용은 [PowerShell 블로그를 사용 하 여 Microsoft Graph 앱 사용 권한을 사용 하 여 AZURE AD 액세스 검토를 만드는 방법 예제](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-how-to-create-Azure-AD-access-reviews-using-Microsoft/m-p/807241)를 참조 하세요.
 
 ---
 
-### <a name="azure-ad-activity-logs-are-now-available-for-government-cloud-instances-in-azure-monitor"></a>Azure AD 활동 로그는 이제 Azure Monitor의 정부 클라우드 인스턴스에 사용할 수 있습니다.
+### <a name="azure-ad-activity-logs-are-now-available-for-government-cloud-instances-in-azure-monitor"></a>이제 Azure Monitor에서 정부 클라우드 인스턴스에 대한 Azure AD 활동 로그를 사용할 수 있습니다.
 
 **유형:** 변경된 기능  
 **서비스 범주:** 보고  
@@ -357,7 +357,7 @@ Azure Monitor 설정에 대 한 자세한 내용은 [Azure Monitor의 AZURE AD �
 
 2019 년 9 월 25 일부 터 사용자 보안 정보를 등록 및 관리 하 고 향상 된 새 [버전](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271)을 설정 하는 데 사용할 수 있는 이전의 고급 보안 정보 환경을 끄면 됩니다. 즉, 사용자는 더 이상 이전 환경을 사용할 수 없습니다.
 
-향상 된 보안 정보 환경에 대 한 자세한 내용은 [관리자 설명서](https://aka.ms/securityinfodocs) 및 [사용자 설명서](https://aka.ms/securityinfoguide)를 참조 하세요.
+향상 된 보안 정보 환경에 대 한 자세한 내용은 [관리자 설명서](https://aka.ms/securityinfodocs)  및 [사용자 설명서](https://aka.ms/securityinfoguide)를 참조 하세요.
 
 #### <a name="to-turn-on-this-new-experience-you-must"></a>이 새로운 환경을 설정 하려면 다음을 수행 해야 합니다.
 
@@ -374,11 +374,11 @@ Azure Monitor 설정에 대 한 자세한 내용은 [Azure Monitor의 AZURE AD �
     설정을 저장 한 후에는 더 이상 이전 보안 정보 환경에 액세스할 수 없습니다.
 
 >[!Important]
->2019 년 9 월 25 일 이전에 이러한 단계를 완료 하지 않으면 향상 된 환경에 대 한 Azure Active Directory 테 넌 트가 자동으로 사용 하도록 설정 됩니다. 궁금한 점이 있으면에 registrationpreview@microsoft.com문의 하세요.
+>2019 년 9 월 25 일 이전에 이러한 단계를 완료 하지 않으면 향상 된 환경에 대 한 Azure Active Directory 테 넌 트가 자동으로 사용 하도록 설정 됩니다. 질문이 있는 경우 registrationpreview@microsoft.com에서 문의해 주시기 바랍니다.
 
 ---
 
-### <a name="authentication-requests-using-post-logins-will-be-more-strictly-validated"></a>사후 로그인을 사용 하는 인증 요청은 보다 엄격 하 게 유효성이 검사 됩니다.
+### <a name="authentication-requests-using-post-logins-will-be-more-strictly-validated"></a>POST 로그인을 사용하는 인증 요청이 더욱 엄격하게 유효성 검사됩니다.
 
 **유형:** 변경된 기능  
 **서비스 범주:** 인증(로그인)  
@@ -434,7 +434,7 @@ Azure Monitor 설정에 대 한 자세한 내용은 [Azure Monitor의 AZURE AD �
 
 2019 년 7 월 26 일에 [클라이언트 자격 증명 부여](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)를 통해 앱 전용 토큰을 제공 하는 방법을 변경 했습니다. 이전에는 앱이 테 넌 트에서 클라이언트 앱이 있는지 여부에 관계 없이 다른 앱을 호출 하는 토큰을 가져올 수 있었습니다. 이 동작은 웹 Api 라고도 하는 단일 테 넌 트 리소스를 리소스 테 넌 트에 있는 클라이언트 앱 에서만 호출할 수 있도록 업데이트 되었습니다.
 
-앱이 리소스 테 넌 트에 없는 경우이 문제를 해결 `The service principal named <app_name> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.` 하려면 [관리자 동의 끝점](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint) 또는 [PowerShell을 사용 하 여 테 넌 트에서 클라이언트 앱 서비스 주체를 만들어야 한다는 오류 메시지가 표시 됩니다. ](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell)-테 넌 트가 테 넌 트 내에서 작동 하는 앱 권한을 제공 하도록 합니다.
+앱이 리소스 테 넌 트에 없으면 오류 @no__t 메시지가 표시 됩니다 .이 문제를 해결 하려면이 문제를 해결 하려면 [관리자 동의 끝점](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint) 또는 [PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell)을 사용 하 여 테 넌 트에서 클라이언트 앱 서비스 주체를 만들어야 합니다. 그러면 테 넌 트가 테 넌 트 내에서 작동 하는 앱 권한을 제공 합니다.
 
 자세한 내용은 [인증의 새로운 기능](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant)을 참조 하세요.
 
@@ -469,7 +469,7 @@ Azure AD 고객은 이제 조직의 사용자 및 그룹에 대 한 FIDO2 보안
 
 ---
 
-### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>새로 지원 되는 SaaS 앱에 대 한 사용자 계정 프로 비전 자동화
+### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>이 새로 지원되는 SaaS 앱에 대한 사용자 계정 프로비저닝 자동화
 
 **유형:** 새 기능  
 **서비스 범주:** 엔터프라이즈 앱  
@@ -493,7 +493,7 @@ Azure AD 고객은 이제 조직의 사용자 및 그룹에 대 한 FIDO2 보안
 
 ---
 
-### <a name="new-azure-ad-domain-services-service-tag-for-network-security-group"></a>네트워크 보안 그룹에 대 한 새 Azure AD Domain Services 서비스 태그
+### <a name="new-azure-ad-domain-services-service-tag-for-network-security-group"></a>네트워크 보안 그룹에 대한 새 Azure AD Domain Services 서비스 태그
 
 **유형:** 새 기능  
 **서비스 범주:** Azure AD Domain Services  
@@ -573,7 +573,7 @@ Azure AD 도메인 서비스 보안 감사 릴리스를 공개 미리 보기로 
 
 ---
 
-### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>새로 지원 되는 SaaS 앱에 대 한 사용자 계정 프로 비전 자동화
+### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>이 새로 지원되는 SaaS 앱에 대한 사용자 계정 프로비저닝 자동화
 
 **유형:** 새 기능  
 **서비스 범주:** 엔터프라이즈 앱  
@@ -597,7 +597,7 @@ Azure AD 도메인 서비스 보안 감사 릴리스를 공개 미리 보기로 
 
 ---
 
-### <a name="new-check-for-duplicate-group-names-in-the-azure-ad-portal"></a>Azure AD 포털에서 중복 그룹 이름에 대 한 새 확인
+### <a name="new-check-for-duplicate-group-names-in-the-azure-ad-portal"></a>Azure AD 포털에서 중복 그룹 이름에 대한 새로운 확인
 
 **유형:** 새 기능  
 **서비스 범주:** 그룹 관리  
@@ -615,9 +615,9 @@ Azure AD 도메인 서비스 보안 감사 릴리스를 공개 미리 보기로 
 **서비스 범주:** 인증(로그인)  
 **제품 기능:** 사용자 인증
 
-이제 Azure AD 앱은 OAuth 2.0 요청에 대해 정적 쿼리 매개 변수 (예: `https://contoso.com/oauth2?idp=microsoft`)를 사용 하 여 reply (리디렉션) uri를 등록 하 고 사용할 수 있습니다. 정적 쿼리 매개 변수는 회신 URI의 다른 부분과 마찬가지로 회신 uri에 대해 문자열 일치가 적용 됩니다. URL 디코딩된 리디렉션 uri와 일치 하는 등록 된 문자열이 없는 경우 요청이 거부 됩니다. 회신 URI가 있는 경우 정적 쿼리 매개 변수를 포함 하 여 전체 문자열이 사용자를 리디렉션하는 데 사용 됩니다.
+이제 Azure AD 앱은 OAuth 2.0 요청에 대해 정적 쿼리 매개 변수 (예: `https://contoso.com/oauth2?idp=microsoft`)로 reply (리디렉션) Uri를 등록 하 고 사용할 수 있습니다. 정적 쿼리 매개 변수는 회신 URI의 다른 부분과 마찬가지로 회신 uri에 대해 문자열 일치가 적용 됩니다. URL 디코딩된 리디렉션 uri와 일치 하는 등록 된 문자열이 없는 경우 요청이 거부 됩니다. 회신 URI가 있는 경우 정적 쿼리 매개 변수를 포함 하 여 전체 문자열이 사용자를 리디렉션하는 데 사용 됩니다.
 
-동적 회신 Uri는 보안 위험을 나타내므로 인증 요청에 대 한 상태 정보를 유지 하는 데 사용할 수 없기 때문에 계속 사용할 수 없습니다. 이러한 목적을 위해 `state` 매개 변수를 사용 합니다.
+동적 회신 Uri는 보안 위험을 나타내므로 인증 요청에 대 한 상태 정보를 유지 하는 데 사용할 수 없기 때문에 계속 사용할 수 없습니다. 이 목적을 위해 `state` 매개 변수를 사용 합니다.
 
 현재 Azure Portal의 앱 등록 화면은 쿼리 매개 변수를 계속 차단 합니다. 그러나 응용 프로그램 매니페스트를 수동으로 편집 하 여 앱에서 쿼리 매개 변수를 추가 하 고 테스트할 수 있습니다. 자세한 내용은 [인증의 새로운 기능](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#redirect-uris-can-now-contain-query-string-parameters)을 참조 하세요.
 
@@ -675,7 +675,7 @@ Azure ad 활동 로그 (감사 및 로그인 보고서)는 이제 Azure AD Power
 
 ---
 
-### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>새로 지원 되는 SaaS 앱에 대 한 사용자 계정 프로 비전 자동화
+### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>이 새로 지원되는 SaaS 앱에 대한 사용자 계정 프로비저닝 자동화
 
 **유형:** 새 기능  
 **서비스 범주:** 엔터프라이즈 앱  
@@ -707,7 +707,7 @@ Azure ad 활동 로그 (감사 및 로그인 보고서)는 이제 Azure AD Power
 
 ---
 
-### <a name="company-branding-now-appears-on-sign-out-and-error-screens"></a>이제 회사 브랜딩이 로그 아웃 및 오류 화면에 표시 됩니다.
+### <a name="company-branding-now-appears-on-sign-out-and-error-screens"></a>이제 회사 브랜딩이 로그아웃 및 오류 화면에 표시됩니다.
 
 **유형:** 변경된 기능  
 **서비스 범주:** 인증(로그인)  
@@ -1015,7 +1015,7 @@ Azure AD 액세스 검토의 새로운 업데이트를 통해 다음을 수행�
 **서비스 범주:** AD Sync  
 **제품 기능:** 플랫폼
 
-Azure AD Connect는 전자 메일 경고 시스템을 전환 하 여 일부 고객이 새 전자 메일을 보낸 사람을 보여 줄 수 있습니다. 이를 해결 하려면 조직의 허용 목록 `azure-noreply@microsoft.com` 에를 추가 해야 합니다. 그렇지 않으면 Office 365, Azure 또는 동기화 서비스에서 중요 한 경고를 계속 받을 수 없습니다.
+Azure AD Connect는 전자 메일 경고 시스템을 전환 하 여 일부 고객이 새 전자 메일을 보낸 사람을 보여 줄 수 있습니다. 이를 해결 하려면 조직의 허용 목록에 `azure-noreply@microsoft.com`을 추가 해야 합니다. 그렇지 않으면 Office 365, Azure 또는 동기화 서비스에서 중요 한 경고를 계속 받을 수 없습니다.
 
 ---
 

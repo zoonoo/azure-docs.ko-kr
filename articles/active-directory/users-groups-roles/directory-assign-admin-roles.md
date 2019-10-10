@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3992ea29d3d81262b5d9b8b126c8fca54feca67d
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d70a2aa6ad0e092fc6df9f5792029dc759345321
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026388"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169785"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -214,18 +214,19 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="global-readerglobal-reader-permissions"></a>[전역 판독기](#global-reader-permissions)
 
-이 역할의 사용자는 Microsoft 365 서비스에서 설정 및 관리 정보를 읽을 수 있지만 관리 작업을 수행할 수는 없습니다. 전역 판독기는 전역 관리자에 해당 하는 읽기 전용입니다. 계획, 감사 또는 조사를 위해 전역 관리자 대신 전역 판독기를 할당 합니다. 전역 판독기를 Exchange 관리자와 같은 제한 된 다른 관리자 역할과 함께 사용 하 여 전역 관리자 역할을 호출 하지 않고 작업을 보다 쉽게 수행할 수 있도록 합니다. 전역 판독기는 새로운 Microsoft 365 관리 센터, Exchange 관리 센터, 팀 관리 센터, Security center, 준수 센터, Azure AD 관리 센터 및 장치 관리 관리 센터에서 작동 합니다. 
+이 역할의 사용자는 Microsoft 365 서비스에서 설정 및 관리 정보를 읽을 수 있지만 관리 작업을 수행할 수는 없습니다. 전역 판독기는 전역 관리자에 해당 하는 읽기 전용입니다. 계획, 감사 또는 조사를 위해 전역 관리자 대신 전역 판독기를 할당 합니다. 전역 관리자 역할을 할당 하지 않고도 작업을 쉽게 수행할 수 있도록 Exchange 관리자와 같은 제한 된 다른 관리자 역할과 함께 전역 판독기를 사용 합니다. 전역 판독기는 Microsoft 365 관리 센터, Exchange 관리 센터, 팀 관리 센터, Security center, 준수 센터, Azure AD 관리 센터 및 장치 관리 관리 센터에서 작동 합니다.
 
 > [!NOTE]
-> 전역 판독기 역할에는 다음과 같은 제한 사항이 있습니다.
->* SharePoint 관리 센터-SharePoint 관리 센터는 전역 읽기 권한자 역할을 지원 하지 않습니다. 따라서 [M365 관리 센터](https://admin.microsoft.com/Adminportal/Home#/homepage)의 관리 센터 아래 왼쪽 창에는 ' SharePoint '가 표시 되지 않습니다. Https://{테 넌 트 이름}-admin.sharepoint.com로 이동 하는 경우 액세스가 거부 됩니다. 
->* [AZURE AD 포털](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) -전역 읽기 권한자는 엔터프라이즈 앱의 프로 비전 모드를 읽을 수 없습니다.
->* [M365 관리 센터](https://admin.microsoft.com/Adminportal/Home#/homepage) -전역 판독기는 cusomter lockbox 요청을 읽을 수 없습니다. M365 관리 센터의 왼쪽 창에 있는 지원에서 고객 lockbox 요청 탭을 찾을 수 없습니다.
->* [M365 Security Center](https://security.microsoft.com/homepage) -전역 판독기에서 민감도 및 보존 레이블을 읽을 수 없습니다. M365 Security Center의 분류에서 왼쪽 창의 민감도 레이블, 보존 레이블 및 레이블 분석 탭을 찾을 수 없습니다.
->* [팀 관리 센터](https://admin.teams.microsoft.com) -전역 읽기 권한자는 팀 수명 주기, 보고서 & 호출 분석, IP 전화 장치 관리 및 앱 카탈로그를 읽을 수 없습니다.
->* [PAM (Privileged Access Management)](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) 은 전역 판독기를 지원 하지 않습니다.
-> 
-> 이러한 기능에 대 한 지원은 시간이 지남에 따라 제공 됩니다.
+> 전역 판독기 역할은 몇 가지 제한 사항이 있습니다.
+>
+>* SharePoint 관리 센터-SharePoint 관리 센터는 전역 읽기 권한자 역할을 지원 하지 않습니다. [관리 센터 Microsoft 365 관리 센터](https://admin.microsoft.com/Adminportal/Home#/homepage)의 왼쪽 창에 ' SharePoint '가 표시 되지 않으며, *https://{Azure AD 조직 이름}-admin.sharepoint.com*로 이동 하려고 할 때 액세스가 거부 됩니다.
+>* [AZURE AD 포털](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) -전역 판독기는 엔터프라이즈 앱의 프로 비전 모드를 읽을 수 없습니다.
+>* [M365 관리 센터](https://admin.microsoft.com/Adminportal/Home#/homepage) -전역 판독기는 고객 lockbox 요청을 읽을 수 없습니다. M365 관리 센터의 왼쪽 창에 있는 **지원** 에서 **고객 lockbox 요청** 탭을 찾을 수 없습니다.
+>* [M365 Security center](https://security.microsoft.com/homepage) -전역 판독기는 민감도 및 보존 레이블을 읽을 수 없습니다. M365 Security center의 왼쪽 창에서 **민감도 레이블**, **보존 레이블**및 **레이블 분석** 탭을 찾을 수 없습니다.
+>* [팀 관리 센터](https://admin.teams.microsoft.com) -전역 읽기 권한자는 **팀 수명 주기**, **분석 & 보고서**, **IP 전화 장치 관리** 및 **앱 카탈로그**를 읽을 수 없습니다.
+>* [PAM (Privileged Access Management)](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) 은 전역 읽기 권한자 역할을 지원 하지 않습니다.
+>
+> 이러한 기능은 현재 개발 중입니다.
 >
 
 ### <a name="guest-inviterguest-inviter-permissions"></a>[게스트 초대자](#guest-inviter-permissions)

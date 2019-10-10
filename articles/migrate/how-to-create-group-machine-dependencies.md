@@ -4,14 +4,14 @@ description: Azure Migrate 서비스에서 컴퓨터 종속성을 사용하여 �
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 10/01/2019
 ms.author: hamusa
-ms.openlocfilehash: 8e793891ea646ae8c91077ead36be9b84c1b08c8
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 1cd1ff83fd706e3474426f6cc2ac99d39e74dc22
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200209"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177941"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>평가에 대 한 종속성 시각화 설정
 
@@ -38,8 +38,8 @@ ms.locfileid: "71200209"
 --- | ---
 가용성 | Azure Government에서 종속성 시각화를 사용할 수 없습니다.
 서비스 맵 | 종속성 시각화는 Azure Monitor에서 서비스 맵 솔루션을 사용 합니다. [서비스 맵](../azure-monitor/insights/service-map.md) 는 서버 간의 연결을 자동으로 검색 하 고 표시 합니다.
-에이전트 | 종속성 시각화를 사용 하려면 매핑할 컴퓨터에 다음 에이전트를 설치 합니다.<br/> - [Log Analytics 에이전트](../azure-monitor/platform/log-analytics-agent.md) 에이전트 (이전에는 MICROSOFT MONITORING AGENT (MMA) 이라고 함).<br/> - [종속성 에이전트를 서비스 맵](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent)합니다.<br/><br/> 에이전트 설치를 자동화 하려면 Azure Migrate에 대 한 에이전트 배포 솔루션이 있는 System Center Configuration Manager 또는 파트너 도구 (예: [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration))와 같은 배포 도구를 사용할 수 있습니다.
-Dependency agent | Windows 및 Linux에 대 한 [종속성 에이전트 지원](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent) 을 검토 합니다.<br/><br/> 스크립트를 사용 하 여 종속성 에이전트를 설치 하는 방법에 [대해 자세히 알아보세요](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) .
+에이전트 | 종속성 시각화를 사용 하려면 매핑할 컴퓨터에 다음 에이전트를 설치 합니다.<br/> - [Log Analytics 에이전트](../azure-monitor/platform/log-analytics-agent.md) 에이전트 (이전에는 MICROSOFT MONITORING AGENT (MMA) 이라고 함).<br/> - [서비스 맵 종속성 에이전트](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent)입니다.<br/><br/> 에이전트 설치를 자동화 하려면 Azure Migrate에 대 한 에이전트 배포 솔루션이 있는 System Center Configuration Manager와 같은 배포 도구를 사용할 수 있습니다.
+종속성 에이전트 | Windows 및 Linux에 대 한 [종속성 에이전트 지원](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent) 을 검토 합니다.<br/><br/> 스크립트를 사용 하 여 종속성 에이전트를 설치 하는 방법에 [대해 자세히 알아보세요](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) .
 Log Analytics 에이전트 (MMA) | MMA 설치 방법에 [대해 자세히 알아보세요](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent) .<br/><br/> System Center Operations Manager 2012 R2 이상에서 모니터링 하는 컴퓨터의 경우 MMA 에이전트를 설치할 필요가 없습니다. 서비스 맵 Operations Manager와 통합 됩니다. [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites)에서 지침에 따라 통합을 사용하도록 설정할 수 있습니다. 그러나 종속성 에이전트는 이러한 컴퓨터에 설치 되어야 합니다.<br/><br/> Log Analytics 에이전트에서 지 원하는 Linux 운영 체제를 [검토](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) 합니다.
 평가 그룹 | 종속성을 시각화하려는 그룹에는 10개 이하의 컴퓨터만 포함되어 있어야 합니다. 컴퓨터가 10 대 이상인 경우 종속성을 시각화 하기 위해 작은 그룹으로 분할 합니다.
 
@@ -54,7 +54,7 @@ Log Analytics 에이전트 (MMA) | MMA 설치 방법에 [대해 자세히 알아
 
 다음과 같이 작업 영역을 연결 합니다.
 
-1. **Azure Migrate: 서버 평가**에서 **개요**를 클릭 합니다. 서버 평가 도구를 아직 추가 하지 않은 경우이를 [먼저 수행](how-to-assess.md)합니다.
+1. @No__t-0Azure 마이그레이션: 서버 평가 @ no__t-0을 클릭 하 고 **개요**를 클릭 합니다. 서버 평가 도구를 아직 추가 하지 않은 경우이를 [먼저 수행](how-to-assess.md)합니다.
 2. **개요**에서 아래쪽 화살표를 클릭 하 여 **Essentials**를 확장 합니다.
 3. **OMS 작업 영역**에서 **구성 필요**를 클릭 합니다.
 4. **작업 영역 구성**에서 새 작업 영역을 만들지 아니면 기존 작업 영역을 사용할지를 지정 합니다.
@@ -70,7 +70,7 @@ Log Analytics 에이전트 (MMA) | MMA 설치 방법에 [대해 자세히 알아
 
 종속성 매핑을 사용 하 여 시각화 하려는 각 온-프레미스 컴퓨터에 에이전트를 다운로드 하 여 설치 합니다.
 
-1. **Azure Migrate: 서버 평가**, **검색 된 서버**를 클릭 합니다.
+1. @No__t-0Azure 마이그레이션: 서버 평가 @ no__t-0, **검색 된 서버**를 클릭 합니다.
 2. 종속성 시각화를 사용 하려는 각 컴퓨터에 대해 **에이전트 설치 필요**를 클릭 합니다.
 3. **MMA를 다운로드 하 여 설치**하 > 컴퓨터의 **종속성** 페이지에서 적절 한 에이전트를 다운로드 하 고 아래 설명에 따라 설치 합니다.
 4. **종속성 에이전트 다운로드 및 설치**에서 적절 한 에이전트를 다운로드 하 고 아래 설명에 따라 설치 합니다.
@@ -88,6 +88,10 @@ Windows 컴퓨터에 에이전트를 설치하려면
 4. **에이전트 설치 옵션**에서 **Azure Log Analytics** > **다음**을 차례로 선택합니다.
 5. **추가**를 클릭하여 새로운 Log Analytics 작업 영역을 추가합니다. 포털에서 복사한 작업 영역 ID와 키를 붙여넣습니다. **다음**을 클릭합니다.
 
+명령줄에서 또는 System Center Configuration Manager 또는 [Intigua](https://go.microsoft.com/fwlink/?linkid=2104196)같은 자동화 된 방법을 사용 하 여 에이전트를 설치할 수 있습니다. 이 방법을 사용하여 MMA 에이전트를 설치하는 방법을 [자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent). MMA 에이전트는 이 [스크립트](https://go.microsoft.com/fwlink/?linkid=2104394)를 사용하여 설치할 수도 있습니다.
+
+MMA에서 지 원하는 Windows 운영 체제에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) .
+
 #### <a name="install-the-agent-on-a-linux-machine"></a>Linux 머신에 에이전트 설치
 
 Linux 컴퓨터에 에이전트를 설치하려면
@@ -97,15 +101,22 @@ Linux 컴퓨터에 에이전트를 설치하려면
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-linux-operating-systems)해 보세요. 
+
 ### <a name="install-the-dependency-agent"></a>종속성 에이전트 설치
 1. Windows 컴퓨터에 종속성 에이전트를 설치하려면 설치 파일을 더블 클릭한 후 마법사를 따릅니다.
 2. Linux 컴퓨터에 종속성 에이전트를 설치하려면 다음 명령을 사용하여 루트로 설치합니다.
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
+스크립트를 사용하여 종속성 에이전트를 설치하는 방법에 대해 [자세히 알아봅니다](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-hybrid-cloud#installation-script-examples).
+
+종속성 에이전트에서 지 원하는 운영 체제에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#supported-operating-systems) .
+
+
 ## <a name="create-a-group-using-dependency-visualization"></a>종속성 시각화를 사용 하 여 그룹 만들기
 
-1. **Azure Migrate: 서버 평가**, **검색 된 서버**를 클릭 합니다.
+1. @No__t-0Azure 마이그레이션: 서버 평가 @ no__t-0, **검색 된 서버**를 클릭 합니다.
 2. **종속성** 열에서 검토 하려는 각 컴퓨터에 대 한 **종속성 보기** 를 클릭 합니다.
 3. 종속성 맵에서 다음을 확인할 수 있습니다.
     - 컴퓨터와의 인바운드 (클라이언트) 및 아웃 바운드 (서버) TCP 연결
@@ -141,7 +152,7 @@ Azure Migrate 프로젝트와 연결 된 Log Analytics 작업 영역에서 서�
 다음과 같이 종속성 데이터에 대 한 쿼리를 실행 합니다.
 
 1. 에이전트를 설치한 후 포털로 이동하고 **개요**를 클릭합니다.
-2. **Azure Migrate: 서버 평가**에서 **개요**를 클릭 합니다. 아래쪽 화살표를 클릭 하 여 **Essentials**를 확장 합니다.
+2. @No__t-0Azure 마이그레이션: 서버 평가 @ no__t-0을 클릭 하 고 **개요**를 클릭 합니다. 아래쪽 화살표를 클릭 하 여 **Essentials**를 확장 합니다.
 3. **OMS 작업 영역**에서 작업 영역 이름을 클릭 합니다.
 3. Log Analytics 작업 영역 페이지에서 **일반**> **로그**를 클릭 합니다.
 4. 쿼리를 작성 하 고 **실행**을 클릭 합니다.

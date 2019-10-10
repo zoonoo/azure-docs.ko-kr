@@ -14,51 +14,60 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: f7154da76b41198c208d02b8c563ba26ff8101a1
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 02008b7dc1609a5f28ac6ba2a582933a96428198
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983609"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176950"
 ---
-# <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>Twitter 로그인을 사용하도록 App Service 애플리케이션을 구성하는 방법
+# <a name="configure-your-app-service-app-to-use-twitter-login"></a>Twitter 로그인을 사용 하도록 App Service 앱 구성
+
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-이 항목에서는 Twitter를 인증 공급자로 사용하도록 Azure App Service를 구성하는 방법을 보여 줍니다.
+이 문서에서는 Twitter를 인증 공급자로 사용 하도록 Azure App Service를 구성 하는 방법을 보여 줍니다.
 
-이 항목의 절차를 완료하려면 검증된 전자 메일 주소 및 전화 번호가 포함된 Twitter 계정이 있어야 합니다. 새 Twitter 계정을 만들려면 <a href="https://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>으로 이동합니다.
+이 문서의 절차를 완료 하려면 확인 된 전자 메일 주소 및 전화 번호를 포함 하는 Twitter 계정이 필요 합니다. 새 Twitter 계정을 만들려면 [twitter.com]으로 이동합니다.
 
 ## <a name="register"></a>Twitter를 사용하여 애플리케이션 등록
-1. [Azure Portal]에 로그인한 다음 애플리케이션으로 이동합니다. **URL**을 복사합니다. Twitter 앱을 구성 하는 데 사용 합니다.
-2. [Twitter 개발자] 웹 사이트로 이동하고 Twitter 계정 자격 증명을 사용하여 로그인한 다음 **새 앱 만들기**를 클릭합니다.
-3. 새 앱에 대한 **이름** 및 **설명**을 입력합니다. **Website** 값으로 애플리케이션의 **URL**을 붙여 넣습니다. 그런 다음 **콜백 url**에 App Service 앱의 url을 입력 하 고 경로 `/.auth/login/twitter/callback`를 추가 합니다. 예를 들어, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`을 입력합니다. HTTPS 체계를 사용 중인지 확인합니다.
-4. 페이지 맨 아래에서 사용 약관을 읽고 동의합니다. 그런 다음, **Twitter 애플리케이션 만들기**를 클릭합니다. 응용 프로그램 세부 정보가 표시 됩니다.
-5. **설정** 탭을 클릭하고 **이 애플리케이션이 Twitter로 로그인하는 것을 허용**을 선택한 다음, **업데이트 설정**을 클릭합니다.
-6. **Keys and Access Tokens** 탭을 선택합니다. Consumer Key (API Key) 및 **Consumer secret (API Secret)** 의 값을 적어 둡니다.
-   
+
+1. [Azure Portal] 에 로그인 하 고 응용 프로그램으로 이동 합니다. **URL**을 복사합니다. Twitter 앱을 구성 하는 데 사용 합니다.
+1. [Twitter 개발자] 웹 사이트로 이동 하 고 twitter 계정 자격 증명을 사용 하 여 로그인 한 다음 **새 앱 만들기**를 선택 합니다.
+1. 새 앱에 대 한 **이름** 및 **설명** 을 입력 합니다. 응용 프로그램의 **URL** 을 **웹 사이트** 필드에 붙여넣습니다. **콜백 url** 필드에 App Service 앱의 url을 입력 하 고 경로 `/.auth/login/aad/callback`을 추가 합니다. 예를 들어, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`을 입력합니다. HTTPS 체계를 사용 해야 합니다.
+1. 페이지 맨 아래에서 조건을 읽고 동의 합니다. **Twitter 응용 프로그램 만들기**를 선택 합니다. 응용 프로그램 세부 정보가 표시 됩니다.
+1. **설정** 탭을 선택 하 고 **이 응용 프로그램을 사용**하 여 Twitter에 로그인 한 후 **설정 업데이트**를 선택 합니다.
+1. **Keys and Access Tokens** 탭을 선택합니다.
+
+   다음 값을 적어둡니다.
+   - 소비자 키 (API 키)
+   - 소비자 비밀 (API 비밀)
+
    > [!NOTE]
    > 소비자 암호는 중요한 보안 자격 증명입니다. 다른 사람과 이 암호를 공유하거나 앱과 함께 배포하지 마세요.
-   > 
-   > 
 
 ## <a name="secrets"></a>애플리케이션에 Twitter 정보 추가
-1. [Azure Portal]로 돌아가서 애플리케이션으로 이동합니다. **Settings**를 클릭한 다음 **Authentication / Authorization**을 클릭합니다.
-2. 인증/권한 부여 기능이 사용하도록 설정되지 않은 경우 스위치를 **On**으로 전환합니다.
-3. **Twitter**를 클릭합니다. 이전에 가져온 앱 ID 및 앱 암호 값을 붙여넣습니다. 그런 다음 **확인**을 클릭합니다.
-   
-   ![][1]
-   
-   기본적으로 App Service는 인증을 제공하지만 사이트 콘텐츠 및 API에 액세스하는 권한을 제한하지는 않습니다. 앱 코드에서 사용자 권한을 부여해야 합니다.
-4. (선택 사항) Twitter에서 인증된 사용자만 사이트에 액세스하도록 제한하려면 **Twitter**에 **요청이 인증되지 않으면 수행할 동작**을 설정합니다. 이렇게 하려면 모든 요청이 인증되어야 하며 모든 인증되지 않은 요청은 인증을 위해 Twitter에 리디렉션되어야 합니다.
 
-> [!NOTE]
-> 이러한 방식으로 액세스를 제한 하는 것은 앱에 대 한 모든 호출에 적용 됩니다 .이는 여러 단일 페이지 응용 프로그램과 마찬가지로 공개적으로 사용 가능한 홈 페이지를 사용 하는 앱에는 바람직하지 않을 수 있습니다. 이러한 응용 프로그램의 경우 [여기](overview-authentication-authorization.md#authentication-flow)에 설명 된 대로 **익명 요청 허용 (작업 없음)** 을 사용 하는 것이 좋습니다. 앱은 수동으로 로그인을 시작 합니다.
+1. [Azure Portal]에서 응용 프로그램으로 이동 합니다.
+1. 설정 @no__t 1**인증/권한 부여**를 선택 하 고 **App Service 인증이** **설정**되어 있는지 확인 **합니다.**
+1. **Twitter**를 선택 합니다.
+1. 이전에 얻은 `API Key` 및 `API Secret` 값을 붙여넣습니다.
+1. **확인**을 선택합니다.
 
-5. **Save**을 클릭합니다.
+   ![모바일 앱 Twitter 설정의 스크린샷][1]
+
+   기본적으로 App Service는 인증을 제공 하지만 사이트 콘텐츠 및 Api에 대 한 권한 있는 액세스를 제한 하지 않습니다. 앱 코드에서 사용자 권한을 부여해야 합니다.
+
+1. (선택 사항) Twitter에서 인증된 사용자만 사이트에 액세스하도록 제한하려면 **Twitter**에 **요청이 인증되지 않으면 수행할 동작**을 설정합니다. 이 기능을 설정 하면 앱에서 모든 요청을 인증 해야 합니다. 또한 인증을 위해 모든 인증 되지 않은 요청을 Twitter로 리디렉션합니다.
+
+   > [!CAUTION]
+   > 이러한 방식으로 액세스를 제한 하는 것은 앱에 대 한 모든 호출에 적용 됩니다 .이는 여러 단일 페이지 응용 프로그램과 마찬가지로 공개적으로 사용 가능한 홈 페이지가 있는 앱에는 바람직하지 않을 수 있습니다. 이러한 응용 프로그램의 경우 앱이 수동으로 인증을 시작 하도록 **익명 요청 허용 (작업 없음)을 사용** 하는 것이 좋습니다. 자세한 내용은 [인증 흐름](overview-authentication-authorization.md#authentication-flow)을 참조 하세요.
+
+1. **저장**을 선택합니다.
 
 이제 앱에서 Twitter를 인증에 사용할 준비가 되었습니다.
 
-## <a name="related-content"> </a>관련 콘텐츠
+## <a name="related-content"> </a>다음 단계
+
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Images. -->
@@ -69,5 +78,6 @@ ms.locfileid: "70983609"
 <!-- URLs. -->
 
 [Twitter 개발자]: https://go.microsoft.com/fwlink/p/?LinkId=268300
+[twitter.com]: https://go.microsoft.com/fwlink/p/?LinkID=268287
 [Azure Portal]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md

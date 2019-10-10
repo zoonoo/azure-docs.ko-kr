@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 4e4a2b1df178d884e02ab5029f2e76a0376a7653
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: fc8cc4834997033203376cd33670cc907e2911e7
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71846564"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170291"
 ---
 # <a name="generic-performance-troubleshooting-for-azure-virtual-machine-running-linux-or-windows"></a>Linux 또는 Windows를 실행 중인 Azure Virtual Machine의 일반 성능 문제 해결
 
@@ -28,7 +28,7 @@ ms.locfileid: "71846564"
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Azure IAAS 가상 머신 모니터링
 
-게스트 VM을 모니터링 하려면 Azure VM 모니터링을 사용 합니다. 그러면 특정 개략적인 리소스 조건에 대해 경고를 표시 합니다. VM 진단을 사용 하도록 설정 했는지 여부를 확인 하려면 [Azure 리소스 로그 개요](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview#change-settings-for-an-existing-resource)를 참조 하세요. 다음이 표시 되는 경우 진단이 사용 하도록 설정 되어 있지 않을 가능성이 높습니다.
+게스트 VM을 모니터링 하려면 Azure VM 모니터링을 사용 합니다. 그러면 특정 개략적인 리소스 조건에 대해 경고를 표시 합니다. VM 진단을 사용 하도록 설정 했는지 여부를 확인 하려면 [Azure 리소스 로그 개요](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview#collecting-resource-logs)를 참조 하세요. 다음이 표시 되는 경우 진단이 사용 하도록 설정 되어 있지 않을 가능성이 높습니다.
 
 ![모니터링 사용 안 함](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  

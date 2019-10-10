@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 953558e34d41184f75d72baf5982e84eb51b1781
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: e9b2967905bc927432d1ca4606bc2b2ba2ac4108
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694866"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177371"
 ---
 # <a name="http-features"></a>HTTP 기능
 
@@ -210,6 +210,38 @@ HTTP Api 호출에 대 한 기본 제공 지원은 편리한 기능입니다. �
 > .NET 개발자 인 경우이 기능이 기본 제공 .NET **HttpRequestMessage** 및 **HttpResponseMessage** 형식 대신 **DurableHttpRequest** 및 **DurableHttpResponse** 형식을 사용 하는 이유를 궁금할 수 있습니다.
 >
 > 이 디자인 선택은 의도적인 것입니다. 주된 이유는 사용자 지정 형식을 사용 하 여 사용자가 내부 HTTP 클라이언트의 지원 되는 동작에 대해 잘못 된 가정을 하지 못하도록 하는 것입니다. Durable Functions 관련 형식만 API 디자인을 간소화할 수 있습니다. 또한 [관리 id 통합](#managed-identities) 및 [폴링 소비자 패턴과](#http-202-handling)같은 특수 기능을 보다 쉽게 사용할 수 있습니다. 
+
+### <a name="extensibility-net-only"></a>확장성 (.NET만 해당)
+
+[Azure Functions .net 종속성 주입](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection)을 사용 하 여 오케스트레이션의 내부 HTTP 클라이언트 동작을 사용자 지정할 수 있습니다. 이 기능은 작은 동작 변경을 수행 하는 데 유용할 수 있습니다. 모의 개체를 삽입 하 여 HTTP 클라이언트를 단위 테스트 하는 데에도 유용할 수 있습니다.
+
+다음 예제에서는 종속성 주입을 사용 하 여 외부 HTTP 끝점을 호출 하는 오 케 스트레이 터 함수에 대해 SSL 인증서 유효성 검사를 사용 하지 않도록
+
+```csharp
+public class Startup : FunctionsStartup
+{
+    public override void Configure(IFunctionsHostBuilder builder)
+    {
+        // Register own factory
+        builder.Services.AddSingleton<
+            IDurableHttpMessageHandlerFactory,
+            MyDurableHttpMessageHandlerFactory>();
+    }
+}
+
+public class MyDurableHttpMessageHandlerFactory : IDurableHttpMessageHandlerFactory
+{
+    public HttpMessageHandler CreateHttpMessageHandler()
+    {
+        // Disable SSL certificate validation (not recommended in production!)
+        return new HttpClientHandler
+        {
+            ServerCertificateCustomValidationCallback =
+                HttpClientHandler.DangerousAcceptAnyServerCertificateValidator,
+        };
+    }
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 

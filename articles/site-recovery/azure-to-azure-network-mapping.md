@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 8c24352fdbc6b81e7d263ac8c511b7c61792e6ae
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 6249a3c1c8ea3be02ca802d6be7e720bd900f675
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907878"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178086"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>VNet의 네트워크 매핑 및 IP 주소 설정
 
 이 문서에서는 서로 다른 Azure 지역에 있는 Azure VNet(가상 네트워크)의 두 인스턴스를 매핑하는 방법과 네트워크 간에 IP 주소를 설정하는 방법을 설명합니다. 네트워크 매핑은 복제를 사용 하도록 설정할 때 원본 네트워크를 기반으로 하는 대상 네트워크 선택에 대 한 기본 동작을 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 네트워크를 매핑하려면 원본 및 대상 Azure 지역에 [Azure VNet](../virtual-network/virtual-networks-overview.md)이 있어야 합니다. 
 
@@ -33,7 +33,7 @@ ms.locfileid: "69907878"
 3. **네트워크 매핑 추가**에서 원본 및 대상 위치를 선택합니다. 이 예제에서는 원본 VM이 동아시아 지역에서 실행되고 동남 아시아 지역에 복제됩니다.
 
     ![원본 및 대상 선택](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
-3. 이제 반대쪽 디렉터리에 네트워크 매핑을 만듭니다. 이 예제에서는 원본이 동남 아시아이고 대상이 동아시아입니다.
+3. 이제 반대 방향으로 네트워크 매핑을 만듭니다. 이 예제에서는 원본이 동남 아시아이고 대상이 동아시아입니다.
 
     ![네트워크 매핑 추가 창 - 대상 네트워크의 원본 및 대상 위치 선택](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
@@ -85,8 +85,8 @@ Azure VM에 대한 재해 복구를 구성하기 전에 네트워크 매핑을 �
 
 **대상 네트워크** | **세부 정보**
 --- | ---
-대상 네트워크는 장애 조치(failover) VNet | - 대상 IP 주소는 고정 주소이지만, 장애 조치(failover)를 위해 예약된다는 점에서 동일한 IP 주소가 아닙니다.<br/><br/>  - 서브넷 범위의 끝에서부터 사용 가능한 그 다음 IP가 주소로 할당됩니다.<br/><br/> 예: 원본 IP 주소가 10.0.0.19이고 장애 조치(failover) 네트워크에서 10.0.0.0/24 범위를 사용하는 경우 대상 VM에 할당되는 그 다음 IP 주소는 10.0.0.254입니다.
-대상 네트워크는 장애 조치(failover) VNet이 아님 | - 대상 IP 주소는 장애 조치(failover)에 예약된 동일한 IP 주소를 사용하는 고정 주소입니다.<br/><br/>  -동일한 IP 주소가 이미 할당 된 경우 IP 주소는 서브넷 범위의 끝에서 사용할 수 있는 다음 IP 주소입니다.<br/><br/> 예를 들어: 원본 고정 IP 주소가 10.0.0.19이고 장애 조치(failover) 네트워크가 아니며 범위가 10.0.0.0/24인 네트워크에서 장애 조치(failover)되는 경우 대상 고정 IP 주소는 10.0.0.0.19이고(사용 가능한 경우), 그렇지 않으면 10.0.0.254입니다.
+대상 네트워크는 장애 조치(failover) VNet | - 대상 IP 주소는 고정 주소이지만, 장애 조치(failover)를 위해 예약된다는 점에서 동일한 IP 주소가 아닙니다.<br/><br/>  - 서브넷 범위의 끝에서부터 사용 가능한 그 다음 IP가 주소로 할당됩니다.<br/><br/> 예를 들어 다음과 같은 가치를 제공해야 합니다. 원본 IP 주소가 10.0.0.19이고 장애 조치(failover) 네트워크에서 10.0.0.0/24 범위를 사용하는 경우 대상 VM에 할당되는 그 다음 IP 주소는 10.0.0.254입니다.
+대상 네트워크는 장애 조치(failover) VNet이 아님 | - 대상 IP 주소는 장애 조치(failover)에 예약된 동일한 IP 주소를 사용하는 고정 주소입니다.<br/><br/>  -동일한 IP 주소가 이미 할당 된 경우 IP 주소는 서브넷 범위의 끝에서 사용할 수 있는 다음 IP 주소입니다.<br/><br/> 예를 들어 다음과 같은 가치를 제공해야 합니다. 원본 고정 IP 주소가 10.0.0.19이고 장애 조치(failover) 네트워크가 아니며 범위가 10.0.0.0/24인 네트워크에서 장애 조치(failover)되는 경우 대상 고정 IP 주소는 10.0.0.0.19이고(사용 가능한 경우), 그렇지 않으면 10.0.0.254입니다.
 
 - 장애 조치(failover) VNet은 재해 복구를 설정할 때 선택한 대상 네트워크입니다.
 - 테스트 장애 조치(failover)에는 항상 비 프로덕션 네트워크를 사용하는 것이 좋습니다.

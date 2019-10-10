@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7f8c029c5ceff0865b060cf8edc794454d6c282
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 0a1515144f340938cddfd5ca9f2ac4803bcb3f77
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828477"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174711"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Linux Vm에 대 한 Azure Disk Encryption 시나리오
 
@@ -36,7 +36,7 @@ Azure Disk Encryption는 Linux의 DM 기능을 사용 하 여 Azure Vm (가상 �
 
 ## <a name="install-tools-and-connect-to-azure"></a>도구를 설치 하 고 Azure에 연결
 
-Azure Disk Encryption [Azure CLI](/cli/azure) 및 [Azure PowerShell](/azure/new-azureps-module-az)를 통해 사용 하도록 설정 하 고 관리할 수 있습니다. 이렇게 하려면 도구를 로컬로 설치 하 고 Azure 구독에 연결 해야 합니다.
+Azure Disk Encryption [Azure CLI](/cli/azure) 및 [Azure PowerShell](/powershell/azure/new-azureps-module-az)를 통해 사용 하도록 설정 하 고 관리할 수 있습니다. 이렇게 하려면 도구를 로컬로 설치 하 고 Azure 구독에 연결 해야 합니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -66,7 +66,7 @@ az account set --subscription "<subscription name or ID>"
 자세한 내용은 [Azure CLI 2.0 시작](/cli/azure/get-started-with-azure-cli)을 참조하세요. 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell az module](/azure/new-azureps-module-az) 은 [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) 모델을 사용 하 여 Azure 리소스를 관리 하는 cmdlet 집합을 제공 합니다. [Azure Cloud Shell](../../cloud-shell/overview.md)를 사용 하 여 브라우저에서 사용 하거나 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)의 지침을 사용 하 여 로컬 컴퓨터에 설치할 수 있습니다. 
+[Azure PowerShell az module](/powershell/azure/new-azureps-module-az) 은 [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) 모델을 사용 하 여 Azure 리소스를 관리 하는 cmdlet 집합을 제공 합니다. [Azure Cloud Shell](../../cloud-shell/overview.md)를 사용 하 여 브라우저에서 사용 하거나 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)의 지침을 사용 하 여 로컬 컴퓨터에 설치할 수 있습니다. 
 
 이미 로컬에 설치되어있는 경우 최신 버전의 Azure PowerShell SDK 버전을 사용하여 Azure Disk Encryption을 구성해야 합니다. 최신 버전의 [Azure PowerShell 릴리스](https://github.com/Azure/azure-powershell/releases)를 다운로드합니다.
 
@@ -202,7 +202,7 @@ key-encryption-key 매개변수의 값 구문은 KEK의 전체 URI, 즉 https://
 | volumeType | 암호화 작업을 수행할 볼륨의 유형. 유효한 값은 _OS_, _Data_ 및 _All_입니다. 
 | forceUpdateTag | 작업을 강제로 실행해야 할 때마다 GUID 같은 고유한 값으로 전달합니다. |
 | resizeOSDisk | 시스템 볼륨을 분할하기 전에 전체 OS VHD를 채우려면 OS 파티션 크기를 조정해야 합니다. |
-| 위치 | 모든 리소스에 대한 위치. |
+| location | 모든 리소스에 대한 위치. |
 
 
 ## <a name="use-encryptformatall-feature-for-data-disks-on-linux-vms"></a>Linux Vm의 데이터 디스크에 EncryptFormatAll 기능 사용

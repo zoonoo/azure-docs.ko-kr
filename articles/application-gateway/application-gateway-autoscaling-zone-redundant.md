@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/13/2019
+ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: b97dab0f41915ac6193c35cad9a6af812b16fd4a
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f58ac4448f50e8e02f2838fef02c9f884f69266b
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104880"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177446"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>자동 크기 조정 및 영역 중복 Application Gateway v2 
 
@@ -35,9 +35,9 @@ Standard_v2 및 WAF_v2 SKU 에서도 Application Gateway 및 WAF (웹 응용 프
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-Standard_v2 및 WAF_v2 SKU는 다음 지역에서 제공 됩니다. 미국 중 북부, 미국 중 북부, 미국 서 부, 미국 서 부 2, 미국 동부, 미국 동부 2, 미국 동부, 유럽 서 부, 유럽 서부, 동남 아시아, 프랑스 중부, 영국 서부, 일본 동부, 일본 서 부, 오스트레일리아 동부, 오스트레일리아 남동쪽, 캐나다 중부, 캐나다 동부, 동아시아, 대한민국 중부, 한국 남부, 인도 남부, 영국 남부, 인도 중부, 인도 서 부, 인도 남부.
+Standard_v2 및 WAF_v2 SKU는 다음 지역에서 제공 됩니다. 미국 중 북부, 미국 중 북부, 미국 서 부, 미국 서 부 2, 미국 동부, 미국 동부 2, 미국 동부, 유럽 서 부, 유럽 서부, 동남 아시아, 프랑스 중부, 영국 서부, 일본 동부, 일본 서 부, 오스트레일리아 동부, 오스트레일리아 남동쪽, 브라질 남부, 캐나다 중부, 캐나다 동부, 동부 아시아, 대한민국 중부, 대한민국 남부, 인도 남부, 영국 남부, 인도 중부, 인도 서 부, 인도 남부.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 V2 SKU를 사용 하는 경우 가격 책정 모델은 사용량에 따라 결정 되며 더 이상 인스턴스 수 나 크기에 연결 되지 않습니다. V2 SKU 가격에는 다음과 같은 두 가지 구성 요소가 있습니다.
 
@@ -112,9 +112,9 @@ Application Gateway 및 WAF는 다음과 같은 두 가지 모드로 확장 되�
 
 다음 표에서는 각 SKU에서 사용할 수 있는 기능을 비교 합니다.
 
-|                                                   | V1 SKU   | V2 SKU   |
+|                                                   | v1 SKU   | v2 SKU   |
 | ------------------------------------------------- | -------- | -------- |
-| 자동 크기 조정                                       |          | &#x2713; |
+| 자동 확장                                       |          | &#x2713; |
 | 영역 중복                                   |          | &#x2713; |
 | 정적 VIP                                        |          | &#x2713; |
 | AKS (Azure Kubernetes Service) 수신 컨트롤러 |          | &#x2713; |
@@ -137,7 +137,7 @@ Application Gateway 및 WAF는 다음과 같은 두 가지 모드로 확장 되�
 
 ## <a name="differences-with-v1-sku"></a>V1 SKU와의 차이점
 
-|차이|세부 정보|
+|뺀|설명|
 |--|--|
 |인증 인증서|지원되지 않습니다.<br>자세한 내용은 [Application Gateway의 엔드투엔드 SSL 개요](ssl-overview.md#end-to-end-ssl-with-the-v2-sku)를 참조하세요.|
 |동일한 서브넷에서 Standard_v2와 표준 애플리케이션 게이트웨이 혼합|지원되지 않음|

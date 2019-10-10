@@ -15,12 +15,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f5e2443a285e065426e3dba0312ef6420097ef1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d4f9686be08de2589cddadf741dadf243d0e7895
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60348060"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174449"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 통과 인증 보안 심층 분석
 
@@ -147,7 +147,8 @@ Azure AD의 운영, 서비스 및 데이터 보안에 대한 일반적인 정보
 12. 인증 에이전트가 Active Directory로부터 성공, 사용자 이름 또는 암호 불일치, 암호 만료와 같은 결과를 수신합니다.
 
    > [!NOTE]
-   > 로그인 프로세스 중 인증 에이전트 실패 하면 전체 로그인 요청이 삭제 되었습니다. 로그인 요청 하나의 인증 에이전트가 다른 인증 에이전트가 온-프레미스에 없는 실체로 있습니다. 이러한 에이전트는 클라우드와 및 서로 없습니다만 통신합니다.
+   > 로그인 프로세스 중에 인증 에이전트가 실패 하면 전체 로그인 요청이 삭제 됩니다. 한 인증 에이전트에서 온-프레미스로의 다른 인증 에이전트로 로그인 요청이 발생 하는 것은 아닙니다. 이러한 에이전트는 클라우드와만 통신 하 고 서로는 통신 하지 않습니다.
+   
 13. 인증 에이전트는 포트 443을 통한 아웃바운드 상호 인증 HTTPS 채널을 통해 결과를 다시 Azure AD STS로 전달합니다. 상호 인증은 이전 단계에서 등록 시 인증 에이전트로 발급된 인증서를 사용합니다.
 14. Azure AD STS는 이 결과가 테넌트의 특정 로그인 요청과 관련이 있는지 확인합니다.
 15. Azure AD STS는 구성된 대로 로그인 절차를 계속 진행합니다. 예를 들어, 암호 유효성 검사가 성공적인 경우 사용자에게 Multi-Factor Authentication을 요청하거나 사용자를 애플리케이션으로 리디렉션합니다.
@@ -184,7 +185,7 @@ Azure AD에서 인증 에이전트의 신뢰를 갱신하기 위해:
 
 ## <a name="auto-update-of-the-authentication-agents"></a>인증 에이전트의 자동 업데이트
 
-업데이트 응용 프로그램 (버그 수정 또는 향상 된 성능)와 함께 새 버전이 릴리스되면 자동으로 인증 에이전트를 업데이트 합니다. 업데이트 응용 프로그램은 테 넌 트에 대 한 암호 유효성 검사 요청을 처리 하지 않습니다.
+업데이트 프로그램 응용 프로그램은 새 버전 (버그 수정 또는 성능 향상이 포함 됨)이 릴리스되면 인증 에이전트를 자동으로 업데이트 합니다. 업데이트 프로그램 응용 프로그램은 테 넌 트에 대 한 암호 유효성 검사 요청을 처리 하지 않습니다.
 
 Azure AD는 새로운 소프트웨어 버전을 서명된 **Windows Installer 패키지(MSI)** 로서 호스팅합니다. MSI는 [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx)를 사용하여 서명됩니다. 이때 SHA256이 다이제스트 알고리즘으로 사용됩니다. 
 
@@ -206,7 +207,7 @@ Azure AD는 새로운 소프트웨어 버전을 서명된 **Windows Installer �
     - 인증 에이전트 서비스를 다시 시작합니다.
 
 >[!NOTE]
->테넌트에 여러 인증 에이전트가 등록된 경우 Azure AD는 인증서를 갱신하거나 동시에 업데이트하지 않습니다. 대신, Azure AD 로그인 요청의 고가용성 보장 하기 위해 한 번에 하나를 수행 합니다.
+>테넌트에 여러 인증 에이전트가 등록된 경우 Azure AD는 인증서를 갱신하거나 동시에 업데이트하지 않습니다. 대신 Azure AD는 로그인 요청의 고가용성을 보장 하기 위해 한 번에 한 번씩 수행 합니다.
 >
 
 

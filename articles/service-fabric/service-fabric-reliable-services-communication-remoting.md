@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: a9ef2cd695f9591f299bb85b95d14d60b987c38d
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1654a7be8c3aba4efa6fcf96024ea987e2957e73
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258700"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173455"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Reliable Services로 C#에서 서비스 원격 호출
 
@@ -36,7 +36,7 @@ ms.locfileid: "70258700"
 다음과 같은 간단한 두 가지 단계로 서비스에 대한 원격 호출을 설정할 수 있습니다.
 
 1. 서비스로 구현할 인터페이스를 만듭니다. 이 인터페이스는 서비스의 원격 프로시저 호출에 사용할 수 있는 메서드를 정의합니다. 메서드는 작업을 반환하는 비동기 메서드여야 합니다. 인터페이스는 서비스에 원격 호출 인터페이스가 있다는 것을 신호하기 위해 `Microsoft.ServiceFabric.Services.Remoting.IService` 를 구현해야 합니다.
-2. 서비스에서 원격 수신기를 사용합니다. 원격 수신기는 원격 호출 기능을 제공하는 `ICommunicationListener` 구현입니다. `Microsoft.ServiceFabric.Services.Remoting.Runtime` 네임스페이스는 상태 비저장 및 상태 저장 서비스에 대해 확장 메서드인 `CreateServiceRemotingListener`를 포함하며 이러한 상태 비저장 및 상태 저장 서비스는 기본 원격 전송 프로토콜을 사용하여 원격 수신기를 만드는 데 사용할 수 있습니다.
+2. 서비스에서 원격 수신기를 사용합니다. 원격 수신기는 원격 호출 기능을 제공하는 `ICommunicationListener` 구현입니다. `Microsoft.ServiceFabric.Services.Remoting.Runtime` 네임스페이스는 상태 비저장 및 상태 저장 서비스에 대해 확장 메서드인 `CreateServiceRemotingInstanceListeners`를 포함하며 이러한 상태 비저장 및 상태 저장 서비스는 기본 원격 전송 프로토콜을 사용하여 원격 수신기를 만드는 데 사용할 수 있습니다.
 
 >[!NOTE]
 >`Remoting` 네임스페이스는 `Microsoft.ServiceFabric.Services.Remoting`이라는 별도의 NuGet 패키지로 제공됩니다.
@@ -322,7 +322,7 @@ V2_1 스택으로 변경하려면 다음 단계를 따르세요.
 V1에서 V2(인터페이스 호환 가능, V2_1이라고 함)로 업그레이드하려면 2단계 업그레이드가 필요합니다. 이 순서대로 단계를 따르세요.
 
 > [!NOTE]
-> V 1에서 v 2로 업그레이드 하는 `Remoting` 경우 v2를 사용 하도록 네임 스페이스를 업데이트 해야 합니다. 예제: ' ServiceFabric ' (' FabricTransport ')
+> V 1에서 v 2로 업그레이드 하는 경우 `Remoting` 네임 스페이스가 V2를 사용 하도록 업데이트 되었는지 확인 합니다. 예: ' ServiceFabric ' (' FabricTransport ')
 >
 >
 

@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: f0b850038a29dd0949def97b359b2b7a5ce920bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 017b359f4c6da438f5179813fa3ed1ad2c536834
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60392860"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168870"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스
 
@@ -143,4 +143,4 @@ public static TextWriter Out = Console.Out;
 
 ## <a name="next-steps"></a>다음 단계
 애플리케이션에 추가된 동일한 추적 코드 역시 Azure 클러스터에서 애플리케이션의 진단과 함께 작동합니다. 도구에 대한 다양한 옵션과 도구를 설정하는 방법에 대해 설명하는 이러한 문서를 확인합니다.
-* [Azure 진단을 사용하여 로그를 수집하는 방법](service-fabric-diagnostics-how-to-setup-lad.md)
+* [Azure Diagnostics를 사용하여 로그를 수집하는 방법](service-fabric-diagnostics-how-to-setup-lad.md)

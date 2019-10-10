@@ -16,12 +16,12 @@ ms.date: 09/24/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1283549ce78535757b7ba42eaf7054538f0c9784
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: a99aa766ed4e6cacbe22933db226b2037d3e736d
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326350"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170006"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 새 액세스 패키지 만들기
 
@@ -126,5 +126,3 @@ ms.locfileid: "71326350"
 ## <a name="next-steps"></a>다음 단계
 
 - [기존 액세스 패키지 편집 및 관리](entitlement-management-access-package-edit.md)
-- [카탈로그 소유자 또는 액세스 패키지 관리자 추가](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
-- [카탈로그 만들기 및 관리](entitlement-management-catalog-create.md)

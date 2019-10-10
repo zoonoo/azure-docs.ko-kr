@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 9f7957fb0e6e888367c1f8ded1abfb3828697cbb
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7949bedec2d304cd87fb512b44cd61d6f0894638
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087087"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168947"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Azure VM에서 원격 데스크톱 서비스가 시작되지 않음
 
@@ -113,7 +113,7 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>액세스 거부 문제로 인해 TermService 서비스가 중지됨
 
 1. [직렬 콘솔](serial-console-windows.md)에 연결하고 PowerShell 인스턴스를 엽니다.
-2. 다음 스크립트를 실행하여 프로세스 모니터 도구를 다운로드합니다.
+2. 다음 스크립트를 실행 하 여 프로세스 모니터 도구를 다운로드 합니다.
 
    ```
    remove-module psreadline  
@@ -141,14 +141,14 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
    procmon /Terminate 
    ```
 
-5. \ **c:\temp\ProcMonTrace.PML** 파일을 수집합니다.
+5. **C:\temp\ProcMonTrace.PML**파일을 수집 합니다.
 
     1. [VM에 데이터 디스크를 연결합니다](../windows/attach-managed-disk-portal.md
 ).
     2. 새 드라이브에 파일을 복사할 수 있는 직렬 콘솔을 사용합니다. 예를 들어, `copy C:\temp\ProcMonTrace.PML F:\`을 입력합니다. 이 명령에서 F는 연결된 데이터 디스크의 드라이브 문자입니다.
     3. 데이터 드라이브를 분리하고 프로세스 모니터 ubstakke가 설치되어 있는 작동 중인 VM에서 연결합니다.
 
-6. 작동 중인 VM에서 프로세스 모니터를 사용하여 **ProcMonTrace.PML**을 엽니다. 그런 다음, 다음 스크린샷에 나온 것처럼  **결과가 액세스 거부됨**으로 필터링합니다.
+6. 작동 중인 VM에서 프로세스 모니터를 사용하여 **ProcMonTrace.PML**을 엽니다. 다음 스크린샷에 표시 된 것 처럼 **결과 필터링은 액세스 거부 됩니다**.
 
     ![프로세스 모니터의 결과로 필터링](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 

@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 10/08/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff5f814eac095770990ecbc0c4b01d2e0cc6f931
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 014fcf37930800858cd70f15c19e3f494d3f3776
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667211"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169796"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>응용 프로그램 프록시 커넥터 및 응용 프로그램의 고가용성 및 부하 분산
 
@@ -102,3 +102,4 @@ ms.locfileid: "68667211"
 - [Single Sign-On 사용](application-proxy-configure-single-sign-on-with-kcd.md)
 - [조건부 액세스 사용](application-proxy-integrate-with-sharepoint-server.md)
 - [애플리케이션 프록시에서 발생한 문제 해결](application-proxy-troubleshoot.md)
+- [Azure AD 아키텍처가 고가용성을 지 원하는 방법 알아보기](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)

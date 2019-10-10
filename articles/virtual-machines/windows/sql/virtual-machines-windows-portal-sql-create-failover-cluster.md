@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 3e954a6c714e525e5bbefe8f62c798cf8ac9a517
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: b30ccbcba0b2126d1fe1abce9ae67a55ce25f601
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036395"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170261"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성
 
@@ -81,7 +81,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
 - [Azure 리소스 그룹](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> 이번에 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)은 Azure에서 SQL Server FCI에 대해 지원되지 않습니다. FCI에 참여하는 VM에서 확장을 제거하는 것이 좋습니다. 이 확장은 자동화된 Backup 및 패칭 같은 기능 및 SQL용 일부 포털 기능을 지원합니다. 이 기능은 에이전트를 제거한 후 SQL VM에 대해 작동하지 않습니다.
+> SQL Server 현재 Azure 가상 컴퓨터의 장애 조치 (failover) 클러스터 인스턴스는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)의 [경량](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) 관리 모드 에서만 지원 됩니다. 장애 조치 (failover) 클러스터에 참여 하는 Vm에서 전체 확장을 제거한 다음 `lightweight` 모드로 SQL VM 리소스 공급자에 등록 합니다. 전체 확장은 자동화 된 백업, 패치, 고급 포털 관리 등의 기능을 지원 합니다. 이러한 기능은 에이전트가 경량 관리 모드로 다시 설치 된 후 SQL Vm에 대해 작동 하지 않습니다.
 
 ### <a name="what-to-have"></a>가지고 있어야 할 사항
 
@@ -277,7 +277,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 #### <a name="windows-server-2019"></a>Windows Server 2019
 
-다음 PowerShell은 Windows Server 2019에 대 한 장애 조치 (failover) 클러스터를 만듭니다.  자세한 내용은 블로그 [장애 조치 (Failover) 클러스터를 참조 하세요. 클러스터 네트워크 개체](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97)입니다.  스크립트를 노드의 이름(가상 머신 이름) 및 Azure VNET에서 사용 가능한 IP 주소 이름으로 업데이트합니다.
+다음 PowerShell은 Windows Server 2019에 대 한 장애 조치 (failover) 클러스터를 만듭니다.  자세한 내용은 블로그 [Failover 조치 (failover) 클러스터를 검토 하세요. 클러스터 네트워크 개체 @ no__t-0.  스크립트를 노드의 이름(가상 머신 이름) 및 Azure VNET에서 사용 가능한 IP 주소 이름으로 업데이트합니다.
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
@@ -409,7 +409,7 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
 
    - **Name**: 상태 프로브의 이름입니다.
    - **프로토콜**: TCP입니다.
-   - **포트**: [이 단계](#ports)에서 상태 프로브에 대해 방화벽에서 만든 포트로 설정 합니다. 이 문서에서는이 예제에서는 TCP 포트 `59999`를 사용 합니다.
+   - **포트**: [이 단계](#ports)에서 상태 프로브에 대해 방화벽에서 만든 포트로 설정 합니다. 이 문서에서는이 예제에서는 TCP 포트 `59999`을 사용 합니다.
    - **간격**: 5초입니다.
    - **비정상 임계값**: 2번 연속 실패입니다.
 
@@ -501,7 +501,7 @@ Azure Virtual Machines의 Windows Server 2016 및 이전 버전에서는 다음�
 - 클러스터형 MSDTC 리소스는 공유 스토리지를 사용하도록 구성할 수 없습니다. Windows Server 2016에서 MSDTC 리소스를 만드는 경우 공유 스토리지가 있더라도 사용 가능한 공유 스토리지가 표시되지 않습니다. 이 문제는 Windows Server 2019에서 수정되었습니다.
 - 기본 Load Balancer는 RPC 포트를 처리하지 않습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 
 [원격 데스크톱(Azure)을 사용하여 S2D 설치](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 

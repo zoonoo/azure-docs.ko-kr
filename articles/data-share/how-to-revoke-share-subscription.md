@@ -1,17 +1,17 @@
 ---
 title: Azure 데이터 공유 미리 보기에서 공유 구독 취소
-description: 공유 구독 철회
+description: Azure 데이터 공유 미리 보기를 사용 하 여 받는 사람 으로부터 공유 구독을 취소 하는 방법을 알아봅니다.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 08a48202c26df1c24216572b1a52ac45506c6229
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: bd8ef23ead500acb9e403b38fd52a2d980d12bf4
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326529"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169049"
 ---
 # <a name="how-to-revoke-a-consumers-share-subscription-in-azure-data-share-preview"></a>Azure 데이터 공유 미리 보기에서 소비자의 공유 구독을 취소 하는 방법
 

@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
-ms.author: chackdan
-ms.openlocfilehash: 165dc95681b75e98d91c66b490e15c2e96608299
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: pepogors
+ms.openlocfilehash: 7e14a027f17c15c83a4ce25a211ef6106f2d2eaa
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098942"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170595"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Linux에서 Apache Tomcat 서버를 실행하는 Service Fabric 컨테이너 만들기
 Apache Tomcat은 Java 서블릿 및 Java 서버 기술의 인기 있는 오픈 소스 구현입니다. 이 문서에서는 Apache Tomcat 및 간단한 웹 애플리케이션이 포함된 컨테이너를 빌드하고, Linux를 실행하는 Service Fabric 클러스터에 이 컨테이너를 배포한 다음, 웹 애플리케이션에 연결하는 방법에 대해 설명합니다.  
 
 Apache Tomcat에 대한 자세한 내용은 [Apache Tomcat 홈페이지](https://tomcat.apache.org/)를 참조하세요. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 * 다음을 실행하는 개발 컴퓨터
   * [Service Fabric SDK 및 도구](service-fabric-get-started-linux.md)
   * [Linux용 Docker CE](https://docs.docker.com/engine/installation/#prior-releases) 
@@ -110,7 +110,7 @@ Apache Tomcat에 대한 자세한 내용은 [Apache Tomcat 홈페이지](https:/
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>컨테이너 레지스트리에 Tomcat 이미지 푸시
 Tomcat 이미지가 개발 컴퓨터의 컨테이너에서 실행되는지 확인했으므로 이제 이 이미지를 컨테이너 레지스트리의 리포지토리로 푸시합니다. 이 문서에서는 Azure Container Registry를 사용하여 이미지를 저장하지만, 단계를 약간 수정하면 선택한 모든 컨테이너 레지스트리를 사용할 수 있습니다. 이 문서에서 레지스트리 이름은 *myregistry*로 간주되며, 전체 레지스트리 이름은 myregistry.azurecr.io입니다. 시나리오에 맞게 적절하게 변경합니다. 
 
-1. 을 `docker login` 실행 하 여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)을 사용 하 여 컨테이너 레지스트리에 로그인 합니다.
+1. @No__t-0을 실행 하 여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)을 사용 하 여 컨테이너 레지스트리에 로그인 합니다.
 
    다음 예제는 Azure Active Directory [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)의 ID와 암호를 전달합니다. 예를 들어 자동화 시나리오를 위해 레지스트리에 서비스 주체를 할당할 수 있습니다. 또는 레지스트리 사용자 이름과 암호를 사용 하 여 로그인 할 수 있습니다.
 

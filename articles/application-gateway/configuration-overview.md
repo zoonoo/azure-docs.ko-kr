@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 65cf71140d1706b8607e721ac323b1a97ae272fa
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: f69348f1a56845716d8d862f2926774cbc537cf0
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898438"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177430"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -20,12 +20,12 @@ Azure 애플리케이션 게이트웨이는 다양 한 시나리오에 대해 �
 
 ![Application Gateway 구성 요소 흐름 차트](./media/configuration-overview/configuration-overview1.png)
 
-이 이미지는 세 개의 수신기가 있는 응용 프로그램을 보여 줍니다. 처음 두 개는 각각 및 `http://acme.com/*` `http://fabrikam.com/*`에 대 한 다중 사이트 수신기입니다. 둘 다 포트 80에서 수신 합니다. 세 번째는 종단 간 SSL(Secure Sockets Layer) (SSL) 종료를 포함 하는 기본 수신기입니다.
+이 이미지는 세 개의 수신기가 있는 응용 프로그램을 보여 줍니다. 처음 두 개는 `http://acme.com/*` 및 `http://fabrikam.com/*`에 대 한 다중 사이트 수신기입니다. 둘 다 포트 80에서 수신 합니다. 세 번째는 종단 간 SSL(Secure Sockets Layer) (SSL) 종료를 포함 하는 기본 수신기입니다.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Azure 가상 네트워크 및 전용 서브넷
 
@@ -61,7 +61,7 @@ NSGs (네트워크 보안 그룹)는 Application Gateway에서 지원 됩니다.
 
 이 시나리오에서는 Application Gateway 서브넷에 NSGs를 사용 합니다. 이 우선 순위에 따라 서브넷에 다음과 같은 제한 사항을 적용 합니다.
 
-1. 원본 IP/IP 범위에서 들어오는 트래픽을 허용 합니다.
+1. 원본 IP/IP 범위와 전체 Application Gateway 서브넷 또는 구성 된 특정 개인 프런트 엔드 IP에서 들어오는 트래픽을 허용 합니다. NSG는 공용 IP에서 작동 하지 않습니다.
 2. 모든 원본에서 Application Gateway v1 SKU에 대 한 포트 65503-65534, [백 엔드 상태 통신용](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)v2 sku에 대 한 포트 65200-65535에 대 한 들어오는 요청을 허용 합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 Azure 인증서에 의해 보호 (잠김) 됩니다. 적절 한 인증서가 없는 경우 외부 엔터티는 해당 끝점에 대 한 변경 내용을 초기화할 수 없습니다.
 3. [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)에서 들어오는 Azure Load Balancer 프로브 (*azureloadbalancer* 태그) 및 인바운드 가상 네트워크 트래픽 (*VirtualNetwork* 태그)을 허용 합니다.
 4. 모든 수신 트래픽 거부 규칙을 사용 하 여 차단 합니다.
@@ -121,7 +121,7 @@ V2 SKU의 경우 다중 사이트 수신기가 기본 수신기 보다 먼저 �
 
 프런트 엔드 포트를 선택 합니다. 기존 포트를 선택 하거나 새로 만듭니다. [허용 되는 포트 범위](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports)에서 값을 선택 합니다. 잘 알려진 포트 (예: 80 및 443) 뿐만 아니라 적절 한 모든 사용자 지정 포트를 사용할 수 있습니다. 포트는 공용 수신기 또는 개인 연결 수신기에 사용할 수 있습니다.
 
-### <a name="protocol"></a>프로토콜
+### <a name="protocol"></a>Protocol
 
 HTTP 또는 HTTPS를 선택 합니다.
 
@@ -212,7 +212,7 @@ V2 SKU의 경우 정확한 일치는 URL 경로 맵의 경로 순서 보다 우�
 
 ### <a name="redirection-setting"></a>리디렉션 설정
 
-기본 규칙에 대해 리디렉션이 구성 된 경우 연결 된 수신기에 대 한 모든 요청이 대상으로 리디렉션됩니다. *전역* 리디렉션입니다. 경로 기반 규칙에 대해 리디렉션이 구성 된 경우 특정 사이트 영역의 요청만 리디렉션됩니다. 예를 들면 */cart/\** 로 표시 되는 쇼핑 카트 영역이 있습니다. *경로 기반* 리디렉션입니다.
+기본 규칙에 대해 리디렉션이 구성 된 경우 연결 된 수신기에 대 한 모든 요청이 대상으로 리디렉션됩니다. *전역* 리디렉션입니다. 경로 기반 규칙에 대해 리디렉션이 구성 된 경우 특정 사이트 영역의 요청만 리디렉션됩니다. 예를 들어 */cart/\** 로 표시 되는 쇼핑 카트 영역이 있습니다. *경로 기반* 리디렉션입니다.
 
 리디렉션에 대 한 자세한 내용은 [Application Gateway 리디렉션 개요](https://docs.microsoft.com/azure/application-gateway/redirect-overview)를 참조 하세요.
 
@@ -262,7 +262,7 @@ HTTP에서 HTTPS로의 리디렉션에 대 한 자세한 내용은 다음을 참
 
 연결 드레이닝은 계획 된 서비스 업데이트 중에 백 엔드 풀 멤버를 정상적으로 제거 하는 데 도움이 됩니다. 규칙을 만드는 동안 백 엔드 풀의 모든 멤버에이 설정을 적용할 수 있습니다. 백 엔드 풀의 모든 등록 취소 인스턴스가 새 요청을 수신 하지 않도록 합니다. 한편, 기존 요청은 구성 된 시간 제한 내에 완료할 수 있습니다. 연결 드레이닝은 API 호출을 통해 백 엔드 풀에서 명시적으로 제거 된 백 엔드 인스턴스에 적용 됩니다. 상태 프로브에 의해 *비정상* 으로 보고 된 백 엔드 인스턴스에도 적용 됩니다.
 
-### <a name="protocol"></a>프로토콜
+### <a name="protocol"></a>Protocol
 
 Application Gateway 백 엔드 서버에 대 한 라우팅 요청에 HTTP 및 HTTPS를 모두 지원 합니다. HTTP를 선택 하는 경우 백 엔드 서버에 대 한 트래픽이 암호화 되지 않습니다. 암호화 되지 않은 통신이 허용 되지 않는 경우 HTTPS를 선택 합니다.
 
@@ -272,7 +272,7 @@ Application Gateway 백 엔드 서버에 대 한 라우팅 요청에 HTTP 및 HT
 
 이 설정은 백 엔드 서버가 application gateway의 트래픽을 수신 대기 하는 포트를 지정 합니다. 1에서 65535 사이의 포트를 구성할 수 있습니다.
 
-### <a name="request-timeout"></a>시간 제한 요청
+### <a name="request-timeout"></a>요청 시간 초과
 
 이 설정은 application gateway가 "연결 시간이 초과 되었습니다." 오류 메시지를 반환 하기 전에 백 엔드 풀에서 응답을 받기 위해 대기 하는 시간 (초)입니다.
 
@@ -310,7 +310,7 @@ Azure App Service 백 엔드에 대 한 두 가지 필수 설정을 선택 하�
 > [!NOTE]
 > 해당 HTTP 설정이 수신기와 명시적으로 연결 되지 않은 경우 사용자 지정 프로브는 백 엔드 풀의 상태를 모니터링 하지 않습니다.
 
-### <a id="pick"/></a>백 엔드 주소에서 호스트 이름 선택
+### <a id="pick"/> @ no__t-1 백 엔드 주소에서 호스트 이름을 선택 합니다.
 
 이 기능은 요청의 *호스트* 헤더를 백 엔드 풀의 호스트 이름으로 동적으로 설정 합니다. IP 주소 또는 FQDN을 사용 합니다.
 

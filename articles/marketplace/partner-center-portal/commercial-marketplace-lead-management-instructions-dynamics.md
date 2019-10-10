@@ -7,21 +7,21 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 03d67249ef1d74844a7e9019e90f6331ecfdf0c3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 181a3f3a8d3cabb2fdf6caf79cef16201fab0c68
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102969"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177799"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>고객 Engagement의 Dynamics 365에 대 한 리드 관리 구성
 
-이 문서에서는 고객 참여를 위한 Dynamics 365을 설정 하는 방법을 설명 합니다 (이전에 Dynamics CRM Online). marketplace 제품에서 판매 잠재 고객을 처리 하려면 [여기](https://docs.microsoft.com/dynamics365/customer-engagement/admin/switch-dynamics-crm-online-dynamics-365) 에서 변경 내용에 대해 자세히 알아보세요. 
+이 문서에서는 고객 참여를 위한 Dynamics 365을 설정 하는 방법을 설명 합니다 (이전에 Dynamics CRM Online). marketplace 제품에서 판매 잠재 고객을 처리 하려면 [여기](https://docs.microsoft.com/dynamics365/customerengagement/on-premises/admin/on-prem-server-based-sharepoint-online) 에서 변경 내용에 대해 자세히 알아보세요. 
 
 >[!Note]
 >이러한 지침은 고객 참여 환경용 Microsoft 호스트 된 클라우드 Dynamics 365에 적용 됩니다. Dynamics 온-프레미스 환경에 직접 연결 하는 것은 현재 지원 되지 않으며, 잠재 고객을 받기 위해 [https 끝점](./commercial-marketplace-lead-management-instructions-https.md) 또는 [Azure 테이블](./commercial-marketplace-lead-management-instructions-azure-table.md) 을 구성 하는 등의 기타 옵션을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 완료 하려면 다음 사용자 권한이 필요 합니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "70102969"
 
 1.  [Microsoft Marketplace 리드 기록기 솔루션](https://mpsapiprodwus.blob.core.windows.net/documentation/MicrosoftMarketplacesLeadIntegrationSolution_1_0_0_0_target_CRM_6.1_managed.zip) 을 다운로드 하 고 컴퓨터에 로컬로 저장 합니다.
 
-2.  Dynamics 인스턴스의 URL (예: `https://tenant.crm.dynamics.com`)로 이동 하 여 고객 Engagement에 대 한 dynamics 365을 엽니다.
+2.  Dynamics 인스턴스의 URL (예: `https://tenant.crm.dynamics.com`)으로 이동 하 여 고객 Engagement에 대 한 Dynamics 365을 엽니다.
 
 3.  위쪽 탐색 모음에서 기어 아이콘 및 **고급 설정** 을 선택 하 여 설정에 액세스 합니다.
  
@@ -97,7 +97,7 @@ ms.locfileid: "70102969"
 
     ![권한 추가](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
-14. Azure Portal에서 1-13 단계를 완료 한 후 URL (예: `https://tenant.crm.dynamics.com`)로 이동 하 여 고객 참여 인스턴스의 Dynamics 365로 이동 합니다.
+14. Azure Portal에서 1-13 단계를 완료 한 후에는 URL (예: `https://tenant.crm.dynamics.com`)으로 이동 하 여 고객 Engagement 인스턴스의 Dynamics 365로 이동 합니다.
 15. 위쪽 탐색 모음에서 기어 아이콘 및 **고급 설정** 을 선택 하 여 설정에 액세스 합니다.
 16. 설정 페이지에서 위쪽 탐색 모음에 있는 설정 메뉴에 액세스 하 고 **보안**을 선택 합니다.
 17. 보안 페이지에서 **사용자**를 선택 합니다.  사용자 페이지에서 "사용 사용자" 드롭다운을 선택 하 여 **응용 프로그램 사용자**로 전환 합니다.
@@ -138,7 +138,7 @@ Marketplace 제품에 대 한 잠재 고객을 받기 위해 게시 포털에서
 
 최종 단계는 만든 사용자가 잠재 고객을 기록할 수 있도록 하는 것입니다.
 
-1. Dynamics 인스턴스의 URL (예: `https://tenant.crm.dynamics.com`)로 이동 하 여 고객 Engagement에 대 한 dynamics 365을 엽니다.
+1. Dynamics 인스턴스의 URL (예: `https://tenant.crm.dynamics.com`)으로 이동 하 여 고객 Engagement에 대 한 Dynamics 365을 엽니다.
 2. 위쪽 탐색 모음에서 기어 아이콘 및 **고급 설정** 을 선택 하 여 설정에 액세스 합니다.
 3. 설정 페이지에서 위쪽 탐색 모음에 있는 설정 메뉴에 액세스 하 고 **보안**을 선택 합니다.
 4. 보안 페이지에서 **사용자** 를 선택 하 고이 문서의 사용자 권한 구성 섹션에서 만든 사용자를 선택한 후 **역할 관리**를 선택 합니다. 
@@ -179,13 +179,13 @@ Marketplace 제품에 대 한 잠재 고객을 받기 위해 게시 포털에서
 
     ![연결 정보-리드 대상](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-lead-destination.png)
 
-4. **Dynamics 365 인스턴스 URL** 을 제공 합니다 ( `https://contoso.crm4.dynamics.com`예:).
+4. @No__t-1과 같은 **Dynamics 365 인스턴스 URL** 을 제공 합니다.
 5. **인증**, Azure Active Directory 또는 Office 365의 방법을 선택 합니다. 
-6. Azure Active Directory를 선택한 경우 **응용 프로그램 (클라이언트) id** `23456052-aaaa-bbbb-8662-1234df56788f`(예:) `12345678-8af1-4asf-1234-12234d01db47`, **디렉터리 id** (예:) 및 **클라이언트 암호** 를 제공 합니다 (예: `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`).
+6. Azure Active Directory를 선택한 경우 **응용 프로그램 (클라이언트) id** (예: `23456052-aaaa-bbbb-8662-1234df56788f`), **디렉터리 id** (예: `12345678-8af1-4asf-1234-12234d01db47`) 및 **클라이언트 암호** (예: `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`)를 제공 합니다.
 
     ![연결 정보-Azure Active Directory](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-application-id.png)
 
-7. Office 365을 선택한 경우 **사용자 이름** (예: `contoso@contoso.onmicrosoft.com`)과 암호를 제공 합니다 (예: `P@ssw0rd`).
+7. Office 365을 선택한 경우 **사용자 이름** (예: `contoso@contoso.onmicrosoft.com`) 및 암호를 제공 합니다 (예: `P@ssw0rd`).
 
     ![연결 정보-사용자 이름](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
 

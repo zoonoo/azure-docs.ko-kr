@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 33594e09778b9a629645e12357e6bafe561ad35e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 5b71146f0c2aff51a0c2498705b047e9fa4632c8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202904"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178128"
 ---
 # <a name="dependency-visualization"></a>종속성 시각화
 
@@ -36,7 +36,7 @@ Azure Migrate에서는 종속성 시각화를 위해 [Azure Monitor 로그](../o
 - 종속성 시각화를 활용하려면 신규 또는 기존 Log Analytics 작업 영역을 Azure Migrate 프로젝트와 연결해야 합니다.
 - Azure Migrate 프로젝트를 만든 구독과 동일한 구독 에서만 작업 영역을 만들거나 연결할 수 있습니다.
 - 프로젝트에 Log Analytics 작업 영역을 연결 하려면 다음을 수행 합니다.
-    1. **서버** 탭의 **Azure Migrate: 서버 평가** 타일에서 **개요**를 클릭 합니다.
+    1. **서버** 탭의 **Azure Migrate: 서버 평가 @ no__t-0 타일에서 **개요**를 클릭 합니다.
     2. **개요**에서 아래쪽 화살표를 클릭 하 여 **Essentials**를 확장 합니다.
     3. **OMS 작업 영역**에서 **구성 필요**를 클릭 합니다.
     4. **작업 영역 구성**에서 새 작업 영역을 만들지 아니면 기존 작업 영역을 사용할지를 지정 합니다.
@@ -51,7 +51,7 @@ Azure Migrate에서는 종속성 시각화를 위해 [Azure Monitor 로그](../o
   > 작업 영역을 프로젝트에 연결한 후에는 나중에 변경할 수 없습니다.
 
   > [!NOTE]
-  > Azure Migrate는 현재 미국 동부, 동남 아시아 및 유럽 서부 지역에서 OMS 작업 영역을 만들 수 있도록 지원 합니다. 다른 지역의 Azure Migrate 외부에서 작업 영역을 만든 경우 현재는 Azure Migrate 프로젝트에 연결할 수 없습니다. 
+  > 현재 Azure Migrate에서는 미국 동부, 동남 아시아 및 유럽 서부 지역에 있는 Log Analytics 작업 영역을 만들거나 연결할 수 있습니다. 작업 영역을 지원 되지 않는 지역에 Azure Migrate 외부에서 만든 경우 현재는 Azure Migrate 프로젝트에 연결할 수 없습니다. 
 
 - 연결된 작업 영역에는 **마이그레이션 프로젝트** 키와 **프로젝트 이름** 값으로 태그가 지정됩니다. 이 키와 값은 Azure Portal에서 검색하는 데 사용할 수 있습니다.
 - 프로젝트에 연결된 작업 영역으로 이동하려는 경우 프로젝트 **개요** 페이지의 **기본 정보** 섹션으로 이동한 다음 작업 영역에 액세스하면 됩니다.

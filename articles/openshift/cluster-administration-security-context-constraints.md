@@ -7,16 +7,16 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: afbde512ecb5a38eac38d6f5db614d92cd44c908
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: f98f55dca8b3dbbfbe03cb8c79691cedb63335a0
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937427"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168986"
 ---
 # <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에서 보안 컨텍스트 제약 조건 관리 
 
-SCCs (보안 컨텍스트 제약 조건)를 사용 하면 클러스터 관리자가 pod에 대 한 사용 권한을 제어할 수 있습니다. 이 API 형식에 대해 자세히 알아보려면 [SCCs에 대 한 아키텍처 설명서](https://https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html)를 참조 하세요. CLI를 사용 하 여 인스턴스에서 SCCs를 일반 API 개체로 관리할 수 있습니다.
+SCCs (보안 컨텍스트 제약 조건)를 사용 하면 클러스터 관리자가 pod에 대 한 사용 권한을 제어할 수 있습니다. 이 API 형식에 대해 자세히 알아보려면 [SCCs에 대 한 아키텍처 설명서](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html)를 참조 하세요. CLI를 사용 하 여 인스턴스에서 SCCs를 일반 API 개체로 관리할 수 있습니다.
 
 ## <a name="list-security-context-constraints"></a>보안 컨텍스트 제약 조건 나열
 

@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: d0fd26da81c4f59f16b5f0364cf165ec36a6ea39
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 2daae1637c568b72d548330abbcb73da21b12683
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516341"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176846"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 컴퓨팅 환경
 이 문서는 프로세스 또는 변환 데이터에 사용할 수 있는 다양한 컴퓨팅 환경을 설명합니다. 또한 이러한 컴퓨팅 환경을 Azure 데이터 팩터리에 연결하는 연결된 서비스를 구성하는 경우 데이터 팩터리에서 지원하는 다른 구성(주문형 vs. 사용자 고유)에 대한 자세한 내용을 제공합니다.
@@ -136,11 +136,11 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 }]
 ```
 
-### <a name="service-principal-authentication"></a>사용자 주체 인증
+### <a name="service-principal-authentication"></a>서비스 주체 인증
 
 주문형 HDInsight 연결된 서비스가 사용자를 대신해 HDInsight 클러스터를 만들려면 서비스 주체 인증이 필요합니다. 서비스 주체 인증을 사용하려면 Azure AD(Azure Active Directory)에 애플리케이션 엔터티를 등록하고 HDInsight 클러스터가 만들어진 리소스 그룹 또는 구독의 **참가자** 역할을 애플리케이션 엔터티에 부여합니다. 자세한 단계는 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
 
-- 애플리케이션 ID
+- 애플리케이션 UI
 - 애플리케이션 키 
 - 테넌트 ID
 
@@ -250,7 +250,7 @@ D4 크기의 헤드 노드 및 작업자 노드를 만들려는 경우 headNodeS
 * Azure HDInsight
 * Azure Batch
 * Azure Machine Learning
-* Azure Data Lake Analytics
+* Azure 데이터 레이크 분석
 * Azure SQL DB, Azure SQL DW, SQL Server
 
 ## <a name="azure-hdinsight-linked-service"></a>Azure HDInsight 연결된 서비스
@@ -288,7 +288,7 @@ Azure HDInsight 연결된 서비스를 만들어서 데이터 팩터리를 사�
 | ----------------- | ------------------------------------------------------------ | -------- |
 | type              | 형식 속성은 **HDInsight**로 설정해야 합니다.            | 예      |
 | clusterUri        | HDInsight 클러스터의 URI입니다.                            | 예      |
-| username 이름          | 기존 HDInsight 클러스터에 연결하는데 사용할 사용자의 이름을 지정합니다. | 예      |
+| username          | 기존 HDInsight 클러스터에 연결하는데 사용할 사용자의 이름을 지정합니다. | 예      |
 | password          | 사용자 계정으로 password를 지정합니다.                       | 예      |
 | linkedServiceName | HDInsight 클러스터에서 사용하는 Azure Blob Storage를 참조하는 Azure Storage 연결된 서비스의 이름입니다. <p>현재 이 속성에 대한 Azure Data Lake Store 연결된 서비스를 지정할 수 없습니다. HDInsight 클러스터가 Data Lake Store에 액세스할 경우 Hive/Pig 스크립트의 Azure Data Lake Store에 있는 데이터에 액세스할 수 있습니다. </p> | 예      |
 | isEspEnabled      | HDInsight 클러스터에서 [Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-architecture)가 사용하도록 설정되어 있으면 '*true*'를 지정합니다. 기본값은 ‘*false*’입니다. | 아니요       |
@@ -438,7 +438,9 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 
 
 ## <a name="azure-databricks-linked-service"></a>Azure Databricks 연결된 서비스
-**Azure Databricks 연결된 서비스**를 만들어 Databricks 워크로드(노트북)를 실행하는 데 사용할 Databricks 작업 영역을 등록할 수 있습니다.
+Databricks 워크 로드를 실행 하는 데 사용할 Databricks 작업 영역을 등록 하는 **Azure Databricks 연결 된 서비스** 를 만들 수 있습니다 (노트북, jar, python). 
+> [!IMPORTANT]
+> Databricks 연결 된 서비스는 [인스턴스 풀](https://aka.ms/instance-pools)을 지원 합니다. 
 
 ### <a name="example---using-new-job-cluster-in-databricks"></a>예 - Databricks에서 새 작업 클러스터 사용
 
@@ -490,6 +492,7 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 | domain               | Databricks 작업 영역의 지역을 기준으로 Azure 지역을 적절히 지정합니다. 예: https://eastus.azuredatabricks.net | 예                                 |
 | accessToken          | 데이터 팩터리가 Azure Databricks에서 인증을 받으려면 액세스 토큰이 필요합니다. 액세스 토큰은 Databricks 작업 영역에서 생성해야 합니다. 액세스 토큰을 찾는 보다 자세한 단계는 [여기](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)에서 확인할 수 있습니다.  | 예                                       |
 | existingClusterId    | 해당하는 모든 작업을 실행할 기존 클러스터의 클러스터 ID입니다. 이미 만들어진 대화형 클러스터여야 합니다. 클러스터가 응답을 중지하는 경우 수동으로 다시 시작해야 합니다. 안정성을 높이기 위해서는 새 클러스터에서 작업을 실행하는 것이 좋습니다. Databricks 작업 영역 -> 대화형 클러스터 이름 -> 구성 -> 태그에서 대화형 클러스터의 클러스터 ID를 찾을 수 있습니다. [자세한 내용](https://docs.databricks.com/user-guide/clusters/tags.html). | 아니요 
+| instancePoolId    | Databricks 작업 영역에 있는 기존 풀의 인스턴스 풀 ID입니다.  | 아니요  |
 | newClusterVersion    | 클러스터의 Spark 버전입니다. Databricks에서 작업 클러스터를 만듭니다. | 아니요  |
 | newClusterNumOfWorker| 이 클러스터에 있어야 하는 작업자 노드의 수입니다. 하나의 클러스터에 총 num_workers + 1개의 Spark 노드에 대해 하나의 Spark 드라이버와 num_workers개의 실행기가 있습니다. "1"과 같은 Int32 형식의 문자열에서 numOfWorker는 1을 의미하고, "1:10"은 최소 1~최대 10 범위의 자동 크기 조정을 의미합니다.  | 아니요                |
 | newClusterNodeType   | 이 필드는 단일 값을 통해 이 클러스터의 각 Spark 노드에서 사용할 수 있는 리소스를 인코딩합니다. 예를 들어, Spark 노드는 메모리 또는 컴퓨팅 집약적 워크로드에 대해 프로비전되고 최적화될 수 있습니다. 이 필드는 새 클러스터에 필요합니다.                | 아니요               |

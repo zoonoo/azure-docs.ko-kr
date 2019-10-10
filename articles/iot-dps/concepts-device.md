@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 2904da863707c5f653d774b0a480cc48c95c8d1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ea1be02dee0e0ef00010e8ac7a4dfb75eadbe96
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60745981"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173395"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>IoT Hub Device Provisioning Service 디바이스 개념
 
@@ -44,7 +44,7 @@ Device Provisioning Service는 다음 형식의 증명을 지원합니다.
 
 ## <a name="registration-id"></a>등록 ID
 
-Device Provisioning Service에서 디바이스를 고유하게 식별하는 데 사용되는 등록 ID입니다. 디바이스 ID는 프로비전 서비스 [ID 범위](#id-scope)에서 고유해야 합니다. 각 디바이스에는 등록 ID가 있어야 합니다. 등록 ID는 영숫자, 소문자이며 하이픈을 포함할 수 있습니다.
+Device Provisioning Service에서 디바이스를 고유하게 식별하는 데 사용되는 등록 ID입니다. 등록 ID는 프로 비전 서비스 [id 범위](#id-scope)에서 고유 해야 합니다. 각 디바이스에는 등록 ID가 있어야 합니다. 등록 ID는 영숫자, 소문자이며 하이픈을 포함할 수 있습니다.
 
 * TPM의 경우 TPM 자체에서 등록 ID를 제공합니다.
 * X.509 기반 증명의 경우 등록 ID는 인증서의 주체 이름으로 제공됩니다.

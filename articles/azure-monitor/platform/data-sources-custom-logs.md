@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2019
 ms.author: bwren
-ms.openlocfilehash: 39691c0efbac7b7a48dd844641d63e0ca178e95f
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 957df2d03352756c74a5450de240afde2615e50b
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327471"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177613"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Azure Monitor의 사용자 지정 로그
 
@@ -74,7 +74,7 @@ Azure Monitor의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 4. 새 레코드 식별에 사용된 구분 기호를 변경하고 로그 파일의 레코드를 가장 잘 식별하는 구분 기호를 선택합니다.
 5. **다음**을 클릭합니다.
 
-### <a name="step-3-add-log-collection-paths"></a>3단계. 로그 컬렉션 경로 추가
+### <a name="step-3-add-log-collection-paths"></a>3단계. 로그 수집 경로 추가
 사용자 지정 로그를 찾을 수 있는 에이전트의 경로를 하나 이상의 지정해야 합니다.  로그 파일의 특정 경로 및 이름을 제공하거나 이름의 와일드카드를 포함하는 경로를 지정할 수 있습니다. 이렇게 하면 매일 새 파일을 만드는 애플리케이션을 지원하거나 하나의 파일이 일정한 크기에 도달하는 경우를 지원합니다. 하나의 로그 파일에 여러 경로를 제공할 수도 있습니다.
 
 예를 들어, 애플리케이션이 이름에 날짜가 포함된 로그 파일(예: log20100316.txt)을 매일 만들 수 있습니다. 이런 로그의 패턴으로 *log\*.txt*를 사용할 수 있으며, 이것은 애플리케이션의 명명 체계에 따르는 모든 로그 파일에 적용할 수 있습니다.
@@ -172,7 +172,7 @@ Azure Monitor는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 사용자 지정 로그로 데이터를 수집할 수 없는 경우에는 다음과 같은 전략을 대신 사용할 수 있습니다.
 
 - 사용자 지정 스크립트 또는 다른 방법을 사용하여 Azure Monitor에서 수집하는 [Windows 이벤트](data-sources-windows-events.md) 또는 [Syslog](data-sources-syslog.md)에 데이터를 씁니다. 
-- [HTTP 데이터 수집기 API](data-collector-api.md)를 사용하여 Azure Monitor로 데이터를 직접 전송합니다. Azure Automation에서 Runbook을 사용하는 예는 [Azure Automation Runbook을 사용하여 Azure Monitor에서 로그 데이터 수집](runbook-datacollect.md)에 나와 있습니다.
+- [HTTP 데이터 수집기 API](data-collector-api.md)를 사용하여 Azure Monitor로 데이터를 직접 전송합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 * 가져온 각 로그 항목을 여러 속성으로 구문 분석하는 방법은 [Azure Monitor에서 텍스트 데이터 구문 분석](../log-query/parse-text.md)을 참조하세요.

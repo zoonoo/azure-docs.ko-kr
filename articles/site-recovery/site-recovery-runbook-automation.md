@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: f6e2fedf3f2f8384d4a6062852888c312e8285a1
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212873"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173490"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>복구 계획에 Azure Automation Runbook 추가
 
@@ -112,12 +112,12 @@ $vmMap = $RecoveryPlanContext.VmMap
 ## <a name="customize-the-recovery-plan"></a>복구 계획 사용자 지정
 
 1. 자격 증명 모음에서 **복구 계획 (Site Recovery)** 을 선택 합니다.
-2. 복구 계획을 만들려면 **+ 복구 계획**을 클릭 합니다. [자세히 알아보기](/site-recovery-create-recovery-plans.md). 복구 계획이 이미 있는 경우이를 선택 하 여 엽니다.
+2. 복구 계획을 만들려면 **+ 복구 계획**을 클릭 합니다. [자세히 알아보기](site-recovery-create-recovery-plans.md). 복구 계획이 이미 있는 경우이를 선택 하 여 엽니다.
 3. 복구 계획 페이지에서 **사용자 지정**을 클릭 합니다.
 
     ![[사용자 지정] 단추 클릭](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. 그룹 1 옆에 있는 줄임표 (...)를 **클릭 합니다.** **사후 작업 추가**를 시작 > 합니다.
+2. @No__t-0Group 1 옆에 있는 줄임표 (...)를 클릭 합니다. Start @ no__t-0 @ no__t-1**사후 작업 추가**를 시작 합니다.
 3. **삽입 동작**에서 **스크립트** 가 선택 되어 있는지 확인 하 고 스크립트 이름 (**Hello World**)을 지정 합니다.
 4. Automation 계정을 지정 하 고 runbook을 선택 합니다. 스크립트를 저장하려면 **확인**을 클릭합니다. 스크립트가 **그룹 1: 사후 단계**에 추가됩니다.
 

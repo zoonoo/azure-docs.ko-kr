@@ -1,17 +1,17 @@
 ---
 title: Azure 데이터 공유 미리 보기를 모니터링 하는 방법
-description: Azure 데이터 공유 미리 보기를 모니터링 하는 방법
+description: Azure 데이터 공유 미리 보기에서 초대 상태, 공유 구독 및 스냅숏 기록을 모니터링 하는 방법에 대해 알아봅니다.
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: fbc6847dd86b7687d477b2bae0deab1389dc8491
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 22c95f1ac541e1288494ed85cc9654d42780ea60
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827073"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169117"
 ---
 # <a name="monitor-azure-data-share-preview"></a>Azure 데이터 공유 미리 보기 모니터링 
 

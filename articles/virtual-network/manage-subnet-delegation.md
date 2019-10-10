@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2019
 ms.author: kumud
-ms.openlocfilehash: 9bf44aa5ab18f94ec91650548dc13360ce1b1f3d
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 5fa340fc3c839d74f292f551b73184ea4df1c0f1
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71938500"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72175957"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>서브넷 위임 추가 또는 제거
 
@@ -45,6 +45,12 @@ ms.locfileid: "71938500"
     | 서브넷 - 주소 범위 | *10.0.0.0/24*를 입력합니다. |
     |||
 1. 나머지를 기본값으로 유지 하 고 **만들기**를 선택 합니다.
+
+## <a name="permissons"></a>권한이
+
+Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 권한이 필요 합니다. `Microsoft.Network/virtualNetworks/subnets/write`.
+
+기본 제공 [네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에도 필요한 권한이 포함 되어 있습니다.
 
 ## <a name="delegate-a-subnet-to-an-azure-service"></a>Azure 서비스에 서브넷 위임
 
