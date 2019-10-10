@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 417ff7ac345b9a83b3d3f4c50e9fd141d74bc99c
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 298228eedb73298f00654f4f72c201d9ed671090
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103555"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177057"
 ---
 # <a name="call-the-computer-vision-api"></a>Computer Vision API 호출
 
@@ -56,7 +56,7 @@ Computer Vision API를 호출할 때마다 구독 키가 필요합니다. 이 �
 * 이 Computer Vision API 예제처럼 쿼리 문자열을 통해 전달:
 
   ```
-  https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
+  https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
   ```
 
 * HTTP 요청 헤더에서 지정:
@@ -83,7 +83,7 @@ Computer Vision API 호출을 수행하는 기본적인 방법은 이미지를 �
 ### <a name="option-1-get-a-list-of-tags-and-a-description"></a>옵션 1: 태그 및 설명 목록 가져오기
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
+POST https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
 ```
 
 ```csharp
@@ -105,14 +105,14 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 태그만 있는 목록의 경우 다음을 실행합니다.
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/tag?subscription-key=<Your subscription key>
+POST https://westus.api.cognitive.microsoft.com/vision/v2.1/tag?subscription-key=<Your subscription key>
 var tagResults = await visionClient.TagImageAsync("http://contoso.com/example.jpg");
 ```
 
 설명만 있는 목록의 경우 다음을 실행합니다.
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/describe?subscription-key=<Your subscription key>
+POST https://westus.api.cognitive.microsoft.com/vision/v2.1/describe?subscription-key=<Your subscription key>
 using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 {
   imageDescription = await visionClient.DescribeImageInStreamAsync(fs);
@@ -123,14 +123,14 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 
 ### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>옵션 1: 범위 분석 - 지정된 모델만 분석
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/models/celebrities/analyze
+POST https://westus.api.cognitive.microsoft.com/vision/v2.1/models/celebrities/analyze
 var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
 ```
 
 이 옵션의 경우 모든 다른 쿼리 매개 변수 {visualFeatures, details}가 유효하지 않습니다. 지원되는 모든 모델을 확인하려면 다음을 사용합니다.
 
 ```
-GET https://westus.api.cognitive.microsoft.com/vision/v2.0/models 
+GET https://westus.api.cognitive.microsoft.com/vision/v2.1/models 
 var models = await visionClient.ListModelsAsync();
 ```
 
@@ -139,7 +139,7 @@ var models = await visionClient.ListModelsAsync();
 하나 이상의 도메인별 모델 세부 정보 외에 일반 이미지 분석을 가져오려는 애플리케이션의 경우 모델 쿼리 매개 변수를 사용하여 v1 API를 확장합니다.
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?details=celebrities
+POST https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?details=celebrities
 ```
 
 이 메서드를 호출할 때 먼저 [86-category](../Category-Taxonomy.md) 분류자를 호출합니다. 범주 중 하나라도 알려진 모델 또는 일치 모델의 범주와 일치하는 경우 분류자 호출이 두 번째로 전달됩니다. 예를 들어 "details=all"이거나 "details"에 "celebrities"가 포함된 경우 86-category 분류자를 호출한 후 유명인 모델을 호출합니다. 그 결과에는 person 범주가 포함됩니다. 옵션 1과는 달리, 이 방법은 유명인에 관심이 있는 사용자의 대기 시간이 증가합니다.

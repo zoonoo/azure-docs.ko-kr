@@ -2,17 +2,16 @@
 title: 샘플 - 확장이 존재하지 않을 경우 감사
 description: 이 샘플 정책 정의는 확장이 가상 머신과 함께 배포되지 않은 경우 감사를 수행합니다.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: cca8becc70602dc99e9c3fefc7b0600de4a8fc20
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 04f4a65eb0e029800868650e64489d82e919c6c0
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273314"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977415"
 ---
 # <a name="sample---audit-if-extension-does-not-exist"></a>샘플 - 확장이 존재하지 않을 경우 감사
 
@@ -30,7 +29,7 @@ ms.locfileid: "59273314"
 
 [![Azure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Faudit-vm-extension%2Fazurepolicy.json)
 
-## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
+## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 

@@ -2,17 +2,16 @@
 title: 샘플 - 태그 및 기본값 적용
 description: 이 샘플 정책 정의는 태그가 제공되지 않은 경우 지정된 태그 이름 및 값을 추가합니다.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: a9ad211ac1ef9889fcff9646f30fe306458c3538
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 03c5c1de3713d2d7a2b2914b7b9bff9fa8b01320
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266650"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977602"
 ---
 # <a name="sample---apply-tag-and-its-default-value"></a>샘플 - 태그 및 기본값 적용
 
@@ -29,7 +28,7 @@ ms.locfileid: "59266650"
 
 ## <a name="sample-policy"></a>샘플 정책
 
-### <a name="policy-definition"></a>정책 정의 
+### <a name="policy-definition"></a>정책 정의
 
 완전히 구성된 JSON 정책 정의로 REST API에서, 'Azure에 배포' 단추에서, 그리고 포털에서 수동으로 사용됩니다.
 

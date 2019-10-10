@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a42ccb1c0e60f5bf1568ccea13392186577f2875
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 97d9aa1ed9440011fdaab3aa8eb9d3942b5a8acf
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205715"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170356"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>자습서: Azure Deployment Manager에서 Resource Manager 템플릿 사용(공개 미리 보기)
 
@@ -80,7 +80,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="download-the-tutorial-files"></a>자습서 파일 다운로드
 
-1. 이 자습서에서 사용되는 [템플릿 및 아티팩트](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip)를 다운로드합니다.
+1. 이 자습서에서 사용되는 [템플릿 및 아티팩트](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip)를 다운로드합니다.
 2. 대상 위치의 컴퓨터에 파일의 압축을 풉니다.
 
 루트 폴더 아래에 다음 두 개의 폴더가 있습니다.
@@ -135,7 +135,7 @@ ArtifactStore 다운로드 폴더에는 다음 두 개의 폴더가 있습니다
 
 템플릿 아티팩트는 서비스 토폴로지 템플릿에서 사용되며, 이진 아티팩트는 롤아웃 템플릿에서 사용됩니다. 토폴로지 템플릿과 롤아웃 템플릿은 모두 Resource Manager를 템플릿 및 배포에 사용되는 이진 아티팩트로 가리키는 데 사용되는 리소스인 아티팩트 소스 Azure 리소스를 정의합니다. 자습서를 간소화하기 위해 하나의 스토리지 계정을 사용하여 템플릿 아티팩트와 이진 아티팩트를 모두 저장합니다. 두 아티팩트 소스는 모두 동일한 스토리지 계정을 가리킵니다.
 
-1. Azure Storage 계정을 만듭니다. 지침은 [빠른 시작: Azure Portal을 사용하여 Blob 업로드, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-portal.md)을 참조하세요.
+1. Azure Storage 계정 만들기 지침은 [빠른 시작: Azure Portal을 사용하여 Blob 업로드, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-portal.md)을 참조하세요.
 2. Blob 컨테이너를 스토리지 계정에 만듭니다.
 3. 두 폴더(binaries 및 templates) 및 두 폴더의 콘텐츠를 Blob 컨테이너에 복사합니다. [Microsoft Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409)는 끌어서 놓기 기능을 지원합니다.
 4. 다음 지침에 따라 컨테이너의 SAS 위치를 가져옵니다.

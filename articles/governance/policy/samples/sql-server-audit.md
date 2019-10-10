@@ -2,17 +2,16 @@
 title: 샘플 - SQL Server 감사 설정 감사
 description: 이 샘플 정책 정의는 auditIfNotExists를 사용하여 SQL Server 감사 설정을 감사합니다.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: c4510a316760fa948aa39627c9a9c517437b1d77
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c548d1e0e9f21f482a0cfc4b19c482e040d7f298
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790982"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980362"
 ---
 # <a name="sample---audit-sql-server-audit-settings"></a>샘플 - SQL Server 감사 설정 감사
 
@@ -60,7 +59,7 @@ ms.locfileid: "59790982"
 
 정책을 할당할 경우 사용할 수 있는 기본 제공 정의에서 **SQL Server 수준 감사 설정 감사**를 선택합니다.
 
-## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
+## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 

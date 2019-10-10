@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 0df8e19d3c6f0680f1eb1b0157c3bee5c9841e4c
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: cd1e54fc6cfbf254da010c03dfaa859a0ee8213c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575089"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029820"
 ---
 # <a name="import-to-an-azure-app-configuration-store"></a>Azure App Configuration 저장소로 가져오기
 
@@ -41,7 +41,7 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에�
 #!/bin/bash
 
 # Import key-values from a file
-az appconfig kv import --name myTestAppConfigStore --file ~/Import.json
+az appconfig kv import --name myTestAppConfigStore --source file --path ~/Import.json
 ```
 
 [!INCLUDE [cli-script-cleanup](../../../includes/cli-script-clean-up.md)]
@@ -52,7 +52,7 @@ az appconfig kv import --name myTestAppConfigStore --file ~/Import.json
 
 | 명령 | 메모 |
 |---|---|
-| [az appconfig import](/cli/azure/ext/appconfig/appconfig) | 앱 구성 저장소 리소스로 가져옵니다. |
+| [az appconfig import](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-import) | 앱 구성 저장소 리소스로 가져옵니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

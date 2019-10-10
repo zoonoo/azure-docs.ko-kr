@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ff539311139d7e9823a2d7db2f5d8ee56f9231b6
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 59708be1de53ab231ccb6dc89bd56c795734fccc
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338656"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176815"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Azure 리소스에 대한 RBAC(역할 기반 액세스 제어)란?
 
@@ -139,4 +139,4 @@ Azure Portal, Azure CLI, Azure PowerShell, Azure SDK 또는 REST API를 사용�
 - [빠른 시작: Azure Portal을 사용하여 사용자가 Azure 리소스에 대해 갖는 액세스 권한 보기](check-access.md)
 - [RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 액세스 관리](role-assignments-portal.md)
 - [Azure의 다양한 역할 이해](rbac-and-directory-admin-roles.md)
-- [엔터프라이즈 클라우드 채택: Azure에서 리소스 액세스 관리](/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access)
+- [엔터프라이즈 클라우드 채택: Azure에서 리소스 액세스 관리](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

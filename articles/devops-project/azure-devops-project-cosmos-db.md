@@ -2,19 +2,19 @@
 title: '자습서: Azure DevOps Projects를 사용하여 Azure Cosmos DB에서 제공되는 Node.js 앱 배포'
 description: Azure DevOps Projects를 사용하면 Azure를 쉽게 시작할 수 있습니다. DevOps Projects를 사용하면 몇 가지 빠른 단계를 통해 Azure Cosmos DB로 구동되는 Node.js 앱을 Windows 웹앱에 배포할 수 있습니다.
 ms.author: mlearned
-ms.manager: douge
+ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/11/2019
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 38fc4aa04269924ad0acd529e961dd3228ec236e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 1c16368990148406fbacdde2981c10fab0b2d405
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884410"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969653"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>DevOps Projects를 사용하여 Azure Cosmos DB에서 제공되는 Node.js 앱 배포
 

@@ -2,17 +2,16 @@
 title: 샘플 - 청구 태그 정책 이니셔티브
 description: 이 샘플 정책 정의에서는 비용 센터 및 제품 이름에 대한 지정된 태그 값이 필요합니다.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 5b084bd5a1b34dc2ce8ac8abb2a4af03a22262d2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f2190b5759c53d645c1d0150004271ba04669c94
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787339"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981412"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>샘플 - 청구 태그 정책 이니셔티브
 
@@ -26,7 +25,7 @@ ms.locfileid: "65787339"
 
 [PowerShell](#deploy-with-powershell)에서 이 템플릿을 배포할 수 있습니다.
 
-## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
+## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 

@@ -2,17 +2,16 @@
 title: 샘플 ‑ SQL Database에 대한 투명한 데이터 암호화 감사
 description: 이 샘플 정책 정의에서는 SQL Database가 투명한 데이터 암호화를 사용하지 않는지를 감사합니다.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: e8ee800ff9f286f901a84a039e3c433442ae11b2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: de7819f43b2d0ce4d6d047b324db94d3e5f85eec
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789581"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981313"
 ---
 # <a name="sample---audit-sql-database-encryption"></a>샘플 - SQL Database 암호화 감사
 
@@ -30,7 +29,7 @@ ms.locfileid: "59789581"
 
 정책을 할당할 경우 사용할 수 있는 기본 제공 정의에서 **투명한 데이터 암호화 상태 감사**를 선택합니다.
 
-## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
+## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 

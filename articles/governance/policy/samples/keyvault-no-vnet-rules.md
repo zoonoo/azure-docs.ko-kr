@@ -2,17 +2,16 @@
 title: 샘플 - 가상 네트워크 엔드포인트가 없는 Key Vault 감사
 description: 이 샘플 정책 정의에서는 Key Vault 자격 증명 모음을 감사하여 가상 네트워크 서비스 엔드포인트가 없는 인스턴스를 검색합니다.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: bc5ce4a6a2e52ed8d21de8db8da1f815293b61f7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ccfba0eae8d3c51cf153f58d554dc09b574d3873
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276374"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976972"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>샘플 - 가상 네트워크 엔드포인트가 없는 Key Vault 자격 증명 모음
 
@@ -29,7 +28,7 @@ ms.locfileid: "59276374"
 
 ## <a name="sample-policy"></a>샘플 정책
 
-### <a name="policy-definition"></a>정책 정의 
+### <a name="policy-definition"></a>정책 정의
 
 완전히 구성된 JSON 정책 정의로 REST API에서, 'Azure에 배포' 단추에서, 그리고 포털에서 수동으로 사용됩니다.
 

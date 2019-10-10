@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 304c4b7802ed444b9a3ed6cdf4514222aa4f2420
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 889ce093e09a7e7d0fa3e81f3a819139ee225800
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70138055"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176893"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-c"></a>빠른 시작: Computer Vision REST API 및 C#을 사용하여 썸네일 생성
 
@@ -59,7 +59,7 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
         
         // the GenerateThumbnail method endpoint
-        const string uriBase = endpoint + "vision/v2.0/generateThumbnail";
+        const string uriBase = endpoint + "vision/v2.1/generateThumbnail";
 
         static void Main()
         {

@@ -2,19 +2,19 @@
 title: '자습서: Azure DevOps Projects를 사용하여 ASP.NET 앱 및 Azure SQL Database 코드 배포'
 description: DevOps Projects를 사용하면 Azure를 쉽게 시작할 수 있습니다. DevOps Projects를 사용하면 몇 가지 빠른 단계로 ASP.NET 앱 및 Azure SQL Database 코드를 배포할 수 있습니다.
 ms.author: mlearned
-ms.manager: douge
+ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 0d05a2f3de92791572f0a5e6313777b5388af3df
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 560b16a40d73d07df6c9f446c7196cd930e2274e
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845225"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971494"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>자습서: Azure DevOps Projects를 사용하여 ASP.NET 앱 및 Azure SQL Database 코드 배포
 
@@ -71,7 +71,7 @@ DevOps Projects는 Azure Pipelines에 CI/CD 파이프라인을 만듭니다. 새
 1. Azure 구독 서비스를 선택합니다.  
     필요에 따라 Azure 구성 설정을 확인하고 **데이터베이스 서버 로그인 세부 정보** 섹션에서 사용자 이름을 식별하려면 **변경** 링크를 선택할 수 있습니다. 이 자습서의 이후 단계를 위해 사용자 이름을 저장합니다. 이 선택적 단계를 수행하는 경우 Azure 구성 영역을 먼저 종료한 후 **완료**를 선택합니다.
  
-1. **완료**를 선택합니다.  
+1. **완료** 를 선택합니다.  
     잠시 후에 프로세스가 완료되고 Azure Portal에서 DevOps Projects 대시보드가 열립니다. Azure Portal의 **모든 리소스**에서 직접 대시보드로 이동할 수도 있습니다. 오른쪽에서 **찾아보기**를 선택하여 실행 중인 애플리케이션을 확인합니다.
     
 ## <a name="examine-the-ci-pipeline"></a>CI 파이프라인 검토

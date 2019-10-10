@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 657c23ad410d7aade17b3153f02ba0138edf4250
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5146675b6eefd11fc1e6875ed9009ece92753ffb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104100"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028098"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Azure Virtual Network 컨테이너 네트워크 인터페이스 플러그 인 배포
 
@@ -159,10 +159,10 @@ CNI 네트워크 구성 파일은 JSON 형식으로 기술되어 있습니다. �
 
 - **cniVersion**: Azure Virtual Network CNI 플러그 인은  [CNI 사양](https://github.com/containernetworking/cni/blob/master/SPEC.md)의 버전 0.3.0 및 0.3.1을 지원합니다.
 - **name**: 네트워크의 이름입니다. 이 속성은 원하는 고유한 값으로 설정할 수 있습니다.
-- **type**: 네트워크 플러그 인의 이름입니다.  *azure-vnet*으로 설정합니다.
+- **type**: 네트워크 플러그 인의 이름입니다. *azure-vnet*으로 설정됩니다.
 - **모드**: 작동 모드입니다. 이 필드는 선택 사항입니다. 지원되는 모드는 “bridge”뿐입니다. 자세한 내용은  [작동 모드](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md)를 참조하세요.
 - **브리지**: 가상 네트워크에 컨테이너를 연결하는 데 사용할 브리지의 이름입니다. 이 필드는 선택 사항입니다. 이 필드에 내용을 입력하지 않으면 플러그 인은 마스터 인터페이스 인덱스를 기준으로 하여 고유한 이름을 자동으로 선택합니다.
-- **ipam 형식**: IPAM 플러그 인의 이름입니다. 항상  *azure-vnet-ipam*으로 설정합니다.
+- **ipam 형식**: IPAM 플러그 인의 이름입니다. 항상 *azure-vnet-ipam*으로 설정됩니다.
 
 ## <a name="download-and-install-the-plug-in"></a>플러그 인 다운로드 및 설치
 

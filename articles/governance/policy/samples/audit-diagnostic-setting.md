@@ -2,17 +2,16 @@
 title: 샘플 - 진단 설정 감사
 description: 이 샘플 정책 정의는 진단 설정이 지정된 리소스 형식에 대해 사용하도록 설정되지 않은 경우 감사를 수행합니다.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 66c9c1c21cad7fb4058a91be826a50059691877c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b71876195ffd3993b49794835781e8ccbd1648d3
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797774"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977453"
 ---
 # <a name="sample---audit-diagnostic-setting"></a>샘플 - 진단 설정 감사
 
@@ -38,7 +37,7 @@ ms.locfileid: "59797774"
 
 정책을 할당할 경우 사용할 수 있는 기본 제공 정의에서 **진단 설정 감사**를 선택합니다.
 
-## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
+## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 

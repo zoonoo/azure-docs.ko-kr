@@ -2,19 +2,19 @@
 title: '자습서: Azure DevOps Projects를 사용하여 Azure Functions에 ASP.NET 앱 배포'
 description: Azure DevOps Projects를 사용하면 Azure를 쉽게 시작할 수 있습니다. DevOps Projects를 사용하면 몇 가지 빠른 단계로 ASP.NET 앱을 Azure Functions로 쉽게 배포할 수 있습니다.
 ms.author: mlearned
-ms.manager: douge
+ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 06/20/2019
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 6894f9bc6c803e2692afb54d7459adf6b0e6dbd6
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 4e7e9428af86f131632650f18d45e7dd48f4b5cb
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67828158"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971569"
 ---
 # <a name="continuously-deploy-to-azure-functions-with-devops-projects"></a>DevOps Projects를 사용하여 Azure Functions에 연속 배포
 

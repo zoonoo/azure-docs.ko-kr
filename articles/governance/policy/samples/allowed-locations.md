@@ -2,17 +2,16 @@
 title: 샘플 - 허용되는 위치
 description: 이 샘플 정책 정의에서는 모든 리소스가 승인된 위치에 배포되어야 합니다.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 2823cee863941926fffe332295328d6ecfb54001
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5c4a23b355a4d7841c42d03042399635a55bac03
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264729"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980646"
 ---
 # <a name="sample---allowed-region-locations"></a>샘플 - 허용되는 지역 위치
 
@@ -29,7 +28,7 @@ ms.locfileid: "59264729"
 
 ## <a name="sample-policy"></a>샘플 정책
 
-### <a name="policy-definition"></a>정책 정의 
+### <a name="policy-definition"></a>정책 정의
 
 완전히 구성된 JSON 정책 정의로 REST API에서, 'Azure에 배포' 단추에서, 그리고 포털에서 수동으로 사용됩니다.
 
@@ -54,7 +53,7 @@ ms.locfileid: "59264729"
 
 |Name |Type |필드 |설명 |
 |---|---|---|---|
-|listOfAllowedLocations |배열 |위치 |허용되는 위치 목록|
+|listOfAllowedLocations |Array |위치 |허용되는 위치 목록|
 
 PowerShell 또는 Azure CLI를 통해 할당을 만드는 경우 `-PolicyParameter`(PowerShell) 또는 `--params`(Azure CLI) 명령을 사용하여 매개 변수 값을 문자열로 또는 파일을 통해 JSON으로 전달할 수 있습니다.
 PowerShell은 cmdlet에 이름/값 해시 테이블을 전달해야 하는 `-PolicyParameterObject` 명령도 지원하는데, 여기서 **이름**은 매개 변수 이름이고 **값**은 할당 과정에 전달되는 단일 값 또는 값 배열입니다.

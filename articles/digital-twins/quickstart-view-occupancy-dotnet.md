@@ -1,6 +1,7 @@
 ---
 title: 사용 가능한 회의실 찾기 - Azure Digital Twins | Microsoft Docs
 description: 이 빠른 시작에서는 시뮬레이션된 동작 및 이산화탄소 원격 분석 데이터를 Azure Digital Twins의 공간으로 보내는 두 개의 .NET Core 샘플 애플리케이션을 실행합니다. 클라우드에서 계산 처리 후 관리 API에서 공기가 깨끗한 사용 가능한 회의실을 찾는 것이 목적입니다.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
@@ -8,14 +9,13 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 08/16/2019
-ms.author: alinast
-ms.openlocfilehash: 40a98f915bc11ad17eae27596519cc78539fb2bb
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 10/03/2019
+ms.openlocfilehash: 3c9a806b936b9f167d1700c95b1e769926abb17b
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640297"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958905"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>빠른 시작: Azure Digital Twins로 사용 가능한 회의실 찾기
 

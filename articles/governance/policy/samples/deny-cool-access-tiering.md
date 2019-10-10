@@ -2,17 +2,16 @@
 title: 샘플 - 스토리지 계정에 대한 쿨 액세스 계층 거부
 description: 이 샘플 정책 정의에서는 Blob Storage 계정에 쿨 액세스 계층을 사용하는 것이 금지됩니다.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 90c579871a2cc19d226f56febca17ceb5e7561b6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 21ee0e62e300b5807e3a38a0834c3365ab123dad
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263626"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977246"
 ---
 # <a name="sample---deny-cool-access-tiering-for-storage-accounts"></a>샘플 - 스토리지 계정에 대한 쿨 액세스 계층 거부
 
@@ -30,7 +29,7 @@ ms.locfileid: "59263626"
 
 [![Azure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FStorage%2Fstorage-account-access-tier%2Fazurepolicy.json)
 
-## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
+## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 

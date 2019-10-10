@@ -2,17 +2,16 @@
 title: 샘플 - 스토리지 계정에 대해서만 HTTPS 트래픽 확인
 description: 이 샘플 정책 정의에서는 스토리지 계정이 HTTPS 트래픽을 사용해야 합니다.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 044091ab83d64676c011ea25c73c8bf00528a6b8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 07694c7f6ca4590615c1f5530c19a530025c6add
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279145"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977087"
 ---
 # <a name="sample---ensure-https-traffic-only-for-storage-account"></a>샘플 - 스토리지 계정에 대해서만 HTTPS 트래픽 확인
 

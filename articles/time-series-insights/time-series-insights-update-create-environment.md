@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 10/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 998471d99a785eeff39ef7c99e60e1d9b49e0d7a
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e680652d490d75701780e2e3618a43451bfe2819
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725826"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71845108"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>자습서: Azure Time Series Insights 미리 보기 환경 설정
 
@@ -79,7 +79,7 @@ ms.locfileid: "68725826"
     | **환경 이름** | Azure Time Series Insights 미리 보기 환경에 대한 고유 이름을 입력합니다. |
     | **구독** | Azure Time Series Insights 미리 보기 환경을 만들려는 구독을 입력합니다. 디바이스 시뮬레이터에서 만든 나머지 IoT 리소스와 동일한 구독을 사용하는 것이 좋습니다. |
     | **리소스 그룹** | Azure Time Series Insights 미리 보기 환경 리소스에 대해 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스에 대한 컨테이너입니다. 디바이스 시뮬레이터에서 만든 다른 IoT 리소스와 동일한 리소스 그룹을 사용하는 것이 좋습니다. |
-    | **위치**: | Azure Time Series Insights 미리 보기 환경에 대한 데이터 센터 지역을 선택합니다. 대기 시간이 추가되지 않도록 Azure Time Series Insights 미리 보기 환경을 다른 IoT 리소스와 동일한 지역에 만드는 것이 가장 좋습니다. |
+    | **위치** | Azure Time Series Insights 미리 보기 환경에 대한 데이터 센터 지역을 선택합니다. 대기 시간이 추가되지 않도록 Azure Time Series Insights 미리 보기 환경을 다른 IoT 리소스와 동일한 지역에 만드는 것이 가장 좋습니다. |
     | **계층** |  **PAYG**(*종량제*)를 선택합니다. Azure Time Series Insights 미리 보기 제품에 대한 SKU입니다. |
     | **속성 ID** | 시계열 인스턴스를 고유하게 식별하는 값을 입력합니다. **속성 ID** 상자에 입력한 값은 변경할 수 없으며, 나중에 변경할 수도 없습니다. 이 자습서에서는 **iothub-connection-device-id**를 입력합니다. 시계열 ID에 대한 자세한 내용은 [시계열 ID 선택 모범 사례](./time-series-insights-update-how-to-id.md)를 참조하세요. |
     | **스토리지 계정 이름** | 새로 만들 스토리지 계정에 대해 글로벌로 고유한 이름을 입력합니다. |

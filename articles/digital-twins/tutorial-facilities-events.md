@@ -2,18 +2,19 @@
 title: '자습서: Azure Digital Twins 공간으로부터 이벤트 캡처 | Microsoft Docs'
 description: 이 자습서의 단계에 따라 Azure Digital Twins를 Logic Apps와 통합하여 공간에서 알림을 받는 방법을 알아봅니다.
 services: digital-twins
+ms.author: alinast
 author: alinamstanciu
+manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 09/23/2019
-ms.author: alinast
-ms.openlocfilehash: fe2eb357ef89d70512e85db24d22f95cac1bd0ac
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 26976956722d77e2dfb8c17734c207b2667c0126
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300085"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949169"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>자습서: Logic Apps를 사용하여 Azure Digital Twins 공간으로부터 알림 수신
 

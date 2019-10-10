@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 05/08/2019
+ms.date: 10/01/2019
 ms.author: aahi
-ms.openlocfilehash: 8d3f5d0e10fadd31fd8bde77339b872c1b90451f
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 75c2c8bf8b3baee1f9f89282840622e1e29d2a18
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721464"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71837763"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 변칙 검색
 
@@ -75,7 +75,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     |**작업 영역 이름**     | Databricks 작업 영역의 이름을 제공합니다.        |
     |**구독**     | 드롭다운에서 Azure 구독을 선택합니다.        |
     |**리소스 그룹**     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../../../azure-resource-manager/resource-group-overview.md)를 참조하세요. |
-    |**위치**:     | **미국 동부 2** 또는 사용 가능한 다른 지역 중 하나를 선택합니다. 지역 가용성은 [지역별 사용 가능한 Azure 서비스](https://azure.microsoft.com/regions/services/)를 참조하세요.        |
+    |**위치**     | **미국 동부 2** 또는 사용 가능한 다른 지역 중 하나를 선택합니다. 지역 가용성은 [지역별 사용 가능한 Azure 서비스](https://azure.microsoft.com/regions/services/)를 참조하세요.        |
     |**가격 책정 계층**     |  **표준** 또는 **프리미엄** 중에서 선택합니다. **평가판**은 선택하지 마세요. 이러한 계층에 대한 자세한 내용은 [Databricks 가격 페이지](https://azure.microsoft.com/pricing/details/databricks/)를 참조하세요.       |
 
     **만들기**를 선택합니다.
@@ -165,11 +165,11 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
 
     |값 |설명  |
     |---------|---------|
-    |이름     | Anomaly Detector 리소스의 이름입니다.        |
-    |구독     | 리소스가 연결되는 Azure 구독입니다.        |
+    |Name     | Anomaly Detector 리소스의 이름입니다.        |
+    |Subscription     | 리소스가 연결되는 Azure 구독입니다.        |
     |위치     | Azure 위치입니다.        |
     |가격 책정 계층     | 서비스에 대한 가격 책정 계층입니다. Anomaly Detector 가격 책정에 대한 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/)를 참조하세요.        |
-    |리소스 그룹     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 선택할지 여부를 지정합니다.        |
+    |Resource group     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 선택할지 여부를 지정합니다.        |
 
 
      **만들기**를 선택합니다.

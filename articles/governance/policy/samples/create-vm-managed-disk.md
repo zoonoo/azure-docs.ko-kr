@@ -2,17 +2,16 @@
 title: 샘플 ‑ 관리 디스크를 사용하지 않는 VM 감사
 description: 이 json 샘플 정의는 관리 디스크를 사용하지 않는 가상 머신을 만들 때 감사합니다.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 8f1823ecfad7b78dc6360ffdfb517b0dbe858b53
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 20552ef0a56a0fc7136efa80561812ee4b5dad9b
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271444"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980556"
 ---
 # <a name="sample---audit-when-vm-does-not-use-managed-disk"></a>샘플 - VM이 관리 디스크를 사용하지 않을 경우 감사
 
@@ -30,7 +29,7 @@ ms.locfileid: "59271444"
 
 [![Azure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Faudit-non-managed-disk-vm%2Fazurepolicy.json)
 
-## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
+## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 

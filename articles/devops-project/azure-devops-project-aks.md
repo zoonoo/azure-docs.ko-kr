@@ -2,19 +2,19 @@
 title: '자습서: Azure DevOps Projects를 사용하여 Azure Kubernetes Service에 ASP.NET Core 앱 배포'
 description: Azure DevOps Projects를 사용하면 Azure를 쉽게 시작할 수 있습니다. DevOps Projects를 사용하면 AKS(Azure Kubernetes Service)를 사용하여 ASP.NET Core 앱을 몇 가지 빠른 단계로 배포할 수 있습니다.
 ms.author: mlearned
-ms.manager: douge
+ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 2aa103b36f60a84aaafc47f03a6cf6d5b6b66160
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: b27d56d78296dc5500f97802f811a8923c4e87a8
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993789"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969680"
 ---
 # <a name="tutorial-deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-projects"></a>자습서: Azure DevOps Projects를 사용하여 Azure Kubernetes Service에 ASP.NET Core 앱 배포
 

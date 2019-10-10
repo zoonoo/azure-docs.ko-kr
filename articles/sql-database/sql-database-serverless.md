@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 86c03554f5faa1ebb40faa20b6a271f5310ccd4f
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 3b2cc5c0b5deab084c6fdae9435ea3a90b2dd8a6
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828226"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173409"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>서버를 사용 하지 않는 Azure SQL Database (미리 보기)
 
@@ -75,7 +75,7 @@ ms.locfileid: "71828226"
 
 SQL Database 서버리스는 현재 vCore 구매 모델의 5세대 하드웨어에 대한 범용 계층에서만 지원됩니다.
 
-## <a name="autoscaling"></a>자동 크기 조정
+## <a name="autoscaling"></a>자동 확장
 
 ### <a name="scaling-responsiveness"></a>크기 조정 응답성
 
@@ -160,18 +160,18 @@ Autoresuming는 데이터베이스를 온라인 상태로 만들어야 하는 �
    |GP_S_Gen5_1|범용|5세대|1|
    |GP_S_Gen5_2|범용|5세대|2|
    |GP_S_Gen5_4|범용|5세대|4|
-   |GP_S_Gen5_6|범용|Gen5|6|
-   |GP_S_Gen5_8|범용|Gen5|8|
-   |GP_S_Gen5_10|범용|Gen5|10|
-   |GP_S_Gen5_12|범용|Gen5|12|
-   |GP_S_Gen5_14|범용|Gen5|14|
-   |GP_S_Gen5_16|범용|Gen5|16|
+   |GP_S_Gen5_6|범용|5세대|6|
+   |GP_S_Gen5_8|범용|5세대|8|
+   |GP_S_Gen5_10|범용|5세대|10|
+   |GP_S_Gen5_12|범용|5세대|12|
+   |GP_S_Gen5_14|범용|5세대|14|
+   |GP_S_Gen5_16|범용|5세대|16|
 
 2. 필요에 따라 최소 vCores 및 autopause delay를 지정 하 여 기본값을 변경 합니다. 다음 표에는 이러한 매개 변수에 사용할 수 있는 값이 나와 있습니다.
 
    |매개 변수|값 선택|기본값|
    |---|---|---|---|
-   |최소 vCore|구성 된 최대 vCores에 따라 다름- [리소스 제한](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)을 참조 하세요.|0.5개 vCore|
+   |최소 vCores|구성 된 최대 vCores에 따라 다름- [리소스 제한](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)을 참조 하세요.|0.5개 vCore|
    |자동 일시 중지 지연|최소: 60 분 (1 시간)<br>최대: 10,080분(7일)<br>증분: 60분<br>자동 일시 중지 사용 안 함: -1|60분|
 
 > [!NOTE]
@@ -225,23 +225,23 @@ Set-AzSqlDatabase `
 
 ## <a name="modifying-serverless-configuration"></a>서버를 사용 하지 않는 구성 수정
 
-### <a name="maximum-vcores"></a>최대 vCore
+### <a name="maximum-vcores"></a>최대 vCore 수
 
 #### <a name="use-powershell"></a>PowerShell 사용
 
-인수를 `MaxVcore` 사용 하 여 PowerShell에서 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 최대 vcores를 수정할 수 있습니다.
+@No__t-1 인수를 사용 하 여 PowerShell에서 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 최대 vcores를 수정할 수 있습니다.
 
 ### <a name="minimum-vcores"></a>최소 vCore 수
 
 #### <a name="use-powershell"></a>PowerShell 사용
 
-PowerShell에서 인수를 `MinVcore` 사용 하 여 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 최소 vcores를 수정할 수 있습니다.
+@No__t-1 인수를 사용 하 여 PowerShell에서 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 최소 vcores를 수정할 수 있습니다.
 
 ### <a name="autopause-delay"></a>자동 일시 중지 지연
 
 #### <a name="use-powershell"></a>PowerShell 사용
 
-인수를 `AutoPauseDelayInMinutes` 사용 하 여 PowerShell에서 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하면 autopause 지연을 수정할 수 있습니다.
+Autopause 지연 수정은 PowerShell에서 `AutoPauseDelayInMinutes` 인수를 사용 하 여 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 수행 합니다.
 
 ## <a name="monitoring"></a>모니터링
 
@@ -261,7 +261,7 @@ PowerShell에서 인수를 `MinVcore` 사용 하 여 [AzSqlDatabase](https://doc
 
 응용 프로그램 패키지의 리소스 사용 및 서버를 사용 하지 않는 데이터베이스의 사용자 풀 모니터링에 대 한 메트릭은 다음 표에 나와 있습니다.
 
-|엔터티|메트릭|설명|단위|
+|엔터티|메트릭|설명|Units|
 |---|---|---|---|
 |앱 패키지|app_cpu_percent|앱에 허용되는 최대 vCore 수에 대한 앱에서 사용한 vCore 수의 백분율입니다.|백분율|
 |앱 패키지|app_cpu_billed|보고 기간 동안 앱에 대해 요금이 청구되는 컴퓨팅의 양입니다. 이 기간 동안에 대한 지불 금액은 이 메트릭과 vCore 단가를 곱한 값입니다. <br><br>이 메트릭의 값은 시간이 지남에 따라 사용된 최대 CPU와 사용된 초당 메모리를 집계하여 결정됩니다. 사용된 양이 최소 vCore 수 및 최소 메모리로 설정된 최소 프로비저닝된 양보다 적으면 최소 프로비저닝된 양에 대한 요금이 청구됩니다. 청구의 목적으로 CPU를 메모리와 비교하기 위해 메모리는 vCore당 메모리 양(GB 단위)을 3GB로 다시 조정하여 vCore 단위로 정규화됩니다.|vCore 시간(초)|
@@ -326,7 +326,7 @@ VCore 단가는 초당 vCore 당 비용입니다. 지정된 지역의 특정 단
 
 ## <a name="available-regions"></a>사용 가능한 지역
 
-서버 리스 계산 계층은 다음 지역을 제외 하 고 전 세계에서 사용할 수 있습니다. 오스트레일리아 중부, 중국 동부, 중국 북부, 프랑스 남부, 독일 중부, 독일 북동쪽, 인도 서 부, 대한민국 남부, 남아프리카 공화국 서 부, 영국 북부, 영국 남부, 영국 서부 및 미국 서 부 중부.
+서버 리스 계산 계층은 다음 지역을 제외 하 고 전 세계에서 사용할 수 있습니다. 중국 동부, 중국 북부, 독일 중부, 독일 북동쪽, 영국 북부, 영국 남부 2, 미국 서 부 및 US Gov 중부 (아이오).
 
 ## <a name="next-steps"></a>다음 단계
 

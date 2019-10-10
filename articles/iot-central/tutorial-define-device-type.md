@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: db9f7e75af01ed83c39ef3a37ab2612426ef6ea4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a3faa76c1506664a075648edc7d57fbba542b011
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099618"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960539"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>자습서: Azure IoT Central 애플리케이션에서 새 디바이스 유형 정의
 
@@ -365,7 +365,7 @@ _명령_을 사용하여 운영자가 디바이스에서 직접 명령을 실행
     | 표시 이름         | Echo 명령    |
     | 필드 이름           | echo            |
     | 기본 시간 제한      | 30              |
-    | 표시 유형         | text            |
+    | 데이터 형식         | text            |
     | 설명          | 디바이스 명령  |  
 
     **입력 필드**에 대해 **+** 를 선택하여 명령에 입력을 더 추가할 수 있습니다.

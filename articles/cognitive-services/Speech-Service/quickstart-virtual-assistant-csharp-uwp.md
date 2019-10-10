@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: travisw
 ms.openlocfilehash: c676e98eb812a31d6fb8d7cc0f58929f803c868e
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
+ms.lasthandoff: 10/07/2019
 ms.locfileid: "70382177"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>빠른 시작: Speech SDK UWP를 사용하여 음성 우선 가상 도우미 만들기
@@ -409,7 +409,7 @@ ms.locfileid: "70382177"
 
 1. 메뉴 모음에서 **빌드** > **솔루션 빌드**를 선택하여 애플리케이션을 빌드합니다. 코드는 이제 오류 없이 컴파일됩니다.
 
-1. **디버그** > **디버깅 시작**을 선택하거나 **F5**를 눌러 애플리케이션을 시작합니다. **helloworld** 창이 표시됩니다.
+1. **디버그** > **디버깅 시작**을 선택하거나, **F5** 키를 눌러 애플리케이션을 시작합니다. **helloworld** 창이 표시됩니다.
 
    ![C#의 샘플 UWP 가상 길잡이 애플리케이션 - 빠른 시작](media/sdk/qs-virtual-assistant-uwp-helloworld-window.png)
 

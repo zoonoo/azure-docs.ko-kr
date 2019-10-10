@@ -6,12 +6,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 06e53f07969ab5dfdebec88d36d0cb3d06cc87e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5055734ae3529d7fca87688c5f9410f38368a634
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078422"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959364"
 ---
 # <a name="what-is-azure-dns"></a>Azure DNS란?
 
@@ -51,7 +51,7 @@ DNS 요금 청구는 Azure에서 호스팅되는 DNS 영역의 수와 수신되�
 
 ## <a name="customizable-virtual-networks-with-private-domains"></a>프라이빗 도메인을 사용하여 사용자 지정할 수 있는 가상 네트워크
 
-Azure DNS는 프라이빗 DNS 영역(현재는 공개 미리 보기)도 지원합니다. 이 기능을 통해 현재 Azure에서 제공하는 이름 대신 사용자 고유의 사용자 지정 도메인 이름을 프라이빗 가상 네트워크에 사용할 수 있습니다.
+Azure DNS는 프라이빗 DNS 도메인도 지원합니다. 이 기능을 통해 현재 Azure에서 제공하는 이름 대신 사용자 고유의 사용자 지정 도메인 이름을 프라이빗 가상 네트워크에 사용할 수 있습니다.
 
 자세한 내용은 [프라이빗 도메인에 Azure DNS 사용](private-dns-overview.md)을 참조하세요.
 

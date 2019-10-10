@@ -2,17 +2,16 @@
 title: 샘플 - 리소스 그룹에서 사용자 지정 VM 이미지 허용
 description: 이 샘플 정책 정의에서는 사용자 지정 이미지가 승인된 리소스 그룹의 이미지여야 합니다.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 29f42a278d9a1d0879d464b6c4e1cfad8f73d518
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c109f870736274f82bf4e165f890d49237c22cbc
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266021"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977811"
 ---
 # <a name="sample---allow-custom-vm-image-from-a-resource-group"></a>샘플 - 리소스 그룹에서 사용자 지정 VM 이미지 허용
 
@@ -30,7 +29,7 @@ ms.locfileid: "59266021"
 
 [![Azure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fcustom-image-from-rg%2Fazurepolicy.json)
 
-## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
+## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 

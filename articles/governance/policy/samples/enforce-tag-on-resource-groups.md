@@ -2,17 +2,16 @@
 title: 샘플 - 리소스 그룹에 태그 및 해당 값 강제 적용
 description: 이 샘플 정책 정의에서는 리소스 그룹에 대한 태그 및 값이 필요합니다.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/31/2019
 ms.author: dacoulte
-ms.openlocfilehash: a7a76fbde74ab80f8aa0f5e67e6445504c3aafa5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 00c94aa6077c8a8599b31e9ab37f925fdfebefb0
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276663"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977165"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>샘플 - 리소스 그룹에 태그 및 해당 값 강제 적용
 
@@ -29,7 +28,7 @@ ms.locfileid: "59276663"
 
 ## <a name="sample-policy"></a>샘플 정책
 
-### <a name="policy-definition"></a>정책 정의 
+### <a name="policy-definition"></a>정책 정의
 
 완전히 구성된 JSON 정책 정의로 REST API에서, 'Azure에 배포' 단추에서, 그리고 포털에서 수동으로 사용됩니다.
 

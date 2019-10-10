@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b342838c41ad72609cf9917b345ef0f72b352f2e
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: c180a5d751b44346760706b1bd3d1e8acb70099d
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907162"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71837508"
 ---
 [!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
 
@@ -51,9 +51,6 @@ var endpoint = process.env[endpoint_var];
 ## <a name="configure-the-request"></a>요청 구성
 
 요청 모듈을 통해 제공되는 `request()` 메서드를 사용하면 HTTP 메서드, URL, 요청 매개 변수, 헤더 및 JSON 본문을 `options` 개체로 전달할 수 있습니다. 이 코드 조각에서 다음 요청을 구성합니다.
-
->[!NOTE]
-> 엔드포인트, 루트 및 요청 매개 변수에 대한 자세한 내용은 [Translator Text API 3.0: 검색](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect)을 참조하세요.
 
 ```javascript
 let options = {
@@ -103,7 +100,10 @@ node detect.js
 
 ## <a name="sample-response"></a>샘플 응답
 
-국가/지역 약어는 이 [언어 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)에서 확인하세요.
+샘플을 실행하면 터미널에 다음이 출력됩니다.
+
+> [!NOTE]
+> 국가/지역 약어는 이 [언어 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)에서 확인하세요.
 
 ```json
 [

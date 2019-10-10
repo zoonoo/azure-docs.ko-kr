@@ -2,19 +2,18 @@
 title: Azure Kubernetes 배포 센터
 description: Azure DevOps의 배포 센터는 애플리케이션에 대한 강력한 Azure DevOps 파이프라인의 설정을 간소화합니다.
 ms.author: puagarw
-ms.manager: douge
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
 monikerRange: vsts
-ms.openlocfilehash: 35484566890f3bfd964e3fda337bfb3666d1da6c
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 5384180720d391c6b4ae830f9316a70e80003063
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618733"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972971"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Azure Kubernetes 배포 센터
 

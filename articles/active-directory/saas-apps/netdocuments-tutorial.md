@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bf25ce318415a8aa36bca8d4cd7380e4e8e67ca
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 71e5e13485c4a10664d98363e8e99bfd3b4f4bcf
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743467"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035712"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>자습서: NetDocuments와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -85,6 +85,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     a. **로그온 URL** 텍스트 상자에서 `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>` 패턴을 사용하는 URL을 입력합니다.
 
     b. **회신 URL** 텍스트 상자에서 `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>` 패턴을 사용하여 URL을 입력합니다.
+    
+    다. **식별자(엔터티 ID)** 텍스트 상자에서 `http://netdocuments.com/VAULT` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 회신 URL로 해당 값을 업데이트합니다. 리포지토리 ID는 **CA-** 로 시작하고 뒤에 NetDocuments 리포지토리와 연결된 8자 코드가 나오는 값입니다. 자세한 내용은 [NetDocuments 페더레이션 ID 지원 문서](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login)에서 확인할 수 있습니다. 또는 위 정보로 구성하는 데 문제가 있는 경우 [NetDocuments 클라이언트 지원 팀](https://support.netdocuments.com/hc/)에 문의하여 이러한 값을 받을 수 있습니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

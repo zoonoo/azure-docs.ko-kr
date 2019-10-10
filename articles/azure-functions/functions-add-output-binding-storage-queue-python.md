@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 9fdbf3466256c5e24de17541770fa2095fcf38a4
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 92ee9b0a8a0906bca31d7dcb1730c3464d0d6cbc
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70171078"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71839189"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Python 함수에 Azure Storage 큐 바인딩 추가
 
@@ -30,20 +30,11 @@ Azure Functions를 사용하면 자체 통합 코드를 작성하지 않고도 �
 
 이 문서를 시작하기에 앞서 [Python 빠른 시작의 1부](functions-create-first-function-python.md) 단계를 먼저 완료합니다.
 
+[!INCLUDE [functions-cloud-shell-note](../../includes/functions-cloud-shell-note.md)]
+
 ## <a name="download-the-function-app-settings"></a>함수 앱 설정 다운로드
 
-이전의 빠른 시작 문서에서는 Azure에서 필요한 Storage 계정과 함께 함수 앱을 만들었습니다. 이 계정의 연결 문자열은 Azure의 앱 설정에 안전하게 저장됩니다. 이 문서에서는 같은 계정의 Storage 큐에 메시지를 작성합니다. 함수를 로컬로 실행할 때 Storage 계정에 연결하려면 앱 설정을 local.settings.json 파일에 다운로드해야 합니다. 다음 Azure Functions Core Tools 명령을 실행하여 설정을 local.settings.json에 다운로드하고, `<APP_NAME>`을 이전 문서의 함수 앱 이름으로 바꿉니다.
-
-```bash
-func azure functionapp fetch-app-settings <APP_NAME>
-```
-
-Azure 계정에 로그인해야 할 수도 있습니다.
-
-> [!IMPORTANT]  
-> local.settings.json 파일은 비밀을 포함하고 있으므로 절대 게시되지 않으며, 소스 제어에서 제외되어야 합니다.
-
-Storage 계정 연결 문자열인 `AzureWebJobsStorage` 값이 필요합니다. 이 연결을 사용하여 출력 바인딩이 예상대로 작동하는지 확인합니다.
+[!INCLUDE [functions-app-settings-download-local-cli](../../includes/functions-app-settings-download-local-cli.md)]
 
 ## <a name="enable-extension-bundles"></a>확장 번들 사용
 
@@ -53,80 +44,13 @@ Storage 계정 연결 문자열인 `AzureWebJobsStorage` 값이 필요합니다.
 
 ## <a name="add-an-output-binding"></a>출력 바인딩 추가
 
-Functions에서 각 바인딩 형식의 `direction`, `type` 및 고유 `name`을 function.json 파일에 정의해야 합니다. 바인딩 형식에 따라 추가 속성이 필요할 수 있습니다. [큐 출력 구성](functions-bindings-storage-queue.md#output---configuration)은 Azure Storage 큐 바인딩에 필요한 필드를 설명합니다.
+Functions에서 각 바인딩 형식의 `direction`, `type` 및 고유한 `name`을 function.json 파일에 정의해야 합니다. 이러한 특성을 정의하는 방법은 함수 앱의 언어에 따라 달라집니다.
 
-바인딩을 만들려면 바인딩 구성 개체를 function.json 파일에 추가합니다. HttpTrigger 폴더의 function.json 파일을 편집하여 다음 속성이 있는 개체를 `bindings` 배열에 추가합니다.
-
-| 자산 | 값 | 설명 |
-| -------- | ----- | ----------- |
-| **`name`** | `msg` | 코드에서 참조되는 바인딩 매개 변수를 식별하는 이름입니다. |
-| **`type`** | `queue` | 바인딩은 Azure Storage 큐 바인딩입니다. |
-| **`direction`** | `out` | 바인딩은 출력 바인딩입니다. |
-| **`queueName`** | `outqueue` | 바인딩이 데이터를 쓰는 큐의 이름입니다. `queueName`이 없으면 바인딩에서 처음 사용할 때 만들어집니다. |
-| **`connection`** | `AzureWebJobsStorage` | Storage 계정의 연결 문자열이 포함된 앱 설정의 이름입니다. `AzureWebJobsStorage` 설정은 함수 앱을 사용하여 만든 Storage 계정의 연결 문자열을 포함합니다. |
-
-이제 function.json 파일은 다음 예제와 같습니다.
-
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    },
-  {
-      "type": "queue",
-      "direction": "out",
-      "name": "msg",
-      "queueName": "outqueue",
-      "connection": "AzureWebJobsStorage"
-    }
-  ]
-}
-```
+[!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
 ## <a name="add-code-that-uses-the-output-binding"></a>출력 바인딩을 사용하는 코드 추가
 
-`name`이 구성되면 함수 시그니처에서 메서드 특성으로 바인딩에 액세스하는 데 사용할 수 있습니다. 다음 예제의 `msg`는 [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest)의 인스턴스입니다.
-
-```python
-import logging
-
-import azure.functions as func
-
-
-def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
-
-    name = req.params.get('name')
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
-
-    if name:
-        msg.set(name)
-        return func.HttpResponse(f"Hello {name}!")
-    else:
-        return func.HttpResponse(
-            "Please pass a name on the query string or in the request body",
-            status_code=400
-        )
-```
+[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
 
 출력 바인딩을 사용하면 인증하거나, 큐 참조를 가져오거나, 데이터를 쓰는 데 Azure Storage SDK 코드를 사용할 필요가 없습니다. Functions 런타임 및 큐 출력 바인딩이 이러한 작업을 알아서 처리합니다.
 
@@ -145,38 +69,15 @@ func host start
 
 이번에는 출력 바인딩이 Storage 계정에 `outqueue`라는 큐를 만들고 똑같은 이 문자열을 사용하여 메시지를 추가합니다.
 
-다음으로, Azure CLI를 사용하여 새 큐를 살펴보고 메시지가 추가되었는지 확인합니다. 큐는 [Microsoft Azure Storage Explorer][Azure Storage Explorer] 또는 [Azure Portal](https://portal.azure.com)을 사용하여 확인할 수도 있습니다.
+다음으로, Azure CLI를 사용하여 새 큐를 살펴보고 메시지가 추가되었는 확인합니다. 큐는 [Microsoft Azure Storage Explorer][Azure Storage Explorer] 또는 [Azure Portal](https://portal.azure.com)을 사용하여 확인할 수도 있습니다.
 
 ### <a name="set-the-storage-account-connection"></a>Storage 계정 연결 설정
 
-local.settings.json 파일을 열고, Storage 계정 연결 문자열인 `AzureWebJobsStorage` 값을 복사합니다. 다음 Bash 명령을 사용하여 `AZURE_STORAGE_CONNECTION_STRING` 환경 변수를 연결 문자열로 설정합니다.
-
-```azurecli-interactive
-export AZURE_STORAGE_CONNECTION_STRING=<STORAGE_CONNECTION_STRING>
-```
-
-연결 문자열이 `AZURE_STORAGE_CONNECTION_STRING` 환경 변수에 설정되면 매번 인증하지 않고도 Storage 계정에 액세스할 수 있습니다.
+[!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
 
 ### <a name="query-the-storage-queue"></a>Storage 큐 쿼리
 
-다음 예제처럼 [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) 명령을 사용하여 계정의 Storage 큐를 볼 수 있습니다.
-
-```azurecli-interactive
-az storage queue list --output tsv
-```
-
-이 명령의 출력에는 함수가 실행될 때 생성된 `outqueue`라는 큐가 포함됩니다.
-
-다음으로, 다음 예제와 같이 [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) 명령을 사용하여 이 큐의 메시지를 확인합니다.
-
-```azurecli-interactive
-echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
-```
-
-반환된 문자열은 함수를 테스트하기 위해 보낸 메시지와 동일해야 합니다.
-
-> [!NOTE]  
-> 이전 예제는 base64에서 반환된 문자열을 디코딩합니다. Queue 스토리지 바인딩이 Azure Storage에 [base64 문자열](functions-bindings-storage-queue.md#encoding)로 쓰고 읽기 때문입니다.
+[!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
 
 이제 업데이트된 함수 앱을 Azure에 다시 게시할 때입니다.
 

@@ -4,21 +4,20 @@ description: 설치된 패키지 및 시작 스크립트의 특정 세트로 구
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: e049f591-27a7-440f-a1a3-c5bef25e8a28
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 954bbc22e42865991ca7f38fbf3f6f0e8e78a437
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 6ec0d2fae285889a731e9b881ea90f15b96c85f2
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754035"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973077"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>빠른 시작: 사용자 지정 환경을 사용하여 프로젝트 만들기
 

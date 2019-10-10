@@ -11,18 +11,18 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 54f9e1eb9614708880c9a45cddcf9d7a282d0305
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 09523bb6c9c8a58f5f7bd102d2ac30ad77f28d1c
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802845"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71840181"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>빠른 시작: Python을 사용하여 QnA Maker 기술 자료 게시
 
 이 REST 기반 빠른 시작에서는 KB(기술 자료)를 프로그래밍 방식으로 게시하는 방법을 안내합니다. 게시는 최신 버전의 기술 자료를 전용 Azure Search 인덱스에 푸시하고, 애플리케이션 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
 
-이 빠른 시작에서 호출하는 QnA Maker API는 다음과 같습니다.
+이 빠른 시작에서 호출하는 QnA Maker REST API는 다음과 같습니다.
 * [게시](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) - 이 API는 요청 본문에 어떤 정보도 요구하지 않습니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -33,7 +33,7 @@ ms.locfileid: "71802845"
 
     ![QnA Maker 기술 자료 ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-    아직 기술 자료가 없는 경우 샘플을 만들어서 빠른 시작: [새 기술 자료 만들기](create-new-kb-nodejs.md)에서 사용하면 됩니다.
+    아직 기술 자료가 없는 경우 샘플을 만들어서 빠른 시작: [새 기술 자료 만들기](../how-to/create-knowledge-base.md)에서 사용하면 됩니다.
 
 > [!NOTE] 
 > 전체 솔루션 파일은 [**Azure-Samples/cognitive-services-qnamaker-python** GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/tree/master/documentation-samples/quickstarts/publish-knowledge-base)에서 사용할 수 있습니다.

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: d46c460f7158635e520b47517fb3aab005af94a2
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 44ae433040c2c9cab47567cb663d4e588311a4a1
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140763"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177410"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
 이 자습서에서는 델타 데이터를 온-프레미스 SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
@@ -386,7 +386,7 @@ END
    ![싱크 데이터 세트 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
    
- 1. **마침**을 클릭하면 **@dataset().SinkTableName**이 테이블 이름으로 표시됩니다.
+ 1. **마침**을 클릭하면 **\@dataset().SinkTableName**이 테이블 이름으로 표시됩니다.
    
    ![싱크 데이터 세트 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
@@ -407,7 +407,7 @@ END
 
        ![워터마크 데이터 세트 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
 
-## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
+## <a name="create-a-pipeline"></a>파이프라인을 만들기
 파이프라인에서는 테이블 이름 목록을 매개 변수로 사용합니다. ForEach 작업은 테이블 이름 목록을 반복하고 다음 작업을 수행합니다. 
 
 1. 조회 작업을 사용하여 이전 워터마크 값(초기 값 또는 마지막 반복에서 사용된 값)을 검색합니다.

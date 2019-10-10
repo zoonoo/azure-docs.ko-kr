@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 30751bebd397b378924453987462c9e2b3b55ebf
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c4b46bc952782fc7c9b56d6f0c049fe17b63d0f2
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803897"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71836457"
 ---
 # <a name="electric-vehicle-routing-using-azure-notebooks-python"></a>Azure Notebooks를 사용한 전기 차량 라우팅(Python)
 
-Azure Maps는 개발자, 엔터프라이즈 및 ISV에서 위치 인식 앱 및 IoT, 이동성, 물류 및 자산 추적 솔루션을 만들 수 있도록 Azure에 기본적으로 통합된 지리 공간적 서비스 API의 포트폴리오입니다. Python 및 R과 같은 언어에서 Azure Maps REST API를 호출하여 지리 공간적 데이터 분석 및 기계 학습 시나리오를 사용할 수 있습니다. Azure Maps는 강력한 [라우팅 API]([https://docs.microsoft.com/rest/api/maps/route) 세트를 제공하므로 사용자가 차량 유형 또는 도달 가능한 지역과 같은 다양한 조건에 따라 여러 데이터 포인트 간의 경로를 계산할 수 있습니다. 이 자습서에서는 차량의 배터리 충전량이 부족한 전기 차량 운전자가 주행 시간과 관련하여 가장 가까운 충전소를 찾는 데 도움이 되는 시나리오를 안내합니다.
+Azure Maps는 개발자, 엔터프라이즈 및 ISV에서 위치 인식 앱 및 IoT, 이동성, 물류 및 자산 추적 솔루션을 만들 수 있도록 Azure에 기본적으로 통합된 지리 공간적 서비스 API의 포트폴리오입니다. Python 및 R과 같은 언어에서 Azure Maps REST API를 호출하여 지리 공간적 데이터 분석 및 기계 학습 시나리오를 사용할 수 있습니다. Azure Maps는 강력한 [라우팅 API](https://docs.microsoft.com/rest/api/maps/route) 세트를 제공하므로 사용자가 차량 유형 또는 도달 가능한 지역과 같은 다양한 조건에 따라 여러 데이터 포인트 간의 경로를 계산할 수 있습니다. 이 자습서에서는 차량의 배터리 충전량이 부족한 전기 차량 운전자가 주행 시간과 관련하여 가장 가까운 충전소를 찾는 데 도움이 되는 시나리오를 안내합니다.
 
 이 자습서에서는 다음 작업을 수행합니다.
 

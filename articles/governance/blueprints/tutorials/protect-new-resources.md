@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 274c437acd8df50d631727fc352c4b9ebecead18
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: a82b24f89cea580a1c79a1dec60996629b7b14f3
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479981"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978138"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>자습서: Azure Blueprints 리소스 잠금으로 새 리소스 보호
 
@@ -157,8 +156,8 @@ Azure Blueprints [리소스 잠금](../concepts/resource-locking.md)을 사용�
 
      |아티팩트 이름|아티팩트 형식|매개 변수 이름|값|설명|
      |-|-|-|-|-|
-     |RGtoLock 리소스 그룹|리소스 그룹|이름|TestingBPLocks|청사진 잠금을 적용할 새 리소스 그룹의 이름을 정의합니다.|
-     |RGtoLock 리소스 그룹|리소스 그룹|위치|미국 서부 2|청사진 잠금을 적용할 새 리소스 그룹의 위치를 정의합니다.|
+     |RGtoLock 리소스 그룹|Resource group|Name|TestingBPLocks|청사진 잠금을 적용할 새 리소스 그룹의 이름을 정의합니다.|
+     |RGtoLock 리소스 그룹|Resource group|위치|미국 서부 2|청사진 잠금을 적용할 새 리소스 그룹의 위치를 정의합니다.|
      |StorageAccount|Resource Manager 템플릿|storageAccountType(StorageAccount)|Standard_GRS|스토리지 SKU 기본값은 _Standard_LRS_입니다.|
 
 1. 모든 매개 변수를 입력한 후 페이지 아래쪽에서 **할당**을 선택합니다.

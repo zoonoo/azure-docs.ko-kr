@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: ffa4424dd3173cf6493ec219fe92925c970ad08c
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: e4a57c6d4a9034d9145058e9137759c2cea19aa6
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258319"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978666"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>Azure Time Series Insights Preview란?
 
@@ -81,7 +81,7 @@ Time Series Insights는 현재 미리 보기 상태인 운영 인사이트 기�
 | 다른 데이터 솔루션과의 지속적인 통합 | Time Series Insights의 데이터는 오픈 소스 Apache Parquet 파일에 [저장](./time-series-insights-update-storage-ingress.md)됩니다. 자사 솔루션이든, 타사 솔루션이든 간에 다른 데이터 솔루션과 통합되므로 엔드투엔드 시나리오에서 편리합니다. 이러한 시나리오에는 비즈니스 인텔리전스, 고급 기계 학습, 예측 분석 등이 포함됩니다. |
 | 거의 실시간 데이터 검색 | [Azure Time Series Insights Preview 탐색기](./time-series-insights-update-explorer.md) 사용자 환경은 수집 파이프라인을 통한 모든 데이터 스트리밍에 대해 시각화를 제공합니다. 이벤트 원본을 연결하면 즉시 이벤트 데이터를 보고 탐색하고 쿼리할 수 있습니다. 이러한 방식으로, 디바이스에서 예상대로 데이터를 내보내는지 여부를 확인할 수 있습니다. IoT 자산의 상태, 생산성 및 전반적인 효율성을 모니터링할 수도 있습니다. |
 | 근본 원인 분석 및 변칙 검색 | [Azure Time Series Insights Preview 탐색기](./time-series-insights-update-explorer.md)는 다단계 근본 원인 분석을 수행하고 저장하기 위한 패턴 및 큐브 뷰를 둘 다 지원합니다. Azure Stream Analytics와 함께 Time Series Insights를 사용하여 경고 및 변칙을 거의 실시간으로 검색할 수 있습니다. |
-| Time Series Insights 플랫폼에 빌드된 사용자 지정 애플리케이션 | Time Series Insights는 [JavaScript SDK](./tutorial-explore-js-client-lib.md)를 지원합니다. SDK는 풍부한 컨트롤 및 간소화된 쿼리 액세스를 제공합니다. SDK를 사용하여 특정 비즈니스 요구에 맞는 사용자 지정 IoT 애플리케이션을 Time Series Insights에 빌드할 수 있습니다. Time Series Insights [쿼리 API](./time-series-insights-update-tsq.md)를 직접 사용하여 사용자 지정 IoT 애플리케이션에 데이터를 제공할 수도 있습니다. |
+| Time Series Insights 플랫폼에 빌드된 사용자 지정 애플리케이션 | Time Series Insights는 [JavaScript SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)를 지원합니다. SDK는 풍부한 컨트롤 및 간소화된 쿼리 액세스를 제공합니다. SDK를 사용하여 특정 비즈니스 요구에 맞는 사용자 지정 IoT 애플리케이션을 Time Series Insights에 빌드할 수 있습니다. Time Series Insights [쿼리 API](./time-series-insights-update-tsq.md)를 직접 사용하여 사용자 지정 IoT 애플리케이션에 데이터를 제공할 수도 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

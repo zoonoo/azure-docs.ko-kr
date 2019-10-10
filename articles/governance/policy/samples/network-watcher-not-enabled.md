@@ -2,17 +2,16 @@
 title: 샘플 - 지역에서 Network Watcher를 사용할 수 없는 경우 감사
 description: 이 샘플 정책 정의는 Network Watcher를 특정 지역에 대해 사용하도록 설정되지 않은 경우 감사합니다.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 7614b000f69eb74c83084aec0849a2741c82cd5a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 94d4bbd70c21713fa366907b3fe8cec8543350eb
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268265"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981362"
 ---
 # <a name="sample---audit-if-network-watcher-is-not-enabled-for-region"></a>샘플 - 지역에서 Network Watcher를 사용할 수 없는 경우 감사
 
@@ -30,7 +29,7 @@ ms.locfileid: "59268265"
 
 [![Azure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Faudit-network-watcher-existence%2Fazurepolicy.json)
 
-## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
+## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 

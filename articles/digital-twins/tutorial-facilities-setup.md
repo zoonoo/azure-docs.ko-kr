@@ -2,18 +2,19 @@
 title: '자습서: Azure Digital Twins 배포 | Microsoft Docs'
 description: 이 자습서의 단계에 따라 Azure Digital Twins 인스턴스를 배포하고 공간 리소스를 구성하는 방법을 알아봅니다.
 services: digital-twins
+ms.author: alinast
 author: alinamstanciu
+manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 09/17/2019
-ms.author: alinast
-ms.openlocfilehash: 1ab3f30f035f8099ab50f827e559e56b31d7f1f6
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 54afe8ea67996562c88a2ade2ec16c4eaa89cdee
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219749"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949766"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>자습서: Azure Digital Twins 미리 보기 배포 및 공간 그래프 구성
 

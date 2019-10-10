@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 08/26/2019
 ms.topic: overview
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 631aa956573fd611988030af8ea7e34c6c266045
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 86f58594ce1af91b19f70cbdb1114a90180e3b4f
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70146109"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981705"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Azure Blueprints 서비스 요약
 

@@ -2,17 +2,16 @@
 title: 샘플 - 모든 서브넷에서 NSG x
 description: 이 샘플 정책 정의에서는 특정 네트워크 보안 그룹이 모든 가상 서브넷과 함께 사용되어야 합니다.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: b42ae790005560b403033ea5b98010792c9a3ca4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 977deba4ee083fae5cbf24905cee84a3a0d020c4
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263658"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981343"
 ---
 # <a name="sample---network-security-group-x-on-every-subnet"></a>샘플 - 모든 서브넷의 네트워크 보안 그룹 x
 
@@ -30,7 +29,7 @@ ms.locfileid: "59263658"
 
 [![Azure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fenforce-nsg-on-subnet%2Fazurepolicy.json)
 
-## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
+## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 

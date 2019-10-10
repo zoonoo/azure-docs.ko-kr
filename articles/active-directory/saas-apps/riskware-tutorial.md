@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b2bfbed33433521fd086d474ea4b754f5435f5e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6eaa1be81d3ac0733c0829bc45e1b62f8aae5755
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67092916"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027105"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>자습서: Riskware와 Azure Active Directory 통합
 
@@ -170,7 +170,7 @@ Riskware에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     g. **XML ID 태그 이름** 텍스트 상자에 SAML 응답에서 고유 식별자를 포함하는 NameID와 같은 특성을 입력합니다.
 
-    h. Azure Portal에서 다운로드한  **메타데이터 Xml** 을 메모장에서 열고 메타데이터 파일에서 인증서를 복사하여 **인증서** 텍스트 상자에 붙여넣습니다.
+    h. Azure Portal에서 다운로드한 **메타데이터 Xml**을 메모장에서 열고 메타데이터 파일에서 인증서를 복사하여 **인증서** 텍스트 상자에 붙여넣습니다.
 
     i. **소비자 URL** 텍스트 상자에 지원 팀으로부터 받은 **회신 URL** 값을 붙여넣습니다.
 

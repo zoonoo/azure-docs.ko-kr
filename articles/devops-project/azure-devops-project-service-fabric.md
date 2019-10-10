@@ -2,19 +2,19 @@
 title: '자습서: Azure DevOps Projects를 사용하여 Azure Service Fabric에 ASP.NET Core 앱 배포'
 description: Azure DevOps Projects를 사용하면 Azure를 쉽게 시작할 수 있습니다. DevOps Projects를 사용하면 몇 가지 빠른 단계로 ASP.NET Core 앱을 Azure Service Fabric으로 쉽게 배포할 수 있습니다.
 ms.author: mlearned
-ms.manager: douge
+ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 8ba217cb9ce849e57b15d3e6cc73529c78bf340e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5f14164da5cd89cc7d0578e6b64c39d227734d75
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453774"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969467"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>자습서: Azure DevOps Projects를 사용하여 Azure Service Fabric에 ASP.NET Core 앱 배포
 

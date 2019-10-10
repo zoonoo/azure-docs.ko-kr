@@ -2,17 +2,16 @@
 title: 샘플 - 하이브리드 사용 혜택 거부
 description: 이 샘플 정책 정의에서는 AHUB(Azure Hybrid Use Benefit) 사용이 금지됩니다.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 4523fb5d3ac1e91606650a9c359e46e3b697d1b5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4c573a0c5ef7dd5328379dc9e3dffb029d24f619
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262247"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980545"
 ---
 # <a name="sample---deny-hybrid-use-benefit"></a>샘플 - 하이브리드 사용 혜택 거부
 
@@ -30,7 +29,7 @@ AHUB(Azure Hybrid Use Benefit) 사용을 금지합니다. 온-프레미스 라�
 
 [![Azure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fdeny-hybrid-use-benefit%2Fazurepolicy.json)
 
-## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
+## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 

@@ -6,18 +6,17 @@ ms.author: dacoulte
 ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: f31d6197c22be4d66e0610ad7914f541a45ed995
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 72d8fab39e8dd11cf46eb2977a9b9fe288ca2de1
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979568"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980811"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 비준수 리소스를 식별하는 정책 할당 만들기
 
 Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 식별하는 것입니다.
-이 빠른 시작에서는 관리 디스크를 사용하지 않는 가상 머신을 식별하는 정책 할당을 만드는 과정을 단계별로 안내합니다.
+이 빠른 시작에서는 관리 디스크를 사용하지 않는 가상 머신을 식별하는 정책 할당을 만들고 할당하는 과정을 단계별로 안내합니다.
 
 이 과정이 끝나면 관리 디스크를 사용하지 않는 가상 머신이 식별됩니다. 이 가상 머신은 정책 할당을 *비준수*합니다.
 
@@ -33,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 [!code-json[policy-assignment](~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json)]
 
 > [!NOTE]
-> Azure Policy 서비스는 무료입니다. 자세한 내용은 [Azure Policy 개요](./overview.md)를 참조하세요.
+> Azure Policy 서비스는 무료입니다.  자세한 내용은 [Azure Policy 개요](./overview.md)를 참조하세요.
 
 1. 다음 이미지를 선택하고 Azure Portal에 로그인하여 템플릿을 엽니다.
 
@@ -43,8 +42,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    | Name | 값 |
    |------|-------|
-   | 구독 | Azure 구독을 선택합니다. |
-   | 리소스 그룹 | **새로 만들기**를 선택하고 이름을 지정한 다음, **확인**을 선택합니다. 스크린샷에서 리소스 그룹 이름은 *mypolicyquickstart\<MMDD 날짜>rg*입니다. |
+   | Subscription | Azure 구독을 선택합니다. |
+   | Resource group | **새로 만들기**를 선택하고 이름을 지정한 다음, **확인**을 선택합니다. 스크린샷에서 리소스 그룹 이름은 *mypolicyquickstart\<MMDD 날짜>rg*입니다. |
    | 위치 | 지역을 선택합니다. 예: **미국 중부** |
    | 정책 할당 이름 | 정책 할당 이름을 지정합니다. 원하는 경우 정책 정의 표시 이름을 사용할 수 있습니다. 예: **관리 디스크를 사용하지 않는 VM 감사**. |
    | Rg 이름 | 정책을 할당할 리소스 그룹 이름을 지정합니다. 이 빠른 시작에서는 기본값인 **[resourceGroup().name]** 을 사용합니다. **[resourceGroup()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)** 은 리소스 그룹을 검색하는 템플릿 함수입니다. |

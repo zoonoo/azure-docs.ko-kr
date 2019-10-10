@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 443dedd23b6b4c2dd2514a3f7080bdeb30522a14
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 67cc44984aa1e2af30a70583b6d40ffd0f9cb9e4
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137796"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176497"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-javascript"></a>빠른 시작: Computer Vision REST API 및 JavaScript를 사용하여 인쇄된 텍스트(OCR) 추출
 
@@ -58,7 +58,7 @@ Computer Vision에 대한 구독 키가 있어야 합니다. [Cognitive Services
         let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
         if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
         
-        var uriBase = endpoint + "vision/v2.0/ocr";
+        var uriBase = endpoint + "vision/v2.1/ocr";
 
         // Request parameters.
         var params = {

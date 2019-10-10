@@ -3,8 +3,8 @@ title: Linux에서 Python 앱 만들기 - Azure App Service | Microsoft Docs
 description: 몇 분 안에 Linux의 Azure App Service에서 첫 번째 Python Hello World 앱을 배포합니다.
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: jeconnoc
+author: msangapu-msft
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: app-service-web
@@ -14,18 +14,18 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 08b1b85b980f992e799fc5198891290ec0d55c5d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+experimental: false
+experiment_id: 1e304dc9-5add-4b
+ms.openlocfilehash: d6e062145474b8479db749627b56163106f088d8
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070994"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024935"
 ---
-# <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Linux의 Azure App Service에서 Python 앱 만들기(미리 보기)
+# <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Azure App Service on Linux에서 Python 앱 만들기
 
-[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용하여 App Service on Linux에서 기본 Python 이미지(미리 보기) 위에 Python 앱을 배포하는 방법을 보여줍니다.
-
-Mac, Windows 또는 Linux 컴퓨터를 사용하여 이 문서의 단계를 수행하면 됩니다.
+이 빠른 시작에서는 간단한 Python 앱을 [Linux의 App Service](app-service-linux-intro.md)에 배포합니다. 이는 확장성이 높은 셀프 패치 웹 호스팅 서비스를 제공합니다. 대화형, 브라우저 기반 Azure Cloud Shell을 통해 Azure 명령줄 인터페이스([Azure CLI](/cli/azure/install-azure-cli))를 사용하므로 Mac, Linux 또는 Windows 컴퓨터를 사용하여 단계를 수행할 수 있습니다.
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-python/hello-world-in-browser.png)
 
@@ -122,7 +122,7 @@ Python 샘플 코드가 기본 제공 이미지가 있는 Linux의 App Service�
 
 **축하합니다.** Linux에서 App Service에 첫 번째 Python 앱을 배포했습니다.
 
-## <a name="update-locally-and-redeploy-the-code"></a>로컬로 코드 업데이트 및 다시 배포
+## <a name="update-and-redeploy-the-code"></a>코드 업데이트 및 다시 배포
 
 Cloud Shell에서 `code application.py`을 입력하여 Cloud Shell 편집기를 엽니다.
 
@@ -163,8 +163,6 @@ az webapp up -n <app_name>
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>다음 단계
-
-Linux의 App Service에 기본 제공되는 Python 이미지는 현재 미리 보기로 제공되며, 앱 시작에 사용되는 명령을 사용자 지정할 수 있습니다. 사용자 지정 컨테이너를 대신 사용하여 프로덕션 Python 앱을 만들 수도 있습니다.
 
 > [!div class="nextstepaction"]
 > [자습서: PostgreSQL을 사용한 Python 앱](tutorial-python-postgresql-app.md)

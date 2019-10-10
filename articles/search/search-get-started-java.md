@@ -1,22 +1,20 @@
 ---
 title: '빠른 시작: REST API를 사용하여 Java에서 검색 인덱스 만들기 - Azure Search'
 description: Java 및 Azure Search REST API를 사용하여 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 설명합니다.
-author: lisaleib
 manager: nitinme
-ms.author: jjed
-tags: azure-portal
-services: search
+author: lisaleib
+ms.author: v-lilei
 ms.service: search
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/10/2019
-ms.openlocfilehash: 455f3dfdce93d0b39960f9ec87b0938060f87687
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 3f424f03f72e288994b05c4559bd42e6429760a8
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881567"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166239"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-java-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Java에서 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]

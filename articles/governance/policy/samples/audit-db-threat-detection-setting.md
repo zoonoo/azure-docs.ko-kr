@@ -2,17 +2,16 @@
 title: 샘플 - DB 수준 위협 검색 설정 감사
 description: 이 샘플 정책 정의는 해당 정책이 지정된 상태로 설정되지 않은 경우 SQL Database 보안 경고 정책을 감사합니다.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 8fbe687a08e36cfa9503078cbcb75ee85f43b7a1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7c8c5f4530f6f34cfe94143fa03c89647369f5b7
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266225"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977537"
 ---
 # <a name="sample---audit-db-level-threat-detection-setting"></a>샘플 - DB 수준 위협 검색 설정 감사
 
@@ -30,7 +29,7 @@ ms.locfileid: "59266225"
 
 [![Azure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FSQL%2Faudit-sql-db-threat-detection%2Fazurepolicy.json)
 
-## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
+## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 

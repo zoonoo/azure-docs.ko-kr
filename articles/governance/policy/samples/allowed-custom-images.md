@@ -2,17 +2,16 @@
 title: 샘플 - 승인된 VM 이미지
 description: 이 샘플 정책 정의에서는 승인된 사용자 지정 이미지만 환경에 배포되어야 합니다.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 8def11c2d92af618054d0353fa2687d2e88e1134
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 34a3cf54879dcf6fc25fab50bcbabde28fff653a
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266718"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980838"
 ---
 # <a name="sample---approved-virtual-machine-images"></a>샘플 - 승인된 가상 머신 이미지
 
@@ -29,7 +28,7 @@ ms.locfileid: "59266718"
 
 ## <a name="sample-policy"></a>샘플 정책
 
-### <a name="policy-definition"></a>정책 정의 
+### <a name="policy-definition"></a>정책 정의
 
 완전히 구성된 JSON 정책 정의로 REST API에서, 'Azure에 배포' 단추에서, 그리고 포털에서 수동으로 사용됩니다.
 
@@ -54,7 +53,7 @@ ms.locfileid: "59266718"
 
 |Name |Type |필드 |설명 |
 |---|---|---|---|
-|imageIds |배열 |Microsoft.Compute/imageIds |승인된 VM 이미지 목록|
+|imageIds |Array |Microsoft.Compute/imageIds |승인된 VM 이미지 목록|
 
 PowerShell 또는 Azure CLI를 통해 할당을 만드는 경우 `-PolicyParameter`(PowerShell) 또는 `--params`(Azure CLI) 명령을 사용하여 매개 변수 값을 문자열로 또는 파일을 통해 JSON으로 전달할 수 있습니다.
 PowerShell은 cmdlet에 이름/값 해시 테이블을 전달해야 하는 `-PolicyParameterObject` 명령도 지원하는데, 여기서 **이름**은 매개 변수 이름이고 **값**은 할당 과정에 전달되는 단일 값 또는 값 배열입니다.
