@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 144137109f97a8c2049430ed1e05117ea6c95d7f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d1c2f8b06d333be23f25a2d150c23269bf84cd2e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564420"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242836"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>C#에서 사용자 지정 단어 목록에 대해 텍스트 확인
 
@@ -59,8 +59,7 @@ TermLists 프로젝트에 대해 다음 NuGet 패키지를 설치합니다.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

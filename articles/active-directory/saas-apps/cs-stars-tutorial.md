@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a4c28f5892e8e885004c7fcc721b873a96c52ac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 635d04e049b66452fa000048082aced9aa62c20a
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67104491"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241371"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>자습서: CS Stars와 Azure Active Directory 통합
 
@@ -110,7 +110,7 @@ CS Stars에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<subdomain>.csstars.com/enterprise/` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [CS Stars 클라이언트 지원 팀](https://www.marshclearsight.com/support/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [CS Stars 클라이언트 지원 팀](http://www.riskonnectclearsight.com/support/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -128,7 +128,7 @@ CS Stars에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 ### <a name="configure-cs-stars-single-sign-on"></a>CS Stars Single Sign-On 구성
 
-**CS Stars** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [CS Stars 지원 팀](https://www.marshclearsight.com/support/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**CS Stars** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [CS Stars 지원 팀](http://www.riskonnectclearsight.com/support/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
@@ -183,7 +183,7 @@ CS Stars에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 ### <a name="create-cs-stars-test-user"></a>CS Stars 테스트 사용자 만들기
 
-이 섹션에서는 CS Stars에서 Britta Simon이라는 사용자를 만듭니다.  [CS Stars 지원 팀](https://www.marshclearsight.com/support/)과 협력하여 CS Stars 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 CS Stars에서 Britta Simon이라는 사용자를 만듭니다.  [CS Stars 지원 팀](http://www.riskonnectclearsight.com/support/)과 협력하여 CS Stars 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

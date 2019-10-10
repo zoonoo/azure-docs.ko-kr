@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: f3f93824eb021e0fb75e1a6b81935292379d50e5
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c7d68685a772bb777fff1dd56a25990b9d0406ef
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883065"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242812"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>.NET을 사용하여 비디오 대본 검토 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "68883065"
 - 검토에 조정된 대본 추가
 - 검토 게시
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 아직 수행 하지 않은 경우 Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에서 로그인 하거나 계정을 만듭니다.
 - 이 문서에서는 사용자 결정을 위한 검토 도구에서 [비디오를 조정](video-moderation-api.md)하고 [비디오 검토를 생성](video-reviews-quickstart-dotnet.md)했다고 가정합니다. 이제 검토 도구에서 조정된 비디오 대본을 추가하려고 합니다.
@@ -74,8 +74,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 ```
 
@@ -154,7 +153,7 @@ public static ContentModeratorClient NewClient()
 **CreateVideoReviews**에는 다음 매개 변수가 필요합니다.
 1. MIME 형식을 포함하는 문자열로, “application/json”이어야 합니다. 
 1. Content Moderator 팀 이름입니다.
-1. **IList\<CreateVideoReviewsBodyItem >** 개체입니다. 각 **CreateVideoReviewsBodyItem** 개체는 비디오 검토를 나타냅니다. 이 빠른 시작에서는 한 번에 하나씩 검토를 만듭니다.
+1. **IList @ no__t-1CreateVideoReviewsBodyItem >** 개체입니다. 각 **CreateVideoReviewsBodyItem** 개체는 비디오 검토를 나타냅니다. 이 빠른 시작에서는 한 번에 하나씩 검토를 만듭니다.
 
 **CreateVideoReviewsBodyItem**에는 여러 속성이 있습니다. 최소한 다음 속성을 설정합니다.
 - **Content**. 검토할 비디오의 URL입니다.
@@ -162,7 +161,7 @@ public static ContentModeratorClient NewClient()
 - **Status**. 값을 "게시 취소됨"으로 설정합니다. 값을 설정하지 않을 경우 기본값인 "보류 중"으로 설정되며, 이는 비디오 검토가 게시되었으며 사용자 검토 보류 중임을 의미합니다. 비디오 검토가 게시되고 나면 비디오 프레임, 대본 또는 대본 조정 결과를 더 이상 추가할 수 없습니다.
 
 > [!NOTE]
-> **CreateVideoReviews** 는 IList\<문자열 >을 반환 합니다. 이러한 각 문자열에는 비디오 검토의 ID가 포함되어 있습니다. 이러한 ID는 GUID이며, **ContentId** 속성 값과 동일하지 않습니다.
+> **CreateVideoReviews** 는 IList @ no__t-1string >을 반환 합니다. 이러한 각 문자열에는 비디오 검토의 ID가 포함되어 있습니다. 이러한 ID는 GUID이며, **ContentId** 속성 값과 동일하지 않습니다.
 
 VideoReviews 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다.
 
@@ -244,15 +243,15 @@ static void AddTranscript(ContentModeratorClient client, string review_id, strin
 1. MIME 형식을 포함하는 문자열로, “application/json”이어야 합니다. 
 1. Content Moderator 팀 이름입니다.
 1. **CreateVideoReviews**에서 반환된 비디오 검토 ID입니다.
-1. IList\<TranscriptModerationBodyItem >입니다. **TranscriptModerationBodyItem**에는 다음 속성이 있습니다.
-1. **Terms**. IList\<TranscriptModerationBodyItemTermsItem >입니다. **TranscriptModerationBodyItemTermsItem**에는 다음 속성이 있습니다.
+1. IList @ no__t-0TranscriptModerationBodyItem >입니다. **TranscriptModerationBodyItem**에는 다음 속성이 있습니다.
+1. **Terms**. IList @ no__t-0TranscriptModerationBodyItemTermsItem >입니다. **TranscriptModerationBodyItemTermsItem**에는 다음 속성이 있습니다.
 1. **Index**. 용어의 0부터 시작하는 인덱스입니다.
 1. **Term**. 용어를 포함하는 문자열입니다.
 1. **Timestamp**. 대본에서 용어가 발견된 시간(초)을 포함하는 문자열입니다.
 
 대본은 WebVTT 형식이어야 합니다. 자세한 내용은 [WebVTT: 웹 비디오 텍스트 트랙 형식](https://www.w3.org/TR/webvtt1/)을 참조하세요.
 
-VideoTranscriptReviews 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다. 이 메서드는 **ContentModeratorClient.TextModeration.ScreenText** 메서드에 대본을 제출합니다. 또한 결과를 IList\<TranscriptModerationBodyItem >로 변환 하 고 **AddVideoTranscriptModerationResult**에 제출 합니다.
+VideoTranscriptReviews 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다. 이 메서드는 **ContentModeratorClient.TextModeration.ScreenText** 메서드에 대본을 제출합니다. 또한 결과를 IList @ no__t-0TranscriptModerationBodyItem >로 변환 하 고 **AddVideoTranscriptModerationResult**으로 전송 합니다.
 
 ```csharp
 /// <summary>

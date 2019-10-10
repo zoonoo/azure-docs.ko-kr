@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: ff3ae9ec4a775e2450a552e414ec52597593dd39
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e4308f98b6e547acd4adfb62ab78c0517247d905
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604275"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177098"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Visual Studio의 연결된 서비스를 사용하여 Computer Vision API에 연결
 
 이 문서 및 해당 도우미 문서 Cognitive Services Computer Vision API에 대 한 Visual Studio 연결 된 서비스 기능을 사용 하는 것에 대 한 세부 정보를 제공 합니다. 이 기능은 Cognitive Services 확장이 설치된 Visual Studio 2017 15.7 이상에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독. 아직 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
 - **Web Development** 워크로드가 설치된 Visual Studio 2017 버전 15.7 이상. [여기에서 다운로드하세요](https://visualstudio.microsoft.com/downloads/).
@@ -62,7 +62,7 @@ ms.locfileid: "67604275"
    [4/26/2018 5:15:40.286 PM] Installing NuGet package 'Microsoft.Azure.CognitiveServices.Vision.ComputerVision' version 2.1.0.
    [4/26/2018 5:15:44.117 PM] Retrieving keys...
    [4/26/2018 5:15:45.602 PM] Changing appsettings.json setting: ComputerVisionAPI_ServiceKey=<service key>
-   [4/26/2018 5:15:45.606 PM] Changing appsettings.json setting: ComputerVisionAPI_ServiceEndPoint=https://australiaeast.api.cognitive.microsoft.com/vision/v2.0
+   [4/26/2018 5:15:45.606 PM] Changing appsettings.json setting: ComputerVisionAPI_ServiceEndPoint=https://australiaeast.api.cognitive.microsoft.com/vision/v2.1
    [4/26/2018 5:15:45.609 PM] Changing appsettings.json setting: ComputerVisionAPI_Name=WebApplication-Core-ComputerVision_ComputerVisionAPI
    [4/26/2018 5:15:46.747 PM] Successfully added Computer Vision API to the project.
    ```

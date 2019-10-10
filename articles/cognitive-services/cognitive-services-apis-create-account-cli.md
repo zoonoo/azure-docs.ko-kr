@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: cd00f49aea08e5c94a9206b64f66f4424ef3ca04
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: d50b0858ac7c4c0e5e0263bd157e044d0fec4489
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057643"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972675"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Azure 명령줄 인터페이스 (CLI)를 사용 하 여 Cognitive Services 리소스 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "71057643"
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 유효한 Azure 구독-무료로 [하나를 만듭니다](https://azure.microsoft.com/free/) .
 * [AZURE CLI (명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -60,7 +60,7 @@ az account list-locations \
 
 Azure 위치를 만든 후에 [az group create](/cli/azure/group#az-group-create) 명령을 사용 하 여 Azure CLI에 새 리소스 그룹을 만듭니다.
 
-아래 예제에서는 azure 위치 `westus2` 를 구독에 사용할 수 있는 azure 위치 중 하나로 바꿉니다.
+아래 예제에서는 azure location `westus2`을 구독에 사용할 수 있는 Azure 위치 중 하나로 바꿉니다.
 
 ```azurecli-interactive
 az group create \
@@ -75,11 +75,11 @@ az group create \
 새 리소스를 만들 때 원하는 [가격 책정 계층](https://azure.microsoft.com/pricing/details/cognitive-services/) (또는 sku)과 함께 사용 하려는 서비스의 "종류"를 알고 있어야 합니다. 리소스를 만들 때이 및 기타 정보를 매개 변수로 사용 합니다.
 
 > [!NOTE]
-> 수많은 인식 서비스에는 서비스를 시도 하는 데 사용할 수 있는 무료 계층이 있습니다. 무료 계층을 사용 하려면 리소스의 `F0` sku로를 사용 합니다.
+> 수많은 인식 서비스에는 서비스를 시도 하는 데 사용할 수 있는 무료 계층이 있습니다. 무료 계층을 사용 하려면 리소스의 sku로 `F0`을 사용 합니다.
 
-### <a name="vision"></a>비전
+### <a name="vision"></a>시각
 
-| 서비스                    | 종류                      |
+| 서비스                    | Kind                      |
 |----------------------------|---------------------------|
 | Computer Vision            | `ComputerVision`          |
 | Custom Vision-예측 | `CustomVision.Prediction` |
@@ -90,24 +90,24 @@ az group create \
 
 ### <a name="search"></a>검색
 
-| 서비스            | 종류                  |
+| 서비스            | Kind                  |
 |--------------------|-----------------------|
 | Bing Autosuggest   | `Bing.Autosuggest.v7` |
 | Bing 사용자 지정 검색 | `Bing.CustomSearch`   |
 | Bing Entity Search | `Bing.EntitySearch`   |
-| Bing 검색        | `Bing.Search.v7`      |
-| Bing Spell Check   | `Bing.SpellCheck.v7`  |
+| Bing Search        | `Bing.Search.v7`      |
+| Bing 맞춤법 검사   | `Bing.SpellCheck.v7`  |
 
 ### <a name="speech"></a>음성 명령
 
-| 서비스            | 종류                 |
+| 서비스            | Kind                 |
 |--------------------|----------------------|
 | Speech Services    | `SpeechServices`     |
 | 음성 인식 | `SpeakerRecognition` |
 
 ### <a name="language"></a>언어
 
-| 서비스            | 종류                |
+| 서비스            | Kind                |
 |--------------------|---------------------|
 | 양식 이해 | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
@@ -115,9 +115,9 @@ az group create \
 | 텍스트 분석     | `TextAnalytics`     |
 | 텍스트 번역   | `TextTranslation`   |
 
-### <a name="decision"></a>결정
+### <a name="decision"></a>의사 결정
 
-| 서비스           | 종류               |
+| 서비스           | Kind               |
 |-------------------|--------------------|
 | Anomaly Detector  | `AnomalyDetector`  |
 | Content Moderator | `ContentModerator` |
@@ -133,7 +133,7 @@ az cognitiveservices account list-kinds
 
 새 Cognitive Services 리소스를 만들고 구독 하려면 [az cognitiveservices account account create](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create) 명령을 사용 합니다. 이 명령은 이전에 만든 리소스 그룹에 청구 가능한 리소스를 새로 추가 합니다. 새 리소스를 만들 때 가격 책정 계층 (또는 sku) 및 Azure 위치와 함께 사용 하려는 서비스의 "종류"를 알고 있어야 합니다.
 
-다음 명령을 사용 하 여 명명 된 `anomaly-detector-resource` 변칙 감지기에 대 한 F0 (무료) 리소스를 만들 수 있습니다.
+다음 명령을 사용 하 여 `anomaly-detector-resource` 이라는 변칙 감지기에 대 한 F0 (무료) 리소스를 만들 수 있습니다.
 
 ```azurecli-interactive
 az cognitiveservices account create \
@@ -170,6 +170,16 @@ az login
 * 가격 책정 계층 내에서 사용 하도록 설정 된 서비스 기능입니다.
 * 미리 정의 된 트랜잭션 양에 대 한 비용입니다. 이 용량을 초과 하면 서비스에 대 한 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) 에 지정 된 대로 추가 요금이 발생 합니다.
 
+## <a name="get-current-quota-usage-for-your-resource"></a>리소스의 현재 할당량 사용량을 가져옵니다.
+
+[Az cognitiveservices account account list-usage](https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) 명령을 사용 하 여 인지 서비스 리소스에 대 한 사용 현황을 가져옵니다.
+
+```azurecli-interactive
+az cognitiveservices account list-usage \
+    --name anomaly-detector-resource \
+    --resource-group cognitive-services-resource-group \
+    --subscription subscription-name
+```
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -181,7 +191,7 @@ Cognitive Services 리소스를 정리 하 고 제거 하려면 해당 리소스
 az group delete --name storage-resource-group
 ```
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
 * [Azure Cognitive Services에 대한 요청 인증](authentication.md)
 * [Azure Cognitive Services 이란?](Welcome.md)

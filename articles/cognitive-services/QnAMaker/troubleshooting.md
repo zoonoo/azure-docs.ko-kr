@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 00d3d63ff1a5b4d5dab0534e039145b97091af87
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 51d21dca1d8a5223e67cb7ea8489800989cff55c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802161"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026022"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>QnA Maker에 대 한 문제 해결
 
@@ -99,7 +99,7 @@ Azure에서 QnA Maker 서비스를 아직 만들지 않았습니다. 만드는 �
 
 ### <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>기술 자료에 수행한 업데이트가 게시에 반영되지 않습니다. 왜 그런가요?
 
-테이블 업데이트, 테스트 또는 설정이든 상관없이 모든 편집 작업은 먼저 저장해야 게시할 수 있습니다. 모든 편집 작업 후에는  **저장 후 학습**  단추를 클릭해야 합니다.
+테이블 업데이트, 테스트 또는 설정이든 상관없이 모든 편집 작업은 먼저 저장해야 게시할 수 있습니다. 모든 편집 작업 후에는 **저장 및 학습** 단추를 클릭 해야 합니다.
 
 ### <a name="does-the-knowledge-base-support-rich-data-or-multimedia"></a>기술 자료는 풍부한 데이터 또는 멀티미디어를 지원하나요?
 
@@ -123,7 +123,7 @@ Azure에서 QnA Maker 서비스를 아직 만들지 않았습니다. 만드는 �
 
 Azure Search 인덱스를 삭제한 경우 작업이 최종이며 인덱스를 복구할 수 없습니다. 
 
-### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>검색 서비스에서 `testkb` 인덱스를 삭제 했습니다. 이 문제를 어떻게 해결할 수 있나요? 
+### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>검색 서비스에서 0 @no__t 인덱스를 삭제 했습니다. 이 문제를 어떻게 해결할 수 있나요? 
 
 이전 데이터를 복구할 수 없습니다. 새 QnA Maker 리소스를 만들고 기술 자료를 다시 만듭니다.
 
@@ -139,7 +139,7 @@ Azure Search 인덱스를 삭제한 경우 작업이 최종이며 인덱스를 �
 
 Azure Search 리소스의 이름은 일부 임의 문자가 끝에 추가되는 QnA Maker 리소스 이름입니다. 이 이름으로는 QnA Maker의 여러 Search 리소스를 구별하기 어렵습니다. 별도의 Azure Search 서비스(원하는 방식으로 명명)를 만들고 QnA 서비스에 연결합니다. 이러한 단계는 [Azure search를 업그레이드](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-search-service)하기 위해 수행 해야 하는 단계와 비슷합니다.
 
-### <a name="when-qna-maker-returns-runtime-core-is-not-initialized-how-do-i-fix-it"></a>QnA Maker에서 반환 `Runtime core is not initialized,` 하는 경우 어떻게 해결할 수 있나요?
+### <a name="when-qna-maker-returns-runtime-core-is-not-initialized-how-do-i-fix-it"></a>QnA Maker에서 @no__t 반환 하는 경우 어떻게 해결 하나요?
 
 App service에 대 한 디스크 공간이 가득 찼을 수 있습니다. 디스크 공간을 수정 하는 단계:
 
@@ -147,7 +147,7 @@ App service에 대 한 디스크 공간이 가득 찼을 수 있습니다. 디�
 1. App service에서 **개발 도구**, **고급 도구**, **이동**을 차례로 선택 합니다. 그러면 새 브라우저 창이 열립니다.
 1. **디버그 콘솔**, **CMD** 를 차례로 선택 하 여 명령줄 도구를 엽니다. 
 1. _Site/wwwroot/Data/QnAMaker/_ directory로 이동 합니다.
-1. 이름이로 시작 하 `rd`는 모든 폴더를 제거 합니다. 
+1. 이름이 `rd`으로 시작 하는 모든 폴더를 제거 합니다. 
 
     다음을 **삭제 하지 마십시오** .
 
@@ -179,7 +179,7 @@ App service에 대 한 디스크 공간이 가득 찼을 수 있습니다. 디�
 
 이 정보를 사용 하 여 Azure Portal에서 봇의 app service로 이동 합니다. **설정-> 구성-> 응용 프로그램 설정**에서 해당 값을 변경 합니다.  
 
-기술 자료의 끝점 키는 ABS 서비스에서 `QnAAuthkey` 레이블이 지정 됩니다. 
+기술 자료의 끝점 키는 ABS 서비스에서 `QnAAuthkey`으로 레이블이 지정 됩니다. 
 
 ### <a name="can-two-or-more-client-applications-share-a-knowledge-base"></a>두 개 이상의 클라이언트 응용 프로그램에서 기술 자료를 공유할 수 있나요? 
 

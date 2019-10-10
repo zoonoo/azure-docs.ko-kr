@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 587e7a82e2a9cde8ff6d08274928ab22aa969061
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 241935afa023162a35559cd3c46206efa7a7835f
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309620"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240175"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>빠른 시작: Python 웹앱에 Microsoft로 로그인 추가
 
@@ -37,9 +37,8 @@ ms.locfileid: "71309620"
 이 샘플을 실행하려면 다음이 필요합니다.
 
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) 또는 [Python 3+](https://www.python.org/downloads/release/python-364/)
-- [Flask](http://flask.pocoo.org/), [Flask-세션](https://pythonhosted.org/Flask-Session/), [요청](https://2.python-requests.org/en/master/)
-- [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python) 
-- Azure AD(Azure Active Directory) 테넌트. Azure AD 테넌트를 가져오는 방법에 대한 자세한 내용은 [Azure AD 테넌트를 가져오는 방법](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)을 참조하세요.
+- [Flask](http://flask.pocoo.org/), [Flask-세션](https://pythonhosted.org/Flask-Session/), [요청](https://requests.kennethreitz.org//en/master/)
+- [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
 
 > [!div renderon="docs"]
 >

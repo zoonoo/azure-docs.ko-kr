@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 530869928f7a25e779cb01f0fe392efdbb54c5ba
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 52d4efaba25dcede3322586d05fceb4d166f51e3
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695110"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973816"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>QnA Maker의 기술 자료 수명 주기
 QnA Maker는 모델 변경, 발언 예제, 게시, 엔드포인트 쿼리의 데이터 수집으로 구성된 반복 주기에서 가장 잘 학습합니다. 
@@ -24,7 +24,7 @@ QnA Maker는 모델 변경, 발언 예제, 게시, 엔드포인트 쿼리의 데
 ![제작 주기](../media/qnamaker-concepts-lifecycle/kb-lifecycle.png)
 
 ## <a name="creating-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료 만들기
-QnA Maker KB(기술 자료) 엔드포인트는 KB의 콘텐츠를 기반으로 사용자 쿼리와 가장 일치하는 답변을 제공합니다. 기술 자료 만들기는 질문, 답변, 관련 메타데이터의 콘텐츠 리포지토리를 설정하는 일회성 작업입니다. FAQ 페이지, 제품 설명서 또는 구조화된 Q-A 쌍 같은 기존 콘텐츠를 크롤링하여 기술 자료를 만들 수 있습니다. [기술 자료 만들기](../How-To/create-knowledge-base.md)에 대해 알아보세요.
+QnA Maker KB(기술 자료) 엔드포인트는 KB의 콘텐츠를 기반으로 사용자 쿼리와 가장 일치하는 답변을 제공합니다. 기술 자료 만들기는 질문, 답변, 관련 메타데이터의 콘텐츠 리포지토리를 설정하는 일회성 작업입니다. FAQ 페이지, 제품 설명서 또는 구조화된 Q-A 쌍 같은 기존 콘텐츠를 크롤링하여 기술 자료를 만들 수 있습니다. [기술 자료 만들기](../quickstarts/create-publish-knowledge-base.md)에 대해 알아보세요.
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>기술 자료 테스트 및 업데이트
 
@@ -74,8 +74,3 @@ QnA Maker에서 버전 제어를 제공 하지 않습니다. **설정** 페이�
 
 > [!div class="nextstepaction"]
 > [신뢰도 점수](./confidence-score.md)
-
-## <a name="see-also"></a>참조 
-
-[기술 자료](./knowledge-base.md)
-[QnA Maker 개요](../Overview/overview.md)

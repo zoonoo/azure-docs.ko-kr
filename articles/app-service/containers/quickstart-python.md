@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: cephalin
-ms.openlocfilehash: d4f1cd5193f29e929c822966ca427c6e6ebf67de
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+experimental: true
+experiment_id: 1e304dc9-5add-4b
+ms.openlocfilehash: 253e2e5015c2cb7a71386b88b4d86ac6bff6a0fe
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070970"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242455"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Azure App Service on Linux에서 Python 앱 만들기
 
@@ -50,13 +52,14 @@ cd python-docs-hello-world
 애플리케이션을 로컬로 실행하여 Azure에 애플리케이션을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고 아래 명령을 사용하여 필요한 종속성을 설치하고 기본 제공 개발 서버를 시작합니다. 
 
 ```bash
-# In Bash
+# In Bash (for Linux or Mac)
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 FLASK_APP=application.py flask run
-
-# In PowerShell
+```
+```powershell
+# In Powershell (for Windows)
 py -3 -m venv env
 env\scripts\activate
 pip install -r requirements.txt

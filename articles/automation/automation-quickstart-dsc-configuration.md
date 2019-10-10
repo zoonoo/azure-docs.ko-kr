@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 2c01172bf22fb286f790543b02a4c1e482b05fe7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d5eca6ffce8390b2f8b4deae589d43f40897756d
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850557"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243471"
 ---
 # <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>필요한 상태 구성을 사용하여 가상 머신 구성
 
@@ -42,7 +42,7 @@ DSC(Desired State Configuration)를 사용하면 Windows 및 Linux 서버의 구
 2. **추가**를 클릭하여 [VM 선택] 페이지를 엽니다.
 3. DSC를 사용하도록 설정하려는 가상 머신을 찾습니다. 검색 필드와 필터 옵션을 사용하여 특정 가상 머신을 찾을 수 있습니다.
 4. 가상 머신을 클릭한 다음 **연결**을 선택합니다.
-5. 가상 머신에 적합한 DSC 설정을 선택합니다. 이미 구성을 준비한 경우 해당 구성을 *노드 구성 이름*으로 지정할 수 있습니다. [구성 모드](https://docs.microsoft.com/powershell/dsc/metaconfig)를 설정하여 컴퓨터의 구성 동작을 제어할 수 있습니다.
+5. 가상 머신에 적합한 DSC 설정을 선택합니다. 이미 구성을 준비한 경우 해당 구성을 *노드 구성 이름*으로 지정할 수 있습니다. [구성 모드](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig)를 설정하여 컴퓨터의 구성 동작을 제어할 수 있습니다.
 6. **확인**
 
 ![DSC에 Azure VM 등록](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
@@ -64,7 +64,7 @@ DSC(Desired State Configuration)를 사용하면 Windows 및 Linux 서버의 구
 
 이 빠른 시작에서는 컴퓨터에서 Apache HTTP Server, MySQL 및 PHP를 구성하는 DSC 구성을 사용합니다.
 
-DSC 구성에 대한 자세한 내용은 [DSC 구성](https://docs.microsoft.com/powershell/dsc/configurations)을 참조하세요.
+DSC 구성에 대한 자세한 내용은 [DSC 구성](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations)을 참조하세요.
 
 텍스트 편집기에서 다음을 입력하고 로컬에서 `LAMPServer.ps1`로 저장합니다.
 
@@ -142,7 +142,7 @@ DSC 구성은 노드에 할당하기 전에 먼저 노드 구성(MOF 문서)으�
 > [!div class="nextstepaction"]
 > [DSC 및 Chocolatey를 사용하여 VM에 지속적으로 배포](./automation-dsc-cd-chocolatey.md)
 
-* PowerShell DSC에 대한 자세한 내용은 [Windows PowerShell DSC(필요한 상태 구성) 개요](https://docs.microsoft.com/powershell/dsc/overview)를 참조하세요.
+* PowerShell DSC에 대한 자세한 내용은 [Windows PowerShell DSC(필요한 상태 구성) 개요](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview)를 참조하세요.
 * PowerShell에서 자동화 DSC를 관리하는 방법에 대한 자세한 내용은 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/)을 참조하세요.
 * 보고 및 경고를 위해 Azure Monitor 로그에 DSC 보고서를 전달하는 방법을 알아보려면 [Azure Monitor 로그에 DSC 보고서 전달](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics)을 참조하세요. 
 

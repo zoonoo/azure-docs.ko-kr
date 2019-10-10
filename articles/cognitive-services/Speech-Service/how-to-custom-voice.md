@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 9bb654f37ecc4fda46171e859adac0236b51e4b2
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 636c397001a3130c60fc2bf498339ad058aca374
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881485"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959405"
 ---
 # <a name="get-started-with-custom-voice"></a>Custom Voice 시작
 
@@ -59,6 +59,6 @@ Azure 계정 및 음성 서비스 구독을 만든 후에 사용자 지정 음�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [사용자 지정 음성 데이터 준비](how-to-custom-voice.md)
+- [사용자 지정 음성 데이터 준비](how-to-custom-voice-prepare-data.md)
 - [사용자 지정 음성 만들기](how-to-custom-voice-create-voice.md)
-- [도움이 음성 샘플 기록](record-custom-voice-samples.md)
+- [Guide: 음성 샘플 기록](record-custom-voice-samples.md)

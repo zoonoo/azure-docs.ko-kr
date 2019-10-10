@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 10/02/2019
 ms.author: diberry
-ms.openlocfilehash: 2f9b624ffcc04963046ad817bb2bc9c025161506
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 03e04853e93bb78391476a365b20550d471e1dbb
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300259"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971802"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>GenerateAnswer API 및 메타 데이터를 사용 하 여 답변 받기
 
@@ -48,7 +48,7 @@ QnA 엔터티마다 고유한 영구 ID가 있습니다. ID를 사용 하 여 �
 엔드포인트 세부 정보를 가져오려면 다음을 수행합니다.
 1. [https://www.qnamaker.ai](https://www.qnamaker.ai)에 로그인합니다.
 1. **내 기술 자료**에서 기술 자료에 대 한 **코드 보기** 를 선택 합니다.
-    ![내 기술 자료의 스크린샷](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
+    기술 자료 @ no__t-1의 ![Screenshot
 1. GenerateAnswer 엔드포인트 세부 정보를 가져옵니다.
 
     ![끝점 세부 정보 스크린샷](../media/qnamaker-how-to-metadata-usage/view-code.png)
@@ -64,7 +64,7 @@ HTTP POST 요청을 사용하여 GenerateAnswer를 호출합니다. GenerateAnsw
 POST 요청은 다음을 사용 합니다.
 
 * 필수 [URI 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
-* 보안을 위해 필요한 `Authorization` [헤더 속성](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer)
+* 보안을 위해 필요한 [헤더 속성](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer)`Authorization`
 * 필수 [본문 속성](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)입니다. 
 
 GenerateAnswer URL의 형식은 다음과 같습니다. 
@@ -73,7 +73,7 @@ GenerateAnswer URL의 형식은 다음과 같습니다.
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-의 `Authorization` HTTP 헤더 속성은 후행 공백이 있는 문자열 `EndpointKey` 의 값과 **설정** 페이지에 있는 끝점 키를 사용 하 여 설정 해야 합니다.
+@No__t-0의 HTTP 헤더 속성은 후행 공백이 있는 문자열 `EndpointKey`의 값과 **설정** 페이지에 있는 끝점 키를 사용 하 여 설정 해야 합니다.
 
 예제 JSON 본문은 다음과 같습니다.
 
@@ -161,7 +161,7 @@ var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOpt
 
 ## <a name="use-metadata-to-filter-answers-by-custom-metadata-tags"></a>메타 데이터를 사용 하 여 사용자 지정 메타 데이터 태그로 답변 필터링
 
-메타 데이터를 추가 하면 이러한 메타 데이터 태그로 답변을 필터링 할 수 있습니다. **보기 옵션** 메뉴에서 메타 데이터 열을 추가 합니다. 메타 데이터 **+** 아이콘을 선택 하 여 메타 데이터 쌍을 추가 하 여 기술 자료에 메타 데이터를 추가 합니다. 이 쌍은 하나의 키와 하나의 값으로 구성 됩니다.
+메타 데이터를 추가 하면 이러한 메타 데이터 태그로 답변을 필터링 할 수 있습니다. **보기 옵션** 메뉴에서 메타 데이터 열을 추가 합니다. 메타 데이터 쌍을 추가 하려면 메타 데이터 **+** 아이콘을 선택 하 여 기술 자료에 메타 데이터를 추가 합니다. 이 쌍은 하나의 키와 하나의 값으로 구성 됩니다.
 
 ![메타 데이터 추가 스크린샷](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
@@ -219,9 +219,9 @@ GenerateAnswer에 대 한 응답에는 일치 하는 질문 및 답변 집합에
 
 ## <a name="match-questions-only-by-text"></a>텍스트를 기준으로 질문과 대답을 찾습니다.
 
-기본적으로 QnA Maker는 질문과 대답을 검색 합니다. 질문에 대해서만 검색 하려는 경우 대답을 생성 하려면 generateanswer 요청의 게시 본문 `RankerType=QuestionOnly` 에서를 사용 합니다.
+기본적으로 QnA Maker는 질문과 대답을 검색 합니다. 질문을 통해서만 검색 하려는 경우 대답을 생성 하려면 GenerateAnswer 요청의 게시 본문에서 `RankerType=QuestionOnly`을 사용 합니다.
 
-을 사용 하 여 `isTest=false` `isTest=true`게시 된 kb,를 사용 하 여 또는 테스트 kb에서 검색할 수 있습니다.
+@No__t-0을 사용 하 여 게시 된 kb를 검색 하거나 `isTest=true`을 사용 하 여 테스트 kb에서 검색할 수 있습니다.
 
 ```json
 {
@@ -249,4 +249,4 @@ GenerateAnswer에 대 한 응답에는 일치 하는 질문 및 답변 집합에
 **게시** 페이지에는 [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) 및 [말아](../Quickstarts/get-answer-from-kb-using-curl.md)의 대답을 생성 하는 정보도 제공 됩니다. 
 
 > [!div class="nextstepaction"]
-> [기술 자료 만들기](./create-knowledge-base.md)
+> [기술 자료 봇 만들기](../tutorials/integrate-qnamaker-luis.md)

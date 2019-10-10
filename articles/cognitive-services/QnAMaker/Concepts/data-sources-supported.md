@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 1a9f3eb0ea79a0cd79850e721d081b00dc582a31
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 4bd1386c68f3173c19b282c1e01ecff545c4bcd7
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695287"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972060"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>QnA Maker 콘텐츠의 데이터 원본
 
@@ -34,9 +34,9 @@ QnA Maker는 웹 페이지, PDF 파일 또는 MS Word doc 파일로 저장된 FA
 |\* Excel|구조화된 QnA 파일<br> (RTF, HTML 지원 포함)|[샘플 QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |\* TXT/TSV|구조화된 QnA 파일|[샘플 chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
-내보낸 기술 자료의 **TSV 및 XLS 파일**은 QnA Maker 포털의 **설정** 페이지에서 파일을 가져오는 방법 으로만 사용할 수 있습니다. 기술 자료를 만들거나 **설정** 페이지의 파일 또는 URL 추가 기능을 사용 하 여 데이터 원본으로 사용할 수 없습니다. 
+### <a name="import-and-export-knowledge-base"></a>기술 자료 가져오기 및 내보내기
 
-[다중 턴 문서]()사용에 대해 자세히 알아보세요. 
+내보낸 기술 자료의 **TSV 및 XLS 파일**은 QnA Maker 포털의 **설정** 페이지에서 파일을 가져오는 방법 으로만 사용할 수 있습니다. 이러한 파일은 기술 자료 생성 중에 데이터 원본으로 사용 하거나 **설정** 페이지의 **+ 파일 추가** 또는 **+ URL 추가** 기능에서 사용할 수 없습니다. 
 
 ## <a name="data-source-locations"></a>데이터 원본 위치
 
@@ -144,7 +144,7 @@ Answer2
 
 또한 구조화된 *.txt*, *.tsv* 또는 *.xls* 파일 양식의 QnA를 QnA Maker에 업로드하여 기술 자료를 만들거나 보강할 수 있습니다.  이러한 자료는 일반 텍스트일 수도 있고, RTF 또는 HTML 콘텐츠를 가질 수도 있습니다. 
 
-| 질문  | 답변  | 메타 데이터 (1 개 키: 1 값) |
+| 질문  | Answer  | 메타 데이터 (1 개 키: 1 값) |
 |-----------|---------|-------------------------|
 | Question1 | Answer1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 |      `Key:Value`           |
@@ -171,7 +171,7 @@ Answer2
 
 기술 자료를 가져오면 기존 기술 자료의 콘텐츠가 바뀝니다. 가져오기에는 데이터 원본 정보를 포함하는 구조화된 .tsv 파일이 필요합니다. 이 정보는 QnA Maker가 질문-답변 쌍을 그룹화하고 특정 데이터 원본에 귀속하는 데 도움이 됩니다.
 
-| 질문  | 답변  | 원본| 메타 데이터 (1 개 키: 1 값) |          
+| 질문  | Answer  | 원본| 메타 데이터 (1 개 키: 1 값) |          
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Editorial|    `Key:Value`       |
@@ -184,7 +184,7 @@ Answer2
 
 ## <a name="formatting-considerations"></a>서식 지정 고려 사항
 
-파일이 나 URL을 가져온 후 QnA Maker는 콘텐츠를 [markdown 형식](https://en.wikipedia.org/wiki/Markdown)으로 변환 하 고 저장 합니다. 변환 프로세스는와 `\n\n`같이 텍스트에 새 줄을 추가 합니다. Markdown 형식에 대 한 정보는 변환 된 콘텐츠를 이해 하 고 기술 자료 콘텐츠를 관리 하는 데 도움이 됩니다. 
+파일이 나 URL을 가져온 후 QnA Maker는 콘텐츠를 [markdown 형식](https://en.wikipedia.org/wiki/Markdown)으로 변환 하 고 저장 합니다. 변환 프로세스에서는 `\n\n`과 같이 텍스트에 새 줄을 추가 합니다. Markdown 형식에 대 한 정보는 변환 된 콘텐츠를 이해 하 고 기술 자료 콘텐츠를 관리 하는 데 도움이 됩니다. 
 
 기술 자료에서 직접 콘텐츠를 추가 하거나 편집 하는 경우 **markdown 서식 지정** 을 사용 하 여 서식 있는 텍스트 콘텐츠를 만들거나 답변에 이미 있는 markdown 서식 콘텐츠를 변경 합니다. QnA Maker는 풍부한 텍스트 기능을 콘텐츠에 제공 하는 많은 markdown 형식을 지원 합니다. 그러나 채팅 봇과 같은 클라이언트 응용 프로그램은 동일한 markdown 형식 집합을 지원 하지 않을 수 있습니다. 클라이언트 응용 프로그램의 답변 표시를 테스트 하는 것이 중요 합니다. 
 
@@ -193,19 +193,19 @@ Answer2
 |용도|형식|예 markdown|렌더링<br>채팅 봇에 표시 된 대로|
 |--|--|--|--|
 두 문장 사이에 있는 새 줄입니다.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![두 문장 사이에 새 줄 서식 지정](../media/qnamaker-concepts-datasources/format-newline.png)|
-|H1부터 h6 까지의 헤더,의 `#` 수는 헤더를 나타냅니다. 1 `#` 은 h1입니다.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![markdown 헤더를 사용 하 여 형식 지정](../media/qnamaker-concepts-datasources/format-headers.png)<br>![markdown 헤더 H1을 H5로 서식 지정](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
+|H1부터 h6 까지의 헤더, `#`의 수는 헤더를 나타냅니다. 1 `#`이 h1입니다.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![markdown 헤더를 사용 하 여 형식 지정](../media/qnamaker-concepts-datasources/format-headers.png)<br>![markdown 헤더 H1을 H5로 서식 지정](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
 |기울임꼴 |`*text*`|`How do I create a bot with *QnA Maker*?`|![기울임꼴로 서식 지정](../media/qnamaker-concepts-datasources/format-italics.png)|
 |문자열 (굵게)|`**text**`|`How do I create a bot with **QnA Maker**?`|![굵은 글꼴로 표시 된 서식](../media/qnamaker-concepts-datasources/format-strong.png)|
 |링크 URL|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![URL 형식 (하이퍼링크)](../media/qnamaker-concepts-datasources/format-url.png)|
 |\* 공용 이미지에 대 한 URL|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![공용 이미지 URL의 형식 ](../media/qnamaker-concepts-datasources/format-image-url.png)|
-|취소선|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![취소선 서식](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
+|바뀝니다|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![취소선 서식](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
 |굵게 및 기울임꼴|`***text***`|`How can I create a ***QnA Maker*** bot?`|![굵게 및 기울임꼴 서식 지정](../media/qnamaker-concepts-datasources/format-bold-italics.png)|
 |링크의 굵은 URL|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![굵게 표시 되는 URL의 형식](../media/qnamaker-concepts-datasources/format-bold-url.png)|
 |링크에 대 한 기울임꼴 URL|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![기울임꼴 URL 형식](../media/qnamaker-concepts-datasources/format-url-italics.png)|
 |이스케이프 markdown 기호|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![기울임꼴 URL 형식](../media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
 |정렬 된 목록|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>앞의 예제에서는 markdown에 기본 제공 되는 자동 번호 매기기를 사용 합니다.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>앞의 예제에서는 명시적 번호 매기기를 사용 합니다.|![정렬 된 목록의 형식](../media/qnamaker-concepts-datasources/format-ordered-list.png)|
 |순서가 지정 되지 않은 목록|`\n * item1 \n * item2`<br>로 구분하거나 여러<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![순서가 지정 되지 않은 목록의 서식](../media/qnamaker-concepts-datasources/format-unordered-list.png)|
-|중첩 된 목록|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>정렬 된 목록과 순서가 지정 되지 않은 목록을 함께 중첩할 수 있습니다. 탭 `\t`은 자식 요소의 들여쓰기 수준을 나타냅니다.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![순서가 지정 되지 않은 중첩 된 목록의 형식](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![중첩 된 정렬 된 목록의 형식](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
+|중첩 된 목록|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>정렬 된 목록과 순서가 지정 되지 않은 목록을 함께 중첩할 수 있습니다. @No__t-0 탭은 자식 요소의 들여쓰기 수준을 나타냅니다.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![순서가 지정 되지 않은 중첩 된 목록의 형식](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![중첩 된 정렬 된 목록의 형식](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
 
 \* QnA Maker는 어떤 방식으로든 이미지를 처리 하지 않습니다. 이미지를 렌더링 하는 클라이언트 응용 프로그램의 역할입니다. 
 
@@ -213,10 +213,10 @@ Answer2
 
 | HTML 유지  | API 요청의 표현  | 표시 (KB) |
 |-----------|---------|-------------------------|
-| 예 | \&l t;\&br gt; | &lt;r&gt; |
-| 예 | \&l t;\&h3 gt;\&헤더 l t;\&/h 3 gt; | &lt;h3&gt;헤더&lt;/h 3&gt; |
+| 예 | \&lt; br @ no__t-1gt; | &lt;br @ no__t-1 |
+| 예 | \&lt; h3 @ no__t-1gt; header @ no__t-2lt;/h 3 @ no__t-3gt; | &lt;h3 @ no__t-1header @ no__t-2/h3 @ no__t-3 |
 
-또한 CR LF (\r\n)는 KB의 \n로 변환 됩니다. LF (\n)는 그대로 유지 됩니다. \T, \n 등의 이스케이프 시퀀스를 이스케이프 하려면 백슬래시를 사용할 수 있습니다 (예\\: '\\\\\\r n ' 및 '\\\\t ').
+또한 CR LF (\r\n)는 KB의 \n로 변환 됩니다. LF (\n)는 그대로 유지 됩니다. \T, \n 등의 이스케이프 시퀀스를 이스케이프 하려면 백슬래시를 사용할 수 있습니다. 예를 들어 ' \\ @ no__t-1r @ no__t-2 @ no__t-3n ' 및 ' \\ @ no__t-5t '
 
 ## <a name="editing-your-knowledge-base-locally"></a>로컬로 기술 자료 편집
 

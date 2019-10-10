@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 07/11/2019
-ms.openlocfilehash: a8dfe0db5277a995b6e6675381ebeb5aeb243c9b
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 65b6b503d107b36813d1716348ce5f11fa840cc0
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647210"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937223"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Azure SQL Database 관리형 인스턴스 시작하기
 
@@ -73,6 +73,6 @@ ms.locfileid: "69647210"
 ## <a name="next-steps"></a>다음 단계
 
 - [관리되는 인스턴스에서 지원되는 기능에 대한 개략적인 목록](sql-database-features.md)과 [세부 정보 및 알려진 문제](sql-database-managed-instance-transact-sql-information.md)는 여기를 참조하세요.
-- [관리되는 인스턴스의 기술적인 특성](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits)을 알아보세요.
+- [관리되는 인스턴스의 기술적인 특성](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)을 알아보세요.
 - [Azure SQL Database에서 관리되는 인스턴스를 사용하는 방법](sql-database-howto-managed-instance.md)에서 더욱 자세한 작업 가이드를 참조하세요.
 - [온-프레미스 데이터베이스에 적합한 Azure SQL Database/Managed Instance SKU를 식별하세요](/sql/dma/dma-sku-recommend-sql-db/).

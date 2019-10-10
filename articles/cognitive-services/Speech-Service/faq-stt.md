@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: a437927f6ad43f4c3a90433faa5b9fa6f964aa5c
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: bde68a70ac047433e86b7e06bc5f4a56bdd28595
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839242"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028499"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>음성 텍스트 변환에 대한 질문과 대답
 
@@ -96,7 +96,7 @@ ms.locfileid: "67839242"
 
 **A**: 데이터 세트의 현재 제한은 2GB입니다. 이러한 제한은 HTTP 업로드용 파일 크기가 제한되기 때문에 발생합니다. 
 
-**Q: 더 큰 텍스트 파일을 업로드하기 위해 텍스트 파일을 압축할 수 있나요?** 
+**Q: 더 큰 텍스트 파일을 업로드하기 위해 텍스트 파일을 압축할 수 있나요?** 
 
 **A**: 아니요. 현재는 압축되지 않은 텍스트 파일만 허용됩니다.
 
@@ -140,7 +140,7 @@ ms.locfileid: "67839242"
 
 **A**: 결과에는 기준 모델과 사용자 지정 모델을 비교한 내용이 표시됩니다. 사용자 지정이 빛을 발하려면 기준 모델보다 우수해야 합니다.
 
-**Q: 개선 여부 확인을 위해 베이스 모델의 WER을 확인하려면 어떻게 해야 하나요?** 
+**Q: 개선 여부 확인을 위해 베이스 모델의 WER을 확인하려면 어떻게 해야 하나요?** 
 
 **A**: 오프라인 테스트 결과에는 사용자 지정 모델의 기준 정확도와 기준 모델에 비해 사용자 지정 모델에서 개선된 부분이 표시됩니다.
 

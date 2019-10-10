@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: 8e732496c4523646f02ef461b7d3c52314c28dae
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 19852fe3a6925ada3dea141a1472683ee264f6d5
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932822"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973305"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Azure 리소스 제작 키로 마이그레이션
 
@@ -63,9 +63,9 @@ LUIS () 제작 인증을 전자 메일 계정에서 Azure 리소스로 변경 �
 
 * **필요에 따라**각 앱을 내보내거나 내보내기 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40)를 사용 하 여 LUIS 포털의 앱 목록에서 앱을 백업 합니다.
 * **필요에 따라**각 앱의 collaborator's 목록을 저장 합니다. 이 전자 메일 목록은 마이그레이션 프로세스의 일부로 제공 됩니다.
-* **필수**, [Azure 구독이](https://azure.microsoft.com/free/)있어야 합니다. 구독 프로세스의 일부에는 청구 정보가 필요 합니다. 그러나 LUIS를 사용 하는 경우 무료`F0`() 가격 책정 계층을 사용할 수 있습니다. 
+* **필수**, [Azure 구독이](https://azure.microsoft.com/free/)있어야 합니다. 구독 프로세스의 일부에는 청구 정보가 필요 합니다. 그러나 LUIS를 사용 하는 경우 무료 (`F0`) 가격 책정 계층을 사용할 수 있습니다. 
 
-**LUIS 앱 작성은** `F0` 계층으로 표시 되는 무료입니다. [가격 책정 계층에](luis-boundaries.md#key-limits)대해 자세히 알아보세요.
+**LUIS 앱 작성은**`F0` 계층으로 표시 되는 무료입니다. [가격 책정 계층에](luis-boundaries.md#key-limits)대해 자세히 알아보세요.
 
 Azure 구독이 없는 경우 [등록](https://azure.microsoft.com/free/)합니다. 
 
@@ -99,6 +99,10 @@ LUIS의 모든 사용자는 협력자/contributors를 포함 하 여 마이그�
 앱 소유자는 [Azure authoring resource에 협력자로 전자 메일을 추가](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource)해야 합니다. 
 
 마이그레이션 프로세스 후 소유 하는 모든 앱은 LUIS 포털의 **내 앱** 페이지에서 사용할 수 있습니다.  
+
+## <a name="troubleshooting"></a>문제 해결
+
+LUIS 제작 키는 마이그레이션 프로세스가 완료 된 후에만 LUIS 포털에 표시 됩니다. LUIS CLI를 사용 하는 등 제작 키를 만드는 경우에도 사용자는 마이그레이션 프로세스를 완료 해야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 8c9f8b3733a4b2491c4199f041ba6b24efbb0224
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e3b36eae4f6dc4343828a38fa4ffe3920a83f589
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881908"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242863"
 ---
 # <a name="create-human-reviews-net"></a>사용자 리뷰 만들기 (.NET)
 
@@ -24,7 +24,7 @@ ms.locfileid: "68881908"
 - 사용자 중재자에 대한 검토 집합 만들기
 - 사용자 중재자에 대한 기존 검토의 상태 가져오기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에서 로그인 하거나 계정을 만드세요.
 
@@ -59,8 +59,7 @@ SDK 샘플에서 Azure가 제공한 API 키를 사용하려는 경우 [검토 AP
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

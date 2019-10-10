@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: c291a914ae9e76ce548df2a52523d60b69f0a7b0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: bc20af10e2e5b2ceb26c1cc891a8f69eb44e5740
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882720"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242877"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>중재 작업 정의 및 사용 (.NET)
 
@@ -26,7 +26,7 @@ ms.locfileid: "68882720"
 - 검토의 최종 상태 추적 및 가져오기
 - 검토 결과를 콜백 URL에 제출 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에서 로그인 하거나 계정을 만드세요.
 
@@ -67,8 +67,7 @@ SDK 샘플에서 Azure가 제공한 API 키를 사용하려는 경우 [검토 AP
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

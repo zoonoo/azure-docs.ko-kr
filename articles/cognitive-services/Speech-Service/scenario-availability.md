@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 94fd415909e86a43916ee2f510732a6a6d9c5ed3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: af5bb7126af65a755cb1d58788d39cb8bdcbbb3b
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552946"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959034"
 ---
 # <a name="scenario-availability"></a>시나리오 가용성
 
@@ -26,6 +26,10 @@ ms.locfileid: "68552946"
 - **텍스트 음성 변환 (TTS)**
   - C++/Swindows & Linux
   - C#/Windows & UWP & Unity
+  - Java (Jre 및 Android)
+  - Python
+  - Swift
+  - Objective-C
   - TTS REST API은 다른 모든 상황에서 사용할 수 있습니다.
 - **Wake Word (Keyword 관찰자/KWS)**
   - C++/Swindows & Linux
@@ -46,4 +50,4 @@ ms.locfileid: "68552946"
 - **코덱 압축 오디오 입력**
   - C++/Linux
   - C#/Linux
-  - Java/Linux & Android
+  - Java/Linux, Android 및 iOS

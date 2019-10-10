@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: 3907a244bc2d85e7225f94b15150298fd80a032f
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 8adc052e732fdc54bd3b51873fdcf13a55f1f490
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382332"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971977"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -219,6 +219,10 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 ### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>많은 엔드포인트 쿼리를 처리해야 합니다. 어떻게 할까요? 
 
 자세한 내용은 HTTP 상태 코드 [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) 및 [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) 수정을 참조 하세요.
+
+### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>제작 키를 만들었지만 LUIS 포털에 표시 되지 않습니다. 어떻게 된 것입니까?
+
+제작 [키 환경으로 마이그레이션한](luis-migration-authoring.md)후 LUIS 포털에서 사용할 수 있습니다.  
 
 ## <a name="app-management"></a>앱 관리
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 10/01/2019
 ms.author: aahi
-ms.openlocfilehash: c7b3d9b66d74f16dc0938c888456d673b9cd4b77
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: ca93de71f64efaf21c78b37b9c9aee193d13b28d
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882878"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71840217"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>방법: 시계열 데이터에서 변칙 탐지기 API 사용  
 
@@ -26,7 +26,7 @@ ms.locfileid: "68882878"
 변칙 탐지기 API는 검색 모드 (일괄 처리 및 스트리밍)를 제공 합니다.
 
 > [!NOTE]
-> 다음 요청 Url은 구독에 적합 한 끝점과 결합 되어야 합니다. 예: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
+> 다음 요청 Url은 구독에 적합 한 끝점과 결합 되어야 합니다. 예: `https://<your-custom-subdomain>.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
 
 
 ### <a name="batch-detection"></a>일괄 검색
@@ -47,7 +47,7 @@ ms.locfileid: "68882878"
 
 ## <a name="adjusting-lower-and-upper-anomaly-detection-boundaries"></a>하위 및 상위 변칙 검색 경계 조정
 
-기본적으로 변칙 검색의 상한 및 하 한 경계는, `expectedValue` `upperMargin`및 `lowerMargin`를 사용 하 여 계산 됩니다. 다른 경계가 필요한 경우 또는 `marginScale` `lowerMargin`에를 적용 하 `upperMargin` 는 것이 좋습니다. 경계는 다음과 같이 계산 됩니다.
+기본적으로 변칙 검색의 상한 및 하 한 경계는 `expectedValue`, `upperMargin` 및 `lowerMargin`를 사용 하 여 계산 됩니다. 다른 경계가 필요한 경우 `marginScale`을 `upperMargin` 또는 `lowerMargin`에 적용 하는 것이 좋습니다. 경계는 다음과 같이 계산 됩니다.
 
 |상한을  |계산  |
 |---------|---------|
