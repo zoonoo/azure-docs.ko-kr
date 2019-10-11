@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: a6acdd6255278123ff13a8597cadd2a386536bd4
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: d3651c63b206c37b1f41ecab7f69e24fc94ddffd
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67613788"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263860"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Azure CLI에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
@@ -38,13 +38,13 @@ Namespace                    RegistrationState
 Microsoft.ContainerInstance  Registered
 ```
 
-공급자가 Notregistered로표시 되는 경우 다음 예제와 같이 [az provider register][az-provider-register] 를 사용 하 여 공급자를 등록 합니다.
+공급자가 *notregistered*로 표시 되는 경우 다음 예제와 같이 [az provider register][az-provider-register] 를 사용 하 여 공급자를 등록 합니다.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability"></a>지역별 가용성
+## <a name="regional-availability"></a>국가별 가용성
 
 가상 노드 배포에 대해 지원 되는 지역은 다음과 같습니다.
 
@@ -68,7 +68,7 @@ az provider register --namespace Microsoft.ContainerInstance
 * 초기화 컨테이너
 * [호스트 별칭](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * ACI의 exec [인수](../container-instances/container-instances-exec.md#restrictions)
-* [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) 는 가상 노드에 pod을 배포 하지 않습니다.
+* [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) 는 가상 노드에 pod을 배포 하지 않습니다.
 * [Windows Server 노드 (현재 AKS의 미리 보기 상태)](windows-container-cli.md) 는 가상 노드와 함께 지원 되지 않습니다. AKS 클러스터에서 Windows Server 노드를 사용 하지 않고도 가상 노드를 사용 하 여 Windows Server 컨테이너를 예약할 수 있습니다.
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
@@ -253,7 +253,7 @@ spec:
 kubectl apply -f virtual-node.yaml
 ```
 
-[Kubectl get pod][kubectl-get] 명령을 `-o wide` 인수와 함께 사용 하 여 pod 및 예약 된 노드의 목록을 출력 합니다. `aci-helloworld` Pod는 `virtual-node-aci-linux` 노드에서 예약되었습니다.
+[Kubectl get pod][kubectl-get] 명령 `-o wide` 인수를 사용 하 여 pod 및 예약 된 노드 목록을 출력 합니다. `aci-helloworld` Pod는 `virtual-node-aci-linux` 노드에서 예약되었습니다.
 
 ```
 $ kubectl get pods -o wide
@@ -364,6 +364,7 @@ az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET 
 [aks-github]: https://github.com/azure/aks/issues
 [virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
 [virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
+[acr-aks-secrets]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
@@ -384,4 +385,3 @@ az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET 
 [aks-basic-ingress]: ingress-basic.md
 [az-provider-list]: /cli/azure/provider#az-provider-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
-[acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret

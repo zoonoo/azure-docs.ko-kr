@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 13e2a848f9d178fc6554062c324c951102e1343b
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4858d803b4fccdc6ae4d5a790721bad60d218313
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244106"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274208"
 ---
 # <a name="get-resource-changes"></a>리소스 변경 내용 가져오기
 
@@ -30,6 +30,7 @@ ms.locfileid: "72244106"
 - 리소스가 준수 상태를 변경 했을 때 변경 되었을 수 있는 다른 속성을 이해 합니다. 이러한 추가 속성을 평가 하면 Azure Policy 정의를 통해 관리 해야 할 수 있는 다른 속성에 대 한 정보를 제공할 수 있습니다.
 
 이 문서에서는 리소스 그래프의 SDK를 통해이 정보를 수집 하는 방법을 보여 줍니다. Azure Portal에서이 정보를 보려면 Azure Policy의 [변경 기록](../../policy/how-to/determine-non-compliance.md#change-history-preview) 또는 Azure 활동 로그 [변경 기록](../../../azure-monitor/platform/activity-log-view.md#azure-portal)을 참조 하세요.
+응용 프로그램 배포에 대 한 인프라 계층의 응용 프로그램 변경에 대 한 자세한 내용은 Azure Monitor에서 [응용 프로그램 변경 분석 (미리 보기) 사용](../../../azure-monitor/app/change-analysis.md) 을 참조 하세요.
 
 > [!NOTE]
 > 리소스 그래프의 변경 정보는 리소스 관리자 속성에 대 한 것입니다. 가상 컴퓨터 내의 변경 내용 추적에 대 한 자세한 내용은 Azure Automation의 [변경 내용 추적](../../../automation/automation-change-tracking.md) 또는 [vm에 대 한 Azure Policy 게스트 구성](../../policy/concepts/guest-configuration.md)을 참조 하세요.

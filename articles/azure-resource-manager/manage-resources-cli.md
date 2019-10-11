@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 78dd51c023bc46ed09219acc3df7e4ee7006ac2b
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 6b8adad033aeeb334c57970035e65bf706beef5a
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001557"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274245"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 리소스 관리
 
@@ -26,7 +26,7 @@ ms.locfileid: "72001557"
 
 ## <a name="deploy-resources-to-an-existing-resource-group"></a>기존 리소스 그룹에 리소스 배포
 
-Azure PowerShell를 사용 하 여 Azure 리소스를 직접 배포 하거나 리소스 관리자 템플릿을 배포 하 여 Azure 리소스를 만들 수 있습니다.
+Azure CLI를 사용 하 여 Azure 리소스를 직접 배포 하거나 리소스 관리자 템플릿을 배포 하 여 Azure 리소스를 만들 수 있습니다.
 
 ### <a name="deploy-a-resource"></a>리소스 배포
 

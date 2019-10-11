@@ -8,16 +8,16 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/15/2019
-ms.openlocfilehash: 316ddbf662a5418e54f37cb335475a86c50118c7
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 20da2d54ea54674656b2c1006d094c63133baf79
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131442"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264497"
 ---
 # <a name="use-azure-data-factory-command-activity-to-run-azure-data-explorer-control-commands"></a>Azure Data Factory 명령 작업을 사용 하 여 Azure 데이터 탐색기 제어 명령 실행
 
-[Azure Data Factory](/azure/data-factory/) (ADF)는 데이터에 대 한 작업의 조합을 수행할 수 있도록 하는 클라우드 기반 데이터 통합 서비스입니다. ADF를 사용 하 여 데이터 이동 및 데이터 변환을 오케스트레이션 하 고 자동화 하기 위한 데이터 기반 워크플로를 만듭니다. Azure Data Factory의 **azure 데이터 탐색기 명령** 작업을 사용 하면 ADF 워크플로 내에서 [azure 데이터 탐색기 제어 명령을](/azure/kusto/concepts/#control-commands) 실행할 수 있습니다. 이 문서에서는 Azure 데이터 탐색기 명령 작업을 포함 하는 ForEach 작업 및 조회 작업을 사용 하 여 파이프라인을 만드는 방법을 배웁니다.
+ADF ( [Azure Data Factory](/azure/data-factory/) )는 데이터에 대 한 작업의 조합을 수행할 수 있도록 하는 클라우드 기반 데이터 통합 서비스입니다. ADF를 사용 하 여 데이터 이동 및 데이터 변환을 오케스트레이션 하 고 자동화 하기 위한 데이터 기반 워크플로를 만듭니다. Azure Data Factory의 **azure 데이터 탐색기 명령** 작업을 사용 하면 ADF 워크플로 내에서 [azure 데이터 탐색기 제어 명령을](/azure/kusto/concepts/#control-commands) 실행할 수 있습니다. 이 문서에서는 Azure 데이터 탐색기 명령 작업을 포함 하는 ForEach 작업 및 조회 작업을 사용 하 여 파이프라인을 만드는 방법을 배웁니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -29,11 +29,13 @@ ms.locfileid: "71131442"
 ## <a name="create-a-new-pipeline"></a>새 파이프라인 만들기
 
 1. **작성자** 연필 도구를 선택 합니다. 
-1. 을 선택 **+** 하 고 드롭다운에서 **파이프라인** 을 선택 하 여 새 파이프라인을 만듭니다.
+1. **@No__t-1** 을 선택한 다음 드롭다운에서 **파이프라인** 을 선택 하 여 새 파이프라인을 만듭니다.
 
    ![새 파이프라인 만들기](media/data-factory-command-activity/create-pipeline.png)
 
 ## <a name="create-a-lookup-activity"></a>조회 작업 만들기
+
+[조회 작업](/azure/data-factory/control-flow-lookup-activity) 은 Azure Data Factory 지원 되는 데이터 원본에서 데이터 집합을 검색할 수 있습니다. 조회 작업의 출력은 ForEach 또는 다른 작업에서 사용할 수 있습니다.
 
 1. **활동** 창의 **일반**에서 **조회** 활동을 선택 합니다. 오른쪽의 주 캔버스로 끌어다 놓습니다.
  
@@ -83,7 +85,7 @@ ms.locfileid: "71131442"
     * **연결 테스트** 를 선택 하 여 만든 연결 된 서비스 연결을 테스트 합니다. 설치 프로그램에 연결할 수 있는 경우 녹색 확인 표시 **연결 성공** 이 표시 됩니다.
     * **마침** 을 선택 하 여 연결 된 서비스 만들기를 완료 합니다.
 
-1. 연결 된 서비스를 설정한 후에는 **AzureDataExplorerTable** > **연결**에서 **테이블** 이름을 추가 합니다. 데이터 **미리 보기**를 선택 하 여 데이터가 올바르게 표시 되는지 확인 합니다.
+1. 연결 된 서비스를 설정한 후 **AzureDataExplorerTable** > **연결**에서 **테이블** 이름을 추가 합니다. 데이터 **미리 보기**를 선택 하 여 데이터가 올바르게 표시 되는지 확인 합니다.
 
    이제 데이터 집합이 준비 되었으므로 파이프라인을 계속 편집할 수 있습니다.
 
@@ -103,7 +105,9 @@ ms.locfileid: "71131442"
 
 ## <a name="create-a-for-each-activity"></a>For Each 활동 만들기 
 
-1. 그런 다음 각 작업을 파이프라인에 추가 합니다. 이 활동은 조회 활동에서 반환 된 데이터를 처리 합니다. 
+[For each](/azure/data-factory/control-flow-for-each-activity) 작업은 컬렉션을 반복 하 고 루프에서 지정 된 작업을 실행 하는 데 사용 됩니다. 
+
+1. 이제 각 작업을 파이프라인에 추가 합니다. 이 활동은 조회 활동에서 반환 된 데이터를 처리 합니다. 
     * **활동** 창의 **반복 & 조건**에서 **ForEach** 활동을 선택 하 고 캔버스에 끌어 놓습니다.
     * 조회 활동의 출력과 캔버스에 있는 ForEach 활동의 입력 사이에 선을 그려 연결 합니다.
 
@@ -112,7 +116,7 @@ ms.locfileid: "71131442"
 1.  캔버스에서 ForEach 활동을 선택 합니다. **설정** 탭에서 다음을 수행 합니다.
     * **순차** 확인란을 선택 하 여 조회 결과를 순차적으로 처리 하거나 선택 취소 된 상태로 두고 병렬 처리를 만듭니다.
     * **일괄 처리 횟수**를 설정 합니다.
-    * **항목**에서 출력 값  *@activity(' Lookup1 ')* 에 대 한 다음 참조를 제공 합니다.
+    * **항목**에서 출력 값 *@activity (' Lookup1 '). 값* 에 대 한 참조를 제공 합니다.
 
        ![ForEach 활동 설정](media/data-factory-command-activity/for-each-activity-settings.png)
 
@@ -166,7 +170,7 @@ ms.locfileid: "71131442"
 
 ### <a name="returned-value-of-a-non-async-control-command"></a>비동기 제어 명령이 아닌 명령의 값을 반환 했습니다.
 
-비 비동기 제어 명령에서 반환 된 값의 구조는 조회 작업 결과의 구조와 유사 합니다. 필드 `count` 는 반환 된 레코드 수를 나타냅니다. 고정 배열 필드 `value` 는 레코드 목록을 포함 합니다. 
+비 비동기 제어 명령에서 반환 된 값의 구조는 조회 작업 결과의 구조와 유사 합니다. @No__t-0 필드는 반환 된 레코드 수를 나타냅니다. 고정 배열 필드 `value`은 레코드 목록을 포함 합니다. 
 
 ```json
 { 
@@ -188,7 +192,7 @@ ms.locfileid: "71131442"
  
 ### <a name="returned-value-of-an-async-control-command"></a>비동기 제어 명령의 반환 값
 
-비동기 제어 명령에서 작업은 비동기 작업이 완료 되거나 제한 시간이 초과 될 때까지 백그라운드에서 작업 테이블을 폴링합니다. 따라서 반환 된 값에는 지정 된 **OperationId** 속성 `.show operations OperationId` 에 대 한의 결과가 포함 됩니다. **상태** 및 **상태** 속성의 값을 확인 하 여 작업이 성공적으로 완료 되었는지 확인 합니다.
+비동기 제어 명령에서 작업은 비동기 작업이 완료 되거나 제한 시간이 초과 될 때까지 백그라운드에서 작업 테이블을 폴링합니다. 따라서 반환 된 값에는 해당 **OperationId** 속성에 대해 `.show operations OperationId`의 결과가 포함 됩니다. **상태** 및 **상태** 속성의 값을 확인 하 여 작업이 성공적으로 완료 되었는지 확인 합니다.
 
 ```json
 { 

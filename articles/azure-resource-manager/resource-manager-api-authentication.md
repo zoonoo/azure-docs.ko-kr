@@ -6,23 +6,23 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: dugill
-ms.openlocfilehash: 3a8f9f1975530c846008b3b3def4f4d4a22716fd
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 033f3ca9ca79903f884c625dc694b06a3e4fd04c
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205439"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263014"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Resource Manager 인증 API를 사용하여 구독에 액세스
 
-고객의 Azure 리소스를 관리 하는 앱을 만드는 데는 소프트웨어 개발자 인 경우이 문서에서는 Azure Resource Manager Api를 사용 하 여 인증 하 고 다른 구독의 리소스에 액세스 하는 방법을 보여줍니다.
+고객의 Azure 리소스를 관리 하는 앱을 만들어야 하는 소프트웨어 개발자 인 경우이 문서에서는 Azure Resource Manager Api를 사용 하 여 인증 하 고 다른 구독에 있는 리소스에 액세스 하는 방법을 보여 줍니다.
 
 앱에서 두 가지 방법으로 Resource Manager API에 액세스할 수 있습니다.
 
-1. **사용자 + 앱 액세스**:에서 로그인 한 사용자에 대 한 리소스에 액세스 하는 앱에 대 한 합니다. 이 방법은 웹앱 및 명령줄 도구 등 Azure 리소스의 "대화형 관리"만 처리하는 앱에만 적용됩니다.
+1. **사용자 + 앱 액세스**: 로그인 한 사용자의 리소스에 액세스 하는 앱에 사용 됩니다. 이 방법은 웹앱 및 명령줄 도구 등 Azure 리소스의 "대화형 관리"만 처리하는 앱에만 적용됩니다.
 2. **앱 전용 액세스**: 디먼 서비스 및 예약된 작업을 실행하는 앱. 리소스에 대한 직접 액세스 권한을 앱의 ID에 부여합니다. 이 방법은 Azure에 대한 장기적인 헤드리스 액세스(자동)가 필요한 앱에 작동합니다.
 
-이 문서에서는 이러한 권한 부여 방법을 모두 채택하는 앱을 만드는 단계별 지침을 제공합니다. REST API를 사용 하 여 각 단계를 수행 하는 방법을 보여 줍니다 또는 C#입니다. 전체 ASP.NET MVC 애플리케이션은 [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense)에서 사용할 수 있습니다.
+이 문서에서는 이러한 권한 부여 방법을 모두 채택하는 앱을 만드는 단계별 지침을 제공합니다. REST API 또는 C#를 사용 하 여 각 단계를 수행 하는 방법을 보여 줍니다. 전체 ASP.NET MVC 애플리케이션은 [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense)에서 사용할 수 있습니다.
 
 ## <a name="what-the-web-app-does"></a>웹앱이 수행하는 작업
 
@@ -60,11 +60,11 @@ Azure 구독에 대한 앱 액세스 권한을 부여합니다.
 ![구독 연결](./media/resource-manager-api-authentication/sample-ux-7.png)
 
 ## <a name="register-application"></a>애플리케이션 등록
-코딩을 시작하기 전에 Azure Active Directory(AD)를 사용하여 웹앱을 등록합니다. 앱 등록은 Azure AD의 사용자 앱에 대한 중앙 ID를 만듭니다. 이는 애플리케이션이 Azure Resource Manager API를 인증하고 액세스하는 데 사용하는 OAuth 클라이언트 ID, 회신 URL 및 자격 증명 등 애플리케이션에 관한 기본 정보를 저장합니다. 앱 등록에는 또한 응용 프로그램에 필요한 사용자에 대 한 Microsoft Api에 액세스할 때 다양 한 위임 된 권한을 기록 합니다.
+코딩을 시작하기 전에 Azure Active Directory(AD)를 사용하여 웹앱을 등록합니다. 앱 등록은 Azure AD의 사용자 앱에 대한 중앙 ID를 만듭니다. 이는 애플리케이션이 Azure Resource Manager API를 인증하고 액세스하는 데 사용하는 OAuth 클라이언트 ID, 회신 URL 및 자격 증명 등 애플리케이션에 관한 기본 정보를 저장합니다. 앱 등록은 사용자에 대 한 Microsoft Api에 액세스할 때 응용 프로그램에서 필요로 하는 다양 한 위임 된 사용 권한도 기록 합니다.
 
-앱을 등록 하려면 참조 [빠른 시작: Microsoft id 플랫폼을 사용 하 여 응용 프로그램을 등록](../active-directory/develop/quickstart-register-app.md)합니다. 선택한 앱에 이름을 **모든 조직 디렉터리의 계정** 지원 되는 계정 유형에 대 한 합니다. 리디렉션 URL에 대 한 Azure Active Directory와 연결 된 도메인을 제공 합니다.
+앱을 등록 하려면 [Quickstart 스타트를 참조 하세요. Microsoft id platform @ no__t-0을 사용 하 여 응용 프로그램을 등록 합니다. 앱에 이름을 지정 하 고, 지원 되는 계정 유형에 대 한 **모든 조직 디렉터리에서 계정을** 선택 합니다. 리디렉션 URL에는 Azure Active Directory 연결 된 도메인을 제공 합니다.
 
-AD 응용 프로그램으로 로그인 한 응용 프로그램 ID 및 암호 필요 합니다. 응용 프로그램 ID는 응용 프로그램에 대 한 개요에 표시 됩니다. 비밀 만들기 API 사용 권한 요청을 참조 하세요. [빠른 시작: 웹 Api에 액세스 하는 클라이언트 응용 프로그램 구성](../active-directory/develop/quickstart-configure-app-access-web-apis.md)합니다. 새 클라이언트 암호를 제공 합니다. API 사용 권한 선택 **Azure Service Management**합니다. 선택 **위임 된 권한** 하 고 **user_impersonation**합니다.
+AD 응용 프로그램으로 로그인 하려면 응용 프로그램 ID와 암호가 필요 합니다. 응용 프로그램 ID는 응용 프로그램에 대 한 개요에 표시 됩니다. 비밀 및 요청 API 권한을 만들려면 [Quickstart 스타트를 참조 하세요. 웹 Api @ no__t-0에 액세스 하도록 클라이언트 응용 프로그램을 구성 합니다. 새 클라이언트 암호를 제공 합니다. API 권한에 대해 **Azure 서비스 관리**를 선택 합니다. **위임 된 권한** 및 **user_impersonation**를 선택 합니다.
 
 ### <a name="optional-configuration---certificate-credential"></a>선택적 구성 - 인증서 자격 증명
 또한 Azure AD는 애플리케이션에 대한 인증서 자격 증명을 지원합니다. 즉, 자체 서명된 인증서를 만들고, 프라이빗 키를 유지하고, Azure AD 애플리케이션 등록에 공개 키를 추가합니다. 인증을 위해 애플리케이션이 프라이빗 키를 사용하여 서명한 Azure AD에 작은 페이로드를 보내면 Azure AD가 등록된 공개 키를 사용하여 서명의 유효성을 검사합니다.
@@ -76,12 +76,12 @@ Resource Manager를 호출하는 데 사용할 수 있는 토큰을 요청하기
 
     https://management.azure.com/subscriptions/{subscription-id}?api-version=2015-01-01
 
-요청에는 사용자가 아직 로그인 하지 않은 하지만 응답에서 테 넌 트 ID를 검색할 수 없으므로 실패 합니다. 이 예외에서 **WWW-Authenticate**에 대한 응답 헤더 값에서 테넌트 ID를 검색합니다. 이 구현은 [GetDirectoryForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L20) 메서드에 표시됩니다.
+사용자가 아직 로그인 하지 않았으므로 요청은 실패 하지만 응답에서 테 넌 트 ID를 검색할 수 있습니다. 이 예외에서 **WWW-Authenticate**에 대한 응답 헤더 값에서 테넌트 ID를 검색합니다. 이 구현은 [GetDirectoryForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L20) 메서드에 표시됩니다.
 
 ## <a name="get-user--app-access-token"></a>사용자 + 앱 액세스 토큰 가져오기
 애플리케이션이 OAuth 2.0 권한 부여 요청을 사용하여 사용자를 Azure AD로 리디렉션하여 사용자의 자격 증명을 인증하고 권한 부여 코드를 돌려 줍니다. 애플리케이션은 권한 부여 코드를 사용하여 Resource Manager에 대한 액세스 토큰을 가져옵니다. [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) 메서드는 권한 부여 요청을 생성합니다.
 
-이 문서는 사용자를 인증하는 REST API 요청을 보여 줍니다. 또한 코드에서 인증 도우미 라이브러리를 사용할 수 있습니다. 이러한 라이브러리에 대한 자세한 내용은 [Azure Active Directory 인증 라이브러리](../active-directory/active-directory-authentication-libraries.md)를 참조하세요. 애플리케이션에서 ID 관리를 통합하는 지침은 [Azure Active Directory 개발자 가이드](../active-directory/develop/v1-overview.md)를 참조하세요.
+이 문서는 사용자를 인증하는 REST API 요청을 보여 줍니다. 도우미 라이브러리를 사용 하 여 코드에서 인증할 수도 있습니다. 이러한 라이브러리에 대한 자세한 내용은 [Azure Active Directory 인증 라이브러리](../active-directory/active-directory-authentication-libraries.md)를 참조하세요. 애플리케이션에서 ID 관리를 통합하는 지침은 [Azure Active Directory 개발자 가이드](../active-directory/develop/v1-overview.md)를 참조하세요.
 
 ### <a name="auth-request-oauth-20"></a>인증 요청(OAuth 2.0)
 Azure AD 권한 부여 엔드포인트에 대한 Open ID Connect/OAuth2.0 권한 부여 요청을 실행합니다.
@@ -99,7 +99,7 @@ Azure AD는 사용자를 인증하고 필요한 경우 사용자에게 앱 사�
     code=AAABAAAAiL****FDMZBUwZ8eCAA&session_state=2d16bbce-d5d1-443f-acdf-75f6b0ce8850
 
 ### <a name="auth-request-open-id-connect"></a>인증 요청(Open ID Connect)
-뿐만 아니라 사용자에 대 한 Azure Resource Manager에 액세스 하려면 사용자가 해당 Azure AD 계정을 사용 하 여 응용 프로그램에 로그인을 허용할 경우에 Open ID Connect 권한 부여 요청을 실행 합니다. 또한 Open ID Connect를 사용하면 애플리케이션이 Azure AD로부터 앱에서 사용자를 로그인하는 데 사용할 수 있는 id_token을 받습니다.
+사용자에 대 한 Azure Resource Manager에만 액세스 하 고 사용자가 해당 Azure AD 계정을 사용 하 여 응용 프로그램에 로그인 할 수 있도록 하려면 Open ID Connect 권한 부여 요청을 실행 합니다. 또한 Open ID Connect를 사용하면 애플리케이션이 Azure AD로부터 앱에서 사용자를 로그인하는 데 사용할 수 있는 id_token을 받습니다.
 
 이 요청에 사용할 수 있는 쿼리 문자열 매개 변수는 [로그인 요청 보내기](../active-directory/develop/v1-protocols-openid-connect-code.md#send-the-sign-in-request) 문서에서 설명합니다.
 
@@ -114,7 +114,7 @@ Open ID Connect 응답 예제:
     code=AAABAAAAiL*****I4rDWd7zXsH6WUjlkIEQxIAA&id_token=eyJ0eXAiOiJKV1Q*****T3GrzzSFxg&state=M_12tMyKaM8&session_state=2d16bbce-d5d1-443f-acdf-75f6b0ce8850
 
 ### <a name="token-request-oauth20-code-grant-flow"></a>토큰 요청(OAuth2.0 코드 부여 흐름)
-이제 응용 프로그램에 Azure AD에서 권한 부여 코드를 받은, 액세스 토큰을 가져올 Azure Resource Manager에 대 한 시간입니다.  OAuth2.0 코드 부여 토큰 요청을 Azure AD 토큰 엔드포인트에 게시:
+이제 응용 프로그램이 Azure AD에서 인증 코드를 수신 했으므로 Azure Resource Manager에 대 한 액세스 토큰을 가져올 시간입니다.  OAuth2.0 코드 부여 토큰 요청을 Azure AD 토큰 엔드포인트에 게시:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
@@ -129,7 +129,7 @@ Open ID Connect 응답 예제:
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-인증서 자격 증명을 사용하여 작업할 때 JSON 웹 토큰(JWT)을 만들고 애플리케이션의 인증서 자격 증명의 프라이빗 키를 사용하여 서명합니다(RSA SHA256). 이 토큰을 빌드하는 과정은 [클라이언트 자격 증명 흐름](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#second-case-access-token-request-with a-certificate)에 표시됩니다.  참고로 클라이언트 어설션 JWT 토큰에 서명하는 방법은 [Active Directory 인증 라이브러리(.NET) 코드](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) 를 참조하세요.
+인증서 자격 증명을 사용하여 작업할 때 JSON 웹 토큰(JWT)을 만들고 애플리케이션의 인증서 자격 증명의 프라이빗 키를 사용하여 서명합니다(RSA SHA256). 이 토큰을 빌드하는 과정은 [클라이언트 자격 증명 흐름](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#second-case-access-token-request-with-a-certificate)에 표시됩니다.
 
 클라이언트 인증에 대한 자세한 내용은 [Open ID Connect 사양](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) 을 참조하세요.
 
@@ -149,7 +149,7 @@ Open ID Connect 응답 예제:
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1432039858","not_before":"1432035958","resource":"https://management.core.windows.net/","access_token":"eyJ0eXAiOiJKV1Q****M7Cw6JWtfY2lGc5A","refresh_token":"AAABAAAAiL9Kn2Z****55j-sjnyYgAA","scope":"user_impersonation","id_token":"eyJ0eXAiOiJKV*****-drP1J3P-HnHi9Rr46kGZnukEBH4dsg"}
 
 #### <a name="handle-code-grant-token-response"></a>코드 부여 토큰 응답 처리
-성공적인 토큰 응답은 Azure Resource Manager에 대한(사용자 + 앱) 액세스 토큰을 포함합니다. 응용 프로그램 사용자에 대 한 Resource Manager에 액세스 하려면이 액세스 토큰을 사용 합니다. Azure AD에서 발급하는 액세스 토큰의 수명은 1시간입니다. 웹 응용 프로그램 (사용자 + 앱)를 갱신 해야 한다고 그럴 가능성은 액세스 토큰입니다. 액세스 토큰을 갱신해야 한다면 애플리케이션이 토큰 응답에서 받는 새로 고침 토큰을 사용합니다. OAuth2.0 토큰 요청을 Azure AD 토큰 엔드포인트에 게시:
+성공적인 토큰 응답은 Azure Resource Manager에 대한(사용자 + 앱) 액세스 토큰을 포함합니다. 응용 프로그램은이 액세스 토큰을 사용 하 여 사용자에 대 한 리소스 관리자에 액세스 합니다. Azure AD에서 발급하는 액세스 토큰의 수명은 1시간입니다. 웹 응용 프로그램에서 (사용자 + 앱) 액세스 토큰을 갱신 해야 하는 경우는 거의 없습니다. 액세스 토큰을 갱신해야 한다면 애플리케이션이 토큰 응답에서 받는 새로 고침 토큰을 사용합니다. OAuth2.0 토큰 요청을 Azure AD 토큰 엔드포인트에 게시:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
@@ -164,10 +164,10 @@ Open ID Connect 응답 예제:
 
     grant_type=refresh_token&refresh_token=AAABAAAAiL9Kn2Z****55j-sjnyYgAA&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-Azure Resource Manager에 대 한 새 액세스 토큰을 가져오기 위해 새로 고침 토큰을 사용할 수 있지만 응용 프로그램에서 오프 라인 액세스에 대 한 적합 한 되지 않습니다. 새로 고침 토큰 수명은 제한되어 있고 새로 고침 토큰은 사용자에게 바인딩되기 때문입니다. 사용자가 조직을 떠나면 새로 고침 토큰을 사용하는 애플리케이션은 액세스 권한을 잃게 됩니다. 이 방법은 Azure 리소스를 관리하는 팀이 사용하는 애플리케이션에 적합하지 않습니다.
+새로 고침 토큰을 사용 하 여 Azure Resource Manager에 대 한 새 액세스 토큰을 가져올 수 있지만 응용 프로그램의 오프 라인 액세스에는 적합 하지 않습니다. 새로 고침 토큰 수명은 제한되어 있고 새로 고침 토큰은 사용자에게 바인딩되기 때문입니다. 사용자가 조직을 떠나면 새로 고침 토큰을 사용하는 애플리케이션은 액세스 권한을 잃게 됩니다. 이 방법은 Azure 리소스를 관리하는 팀이 사용하는 애플리케이션에 적합하지 않습니다.
 
 ## <a name="check-if-user-can-assign-access-to-subscription"></a>사용자가 구독에 액세스를 할당할 수 있는지 확인
-이제 응용 프로그램이 사용자에 대 한 Azure Resource Manager에 액세스 하는 토큰입니다. 다음 단계에서는 앱을 구독에 연결합니다. 연결되면 앱은 사용자가 없어도(장기 오프라인 액세스) 해당 구독을 관리할 수 있습니다.
+이제 응용 프로그램에 사용자에 대 한 Azure Resource Manager 액세스 하는 토큰이 있습니다. 다음 단계에서는 앱을 구독에 연결합니다. 연결되면 앱은 사용자가 없어도(장기 오프라인 액세스) 해당 구독을 관리할 수 있습니다.
 
 연결할 각 구독에 대해 [Resource Manager 목록 권한](https://docs.microsoft.com/rest/api/authorization/permissions) API를 호출하여 사용자가 구독에 대한 액세스 관리 권한을 가지고 있는지 여부를 결정합니다.
 
@@ -185,7 +185,7 @@ ASP.NET MVC 샘플 앱의 [UserCanManagerAccessForSubscription](https://github.c
 
     {"value":[{"actions":["*"],"notActions":["Microsoft.Authorization/*/Write","Microsoft.Authorization/*/Delete"]},{"actions":["*/read"],"notActions":[]}]}
 
-사용 권한 API가 여러 사용 권한을 반환합니다. 각 사용 권한은 허용되는 작업(**actions**) 및 허용되지 않는 작업(**notactions**)으로 구성됩니다. 작업 사용 권한의 허용 되는 작업에 있고 해당 권한의 허용 되지 않는 작업에 없는 경우 사용자가 해당 작업을 수행할 수 있습니다. **microsoft.authorization/roleassignments/write**는 액세스 관리 권한을 부여하는 작업입니다. 애플리케이션은 사용 권한 결과를 구문 분석하여 각 권한의 **actions** 및 **notactions**에서 이 작업 문자열에 대한 정규식 일치(regex match)를 찾습니다.
+사용 권한 API가 여러 사용 권한을 반환합니다. 각 사용 권한은 허용되는 작업(**actions**) 및 허용되지 않는 작업(**notactions**)으로 구성됩니다. 작업이 사용 권한의 허용 되는 작업에 있고 해당 권한의 허용 되지 않는 작업에는 없는 경우 사용자가 해당 작업을 수행할 수 있습니다. **microsoft.authorization/roleassignments/write**는 액세스 관리 권한을 부여하는 작업입니다. 애플리케이션은 사용 권한 결과를 구문 분석하여 각 권한의 **actions** 및 **notactions**에서 이 작업 문자열에 대한 정규식 일치(regex match)를 찾습니다.
 
 ## <a name="get-app-only-access-token"></a>앱 전용 액세스 토큰 가져오기
 이제 사용자가 Azure 구독에 액세스 권한을 할당할 수 있는지 알게 되었습니다. 다음 단계는 다음과 같습니다.
@@ -207,7 +207,7 @@ ASP.NET MVC 샘플 앱의 [UserCanManagerAccessForSubscription](https://github.c
 
 ### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>Azure AD Graph API에 대한 응용 프로그램 전용 액세스 토큰 가져오기
 
-앱을 인증 하 고 Azure AD Graph API에 토큰을 가져오기, 실행 클라이언트 자격 증명 부여 OAuth2.0 흐름 토큰 요청을 Azure AD 토큰 끝점 (**https:\//login.microsoftonline.com/{directory_domain_name}/OAuth2/Token** ).
+앱을 인증 하 고 Azure AD Graph API에 대 한 토큰을 가져오려면 클라이언트 자격 증명에 OAuth 2.0 흐름 토큰 요청을 Azure AD 토큰 끝점에 부여 합니다 (**https: \//microsoftonline/{directory_domain_name}/OAuth2/token**).
 
 ASP.net MVC 샘플 애플리케이션의 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) 메서드는 Active Directory Authentication Library for .NET을 사용하여 Graph API에 대한 앱 전용 액세스 토큰을 가져옵니다.
 
@@ -255,7 +255,7 @@ ASP.net MVC 샘플 애플리케이션의 [GetObjectIdOfServicePrincipalInOrganiz
 
 애플리케이션에 대한 역할 할당은 사용자가 볼 수 있으므로 필요한 최소 권한을 선택합니다.
 
-호출을 [Resource Manager 역할 정의 API](https://docs.microsoft.com/rest/api/authorization/roledefinitions) 모든 Azure RBAC 역할 목록 및 다음 이름으로 역할 정의 찾으려면 결과 반복 합니다.
+[리소스 관리자 역할 정의 API](https://docs.microsoft.com/rest/api/authorization/roledefinitions) 를 호출 하 여 모든 Azure RBAC 역할을 나열 하 고 결과를 반복 하 여 이름으로 역할 정의를 찾습니다.
 
 ASP.net MVC 샘플 앱의 [GetRoleId](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L246) 메서드가 이 호출을 구현합니다.
 
@@ -306,11 +306,11 @@ ASP.net MVC 샘플 앱의 [GrantRoleToServicePrincipalOnSubscription](https://gi
 
 요청에 다음과 같은 값을 사용합니다.
 
-| Guid | 설명 |
+| GUID | 설명 |
 | --- | --- |
 | 09cbd307-aa71-4aca-b346-5f253e6e3ebb |구독의 ID |
 | c3097b31-7309-4c59-b4e3-770f8406bad2 |애플리케이션의 서비스 주체의 개체 ID |
-| b24988ac-6180-42a0-ab88-20f7382dd24c |참가자 역할의 ID |
+| b24988ac-6180-42a0-ab88-20f7382dd24c |참가자 역할의 ID입니다. |
 | 4f87261d-2816-465d-8311-70a27558df4c |새 역할 할당에 대해 만든 새 GUID |
 
 응답은 다음 형식으로 되어 있습니다.
@@ -320,7 +320,7 @@ ASP.net MVC 샘플 앱의 [GrantRoleToServicePrincipalOnSubscription](https://gi
     {"properties":{"roleDefinitionId":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c","principalId":"c3097b31-7309-4c59-b4e3-770f8406bad2","scope":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb"},"id":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleAssignments/4f87261d-2816-465d-8311-70a27558df4c","type":"Microsoft.Authorization/roleAssignments","name":"4f87261d-2816-465d-8311-70a27558df4c"}
 
 ### <a name="get-app-only-access-token-for-azure-resource-manager"></a>Azure Resource Manager에 대한 응용 프로그램 전용 액세스 토큰 가져오기
-해당 앱의 유효성을 검사 하려면 구독에 액세스할을 테스트 앱 전용 토큰을 사용 하 여 구독에서 작업 합니다.
+앱이 구독에 액세스할 수 있는지 확인 하려면 앱 전용 토큰을 사용 하 여 구독에 대해 테스트 작업을 수행 합니다.
 
 리소스 매개 변수에 대해 서로 다른 값을 사용하여 앱 전용 액세스 토큰을 가져오려면 [Azure AD Graph API에 대한 응용 프로그램 전용 액세스 토큰 가져오기](#app-azure-ad-graph)섹션의 지침을 따릅니다.
 
@@ -329,7 +329,7 @@ ASP.net MVC 샘플 앱의 [GrantRoleToServicePrincipalOnSubscription](https://gi
 ASP.NET MVC 샘플 애플리케이션의 [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L110) 메서드는 Active Directory Authentication Library for .net을 사용하여 Azure Resource Manager에 대한 애플리케이션 전용 액세스 토큰을 가져옵니다.
 
 #### <a name="get-applications-permissions-on-subscription"></a>구독에 대한 애플리케이션의 권한 가져오기
-응용 프로그램이 Azure 구독에 액세스할 수 있습니다, 호출할 수도 있습니다 있는지 확인 하는 [Resource Manager 사용 권한](https://docs.microsoft.com/rest/api/authorization/permissions) API. 이 방법은 사용자가 구독에 대해 액세스 관리 권한을 가지고 있는지 여부를 결정하는 방법과 유사합니다. 그러나 이번에는 이전 단계에서 수신한 앱 전용 액세스 토큰을 사용하여 사용 권한 API를 호출합니다.
+응용 프로그램이 Azure 구독에 액세스할 수 있는지 확인 하기 위해 [리소스 관리자 권한](https://docs.microsoft.com/rest/api/authorization/permissions) API를 호출할 수도 있습니다. 이 방법은 사용자가 구독에 대해 액세스 관리 권한을 가지고 있는지 여부를 결정하는 방법과 유사합니다. 그러나 이번에는 이전 단계에서 수신한 앱 전용 액세스 토큰을 사용하여 사용 권한 API를 호출합니다.
 
 ASP.NET MVC 샘플 앱의 [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L110) 메서드가 이 호출을 구현합니다.
 
@@ -339,7 +339,7 @@ ASP.NET MVC 샘플 앱의 [ServicePrincipalHasReadAccessToSubscription](https://
 구독 소유자가 포털 또는 명령줄 도구를 사용하여 애플리케이션의 역할 할당을 제거하는 경우 애플리케이션은 더 이상 해당 구독에 액세스할 수 없습니다. 이 경우 사용자에게 구독과의 연결이 애플리케이션 외부에서 끊어졌음을 알리고 연결을 "복구"하는 옵션을 사용자에게 제공해야 합니다. 여기서 "복구"는 오프라인 상태에서 삭제된 역할 할당을 다시 만드는 것입니다.
 
 사용자가 애플리케이션에 대한 자신의 구독을 연결할 수 있도록 하는 것과 마찬가지로 사용자가 구독의 연결을 끊는 것도 허용해야 합니다. 액세스 관리 관점에서 연결 끊기란 애플리케이션의 서비스 주체가 구독에 대해 가지고 있는 역할 할당을 제거하는 것을 의미합니다. 필요에 따라 구독에 대한 애플리케이션의 상태도 제거할 수 있습니다.
-구독에 대 한 액세스 관리 권한 가진 사용자만 구독에 연결을 끊을 수 있습니다.
+구독에 대 한 액세스 관리 권한이 있는 사용자만 구독의 연결을 끊을 수 있습니다.
 
 ASP.net MVC 샘플 앱의 [RevokeRoleFromServicePrincipalOnSubscription 메서드](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L200) 가 이 호출을 구현합니다.
 

@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: d2099de9ad909b23b79a92a831d7730b1cf126e3
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: b11f88cbb29016032cbf536a2c970573eda82152
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311631"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72262852"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Azure Container Instances의 Azure Container Registry를 사용하여 인증
 
@@ -57,7 +57,7 @@ GitHub에서 Azure CLI에 대한 이전 샘플 스크립트 및 Azure PowerShell
 다음 문서에는 서비스 주체 및 ACR 작업에 대한 추가 세부 정보가 포함되어 있습니다.
 
 * [서비스 주체로 Azure Container Registry 인증](container-registry-auth-service-principal.md)
-* [AKS(Azure Kubernetes Service)의 Azure Container Registry를 사용하여 인증](container-registry-auth-aks.md)
+* [AKS(Azure Kubernetes Service)의 Azure Container Registry를 사용하여 인증](../aks/cluster-container-registry-integration.md)
 
 <!-- IMAGES -->
 

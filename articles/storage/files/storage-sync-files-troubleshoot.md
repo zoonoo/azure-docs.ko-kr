@@ -4,15 +4,15 @@ description: Azure 파일 동기화와 관련된 일반적인 문제를 해결�
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/10/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 6771164c26c51e40d80d0c82b42f04c4f95c4c37
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 31a9eda0e17083aac25be071c1d1a3ab84049e39
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255097"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274886"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -797,6 +797,17 @@ NT 권한 없음 계정에 서버 끝점이 있는 볼륨의 시스템 볼륨 �
 4. 서버 끝점에서 클라우드 계층화를 사용 하도록 설정한 경우 서버 [끝점을 삭제 한 후 서버에서 계층화 된 파일에 액세스할 수 없습니다](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) . 섹션을 수행 하 여 서버에서 분리 된 계층화 된 파일을 삭제 합니다.
 5. 동기화 그룹을 다시 만듭니다.
 
+<a id="-2145844941"></a>**HTTP 요청이 리디렉션 되어 동기화 하지 못했습니다.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80190133 |
+| **HRESULT(10진)** | -2145844941 |
+| **오류 문자열** | HTTP_E_STATUS_REDIRECT_KEEP_VERB |
+| **재구성 필요** | 예 |
+
+이 오류는 Azure File Sync에서 HTTP 리디렉션 (3xx 상태 코드)을 지원 하지 않기 때문에 발생 합니다. 이 문제를 해결 하려면 프록시 서버 또는 네트워크 장치에서 HTTP 리디렉션을 사용 하지 않도록 설정 합니다.
+
 ### <a name="common-troubleshooting-steps"></a>일반적인 문제 해결 단계
 <a id="troubleshoot-storage-account"></a>**스토리지 계정이 있는지 확인합니다.**  
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
@@ -1008,7 +1019,7 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
         - 관리자 권한의 명령 프롬프트에서 `fltmc`를 실행합니다. StorageSync.sys 및 StorageSyncGuard.sys 파일 시스템 필터 드라이버가 나열되는지 확인합니다.
 
 > [!NOTE]
-> 파일이 회수에 실패하면 이벤트 ID 9006이 원격 분석 이벤트 로그에 1시간에 한 번 기록됩니다(오류 코드 하나당 이벤트 하나가 기록). 문제를 진단하기 위해 추가 정보가 필요한 경우 운영 및 진단 이벤트 로그를 사용해야 합니다.
+> 파일이 회수에 실패하면 이벤트 ID 9006이 원격 분석 이벤트 로그에 1시간에 한 번 기록됩니다(오류 코드 하나당 이벤트 하나가 기록). [회수 오류 및](#recall-errors-and-remediation) 해결 방법 섹션을 확인 하 여 오류 코드에 대 한 수정 단계가 나열 되는지 확인 합니다.
 
 ### <a name="recall-errors-and-remediation"></a>회수 오류 및 수정
 
@@ -1018,8 +1029,12 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 | 0x80070036 | -2147024842 | ERROR_NETWORK_BUSY | 네트워크 문제로 인해 파일을 회수 하지 못했습니다.  | 오류가 계속 발생 하면 Azure 파일 공유에 대 한 네트워크 연결을 확인 합니다. |
 | 0x80c80037 | -2134376393 | ECS_E_SYNC_SHARE_NOT_FOUND | 서버 끝점이 삭제 되어 파일을 회수 하지 못했습니다. | 이 문제를 해결 하려면 [서버 끝점을 삭제 한 후 서버에서 계층화 된 파일에 액세스할 수 없음](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint)을 참조 하세요. |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | 액세스 거부 오류로 인해 파일을 회수 하지 못했습니다. 저장소 계정에 대 한 방화벽 및 가상 네트워크 설정을 사용 하도록 설정 하 고 서버에 저장소 계정에 대 한 액세스 권한이 없는 경우이 문제가 발생할 수 있습니다. | 이 문제를 해결 하려면 배포 가이드의 [방화벽 및 가상 네트워크 설정 구성](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings) 섹션에 설명 된 단계를 수행 하 여 서버 IP 주소 또는 가상 네트워크를 추가 합니다. |
-| 0x80c86002 | -2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | Azure 파일 공유에서 액세스할 수 없기 때문에 파일을 회수 하지 못했습니다. | 이 문제를 해결 하려면 파일이 Azure 파일 공유에 있는지 확인 합니다. 파일이 Azure 파일 공유에 있으면 최신 Azure File Sync 에이전트 버전으로 업그레이드 합니다. |
-| 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | 저장소 계정에 대 한 권한 부여 실패로 인해 파일을 회수 하지 못했습니다. | 이 문제를 해결 하려면 [저장소 계정에 대 한 액세스 권한이 Azure File Sync](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac)있는지 확인 하세요. |
+| 0x80c86002 | -2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | Azure 파일 공유에서 액세스할 수 없기 때문에 파일을 회수 하지 못했습니다. | 이 문제를 해결 하려면 파일이 Azure 파일 공유에 있는지 확인 합니다. 파일이 Azure 파일 공유에 있으면 최신 Azure File Sync [에이전트 버전](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions)으로 업그레이드 합니다. |
+| 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | 저장소 계정에 대 한 권한 부여 실패로 인해 파일을 회수 하지 못했습니다. | 이 문제를 해결 하려면 [저장소 계정에 대 한 액세스 권한이 Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac)있는지 확인 하세요. |
+| 0x80c86030 | -2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | Azure 파일 공유에 액세스할 수 없으므로 파일을 회수 하지 못했습니다. | 파일 공유가 있고 액세스할 수 있는지 확인 하십시오. 파일 공유를 삭제 하 고 다시 만든 경우 동기화 그룹을 삭제 하 고 다시 만들기 위해 [Azure 파일 공유가 삭제 되 고 다시 생성 되었으므로 동기화 실패](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134375810) 에 설명 된 단계를 수행 합니다. |
+| 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | Insuffcient 시스템 리소스 때문에 파일을 회수 하지 못했습니다. | 오류가 계속 발생 하면 시스템 리소스를 소모 하는 응용 프로그램 또는 커널 모드 드라이버를 조사 하십시오. |
+| 0x8007000e | -2147024882 | ERROR_OUTOFMEMORY | Insuffcient 메모리로 인해 파일을 회수 하지 못했습니다. | 오류가 계속 발생 하면 메모리 부족 상태를 발생 시키는 응용 프로그램 또는 커널 모드 드라이버를 조사 하십시오. |
+| 0x80070070 | -2147024784 | ERROR_DISK_FULL | 디스크 공간이 부족 하 여 파일을 회수 하지 못했습니다. | 이 문제를 해결 하려면 파일을 다른 볼륨으로 이동 하 여 볼륨의 공간을 확보 하거나, 볼륨의 크기를 늘리거나, 호출-StorageSyncCloudTiering cmdlet을 사용 하 여 파일을 계층으로 강제 합니다. |
 
 ### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>서버 끝점을 삭제 한 후 서버에서 계층화 된 파일에 액세스할 수 없음
 서버 끝점을 삭제 하기 전에 파일을 회수 하지 않으면 서버의 계층화 된 파일에 액세스할 수 없게 됩니다.

@@ -3,15 +3,15 @@ title: 대규모 데이터 세트로 작업
 description: Azure Resource Graph를 사용하는 동안 큰 데이터 세트를 가져오고 제어하는 방법을 파악합니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/01/2019
+ms.date: 10/10/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 4da890a5ef7acb44d0e8628dc4ec3904f6a065e4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 0ecd0ea997520947b766912f834de2a0c2e64429
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980283"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274243"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>큰 Azure 리소스 데이터 세트 작업
 
@@ -68,7 +68,7 @@ Search-AzGraph -Query "project name | order by name asc" -Skip 10
 
 **resultTruncated**가 **true**이면 **$skipToken** 속성이 응답에 설정됩니다. 이 값은 동일한 쿼리 및 구독 값과 함께 사용되어 쿼리와 일치하는 다음 레코드 집합을 가져옵니다.
 
-다음 예에서는 첫 번째 3000 레코드를 **건너뛰고** Azure CLI를 사용 하 여 건너뛴 후 Azure PowerShell **첫 번째** 1000 레코드를 반환 하는 방법을 보여 줍니다.
+다음 예에서는 첫 번째 3000 레코드를 **건너뛰고** Azure CLI와 Azure PowerShell 건너뛴 후 **첫 번째** 1000 레코드를 반환 하는 방법을 보여 줍니다.
 
 ```azurecli-interactive
 az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
@@ -82,6 +82,90 @@ Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 300
 > 페이지 매김이 작동하려면 쿼리가 **ID** 필드를 **project**해야 합니다. 쿼리에서 누락 된 경우 응답에 **$skipToken**포함 되지 않습니다.
 
 예제는 REST API 문서에서 [다음 페이지 쿼리](/rest/api/azureresourcegraph/resources/resources#next-page-query)를 참조하세요.
+
+## <a name="formatting-results"></a>결과 서식 지정
+
+리소스 그래프 쿼리의 결과는 _테이블_ 및 _ObjectArray_의 두 가지 형식으로 제공 됩니다. 형식은 요청 옵션의 일부로 **resultformat** 매개 변수를 사용 하 여 구성 됩니다. _테이블_ 형식은 **resultformat**의 기본값입니다.
+
+Azure CLI의 결과는 기본적으로 JSON으로 제공 됩니다. Azure PowerShell 결과는 기본적으로 **PSCustomObject** cmdlet을 사용 @no__t 하 여 JSON으로 신속 하 게 변환할 수 있습니다. 다른 Sdk의 경우 쿼리 결과를 _ObjectArray_ 형식으로 출력 하도록 구성할 수 있습니다.
+
+### <a name="format---table"></a>서식 테이블
+
+기본 형식인 _Table_은 쿼리에서 반환 된 속성의 열 디자인과 행 값을 강조 표시 하도록 디자인 된 JSON 형식으로 결과를 반환 합니다. 이 형식은 먼저 식별 된 열을 포함 하는 구조화 된 테이블이 나 스프레드시트에 정의 된 데이터와 비슷하며, 각 행에 정렬 된 데이터를 나타냅니다.
+
+다음은 _테이블_ 서식을 사용 하는 쿼리 결과의 샘플입니다.
+
+```json
+{
+    "totalRecords": 47,
+    "count": 1,
+    "data": {
+        "columns": [{
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "name": "type",
+                "type": "string"
+            },
+            {
+                "name": "location",
+                "type": "string"
+            },
+            {
+                "name": "subscriptionId",
+                "type": "string"
+            }
+        ],
+        "rows": [
+            [
+                "veryscaryvm2-nsg",
+                "microsoft.network/networksecuritygroups",
+                "eastus",
+                "11111111-1111-1111-1111-111111111111"
+            ]
+        ]
+    },
+    "facets": [],
+    "resultTruncated": "true"
+}
+```
+
+### <a name="format---objectarray"></a>ObjectArray
+
+_ObjectArray_ 형식은 또한 JSON 형식으로 결과를 반환 합니다. 그러나이 디자인은 배열 그룹에서 열과 행 데이터가 일치 하는 JSON에서 공통 된 키/값 쌍 관계에 맞춰집니다.
+
+다음은 _ObjectArray_ 서식 지정을 사용 하는 쿼리 결과의 샘플입니다.
+
+```json
+{
+    "totalRecords": 47,
+    "count": 1,
+    "data": [{
+        "name": "veryscaryvm2-nsg",
+        "type": "microsoft.network/networksecuritygroups",
+        "location": "eastus",
+        "subscriptionId": "11111111-1111-1111-1111-111111111111"
+    }],
+    "facets": [],
+    "resultTruncated": "true"
+}
+```
+
+_ObjectArray_ 형식을 사용 하도록 **resultformat** 을 설정 하는 몇 가지 예는 다음과 같습니다.
+
+```csharp
+var requestOptions = new QueryRequestOptions( resultFormat: ResultFormat.ObjectArray);
+var request = new QueryRequest(subscriptions, "limit 1", options: requestOptions);
+```
+
+```python
+request_options = QueryRequestOptions(
+    result_format=ResultFormat.object_array
+)
+request = QueryRequest(query="limit 1", subscriptions=subs_list, options=request_options)
+response = client.resources(request)
+```
 
 ## <a name="next-steps"></a>다음 단계
 

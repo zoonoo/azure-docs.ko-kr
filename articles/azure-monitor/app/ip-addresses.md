@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: mbullwin
-ms.openlocfilehash: 76de724ba5f966d2b2630d0a0570966bb72c3bad
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 36ae2624c8c2e66372b39f001af3e99db58b41d1
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243258"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264224"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에서 사용되는 IP 주소
 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
@@ -43,7 +43,7 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 | 라이브 메트릭 스트림 (유럽 북부) |eun.rt.prod.applicationinsights.trafficmanager.net |40.115.103.168<br/>40.115.104.31<br/>40.87.140.215<br/>40.87.138.220 |443 |
 | 라이브 메트릭 스트림 (유럽 서부) |euw.rt.prod.applicationinsights.trafficmanager.net |13.80.134.255<br/>40.68.61.229<br/>23.101.69.223<br/>52.232.106.242 |443 |
 | 라이브 메트릭 스트림 (동아시아) |ase.rt.prod.applicationinsights.trafficmanager.net |23.100.90.7<br/>23.101.13.65<br/>23.101.0.142<br/>23.101.9.4 |443 |
-| 라이브 메트릭 스트림 (동남 아시아) |asse.rt.prod.applicationinsights.trafficmanager.net |207.46.224.101<br/>207.46.236.191<br/>137.116.151.139<br/>23.101.9.4 |443 |
+| 라이브 메트릭 스트림 (동남 아시아) |asse.rt.prod.applicationinsights.trafficmanager.net |207.46.224.101<br/>207.46.236.191<br/>137.116.151.139<br/>13.76.87.86 |443 |
 
 ## <a name="status-monitor"></a>상태 모니터
 상태 모니터 구성 - 변경하는 경우에만 필요합니다.

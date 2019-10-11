@@ -1,6 +1,6 @@
 ---
-title: Azure Databricks notebook에서 가상 네트워크의 SQL Server Linux Docker 컨테이너 쿼리
-description: 이 문서에서는 가상 네트워크에 VNet 주입 라고도 Azure Databricks를 배포 하는 방법을 설명 합니다.
+title: Azure Databricks를 사용 하 여 SQL Server Linux Docker 컨테이너 쿼리
+description: 이 문서에서는 가상 네트워크에 VNet 삽입이라고 하는 Azure Databricks를 배포하는 방법을 설명합니다.
 services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 345e07fac30f4ad0c8e9918cb8a1ff0fb8aeb811
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 773ffe264446e6a4d9ef2e88634e4f2c9b8aeb45
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60770792"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72273987"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>자습서: Azure Databricks notebook에서 가상 네트워크의 SQL Server Linux Docker 컨테이너 쿼리
 
@@ -22,13 +22,13 @@ ms.locfileid: "60770792"
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 가상 네트워크에 Azure Databricks 작업 영역을 배포 합니다.
+> * 가상 네트워크에 Azure Databricks 작업 영역 배포
 > * 공용 네트워크에 Linux 가상 머신 설치
 > * Docker 설치
-> * Linux docker 컨테이너에 Microsoft SQL Server 설치
+> * Docker 컨테이너 Microsoft SQL Server on Linux 설치
 > * JDBC를 사용하여 Databricks notebook에서 SQL Server 쿼리
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [가상 네트워크에서 Databricks 작업 영역](quickstart-create-databricks-workspace-vnet-injection.md)을 생성합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "60770792"
 
 1. Azure portal에서 **가상 머신** 아이콘을 선택합니다. 그런 다음 **+ 추가**를 선택합니다.
 
-    ![새 Azure 가상 컴퓨터를 추가 합니다.](./media/vnet-injection-sql-server/add-virtual-machine.png)
+    ![새 Azure 가상 컴퓨터 추가](./media/vnet-injection-sql-server/add-virtual-machine.png)
 
 2. **기본 사항** 탭에서, Ubuntu Server 16.04 LTS를 선택합니다. VM 크기를 하나의 VCPU와 2GB RAM을 가진 B1ms으로 변경합니다. SQL Server Linux Docker 컨테이너에 대한 최소 요구 사항은 2GB입니다. 관리자의 사용자 이름 및 암호를 선택합니다.
 
@@ -62,32 +62,32 @@ ms.locfileid: "60770792"
 
 7. SSH에 대한 포트 22를 여는 규칙을 추가합니다. 다음 설정을 사용합니다.
     
-    |설정|제안 값|설명|
+    |설정|제안된 값|설명|
     |-------|---------------|-----------|
-    |source|IP 주소|IP 주소는 특정 원본 IP 주소에서 들어오는 트래픽이 이 규칙에 따라 허용 또는 거부됨을 지정 합니다.|
-    |원본 IP 주소|<your public ip\>|입력된 공용 IP 주소입니다. [bing.com](https://www.bing.com/)을 방문하여 **"내 IP"** 를 검색하여 공용 IP 주소를 찾을 수 있습니다.|
-    |원본 포트 범위|*|모든 포트에서 트래픽을 허용 합니다.|
-    |대상|IP 주소|IP 주소는 특정 원본 IP 주소에서 나가는 트래픽이 규칙에 따라 허용 또는 거부됨을 지정 합니다.|
-    |대상 IP 주소|<your vm public ip\>|가상 머신의 공용 IP 주소를 입력합니다. 가상 머신의 **개요** 페이지에서 찾을 수 있습니다.|
+    |원본|IP 주소|IP 주소는 특정 원본 IP 주소에서 들어오는 트래픽이 이 규칙에 따라 허용 또는 거부됨을 지정 합니다.|
+    |원본 IP 주소|< 공용 ip @ no__t-0|입력된 공용 IP 주소입니다. [bing.com](https://www.bing.com/)을 방문하여 **"내 IP"** 를 검색하여 공용 IP 주소를 찾을 수 있습니다.|
+    |Source port ranges|*|모든 포트에서 트래픽을 허용 합니다.|
+    |Destination|IP 주소|IP 주소는 특정 원본 IP 주소에서 나가는 트래픽이 규칙에 따라 허용 또는 거부됨을 지정 합니다.|
+    |대상 IP 주소|< vm 공용 ip @ no__t-0|가상 머신의 공용 IP 주소를 입력합니다. 가상 머신의 **개요** 페이지에서 찾을 수 있습니다.|
     |대상 포트 범위|22|SSH에 대한 포트 22를 엽니다.|
-    |우선 순위|290|규칙 우선 순위를 지정 합니다.|
-    |이름|ssh-databricks-tutorial-vm|규칙 이름을 지정 합니다.|
+    |우선 순위|290|규칙에 우선 순위를 지정 합니다.|
+    |이름|ssh-databricks-tutorial-vm|규칙에 이름을 지정 합니다.|
 
 
     ![포트 22에 인바운드 보안 규칙 추가](./media/vnet-injection-sql-server/open-port.png)
 
 8. 다음 설정을 사용하여 SQL에 대한 1433 포트를 여는 규칙을 추가합니다.
 
-    |설정|제안 값|설명|
+    |설정|제안된 값|설명|
     |-------|---------------|-----------|
-    |source|IP 주소|IP 주소는 특정 원본 IP 주소에서 들어오는 트래픽이 이 규칙에 따라 허용 또는 거부됨을 지정 합니다.|
+    |원본|IP 주소|IP 주소는 특정 원본 IP 주소에서 들어오는 트래픽이 이 규칙에 따라 허용 또는 거부됨을 지정 합니다.|
     |원본 IP 주소|10.179.0.0/16|가상 네트워크의 주소 범위를 입력 합니다.|
-    |원본 포트 범위|*|모든 포트에서 트래픽을 허용 합니다.|
-    |대상|IP 주소|IP 주소는 특정 원본 IP 주소에서 나가는 트래픽이 규칙에 따라 허용 또는 거부됨을 지정 합니다.|
-    |대상 IP 주소|<your vm public ip\>|가상 머신의 공용 IP 주소를 입력합니다. 가상 머신의 **개요** 페이지에서 찾을 수 있습니다.|
+    |Source port ranges|*|모든 포트에서 트래픽을 허용 합니다.|
+    |Destination|IP 주소|IP 주소는 특정 원본 IP 주소에서 나가는 트래픽이 규칙에 따라 허용 또는 거부됨을 지정 합니다.|
+    |대상 IP 주소|< vm 공용 ip @ no__t-0|가상 머신의 공용 IP 주소를 입력합니다. 가상 머신의 **개요** 페이지에서 찾을 수 있습니다.|
     |대상 포트 범위|1433|SQL Server에 대한 포트 1433을 엽니다.|
-    |우선 순위|300|규칙 우선 순위를 지정 합니다.|
-    |이름|sql-databricks-tutorial-vm|규칙 이름을 지정 합니다.|
+    |우선 순위|300|규칙에 우선 순위를 지정 합니다.|
+    |이름|sql-databricks-tutorial-vm|규칙에 이름을 지정 합니다.|
 
     ![포트 1433에 대 한 인바운드 보안 규칙 추가](./media/vnet-injection-sql-server/open-port2.png)
 
@@ -99,7 +99,7 @@ ms.locfileid: "60770792"
 
 2. Ubuntu 터미널에서 명령을 입력하고 가상 머신을 구성할 때 만든 관리자 암호를 입력합니다.
 
-    ![Ubuntu에서 터미널 SSH 로그인](./media/vnet-injection-sql-server/vm-login-terminal.png)
+    ![Ubuntu 터미널 SSH 로그인](./media/vnet-injection-sql-server/vm-login-terminal.png)
 
 3. 다음 명령을 사용하여 가상 머신에 Docker를 설치합니다.
 
@@ -131,7 +131,7 @@ ms.locfileid: "60770792"
     sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Password1234' -p 1433:1433 --name sql1  -d mcr.microsoft.com/mssql/server:2017-latest
     ```
 
-    컨테이너가 실행되고 있는지 확인합니다.
+    컨테이너가 실행 중인지 확인 합니다.
 
     ```bash
     sudo docker ps -a
@@ -157,13 +157,13 @@ ms.locfileid: "60770792"
     GO
     ```
 
-    ![SQL Server 데이터베이스를 만들려면 쿼리](./media/vnet-injection-sql-server/create-database.png)
+    ![SQL Server 데이터베이스를 만드는 쿼리](./media/vnet-injection-sql-server/create-database.png)
 
 ## <a name="query-sql-server-from-azure-databricks"></a>Azure Databricks에서 SQL Server 쿼리
 
 1. Azure Databricks 작업 영역으로 이동한 다음 필수 구성 요소의 일부로 클러스터가 만들어졌는지 확인합니다. 그런 다음 **Notebook 만들기**를 선택합니다. 노트북에 이름을 입력하고 *Python* 언어와 사용자가 만든 클러스터를 선택합니다.
 
-    ![새 Databricks notebook 설정](./media/vnet-injection-sql-server/create-notebook.png)
+    ![새 Databricks 노트북 설정](./media/vnet-injection-sql-server/create-notebook.png)
 
 2. 다음 명령을 사용하여 SQL Server 가상 머신의 내부 IP 주소를 ping합니다. 이 ping은 성공해야 합니다. 그렇지 않은 경우 컨테이너가 실행 중인지 확인하고 네트워크 보안 그룹(NSG) 구성을 검토합니다.
 

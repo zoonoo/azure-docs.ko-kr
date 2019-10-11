@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: e1eb0d7450e1a7f263f29b8d4657547dd85d4276
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: ed0594373c8702ab01b50facaf0ef5ece2d6c7e1
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883287"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274262"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기를 사용하여 이벤트 셰이핑
 
@@ -108,7 +108,7 @@ Time Series Insights 미리 보기로 이벤트를 보내는 방법에 대해 �
   },
 ```
 
-Time Series Instance 미리 보기에서는 쿼리 시간 중에 테이블을 조인합니다(평면화 후). 테이블에는 **유형** 등의 추가 열이 포함됩니다. 다음 예제에서는 원격 분석 데이터의 [모양을](./time-series-insights-send-events.md#json) 지정할 수 있는 방법을 보여 줍니다.
+Time Series Instance 미리 보기에서는 쿼리 시간 중에 테이블을 조인합니다(평면화 후). 테이블에는 **유형** 등의 추가 열이 포함됩니다. 다음 예제에서는 원격 분석 데이터의 [모양을](./time-series-insights-send-events.md#supported-json-shapes) 지정할 수 있는 방법을 보여 줍니다.
 
 | deviceId  | 형식 | L1 | L2 | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -130,4 +130,4 @@ Time Series Instance 미리 보기에서는 쿼리 시간 중에 테이블을 �
 ## <a name="next-steps"></a>다음 단계
 
 - 이러한 지침을 실행하려면 [Azure Time Series Insights 미리 보기 쿼리 구문](./time-series-insights-query-data-csharp.md)을 참조하세요. Time Series Insights 미리 보기 데이터 액세스 REST API의 쿼리 구문에 대해 자세히 알아봅니다.
-- 지원되는 JSON 셰이프에 대한 자세한 내용은 [지원되는 JSON 셰이프](./time-series-insights-send-events.md#json)를 참조하세요.
+- 지원되는 JSON 셰이프에 대한 자세한 내용은 [지원되는 JSON 셰이프](./time-series-insights-send-events.md#supported-json-shapes)를 참조하세요.

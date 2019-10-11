@@ -98,7 +98,7 @@
             - name: Azure Container Instances에서 인증
               href: container-registry-auth-aci.md
             - name: AKS(Azure Kubernetes Service)에서 인증
-              href: container-registry-auth-aks.md
+              href: ../aks/cluster-container-registry-integration.md
         - name: 역할 및 권한
           href: container-registry-roles.md
         - name: 콘텐츠 신뢰

@@ -215,8 +215,6 @@
               href: azure-ad-integration.md
         - name: Azure AD 통합에 Kubernetes RBAC 사용
           href: azure-ad-rbac.md
-        - name: ACR로 인증
-          href: ../container-registry/container-registry-auth-aks.md
           maintainContext: true
     - name: 모니터링 및 로깅
       items:

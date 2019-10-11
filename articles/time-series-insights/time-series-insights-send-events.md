@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 84eb0e230875b999218b67d47a66a3c92b494253
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: accf3adea08e713a7a2f06bb175c759ae66a72c0
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072771"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274597"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>이벤트 허브를 사용하여 Time Series Insights 환경으로 이벤트 보내기
 
@@ -30,14 +30,14 @@ ms.locfileid: "70072771"
 1. 이벤트 허브를 선택합니다.
 1. 이벤트 허브를 만들 때 event hubs 네임 스페이스를 만듭니다. 네임 스페이스 내에서 이벤트 허브를 아직 만들지 않은 경우 메뉴의 **엔터티**아래에서 이벤트 허브를 만듭니다.  
 
-    [![Event hubs 목록](media/send-events/updated.png)](media/send-events/updated.png#lightbox)
+    [![List hubs 목록](media/send-events/1-event-hub-namespace.png)](media/send-events/1-event-hub-namespace.png#lightbox)
 
 1. 이벤트 허브를 만든 후 이벤트 허브의 목록에서 선택합니다.
 1. 메뉴의 **엔터티**아래에서 **Event Hubs**를 선택 합니다.
 1. 구성할 이벤트 허브의 이름을 선택합니다.
 1. **개요**아래에서 **소비자 그룹**을 선택 하 고 **소비자 그룹**을 선택 합니다.
 
-    [![소비자 그룹 만들기](media/send-events/consumer-group.png)](media/send-events/consumer-group.png#lightbox)
+    [![ 소비자 그룹 만들기](media/send-events/2-consumer-group.png)](media/send-events/2-consumer-group.png#lightbox)
 
 1. Time Series Insights 이벤트 원본에 의해 독점적으로 사용 되는 소비자 그룹을 만들어야 합니다.
 
@@ -46,17 +46,17 @@ ms.locfileid: "70072771"
 
 1. 메뉴의 **설정**에서 **공유 액세스 정책**을 선택 하 고 **추가**를 선택 합니다.
 
-    [![공유 액세스 정책을 선택 하 고 추가 단추를 선택 합니다.](media/send-events/shared-access-policy.png)](media/send-events/shared-access-policy.png#lightbox)
+    [@no__t 공유 액세스 정책을 선택 하 고 추가 단추를 선택 합니다.](media/send-events/3-shared-access-policy.png)](media/send-events/3-shared-access-policy.png#lightbox)
 
 1. **새 공유 액세스 정책 추가** 창에서 **MySendPolicy**라는 공유 액세스를 만듭니다. 이 공유 액세스 정책을 사용 하 여이 문서의 뒷부분에 C# 나오는 예제에서 이벤트를 전송 합니다.
 
-    [![정책 이름 상자에 MySendPolicy을 입력 합니다.](media/send-events/shared-access-policy-2.png)](media/send-events/shared-access-policy-2.png#lightbox)
+    [정책 이름 상자를 @no__t 1In MySendPolicy을 입력 합니다.](media/send-events/4-shared-access-policy-confirm.png)](media/send-events/4-shared-access-policy-confirm.png#lightbox)
 
 1. **클레임**에서 **송신** 확인란을 선택 합니다.
 
 ## <a name="add-a-time-series-insights-instance"></a>Time Series Insights 인스턴스 추가
 
-Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 원격 분석 데이터에 상황별 데이터를 추가합니다. 데이터는 **시계열 ID**를 사용하여 쿼리 시에 조인됩니다. 이 문서의 `id`뒷부분에서 사용 하는 샘플 Windmills 프로젝트의 **시계열 ID** 는입니다. Time Series Insight 인스턴스 및 **시계열 ID**에 대해 자세히 알아보려면 [시계열 모델](./time-series-insights-update-tsm.md)을 참조하세요.
+Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 원격 분석 데이터에 상황별 데이터를 추가합니다. 데이터는 **시계열 ID**를 사용하여 쿼리 시에 조인됩니다. 이 문서의 뒷부분에서 사용 하는 샘플 windmills 프로젝트의 **시계열 ID** @no__t는-1입니다. Time Series Insight 인스턴스 및 **시계열 ID**에 대해 자세히 알아보려면 [시계열 모델](./time-series-insights-update-tsm.md)을 참조하세요.
 
 ### <a name="create-a-time-series-insights-event-source"></a>Time Series Insights 이벤트 원본 만들기
 
@@ -64,28 +64,28 @@ Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 �
 
 1. `timeSeriesId`에 대한 값을 설정합니다. **시계열 ID**에 대해 자세히 알아보려면 [시계열 모델](./time-series-insights-update-tsm.md)을 참조하세요.
 
-### <a name="push-events"></a>이벤트 푸시(가상 샘플)
+### <a name="push-events-to-windmills-sample"></a>Windmills 샘플로 이벤트 푸시
 
 1. 검색 창에서 **Event Hubs**를 검색합니다. 반환된 목록에서 **Event Hubs**를 선택합니다.
 
 1. 이벤트 허브 인스턴스를 선택 합니다.
 
-1. **공유 액세스 정책** > **MySendPolicy**으로 이동 합니다. **연결 문자열-기본 키**의 값을 복사 합니다.
+1. **공유 액세스 정책** > **MySendPolicy**로 이동 합니다. **연결 문자열-기본 키**의 값을 복사 합니다.
 
-    [![기본 키 연결 문자열의 값을 복사 합니다.](media/send-events/sample-code-connection-string.png)](media/send-events/sample-code-connection-string.png#lightbox)
+    [![ 기본 키 연결 문자열의 값을 복사 합니다.](media/send-events/5-sample-code-connection-string.png)](media/send-events/5-sample-code-connection-string.png#lightbox)
 
-1. [https://partnercenter.microsoft.com/partner/support](https://tsiclientsample.azurewebsites.net/windFarmGen.html )로 이동하세요. URL은 시뮬레이션된 가상 디바이스를 실행합니다.
-1. 웹 페이지의 **이벤트 허브 연결 문자열** 상자에 [이벤트 푸시](#push-events)에서 복사한 연결 문자열을 붙여넣습니다.
+1. 로 이동하세요. https://tsiclientsample.azurewebsites.net/windFarmGen.html URL은 시뮬레이션된 가상 디바이스를 실행합니다.
+1. 웹 페이지의 **이벤트 허브 연결 문자열** 상자에, [풍차 입력 필드](#push-events-to-windmills-sample)에 복사한 연결 문자열을 붙여넣습니다.
   
-    [![기본 키 연결 문자열을 이벤트 허브 연결 문자열 상자에 붙여 넣습니다.](media/send-events/updated_two.png)](media/send-events/updated_two.png#lightbox)
+    [![ 기본 키 연결 문자열을 이벤트 허브 연결 문자열 상자에 붙여 넣습니다.](media/send-events/6-wind-mill-sim.png)](media/send-events/6-wind-mill-sim.png#lightbox)
 
 1. **시작하려면 클릭**을 선택합니다. 시뮬레이터는 직접 사용할 수 있는 인스턴스 JSON을 생성합니다.
 
 1. Azure Portal에서 이벤트 허브로 돌아갑니다. **개요** 페이지에 이벤트 허브에서 받은 새 이벤트가 표시 됩니다.
 
-    [![이벤트 허브에 대 한 메트릭을 표시 하는 이벤트 허브 개요 페이지](media/send-events/telemetry.png)](media/send-events/telemetry.png#lightbox)
+    [![ 이벤트 허브에 대 한 메트릭을 표시 하는 이벤트 허브 개요 페이지](media/send-events/7-telemetry.png)](media/send-events/7-telemetry.png#lightbox)
 
-## <a name="json"></a>지원 되는 JSON 셰이프
+## <a name="supported-json-shapes"></a>지원되는 JSON 셰이프
 
 ### <a name="example-one"></a>예 1
 
@@ -150,7 +150,7 @@ Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 �
 
 * **출력**: 두 이벤트. **location** 속성은 각 이벤트로 복사됩니다.
 
-    |위치|events.id|events.timestamp|
+    |location|events.id|events.timestamp|
     |--------|---------------|----------------------|
     |WestUs|device1|2016-01-08T01:08:00Z|
     |WestUs|device2|2016-01-08T01:17:00Z|
@@ -191,7 +191,7 @@ Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 �
 
 * **출력**: 두 이벤트.
 
-    |위치|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.type|events.data.type|
+    |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.type|events.data.type|
     |---|---|---|---|---|---|---|---|
     |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
     |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
@@ -199,3 +199,5 @@ Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 �
 ## <a name="next-steps"></a>다음 단계
 
 - Time Series Insights 탐색기에서 [환경을 확인](https://insights.timeseries.azure.com) 합니다.
+
+- [IoT Hub 장치 메시지](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) 에 대 한 자세한 정보

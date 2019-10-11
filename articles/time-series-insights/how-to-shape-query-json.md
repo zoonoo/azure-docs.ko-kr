@@ -6,15 +6,15 @@ author: ashannon7
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 08/09/2019
+ms.date: 10/09/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 48e09a64812f7552bd79c529138db693df283790
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 4916397d05ad9d5fcae7624bf558eb7dc5be940f
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947141"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274408"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>JSON 셰이프 쿼리 성능 최대화 
 
@@ -27,6 +27,7 @@ ms.locfileid: "68947141"
 > [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
 
 ## <a name="best-practices"></a>모범 사례
+
 Time Series Insights로 이벤트를 보내는 방법에 대해 생각해 보십시오. 즉, 항상 다음 작업을 수행 합니다.
 
 1. 네트워크를 통해 최대한 효율적으로 데이터를 보냅니다.
@@ -57,9 +58,10 @@ Time Series Insights로 이벤트를 보내는 방법에 대해 생각해 보십
 
 다음 예제에는 외부 배열에 공통 차원 값의 공유 섹션이 포함 된 단일 Azure IoT Hub 메시지가 있습니다. 외부 배열은 참조 데이터를 사용하여 메시지의 효율성을 높입니다. 참조 데이터는 모든 이벤트에 대해 변경 되지 않는 장치 메타 데이터를 포함 하지만 데이터 분석에 대 한 유용한 속성을 제공 합니다. 공통 차원 값을 일괄 처리 하 고 참조 데이터를 사용 하면 네트워크를 통해 전송 되는 바이트에 저장 되므로 메시지 효율성이 높아집니다.
 
-예제 JSON 페이로드:
+Azure cloud로 전송 될 때 JSON으로 serialize 되는 [IoT 장치 메시지 개체](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) 를 사용 하 여 Time Series Insights GA 환경으로 전송 되는 다음 json 페이로드를 살펴보겠습니다.
 
-```json
+
+```JSON
 [
     {
         "deviceId": "FXXX",
@@ -103,13 +105,12 @@ Time Series Insights로 이벤트를 보내는 방법에 대해 생각해 보십
    | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
    | FYYY | LINE\_DATA | US | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
 
-다음 두 테이블에 대 한 참고 사항:
-
-- **deviceId** 열은 다수의 다양한 디바이스에서 열 헤더로 사용합니다. DeviceId 값을 고유 속성 이름으로 설정 하면 총 장치 수가 595 (S1 환경) 또는 795 (S2 환경)에서 다른 5 개의 열로 제한 됩니다.
-- 필요 하지 않은 속성 (예: 제조업체 및 모델 정보)을 사용 하지 않습니다. 속성은 나중에 쿼리하지 않기 때문에 제거 하면 네트워크 및 저장소 효율성이 향상 됩니다.
-- 참조 데이터는 네트워크를 통해 전송된 바이트 수를 줄이는 데 사용됩니다. Key 속성 **deviceId**를 사용 하 여 두 특성 **MessageId** 및 **devicelocation** 을 조인 합니다. 이 데이터는 수신 시 원격 분석 데이터와 조인 된 다음 쿼리를 위해 Time Series Insights에 저장 됩니다.
-- Time Series Insights에서 지 원하는 최대 중첩 크기 인 두 개의 중첩 계층이 사용 됩니다. 여러 중첩된 배열을 방지해야 합니다.
-- 측정값은 몇 가지 측정값이 있으므로 동일한 개체 내에서 별도의 속성으로 전송 됩니다. 여기에서 **series.Flow Rate psi** 및 **series.Engine Oil Pressure ft3/s**는 고유한 열입니다.
+> [!NOTE]
+> - **deviceId** 열은 다수의 다양한 디바이스에서 열 헤더로 사용합니다. **DeviceId** 값을 고유 속성 이름으로 설정 하면 총 장치 수가 595 (S1 환경) 또는 795 (S2 환경)에서 다른 5 개의 열로 제한 됩니다.
+> - 불필요 한 속성 (예: 제조업체 및 모델 정보)은 사용 하지 않습니다. 속성은 나중에 쿼리하지 않기 때문에 제거 하면 네트워크 및 저장소 효율성이 향상 됩니다.
+> - 참조 데이터는 네트워크를 통해 전송된 바이트 수를 줄이는 데 사용됩니다. Key 속성 **deviceId**를 사용 하 여 두 특성 **MessageId** 및 **devicelocation** 을 조인 합니다. 이 데이터는 수신 시 원격 분석 데이터와 조인 된 다음 쿼리를 위해 Time Series Insights에 저장 됩니다.
+> - Time Series Insights에서 지 원하는 최대 중첩 크기 인 두 개의 중첩 계층이 사용 됩니다. 여러 중첩된 배열을 방지해야 합니다.
+> - 측정값은 몇 가지 측정값이 있으므로 동일한 개체 내에서 별도의 속성으로 전송 됩니다. 여기에서 **series.Flow Rate psi** 및 **series.Engine Oil Pressure ft3/s**는 고유한 열입니다.
 
 ## <a name="scenario-two-several-measures-exist"></a>시나리오 2: 여러 측정값이 존재 합니다.
 
@@ -118,7 +119,7 @@ Time Series Insights로 이벤트를 보내는 방법에 대해 생각해 보십
 
 예제 JSON 페이로드:
 
-```json
+```JSON
 [
     {
         "deviceId": "FXXX",
@@ -179,12 +180,11 @@ Time Series Insights로 이벤트를 보내는 방법에 대해 생각해 보십
    | FYYY | pumpRate | LINE\_DATA | US | 흐름 속도 | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
    | FYYY | oilPressure | LINE\_DATA | US | Engine Oil Pressure | psi | 2018-01-17T01:18:00Z | 22.2 |
 
-다음 두 테이블에 대 한 참고 사항:
-
-- **DeviceId** 및 **tagId** 열은 제에서 다양 한 장치 및 태그의 열 머리글로 사용 됩니다. 각각을 고유한 특성으로 사용 하 여 쿼리를 594 (S1 환경) 또는 794 (S2 환경)의 6 개 열이 있는 총 장치 수로 제한 합니다.
-- 첫 번째 예제에 명시 된 이유로 불필요 한 속성을 사용할 필요가 없습니다.
-- 참조 데이터는 **messageId** 및 **devicelocation**의 고유 쌍에 사용 되는 **deviceId**를 도입 하 여 네트워크를 통해 전송 되는 바이트 수를 줄이는 데 사용 됩니다. 복합 키 tagId는 **형식** 및 **단위의**고유 쌍에 사용 됩니다 **.** 복합 키를 사용 하면 **deviceId** 및 **tagId** 쌍을 사용 하 여 **messageId, devicelocation, type** 및 **unit**의 네 가지 값을 참조할 수 있습니다. 이 데이터는 수신 시 원격 분석 데이터와 조인 됩니다. 그런 다음 쿼리를 위해 Time Series Insights에 저장 됩니다.
-- 첫 번째 예제에 명시 된 이유로 두 개의 중첩 계층이 사용 됩니다.
+> [!NOTE]
+> - **DeviceId** 및 **tagId** 열은 제에서 다양 한 장치 및 태그의 열 머리글로 사용 됩니다. 각각을 고유한 특성으로 사용 하 여 쿼리를 594 (S1 환경) 또는 794 (S2 환경)의 6 개 열이 있는 총 장치 수로 제한 합니다.
+> - 첫 번째 예제에 명시 된 이유로 불필요 한 속성을 사용할 필요가 없습니다.
+> - 참조 데이터는 **messageId** 및 **devicelocation**의 고유 쌍에 사용 되는 **deviceId**를 도입 하 여 네트워크를 통해 전송 되는 바이트 수를 줄이는 데 사용 됩니다. 복합 키 tagId는 **형식** 및 **단위의**고유 쌍에 사용 됩니다 **.** 복합 키를 사용 하면 **deviceId** 및 **tagId** 쌍을 사용 하 여 **messageId, devicelocation, type** 및 **unit**의 네 가지 값을 참조할 수 있습니다. 이 데이터는 수신 시 원격 분석 데이터와 조인 됩니다. 그런 다음 쿼리를 위해 Time Series Insights에 저장 됩니다.
+> - 첫 번째 예제에 명시 된 이유로 두 개의 중첩 계층이 사용 됩니다.
 
 ### <a name="for-both-scenarios"></a>두 시나리오 모두의 경우
 
@@ -195,5 +195,8 @@ Time Series Insights로 이벤트를 보내는 방법에 대해 생각해 보십
 
 ## <a name="next-steps"></a>다음 단계
 
+- 자세한 내용은 [클라우드로 IoT Hub 장치 메시지 보내기를](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)참조 하세요.
+
 - Time Series Insights 데이터 액세스 REST API의 쿼리 구문에 대 한 자세한 내용은 [쿼리 구문 Azure Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) 를 참조 하세요.
+
 - [이벤트를 셰이핑 하는 방법을](./time-series-insights-send-events.md)알아봅니다.

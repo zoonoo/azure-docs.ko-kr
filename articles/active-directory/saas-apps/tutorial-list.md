@@ -1,6 +1,6 @@
 ---
-title: Azure AD에서 사용할 SaaS 앱 통합 자습서 | Microsoft Docs
-description: 다양한 타사 SaaS(Software as a Service) 애플리케이션에 대한 Azure Active Directory Single Sign-On 통합을 구성합니다.
+title: Azure AD에서 사용할 SaaS 앱 통합 자습서를 프로 비전 하는 SSO 및 SCIM Microsoft Docs
+description: 다양 한 타사 software as a service 응용 프로그램과 함께 SSO (Azure Active Directory Single Sign-On) 및 SCIM 프로 비전을 구성 합니다.
 services: active-directory
 documentationcenter: ''
 author: jeevansd
@@ -17,18 +17,18 @@ ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4594d54f245c8fb96e62d7f193816e1031138ec0
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 267efd103c3cfdca1aa6d3db10977bac9739f641
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026141"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274462"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>SaaS 애플리케이션과 Azure Active Directory를 통합하는 방법에 대한 자습서
 
 Azure Active Directory와 클라우드 지원 [SaaS(Software as a Service)](https://azure.microsoft.com/overview/what-is-saas/) 애플리케이션을 통합할 수 있도록 구성 과정을 안내하는 자습서 모음을 개발했습니다.
 
-Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)를 참조하세요.
+Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)를 참조하세요. 응용 프로그램 갤러리에 앱을 추가 하도록 요청 하려면 [여기](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) 를 클릭 하세요. 
 
 ## <a name="quick-links"></a>빠른 링크
 

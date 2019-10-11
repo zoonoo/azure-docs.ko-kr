@@ -9,22 +9,22 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: d3e22df76124185c1e23f04f59145e12a1fec023
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: b3aa6d06add1d80512eda0e62888b4a36760e98c
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164257"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274789"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Time Series Insights 리소스 만들기
 
-이 문서에서는 Azure Resource Manager 템플릿, PowerShell 및 Time Series Insights 리소스 공급자를 사용하여 Time Series Insights 리소스를 만들고 배포하는 방법을 설명합니다.
+이 문서에서는 [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/), PowerShell 및 Time Series Insights 리소스 공급자를 사용 하 여 Time Series Insights 리소스를 만들고 배포 하는 방법을 설명 합니다.
 
 Time Series Insights은 다음 리소스를 지원합니다.
 
-   | 리소스 | Description |
+   | 리소스 | 설명 |
    | --- | --- |
    | 환경 | Time Series Insights 환경은 이벤트 브로커에서 읽고, 저장 하 고, 쿼리에 사용할 수 있는 이벤트의 논리적 그룹입니다. 자세한 내용은 [Azure Time Series Insights 환경 계획](time-series-insights-environment-planning.md) 을 참조 하세요. |
    | 이벤트 원본 | 이벤트 원본은 Time Series Insights가 이벤트를 읽고 환경에 수집하는 이벤트 broker에 대한 연결입니다. 현재 지원되는 이벤트 원본은 IoT Hub 및 Event Hub입니다. |
@@ -47,7 +47,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
 1. [Azure PowerShell 시작하기](https://docs.microsoft.com/powershell/azure/get-started-azureps)의 지침을 따라서 Azure PowerShell을 설치합니다.
 
-1. GitHub에서 [201-timeseriesinsights-environment-with-eventhub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) 템플릿을 복제하거나 복사합니다.
+1. GitHub에서 [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) 템플릿을 복제하거나 복사합니다.
 
    * 매개 변수 파일 만들기
 
@@ -59,25 +59,25 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
    * 필수 매개 변수
 
-     | 매개 변수 | Description |
+     | 매개 변수 | 설명 |
      | --- | --- |
      | eventHubNamespaceName | 원본 Event Hub의 네임스페이스입니다. |
      | eventHubName | 원본 Event Hub의 이름입니다. |
      | consumerGroupName | Time Series Insights 서비스가 Event Hub에서 데이터를 읽는 데 사용하는 소비자 그룹의 이름입니다. **참고:** 리소스 경합을 방지하려면 이 소비자 그룹이 Time Series Insights 서비스 전용이어야 하고, 다른 판독기와 공유되지 않아야 합니다. |
-     | environmentName | 환경의 이름입니다. 이름에는 `<` `>` ,,`:`, ,,`&`,, 및 제어 문자를 포함할 수 없습니다. `\\` `%` `?` `/` 다른 문자를 모두 허용합니다.|
-     | eventSourceName | 이벤트 원본 자식 리소스의 이름입니다. 이름에는 `<` `>` ,,`:`, ,,`&`,, 및 제어 문자를 포함할 수 없습니다. `\\` `%` `?` `/` 다른 문자를 모두 허용합니다. |
+     | environmentName | 환경의 이름입니다. 이름에는 `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` 및 제어 문자를 포함할 수 없습니다. 다른 문자를 모두 허용합니다.|
+     | eventSourceName | 이벤트 원본 자식 리소스의 이름입니다. 이름에는 `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` 및 제어 문자를 포함할 수 없습니다. 다른 문자를 모두 허용합니다. |
 
     <div id="optional-parameters"></div>
 
    * 선택적 매개 변수
 
-     | 매개 변수 | Description |
+     | 매개 변수 | 설명 |
      | --- | --- |
      | existingEventHubResourceId | 이벤트 원본을 통해 Time Series Insights 환경에 연결될 기존 Event Hub의 선택적 리소스 ID입니다. **참고:** 템플릿을 배포하는 사용자는 Event Hub에서 listkey 작업을 수행할 권한이 있어야 합니다. 값이 전달되지 않으면 새 Event Hub가 템플릿에 의해 만들어집니다. |
      | environmentDisplayName | 환경 이름 대신 도구 또는 사용자 인터페이스에 표시할 선택적 이름입니다. |
      | environmentSkuName | SKU의 이름입니다. 자세한 내용은 [Time Series Insights 가격 책정 페이지](https://azure.microsoft.com/pricing/details/time-series-insights/)를 참조하세요.  |
      | environmentSkuCapacity | SKU의 단위 용량입니다. 자세한 내용은 [Time Series Insights 가격 책정 페이지](https://azure.microsoft.com/pricing/details/time-series-insights/)를 참조하세요.|
-     | environmentDataRetentionTime | 환경의 이벤트를 쿼리에 사용할 수 있는 최소 시간 간격입니다. 값은 ISO 8601 형식으로 지정 해야 합니다 (예: `P30D` 30 일의 보존 정책). |
+     | environmentDataRetentionTime | 환경의 이벤트를 쿼리에 사용할 수 있는 최소 시간 간격입니다. 값은 ISO 8601 형식으로 지정 해야 합니다 (예: 30 일의 보존 정책에 대 한 `P30D`). |
      | eventSourceDisplayName | 이벤트 원본 이름 대신 도구 또는 사용자 인터페이스에 표시할 선택적 이름입니다. |
      | eventSourceTimestampPropertyName | 이벤트 원본의 타임스탬프로 사용될 이벤트 속성입니다. timestampPropertyName에 대한 값을 지정하지 않은 경우 또는 null 또는 빈 문자열을 지정하는 경우 이벤트 생성 시간이 사용됩니다. |
      | eventSourceKeyName | Time Series Insights 서비스가 Event Hub에 연결하는 데 사용하는 공유 액세스 키의 이름입니다. |
@@ -148,7 +148,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
 1. 새 리소스 그룹이 아직 없으면 만듭니다.
 
-   * 기존 리소스 그룹이 없는 경우 **AzResourceGroup** 명령을 사용 하 여 새 리소스 그룹을 만듭니다. 사용할 리소스 그룹의 이름과 위치를 입력합니다. 예를 들어:
+   * 기존 리소스 그룹이 없는 경우 **AzResourceGroup** 명령을 사용 하 여 새 리소스 그룹을 만듭니다. 사용할 리소스 그룹의 이름과 위치를 입력합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"
@@ -208,7 +208,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
        DeploymentName          : MyDemoDeployment
        ResourceGroupName       : MyDemoRG
        ProvisioningState       : Succeeded
-       Timestamp               : 5/8/2019 10:28:34 PM
+       Timestamp               : 10/11/2019 3:20:37 AM
        Mode                    : Incremental
        TemplateLink            :
        Parameters              :

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 22f0ef7da9018da128e9a978cefa71eaa786829c
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 62af688c6090b61f2596ab376cb479c270b87759
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098920"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274122"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 상태 프로브
 
@@ -116,7 +116,7 @@ TCP 프로브가 실패하는 경우는 다음과 같습니다.
 
 HTTP 및 HTTPS 프로브는 TCP 프로브에서 구축되고, 지정된 경로가 포함된 HTTP GET을 실행합니다. 두 프로브 모두 HTTP GET에 대한 상대 경로를 지원합니다. HTTPS 프로브는 TLS(전송 계층 보안, SSL이라고도 함)가 추가되었다는 점을 제외하면 HTTP 프로브와 동일합니다. 인스턴스에서 제한 시간 내에 200 HTTP 상태로 응답하면 상태 프로브가 표시됩니다.  이 상태 프로브는 기본적으로 구성된 상태 프로브 포트를 15초마다 확인하려고 합니다. 최소 프로브 간격은 5초입니다. 모든 간격의 총 지속 시간은 120초를 초과할 수 없습니다.
 
-HTTP/HTTPS 프로브는 상태 프로브를 나타내려는 경우에도 유용할 수 있습니다.  프로브 포트가 서비스 자체의 수신기이기도 한 경우 부하 분산 장치 순환에서 인스턴스를 제거하는 고유한 논리를 구현하세요. 예를 들어 CPU 백분율이 90%를 초과하고 200 이외의 HTTP 상태를 반환하는 경우 인스턴스를 제거하도록 결정할 수 있습니다. 
+HTTP/HTTPS 프로브는 프로브 포트가 서비스 자체의 수신기 이기도 한 경우 부하 분산 장치 순환에서 인스턴스를 제거 하는 사용자 고유의 논리를 구현 하는 데 유용할 수도 있습니다. 예를 들어 CPU 백분율이 90%를 초과하고 200 이외의 HTTP 상태를 반환하는 경우 인스턴스를 제거하도록 결정할 수 있습니다. 
 
 Cloud Services를 사용하고 w3wp.exe를 사용하는 웹 역할이 있는 경우 웹 사이트의 자동 모니터링도 수행할 수 있습니다. 웹 사이트 코드에서 실패하면 부하 분산 장치 프로브로 200이 아닌 상태를 반환합니다.
 

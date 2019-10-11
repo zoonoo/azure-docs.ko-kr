@@ -8,20 +8,20 @@ editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/03/2019
+ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 311a9fc887db399cb16d6cbb2bcec665a7ddfce7
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 49bf7984efe74edd2a19909509e0c6b9564fc2e9
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240113"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274422"
 ---
-# <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>App Service 및 Azure Functions의 Key Vault 참조 사용(미리 보기)
+# <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대 한 Key Vault 참조를 사용 합니다.
 
 > [!NOTE] 
-> 현재 Key Vault 참조는 미리 보기 상태 이며, 현재 Linux 소비 계획에서 지원 되지 않습니다.
+> Key Vault 참조는 현재 Linux 소비 계획에서 사용할 수 없습니다.
 
 이 항목에서는 코드 변경 없이도 App Service 또는 Azure Functions 애플리케이션에서 Azure Key Vault의 비밀을 사용하는 방법을 보여 줍니다. [Azure Key Vault](../key-vault/key-vault-overview.md)는 액세스 정책 및 감사 기록에 대한 전체 제어와 함께 중앙 집중식 비밀 관리를 제공하는 서비스입니다.
 
@@ -52,7 +52,7 @@ Key Vault 참조는 `@Microsoft.KeyVault({referenceString})` 형식이며, 여�
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName**은 Key Vault 리소스의 이름이어야 합니다. **SecretName**은 대상 비밀의 이름이어야 합니다. **SecretVersion**은 사용할 비밀의 버전이어야 합니다. |
 
 > [!NOTE] 
-> 현재 미리 보기에서 버전은 필수입니다. 비밀을 회전할 때 애플리케이션 구성에서 버전을 업데이트해야 합니다.
+> 현재 버전이 필요 합니다. 비밀을 회전할 때 애플리케이션 구성에서 버전을 업데이트해야 합니다.
 
 예를 들어 전체 참조는 다음과 같습니다.
 
@@ -192,7 +192,9 @@ Azure Resource Manager 템플릿을 통해 리소스 배포를 자동화할 때 
 
 가장 일반적으로는 [Key Vault 액세스 정책의](#granting-your-app-access-to-key-vault)잘못 된 구성으로 인해 발생 합니다. 그러나 비밀이 더 이상 존재 하지 않거나 참조 자체의 구문 오류가 원인일 수도 있습니다.
 
-구문이 올바르면 기본 제공 탐지기를 사용 하 여 현재 해결 상태를 확인 하 여 오류에 대 한 다른 원인을 확인할 수 있습니다.
+구문이 올바르면 포털에서 현재 해결 상태를 확인 하 여 다른 오류의 원인을 확인할 수 있습니다. 응용 프로그램 설정으로 이동 하 여 문제의 참조에 대해 "편집"을 선택 합니다. 설정 구성 아래에서 오류를 비롯 한 상태 정보가 표시 됩니다. 이러한 이러한이 없으면 참조 구문이 잘못 되었음을 의미 합니다.
+
+기본 제공 감지기 중 하나를 사용 하 여 추가 정보를 얻을 수도 있습니다.
 
 ### <a name="using-the-detector-for-app-service"></a>App Service에 대 한 탐지기 사용
 

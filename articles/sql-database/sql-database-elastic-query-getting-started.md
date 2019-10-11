@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-ms.date: 12/18/2018
-ms.openlocfilehash: cc59d7cb1ce09aad834130818e5af533719e04c1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 10/10/2019
+ms.openlocfilehash: 4e896fae0d8459629c58dfd0bbdfbb32b90b1cac
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568615"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264241"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
 
@@ -26,14 +26,14 @@ ms.locfileid: "68568615"
 
 쿼리에 필요한 SQL 개체를 알아보려면 [수평 분할된 데이터베이스에 쿼리](sql-database-elastic-query-horizontal-partitioning.md)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [Elastic Database 도구 샘플 시작](sql-database-elastic-scale-get-started.md)을 다운로드하고 실행하세요.
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>샘플 응용 프로그램을 사용하여 분할된 데이터베이스 맵 관리자 만들기
 분할된 데이터베이스 안의 삽입된 데이터에 따라 여느 분할된 데이터 베이스와 마찬가지로 분할된 데이터 베이스 관리자를 만들수 있습니다. 이미 분할된 데이터가 설치되어 있는 분할된 데이터베이스가 있다면, 다음 단계들을 건너뛰고 다음 섹션으로 이동합니다.
 
-1. **Elastic Database 도구 애플리케이션**을 빌드하고 실행하세요. [샘플 앱 다운로드 및 실행](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app)섹션에서 7단계까지 수행합니다. 7단계를 끝내면 다음 명령 프롬프트를 볼 수 있습니다.
+1. [샘플 앱 다운로드 및 실행](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app-1)문서 섹션의 단계를 수행 하 여 **Elastic Database 도구 시작** 샘플 응용 프로그램을 빌드하고 실행 합니다. 모든 단계를 완료 하면 다음 명령 프롬프트가 표시 됩니다.
 
     ![명령 프롬프트][1]
 2. 명령 창에 "1"을 입력하고 **Enter**키를 누릅니다. 이 명령은 분할된 데이터베이스 관리자를 생성 및 두 분할된 데이터베이스를 추가합니다. 그런 다음 "3"을 입력하고 **Enter**키를 누릅니다: 작업을 4번 반복합니다. 이 명령은 분할된 데이터베이스에 샘플 데이터행을 삽입합니다.
@@ -62,13 +62,13 @@ ms.locfileid: "68568615"
 1. SQL Server Management Studio 또는 Visual Studio의 SQL Server Data Tools를 엽니다.
 2. ElasticDBQuery 데이터베이스에 연결한 다음 T-SQL 명령을 실행 합니다.
 
-        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
+        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<master_key_password>';
 
         CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
         WITH IDENTITY = '<username>',
         SECRET = '<password>';
 
-    "username" 및 "password"는 [탄력적 데이터베이스 도구 시작](sql-database-elastic-scale-get-started.md)의 [샘플 응용 프로그램 다운로드 및 실행](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app)의 6단계에서 사용한 로그인 정보와 같아야 합니다.
+    "username" 및 "password"는 **Elastic Database 도구 시작** 문서에서 [샘플 앱 다운로드 및 실행](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) 문서에서 사용 되는 로그인 정보와 동일 해야 합니다.
 
 ### <a name="external-data-sources"></a>외부 데이터 원본
 외부 데이터 소스를 만들려면 ElasticDBQuery 데이터베이스에서 다음 명령을 실행 합니다.
@@ -104,7 +104,7 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 
 모든 분할된 데이터베이스에서 쿼리를 집계한 결과 및 다음 출력이 지정됨을 알 수 있습니다.
 
-![출력 세부 사항][4]
+![출력 세부 정보][4]
 
 ## <a name="import-elastic-database-query-results-to-excel"></a>탄력적 데이터베이스 쿼리 결과를 Excel로 가져오기
  쿼리의 결과를 엑셀파일로 가져올 수 있습니다.

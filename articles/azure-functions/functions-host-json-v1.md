@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: b373afc9b5a60abee7a587fc405320fe3c583369
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 3d6a28c8cdcf13dc805d70832ed65732911138cd
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735147"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263356"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Azure Functions 1.x에 대한 host.json 참조
 
@@ -156,7 +156,7 @@ ms.locfileid: "70735147"
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="functions"></a>함수
+## <a name="functions"></a>functions
 
 작업 호스트가 실행하는 함수 목록입니다. 빈 배열은 모든 함수를 실행한다는 의미입니다. [로컬로 실행](functions-run-local.md)할 때만 사용할 수 있습니다. Azure의 함수 앱에서는 이 설정을 사용하는 대신 [Azure Functions에서 함수를 사용하지 않도록 설정하는 방법](disable-function.md)의 단계를 수행하여 특정 함수를 사용하지 않도록 설정해야 합니다.
 
@@ -203,6 +203,17 @@ ms.locfileid: "70735147"
 ## <a name="http"></a>http
 
 [http 트리거 및 바인딩](functions-bindings-http-webhook.md)에 대한 구성 설정입니다.
+
+```json
+{
+    "http": {
+        "routePrefix": "api",
+        "maxOutstandingRequests": 200,
+        "maxConcurrentRequests": 100,
+        "dynamicThrottlesEnabled": true
+    }
+}
+```
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
@@ -280,7 +291,7 @@ ms.locfileid: "70735147"
     }
 ```
 
-|속성  |Default | Description |
+|속성  |Default | 설명 |
 |---------|---------|---------| 
 |from|n/a|모든 함수에서 보낸 사람의 이메일 주소입니다.| 
 
@@ -345,7 +356,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 
 |속성  |Default | 설명 |
 |---------|---------|---------| 
-|consoleLevel|정보|콘솔 로깅의 추적 수준입니다. 옵션은 `off`, `error`, `warning`, `info` 및 `verbose`입니다.|
+|consoleLevel|info|콘솔 로깅의 추적 수준입니다. 옵션은 `off`, `error`, `warning`, `info` 및 `verbose`입니다.|
 |fileLoggingMode|debugOnly|파일 로깅에 대한 추적 수준입니다. 옵션은 `never`, `always`, `debugOnly`입니다.| 
 
 ## <a name="watchdirectories"></a>watchDirectories

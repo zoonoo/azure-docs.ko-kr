@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: b365c914db0ce43da5dac4c5b889c854c0ea0639
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: cbdf4f203204df2d26eb7c908167c1e1ca10d0ab
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827400"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264323"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대 한 질문과 대답
 
@@ -39,7 +39,7 @@ ms.locfileid: "71827400"
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Azure Container Registry를 사용 하 여 Kubernetes를 구성 어떻게 할까요??
 
-[Azure Kubernetes Service](container-registry-auth-aks.md)의 [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) 및 단계에 대 한 설명서를 참조 하세요.
+[Azure Kubernetes Service](../aks/cluster-container-registry-integration.md)의 [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) 및 단계에 대 한 설명서를 참조 하세요.
 
 ### <a name="how-do-i-get-admin-credentials-for-a-container-registry"></a>컨테이너 레지스트리에 대 한 관리자 자격 증명을 가져올 어떻게 할까요? 있나요?
 
@@ -111,7 +111,7 @@ az role assignment create --role "Reader" --assignee user@contoso.com --scope /s
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Docker 레지스트리 HTTP API v 2에 액세스 어떻게 할까요??
 
-ACR은 Docker 레지스트리 HTTP API v 2를 지원 합니다. Api는에서 `https://<your registry login server>/v2/`액세스할 수 있습니다. 예: `https://mycontainerregistry.azurecr.io/v2/`
+ACR은 Docker 레지스트리 HTTP API v 2를 지원 합니다. @No__t-0에서 Api에 액세스할 수 있습니다. 예: `https://mycontainerregistry.azurecr.io/v2/`
 
 ### <a name="how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository"></a>리포지토리의 태그에서 참조 하지 않는 모든 매니페스트를 삭제 어떻게 할까요?
 
@@ -127,7 +127,7 @@ Powershell의 경우:
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
-참고: 삭제 명령에 `-y` 를 추가 하 여 확인을 건너뛸 수 있습니다.
+참고: 삭제 명령에 `-y`을 추가 하 여 확인을 건너뛸 수 있습니다.
 
 자세한 내용은 [Azure Container Registry에서 컨테이너 이미지 삭제](container-registry-delete.md)를 참조 하세요.
 
@@ -172,7 +172,7 @@ Docker 소켓을 탑재 하 여 Azure CLI 컨테이너를 실행 해야 합니�
 docker run -it -v /var/run/docker.sock:/var/run/docker.sock azuresdk/azure-cli-python:dev
 ```
 
-컨테이너에서 다음을 설치 `docker`합니다.
+컨테이너에서 `docker`을 설치 합니다.
 
 ```bash
 apk --update add docker
@@ -195,25 +195,25 @@ az acr login -n MyRegistry
 
 ####  <a name="where-is-the-file-for-the-thumbprint-located"></a>지문 파일은 어디에 있나요?
 
-에서 `~/.docker/trust/tuf/myregistry.azurecr.io/myrepository/metadata`다음을 수행 합니다.
+@No__t에서-0:
 
-* 모든 역할 (위임 역할 제외)의 공개 키 및 인증서는에 저장 `root.json`됩니다.
-* 위임 역할의 공개 키 및 인증서는 해당 부모 역할의 JSON 파일에 저장 됩니다 (예: `targets.json` `targets/releases` 역할).
+* 모든 역할의 공개 키와 인증서 (위임 역할 제외)는 `root.json`에 저장 됩니다.
+* 위임 역할의 공개 키 및 인증서는 부모 역할의 JSON 파일에 저장 됩니다 (예: `targets/releases` 역할의 경우 `targets.json`).
 
 Docker 및 Notary 클라이언트에서 수행 하는 전체 전체를 확인 한 후 해당 공개 키와 인증서를 확인 하는 것이 좋습니다.
 
 ### <a name="how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource"></a>레지스트리 리소스를 관리할 수 있는 권한 없이 풀 또는 푸시 이미지에 대 한 액세스 권한을 부여 어떻게 할까요??
 
-ACR은 다양 한 수준의 사용 권한을 제공 하는 [사용자 지정 역할](container-registry-roles.md) 을 지원 합니다. 특히, `AcrPull` 및 `AcrPush` 역할을 통해 사용자는 Azure에서 레지스트리 리소스를 관리할 수 있는 권한 없이 이미지를 끌어오거나 푸시할 수 있습니다.
+ACR은 다양 한 수준의 사용 권한을 제공 하는 [사용자 지정 역할](container-registry-roles.md) 을 지원 합니다. 특히 `AcrPull` 및 `AcrPush` 역할을 통해 사용자는 Azure에서 레지스트리 리소스를 관리할 수 있는 권한 없이 이미지를 끌어오거나 푸시할 수 있습니다.
 
-* Azure Portal: 레지스트리 > Access Control (IAM)-> 추가 (역할 `AcrPull` `AcrPush` 에 대해 선택).
+* Azure Portal: 레지스트리 > Access Control (IAM)-> 추가 (역할에 대해 0 @no__t 또는 `AcrPush`을 선택 합니다.
 * Azure CLI: 다음 명령을 실행 하 여 레지스트리의 리소스 ID를 찾습니다.
 
   ```azurecli
   az acr show -n myRegistry
   ```
   
-  그런 다음 사용자에 게 `AcrPull` 또는 `AcrPush` 역할을 할당할 수 있습니다 (다음 예제에서는 `AcrPull`사용).
+  그런 다음 `AcrPull` 또는 `AcrPush` 역할을 사용자에 게 할당할 수 있습니다. 다음 예제에서는 `AcrPull`를 사용 합니다.
 
   ```azurecli
     az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
@@ -245,7 +245,7 @@ ACR은 다양 한 수준의 사용 권한을 제공 하는 [사용자 지정 역
   docker pull myregistry.azurecr.io/hello-world
   ```
 
-`AcrPull` 또는`AcrPush` 역할만 사용 하는 경우에는 담당자에 게 Azure에서 레지스트리 리소스를 관리할 수 있는 권한이 없습니다. 예를 `az acr list` 들어 또는 `az acr show -n myRegistry` 는 레지스트리를 표시 하지 않습니다.
+@No__t-0 또는 `AcrPush` 역할만 사용 하는 경우에는 담당자에 게 Azure에서 레지스트리 리소스를 관리할 수 있는 권한이 없습니다. 예를 들어 `az acr list` 또는 `az acr show -n myRegistry`은 레지스트리를 표시 하지 않습니다.
 
 ### <a name="how-do-i-enable-automatic-image-quarantine-for-a-registry"></a>레지스트리에 대해 자동 이미지 격리를 사용 하도록 설정 어떻게 할까요??
 
@@ -253,7 +253,7 @@ ACR은 다양 한 수준의 사용 권한을 제공 하는 [사용자 지정 역
 
 ## <a name="diagnostics-and-health-checks"></a>진단 및 상태 검사
 
-- [상태 확인`az acr check-health`](#check-health-with-az-acr-check-health)
+- [@No__t-1을 사용 하 여 상태 확인](#check-health-with-az-acr-check-health)
 - [다음 오류가 발생 하 여 docker pull 실패: net/http: 연결을 대기 하는 동안 요청이 취소 되었습니다. 헤더를 대기 하는 동안 시간이 초과 되었습니다.](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [docker push는 성공 하지만 오류가 발생 하 docker pull 실패 합니다. 권한이 없음: 인증 필요](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
 - [Docker 디먼의 디버그 로그를 사용 하도록 설정 하 고 가져옵니다.](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
@@ -263,15 +263,15 @@ ACR은 다양 한 수준의 사용 권한을 제공 하는 [사용자 지정 역
 - [Azure Portal에서 리포지토리 또는 태그를 가져오는 데 실패 하는 이유는 무엇 인가요?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [Windows에서 http 추적을 수집 어떻게 할까요?](#how-do-i-collect-http-traces-on-windows)
 
-### <a name="check-health-with-az-acr-check-health"></a>상태 확인`az acr check-health`
+### <a name="check-health-with-az-acr-check-health"></a>@No__t 상태 확인-0
 
 일반적인 환경 및 레지스트리 문제를 해결 하려면 [Azure container registry의 상태 확인](container-registry-check-health.md)을 참조 하세요.
 
 ### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>다음 오류가 발생 하 여 docker pull 실패: net/http: 연결을 대기 하는 동안 요청이 취소 되었습니다. 헤더를 대기 하는 동안 시간이 초과 되었습니다.
 
  - 이 오류가 일시적인 문제인 경우 다시 시도는 성공 합니다.
- - 가 `docker pull` 계속 실패 하면 Docker 디먼에 문제가 있을 수 있습니다. 일반적으로 Docker 디먼을 다시 시작 하 여 문제를 완화할 수 있습니다. 
- - Docker 디먼을 다시 시작한 후에도이 문제가 계속 되 면이 문제는 컴퓨터의 네트워크 연결에 문제가 있을 수 있습니다. 컴퓨터의 일반 네트워크가 정상 상태 인지 확인 하려면 다음 명령을 실행 하 여 끝점 연결을 테스트 합니다. 이 연결 `az acr` 확인 명령을 포함 하는 최소 버전은 2.2.9입니다. 이전 버전을 사용 하는 경우 Azure CLI를 업그레이드 합니다.
+ - @No__t-0이 계속 실패 하면 Docker 디먼에 문제가 있을 수 있습니다. 일반적으로 Docker 디먼을 다시 시작 하 여 문제를 완화할 수 있습니다. 
+ - Docker 디먼을 다시 시작한 후에도이 문제가 계속 되 면이 문제는 컴퓨터의 네트워크 연결에 문제가 있을 수 있습니다. 컴퓨터의 일반 네트워크가 정상 상태 인지 확인 하려면 다음 명령을 실행 하 여 끝점 연결을 테스트 합니다. 이 연결 확인 명령을 포함 하는 최소 `az acr` 버전은 2.2.9입니다. 이전 버전을 사용 하는 경우 Azure CLI를 업그레이드 합니다.
  
    ```azurecli
     az acr check-health -n myRegistry
@@ -286,7 +286,7 @@ ACR은 다양 한 수준의 사용 권한을 제공 하는 [사용자 지정 역
 
 ### <a name="docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required"></a>Docker push는 성공 하지만 오류가 발생 하 docker pull 실패 합니다. 권한이 없음: 인증 필요
 
-이 오류는 Docker 디먼의 Red Hat 버전에서 발생할 수 있습니다. 여기서 `--signature-verification` 은 기본적으로 사용 하도록 설정 되어 있습니다. 다음 명령을 실행 하 여 Red Hat Enterprise Linux (RHEL) 또는 Fedora에 대 한 Docker 디먼 옵션을 확인할 수 있습니다.
+이 오류는 Docker 디먼의 Red Hat 버전에서 발생할 수 있습니다. 여기서 `--signature-verification`은 기본적으로 사용 하도록 설정 되어 있습니다. 다음 명령을 실행 하 여 Red Hat Enterprise Linux (RHEL) 또는 Fedora에 대 한 Docker 디먼 옵션을 확인할 수 있습니다.
 
 ```bash
 grep OPTIONS /etc/sysconfig/docker
@@ -298,7 +298,7 @@ grep OPTIONS /etc/sysconfig/docker
 OPTIONS='--selinux-enabled --log-driver=journald --live-restore'
 ```
 
-누락 `--signature-verification=false` 된는 `docker pull` 다음과 비슷한 오류로 인해 실패 합니다.
+@No__t-0이 누락 되 면 `docker pull`이 실패 하 고 다음과 같은 오류가 발생 합니다.
 
 ```bash
 Trying to pull repository myregistry.azurecr.io/myimage ...
@@ -306,7 +306,7 @@ unauthorized: authentication required
 ```
 
 오류를 해결하려면:
-1. Docker 디먼 구성 `--signature-verification=false` 파일 `/etc/sysconfig/docker`에 옵션을 추가 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+1. @No__t-0 옵션을 Docker 디먼 구성 파일 `/etc/sysconfig/docker`에 추가 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
@@ -317,11 +317,11 @@ unauthorized: authentication required
   sudo systemctl restart docker.service
   ```
 
-를 실행 `--signature-verification` `man dockerd`하 여에 대 한 세부 정보를 찾을 수 있습니다.
+@No__t-0에 대 한 자세한 내용은 `man dockerd`을 실행 하 여 찾을 수 있습니다.
 
 ### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Docker 디먼의 디버그 로그를 사용 하도록 설정 하 고 가져옵니다.  
 
-옵션으로 시작 `dockerd`합니다. `debug` 먼저 Docker 디먼 구성 파일 (`/etc/docker/daemon.json`)이 없는 경우 만들고 `debug` 옵션을 추가 합니다.
+@No__t-1 옵션을 사용 하 여 `dockerd`을 시작 합니다. 먼저 Docker 디먼 구성 파일 (`/etc/docker/daemon.json`)을 만들고 (없는 경우) `debug` 옵션을 추가 합니다.
 
 ```json
 {   
@@ -337,10 +337,10 @@ sudo service docker restart
 
 세부 정보는 [Docker 설명서](https://docs.docker.com/engine/admin/#enable-debugging)에서 찾을 수 있습니다. 
 
- * 로그는 시스템에 따라 다른 위치에서 생성 될 수 있습니다. 예를 들어 Ubuntu 14.04 `/var/log/upstart/docker.log`의 경우입니다.   
+ * 로그는 시스템에 따라 다른 위치에서 생성 될 수 있습니다. 예를 들어 Ubuntu 14.04의 경우 `/var/log/upstart/docker.log`입니다.   
 자세한 내용은 [Docker 설명서](https://docs.docker.com/engine/admin/#read-the-logs) 를 참조 하세요.    
 
- * Windows용 Docker에 대 한 로그는% LOCALAPPDATA%/docker/. 아래에 생성 됩니다. 그러나 일부 디버그 정보는 아직 포함 되지 않을 수 있습니다.   
+ * Windows용 Docker에 대 한 로그 는% LOCALAPPDATA%/docker/. 아래에 생성 됩니다. 그러나 일부 디버그 정보는 아직 포함 되지 않을 수 있습니다.   
 
    전체 데몬 로그에 액세스 하기 위해 몇 가지 추가 단계가 필요할 수 있습니다.
 
@@ -350,21 +350,21 @@ sudo service docker restart
     docker run --net=host --ipc=host --uts=host --pid=host -it --security-opt=seccomp=unconfined --privileged --rm -v /:/host alpine /bin/sh
     chroot /host
     ```
-    이제를 실행 `dockerd`하는 VM의 모든 파일에 액세스할 수 있습니다. 로그는에 `/var/log/docker.log`있습니다.
+    이제 `dockerd`을 실행 하는 VM의 모든 파일에 액세스할 수 있습니다. 로그는 `/var/log/docker.log`입니다.
 
 ### <a name="new-user-permissions-may-not-be-effective-immediately-after-updating"></a>업데이트 후 즉시 새 사용자 권한이 적용 되지 않을 수 있습니다.
 
 서비스 사용자에 게 새 권한 (새 역할)을 부여 하면 변경 내용이 즉시 적용 되지 않을 수 있습니다. 가능한 두 가지 원인은 다음과 같습니다.
 
 * Azure Active Directory 역할 할당 지연입니다. 일반적으로 속도가 빠르며 전파 지연으로 인해 몇 분 정도 걸릴 수 있습니다.
-* ACR 토큰 서버에 대 한 사용 권한 지연입니다. 최대 10 분 정도 걸릴 수 있습니다. 완화 하려면 1 분 후 `docker logout` 에 동일한 사용자로 다시 인증할 수 있습니다.
+* ACR 토큰 서버에 대 한 사용 권한 지연입니다. 최대 10 분 정도 걸릴 수 있습니다. 완화 하려면-0을 @no__t 한 다음 1 분 후에 동일한 사용자로 다시 인증할 수 있습니다.
 
   ```bash
   docker logout myregistry.azurecr.io
   docker login myregistry.azurecr.io
   ```
 
-현재 ACR은 사용자의 홈 복제 삭제를 지원 하지 않습니다. 이 문제를 해결 하려면 템플릿에서 홈 복제 만들기를 포함 하지만 아래와 같이를 추가 `"condition": false` 하 여 만들기를 건너뜁니다.
+현재 ACR은 사용자의 홈 복제 삭제를 지원 하지 않습니다. 해결 방법은 템플릿에서 홈 복제 만들기를 포함 하지만 아래와 같이 `"condition": false`을 추가 하 여 생성을 건너뛰는 것입니다.
 
 ```json
 {
@@ -382,8 +382,8 @@ sudo service docker restart
 
 ### <a name="authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls"></a>직접 REST API 호출에서 인증 정보는 올바른 형식으로 제공 되지 않습니다.
 
-특히 `--location` (리디렉션을 수행 `InvalidAuthenticationInfo` 하려면) 옵션과 `-L`함께 `curl` 도구를 사용 하 여 오류가 발생할 수 있습니다.
-예를 들어 with `curl` `-L` 옵션과 기본 인증을 사용 하 여 blob을 인출 합니다.
+@No__t-0 오류가 발생할 수 있습니다. 특히 `curl` 도구 `-L`, `--location` (리디렉션 수행)을 사용 합니다.
+예를 들어 `curl`을 사용 하 여 blob을 가져오고 `-L` 옵션과 기본 인증을 사용 합니다.
 
 ```bash
 curl -L -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest
@@ -398,9 +398,9 @@ RequestId:00000000-0000-0000-0000-000000000000
 Time:2019-01-01T00:00:00.0000000Z</Message></Error>
 ```
 
-근본 원인은 일부 `curl` 구현에서 원래 요청의 헤더를 사용 하 여 리디렉션을 따르는 것입니다.
+근본 원인은 일부 `curl` 구현이 원래 요청의 헤더를 사용 하 여 리디렉션을 따르는 것입니다.
 
-이 문제를 해결 하려면 헤더 없이 리디렉션을 수동으로 수행 해야 합니다. 다음 `-D -` `Location` 옵션을 사용 하 여 응답 헤더를 인쇄 한 다음 헤더를 추출 합니다. `curl`
+이 문제를 해결 하려면 헤더 없이 리디렉션을 수동으로 수행 해야 합니다. @No__t-1의 `-D -` 옵션을 사용 하 여 응답 헤더를 인쇄 한 다음 `Location` 헤더를 추출 합니다.
 
 ```bash
 redirect_url=$(curl -s -D - -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest | grep "^Location: " | cut -d " " -f2 | tr -d '\r')
@@ -426,8 +426,8 @@ Microsoft Edge/IE 브라우저를 사용 하는 경우 최대 100 개의 리포�
 
 #### <a name="prerequisites"></a>사전 요구 사항
 
-- Fiddler에서 https 암호 해독 사용:<https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
-- Docker ui를 통해 프록시를 사용 하도록 Docker를 사용 하도록 설정 합니다.<https://docs.docker.com/docker-for-windows/#proxies>
+- Fiddler에서 https 암호 해독 사용: <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
+- Docker ui를 통해 프록시를 사용 하도록 Docker를 사용 하도록 설정: <https://docs.docker.com/docker-for-windows/#proxies>
 - 완료 되 면 되돌려야 합니다.  Docker는이 사용 하도록 설정 되어 있고 실행 되 고 있지 fiddler 작동 하지 않습니다.
 
 #### <a name="windows-containers"></a>Windows 컨테이너
@@ -460,7 +460,7 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 ### <a name="how-do-i-include-the-git-folder-in-az-acr-build-command"></a>Az acr build 명령에. a g 폴더를 포함 어떻게 할까요??
 
-명령에 로컬 원본 폴더를 전달 하면 기본적으로 업로드 된 패키지에서 폴더가제외됩니다.`.git` `az acr build` 다음 설정을 사용 하 `.dockerignore` 여 파일을 만들 수 있습니다. 업로드 된 패키지의 아래 `.git` 에 있는 모든 파일을 복원 하는 명령을 지시 합니다. 
+@No__t-0 명령에 로컬 원본 폴더를 전달 하는 경우 기본적으로 `.git` 폴더가 업로드 된 패키지에서 제외 됩니다. 다음 설정을 사용 하 여 `.dockerignore` 파일을 만들 수 있습니다. 업로드 된 패키지에서 `.git` 아래의 모든 파일을 복원 하는 명령을 지시 합니다. 
 
 ```
 !.git/**

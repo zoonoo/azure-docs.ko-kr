@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 185570992ad0308b500da30bca212a0495bcb0fa
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: bba59d024e253c8d05aa75123be5e3f13699f72e
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001630"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263030"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
@@ -25,7 +25,7 @@ ms.locfileid: "72001630"
 
 ## <a name="error-codes"></a>오류 코드
 
-| 오류 코드 | 완화 | 자세한 정보 |
+| 오류 코드 | 해결 방법 | 자세한 정보 |
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | 스토리지 계정에 대한 명명 제한 사항을 따릅니다. | [스토리지 계정 이름 오류 해결](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | 사용 가능한 스토리지 계정 속성을 확인합니다. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
@@ -35,6 +35,7 @@ ms.locfileid: "72001630"
 | BadRequest | Resource Manager에서 예상한 것과 일치하지 않는 배포 값을 보냈습니다. 문제 해결에 도움이 되는 내부 상태 메시지를 확인합니다. | [템플릿 참조](/azure/templates/) 및 [지원되는 위치](resource-location.md) |
 | 충돌 | 리소스의 현재 상태에서 허용되지 않는 작업을 요청하고 있습니다. 예를 들어 디스크 크기 조정은 VM을 만들거나 VM의 할당을 취소할 때만 허용됩니다. | |
 | DeploymentActiveAndUneditable 때 | 이 리소스 그룹에 대한 동시 배포가 완료될 때까지 기다립니다. | |
+| DeploymentFailedCleanUp | 전체 모드로 배포 하는 경우 템플릿에 없는 모든 리소스가 삭제 됩니다. 템플릿에 없는 리소스를 모두 삭제할 수 있는 적절 한 권한이 없는 경우이 오류가 발생 합니다. 오류를 방지 하려면 배포 모드를 증분으로 변경 합니다. | [Azure Resource Manager 배포 모드](deployment-modes.md) |
 | DeploymentNameInvalidCharacters | 배포 이름에는 문자, 숫자, '-', '. ' 또는 ' _ '만 사용할 수 있습니다. | |
 | DeploymentNameLengthLimitExceeded | 배포 이름은 64 자로 제한 됩니다.  | |
 | DeploymentFailed | DeploymentFailed 오류는 해결하는 데 필요한 세부 정보를 제공하지 않는 일반 오류입니다. 자세한 정보를 제공하는 오류 코드에 대해서는 오류 세부 정보를 살펴봅니다. | [오류 코드 찾기](#find-error-code) |
@@ -61,7 +62,7 @@ ms.locfileid: "72001630"
 | MissingRegistrationForLocation | 리소스 공급자 등록 상태와 지원 되는 위치를 확인 합니다. | [등록 오류 해결](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | 리소스 공급자에 구독을 등록합니다. | [등록 오류 해결](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | 리소스 공급자 등록 상태를 확인합니다. | [등록 오류 해결](resource-manager-register-provider-errors.md) |
-| 찾을 수 없음 | 부모 리소스와 함께 종속 리소스를 병렬로 배포 하려고 할 수 있습니다. 종속성을 추가해야 하는지 확인합니다. | [종속성 오류 해결](resource-manager-not-found-errors.md) |
+| NotFound | 부모 리소스와 함께 종속 리소스를 병렬로 배포 하려고 할 수 있습니다. 종속성을 추가해야 하는지 확인합니다. | [종속성 오류 해결](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | 배포에서 구독, 리소스 그룹 또는 지역에 대한 할당량을 초과하는 작업을 시도하고 있습니다. 가능하면 배포를 수정하여 할당량 내에서 유지합니다. 그렇지 않은 경우 할당량 변경을 요청하는 것이 좋습니다. | [할당량 오류 해결](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | 자식 리소스를 만들기 전에 부모 리소스가 있는지 확인합니다. | [부모 리소스 오류 해결](resource-manager-parent-resource-errors.md) |
 | PasswordTooLong | 너무 많은 문자를 포함 하는 암호를 선택 하거나 암호 값을 보안 문자열로 변환한 후 매개 변수로 전달 했을 수 있습니다. 템플릿에 **보안 문자열** 매개 변수가 포함되어 있으면 값을 보안 문자열로 변환할 필요가 없습니다. 암호 값을 텍스트로 제공합니다. |  |
@@ -246,7 +247,7 @@ az group deployment operation list \
 }
 ```
 
-또는 종속성을 잘못 설정하는 것과 관련되었다고 생각되는 배포 오류가 발생한다고 가정해보세요. 간소화된 템플릿을 분리하여 템플릿을 테스트합니다. 먼저 단일 리소스(예: SQL Server)를 배포하는 템플릿을 만듭니다. 리소스가 올바르게 정의된 것이 확실하면 종속되는 리소스(예: SQL Database)를 추가합니다. 이러한 두 리소스가 올바르게 정의되어 있으면 다른 종속 리소스(예: 감사 정책)를 추가합니다. 각 테스트 배포 사이에 리소스 그룹을 삭제하여 종속성을 적절히 테스트합니다.
+또는 종속성이 잘못 설정 된 것으로 생각 되는 배포 오류가 발생 하는 경우를 가정 합니다. 간소화된 템플릿을 분리하여 템플릿을 테스트합니다. 먼저 단일 리소스(예: SQL Server)를 배포하는 템플릿을 만듭니다. 리소스가 올바르게 정의 되어 있는지 확실 하 게 정의 된 경우 해당 리소스에 종속 된 리소스를 추가 합니다 (예: SQL Database). 이러한 두 리소스가 올바르게 정의되어 있으면 다른 종속 리소스(예: 감사 정책)를 추가합니다. 각 테스트 배포 사이에 리소스 그룹을 삭제하여 종속성을 적절히 테스트합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

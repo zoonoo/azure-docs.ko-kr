@@ -9,26 +9,26 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: ddaff590fd493b430a72c30dd35cb1b891b80d84
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 647cb0573922bb53232dbce3f3a7a2557553d47d
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205342"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263889"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>AKS에서 Apache Spark 작업 실행
 
-[Apache Spark][apache-spark]는 대규모 데이터 처리를 위한 고속 엔진입니다. [Spark 2.3.0 릴리스][spark-latest-release]부터 Apache Spark는 Kubernetes 클러스터와의 네이티브 통합을 지원합니다. AKS(Azure Kubernetes Service)는 Azure에서 실행되는 관리 Kubernetes 환경입니다. 이 문서에서는 Apache Spark 작업을 준비하고 AKS(Azure Kubernetes Service) 클러스터에서 실행하는 방법을 자세히 설명합니다.
+[Apache Spark][apache-spark] 는 대규모 데이터 처리를 위한 고속 엔진입니다. [Spark 2.3.0 릴리스에서][spark-latest-release]는 Apache Spark Kubernetes 클러스터와의 기본 통합을 지원 합니다. AKS(Azure Kubernetes Service)는 Azure에서 실행되는 관리 Kubernetes 환경입니다. 이 문서에서는 Apache Spark 작업을 준비하고 AKS(Azure Kubernetes Service) 클러스터에서 실행하는 방법을 자세히 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 아티클 내의 단계를 완료하기 위해 다음 항목이 필요합니다.
 
-* Kubernetes 및 [Apache Spark][spark-quickstart]에 대한 기본적인 이해.
-* [Docker 허브][docker-hub] 계정 또는 [Azure Container Registry][acr-create].
-* 개발 시스템에 [설치된][azure-cli] Azure CLI.
-* 시스템에 설치된 [JDK 8][java-install].
-* 시스템에 설치된 SBT([Scala 빌드 도구][sbt-install]).
+* Kubernetes 및 [Apache Spark][spark-quickstart]에 대 한 기본적인 이해
+* [Docker 허브][docker-hub] 계정 또는 [Azure Container Registry][acr-create]입니다.
+* Azure CLI 개발 시스템에 [설치][azure-cli] 됩니다.
+* [JDK 8][java-install] 이 시스템에 설치 되어 있어야 합니다.
+* SBT ([Scala Build Tool][sbt-install])가 시스템에 설치 되어 있어야 합니다.
 * 시스템에 설치된 Git 명령줄 도구
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
@@ -55,7 +55,7 @@ AKS 클러스터에 연결합니다.
 az aks get-credentials --resource-group mySparkCluster --name mySparkCluster
 ```
 
-ACR(Azure Container Registry)을 사용하여 컨테이너 이미지를 저장하는 경우 AKS와 ACR 간에 인증을 구성합니다. 구성 단계는 [ACR 인증 설명서][acr-aks]를 참조하세요.
+ACR(Azure Container Registry)을 사용하여 컨테이너 이미지를 저장하는 경우 AKS와 ACR 간에 인증을 구성합니다. 이러한 단계는 [ACR 인증 설명서][acr-aks] 를 참조 하세요.
 
 ## <a name="build-the-spark-source"></a>Spark 소스 빌드
 
@@ -257,7 +257,7 @@ Spark UI에 액세스하려면 브라우저에서 `127.0.0.1:4040` 주소를 엽
 kubectl get pods --show-all
 ```
 
-출력
+출력:
 
 ```bash
 NAME                                               READY     STATUS      RESTARTS   AGE
@@ -313,7 +313,7 @@ ENTRYPOINT [ "/opt/entrypoint.sh" ]
 ```
 
 > [!WARNING]
-> Spark에서 [설명서][spark-docs]: "Kubernetes 스케줄러는 현재 실험적입니다. 이후 버전에서는 구성, 컨테이너 이미지 및 진입점 동작이 변경될 수 있습니다."
+> Spark [설명서][spark-docs]에서: "Kubernetes scheduler는 현재 실험적입니다. 이후 버전에서는 구성, 컨테이너 이미지 및 진입점 동작이 변경될 수 있습니다."
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -333,7 +333,7 @@ ENTRYPOINT [ "/opt/entrypoint.sh" ]
 
 
 <!-- LINKS - internal -->
-[acr-aks]: https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks
+[acr-aks]: cluster-container-registry-integration.md
 [acr-create]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
 [aks-quickstart]: https://docs.microsoft.com/azure/aks/
 [azure-cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest

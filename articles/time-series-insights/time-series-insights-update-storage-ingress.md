@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98baa8d3f951a8922bcd1f40449fa26840f3a3c4
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 9af53728ee038a6511c434aeedfdb9afdab6d04b
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051482"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72273878"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 스토리지 및 수신
 
@@ -25,7 +25,7 @@ ms.locfileid: "70051482"
 
 데이터 수신 정책 Azure Time Series Insights 데이터를 원본으로 사용할 수 있는 위치 및 형식을 결정 합니다.
 
-[![시계열 모델 개요](media/v2-update-storage-ingress/tsi-data-ingress.png)](media/v2-update-storage-ingress/tsi-data-ingress.png#lightbox)
+[![ 시계열 모델 개요](media/v2-update-storage-ingress/tsi-data-ingress.png)](media/v2-update-storage-ingress/tsi-data-ingress.png#lightbox)
 
 ### <a name="ingress-policies"></a>수신 정책
 
@@ -34,7 +34,7 @@ Time Series Insights 미리 보기는 현재 Time Series Insights 지원 되는 
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
   
-Azure Time Series Insights Azure IoT Hub 또는 Azure Event Hubs를 통해 전송 되는 JSON을 지원 합니다. IoT JSON 데이터를 최적화 하려면 [json 셰이프를 확인 하는 방법을](./time-series-insights-send-events.md#json)알아봅니다.
+Azure Time Series Insights Azure IoT Hub 또는 Azure Event Hubs를 통해 전송 되는 JSON을 지원 합니다. IoT JSON 데이터를 최적화 하려면 [json 셰이프를 확인 하는 방법을](./time-series-insights-send-events.md#supported-json-shapes)알아봅니다.
 
 ### <a name="data-storage"></a>데이터 스토리지
 
@@ -130,7 +130,7 @@ Time Series Insights 미리 보기 탐색기에 저장된 데이터에 액세스
 다음과 같은 세 가지 일반적인 방법으로 데이터에 액세스할 수 있습니다.
 
 * Time Series Insights Preview 탐색기에서: Time Series Insights Preview 탐색기에서 CSV 파일로 데이터를 내보낼 수 있습니다. 자세한 내용은 [Time Series Insights 미리 보기 탐색기](./time-series-insights-update-explorer.md)를 참조하세요.
-* Time Series Insights 미리 보기 Api에서: API 끝점에 연결할 `/getRecorded`수 있습니다. 이 API에 대한 자세한 내용은 [시계열 쿼리](./time-series-insights-update-tsq.md)를 참조하세요.
+* Time Series Insights 미리 보기 Api에서: `/getRecorded`에서 API 끝점에 도달할 수 있습니다. 이 API에 대한 자세한 내용은 [시계열 쿼리](./time-series-insights-update-tsq.md)를 참조하세요.
 * Azure storage 계정에서 직접 (아래).
 
 #### <a name="from-an-azure-storage-account"></a>Azure Storage 계정에서

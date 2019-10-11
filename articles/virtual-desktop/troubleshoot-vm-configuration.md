@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 4c684a2db02b7587b6d81eaf2f034540250fc001
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 167d880f82314fc3b5ade299442f04d62b5dacb9
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841287"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274497"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>세션 호스트 가상 머신 구성
 
@@ -80,7 +80,7 @@ Vm을 프로 비전 하는 권장 방법은 **Windows 가상 데스크톱 호스
 
 다음 지침에 따라 구성 요소가 설치 되었는지 확인 하 고 오류 메시지를 확인 합니다.
 
-1. **제어판** > 프로그램프로그램 > **및 기능**을 검사 하 여 두 구성 요소가 설치 되어 있는지 확인 합니다. **Windows 가상 데스크톱 에이전트** 및 **Windows 가상 데스크톱 에이전트 부팅 로더에서** 표시 되지 않으면 VM에 설치 되지 않습니다.
+1. **제어판** > **프로그램** > **프로그램 및 기능**을 선택 하 여 두 구성 요소가 설치 되어 있는지 확인 합니다. **Windows 가상 데스크톱 에이전트** 및 **Windows 가상 데스크톱 에이전트 부팅 로더에서** 표시 되지 않으면 VM에 설치 되지 않습니다.
 2. **파일 탐색기** 를 열고 **C:\Windows\Temp\scriptlogs.log**로 이동 합니다. 파일이 없는 경우 두 구성 요소를 설치한 PowerShell DSC가 제공 된 보안 컨텍스트에서 실행 될 수 없음을 나타냅니다.
 3. **C:\Windows\Temp\scriptlogs.log** 파일이 있는 경우이 파일을 열고 오류 메시지를 확인 합니다.
 
@@ -233,7 +233,7 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 다음 지침에 따라 동일한 서브넷과 도메인에서 업데이트 관리를 실행 합니다.
 
 1. 수정이 적용 되는 VM에 RDP (standard 원격 데스크톱 프로토콜)를 연결 합니다.
-2. 에서 PsExec를 https://docs.microsoft.com/sysinternals/downloads/psexec 다운로드 합니다.
+2. @No__t-0에서 PsExec를 다운로드 합니다.
 3. 다운로드 한 파일의 압축을 풉니다.
 4. 로컬 관리자 권한으로 명령 프롬프트를 시작 합니다.
 5. PsExec 압축을 푼 폴더로 이동 합니다.
@@ -296,13 +296,13 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 
 16. Cmdlet을 실행 한 후에는 작동 하지 않는 side-by-side 스택을 사용 하 여 VM을 다시 시작 합니다.
 
-## <a name="remote-licensing-model-isnt-configured"></a>원격 라이선스 모델이 구성 되지 않았습니다.
+## <a name="remote-desktop-licensing-mode-isnt-configured"></a>원격 데스크톱 라이선스 모드가 구성 되지 않았습니다.
 
 관리 계정을 사용 하 여 Windows 10 Enterprise 다중 세션에 로그인 하는 경우 "원격 데스크톱 라이선스 모드가 구성 되지 않았습니다. 원격 데스크톱 서비스 X 일 후에 작동 하지 않습니다. 라는 알림이 표시 될 수 있습니다. 연결 브로커 서버에서 서버 관리자를 사용 하 여 원격 데스크톱 라이선싱 모드를 지정 합니다.
 
 시간 제한이 만료 되 면 "이 컴퓨터에 사용할 수 있는 원격 데스크톱 클라이언트 액세스 라이선스가 없어 원격 세션의 연결을 끊었습니다." 라는 오류 메시지가 표시 됩니다.
 
-이러한 메시지 중 하나가 표시 되는 경우 그룹 정책 편집기를 열고 **사용자 단위로**라이선스 모드를 수동으로 구성 해야 합니다. 수동 구성 프로세스는 사용 중인 Windows 10 Enterprise 다중 세션의 버전에 따라 다릅니다. 다음 섹션에서는 버전 번호를 확인 하 고 각각에 대해 수행할 작업을 설명 합니다.
+이러한 메시지 중 하나가 표시 되 면 이미지에 최신 Windows 업데이트가 설치 되어 있지 않거나 **사용자 단위로**원격 데스크톱 라이선싱 모드를 설정 하는 것입니다. 이 정책을 설정 하는 구성을 제거한 후 Windows 10 Enterprise 다중 세션의 버전을 확인 하 고 해당 업데이트를 설치 하는 단계를 수행 합니다.  
 
 >[!NOTE]
 >Windows 가상 데스크톱에는 호스트 풀에 Windows Server 세션 호스트가 포함 된 경우 RDS CAL (클라이언트 액세스 라이선스)만 필요 합니다. RDS CAL를 구성 하는 방법에 대 한 자세한 내용은 [클라이언트 액세스 라이선스를 사용 하 여 RDS 배포 라이선스](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license)를 참조 하세요.
@@ -322,50 +322,11 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 
 ### <a name="version-1809"></a>버전 1809
 
-버전 번호가 "1809" 인 경우 Windows 10 Enterprise 다중 세션으로 업그레이드 하거나 버전 1903로 업그레이드 하거나 최신 이미지를 사용 하 여 호스트 풀을 다시 배포할 수 있습니다.
-
-Windows 10, 버전 1903으로 업그레이드 하려면 다음을 수행 합니다.
-
-1. 아직 설치 하지 않은 경우 [Windows 10 5 월 2019 업데이트](https://support.microsoft.com/help/4028685/windows-10-get-the-update)를 다운로드 하 여 설치 합니다.
-2. 관리자 계정으로 컴퓨터에 로그인 합니다.
-3. **Gpedit.msc** 를 실행 하 여 그룹 정책 편집기를 엽니다.
-4. 컴퓨터 구성에서 **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스** > 원격 데스크톱 세션 호스트라이선스 > 로 이동 합니다..
-5. **원격 데스크톱 라이선싱 모드 설정을**선택 합니다.
-6. 열리는 창에서 먼저 **사용**을 선택 하 고 옵션 아래에서 다음 이미지와 같이 **사용자 단위로**RD 세션 호스트 서버에 대 한 라이선스 모드를 지정 합니다.
-    
-    ![6 단계의 지침에 따라 구성 된 "원격 데스크톱 라이선싱 모드 설정" 창의 스크린샷](media/group-policy-editor-per-user.png)
-
-7. **적용**을 선택합니다.
-8. **확인**을 선택합니다.
-9.  컴퓨터를 다시 시작합니다.
-
-최신 이미지를 사용 하 여 호스트 풀을 다시 배포 하려면 다음을 수행 합니다.
-
-1. 이미지 OS 버전을 선택 하 라는 메시지가 표시 될 때까지 [Azure Marketplace를 사용 하 여 호스트 풀 만들기](create-host-pools-azure-marketplace.md) 의 지침을 따릅니다. Office365 ProPlus를 사용 하거나 사용 하지 않고 Windows 10 Enterprise 다중 세션 중 하나를 선택할 수 있습니다.
-2. 관리자 계정으로 컴퓨터에 로그인 합니다.
-3. **Gpedit.msc** 를 실행 하 여 그룹 정책 편집기를 엽니다.
-4. 컴퓨터 구성에서 **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스** > 원격 데스크톱 세션 호스트라이선스 > 로 이동 합니다..
-5. **원격 데스크톱 라이선싱 모드 설정을**선택 합니다.
-6. 열리는 창에서 먼저 **사용**을 선택 하 고 옵션에서 사용자별로 RD 세션 호스트 서버에 대 한 라이선스 **모드를 지정**합니다.
-7. **적용**을 선택합니다.
-8. **확인**을 선택합니다.
-9.  컴퓨터를 다시 시작합니다.
+버전 번호가 "1809" 인 경우 [KB4516077 업데이트를](https://support.microsoft.com/help/4516077)설치 합니다.
 
 ### <a name="version-1903"></a>버전 1903
 
-버전 번호가 "1903" 이라고 표시 되는 경우 다음 지침을 따르세요.
-
-1. 관리자 계정으로 컴퓨터에 로그인 합니다.
-2. **Gpedit.msc** 를 실행 하 여 그룹 정책 편집기를 엽니다.
-3. 컴퓨터 구성에서 **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스** > 원격 데스크톱 세션 호스트라이선스 > 로 이동 합니다..
-4. **원격 데스크톱 라이선싱 모드 설정을**선택 합니다.
-6. 열리는 창에서 먼저 **사용**을 선택 하 고 옵션 아래에서 다음 이미지와 같이 **사용자 단위로**RD 세션 호스트 서버에 대 한 라이선스 모드를 지정 합니다.
-    
-    ![6 단계의 지침에 따라 구성 된 "원격 데스크톱 라이선싱 모드 설정" 창의 스크린샷](media/group-policy-editor-per-user.png)
-
-7. **적용**을 선택합니다.
-8. **확인**을 선택합니다.
-9.  컴퓨터를 다시 시작합니다.
+버전 번호가 "1903" 인 경우 [KB4517211 업데이트를](https://support.microsoft.com/help/4517211)설치 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -375,6 +336,6 @@ Windows 10, 버전 1903으로 업그레이드 하려면 다음을 수행 합니�
 - Windows 가상 데스크톱 클라이언트 연결 문제를 해결 하려면 [원격 데스크톱 클라이언트 연결](troubleshoot-client-connection.md)을 참조 하세요.
 - Windows 가상 데스크톱과 함께 PowerShell을 사용할 때 발생 하는 문제를 해결 하려면 [Windows 가상 데스크톱 PowerShell](troubleshoot-powershell.md)을 참조 하세요.
 - 서비스에 대 한 자세한 내용은 [Windows 가상 데스크톱 환경](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)을 참조 하세요.
-- 문제 해결 자습서를 진행하려면 [자습서: 리소스 관리자 템플릿 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)문제를 해결 합니다.
+- 문제 해결 자습서를 진행하려면 [자습서: 리소스 관리자 템플릿 배포 @ no__t-0의 문제를 해결 합니다.
 - 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)를 참조하세요.
 - 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)를 참조하세요.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2019
 ms.author: anavin
-ms.openlocfilehash: a53d5810b20aa8389c152889fed5d7f4e8cfc5b7
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 728d32ddb63658d24e932e8eeef4a3f50371ccc3
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177668"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72265055"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -91,6 +91,9 @@ Network Watcher의 [연결 확인](../network-watcher/network-watcher-connectivi
 가상 네트워크 피어링 연결을 활용하는 수신 및 송신 트래픽에 대한 명목 요금이 부과됩니다. VNet 피어링 및 전역 VNet 피어링 가격 책정에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-network)를 참조하세요.
 
 게이트웨이 전송은 가상 네트워크가 크로스-프레미스 또는 VNet 간 연결에 대 한 피어 링 가상 네트워크에서 VPN/Express 경로 게이트웨이를 활용할 수 있도록 하는 피어 링 속성입니다. 피어 링 VNet의 게이트웨이에 대 한 트래픽 (수신 또는 송신)에는 VNet 피어 링 요금이 발생 합니다. 자세한 내용은 [VPN gateway 요금](https://azure.microsoft.com/pricing/details/vpn-gateway/) 또는 express 경로 게이트웨이 요금 및 [VNet 피어 링 요금](https://azure.microsoft.com/pricing/details/virtual-network) 을 참조 하세요.
+
+>[!NOTE]
+> 이 문서의 이전 버전에서 VNet 피어 링 요금은 게이트웨이 전송에 적용 되지 않습니다. 가격 책정 페이지에 따라 정확한 가격 책정을 반영 하도록 업데이트 되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

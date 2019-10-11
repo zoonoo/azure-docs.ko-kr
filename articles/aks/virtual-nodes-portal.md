@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 8752d888e24e7135d488be6d1b377070a30fe4eb
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: ab0aebf0b66ac01e19699795b14063df31cb9621
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67613836"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263764"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Azure Portal에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
@@ -38,13 +38,13 @@ Namespace                    RegistrationState
 Microsoft.ContainerInstance  Registered
 ```
 
-공급자가 Notregistered로표시 된 경우 다음 예제와 같이 [az provider register] [az-provider-register]를 사용 하 여 공급자를 등록 합니다.
+공급자가 *notregistered*로 표시 된 경우 다음 예제와 같이 [az provider register] [az-provider-register]를 사용 하 여 공급자를 등록 합니다.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability"></a>지역별 가용성
+## <a name="regional-availability"></a>국가별 가용성
 
 가상 노드 배포에 대해 지원 되는 지역은 다음과 같습니다.
 
@@ -68,7 +68,7 @@ az provider register --namespace Microsoft.ContainerInstance
 * 초기화 컨테이너
 * [호스트 별칭](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * ACI의 exec [인수](../container-instances/container-instances-exec.md#restrictions)
-* [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) 는 가상 노드에 pod을 배포 하지 않습니다.
+* [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) 는 가상 노드에 pod을 배포 하지 않습니다.
 * [Windows Server 노드 (현재 AKS의 미리 보기 상태)](windows-container-cli.md) 는 가상 노드와 함께 지원 되지 않습니다. AKS 클러스터에서 Windows Server 노드를 사용 하지 않고도 가상 노드를 사용 하 여 Windows Server 컨테이너를 예약할 수 있습니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
@@ -86,7 +86,7 @@ Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **Kubernete
 - *주 노드 풀*: AKS 노드의 VM 크기를 선택합니다. AKS 클러스터를 배포한 후에는 VM 크기를 변경할 수 **없습니다**.
      - 클러스터에 배포할 노드 수를 선택합니다. 이 문서에서는 **노드 수**를 *1*로 설정합니다. 클러스터를 배포한 후에 노드 수를 조정할 수 **있습니다**.
 
-**다음: 크기**조정.
+**다음: 크기 조정 @ no__t-0.
 
 **크기 조정** 페이지의 **가상 노드**아래에서 *사용* 을 선택 합니다.
 
@@ -106,7 +106,7 @@ Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용�
 
 Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택합니다. 또한 [https://shell.azure.com/bash](https://shell.azure.com/bash)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
-[Az aks][az-aks-get-credentials] 명령을 사용 하 여 Kubernetes 클러스터에 연결 `kubectl` 하도록를 구성 합니다. 다음 예제는 *myResourceGroup*이라는 리소스 그룹에서 *myAKSCluster*라는 클러스터의 자격 증명을 가져옵니다.
+[Az aks][az-aks-get-credentials] 명령을 사용 하 여 Kubernetes 클러스터에 연결 하도록 `kubectl`을 구성 합니다. 다음 예제는 *myResourceGroup*이라는 리소스 그룹에서 *myAKSCluster*라는 클러스터의 자격 증명을 가져옵니다.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -169,7 +169,7 @@ spec:
 kubectl apply -f virtual-node.yaml
 ```
 
-[Kubectl get pod][kubectl-get] 명령을 `-o wide` 인수와 함께 사용 하 여 pod 및 예약 된 노드의 목록을 출력 합니다. `virtual-node-helloworld` Pod는 `virtual-node-linux` 노드에서 예약되었습니다.
+[Kubectl get pod][kubectl-get] 명령 `-o wide` 인수를 사용 하 여 pod 및 예약 된 노드 목록을 출력 합니다. `virtual-node-helloworld` Pod는 `virtual-node-linux` 노드에서 예약되었습니다.
 
 ```
 $ kubectl get pods -o wide
@@ -238,6 +238,7 @@ $ curl -L 10.241.0.4
 [aks-github]: https://github.com/azure/aks/issues]
 [virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
 [virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
+[acr-aks-secrets]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 
 <!-- LINKS - internal -->
 [aks-network]: ./networking-overview.md
@@ -245,5 +246,4 @@ $ curl -L 10.241.0.4
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
-[acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret
 [az-provider-list]: /cli/azure/provider#az-provider-list

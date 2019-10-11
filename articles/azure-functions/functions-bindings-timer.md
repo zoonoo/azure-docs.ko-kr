@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 57b4f018cd044b4f516266dcf9776e82252f7f22
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 6ac83a054b146b9d515386332779c4fe94cde7c3
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937122"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263439"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거 
 
@@ -213,7 +213,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
     }
     log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 }
- ```
+```
 
 ## <a name="configuration"></a>Configuration
 
@@ -260,11 +260,11 @@ Azure Functions [NCronTab](https://github.com/atifaziz/NCrontab) 라이브러리
 
 각 필드에는 다음과 같은 형식의 값 중 하나가 포함될 수 있습니다.
 
-|형식  |예제  |트리거될 때  |
+|type  |예제  |트리거될 때  |
 |---------|---------|---------|
 |특정 값 |<nobr>"0 5 * * * *"</nobr>|hh:05:00에서 hh는 매시간임(시간당 한 번)|
 |모든 값(`*`)|<nobr>"0 * 5 * * *"</nobr>|5:mm:00에서 mm은 해당 시간의 매분임(하루 60번)|
-|범위(`-` 연산자)|<nobr>"5-7 * * * * *"</nobr>|hh:mm:05,hh:mm:06 및 hh:mm:07에서 hh:mm은 매시간의 매분임(분당 3번)|  
+|범위(`-` 연산자)|<nobr>"5-7 * * * * *"</nobr>|hh:mm:05,hh:mm:06 및 hh:mm:07에서 hh:mm은 매시간의 매분임(분당 3번)|
 |값 집합(`,` 연산자)|<nobr>"5,8,10 * * * * *"</nobr>|hh:mm:05,hh:mm:08 및 hh:mm:10에서 hh:mm은 매시간의 매분임(분당 3번)|
 |간격 값(`/` 연산자)|<nobr>"0 */5 * * * *"</nobr>|hh:05:00, hh:10:00, hh:15:00부터 hh:55:00까지에서 hh는 매시간임(시간당 12번)|
 
@@ -326,7 +326,16 @@ CRON 식과 다르게 `TimeSpan` 값은 각 함수 호출 간의 시간 간격�
 
 ## <a name="function-apps-sharing-storage"></a>스토리지를 공유하는 함수 앱
 
-여러 함수 앱에서 Storage 계정을 공유하는 경우 *host.json*에서 각 함수 앱의 `id`가 다른지 확인합니다. `id` 속성을 생략하거나 수동으로 각 함수 앱의 `id`를 다른 값으로 설정할 수 있습니다. 타이머 트리거는 함수 앱이 여러 인스턴스로 확장되는 경우 스토리지 잠금을 사용하여 하나의 타이머 인스턴스만이 존재하도록 합니다. 두 개의 함수 앱이 동일한 `id`를 공유하고 각각 타이머 트리거를 사용하는 경우 하나의 타이머만이 실행됩니다.
+App service에 배포 되지 않은 함수 앱에서 저장소 계정을 공유 하는 경우 각 앱에 호스트 ID를 명시적으로 할당 해야 할 수 있습니다.
+
+| Functions 버전 | 설정                                              |
+| ----------------- | ---------------------------------------------------- |
+| 2.x               | `AzureFunctionsWebHost__hostid` 환경 변수 |
+| 1.x               | *호스트 json* 의 `id`                                  |
+
+식별 값을 생략 하거나 각 함수 앱의 식별 구성을 다른 값으로 수동으로 설정할 수 있습니다.
+
+타이머 트리거는 저장소 잠금을 사용 하 여 함수 앱이 여러 인스턴스로 확장 될 때 하나의 타이머 인스턴스만 있는지 확인 합니다. 두 함수 앱이 동일한 식별 구성을 공유 하 고 각각 타이머 트리거를 사용 하는 경우 하나의 타이머만 실행 됩니다.
 
 ## <a name="retry-behavior"></a>다시 시도 동작
 

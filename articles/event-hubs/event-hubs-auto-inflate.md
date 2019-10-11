@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 22c12d3233d85a02f6eef8d63e5a4494b4f0cdfa
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: dc6edaebebe89b6d4a35ada58d40795f86a935d3
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273709"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264479"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Azure Event Hubs 처리량 단위 자동 확장
 Azure Event Hubs는 확장성이 뛰어난 데이터 스트리밍 플랫폼입니다. 따라서 서비스를 사용하기 시작한 후에 Event Hubs 사용량이 증가합니다. 그러려면 Event Hubs의 크기를 조정하고 더 빠른 전송 속도를 처리할 수 있도록 미리 지정된 [처리량 단위](event-hubs-scalability.md#throughput-units)를 늘려야 합니다. Event Hubs의 **자동 확장** 기능은 필요한 사용량에 맞게 처리량 단위 수를 증가하여 자동으로 확장합니다. 처리량 단위를 늘리면 다음과 같은 상황에서 제한 시나리오를 예방할 수 있습니다.
@@ -40,10 +40,13 @@ Event Hubs 트래픽은 [처리량 단위](event-hubs-scalability.md#throughput-
 
 ## <a name="enable-auto-inflate-on-a-namespace"></a>네임스페이스에서 자동 확장 사용
 
-다음 방법 중 하나를 사용하여 Event Hubs 네임스페이스에서 자동 확장을 사용하거나 사용하지 않도록 설정할 수 있습니다.
+다음 방법 중 하나를 사용 하 여 표준 계층 Event Hubs 네임 스페이스에서 자동 확장을 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
 
 - [Azure Portal](https://portal.azure.com)
 - [Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate).
+
+> [!NOTE]
+> 기본 계층 Event Hubs 네임 스페이스는 자동 확장을 지원 하지 않습니다.
 
 ### <a name="enable-auto-inflate-through-the-portal"></a>포털을 통해 자동 확장 사용
 
@@ -73,7 +76,7 @@ Event Hubs 트래픽은 [처리량 단위](event-hubs-scalability.md#throughput-
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 자동 확장 사용
 
-Azure Resource Manager 템플릿을 배포하는 동안 자동 확장을 사용하도록 설정할 수 있습니다. 예를 들어 `isAutoInflateEnabled` 속성을 **true**로 설정하고 `maximumThroughputUnits`를 10으로 설정합니다. 예를 들면 다음과 같습니다.
+Azure Resource Manager 템플릿을 배포하는 동안 자동 확장을 사용하도록 설정할 수 있습니다. 예를 들어 `isAutoInflateEnabled` 속성을 **true**로 설정하고 `maximumThroughputUnits`를 10으로 설정합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```json
 "resources": [

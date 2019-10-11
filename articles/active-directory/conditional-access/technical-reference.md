@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d56b1f800c71a5bbef7ffb1155d05e096113e2c
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 834b13c512bca1b7c43c3c8e93a72383a82db198
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162427"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274191"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 조건부 액세스 설정 참조
 
@@ -72,7 +72,6 @@ Microsoft에서 다음 클라우드 앱에 조건부 액세스 정책을 할당�
 - Project Online
 - 비즈니스 온라인용 Skype
 - VPN(가상 사설망)
-- Visual Studio App Center
 - Windows Defender ATP
 
 ### <a name="other-applications"></a>다른 애플리케이션
@@ -145,8 +144,8 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 | --- | --- |
 | 경로 | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Name | 1 |
-| 형식 | REG_SZ (String) |
-| data | ppnbnpeolgkicgegkbkbjmhlideopiji; https\://clients2.google.com/service/update2/crx |
+| type | REG_SZ (String) |
+| data | ppnbnpeolgkicgegkbkbjmhlideopiji; https @ no__t-0//clients2/update2/crx |
 
 **Windows 8.1 및 7**에서 Chrome을 지원하려면 다음 레지스트리 키를 만듭니다.
 

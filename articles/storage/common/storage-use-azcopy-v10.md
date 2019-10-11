@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 980156284b27478163760b1f833a91ba7cddec21
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: f4523b2aa580d0fd237c15e23b06b44593cbf055
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244796"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274651"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -29,7 +29,8 @@ AzCopy는 blob 또는 파일을 저장소 계정에 복사 하는 데 사용할 
 
 먼저 AzCopy V10 실행 파일을 컴퓨터의 모든 디렉터리에 다운로드 합니다. AzCopy V10는 실행 파일 일 뿐 이므로 설치할 항목이 없습니다.
 
-- [Windows](https://aka.ms/downloadazcopy-v10-windows)(zip)
+- [Windows 64](https://aka.ms/downloadazcopy-v10-windows) 비트 (zip)
+- [Windows 32](https://aka.ms/downloadazcopy-v10-windows-32bit) 비트 (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux)(tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac)(zip)
 

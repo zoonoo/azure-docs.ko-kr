@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: be10d144fadb21a695c5573c82681a26136e71d4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b1331865224d34f731dbd388cebdaec8b7c9fe7f
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004104"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264652"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -46,9 +46,9 @@ Azure Logic Apps에서 데이터 액세스 및 보호를 제어 하기 위해 �
 
 `https://<request-endpoint-URI>sp=<permissions>sv=<SAS-version>sig=<signature>`
 
-각 URL에는 `sp`다음 `sv`표에 설명 `sig` 된 대로, 및 쿼리 매개 변수가 포함 되어 있습니다.
+각 URL에는 다음 표에 설명 된 대로 `sp`, `sv` 및 @no__t 쿼리 매개 변수가 포함 되어 있습니다.
 
-| 쿼리 매개 변수 | Description |
+| 쿼리 매개 변수 | 설명 |
 |-----------------|-------------|
 | `sp` | 사용할 수 있는 HTTP 메서드에 대 한 사용 권한을 지정 합니다. |
 | `sv` | 서명을 생성 하는 데 사용할 SAS 버전을 지정 합니다. |
@@ -83,7 +83,7 @@ HTTP 요청 기반 트리거의 끝점 URL을 다른 당사자와 공유 하는 
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
 ```
 
-본문에서 JSON 날짜 문자열을 `NotAfter`사용 하 여 속성을 포함 합니다. 이 속성은 `NotAfter` 날짜 및 시간까지만 유효한 콜백 URL을 반환합니다.
+본문에서 JSON 날짜 문자열을 사용 하 여 `NotAfter`property를 포함 합니다. 이 속성은 `NotAfter` 날짜 및 시간까지만 유효한 콜백 URL을 반환합니다.
 
 <a name="primary-secondary-key"></a>
 
@@ -118,11 +118,11 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 논리 앱이 중첩 된 논리 앱 으로만 트리거하도록 하려면 **허용 된 인바운드 IP 주소** 목록에서 **다른 Logic Apps만**선택 합니다. 이 옵션은 논리 앱 리소스에 빈 배열을 씁니다. 이렇게 하면 Logic Apps 서비스 (부모 논리 앱)의 호출만 중첩 된 논리 앱을 트리거할 수 있습니다.
 
 > [!NOTE]
-> IP 주소에 관계 없이 Azure REST API 또는 API Management를 통해를 사용 `/triggers/<trigger-name>/run` 하 여 HTTP 요청 기반 트리거를 포함 하는 논리 앱을 계속 실행할 수 있습니다. 그러나이 시나리오에서는 여전히 Azure REST API에 대 한 인증이 필요 합니다. 모든 이벤트는 Azure 감사 로그에 표시 됩니다. 액세스 제어 정책을 적절 하 게 설정 해야 합니다.
+> IP 주소에 관계 없이 Azure REST API 또는 API Management를 통해 `/triggers/<trigger-name>/run`을 사용 하 여 HTTP 요청 기반 트리거를 포함 하는 논리 앱을 계속 실행할 수 있습니다. 그러나이 시나리오에서는 여전히 Azure REST API에 대 한 인증이 필요 합니다. 모든 이벤트는 Azure 감사 로그에 표시 됩니다. 액세스 제어 정책을 적절 하 게 설정 해야 합니다.
 
 #### <a name="restrict-incoming-ip-ranges-in-azure-resource-manager-template"></a>Azure Resource Manager 템플릿에서 들어오는 IP 범위 제한
 
-[Azure Resource Manager 템플릿을](../logic-apps/logic-apps-create-deploy-template.md)사용 하 여 논리 앱 배포를 자동화 하는 경우 논리 앱의 리소스 정의에서 `accessControl` `triggers` 섹션과 섹션을 사용 하 여 IP 범위를 지정할 수 있습니다. 예를 들면 다음과 같습니다.
+[Azure Resource Manager 템플릿을](../logic-apps/logic-apps-create-deploy-template.md)사용 하 여 논리 앱 배포를 자동화 하는 경우 논리 앱의 리소스 정의에서 `triggers` 섹션과 `accessControl` 섹션을 사용 하 여 IP 범위를 지정할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ``` json
 {
@@ -183,7 +183,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 ## <a name="access-to-run-history-data"></a>실행 기록 데이터에 대 한 액세스
 
-논리 앱을 실행 하는 동안 [TLS (전송 계층 보안)](https://azure.microsoft.com/updates/app-service-and-functions-hosted-apps-can-now-update-tls-versions/) 및 [미사용](../security/fundamentals/encryption-atrest.md)데이터를 사용 하 여 전송 하는 동안 모든 데이터를 암호화 합니다. 논리 앱의 실행이 완료 되 면 각 동작에 대 한 상태, 기간, 입력 및 출력과 함께 실행 된 단계를 포함 하 여 해당 실행에 대 한 기록을 볼 수 있습니다. 이 풍부한 정보는 논리 앱이 실행 되는 방법 및 발생 하는 문제 해결을 시작할 수 있는 위치에 대 한 통찰력을 제공 합니다.
+논리 앱을 실행 하는 동안 [TLS (Transport Layer Security](https://azure.microsoft.com/updates/app-service-and-functions-hosted-apps-can-now-update-tls-versions/) ) 및 [rest](../security/fundamentals/encryption-atrest.md)를 사용 하 여 전송 하는 동안 모든 데이터가 암호화 됩니다. 논리 앱의 실행이 완료 되 면 각 동작에 대 한 상태, 기간, 입력 및 출력과 함께 실행 된 단계를 포함 하 여 해당 실행에 대 한 기록을 볼 수 있습니다. 이 풍부한 정보는 논리 앱이 실행 되는 방법 및 발생 하는 문제 해결을 시작할 수 있는 위치에 대 한 통찰력을 제공 합니다.
 
 논리 앱의 실행 기록에 액세스 하는 경우 Logic Apps는 액세스를 인증 하 고 논리 앱 실행에서 요청 및 응답의 입력 및 출력에 대 한 링크를 제공 합니다. 그러나 암호, 비밀, 키 또는 기타 중요 한 정보를 처리 하는 작업의 경우 다른 사용자가 해당 데이터를 보고 액세스 하지 못하도록 하는 것이 좋습니다. 예를 들어 논리 앱이 HTTP 작업을 인증할 때 사용할 [Azure Key Vault](../key-vault/key-vault-overview.md) 에서 비밀을 가져오는 경우 해당 비밀을 뷰에서 숨깁니다.
 
@@ -201,7 +201,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 ### <a name="restrict-access-by-ip-address-range"></a>IP 주소 범위를 통한 액세스 제한
 
-특정 IP 주소 범위의 요청만 해당 데이터를 볼 수 있도록 논리 앱의 실행 기록에서 입력 및 출력에 대 한 액세스를 제한할 수 있습니다. 예를 들어 모든 사용자가 입력 및 출력에 액세스 하는 것을 차단 하려면 IP 주소 `0.0.0.0-0.0.0.0`범위 (예:)를 지정 합니다. 관리자 권한이 있는 사용자만 논리 앱의 데이터에 "just-in-time" 액세스를 제공 하는이 제한을 제거할 수 있습니다. 논리 앱 배포에 사용 하는 Azure Resource Manager 템플릿 또는 Azure Portal를 사용 하 여 제한할 IP 범위를 지정할 수 있습니다.
+특정 IP 주소 범위의 요청만 해당 데이터를 볼 수 있도록 논리 앱의 실행 기록에서 입력 및 출력에 대 한 액세스를 제한할 수 있습니다. 예를 들어 모든 사용자가 입력 및 출력에 액세스 하는 것을 차단 하려면 IP 주소 범위 (예: `0.0.0.0-0.0.0.0`)를 지정 합니다. 관리자 권한이 있는 사용자만 논리 앱의 데이터에 "just-in-time" 액세스를 제공 하는이 제한을 제거할 수 있습니다. 논리 앱 배포에 사용 하는 Azure Resource Manager 템플릿 또는 Azure Portal를 사용 하 여 제한할 IP 범위를 지정할 수 있습니다.
 
 #### <a name="restrict-ip-ranges-in-azure-portal"></a>Azure Portal에서 IP 범위 제한
 
@@ -217,7 +217,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 #### <a name="restrict-ip-ranges-in-azure-resource-manager-template"></a>Azure Resource Manager 템플릿에서 IP 범위 제한
 
-[Azure Resource Manager 템플릿을](../logic-apps/logic-apps-create-deploy-template.md)사용 하 여 논리 앱 배포를 자동화 하는 경우 논리 앱의 리소스 정의에서 `accessControl` `contents` 섹션과 섹션을 사용 하 여 IP 범위를 지정할 수 있습니다. 예를 들면 다음과 같습니다.
+[Azure Resource Manager 템플릿을](../logic-apps/logic-apps-create-deploy-template.md)사용 하 여 논리 앱 배포를 자동화 하는 경우 논리 앱의 리소스 정의에서 `contents` 섹션과 `accessControl` 섹션을 사용 하 여 IP 범위를 지정할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ``` json
 {
@@ -298,7 +298,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 #### <a name="secure-inputs-and-outputs-in-code-view"></a>코드 보기에서 입력 및 출력 보안
 
-기본 트리거 또는 작업 정의에서 다음 값 중 하나 또는 모두 `runtimeConfiguration.secureData.properties` 를 사용 하 여 배열을 추가 하거나 업데이트 합니다.
+기본 트리거 또는 작업 정의에서 다음 값 중 하나 또는 모두를 사용 하 여 `runtimeConfiguration.secureData.properties` 배열을 추가 하거나 업데이트 합니다.
 
 * `"inputs"`: 실행 기록의 입력을 보호 합니다.
 * `"outputs"`: 실행 기록의 출력을 보호 합니다.
@@ -361,14 +361,14 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 여러 환경에 걸쳐 배포 하는 경우 해당 환경에 따라 달라 지는 워크플로 정의의 값을 매개 변수화 하는 것이 좋습니다. 이렇게 하면 [Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-authoring-templates.md#parameters) 사용 하 여 논리 앱을 배포 하 고, 보안 매개 변수를 정의 하 여 중요 한 정보를 보호 하 고, 매개 변수를 사용 하 여 템플릿의 매개 변수를 통해 해당 매개 변수 입력을 별도로 제공할 수 있습니다. [ 파일](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values).
 
-예를 들어 [Azure Active Directory](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication)를 사용 하 여 HTTP 작업을 인증 하는 경우 인증에 사용 되는 클라이언트 ID 및 클라이언트 암호를 허용 하는 매개 변수를 정의 하 고 보호할 수 있습니다. 논리 앱에 대 한 이러한 매개 변수를 정의 하려면 `parameters` 논리 앱의 워크플로 정의 내에서 섹션을 사용 합니다. 논리 앱을 편집 하거나 실행 기록을 볼 때 표시 하지 않으려는 매개 변수 값을 보호 하려면 `securestring` 또는 `secureobject` 형식을 사용 하 여 매개 변수를 정의 하 고 필요에 따라 인코딩을 사용 합니다. 이 형식의 매개 변수는 리소스 정의와 함께 반환 되지 않으며 배포 후 리소스를 볼 때 액세스할 수 없습니다. 런타임 중에 이러한 매개 변수 값에 액세스 하려면 `@parameters('<parameter-name>')` 워크플로 정의 내에서 식을 사용 합니다. 이 식은 런타임에만 계산 되며 [워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md)에 의해 설명 됩니다.
+예를 들어 [Azure Active Directory](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication)를 사용 하 여 HTTP 작업을 인증 하는 경우 인증에 사용 되는 클라이언트 ID 및 클라이언트 암호를 허용 하는 매개 변수를 정의 하 고 보호할 수 있습니다. 논리 앱에 대 한 이러한 매개 변수를 정의 하려면 논리 앱의 워크플로 정의 내에서 `parameters` 섹션을 사용 합니다. 논리 앱을 편집 하거나 실행 기록을 볼 때 표시 하지 않으려는 매개 변수 값을 보호 하려면 `securestring` 또는 `secureobject` 유형을 사용 하 여 매개 변수를 정의 하 고 필요에 따라 인코딩을 사용 합니다. 이 형식의 매개 변수는 리소스 정의와 함께 반환 되지 않으며 배포 후 리소스를 볼 때 액세스할 수 없습니다. 런타임 중에 이러한 매개 변수 값에 액세스 하려면 워크플로 정의 내에서 `@parameters('<parameter-name>')` 식을 사용 합니다. 이 식은 런타임에만 계산 되며 [워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md)에 의해 설명 됩니다.
 
 > [!NOTE]
 > HTTP 요청의 헤더 또는 본문에 매개 변수를 사용 하는 경우 논리 앱의 실행 기록과 나가는 HTTP 요청을 볼 때 해당 매개 변수가 표시 될 수 있습니다. 또한 콘텐츠 액세스 정책도 적절 하 게 설정 해야 합니다. 권한 부여 헤더는 입력 또는 출력을 통해 볼 수 없습니다. 따라서 권한 부여 헤더에 비밀이 사용되면 해당 비밀을 검색할 수 없습니다.
 
 자세한 내용은이 항목의 뒷부분에 나오는 [워크플로 정의의 보안 매개 변수](#secure-parameters-workflow) 를 참조 하세요.
 
-[Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-authoring-templates.md#parameters)사용 하 여 배포를 자동화 하는 경우 `securestring` 및 `secureobject` 유형을 사용 하 여 배포 시 평가 되는 보안 템플릿 매개 변수를 정의할 수 있습니다. 템플릿 매개 변수를 정의 하려면 템플릿의 최상위 `parameters` 섹션을 사용 합니다 .이 섹션은 워크플로 `parameters` 정의 섹션과는 다르며 서로 다릅니다. 템플릿 매개 변수에 대 한 값을 제공 하려면 별도의 [매개 변수 파일](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values)을 사용 합니다.
+[Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-authoring-templates.md#parameters)사용 하 여 배포를 자동화 하는 경우 `securestring` 및 `secureobject` 유형을 사용 하 여 배포 시 평가 되는 보안 템플릿 매개 변수를 정의할 수 있습니다. 템플릿 매개 변수를 정의 하려면 템플릿의 최상위 수준 `parameters` 섹션을 사용 합니다 .이 섹션은 워크플로 정의의 `parameters` 섹션과 별개 이며 서로 다릅니다. 템플릿 매개 변수에 대 한 값을 제공 하려면 별도의 [매개 변수 파일](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values)을 사용 합니다.
 
 예를 들어, 비밀을 사용 하는 경우 배포 시 [Azure Key Vault](../key-vault/key-vault-overview.md) 에서 해당 비밀을 검색 하는 보안 템플릿 매개 변수를 정의 하 고 사용할 수 있습니다. 그런 다음 매개 변수 파일에서 키 자격 증명 모음 및 암호를 참조할 수 있습니다. 자세한 내용은 다음 항목을 참조하세요.
 
@@ -379,7 +379,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 ### <a name="secure-parameters-in-workflow-definitions"></a>워크플로 정의의 보안 매개 변수
 
-논리 앱의 워크플로 정의에서 중요 한 정보를 보호 하려면 논리 앱을 저장 한 후이 정보가 표시 되지 않도록 보안 매개 변수를 사용 합니다. 예를 들어, HTTP 작업에는 사용자 이름 및 암호를 사용 하는 기본 인증이 필요 하다 고 가정 합니다. 워크플로 정의에서 `parameters` 섹션은 `securestring` 형식을 사용 하 여 `basicAuthPasswordParam` 및 `basicAuthUsernameParam` 매개 변수를 정의 합니다. 그런 다음 작업 정의가 `authentication` 섹션에서 이러한 매개 변수를 참조 합니다.
+논리 앱의 워크플로 정의에서 중요 한 정보를 보호 하려면 논리 앱을 저장 한 후이 정보가 표시 되지 않도록 보안 매개 변수를 사용 합니다. 예를 들어, HTTP 작업에는 사용자 이름 및 암호를 사용 하는 기본 인증이 필요 하다 고 가정 합니다. 워크플로 정의에서 `parameters` 섹션은 `securestring` 유형을 사용 하 여 `basicAuthPasswordParam` 및 `basicAuthUsernameParam` 매개 변수를 정의 합니다. 그런 다음 작업 정의는 `authentication` 섹션에서 이러한 매개 변수를 참조 합니다.
 
 ```json
 "definition": {
@@ -425,22 +425,22 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 ### <a name="secure-parameters-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 보안 매개 변수
 
-논리 앱에 대 한 리소스 관리자 템플릿에는 여러 `parameters` 섹션이 있습니다. 암호, 키, 암호 및 기타 중요 한 정보를 보호 하려면 `securestring` 또는 `secureobject` 형식을 사용 하 여 템플릿 수준 및 워크플로 정의 수준에서 보안 매개 변수를 정의 합니다. 그런 다음 [Azure Key Vault](../key-vault/key-vault-overview.md) 에 이러한 값을 저장 하 고 [매개 변수 파일](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values) 을 사용 하 여 키 자격 증명 모음 및 암호를 참조할 수 있습니다. 그런 다음 템플릿에서 해당 정보를 검색 합니다. 자세한 내용은 [Azure Key Vault를 사용 하 여 배포 시 보안 매개 변수 값 전달을](../azure-resource-manager/resource-manager-keyvault-parameter.md)참조 하세요.
+논리 앱에 대 한 리소스 관리자 템플릿에는 여러 `parameters` 섹션이 있습니다. 암호, 키, 암호 및 기타 중요 한 정보를 보호 하려면 `securestring` 또는 `secureobject` 유형을 사용 하 여 템플릿 수준 및 워크플로 정의 수준에서 보안 매개 변수를 정의 합니다. 그런 다음 [Azure Key Vault](../key-vault/key-vault-overview.md) 에 이러한 값을 저장 하 고 [매개 변수 파일](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values) 을 사용 하 여 키 자격 증명 모음 및 암호를 참조할 수 있습니다. 그런 다음 템플릿에서 해당 정보를 검색 합니다. 자세한 내용은 [Azure Key Vault를 사용 하 여 배포 시 보안 매개 변수 값 전달을](../azure-resource-manager/resource-manager-keyvault-parameter.md)참조 하세요.
 
 이러한 `parameters` 섹션에 대 한 자세한 내용은 다음과 같습니다.
 
-* 템플릿의 최상위 수준에서 섹션은 `parameters` *배포*시 템플릿이 사용 하는 값에 대 한 매개 변수를 정의 합니다. 예를 들어 이러한 값에는 특정 배포 환경에 대 한 연결 문자열이 포함 될 수 있습니다. 그런 다음이 값을 별도의 [매개 변수 파일](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values)에 저장 하면 이러한 값을 보다 쉽게 변경할 수 있습니다.
+* 템플릿의 최상위 수준에서 `parameters` 섹션은 템플릿에서 *배포*에 사용 하는 값에 대 한 매개 변수를 정의 합니다. 예를 들어 이러한 값에는 특정 배포 환경에 대 한 연결 문자열이 포함 될 수 있습니다. 그런 다음이 값을 별도의 [매개 변수 파일](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values)에 저장 하면 이러한 값을 보다 쉽게 변경할 수 있습니다.
 
-* 논리 앱의 리소스 정의 내에서 워크플로 정의 외부에 있는 섹션은 `parameters` 워크플로 정의의 매개 변수에 대 한 값을 지정 합니다. 이 섹션에서는 템플릿 매개 변수를 참조 하는 템플릿 식을 사용 하 여 이러한 값을 할당할 수 있습니다. 이러한 식은 배포 시 평가 됩니다.
+* 논리 앱의 리소스 정의 내에서 워크플로 정의 외부에 있는 `parameters` 섹션은 워크플로 정의의 매개 변수에 대 한 값을 지정 합니다. 이 섹션에서는 템플릿 매개 변수를 참조 하는 템플릿 식을 사용 하 여 이러한 값을 할당할 수 있습니다. 이러한 식은 배포 시 평가 됩니다.
 
-* 워크플로 정의 내에서 섹션은 `parameters` 런타임에 논리 앱이 사용 하는 매개 변수를 정의 합니다. 그런 다음 런타임에 평가 되는 워크플로 정의 식을 사용 하 여 논리 앱의 워크플로 내에서 이러한 매개 변수를 참조할 수 있습니다.
+* 워크플로 정의 내에서 `parameters` 섹션은 런타임에 논리 앱에서 사용 하는 매개 변수를 정의 합니다. 그런 다음 런타임에 평가 되는 워크플로 정의 식을 사용 하 여 논리 앱의 워크플로 내에서 이러한 매개 변수를 참조할 수 있습니다.
 
-이 예제 템플릿에는 `securestring` 형식을 사용 하는 여러 보안 매개 변수 정의가 포함 되어 있습니다.
+@No__t-0 유형을 사용 하는 여러 보안 매개 변수 정의를 포함 하는이 예제 템플릿입니다.
 
-| 매개 변수 이름 | Description |
+| 매개 변수 이름 | 설명 |
 |----------------|-------------|
 | `TemplatePasswordParam` | 워크플로 정의의 `basicAuthPasswordParam` 매개 변수에 전달 되는 암호를 수락 하는 템플릿 매개 변수입니다. |
-| `TemplateUsernameParam` | 워크플로 정의의 `basicAuthUserNameParam` 매개 변수에 전달 되는 사용자 이름을 허용 하는 템플릿 매개 변수입니다. |
+| `TemplateUsernameParam` | 워크플로 정의의 @no__t 매개 변수에 전달 되는 사용자 이름을 허용 하는 템플릿 매개 변수입니다. |
 | `basicAuthPasswordParam` | HTTP 작업의 기본 인증에 대 한 암호를 허용 하는 워크플로 정의 매개 변수 |
 | `basicAuthUserNameParam` | HTTP 작업의 기본 인증에 대 한 사용자 이름을 허용 하는 워크플로 정의 매개 변수 |
 |||

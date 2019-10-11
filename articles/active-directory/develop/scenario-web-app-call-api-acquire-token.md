@@ -15,23 +15,23 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fd66dcd6e3845aad79ebffb3cad656d0a14c1a6
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: f30194592989b74aca96a5a483e9128cd3a86eb5
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720213"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274478"
 ---
 # <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>웹 Api를 호출 하는 웹 앱-앱에 대 한 토큰을 가져옵니다.
 
 클라이언트 응용 프로그램 개체를 빌드 했으므로 이제이를 사용 하 여 웹 API를 호출 하는 토큰을 가져옵니다. ASP.NET 또는 ASP.NET Core에서 web API 호출은 컨트롤러에서 수행 됩니다. 정보는 다음과 같습니다.
 
-- 토큰 캐시를 사용 하 여 web API에 대 한 토큰을 가져옵니다. 이 토큰을 가져오려면를 호출 `AcquireTokenSilent`합니다.
+- 토큰 캐시를 사용 하 여 web API에 대 한 토큰을 가져옵니다. 이 토큰을 가져오려면 `AcquireTokenSilent`을 호출 합니다.
 - 액세스 토큰을 사용 하 여 보호 된 API 호출
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-컨트롤러 메서드는 웹 앱을 사용 `[Authorize]` 하도록 사용자를 인증 하도록 하는 특성으로 보호 됩니다. Microsoft Graph를 호출 하는 코드는 다음과 같습니다.
+컨트롤러 메서드는 웹 앱을 사용 하도록 사용자를 인증 하도록 하는 `[Authorize]` 특성으로 보호 됩니다. Microsoft Graph를 호출 하는 코드는 다음과 같습니다.
 
 ```CSharp
 [Authorize]
@@ -61,10 +61,10 @@ public async Task<IActionResult> Profile()
  string[] scopes = new string[]{"user.read"};
  string accessToken = await tokenAcquisition.GetAccessTokenOnBehalfOfUserAsync(scopes);
 
-// use the access token to call a protected web API
-HttpClient client = new HttpClient();
-client.DefaultRequestHeaders.Add("Authorization", result.CreateAuthorizationHeader());
-string json = await client.GetStringAsync(url);
+ // use the access token to call a protected web API
+ HttpClient client = new HttpClient();
+ client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+ string json = await client.GetStringAsync(url);
 }
 ```
 
@@ -81,9 +81,9 @@ string json = await client.GetStringAsync(url);
 
 ASP.NET에서 다음과 유사한 항목이 있습니다.
 
-- [권한 부여] 특성으로 보호 되는 컨트롤러 작업은 컨트롤러의 `ClaimsPrincipal` 구성원에 대 한 테 넌 트 ID 및 사용자 ID를 추출 합니다. (ASP.NET는 `HttpContext.User`를 사용 합니다.)
-- 여기에서 MSAL.NET `IConfidentialClientApplication`을 빌드합니다.
-- 마지막으로 기밀 클라이언트 응용 `AcquireTokenSilent` 프로그램의 메서드를 호출 합니다.
+- [권한 부여] 특성으로 보호 되는 컨트롤러 작업은 컨트롤러의 `ClaimsPrincipal` 구성원에 대 한 테 넌 트 ID 및 사용자 ID를 추출 합니다. ASP.NET는 `HttpContext.User`을 사용 합니다.
+- 여기에서 MSAL.NET `IConfidentialClientApplication`이 작성 됩니다.
+- 마지막으로 기밀 클라이언트 응용 프로그램의 `AcquireTokenSilent` 메서드를 호출 합니다.
 
 코드는 ASP.NET Core에 대해 표시 되는 코드와 비슷합니다.
 

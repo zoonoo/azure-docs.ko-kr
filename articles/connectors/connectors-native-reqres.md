@@ -9,15 +9,15 @@ ms.author: estfan
 ms.reviewers: klam, LADocs
 manager: carmonm
 ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
-ms.topic: article
-ms.date: 09/06/2019
+ms.topic: conceptual
+ms.date: 10/11/2019
 tags: connectors
-ms.openlocfilehash: 668e815f1dc1ead0ad38264bdc71fc3c315b751c
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 6062ca1ce09eb243825b1fb9ae4ecb3d5ac95d1a
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122721"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264358"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 들어오는 HTTPS 호출 받기 및 응답
 
@@ -27,7 +27,8 @@ ms.locfileid: "71122721"
 * 외부 webhook 이벤트가 발생 하는 경우 워크플로를 트리거합니다.
 * 다른 논리 앱에서 HTTPS 호출을 받고 응답 합니다.
 
-요청 트리거는 HTTPS *만* 지원 합니다. 대신 나가는 HTTP 또는 HTTPS 호출을 수행 하려면 기본 제공 [http 트리거 또는 작업](../connectors/connectors-native-http.md)을 사용 합니다.
+> [!NOTE]
+> 요청 트리거는 들어오는 호출에 TLS (전송 계층 보안) 1.2 *만* 지원 합니다. 나가는 호출은 TLS 1.0, 1.1 및 1.2를 계속 지원 합니다. SSL 핸드셰이크 오류가 표시 되 면 TLS 1.2을 사용 하는지 확인 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -51,7 +52,7 @@ ms.locfileid: "71122721"
 
    ![요청 트리거](./media/connectors-native-reqres/request-trigger.png)
 
-   | 속성 이름 | JSON 속성 이름 | 필요한 공간 | 설명 |
+   | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
    |---------------|--------------------|----------|-------------|
    | **HTTP 게시 URL** | {없음} | 예 | 논리 앱을 저장 한 후에 생성 되 고 논리 앱을 호출 하는 데 사용 되는 끝점 URL입니다. |
    | **요청 본문 JSON 스키마** | `schema` | 아니요 | 들어오는 요청 본문의 속성 및 값을 설명 하는 JSON 스키마입니다. |
@@ -107,7 +108,7 @@ ms.locfileid: "71122721"
    }
    ```
 
-   JSON 스키마를 입력 하면 요청에 헤더를 `Content-Type` 포함 하 고 해당 헤더 값을로 `application/json`설정 하는 미리 알림이 디자이너에 표시 됩니다. 자세한 내용은 [콘텐츠 형식 처리](../logic-apps/logic-apps-content-type.md)를 참조 하세요.
+   JSON 스키마를 입력 하면 요청에 `Content-Type` 헤더를 포함 하 고 해당 헤더 값을 `application/json`로 설정 하는 미리 알림이 디자이너에 표시 됩니다. 자세한 내용은 [콘텐츠 형식 처리](../logic-apps/logic-apps-content-type.md)를 참조 하세요.
 
    !["Content-type" 헤더를 포함 하는 미리 알림](./media/connectors-native-reqres/include-content-type.png)
 
@@ -150,7 +151,7 @@ ms.locfileid: "71122721"
 
 1. 추가 속성을 지정 하려면 **새 매개 변수 추가** 목록을 열고 추가 하려는 매개 변수를 선택 합니다.
 
-   | 속성 이름 | JSON 속성 이름 | 필요한 공간 | 설명 |
+   | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
    |---------------|--------------------|----------|-------------|
    | **메서드** | `method` | 아니요 | 들어오는 요청에서 논리 앱을 호출 하는 데 사용 해야 하는 메서드입니다. |
    | **상대 경로** | `relativePath` | 아니요 | 논리 앱의 끝점 URL에서 수락할 수 있는 매개 변수의 상대 경로입니다. |
@@ -162,13 +163,13 @@ ms.locfileid: "71122721"
 
    **메서드** 속성은 목록에서 메서드를 선택할 수 있도록 트리거에 표시 됩니다.
 
-   ![방법 선택](./media/connectors-native-reqres/select-method.png)
+   ![Select 메서드](./media/connectors-native-reqres/select-method.png)
 
 1. 이제 워크플로의 다음 단계로 다른 작업을 추가 합니다. 트리거 아래에서 추가 하려는 작업을 찾을 수 있도록 **다음 단계** 를 선택 합니다.
 
    예를 들어 사용자 지정 된 응답을 반환 하는 데 사용할 수 있으며이 항목의 뒷부분에서 설명 하는 [응답 작업을 추가](#add-response)하 여 요청에 응답할 수 있습니다.
 
-   논리 앱은 1 분 동안만 들어오는 요청을 열어 둡니다. 논리 앱 워크플로에 응답 작업이 포함 되어 있다고 가정 하면 논리 앱이이 시간 경과 후 응답을 반환 하지 않는 경우 논리 앱은를 `504 GATEWAY TIMEOUT` 호출자에 게 반환 합니다. 그렇지 않고 논리 앱에 응답 동작이 포함 되지 않은 경우 논리 앱은 즉시 호출자에 게 `202 ACCEPTED` 응답을 반환 합니다.
+   논리 앱은 1 분 동안만 들어오는 요청을 열어 둡니다. 논리 앱 워크플로에 응답 작업이 포함 되어 있다고 가정 하면 논리 앱이이 시간 경과 후 응답을 반환 하지 않는 경우 논리 앱은 호출자에 게 `504 GATEWAY TIMEOUT`을 반환 합니다. 그렇지 않고 논리 앱에 응답 동작이 포함 되지 않은 경우 논리 앱은 호출자에 게 `202 ACCEPTED` 응답을 즉시 반환 합니다.
 
 1. 완료되면 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다. 
 
@@ -194,7 +195,7 @@ ms.locfileid: "71122721"
 
 응답 작업을 사용 하 여 들어오는 HTTPS 요청에 대 한 페이로드 (데이터)에 응답 하 고 HTTPS 요청에 의해 트리거되는 논리 앱 에서만 응답을 받을 수 있습니다. 워크플로의 어떤 지점에서 든 응답 작업을 추가할 수 있습니다. 이 트리거에 대 한 기본 JSON 정의에 대 한 자세한 내용은 [응답 작업 형식](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action)을 참조 하세요.
 
-논리 앱은 1 분 동안만 들어오는 요청을 열어 둡니다. 논리 앱 워크플로에 응답 작업이 포함 되어 있다고 가정 하면 논리 앱이이 시간 경과 후 응답을 반환 하지 않는 경우 논리 앱은를 `504 GATEWAY TIMEOUT` 호출자에 게 반환 합니다. 그렇지 않고 논리 앱에 응답 동작이 포함 되지 않은 경우 논리 앱은 즉시 호출자에 게 `202 ACCEPTED` 응답을 반환 합니다.
+논리 앱은 1 분 동안만 들어오는 요청을 열어 둡니다. 논리 앱 워크플로에 응답 작업이 포함 되어 있다고 가정 하면 논리 앱이이 시간 경과 후 응답을 반환 하지 않는 경우 논리 앱은 호출자에 게 `504 GATEWAY TIMEOUT`을 반환 합니다. 그렇지 않고 논리 앱에 응답 동작이 포함 되지 않은 경우 논리 앱은 호출자에 게 `202 ACCEPTED` 응답을 즉시 반환 합니다.
 
 1. 논리 앱 디자이너에서 응답 작업을 추가 하려는 단계 아래에 있는 **새 단계**를 선택 합니다.
 
@@ -202,7 +203,7 @@ ms.locfileid: "71122721"
 
    ![새 단계 추가](./media/connectors-native-reqres/add-response.png)
 
-   단계 사이에 작업을 추가 하려면 해당 단계 사이의 화살표 위로 포인터를 이동 합니다. 표시 되는 더하기 기호 **+** ()를 선택 하 고 **작업 추가**를 선택 합니다.
+   단계 사이에 작업을 추가 하려면 해당 단계 사이의 화살표 위로 포인터를 이동 합니다. 표시 되는 더하기 기호 ( **+** )를 선택 하 고 **작업 추가**를 선택 합니다.
 
 1. **작업 선택**아래의 검색 상자에 "응답"을 필터로 입력 하 고 **응답** 작업을 선택 합니다.
 
@@ -214,7 +215,7 @@ ms.locfileid: "71122721"
 
    일부 필드에서 상자 내부를 클릭 하면 동적 콘텐츠 목록이 열립니다. 그런 다음 워크플로의 이전 단계에서 사용 가능한 출력을 나타내는 토큰을 선택할 수 있습니다. 이전 예제에 지정 된 스키마의 속성은 이제 동적 콘텐츠 목록에 표시 됩니다.
 
-   예를 들어 **헤더** 상자의 경우이 항목의 `Content-Type` 앞부분에서 설명한 대로 키 이름으로를 포함 하 고 `application/json` 키 값을로 설정 합니다. **본문** 상자의 동적 콘텐츠 목록에서 트리거 본문 출력을 선택할 수 있습니다.
+   예를 들어 **헤더** 상자의 경우 키 이름으로 `Content-Type`을 포함 하 고,이 항목의 앞부분에서 설명한 대로 키 값을 `application/json`로 설정 합니다. **본문** 상자의 동적 콘텐츠 목록에서 트리거 본문 출력을 선택할 수 있습니다.
 
    ![응답 작업 세부 정보](./media/connectors-native-reqres/response-details.png)
 
@@ -224,7 +225,7 @@ ms.locfileid: "71122721"
 
    응답 작업에서 설정할 수 있는 속성에 대 한 자세한 내용은 다음과 같습니다. 
 
-   | 속성 이름 | JSON 속성 이름 | 필요한 공간 | 설명 |
+   | 속성 이름 | JSON 속성 이름 | 필수 | 설명 |
    |---------------|--------------------|----------|-------------|
    | **상태 코드** | `statusCode` | 예 | 응답에 반환할 상태 코드 |
    | **헤더** | `headers` | 아니요 | 응답에 포함할 하나 이상의 헤더를 설명 하는 JSON 개체입니다. |

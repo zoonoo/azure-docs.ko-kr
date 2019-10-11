@@ -5,19 +5,19 @@ metadata:
   title: 애플리케이션 관리 설명서
   description: Azure Active Directory는 클라우드 및 온-프레미스 애플리케이션에 안전하고 원활한 액세스를 제공합니다. 또한 암호를 관리할 필요가 없습니다. 최종 사용자는 한 번 로그인하여 Office 365 및 수천 개의 다른 애플리케이션에 액세스할 수 있습니다. 빠른 시작, 자습서 및 가이드를 사용하여 애플리케이션을 관리하고 배포하는 방법을 알아봅니다.
   ms.service: active-directory
-  ms.subservice: manage-apps
+  ms.subservice: app-mgmt
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 08/16/2019
+  ms.date: 10/10/2019
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: acb99eab233836f46c1e1dfe4c857fb2e80ed3de
-  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.openlocfilehash: 0d7081a35a143abf1ae068ce7344e0e50e240eaa
+  ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/28/2019
-  ms.locfileid: "70127541"
+  ms.lasthandoff: 10/11/2019
+  ms.locfileid: "72264133"
 landingContent:
 - title: 애플리케이션 관리 정보
   linkLists:
