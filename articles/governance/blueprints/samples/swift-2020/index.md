@@ -1,17 +1,17 @@
 ---
 title: 샘플 - SWIFT CSP-CSCF v2020 청사진 - 개요
-description: SWIFT CSP-CSCF v2020 청사진 샘플에 대한 개요입니다.
+description: SWIFT CSP-CSCF v2020 청사진 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 SWIFT CSP-CSCF 컨트롤을 파악하는 데 도움이 됩니다.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 09/24/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 5fa0e9e70ea08928fab3bf67a696a1e493d47999
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 73d89240f31f73ec980b19c75ff31e8702b8c112
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980889"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248803"
 ---
 # <a name="overview-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>SWIFT CSP-CSCF v2020 청사진 샘플에 대한 개요
 

@@ -119,6 +119,10 @@
           href: app/troubleshoot-faq.md
 - name: 방법 가이드
   items:
+    - name: 모니터링 시나리오
+      items:
+        - name: Azure Service 모니터링
+          href: insights/monitor-azure-resource.md
     - name: Azure Monitor 관리
       items:
         - name: 작업 영역 배포 디자인

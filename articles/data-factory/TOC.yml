@@ -432,6 +432,8 @@
           href: control-flow-get-metadata-activity.md
         - name: If 조건 작업
           href: control-flow-if-condition-activity.md
+        - name: 작업 전환
+          href: control-flow-switch-activity.md
         - name: 조회 작업
           href: control-flow-lookup-activity.md
         - name: 변수 작업 설정
@@ -598,6 +600,8 @@
           href: ssis-integration-runtime-management-troubleshoot.md
         - name: Azure-SSIS IR의 패키지 실행 문제 해결
           href: ssis-integration-runtime-ssis-activity-faq.md
+        - name: 데이터 흐름 문제 해결
+          href: data-flow-troubleshoot-guide.md
 - name: 시나리오
   items:
     - name: 데이터 레이크 및 EDW용 데이터 마이그레이션

@@ -2,7 +2,9 @@
   href: index.yml
   displayName: Azure Spring Cloud
 - name: 개요
-  href: spring-cloud-overview.md
+  items:
+    - name: Azure Spring Cloud란?
+      href: spring-cloud-overview.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -12,7 +14,7 @@
       href: spring-cloud-quickstart-launch-app-cli.md
     - name: 원본에서 Spring Cloud 앱 시작
       href: spring-cloud-launch-from-source.md
-    - name: Maven를 사용하여 Java Spring 앱 시작
+    - name: Maven을 사용하여 Spring Cloud 앱 시작
       href: spring-cloud-quickstart-launch-app-maven.md
 - name: 자습서
   items:

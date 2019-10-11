@@ -1,0 +1,97 @@
+### YamlMime:Landing
+title: Azure SQL Data Warehouse
+summary: SQL 관계형 데이터베이스와 MPP(대규모 병렬 처리)를 결합하는 Azure SQL Data Warehouse를 사용하는 방법에 대해 알아봅니다. 자습서 및 기타 문서는 데이터 웨어하우스를 사용하여 데이터를 설계, 로드, 관리 및 분석하는 방법을 보여줍니다.
+metadata:
+  title: Azure SQL Data Warehouse
+  description: description
+  services: sql-data-warehouse
+  ms.service: sql-data-warehouse
+  ms.subservice: design
+  ms.topic: landing-page
+  ms.collection: collection
+  author: julieMSFT
+  ms.author: jrasnick
+  ms.date: 10/03/2019
+  ms.openlocfilehash: ffb90d5d15b83570511c3f70b39f9f83f000ab35
+  ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 10/10/2019
+  ms.locfileid: "72245850"
+landingContent:
+- title: SQL Data Warehouse 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: SQL Data Warehouse란 무엇입니까?
+      url: sql-data-warehouse-overview-what-is.md
+  - linkListType: architecture
+    links:
+    - text: SQL Data Warehouse - MPP 아키텍처
+      url: massively-parallel-processing-mpp-architecture.md
+    - text: 데이터 웨어하우스에 대한 팁과 모범 사례
+      url: cheat-sheet.md
+- title: 시작
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: SQL Data Warehouse 만들기
+      url: create-data-warehouse-portal.md
+- title: 데이터 로드
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: PolyBase 데이터 로드 전략 디자인
+      url: design-elt-data-loading.md
+    - text: 데이터 로드 모범 사례
+      url: guidance-for-loading-data.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Data Lake Storage에서 데이터 로드
+      url: sql-data-warehouse-load-from-azure-data-lake-store.md
+  - linkListType: tutorial
+    links:
+    - text: Azure Bob 스토리지에서 데이터 로드
+      url: load-data-from-azure-blob-storage-using-polybase.md
+- title: 성능 튜닝
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: SQL Data Warehouse 모범 사례
+      url: sql-data-warehouse-best-practices.md
+    - text: 순서가 지정된 클러스터형 columnstore 인덱스 튜닝
+      url: performance-tuning-ordered-cci.md
+    - text: 워크로드 튜닝을 위해 구체화된 뷰 사용
+      url: performance-tuning-materialized-views.md
+  - linkListType: how-to-guide
+    links:
+    - text: 워크로드 분석
+      url: analyze-your-workload.md
+- title: SQL Data Warehouse 관리 및 모니터링
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: SQL Data Warehouse 관리 및 모니터링에 대해 알아보기
+      url: sql-data-warehouse-overview-manageability-monitoring.md
+  - linkListType: how-to-guide
+    links:
+    - text: DMV를 사용하여 작업 모니터링
+      url: sql-data-warehouse-manage-monitor.md
+    - text: 워크로드 중요도 관리 및 모니터링
+      url: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
+- title: SQL Data Warehouse 보호
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: SQL Data Warehouse 보안 설정에 대한 기본 사항 이해
+      url: sql-data-warehouse-overview-manage-security.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Active Directory 인증 구성
+      url: /azure/sql-database/sql-database-aad-authentication-configure?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+- title: 리소스
+  linkLists:
+  - linkListType: video
+    links:
+    - text: 최신 Azure SQL Data Warehouse 비디오 시청
+      url: sql-data-warehouse-videos.md
