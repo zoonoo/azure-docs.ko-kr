@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0ff2d9b8c0ca891b25dfcd6bf1f19d1541fd1541
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: ca6b055b5d3702cea4ca1986ad1c81b59f76cee3
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673229"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299628"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-from-a-client-application"></a>클라이언트 응용 프로그램에서 Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
 
@@ -31,7 +31,7 @@ Azure Storage 애플리케이션에서 보안 주체를 인증하려면 먼저 �
 
 Azure AD를 사용 하 여 저장소 리소스에 대 한 액세스 권한을 부여 하는 첫 번째 단계는 클라이언트 응용 프로그램을 [Azure Portal](https://portal.azure.com)의 azure ad 테 넌 트에 등록 하는 것입니다. 클라이언트 응용 프로그램을 등록할 때 응용 프로그램에 대 한 정보를 Azure AD에 제공 합니다. 그러면 Azure AD는 런타임 시 애플리케이션을 Azure AD와 연결하는 데 사용하는 클라이언트 ID(*애플리케이션 ID*라고도 함)를 제공합니다. 클라이언트 ID에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 및 서비스 사용자 개체](../../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
 
-Azure Storage 응용 프로그램을 등록 하려면 퀵 스타트에 [표시 된 단계를 수행 합니다. Microsoft id 플랫폼](../../active-directory/develop/quickstart-configure-app-access-web-apis.md)에 응용 프로그램을 등록 합니다. 다음 이미지는 웹 응용 프로그램을 등록 하는 일반적인 설정을 보여 줍니다.
+Azure Storage 응용 프로그램을 등록 하려면 [Quickstart 스타트에 표시 된 단계를 따르세요. Microsoft id platform @ no__t-0을 사용 하 여 응용 프로그램을 등록 합니다. 다음 이미지는 웹 응용 프로그램을 등록 하는 일반적인 설정을 보여 줍니다.
 
 ![Azure AD를 사용 하 여 저장소 응용 프로그램을 등록 하는 방법을 보여 주는 스크린샷](./media/storage-auth-aad-app/app-registration.png)
 
@@ -76,7 +76,7 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 
 응용 프로그램을 등록 하 고 Azure Blob 저장소 또는 큐 저장소의 데이터에 액세스할 수 있는 권한을 부여 하면 응용 프로그램에 보안 주체를 인증 하 고 OAuth 2.0 토큰을 획득 하는 코드를 추가할 수 있습니다. 토큰을 인증 하 고 얻으려면 [Microsoft id 플랫폼 인증 라이브러리나](../../active-directory/develop/reference-v2-libraries.md) openid connect Connect 1.0을 지 원하는 다른 오픈 소스 라이브러리 중 하나를 사용할 수 있습니다. 그러면 응용 프로그램에서 액세스 토큰을 사용 하 여 Azure Blob 저장소 또는 큐 저장소에 대 한 요청을 인증할 수 있습니다.
 
-토큰 획득을 지 원하는 시나리오 목록은 .NET GitHub 리포지토리의 [MSAL (Microsoft 인증 라이브러리)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) 의 [시나리오](https://aka.ms/msal-net-scenarios) 섹션을 참조 하세요.
+토큰 획득을 지 원하는 시나리오 목록은 [Microsoft 인증 라이브러리 콘텐츠의](/azure/active-directory/develop/msal-overview) [인증 흐름](/en-us/azure/active-directory/develop/msal-authentication-flows) 섹션을 참조 하세요.
 
 ## <a name="well-known-values-for-authentication-with-azure-ad"></a>Azure AD를 사용하여 인증하기 위해 잘 알려진 값
 
@@ -177,7 +177,7 @@ Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 
 다음으로, 사용자를 대신 하 여 Azure AD에서 토큰을 요청 하는 메서드를 추가 합니다. 이 메서드는 권한이 부여 되는 범위를 정의 합니다. 사용 권한 및 범위에 대 한 자세한 내용은 [Microsoft id 플랫폼 끝점의 사용 권한 및 동의](../../active-directory/develop/v2-permissions-and-consent.md)를 참조 하세요.
 
-리소스 ID를 사용 하 여 토큰을 가져올 범위를 구성 합니다. 이 예제에서는 리소스 ID를 기본 제공 `user_impersonation` 범위와 함께 사용 하 여 범위를 생성 합니다 .이 범위는 사용자를 대신 하 여 토큰이 요청 됨을 나타냅니다.
+리소스 ID를 사용 하 여 토큰을 가져올 범위를 구성 합니다. 이 예제에서는 리소스 ID를 기본 제공 `user_impersonation` 범위와 함께 사용 하 여 범위를 구성 합니다 .이 범위는 사용자를 대신 하 여 토큰이 요청 됨을 나타냅니다.
 
 사용자가 토큰을 대신해 서 요청 하는 데 동의할 수 있도록 하는 인터페이스를 사용자에 게 제공 해야 할 수 있습니다. 동의가 필요한 경우이 예제에서는 **MsalUiRequiredException** 을 catch 하 고 다른 메서드를 호출 하 여 동의 요청을 용이 하 게 합니다.
 

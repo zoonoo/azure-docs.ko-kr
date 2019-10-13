@@ -1,5 +1,5 @@
 ---
-title: 샘플-PCI DSS v 3.2.1 청사진-배포 단계
+title: PCI DSS v 3.2.1 청사진 샘플-배포 단계
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함 하는 지불 카드 업계 Data Security Standard v 3.2.1 청사진 샘플에 대 한 단계를 배포 합니다.
 services: blueprints
 author: DCtheGeek
@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: fa409b873ea1dd0c0970ebc694ad68673df4d033
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 85f9eab29411ac896f73eed7aba607c733e4b95e
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248851"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299037"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>PCI DSS v 3.2.1 청사진 샘플 배포
 
@@ -71,7 +71,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
      - **구독**: 청사진 샘플 사본을 저장한 관리 그룹에 있는 하나 이상의 구독을 선택합니다. 둘 이상의 구독을 선택하면 입력한 매개 변수를 사용하여 각 구독의 할당이 생성됩니다.
      - **할당 이름**: 청사진의 이름에 따라 이 이름이 미리 채워집니다.
        필요에 따라 변경하거나 그대로 둡니다.
-     - **위치**: 관리 ID를 만들 지역을 선택합니다. Azure Blueprints는 이 관리 ID를 사용하여 할당된 청사진의 모든 아티팩트를 배포합니다. 자세히 알아보려면 [Azure 리소스의 관리 ID](../../../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
+     - **Location**: 관리 ID를 만들 지역을 선택합니다. Azure Blueprints는 이 관리 ID를 사용하여 할당된 청사진의 모든 아티팩트를 배포합니다. 자세히 알아보려면 [Azure 리소스의 관리 ID](../../../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
      - **청사진 정의 버전**: 청사진 샘플 사본의 **게시됨** 버전을 선택합니다.
 
    - 할당 잠금
@@ -100,7 +100,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |\[Preview @ no__t-1 감사 PCI v 3.2.1:2018 컨트롤 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포|정책 할당|리소스 종류 목록 | 선택한 리소스 종류에 대 한 감사 진단 설정입니다. 기본값은 모든 리소스를 선택 합니다.| 
 |허용되는 위치|정책 할당|허용 되는 위치 목록|에 배포 되는 리소스에 허용 되는 데이터 센터 위치 목록입니다. 이 목록은 원하는 Azure 위치에 전역적으로 사용자 지정할 수 있습니다. 허용할 위치를 선택 합니다.| 
 |리소스 그룹에 허용 되는 위치|정책 할당 |허용 되는 위치 |이 정책을 사용 하면 조직에서 리소스 그룹을 만들 수 있는 위치를 제한할 수 있습니다. 지역 규정 준수 요구 사항을 적용하는 데 사용합니다.| 
-|SQL Server에 감사 배포|정책 할당|보존 기간 (일)|데이터 보존 일 수입니다. 기본값은 180 이지만 PCI에는 365이 필요 합니다.| 
+|SQL Server에 감사 배포|정책 할당|보존 기간 (일)|데이터 보존 (일 수)입니다. 기본값은 180 이지만 PCI에는 365이 필요 합니다.| 
 |SQL Server에 감사 배포|정책 할당|저장소 계정에 대 한 리소스 그룹 이름|감사에서는 데이터베이스 이벤트를 Azure Storage 계정의 감사 로그에 씁니다(스토리지 계정은 한 지역의 모든 서버에서 공유할 수 있는 SQL Server가 만들어진 각 지역에 만들어짐).| 
 
 ## <a name="next-steps"></a>다음 단계

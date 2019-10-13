@@ -4,14 +4,14 @@ description: Azure Resource Manager가 테넌트에서 인증 요청을 처리�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 10/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 625a17156eaf199af0d51151c6fd37769b8f7b4a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b85ed32ac333402caeca4901e4d91bbe4d1d112c
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848763"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300356"
 ---
 # <a name="authenticate-requests-across-tenants"></a>테넌트에서 요청 인증
 
@@ -21,10 +21,10 @@ ms.locfileid: "68848763"
 
 요청에는 다음 인증 헤더 값이 있습니다.
 
-| 헤더 이름 | Description | 예제 값 |
+| 헤더 이름 | 설명 | 예제 값 |
 | ----------- | ----------- | ------------ |
 | Authorization | 기본 토큰 | Bearer &lt;primary-token&gt; |
-| x-ms-authorization-auxiliary | 보조 토큰 | 전달자 &lt;보조-token1&gt;, encryptedbearer &lt;보조-token2&gt;, 전달자 &lt;보조-token3&gt; |
+| x-ms-authorization-auxiliary | 보조 토큰 | 전달자 &lt;auxiliary @ no__t, EncryptedBearer &lt;auxiliary-token2 @ no__t-3, 전달자 &lt;auxiliary-token3 @ no__t-5 |
 
 보조 헤더는 최대 세 개의 보조 토큰을 유지할 수 있습니다. 
 
@@ -37,5 +37,6 @@ ms.locfileid: "68848763"
 요청의 다른 테넌트의 리소스를 참조하는 경우 Resource Manager는 보조 토큰을 확인하여 요청을 처리할 수 있는지 여부를 확인합니다. 헤더의 모든 보조 토큰은 유효하고 만료되지 않아야 합니다. 토큰이 만료된 경우 Resource Manager는 401 응답 코드를 반환합니다. 응답은 유효하지 않은 토큰에서 클라이언트 ID 및 테넌트 ID를 포함합니다. 보조 헤더가 테넌트에 대한 유효한 토큰을 포함하는 경우 교차 테넌트 요청이 처리됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-* Azure Resource Manager API를 사용하여 인증 요청 보내기에 대해 자세히 알아보려면 [Resource Manager 인증 API를 사용하여 구독에 액세스](resource-manager-api-authentication.md)를 참조하세요.
-* 토큰에 대한 자세한 내용은 [Azure Active Directory 액세스 토큰](/azure/active-directory/develop/access-tokens)을 참조하세요.
+
+* 인증 요청에 대 한 자세한 내용은 [인증 흐름 및 응용 프로그램 시나리오](../active-directory/develop/authentication-flows-app-scenarios.md)를 참조 하세요.
+* 토큰에 대한 자세한 내용은 [Azure Active Directory 액세스 토큰](../active-directory/develop/access-tokens.md)을 참조하세요.

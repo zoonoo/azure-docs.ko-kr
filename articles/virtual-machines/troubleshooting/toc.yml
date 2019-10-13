@@ -65,8 +65,6 @@
       href: detailed-troubleshoot-ssh-connection.md
 - name: 일반적인 오류 메시지
   href: error-messages.md
-- name: Microsoft Azure Automation에 대한 사례를 열 때 수집할 데이터
-  href: collect-data-microsoft-azure-automation-case.md
 - name: VM 관련 성능 문제
   href: performance-diagnostics.md
 - name: Linux 또는 Windows를 실행 중인 Azure Virtual Machine의 일반 성능 문제 해결

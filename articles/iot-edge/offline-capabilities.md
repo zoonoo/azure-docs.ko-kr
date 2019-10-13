@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 80a38767121f5c54afe51a7d4d788716fe9547e2
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 3fc90e685a3c6a077250028bae5602e95f114c03
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091354"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72293448"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>IoT Edge 장치, 모듈 및 자식 장치에 대 한 확장 된 오프 라인 기능 이해
 
@@ -69,7 +69,7 @@ IoT Edge 디바이스 및 할당된 자식 디바이스는 초기 일회성 동�
    ![IoT Edge 디바이스 세부 정보 페이지에서 자식 디바이스 관리](./media/offline-capabilities/manage-child-devices.png)
 
 
-#### <a name="option-2-use-the-az-command-line-tool"></a>옵션 2: `az` 명령줄 도구 사용
+#### <a name="option-2-use-the-az-command-line-tool"></a>옵션 2: @No__t-0 명령줄 도구 사용
 
 [IoT 확장](https://github.com/azure/azure-iot-cli-extension) (v 0.7.0 이상)과 함께 [Azure 명령줄 인터페이스](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 를 사용 하 여 [장치 id](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) 하위 명령으로 부모 자식 관계를 관리할 수 있습니다. 아래 예제에서는 쿼리를 사용 하 여 허브에 있는 모든 비 IoT Edge 장치를 IoT Edge 장치의 자식 장치로 할당 합니다. 
 
@@ -118,7 +118,7 @@ az iot hub device-identity add-children \
 
 먼저 IoT Edge 허브가 장치를 다시 연결 하는 데 충분 한 시간 동안 메시지를 유지할 수 있도록 시간을 라이브 설정으로 늘립니다. 그런 다음, 메시지 스토리지에 대한 추가 디스크 공간을 추가합니다. 
 
-### <a name="time-to-live"></a>TTL(Time to Live)
+### <a name="time-to-live"></a>TTL(Time to live)
 
 TTL(Time to Live) 설정은 메시지가 만료되기 전까지 대기할 수 있는 시간의 양(초)입니다. 기본값은 7200초(2시간)입니다. 최 댓 값은 정수 변수의 최 댓 값 (20억)에 의해서만 제한 됩니다. 
 
@@ -138,69 +138,7 @@ TTL(Time to Live) 설정은 메시지가 만료되기 전까지 대기할 수 �
 
 ### <a name="host-storage-for-system-modules"></a>시스템 모듈의 호스트 저장소
 
-메시지 및 모듈 상태 정보는 기본적으로 IoT Edge 허브의 로컬 컨테이너 파일 시스템에 저장 됩니다. 안정성을 향상 시키기 위해 특히 오프 라인으로 작업 하는 경우 호스트 IoT Edge 장치에 전용 저장소를 지정할 수 있습니다.
-
-호스트 시스템에서 저장소를 설정 하려면 컨테이너의 저장소 폴더를 가리키는 IoT Edge 허브 및 IoT Edge 에이전트에 대 한 환경 변수를 만듭니다. 그런 다음, 만들기 옵션을 사용하여 해당 스토리지 폴더를 호스트 머신의 폴더에 바인딩합니다. 
-
-**고급 Edge 런타임 설정 구성** 섹션에서 Azure Portal의 IoT Edge 허브 모듈에 대한 환경 변수 및 만들기 옵션을 구성할 수 있습니다. 
-
-1. IoT Edge 허브와 IoT Edge 에이전트 모두에서 모듈의 디렉터리를 가리키는 **Storagefolder** 라는 환경 변수를 추가 합니다.
-1. IoT Edge 허브와 IoT Edge 에이전트 모두에 대해 바인딩을 추가 하 여 호스트 컴퓨터의 로컬 디렉터리를 모듈의 디렉터리에 연결 합니다. 예: 
-
-   ![로컬 저장소에 대 한 만들기 옵션 및 환경 변수 추가](./media/offline-capabilities/offline-storage.png)
-
-또는 배포 매니페스트에서 직접 로컬 저장소를 구성할 수 있습니다. 예: 
-
-```json
-"systemModules": {
-    "edgeAgent": {
-        "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
-            "createOptions": {
-                "HostConfig": {
-                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"]
-                }
-            }
-        },
-        "type": "docker",
-        "env": {
-            "storageFolder": {
-                "value": "<ModuleStoragePath>"
-            }
-        }
-    },
-    "edgeHub": {
-        "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-            "createOptions": {
-                "HostConfig": {
-                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"],
-                    "PortBindings":{"5671/tcp":[{"HostPort":"5671"}],"8883/tcp":[{"HostPort":"8883"}],"443/tcp":[{"HostPort":"443"}]}}}
-        },
-        "type": "docker",
-        "env": {
-            "storageFolder": {
-                "value": "<ModuleStoragePath>"
-            }
-        },
-        "status": "running",
-        "restartPolicy": "always"
-    }
-}
-```
-
-`<HostStoragePath>` 및`<ModuleStoragePath>` 를 호스트 및 모듈 저장소 경로로 바꾸고, 두 값이 모두 절대 경로 여야 합니다. 
-
-예를 들어 `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]`는 컨테이너에서 **/iotedge/storage/** 디렉터리에 매핑된 사용자의 호스트 시스템의 **/etc/iotedge/storage** 디렉터리를 의미합니다. 또는 Windows 시스템에 대한 또 다른 예로 `"Binds":["C:\\temp:C:\\contemp"]`는 컨테이너에서 **C:\\contemp** 디렉터리에 매핑된 사용자의 호스트 시스템의 **C:\\temp** 디렉터리를 의미합니다. 
-
-Linux 장치에서 IoT Edge 허브의 사용자 프로필 UID 1000에 호스트 시스템 디렉터리에 대 한 읽기, 쓰기 및 실행 권한이 있는지 확인 합니다. 이러한 권한은 IoT Edge 허브가 디렉터리에 메시지를 저장 하 고 나중에 검색할 수 있도록 하기 위해 필요 합니다. IoT Edge 에이전트는 루트로 작동 하므로 추가 권한이 필요 하지 않습니다. 를 사용 `chown` 하 여 디렉터리 소유자를 변경한 다음 `chmod` 사용 권한을 변경 하는 등 Linux 시스템에서 디렉터리 권한을 관리 하는 방법에는 여러 가지가 있습니다. 예:
-
-```bash
-sudo chown 1000 <HostStoragePath>
-sudo chmod 700 <HostStoragePath>
-```
-
-[Docker 문서](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate)에서 만들기 옵션에 대 한 자세한 내용을 확인할 수 있습니다.
+메시지 및 모듈 상태 정보는 기본적으로 IoT Edge 허브의 로컬 컨테이너 파일 시스템에 저장 됩니다. 안정성을 향상 시키기 위해 특히 오프 라인으로 작업 하는 경우 호스트 IoT Edge 장치에 전용 저장소를 지정할 수 있습니다. 자세한 내용은 [모듈의 로컬 저장소에 대 한 액세스 권한 부여](how-to-access-host-storage-from-module.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

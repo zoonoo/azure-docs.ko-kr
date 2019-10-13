@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: f677d6b8edfe60646c6368acce9d47b23a35237d
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 95b85aa11d99ddd48c90c8d9fa28789e79ee979f
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146884"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299242"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Azure CDN에 대 한 현재 POP IP 목록을 검색 합니다.
 
@@ -41,7 +41,6 @@ Microsoft에서 Azure CDN의 트래픽만 허용 하도록 응용 프로그램�
 
 Microsoft 서비스에 대 한 IP 범위 및 서비스 태그는 [여기](https://www.microsoft.com/download/details.aspx?id=56519) 에서 찾을 수 있습니다.
 
-Microsoft에서 Azure CDN 보낸 들어오는 헤더 ' X-전달 된 호스트 '의 값을 필터링 합니다. 헤더에 대해 허용 되는 유일한 값은 CDN 구성에 정의 된 모든 끝점 호스트 여야 합니다. 실제로는이 특정 출처의에서 트래픽을 허용 하려는 호스트 이름만을 더욱 구체적으로 지정할 수 있습니다.
 
 ## <a name="typical-use-case"></a>일반적인 사용 사례
 

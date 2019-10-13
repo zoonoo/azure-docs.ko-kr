@@ -2,18 +2,17 @@
 title: Azure Analysis Services에서 지원되는 데이터 원본 | Microsoft Docs
 description: Azure Analysis Services의 데이터 모델에 지원되는 데이터 원본에 대해 설명합니다.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 81fc73ffd61a49eae1c4f107733b6f9f53efbb4f
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 79346f0bf80386fb83f55daccda8790652ff8541
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993379"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298629"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -21,7 +20,7 @@ Visual Studio에서 데이터 가져오기 또는 마법사 가져오기에 표�
 
 ## <a name="azure-data-sources"></a>Azure 데이터 원본
 
-|데이터 소스  |메모리 내  |DirectQuery  |
+|데이터 원본  |메모리 내  |DirectQuery  |
 |---------|---------|---------|
 |Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   예      |    예      |
 |Azure SQL 데이터 웨어하우스     |   예      |   예       |
@@ -48,7 +47,7 @@ Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델�
 
 ### <a name="in-memory-and-directquery"></a>메모리 내 및 DirectQuery
 
-|데이터 소스 | 메모리 내 공급자 | DirectQuery 공급자 |
+|데이터 원본 | 메모리 내 공급자 | DirectQuery 공급자 |
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
 | SQL Server 데이터 웨어하우스 |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
@@ -58,7 +57,7 @@ Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델�
 
 ### <a name="in-memory-only"></a>메모리 내 전용
 
-|데이터 소스  |  
+|데이터 원본  |  
 |---------|
 |Access 데이터베이스     |  
 |Active Directory<sup>[1](#tab1400b)</sup>     |  

@@ -2,18 +2,17 @@
 title: Azure Analysis Services 서버에 연결 | Microsoft Docs
 description: Azure의 Analysis Services 서버에서 데이터에 연결하고 가져오는 방법에 대해 알아봅니다.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9a8863189ee9cb63d86b157c0bbebb6fd16116b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8059ac748f73ad8f9036f8e675e876e3a8716be
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61027986"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72295175"
 ---
 # <a name="connecting-to-servers"></a>서버에 연결
 
@@ -41,7 +40,7 @@ Azure에서 Analysis Services 서버를 만들 경우 고유한 이름 및 만�
 ![Azure에서 서버 이름 가져오기](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
 > [!NOTE]
-> 미국 동부 2 지역에 대 한 프로토콜 **aspaaseastus2**합니다.
+> 미국 동부 2 지역의 프로토콜은 **aspaaseastus2**입니다.
 
 ## <a name="connection-string"></a>연결 문자열
 

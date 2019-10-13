@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: ec0fa0ba7c7cad698cda0f7b440415c3dbb0236a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: eefa54806d9f5ec9ef3a0c02e4abbaf6b4bf22e2
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299627"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298478"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -50,7 +50,7 @@ ms.locfileid: "71299627"
 
 ### <a name="can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted"></a>Azure VM과 저장소 간의 네트워크 트래픽이 암호화 될 수 있나요?
 
-데이터 트래픽 (NFSv3 또는 SMBv3 클라이언트에서 Azure NetApp Files 볼륨으로의 트래픽)은 암호화 되지 않습니다. 그러나 Azure VM (NFS 또는 SMB 클라이언트를 실행 하는)에서 Azure NetApp Files로의 트래픽은 다른 Azure VM 간 트래픽과도 안전 합니다. 이 트래픽은 Azure 데이터 센터 네트워크에 대 한 로컬 트래픽입니다. 
+데이터 트래픽 (NFSv3, NFSv 4.1 또는 SMBv3 client에서 Azure NetApp Files 볼륨으로의 트래픽)은 암호화 되지 않습니다. 그러나 Azure VM (NFS 또는 SMB 클라이언트를 실행 하는)에서 Azure NetApp Files로의 트래픽은 다른 Azure VM 간 트래픽과도 안전 합니다. 이 트래픽은 Azure 데이터 센터 네트워크에 대 한 로컬 트래픽입니다. 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>미사용 저장소를 암호화할 수 있나요?
 
@@ -120,7 +120,11 @@ DF에서 보고 되는 볼륨 크기는 Azure NetApp Files 볼륨의 크기를 �
 
 ### <a name="what-nfs-version-does-azure-netapp-files-support"></a>어떤 NFS 버전이 지원 Azure NetApp Files?
 
-Azure NetApp Files 현재 NFSv3을 지원 합니다.
+Azure NetApp Files은 NFSv3 및 NFSv 4.1을 지원 합니다. NFS 버전 중 하나를 사용 하 여 볼륨을 만들 수 있습니다. 
+
+> [!IMPORTANT] 
+> NFSv 4.1 기능에 액세스 하려면 허용 목록가 필요 합니다.  허용 목록를 요청 하려면 <anffeedback@microsoft.com>에 요청을 제출 합니다. 
+
 
 ### <a name="how-do-i-enable-root-squashing"></a>루트 squash 병합를 사용 하도록 설정 어떻게 할까요??
 
@@ -140,7 +144,7 @@ Root squash 병합는 현재 지원 되지 않습니다.
 
 [AD (Azure Active Directory) 도메인 서비스](https://docs.microsoft.com/azure/active-directory-domain-services/overview) 와 [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) 이 둘 다 지원 됩니다. Azure NetApp Files에서 기존 Active Directory 도메인 컨트롤러를 사용할 수 있습니다. 도메인 컨트롤러는 Azure에서 가상 머신으로 또는 Express 경로 또는 S2S VPN을 통해 온-프레미스에 상주할 수 있습니다. Azure NetApp Files은 현재 [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) 에 대 한 AD 조인을 지원 하지 않습니다.
 
-Azure Active Directory Domain Services에서 Azure NetApp Files를 사용 하는 경우 조직 구성 단위 경로는 `OU=AADDC Computers` netapp 계정에 대 한 Active Directory를 구성 하는 경우입니다.
+Azure Active Directory Domain Services에서 Azure NetApp Files를 사용 하는 경우 NetApp 계정에 대 한 Active Directory를 구성할 때 조직 구성 단위 경로는 0 @no__t 됩니다.
 
 ### <a name="what-versions-of-windows-server-active-directory-are-supported"></a>지원 되는 Windows Server Active Directory 버전은 무엇 인가요?
 

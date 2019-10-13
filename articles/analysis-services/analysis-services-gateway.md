@@ -2,18 +2,17 @@
 title: Azure Analysis Services에 대 한 온-프레미스 데이터 게이트웨이 Microsoft Docs
 description: Azure의 Analysis Services 서버가 온-프레미스 데이터 원본에 연결되는 경우 온-프레미스 게이트웨이가 필요합니다.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b783e6b709700104985ef3f052443cf1284bf2d6
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 8d9df32070ff252dff791650788888d1d9a6ce84
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678385"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294944"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이를 사용 하 여 온-프레미스 데이터 원본에 연결
 
@@ -55,7 +54,7 @@ Azure Analysis Services 환경을 설치 하는 경우 [Azure Analysis Services�
 
 다음은 게이트웨이에서 사용 되는 정규화 된 도메인 이름입니다.
 
-| 도메인 이름 | 아웃바운드 포트 | Description |
+| 도메인 이름 | 아웃바운드 포트 | 설명 |
 | --- | --- | --- |
 | *.powerbi.com |80 |설치 프로그램을 다운로드하는 데 사용되는 HTTP입니다. |
 | *.powerbi.com |443 |HTTPS |

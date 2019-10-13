@@ -1,5 +1,5 @@
 ---
-title: Blob Storage 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트) | Microsoft Docs
+title: Visual Studio를 사용 하 여 blob storage 시작 (WebJob 프로젝트)
 description: Visual Studio 연결된 서비스를 사용하여 Azure 스토리지에 연결한 후 WebJob 프로젝트에서 Blob Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 1e951fde7e47ccfcce5f64db4ef27ac767d63480
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 90aa824b7df575eb2783ece5bd88322f0b55f0a2
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510658"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299972"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]

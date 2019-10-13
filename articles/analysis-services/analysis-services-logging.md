@@ -2,18 +2,17 @@
 title: Azure Analysis Services에 대한 진단 로깅 | Microsoft Docs
 description: Azure Analysis Services에 진단 로깅을 설정하는 방법을 알아봅니다.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b158545390dafa36e7dad285953c78243f891f28
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: a9684042a76c9c906a75334c319b4ca8ee0b727b
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259421"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298613"
 ---
 # <a name="setup-diagnostic-logging"></a>진단 로깅 설정
 
@@ -43,8 +42,8 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 |쿼리     |   쿼리 끝      |
 |명령     |  Command Begin       |
 |명령     |  Command End       |
-|오류 및 경고     |   오류      |
-|발견     |   Discover End      |
+|오류 및 경고     |   Error      |
+|검색     |   Discover End      |
 |알림     |    알림     |
 |세션     |  Session Initialize       |
 |잠금    |  Deadlock       |

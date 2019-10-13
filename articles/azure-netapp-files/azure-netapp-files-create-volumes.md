@@ -12,24 +12,46 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 7/9/2019
+ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: 45164acd89fc9634d6929bafb35e64a5dc9f2b86
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: b7474ca8e8489edb37b3ac9b7c8b5be52867363c
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178229"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298507"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 볼륨 만들기
 
-Azure NetApp Files는 NFS 및 SMBv3 볼륨을 지원 합니다. 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다. 이 문서에서는 NFS 볼륨을 만드는 방법을 보여 줍니다. SMB 볼륨을 만들려면 [Azure NetApp Files에 대 한 smb 볼륨 만들기](azure-netapp-files-create-volumes-smb.md)를 참조 하세요. 
+Azure NetApp Files는 NFS (NFSv3 및 NFSv 4.1) 및 SMBv3 볼륨을 지원 합니다. 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다. 이 문서에서는 NFS 볼륨을 만드는 방법을 보여 줍니다. SMB 볼륨을 만들려면 [Azure NetApp Files에 대 한 smb 볼륨 만들기](azure-netapp-files-create-volumes-smb.md)를 참조 하세요. 
 
 ## <a name="before-you-begin"></a>시작하기 전 주의 사항 
 용량 풀을 설정해야 합니다.   
 [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)   
 Azure NetApp Files에 서브넷을 위임해야 합니다.  
 [Azure NetApp Files에 서브넷 위임](azure-netapp-files-delegate-subnet.md)
+
+## <a name="considerations"></a>고려 사항 
+
+* 사용할 NFS 버전 결정  
+  NFSv3는 다양 한 사용 사례를 처리할 수 있으며 대부분의 엔터프라이즈 응용 프로그램에 일반적으로 배포 됩니다. 응용 프로그램에 필요한 버전 (NFSv3 또는 NFSv 4.1)의 유효성을 검사 하 고 적절 한 버전을 사용 하 여 볼륨을 만들어야 합니다. 예를 들어 [Apache ActiveMQ](https://activemq.apache.org/shared-file-system-master-slave)를 사용 하는 경우 NFSv3를 통해 nfsv 4.1의 파일 잠금이 권장 됩니다. 
+
+> [!IMPORTANT] 
+> NFSv 4.1 기능에 액세스 하려면 허용 목록가 필요 합니다.  허용 목록를 요청 하려면 <anffeedback@microsoft.com>에 요청을 제출 합니다. 
+
+* 보안  
+  NFSv3 및 NFSv 4.1에는 UNIX 모드 비트 (읽기, 쓰기 및 실행)에 대 한 지원이 제공 됩니다. Nfs 볼륨을 탑재 하려면 NFS 클라이언트에서 루트 수준 액세스 권한이 필요 합니다.
+
+* NFSv 4.1에 대 한 로컬 사용자/그룹 및 LDAP 지원  
+  현재 NFSv 4.1에서는 볼륨에 대 한 루트 액세스만 지원 합니다. 
+
+## <a name="best-practice"></a>모범 사례
+
+* 볼륨에 대 한 적절 한 탑재 명령을 사용 하 고 있는지 확인 해야 합니다.  [Windows 또는 Linux 가상 머신에 대 한 볼륨 탑재 또는 분리](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)를 참조 하세요.
+
+* NFS 클라이언트는 Azure NetApp Files 볼륨과 동일한 VNet 또는 피어 링 VNet에 있어야 합니다. VNet 외부에서의 연결은 지원 됩니다. 그러나 추가 대기 시간이 발생 하 고 전반적인 성능이 저하 됩니다.
+
+* NFS 클라이언트가 최신 상태 이며 운영 체제에 대 한 최신 업데이트를 실행 하 고 있는지 확인 해야 합니다.
 
 ## <a name="create-an-nfs-volume"></a>NFS 볼륨 만들기
 
@@ -46,7 +68,7 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 
         볼륨 이름은 각 용량 풀 내에서 고유 해야 합니다. 3자 이상이어야 합니다. 모든 영숫자 문자를 사용할 수 있습니다.   
 
-        를 볼륨 이름 `default` 으로 사용할 수 없습니다.
+        볼륨 이름으로는 `default`을 사용할 수 없습니다.
 
     * **용량 풀**  
         볼륨을 만들 용량 풀을 지정 합니다.
@@ -71,14 +93,16 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
     
         ![서브넷 만들기](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-4. **프로토콜**을 클릭한 다음, **NFS**를 볼륨에 대한 프로토콜 유형으로 선택합니다.   
+4. **프로토콜**을 클릭 하 고 다음 작업을 완료 합니다.  
+    * 볼륨의 프로토콜 유형으로 **NFS** 를 선택 합니다.   
     * 새 볼륨의 내보내기 경로를 만드는 데 사용 될 **파일 경로** 를 지정 합니다. 내보내기 경로는 볼륨을 탑재하고 액세스하는 데 사용됩니다.
 
         파일 경로 이름에는 문자, 숫자 및 하이픈("-")만 포함할 수 있습니다. 이름은 16자~40자여야 합니다. 
 
         파일 경로는 각 구독 및 각 지역 내에서 고유 해야 합니다. 
 
-    * 필요에 따라 [NFS 볼륨에 대 한 내보내기 정책을 구성 합니다](azure-netapp-files-configure-export-policy.md) .
+    * 볼륨에 대 한 NFS 버전 (**NFSv3** 또는 **nfsv 4.1**)을 선택 합니다.  
+    * 필요에 따라 [NFS 볼륨에 대 한 내보내기 정책을 구성](azure-netapp-files-configure-export-policy.md)합니다.
 
     ![NFS 프로토콜 지정](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
 

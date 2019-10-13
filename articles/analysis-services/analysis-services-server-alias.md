@@ -2,18 +2,17 @@
 title: Azure Analysis Services 별칭 서버 이름 | Microsoft Docs
 description: 서버 이름 별칭을 만들고 사용하는 방법을 설명합니다.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 66e6b4713591f099769543a75dcddec34f3d2e2b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 161df354bae350df533f3991e551401fd56a4a65
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60534320"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301084"
 ---
 # <a name="alias-server-names"></a>별칭 서버 이름
 
@@ -53,7 +52,7 @@ protected void Page_Load(object sender, EventArgs e)
 }
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 [클라이언트 라이브러리](analysis-services-data-providers.md)   
 [Power BI Desktop에서 연결](analysis-services-connect-pbi.md)

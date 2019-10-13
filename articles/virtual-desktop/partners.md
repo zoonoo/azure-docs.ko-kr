@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 485aad245df7feae4ca4ee2c68a29ff20afb3ece
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: f4eeecccb3815ebfef9cdf79ac14f3dd3bd5e77a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937513"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300196"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -62,6 +62,16 @@ Windows 가상 데스크톱과 함께 사용 하는 경우 제어 기능을 통�
 - [조인 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit)하세요.
 - [파트너 웹 사이트로 이동](https://www.controlup.com/solutions/ms_wvd/)합니다.
 
+## <a name="devicetrust"></a>deviceTRUST
+
+![deviceTRUST 로고](./media/partners/devicetrust.png)
+
+deviceTRUST는 회사 엔터프라이즈를 tsi 하는 Windows 가상 데스크톱 부가 서비스 공급자 이며, 사용자가 모든 네트워크를 통해 모든 장치에서 어떤 위치에서 든 자유롭게 Windows 가상 데스크톱에 액세스할 수 있도록 합니다. 관리 요구 사항을 충족 하는 데 필요한 정보 및 제어 부서 
+
+deviceTRUST는 Windows 가상 데스크톱의 가치를 상황별 보안 기술로 확장 합니다. deviceTRUST를 사용 하면 보안 Windows 가상 데스크톱 액세스에 대 한 조건부 액세스, Windows 가상 데스크톱 내에서 조건부 응용 프로그램 액세스 및 추가 인프라 없이 조건부 Windows 가상 데스크톱 정책을 적용할 수 있습니다. DeviceTRUST를 사용 하면 모든 보안, 규정 준수 및 규정 요구 사항을 충족 하는 유연한 모바일 작업 영역을 사용할 수 있습니다. 
+
+- [파트너 웹 사이트로 이동](https://devicetrust.com/wvd)합니다.
+
 ## <a name="lakeside-software"></a>Lakeside 소프트웨어
 
 ![Lakeside 소프트웨어 로고](./media/partners/lakeside.png)
@@ -84,6 +94,14 @@ Liquidware Essentials는 사용자 프로필을 효율적으로 수집 하 고 �
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1)하세요.
 - [파트너 웹 사이트로 이동](https://www.liquidware.com/solutions/solutions-platform/microsoft)합니다.
 
+## <a name="login-vsi"></a>로그인 .VSI
+
+![로그인 .VSI 로고](./media/partners/loginvsi.png)
+
+로그인 .VSI는 windows 가상 데스크톱의 응용 프로그램 성능 테스트를 위한 소프트웨어를 제공 하는 Windows 가상 데스크톱 값 추가 서비스 공급자 및 Microsoft 파트너입니다. 온-프레미스 비즈니스 서비스를 Windows 가상 데스크톱으로 이동 하는 고객은 로그인 .VSI Enterprise Edition을 사용 하 여 Windows 10 Enterprise 다중 세션, Windows 10 Enterprise 및의 최적 성능, 확장성 및 가용성을 평가 하 고 유지 관리 합니다. Windows 7에는 업무상 중요 한 응용 프로그램이 사용 됩니다.
+
+- [파트너 웹 사이트로 이동](https://www.loginvsi.com)합니다.
+
 ## <a name="nerdio"></a>Nerdio
 
 ![Nerdio 로고](./media/partners/nerdio.png)
@@ -94,6 +112,26 @@ Nerdio는 Azure 리소스를 쉽게 프로 비전 하 고 배포를 간소화할
 
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh)하세요.
 - [파트너 웹 사이트로 이동](https://getnerdio.com/windows-virtual-desktop/)합니다.
+
+## <a name="policypak"></a>PolicyPak
+
+![PolicyPak 로고](./media/partners/policypak.png)
+
+PolicyPak Software는 응용 프로그램, 데스크톱, 브라우저, Java 및 보안 설정에 대 한 전체 설정 관리를 수행 하는 Windows 가상 데스크톱 파트너입니다. PolicyPak는 데스크톱, 시스템 및 보안 설정을 준수 상태로 유지 합니다. PolicyPak는 Windows의 기본 제공 관리 기능을 향상 시키기 위해 구성 요소 집합을 추가 하 여 Windows 가상 데스크톱의 가치를 향상 시킵니다. 기존 Active Directory 그룹 정책 및/또는 Windows Intune을 사용 하 여 PolicyPak의 설정을 제공 하 고 관리자가 Windows 10 컴퓨터를 관리 하는 기능을 향상 시킵니다. 
+
+PolicyPak의 가장 중요 한 사용 사례는 로컬 관리자 권한을 제거 하 고 UAC 프롬프트를 표시 하 고, 랜 섬 웨어를 차단 하 고, 여러 브라우저를 관리 하 고, Internet Explorer의 엔터프라이즈 및 호환성 모드를 관리 하 고, Gpo 수를 줄이고, Windows 10 파일 연결을 관리 Windows 10 시작 메뉴 및 작업 표시줄을 관리 하 고 Windows 10 기능 및 선택적 기능을 관리 합니다.  
+
+- [파트너 웹 사이트로 이동](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html)합니다.
+
+## <a name="printerlogic"></a>프린터 논리
+
+![프린터 논리 로고](./media/partners/printerlogic.png)
+
+프린터 논리는 IT 전문가가 모든 인쇄 서버를 제거 하 고 항상 사용 가능한 서버 리스 인쇄 인프라를 제공할 수 있도록 하는 Windows 가상 데스크톱 부가 가치 서비스 공급자 플랫폼입니다. 프린터 논리는 프린터 개체를 프린터 또는 끝점 OS에 쉽게 중앙에서 관리 하 고 배포할 수 있도록 하 여 Windows 가상 데스크톱 및 Azure의 가치를 확장 합니다.   
+
+SaaS로 제공 되거나 사용자 고유의 사설 클라우드에서 웹 스택으로 제공 되는, 프린터 논리 플랫폼은 사용자 ID, 장치 이름 또는 위치에 따라 사용자가 가상 세션에 필요한 적절 한 프린터를 항상 보유 하 고 있는지 확인 합니다. 이 기능은 인쇄 추적 및 보고, 모바일 인쇄, 보안 배지 릴리스 인쇄 등의 전체 엔터프라이즈 인쇄 관리 기능 모음을 보완 합니다. 
+
+- [파트너 웹 사이트로 이동](https://www.printerlogic.com)합니다.
 
 ## <a name="thinprint"></a>ThinPrint
 

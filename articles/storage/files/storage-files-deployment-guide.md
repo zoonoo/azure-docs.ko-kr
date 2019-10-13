@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 802b4deb91f1df784ac0aed2952d3f915b54ce73
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 3ce754a67643f4506fa825f0780969dc4a06f826
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699708"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299590"
 ---
 # <a name="how-to-deploy-azure-files"></a>Azure Files를 배포하는 방법
 [Azure Files](storage-files-introduction.md)는 산업 표준 SMB 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. 이 문서에서는 조직 내에서 실제적으로 Azure Files를 배포하는 방법을 보여 줍니다.
 
 이 문서의 단계를 수행하기 전에 [Azure Files 배포 계획](storage-files-planning.md)을 읽는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 사용자가 이미 다음 단계를 완료했다고 가정합니다.
 
 - 원하는 지역에서 원하는 복원력 및 암호화 옵션을 사용하여 Azure Storage 계정을 만들었습니다. 스토리지 계정을 만드는 방법에 대한 단계별 지침은 [스토리지 계정 만들기](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
@@ -63,7 +63,7 @@ Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 A
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    한 스토리지 계정으로 여러 공유를 지정할 수 있습니다. 자세한 내용은 [데이터 세트 CSV 파일 준비](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-the-dataset-csv-file)를 참조하세요.
+    한 스토리지 계정으로 여러 공유를 지정할 수 있습니다. 자세한 내용은 [데이터 세트 CSV 파일 준비](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
 
 5. 드라이브 집합 CSV 파일을 만듭니다. 드라이브 집합 CSV 파일에는 온-프레미스 내보내기 에이전트에 사용할 수 있는 디스크가 나열됩니다. 예를 들어 다음 드라이브 집합 CSV 파일에는 온-프레미스 내보내기 작업에 사용되는 `X:`, `Y:` 및 `Z:` 드라이브가 나열됩니다.
 
@@ -74,7 +74,7 @@ Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 A
     Z,Format,SilentMode,Encrypt,
     ```
     
-    자세한 내용은 [드라이브 집합 CSV 파일 준비](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file)를 참조하세요.
+    자세한 내용은 [드라이브 집합 CSV 파일 준비](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
 
 6. [WAImportExport 도구](https://www.microsoft.com/download/details.aspx?id=55280)를 사용하여 하나 이상의 하드 드라이브에 데이터를 복사합니다.
 

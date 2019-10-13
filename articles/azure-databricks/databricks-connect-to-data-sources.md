@@ -1,6 +1,6 @@
 ---
 title: 'Azure Databricks에서 다른 데이터 원본에 연결 '
-description: Azure Databricks에서 다른 데이터 원본에 연결하는 방법을 알아봅니다.
+description: Azure SQL Data Warehouse에서 Azure SQL Database, Azure Data Lake Store, blob storage, Cosmos DB, Event Hubs 및 Azure Databricks에 연결 하는 방법에 대해 알아봅니다.
 services: azure-databricks
 author: mamccrea
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
-ms.openlocfilehash: f2b7136ec21416e31c2af658974577023a4494de
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c77d1d1a66d3ee92f5ad3f2016d2160831fa3ad9
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60240355"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299317"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Azure Databricks에서 데이터 원본에 연결
 
 이 문서에서는 Azure Databricks에 연결할 수 있는 Azure의 다른 모든 데이터 원본에 대한 링크를 제공합니다. 이러한 링크의 예제를 따라 Azure 데이터 원본(예: Azure Blob Storage, Azure Event Hubs 등)의 데이터를 Azure Databricks 클러스터로 추출하고 데이터에 대한 분석 작업을 실행합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Databricks 작업 영역 및 Spark 클러스터가 있어야 합니다. [Azure Databricks 시작](quickstart-create-databricks-workspace-portal.md)의 지침을 따르세요.
 

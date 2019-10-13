@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 4857cda7c3387e72be8837422469888adc5504d1
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 04f4a71e6b54100e5a133958845cf732c2286b32
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883100"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301056"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Key vault에 대한 액세스 보안
 
@@ -37,7 +37,7 @@ Azure 구독에 Key Vault을 만들 때 해당 구독의 Azure AD 테넌트에 �
 - **사용자 및 애플리케이션 액세스**: 로그인한 사용자를 대신하여 애플리케이션에서 Key Vault에 액세스합니다. Azure PowerShell과 Azure Portal이 이러한 액세스 유형의 예제입니다. 사용자 액세스는 두 가지 방법으로 부여됩니다. 사용자는 모든 애플리케이션에서 Key Vault에 액세스할 수 있거나 특정 애플리케이션만 사용해야 합니다(_복합 ID_라고도 함).
 - **애플리케이션 전용 액세스**: 애플리케이션은 데몬 서비스 또는 백그라운드 작업으로 실행됩니다. Key Vault에 대한 액세스 권한이 애플리케이션의 ID에 부여됩니다.
 
-두 유형의 액세스에서 애플리케이션은 Azure AD에서 인증을 받습니다. 애플리케이션은 애플리케이션 유형에 따라 [지원되는 인증 방법](../active-directory/develop/authentication-scenarios.md)을 사용합니다. 애플리케이션은 액세스 권한을 부여하기 위해 평면의 리소스에 대해 토큰을 획득합니다. 리소스는 Azure 환경에 따라 관리 또는 데이터 평면의 엔드포인트입니다. 애플리케이션은 해당 토큰을 사용하고 REST API 요청을 Key Vault에 보냅니다. 자세한 내용은 [전체 인증 흐름](../active-directory/develop/v1-protocols-oauth-code.md)을 참조하세요.
+두 유형의 액세스에서 애플리케이션은 Azure AD에서 인증을 받습니다. 애플리케이션은 애플리케이션 유형에 따라 [지원되는 인증 방법](../active-directory/develop/authentication-scenarios.md)을 사용합니다. 애플리케이션은 액세스 권한을 부여하기 위해 평면의 리소스에 대해 토큰을 획득합니다. 리소스는 Azure 환경에 따라 관리 또는 데이터 평면의 엔드포인트입니다. 애플리케이션은 해당 토큰을 사용하고 REST API 요청을 Key Vault에 보냅니다. 자세한 내용은 [전체 인증 흐름](../active-directory/develop/v2-oauth2-auth-code-flow.md)을 참조하세요.
 
 두 평면에 대한 인증에 단일 메커니즘을 사용할 경우 다음과 같은 몇 가지 이점이 있습니다.
 
@@ -208,7 +208,7 @@ DevOps 직원의 경우 Key Vault `deploy/action` 권한에 대한 사용자 지
 
     이 2015 Microsoft Ignite 컨퍼런스 동영상은 Azure의 액세스 관리 및 보고 기능에 대해 설명합니다. 또한 Azure AD를 사용하여 Azure 구독에 대한 액세스를 보호하는 모범 사례도 알아봅니다.
 
-* [OAuth 2.0 및 Azure AD를 사용하여 웹 애플리케이션에 대한 액세스 권한 부여](../active-directory/develop/v1-protocols-oauth-code.md)
+* [OAuth 2.0 및 Azure AD를 사용하여 웹 애플리케이션에 대한 액세스 권한 부여](../active-directory/develop/v2-oauth2-auth-code-flow.md)
 
 * [Key Vault 관리 REST API](https://msdn.microsoft.com/library/azure/mt620024.aspx)
 

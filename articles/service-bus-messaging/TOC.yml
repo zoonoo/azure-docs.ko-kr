@@ -91,6 +91,8 @@
       href: service-bus-async-messaging.md
     - name: 중단 및 재해 처리
       href: service-bus-outages-disasters.md
+    - name: 제한
+      href: service-bus-throttling.md
     - name: 보안
       items:
         - name: 인증 및 권한 부여

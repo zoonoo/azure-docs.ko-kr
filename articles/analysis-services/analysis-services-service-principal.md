@@ -2,18 +2,17 @@
 title: 서비스 사용자를 사용하여 Azure Analysis Services 작업 자동화 | Microsoft Docs
 description: Azure Analysis Services 작업을 자동화하기 위해 서비스 주체를 만드는 방법을 알아봅니다.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4bfa969089407a35658160cf05a6407f8c717714
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 94f1313825b21b3adf7173b56798fce22736ea87
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347962"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294570"
 ---
 # <a name="automation-with-service-principals"></a>서비스 사용자를 사용한 자동화
 
@@ -49,7 +48,7 @@ UPN과 거의 동일하게 서비스 사용자 appID 및 암호 또는 인증서
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Microsoft.analysisservices.sharepoint.integration.dll 모듈 사용
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a>Microsoft.analysisservices.sharepoint.integration.dll 모듈을 사용 하 여 @no__t
 
 [Microsoft.analysisservices.sharepoint.integration.dll](/powershell/module/az.analysisservices) 모듈을 사용 하 여 리소스 관리 작업에 서비스 주체를 사용 하는 경우 `Connect-AzAccount` cmdlet을 사용 합니다. 
 

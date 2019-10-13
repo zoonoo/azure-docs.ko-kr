@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 10/11/2019
 ms.author: lahugh
-ms.openlocfilehash: e4572ac6041caffc6c77d74dcbb2cf52f9f0aed0
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 314056b6e55838d32c70d81570cdeaf7a84b6671
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173790"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300644"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Azure에서 2 세대 Vm (미리 보기)에 대 한 지원
 
@@ -93,7 +93,7 @@ Azure는 현재 온-프레미스 Hyper-v에서 2 세대 Vm에 대해 지 원하�
 | 가상 머신 확장 집합 지원 | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Site Recovery               | :heavy_check_mark: | :x:                |
 | 백업/복원                    | :heavy_check_mark: | :heavy_check_mark: |
-| 공유 이미지 갤러리              | :heavy_check_mark: | :x:                |
+| 공유 이미지 갤러리              | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Disk Encryption             | :heavy_check_mark: | :x:                |
 
 ## <a name="creating-a-generation-2-vm"></a>2 세대 VM 만들기
@@ -121,7 +121,7 @@ Windows 및 SLES에 대 한 2 세대 이미지는 Gen1 이미지와 동일한 �
 
 또한 PowerShell을 사용 하 여 1 세대 또는 2 세대 SKU를 직접 참조 하 여 VM을 만들 수 있습니다.
 
-예를 들어, 다음 PowerShell cmdlet을 사용 하 여 `WindowsServer` 제품의 sku 목록을 가져옵니다.
+예를 들어, 다음 PowerShell cmdlet을 사용 하 여 `WindowsServer` 제품의 Sku 목록을 가져올 수 있습니다.
 
 ```powershell
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
@@ -140,7 +140,7 @@ OS로 Windows Server 2012를 사용 하 여 VM을 만드는 경우 1 세대 (BIO
 
 1 세대 VM을 만드는 것과 같은 방법으로 관리 되는 이미지 또는 관리 디스크에서 2 세대 VM을 만들 수 있습니다.
 
-### <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
+### <a name="virtual-machine-scale-sets"></a>가상 머신 크기 집합
 
 또한 가상 머신 확장 집합을 사용 하 여 2 세대 Vm을 만들 수 있습니다. Azure CLI에서 Azure 확장 집합을 사용 하 여 2 세대 Vm을 만듭니다.
 
@@ -152,7 +152,7 @@ OS로 Windows Server 2012를 사용 하 여 VM을 만드는 경우 1 세대 (BIO
 * **1 세대 및 2 세대 Vm 간에 가격 차이가 있나요?**  
    아니요.
 
-* **온-프레미스 2 세대 VM의 .vhd 파일이 있습니다. 이 .vhd 파일을 사용 하 여 Azure에서 2 세대 VM을 만들 수 있나요?**
+* @no__t-온-프레미스 2 세대 VM의 .vhd 파일이 있습니다. 이 .vhd 파일을 사용 하 여 Azure에서 2 세대 VM을 만들 수 있나요? **
   예, 2 세대 .vhd 파일을 Azure로 가져와서이를 사용 하 여 2 세대 VM을 만들 수 있습니다. 이렇게 하려면 다음 단계를 사용 합니다.
     1. VM을 만들려는 동일한 지역의 저장소 계정에 .vhd를 업로드 합니다.
     1. .Vhd 파일에서 관리 디스크를 만듭니다. Hyper-v 생성 속성을 V2로 설정 합니다. 다음 PowerShell 명령은 관리 디스크를 만들 때 Hyper-v 생성 속성을 설정 합니다.

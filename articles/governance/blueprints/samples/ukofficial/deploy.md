@@ -1,5 +1,5 @@
 ---
-title: 샘플-영국 공식 및 영국 NHS 청사진-배포 단계
+title: 영국 공식 & 영국 NHS 청사진 샘플-배포 단계
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함 하 여 영국 공식 및 UK NHS 청사진 샘플에 대 한 단계를 배포 합니다.
 services: blueprints
 author: DCtheGeek
@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: c2c6089d9c600626a93906e460ef1c662c32cb59
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: ea58ef49aa4d901339bf87343f0eea8eb517011d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248285"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299023"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>영국 공식 및 영국 NHS 청사진 샘플 배포
 
@@ -71,7 +71,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
      - **구독**: 청사진 샘플 사본을 저장한 관리 그룹에 있는 하나 이상의 구독을 선택합니다. 둘 이상의 구독을 선택하면 입력한 매개 변수를 사용하여 각 구독의 할당이 생성됩니다.
      - **할당 이름**: 청사진의 이름에 따라 이 이름이 미리 채워집니다.
        필요에 따라 변경하거나 그대로 둡니다.
-     - **위치**: 관리 ID를 만들 지역을 선택합니다. Azure Blueprints는 이 관리 ID를 사용하여 할당된 청사진의 모든 아티팩트를 배포합니다. 자세히 알아보려면 [Azure 리소스의 관리 ID](../../../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
+     - **Location**: 관리 ID를 만들 지역을 선택합니다. Azure Blueprints는 이 관리 ID를 사용하여 할당된 청사진의 모든 아티팩트를 배포합니다. 자세히 알아보려면 [Azure 리소스의 관리 ID](../../../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
      - **청사진 정의 버전**: 청사진 샘플 사본의 **게시됨** 버전을 선택합니다.
 
    - 할당 잠금

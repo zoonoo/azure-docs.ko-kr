@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: d1c80e2ab9ae6a893b1adea6bd68e9b585288d8b
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 0bf52b45bc315874c58be50bccbffa49090d554d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71074950"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294348"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 가져오기 제한 사항 및 알려진 문제
 
@@ -33,12 +33,13 @@ OpenAPI 문서를 가져올 때 오류가 표시되면 해당 문서의 유효�
 ### <a name="open-api-general"> </a>일반
 
 -   경로와 쿼리 간에 필수 매개 변수 이름은 고유해야 합니다. OpenAPI에서는 매개 변수 이름이 경로, 쿼리, 헤더 등의 특정 위치 내에서만 고유하면 됩니다. 하지만 API Management에서는 경로 및 쿼리 매개 변수를 기준으로 작업을 구분할 수 있습니다. OpenAPI에서는 이러한 구분이 지원되지 않습니다. 따라서 전체 URL 템플릿 내에서 매개 변수 이름이 고유해야 합니다.
--   참조 포인터는 외부 파일을 참조할 수 없습니다.  **\$**
+-   **\$** 참조 포인터는 외부 파일을 참조할 수 없습니다.
 -   **x-ms-paths** 및 **x-servers**는 지원되는 유일한 확장명입니다.
 -   사용자 지정 확장명은 가져오기 시 무시되며 내보내기용으로 저장되거나 보존되지 않습니다.
 -   **재귀** - 자기 자신을 참조하는 스키마 등 재귀적으로 정의된 정의는 API Management에서 지원되지 않습니다.
 -   이 경우에는 원본 파일 URL(사용 가능한 경우)이 상대 서버 URL에 적용됩니다.
 -   보안 정의는 무시 됩니다.
+-   API 작업에 대 한 인라인 스키마 정의는 지원 되지 않습니다. 스키마 정의는 API 범위에서 정의 되며 API 작업 요청 또는 응답 범위에서 참조할 수 있습니다.
 
 ### <a name="open-api-v2"> </a>OpenAPI 버전 2
 

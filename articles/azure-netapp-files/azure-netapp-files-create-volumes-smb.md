@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: bd00c04ecfc211ae4ed410e886c0fe6553bea241
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 94fc4906478e44365d03e9c8eeadd7cb1946a43a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827502"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300535"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -40,7 +40,7 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 * 해당 하는 Windows Active Directory (AD) 서버에서 적절 한 포트가 열려 있어야 합니다.  
     필요한 포트는 다음과 같습니다. 
 
-    |     서비스           |     포트     |     Protocol     |
+    |     서비스           |     포트     |     프로토콜     |
     |-----------------------|--------------|------------------|
     |    AD 웹 서비스    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
@@ -100,17 +100,20 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
     * **조직 구성 단위 경로**  
         SMB 서버 컴퓨터 계정이 생성 되는 OU (조직 구성 단위)에 대 한 LDAP 경로입니다. 즉, OU = second level, OU = first level입니다. 
 
-        Azure Active Directory Domain Services에서 Azure NetApp Files를 사용 하는 경우 조직 구성 단위 경로는 `OU=AADDC Computers` netapp 계정에 대 한 Active Directory를 구성 하는 경우입니다.
+        Azure Active Directory Domain Services에서 Azure NetApp Files를 사용 하는 경우 NetApp 계정에 대 한 Active Directory를 구성할 때 조직 구성 단위 경로는 0 @no__t 됩니다.
         
     * **사용자 이름** 및 **암호** 를 포함 한 자격 증명
 
-    ![Active Directory 조인](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+    ![조인 Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
 
 3. **조인**을 클릭합니다.  
 
     만든 Active Directory 연결이 표시 됩니다.
 
     ![연결 Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
+
+> [!NOTE] 
+> Active Directory 연결을 저장 한 후 사용자 이름 및 암호 필드를 편집할 수 있습니다. 연결을 저장 한 후에는 다른 값을 편집할 수 없습니다. 다른 값을 변경 해야 하는 경우 먼저 배포 된 SMB 볼륨을 삭제 한 다음 Active Directory 연결을 삭제 하 고 다시 만들어야 합니다.
 
 ## <a name="add-an-smb-volume"></a>SMB 볼륨 추가
 
@@ -127,7 +130,7 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 
         볼륨 이름은 각 용량 풀 내에서 고유 해야 합니다. 3자 이상이어야 합니다. 모든 영숫자 문자를 사용할 수 있습니다.   
 
-        를 볼륨 이름 `default` 으로 사용할 수 없습니다.
+        볼륨 이름으로는 `default`을 사용할 수 없습니다.
 
     * **용량 풀**  
         볼륨을 만들 용량 풀을 지정 합니다.

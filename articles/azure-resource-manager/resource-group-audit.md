@@ -1,19 +1,19 @@
 ---
 title: 리소스 모니터링을 위해 Azure 활동 로그 보기 | Microsoft Docs
-description: 활동 로그를 사용하여 사용자 작업 및 오류를 검토합니다. Azure portal, PowerShell, Azure CLI 및 REST를 보여 줍니다.
+description: 활동 로그를 사용하여 사용자 작업 및 오류를 검토합니다. PowerShell, Azure CLI 및 REST Azure Portal 표시 합니다.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7ff45be4eea5c6e8ab83093847164ede0e94579a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aba06b07fef1cbc5d84d93cf38fec3bd936c1ac8
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606586"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286125"
 ---
-# <a name="view-activity-logs-to-monitor-actions-on-resources"></a>리소스에 대 한 작업을 모니터링 하려면 활동 로그 보기
+# <a name="view-activity-logs-to-monitor-actions-on-resources"></a>활동 로그를 확인 하 여 리소스에 대 한 작업 모니터링
 
 활동 로그를 통해 다음 사항을 확인할 수 있습니다.
 
@@ -23,13 +23,13 @@ ms.locfileid: "65606586"
 * 작업의 상태
 * 작업을 조사하는 데 도움이 될 수 있는 기타 속성 값
 
-활동 로그는 리소스에 대 한 모든 쓰기 작업 (PUT, POST, DELETE)를 포함합니다. 읽기 작업(GET)은 포함되지 않습니다. 리소스 작업 목록은 [Azure Resource Manager 리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md)을 참조하세요. 활동 로그를 사용하여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링할 수 있습니다.
+활동 로그에는 리소스에 대 한 모든 쓰기 작업 (PUT, POST, DELETE)이 포함 되어 있습니다. 읽기 작업(GET)은 포함되지 않습니다. 리소스 작업 목록은 [Azure Resource Manager 리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md)을 참조하세요. 활동 로그를 사용하여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링할 수 있습니다.
 
 활동 로그는 90일 동안 유지됩니다. 시작 날짜가 90일을 초과하지 않는 범위에서 활동 로그를 쿼리할 수 있습니다.
 
 포털, PowerShell, Azure CLI, Insights REST API 또는 [Insights .NET 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Insights/)를 통해 활동 로그에서 정보를 검색할 수 있습니다.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure Portal
 
 1. 포털을 통해 활동 로그를 보려면 **모니터**를 선택합니다.
 
@@ -39,23 +39,23 @@ ms.locfileid: "65606586"
 
     ![활동 로그 선택](./media/resource-group-audit/select-activity-log.png)
 
-1. 최근 작업의 요약 정보가 표시됩니다. 기본 필터 세트가 작업에 적용됩니다. 공지 요약의 정보는 작업을 시작한 사람 및 발생 한 시기를 포함 합니다.
+1. 최근 작업의 요약 정보가 표시됩니다. 기본 필터 세트가 작업에 적용됩니다. 요약 정보에는 작업을 시작한 사용자 및 발생 한 시간이 포함 됩니다.
 
     ![최근 작업의 요약 보기](./media/resource-group-audit/audit-summary.png)
 
-1. 미리 정의 된 필터 집합을 신속 하 게 실행 하려면 선택한 **신속한 정보 활용**합니다.
+1. 미리 정의 된 필터 집합을 신속 하 게 실행 하려면 **빠른 인사이트**을 선택 합니다.
 
     ![신속한 정보 활용을 선택 합니다.](./media/resource-group-audit/select-quick-insights.png)
 
-1. 옵션 중 하나를 선택합니다. 예를 들어 선택 **실패 한 배포** 배포에서 오류를 확인 합니다.
+1. 옵션 중 하나를 선택합니다. 예를 들어 배포 **실패** 를 선택 하 여 배포 오류를 확인 합니다.
 
-    ![실패 한 배포를 선택 합니다.](./media/resource-group-audit/select-failed-deployments.png)
+    ![실패 한 배포 선택](./media/resource-group-audit/select-failed-deployments.png)
 
-1. 지난 24 시간 동안에서 배포 오류에 초점을 맞춰 바뀐 것 필터를 확인 합니다. 필터와 일치 하는 작업만 표시 됩니다.
+1. 최근 24 시간 동안의 배포 오류에 초점을 맞춘 필터가 변경 되었습니다. 필터와 일치 하는 작업만 표시 됩니다.
 
     ![필터 보기](./media/resource-group-audit/view-filters.png)
 
-1. 특정 작업에 집중하려면 필터를 변경하거나 새 필터를 적용합니다. 예를 들어 다음 이미지는 **Timespan**의 새 값을 보여주며, **리소스 종류**는 스토리지 계정으로 설정됩니다. 
+1. 특정 작업에 집중하려면 필터를 변경하거나 새 필터를 적용합니다. 예를 들어 다음 이미지는 **Timespan**의 새 값을 보여주며, **리소스 종류**는 스토리지 계정으로 설정됩니다.
 
     ![필터 옵션 설정](./media/resource-group-audit/set-filter.png)
 
@@ -71,19 +71,19 @@ ms.locfileid: "65606586"
 
     ![대시보드에 필터링 표시](./media/resource-group-audit/show-dashboard.png)
 
-1. 포털에서 리소스에 대 한 변경 내용을 볼 수 있습니다. 관련 리소스를 변경 하는 작업을 선택한 모니터에서 볼 기본값으로 다시 이동 합니다.
+1. 포털에서 리소스에 대 한 변경 내용을 볼 수 있습니다. 모니터의 기본 뷰로 돌아가서 리소스 변경과 관련 된 작업을 선택 합니다.
 
     ![작업 선택](./media/resource-group-audit/select-operation.png)
 
-1. 선택 **변경 내용 (미리 보기)** 및 사용 가능한 작업 중 하나를 선택 합니다.
+1. **변경 기록 (미리 보기)** 을 선택 하 고 사용 가능한 작업 중 하나를 선택 합니다.
 
-    ![변경 내용 선택](./media/resource-group-audit/select-change-history.png)
+    ![변경 기록 선택](./media/resource-group-audit/select-change-history.png)
 
-1. 리소스의 변경 내용 표시 됩니다.
+1. 리소스의 변경 내용이 표시 됩니다.
 
     ![변경 내용 표시](./media/resource-group-audit/show-changes.png)
 
-변경 내용에 대 한 자세한 내용은 참조 하세요 [리소스 변경 내용을 가져오려면](../governance/resource-graph/how-to/get-resource-changes.md)합니다.
+변경 기록에 대해 자세히 알아보려면 [리소스 변경 내용 가져오기](../governance/resource-graph/how-to/get-resource-changes.md)를 참조 하세요.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -137,7 +137,7 @@ Get-AzLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller,
 Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
 ```
 
-리소스에 대 한 변경 기록을 보려면 리소스 그래프를 사용할 수 있습니다. 자세한 내용은 [리소스 변경 내용을 가져오려면](../governance/resource-graph/how-to/get-resource-changes.md)합니다.
+리소스 그래프를 사용 하 여 리소스에 대 한 변경 기록을 볼 수 있습니다. 자세한 내용은 [리소스 변경 내용 가져오기](../governance/resource-graph/how-to/get-resource-changes.md)를 참조 하세요.
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -183,7 +183,7 @@ az monitor activity-log list -g ExampleGroup --offset 1d --query '[].{Operation:
 az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationName.value=='Microsoft.Storage/storageAccounts/write']"
 ```
 
-리소스에 대 한 변경 기록을 보려면 리소스 그래프를 사용할 수 있습니다. 자세한 내용은 [리소스 변경 내용을 가져오려면](../governance/resource-graph/how-to/get-resource-changes.md)합니다.
+리소스 그래프를 사용 하 여 리소스에 대 한 변경 기록을 볼 수 있습니다. 자세한 내용은 [리소스 변경 내용 가져오기](../governance/resource-graph/how-to/get-resource-changes.md)를 참조 하세요.
 
 ## <a name="rest-api"></a>REST API
 
@@ -193,6 +193,7 @@ az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationNam
 
 * Power BI와 함께 Azure 활동 로그를 사용하면 구독의 작업을 면밀하게 살펴볼 수 있습니다. [Power BI 등에서 Azure 활동 로그 보기 및 분석](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)을 참조하세요.
 * 보안 정책 설정에 대해 자세히 알아보려면 [Azure 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+* 응용 프로그램을 배포 하는 방법에 대 한 자세한 내용은 응용 프로그램 배포에 대 한 자세한 내용을 보려면 [Azure Monitor에서 응용 프로그램 변경 분석 사용] (... /azure-monitor/app/change-md)를 클릭 합니다.
 * 배포 작업을 보는 명령에 대해 자세히 알아보려면 [배포 작업 보기](resource-manager-deployment-operations.md)를 참조하세요.
 * 모든 사용자의 리소스에서 삭제 작업을 방지하는 방법을 알아보려면 [Azure Resource Manager를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 * 각 Microsoft Azure Resource Manager 공급자에 대해 사용 가능한 작업의 목록을 보려면 [Azure Resource Manager 리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md)을 참조하세요.

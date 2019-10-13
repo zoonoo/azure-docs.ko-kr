@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용 | Microsoft Docs
+title: 포털을 사용 하 여 역할에 대해 원격 데스크톱을 사용 하도록 설정 합니다 (Azure Cloud Services).
 description: 원격 데스크톱 연결을 허용하기 위해 Azure 클라우드 서비스 애플리케이션을 구성하는 방법
 services: cloud-services
 documentationcenter: ''
@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: memccror
-ms.openlocfilehash: bea4e0c43d6ae6e0ea05c43343535195a25cf3e2
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 50447beabefefcaa723a26ed4388354b9590c36e
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359524"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298448"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용
 

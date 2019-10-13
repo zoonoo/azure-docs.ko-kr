@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: bc2be73f85ebec7785b9aa06d6152447eee7e33e
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: e23a83ab3a5b110f74ab4ac203dfc020e8920c24
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147300"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285992"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource 컨설팅 서비스
 Azure Marketplace 및 AppSource의 컨설팅 서비스는 Microsoft 파트너에게 고객과 서비스를 연결하여 고객의 Azure 사용을 지원하고 확대한다는 목표와 비즈니스 목표를 제공합니다. 
@@ -79,7 +79,6 @@ Microsoft Azure 기반으로 하는 컨설팅 서비스 및 관리 서비스 제
 |덴마크   |이탈리아   |     노르웨이          |미국 |
 |핀란드   |일본   |     폴란드          
 
-컨설팅 서비스의 시작은 특정한 지리적 지역에서 진행됩니다. 첫 번째 시작 지역은 미국, 캐나다, 영국 및 오스트레일리아입니다. 다른 국가/지역에 대 한 카탈로그는 파트너 및 Microsoft에서 승인한 서비스 제공을 포함 하 여 제공 되는 다양 한 서비스를 제공 합니다.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource에서 컨설팅 서비스를 등록하는 방법
 먼저 Marketplace에서 회사 정보를 [등록](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)합니다. 게시자는 [Marketplace에서 게시자 되기](https://docs.microsoft.com/azure/marketplace/become-publisher)에서 등록 요구 사항의 전체 검사 목록을 참조할 수 있습니다. 
@@ -151,7 +150,7 @@ Azure Marketplace 및 AppSource에 컨설팅 서비스 제품을 나열하려면
 
 팀은 제품 설명과 제품 요약을 검토할 때 다음 기준을 적용합니다.
 
-|제품 유형  |필요한 공간 |권장  |
+|제품 유형  |필수 |권장  |
 |---------|---------|---------|
 |**평가**    |   여러 날 또는 여러 주 평가를 위한 자세한 주제를 포함하고 고객이 기대할 수 있는 결과물 결정      |    상위 검색 엔진 최적화 키워드로 제품 요약 최적화     |
 |**요약 정보**    |   객이 기대할 수 있는 결과물을 결정합니다. 브리핑은 직접 제공해야 합니다. 가상 서비스를 제공하는 경우 다른 제품 유형을 선택하세요.    |  상위 검색 엔진 최적화 키워드로 제품 요약 최적화       |

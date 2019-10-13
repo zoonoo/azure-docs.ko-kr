@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: b30ccbcba0b2126d1fe1abce9ae67a55ce25f601
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 92623377daa80efe08b260745fa1d9443366cb8a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170261"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300606"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성
 
@@ -115,7 +115,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
       - **Name**: 가용성 집합의 이름입니다.
       - **구독**: Azure 구독.
       - **리소스 그룹**: 기존 그룹을 사용하려는 경우 **기존 항목 사용**을 클릭하고 드롭다운 목록에서 그룹을 선택합니다. 그렇지 않으면 **새로 만들기**를 선택하고 그룹에 대한 이름을 입력합니다.
-      - **위치**: 가상 머신을 만들 위치를 설정합니다.
+      - **Location**: 가상 머신을 만들 위치를 설정합니다.
       - **장애 도메인**: 기본값(3)을 사용하세요.
       - **업데이트 도메인**: 기본값(5)을 사용하세요.
    - **만들기**를 클릭하여 가용성 집합을 만듭니다.
@@ -375,14 +375,15 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
 
 1. 다음으로 부하 분산 장치를 구성합니다.
 
-   - **Name**: 부하 분산 장치를 식별하는 이름입니다.
-   - **유형**: 부하 분산 장치는 공개 또는 프라이빗일 수 있습니다. 동일한 VNET 내에서 프라이빗 부하 분산 장치에 액세스할 수 있습니다. 대부분의 Azure 애플리케이션은 프라이빗 부하 분산 장치를 사용할 수 있습니다. 애플리케이션에 인터넷을 통해 직접 SQL Server에 대한 액세스가 필요한 경우 공개 부하 분산 장치를 사용합니다.
-   - **Virtual Network**: 가상 머신과 동일한 네트워크입니다.
-   - **서브넷**: 가상 머신과 동일한 서브넷입니다.
-   - **개인 IP 주소**: SQL Server FCI 클러스터 네트워크 리소스에 할당한 동일한 IP 주소입니다.
    - **구독**: Azure 구독.
    - **리소스 그룹**: 가상 머신과 동일한 리소스 그룹을 사용합니다.
-   - **위치**: 가상 머신과 동일한 Azure 위치를 사용합니다.
+   - **Name**: 부하 분산 장치를 식별하는 이름입니다.
+   - **지역**: 가상 머신과 동일한 Azure 위치를 사용합니다.
+   - **유형**: 부하 분산 장치는 공개 또는 프라이빗일 수 있습니다. 동일한 VNET 내에서 프라이빗 부하 분산 장치에 액세스할 수 있습니다. 대부분의 Azure 애플리케이션은 프라이빗 부하 분산 장치를 사용할 수 있습니다. 애플리케이션에 인터넷을 통해 직접 SQL Server에 대한 액세스가 필요한 경우 공개 부하 분산 장치를 사용합니다.
+   - **SKU**: 부하 분산 장치에 대 한 SKU는 표준 이어야 합니다. 
+   - **Virtual Network**: 가상 머신과 동일한 네트워크입니다.
+   - **IP 주소 할당**: IP 주소 할당은 정적 이어야 합니다. 
+   - **개인 IP 주소**: SQL Server FCI 클러스터 네트워크 리소스에 할당한 동일한 IP 주소입니다.
    다음 그림을 참조하세요.
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)

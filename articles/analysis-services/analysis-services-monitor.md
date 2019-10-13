@@ -2,18 +2,17 @@
 title: Azure Analysis Services 서버 메트릭 모니터링 | Microsoft Docs
 description: Azure Portal에서 Analysis Services 서버 메트릭을 모니터링하는 방법에 대해 알아봅니다.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7c7aaf911930f83775f66c47377bc68edb059519
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: a66089d01ed9eabdb78975eb1738b87c99fbf311
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958978"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294878"
 ---
 # <a name="monitor-server-metrics"></a>서버 메트릭 모니터링
 
@@ -38,7 +37,7 @@ Analysis Services는 포털의 무료 도구인 Azure 메트릭 탐색기에서 
 
 모니터링 시나리오에 가장 적합한 메트릭을 확인하기 위해 이 테이블을 사용합니다. 동일한 단위의 메트릭만이 같은 차트에 표시될 수 있습니다.
 
-|메트릭|메트릭 표시 이름|단위|집계 형식|Description|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|명령 풀의 작업 큐 길이|개수|평균|명령 스레드 풀의 큐에 있는 작업 수입니다.|
 |CurrentConnections|연결: 현재 연결|개수|평균|현재 설정된 클라이언트 연결 수입니다.|
@@ -55,7 +54,7 @@ Analysis Services는 포털의 무료 도구인 Azure 메트릭 탐색기에서 
 |MemoryLimitLow|메모리: 메모리 제한 하한|바이트|평균|하한 메모리 제한, 구성 파일 원본입니다.|
 |MemoryLimitVertiPaq|메모리: 메모리 제한 VertiPaq|바이트|평균|구성 파일의 메모리 내 제한입니다.|
 |MemoryUsage|메모리: 메모리 사용량|바이트|평균|더욱 명확한 메모리 비용 계산에 사용되는 서버 프로세스의 메모리 사용량입니다. 메모리 매핑된 데이터 크기를 더한 카운터 Process\PrivateBytes와 동일하며 엔진 메모리 제한을 초과하여 메모리 내 분석 엔진(VertiPaq)에서 매핑하거나 할당하는 메모리를 무시합니다.|
-|private_bytes_metric|전용 바이트 |바이트|평균|다른 프로세스와 공유 되는 메모리를 제외 하 고 Analysis Services 엔진 프로세스와 매시업 컨테이너 프로세스가 할당 한 총 메모리 양입니다.|
+|private_bytes_metric|프라이빗 바이트 |바이트|평균|다른 프로세스와 공유 되는 메모리를 제외 하 고 Analysis Services 엔진 프로세스와 매시업 컨테이너 프로세스가 할당 한 총 메모리 양입니다.|
 |virtual_bytes_metric|가상 바이트 |바이트|평균|Analysis Services 엔진 프로세스와 매시업 컨테이너 프로세스에서 사용 하는 가상 주소 공간의 현재 크기입니다.|
 |mashup_engine_private_bytes_metric|M 엔진 전용 바이트 |바이트|평균|다른 프로세스와 공유 되는 메모리를 제외 하 고 할당 된 메모리 매시업 컨테이너 프로세스의 총 크기입니다.|
 |mashup_engine_virtual_bytes_metric|M 엔진 가상 바이트 |바이트|평균|사용 중인 가상 주소 공간 매시업 컨테이너 프로세스의 현재 크기입니다.|
@@ -64,12 +63,12 @@ Analysis Services는 포털의 무료 도구인 Azure 메트릭 탐색기에서 
 |VertiPaqNonpaged|메모리: 페이징되지 않은 VertiPaq|바이트|평균|메모리 내 엔진에서 사용하기 위해 설정된 작동 중에 잠긴 메모리 바이트입니다.|
 |VertiPaqPaged|메모리: 페이징된 VertiPaq|바이트|평균|메모리 내 데이터에 사용 중인 페이징된 메모리 바이트입니다.|
 |ProcessingPoolJobQueueLength|처리 풀의 작업 큐 길이|개수|평균|처리 스레드 풀의 큐에 있는 비-I/O  작업 수입니다.|
-|RowsConvertedPerSec|처리: 초당 변환된 행|CountPerSecond|평균|처리하는 동안 변환된 행의 비율입니다.|
-|RowsReadPerSec|처리: 초당 읽은 행|CountPerSecond|평균|모든 관계형 데이터베이스에서 읽은 행의 비율입니다.|
-|RowsWrittenPerSec|처리: 초당 작성된 행|CountPerSecond|평균|처리하는 동안 쓴 행의 비율입니다.|
+|RowsConvertedPerSec|처리: 초당 변환된 행|초당 개수|평균|처리하는 동안 변환된 행의 비율입니다.|
+|RowsReadPerSec|처리: 초당 읽은 행|초당 개수|평균|모든 관계형 데이터베이스에서 읽은 행의 비율입니다.|
+|RowsWrittenPerSec|처리: 초당 작성된 행|초당 개수|평균|처리하는 동안 쓴 행의 비율입니다.|
 |qpu_metric|QPU|개수|평균|QPU. 범위는 S1의 경우 0-100, S2의 경우 0-200, S4의 경우 0-400임|
 |QueryPoolBusyThreads|쿼리 풀의 사용 중인 스레드|개수|평균|쿼리 스레드 풀의 사용 중인 스레드 수입니다.|
-|SuccessfullConnectionsPerSec|초당 성공한 연결 수|CountPerSecond|평균|성공적으로 완료된 연결 비율입니다.|
+|SuccessfullConnectionsPerSec|초당 성공한 연결 수|초당 개수|평균|성공적으로 완료된 연결 비율입니다.|
 |CommandPoolBusyThreads|스레드: 명령 풀 사용 중인 스레드|개수|평균|명령 스레드 풀의 사용 중인 스레드 수입니다.|
 |CommandPoolIdleThreads|스레드: 명령 풀 유휴 상태 스레드|개수|평균|명령 스레드 풀의 유휴 상태 스레드 수입니다.|
 |LongParsingBusyThreads|스레드: 긴 구문 분석 사용 중인 스레드|개수|평균|긴 구문 분석 스레드 풀에서 사용 중인 스레드 수입니다.|
@@ -90,5 +89,5 @@ Analysis Services는 포털의 무료 도구인 Azure 메트릭 탐색기에서 
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Monitor 개요](../azure-monitor/overview.md)      
-[Azure 메트릭 탐색기 시작](../azure-monitor/platform/metrics-getting-started.md)      
+[Azure 메트릭 탐색기 @no__t 시작 하기](../azure-monitor/platform/metrics-getting-started.md)-1  
 [Azure Monitor REST API의 메트릭](/rest/api/monitor/metrics)

@@ -1,5 +1,5 @@
 ---
-title: Queue Storage 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트) | Microsoft Docs
+title: Visual Studio를 사용 하 여 queue storage 시작 (WebJob 프로젝트)
 description: Visual Studio 연결된 서비스를 사용하여 스토리지 계정에 연결한 후 WebJob 프로젝트에서 Azure Queue Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 0afed158f5a19f3d82a3953f828f2b5566a6d5ff
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: ffba203bafaf3837cd2d7fc1a6fd962a6926b186
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510798"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298755"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure Queue Storage 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -190,7 +191,7 @@ public static void GracefulShutdownDemo(
 새 큐 메시지를 만드는 함수를 작성하려면 **Queue** 특성을 사용합니다. **QueueTrigger**와 마찬가지로 큐 이름을 문자열로 전달하거나, [동적으로 큐 이름을 설정](#how-to-set-configuration-options)할 수 있습니다.
 
 ### <a name="string-queue-messages"></a>문자열 큐 메시지
-다음 비동기가 아닌 코드 샘플에서는 "inputqueue"라는 큐에 수신된 큐 메시지와 동일한 콘텐츠를 가진 새로운 큐 메시지를 "outputqueue"라는 큐에 만듭니다. 비동기 함수의 경우이 단원의 뒷부분에 나와 있는 것 처럼 **>\<iasynccollector T** 를 사용 합니다.
+다음 비동기가 아닌 코드 샘플에서는 "inputqueue"라는 큐에 수신된 큐 메시지와 동일한 콘텐츠를 가진 새로운 큐 메시지를 "outputqueue"라는 큐에 만듭니다. 비동기 함수의 경우이 단원의 뒷부분에 나와 있는 것 처럼 **Iasynccollector @ no__t-1T >** 를 사용 합니다.
 
 ```csharp
 public static void CreateQueueMessage(
@@ -216,7 +217,7 @@ public static void CreateQueueMessage(
 SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null인 경우에도 항상 큐 메시지가 생성됩니다.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>여러 메시지 만들기 또는 비동기 함수로 큐 메시지 만들기
-여러 메시지를 만들려면 다음 예제와 같이 출력 큐 **\<ICollector T >** 또는 **\<iasynccollector t >** 에 대 한 매개 변수 형식을 설정 합니다.
+여러 메시지를 만들려면 다음 예제와 같이 출력 큐 **ICollector @ no__t-1t >** 또는 **iasynccollector @ No__t-3t >** 에 대 한 매개 변수 형식을 설정 합니다.
 
 ```csharp
 public static void CreateQueueMessages(

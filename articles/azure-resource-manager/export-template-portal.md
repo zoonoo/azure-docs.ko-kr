@@ -4,14 +4,14 @@ description: Azure Portal를 사용 하 여 구독의 리소스에서 Azure Reso
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 10/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 15f527dfe517dcb3329b8b61243d7c5054eedb56
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 6b37b61bea63ec626bfd709a40f177f43d1dfe03
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959710"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300446"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기
 
@@ -48,39 +48,36 @@ Azure Resource Manager 템플릿을 만드는 데 도움이 되도록 기존 리
 * 다시 사용 하기 쉬운 템플릿이 필요 합니다.
 * 원래 배포 후에 변경한 내용을 포함할 필요가 없습니다.
 
-## <a name="export-template-from-resource-group"></a>리소스 그룹에서 템플릿 내보내기
+## <a name="export-template-from-a-resource-group"></a>리소스 그룹에서 템플릿 내보내기
 
 리소스 그룹에서 하나 이상의 리소스를 내보내려면:
 
 1. 내보내려는 리소스를 포함 하는 리소스 그룹을 선택 합니다.
 
-1. 리소스 그룹의 모든 리소스를 내보내려면 모두를 선택 하 고 **템플릿 내보내기**를 선택 합니다. **템플릿 내보내기** 옵션은 하나 이상의 리소스를 선택한 후에만 사용 하도록 설정 됩니다.
+1. 확인란을 선택 하 여 하나 이상의 리소스를 선택 합니다.  모두 선택 하려면 **이름**왼쪽에 있는 확인란을 선택 합니다. **템플릿 내보내기** 메뉴 항목은 하나 이상의 리소스를 선택한 후에만 사용 하도록 설정 됩니다.
 
    ![모든 리소스 내보내기](./media/export-template-portal/select-all-resources.png)
 
-1. 내보내기에 대 한 특정 리소스를 선택 하려면 해당 리소스 옆에 있는 확인란을 선택 합니다. 그런 다음 **템플릿 내보내기**를 선택 합니다.
+    스크린샷에는 저장소 계정만 선택 되어 있습니다.
+1. **템플릿 내보내기**를 선택 합니다.
 
-   ![내보낼 리소스 선택](./media/export-template-portal/select-resources.png)
-
-1. 내보낸 템플릿이 표시 되 고 다운로드할 수 있습니다.
+1. 내보낸 템플릿이 표시 되며 다운로드 하 고 배포할 수 있습니다.
 
    ![템플릿 표시](./media/export-template-portal/show-template.png)
 
-## <a name="export-template-from-resource"></a>리소스에서 템플릿 내보내기
+## <a name="export-template-from-a-resource"></a>리소스에서 템플릿 내보내기
 
 한 리소스를 내보내려면:
 
 1. 내보내려는 리소스를 포함 하는 리소스 그룹을 선택 합니다.
 
-1. 내보낼 리소스를 선택 합니다.
-
-   ![리소스 선택](./media/export-template-portal/select-link-resource.png)
+1. 리소스를 열려면 내보내려는 리소스를 선택 합니다.
 
 1. 해당 리소스에 대해 왼쪽 창에서 **템플릿 내보내기** 를 선택 합니다.
 
    ![리소스 내보내기](./media/export-template-portal/export-single-resource.png)
 
-1. 내보낸 템플릿이 표시 되 고 다운로드할 수 있습니다. 템플릿에는 단일 리소스만 포함 됩니다.
+1. 내보낸 템플릿이 표시 되며 다운로드 하 고 배포할 수 있습니다. 템플릿에는 단일 리소스만 포함 됩니다.
 
 ## <a name="export-template-before-deployment"></a>배포 전 템플릿 내보내기
 
@@ -92,9 +89,8 @@ Azure Resource Manager 템플릿을 만드는 데 도움이 되도록 기존 리
 
    ![템플릿 다운로드](./media/export-template-portal/download-before-deployment.png)
 
-1. 템플릿이 표시 되 고 다운로드할 수 있습니다.
+1. 템플릿이 표시 되 고 다운로드 및 배포에 사용할 수 있습니다.
 
-   ![템플릿 표시](./media/export-template-portal/show-template-before-deployment.png)
 
 ## <a name="export-template-after-deployment"></a>배포 후 템플릿 내보내기
 

@@ -4,14 +4,14 @@ description: Azure Cosmos DB에서 인덱싱의 작동 방식을 파악하고
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 10/11/2019
 ms.author: thweiss
-ms.openlocfilehash: 4d961f8635a52a09011543b793ce8a87eaa4ea9e
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: d679208914eb7d1f74bfaec77fbcff196909a2f4
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914187"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299791"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 인덱싱-개요
 
@@ -64,9 +64,11 @@ Azure Cosmos DB 항목을 트리로 변환 하는 이유는 해당 트리 내에
 
 ## <a name="index-kinds"></a>인덱스 종류
 
-현재 Azure Cosmos DB는 다음과 같은 세 가지 종류의 인덱스를 지원 합니다.
+현재 Azure Cosmos DB에서는 세 가지 종류의 인덱스를 지원 합니다.
 
-**범위** 인덱스 종류는 다음에 사용 됩니다.
+### <a name="range-index"></a>범위 인덱스
+
+**범위** 인덱스는 순서가 지정 된 트리 형식 구조를 기반으로 합니다. 범위 인덱스 종류는 다음에 사용 됩니다.
 
 - 같음 쿼리:
 
@@ -74,20 +76,41 @@ Azure Cosmos DB 항목을 트리로 변환 하는 이유는 해당 트리 내에
    SELECT * FROM container c WHERE c.property = 'value'
    ```
 
+   ```sql
+   SELECT * FROM c WHERE c.property IN ("value1", "value2", "value3")
+   ```
+
+   배열 요소의 같음 일치
+   ```sql
+    SELECT * FROM c WHERE ARRAY_CONTAINS(c.tags, "tag1”)
+    ```
+
 - 범위 쿼리:
 
    ```sql
    SELECT * FROM container c WHERE c.property > 'value'
    ```
-  ( `>` ,`<`, ,`!=`,)에 대해 작동 합니다. `<=` `>=`
+  `>`, `<`, `>=`, `<=`, `!=`에 대해 작동 합니다.
 
-- `ORDER BY`쿼리
+- 속성이 있는지 확인 하는 중:
 
-   ```sql 
+   ```sql
+   SELECT * FROM c WHERE IS_DEFINED(c.property)
+   ```
+
+- 문자열 접두사 일치 (CONTAINS 키워드는 범위 인덱스를 활용 하지 않음):
+
+   ```sql
+   SELECT * FROM c WHERE STARTSWITH(c.property, "value")
+   ```
+
+- `ORDER BY` 쿼리:
+
+   ```sql
    SELECT * FROM container c ORDER BY c.property
    ```
 
-- `JOIN`쿼리
+- `JOIN` 쿼리:
 
    ```sql
    SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
@@ -95,31 +118,41 @@ Azure Cosmos DB 항목을 트리로 변환 하는 이유는 해당 트리 내에
 
 범위 인덱스는 스칼라 값 (문자열 또는 숫자)에 사용할 수 있습니다.
 
-**공간** 인덱스 종류는 다음에 사용 됩니다.
+### <a name="spatial-index"></a>공간 인덱스
 
-- 지리 공간적 거리 쿼리: 
+**공간** 인덱스는 요소, 선, 다각형 및 multipolygon과 같은 지리 공간적 개체에 대 한 효율적인 쿼리를 가능 하 게 합니다. 이러한 쿼리는 ST_DISTANCE, ST_WITHIN, ST_INTERSECTS 키워드를 사용 합니다. 공간 인덱스 종류를 사용 하는 몇 가지 예는 다음과 같습니다.
+
+- 지리 공간적 거리 쿼리:
 
    ```sql
    SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40
    ```
 
-- 쿼리 내의 지리 공간적: 
+- 쿼리 내의 지리 공간적:
 
    ```sql
    SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })
    ```
 
+- 지리 공간적 교차 쿼리:
+
+   ```sql
+   SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
+   ```
+
 올바른 형식의 [GeoJSON](geospatial.md) 개체에 대해 공간 인덱스를 사용할 수 있습니다. Points, LineStrings, Polygon 및 MultiPolygons은 현재 지원 됩니다.
 
-**복합** 인덱스 종류는 다음에 사용 됩니다.
+### <a name="composite-indexes"></a>복합 인덱스
 
-- `ORDER BY`여러 속성에 대 한 쿼리:
+**복합** 인덱스는 여러 필드에 대 한 작업을 수행할 때 효율성을 높입니다. 복합 인덱스 종류는 다음에 사용 됩니다.
+
+- 여러 속성에 대 한 `ORDER BY` 쿼리:
 
 ```sql
  SELECT * FROM container c ORDER BY c.property1, c.property2
 ```
 
-- 필터 및 `ORDER BY`를 사용 하 여 쿼리 합니다. 이러한 쿼리는 필터 속성이 `ORDER BY` 절에 추가 된 경우 복합 인덱스를 활용할 수 있습니다.
+- 필터를 사용 하 여 쿼리 하 고 `ORDER BY`입니다. Filter 속성이 `ORDER BY` 절에 추가 된 경우 이러한 쿼리는 복합 인덱스를 활용할 수 있습니다.
 
 ```sql
  SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
@@ -131,16 +164,23 @@ Azure Cosmos DB 항목을 트리로 변환 하는 이유는 해당 트리 내에
  SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
 ```
 
+하나의 필터 조건자가 인덱스 종류의에서 사용 하는 한 쿼리 엔진은 나머지를 검색 하기 전에이를 먼저 평가 합니다. 예를 들어 `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`과 같은 SQL 쿼리가 있는 경우
+
+* 위의 쿼리에서는 먼저 인덱스를 사용 하 여 firstName = "Andrew" 인 항목을 필터링 합니다. 그런 다음, 다음 파이프라인을 통해 firstName = "Andrew" 항목을 모두 전달 하 여 CONTAINS 필터 조건자를 평가 합니다.
+
+* 인덱스를 사용 하는 추가 필터 조건자를 추가 하 여 인덱스를 사용 하지 않는 함수 (예: 포함)를 사용 하는 경우 쿼리 속도를 높이고 전체 컨테이너 검색을 피할 수 있습니다. 필터 절의 순서는 중요 하지 않습니다. 쿼리 엔진은 조건자를 선택 하 고 그에 따라 쿼리를 실행 합니다.
+
+
 ## <a name="querying-with-indexes"></a>인덱스를 사용한 쿼리
 
 데이터를 인덱싱할 때 추출 된 경로를 통해 쿼리를 처리할 때 인덱스를 쉽게 조회할 수 있습니다. 쿼리의 `WHERE` 절과 인덱싱된 경로 목록을 일치 시켜 쿼리 조건자와 일치 하는 항목을 매우 빠르게 식별할 수 있습니다.
 
-예를 들어 다음 쿼리 `SELECT location FROM location IN company.locations WHERE location.country = 'France'`를 살펴보세요. 쿼리 조건자 (항목에 대 한 필터링, 국가에 "프랑스"가 있는 위치)는 아래 빨간색으로 강조 표시 된 경로와 일치 합니다.
+예를 들어 다음 쿼리를 참조 하십시오. `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. 쿼리 조건자 (항목에 대 한 필터링, 국가에 "프랑스"가 있는 위치)는 아래 빨간색으로 강조 표시 된 경로와 일치 합니다.
 
 ![트리 내의 특정 경로 일치](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> 단일 속성을 기준으로 정렬 하는 절은항상범위인덱스가필요하며참조하는경로에는이인덱스가없는경우실패`ORDER BY` 합니다. 마찬가지로, `ORDER BY` 여러 속성으로 정렬 하는 쿼리는 *항상* 복합 인덱스가 필요 합니다.
+> 단일 속성을 기준으로 정렬 하는 `ORDER BY` 절은 *항상* 범위 인덱스가 필요 하며 참조 하는 경로에는이 인덱스가 없는 경우 실패 합니다. 마찬가지로, 여러 속성으로 정렬 하는 @no__t 0 쿼리는 *항상* 복합 인덱스가 필요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

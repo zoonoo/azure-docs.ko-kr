@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cloud Shell에서 Databricks CLI 사용 '
-description: Azure Cloud Shell에서 Databricks CLI를 사용하는 방법을 알아봅니다.
+description: Azure Cloud Shell에서 Databricks CLI를 사용 하 여 Azure Databricks에 대 한 작업을 수행 하는 방법에 대해 알아봅니다.
 services: azure-databricks
 author: mamccrea
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: mamccrea
-ms.openlocfilehash: dae481fb477223f149404c6a09cad024bc15cd90
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: b327403b29f26f6c1f43f9dfe7aabd5c3c7e0a68
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204952"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299898"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Azure Cloud Shell에서 Databricks CLI 사용
 
 Azure Cloud Shell에서 Databricks CLI를 사용하여 Databricks에서 작업을 수행하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Databricks 작업 영역 및 클러스터. 지침은 [Azure Databricks 시작](quickstart-create-databricks-workspace-portal.md)을 참조하세요. 
 

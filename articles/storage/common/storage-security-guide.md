@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 548f37d6a0d4390fb98ceaee7b59314400debb38
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2847a25411ed0125f4af0a84f30cd3d9d630eb84
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986560"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299610"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage 보안 가이드
 
@@ -102,9 +102,7 @@ RBAC를 사용하여 Azure Storage 계정 관리 작업에 액세스하는 작�
 * [Azure Storage 리소스 공급자 REST API 참조](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   이 API 참조는 스토리지 계정을 프로그래밍 방식으로 관리하는 데 사용할 수 있는 API에 대해 설명합니다.
-* [Resource Manager 인증 API를 사용하여 구독에 액세스](../../azure-resource-manager/resource-manager-api-authentication.md)
 
-  이 문서에서는 Resource Manager API를 사용하여 인증을 수행하는 방법을 보여 줍니다.
 * [Ignite를 사용한 Microsoft Azure에 대한 역할 기반 Access Control](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
 
   2015 MS Ignite 회의와 관련해서 Channel 9에 게시된 비디오에 대한 링크입니다. 이 세션에서는 Azure의 액세스 관리 및 보고 기능에 대해 논의하고 Azure Active Directory를 사용하여 Azure 구독에 대한 액세스의 보안을 유지하는 모범 사례를 알아봅니다.
@@ -164,7 +162,7 @@ Azure Storage에서 데이터 개체에 대한 액세스를 인증하는 데 다
 
 권한 부여를 통해 액세스를 제한할 뿐 아니라 [방화벽 및 가상 네트워크](storage-network-security.md)를 사용하여 네트워크 규칙에 따라 스토리지 계정에 대한 액세스를 제한할 수도 있습니다.  이 방법을 통해 공용 인터넷 트래픽에 대한 액세스를 거부하고 특정 Azure Virtual Network 또는 공용 인터넷 IP 주소 범위에 대한 액세스 권한만 부여할 수 있습니다.
 
-### <a name="storage-account-keys"></a>스토리지 계정 키
+### <a name="storage-account-keys"></a>Storage 계정 키
 Storage 계정 키는 Azure에서 생성되는 512비트 문자열로, Storage 계정에 저장된 데이터 개체에 액세스하기 위해 Storage 계정 이름과 함께 사용될 수 있습니다.
 
 예를 들어, Blob을 읽고, 큐에 쓰고, 테이블을 만들고, 파일을 수정할 수 있습니다. Azure 포털을 통해 또는 많은 Storage Explorer 애플리케이션 중 하나를 사용하여 이러한 많은 작업을 수행할 수 있습니다. REST API 또는 Storage 클라이언트 라이브러리 중 하나를 사용하여 이러한 작업을 수행하기 위한 코드를 작성할 수도 있습니다.
@@ -427,7 +425,7 @@ Microsoft Message Analyzer를 사용하여 이러한 로그를 보고 및 분석
 
   이 문서는 Microsoft Message Analyzer에 대한 참조로, 자습서, 빠른 시작 및 기능 요약에 대한 링크를 포함합니다.
 
-## <a name="cross-origin-resource-sharing-cors"></a>크로스-원본 자원 공유(CORS)
+## <a name="cross-origin-resource-sharing-cors"></a>CORS(크로스-원본 자원 공유)
 ### <a name="cross-domain-access-of-resources"></a>리소스의 도메인 간 액세스
 한 도메인에서 실행되는 웹 브라우저가 다른 도메인의 리소스에 대해 HTTP 요청을 수행하는 경우를 크로스-원본 HTTP 요청이라고 합니다. 예를 들어 contoso.com에서 제공되는 HTML 페이지에서 fabrikam.blob.core.windows.net에서 호스트되는 jpeg를 요청한다고 가정합니다. 보안상의 이유로 브라우저는 JavaScript와 같은 스크립트 내에서 시작된 크로스-원본 HTTP 요청을 제한합니다. 즉, contoso.com의 웹 페이지에 있는 일부 JavaScript 코드가 fabrikam.blob.core.windows.net의 해당 jpeg를 요청하면 브라우저는 해당 요청을 허용하지 않습니다.
 

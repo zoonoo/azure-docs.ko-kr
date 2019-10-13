@@ -1,5 +1,5 @@
 ---
-title: 필터링, 정렬, 페이징 Media Services 엔터티-Azure | Microsoft Docs
+title: Media Services 엔터티의 필터링, 정렬, 페이징-Azure | Microsoft Docs
 description: 이 문서에서는 Azure Media Services 엔터티의 필터링, 순서 지정, 페이징에 대해 설명합니다.
 services: media-services
 documentationcenter: ''
@@ -9,98 +9,87 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 10/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 28c880e8709074d808a41d9920361eaa2b20ecc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ed509ac8fea43a9c011bbbf76c1dc433cd78d43c
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60732368"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298956"
 ---
 # <a name="filtering-ordering-paging-of-media-services-entities"></a>Media Services 엔터티 필터링, 순서 지정, 페이징
 
-Media Services에서 지원하는 Media Services v3 엔터티에 대한 OData 쿼리 옵션은 다음과 같습니다. 
+이 항목에서는 Azure Media Services v3 엔터티를 나열할 때 사용할 수 있는 OData 쿼리 옵션 및 페이지 매김 지원에 대해 설명 합니다.
 
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
+## <a name="considerations"></a>고려 사항
 
-연산자 설명:
+* 날짜/시간 형식의 엔터티 속성은 언제나 UTC 형식입니다.
+* 쿼리 문자열의 공백은 요청을 보내기 전에 URL로 인코딩해야 합니다.
 
-* Eq = 같음
-* Ne = 같지 않음
-* Ge = 크거나 같음
-* Le = 작거나 같음
-* Gt = 보다 큼
-* Lt = 보다 작음
+## <a name="comparison-operators"></a>비교 연산자
 
-날짜/시간 형식의 엔터티 속성은 언제나 UTC 형식입니다.
+다음 연산자를 사용 하 여 필드를 상수 값과 비교할 수 있습니다.
 
-## <a name="page-results"></a>페이지 결과
+같음 연산자:
 
-쿼리 응답에 많은 항목이 포함된 경우 서비스에서 "\@odata.nextLink" 속성을 반환하여 결과의 다음 페이지를 가져옵니다. 전체 결과 집합을 통해 페이지에 사용할 수 있습니다. 페이지 크기는 구성할 수 없습니다. 페이지 크기는 엔터티 형식에 따라 달라집니다. 자세한 내용은 다음 개별 섹션을 읽으세요.
+- `eq`: 필드가 상수 값 **과 같은지** 여부를 테스트 합니다.
+- `ne`: 필드가 상수 값 **과 같지** 않은지 테스트 합니다.
 
-(해당 변경 내용이 다운로드되지 않은 컬렉션의 일부인 경우)컬렉션을 통해 페이징하는 동안 엔터티가 생성되거나 삭제되면 변경 내용이 반환된 결과에 반영됩니다. 
+범위 연산자:
 
-> [!TIP]
-> 항상 다음 링크를 사용하여 컬렉션을 열거하고, 특정 페이지 크기에 따라 달라지지 않아야 합니다.
+- `gt`: 필드가 상수 값 **보다 큰지** 여부를 테스트 합니다.
+- `lt`: 필드가 상수 값 **보다 작지** 않은지 테스트 합니다.
+- `ge`: 필드가 상수 값 **보다 크거나 같은지** 여부를 테스트 합니다.
+- `le`: 필드가 상수 값 **보다 작거나 같은지** 여부를 테스트 합니다.
 
-## <a name="assets"></a>자산
+## <a name="filter"></a>Filter
 
-### <a name="filteringordering"></a>필터링/순서
+**$filter** -필터를 사용 하 여 원하는 개체만 찾도록 OData 필터 매개 변수를 제공 합니다.
 
-다음 표에서는 [자산](https://docs.microsoft.com/rest/api/media/assets) 속성에 필터림 및 순서 지정 옵션을 적용하는 방법을 보여줍니다. 
+다음 REST 예제는 자산의 alternateId을 필터링 합니다.
 
-|이름|Filter|순서|
-|---|---|---|
-|id|||
-|name|eq, gt, lt| 오름차순 및 내림차순|
-|properties.alternateId |eq||
-|properties.assetId |eq||
-|properties.container |||
-|properties.created| eq, gt, lt| 오름차순 및 내림차순|
-|properties.description |||
-|properties.lastModified |||
-|properties.storageAccountName |||
-|properties.storageEncryptionFormat | ||
-|형식|||
+```
+GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$filter=properties/alternateId%20eq%20'unique identifier'
+```
 
-다음 C# 예제에서는 만든 날짜로 필터링합니다.
+다음 C# 예에서는 자산의 만든 날짜를 필터링 합니다.
 
 ```csharp
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
+```    
+
+## <a name="order-by"></a>정렬 기준
+
+**$orderby** -지정 된 매개 변수로 반환 된 개체를 정렬 하는 데 사용 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.    
+
+```
+GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-### <a name="pagination"></a>페이지 매김 
+결과를 오름차순 또는 내림차순으로 정렬 하려면 필드 이름에 `asc` 또는 `desc`을 공백으로 구분 하 여 추가 합니다. 예를 들어, `$orderby properties/created desc`을 입력합니다.
 
-네 개의 활성화된 정렬 순서 각각에 대해 페이지 매김이 지원됩니다. 현재 페이지 크기는 1000입니다.
+## <a name="skip-token"></a>토큰 건너뛰기
 
-#### <a name="c-example"></a>C# 예제
+**$skiptoken** -쿼리 응답에 많은 항목이 포함 된 경우 서비스는 다음 결과 페이지를 가져오는 데 사용 하는 skip token (`@odata.nextLink`) 값을 반환 합니다. 전체 결과 집합을 통해 페이지에 사용할 수 있습니다.
 
-다음 C# 예제에서는 계정의 모든 자산을 통해 열거하는 방법을 보여줍니다.
+Media Services v3에서는 페이지 크기를 구성할 수 없습니다. 페이지 크기는 엔터티 형식에 따라 달라집니다. 자세한 내용은 다음 개별 섹션을 읽으세요.
 
-```csharp
-var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName);
+(해당 변경 내용이 다운로드되지 않은 컬렉션의 일부인 경우)컬렉션을 통해 페이징하는 동안 엔터티가 생성되거나 삭제되면 변경 내용이 반환된 결과에 반영됩니다. 
 
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.Assets.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-#### <a name="rest-example"></a>REST 예제
+> [!TIP]
+> 항상 `nextLink`을 사용 하 여 컬렉션을 열거 하 고 특정 페이지 크기에 종속 되지 않아야 합니다.
+>
+> @No__t-0은 둘 이상의 엔터티 페이지가 있는 경우에만 표시 됩니다.
 
 다음 예제에서 $skiptoken이 사용되는 위치를 잘 보세요. *amstestaccount*를 해당하는 계정 이름으로 바꾸고 *api-version* 값을 최신 버전으로 설정합니다.
 
 다음과 같은 자산 목록을 요청하면:
 
 ```
-GET  https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
+GET  https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
 x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
 Content-Type: application/json; charset=utf-8
 ```
@@ -109,140 +98,31 @@ Content-Type: application/json; charset=utf-8
 
 ```
 HTTP/1.1 200 OK
- 
+
 {
 "value":[
 {
-"name":"Asset 0","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 0","type":"Microsoft.Media/mediaservices/assets","properties":{
-"assetId":"00000000-5a4f-470a-9d81-6037d7c23eff","created":"2018-12-11T22:12:44.98Z","lastModified":"2018-12-11T22:15:48.003Z","container":"asset-98d07299-5a4f-470a-9d81-6037d7c23eff","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
+"name":"Asset 0","id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 0","type":"Microsoft.Media/mediaservices/assets","properties":{
+"assetId":"00000000-0000-0000-0000-000000000000","created":"2018-12-11T22:12:44.98Z","lastModified":"2018-12-11T22:15:48.003Z","container":"asset-00000000-0000-0000-0000-0000000000000","storageAccountName":"amsacctname","storageEncryptionFormat":"None"
 }
 },
 // lots more assets
 {
-"name":"Asset 517","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 517","type":"Microsoft.Media/mediaservices/assets","properties":{
-"assetId":"00000000-912e-447b-a1ed-0f723913b20d","created":"2018-12-11T22:14:08.473Z","lastModified":"2018-12-11T22:19:29.657Z","container":"asset-fd05a503-912e-447b-a1ed-0f723913b20d","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
+"name":"Asset 517","id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 517","type":"Microsoft.Media/mediaservices/assets","properties":{
+"assetId":"00000000-0000-0000-0000-000000000000","created":"2018-12-11T22:14:08.473Z","lastModified":"2018-12-11T22:19:29.657Z","container":"asset-00000000-0000-0000-0000-000000000000","storageAccountName":"amsacctname","storageEncryptionFormat":"None"
 }
 }
-],"@odata.nextLink":"https:// management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517"
+],"@odata.nextLink":"https:// management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517"
 }
 ```
 
 그 후 가져오기 요청을 보내서 다음 페이지를 요청합니다.
 
 ```
-https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
+https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
 ```
 
-더 많은 REST 예제는 [자산 - 목록](https://docs.microsoft.com/rest/api/media/assets/list)을 참조하세요.
-
-## <a name="content-key-policies"></a>콘텐츠 키 정책
-
-### <a name="filteringordering"></a>필터링/순서
-
-다음 표에는 이러한 옵션을 [콘텐츠 키 정책](https://docs.microsoft.com/rest/api/media/contentkeypolicies) 속성에 적용하는 방법이 나와 있습니다. 
-
-|이름|Filter|순서|
-|---|---|---|
-|id|||
-|name|eq, ne, ge, le, gt, lt|오름차순 및 내림차순|
-|properties.created |eq, ne, ge, le,  gt, lt|오름차순 및 내림차순|
-|properties.description |eq, ne, ge, le, gt, lt||
-|properties.lastModified|eq, ne, ge, le, gt, lt|오름차순 및 내림차순|
-|properties.options |||
-|properties.policyId|eq, ne||
-|형식|||
-
-### <a name="pagination"></a>페이지 매기기
-
-네 개의 활성화된 정렬 순서 각각에 대해 페이지 매김이 지원됩니다. 현재 페이지 크기는 10입니다.
-
-다음 C# 예제에서는 계정의 모든 **콘텐츠 키 정책**을 열거하는 방법을 보여 줍니다.
-
-```csharp
-var firstPage = await MediaServicesArmClient.ContentKeyPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.ContentKeyPolicies.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-REST 예제는 [콘텐츠 키 정책 - List](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)를 참조하세요.
-
-## <a name="jobs"></a>교육
-
-### <a name="filteringordering"></a>필터링/순서
-
-다음 표에는 [작업](https://docs.microsoft.com/rest/api/media/jobs) 속성에 이러한 옵션을 적용하는 방법이 나와 있습니다. 
-
-| 이름    | Filter                        | 순서 |
-|---------|-------------------------------|-------|
-| name                    | eq            | 오름차순 및 내림차순|
-| properties.state        | eq, ne        |                         |
-| properties.created      | gt, ge, lt, le| 오름차순 및 내림차순|
-| properties.lastModified | gt, ge, lt, le | 오름차순 및 내림차순| 
-
-### <a name="pagination"></a>페이지 매기기
-
-작업 페이지 매김은 Media Services v3에서 지원됩니다.
-
-다음 C# 예제에서는 계정의 모든 작업을 통해 열거하는 방법을 보여줍니다.
-
-```csharp            
-List<string> jobsToDelete = new List<string>();
-var pageOfJobs = client.Jobs.List(config.ResourceGroup, config.AccountName, "Encode");
-
-bool exit;
-do
-{
-    foreach (Job j in pageOfJobs)
-    {
-        jobsToDelete.Add(j.Name);
-    }
-
-    if (pageOfJobs.NextPageLink != null)
-    {
-        pageOfJobs = client.Jobs.ListNext(pageOfJobs.NextPageLink);
-        exit = false;
-    }
-    else
-    {
-        exit = true;
-    }
-}
-while (!exit);
-
-```
-
-REST 예제는 [작업 - 목록](https://docs.microsoft.com/rest/api/media/jobs/list)을 참조하세요.
-
-## <a name="streaming-locators"></a>스트리밍 로케이터
-
-### <a name="filteringordering"></a>필터링/순서
-
-다음 표에는 이러한 옵션을 StreamingLocator 속성에 적용하는 방법이 나와 있습니다. 
-
-|이름|Filter|순서|
-|---|---|---|
-|id |||
-|name|eq, ne, ge, le, gt, lt|오름차순 및 내림차순|
-|properties.alternativeMediaId  |||
-|properties.assetName   |||
-|properties.contentKeys |||
-|properties.created |eq, ne, ge, le,  gt, lt|오름차순 및 내림차순|
-|properties.defaultContentKeyPolicyName |||
-|properties.endTime |eq, ne, ge, le, gt, lt|오름차순 및 내림차순|
-|properties.startTime   |||
-|properties.streamingLocatorId  |||
-|properties.streamingPolicyName |||
-|형식   |||
-
-### <a name="pagination"></a>페이지 매기기
-
-네 개의 활성화된 정렬 순서 각각에 대해 페이지 매김이 지원됩니다. 현재 페이지 크기는 10입니다.
-
-다음 C# 예제에서는 계정의 모든 StreamingLocators를 열거하는 방법을 보여줍니다.
+다음 C# 예제에서는 계정의 모든 스트리밍 로케이터를 열거 하는 방법을 보여 줍니다.
 
 ```csharp
 var firstPage = await MediaServicesArmClient.StreamingLocators.ListAsync(CustomerResourceGroup, CustomerAccountName);
@@ -254,56 +134,57 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-REST 예제의 경우 [스트리밍 로케이터 - List](https://docs.microsoft.com/rest/api/media/streaminglocators/list)를 참조하세요.
+## <a name="using-logical-operators-to-combine-query-options"></a>논리 연산자를 사용 하 여 쿼리 옵션 결합
 
-## <a name="streaming-policies"></a>스트리밍 정책
+Media Services v3은 ' or ' 및 ' and ' 논리 연산자를 지원 합니다. 
 
-### <a name="filteringordering"></a>필터링/순서
+다음 REST 예제에서는 작업의 상태를 확인 합니다.
 
-다음 표에는 이러한 옵션을 StreamingPolicy 속성에 적용하는 방법이 나와 있습니다. 
-
-|이름|Filter|순서|
-|---|---|---|
-|id|||
-|name|eq, ne, ge, le, gt, lt|오름차순 및 내림차순|
-|properties.commonEncryptionCbcs|||
-|properties.commonEncryptionCenc|||
-|properties.created |eq, ne, ge, le,  gt, lt|오름차순 및 내림차순|
-|properties.defaultContentKeyPolicyName |||
-|properties.envelopeEncryption|||
-|properties.noEncryption|||
-|형식|||
-
-### <a name="pagination"></a>페이지 매기기
-
-네 개의 활성화된 정렬 순서 각각에 대해 페이지 매김이 지원됩니다. 현재 페이지 크기는 10입니다.
-
-다음 C# 예제에서는 계정의 모든 StreamingPolicies를 열거하는 방법을 보여줍니다.
-
-```csharp
-var firstPage = await MediaServicesArmClient.StreamingPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.StreamingPolicies.ListNextAsync(currentPage.NextPageLink);
-}
+```
+https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/qbtest/providers/Microsoft.Media/mediaServices/qbtest/transforms/VideoAnalyzerTransform/jobs?$filter=properties/state%20eq%20Microsoft.Media.JobState'Scheduled'%20or%20properties/state%20eq%20Microsoft.Media.JobState'Processing'&api-version=2018-07-01
 ```
 
-REST 예제의 경우 [스트리밍 정책 - 목록](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)을 참조하세요.
+동일한 쿼리를 다음과 C# 같이 생성 합니다. 
 
-## <a name="transform"></a>변환
+```csharp
+var odataQuery = new ODataQuery<Job>("properties/state eq Microsoft.Media.JobState'Scheduled' or properties/state eq Microsoft.Media.JobState'Processing'");
+client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransformName, odataQuery);
+```
 
-### <a name="filteringordering"></a>필터링/순서
+## <a name="filtering-and-ordering-options-of-entities"></a>엔터티의 필터링 및 순서 옵션
 
-다음 표에는 [변환](https://docs.microsoft.com/rest/api/media/transforms) 속성에 이러한 옵션을 적용하는 방법이 나와 있습니다. 
+다음 표에서는 필터링 및 정렬 옵션이 다른 엔터티에 적용 되는 방법을 보여 줍니다.
 
-| 이름    | Filter                        | 순서 |
-|---------|-------------------------------|-------|
-| name                    | eq            | 오름차순 및 내림차순|
-| properties.created      | gt, ge, lt, le| 오름차순 및 내림차순|
-| properties.lastModified | gt, ge, lt, le | 오름차순 및 내림차순|
+|엔터티 이름|속성 이름|Filter|주문|
+|---|---|---|---|
+|[Assets](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` 및 `desc`|
+||properties.alternateId |`eq`||
+||properties.assetId |`eq`||
+||properties.created| `eq`, `gt`, `lt`| `asc` 및 `desc`|
+|[콘텐츠 키 정책](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
+||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
+||properties.description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
+||properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
+||properties.policyId|`eq`, `ne`||
+|[작업](https://docs.microsoft.com/rest/api/media/jobs)| name  | `eq`            | `asc` 및 `desc`|
+||properties.state        | `eq`, `ne`        |                         |
+||properties.created      | `gt`, `ge`, `lt`, `le`| `asc` 및 `desc`|
+||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` 및 `desc`| 
+|[스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
+||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
+||properties.endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
+|[스트리밍 정책](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
+||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
+|[변환을](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` 및 `desc`|
+|| properties.created      | `gt`, `ge`, `lt`, `le`| `asc` 및 `desc`|
+|| properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` 및 `desc`|
 
 ## <a name="next-steps"></a>다음 단계
 
-[파일 스트리밍](stream-files-dotnet-quickstart.md)
+* [자산 나열](https://docs.microsoft.com/rest/api/media/assets/list)
+* [콘텐츠 키 정책 나열](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
+* [작업 나열](https://docs.microsoft.com/rest/api/media/jobs/list)
+* [스트리밍 정책 나열](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
+* [스트리밍 로케이터 나열](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+* [파일 스트리밍](stream-files-dotnet-quickstart.md)
+* [할당량 및 제한 사항](limits-quotas-constraints.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure 역할 기반 Access Control(RBAC)로 지원 요청을 만들고 관리하기 위한 액세스 권한 제어 | Microsoft Docs
+title: Azure에서 지원 요청을 만들기 위한 액세스 제어
 description: Azure 역할 기반 Access Control(RBAC)로 지원 요청을 만들고 관리하기 위한 액세스 권한 제어
 author: ganganarayanan
 ms.author: gangan
@@ -7,14 +7,18 @@ ms.date: 1/31/2017
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: 94f21e973063dc627ef1424ca5393dd85aedd671
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 328f4928aff6a892849ce3e08fe794578b5e03a4
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248845"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299265"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Azure 역할 기반 Access Control(RBAC)로 지원 요청을 만들고 관리하기 위한 액세스 권한 제어
+
+> [!IMPORTANT]
+> Azure에서 요청을 지원 하기 위한 액세스 권한을 제어 하는이 수동 접근 방식은 기본 제공 역할로 대체 되었습니다. 자세한 내용은 [지원 요청 참가자](../role-based-access-control/built-in-roles.md#support-request-contributor)를 참조 하세요. 
 
 [RBAC(역할 기반 Access Control)](https://docs.microsoft.com/azure/role-based-access-control/overview)를 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다.
 Azure Portal([portal.azure.com](https://portal.azure.com))에서 지원 요청 생성은 Azure의 RBAC 모델을 사용하여 지원 요청을 만들고 관리할 수 잇는 사용자를 정의합니다.

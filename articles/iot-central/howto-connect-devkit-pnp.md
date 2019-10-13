@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: f3cfb892fc116640df5dd30abf857bde6e196224
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: b7d2e1b08653cb8023ef6a5190ab53ecc3d568a6
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880112"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297066"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결
 
@@ -25,7 +25,7 @@ ms.locfileid: "69880112"
 - 장치를 준비 하 고 IoT Central 응용 프로그램에 연결 합니다.
 - IoT Central의 장치에서 원격 분석 및 속성을 확인 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 완료 하려면 다음 리소스가 필요 합니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "69880112"
 
 ## <a name="get-device-connection-details"></a>장치 연결 정보 가져오기
 
-Azure IoT Central 응용 프로그램에서 **관리** 탭을 선택 하 고 **장치 연결**을 선택 합니다. **범위 ID** 및 **기본 키**를 적어둡니다.
+Azure IoT Central 응용 프로그램에서 **관리** 탭을 선택 하 고 **장치 연결**을 선택 합니다. **ID 범위** 및 **기본 키**를 적어둡니다.
 
 ![장치 그룹 연결 세부 정보](media/howto-connect-devkit-pnp/device-group-connection-details.png)
 
@@ -61,7 +61,7 @@ Azure IoT Central 응용 프로그램에서 **관리** 탭을 선택 하 고 **�
 
     - WiFi 네트워크 (SSID)의 이름입니다.
     - 사용자의 WiFi 네트워크 암호입니다.
-    - 연결 세부 정보: 사용자가 선택할 수 있는 **장치 ID** 와 이전에 기록해 둔 **범위 ID** 및 **그룹 SAS 기본 키** 입니다.
+    - 연결 세부 정보: 사용자가 선택할 수 있는 **장치 id** 와 이전에 기록해 둔 **ID 범위** 및 **그룹 SAS 기본 키** 입니다.
 
     > [!NOTE]
     > 현재 IoT DevKit는 2.4 GHz Wi-fi에만 연결할 수 있으며, 하드웨어 제한으로 인해 5ghz는 지원 되지 않습니다.
@@ -86,7 +86,7 @@ IoT Central 응용 프로그램에서 **장치** 탭을 선택 하 고 추가한
 
 ## <a name="review-the-code"></a>코드 검토
 
-코드를 검토 하거나 수정 하 고 컴파일하려면 [MXChip IoT DevKit 샘플 코드 GitHub 리포지토리](https://github.com/MXCHIP/IoTDevKit/tree/master/pnp)로 이동 합니다.
+코드를 검토 하거나 코드를 수정 하 고 컴파일하려면 [코드 샘플](https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp/sample/)로 이동 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

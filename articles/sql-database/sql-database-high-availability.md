@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: sashan
 ms.reviewer: carlrab, sashan
-ms.date: 06/10/2019
-ms.openlocfilehash: 54994dd626df23694ea372d4a662d2b4fb051fc8
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
-ms.translationtype: HT
+ms.date: 10/11/2019
+ms.openlocfilehash: 0307a905c1d3d7d9bc707fbda87fb8f3fd6d2aee
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285767"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299702"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>고가용성 및 Azure SQL Database
 
@@ -39,7 +39,7 @@ Azure SQL Database은 안정적인 최신 버전의 SQL Server 데이터베이�
 
 표준 가용성 모델에는 두 개의 계층이 있습니다.
 
-- @No__t-0 프로세스를 실행 하 고 TempDB, model 데이터베이스, 계획 캐시, 버퍼 풀 및 열 저장소 풀과 같은 연결 된 SSD에 임시 및 캐시 된 데이터만 포함 하는 상태 비저장 계산 계층입니다. 이 상태 비저장 노드는-0 @no__t를 초기화 하 고, 노드의 상태를 제어 하 고, 필요한 경우 다른 노드로 장애 조치 (failover)를 수행 하는 Azure Service Fabric에 의해 작동 합니다.
+- @No__t-0 프로세스를 실행 하 고 임시 및 캐시 된 데이터만 포함 하는 상태 비저장 계산 계층 (예: TempDB, 연결 된 SSD의 모델 데이터베이스 및 메모리에 계획 캐시, 버퍼 풀 및 columnstore 풀)을 포함 합니다. 이 상태 비저장 노드는-0 @no__t를 초기화 하 고, 노드의 상태를 제어 하 고, 필요한 경우 다른 노드로 장애 조치 (failover)를 수행 하는 Azure Service Fabric에 의해 작동 합니다.
 - Azure Blob 저장소에 저장 된 데이터베이스 파일 (.mdf/.ldf)이 포함 된 상태 저장 데이터 계층입니다. Azure blob storage에는 기본 제공 되는 데이터 가용성 및 중복성 기능이 있습니다. SQL Server 프로세스가 충돌 하는 경우에도 데이터 파일에 있는 로그 파일 또는 페이지의 모든 레코드가 보존 되도록 보장 합니다.
 
 데이터베이스 엔진 또는 운영 체제가 업그레이드 되거나 오류가 검색 될 때마다 Azure Service Fabric는 사용 가능한 용량이 충분 한 상태 비저장 SQL Server 프로세스를 다른 상태 비저장 계산 노드로 이동 합니다. Azure Blob storage의 데이터는 이동의 영향을 받지 않으며 데이터/로그 파일이 새로 초기화 된 SQL Server 프로세스에 연결 됩니다. 이 프로세스는 99.99%의 가용성을 보장 하지만, 새 SQL Server 인스턴스가 콜드 캐시로 시작 되기 때문에 많은 워크 로드에서 성능 저하가 발생할 수 있습니다.
@@ -54,7 +54,24 @@ Azure SQL Database은 안정적인 최신 버전의 SQL Server 데이터베이�
 
 추가 혜택으로 프리미엄 가용성 모델에는 읽기 전용 SQL 연결을 보조 복제본 중 하나로 리디렉션하는 기능이 포함 되어 있습니다. 이 기능을 [읽기 확장](sql-database-read-scale-out.md)이라고 합니다. 주 복제본에서 분석 워크 로드와 같은 읽기 전용 작업을 오프 로드 하기 위해 추가 요금 없이 100% 추가 계산 용량을 제공 합니다.
 
-### <a name="zone-redundant-configuration"></a>영역 중복 구성
+## <a name="hyperscale-service-tier-availability"></a>분산 서비스 계층 가용성
+
+하이퍼 확장 서비스 계층 아키텍처는 [분산 함수 아키텍처](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#distributed-functions-architecture)에 설명 되어 있습니다. 
+
+![하이퍼 확장 기능 아키텍처](./media/sql-database-hyperscale/hyperscale-architecture.png)
+
+Hyperscale의 가용성 모델에는 다음 4 개의 계층이 포함 됩니다.
+
+- @No__t-0 프로세스를 실행 하 고, 연결 된 SSD 및 계획 캐시, 버퍼 풀 및 메모리의 columnstore 풀에 포함 되지 않은 임시 및 캐시 된 데이터만 포함 하는 상태 비저장 계산 계층입니다. 이 상태 비저장 계층에는 기본 계산 복제본과 장애 조치 (failover) 대상으로 사용할 수 있는 선택적 개수의 보조 계산 복제본이 포함 됩니다.
+- 페이지 서버에서 구성 된 상태 비저장 저장소 계층입니다. 이 계층은 계산 복제본에서 실행 되는 `sqlservr.exe` 프로세스에 대 한 분산 저장소 엔진입니다. 각 페이지 서버에는 연결 된 SSD의 RBPEX cache 및 메모리에 캐시 된 데이터 페이지와 같은 임시 및 캐시 된 데이터만 포함 됩니다. 각 페이지 서버에는 부하 분산, 중복성 및 고가용성을 제공 하기 위해 활성-활성 구성의 쌍을 이루는 페이지 서버가 있습니다.
+- 로그 서비스 프로세스를 실행 하는 계산 노드, 트랜잭션 로그 방문 영역 및 트랜잭션 로그 장기 저장소로 구성 된 상태 저장 트랜잭션 로그 저장소 계층입니다. 방문 영역 및 장기 저장소는 트랜잭션 로그에 대 한 가용성 및 [중복성](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 을 제공 하는 Azure Storage을 사용 하 여 커밋된 트랜잭션에 대 한 데이터 내 구성을 보장 합니다.
+- Azure Storage에 저장 되 고 페이지 서버에서 업데이트 되는 데이터베이스 파일 (.mdf/.ndf)이 포함 된 상태 저장 데이터 저장소 계층입니다. 이 계층은 Azure Storage의 데이터 가용성 및 [중복성](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 기능을 사용 합니다. 이를 통해 데이터 파일의 모든 페이지가 하이퍼 확장 아키텍처 충돌의 다른 계층에 있는 프로세스 또는 계산 노드가 실패 하는 경우에도 유지 됩니다.
+
+모든 하이퍼 규모 계층의 계산 노드는 Azure Service Fabric에서 실행 되며, 각 노드의 상태를 제어 하 고 필요에 따라 사용 가능한 정상 노드로 장애 조치 (failover)를 수행 합니다.
+
+하이퍼 규모의 고가용성에 대 한 자세한 내용은 [hyperscale의 데이터베이스 고가용성](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#database-high-availability-in-hyperscale)을 참조 하세요.
+
+## <a name="zone-redundant-configuration"></a>영역 중복 구성
 
 기본적으로 프리미엄 가용성 모델에 대 한 노드 클러스터는 동일한 데이터 센터에 만들어집니다. [Azure 가용성 영역](../availability-zones/az-overview.md)도입 된 SQL Database 중요 비즈니스용 데이터베이스의 여러 복제본을 동일한 지역의 다른 가용성 영역에 저장할 수 있습니다. 단일 실패 지점을 제거하기 위해 제어 링은 세 개의 GW(게이트웨이 링)로 여러 영역에 걸쳐 복제됩니다. 특정 게이트웨이 링에 대한 라우팅은 [ATM(Azure Traffic Manager)](../traffic-manager/traffic-manager-overview.md)에서 제어됩니다. 프리미엄 또는 중요 비즈니스용 서비스 계층의 영역 중복 구성은 추가 데이터베이스 중복성을 만들지 않으므로 추가 비용 없이 사용 하도록 설정할 수 있습니다. 영역 중복 구성을 선택 하면 응용 프로그램 논리를 변경 하지 않고도 심각한 데이터 센터 중단을 포함 하 여 훨씬 더 큰 오류 집합에 대해 프리미엄 또는 중요 비즈니스용 데이터베이스를 탄력적으로 복원할 수 있습니다. 기존 프리미엄 또는 중요 비즈니스용 데이터베이스 또는 풀을 영역 중복 구성으로 변환할 수도 있습니다.
 

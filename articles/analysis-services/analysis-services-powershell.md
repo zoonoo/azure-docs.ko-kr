@@ -2,18 +2,17 @@
 title: PowerShell을 사용하여 Azure Analysis Services 관리 | Microsoft Docs
 description: PowerShell 사용한 Azure Analysis Services 관리입니다.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: reference
 ms.date: 07/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 38ce44f486616e4ab94e8332884005a187e31008
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: bfe1bfc2828347e34fa92564c26d005998e14ece
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932411"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294739"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>PowerShell을 사용하여 Azure Analysis Services 관리
 
@@ -31,7 +30,7 @@ Azure PowerShell cmdlet을 사용 하는 서버 작업의 경우 스케줄러를
 
 ## <a name="resource-and-server-operations"></a>리소스 및 서버 작업 
 
-설치 모듈- [Az. microsoft.analysisservices.sharepoint.integration.dll](https://www.powershellgallery.com/packages/Az.AnalysisServices)   
+Install module- [Az. microsoft.analysisservices.sharepoint.integration.dll](https://www.powershellgallery.com/packages/Az.AnalysisServices)   
 설명서- [Az. microsoft.analysisservices.sharepoint.integration.dll reference](/powershell/module/az.analysisservices)
 
 ## <a name="database-operations"></a>데이터베이스 작업
@@ -45,7 +44,7 @@ SqlServer 모듈은 TMSL(테이블 형식 모델 스크립트 언어) 쿼리 또
 
 ### <a name="supported-cmdlets"></a>지원 되는 cmdlet
 
-|Cmdlet|Description|
+|Cmdlet|설명|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|데이터베이스 역할에 구성원을 추가합니다.| 
 |[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Analysis Services 데이터베이스를 백업합니다.|  

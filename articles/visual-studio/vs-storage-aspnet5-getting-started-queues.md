@@ -1,5 +1,5 @@
 ---
-title: Queue Storage 및 Visual Studio 연결된 서비스 시작(ASP.NET Core) | Microsoft Docs
+title: Visual Studio를 사용 하 여 queue storage 시작 (ASP.NET Core)
 description: Visual Studio의 ASP.NET Core 프로젝트에서 Azure Queue Storage를 사용하는 방법
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: d8e370c6f7c59da8522bb4fb1403b6107a9c9c41
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 5cdf6f2644788674df91b533c9444fc88ab30b09
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510989"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300032"
 ---
 # <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Queue Storage 및 Visual Studio 연결 서비스 시작(ASP.NET Core)
 
@@ -66,7 +67,7 @@ ASP.NET Core 프로젝트의 큐에 액세스하려면 Azure Queue Storage에 �
 
 ### <a name="create-a-queue-in-code"></a>코드에서 큐 만들기
 
-코드에서 Azure 큐를 만들려면 다음을 호출 `CreateIfNotExistsAsync`합니다.
+코드에서 Azure 큐를 만들려면 `CreateIfNotExistsAsync`을 호출 합니다.
 
 ```cs
 // Create the CloudQueue if it does not exist.

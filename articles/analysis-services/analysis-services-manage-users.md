@@ -2,18 +2,17 @@
 title: Azure Analysis Services의 인증 및 사용자 권한 | Microsoft Docs
 description: Azure Analysis Services의 인증 및 사용자 권한에 대해 알아봅니다.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7673b115a3ad2e6ca7aec34b1cfabfb38d2a16f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc66b34492b34a6e0f239d19ee10fbd79b683a14
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60859212"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294915"
 ---
 # <a name="authentication-and-user-permissions"></a>인증 및 사용자 권한
 
@@ -23,7 +22,7 @@ Azure Analysis Services는 [Azure AD B2B 협업](../active-directory/active-dire
 
 ![Azure Analysis Services 인증 아키텍처](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 
 모든 클라이언트 애플리케이션 및 도구에서 하나 이상의 Analysis Services [클라이언트 라이브러리](analysis-services-data-providers.md)(AMO, MSOLAP, ADOMD)를 사용하여 서버에 연결합니다. 
 
@@ -55,7 +54,7 @@ SSDT는 MFA를 지원하는 Active Directory 유니버설 인증을 사용하여
 
 Power BI Desktop은 MFA를 지원하는 Active Directory 유니버설 인증을 사용하여 Azure Analysis Services에 연결합니다. 처음으로 연결하면 사용자에게 Azure에 로그인하라는 메시지가 표시됩니다. 사용자는 서버 관리자 또는 데이터베이스 역할에 포함되어 있는 계정으로 Azure에 로그인해야 합니다.
 
-### <a name="excel"></a>Excel
+### <a name="excel"></a>내보내기
 
 Excel 사용자는 Windows 계정, 조직 ID(메일 주소) 또는 외부 메일 주소를 사용하여 서버에 연결할 수 있습니다. 외부 메일 ID는 게스트 사용자로 Azure AD에 있어야 합니다.
 

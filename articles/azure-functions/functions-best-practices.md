@@ -1,23 +1,20 @@
 ---
 title: Azure Functions에 대한 모범 사례 | Microsoft Docs
 description: Azure Functions에 대한 모범 사례 및 패턴에 알아봅니다.
-services: functions
-documentationcenter: na
-author: wesmc7777
-manager: jeconnoc
-keywords: Azure Functions, 패턴, 모범 사례, 함수, 이벤트 처리, webhook, 동적 컴퓨팅, 서버리스 아키텍처
+author: ggailey777
+manager: gwallace
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2782781fdfd560c0c8f322e362fcf74c796664bd
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ad2f56388b49692d799202d06ed3dc0123f272e5
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933045"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294367"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure Functions의 성능 및 안정성 최적화
 
@@ -29,7 +26,9 @@ Azure Functions를 사용하여 서버가 없는 솔루션을 빌드하고 설�
 
 ### <a name="avoid-long-running-functions"></a>장기 실행 함수 방지
 
-큰 장기 실행 함수는 예기치 않은 시간 초과 문제를 발생시킬 수 있습니다. 함수는 많은 Node.js 종속성으로 인해 커질 수 있습니다. 또한 종속성을 가져올 때 로드 시간이 증가하여 예기치 않은 시간 초과가 발생할 수 있습니다. 종속성은 명시적 및 암시적으로 로드됩니다. 코드를 통해 로드되는 단일 모듈은 자체 추가 모듈을 로드할 수 있습니다.  
+큰 장기 실행 함수는 예기치 않은 시간 초과 문제를 발생시킬 수 있습니다. 지정 된 호스팅 계획에 대 한 시간 제한에 대해 자세히 알아보려면 [함수 앱 시간 제한 기간](functions-scale.md#timeout)을 참조 하세요. 
+
+함수는 많은 Node.js 종속성으로 인해 커질 수 있습니다. 또한 종속성을 가져올 때 로드 시간이 증가하여 예기치 않은 시간 초과가 발생할 수 있습니다. 종속성은 명시적 및 암시적으로 로드됩니다. 코드를 통해 로드되는 단일 모듈은 자체 추가 모듈을 로드할 수 있습니다. 
 
 큰 함수를 더 작은 함수 집합으로 리팩터링할 때마다 함께 작동하고 빠른 응답을 반환합니다. 예를 들어 webhook 또는 HTTP 트리거 함수는 특정 시간 제한 내의 승인 응답이 필요할 수 있습니다. webhook의 경우 즉각적인 응답을 요구하는 것이 일반적입니다. HTTP 트리거 페이로드를 큐 트리거 함수에 의해 처리되도록 큐에 전달할 수 있습니다. 이 방법은 실제 작업을 연기하고 즉각적인 응답을 반환할 수 있습니다.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e43bc4b8eb1db91493f279f5c46681483e4b18c4
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 1e9f852d01d60ead9979b6b1190e285b35d5c312
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261400"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294031"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB의 진단 로깅 
 
@@ -108,6 +108,12 @@ Azure Portal에서 진단 로깅을 사용 하도록 설정 하려면 다음 단
        { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
        ```
 
+      * **파티션**: 이 로그는 파티션 키의 통계를 보고 합니다. 현재 통계는 파티션 키의 저장소 크기 (KB)로 표시 됩니다. 대부분의 데이터 저장소를 차지 하는 처음 세 개의 파티션 키에 대해 로그를 내보냅니다.
+
+       ```
+       { "time": "2019-10-11T02:33:24.2018744Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "PartitionKeyStatistics", "properties": {"subscriptionId": "<your_subscription_ID>","regionName": "West US 2","databaseName": "KustoQueryResults","collectionname": "CapacityMetrics","partitionkey": "["CapacityMetricsPartition.136"]","sizeKb": "2048270"}}
+       ```
+
       * **메트릭 요청**: [Azure 메트릭](../azure-monitor/platform/metrics-supported.md)에 자세한 데이터를 저장하려면 이 옵션을 선택합니다. 스토리지 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
 
 3. **저장**을 선택합니다.
@@ -126,7 +132,7 @@ Azure CLI를 사용하여 메트릭 및 진단 로깅을 사용하도록 설정�
    az monitor diagnostic-settings create --name DiagStorage --resource <resourceId> --storage-account <storageAccountName> --logs '[{"category": "QueryRuntimeStatistics", "enabled": true, "retentionPolicy": {"enabled": true, "days": 0}}]'
    ```
 
-   `resource`는 Azure Cosmos DB 계정의 이름입니다. 리소스는 "/subscriptions/`<subscriptionId>`/stgg/`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/ `storage-account` < Azure_Cosmos_account_name >" 형식으로 되어 있습니다. 로그를 전송 하려고 합니다. 범주 매개 변수 값을 "MongoRequests" 또는 "DataPlaneRequests"로 업데이트 하 여 다른 로그를 기록할 수 있습니다. 
+   `resource`는 Azure Cosmos DB 계정의 이름입니다. 이 리소스는 "/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers </> Azure_Cosmos_account_name" 형식으로 되어 있습니다. `storage-account`는 로그를 보낼 저장소 계정의 이름입니다. 범주 매개 변수 값을 "MongoRequests" 또는 "DataPlaneRequests"로 업데이트 하 여 다른 로그를 기록할 수 있습니다. 
 
 - 이벤트 허브로의 진단 로그 스트리밍을 사용하도록 설정하려면 다음 명령을 사용합니다.
 
@@ -134,7 +140,7 @@ Azure CLI를 사용하여 메트릭 및 진단 로깅을 사용하도록 설정�
    az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --event-hub-rule <eventHubRuleID> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
-   `resource`는 Azure Cosmos DB 계정의 이름입니다. `event-hub-rule` 는 이벤트 허브 규칙 ID입니다. 
+   `resource`는 Azure Cosmos DB 계정의 이름입니다. @No__t-0은 이벤트 허브 규칙 ID입니다. 
 
 - 진단 로그를 Log Analytics 작업 영역으로 보낼 수 있게 하려면 다음 명령을 사용합니다.
 

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: f297c89d2c3ba5692a44fab631c0d46c75f48692
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 1b056ce8afe86fcd6629aff23ac95acae02ed9ba
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033594"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299870"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>지속성 함수의 바인딩(Azure Functions)
 
@@ -90,7 +90,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> JavaScript의 개체는 DurableOrchestrationContext을 나타내지 않지만 [함수 컨텍스트 전체](../functions-reference-node.md#context-object)를 나타냅니다. `context` `context` 개체의 `df` 속성을 통해 오케스트레이션 메서드에 액세스할 수 있습니다.
+> JavaScript의 `context` 개체는 DurableOrchestrationContext을 나타내지 않지만 [함수 컨텍스트 전체](../functions-reference-node.md#context-object)를 나타냅니다. `context` 개체의 `df` 속성을 통해 오케스트레이션 메서드에 액세스할 수 있습니다.
 
 > [!NOTE]
 > JavaScript 오케스트레이터는 `return`을 사용해야 합니다. `durable-functions` 라이브러리는 `context.done` 메서드 호출을 처리합니다.
@@ -244,9 +244,9 @@ Orchestration 클라이언트 바인딩을 사용 하면 orchestrator 기능과 
 * 실행하는 동안 이벤트를 보냅니다.
 * 인스턴스 기록을 제거합니다.
 
-Visual Studio를 사용 하는 경우 Durable Functions 1.0에 대 한 [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .net 특성을 사용 하 여 오케스트레이션 클라이언트에 바인딩할 수 있습니다. Durable Functions 2.0 미리 보기부터 `DurableClientAttribute` .net 특성을 사용 하 여 오케스트레이션 클라이언트에 바인딩할 수 있습니다.
+Visual Studio를 사용 하는 경우 Durable Functions 1.0에 대 한 [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .net 특성을 사용 하 여 오케스트레이션 클라이언트에 바인딩할 수 있습니다. Durable Functions 2.0 미리 보기부터 `DurableClientAttribute` .NET 특성을 사용 하 여 오케스트레이션 클라이언트에 바인딩할 수 있습니다.
 
-개발을 위해 스크립트 언어 (예: *csx* 또는 *.js* 파일)를 사용 하는 경우 오케스트레이션 트리거는 함수 `bindings` 배열의 다음 json 개체에 의해 정의 됩니다 *. json*:
+개발에 대 한 스크립팅 언어 (예: *csx* 또는 *.js* 파일)를 사용 하는 경우 오케스트레이션 트리거는 함수 @no__t 2 배열의 다음 json 개체에 의해 정의 됩니다 *. json*:
 
 ```json
 {
@@ -266,7 +266,7 @@ Visual Studio를 사용 하는 경우 Durable Functions 1.0에 대 한 [Orchestr
 
 ### <a name="client-usage"></a>클라이언트 사용
 
-.NET 함수에서는 일반적으로 `DurableOrchestrationClient`에 바인딩하며, 이는 Durable Functions에서 지원하는 모든 클라이언트 API에 대한 모든 액세스 권한을 부여합니다. Durable Functions 2.0 부터는 대신 `IDurableOrchestrationClient` 인터페이스에 바인딩합니다. JavaScript에서 동일한 Api는에서 `getClient`반환 되는 개체에 의해 노출 됩니다. 클라이언트 개체에 대한 API는 다음과 같습니다.
+.NET 함수에서는 일반적으로 `DurableOrchestrationClient`에 바인딩하며, 이는 Durable Functions에서 지원하는 모든 클라이언트 API에 대한 모든 액세스 권한을 부여합니다. Durable Functions 2.0 부터는 대신 `IDurableOrchestrationClient` 인터페이스에 바인딩합니다. JavaScript에서 동일한 Api는 `getClient`에서 반환 되는 개체에 의해 노출 됩니다. 클라이언트 개체에 대한 API는 다음과 같습니다.
 
 * [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)
 * [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_)
@@ -351,7 +351,7 @@ module.exports = async function (context) {
 
 엔터티 트리거를 사용 하면 [엔터티 함수](durable-functions-entities.md)를 작성할 수 있습니다. 이 트리거는 특정 엔터티 인스턴스에 대 한 이벤트 처리를 지원 합니다.
 
-Azure Functions 용 Visual Studio 도구를 사용 하는 경우 엔터티 트리거는 `EntityTriggerAttribute` .net 특성을 사용 하 여 구성 됩니다.
+Azure Functions 용 Visual Studio 도구를 사용 하는 경우 엔터티 트리거는 `EntityTriggerAttribute` .NET 특성을 사용 하 여 구성 됩니다.
 
 > [!NOTE]
 > 엔터티 트리거는 Durable Functions 2.0 이상에서 사용할 수 있습니다. JavaScript에서는 엔터티 트리거를 아직 사용할 수 없습니다.
@@ -371,64 +371,64 @@ Azure Functions 용 Visual Studio 도구를 사용 하는 경우 엔터티 트�
 
 ### <a name="trigger-usage-net"></a>트리거 사용(.NET)
 
-모든 엔터티 함수에는 다음 멤버를 `IDurableEntityContext`포함 하는 매개 변수 형식이 있습니다.
+모든 엔터티 함수에는 다음 멤버를 포함 하는 `IDurableEntityContext`의 매개 변수 형식이 있습니다.
 
-* **EntityName**: 현재 실행 중인 엔터티의 이름을 가져옵니다.
-* **EntityKey**: 현재 실행 중인 엔터티의 키를 가져옵니다.
-* **EntityId**: 현재 실행 중인 엔터티의 ID를 가져옵니다.
-* **OperationName**: 현재 작업의 이름을 가져옵니다.
-* **Isnewlyconstructed**: 작업 `true` 전에 엔터티가 존재 하지 않는 경우를 반환 합니다.
-* **Getstate\<tstate > ()** : 엔터티의 현재 상태를 가져옵니다. 매개 `TState` 변수는 기본 형식 또는 JSON serializeable 형식 이어야 합니다.
-* **SetState (object)** : 엔터티의 상태를 업데이트 합니다. 매개 `object` 변수는 기본 또는 JSON serializeable 개체 여야 합니다.
-* **Getinput\<TInput > ()** : 현재 작업에 대 한 입력을 가져옵니다. 형식 `TInput` 매개 변수는 기본 또는 JSON serializeable 형식을 나타내야 합니다.
-* **Return (object)** : 작업을 호출한 오케스트레이션에 값을 반환 합니다. 매개 `object` 변수는 기본 또는 JSON serializeable 개체 여야 합니다.
-* **DestructOnExit ()** : 현재 작업을 완료 한 후 엔터티를 삭제 합니다.
-* **SignalEntity (EntityId, string, object)** : 엔터티에 단방향 메시지를 보냅니다. 매개 `object` 변수는 기본 또는 JSON serializeable 개체 여야 합니다.
+* **EntityName**: 현재 실행 중인 엔터티의 이름입니다.
+* **EntityKey**: 현재 실행 중인 엔터티의 키입니다.
+* **EntityId**: 현재 실행 중인 엔터티의 ID입니다.
+* **OperationName**: 현재 작업의 이름입니다.
+* **Hasstate**: 엔터티가 존재 하는지 여부, 즉 특정 상태를 포함 합니다. 
+* **Getstate @ no__t-1TState > ()** : 엔터티의 현재 상태를 가져옵니다. 아직 존재 하지 않는 경우 `default<TState>`으로 만들어지고 초기화 됩니다. @No__t-0 매개 변수는 기본 또는 JSON serializeable 형식 이어야 합니다. 
+* **Getstate @ no__t-1TState > (initfunction)** : 엔터티의 현재 상태를 가져옵니다. 존재 하지 않는 경우 제공 된 `initfunction` 매개 변수를 호출 하 여 생성 됩니다. @No__t-0 매개 변수는 기본 또는 JSON serializeable 형식 이어야 합니다. 
+* **SetState (arg)** : 엔터티의 상태를 만들거나 업데이트 합니다. @No__t-0 매개 변수는 JSON-serializeable 개체 또는 기본 형식 이어야 합니다.
+* **Deletestate ()** : 엔터티의 상태를 삭제 합니다. 
+* **Getinput @ no__t-1TInput > ()** : 현재 작업에 대 한 입력을 가져옵니다. @No__t-0 형식 매개 변수는 기본 형식 또는 JSON serializeable 형식 이어야 합니다.
+* **Return (arg)** : 작업을 호출한 오케스트레이션에 값을 반환 합니다. @No__t-0 매개 변수는 기본 또는 JSON serializeable 개체 여야 합니다.
+* **SignalEntity (EntityId, operation, input)** : 엔터티에 단방향 메시지를 보냅니다. @No__t-0 매개 변수는 null이 아닌 문자열 이어야 하 고 `input` 매개 변수는 기본 또는 JSON serializeable 개체 여야 합니다.
+* **CreateNewOrchestration (orchestratorFunctionName, input)** : 새 오케스트레이션을 시작 합니다. @No__t-0 매개 변수는 기본 또는 JSON serializeable 개체 여야 합니다.
 
-클래스 기반 엔터티 프로그래밍 모드를 `IDurableEntityContext` 사용 하는 경우 `Entity.Current` 스레드 정적 속성을 사용 하 여 개체를 참조할 수 있습니다.
+@No__t-1 async-local 속성을 사용 하 여 엔터티 함수에 전달 된 @no__t 0 개체에 액세스할 수 있습니다. 이 방법은 클래스 기반 프로그래밍 모델을 사용 하는 경우에 편리 합니다.
 
-### <a name="trigger-sample---entity-function"></a>트리거 샘플 엔터티 함수
+### <a name="trigger-sample-function-based-syntax"></a>트리거 샘플 (함수 기반 구문)
 
-다음 코드는 표준 함수로 구현 된 간단한 *카운터* 엔터티의 예입니다. 이 함수는 `get` `add` `reset` 각각정수상태값에대해작동하는세개의작업,,및를정의`currentValue`합니다.
+다음 코드는 영 속 함수로 구현 된 간단한 *카운터* 엔터티의 예입니다. 이 함수는 각각 정수 상태에서 작동 하는 `add`, `reset` 및 `get`의 세 가지 작업을 정의 합니다.
 
 ```csharp
-[FunctionName(nameof(Counter))]
+[FunctionName("Counter")]
 public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
-    int currentValue = ctx.GetState<int>();
-
     switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
-            int amount = ctx.GetInput<int>();
-            currentValue += operand;
+            ctx.SetState(ctx.GetState<int>() + ctx.GetInput<int>());
             break;
         case "reset":
-            currentValue = 0;
+            ctx.SetState(0);
             break;
         case "get":
-            ctx.Return(currentValue);
+            ctx.Return(ctx.GetState<int>()));
             break;
     }
-
-    ctx.SetState(currentValue);
 }
 ```
 
-### <a name="trigger-sample---entity-class"></a>트리거 샘플-엔터티 클래스
+함수 기반 구문 및 사용 방법에 대 한 자세한 내용은 [함수 기반 구문](durable-functions-dotnet-entities.md#function-based-syntax)을 참조 하세요.
 
-다음 예제는 .net 클래스 및 메서드를 사용 하 `Counter` 는 이전 엔터티와 동일한 구현입니다.
+### <a name="trigger-sample-class-based-syntax"></a>트리거 샘플 (클래스 기반 구문)
+
+다음 예제에서는 클래스와 메서드를 사용하여 `Counter` 엔터티를 동일하게 구현합니다.
 
 ```csharp
+[JsonObject(MemberSerialization.OptIn)]
 public class Counter
 {
     [JsonProperty("value")]
     public int CurrentValue { get; set; }
 
     public void Add(int amount) => this.CurrentValue += amount;
-    
+
     public void Reset() => this.CurrentValue = 0;
-    
+
     public int Get() => this.CurrentValue;
 
     [FunctionName(nameof(Counter))]
@@ -437,21 +437,25 @@ public class Counter
 }
 ```
 
-> [!NOTE]
-> 엔터티 클래스를 사용할 때 `[FunctionName]` 특성이 있는 함수 진입점 메서드를 선언 `static` 해야 합니다. 비정적 진입점 메서드는 여러 개체 초기화 및 기타 정의 되지 않은 동작을 발생 시킬 수 있습니다.
+이 엔터티의 상태는 카운터의 현재 값을 저장 하는 필드를 포함 하는 `Counter` 형식의 개체입니다. 이 개체를 저장소에 유지 하기 위해 [Json.NET](https://www.newtonsoft.com/json) 라이브러리에 의해 직렬화 및 deserialize 됩니다. 
 
-엔터티 클래스에는 바인딩과 .NET 종속성 주입을 상호 작용 하기 위한 특수 메커니즘이 있습니다. 자세한 내용은 지 [속성 엔터티](durable-functions-entities.md) 문서를 참조 하세요.
+클래스 기반 구문 및 사용 방법에 대 한 자세한 내용은 [엔터티 클래스 정의](durable-functions-dotnet-entities.md#defining-entity-classes)를 참조 하세요.
+
+> [!NOTE]
+> 엔터티 클래스를 사용하는 경우 `[FunctionName]` 특성이 있는 함수 진입점 메서드를 `static`으로 *선언해야* 합니다. 비정적 진입점 메서드를 사용하면 여러 개체가 초기화되고 잠재적으로 정의되지 않은 다른 동작이 발생할 수 있습니다.
+
+엔터티 클래스에는 바인딩과 .NET 종속성 주입을 상호 작용 하기 위한 특수 메커니즘이 있습니다. 자세한 내용은 [엔터티 생성](durable-functions-dotnet-entities.md#entity-construction)을 참조 하세요.
 
 ## <a name="entity-client"></a>엔터티 클라이언트
 
 엔터티 클라이언트 바인딩을 사용 하면 [엔터티 함수](#entity-trigger)를 비동기적으로 트리거할 수 있습니다. 이러한 함수를 [클라이언트 함수](durable-functions-types-features-overview.md#client-functions)라고도 합니다.
 
-Visual Studio를 사용 하는 경우 `DurableClientAttribute` .net 특성을 사용 하 여 엔터티 클라이언트에 바인딩할 수 있습니다.
+Visual Studio를 사용 하는 경우 `DurableClientAttribute` .NET 특성을 사용 하 여 엔터티 클라이언트에 바인딩할 수 있습니다.
 
 > [!NOTE]
-> 를 사용 하 여 [오케스트레이션 클라이언트](#orchestration-client)에 바인딩할 수도 있습니다.`[DurableClientAttribute]`
+> @No__t-0은 [오케스트레이션 클라이언트](#orchestration-client)에 바인딩하는 데 사용할 수도 있습니다.
 
-개발에 스크립팅 언어 (예: *csx* 또는 *.js* 파일)를 사용 하는 경우 엔터티 트리거는 함수 `bindings` 배열의 다음 json 개체에 의해 정의 됩니다 *. json*:
+개발에 대 한 스크립팅 언어 (예: *csx* 또는 *.js* 파일)를 사용 하는 경우 엔터티 트리거는 함수 @no__t 2 배열의 다음 json 개체에 의해 정의 됩니다 *. json*:
 
 ```json
 {
@@ -471,19 +475,17 @@ Visual Studio를 사용 하는 경우 `DurableClientAttribute` .net 특성을 �
 
 ### <a name="entity-client-usage"></a>엔터티 클라이언트 사용
 
-.Net 함수에서는 일반적으로에 `IDurableEntityClient`바인딩되어 있으며이는 영 속 엔터티에서 지 원하는 모든 클라이언트 api에 대 한 모든 액세스 권한을 제공 합니다. 엔터티와 오케스트레이션의 클라이언트 api에 대 `IDurableClient` 한 액세스를 제공 하는 인터페이스에 바인딩할 수도 있습니다. 클라이언트 개체에 대한 API는 다음과 같습니다.
+일반적으로 .NET 함수에서 `IDurableEntityClient`에 바인딩합니다 .이는 영 속 엔터티에서 지 원하는 모든 클라이언트 Api에 대 한 모든 권한을 제공 합니다. 엔터티와 오케스트레이션의 클라이언트 Api에 대 한 액세스를 제공 하는 `IDurableClient` 인터페이스에 바인딩할 수도 있습니다. 클라이언트 개체에 대한 API는 다음과 같습니다.
 
-* **ReadEntityStateAsync\<T >** : 엔터티 상태를 읽습니다.
+* **ReadEntityStateAsync @ no__t-1T >** : 엔터티 상태를 읽습니다. 대상 엔터티가 있는지 여부를 나타내는 응답을 반환 하 고, 그럴 경우 상태를 반환 합니다.
 * **SignalEntityAsync**: 엔터티에 단방향 메시지를 보내고 큐에 대기 될 때까지 기다립니다.
-* **SignalEntityAsync\<tentityinterface >** :와 `SignalEntityAsync` 동일 하지만 형식의 `TEntityInterface`생성 된 프록시 개체를 사용 합니다.
-* **Createentityproxy\<tentityinterface >** : 엔터티를 형식 안전 하 게 호출 `TEntityInterface` 하기 위한 형식의 동적 프록시를 동적으로 생성 합니다.
+
+신호를 보내기 전에 대상 엔터티를 만들 필요는 없습니다. 신호를 처리 하는 엔터티 함수 내에서 엔터티 상태를 만들 수 있습니다.
 
 > [!NOTE]
-> 이전 "신호" 작업은 모두 비동기 임을 이해 하는 것이 중요 합니다. 엔터티 함수를 호출 하 고 클라이언트에서 반환 값을 다시 가져올 수는 없습니다. 마찬가지로는 `SignalEntityAsync` 엔터티가 작업 실행을 시작 하기 전에를 반환할 수 있습니다. Orchestrator 함수만 엔터티 함수를 동기적으로 호출 하 고 반환 값을 처리할 수 있습니다.
+> 클라이언트에서 전송 된 "신호"는 방금 큐에 넣은 후 나중에 비동기식으로 처리 된다는 것을 이해 하는 것이 중요 합니다. 특히 `SignalEntityAsync`은 일반적으로 엔터티가 작업을 시작 하기 전에를 반환 하며 반환 값을 반환 하거나 예외를 관찰할 수 없습니다. 워크플로의 경우와 같이 더 강력한 보증이 필요한 경우에는 *orchestrator 함수* 를 사용 해야 합니다 .이 함수를 사용 하면 엔터티 작업이 완료 될 때까지 기다릴 수 있으며 반환 값을 처리 하 고 예외를 관찰할 수 있습니다.
 
-Api `SignalEntityAsync` 는 엔터티의 고유 식별자를 `EntityId`로 지정 해야 합니다. 또한 이러한 api는 선택적으로 엔터티 작업 `string` 의 이름과 작업의 페이로드를 serializeable `object`으로 사용 합니다. 대상 엔터티가 없으면 지정 된 엔터티 ID를 사용 하 여 자동으로 생성 됩니다.
-
-### <a name="client-sample-untyped"></a>클라이언트 샘플 (형식화 되지 않은)
+### <a name="example-client-signals-entity-directly"></a>예: 클라이언트에서 직접 엔터티 신호 전달
 
 다음은 "Counter" 엔터티를 호출 하는 큐 트리거 함수 예제입니다.
 
@@ -500,16 +502,16 @@ public static Task Run(
 }
 ```
 
-### <a name="client-sample-typed"></a>클라이언트 샘플 (형식화 된)
+### <a name="example-client-signals-entity-via-interface"></a>예: 클라이언트 신호 엔터티 via 인터페이스
 
-엔터티 작업에 대 한 형식 안전 액세스에 대 한 프록시 개체를 생성할 수 있습니다. 형식이 안전한 프록시를 생성 하려면 엔터티 형식이 인터페이스를 구현 해야 합니다. 예를 들어 앞에서 `Counter` 언급 한 엔터티가 다음과 같이 `ICounter` 정의 된 인터페이스를 구현 했다고 가정 합니다.
+가능 하면 더 많은 형식 검사를 제공 하므로 [인터페이스를 통해 엔터티에 액세스](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) 하는 것이 좋습니다. 예를 들어 앞에서 설명한 @no__t 0 엔터티가 다음과 같이 정의 된 @no__t 1 인터페이스를 구현 했다고 가정 합니다.
 
 ```csharp
 public interface ICounter
 {
     void Add(int amount);
     void Reset();
-    int Get();
+    Task<int> Get();
 }
 
 public class Counter : ICounter
@@ -518,7 +520,7 @@ public class Counter : ICounter
 }
 ```
 
-클라이언트 코드는를 사용 `SignalEntityAsync<TEntityInterface>` 하 고 인터페이스 `ICounter` 를 형식 매개 변수로 지정 하 여 형식이 안전한 프록시를 생성할 수 있습니다. 다음 코드 샘플에서는 형식이 안전한 프록시를 사용 하는 방법을 보여 줍니다.
+클라이언트 코드는 `SignalEntityAsync<ICounter>`을 사용 하 여 형식이 안전한 프록시를 생성할 수 있습니다.
 
 ```csharp
 [FunctionName("UserDeleteAvailable")]
@@ -532,23 +534,14 @@ public static async Task AddValueClient(
 }
 ```
 
-이전 예제 `proxy` 에서 매개 변수는에 대 한 호출 `Add` 을의 해당 `ICounter`(형식화 되지 않은) 호출 `SignalEntityAsync`로 내부적으로 변환 하는의 동적으로 생성 된 인스턴스입니다.
-
-엔터티 인터페이스를 정의 하기 위한 몇 가지 규칙이 있습니다.
-
-* `TEntityInterface` 의`SignalEntityAsync<TEntityInterface>` 형식 매개 변수는 인터페이스 여야 합니다.
-* 엔터티 인터페이스는 메서드만 정의 해야 합니다.
-* 엔터티 인터페이스 메서드는 둘 이상의 매개 변수를 정의 하면 안 됩니다.
-* 엔터티 인터페이스 메서드는, `void` `Task`또는 `Task<T>` 을 반환 해야 `T` 합니다. 여기서은 반환 값입니다.
-* 엔터티 인터페이스는 동일한 어셈블리 (즉, 엔터티 클래스) 내에서 정확히 하나의 구체적 구현 클래스를 포함 해야 합니다.
-
-이러한 규칙을 위반 하 `InvalidOperationException` 는 경우 런타임에이 throw 됩니다. 예외 메시지는 중단 된 규칙을 설명 합니다.
+@No__t-0 매개 변수는 `Add`에 대 한 호출을 `SignalEntityAsync`에 대 한 동등한 (형식화 되지 않은) 호출로 내부적으로 변환 하는 `ICounter`의 동적으로 생성 된 인스턴스입니다.
 
 > [!NOTE]
-> Api `SignalEntityAsync` 는 단방향 작업을 나타냅니다. 엔터티 인터페이스에서을 반환 `Task<T>`하는 경우 `T` 매개 변수의 값은 항상 null 또는 `default`입니다.
+> @No__t-0 Api는 단방향 작업을 나타냅니다. 엔터티 인터페이스가 `Task<T>`을 반환 하는 경우 `T` 매개 변수의 값은 항상 null 이거나 `default`가 됩니다.
+
+특히 값이 반환 되지 않으므로 `Get` 연산을 알리는 것은 의미가 없습니다. 대신 클라이언트는 `ReadStateAsync` 중 하나를 사용 하 여 카운터 상태에 직접 액세스 하거나 `Get` 작업을 호출 하는 orchestrator 함수를 시작할 수 있습니다. 
 
 <a name="host-json"></a>
-
 ## <a name="hostjson-settings"></a>host.json 설정
 
 [!INCLUDE [durabletask](../../../includes/functions-host-json-durabletask.md)]

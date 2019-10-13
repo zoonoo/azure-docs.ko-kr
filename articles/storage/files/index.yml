@@ -2,7 +2,7 @@
 title: Azure Files 설명서
 summary: Azure Files는 클라우드에서 SMB(서버 메시지 블록) 프로토콜을 통해 액세스할 수 있는, 완전 관리형 플랫폼 간 파일 공유를 제공합니다.
 metadata:
-  title: Azure 파일
+  title: Azure Files 설명서
   description: Windows, Linux 및 macOS의 클라우드 또는 온-프레미스에서 파일 공유를 탑재하세요. Windows Server의 Azure 파일 공유를 Azure 파일 동기화와 함께 캐시하여 로컬 액세스를 이용할 수 있습니다.
   services: storage
   ms.service: storage
@@ -12,12 +12,12 @@ metadata:
   author: roygara
   ms.author: rogarana
   ms.date: 08/27/2019
-  ms.openlocfilehash: 21be0cb23dc5673d0a060636da148ee97463ec4b
-  ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+  ms.openlocfilehash: 3e9224746c400f9795e16edd51b69740fb3c45c7
+  ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/04/2019
-  ms.locfileid: "70241715"
+  ms.lasthandoff: 10/13/2019
+  ms.locfileid: "72299571"
 landingContent:
 - title: Azure Files 정보
   linkLists:

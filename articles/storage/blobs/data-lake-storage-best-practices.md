@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 1f1db1c347709ed7c8587ed8b5523a231e373999
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: ac4e126c7ecbd1fc781db74e5b19635b273bbb34
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991878"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299666"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 사용에 대한 모범 사례
 
-이 문서에서는 Azure Data Lake Storage Gen2 사용에 대한 모범 사례와 고려 사항에 대해 알아봅니다. 여기서는 Data Lake Storage Gen2의 보안, 성능, 복원력 및 모니터링에 대한 정보를 제공합니다. Data Lake Storage Gen2 이전에는 Azure HDInsight와 같은 서비스에서 진정한 빅 데이터를 사용하는 것이 복잡했습니다. 여러 Blob Storage 계정에서 데이터를 분할하여 페타바이트 스토리지와 최적의 성능을 얻을 수 있도록 해야 했습니다. Data Lake Storage Gen2를 사용하면 크기와 성능에 대한 대부분의 엄격한 제한이 제거됩니다. 그러나 이 문서에는 Data Lake Storage Gen2를 통해 최상의 성능을 얻기 위한 몇 가지 고려 사항도 있습니다.
+이 문서에서는 Azure Data Lake Storage Gen2 사용에 대한 모범 사례와 고려 사항에 대해 알아봅니다. 여기서는 Data Lake Storage Gen2의 보안, 성능, 복원력 및 모니터링에 대한 정보를 제공합니다. Data Lake Storage Gen2 이전에는 Azure HDInsight와 같은 서비스에서 진정한 빅 데이터를 사용하는 것이 복잡했습니다. 여러 Blob Storage 계정에서 데이터를 분할하여 페타바이트 스토리지와 최적의 성능을 얻을 수 있도록 해야 했습니다. Data Lake Storage Gen2은 개별 파일 크기를 5TB으로 지원 하 고 성능에 대 한 대부분의 하드 제한이 제거 되었습니다. 그러나 이 문서에는 Data Lake Storage Gen2를 통해 최상의 성능을 얻기 위한 몇 가지 고려 사항도 있습니다.
 
 ## <a name="security-considerations"></a>보안 고려 사항
 

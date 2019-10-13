@@ -2,18 +2,17 @@
 title: Power BI를 사용하여 Azure Analysis Services에 연결 | Microsoft Docs
 description: Power BI를 사용하여 Azure Analysis Services 서버에 연결하는 방법에 대해 알아봅니다.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eadba5397655809dc4f3e6d5f9d6c79addde68a6
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 181a63fda1feddfb654eb32f46632f0656febb82
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619287"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72295303"
 ---
 # <a name="connect-with-power-bi"></a>Power BI로 연결
 
@@ -47,7 +46,7 @@ Azure에서 서버를 만들고 테이블 형식 모델을 배포하면 조직�
 1. 서버의 모델에 대한 라이브 연결을 포함하는 Power BI Desktop 파일을 만듭니다.
 2. [Power BI](https://powerbi.microsoft.com)에서 **데이터 가져오기** > **파일**을 클릭한 다음, .pbix 파일을 찾아서 선택합니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 [Azure Analysis Services에 연결](analysis-services-connect.md)   
 [클라이언트 라이브러리](analysis-services-data-providers.md)
 

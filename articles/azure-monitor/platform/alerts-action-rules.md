@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 34997c130094b7e8b209b3ad3030038670d0a254
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 19f17aff4f915f8a16ccf9d69b12a845d9493e96
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702983"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299291"
 ---
 # <a name="action-rules-preview"></a>작업 규칙 (미리 보기)
 
@@ -83,7 +83,7 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 
 그런 다음 경고 비 표시 또는 작업 그룹 지원에 대 한 작업 규칙을 구성 합니다. 둘 다 선택할 수는 없습니다. 구성은 이전에 정의 된 범위 및 필터와 일치 하는 모든 경고 인스턴스에서 작동 합니다.
 
-#### <a name="suppression"></a>비표시
+#### <a name="suppression"></a>Iss
 
 표시 안 함 **을 선택 하**는 경우 작업 및 알림의 표시 안 함 기간을 구성 합니다. 다음 옵션 중 하나를 선택합니다.
 * **지금부터 (항상)** : 모든 알림을 무기한 표시 하지 않습니다.
@@ -198,22 +198,22 @@ Contoso는 [구독 수준에서 메트릭 경고를](https://docs.microsoft.com/
 
 ### <a name="what-happens-if-i-have-a-resource-thats-monitored-in-two-separate-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>별도의 두 작업 규칙에서 모니터링 되는 리소스가 있으면 어떻게 되나요? 하나 또는 두 개의 알림을 받을 까 요? 예를 들어, 다음과 같은 시나리오에서는 **v m 2** 입니다.
 
-      "action rule AR1 defined for VM1 and VM2 with action group AG1
-      action rule AR2 defined for VM2 and VM3 with action group AG1"
+      action rule AR1 defined for VM1 and VM2 with action group AG1
+      action rule AR2 defined for VM2 and VM3 with action group AG1
 
 VM1 및 V M 3의 모든 경고에 대해 작업 그룹 AG1이 한 번 트리거됩니다. 작업 규칙은 중복 된 작업을 수행 하지 않으므로 **v m 2**의 모든 경고에 대해 작업 그룹 AG1가 두 번 트리거됩니다. 
 
 ### <a name="what-happens-if-i-have-a-resource-monitored-in-two-separate-action-rules-and-one-calls-for-action-while-another-for-suppression-for-example-vm2-in-the-following-scenario"></a>별도의 두 작업 규칙에서 리소스를 모니터링 하 고 작업에 대 한 호출을 제거 하는 데 다른 작업을 수행 하는 경우 어떻게 되나요? 예를 들어, 다음과 같은 시나리오에서는 **v m 2** 입니다.
 
-      "action rule AR1 defined for VM1 and VM2 with action group AG1 
-      action rule AR2 defined for VM2 and VM3 with suppression"
+      action rule AR1 defined for VM1 and VM2 with action group AG1 
+      action rule AR2 defined for VM2 and VM3 with suppression
 
 VM1의 모든 경고에 대해 작업 그룹 AG1가 한 번 트리거됩니다. V M 2 및 V M 3의 모든 경고에 대 한 작업 및 알림이 표시 되지 않습니다. 
 
 ### <a name="what-happens-if-i-have-an-alert-rule-and-an-action-rule-defined-for-the-same-resource-calling-different-action-groups-for-example-vm1-in-the-following-scenario"></a>다른 작업 그룹을 호출 하는 동일한 리소스에 대해 정의 된 경고 규칙 및 작업 규칙이 있으면 어떻게 되나요? 예를 들어, 다음과 같은 시나리오에서는 **VM1** 입니다.
 
-      "alert rule rule1 on VM1 with action group AG2
-      action rule AR1 defined for VM1 with action group AG1" 
+      alert rule rule1 on VM1 with action group AG2
+      action rule AR1 defined for VM1 with action group AG1 
  
 VM1의 모든 경고에 대해 작업 그룹 AG1가 한 번 트리거됩니다. 경고 규칙 "rule1"가 트리거될 때마다 AG2도 트리거합니다. 작업 규칙 및 경고 규칙 내에 정의 된 작업 그룹은 중복 제거 없이 독립적으로 작동 합니다. 
 

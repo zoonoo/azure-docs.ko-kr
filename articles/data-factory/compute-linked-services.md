@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 10/10/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 2daae1637c568b72d548330abbcb73da21b12683
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: ae3350b14ca1073a5fbb1a353b9301c57e7f1ea4
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176846"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298332"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 컴퓨팅 환경
 이 문서는 프로세스 또는 변환 데이터에 사용할 수 있는 다양한 컴퓨팅 환경을 설명합니다. 또한 이러한 컴퓨팅 환경을 Azure 데이터 팩터리에 연결하는 연결된 서비스를 구성하는 경우 데이터 팩터리에서 지원하는 다른 구성(주문형 vs. 사용자 고유)에 대한 자세한 내용을 제공합니다.
@@ -27,7 +27,8 @@ ms.locfileid: "72176846"
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [주문형 HDInsight 클러스터](#azure-hdinsight-on-demand-linked-service) 또는 [사용자 고유의 HDInsight 클러스터](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop 스트리밍](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [사용자 지정](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning 작업: 일괄 처리 실행 및 리소스 업데이트](transform-data-using-machine-learning.md) |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio-linked-service) | [Machine Learning 작업: 일괄 처리 실행 및 리소스 업데이트](transform-data-using-machine-learning.md) |
+| [Azure Machine Learning 서비스](#azure-machine-learning-service-linked-service) | [파이프라인 실행 Azure Machine Learning](transform-data-machine-learning-service.md) |
 | [Azure 데이터 레이크 분석](#azure-data-lake-analytics-linked-service) | [데이터 레이크 분석 U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [저장 프로시저](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
@@ -354,8 +355,8 @@ Azure Batch 서비스가 처음이라면 다음 항목을 참조하십시오.
 | linkedServiceName | Azure Batch 연결된 서비스와 관련된 Azure Storage 연결된 서비스의 이름입니다. 이 연결된 서비스는 작업을 실행하는 데 필요한 파일을 준비하는 데 사용됩니다. | 예      |
 | connectVia        | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니요       |
 
-## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning 연결된 서비스
-Azure Machine Learning 연결된 서비스를 만들어 데이터 팩토리에 엔드포인트를 매기는 Machine Learning 일괄 처리를 등록합니다.
+## <a name="azure-machine-learning-studio-linked-service"></a>Azure Machine Learning Studio 연결 된 서비스
+Azure Machine Learning Studio 연결 된 서비스를 만들어 데이터 팩터리에 Machine Learning 일괄 처리 점수 매기기 끝점을 등록 합니다.
 
 ### <a name="example"></a>예제
 
@@ -382,14 +383,58 @@ Azure Machine Learning 연결된 서비스를 만들어 데이터 팩토리에 �
 ### <a name="properties"></a>속성
 | 속성               | 설명                              | 필수                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| 형식                   | 형식 속성은 **AzureML**로 설정해야 합니다. | 예                                      |
+| type                   | 형식 속성은 **AzureML**로 설정해야 합니다. | 예                                      |
 | mlEndpoint             | 일괄 처리 점수 매기기 URL입니다.                   | 예                                      |
 | apiKey                 | 게시된 작업 영역 모델의 API입니다.     | 예                                      |
-| updateResourceEndpoint | 학습된 모델 파일이 있는 예측 웹 서비스를 업데이트하는 데 사용되는 Azure ML Web Service 엔드포인트에 대한 업데이트 리소스 URL입니다. | 아니요                                       |
+| updateResourceEndpoint | 학습 된 모델 파일로 예측 웹 서비스를 업데이트 하는 데 사용 되는 Azure Machine Learning 웹 서비스 끝점에 대 한 업데이트 리소스 URL입니다. | 아니요                                       |
 | servicePrincipalId     | 애플리케이션의 클라이언트 ID를 지정합니다.     | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
 | servicePrincipalKey    | 애플리케이션의 키를 지정합니다.           | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
 | 테넌트(tenant)                 | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
 | connectVia             | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니요                                       |
+
+## <a name="azure-machine-learning-service-linked-service"></a>Azure Machine Learning 서비스 연결 된 서비스
+Azure Machine Learning 서비스 작업 영역을 데이터 팩터리에 연결 하는 Azure Machine Learning 서비스 연결 된 서비스를 만듭니다.
+
+> [!NOTE]
+> 현재 서비스 주체 인증만 Azure Machine Learning 서비스 연결 된 서비스에 대해 지원 됩니다.
+
+### <a name="example"></a>예제
+
+```json
+{
+    "name": "AzureMLServiceLinkedService",
+    "properties": {
+        "type": "AzureMLService",
+        "typeProperties": {
+            "subscriptionId": "subscriptionId",
+            "resourceGroupName": "resourceGroupName",
+            "mlWorkspaceName": "mlWorkspaceName",
+            "servicePrincipalId": "service principal id",
+            "servicePrincipalKey": {
+                "value": "service principal key",
+                "type": "SecureString"
+            },
+            "tenant": "tenant ID"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime?",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="properties"></a>속성
+| 속성               | 설명                              | 필수                                 |
+| ---------------------- | ---------------------------------------- | ---------------------------------------- |
+| 형식                   | 형식 속성은 **AzureMLService**. | 예                                      |
+| SubscriptionId         | Azure 구독 ID입니다.              | 예                                      |
+| resourceGroupName      | name | 예                                      |
+| mlWorkspaceName        | Azure Machine Learning 서비스 작업 영역 이름 | 예  |
+| servicePrincipalId     | 애플리케이션의 클라이언트 ID를 지정합니다.     | 아니요 |
+| servicePrincipalKey    | 애플리케이션의 키를 지정합니다.           | 아니요 |
+| 테넌트(tenant)                 | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | UpdateResourceEndpoint가 지정된 경우에 필요합니다. | 아니요 |
+| connectVia             | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니요 |    
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics 연결된 서비스
 Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 연결하는 **Azure 데이터 레이크 분석** 연결 서비스를 만듭니다. 파이프라인에서 데이터 레이크 분석 U-SQL 작업은 이 연결된 서비스를 가리킵니다. 
@@ -410,7 +455,7 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
                 "type": "SecureString"
             },
             "tenant": "tenant ID",
-            "subscriptionId": "<optional, subscription id of ADLA>",
+            "subscriptionId": "<optional, subscription ID of ADLA>",
             "resourceGroupName": "<optional, resource group name of ADLA>"
         },
         "connectVia": {
@@ -428,7 +473,7 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 | type                 | 형식 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. | 예                                      |
 | accountName          | Azure 데이터 레이크 분석 계정 이름입니다.  | 예                                      |
 | dataLakeAnalyticsUri | Azure 데이터 레이크 분석 URI입니다.           | 아니요                                       |
-| SubscriptionId       | Azure 구독 ID                    | 아니요                                       |
+| SubscriptionId       | Azure 구독 ID입니다.                    | 아니요                                       |
 | resourceGroupName    | Azure 리소스 그룹 이름                | 아니요                                       |
 | servicePrincipalId   | 애플리케이션의 클라이언트 ID를 지정합니다.     | 예                                      |
 | servicePrincipalKey  | 애플리케이션의 키를 지정합니다.           | 예                                      |
