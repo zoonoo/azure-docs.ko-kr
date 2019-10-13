@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 966386bfed5f94556f145afab1c665eb3c90546a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 36a95b502c13ccf360ba4ac56b4837d41ee487c8
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065551"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296403"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SSO 및 토큰 사용자 지정 관리
 
@@ -102,5 +102,5 @@ BasePolicy 요소와 신뢰 당사자 파일의 RelyingParty 요소 사이에 Cl
 위의 예제에서는 다음 값이 구성됩니다.
 
 - **SSO(Single Sign-On)** - **SingleSignOn**을 사용하여 Single Sign-On이 구성됩니다. 적용 가능한 값은 `Tenant`, `Application`, `Policy` 및 `Suppressed`입니다.
-- **웹앱 세션 수명(분)** - **SessionExpiryInSeconds** 요소를 사용하여 웹앱 세션 수명을 설정합니다. 기본값은 86400초(1440분)입니다.
 - **웹앱 세션 시간 제한** - **SessionExpiryType** 요소를 사용하여 웹앱 세션 시간 제한을 설정합니다. 적용 가능한 값은 `Absolute` 및 `Rolling`입니다.
+- **웹 앱 세션 수명** - **SessionExpiryInSeconds** 요소를 사용 하 여 웹 앱 세션 수명을 설정 합니다. 기본값은 86400초(1440분)입니다.

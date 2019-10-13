@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/23/2019
 ms.author: juliako
-ms.openlocfilehash: 3c8d0d3ec0f11592610363e9150be47112995853
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 2afc3a859ddb5378b6313c43d693842fdb5fce14
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219866"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296442"
 ---
 # <a name="what-is-video-indexer"></a>Video Indexer란?
 
@@ -56,7 +56,7 @@ Video Indexer의 정보는 다양 한 시나리오에 적용할 수 있습니다
 * **검정 프레임 감지**: 비디오에 표시되는 검은색 프레임을 식별합니다.
 * **키 프레임 추출**: 비디오에서 안정적인 키 프레임을 검색합니다.
 * **롤링 크레딧**: TV 쇼 및 동영상의 끝에 있는 롤링 크레딧의 시작과 끝을 식별 합니다.
-* **애니메이션 문자 검색** (미리 보기): [Cognitive Services 사용자 지정 비전](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)과의 통합을 통해 애니메이션 내용에서 문자를 검색, 그룹화 및 인식 합니다. 자세한 내용은 [문자 검색에 애니메이션 적용](animated-characters-recognition.md)을 참조 하세요.
+* **애니메이션 문자 검색** (미리 보기): [Cognitive Services 사용자 지정 비전과](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)의 통합을 통해 애니메이션 내용에서 문자를 검색, 그룹화 및 인식 합니다. 자세한 내용은 [문자 검색에 애니메이션 적용](animated-characters-recognition.md)을 참조 하세요.
 * **편집 샷 유형 검색**: 해당 유형 (예: 넓은 샷, 중간 샷, 근접, 매우 근접 한 근접, 두 샷, 여러 사람, 실외, 실내 등)을 기반으로 하 여 샷을 태그를 지정 합니다. 자세한 내용은 [편집 샷 유형 검색](scenes-shots-keyframes.md#editorial-shot-type-detection)을 참조 하세요.
 
 ### <a name="audio-insights"></a>오디오 인사이트
@@ -81,7 +81,7 @@ Video Indexer의 정보는 다양 한 시나리오에 적용할 수 있습니다
 
 * **키워드 추출**: 음성 및 시각적 텍스트에서 키워드를 추출합니다.
 * **명명 된 엔터티 추출**: NLP (자연어 처리)를 통해 음성 및 시각적 텍스트에서 브랜드, 위치 및 사람을 추출 합니다.
-* **주제 유추**: 전사에서 주요 주제를 유추합니다. IPTC 수준 1 분류가 포함됩니다.
+* **주제 유추**: 전사에서 주요 주제를 유추합니다. 두 번째 수준 IPTC 분류가 포함 됩니다.
 * **아티팩트**: 각 모델에 대한 풍부한 아티팩트 세트(“다음 수준의 세부 정보”)를 추출합니다.
 * **감정 분석**: 음성 및 시각적 텍스트에서 긍정적, 부정적 및 중립적 감정을 식별합니다.
 
