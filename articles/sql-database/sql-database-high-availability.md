@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 06/10/2019
-ms.openlocfilehash: 226b0c1cb11fc872cb7759e0d0e49275b9c2d9bf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: MT
+ms.openlocfilehash: 54994dd626df23694ea372d4a662d2b4fb051fc8
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568148"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285767"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>고가용성 및 Azure SQL Database
 
@@ -39,7 +39,7 @@ Azure SQL Database은 안정적인 최신 버전의 SQL Server 데이터베이�
 
 표준 가용성 모델에는 두 개의 계층이 있습니다.
 
-- 프로세스를 `sqlserver.exe` 실행 하 고 TempDB, model 데이터베이스, 계획 캐시, 버퍼 풀 및 열 저장소 풀과 같은 연결 된 SSD에 임시 및 캐시 된 데이터만 포함 하는 상태 비저장 계산 계층입니다. 이 상태 비저장 노드는 노드의 상태를 초기화 `sqlserver.exe`하 고 제어 하며 필요한 경우 다른 노드로 장애 조치 (failover)를 수행 하는 Azure Service Fabric에 의해 작동 됩니다.
+- @No__t-0 프로세스를 실행 하 고 TempDB, model 데이터베이스, 계획 캐시, 버퍼 풀 및 열 저장소 풀과 같은 연결 된 SSD에 임시 및 캐시 된 데이터만 포함 하는 상태 비저장 계산 계층입니다. 이 상태 비저장 노드는-0 @no__t를 초기화 하 고, 노드의 상태를 제어 하 고, 필요한 경우 다른 노드로 장애 조치 (failover)를 수행 하는 Azure Service Fabric에 의해 작동 합니다.
 - Azure Blob 저장소에 저장 된 데이터베이스 파일 (.mdf/.ldf)이 포함 된 상태 저장 데이터 계층입니다. Azure blob storage에는 기본 제공 되는 데이터 가용성 및 중복성 기능이 있습니다. SQL Server 프로세스가 충돌 하는 경우에도 데이터 파일에 있는 로그 파일 또는 페이지의 모든 레코드가 보존 되도록 보장 합니다.
 
 데이터베이스 엔진 또는 운영 체제가 업그레이드 되거나 오류가 검색 될 때마다 Azure Service Fabric는 사용 가능한 용량이 충분 한 상태 비저장 SQL Server 프로세스를 다른 상태 비저장 계산 노드로 이동 합니다. Azure Blob storage의 데이터는 이동의 영향을 받지 않으며 데이터/로그 파일이 새로 초기화 된 SQL Server 프로세스에 연결 됩니다. 이 프로세스는 99.99%의 가용성을 보장 하지만, 새 SQL Server 인스턴스가 콜드 캐시로 시작 되기 때문에 많은 워크 로드에서 성능 저하가 발생할 수 있습니다.
@@ -54,14 +54,15 @@ Azure SQL Database은 안정적인 최신 버전의 SQL Server 데이터베이�
 
 추가 혜택으로 프리미엄 가용성 모델에는 읽기 전용 SQL 연결을 보조 복제본 중 하나로 리디렉션하는 기능이 포함 되어 있습니다. 이 기능을 [읽기 확장](sql-database-read-scale-out.md)이라고 합니다. 주 복제본에서 분석 워크 로드와 같은 읽기 전용 작업을 오프 로드 하기 위해 추가 요금 없이 100% 추가 계산 용량을 제공 합니다.
 
-## <a name="zone-redundant-configuration"></a>영역 중복 구성
+### <a name="zone-redundant-configuration"></a>영역 중복 구성
 
-기본적으로 프리미엄 가용성 모델에 대 한 노드 클러스터는 동일한 데이터 센터에 만들어집니다. [Azure 가용성 영역](../availability-zones/az-overview.md)의 도입으로 클러스터의 여러 복제본을 동일한 지역의 다른 가용성 영역에 저장할 수 SQL Database. 단일 실패 지점을 제거하기 위해 제어 링은 세 개의 GW(게이트웨이 링)로 여러 영역에 걸쳐 복제됩니다. 특정 게이트웨이 링에 대한 라우팅은 [ATM(Azure Traffic Manager)](../traffic-manager/traffic-manager-overview.md)에서 제어됩니다. 프리미엄 또는 중요 비즈니스용 서비스 계층의 영역 중복 구성은 추가 데이터베이스 중복성을 만들지 않으므로 추가 비용 없이 사용 하도록 설정할 수 있습니다. 영역 중복 구성을 선택 하면 응용 프로그램 논리를 변경 하지 않고도 심각한 데이터 센터 중단을 포함 하 여 훨씬 더 큰 오류 집합에 대해 프리미엄 또는 중요 비즈니스용 데이터베이스를 탄력적으로 복원할 수 있습니다. 기존 프리미엄 또는 중요 비즈니스용 데이터베이스 또는 풀을 영역 중복 구성으로 변환할 수도 있습니다.
+기본적으로 프리미엄 가용성 모델에 대 한 노드 클러스터는 동일한 데이터 센터에 만들어집니다. [Azure 가용성 영역](../availability-zones/az-overview.md)도입 된 SQL Database 중요 비즈니스용 데이터베이스의 여러 복제본을 동일한 지역의 다른 가용성 영역에 저장할 수 있습니다. 단일 실패 지점을 제거하기 위해 제어 링은 세 개의 GW(게이트웨이 링)로 여러 영역에 걸쳐 복제됩니다. 특정 게이트웨이 링에 대한 라우팅은 [ATM(Azure Traffic Manager)](../traffic-manager/traffic-manager-overview.md)에서 제어됩니다. 프리미엄 또는 중요 비즈니스용 서비스 계층의 영역 중복 구성은 추가 데이터베이스 중복성을 만들지 않으므로 추가 비용 없이 사용 하도록 설정할 수 있습니다. 영역 중복 구성을 선택 하면 응용 프로그램 논리를 변경 하지 않고도 심각한 데이터 센터 중단을 포함 하 여 훨씬 더 큰 오류 집합에 대해 프리미엄 또는 중요 비즈니스용 데이터베이스를 탄력적으로 복원할 수 있습니다. 기존 프리미엄 또는 중요 비즈니스용 데이터베이스 또는 풀을 영역 중복 구성으로 변환할 수도 있습니다.
 
 영역 중복 데이터베이스에는 서로 다른 데이터 센터의 복제본이 있기 때문에 네트워크 대기 시간이 늘어나면 커밋 시간이 늘어날 수 있으므로 일부 OLTP 작업의 성능에 영향을 줄 수 있습니다. 언제든지 영역 중복 설정을 사용하지 않도록 설정하여 단일 영역 구성으로 돌아갈 수 있습니다. 이 프로세스는 일반 서비스 계층 업그레이드와 비슷한 온라인 작업입니다. 프로세스가 완료되면 데이터베이스 또는 풀이 영역 중복 링에서 단일 영역 링으로 또는 그 반대로 마이그레이션됩니다.
 
 > [!IMPORTANT]
 > 영역 중복 데이터베이스 및 탄력적 풀은 현재 선택 영역에서 프리미엄 및 중요 비즈니스용 서비스 계층 에서만 지원 됩니다. 중요 비즈니스용 계층을 사용할 때 영역 중복 구성은 Gen5 계산 하드웨어를 선택한 경우에만 사용할 수 있습니다. 영역 중복 데이터베이스를 지 원하는 지역에 대 한 최신 정보는 [지역별 서비스 지원](../availability-zones/az-overview.md#services-support-by-region)을 참조 하세요.  
+> 이 기능은 관리 되는 인스턴스에서 사용할 수 없습니다.
 
 다음 다이어그램에서는 고가용성 아키텍처의 영역 중복 버전을 보여 줍니다.
 

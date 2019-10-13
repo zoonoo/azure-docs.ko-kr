@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: b571ba8d259a5e3b3b049ad66d4718e9e85d488b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ca5a98fb4fd0fd07cd0e2557840a2e0aed6901e5
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931263"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285587"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -79,10 +79,10 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 ### <a name="data-encryption-at-rest"></a>휴지 상태의 암호화
 일부 데이터 저장소가 미사용 데이터 암호화를 지원합니다. 이러한 데이터 저장소에 데이터 암호화 메커니즘을 사용하는 것이 좋습니다. 
 
-#### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+#### <a name="azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스
 Azure SQL Data Warehouse의 TDE(투명한 데이터 암호화)는 미사용 데이터에 대한 실시간 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 데 도움을 줍니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [SQL Data Warehouse에서 데이터베이스 보호](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)를 참조하세요.
 
-#### <a name="azure-sql-database"></a>Azure SQL Database
+#### <a name="azure-sql-database"></a>Azure SQL 데이터베이스
 Azure SQL Database는 애플리케이션을 변경할 필요 없이 실시간으로 데이터 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 TDE(투명한 데이터 암호화)도 지원합니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [SQL Database 및 Data Warehouse를 위한 투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 참조하세요.
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
@@ -110,7 +110,7 @@ Salesforce는 모든 파일, 첨부 파일 및 사용자 정의 필드의 암호
 ### <a name="on-premises-data-store-credentials"></a>온-프레미스 데이터 저장소 자격 증명
 자격 증명은 데이터 팩터리 내에 저장 하거나 Azure Key Vault 런타임 중에 [data factory에서 참조할](store-credentials-in-key-vault.md) 수 있습니다. 데이터 팩터리 내에 자격 증명을 저장 하는 경우 자체 호스팅 통합 런타임에서 항상 암호화 된 상태로 저장 됩니다. 
  
-- **자격 증명을 로컬로 저장**합니다. JSON에서 연결 문자열 및 자격 증명과 함께 **AzDataFactoryV2LinkedService** cmdlet을 직접 사용 하는 경우 연결 된 서비스는 자체 호스팅 통합 런타임에 암호화 되어 저장 됩니다.  이 경우 자격 증명은 azure 백 엔드 서비스 (extremly)를 통해 전송 되며, 결국 encrpted 되 고 저장 되는 자체 호스팅 통합 컴퓨터로 전송 됩니다. 자체 호스팅 통합 런타임은 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx)를 사용하여 중요한 데이터 및 자격 증명 정보를 암호화합니다.
+- **자격 증명을 로컬로 저장**합니다. JSON에서 연결 문자열 및 자격 증명과 함께 **AzDataFactoryV2LinkedService** cmdlet을 직접 사용 하는 경우 연결 된 서비스는 자체 호스팅 통합 런타임에 암호화 되어 저장 됩니다.  이 경우 자격 증명은 가장 안전 하 게 azure 백엔드 서비스를 통해 전달 되 고,이는 마지막으로 암호화 되 고 저장 되는 자체 호스팅 통합 컴퓨터에 전달 됩니다. 자체 호스팅 통합 런타임은 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx)를 사용하여 중요한 데이터 및 자격 증명 정보를 암호화합니다.
 
 - **Azure Key Vault에 자격 증명을 저장합니다**. 또한 데이터 저장소의 자격 증명을 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에 저장할 수 있습니다. Data Factory는 활동을 실행하는 동안 자격 증명을 검색합니다. 자세한 내용은 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요.
 
@@ -152,37 +152,30 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 
 ![게이트웨이가 있는 IPSec VPN](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a> 방화벽 구성 및 허용 목록 IP 주소
+### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a>IP 주소에 대 한 방화벽 구성 및 허용 목록 설정
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>온-프레미스/개인 네트워크에 대한 방화벽 요구 사항  
 기업에서는 기업 방화벽이 조직의 중앙 라우터에서 실행됩니다. Windows 방화벽은 자체 호스팅 통합 런타임이 설치된 로컬 컴퓨터에서 디먼으로 실행됩니다. 
 
 다음 표는 아웃바운드 포트 및 회사 방화벽에 대한 도메인 요구 사항을 제공합니다.
 
-| 도메인 이름                  | 아웃바운드 포트 | Description                              |
-| ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net`    | 443            | Data Factory의 데이터 이동 서비스에 연결하기 위해 자체 호스팅 통합 런타임에서 필요합니다. |
-| `*.frontend.clouddatahub.net` | 443            | 자체 호스팅 통합 런타임에서 Data Factory 서비스에 연결하는 데 필요합니다. |
-| `download.microsoft.com`    | 443            | 업데이트를 다운로드하기 위해 자체 호스팅 통합 런타임에서 필요합니다. 자동 업데이트를 사용하지 않도록 설정한 경우 이 사항은 건너뛰어도 됩니다. |
-| `*.core.windows.net`          | 443            | [단계 복사](copy-activity-performance.md#staged-copy) 기능을 사용할 때 자체 호스팅 통합 런타임에서 Azure Storage 계정에 연결하는 데 사용됩니다. |
-| `*.database.windows.net`      | 1433           | (선택 사항) 복사할 목적지가 Azure SQL Database 또는 Azure SQL Data Warehouse인 경우 필요합니다. 단계적 복사 기능을 사용하여 포트 1433을 열지 않고 Azure SQL Database 또는 Azure SQL Data Warehouse에 데이터를 복사합니다. |
-| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (선택 사항) 복사할 목적지 또는 출처가 Azure Data Lake Store인 경우 필요합니다. |
+[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE] 
-> 각 데이터 원본에서 요구하는 대로 회사 방화벽 수준에서 포트 또는 허용 목록 도메인을 관리해야 할 수 있습니다. 이 표는 Azure SQL Database, Azure SQL Data Warehouse 및 Azure Data Lake Store만을 예제로 사용합니다.   
+> 각 데이터 원본에서 요구 하는 대로 회사 방화벽 수준에서 도메인에 대 한 포트를 관리 하거나 허용 목록을 설정 해야 할 수 있습니다. 이 표는 Azure SQL Database, Azure SQL Data Warehouse 및 Azure Data Lake Store만을 예제로 사용합니다.   
 
 다음 표에서는 Windows 방화벽에 대한 인바운드 포트 요구 사항을 제공합니다.
 
-| 인바운드 포트 | Description                              |
+| 인바운드 포트 | 설명                              |
 | ------------- | ---------------------------------------- |
 | 8060 (TCP)    | 자체 호스팅 통합 런타임에서 온-프레미스 데이터 저장소에 대한 자격 증명을 안전하게 설정하기 위해 [Azure Data Factory의 온-프레미스 데이터 저장소에 대한 자격 증명 암호화](encrypt-credentials-self-hosted-integration-runtime.md)에 설명된 대로 PowerShell Encryption cmdlet에서, 그리고 자격 증명 관리자 애플리케이션에서 필요합니다. |
 
 ![게이트웨이 포트 요구 사항](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
-#### <a name="ip-configurations-and-whitelisting-in-data-stores"></a>데이터 저장소의 IP 구성 및 허용 목록 포함
-클라우드의 일부 데이터 저장소는 저장소에 액세스하는 컴퓨터의 IP 주소를 허용 목록에 포함해야 합니다. 자체 호스팅 통합 런타임 컴퓨터의 IP 주소가 방화벽에서 제대로 허용 목록에 추가되거나 구성되어 있는지 확인합니다.
+#### <a name="ip-configurations-and-allow-list-setting-up-in-data-stores"></a>데이터 저장소에서 IP 구성 및 허용 목록 설정
+또한 클라우드의 일부 데이터 저장소는 저장소에 액세스 하는 컴퓨터의 IP 주소를 허용 해야 합니다. 자체 호스팅 integration runtime 컴퓨터의 IP 주소가 방화벽에서 적절 하 게 허용 되는지 또는 적절 하 게 구성 되었는지 확인 합니다.
 
-다음 클라우드 데이터 저장소에는 자체 호스팅 통합 런타임 컴퓨터의 IP 주소를 허용 목록에 추가해야 합니다. 이러한 데이터 저장소 중 일부는 기본적으로 허용 목록을 요구하지 않을 수 있습니다. 
+다음 클라우드 데이터 저장소를 사용 하려면 자체 호스팅 통합 런타임 컴퓨터의 IP 주소를 허용 해야 합니다. 이러한 데이터 저장소 중 일부에는 기본적으로 허용 목록이 필요 하지 않을 수 있습니다. 
 
 - [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
@@ -198,7 +191,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 
 **자체 호스팅 통합 런타임 작동에 필요한 포트 요구 사항은 무엇입니까?**
 
-자체 호스팅 통합 런타임은 HTTP 기반 연결을 만들어서 인터넷에 액세스하게 합니다. 자체 호스팅 통합 런타임에서 이 연결을 만들려면 아웃바운드 포트 443이 열려야 합니다. 자격 증명 관리자 응용 프로그램에 대 한 컴퓨터 수준 (회사 방화벽 수준이 아님) 에서만 인바운드 포트 8060을 엽니다. Azure SQL Database 또는 Azure SQL Data Warehouse가 원본 또는 대상으로 사용되는 경우 포트 1433도 열어야 합니다. 자세한 내용은 [방화벽 구성 및 허용 목록 IP 주소](#firewall-configurations-and-whitelisting-ip-address-of-gateway) 섹션을 참조하세요. 
+자체 호스팅 통합 런타임은 HTTP 기반 연결을 만들어서 인터넷에 액세스하게 합니다. 자체 호스팅 통합 런타임에서 이 연결을 만들려면 아웃바운드 포트 443이 열려야 합니다. 자격 증명 관리자 응용 프로그램에 대 한 컴퓨터 수준 (회사 방화벽 수준이 아님) 에서만 인바운드 포트 8060을 엽니다. Azure SQL Database 또는 Azure SQL Data Warehouse가 원본 또는 대상으로 사용되는 경우 포트 1433도 열어야 합니다. 자세한 내용은 [방화벽 구성 및 IP 주소에 대 한 허용 목록 설정](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) 섹션을 참조 하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계

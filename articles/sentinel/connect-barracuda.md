@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 10/13/2019
 ms.author: rkarlin
-ms.openlocfilehash: b3ca93d9e70456d25d5f78b2ca1fde8e4ea24f8d
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 5142204db86158937c16d19bf52fb677099598a5
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240197"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72284665"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Barracuda 어플라이언스 연결 
 
@@ -37,10 +37,7 @@ Barracuda 웹 응용 프로그램 방화벽은 Log Analytics 에이전트를 통
 1. [Barracuda WAF 구성 흐름](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/)으로 이동 하 고 지침에 따라 다음 매개 변수를 사용 하 여 연결을 설정 합니다.
     - **작업 영역 id**: Azure 센티널 Barracuda 커넥터 페이지에서 작업 영역 id의 값을 복사 합니다.
     - **기본 키**: Azure 센티널 Barracuda 커넥터 페이지에서 기본 키의 값을 복사 합니다.
-2. Azure 센티널 포털에서 Azure 센티널을 배포한 작업 영역으로 이동 하 여 행 끝에 있는 줄임표 (...)를 선택 하 고 **고급 설정**을 선택 합니다. 
-1. **데이터** , **Syslog**를 차례로 선택 합니다.
-1. Barracuda에 설정 된 기능이 있는지 확인 하 고 심각도를 설정 하 고 **저장**을 클릭 합니다.
-6. Barracuda 이벤트에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 **CommonSecurityLog** 및 **barracuda_CL**를 검색 합니다.
+1. Barracuda 이벤트에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 **CommonSecurityLog** 및 **barracuda_CL**를 검색 합니다.
 
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사

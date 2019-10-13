@@ -8,39 +8,48 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: mlearned
-ms.openlocfilehash: d9d432c073872e7bb7f3562979e78989faea65eb
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: bbd08e49256886a1df334cbf36e6e468bb8f3895
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241087"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286788"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증
 
-AKS(Azure Kubernetes Service)에서 ACR(Azure Container Registry)을 사용할 때는 인증 메커니즘을 설정해야 합니다. 이 문서에서는 이러한 두 가지 Azure 서비스 간 인증을 위해 권장되는 구성에 대해 설명합니다.
+AKS(Azure Kubernetes Service)에서 ACR(Azure Container Registry)을 사용할 때는 인증 메커니즘을 설정해야 합니다. 이 문서에서는 이러한 두 Azure 서비스 간의 인증을 구성 하는 예제를 제공 합니다.
 
 Azure CLI를 사용 하 여 몇 가지 간단한 명령에서 ACR 통합에 AKS를 설정할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
-다음이 있어야 합니다.
+이러한 예제에는 다음이 필요합니다.
 
 * **Azure 구독** 에 대 한 **소유자** 또는 **azure 계정 관리자** 역할
-* Azure CLI 버전 2.0.73 이상도 필요 합니다.
-* 클라이언트에 [docker가 설치 되어](https://docs.docker.com/install/) 있어야 하며 [docker 허브](https://hub.docker.com/) 에 액세스할 수 있어야 합니다.
+* Azure CLI 버전 2.0.73 이상
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>ACR 통합을 사용 하 여 새 AKS 클러스터 만들기
 
 AKS 클러스터를 처음 만들 때 AKS 및 ACR 통합을 설정할 수 있습니다.  AKS 클러스터가 ACR과 상호 작용할 수 있도록 Azure Active Directory **서비스 주체가** 사용 됩니다. 다음 CLI 명령을 사용 하 여 구독에서 기존 ACR에 권한을 부여 하 고 서비스 주체에 대 한 적절 한 **Acrpull** 역할을 구성할 수 있습니다. 아래 매개 변수에 대 한 유효한 값을 제공 합니다.  대괄호 안의 매개 변수는 선택 사항입니다.
 ```azurecli
-az login
-az acr create -n myContainerRegistry -g myContainerRegistryResourceGroup --sku basic [in case you do not have an existing ACR]
-az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resource-id>
+# set this to the name of your Azure Container Registry.  It must be globally unique
+MYACR=myContainerRegistry
+
+# Run the following line to create an Azure Container Registry if you do not already have one
+az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
+
+# Create an AKS cluster with ACR integration
+az aks create -n myAKSCluster -g myResourceGroup --attach-acr $MYACR
+
 ```
-**ACR 리소스 ID의 형식은 다음과 같습니다.** 
+또는 다음과 같은 형식의 ACR 리소스 ID를 사용 하 여 ACR 이름을 지정할 수 있습니다.
 
 /subscriptions/\<subscription-id @ no__t-1/resourceGroups/\<resource-name @ no__t-3/providers/Microsoft.containerregistry//\<name @-5 
-  
+ 
+```azurecli
+az aks create -n myAKSCluster -g myResourceGroup --attach-acr /subscriptions/<subscription-id>/resourceGroups/myContainerRegistryResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry
+```
+
 이 단계를 완료 하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="configure-acr-integration-for-existing-aks-clusters"></a>기존 AKS 클러스터에 대 한 ACR 통합 구성
@@ -49,57 +58,43 @@ az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resou
 
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>
+```
+또는
+```
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 ```
 
 다음을 사용 하 여 ACR과 AKS 클러스터 간의 통합을 제거할 수도 있습니다.
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acrName>
+```
+로 구분하거나 여러
+```
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
 ```
 
+## <a name="working-with-acr--aks"></a>ACR & AKS 작업
 
-## <a name="log-in-to-your-acr"></a>ACR에 로그인
+### <a name="import-an-image-into-your-acr"></a>ACR로 이미지 가져오기
 
-다음 명령을 사용 하 여 ACR에 로그인 합니다.  @No__t-0 매개 변수를 ACR 이름으로 바꿉니다.  예를 들어 기본값은 **aks > acr <** 입니다.
+다음을 실행 하 여 docker 허브에서 ACR로 이미지를 가져옵니다.
+
 
 ```azurecli
-az acr login -n <acrName>
+az acr import  -n <myContainerRegistry> --source docker.io/library/nginx:latest --image nginx:v1
 ```
 
-## <a name="pull-an-image-from-docker-hub-and-push-to-your-acr"></a>Docker 허브에서 이미지를 끌어오고 ACR에 푸시
+### <a name="deploy-the-sample-image-from-acr-to-aks"></a>ACR에서 AKS로 샘플 이미지 배포
 
-Docker 허브에서 이미지를 끌어오거나, 이미지에 태그를 만들고, ACR로 푸시합니다.
-
-```console
-acrloginservername=$(az acr show -n <acrname> -g <myResourceGroup> --query loginServer -o tsv)
-docker pull nginx
-```
-
-```
-$ docker tag nginx $acrloginservername/nginx:v1
-$ docker push $acrloginservername/nginx:v1
-
-The push refers to repository [someacr1.azurecr.io/nginx]
-fe6a7a3b3f27: Pushed
-d0673244f7d4: Pushed
-d8a33133e477: Pushed
-v1: digest: sha256:dc85890ba9763fe38b178b337d4ccc802874afe3c02e6c98c304f65b08af958f size: 948
-```
-
-## <a name="update-the-state-and-verify-pods"></a>상태를 업데이트 하 고 pod를 확인 합니다.
-
-배포를 확인 하려면 다음 단계를 수행 합니다.
+적절 한 AKS 자격 증명이 있는지 확인 합니다.
 
 ```azurecli
 az aks get-credentials -g myResourceGroup -n myAKSCluster
 ```
 
-Yaml 파일을 보고, 해당 값을 ACR 로그인 서버, 이미지 및 태그로 바꿔서 이미지 속성을 편집 합니다.
+다음을 포함 하는 **nginx** 라는 파일을 만듭니다.
 
 ```
-$ cat acr-nginx.yaml
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -121,12 +116,19 @@ spec:
         image: <replace this image property with you acr login server, image and tag>
         ports:
         - containerPort: 80
+```
 
-$ kubectl apply -f acr-nginx.yaml
-$ kubectl get pods
+다음으로 AKS 클러스터에서이 배포를 실행 합니다.
+```
+kubectl apply -f acr-nginx.yaml
+```
 
-You should have two running pods.
-
+다음을 실행 하 여 배포를 모니터링할 수 있습니다.
+```
+kubectl get pods
+```
+실행 중인 pod 두 개가 있어야 합니다.
+```
 NAME                                 READY   STATUS    RESTARTS   AGE
 nginx0-deployment-669dfc4d4b-x74kr   1/1     Running   0          20s
 nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s

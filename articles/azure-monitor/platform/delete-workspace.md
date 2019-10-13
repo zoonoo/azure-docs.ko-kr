@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 09/26/2019
 ms.author: magoedte
-ms.openlocfilehash: f8dcab1a7a46d518b752e48f9886b60a37d8ec4c
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
-ms.translationtype: MT
+ms.openlocfilehash: 4f03fc71a11c1ecb2e96b316efac9249395fc333
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299536"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285550"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Azure Log Analytics 작업 영역 삭제 및 복원
 이 문서에서는 Azure Log Analytics 작업 영역 일시 삭제의 개념과 삭제 된 작업 영역을 복구 하는 방법을 설명 합니다. 
@@ -41,7 +41,7 @@ Log Analytics 작업 영역을 삭제 하면 해당 데이터 및 연결 된 에
 > [!NOTE] 
 > 설치 된 솔루션 및 Automation 계정과 같은 연결 된 서비스는 삭제 시 작업 영역에서 영구적으로 제거 되며 복구할 수 없습니다. 작업 영역을 이전 기능으로 가져오기 위해 복구 작업 후 다시 구성 해야 합니다. 
 
-[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete)또는 [Azure Portal](https://portal.azure.com)를 사용 하 여 작업 영역을 삭제할 수 있습니다.
+[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete)또는 [Azure Portal](https://portal.azure.com)를 사용 하 여 작업 영역을 삭제할 수 있습니다.
 
 ### <a name="delete-workspace-in-azure-portal"></a>Azure Portal에서 작업 영역 삭제
 1. 로그인 하려면 [Azure Portal](https://portal.azure.com)으로 이동 합니다. 
@@ -54,11 +54,12 @@ Log Analytics 작업 영역을 삭제 하면 해당 데이터 및 연결 된 에
 ## <a name="recover-workspace"></a>작업 영역 복구
 일시 삭제 작업 이전에 작업 영역이 연결 된 구독 및 리소스 그룹에 대 한 참가자 권한이 있는 경우 해당 데이터, 구성 및 연결 된 에이전트를 포함 하 여 일시 삭제 기간 동안 복구할 수 있습니다. 일시 삭제 기간이 지나면 작업 영역은 복구 불가능 하 고 영구 삭제를 위해 할당 됩니다.
 
-지원 되는 만들기 방법 중 하나를 사용 하 여 작업 영역을 다시 만들면 작업 영역을 복구할 수 있습니다. 다음을 포함 하 여 이러한 속성이 삭제 된 작업 영역의 세부 정보로 채워지는 경우 PowerShell, Azure CLI 또는 Azure Portal에서
+[PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) 또는 [REST API]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) 작업 영역을 사용 하 여 작업 영역을 다시 만들면 작업 영역을 복구할 수 있습니다. 이러한 속성은 다음을 비롯 한 삭제 된 작업 영역의 세부 정보로 채워집니다.
 1.  구독 ID
 2.  리소스 그룹 이름
 3.  작업 영역 이름
 4.  Region
 
 > [!NOTE]
-> 삭제 된 작업 영역의 이름은 일시 삭제 기간 동안 유지 되며 새 작업 영역을 만들 때 사용할 수 없습니다. 작업 영역 이름은 *해제* 되어 일시 삭제 기간이 만료 된 후 새 작업 영역을 만들 때 사용할 수 있습니다.
+> * 작업 영역 복구는 [Azure Portal](https://portal.azure.com)에서 지원 되지 않습니다. 일시 삭제 기간 동안 작업 영역을 다시 만들면이 작업 영역 이름이 이미 사용 중임을 나타냅니다.
+> * 삭제 된 작업 영역의 이름은 일시 삭제 기간 동안 유지 되며 새 작업 영역을 만들 때 사용할 수 없습니다.

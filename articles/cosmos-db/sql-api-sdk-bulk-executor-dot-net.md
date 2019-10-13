@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/08/2019
+ms.date: 10/11/2019
 ms.author: ramkris
-ms.openlocfilehash: 90537a7e24e5f87087fb718322a7271043d1d229
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 7d30b685d0debb0aeb0f79db8b078dcc165a8ca1
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176838"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286657"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET 대량 실행자 라이브러리: 정보 다운로드 
 
@@ -42,6 +42,10 @@ ms.locfileid: "72176838"
 
 ## <a name="release-notes"></a>릴리스 정보
 
+### <a name="a-name241-preview241-preview"></a><a name="2.4.1-preview"/>2.4.1-미리 보기
+
+* 재시도 횟수를 포함 하 여 총 시간을 정확 하 게 측정 하기 위해 대량 삭제 응답의 TotalElapsedTime 수정 되었습니다.
+
 ### <a name="a-name240-preview240-preview"></a><a name="2.4.0-preview"/>2.4.0-미리 보기
 
 * SDK 종속성을 > = 2.5.1로 변경 했습니다.
@@ -65,6 +69,10 @@ ms.locfileid: "72176838"
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
 
 * 대량 실행자 라이브러리가 .NET Core 응용 프로그램과 함께 작동 하도록 지원 되는 대상 프레임 워크 중 하나로 .NET Standard 2.0를 추가 했습니다.
+
+### <a name="a-name183183"></a><a name="1.8.3"/>1.8.3
+
+* 재시도 횟수를 포함 하 여 총 시간을 정확 하 게 측정 하기 위해 대량 삭제 응답의 TotalElapsedTime 수정 되었습니다.
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 

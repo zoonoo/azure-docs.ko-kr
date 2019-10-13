@@ -4,14 +4,14 @@ description: Azure Resource Manager를 사용 하 여 가상 컴퓨터를 새 �
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 10/10/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7b9cce7ac367f42329e3198c75a7640a205d01fe
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 443d6f2bcbb61d9106b079a4e63c48bb433d19c6
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035536"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286726"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>가상 컴퓨터에 대 한 이동 지침
 
@@ -24,8 +24,9 @@ ms.locfileid: "70035536"
 * 가용성 영역 Managed Disks은 다른 구독으로 이동할 수 없습니다.
 * 표준 SKU Load Balancer 또는 표준 SKU 공용 IP를 사용 하는 Virtual Machine Scale Sets는 이동할 수 없습니다.
 * 연결된 계획이 있는 Marketplace 리소스에서 만든 가상 머신은 리소스 그룹 또는 구독 간에 이동할 수 없습니다. 현재 구독에서 가상 컴퓨터의 프로 비전을 해제 하 고 새 구독에 다시 배포 합니다.
-* 기존 가상 네트워크의 가상 컴퓨터는 가상 네트워크의 모든 리소스를 이동 하지 않습니다.
+* 가상 네트워크의 모든 리소스를 이동 하지 않는 경우 기존 가상 네트워크의 가상 컴퓨터를 새 구독으로 이동할 수 없습니다.
 * 낮은 우선 순위의 가상 컴퓨터 및 우선 순위가 낮은 가상 컴퓨터 크기 집합은 리소스 그룹 또는 구독 간에 이동할 수 없습니다.
+* 가용성 집합의 가상 머신은 개별적으로 이동할 수 없습니다.
 
 ## <a name="virtual-machines-with-azure-backup"></a>Azure Backup를 사용 하는 가상 머신
 

@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/08/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 9c02db01d7b95f3178d73602089b30029fb0db9f
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: a788226ad5bd3f8cd6416ad032fc439e860fd713
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274834"
+ms.locfileid: "72286704"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Batch 풀에서 계산 노드의 크기를 조정 하기 위한 자동 수식 만들기
 
@@ -106,7 +106,7 @@ $NodeDeallocationOption = taskcompletion;
 | --- | --- |
 | $TargetDedicatedNodes |풀에 대한 전용 컴퓨팅 노드의 대상 수입니다. 풀에서 항상 원하는 수의 노드에 도달할 수 없으므로 전용 노드의 수가 목표 수로 지정됩니다. 예를 들어 풀에서 최초 목표에 도달하기 전에 자동 크기 조정 평가에 따라 전용 노드의 목표 수가 수정되는 경우 풀에서 목표에 도달하지 못할 수 있습니다. <br /><br /> 목표가 배치 계정 노드 또는 코어 할당량을 초과하는 경우 Batch 서비스 구성으로 만든 계정의 풀에서 해당 목표에 도달하지 못할 수 있습니다. 목표가 구독의 공유 코어 할당량을 초과하는 경우 사용자 구독 구성으로 만든 계정의 풀에서 해당 목표에 도달하지 못할 수 있습니다.|
 | $TargetLowPriorityNodes |풀에 대한 우선 순위가 낮은 컴퓨팅 노드의 목표 수입니다. 풀에서 항상 원하는 수의 노드에 도달할 수 없으므로 우선 순위가 낮은 노드의 수가 목표 수로 지정됩니다. 예를 들어 풀에서 최초 목표에 도달하기 전에 자동 크기 조정 평가에 따라 우선 순위가 낮은 노드의 목표 수가 수정되는 경우 풀에서 목표에 도달하지 못할 수 있습니다. 목표가 Batch 계정 노드 또는 코어 할당량을 초과하는 경우 풀에서 해당 목표에 도달하지 못할 수도 있습니다. <br /><br /> 우선 순위가 낮은 컴퓨팅 노드에 대한 자세한 내용은 [Batch(미리 보기)에서 낮은 우선 순위 VM 사용](batch-low-pri-vms.md)을 참조하세요. |
-| $NodeDeallocationOption |풀에서 컴퓨팅 노드가 제거되는 경우 발생하는 작업입니다. 가능한 값은<ul><li>**다시 대기**--기본값입니다. 작업을 즉시 종료 하 고 다시 예약할 수 있도록 작업 큐에 다시 저장 합니다. 이 작업을 수행 하면 대상 노드의 수가 최대한 빠르게 도달 하지만, 실행 중인 작업이 중단 되 고 다시 시작 해야 하는 작업을 수행 하 여 작업을 다시 시작 해야 하므로 효율성이 떨어질 수 있습니다. <li>**terminate** - 태스크를 즉시 종료하고 작업 큐에서 제거합니다.<li>**taskcompletion** - 현재 실행 중인 태스크가 완료되기를 기다린 다음 풀에서 해당 노드를 제거합니다. 작업이 중단 및 다시 큐에 포함 되는 것을 방지 하려면이 옵션을 사용 합니다. <li>**retaineddata** - 노드의 모든 로컬 태스크 보유 데이터가 정리되기를 기다린 다음 풀에서 해당 노드를 제거합니다.</ul> |
+| $NodeDeallocationOption |풀에서 컴퓨팅 노드가 제거되는 경우 발생하는 작업입니다. 가능한 값은 다음과 같습니다.<ul><li>**다시 대기**--기본값입니다. 작업을 즉시 종료 하 고 다시 예약할 수 있도록 작업 큐에 다시 저장 합니다. 이 작업을 수행 하면 대상 노드의 수가 최대한 빠르게 도달 하지만, 실행 중인 작업이 중단 되 고 다시 시작 해야 하는 작업을 수행 하 여 작업을 다시 시작 해야 하므로 효율성이 떨어질 수 있습니다. <li>**terminate** - 태스크를 즉시 종료하고 작업 큐에서 제거합니다.<li>**taskcompletion** - 현재 실행 중인 태스크가 완료되기를 기다린 다음 풀에서 해당 노드를 제거합니다. 작업이 중단 및 다시 큐에 포함 되는 것을 방지 하려면이 옵션을 사용 합니다. <li>**retaineddata** - 노드의 모든 로컬 태스크 보유 데이터가 정리되기를 기다린 다음 풀에서 해당 노드를 제거합니다.</ul> |
 
 > [!NOTE]
 > 별칭 `$TargetDedicated`을 사용 하 여 `$TargetDedicatedNodes` 변수를 지정할 수도 있습니다. 마찬가지로 `$TargetLowPriorityNodes` 변수는 별칭 `$TargetLowPriority`을 사용 하 여 지정할 수 있습니다. 완전히 명명 된 변수와 해당 별칭이 수식에 의해 설정 된 경우에는 완전히 명명 된 변수에 할당 된 값이 우선 적용 됩니다.
@@ -207,7 +207,7 @@ $NodeDeallocationOption = taskcompletion;
 | lg(double) |double |double의 로그 밑 2를 반환합니다. |
 | lg(doubleVecList) |doubleVec |doubleVecList의 구성 요소 로그 밑 2를 반환합니다. vec(double)은 매개 변수에 대해 명시적으로 전달되어야 합니다. 그렇지 않으면 double lg(double) 버전으로 간주됩니다. |
 | ln(double) |double |double의 자연 로그를 반환합니다. |
-| ln(doubleVecList) |doubleVec |doubleVecList의 구성 요소 로그 밑 2를 반환합니다. vec(double)은 매개 변수에 대해 명시적으로 전달되어야 합니다. 그렇지 않으면 double lg(double) 버전으로 간주됩니다. |
+| ln(doubleVecList) |doubleVec |double의 자연 로그를 반환합니다. |
 | log(double) |double |double의 로그 밑 10을 반환합니다. |
 | log(doubleVecList) |doubleVec |doubleVecList의 구성 요소 로그 밑 10을 반환합니다. vec(double)은 단일 이중 매개 변수에 대해 명시적으로 전달되어야 합니다. 그렇지 않으면 double log(double) 버전으로 간주됩니다. |
 | max(doubleVecList) |double |doubleVecList의 최대값을 반환합니다. |

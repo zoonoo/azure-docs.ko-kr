@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: e6767c1e03b074f43993e449ca81af951c579090
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 39fab02ebc3a80e0aae34a86a1a6b7f3f46c96f3
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937314"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286758"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>Power BI를 사용 하 여 Azure 데이터 탐색기 데이터를 쿼리하고 시각화 하는 방법에 대 한 모범 사례
 
@@ -48,7 +48,7 @@ Tb의 새로운 원시 데이터로 작업 하는 경우 다음 지침에 따라
 
 복합 쿼리는 파워 쿼리 보다 Kusto에서 보다 쉽게 표현 됩니다. 이러한 [함수를 Kusto 함수로](/azure/kusto/query/functions)구현 하 고 Power BI에서 호출 해야 합니다. 이 메서드는 Kusto 쿼리에서 `let` 문과 함께 **DirectQuery** 를 사용 하는 경우에 필요 합니다. Power BI는 두 개의 쿼리를 조인 하 고 `let` 문은 `join` 연산자와 함께 사용할 수 없으므로 구문 오류가 발생할 수 있습니다. 따라서 조인의 각 부분을 Kusto 함수로 저장 하 고 Power BI이 두 함수를 함께 조인할 수 있도록 허용 합니다.
 
-### <a name="how-to-simulate-a-relative-data-time-operator"></a>상대 데이터 시간 연산자를 시뮬레이션 하는 방법
+### <a name="how-to-simulate-a-relative-date-time-operator"></a>상대 날짜-시간 연산자를 시뮬레이션 하는 방법
 
 Power BI에는 `ago()`과 같은 *상대* 날짜/시간 연산자가 포함 되어 있지 않습니다.
 @No__t-0을 시뮬레이트하려면 `DateTime.FixedLocalNow()`과 `#duration` Power BI 함수 조합을 사용 합니다.
@@ -106,7 +106,7 @@ Kusto 쿼리는 [쿼리 제한](/azure/kusto/concepts/querylimits)에 설명 된
 
 1. 쿼리의 관련 부분을 매개 변수로 바꿉니다. 쿼리를 여러 부분으로 분할 하 고 매개 변수와 함께 앰퍼샌드 (&)를 사용 하 여 다시 연결 합니다.
 
-   예를 들어 위의 쿼리에서 `State == 'ALABAMA'` 는 파트를 가져와서: `State == '` 및 `'` 로 분할 하 고 `State` 매개 변수 사이에 매개 변수를 추가 합니다.
+   예를 들어 위의 쿼리에서는 `State == 'ALABAMA'` 부분을 사용 하 고 `State == '` 및 `'`로 분할 하 고 두 매개 변수 사이에 `State` 매개 변수를 넣습니다.
    
     ```kusto
     "StormEvents | where State == '" & State & "' | take 100"
@@ -142,7 +142,7 @@ Power BI는 데이터 원본에 대 한 쿼리를 정기적으로 실행할 수 
 
 ### <a name="power-bi-can-send-only-short-lt2000-characters-queries-to-kusto"></a>Power BI 짧은 (&lt;2000 자) 쿼리만 Kusto에 보낼 수 있습니다.
 
-Power BI에서 쿼리를 실행 하면 다음 오류가 발생 합니다. _"DataSource. 오류: 웹에서 다음에서 콘텐츠를 가져오지 못했습니다. "_ 쿼리가 2000 자 보다 긴 것 같습니다. Power BI는 **powerquery** 를 사용 하 여 쿼리를 검색 중인 URI의 일부로 인코딩하는 HTTP GET 요청을 실행 하 여 Kusto를 쿼리 합니다. 따라서 Power BI에서 실행 된 Kusto 쿼리는 요청 URI의 최대 길이 (2000 자에서 작은 오프셋을 뺀 값)로 제한 됩니다. 이 문제를 해결 하기 위해 Kusto에 [저장 된 함수](/azure/kusto/query/schema-entities/stored-functions) 를 정의 하 고 쿼리에서 해당 함수를 사용 Power BI 수 있습니다.
+Power BI에서 쿼리를 실행 하면 다음 오류가 발생 합니다.  _"DataSource입니다. 오류: 웹에서 다음에서 콘텐츠를 가져오지 못했습니다. "_ 쿼리가 2000 자 보다 긴 것 같습니다. Power BI는 **powerquery** 를 사용 하 여 쿼리를 검색 중인 URI의 일부로 인코딩하는 HTTP GET 요청을 실행 하 여 Kusto를 쿼리 합니다. 따라서 Power BI에서 실행 된 Kusto 쿼리는 요청 URI의 최대 길이 (2000 자에서 작은 오프셋을 뺀 값)로 제한 됩니다. 이 문제를 해결 하기 위해 Kusto에 [저장 된 함수](/azure/kusto/query/schema-entities/stored-functions) 를 정의 하 고 쿼리에서 해당 함수를 사용 Power BI 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

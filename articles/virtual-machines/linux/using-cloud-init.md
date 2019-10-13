@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 10/11/2019
 ms.author: danis
-ms.openlocfilehash: 7e22aaf2ead4dd618c2907f8659455e1862110a5
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: b0300dd91876b651015ae78c53dbc1e72bf8dd68
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650097"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285704"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure의 가상 머신에 대한 Cloud-init 지원
 이 문서에서는 Azure에서 프로 비전 하는 시간에 VM (가상 머신) 또는 가상 머신 확장 집합을 구성 하기 위해 [클라우드 초기화](https://cloudinit.readthedocs.io) 에 대해 존재 하는 지원을 설명 합니다. Azure에서 리소스가 프로비전되면 처음 부팅 시 이러한 cloud-init 스크립트가 실행됩니다.  
@@ -32,20 +32,21 @@ Cloud-init는 배포에서도 작동합니다. 예를 들어, 패키지를 설�
 
 Azure Marketplace에서 cloud-init 활성화 이미지를 사용할 수 있도록 하기 위해 승인된 Linux 배포판 파트너와 적극적으로 공조하고 있습니다. 이러한 이미지를 통해 클라우드 init 배포 및 구성이 Vm 및 가상 머신 확장 집합에서 원활 하 게 작동 합니다. 다음 표에서는 Azure 플랫폼에서 현재 사용 가능한 cloud-init 지원 이미지를 보여 줍니다.
 
-| 게시자 | 제공 | SKU | 버전 | cloud-init 준비 여부 |
+| 게시자 | 제안 | SKU | 버전 | cloud-init 준비 여부 |
 |:--- |:--- |:--- |:--- |:--- |
-|정식 |UbuntuServer |18.04-LTS |최신 |예 | 
-|정식 |UbuntuServer |16.04-LTS |최신 |예 | 
-|정식 |UbuntuServer |14.04.5-LTS |최신 |예 |
-|CoreOS |CoreOS |안정 |최신 |예 |
-|OpenLogic 7.6 |CentOS |7-CI |최신 |미리 보기 |
+|Canonical |UbuntuServer |18.04-LTS |latest |예 | 
+|Canonical |UbuntuServer |16.04-LTS |latest |예 | 
+|Canonical |UbuntuServer |14.04.5-LTS |latest |예 |
+|CoreOS |CoreOS |안정 |latest |예 |
+|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |미리 보기 |
 |RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |예 |
 |RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |미리 보기 |
     
 현재 Azure Stack는 클라우드 init를 사용 하 여 RHEL 4.x 및 CentOS 4.x의 프로 비전을 지원 하지 않습니다.
 
 * RHEL 7.6, 클라우드 초기화 패키지의 경우 지원 되는 패키지는 다음과 같습니다. *18.2 -1. el7 _ 6.2* 
-* RHEL 7.7 (미리 보기), 클라우드 초기화 패키지의 경우 지원 되는 패키지는 다음과 같습니다. *18.5 -3. el7*
+* RHEL 7.7 (미리 보기), 클라우드 초기화 패키지의 경우 미리 보기 패키지는 다음과 같습니다. *18.5 -3. el7*
+* CentOS 7.7 (미리 보기), 클라우드 초기화 패키지의 경우 미리 보기 패키지는 다음과 같습니다. *18.5 -3. el7. centos*
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>cloud-init와 Linux 에이전트(WALA)의 차이는 무엇입니까?
 WALA는 VM을 프로비전 및 구성하고 Azure 확장을 처리하는 데 사용되는 Azure 플랫폼 관련 에이전트입니다. 기존 cloud-init 고객이 현재 cloud-init 스크립트를 사용할 수 있도록, Linux 에이전트 대신 cloud-init를 사용하도록 VM을 구성하는 작업을 개선하고 있습니다.  Linux 시스템을 구성하기 위해 cloud-init 스크립트에 이미 투자한 경우 **추가 설정이 필요 없습니다**. 

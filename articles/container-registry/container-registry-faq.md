@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: cbdf4f203204df2d26eb7c908167c1e1ca10d0ab
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: cfa8efe0b73811474b1e50a7d2fb1e9abe9045c6
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264323"
+ms.locfileid: "72286518"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대 한 질문과 대답
 
@@ -420,7 +420,7 @@ Microsoft Edge/IE 브라우저를 사용 하는 경우 최대 100 개의 리포�
 * 광고 차단
 * DNS 오류
 
-네트워크 관리자에 게 문의 하거나 네트워크 구성 및 연결을 확인 하십시오. 또한 브라우저에서 incognito 또는 private 세션을 시도 하 여 오래 된 브라우저 캐시 또는 쿠키를 방지할 수도 있습니다.
+네트워크 관리자에 게 문의 하거나 네트워크 구성 및 연결을 확인 하십시오. Azure CLI를 사용 하 여 `az acr check-health -n yourRegistry`을 실행 하 여 환경에서 Container Registry에 연결할 수 있는지 확인 합니다. 또한 브라우저에서 incognito 또는 private 세션을 시도 하 여 오래 된 브라우저 캐시 또는 쿠키를 방지할 수도 있습니다.
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Windows에서 http 추적을 수집 어떻게 할까요?
 

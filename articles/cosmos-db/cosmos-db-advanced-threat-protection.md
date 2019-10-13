@@ -1,18 +1,19 @@
 ---
 title: Azure Cosmos DB에 대 한 Advanced Threat Protection
 description: 미사용 데이터의 암호화 및 구현 방법을 Azure Cosmos DB 하는 방법에 대해 알아봅니다.
-author: rkarlin
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 2b12d639e734502113b6afdd7250fca6a520c687
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.author: memildin
+author: memildin
+manager: rkarlin
+ms.openlocfilehash: dca653bfaf625ff31e4dd7f43752219b312779d1
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176016"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286770"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 Advanced Threat Protection
 

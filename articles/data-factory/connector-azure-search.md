@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: c2165d0ff16233766918f9e274324b02d1bf1ac8
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 703dcb5fee0c31328eee91c9673e62653d7aa698
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962108"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286349"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Search 인덱스에 데이터 복사
 
@@ -179,7 +179,7 @@ Azure Search 서비스는 일괄 처리로 문서 작성을 지원합니다. 일
 | String Array | N |
 | GeographyPoint | N |
 
-현재 다른 데이터 형식 (예: ComplexType)은 지원 되지 않습니다. Azure 검색 지원 되는 데이터 형식에 대 한 전체 목록은 [지원 되는 데이터 형식 (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)을 참조 하세요.
+현재 다른 데이터 형식 (예: ComplexType)은 지원 되지 않습니다. 지원 되는 Azure Search 데이터 형식의 전체 목록은 [지원 되는 데이터 형식 (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md##supported-data-stores-and-formats)를 참조하세요.

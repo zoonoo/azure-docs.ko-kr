@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1bd84a40236b54d799efcf04eae707aea9c6c945
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b38779681dfe612369fefb9d752389395965e7b4
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828939"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285773"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>빠른 시작-사설 클라우드 환경 구성
 
@@ -47,7 +47,7 @@ ms.locfileid: "71828939"
 
     ![사설 클라우드 만들기-기본 정보](media/create-private-cloud-basic-info.png)
 
-9. **다음: 고급 옵션**입니다.
+9. **다음: 고급 옵션 @ no__t-0.
 10. VSphere/Vsphere 서브넷의 CIDR 범위를 입력 합니다. CIDR 범위가 온-프레미스 또는 기타 Azure 서브넷 (가상 네트워크) 또는 게이트웨이 서브넷과 겹치지 않는지 확인 합니다.
 
     **CIDR 범위 옵션:** /24,/23,/22 또는/21. /24 CIDR 범위는 최대 26 개의 노드를 지원 하 고/23 CIDR 범위는 최대 58 노드를 지원 하며,/22 및/21 CIDR 범위는 64 노드 (사설 클라우드의 최대 노드 수)를 지원 합니다.  Vlan 및 서브넷에 대 한 자세한 내용은 [vlan 및 서브넷 개요](cloudsimple-vlans-subnets.md)를 참조 하세요.
@@ -55,7 +55,7 @@ ms.locfileid: "71828939"
       > [!IMPORTANT]
       > VSphere/Vsphere CIDR 범위의 IP 주소는 사설 클라우드 인프라에서 사용 하도록 예약 되어 있습니다.  가상 머신에서는이 범위의 IP 주소를 사용 하지 마세요.
 
-11. **다음: 검토 하 고**만듭니다.
+11. **다음: @ No__t-0을 검토 하 고 만듭니다.
 12. 설정을 검토 합니다. 설정을 변경 해야 하는 경우에는 **이전**을 클릭 합니다.
 13. **만들기**를 클릭합니다.
 
@@ -82,7 +82,7 @@ Azure Portal에서 CloudSimple 포털에 액세스할 수 있습니다.  CloudSi
 2. **VPN Gateway**를 선택 합니다.
 3. **새 VPN Gateway**을 클릭 합니다.
 
-    ![VPN Gateway 만들기](media/create-vpn-gateway.png)
+    ![VPN 게이트웨이 만들기](media/create-vpn-gateway.png)
 
 4. **게이트웨이 구성**의 경우 다음 설정을 지정 하 고 **다음**을 클릭 합니다.
 
@@ -155,7 +155,7 @@ CloudSimple은 사설 클라우드에 대 한 Express 경로 회로를 제공 �
 
 1. VCenter에 액세스 하려면 CloudSimple 포털에서 시작 합니다. 홈 페이지의 **일반 작업**에서 **Vsphere 클라이언트 시작**을 클릭 합니다.  사설 클라우드를 선택 하 고 사설 클라우드에서 **vSphere 클라이언트 시작** 을 클릭 합니다.
 
-    ![vSphere 클라이언트 시작](media/launch-vcenter-from-cloudsimple-portal.png)
+    ![VSphere 클라이언트 시작](media/launch-vcenter-from-cloudsimple-portal.png)
 
 2. VCenter에 액세스 하 고 사용자 이름 및 암호를 사용 하 여 로그인 할 기본 vSphere 클라이언트를 선택 합니다.  기본값은 다음과 같습니다.
     * 사용자 이름: **CloudOwner@cloudsimple.local**
@@ -183,9 +183,9 @@ CloudSimple은 vCenter에 처음 로그인 할 때 암호를 변경 하는 것�
 * vSphere 플래시 클라이언트를 사용 하는 경우 오류를 보고 합니다.
 * HTML5 클라이언트를 사용 하는 경우 오류를 보고 하지 않습니다. 클라이언트는 변경 내용을 수락 하지 않으며 이전 암호는 계속 작동 합니다.
 
-## <a name="change-nsx-administrator-password"></a>NSX 관리자 암호 변경
+## <a name="access-nsx-manager"></a>NSX manager 액세스
 
-NSX manager는 기본 암호를 사용 하 여 배포 됩니다.  사설 클라우드를 만든 후 암호를 변경 하는 것이 좋습니다.
+NSX manager는 기본 암호를 사용 하 여 배포 됩니다. 
 
 * 사용자 이름: **관리자**
 * 암호: **CloudSimple123!**
@@ -198,8 +198,6 @@ CloudSimple 포털에서 NSX manager의 FQDN (정규화 된 도메인 이름) �
 4. **NSX Manager** 의 FQDN 또는 IP 주소를 사용 하 고 웹 브라우저를 사용 하 여 연결 합니다.
 
     ![NSX Manager FQDN 찾기](media/private-cloud-nsx-manager-fqdn.png)
-
-암호를 변경 하려면 [NSX Manager 설치](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.2/com.vmware.nsxt.install.doc/GUID-A65FE3DD-C4F1-47EC-B952-DEDF1A3DD0CF.html)의 지침을 따르세요.
 
 ## <a name="create-a-port-group"></a>포트 그룹 만들기
 

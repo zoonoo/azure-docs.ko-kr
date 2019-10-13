@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8fbb09ecf09008c25c84a11c7b43dfb26450e30a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: ee7bbff8ab501a1159030a8ee9c57f1c5a64ea22
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338763"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286538"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>알려진 문제 및 문제 해결 Azure Machine Learning
 
@@ -37,7 +37,7 @@ Machine learning 서비스 문제에 대 한 시각적 인터페이스입니다.
  
 이 문제를 해결 하기 전에 데이터 집합을 데이터 변환 모듈 (데이터 집합의 열 선택, 메타 데이터 편집, 데이터 분할 등)에 연결 하 고 실험을 실행할 수 있습니다. 그런 다음 데이터 집합을 시각화할 수 있습니다. 
 
-다음 이미지는 방법을 보여 ![줍니다. visulize](./media/resource-known-issues/aml-visualize-data.png)
+다음 이미지는 0visulize @ no__t-1을 보여 줍니다 @no__t.
 
 ## <a name="sdk-installation-issues"></a>SDK 설치 문제
 
@@ -101,7 +101,7 @@ Azure Databricks에서 자동화 된 기계 학습 기능을 사용 하는 경�
 
 ### <a name="10-iterations-for-automated-machine-learning"></a>자동화 된 machine learning에 대 한 10 회 반복 >
 
-자동화 된 기계 학습 설정에서 10 개 이상의 반복이 있는 경우 실행을 `show_output` 제출할 `False` 때를로 설정 합니다.
+자동화 된 기계 학습 설정에서 10 개 이상의 반복이 있는 경우 실행을 제출할 때 `show_output`을 `False`로 설정 합니다.
 
 ### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Azure Machine Learning SDK/자동화 된 기계 학습에 대 한 위젯
 
@@ -128,11 +128,11 @@ displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.g
 
 ### <a name="failtosendfeather"></a>FailToSendFeather
 
-Azure Databricks 클러스터에서 데이터 `FailToSendFeather` 를 읽는 동안 오류가 표시 되는 경우 다음 해결 방법을 참조 하십시오.
+Azure Databricks 클러스터에서 데이터를 읽을 때 `FailToSendFeather` 오류가 표시 되는 경우 다음 해결 방법을 참조 하세요.
 
-* 패키지 `azureml-sdk[automl_databricks]` 를 최신 버전으로 업그레이드 합니다.
-* 버전 `azure-dataprep` 1.1.8 이상을 추가 합니다.
-* 버전 `pyarrow` 0.11 이상을 추가 합니다.
+* @No__t-0 패키지를 최신 버전으로 업그레이드 합니다.
+* @No__t-0 버전 1.1.8 이상을 추가 합니다.
+* @No__t-0 버전 0.11 이상을 추가 합니다.
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -171,13 +171,13 @@ Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당�
 
 ## <a name="overloaded-azurefile-storage"></a>오버 로드 된 AzureFile 저장소
 
-오류가 `Unable to upload project files to working directory in AzureFile because the storage is overloaded`표시 되 면 다음 해결 방법을 적용 합니다.
+-0 @no__t 오류가 표시 되 면 다음 해결 방법을 적용 하십시오.
 
 데이터 전송과 같은 다른 작업에 대해 파일 공유를 사용 하는 경우 파일 공유를 사용 하 여 실행을 제출할 수 있도록 blob을 사용 하는 것이 좋습니다. 작업을 서로 다른 두 작업 영역 간에 분할할 수도 있습니다.
 
 ## <a name="webservices-in-azure-kubernetes-service-failures"></a>Azure Kubernetes 서비스 실패의 Webservices 
 
-를 사용 하 `kubectl`여 클러스터에 연결 하 여 Azure Kubernetes Service에서 많은 webservice 오류를 디버그할 수 있습니다. 을 실행 하 여 `kubeconfig.json` Azure Kubernetes 서비스 클러스터에 대 한를 가져올 수 있습니다.
+@No__t-0을 사용 하 여 클러스터에 연결 하 여 Azure Kubernetes Service에서 많은 webservice 오류를 디버그할 수 있습니다. 을 실행 하 여 Azure Kubernetes 서비스 클러스터에 대 한 `kubeconfig.json`을 가져올 수 있습니다.
 
 ```bash
 az aks get-credentials -g <rg> -n <aks cluster name>
@@ -185,7 +185,12 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 ## <a name="updating-azure-machine-learning-components-in-aks-cluster"></a>AKS 클러스터의 Azure Machine Learning 구성 요소 업데이트
 
-Azure Kubernetes Service 클러스터에 설치 된 Azure Machine Learning 구성 요소에 대 한 업데이트를 수동으로 적용 해야 합니다. Azure Machine Learning 작업 영역에서 클러스터를 분리 한 다음 클러스터를 작업 영역에 다시 연결 하 여 이러한 업데이트를 적용할 수 있습니다. 클러스터에서 SSL을 사용 하도록 설정한 경우 클러스터를 다시 연결할 때 SSL 인증서와 개인 키를 제공 해야 합니다. 
+Azure Kubernetes Service 클러스터에 설치 된 Azure Machine Learning 구성 요소에 대 한 업데이트를 수동으로 적용 해야 합니다. 
+
+> [!WARNING]
+> 다음 작업을 수행 하기 전에 Azure Kubernetes 서비스 클러스터의 버전을 확인 합니다. 클러스터 버전이 1.14 보다 크거나 같은 경우 클러스터를 Azure Machine Learning 작업 영역에 다시 연결할 수 없습니다.
+
+Azure Machine Learning 작업 영역에서 클러스터를 분리 한 다음 클러스터를 작업 영역에 다시 연결 하 여 이러한 업데이트를 적용할 수 있습니다. 클러스터에서 SSL을 사용 하도록 설정한 경우 클러스터를 다시 연결할 때 SSL 인증서와 개인 키를 제공 해야 합니다. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
@@ -206,14 +211,14 @@ compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceNa
 compute_target.wait_for_completion(show_output=True)
 ```
 
-SSL 인증서와 개인 키가 더 이상 없거나 Azure Machine Learning에 의해 생성 된 인증서를 사용 하는 경우,를 사용 하 `kubectl` 여 클러스터에 연결 하 고 암호 를검색하여클러스터를분리하기전에파일을검색할수있습니다 `azuremlfessl`.
+SSL 인증서와 개인 키가 더 이상 없거나 Azure Machine Learning에 의해 생성 된 인증서를 사용 하는 경우 `kubectl`을 사용 하 여 클러스터에 연결 하 고 암호 `azuremlfessl`을 검색 하 여 클러스터를 분리 하기 전에 파일을 검색할 수 있습니다.
 
 ```bash
 kubectl get secret/azuremlfessl -o yaml
 ```
 
 >[!Note]
->Kubernetes는 암호를 base-64로 인코딩된 형식으로 저장 합니다. 에 `key.pem` `cert.pem` 제공하기`attach_config.enable_ssl`전에 비밀의 및 구성 요소를 64으로 디코드 해야 합니다. 
+>Kubernetes는 암호를 base-64로 인코딩된 형식으로 저장 합니다. @No__t-2에 제공 하기 전에 비밀의 `cert.pem` 및 `key.pem` 구성 요소를 64으로 디코드 해야 합니다. 
 
 ## <a name="recommendations-for-error-fix"></a>오류 수정에 대 한 권장 사항
 일반적인 관찰을 기준으로 azure ML에서 일반적인 오류 중 일부를 해결 하기 위한 Azure ML 권장 사항은 다음과 같습니다.

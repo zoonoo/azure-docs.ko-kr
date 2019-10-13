@@ -11,12 +11,12 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: be59f5fd34c52397b54146a8aeaf51f4d594452f
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 8ea6a365b0c7bc6c254c1313445bb54231e161ae
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383345"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285650"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 컴퓨팅 인프라입니다. IR에 대한 세부 정보는 [통합 런타임 개요](concepts-integration-runtime.md)를 참조하세요.
@@ -72,7 +72,7 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 - 클라우드의 데이터 스토리지가 Azure IaaS 가상 머신에 있더라도 자체 호스팅 통합 런타임을 사용해야 합니다.
 - FIPS 규격 암호화가 설정된 Windows 서버에 설치된 자체 호스팅 통합 런타임에서는 작업이 실패할 수 있습니다. 이 문제를 해결하려면 서버에서 FIPS 규격 암호화를 사용하지 않도록 설정합니다. FIPS 호환 암호화를 사용하지 않도록 설정하려면 다음 레지스트리 값을 1(사용)에서 0(사용 안 함)으로 변경합니다. `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 지원 되는 운영 체제 버전은 Windows 7 서비스 팩 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 및 Windows Server 2019입니다. 도메인 컨트롤러에는 자체 호스팅 통합 런타임을 설치할 수 없습니다.
 - .NET Framework 4.6.1 이상이 필요합니다. Windows 7 컴퓨터에 자체 호스팅 통합 런타임을 설치하는 경우 .NET Framework 4.6.1 이상을 설치합니다. 자세한 내용은 [.NET Framework 시스템 요구 사항](/dotnet/framework/get-started/system-requirements)을 참조하세요.
@@ -82,7 +82,7 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 - 복사 작업은 특정 빈도로 실행됩니다. 컴퓨터의 리소스(CPU, 메모리) 사용량은 사용량이 최대인 시간 및 유효 시간과 동일한 패턴을 따릅니다. 리소스 사용률은 이동하는 데이터 양에 따라 달라집니다. 여러 복사 작업이 진행 중인 경우 사용량이 많은 시간 동안 리소스 사용량이 증가하는 것을 볼 수 있습니다.
 - Parquet, ORC 또는 Avro 형식의 데이터를 추출 하는 경우 태스크가 실패할 수 있습니다. 파일 생성은 자체 호스팅 통합 컴퓨터에서 실행 되며 다음과 같은 필수 구성 요소가 예상 대로 작동 해야 합니다 ( [Azure Data Factory Parquet 형식](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime)참조).
     - [Visual C++ 2010 재배포 가능](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) 패키지 (x64)
-    - Jre (Java Runtime) 버전 8 (예: `JAVA_HOME` [openjdk 채택](https://adoptopenjdk.net/))은 환경 변수가 설정 되었는지 확인 합니다.
+    - Jre (Java Runtime) 버전 8 (예: [OpenJDK 채택](https://adoptopenjdk.net/))은 `JAVA_HOME` 환경 변수가 설정 되었는지 확인 합니다.
 
 ## <a name="installation-best-practices"></a>설치 모범 사례
 자체 호스팅 통합 런타임은 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 MSI 설치 패키지를 다운로드하여 설치할 수 있습니다. 단계별 지침은 [온-프레미스 및 클라우드 간 데이터 이동](tutorial-hybrid-copy-powershell.md) 문서를 참조하세요.
@@ -136,20 +136,20 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | RegisterNewNode "`<AuthenticationKey>`"                     | 지정 된 인증 키를 사용 하 여 Integration Runtime(자체 호스팅) 노드 등록 | 아니요       |
 | EnableRemoteAccess "`<port>`" ["`<thumbprint>`"]            | 고가용성 클러스터를 설정 하기 위해 현재 노드에서 원격 액세스를 사용 하도록 설정 하거나,를 사용 하 여 **자체 호스팅 IR (ADF 서비스를 통하지 않고)에 대해 직접 자격 증명을 설정 하도록 설정 합니다.** 동일한 네트워크에 있는 원격 컴퓨터의 AzDataFactoryV2LinkedServiceEncryptedCredential cmdlet | 아니요       |
-| EnableRemoteAccessInContainer "`<port>`" ["`<thumbprint>`"] | 노드가 컨테이너에서 실행 되는 경우 현재 노드에 대 한 원격 액세스 사용 | 아니요       |
+| EnableRemoteAccessInContainer "`<port>`" ["`<thumbprint>`"] | 노드가 컨테이너에서 실행 중인 경우 현재 노드에 대한 원격 액세스 사용 | 아니요       |
 | DisableRemoteAccess                                         | 현재 노드에 대 한 원격 액세스를 사용 하지 않도록 설정 합니다. 다중 노드 설정에는 원격 액세스가 필요 합니다. **AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet은 자체 호스팅 IR 노드와 동일한 컴퓨터에서 실행 되는 원격 액세스를 사용 하지 않도록 설정한 경우에도 계속 작동 합니다. | 아니요       |
-| "`<AuthenticationKey>`" 키                                 | 이전 인증 키를 덮어쓰거나 업데이트 합니다. 키가 새 통합 런타임 인 경우이로 인해 이전 자체 호스팅 IR 노드가 오프 라인으로 전환 될 수 있으므로 주의 하세요. | 아니요       |
+| "@No__t-0" 키                                 | 이전 인증 키를 덮어쓰거나 업데이트 합니다. 키가 새 통합 런타임 인 경우이로 인해 이전 자체 호스팅 IR 노드가 오프 라인으로 전환 될 수 있으므로 주의 하세요. | 아니요       |
 | GenerateBackupFile "`<filePath>`" "`<password>`"            | 현재 노드에 대 한 백업 파일을 생성 합니다. 백업 파일에는 노드 키와 데이터 저장소 자격 증명이 포함 됩니다. | 아니요       |
 | ImportBackupFile "`<filePath>`" "`<password>`"              | 백업 파일에서 노드 복원                          | 아니요       |
 | 다시 시작                                                     | Integration Runtime(자체 호스팅) 호스트 서비스를 다시 시작 합니다.   | 아니요       |
-| 시작                                                       | Integration Runtime(자체 호스팅) 호스트 서비스 시작     | 아니요       |
+| Start                                                       | Integration Runtime(자체 호스팅) 호스트 서비스 시작     | 아니요       |
 | Stop                                                        | Integration Runtime(자체 호스팅) 업데이트 서비스 중지        | 아니요       |
 | StartUpgradeService                                         | Integration Runtime(자체 호스팅) 업데이트 서비스 시작       | 아니요       |
 | StopUpgradeService                                          | Integration Runtime(자체 호스팅) 업데이트 서비스 중지        | 아니요       |
 | TurnOnAutoUpdate                                            | Integration Runtime(자체 호스팅) 자동 업데이트 설정        | 아니요       |
 | TurnOffAutoUpdate                                           | 자동 업데이트 Integration Runtime(자체 호스팅) 해제       | 아니요       |
 | SwitchServiceAccount "<domain\user>" ["password"]           | 새 계정으로 실행 되도록 DIAHostService를 설정 합니다. 시스템 계정 또는 가상 계정에 대해 빈 암호 ("")를 사용 합니다. | 아니요       |
-| Loglevel`<logLevel>`                                       | ETW 로그 수준을 설정 합니다 (해제, 오류, 자세한 정보 표시 또는 모두). 일반적으로 디버깅 하는 동안 Microsoft 지원에 사용 됩니다. | 아니요       |
+| Loglevel `<logLevel>`                                       | ETW 로그 수준을 설정 합니다 (해제, 오류, 자세한 정보 표시 또는 모두). 일반적으로 디버깅 하는 동안 Microsoft 지원에 사용 됩니다. | 아니요       |
 
    
 
@@ -267,19 +267,15 @@ PowerShell을 사용하여 자체 호스팅 통합 런타임을 공유하려면 
 
 *회사 방화벽* 수준에서는 다음 도메인 및 아웃바운드 포트를 구성해야 합니다.
 
-도메인 이름 | 포트 | 설명
------------- | ----- | ------------
-\*.servicebus.windows.net | 443 | 백 엔드 데이터 이동 서비스와의 통신에 사용됨
-*.core.windows.net | 443 | Azure Blob 스토리지(구성된 경우)를 통한 준비된 복사에 사용됨
-*.frontend.clouddatahub.net | 443 | 백 엔드 데이터 이동 서비스와의 통신에 사용됨
-download.microsoft.com | 443 | 업데이트 다운로드에 사용됨
+[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
+
 
 *Windows 방화벽* 수준(컴퓨터 수준)에서 이러한 아웃바운드 포트가 대개 사용하도록 설정됩니다. 해당 포트가 사용하도록 설정되어 있지 않으면 자체 호스팅 통합 런타임 컴퓨터에서 도메인 및 포트를 적절하게 구성할 수 있습니다.
 
 > [!NOTE]
-> 원본/싱크에 따라 회사 방화벽 또는 Windows 방화벽에서 추가 도메인 및 아웃바운드 포트를 허용 목록에 추가해야 할 수 있습니다.
+> 원본 및 싱크에 따라 회사 방화벽 또는 Windows 방화벽에서 추가 도메인 및 아웃 바운드 포트를 허용 해야 할 수 있습니다.
 >
-> Azure SQL Database 및 Azure Data Lake와 같은 일부 클라우드 데이터베이스의 경우에는 해당 방화벽 구성에서 자체 호스팅 통합 런타임의 IP 주소를 허용 목록에 포함해야 할 수 있습니다.
+> 일부 클라우드 데이터베이스 (예: Azure SQL Database 및 Azure Data Lake)의 경우 방화벽 구성에서 자체 호스팅 통합 런타임 컴퓨터의 IP 주소를 허용 해야 할 수 있습니다.
 
 ### <a name="copy-data-from-a-source-to-a-sink"></a>원본에서 싱크로 데이터 복사
 방화벽 규칙이 회사 방화벽, 자체 호스팅 통합 런타임 컴퓨터의 Windows 방화벽 및 데이터 스토리지 자체에 올바르게 설정되어 있는지 확인합니다. 이러한 규칙을 사용하면 자체 호스팅 통합 런타임이 원본과 싱크에 모두 정상적으로 연결할 수 있습니다. 복사 작업과 관련된 각 데이터 저장소에 대해 규칙을 사용하도록 설정합니다.
@@ -360,7 +356,7 @@ HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택하는 �
 > [!IMPORTANT]
 > diahost.exe.config 및 diawp.exe.config를 둘 다 업데이트해야 합니다.
 
-Microsoft Azure가 회사의 허용 목록에 있는지도 확인해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=41653)에서 유효한 Microsoft Azure IP 주소의 목록을 다운로드할 수 있습니다.
+또한 Microsoft Azure 회사의 허용 목록에 있는지 확인 해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=41653)에서 유효한 Microsoft Azure IP 주소의 목록을 다운로드할 수 있습니다.
 
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>방화벽 및 프록시 서버 관련 문제 발생 시 나타날 수 있는 증상
 다음과 비슷한 오류가 발생할 경우 방화벽 또는 프록시 서버가 잘못 구성된 것일 수 있습니다. 그러면 자체 호스팅 통합 런타임이 데이터 팩터리에 연결되어 인증을 할 수 없게 됩니다. 이전 섹션을 참조하여 방화벽 및 프록시 서버가 올바르게 구성되었는지 확인합니다.

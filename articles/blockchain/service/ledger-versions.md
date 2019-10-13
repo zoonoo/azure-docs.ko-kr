@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: 블록체인
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 10/10/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 6cded49f14ae90f84b18c0a37059677c6c1fed99
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 07ca22ee84dc7579d59d95b1c303476f44f8f043
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562798"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286533"
 ---
 # <a name="supported-azure-blockchain-service-ledger-versions"></a>지원 되는 Azure Blockchain 서비스 원장 버전
 
@@ -27,7 +27,7 @@ Azure Blockchain 서비스는 알려진 참여자 그룹 내의 개인 트랜잭
 
 쿼럼의 버전 관리는 주 버전, 부 버전 및 패치 릴리스를 통해 수행 됩니다. 예를 들어 쿼럼 버전이 2.0.1 인 경우 릴리스 형식은 다음과 같이 분류 됩니다.
 
-|최대 | 최소  | 패치  |
+|주 | Minor  | 패치  |
 | :--- | :----- | :----- |
 | 2 | 0 | 1 | 
 
@@ -35,7 +35,7 @@ Azure Blockchain 서비스는 쿼럼의 패치 릴리스를 쿼럼에서 사용�
 
 ## <a name="availability-of-new-ledger-versions"></a>새 원장 버전의 가용성
 
-Azure Blockchain 서비스는 쿼럼 제조업체에서 사용할 수 있는 60 일 이내에 최신 주 버전 및 부 버전의 쿼럼 원장을 제공 합니다. 새 구성원 및 컨소시엄을 프로 비전 할 때 consortia에서 선택할 수 있는 최대 4 개의 부 릴리스가 제공 됩니다. 에서 주 또는 부 릴리스로 업그레이드 하는 것은 현재 지원 되지 않습니다.
+Azure Blockchain 서비스는 쿼럼 제조업체에서 사용할 수 있는 60 일 이내에 최신 주 버전 및 부 버전의 쿼럼 원장을 제공 합니다. 새 구성원 및 컨소시엄을 프로 비전 할 때 consortia에서 선택할 수 있는 최대 4 개의 부 릴리스가 제공 됩니다. 에서 주 또는 부 릴리스로 업그레이드 하는 것은 현재 지원 되지 않습니다. 예를 들어 버전 2.x를 실행 하는 경우 버전 3.x로 업그레이드 하는 것은 현재 지원 되지 않습니다. 마찬가지로 버전 2.2을 실행 하는 경우에는 현재 버전 2.3로의 업그레이드가 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
