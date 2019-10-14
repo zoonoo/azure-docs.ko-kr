@@ -1,22 +1,21 @@
 ---
-title: Azure Blob Storage에 전체 텍스트 검색 추가 - Azure Search
-description: HTTP REST API를 사용한 코드로 Azure Search 인덱싱용 Azure Blob Storage의 텍스트 콘텐츠를 검색합니다.
-services: search
+title: Azure Blob Storage에 전체 텍스트 검색 추가
+titleSuffix: Azure Search
+description: Azure Search에서 전체 텍스트 검색 인덱스를 작성할 때 콘텐츠를 추출 하 고 Azure blob에 구조를 추가 합니다.
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/01/2019
-author: mgottein
-manager: nitinme
-ms.author: magottei
-ms.custom: seodec2018
-ms.openlocfilehash: f0801931b57302ae1d627dab783a40d2407c19ac
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 10/09/2019
+ms.openlocfilehash: 7e5eb73cc6abc72689bbc674b29f4d288dd66b6f
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650079"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302898"
 ---
-# <a name="searching-blob-storage-with-azure-search"></a>Azure Search로 Blob Storage 검색
+# <a name="add-full-text-search-to-azure-blob-data-using-azure-search"></a>Azure Search를 사용 하 여 Azure blob 데이터에 전체 텍스트 검색 추가
 
 Azure Blob Storage에 저장된 다양한 콘텐츠 형식에서 검색하면 어려운 문제를 해결할 수 있습니다. 그러나 Azure Search를 사용하면 단 몇 번의 클릭으로 Blob의 콘텐츠에 인덱스를 만들고 검색할 수 있습니다. Blob Storage를 통해 검색하려면 Azure Search 서비스를 프로비전해야 합니다. Azure Search의 다양한 서비스 한도 및 가격 책정 계층은 [가격 책정 페이지](https://aka.ms/azspricing)에서 확인할 수 있습니다.
 
@@ -45,7 +44,7 @@ JSON이 포함된 Blob에 있는 구조화된 콘텐츠를 추출하도록 Azure
 
 JSON 구문 분석은 현재 포털을 통해 구성할 수 없습니다. [Azure Search에서 JSON 구문 분석에 대해 자세히 알아보세요.](https://aka.ms/azsjsonblobindexing)
 
-## <a name="quick-start"></a>빠른 시작
+## <a name="quickstart"></a>빠른 시작
 Azure Search는 Blob Storage 포털 블레이드에서 직접 BLOB에 추가할 수 있습니다.
 
 ![](./media/search-blob-storage-integration/blob-blade.png)

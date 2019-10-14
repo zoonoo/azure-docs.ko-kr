@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 10/13/2019
 ms.author: spelluru
-ms.openlocfilehash: e4d9aeb527461cc7292235fef1de0abdfa4242bd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1d7175d000eebd3f68665e7f097bbe3f68025bc8
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311371"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302790"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 태그 추가
 
@@ -52,6 +52,9 @@ ms.locfileid: "60311371"
 
     ![태그 관리](./media/devtest-lab-add-tag/devtestlab-manage-tags.png)
 
+> [!NOTE]
+> 랩 수준에서 만든 태그는 랩이 구독에서 작동 하는 모든 청구 가능 리소스를 통해 흐릅니다. 예를 들어 랩 수준 태그는 랩 Vm의 기본 계산 Vm으로 전달 됩니다. cost management의 컨텍스트에서 태그를 사용할 수 있습니다. Lab level 태그는 cost management에 대 한 태그 필터에 표시 됩니다.
+
 ## <a name="understanding-limitations-to-tags"></a>태그의 제한 이해
 
 다음 제한 사항이 태그에 적용됩니다.
@@ -66,4 +69,4 @@ PowerShell 또는 Azure CLI를 사용하여 태그를 관리하는 방법을 비
 
 ## <a name="next-steps"></a>다음 단계
 * 사용자 지정된 정책을 사용하여 구독 전체에 제한 사항 및 규칙을 적용할 수 있습니다. 정의한 정책을 사용하려면 모든 리소스에 특정 태그 값이 있어야 할 수도 있습니다. 자세한 내용은 [정책 및 일정 설정](devtest-lab-set-lab-policy.md)을 참조하세요.
-* [DevTest Labs Azure Resource Manager 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)를 탐색합니다.
+* [DevTest Labs Azure Resource Manager 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)를 탐색 합니다.

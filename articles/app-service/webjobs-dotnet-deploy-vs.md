@@ -1,26 +1,21 @@
 ---
 title: Visual Studio를 사용하여 WebJobs 개발 및 배포 - Azure
 description: Visual Studio를 사용하여 Azure App Service에 Azure WebJobs를 개발하고 배포하는 방법에 대해 알아봅니다.
-services: app-service
-documentationcenter: ''
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.service: app-service
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.custom: vs-azure
-ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 58d03d80c82fbf58803f7fefa8ef60c19f99bced
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: ac458b01135be8628fbf939e310f8bda02b8d290
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876880"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303556"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Visual Studio를 사용하여 WebJobs 개발 및 배포 - Azure App Service
 
@@ -86,7 +81,7 @@ WebJob 지원 프로젝트에는 다음 항목이 추가됩니다.
 
 ![웹 프로젝트에 연결된 WebJob 프로젝트를 보여 주는 다이어그램](./media/webjobs-dotnet-deploy-vs/link.png)
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 Visual Studio 2015를 사용하는 경우 [Azure SDK for .NET(Visual Studio 2015)](https://azure.microsoft.com/downloads/)을 설치합니다.
 
@@ -220,7 +215,7 @@ WebJobs는 *설정. 작업* 파일을 사용 하 여 WebJob이 실행 되는 시
 }
 ```
 
-이 파일은 WebJobs 폴더의 루트에 배치 해야 합니다. 또는 `wwwroot\app_data\jobs\triggered\{job name}` `wwwroot\app_data\jobs\continuous\{job name}`와 같은 WebJob의 스크립트를 함께 사용할 수 있습니다. Visual Studio에서 WebJob을 배포하는 경우 `settings.job` 파일 속성을 **변경된 내용만 복사**로 표시합니다. 
+이 파일은 `wwwroot\app_data\jobs\triggered\{job name}` 또는 `wwwroot\app_data\jobs\continuous\{job name}`과 같은 WebJob의 스크립트와 함께 WebJobs 폴더의 루트에 있어야 합니다. Visual Studio에서 WebJob을 배포하는 경우 `settings.job` 파일 속성을 **변경된 내용만 복사**로 표시합니다. 
 
 [Azure Portal에서 WebJob을 만드는](webjobs-create.md)경우에는 설정. 작업 파일이 만들어집니다.
 
@@ -230,6 +225,8 @@ WebJobs는 *설정. 작업* 파일을 사용 하 여 WebJob이 실행 되는 시
 
 WebJobs는 Azure Functions에서 타이머 트리거로 일정을 예약 하는 데 동일한 CRON 식을 사용 합니다. CRON 지원에 대 한 자세한 내용은 [타이머 트리거 참조 문서](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)를 참조 하세요.
 
+[!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
+
 ### <a name="settingjob-reference"></a>설정. 작업 참조
 
 WebJobs에서 지원 되는 설정은 다음과 같습니다.
@@ -238,7 +235,7 @@ WebJobs에서 지원 되는 설정은 다음과 같습니다.
 | ----------- | --------- | --------------- |
 | `is_in_place` | 모두 | 임시 폴더에 먼저 복사 하지 않고 작업을 실행할 수 있습니다. 자세히 알아보려면 [WebJobs 작업 디렉터리](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)를 참조 하세요. |
 | `is_singleton` | 연속 | 확장 된 경우에만 단일 인스턴스에서 WebJobs를 실행 합니다. 자세히 알아보려면 [연속 작업을 singleton으로 설정](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton)을 참조 하세요. |
-| `schedule` | 트리거됨 | CRON 기반 일정에 따라 WebJob을 실행 합니다. 자세히 알아보려면 [타이머 트리거 참조 문서](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)를 참조 하세요. |
+| `schedule` | 트리거 | CRON 기반 일정에 따라 WebJob을 실행 합니다. 자세히 알아보려면 [타이머 트리거 참조 문서](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)를 참조 하세요. |
 | `stopping_wait_time`| 모두 | 종료 동작을 제어할 수 있습니다. 자세히 알아보려면 [정상 종료](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown)를 참조 하세요. |
 
 ## <a name="next-steps"></a>다음 단계

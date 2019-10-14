@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d852b786c1cc1c1eb9d39b931f9b8a142f969815
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 91f07b8da2cbc9beaa24730f2ec9f2ddb4639f37
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065862"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302533"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: 질문과 대답(FAQ)
 
@@ -27,7 +27,7 @@ Azure AD 확장이 작동하지 않는 경우에는 일반적으로 두 가지 �
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>기존의 직원 기반 Azure AD 테넌트에서 Azure AD B2C 기능을 사용할 수 있나요?
 
-Azure AD 및 Azure AD B2C는 별개 제품으로, 동일한 테넌트에서 함께 사용할 수 없습니다. Azure AD 테넌트는 조직을 나타냅니다. Azure AD B2C 테넌트는 신뢰 당사자 애플리케이션에서 사용할 ID 컬렉션을 나타냅니다. 사용자 지정 정책(공개 미리 보기)을 통해 Azure AD B2C가 Azure AD로 페더레이션되어 조직의 직원을 인증할 수 있습니다.
+Azure AD 및 Azure AD B2C는 별개 제품으로, 동일한 테넌트에서 함께 사용할 수 없습니다. Azure AD 테넌트는 조직을 나타냅니다. Azure AD B2C 테넌트는 신뢰 당사자 애플리케이션에서 사용할 ID 컬렉션을 나타냅니다. 사용자 지정 정책을 사용 하 여 조직 내 직원의 인증을 허용 하는 Azure AD에 페더레이션 할 수 Azure AD B2C.
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>Azure AD B2C를 사용하여 소셜 로그인(Facebook 및 Google+)을 Office 365에 제공할 수 있나요?
 
@@ -122,7 +122,7 @@ Azure AD B2C는 SharePoint 외부 파트너 공유 시나리오에 해당하지 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Azure AD B2C에서 제공하는 페이지의 UI를 지역화할 수 있습니까? 어떤 언어가 지원되나요?
 
-예!  공개 미리 보기로 제공되는 [언어 사용자 지정](active-directory-b2c-reference-language-customization.md)을 참조하세요. 36개 언어에 대한 번역이 제공되며, 모든 문자열을 요구에 맞게 재정의할 수 있습니다.
+예, [언어 사용자 지정](active-directory-b2c-reference-language-customization.md)을 참조 하세요. 36개 언어에 대한 번역이 제공되며, 모든 문자열을 요구에 맞게 재정의할 수 있습니다.
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>Azure AD B2C에서 제공하는 등록 및 로그인 페이지에 고유 URL을 사용할 수 있나요? 예를 들어 URL을 contoso.b2clogin.com에서 login.contoso.com로 변경할 수 있나요?
 

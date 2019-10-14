@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24404d6b55f83f96d8e2601afd35b2dec00cc7e9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0872d3c798bd5bd94e425869822602e8123517b4
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099727"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303617"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>SAP HANA(대규모 인스턴스) 네트워크 아키텍처
 
@@ -73,9 +73,9 @@ Azure에서 SAP 배포의 차이점은 다음과 같습니다.
 - SAP 애플리케이션 아키텍처는 온-프레미스와 Azure 간에 데이터가 교환되는 일반적인 시나리오보다 네트워크 대기 시간에 더 민감합니다.
 - Azure Express 경로 게이트웨이에는 두 개 이상의 Express 경로 연결이 있습니다. 온-프레미스와 HANA Large Instances에서 연결 된 회로 하나 그러면 MSEEs에서 다른 두 개의 추가 회로를 위한 공간을 확보 하 여 Express 경로 게이트웨이에 연결 합니다. 이 제한은 Express 경로 빠른 경로를 사용 하는 것과는 별개입니다. 연결 된 모든 회로는 Express 경로 게이트웨이의 들어오는 데이터에 대 한 최대 대역폭을 공유 합니다.
 
-HANA 큰 인스턴스 스탬프의 수정 버전 3을 사용 하는 경우 vm과 HANA 큰 인스턴스 단위 간에 발생 하는 네트워크 대기 시간은 일반적인 VM 간 네트워크 왕복 대기 시간 보다 높을 수 있습니다. Azure 지역에 따라 측정 되는 값은 SAP Note #1100926-FAQ의 [평균 미만으로 분류 된 0.7 밀리초 왕복 대기 시간을 초과할 수 있습니다. 네트워크 성능](https://launchpad.support.sap.com/#/notes/1100926/E). Azure VM 및 HANA 대규모 인스턴스 단위 간의 네트워크 왕복 대기 시간을 측정하는 Azure 지역 및 도구에 따라 측정된 대기 시간은 최대 약 2밀리초일 수 있습니다. 그럼에도 불구하고 고객은 SAP HANA 기반 프로덕션 SAP 애플리케이션을 SAP HANA 대규모 인스턴스에 성공적으로 배포합니다. Azure HANA 대규모 인스턴스에서 자신의 비즈니스 프로세스를 철저하게 테스트해야 합니다. Express 경로 빠른 경로 라는 새로운 기능을 통해 Azure의 HANA 큰 인스턴스 및 응용 프로그램 계층 Vm 간의 네트워크 대기 시간을 크게 줄일 수 있습니다 (아래 참조). 
+HANA 큰 인스턴스 스탬프의 수정 버전 3을 사용 하는 경우 vm과 HANA 큰 인스턴스 단위 간에 발생 하는 네트워크 대기 시간은 일반적인 VM 간 네트워크 왕복 대기 시간 보다 높을 수 있습니다. Azure 지역에 따라 측정 되는 값은 [SAP Note #1100926에서 아래 평균으로 분류 된 0.7 밀리초 왕복 대기 시간을 초과할 수 있습니다. 네트워크 성능 @ no__t-0. Azure VM 및 HANA 대규모 인스턴스 단위 간의 네트워크 왕복 대기 시간을 측정하는 Azure 지역 및 도구에 따라 측정된 대기 시간은 최대 약 2밀리초일 수 있습니다. 그럼에도 불구하고 고객은 SAP HANA 기반 프로덕션 SAP 애플리케이션을 SAP HANA 대규모 인스턴스에 성공적으로 배포합니다. Azure HANA 대규모 인스턴스에서 자신의 비즈니스 프로세스를 철저하게 테스트해야 합니다. Express 경로 빠른 경로 라는 새로운 기능을 통해 Azure의 HANA 큰 인스턴스 및 응용 프로그램 계층 Vm 간의 네트워크 대기 시간을 크게 줄일 수 있습니다 (아래 참조). 
 
-Hana large instance 스탬프의 수정 버전 4를 사용 하는 경우 SAP Note에 [설명 된 것 처럼 hana large instance 스탬프에 근접 하 게 배포 되는 Azure vm 간의 네트워크 대기 시간이 평균 또는 향상 된 평균 분류를 만족 하는 데 사용 됩니다. #1100926-FAQ: Azure express](https://launchpad.support.sap.com/#/notes/1100926/E) 경로 빠른 경로가 구성 된 경우의 네트워크 성능 (아래 참조) 수정 버전 4의 HANA Large Instance 장치에 근접 하 게 Azure Vm을 배포 하려면 [Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)을 활용 해야 합니다. [Sap 응용 프로그램의 최적의 네트워크 대기 시간을 위해 Azure 근접 배치 그룹에서 Azure 근접 배치 그룹에 설명 된 것 처럼 근접 배치 그룹을 사용 하 여 동일한 azure 데이터 센터에서 sap 응용 프로그램 계층을 찾을 수 있는 방법을 설명 합니다. ](sap-proximity-placement-scenarios.md).
+HANA Large instance 스탬프의 수정 버전 4를 사용 하는 경우 HANA Large Instance 스탬프에 근접 하 게 배포 되는 Azure Vm 간의 네트워크 대기 시간은 [SAP Note #1100926- 자주 묻는 질문(FAQ): Azure Express 경로 빠른 경로가 구성 된 경우 네트워크 성능 @ no__t-0 (아래 참조) 수정 버전 4의 HANA Large Instance 장치에 근접 하 게 Azure Vm을 배포 하려면 [Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)을 활용 해야 합니다. [Sap 응용 프로그램의 최적의 네트워크 대기 시간을 위해 Azure 근접 배치 그룹에서 Azure 근접 배치 그룹에 설명 된 것 처럼 근접 배치 그룹을 사용 하 여 동일한 azure 데이터 센터에서 sap 응용 프로그램 계층을 찾을 수 있는 방법을 설명 합니다. ](sap-proximity-placement-scenarios.md).
 
 Vm과 HANA Large Instance 간에 결정적인 네트워크 대기 시간을 제공 하기 위해 Express 경로 게이트웨이 SKU를 선택 하는 것이 필수적입니다. 온-프레미스와 VM 간의 트래픽 패턴과는 달리, VM과 HANA 대규모 인스턴스 간의 트래픽 패턴은 작지만 높은 버스트의 요청 및 데이터 볼륨을 전송하도록 개발할 수 있습니다. 이러한 버스트를 잘 처리하려면 UltraPerformance 게이트웨이 SKU를 사용하는 것이 좋습니다. HANA Large Instance Sku의 Type II 클래스에서 UltraPerformance 게이트웨이 SKU를 ExpressRotue 게이트웨이로 사용 하는 것은 필수입니다.
 
@@ -138,7 +138,14 @@ Azure (Large Instances)의 SAP HANA에 연결 하기 위해 여러 SAP 시스템
 * Azure (Large Instances)의 SAP HANA 장치에는 HANA Large Instance 배포를 요청할 때 제출한 서버 IP 풀 주소 범위에서 할당 된 IP 주소가 있습니다. 자세한 내용은 [SAP HANA on Azure(대규모 인스턴스) 인프라 및 연결](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. 이 IP 주소는 azure virtual network를 HANA Large Instances에 연결 하는 Azure 구독 및 회로를 통해 액세스할 수 있습니다. 해당 서버 IP 풀 주소 범위 이외의 할당된 IP 주소는 하드웨어 장치에 직접 할당됩니다. 이 솔루션을 처음 배포하는 경우와 같이 더 이상 NAT를 통해 *할당되지 않습니다*. 
 
 ### <a name="direct-routing-to-hana-large-instances"></a>HANA Large Instances로 직접 라우팅
-기본적으로 두 개의 다른 지역에 배포 된 HANA Large Instance unit과 온-프레미스 간 또는 HANA Large Instance 라우팅 간의 전이적 라우팅은 작동 하지 않습니다. 이러한 전이적 라우팅을 사용 하도록 설정 하는 몇 가지 방법이 있습니다.
+
+기본적으로 전이적 라우팅은 다음과 같은 시나리오에서 작동 하지 않습니다.
+
+* HANA Large Instance 단위와 온-프레미스 배포 사이.
+
+* 서로 다른 두 지역에 배포 된 HANA Large Instance 라우팅 사이
+
+이러한 시나리오에서 전이적 라우팅을 사용 하도록 설정 하는 방법에는 세 가지가 있습니다.
 
 - 데이터를 라우팅하는 역방향 프록시를 사용합니다. 예를 들어, NGINX는 Azure 가상 네트워크에 배포 되 고 HANA 큰 인스턴스 및 온-프레미스에 가상 방화벽/트래픽 라우팅 솔루션으로 연결 되는 Azure 가상 네트워크에 배포 되는 Traffic Manager을 포함 합니다.
 - Linux VM에서 [IPTables 규칙](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ)을 사용하여 온-프레미스 위치와 HANA 대규모 인스턴스 장치 간 또는 다른 지역의 HANA 대규모 인스턴스 장치 간에 라우팅을 사용하도록 설정합니다. IPTables를 실행 하는 VM은 HANA Large Instances 및 온-프레미스에 연결 하는 Azure 가상 네트워크에 배포 해야 합니다. VM의 크기를 적절 하 게 조정 해야 하므로 VM의 네트워크 처리량이 예상 네트워크 트래픽에 충분 합니다. VM 네트워크 대역폭에 대 한 자세한 내용은 [Azure에서 Linux 가상 머신의 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json)문서를 참조 하세요.

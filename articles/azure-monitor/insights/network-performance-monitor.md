@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: vinigam
-ms.openlocfilehash: 80bca606a2b06d85afc8a2115133f44d738f7e0a
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 185bdd5f666da04238a575f3b7704baf10f5e281
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035240"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303469"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -52,6 +52,7 @@ NPM은 다음 지역 중 한 곳에서 호스트되는 작업 영역에서 전 �
 * 영국 남부
 * 인도 중부
 * 미국 버지니아 주 정부
+* 중국 동부 2
 
 
 ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117)에 제공됩니다.
@@ -269,7 +270,7 @@ Azure Portal를 통해 경고를 만드는 NPM 사용자 인 경우:
 알림은 [Azure Monitor 가격 책정 페이지의 알림 가격](https://azure.microsoft.com/pricing/details/monitor/)에 따라 별도로 청구됩니다.
 
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 가격 책정에 대한 정보는 [온라인](network-performance-monitor-pricing-faq.md)으로 지원됩니다.
 
