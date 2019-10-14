@@ -95,7 +95,7 @@ Spark UI에서 이전에 시작한 애플리케이션에 의해 생성된 Spark 
 
 1. Spark 기록 서버를 시작하려면 개요 블레이드의 **클러스터 대시보드**에서 **Spark 기록 서버**를 클릭합니다.
 
-    ![Spark 기록 서버 실행 Azure Portal]Spark(./media/apache-spark-job-debugging/launch-spark-history-server.png "기록 Server1")
+    ![Spark 기록 서버 실행 Azure Portal](./media/apache-spark-job-debugging/launch-spark-history-server.png "Spark 기록 Server1")
 
    > [!TIP]  
    > 또는 Ambari UI에서 Spark 기록 서버를 시작할 수도 있습니다. Ambari UI를 시작하려면 개요 블레이드의 **클러스터 대시보드**에서 **Ambari 홈**을 클릭합니다. Ambari UI에서 **Spark**, **빠른 링크**, **Spark 기록 서버 UI**를 차례로 클릭합니다.
