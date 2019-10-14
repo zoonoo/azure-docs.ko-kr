@@ -5,15 +5,15 @@ metadata:
   description: " Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 여러 데이터베이스 원본에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션하는 방법을 알아봅니다."
   author: HJToland3
   ms.author: jtoland
-  ms.date: 10/04/2019
+  ms.date: 10/12/2019
   ms.service: dms
   ms.topic: landing-page
-  ms.openlocfilehash: 41b2733152a93705c81134ccbb75866bf6f0af1b
-  ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+  ms.openlocfilehash: bb2eec4e07eb444549c5b8491799d491a1960250
+  ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/03/2019
-  ms.locfileid: "71842999"
+  ms.lasthandoff: 10/13/2019
+  ms.locfileid: "72293771"
 landingContent:
 - title: Azure Database Migration Service 정보
   linkLists:
@@ -31,14 +31,6 @@ landingContent:
     links:
     - text: 서비스 만들기 - 포털
       url: quickstart-create-data-migration-service-portal.md
-  - linkListType: how-to-guide
-    links:
-    - text: 마이그레이션 작업 모니터링
-      url: how-to-monitor-migration-activity.md
-    - text: 일반적인 문제 및 오류 해결
-      url: known-issues-troubleshooting-dms.md
-    - text: 원본 데이터베이스 연결 문제 해결
-      url: known-issues-troubleshooting-dms-source-connectivity.md
   - linkListType: video
     links:
     - text: Azure Data Migration Service 소개
@@ -47,10 +39,8 @@ landingContent:
       url: https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/
     - text: 마이그레이션 프로세스 및 권장 도구/서비스
       url: https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/
-    - text: 필수 구성 요소 해결 및 DMS 인스턴스 만들기
+    - text: 필수 구성 요소 해결 및 Azure Data Migration Service 인스턴스 만들기
       url: https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/
-    - text: 온라인 마이그레이션 모니터링 및 중단 수행
-      url: https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/
   - linkListType: whats-new
     links:
     - text: 블로그 보기
@@ -59,95 +49,59 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: SQL Server를 Azure SQL DB 단일 데이터베이스로 온라인 마이그레이션
+    - text: SQL Database 단일 데이터베이스로 마이그레이션 - 온라인
       url: tutorial-sql-server-azure-sql-online.md
-    - text: SQL Server를 Azure SQL DB 단일 데이터베이스로 오프라인 마이그레이션
+    - text: SQL Database 단일 데이터베이스로 마이그레이션 - 오프라인
       url: tutorial-sql-server-to-azure-sql.md
-    - text: SQL Server를 Azure SQL DB 관리형 인스턴스로 온라인 마이그레이션
+    - text: SQL Database 관리형 인스턴스로 마이그레이션 - 온라인
       url: tutorial-sql-server-managed-instance-online.md
-    - text: SQL Server를 Azure SQL DB 관리형 인스턴스로 오프라인 마이그레이션
+    - text: SQL Database 관리형 인스턴스로 마이그레이션 - 오프라인
       url: tutorial-sql-server-to-managed-instance.md
-    - text: RDS SQL Server를 Azure SQL DB 단일 데이터베이스 또는 Azure SQL DB 관리형 인스턴스로 온라인 마이그레이션
+    - text: RDS SQL Server를 SQL Database 단일 데이터베이스 / 관리형 인스턴스로 마이그레이션 - 온라인
       url: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
-  - linkListType: how-to-guide
+  - linkListType: reference
     links:
-    - text: PowerShell을 사용하여 SQL Server를 Azure SQL DB 단일 데이터베이스로 마이그레이션
-      url: howto-sql-server-to-azure-sql-powershell.md
-    - text: PowerShell을 사용하여 SQL Server를 Azure SQL DB 관리형 인스턴스로 마이그레이션
-      url: howto-sql-server-to-azure-sql-mi-powershell.md
-    - text: Azure SQL Database 단일 데이터베이스에 SSIS 패키지 다시 배포
-      url: how-to-migrate-ssis-packages.md
-    - text: Azure SQL Database 관리형 인스턴스에 SSIS 패키지 다시 배포
-      url: how-to-migrate-ssis-packages-managed-instance.md
-  - linkListType: concept
-    links:
-    - text: 알려진 문제 - Azure SQL DB 단일 데이터베이스로 온라인 마이그레이션
+    - text: 알려진 문제 - SQL Database 단일 데이터베이스로 온라인 마이그레이션
       url: known-issues-azure-sql-online.md
-    - text: Azure SQL DB 관리형 인스턴스 마이그레이션에 대한 네트워크 토폴로지
+    - text: SQL Database 관리형 인스턴스 마이그레이션에 대한 네트워크 토폴로지
       url: resource-network-topologies.md
   - linkListType: video
     links:
-    - text: SQL Server 2008을 Azure SQL Database 관리형 인스턴스로 마이그레이션
+    - text: SQL Server 2008을 SQL Database 관리형 인스턴스로 마이그레이션
       url: https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/
-- title: PostgreSQL을 Azure Database for PostgreSQL로 마이그레이션
+- title: 오픈 소스 데이터베이스를 Azure로 마이그레이션
   linkLists:
   - linkListType: tutorial
     links:
-    - text: PostgreSQL을 Azure DB for PostgreSQL 단일 서버로 온라인 마이그레이션
+    - text: Azure Database for PostgreSQL로 마이그레이션 - 단일 서버 - 온라인
       url: tutorial-postgresql-azure-postgresql-online.md
-    - text: RDS PostgreSQL을 Azure Database for PostgreSQL 단일 서버로 온라인 마이그레이션
+    - text: RDS PostgreSQL을 Azure Database for PostgreSQL로 마이그레이션 - 단일 서버 - 온라인
       url: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
-  - linkListType: concept
-    links:
-    - text: 알려진 문제 - PostgreSQL에서 Azure DB for PostgreSQL 단일 서버로 온라인 마이그레이션
-      url: known-issues-azure-postgresql-online.md
-  - linkListType: video
-    links:
-    - text: PostgreSQL을 Azure Database for PostgreSQL로 마이그레이션
-      url: https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/
-- title: MySQL을 Azure Database for MySQL로 마이그레이션
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: MySQL을 Azure DB for MySQL로 온라인 마이그레이션
+    - text: Azure Database for MySQL로 마이그레이션 - 온라인
       url: tutorial-mysql-azure-mysql-online.md
-    - text: RDS MySQL을 Azure DB for MySQL로 온라인 마이그레이션
+    - text: RDS MySQL을 Azure Database for MySQL로 마이그레이션 - 온라인
       url: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
-  - linkListType: concept
-    links:
-    - text: 알려진 문제 - Azure DB for MySQL로 온라인 마이그레이션
-      url: known-issues-azure-mysql-online.md
-- title: MongoDB를 Azure Cosmos DB로 마이그레이션
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: MongoDB를 Azure Cosmos DB로 온라인 마이그레이션
+    - text: Azure Cosmos DB Mongo API로 마이그레이션 - 온라인
       url: tutorial-mongodb-cosmos-db-online.md
-    - text: MongoDB를 Azure Cosmos DB로 오프라인 마이그레이션
+    - text: Azure Cosmos DB Mongo API로 마이그레이션 - 오프라인
       url: tutorial-mongodb-cosmos-db.md
+  - linkListType: reference
+    links:
+    - text: 알려진 문제 - Azure Database for PostgreSQL로 온라인 마이그레이션 - 단일 서버
+      url: known-issues-azure-postgresql-online.md
+    - text: 알려진 문제 - Azure Database for MySQL로 온라인 마이그레이션
+      url: known-issues-azure-mysql-online.md
   - linkListType: video
     links:
-    - text: MongoDB를 Azure Cosmos DB로 마이그레이션
+    - text: PostgreSQL을 Azure Database for PostgreSQL로 마이그레이션 - 단일 서버
+      url: https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/
+    - text: Azure Cosmos DB Mongo API로 마이그레이션
       url: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/
-- title: Oracle을 Azure로 마이그레이션
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Oracle을 Azure DB for PostgreSQL 단일 서버로 온라인 마이그레이션
-      url: tutorial-oracle-azure-postgresql-online.md
-  - linkListType: concept
-    links:
-    - text: 알려진 문제 - Oracle에서 Azure DB for PostgreSQL 단일 서버로 온라인 마이그레이션
-      url: known-issues-oracle-azure-postgresql-online.md
-  - linkListType: video
-    links:
-    - text: Oracle을 Azure SQL Database 단일 데이터베이스로 마이그레이션
-      url: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/
 - title: 도구 및 지침
   linkLists:
   - linkListType: reference
     links:
-    - text: 데이터 마이그레이션 시나리오에 사용할 수 있는 서비스 및 도구
+    - text: 데이터 마이그레이션 시나리오별 서비스 및 도구
       url: dms-tools-matrix.md
     - text: 데이터베이스 마이그레이션 가이드
       url: https://datamigration.microsoft.com/
@@ -159,3 +113,17 @@ landingContent:
       url: https://docs.microsoft.com/sql/dea/database-experimentation-assistant-overview?view=sql-server-2017
     - text: 데이터 액세스 마이그레이션 도구 키트
       url: https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit
+- title: Oracle을 Azure로 마이그레이션
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Azure Database for PostgreSQL로 마이그레이션 - 단일 서버 - 온라인
+      url: tutorial-oracle-azure-postgresql-online.md
+  - linkListType: reference
+    links:
+    - text: 알려진 문제 - Azure Database for PostgreSQL로 온라인 마이그레이션 - 단일 서버
+      url: known-issues-oracle-azure-postgresql-online.md
+  - linkListType: video
+    links:
+    - text: SQL Database 단일 데이터베이스로 마이그레이션
+      url: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/

@@ -135,6 +135,8 @@
               href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
             - name: 변경
               href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+            - name: 오버헤드 확인/보기
+              href: 'https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest'
         - name: 순서가 지정된 클러스터형 columnstore 인덱스
           items:
             - name: 성능 튜닝 지침

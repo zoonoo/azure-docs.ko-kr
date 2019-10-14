@@ -606,6 +606,8 @@
                   href: insights/vminsights-overview.md
                 - name: 알려진 문제
                   href: insights/vminsights-known-issues.md
+                - name: 상용 서비스 관련 FAQ
+                  href: insights/vminsights-ga-release-faq.md
                 - name: FAQ
                   href: insights/vminsights-faq.md
                 - name: 모니터링 사용

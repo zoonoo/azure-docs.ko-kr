@@ -1,17 +1,17 @@
 ---
-title: 샘플 - ISO 27001 ASE/SQL 워크로드 청사진 - 개요
+title: ISO 27001 ASE/SQL 워크로드 청사진 샘플 - 개요
 description: ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플에 대한 개요 및 아키텍처입니다.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: e2f95cb28d14359955a0fbec1d402b08b911a59c
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 066df6b0fc7516777e2edf523bef226c09c80263
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978330"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299135"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플 개요
 

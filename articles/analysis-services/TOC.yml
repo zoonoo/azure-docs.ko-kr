@@ -66,6 +66,8 @@
           href: analysis-services-addservprinc-admins.md
     - name: 모델
       items:
+        - name: 테이블 형식 모델링
+          href: 'https://docs.microsoft.com/analysis-services/tabular-models/tabular-models-ssas'
         - name: Visual Studio에서 배포(SSDT)
           href: analysis-services-deploy.md
         - name: REST API를 사용하여 새로 고침

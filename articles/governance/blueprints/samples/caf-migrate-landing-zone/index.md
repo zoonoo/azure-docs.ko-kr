@@ -1,5 +1,5 @@
 ---
-title: 샘플 - CAF Migration 방문 영역 청사진 - 개요
+title: CAF Migration 방문 영역 청사진 샘플 - 개요
 description: CAF Migration 방문 영역 청사진 샘플의 개요 및 아키텍처입니다.
 author: DCtheGeek
 ms.author: dacoulte
@@ -7,12 +7,12 @@ ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 ms.custom: fasttrack-new
-ms.openlocfilehash: 469ddfa647a2ee739756414ba1bad87c983057c6
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: c74ec9f425b99bb11011fce7b0b7bdca98005ad8
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243981"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297863"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Migration 방문 영역 청사진 샘플의 개요
 
@@ -47,7 +47,7 @@ CAF Migration 방문 영역 청사진 샘플은 조직에서 가상 머신을 �
 CAF Migrate 방문 영역 청사진 샘플의 개요 및 아키텍처를 검토했습니다.
 
 > [!div class="nextstepaction"]
->  [CAF Migrate 방문 영역 청사진 - 배포 단계](./deploy.md)
+>  [CAF Migration 방문 영역 청사진 - 배포 단계](./deploy.md)
 
 청사진 및 사용 방법에 대한 추가 문서:
 

@@ -177,6 +177,8 @@
       href: how-to-configure-proxy-support.md
     - name: 에지에 데이터 저장
       items:
+        - name: 모듈에 디바이스의 로컬 스토리지에 대한 액세스 권한 부여
+          href: how-to-access-host-storage-from-module.md
         - name: IoT Edge의 Azure Blob Storage
           href: how-to-store-data-blob.md
         - name: Blob 스토리지 모듈 배포

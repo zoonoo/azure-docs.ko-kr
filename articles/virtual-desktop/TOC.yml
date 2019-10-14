@@ -74,6 +74,8 @@
       href: host-pool-load-balancing.md
     - name: FSLogix 프로필 컨테이너 및 Azure Files
       href: fslogix-containers-azure-files.md
+    - name: FSLogix 프로필 컨테이너에 대한 스토리지 옵션
+      href: store-fslogix-profile.md
     - name: 파트너 통합
       href: partners.md
     - name: Windows 10 Enterprise 다중 세션 FAQ

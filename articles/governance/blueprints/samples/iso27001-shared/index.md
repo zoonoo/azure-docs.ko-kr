@@ -1,17 +1,17 @@
 ---
-title: 샘플 - ISO 27001 Shared Services 청사진 - 개요
+title: ISO 27001 Shared Services 청사진 샘플 - 개요
 description: ISO 27001 Shared Services 청사진 샘플에 대한 개요 및 아키텍처입니다. 이 청사진 샘플은 고객이 특정 ISO 27001 컨트롤을 파악하는 데 도움이 됩니다.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: d344ccab2587494f14c4f518294032016fa3cb21
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 8a7ad23fbe63943ffff5958d399ce8ae60a76622
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248900"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299118"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 Shared Services 청사진 샘플 개요
 

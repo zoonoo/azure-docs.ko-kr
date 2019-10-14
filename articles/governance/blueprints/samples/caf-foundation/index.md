@@ -1,5 +1,5 @@
 ---
-title: 샘플 - CAF Foundation 청사진 - 개요
+title: CAF Foundation 청사진 샘플 - 개요
 description: CAF Foundation 청사진 샘플의 개요 및 아키텍처입니다.
 author: DCtheGeek
 ms.author: dacoulte
@@ -7,12 +7,12 @@ ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 ms.custom: fasttrack-new
-ms.openlocfilehash: ad906c7502f468c611022af9b6b2e951d55b61a9
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: be910246666f9974eedb5315a970c6c4ba8878ef
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243992"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298040"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Foundation 청사진 샘플
 

@@ -100,8 +100,10 @@
                   href: virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md
         - name: 장애 조치 클러스터 인스턴스
           items:
-            - name: 구성
+            - name: Storage Spaces Direct 사용
               href: virtual-machines-windows-portal-sql-create-failover-cluster.md
+            - name: 프리미엄 파일 스토리지 사용
+              href: virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md
 - name: 참고 자료
   items:
     - name: Azure PowerShell
