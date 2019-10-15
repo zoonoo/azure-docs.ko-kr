@@ -580,7 +580,7 @@
     - name: 빠른 시작
       items:
         - name: Apache HBase 쿼리 - Apache Phoenix
-          href: ./hbase/apache-hbase-phoenix-squirrel-linux.md
+          href: ./hbase/apache-hbase-query-with-phoenix.md
         - name: Apache HBase 쿼리 - HBase Shell
           href: ./hbase/query-hbase-with-hbase-shell.md
     - name: 자습서

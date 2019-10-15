@@ -553,7 +553,7 @@
         - name: 인증
           items:
             - name: 인증 기본 사항
-              href: authentication-scenarios.md
+              href: v1-authentication-scenarios.md
             - name: OAuth 2.0 및 OpenID Connect 프로토콜
               items:
                 - name: OpenID Connect
