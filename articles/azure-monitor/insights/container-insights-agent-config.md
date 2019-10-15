@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/07/2019
+ms.date: 10/08/2019
 ms.author: magoedte
-ms.openlocfilehash: ada573cc919d775af52abc5a75004866aebbeddb
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
-ms.translationtype: HT
+ms.openlocfilehash: dfa823955cccba4ac7ec6859894a4562f0810d76
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72033941"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248749"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>컨테이너의 Azure Monitor에 대 한 에이전트 데이터 수집 구성
 
@@ -64,7 +64,7 @@ ms.locfileid: "72033941"
 
 | 엔드포인트 | Scope | 예제 |
 |----------|-------|---------|
-| Pod 주석 | 클러스터 전체 | 달 <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000" <br>prometheus.io/scheme: "http"` |
+| Pod 주석 | 클러스터 전체 | 달 <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
 | Kubernetes 서비스 | 클러스터 전체 | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
 | url/끝점 | 노드당 및/또는 클러스터 전체 | `http://myurl:9101/metrics` |
 
@@ -79,9 +79,9 @@ URL을 지정 하면 Azure Monitor 컨테이너의 경우에만 끝점을 스크
 | | `prometheus.io/scrape` | Boolean | true 또는 false | Pod의 스크랩를 사용 하도록 설정 합니다. `monitor_kubernetes_pods`은 `true`로 설정해야 합니다. |
 | | `prometheus.io/scheme` | 문자열 | http 또는 https | 기본값은 HTTP over scrapping입니다. 필요한 경우 `https`으로 설정 합니다. | 
 | | `prometheus.io/path` | 문자열 | 쉼표로 구분 된 배열 | 메트릭을 페치할 HTTP 리소스 경로입니다. 메트릭 경로가-0 @no__t 되지 않은 경우이 주석으로 정의 합니다. |
-| | `prometheus.io/port` | 문자열 | 9102 | 수신 대기할 포트를 지정 합니다. 포트가 설정 되지 않은 경우 기본값은 9102입니다. |
+| | `prometheus.io/port` | 문자열 | 9102 | 스크랩 포트를 지정 합니다. 포트가 설정 되지 않은 경우 기본값은 9102입니다. |
 | 노드 차원 | `urls` | 문자열 | 쉼표로 구분 된 배열 | HTTP 끝점 (IP 주소 또는 올바른 URL 경로 중 하나). 예를 들어 `urls=[$NODE_IP/metrics]`을 참조하십시오. $NODE _IP는 컨테이너 매개 변수에 대 한 특정 Azure Monitor 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. |
-| 노드 전체 또는 클러스터 전체 | `interval` | 문자열 | 60 초 | 컬렉션 간격 기본값은 1 분 (60 초)입니다. *[Prometheus_data_collection_settings]* 및/또는 *[prometheus_data_collection_settings]* 에 대 한 컬렉션을 시간 단위 (예: ns, us (또는 Âμs), ms, s, m, h)로 수정할 수 있습니다. |
+| 노드 전체 또는 클러스터 전체 | `interval` | 문자열 | 60 초 | 컬렉션 간격 기본값은 1 분 (60 초)입니다. *[Prometheus_data_collection_settings]* 및/또는 *[prometheus_data_collection_settings]* 에 대 한 컬렉션을 시간 단위 (예: s, m, h)로 수정할 수 있습니다. |
 | 노드 전체 또는 클러스터 전체 | `fieldpass`<br> `fielddrop`| 문자열 | 쉼표로 구분 된 배열 | 허용 (`fieldpass`) 및 허용 안 함 (`fielddrop`) 목록을 설정 하 여 끝점에서 수집할 특정 메트릭을 지정할 수 있습니다. 먼저 허용 목록을 설정 해야 합니다. |
 
 ConfigMaps는 전역 목록이 며 에이전트에 하나의 Configmaps만 적용 될 수 있습니다. 컬렉션에서 다른 ConfigMaps을 과도 하 게 사용할 수 없습니다.
@@ -91,7 +91,8 @@ ConfigMaps는 전역 목록이 며 에이전트에 하나의 Configmaps만 적�
 ConfigMap 구성 파일을 구성 하 고 클러스터에 배포 하려면 다음 단계를 수행 합니다.
 
 1. 템플릿 ConfigMap yaml 파일을 [다운로드](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) 하 고 azm로 저장 합니다.  
-1. 사용자 지정 항목으로 ConfigMap yaml 파일을 편집 합니다.
+
+2. 사용자 지정 항목으로 ConfigMap yaml 파일을 편집 하 여 stdout, stderr 및/또는 환경 변수를 수집 합니다.
 
     - Stdout 로그 컬렉션에 대 한 특정 네임 스페이스를 제외 하려면 다음 예제를 사용 하 여 키/값을 구성 합니다. `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
     
@@ -99,48 +100,67 @@ ConfigMap 구성 파일을 구성 하 고 클러스터에 배포 하려면 다�
     
     - Stderr 로그 수집 클러스터 전체를 사용 하지 않도록 설정 하려면 다음 예제를 사용 하 여 키/값을 구성 합니다. `[log_collection_settings.stderr] enabled = false`.
     
-    - 다음 예에서는 클러스터 전체에서, 에이전트의 DameonSet 노드 전체에서, pod 주석을 지정 하 여 ConfigMap 파일 메트릭을 구성 하는 방법을 보여 줍니다.
+3. Kubernetes services 클러스터 전체 컬렉션을 구성 하려면 다음 예제를 사용 하 여 ConfigMap 파일을 구성 합니다.
 
-        - 클러스터 전체에서 특정 URL의 프로메테우스 메트릭을 스크랩 합니다.
+    ```
+    prometheus-data-collection-settings: |- 
+    # Custom Prometheus metrics data collection settings
+    [prometheus_data_collection_settings.cluster] 
+    interval = "1m"  ## Valid time units are s, m, h.
+    fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through 
+    fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
+    kubernetes_services = ["http://my-service-dns.my-namespace:9102/metrics"]
+    ```
+
+4. 클러스터의 특정 URL에서 스크랩의 프로메테우스 메트릭을 구성 하려면 다음 예제를 사용 하 여 ConfigMap 파일을 구성 합니다.
+
+    ```
+    prometheus-data-collection-settings: |- 
+    # Custom Prometheus metrics data collection settings
+    [prometheus_data_collection_settings.cluster] 
+    interval = "1m"  ## Valid time units are s, m, h.
+    fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through 
+    fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
+    urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
+    ```
+
+5. 클러스터의 모든 개별 노드에 대해 에이전트의 DaemonSet에서 스크랩의 프로메테우스 메트릭을 구성 하려면 ConfigMap에서 다음을 구성 합니다.
+    
+    ```
+    prometheus-data-collection-settings: |- 
+    # Custom Prometheus metrics data collection settings 
+    [prometheus_data_collection_settings.node] 
+    interval = "1m"  ## Valid time units are s, m, h. 
+    urls = ["http://$NODE_IP:9103/metrics"] 
+    fieldpass = ["metric_to_pass1", "metric_to_pass2"] 
+    fielddrop = ["metric_to_drop"] 
+    ```
+
+    >[!NOTE]
+    >$NODE _IP는 컨테이너 매개 변수에 대 한 특정 Azure Monitor 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. 
+
+6. Pod 주석을 지정 하 여 스크랩의 프로메테우스 메트릭을 구성 하려면 다음 단계를 수행 합니다.
+
+    1. ConfigMap에서 다음을 지정 합니다.
 
         ```
          prometheus-data-collection-settings: |- 
          # Custom Prometheus metrics data collection settings
          [prometheus_data_collection_settings.cluster] 
-         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h.
-         fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through 
-         fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
-         urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
+         interval = "1m"  ## Valid time units are s, m, h
+         monitor_kubernetes_pods = true 
         ```
 
-        - 클러스터의 모든 노드에서 실행 되는 에이전트의 DaemonSet에서 프로메테우스 메트릭을 스크랩 합니다.
+    2. Pod 주석에 대해 다음 구성을 지정 합니다.
 
         ```
-         prometheus-data-collection-settings: |- 
-         # Custom Prometheus metrics data collection settings 
-         [prometheus_data_collection_settings.node] 
-         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. 
-         # Node level scrape endpoint(s). These metrics will be scraped from agent's DaemonSet running in every node in the cluster 
-         urls = ["http://$NODE_IP:9103/metrics"] 
-         fieldpass = ["metric_to_pass1", "metric_to_pass2"] 
-         fielddrop = ["metric_to_drop"] 
+         - prometheus.io/scrape:"true" #Enable scraping for this pod 
+         - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
+         - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. 
+         - prometheus.io/port:"8000" #If port is not 9102 use this annotation
         ```
 
-        - Pod 주석을 지정 하 여 프로메테우스 메트릭을 스크랩 합니다.
-
-        ```
-         prometheus-data-collection-settings: |- 
-         # Custom Prometheus metrics data collection settings
-         [prometheus_data_collection_settings.cluster] 
-         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h
-         monitor_kubernetes_pods = true #replicaset will scrape Kubernetes pods for the following prometheus annotations: 
-          - prometheus.io/scrape:"true" #Enable scraping for this pod 
-          - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
-          - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. 
-          - prometheus.io/port:"8000" #If port is not 9102 use this annotation
-        ```
-
-1. 다음 kubectl 명령을 실행 하 여 ConfigMap을 만듭니다. `kubectl apply -f <configmap_yaml_file.yaml>`.
+7. 다음 kubectl 명령을 실행 하 여 ConfigMap을 만듭니다. `kubectl apply -f <configmap_yaml_file.yaml>`.
     
     예: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
     
@@ -186,29 +206,32 @@ config::unsupported/missing config schema version - 'v21' , using defaults
                     schema-versions=v1 
 ```
 
-## <a name="review-prometheus-data-usage"></a>프로메테우스 데이터 사용 검토
+## <a name="query-prometheus-metrics-data"></a>프로메테우스 메트릭 데이터 쿼리
 
 Azure Monitor으로 스크랩 된 프로메테우스 메트릭을 보려면 "프로메테우스"를 네임 스페이스로 지정 합니다. @No__t-0 kubernetes 네임 스페이스에서 프로메테우스 메트릭을 보는 샘플 쿼리는 다음과 같습니다.
 
 ```
 InsightsMetrics 
-| where Namespace contains "prometheus"
+| where Namespace == "prometheus"
 | extend tags=parse_json(Tags)
-| where tostring(tags.namespace) == "default" 
+| summarize count() by Name
 ```
 
 또한 이름으로 프로메테우스 데이터를 직접 쿼리할 수 있습니다.
 
 ```
 InsightsMetrics 
+| where Namespace == "prometheus"
 | where Name contains "some_prometheus_metric"
 ```
+
+## <a name="review-prometheus-data-usage"></a>프로메테우스 데이터 사용 검토
 
 각 메트릭의 수집 볼륨 크기를 매일 GB 단위로 식별 하 여 높은 경우에는 다음 쿼리를 제공 합니다.
 
 ```
 InsightsMetrics 
-| where Namespace contains "prometheus"
+| where Namespace == "prometheus"
 | where TimeGenerated > ago(24h)
 | summarize VolumeInGB = (sum(_BilledSize) / (1024 * 1024 * 1024)) by Name
 | order by VolumeInGB desc
