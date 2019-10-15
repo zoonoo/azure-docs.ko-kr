@@ -12,33 +12,33 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: d1c4005651518eb27eebde0005bd70b4adad6432
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
-ms.translationtype: MT
+ms.openlocfilehash: 095d539404412d34c66201646f6134ff740f86b7
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798358"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299267"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK에서 원격 분석 필터링 및 전처리
 
+Application Insights SDK에 대 한 플러그 인을 작성 하 고 구성 하 여 원격 분석을 Application Insights 서비스로 보내기 전에 보강 하 고 처리할 수 있는 방법을 사용자 지정할 수 있습니다.
 
-Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원격 분석을 Application Insights 서비스에 전송하기 전에 캡처하고 처리하는 방법을 사용자 지정할 수 있습니다.
-
-* [샘플링](../../azure-monitor/app/sampling.md) 통계를 왜곡하지 않고 원격 분석의 양을 줄입니다. 관련 데이터 요소를 함께 유지하여 문제를 진단할 때 데이터 요소 간을 탐색할 수 있습니다. 포털에서는 샘플링을 보완하기 위해 총 개수를 곱합니다.
-* [ASP.NET](#filtering) 또는 [Java](../../azure-monitor/app/java-filter-telemetry.md)용 원격 분석 프로세서를 사용하여 필터링하면 서버에 전송되기 전에 SDK에서 원격 분석을 선택하거나 수정할 수 있습니다. 예를 들어 로봇의 요청을 제외하여 원격 분석의 양을 줄일 수 있습니다. 하지만 필터링은 트래픽을 감소시키는 데 있어 샘플링보다 더 기본적인 방법입니다. 이를 통해 전송된 요청을 더 잘 제어할 수 있지만 통계에 영향을 준다는 점을 알고 있어야 합니다(예: 성공한 모든 요청을 필터링하는 경우).
-* [원격 분석 이니셜라이저](#add-properties) 는 표준 모듈의 원격 분석을 포함한 앱에서 보낸 모든 원격 분석에 속성을 추가합니다. 예를 들어 계산된 값을 추가하거나 포털에서 데이터를 필터링하는 데 사용할 버전 번호를 추가할 수 있습니다.
+* [샘플링](sampling.md) 통계를 왜곡하지 않고 원격 분석의 양을 줄입니다. 관련 데이터 요소를 함께 유지하여 문제를 진단할 때 데이터 요소 간을 탐색할 수 있습니다. 포털에서는 샘플링을 보완하기 위해 총 개수를 곱합니다.
+* 원격 분석 프로세서를 사용 하 여 필터링 하면 SDK가 서버에 전송 되기 전에 SDK에서 원격 분석을 필터링 할 수 있습니다. 예를 들어 로봇의 요청을 제외하여 원격 분석의 양을 줄일 수 있습니다. 필터링은 샘플링 보다 트래픽을 줄이는 보다 기본적인 방법입니다. 이를 통해 전송된 요청을 더 잘 제어할 수 있지만 통계에 영향을 준다는 점을 알고 있어야 합니다(예: 성공한 모든 요청을 필터링하는 경우).
+* [원격 분석 이니셜라이저](#add-properties) 표준 모듈의 원격 분석을 포함 하 여 앱에서 전송 된 원격 분석에 속성을 추가 하거나 수정 합니다. 예를 들어 계산된 값을 추가하거나 포털에서 데이터를 필터링하는 데 사용할 버전 번호를 추가할 수 있습니다.
 * [SDK API](../../azure-monitor/app/api-custom-events-metrics.md) 사용자 지정 이벤트 및 메트릭을 보내는 데 사용됩니다.
 
-시작하기 전에 다음을 수행합니다.
+시작하기 전 주의 사항:
 
-* 앱에 Application Insights [SDK for ASP.NET](../../azure-monitor/app/asp-net.md) 또는 [SDK for Java](../../azure-monitor/app/java-get-started.md)를 설치합니다.
+* 응용 프로그램에 적합 한 SDK를 설치 합니다. [ASP.NET](asp-net.md) 또는 [ASP.NET Core](asp-net-core.md) 또는 [.Net/.net Core에 대한 비 HTTP/작업자](worker-service.md) 또는 앱의 [JAVA](../../azure-monitor/app/java-get-started.md)입니다.
 
 <a name="filtering"></a>
 
 ## <a name="filtering-itelemetryprocessor"></a>필터링: ITelemetryProcessor
-이 기술을 사용하면 원격 분석 스트림에서 포함되거나 제외된 요청을 보다 직접적으로 제어할 수 있습니다. 샘플링과 함께 사용할 수도 있고 또는 따로 사용할 수도 있습니다.
 
-원격 분석을 필터링하려면 원격 분석 프로세서를 작성하고 SDK를 사용하여 등록합니다. 모든 원격 분석은 해당 프로세서를 거친 다음 스트림에서 삭제하거나 속성을 추가할 수 있습니다. 직접 작성한 원격 분석뿐만 아니라 HTTP 요청 수집기 및 종속성 수집기와 같은 표준 모듈의 원격 분석이 여기에 포함됩니다. 예를 들어 로봇 또는 성공적인 종속성 호출에서 요청에 대한 원격 분석을 필터링할 수 있습니다.
+이 기법을 사용 하면 원격 분석 스트림에서 포함 되거나 제외 되는 항목을 직접 제어할 수 있습니다. 필터링을 사용 하 여 Application Insights에 보낼 원격 분석 항목을 삭제할 수 있습니다. 샘플링과 함께 사용할 수도 있고 또는 따로 사용할 수도 있습니다.
+
+원격 분석을 필터링 하려면 원격 분석 프로세서를 작성 하 고에 `TelemetryConfiguration`등록 합니다. 모든 원격 분석은 프로세서를 통해 이동 하며, 스트림에서 해당 데이터를 삭제 하거나 체인의 다음 프로세서에 제공 하도록 선택할 수 있습니다. 여기에는 HTTP 요청 수집기 및 종속성 수집기와 같은 표준 모듈의 원격 분석과 사용자가 추적 한 원격 분석이 포함 됩니다. 예를 들어 로봇 또는 성공적인 종속성 호출에서 요청에 대한 원격 분석을 필터링할 수 있습니다.
 
 > [!WARNING]
 > 프로세서를 사용하는 SDK에서 보낸 원격 분석을 필터링하는 작업은 포털에 표시되는 통계를 왜곡하고 관련된 항목을 수행하기 어렵게 만들 수 있습니다.
@@ -48,58 +48,47 @@ Application Insights SDK에 대한 플러그인을 작성하고 구성하여 원
 >
 
 ### <a name="create-a-telemetry-processor-c"></a>원격 분석 프로세서 만들기(C#)
-1. 프로젝트의 Application Insights SDK가 버전 2.0.0 이상인지 확인합니다. Visual Studio 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다. NuGet 패키지 관리자에서 Microsoft.ApplicationInsights.Web을 선택합니다.
-2. 필터를 만들려면 ITelemetryProcessor를 구현합니다. 원격 분석 모듈, 원격 분석 이니셜라이저 및 원격 분석 채널와 같은 또 다른 확장성 지점입니다.
 
-    원격 분석 프로세서는 일련의 프로세싱을 생성합니다. 원격 분석 프로세서를 인스턴스화할 때 과정에서 다음 프로세서에 대한 링크를 전달합니다. 원격 분석 데이터 요소가 프로세스 메서드에 전달되는 경우 해당 작업을 수행하고 과정에서 다음 원격 분석 프로세서를 호출합니다.
+1. 필터를 만들려면를 구현 `ITelemetryProcessor`합니다.
 
-```csharp
-using Microsoft.ApplicationInsights.Channel;
-using Microsoft.ApplicationInsights.Extensibility;
+    원격 분석 프로세서는 일련의 프로세싱을 생성합니다. 원격 분석 프로세서를 인스턴스화하면 체인의 다음 프로세서에 대 한 참조가 제공 됩니다. 원격 분석 데이터 요소가 Process 메서드로 전달 되 면 해당 작업을 수행한 다음 체인에서 다음 원격 분석 프로세서를 호출 하거나 호출 하지 않습니다.
 
-public class SuccessfulDependencyFilter : ITelemetryProcessor
-{
+    ```csharp
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.Extensibility;
 
-    private ITelemetryProcessor Next { get; set; }
-
-    // You can pass values from .config
-    public string MyParamFromConfigFile { get; set; }
-
-    // Link processors to each other in a chain.
-    public SuccessfulDependencyFilter(ITelemetryProcessor next)
+    public class SuccessfulDependencyFilter : ITelemetryProcessor
     {
-        this.Next = next;
+        private ITelemetryProcessor Next { get; set; }
+
+        // next will point to the next TelemetryProcessor in the chain.
+        public SuccessfulDependencyFilter(ITelemetryProcessor next)
+        {
+            this.Next = next;
+        }
+
+        public void Process(ITelemetry item)
+        {
+            // To filter out an item, return without calling the next processor.
+            if (!OKtoSend(item)) { return; }
+
+            this.Next.Process(item);
+        }
+
+        // Example: replace with your own criteria.
+        private bool OKtoSend (ITelemetry item)
+        {
+            var dependency = item as DependencyTelemetry;
+            if (dependency == null) return true;
+
+            return dependency.Success != true;
+        }
     }
-    public void Process(ITelemetry item)
-    {
-        // To filter out an item, just return
-        if (!OKtoSend(item)) { return; }
-        // Modify the item if required
-        ModifyItem(item);
+    ```
 
-        this.Next.Process(item);
-    }
+2. 프로세서를 추가 합니다.
 
-    // Example: replace with your own criteria.
-    private bool OKtoSend (ITelemetry item)
-    {
-        var dependency = item as DependencyTelemetry;
-        if (dependency == null) return true;
-
-        return dependency.Success != true;
-    }
-
-    // Example: replace with your own modifiers.
-    private void ModifyItem (ITelemetry item)
-    {
-        item.Context.Properties.Add("app-version", "1." + MyParamFromConfigFile);
-    }
-}
-```
-
-3. 프로세서를 추가 합니다.
-
-**ASP.NET 앱** ApplicationInsights.config에 삽입 합니다.
+**ASP.NET 앱** ApplicationInsights .config에이 코드 조각을 삽입 합니다.
 
 ```xml
 <TelemetryProcessors>
@@ -110,19 +99,16 @@ public class SuccessfulDependencyFilter : ITelemetryProcessor
 </TelemetryProcessors>
 ```
 
-(샘플링 필터를 초기화하는 섹션과 동일합니다.)
-
 클래스에서 명명된 공용 속성을 제공하여 .config 파일의 문자열 값을 전달할 수 있습니다.
 
 > [!WARNING]
 > .config 파일의 형식 이름 및 모든 속성 이름이 코드의 클래스 및 속성 이름과 일치하는지 주의하여 확인해야 합니다. .config 파일에서 존재하지 않는 형식 또는 속성을 참조하는 경우 SDK가 원격 분석을 자동으로 전송하지 못할 수 있습니다.
 >
->
 
-**또는** 코드에서 필터를 초기화할 수 있습니다. Global.asax.cs의 AppStart과 같은 적합한 초기화 클래스의 과정에서 프로세서를 삽입합니다.
+**또는** 코드에서 필터를 초기화할 수 있습니다. 적절 한 초기화 클래스에서 (예: AppStart in `Global.asax.cs` ) 프로세서를 체인에 삽입 합니다.
 
 ```csharp
-var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
+var builder = TelemetryConfiguration.Active.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
 builder.Use((next) => new SuccessfulDependencyFilter(next));
 
 // If you have more processors:
@@ -133,13 +119,12 @@ builder.Build();
 
 이 시점 이후에 만든 TelemetryClients는 프로세서를 사용합니다.
 
-**ASP.NET Core 앱**
+**ASP.NET Core/작업자 서비스 앱**
 
 > [!NOTE]
-> 사용 하 여 추가 이니셜라이저 `ApplicationInsights.config` 알거나 `TelemetryConfiguration.Active` ASP.NET Core 응용 프로그램에 적합 하지 않습니다. 
+> 를 사용 하 `ApplicationInsights.config` 여 `TelemetryConfiguration.Active` 또는를 사용 하 여 프로세서를 추가 하는 것은 ASP.NET Core 응용 프로그램에 적합 하지 않거나, Microsoft의 applicationinsights.
 
-
-에 대 한 [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) 응용 프로그램을 새 추가 `TelemetryInitializer` 아래와 같이 종속성 주입 컨테이너에 추가 하 여 수행 됩니다. 이렇게 `ConfigureServices` 메서드의 여 `Startup.cs` 클래스입니다.
+[ASP.NET Core](asp-net-core.md#adding-telemetry-processors) 또는 작업 [서비스](worker-service.md#adding-telemetry-processors)를 사용 하 여 작성 된 앱의 `TelemetryProcessor` 경우에는 아래 `AddApplicationInsightsTelemetryProcessor` 와 같이에 `IServiceCollection`확장 메서드를 사용 하 여 새를 추가 합니다. 이 메서드는 `Startup.cs` 클래스의 `ConfigureServices` 메서드에서 호출 됩니다.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -154,8 +139,10 @@ builder.Build();
 ```
 
 ### <a name="example-filters"></a>예제 필터
+
 #### <a name="synthetic-requests"></a>가상 요청
-보트 및 웹 테스트를 필터링합니다. 메트릭 탐색기가 가상 소스를 필터링하는 옵션을 제공하지만 이 옵션은 SDK에서 필터링하여 트래픽을 감소시킵니다.
+
+보트 및 웹 테스트를 필터링합니다. 메트릭 탐색기는 가상 원본을 필터링 하는 옵션을 제공 하지만이 옵션을 사용 하면 SDK 자체에서 트래픽을 필터링 하 여 트래픽 및 수집 크기를 줄일 수 있습니다.
 
 ```csharp
 public void Process(ITelemetry item)
@@ -168,6 +155,7 @@ public void Process(ITelemetry item)
 ```
 
 #### <a name="failed-authentication"></a>실패한 인증
+
 "401" 응답을 사용하여 요청을 필터링합니다.
 
 ```csharp
@@ -178,19 +166,21 @@ public void Process(ITelemetry item)
     if (request != null &&
     request.ResponseCode.Equals("401", StringComparison.OrdinalIgnoreCase))
     {
-        // To filter out an item, just terminate the chain:
+        // To filter out an item, return without calling the next processor.
         return;
     }
-    // Send everything else:
+
+    // Send everything else
     this.Next.Process(item);
 }
 ```
 
 #### <a name="filter-out-fast-remote-dependency-calls"></a>빠른 원격 종속성 호출을 필터링합니다.
+
 느린 호출을 진단하려는 경우 빠른 호출을 필터링합니다.
 
 > [!NOTE]
-> 이 포털에서 참조하는 통계를 왜곡시킵니다. 종속성 차트는 종속성 호출이 모두 실패한 것처럼 보입니다.
+> 이 포털에서 참조하는 통계를 왜곡시킵니다.
 >
 >
 
@@ -208,17 +198,18 @@ public void Process(ITelemetry item)
 ```
 
 #### <a name="diagnose-dependency-issues"></a>종속성 문제 진단
-[이 블로그](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) 에서는 종속성으로 정규 ping을 자동으로 전송하여 종속성 문제를 진단하는 프로젝트에 대해 설명합니다.
 
+[이 블로그](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) 에서는 종속성으로 정규 ping을 자동으로 전송하여 종속성 문제를 진단하는 프로젝트에 대해 설명합니다.
 
 <a name="add-properties"></a>
 
 ## <a name="add-properties-itelemetryinitializer"></a>속성 추가: ITelemetryInitializer
-원격 분석 이니셜라이저를 사용하여 모든 원격 분석과 함께 전송되는 전역 속성을 정의하고 표준 원격 분석 모듈의 선택한 동작을 재정의할 수 있습니다.
 
-예를 들어, 웹 패키지에 대한 Application Insights는 HTTP 요청에 대한 원격 분석을 수집합니다. 기본적으로, 모든 요청을 응답 코드 > = 400으로 실패한 것으로 플래그합니다. 하지만 400를 성공으로 처리하려는 경우 성공 속성을 설정하는 원격 분석 이니셜라이저를 제공할 수 있습니다.
+원격 분석 이니셜라이저를 사용 하 여 추가 정보를 사용 하 여 원격 분석을 보강 하거나 표준 원격 분석 모듈에 의해 설정 된 원격 분석 속성을 재정의 합니다.
 
-원격 분석 이니셜라이저를 제공하는 경우 Track*() 메서드가 호출될 때마다 호출됩니다. 표준 원격 분석 모듈에 의해 호출되는 메서드가 포함됩니다. 규칙에 따라 이러한 모듈은 이니셜라이저에서 이미 설정된 모든 속성을 설정하지 않습니다.
+예를 들어 웹 패키지에 대 한 Application Insights는 HTTP 요청에 대 한 원격 분석을 수집 합니다. 기본적으로, 모든 요청을 응답 코드 > = 400으로 실패한 것으로 플래그합니다. 하지만 400를 성공으로 처리하려는 경우 성공 속성을 설정하는 원격 분석 이니셜라이저를 제공할 수 있습니다.
+
+원격 분석 이니셜라이저를 제공하는 경우 Track*() 메서드가 호출될 때마다 호출됩니다. 여기에 `Track()` 는 표준 원격 분석 모듈에 의해 호출 되는 메서드가 포함 됩니다. 규칙에 따라 이러한 모듈은 이니셜라이저에서 이미 설정된 모든 속성을 설정하지 않습니다. 원격 분석 이니셜라이저는 원격 분석 프로세서를 호출 하기 전에 호출 됩니다. 따라서 이니셜라이저가 수행 하는 모든 강화은 프로세서에 표시 됩니다.
 
 **이니셜라이저 정의**
 
@@ -251,16 +242,17 @@ namespace MvcWebRole.Telemetry
         {
             // If we set the Success property, the SDK won't change it:
             requestTelemetry.Success = true;
+
             // Allow us to filter these requests in the portal:
-            requestTelemetry.Context.Properties["Overridden400s"] = "true";
+            requestTelemetry.Properties["Overridden400s"] = "true";
         }
-        // else leave the SDK to set the Success property      
+        // else leave the SDK to set the Success property
     }
   }
 }
 ```
 
-**ASP.NET 앱: 이니셜라이저 로드**
+**ASP.NET apps: 이니셜라이저 로드**
 
 ApplicationInsights.config에서:
 
@@ -286,12 +278,12 @@ protected void Application_Start()
 
 [이 샘플에 대해 자세히 알아봅니다.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
-**ASP.NET Core 앱: 이니셜라이저 로드**
+**ASP.NET Core/작업자 서비스 앱: 이니셜라이저 로드**
 
 > [!NOTE]
-> 사용 하 여 추가 이니셜라이저 `ApplicationInsights.config` 알거나 `TelemetryConfiguration.Active` ASP.NET Core 응용 프로그램에 적합 하지 않습니다. 
+> 또는를 사용 `ApplicationInsights.config` 하 여 이니셜라이저를 추가 하 는것은ASP.NETCore응용프로그램에유효하지않거나,Microsoft-applicationinsights.`TelemetryConfiguration.Active`
 
-에 대 한 [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 응용 프로그램을 새 추가 `TelemetryInitializer` 아래와 같이 종속성 주입 컨테이너에 추가 하 여 수행 됩니다. 이렇게 `ConfigureServices` 메서드의 여 `Startup.cs` 클래스입니다.
+[ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 또는 작업 [서비스](worker-service.md#adding-telemetryinitializers)를 사용 하 여 작성 된 앱의 `TelemetryInitializer` 경우 아래와 같이 종속성 주입 컨테이너에 추가 하 여 새를 추가 합니다. 이 작업은 `Startup.ConfigureServices` 메서드에서 수행 됩니다.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -367,25 +359,62 @@ void initialize(Telemetry telemetry); }
 
 telemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 요약은 [Application Insights 데이터 모델 내보내기](../../azure-monitor/app/export-data-model.md)를 참조하세요.
 
-이니셜라이저를 원하는 수만큼 추가할 수 있습니다.
+원하는 수 만큼 이니셜라이저를 추가할 수 있으며, 추가 된 순서 대로 호출 됩니다.
+
+### <a name="example-telemetryinitializers"></a>예 TelemetryInitializers
+
+#### <a name="add-custom-property"></a>사용자 지정 속성 추가
+
+다음 샘플 이니셜라이저는 추적 된 모든 원격 분석에 사용자 지정 속성을 추가 합니다.
+
+```csharp
+public void Initialize(ITelemetry item)
+{
+  var itemProperties = item as ISupportProperties;
+  if(itemProperties != null && !itemProperties.ContainsKey("customProp"))
+    {
+        itemProperties.Properties["customProp"] = "customValue";
+    }
+}
+```
+
+#### <a name="add-cloud-role-name"></a>클라우드 역할 이름 추가
+
+다음 샘플 이니셜라이저는 클라우드 역할 이름을 추적 된 모든 원격 분석으로 설정 합니다.
+
+```csharp
+public void Initialize(ITelemetry telemetry)
+{
+    if(string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+    {
+        telemetry.Context.Cloud.RoleName = "MyCloudRoleName";
+    }
+}
+```
 
 ## <a name="itelemetryprocessor-and-itelemetryinitializer"></a>ITelemetryProcessor 및 ITelemetryInitializer
+
 원격 분석 프로세서 및 원격 분석 이니셜라이저 간의 차이는 무엇인가요?
 
-* 두 프로그램으로 수행할 수 있는 작업의 일부가 겹칩니다. 모두 원격 분석에 속성을 추가하는 데 사용될 수 있습니다.
+* 이러한 작업을 수행할 수 있는 작업에는 약간의 차이가 있습니다. 이러한 용도로 이니셜라이저를 사용 하는 것이 좋지만 원격 분석의 속성을 추가 하거나 수정 하는 데 사용할 수 있습니다.
 * TelemetryInitializers는 항상 TelemetryProcessors 전에 실행됩니다.
+* TelemetryInitializers를 두 번 이상 호출할 수 있습니다. 규칙에 따라 이미 설정 된 속성은 설정 하지 않습니다.
 * TelemetryProcessors를 사용하면 원격 분석 항목을 완전히 대체하거나 삭제할 수 있습니다.
-* TelemetryProcessors는 성능 카운터 원격 분석을 처리하지 않습니다.
+* 모든 등록 된 TelemetryInitializers는 모든 원격 분석 항목에 대해 호출 됩니다. 원격 분석 프로세서의 경우 SDK는 첫 번째 원격 분석 프로세서 호출을 보장 합니다. 프로세서의 나머지 부분이 호출 되었는지 여부는 이전 원격 분석 프로세서에 의해 결정 됩니다.
+* TelemetryInitializers를 사용 하 여 추가 속성을 사용 하 여 원격 분석을 보강 하거나 기존 항목을 재정의 합니다. TelemetryProcessor를 사용 하 여 원격 분석을 필터링 합니다.
 
 ## <a name="troubleshooting-applicationinsightsconfig"></a>ApplicationInsights.config 문제 해결
+
 * 정규화된 형식 이름 및 어셈블리 이름이 올바른지 확인합니다.
 * applicationinsights.config 파일이 출력 디렉터리에 있고 최근 변경 내용을 포함하는지 확인합니다.
 
 ## <a name="reference-docs"></a>참조 문서
+
 * [API 개요](../../azure-monitor/app/api-custom-events-metrics.md)
 * [ASP.NET 참조](https://msdn.microsoft.com/library/dn817570.aspx)
 
 ## <a name="sdk-code"></a>SDK 코드
+
 * [ASP.NET 핵심 SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
 * [ASP.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)

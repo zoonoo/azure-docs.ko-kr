@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/24/2019
 ms.author: dapine
-ms.openlocfilehash: 0c2ff2c745ebed8385df0d351c6d43faf5ab1b9d
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 11f041ed06117a7e3d495fb43d3a4904f6001520
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050066"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316389"
 ---
-# <a name="install-and-run-anomaly-detector-containers"></a>변칙 탐지기 컨테이너를 설치 하 고 실행 합니다.
+# <a name="install-and-run-anomaly-detector-containers"></a>Anomaly Detector 컨테이너 설치 및 실행
 
 변칙 탐지기의 컨테이너는 다음과 같습니다. 
 
-|함수|기능|
+|기능|기능|
 |-|-|
 |Anomaly Detector| <li> 는 실시간으로 발생 하는 변칙을 검색 합니다. <li> 일괄 처리로 데이터 집합 전체에서 변칙을 검색 합니다. <li> 데이터의 정상적인 범위를 유추 합니다. <li> 데이터에 더 잘 맞도록 변칙 검색 민감도 조정을 지원 합니다. |
 
@@ -30,15 +30,17 @@ Api에 대 한 자세한 내용은 다음을 참조 하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 변칙 탐지기 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
-|필수|용도|
+|필요한 공간|용도|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
 |변칙 탐지기 리소스 |이러한 컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>연결 된 API 키와 끝점 URI를 가져오는 Azure _변칙 탐지기_ 리소스입니다. 두 값은 모두 Azure Portal의 **변칙 탐지기** 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작 하는 데 필요 합니다.<br><br>**{API_KEY}** : **키** 페이지에서 사용 가능한 두 리소스 키 중 하나<br><br>**{ENDPOINT_URI}** : **개요** 페이지에 제공 된 끝점입니다.|
+
+[!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## <a name="request-access-to-the-container-registry"></a>컨테이너 레지스트리에 대한 액세스 요청
 
@@ -80,7 +82,6 @@ For a full description of available tags, such as `latest` used in the preceding
 -->
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-
 ### <a name="docker-pull-for-the-anomaly-detector-container"></a>변칙 탐지기 컨테이너에 대 한 Docker 풀
 
 ```Docker
@@ -96,14 +97,9 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-det
 
 ## <a name="run-the-container-with-docker-run"></a>`docker run`을 사용하여 컨테이너 실행
 
-[docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 세 컨테이너 중 하나를 실행합니다. 명령은 다음 매개 변수를 사용합니다.
+[docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. `{ENDPOINT_URI}` 및 `{API_KEY}` 값을 가져오는 방법에 대한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters)을 참조 하세요.
 
-| 구분 | 값 |
-|-------------|-------|
-|{API_KEY} | 이 키는 컨테이너를 시작 하는 데 사용 되며 Azure Portal의 변칙 탐지기 키 페이지에서 사용할 수 있습니다.  |
-|{ENDPOINT_URI} | 청구 끝점 URI 값은 Azure Portal의 변칙 탐지기 개요 페이지에서 사용할 수 있습니다.|
-
-다음 예`docker run`에서 매개 변수를 사용자 고유값으로 바꿉니다.
+`docker run`명령의 [예](anomaly-detector-container-configuration.md#example-docker-run-commands)를 사용할 수 있습니다.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -168,7 +164,9 @@ ApiKey={API_KEY}
 
 ## <a name="troubleshooting"></a>문제 해결
 
-출력 [탑재](anomaly-detector-container-configuration.md#mount-settings) 및 활성화된 로깅을 사용하여 컨테이너를 실행하는 경우 컨테이너는 컨테이너를 시작 또는 실행하는 동안 발생하는 문제를 해결하는 데 도움이 되는 로그 파일을 생성합니다. 
+출력 [탑재](anomaly-detector-container-configuration.md#mount-settings) 및 활성화된 로깅을 사용하여 컨테이너를 실행하는 경우 컨테이너는 컨테이너를 시작 또는 실행하는 동안 발생하는 문제를 해결하는 데 도움이 되는 로그 파일을 생성합니다.
+
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>대금 청구
 

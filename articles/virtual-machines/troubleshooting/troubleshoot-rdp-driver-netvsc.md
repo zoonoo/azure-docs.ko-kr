@@ -4,21 +4,20 @@ description: Windows 10 또는 Azure의 Windows Server 2016 VM에 연결할 때 
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: v-jesits
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: e6685a5e77d92bb9e05ab9578e48c99e80a64b74
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4c10a2dcd55c1605cfafe6c67cfefd9d8a3c5f9d
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362257"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057981"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>netvsc.sys로 인해 Windows 10 또는 Azure의 Windows Server 2016 VM에 원격으로 연결할 수 없습니다.
 
@@ -35,7 +34,7 @@ ms.locfileid: "60362257"
 이 문제는 설치된 netvsc.sys 시스템 파일의 버전이 **10.0.14393.594** 또는 **10.0.15063.0**일 때 발생할 수 있습니다. 이러한 버전의 netvsc.sys는 시스템이 Azure 플랫폼과 상호 작용하지 못하게 할 수 있습니다.
 
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 다음 단계를 따르기 전에 영향을 받는 VM의 [시스템 디스크 스냅샷을 백업으로 만듭니다](../windows/snapshot-copy-managed-disk.md). 이 문제를 해결하려면 직렬 콘솔을 사용하거나 VM의 시스템 디스크를 복구 VM에 연결하여 [오프라인으로 VM을 복구](#repair-the-vm-offline)합니다.
 
@@ -55,8 +54,8 @@ ms.locfileid: "60362257"
 
 2. 동일한 지역에서 작동하는 VM에 연결된 새 데이터 디스크 또는 기존 데이터 디스크에 적절한 업데이트를 다운로드합니다.
 
-   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) 이상의 업데이트
-   - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) 이상의 업데이트
+   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) 이상 업데이트
+   - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) 이상 업데이트
 
 3. 작동하는 VM에서 유틸리티 디스크를 분리하고 손상된 VM에 연결합니다.
 
@@ -98,8 +97,8 @@ ms.locfileid: "60362257"
 
 12. 적절한 업데이트를 다운로드합니다.
 
-    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) 이상의 업데이트
-    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) 이상의 업데이트
+    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) 이상 업데이트
+    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) 이상 업데이트
 
 13. 시스템 디스크를 업데이트를 다운로드할 수 있는 복구 VM에 데이터 디스크로 연결합니다.
 

@@ -12,19 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 776f20d04bb79fa42c78dba8482e8ba866c93b31
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: a56040f5938cc5d1edd452a81935591372cff0d6
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162507"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326657"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
 애플리케이션에 몇 줄의 코드를 삽입하여 사용자가 해당 애플리케이션으로 어떤 작업을 하는지 살펴보거나 진단 문제를 지원할 수 있습니다. 디바이스 및 데스크톱 앱, 웹 클라이언트, 웹 서버에서 원격 분석을 보낼 수 있습니다. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 코어 원격 분석 API를 사용하여 사용자 지정 이벤트 및 메트릭 그리고 고유한 버전의 표준 원격 분석을 보냅니다. 이 API는 표준 Application Insights 데이터 수집기에서 사용하는 동일한 API입니다.
-
-> [!NOTE]
-> `TrackMetric()`은 더 이상 .NET 기반 애플리케이션에 대한 사용자 지정 메트릭을 보내기 위해 선호되는 메서드가 아닙니다. Application Insights .NET SDK [버전 2.60-베타 3](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/CHANGELOG.md#version-260-beta3)에서는 새로운 메서드인 [`TelemetryClient.GetMetric()`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet)이 도입되었습니다. Application Insights .NET SDK [버전 2.72](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet)를 기준으로 이 기능은 안정적인 릴리스에 포함됩니다.
 
 ## <a name="api-summary"></a>API 요약
 
@@ -68,6 +65,8 @@ Application Insights SDK에 대한 참조가 아직 없는 경우:
 
 `TelemetryClient`의 인스턴스 가져오기(웹 페이지의 JavaScript는 제외):
 
+.Net/.Net Core 앱에 대한 [ASP.NET Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) 앱 및 [비 HTTP/Worker](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected)의 경우 해당 설명서에 설명된 대로 종속성 주입 컨테이너에서의 `TelemetryClient` 인스턴스를 가져오는 것이 좋습니다.
+
 *C#*
 
 ```csharp
@@ -94,7 +93,7 @@ var telemetry = applicationInsights.defaultClient;
 
 TelemetryClient는 스레드로부터 안전합니다.
 
-ASP.NET 및 Java 프로젝트의 경우 들어오는 HTTP 요청은 자동으로 캡처됩니다. 앱의 다른 모듈에 대한 TelemetryClient의 추가 인스턴스를 만들 수도 있습니다. 예를 들어 비즈니스 논리 이벤트를 보고하는 미들웨어 클래스에 TelemetryClient 인스턴스 하나가 있을 수 있습니다. 컴퓨터를 식별하려면 UserId 및 DeviceId 등의 속성을 설정할 수 있습니다. 이 정보는 인스턴스에서 보내는 모든 이벤트에 연결됩니다. 
+ASP.NET 및 Java 프로젝트의 경우 들어오는 HTTP 요청은 자동으로 캡처됩니다. 앱의 다른 모듈에 대한 TelemetryClient의 추가 인스턴스를 만들 수도 있습니다. 예를 들어 비즈니스 논리 이벤트를 보고하는 미들웨어 클래스에 TelemetryClient 인스턴스 하나가 있을 수 있습니다. 컴퓨터를 식별하려면 UserId 및 DeviceId 등의 속성을 설정할 수 있습니다. 이 정보는 인스턴스에서 보내는 모든 이벤트에 연결됩니다.
 
 *C#*
 
@@ -969,7 +968,7 @@ telemetry.trackEvent("SignalProcessed", properties, metrics);
 using Microsoft.ApplicationInsights.DataContracts;
 
 var gameTelemetry = new TelemetryClient();
-gameTelemetry.Context.Properties["Game"] = currentGame.Name;
+gameTelemetry.Context.GlobalProperties["Game"] = currentGame.Name;
 // Now all telemetry will automatically be sent with the context property:
 gameTelemetry.TrackEvent("WinGame");
 ```
@@ -978,7 +977,7 @@ gameTelemetry.TrackEvent("WinGame");
 
 ```vb
 Dim gameTelemetry = New TelemetryClient()
-gameTelemetry.Context.Properties("Game") = currentGame.Name
+gameTelemetry.Context.GlobalProperties("Game") = currentGame.Name
 ' Now all telemetry will automatically be sent with the context property:
 gameTelemetry.TrackEvent("WinGame")
 ```

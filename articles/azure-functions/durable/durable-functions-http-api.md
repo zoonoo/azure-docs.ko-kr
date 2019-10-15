@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/07/2019
 ms.author: azfuncdf
-ms.openlocfilehash: c81eccaa2b3a4335f034b9667f6e7be317635f43
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 094ae511337556ef0c67c86f6d8692cae005430a
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933395"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033961"
 ---
 # <a name="http-api-reference"></a>HTTP API 참조
 
@@ -28,7 +28,7 @@ Durable Functions 확장은 [오케스트레이션](durable-functions-types-feat
 | **`connection`** | 쿼리 문자열    | 스토리지 계정에 대한 연결 문자열의 **이름**입니다. 지정하지 않으면 함수 앱에 대한 기본 연결 문자열이 사용됩니다. |
 | **`systemKey`**  | 쿼리 문자열    | API를 호출하는 데 필요한 권한 부여 키입니다. |
 
-`systemKey`는 Azure Functions 호스트에서 자동으로 생성 되는 인증 키입니다. 특히 지속성 작업 확장 API에 대한 액세스 권한을 부여하고 [다른 권한 부여 키](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API)와 동일한 방식으로 관리할 수 있습니다. `systemKey` 값을 검색하는 가장 간단한 방법은 앞에서 언급한 `CreateCheckStatusResponse` API를 사용하는 것입니다.
+`systemKey`는 Azure Functions 호스트에서 자동으로 생성 되는 인증 키입니다. 특히 지속성 작업 확장 API에 대한 액세스 권한을 부여하고 [다른 권한 부여 키](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API)와 동일한 방식으로 관리할 수 있습니다. .NET의 `CreateCheckStatusResponse` 및 `CreateHttpManagementPayload` APIs 또는 JavaScript의 `createCheckStatusResponse` 및 `createHttpManagementPayload`와 같은 [오케스트레이션 클라이언트 바인딩](durable-functions-bindings.md#orchestration-client) APIs를 사용하여 올바른 `taskHub`, `connection` 및 `systemKey` 쿼리 문자열 값을 포함 하는 url을 생성할 수 있습니다.
 
 다음 몇 가지 섹션에서는 확장에서 지원되는 특정 HTTP API에 대해 설명하고 이 API를 사용하는 방법에 대한 예제를 제공합니다.
 
@@ -86,7 +86,7 @@ Content-Length: 83
 
 **HTTP 202** 케이스에 대 한 응답 페이로드는 다음 필드를 포함 하는 JSON 개체입니다.
 
-| 필드                       | 설명                          |
+| 필드                       | Description                          |
 |-----------------------------|--------------------------------------|
 | **`id`**                    |오케스트레이션 인스턴스의 ID입니다. |
 | **`statusQueryGetUri`**     |오케스트레이션 인스턴스의 상태 URL입니다. |
@@ -387,7 +387,7 @@ DELETE /runtime/webhooks/durabletask/instances/{instanceId}
 
 **HTTP 200** 케이스에 대 한 응답 페이로드는 다음 필드를 포함 하는 JSON 개체입니다.
 
-| 필드                  | 데이터 형식 | 설명 |
+| 필드                  | 데이터 형식 | Description |
 |------------------------|-----------|-------------|
 | **`instancesDeleted`** | integer   | 삭제 된 인스턴스 수입니다. 단일 인스턴스 사례에 대해서는이 값이 항상 이어야 `1`합니다. |
 
@@ -431,7 +431,7 @@ DELETE /runtime/webhooks/durabletask/instances
 
 이 API에 대한 요청 매개 변수에는 앞에서 언급한 기본 집합과 다음과 같은 고유한 매개 변수가 포함됩니다.
 
-| 필드                 | 매개 변수 유형  | Description |
+| 필드                 | 매개 변수 유형  | 설명 |
 |-----------------------|-----------------|-------------|
 | **`createdTimeFrom`** | 쿼리 문자열    | 지정 된 ISO8601 타임 스탬프 또는 이후에 만들어진 제거 된 인스턴스의 목록을 필터링 합니다.|
 | **`createdTimeTo`**   | 쿼리 문자열    | 선택적 매개 변수입니다. 지정 된 경우 지정 된 ISO8601 타임 스탬프 또는 그 이전에 생성 된 제거 된 인스턴스의 목록을 필터링 합니다.|
@@ -591,7 +591,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 
 이 API에 대한 요청 매개 변수에는 앞에서 언급한 기본 집합과 다음과 같은 고유한 매개 변수가 포함됩니다.
 
-| 필드             | 매개 변수 유형  | Description |
+| 필드             | 매개 변수 유형  | 설명 |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | 오케스트레이션 인스턴스의 ID입니다. |
 | **`reason`**      | 쿼리 문자열    | 선택 사항입니다. 오케스트레이션 인스턴스를 되감는 이유입니다. |
@@ -633,7 +633,7 @@ POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
 
 이 API에 대한 요청 매개 변수에는 앞에서 언급한 기본 집합과 다음과 같은 고유한 매개 변수가 포함됩니다.
 
-| 필드             | 매개 변수 유형  | Description |
+| 필드             | 매개 변수 유형  | 설명 |
 |-------------------|-----------------|-------------|
 | **`entityType`**  | URL             | 엔터티의 형식입니다. |
 | **`entityKey`**   | URL             | 엔터티의 고유한 이름입니다. |

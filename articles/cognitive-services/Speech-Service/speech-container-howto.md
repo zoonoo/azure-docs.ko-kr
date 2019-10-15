@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/26/2019
 ms.author: dapine
-ms.openlocfilehash: 7708133fcba0d594ecd420afd8da1b2881055aa7
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: dbd4f2cd4691f9ae6d8e37f38d2b600ec4897e45
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241030"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326709"
 ---
 # <a name="install-and-run-speech-service-containers"></a>음성 서비스 컨테이너 설치 및 실행
 
@@ -39,6 +39,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
 |음성 리소스 |이러한 컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>연결 된 API 키와 끝점 URI를 가져오는 Azure _Speech_ 리소스입니다. 두 값은 모두 Azure Portal의 **음성** 개요 및 키 페이지에서 사용할 수 있습니다. 컨테이너를 시작 하는 데 필요 합니다.<br><br>**{API_KEY}** : **키** 페이지에서 사용 가능한 두 리소스 키 중 하나<br><br>**{ENDPOINT_URI}** : **개요** 페이지에 제공 된 끝점입니다.|
+
+[!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## <a name="request-access-to-the-container-registry"></a>컨테이너 레지스트리에 대한 액세스 요청
 
@@ -174,16 +176,12 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 ## <a name="run-the-container-with-docker-run"></a>`docker run`을 사용하여 컨테이너 실행
 
-[docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 세 컨테이너 중 하나를 실행합니다. 명령은 다음 매개 변수를 사용합니다.
+[docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. `{ENDPOINT_URI}` 및 `{API_KEY}` 값을 가져오는 방법에 대한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters)을 참조 하세요.
 
-**미리 보기 동안**, 컨테이너를 시작하려면 청구 설정이 유효해야 합니다. 하지만 사용에 대한 요금은 청구되지 않습니다.
+`docker run`명령의 [예](speech-container-configuration.md#example-docker-run-commands)를 사용할 수 있습니다.
 
-| 자리표시자 | 값 |
-|-------------|-------|
-|{API_KEY} | 이 키는 컨테이너를 시작하는 데 사용되고 Azure Portal의 음성 키 페이지에서 확인할 수 있습니다.  |
-|{ENDPOINT_URI} | 청구 끝점 URI 값은 Azure Portal의 음성 개요 페이지에서 사용할 수 있습니다.|
-
-다음 예`docker run`에서 매개 변수를 사용자 고유값으로 바꿉니다.
+> [!NOTE]
+> **미리 보기 동안**, 컨테이너를 시작하려면 청구 설정이 유효해야 합니다. 하지만 사용에 대한 요금은 청구되지 않습니다.
 
 ### <a name="text-to-speech"></a>텍스트 음성 변환
 
@@ -272,7 +270,9 @@ speech_config = speechsdk.SpeechConfig(
 
 ## <a name="troubleshooting"></a>문제 해결
 
-컨테이너를 실행할 때, 컨테이너는 **stdout** 및 **stderr**을 사용하여 컨테이너를 시작하거나 실행하는 동안 발생하는 문제를 해결하는 데 도움이 되는 정보를 출력합니다.
+출력 [탑재](speech-container-configuration.md#mount-settings) 및 활성화된 로깅을 사용하여 컨테이너를 실행하는 경우 컨테이너는 컨테이너를 시작 또는 실행하는 동안 발생하는 문제를 해결하는 데 도움이 되는 로그 파일을 생성합니다.
+
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>대금 청구
 

@@ -15,12 +15,12 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a746b0f6d85e3f012cdd2e78fff8cd10a586950
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 1453821561ab7bb361fbb3e5d57634cf23a7be2c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086747"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310071"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>사용자를 로그인 하는 웹 앱-코드 구성
 
@@ -31,20 +31,39 @@ ms.locfileid: "71086747"
 <!-- This section can be in an include for Web App and Web APIs -->
 웹 앱 및 웹 API를 보호 하는 데 사용 되는 라이브러리는 다음과 같습니다.
 
-| 플랫폼 | Library | Description |
+| 플랫폼 | 라이브러리 | 설명 |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_net.png) | [.NET 용 id 모델 확장](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | ASP.NET 및 ASP.NET Core에서 직접 사용 되는 .NET 용 Microsoft Identity Extensions는 .NET Framework와 .NET Core 둘 다에서 실행 되는 Dll 집합을 제안 합니다. ASP.NET/ASP.NET Core 웹 앱에서 **Tokenvalidationparameters** 클래스를 사용 하 여 토큰 유효성 검사를 제어할 수 있습니다 (특히 일부 ISV 시나리오의 경우). |
-| ![Java](media/sample-v2-code/logo_java.png) | [msal4j](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Java 용 MSAL-현재 공개 미리 보기로 제공 됩니다. |
-| ![Python](media/sample-v2-code/logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | Python 용 MSAL-현재 공개 미리 보기로 제공 됩니다. |
+| ![Java](media/sample-v2-code/small_logo_java.png) | [msal4j](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Java 용 MSAL-현재 공개 미리 보기로 제공 됩니다. |
+| ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | Python 용 MSAL-현재 공개 미리 보기로 제공 됩니다. |
 
-이 문서의 코드 조각과 다음에서 추출 됩니다.
+관심 있는 플랫폼에 해당 하는 탭을 선택 합니다.
 
-- [ASP.NET Core 웹 앱 증분 자습서, 1 장](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg).
-- [ASP.NET 웹 앱 샘플](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)
-- Microsoft graph msal4j 웹 앱 샘플을 호출 하는 [Java 웹 응용 프로그램](https://github.com/Azure-Samples/ms-identity-java-webapp)
-- Microsoft graph msal을 호출 하는 [Python 웹 응용 프로그램](https://github.com/Azure-Samples/ms-identity-python-webapp) 입니다. Python 웹 앱 샘플
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-전체 구현에 대 한 자세한 내용을 보려면 이러한 자습서와 샘플을 참조 해야 할 수 있습니다.
+이 문서 및 다음 항목의 코드 조각은 [ASP.NET Core 웹 앱 증분 자습서의 1 장](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg)에서 추출 되었습니다.
+
+전체 구현에 대 한 자세한 내용은이 자습서를 참조 하는 것이 좋습니다.
+
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+이 문서 및 다음 항목의 코드 조각은 [ASP.NET 웹 앱 샘플](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect) 에서 추출 됩니다.
+
+전체 구현에 대 한 자세한 내용은이 샘플을 참조 하는 것이 좋습니다.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+이 문서의 코드 조각과 다음은 Microsoft graph msal4j 웹 앱 샘플을 호출 하는 [Java 웹 응용 프로그램](https://github.com/Azure-Samples/ms-identity-java-webapp) 에서 추출 됩니다.
+
+전체 구현에 대 한 자세한 내용은이 샘플을 참조 하는 것이 좋습니다.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+이 문서의 코드 조각과 다음은 Microsoft graph msal을 호출 하는 [Python 웹 응용 프로그램](https://github.com/Azure-Samples/ms-identity-python-webapp) 에서 추출 됩니다. Python 웹 앱 샘플
+
+전체 구현에 대 한 자세한 내용은이 샘플을 참조 하는 것이 좋습니다.
+
+---
 
 ## <a name="configuration-files"></a>구성 파일
 
@@ -58,7 +77,7 @@ Microsoft id 플랫폼을 사용 하 여 사용자를 로그인 하는 웹 응�
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-ASP.NET Core 이러한 설정은 `appsettings.json` 파일의 "AzureAD" 섹션에 있습니다.
+ASP.NET Core 이러한 설정은 [appsettings](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/appsettings.json#L2-L8) 파일의 "AzureAD" 섹션에 있습니다.
 
 ```Json
 {
@@ -85,7 +104,7 @@ ASP.NET Core 이러한 설정은 `appsettings.json` 파일의 "AzureAD" 섹션�
 }
 ```
 
-ASP.NET Core에는 응용 프로그램 및 다양 한`properties\launchSettings.json`프로필에 대 한 URL (`applicationUrl`) 및 SSL 포트 (`sslPort`)가 포함 된 다른 파일 ()이 있습니다.
+ASP.NET Core에는 응용 프로그램에 대한 URL(`applicationUrl`) 및 SSL 포트(`sslPort`)와 다양한 프로필을 포함하는 다른 파일 [properties\launchSettings.json](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/Properties/launchSettings.json#L6-L7)이 있습니다.
 
 ```Json
 {
@@ -123,7 +142,7 @@ Azure Portal에서 응용 프로그램에 대 한 **인증** 페이지에 등록
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-ASP.NET에서 응용 프로그램은 `Web.Config` 파일을 통해 구성 됩니다.
+ASP.NET에서 응용 프로그램은 Web.config 파일 줄 12-15을 통해 구성 됩니다 [.](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Web.config#L12-L15)
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -149,7 +168,7 @@ Azure Portal에서 응용 프로그램에 대 한 **인증** 페이지에 등록
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Java에서 구성은 아래에 있는 `application.properties` 파일에 있습니다.`src/main/resources`
+Java에서 구성은 아래에 있는 [응용 프로그램. 속성](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/resources/application.properties) 파일에 있습니다.`src/main/resources`
 
 ```Java
 aad.clientId=Enter_the_Application_Id_here
@@ -163,15 +182,25 @@ Azure Portal에서 응용 프로그램에 대 한 **인증** 페이지에 등록
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-다음은 app_config의 Python 구성 파일입니다 [. py](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/web_app_sample/app_config.py)
+다음은 app_config의 Python 구성 파일입니다 [. py](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app_config.py)
 
 ```Python
-AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
-CLIENT_ID = "Enter_the_Application_Id_here"
 CLIENT_SECRET = "Enter_the_Client_Secret_Here"
-SCOPE = ["https://graph.microsoft.com/User.Read"]
-REDIRECT_URI = "http://localhost:5000/getAToken"
+AUTHORITY = "https://login.microsoftonline.com/common""
+CLIENT_ID = "Enter_the_Application_Id_here"
+ENDPOINT = 'https://graph.microsoft.com/v1.0/users'
+SCOPE = ["User.ReadBasic.All"]
+SESSION_TYPE = "filesystem"  # So token cache will be stored in server-side session
 ```
+
+> [!NOTE]
+> 이 빠른 시작은 간소화를 위해 클라이언트 암호를 구성 파일에 저장 하는 것을 제안 합니다. 프로덕션 앱에서 다른 방법을 사용 하 여 KeyVault와 같은 암호를 저장 하거나 Flask의 설명서에 설명 된 대로 환경 변수를 사용 하려고 합니다. https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables
+>
+> ```python
+> CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+> if not CLIENT_SECRET:
+>     raise ValueError("Need to define CLIENT_SECRET environment variable")
+> ```
 
 ---
 
@@ -284,11 +313,11 @@ public static IServiceCollection AddMicrosoftIdentityPlatformAuthentication(
   ...
 ```
 
-클래스 `AadIssuerValidator` 를 사용 하면 토큰의 발급자가 Azure 공용 클라우드 또는 국가에서 개인 Microsoft 계정을 사용 하 여 사용자를 로그인 하는 여러 경우 (v1.0 또는 v2.0 토큰, 단일 테 넌 트 응용 프로그램 또는 응용 프로그램 또는 응용 프로그램)에서 유효성을 검사할 수 있습니다. 클라우드). [AadIssuerValidator/Resource/](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs) 에서 사용할 수 있습니다.
+클래스 `AadIssuerValidator` 를 사용 하면 토큰의 발급자가 대부분의 경우 (v1.0 또는 v2.0 토큰, 단일 테 넌 트 또는 다중 테 넌 트 응용 프로그램 또는 Azure 공용 클라우드에서 개인 Microsoft 계정으로 사용자를 로그인 하는 다중 테 넌 트 응용 프로그램 또는 응용 프로그램)에서 유효성을 검사할 수 있습니다. 국가 클라우드). [AadIssuerValidator/Resource/](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs) 에서 사용할 수 있습니다.
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-ASP.NET 웹 앱/웹 api의 인증과 관련 된 코드는 `App_Start/Startup.Auth.cs` 파일에 있습니다.
+ASP.NET 웹 앱/웹 Api의 인증과 관련 된 코드는 [App_Start/Startup](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs#L17-L61) 파일에 있습니다.
 
 ```CSharp
  public void ConfigureAuth(IAppBuilder app)
@@ -314,7 +343,7 @@ ASP.NET 웹 앱/웹 api의 인증과 관련 된 코드는 `App_Start/Startup.Aut
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Java 샘플에서는 스프링 프레임 워크를 사용 합니다. 응용 프로그램은 각 HTTP 응답 `Filter`을 가져오는을 구현 하기 때문에 보호 됩니다. Java 웹 앱 빠른 시작에서이는 `AuthFilter` `src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java`입니다. 이 필터는 OAuth 2.0 인증 코드 흐름을 처리 하므로 다음과 같은 작업을 수행 합니다.
+Java 샘플에서는 스프링 프레임 워크를 사용 합니다. 응용 프로그램은 각 HTTP 응답 `Filter`을 가로채는을 구현 하기 때문에 보호 됩니다. Java 웹 앱 빠른 시작에서이 필터는 `AuthFilter` 에 `src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java`있습니다. 이 필터는 OAuth 2.0 인증 코드 흐름을 처리 하므로 다음과 같은 작업을 수행 합니다.
 
 - 사용자가 인증 되었는지 확인 합니다 (`isAuthenticated()` 메서드).
 - 사용자가 인증 되지 않은 경우 Azure AD 권한 부여 끝점의 url을 계산 하 고 브라우저를이 URI로 리디렉션합니다.
@@ -330,41 +359,20 @@ Java 샘플에서는 스프링 프레임 워크를 사용 합니다. 응용 프�
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Python 샘플에서는 Flask를 사용 합니다. Flask 및 MSAL 초기화 Python은 [py # L1-L17](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e1199b4c3cdcb637cf0d8306832efbd85492e123/app.py#L1-L17) 에서 수행 됩니다.
+Python 샘플에서는 Flask를 사용 합니다. Flask 및 MSAL 초기화 Python은 [py # L1-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L1-L28) 에서 수행 됩니다.
 
 ```Python
 import uuid
-import flask
 import requests
-from flask import Flask, render_template, session, request
-from flask_session import Session
+from flask import Flask, render_template, session, request, redirect, url_for
+from flask_session import Session  # https://pythonhosted.org/Flask-Session
 import msal
 import app_config
 
-sess = Session()
+
 app = Flask(__name__)
-app.config.from_object('config.Config')
-sess.init_app(app)
-cache = msal.SerializableTokenCache()
-application = msal.ConfidentialClientApplication(
-    app_config.CLIENT_ID, authority=app_config.AUTHORITY,
-    client_credential=app_config.CLIENT_SECRET,
-    token_cache=cache)
-```
-
-MSAL입니다. 사용자 로그인을 허용 하는 Python [Py # L74를](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e1199b4c3cdcb637cf0d8306832efbd85492e123/app.py#L74-84) 참조 하세요.
-
-```Python
-@app.route('/authenticate')
-def authenticate():
-    # Call to the authorize endpoint
-    auth_state = str(uuid.uuid4())
-    session[(request.cookies.get("session")+'state')] = auth_state
-    authorization_url = application.get_authorization_request_url(app_config.SCOPE, state=auth_state,
-                                                                  redirect_uri=app_config.REDIRECT_URI)
-    resp = flask.Response(status=307)
-    resp.headers['location'] = authorization_url
-    return resp
+app.config.from_object(app_config)
+Session(app)
 ```
 
 ---
