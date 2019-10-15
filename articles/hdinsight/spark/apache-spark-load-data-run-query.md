@@ -2,18 +2,18 @@
 title: '자습서: Azure HDInsight의 Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행'
 description: 자습서 - Azure HDInsight의 Spark 클러스터에서 데이터를 로드하고 대화형 쿼리를 실행하는 방법을 알아봅니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.author: hrasheed
-ms.date: 05/16/2019
-ms.openlocfilehash: 109ed1a2ef22e498c2d19fd2e4f1848f289e9b55
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.date: 10/03/2019
+ms.openlocfilehash: 3d6b7cf67faa94d0947d16cc79d0d5b839de7acb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735266"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027800"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>자습서: Azure HDInsight의 Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행
 
@@ -30,11 +30,11 @@ HDInsight의 Apache Spark. [Apache Spark 클러스터 만들기](./apache-spark-
 
 ## <a name="create-a-jupyter-notebook"></a>Jupyter Notebook 만들기
 
-Jupyter Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 Notebook 환경입니다. Notebook을 사용하면 데이터와 상호 작용하고, 코드를 markdown 텍스트와 결합하고, 간단한 시각화를 수행할 수 있습니다. 
+Jupyter Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 Notebook 환경입니다. Notebook을 사용하면 데이터와 상호 작용하고, 코드를 markdown 텍스트와 결합하고, 간단한 시각화를 수행할 수 있습니다.
 
 1. `SPARKCLUSTER`를 Spark 클러스터의 이름으로 바꿔 URL `https://SPARKCLUSTER.azurehdinsight.net/jupyter`를 편집합니다. 그런 다음, 웹 브라우저에 편집한 URL을 입력합니다. 메시지가 표시되면 클러스터에 대한 클러스터 로그인 자격 증명을 입력합니다.
 
-2. Jupyter 웹 페이지에서 **새로 만들기** > **PySpark**를 선택하여 노트북을 만듭니다. 
+2. Jupyter 웹 페이지에서 **새로 만들기** > **PySpark**를 선택하여 노트북을 만듭니다.
 
    ![Jupyter Notebook을 만들어서 대화형 Spark SQL 쿼리 실행](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Jupyter Notebook을 만들어서 대화형 Spark SQL 쿼리 실행")
 
@@ -46,7 +46,7 @@ Jupyter Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 N
 ## <a name="create-a-dataframe-from-a-csv-file"></a>csv 파일에서 데이터 프레임 만들기
 
 애플리케이션은 Azure Storage, Azure Data Lake Storage 같은 원격 스토리지의 파일 또는 폴더에서, Hive 테이블에서 또는 Spark에서 지원하는 Cosmos DB, Azure SQL DB, DW 등의 기타 데이터 원본에서 직접 데이터 프레임을 만들 수 있습니다. 다음 스크린샷에서는 이 자습서에 사용되는 HVAC.csv 파일의 스냅샷을 보여줍니다. csv 파일에는 모든 HDInsight Spark 클러스터가 함께 제공됩니다. 이 데이터는 건물의 온도 변화를 캡처합니다.
-    
+
 ![대화형 Spark SQL 쿼리용 데이터의 스냅샷](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "대화형 Spark SQL 쿼리용 데이터의 스냅샷")
 
 1. Jupyter Notebook의 빈 셀에 다음 코드를 붙여넣은 다음 **Shift+Enter**를 눌러 해당 코드를 실행합니다. 코드는 이 시나리오에 필요한 형식을 가져옵니다.
@@ -60,7 +60,7 @@ Jupyter Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 N
 
     ![대화형 Spark SQL 쿼리 상태](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "대화형 Spark SQL 쿼리 상태")
 
-2. 다음 코드를 실행하여 데이터 프레임 및 임시 테이블(**hvac**)을 만듭니다. 
+2. 다음 코드를 실행하여 데이터 프레임 및 임시 테이블(**hvac**)을 만듭니다.
 
     ```python
     # Create a dataframe and table from sample data
@@ -93,7 +93,7 @@ Jupyter Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 N
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-HDInsight를 사용하면 데이터와 Jupyter Notebook이 Azure Storage 또는 Azure Data Lake Store에 저장되므로 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 스토리지에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. 다음 자습서의 작업을 바로 수행하려는 경우 클러스터를 유지할 수 있습니다.
+HDInsight를 사용하면 데이터와 Jupyter Notebooks가 Azure Storage 또는 Azure Data Lake Store에 저장되므로 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 스토리지에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. 다음 자습서의 작업을 바로 수행하려는 경우 클러스터를 유지할 수 있습니다.
 
 Azure Portal에서 클러스터를 열고 **삭제**를 선택합니다.
 

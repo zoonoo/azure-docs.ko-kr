@@ -1,5 +1,5 @@
 ---
-title: Azure Custom Vision이란?
+title: Custom Vision이란?
 titleSuffix: Azure Cognitive Services
 description: Custom Vision Service를 사용하여 Azure 클라우드에서 사용자 지정 이미지 분류자를 빌드하는 방법을 알아봅니다.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 033b0317b1738e24e4ac9c9ae2150b015cc5a8e5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9e455a42945ba4d6ce334d557b7390c3c50e7ff9
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560954"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177819"
 ---
-# <a name="what-is-azure-custom-vision"></a>Azure Custom Vision이란?
+# <a name="what-is-custom-vision"></a>Custom Vision이란?
 
-Azure Custom Vision은 사용자 고유의 이미지 분류자를 빌드, 배포 및 향상시킬 수 있는 인지 서비스입니다. 이미지 분류자는 이미지의 시각적 특성에 따라 레이블(_클래스_를 나타냄)을 해당 이미지에 적용하는 AI 서비스입니다. [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) 서비스와 달리 Custom Vision에서는 적용할 레이블을 결정할 수 있습니다.
+Custom Vision은 사용자 고유의 이미지 분류자를 빌드, 배포 및 개선할 수 있는 인지 서비스입니다. 이미지 분류자는 이미지의 시각적 특성에 따라 레이블(_클래스_를 나타냄)을 해당 이미지에 적용하는 AI 서비스입니다. [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) 서비스와 달리 Custom Vision에서는 적용할 레이블을 결정할 수 있습니다.
 
 ## <a name="what-it-does"></a>기능
 

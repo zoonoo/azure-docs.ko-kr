@@ -11,12 +11,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a6d0c3e9daba6f4f37778fabde161751944e174a
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 338054aadbf04c6c6e2b496677476c2c5634b6ba
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774871"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169294"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>자습서: Azure Resource Manager 템플릿을 사용하여 가상 머신 확장 배포
 
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prepare-a-powershell-script"></a>PowerShell 스크립트 준비
 
-다음 콘텐츠가 포함된 PowerShell 스크립트는 [공개적으로 액세스 가능한 Azure Storage 계정](https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1)에서 공유됩니다.
+다음 콘텐츠를 포함하는 PowerShell 스크립트는 [Github](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1)에서 공유됩니다.
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -63,7 +63,7 @@ Azure 빠른 시작 템플릿은 Resource Manager 템플릿용 리포지토리�
 1. Visual Studio Code에서 **파일** > **파일 열기**를 차례로 선택합니다.
 1. **파일 이름** 상자에서 다음 URL을 붙여넣습니다. https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
 
-1. 파일을 열려면 **열기**를 선택합니다.  
+1. 파일을 열려면 **열기**를 선택합니다.
     템플릿은 5개의 리소스를 정의합니다.
 
    * **Microsoft.Storage/storageAccounts**. [템플릿 참조](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)를 참조하세요.
@@ -96,7 +96,7 @@ Azure 빠른 시작 템플릿은 Resource Manager 템플릿용 리포지토리�
         "autoUpgradeMinorVersion":true,
         "settings": {
             "fileUris": [
-                "https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1"
+                "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1"
             ],
             "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File installWebServer.ps1"
         }
@@ -109,7 +109,7 @@ Azure 빠른 시작 템플릿은 Resource Manager 템플릿용 리포지토리�
 * **name**: 확장 리소스는 가상 머신 개체의 자식 리소스이므로 이름에 가상 머신 이름 접두사가 있어야 합니다. [자식 리소스에 대한 이름 및 형식 설정](child-resource-name-type.md)을 참조하세요.
 * **dependsOn**: 가상 머신을 만든 후 확장 리소스를 만듭니다.
 * **fileUris**: 스크립트 파일이 저장되는 위치입니다. 제공된 위치를 사용하지 않으려면 값을 업데이트해야 합니다.
-* **commandToExecute**: 이 명령은 스크립트를 호출합니다.  
+* **commandToExecute**: 이 명령은 스크립트를 호출합니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
@@ -118,8 +118,7 @@ Azure 빠른 시작 템플릿은 Resource Manager 템플릿용 리포지토리�
 ## <a name="verify-the-deployment"></a>배포 확인
 
 1. Azure Portal에서 VM을 선택합니다.
-1. VM 개요에서 **복사하려면 클릭**을 선택하여 IP 주소를 복사한 다음, 브라우저 탭에 붙여넣습니다.  
-   기본 IIS(인터넷 정보 서비스) 시작 페이지가 열립니다.
+1. VM 개요에서 **복사하려면 클릭**을 선택하여 IP 주소를 복사한 다음, 브라우저 탭에 붙여넣습니다. 기본 IIS(인터넷 정보 서비스) 시작 페이지가 열립니다.
 
 ![인터넷 정보 서비스 시작 페이지](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 
@@ -129,7 +128,7 @@ Azure 빠른 시작 템플릿은 Resource Manager 템플릿용 리포지토리�
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
 2. **이름으로 필터링** 상자에서 리소스 그룹 이름을 입력합니다.
-3. 해당 리소스 그룹 이름을 선택합니다.  
+3. 해당 리소스 그룹 이름을 선택합니다.
     리소스 그룹에서 6개의 리소스가 표시됩니다.
 4. 최상위 메뉴에서 **리소스 그룹 삭제**를 선택합니다.
 

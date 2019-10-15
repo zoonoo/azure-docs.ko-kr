@@ -8,18 +8,20 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: cafc1e2f3f195301a6c0f9485ebaa10111b08c7d
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: aab64822730531acdcf5f3d91ed8bf028ce7cfd4
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803059"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971880"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>빠른 시작: QnA Maker 기술 자료 만들기, 학습 및 게시
 
 FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker 기술 자료(KB)를 만들 수 있습니다. 이 문서에는 BitLocker 키 복구에 대한 질문에 답변하기 위해 단순한 FAQ 웹 페이지에서 QnA Maker 기술 자료를 작성하는 예가 포함되어 있습니다.
+
+기술 자료에 사용자가 더 많이 참여하도록 잡담 개성을 포함시킵니다.
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -28,61 +30,79 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 > [!div class="checklist"]
 > * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="create-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료 만들기
+## <a name="create-a-new-qna-maker-knowledge-base"></a>새 QnA Maker 기술 자료 만들기
 
 1. Azure 자격 증명으로 [QnAMaker.ai](https://QnAMaker.ai) 포털에 로그인합니다.
 
 1. QnA Maker 포털에서 **기술 자료 만들기**를 선택합니다.
 
-   ![QnA Maker 포털의 스크린샷](../media/qna-maker-create-kb.png)
+1. **만들기** 페이지에서 **QnA 서비스 만들기**를 선택합니다. 그러면 구독에서 QnA Maker 서비스를 설정할 수 있는 [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)로 연결됩니다. 
 
-1. 1단계 - **만들기** 페이지에서 **QnA 서비스 만들기**를 선택합니다. 그러면 구독에서 QnA Maker 서비스를 설정할 수 있는 [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)로 연결됩니다. Azure Portal 시간이 초과되면 사이트에서 **다시 시도**를 선택합니다. 연결한 후에 Azure 대시보드가 나타납니다.
-
-1. Azure에서 새 QnA Maker 서비스를 성공적으로 만든 후 qnamaker.ai/create로 돌아갑니다. 2단계 - 드롭다운 목록에서 QnA Maker 서비스를 선택합니다. 새 QnA Maker 서비스를 만든 경우에는 페이지를 반드시 새로 고침해야 합니다.
+1. QnA Maker 포털의 드롭다운 목록에서 QnA Maker 서비스를 선택합니다. 새 QnA Maker 서비스를 만든 경우에는 페이지를 반드시 새로 고침해야 합니다.
 
    ![QnA Maker 서비스 기술 자료를 선택하는 스크린샷](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
-1. 3단계에서는 기술 자료의 이름을 **내 샘플 QnA KB**로 지정합니다.
+1. 기술 자료의 이름을 **내 샘플 QnA KB**로 지정합니다.
 
-1. 기술 자료에 콘텐츠를 추가하려면 세 가지 유형의 데이터 원본을 선택합니다. 4단계 - **KB 입력**의 **URL** 상자에 [BitLocker 복구 FAQ](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) URL을 추가합니다.
+1. 샘플 단어 문서를 URL로 추가합니다. 
 
-   ![데이터 원본을 추가하는 스크린샷](../media/qnamaker-quickstart-kb/add-datasources.png)
+    `https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/troubleshooting`
 
-1. 5단계 - **KB 만들기**를 선택합니다.
+1. `+ Add URL`를 선택합니다.
 
-1. QnA Maker에서 기술 자료를 만드는 동안 팝업 창이 나타납니다. 추출 프로세스는 HTML 페이지를 읽고 질문 및 답변을 확인하려면 몇 분 정도 걸립니다.
+1. **‘전문가용’ 잡담**을 KB에 추가합니다.  
 
-1. QnA Maker가 기술 자료를 성공적으로 만들면 **기술 자료** 페이지가 열립니다. 이 페이지에서 기술 자료의 내용을 편집할 수 있습니다.
+1. **KB 만들기**를 선택합니다.
 
-## <a name="edit-the-knowledge-base"></a>기술 자료 편집
+    추출 프로세스는 문서를 읽고 질문과 답변을 확인하는 데 몇 분 정도가 걸립니다.
 
-1. QnA Maker 포털의 **편집** 섹션에서 **QnA 쌍 추가**를 선택하여 기술 자료에 새 행을 추가합니다. **질문**에 **Hi**를 입력합니다. **답변**에 **Hello. Ask me BitLocker questions.** 를 입력합니다.
+    QnA Maker가 기술 자료를 성공적으로 만들면 **기술 자료** 페이지가 열립니다. 이 페이지에서 기술 자료의 내용을 편집할 수 있습니다.
 
-    ![QnA Maker 포털의 스크린샷](../media/qnamaker-quickstart-kb/add-qna-pair.png)
+## <a name="add-a-new-question-and-answer-set"></a>새 질문 및 답변 집합 추가
 
-1. 오른쪽 위에서 **저장 후 학습**을 선택하여 편집 내용을 저장하고 QnA Maker 모델을 학습합니다. 저장하지 않으면 편집 내용은 보관되지 않습니다.
+1. QnA Maker 포털의 **편집** 페이지에서 **QnA 쌍 추가**를 선택합니다.
+1. 다음 질문을 추가합니다. 
+
+    `How many Azure services are used by a knowledge base?`
+
+1. _markdown_으로 서식이 지정된 답변을 추가합니다.
+
+    ` * Azure QnA Maker service\n* Azure Search\n* Azure web app\n* Azure app plan`
+
+    ![ 질문을 텍스트로 추가하고 답변을 markdown으로 서식을 지정합니다.](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
+
+    markdown 기호 `*`는 글머리 기호에 사용됩니다. `\n`은 새 줄에 사용됩니다.  
+
+    **편집** 페이지에 markdown이 표시됩니다. 나중에 **테스트** 패널을 사용하면 markdown이 올바르게 표시됩니다. 
+
+## <a name="save-and-train"></a>저장 후 학습
+
+오른쪽 위에서 **저장 후 학습**을 선택하여 편집 내용을 저장하고 QnA Maker 모델을 학습합니다. 저장하지 않으면 편집 내용은 보관되지 않습니다.
 
 ## <a name="test-the-knowledge-base"></a>기술 자료 테스트
 
-1. QnA Maker 포털의 오른쪽 위에서 **테스트**를 선택하여 변경 내용이 적용되었는지 테스트합니다. 상자에 `hi there`를 입력하고 Enter 키를 선택합니다. 사용자가 만든 답변이 응답으로 표시됩니다.
+1. QnA Maker 포털의 오른쪽 위에서 **테스트**를 선택하여 변경 내용이 적용되었는지 테스트합니다. 
+1. 텍스트 상자에 예제 사용자 쿼리를 입력합니다. 
 
-1. **검사**를 선택하여 응답을 더 자세히 살펴봅니다. 테스트 창은 기술 자료를 게시하기 전에 기술 자료 변경 내용을 테스트하는 데 사용됩니다.
+    `How many Azure services are used by a knowledge base?`  
 
-    ![테스트 패널 스크린샷](../media/qnamaker-quickstart-kb/inspect.png)
+    ![ 텍스트 상자에 예제 사용자 쿼리를 입력합니다. ](../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png)
 
-1. **테스트**를 다시 선택하여 **테스트** 팝업을 닫습니다.
+1. **검사**를 선택하여 응답을 더 자세히 살펴봅니다. 테스트 창은 기술 자료를 게시하기 전에 기술 자료의 변경 내용을 테스트하는 데 사용됩니다.
+
+1. **테스트**를 다시 선택하여 **테스트** 패널을 닫습니다.
 
 ## <a name="publish-the-knowledge-base"></a>기술 자료 게시
 
-기술 자료를 게시하면 기술 자료의 QnA 콘텐츠가 테스트 인덱스에서 Azure Search의 프로덕션 인덱스로 이동합니다.
+기술 자료를 게시하면 기술 자료의 콘텐츠가 `test` 인덱스에서 Azure 검색의 `prod` 인덱스로 이동합니다.
 
 ![기술 자료의 콘텐츠를 이동하는 스크린샷](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
 
-1. QnA Maker 포털의 **편집** 옆에 있는 메뉴에서 **게시**를 선택합니다. 그런 다음, 확인하려면 페이지에서 **게시**를 선택합니다.
+1. QnA Maker 포털에서 **게시**를 선택합니다. 그런 다음, 확인하려면 페이지에서 **게시**를 선택합니다.
 
-1. 이제 QnA Maker 서비스가 성공적으로 게시되었습니다. 애플리케이션 또는 봇 코드에서 엔드포인트를 사용할 수 있습니다.
+    이제 QnA Maker 서비스가 성공적으로 게시되었습니다. 애플리케이션 또는 봇 코드에서 엔드포인트를 사용할 수 있습니다.
 
-    ![성공적인 게시의 스크린샷](../media/qnamaker-quickstart-kb/publish-sucess.png)
+    ![성공적인 게시의 스크린샷](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint.png)
 
 ## <a name="create-a-bot"></a>봇 만들기
 
@@ -97,16 +117,36 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 
     ![봇 만들기 스크린샷](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page.png)
 
-1. 새 브라우저 탭에서 Azure Portal의 Azure Bot Service 만들기 페이지가 열립니다. Azure Bot Service를 구성합니다. 이러한 구성 설정에 대한 자세한 내용은 [Azure Bot Service v4로 QnA 봇 만들기](../tutorials/create-qna-bot.md)를 참조하세요.
+1. 새 브라우저 탭에서 Azure Portal의 Azure Bot Service 만들기 페이지가 열립니다. Azure Bot Service를 구성합니다. 
     
     * 봇을 만들 때 Azure Portal에서 다음 설정을 변경하지 마세요. 기존 기술 자료에 대한 내용이 미리 채워집니다. 
         * QnA 인증 기
         * 앱 서비스 플랜 및 위치
-        * Azure Storage
-    * 봇과 QnA Maker는 웹앱 서비스 플랜을 공유할 수 있지만, 웹앱을 공유할 수는 없습니다. 즉, **앱 이름**이 QnA Maker 서비스를 만들 때 사용한 앱 이름과 달라야 합니다. 
+    * 봇과 QnA Maker는 웹앱 서비스 플랜을 공유할 수 있지만, 웹앱을 공유할 수는 없습니다. 즉, 봇의 **앱 이름**이 QnA Maker 서비스의 앱 이름과 달라야 합니다. 
 
+1. 봇을 만든 후 **봇 서비스** 리소스를 엽니다. 
+1. **봇 관리**에서 **웹 채팅에서 테스트**를 선택합니다.
+1. **메시지 입력**의 채팅 프롬프트에서 다음을 입력합니다.
+
+    `Azure services?`
+
+    채팅 봇은 기술 자료의 답변으로 응답합니다. 
+
+    ![테스트 웹 채팅에 사용자 쿼리를 입력합니다.](../media/qnamaker-create-publish-knowledge-base/test-web-chat.png)
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+Azure Portal에서 QnA Maker 및 봇 프레임워크 리소스를 정리합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
+자세한 내용은 다음을 참조하세요.
+
+* [답변의 Markdown 형식](../concepts/data-sources-supported.md)
+* [markdown 테스트](../concepts/data-sources-supported.md#testing-your-markdown)
+* QnA Maker [ 데이터 원본](../Concepts/data-sources-supported.md). 
+* [봇 리소스 구성 설정](../tutorials/create-qna-bot.md).
+
 > [!div class="nextstepaction"]
-> [기술 자료 만들기](../How-To/create-knowledge-base.md)
+> [메타데이터를 사용하여 질문 추가](add-question-metadata-portal.md)
+

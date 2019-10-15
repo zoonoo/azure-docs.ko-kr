@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Ansible을 사용하여 Azure App Service에서 앱 크기 조정 | Microsoft Docs
+title: 자습서 - Azure App Service에서 Ansible을 사용하여 앱 크기 조정
 description: Azure App Service에서 앱을 강화하는 방법 알아보기
 keywords: Ansible, Azure, Devops, Bash, 플레이북, Azure App Service, Web App, 크기 조정, Java
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: d63708cd87afa426f2712da6d0fcb11c84590798
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 0adcddb8afa4f0e3d0b9288f351dae7d77922612
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230956"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241484"
 ---
 # <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>자습서: Ansible을 사용하여 Azure App Service에서 앱 크기 조정
 
@@ -84,7 +84,7 @@ ms.locfileid: "65230956"
       var: facts.appserviceplans[0].sku
 ```
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook webapp_scaleup.yml

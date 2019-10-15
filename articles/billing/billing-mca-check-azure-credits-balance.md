@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: b8faf3801a2217e6ef7040a7c2b67c7e6fad8e60
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: ea3fc21891f1e4d4e744449032a4b2cfcdfbb2f0
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709594"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177525"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Microsoft 고객 계약 Azure 크레딧 잔액 추적
 
 Azure Portal에서 Microsoft 고객 계약에 대한 Azure 크레딧 잔액을 확인할 수 있습니다. 크레딧이 적용되는 요금을 지불하는 데 크레딧을 사용합니다.
 
-크레딧이 적용되지 않는 제품을 사용하거나 사용량이 크레딧 잔액을 초과하는 경우 요금이 청구됩니다. 자세한 내용은 [Azure 크레딧이 적용되지 않는 제품]을 참조하세요(#products-that-arent-covered-by-azure-credits).
+크레딧이 적용되지 않는 제품을 사용하거나 사용량이 크레딧 잔액을 초과하는 경우 요금이 청구됩니다. 자세한 내용은 [Azure 크레딧이 적용되지 않는 제품](#products-that-arent-covered-by-azure-credits)을 참조하세요.
 
 이 문서는 Microsoft 고객 계약에 대한 청구 계정에 적용됩니다. [Microsoft 고객 계약에 액세스할 수 있는지 확인하세요](#check-access-to-a-microsoft-customer-agreement).
 

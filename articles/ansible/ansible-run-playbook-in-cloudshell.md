@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure Cloud Shell에서 Bash를 통해 Ansible 플레이북 실행 | Microsoft Docs
+title: 빠른 시작 - Azure Cloud Shell에서 Bash를 통해 Ansible 플레이북 실행
 description: 이 빠른 시작에서는 Azure Cloud Shell에서 Bash를 사용하여 다양한 Ansible 작업을 수행하는 방법을 알아봅니다.
 keywords: Ansible, Azure, DevOps, Bash, cloudshell, 플레이북, Bash
 ms.topic: quickstart
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 083d10de94c39ab134b8e475b66ebf2df30088bc
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 10f71d5bcb7134ca0560e4fac617e6835cb3d48c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407646"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241532"
 ---
 # <a name="quickstart-run-ansible-playbooks-via-bash-in-azure-cloud-shell"></a>빠른 시작: Azure Cloud Shell에서 Bash를 통해 Ansible 플레이북 실행
 

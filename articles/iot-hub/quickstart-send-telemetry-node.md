@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 859bb580f5fa974eec70c120297f094247fa2a9b
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 92d6af41e55429f1b788de68940bc9b033c51ad6
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967197"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167027"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석을 보내고 백 엔드 애플리케이션(Node.js)으로 읽습니다.
 
@@ -61,10 +61,10 @@ az extension add --name azure-cli-iot-ext
 
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
-   **MyNodeDevice**: 등록 중인 디바이스의 이름입니다. 표시된 것처럼 **MyNodeDevice**를 사용하세요. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 애플리케이션 예제에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
+   **MyNodeDevice**: 등록 중인 디바이스의 이름입니다. 표시된 대로 **MyNodeDevice**를 사용하는 것이 좋습니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서도 해당 이름을 사용해야 하며, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyNodeDevice
     ```
 
 1. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다.
@@ -72,7 +72,7 @@ az extension add --name azure-cli-iot-ext
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyNodeDevice --output table
     ```
 
     다음과 같은 디바이스 연결 문자열을 기록해 둡니다.
@@ -86,14 +86,14 @@ az extension add --name azure-cli-iot-ext
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --name YourIoTHubName --policy-name service --output table
+    az iot hub show-connection-string --name {YourIoTHubName} --policy-name service --output table
     ```
 
     다음과 같은 서비스 연결 문자열을 기록해 둡니다.
 
    `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
-    이 값은 빠른 시작의 뒷부분에서 사용합니다. 서비스 연결 문자열은 디바이스 연결 문자열과는 다릅니다.
+    이 값은 빠른 시작의 뒷부분에서 사용합니다. 서비스 연결 문자열은 이전 단계에서 기록한 디바이스 연결 문자열과 다릅니다.
 
 ## <a name="send-simulated-telemetry"></a>시뮬레이션된 원격 분석 전송
 
@@ -103,7 +103,7 @@ az extension add --name azure-cli-iot-ext
 
 1. 원하는 텍스트 편집기에서 **SimulatedDevice.js** 파일을 엽니다.
 
-    `connectionString` 변수의 값을 이전에 적어둔 디바이스 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **SimulatedDevice.js** 파일에 저장합니다.
+    `connectionString` 변수의 값을 이전에 기록해 둔 디바이스 연결 문자열로 바꿉니다. 그런 다음, 변경 내용을 **SimulatedDevice.js**에 저장합니다.
 
 1. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 디바이스 애플리케이션을 실행합니다.
 
@@ -124,7 +124,7 @@ az extension add --name azure-cli-iot-ext
 
 1. 원하는 텍스트 편집기에서 **ReadDeviceToCloudMessages.js** 파일을 엽니다.
 
-    `connectionString` 변수의 값을 이전에 적어둔 서비스 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **ReadDeviceToCloudMessages.js** 파일에 저장합니다.
+    `connectionString` 변수의 값을 이전에 기록해 둔 서비스 연결 문자열로 바꿉니다. 그런 다음, 변경 내용을 **ReadDeviceToCloudMessages.js**에 저장합니다.
 
 1. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 백 엔드 애플리케이션을 실행합니다.
 
@@ -143,7 +143,7 @@ az extension add --name azure-cli-iot-ext
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서 IoT 허브를 설치하고, 디바이스를 등록하고 Node.js 애플리케이션을 사용하여 허브에 시뮬레이션된 원격 분석을 보내고, 간단한 백 엔드 애플리케이션을 사용하여 허브에서 원격 분석을 읽었습니다.
+이 빠른 시작에서 IoT 허브를 설치하고, 디바이스를 등록하고 Node.js 애플리케이션을 사용하여 허브에 시뮬레이션된 원격 분석을 보내고, 간단한 백 엔드 애플리케이션을 사용하여 허브에서 원격 분석을 읽습니다.
 
 백 엔드 애플리케이션에서 시뮬레이션된 디바이스를 제어하는 방법을 알아보려면 다음 빠른 시작을 계속합니다.
 

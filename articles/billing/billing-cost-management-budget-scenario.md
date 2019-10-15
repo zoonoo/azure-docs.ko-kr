@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 8ff402299b26637473f3fb762a3320255ea4df64
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: bc35ba74acb2ce807597230fee0685606a93a775
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719923"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958357"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Azure 예산으로 비용 관리
 
@@ -272,7 +272,7 @@ Azure가 논리 앱을 배포하면 **Logic Apps 디자이너**가 열리고 소
 작업 그룹을 만들면 이 자습서 초반에 만든 논리 앱으로 연결됩니다.
 
 1.  아직 [Azure Portal](https://portal.azure.com/)에 로그인하지 않은 경우 로그인하여 **모든 서비스** > **Monitor**를 선택합니다.
-2.  **설정** 섹션에서 **작업 그룹**을 선택합니다.
+2.  **경고**를 선택한 다음, **작업 관리**를 선택합니다.
 3.  **작업 그룹** 블레이드에서 **작업 그룹 추가**를 선택합니다.
 4.  다음 사항을 추가하고 확인합니다.
     - 작업 그룹 이름

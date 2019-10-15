@@ -6,14 +6,14 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 06/20/2019
-ms.openlocfilehash: 587c730dfa436760d42e614c2dabee117f3b61d3
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 03163d75681bee7434e2b7576a678b1094d47b94
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018812"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973705"
 ---
-# <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos Emulator 사용
+# <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos Emulator - 릴리스 정보 및 다운로드 정보
 
 이 문서에서는 Azure Cosmos Emulator 릴리스 정보와 각 릴리스의 기능 업데이트 목록을 알아봅니다. 또한 다운로드 및 사용할 수 있는 에뮬레이터의 최신 버전도 나와 있습니다.
 

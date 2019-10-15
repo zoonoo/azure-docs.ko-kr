@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 04/08/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 08befabfbd14651475fa56dec95bdf4c2fe54c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 239bb77d486e8cb845ec439d84def5e34cf64348
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60390310"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170221"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>자습서: Azure Resource Manager 템플릿을 사용하여 SQL BACPAC 파일 가져오기
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-* Resource Manager Tools 확장이 있는 [Visual Studio Code](https://code.visualstudio.com/)  [확장 설치](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)를 참조하세요.
+* Resource Manager Tools 확장이 있는 [Visual Studio Code](https://code.visualstudio.com/) [확장 설치](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)를 참조하세요.
 * 보안을 강화하려면 SQL Server 관리자 계정에 대해 생성된 암호를 사용하세요. 암호를 생성하는 방법에 대한 샘플은 다음과 같습니다.
 
     ```azurecli-interactive
@@ -49,17 +49,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prepare-a-bacpac-file"></a>BACPAC 파일 준비
 
-BACPAC 파일은 공개적으로 액세스 가능한 [Azure Storage 계정](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac)에서 공유됩니다. 사용자 고유의 파일을 만들려면 [Azure SQL 데이터베이스를 BACPAC 파일로 내보내기](../sql-database/sql-database-export.md)를 참조하세요. 사용자 고유의 위치에 파일을 게시하기로 선택하는 경우 자습서의 뒷부분에서 템플릿을 업데이트해야 합니다.
+BACPAC 파일은 [Github](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac)에서 공유됩니다. 사용자 고유의 파일을 만들려면 [Azure SQL 데이터베이스를 BACPAC 파일로 내보내기](../sql-database/sql-database-export.md)를 참조하세요. 사용자 고유의 위치에 파일을 게시하기로 선택하는 경우 자습서의 뒷부분에서 템플릿을 업데이트해야 합니다.
 
 ## <a name="open-a-quickstart-template"></a>빠른 시작 템플릿 열기
 
-이 자습서에서 사용된 템플릿은 [Azure Storage 계정](https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json)에 저장됩니다. 
+이 자습서에서 사용된 템플릿은 [Github](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json)에 저장됩니다.
 
 1. Visual Studio Code에서 **파일**>**파일 열기**를 차례로 선택합니다.
 2. **파일 이름**에서 다음 URL을 붙여넣습니다.
 
     ```url
-    https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json
     ```
 3. **열기**를 선택하여 파일을 엽니다.
 
@@ -112,7 +112,7 @@ BACPAC 파일은 공개적으로 액세스 가능한 [Azure Storage 계정](http
             "properties": {
                 "storageKeyType": "SharedAccessKey",
                 "storageKey": "?",
-                "storageUri": "https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac",
+                "storageUri": "https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac",
                 "administratorLogin": "[variables('databaseServerAdminLogin')]",
                 "administratorLoginPassword": "[variables('databaseServerAdminLoginPassword')]",
                 "operationMode": "Import",
@@ -129,7 +129,7 @@ BACPAC 파일은 공개적으로 액세스 가능한 [Azure Storage 계정](http
 
     * **dependsOn**: SQL 데이터베이스가 만들어지면 확장 리소스를 만들어야 합니다.
     * **storageKeyType**: 사용할 스토리지 키의 유형입니다. 값은 `StorageAccessKey` 또는 `SharedAccessKey`입니다. 제공된 BACPAC 파일은 공개적으로 액세스 가능한 Azure Storage 계정에서 공유되므로 여기서는 'SharedAccessKey'가 사용됩니다.
-    * **storageKey**: 사용할 스토리지 키입니다. 저장소 키 형식이 SharedAccessKey이면 앞에 "?"가 있어야 합니다.
+    * **storageKey**: 사용할 스토리지 키입니다. 스토리지 키 형식이 SharedAccessKey이면 앞에 &quot;?&quot;가 있어야 합니다.
     * **storageUri**: 사용할 스토리지 URI입니다. 제공된 BACPAC 파일을 사용하지 않기로 선택하는 경우 값을 업데이트해야 합니다.
     * **administratorLoginPassword**: SQL 관리자의 암호입니다. 생성된 암호를 사용합니다. [필수 조건](#prerequisites)을 참조하세요.
 

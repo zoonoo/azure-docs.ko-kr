@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: c6a424ed6036016839f03f50f90ad5d911b05fad
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 0e8b203240b4b2d6b67534ab52a7cd4ccf5df571
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709994"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976591"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>클래스 유형 개요 - Azure Lab Services
 Azure Lab Services를 사용하면 클라우드에서 클래스룸 랩 환경을 빠르게 설정할 수 있습니다. 이 섹션의 문서에서는 Azure Lab Services를 사용하여 여러 유형의 클래스룸 랩을 설정하는 방법에 대한 지침을 제공합니다.
@@ -34,6 +34,13 @@ Linux에서 셸 스크립팅을 학습하도록 랩을 설정할 수 있습니�
 이러한 스크립팅 클래스를 수강하는 학생은 Linux 가상 머신을 통해 Linux의 기본 사항을 알아보고 bash 셸 스크립팅에 익숙해질 수 있습니다. Linux 가상 머신은 원격 데스크톱 액세스를 사용하도록 설정되어 있고 [gedit](https://help.gnome.org/users/gedit/stable/) 및 [Visual Studio Code](https://code.visualstudio.com/) 텍스트 편집기가 설치 되어 있습니다.
 
 이 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [Linux에서 셸 스크립팅](class-type-shell-scripting-linux.md)을 참조하세요.
+
+## <a name="ethical-hacking"></a>윤리적 해킹 
+윤리적 해킹의 법적 고지에 초점을 맞춘 클래스에 대해 랩을 설정할 수 있습니다. 윤리적 해킹 커뮤니티에서 사용하는 방법인 침투 테스트는 누군가가 악의적인 공격자가 악용할 수 있는 취약성을 입증하기 위해 시스템 또는 네트워크에 대한 액세스 권한을 얻으려고 할 때 발생합니다. 
+
+윤리적 해킹 클래스에서 학생은 취약점을 방어하기 위한 최신 기술을 배울 수 있습니다. 각 학생에게는 두 개의 중첩된 가상 머신이 있는 Windows Server 호스트 가상 머신이 있습니다. 즉 **Metaspoiltable** 이미지가 있는 가상 머신과 [Kali Linux](https://www.kali.org/) 이미지가 있는 가상 머신이 있습니다. Metasploitable 가상 머신은 악용 목적을 위해 사용되며 Kali 가상 머신은 법정 작업을 실행하는 데 필요한 도구에 대한 액세스 권한을 제공합니다.
+
+이 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [윤리적 해킹 클래스를 가르치기 위한 랩 설정](class-type-ethical-hacking.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요. 

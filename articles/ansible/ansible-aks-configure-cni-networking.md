@@ -1,19 +1,19 @@
 ---
-title: 자습서 - Ansible을 사용하여 AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성 | Microsoft Docs
+title: 자습서 - Ansible을 사용하여 AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 description: Ansible을 사용하여 AKS(Azure Kubernetes Service) 클러스터에서 kubenet 네트워킹을 구성하는 방법 알아보기
-keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes, 플레이북, 컨테이너
+keywords: ansible, azure, devops, bash, cloudshell, 플레이북, aks, 컨테이너, aks, kubernetes
 ms.topic: tutorial
 ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 2d43b1ffbb7910b16c81df2ff5b21e67dbcb0193
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 04da0e8fb06d0a32c8e8bdc39d7722fc1c3fcdba
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231353"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242041"
 ---
 # <a name="tutorial-configure-azure-cni-networking-in-azure-kubernetes-service-aks-using-ansible"></a>자습서: Ansible을 사용하여 AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 
@@ -110,7 +110,7 @@ AKS를 사용하여 다음 네트워크 모델을 통해 클러스터를 배포�
 
 - `azure_rm_aks_version` 모듈을 사용하여 지원되는 버전을 확인합니다.
 - `vnet_subnet_id`는 이전 섹션에서 만든 서브넷입니다.
-- 플레이북은 `~/.ssh/id_rsa.pub`에서 `ssh_key`를 로드합니다. 수정할 때는 "ssh-rsa"(따옴표 제외)부터 단일 줄 형식을 사용합니다.
+- 플레이북은 `~/.ssh/id_rsa.pub`에서 `ssh_key`를 로드합니다. 수정할 때는 "ssh-rsa"(따옴표 제외)로 시작하는 단일 줄 형식을 사용합니다.
 - `client_id` 및 `client_secret` 값은 기본 자격 증명 파일인 `~/.azure/credentials`에서 로드됩니다. 이러한 값을 서비스 주체로 설정하거나 환경 변수에서 이러한 값을 로드할 수 있습니다.
 
     ```yml

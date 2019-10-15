@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Ansible을 사용하여 Azure DevTest Labs에서 랩 구성 | Microsoft Docs
+title: 자습서 - Ansible을 사용하여 Azure DevTest Labs에서 랩 구성
 description: Ansible을 사용하여 Azure DevTest Labs에서 랩을 구성하는 방법 알아보기
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, devtest labs
@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: c6bc4d50e4db52f772a137495658492018ee5360
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: d035c76a811df45af5ed8183b86e14a2ee6218b7
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230967"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241666"
 ---
 # <a name="tutorial-configure-labs-in-azure-devtest-labs-using-ansible"></a>자습서: Ansible을 사용하여 Azure DevTest Labs에서 랩 구성
 
@@ -278,7 +278,7 @@ ms.locfileid: "65230967"
 ## <a name="get-the-sample-playbook"></a>샘플 플레이북 가져오기
 
 전체 샘플 플레이북을 가져오는 방법에는 다음 두 가지가 있습니다.
-- [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/devtestlab-create.yml)한 후 `devtestlab-create.yml`에 저장합니다.
+- [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/devtestlab-create.yml)하여 `devtestlab-create.yml`에 저장합니다.
 - `devtestlab-create.yml`이라는 새 파일을 만들고 다음 콘텐츠에 복사합니다.
 
 ```yml
@@ -462,7 +462,7 @@ ansible-playbook devtestlab-create.yml
 
 더 이상 필요하지 않은 경우 이 문서에서 만든 리소스를 삭제합니다. 
 
-다음 코드를 `cleanup.yml`에 저장합니다.
+다음 코드를 `cleanup.yml`로 저장합니다.
 
 ```yml
 - hosts: localhost
@@ -476,7 +476,7 @@ ansible-playbook devtestlab-create.yml
         state: absent
 ```
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook cleanup.yml

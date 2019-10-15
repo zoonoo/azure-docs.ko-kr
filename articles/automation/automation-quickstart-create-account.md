@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 89f32499d02978294398aae7be21f63b5d6aa028
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 80a175aad3c692a5dfd04c7399211c58134c5164
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919820"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937160"
 ---
 # <a name="create-an-azure-automation-account"></a>Azure Automation 계정 만들기
 
@@ -24,13 +24,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
- https://portal.azure.com 에서 Azure에 로그인
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure에 로그인
 
 ## <a name="create-automation-account"></a>Automation 계정 만들기
 
 1. Azure의 왼쪽 위 모서리에서 **리소스 만들기** 단추를 클릭합니다.
 
-1. **관리 도구**를 선택한 다음, **Automation**을 선택합니다.
+1. **IT 및 관리 도구**를 선택한 다음, **Automation**을 선택합니다.
 
 1. 계정 정보를 입력합니다. Azure에 대한 인증을 간소화하는 아티팩트를 자동으로 사용하도록 설정하기 위해 **Azure 실행 계정 만들기**에서 **예**를 선택합니다. Automation 계정을 만들 때 이름을 선택한 후에는 변경할 수 없습니다. *Automation 계정 이름은 하위 지역 및 리소스 그룹별로 고유합니다. 삭제된 Automation 계정에 대한 이름을 즉시 사용할 수 있습니다.* 하나의 Automation 계정으로 해당 테넌트의 모든 영역과 구독 전반의 리소스를 관리할 수 있습니다. 완료되면 **만들기**를 클릭하여 Automation 계정 배포를 시작합니다.
 

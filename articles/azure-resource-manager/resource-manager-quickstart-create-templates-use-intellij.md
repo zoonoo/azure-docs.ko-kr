@@ -13,12 +13,12 @@ ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: quickstart
 ms.author: yucwan
-ms.openlocfilehash: cbeaccf4cdea87d6f34d5ee77e6a08b32abd76b5
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: d25a5720e3aaa8ad6306a72d2db8d3ca2e89861b
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708196"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169437"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-intellij-idea"></a>빠른 시작: IntelliJ IDEA를 사용하여 Azure Resource Manager 템플릿 만들기 및 배포
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="deploy-a-quickstart-template"></a>빠른 시작 템플릿 배포
 
-템플릿을 처음부터 만드는 대신 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 템플릿을 엽니다. Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니다. 이 빠른 시작에서 사용되는 템플릿은 [표준 스토리지 계정 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/)라고 합니다. Azure Storage 계정 리소스를 정의합니다. 
+템플릿을 처음부터 만드는 대신 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 템플릿을 엽니다. Azure 빠른 시작 템플릿은 Resource Manager 템플릿용 리포지토리입니다. 이 빠른 시작에서 사용되는 템플릿은 [표준 스토리지 계정 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/)라고 합니다. Azure Storage 계정 리소스를 정의합니다.
 
 1. [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) 및 [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json)을 마우스 오른쪽 단추로 클릭하고 로컬 컴퓨터에 저장합니다.
 
@@ -89,10 +89,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작은 IntelliJ IDEA를 사용하여 Azure 빠른 시작 템플릿에서 기존 템플릿을 배포하는 데 집중하고 있습니다. 또한 Azure에서 기존 배포를 확인하고 업데이트하는 방법도 알아보았습니다. Azure 빠른 시작 템플릿의 템플릿은 필요한 모든 것을 제공하지 않을 수도 있습니다. 다음 자습서에서는 템플릿 참조에서 정보를 찾아 암호화된 Azure Storage 계정을 만드는 방법을 보여 줍니다.
+이 빠른 시작은 IntelliJ IDEA를 사용하여 Azure 빠른 시작 템플릿에서 기존 템플릿을 배포하는 데 집중하고 있습니다. 또한 Azure에서 기존 배포를 확인하고 업데이트하는 방법도 알아보았습니다. Azure 빠른 시작 템플릿의 템플릿은 필요한 모든 것을 제공하지 않을 수도 있습니다. 템플릿 개발에 대해 자세히 알아보려면 새로운 초보자용 자습서 시리즈를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [암호화된 스토리지 계정 만들기](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+> [초보자용 자습서](./template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
 > [Azure 개발자 센터에서 Java 방문](https://docs.microsoft.com/azure/java)

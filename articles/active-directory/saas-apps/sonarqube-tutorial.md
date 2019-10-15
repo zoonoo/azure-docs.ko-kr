@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b9e28f986f28bde6e46319ddb404d424c100726
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 571d8849fd7cae5c872a56182858848dbb43ef42
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174469"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026695"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sonarqube"></a>자습서: Sonarqube와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -139,7 +139,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. Sonarqube Marketplace에서 SAML 플러그 인을 설치합니다.
 
-3. 페이지의 왼쪽 위에서  **관리자** 를 클릭한 다음,  **SAML**로 이동합니다.
+3. 페이지의 왼쪽 위에서 **관리자**를 클릭한 다음, **SAML**로 이동합니다.
 
 4. **SAML** 페이지에서 다음 단계를 수행합니다.
 

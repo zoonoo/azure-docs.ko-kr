@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1384a8c9cfc4da9e8757c26bdb3e92defdb73708
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: d54580d395b17d80742ed95aefa479f4bc104484
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743696"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960101"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>자습서: Confluence SAML SSO by Microsoft와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -75,9 +75,13 @@ Confluence SAML SSO by Microsoft와 Azure AD 통합을 구성하려면 다음 �
 - Confluence: 6.8.1
 - Confluence: 6.9.0
 - Confluence: 6.10.0
+- Confluence: 6.10.3
 - Confluence: 6.11.0
 - Confluence: 6.12.0
+- Confluence: 6.13.5
 - Confluence: 6.15.3
+- Confluence: 6.15.4
+- Confluence: 6.15.8
 
 > [!NOTE]
 > Confluence 플러그 인도 Ubuntu 버전 16.04에서 작동한다는 점에 유의하세요.
@@ -196,11 +200,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 플러그 인이 설치되면 **추가 기능 관리** 섹션의 **사용자가 설치한** 추가 기능 섹션에 표시됩니다. **구성**을 클릭하여 새 플러그 인을 구성합니다.
 
-    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon13.png)
+    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon15.png)
 
 1. 구성 페이지에서 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon53.png)
+    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > 메타데이터를 확인하는 데 오류가 없도록 앱에 매핑된 인증서가 하나만 있는지 확인합니다. 인증서가 여러 개 있으면 메타데이터를 확인할 때 관리자에게 오류가 표시됩니다.
@@ -210,6 +214,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     1. **식별자, 회신 URL 및 로그인 URL** 값을 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에 있는 **식별자, 회신 URL 및 로그인 URL** 텍스트 상자에 각각 붙여넣습니다.
 
     1. **Login Button Name**(로그인 단추 이름)에 조직이 사용자의 로그인 화면에 표시하려는 단추의 이름을 입력합니다.
+    
+    1. **로그인 단추 설명**의 조직에서 사용자가 로그인 화면에 표시하려는 단추에 대한 설명을 입력합니다.
 
     1. **SAML 사용자 ID 위치**에서 **사용자 ID는 Subject 문의 NameIdentifier 요소에 있습니다.** 또는 **사용자 ID는 Attribute 요소에 있습니다.** 를 선택합니다.  이 ID는 Confluence 사용자 ID여야 합니다. 사용자 ID가 일치하지 않으면 시스템에서 사용자 로그인을 허용하지 않습니다. 
 

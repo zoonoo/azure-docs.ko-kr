@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/18/2019
+ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev
-ms.openlocfilehash: 82a5054a98a5b77cf996be1fddd6502b8f3146bc
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 8bb9073ccb4aef81b46b3b2b87730ddede5c0ff7
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71120505"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240199"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>빠른 시작: Java 웹앱에 Microsoft로 로그인 추가
 
@@ -50,18 +50,7 @@ ms.locfileid: "71120505"
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성
 > 
 >
-> #### <a name="step-1-download-the-code-sample"></a>1단계: 코드 샘플 다운로드
-> 
-> - [코드 샘플 다운로드](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
->
-> #### <a name="step-2-open-applicationproperties"></a>2단계: application.properties 열기
->
-> 1. zip 파일을 로컬 폴더에 추출합니다.
-> 1. (선택 사항) 통합 개발 환경을 사용하는 경우 원하는 IDE에서 샘플을 엽니다.
-> 1. *application.properties* 파일을 엽니다. 다음 단계에서 애플리케이션을 등록할 때 `aad.clientId`, `aad.authority` 및 `aad.secretKey`에 대한 값을 삽입합니다.
-
-
-> #### <a name="step-3-register-your-application"></a>3단계: 애플리케이션 등록
+> #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 > 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
 > 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
@@ -71,8 +60,8 @@ ms.locfileid: "71120505"
 > 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
 >    - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `java-webapp`)을 입력합니다.
 >    - 지금은 **Redirect URI**를 비워 두고 **등록**을 선택합니다.
-> 1. 애플리케이션의 **애플리케이션(클라이언트) ID** 값을 찾습니다. *application.properties* 파일에서 `Enter_the_Application_Id_here` 값을 업데이트합니다.
-> 1. 애플리케이션의 **디렉터리(테넌트) ID** 값을 찾습니다. *application.properties* 파일에서 `Enter_the_Tenant_Info_Here` 값을 업데이트합니다. 
+> 1. 애플리케이션의 **애플리케이션(클라이언트) ID** 값을 찾습니다. 이 값을 복사하면 나중에 필요합니다.
+> 1. 애플리케이션의 **디렉터리(테넌트) ID** 값을 찾습니다. 이 값을 복사하면 나중에 필요합니다.
 > 1. **인증** 메뉴를 선택한 후 다음 정보를 추가합니다.
 >    - **리디렉션 URI**에 `http://localhost:8080/msal4jsamples/secure/aad` 및 `https://localhost:8080/msal4jsamples/graph/users`를 추가합니다.
 >    - **저장**을 선택합니다.
@@ -81,7 +70,7 @@ ms.locfileid: "71120505"
 >    - 키 설명(인스턴스 앱 비밀)을 입력합니다.
 >    - **1년 후** 키 기간을 선택합니다.
 >    - **추가**를 클릭하면 키 값이 표시됩니다. 
->    - 키 값을 복사합니다. 이전에 다운로드한 *application.properties* 파일을 열고 `Enter_the_Client_Secret_Here` 값을 키 값으로 업데이트합니다. 
+>    - 키의 값을 복사하면 나중에 필요합니다.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
@@ -93,20 +82,26 @@ ms.locfileid: "71120505"
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![이미 구성됨](media/quickstart-v2-aspnet-webapp/green-check.png) 이러한 특성을 사용하여 애플리케이션을 구성합니다.
-> 
-> #### <a name="step-2-download-the-code-sample"></a>2단계: 코드 샘플 다운로드
-> 
-> - [코드 샘플 다운로드](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
-> 
-> #### <a name="step-3-configure-the-code-sample"></a>3단계: 코드 샘플 구성 
-> 
-> 1. zip 파일을 로컬 폴더에 추출합니다.
-> 1. 통합 개발 환경을 사용하는 경우 원하는 IDE에서 샘플을 엽니다(선택 사항).
-> 1. **application.properties** 파일을 엽니다. 이 파일은 *src/main/resources/* 에서 찾을 수 있습니다.
-> 1. 애플리케이션 속성을 바꿉니다.
->   1. `aad.clientId`를 찾아 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 값으로 `Enter_the_Application_Id_here` 값을 업데이트합니다. 
->   1. `aad.authority`를 찾아서 `Enter_the_Tenant_Name_Here` 값을 등록한 애플리케이션의 **디렉터리(테넌트) ID** 값으로 업데이트합니다.
->   1. `aad.secretKey`를 찾아 등록한 애플리케이션에 대해 **인증서 및 비밀**에서 만든 **클라이언트 비밀**로 `Enter_the_Client_Secret_Here` 값을 업데이트합니다.
+
+#### <a name="step-2-download-the-code-sample"></a>2단계: 코드 샘플 다운로드
+ 
+ [코드 샘플 다운로드](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
+ 
+ #### <a name="step-3-configure-the-code-sample"></a>3단계: 코드 샘플 구성 
+ 
+ 1. zip 파일을 로컬 폴더에 추출합니다.
+ 1. 통합 개발 환경을 사용하는 경우 원하는 IDE에서 샘플을 엽니다(선택 사항).
+ 1. **application.properties** 파일을 엽니다. 이 파일은 *src/main/resources/* 에서 찾을 수 있습니다.
+ 1. 애플리케이션 속성을 바꿉니다.
+   1. `aad.clientId`를 찾아 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 값으로 `Enter_the_Application_Id_here` 값을 업데이트합니다. 
+   1. `aad.authority`를 찾아서 `Enter_the_Tenant_Name_Here` 값을 등록한 애플리케이션의 **디렉터리(테넌트) ID** 값으로 업데이트합니다.
+   1. `aad.secretKey`를 찾아 등록한 애플리케이션에 대해 **인증서 및 비밀**에서 만든 **클라이언트 비밀**로 `Enter_the_Client_Secret_Here` 값을 업데이트합니다.
+
+> [!div renderon="docs"]
+> 위치:
+>
+> - `Enter_the_Application_Id_here` - 등록한 애플리케이션의 애플리케이션 ID입니다.
+> - `Enter_the_Client_Secret_Here` - 등록한 애플리케이션의 **인증서 및 비밀**에서 만든 **클라이언트 비밀**입니다.
 
 #### <a name="step-4-run-the-code-sample"></a>4단계: 코드 샘플 실행
 1. 코드 샘플을 실행하고 브라우저를 열어서 *http://localhost:8080* 으로 이동합니다.
@@ -114,7 +109,6 @@ ms.locfileid: "71120505"
 1. Azure Active Directory에서 인증에 성공하면 *http://localhost:8080/msal4jsamples/secure/aad* 로 리디렉션됩니다. 애플리케이션에 공식적으로 로그인되고, 로그인한 계정에 대한 정보가 페이지에 표시됩니다. 다음을 위한 단추도 포함됩니다. 
     - *로그아웃*: 현재 사용자를 애플리케이션에서 로그아웃하고 홈페이지로 리디렉션합니다.
     - *사용자 표시*: Microsoft Graph에 대한 토큰을 얻은 다음, 요청에 첨부된 토큰으로 Microsoft Graph를 호출하여 테넌트의 모든 사용자를 가져옵니다.
-
 
 ## <a name="more-information"></a>자세한 정보
 
@@ -134,7 +128,7 @@ compile group: 'com.microsoft.azure', name: 'msal4j', version: '0.5.0-preview'
 ```
 
 
-### <a name="msal-initialization"></a>Msal 초기화
+### <a name="msal-initialization"></a>MSAL 초기화
 MSAL4J를 사용할 파일 맨 위에 다음 코드를 추가하여 MSAL4J에 대한 참조를 추가할 수 있습니다. 
 
 ```Java

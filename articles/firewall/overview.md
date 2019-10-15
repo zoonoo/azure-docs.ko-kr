@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/4/2019
+ms.date: 10/08/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: c685b2314d15e431ccac3470fd337ca92697e1a5
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 5be1a673ac456b0896ce83afcb469e4ac6b8b40a
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241171"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001334"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -78,10 +78,6 @@ FQDN 태그를 활용하면 방화벽을 통해 잘 알려진 Azure 서비스 �
 방화벽 공용 IP 주소로 전송되는 인바운드 네트워크 트래픽은 변환(Destination Network Address Translation)된 다음 가상 네트워크의 개인 IP 주소로 필터링됩니다.
 
 ## <a name="multiple-public-ip-addresses"></a>여러 공용 IP 주소
-
-> [!IMPORTANT]
-> 여러 공용 IP 주소를 사용하는 Azure Firewall은 Azure Portal, Azure PowerShell, Azure CLI, REST 및 템플릿을 통해 사용할 수 있습니다.
-
 
 방화벽에 여러 공용 IP 주소(최대 100개)를 연결할 수 있습니다.
 

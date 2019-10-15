@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9acedc081166c84935e3abfde8401b55c64156a7
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 34ef0497b5cacb66ccf92079e740acd98a05021a
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174379"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026430"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cakehr"></a>자습서: CakeHR과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -137,11 +137,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 새 웹 브라우저 창을 열고, CakeHR 회사 사이트에 관리자 권한으로 로그인합니다.
 
-2. 페이지의 오른쪽 위 모서리에서  **프로필** 을 클릭한 다음,  **설정**으로 이동합니다.
+2. 페이지의 오른쪽 위 모서리에서 **프로필**을 클릭한 다음, **설정**으로 이동합니다.
 
     ![CakeHR 구성](./media/cakehr-tutorial/config01.png)
 
-3. 메뉴 모음 왼쪽에서  **통합** > **SAML SSO**를 클릭하고 다음 단계를 수행합니다.
+3. 메뉴 모음 왼쪽에서 **통합** > **SAML SSO**를 클릭하고 다음 단계를 수행합니다.
 
      ![CakeHR 구성](./media/cakehr-tutorial/config02.png)
 
@@ -163,7 +163,7 @@ Azure AD 사용자가 CakeHR에 로그인하려면 CakeHR에 프로비저닝되�
 
 1. 보안 관리자 권한으로 CakeHR에 로그인합니다.
 
-2. 메뉴 모음의 왼쪽에서  **회사** > **추가**를 클릭합니다.
+2. 메뉴 모음 왼쪽에서 **회사** > **추가**를 클릭합니다.
 
     ![CakeHR 구성](./media/cakehr-tutorial/config03.png)
 

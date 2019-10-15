@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 09/30/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: b2e935a3a5ff2b6da99ad693f2d4e924ae811caf
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: f1d01a4b6b4e42261542cc64516a2e1c2bef56c0
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694839"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958722"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Azure 위임 리소스 관리에 고객 등록
 
@@ -136,7 +136,7 @@ az role definition list --name "<roleName>" | grep name
 >
 > 동일한 구독 또는 구독 내의 리소스 그룹에 여러 제품이 적용되는 경우 별도의 배포도 필요합니다. 적용된 각 제품은 다른 **mspOfferName**을 사용해야 합니다.
 
-다음 예제에서는 구독을 온보딩하는 데 사용할 수정된 **resourceProjection.parameters.json** 파일을 보여 줍니다. 리소스 그룹 매개 변수 파일([rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management) 폴더에 있음)은 유사하지만 온보딩할 특정 리소스 그룹을 식별하기 위한 **rgName** 매개 변수를 포함합니다.
+다음 예제에서는 구독을 온보딩하는 데 사용할 **delegatedResourceManagement.parameters.json** 파일을 보여 줍니다. 리소스 그룹 매개 변수 파일([rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management) 폴더에 있음)은 유사하지만 온보딩할 특정 리소스 그룹을 식별하기 위한 **rgName** 매개 변수를 포함합니다.
 
 ```json
 {

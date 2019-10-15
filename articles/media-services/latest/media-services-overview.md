@@ -16,16 +16,18 @@ ms.workload: media
 ms.date: 09/17/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: a752d7759386828e916f68e5903115220812f3e0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: c6359cf2401ff198b0242243dbf6dfdf2e35ce47
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123036"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244031"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure Media Services v3 개요
 
 Azure Media Services는 브로드캐스트 품질의 비디오 스트리밍을 구현하고, 접근성과 배포를 향상시키며, 콘텐츠를 분석하는 등 여러 작업을 수행하는 솔루션을 빌드할 수 있게 하는 클라우드 기반 플랫폼입니다. 애플리케이션 개발자, 콜센터, 정부 기관, 엔터테인먼트 회사이든 Media Services는 현재 가장 인기있는 모바일 디바이스 및 브라우저를 통해 뛰어난 품질의 미디어 경험을 많은 사용자에게 제공하는 애플리케이션을 만들 수 있도록 도와줍니다. 
+
+Media Services v3 SDK는 [Media Services v3 OpenAPI 사양(Swagger)](https://aka.ms/ams-v3-rest-sdk)을 기반으로 합니다.
 
 > [!NOTE]
 > 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.

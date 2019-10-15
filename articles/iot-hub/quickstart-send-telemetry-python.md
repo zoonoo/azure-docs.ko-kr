@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/28/2019
-ms.openlocfilehash: a08719d322f044bbf1ced8103af5e4e23ed948c9
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 0e4cafee26d9d3345d9099c3c9fc048fb982ada5
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998472"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166405"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석을 보내고 백 엔드 애플리케이션(Python)으로 읽습니다.
 
@@ -51,10 +51,10 @@ az extension add --name azure-cli-iot-ext
 
     **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
-    **MyPythonDevice**: 등록된 디바이스에 지정된 이름입니다. 표시된 것처럼 MyPythonDevice를 사용합니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
+    **MyPythonDevice**: 등록 중인 디바이스의 이름입니다. 표시된 대로 **MyPythonDevice**를 사용하는 것이 좋습니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서도 해당 이름을 사용해야 하며, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyPythonDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyPythonDevice
     ```
 
 1. Azure Cloud Shell에서 다음 명령을 실행하여 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다.
@@ -62,12 +62,12 @@ az extension add --name azure-cli-iot-ext
     **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyPythonDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
     ```
 
     다음과 같은 디바이스 연결 문자열을 기록해 둡니다.
 
-   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyPythonDevice;SharedAccessKey={YourSharedAccessKey}`
 
     이 값은 빠른 시작의 뒷부분에서 사용합니다.
 
@@ -79,7 +79,7 @@ az extension add --name azure-cli-iot-ext
 
 1. 원하는 텍스트 편집기에서 **SimulatedDevice.py** 파일을 엽니다.
 
-    `CONNECTION_STRING` 변수의 값을 이전에 적어둔 디바이스 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **SimulatedDevice.py** 파일에 저장합니다.
+    `CONNECTION_STRING` 변수의 값을 이전에 기록해 둔 디바이스 연결 문자열로 바꿉니다. 그런 다음, 변경 내용을 **SimulatedDevice.py**에 저장합니다.
 
 1. 로컬 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 디바이스 애플리케이션에 필요한 라이브러리를 설치합니다.
 
@@ -105,7 +105,7 @@ IoT Hub CLI 확장은 IoT Hub의 서비스 쪽 **이벤트** 엔드포인트에 
 Azure Cloud Shell에서 다음 명령을 실행하고, `YourIoTHubName`을 해당 IoT 허브 이름으로 바꿉니다.
 
 ```azurecli-interactive
-az iot hub monitor-events --hub-name YourIoTHubName --device-id MyPythonDevice 
+az iot hub monitor-events --hub-name {YourIoTHubName} --device-id MyPythonDevice 
 ```
 
 다음 스크린샷은 시뮬레이션된 디바이스가 허브에 보낸 원격 분석 데이터를 확장 프로그램이 수신하면서 출력한 내용을 보여 줍니다.
@@ -118,7 +118,7 @@ az iot hub monitor-events --hub-name YourIoTHubName --device-id MyPythonDevice
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서 IoT 허브를 설치하고, 디바이스를 등록하고 Python 애플리케이션을 사용하여 허브에 시뮬레이션된 원격 분석을 보내고, 간단한 백 엔드 애플리케이션을 사용하여 허브에서 원격 분석을 읽었습니다.
+이 빠른 시작에서 IoT 허브를 설치하고, 디바이스를 등록하고 Python 애플리케이션을 사용하여 허브에 시뮬레이션된 원격 분석을 보내고, 간단한 백 엔드 애플리케이션을 사용하여 허브에서 원격 분석을 읽습니다.
 
 백 엔드 애플리케이션에서 시뮬레이션된 디바이스를 제어하는 방법을 알아보려면 다음 빠른 시작을 계속합니다.
 

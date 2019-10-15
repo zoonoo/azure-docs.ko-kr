@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: 809d76791522fa135932baaf6e237570ab0af35a
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: eae2319e8d1c162969a04f8dafa18eec671ee1d0
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172169"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034692"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 자동화된 일정 기반 되풀이 워크플로 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "71172169"
 
 여기까지 모두 마치면 논리 앱이 이 워크플로와 비슷하게 보입니다.
 
-![상위 수준 논리 앱](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
+![상위 수준 논리 앱 워크플로 개요](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -52,11 +52,11 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 1. Azure 주 메뉴에서 **리소스 만들기** > **통합** > **논리 앱**을 차례로 선택합니다.
 
-   ![논리 앱 만들기](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app.png)
+   ![논리 앱 리소스 만들기](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-new-logic-app-resource.png)
 
 1. 그림에 설명된 대로 **논리 앱 만들기** 아래에서 논리 앱에 대한 정보를 제공합니다. 완료되면 **만들기**를 선택합니다.
 
-   ![논리 앱 정보 제공](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
+   ![논리 앱에 대한 정보 제공](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
    | 자산 | 값 | 설명 |
    |----------|-------|-------------|
@@ -69,7 +69,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 1. Azure가 앱을 배포한 후 Azure 도구 모음에서 배포된 논리 앱에 대해 **알림** > **리소스로 이동**을 선택합니다.
 
-   ![리소스로 이동](./media/tutorial-build-scheduled-recurring-logic-app-workflow/go-to-logic-app.png)
+   ![새 논리 앱 리소스로 이동](./media/tutorial-build-scheduled-recurring-logic-app-workflow/go-to-new-logic-app-resource.png)
 
    또는 검색 상자에 이름을 입력하여 논리 앱을 찾아 선택할 수 있습니다.
 
@@ -87,11 +87,11 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 1. **되풀이** 셰이프에서 **줄임표**( **...** ) 단추, **이름 바꾸기**를 차례로 선택합니다. `Check travel time every weekday morning` 설명이 포함되도록 트리거 이름을 바꿉니다.
 
-   ![트리거 이름 바꾸기](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
+   ![되풀이 트리거 설명 이름 바꾸기](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
 1. 트리거 내에서 다음 속성을 변경합니다.
 
-   ![간격 및 빈도 변경](./media/tutorial-build-scheduled-recurring-logic-app-workflow/change-interval-frequency.png)
+   ![되풀이 트리거의 간격 및 빈도 변경](./media/tutorial-build-scheduled-recurring-logic-app-workflow/change-interval-frequency.png)
 
    | 자산 | 필수 | Value | 설명 |
    |----------|----------|-------|-------------|
@@ -105,7 +105,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
    * **시간 선택**
    * **분 선택**
 
-   ![트리거 속성 추가](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-trigger-properties.png)
+   ![되풀이 트리거에 대한 속성 추가](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-trigger-properties.png)
 
 1. 이제 여기서 설명한 대로 추가 속성의 값을 설정합니다.
 
@@ -140,7 +140,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 1. Bing 지도가 연결되지 않으면 연결을 만들라는 메시지가 나타납니다. 다음 연결 세부 정보를 제공하고, **만들기**를 선택합니다.
 
-   ![Bing Maps 연결 만들기](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
+   ![Bing Maps API에 대한 연결 만들기](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
 
    | 자산 | 필수 | Value | 설명 |
    |----------|----------|-------|-------------|
@@ -221,11 +221,11 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    1. 식 내에서 속성 값이 확인되면 **확인**을 선택합니다.
 
-      !["확인" 선택](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-5.png)
+      ![식 작성을 완료하려면 "확인"을 선택합니다.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-5.png)
 
       이제 **값** 속성은 다음과 같이 표시됩니다.
 
-      ![확인된 식이 있는 "값" 속성](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-6.png)
+      !["값" 속성이 확인된 식과 함께 나타납니다.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-6.png)
 
 1. 논리 앱을 저장합니다.
 
@@ -247,7 +247,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    1. 표시되는 동적 콘텐츠 목록의 **변수** 아래에서 **travelTime** 속성을 선택합니다.
 
-      ![조건 작성의 왼쪽](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-left-side.png)
+      ![조건의 왼쪽 빌드](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-left-side.png)
 
    1. 가운데 비교 상자에서 **보다 큼** 연산자를 선택합니다.
 
@@ -255,7 +255,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
       완료되면 조건이 다음 예와 같습니다.
 
-      ![완성된 조건](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
+      ![이동 시간을 확인하는 완성된 조건](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
 
 1. 논리 앱을 저장합니다.
 
@@ -269,7 +269,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 1. **작업 선택** 아래에서 **표준**을 선택합니다. 검색 상자에서 "이메일 보내기"를 입력합니다. 목록에서 많은 결과를 반환하므로 먼저 원하는 이메일 커넥터를 선택합니다. 예를 들어 다음과 같습니다.
 
-   ![이메일 커넥터 선택](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png)
+   ![원하는 이메일 커넥터를 선택합니다.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png)
 
    * Azure 회사 또는 학교 계정인 경우 **Office 365 Outlook**을 선택합니다.
    * Microsoft 개인 계정인 경우 **Outlook.com**을 선택합니다.
@@ -320,17 +320,17 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    1. 식 내에서 속성이 확인되면 **확인**을 선택합니다.
 
-      ![확인된 식이 있는 "본문" 속성](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-5.png)
+      !["본문" 속성이 확인되면 "확인"을 선택합니다.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-5.png)
 
       이제 **본문** 속성은 다음과 같이 표시됩니다.
 
-      ![확인된 식이 있는 "본문" 속성](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-6.png)
+      ![식에서 확인된 "본문" 속성](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-6.png)
 
 1. 논리 앱을 저장합니다.
 
 다음으로, 이 예제와 비슷하게 표시되는 논리 앱을 테스트합니다.
 
-![완료된 논리 앱](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-finished.png)
+![완료된 예제 논리 앱 워크플로](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-finished.png)
 
 ## <a name="run-your-logic-app"></a>논리 앱 실행
 
@@ -340,7 +340,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 * 현재 이동 시간이 제한을 초과하면 현재 이동 시간 및 제한을 초과한 시간(분)이 포함된 이메일을 받게 됩니다. 논리 앱에서 다음과 같은 이메일을 보냅니다.
 
-![이동 시간이 포함된 이메일](./media/tutorial-build-scheduled-recurring-logic-app-workflow/email-notification.png)
+![이동 시간을 표시하는 이메일 발송 예제](./media/tutorial-build-scheduled-recurring-logic-app-workflow/received-example-email-notification.png)
 
 이메일을 받지 못한 경우 이메일의 정크 폴더를 확인합니다. 이메일 정크 필터가 이러한 종류의 메일을 리디렉션할 수 있습니다. 그렇지 않으면 논리 앱이 올바르게 실행되는지 모르는 경우 [논리 앱 문제 해결](../logic-apps/logic-apps-diagnosing-failures.md)을 참조하세요.
 

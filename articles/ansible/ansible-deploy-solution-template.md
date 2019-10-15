@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - CentOS에 Azure용 Ansible 솔루션 템플릿 배포 | Microsoft Docs
+title: 빠른 시작 - CentOS에 Azure용 Ansible 솔루션 템플릿 배포
 description: 이 빠른 시작에서는 Azure에 호스트되는 CentOS 가상 머신에 Ansible 솔루션 템플릿을 배포하는 방법 및 Azure와 함께 작동하도록 구성된 도구에 대해 알아봅니다.
 keywords: ansible, azure, 개발, 솔루션 템플릿, 가상 머신, azure 리소스에 대한 관리 ID, centos, red hat
 ms.topic: quickstart
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 58f28d5cf7d31a3fbddc8e1ca18be4dbcf617f61
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5ababe9eb1f680378e882970df2d0b008287a7c4
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231007"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241708"
 ---
 # <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>빠른 시작: CentOS에 Azure용 Ansible 솔루션 템플릿 배포
 

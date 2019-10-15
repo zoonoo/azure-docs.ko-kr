@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: 734a6be81a8052b2894f4c27b165bb8dc4f14caf
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: fb92e882607575e99ae800bd9c6d7c36b5d89d8e
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71171643"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034573"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 자동화된 승인 기반 워크플로 만들기
 
@@ -35,7 +35,7 @@ ms.locfileid: "71171643"
 
 여기까지 모두 마치면 논리 앱이 이 워크플로와 비슷하게 보입니다.
 
-![완료된 상위 수준 논리 앱](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-overview.png)
+![완료된 상위 수준 논리 앱 개요](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-overview.png)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -53,11 +53,11 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 1. Azure 주 메뉴에서 **리소스 만들기** > **통합** > **논리 앱**을 차례로 선택합니다.
 
-   ![논리 앱 만들기](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app.png)
+   ![새 논리 앱 리소스 만들기](./media/tutorial-process-mailing-list-subscriptions-workflow/create-new-logic-app-resource.png)
 
 1. 그림에 설명된 대로 **논리 앱 만들기** 아래에서 논리 앱에 대한 정보를 제공합니다. 완료되면 **만들기**를 선택합니다.
 
-   ![논리 앱 정보 제공](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
+   ![논리 앱에 대한 정보 제공](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
 
    | 자산 | 값 | 설명 |
    |----------|-------|-------------|
@@ -70,7 +70,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 1. Azure가 앱을 배포한 후 Azure 도구 모음에서 배포된 논리 앱에 대해 **알림** > **리소스로 이동**을 선택합니다.
 
-   ![리소스로 이동](./media/tutorial-process-mailing-list-subscriptions-workflow/go-to-logic-app.png)
+   ![새 논리 앱 리소스로 이동](./media/tutorial-process-mailing-list-subscriptions-workflow/go-to-logic-app-resource.png)
 
    또는 검색 상자에 이름을 입력하여 논리 앱을 찾아 선택할 수 있습니다.
 
@@ -108,13 +108,13 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    1. 이제 이메일 제목 줄을 기준으로 필터링할 수 있도록 트리거에 또 다른 속성을 추가합니다. **새 매개 변수 목록 추가**를 열고 **제목 필터** 속성을 선택합니다.
 
-      ![새 매개 변수 추가](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
+      ![트리거할 "제목 필터" 속성 추가](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
 
       이 트리거의 속성에 대한 자세한 내용은 [Office 365 Outlook 커넥터 참조](https://docs.microsoft.com/connectors/office365/) 또는 [Outlook.com 커넥터 참조](https://docs.microsoft.com/connectors/outlook/)에서 확인할 수 있습니다.
 
    1. 트리거에 속성이 표시되면 `subscribe-test-members-ML` 텍스트를 입력합니다.
 
-      ![제목 필터 textAdd 새 매개 변수 입력](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-subject-filter-property.png)
+      !["제목 필터" 속성에 텍스트 입력](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-subject-filter-property.png)
 
 1. 트리거 세부 정보를 숨기려면 트리거의 제목 표시줄을 클릭합니다.
 
@@ -161,13 +161,13 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 1. **작업 선택** 아래에서 **기본 제공**을 선택합니다. 검색 상자에서 필터로 `condition`을 입력합니다. 작업 목록에서 **조건** 작업을 선택합니다.
 
-   !["조건" 선택](./media/tutorial-process-mailing-list-subscriptions-workflow/select-condition.png)
+   !["조건" 작업을 찾아서 선택](./media/tutorial-process-mailing-list-subscriptions-workflow/select-condition-action.png)
 
 1. 보다 구체적인 설명이 포함되도록 조건 이름을 바꿉니다.
 
    1. 조건의 제목 표시줄에서 **줄임표**( **...** ) 단추 > **이름 바꾸기**를 선택합니다.
 
-      ![조건 이름 바꾸기](./media/tutorial-process-mailing-list-subscriptions-workflow/rename-condition.png)
+      ![조건 설명 이름 바꾸기](./media/tutorial-process-mailing-list-subscriptions-workflow/rename-condition-description.png)
 
    1. `If request approved` 설명이 포함되도록 조건 이름을 바꿉니다.
 
@@ -177,7 +177,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    1. 표시되는 동적 콘텐츠 목록의 **승인 이메일 보내기** 아래에서 **SelectedOption** 속성을 선택합니다.
 
-      !["승인 이메일 보내기" 아래에서 "SelectedOption" 선택](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response.png)
+      ![동적 콘텐츠 목록에서 "SelectedOption"을 선택합니다.](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response.png)
 
    1. 가운데 비교 상자에서 **같음** 연산자를 선택합니다.
 
@@ -185,7 +185,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
       완료되면 조건이 다음 예와 같습니다.
 
-      ![완성된 조건](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response-2.png)
+      ![승인된 예제의 완성된 조건](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response-2.png)
 
 1. 논리 앱을 저장합니다.
 
@@ -242,7 +242,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
       완료되면 조건이 다음 예와 같습니다.
 
-      ![완성된 조건](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-added-member-2.png)
+      ![구독된 예제의 완성된 조건](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-added-member-2.png)
 
 다음으로, 승인된 구성원이 메일 그룹에 성공적으로 조인할 때 또는 조인에 실패할 때 보낼 이메일을 설정합니다.
 
@@ -250,7 +250,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 1. **구성원 추가가 성공한 경우** 조건의 **true인 경우** 분기에서 **작업 추가**를 선택합니다.
 
-   ![조건의 "true인 경우" 분기에서 "작업 추가" 선택](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success.png)
+   !["true인 경우" 분기에서 "작업 추가"를 선택합니다.](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success.png)
 
 1. **작업 선택** 아래의 검색 상자에 `outlook send email`을 필터로 입력하고, **이메일 보내기** 작업을 선택합니다.
 
@@ -275,7 +275,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 1. **구성원 추가가 성공한 경우** 조건의 **false인 경우** 분기에서 **작업 추가**를 선택합니다.
 
-   ![조건의 "false인 경우" 분기에서 "작업 추가" 선택](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png)
+   !["false인 경우" 분기에서 "작업 추가"를 선택합니다.](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png)
 
 1. **작업 선택** 아래의 검색 상자에 `outlook send email`을 필터로 입력하고, **이메일 보내기** 작업을 선택합니다.
 
@@ -298,7 +298,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 다음으로, 이 예제와 비슷하게 표시되는 논리 앱을 테스트합니다.
 
-![완료된 논리 앱](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-complete.png)
+![완료된 논리 앱 워크플로 예제](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-completed.png)
 
 ## <a name="run-your-logic-app"></a>논리 앱 실행
 
@@ -312,11 +312,11 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 1. 구독자의 이메일 주소가 메일 그룹에 없는 경우 논리 앱은 해당 인물의 이메일 주소를 추가하고 사용자에게 다음 예제와 비슷한 이메일을 보냅니다.
 
-   ![성공 이메일](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-success.png)
+   ![예제 이메일 - 성공한 구독](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-mailing-list-success.png)
 
    논리 앱이 구독자를 추가할 수 없으면 이 예제와 비슷한 이메일을 받게 됩니다.
 
-   ![실패 이메일](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-failed.png)
+   ![예제 이메일 - 실패한 구독](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-mailing-list-failed.png)
 
    이메일을 받지 못한 경우 이메일의 정크 폴더를 확인합니다. 이메일 정크 필터가 이러한 종류의 메일을 리디렉션할 수 있습니다. 그렇지 않으면 논리 앱이 올바르게 실행되는지 모르는 경우 [논리 앱 문제 해결](../logic-apps/logic-apps-diagnosing-failures.md)을 참조하세요.
 

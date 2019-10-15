@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 05/16/2019
-ms.openlocfilehash: bb803861fa64beb0b4afe2202230209493f42a1d
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.date: 10/03/2019
+ms.openlocfilehash: fe7560f68690233d7a333724274a259d693123d0
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003657"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035698"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>자습서: HDInsight에서 Power BI를 사용하여 Apache Spark 데이터 분석
 
@@ -74,7 +74,7 @@ Spark를 사용하는 첫 번째 단계는 Power BI Desktop에서 클러스터�
 > [!NOTE]  
 > 이 문서에서 설명하는 커넥터는 현재 미리 보기 상태입니다. [Power BI 커뮤니티](https://community.powerbi.com/) 사이트 또는 [Power BI Ideas](https://ideas.powerbi.com/forums/265200-power-bi-ideas)를 통해 피드백을 제공하세요.
 
-1. Power BI Desktop을 엽니다. 시작 화면이 열리면 닫습니다.
+1. Power BI Desktop을 엽니다. 시작 스플래시 화면이 열리면 닫습니다.
 
 2. **홈** 탭에서 **데이터 가져오기** > **자세히...** 로 이동합니다.
 
@@ -124,7 +124,7 @@ Spark를 사용하는 첫 번째 단계는 Power BI Desktop에서 클러스터�
 
 ### <a name="publish-the-report-to-the-power-bi-service-optional"></a>Power BI 서비스에 보고서 게시(선택 사항)
 
-Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보드를 공유할 수 있습니다. 이 섹션에서는 먼저 데이터 세트와 보고서를 게시합니다. 그런 다음 보고서를 대시보드에 고정합니다. 대시보드는 보고서에 있는 데이터 하위 집합에 집중하는 데 일반적으로 사용되며 보고서에 하나의 시각화만이 있지만 단계를 수행하는 데 여전히 유용합니다.
+Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보드를 공유할 수 있습니다. 이 섹션에서는 먼저 데이터 세트와 보고서를 게시합니다. 그런 다음 보고서를 대시보드에 고정합니다. 대시보드는 일반적으로 보고서의 데이터 하위 집합에 초점을 맞추기 위해 사용됩니다. 보고서에는 시각화가 하나만 있지만 단계를 계속 진행하는 것이 좋습니다.
 
 1. Power BI Desktop을 엽니다.
 

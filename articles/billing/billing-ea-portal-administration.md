@@ -4,16 +4,16 @@ description: 이 문서에서는 관리자가 Azure EA Portal에서 수행하는
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/25/2019
+ms.date: 10/07/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 87947fb29d8fa7dd86818caef139e776c04c7650
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 21e9d4af783ed5d9eb3ace1c8b5189163b89f8b0
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71308097"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035213"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA Portal 관리
 
@@ -87,10 +87,11 @@ Azure 계정에 대한 자세한 내용은 계정 추가를 참조하세요.
 - 대상 및 원본 등록에는 EA 관리자의 승인이 필요합니다.
   - 경우에 따라 Microsoft에서 원본 등록 EA 관리자의 추가 승인을 요청할 수 있습니다.
 - 계정을 양도해도 요구 사항이 충족되지 않는 경우 등록 양도를 고려해 보세요.
-- 계정 양도는 모든 EA 부서 관리자를 포함하여 모든 서비스, 구독, 계정, 부서 및 등록 구조 전체를 양도합니다.
-- 계정 양도는 원본 등록 상태를 _전송됨_으로 설정합니다. 양도된 계정은 이전 사용량 보고 용도로만 사용할 수 있습니다.
-- 상태가 전송됨인 등록에는 역할 또는 구독을 추가할 수 없습니다. 전송됨 상태에서는 등록에 사용량을 추가할 수 없습니다.
-- 이후 조건을 포함하여 원본 계약의 남은 현금 약정 잔액은 모두 소멸됩니다.
+- 계정 전송은 특정 계정과 관련된 모든 서비스 및 구독을 전송합니다.
+- 전송이 완료된 후 전송된 계정은 원본 등록에서 비활성 상태로 표시됩니다.
+- 계정 전송은 대상 등록 시작 날짜 내의 임의의 날짜로 시작될 수 있습니다.
+- 이 계정에는 원본 등록의 유효 전송 날짜와 대상 등록의 시작 날짜에 해당하는 종료 날짜가 표시됩니다.
+- 유효 전송 날짜 이전 계정에 발생하는 모든 사용량은 원본 등록에 남아 있습니다.
 
 
 ## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>엔터프라이즈 등록을 새 등록에 양도

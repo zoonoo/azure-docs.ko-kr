@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: a97081101df5199d3201a6ec47df4c2ac2747416
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: cb115b8658850fc85f93fc7a9508a82ecee920d8
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309136"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166453"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>빠른 시작: Azure IoT 허브로 원격 분석을 전송하고 Java 애플리케이션으로 읽기
 
@@ -69,37 +69,39 @@ az extension add --name azure-cli-iot-ext
 
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
-   **MyJavaDevice**: 등록 중인 디바이스의 이름입니다. 표시된 것처럼 **MyJavaDevice**를 사용합니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 애플리케이션 예제에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
+   **MyJavaDevice**: 등록 중인 디바이스의 이름입니다. 표시된 대로 **MyJavaDevice**를 사용하는 것이 좋습니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서도 해당 이름을 사용해야 하며, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyJavaDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyJavaDevice
     ```
 
-2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다. **YourIoTHubName: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다.
+
+    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyJavaDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyJavaDevice --output table
     ```
 
     다음과 같은 디바이스 연결 문자열을 기록해 둡니다.
 
-   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyJavaDevice;SharedAccessKey={YourSharedAccessKey}`
 
     이 값은 빠른 시작의 뒷부분에서 사용합니다.
 
 3. 또한 백 엔드 애플리케이션이 IoT Hub에 연결하고 메시지를 검색할 수 있도록 하려면 IoT Hub에서 _Event Hubs 호환 엔드포인트_, _Event Hubs 호환 경로_ 및 _서비스 기본 키_가 필요합니다. 다음 명령은 IoT 허브에 대해 이 값을 검색합니다.
 
-     **YourIoTHubName: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+     **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name YourIoTHubName
+    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
 
-    az iot hub show --query properties.eventHubEndpoints.events.path --name YourIoTHubName
+    az iot hub show --query properties.eventHubEndpoints.events.path --name {YourIoTHubName}
 
-    az iot hub policy show --name service --query primaryKey --hub-name YourIoTHubName
+    az iot hub policy show --name service --query primaryKey --hub-name {YourIoTHubName}
     ```
 
-    빠른 시작의 뒷부분에서 사용하기 위해 이 세 개의 값을 적어 둡니다.
+    빠른 시작의 뒷부분에서 사용하기 위해 이 세 개의 값을 기록해 둡니다.
 
 ## <a name="send-simulated-telemetry"></a>시뮬레이션된 원격 분석 전송
 
@@ -109,7 +111,7 @@ az extension add --name azure-cli-iot-ext
 
 2. 원하는 텍스트 편집기에서 **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** 파일을 엽니다.
 
-    `connString` 변수의 값을 이전에 적어둔 디바이스 연결 문자열로 바꿉니다. 그런 다음 변경 내용을 **SimulatedDevice.java** 파일에 저장합니다.
+    `connString` 변수의 값을 이전에 기록해 둔 디바이스 연결 문자열로 바꿉니다. 그런 다음, 변경 내용을 **SimulatedDevice.java**에 저장합니다.
 
 3. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 디바이스 애플리케이션을 빌드합니다.
 
@@ -125,7 +127,7 @@ az extension add --name azure-cli-iot-ext
 
     다음 스크린샷에서는 시뮬레이션된 디바이스 애플리케이션에서 IoT 허브에 원격 분석을 보낼 때의 출력을 보여 줍니다.
 
-    ![시뮬레이션된 디바이스 실행](media/quickstart-send-telemetry-java/SimulatedDevice.png)
+    ![디바이스에서 IoT 허브로 보낸 원격 분석의 출력](media/quickstart-send-telemetry-java/iot-hub-simulated-device.png)
 
 ## <a name="read-the-telemetry-from-your-hub"></a>허브에서 원격 분석 읽기
 
@@ -137,9 +139,9 @@ az extension add --name azure-cli-iot-ext
 
     | 변수 | 값 |
     | -------- | ----------- |
-    | `eventHubsCompatibleEndpoint` | 변수 값을 이전에 적어둔 Event Hubs 호환 엔드포인트로 바꿉니다. |
-    | `eventHubsCompatiblePath`     | 변수 값을 이전에 적어둔 Event Hubs 호환 경로로 바꿉니다. |
-    | `iotHubSasKey`                | 변수 값을 이전에 적어둔 서비스 기본 키로 바꿉니다. |
+    | `eventHubsCompatibleEndpoint` | 변수 값을 이전에 기록해 둔 Event Hubs 호환 엔드포인트로 바꿉니다. |
+    | `eventHubsCompatiblePath`     | 변수 값을 이전에 기록해 둔 Event Hubs 호환 경로로 바꿉니다. |
+    | `iotHubSasKey`                | 변수 값을 이전에 기록해 둔 서비스 기본 키로 바꿉니다. |
 
 3. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 백 엔드 애플리케이션을 빌드합니다.
 
@@ -155,7 +157,7 @@ az extension add --name azure-cli-iot-ext
 
     다음 스크린샷에서는 시뮬레이션된 디바이스에서 허브에 보낸 원격 분석을 백 엔드 애플리케이션에서 받을 때의 출력을 보여 줍니다.
 
-    ![백 엔드 애플리케이션 실행](media/quickstart-send-telemetry-java/ReadDeviceToCloud.png)
+    ![백 엔드 애플리케이션으로 출력하여 IoT 허브에 전송된 원격 분석 수신](media/quickstart-send-telemetry-java/iot-hub-read-device-to-cloud.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

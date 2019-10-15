@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Ansible을 사용하여 Azure Service Bus에 토픽 구성 | Microsoft Docs
+title: 자습서 - Ansible을 사용하여 Azure Service Bus에 토픽 구성
 description: Ansible을 사용하여 Azure Service Bus 토픽을 만드는 방법 알아보기
 keywords: ansible, azure, devops, bash, playbook, service bus, topics, subscriptions
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: ca8d849796520ac260d888d772c064316db68a30
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 952779db582f9437f10608bf86b0b80560ded2c0
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230867"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241225"
 ---
 # <a name="tutorial-configure-topics-in-azure-service-bus-using-ansible"></a>자습서: Ansible을 사용하여 Azure Service Bus에 토픽 구성
 
@@ -262,7 +262,7 @@ ansible-playbook servicebus_topic_policy_delete.yml
 
 더 이상 필요하지 않은 경우 이 문서에서 만든 리소스를 삭제합니다. 
 
-다음 코드를 `cleanup.yml`에 저장합니다.
+다음 코드를 `cleanup.yml`로 저장합니다.
 
 ```yml
 ---
@@ -298,7 +298,7 @@ ansible-playbook servicebus_topic_policy_delete.yml
           force_delete_nonempty: yes
 ```
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook cleanup.yml

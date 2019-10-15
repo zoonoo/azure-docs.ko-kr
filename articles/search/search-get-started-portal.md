@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: 44f370829b972840ac4266a760fefb4aa317be30
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: a4a25b8504d873b624e1f6822807c9c08ebd2e4f
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884571"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936976"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "70884571"
 > * [Python](search-get-started-python.md)
 > * [C#](search-get-started-dotnet.md)
 
-Azure Search 개념에서 빠른 램프업의 경우 Azure Portal에서 기본 제공 도구를 시도해 보세요. 마법사 및 편집기는 .NET 및 REST API가 포함된 완벽한 패리티를 제공하지는 않지만 코드 없는 도입을 통해 빠르게 시작하고 몇 분 내에 샘플 데이터에 대한 흥미로운 쿼리를 작성할 수 있습니다.
+Azure Search 개념에서 빠른 램프업의 경우 Azure Portal에서 기본 제공 도구를 시도해 보세요. 마법사 및 편집기는 .NET 및 REST API가 포함된 완벽한 패리티를 제공하지는 않지만 코드 없는 도입을 통해 빠르게 시작하고 몇 분 내에 인덱스에 대한 흥미로운 쿼리를 작성할 수 있습니다.
 
 > [!div class="checklist"]
 > * Azure에서 호스트되는 무료 공용 샘플 데이터 세트로 시작
@@ -53,7 +53,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 검색 쿼리는 특정 검색 동작을 최적화하는 검색 가능 데이터, 메타데이터 및 추가 구문을 포함하는 [*인덱스*](search-what-is-an-index.md)에 대해 반복됩니다.
 
-이 자습서에서는 **데이터 가져오기** 마법사를 통해 [*인덱서*](search-indexer-overview.md)를 사용하여 크롤링할 수 있는 기본 제공 샘플 데이터 세트를 사용합니다. 인덱서는 지원되는 Azure 데이터 원본에서 메타데이터 및 콘텐츠를 읽을 수 있는 원본 관련 크롤러입니다. 일반적으로 인덱서를 프로그래밍 방식으로 사용하지만 포털에서는 **데이터 가져오기** 마법사를 통해 인덱서에 액세스할 수 있습니다. 
+이 자습서에서는 [**데이터 가져오기** 마법사](search-import-data-portal.md)를 통해 [*인덱서*](search-indexer-overview.md)를 사용하여 크롤링할 수 있는 기본 제공 샘플 데이터 세트를 사용합니다. 인덱서는 지원되는 Azure 데이터 원본에서 메타데이터 및 콘텐츠를 읽을 수 있는 원본 관련 크롤러입니다. 일반적으로 인덱서를 프로그래밍 방식으로 사용하지만 포털에서는 **데이터 가져오기** 마법사를 통해 인덱서에 액세스할 수 있습니다. 
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>1단계 - 데이터 가져오기 마법사 시작 및 데이터 원본 만들기
 

@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/03/2019
-ms.openlocfilehash: 03a0f285b2e8c74070a30bfbaac50e9bd9c58f65
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a23518cd016a1711e47734df0f7179770aa92a87
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051487"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166975"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석 데이터 보내기(iOS)
 
@@ -26,7 +26,7 @@ IoT Hub는 스토리지 또는 처리를 위해 IoT 디바이스에서 클라우
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -51,21 +51,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
-   **myiOSdevice**: 등록된 디바이스에 지정된 이름입니다. 표시된 것처럼 myiOSdevice를 사용합니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
+   **myiOSdevice**: 등록 중인 디바이스의 이름입니다. 표시된 대로 **myiOSdevice**를 사용하는 것이 좋습니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서도 해당 이름을 사용해야 하며, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
 
    ```azurecli-interactive
-   az iot hub device-identity create --hub-name YourIoTHubName --device-id myiOSdevice
+   az iot hub device-identity create --hub-name {YourIoTHubName} --device-id myiOSdevice
    ```
 
-1. 방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져오려면 다음 명령을 실행합니다.
+1. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다.
+
+   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
    ```azurecli-interactive
-   az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id myiOSdevice --output table
+   az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id myiOSdevice --output table
    ```
 
    다음과 같은 디바이스 연결 문자열을 기록해 둡니다.
 
-   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=myiOSdevice;SharedAccessKey={YourSharedAccessKey}`
 
     이 값은 빠른 시작의 뒷부분에서 사용합니다.
 
@@ -120,7 +122,7 @@ XCode 에뮬레이터에서 실행된 샘플 앱은 디바이스에서 보낸 �
 Azure Cloud Shell에서 다음 명령을 실행하고, `YourIoTHubName`을 해당 IoT 허브 이름으로 바꿉니다.
 
 ```azurecli-interactive
-az iot hub monitor-events --device-id myiOSdevice --hub-name YourIoTHubName
+az iot hub monitor-events --device-id myiOSdevice --hub-name {YourIoTHubName}
 ```
 
 다음 스크린샷은 시뮬레이션된 디바이스가 허브에 보낸 원격 분석 데이터를 확장 프로그램이 수신하면서 출력한 내용을 보여 줍니다.
@@ -135,7 +137,7 @@ az iot hub monitor-events --device-id myiOSdevice --hub-name YourIoTHubName
 
 ## <a name="next-steps"></a>다음 단계
 
-이 아티클에서는 IoT Hub를 설정하고, 디바이스를 등록하고, 시뮬레이션된 원격 분석을 iOS 디바이스에서 허브로 전송하고, 허브에서 원격 분석을 읽었습니다. 
+이 빠른 시작에서는 IoT Hub를 설정하고, 디바이스를 등록하고, 시뮬레이션된 원격 분석을 iOS 디바이스에서 허브로 전송하고, 허브에서 원격 분석을 읽습니다. 
 
 백 엔드 애플리케이션에서 시뮬레이션된 디바이스를 제어하는 방법을 알아보려면 다음 빠른 시작을 계속합니다.
 

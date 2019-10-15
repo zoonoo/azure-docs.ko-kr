@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: pafarley
-ms.openlocfilehash: fdf2b132b5d07b2b12c679cb436968c6fb19887e
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: a51a8e02ec08b9a4ee353c2c45345c4d01246894
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719502"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981824"
 ---
 # <a name="quickstart-computer-vision-client-library-for-nodejs"></a>빠른 시작: Node.js용 Computer Vision 클라이언트 라이브러리
 
@@ -228,7 +228,7 @@ Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트�
 
 ### <a name="set-up-test-images"></a>테스트 이미지 설정
 
-텍스트를 추출하려는 이미지의 참조 URL을 저장합니다.
+텍스트를 추출하려는 이미지의 URL에 대한 참조를 저장합니다.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 2f1ee5caf89af718d91abeac01730700c131ab41
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: bc7858aeceea7cbd35bc2d834ddfb4fb5d656321
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70048952"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174824"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>빠른 시작: 디바이스 기능 모델을 사용하여 IoT 플러그 앤 플레이 디바이스를 만들고 IoT Central 애플리케이션에 연결
 
@@ -42,12 +42,12 @@ _DCM(디바이스 기능 모델)_ 은 [IoT 플러그 앤 플레이](../iot-pnp/o
     npm i -g dps-keygen
     ```
 
-### <a name="install-azure-iot-device-workbench"></a>Azure IoT Device Workbench 설치
+### <a name="install-azure-iot-tools"></a>Azure IoT Tools 설치
 
-다음 단계에 따라 Azure IoT Device Workbench 확장을 VS Code에 설치합니다.
+다음 단계에 따라 VS Code 코드에 Azure IoT Tools 확장 팩을 설치합니다.
 
 1. VS Code에서 **확장** 탭을 선택합니다.
-1. **Azure IoT Device Workbench**를 검색합니다.
+1. **Azure IoT Tools**를 검색합니다.
 1. **설치**를 선택합니다.
 
 ## <a name="prepare-the-development-environment"></a>개발 환경 준비

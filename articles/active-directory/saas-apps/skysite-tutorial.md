@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adbf57e0446820959113ba4f27cc2f93fd20fdd5
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 93ef7f4201e9613cc6fa4391bc28d257272fa1c7
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174299"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026121"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-skysite"></a>자습서: SKYSITE와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -89,13 +89,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1.  **기본 SAML 구성** 섹션에서 애플리케이션은  **IDP** 시작 모드로 미리 구성되어 있으며 필요한 URL은 이미 Azure로 미리 채워져 있습니다. 사용자는  **저장** 단추를 클릭하여 구성을 저장해야 합니다.
+1. **기본 SAML 구성** 섹션에서 애플리케이션은 **IDP** 시작 모드로 미리 구성되어 있으며 필요한 URL은 이미 Azure로 미리 채워져 있습니다. 사용자는 **저장** 단추를 클릭하여 구성을 저장해야 합니다.
 
-1. SKYSITE 애플리케이션에는 사용자 지정 특성 매핑을 SAML 토큰 특성 구성에 추가해야 하는 특정 형식의 SAML 어설션이 필요합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  단추를 클릭하여 사용자 특성 대화 상자를 엽니다.
+1. SKYSITE 애플리케이션에는 사용자 지정 특성 매핑을 SAML 토큰 특성 구성에 추가해야 하는 특정 형식의 SAML 어설션이 필요합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 사용자 특성 대화 상자를 엽니다.
 
     ![이미지](common/edit-attribute.png)
 
-1. 위에서 언급한 특성 외에도 SKYSITE 애플리케이션에는 SAML 응답에서 다시 전달되는 몇 가지 특성이 추가로 필요합니다.  **그룹 클레임(미리 보기)**   대화 상자의  **사용자 특성 및 클레임**  섹션에서 다음 단계를 수행합니다.
+1. 위에서 언급한 특성 외에도 SKYSITE 애플리케이션에는 SAML 응답에서 다시 전달되는 몇 가지 특성이 추가로 필요합니다. **그룹 클레임(미리 보기)** 대화 상자의 **사용자 특성 및 클레임** 섹션에서 다음 단계를 수행합니다.
 
     a. **클레임에서 반환되는 그룹** 옆에 있는 **펜**을 클릭합니다.
 

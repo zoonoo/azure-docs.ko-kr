@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 40b3e0260e08ab5a8870c726042d06d80393fb15
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2c198ce8af17912d3174269b6cced96b5c1ac8bd
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849074"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243243"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>App Center 및 Application Insights를 사용하여 모바일 앱 분석 시작
 
@@ -30,6 +30,9 @@ ms.locfileid: "68849074"
 - iOS, Android, Xamarin, Universal Windows 또는 React Native 앱.
  
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+
+## <a name="sign-up-with-app-center"></a>App Center에 등록
+시작하려면 계정을 만들고 [App Center에 등록](https://appcenter.ms/signup?utm_source=ApplicationInsights&utm_medium=Azure&utm_campaign=docs)합니다.
 
 ## <a name="onboard-to-app-center"></a>App에 등록
 
@@ -79,7 +82,7 @@ Analytics.trackEvent("Video clicked")
    | ------------- |:-------------|:-----|
    | **Name**      | "myApp-iOS" 등의 일부 전역적으로 고유 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
      | **리소스 그룹**     | 새 리소스 그룹, 또는 메뉴의 기존 리소스 그룹 | 새 Application Insights 리소스를 만들 리소스 그룹 |
-   | **위치**: | 메뉴의 위치 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
+   | **위치** | 메뉴의 위치 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
 3. **만들기**를 클릭합니다.
 

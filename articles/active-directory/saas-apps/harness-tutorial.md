@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 709bf2e413ddb40ae1ed84672cea0c0b71be2ce6
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 21409eb056743d92db42e0787af24f8cec07db1b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305933"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026968"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>자습서: Harness와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -141,11 +141,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 3. Harness를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Harness 회사 사이트에 관리자로 로그인한 후에 다음 단계를 수행합니다.
 
-4. 페이지의 오른쪽 위에서  **연속 보안** > **액세스 관리** > **인증 설정**을 클릭합니다.
+4. 페이지의 오른쪽 위에서 **연속 보안** > **액세스 관리** > **인증 설정**을 클릭합니다.
 
     ![Harness 구성](./media/harness-tutorial/configure01.png)
 
-5. **SSO 공급 기업** 섹션에서  **+ SSO 공급 기업 추가** > **SAML**을 클릭합니다.
+5. **SSO 공급자** 섹션에서 **+ SSO 공급자 추가** > **SAML**을 클릭합니다.
 
     ![Harness 구성](./media/harness-tutorial/configure03.png)
 
@@ -169,11 +169,11 @@ Azure AD 사용자가 Harness에 로그인하도록 설정하려면 Harness에 �
 
 1. Harness에 관리자로 로그인합니다.
 
-1. 페이지의 오른쪽 위에서  **연속 보안** > **액세스 관리** > **사용자**를 클릭합니다.
+1. 페이지의 오른쪽 위에서 **연속 보안** > **액세스 관리** > **사용자**를 클릭합니다.
 
     ![Harness 구성](./media/harness-tutorial/configure04.png)
 
-1. 페이지 오른쪽 상단에서  **+ 사용자 추가**를 클릭합니다.
+1. 페이지 오른쪽 상단에서 **+ 사용자 추가**를 클릭합니다.
 
     ![Harness 구성](./media/harness-tutorial/configure05.png)
 

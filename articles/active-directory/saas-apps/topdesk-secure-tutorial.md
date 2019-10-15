@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eded8eb446d36a321acf46231eee3e764ba41504
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dcf9c8ea62610b6e4eb4ad642107df81ae712054
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088439"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950395"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>자습서: TOPdesk - Secure와 Azure Active Directory 통합
 
@@ -107,9 +107,9 @@ TOPdesk - Secure에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     a. **로그인 URL** 텍스트 상자에서 `https://<companyname>.topdesk.net` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **식별자** 텍스트 상자에서 `https://<companyname>.topdesk.net/tas/secure/login/verify` 패턴을 사용하는 URL을 입력합니다.
+    b. **식별자 URL** 상자의 TOPdesk 구성에서 검색할 수 있는 TOPdesk 메타데이터 URL을 입력합니다. `https://<companyname>.topdesk.net/saml-metadata/<identifier>` 패턴을 사용해야 합니다.
 
-    다. **회신 URL** 텍스트 상자에서 `https://<companyname>.topdesk.net/tas/public/login/saml` 패턴을 사용하여 URL을 입력합니다.
+    다. **회신 URL** 텍스트 상자에서 `https://<companyname>.topdesk.net/tas/secure/login/verify` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [TOPdesk - Secure 클라이언트 지원 팀](https://www.topdesk.com/us/support/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

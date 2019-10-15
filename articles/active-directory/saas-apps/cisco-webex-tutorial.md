@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 141d3062f231e198b3587efcdf4ae6e9a1c97ed6
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: d4e497c556bde1be4e498cd85a68282a0e3b2666
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162673"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026258"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>자습서: Cisco Webex Meetings와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -78,7 +78,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. [Azure Portal](https://portal.azure.com/)의 **Cisco Webex Meetings** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 후 **Single Sign-On**을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
-1. **SAML을 사용하여 Single Sign-On 설정 페이지**에서 다음과 같이 **서비스 공급자 메타데이터** 파일을 업로드하여  **IDP**  시작 모드에서 애플리케이션을 구성할 수 있습니다.
+1. **SAML을 사용하여 Single Sign-On 설정** 페이지에서 다음과 같이 **서비스 공급자 메타데이터** 파일을 업로드하여 **IDP** 시작 모드에서 애플리케이션을 구성할 수 있습니다.
 
     a. **메타데이터 파일 업로드**를 클릭합니다.
 
@@ -97,7 +97,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     
     b. **로그온 URL** 텍스트 상자에서 ` https://<customername>.my.webex.com` 패턴을 사용하여 URL을 입력합니다.
 
-5. Cisco Webex Meetings 애플리케이션은 특정 서식에서 SAML 어설션이 필요합니다. 이를 위해서는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  단추를 클릭하여 사용자 특성 대화 상자를 엽니다.
+5. Cisco Webex Meetings 애플리케이션은 특정 서식에서 SAML 어설션이 필요합니다. 이를 위해서는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 사용자 특성 대화 상자를 엽니다.
 
     ![이미지](common/edit-attribute.png)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 013e477b66d2772698ce5c9cc61a59f8a5a04a5a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd54466e054055ff84cd5bb2b28c5cc074ac0017
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67094892"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026812"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>자습서: Pega Systems와 Azure Active Directory 통합
 
@@ -124,7 +124,7 @@ Pega Systems에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
     > [!NOTE]
     > 여기서 제공하는 값은 자리 표시자입니다. 실제 식별자, 회신 URL, 로그온 URL 및 릴레이 상태 URL을 사용해야 합니다. 이 자습서의 뒷부분에서 설명하는 대로 Pega 애플리케이션에서 식별자 및 회신 URL 값을 가져올 수 있습니다. 릴레이 상태 값을 얻으려면 [Pega Systems 지원 팀](https://www.pega.com/contact-us)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-6. Pega Systems 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. SAML 어설션을 올바른 형식으로 가져오려면 사용자 지정 특성 매핑을 SAML 토큰 특성 구성에 추가해야 합니다. 다음 스크린샷에서는 기본 특성을 보여 줍니다. **편집** 아이콘을 선택하여 **사용자 특성** 대화 상자를 엽니다.
+6. Pega Systems 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. SAML 어설션을 올바른 형식으로 가져오려면 사용자 지정 특성 매핑을 SAML 토큰 특성 구성에 추가해야 합니다. 다음 스크린샷에서는 기본 특성을 보여 줍니다. **편집** 아이콘을 사용하여 **사용자 특성** 대화 상자를 엽니다.
 
     ![사용자 특성](common/edit-attribute.png)
 

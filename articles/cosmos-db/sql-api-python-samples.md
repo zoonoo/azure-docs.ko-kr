@@ -8,17 +8,18 @@ ms.devlang: python
 ms.topic: sample
 ms.date: 07/23/2019
 ms.author: sngun
-ms.openlocfilehash: 4889c534bede7e30919852a7a821467ce62ed0c3
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 1e7c3e06c8aa49f9a23d3cc600ee6f60218c2fbd
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146959"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170148"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python 예제
 
 > [!div class="op_single_selector"]
-> * [.NET 예제](sql-api-dotnet-samples.md)
+> * [.NET V2 SDK 예제](sql-api-dotnet-samples.md)
+> * [.NET V3 SDK 예제](sql-api-dotnet-v3sdk-samples.md)
 > * [Java 예제](sql-api-java-samples.md)
 > * [비동기 Java 예제](sql-api-async-java-samples.md)
 > * [Node.js 예제](sql-api-nodejs-samples.md)

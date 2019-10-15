@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: 6e7d0ff396a4d264ee1f724d192c6c36abb400b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e213a92397240f2646ceda30688ecef422cdf29c
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051558"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166365"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>빠른 시작: Android 디바이스에서 IoT 원격 분석 데이터 전송
 
@@ -27,7 +27,7 @@ IoT Hub는 스토리지 또는 처리를 위해 IoT 디바이스에서 클라우
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -55,10 +55,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
-   **MyAndroidDevice**: 이 값은 등록된 디바이스에 지정된 이름입니다. 표시된 것처럼 MyAndroidDevice를 사용합니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
+   **MyAndroidDevice**: 등록 중인 디바이스의 이름입니다. 표시된 대로 **MyAndroidDevice**를 사용하는 것이 좋습니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서도 해당 이름을 사용해야 하며, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyAndroidDevice
     ```
 
 2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다.
@@ -66,7 +66,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyAndroidDevice --output table
     ```
 
     다음과 같은 디바이스 연결 문자열을 기록해 둡니다.
@@ -75,16 +75,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     이 빠른 시작의 뒷부분에서 이 값을 사용하여 원격 분석 데이터를 보냅니다.
 
-## <a name="send-telemetry"></a>원격 분석 전송
+## <a name="send-simulated-telemetry"></a>시뮬레이션된 원격 분석 전송
 
 1. Android Studio에서 GitHub 샘플 Android 프로젝트를 엽니다. 프로젝트는 [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) 리포지토리의 복제된 또는 다운로드된 사본인 다음 디렉터리에 있습니다.
 
         \azure-iot-samples-java\iot-hub\Samples\device\AndroidSample
 
-2. Android Studio에서 샘플 프로젝트의 *gradle.properties*를 열고 **Device_Connection_String** 자리 표시자를 앞서 언급한 디바이스 연결 문자열로 바꿉니다.
+2. Android Studio에서 샘플 프로젝트의 *gradle.properties*를 열고 **Device_Connection_String** 자리 표시자를 이전에 기록한 디바이스 연결 문자열로 바꿉니다.
 
     ```
-    DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}
+    DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}
     ```
 
 3. Android Studio에서 **파일** > **Gradle 파일과 프로젝트 동기화**를 클릭합니다. 빌드가 완료되는지 확인합니다.
@@ -111,7 +111,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub monitor-events --hub-name YourIoTHubName --output table
+    az iot hub monitor-events --hub-name {YourIoTHubName} --output table
     ```
 
     다음 스크린샷은 Android 디바이스가 보낸 원격 분석 데이터를 IoT 허브가 수신할 때 출력을 보여줍니다.

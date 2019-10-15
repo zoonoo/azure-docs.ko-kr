@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: d7c2aee3ad73552a57776af5ce6585b36518d169
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 95dbe2b9ccfdc0a900ba53668869e3872b6e51d5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687064"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030312"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Azure Portal를 사용하여 프라이빗 엔드포인트 만들기
 
@@ -135,7 +135,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 섹션에서는 SQL 서버를 만들고 프라이빗 엔드포인트를 추가합니다. 
 
 1. Azure Portal 화면의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **Private Link 센터(미리 보기)** 를 선택합니다.
-2.  **Private Link 센터 - 개요**의  **서비스에 대한 프라이빗 연결 설정** 옵션에서  **시작**을 선택합니다.
+2. **Private Link 센터 - 개요**의 **서비스에 대한 프라이빗 연결 설정** 옵션에서 **시작**을 선택합니다.
 1. **프라이빗 엔드포인트 만들기(미리 보기) - 기본 사항**에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: be82ab1597021d7198d7936ecd24e4bec64fdf25
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: fc5a974273cbc0398e9fee7b60b424a46ef5dd30
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266911"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949724"
 ---
 ## <a name="benefits-of-managed-disks"></a>관리 디스크의 이점
 
@@ -73,7 +73,7 @@ Azure에는 데이터 디스크, OS 디스크 및 임시 디스크라는 3가지
 
 ### <a name="os-disk"></a>OS 디스크
 
-모든 가상 머신은 하나의 연결된 운영 체제 디스크를 갖습니다. OS 디스크에는 VM이 만들어질 때 선택된 OS가 사전 설치되어 있습니다.
+모든 가상 머신은 하나의 연결된 운영 체제 디스크를 갖습니다. OS 디스크에는 VM이 만들어질 때 선택된 OS가 사전 설치되어 있습니다. 이 디스크에는 부팅 볼륨이 포함되어 있습니다.
 
 이 디스크의 최대 용량은 2,048GiB입니다.
 

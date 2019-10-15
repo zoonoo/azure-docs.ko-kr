@@ -1,7 +1,7 @@
 ---
 title: '자습서: 사용자 지정 로고 탐지기를 사용하여 Azure 서비스 인식 - Custom Vision'
 titleSuffix: Azure Cognitive Services
-description: 이 자습서에서는 로고 탐지 시나리오의 일부로 Azure Custom Vision을 사용하는 샘플 앱을 단계별로 살펴봅니다. 다른 구성 요소와 함께 Custom Vision을 사용하여 엔드투엔드 애플리케이션을 제공하는 방법을 알아봅니다.
+description: 이 자습서에서는 로고 탐지 시나리오의 일부로 Custom Vision을 사용하는 샘플 앱을 단계별로 살펴봅니다. 다른 구성 요소와 함께 Custom Vision을 사용하여 엔드투엔드 애플리케이션을 제공하는 방법을 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: bdcf8a0d63b880075cd22c73305afa8cf09a2e3b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b48d82354a8e733db5ddd0c86e34bab1fa9caa8d
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261982"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177783"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>자습서: 카메라 사진에서 Azure 서비스 로고 인식
 
-이 자습서에서는 보다 큰 시나리오의 일부로 Azure Custom Vision을 사용하는 샘플 앱을 살펴봅니다. 모바일 플랫폼용 Xamarin.Forms 앱인 AI Visual Provision 앱은 Azure 서비스 로고의 카메라 사진을 분석하여 실제 서비스를 사용자의 Azure 계정에 배포합니다. 이 문서에서는 다른 구성 요소와 함께 Custom Vision을 사용하여 유용한 엔드투엔드 애플리케이션을 제공하는 방법을 알아봅니다. 전체 앱 시나리오를 직접 실행하거나 설정의 Custom Vision 파트만 완료하고 앱에서 어떻게 사용되는지 살펴볼 수 있습니다.
+이 자습서에서는 보다 큰 시나리오의 일부로 Custom Vision을 사용하는 샘플 앱을 살펴봅니다. 모바일 플랫폼용 Xamarin.Forms 앱인 AI Visual Provision 앱은 Azure 서비스 로고의 카메라 사진을 분석하여 실제 서비스를 사용자의 Azure 계정에 배포합니다. 이 문서에서는 다른 구성 요소와 함께 Custom Vision을 사용하여 유용한 엔드투엔드 애플리케이션을 제공하는 방법을 알아봅니다. 전체 앱 시나리오를 직접 실행하거나 설정의 Custom Vision 파트만 완료하고 앱에서 어떻게 사용되는지 살펴볼 수 있습니다.
 
 이 자습서는 다음에 대한 방법을 보여 줍니다.
 

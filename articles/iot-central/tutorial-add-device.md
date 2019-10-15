@@ -9,18 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 192374971e92bae282c5092dd8c5e7261fce0c5f
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 2673d0d2c1cb174316e99a79a10a67347e2bc031
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066380"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001341"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>자습서: Azure IoT Central 애플리케이션에 실제 디바이스 추가
 
 [!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
-이 자습서에서는 Microsoft Azure IoT Central 애플리케이션에 실제 디바이스를 추가하고 구성하는 방법을 알려줍니다.
+이 자습서에서는 Microsoft Azure IoT Central 애플리케이션에 *실제 디바이스*를 추가하고 구성하는 방법을 보여줍니다. 이 자습서에서는 Node.js를 사용하여 실제 디바이스를 코딩하고 데스크톱 머신에서 코드를 실행합니다. 이 자습서를 완료하기 위해 Raspberry Pi 또는 MXChip IoT DevKit 디바이스와 같은 별도의 IoT 디바이스가 필요하지 않습니다.
 
 이 자습서는 2부로 구성되어 있습니다.
 
@@ -52,11 +52,11 @@ ms.locfileid: "71066380"
 
    **디바이스 탐색기**에 **연결된 공조** 디바이스 템플릿 및 시뮬레이션된 디바이스가 표시됩니다. 디바이스 템플릿을 만들면 IoT Central에서 시뮬레이션된 디바이스를 자동으로 만듭니다.
 
-2. 실제 연결된 공조 디바이스에 연결을 시작하려면 **+** 를 선택한 후 **실제**를 선택합니다.
+2. **Connected Air Conditioner** 디바이스 템플릿은 **디바이스 탐색기**에서 선택한 템플릿입니다. 이 템플릿을 사용하는 실제 공조 디바이스 연결을 시작하려면 **+** 를 선택한 다음, **실제**를 선택합니다.
 
    ![실제 연결된 새 공조 디바이스 추가 시작](media/tutorial-add-device/newreal.png)
 
-3. 디바이스 ID(소문자여야 함)를 입력하거나 제안된 디바이스 ID를 사용합니다. 새 디바이스의 이름을 입력하고 **만들기**를 선택할 수도 있습니다.
+3. 사용자 고유의 **디바이스 ID**(소문자여야 함)를 입력하거나 제안된 값을 사용합니다. 새 디바이스에 대한 **디바이스 이름**을 입력하고 **만들기**를 선택할 수도 있습니다.
 
    ![디바이스 이름 바꾸기](media/tutorial-add-device/rename.png)
 
@@ -76,9 +76,9 @@ ms.locfileid: "71066380"
 
 ## <a name="prepare-the-client-code"></a>클라이언트 코드 준비
 
-이 문서의 예제 코드는 [Node.js](https://nodejs.org/)에서 작성되고 다음을 하기에 충분한 코드를 보여줍니다.
+이 문서의 예제 코드는 [Node.js](https://nodejs.org/)에서 작성되었으며 디바이스가 다음을 수행하기에 충분한 코드를 보여줍니다.
 
-* 디바이스로서 Azure IoT Central 애플리케이션에 연결합니다.
+* Azure IoT Central 애플리케이션에 연결합니다.
 * 연결된 공조 디바이스로써 온도 원격 분석을 보냅니다.
 * Azure IoT Central 애플리케이션에 디바이스 속성을 보냅니다.
 * **온도 설정** 설정을 사용하는 운영자에게 응답합니다.
@@ -96,7 +96,7 @@ ms.locfileid: "71066380"
 
    ![연결 정보 링크를 보여주는 디바이스 페이지](media/tutorial-add-device/connectionlink.png)
 
-1. 디바이스 연결 페이지에서 **범위 ID**, **디바이스 ID** 및 **기본 키** 값을 메모합니다. 이 자습서의 뒷부분에서 이러한 값을 사용합니다.
+1. **디바이스 연결** 페이지에서 **범위 ID**, **디바이스 ID** 및 **기본 키** 값을 메모합니다. 이 자습서의 뒷부분에서 이러한 값을 사용합니다.
 
    ![연결 정보](media/tutorial-add-device/device-connect.png)
 
@@ -139,7 +139,7 @@ ms.locfileid: "71066380"
     var provisioningHost = 'global.azure-devices-provisioning.net';
     var idScope = '{your Scope ID}';
     var registrationId = '{your Device ID}';
-    var symmetricKey = '{your Primary Key};
+    var symmetricKey = '{your Primary Key}';
     var provisioningSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
     var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvisioningTransport(), provisioningSecurityClient);
     var hubClient;
@@ -150,7 +150,7 @@ ms.locfileid: "71066380"
 
 ## <a name="review-client-code"></a>클라이언트 코드 검토
 
-이전 섹션에서는 Azure IoT Central 애플리케이션에 연결하는 애플리케이션에 대한 기본 Node.js 프로젝트를 만들었습니다. 다음 단계는 코드를 추가하여 다음을 수행하는 것입니다.
+이전 섹션에서는 Azure IoT Central 애플리케이션에 연결하는 디바이스 애플리케이션에 대한 기본 Node.js 프로젝트를 만들었습니다. 다음 단계는 코드를 추가하여 다음을 수행하는 것입니다.
 
 * Azure IoT Central 애플리케이션에 연결합니다.
 * Azure IoT Central 애플리케이션에 원격 분석을 보냅니다.

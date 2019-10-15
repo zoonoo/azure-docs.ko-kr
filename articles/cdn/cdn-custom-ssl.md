@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/1/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: b6ac528d0d2916f513be4e2a72bff061bdad8e58
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: bacd26cdba24e7ad503a3ae58d5c77d5a3311537
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718642"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177754"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
@@ -132,7 +132,9 @@ Azure Key Vault 계정에서 인증서(비밀)에 액세스하려면 Azure CDN �
 
 3. **인증서 사용 권한**을 선택한 다음, **Get** 및 **List**에 대한 확인란을 선택하여 CDN에서 인증서를 가져오고 나열하는 이러한 권한을 수행하도록 합니다.
 
-4. **확인**을 선택합니다. 
+4. **비밀 사용 권한**을 선택한 다음, **Get** 및 **List**에 대한 확인란을 선택하여 CDN에서 비밀을 가져오고 나열하는 이러한 권한을 수행하도록 합니다.
+
+5. **확인**을 선택합니다. 
 
     Azure CDN은 이제 이 키 자격 증명 모음에 저장된 이 키 자격 증명 모음 및 인증서(비밀)에 액세스할 수 있습니다.
  
@@ -190,7 +192,7 @@ CNAME 레코드가 올바른 형식이면 DigiCert는 사용자 지정 도메인
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>사용자 지정 도메인이 CDN 엔드포인트에 매핑되지 않음
 
 >[!NOTE]
->**Akamai의 Azure CDN**을 사용하는 경우 자동 도메인 유효성 검사를 사용하도록 다음 CNAME을 설정해야 합니다. "_acme-challenge.<custom domain hostname> -> CNAME -> <custom domain hostname>.ak-acme-challenge.azureedge.net"
+>**Akamai의 Azure CDN**을 사용하는 경우 자동 도메인 유효성 검사를 사용하도록 다음 CNAME을 설정해야 합니다. "_acme-challenge.&lt;사용자 지정 도메인 호스트 이름&gt; -> CNAME -> &lt;사용자 지정 도메인 호스트 이름&gt;.ak-acme-challenge.azureedge.net"
 
 CNAME 레코드 항목에 cdnverify 하위 도메인이 포함된 경우 이 단계의 나머지 지침을 따릅니다.
 

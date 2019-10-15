@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: 842efca1b40827f63ab23581aeac7e5226d04349
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4ccfa45c56a7e59024ce0639f218861054e32395
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900275"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166953"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석을 보내고 백 엔드 애플리케이션(C#)으로 읽습니다.
 
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 빠른 시작에서는 [C용 Azure IoT 디바이스 SDK](iot-hub-device-sdk-c-intro.md)를 사용합니다. 
 
-다음 환경용 패키지 및 라이브러리를 설치하여 SDK를 사용할 수 있습니다.
+다음 환경의 경우 다음 패키지 및 라이브러리를 설치하여 SDK를 사용할 수 있습니다.
 
 * **Linux**: apt-get 패키지는 CPU 아키텍처인 amd64, arm64, armhf 및 i386을 사용하여 Ubuntu 16.04 및 18.04에서 사용할 수 있습니다. 자세한 내용은 [Using apt-get to create a C device client project on Ubuntu](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md)(apt-get을 사용하여 Ubuntu에서 C 디바이스 클라이언트 프로젝트 만들기)를 참조하세요.
 
@@ -113,23 +113,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
-   **MyCDevice**: 등록된 디바이스에 지정된 이름입니다. 표시된 것처럼 MyCDevice를 사용합니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
+   **MyCDevice**: 등록 중인 디바이스의 이름입니다. 표시된 대로 **MyCDevice**를 사용하는 것이 좋습니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서도 해당 이름을 사용해야 하며, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyCDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyCDevice
     ```
 
-2. Azure Cloud Shell에서 다음 명령을 실행하여 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다.
+2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다.
 
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyCDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyCDevice --output table
     ```
 
     다음과 같은 디바이스 연결 문자열을 기록해 둡니다.
 
-   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyCDevice;SharedAccessKey={YourSharedAccessKey}`
 
     이 값은 빠른 시작의 뒷부분에서 사용합니다.
 
@@ -150,7 +150,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     static const char* connectionString = "[device connection string]";
     ```
 
-    `connectionString` 상수의 값을 이전에 적어둔 디바이스 연결 문자열로 바꿉니다. 그런 다음, 변경 내용을 **iothub_convenience_sample.c**에 저장합니다.
+    `connectionString` 상수의 값을 이전에 기록해 둔 디바이스 연결 문자열로 바꿉니다. 그런 다음, 변경 내용을 **iothub_convenience_sample.c**에 저장합니다.
 
 3. 로컬 터미널 창에서 Azure IoT C SDK로 만든 CMake 디렉터리의 *iothub_convenience_sample* 프로젝트 디렉터리로 이동합니다. 작업 디렉터리에서 다음 명령을 입력합니다.
 
@@ -183,7 +183,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub monitor-events --hub-name YourIoTHubName --output table
+    az iot hub monitor-events --hub-name {YourIoTHubName} --output table
     ```
 
     ![Azure CLI를 사용하여 디바이스 메시지 읽기](media/quickstart-send-telemetry-c/read-device-to-cloud-messages-app.png)
@@ -194,7 +194,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서 IoT 허브를 설치하고, 디바이스를 등록하고, C# 애플리케이션을 사용하여 허브에 시뮬레이션된 원격 분석을 보내고, Azure Cloud Shell을 사용하여 허브에서 원격 분석을 읽었습니다.
+이 빠른 시작에서는 IoT 허브를 설치하고, 디바이스를 등록하고, C 애플리케이션을 사용하여 허브에 시뮬레이션된 원격 분석을 보내고, Azure Cloud Shell을 사용하여 허브에서 원격 분석을 읽습니다.
 
 Azure IoT Hub C SDK를 사용하여 개발하는 방법을 자세히 알아보려면 다음 방법 가이드를 계속 진행합니다.
 

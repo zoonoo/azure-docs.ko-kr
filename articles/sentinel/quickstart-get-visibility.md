@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: c81f4cacd4c93d681122f3c8cd692ca8645288af
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 676a41b64b79be6b11c3ef22b34d3de0e37e2a92
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240080"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023798"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>빠른 시작: Azure Sentinel 시작
 
@@ -122,7 +122,7 @@ ms.locfileid: "71240080"
 
 새 탐지를 만들 때 Microsoft 보안 연구원들이 만든 기본 제공 탐지를 활용하세요. 이 기본 제공 탐지는 사용자가 연결한 데이터 원본에 맞게 조정됩니다.
 
-기본 제공되는 탐지를 모두 보려면 **Analytics**로 이동한 다음,  **규칙 템플릿**으로 이동합니다. 이 탭에는 Azure Sentinel 기본 제공 규칙이 모두 포함됩니다.
+기본 제공되는 탐지를 모두 보려면 **Analytics**로 이동한 다음, **규칙 템플릿**으로 이동합니다. 이 탭에는 Azure Sentinel 기본 제공 규칙이 모두 포함됩니다.
 
    ![기본 제공 탐지를 사용하여 Azure Sentinel로 위협 요소 찾기](media/tutorial-detect-built-in/view-oob-detections.png)
 

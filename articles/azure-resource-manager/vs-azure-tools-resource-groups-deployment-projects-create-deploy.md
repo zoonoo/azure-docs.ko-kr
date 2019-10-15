@@ -6,16 +6,16 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8677d906375853bdde5c192c86dacc7479f2e31e
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: c7f71dbadf24244756cf65f68ceea24547190737
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311144"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170248"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포
 
-Visual Studio를 사용하여 Azure로 인프라 및 코드를 배포하는 프로젝트를 만들 수 있습니다. 예를 들어, 웹 호스트, 웹 사이트 및 웹 사이트에 대한 코드를 배포할 수 있습니다. Visual Studio는 일반 시나리오를 배포하기 위한 다양한 서로 다른 시작 템플릿을 제공합니다. 이 문서에서는 웹앱을 배포합니다.  
+Visual Studio를 사용하여 Azure로 인프라 및 코드를 배포하는 프로젝트를 만들 수 있습니다. 예를 들어 웹 호스트, 웹 사이트 및 웹 사이트에 대한 코드를 배포할 수 있습니다. Visual Studio는 일반 시나리오를 배포하기 위한 다양한 서로 다른 시작 템플릿을 제공합니다. 이 문서에서는 웹앱을 배포합니다.
 
 이 문서에서는 [Azure 개발 및 ASP.NET 워크로드가 설치된 Visual Studio 2019 이상](/visualstudio/install/install-visual-studio?view=vs-2019)을 사용하는 방법을 보여줍니다. Visual Studio 2017을 사용하는 경우 환경이 대부분 동일합니다.
 
@@ -205,13 +205,13 @@ AzureRM 모듈 스크립트의 경우 Visual Studio를 사용합니다.
 
     ![리소스 추가](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
 
-1. 이번에는 **Web Apps에 대한 웹 배포**를 선택합니다. 
+1. 이번에는 **Web Apps에 대한 웹 배포**를 선택합니다.
 
     ![웹 배포 추가](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
 
    템플릿을 저장합니다.
 
-1. 템플릿에 몇 가지 새로운 매개 변수가 있습니다. 이전 단계에서 추가된 것입니다. 이러한 값은 자동으로 생성되므로 **_artifactsLocation** 또는 **_artifactsLocationSasToken**에 대한 값을 제공할 필요가 없습니다. 그러나 폴더와 파일 이름을 배포 패키지를 포함하는 경로로 설정해야 합니다. 이러한 매개 변수의 이름은 **PackageFolder** 및 **PackageFileName**으로 끝납니다. 이름의 첫 번째 부분은 추가한 웹 배포 리소스의 이름입니다. 이 문서에서는 이름을 **ExampleAppPackageFolder** 및 **ExampleAppPackageFileName**이라고 지정했습니다. 
+1. 템플릿에 몇 가지 새로운 매개 변수가 있습니다. 이전 단계에서 추가된 것입니다. 이러한 값은 자동으로 생성되므로 **_artifactsLocation** 또는 **_artifactsLocationSasToken**에 대한 값을 제공할 필요가 없습니다. 그러나 폴더와 파일 이름을 배포 패키지를 포함하는 경로로 설정해야 합니다. 이러한 매개 변수의 이름은 **PackageFolder** 및 **PackageFileName**으로 끝납니다. 이름의 첫 번째 부분은 추가한 웹 배포 리소스의 이름입니다. 이 문서에서는 이름을 **ExampleAppPackageFolder** 및 **ExampleAppPackageFileName**이라고 지정했습니다.
 
    **Website.parameters.json**을 열고 참조 속성에서 확인한 값으로 해당 매개 변수를 설정합니다. **ExampleAppPackageFolder**를 폴더의 이름으로 설정합니다. **ExampleAppPackageFileName**을 zip 파일의 이름으로 설정합니다.
 
@@ -386,7 +386,7 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Visual Studio를 사용하여 템플릿을 만들고 배포하는 방법을 알아보았습니다. 다음 자습서에서는 템플릿 참조에서 정보를 찾아 암호화된 Azure Storage 계정을 만드는 방법을 보여 줍니다.
+이 빠른 시작에서는 Visual Studio를 사용하여 템플릿을 만들고 배포하는 방법을 알아보았습니다. 템플릿 개발에 대해 자세히 알아보려면 새로운 초보자용 자습서 시리즈를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [암호화된 스토리지 계정 만들기](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+> [초보자용 자습서](./template-tutorial-create-first-template.md)

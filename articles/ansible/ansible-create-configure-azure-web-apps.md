@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure App Service에서 Ansible을 사용하여 앱 구성 | Microsoft Docs
+title: 자습서 - Azure App Service에서 Ansible을 사용하여 앱 구성
 description: Azure App Service에서 Java 8 및 Tomcat 컨테이너 런타임을 사용하여 웹앱을 만드는 방법 알아보기
 keywords: Ansible, Azure, Devops, Bash, 플레이북, Azure App Service, Web App, Java
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: aed09baf410ce25f2e5383aa746344a440e2a052
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5104db6bd7fa57600c7212e041263971ca4c91d4
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231248"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242060"
 ---
 # <a name="tutorial-configure-apps-in-azure-app-service-using-ansible"></a>자습서: Azure App Service에서 Ansible을 사용하여 앱 구성
 

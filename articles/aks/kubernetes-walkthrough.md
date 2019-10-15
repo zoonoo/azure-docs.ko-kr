@@ -7,17 +7,17 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 09/13/2019
 ms.author: mlearned
-ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019
-ms.openlocfilehash: 0ad1bb4acf27ff542b94b2e6f4aef82705f4b46a
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: 3a07186856fd05c65f583a94f324df05e348d24f
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097998"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960006"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
-AKS(Azure Kubernetes Service)는 클러스터를 빠르게 배포하고 관리할 수 있는 관리형 Kubernetes 서비스입니다. 이 빠른 시작에서는 Azure CLI를 사용하여 AKS 클러스터를 배포합니다. 웹 프런트 엔드 및 Redis 인스턴스를 포함하는 다중 컨테이너 애플리케이션이 클러스터에서 실행됩니다. 그런 다음, 애플리케이션을 실행하는 Pod 및 클러스터의 상태를 모니터링하는 방법이 표시됩니다.
+이 빠른 시작에서는 Azure CLI를 사용하여 AKS(Azure Kubernetes Service) 클러스터를 배포합니다. AKS는 클러스터를 빠르게 배포하고 관리할 수 있는 관리형 Kubernetes 서비스입니다. 웹 프런트 엔드 및 Redis 인스턴스를 포함하는 다중 컨테이너 애플리케이션이 클러스터에서 실행됩니다. 그런 다음, 애플리케이션을 실행하는 Pod 및 클러스터의 상태를 모니터링하는 방법이 표시됩니다.
 
 Windows Server 컨테이너(AKS에서 현재 미리 보기 상태)를 사용하려면 [Windows Server 컨테이너를 지원하는 AKS 클러스터 만들기][windows-container-cli]를 참조하세요.
 

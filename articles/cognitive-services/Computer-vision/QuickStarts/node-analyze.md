@@ -10,17 +10,17 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.custom: seodec18, seo-javascript-september2018
-ms.openlocfilehash: c9d2c28a1faa2bceafb2b45f1dac76356e0e8753
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.custom: seodec18, seo-javascript-september2018, seo-javascript-october2019
+ms.openlocfilehash: b00c9ccca3c07ad1cfb6ca1f949f1f2c8c33655d
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933959"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176484"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-nodejs"></a>빠른 시작: Node.js와 함께 Computer Vision REST API를 사용하여 원격 이미지 분석
 
-이 빠른 시작에서는 Computer Vision의 REST API.를 사용하여 시각적 기능을 추출하기 위해 원격으로 저장된 이미지를 분석합니다. [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 메서드를 사용하면 이미지 콘텐츠를 기반으로 하여 시각적 특징을 추출할 수 있습니다.
+이 빠른 시작에서는 Computer Vision의 REST API를 Node.js와 함께 사용하여 원격으로 저장된 이미지를 분석하여 시각적 기능을 추출합니다. [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 메서드를 사용하면 이미지 콘텐츠를 기반으로 하여 시각적 특징을 추출할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
 
@@ -60,7 +60,7 @@ let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
 let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
 if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
 
-var uriBase = endpoint + 'vision/v2.0/analyze';
+var uriBase = endpoint + 'vision/v2.1/analyze';
 
 const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';

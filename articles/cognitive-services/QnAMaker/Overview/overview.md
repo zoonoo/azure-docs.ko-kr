@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 08/01/2019
 ms.author: diberry
-ms.openlocfilehash: f56798359cdc8739a363bed3bfddadd584617adf
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: d647875895e33254b51fb8c3d11aa40c6c1ed71f
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815507"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973793"
 ---
 # <a name="what-is-the-qna-maker-service"></a>QnA Maker 서비스란?
 
@@ -85,21 +85,8 @@ QnA Maker는 협업 권한과 함께 작성, 학습 및 게시를 제공하여 �
 
 **4단계**: 클라이언트 애플리케이션에서 프로그래밍 방식으로 기술 자료의 엔드포인트를 호출하고, 사용자에게 최상의 대답을 보여주는 JSON 응답을 읽습니다.  
 
-## <a name="news-and-updates"></a>새로운 기능 및 업데이트 사항
-
-QnA Maker의 새로운 기능에 대해 알아봅니다.
-
-* 2019년 6월
-    * 프랑스어, 이탈리아어, 독일어, 스페인어, 포르투갈어용 순위 지정(ranker) 모델이 향상됨
-* 2019년 4월
-    * 웹 사이트 콘텐츠 추출 지원
-    * Sharepoint 문서 지원
-* 2019년 3월
-    * 능동적 학습 
-    * 영어용 NLP 순위 지정 모델이 향상됨 
-
 ## <a name="next-steps"></a>다음 단계
 QnA Maker는 사용자 지정 기술 자료를 작성, 관리 및 배포하는 데 필요한 모든 것을 제공합니다. 
 
 > [!div class="nextstepaction"]
-> [QnA Maker 서비스 만들기](../how-to/set-up-qnamaker-service-azure.md)
+> [최신 변경 내용 검토](../whats-new.md)

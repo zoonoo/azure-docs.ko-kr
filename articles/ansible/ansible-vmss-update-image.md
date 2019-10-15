@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Ansible을 사용하여 Azure Virtual Machine Scale Sets의 사용자 지정 이미지 업데이트 | Microsoft Docs
+title: 자습서 - Ansible을 사용하여 Azure 가상 머신 확장 집합의 사용자 지정 이미지 업데이트
 description: Ansible을 사용하여 Azure의 Virtual Machine Scale Sets를 사용자 지정 이미지로 업데이트하는 방법 알아보기
 keywords: ansible, azure, devops, bash, 플레이북, 가상 머신, 가상 머신 확장 집합, vmss
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: d3eedc5b83190af46669b9b5df8643f3c80e9bb1
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 3b7baffe6ce0fadbac2dd56b9c8296c80546fa72
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230857"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241340"
 ---
 # <a name="tutorial-update-the-custom-image-of-azure-virtual-machine-scale-sets-using-ansible"></a>자습서: Ansible을 사용하여 Azure Virtual Machine Scale Sets의 사용자 지정 이미지 업데이트
 
@@ -50,7 +50,7 @@ VM이 배포된 후에는 앱에 필요한 소프트웨어를 사용하여 VM을
 
 샘플 플레이북을 가져오는 방법에는 다음 두 가지가 있습니다.
 
-* [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/01-create-vms.yml)한 후 `create_vms.yml`에 저장합니다.
+* [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/01-create-vms.yml)하여 `create_vms.yml`에 저장합니다.
 * `create_vms.yml`이라는 새 파일을 만들고 다음 콘텐츠에 복사합니다.
 
 ```yml
@@ -198,7 +198,7 @@ ansible-playbook create-vms.yml --extra-vars "resource_group=myrg"
 
 샘플 플레이북을 가져오는 방법에는 다음 두 가지가 있습니다.
 
-* [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/02-capture-images.yml)한 후 `capture-images.yml`에 저장합니다.
+* [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/02-capture-images.yml)하여 `capture-images.yml`에 저장합니다.
 * `capture-images.yml`이라는 새 파일을 만들고 다음 콘텐츠에 복사합니다.
 
 ```yml
@@ -343,7 +343,7 @@ ansible-playbook create-vmss.yml --extra-vars "resource_group=myrg"
 
 샘플 플레이북을 가져오는 방법에는 다음 두 가지가 있습니다.
 
-* [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/04-update-vmss-image.yml)한 후 `update-vmss-image.yml`에 저장합니다.
+* [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/04-update-vmss-image.yml)하여 `update-vmss-image.yml`에 저장합니다.
 * `update-vmss-image.yml`이라는 새 파일을 만들고 다음 콘텐츠에 복사합니다.
 
 ```yml
@@ -411,7 +411,7 @@ ansible-playbook update-vmss-image.yml --extra-vars "resource_group=myrg"
 
 더 이상 필요하지 않은 경우 이 문서에서 만든 리소스를 삭제합니다. 
 
-다음 코드를 `cleanup.yml`에 저장합니다.
+다음 코드를 `cleanup.yml`로 저장합니다.
 
 ```yml
 - hosts: localhost
@@ -425,7 +425,7 @@ ansible-playbook update-vmss-image.yml --extra-vars "resource_group=myrg"
         state: absent
 ```
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook cleanup.yml

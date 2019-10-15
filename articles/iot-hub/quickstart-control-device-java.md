@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 9fb110eff1d498b2b20952048759c76a2dac39f2
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f59a3409d508c63f232294d8d66ade5669815b3c
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306478"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71843385"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>빠른 시작: Java를 사용하여 Azure IoT Hub에 연결된 디바이스 제어
 
@@ -25,7 +25,7 @@ ms.locfileid: "70306478"
 
 빠른 시작에서는 미리 작성된 두 개의 Java 애플리케이션을 사용합니다.
 
-* 백 엔드 애플리케이션에서 호출된 직접 메서드에 응답하는 시뮬레이션된 디바이스 애플리케이션입니다. 직접 메서드 호출을 수신하기 위해 이 애플리케이션을 IoT 허브의 디바이스별 엔드포인트에 연결합니다.
+* 백 엔드 애플리케이션에서 호출된 직접 메소드에 응답하는 시뮬레이션된 디바이스 애플리케이션입니다. 직접 메서드 호출을 수신하기 위해 이 애플리케이션을 IoT 허브의 디바이스별 엔드포인트에 연결합니다.
 
 * 시뮬레이션된 디바이스에서 직접 메서드를 호출하는 백 엔드 애플리케이션입니다. 디바이스에서 직접 메서드를 호출하려면 이 애플리케이션을 IoT 허브의 서비스 측 엔드포인트에 연결합니다.
 
@@ -141,7 +141,7 @@ az iot hub show-connection-string --name YourIoTHubName --policy-name service --
 
     다음 스크린샷에서는 시뮬레이션된 디바이스 애플리케이션에서 IoT 허브에 원격 분석을 보낼 때의 출력을 보여 줍니다.
 
-    ![시뮬레이션된 디바이스 실행](./media/quickstart-control-device-java/SimulatedDevice-1.png)
+    ![디바이스에서 IoT 허브로 보낸 원격 분석의 출력](./media/quickstart-control-device-java/iot-hub-application-send-telemetry-output.png)
 
 ## <a name="call-the-direct-method"></a>직접 메서드 호출
 
@@ -167,11 +167,11 @@ az iot hub show-connection-string --name YourIoTHubName --policy-name service --
 
     다음 스크린샷에서는 애플리케이션에서 디바이스에 직접 메서드를 호출하고 승인을 받을 때의 출력을 보여 줍니다.
 
-    ![백 엔드 애플리케이션 실행](./media/quickstart-control-device-java/BackEndApplication.png)
+    ![애플리케이션이 IoT 허브를 통해 직접 메서드를 호출할 때 출력](./media/quickstart-control-device-java/iot-hub-direct-method-call-output.png)
 
     백 엔드 애플리케이션을 실행한 후 시뮬레이션된 디바이스를 실행하는 콘솔 창에 메시지가 표시되고 메시지를 보내는 속도가 변경됩니다.
 
-    ![시뮬레이션된 클라이언트에서 변경](./media/quickstart-control-device-java/SimulatedDevice-2.png)
+    ![디바이스의 콘솔 메시지에 변경된 비율이 표시됩니다.](./media/quickstart-control-device-java/iot-hub-sent-message-change-rate.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

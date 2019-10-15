@@ -1,5 +1,5 @@
 ---
-title: 처음으로 자동화된 기계 학습 실험 만들어보기
+title: 첫 번째 자동화된 ML 분류 실험 만들기
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning의 작업 영역 방문 페이지(미리 보기)에서 자동화된 기계 학습을 사용하여 분류 모델을 학습하고 배포하는 방법을 알아봅니다.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/26/2019
-ms.openlocfilehash: 3ddd228488d8ba4adc6780db1f65fdb634291d3b
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dcd6f2ea6f5c79664af0c2431da07549e71c26bc
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350508"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035671"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>자습서: 자동화된 기계 학습을 사용하여 처음으로 분류 모델 만들어보기
 

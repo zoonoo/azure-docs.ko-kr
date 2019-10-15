@@ -10,17 +10,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 03/25/2019
-ms.custom: seo-javascript-september2019
-ms.openlocfilehash: b865bca5db11c4a34a1be4deb2e3145d73599e81
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.custom: seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: 4d9c3954aea5fe64439190a2a0886fd8300c4cf9
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059286"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178037"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>빠른 시작: Node.js를 사용하여 Azure SQL 데이터베이스 쿼리
 
-이 문서에서는 [Node.js](https://nodejs.org)를 사용하여 Azure SQL 데이터베이스에 연결하는 방법을 보여 줍니다. 그런 다음, 데이터를 쿼리하는 T-SQL 문을 사용할 수 있습니다.
+이 빠른 시작에서는 [Node.js](https://nodejs.org)를 사용하여 Azure SQL 데이터베이스에 연결하는 방법을 보여 줍니다. 그런 다음, 데이터를 쿼리하는 T-SQL 문을 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

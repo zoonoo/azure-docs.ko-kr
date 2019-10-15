@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
-ms.custom: mvc, seo-javascript-september2019
-ms.openlocfilehash: 2d66064167741b59766763f4fc1313409de1e649
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: 0208e72263991daceed52073bcce8b3e01f8e8c2
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801046"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174291"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Linux 가상 머신 만들기
 
-명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI를 사용하여 Azure에서 Linux VM(가상 머신)을 배포하는 방법을 보여줍니다. 이 자습서에서는 Ubuntu 16.04 LTS를 설치합니다. 작동 중인 VM을 보려면 SSH를 사용하여 VM에 연결하고 NGINX 웹 서버를 설치합니다.
+이 빠른 시작에서는 Azure CLI(명령줄 인터페이스)를 사용하여 Azure에서 Linux VM(가상 머신)을 배포하는 방법을 보여줍니다. 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 자습서에서는 Ubuntu 16.04 LTS를 설치합니다. 작동 중인 VM을 보려면 SSH를 사용하여 VM에 연결하고 NGINX 웹 서버를 설치합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

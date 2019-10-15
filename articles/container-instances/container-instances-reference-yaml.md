@@ -171,7 +171,7 @@ properties: # Properties of container group
 |  컨테이너 | 배열 | 예 | 컨테이너 그룹 내의 컨테이너입니다. - [컨테이너 개체](#Container) |
 |  imageRegistryCredentials | 배열 | 아니요 | 컨테이너 그룹을 만들 때 기준이 되는 이미지 레지스트리 자격 증명입니다. - [ImageRegistryCredential 개체](#ImageRegistryCredential) |
 |  restartPolicy | 열거형 | 아니요 | 컨테이너 그룹 내의 모든 컨테이너에 대 한 다시 시작 정책입니다. - `Always`오류 발생 시 `OnFailure` 항상 다시 시작-다시 시작 안함`Never` -Always, OnFailure, Never |
-|  \\ | object | 아니요 | 컨테이너 그룹의 IP 주소 유형입니다. - [IpAddress 개체](#IpAddress) |
+|  ipAddress | object | 아니요 | 컨테이너 그룹의 IP 주소 유형입니다. - [IpAddress 개체](#IpAddress) |
 |  osType | 열거형 | 예 | 컨테이너 그룹의 컨테이너에 필요한 운영 체제 유형입니다. -Windows 또는 Linux |
 |  볼륨 | 배열 | 아니요 | 이 컨테이너 그룹의 컨테이너로 탑재할 수 있는 볼륨의 목록입니다. - [볼륨 개체](#Volume) |
 |  진단 | object | 아니요 | 컨테이너 그룹에 대 한 진단 정보입니다. - [ContainerGroupDiagnostics 개체](#ContainerGroupDiagnostics) |

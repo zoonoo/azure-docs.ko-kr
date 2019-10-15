@@ -5,16 +5,16 @@ services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 10/02/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 4c81daa1f55167fa868c69f3bff388dbaa4887cd
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a6f2b2875ea58ff89d59f577f7cb27d97e07b28e
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725751"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981229"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>자습서: Azure Time Series Insights 환경 만들기
 
@@ -100,7 +100,7 @@ Azure IoT Hub는 자습서의 모든 디바이스(시뮬레이션된 디바이�
    **환경 이름** | 고유한 Time Series Insights 환경 이름을 선택합니다. 이 이름은 Time Series Insights 탐색기 및 [쿼리 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query)에서 사용합니다.
    **구독** | 구독은 Azure 리소스에 대한 컨테이너입니다. Time Series Insights 환경을 만들 구독을 선택합니다.
    **리소스 그룹** | 리소스 그룹은 Azure 리소스에 대한 컨테이너입니다. Time Series Insights 환경 리소스에 대한 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
-   **위치**: | Time Series Insights 환경에 대한 데이터 센터 지역을 선택합니다. 대기 시간이 추가되지 않도록 Time Series Insights 환경을 다른 IoT 리소스와 동일한 지역에 만듭니다.
+   **위치** | Time Series Insights 환경에 대한 데이터 센터 지역을 선택합니다. 대기 시간이 추가되지 않도록 Time Series Insights 환경을 다른 IoT 리소스와 동일한 지역에 만듭니다.
    **계층** | 필요한 처리량을 선택합니다. **S1**을 선택합니다.
    **용량** | 용량은 선택한 SKU와 관련된 수신 속도 및 스토리지 용량에 적용된 승수입니다. 생성 후 용량을 변경할 수 있습니다. 용량 **1**을 선택합니다.
 
@@ -196,4 +196,4 @@ Azure Portal의 왼쪽 메뉴에서 다음을 수행합니다.
 이제 사용자 고유의 Time Series Insights 환경을 만드는 방법을 알아보았으므로 Time Series Insights 환경의 데이터를 사용하는 웹 애플리케이션을 빌드하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure Time Series Insights 단일 페이지 웹앱 만들기](tutorial-create-tsi-sample-spa.md)
+> [호스팅된 클라이언트 SDK 시각화 샘플 참조](https://tsiclientsample.azurewebsites.net/)

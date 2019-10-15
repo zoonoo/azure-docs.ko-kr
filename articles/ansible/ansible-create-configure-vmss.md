@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Ansible을 사용하여 Azure에서 Virtual Machine Scale Sets 구성 | Microsoft Docs
+title: 자습서 - Ansible을 사용하여 Azure에서 가상 머신 확장 집합 구성
 description: Azure에서 Ansible을 사용하여 Virtual Machine Scale Sets를 만들고 구성하는 방법 알아보기
 keywords: ansible, azure, devops, bash, 플레이북, 가상 머신, 가상 머신 확장 집합, vmss
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 41ef6103a899970142df1a6beee0ad428419f3df
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1d9b8cd207596aefa01af852627f11cb9b4ce5dc
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230734"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241739"
 ---
 # <a name="tutorial-configure-virtual-machine-scale-sets-in-azure-using-ansible"></a>자습서: Ansible을 사용하여 Azure에서 가상 머신 확장 집합 구성
 
@@ -48,8 +48,8 @@ ms.locfileid: "65230734"
 
 샘플 플레이북을 가져오는 방법에는 다음 두 가지가 있습니다.
 
-* [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml)한 후 `vmss-create.yml`에 저장합니다.
-* `vmss-create.yml`이라는 새 파일을 만들고 다음 콘텐츠에 복사합니다.
+* [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml)하여 `vmss-create.yml`에 저장합니다.
+* `vmss-create.yml`이라는 새 파일을 만들고 다음 콘텐츠를 이 파일에 복사합니다.
 
 ```yml
 - hosts: localhost
@@ -145,7 +145,7 @@ ms.locfileid: "65230734"
             caching: ReadOnly
 ```
 
-플레이 북을 실행하기 전에 다음 정보를 참조하세요.
+플레이북을 실행하기 전에 다음 정보를 참조하세요.
 
 * `vars` 섹션에서 `{{ admin_password }}` 자리 표시자를 고유한 암호로 바꿉니다.
 
@@ -219,7 +219,7 @@ localhost                  : ok=8    changed=7    unreachable=0    failed=0
 
 샘플 플레이북을 가져오는 방법에는 다음 두 가지가 있습니다.
 
-* [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml)한 후 `vmss-scale-out.yml`에 저장합니다.
+* [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml)하여 `vmss-scale-out.yml`에 저장합니다.
 * `vmss-scale-out.yml`이라는 새 파일을 만들고 다음 콘텐츠에 복사합니다.
 
 ```yml

@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Ansible을 사용하여 Azure 리소스의 동적 인벤토리 구성 | Microsoft Docs
+title: 자습서 - Ansible을 사용하여 Azure 리소스의 동적 인벤토리 구성
 description: Ansible을 사용하여 Azure 동적 인벤토리를 관리하는 방법을 알아봅니다.
 keywords: Ansible, Azure, DevOps, Bash, Cloud Shell, 동적 인벤토리
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 46b13fae437a555edf0bdd0b0d4c1496d7596e0f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: d89150f43205a4b38612008033ab5649acd9af5b
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230709"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241569"
 ---
 # <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>자습서: Ansible을 사용하여 Azure 리소스의 동적 인벤토리 구성
 
@@ -216,13 +216,13 @@ ansible-inventory-test-vm1 | SUCCESS => {
 
 1. `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
-   - Ansible 2.8 이전 버전은 다음과 같습니다.
+   - Ansible 2.8 이전 버전:
 
     ```bash
     ansible-playbook -i azure_rm.py nginx.yml
     ```
 
-   - Ansible 2.8 이상 버전은 다음과 같습니다.
+   - Ansible 2.8 이상 버전:
 
     ```bash
      ansible-playbook  -i ./myazure_rm.yml  nginx.yml

@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Ansible을 사용하여 AKS(Azure Kubernetes Service)에서 RBAC(역할 기반 액세스 제어) 역할 구성 | Microsoft Docs
+title: 자습서 - Ansible을 사용하여 AKS(Azure Kubernetes Service)에서 RBAC(역할 기반 액세스 제어) 역할 구성
 description: Ansible을 사용하여 AKS(Azure Kubernetes Service) 클러스터에서 RBAC를 구성하는 방법 알아보기
 keywords: ansible, azure, devops, bash, cloudshell, 플레이북, aks, 컨테이너, kubernetes, azure active directory, rbac
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: eae23806ee1b4e2dac1d3410e32c3242e89d4be8
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 36a6f5ade7a60a989d2e80f2405aaa2d1d50b756
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719828"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242347"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>자습서: Ansible을 사용하여 AKS(Azure Kubernetes Service)에서 RBAC(역할 기반 액세스 제어) 역할 구성
 

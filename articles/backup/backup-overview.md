@@ -8,17 +8,16 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 526c60916854d4918607a1fd1b887ac9d27cd1c7
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 29e0b05ee9cb8f7dc67f90b54081bca4db0691b6
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950021"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035233"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Azure Backup 서비스란?
 
 Azure Backup 서비스는 Microsoft Azure 클라우드에 데이터를 백업합니다. 온-프레미스 머신 및 워크로드와 Azure VM(가상 머신)을 백업할 수 있습니다.
-
 
 ## <a name="why-use-azure-backup"></a>Azure Backup을 사용하는 이유
 
@@ -28,16 +27,15 @@ Azure Backup에서 제공하는 주요 이점은 다음과 같습니다.
 - **Azure IaaS VM 백업**: Azure Backup은 실수로 데이터가 삭제되지 않도록 방지하기 위해 독립적이고 격리된 백업을 제공합니다. 백업은 복구 지점이 기본적으로 관리되는 Recovery Services 자격 증명 모음에 저장됩니다. 구성 및 확장성이 간단하고, 백업이 최적화되어 있으며, 필요에 따라 쉽게 복원할 수 있습니다.
 - **손쉬운 크기 조정** - Azure Backup은 유지 관리 또는 모니터링 오버헤드 없이 기본 성능과 Azure 클라우드의 무제한 크기 조정을 사용하여 고가용성을 제공합니다.
 - **무제한 데이터 전송**: Azure Backup은 사용자가 전송하는 인바운드 또는 아웃바운드 데이터의 양을 제한하거나, 전송되는 데이터에 대해 요금을 부과하지 않습니다.
-    - 아웃바운드 데이터는 복원 작업 중에 Recovery Services 자격 증명 모음에서 전송된 데이터입니다.
-    - Azure Import/Export 서비스를 통해 오프라인 초기 백업을 수행하여 대량의 데이터를 가져오는 경우 인바운드 데이터와 관련된 비용이 발생합니다.  [자세히 알아보기](backup-azure-backup-import-export.md).
+  - 아웃바운드 데이터는 복원 작업 중에 Recovery Services 자격 증명 모음에서 전송된 데이터입니다.
+  - Azure Import/Export 서비스를 통해 오프라인 초기 백업을 수행하여 대량의 데이터를 가져오는 경우 인바운드 데이터와 관련된 비용이 발생합니다.  [자세히 알아보기](backup-azure-backup-import-export.md).
 - **안전한 데이터 유지**: Azure Backup은 전송 중 및 저장 데이터를 보호하기 위한 솔루션을 제공합니다.
 - **애플리케이션 일치 백업 가져오기**: 애플리케이션 일치 백업은 백업 복사본을 복원하는 데 필요한 모든 데이터가 복구 지점에 있음을 의미합니다. Azure Backup에서 애플리케이션 일치 백업을 제공하므로 데이터를 복원하기 위한 추가 수정 프로그램이 필요하지 않습니다. 애플리케이션 일치 데이터를 복원하면 실행 상태로 빠르게 돌아갈 수 있으므로 복원 시간을 줄여줍니다.
-- **단기 및 장기 데이터 보존**: 단기 및 장기 데이터 보존을 위해 Recovery Services 자격 증명 모음을 사용할 수 있습니다. Azure는 Recovery Services 자격 증명 모음에 데이터를 유지할 수 있는 기간을 제한하지 않습니다. 원하는 만큼 데이터를 유지할 수 있습니다. Azure Backup에는 보호된 인스턴스당 9999개 복구 지점의 제한이 있습니다. 
+- **단기 및 장기 데이터 보존**: 단기 및 장기 데이터 보존을 위해 Recovery Services 자격 증명 모음을 사용할 수 있습니다. Azure는 Recovery Services 자격 증명 모음에 데이터를 유지할 수 있는 기간을 제한하지 않습니다. 원하는 만큼 데이터를 유지할 수 있습니다. Azure Backup에는 보호된 인스턴스당 9999개 복구 지점의 제한이 있습니다.
 - **자동 스토리지 관리** - 일부는 온-프레미스, 일부는 클라우드인 하이브리드 환경에는 종종 다른 유형의 스토리지가 필요합니다. Azure Backup을 사용하면 온-프레미스 스토리지 디바이스를 사용하기 위한 비용이 들지 않습니다. Azure Backup은 백업 스토리지를 자동으로 할당하고 관리하며, 종량제 모델을 사용하므로 사용한 스토리지 비용만 지불하면 됩니다. 가격 책정에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/backup).
 - **여러 스토리지 옵션** - Azure Backup은 스토리지/데이터의 고가용성을 유지하는 두 가지 종류의 복제를 제공합니다.
-    - [LRS(로컬 중복 스토리지)](../storage/common/storage-redundancy-lrs.md)는 데이터 센터의 스토리지 배율 단위로 데이터를 세 번 복제합니다(세 개의 데이터 복사본 생성). 모든 데이터 복사본은 동일한 지역 내에 있습니다. LRS는 로컬 하드웨어 오류로부터 데이터를 보호하기 위한 저비용 옵션입니다.
-    - [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy-grs.md)는 기본값이며 권장하는 복제 옵션입니다. GRS는 데이터 원본의 기본 위치에서 수백 마일 떨어진 보조 지역으로 데이터를 복제합니다. GRS는 LRS보다 많은 비용이 소요되지만 GRS는 지역 가동 중단이 발생해도 높은 수준의 데이터 내구성을 제공합니다.
-
+  - [LRS(로컬 중복 스토리지)](../storage/common/storage-redundancy-lrs.md)는 데이터 센터의 스토리지 배율 단위로 데이터를 세 번 복제합니다(세 개의 데이터 복사본 생성). 모든 데이터 복사본은 동일한 지역 내에 있습니다. LRS는 로컬 하드웨어 오류로부터 데이터를 보호하기 위한 저비용 옵션입니다.
+  - [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy-grs.md)는 기본값이며 권장하는 복제 옵션입니다. GRS는 데이터 원본의 기본 위치에서 수백 마일 떨어진 보조 지역으로 데이터를 복제합니다. GRS는 LRS보다 많은 비용이 소요되지만 GRS는 지역 가동 중단이 발생해도 높은 수준의 데이터 내구성을 제공합니다.
 
 ## <a name="whats-the-difference-between-azure-backup-and-azure-site-recovery"></a>Azure Backup과 Azure Site Recovery의 차이점은 무엇인가요?
 
@@ -66,16 +64,16 @@ Azure Backup은 온-프레미스 머신과 Azure VM을 모두 백업할 수 있�
 **머신** | **백업 시나리오**
 --- | ---
 **온-프레미스 백업** |  1) 온-프레미스 Windows 머신에서 Azure Backup MARS(Microsoft Azure Recovery Services) 에이전트를 실행하여 개별 파일 및 시스템 상태를 백업합니다. <br/><br/>2) 온-프레미스 머신을 백업 서버(System Center DPM(Data Protection Manager) 또는 MABS(Microsoft Azure Backup Server))에 백업한 다음, Azure의 Azure Backup Recovery Services 자격 증명 모음에 백업하도록 백업 서버를 구성합니다.
-**Azure VM** | 1) 개별 Azure VM에 백업을 사용하도록 설정합니다. 백업을 사용하도록 설정하면 Azure Backup은 VM에서 실행되는 Azure VM 에이전트의 확장을 설치합니다. 이 에이전트는 전체 VM을 백업합니다.<br/><br/> 2) Azure VM에서 MARS 에이전트를 실행합니다. VM의 개별 파일 및 폴더를 백업하려는 경우에 유용합니다.<br/><br/> 
-
+**Azure VM** | 1) 개별 Azure VM에 백업을 사용하도록 설정합니다. 백업을 사용하도록 설정하면 Azure Backup은 VM에서 실행되는 Azure VM 에이전트의 확장을 설치합니다. 이 에이전트는 전체 VM을 백업합니다.<br/><br/> 2) Azure VM에서 MARS 에이전트를 실행합니다. VM의 개별 파일 및 폴더를 백업하려는 경우에 유용합니다.<br/><br/>
 
 ## <a name="why-use-a-backup-server"></a>백업 서버를 사용하는 이유는 무엇인가요?
+
 머신과 앱을 MABS/DPM 스토리지에 백업한 다음, DPM/MABS 스토리지를 자격 증명 모음에 백업하면 다음과 같은 장점이 있습니다.
 
 - MABS/DPM에 백업하면 파일/폴더/볼륨 백업 및 머신 상태 백업(완전 백업, 시스템 상태) 외에도 SQL Server, Exchange 및 SharePoint와 같은 일반적인 앱에 최적화된 앱 인식 백업을 제공합니다.
 - 온-프레미스 머신의 경우 백업하려는 각 머신에 MARS 에이전트를 설치할 필요가 없습니다. 각 머신은 DPM/MABS 보호 에이전트를 실행하며, MARS 에이전트는 MABS/DPM에서만 실행됩니다.
 - 백업 실행을 위한 더 유연하고 세분화된 일정 예약 옵션이 있습니다.
-- 단일 콘솔에서 보호 그룹으로 모이는 여러 머신에 대한 백업을 관리할 수 있습니다. 이는 여러 머신에서 앱이 계층화되고 이러한 앱을 함께 백업하려는 경우에 특히 유용합니다.
+- 단일 콘솔에서 보호 그룹으로 모이는 여러 머신에 대한 백업을 관리할 수 있습니다. 이는 여러 머신에서 앱이 계층화되고 이러한 앱을 함께 백업하려는 경우에 유용합니다.
 
 백업 서버를 사용할 때 [백업의 작동 원리](backup-architecture.md#architecture-back-up-to-dpmmabs) 및 백업 서버의 [지원 요구 사항](backup-support-matrix-mabs-dpm.md)을 자세히 알아보세요.
 
@@ -118,7 +116,7 @@ Azure Backup에는 *보호된 인스턴스*당 최대 9999개 복구 지점(백�
 
 다음 표는 각 구성 요소의 최대 백업 빈도를 보여줍니다. 백업 정책 구성은 복구 지점을 사용하는 속도를 결정합니다. 예를 들어 매일 복구 지점을 만들면 복구 지점을 27년 동안 보존한 후 실행합니다. 월별 복구 지점을 사용하는 경우 833년 동안 복구 지점을 보존할 수 있습니다. Backup 서비스는 복구 지점에 만료 시간 제한을 설정하지 않습니다.
 
-|  | Azure Backup 에이전트 | System Center DPM | Azure Backup 서버 | Azure IaaS VM Backup |
+|  | Azure Backup(MARS) 에이전트| System Center DPM | Azure Backup 서버 | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
 | Backup 주기<br/> (Recovery Services 자격 증명 모음에) |매일 3회 백업 |하루에 두 번 백업 |하루에 두 번 백업 |매일 1회 백업 |
 | Backup 주기<br/> (디스크에 대한) |해당 없음 |SQL Server에 대해 15분마다<br/><br/> 다른 워크로드에 대해 1시간마다 |SQL Server에 대해 15분마다<br/><br/> 다른 워크로드에 대해 1시간마다 |해당 없음 |

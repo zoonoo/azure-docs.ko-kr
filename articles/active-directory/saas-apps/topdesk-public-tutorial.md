@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
-ms.openlocfilehash: a2a0ffd670a03aeaaa262b83127a385be9efc978
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5575a2e8f776e87fcd4e6f4a7a9244752ebfd9a
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088488"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950415"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>자습서: TOPdesk - Public과 Azure Active Directory 통합
 
@@ -120,8 +120,10 @@ TOPdesk - Public에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     d. **로그인 URL** 텍스트 상자에서 `https://<companyname>.topdesk.net` 패턴을 사용하여 URL을 입력합니다.
 
-    e. **식별자** 텍스트 상자에서 `https://<companyname>.topdesk.net/tas/public/login/verify` 패턴을 사용하여 URL을 입력합니다.
-
+    e. **식별자 URL** 텍스트 상자의 TOPdesk 구성에서 검색할 수 있는 TOPdesk 메타데이터 URL을 입력합니다. `https://<companyname>.topdesk.net/saml-metadata/<identifier>` 패턴을 사용해야 합니다.
+    
+    f. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<companyname>.topdesk.net/tas/public/login/verify`
+    
     > [!NOTE] 
     > **식별자**와 **회신 URL** 값이 자동으로 채워지지 않으면 수동으로 입력해야 합니다. 식별자의 경우 앞서 언급한 패턴을 따르고 회신 URL은 이 자습서의 뒷부분에 설명되어 있는 **TOPdesk - Public Single Sign-On 구성** 섹션에서 가져옵니다. **로그온 URL** 값은 실제가 아니므로 이 값은 실제 로그온 URL로 업데이트해야 합니다. 이 값을 얻으려면 [TOPdesk - Public 클라이언트 지원 팀](https://help.topdesk.com/saas/enterprise/user/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 

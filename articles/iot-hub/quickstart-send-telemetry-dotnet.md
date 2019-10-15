@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: c8bfb159dc56ff701f8d3c7eff00f04e28f8704a
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 9f9e84570c7e7a4a2049c9f357d001c3316a4106
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667809"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166339"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-net"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석을 보내고 백 엔드 애플리케이션(.NET)으로 읽습니다.
 
@@ -61,10 +61,10 @@ az extension add --name azure-cli-iot-ext
 
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
-   **MyDotnetDevice**: 등록 중인 디바이스의 이름입니다. 표시된 것처럼 **MyDotnetDevice**를 사용하세요. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 애플리케이션 예제에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
+   **MyDotnetDevice**: 등록 중인 디바이스의 이름입니다. 표시된 대로 **MyDotnetDevice**를 사용하는 것이 좋습니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서도 해당 이름을 사용해야 하며, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDotnetDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDotnetDevice
     ```
 
 2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다.
@@ -72,12 +72,12 @@ az extension add --name azure-cli-iot-ext
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDotnetDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
     ```
 
     다음과 같은 디바이스 연결 문자열을 기록해 둡니다.
 
-   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDotnetDevice;SharedAccessKey={YourSharedAccessKey}`
 
     이 값은 빠른 시작의 뒷부분에서 사용합니다.
 
@@ -86,14 +86,14 @@ az extension add --name azure-cli-iot-ext
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name YourIoTHubName
+    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
 
-    az iot hub show --query properties.eventHubEndpoints.events.path --name YourIoTHubName
+    az iot hub show --query properties.eventHubEndpoints.events.path --name {YourIoTHubName}
 
-    az iot hub policy show --name service --query primaryKey --hub-name YourIoTHubName
+    az iot hub policy show --name service --query primaryKey --hub-name {YourIoTHubName}
     ```
 
-    빠른 시작의 뒷부분에서 사용하기 위해 이 세 개의 값을 적어 둡니다.
+    빠른 시작의 뒷부분에서 사용하기 위해 이 세 개의 값을 기록해 둡니다.
 
 ## <a name="send-simulated-telemetry"></a>시뮬레이션된 원격 분석 전송
 
@@ -103,7 +103,7 @@ az extension add --name azure-cli-iot-ext
 
 2. 원하는 텍스트 편집기에서 **SimulatedDevice.cs** 파일을 엽니다.
 
-    `s_connectionString` 변수의 값을 이전에 적어둔 디바이스 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **SimulatedDevice.cs** 파일에 저장합니다.
+    `s_connectionString` 변수의 값을 이전에 기록해 둔 디바이스 연결 문자열로 바꿉니다. 그런 다음, 변경 내용을 **SimulatedDevice.cs**에 저장합니다.
 
 3. 로컬 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 디바이스 애플리케이션에 필요한 패키지를 설치합니다.
 
@@ -131,9 +131,9 @@ az extension add --name azure-cli-iot-ext
 
     | 변수 | 값 |
     | -------- | ----------- |
-    | `s_eventHubsCompatibleEndpoint` | 변수 값을 이전에 적어둔 Event Hubs 호환 엔드포인트로 바꿉니다. |
-    | `s_eventHubsCompatiblePath`     | 변수 값을 이전에 적어둔 Event Hubs 호환 경로로 바꿉니다. |
-    | `s_iotHubSasKey`                | 변수 값을 이전에 적어둔 서비스 기본 키로 바꿉니다. |
+    | `s_eventHubsCompatibleEndpoint` | 변수 값을 이전에 기록해 둔 Event Hubs 호환 엔드포인트로 바꿉니다. |
+    | `s_eventHubsCompatiblePath`     | 변수 값을 이전에 기록해 둔 Event Hubs 호환 경로로 바꿉니다. |
+    | `s_iotHubSasKey`                | 변수 값을 이전에 기록해 둔 서비스 기본 키로 바꿉니다. |
 
 3. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 애플리케이션에 필요한 라이브러리를 설치합니다.
 
@@ -157,7 +157,7 @@ az extension add --name azure-cli-iot-ext
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서 IoT 허브를 설치하고, 디바이스를 등록하고, C# 애플리케이션을 사용하여 허브에 시뮬레이션된 원격 분석을 보내고, 간단한 백 엔드 애플리케이션을 사용하여 허브에서 원격 분석을 읽었습니다.
+이 빠른 시작에서 IoT 허브를 설치하고, 디바이스를 등록하고, C# 애플리케이션을 사용하여 허브에 시뮬레이션된 원격 분석을 보내고, 간단한 백 엔드 애플리케이션을 사용하여 허브에서 원격 분석을 읽습니다.
 
 백 엔드 애플리케이션에서 시뮬레이션된 디바이스를 제어하는 방법을 알아보려면 다음 빠른 시작을 계속합니다.
 

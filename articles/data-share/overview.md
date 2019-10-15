@@ -1,17 +1,17 @@
 ---
 title: Azure Data Share 미리 보기란?
-description: Azure Data Share 미리 보기에 대한 개요
+description: Azure Data Share 미리 보기를 사용하여 여러 고객 및 파트너와 간단하고 안전하게 데이터를 공유하는 방법에 대해 알아봅니다.
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: 11f32b1f1349ef0f9826f95832648e6949cc2f8c
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 6ba6e9df7b3fd2992891f4b085581c51fe900744
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68421394"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169083"
 ---
 # <a name="what-is-azure-data-share-preview"></a>Azure Data Share 미리 보기란?
 

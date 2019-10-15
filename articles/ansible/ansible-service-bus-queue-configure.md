@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Ansible을 사용하여 Azure Service Bus에 큐 구성 | Microsoft Docs
+title: 자습서 - Ansible을 사용하여 Azure Service Bus에 큐 구성
 description: Ansible을 사용하여 Azure Service Bus 큐를 만드는 방법 알아보기
 keywords: Ansible, Azure, DevOps, Bash, 플레이북, 서비스 버스, 큐
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 6efc11106fae18beac43ab1896733ab6bfc64dad
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: a48796c2177a8b5b818553bf8aa0ff36f712d4e0
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230778"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241388"
 ---
 # <a name="tutorial-configure-queues-in-azure-service-bus-using-ansible"></a>자습서: Ansible을 사용하여 Azure Service Bus에 큐 구성
 
@@ -216,7 +216,7 @@ ansible-playbook servicebus_queue_policy_delete.yml
 
 더 이상 필요하지 않은 경우 이 문서에서 만든 리소스를 삭제합니다. 
 
-다음 코드를 `cleanup.yml`에 저장합니다.
+다음 코드를 `cleanup.yml`로 저장합니다.
 
 ```yml
 ---
@@ -244,7 +244,7 @@ ansible-playbook servicebus_queue_policy_delete.yml
           force_delete_nonempty: yes
 ```
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook cleanup.yml

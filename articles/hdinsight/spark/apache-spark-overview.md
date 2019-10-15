@@ -2,18 +2,18 @@
 title: Apache Spark란 - Azure HDInsight
 description: 이 문서에서는 HDInsight의 Spark를 소개하고 HDInsight에서 Spark 클러스터를 사용할 수 있는 다양한 시나리오를 제공합니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: overview
-ms.date: 05/28/2019
-ms.author: hrasheed
-ms.openlocfilehash: e325618ed1cdec6149ac31771c8bd67ecea7d559
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.date: 10/01/2019
+ms.openlocfilehash: 923e5a961ee9b7bdea94cf7a3e6fc833f596fafd
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993842"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937616"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark란
 
@@ -41,7 +41,7 @@ HDInsight에서 Spark 클러스터는 완벽하게 관리되는 Spark 서비스�
 | 동시 쿼리 |HDInsight의 Spark 클러스터는 동시 쿼리를 지원합니다. 이 기능을 통해 한 사용자의 여러 개 쿼리 또는 여러 사용자 및 애플리케이션의 여러 개 쿼리에서 동일한 클러스터 리소스를 공유할 수 있습니다. |
 | SSD에서 캐시 |클러스터 노드에 연결된 메모리 또는 SSD에서 데이터를 캐시하도록 선택할 수 있습니다. 메모리에서 캐시하면 최고의 쿼리 성능을 제공하지만 리소스가 많이 들 수 있습니다. SSD에서 캐시하면 메모리에서 전체 데이터 세트에 맞게 필요한 크기의 클러스터를 만들 필요 없이 쿼리 성능 향상을 위한 훌륭한 옵션을 제공합니다. |
 | BI 도구와의 통합 |HDInsight에서 Spark 클러스터는 데이터 분석을 위해 [Power BI](https://www.powerbi.com/)와 같은 BI 도구용 커넥터를 제공합니다. |
-| 미리 로드된 Anaconda 라이브러리 |HDInsight에서 Spark 클러스터는 미리 설치된 Anaconda 라이브러리와 함께 제공됩니다. [Anaconda](https://docs.continuum.io/anaconda/) 는 기계 학습, 데이터 분석, 시각화 등을 위해 약 200개의 라이브러리를 제공합니다. |
+| 미리 로드된 Anaconda 라이브러리 |HDInsight에서 Spark 클러스터는 미리 설치된 Anaconda 라이브러리와 함께 제공됩니다. [Anaconda](https://docs.continuum.io/anaconda/)는 기계 학습, 데이터 분석, 시각화 등을 위해 약 200개의 라이브러리를 제공합니다. |
 | 확장성 | HDInsight를 사용하면 클러스터 노드의 수를 변경할 수 있습니다. 또한 모든 데이터가 Azure Storage 또는 Data Lake Storage에 저장되므로 데이터 손실 없이 Spark 클러스터를 삭제할 수 있습니다. |
 | SLA |HDInsight의 Spark 클러스터는 언제나 지원되며 99.9% 가동 시간 SLA와 함께 제공됩니다. |
 
@@ -73,20 +73,20 @@ SparkContext는 Spark 마스터에 연결하고 작업자 노드의 실행기 �
 
 HDInsight의 Spark 클러스터는 다음과 같은 주요 시나리오를 사용합니다.
 
-- 대화형 데이터 분석 및 BI
+* 대화형 데이터 분석 및 BI
 
     HDInsight의 Apache Spark는 Azure Storage 또는 Azure Data Lake Storage에 데이터를 저장합니다. 비즈니스 전문가 및 주요 의사 결정권자는 해당 데이터에 대한 보고서를 분석 및 작성하고 Microsoft Power BI를 사용하여 분석된 데이터에서 대화형 보고서를 작성합니다. 분석자는 클러스터 스토리지의 비구조적/반구조적 데이터부터 시작하여 노트북으로 데이터에 대한 스키마를 정의한 다음 Microsoft Power BI를 사용하여 데이터 모델을 작성할 수 있습니다. HDInsight에서 Spark 클러스터는 Tableau와 같은 많은 타사 BI 도구를 지원하므로 데이터 분석가, 비즈니스 전문가 및 핵심 의사 결정자가 쉽게 사용할 수 있습니다.
 
     [자습서: Power BI를 사용하여 Spark 데이터 시각화](apache-spark-use-bi-tools.md)
 
-- Spark Machine Learning
+* Spark Machine Learning
 
     Apache Spark는 [MLlib](https://spark.apache.org/mllib/), 즉 Spark를 기반으로 하여 빌드되어 HDInsight의 Spark 클러스터에서 사용할 수 있는 기계 학습 라이브러리와 함께 제공됩니다. HDInsight의 Spark 클러스터에는 기계 학습을 위한 다양한 패키지가 포함된 Python 배포인 Anaconda도 있습니다. 이와 Jupyter 및 Zeppelin Notebook의 기본 제공되는 지원이 결합되면 기계 학습 애플리케이션을 만들기 위한 환경이 갖추어집니다.
 
     [자습서: HVAC 데이터를 사용하여 건물 온도 예측](apache-spark-ipython-notebook-machine-learning.md)  
     [자습서: 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
 
-- Spark 스트리밍 및 실시간 데이터 분석
+* Spark 스트리밍 및 실시간 데이터 분석
 
     HDInsight의 Spark 클러스터는 실시간 분석 솔루션을 빌드하기 위한 풍부한 지원을 제공합니다. Spark가 이미 커넥터를 가지고 Kafka, Flume, Twitter, ZeroMQ 또는 TCP 소켓 같은 여러 소스에서 데이터를 수집하는 동안 HDInsight에서 Spark는 Azure Event Hubs에서 데이터 수집을 위한 최상의 지원을 추가합니다. Event Hubs는 Azure에서 가장 널리 사용되는 큐 서비스입니다. Event Hubs에 대한 즉각적인 지원이 가능하므로 HDInsight의 Spark 클러스터는 실시간 분석 파이프라인을 빌드하기 위한 이상적인 플랫폼이 됩니다.
 
@@ -94,14 +94,14 @@ HDInsight의 Spark 클러스터는 다음과 같은 주요 시나리오를 사�
 
 다음 문서를 사용하여 HDInsight의 Apache Spark에 대해 자세히 알아볼 수 있습니다.
 
-- [빠른 시작: HDInsight에서 Apache Spark 클러스터 만들기 및 Jupyter를 사용하여 대화형 쿼리 실행](./apache-spark-jupyter-spark-sql-use-portal.md)
-- [자습서: Jupyter를 사용하여 Apache Spark 작업 실행](./apache-spark-load-data-run-query.md)
-- [자습서: BI 도구를 사용하여 데이터 분석](./apache-spark-use-bi-tools.md)
-- [자습서: Apache Spark를 사용한 기계 학습](./apache-spark-ipython-notebook-machine-learning.md)
-- [자습서: IntelliJ를 사용하여 Scala Maven 애플리케이션 만들기](./apache-spark-create-standalone-application.md)
+* [빠른 시작: HDInsight에서 Apache Spark 클러스터 만들기 및 Jupyter를 사용하여 대화형 쿼리 실행](./apache-spark-jupyter-spark-sql-use-portal.md)
+* [자습서: Jupyter를 사용하여 Apache Spark 작업 실행](./apache-spark-load-data-run-query.md)
+* [자습서: BI 도구를 사용하여 데이터 분석](./apache-spark-use-bi-tools.md)
+* [자습서: Apache Spark를 사용한 기계 학습](./apache-spark-ipython-notebook-machine-learning.md)
+* [자습서: IntelliJ를 사용하여 Scala Maven 애플리케이션 만들기](./apache-spark-create-standalone-application.md)
 
 ## <a name="next-steps"></a>다음 단계
 
 이 개요를 통해 Azure HDInsight의 Apache Spark에 대한 몇 가지 기본 사항을 이해할 수 있습니다. 다음 문서에서는 HDInsight Spark 클러스터를 만들고 일부 Spark SQL 쿼리를 실행하는 방법을 알아봅니다.
 
-- [HDInsight에서 Apache Spark 클러스터 만들기](./apache-spark-jupyter-spark-sql-use-portal.md)
+* [HDInsight에서 Apache Spark 클러스터 만들기](./apache-spark-jupyter-spark-sql-use-portal.md)

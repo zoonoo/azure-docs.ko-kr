@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d69d5ffcae77e7144f97cb423d5bee93cb88fb27
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 713b43f720e3bccae3b9c6457a3317427fb3fc1a
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121617"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960046"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>자습서: JIRA SAML SSO by Microsoft와 Azure Active Directory SSO(Single Sign-On) 연결 | Microsoft Docs
 
@@ -60,8 +60,8 @@ JIRA SAML SSO by Microsoft와 Azure AD 통합을 구성하려면 다음 항목�
 
 ## <a name="supported-versions-of-jira"></a>지원되는 JIRA 버전
 
-* JIRA Core 및 Software: 6.4~8.0
-* JIRA Service Desk 3.0.0~3.5.0
+* JIRA Core 및 Software: 6.4 ~ 8.2.4
+* JIRA Service Desk 3.0.0 ~ 4.2.1
 * JIRA는 5.2도 지원합니다. 자세한 내용을 보려면 [JIRA 5.2용 Microsoft Azure Active Directory Single Sign-On](jira52microsoft-tutorial.md)을 클릭하세요.
 
 > [!NOTE]
@@ -181,11 +181,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 5. 플러그 인이 설치되면 **추가 기능 관리** 섹션의 **사용자가 설치한** 추가 기능 섹션에 표시됩니다. **구성**을 클릭하여 새 플러그 인을 구성합니다.
 
-    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon13.png)
+    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon14.png)
 
 6. 구성 페이지에서 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon53.png)
+    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > 메타데이터를 확인하는 데 오류가 없도록 앱에 매핑된 인증서가 하나만 있는지 확인합니다. 인증서가 여러 개 있으면 메타데이터를 확인할 때 관리자에게 오류가 표시됩니다.
@@ -195,6 +195,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     1. **식별자, 회신 URL 및 로그인 URL** 값을 복사하여 Azure Portal에서 **JIRA SAML SSO by Microsoft 도메인 및 URL** 섹션의 **식별자, 회신 URL 및 로그인 URL** 텍스트 상자에 각각 붙여넣습니다.
 
     1. **Login Button Name**(로그인 단추 이름)에 조직이 사용자의 로그인 화면에 표시하려는 단추의 이름을 입력합니다.
+    
+    1. **로그인 단추 설명**의 조직에서 사용자가 로그인 화면에 표시하려는 단추에 대한 설명을 입력합니다.
 
     1. **SAML User ID Locations**(SAML 사용자 ID 위치)에서 **User ID is in the NameIdentifier element of the Subject statement**(사용자 ID는 Subject 문의 NameIdentifier 요소에 있습니다.) 또는 **User ID is in an Attribute element**(사용자 ID는 Attribute 요소에 있습니다.)를 선택합니다.  이 ID는 JIRA 사용자 ID여야 합니다. 사용자 ID가 일치하지 않으면 시스템에서 사용자 로그인을 허용하지 않습니다.
 
@@ -212,7 +214,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     1. Azure AD 자격 증명을 통해서만 로그인하려면 **Force Azure Login** 확인란을 활성화합니다.
     
        > [!Note]
-       > Azure 강제 로그인을 활성화한 경우 로그인 페이지에서 관리자 로그인에 대한 기본 로그인 양식을 사용하려면 브라우저 URL에 쿼리 매개 변수를 추가합니다.
+       >Azure 강제 로그인을 활성화한 경우 로그인 페이지에서 관리자 로그인에 대한 기본 로그인 양식을 사용하려면 브라우저 URL에 쿼리 매개 변수를 추가합니다.
        > `https://<domain:port>/login.action?force_azure_login=false`
 
     1. **저장** 단추를 클릭하여 설정을 저장합니다.

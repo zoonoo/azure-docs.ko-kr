@@ -7,19 +7,14 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: 0921a1ac7aa1192fae78f168c2eb51ee3e74e24a
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 152087ab3dc20dfc95cfeaa0353d961917d362d6
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774616"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959344"
 ---
 # <a name="what-is-azure-private-dns"></a>Azure 프라이빗 DNS란?
-
-> [!IMPORTANT]
-> Azure 프라이빗 DNS는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 DNS(Domain Name System)는 서비스 이름을 해당 IP 주소로 변환(또는 확인)합니다.  Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공하는 DNS 도메인에 대한 호스팅 서비스입니다. Azure DNS는 인터넷 연결 DNS 도메인 지원 외에 프라이빗 DNS 영역도 지원합니다.
 
@@ -48,7 +43,7 @@ Azure 프라이빗 DNS는 다음과 같은 이점을 누릴 수 있습니다.
 
 * **수평 분할 DNS 지원**. Azure DNS를 사용하면 이름이 같고 가상 네트워크 내 그리고 공용 인터넷의 다른 답변을 확인하는 영역을 만들 수 있습니다. 분할 수평 DNS에 대한 일반적인 시나리오는 가상 네트워크 내에서 사용할 수 있는 전용 서비스 버전을 제공하는 것입니다.
 
-* **모든 Azure 지역에서 사용 가능**. Azure DNS 프라이빗 영역 기능은 Azure 공용 클라우드의 모든 Azure 지역에서 사용할 수 있습니다.
+* **모든 Azure 지역에서 사용 가능**. Azure DNS 프라이빗 영역 기능은 Azure 퍼블릭 클라우드의 모든 Azure 지역에서 사용할 수 있습니다.
 
 ## <a name="capabilities"></a>기능
 
@@ -60,22 +55,14 @@ Azure DNS는 다음과 같은 기능을 제공합니다.
 
 * **DNS 역방향 조회는 가상 네트워크 범위 내에서 지원됩니다**. 프라이빗 영역에 할당된 가상 네트워크 내의 프라이빗 IP에 대한 역방향 DNS 조회에서는 호스트/레코드 이름과 영역 이름이 접미사로 포함된 FQDN이 반환됩니다.
 
-## <a name="known-issues"></a>알려진 문제
-다음 항목은 미리 보기 릴리스에서 알려진 버그와 문제입니다.
-* 프라이빗 DNS 영역에 연결된 가상 네트워크를 삭제해도 프라이빗 DNS 영역에 대한 연결은 삭제되지 않습니다. 동일한 이름과 리소스 그룹으로 가상 네트워크를 다시 만들고 임의의 프라이빗 DNS 영역에 다시 연결하려고 하면 연결이 실패합니다. 이 문제를 해결하려면 가상 네트워크를 다른 리소스 그룹에 만들거나 동일한 리소스 그룹에 다른 이름으로 가상 네트워크를 만듭니다.
-* 가상 네트워크를 다른 리소스 그룹 또는 구독으로 이동하면 프라이빗 DNS 영역에 대한 연결이 업데이트되지 않습니다. 이동된 가상 네트워크의 이름 확인이 계속 작동하지만 프라이빗 DNS 영역의 가상 네트워크 연결을 볼 때 가상 네트워크의 기존 ARM ID가 표시됩니다.
-* 현재 아랍에미리트 북부, 아랍에미리트 중부, 남아프리카 공화국 서부, 남아프리카 공화국 북부, 캐나다 동부, 프랑스 남부에서 호스팅되는 연결된 가상 네트워크는 실패할 수 있으며, 일시적인 DNS 확인 문제가 발생할 수 있습니다. 
-
-
 ## <a name="other-considerations"></a>기타 고려 사항
 
 Azure DNS의 제한 사항은 다음과 같습니다.
 
 * VM DNS 레코드의 자동 등록이 활성화된 경우 특정 가상 네트워크를 하나의 프라이빗 영역에만 연결할 수 있습니다. 그러나 단일 DNS 영역에 여러 가상 네트워크를 연결할 수 있습니다.
 * 역방향 DNS는 연결된 가상 네트워크의 개인 IP 공간에 대해서만 작동합니다.
-* 연결된 가상 네트워크의 개인 IP에 대한 역방향 DNS는 가상 머신의 기본 접미사로 "internal.cloudapp.net"을 반환합니다. 자동 등록이 사용 설정된 프라이빗 영역에 연결된 가상 네트워크에서는 개인 IP의 역방향 DNS가 FQDN 2개를 반환하는데, 하나는 기본 접미사(*internal.cloudapp.net*)를, 다른 하나는 프라이빗 영역 접미사를 사용합니다.
-* 조건부 전달은 현재 기본적으로 지원되지 않습니다. Azure와 온-프레미스 네트워크 간에 확인을 사용하려면 [VM 및 역할 인스턴스에 대한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
-
+* 연결된 가상 네트워크의 개인 IP 주소에 대한 역방향 DNS는 가상 머신의 기본 접미사로 *internal.cloudapp.net*을 반환합니다. 자동 등록이 활성화된 프라이빗 영역에 연결된 가상 네트워크의 경우 개인 IP 주소의 역방향 DNS는 기본 접미사 *internal.cloudapp.net*과 프리이빗 영역 접미사인 두 개의 FQDN을 반환합니다.
+* 조건부 전달은 현재 기본적으로 지원되지 않습니다. Azure와 온-프레미스 네트워크 간에 확인을 사용하도록 설정하려면 [VM 및 역할 인스턴스에 대한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
  
 ## <a name="pricing"></a>가격
 

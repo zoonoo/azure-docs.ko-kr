@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Ansible을 사용하여 Azure Cosmos DB 계정 구성 | Microsoft Docs
+title: 자습서 - Ansible을 사용하여 Azure Cosmos DB 계정 구성
 description: Ansible을 사용하여 Azure Cosmos DB를 만들고 구성하는 방법 알아보기
 keywords: ansible, azure, devops, bash, playbook, cosmo db, database
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 06d416358c1886f09b0b2336cc1ea53ce89947ae
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 82cb29cfe3aeb7b6ca43fceca4c900b2eeb148c2
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230819"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242063"
 ---
 # <a name="tutorial-configure-azure-cosmos-db-accounts-using-ansible"></a>자습서: Ansible을 사용하여 Azure Cosmos DB 계정 구성
 
@@ -144,8 +144,8 @@ ms.locfileid: "65230819"
 ## <a name="get-the-sample-playbook"></a>샘플 플레이북 가져오기
 
 전체 샘플 플레이북을 가져오는 방법에는 다음 두 가지가 있습니다.
-- [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/cosmosdb_create.yml)한 후 `cosmosdb.yml`에 저장합니다.
-- `cosmosdb.yml`이라는 새 파일을 만들고 다음 콘텐츠에 복사합니다.
+- [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/cosmosdb_create.yml)하여 `cosmosdb.yml`에 저장합니다.
+- `cosmosdb.yml`이라는 새 파일을 만들고 다음 콘텐츠를 이 파일에 복사합니다.
 
 ```yml
 ---
@@ -247,7 +247,7 @@ ansible-playbook cosmosdb.yml
 
 더 이상 필요하지 않은 경우 이 문서에서 만든 리소스를 삭제합니다. 
 
-다음 코드를 `cleanup.yml`에 저장합니다.
+다음 코드를 `cleanup.yml`로 저장합니다.
 
 ```yml
 - hosts: localhost
@@ -261,7 +261,7 @@ ansible-playbook cosmosdb.yml
         state: absent
 ```
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook cleanup.yml

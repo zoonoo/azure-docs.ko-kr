@@ -17,19 +17,21 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: d6747193b8c82119e45a24e3e4bffc065db14e51
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8c3bc90b282092ede0e924d32b50b67e5c4e22b8
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212166"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244494"
 ---
 # <a name="integration-with-app-service-mobile-apps"></a>App Service Mobile Apps와 통합
 
-> [!NOTE]
-> Microsoft는 최신 OS 릴리스 지원, 버그 수정, 설명서 개선 및 커뮤니티 PR 검토를 포함하여 App Service Mobile Apps를 완벽하게 지원하기 위해 노력하고 있습니다. 제품 팀은 현재 Azure Mobile Apps의 새로운 기능 작업에 투자하지 않습니다. Azure Mobile Apps의 모든 영역에 커뮤니티가 기여한 것에 매우 감사드립니다.
-
 Azure 서비스 전반에서 원활하고 일관적인 사용 환경을 조성하기 위하여 Notification Hubs를 사용한 푸시 알림이 [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md)에 기본적으로 지원됩니다. [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md)는 엔터프라이즈 개발자 및 시스템 통합자를 위해 확장성이 크고 전 세계에서 사용 가능한 모바일 애플리케이션 개발 플랫폼을 제공합니다. 이 플랫폼은 모바일 개발자에게 풍부한 기능 집합을 제공합니다.
+
+Visual Studio App Center는 현재 개발자를 위한 최신 모바일 솔루션을 제공합니다. 모바일 앱 개발의 중심인 엔드투엔드 통합 서비스를 지원합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용하여 지속적인 통합 및 업데이트 파이프라인을 설정할 수 있습니다. 앱이 배포되면 개발자는 **분석** 및 **진단** 서비스를 사용하여 앱의 상태와 사용 현황을 모니터링하고, **푸시** 서비스를 사용하여 사용자와 소통할 수 있습니다. 또한 개발자는 **인증** 서비스를 사용하여 사용자를 인증하고, **데이터** 서비스를 사용하여 클라우드에서 애플리케이션 데이터를 유지하고 동기화할 수도 있습니다.
+
+> [!NOTE]
+> 모바일 애플리케이션에서 클라우드 서비스를 통합하려면 지금 [App Center](https://appcenter.ms/signup?utm_source=NotificationHubs&utm_medium=Azure&utm_campaign=docs)에 등록하세요.
 
 Mobile Apps 개발자는 다음 워크플로에서 Notification Hubs를 활용할 수 있습니다.
 

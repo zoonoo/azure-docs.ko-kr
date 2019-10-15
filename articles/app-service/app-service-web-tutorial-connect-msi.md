@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/16/2019
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d4e0d632fe476df159710f800eca3a2a283f7908
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: b39c1596dd16f8ec6235878abdbf37492abd1ea8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018293"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177066"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
@@ -188,6 +188,9 @@ conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceT
 > 이 데모 코드는 명확성을 위해 동기식입니다. 자세한 내용은 [생성자를 위한 비동기 가이드](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#constructors)를 참조하세요.
 
 SQL Database에 연결하는 데 필요한 모든 항목입니다. Visual studio에서 디버깅하는 경우 코드는 [Visual Studio 설정](#set-up-visual-studio)에서 구성한 Azure AD 사용자를 사용합니다. App Service 앱의 관리 ID에서 연결할 수 있도록 SQL Database 서버를 나중에 설정합니다. `AzureServiceTokenProvider` 클래스는 메모리에서 토큰을 캐시하여 만료 직전에 Azure AD에서 검색합니다. 토큰을 새로 고치는 데 사용자 지정 코드는 필요하지 않습니다.
+
+> [!TIP]
+> 구성한 Azure AD 사용자가 여러 테넌트에 액세스할 수 있는 경우 원하는 테넌트 ID로 `GetAccessTokenAsync("https://database.windows.net/", tenantid)`를 호출하여 적절한 액세스 토큰을 검색합니다.
 
 `Ctrl+F5`를 입력하여 앱을 다시 실행합니다. 이제 브라우저에서 동일한 CRUD 앱이 Azure AD 인증을 사용하여 Azure SQL Database에 직접 연결합니다. 이 설정을 사용하면 Visual Studio에서 데이터베이스 마이그레이션을 실행할 수 있습니다.
 

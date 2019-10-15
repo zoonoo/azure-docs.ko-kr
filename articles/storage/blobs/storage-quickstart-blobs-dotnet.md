@@ -7,12 +7,12 @@ ms.date: 07/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 1b6348173f47b570efff25bf09e9a427ff2ba9b5
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 27ae562d38ee8734201299e10dbe6ac4be3cb2ee
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640987"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947658"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-net"></a>빠른 시작: .NET용 Azure Blob Storage 클라이언트 라이브러리
 
@@ -31,11 +31,11 @@ ms.locfileid: "69640987"
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="required-before-you-begin"></a>시작 전 필수 조건
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * Azure Storage 계정 - [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* 운영 체제용 [NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) 이상. 런타임이 아니라 SDK가 있어야 합니다.
+* 현재 운영 체제의 [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)입니다. 런타임이 아니라 SDK가 있어야 합니다.
 
 ## <a name="setting-up"></a>설치
 

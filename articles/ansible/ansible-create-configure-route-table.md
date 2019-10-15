@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Ansible을 사용하여 Azure 경로 테이블 구성 | Microsoft Docs
+title: 자습서 - Ansible을 사용하여 Azure 경로 테이블 구성
 description: Ansible을 사용하여 Azure 경로 테이블을 생성, 변경 및 삭제하는 방법 알아보기
 keywords: Ansible, Azure, DevOps, Bash, 플레이북, 네트워킹, 경로, 경로 테이블
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 846ff510603c0ed0888ec92ece8b86fad0354c19
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 14753af58a179ddf4011cb29c7ed08faab62875c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230877"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241772"
 ---
 # <a name="tutorial-configure-azure-route-tables-using-ansible"></a>자습서: Ansible을 사용하여 Azure 경로 테이블 구성
 
@@ -58,7 +58,7 @@ ansible-playbook route_table_create.yml
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>서브넷에 경로 테이블 연결
 
-이 섹션의 플레이북 코드는 다음과 같습니다.
+이 섹션의 플레이북 코드:
 
 * 가상 네트워크를 만듭니다.
 * 가상 네트워크 내에서 서브넷 만들기
@@ -253,7 +253,7 @@ ansible-playbook route_table_facts.yml
         state: absent
 ```
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook route_table_delete.yml

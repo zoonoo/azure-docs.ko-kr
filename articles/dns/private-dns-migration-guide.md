@@ -7,16 +7,16 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: e7ebbf35cd572601f02a69930b58811686a92c86
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 870f8f43fb37f3f58fc19f2fd544e77b1a3a3967
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276321"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960564"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>기존 Azure DNS Private Zones를 새 리소스 모델로 마이그레이션
 
-Azure DNS Private Zones의 새로운 API/리소스 모델은 미리 보기 업데이트 릴리스의 일부로 제공되었습니다. 미리 보기 업데이트는 새로운 기능을 제공하고 초기 공개 미리 보기의 몇 가지 제한 사항을 제거합니다. 하지만 기존 API를 사용하여 생성된 프라이빗 DNS 영역에서는 이러한 이점을 얻을 수 없습니다. 새 릴리스의 이점을 얻으려면 기존 DNS Private Zones 리소스를 새 리소스 모델로 마이그레이션해야 합니다. 마이그레이션 프로세스는 간단하며, 이 프로세스를 자동화하는 PowerShell 스크립트가 제공됩니다. 이 가이드에서는 Azure DNS Private Zones를 새 리소스 모델로 마이그레이션하는 방법에 대한 단계별 지침을 제공합니다.
+현재 Azure DNS 프라이빗 영역 릴리스는 새로운 기능을 제공하고 초기 공개 미리 보기의 몇 가지 제한 사항을 제거합니다. 하지만 미리 보기 API를 사용하여 생성된 프라이빗 DNS 영역에서는 이러한 이점을 사용할 수 없습니다. 새 릴리스의 이점을 얻으려면 기존 프라이빗 DNS 영역 리소스를 새 리소스 모델로 마이그레이션해야 합니다. 마이그레이션 프로세스는 간단하며, 이 프로세스를 자동화하는 PowerShell 스크립트가 제공됩니다. 이 가이드에서는 Azure DNS 프라이빗 영역을 새 리소스 모델로 마이그레이션하는 단계별 지침을 제공합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -29,7 +29,7 @@ Install-Module -Name Az.PrivateDns -AllowPrerelease
 ```
 
 >[!IMPORTANT]
->마이그레이션 프로세스는 완전히 자동화되어 있으며 가동 중지 시간을 유발하지 않습니다. 그러나 중요한 프로덕션 환경에서 Azure DNS Private Zones(미리 보기)를 사용 중인 경우에는 계획된 유지 관리 기간 동안 아래의 마이그레이션 프로세스를 실행해야 합니다. 마이그레이션 스크립트를 실행 중일 때는 프라이빗 DNS 영역의 구성이나 레코드 세트를 수정하지 않도록 하세요.
+>마이그레이션 프로세스는 완전히 자동화되어 있으며 가동 중지 시간을 유발하지 않습니다. 그러나 중요한 프로덕션 환경에서 Azure DNS 프라이빗 영역(미리 보기)를 사용 중인 경우에는 계획된 유지 관리 기간 동안 다음 마이그레이션 프로세스를 실행해야 합니다. 마이그레이션 스크립트를 실행 중일 때는 프라이빗 DNS 영역의 구성이나 레코드 세트를 수정하지 않도록 하세요.
 
 ## <a name="installing-the-script"></a>스크립트 설치
 

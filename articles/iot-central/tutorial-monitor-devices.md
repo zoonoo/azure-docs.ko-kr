@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d716eb761ab406b65f10898b29775327a801ac45
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f68bc211be3cffb61b3381390ae2eeacaffa4213
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875479"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960415"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>자습서: Azure IoT Central을 사용하여 디바이스 모니터링
 
@@ -41,7 +41,7 @@ ms.locfileid: "69875479"
 
 Azure IoT Central은 디바이스에 대한 알림을 이메일 메시지로 보냅니다. 작성기는 연결된 공조 디바이스에서 온도가 임계값을 초과하는 경우 알림을 보내기 위해 규칙을 추가했습니다. 작성기가 알림을 수신하도록 선택한 계정에 전송되는 이메일을 확인합니다.
 
-[디바이스에 대한 규칙 및 작업 구성](tutorial-configure-rules.md) 자습서의 끝에 수신한 이메일 메시지를 엽니다. 이메일에서 **디바이스를 열려면 여기를 클릭**을 선택합니다.
+[디바이스에 대한 규칙 및 작업 구성](tutorial-configure-rules.md) 자습서의 끝에 수신한 이메일 메시지를 엽니다. 이메일의 **세부 정보 섹션**에서 **디바이스 이름** 옆에 있는 디바이스에 대한 링크를 선택합니다.
 
 ![경고 알림 이메일](media/tutorial-monitor-devices/email.png)
 

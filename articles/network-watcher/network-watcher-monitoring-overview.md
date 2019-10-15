@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: ddc577af945c01b94dae5a75725082e4e6689fd9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e6ff3e6798fadca89455790efa28891c02e9e459
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697151"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996962"
 ---
 # <a name="what-is-azure-network-watcher"></a>Azure Network Watcher란?
 
-Azure Network Watcher는 Azure 가상 네트워크의 리소스를 모니터링 및 진단하고 메트릭을 보고 그에 대한 로그를 활성화 또는 비활성화하는 도구를 제공합니다.
+Azure Network Watcher는 Azure 가상 네트워크의 리소스를 모니터링 및 진단하고 메트릭을 보고 그에 대한 로그를 활성화 또는 비활성화하는 도구를 제공합니다. Network Watcher는 Virtual Machines, Virtual Networks, Application Gateways, 부하 분산 장치 등을 포함하는 IaaS(Infrastructure as a Service) 제품의 네트워크 상태를 모니터링하고 복구하도록 설계되었습니다. 참고: PaaS 모니터링 또는 웹 분석에는 적합하지 않으며 작동하지 않습니다. 
 
 ## <a name="monitoring"></a>모니터링
 

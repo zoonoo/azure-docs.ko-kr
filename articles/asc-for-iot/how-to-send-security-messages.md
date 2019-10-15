@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2019
+ms.date: 10/03/2019
 ms.author: mlottner
-ms.openlocfilehash: c780eea15b9f064d3279c75ac2f967e8b6099ecb
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 4d91eecc6168ae195fecdf788f091fd70b785f05
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596216"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937124"
 ---
 # <a name="send-security-messages-sdk"></a>보안 메시지 보내기 SDK
 
@@ -28,8 +28,12 @@ ms.locfileid: "68596216"
 
 이 가이드에서는 다음 작업 방법을 배웁니다. 
 > [!div class="checklist"]
-> * C#용 보안 메시지 보내기 API 사용
-> * C용 보안 메시지 보내기 API 사용
+> * Azure IoT C SDK를 사용 하 여 보안 메시지 보내기
+> * Azure IoT C# SDK를 사용 하 여 보안 메시지 보내기
+> * Azure IoT Python SDK를 사용 하 여 보안 메시지 보내기
+> * Azure IoT node.js SDK를 사용 하 여 보안 메시지 보내기
+> * Azure IoT Java SDK를 사용 하 여 보안 메시지 보내기
+
 
 ## <a name="azure-security-center-for-iot-capabilities"></a>IoT 기능을 위한 Azure Security Center
 
@@ -38,7 +42,7 @@ IoT 용 Azure Security Center은 전송 된 데이터가 [IoT 스키마에 대 �
 ## <a name="security-message"></a>보안 메시지
 
 IoT에 대 한 Azure Security Center는 다음 조건을 사용 하 여 보안 메시지를 정의 합니다.
-- Azure IoT C/C# SDK를 사용 하 여 메시지를 보낸 경우
+- Azure IoT SDK를 사용 하 여 메시지를 보낸 경우
 - 메시지가 [보안 메시지 스키마](https://aka.ms/iot-security-schemas) 를 준수 하는 경우
 - 메시지를 보내기 전에 보안 메시지로 설정 된 경우
 
@@ -49,7 +53,7 @@ IoT에 대 한 Azure Security Center는 다음 조건을 사용 하 여 보안 �
 > 스키마를 준수하지 않은 상태로 보내는 메시지는 무시됩니다. 무시된 메시지는 현재 저장되지 않으므로 데이터 보내기를 시작하기 전에 스키마를 확인해야 합니다. 
 
 >[!Note]
-> Azure IoT C/C# SDK를 사용 하 여 보안 메시지로 설정 되지 않은 보낸 메시지는 iot 파이프라인에 대 한 Azure Security Center 라우팅되지 않습니다.
+> Azure IoT SDK를 사용 하 여 보안 메시지로 설정 되지 않은 보낸 메시지는 IoT 파이프라인에 대 한 Azure Security Center 라우팅되지 않습니다.
 
 ## <a name="valid-message-example"></a>유효한 메시지 예
 
@@ -87,28 +91,15 @@ IoT에 대 한 Azure Security Center는 다음 조건을 사용 하 여 보안 �
 
 ## <a name="send-security-messages"></a>보안 메시지 보내기 
 
-[Azure C# iot 장치 Sdk](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview) 또는 [azure iot C 장치 Sdk](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview)를 사용 하 여 iot 에이전트에 대 한 Azure Security Center를 사용 하지 않고 보안 메시지를 보냅니다.
+[Azure Iot C 장치 sdk](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview), azure IOT [ C# 장치 sdk](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview),, [Azure IOT node.js Sdk](https://github.com/Azure/azure-iot-sdk-node), AZURE [iot Python sdk](https://github.com/Azure/azure-iot-sdk-python)또는 [azure iot Java sdk를](https://github.com/Azure/azure-iot-sdk-java) 사용 하 여 iot 에이전트에 대 한 Azure Security Center를 사용 *하지 않고* 보안 메시지 보내기.
 
 IoT에 대 한 Azure Security Center에서 처리 하기 위해 장치에서 장치 데이터를 보내려면 다음 Api 중 하나를 사용 하 여 IoT 처리 파이프라인에 대 한 Azure Security Center에 올바른 라우팅에 대 한 메시지를 표시 합니다. 
 
 올바른 헤더로 표시 된 경우에도 전송 되는 모든 데이터는 [IoT 메시지 스키마의 Azure Security Center](https://aka.ms/iot-security-schemas)준수 해야 합니다. 
 
-### <a name="send-security-message-api"></a>보안 메시지 보내기 API
+### <a name="send-security-message-api"></a>보안 메시지 보내기 API 
 
-**보안 메시지 보내기** API는 현재 C 및 C#에서 사용할 수 있습니다.  
-
-#### <a name="c-api"></a>C# API
-
-```cs
-
-private static async Task SendSecurityMessageAsync(string messageContent)
-{
-    ModuleClient client = ModuleClient.CreateFromConnectionString("<connection_string>");
-    Message  securityMessage = new Message(Encoding.UTF8.GetBytes(messageContent));
-    securityMessage.SetAsSecurityMessage();
-    await client.SendEventAsync(securityMessage);
-}
-```
+**보안 메시지 보내기** API는 현재 C 및 C#, Python, node.js 및 Java에서 사용할 수 있습니다.  
 
 #### <a name="c-api"></a>C API
 
@@ -154,6 +145,78 @@ static void SendConfirmCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* 
     }
 }
 ```
+#### <a name="c-api"></a>C# API
+
+```cs
+
+private static async Task SendSecurityMessageAsync(string messageContent)
+{
+    ModuleClient client = ModuleClient.CreateFromConnectionString("<connection_string>");
+    Message  securityMessage = new Message(Encoding.UTF8.GetBytes(messageContent));
+    securityMessage.SetAsSecurityMessage();
+    await client.SendEventAsync(securityMessage);
+}
+```
+#### <a name="nodejs-api"></a>Node.js API
+
+```typescript
+var Protocol = require('azure-iot-device-mqtt').Mqtt
+
+function SendSecurityMessage(messageContent)
+{
+  var client = Client.fromConnectionString(connectionString, Protocol);
+
+  var connectCallback = function (err) {
+    if (err) {
+      console.error('Could not connect: ' + err.message);
+    } else {
+      var message = new Message(messageContent);
+      message.setAsSecurityMessage();
+      client.sendEvent(message);
+  
+      client.on('error', function (err) {
+        console.error(err.message);
+      });
+  
+      client.on('disconnect', function () {
+        clearInterval(sendInterval);
+        client.removeAllListeners();
+        client.open(connectCallback);
+      });
+    }
+  };
+
+  client.open(connectCallback);
+}
+```
+
+#### <a name="python-api"></a>Python API
+
+```python
+async def send_security_message_async(message_content):
+    conn_str = os.getenv("<connection_string>")
+    device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
+    await device_client.connect()
+    security_message = Message(message_content)
+    security_message.set_as_security_message()
+    await device_client.send_d2c_message(security_message)
+    await device_client.disconnect()
+```
+
+#### <a name="java-api"></a>Java API
+
+```java
+public void SendSecurityMessage(string message)
+{
+    ModuleClient client = new ModuleClient("<connection_string>", IotHubClientProtocol.MQTT);
+    Message msg = new Message(message);
+    msg.setAsSecurityMessage();
+    EventCallback callback = new EventCallback();
+    string context = "<user_context>";
+    client.sendEventAsync(msg, callback, context);
+}
+```
+
 
 ## <a name="next-steps"></a>다음 단계
 - IoT 서비스에 대 한 Azure Security Center [개요](overview.md) 를 참조 하십시오.

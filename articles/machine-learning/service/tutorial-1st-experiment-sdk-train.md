@@ -1,5 +1,5 @@
 ---
-title: '자습서: 첫 번째 ML 모델 학습'
+title: '자습서: Python에서 첫 번째 Azure ML 모델 학습'
 titleSuffix: Azure Machine Learning
 description: 이 자습서에서는 Azure Machine Learning의 기본 디자인 패턴을 알아보고, 당뇨병 데이터 세트를 기반으로 하는 간단한 scikit-learn 모델을 학습합니다.
 services: machine-learning
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/03/2019
-ms.openlocfilehash: c775b16eaa15ccd7115f4770bf197545a9de2500
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: c78a45cedbeb5cfa0f0cc7c5c976fceb36f1da2a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828025"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173297"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>자습서: 첫 번째 ML 모델 학습
 

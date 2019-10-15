@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure에서 Ansible을 사용하여 가상 머신 확장 집합에 앱 배포 | Microsoft Docs
+title: 자습서 - Azure에서 Ansible을 사용하여 가상 머신 확장 집합에 앱 배포
 description: Ansible을 사용하여 가상 머신 확장 집합을 구성하고 확장 집합에 애플리케이션을 배포하는 방법 알아보기
 keywords: ansible, azure, devops, bash, 플레이북, 가상 머신, 가상 머신 확장 집합, vmss
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: a44fd06ace9b21122f5f4253ac7d9601b54e6b62
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f9035259d466a50b83fe0094d43bc0fe985e8c4e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231031"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241740"
 ---
 # <a name="tutorial-deploy-apps-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>자습서: Azure에서 Ansible을 사용하여 가상 머신 확장 집합에 앱 배포
 

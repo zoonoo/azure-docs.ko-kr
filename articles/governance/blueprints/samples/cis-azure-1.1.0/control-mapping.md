@@ -3,16 +3,15 @@ title: 샘플 - CIS Microsoft Azure Foundations 벤치마크 청사진 - 추천 
 description: Azure Policy에 대한 CIS Microsoft Azure Foundations 벤치마크 청사진 샘플 추천 매핑입니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/09/2019
+ms.date: 10/01/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: f048262003a3567175c40ebf4ee744c41e11b5f9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 9368ad220f1ded1a11360dbdf0af86c27277a207
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918702"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001285"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>CIS Microsoft Azure Foundations 벤치마크 청사진 샘플에 대한 추천 매핑
 
@@ -26,186 +25,332 @@ ms.locfileid: "70918702"
 
 ## <a name="11-ensure-that-multi-factor-authentication-is-enabled-for-all-privileged-users"></a>1.1 권한이 있는 모든 사용자에 대해 다단계 인증이 활성화되어 있는지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 권한 있는 Azure Active Directory 계정에서 다단계 인증을 사용하지 않는 경우를 모니터링할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.
 - 구독에서 쓰기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.
 
 ## <a name="12-ensure-that-multi-factor-authentication-is-enabled-for-all-non-privileged-users"></a>1.2 권한이 없는 모든 사용자에 대해 다단계 인증이 활성화되어 있는지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 비 Active Azure Active Directory 계정에서 다단계 인증을 사용하지 않는 경우를 모니터링할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.
 
 ## <a name="13-ensure-that-there-are-no-guest-users"></a>1.3 게스트 사용자가 없는지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 제거해야 할 수 있는 게스트 계정을 모니터링할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 소유자 권한이 있는 외부 계정은 구독에서 제거해야 합니다.
 - 읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.
 - 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.
 
+## <a name="21-ensure-that-standard-pricing-tier-is-selected"></a>2.1 표준 가격 책정 계층이 선택되어 있는지 확인
+
+이 청사진은 Security Center 표준 계층을 사용하지 않는 네트워크와 가상 머신을 모니터링할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+ - Security Center 표준 가격 책정 계층을 선택해야 합니다.
+
+## <a name="22-ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>2.2 '모니터링 에이전트의 자동 프로비저닝'이 '켜기'로 설정되어 있는지 확인
+
+이 청사진은 Log Analytics 에이전트의 자동 프로비저닝을 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 구독에서 Log Analytics 모니터링 에이전트의 자동 프로비저닝을 사용하도록 설정해야 합니다.
+
 ## <a name="23-ensure-asc-default-policy-setting-monitor-system-updates-is-not-disabled"></a>2.3 ASC 기본 정책 설정 "시스템 업데이트 모니터링"이 "비활성"이 아닌지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 시스템 업데이트를 가상 머신에 설치할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 시스템 업데이트를 머신에 설치해야 합니다.
 
 ## <a name="24-ensure-asc-default-policy-setting-monitor-os-vulnerabilities-is-not-disabled"></a>2.4 ASC 기본 정책 설정 "OS 취약성 모니터링"이 "비활성"이 아닌지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 수정되지 않은 가상 머신 취약성을 모니터링할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 머신 보안 구성의 취약성을 수정해야 합니다.
 
 ## <a name="25-ensure-asc-default-policy-setting-monitor-endpoint-protection-is-not-disabled"></a>2.5 ASC 기본 정책 설정 "엔드포인트 보호 모니터링"이 "비활성"이 아닌지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 가상 머신에서 엔드포인트 보호를 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - Azure Security Center에서 누락된 Endpoint Protection 모니터링
 
 ## <a name="26-ensure-asc-default-policy-setting-monitor-disk-encryption-is-not-disabled"></a>2.6 ASC 기본 정책 설정 "디스크 암호화 모니터링"이 "비활성"이 아닌지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 가상 머신 디스크를 암호화할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 가상 머신에서 디스크 암호화를 적용해야 합니다.
 
+## <a name="27-ensure-asc-default-policy-setting-monitor-network-security-groups-is-not-disabled"></a>2.7 ASC 기본 정책 설정인 "네트워크 보안 그룹 모니터링"이 "사용 안 함"이 아닌지 확인
+
+이 청사진은 인터넷 연결 가상 머신을 보호할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 인터넷 연결 가상 머신에 대한 네트워크 보안 그룹 규칙을 강화해야 합니다.
+
 ## <a name="28-ensure-asc-default-policy-setting-monitor-web-application-firewall-is-not-disabled"></a>2.8 ASC 기본 정책 설정 "웹 애플리케이션 방화벽 모니터링"이 "비활성"이 아닌지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 웹 애플리케이션을 실행하는 가상 머신을 보호할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - IaaS에서 웹 애플리케이션에 대한 NSG 규칙을 강화해야 합니다.
 
+## <a name="29-ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>2.9 ASC 기본 정책 설정인 "차세대 방화벽(NGFW) 모니터링을 사용하도록 설정"이 "사용 안 함"이 아닌지 확인
+
+이 청사진은 액세스를 제한하여 서브넷과 가상 머신을 위협으로부터 보호할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. 이 CIS Microsoft Azure Foundations Benchmark 추천 사항에서 참조하는 Security Center 정책이 새로운 두 가지 추천 사항으로 대체되었습니다. 아래에 언급한 정책은 새 추천 사항을 처리합니다.
+
+- 서브넷을 네트워크 보안 그룹과 연결해야 합니다.
+- 가상 머신을 네트워크 보안 그룹과 연결해야 합니다.
+
 ## <a name="210-ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>2.10 ASC 기본 정책 설정 "취약성 평가 모니터링"이 "비활성"이 아닌지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 취약성을 탐지하고 수정할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 취약성 평가 솔루션으로 취약성을 수정해야 합니다.
 
+## <a name="211-ensure-asc-default-policy-setting-monitor-storage-blob-encryption-is-not-disabled"></a>2.11 ASC 기본 정책 설정인 "Storage Blob 암호화 모니터링"이 "사용 안 함"이 아닌지 확인
+
+Azure Storage 암호화는 모든 새 스토리지 계정 및 기존 스토리지 계정에 대해 사용하도록 설정되며, 사용하지 않도록 설정할 수 없습니다. (기본 Azure 기능이며, 할당되는 정책이 없습니다.)
+
 ## <a name="212-ensure-asc-default-policy-setting-monitor-jit-network-access-is-not-disabled"></a>2.12 ASC 기본 정책 설정 "JIT 네트워크 액세스 모니터링"이 "비활성"이 아닌지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 가상 머신에 대한 액세스를 제어할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 가상 머신에서 Just-In-Time 네트워크 액세스 제어를 적용해야 합니다.
 
+## <a name="213-ensure-asc-default-policy-setting-monitor-adaptive-application-whitelisting-is-not-disabled"></a>2.13 ASC 기본 정책 설정인 "적응형 애플리케이션 허용 목록 모니터링"이 "사용 안 함"이 아닌지 확인
+
+이 청사진은 가상 머신에서 적응형 애플리케이션 제어를 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 가상 머신에서 적응형 애플리케이션 제어를 사용하도록 설정해야 합니다.
+
+## <a name="214-ensure-asc-default-policy-setting-monitor-sql-auditing-is-not-disabled"></a>2.14 ASC 기본 정책 설정 "SQL 감사 모니터링"이 "사용 안 함"이 아닌지 확인
+
+이 청사진은 SQL Server 감사를 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- SQL Server의 고급 데이터 보안 설정에서 감사를 활성화해야 합니다.
+
 ## <a name="215-ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>2.15 ASC 기본 정책 설정 "SQL 암호화 모니터링"이 "비활성"이 아닌지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 SQL 데이터베이스에서 투명한 데이터 암호화를 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - SQL 데이터베이스에 투명한 데이터 암호화를 사용하도록 설정해야 합니다.
 
+## <a name="216-ensure-that-security-contact-emails-is-set"></a>2.16 '보안 연락처 이메일'이 설정되어 있는지 확인
+
+이 청사진은 보안 알림을 올바르게 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 구독에 대한 보안 연락처 이메일 주소를 제공해야 합니다.
+
+## <a name="217-ensure-that-security-contact-phone-number-is-set"></a>2.17 보안 연락처 '전화 번호'가 설정되어 있는지 확인
+
+이 청사진은 보안 알림을 올바르게 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 구독에 대한 보안 연락처 전화 번호를 제공해야 합니다.
+
+## <a name="218-ensure-that-send-email-notification-for-high-severity-alerts-is-set-to-on"></a>2.18 '높은 심각도 경고의 이메일 알림 보내기'가 '켜기'로 설정되어 있는지 확인
+
+이 청사진은 보안 알림을 올바르게 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 심각도가 높은 경고에 대해 이메일 알림을 사용하도록 설정해야 합니다.
+
+## <a name="219-ensure-that-send-email-also-to-subscription-owners-is-set-to-on"></a>2.19 '구독 소유자에게도 이메일 보내기'가 '켜기'로 설정되어 있는지 확인
+
+이 청사진은 보안 알림을 올바르게 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 심각도가 높은 경고에 대해 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.
+
 ## <a name="31-ensure-that-secure-transfer-required-is-set-to-enabled"></a>3.1 '보안 전송 필요'가 '활성'으로 설정되어 있는지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 보안되지 않은 연결을 허용하는 스토리지 계정을 모니터링할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - Storage 계정에 보안 전송을 사용하도록 설정해야 합니다.
 
 ## <a name="37-ensure-default-network-access-rule-for-storage-accounts-is-set-to-deny"></a>3.7 스토리지 계정에 대한 기본 네트워크 액세스 규칙이 거부로 설정되어 있는지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 무제한 액세스를 허용하는 스토리지 계정을 모니터링할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 스토리지 계정에 대한 무제한 네트워크 액세스 감사
 
+## <a name="38-ensure-trusted-microsoft-services-is-enabled-for-storage-account-access"></a>3.8 '신뢰할 수 있는 Microsoft 서비스'를 스토리지 계정 액세스에 사용하도록 설정되어 있는지 확인
+
+이 청사진은 신뢰할 수 있는 Microsoft 서비스에서 액세스할 수 없는 스토리지 계정을 모니터링할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 스토리지 계정은 신뢰할 수 있는 Microsoft 서비스의 액세스를 허용해야 합니다.
+
 ## <a name="41-ensure-that-auditing-is-set-to-on"></a>4.1 '감사'가 '켬'으로 설정되어 있는지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 SQL Server 감사를 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. 
 
 - SQL Server의 고급 데이터 보안 설정에서 감사를 활성화해야 합니다.
 
 ## <a name="42-ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>4.2 SQL Server에 대한 '감사' 정책의 'AuditActionGroups'가 올바르게 설정되어 있는지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 SQL Server 감사를 올바르게 구성할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - SQL 감사 설정에는 중요한 작업을 캡처하도록 구성된 작업 그룹이 있어야 합니다.
 
 ## <a name="43-ensure-that-auditing-retention-is-greater-than-90-days"></a>4.3 '감사' 보존이 '90일보다 많은지' 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 SQL Server 로그를 90일 이상 유지할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 감사 보존 기간(일)을 90일보다 큰 값으로 설정하여 SQL 서버를 구성해야 합니다.
 
 ## <a name="44-ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>4.4 SQL Server의 'Advanced Data Security'가 '켬'으로 설정되어 있는지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 SQL Server 및 SQL 관리형 인스턴스에서 Advanced Data Security를 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
+- SQL 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 - SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 
 ## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4.5 '위협 탐지 유형'이 '모두'로 설정되어 있는지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 SQL Server 및 SQL 관리형 인스턴스에서 Advanced Threat Protection을 올바르게 구성할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - SQL Server의 Advanced Data Security 설정에서 Advanced Threat Protection 유형을 '모두'로 설정해야 합니다.
 - SQL 관리형 인스턴스의 Advanced Data Security 설정에서 Advanced Threat Protection 유형을 '모두'로 설정해야 합니다.
 
 ## <a name="46-ensure-that-send-alerts-to-is-set"></a>4.6 '경고 전송 대상'이 설정되어 있는지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 Advanced Data Security 알림을 올바르게 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
+- SQL 관리형 인스턴스에 대한 Advanced Data Security 설정에는 보안 경고를 받을 이메일 주소가 포함되어야 합니다.
 - SQL Server에 대한 Advanced Data Security 설정에는 보안 경고를 받을 이메일 주소가 포함되어야 합니다.
 
 ## <a name="47-ensure-that-email-service-and-co-administrators-is-enabled"></a>4.7 '이메일 서비스 및 공동 관리자'가 '활성'인지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 Advanced Data Security 알림을 올바르게 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
-- SQL 관리형 인스턴스에 대한 Advanced Data Security 설정에는 보안 경고를 받을 이메일 주소가 포함되어야 합니다.
+- SQL 관리형 인스턴스 Advanced Data Security 설정에는 관리자 및 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.
+- SQL Server Advanced Data Security 설정에는 관리자 및 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.
 
 ## <a name="48-ensure-that-azure-active-directory-admin-is-configured"></a>4.8 Azure Active Directory 관리자가 구성되어 있는지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 Azure Active Directory 관리자를 SQL Server에 프로비저닝할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - SQL Server에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.
 
 ## <a name="49-ensure-that-data-encryption-is-set-to-on-on-a-sql-database"></a>4.9 SQL Database에서 '데이터 암호화'가 '켬'으로 설정되어 있는지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 SQL 데이터베이스에서 투명한 데이터 암호화를 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - SQL 데이터베이스에 투명한 데이터 암호화를 사용하도록 설정해야 합니다.
 
 ## <a name="410-ensure-sql-servers-tde-protector-is-encrypted-with-byok-use-your-own-key"></a>4.10 SQL 서버의 TDE 보호기가 BYOK(사용자 고유 키 사용)로 암호화되어 있는지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 SQL Server 및 SQL 관리형 인스턴스에 대한 투명한 데이터 암호화 보호기를 사용자 고유의 키로 암호화할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
-- SQL Server TDE 보호기는 고유한 키를 사용하여 암호화해야 합니다.
 - SQL 관리형 인스턴스 TDE 보호기는 고유한 키를 사용하여 암호화해야 합니다.
+- SQL Server TDE 보호기는 고유한 키를 사용하여 암호화해야 합니다.
+
+## <a name="411-ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>4.11 MySQL Database Server에 대해 'SSL 연결 적용'이 '사용'으로 설정되어 있는지 확인
+
+이 청사진은 MySQL 데이터베이스 서버에서 SSL 연결을 적용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- MySQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용하도록 설정해야 합니다.
+
+## <a name="413-ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>4.13 PostgreSQL Database Server에 대해 'SSL 연결 적용'이 '사용'으로 설정되어 있는지 확인
+
+이 청사진은 PostgreSQL 데이터베이스 서버에서 SSL 연결을 적용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- PostgreSQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용하도록 설정해야 합니다.
+
+## <a name="417-ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>4.17 PostgreSQL Database Server에 대해 'connection_throtling' 서버 매개 변수가 'ON'으로 설정되어 있는지 확인
+
+이 청사진은 PostgreSQL 데이터베이스 서버에서 무차별 암호 대입 공격을 완화할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- PostgreSQL 데이터베이스 서버에 대해 연결 제한을 사용하도록 설정해야 합니다.
+
+## <a name="419-ensure-that-azure-active-directory-admin-is-configured"></a>4.19 Azure Active Directory 관리자가 구성되어 있는지 확인
+
+이 청사진은 Azure Active Directory 관리자를 SQL Server에 프로비저닝할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. CIS Microsoft Azure Foundations Benchmark에는 이 추천 사항이 포함되어 있습니다. 그러나 이는 [4.8 추천 사항](#48-ensure-that-azure-active-directory-admin-is-configured)과 중복됩니다.
+
+- SQL Server에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.
+
+## <a name="511-ensure-that-a-log-profile-exists"></a>5.1.1 로그 프로필이 있는지 확인
+
+이 청사진은 모든 Azure 구독에 대해 로그 프로필이 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. 
+
+- Azure 구독에는 활동 로그에 대한 로그 프로필이 있어야 합니다.
+
+## <a name="512-ensure-that-activity-log-retention-is-set-365-days-or-greater"></a>5.1.2 활동 로그 보존이 365일 이상으로 설정되어 있는지 확인
+
+이 청사진은 작업 로그를 1년 이상 유지할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 활동 로그는 1년 이상 보존되어야 합니다.
+
+## <a name="513-ensure-audit-profile-captures-all-the-activities"></a>5.1.3 감사 프로필에서 모든 활동을 캡처하는지 확인
+
+이 청사진은 로그 프로필을 올바르게 구성할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- Azure Monitor 로그 프로필은 'write'(쓰기), 'delete'(삭제) 및 'action'(작업) 범주에 대한 로그를 수집해야 합니다.
+
+## <a name="514-ensure-the-log-profile-captures-activity-logs-for-all-regions-including-global"></a>5.1.4 로그 프로필에서 글로벌을 포함하여 모든 지역의 활동 로그를 캡처하는지 확인
+
+이 청사진은 로그 프로필을 올바르게 구성할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- Azure Monitor는 모든 지역의 활동 로그를 수집해야 합니다.
 
 ## <a name="517-ensure-that-logging-for-azure-keyvault-is-enabled"></a>5.1.7 Azure KeyVault에 대한 로깅이 '활성'인지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 진단 로그를 Key Vault에 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - Key Vault의 진단 로그를 사용하도록 설정해야 합니다.
 
+## <a name="65-ensure-that-network-watcher-is-enabled"></a>6.5 Network Watcher가 '사용'인지 확인
+
+이 청사진은 Network Watcher를 리소스가 배포된 모든 지역에 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. 이 정책에는 해당되는 모든 지역을 지정하는 매개 변수 배열이 필요합니다. 이 정책 이니셔티브 정의의 기본값은 'eastus'입니다.
+
+- Network Watcher를 사용하도록 설정해야 합니다.
+
 ## <a name="71-ensure-that-os-disk-are-encrypted"></a>7.1 'OS 디스크'가 암호화되어 있는지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 가상 머신에서 디스크 암호화를 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 가상 머신에서 디스크 암호화를 적용해야 합니다.
 
 ## <a name="72-ensure-that-data-disks-are-encrypted"></a>7.2 '데이터 디스크'가 암호화되어 있는지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 가상 머신에서 디스크 암호화를 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 가상 머신에서 디스크 암호화를 적용해야 합니다.
 
+## <a name="73-ensure-that-unattached-disks-are-encrypted"></a>7.3 '연결되지 않은 디스크'가 암호화되어 있는지 확인
+
+이 청사진은 연결되지 않은 디스크를 암호화할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 연결되지 않은 디스크는 암호화되어야 합니다.
+
+## <a name="74-ensure-that-only-approved-extensions-are-installed"></a>7.4 승인된 확장만 설치되어 있는지 확인
+
+이 청사진은 승인된 가상 머신 확장만 설치할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. 이 정책에는 모든 승인된 가상 머신 확장을 지정하는 매개 변수 배열이 필요합니다. 이 정책 이니셔티브 정의에는 고객이 유효성을 검사해야 하는 제안된 기본값이 포함되어 있습니다. 
+
+ - 승인된 VM 확장만 설치해야 합니다.
+
 ## <a name="75-ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>7.5 모든 Virtual Machines에 최신 OS 패치가 적용되어 있는지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 시스템 업데이트를 가상 머신에 설치할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 시스템 업데이트를 머신에 설치해야 합니다.
 
 ## <a name="76-ensure-that-the-endpoint-protection-for-all-virtual-machines-is-installed"></a>7.6 모든 Virtual Machines에 대한 엔드포인트 보호가 설치되어 있는지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 가상 머신에서 엔드포인트 보호를 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - Azure Security Center에서 누락된 Endpoint Protection 모니터링
 
+## <a name="84-ensure-the-key-vault-is-recoverable"></a>8.4 Key Vault를 복구할 수 있는지 확인
+
+이 청사진은 실수로 삭제한 경우 Key Vault 개체를 복구할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- Key Vault 개체를 복구할 수 있어야 합니다.
+
 ## <a name="85-enable-role-based-access-control-rbac-within-azure-kubernetes-services"></a>8.5 Azure Kubernetes Services 내에서 RBAC(역할 기반 액세스 제어) 사용
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 Kubernetes 서비스 클러스터에서 역할 기반 액세스 제어를 사용하여 권한을 관리할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - \[미리 보기\]: Kubernetes 서비스에서 RBAC(역할 기반 액세스 제어)를 사용해야 합니다.
 
 ## <a name="92-ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>9.2 Azure App Service에서 웹앱이 모든 HTTP 트래픽을 HTTPS로 리디렉션하는지 확인
 
-이 청사진은 이 CIS 권장 사항에 맞는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+이 청사진은 보안 연결을 통해서만 웹 애플리케이션에 액세스할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 웹 애플리케이션에 HTTPS를 통해서만 액세스 가능
 

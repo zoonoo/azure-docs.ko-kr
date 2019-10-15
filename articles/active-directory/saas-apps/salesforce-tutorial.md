@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea87c1e0b6379afac6a9433adb0e301626e27811
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 63cc4b902c0bd0281228e23076be6e0a18461597
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986177"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241426"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>자습서: Salesforce와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -126,6 +126,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
+   
+    > [!NOTE]
+    > Salesforce 사용자 특성은 SAML 유효성 검사에 대한 대/소문자를 구분합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 

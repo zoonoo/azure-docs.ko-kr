@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Ansible을 사용하여 Azure Virtual Network 피어링 구성 | Microsoft Docs
+title: 자습서 - Ansible을 사용하여 Azure 가상 네트워크 피어링 구성
 description: Ansible을 사용하여 가상 네트워크 피어링으로 가상 네트워크를 연결하는 방법을 알아봅니다.
 keywords: ansible, azure, devops, bash, playbook, networking, peering
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: f51e7c857a22a362a3d295fbe087c54b25f85780
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 180bdff48a2ace4dfee1d1cb10eb75a33d360f4c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230762"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241228"
 ---
 # <a name="tutorial-configure-azure-virtual-network-peering-using-ansible"></a>자습서: Ansible을 사용하여 Azure Virtual Network 피어링 구성
 
@@ -147,8 +147,8 @@ ms.locfileid: "65230762"
 
 전체 샘플 플레이북을 가져오는 방법에는 다음 두 가지가 있습니다.
 
-- [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vnet_peering.yml)한 후 `vnet_peering.yml`에 저장합니다.
-- `vnet_peering.yml`이라는 새 파일을 만들고 다음 콘텐츠에 복사합니다.
+- [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vnet_peering.yml)하여 `vnet_peering.yml`에 저장합니다.
+- `vnet_peering.yml`이라는 새 파일을 만들고 다음 콘텐츠를 이 파일에 복사합니다.
 
 ```yml
 - hosts: localhost

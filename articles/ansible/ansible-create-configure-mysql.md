@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Ansible을 사용하여 Azure Database for MySQL에서 데이터베이스 구성 | Microsoft Docs
+title: 자습서 - Ansible을 사용하여 Azure Database for MySQL에서 데이터베이스 구성
 description: Ansible을 사용하여 Azure Database for MySQL 서버를 만들고 구성하는 방법 알아보기
 keywords: Ansible, Azure, DevOps, Bash, 플레이북, MySQK, 데이터베이스
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 1170ae9d609a07dbdaebf50e145de65faefa60ec
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1b6c9a9aa3abbda7ffd72db0ecb137b3c9da1a6c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230922"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241835"
 ---
 # <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>자습서: Ansible을 사용하여 Azure Database for MySQL에서 데이터베이스 구성
 
@@ -247,7 +247,7 @@ ansible-playbook mysql_firewall.yml
         var: mysqldatabasefacts
 ```
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook mysql_query.yml
@@ -330,7 +330,7 @@ ansible-playbook mysql_query.yml
         state: absent
 ```
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook cleanup.yml

@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/18/2019
+ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c5399f46106d94d593a15530ee0c223a3f5f3eaf
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 869e59aea9b78c44b1a920e58ecefab5e0ca4920
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802056"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169404"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>자습서: 연결된 Azure Resource Manager 템플릿 만들기
 
@@ -166,7 +166,7 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 
 ## <a name="upload-the-linked-template"></a>연결된 템플릿 업로드
 
-기본 템플릿과 연결된 템플릿은 배포를 실행하는 위치에서 액세스할 수 있어야 합니다. 이 자습서에서는 [자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기](./resource-manager-tutorial-create-templates-with-dependent-resources.md)에서 사용한 대로 Cloud Shell 배포 방법을 사용합니다. 기본 템플릿(azuredeploy.json)이 셸에 업로드됩니다. 연결된 템플릿(linkedTemplate.json)은 어딘가에서 안전하게 공유되어야 합니다. 다음 PowerShell 스크립트는 Azure Storage 계정을 만들고, 템플릿을 Storage 계정에 업로드한 다음, 템플릿 파일에 대해 제한된 액세스 권한을 부여하는 SAS 토큰을 생성합니다. 자습서를 간단히 하기 위해 스크립트는 공유 위치에서 완성된 연결된 템플릿을 다운로드합니다. 만든 연결된 템플릿을 사용하려면 [Cloud Shell](https://shell.azure.com)을 사용하여 연결된 템플릿을 업로드한 다음, 사용자 고유의 연결된 템플릿을 사용하도록 스크립트를 수정합니다.
+기본 템플릿과 연결된 템플릿은 배포를 실행하는 위치에서 액세스할 수 있어야 합니다. 이 자습서에서는 [자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기](./resource-manager-tutorial-create-templates-with-dependent-resources.md)에서 사용한 대로 Cloud Shell 배포 방법을 사용합니다. 기본 템플릿(azuredeploy.json)이 셸에 업로드됩니다. 연결된 템플릿(linkedTemplate.json)은 어딘가에서 안전하게 공유되어야 합니다. 다음 PowerShell 스크립트는 Azure Storage 계정을 만들고, 템플릿을 Storage 계정에 업로드한 다음, 템플릿 파일에 대해 제한된 액세스 권한을 부여하는 SAS 토큰을 생성합니다. 자습서를 단순화하기 위해 스크립트는 Github 리포지토리에서 완성된 연결 템플릿을 다운로드합니다. 만든 연결된 템플릿을 사용하려면 [Cloud Shell](https://shell.azure.com)을 사용하여 연결된 템플릿을 업로드한 다음, 사용자 고유의 연결된 템플릿을 사용하도록 스크립트를 수정합니다.
 
 > [!NOTE]
 > 스크립트는 SAS 토큰을 8시간 이내에 사용하도록 제한합니다. 이 자습서를 완료하는 데 더 많은 시간이 필요한 경우 만료 시간을 늘립니다.
@@ -179,7 +179,7 @@ $resourceGroupName = $projectNamePrefix + "rg"
 $storageAccountName = $projectNamePrefix + "store"
 $containerName = "linkedtemplates" # The name of the Blob container to be created.
 
-$linkedTemplateURL = "https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json" # A completed linked template used in this tutorial.
+$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json" # A completed linked template used in this tutorial.
 $fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
 
 # Download the tutorial linked template
@@ -259,7 +259,7 @@ echo "Linked template URI with SAS token: $templateURI"
       "properties": {
           "mode": "Incremental",
           "templateLink": {
-              "uri":"https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json"
+              "uri":"https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json"
           },
           "parameters": {
               "storageAccountName":{"value": "[variables('storageAccountName')]"},

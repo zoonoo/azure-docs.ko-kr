@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 875db0d34932dca1c7eae7e3650acf01856c6413
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 1482ac4b885507e37ba5972065810682c19bebed
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934421"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958471"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Azure VM의 SQL Server 백업 정보
 
@@ -45,7 +45,7 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 **지원** | **세부 정보**
 --- | ---
 **지원되는 배포** | SQL Marketplace Azure VM 및 비 Marketplace VM(SQL Server가 수동 설치됨)이 지원됩니다.
-**지원되는 지역** | 오스트레일리아 동남부(ASE), 오스트레일리아 동부(AE) <br> 브라질 남부(BRS)<br> 캐나다 중부(CNC), 캐나다 동부(CE)<br> 동남 아시아(SEA), 동아시아(EA) <br> 미국 동부(EUS), 미국 동부 2(EUS2), 미국 중서부(WCUS), 미국 서부(WUS), 미국 서부 2(WUS 2), 미국 중북부(NCUS), 미국 중부(CUS), 미국 중남부(SCUS) <br> 인도 중부(INC), 인도 남부(INS) <br> 일본 동부(JPE), 일본 서부(JPW) <br> 한국 중부(KRC), 한국 남부(KRS) <br> 북유럽(NE), 서유럽 <br> 영국 남부(UKS), 영국 서부(UKW) <br> US Gov 애리조나, US Gov 버지니아, US Gov 텍사스, US DoD 중부, US DoD 동부
+**지원되는 지역** | 오스트레일리아 남동부(ASE), 오스트레일리아 동부(AE), 오스트레일리아 중부(AC), 오스트레일리아 중부 2(AC) <br> 브라질 남부(BRS)<br> 캐나다 중부(CNC), 캐나다 동부(CE)<br> 동남 아시아(SEA), 동아시아(EA) <br> 미국 동부(EUS), 미국 동부 2(EUS2), 미국 중서부(WCUS), 미국 서부(WUS), 미국 서부 2(WUS 2), 미국 중북부(NCUS), 미국 중부(CUS), 미국 중남부(SCUS) <br> 인도 중부(INC), 인도 남부(INS), 인도 서부 <br> 일본 동부(JPE), 일본 서부(JPW) <br> 한국 중부(KRC), 한국 남부(KRS) <br> 북유럽(NE), 서유럽 <br> 영국 남부(UKS), 영국 서부(UKW) <br> US Gov 애리조나, US Gov 버지니아, US Gov 텍사스, US DoD 중부, US DoD 동부 <br> 독일 북부, 독일 중서부 <br> 스위스 북부, 스위스 서부
 **지원되는 운영 체제** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux는 현재 지원되지 않습니다.
 **지원되는 SQL Server 버전** | [여기](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017)에 설명된 SQL Server 2017, [여기](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack)에 설명된 SQL Server 2016 및 SP, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express
 **지원되는 .NET 버전** | VM에 설치된 .NET Framework 4.5.2 이상

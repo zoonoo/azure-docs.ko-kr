@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 10/08/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: bf004f07558ae1f252a6bd26b4fd59ea9e4eea6e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bcf64d98f53d85937ee7960ec3938280814267d8
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069264"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170186"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>자습서: Azure Resource Manager 템플릿 배포에서 아티팩트 보호
 
@@ -64,7 +64,7 @@ PowerShell 스크립트를 사용하여 이러한 단계를 자동화하려면 [
 
 ### <a name="download-the-bacpac-file"></a>BACPAC 파일 다운로드
 
-[BACPAC 파일](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac)을 다운로드하고 **SQLDatabaseExtension.bacpac**라는 동일한 이름으로 로컬 컴퓨터에 파일을 저장합니다.
+[BACPAC 파일](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac)을 다운로드하고 **SQLDatabaseExtension.bacpac**라는 동일한 이름으로 로컬 컴퓨터에 파일을 저장합니다.
 
 ### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
@@ -134,13 +134,13 @@ PowerShell 스크립트를 사용하여 이러한 단계를 자동화하려면 [
 
 ## <a name="open-an-existing-template"></a>기존 템플릿 열기
 
-이 세션에서는 [자습서: Azure Resource Manager 템플릿을 사용하여 SQL BACPAC 파일 가져오기](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)에서 만든 템플릿을 수정하여 SAS 토큰으로 BACPAC 파일을 호출합니다.  SQL 확장 자습서에서 개발된 템플릿은 [https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json)에서 공유됩니다.
+이 세션에서는 [자습서: Azure Resource Manager 템플릿을 사용하여 SQL BACPAC 파일 가져오기](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)에서 만든 템플릿을 수정하여 SAS 토큰으로 BACPAC 파일을 호출합니다.  SQL 확장 자습서에서 개발된 템플릿은 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json)에서 공유됩니다.
 
 1. Visual Studio Code에서 **파일**>**파일 열기**를 차례로 선택합니다.
 2. **파일 이름**에서 다음 URL을 붙여넣습니다.
 
     ```url
-    https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json
     ```
 3. **열기**를 선택하여 파일을 엽니다.
 

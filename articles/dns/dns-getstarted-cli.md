@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 7a2c300e30050e7e46a2b2c724258539df85e410
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5d842c2d6ff84a0f17c4e8be0bfade018edc48b
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66111344"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959983"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure DNS 영역 및 레코드 만들기
 
@@ -20,7 +20,7 @@ ms.locfileid: "66111344"
 
 DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. Azure DNS에서 도메인 호스팅을 시작하려면 해당 도메인 이름의 DNS 영역을 만들어야 합니다. 그러면 이 DNS 영역 안에 도메인의 각 DNS 레코드가 생성됩니다. 마지막으로 DNS 영역을 인터넷에 게시하려면 도메인에 대한 이름 서버를 구성해야 합니다. 아래에서는 이러한 각 단계에 대해 설명합니다.
 
-Azure DNS는 이제 프라이빗 DNS 영역(현재는 공개 미리 보기)도 지원합니다. 프라이빗 DNS 영역에 대해 자세히 알아보려면 [프라이빗 도메인에 Azure DNS 사용](private-dns-overview.md)을 참조하세요. 프라이빗 DNS 영역을 만드는 방법에 대한 예제는 [CLI를 사용하여 Azure DNS 프라이빗 영역 시작](./private-dns-getstarted-cli.md)을 참조하세요.
+Azure DNS는 프라이빗 DNS 영역도 지원합니다. 프라이빗 DNS 영역에 대해 자세히 알아보려면 [프라이빗 도메인에 Azure DNS 사용](private-dns-overview.md)을 참조하세요. 프라이빗 DNS 영역을 만드는 방법에 대한 예제는 [CLI를 사용하여 Azure DNS 프라이빗 영역 시작](./private-dns-getstarted-cli.md)을 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
