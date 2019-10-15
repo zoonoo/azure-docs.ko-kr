@@ -67,7 +67,7 @@ Azure EA Portal에 로그인하려고 시도할 때 오류 메시지가 표시�
 
 Azure EA Portal의 활성화 이메일은 *waep@microsoft.com* 에서 전송됩니다. 활성화 이메일을 받지 못한 경우 이메일에 대해 스팸 또는 정크 메일 폴더를 확인하세요. _Invitation to View/Manage the Microsoft Azure service_subject_ 로 전송됩니다. 새로 추가된 모든 EA 관리자에게 전송됩니다.
 
-이미 EA 관리자로 설정된 경우에는 Azure EA Portal에 로그인하기 위해 활성화 이메일을 받을 때까지 기다릴 필요가 없습니다. https://ea.azure.com 으로 이동하여 이메일 주소(회사, 학교 또는 Microsoft 계정)와 암호를 사용하여 로그인할 수 있습니다.
+이미 EA 관리자로 설정된 경우에는 Azure EA Portal에 로그인하기 위해 활성화 이메일을 받을 때까지 기다릴 필요가 없습니다. [https://ea.azure.com](https://ea.azure.com )으로 이동하여 이메일 주소(회사, 학교 또는 Microsoft 계정)와 암호를 사용하여 로그인할 수 있습니다.
 
 기본 별칭을 확인해야 하는 경우 [https://account.live.com](https://account.live.com)으로 이동합니다. 그런 다음, **사용자 정보**를 클릭하고 **Microsoft에 로그인하는 방법 관리**를 클릭합니다. 프롬프트에 따라 암호 확인용 메일을 확인하고 중요한 정보에 액세스하기 위한 코드를 얻습니다. 보안 코드를 입력합니다. 2단계 인증을 설정하지 않으려면 **나중에 설정**을 선택합니다.
 
