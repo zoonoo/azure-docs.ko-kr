@@ -38,7 +38,7 @@ Azure Marketplace 및 AppSource 제품은 고객의 청구 주소에서 정의�
 | 벨리즈                              | BZ        | USD          |
 | 버뮤다                             | BM        | USD          |
 | 볼리비아                             | BO        | USD          |
-| 보스니아 헤르체코비나              | BA        | USD          |
+| 보스니아 헤르체고비나              | BA        | USD          |
 | 보츠와나                            | BW        | USD          |
 | 브라질                              | BR        | BRL\*        |
 | 브루나이                              | BN        | USD          |

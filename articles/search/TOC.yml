@@ -169,7 +169,7 @@
           href: search-howto-complex-data-types.md
         - name: 관계형 데이터 모델링
           href: index-sql-relational-data.md
-    - name: 데이터 로드
+    - name: 모든 데이터 인덱싱
       items:
         - name: 데이터 가져오기 개요
           href: search-what-is-data-import.md
@@ -181,7 +181,21 @@
           href: search-howto-large-index.md
         - name: 동시 업데이트 처리
           href: search-howto-concurrency.md
-    - name: 인덱서를 사용하여 데이터 로드
+    - name: Azure Blob 데이터 인덱싱
+      items:
+        - name: Blob 데이터와 함께 AI 사용
+          href: search-blob-ai-integration.md
+        - name: 전체 텍스트 검색 추가
+          href: search-blob-storage-integration.md
+        - name: Blob 인덱서 설정
+          href: search-howto-indexing-azure-blob-storage.md
+        - name: 일대다 Blob 인덱스
+          href: search-howto-index-one-to-many-blobs.md
+        - name: 인덱스 CSV blob
+          href: search-howto-index-csv-blobs.md
+        - name: 인덱스 JSON blob
+          href: search-howto-index-json-blobs.md
+    - name: '"인덱서"를 사용하는 인덱싱'
       items:
         - name: 인덱서 개요
           href: search-indexer-overview.md
@@ -191,16 +205,6 @@
           href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
         - name: Azure Cosmos DB 인덱서
           href: search-howto-index-cosmosdb.md
-        - name: Azure Blob Storage 인덱서
-          items:
-            - name: Blob 인덱서 설정
-              href: search-howto-indexing-azure-blob-storage.md
-            - name: 일대다 Blob 인덱스
-              href: search-howto-index-one-to-many-blobs.md
-            - name: 인덱스 CSV blob
-              href: search-howto-index-csv-blobs.md
-            - name: 인덱스 JSON blob
-              href: search-howto-index-json-blobs.md
         - name: 인덱서 일정
           href: search-howto-schedule-indexers.md
         - name: 맵 필드

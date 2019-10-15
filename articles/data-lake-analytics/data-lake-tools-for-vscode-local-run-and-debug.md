@@ -23,7 +23,7 @@ Azure Data Lake Tools for Visual Studio의 Windows 설치만 U-SQL을 로컬로 
 
 ## <a name="set-up-the-u-sql-local-run-environment"></a>U-SQL 로컬 실행 환경 설정
 
-1. Ctrl + Shift + P를 선택 하 여 명령 팔레트를 연 다음 **ADL을 입력 합니다. 로컬 실행 패키지 @ no__t-0을 다운로드 하 여 패키지를 다운로드 합니다.  
+1. Ctrl + Shift + P를 선택 하 여 명령 팔레트를 연 다음 **ADL을 입력 합니다. 로컬 실행 패키지** 을 다운로드 하 여 패키지를 다운로드 합니다.  
 
    ![ADL LocalRun Dependency 패키지 다운로드](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/downloadtheadllocalrunpackage.png)
 
@@ -45,16 +45,16 @@ Azure Data Lake Tools for Visual Studio의 Windows 설치만 U-SQL을 로컬로 
 
 
 ## <a name="start-the-local-run-service-and-submit-the-u-sql-job-to-a-local-account"></a>로컬 실행 서비스 시작 및 로컬 계정에 U-SQL 작업 제출 
-첫 번째 사용자의 경우 **ADL을 사용 합니다. No__t 로컬 실행 [환경을 설정](#set-up-the-u-sql-local-run-environment)하지 않은 경우 로컬 실행 패키지 @-0을 다운로드 하 여 로컬 실행 패키지를 다운로드 합니다.
+첫 번째 사용자의 경우 **ADL을 사용 합니다. 로컬** 실행 [환경을 설정](#set-up-the-u-sql-local-run-environment)하지 않은 경우 로컬 실행 패키지 @-0을 다운로드 하 여 로컬 실행 패키지를 다운로드 합니다.
 
-1. Ctrl + Shift + P를 선택 하 여 명령 팔레트를 연 다음 **ADL을 입력 합니다. 로컬 실행 서비스 @ no__t-0을 시작 합니다.   
+1. Ctrl + Shift + P를 선택 하 여 명령 팔레트를 연 다음 **ADL을 입력 합니다. 로컬 실행 서비스** 시작 합니다.   
 2. **Accept**를 선택하여 처음으로 Microsoft 소프트웨어 사용 조건에 동의합니다. 
 
    ![Microsoft 소프트웨어 사용 조건에 동의](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/AcceptEULA.png)   
 3. cmd 콘솔이 열립니다. 처음 사용하는 경우 **3**을 입력한 다음 데이터 입력 및 출력을 위한 로컬 폴더 경로를 찾아야 합니다. 백슬래시를 사용 하 여 경로를 정의 하지 못한 경우 슬래시를 사용 하십시오. 다른 옵션은 기본값을 사용할 수 있습니다.
 
    ![Data Lake Tools for Visual Studio Code가 cmd 로컬 실행](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-cmd.png)
-4. Ctrl + Shift + P를 선택 하 여 명령 팔레트를 열고 **ADL을 입력 합니다. 작업 @ no__t-0을 제출한 **다음 로컬을 선택 하** 여 작업을 로컬 계정에 제출 합니다.
+4. Ctrl + Shift + P를 선택 하 여 명령 팔레트를 열고 **ADL을 입력 합니다. 작업** 제출한 **다음 로컬을 선택 하** 여 작업을 로컬 계정에 제출 합니다.
 
    ![Data Lake Tools for Visual Studio Code 로컬 선택](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-select-local.png)
 5. 작업을 제출하면 제출 세부 정보를 볼 수 있습니다. 제출 세부 정보를 보려면 **Output** 창에서 **jobUrl**을 선택합니다. cmd 콘솔에서 작업 제출 상태를 볼 수도 있습니다. 작업 세부 정보에 대해 더 알고 싶은 경우 cmd 콘솔에 **7**을 입력합니다.
@@ -66,19 +66,19 @@ Azure Data Lake Tools for Visual Studio의 Windows 설치만 U-SQL을 로컬로 
 ## <a name="start-a-local-debug-for-the-u-sql-job"></a>U-SQL 작업에 대한 로컬 디버그 시작  
 첫 번째 사용자:
 
-1. @No__t-0ADL 사용: No__t 로컬 실행 [환경을 설정](#set-up-the-u-sql-local-run-environment)하지 않은 경우 로컬 실행 패키지 @-0을 다운로드 하 여 로컬 실행 패키지를 다운로드 합니다.
+1. **ADL 사용: 로컬** 실행 [환경을 설정](#set-up-the-u-sql-local-run-environment)하지 않은 경우 로컬 실행 패키지 @-0을 다운로드 하 여 로컬 실행 패키지를 다운로드 합니다.
 2. 메시지 상자에 제안 된 대로 .NET Core SDK 2.0를 설치 하지 않은 경우 설치 합니다.
  
-   @ no__t-1 미리 알림은 Dotnet @ no__t-2를 설치 합니다.
+  ![ 미리 알림은 Dotnet](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/remind-install-dotnet.png) 설치 합니다.
 3. 설치 C# 되지 않은 경우 메시지 상자에 제안 된 대로 Visual Studio Code를 설치 합니다. **설치**를 클릭하여 계속 진행한 후 VSCode를 다시 시작합니다.
 
     ![C# 설치 미리 알림](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/install-csharp.png)
 
 로컬 디버그를 수행하려면 아래 단계를 따릅니다.
   
-1. Ctrl + Shift + P를 선택 하 여 명령 팔레트를 연 다음 **ADL을 입력 합니다. 로컬 실행 서비스 @ no__t-0을 시작 합니다. cmd 콘솔이 열립니다. **DataRoot**가 설정되어 있는지 확인합니다.
+1. Ctrl + Shift + P를 선택 하 여 명령 팔레트를 연 다음 **ADL을 입력 합니다. 로컬 실행 서비스** 시작 합니다. cmd 콘솔이 열립니다. **DataRoot**가 설정되어 있는지 확인합니다.
 2. C# 코드 숨김에서 중단점을 설정합니다.
-3. 스크립트 편집기로 돌아가서 마우스 오른쪽 단추를 클릭 하 고 **ADL을 선택 합니다. 로컬 디버그 @ no__t-0.
+3. 스크립트 편집기로 돌아가서 마우스 오른쪽 단추를 클릭 하 고 **ADL을 선택 합니다. 로컬 디버그**
     
    ![Data Lake Tools for Visual Studio Code 로컬 디버그 결과](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-debug-result.png)
 
