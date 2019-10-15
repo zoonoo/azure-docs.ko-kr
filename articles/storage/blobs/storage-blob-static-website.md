@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 85f7ea11638278a010b2a94d9c6472857f51b687
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 8de36ea9f7bb77443b22e038172ee69bb8435b29
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710166"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311226"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 
@@ -58,7 +58,7 @@ ms.locfileid: "71710166"
 
 사이트의 URL은 지역 코드를 포함 합니다. 예를 들어 @no__t URL에는-1 @no__t 지역 코드가 포함 됩니다.
 
-이 코드는 URL을 유지 해야 하지만 내부용 으로만 사용 되며, 다른 방법으로는 해당 코드를 사용할 필요가 없습니다.
+이 코드는 URL에 남아 있어야 하지만 내부용 으로만 사용 되며 다른 방법으로는 해당 코드를 사용할 필요가 없습니다.
 
 정적 웹 사이트 호스팅을 사용 하도록 설정할 때 지정한 인덱스 문서는 사용자가 사이트를 열고 특정 파일을 지정 하지 않을 때 나타납니다 (예: `https://contosoblobaccount.z22.web.core.windows.net`).  
 
@@ -95,7 +95,7 @@ ms.locfileid: "71710166"
 
 Azure에서 도메인을 호스트 하는 방법에 대 한 자세한 내용은 [Azure DNS에서 도메인](../../dns/dns-delegate-domain-azure-dns.md)호스팅을 참조 하세요.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 정적 웹 사이트 호스팅을 무료로 사용할 수 있습니다. 사이트에서 활용 하는 blob 저장소 및 운영 비용에 대해서만 요금이 청구 됩니다. Azure Blob Storage에 대한 가격의 자세한 내용은 [Azure Blob Storage 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.
 

@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 10/14/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 749b4077b457eff836ec515f21d97e892e663156
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50109d7ba4688606a5a4f1b813d15d78636b7817
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60899199"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311786"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Application Insights 원격 분석 데이터 모델
 
@@ -49,7 +49,7 @@ Application Insights 원격 분석 모델은 원격 분석과 해당 분석에 �
 
 Application Insights 데이터 모델은 애플리케이션 원격 분석을 모델링하는 단순하고 기본적이면서도 강력한 방법입니다. 처음에는 기본 시나리오를 지원할 수 있게 단순하고 간단한 모델을 구현한 후 고급 사용을 위해 스키마를 확장할 수 있도록 합니다.
 
-데이터 모델 또는 스키마 문제와 제안 사항을 보고하려면 GitHub [ApplicationInsights-Home](https://github.com/Microsoft/ApplicationInsights-Home/labels/schema) 리포지토리를 사용합니다.
+데이터 모델 또는 스키마 문제와 제안 사항을 보고하려면 GitHub [ApplicationInsights-Home](https://github.com/Microsoft/ApplicationInsights-Home/issues) 리포지토리를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

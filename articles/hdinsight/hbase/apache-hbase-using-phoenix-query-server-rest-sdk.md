@@ -8,16 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
-ms.openlocfilehash: 1f468cac29579d8748f61a47b548a67d36ff8279
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c9e9258fb7ace93d0866463563d328456cbd1daa
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695961"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311687"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Query Server REST SDK
 
-[Apache Phoenix](https://phoenix.apache.org/)는 [Apache HBase](apache-hbase-overview.md) 기반의 오픈 소스 대규모 병렬 관계형 데이터베이스 계층입니다. Phoenix를 사용하면 [SQLLine](apache-hbase-phoenix-squirrel-linux.md)과 같은 SSH 도구를 통해 HBase에서 SQL 유사 쿼리를 사용할 수 있습니다. 또한 Phoenix는 클라이언트 통신을 위한 2개의 전송 메커니즘인 JSON과 프로토콜 버퍼를 지원하는 씬 클라이언트인 PQS(Phoenix Query Server)라는 HTTP 서버를 제공합니다. 프로토콜 버퍼는 기본 메커니즘으로, JSON보다 좀 더 효율적인 통신을 제공합니다.
+[Apache Phoenix](https://phoenix.apache.org/)는 [Apache HBase](apache-hbase-overview.md) 기반의 오픈 소스 대규모 병렬 관계형 데이터베이스 계층입니다. Phoenix를 사용하면 [SQLLine](apache-hbase-query-with-phoenix.md)과 같은 SSH 도구를 통해 HBase에서 SQL 유사 쿼리를 사용할 수 있습니다. 또한 Phoenix는 클라이언트 통신을 위한 2개의 전송 메커니즘인 JSON과 프로토콜 버퍼를 지원하는 씬 클라이언트인 PQS(Phoenix Query Server)라는 HTTP 서버를 제공합니다. 프로토콜 버퍼는 기본 메커니즘으로, JSON보다 좀 더 효율적인 통신을 제공합니다.
 
 이 문서에서는 PQS REST SDK를 사용하여 테이블을 만들고, 행을 개별적으로 및 대량으로 Upsert하고, SQL 문을 사용하여 데이터를 선택하는 방법을 설명합니다. 예제에서는 [Apache Phoenix Query Server용 Microsoft .NET 드라이버](https://www.nuget.org/packages/Microsoft.Phoenix.Client)를 사용합니다. 이 SDK는 직렬화 형식에 대해 프로토콜 버퍼를 독점적으로 사용하는 [Apache Calcite Avatica](https://calcite.apache.org/avatica/) API에서 빌드되었습니다.
 
@@ -71,7 +71,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 다음은 중요한 일부 속성입니다.
 
-| 자산 | 설명 |
+| 속성 | 설명 |
 | -- | -- |
 | AutoCommit | `autoCommit`이 Phoenix 트랜잭션에 사용되도록 설정되어 있는지 여부를 나타내는 부울입니다. |
 | 읽기 전용 | 연결이 읽기 전용인지 여부를 나타내는 부울입니다. |

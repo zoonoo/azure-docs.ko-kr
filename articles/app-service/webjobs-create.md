@@ -1,8 +1,8 @@
 ---
-title: WebJobs로 백그라운드 작업 실행 - Azure App Service
+title: WebJobs-Azure App Service를 사용 하 여 백그라운드 작업 실행
 description: WebJobs를 사용하여 Azure App Service 웹앱, API 앱 또는 모바일 앱에서 백그라운드 작업을 실행하는 방법을 알아봅니다.
 author: ggailey777
-manager: wgallace
+manager: gwallace
 s.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
 ms.topic: conceptual
@@ -10,14 +10,14 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 2d97f826f4288d13589a2fb9da8148d58a2c5e1e
-ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
+ms.openlocfilehash: 293227352f27a724228136532c88e35fe877feb2
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303570"
+ms.locfileid: "72312176"
 ---
-# <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service에서 WebJobs로 백그라운드 작업 실행
+# <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service에서 WebJobs를 사용 하 여 백그라운드 작업 실행
 
 이 문서에서는 실행 파일 또는 스크립트를 업로드하기 위해 [Azure Portal](https://portal.azure.com)을 사용하여 WebJobs를 배포하는 방법을 보여줍니다. Visual Studio를 사용하여 WebJobs를 개발하고 배포하는 방법에 대한 정보는 [Visual Studio를 사용하여 WebJobs 배포](webjobs-dotnet-deploy-vs.md)를 참조하세요.
 

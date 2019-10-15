@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 43465a1c31b953620c45dfe759de7b6e1b4dc3c9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: f00f6bcf07cbdc5aeaeb04aeccf7e88cf4822dbf
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917257"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311717"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>psql을 사용하여 Apache Phoenix로 데이터 대량 로드
 
@@ -141,6 +141,6 @@ MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Apache Phoenix로 데이터 대량 로드](https://phoenix.apache.org/bulk_dataload.html)
-* [HDInsight에서 Linux 기반 Apache HBase 클러스터와 함께 Apache Phoenix 사용](../hbase/apache-hbase-phoenix-squirrel-linux.md)
+* [HDInsight에서 Linux 기반 Apache HBase 클러스터와 함께 Apache Phoenix 사용](../hbase/apache-hbase-query-with-phoenix.md)
 * [솔트된 테이블](https://phoenix.apache.org/salted.html)
 * [Apache Phoenix 문법](https://phoenix.apache.org/language/index.html)

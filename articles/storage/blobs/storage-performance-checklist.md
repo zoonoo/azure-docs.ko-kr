@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 84707c72e62bed7621d94dbd1ec65607cfcfd2d6
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 56bb5a1ac3c4003eca6ebe8392fc5b97f36a3317
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303042"
+ms.locfileid: "72311140"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Blob 저장소에 대 한 성능 및 확장성 검사 목록
 
@@ -45,6 +45,9 @@ Azure Storage에는 용량, 트랜잭션 속도 및 대역폭에 대 한 확장�
 | &nbsp; |도구 |[Microsoft에서 제공 하는 최신 버전의 클라이언트 라이브러리 및 도구를 사용 하 고 있나요?](#client-libraries-and-tools) |
 | &nbsp; |다시 시도 |[제한 오류 및 시간 제한에 대해 지 수 백오프가 포함 된 재시도 정책을 사용 하나요?](#timeout-and-server-busy-errors) |
 | &nbsp; |다시 시도 |[애플리케이션에서 다시 시도할 수 없는 오류 발생 시에는 작업을 다시 시도하지 않습니까?](#non-retryable-errors) |
+| &nbsp; |Blob 복사 |[가장 효율적인 방식으로 blob을 복사 하 고 있나요?](#blob-copy-apis) |
+| &nbsp; |Blob 복사 |[대량 복사 작업에 최신 버전의 AzCopy를 사용 하 고 있나요?](#use-azcopy) |
+| &nbsp; |Blob 복사 |[Azure Data Box 패밀리를 사용 하 여 대량의 데이터를 가져올 수 있나요?](#use-azure-data-box) |
 | &nbsp; |콘텐츠 배포 |[콘텐츠 배포를 위해 CDN을 사용합니까?](#content-distribution) |
 | &nbsp; |메타 데이터 사용 |[자주 사용되는 Blob 관련 메타데이터를 해당 메타데이터에 저장하고 있습니까?](#use-metadata) |
 | &nbsp; |신속 하 게 업로드 |[Blob 하나를 빠르게 업로드하려는 경우 블록을 병렬로 업로드합니까?](#upload-one-large-blob-quickly) |
@@ -183,7 +186,7 @@ Blob이 캐시 된 후 수정 되지 않은 경우 blob 검색을 방지 하는 
 
 ### <a name="increase-default-connection-limit"></a>기본 연결 제한 늘리기
 
-.NET에서 다음 코드는 기본 연결 제한(일반적으로 클라이언트 환경에서는 2이고, 서버 환경에서는 10임)을 100으로 늘립니다. 일반적으로 이 값을 애플리케이션에서 사용되는 대략적인 스레드 수로 설정해야 합니다. 연결을 열기 전에 연결 제한을 설정 합니다.
+.NET에서 다음 코드는 기본 연결 제한 (일반적으로 클라이언트 환경에서 2 개 또는 서버 환경의 10 개)을 100로 늘립니다. 일반적으로 이 값을 애플리케이션에서 사용되는 대략적인 스레드 수로 설정해야 합니다. 연결을 열기 전에 연결 제한을 설정 합니다.
 
 ```csharp
 ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
@@ -227,9 +230,23 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 
 Azure Storage 오류 코드에 대 한 자세한 내용은 [상태 및 오류 코드](/rest/api/storageservices/status-and-error-codes2)를 참조 하세요.
 
-## <a name="transfer-data"></a>데이터 전송
+## <a name="copying-and-moving-blobs"></a>Blob 복사 및 이동
 
-Blob 저장소 또는 저장소 계정 간에 데이터를 효율적으로 전송 하는 방법에 대 한 자세한 내용은 [데이터 전송을 위한 Azure 솔루션 선택](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 을 참조 하세요.
+Azure Storage는 저장소 계정, 저장소 계정 간, 온-프레미스 시스템 및 클라우드 간에 blob을 복사 하 고 이동 하는 여러 가지 솔루션을 제공 합니다. 이 섹션에서는 성능에 미치는 영향을 기준으로 이러한 옵션 중 일부에 대해 설명 합니다. Blob 저장소로 또는 Blob 저장소에서 데이터를 효율적으로 전송 하는 방법에 대 한 자세한 내용은 [데이터 전송을 위한 Azure 솔루션 선택](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조 하세요.
+
+### <a name="blob-copy-apis"></a>Blob 복사 Api
+
+저장소 계정 간에 blob을 복사 하려면 [URL에서 블록 배치](/rest/api/storageservices/put-block-from-url) 작업을 사용 합니다. 이 작업을 수행 하면 모든 URL 원본에서 블록 blob으로 데이터를 동기적으로 복사 합니다. @No__t-0 연산을 사용 하면 저장소 계정 간에 데이터를 마이그레이션할 때 필요한 대역폭을 상당히 줄일 수 있습니다. 복사 작업은 서비스 쪽에서 수행 되기 때문에 데이터를 다운로드 하 고 다시 업로드할 필요가 없습니다.
+
+동일한 저장소 계정 내에서 데이터를 복사 하려면 [Blob 복사](/rest/api/storageservices/Copy-Blob) 작업을 사용 합니다. 일반적으로 동일한 저장소 계정 내에서 데이터를 복사 하는 것이 신속 하 게 완료 됩니다.  
+
+### <a name="use-azcopy"></a>AzCopy 사용
+
+AzCopy 명령줄 유틸리티는 저장소 계정 간에 blob을 대량으로 대량 전송할 수 있는 간단 하 고 효율적인 옵션입니다. AzCopy는이 시나리오에 맞게 최적화 되었으며 높은 전송 속도를 달성할 수 있습니다. AzCopy 버전 10은 `Put Block From URL` 연산을 사용 하 여 저장소 계정 간에 blob 데이터를 복사 합니다. 자세한 내용은 [AzCopy v10를 사용 하 여 Azure Storage에 데이터 복사 또는 이동](/azure/storage/common/storage-use-azcopy-v10)을 참조 하세요.  
+
+### <a name="use-azure-data-box"></a>Azure Data Box 사용
+
+대용량의 데이터를 Blob 저장소로 가져오려면 오프 라인 전송에 Azure Data Box 패밀리를 사용 하는 것이 좋습니다. Microsoft에서 제공 하는 Data Box 장치는 시간, 네트워크 가용성 또는 비용을 기준으로 제한 될 때 Azure로 많은 양의 데이터를 이동 하는 데 적합 합니다. 자세한 내용은 [Azure DataBox 설명서](/azure/databox/)를 참조 하세요.
 
 ## <a name="content-distribution"></a>콘텐츠 배포
 
@@ -239,7 +256,7 @@ Azure CDN에 대한 자세한 내용은 [Azure CDN](../../cdn/cdn-overview.md)�
 
 ## <a name="use-metadata"></a>메타 데이터 사용
 
-Blob service는 Blob 속성 또는 메타 데이터를 포함할 수 있는 HEAD 요청을 지원 합니다. 예를 들어 응용 프로그램에 사진에서 Exif (exchangable image format) 데이터가 필요한 경우 사진을 검색 하 고 압축을 풀 수 있습니다. 응용 프로그램은 대역폭을 절약 하 고 성능을 향상 시키기 위해 응용 프로그램에서 사진을 업로드할 때 응용 프로그램에서 Exif 데이터를 blob의 메타 데이터에 저장할 수 있습니다. 그런 다음 HEAD 요청만 사용 하 여 메타 데이터에서 Exif 데이터를 검색할 수 있습니다. 메타 데이터만 검색 하 고 blob의 전체 콘텐츠가 아닌 경우에는 상당한 대역폭이 절약 되며 Exif 데이터를 추출 하는 데 필요한 처리 시간이 줄어듭니다. Blob 당 8kb의 메타 데이터만 저장할 수 있습니다.  
+Blob service는 Blob 속성 또는 메타 데이터를 포함할 수 있는 HEAD 요청을 지원 합니다. 예를 들어 응용 프로그램에 사진에서 Exif (exchangable image format) 데이터가 필요한 경우 사진을 검색 하 고 압축을 풀 수 있습니다. 응용 프로그램은 대역폭을 절약 하 고 성능을 향상 시키기 위해 응용 프로그램에서 사진을 업로드할 때 응용 프로그램에서 Exif 데이터를 blob의 메타 데이터에 저장할 수 있습니다. 그런 다음 HEAD 요청만 사용 하 여 메타 데이터에서 Exif 데이터를 검색할 수 있습니다. 메타 데이터만 검색 하 고 blob의 전체 콘텐츠가 아닌 경우에는 상당한 대역폭이 절약 되며 Exif 데이터를 추출 하는 데 필요한 처리 시간이 줄어듭니다. KiB 8 개의 메타 데이터는 blob 당 저장할 수 있습니다.  
 
 ## <a name="upload-blobs-quickly"></a>신속 하 게 blob 업로드
 

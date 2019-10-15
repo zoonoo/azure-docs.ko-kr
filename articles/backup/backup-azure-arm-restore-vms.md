@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: c479249a3a09b625e37fb80e7b73dcc8a1268622
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 759be3691ba44c92033ec71fd031f9c6e47d6cb4
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098358"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311903"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Azure Portal에서 Azure VM 데이터를 복원 하는 방법
 
@@ -38,7 +38,7 @@ Azure Backup은 VM을 복원하는 다양한 방법을 제공합니다.
 >
 > Azure VM에 대해 [최신 버전](backup-instant-restore-capability.md)의 Azure Backup을 실행하는 경우(즉시 복원이라고 함), 스냅샷은 최대 7일 동안 유지되며 백업 데이터를 자격 증명 모음으로 보내기 전에 스냅샷에서 VM을 복원할 수 있습니다. 지난 7일간의 백업에서 VM을 복원하려면 자격 증명 모음이 아니라 스냅샷에서 복원하는 것이 더 빠릅니다.
 
-## <a name="storage-accounts"></a>저장소 계정
+## <a name="storage-accounts"></a>Storage 계정
 
 저장소 계정에 대 한 몇 가지 세부 정보:
 
@@ -154,7 +154,7 @@ VM을 복원해야 하는 일반적인 시나리오는 여러 가지가 있습�
 **시나리오** | **지침**
 --- | ---
 **하이브리드 사용 혜택을 사용하여 VM 복원** | Windows VM에서 [HUB(하이브리드 사용 혜택) 라이선스](../virtual-machines/windows/hybrid-use-benefit-licensing.md)를 사용하는 경우, 디스크를 복원하고 제공된 템플릿(**라이선스 유형** 이 **Windows_Server**로 설정됨) 또는 PowerShell을 사용하여 새 VM을 만듭니다.  이 설정은 VM을 만든 후에 적용할 수도 있습니다.
-**Azure 데이터 센터 재해 중 VM 복원** | 자격 증명 모음에서 GRS를 사용하고 VM에 대한 기본 데이터 센터의 작동이 중단되면, Azure Backup에서 쌍을 이루는 데이터 센터로 백업된 VM을 복원할 수 있습니다. 쌍을 이루는 데이터 센터에서 스토리지 계정을 선택하고 정상적으로 복원합니다. Azure Backup은 쌍을 이루는 위치에서 컴퓨팅 서비스를 사용하여 복원된 VM을 만듭니다. 데이터 센터 복원력에 대해 [자세히 알아보세요](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md).
+**Azure 데이터 센터 재해 중 VM 복원** | 자격 증명 모음에서 GRS를 사용하고 VM에 대한 기본 데이터 센터의 작동이 중단되면, Azure Backup에서 쌍을 이루는 데이터 센터로 백업된 VM을 복원할 수 있습니다. 쌍을 이루는 데이터 센터에서 스토리지 계정을 선택하고 정상적으로 복원합니다. Azure Backup는 쌍을 이루는 지역에서 계산 서비스를 사용 하 여 복원 된 VM을 만듭니다. 데이터 센터 복원력에 대해 [자세히 알아보세요](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md).
 **단일 도메인에서 단일 도메인 컨트롤러 VM 복원** | 다른 VM과 마찬가지로 VM을 복원합니다. 다음 사항에 유의합니다.<br/><br/> Active Directory 관점에서 Azure VM은 다른 VM과 비슷합니다.<br/><br/> Active Directory 복원 모드(DSRM)도 사용할 수 있으므로 모든 Directory Services 복원 모드를 실행할 수 있습니다. 가상화된 도메인 컨트롤러에 대한 백업 및 복원 고려 사항에 대해 [자세히 알아보세요](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v).
 **단일 도메인에서 여러 도메인 컨트롤러 VM 복원** | 네트워크를 통해 동일한 도메인의 다른 도메인 컨트롤러에 연결할 수 있는 경우에는 모든 VM 처럼 도메인 컨트롤러를 복원할 수 있습니다. 도메인에서 마지막으로 남아 있는 도메인 컨트롤러이거나 격리된 네트워크에서 복구가 수행되면 [포리스트 복구](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery)를 사용합니다.
 **단일 포리스트에 여러 도메인 복원** | [포리스트 복구](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery)를 사용하는 것이 좋습니다.

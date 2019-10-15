@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: helohr
-ms.openlocfilehash: dd3b68d600edcbbae73fff542e677d3ebc6b16ee
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 4e714b872ae43eb313efe549c77f5610342f430c
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390812"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311625"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Azure NetApp Files를 사용 하 여 호스트 풀의 FSLogix 프로필 컨테이너 만들기
 
@@ -29,7 +29,10 @@ Windows 가상 데스크톱 환경에 대해 엔터프라이즈급 SMB 볼륨을
 >[!NOTE]
 >이 문서에서는 Azure NetApp Files 공유에 대 한 액세스를 보호 하기 위한 모범 사례에 대해서는 설명 하지 않습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+>[!NOTE]
+>Azure의 여러 FSLogix 프로필 컨테이너 저장소 옵션에 대 한 비교 자료를 찾고 있는 경우 [FSLogix 프로필 컨테이너에 대 한 저장소 옵션](store-fslogix-profile.md)을 참조 하세요.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 호스트 풀에 대해 FSLogix 프로필 컨테이너를 만들려면 먼저 다음을 수행 해야 합니다.
 
@@ -131,7 +134,7 @@ Windows 가상 데스크톱 환경에 대해 엔터프라이즈급 SMB 볼륨을
     - **가상 네트워크**의 경우 드롭다운 메뉴에서 도메인 컨트롤러에 연결 되어 있는 기존 가상 네트워크를 선택 합니다.
     - **서브넷**에서 **새로 만들기**를 선택 합니다. 이 서브넷은 Azure NetApp Files에 위임 된다는 점에 유의 하세요.
 
-3.  완료되면 **다음: 프로토콜을사용하여프로토콜탭을열고볼륨액세스매개변수를구성합니다.\> \>**
+3.  완료되면 **다음: 프로토콜 \> @ no__t-1 @ no__t-2를 사용 하 여 프로토콜 탭을 열고 볼륨 액세스 매개 변수를 구성 합니다.
 
 ## <a name="configure-volume-access-parameters"></a>볼륨 액세스 매개 변수 구성
 
@@ -165,11 +168,11 @@ Windows 가상 데스크톱 환경에 대해 엔터프라이즈급 SMB 볼륨을
 
 6. **설치**를 선택합니다.
 
-7. **C:\\Program Files\\\\fslogix 앱** 으로 이동 하 여 에이전트를 설치 했는지 확인 합니다.
+7. **C: \\Program Files @ no__t-2FSLogix @ No__t 앱** 으로 이동 하 여 에이전트를 설치 했는지 확인 합니다.
 
 8. 시작 메뉴에서 관리자 권한으로 **RegEdit** 를 실행 합니다.
 
-9. **컴퓨터\\HKEY_LOCAL_MACHINE\\softwarefslogix로이동합니다\\** .
+9. **Computer @ no__t-1HKEY_LOCAL_MACHINE @ no__t-2software @ no__t-3FSLogix**로 이동 합니다.
 
 10. **프로필**이라는 키를 만듭니다.
 
@@ -204,7 +207,7 @@ Windows 가상 데스크톱 환경에 대해 엔터프라이즈급 SMB 볼륨을
 
 ## <a name="make-sure-users-can-access-the-azure-netapp-file-share"></a>사용자가 Azure NetApp 파일 공유에 액세스할 수 있는지 확인
 
-1. 인터넷 브라우저를 열고로 <https://rdweb.wvd.microsoft.com/webclient/index.html>이동 합니다.
+1. 인터넷 브라우저를 열고 <https://rdweb.wvd.microsoft.com/webclient/index.html>으로 이동 합니다.
 
 2. 원격 데스크톱 그룹에 할당 된 사용자의 자격 증명을 사용 하 여 로그인 합니다.
 
@@ -216,7 +219,7 @@ Windows 가상 데스크톱 환경에 대해 엔터프라이즈급 SMB 볼륨을
 
 5. **개요** 탭으로 이동 하 여 FSLogix 프로필 컨테이너가 공간을 사용 하 고 있는지 확인 합니다.
 
-6. 원격 데스크톱을 사용 하 여 호스트 풀의 모든 VM 부분에 직접 연결 하 고 **파일 탐색기** 를 엽니다. 그런 다음 **탑재 경로로** 이동 합니다 (다음 예제에서는 탑재 경로가 \\ \\anf-SMB-3863.gt1107.onmicrosoft.com\\anf-VOL).
+6. 원격 데스크톱을 사용 하 여 호스트 풀의 모든 VM 부분에 직접 연결 하 고 **파일 탐색기** 를 엽니다. 그런 다음 **탑재 경로로** 이동 합니다 (다음 예제에서는 탑재 경로가 @no__t -1\\anf-SMB-3863.gt1107.onmicrosoft.com @ no__t-3anf-VOL).
 
    이 폴더에는 다음 예제에 나와 있는 것과 같은 프로필 VHD (또는 VHDX)가 있어야 합니다.
 

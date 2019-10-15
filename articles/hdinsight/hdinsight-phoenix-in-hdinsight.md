@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.openlocfilehash: becb4e4787c21e18455144108274f585ba25cb72
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 23c2a4e8c576f3f2355db0d903c43c9c5b24cc18
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105375"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311651"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Azure HDInsight의 Apache Phoenix
 
@@ -135,6 +135,6 @@ HDInsight HBase 클러스터에는 구성을 변경하기 위한 [Ambari UI](hdi
 
     ![Ambari Phoenix SQL 구성 섹션](./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png)
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참조
 
-* [HDInsight에서 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용](hbase/apache-hbase-phoenix-squirrel-linux.md)
+* [HDInsight에서 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용](hbase/apache-hbase-query-with-phoenix.md)

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.openlocfilehash: 2f46f90edcdd1c4cdf7583c7e628aee205b312e1
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.date: 10/11/2019
+ms.openlocfilehash: 81b57191a02dd3214928ac90e2761f5f8dfb2cfc
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098651"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311666"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리
 
@@ -29,27 +29,27 @@ Apache Ambari는 손쉬운 Web UI 및 REST API 사용을 제공하여 Apache Had
 
 ## <a name="connectivity"></a>연결
 
-Ambari 웹 UI는의 HDInsight 클러스터 `https://CLUSTERNAME.azurehdinsight.net`에서 사용할 수 있습니다. 여기서 `CLUSTERNAME` 은 클러스터의 이름입니다.
+Ambari 웹 UI는 `https://CLUSTERNAME.azurehdinsight.net`의 HDInsight 클러스터에서 사용할 수 있습니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.
 
 > [!IMPORTANT]  
 > HTTPS를 요구하는 HDInsight에서 Ambari로 연결 인증에 대한 대화 상자가 나타나면 클러스터를 만들 때 제공한 관리자 계정 이름 및 암호를 사용합니다.
 
 ## <a name="ssh-tunnel-proxy"></a>SSH 터널(프록시)
 
-클러스터의 Ambari는 인터넷을 통해 직접 액세스할 수 있지만 Ambari 웹 UI의 일부 링크(예: JobTracker)는 인터넷에 노출되지 않습니다. 이러한 서비스에 액세스하려면 SSH 터널을 만들어야 합니다. 자세한 내용은 [HDInsight와 SSH 터널링 사용](hdinsight-linux-ambari-ssh-tunnel.md)을 참조하세요.
+클러스터에 대 한 Ambari는 인터넷을 통해 직접 액세스할 수 있지만 Ambari 웹 UI의 일부 링크 (예: JobTracker)는 인터넷에 노출 되지 않습니다. 이러한 서비스에 액세스하려면 SSH 터널을 만들어야 합니다. 자세한 내용은 [HDInsight와 SSH 터널링 사용](hdinsight-linux-ambari-ssh-tunnel.md)을 참조하세요.
 
 ## <a name="ambari-web-ui"></a>Ambari 웹 UI
 
 > [!WARNING]  
 > Ambari 웹 UI의 일부 기능만 HDInsight에서 지원됩니다. 자세한 내용은 이 문서의 [지원되지 않는 작업](#unsupported-operations) 섹션을 참조하세요.
 
-Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵니다. 클러스터를 만들 때 사용했던 클러스터 관리자 사용자(기본값 관리자)와 암호를 사용합니다.
+Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지가 표시 됩니다. 클러스터를 만들 때 사용했던 클러스터 관리자 사용자(기본값 관리자)와 암호를 사용합니다.
 
 페이지가 열리면 위쪽의 표시줄을 확인합니다. 이 표시줄에는 다음 정보 및 컨트롤이 포함되어 있습니다.
 
 ![Apache Ambari 대시보드 개요](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
 
-|항목 |Description |
+|항목 |설명 |
 |---|---|
 |Ambari 로고|클러스터를 모니터링 하는 데 사용할 수 있는 대시보드를 엽니다.|
 |클러스터 이름 # ops|진행 중인 Ambari 작업 수를 표시 합니다. 클러스터 이름 또는 **# ops**를 선택하면 백그라운드 작업 목록이 표시됩니다.|
@@ -58,7 +58,7 @@ Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵�
 |서비스|클러스터의 서비스에 대 한 정보 및 구성 설정입니다.|
 |호스트|클러스터의 노드에 대 한 정보 및 구성 설정입니다.|
 |,|정보, 경고 및 중요 한 알림 로그입니다.|
-|관리|클러스터에 설치 된 소프트웨어 스택/서비스, 서비스 계정 정보 및 Kerberos 보안.|
+|Admin|클러스터에 설치 된 소프트웨어 스택/서비스, 서비스 계정 정보 및 Kerberos 보안.|
 |관리 단추|Ambari 관리, 사용자 설정 및 로그 아웃입니다.|
 
 ## <a name="monitoring"></a>모니터링
@@ -82,7 +82,7 @@ Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵�
 
 ![Apache Ambari 경고 그룹 관리](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
 
-또한 __경고 알림 관리__를 선택하여 **작업** 메뉴에서 경고 방법을 관리하고 경고 알림을 만들 수도 있습니다. 모든 현재 알림이 표시됩니다. 여기에서 알림을 만들 수도 있습니다. 특정 경고/심각도 조합이 발생하면 **전자 메일** 또는 **SNMP**를 통해 알림을 보낼 수 있습니다. 예를 들어 **YARN Default** 그룹에 **위험**으로 설정된 경고가 있으면 전자 메일 메시지를 보낼 수 있습니다.
+__알림 관리__를 선택 하 여 경고 메서드를 관리 하 고 **작업** 메뉴에서 경고 알림을 만들 수도 있습니다. 모든 현재 알림이 표시됩니다. 여기에서 알림을 만들 수도 있습니다. 특정 경고/심각도 조합이 발생하면 **전자 메일** 또는 **SNMP**를 통해 알림을 보낼 수 있습니다. 예를 들어 **YARN Default** 그룹에 **위험**으로 설정된 경고가 있으면 전자 메일 메시지를 보낼 수 있습니다.
 
 ![Apache Ambari 경고 만들기 알림](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
@@ -98,7 +98,7 @@ Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵�
 
 ![열 지도를 사용 하는 Apache Ambari 대시보드](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
 
-클러스터 내의 노드에 대한 자세한 내용은 **호스트**를 선택합니다. 그런 다음 관심 있는 특정 노드를 선택합니다.
+클러스터 내의 노드에 대한 자세한 내용은 **호스트**를 선택합니다. 그런 다음 관심 있는 특정 노드를 선택 합니다.
 
 ![Apache Ambari 호스트 요약 정보](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
 
@@ -115,7 +115,7 @@ Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵�
 
 ![Apache Ambari 서비스 요약 정보](./media/hdinsight-hadoop-manage-ambari/ambari-service-details.png)
 
-#### <a name="quick-links"></a>빠른 연결
+#### <a name="quick-links"></a>빠른 링크
 
 일부 서비스는 페이지의 위쪽에 **Quick Links** 링크를 표시합니다. 이를 사용하여 서비스 관련 웹 UI에 액세스할 수 있습니다.
 
@@ -151,7 +151,7 @@ Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵�
 
 2. **Actions** 메뉴를 사용하여 수행할 작업을 선택합니다.
 
-    |항목 |Description |
+    |항목 |설명 |
     |---|---|
     |모든 구성 요소 시작|호스트에서 모든 구성 요소를 시작 합니다.|
     |모든 구성 요소 중지|호스트의 모든 구성 요소를 중지 합니다.|
@@ -159,9 +159,9 @@ Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵�
     |유지 관리 모드 설정|호스트에 대 한 경고를 표시 하지 않습니다. 경고를 생성하는 작업을 수행하는 경우 이 모드를 활성화해야 합니다. 예를 들어 서비스를 중지하고 시작합니다.|
     |유지 관리 모드 해제|호스트를 정상 경고로 반환 합니다.|
     |Stop|호스트에서 DataNode 또는 NodeManagers를 중지 합니다.|
-    |시작|호스트에서 DataNode 또는 NodeManagers를 시작 합니다.|
+    |Start|호스트에서 DataNode 또는 NodeManagers를 시작 합니다.|
     |다시 시작|호스트에서 DataNode 또는 NodeManagers를 중지 하 고 시작 합니다.|
-    |서비스 해제|클러스터에서 호스트를 제거 합니다. **HDInsight 클러스터에는이 작업을 사용 하지 마십시오.**|
+    |만들고|클러스터에서 호스트를 제거 합니다. **HDInsight 클러스터에는이 작업을 사용 하지 마십시오.**|
     |재승인|이전에 서비스 해제 된 호스트를 클러스터에 추가 합니다. **HDInsight 클러스터에는이 작업을 사용 하지 마십시오.**|
 
 ### <a id="service"></a>Services
@@ -199,7 +199,7 @@ Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵�
 
 3. 구성을 수정하려면 표시된 목록을 클릭하고 **Save**를 선택합니다. 또는 이전 구성을 선택한 다음 **Make current** 를 선택하여 이전 설정으로 롤백할 수 있습니다.
 
-## <a name="ambari-views"></a>Ambari Views
+## <a name="ambari-views"></a>Ambari 뷰
 
 Ambari Views를 사용하면 개발자가 [Apache Ambari Views 프레임워크](https://cwiki.apache.org/confluence/display/AMBARI/Views)를 사용하여 Ambari 웹 UI에 UI 요소를 삽입할 수 있습니다. HDInsight은 Hadoop 클러스터 종류를 사용하여 다음 뷰를 제공합니다.
 

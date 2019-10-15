@@ -7,16 +7,19 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 5e52275cc7215f6c54c2ff6a11faf82114c414b4
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e651695055b9bfdbfbb5b6281af8c1d21235009b
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676606"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311806"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 프로필 컨테이너 및 Azure Files
 
 Windows 가상 데스크톱 서비스는 사용자 프로필 솔루션으로 FSLogix 프로필 컨테이너를 권장 합니다. FSLogix는 Windows 가상 데스크톱과 같은 원격 컴퓨팅 환경에서 프로필을 로밍 하도록 설계 되었습니다. 단일 컨테이너에 전체 사용자 프로필을 저장 합니다. 로그인 시이 컨테이너는 기본적으로 지원 되는 VHD (가상 하드 디스크) 및 Hyper-v VHDX (가상 하드 디스크)를 사용 하 여 컴퓨팅 환경에 동적으로 연결 됩니다. 사용자 프로필은 즉시 사용할 수 있으며 시스템에서 네이티브 사용자 프로필과 똑같이 표시 됩니다. 이 문서에서는 Windows 가상 데스크톱에서 Azure Files 함수를 사용 하 여 FSLogix 프로필 컨테이너를 사용 하는 방법을 설명 합니다.
+
+>[!NOTE]
+>Azure의 여러 FSLogix 프로필 컨테이너 저장소 옵션에 대 한 비교 자료를 찾고 있는 경우 [FSLogix 프로필 컨테이너에 대 한 저장소 옵션](store-fslogix-profile.md)을 참조 하세요.
 
 ## <a name="user-profiles"></a>사용자 프로필
 

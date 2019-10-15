@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 839faa4cf2455ee2b0de38046a464ce824f007cd
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f51263a91ca174a6c8108ed4414ff0f8b9745aff
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301868"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311889"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Azure Virtual Machines에서 프리미엄 파일 공유를 사용 하 여 SQL Server 장애 조치 (Failover) 클러스터 인스턴스 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "72301868"
 - [Windows 클러스터 기술](/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server 장애 조치(Failover) 클러스터 인스턴스](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 
-한 가지 중요 한 차이점은 Azure IaaS VM 장애 조치 (failover) 클러스터에서 서버당 단일 NIC (클러스터 노드)와 단일 서브넷을 권장 한다는 것입니다. Azure 네트워킹에는 Azure IaaS VM 게스트 클러스터에서 추가 NIC 및 서브넷을 불필요하게 만드는 물리적 중복성이 있습니다. 클러스터 유효성 검사 보고서는 노드가 단일 네트워크 에서만 연결할 수 있다는 경고를 발행 하지만, Azure IaaS VM 장애 조치 (failover) 클러스터에서이 경고를 안전 하 게 무시할 수 있습니다. 
+한 가지 중요 한 차이점은 Azure IaaS VM 장애 조치 (failover) 클러스터에서 서버당 단일 NIC (클러스터 노드)와 단일 서브넷을 권장 한다는 것입니다. Azure 네트워킹에는 Azure IaaS VM 게스트 클러스터에서 추가 Nic 및 서브넷을 불필요 하 게 만드는 물리적 중복성이 있습니다. 클러스터 유효성 검사 보고서는 노드가 단일 네트워크 에서만 연결할 수 있다는 경고를 발행 하지만, Azure IaaS VM 장애 조치 (failover) 클러스터에서이 경고를 안전 하 게 무시할 수 있습니다. 
 
 또한 다음 기술에 대한 기본적인 지식이 있어야 합니다.
 
@@ -165,34 +165,20 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
 1. [Azure Portal](https://portal.azure.com) 에 로그인 하 여 저장소 계정으로 이동 합니다.
 1. **파일 서비스** 에서 **파일 공유** 로 이동 하 고 SQL 저장소에 사용할 프리미엄 파일 공유를 선택 합니다. 
 1. **연결** 을 선택 하 여 파일 공유에 대 한 연결 문자열을 가져옵니다. 
-1. 드롭다운에서 사용할 드라이브 문자를 선택 하 고 두 PowerShell 명령 블록에서 두 PowerShell 명령을 복사 합니다.  메모장 등의 텍스트 편집기에 붙여 넣습니다. 
+1. 드롭다운에서 사용할 드라이브 문자를 선택한 다음 두 코드 블록을 메모장에 복사 합니다.
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/premium-file-storage-commands.png" alt-text="파일 공유 연결 포털에서 두 PowerShell 명령 모두 복사":::
 
 1. SQL Server FCI가 서비스 계정에 사용할 계정을 사용 하 여 SQL Server VM에 RDP 합니다. 
 1. 관리 PowerShell 명령 콘솔을 시작 합니다. 
-1. @No__t-0 명령을 실행 하 여 저장소 계정에 대 한 연결을 테스트 합니다. 첫 번째 코드 블록에서 `cmdkey` 명령을 실행 하지 마십시오. 
+1. 이전에 저장 한 포털에서 명령을 실행 합니다. 
+1. 네트워크 경로 `\\storageaccountname.file.core.windows.net\filesharename`을 사용 하 여 파일 탐색기 또는 **실행** 대화 상자 (Windows 키 + r)를 사용 하 여 공유로 이동 합니다. 예: `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 
-   ```console
-   example: Test-NetConnection -ComputerName  sqlvmstorageaccount.file.core.windows.net -Port 445
-   ```
-
-1. *두 번째* 코드 블록에서 `cmdkey` 명령을 실행 하 여 파일 공유를 드라이브로 탑재 하 고 유지 합니다. 
-
-   ```console
-   example: cmdkey /add:sqlvmstorageaccount.file.core.windows.net /user:Azure\sqlvmstorageaccount /pass:+Kal01QAPK79I7fY/E2Umw==
-   net use M: \\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare /persistent:Yes
-   ```
-
-1. **파일 탐색기** 를 열고 **이 PC**로 이동 합니다. 파일 공유는 네트워크 위치에 표시 됩니다. 
-
-   :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/file-share-as-storage.png" alt-text="파일 공유 파일 탐색기에서 저장소로 표시 되는 파일 공유":::
-
-1. 새로 매핑된 드라이브를 열고 여기에 SQL 데이터 파일을 저장할 폴더를 하나 이상 만듭니다. 
+1. 새로 연결 된 파일 공유에 SQL 데이터 파일을 저장할 폴더를 하나 이상 만듭니다. 
 1. 클러스터에 참여 하는 각 SQL Server VM에 대해 이러한 단계를 반복 합니다. 
 
   > [!IMPORTANT]
-  > 데이터 파일과 백업 모두에 같은 파일 공유를 사용 하지 마십시오. 데이터베이스를 파일 공유에 백업 하려면 동일한 단계를 사용 하 여 백업에 대 한 보조 파일 공유를 구성 합니다. 
+  > 백업 파일에 대 한 별도의 파일 공유를 사용 하 여 데이터 및 로그 파일에 대 한이 공유의 IOPS 및 크기 용량을 저장 하는 것이 좋습니다. 백업 파일에 프리미엄 또는 표준 파일 공유 중 하나를 사용할 수 있습니다.
 
 ## <a name="step-3-configure-failover-cluster-with-file-share"></a>3단계: 파일 공유를 사용 하 여 장애 조치 (failover) 클러스터 구성 
 

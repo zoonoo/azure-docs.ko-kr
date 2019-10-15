@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.openlocfilehash: aad601a48b2b420a809a385e336f103612d2e378
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: c948d07bed99f1286e27d645fde7b96fdc699c02
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167105"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311697"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Apache HBase에 대한 Java 애플리케이션 빌드
 
@@ -704,4 +704,4 @@ public class DeleteTable {
 
 ## <a name="next-steps"></a>다음 단계
 
-[Apache HBase에서 SQLLine을 사용 하는 방법을 알아봅니다.](apache-hbase-phoenix-squirrel-linux.md)
+[Apache HBase에서 SQLLine을 사용 하는 방법을 알아봅니다.](apache-hbase-query-with-phoenix.md)
