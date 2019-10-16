@@ -103,7 +103,7 @@
           items:
             - name: 모니터링 및 튜닝
               href: concepts-monitoring.md
-            - name: 서버 로그
+            - name: 로그
               href: concepts-server-logs.md
             - name: 감사 로그
               href: concepts-audit.md
@@ -207,7 +207,7 @@
               href: howto-auto-grow-storage-portal.md
             - name: Azure CLI
               href: howto-auto-grow-storage-cli.md
-        - name: 서버 로그 액세스
+        - name: 액세스 로그
           items:
             - name: Azure portal
               href: howto-configure-server-logs-in-portal.md

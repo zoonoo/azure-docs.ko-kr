@@ -96,6 +96,9 @@
     - name: 심층 학습
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
+    - name: Git 통합
+      displayName: git github gitlab
+      href: concept-train-model-git-integration.md
 - name: 방법 가이드
   items:
     - name: 작업 영역 만들기 및 관리

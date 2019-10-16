@@ -35,6 +35,20 @@
       href: policy-samples.md
 - name: 개념
   items:
+    - name: NAT 게이트웨이
+      items:
+        - name: 개요
+          items:
+            - name: NAT 게이트웨이 정보
+              href: nat-service-overview.md
+        - name: 빠른 시작
+          items:
+            - name: NAT Gateway 만들기 - Azure CLI
+              href: quickstart-create-nat-gateway-cli.md
+        - name: 자습서
+          items:
+            - name: NAT 게이트웨이 만들기 및 유효성 검사 - Azure CLI
+              href: tutorial-create-validate-nat-gateway-cli.md
     - name: 보안 그룹
       href: security-overview.md
     - name: 라우팅
@@ -91,22 +105,26 @@
           href: virtual-network-tcpip-performance-tuning.md
     - name: 배포
       items:
-        - name: VNet 용 IPv6 - 기본 Load Balancer
+        - name: VNet용 IPv6
           items:
-            - name: Azure PowerShell
-              href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
-            - name: Azure CLI
-              href: virtual-network-ipv4-ipv6-dual-stack-cli.md
-            - name: Resource Manager 템플릿
-              href: ipv6-configure-template-json.md
-        - name: VNet 용 IPv6 - 표준 Load Balancer
-          items:
-            - name: Azure PowerShell
-              href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
-            - name: Azure CLI
-              href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
-            - name: Resource Manager 템플릿
-              href: ipv6-configure-standard-load-balancer-template-json.md
+            - name: 기본 공용 Load Balancer
+              items:
+                - name: Azure PowerShell
+                  href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
+                - name: Azure CLI
+                  href: virtual-network-ipv4-ipv6-dual-stack-cli.md
+                - name: Resource Manager 템플릿
+                  href: ipv6-configure-template-json.md
+            - name: 표준 공용 Load Balancer
+              items:
+                - name: Azure PowerShell
+                  href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+                - name: Azure CLI
+                  href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+                - name: Resource Manager 템플릿
+                  href: ipv6-configure-standard-load-balancer-template-json.md
+            - name: 표준 내부 Load Balancer
+              href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
         - name: 네트워크 보안 그룹
           items:
             - name: Azure PowerShell
@@ -230,8 +248,6 @@
           items:
             - name: 서브넷
               href: virtual-network-manage-subnet.md
-            - name: 서브넷 위임
-              href: manage-subnet-delegation.md
             - name: 피어링
               href: virtual-network-manage-peering.md
             - name: DDoS 보호

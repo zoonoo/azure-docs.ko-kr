@@ -228,7 +228,9 @@
           href: resource-group-delete.md
         - name: 리소스 잠금
           href: resource-group-lock-resources.md
-        - name: EA 구독 만들기
+        - name: 구독에 액세스하는 인증 API
+          href: resource-manager-api-authentication.md
+        - name: 추가 구독 만들기
           href: programmatically-create-subscription.md
         - name: EA 구독을 만드는 액세스 권한 부여
           href: grant-access-to-create-subscription.md

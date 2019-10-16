@@ -96,22 +96,22 @@
           items:
             - name: 클래스룸 랩 만들기 및 관리
               href: classroom-labs/how-to-manage-classroom-labs.md
-            - name: 템플릿 설정 및 게시
+            - name: '템플릿 설정, 사용자 지정 및 게시'
               href: classroom-labs/how-to-create-manage-template.md
-            - name: 사용량 구성 및 제어
+            - name: 가상 머신 풀 설정 및 관리
+              href: classroom-labs/how-to-set-virtual-machine-passwords.md
+            - name: 랩 사용자 추가 및 관리
               href: classroom-labs/how-to-configure-student-usage.md
             - name: 일정 만들기 및 관리
               href: classroom-labs/how-to-create-schedules.md
-            - name: 템플릿 VM 내에서 여러 VM이 있는 환경 만들기
-              href: classroom-labs/how-to-enable-multi-vm-environment.md
             - name: 공유 이미지 갤러리 사용
               href: classroom-labs/how-to-use-shared-image-gallery.md
             - name: Linux에 대한 원격 데스크톱 연결을 사용하도록 설정
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
-            - name: 가상 머신의 암호 설정 또는 재설정
-              href: classroom-labs/how-to-set-virtual-machine-passwords.md
             - name: 템플릿 VM에서 중첩된 가상화 사용
               href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
+            - name: 템플릿 VM 내에서 여러 VM이 있는 환경 만들기
+              href: classroom-labs/how-to-enable-multi-vm-environment.md
         - name: 클래스룸 랩에서 VM에 연결(학생)
           items:
             - name: 클래스룸 랩 액세스

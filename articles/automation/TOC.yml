@@ -148,6 +148,8 @@
           href: automation-onboard-solutions-from-automation-account.md
     - name: 방법 가이드
       items:
+        - name: Azure Virtual Machines에 대한 업데이트 및 패치 관리
+          href: automation-tutorial-update-management.md
         - name: 여러 VM에 대한 업데이트 관리
           href: manage-update-multi.md
         - name: 사전 및 사후 스크립트
@@ -157,6 +159,14 @@
         - name: 업데이트 관리와 SCCM 통합
           href: oms-solution-updatemgmt-sccmintegration.md
           displayName: Configuration Manager
+        - name: 업데이트 관리를 위한 Windows 업데이트 구성
+          href: automation-configure-windows-update.md
+        - name: 업데이트 관리에서 동적 그룹 사용
+          href: automation-update-management-groups.md
+        - name: 업데이트 관리 로그 쿼리
+          href: automation-update-management-query-logs.md
+        - name: 업데이트 평가 보기
+          href: automation-view-update-assessments.md
     - name: 문제 해결
       items:
         - name: 온보딩
@@ -300,14 +310,18 @@
       href: automation-connections.md
     - name: 자격 증명
       href: automation-credentials.md
-    - name: 모듈
-      href: automation-integration-modules.md
+    - name: PowerShell 모듈
+      items:
+        - name: 모듈
+          href: automation-integration-modules.md
+        - name: Azure Automation에서 Az 모듈 사용
+          href: az-modules.md
+        - name: Azure PowerShell 모듈 업데이트
+          href: automation-update-azure-modules.md
     - name: 일정
       href: automation-schedules.md
     - name: variables
       href: automation-variables.md
-    - name: Azure PowerShell 모듈 업데이트
-      href: automation-update-azure-modules.md
     - name: Python 2 패키지 관리
       href: python-packages.md
     - name: 공유 리소스 문제 해결

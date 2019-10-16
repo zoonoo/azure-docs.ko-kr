@@ -26,7 +26,7 @@
     - name: Event Hubs를 사용한 데이터 스트리밍
       href: databricks-stream-from-eventhubs.md
     - name: Cognitive Services를 사용한 감정 분석
-  href: databricks-sentiment-analysis-cognitive-services.md
+      href: databricks-sentiment-analysis-cognitive-services.md
 - name: 방법 가이드
   items:
     - name: 시작
@@ -543,7 +543,7 @@
         - name: Delta Lake 소개
           href: /azure/databricks/delta/delta-intro
           maintainContext: true
-        - name: Delta 시작
+        - name: Delta Lake 시작
           href: /azure/databricks/delta/quick-start
           maintainContext: true
         - name: Notebook 소개
@@ -617,6 +617,9 @@
               maintainContext: true
         - name: 질문과 대답
           href: /azure/databricks/delta/delta-faq
+          maintainContext: true
+        - name: 추가 Delta 리소스
+          href: /azure/databricks/delta/delta-resources
           maintainContext: true
     - name: 데이터 프레임 및 데이터 세트
       items:
@@ -699,7 +702,7 @@
             - name: 의사 결정 트리 예제
               href: /azure/databricks/applications/machine-learning/mllib/decision-trees
               maintainContext: true
-            - name: MLib 파이프라인 및 구조적 스트리밍
+            - name: MLib 파이프라인 및 Structured Streaming
               href: /azure/databricks/applications/machine-learning/mllib/mllib-pipelines-and-stuctured-streaming
               maintainContext: true
             - name: 고급 MLib 예제
@@ -771,9 +774,6 @@
               maintainContext: true
             - name: PyTorch
               href: /azure/databricks/applications/deep-learning/single-node-training/pytorch
-              maintainContext: true
-            - name: JCuda
-              href: /azure/databricks/applications/deep-learning/single-node-training/jcuda
               maintainContext: true
             - name: PyTorch 단일 노드에서 분산 DL로
               href: /azure/databricks/applications/deep-learning/distributed-training/mnist-pytorch
@@ -852,35 +852,28 @@
           maintainContext: true
     - name: 그래프 분석
       items:
-        - name: GraphFrame을 사용한 그래프 분석 자습서
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/graph-analysis-tutorial
-          maintainContext: true
-        - name: GraphFrame - Python
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-python
-          maintainContext: true
-        - name: GraphFrame - Scala
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-scala
-          maintainContext: true
-        - name: GraphX(레거시)를 사용한 그래프 분석
-          href: /azure/databricks/spark/latest/graph-analysis/graph-analysis-graphx-tutorial
-          maintainContext: true
         - name: 그래프 분석 개요
           href: /azure/databricks/spark/latest/graph-analysis/index
           maintainContext: true
-        - name: 그래프 분석 자습서
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/graph-analysis-tutorial
-          maintainContext: true
-        - name: GraphFrame 개요
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/index
-          maintainContext: true
-        - name: GraphFrame - Python
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-python
-          maintainContext: true
-        - name: GraphFrame - Scala
-          href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-scala
+        - name: GraphFrames
+          items:
+            - name: GraphFrames를 사용한 Graph Analysis 자습서
+              href: /azure/databricks/spark/latest/graph-analysis/graphframes/graph-analysis-tutorial
+              maintainContext: true
+            - name: GraphFrame - Python
+              href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-python
+              maintainContext: true
+            - name: GraphFrame - Scala
+              href: /azure/databricks/spark/latest/graph-analysis/graphframes/user-guide-scala
+              maintainContext: true
+        - name: GraphX(레거시)를 사용한 그래프 분석
+          href: /azure/databricks/spark/latest/graph-analysis/graph-analysis-graphx-tutorial
           maintainContext: true
     - name: Genomics
       items:
+        - name: Genomics 개요
+          href: /azure/databricks/applications/genomics/index
+          maintainContext: true
         - name: Genomics ETL 개요
           href: /azure/databricks/applications/genomics/etl/index
           maintainContext: true
@@ -912,7 +905,7 @@
             - name: Apache Spark SQL을 사용한 변형 IO
               href: /azure/databricks/applications/genomics/etl/variant-data
               maintainContext: true
-            - name: Genomics Delta Lake 만들기
+            - name: Geomics Delta Lake 만들기
               href: /azure/databricks/applications/genomics/etl/vcf2delta
               maintainContext: true
             - name: 변형 품질 제어
@@ -920,6 +913,9 @@
               maintainContext: true
             - name: 품질 제어 샘플
               href: /azure/databricks/applications/genomics/etl/sample-qc
+              maintainContext: true
+            - name: 위로 리프트
+              href: /azure/databricks/applications/genomics/etl/lift-over
               maintainContext: true
         - name: 3차 분석
           items:
@@ -937,9 +933,6 @@
               maintainContext: true
             - name: 재발 테스트
               href: /azure/databricks/applications/genomics/tertiary/regression-tests
-              maintainContext: true
-            - name: SAIGE 및 SAIGE-GENE
-              href: /azure/databricks/applications/genomics/tertiary/saige
               maintainContext: true
             - name: Python 통계 라이브러리
               href: /azure/databricks/applications/genomics/tertiary/pandas-udf
@@ -1072,6 +1065,9 @@
               maintainContext: true
             - name: 가상 네트워크 피어링
               href: /azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering
+              maintainContext: true
+            - name: 미리 보기 작업 영역을 GA로 업그레이드
+              href: /azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject-upgrade
               maintainContext: true
             - name: VNet에 Azure Databricks 배포
               href: /azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject
@@ -1283,6 +1279,9 @@
             - name: 사용자 지정 UDF로 인한 Spark 작업 중단
               href: /azure/databricks/kb/jobs/spark-udf-performance
               maintainContext: true
+            - name: 작업 실패(maxresultsize)
+              href: /azure/databricks/kb/jobs/job-fails-maxresultsize-exception
+              maintainContext: true
         - name: 라이브러리
           items:
             - name: UI에서 라이브러리를 제거할 수 없음
@@ -1426,7 +1425,7 @@
             - name: 검사점 또는 출력 디렉터리 변경 후 복구 문제
               href: /azure/databricks/kb/streaming/file-sink-streaming
               maintainContext: true
-            - name: 마지막으로 작성된 오프셋에서 구조적 스트리밍 쿼리 다시 시작
+            - name: 마지막으로 작성된 오프셋에서 Structured Streaming 쿼리 다시 시작
               href: /azure/databricks/kb/streaming/ss-read-from-last-offset
               maintainContext: true
         - name: 시각화
@@ -1587,8 +1586,17 @@
                 - name: 지원되는 런타임 릴리스
                   href: /azure/databricks/release-notes/runtime/supported
                   maintainContext: true
+                - name: Databricks Runtime 6.1
+                  href: /azure/databricks/release-notes/runtime/6.1
+                  maintainContext: true
+                - name: Databricks Runtime 6.1 ML
+                  href: /azure/databricks/release-notes/runtime/6.1ml
+                  maintainContext: true
                 - name: Databricks Runtime 6.0
                   href: /azure/databricks/release-notes/runtime/6.0
+                  maintainContext: true
+                - name: Databricks Runtime 6.0(Conda 포함)
+                  href: /azure/databricks/release-notes/runtime/6.0conda
                   maintainContext: true
                 - name: Databricks Runtime 6.0 ML
                   href: /azure/databricks/release-notes/runtime/6.0ml

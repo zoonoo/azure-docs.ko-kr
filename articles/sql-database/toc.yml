@@ -22,14 +22,13 @@
               href: sql-database-purchase-models.md
             - name: vCore 기반 모델
               href: sql-database-service-tiers-vcore.md
+              items:
+                - name: 서버리스 컴퓨팅 계층
+                  href: sql-database-serverless.md
+                - name: 예약된 용량 선불
+                  href: sql-database-reserved-capacity.md
             - name: DTU 서비스 계층
               href: sql-database-service-tiers-dtu.md
-            - name: 서버리스 컴퓨팅 계층
-              href: sql-database-serverless.md
-            - name: 예약된 용량 선불
-              href: sql-database-reserved-capacity.md
-            - name: 프리미엄 RS 서버 계층에서 마이그레이션
-              href: sql-database-service-tiers-prs.md
         - name: 컴퓨팅 및 스토리지
           items:
             - name: 개요
@@ -43,6 +42,8 @@
               href: sql-database-service-tier-hyperscale.md
             - name: 하이퍼스케일 FAQ
               href: sql-database-service-tier-hyperscale-faq.md
+            - name: 프리미엄 RS 서버 계층에서 마이그레이션
+              href: sql-database-service-tiers-prs.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -224,6 +225,8 @@
               href: sql-database-disaster-recovery.md
             - name: 복구 훈련
               href: sql-database-disaster-recovery-drills.md
+            - name: 장애 조치(failover) 그룹 구성
+              href: sql-database-configure-failover-group.md
     - name: 모니터링 및 튜닝
       items:
         - name: 설명서 모니터링 및 튜닝
@@ -488,7 +491,7 @@
           href: sql-database-active-geo-replication-portal.md
         - name: Azure SQL 데이터 동기화 설정
           href: sql-database-get-started-sql-data-sync.md
-        - name: Elastic 풀에 장애 조치(failover) 그룹 추가
+        - name: 장애 조치(failover) 그룹에 탄력적 풀 추가
           href: sql-database-elastic-pool-failover-group-tutorial.md
         - name: 보안 구성
           href: sql-database-security-tutorial.md
@@ -604,8 +607,6 @@
           href: sql-database-geo-replication-portal.md
         - name: 지역 복제를 위한 보안 구성
           href: sql-database-geo-replication-security-config.md
-        - name: 장애 조치(failover) 그룹 구성
-          href: sql-database-configure-failover-group.md
         - name: 메모리 내 기능 사용해보기
           href: sql-database-in-memory-sample.md
         - name: 자동 조정 사용
@@ -714,6 +715,8 @@
           href: replication-with-sql-database-managed-instance.md
         - name: 보안 구성
           href: sql-database-managed-instance-aad-security-tutorial.md
+        - name: 장애 조치(failover) 그룹에 관리형 인스턴스 추가
+          href: sql-database-managed-instance-failover-group-tutorial.md
     - name: 개념
       items:
         - name: 관리 API 참조
