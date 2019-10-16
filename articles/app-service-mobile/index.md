@@ -9,18 +9,19 @@ ms.service: app-service-mobile
 ms.topic: landing-page
 ms.date: 05/25/2018
 ms.author: gwallace
-ms.openlocfilehash: 38b1acad5e8eb869d1ed2a8d218a2416bd3b8098
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: a43ef0a527b8533940023b6457f9b0a5a4b22e79
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024742"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388321"
 ---
 # <a name="mobile-apps-documentation"></a>Mobile Apps 설명서
 
 > [!NOTE]
 > Visual Studio App Center는 모바일 앱 개발의 중심인 엔드투엔드 통합 서비스를 지원합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용하여 지속적인 통합 및 업데이트 파이프라인을 설정할 수 있습니다. 앱이 배포되면 개발자는 **분석** 및 **진단** 서비스를 사용하여 앱의 상태와 사용 현황을 모니터링하고, **푸시** 서비스를 사용하여 사용자와 소통할 수 있습니다. 또한 개발자는 **인증** 서비스를 사용하여 사용자를 인증하고, **데이터** 서비스를 사용하여 클라우드에서 애플리케이션 데이터를 유지하고 동기화할 수도 있습니다.
-> 모바일 애플리케이션에서 클라우드 서비스를 통합하려면 지금 App Center [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc)에 가입하세요.
+>
+> 모바일 애플리케이션에서 클라우드 서비스를 통합하려면 지금 [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc)에 등록하세요.
 
 Azure App Service에서 Mobile Apps을 사용하여 네이티브 iOS, Android 또는 Windows 앱 또는 Xamarin이나 Cordova를 사용하는 교차 플랫폼 앱을 빌드하는 방법에 대해 알아봅니다. 자습서, 비디오, 클라이언트 SDK 설명서 등에서는 모바일 앱에 대해 백 엔드를 빌드하고 호스팅하는 방법을 보여 줍니다.
 
