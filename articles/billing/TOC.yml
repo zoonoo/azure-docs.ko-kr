@@ -195,8 +195,6 @@
       href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
     - name: 추가 구독 만들기
       href: billing-create-subscription.md
-    - name: 추가 구독 만들기 - Microsoft 고객 계약
-      href: billing-mca-create-subscription.md
     - name: 프로그래밍 방식으로 엔터프라이즈 구독 만들기
       href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
     - name: 구독 정보 내보내기

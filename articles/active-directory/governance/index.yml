@@ -7,17 +7,17 @@ metadata:
   manager: daveba
   ms.author: ajburnle
   ms.collection: na
-  ms.date: 08/15/2019
+  ms.date: 09/14/2019
   ms.service: active-directory
   ms.subservice: na
   ms.topic: landing-page
   services: active-directory
-  ms.openlocfilehash: cb3a19a372e81f7efe816d9f08831045b5f3332b
-  ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+  ms.openlocfilehash: 0abe0599bcaf88c2a925cb580bea601b827daba2
+  ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/16/2019
-  ms.locfileid: "69542416"
+  ms.lasthandoff: 10/16/2019
+  ms.locfileid: "72430250"
 landingContent:
 - title: ID 거버넌스 정보
   linkLists:
@@ -25,7 +25,7 @@ landingContent:
     links:
     - text: Azure AD Identity Governance란?
       url: identity-governance-overview.md
-  - linkListType: learn
+  - linkListType: video
     links:
     - text: 리소스에 대한 액세스 관리
       url: https://www.youtube.com/watch?v=bFfowdpApu4&list=PLQXpv_NQsPIBg3op2xONM9KgwlayFDue6
@@ -39,10 +39,10 @@ landingContent:
     links:
     - text: 사용자가 필요한 액세스를 요청할 수 있도록 지원하는 첫 번째 액세스 패키지 만들기
       url: entitlement-management-access-package-first.md
-  - linkListType: how-to-guide
+  - linkListType: concept
     links:
-    - text: 기존 액세스 패키지 편집 및 관리
-      url: entitlement-management-access-package-edit.md
+    - text: 위임 및 역할
+      url: entitlement-management-delegate.md
 - title: 그룹, 앱 및 권한 있는 역할에 대한 액세스 다시 인증
   linkLists:
   - linkListType: overview
