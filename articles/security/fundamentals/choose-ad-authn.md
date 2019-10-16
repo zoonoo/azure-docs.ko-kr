@@ -9,11 +9,11 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: ba9cda5aeebaf0764068a463cdb55f3ef5542ea3
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 22a5a2e157c0b2095673e75e7a3bc9ccb80f8ffd
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "69997813"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택 
@@ -67,9 +67,6 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 
 ## <a name="decision-tree"></a>의사 결정 트리
 
-> [!NOTE]
-> PTA는 대체 id로 UserPrincipalName을 선택한 경우에만 대체 ID로 작동 합니다. 그러면 온-프레미스 UserPrincipalName AD에서 AAD로 동기화 됩니다. 자세한 내용은 [통과 인증 지원 "userPrincipalName" 대신 사용자 이름으로 "대체 ID" 지원](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname)을 참조 하세요.
-
 ![Azure AD 인증 의사 결정 트리](./media/choose-ad-authn/azure-ad-authn-image1.png)
 
 의사 결정 질문에 대한 세부 정보:
@@ -121,7 +118,7 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 
 * **고급 시나리오**. 로그인 시 통과 인증이 온-프레미스 계정 정책을 적용합니다. 예를 들어, 온-프레미스 사용자의 계정이 사용 안 함, 잠김 또는 [암호 만료됨](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) 상태이거나 사용자의 허용된 로그온 시간을 벗어난 상태인 경우 액세스가 거부됩니다. 
 
-    통과 인증을 사용 하는 다단계 인증을 필요로 하는 조직은 Azure MFA (Multi-factor Authentication) 또는 [조건부 액세스 사용자 지정 컨트롤](../../active-directory/conditional-access/controls.md#custom-controls-preview)을 사용 해야 합니다. 이러한 조직에서는 페더레이션을 기반으로 하는 타사 또는 온-프레미스 다단계 인증 방법을 사용할 수 없습니다. ID 보호의 유출된 자격 증명 보고서 등과 같은 고급 기능을 사용하려면 통과 인증 선택 여부에 관계없이 암호 해시 동기화를 배포해야 합니다.
+    통과 인증을 사용 하는 다단계 인증을 요구 하는 조직은 MFA (Azure Multi-Factor Authentication) 또는 [조건부 액세스 사용자 지정 컨트롤](../../active-directory/conditional-access/controls.md#custom-controls-preview)을 사용 해야 합니다. 이러한 조직에서는 페더레이션을 기반으로 하는 타사 또는 온-프레미스 다단계 인증 방법을 사용할 수 없습니다. ID 보호의 유출된 자격 증명 보고서 등과 같은 고급 기능을 사용하려면 통과 인증 선택 여부에 관계없이 암호 해시 동기화를 배포해야 합니다.
 
 * **비즈니스 연속성**. Azure AD Connect 서버의 첫 번째 에이전트 외에 두 개의 추가적인 통과 인증 에이전트를 배포하는 것이 좋습니다. 이러한 추가 배포는 인증 요청의 높은 가용성을 보장합니다. 세 개의 에이전트를 배포하면 유지 관리를 위해 에이전트 하나가 중지된 경우에도 다른 에이전트가 실패해도 괜찮습니다. 
 
