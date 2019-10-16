@@ -16,9 +16,9 @@ ms.locfileid: "71240412"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Azure HDInsight의 엔터프라이즈 보안 개요
 
-Azure HDInsight는 엔터프라이즈 보안 요구 사항을 처리할 수 있는 여러 가지 방법을 제공합니다. 이러한 솔루션의 대부분은 기본적으로 활성화되지 않습니다. 이러한 유연성을 통해 가장 중요한 보안 기능을 선택할 수 있으며 원하지 않는 기능에 대해 비용을 지불하지 않도록 방지할 수 있습니다. 또한 이로 인해 사용자는 설치 및 환경에서 올바른 솔루션을 사용하도록 설정해야 합니다.
+Azure HDInsight는 엔터프라이즈 보안 요구 사항을 처리할 수 있는 여러 가지 방법을 제공합니다. 이러한 솔루션의 대부분은 기본적으로 활성화되지 않습니다. 이러한 유연성을 통해 가장 중요한 보안 기능을 선택할 수 있으며 원하지 않는 기능의 비용을 지불하지 않도록 방지할 수 있습니다. 또한 이로 인해 사용자는 설치 및 환경에서 올바른 솔루션을 사용하도록 설정해야 합니다.
 
-이 문서에서는 보안 솔루션에 대해 경계 보안, 인증, 권한 부여 및 암호화의 4가지 기존 보안 핵심 요소로 구분하여 살펴봅니다.
+이 문서에서는 보안 솔루션 경계 보안, 인증, 권한 부여 및 암호화의 4가지 기존 보안 핵심 요소로 구분하여 살펴봅니다.
 
 또한 이 문서에서는 **Azure HDInsight ESP(Enterprise Security Package)** 를 소개합니다. 이 패키지는 HDInsight 클러스터에 대한 Active Directory 기반 인증, 다중 사용자 지원 및 역할 기반 액세스 제어를 제공합니다.
 
@@ -62,7 +62,7 @@ HDInsight 클러스터용 데이터 저장소(Azure Blob 스토리지 및 Azure 
 
 ## <a name="shared-responsibility-model"></a>공동 책임 모델
 
-다음 이미지에는 각 시스템에서 사용할 수 있는 주요 시스템 보안 영역과 보안 솔루션이 요약되어 있습니다. 또한 고객이 담당하는 보안 영역과 서비스 공급자인 HDInsight에서 담당하는 영역에 대해서도 강조합니다.
+다음 이미지에는 각 시스템에서 사용할 수 있는 주요 시스템 보안 영역과 보안 솔루션이 요약되어 있습니다. 또한 고객이 담당하는 보안 영역과 서비스 공급자인 HDInsight에서 담당하는 영역을 강조합니다.
 
 ![HDInsight 공유 책임 다이어그램](./media/hdinsight-security-overview/hdinsight-shared-responsibility.png)
 
@@ -73,7 +73,7 @@ HDInsight 클러스터용 데이터 저장소(Azure Blob 스토리지 및 Azure 
 | 데이터 액세스 보안 | Azure Data Lake Storage Gen1 및 Gen2에 대한 [ACL(액세스 제어 목록)](../../storage/blobs/data-lake-storage-access-control.md) 구성  | 고객 |
 |  | 스토리지 계정에서 ["보안 전송 필요"](../../storage/common/storage-require-secure-transfer.md) 속성을 사용하도록 설정 | 고객 |
 |  | [Azure Storage 방화벽](../../storage/common/storage-network-security.md) 및 가상 네트워크 구성 | 고객 |
-|  | Cosmos DB 및 [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)에 대해 [Azure 가상 네트워크 서비스 끝점](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 구성 | 고객 |
+|  | Cosmos DB 및 [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) [Azure 가상 네트워크 서비스 끝점](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 구성 | 고객 |
 |  | 전송 중인 데이터에 [TLS 암호화](../../storage/common/storage-security-tls.md)를 사용하도록 설정 | 고객 |
 |  | Azure Storage 암호화용 [고객 관리형 키](../../storage/common/storage-encryption-keys-portal.md) 구성 | 고객 |
 | 애플리케이션 및 미들웨어 보안 | AAD-DS와 통합 및 [인증 구성](apache-domain-joined-configure-using-azure-adds.md) | 고객 |
