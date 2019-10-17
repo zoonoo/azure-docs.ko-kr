@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
 ms.openlocfilehash: 2f728231c01056ecb8709f84f13e834ef3618dc8
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "71803307"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Android의 Java에서 음성 인식

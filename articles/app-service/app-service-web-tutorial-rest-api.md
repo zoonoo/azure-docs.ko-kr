@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 137b569820ea7394b6a3beb24129c905a2efd123
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: f13b390047ea4d8280b106f3b02a8f18944a6f99
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743872"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255137"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>자습서: Azure App Service에서 CORS를 통해 RESTful API 호스팅
 
@@ -72,7 +72,7 @@ dotnet run
 
 브라우저에서 `http://localhost:5000/swagger`로 이동하여 Swagger UI를 실행해 봅니다.
 
-![로컬로 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/local-run.png)
+![로컬로 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/azure-app-service-local-swagger-ui.png)
 
 `http://localhost:5000/api/todo`로 이동하여 ToDo JSON 항목 목록을 확인합니다.
 
@@ -136,7 +136,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 브라우저에서 `http://<app_name>.azurewebsites.net/swagger`로 이동하여 Swagger UI를 실행해 봅니다.
 
-![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/azure-run.png)
+![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/azure-app-service-browse-app.png)
 
 `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json`으로 이동하여 배포된 API에 대한 _swagger.json_을 확인합니다.
 
@@ -160,7 +160,7 @@ dotnet run
 
 `http://localhost:5000`에 있는 브라우저 앱으로 이동합니다. 브라우저에서 개발자 도구 창을 열고(Windows용 Chrome에서 `Ctrl`+`Shift`+`i`) **콘솔** 탭을 검사합니다. 이제 `No 'Access-Control-Allow-Origin' header is present on the requested resource` 오류 메시지가 표시됩니다.
 
-![브라우저 클라이언트에서 발생한 CORS 오류](./media/app-service-web-tutorial-rest-api/cors-error.png)
+![브라우저 클라이언트에서 발생한 CORS 오류](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 
 브라우저 앱(`http://localhost:5000`)과 원격 리소스(`http://<app_name>.azurewebsites.net`) 간에 도메인이 일치하지 않고 App Service의 API에서 `Access-Control-Allow-Origin` 헤더를 보내지 않기 때문에 브라우저에서 도메인 간 콘텐츠가 브라우저 앱에 로드되지 않도록 차단했습니다.
 
@@ -183,7 +183,7 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 
 `http://localhost:5000`에서 브라우저 앱을 새로 고칩니다. **콘솔** 창의 오류 메시지가 사라지고, 배포된 API의 데이터를 보고 상호 작용할 수 있습니다. 이제 원격 API에서 로컬로 실행 중인 브라우저 앱에 CORS를 지원합니다. 
 
-![브라우저 클라이언트에서 CORS 성공](./media/app-service-web-tutorial-rest-api/cors-success.png)
+![브라우저 클라이언트에서 CORS 성공](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-success.png)
 
 축하합니다! CORS 지원을 통해 Azure App Service에서 API를 실행하고 있습니다.
 

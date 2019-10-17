@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a75f3f606129d370457816507537f2cb4491adf8
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: cf48426f14eb1ea5004b23da594194fa9828a112
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478821"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303466"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Azure Maps를 사용하여 주변 관심 지점 검색
 
@@ -220,7 +220,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 4. 브라우저에 다음 HTTPRequest를 입력하여 지도에서 렌더링하는 원시 데이터를 볼 수 있습니다. \<Your Azure Maps Key\>를 기본 키로 바꿉니다.
 
    ```http
-   https://atlas.microsoft.com/search/poi/json?api-version=2&query=gasoline%20station&subscription-key=<subscription-key>&lat=47.6292&lon=-122.2337&radius=100000
+   https://atlas.microsoft.com/search/poi/json?api-version=1.0&query=gasoline%20station&subscription-key=<subscription-key>&lat=47.6292&lon=-122.2337&radius=100000
    ```
 
 이 시점에서 MapSearch 페이지에는 유사 항목 검색 쿼리에서 반환된 관심 지점의 위치가 표시될 수 있습니다. 몇 가지 대화형 기능과 위치에 대한 자세한 정보를 추가해 보겠습니다.
