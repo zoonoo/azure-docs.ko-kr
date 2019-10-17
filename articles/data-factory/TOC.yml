@@ -80,7 +80,7 @@
           items:
             - name: 데이터 복사 도구
               href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-    - name: Data Flow 매핑을 사용하여 데이터 변환
+    - name: 데이터 흐름 매핑을 사용하여 데이터 변환
       href: tutorial-data-flow.md
     - name: 클라우드에서 데이터 변환
       items:
@@ -143,7 +143,7 @@
       href: concepts-pipeline-execution-triggers.md
     - name: 통합 런타임
       href: concepts-integration-runtime.md
-    - name: Data Flow 매핑
+    - name: 데이터 흐름 매핑
       items:
         - name: Data Flow 매핑 개요
           href: concepts-data-flow-overview.md
@@ -616,7 +616,7 @@
           href: data-migration-guidance-hdfs-azure-storage.md
         - name: 온-프레미스 Netezza 서버에서 Azure로 데이터 마이그레이션
           href: data-migration-guidance-netezza-azure-sqldw.md
-    - name: Data Flow 매핑을 사용한 변환
+    - name: 데이터 흐름 매핑을 사용한 변환
       items:
         - name: 고정 너비 텍스트 파일 처리
           href: how-to-fixed-width.md

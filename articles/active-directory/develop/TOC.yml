@@ -345,6 +345,8 @@
               href: active-directory-how-applications-are-added.md
             - name: 리디렉션 URI/회신 URL 제한 및 제한 사항
               href: reply-url.md
+            - name: 지원되는 계정 유형별 유효성 검사 차이
+              href: supported-accounts-validation.md
             - name: 단일 테넌트 및 다중 테넌트 앱
               href: single-and-multi-tenant-apps.md
         - name: 권한 및 동의

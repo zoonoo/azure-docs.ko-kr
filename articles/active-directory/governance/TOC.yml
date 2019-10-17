@@ -42,6 +42,8 @@
           items:
             - name: 카탈로그 작성자에게 위임
               href: entitlement-management-delegate-catalog.md
+            - name: 외부 사용자를 위한 액세스 제어
+              href: entitlement-management-external-users.md
             - name: 보고서 및 로그 보기
               href: entitlement-management-reports.md
             - name: 문제 해결
@@ -56,7 +58,19 @@
           items:
             - name: 새 액세스 패키지 만들기
               href: entitlement-management-access-package-create.md
-            - name: 액세스 패키지 편집
+            - name: 공유 액세스 패키지 링크
+              href: entitlement-management-access-package-settings.md
+            - name: 리소스 역할 변경
+              href: entitlement-management-access-package-resources.md
+            - name: 요청 및 승인 설정 변경
+              href: entitlement-management-access-package-request-policy.md
+            - name: 수명 주기 설정 변경
+              href: entitlement-management-access-package-lifecycle-policy.md
+            - name: 요청 보기 및 관리
+              href: entitlement-management-access-package-requests.md
+            - name: '할당 보기, 추가 및 제거'
+              href: entitlement-management-access-package-assignments.md
+            - name: 숨기기 또는 삭제
               href: entitlement-management-access-package-edit.md
         - name: 승인자
           items:

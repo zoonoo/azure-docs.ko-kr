@@ -285,6 +285,8 @@
       items:
         - name: 자산 게시 - CLI
           href: cli-publish-asset.md
+        - name: 신호 설명 오디오
+          href: signal-descriptive-audio-howto.md
 - name: 참고 자료
   items:
     - name: OpenAPI 사양(Swagger)

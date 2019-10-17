@@ -131,6 +131,8 @@
       href: howto-password-smart-lockout.md
     - name: 암호 없음
       items:
+        - name: 암호 없는 배포
+          href: howto-authentication-passwordless-deployment.md
         - name: 암호 없는 보안 키
           href: howto-authentication-passwordless-security-key.md
         - name: 암호 없는 휴대폰 로그인

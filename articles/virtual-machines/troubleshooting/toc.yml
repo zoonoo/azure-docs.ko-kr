@@ -69,8 +69,9 @@
   href: performance-diagnostics.md
 - name: Linux 또는 Windows를 실행 중인 Azure Virtual Machine의 일반 성능 문제 해결
   href: troubleshoot-performance-virtual-machine-linux-windows.md
-- name: Azure 가상 머신에서 32비트 운영 체제 지원
+- name: 32비트 운영 체제 지원
   href: support-32-bit-operating-systems-virtual-machines.md
+- name: PerfInsights
   items:
     - name: Windows
       items:

@@ -445,18 +445,20 @@
           items:
             - name: OpenShift 개요
               href: openshift-get-started.md
-            - name: OpenShift 필수 구성 요소
-              href: openshift-prerequisites.md
-            - name: OpenShift Container Platform
-              href: openshift-container-platform.md
-            - name: OpenShift Marketplace 자체 관리형
-              href: openshift-marketplace-self-managed.md
+            - name: OpenShift Container Platform 4.x
+              href: openshift-container-platform-4x.md
+            - name: OpenShift Container Platform 3.11 필수 구성 요소
+              href: openshift-container-platform-3x-prerequisites.md
+            - name: OpenShift Container Platform 3.11
+              href: openshift-container-platform-3x.md
+            - name: OpenShift Container Platform 3.11 Marketplace 자체 관리
+              href: openshift-container-platform-3x-marketplace-self-managed.md
             - name: Azure Stack
               href: openshift-azure-stack.md
-            - name: OpenShift 사후 배포 작업
-              href: openshift-post-deployment.md
-            - name: 배포 문제 해결
-              href: openshift-troubleshooting.md
+            - name: OpenShift Container Platform 3.11 배포 후 작업
+              href: openshift-container-platform-3x-post-deployment.md
+            - name: OpenShift Container Platform 3.11 배포 문제 해결
+              href: openshift-container-platform-3x-troubleshooting.md
         - name: Azure의 SAP
           href: ../workloads/sap/get-started.md
         - name: Oracle

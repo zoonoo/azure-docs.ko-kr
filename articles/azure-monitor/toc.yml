@@ -217,7 +217,7 @@
                   href: app/asp-net-troubleshoot-no-data.md
             - name: 코드 없는 모니터링
               items:
-                - name: Azure VM 및 Azure 가상 머신 확장 집합
+                - name: Azure VM 및 확장 집합
                   href: app/azure-vm-vmss-apps.md
                 - name: Azure App Service
                   displayname: 'App Service, web app, PaaS, Azure web app'
@@ -231,10 +231,10 @@
                 - name: Kubernetes 애플리케이션
                   displayname: 'aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks'
                   href: app/kubernetes.md
-                - name: 상태 모니터
+                - name: 상태 모니터(레거시)
                   displayname: 'IIS monitoring, on premises monitoring, on prem,'
                   href: app/monitor-performance-live-website-now.md
-                - name: 상태 모니터 v2
+                - name: 온-프레미스 서버
                   items:
                     - name: 개요
                       displayname: 'IIS monitoring, on premises monitoring, on prem,'
