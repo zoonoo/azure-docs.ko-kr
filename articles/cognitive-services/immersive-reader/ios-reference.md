@@ -9,20 +9,20 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 08/01/2019
 ms.author: metan
-ms.openlocfilehash: 615c09dd8a7287918bb009ce11854278b21554c1
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 1f85740c358bd0949fed9c954537f0926538995d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899405"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388111"
 ---
-# <a name="immersive-reader-sdk-reference"></a>몰입 형 판독기 SDK 참조
+# <a name="immersive-reader-sdk-reference-for-ios"></a>IOS 용 몰입 형 판독기 SDK 참조
 
 몰입 형 판독기 iOS SDK는 몰입 형 판독기를 iOS 응용 프로그램에 통합할 수 있는 Swift CocoaPod입니다.
 
-## <a name="functions"></a>함수
+## <a name="functions"></a>Functions
 
-SDK는 단일 함수인를 `launchImmersiveReader(navController, token, subdomain, content, options, onSuccess, onFailure)`노출 합니다.
+SDK는 단일 함수 `launchImmersiveReader(navController, token, subdomain, content, options, onSuccess, onFailure)`을 노출 합니다.
 
 ### <a name="launchimmersivereader"></a>launchImmersiveReader
 
@@ -32,21 +32,21 @@ IOS 응용 프로그램에서 뷰 컨트롤러를 시작 하 여 몰입 형 판�
 public func launchImmersiveReader(navController: UINavigationController, token: String, subdomain: String, content: Content, options: Options?, onSuccess: @escaping () -> Void, onFailure: @escaping (_ error: Error) -> Void)
 ```
 
-#### <a name="parameters"></a>매개 변수
+#### <a name="parameters"></a>parameters
 
-| 이름 | 형식 | 설명 |
+| name | Type | 설명 |
 | ---- | ---- |------------ |
 | `navController` | UINavigationController | 함수를 호출 하는 iOS 응용 프로그램에 대 한 탐색 컨트롤러입니다. |
-| `token` | 문자열 | Azure AD 인증 토큰입니다. [AZURE AD 인증 방법을](./azure-active-directory-authentication.md)참조 하세요. |
-| `subdomain` | 문자열 | Azure에서 몰입 형 판독기 리소스의 사용자 지정 하위 도메인입니다. [AZURE AD 인증 방법을](./azure-active-directory-authentication.md)참조 하세요. |
+| `token` | string | Azure AD 인증 토큰입니다. [AZURE AD 인증 방법을](./azure-active-directory-authentication.md)참조 하세요. |
+| `subdomain` | string | Azure에서 몰입 형 판독기 리소스의 사용자 지정 하위 도메인입니다. [AZURE AD 인증 방법을](./azure-active-directory-authentication.md)참조 하세요. |
 | `content` | [콘텐츠](#content) | 몰입 형 판독기에 표시할 콘텐츠를 포함 하는 개체입니다. |
 | `options` | [옵션](#options) | 몰입 형 판독기의 특정 동작을 구성 하기 위한 옵션입니다. 선택 사항입니다. |
 | `onSuccess` | ()-> Void | 몰입 형 판독기가 성공적으로 시작 될 때 호출 되는 닫기입니다. |
-| `onFailure` | (_ 오류: [오류](#error)) -> Void | 몰입 형 판독기를 로드 하지 못할 때 호출 되는 닫기입니다. 이 클로저는 오류 [`Error`](#error) 코드 및 오류와 관련 된 오류 메시지를 나타내는 개체를 반환 합니다. 자세한 내용은 [오류 코드](#error-codes)를 참조 하세요. |
+| `onFailure` | (_ 오류: [오류](#error))-> Void | 몰입 형 판독기를 로드 하지 못할 때 호출 되는 닫기입니다. 이 클로저는 오류 코드 및 오류와 관련 된 오류 메시지를 나타내는 [`Error`](#error) 개체를 반환 합니다. 자세한 내용은 [오류 코드](#error-codes)를 참조 하세요. |
 
-## <a name="types"></a>유형
+## <a name="types"></a>형식
 
-### <a name="content"></a>콘텐츠
+### <a name="content"></a>목차
 
 몰입 형 판독기에 표시할 콘텐츠를 포함 합니다.
 
@@ -59,7 +59,7 @@ struct Content: Encodable {
 
 #### <a name="supported-mime-types"></a>지원 되는 MIME 형식
 
-| MIME 형식 | Description |
+| MIME 형식 | 설명 |
 | --------- | ----------- |
 | 텍스트/일반 | 일반 텍스트입니다. |
 | application/mathml + xml | MathML (수학 Markup Language). [자세히 알아보기](https://developer.mozilla.org/en-US/docs/Web/MathML).
@@ -75,7 +75,7 @@ struct Options {
 }
 ```
 
-### <a name="error"></a>Error
+### <a name="error"></a>오류
 
 오류에 대 한 정보를 포함 합니다.
 
@@ -88,13 +88,13 @@ struct Error {
 
 #### <a name="error-codes"></a>오류 코드
 
-| 코드 | Description |
+| 코드 | 설명 |
 | ---- | ----------- |
-| BadArgument | 제공 된 인수가 잘못 되었습니다. `message` 자세한 내용은를 참조 하십시오. |
-| 제한 시간 | 몰입 형 판독기를 지정 된 시간 제한 내에 로드 하지 못했습니다. |
+| BadArgument | 제공 된 인수가 잘못 되었습니다. 자세한 내용은 `message`을 참조 하십시오. |
+| 시간 제한 | 몰입 형 판독기를 지정 된 시간 제한 내에 로드 하지 못했습니다. |
 | TokenExpired | 제공 된 토큰이 만료 되었습니다. |
-| 정체됨 | 호출 속도로 제한을 초과 했습니다. |
-| InternalError | 몰입 형 판독기 뷰 컨트롤러 내에서 내부 오류가 발생 했습니다. 자세한 내용은 `message`를 참조하세요.|
+| 됨 | 호출 속도로 제한을 초과 했습니다. |
+| InternalError | 몰입 형 판독기 뷰 컨트롤러 내에서 내부 오류가 발생 했습니다. 자세한 내용은 `message`을 참조 하세요.|
 
 ## <a name="os-version-support"></a>OS 버전 지원
 
@@ -103,4 +103,4 @@ struct Error {
 ## <a name="next-steps"></a>다음 단계
 
 * [GitHub의 몰입 형 판독기 IOS SDK](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS) 살펴보기
-* [빠른 시작: 몰입 형 판독기를 실행 하는 iOS 앱 만들기 (Swift)](./ios-quickstart.md)
+* [빠른 시작: 몰입 형 판독기를 시작 하는 iOS 앱 만들기 (Swift)](./ios-quickstart.md)

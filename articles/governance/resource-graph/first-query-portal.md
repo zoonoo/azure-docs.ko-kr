@@ -3,15 +3,15 @@ title: Azure Resource Graph Explorer를 사용하여 첫 번째 쿼리 실행
 description: 이 문서에서는 Azure Resource Graph Explorer를 사용하여 Azure Portal에서 첫 번째 쿼리를 실행하는 단계를 안내합니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/29/2019
+ms.date: 10/18/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: d533d24f9bfe133955c0f503e2458c8fcb0bf1de
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 755556b9ba049da7542494ee580215d29c1eb5f4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981259"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387612"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>빠른 시작: Azure Resource Graph Explorer를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -27,19 +27,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 왼쪽 창에서 **모든 서비스**를 선택합니다. **Resource Graph Explorer**를 검색하고 선택합니다.
 
-1. 창의 **쿼리 1** 부분에서 `project name, type | limit 5` 쿼리를 입력하고, **쿼리 실행**을 선택합니다.
+1. 창의 **쿼리 1** 부분에서 `Resources | project name, type | limit 5` 쿼리를 입력하고, **쿼리 실행**을 선택합니다.
 
    > [!NOTE]
    > 이 쿼리 예제에서는 `order by`와 같은 정렬 한정자를 제공하지 않으므로 이 쿼리를 여러 번 실행하면 요청마다 다른 리소스 세트가 생성될 수 있습니다.
 
 1. **결과** 탭에서 쿼리 응답을 검토합니다. **메시지** 탭을 선택하여 결과 수 및 쿼리 기간을 포함하여 쿼리에 대한 세부 정보를 확인합니다. 오류가 있는 경우 이 탭 아래에 표시됩니다.
 
-1. **Name** 속성을 기준으로 정렬(`order by`)하도록 쿼리를 업데이트합니다(`project name, type | limit 5 | order by name asc`). 그런 다음, **쿼리 실행**을 선택합니다.
+1. **Name** 속성을 기준으로 정렬(`order by`)하도록 쿼리를 업데이트합니다(`Resources | project name, type | limit 5 | order by name asc`). 그런 다음, **쿼리 실행**을 선택합니다.
 
    > [!NOTE]
    > 첫 번째 쿼리와 마찬가지로 이 쿼리를 여러 번 실행하면 요청마다 다른 리소스 집합이 생성될 수 있습니다. 쿼리 명령의 순서는 중요합니다. 이 예제에서 `order by`는 `limit` 뒤에 옵니다. 이렇게 하면 먼저 쿼리 결과가 제한된 후 정렬됩니다.
 
-1. 먼저 **Name** 속성을 기준으로 정렬(`order by`)한 다음, 상위 5개 결과로 제한(`limit`)하도록 쿼리를 업데이트합니다(`project name, type | order by name asc | limit 5`). 그런 다음, **쿼리 실행**을 선택합니다.
+1. 먼저 **Name** 속성을 기준으로 정렬(`order by`)한 다음, 상위 5개 결과로 제한(`limit`)하도록 쿼리를 업데이트합니다(`Resources | project name, type | order by name asc | limit 5`). 그런 다음, **쿼리 실행**을 선택합니다.
 
 최종 쿼리가 여러 번 실행될 때 환경이 전혀 변경되지 않는다고 가정하면 반환되는 결과는 일관되고, 예상대로 **Name** 속성을 기준으로 정렬되지만 여전히 상위 5개 결과로 제한됩니다.
 
@@ -54,7 +54,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 1. 창의 **쿼리 1** 부분에서 다음 쿼리를 입력하고 **쿼리 실행**을 선택합니다.
 
    ```kusto
-   where type =~ 'Microsoft.Compute/virtualMachines'
+   Resources
+   | where type =~ 'Microsoft.Compute/virtualMachines'
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
 

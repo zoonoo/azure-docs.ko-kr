@@ -1,5 +1,5 @@
 ---
-title: 활성 학습 - Personalizer
+title: 활성 및 비활성 이벤트-Personalizer
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
@@ -10,47 +10,36 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 8c1579be3d11ae14ca45ee861de2d4f705e5d62c
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: aa6f53901f21dcb0726454d641a4a2a66007f9e0
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663721"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429044"
 ---
-# <a name="active-learning-and-learning-policies"></a>활성 학습 및 학습 정책 
+# <a name="active-and-inactive-events"></a>활성 및 비활성 이벤트
 
-애플리케이션이 Rank API를 호출하는 경우 콘텐츠의 순위를 받습니다. 비즈니스 논리는 이 순위를 사용하여 콘텐츠가 사용자에게 표시되어야 하는지 여부를 결정할 수 있습니다. 순위 지정 콘텐츠를 표시하면 이는 _활성_ 순위 이벤트입니다. 애플리케이션이 해당 순위 지정 콘텐츠를 표시하지 않으면 이는 _비활성_ 순위 이벤트입니다. 
+응용 프로그램이 Rank API를 호출 하면 응용 프로그램이 rewardActionId 필드에 표시 해야 하는 작업을 받게 됩니다.  이 순간부터 Personalizer는 동일한 eventId를 사용 하 여 보상 호출을 기대 합니다. 보상 점수는 이후 순위 호출에 사용 될 모델을 학습 하는 데 사용 됩니다. EventId에 대해 보상 호출이 수신 되지 않으면 기본 보상이 적용 됩니다. 기본 보상은 Azure Portal에서 설정 됩니다.
 
-활성 순위 이벤트 정보는 Personalizer에 반환됩니다. 이 정보는 현재 학습 정책을 통해 모델 교육을 계속하기 위해 사용됩니다.
-
-## <a name="active-events"></a>활성 이벤트
-
-활성 이벤트는 항상 사용자에게 표시되어야 하며 학습 루프를 닫으려면 보상 호출을 반환해야 합니다. 
-
-### <a name="inactive-events"></a>비활성 이벤트 
-
-비활성 이벤트는 사용자에게 순위 지정 콘텐츠에서 선택할 기회가 주어지지 않았기 때문에 기본 모델을 변경하지 않아야 합니다.
-
-## <a name="dont-train-with-inactive-rank-events"></a>비활성 순위 이벤트를 사용하여 학습하지 마세요. 
-
-일부 애플리케이션의 경우 애플리케이션이 결과를 사용자에게 표시할지 여부를 아직 알지 못한 상태에서 Rank API를 호출해야 할 수 있습니다. 
-
-이런 상황은 다음과 같은 경우에 발생합니다.
+경우에 따라 응용 프로그램에서 순위 보어를 호출 해야 할 수 있습니다 .이는 결과가 사용 되는지 사용자에 게 displayedn를 알고 있습니다. 이는 예를 들어 승격 된 콘텐츠의 페이지 렌더링을 마케팅 캠페인으로 덮어쓰는 경우에 발생할 수 있습니다. Rank 호출 결과를 사용 하지 않은 경우 사용자가 해당 결과를 볼 수 없는 경우에는 0 또는 그 밖의 보상으로 학습 하는 것이 잘못 된 것입니다.
+일반적으로이 작업은 다음과 같은 경우에 발생 합니다.
 
 * 사용자가 볼 수 있거나 볼 수 없는 일부 UI를 미리 렌더링할 수 있습니다. 
 * 애플리케이션은 실시간 특성이 적은 상황에서 Rank를 호출하는 예상 개인 설정을 수행할 수 있으며 해당 출력을 애플리케이션에서 사용할 수도 있고 사용하지 않을 수도 있습니다. 
 
-### <a name="disable-active-learning-for-inactive-rank-events-during-rank-call"></a>Rank 호출 중에 비활성 순위 이벤트에 대해 활성 학습을 사용하지 않도록 설정
+이러한 경우 Personalizer를 사용 하는 올바른 방법은 이벤트를 _비활성_으로 요청 하는 순위를 호출 하는 것입니다. Personalizer는이 이벤트에 대 한 보상을 필요로 하지 않으며 기본 보상을 적용 하지 않습니다. 비즈니스 논리에서 r을 사용 합니다. 응용 프로그램에서 순위 호출의 정보를 사용 하는 경우에는 이벤트를 _활성화_ 하기만 하면 됩니다. 이벤트가 활성화 되는 순간부터 Personalizer는 이벤트에 대 한 보상을 요구 하거나 보상 API에 대 한 명시적 호출이 수행 되지 않은 경우 기본 보상을 적용 합니다.
 
-자동 학습을 사용하지 않도록 설정하려면 `learningEnabled = False`를 사용하여 Rank를 호출합니다.
+## <a name="get-inactive-events"></a>비활성 이벤트 가져오기
 
-비활성 이벤트에 대한 학습은 Rank에 대해 보상을 보내는 경우 묵시적으로 활성화됩니다.
+이벤트에 대 한 학습을 사용 하지 않도록 설정 하려면 `learningEnabled = False`으로 순위를 호출 합니다.
 
-## <a name="learning-policies"></a>학습 정책
+EventId에 대해 보상을 보내거나 해당 eventId에 대해 `activate` API를 호출 하면 비활성 이벤트에 대 한 학습이 암시적으로 활성화 됩니다.
 
-학습 정책은 모델 학습의 특정 *하이퍼 매개 변수*를 결정합니다. 서로 다른 학습 정책에 따라 학습한 같은 데이터의 두 모델은 서로 다르게 작동합니다.
+## <a name="learning-settings"></a>학습 설정
 
-### <a name="importing-and-exporting-learning-policies"></a>학습 정책 가져오기 및 내보내기
+학습 설정은 모델 학습의 특정 하이퍼 *매개 변수* 를 결정 합니다. 서로 다른 학습 설정에 대해 학습 된 동일한 데이터의 두 모델은 서로 다릅니다.
+
+### <a name="import-and-export-learning-policies"></a>학습 정책 가져오기 및 내보내기
 
 Azure Portal에서 학습 정책 파일을 가져오고 내보낼 수 있습니다. 이렇게 하면 기존 정책을 저장하고 테스트하고 바꾸고 나중에 참조 및 감사하기 위한 아티팩트로 소스 코드 컨트롤에 보관할 수 있습니다.
 

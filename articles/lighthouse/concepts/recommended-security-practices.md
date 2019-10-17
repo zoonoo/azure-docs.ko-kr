@@ -1,5 +1,5 @@
 ---
-title: Azure Lighthouse에 대한 권장 보안 방법
+title: 권장 보안 방법
 description: Azure 위임 리소스 관리를 사용하는 경우 보안 및 액세스 제어를 고려하는 것이 중요합니다.
 author: JnHs
 ms.service: lighthouse
@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 843b965e6ea74a7c11dc11459ff5d30ddbe5c987
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 08a54313885c7d38117c242f01c2780796f38a08
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810867"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286189"
 ---
 # <a name="recommended-security-practices"></a>권장 보안 방법
 

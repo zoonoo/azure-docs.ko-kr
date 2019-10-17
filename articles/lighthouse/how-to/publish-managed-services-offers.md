@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 4781126bc4fcfb6391db42a75553a13e0e4cc4f9
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: c358c728f7fe008ee8d9138cd081932524e7eaf9
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155140"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300295"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Azure Marketplace에 관리형 서비스 솔루션 게시
 
@@ -73,7 +73,7 @@ ms.locfileid: "71155140"
   - **Azure AD 개체 ID**: 고객의 리소스에 대한 특정 권한(역할 정의에 설명됨)을 부여할 사용자, 사용자 그룹 또는 애플리케이션의 Azure AD 식별자입니다.
   - **Azure AD 개체 표시 이름**: 고객이 이 권한 부여의 용도를 이해하는 데 도움이 되는 친숙한 이름입니다. 리소스를 위임할 때 고객에게 이 이름이 표시됩니다.
   - **역할 정의**: 목록에서 사용 가능한 Azure AD 기본 제공 역할 중 하나를 선택합니다. 이 역할은 **Azure AD 개체 ID** 필드의 사용자가 고객의 리소스에 대해 갖게 되는 권한을 결정합니다. 이러한 역할에 대한 내용은 [기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)을 참조하세요.
-  - **할당 가능한 역할**: 이 권한 부여에 대해 **역할 정의**에서 사용자 액세스 관리자를 선택한 경우에만 필요합니다. 그렇다면 여기에 할당 가능한 역할을 하나 이상 추가해야 합니다. **Azure AD 개체 ID** 필드의 사용자는 이러한 **할당 가능한 역할**을 [관리 ID](https://docs.microsoft.com/azure/managed-applications/publish-managed-identity)에 할당할 수 있습니다. 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다. 여기에서 하나 이상의 역할을 선택하지 않으면 제출이 인증을 통과하지 못합니다. 이 사용자의 역할 정의에 대해 사용자 액세스 관리자를 선택하지 않은 경우 이 필드는 영향을 주지 않습니다.
+  - **할당 가능한 역할**: 이 권한 부여에 대해 **역할 정의**에서 사용자 액세스 관리자를 선택한 경우에만 필요합니다. 그렇다면 여기에 할당 가능한 역할을 하나 이상 추가해야 합니다. **Azure AD 개체 ID** 필드의 사용자는 이러한 **할당 가능한 역할**을 [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)에 할당할 수 있습니다. 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다. 여기에서 하나 이상의 역할을 선택하지 않으면 제출이 인증을 통과하지 못합니다. 이 사용자의 역할 정의에 대해 사용자 액세스 관리자를 선택하지 않은 경우 이 필드는 영향을 주지 않습니다.
 
 > [!TIP]
 > 대부분의 경우 일련의 개별 사용자 계정이 아닌 Azure AD 사용자 그룹 또는 서비스 주체에 권한을 할당하는 것이 좋습니다. 이렇게 하면 액세스 요구 사항이 변경될 때 플랜을 업데이트한 후 다시 게시하지 않고도 개별 사용자에 대한 액세스 권한을 추가하거나 제거할 수 있습니다.

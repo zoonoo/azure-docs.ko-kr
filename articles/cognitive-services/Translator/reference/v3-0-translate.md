@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/01/2019
+ms.date: 10/16/2019
 ms.author: swmachan
-ms.openlocfilehash: 67d323d5a3574100760c78427db6983f6aff5ac8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 24f27dfde34413d1ac98f795eddc07103d3cbf3c
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933989"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515249"
 ---
-# <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: 좌표 이동
+# <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
 
 텍스트를 번역합니다.
 
@@ -35,17 +35,17 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 <table width="100%">
   <th width="20%">쿼리 매개 변수</th>
-  <th>Description</th>
+  <th>설명</th>
   <tr>
     <td>api-version</td>
     <td><em>필수 매개 변수</em>입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 <code>3.0</code>이어야 합니다.</td>
   </tr>
   <tr>
     <td>from</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>입력 텍스트의 언어를 지정합니다. <code>translation</code> 범위를 통해 <a href="./v3-0-languages.md">지원되는 언어</a>를 조회하여 번역할 수 있는 원본 언어를 찾습니다. <code>from</code> 매개 변수를 지정하지 않으면 자동 언어 검색에 따라 원본 언어가 결정됩니다. <br/><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">동적 사전</a> 기능을 <code>from</code> 사용 하는 경우 인코딩이 대신 매개 변수를 사용 해야 합니다.</td>
+    <td><em>선택적 매개 변수</em>입니다.<br/>입력 텍스트의 언어를 지정합니다. <code>translation</code> 범위를 통해 <a href="./v3-0-languages.md">지원되는 언어</a>를 조회하여 번역할 수 있는 원본 언어를 찾습니다. <code>from</code> 매개 변수를 지정하지 않으면 자동 언어 검색에 따라 원본 언어가 결정됩니다. <br/><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">동적 사전</a> 기능을 사용 하는 경우 인코딩이 대신 <code>from</code> 매개 변수를 사용 해야 합니다.</td>
   </tr>
   <tr>
-    <td>다음으로 변경:</td>
+    <td>to</td>
     <td><em>필수 매개 변수</em>입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 <code>translation</code> 범위에 포함된 <a href="./v3-0-languages.md">지원되는 언어</a> 중 하나여야 합니다. 예를 들어, 독일어로 번역하려면 <code>to=de</code>를 사용합니다.<br/>쿼리 문자열의 매개 변수를 반복하여 동시에 여러 언어로 번역할 수도 있습니다. 예를 들어, 독일어 및 이탈리아어로 번역하려면 <code>to=de&to=it</code>를 사용합니다.</td>
   </tr>
   <tr>
@@ -94,15 +94,15 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 요청 헤더에는 다음이 포함됩니다.
 
 <table width="100%">
-  <th width="20%">헤더</th>
-  <th>Description</th>
+  <th width="20%">headers</th>
+  <th>설명</th>
   <tr>
     <td>인증 헤더</td>
     <td><em>필수 요청 헤더</em><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
   </tr>
   <tr>
-    <td>Content-Type</td>
-    <td><em>필수 요청 헤더</em><br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 <code>application/json</code>입니다.</td>
+    <td>콘텐츠 형식</td>
+    <td><em>필수 요청 헤더</em><br/>페이로드의 콘텐츠 형식을 지정합니다.<br/> 허용 되는 값은 0 @no__t입니다.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
@@ -110,7 +110,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td><em>선택 사항</em>입니다.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다. <code>ClientTraceId</code>라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다.</td>
+    <td><em>옵션</em>.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다. <code>ClientTraceId</code>라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다.</td>
   </tr>
 </table> 
 
@@ -124,7 +124,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 ]
 ```
 
-다음과 같은 제한 사항이 적용됩니다.
+다음 제한 사항이 적용됩니다.
 
 * 배열에는 최대 100개 요소가 있을 수 있습니다.
 * 요청에 포함된 전체 텍스트는 공백을 포함하여 5,000자를 초과할 수 없습니다.
@@ -161,7 +161,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
       * `srcSentLen`: 입력 텍스트의 문장 길이를 나타내는 정수 배열입니다. 배열의 길이는 문장의 수이고 값은 각 문장의 길이입니다.
 
-      * `transSentLen`:  번역된 텍스트의 문장 길이를 나타내는 정수 배열입니다. 배열의 길이는 문장의 수이고 값은 각 문장의 길이입니다.
+      * `transSentLen`: 번역된 텍스트의 문장 길이를 나타내는 정수 배열입니다. 배열의 길이는 문장의 수이고 값은 각 문장의 길이입니다.
 
     문장 경계는 요청 매개 변수 `includeSentenceLength`가 `true`일 때만 포함됩니다.
 
@@ -172,7 +172,7 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
 ## <a name="response-headers"></a>응답 헤더
 
 <table width="100%">
-  <th width="20%">헤더</th>
+  <th width="20%">headers</th>
   <th>설명</th>
     <tr>
     <td>X-RequestId</td>
@@ -193,7 +193,7 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
   <th>설명</th>
   <tr>
     <td>200</td>
-    <td>명령 실행 성공</td>
+    <td>성공.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -227,14 +227,14 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
 
 오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [v3 Translator Text API 참조 페이지](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors)에서 확인할 수 있습니다. 
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 ### <a name="translate-a-single-input"></a>단일 입력 번역
 
 이 예제에서는 단일 문장을 영어에서 중국어 간체로 번역하는 방법을 보여 줍니다.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 응답 본문은 다음과 같습니다.
@@ -256,7 +256,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 이 예제에서는 단일 문장을 영어에서 중국어 간체로 번역하는 방법을 보여 줍니다. 요청은 입력 언어를 지정하지 않습니다. 대신, 원본 언어의 자동 검색이 사용됩니다.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 응답 본문은 다음과 같습니다.
@@ -278,7 +278,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 음차를 추가하여 이전 예제를 확장해 보겠습니다. 다음 요청은 라틴 스크립트로 작성된 중국어 번역을 요구합니다.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 응답 본문은 다음과 같습니다.
@@ -305,7 +305,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 한 번에 여러 문자열을 번역하려면 요청 본문에서 문자열 배열을 지정하기만 하면 됩니다.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
 
 응답 본문은 다음과 같습니다.
@@ -330,7 +330,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 이 예제에서는 하나의 요청에서 동일한 입력을 여러 다른 언어로 번역하는 방법을 보여 줍니다.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 응답 본문은 다음과 같습니다.
@@ -354,10 +354,10 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>작업</th>
+  <th>실행력</th>
   <tr>
     <td><code>NoAction</code></td>
-    <td>이는 기본 동작입니다. 욕설이 원본에서 대상으로 전달됩니다.<br/><br/>
+    <td>기본 동작입니다. 욕설이 원본에서 대상으로 전달됩니다.<br/><br/>
     <strong>예제 원본(일본어)</strong>: 彼はジャッカスです。<br/>
     <strong>예제 번역(영어)</strong>: He is a jackass.
     </td>
@@ -381,10 +381,10 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
   </tr>
 </table> 
 
-예를 들어:
+다음은 그 예입니다.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a freaking good idea.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
 반환 결과
 
@@ -401,7 +401,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 비교 대상
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a freaking good idea.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
 
 마지막 요청은 다음을 반환합니다.
@@ -428,7 +428,7 @@ HTML 페이지의 콘텐츠나 XML 문서의 콘텐츠처럼 태그를 포함하
 샘플 요청은 다음과 같습니다.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
 ```
 
 응답은 다음과 같습니다.
@@ -448,7 +448,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 맞춤 정보를 받으려면 쿼리 문자열에 `includeAlignment=true`를 지정합니다.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The answer lies in machine translation.'}]"
 ```
 
 응답은 다음과 같습니다.
@@ -469,8 +469,10 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 맞춤 정보는 `0:2-0:1`로 시작합니다. 이것은 원본 텍스트의 처음 세 문자(`The`)가 번역된 텍스트의 처음 두 문자(`La`)에 매핑됨을 의미합니다.
 
+#### <a name="limitations"></a>제한 사항
 다음 제한 사항이 적용됩니다.
 
+* HTML 형식의 텍스트에는 맞춤을 사용할 수 없습니다. 즉, textType = html입니다.
 * 다음 언어 쌍의 하위 집합에 대해서만 맞춤이 반환됩니다.
   - 영어에서 다른 모든 언어로
   - 다른 모든 언어에서 영어로(중국어 간체, 중국어 번체 및 라트비아어에서 영어로 번역하는 경우 제외)
@@ -482,7 +484,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 원본 텍스트와 번역된 텍스트의 문장 길이에 대한 정보를 받으려면 쿼리 문자열에 `includeSentenceLength=true`를 지정합니다.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"
 ```
 
 응답은 다음과 같습니다.
@@ -514,7 +516,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 예를 들어, 영어 문장 "The word wordomatic is a dictionary entry"를 고려해보세요. 단어 _wordomatic_을 번역에 유지하려면 다음 요청을 보냅니다.
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
 ```
 
 결과는 다음과 같습니다.

@@ -9,14 +9,14 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 25b7e7015b32609356eb138c86fbe537a87a7a22
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 3dacfc0d8371ad9e8fa66d8bb1c5fafa59271ce0
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595826"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388176"
 ---
-# <a name="frequently-asked-questions"></a>질문과 대답
+# <a name="custom-translator-frequently-asked-questions"></a>사용자 지정 변환기 faq (질문과 대답)
 
 이 문서에는 [Custom Translator](https://portal.customtranslator.azure.ai)에 대해 자주 묻는 질문과 대답이 포함되어 있습니다.
 

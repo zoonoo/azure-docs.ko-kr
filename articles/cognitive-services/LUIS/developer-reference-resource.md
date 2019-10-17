@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 0707ed3dfee9af27b7cab66c7952d1e7c1d57cb8
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 8accac7fe6068007180403fdab27013da161b28c
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703207"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437182"
 ---
 # <a name="developer-resources-for-language-understanding"></a>Language Understanding에 대 한 개발자 리소스
 
@@ -46,13 +46,13 @@ Language Understanding 서비스는 만들어야 하는 Azure 리소스에서 �
 
 ### <a name="language-based-sdks"></a>언어 기반 Sdk
 
-|언어 |참조 설명서|패키지|샘플|빠른 시작|
+|언어 |참조 설명서|패키지|샘플|퀵 스타트|
 |--|--|--|--|--|
 |C#|[작성](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[예측](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[NuGet 제작](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet 예측](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[.Net SDK 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS)|[앱 만들기 및 관리](sdk-csharp-quickstart-authoring-app.md)<br>[쿼리 예측 끝점](sdk-csharp-quickstart-query-prediction-endpoint.md)|
 |Go|[작성 및 예측](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)|[작성](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/go)<br>[예측](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/go)|[REST를 사용 하 여 제작](luis-get-started-go-add-utterance.md)<br>[REST를 사용한 예측](luis-get-started-go-get-intent.md)|
 |Java|[작성 및 예측](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable)|[Maven 작성](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Maven 예측](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|[작성](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/java)<br>[예측](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/java)|[작성](luis-get-started-java-add-utterance.md)<br>[예측](luis-get-started-java-get-intent.md)
 |Node.js|[작성](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[예측](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[NPM 작성](https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring)<br>[NPM 예측](https://www.npmjs.com/package/azure-cognitiveservices-luis-runtime)|[작성](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/node)<br>[예측](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/node)|[REST를 사용 하 여 제작](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-node-get-intent)<br>[REST를 사용한 예측](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-node-add-utterance)|
-|Python|[작성 및 예측](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/?view=azure-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[작성](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)|[작성](sdk-python-quickstart-authoring-app.md)<br>[REST를 사용한 예측](luis-get-started-python-get-intent.md)
+|파이썬|[작성 및 예측](sdk-python-quickstart-authoring-app.md)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[작성](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)|[작성](sdk-python-quickstart-authoring-app.md)<br>[REST를 사용한 예측](luis-get-started-python-get-intent.md)
 
 ## <a name="other-tools-and-sdks"></a>기타 도구 및 Sdk
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ca7136f6e1c24d32ff5d6e3e53878c11fb5f1edb
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 961f4595d60e85677d2c7c4a1abd97736d0180ec
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71975321"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391714"
 ---
 ## <a name="application-performance-indicators"></a>애플리케이션 성과 지표
 
@@ -65,7 +65,7 @@ Azure Premium Storage에서 실행되는 고성능 애플리케이션을 설계�
 
 | **성능 요구 사항** | **50 백분위수** | **90 백분위수** | **99 백분위수** |
 | --- | --- | --- | --- |
-| 최대 초당 트랜잭션 수 | | | |
+| 최대 초당 트랜잭션 | | | |
 | % 읽기 작업 | | | |
 | % 쓰기 작업 | | | |
 | % 임의 작업 | | | |
@@ -84,7 +84,7 @@ Azure Premium Storage에서 실행되는 고성능 애플리케이션을 설계�
 > [!NOTE]
 > 애플리케이션의 예상된 향후 성장에 따라 이러한 숫자를 확장하는 것이 좋습니다. 나중에 성능 향상을 위한 인프라를 변경하기가 더 어려울 수 있으므로 사전 확장을 계획하는 것이 좋습니다.
 
-기존 애플리케이션이 있고 Premium Storage로 이동하려는 경우 먼저 기존 애플리케이션에 대해 위의 검사 목록을 빌드합니다. 그런 다음, Premium Storage에 있는 애플리케이션의 프로토타입을 빌드하고 이 문서의 이후 섹션의 *애플리케이션 성능 최적화* 에 설명된 지침에 따라 애플리케이션을 설계합니다. 다음 문서에서는 성능 측정값을 수집하는데 사용할 수 있는 도구를 설명합니다.
+기존 애플리케이션이 있고 Premium Storage로 이동하려는 경우 먼저 기존 애플리케이션에 대해 위의 검사 목록을 빌드합니다. 그런 다음, Premium Storage에 있는 애플리케이션의 프로토타입을 빌드하고 이 문서의 이후 섹션의 *애플리케이션 성능 최적화*에 설명된 지침에 따라 애플리케이션을 설계합니다. 다음 문서에서는 성능 측정값을 수집하는데 사용할 수 있는 도구를 설명합니다.
 
 ### <a name="counters-to-measure-application-performance-requirements"></a>애플리케이션 성능 요구 사항을 측정하기 위한 카운터
 
@@ -246,7 +246,7 @@ BlobCache를 작동하는 방법에 대한 자세한 내용은 내부 [Azure Pre
 | **디스크 유형** | **기본 캐시 설정** |
 | --- | --- |
 | OS 디스크 |ReadWrite |
-| 데이터 디스크 |읽기 전용 |
+| 데이터 디스크 |ReadOnly |
 
 다음은 데이터 디스크에 대한 권장 디스크 캐시 설정입니다.
 
@@ -265,7 +265,7 @@ Premium Storage 데이터 디스크에 ReadOnly 캐싱을 구성하여 짧은 �
 *ReadWrite*  
 기본적으로 OS 디스크는 ReadWrite 캐싱을 사용하도록 설정합니다. 최근에 데이터 디스크에 ReadWrite 캐싱에 대한 지원을 추가했습니다. ReadWrite 캐싱을 사용하는 경우 영구 디스크에 캐시의 데이터를 기록하는 적절한 방법이 있어야 합니다. 예를 들어 SQL Server는 자체적으로 영구 스토리지 디스크에 캐시된 데이터 쓰기를 처리합니다. 필요한 데이터를 유지하도록 처리하지 않는 애플리케이션에 ReadWrite 캐시를 사용하면 VM이 충돌할 경우 데이터 손실이 발생할 수 있습니다.
 
-*None*  
+*없음*  
 현재는 데이터 디스크 에서만 **지원 됩니다.** OS 디스크에서 지원 되지 않습니다. OS 디스크에서 **아무것도** 설정 하지 않으면이를 내부적으로 재정의 하 고 **ReadOnly**로 설정 합니다.
 
 한 예로 다음을 수행하여 Premium Storage에서 실행 중인 SQL Server에 이러한 지침을 적용할 수 있습니다
@@ -286,24 +286,24 @@ Premium Storage 데이터 디스크에 ReadOnly 캐싱을 구성하여 짧은 �
 * **ReadWrite**으로 캐시가 설정된 Premium Storage 디스크의 경우 쓰기 지속성을 위해 barrier를 사용하도록 설정합니다.
 * 볼륨 레이블의 경우 VM을 다시 시작한 후 유지하려면 디스크에 UUID(Universally Unique Identifier) 참조로 /etc/fstab을 업데이트해야 합니다. 자세한 내용은 [관리 디스크를 Linux VM에 추가](../articles/virtual-machines/linux/add-disk.md)를 참조하세요.
 
-다음 Linux 배포판은 프리미엄 SSD에 대해 유효성이 검사되었습니다. 프리미엄 SSD를 사용하여 성능 및 안정성을 개선하려면 이러한 버전 이상으로 VM을 업그레이드하는 것이 좋습니다. 
+다음 Linux 배포판은 프리미엄 SSD에 대해 유효성이 검사되었습니다. Premium Ssd의 성능 및 안정성 향상을 위해 Vm을 이러한 버전 중 하나로 업그레이드 하는 것이 좋습니다. 
 
 버전 중 일부는 Azure용 최신 LIS(Linux 통합 서비스) v4.0이 필요합니다. 배포판을 다운로드하여 설치하려면 다음 표에 나와 있는 링크를 따라가세요. 유효성 검사가 완료됨에 따라 목록에 이미지가 추가됩니다. 유효성 검사 시 이미지마다 성능이 다른 것으로 나타납니다. 성능은 워크로드 특성 및 이미지 설정에 따라 달라집니다. 다른 종류의 워크로드에 대해 서로 다른 이미지가 조정됩니다.
 
-| 배포 | 버전 | 지원되는 커널 | 설명 |
+| 유통 | 버전 | 지원되는 커널 | 세부 정보 |
 | --- | --- | --- | --- |
-| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
-| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
-| Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
-| SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 필요](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *다음 섹션의 참고를 참조하세요.* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 권장](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *다음 섹션의 참고를 참조하세요.* |
-| RHEL(Red Hat Enterprise Linux) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
-| Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 또는 RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 또는 RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 또는 RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Ubuntu | 12.04 이상| 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
+| Ubuntu | 14.04 이상| 3.13.0-44.73+  | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
+| Debian | 4.x, .x 이상| 3.16.7-ckt4-1+ | &nbsp; |
+| SUSE | SLES 12 이상| 3.12.36-38.1+ | suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
+| SUSE | SLES 11 SP4 이상| 3.0.101-0.63.1+ | &nbsp; |
+| CoreOS | 584.0.0 + 이상| 3.18.4+ | CoreOS 584.0.0 |
+| CentOS | 6.5, 6.6, 6.7, 7.0 또는 이상| &nbsp; | [LIS4 필요](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *다음 섹션의 참고를 참조하세요.* |
+| CentOS | 7.1 이상| 3.10.0-229.1.2.el7+ | [LIS4 권장](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *다음 섹션의 참고를 참조하세요.* |
+| RHEL(Red Hat Enterprise Linux) | 6.8 +, 7.2 이상 이상 | &nbsp; | &nbsp; |
+| Oracle | 6.0 이상, 7.2 이상 | &nbsp; | UEK4 또는 RHCK |
+| Oracle | 7.0-7.1 이상 | &nbsp; | UEK4 또는 RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 이상 | &nbsp; | UEK4 또는 RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>OpenLogic CentOS용 LIS 드라이버
 

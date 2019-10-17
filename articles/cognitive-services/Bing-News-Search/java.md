@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: C#을 사용하여 웹 검색 수행 - Bing Web Search REST API'
+title: '빠른 시작: Java를 사용하여 웹 검색 수행 - Bing Web Search REST API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작을 사용하여 Java를 통해 Bing News Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 414287b4a279ac76abf62d3721a51627380a8668
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: ad322d9418d81c516b97cd8bd4b039b1640aa9c0
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423765"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515654"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>빠른 시작: Java 및 Bing News Search REST API를 사용하여 뉴스 검색 수행
 

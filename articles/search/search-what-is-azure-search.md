@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: overview
 ms.date: 09/03/2019
 ms.author: heidist
-ms.openlocfilehash: 3b0647c3a71e6ce242e7cbd0eedcca3d0fa30ded
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: b92838f7c43a11cd8bd4e1e19f906d33758bf495
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274046"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331164"
 ---
 # <a name="what-is-azure-search"></a>Azure Search란?
 
@@ -62,7 +62,7 @@ Azure Search가 적합한 애플리케이션 시나리오는 다음과 같습니
 | 플랫폼&nbsp;수준&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 기능 |
 |-------------------|----------|
 | 프로토타입 및 검사용 도구 | 포털에서 [**데이터 가져오기 마법사**](search-import-data-portal.md)를 사용하여 인덱서를 구성하고, 인덱스 디자이너를 사용하여 인덱스를 나타내고, [**검색 탐색기**](search-explorer.md)를 사용하여 쿼리를 테스트하고 점수 매기기 프로필을 구체화할 수 있습니다. 인덱스를 열어 해당 스키마를 볼 수도 있습니다. |
-| 모니터링 및 진단 | 포털에 항상 표시되는 단순한 메트릭 이상을 원하신다면 [**모니터링 기능을 사용하세요**](search-monitor-usage.md). 필요한 추가 구성 없이 포털 페이지에서 초당 쿼리 수, 대기 시간 및 제한에 대한 메트릭이 캡처되고 보고됩니다. <br/><br/>[**검색 트래픽 분석**](search-traffic-analytics.md)은 서버 쪽 및 클라이언트 쪽 데이터를 수집하고 분석하여 사용자가 검색 상자에 입력하는 내용에 대한 인사이트를 얻을 수 있는 또 다른 모니터링 대안입니다. |
+| 모니터링 및 진단 | 포털에 항상 표시되는 단순한 메트릭 이상을 원하신다면 [**모니터링 기능을 사용하세요**](search-monitor-usage.md). 필요한 추가 구성 없이 포털 페이지에서 초당 쿼리 수, 대기 시간 및 제한에 대한 메트릭이 캡처되고 보고됩니다.|
 | 서버 쪽 암호화 | [**Microsoft 관리형 저장 데이터 암호화**](search-security-overview.md#encrypted-transmission-and-storage)는 내부 스토리지 레이어에 내장되어 있으며 취소할 수 없습니다. 필요에 따라 [**고객 관리 암호화 키(미리 보기)** ](search-security-manage-encryption-keys.md)를 사용하여 기본 암호화를 보완할 수 있습니다. 고객이 Azure Key Vault에서 만들고 관리하는 키는 Azure Search에서 인덱스 및 동의어 맵을 암호화하는 데 사용됩니다. |
 | 인프라 | **가용성이 높은 플랫폼**은 매우 안정적인 검색 서비스 환경을 보장합니다. 규모를 적절하게 조정하면 [Azure Search는 99.9%의 SLA를 제공](https://azure.microsoft.com/support/legal/sla/search/v1_0/)합니다.<br/><br/> **완벽하게 관리 및 확장되는** 엔드투엔드 솔루션인 Azure Search는 인프라 관리가 전혀 필요 없습니다. 더 많은 문서 스토리지, 더 많은 쿼리 부하 또는 둘 모두를 처리할 수 있도록 두 가지 크기를 조정하여 요구 사항에 따라 서비스를 맞춤 구성할 수 있습니다.<br/><br/>|
 

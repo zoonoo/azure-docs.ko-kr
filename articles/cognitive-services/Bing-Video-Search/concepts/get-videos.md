@@ -1,5 +1,5 @@
 ---
-title: Bing Video Search API에 검색 요청 전송
+title: Bing Video Search API를 사용 하 여 비디오 검색
 titleSuffix: Azure Cognitive Services
 description: Bing Video Search API에 검색 쿼리를 전송하는 데 관해 알아봅니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: b565ad8be1d8529d3650ec36fe7c4d61f6c5dc8f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e3314efe0ea0367eb852fd17aadece17026ff4bb
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879085"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512409"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Bing Video Search API를 사용한 비디오 검색
 
@@ -37,7 +37,7 @@ Host: api.cognitive.microsoft.com
 
 모든 요청은 서버에서 이뤄져야 합니다.
 
-Bing API 중 하나를 처음 호출하는 경우 클라이언트 ID 헤더를 포함하면 안 됩니다. 전에 Bing API를 호출하고 Bing이 사용자 및 디바이스 조합에 대한 클라이언트 ID를 반환한 경우만 클라이언트 ID를 포함합니다.
+Bing API 중 하나를 처음 호출하는 경우 클라이언트 ID 헤더를 포함하면 안 됩니다. 이전에 Bing API를 호출했고 Bing이 사용자 및 디바이스 조합에 대한 클라이언트 ID를 반환한 경우 클라이언트 ID만 포함하세요.
 
 특정 도메인에서 비디오를 가져오려면 [site:](https://msdn.microsoft.com/library/ff795613.aspx) 쿼리 연산자를 사용합니다.
 
@@ -144,7 +144,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>쿼리 확장
 
-Bing이 원래 검색을 좁히기 위해 쿼리를 확장할 수 있는 경우 [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) 개체에는 `queryExpansions` 필드가 포함됩니다. 예를 들어 쿼리가 *Cleaning Gutters*인 경우 Gutter Cleaning **Tools**, Cleaning Gutters **From the Ground**, Gutter Cleaning **Machine** 및 **Easy** Gutter Cleaning 같은 확장 쿼리가 가능합니다.
+Bing이 원래 검색을 좁히기 위해 쿼리를 확장할 수 있는 경우 [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) 개체에는 `queryExpansions` 필드가 포함됩니다. 예를 들어 쿼리가 *배수로 청소*인 경우 확장된 쿼리는 배수로 청소 **도구**, 배수로 청소의 **기초**, 배수로 청소 **기계** 및 **손쉬운** 배수로 청소일 수 있습니다.
 
 다음 예제에서는 *배수로 청소*에 대한 확장된 쿼리를 보여줍니다.
 

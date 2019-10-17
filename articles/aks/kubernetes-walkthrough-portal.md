@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 5/31/2019
 ms.author: mlearned
-ms.custom: mvc
-ms.openlocfilehash: 0df60cac241151b5968c5ddfc01ca9c0515a5e6b
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.custom: mvc, seo-javascript-october2019
+ms.openlocfilehash: 0e09d541cb84ef7857e4d68f776b92f845488771
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996981"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329881"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
 AKS(Azure Kubernetes Service)는 클러스터를 빠르게 배포하고 관리할 수 있는 관리형 Kubernetes 서비스입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 AKS 클러스터를 배포합니다. 웹 프런트 엔드 및 Redis 인스턴스를 포함하는 다중 컨테이너 애플리케이션이 클러스터에서 실행됩니다. 그런 다음, 애플리케이션을 실행하는 Pod 및 클러스터의 상태를 모니터링하는 방법이 표시됩니다.
 
-![Azure Vote 애플리케이션 예제로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Azure Vote 애플리케이션 예제로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 이 빠른 시작에서는 Kubernetes 기본 개념을 이해하고 있다고 가정합니다. 자세한 내용은 [AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념][kubernetes-concepts]을 참조하세요.
 
@@ -48,6 +48,7 @@ AKS 클러스터를 만들려면 다음 단계를 완료합니다.
 2. **비율 크기 조정** 페이지에서 기본 옵션을 그대로 유지합니다. 화면 아래쪽에서 **다음: 인증**을 클릭합니다.
 > [!CAUTION]
 > 새 AAD 서비스 주체를 만드는 작업이 전파되고 사용할 수 있게 되기까지 몇 분이 걸릴 수 있으므로, Azure Portal에서 서비스 주체를 찾을 수 없음 오류와 유효성 검사 오류가 발생할 수 있습니다. 이 문제가 발생할 경우 완화하는 방법은 [여기](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one)를 참조하세요.
+
 3. **인증** 페이지에서 다음 옵션을 구성합니다.
    - **서비스 사용자** 필드를 **(새) 기본 서비스 사용자**로 유지하여 신규 서비스 사용자를 만듭니다. 또는 기존 서비스 사용자를 사용하도록 *내 서비스 사용자 구성*을 선택할 수 있습니다. 기존 서비스 사용자를 사용하는 경우 SPN 클라이언트 ID와 비밀을 제공해야 합니다.
    - Kubernetes RBAC(역할 기반 액세스 제어)에 대한 옵션을 사용하도록 설정합니다. 이렇게 하면 AKS 클러스터에 배포된 Kubernetes 리소스에 대한 액세스를 정밀하게 제어할 수 있습니다.
@@ -219,7 +220,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 Azure Vote 앱이 실제로 작동하는 모습을 보려면 웹 브라우저를 서비스의 외부 IP 주소로 엽니다.
 
-![Azure Vote 애플리케이션 예제로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Azure Vote 애플리케이션 예제로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 ## <a name="monitor-health-and-logs"></a>상태 및 로그 모니터링
 

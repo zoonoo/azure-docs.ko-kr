@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.reviewer: jeking
-ms.openlocfilehash: 4e4e4d250de823ae8fb78a306bae313f340e7ce9
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 5badd4aeabd8ec322ea5fb847cf134f302269c27
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992296"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331007"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>빠른 시작: Azure Databricks를 사용하여 Azure Data Lake Storage Gen2의 데이터 분석
 
@@ -59,7 +59,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     |**작업 영역 이름**     | Databricks 작업 영역의 이름을 제공합니다.        |
     |**구독**     | 드롭다운에서 Azure 구독을 선택합니다.        |
     |**리소스 그룹**     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하세요. |
-    |**위치**:     | **미국 서부 2**를 선택합니다. 원하는 경우 다른 공용 영역을 자유롭게 선택합니다.        |
+    |**위치**     | **미국 서부 2**를 선택합니다. 원하는 경우 다른 공용 영역을 자유롭게 선택합니다.        |
     |**가격 책정 계층**     |  **표준** 또는 **프리미엄** 중에서 선택합니다. 이러한 계층에 대한 자세한 내용은 [Databricks 가격 페이지](https://azure.microsoft.com/pricing/details/databricks/)를 참조하세요.       |
 
 3. 계정 생성에는 몇 분 정도가 소요됩니다. 작업 상태를 모니터링하려면 맨 위에 있는 진행률 표시줄을 확인합니다.
@@ -78,11 +78,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![Azure에서 Databricks Spark 클러스터 만들기](./media/data-lake-storage-quickstart-create-databricks-account/create-databricks-spark-cluster.png "Azure에서 Databricks Spark 클러스터 만들기")
 
-    다음 항목 이외의 다른 모든 기본값을 허용합니다.
+    다음 필드에 대한 값을 입력하고, 다른 필드에는 기본값을 그대로 적용합니다.
 
-    * 클러스터의 이름을 입력합니다.
-    * **5.1** 런타임을 사용하여 클러스터를 만듭니다.
-    * **Terminate after 120 minutes of inactivity**(비활성 120분 후 종료) 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
+    - 클러스터의 이름을 입력합니다.
+     
+    - **Terminate after 120 minutes of inactivity**(비활성 120분 후 종료) 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
 
 4. **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
 

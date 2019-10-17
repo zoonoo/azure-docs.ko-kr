@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.date: 04/19/2019
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: e7cc9b63768385e4665e330b2b02a884b84c2188
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 307074618cae75ba57be219b4f975e2aec279682
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67615378"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255507"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
 AKS(Azure Kubernetes Service)는 클러스터를 빠르게 배포하고 관리할 수 있는 관리형 Kubernetes 서비스입니다. 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 AKS 클러스터를 배포합니다. 웹 프런트 엔드 및 Redis 인스턴스를 포함하는 다중 컨테이너 애플리케이션이 클러스터에서 실행됩니다.
 
-![Azure Vote로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Azure Vote로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 이 빠른 시작에서는 Kubernetes 기본 개념을 이해하고 있다고 가정합니다. 자세한 내용은 [AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념][kubernetes-concepts]을 참조하세요.
 
@@ -259,7 +259,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 Azure Vote 앱이 실제로 작동하는 모습을 보려면 웹 브라우저를 서비스의 외부 IP 주소로 엽니다.
 
-![Azure Vote로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Azure Vote로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 ## <a name="delete-cluster"></a>클러스터 삭제
 

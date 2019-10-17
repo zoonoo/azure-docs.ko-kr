@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: 0c7d3ed7e2cbaee7d30f368efa004bbb3daaafdd
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 6ef58d1444eb0ec7b2b8891f944b428a613edf3a
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996875"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515618"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>빠른 시작: Ink Recognizer REST API와 C#으로 디지털 잉크 인식
 
@@ -49,11 +49,11 @@ ms.locfileid: "71996875"
 
 1. Visual Studio에서 새 콘솔 솔루션을 만들고 다음 패키지를 추가합니다. 
     
-    [!code-csharp[imports](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=imports)]
+    [!code-csharp[import statements](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=imports)]
 
 2. 구독 키, 엔드포인트 및 예제 JSON 파일에 대한 변수를 만듭니다. 엔드포인트는 나중에 `inkRecognitionUrl`과 결합되어 API에 액세스합니다. 
 
-    [!code-csharp[endpoint file path and key variables](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=vars)]
+    [!code-csharp[endpoint file and key variables](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=vars)]
 
 ## <a name="create-a-function-to-send-requests"></a>요청을 보내는 함수 만들기
 

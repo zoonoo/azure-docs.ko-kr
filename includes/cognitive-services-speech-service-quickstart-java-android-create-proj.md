@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 5/23/2019
 ms.author: travisw
-ms.openlocfilehash: a8118d80e85d562fa4137ed1f1844e6bf9f1793e
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: e1f9b561efb1fd88fe2dd00f8c175f1ebae848d8
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485049"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391708"
 ---
 1. Android Studio를 실행하고 시작 창에서 **새 Android Studio 프로젝트 시작**을 선택합니다.
 
@@ -27,7 +27,7 @@ Android Studio가 새 Android 프로젝트를 준비하는 데 잠시 시간이 
 
 [!INCLUDE [License Notice](cognitive-services-speech-service-license-notice.md)]
 
-Cognitive Services 음성 SDK의 현재 버전은 `1.6.0`입니다.
+Cognitive Services 음성 SDK의 현재 버전은 `1.7.0`입니다.
 
 Android용 Speech SDK는 필요한 라이브러리와 필요한 Android 권한을 포함하는 [AAR(Android 라이브러리)](https://developer.android.com/studio/projects/android-library)로 패키지됩니다.
 https:\//csspeechstorage.blob.core.windows.net/maven/의 Maven 리포지토리에서 호스팅됩니다.
@@ -42,7 +42,7 @@ Speech SDK를 사용하도록 프로젝트를 설정합니다. Android Studio �
 
    ![프로젝트 구조 창 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. 나타나는 창에서 Android용 Speech SDK의 이름과 버전인 `com.microsoft.cognitiveservices.speech:client-sdk:1.6.0`을 입력합니다. 그런 다음 **확인**을 선택합니다.
+1. 나타나는 창에서 Android용 Speech SDK의 이름과 버전인 `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0`을 입력합니다. 그런 다음 **확인**을 선택합니다.
    Speech SDK는 이제 다음과 같이 종속성 목록에 추가됩니다.
 
    ![프로젝트 구조 창 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-08-dependency-added-1.0.0.png)

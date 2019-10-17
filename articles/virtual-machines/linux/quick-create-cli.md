@@ -14,17 +14,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 0208e72263991daceed52073bcce8b3e01f8e8c2
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.custom:
+- mvc
+- seo-javascript-september2019
+- seo-javascript-october2019
+- seo-python-october2019
+ms.openlocfilehash: 7732320e987e6397dde2aff0f6c4328d551d99b1
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174291"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72427940"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Linux 가상 머신 만들기
 
-이 빠른 시작에서는 Azure CLI(명령줄 인터페이스)를 사용하여 Azure에서 Linux VM(가상 머신)을 배포하는 방법을 보여줍니다. 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 자습서에서는 Ubuntu 16.04 LTS를 설치합니다. 작동 중인 VM을 보려면 SSH를 사용하여 VM에 연결하고 NGINX 웹 서버를 설치합니다.
+이 빠른 시작에서는 Azure CLI(명령줄 인터페이스)를 사용하여 Azure에서 Linux VM(가상 머신)을 배포하는 방법을 보여줍니다. 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다.
+
+이 자습서에서는 Ubuntu 16.04 LTS를 설치합니다. 작동 중인 VM을 보려면 SSH를 사용하여 VM에 연결하고 NGINX 웹 서버를 설치합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -107,7 +113,7 @@ sudo apt-get -y install nginx
 
 원하는 웹 브라우저를 사용하여 기본 NGINX 시작 페이지를 봅니다. VM의 공용 IP 주소를 웹 주소로 사용합니다. 다음 예제는 기본 NGINX 웹 사이트를 보여줍니다.
 
-![NGINX 기본 사이트](./media/quick-create-cli/nginx.png)
+![NGINX 시작 페이지 보기](./media/quick-create-cli/view-the-nginx-welcome-page.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

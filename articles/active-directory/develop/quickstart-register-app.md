@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80040aab0ea9d1444e1afd77d45d990f3d05f0de
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7b0adc75d2da1a8ef053edf0078746df8f36ed5e
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853033"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430311"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼에 애플리케이션 등록
 
@@ -47,7 +47,7 @@ ms.locfileid: "68853033"
        | **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정** | 가장 폭넓은 고객을 대상으로 하려면 이 옵션을 사용합니다.<br><br>이 옵션은 Azure AD 다중 테넌트 및 개인 Microsoft 계정에 매핑됩니다.<br><br>Azure AD 다중 테넌트 및 개인 Microsoft 계정으로 앱을 등록한 경우 UI에서 이 항목을 변경할 수 없습니다. 대신 애플리케이션 매니페스트 편집기를 사용하여 지원되는 계정 유형을 변경해야 합니다. |
 
    - **리디렉션 URI(선택 사항)** - 빌드하는 앱의 유형을 **웹** 또는 **공용 클라이언트(모바일 및 데스크톱)** 로 선택한 다음, 애플리케이션의 리디렉션 URI(또는 답장 URL)를 입력합니다.
-       - 웹 애플리케이션의 경우 앱의 기준 URL을 제공합니다. 예를 들어 `http://localhost:31544`은 로컬 컴퓨터에서 실행 중인 웹앱의 URL일 수 있습니다. 사용자는 이 URL을 사용하여 웹 클라이언트 애플리케이션에 로그인합니다.
+       - 웹 애플리케이션의 경우 앱의 기준 URL을 제공합니다. 예를 들어 `https://localhost:31544`은 로컬 컴퓨터에서 실행 중인 웹앱의 URL일 수 있습니다. 사용자는 이 URL을 사용하여 웹 클라이언트 애플리케이션에 로그인합니다.
        - 공용 클라이언트 애플리케이션의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용하는 URI를 제공합니다. 애플리케이션에 고유하게 해당되는 값을 입력합니다(예: `myapp://auth`).
 
      웹 애플리케이션 또는 네이티브 애플리케이션에 대한 구체적인 예제를 원하는 경우 [빠른 시작](https://docs.microsoft.com/azure/active-directory/develop)을 확인합니다.

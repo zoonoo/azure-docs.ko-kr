@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 10/09/2019
 ms.author: diberry
-ms.openlocfilehash: 03e04853e93bb78391476a365b20550d471e1dbb
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: a63b6773a7546f8add0b2f2ab6280801e90bccca
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71971802"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248631"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>GenerateAnswer API 및 메타 데이터를 사용 하 여 답변 받기
 
@@ -82,7 +82,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
     "question": "qna maker and luis",
     "top": 6,
     "isTest": true,
-    "scoreThreshold": 20,
+    "scoreThreshold": 30,
     "strictFilters": [
     {
         "name": "category",
@@ -91,6 +91,8 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
     "userId": "sd53lsY="
 }
 ```
+
+이전 JSON은 임계값 점수 보다 30% 이상인 답만 요청 했습니다. 
 
 <a name="generateanswer-response"></a>
 
@@ -102,7 +104,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 {
     "answers": [
         {
-            "score": 28.54820341616869,
+            "score": 38.54820341616869,
             "Id": 20,
             "answer": "There is no direct integration of LUIS with QnA Maker. But, in your bot code, you can use LUIS and QnA Maker together. [View a sample bot](https://github.com/Microsoft/BotBuilder-CognitiveServices/tree/master/Node/samples/QnAMaker/QnAWithLUIS)",
             "source": "Custom Editorial",
@@ -120,9 +122,11 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 }
 ```
 
+이전 JSON은 점수가 38.5% 인 답변으로 응답 했습니다. 
+
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>에서 봇과 함께 QnA Maker 사용C#
 
-Bot 프레임 워크는 QnA Maker의 속성에 대 한 액세스를 제공 합니다.
+Bot framework는 [Getanswer API](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__)를 사용 하 여 QnA Maker의 속성에 대 한 액세스를 제공 합니다.
 
 ```csharp
 using Microsoft.Bot.Builder.AI.QnA;
@@ -137,11 +141,13 @@ qnaOptions.ScoreThreshold = 0.3F;
 var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext, qnaOptions);
 ```
 
+이전 JSON은 임계값 점수 보다 30% 이상인 답만 요청 했습니다. 
+
 지원 봇에는이 코드가 포함 된 [예제가](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-support/csharp_dotnetcore/Service/SupportBotService.cs#L418) 있습니다.
 
 ## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Node.js에서 봇과 함께 QnA Maker 사용
 
-Bot 프레임 워크는 QnA Maker의 속성에 대 한 액세스를 제공 합니다.
+Bot framework는 [Getanswer API](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-)를 사용 하 여 QnA Maker의 속성에 대 한 액세스를 제공 합니다.
 
 ```javascript
 const { QnAMaker } = require('botbuilder-ai');
@@ -149,11 +155,13 @@ this.qnaMaker = new QnAMaker(endpoint);
 
 // Default QnAMakerOptions
 var qnaMakerOptions = {
-    ScoreThreshold: 0.03,
+    ScoreThreshold: 0.30,
     Top: 3
 };
 var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOptions);
 ```
+
+이전 JSON은 임계값 점수 보다 30% 이상인 답만 요청 했습니다. 
 
 지원 봇에는이 코드가 포함 된 [예제가](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/dialogHelper.js#L36) 있습니다.
 
@@ -236,7 +244,7 @@ GenerateAnswer에 대 한 응답에는 일치 하는 질문 및 답변 집합에
 
 |코드|설명|
 |:--|--|
-|2xx|Success|
+|2xx|성공|
 |400|요청 매개 변수가 잘못되었습니다. 필수 매개 변수가 누락되었거나, 형식이 잘못되었거나, 너무 큽니다.|
 |400|요청 본문이 잘못되었습니다. JSON이 누락되었거나, 형식이 잘못되었거나, 너무 큽니다.|
 |401|잘못된 키|

@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: d4376632b8f912cd76f3af5e9a8819b75f8144b6
-ms.sourcegitcommit: dcea3c1ab715a79ebecd913885fbf9bbee61606a
+ms.openlocfilehash: 06171dbedb55b4a80e2b27b9314247331d65ed97
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209475"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286486"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Data Factory 만들기
 
@@ -242,7 +242,7 @@ ms.locfileid: "70209475"
     Structure         :
     Properties        : Microsoft.Azure.Management.DataFactory.Models.BinaryDataset
     ```
-## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
+## <a name="create-a-pipeline"></a>파이프라인을 만들기
 
 이 절차에서는 입력 및 출력 데이터 세트를 사용하는 복사 작업이 포함된 파이프라인을 만듭니다. 복사 작업은 입력 데이터 세트 설정에 지정된 파일의 데이터를 출력 데이터 세트 설정에 지정된 파일로 복사합니다.  
 
@@ -316,12 +316,12 @@ ms.locfileid: "70209475"
 
 **Invoke-AzDataFactoryV2Pipeline** cmdlet을 실행하여 파이프라인 실행을 만듭니다. Cmdlet은 향후 모니터링을 위해 파이프라인 실행 ID를 캡처합니다.
 
-    ```powershell
-    $RunId = Invoke-AzDataFactoryV2Pipeline `
-        -DataFactoryName $DataFactory.DataFactoryName `
-        -ResourceGroupName $ResGrp.ResourceGroupName `
-        -PipelineName $DFPipeLine.Name 
-    ```
+  ```powershell
+$RunId = Invoke-AzDataFactoryV2Pipeline `
+    -DataFactoryName $DataFactory.DataFactoryName `
+    -ResourceGroupName $ResGrp.ResourceGroupName `
+    -PipelineName $DFPipeLine.Name 
+```
 
 ## <a name="monitor-the-pipeline-run"></a>파이프라인 실행을 모니터링합니다.
 

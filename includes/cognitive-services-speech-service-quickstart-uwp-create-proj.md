@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/19/2019
 ms.author: erhopf
-ms.openlocfilehash: 0140981a694a7a7cd8556f7139a90d0656679d7d
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 64c93e5c8e139dbdcfd3faad3a9ac4328fb01972
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "70382127"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391709"
 ---
 UWP(유니버설 Windows 플랫폼) 개발에 대한 Visual Studio 프로젝트를 만들려면 Visual Studio 개발 옵션을 설정하고, 대상 아키텍처를 선택하고, 오디오 캡처를 선택하고, Speech SDK를 설치해야 합니다.
 
@@ -104,4 +104,4 @@ UWP(유니버설 Windows 플랫폼) 개발에 대한 Visual Studio 프로젝트�
 
 1. **변경 내용 미리 보기** 대화 상자에서 **확인**을 선택합니다.
 
-1. **라이선스 승인** 대화 상자에서 라이선스를 확인한 다음, **동의함**을 선택합니다. 패키지 설치가 시작되고 설치가 완료되면 **출력** 창에 `Successfully installed 'Microsoft.CognitiveServices.Speech 1.6.0' to helloworld`와 유사한 메시지가 표시됩니다.
+1. **라이선스 승인** 대화 상자에서 라이선스를 확인한 다음, **동의함**을 선택합니다. 패키지 설치가 시작되고 설치가 완료되면 **출력** 창에 `Successfully installed 'Microsoft.CognitiveServices.Speech 1.7.0' to helloworld`와 유사한 메시지가 표시됩니다.

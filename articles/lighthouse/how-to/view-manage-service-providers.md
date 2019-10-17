@@ -1,5 +1,5 @@
 ---
-title: Azure Portal에서 서비스 공급자 보기 및 관리
+title: 서비스 공급자 보기 및 관리
 description: 고객은 Azure Portal의 서비스 공급자 페이지를 사용하여 서비스 공급자, 서비스 공급자 제공 및 위임된 리소스의 정보를 볼 수 있습니다.
 author: JnHs
 ms.author: jenhayes
@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: a45458e7417bba058522fdc0dbc34fee04ad9af8
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 0a7d39d95e35e30a16ce11db5b942024b6890438
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810827"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286601"
 ---
 # <a name="view-and-manage-service-providers"></a>서비스 공급자 보기 및 관리
 

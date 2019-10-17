@@ -1,5 +1,5 @@
 ---
-title: 오프 라인 평가-Personalizer
+title: 오프 라인 평가를 수행 하는 방법-Personalizer
 titleSuffix: Azure Cognitive Services
 description: 오프라인 평가를 통해 학습 루프를 분석하는 방법 알아보기
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: diberry
-ms.openlocfilehash: a157b36ad2b4f5a7f2e50a9609d8acd621efd5a8
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: bd57880b11f56b13b4225652071593d29dcc6280
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884449"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515221"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>오프 라인 평가를 사용 하 여 학습 루프 분석
 
@@ -26,7 +26,7 @@ ms.locfileid: "70884449"
 자세한 내용은 [오프라인 평가](concepts-offline-evaluation.md)를 참조하세요.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * 구성 된 Personalizer 루프
 * Personalizer 루프에는 대표적인 양의 데이터가 있어야 합니다. 개략적인는 의미 있는 평가 결과를 위해 로그에 5만 개 이상의 이벤트를 권장 합니다. 필요에 따라 이전에 내보낸 _학습 정책_ 파일을 동일한 평가에서 비교하고 테스트할 수 있습니다.
@@ -35,7 +35,7 @@ ms.locfileid: "70884449"
 
 1. [Azure Portal](https://azure.microsoft.com/free/)에서 개인 설정 리소스를 찾습니다.
 1. Azure Portal에서 평가 섹션으로 이동 하 고 **평가 만들기**를 **선택 합니다.**
-    ![Azure Portal에서 * * 평가 * * 섹션으로 이동 하 고 * * 평가 만들기 * *를 선택 합니다.](./media/offline-evaluation/create-new-offline-evaluation.png)
+    @no__t-Azure Portal에서 * * 평가 * * 섹션으로 이동 하 고 * * 평가 만들기 * *를 선택 합니다. ](./media/offline-evaluation/create-new-offline-evaluation.png)
 1. 다음 설정을 선택 합니다.
 
     * 평가 이름
@@ -54,11 +54,11 @@ ms.locfileid: "70884449"
 
 학습 정책의 비교는 다음과 같습니다.
 
-* **온라인 정책**: Personalizer에서 사용되는 현재 학습 정책입니다.
-* **기준**: 애플리케이션의 기본값(순위 호출에서 보낸 첫 번째 작업에 의해 결정)입니다.
-* **임의 정책**: 제공된 작업 중에서 항상 임의의 작업을 선택하여 반환하는 가상 순위 동작입니다.
-* **사용자 지정 정책**: 평가를 시작할 때 업로드되는 추가 학습 정책입니다.
-* **최적화된 정책**: 최적화된 정책을 검색하는 옵션을 사용하여 평가를 시작한 경우 최적화된 정책 비교가 수행되며, 최적화된 정책을 다운로드하거나 온라인 학습 정책으로 만들어서 현재 정책을 대체할 수 있습니다.
+* **온라인 정책**: Personalizer에서 사용 되는 현재 학습 정책
+* **기준선**: 응용 프로그램의 기본값 (순위 호출에서 보낸 첫 번째 작업에 의해 결정 됨)
+* **임의 정책**: 제공 된 작업에서 항상 임의 선택 작업을 반환 하는 허수 랭크 동작입니다.
+* **사용자 지정 정책**: 평가를 시작할 때 추가 학습 정책이 업로드 됩니다.
+* **최적화 된 정책**: 최적화 된 정책을 검색 하는 옵션을 사용 하 여 평가를 시작한 경우에도 비교 되며,이를 다운로드 하거나 온라인 학습 정책으로 만들어 현재 항목을 바꿀 수 있습니다.
 
 ![오프 라인 평가 설정의 결과 차트](./media/offline-evaluation/evaluation-results.png)
 

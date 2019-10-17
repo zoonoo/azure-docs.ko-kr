@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: cb5a3b8572cebfd6c0731a9e572e966fda280be6
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: a441ca83230a1c715aadda79683964aaab6d6213
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772797"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72252979"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -26,16 +26,16 @@ Translator Text API 버전 3은 최신 JSON 기반 Web API를 제공합니다. �
  * 특정 언어의 텍스트를 한 스크립트에서 다른 스크립트로 음차하여 변환
  * 단일 요청에서 여러 언어로 번역
  * 단일 요청의 언어 감지, 번역, 음차
- * 용어의 대체 번역을 조회하고, 컨텍스트에서 사용된 용어를 보여 주는 예와 역방향 번역을 찾기 위한 사전
+ * 사전에서 용어에 대 한 대체 번역을 조회 하 여 컨텍스트에서 사용 된 용어를 보여 주는 후방 번역 및 예제를 찾습니다.
  * 추가 정보를 제공하는 언어 감지 결과
 
 ## <a name="base-urls"></a>기준 URL
 
 Microsoft Translator는 여러 데이터 센터 위치에서 제공됩니다. 현재는 10 개의 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions)에 있습니다.
 
-* **아메리카:** 미국 동부, 미국 서 부, 미국 중부, 미국 서 부 2 
+* **미주:** 미국 동부, 미국 서 부, 미국 중부, 미국 서 부 2 
 * **아시아 태평양:** 한국 남부, 일본 동부, 동남 아시아 및 오스트레일리아 동부
-* **유럽:** 유럽 북부 및 유럽 서부
+* **유럽:** 서유럽 및 유럽 서부
 
 Microsoft Translator Text API에 대한 요청은 대부분 요청이 시작된 위치와 가장 가까운 데이터 센터에서 처리됩니다. 데이터 센터 오류가 발생 하는 경우 요청은 Azure 지리 외부에서 라우팅될 수 있습니다.
 
@@ -45,35 +45,34 @@ Microsoft Translator Text API에 대한 요청은 대부분 요청이 시작된 
 |:--|:--|:--|
 |Azure|Global (비 지역)|   api.cognitive.microsofttranslator.com|
 |Azure|미국|   api-nam.cognitive.microsofttranslator.com|
-|Azure|Europe|  api-eur.cognitive.microsofttranslator.com|
+|Azure|유럽|  api-eur.cognitive.microsofttranslator.com|
 |Azure|아시아 태평양|    api-apc.cognitive.microsofttranslator.com|
 
+## <a name="authentication"></a>Authentication
 
-## <a name="authentication"></a>인증
+Azure Cognitive Services에서 Translator Text API 또는 [Cognitive Services 다중 서비스](https://azure.microsoft.com/pricing/details/cognitive-services/) 를 구독 하 고 구독 키 (Azure Portal에서 사용 가능)를 사용 하 여 인증 합니다. 
 
-Microsoft Cognitive Services에서 Translator Text API 또는 [Cognitive Services 다중 서비스](https://azure.microsoft.com/pricing/details/cognitive-services/) 를 구독 하 고 구독 키 (Azure Portal에서 사용 가능)를 사용 하 여 인증 합니다. 
+구독을 인증하는 데 사용할 수 있는 헤더는 세 개가 있습니다. 다음 표에서는 각를 사용 하는 방법을 설명 합니다.
 
-구독을 인증하는 데 사용할 수 있는 헤더는 세 개가 있습니다. 이 표에 각 사용 방법이 설명되어 있습니다.
-
-|헤더|설명|
+|headers|설명|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*비밀 키를 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 Translator Text API 구독에 대한 Azure 비밀 키입니다.|
-|Authorization|*인증 토큰을 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 전달자 토큰인 `Bearer <token>`입니다.|
+|권한 부여|*인증 토큰을 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 전달자 토큰인 `Bearer <token>`입니다.|
 |Ocp-Apim-Subscription-Region|*다중 서비스 비밀 키를 전달 하는 경우 Cognitive Services 다중 서비스 구독과 함께 사용 합니다.*<br/>값은 다중 서비스 구독의 지역입니다. 다중 서비스 구독을 사용 하지 않는 경우이 값은 선택 사항입니다.|
 
 ###  <a name="secret-key"></a>비밀 키
-첫 번째 옵션은 `Ocp-Apim-Subscription-Key` 헤더를 사용하여 인증하는 것입니다. `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` 헤더를 요청에 추가하면 됩니다.
+첫 번째 옵션은 `Ocp-Apim-Subscription-Key` 헤더를 사용하여 인증하는 것입니다. @No__t-0 헤더를 요청에 추가 합니다.
 
 ### <a name="authorization-token"></a>권한 부여 토큰
 또는 액세스 토큰에 대한 비밀 키를 교환할 수 있습니다. 이 토큰은 각 요청에 `Authorization` 헤더로 포함됩니다. 인증 토큰을 받으려면 다음 URL에 대해 `POST` 요청을 수행합니다.
 
-| 환경     | 인증 서비스 URL                                |
+| Environment     | 인증 서비스 URL                                |
 |-----------------|-----------------------------------------------------------|
 | Azure           | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
 다음은 비밀 키가 제공된 경우 토큰을 얻기 위한 요청 예입니다.
 
-```
+```curl
 // Pass secret key using header
 curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
 
@@ -83,11 +82,11 @@ curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscrip
 
 요청에 성공하면 인코드된 액세스 토큰이 응답 본문에 일반 텍스트로 반환됩니다. 유효한 토큰이 인증의 전달자 토큰으로 Translator 서비스에 전달됩니다.
 
-```
+```http
 Authorization: Bearer <Base64-access_token>
 ```
 
-인증 토큰은 10분 동안 유효합니다. Translator API를 여러 번 호출할 때는 토큰을 다시 사용해야 합니다. 그러나 프로그램이 확장된 기간 동안 Translator API에 대한 요청을 수행하는 경우 프로그램은 일정한 간격(예: 8분마다)으로 새 액세스 토큰을 요청해야 합니다.
+인증 토큰은 10분 동안 유효합니다. Translator Api를 여러 번 호출 하는 경우 토큰을 다시 사용 해야 합니다. 그러나 프로그램에서 오랜 시간 동안 변환기 API에 대 한 요청을 수행 하는 경우 프로그램은 정기적으로 새 액세스 토큰을 요청 해야 합니다 (예: 8 분 마다).
 
 ### <a name="multi-service-subscription"></a>다중 서비스 구독
 
@@ -99,7 +98,7 @@ Authorization: Bearer <Base64-access_token>
 
 다중 서비스 텍스트 API 구독에는 지역이 필요 합니다. 선택한 지역은 다중 서비스 구독 키를 사용 하는 경우 텍스트 번역에 사용할 수 있는 유일한 지역 이며 Azure Portal를 통해 다중 서비스 구독에 등록할 때 선택한 것과 동일한 지역 이어야 합니다.
 
-사용 가능한 지역은 `australiaeast` `brazilsouth` ,,`centralindia` `centralus`,, ,,`japanwest`,,,,,,입니다. `centraluseuap` `eastasia` `canadacentral` `eastus` `eastus2` `francecentral` `japaneast` ,`koreacentral`,,,,,,,, 및`southafricanorth`가 있습니다. `northcentralus` `northeurope` `southcentralus` `southeastasia` `uksouth` `westcentralus` `westeurope` `westus` `westus2`
+사용 가능한 지역은 `australiaeast` `brazilsouth`입니다. `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, @no__t, `eastus`, `eastus2`, `francecentral`, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, @no__t t-21, 2
 
 `Subscription-Key` 매개 변수를 사용한 쿼리 문자열에 비밀 키를 전달하는 경우 `Subscription-Region` 쿼리 매개 변수를 사용하여 지역을 지정해야 합니다.
 
@@ -111,12 +110,11 @@ Authorization: Bearer <Base64-access_token>
 표준 오류 응답은 이름/값 쌍이 포함된 JSON 개체 `error`입니다. 값도 다음 속성을 가진 JSON 개체입니다.
 
   * `code`: 서버에서 정의된 오류 코드입니다.
-
   * `message`: 사용자가 읽을 수 있는 오류 표시를 제공하는 문자열입니다.
 
 예를 들어 평가판 구독이 있는 고객은 무료 할당량이 모두 사용된 후 다음 오류를 받게 됩니다.
 
-```
+```json
 {
   "error": {
     "code":403001,
@@ -126,7 +124,7 @@ Authorization: Bearer <Base64-access_token>
 ```
 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 다음과 같습니다.
 
-| 코드 | Description |
+| 코드 | 설명 |
 |:----|:-----|
 | 400000| 요청 입력 중 하나가 올바르지 않습니다.|
 | 400001| "scope" 매개 변수가 올바르지 않습니다.|
@@ -136,7 +134,7 @@ Authorization: Bearer <Base64-access_token>
 | 400005| 입력 텍스트가 누락되었거나 올바르지 않습니다.|
 | 400006| 언어 및 스크립트의 조합이 올바르지 않습니다.|
 | 400018| 원본 스크립트 지정자("From script")가 누락되었거나 올바르지 않습니다.|
-| 400019| 지정된 언어 중 하나가 지원되지 않습니다.|
+| 400019| 지정 된 언어 중 하나가 지원 되지 않습니다.|
 | 400020| 입력 텍스트의 배열에서 요소 중 하나가 올바르지 않습니다.|
 | 400021| API 버전 매개 변수가 누락되었거나 올바르지 않습니다.|
 | 400023| 지정된 언어 쌍 중 하나가 올바르지 않습니다.|
@@ -156,7 +154,7 @@ Authorization: Bearer <Base64-access_token>
 | 400079| from과 to 언어 간의 변환에 대해 요청된 사용자 지정 시스템이 존재하지 않습니다.|
 | 400080| 언어 또는 스크립트에는 음이 지원 되지 않습니다.|
 | 401000| 자격 증명이 누락되었거나 올바르지 않으므로 요청에 권한이 없습니다.|
-| 401015| "제공된 자격 증명은 Speech API에 대한 것입니다. 이 요청에 Text API에 대한 자격 증명이 필요합니다. Translator Text API에 대한 구독을 사용하세요."|
+| 401015| "제공된 자격 증명은 Speech API에 대한 것입니다. 이 요청에 Text API에 대한 자격 증명이 필요합니다. 구독을 사용 하 여 Translator Text API 합니다. "|
 | 403000| 작업이 허용되지 않습니다.|
 | 403001| 구독이 무료 할당량을 초과했기 때문에 작업이 허용되지 않습니다.|
 | 405000| 요청 메서드가 요청된 리소스에 대해 지원되지 않습니다.|

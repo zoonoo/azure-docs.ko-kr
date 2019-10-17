@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7e79d3119f5d2d0fe1894de0ab9535dd988706f8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: e1e89612ee48aaf5ee9bda51f954add426bf6720
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935211"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516788"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Azure authoring resource로 마이그레이션하는 단계
 
@@ -91,14 +91,14 @@ LUIS apps의 소유자 인 경우 마이그레이션 프로세스를 사용할 �
 
     LUIS 포털에서 앱을 계속 편집 하기 위해 제작 리소스의 키를 알 필요가 없습니다. 앱을 프로그래밍 방식으로 편집 하려는 경우 제작 키 값이 필요 합니다. 이러한 값은 LUIS 포털의 **> Azure 리소스** 페이지에 표시 되며, 리소스의 **키** 페이지에 있는 Azure Portal 에서도 사용할 수 있습니다.  
 
-1. 앱에 액세스 하기 전에 구독 및 LUIS authoring 리소스를 선택 하 여 사용자가 작성할 수 있는 앱을 확인 합니다.
+1. 앱에 액세스 하기 전에 구독 및 LUIS authoring 리소스를 선택 하 여 작성할 수 있는 앱을 확인 합니다.
 
     ![구독 및 LUIS 제작 리소스를 선택 하 여 작성할 수 있는 앱을 확인 합니다.](./media/migrate-authoring-key/app-list-by-subscription-and-resource.png)
 
 
 ## <a name="app-contributor-begins-the-migration-process"></a>앱 참가자가 마이그레이션 프로세스를 시작 합니다.
 
-마이그레이션의 앱 소유자와 동일한 단계를 수행 합니다. 이 프로세스는 종류 `LUIS.Authoring`의 새 제작 리소스를 만듭니다. 
+마이그레이션의 앱 소유자와 동일한 단계를 수행 합니다. 이 프로세스는 `LUIS.Authoring` 종류의 새 제작 리소스를 만듭니다. 
 
 다른 사용자가 소유한 마이그레이션된 앱에 대 한 참가자로 추가 되기 위해 계정을 마이그레이션해야 합니다.  
 
@@ -110,7 +110,7 @@ LUIS apps의 소유자 인 경우 마이그레이션 프로세스를 사용할 �
 
 ## <a name="troubleshooting-errors-with-the-migration-process"></a>마이그레이션 프로세스의 오류 문제 해결
 
-마이그레이션 프로세스 중에 `MissingSubscriptionRegistration` 빨간색 알림 표시줄에 LUIS 포털에 오류가 표시 되는 경우 [Azure Portal](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) 또는 [Azure CLI](luis-how-to-azure-subscription.md#create-resources-in-azure-cli)에서 인지 서비스 리소스를 만듭니다. [이 오류의 원인](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause)에 대해 자세히 알아보세요.
+마이그레이션 프로세스 중에 빨간색 알림 표시줄을 사용 하 여 LUIS 포털에 `MissingSubscriptionRegistration` 오류가 표시 되는 경우 [Azure Portal](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) 또는 [Azure CLI](luis-how-to-azure-subscription.md#create-resources-in-azure-cli)에서 인지 서비스 리소스를 만듭니다. [이 오류의 원인](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause)에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
