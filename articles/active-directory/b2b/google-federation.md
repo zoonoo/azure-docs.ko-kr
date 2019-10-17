@@ -1,32 +1,32 @@
 ---
-title: Google을 id 공급자로 B2B-Azure Active Directory에 대 한 추가 | Microsoft Docs
+title: B2B에 대 한 id 공급자로 Google 추가-Azure Active Directory | Microsoft Docs
 description: 게스트 사용자가 자신의 Gmail 계정을 사용하여 Azure AD 앱에 로그인할 수 있도록 Google과 페더레이션
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 10/14/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 735c3db14963c1f3cfe700a97dee9fedb70e29f5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4b26679542753d5fb429c33e4220c23a3937c5cb
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441119"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430430"
 ---
-# <a name="add-google-as-an-identity-provider-for-b2b-guest-users-preview"></a>Google을 id 공급자로 B2B 게스트 사용자 (미리 보기)에 대 한 추가
+# <a name="add-google-as-an-identity-provider-for-b2b-guest-users-preview"></a>B2B 게스트 사용자에 대 한 id 공급자로 Google 추가 (미리 보기)
 
 |     |
 | --- |
-| Google 페더레이션에는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
+| Google 페더레이션은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
 
-Google과의 페더레이션을 설정하면 초대된 사용자가 MSA(Microsoft 계정) 또는 Azure AD 계정을 만들 필요 없이 자신의 Google 계정을 사용하여 공유된 앱 및 리소스에 로그인하도록 허용할 수 있습니다.  
+Google을 사용 하 여 페더레이션을 설정 함으로써 초대 된 사용자가 Microsoft 계정 (MSAs) 또는 Azure AD 계정을 만들지 않고도 자신의 Gmail 계정을 사용 하 여 공유 앱 및 리소스에 로그인 하도록 허용할 수 있습니다. Google 페더레이션은 Gmail 사용자를 위해 특별히 설계 되었습니다. G Suite 도메인과 페더레이션 하려면 [직접 페더레이션 기능](direct-federation.md) 을 대신 사용 합니다.
 > [!NOTE]
 > Google 게스트 사용자는 테넌트 컨텍스트를 포함하는 링크를 사용하여 로그인해야 합니다(예: `https://myapps.microsoft.com/?tenantid=<tenant id>` 또는 `https://portal.azure.com/<tenant id>`/확인된 기본 도메인의 경우 `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). 애플리케이션 및 리소스에 대한 직접 링크는 테넌트 컨텍스트를 포함하는 한 작동합니다. 게스트 사용자는 현재 테넌트 컨텍스트가 없는 엔드포인트를 사용하여 로그인할 수 없습니다. 예를 들어 `https://myapps.microsoft.com`, `https://portal.azure.com` 또는 팀 공통 엔드포인트를 사용하면 오류가 발생합니다.
  
@@ -37,18 +37,18 @@ Google Gmail 사용자에게 초대를 보낼 때 게스트 사용자는 테넌�
 
 게스트 사용자에게 “헤더가 너무 김” 오류가 표시되는 경우 자신의 쿠키를 지우거나 프라이빗 또는 시크릿 창을 열고 다시 로그인을 시도해 볼 수 있습니다.
 
-![페이지에서 Google 로그인을 보여 주는 스크린샷](media/google-federation/google-sign-in.png)
+![Google 로그인 페이지를 보여 주는 스크린샷](media/google-federation/google-sign-in.png)
 
 ## <a name="step-1-configure-a-google-developer-project"></a>1단계: Google 개발자 프로젝트 구성
 먼저 Google 개발자 콘솔에서 새 프로젝트를 만들어 나중에 Azure AD에 추가할 수 있는 클라이언트 ID 및 클라이언트 비밀을 가져옵니다. 
-1. [https://console.developers.google.com](https://console.developers.google.com ) 에서 Google API로 이동하고, Google 계정으로 로그인합니다. 공유 팀 Google 계정을 사용하는 것이 좋습니다.
+1. https://console.developers.google.com 에서 Google API로 이동하고, Google 계정으로 로그인합니다. 공유 팀 Google 계정을 사용하는 것이 좋습니다.
 2. 새 프로젝트를 만듭니다. 대시보드에서 **프로젝트 만들기**를 선택한 다음, **만들기**를 선택합니다. 새 프로젝트 페이지에서 **프로젝트 이름**을 입력한 다음, **만들기**를 선택합니다.
    
-   ![Google에 대 한 새 프로젝트 페이지를 보여 주는 스크린샷](media/google-federation/google-new-project.png)
+   ![Google의 새 프로젝트 페이지를 보여 주는 스크린샷](media/google-federation/google-new-project.png)
 
 3. 새 프로젝트가 프로젝트 메뉴에서 선택되어 있는지 확인합니다. 그런 다음, 왼쪽 위에 있는 메뉴를 열고 **API 및 서비스** > **자격 증명**을 선택합니다.
 
-   ![자격 증명 옵션을 Google API를 보여 주는 스크린샷](media/google-federation/google-api.png)
+   ![Google API 자격 증명 옵션을 보여 주는 스크린샷](media/google-federation/google-api.png)
  
 4. **OAuth 동의 화면** 탭을 선택하고 **애플리케이션 이름**을 입력합니다. (다른 설정은 변경하지 말고 그대로 둡니다.)
 
@@ -56,13 +56,13 @@ Google Gmail 사용자에게 초대를 보낼 때 게스트 사용자는 테넌�
 
 5. **권한 있는 도메인** 섹션으로 스크롤하고 microsoftonline.com을 입력합니다.
 
-   ![권한이 부여 된 도메인 섹션을 보여 주는 스크린샷](media/google-federation/google-oauth-authorized-domains.png)
+   ![권한 있는 도메인 섹션을 보여 주는 스크린샷](media/google-federation/google-oauth-authorized-domains.png)
 
 6. **저장**을 선택합니다.
 
-7. **자격 증명** 탭을 선택합니다. **자격 증명 만들기** 메뉴에서 **OAuth 클라이언트 ID**를 선택합니다.
+7. **자격 증명** 탭을 선택 합니다. **자격 증명 만들기** 메뉴에서 **OAuth 클라이언트 ID**를 선택 합니다.
 
-   ![Google Api를 보여 주는 스크린 샷 만들기 자격 증명 옵션](media/google-federation/google-api-credentials.png)
+   ![Google Api 자격 증명 만들기 옵션을 보여 주는 스크린샷](media/google-federation/google-api-credentials.png)
 
 8. **애플리케이션 유형**에서 **웹 애플리케이션**을 선택한 다음, **권한이 부여된 리디렉션 URI**에서 다음 URI를 입력합니다.
    - `https://login.microsoftonline.com` 
@@ -71,7 +71,7 @@ Google Gmail 사용자에게 초대를 보낼 때 게스트 사용자는 테넌�
      > [!NOTE]
      > 디렉터리 ID를 찾으려면 https://portal.azure.com 으로 이동하고, **Azure Active Directory**에서 **속성**을 선택하고 **디렉터리 ID**를 복사합니다.
 
-   ![스크린샷은 권한이 부여 된 리디렉션 Uri 섹션](media/google-federation/google-create-oauth-client-id.png)
+   ![권한 있는 리디렉션 Uri 섹션을 보여 주는 스크린샷](media/google-federation/google-create-oauth-client-id.png)
 
 9. **만들기**를 선택합니다. 클라이언트 ID 및 클라이언트 비밀을 복사합니다. Azure AD 포털에서 ID 공급자를 추가할 때 사용하게 됩니다.
 
@@ -86,7 +86,7 @@ Google Gmail 사용자에게 초대를 보낼 때 게스트 사용자는 테넌�
 3. **ID 공급자**를 선택한 다음, **Google** 단추를 클릭합니다.
 4. 이름을 입력합니다. 그런 다음, 이전에 가져온 클라이언트 ID 및 클라이언트 비밀을 입력합니다. **저장**을 선택합니다. 
 
-   ![추가 Google id 공급자 페이지를 보여 주는 스크린샷](media/google-federation/google-identity-provider.png)
+   ![Google id 공급자 추가 페이지를 보여 주는 스크린샷](media/google-federation/google-identity-provider.png)
 
 #### <a name="to-configure-google-federation-by-using-powershell"></a>PowerShell을 사용하여 Google 페더레이션을 구성하려면 다음을 수행합니다.
 1. 그래프 모듈에 대한 Azure AD PowerShell의 최신 버전을 설치합니다([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
@@ -97,7 +97,7 @@ Google Gmail 사용자에게 초대를 보낼 때 게스트 사용자는 테넌�
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > “1단계: Google 개발자 프로젝트 구성”에서 만든 앱의 클라이언트 ID 및 클라이언트 암호를 사용합니다. 자세한 내용은 [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) 문서를 참조하세요. 
+   > “1단계: Google 개발자 프로젝트 구성”에서 만든 앱의 클라이언트 ID 및 클라이언트 비밀을 사용합니다. 자세한 내용은 [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) 문서를 참조하세요. 
  
 ## <a name="how-do-i-remove-google-federation"></a>Google 페더레이션은 어떻게 제거하나요?
 Google 페더레이션 설치 프로그램을 삭제할 수 있습니다. 이렇게 하면 이미 초대를 사용한 Google 게스트 사용자는 로그인할 수 없게 되지만, 디렉터리에서 해당 사용자를 삭제하고 다시 초대하여 리소스에 대한 액세스 권한을 다시 부여할 수 있습니다. 
@@ -105,8 +105,8 @@ Google 페더레이션 설치 프로그램을 삭제할 수 있습니다. 이렇
 ### <a name="to-delete-google-federation-in-the-azure-ad-portal"></a>Azure AD 포털에서 Google 페더레이션을 삭제하려면 다음을 수행합니다. 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. 왼쪽 창에서 **Azure Active Directory**를 선택합니다. 
 2. **조직 관계**를 선택합니다.
-3. 선택 **Id 공급자**합니다.
-4. 에 **Google** 상황에 맞는 메뉴를 선택 ( **...** )를 선택한 **삭제**합니다. 
+3. **Id 공급자**를 선택 합니다.
+4. **Google** line에서 상황에 맞는 메뉴 ( **...** )를 선택 하 고 **삭제**를 선택 합니다. 
    
    ![소셜 id 공급자에 대 한 삭제 옵션을 보여 주는 스크린샷](media/google-federation/google-social-identity-providers.png)
 
@@ -114,7 +114,7 @@ Google 페더레이션 설치 프로그램을 삭제할 수 있습니다. 이렇
 
 ### <a name="to-delete-google-federation-by-using-powershell"></a>PowerShell을 사용하여 Google 페더레이션을 삭제하려면 다음을 수행합니다. 
 1. 그래프 모듈에 대한 Azure AD PowerShell의 최신 버전을 설치합니다([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
-2. `Connect-AzureAD`을 실행합니다.  
+2. `Connect-AzureAD`.  
 4. 로그인 프롬프트에서 관리되는 글로벌 관리자 계정으로 로그인합니다.  
 5. 다음 명령을 입력합니다.
 

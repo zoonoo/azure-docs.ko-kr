@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 25be8f166fec8a311fdc2ed1fa3fca6339185e94
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 48e84517fba1caee771f6985b4c502227cae9e72
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867527"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389798"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 방법
 
@@ -31,12 +31,12 @@ ms.locfileid: "67867527"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 시작하기 전에 다음 항목이 있는지 확인하십시오.
 
 * **Log Analytics 작업 영역입니다.**
 
-    컨테이너에 대 한 Azure Monitor는 지역 **US Gov 버지니아**를 제외 하 고 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다.
+    컨테이너 Azure Monitor는 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다.
 
     새 AKS 클러스터의 모니터링을 사용 하도록 설정 하거나 온 보 딩 환경에서 AKS 클러스터 구독의 기본 리소스 그룹에 기본 작업 영역을 만들 때 작업 영역을 만들 수 있습니다. 직접 만들려면 [Azure Resource Manager](../platform/template-workspace-configuration.md)를 통해 만들거나 [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 만들거나 [Azure Portal](../learn/quick-create-workspace.md)에서 만들 수 있습니다. 기본 작업 영역에 사용 되는 지원 되는 매핑 쌍 목록은 [컨테이너의 Azure Monitor에 대 한 지역 매핑](container-insights-region-mapping.md)을 참조 하세요.
 
@@ -64,7 +64,7 @@ ms.locfileid: "67867527"
 
 다음 표에서 설명 하는 다음 방법 중 하나를 사용 하 여 컨테이너에 대 한 Azure Monitor를 사용 하도록 설정 합니다.
 
-| 배포 상태 | 메서드 | Description |
+| 배포 상태 | 방법 | 설명 |
 |------------------|--------|-------------|
 | 새 AKS 클러스터 | [Azure CLI를 사용 하 여 클러스터 만들기](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Azure CLI를 사용 하 여 만든 새 AKS 클러스터의 모니터링을 사용 하도록 설정할 수 있습니다. |
 | | [Terraform을 사용 하 여 클러스터 만들기](container-insights-enable-new-cluster.md#enable-using-terraform)| 오픈 소스 도구인 Terraform을 사용 하 여 만든 새 AKS 클러스터의 모니터링을 사용 하도록 설정할 수 있습니다. |

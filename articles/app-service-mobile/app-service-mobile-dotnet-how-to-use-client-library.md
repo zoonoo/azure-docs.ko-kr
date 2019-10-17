@@ -14,25 +14,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 2abced3bd7f1afe5e447a60c73da26fa302ced98
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 1a56c6eed8b6a78587ea272c44f01d16e8a2b88d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027379"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388713"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure Mobile Apps에 관리되는 클라이언트를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center은 모바일 앱 개발에 대 한 종단 간 및 통합 서비스의 중심을 지원 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다.
-> 모바일 응용 프로그램에서 클라우드 서비스를 통합 하려는 경우 현재 App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 에 등록 하세요.
+> Visual Studio App Center는 모바일 앱 개발의 중심인 엔드투엔드 통합 서비스를 지원합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용하여 지속적인 통합 및 업데이트 파이프라인을 설정할 수 있습니다. 앱이 배포되면 개발자는 **분석** 및 **진단** 서비스를 사용하여 앱의 상태와 사용 현황을 모니터링하고, **푸시** 서비스를 사용하여 사용자와 소통할 수 있습니다. 또한 개발자는 **인증** 서비스를 사용하여 사용자를 인증하고, **데이터** 서비스를 사용하여 클라우드에서 애플리케이션 데이터를 유지하고 동기화할 수도 있습니다.
+>
+> 모바일 애플리케이션에서 클라우드 서비스를 통합하려면 지금 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc)에 등록하세요.
 
 ## <a name="overview"></a>개요
 이 가이드에서는 Windows 및 Xamarin 앱용 Azure App Service Mobile Apps에 관리되는 클라이언트 라이브러리를 사용하는 일반적인 시나리오를 수행하는 방법을 보여 줍니다. Mobile Apps를 처음 접하는 경우 먼저 [Azure Mobile Apps 빠른 시작][1] 자습서를 완료하는 것이 좋습니다. 이 가이드에서는 클라이언트 쪽 관리되는 SDK에 초점을 둡니다. Mobile Apps에 대 한 서버 쪽 Sdk에 대해 자세히 알아보려면 [.Net 서버 sdk][2] 또는 [node.js 서버 sdk][3]에 대 한 설명서를 참조 하세요.
 
 ## <a name="reference-documentation"></a>참조 설명서
-클라이언트 SDK에 대한 참조 설명서는 [Azure Mobile Apps .net 클라이언트 참조][4].
+클라이언트 SDK에 대한 참조 설명서는 [Azure Mobile Apps .NET 클라이언트 참조][4]에서 찾을 수 있습니다.
 [Azure 샘플 GitHub 리포지토리][5]에서 몇 가지 클라이언트 샘플을 찾을 수 있습니다.
 
 ## <a name="supported-platforms"></a>지원되는 플랫폼
@@ -66,9 +67,9 @@ public class TodoItem
 
 [JsonPropertyAttribute][6] 는 클라이언트 필드와 테이블 필드 간의 *PropertyName* 매핑을 정의 하는 데 사용 됩니다.
 
-Mobile Apps 백 엔드에서 테이블을 만드는 방법을 알아보려면 [.Net 서버 sdk 토픽][7] 또는 [node.js 서버 sdk 항목][8]을 참조 하세요. 빠른 시작을 사용하여 Azure Portal에서 Mobile App 백 엔드를 만든 경우 [Azure Portal] 에서 **쉬운 테이블**설정을 사용할 수도 있습니다.
+Mobile Apps 백 엔드에서 테이블을 만드는 방법을 알아보려면 [.Net 서버 sdk 토픽][7] 또는 [node.js 서버 sdk 항목][8]을 참조 하세요. 빠른 시작을 사용하여 Azure Portal에서 Mobile App 백 엔드를 만든 경우 [Azure 포털] 에서 **쉬운 테이블**설정을 사용할 수도 있습니다.
 
-### <a name="how-to-install-the-managed-client-sdk-package"></a>방법: 관리형 클라이언트 SDK 패키지 설치
+### <a name="how-to-install-the-managed-client-sdk-package"></a>방법: 관리되는 클라이언트 SDK 패키지 설치
 다음 메서드 중 하나를 사용하여 [NuGet][9]에서 Mobile Apps용 관리되는 클라이언트 SDK 패키지를 설치합니다.
 
 * **Visual Studio**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭한 다음, `Microsoft.Azure.Mobile.Client` 패키지를 검색하고 **설치**를 클릭합니다.
@@ -93,10 +94,10 @@ Microsoft.Azure.Mobile 네임스페이스의 기호는 [SymbolSource][10]에 있
 var client = new MobileServiceClient("MOBILE_APP_URL");
 ```
 
-위의 코드에서 `MOBILE_APP_URL` 을 모바일 앱 백 엔드의 URL로 대체하며 이는 [Azure Portal]의 모바일 앱 백 엔드에 대한 블레이드에서 찾을 수 있습니다. MobileServiceClient 개체는 단일 항목이어야 합니다.
+위의 코드에서 `MOBILE_APP_URL` 을 모바일 앱 백 엔드의 URL로 대체하며 이는 [Azure 포털]의 모바일 앱 백 엔드에 대한 블레이드에서 찾을 수 있습니다. MobileServiceClient 개체는 단일 항목이어야 합니다.
 
 ## <a name="work-with-tables"></a>테이블 작업
-다음 섹션에는 레코드를 검색하고 테이블 내에서 데이터를 수정하는 방법을 자세히 설명합니다.  다음 토픽을 다룹니다.
+다음 섹션에는 레코드를 검색하고 테이블 내에서 데이터를 수정하는 방법을 자세히 설명합니다.  다음 항목이 다루어집니다.
 
 * [테이블 참조 만들기](#instantiating)
 * [쿼리 데이터](#querying)
@@ -221,7 +222,7 @@ MobileServiceTableQuery<TodoItem> query = todoTable
 List<TodoItem> items = await query.ToListAsync();
 ```
 
-### <a name="paging"></a>방법: 페이지에 데이터 반환
+### <a name="paging"></a>방법: 페이지에서 데이터 반환
 기본적으로 백 엔드는 첫 50개 행만 반환합니다. [Take] 메서드를 호출하여 반환 행 수를 늘릴 수 있습니다. `Take` 을(를) [Skip] 메서드와 함께 사용하면 쿼리에서 반환되는 전체 데이터 세트의 특정 "페이지"가 요청됩니다. 다음 쿼리를 실행하면 테이블에서 맨 위에 있는 세 개의 항목을 반환합니다.
 
 ```csharp
@@ -299,7 +300,7 @@ JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$o
 속성 모음처럼 사용할 수 있는 JSON 값이 반환됩니다. JToken 및 Newtonsoft Json.NET에 대한 자세한 내용은 [Json.NET] 사이트를 참조하세요.
 
 ### <a name="inserting"></a>방법: 모바일 앱 백 엔드에 데이터 삽입
-모든 클라이언트 형식은 **ID**라는 멤버를 포함해야 하며 이는 기본적으로 문자열입니다. 이 **ID** 는 CRUD 작업 및 오프라인 동기화를 수행하는 데 필요합니다. 다음 코드는 [InsertAsync] 메서드를 사용하여 테이블에 새 행을 삽입하는 방법을 보여 줍니다. 매개 변수에는 .NET 개체로 삽입할 데이터가 포함되어 있습니다.
+모든 클라이언트 형식은 **ID**라는 멤버를 포함해야 하며 이는 기본적으로 문자열입니다. 이 **Id** 는 CRUD 작업을 수행 하 고 오프 라인 동기화를 수행 하는 데 필요 합니다. 다음 코드는 [InsertAsync] 메서드를 사용 하 여 테이블에 새 행을 삽입 하는 방법을 보여 줍니다. 매개 변수에는 .NET 개체로 삽입할 데이터가 포함되어 있습니다.
 
 ```csharp
 await todoTable.InsertAsync(todoItem);
@@ -382,7 +383,7 @@ await table.DeleteAsync(jo);
 
 Mobile Apps는 Mobile App 백 엔드의 각 테이블에 대해 정의된 `version` 시스템 속성 열을 사용하는 각 항목의 변경 내용을 추적하여 낙관적 동시성 제어를 지원합니다. 레코드가 업데이트될 때마다 Mobile Apps는 해당 레코드의 `version` 속성을 새 값으로 설정합니다. 각 업데이트 요청 중에 요청에 포함된 레코드의 `version` 속성이 서버에 있는 레코드의 동일 속성과 비교됩니다. 요청과 함께 전달된 버전이 백 엔드와 일치하지 않는 경우 클라이언트 라이브러리는 `MobileServicePreconditionFailedException<T>` 예외를 발생시킵니다. 예외에 포함된 형식은 백 엔드의 레코드이며 서버 버전의 레코드를 포함하고 있습니다. 그러면 애플리케이션은 이 정보를 사용하여 변경을 커밋하기 위해 백 엔드의 올바른 `version` 값으로 업데이트 요청을 다시 실행할지 여부를 결정할 수 있습니다.
 
-낙관적 동시성을 사용하기 위해 `version` 시스템 속성의 테이블 클래스에 대해 열을 정의합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+낙관적 동시성을 사용하기 위해 `version` 시스템 속성의 테이블 클래스에 대해 열을 정의합니다. 다음은 그 예입니다.
 
 ```csharp
 public class TodoItem
@@ -524,10 +525,10 @@ PullOptions pullOptions = new PullOptions
 1. Visual Studio에서 솔루션 > **솔루션에 대한 NuGet 패키지 관리...** 를 마우스 오른쪽 단추로 클릭한 후 솔루션의 모든 프로젝트에서 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 패키지를 검색하고 설치합니다.
 2. (선택 사항) Windows 디바이스를 지원하려면 다음 SQLite 런타임 패키지 중 하나를 설치합니다.
 
-   * **Windows 8.1 런타임:** [Windows 8.1 용 SQLite를][3]설치 합니다.
-   * **Windows Phone 8.1:** [Windows Phone 8.1 용 SQLite를][4]설치 합니다.
+   * **Windows 8.1 런타임:** : [Windows 8.1용 SQLite][3]를 설치합니다.
+   * **Windows Phone 8.1:** [Windows Phone 8.1용 SQLite][4]를 설치합니다.
    * **유니버설 Windows 플랫폼** [유니버설 Windows 용 SQLite를][5]설치 합니다.
-3. (선택 사항) Windows 디바이스의 경우, **참조** > **참조 추가...** , **Windows** 폴더 &gt; **확장**을 펼친 후, **Visual C++ 2013 Runtime for Windows** SDK와 함께 해당 **SQLite for Windows** SDK를 사용하도록 설정합니다.
+3. (선택 사항). Windows 디바이스의 경우, **참조** > **참조 추가...** , **Windows** 폴더 &gt; **확장**을 펼친 후, **Visual C++ 2013 Runtime for Windows** SDK와 함께 해당 **SQLite for Windows** SDK를 사용하도록 설정합니다.
     SQLite SDK 이름은 Windows 플랫폼마다 약간 다릅니다.
 
 테이블 참조를 만들기 전에, 로컬 저장소를 준비해야 합니다.
@@ -620,7 +621,7 @@ var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Ne
 이 양식은 형식화된 메서드 호출이며 **MarkAllResult** 반환 형식을 정의해야 합니다. 형식화된 메서드와 형식화되지 않은 메서드가 모두 지원됩니다.
 
 InvokeApiAsync() 메소드는 API가 '/'로 시작하는 경우를 제외하고 호출하려는 API 앞에 '/api/'를 추가합니다.
-예를 들어 다음과 같은 가치를 제공해야 합니다.
+다음은 그 예입니다.
 
 * `InvokeApiAsync("completeAll",...)` - 백 엔드에서 /api/completeAll 호출
 * `InvokeApiAsync("/.auth/me",...)` - 백 엔드에서 /.auth/me 호출
@@ -628,7 +629,7 @@ InvokeApiAsync() 메소드는 API가 '/'로 시작하는 경우를 제외하고 
 InvokeApiAsync를 사용하여 Azure Mobile Apps로 정의되지 않은 WebAPI를 포함한 WebAPI를 호출할 수 있습니다.  InvokeApiAsync()를 사용할 경우 인증 헤더를 포함한 적합한 헤더가 요청과 함께 전송됩니다.
 
 ## <a name="authentication"></a>사용자 인증
-Mobile Apps는 다음과 같이 다양한 외부 ID 공급자를 사용하여 앱 사용자의 인증 및 권한 부여를 지원합니다. Facebook, Google, Microsoft 계정, Twitter 및 Azure Active Directory. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [앱에 인증 추가]자습서를 참조하세요.
+Mobile Apps는 Facebook, Google, Microsoft 계정, Twitter 및 Azure Active Directory와 같이 다양한 외부 ID 공급자를 사용하여 앱 사용자의 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [앱에 인증 추가]자습서를 참조하세요.
 
 두 가지의 인증 흐름이 지원 됩니다: *클라이언트 관리* 및 *서버 관리* 흐름입니다. 서버 관리 흐름의 경우 공급자의 웹 인증 인터페이스를 사용하므로 인증 경험이 가장 단순합니다. 클라이언트 관리 흐름의 경우 공급자 특정 디바이스별 SDK를 사용하므로 디바이스 특정 기능을 통해 더욱 강력한 통합이 가능합니다.
 
@@ -658,7 +659,7 @@ Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 �
 2. Visual Studio 또는 Xamarin Studio에서 프로젝트를 열고 `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet 패키지에 참조를 추가합니다. 검색할 때 시험판 버전을 포함합니다.
 3. 사용하는 플랫폼에 따라 애플리케이션에 다음 코드를 추가합니다. 각각에서 다음과 같이 대체합니다.
 
-   * **INSERT-AUTHORITY-HERE**를 애플리케이션이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com 이어야 합니다. 이 값은 [Azure Portal]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
+   * **INSERT-AUTHORITY-HERE**를 애플리케이션이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com 이어야 합니다. 이 값은 [Azure 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
    * **INSERT-RESOURCE-ID-HERE** 를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 Azure **Active Directory 설정**에 있는 **고급** 탭에서 클라이언트 ID를 가져올 수 있습니다.
    * **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 애플리케이션에서 복사한 클라이언트 ID로 바꿉니다.
    * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 엔드포인트로 바꿉니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done* 과 비슷해야 합니다.
@@ -801,7 +802,7 @@ private async Task AuthenticateAsync()
 ```
 
 ### <a name="serverflow"></a>서버 관리 인증
-ID 공급자를 등록하고 나면, 공급자의 [LoginAsync] 값을 사용하여 MobileServiceClient의 [LoginAsync] 메서드를 호출합니다. 예를 들어 다음 코드는 Facebook을 사용한 서버 흐름 로그인을 시작합니다.
+ID 공급자를 등록하고 나면, 공급자의 [MobileServiceAuthenticationProvider] 값을 사용하여 MobileServiceClient의 [LoginAsync] 메서드를 호출합니다. 예를 들어 다음 코드는 Facebook을 사용한 서버 흐름 로그인을 시작합니다.
 
 ```csharp
 private MobileServiceUser user;
@@ -829,7 +830,7 @@ private async System.Threading.Tasks.Task Authenticate()
 }
 ```
 
-Facebook 이외의 ID 공급자를 사용하는 경우, [LoginAsync] 값을 공급자에 대한 값으로 변경합니다.
+Facebook 이외의 ID 공급자를 사용하는 경우, [MobileServiceAuthenticationProvider] 값을 공급자에 대한 값으로 변경합니다.
 
 서버 흐름에서 Azure App Service는 선택한 공급자의 로그인 페이지를 표시하여 OAuth 인증 흐름을 관리합니다.  ID 공급자가 결과를 반환하면 Azure App Service가 App Service 인증 토큰을 생성합니다. [LoginAsync] 메서드는 [MobileServiceUser]를 반환하며, 여기서 인증된 사용자의 [UserId] 및 [MobileServiceAuthenticationToken]이 JWT(JSON web token)로 제공됩니다. 이 토큰은 캐시했다가 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시](#caching)를 참조하십시오.
 
@@ -1052,7 +1053,7 @@ public class MyHandler : DelegatingHandler
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/library/azure/dn250636(v=azure.10).aspx
 [MobileServiceIncrementalLoadingCollection]: https://msdn.microsoft.com/library/azure/dn268408(v=azure.10).aspx
-[LoginAsync]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider(v=azure.10).aspx
+[MobileServiceAuthenticationProvider]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider(v=azure.10).aspx
 [MobileServiceUser]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser(v=azure.10).aspx
 [MobileServiceAuthenticationToken]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken(v=azure.10).aspx
 [GetTable]: https://msdn.microsoft.com/library/azure/jj554275(v=azure.10).aspx
@@ -1072,7 +1073,7 @@ public class MyHandler : DelegatingHandler
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Where]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
-[Azure Portal]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: https://msdn.microsoft.com/library/windows/apps/Hh701916.aspx

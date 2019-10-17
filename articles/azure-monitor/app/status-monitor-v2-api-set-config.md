@@ -1,6 +1,6 @@
 ---
-title: 'Azure 상태 모니터 v2 API 참조: 구성 설정 | Microsoft Docs'
-description: V2 API 참조를 상태 모니터 합니다. Set-ApplicationInsightsMonitoringConfig. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
+title: 'Azure 애플리케이션 Insights 에이전트 API 참조: 설정 구성 | Microsoft Docs'
+description: 에이전트 API 참조를 Application Insights 합니다. ApplicationInsightsMonitoringConfig를 설정 합니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 6d93be5b01be63a75041b939f6b8deb9106c4262
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 2ab941b5587a8836f1e472fbce3966b12bfa1e11
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200436"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388248"
 ---
-# <a name="status-monitor-v2-api-set-applicationinsightsmonitoringconfig"></a>상태 모니터 v2 API: ApplicationInsightsMonitoringConfig
+# <a name="application-insights-agent-api-set-applicationinsightsmonitoringconfig"></a>Application Insights 에이전트 API: ApplicationInsightsMonitoringConfig
 
 이 문서에서는 [Az. ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)의 멤버인 cmdlet에 대해 설명 합니다.
 
@@ -32,7 +32,7 @@ IIS를 다시 시작 하 여 변경 내용을 적용 합니다.
 > 이 cmdlet을 사용 하려면 관리자 권한이 있는 PowerShell 세션이 있어야 합니다.
 
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 ### <a name="example-with-a-single-instrumentation-key"></a>단일 계측 키를 사용 하는 예제
 이 예제에서는 현재 컴퓨터의 모든 앱에 단일 계측 키가 할당 됩니다.
@@ -43,11 +43,11 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 
 ### <a name="example-with-an-instrumentation-key-map"></a>계측 키 맵이 있는 예제
 이 예제에서:
-- `MachineFilter`와일드 카드를 `'.*'` 사용 하 여 현재 컴퓨터와 일치 합니다.
-- `AppFilter='WebAppExclude'`계측 키 `null` 를 제공 합니다. 지정 된 앱은 계측 되지 않습니다.
-- `AppFilter='WebAppOne'`지정 된 앱에 고유한 계측 키를 할당 합니다.
-- `AppFilter='WebAppTwo'`지정 된 앱에 고유한 계측 키를 할당 합니다.
-- 마지막으로는 `'.*'` 와일드 카드를 사용 하 여 이전 규칙과 일치 하지 않는 모든 웹 앱을 검색 하 고 기본 계측 키를 할당 합니다. `AppFilter`
+- `MachineFilter`은 `'.*'` 와일드 카드를 사용 하 여 현재 컴퓨터와 일치 합니다.
+- `AppFilter='WebAppExclude'`은 @no__t 1 계측 키를 제공 합니다. 지정 된 앱은 계측 되지 않습니다.
+- `AppFilter='WebAppOne'`은 지정 된 앱에 고유한 계측 키를 할당 합니다.
+- `AppFilter='WebAppTwo'`은 지정 된 앱에 고유한 계측 키를 할당 합니다.
+- 마지막으로 `AppFilter`은 `'.*'` 와일드 카드를 사용 하 여 이전 규칙과 일치 하지 않는 모든 웹 앱을 일치 시키고 기본 계측 키를 할당 합니다.
 - 가독성을 위해 공백을 추가 합니다.
 
 ```powershell
@@ -60,14 +60,14 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 ```
 
 
-## <a name="parameters"></a>매개 변수
+## <a name="parameters"></a>parameters
 
 ### <a name="-instrumentationkey"></a>-InstrumentationKey
 **필수** 이 매개 변수를 사용 하 여 대상 컴퓨터의 모든 앱에서 사용할 단일 계측 키를 제공 합니다.
 
 ### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
 **필수** 이 매개 변수를 사용 하 여 여러 계측 키를 제공 하 고 각 앱에서 사용 하는 계측 키의 매핑을 제공 합니다.
-을 설정 `MachineFilter`하 여 여러 컴퓨터에 대해 단일 설치 스크립트를 만들 수 있습니다.
+@No__t-0을 설정 하 여 여러 컴퓨터에 대해 단일 설치 스크립트를 만들 수 있습니다.
 
 > [!IMPORTANT]
 > 앱은 규칙이 제공 된 순서 대로 규칙에 대해 일치 합니다. 따라서 가장 구체적인 규칙을 먼저 지정 하 고 가장 일반적인 규칙을 마지막에 지정 해야 합니다.
@@ -132,7 +132,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 - 웹 [클라이언트 원격 분석을 추가](../../azure-monitor/app/javascript.md) 하 여 웹 페이지 코드에서 예외를 확인 하 고 추적 호출을 사용 하도록 설정 합니다.
 - 추적 및 로그 호출을 삽입할 수 있도록 [APPLICATION INSIGHTS SDK를 코드에 추가 합니다](../../azure-monitor/app/asp-net.md) .
  
- 상태 모니터 v2를 사용 하 여 더 많은 작업 수행:
- - 가이드를 사용 하 여 상태 모니터 v2 [문제를 해결](status-monitor-v2-troubleshoot.md) 하세요.
+ Application Insights 에이전트를 사용 하 여 더 많은 작업 수행:
+ - 가이드를 사용 하 여 Application Insights 에이전트 [문제를 해결할](status-monitor-v2-troubleshoot.md) 수 있습니다.
  - [구성을 가져와서](status-monitor-v2-api-get-config.md) 설정이 올바르게 기록 되었는지 확인 합니다.
  - 모니터링을 검사할 [상태를 가져옵니다](status-monitor-v2-api-get-status.md) .

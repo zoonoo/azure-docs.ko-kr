@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5d89c0784c2125f5a7810ff134686645e8314a6
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 3e1024b529bd099c70b870fe8b059d4982f04e40
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960217"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389570"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -30,7 +30,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 온-프레미스 ad (Active Directory) 환경이 있고 AD 도메인에 가입 된 컴퓨터를 Azure AD에 가입 하려는 경우 하이브리드 Azure AD 조인을 수행 하 여이 작업을 수행할 수 있습니다. 이 문서에서는 사용자 환경에서 하이브리드 Azure AD 조인을 구현하는 데 관련된 단계를 제공합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 문서에서는 사용자가 [Azure Active Directory의 장치 id 관리 소개](../device-management-introduction.md)에 대해 잘 알고 있다고 가정 합니다.
 
@@ -55,7 +55,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 ### <a name="windows-current-devices"></a>Windows 현재 디바이스
 
-- Windows 10
+- Windows 10
 - Windows Server 2016
 - Windows Server 2019
 
@@ -97,7 +97,7 @@ Windows 10 도메인 가입 장치가 테 넌 트에 [등록 된 azure](overview
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인에 대 한 제어 된 유효성 검사 검토
 
-모든 필수 구성 요소가 준비 되 면 Windows 장치가 자동으로 Azure AD 테 넌 트에 장치로 등록 됩니다. Azure AD에서 이러한 장치 id의 상태를 하이브리드 Azure AD 조인 이라고 합니다. 이 문서에서 설명 하는 개념에 대 한 자세한 내용은 [Azure Active Directory의 장치 id 관리 소개](overview.md) 문서와 [하이브리드 Azure Active Directory 조인 구현 계획](hybrid-azuread-join-plan.md)문서에서 찾을 수 있습니다.
+모든 필수 구성 요소가 준비 되 면 Windows 장치가 자동으로 Azure AD 테 넌 트에 장치로 등록 됩니다. Azure AD에서 이러한 장치 id의 상태를 하이브리드 Azure AD 조인 이라고 합니다. 이 문서에서 다루는 개념에 대 한 자세한 내용은 [Azure Active Directory의 장치 id 관리 소개](overview.md)문서에서 찾을 수 있습니다.
 
 조직에서는 전체 조직에서 한 번에 사용 하도록 설정 하기 전에 하이브리드 Azure AD 조인에 대 한 제어 된 유효성 검사를 수행할 수 있습니다. [하이브리드 AZURE AD 조인에 대 한 제어 된 유효성 검사](hybrid-azuread-join-control.md) 문서를 검토 하 여이를 수행 하는 방법을 이해 합니다.
 
@@ -115,8 +115,8 @@ Windows 10 도메인 가입 장치가 테 넌 트에 [등록 된 azure](overview
 
 페더레이션 환경은 다음 요구 사항을 지원하는 ID 공급자가 있어야 합니다. AD FS(Active Directory Federation Services)를 사용하는 페더레이션된 환경을 사용하는 경우에는 아래 요구 사항이 이미 지원됩니다.
 
-- **WIAORMULTIAUTHN 클레임:** 이 클레임은 Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인을 수행하는 데 필요합니다.
-- **WS-Trust 프로토콜:** 이 프로토콜은 Azure AD를 사용하여 현재 Windows 하이브리드 Azure AD 조인 디바이스를 인증하는 데 필요합니다. AD FS를 사용하는 경우 다음 WS-Trust 엔드포인트를 사용하도록 설정해야 합니다. `/adfs/services/trust/2005/windowstransport`  
+- **WIAORMULTIAUTHN 클레임:** 이 클레임은 Windows 하위 수준 장치에 대 한 하이브리드 Azure AD 조인을 수행 하는 데 필요 합니다.
+- **Ws-trust 프로토콜:** 이 프로토콜은 Azure AD에서 Windows 현재 하이브리드 Azure AD 조인 장치를 인증 하는 데 필요 합니다. AD FS를 사용하는 경우 다음 WS-Trust 엔드포인트를 사용하도록 설정해야 합니다. `/adfs/services/trust/2005/windowstransport`  
 `/adfs/services/trust/13/windowstransport`  
   `/adfs/services/trust/2005/usernamemixed` 
   `/adfs/services/trust/13/usernamemixed`
@@ -140,8 +140,8 @@ Id 인프라와 일치 하는 시나리오에 따라 다음을 참조 하세요.
 
 경우에 따라 온-프레미스 AD UPN이 Azure AD UPN과 다를 수 있습니다. 그러한 경우 Windows 10 하이브리드 Azure AD 조인은 [인증 방법](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), 도메인 유형 및 Windows 10 버전을 기반으로 온-프레미스 AD UPN에 대한 제한된 지원을 제공합니다. 사용자 환경에 있을 수 있는 온-프레미스 AD UPN에는 두 가지 유형이 있습니다.
 
-- 라우팅 가능 UPN: 라우팅 가능 UPN에는 도메인 등록 기관에 등록되어 유효한 것으로 확인된 도메인이 있습니다. 예를 들어 contoso.com이 Azure AD의 기본 도메인인 경우 contoso.org는 Contoso에서 소유하고 [Azure AD에서 확인](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)된 기본 도메인입니다.
-- 라우팅 불가능 UPN: 라우팅 불가능 UPN에는 확인된 도메인이 없습니다. 조직의 사설망 내에서만 적용됩니다. 예를 들어 contoso.com이 Azure AD의 기본 도메인인 경우 contoso.com은 온-프레미스 AD의 기본 도에미인이지만 인터넷에서 확인할 수 없는 도메인이며 Consoso의 네트워크 내에서만 사용됩니다.
+- 라우팅할 수 있는 UPN: 라우팅할 수 있는 UPN에는 도메인 등록 기관에 등록 된 유효한 확인 된 도메인이 있습니다. 예를 들어 contoso.com이 Azure AD의 기본 도메인인 경우 contoso.org는 Contoso에서 소유하고 [Azure AD에서 확인](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)된 기본 도메인입니다.
+- 라우팅할 수 없는 UPN: 라우팅할 수 없는 UPN에 확인 된 도메인이 없습니다. 조직의 사설망 내에서만 적용됩니다. 예를 들어 contoso.com이 Azure AD의 기본 도메인인 경우 contoso.com은 온-프레미스 AD의 기본 도에미인이지만 인터넷에서 확인할 수 없는 도메인이며 Consoso의 네트워크 내에서만 사용됩니다.
 
 아래 표에서는 Windows 10 하이브리드 Azure AD 조인에서 이러한 온-프레미스 AD UPN에 대한 지원을 자세히 설명합니다.
 
@@ -149,8 +149,8 @@ Id 인프라와 일치 하는 시나리오에 따라 다음을 참조 하세요.
 | ----- | ----- | ----- | ----- |
 | 라우팅 가능 | 페더레이션 | 1703 릴리스 | 일반 공급 |
 | 라우팅 불가능 | 페더레이션 | 1803 릴리스 | 일반 공급 |
-| 라우팅 가능 | 관리 | 1803 릴리스 | 일반적으로 사용 가능한 Windows 잠금 화면에서 Azure AD SSPR은 지원 되지 않습니다. |
-| 라우팅 불가능 | 관리 | 지원되지 않음 | |
+| 라우팅 가능 | Managed | 1803 릴리스 | 일반적으로 사용 가능한 Windows 잠금 화면에서 Azure AD SSPR은 지원 되지 않습니다. |
+| 라우팅 불가능 | Managed | 지원하지 않음 | |
 
 ## <a name="next-steps"></a>다음 단계
 

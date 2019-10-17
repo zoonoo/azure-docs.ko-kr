@@ -1,6 +1,6 @@
 ---
-title: 'Azure 상태 모니터 v2 API 참조: 계측 엔진 사용 | Microsoft Docs'
-description: V2 API 참조를 상태 모니터 합니다. InstrumentationEngine를 사용 합니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
+title: 'Azure 애플리케이션 Insights 에이전트 API 참조: 계측 엔진 사용 | Microsoft Docs'
+description: 에이전트 API 참조를 Application Insights 합니다. InstrumentationEngine를 사용 합니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 3c0f4e015d3e01e86daaf101c15e16857540a520
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 9958121c38b96dc9cfa4dda2812fa9ce2b18d785
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033161"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388296"
 ---
-# <a name="status-monitor-v2-api-enable-instrumentationengine"></a>상태 모니터 v2 API: InstrumentationEngine
+# <a name="application-insights-agent-api-enable-instrumentationengine"></a>Application Insights 에이전트 API: InstrumentationEngine
 
 이 문서에서는 [Az. ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)의 멤버인 cmdlet에 대해 설명 합니다.
 
-## <a name="description"></a>Description
+## <a name="description"></a>설명
 
 일부 레지스트리 키를 설정 하 여 계측 엔진을 사용 하도록 설정 합니다.
 변경 내용을 적용 하려면 IIS를 다시 시작 하십시오.
@@ -42,13 +42,13 @@ ms.locfileid: "71033161"
 > - 이 cmdlet을 사용 하려면 라이선스 및 개인 정보 취급 방침을 검토 하 고 동의 해야 합니다.
 > - 계측 엔진은 추가 오버 헤드를 추가 하며 기본적으로 해제 되어 있습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 ```powershell
 PS C:\> Enable-InstrumentationEngine
 ```
 
-## <a name="parameters"></a>매개 변수
+## <a name="parameters"></a>parameters
 
 ### <a name="-acceptlicense"></a>-AcceptLicense
 **선택** 이 스위치를 사용 하 여 헤드리스 설치에서 라이선스 및 개인 정보 취급 방침에 동의 합니다.
@@ -79,7 +79,7 @@ Configuring registry for instrumentation engine...
 - 웹 [클라이언트 원격 분석을 추가](../../azure-monitor/app/javascript.md) 하 여 웹 페이지 코드에서 예외를 확인 하 고 추적 호출을 사용 하도록 설정 합니다.
 - 추적 및 로그 호출을 삽입할 수 있도록 [APPLICATION INSIGHTS SDK를 코드에 추가](../../azure-monitor/app/asp-net.md) 합니다.
  
- 상태 모니터 v2를 사용 하 여 더 많은 작업 수행:
- - 가이드를 사용 하 여 상태 모니터 v2 [문제를 해결](status-monitor-v2-troubleshoot.md) 하세요.
+ Application Insights 에이전트를 사용 하 여 더 많은 작업 수행:
+ - 가이드를 사용 하 여 Application Insights 에이전트 [문제를 해결할](status-monitor-v2-troubleshoot.md) 수 있습니다.
  - [구성을 가져와서](status-monitor-v2-api-get-config.md) 설정이 올바르게 기록 되었는지 확인 합니다.
  - 모니터링을 검사할 [상태를 가져옵니다](status-monitor-v2-api-get-status.md) .

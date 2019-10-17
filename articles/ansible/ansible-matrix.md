@@ -1,5 +1,5 @@
 ---
-title: Azure용 Ansible 모듈 및 버전 매트릭스
+title: Azure에 대 한 Ansible 모듈 및 버전 매트릭스 | Microsoft Docs
 description: Azure용 Ansible 모듈 및 버전 매트릭스
 keywords: Ansible, 역할, 매트릭스, 버전, Azure, DevOps
 ms.topic: reference
@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/30/2019
-ms.openlocfilehash: 18654500a78178c46e72f9f6cd01e8507fa179f0
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.date: 10/14/2019
+ms.openlocfilehash: 275dca40ab20c222da2b9115f9a5dc141228c766
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241537"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72385461"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible 모듈 및 버전 매트릭스
 
@@ -21,172 +21,203 @@ Ansible에는 Azure 리소스 프로비저닝 및 구성에 사용할 모듈 모
 
 ## <a name="ansible-modules-for-azure"></a>Azure용 Ansible 모듈
 
-다음 모듈은 원격 호스트에서 직접 실행 하거나 플레이 북을 통해 실행할 수 있습니다.
+다음 모듈은 원격 호스트에서 직접 실행 하거나 플레이 북을 통해 실행할 수 있습니다.  
 
 이러한 모듈은 Ansible 공식 릴리스와 다음 Microsoft 플레이 북 역할에서 사용할 수 있습니다.
 
-| Azure용 Ansible 모듈                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansible 2.8 | Ansible 역할 | 
-|---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|--------------|--------------| 
-| **계산**                    |           |                          |                          |                            |           |           |
-| azure_rm_availabilityset                    | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_availabilityset_facts              | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_deployment                         | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_deployment_facts                   | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_functionapp                        | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_functionapp_facts                  | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_image                              | -            | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_image_facts                        | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_resource                           | -            | -                           | 예          | 예          | 예          | 예          |
-| azure_rm_resource_facts                     | -            | -                           | 예          | 예          | 예          | 예          |
-| azure_rm_resourcegroup                      | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_resourcegroup_facts                | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_virtualmachine                     | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_virtualmachine_facts               | -            | -                           | -            | 예          | 예          | 예          |
-| azure_rm_virtualmachineextension           | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_virtualmachineextension_facts      | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_virtualmachineimage_facts          | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_virtualmachinescaleset            | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_virtualmachinescaleset_facts      | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_virtualmachinescalesetextension    | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_virtualmachinescalesetextension_facts | -            | -                        | -            | -            | 예          | 예          |
-| azure_rm_virtualmachinescalesetinstance     | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_virtualmachinescalesetinstance_facts | -            | -                         | -            | -            | 예          | 예          |
-| **네트워킹**                              |              |                             |              |              |              |              |
-| azure_rm_appgateway                         | -            | -                           | -            | 예          | 예          | 예          |
-| azure_rm_appgwroute                         | -            | -                           | -            | -            | -          | 예          |
-| azure_rm_appgwroute_facts                   | -            | -                           | -            | -            | -          | 예          |
-| azure_rm_appgwroutetable                    | -            | -                           | -            | -            | -          | 예          |
-| azure_rm_appgwroutetable_facts              | -            | -                           | -            | -            | -          | 예          |
-| azure_rm_applicationsecuritygroup           | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_applicationsecuritygroup_facts     | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_cdnendpoint                        | -            | -                         | -          | -            | 예          | 예          |
-| azure_rm_cdnendpoint_facts                  | -            | -                         | -          | -            | 예          | 예          |
-| azure_rm_cdnprofile                         | -            | -                         | -          | -            | 예          | 예          |
-| azure_rm_cdnprofile_facts                   | -            | -                         | -          | -            | 예          | 예          |
-| azure_rm_dnsrecordset                       | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_dnsrecordset_facts                 | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_dnszone                            | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_dnszone_facts                      | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_loadbalancer                       | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_loadbalancer_facts                 | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_networkinterface                   | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_networkinterface_facts             | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_publicipaddress                    | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_publicipaddress_facts              | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_route                              | -            | -                           | -            | 예          | 예          | 예          |
-| azure_rm_routetable                         | -            | -                           | -            | 예          | 예          | 예          |
-| azure_rm_routetable_facts                   | -            | -                           | -            | 예          | 예          | 예          |
-| azure_rm_securitygroup                      | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_subnet                             | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_subnet_facts                       | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_trafficmanagerendpoint             | -            | -                         | -          | 예          | 예          | 예          |
-| azure_rm_trafficmanagerendpoint_facts       | -            | -                         | -          | 예          | 예          | 예          |
-| azure_rm_trafficmanagerprofile              | -            | -                         | -          | 예          | 예          | 예          |
-| azure_rm_trafficmanagerprofile_facts        | -            | -                         | -          | 예          | 예          | 예          |
-| azure_rm_virtualnetwork                     | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_virtualnetwork_facts               | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_virtualnetworkpeering              | -            | -                         | -          | -            | 예          | 예          |
-| **저장소**                    |           |                          |                          |                            |           |           |
-| azure_rm_manageddisk                        | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_manageddisk_facts                  | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_storageaccount                     | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_storageaccount_facts               | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_storageblob                        | 예          | 예                         | 예          | 예          | 예          | 예          |
-| **Web**                    |           |                          |                          |                             |           |           |
-| azure_rm_appserviceplan                     | -            | -                         | -          | 예          | 예          | 예          |
-| azure_rm_appserviceplan_facts               | -            | -                         | -          | 예          | 예          | 예          |
-| azure_rm_webapp                             | -            | -                         | -          | 예          | 예          | 예          |
-| azure_rm_webapp_facts                       | -            | -                         | -          | 예          | 예          | 예          |
-| azure_rm_webappslot                         | -            | -                         | -          | -            | 예          | 예          |
-| **컨테이너**                    |           |                          |                          |                            |           |           |
-| azure_rm_acs                                | 예          | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_aks                                | -            | -                           | 예          | 예          | 예          | 예          |
-| azure_rm_aks_facts                          | -            | -                           | 예          | 예          | 예          | 예          |
-| azure_rm_aksversion_facts                   | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_containerinstance                  | -            | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_containerinstance_facts            | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_containerregistry                  | -            | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_containerregistry_facts            | -            | -                           | -            | 예          | 예          | 예          |
-| azure_rm_containerregistryreplication       | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_containerregistryreplication_facts | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_containerregistrywebhook           | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_containerregistrywebhook_facts     | -            | -                           | -            | -            | 예          | 예          |
-| **데이터베이스**                    |           |                          |                          |                             |           |           |
-| azure_rm_cosmosdbaccount                    | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_cosmosdbaccount_facts              | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_mariadbconfiguration               | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_mariadbconfiguration_facts         | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_mariadbdatabase                    | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_mariadbdatabase_facts              | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_mariadbfirewallrule                | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_mariadbfirewallrule_facts          | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_mariadbserver                      | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_mariadbserver_facts                | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_mysqlconfiguration                 | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_mysqlconfiguration_facts           | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_mysqldatabase                      | -            | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_mysqldatabase_facts                | -            | -                           | -            | 예          | 예          | 예          |
-| azure_rm_mysqlfirewallrule                  | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_mysqlfirewallrule_facts            | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_mysqlserver                        | -            | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_mysqlserver_facts                  | -            | -                           | -            | 예          | 예          | 예          |
-| azure_rm_postgresqlconfiguration            | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_postgresqlconfiguration_facts      | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_postgresqldatabase                 | -            | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_postgresqldatabase_facts           | -            | -                           | -            | 예          | 예          | 예          |
-| azure_rm_postgresqlfirewallrule             | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_postgresqlfirewallrule_facts       | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_postgresqlserver                   | -            | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_postgresqlserver_facts             | -            | -                           | -            | 예          | 예          | 예          |
-| azure_rm_rediscache                         | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_rediscache_facts                   | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_rediscachefirewallrule             | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_sqldatabase                        | -            | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_sqldatabase_facts                  | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_sqlelasticpool                     | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_sqlelasticpool_facts               | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_sqlfirewallrule                    | -            | -                           | -            | 예          | 예          | 예          |
-| azure_rm_sqlfirewallrule_facts              | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_sqlserver                          | -            | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_sqlserver_facts                    | -            | 예                         | 예          | 예          | 예          | 예          |
-| **분석**                    |           |                          |                          |                             |           |           |
-| azure_rm_hdinsightcluster                   | -            | -                           | -            | -            | 예          | 예          |
-| **통합**                    |           |                          |                          |                             |           |           |
-| azure_rm_servicebus                         | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_servicebus_facts                   | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_servicebusqueue                    | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_servicebussaspolicy                | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_servicebustopic                    | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_servicebustopicsubscription        | -            | -                           | -            | -            | 예          | 예          |
-| **보안**                    |           |                          |                          |                             |           |           |
-| azure_rm_keyvault                           | -            | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_keyvault_facts                     | -            | -                           | -              | -          | 예          | 예          |
-| azure_rm_keyvaultkey                        | -            | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_keyvaultsecret                     | -            | 예                         | 예          | 예          | 예          | 예          |
-| azure_rm_roleassignment                     | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_roleassignment_facts               | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_roledefinition                     | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_roledefinition_facts               | -            | -                           | -            | -            | 예          | 예          |
-| **DevOps**               |           |                          |                          |                             |           |           |
-| azure_rm_devtestlab                         | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_devtestlab_facts                   | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_devtestlabarmtemplate_facts        | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_devtestlabartifact_facts           | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_devtestlabartifactsource           | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_devtestlabartifactsource_facts     | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_devtestlabcustomimage              | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_devtestlabenvironment              | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_devtestlabpolicy                   | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_devtestlabschedule                 | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_devtestlabvirtualmachine           | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_devtestlabvirtualmachine_facts | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_devtestlabvirtualnetwork           | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_devtestlabvirtualnetwork_facts     | -            | -                           | -            | -            | 예          | 예          |
-| **Azure Monitor**          |           |                          |                          |                             |           |           |
-| azure_rm_autoscale                  | -            | -                         | -          | 예          | 예          | 예          |
-| azure_rm_autoscale_facts            | -            | -                         | -          | 예          | 예          | 예          |
-| azure_rm_loganalyticsworkspace              | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_loganalyticsworkspace_facts        | -            | -                           | -            | -            | 예          | 예          |
+> [!NOTE]
+> Ansible 2.9부터 Ansible 명명 규칙을 준수 하기 위해 모든 * _facts 모듈을 * _facts로 바꿨습니다. 이전 처럼 이름이 바뀐 모듈은 사용 중단 경고를 보지 않아도 연결 됩니다.
+
+| Azure용 Ansible 모듈                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansible 2.8 | Ansible 2.9 | Ansible 역할 | 
+|---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|--------------|--------------|--------------|  
+| **Compute**                    |           |                          |                          |                            |           |           |           |
+| azure_rm_availabilityset                   | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_availabilityset_info              | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_batchaccount                       | -            | -                           | -            | -            | -            | yes          | yes          |
+| azure_rm_deployment                         | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_deployment_info                   | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_functionapp                        | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_functionapp_info                  | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_gallery                            | -            | -                           | -            | -            | -            | yes          | yes          |
+| azure_rm_gallery_info                       | -            | -                           | -            | -            | -            | yes          | yes          |
+| azure_rm_galleryimage                       | -            | -                           | -            | -            | -            | yes          | yes          |
+| azure_rm_galleryimage_info                  | -            | -                           | -            | -            | -            | yes          | yes          |
+| azure_rm_galleryimageversion                | -            | -                           | -            | -            | -            | yes          | yes          |
+| azure_rm_galleryimageversion_info           | -            | -                           | -            | -            | -            | yes          | yes          |
+| azure_rm_image                              | -            | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_image_info                        | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_resource                           | -            | -                           | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_resource_info                     | -            | -                           | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_resourcegroup                      | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_resourcegroup_info                | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_snapshot                           | -            | -                           | -            | -            | -            | yes          | yes          |
+| azure_rm_virtualmachine                     | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_virtualmachine_info               | -            | -                           | -            | yes          | yes          | yes          | yes          |
+| azure_rm_virtualmachineextension            | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_virtualmachineextension_info      | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_virtualmachineimage_info          | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_virtualmachinescaleset             | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_virtualmachinescaleset_info       | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_virtualmachinescalesetextension    | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_virtualmachinescalesetextension_info | -            | -                        | -            | -            | yes          | yes          | yes          |
+| azure_rm_virtualmachinescalesetinstance     | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_virtualmachinescalesetinstance_info | -            | -                         | -            | -            | yes          | yes          | yes          |
+| **네트워킹**                              |              |                             |              |              |              |              |              |
+| azure_rm_appgateway                         | -            | -                           | -            | yes          | yes          | yes          | yes          |
+| azure_rm_applicationsecuritygroup           | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_applicationsecuritygroup_info     | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_cdnendpoint                        | -            | -                         | -          | -            | yes          | yes          | yes          |
+| azure_rm_cdnendpoint_info                  | -            | -                         | -          | -            | yes          | yes          | yes          |
+| azure_rm_cdnprofile                         | -            | -                         | -          | -            | yes          | yes          | yes          |
+| azure_rm_cdnprofile_info                   | -            | -                         | -          | -            | yes          | yes          | yes          |
+| azure_rm_dnsrecordset                       | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_dnsrecordset_info                 | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_dnszone                            | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_dnszone_info                      | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_firewall                           | -            | -                           | -            | -            | -            | yes          | yes          |
+| azure_rm_firewall_info                      | -            | -                           | -            | -            | -            | yes          | yes          |
+| azure_rm_loadbalancer                       | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_loadbalancer_info                 | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_networkinterface                   | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_networkinterface_info             | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_publicipaddress                    | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_publicipaddress_info              | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_route                              | -            | -                           | -            | yes          | yes          | yes          | yes          |
+| azure_rm_routetable                         | -            | -                           | -            | yes          | yes          | yes          | yes          |
+| azure_rm_routetable_info                   | -            | -                           | -            | yes          | yes          | yes          | yes          |
+| azure_rm_securitygroup                      | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_securitygroup_info                 | -            | -                           | -            | -            | -            | yes          | yes          |
+| azure_rm_subnet                             | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_subnet_info                       | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_trafficmanagerendpoint             | -            | -                         | -          | yes          | yes          | yes          | yes          |
+| azure_rm_trafficmanagerendpoint_info       | -            | -                         | -          | yes          | yes          | yes          | yes          |
+| azure_rm_trafficmanagerprofile              | -            | -                         | -          | yes          | yes          | yes          | yes          |
+| azure_rm_trafficmanagerprofile_info        | -            | -                         | -          | yes          | yes          | yes          | yes          |
+| azure_rm_virtualnetwork                     | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_virtualnetwork_info               | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_virtualnetworkgateway              | -            | -                         | -          | -            | yes          | yes          | yes          |
+| azure_rm_virtualnetworkpeering              | -            | -                         | -          | -            | yes          | yes          | yes          |
+| azure_rm_virtualnetworkpeering_info         | -            | -                         | -          | -            | -            | yes          | yes          |
+| **Storage**                    |           |                          |                          |                            |           |           |         |
+| azure_rm_manageddisk                        | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_manageddisk_info                  | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_storageaccount                     | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_storageaccount_info               | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_storageblob                        | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| **웹**                    |           |                          |                          |                             |           |           |           |
+| azure_rm_appserviceplan                     | -            | -                         | -          | yes          | yes          | yes          | yes          |
+| azure_rm_appserviceplan_info               | -            | -                         | -          | yes          | yes          | yes          | yes          |
+| azure_rm_webapp                             | -            | -                         | -          | yes          | yes          | yes          | yes          |
+| azure_rm_webapp_info                       | -            | -                         | -          | yes          | yes          | yes          | yes          |
+| azure_rm_webappslot                         | -            | -                         | -          | -            | yes          | yes          | yes          |
+| **컨테이너**                    |           |                          |                          |                            |           |           |          |
+| azure_rm_acs                                | yes          | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_aks                                | -            | -                           | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_aks_info                          | -            | -                           | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_aksversion_info                   | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_containerinstance                  | -            | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_containerinstance_info            | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_containerregistry                  | -            | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_containerregistry_info            | -            | -                           | -            | yes          | yes          | yes          | yes          |
+| azure_rm_containerregistryreplication       | -            | -                           | -            | -            | -          | -          | yes          |
+| azure_rm_containerregistryreplication_info  | -            | -                           | -            | -            | -          | -          | yes          |
+| azure_rm_containerregistrywebhook           | -            | -                           | -            | -            | -          | -          | yes          |
+| azure_rm_containerregistrywebhook_info      | -            | -                           | -            | -            | -          | -          | yes          |
+| **데이터베이스**                    |           |                          |                          |                             |           |           |          |
+| azure_rm_cosmosdbaccount                    | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_cosmosdbaccount_info              | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_mariadbconfiguration               | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_mariadbconfiguration_info         | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_mariadbdatabase                    | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_mariadbdatabase_info              | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_mariadbfirewallrule                | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_mariadbfirewallrule_info          | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_mariadbserver                      | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_mariadbserver_info                | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_mysqlconfiguration                 | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_mysqlconfiguration_info           | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_mysqldatabase                      | -            | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_mysqldatabase_info                | -            | -                           | -            | yes          | yes          | yes          | yes          |
+| azure_rm_mysqlfirewallrule                  | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_mysqlfirewallrule_info            | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_mysqlserver                        | -            | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_mysqlserver_info                  | -            | -                           | -            | yes          | yes          | yes          | yes          |
+| azure_rm_postgresqlconfiguration            | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_postgresqlconfiguration_info      | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_postgresqldatabase                 | -            | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_postgresqldatabase_info           | -            | -                           | -            | yes          | yes          | yes          | yes          |
+| azure_rm_postgresqlfirewallrule             | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_postgresqlfirewallrule_info       | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_postgresqlserver                   | -            | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_postgresqlserver_info             | -            | -                           | -            | yes          | yes          | yes          | yes          |
+| azure_rm_rediscache                         | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_rediscache_info                   | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_rediscachefirewallrule             | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_sqldatabase                        | -            | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_sqldatabase_info                  | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_sqlelasticpool                    | -            | -                           | -            | -            | -          | -          | yes          |
+| azure_rm_sqlelasticpool_info               | -            | -                           | -            | -            | -          | -          | yes          |
+| azure_rm_sqlfirewallrule                    | -            | -                           | -            | yes          | yes          | yes          | yes          |
+| azure_rm_sqlfirewallrule_info              | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_sqlserver                          | -            | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_sqlserver_info                    | -            | yes                         | yes          | yes          | yes          | yes          | yes          |
+| **분석**                    |           |                          |                          |                             |           |           |          |
+| azure_rm_hdinsightcluster                   | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_hdinsightcluster_info              | -            | -                           | -            | -            | -            | yes          | yes          |
+| **통합**                    |           |                          |                          |                             |           |           |          |
+| azure_rm_servicebus                         | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_servicebus_info                   | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_servicebusqueue                    | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_servicebussaspolicy                | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_servicebustopic                    | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_servicebustopicsubscription        | -            | -                           | -            | -            | yes          | yes          | yes          |
+| **보안**                    |           |                          |                          |                             |           |           |           |
+| azure_rm_keyvault                           | -            | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_keyvault_info                     | -            | -                           | -              | -          | yes          | yes          | yes          |
+| azure_rm_keyvaultkey                        | -            | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_keyvaultkey_info                   | -            | -                           | -            | -            | -            | yes          | yes          |
+| azure_rm_keyvaultsecret                     | -            | yes                         | yes          | yes          | yes          | yes          | yes          |
+| azure_rm_roleassignment                     | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_roleassignment_info               | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_roledefinition                     | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_roledefinition_info               | -            | -                           | -            | -            | yes          | yes          | yes          |
+| **DevOps**               |           |                          |                          |                             |           |           |                  |
+| azure_rm_devtestlab                         | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_devtestlab_info                   | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_devtestlabarmtemplate_info        | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_devtestlabartifact_info           | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_devtestlabartifactsource           | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_devtestlabartifactsource_info     | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_devtestlabcustomimage              | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_devtestlabcustomimage_info         | -            | -                           | -            | -            | -            | yes          | yes          |
+| azure_rm_devtestlabenvironment              | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_devtestlabenvironment_info         | -            | -                           | -            | -            | -            | yes          | yes          |
+| azure_rm_devtestlabpolicy                   | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_devtestlabpolicy_info              | -            | -                           | -            | -            | -            | yes          | yes          |
+| azure_rm_devtestlabschedule                 | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_devtestlabschedule_info            | -            | -                           | -            | -            | -            | yes          | yes          |
+| azure_rm_devtestlabvirtualmachine           | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_devtestlabvirtualmachine_info | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_devtestlabvirtualnetwork           | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_devtestlabvirtualnetwork_info     | -            | -                           | -            | -            | yes          | yes          | yes          |
+| **Azure Monitor**                           |              |                           |            |              |                 |           |              |
+| azure_rm_autoscale                          | -            | -                         | -          | yes          | yes          | yes          | yes          |
+| azure_rm_autoscale_info                    | -            | -                         | -          | yes          | yes          | yes          | yes          |
+| azure_rm_loganalyticsworkspace              | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_loganalyticsworkspace_info        | -            | -                           | -            | -            | yes          | yes          | yes          |
+| azure_rm_monitorlogprofile                  | -            | -                           | -            | -            | -            | yes          | yes          |
+| **관리 및 거 버 넌 스**     |              |                           |            |            |            |            |              |
+| azure_rm_automationaccount        | -            | -                         | -          | -          | -          | yes        | yes          |
+| azure_rm_automationaccount_info   | -            | -                         | -          | -          | -          | yes        | yes          |
+| azure_rm_lock                     | -            | -                         | -          | -          | -          | yes        | yes          |
+| azure_rm_lock_info                | -            | -                         | -          | -          | -          | yes        | yes          |
+| **사물 인터넷**            |              |                           |            |            |            |            |              |
+| azure_rm_iotdevice                | -            | -                         | -          | -          | -          | yes        | yes          |
+| azure_rm_iotdevice_info           | -            | -                         | -          | -          | -          | yes        | yes          |
+| azure_rm_iotdevicemodule          | -            | -                         | -          | -          | -          | yes        | yes          |
+| azure_rm_iothub_info              | -            | -                         | -          | -          | -          | yes        | yes          |
+| azure_rm_iothub_info              | -            | -                         | -          | -          | -          | yes        | yes          |
+| azure_rm_iothubconsumergroup      | -            | -                         | -          | -          | -          | yes        | yes          |
 
 ## <a name="introduction-to-playbook-role-for-azure"></a>Azure에 대한 플레이북 역할 소개
 

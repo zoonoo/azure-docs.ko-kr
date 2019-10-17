@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: c062a75516a1b865c1ff6c35f00d4fbf7c4881c6
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 27d968aa5202fbeb38be9a2416514d2185c1d8b9
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029381"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72436751"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>데이터 흐름 매핑의 데이터 변환 식 
 
@@ -71,14 +71,15 @@ CumeDist 함수는 파티션의 모든 값을 기준으로 값의 위치를 계�
 ___
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
-이 작업 실행이 시작되는 현재 날짜를 가져옵니다. 'GMT', 'PST', 'UTC', 'America/Cayman' 형태로 선택적 표준 시간대를 제공할 수 있습니다. 로컬 표준 시간대가 기본값으로 사용 됩니다. 사용 가능한 형식에 대 한 자세한 내용은 Java의 SimpleDateFormat를 참조 하세요. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``currentDate() == toDate('2250-12-31') -> false``
-* ``currentDate('PST')  == toDate('2250-12-31') -> false``
-* ``currentDate('America/New_York')  == toDate('2250-12-31') -> false``
-___
-### <code>currentTimestamp</code>
-<code><b>currentTimestamp() => timestamp</b></code><br/><br/>
+이 작업 실행이 시작되는 현재 날짜를 가져옵니다. 'GMT', 'PST', 'UTC', 'America/Cayman' 형태로 선택적 표준 시간대를 제공할 수 있습니다. 로컬 표준 시간대가 기본값으로 사용 됩니다. 사용 가능한 형식에 대 한 자세한 내용은 Java의 SimpleDateFormat를 참조 하세요. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``currentDate() == toDate('2250-12-31') -> false`` @ no__t @ no__t @ no__t @ no__t-5<br/><br/>
 작업이 로컬 표준 시간대를 사용 하 여 실행 되기 시작할 때의 현재 타임 스탬프를 가져옵니다 * ``currentTimestamp() == toTimestamp('2250-12-31 12:12:12') -> false`` @ no__t-1 @ no__t-2<br/><br/>
-현재 타임 스탬프를 UTC로 가져옵니다. 현재 시간을 클러스터 표준 시간대와 다른 표준 시간대로 해석 하려면 선택적인 표준 시간대를 ' GMT ', ' PST ', ' UTC ', ' 아메리카/케이맨 ' 형식으로 전달할 수 있습니다. 기본적으로 현재 표준 시간대로 설정 됩니다. 사용 가능한 형식에 대 한 자세한 내용은 Java의 SimpleDateFormat를 참조 하세요. @no__t UTC 시간을 다른 표준 시간대로 변환 하는 fromUTC () * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false`` @ no__t-2 @ no__t @ no__t-4 @ no__t-5<br/><br/>
+현재 타임 스탬프를 UTC로 가져옵니다. 현재 시간을 클러스터 표준 시간대와 다른 표준 시간대로 해석 하려면 선택적인 표준 시간대를 ' GMT ', ' PST ', ' UTC ', ' 아메리카/케이맨 ' 형식으로 전달할 수 있습니다. 기본적으로 현재 표준 시간대로 설정 됩니다. 사용 가능한 형식에 대 한 자세한 내용은 Java의 SimpleDateFormat를 참조 하세요. [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) 를 사용 하 여 UTC 시간을 다른 표준 시간대로 변환 fromUTC ()를 사용 합니다.
+* ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``
+* ``currentUTC() != toTimestamp('2050-12-12 19:18:12') -> true``
+* ``fromUTC(currentUTC(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
+___
+### <code>dayOfMonth</code>
+<code><b>dayOfMonth(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
 날짜가 지정 된 날짜 * ``dayOfMonth(toDate('2018-06-08')) -> 8`` @ no__t-1 @ no__t-2에 해당 하는 날짜를 가져옵니다.<br/><br/>
 지정된 날짜의 요일을 가져옵니다. 1-일요일, 2-월요일 ..., 7-토요일 * ``dayOfWeek(toDate('2018-06-08')) -> 6`` @ no__t-1 @ no__t-2<br/><br/>
 날짜가 지정 된 날짜 * ``dayOfYear(toDate('2016-04-09')) -> 100`` @ no__t-1 @ no__t-2에 해당 하는 날짜를 가져옵니다.<br/><br/>
@@ -179,7 +180,7 @@ ___
 ### <code>multiply</code>
 <code><b>multiply(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
 숫자 쌍을 곱합니다. \* 연산자 * ``multiply(20, 10) -> 200`` @ no__t-1 @ no__t-2 @ no__t-3과 같습니다.<br/><br/>
-NTile 함수는 각 창 파티션의 행을 1부터 `n`개 이내의 `n` 버킷 수로 나눕니다. 버킷 값 차이는 최대 1 이내입니다. 파티션의 행 수가 버킷 수로 균일하게 나누어 떨어지지 않으면 나머지 값은 첫 번째 버킷부터 시작해서 하나씩 분산됩니다. NTile 함수는 tertiles, 변 위치, deciles 및 기타 일반적인 요약 통계의 계산에 유용 합니다. 이 함수는 초기화하는 동안 두 개의 변수를 계산합니다. 일반 버킷의 크기에는 하나의 추가 행이 추가 됩니다. 두 변수는 현재 파티션의 크기를 기준으로 합니다. 계산 프로세스 동안 이 함수는 현재 행 번호, 현재 버킷 수 및 버킷이 변경되는 행 번호(bucketThreshold)를 추적합니다. 현재 행 번호가 버킷 임계값에 도달하면 버킷 값이 1씩 커지고, 임계값은 버킷 크기만큼 커집니다(현재 버킷이 채워질 경우 하나씩 추가).
+NTile 함수는 각 창 파티션의 행을 1부터 `n`개 이내의 `n` 버킷 수로 나눕니다. 버킷 값 차이는 최대 1 이내입니다. 파티션의 행 수가 버킷 수로 균일하게 나누어 떨어지지 않으면 나머지 값은 첫 번째 버킷부터 시작해서 하나씩 분산됩니다. NTile 함수는 tertiles, 변 위치, deciles 및 기타 일반적인 요약 통계의 계산에 유용 합니다. 함수는 초기화 하는 동안 두 변수를 계산 합니다. 일반 버킷의 크기에는 하나의 추가 행이 추가 됩니다. 두 변수는 현재 파티션의 크기를 기준으로 합니다. 계산 프로세스 동안 이 함수는 현재 행 번호, 현재 버킷 수 및 버킷이 변경되는 행 번호(bucketThreshold)를 추적합니다. 현재 행 번호가 버킷 임계값에 도달하면 버킷 값이 1씩 커지고, 임계값은 버킷 크기만큼 커집니다(현재 버킷이 채워질 경우 하나씩 추가).
 * ``nTile()``
 * ``nTile(numOfBuckets)``
 ___

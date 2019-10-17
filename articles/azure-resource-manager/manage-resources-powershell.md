@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell를 사용 하 여 Azure 리소스 관리 | Microsoft Docs
-description: Azure PowerShell 및 Azure 리소스 관리를 사용 하 여 리소스를 관리 합니다.
+description: Azure PowerShell 및 Azure Resource Manager를 사용 하 여 리소스를 관리 합니다. 리소스를 배포 하 고 삭제 하는 방법을 보여 줍니다.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: f61fcf7833021f23485992c7445f91d9a7b9ee45
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: aa215555fdd39e9d756d5fc925282b1eaffc9ebf
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001525"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390361"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 리소스 관리
 
@@ -49,7 +49,7 @@ $ctx = $storageAccount.Context
 
 ### <a name="deploy-a-template"></a>템플릿 배포
 
-다음 스크립트는 저장소 계정을 만들기 위한 빠른 시작 템플릿 배포를 만듭니다. 자세한 내용은 [빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](./resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell)를 참조하세요.
+다음 스크립트는 저장소 계정을 만들기 위한 빠른 시작 템플릿 배포를 만듭니다. 자세한 내용은 [빠른 시작: Visual Studio Code를 사용 하 여 Azure Resource Manager 템플릿 만들기](./resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell)를 참조 하세요.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"

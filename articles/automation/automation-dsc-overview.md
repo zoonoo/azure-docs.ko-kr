@@ -10,16 +10,16 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a3a52fbda91d19905bd6add631f536010197c4dd
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: b0b5e02009ddbb72bb062d341e7d233acfb0ceb3
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061396"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429394"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation 상태 구성 개요
 
-Azure Automation 상태 구성은 Azure 서비스로, 클라우드에서 PowerShell DSC(Desired State Configuration) [구성](/powershell/dsc/configurations)을 작성, 관리 및 컴파일하고 [DSC 리소스](/powershell/dsc/resources)를 가져오고 대상 노드에 구성을 할당하는 등 모든 것을 할 수 있습니다.
+Azure Automation 상태 구성은 Azure 서비스로, 클라우드에서 PowerShell DSC(Desired State Configuration) [구성](/powershell/scripting/dsc/configurations/configurations)을 작성, 관리 및 컴파일하고 [DSC 리소스](/powershell/scripting/dsc/resources/resources)를 가져오고 대상 노드에 구성을 할당하는 등 모든 것을 할 수 있습니다.
 
 ## <a name="why-use-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 사용하는 이유
 
@@ -27,11 +27,11 @@ Azure Automation 상태 구성은 Azure 외부에서 DSC를 사용하는 것에 
 
 ### <a name="built-in-pull-server"></a>기본 제공 끌어오기 서버
 
-Azure Automation 상태 구성은 대상 노드가 구성을 자동으로 수신하고 원하는 상태를 따르며 규정 준수를 다시 보고하도록 [Windows DSC 서비스 기능](/powershell/dsc/pullserver)과 유사한 DSC 끌어오기 서버를 제공합니다. Azure Automation에 있는 기본 제공 끌어오기 서버는 자체 끌어오기 서버를 설정하고 유지 관리할 필요가 없습니다. Azure Automation은 클라우드 또는 온-프레미스에서 가상 또는 실제 Windows 또는 Linux 컴퓨터를 대상으로 할 수 있습니다.
+Azure Automation 상태 구성은 대상 노드가 구성을 자동으로 수신하고 원하는 상태를 따르며 규정 준수를 다시 보고하도록 [Windows DSC 서비스 기능](/powershell/scripting/dsc/pull-server/pullserver)과 유사한 DSC 끌어오기 서버를 제공합니다. Azure Automation에 있는 기본 제공 끌어오기 서버는 자체 끌어오기 서버를 설정하고 유지 관리할 필요가 없습니다. Azure Automation은 클라우드 또는 온-프레미스에서 가상 또는 실제 Windows 또는 Linux 컴퓨터를 대상으로 할 수 있습니다.
 
 ### <a name="management-of-all-your-dsc-artifacts"></a>모든 DSC 아티팩트 관리
 
-Azure Automation 상태 구성은 Azure Automation이 PowerShell 스크립팅에 제공하는 동일한 관리 계층을 [PowerShell DSC(Desired State Configuration)](/powershell/dsc/overview)에 제공합니다.
+Azure Automation 상태 구성은 Azure Automation이 PowerShell 스크립팅에 제공하는 동일한 관리 계층을 [PowerShell DSC(Desired State Configuration)](/powershell/scripting/dsc/overview/overview)에 제공합니다.
 
 Azure 포털 또는 PowerShell에서 DSC 구성, 리소스 및 대상 노드를 모두 관리할 수 있습니다.
 
@@ -41,7 +41,7 @@ Azure 포털 또는 PowerShell에서 DSC 구성, 리소스 및 대상 노드를 
 
 Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상태 데이터를 기본 제공 끌어오기 서버에 보냅니다. 이 데이터를 Log Analytics 작업 영역으로 보내려면 Azure Automation 상태 구성을 구성할 수 있습니다. 상태 구성 상태 데이터를 Log Analytics 작업 영역으로 전송 하는 방법에 대 한 자세한 내용은 [Azure Automation 상태 구성 보고 데이터를 Azure Monitor 로그로 전달](automation-dsc-diagnostics.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 DSC (Azure Automation 상태 구성)를 사용 하는 경우 다음 요구 사항을 고려 하세요.
 
@@ -54,7 +54,7 @@ Windows를 실행 하는 노드의 경우 지원 되는 버전은 다음과 같�
 - Windows Server 2012R2
 - Windows Server 2012
 - Windows Server 2008 R2 SP1
-- Windows 10
+- Windows 10
 - Windows 8.1
 - Windows 7
 
@@ -97,16 +97,16 @@ Linux 노드의 경우 DSC 에이전트는 프록시를 지원 하 고 http_prox
 
 특정 지역에 대해 정의된 Automation 계정이 있는 경우 해당 지역 데이터 센터에 대한 통신을 제한할 수 있습니다. 다음 표에서는 각 지역에 대한 DNS 레코드를 제공합니다.
 
-| **Region** | **DNS 레코드** |
+| **지역** | **DNS 레코드** |
 | --- | --- |
 | 미국 중서부 | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | 미국 중남부 |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
-| East US   | eus-jobruntimedata-prod-su1.azure-automation.net</br>eus-agentservice-prod-1.azure-automation.net |
+| 미국 동부   | eus-jobruntimedata-prod-su1.azure-automation.net</br>eus-agentservice-prod-1.azure-automation.net |
 | 미국 동부 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
 | 캐나다 중부 |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
-| 유럽 서부 |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
-| 유럽 북부 |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
-| 아시아 남동부 |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
+| 서유럽 |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
+| 북유럽 |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
+| 동남아시아 |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
 | 인도 중부 |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
 | 일본 동부 |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
 | 오스트레일리아 동남부 |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |

@@ -3,15 +3,15 @@ title: 일반적인 오류 문제 해결
 description: Azure 리소스 그래프를 사용 하 여 Azure 리소스를 쿼리 하는 문제를 해결 하는 방법을 알아봅니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/21/2019
+ms.date: 10/18/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
-ms.openlocfilehash: abf6d22f2010db9bff97c7a93354c1cf8e1e1644
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 030fe26a0aa8fc4ed855fb7744e576366f4fd2e2
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976616"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389698"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Azure 리소스 그래프를 사용 하 여 오류 문제 해결
 
@@ -25,7 +25,7 @@ Azure 리소스 그래프를 사용 하 여 Azure 리소스를 쿼리할 때 오
 
 ### <a name="toomanysubscription"></a>시나리오: 구독이 너무 많음
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 [Azure Lighthouse](../../../lighthouse/overview.md)를 사용 하 여 교차 테 넌 트 구독을 포함 하 여 1000 개 이상의 구독에 액세스할 수 있는 고객은 Azure 리소스 그래프에 대 한 단일 호출로 모든 구독에서 데이터를 가져올 수 없습니다.
 
@@ -33,13 +33,13 @@ Azure 리소스 그래프를 사용 하 여 Azure 리소스를 쿼리할 때 오
 
 Azure CLI 및 PowerShell은 Azure 리소스 그래프에 처음 1000 구독만 전달 합니다. Azure 리소스 그래프의 REST API는 쿼리를 수행 하는 최대 구독 수를 허용 합니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 구독 하위 집합을 포함 하는 쿼리에 대 한 일괄 처리 요청은 1000 구독 제한 미만으로 유지 됩니다. 솔루션은 PowerShell에서 **Subscription** 매개 변수를 사용 합니다.
 
 ```azurepowershell-interactive
 # Replace this query with your own
-$query = 'project type'
+$query = 'Resources | project type'
 
 # Fetch the full array of subscription IDs
 $subscriptions = Get-AzSubscription
@@ -62,7 +62,7 @@ $response
 
 ### <a name="rest-contenttype"></a>시나리오: 지원 되지 않는 콘텐츠 형식 REST 헤더
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 Azure 리소스 그래프를 쿼리 하는 고객은 _500_ (내부 서버 오류) 응답 REST API 가져옵니다.
 
@@ -70,12 +70,13 @@ Azure 리소스 그래프를 쿼리 하는 고객은 _500_ (내부 서버 오류
 
 Azure 리소스 그래프 REST API는 **application/json**의 @no__t 0만 지원 합니다. 일부 REST 도구 또는 에이전트는 REST API에서 지원 하지 않는 **텍스트/일반**으로 기본 됩니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 Azure 리소스 그래프를 쿼리 하는 데 사용 하는 도구 또는 에이전트에 **application/json**에 대해 구성 된 REST API 헤더 @no__t 있는지 확인 합니다.
+
 ### <a name="rest-403"></a>시나리오: 목록의 모든 구독에 대 한 읽기 권한이 없습니다.
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 Azure 리소스 그래프 쿼리를 사용 하 여 구독 목록을 명시적으로 전달 하는 고객은 _403_ (사용할 수 없음) 응답을 받게 됩니다.
 
@@ -83,7 +84,7 @@ Azure 리소스 그래프 쿼리를 사용 하 여 구독 목록을 명시적으
 
 고객에 게 제공 된 모든 구독에 대 한 읽기 권한이 없는 경우 해당 요청은 적절 한 보안 권한이 없기 때문에 거부 됩니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 구독 목록에서 쿼리를 실행 하는 고객에 게 적어도 읽기 액세스 권한이 있는 구독을 하나 이상 포함 합니다. 자세한 내용은 [Azure 리소스 그래프의 권한](../overview.md#permissions-in-azure-resource-graph)을 참조 하세요.
 

@@ -1,17 +1,17 @@
 ---
-title: Azure Data Factory Mapping Data Flow 선택 변환
-description: Azure Data Factory Mapping Data Flow 선택 변환
+title: Azure Data Factory 매핑 데이터 흐름 선택 변환
+description: Azure Data Factory 매핑 데이터 흐름 선택 변환
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 289f98fdc2f39449cdeede9ee46fb39847ae2cb5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 6ef9712dd2fd6b8d53fd4ad2c3e07e1d6c8f1aec
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029275"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387192"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>데이터 흐름 매핑 선택 변환
 
@@ -21,20 +21,20 @@ ms.locfileid: "72029275"
 ## <a name="how-to-use-select-transformation"></a>Select 변환을 사용 하는 방법
 선택 변환을 사용하면 전체 스트림이나 해당 스트림의 열에 별칭을 지정하고, 다른 이름(별칭)을 할당한 다음, 데이터 흐름의 뒷부분에서 새 이름을 참조할 수 있습니다. 이 변환은 셀프 조인 시나리오에 유용합니다. ADF Data Flow에서 셀프 조인을 구현하는 방법은 스트림을 사용하고, “새 분기”로 분기한 다음, 바로 뒤에 “선택” 변환을 추가하는 것입니다. 이제 해당 스트림에 새 이름이 지정되며, 이 이름을 사용하여 원래 스트림에 다시 조인함으로써 셀프 조인을 만들 수 있습니다.
 
-![셀프 조인](media/data-flow/selfjoin.png "셀프 조인")
+![자체 조인](media/data-flow/selfjoin.png "자체 조인")
 
 위의 다이어그램에서 선택 변환은 맨 위에 있습니다. 이 변환은 원래 스트림의 별칭을 “OrigSourceBatting”으로 지정합니다. 아래 강조 표시 된 조인 변환에서이 Select alias stream을 오른쪽 조인으로 사용 하 여 내부 조인의 왼쪽 & 오른쪽에서 동일한 키를 참조할 수 있습니다.
 
 데이터 흐름에서 열을 선택 취소하는 방법으로 선택을 사용할 수도 있습니다. 예를 들어 싱크에 6개 열이 정의되어 있지만 변환할 특정 열 3개만 선택하고 싱크로 진행하는 경우 선택 변환을 사용하여 해당 3개만 선택할 수 있습니다.
 
-![선택 변환](media/data-flow/newselect1.png "선택 별칭")
+![변환 선택](media/data-flow/newselect1.png "별칭 선택")
 
-## <a name="options"></a>변수
+## <a name="options"></a>옵션
 * “선택”의 기본 설정은 모든 수신 열을 포함하고 원래 이름을 유지하는 것입니다. 선택 변환의 이름을 설정하여 스트림의 별칭을 지정할 수 있습니다.
 * 개별 열의 별칭을 지정하려면 “모두 선택”을 선택 취소하고 맨 아래에 있는 열 매핑을 사용합니다.
 * 입력 또는 출력 메타 데이터에서 중복 열을 제거 하려면 중복 건너뛰기를 선택 합니다.
 
-![중복]항목(media/data-flow/select-skip-dup.png "건너뛰기") 중복 항목 건너뛰기
+![중복 항목 건너뛰기](media/data-flow/select-skip-dup.png "중복 항목 건너뛰기")
 
 * 중복 항목을 건너뛰도록 선택 하면 검사 탭에 결과가 표시 됩니다. ADF는 처음 발견 되는 열을 유지 하 고 동일한 열의 각 후속 항목이 흐름에서 제거 되었음을 알 수 있습니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "72029275"
 ## <a name="mapping"></a>매핑
 기본적으로 Select 변환은 모든 열을 자동으로 매핑하여 들어오는 모든 열을 출력의 동일한 이름으로 전달 합니다. 선택 설정에서 설정 된 출력 스트림 이름은 스트림의 새 별칭 이름을 정의 합니다. 자동 맵에 대 한 선택 집합을 유지 하는 경우 모든 열을 포함 하 여 전체 스트림의 별칭을 지정할 수 있습니다.
 
-![변환 규칙](media/data-flow/rule2.png "규칙 기반 매핑") 선택
+![변환 규칙 선택](media/data-flow/rule2.png "규칙 기반 매핑")
 
 열을 별칭, 제거, 이름 바꾸기 또는 순서를 변경 하려는 경우 먼저 "자동 매핑"을 해제 해야 합니다. 기본적으로 "모든 입력 열" 이라는 기본 규칙이 입력 된 것을 볼 수 있습니다. 들어오는 모든 열이 해당 출력의 동일한 이름에 매핑되도록 항상 허용 하려는 경우이 규칙을 그대로 둘 수 있습니다.
 

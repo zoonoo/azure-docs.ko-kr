@@ -4,12 +4,12 @@ ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08/29/2019
-ms.openlocfilehash: 99263b7c7efee54381c9a7f624429b343dba49d0
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: 75eebdf1e7628bc9c38305b7f11d4fc69af031b9
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806082"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391723"
 ---
 # <a name="save-costs-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances를 사용 하 여 비용 절감
 
@@ -26,26 +26,26 @@ Azure reserved VM 인스턴스에 커밋하는 경우 비용을 절감할 수 �
 - Azure Portal에서 VM 예약 인스턴스를 구매 하는 경우 구매 권장 사항 및 권장 수량이 표시 됩니다.
 - Azure Advisor은 개별 구독에 대 한 구매 권장 사항을 제공 합니다.  
 - Api를 사용 하 여 공유 범위 및 단일 구독 범위에 대 한 구매 권장 사항을 가져올 수 있습니다. 자세한 내용은 [기업 고객을 위한 예약 인스턴스 구매 권장 사항 api](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)를 참조 하세요.
-- EA (기업계약) 고객의 경우 공유 및 단일 구독 범위에 대 한 구매 권장 사항은 [Azure Consumption Insights Power BI 콘텐츠 팩](/power-bi/service-connect-to-azure-consumption-insights)에서 사용할 수 있습니다.
+- 기업계약 (EA) 및 Microsoft MCA (고객 계약) 고객의 경우 공유 및 단일 구독 범위에 대 한 구매 권장 사항은 [Azure Consumption Insights Power BI 콘텐츠 팩](/power-bi/service-connect-to-azure-consumption-insights)에서 사용할 수 있습니다.
 
 ### <a name="services-that-get-vm-reservation-discounts"></a>VM 예약 할인을 가져오는 서비스
 
-Vm 예약은 VM 배포 뿐만 아니라 여러 서비스에서 내보낸 VM 사용에 적용 될 수 있습니다. 예약 할인을 받는 리소스는 인스턴스 크기 유연성 설정에 따라 변경 됩니다.
+VM 예약은 VM 배포뿐만 아니라 여러 서비스에서 내보낸 VM 사용량에 적용될 수 있습니다. 예약 할인을 받는 리소스는 인스턴스 크기 유연성 설정에 따라 변경됩니다.
 
 #### <a name="instance-size-flexibility-setting"></a>인스턴스 크기 유연성 설정
 
-인스턴스 크기 유연성 설정은 예약 된 인스턴스 할인을 가져오는 서비스를 결정 합니다.
+인스턴스 크기 유연성 설정은 예약 인스턴스 할인을 받는 서비스를 결정합니다.
 
-설정이 on 또는 off 인지 여부는 *ConsumedService* 일 `Microsoft.Compute`때 예약 할인이 일치 하는 VM 사용에 자동으로 적용 됩니다. 따라서 *ConsumedService* 값에 대 한 사용 현황 데이터를 확인 합니다. 일부 사례:
+설정이 on 또는 off인지 여부에 따라 예약 할인은 *ConsumedService*가 `Microsoft.Compute`일 때 일치하는 VM 사용량에 자동으로 적용됩니다. 따라서 *ConsumedService* 값에 대한 사용량 데이터를 확인합니다. 일부 사례:
 
-- 가상 머신
-- Virtual Machine Scale Sets
+- Virtual Machines
+- 가상 머신 크기 집합
 - 컨테이너 서비스
-- Azure Batch 배포 (사용자 구독 모드)
-- Azure Kubernetes Service (AKS)
+- Azure Batch 배포(사용자 구독 모드에서)
+- Azure Kubernetes Service(AKS)
 - Service Fabric
 
-설정이 on 이면 *ConsumedService* 가 다음 항목 중 하나에 해당 하는 경우 예약 할인이 일치 하는 VM 사용에 자동으로 적용 됩니다.
+설정이 on일 때 예약 할인은 *ConsumedService*가 다음 항목 중 하나에 해당하는 경우 일치하는 VM 사용량에 자동으로 적용됩니다.
 
 - Microsoft.Compute
 - Microsoft.ClassicCompute
@@ -53,16 +53,16 @@ Vm 예약은 VM 배포 뿐만 아니라 여러 서비스에서 내보낸 VM 사�
 - Microsoft.MachineLearningServices
 - Microsoft.Kusto
 
-사용 현황 데이터의 *ConsumedService* 값을 확인 하 여 사용이 예약 할인이 적합 한지 확인 합니다.
+사용량이 예약 할인에 적합한지 확인하려면 사용량 데이터의 *ConsumedService* 값을 확인합니다.
 
-인스턴스 크기 유연성에 대 한 자세한 내용은 [예약 된 VM 인스턴스를 사용 하는 가상 머신 크기 유연성](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md)을 참조 하세요.
+인스턴스 크기 유연성에 대한 자세한 내용은 [예약 VM 인스턴스에서 가상 머신 크기 유연성](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md)을 참조하세요.
 
 ### <a name="analyze-your-usage-information"></a>사용 정보 분석
 사용 현황 정보를 분석 하 여 구매할 예약을 결정 합니다.
 
 사용 현황 데이터는 사용 현황 파일 및 Api에서 사용할 수 있습니다. 함께 사용 하 여 구매할 예약을 결정 합니다. 매일 사용량이 많은 VM 인스턴스를 확인 하 여 구입할 예약 수량을 확인 합니다.
 
-사용 현황 `Meter` 데이터에 `Product` 하위 범주와 필드를 사용 하지 않습니다. Premium storage를 사용 하는 VM 크기를 구분 하지 않습니다. 이러한 필드를 사용 하 여 예약 구매를 위한 VM 크기를 결정 하는 경우 잘못 된 크기를 구입할 수 있습니다. 그런 다음, 원하는 예약 할인을 얻지 못합니다. 대신, 사용 현황 파일 `AdditionalInfo` 또는 사용 API의 필드를 참조 하 여 올바른 VM 크기를 확인 합니다.
+사용 현황 데이터에 `Meter` 하위 범주 및 `Product` 필드를 사용 하지 마십시오. Premium storage를 사용 하는 VM 크기를 구분 하지 않습니다. 이러한 필드를 사용 하 여 예약 구매를 위한 VM 크기를 결정 하는 경우 잘못 된 크기를 구입할 수 있습니다. 그런 다음, 원하는 예약 할인을 얻지 못합니다. 대신, 사용 현황 파일 또는 사용 API의 `AdditionalInfo` 필드를 참조 하 여 올바른 VM 크기를 확인 합니다.
 
 ### <a name="purchase-restriction-considerations"></a>구매 제한 고려 사항
 
@@ -80,7 +80,7 @@ Vm 예약은 VM 배포 뿐만 아니라 여러 서비스에서 내보낸 VM 사�
 
 ## <a name="buy-a-reserved-vm-instance"></a>예약 VM 인스턴스 구입
 
-[Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D)에서 예약 VM 인스턴스를 구입할 수 있습니다. 예약에 대 한 요금을 지불 [하거나 매월 지불](../articles/billing/billing-monthly-payments-reservations.md)합니다.
+[Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D)에서 예약 VM 인스턴스를 구입할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](../articles/billing/billing-monthly-payments-reservations.md)로 처리할 수 있습니다.
 
 이러한 요구 사항은 예약 VM 인스턴스 구매에 적용 됩니다.
 
@@ -90,26 +90,26 @@ Vm 예약은 VM 배포 뿐만 아니라 여러 서비스에서 내보낸 VM 사�
 
 인스턴스를 구입하려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 1. **모든 서비스** > **예약**을 선택합니다.
 1. **추가** 를 선택 하 여 새 예약을 구매 하 고 **가상 머신**을 클릭 합니다.
 1. 필수 필드를 입력 합니다. 사용자가 선택한 특성과 일치하는 VM 인스턴스를 실행하면 예약 할인을 받을 수 있습니다. 할인을 받을 실제 VM 인스턴스 수는 선택한 범위 및 수량에 따라 달라집니다.
 
-| 필드      | Description|
+| 필드      | 설명|
 |------------|--------------|
-|구독|예약에 대해 비용을 지불하는 데 사용하는 구독입니다. 구독의 지불 방법에는 예약 비용이 청구 됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 또는 종 량 제 요금이 있는 개별 구독 (제품 번호: MS-AZR-0003P 또는 MS-AZR-0023P)여야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종 량 제 요금이 있는 구독의 경우 요금 청구는 구독에 대 한 신용 카드 또는 청구서 지불 방법으로 청구 됩니다.|    
-|범위       |예약 범위에는 하나 또는 여러 개의 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우: <ul><li>**단일 리소스 그룹 범위** -선택한 리소스 그룹의 일치 하는 리소스에만 예약 할인을 적용 합니다.</li><li>**단일 구독 범위** -선택한 구독의 일치 하는 리소스에 예약 할인을 적용 합니다.</li><li>**공유 범위** -청구 컨텍스트에 있는 적격 구독의 일치 하는 리소스에 예약 할인을 적용 합니다. EA 고객의 경우 요금 청구 컨텍스트가 등록입니다. 종 량 제 요금이 있는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.</li></ul>|
-|Region    |예약 범위에 해당하는 Azure 지역입니다.|    
+|Subscription|예약에 대해 비용을 지불하는 데 사용하는 구독입니다. 구독의 지불 방법에는 예약 비용이 청구 됩니다. 구독 유형은 기업 계약 (제품 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 또는 Microsoft 고객 계약 또는 종 량 제 요금 (제품 번호: MS-MS-AZR-0017P-0003P 또는 MS-AZR-0017P-0017P)을 포함 하는 개별 구독 이어야 합니다. 요금은 금액 약정 잔액 (사용 가능한 경우) 또는 초과분로 청구 공제 됩니다. 종 량 제 요금이 있는 구독의 경우 요금 청구는 구독에 대 한 신용 카드 또는 청구서 지불 방법으로 청구 됩니다.|    
+|범위       |예약 범위에는 하나 또는 여러 개의 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우: <ul><li>**단일 리소스 그룹 범위** - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li>**단일 구독 범위** - 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li>**공유 범위** - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. EA 고객의 경우 요금 청구 컨텍스트가 등록입니다. 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.</li></ul>|
+|지역    |예약 범위에 해당하는 Azure 지역입니다.|    
 |VM 크기     |VM 인스턴스의 크기입니다.|
-|다음에 맞게 최적화:     |VM 인스턴스 크기 유연성이 기본적으로 선택 됩니다. **고급 설정** 을 클릭 하 여 인스턴스 크기 유연성 값을 변경 하 여 동일한 [vm 크기 그룹](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md)의 다른 vm에 예약 할인을 적용 합니다. 용량 우선 순위는 배포를 위해 데이터 센터 용량에서 우선됩니다. 필요할 때 VM 인스턴스를 시작 하는 기능에 추가 신뢰도를 제공 합니다. 용량 우선 순위는 예약 범위가 단일 구독일 때에 사용할 수 있습니다. |
-|용어        |1년 또는 3년입니다.|
+|다음에 맞게 최적화     |VM 인스턴스 크기 유연성이 기본적으로 선택 됩니다. **고급 설정** 을 클릭 하 여 인스턴스 크기 유연성 값을 변경 하 여 동일한 [vm 크기 그룹](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md)의 다른 vm에 예약 할인을 적용 합니다. 용량 우선 순위는 배포를 위해 데이터 센터 용량에서 우선됩니다. 필요할 때 VM 인스턴스를 시작 하는 기능에 추가 신뢰도를 제공 합니다. 용량 우선 순위는 예약 범위가 단일 구독일 때에 사용할 수 있습니다. |
+|조건        |1년 또는 3년입니다.|
 |수량    |예약 내에서 구매하는 인스턴스의 수입니다. 수량은 청구 할인을 받을 수 있는 실행 중인 VM 인스턴스의 수입니다. 예를 들어 미국 동부에서 10 개의 Standard_D2 Vm을 실행 하는 경우 실행 중인 모든 Vm에 대 한 혜택을 최대화 하기 위해 수량을 10으로 지정 합니다. |
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 
 ## <a name="usage-data-and-reservation-utilization"></a>사용 현황 데이터 및 예약 사용률
 
-사용 현황 데이터의 유효 가격은 예약 할인을 가져오는 사용량에 0입니다. 각 예약에 대해 예약 할인을 받은 VM 인스턴스를 확인할 수 있습니다.
+예약 할인이 적용되는 사용량의 경우 사용량 데이터의 유효 가격은 0입니다. 각 예약에 대해 예약 할인을 받은 VM 인스턴스를 확인할 수 있습니다.
 
 사용 현황 데이터에 예약 할인이 표시 되는 방법에 대 한 자세한 내용은 EA 고객 인 경우 [기업 등록에 대 한 Azure 예약 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage-ea.md) 를 참조 하세요. 개별 구독이 있는 경우 [종 량 제 구독에 대 한 Azure 예약 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage.md)를 참조 하세요.
 
@@ -128,15 +128,15 @@ Vm 예약은 VM 배포 뿐만 아니라 여러 서비스에서 내보낸 VM 사�
 - 기존 예약 영역
 - SKU
 - 수량
-- Duration
+- 기간
 
 그러나 변경을 수행 하려는 경우 예약을 *교환할* 수 있습니다.
 
-## <a name="cancel-exchange-or-refund-reservations"></a>취소, 교환 또는 환불 예약
+## <a name="cancel-exchange-or-refund-reservations"></a>예약 취소, 교환 또는 환불
 
-특정 제한 사항을 사용 하 여 예약을 취소, 교환 또는 환불 할 수 있습니다. 자세한 내용은 [셀프 서비스 교환 및 Azure Reservations에 대 한 환불](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md)를 참조 하세요.
+예약을 취소, 교환 또는 환불할 수 있지만 몇 가지 제한 사항은 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md)을 참조하세요.
 
-## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
+## <a name="need-help-contact-us"></a>도움이 필요하십니까? 문의처
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
@@ -147,7 +147,7 @@ Vm 예약은 VM 배포 뿐만 아니라 여러 서비스에서 내보낸 VM 사�
     - [Azure Reservations란?](../articles/billing/billing-save-compute-costs-reservations.md)
     - [Azure에서 Reservations 관리](../articles/billing/billing-manage-reserved-vm-instance.md)
     - [예약 할인이 적용되는 방식 이해](../articles/billing/billing-understand-vm-reservation-charges.md)
-    - [종 량 제 요금으로 구독에 대 한 예약 사용 이해](../articles/billing/billing-understand-reserved-instance-usage.md)
-    - [엔터프라이즈 등록에서 예약 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+    - [종량제 요금을 사용하는 구독에 대한 예약 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage.md)
+    - [엔터프라이즈 등록의 예약 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
     - [예약에 포함되지 않는 Windows 소프트웨어 비용](../articles/billing/billing-reserved-instance-windows-software-costs.md)
     - [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 Azure 예약](https://docs.microsoft.com/partner-center/azure-reservations)

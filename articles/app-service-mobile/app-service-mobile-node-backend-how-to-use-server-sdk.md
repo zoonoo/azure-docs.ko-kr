@@ -14,20 +14,21 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 74a522f8761c2eeaf329c90ae35aef0f44c40254
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: a3883d233bd621607ec724e0c85734b508195340
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027198"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388670"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Mobile Apps Node.js SDK를 사용하는 방법
 
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
 > [!NOTE]
-> Visual Studio App Center은 모바일 앱 개발에 대 한 종단 간 및 통합 서비스의 중심을 지원 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다.
-> 모바일 응용 프로그램에서 클라우드 서비스를 통합 하려는 경우 현재 App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 에 등록 하세요.
+> Visual Studio App Center는 모바일 앱 개발의 중심인 엔드투엔드 통합 서비스를 지원합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용하여 지속적인 통합 및 업데이트 파이프라인을 설정할 수 있습니다. 앱이 배포되면 개발자는 **분석** 및 **진단** 서비스를 사용하여 앱의 상태와 사용 현황을 모니터링하고, **푸시** 서비스를 사용하여 사용자와 소통할 수 있습니다. 또한 개발자는 **인증** 서비스를 사용하여 사용자를 인증하고, **데이터** 서비스를 사용하여 클라우드에서 애플리케이션 데이터를 유지하고 동기화할 수도 있습니다.
+>
+>  모바일 애플리케이션에서 클라우드 서비스를 통합하려면 지금 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc)에 등록하세요.
 
 이 문서에서는 Azure App Service의 Mobile Apps 기능에서 Node.js 백 엔드로 작업하는 방법을 보여 주는 자세한 정보와 예를 제공합니다.
 
@@ -143,7 +144,7 @@ Visual Studio 2015는 IDE 내에서 Node.js 애플리케이션 개발하도록 �
 
 ### <a name="create-node-backend-portal"></a>Azure Portal을 사용하여 Node.js 백 엔드 만들기
 
-[Azure Portal]에서 바로 Mobile Apps 백 엔드를 만들 수 있습니다. 다음 단계를 완료하거나 [모바일 앱 만들기](app-service-mobile-ios-get-started.md) 자습서에 따라 클라이언트 및 서버를 함께 만들 수 있습니다. 자습서는 이러한 지침의 단순화된 버전을 포함하고 있으며 개념 증명 프로젝트에 가장 적합합니다.
+[Azure 포털]에서 바로 Mobile Apps 백 엔드를 만들 수 있습니다. 다음 단계를 완료하거나 [모바일 앱 만들기](app-service-mobile-ios-get-started.md) 자습서에 따라 클라이언트 및 서버를 함께 만들 수 있습니다. 자습서는 이러한 지침의 단순화된 버전을 포함하고 있으며 개념 증명 프로젝트에 가장 적합합니다.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
@@ -196,7 +197,7 @@ var mobile = azureMobileApps({ homePage: true });
 
 azure-mobile-apps Node.js 서버 SDK는 Azure SQL Database에 저장된 데이터 테이블을 Web API로 노출하는 메커니즘을 제공합니다. 다섯 가지 작업을 제공합니다.
 
-| 연산 | 설명 |
+| 작업(Operation) | 설명 |
 | --- | --- |
 | GET /tables/*tablename* |테이블의 모든 레코드를 가져옵니다. |
 | GET /tables/*tablename*/:id |테이블의 특정 레코드를 가져옵니다. |
@@ -292,11 +293,11 @@ Mobile Apps Node.js SDK는 [mssql Node.js 패키지]를 사용하여 SQL Server 
 
    b. **SQLEXPRESS에 대한 프로토콜**을 선택합니다.
 
-   c. 마우스 오른쪽 단추로 **TCP/IP**를 클릭하고 **사용**을 선택합니다. 팝업 대화 상자에서 **확인**을 선택합니다.
+   다. 마우스 오른쪽 단추로 **TCP/IP**를 클릭하고 **사용**을 선택합니다. 팝업 대화 상자에서 **확인**을 선택합니다.
 
    d. 마우스 오른쪽 단추로 **TCP/IP**를 클릭하고 **속성**을 선택합니다.
 
-   e. **IP 주소** 탭을 선택합니다.
+   ㅁ. **IP 주소** 탭을 선택합니다.
 
    f. **IPAll** 노드를 찾습니다. **TCP 포트** 필드에 **1433**을 입력합니다.
 
@@ -340,7 +341,7 @@ TCP/IP 연결을 통해 데이터베이스에 액세스합니다. 연결에 대�
 
 ### <a name="howto-config-localdev"></a>로컬 개발에 대한 프로젝트 구성
 
-Mobile Apps는 로컬 파일 시스템에서 *azureMobile.js*라는 JavaScript 파일을 읽습니다. 이 파일을 사용하여 프로덕션에서 Mobile Apps SDK를 구성하지 마십시오. 대신 [Azure Portal]에서 **앱 설정**을 사용합니다.
+Mobile Apps는 로컬 파일 시스템에서 *azureMobile.js*라는 JavaScript 파일을 읽습니다. 이 파일을 사용하여 프로덕션에서 Mobile Apps SDK를 구성하지 마십시오. 대신 [Azure 포털]에서 **앱 설정**을 사용합니다.
 
 azureMobile.js 파일은 구성 개체를 내보내야 합니다. 가장 일반적인 설정은 다음과 같습니다.
 
@@ -368,17 +369,17 @@ module.exports = {
 };
 ```
 
-**.gitignore** 파일에 **azureMobile.js**를 추가하여(또는 기타 소스 코드 제어 무시 파일) 암호가 클라우드에 저장되지 않도록 합니다. [Azure Portal] 내의 **앱 설정**에서 프로덕션 설정을 항상 구성합니다.
+**.gitignore** 파일에 **azureMobile.js**를 추가하여(또는 기타 소스 코드 제어 무시 파일) 암호가 클라우드에 저장되지 않도록 합니다. [Azure 포털] 내의 **앱 설정**에서 프로덕션 설정을 항상 구성합니다.
 
 ### <a name="howto-appsettings"></a>모바일 앱에 대한 앱 설정 구성
 
-azureMobile.js 파일에서 대부분의 설정은 [Azure Portal]에서 동일한 앱 설정을 포함합니다. 다음 목록을 사용하여 **앱 설정**에서 앱을 구성합니다.
+azureMobile.js 파일에서 대부분의 설정은 [Azure 포털]에서 동일한 앱 설정을 포함합니다. 다음 목록을 사용하여 **앱 설정**에서 앱을 구성합니다.
 
 | 앱 설정 | azureMobile.js 설정 | 설명 | 유효한 값 |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |name |앱의 이름 |string |
+| **MS_MobileAppName** |이름 |앱의 이름 |문자열 |
 | **MS_MobileLoggingLevel** |logging.level |로깅할 메시지의 최소 로그 수준 |error, warning, info, verbose, debug, silly |
-| **MS_DebugMode** |디버그 |디버그 모드의 사용 여부 설정 |true, false |
+| **MS_DebugMode** |debug |디버그 모드의 사용 여부 설정 |true, false |
 | **MS_TableSchema** |data.schema |SQL 테이블에 대한 기본 스키마 이름 |string(기본값: dbo) |
 | **MS_DynamicSchema** |data.dynamicSchema |디버그 모드의 사용 여부 설정 |true, false |
 | **MS_DisableVersionHeader** |version(undefined로 설정) |X-ZUMO-Server-Version 헤더를 사용하지 않도록 설정 |true, false |
@@ -386,7 +387,7 @@ azureMobile.js 파일에서 대부분의 설정은 [Azure Portal]에서 동일�
 
 앱 설정을 지정하려면:
 
-1. [Azure Portal]에 로그인합니다.
+1. [Azure 포털]에 로그인합니다.
 1. **모든 리소스** 또는 **App Services**를 선택한 다음, 모바일 앱의 이름을 선택합니다.
 1. **설정** 창이 기본적으로 열립니다. 열리지 않으면 **설정**을 선택합니다.
 1. **일반** 메뉴에서 **애플리케이션 설정**을 선택합니다.
@@ -403,7 +404,7 @@ azureMobile.js 파일에서 대부분의 설정은 [Azure Portal]에서 동일�
 
 Azure SQL Database를 데이터 저장소로 사용하면 모든 Azure App Service 애플리케이션 형식에 걸쳐 동일합니다. 아직 수행하지 않은 경우 다음 단계에 따라 Mobile Apps 백 엔드를 만듭니다.
 
-1. [Azure Portal]에 로그인합니다.
+1. [Azure 포털]에 로그인합니다.
 1. 창의 왼쪽 위에서 **+새로 만들기** 단추 > **웹 + 모바일** > **모바일 앱**을 선택한 다음, Mobile Apps 백 엔드에 대한 이름을 입력합니다.
 1. **리소스 그룹** 상자에 앱과 동일한 이름을 입력합니다.
 1. 기본 App Service 계획이 선택됩니다. App Service 계획을 변경하려면:
@@ -412,11 +413,11 @@ Azure SQL Database를 데이터 저장소로 사용하면 모든 Azure App Servi
 
    b. 새 App Service 계획의 이름을 입력하고 적절한 위치를 선택합니다.
 
-   c. 서비스에 대한 적절한 가격 책정 계층을 선택합니다. **무료** 및 **공유** 등의 더 많은 가격 책정 옵션을 보려면 **모두 보기**를 선택합니다.
+   다. 서비스에 대한 적절한 가격 책정 계층을 선택합니다. **무료** 및 **공유** 등의 더 많은 가격 책정 옵션을 보려면 **모두 보기**를 선택합니다.
 
-   d. 클릭 합니다 **선택** 단추입니다.
+   d. **선택** 단추를 클릭합니다.
 
-   e. **App Service 계획** 창으로 돌아가서 **확인**을 선택합니다.
+   ㅁ. **App Service 계획** 창으로 돌아가서 **확인**을 선택합니다.
 1. **만들기**를 선택합니다.
 
 Mobile Apps 백 엔드를 프로비저닝하는 데 몇 분 정도 걸릴 수 있습니다. Mobile Apps 백 엔드가 프로비전되면 포털에서 Mobile Apps 백 엔드에 대한 **설정** 창이 열립니다.
@@ -441,7 +442,7 @@ Mobile Apps 백 엔드에 기존 SQL 데이터베이스를 연결하거나 새 S
 
 ### <a name="howto-tables-auth"></a>테이블에 대한 액세스 인증 요구
 
-`tables` 엔드포인트를 사용하여 App Service 인증을 사용하려는 경우 [Azure Portal]에서 우선 App Service 인증을 구성해야 합니다. 자세한 내용은 사용하려고 하는 ID 공급자에 대한 구성 가이드를 참조하세요.
+`tables` 엔드포인트를 사용하여 App Service 인증을 사용하려는 경우 [Azure 포털]에서 우선 App Service 인증을 구성해야 합니다. 자세한 내용은 사용하려고 하는 ID 공급자에 대한 구성 가이드를 참조하세요.
 
 * [Azure Active Directory 인증 구성]
 * [Facebook 인증 구성]
@@ -685,7 +686,7 @@ var mobile = azureMobileApps({ swagger: true });
 var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 ```
 
-`swagger` 엔드포인트는 http://*yoursite*.azurewebsites.net/swagger에 위치합니다. 엔드포인트를 통해 `/swagger/ui`에 액세스할 수 있습니다. 전체 애플리케이션에서 인증을 요구하도록 선택하면 Swagger가 오류를 생성합니다. 최상의 결과를 위해 `table.access` 속성을 사용하여 Azure App Service 인증/권한 부여 설정 및 제어 인증에서 인증되지 않은 요청을 허용하도록 선택합니다.
+`swagger` 엔드포인트는 http://*yoursite*.azurewebsites.net/swagger에 위치합니다. ph x="1" /&gt; 엔드포인트를 통해 Swagger UI에 액세스할 수 있습니다. 전체 애플리케이션에서 인증을 요구하도록 선택하면 Swagger가 오류를 생성합니다. 최상의 결과를 위해 `table.access` 속성을 사용하여 Azure App Service 인증/권한 부여 설정 및 제어 인증에서 인증되지 않은 요청을 허용하도록 선택합니다.
 
 또한 로컬로 개발을 위해 Swagger 지원을 원하는 경우 azureMobile.js 파일에 Swagger 옵션을 추가할 수도 있습니다.
 
@@ -752,7 +753,7 @@ if (context.push) {
 
 `/tables` 엔드포인트를 통한 데이터 액세스 API 외에도 Mobile Apps는 사용자 지정 API 범위를 제공할 수 있습니다. 사용자 지정 API는 유사한 방식으로 테이블 정의에 정의되고 인증을 비롯한 동일한 시설에 액세스할 수 있습니다.
 
-사용자 지정 API를 사용하여 App Service 인증을 사용하려는 경우 [Azure Portal]에서 우선 App Service 인증을 구성해야 합니다. 자세한 내용은 사용하려고 하는 ID 공급자에 대한 구성 가이드를 참조하세요.
+사용자 지정 API를 사용하여 App Service 인증을 사용하려는 경우 [Azure 포털]에서 우선 App Service 인증을 구성해야 합니다. 자세한 내용은 사용하려고 하는 ID 공급자에 대한 구성 가이드를 참조하세요.
 
 * [Azure Active Directory 인증 구성]
 * [Facebook 인증 구성]
@@ -798,7 +799,7 @@ var api = {
 module.exports = api;
 ```
 
-각 매개 변수는 표준 RESTful 동사인 GET, POST, PATCH 또는 DELETE 중 하나입니다. 메서드는 필요한 출력을 전송하는 표준 [ExpressJS 미들웨어] 함수입니다.
+각 매개 변수는 GET, POST, PATCH 또는 DELETE와 같은 RESTful 표준 동사의 하나입니다. 메서드는 필요한 출력을 전송하는 표준 [ExpressJS 미들웨어] 함수입니다.
 
 ### <a name="howto-customapi-auth"></a>사용자 지정 API에 대한 액세스 인증 요구
 
@@ -906,7 +907,7 @@ Node.js Mobile Apps 백 엔드 문제 해결에서 시작하려면 다음 문서
 * [Azure App Service에 진단 로그 사용]
 * [Visual Studio에서 Azure App Service 문제 해결]
 
-Node.js 애플리케이션은 넓은 범위의 진단 로그 도구에 액세스합니다. 내부적으로 Mobile Apps Node.js SDK는 진단 로깅에 [윈스턴]을 사용합니다. [Azure Portal]에서 디버그 모드를 사용하거나 `MS_DebugMode` 앱 설정을 true로 설정할 때 로깅이 자동으로 활성화됩니다. 생성된 로그는 [Azure Portal]의 진단 로그에 표시됩니다.
+Node.js 애플리케이션은 넓은 범위의 진단 로그 도구에 액세스합니다. 내부적으로 Mobile Apps Node.js SDK는 진단 로깅에 [윈스턴]을 사용합니다. [Azure 포털]에서 디버그 모드를 사용하거나 `MS_DebugMode` 앱 설정을 true로 설정할 때 로깅이 자동으로 활성화됩니다. 생성된 로그는 [Azure 포털]의 진단 로그에 표시됩니다.
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png
@@ -942,7 +943,7 @@ Node.js 애플리케이션은 넓은 범위의 진단 로그 도구에 액세스
 [Express]: https://expressjs.com/
 [Swagger]: https://swagger.io/
 
-[Azure Portal]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/
 [OData]: https://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [GitHub의 기본 앱 샘플]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app

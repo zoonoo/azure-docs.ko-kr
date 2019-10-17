@@ -5,17 +5,17 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/08/2018
-ms.openlocfilehash: aacd6f1799f1813e168bd04e78f18cf60ad5243f
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.date: 10/15/2019
+ms.openlocfilehash: 5a4ee90717d46fe593d9e10083b349e069216dac
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026840"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72436781"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 파생 열 변환
 
-파생 열 변환을 사용하여 데이터 흐름에 새 열을 생성하거나 기존 필드를 수정합니다.
+파생 열 변환을 사용 하 여 데이터 흐름에 새 열을 생성 하거나 기존 필드를 수정할 수 있습니다.
 
 ## <a name="derived-column-settings"></a>파생 열 설정
 
@@ -23,9 +23,44 @@ ms.locfileid: "72026840"
 
 ![파생 열 설정](media/data-flow/dc1.png "파생 열 설정")
 
-파생 열을 더 추가 하려면 기존 파생 열 위로 마우스를 이동 하 고 ' + '를 클릭 합니다. 그런 다음 ' 열 추가 ' 또는 ' 열 패턴 추가 ' 중 하나를 선택 합니다. 열 이름이 원본의 변수인 경우 열 패턴을 유용 하 게 사용할 수 있습니다. 자세한 내용은 [열 패턴](concepts-data-flow-column-pattern.md)을 참조 하세요.
+파생 열을 더 추가 하려면 기존 파생 열 위로 마우스를 이동 하 고 더하기 아이콘을 클릭 합니다. **열 추가** 또는 **열 패턴 추가**중 하나를 선택 합니다. 열 이름이 원본의 변수인 경우 열 패턴을 유용 하 게 사용할 수 있습니다. 자세한 내용은 [열 패턴](concepts-data-flow-column-pattern.md)을 참조 하세요.
 
 ![새 파생 열 선택](media/data-flow/columnpattern.png "새 파생 열 선택")
+
+## <a name="data-flow-script"></a>데이터 흐름 스크립트
+
+### <a name="syntax"></a>구문
+
+```
+<incomingStream>
+    derive(
+           <columnName1> = <expression1>,
+           <columnName2> = <expression2>,
+           each(
+                match(matchExpression),
+                <metadataColumn1> = <metadataExpression1>,
+                <metadataColumn2> = <metadataExpression2>
+               )
+          ) ~> <deriveTransformationName>
+```
+
+### <a name="example"></a>예제
+
+아래 예제는 들어오는 스트림을 `MoviesYear`로 사용 하 고 두 개의 파생 열을 만드는 `CleanData` 이라는 파생 열입니다. 첫 번째 파생 열 `Rating` 열을 등급 값을 정수 형식으로 바꿉니다. 두 번째 파생 열은 이름이 ' 영화 '로 시작 하는 각 열과 일치 하는 패턴입니다. 일치 하는 각 열에 대해 ' movie_ ' 접두사가 붙은 일치 하는 열의 값과 같은-0 @no__t 열을 만듭니다. Data Factory UX에서이 변환은 아래 이미지와 같습니다.
+
+![파생 예제](media/data-flow/derive-script1.png "파생 예제")
+
+이 변환에 대 한 데이터 흐름 스크립트는 아래 코드 조각에 있습니다.
+
+```
+MoviesYear derive(
+                Rating = toInteger(Rating),
+                each(
+                    match(startsWith(name,'movies')),
+                    'movie' = 'movie_' + toString($$)
+                )
+            ) ~> CleanData
+```
 
 ## <a name="next-steps"></a>다음 단계
 

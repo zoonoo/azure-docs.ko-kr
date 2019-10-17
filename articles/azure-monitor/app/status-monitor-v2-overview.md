@@ -1,6 +1,6 @@
 ---
-title: Azure 상태 모니터 v2 개요 | Microsoft Docs
-description: 상태 모니터 v2의 개요입니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
+title: Azure 애플리케이션 Insights 에이전트 개요 | Microsoft Docs
+description: Application Insights 에이전트에 대 한 개요입니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,23 +12,28 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: tilee
-ms.openlocfilehash: 7f045a95bcc9d5a61b26036e14e050a597347d1a
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 294b0d2d91650f33f0b92179a069a8c7cd845525
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286450"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389827"
 ---
-# <a name="status-monitor-v2"></a>상태 모니터 v2
+# <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>온-프레미스 서버에 대 한 Azure Monitor Application Insights 에이전트 배포
 
-상태 모니터 v2는 [PowerShell 갤러리](https://www.powershellgallery.com/packages/Az.ApplicationMonitor)에 게시 된 PowerShell 모듈입니다.
+> [!IMPORTANT]
+> 이 지침은 Application Insights 에이전트의 온-프레미스 및 비 Azure 클라우드 배포에 권장 됩니다. [Azure 가상 머신 및 가상 머신 확장 집합 배포](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps)에 권장 되는 방법은 다음과 같습니다.
+
+Application Insights 에이전트 (이전의 명명 된 상태 모니터 V2)는 [PowerShell 갤러리](https://www.powershellgallery.com/packages/Az.ApplicationMonitor)에 게시 된 PowerShell 모듈입니다.
 [상태 모니터](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now)를 대체 합니다.
-이 모듈은 IIS를 사용 하 여 호스트 되는 .NET 웹 앱의 코드 없는 계측을 제공 합니다.
 원격 분석은 앱을 [모니터링할](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) 수 있는 Azure Portal 전송 됩니다.
+
+> [!NOTE]
+> 이 모듈은 현재 IIS에서 호스트 되는 .NET 웹 앱의 코드 없는 계측만 지원 합니다. SDK를 사용 하 여 ASP.NET Core, Java 및 node.js 응용 프로그램을 계측 합니다.
 
 ## <a name="powershell-gallery"></a>PowerShell 갤러리
 
-상태 모니터 v2는 https://www.powershellgallery.com/packages/Az.ApplicationMonitor 에 있습니다.
+Application Insights 에이전트는 https://www.powershellgallery.com/packages/Az.ApplicationMonitor 에 있습니다.
 
 ![PowerShell 갤러리](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
@@ -40,11 +45,11 @@ ms.locfileid: "72286450"
 ## <a name="powershell-api-reference"></a>PowerShell API 참조
 - [Disable-ApplicationInsightsMonitoring](status-monitor-v2-api-disable-monitoring.md)
 - [Disable-InstrumentationEngine](status-monitor-v2-api-disable-instrumentation-engine.md)
-- [Enable-ApplicationInsightsMonitoring](status-monitor-v2-api-enable-monitoring.md)
-- [Enable-InstrumentationEngine](status-monitor-v2-api-enable-instrumentation-engine.md)
-- [Get-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-get-config.md)
-- [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md)
-- [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
+- [ApplicationInsightsMonitoring](status-monitor-v2-api-enable-monitoring.md)
+- [InstrumentationEngine](status-monitor-v2-api-enable-instrumentation-engine.md)
+- [ApplicationInsightsMonitoringConfig](status-monitor-v2-api-get-config.md)
+- [ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md)
+- [ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
 - [ApplicationInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
 
 ## <a name="troubleshooting"></a>문제 해결
@@ -54,9 +59,9 @@ ms.locfileid: "72286450"
 
 ## <a name="faq"></a>FAQ
 
-- V2 상태 모니터 프록시 설치를 지원 하나요?
+- 에이전트에서 프록시 설치를 지원 Application Insights 합니까?
 
-  *예*. 상태 모니터 v2를 다운로드 하는 방법에는 여러 가지가 있습니다. 컴퓨터에서 인터넷에 액세스할 수 있는 경우 `-Proxy` 매개 변수를 사용 하 여 PowerShell 갤러리에 등록할 수 있습니다.
+  *예*. Application Insights 에이전트를 다운로드 하는 방법에는 여러 가지가 있습니다. 컴퓨터에서 인터넷에 액세스할 수 있는 경우 `-Proxy` 매개 변수를 사용 하 여 PowerShell 갤러리에 등록할 수 있습니다.
 또한 모듈을 수동으로 다운로드 하 고 컴퓨터에 설치 하거나 직접 사용할 수 있습니다.
 이러한 각 옵션에 대 한 [자세한 지침은](status-monitor-v2-detailed-instructions.md)을 참조 하십시오.
 

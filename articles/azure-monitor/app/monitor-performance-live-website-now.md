@@ -10,16 +10,19 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 08/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: ea324d616928b0d517c00dc9cab3e282f1e3415e
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e7d69e2258036318b736f245f9e3aec3cf5f54de
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67876432"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389936"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Application Insights 코드 없는 Attach를 사용 하 여 런타임 시 웹 앱 계측
+
+> [!IMPORTANT]
+> 상태 모니터는 더 이상 사용 하지 않는 것이 좋습니다. 이 파일은 Azure Monitor Application Insights 에이전트로 대체 되었습니다 (이전의 명명 된 상태 모니터 v2). [온-프레미스 서버 배포](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) 또는 [Azure 가상 머신과 가상 머신 확장 집합 배포](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps)에 대 한 설명서를 참조 하세요.
 
 코드를 수정하거나 다시 배포할 필요 없이 Azure Application Insights를 사용하여 라이브 웹앱을 계측할 수 있습니다. [Microsoft Azure](https://azure.com) 구독이 필요합니다.
 
@@ -35,24 +38,24 @@ ms.locfileid: "67876432"
 
 Application Insights를 .NET 웹 애플리케이션에 적용하는 두 가지 경로가 있습니다.
 
-* **빌드 시간:** 웹 앱 코드에 [APPLICATION INSIGHTS SDK를 추가][greenbrown] 합니다.
+* **빌드 시간:** 웹 앱 코드에 [Application Insights SDK를 추가][greenbrown] 합니다.
 * **실행 시간:** 코드를 다시 빌드하거나 다시 작성하지 않고 아래 설명된 대로 서버에서 웹앱을 계측합니다.
 
 > [!NOTE]
-> 빌드 시간 계측을 사용하는 경우 해당 계측이 켜져 있어도 런타임 계측이 작동하지 않습니다.
+> 빌드 시간 계측을 사용 하는 경우에는 실행 시간 계측 기능이 설정 된 경우에도 작동 하지 않습니다.
 
 다음은 각 루트의 장점을 요약한 것입니다.
 
-|  | 빌드 시간 | 런타임 |
+|  | 빌드 시간 | 실행 시간 |
 | --- | --- | --- |
-| 요청 및 예외 |예 |예 |
-| [자세한 예외 정보](../../azure-monitor/app/asp-net-exceptions.md) | |예 |
+| 요청 및 예외 |yes |yes |
+| [자세한 예외 정보](../../azure-monitor/app/asp-net-exceptions.md) | |yes |
 | [종속성 진단](../../azure-monitor/app/asp-net-dependencies.md) |.NET 4.6+, 간단히 |예, 전체 세부 정보: 결과 코드, SQL 명령 텍스트, HTTP 동사|
-| [시스템 성능 카운터](../../azure-monitor/app/performance-counters.md) |예 |예 |
-| [사용자 지정 원격 분석에 대 한 API][api] |예 |아니요 |
-| [추적 로그 통합](../../azure-monitor/app/asp-net-trace-logs.md) |예 |아니요 |
-| [페이지 보기 및 사용자 데이터](../../azure-monitor/app/javascript.md) |예 |아니요 |
-| 코드를 다시 빌드해야 함 |예 | 아니요 |
+| [시스템 성능 카운터](../../azure-monitor/app/performance-counters.md) |yes |yes |
+| [사용자 지정 원격 분석에 대 한 API][api] |yes |아닙니다. |
+| [추적 로그 통합](../../azure-monitor/app/asp-net-trace-logs.md) |yes |아닙니다. |
+| [페이지 보기 및 사용자 데이터](../../azure-monitor/app/javascript.md) |yes |아닙니다. |
+| 코드를 다시 빌드해야 함 |yes | 아닙니다. |
 
 
 
@@ -152,7 +155,7 @@ Application Insights를 사용하도록 설정하면 이 오류가 발생할 수
 
 * 상태 모니터 .NET 응용 프로그램 이므로 [적절 한 진단을 구성 파일에 추가 하 여 .net 추적](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element)을 사용 하도록 설정할 수도 있습니다. 예를 들어 일부 시나리오에서는 [네트워크 추적을 구성](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing) 하 여 네트워크 수준에서 발생 하는 상황을 확인 하는 것이 유용할 수 있습니다.
 
-### <a name="insufficient-permissions"></a>사용 권한 부족
+### <a name="insufficient-permissions"></a>권한 부족
   
 * 서버에서 "권한 부족"에 대한 메시지가 표시되는 경우 다음을 시도합니다.
   * IIS 관리자에서 애플리케이션 풀을 선택하고 **고급 설정**을 연 다음 **프로세스 모델**에서 ID를 확인합니다.
@@ -189,9 +192,9 @@ Server에서 Application Insights 상태 모니터에 대한 OS 지원:
 
 최신 SP 및 .NET Framework 4.5 (이 버전의 프레임 워크를 기반으로 하는 상태 모니터)
 
-클라이언트 쪽: Windows 7, 8, 8.1 및 10에서, 역시 .NET Framework 4.5 포함
+클라이언트 쪽 Windows 7, 8, 8.1 및 10에서, 역시 .NET Framework 4.5 포함
 
-IIS 지원: IIS 7, 7.5, 8, 8.5(IIS가 필수임)
+IIS 지원: IIS 7, 7.5, 8, 8.5(IIS 필요)
 
 ## <a name="automation-with-powershell"></a>PowerShell을 사용한 Automation
 IIS 서버에서 PowerShell을 사용하여 모니터링을 시작하고 중지할 수 있습니다.
@@ -208,7 +211,7 @@ IIS 서버에서 PowerShell을 사용하여 모니터링을 시작하고 중지�
 * 이 IIS 서버에서 각 웹앱(또는 명명된 앱)에 대한 상태를 모니터링하여 Application Insights를 표시합니다.
 * 각 앱에 대해 `ApplicationInsightsApplication`을(를) 반환합니다.
 
-  * `SdkState==EnabledAfterDeployment`: 상태 모니터 도구 또는 `Start-ApplicationInsightsMonitoring`에서 앱을 모니터링하고, 런타임 시 계측했습니다.
+  * `SdkState==EnabledAfterDeployment`: 상태 모니터 도구 또는 `Start-ApplicationInsightsMonitoring`에서 앱을 모니터링하고 런타임 시 계측했습니다.
   * `SdkState==Disabled`: 앱이 Application insights에 대해 계측되지 않습니다. 앱을 계측하지 않았거나 상태 모니터 도구 또는 `Stop-ApplicationInsightsMonitoring`을(를) 사용하여 런타임 모니터링이 비활성화되었습니다.
   * `SdkState==EnabledByCodeInstrumentation`: 소스 코드에 SDK를 추가하여 앱을 계측했습니다. 해당 SDK은 업데이트되거나 중지될 수 없습니다.
   * `SdkVersion`은(는) 이 앱을 모니터링하는 데 사용하는 버전을 나타냅니다.
@@ -244,7 +247,7 @@ IIS 서버에서 PowerShell을 사용하여 모니터링을 시작하고 중지�
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
 * `-Name`: IIS에서 웹앱의 이름
-* `-InstrumentationKey`(옵션) 이를 사용하여 앱의 원격 분석이 전송되는 리소스를 변경합니다.
+* `-InstrumentationKey` (선택 사항) 이를 사용 하 여 앱의 원격 분석이 전송 되는 리소스를 변경 합니다.
 * 이 cmdlet은:
   * 최근에 이 컴퓨터에 다운로드된 SDK 버전으로 명명된 앱을 업그레이드합니다. (`SdkState==EnabledAfterDeployment`인 경우에만 작동)
   * 계측 키를 제공하는 경우 명명된 앱은 해당 키가 있는 리소스에 원격 분석을 전송하도록 다시 구성됩니다. ( `SdkState != Disabled`인 경우 작동)
@@ -304,7 +307,7 @@ Application Insights SDK 버전 2.4은 [.net 4.0을 지원 하기 위한 최신 
  * 종속성 호출(.NET 4.5); 종속성 호출(.NET 4.6)에 값을 반환합니다.
  * 예외 스택 추적 값
 
-[자세히 알아보기](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[자세한 정보](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>비디오
 

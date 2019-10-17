@@ -1,17 +1,17 @@
 ---
-title: Azure Data Factory Mapping Data Flow 열 패턴
+title: 데이터 흐름 Azure Data Factory 매핑 열 패턴
 description: 데이터 흐름 매핑 시 Azure Data Factory 열 패턴을 사용 하 여 일반화 된 데이터 변환 패턴 만들기
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 535656f315f65ffb7aa241618fe9e73b8246b71f
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: a95bbb726f8c391270d3f60ed769d9475004b1e4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027855"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388015"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>데이터 흐름 매핑 열 패턴
 

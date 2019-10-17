@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 56bb5a1ac3c4003eca6ebe8392fc5b97f36a3317
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 24d601dc2116b7daf315bb3c6f20c4dc0b6f6ce5
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311140"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72382051"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Blob 저장소에 대 한 성능 및 확장성 검사 목록
 
@@ -25,7 +25,7 @@ Azure Storage에는 용량, 트랜잭션 속도 및 대역폭에 대 한 확장�
 
 이 문서에서는 성능에 대 한 검증 된 사례를 Blob storage 응용 프로그램을 개발 하는 동안 수행할 수 있는 검사 목록으로 구성 합니다.
 
-| 완료된 | 범주 | 디자인 고려 사항 |
+| 완료 | 범주 | 디자인 고려 사항 |
 | --- | --- | --- |
 | &nbsp; |확장성 목표 |[최대 저장소 계정 수를 사용 하지 않도록 응용 프로그램을 디자인할 수 있나요?](#maximum-number-of-storage-accounts) |
 | &nbsp; |확장성 목표 |[용량 및 트랜잭션 제한에 도달 하는 것을 방지 하 고 있나요?](#capacity-and-transaction-targets) |
@@ -66,7 +66,7 @@ Azure Storage에는 용량, 트랜잭션 속도 및 대역폭에 대 한 확장�
 
 - 저장소 계정을 사용 하 여 관리 되지 않는 디스크를 저장 하 고 해당 디스크를 Vm (가상 컴퓨터)에 추가 하나요? 이 시나리오에서는 Microsoft에서 관리 디스크를 사용 하는 것이 좋습니다. 관리 디스크는 개별 저장소 계정을 만들고 관리할 필요 없이 자동으로 확장 됩니다. 자세한 내용은 [Azure managed Disks 소개](../../virtual-machines/windows/managed-disks-overview.md) 를 참조 하세요.
 - 데이터 격리를 위해 고객 당 하나의 저장소 계정을 사용 하 고 있나요? 이 시나리오에서는 전체 저장소 계정 대신 각 고객에 대해 blob 컨테이너를 사용 하는 것이 좋습니다. 이제 Azure Storage를 사용 하 여 컨테이너 별로 RBAC (역할 기반 액세스 제어) 역할을 할당할 수 있습니다. 자세한 내용은 [Azure Portal에서 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 데이터 큐](../common/storage-auth-aad-rbac-portal.md)에 추가를 참조 하세요.
-- 여러 저장소 계정을 분할 하 여 수신, 송신, IOPS (초당 i/o 작업 수) 또는 용량을 늘릴 수 있나요? 이 시나리오에서는 가능한 경우 워크 로드에 필요한 저장소 계정의 수를 줄이기 위해 표준 저장소 계정에 대해 증가 된 제한을 활용 하는 것이 좋습니다. 저장소 계정에 대 한 증가 한도를 요청 하려면 [Azure 지원](https://azure.microsoft.com/support/options/) 에 문의 하세요. 자세한 내용은 더 [큰 규모의 저장소 계정 발표](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)를 참조 하세요.
+- 여러 저장소 계정을 분할 하 여 수신, 송신, IOPS (초당 i/o 작업 수) 또는 용량을 늘릴 수 있나요? 이 시나리오에서는 가능한 경우 저장소 계정에 대해 증가 하는 제한을 활용 하 여 워크 로드에 필요한 저장소 계정의 수를 줄이는 것이 좋습니다. 저장소 계정에 대 한 증가 한도를 요청 하려면 [Azure 지원](https://azure.microsoft.com/support/options/) 에 문의 하세요. 자세한 내용은 더 [큰 규모의 저장소 계정 발표](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)를 참조 하세요.
 
 ### <a name="capacity-and-transaction-targets"></a>용량 및 트랜잭션 대상
 
@@ -113,7 +113,7 @@ Blob storage는 크기 조정 및 부하 분산을 위해 범위 기반 파티�
 
     예를 들어 *yyyymmdd*와 같이 타임 스탬프를 사용 하 여 blob을 사용 하는 일상적인 작업이 있는 경우 해당 일별 작업의 모든 트래픽은 단일 파티션 서버에서 제공 하는 단일 blob으로 전달 됩니다. Blob 당 제한과 파티션당 한도가 요구 사항을 충족 하는지 여부를 고려 하 고 필요한 경우이 작업을 여러 blob으로 분리 하는 것이 좋습니다. 마찬가지로 테이블에 시계열 데이터를 저장 하는 경우 모든 트래픽이 키 네임 스페이스의 마지막 부분으로 전달 될 수 있습니다. 숫자 Id를 사용 하는 경우 3 자리 해시를 사용 하 여 ID에 접두사를 붙입니다. 타임 스탬프를 사용 하는 경우 타임 스탬프에 초 값 (예: *ssyyyymmdd*)을 접두사로 사용 합니다. 응용 프로그램에서 정기적으로 나열 및 쿼리 작업을 수행 하는 경우 쿼리 수를 제한 하는 해싱 함수를 선택 합니다. 경우에 따라 임의의 접두사 만으로도 충분할 수 있습니다.
   
-- Azure Storage에서 사용 되는 파티션 구성표에 대 한 자세한 내용은 [Azure Storage를 참조 하세요. 강력한 일관성과 함께 항상 사용 가능한 클라우드 스토리지 서비스](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf) 문서를 참조하세요.
+- Azure Storage에서 사용 되는 파티션 구성표에 대 한 자세한 내용은 [Azure Storage: 강력한 일관성과 함께 항상 사용 가능한 클라우드 저장소 서비스](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf)를 참조 하세요.
 
 ## <a name="networking"></a>네트워킹
 
@@ -194,7 +194,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 다른 프로그래밍 언어의 경우 연결 제한을 설정 하는 방법을 확인 하려면 설명서를 참조 하세요.  
 
-자세한 내용은 [웹 서비스: 동시 연결](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/) 블로그 게시물을 참조하세요.  
+자세한 내용은 블로그 게시물 [웹 서비스: 동시 연결](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/)을 참조 하세요.  
 
 ### <a name="increase-minimum-number-of-threads"></a>최소 스레드 수 늘리기
 
@@ -286,6 +286,4 @@ Azure Storage는 블록 blob, 추가 blob 및 페이지 blob을 지원 합니다
 ## <a name="next-steps"></a>다음 단계
 
 - [스토리지 계정의 Azure Storage 확장성 및 성능 목표](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [큐 저장소에 대 한 성능 및 확장성 검사 목록](../queues/storage-performance-checklist.md)
-- [테이블 저장소에 대 한 성능 및 확장성 검사 목록](../tables/storage-performance-checklist.md)
 - [상태 및 오류 코드](/rest/api/storageservices/Status-and-Error-Codes2)

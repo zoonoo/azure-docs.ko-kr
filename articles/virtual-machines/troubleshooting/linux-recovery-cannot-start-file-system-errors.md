@@ -14,22 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: 298fd336e87d07f9e65221d5e5f539e255c94993
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: a47dc1032115f8bcae0c7bdc37c84ab3b68ec4a8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72245332"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72432300"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>파일 시스템 오류로 인 한 Linux VM 시작 문제 해결
 
 Secure Shell (SSH)를 사용 하 여 Azure Linux VM (가상 머신)에 연결할 수 없습니다. [Azure Portal](https://portal.azure.com/)에서 부팅 진단 기능을 실행 하면 다음 예제와 유사한 로그 항목이 표시 됩니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 가능한 오류의 예는 다음과 같습니다.
 
-### <a name="example-1"></a>예제 1 
+### <a name="example-1"></a>예 1 
 
 ```
 Checking all file systems.
@@ -39,7 +39,7 @@ Checking all file systems.
 /dev/sda1: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY
 ```
 
-### <a name="example-2"></a>예제 2
+### <a name="example-2"></a>예 2
 
 ```
 EXT4-fs (sda1): INFO: recovery required on readonly filesystem
@@ -71,9 +71,9 @@ Checking all file systems.
 
 이 문제는 파일 시스템이 완전히 종료 되지 않거나 저장소 관련 문제가 발생 한 경우에 발생할 수 있습니다. 이러한 문제에는 하드웨어 또는 소프트웨어 오류, 드라이버 또는 프로그램에 대 한 문제, 쓰기 오류 등이 포함 됩니다. 중요 한 데이터의 백업은 항상 중요 합니다. 이 문서에서 설명 하는 도구는 파일 시스템을 복구 하는 데 도움이 될 수 있지만 여전히 데이터 손실이 발생할 수 있습니다.
 
-Linux에는 사용할 수 있는 몇 가지 파일 시스템 검사기가 있습니다. Azure의 배포에 대 한 가장 일반적인 기능은 다음과 같습니다. [FSCK](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific), [E2FSCK](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific)및 [Xfs_repair](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair)입니다.
+Linux에는 사용할 수 있는 몇 가지 파일 시스템 검사기가 있습니다. Azure의 배포에 대 한 가장 일반적인은 [FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific), [E2FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific)및 [Xfs_repair](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair)입니다.
 
-## <a name="resolution"></a>해결 방법
+## <a name="resolution"></a>해상도
 
 이 문제를 해결 하려면 [직렬 콘솔](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux) 을 사용 하 여 VM을 응급 모드로 부팅 하 고 해당 도구를 사용 하 여 파일 시스템을 복구 합니다. VM에서 직렬 콘솔을 사용 하도록 설정 하지 않았거나 작동 하지 않는 경우이 문서의 [vm 오프 라인 복구](#repair-the-vm-offline) 섹션을 참조 하세요.
 
@@ -88,7 +88,7 @@ Linux에는 사용할 수 있는 몇 가지 파일 시스템 검사기가 있습
 
 2. 전원 아이콘 단추를 선택한 다음, VM 다시 시작을 선택 합니다. (직렬 콘솔이 사용 하도록 설정 되지 않았거나 연결 되지 않은 경우 단추가 표시 되지 않습니다.)
 
-   ![IMAGE](./media/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck/restart-vm.png)
+   ![이미지로](./media/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck/restart-vm.png)
 
 3. 에서 VM을 응급 모드로 부팅 합니다.
 
@@ -106,7 +106,7 @@ Linux에는 사용할 수 있는 몇 가지 파일 시스템 검사기가 있습
    xfs_repair /dev/sda1
    ```
 
-7. 오류 메시지가 표시 되 면 다음을 수행 하십시오. 파일 시스템에는 재생 해야 하는 로그의 중요 한 메타 데이터 변경 내용이 포함 되어 있습니다. ", 임시 디렉터리를 만들고 파일 시스템을 탑재 합니다.
+7. "오류: 파일 시스템에 재생 해야 하는 로그에 중요 한 메타 데이터 변경 내용이 있습니다." 라는 오류 메시지가 표시 되 면 임시 디렉터리를 만들고 파일 시스템을 탑재 합니다.
 
    ```
    mkdir /temp
@@ -150,7 +150,7 @@ Linux에는 사용할 수 있는 몇 가지 파일 시스템 검사기가 있습
    xfs_repair /dev/sdc1
    ```
 
-5. 오류 메시지가 표시 되 면 다음을 수행 하십시오. 파일 시스템에는 재생 해야 하는 로그의 중요 한 메타 데이터 변경 내용이 포함 되어 있습니다. ", 임시 디렉터리를 만들고 파일 시스템을 탑재 합니다.
+5. "오류: 파일 시스템에 재생 해야 하는 로그에 중요 한 메타 데이터 변경 내용이 있습니다." 라는 오류 메시지가 표시 되 면 임시 디렉터리를 만들고 파일 시스템을 탑재 합니다.
 
    ```
    mkdir /temp

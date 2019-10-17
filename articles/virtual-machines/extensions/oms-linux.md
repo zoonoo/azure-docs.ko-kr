@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: akjosh
-ms.openlocfilehash: 95b630342ac2b4bc9cf51f3aa3d8563c4962ce11
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 75f659f9559703cedccef0d8e726b5c8c5bb49be
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168944"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435832"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Linux 용 가상 머신 확장 Azure Monitor
 
@@ -32,7 +32,7 @@ Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -65,7 +65,7 @@ Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터
 
 Azure Security Center는 자동으로 Log Analytics 에이전트를 프로비전하고 Azure 구독에서 ASC가 만든 기본 Log Analytics 작업 영역에 연결합니다. Azure Security Center를 사용하는 경우 이 문서의 단계를 실행하지 마세요. 이렇게 하면 구성된 작업 영역을 덮어쓰고 Azure Security Center와의 연결을 끊습니다.
 
-### <a name="internet-connectivity"></a>인터넷에 연결
+### <a name="internet-connectivity"></a>인터넷 연결
 
 Linux용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터넷에 연결되어 있어야 합니다. 
 
@@ -103,7 +103,7 @@ Linux용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터넷�
 
 ### <a name="property-values"></a>속성 값
 
-| 이름 | 값/예제 |
+| name | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
@@ -171,7 +171,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 배포
 
-Azure CLI를 사용하여 Log Analytics 에이전트 VM 확장을 기존 가상 머신에 배포할 수 있습니다. *workspaceId* 및 *workspaceKey*를 Log Analytics 작업 영역의 항목으로 바꿉니다. 
+Azure CLI를 사용하여 Log Analytics 에이전트 VM 확장을 기존 가상 머신에 배포할 수 있습니다. 아래 *myWorkspaceKey* 값을 작업 영역 키로, *myworkspaceid의* 값을 작업 영역 ID로 바꿉니다. 이러한 값은 *고급 설정*아래의 Azure Portal Log Analytics 작업 영역에서 찾을 수 있습니다. 
 
 ```azurecli
 az vm extension set \
@@ -179,8 +179,8 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.10.1 --protected-settings '{"workspaceKey":"omskey"}' \
-  --settings '{"workspaceId":"omsid"}'
+  --version 1.10.1 --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
+  --settings '{"workspaceId":"myWorkspaceId"}'
 ```
 
 ## <a name="troubleshoot-and-support"></a>문제 해결 및 지원

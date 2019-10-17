@@ -9,20 +9,19 @@ ms.topic: conceptual
 ms.service: service-fabric
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 984e7ed82ba81d8c40688efd0a0a06e095be7c06
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 4a681b3a09def3a7b27b603cf5201aebdbf2e4bf
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018976"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72386222"
 ---
 # <a name="service-fabric-releases"></a>Service Fabric 릴리스
 
-| <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">문제 해결 가이드</a> 
-| <a href="https://github.com/Azure/service-fabric-issues" target="blank">문제 추적</a> 
-| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank">지원</a>옵션 
-| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">지원</a>버전코드 
-| <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">샘플</a>
+@no__t<a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">문제 해결 가이드</a> 
+| <a href="https://github.com/Azure/service-fabric-issues" target="blank">문제 추적</a>@no__t 4<a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank">지원 옵션</a> 
+| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">지원 버전</a> 
+| <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">코드 샘플</a>
 
 이 문서에서는 최신 릴리스 및 Service Fabric 런타임 및 Sdk 업데이트에 대 한 자세한 정보를 제공 합니다.
 
@@ -59,18 +58,20 @@ Service Fabric 6.5의 새로운 같습니다는 다음과 같습니다.
 
 ### <a name="service-fabric-65-releases"></a>Service Fabric 6.5 릴리스
 
-| 릴리스 날짜 | 릴리스 | 추가 정보 |
+| 릴리스 날짜 | 릴리스 | 자세한 정보 |
 |---|---|---|
 | 2019 년 6 월 11 일 | [Azure Service Fabric 6.5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/06/11/azure-service-fabric-6-5-release/)  | [릴리스 정보](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf)|
 | 2019년 7월 2일 | [Azure Service Fabric 6.5 새로 고침 릴리스](https://blogs.msdn.microsoft.com/azureservicefabric/2019/07/04/azure-service-fabric-6-5-refresh-release/)  | [릴리스 정보](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU1.pdf)  |
 | 2019 년 7 월 29 일 | [Azure Service Fabric 6.5 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Second-Refresh-Release/ba-p/800523)  | [릴리스 정보](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU2.pdf)  |
 | 8 월 23 일, 2019 | [Azure Service Fabric 6.5 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Third-Refresh-Release/ba-p/818599)  | [릴리스 정보](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU3.pdf)  |
+| 2019 년 10 월 14 일 | [Azure Service Fabric 6.5 새로 고침 릴리스](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Fifth-Refresh-Release/ba-p/913296)  | [릴리스 정보](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU5.md)  |
+
 
 ## <a name="previous-versions"></a>이전 버전
 
 ### <a name="service-fabric-64-releases"></a>Service Fabric 6.4 릴리스
 
-| 릴리스 날짜 | 릴리스 | 추가 정보 |
+| 릴리스 날짜 | 릴리스 | 자세한 정보 |
 |---|---|---|
 | 2018 년 11 월 30 일 | [Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2018/11/30/azure-service-fabric-6-4-release/)  | [릴리스 정보](https://msdnshared.blob.core.windows.net/media/2018/12/Service-Fabric-6.4-Release.pdf)|
 | 2018년 12월 12일 | [Windows 클러스터에 대 한 Azure Service Fabric 6.4 새로 고침 릴리스](https://blogs.msdn.microsoft.com/azureservicefabric/2018/12/12/azure-service-fabric-6-4-refresh-for-windows-clusters/)  | [릴리스 정보](https://msdnshared.blob.core.windows.net/media/2018/12/Links.pdf)  |

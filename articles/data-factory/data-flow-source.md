@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: c3c24e9dc674ac29c8ca4d0d445cc3f572cda71e
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: aef9eaebc2da12e322ab6eda97385aa9cf14998a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029222"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387755"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>매핑 데이터 흐름에 대 한 원본 변환 
 
@@ -30,8 +30,8 @@ ms.locfileid: "72029222"
 * Azure Blob Storage
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* Azure SQL 데이터 웨어하우스
-* Azure SQL 데이터베이스
+* Azure SQL Data Warehouse
+* Azure SQL Database
 
 Azure Data Factory는 80 개의 기본 커넥터에 액세스할 수 있습니다. 데이터 흐름에 이러한 다른 원본의 데이터를 포함 하려면 복사 작업을 사용 하 여 지원 되는 준비 영역 중 하나에 해당 데이터를 로드 합니다.
 
@@ -41,7 +41,7 @@ Azure Data Factory는 80 개의 기본 커넥터에 액세스할 수 있습니�
 
 ![원본 설정 탭](media/data-flow/source1.png "원본 설정 탭")
 
-**스키마 드리프트:** [스키마 드리프트](concepts-data-flow-schema-drift.md) 는 열 변경 내용을 명시적으로 정의할 필요 없이 데이터 흐름에서 유연한 스키마를 기본적으로 처리 하는 data factory의 기능입니다.
+**스키마 드리프트:** [스키마 드리프트](concepts-data-flow-schema-drift.md) 는 열 변경 내용을 명시적으로 정의할 필요 없이 데이터 흐름에서 유연한 스키마를 고유 하 게 처리 하는 data factory의 기능입니다.
 
 * 원본 열이 자주 변경 되는 경우에는 **스키마 드리프트 허용** 확인란을 선택 합니다. 이 설정을 사용 하면 들어오는 모든 원본 필드가 싱크로 변환을 통과할 수 있습니다.
 
@@ -51,7 +51,7 @@ Azure Data Factory는 80 개의 기본 커넥터에 액세스할 수 있습니�
 
 **줄 수 건너뛰기:** 줄 수 건너뛰기 필드는 데이터 집합의 시작 부분에서 무시할 줄 수를 지정 합니다.
 
-**견본** 샘플링을 사용 하 여 원본의 행 수를 제한 합니다. 디버깅을 위해 소스에서 데이터를 테스트 하거나 샘플링할 때이 설정을 사용 합니다.
+**샘플링:** 샘플링을 사용 하 여 원본의 행 수를 제한 합니다. 디버깅을 위해 소스에서 데이터를 테스트 하거나 샘플링할 때이 설정을 사용 합니다.
 
 소스가 올바르게 구성 되었는지 확인 하려면 디버그 모드를 설정 하 고 데이터 미리 보기를 인출 합니다. 자세한 내용은 [디버그 모드](concepts-data-flow-debug-mode.md)를 참조 하세요.
 
@@ -120,23 +120,23 @@ Azure Blob Storage 또는 Azure Data Lake Storage와 같은 파일 기반 데이
 
 모든 원본 설정은 [매핑 데이터 흐름의 변환 식 언어](data-flow-expression-functions.md)를 사용 하 여 식으로 지정할 수 있습니다. 동적 콘텐츠를 추가 하려면 설정 패널에서 필드 내부를 클릭 하거나 마우스로 가리킵니다. **동적 콘텐츠 추가**에 대 한 하이퍼링크를 클릭 합니다. 그러면 식, 정적 리터럴 값 또는 매개 변수를 사용 하 여 동적으로 값을 설정할 수 있는 식 작성기가 시작 됩니다.
 
-![Parameters](media/data-flow/params6.png "매개 변수")
+![매개 변수](media/data-flow/params6.png "parameters")
 
 ## <a name="sql-source-options"></a>SQL 원본 옵션
 
 원본이 SQL Database 또는 SQL Data Warehouse 인 경우 **원본 옵션** 탭에서 추가 SQL 관련 설정을 사용할 수 있습니다. 
 
-**입력** 원본을 테이블에 표시할지 (```Select * from <table-name>```과 동일) 선택 하거나 사용자 지정 SQL 쿼리를 입력 합니다.
+**입력:** 원본 위치를 테이블에 표시할지 (```Select * from <table-name>```과 같음) 선택 하거나 사용자 지정 SQL 쿼리를 입력 합니다.
 
-**쿼리**: 입력 필드에서 쿼리를 선택 하는 경우에는 원본에 대 한 SQL 쿼리를 입력 합니다. 이 설정은 데이터 집합에서 선택한 테이블을 재정의 합니다. **Order by** 절은 여기서 지원 되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * From udfGetData ()** 는 테이블을 반환 하는 SQL의 UDF입니다. 이 쿼리는 데이터 흐름에서 사용할 수 있는 원본 테이블을 생성 합니다.
+**쿼리**: 입력 필드에서 쿼리를 선택 하는 경우 원본에 대 한 SQL 쿼리를 입력 합니다. 이 설정은 데이터 집합에서 선택한 테이블을 재정의 합니다. **Order by** 절은 여기서 지원 되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * From udfGetData ()** 는 테이블을 반환 하는 SQL의 UDF입니다. 이 쿼리는 데이터 흐름에서 사용할 수 있는 원본 테이블을 생성 합니다.
 
-**배치 크기**: 대량 데이터를 읽기로 청크 하는 일괄 처리 크기를 입력 합니다.
+**일괄 처리 크기**: 대량 데이터를 읽기로 청크 하는 일괄 처리 크기를 입력 합니다.
 
 **격리 수준**: 매핑 데이터 흐름에서 SQL 원본의 기본값은 커밋되지 않은 읽기입니다. 여기에서 격리 수준을 다음 값 중 하나로 변경할 수 있습니다.
 * 커밋된 읽기
 * 커밋되지 않은 읽기
 * 반복 가능한 읽기
-* 직렬화 가능
+* 가능
 * 없음 (격리 수준 무시)
 
 ![격리 수준](media/data-flow/isolationlevel.png "격리 수준")
@@ -145,7 +145,7 @@ Azure Blob Storage 또는 Azure Data Lake Storage와 같은 파일 기반 데이
 
 데이터 집합의 스키마와 마찬가지로 원본의 프로젝션은 원본 데이터의 데이터 열, 형식 및 형식을 정의 합니다. SQL 및 Parquet와 같은 대부분의 데이터 집합 형식에 대해 원본 프로젝션은 데이터 집합에 정의 된 스키마를 반영 하도록 수정 됩니다. 원본 파일이 강력 하 게 형식화 되지 않은 경우 (예: Parquet 파일이 아닌 플랫 csv 파일) 원본 변환의 각 필드에 대 한 데이터 형식을 정의할 수 있습니다.
 
-![투영 탭 프로젝션의 설정](media/data-flow/source3.png "")
+![투영 탭의 설정](media/data-flow/source3.png "프로젝션")
 
 텍스트 파일에 정의 된 스키마가 없는 경우 데이터 형식 **검색** 을 선택 하 여 Data Factory에서 데이터 형식을 샘플링 하 고 유추 하도록 합니다. 기본 데이터 형식을 자동으로 검색 하려면 **기본 형식 정의** 를 선택 합니다. 
 

@@ -2,28 +2,25 @@
 title: Azure Automation을 사용하여 Azure Cloud Services 관리 | Microsoft Docs
 description: Azure Automation 서비스를 사용하여 대규모 Azure Cloud Services를 관리하는 방법을 알아봅니다.
 services: cloud-services, automation
-documentationcenter: ''
 author: jodoglevy
 manager: timlt
 editor: ''
 ms.assetid: 3789810a-2892-4eef-bf29-c781c1b5af48
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
-ms.openlocfilehash: 1fc1ac9668454578ee137a2ddd1b85319fea0a28
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 482fcf7d100a90d9527f510382c5dafb4f67adfa
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945493"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72439079"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>Azure Automation을 사용하여 Azure Cloud Services 관리
 이 가이드에서는 Azure Automation 서비스 및 이 서비스를 사용하여 Azure Cloud Services 관리를 간소화하는 방법을 소개합니다.
 
-## <a name="what-is-azure-automation"></a>Azure Automation 정의
+## <a name="what-is-azure-automation"></a>Azure Automation이 무엇인가요?
 [Azure Automation](https://azure.microsoft.com/services/automation/)은 프로세스 자동화를 통해 클라우드 관리를 간소화하기 위한 Azure 서비스입니다. Azure Automation을 통해 장기 실행 작업, 수동 작업, 오류가 발생하기 쉬운 작업 및 빈번하게 반복되는 작업을 자동화하여 조직의 안정성, 효율성 및 가치 창출 시간을 향상시킬 수 있습니다.
 
 Azure Automation은 조직이 성장함에 따라 요구를 충족하기 위해 크기가 조정되는 안정성과 가용성 높은 워크플로 실행 엔진을 제공합니다. Azure Automation에서는 작업이 정확히 필요한 시간에 수행되도록 수동, 타사 시스템 또는 예약된 간격에 의해 프로세스를 시작할 수 있습니다.
@@ -43,4 +40,3 @@ Azure Automation의 기본 사항과 Azure Automation을 사용하여 클라우�
 
 * [Azure Automation 개요](../automation/automation-intro.md)
 * [내 첫 번째 runbook](../automation/automation-first-runbook-graphical.md)
-* [Azure Automation 학습 맵](https://azure.microsoft.com/documentation/learning-paths/automation/)

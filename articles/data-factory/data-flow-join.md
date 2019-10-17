@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 48cf9d58c8acd85e545a5bcb5104d7069670e349
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: da6c3c90ebbeffcf468aad3809da097976d8ef0d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029331"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387232"
 ---
 # <a name="mapping-data-flow-join-transformation"></a>데이터 흐름 조인 변환 매핑
 
@@ -20,7 +20,7 @@ ms.locfileid: "72029331"
 
 조인을 사용하여 Data Flow에서 두 테이블의 데이터를 결합합니다. 왼쪽 관계가 될 변환을 클릭하고 도구 상자에서 조인 변환을 추가합니다. 조인 변환 내부에서 오른쪽 관계가 될 데이터 흐름의 다른 데이터 스트림을 선택합니다.
 
-![조인 변환](media/data-flow/join.png "조인")
+![조인 변환](media/data-flow/join.png "Join")
 
 ## <a name="join-types"></a>조인 유형
 
@@ -54,7 +54,7 @@ Full Outer는 양쪽의 모든 열과 행을 생성 하 고 다른 테이블에�
 
 ## <a name="join-performance-optimizations"></a>조인 성능 최적화
 
-SSIS와 같은 도구의 병합 조인과 달리, ADF Data Flow의 조인은 필수 병합 조인 작업이 아닙니다. 따라서 조인 키를 먼저 정렬할 필요가 없습니다. 조인 작업은 Spark에서 최적의 조인 작업을 기반으로 수행 됩니다. 브로드캐스트/맵 쪽 조인:
+SSIS와 같은 도구의 병합 조인과 달리, ADF Data Flow의 조인은 필수 병합 조인 작업이 아닙니다. 따라서 조인 키를 먼저 정렬할 필요가 없습니다. 조인 작업은 Spark: 브로드캐스트/지도 쪽 조인의 최적 조인 작업을 기반으로 수행 됩니다.
 
 ![조인 변환 최적화](media/data-flow/joinoptimize.png "조인 최적화")
 
@@ -64,7 +64,7 @@ SSIS와 같은 도구의 병합 조인과 달리, ADF Data Flow의 조인은 필
 
 변환 선택을 통해 기존 스트림에 별칭을 지정하여 ADF 데이터 흐름에서 셀프 조인 조건을 수행할 수 있습니다. 먼저 스트림에서 "새 분기"를 만든 후 선택을 추가하여 전체 원본 스트림에 별칭을 지정합니다.
 
-![셀프 조인](media/data-flow/selfjoin.png "셀프 조인")
+![자체 조인](media/data-flow/selfjoin.png "자체 조인")
 
 위의 다이어그램에서 선택 변환은 맨 위에 있습니다. 전반적으로 원래 스트림의 별칭을 “OrigSourceBatting”으로 지정합니다. 아래 강조 표시된 조인 변환에서 이 선택 스트림 별칭 지정을 오른쪽 조인으로 사용하여 내부 조인의 왼쪽 및 오른쪽에서 동일한 키를 참조할 수 있음을 확인할 수 있습니다.
 

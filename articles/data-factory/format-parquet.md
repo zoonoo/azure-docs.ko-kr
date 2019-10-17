@@ -9,28 +9,28 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 572547f4e22a4fcb63a030e64ca95a0b9d3eff00
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 92950a79be43bc656d50e2ced106a2fdb47f53bf
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734476"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387716"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Azure Data Factory Parquet 형식
 
 **Parquet 파일을 구문 분석 하거나 데이터를 Parquet 형식으로 기록**하려는 경우이 문서를 따릅니다. 
 
-Parquet 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](connector-amazon-simple-storage-service.md), [azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [파일 시스템](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)및 [SFTP](connector-sftp.md).
+Parquet 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](connector-amazon-simple-storage-service.md), [azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [azure File Storage](connector-azure-file-storage.md), [파일 시스템](connector-file-system.md), [FTP](connector-ftp.md), [Google 클라우드 저장소](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)및 [SFTP](connector-sftp.md).
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Parquet 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
 
-| 속성         | 설명                                                  | 필수 |
+| 자산         | 설명                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | 데이터 집합의 type 속성은 **Parquet**로 설정 해야 합니다. | 예      |
-| 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는의 고유한 위치 유형 및 지원 되는 `location`속성이 있습니다. **커넥터 문서-> 데이터 집합 속성 섹션에서 세부 정보를 참조 하세요**. | 예      |
-| compressionCodec | Parquet 파일에 쓸 때 사용할 압축 코덱입니다. Parquet 파일에서 읽을 때 파일 메타 데이터를 기반으로 압축 코덱을 자동으로 결정 Data Factory.<br>지원 되는 형식은 "**none**", "**gzip**", "**snappy**" (기본값) 및 "**lzo**"입니다. 참고 현재 복사 작업은 LZO를 지원 하지 않습니다. | 아니요       |
+| type             | 데이터 집합의 type 속성은 **Parquet**로 설정 해야 합니다. | yes      |
+| location         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`에서 고유한 위치 유형 및 지원 되는 속성이 있습니다. **커넥터 문서-> 데이터 집합 속성 섹션에서 세부 정보를 참조 하세요**. | yes      |
+| compressionCodec | Parquet 파일에 쓸 때 사용할 압축 코덱입니다. Parquet 파일에서 읽을 때 파일 메타 데이터를 기반으로 압축 코덱을 자동으로 결정 Data Factory.<br>지원 되는 형식은 "**none**", "**gzip**", "**snappy**" (기본값) 및 "**lzo**"입니다. 참고 현재 복사 작업은 LZO를 지원 하지 않습니다. | 아닙니다.       |
 
 > [!NOTE]
 > Parquet 파일에는 열 이름에 공백이 지원 되지 않습니다.
@@ -65,21 +65,21 @@ Parquet 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](conne
 
 ### <a name="parquet-as-source"></a>원본으로 Parquet
 
-복사 작업 ***\*원본\**** 섹션에서 지원 되는 속성은 다음과 같습니다.
+복사 작업 ***\*source @ no__t-2*** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 자산      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 복사 작업 원본의 type 속성은 **ParquetSource**로 설정 해야 합니다. | 예      |
-| storeSettings | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 읽기 설정이 `storeSettings`있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아니요       |
+| type          | 복사 작업 원본의 type 속성은 **ParquetSource**로 설정 해야 합니다. | yes      |
+| 나이 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings`에서 고유한 지원 읽기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아닙니다.       |
 
 ### <a name="parquet-as-sink"></a>Parquet
 
-복사 작업 ***\*싱크\**** 섹션에서 지원 되는 속성은 다음과 같습니다.
+복사 작업 ***\*sink @ no__t-2*** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 자산      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 복사 작업 원본의 type 속성은 **ParquetSink**로 설정 해야 합니다. | 예      |
-| storeSettings | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 쓰기 설정이 `storeSettings`있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아니요       |
+| type          | 복사 작업 원본의 type 속성은 **ParquetSink**로 설정 해야 합니다. | yes      |
+| 나이 설정 | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings`에서 자체 지원 되는 쓰기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아닙니다.       |
 
 ## <a name="mapping-data-flow-properties"></a>데이터 흐름 속성 매핑
 
@@ -96,7 +96,7 @@ Parquet 복합 데이터 형식은 현재 지원 되지 않습니다 (예: MAP, 
 
 자체 호스팅 IR에서 Parquet 파일 직렬화/역직렬화를 사용하여 실행되는 복사의 경우 ADF는 먼저 JRE에 대한 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 레지스트리를 검사하고, 없는 경우 OpenJDK에 대한 *`JAVA_HOME`* 시스템 변수를 검사하여 Java 런타임을 찾습니다.
 
-- **JRE 사용**: 64비트 IR에는 64비트 JRE가 필요합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
+- **JRE를 사용 하려면**: 64 비트 IR에 64 비트 JRE가 필요 합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
 - **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
 
 > [!TIP]

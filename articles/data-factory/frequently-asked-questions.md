@@ -1,5 +1,5 @@
 ---
-title: 'Azure Data Factory: 질문과 대답 | Microsoft 문서'
+title: 'Azure Data Factory: 질문과 대답 | Microsoft Docs'
 description: Azure Data Factory에 대한 질문과 대답입니다.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: c4836d519556e5a031f81279fef4891ba8d47c05
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: ee57d943016c2d166f3c8469b403b56b1009385c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141580"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387070"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ
 이 아티클에서는 Azure Data Factory에 대한 질문과 대답을 제공합니다.  
@@ -95,8 +95,8 @@ SSIS 워크로드를 이동하려는 경우 Data Factory를 만들고 Azure-SSIS
 Integration runtime은 다양 한 네트워크 환경에서 다음과 같은 데이터 통합 기능을 제공 하기 위해 Azure Data Factory 사용 하는 계산 인프라입니다.
 
 - **데이터 이동**: 데이터 이동의 경우 integration runtime은 기본 제공 커넥터, 형식 변환, 열 매핑, 성능과 확장성이 뛰어난 데이터 전송에 대 한 지원을 제공 하는 동시에 원본 및 대상 데이터 저장소 간에 데이터를 이동 합니다.
-- **Dispatch 활동**: 변환의 경우 통합 런타임은 SSIS 패키지를 고유 하 게 실행 하는 기능을 제공 합니다.
-- **SSIS 패키지 실행**: Integration runtime은 기본적으로 관리 되는 Azure 계산 환경에서 SSIS 패키지를 실행 합니다. Integration runtime은 Azure HDInsight, Azure Machine Learning, SQL Database 및 SQL Server와 같은 다양 한 계산 서비스에서 실행 되는 변환 작업을 디스패치 하 고 모니터링 하는 기능도 지원 합니다.
+- **디스패치 활동**: 변환의 경우 통합 런타임은 SSIS 패키지를 고유 하 게 실행 하는 기능을 제공 합니다.
+- **Ssis 패키지 실행**: integration runtime은 기본적으로 관리 되는 Azure 계산 환경에서 ssis 패키지를 실행 합니다. Integration runtime은 Azure HDInsight, Azure Machine Learning, SQL Database 및 SQL Server와 같은 다양 한 계산 서비스에서 실행 되는 변환 작업을 디스패치 하 고 모니터링 하는 기능도 지원 합니다.
 
 데이터를 이동 하 고 변환 하는 데 필요한 만큼 하나 이상의 통합 런타임 인스턴스를 배포할 수 있습니다. Integration runtime은 Azure 공용 네트워크 또는 개인 네트워크 (온-프레미스, Azure Virtual Network 또는 Amazon Web Services 가상 사설 클라우드 [VPC])에서 실행할 수 있습니다. 
 
@@ -118,7 +118,7 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data 
 데이터 세트는 데이터 저장소 내의 데이터 구조를 나타내며, 사용자가 활동에서 입력 또는 출력으로 사용하려는 데이터를 가리키거나 참조할 뿐입니다. 
 
 ### <a name="linked-services"></a>연결된 서비스
-연결된 서비스는 Data Factory에서 외부 리소스에 연결하는 데 필요한 연결 정보를 정의하는 연결 문자열과 같습니다. 이러한 방식으로 생각 하면 됩니다. 연결 된 서비스는 데이터 원본에 대 한 연결을 정의 하 고 데이터 집합은 데이터의 구조를 나타냅니다. 예를 들어 Azure Storage 연결 서비스는 Azure Storage 계정에 연결할 연결 문자열을 지정합니다. 그리고 Azure blob 데이터 집합은 blob 컨테이너 및 데이터가 포함 된 폴더를 지정 합니다.
+연결된 서비스는 Data Factory에서 외부 리소스에 연결하는 데 필요한 연결 정보를 정의하는 연결 문자열과 같습니다. 이러한 방식으로 생각해 보겠습니다. 연결 된 서비스는 데이터 원본에 대 한 연결을 정의 하 고 데이터 집합은 데이터의 구조를 나타냅니다. 예를 들어 Azure Storage 연결 서비스는 Azure Storage 계정에 연결할 연결 문자열을 지정합니다. 그리고 Azure blob 데이터 집합은 blob 컨테이너 및 데이터가 포함 된 폴더를 지정 합니다.
 
 연결된 서비스는 Data Factory에서 다음 두 가지 용도로 사용됩니다.
 
@@ -131,8 +131,8 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data 
 ### <a name="pipeline-runs"></a>파이프라인 실행
 파이프라인 실행은 파이프라인 실행의 인스턴스입니다. 일반적으로 파이프라인에 정의된 매개 변수에 인수를 전달하여 파이프라인 실행을 인스턴스화합니다. 인수는 수동으로 또는 트리거 정의 내에서 전달할 수 있습니다.
 
-### <a name="parameters"></a>매개 변수
-매개 변수는 읽기 전용 구성의 키-값 쌍입니다. 파이프라인에서 매개 변수를 정의하고 실행 컨텍스트에서 실행하는 동안 정의된 매개 변수에 대한 인수를 전달합니다. 실행 컨텍스트는 트리거 또는 수동으로 실행하는 파이프라인에서 생성됩니다. 파이프라인 내의 작업은 매개 변수 값을 사용합니다.
+### <a name="parameters"></a>parameters
+매개 변수는 읽기 전용 구성의 키-값 쌍입니다. 파이프라인에서 매개 변수를 정의 하 고 실행 컨텍스트에서 실행 하는 동안 정의 된 매개 변수에 대 한 인수를 전달 합니다. 실행 컨텍스트는 트리거 또는 수동으로 실행하는 파이프라인에서 생성됩니다. 파이프라인 내의 작업은 매개 변수 값을 사용합니다.
 
 데이터 집합은 강력한 형식의 매개 변수 이며 다시 사용 하거나 참조할 수 있는 엔터티입니다. 작업은 데이터 집합을 참조할 수 있으며 데이터 집합 정의에 정의 된 속성을 사용할 수 있습니다.
 
@@ -195,7 +195,7 @@ Data Factory V2 버전을 사용 하 여 데이터 흐름을 만듭니다.
 
 ### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help"></a>데이터 흐름 논리 문제를 해결 하는 데 도움이 필요 합니다. 도움을 받기 위해 제공 해야 하는 정보는 무엇 인가요?
 
-Microsoft에서 데이터 흐름에 대 한 지원을 제공 하거나 문제를 해결 하는 경우 DSL 코드 계획을 제공 하세요. 이렇게 하려면 다음 단계를 수행합니다.
+Microsoft에서 데이터 흐름에 대 한 지원을 제공 하거나 문제를 해결 하는 경우 DSL 코드 계획을 제공 하세요. 이렇게 하려면 다음 단계를 수행하세요.
 
 1. 데이터 흐름 디자이너의 오른쪽 위 모서리에서 **코드** 를 선택 합니다. 이렇게 하면 데이터 흐름에 대 한 편집 가능한 JSON 코드가 표시 됩니다.
 2. 코드 보기의 오른쪽 위 모서리에서 **요금제** 를 선택 합니다. 이 토글은 JSON에서 읽기 전용 형식의 DSL 스크립트 계획으로 전환 됩니다.
@@ -210,5 +210,5 @@ Microsoft에서 데이터 흐름에 대 한 지원을 제공 하거나 문제를
 ## <a name="next-steps"></a>다음 단계
 데이터 팩터리를 만드는 단계별 지침은 다음 자습서를 참조하세요.
 
-- [빠른 시작: 데이터 팩터리 만들기](quickstart-create-data-factory-dot-net.md)
-- [자습서: 클라우드에 데이터 복사](tutorial-copy-data-dot-net.md)
+- [빠른 시작: Data Factory 만들기](quickstart-create-data-factory-dot-net.md)
+- [자습서: 클라우드에서 데이터 복사](tutorial-copy-data-dot-net.md)

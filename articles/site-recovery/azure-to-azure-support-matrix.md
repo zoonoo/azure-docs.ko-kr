@@ -5,26 +5,26 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/27/2019
+ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 895ce98f290ce23580bb70023e2539ab4272f8b8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 843cac8c7a5e6c80b7663df2a48079dd307b7d5a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350273"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383504"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>한 지역에서 다른 지역으로 Azure VM 복제를 위한 지원 매트릭스
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용 하 여 한 azure 지역에서 다른 지역으로 azure vm의 재해 복구를 설정 하는 경우 지원 및 필수 구성 요소를 요약 합니다.
+이 문서에는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용 하 여 한 azure 지역에서 다른 지역으로 azure vm의 재해 복구를 위한 지원 및 필수 구성 요소가 요약 되어 있습니다.
 
 
 ## <a name="deployment-method-support"></a>배포 방법 지원 여부
 
 **배포** |  **지원**
 --- | ---
-**Azure Portal** | 지원됩니다.
-**PowerShell** | 지원됩니다. [자세히 알아보기](azure-to-azure-powershell.md)
+**Azure 포털** | 지원됩니다.
+**PowerShell** | 지원됩니다. [자세한 정보](azure-to-azure-powershell.md)
 **REST API** | 지원됩니다.
 **CLI** | 현재 지원되지 않음
 
@@ -32,8 +32,8 @@ ms.locfileid: "71350273"
 ## <a name="resource-support"></a>리소스 지원
 
 **리소스 작업** | **세부 정보**
---- | --- | ---
-**리소스 그룹 간 자격 증명 모음 이동** | 지원되지 않음
+--- | --- 
+**리소스 그룹 간 자격 증명 모음 이동** | 지원하지 않음
 **리소스 그룹 간에 계산/스토리지/네트워크 리소스 이동** | 지원되지 않습니다.<br/><br/> VM 복제 후 VM 또는 스토리지/네트워크와 같은 관련 구성 요소를 이동하는 경우 VM에 대한 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.
 **재해 복구를 위해 한 구독에서 다른 구독으로 Azure VM 복제** | 동일한 Azure Active Directory 테넌트 내에서 지원됩니다.
 **지원되는 지역별 클러스터 내의 여러 지역 간에 VM 마이그레이션(구독 내/구독 간)** | 동일한 Azure Active Directory 테넌트 내에서 지원됩니다.
@@ -47,7 +47,7 @@ ms.locfileid: "71350273"
 **지리적 클러스터** | **Azure 지역**
 -- | --
 아메리카 | 캐나다 동부, 캐나다 중부, 미국 중남부, 미국 중서부, 미국 동부, 미국 동부 2, 미국 서부, 미국 서부 2, 미국 중부, 미국 중북부
-Europe | 영국 서부, 영국 남부, 북아메리카 유럽, 유럽 서부, 프랑스 중부, 프랑스 남부, 남아프리카 공화국 서 부, 남아프리카 공화국 북부
+유럽 | 영국 서부, 영국 남부, 북아메리카 유럽, 유럽 서부, 프랑스 중부, 프랑스 남부, 남아프리카 공화국 서 부, 남아프리카 공화국 북부
 아시아 | 인도 남부, 인도 중부, 인도 서 부, 동남 아시아, 동아시아, 일본 동부, 일본 서 부, 대한민국 중부, 대한민국 남부, 아랍에미리트 중부, 아랍에미리트 북부
 오스트레일리아   | 오스트레일리아 동부, 오스트레일리아 남동부, 오스트레일리아 중부, 오스트레일리아 중부 2
 Azure Government    | US Gov 버지니아, US Gov 아이오와, US Gov 애리조나, US Gov 텍사스, US DoD 동부, US DoD 중부 
@@ -57,8 +57,8 @@ Azure Government    | US Gov 버지니아, US Gov 아이오와, US Gov 애리조
 
 >[!NOTE]
 >
-> - **브라질 남부**의 경우 다음 지역으로 복제 및 장애 조치 (failover) 할 수 있습니다. 미국 중 북부, 미국 서 부, 미국 동부, 미국 동부 2, 미국 서 부, 미국 서 부 2 및 미국 중 북부
-> - 브라질 남부는 Vm이 Site Recovery를 사용 하 여 복제할 수 있는 원본 영역 으로만 사용할 수 있습니다. 대상 영역으로 작동할 수 없습니다. 이는 지리적 거리로 인 한 대기 시간 문제로 인 한 것입니다.
+> - **브라질 남부**의 경우 미국 동부, 미국 서 부, 미국 동부, 미국 동부 2, 미국 서 부, 미국 서 부 2 및 미국 중 북부 지역으로 복제 및 장애 조치 (failover)를 수행할 수 있습니다.
+> - 브라질 남부는 Vm이 Site Recovery를 사용 하 여 복제할 수 있는 원본 영역 으로만 사용할 수 있습니다. 대상 영역으로 작동할 수 없습니다. 이는 지리적 거리로 인 한 대기 시간 문제로 인 한 것입니다. 브라질 남부에서 원본 지역으로 대상으로 장애 조치 (failover) 하는 경우 대상 지역에서 브라질 남부로 장애 복구 (failback)가 지원 됩니다.
 > - 적절 한 액세스 권한이 있는 지역 내에서 작업을 수행할 수 있습니다.
 > - 자격 증명 모음을 만들 지역이 표시 되지 않는 경우 구독에 해당 지역에서 리소스를 만들 수 있는 권한이 있는지 확인 합니다.
 > - 복제를 사용 하도록 설정할 때 지리적 클러스터 내의 지역이 표시 되지 않는 경우 구독에 해당 지역에서 Vm을 만들 수 있는 권한이 있는지 확인 합니다.
@@ -72,7 +72,7 @@ Azure Government    | US Gov 버지니아, US Gov 아이오와, US Gov 애리조
 **설정** | **지원** | **세부 정보**
 --- | --- | ---
 범용 V2 스토리지 계정(핫 및 쿨 계층) | 지원됨 | V 2에 대 한 트랜잭션 비용은 V1 저장소 계정 보다 훨씬 더 GPv2 사용 하지 않는 것이 좋습니다.
-Premium Storage | 지원되지 않음 | 표준 저장소 계정은 캐시 저장소에 사용 되며 비용을 최적화 하는 데 도움이 됩니다.
+프리미엄 스토리지 | 지원하지 않음 | 표준 저장소 계정은 캐시 저장소에 사용 되며 비용을 최적화 하는 데 도움이 됩니다.
 가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 방화벽 지원 캐시 스토리지 계정 또는 대상 스토리지 계정을 사용하는 경우 ['신뢰할 수 있는 Microsoft 서비스 허용'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)을 선택해야 합니다.
 
 
@@ -82,17 +82,21 @@ Site Recovery는 이 섹션에 나열된 운영 체제를 실행하는 Azure VM�
 
 ### <a name="windows"></a>Windows
 
+
 **운영 체제** | **세부 정보**
 --- | ---
-Windows Server 2019 | Server Core, 데스크톱 경험이 있는 Server
-Windows Server 2016  | Server Core, 데스크톱 경험이 있는 Server
-Windows Server 2012 R2 |
-Windows Server 2012 |
-Windows Server 2008 R2 | SP1 이상 실행
-Windows 10(x64) |
-Windows 8.1 (x64) |
-Windows 8 (x64) |
-Windows 7 (x64) | SP1 이상을 실행 하는 경우 (Windows 7 RTM은 지원 되지 않음)
+Windows Server 2019 | Server Core, 데스크톱 환경 포함 서버에 대해 지원 됩니다.
+Windows Server 2016  | 지원 되는 Server Core, 데스크톱 환경 포함 서버.
+Windows Server 2012 R2 | 지원됩니다.
+Windows Server 2012 | 지원됩니다.
+Windows Server 2008 R2 SP1/SP2 | 지원됩니다.<br/><br/> Azure Vm에 대 한 모바일 서비스 확장의 9.30 (릴리스 2019 년 11 월) 버전부터 Windows Server 2008 R2 SP1/s p 2를 실행 하는 컴퓨터에 Windows [서비스 스택 업데이트 (SSU)](https://support.microsoft.com/help/4490628) 및 [SHA-2 업데이트](https://support.microsoft.com/help/4474419) 를 설치 해야 합니다.  S h a-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://aka.ms/SHA-2KB)에 대해 자세히 알아보세요.
+Windows Server 2008 SP2 | Azure Vm에 대 한 모바일 서비스 확장의 9.30 (릴리스 2019 년 11 월 출시 예정)에서 Windows Server 2008 s p 2를 실행 하는 컴퓨터에 SSU (Windows [서비스 스택 업데이트](https://support.microsoft.com/help/4493730) ) 및 [SHA-2 업데이트](https://support.microsoft.com/help/4474419) 를 설치 해야 합니다.  S h a-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://aka.ms/SHA-2KB)에 대해 자세히 알아보세요.
+Windows 10(x64) | 지원됩니다.
+Windows 8.1 (x64) | 지원됩니다.
+Windows 8 (x64) | 지원됩니다.
+Windows 7 (x64) SP1 이상 | Azure Vm에 대 한 모바일 서비스 확장의 9.30 (릴리스 2019 년 11 월) 버전에서 Windows 7 s p 1을 실행 하는 컴퓨터에는 Windows [서비스 스택 업데이트 (SSU)](https://support.microsoft.com/help/4490628) 및 [SHA-2 업데이트](https://support.microsoft.com/help/4474419) 를 설치 해야 합니다.  S h a-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://aka.ms/SHA-2KB)에 대해 자세히 알아보세요.
+
+
 
 #### <a name="linux"></a>Linux
 
@@ -154,17 +158,17 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.25 | SP1 3.12.49-11-def
 
 **설정** | **지원** | **세부 정보**
 --- | --- | ---
-Size | CPU 코어가 2개 이상이고 1GB 이상의 RAM이 탑재된 모든 Azure VM | [Azure Virtual Machine 크기](../virtual-machines/windows/sizes.md)를 확인합니다.
+크기 | CPU 코어가 2개 이상이고 1GB 이상의 RAM이 탑재된 모든 Azure VM | [Azure Virtual Machine 크기](../virtual-machines/windows/sizes.md)를 확인합니다.
 가용성 집합 | 지원됨 | 기본 옵션을 사용 하 여 Azure VM에 대 한 복제를 사용 하도록 설정 하면 원본 지역 설정에 따라 가용성 집합이 자동으로 만들어집니다. 이러한 설정을 수정할 수 있습니다.
 가용성 영역 | 지원됨 |
 HUB(하이브리드 사용 혜택) | 지원됨 | 원본 VM에 활성 HUB 라이선스가 있는 경우 테스트 장애 조치(failover) 또는 장애 조치(failover)된 VM에서도 HUB 라이선스를 사용합니다.
-VM 확장 집합 | 지원되지 않음 |
+VM 확장 집합 | 지원하지 않음 |
 Azure 갤러리 이미지 - Microsoft 게시 | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 Azure 갤러리 이미지 - 타사 게시 | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 사용자 지정 이미지 - 타사 게시 | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 Site Recovery를 사용하여 마이그레이션된 VM | 지원됨 | VMware VM 또는 물리적 컴퓨터가 Site Recovery를 사용하여 Azure에 마이그레이션되면 컴퓨터에서 실행되는 이전 버전의 모바일 서비스를 제거하고 컴퓨터를 다시 시작한 후 다른 Azure 지역에 복제해야 합니다.
-RBAC 정책 | 지원되지 않음 | Vm의 RBAC (역할 기반 액세스 제어) 정책은 대상 지역의 장애 조치 (failover) VM에 복제 되지 않습니다.
-확장 | 지원되지 않음 | 확장은 대상 지역의 장애 조치 (failover) VM에 복제 되지 않습니다. 장애 조치 (failover) 후 수동으로 설치 해야 합니다.
+RBAC 정책 | 지원하지 않음 | Vm의 RBAC (역할 기반 액세스 제어) 정책은 대상 지역의 장애 조치 (failover) VM에 복제 되지 않습니다.
+확장 | 지원하지 않음 | 확장은 대상 지역의 장애 조치 (failover) VM에 복제 되지 않습니다. 장애 조치 (failover) 후 수동으로 설치 해야 합니다.
 
 ## <a name="replicated-machines---disk-actions"></a>복제된 컴퓨터 - 디스크 작업
 
@@ -184,7 +188,7 @@ RBAC 정책 | 지원되지 않음 | Vm의 RBAC (역할 기반 액세스 제어) 
 **구성 요소** | **지원** | **세부 정보**
 --- | --- | ---
 OS 디스크 최대 크기 | 2048GB | VM 디스크에 대해 [자세히 알아봅니다](../virtual-machines/windows/managed-disks-overview.md).
-임시 디스크 | 지원되지 않음 | 임시 디스크는 항상 복제에서 제외됩니다.<br/><br/> 임시 디스크에는 영구 데이터를 저장하지 마세요. [자세히 알아보기](../virtual-machines/windows/managed-disks-overview.md).
+임시 디스크 | 지원하지 않음 | 임시 디스크는 항상 복제에서 제외됩니다.<br/><br/> 임시 디스크에는 영구 데이터를 저장하지 마세요. [자세히 알아보기](../virtual-machines/windows/managed-disks-overview.md).
 데이터 디스크 최대 크기 | 관리 디스크의 8192 GB<br></br>관리 되지 않는 디스크의 4095 GB|
 데이터 디스크 최소 크기 | 관리 되지 않는 디스크에 대 한 제한은 없습니다. 관리 디스크의 경우 2gb | 
 데이터 디스크 최대 수 | 특정 Azure VM 크기에 대한 지원에 따라 최대 64개 | VM 크기에 대해 [자세히 알아봅니다](../virtual-machines/windows/sizes.md).
@@ -194,24 +198,24 @@ OS 디스크 최대 크기 | 2048GB | VM 디스크에 대해 [자세히 알아�
 Managed Disk - Standard | Azure Site Recovery가 지원되는 Azure 지역에서 지원됩니다. |
 Managed Disk - Premium | Azure Site Recovery가 지원되는 Azure 지역에서 지원됩니다. |
 표준 SSD | 지원됨 |
-중복 | LRS 및 GRS가 지원됩니다.<br/><br/> ZRS는 지원되지 않습니다.
-콜드 및 핫 스토리지 | 지원되지 않음 | VM 디스크는 콜드 및 핫 스토리지에서 지원되지 않습니다.
-저장소 공간 | 지원됨 |
+중복성 | LRS 및 GRS가 지원됩니다.<br/><br/> ZRS는 지원되지 않습니다.
+콜드 및 핫 스토리지 | 지원하지 않음 | VM 디스크는 콜드 및 핫 스토리지에서 지원되지 않습니다.
+스토리지 공간 | 지원됨 |
 미사용 암호화(SSE) | 지원됨 | SSE은 스토리지 계정의 기본 설정입니다.   
 Windows OS용 ADE(Azure Disk Encryption) | 관리 디스크가 있는 Vm에 대해 지원 됩니다. 관리 되지 않는 디스크를 사용 하는 Vm은 지원 되지 않습니다. |
-Linux OS용 ADE(Azure Disk Encryption) | 지원되지 않음 |
+Linux OS용 ADE(Azure Disk Encryption) | 지원하지 않음 |
 핫 추가 | 지원됨 | 복제 된 Azure VM에 추가 하는 데이터 디스크에 대 한 복제를 사용 하도록 설정 하는 것은 managed disks를 사용 하는 Vm에 대해 지원 됩니다.
-디스크 핫 제거 | 지원되지 않음 | VM에서 데이터 디스크를 제거 하는 경우 복제를 사용 하지 않도록 설정 하 고 VM에 대해 복제를 다시 사용 하도록 설정 해야 합니다.
+디스크 핫 제거 | 지원하지 않음 | VM에서 데이터 디스크를 제거 하는 경우 복제를 사용 하지 않도록 설정 하 고 VM에 대해 복제를 다시 사용 하도록 설정 해야 합니다.
 디스크 제외 | 지원은. [Powershell](azure-to-azure-exclude-disks.md) 을 사용 하 여를 구성 해야 합니다. |  임시 디스크는 기본적으로 제외 됩니다.
-저장소 공간 다이렉트  | 크래시 일관성이 있는 복구 지점을 지원합니다. 애플리케이션 일관성이 있는 복구 지점은 지원되지 않습니다. |
+Storage Spaces Direct  | 크래시 일관성이 있는 복구 지점을 지원합니다. 애플리케이션 일관성이 있는 복구 지점은 지원되지 않습니다. |
 스케일 아웃 파일 서버  | 크래시 일관성이 있는 복구 지점을 지원합니다. 애플리케이션 일관성이 있는 복구 지점은 지원되지 않습니다. |
 LRS | 지원됨 |
 GRS | 지원됨 |
 RA-GRS | 지원됨 |
-ZRS | 지원되지 않음 |
-콜드 및 핫 스토리지 | 지원되지 않음 | 가상 머신 디스크는 콜드 및 핫 스토리지에서 지원되지 않습니다.
+ZRS | 지원하지 않음 |
+콜드 및 핫 스토리지 | 지원하지 않음 | 가상 머신 디스크는 콜드 및 핫 스토리지에서 지원되지 않습니다.
 가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 저장소 계정에 대 한 가상 네트워크 액세스를 제한 하는 경우 [트러스트 된 Microsoft 서비스 허용](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)을 사용 하도록 설정 합니다.
-범용 V2 스토리지 계정(핫 및 쿨 계층 모두) | 예 | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
+범용 V2 Storage 계정(핫 및 쿨 계층 모두) | yes | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
 
 >[!IMPORTANT]
 > 성능 문제를 방지 하려면 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 또는 [WINDOWS](../virtual-machines/windows/disk-scalability-targets.md) vm의 vm 디스크 확장성 및 성능 목표를 준수 하는지 확인 합니다. 기본 설정을 사용 하는 경우 Site Recovery은 원본 구성에 따라 필요한 디스크 및 저장소 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정 하 고 선택 하는 경우 원본 Vm에 대 한 디스크 확장성 및 성능 목표를 따릅니다.
@@ -245,16 +249,16 @@ NIC의 NSG | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 �
 서브넷의 NSG | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 서브넷에 연결합니다.
 예약된(고정) IP 주소 | 지원됨 | 원본 VM의 NIC에 고정 IP 주소가 있고 대상 서브넷에서 동일한 IP 주소를 사용할 수 있는 경우 해당 IP가 장애 조치(Failover)된 VM에 할당됩니다.<br/><br/> 대상 서브넷에서 동일한 IP 주소를 사용할 수 없는 경우 서브넷의 사용 가능한 IP 주소 중 하나가 이 VM용으로 예약됩니다.<br/><br/> **복제된 항목** > **설정** > **계산 및 네트워크** > **네트워크 인터페이스**에서 고정 IP 주소 및 서브넷을 지정할 수도 있습니다.
 동적 IP 주소 | 지원됨 | 원본의 NIC에 동적 IP 주소가 있는 경우 장애 조치(failover)된 VM의 NIC도 기본적으로 동적으로 설정됩니다.<br/><br/> 필요한 경우 이 주소를 고정 IP 주소로 수정할 수 있습니다.
-여러 IP 주소 | 지원되지 않음 | 여러 IP 주소가 있는 NIC가 있는 VM을 장애 조치 (failover) 하는 경우 원본 지역의 NIC의 기본 IP 주소만 유지 됩니다. 여러 IP 주소를 할당 하려면 [복구 계획](recovery-plan-overview.md) 에 vm을 추가 하 고 스크립트를 연결 하 여 추가 ip 주소를 계획에 할당 하거나, 장애 조치 (failover) 후 수동으로 또는 스크립트를 사용 하 여 변경할 수 있습니다. 
+여러 IP 주소 | 지원하지 않음 | 여러 IP 주소가 있는 NIC가 있는 VM을 장애 조치 (failover) 하는 경우 원본 지역의 NIC의 기본 IP 주소만 유지 됩니다. 여러 IP 주소를 할당 하려면 [복구 계획](recovery-plan-overview.md) 에 vm을 추가 하 고 스크립트를 연결 하 여 추가 ip 주소를 계획에 할당 하거나, 장애 조치 (failover) 후 수동으로 또는 스크립트를 사용 하 여 변경할 수 있습니다. 
 Traffic Manager     | 지원됨 | 트래픽이 평소에는 원본 지역의 엔드포인트로 라우팅되고 장애 조치(Failover) 시에는 대상 지역의 엔드포인트로 라우팅되도록 Traffic Manager를 미리 구성할 수 있습니다.
 Azure DNS | 지원됨 |
 사용자 지정 DNS  | 지원됨 |
-인증되지 않은 프록시 | 지원됨 | [자세히 알아보기](site-recovery-azure-to-azure-networking-guidance.md)    
-인증된 프록시 | 지원되지 않음 | VM에서 아웃바운드 연결에 인증된 프록시를 사용하는 경우 Azure Site Recovery를 사용하여 VM을 복제할 수 없습니다.    
-온-프레미스에 대 한 VPN 사이트 간 연결<br/><br/>(Express 경로 유무에 관계 없음)| 지원됨 | Site Recovery 트래픽이 온-프레미스로 라우팅되지 않도록 UDRs와 NSGs가 구성 되어 있는지 확인 합니다. [자세히 알아보기](site-recovery-azure-to-azure-networking-guidance.md)    
-VNet 간 연결 | 지원됨 | [자세히 알아보기](site-recovery-azure-to-azure-networking-guidance.md)  
+인증되지 않은 프록시 | 지원됨 | [자세한 정보](site-recovery-azure-to-azure-networking-guidance.md)    
+인증된 프록시 | 지원하지 않음 | VM에서 아웃바운드 연결에 인증된 프록시를 사용하는 경우 Azure Site Recovery를 사용하여 VM을 복제할 수 없습니다.    
+온-프레미스에 대 한 VPN 사이트 간 연결<br/><br/>(Express 경로 유무에 관계 없음)| 지원됨 | Site Recovery 트래픽이 온-프레미스로 라우팅되지 않도록 UDRs와 NSGs가 구성 되어 있는지 확인 합니다. [자세한 정보](site-recovery-azure-to-azure-networking-guidance.md)    
+VNet 간 연결 | 지원됨 | [자세한 정보](site-recovery-azure-to-azure-networking-guidance.md)  
 Virtual Network 서비스 엔드포인트 | 지원됨 | 스토리지 계정에 대한 가상 네트워크 액세스를 제한하는 경우 신뢰할 수 있는 Microsoft 서비스가 스토리지 계정에 액세스할 수 있는지 확인합니다.
-가속화된 네트워킹 | 지원됨 | 원본 VM에서 가속 네트워킹을 사용하도록 설정해야 합니다. [자세히 알아보기](azure-vm-disaster-recovery-with-accelerated-networking.md).
+가속된 네트워킹 | 지원됨 | 원본 VM에서 가속 네트워킹을 사용하도록 설정해야 합니다. [자세히 알아보기](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 

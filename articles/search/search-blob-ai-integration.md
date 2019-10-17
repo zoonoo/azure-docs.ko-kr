@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 2513825fcb275aeb3c4f0ca49ff5f2a6bd9441f0
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 192d1a7b3bb10395aa662a4b915fe0189b1306b5
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303016"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434040"
 ---
 # <a name="use-ai-to-understand-blob-data"></a>AI를 사용 하 여 Blob 데이터 이해
 
@@ -30,7 +30,7 @@ AI 보강는 필드로 캡처된 새 정보를 필드에 저장 합니다. 보�
 
 이 문서에서는 광범위 한 렌즈를 통해 AI 보강를 확인 하 여 blob의 원시 데이터를 변환 하는 과정에서 검색 인덱스 또는 지식 저장소의 쿼리 가능한 정보로 전체 프로세스를 신속 하 게 파악할 수 있습니다.
 
-## <a name="what-it-means-to-enrich-blob-data"></a>Blob 데이터를 "보강" 하는 것은 무엇 인가요?
+## <a name="what-it-means-to-enrich-blob-data-with-ai"></a>AI를 사용 하 여 blob 데이터를 "보강" 하는 것을 의미 합니다.
 
 *Ai 보강* 는 사용자가 제공 하는 Microsoft 또는 사용자 지정 ai의 기본 제공 ai를 통합 하는 Azure Search 인덱싱 아키텍처의 일부입니다. Blob을 처리 해야 하는 종단 간 시나리오를 구현 하는 데 도움이 됩니다. 여기에는 blob (기존 항목과 새 항목 모두)을 처리 하 고, 이미지와 텍스트를 추출 하는 모든 파일 형식을 열고, 다양 한 AI 기능을 사용 하 여 원하는 정보를 추출 하 고, 빠른 검색, 검색 및 탐색을 위해 Azure Search 인덱스에서 인덱스를 인덱싱합니다. 
 
@@ -40,33 +40,37 @@ AI 보강는 필드로 캡처된 새 정보를 필드에 저장 합니다. 보�
 
 Between은 파이프라인 아키텍처 자체입니다. 파이프라인은 *인덱서* 기능을 기반으로 하며,이 기능을 사용 하 여 AI를 제공 하는 하나 이상의 *기술로* 구성 된 *기술*를 할당할 수 있습니다. 파이프라인의 목적은 원시 콘텐츠로 입력 하는 *보강 문서* 를 생성 하는 것이 고 파이프라인을 통해 이동 하는 동안 추가 구조, 컨텍스트 및 정보를 선택 하는 것입니다. 보강 문서는 인덱싱 중에 사용 되어 전체 텍스트 검색 또는 탐색 및 분석에 사용 되는 반전 된 인덱스 및 기타 구조를 만드는 데 사용 됩니다.
 
-## <a name="how-to-get-started"></a>시작하는 방법
+## <a name="start-with-services-and-data"></a>서비스 및 데이터 시작
 
-저장소 계정 포털 페이지에서 직접 시작할 수 있습니다. **Azure Search 추가** 를 클릭 하 고 새 Azure Search 서비스를 만들거나 기존 서비스를 선택 합니다. 동일한 구독에 기존 검색 서비스가 이미 있는 경우 **추가 Azure Search** 클릭 하면 인덱싱, 보강 및 인덱스 정의를 즉시 단계별로 수행할 수 있도록 데이터 가져오기 마법사가 열립니다.
+Azure Search 및 Azure Blob storage가 필요 합니다. Blob storage 내에서 원본 콘텐츠를 제공 하는 컨테이너가 필요 합니다.
 
-저장소 계정에 Azure Search를 추가 하 고 나면 표준 프로세스에 따라 Azure 데이터 원본의 데이터를 보강할 수 있습니다. Blob 콘텐츠가 이미 있다고 가정 하면 Azure Search의 데이터 가져오기 마법사를 사용 하 여 AI 보강에 대 한 간편한 초기 소개를 확인할 수 있습니다. 이 빠른 시작에서는 단계를 설명 합니다. [포털에서 AI 보강 파이프라인을 만듭니다](cognitive-search-quickstart-blob.md). 
+저장소 계정 포털 페이지에서 직접 시작할 수 있습니다. 왼쪽 탐색 페이지의 **Blob service** 아래에서 **Azure Search 추가** 를 클릭 하 여 새 서비스를 만들거나 기존 서비스를 선택 합니다. 
+
+저장소 계정에 Azure Search를 추가 하 고 나면 표준 프로세스에 따라 Azure 데이터 원본의 데이터를 보강할 수 있습니다. AI 보강에 대 한 간단한 소개를 위해 Azure Search의 **데이터 가져오기** 마법사를 권장 합니다. 이 빠른 시작에서는 [포털에서 AI 보강 파이프라인 만들기](cognitive-search-quickstart-blob.md)의 단계를 안내 합니다. 
 
 다음 섹션에서는 더 많은 구성 요소 및 개념을 살펴보겠습니다.
 
-## <a name="use-blob-indexers"></a>Blob 인덱서 사용
+## <a name="use-a-blob-indexer"></a>Blob 인덱서 사용
 
-AI 보강는 인덱싱 파이프라인에 대 한 추가 기능이 며, Azure Search 해당 파이프라인은 *인덱서*위에 빌드됩니다. 인덱서는 데이터를 샘플링 하 고, 메타 데이터 데이터를 읽고, 데이터를 검색 하 고, 후속 가져오기에 대 한 네이티브 형식에서 JSON 문서로 데이터를 직렬화 하는 내부 논리를 포함 하는 데이터 원본 인식 하위 서비스입니다. 인덱서는 AI와는 별도로 가져오기에 사용 되는 경우가 많지만 AI 보강 파이프라인을 빌드 하려는 경우에는 인덱서와 기술가 필요 합니다. 이 섹션에서는 인덱서 자체에 대해 집중적으로 설명 합니다.
+AI 보강는 인덱싱 파이프라인에 대 한 추가 기능이 며, Azure Search 해당 파이프라인은 *인덱서*위에 빌드됩니다. 인덱서는 데이터를 샘플링 하 고, 메타 데이터 데이터를 읽고, 데이터를 검색 하 고, 후속 가져오기에 대 한 네이티브 형식에서 JSON 문서로 데이터를 직렬화 하는 내부 논리를 포함 하는 데이터 원본 인식 하위 서비스입니다. 인덱서는 AI와는 별도로 가져오기에 사용 되는 경우가 많지만 AI 보강 파이프라인을 빌드 하려는 경우에는 인덱서와 기술가 필요 합니다. 이 섹션에서는 인덱서가 강조 표시 되어 있습니다. 다음 섹션에서는 기술력과에 대해 중점적으로 설명 합니다.
 
-Azure Storage blob는 [Azure Search blob 저장소 인덱서](search-howto-indexing-azure-blob-storage.md)를 사용 하 여 인덱싱됩니다. 형식을 설정 하 고 blob 컨테이너와 함께 Azure Storage 계정을 포함 하는 연결 정보를 제공 하 여이 인덱서를 호출 합니다. 이전에 blob을 가상 디렉터리로 구성 하지 않은 한,이를 매개 변수로 전달 하면 Blob 인덱서가 전체 컨테이너에서 가져옵니다.
+Azure Storage blob는 [Azure Search blob 저장소 인덱서](search-howto-indexing-azure-blob-storage.md)를 사용 하 여 인덱싱됩니다. **데이터 가져오기** 마법사, REST API 또는 .net SDK를 사용 하 여이 인덱서를 호출할 수 있습니다. 코드에서는 형식을 설정 하 고 blob 컨테이너와 함께 Azure Storage 계정을 포함 하는 연결 정보를 제공 하 여이 인덱서를 사용 합니다. 가상 디렉터리를 만들어 매개 변수로 전달 하거나 파일 형식 확장을 필터링 하 여 blob의 하위 집합을 지정할 수 있습니다.
 
-인덱서는 "문서 크랙"를 수행 하 고 데이터 원본에 연결한 후 파이프라인의 첫 번째 단계입니다. Blob 데이터의 경우에는 PDF, office 문서, 이미지 및 기타 콘텐츠 형식이 검색 됩니다. 텍스트 추출을 사용한 문서 크랙는 무료로 제공 됩니다. 이미지 추출을 사용한 문서 크랙 요금은 Azure Search [가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)에서 확인할 수 있는 요금으로 청구 됩니다.
+인덱서는 "문서 크랙"를 수행 하 여 콘텐츠를 검사 하는 blob을 엽니다. 데이터 원본에 연결한 후 파이프라인의 첫 번째 단계입니다. Blob 데이터의 경우에는 PDF, office 문서, 이미지 및 기타 콘텐츠 형식이 검색 됩니다. 텍스트 추출을 사용한 문서 크랙는 무료로 제공 됩니다. 이미지 추출을 사용한 문서 크랙 요금은 Azure Search [가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)에서 확인할 수 있는 요금으로 청구 됩니다.
 
-모든 문서가 보강에 대 한 기술을 명시적으로 제공 하는 경우에만 발생 합니다. 예를 들어 파이프라인이 텍스트 분석 으로만 구성 된 경우 컨테이너 또는 문서의 모든 이미지는 무시 됩니다.
+모든 문서가 보강에 대 한 기술을 명시적으로 제공 하는 경우에만 발생 합니다. 예를 들어 파이프라인이 이미지 분석 으로만 구성 된 경우 컨테이너의 텍스트 또는 문서는 무시 됩니다.
 
 Blob 인덱서는 구성 매개 변수와 함께 제공 되며 기본 데이터가 충분 한 정보를 제공 하는 경우 변경 내용 추적을 지원 합니다. [Azure Search Blob storage 인덱서의](search-howto-indexing-azure-blob-storage.md)핵심 기능에 대해 자세히 알아볼 수 있습니다.
 
-## <a name="add-ai"></a>AI 추가
+## <a name="add-ai-components"></a>AI 구성 요소 추가
 
-*기술은* 독립 실행형으로 사용 하거나 순차적 처리를 위해 다른 기술과 함께 사용할 수 있는 AI 처리의 개별 구성 요소입니다. 
+AI 보강는 패턴 또는 특성을 찾은 다음 그에 따라 작업을 수행 하는 모듈을 참조 합니다. 사진의 얼굴 인식, 사진 텍스트 설명, 문서의 키 구 검색, OCR (또는 이진 파일의 인쇄 또는 필기 텍스트 인식)은 예제를 보여 줍니다.
 
-+ 기본 제공 기술은 Computer Vision를 기반으로 하는 이미지 분석과 Text Analytics을 기반으로 하는 자연어 처리를 사용 하 여 Cognitive Services에 의해 지원 됩니다. 몇 가지 예제는 [OCR](cognitive-search-skill-ocr.md), [엔터티 인식](cognitive-search-skill-entity-recognition.md)및 [이미지 분석](cognitive-search-skill-image-analysis.md)입니다. [콘텐츠 보강에 대 한 미리 정의 된 기술](cognitive-search-predefined-skills.md)에서 기본 제공 기술의 전체 목록을 검토할 수 있습니다.
+Azure Search에서 *기술은* 독립적으로 또는 다른 기술과 함께 사용할 수 있는 AI 처리의 개별 구성 요소입니다. 
 
-+ 사용자 지정 기술은 파이프라인에 통합할 수 있는 인터페이스 정의로 래핑된 사용자 지정 코드입니다. 고객 솔루션에서는 오픈 소스, 타사 또는 자사 AI 모듈을 제공 하는 사용자 지정 기술과 함께를 사용 하는 것이 일반적입니다.
++ 기본 제공 기술은 Computer Vision를 기반으로 하는 이미지 분석과 Text Analytics을 기반으로 하는 자연어 처리를 사용 하 여 Cognitive Services에 의해 지원 됩니다. [콘텐츠 보강에 대 한 미리 정의 된 기술](cognitive-search-predefined-skills.md)에서 기본 제공 기술의 전체 목록을 검토할 수 있습니다.
+
++ 사용자 지정 기술은 파이프라인에 통합할 수 있는 [인터페이스 정의](cognitive-search-custom-skill-interface.md) 로 래핑된 사용자 지정 코드입니다. 고객 솔루션에서는 오픈 소스, 타사 또는 자사 AI 모듈을 제공 하는 사용자 지정 기술과 함께를 사용 하는 것이 일반적입니다.
 
 *기술* 는 파이프라인에서 사용 되는 기술의 컬렉션으로, 문서 크랙 단계에서 콘텐츠를 사용할 수 있게 된 후에 호출 됩니다. 인덱서는 정확히 하나의 기술를 사용할 수 있지만, 해당 기술는 다른 시나리오에서 다시 사용할 수 있도록 인덱서와 독립적으로 존재 합니다.
 
@@ -76,30 +80,33 @@ Cognitive Services에서 지 원하는 기본 기술에는 리소스에 대 한 
 
 사용자 지정 기술 및 기본 제공 유틸리티 기술만 사용 하는 경우 Cognitive Services 관련 된 종속성 또는 비용이 없습니다.
 
-## <a name="order-of-operations"></a>작업 순서
+<!-- ## Order of operations
 
-이제 인덱서, 콘텐츠 추출 및 기술을 설명 했지만 파이프라인 메커니즘과 작업 순서를 자세히 살펴볼 수 있습니다.
+Now we've covered indexers, content extraction, and skills, we can take a closer look at pipeline mechanisms and order of operations.
 
-기술는 하나 이상의 기술을 구성 하는 것입니다. 여러 기술이 관련 된 경우 기술는 한 기술의 출력이 다른 기술의 출력이 되는 종속성 그래프를 생성 하는 순차 파이프라인으로 작동 합니다. 
+A skillset is a composition of one or more skills. When multiple skills are involved, the skillset operates as sequential pipeline, producing dependency graphs, where output from one skill becomes input to another. 
 
-예를 들어 구조화 되지 않은 대량의 blob이 있는 경우 텍스트 분석에 대 한 작업의 샘플 순서는 다음과 같을 수 있습니다.
+For example, given a large blob of unstructured text, a sample order of operations for text analytics might be as follows:
 
-1. 텍스트 분할자를 사용 하 여 blob을 더 작은 부분으로 분할 합니다.
-1. 언어 감지를 사용 하 여 콘텐츠가 영어 인지 아니면 다른 언어 인지 확인 합니다.
-1. 텍스트 변환기를 사용 하 여 일반 언어로 모든 텍스트를 가져옵니다.
-1. 텍스트 청크에 엔터티 인식, 핵심 구 추출 또는 감정 분석를 실행 합니다. 이 단계에서는 새 필드를 만들고 채웁니다. 엔터티는 위치, 사람, 조직, 날짜 일 수 있습니다. 핵심 문구는 함께 포함 되는 것 처럼 보이는 단어의 짧은 조합입니다. 감정 점수는 음수 (0)에서 양수 (1) 감정에 대 한 등급입니다.
-1. 텍스트 병합을 사용 하 여 더 작은 청크로 문서를 다시 구성할 수 있습니다.
+1. Use Text Splitter to break the blob into smaller parts.
+1. Use Language Detection to determine if content is English or another language.
+1. Use Text Translator to get all text into a common language.
+1. Run Entity Recognition, Key Phrase Extraction, or Sentiment Analysis on chunks of text. In this step, new fields are created and populated. Entities might be location, people, organization, dates. Key phrases are short combinations of words that appear to belong together. Sentiment score is a rating on continuum of negative (0) to positive (1) sentiment.
+1. Use Text Merger to reconstitute the document from the smaller chunks. -->
 
+## <a name="consume-ai-enriched-output-in-downstream-solutions"></a>다운스트림 솔루션에서 AI 보강 output 사용
 
-## <a name="outputs-and-use-cases"></a>출력 및 사용 사례
+AI 보강의 출력은 Azure Search 또는 Azure Storage의 [기술 자료 저장소](knowledge-store-concept-intro.md) 에 대 한 검색 인덱스입니다.
 
-파이프라인의 끝에 있는 보강 문서는 보강 동안 추출 되거나 생성 된 새 정보를 포함 하는 추가 필드가 있는 원래 입력 버전과 다릅니다. 따라서 원래 값과 생성 된 값을 여러 가지 방법으로 조합 하 여 작업할 수 있습니다.
+Azure Search에서 검색 인덱스는 클라이언트 앱에서 사용 가능한 텍스트 및 필터링 된 쿼리를 사용 하 여 대화형 탐색에 사용 됩니다. AI를 통해 만든 보강 문서는 JSON으로 형식이 지정 되 고, 모든 문서가 Azure Search에서 인덱싱되는 것과 동일한 방식으로 인덱싱됩니다. 인덱서가 제공 하는 모든 혜택을 활용 합니다. 예를 들어 인덱싱 중에 blob 인덱서는 필드 매핑 또는 변경 검색 논리를 활용 하기 위해 구성 매개 변수 및 설정을 참조 합니다. 이러한 설정은 일반 인덱싱 및 AI 보강 워크 로드에 완전히 사용할 수 있습니다. 사후 인덱싱, 콘텐츠가 Azure Search에 저장 된 경우 다양 한 쿼리를 작성 하 고 식을 필터링 하 여 콘텐츠를 이해할 수 있습니다.
 
-출력 대형은 Azure Search 또는 Azure Storage의 기술 자료 저장소에 대 한 검색 인덱스입니다.
+Azure Storage에서 기술 자료 저장소에는 두 가지 징후 (blob 컨테이너) 또는 테이블 저장소의 테이블이 있습니다. 
 
-Azure Search에서 보강 문서는 JSON으로 형식이 지정 되 고 모든 문서가 인덱싱되는 것과 같은 방식으로 인덱싱되는 것과 같은 방식으로 인덱싱할 수 있습니다. 보강 문서의 필드는 인덱스 스키마에 매핑됩니다. 인덱싱 중에 blob 인덱서는 구성 매개 변수 및 설정을 참조 하 여 사용자가 지정한 필드 매핑 또는 변경 검색 논리를 사용 합니다. 사후 인덱싱, 콘텐츠가 Azure Search에 저장 된 경우 다양 한 쿼리를 작성 하 고 식을 필터링 하 여 콘텐츠를 이해할 수 있습니다.
++ Blob 컨테이너는 보강 문서 전체를 캡처합니다 .이는 다른 프로세스에 피드 하려는 경우에 유용 합니다. 
 
-Azure Storage에서 기술 자료 저장소에는 두 가지 징후 (blob 컨테이너) 또는 테이블 저장소의 테이블이 있습니다. Blob 컨테이너는 보강 문서 전체를 캡처합니다 .이는 다른 프로세스에 피드 하려는 경우에 유용 합니다. 반면, 테이블 저장소는 보강 문서의 실제 프로젝션을 수용할 수 있습니다. 특정 파트를 포함 하거나 제외 하는 보강 문서의 조각이 나 레이어를 만들 수 있습니다. Power BI 분석을 위해 Azure Table storage의 테이블은 추가 시각화 및 탐색을 위해 데이터 원본이 됩니다.
++ 반면, 테이블 저장소는 보강 문서의 실제 프로젝션을 수용할 수 있습니다. 특정 파트를 포함 하거나 제외 하는 보강 문서의 조각이 나 레이어를 만들 수 있습니다. Power BI 분석을 위해 Azure Table storage의 테이블은 추가 시각화 및 탐색을 위해 데이터 원본이 됩니다.
+
+파이프라인의 끝에 있는 보강 문서는 보강 동안 추출 되거나 생성 된 새 정보를 포함 하는 추가 필드가 있는 원래 입력 버전과 다릅니다. 따라서 사용 하는 출력 구조에 관계 없이 원래 및 만든 콘텐츠의 조합으로 작업할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

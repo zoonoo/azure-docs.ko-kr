@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: baselden
 ms.reviewer: zhchia
 ms.collection: active-directory
-ms.openlocfilehash: 11fda31cd06db67e0a11a68a02da8b91a77e04e1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 119c46ac2d1d34d86a6bfb9f75384f262f89219b
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68729218"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429457"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>다중 테 넌 트 응용 프로그램에 대 한 자동 사용자 프로 비전 사용
 
@@ -67,7 +67,7 @@ Azure AD는 응용 프로그램에 대 한 자동 사용자 프로비저닝을 �
 | 자동 프로비저닝을 사용 하도록 설정 또는 향상 된 기능| Azure AD 프로 비전 서비스 (SCIM 2.0)| Microsoft Graph API (OData v 4.0)| SAML JIT |
 |---|---|---|---|
 | Azure AD의 사용자 및 그룹 관리| √| √| 사용자만 |
-| 온-프레미스 Active Directory에서 동기화 된 사용자 및 그룹 관리| √*| √*| 사용자만 해당 * |
+| 온-프레미스 Active Directory에서 동기화 된 사용자 및 그룹 관리| √| √| 사용자만 해당 * |
 | O365 데이터 (팀, SharePoint, 전자 메일, 일정, 문서 등)에 대 한 액세스를 프로 비전 하는 동안 사용자 및 그룹 외의 데이터에 액세스| X +| √| X |
 | 비즈니스 규칙에 따라 사용자 만들기, 읽기 및 업데이트| √| √| √ |
 | 비즈니스 규칙에 따라 사용자 삭제| √| √| X |
@@ -76,20 +76,20 @@ Azure AD는 응용 프로그램에 대 한 자동 사용자 프로비저닝을 �
 | 게스트 계정 지원 (B2B)| √| √| √ |
 | 엔터프라이즈가 아닌 계정 지원 (B2C)| X| √| √ |
 
-<sup>*</sup>– AD에서 Azure AD로 사용자를 동기화 하려면 Azure AD Connect 설치 해야 합니다.  
-<sup>+</sup >– 프로 비전에 SCIM을 사용 하는 경우 다른 용도로 MIcrosoft Graph와 응용 프로그램을 통합 하는 것을 배제 하지 않습니다.
+<sup>*</sup> – Ad에서 Azure ad로 사용자를 동기화 하려면 설치 프로그램을 Azure AD Connect 해야 합니다.  
+<sup>+</sup >– 프로 비전에 scim을 사용 하는 경우 다른 용도로 MIcrosoft Graph와 응용 프로그램을 통합 하는 것을 배제 하지 않습니다.
 
-## <a name="azure-ad-provisioning-service"></a>Azure AD 프로 비전 서비스
+## <a name="azure-ad-provisioning-service-scim"></a>Azure AD 프로 비전 서비스 (SCIM)
 
-Azure AD 프로 비전 서비스는 IdPs (여러 id 공급자)에서 지 원하는 프로토콜인 SCIM을 사용 합니다. Scim 호환 IdP SCIM 끝점에 연결할 수 있으므로 Azure AD 외에 IdPs를 지원 하려는 경우 Azure AD 프로 비전 서비스를 사용 하는 것이 좋습니다.
+Azure AD 프로 비전 서비스는 다양 한 id 공급자 (IdPs) 및 응용 프로그램 (예: 여유 시간, G Suite, Dropbox)에서 지원 되는 프로 비전을 위한 산업 표준인 [Scim](https://aka.ms/SCIMOverview)을 사용 합니다. Scim 호환 IdP SCIM 끝점에 연결할 수 있으므로 Azure AD 외에 IdPs를 지원 하려는 경우 Azure AD 프로 비전 서비스를 사용 하는 것이 좋습니다. 간단한/User 끝점을 빌드하면 사용자의 동기화 엔진을 유지 관리할 필요 없이 프로 비전을 사용 하도록 설정할 수 있습니다. 
 
 Azure AD 프로 비전 서비스 사용자의 SCIM 방법에 대 한 자세한 내용은 다음을 참조 하세요. 
+
+* [SCIM 표준에 대 한 자세한 정보](https://aka.ms/SCIMOverview)
 
 * [도메인 간 Id 관리 (SCIM)에 시스템을 사용 하 여 Azure Active Directory에서 응용 프로그램으로 사용자 및 그룹 자동으로 프로 비전](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
 
 * [Azure AD SCIM 구현 이해](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
-
-* [Microsoft CLI 라이브러리를 사용 하 여 SCIM 끝점 빌드](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
 
 ## <a name="microsoft-graph-for-provisioning"></a>프로 비전을 위한 Microsoft Graph
 
@@ -106,16 +106,6 @@ Azure AD 프로 비전 서비스 사용자의 SCIM 방법에 대 한 자세한 �
 * [Microsoft Graph Auth 개요](https://docs.microsoft.com/graph/auth/)
 
 * [Microsoft Graph 시작](https://developer.microsoft.com/graph/get-started)
-
-* [Microsoft Graph API 사용](https://docs.microsoft.com/graph/use-the-api)
-
-* [Microsoft Graph Explorer](https://aka.ms/ge) 
-
-* [Microsoft Graph 권한 참조](https://docs.microsoft.com/graph/permissions-reference)
-
-* [Microsoft Graph 사용에 대 한 모범 사례](https://docs.microsoft.com/graph/best-practices-concept)
-
-* [Microsoft Graph에 대 한 주요 시나리오](https://developer.microsoft.com/graph/examples)
 
 ## <a name="using-saml-jit-for-provisioning"></a>프로 비전에 SAML JIT 사용
 

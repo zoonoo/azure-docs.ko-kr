@@ -13,27 +13,28 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 44b3259745877ddb43e643f1fa8307e100ca8b38
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 175351d6bab6cc6aee06b83bdeb8544c2e7c2d24
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025249"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435384"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps용 iOS 클라이언트 라이브러리를 사용하는 방법
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center은 모바일 앱 개발에 대 한 종단 간 및 통합 서비스의 중심을 지원 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다.
-> 모바일 응용 프로그램에서 클라우드 서비스를 통합 하려는 경우 현재 App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 에 등록 하세요.
+> Visual Studio App Center는 모바일 앱 개발의 중심인 엔드투엔드 통합 서비스를 지원합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용하여 지속적인 통합 및 업데이트 파이프라인을 설정할 수 있습니다. 앱이 배포되면 개발자는 **분석** 및 **진단** 서비스를 사용하여 앱의 상태와 사용 현황을 모니터링하고, **푸시** 서비스를 사용하여 사용자와 소통할 수 있습니다. 또한 개발자는 **인증** 서비스를 사용하여 사용자를 인증하고, **데이터** 서비스를 사용하여 클라우드에서 애플리케이션 데이터를 유지하고 동기화할 수도 있습니다.
+>
+> 모바일 애플리케이션에서 클라우드 서비스를 통합하려면 지금 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc)에 등록하세요.
 
 ## <a name="overview"></a>개요
 이 가이드에서는 최신 [Azure Mobile Apps IOS SDK][1]를 사용 하 여 일반적인 시나리오를 수행 하는 방법을 알려줍니다. Azure Mobile Apps를 처음 접하는 경우 먼저 [Azure Mobile Apps 빠른 시작] 을 완료하여 백 엔드를 만들고, 테이블을 만든 다음 미리 빌드된 iOS Xcode 프로젝트를 다운로드합니다. 이 가이드에서는 클라이언트 쪽 iOS SDK에 초점을 둡니다. 백 엔드의 서버 쪽 SDK에 대한 자세한 내용은 서버 SDK 사용 방법을 참조하세요.
 
 ## <a name="reference-documentation"></a>참조 설명서
 
-iOS 클라이언트 SDK에 대한 참조 설명서는 [Azure Mobile Apps IOS 클라이언트 참조][2]
+IOS 클라이언트 SDK에 대 한 참조 설명서는 [Azure Mobile Apps Ios 클라이언트 참조][2]에서 찾을 수 있습니다.
 
 ## <a name="supported-platforms"></a>지원되는 플랫폼
 
@@ -260,7 +261,7 @@ Azure Mobile Apps의 페이지 크기는 백 엔드 테이블에서 한 번에 �
 
 또한 이 설정은 *바이트 크기*가 아니라 데이터 레코드의 *수*입니다.
 
-클라이언트 페이지 크기를 늘리면 서버에서 페이지 크기도 늘려야 합니다. 이 작업을 수행하는 단계는 [“방법: 테이블 페이징 크기 조정”](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
+클라이언트 페이지 크기를 늘리면 서버에서 페이지 크기도 늘려야 합니다. 이 작업을 수행하는 단계는 ["방법: 테이블 페이징 크기 조정"](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
 **Objective-C**:
 
@@ -380,7 +381,7 @@ table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
 
 최소한 업데이트할 때에는 `id` 특성이 설정되어야 합니다.
 
-## <a name="deleting"></a>방법: 데이터 삭제
+## <a name="deleting"></a>방법: Blob 삭제
 
 항목을 삭제하려면 항목과 함께 `delete` 을(를) 호출합니다.
 
@@ -440,7 +441,7 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 사용자 지정 API를 사용하여 백 엔드 기능을 노출할 수 있습니다. 테이블 작업에 매핑할 필요는 없습니다. 더 효율적으로 메시징을 제어할 수 있으며 헤더의 읽기/설정 및 응답의 본문 형식을 변경할 수도 있습니다.
 
-사용자 지정 API를 호출하려면 `MSClient.invokeAPI`를 호출합니다. 요청 및 응답 콘텐츠는 JSON으로 간주됩니다. 다른 미디어 유형을 사용 하려면 [-1 @no__t의 다른 오버 로드를 사용][5]합니다.  `POST` 요청 대신 `GET` 요청을 하려면 GET 요청에는 메시지의 본문이 없기 때문에 매개 변수를 `HTTPMethod`에서 `"GET"` 및 `body`에서 `nil`으로 설정합니다. 사용자 지정 API가 다른 HTTP 동사를 지원하는 경우 `HTTPMethod`을(를) 적절하게 변경합니다.
+사용자 지정 API를 호출하려면 `MSClient.invokeAPI`를 호출합니다. 요청 및 응답 콘텐츠는 JSON으로 간주됩니다. 다른 미디어 유형을 사용 하려면 [-1 @no__t의 다른 오버 로드를 사용][5]합니다.  @No__t-1 요청 대신 `GET` 요청을 만들려면 매개 변수 `HTTPMethod`를 `"GET"`로 설정 하 고 매개 변수를 `body`로 설정 합니다. GET 요청에는 메시지 본문이 없기 때문입니다. 사용자 지정 API에서 다른 HTTP 동사를 지 원하는 경우 `HTTPMethod`을 적절 하 게 변경 합니다.
 
 **Objective-C**:
 
@@ -567,7 +568,7 @@ Azure Active Directory를 사용하여 애플리케이션에 사용자가 로그
 3. 터미널을 사용하여 프로젝트를 포함하는 디렉터리에서 `pod install`을 실행한 다음 생성된 Xcode 작업 영역(프로젝트 아님)을 엽니다.
 4. 사용하는 언어에 따라 애플리케이션에 다음 코드를 추가합니다. 각 코드에서 다음과 같이 값을 바꿉니다.
 
-   * **INSERT-AUTHORITY-HERE**를 애플리케이션이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com 이어야 합니다. 이 값은 [Azure Portal]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
+   * **INSERT-AUTHORITY-HERE**를 애플리케이션이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com 이어야 합니다. 이 값은 [Azure 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
    * **INSERT-RESOURCE-ID-HERE** 를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 Azure **Active Directory 설정**에 있는 **고급** 탭에서 클라이언트 ID를 가져올 수 있습니다.
    * **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 애플리케이션에서 복사한 클라이언트 ID로 바꿉니다.
    * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 엔드포인트로 바꿉니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done* 과 비슷해야 합니다.
@@ -903,13 +904,13 @@ Google 로그인을 사용하여 애플리케이션에 사용자를 로그인하
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
-[Azure Portal]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/
 [Handling Expired Tokens]: https://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: https://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: https://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [Service-side Authorization]: mobile-services-javascript-backend-service-side-authorization.md
 [Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
-[동적 스키마]: https://go.microsoft.com/fwlink/p/?LinkId=296271
+[동적 스키마]: https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/dynamic-schema
 [How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [Create a table]: https://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary object]: https://go.microsoft.com/fwlink/p/?LinkId=301965

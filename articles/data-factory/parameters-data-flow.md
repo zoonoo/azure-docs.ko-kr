@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 733d3f9c4079193107f22178bdbde3a3ecf0e7ca
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 0a1051d67bf45e96f82833ef8190008204cdc90b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028218"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387548"
 ---
 # <a name="mapping-data-flow-parameters"></a>데이터 흐름 매개 변수 매핑
 
@@ -40,15 +40,15 @@ Azure Data Factory의 데이터 흐름 매핑은 매개 변수 사용을 지원 
 
 ## <a name="use-parameters-in-your-data-flow"></a>데이터 흐름에서 매개 변수 사용
 
-* 변환 식 내에서 매개 변수 값을 사용할 수 있습니다. 식 작성기의 매개 변수 탭에서 매개 변수 목록을 찾을 수 있습니다. 데이터 ![흐름 매개 변수]사용(media/data-flow/params9.png "데이터 흐름 매개 변수 사용")
+* 변환 식 내에서 매개 변수 값을 사용할 수 있습니다. 식 작성기의 매개 변수 탭에서 매개 변수 목록을 찾을 수 있습니다. ![데이터 흐름 매개 변수 사용](media/data-flow/params9.png "Use 데이터 흐름 매개 변수 ")
 
-* 매개 변수는 원본 및 싱크 변환 설정에 대 한 동적 값을 구성 하는 데도 사용 됩니다. 구성 가능한 필드 내부를 클릭 하면 "동적 항목 추가" 링크가 표시 됩니다. 이 단추를 클릭 하면 매개 변수를 사용 하 여 동적 값을 사용할 수 있는 식 작성기로 이동 합니다. ![데이터 흐름 동적 콘텐츠](media/data-flow/params6.png "데이터 흐름 동적 콘텐츠")
+* 매개 변수는 원본 및 싱크 변환 설정에 대 한 동적 값을 구성 하는 데도 사용 됩니다. 구성 가능한 필드 내부를 클릭 하면 "동적 항목 추가" 링크가 표시 됩니다. 이 단추를 클릭 하면 매개 변수를 사용 하 여 동적 값을 사용할 수 있는 식 작성기로 이동 합니다. ![데이터 흐름 동적 콘텐츠](media/data-flow/params6.png "Data flow 동적 콘텐츠 ")
 
 ## <a name="set-mapping-data-flow-parameters-from-pipeline"></a>파이프라인에서 데이터 흐름 매개 변수 매핑 설정
 
 매개 변수를 사용 하 여 데이터 흐름을 만들었으면 데이터 흐름 실행 작업을 사용 하 여 파이프라인에서 실행할 수 있습니다. 파이프라인 캔버스에 활동을 추가 하면 활동의 ' 매개 변수 ' 탭에서 사용 가능한 데이터 흐름 매개 변수가 표시 됩니다.
 
-데이터 흐름 ![매개 변수]설정(media/data-flow/parameter-assign.png "데이터 흐름 매개 변수 설정")
+![데이터 흐름 매개 변수 설정](media/data-flow/parameter-assign.png "데이터 흐름 매개 변수 설정")
 
 매개 변수 데이터 형식이 문자열인 경우 입력란을 클릭 하 여 매개 변수 값을 설정 하면 파이프라인 또는 데이터 흐름 식을 입력 하도록 선택할 수 있습니다. 파이프라인 식을 선택 하는 경우 파이프라인 식 패널이 표시 됩니다. @No__t-0을 사용 하 여 문자열 보간 구문 내에 파이프라인 함수를 포함 해야 합니다. 예를 들면 다음과 같습니다.
 

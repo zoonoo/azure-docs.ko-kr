@@ -12,20 +12,20 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/23/2018
+ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: f9f1072954e01f718fd3d9f03430b6ed6666bb62
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 97529118d420813cf638f211bdd5559068802c95
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082587"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390645"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Azure Stack에서 OKD 또는 OpenShift Container Platform 배포
 
 Azure Stack에서 OpenShift를 배포할 수 있습니다. Azure와 Azure Stack 간에는 몇 가지 주요 차이점이 있으므로 배포가 약간 다르고 기능도 약간 다릅니다.
 
-현재 Azure 클라우드 공급자는 Azure Stack에서 작동하지 않습니다. 이러한 이유로 Azure Stack에서 영구 스토리지를 위해 디스크 연결을 사용할 수 없습니다. 대신, NFS, iSCSI, GlusterFS 등의 다른 스토리지 옵션을 구성할 수 있습니다. 또한 CNS를 사용하도록 설정하고 GlusterFS를 영구 스토리지로 사용할 수도 있습니다. CNS를 사용하도록 설정하면 GlusterFS 사용량에 대한 추가 스토리지와 함께 3개의 노드가 추가로 배포됩니다.
+현재 Azure 클라우드 공급자는 Azure Stack에서 작동하지 않습니다. 이러한 이유로 Azure Stack에서 영구 스토리지를 위해 디스크 연결을 사용할 수 없습니다. 대신 NFS, iSCSI, GlusterFS 등의 다른 저장소 옵션을 구성할 수 있습니다. 또는 CN을 사용 하도록 설정 하 고 영구 저장소에 GlusterFS를 사용할 수 있습니다. CNS를 사용하도록 설정하면 GlusterFS 사용량에 대한 추가 스토리지와 함께 3개의 노드가 추가로 배포됩니다.
 
 Azure Stack에서 OpenShift Container Platform 또는 OKD를 배포하는 몇 가지 방법 중 하나를 사용할 수 있습니다.
 
@@ -66,9 +66,9 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 - OpenShift 클러스터 세부 정보, 호스트 파일을 통해 수정 됨(deployOpenShift.sh)
 - RHEL 이미지 참조(azuredeploy.json의 변수)
 
-Azure CLI를 사용하는 배포 단계에 대해서는 [OpenShift Container Platform](./openshift-container-platform.md) 섹션 또는 [OKD](./openshift-okd.md) 섹션 중에서 해당하는 섹션을 따르세요.
+Azure CLI를 사용하는 배포 단계에 대해서는 [OpenShift Container Platform](./openshift-container-platform-3x.md) 섹션 또는 [OKD](./openshift-okd.md) 섹션 중에서 해당하는 섹션을 따르세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [배포 후 작업](./openshift-post-deployment.md)
-- [Azure에서 OpenShift 배포 문제 해결](./openshift-troubleshooting.md)
+- [배포 후 작업](./openshift-container-platform-3x-post-deployment.md)
+- [Azure에서 OpenShift 배포 문제 해결](./openshift-container-platform-3x-troubleshooting.md)

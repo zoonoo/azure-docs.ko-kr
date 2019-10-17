@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 6e7263dfa0faf0bf2fd7e8b7d6e050ca6bc95e2a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: c4fe185f5d203b1b0eba306c80cded14ad82bc98
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202216"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72438638"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Security Center 기능 사용 중지 (7 월 2019)
 
@@ -53,7 +53,7 @@ Security Center은 Microsoft Monitoring Agent를 사용 하 여 컴퓨터에서 
 
 Azure Log Analytics의 기본 기능을 사용 하 여 작업 영역에서 주목할 만한 이벤트를 확인 하는 것이 좋습니다.
 
-Security Center에서 사용자 지정 주목할 만한 이벤트를 만든 경우 액세스할 수 있습니다. Log Analytics에서 **작업 영역** > **저장 된 검색**을 선택 합니다. 데이터가 손실 되거나 수정 되지 않습니다. 기본 주목할 만한 이벤트는 Log Analytics 동일한 화면에서 사용할 수도 있습니다.
+Security Center에서 사용자 지정 주목할 만한 이벤트를 만든 경우 액세스할 수 있습니다. Log Analytics에서 **작업 영역 선택**@no__t-**저장 된 검색**1 개로 이동 합니다. 데이터가 손실 되거나 수정 되지 않습니다. 기본 주목할 만한 이벤트는 Log Analytics 동일한 화면에서 사용할 수도 있습니다.
 
 ![작업 영역 저장 된 검색][3]
 
@@ -115,7 +115,7 @@ Security Center는 보안 위협을 식별 하는 데 도움이 되는 [보안 �
 
 ### <a name="security-events-map---the-new-experience"></a>보안 이벤트 맵-새 환경
 
-Security Center에 기본 제공 되는 경고 매핑 기능을 사용 하는 것이 좋습니다. **보안 경고 맵 (미리 보기)** 이 기능은 최적화 된 환경을 제공 하며 모든 구독과 관련 작업 영역에서 작동 합니다. 환경 전체에서 개략적인 보기를 제공 하며 단일 작업 영역에 집중 하지 않습니다.
+Security Center: **보안 경고 맵 (미리 보기)** 에 기본 제공 되는 경고 매핑 기능을 사용 하는 것이 좋습니다. 이 기능은 최적화 된 환경을 제공 하며 모든 구독과 관련 작업 영역에서 작동 합니다. 환경 전체에서 개략적인 보기를 제공 하며 단일 작업 영역에 집중 하지 않습니다.
 
 ## 사용자 지정 경고 규칙 (미리 보기)<a name="menu_customalerts"></a>
 
@@ -169,7 +169,7 @@ Security Center는 [Azure에서 통합 보안 솔루션](https://docs.microsoft.
 
 Azure Security Center는 OS를 강화하기 위해 [150개 이상의 추천 규칙](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) 세트를 적용하여 보안 구성을 모니터링합니다. 이러한 규칙은 방화벽, 감사, 암호 정책 등에 관련 됩니다. 컴퓨터에 취약한 구성이 있는 것으로 확인되면 Security Center에서 보안 권장 사항이 생성됩니다. [보안 구성 편집 화면](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) 에서 고객이 Security Center의 기본 OS 보안 구성을 사용자 지정할 수 있습니다.
 
-이 미리 보기 기능을 사용 중지 했습니다. 사용 중지 날짜 후에 보안 구성을 기본값으로 다시 설정 하려면 [다음 지침](https://aka.ms/ascresetsecurityconfigurations) 을 사용 하 여 API 또는 Powershell을 통해이 작업을 수행 합니다.
+이 미리 보기 기능을 사용 중지 했습니다. 사용 중지 날짜 후에 보안 구성을 기본값으로 다시 설정 하려면 [다음 지침](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization) 을 사용 하 여 API 또는 Powershell을 통해이 작업을 수행 합니다.
 
 ![보안 구성 편집][17]
 

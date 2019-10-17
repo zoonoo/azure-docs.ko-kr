@@ -7,14 +7,14 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/7/2019
-ms.openlocfilehash: 8d0ad794caee8a06c8d403a981037d6560fb3f43
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 37fec388acda78f3d13c8e85ddddf780ad099d69
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030172"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388006"
 ---
-# <a name="what-are-mapping-data-flows"></a>매핑 Data Flows란?
+# <a name="what-are-mapping-data-flows"></a>매핑 데이터 흐름 이란?
 
 데이터 흐름 매핑은 Azure Data Factory에서 시각적으로 디자인 된 데이터 변환입니다. 데이터 흐름을 통해 데이터 엔지니어는 코드를 작성 하지 않고도 그래픽 데이터 변환 논리를 개발할 수 있습니다. 결과 데이터 흐름은 확장 된 Spark 클러스터를 사용 하 여 Azure Data Factory 파이프라인 내에서 작업으로 실행 됩니다. 기존 Data Factory 일정, 제어, 흐름 및 모니터링 기능을 통해 데이터 흐름 활동을 조작 가능한 수 있습니다.
 
@@ -32,13 +32,13 @@ ms.locfileid: "72030172"
 
 데이터 흐름 캔버스는 위쪽 막대, 그래프 및 구성 패널의 세 부분으로 구분 됩니다. 
 
-![Canvas](media/data-flow/canvas1.png "Canvas")
+![캔버스](media/data-flow/canvas1.png "캔버스")
 
 ### <a name="graph"></a>그래프
 
 그래프는 변환 스트림을 표시 합니다. 하나 이상의 싱크로 전달 되는 원본 데이터의 계보를 보여 줍니다. 새 원본을 추가 하려면 ' 소스 추가 ' 상자를 클릭 합니다. 새 변환을 추가 하려면 기존 변환의 오른쪽 아래에 있는 더하기 기호를 클릭 합니다.
 
-![Canvas](media/data-flow/canvas2.png "Canvas")
+![캔버스](media/data-flow/canvas2.png "캔버스")
 
 ### <a name="configuration-panel"></a>구성 패널
 
@@ -56,7 +56,7 @@ ms.locfileid: "72030172"
 
 _최적화_ 탭에는 파티션 구성표를 구성 하는 설정이 포함 되어 있습니다.
 
-![최적화 최적화](media/data-flow/optimize1.png "")
+![Optimize](media/data-flow/optimize1.png "최적화")
 
 기본 설정은 "현재 분할 사용" 이며,이는 Spark에서 실행 되는 데이터 흐름에 대 한 기본 파티션 구성표를 사용 하도록 Azure Data Factory에 지시 합니다. 대부분의 시나리오에서이 설정은 권장 되는 방법입니다.
 
@@ -72,7 +72,7 @@ _최적화_ 탭에는 파티션 구성표를 구성 하는 설정이 포함 되�
 
 라운드 로빈은 파티션 간에 데이터를 자동으로 균등 분산하는 간단한 파티션입니다. 견고한 스마트 분할 전략을 구현 하는 데 좋은 핵심 후보가 없는 경우 라운드 로빈을 사용 합니다. 물리적 파티션 수를 설정할 수 있습니다.
 
-##### <a name="hash"></a>Hash
+##### <a name="hash"></a>해시
 
 Azure Data Factory는 유사한 값을 가진 행이 동일한 파티션에 속하도록 균일한 파티션을 생성하기 위해 열 해시를 생성합니다. 해시 옵션을 사용하는 경우 가능한 파티션 기울이기를 테스트합니다. 물리적 파티션 수를 설정할 수 있습니다.
 
@@ -84,7 +84,7 @@ Azure Data Factory는 유사한 값을 가진 행이 동일한 파티션에 속�
 
 분할 된 데이터 열 내에서 값의 고정 범위를 제공 하는 식을 작성 합니다. 분할을 방지 하기 위해이 옵션을 사용 하기 전에 데이터를 잘 이해 해야 합니다. 식에 대해 입력 하는 값은 파티션 함수의 일부로 사용 됩니다. 물리적 파티션 수를 설정할 수 있습니다.
 
-##### <a name="key"></a>Key
+##### <a name="key"></a>키
 
 데이터의 카디널리티를 잘 알고 있는 경우 키 분할은 좋은 파티션 전략이 될 수 있습니다. 키 분할은 열의 각 고유 값에 대한 파티션을 만듭니다. 숫자는 데이터의 고유 값을 기반으로 하므로 파티션 수를 설정할 수 없습니다.
 
@@ -92,7 +92,7 @@ Azure Data Factory는 유사한 값을 가진 행이 동일한 파티션에 속�
 
 _검사_ 탭은 변환 중인 데이터 스트림의 메타 데이터에 대 한 뷰를 제공 합니다. 열 개수, 변경 된 열, 추가 된 열, 데이터 형식, 열 순서 및 열 참조를 볼 수 있습니다. 검사는 메타 데이터의 읽기 전용 뷰입니다. 검사 창에서 메타 데이터를 보려면 디버그 모드를 사용 하도록 설정 하지 않아도 됩니다.
 
-![](media/data-flow/inspect1.png "검사") 검사
+![검사](media/data-flow/inspect1.png "검사")
 
 변환을 통해 데이터의 모양을 변경 하면 검사 창에서 메타 데이터 변경 내용이 전달 되는 것을 볼 수 있습니다. 원본 변환에 정의 된 스키마가 없는 경우 검사 창에 메타 데이터가 표시 되지 않습니다. 메타데이터가 부족한 것은 스키마 드리프트 시나리오에서 일반적입니다.
 
@@ -104,11 +104,11 @@ _검사_ 탭은 변환 중인 데이터 스트림의 메타 데이터에 대 한
 
 위쪽 막대에는 저장 및 유효성 검사와 같은 전체 데이터 흐름에 영향을 주는 동작이 포함 되어 있습니다. 그래프 **표시** 및 **그래프 숨기기** 단추를 사용 하 여 그래프와 구성 모드 사이를 전환할 수도 있습니다.
 
-![그래프]숨기기(media/data-flow/hideg.png "그래프") 숨기기
+![그래프 숨기기](media/data-flow/hideg.png "그래프 숨기기")
 
 그래프를 숨기면 **이전** 및 **다음** 단추를 통해 수평 변환 노드를 탐색할 수 있습니다.
 
-![](media/data-flow/showhide.png "탐색") 탐색
+![이동해](media/data-flow/showhide.png "이동해")
 
 ## <a name="next-steps"></a>다음 단계
 

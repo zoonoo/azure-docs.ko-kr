@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 8f33e36568171ab7b37f536a3c7883b004cb71c0
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2b2b8fe383ff4ee3d4b23c2c6e555b44e0cc088c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68838027"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390081"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 시작
 
@@ -44,21 +44,17 @@ ms.locfileid: "68838027"
 
 ## <a name="webjobs-nuget-packages"></a>WebJobs NuGet 패키지
 
-1. 다음 NuGet 패키지의 안정적인 최신 3.x 버전을 설치합니다.
+1. @No__t-1을 포함 하는 `Microsoft.Azure.WebJobs.Extensions` NuGet 패키지의 안정적인 최신 버전을 설치 합니다.
 
-   * `Microsoft.Azure.WebJobs`
-   * `Microsoft.Azure.WebJobs.Extensions`
-
-     3\.0.4 버전에 대 한 **패키지 관리자 콘솔** 명령은 다음과 같습니다.
+     버전 3.0.2에 대한 **패키지 관리자 콘솔** 명령은 다음과 같습니다.
 
      ```powershell
-     Install-Package Microsoft.Azure.WebJobs -version 3.0.4
-     Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.1
+     Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.2
      ```
 
 ## <a name="create-the-host"></a>호스트 만들기
 
-호스트는 트리거를 수신 하 고 함수를 호출 하는 함수에 대 한 런타임 컨테이너입니다. 다음 단계에서는 ASP.NET Core의 일반 호스트인을 [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost)구현 하는 호스트를 만듭니다.
+호스트는 트리거를 수신 하 고 함수를 호출 하는 함수에 대 한 런타임 컨테이너입니다. 다음 단계에서는 ASP.NET Core의 일반 호스트인 [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost)을 구현 하는 호스트를 만듭니다.
 
 1. *Program.cs*에 `using` 문을 추가합니다.
 
@@ -84,22 +80,15 @@ ms.locfileid: "68838027"
     }
     ```
 
-ASP.NET Core에서 호스트 구성은 [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) 인스턴스의 메서드를 호출하여 설정됩니다. 자세한 내용은 [.NET 일반 호스트](/aspnet/core/fundamentals/host/generic-host)를 참조하세요. `ConfigureWebJobs` 확장 메서드는 WebJobs 호스트를 초기화합니다. 에서 `ConfigureWebJobs`특정 WebJobs 확장을 초기화 하 고 해당 확장의 속성을 설정 합니다.  
+ASP.NET Core에서 호스트 구성은 [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) 인스턴스의 메서드를 호출하여 설정됩니다. 자세한 내용은 [.NET 일반 호스트](/aspnet/core/fundamentals/host/generic-host)를 참조하세요. `ConfigureWebJobs` 확장 메서드는 WebJobs 호스트를 초기화합니다. @No__t-0에서 특정 WebJobs 확장을 초기화 하 고 해당 확장의 속성을 설정 합니다.  
 
 ## <a name="enable-console-logging"></a>콘솔 로깅 사용
 
 이 섹션에서는 [ASP.NET Core 로깅 프레임 워크](/aspnet/core/fundamentals/logging)를 사용 하는 콘솔 로깅을 설정 합니다.
 
-1. 다음과 같은 안정적인 최신 버전의 NuGet 패키지를 설치합니다.
-
-   * `Microsoft.Extensions.Logging` - 로깅 프레임워크입니다.
-   * `Microsoft.Extensions.Logging.Console`-콘솔에 로그를 전송 하는 콘솔 공급자입니다.
+1. @No__t-1을 포함 하는 안정적인 최신 버전의 `Microsoft.Extensions.Logging.Console` NuGet 패키지를 설치 합니다.
 
    2\.2.0 버전에 대한 **패키지 관리자 콘솔** 명령은 다음과 같습니다.
-
-   ```powershell
-   Install-Package Microsoft.Extensions.Logging -version 2.2.0
-   ```
 
    ```powershell
    Install-Package Microsoft.Extensions.Logging.Console -version 2.2.0
@@ -155,10 +144,10 @@ ASP.NET Core에서 호스트 구성은 [`HostBuilder`](/dotnet/api/microsoft.ext
 
 1. [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet 패키지의 안정적인 최신 버전인 버전 3.x를 설치합니다. 
 
-    3\.0.3 버전에 대 한 **패키지 관리자 콘솔** 명령은 다음과 같습니다.
+    3\.0.4 버전에 대 한 **패키지 관리자 콘솔** 명령은 다음과 같습니다.
 
     ```powershell
-    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.3
+    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.4
     ```
 
 2. `ConfigureWebJobs` 확장 메서드에서 [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) 인스턴스의 `AddAzureStorage` 메서드를 호출하여 Storage 확장을 초기화합니다. 이 시점에서 `ConfigureWebJobs` 메서드는 다음 예제와 유사합니다.
@@ -173,7 +162,7 @@ ASP.NET Core에서 호스트 구성은 [`HostBuilder`](/dotnet/api/microsoft.ext
 
 ## <a name="create-a-function"></a>함수 만들기
 
-1. 프로젝트를 마우스 오른쪽 단추로 클릭 하 고,**새 항목** **추가** > ...를 선택 하 고, **클래스**를 C# 선택 하 고, 새 클래스 파일의 이름을 *Functions.cs*로 하 고, **추가**를 선택 합니다.
+1. 프로젝트를 마우스 오른쪽 단추로 클릭 하 **고 추가**@no__t-**1 새 항목 ...** 을 선택 하 고 **클래스**를 선택한 다음 C# 새 클래스 파일의 이름을 *Functions.cs*으로 선택 하 고 **추가**를 선택 합니다.
 
 1. Functions.cs에서 생성된 템플릿을 다음 코드로 바꿉니다.
 
@@ -229,7 +218,7 @@ ASP.NET Core에서 호스트 구성은 [`HostBuilder`](/dotnet/api/microsoft.ext
 
 WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문자열을 찾습니다. 로컬로 실행하는 경우 로컬 구성 파일 또는 환경 변수에서 이 값을 찾습니다.
 
-1. 프로젝트를 마우스 오른쪽 단추로 클릭 하 고,**새 항목** **추가** > ...를 선택 하 고, **JavaScript json 구성 파일**을 선택 하 고, 새 파일의 이름을 *appsettings* 로 설정 하 고, **추가**를 선택 합니다. 
+1. 프로젝트를 마우스 오른쪽 단추로 클릭 하 **고 추가** > **새 항목 ...** 을 선택 하 고, **JavaScript json 구성 파일**을 선택 하 고, 새 파일의 이름을 *appsettings* 로 설정 하 고, **추가**를 선택 합니다. 
 
 1. 새 파일에서 다음 예제와 같이 `AzureWebJobsStorage` 필드를 추가 합니다.
 
@@ -338,13 +327,13 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
 1. **연결 문자열** 상자에서 다음 항목을 추가합니다.
 
-   |이름  |연결 문자열  |데이터베이스 유형|
+   |name  |연결 문자열  |데이터베이스 유형|
    |---------|---------|------|
-   |AzureWebJobsStorage | {앞에서 복사한 Storage 연결 문자열}|사용자 지정|
+   |AzureWebJobsStorage | {앞에서 복사한 Storage 연결 문자열}|맞춤형 서비스|
 
 1. **애플리케이션 설정** 상자에 Application Insights 계측 키가 없으면 앞에서 복사한 계측 키를 추가합니다. (계측 키는 App Service 앱을 만든 방법에 따라 이미 있을 수 있습니다.)
 
-   |이름  |값  |
+   |name  |Value  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {계측 키} |
 
@@ -502,7 +491,7 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
    ![Blob 업로드 단추](./media/webjobs-sdk-get-started/blob-upload-button.png)
 
-   c. *Program.cs*를 찾아 선택한 다음, **확인**을 선택합니다.
+   다. *Program.cs*를 찾아 선택한 다음, **확인**을 선택합니다.
 
 1. 메시지 텍스트로 *Program.cs*가 포함된 큐 메시지를 앞에서 만든 큐에 만듭니다.
 

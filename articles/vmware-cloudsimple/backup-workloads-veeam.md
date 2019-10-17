@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 930e482ab85113ac802932929fdbea358ee26035
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 880b31702cf1c0a92ab7ee536cd88e8e6957f6f8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619600"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430859"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Veeam B & R을 사용 하 여 CloudSimple 사설 클라우드에서 워크 로드 Vm 백업
 
@@ -54,7 +54,7 @@ Veeam 솔루션에는 다음 구성 요소가 포함 되어 있습니다.
 
 * Veeam 백업 서버 및 프록시 서버가 사설 클라우드의 동일한 VM에 설치 되어 있어야 합니다.
 * Azure의 Linux 기반 기본 백업 리포지토리는 백업 작업의 대상으로 구성 됩니다.
-* `azcopy`다른 지역에 복제 되는 Azure blob 컨테이너에 기본 백업 리포지토리에서 데이터를 복사 하는 데 사용 됩니다.
+* `azcopy`은 다른 지역에 복제 되는 Azure blob 컨테이너에 기본 백업 리포지토리에서 데이터를 복사 하는 데 사용 됩니다.
 
 ![기본 배포 시나리오](media/veeam-basicdeployment.png)
 
@@ -65,7 +65,7 @@ Veeam 솔루션에는 다음 구성 요소가 포함 되어 있습니다.
 * Veeam에 권장 된 대로 vSAN 클러스터의 노드당 하나의 프록시 서버.
 * 빠른 복원을 위해 5 일간의 데이터를 캐시 하는 사설 클라우드의 Windows 기반 주 백업 리포지토리입니다.
 * 더 긴 보존 기간 동안 백업 복사 작업을 위한 대상으로 Azure의 Linux 백업 리포지토리 이 리포지토리는 스케일 아웃 백업 리포지토리로 구성 되어야 합니다.
-* `azcopy`다른 지역에 복제 되는 Azure blob 컨테이너에 기본 백업 리포지토리에서 데이터를 복사 하는 데 사용 됩니다.
+* `azcopy`은 다른 지역에 복제 되는 Azure blob 컨테이너에 기본 백업 리포지토리에서 데이터를 복사 하는 데 사용 됩니다.
 
 ![기본 배포 시나리오](media/veeam-advanceddeployment.png)
 
@@ -95,10 +95,10 @@ Veeam 솔루션을 사용 하려면 다음을 수행 해야 합니다.
 5. [Azure Portal: Azure에서 백업 리포지토리 만들기](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
 6. [Azure Portal: 장기적인 데이터 보존을 위해 Azure blob storage 구성](#configure-azure-blob-storage-for-long-term-data-retention)
 7. [사설 클라우드의 vCenter UI: Veeam B & R 설치](#vcenter-console-of-private-cloud-install-veeam-br)
-8. [Veeam 콘솔: Veeam 백업 & 복구 소프트웨어 구성](#veeam-console-install-veeam-backup-and-recovery-software)
+8. [Veeam 콘솔: 복구 소프트웨어 & Veeam 백업 구성](#veeam-console-install-veeam-backup-and-recovery-software)
 9. [CloudSimple 포털: Veeam 액세스 및 에스컬레이션 권한 설정](#cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges)
 
-### <a name="before-you-begin"></a>시작하기 전 주의 사항
+### <a name="before-you-begin"></a>시작하기 전에
 
 Veeam 배포를 시작 하기 전에 다음이 필요 합니다.
 
@@ -136,7 +136,7 @@ Veeam에서 사용 하는 포트에서 네트워크 트래픽을 허용 하도�
 
 다음 표에서는 포트 목록을 제공 합니다.
 
-| 아이콘 | 설명 | 아이콘 | Description |
+| 아이콘 | 설명 | 아이콘 | 설명 |
 | ------------ | ------------- | ------------ | ------------- |
 | 백업 서버  | vCenter  | HTTPS/TCP  | 443 |
 | 백업 서버 <br> *Veeam 백업 & 복제 구성 요소를 배포 하는 데 필요 합니다.* | 백업 프록시  | TCP/UDP  | 135, 137 ~ 139 및 445 |
@@ -155,7 +155,7 @@ Veeam에서 사용 하는 포트에서 네트워크 트래픽을 허용 하도�
 
 설치를 계속 하려면 인증 키 및 피어 회로 URI와 Azure 구독에 대 한 액세스 권한이 필요 합니다.  이 정보는 CloudSimple 포털의 Virtual Network 연결 페이지에서 사용할 수 있습니다. 지침은 [Azure virtual network에 대 한 피어 링 정보를 CloudSimple 연결로 가져오기](virtual-network-connection.md)를 참조 하세요. 정보를 얻는 데 문제가 있는 경우 [지원 담당자에 게 문의 하세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-### <a name="cloudsimple-private-cloud-escalate-privileges-for-cloudowner"></a>CloudSimple 사설 클라우드: Cloudowner에 대 한 권한 상승
+### <a name="cloudsimple-private-cloud-escalate-privileges-for-cloudowner"></a>CloudSimple 사설 클라우드: cloudowner에 대 한 권한 상승
 
 기본 ' cloudowner ' 사용자에 게 VEEAM을 설치할 수 있는 충분 한 권한이 없어 사용자의 vCenter 권한을 에스컬레이션 해야 합니다. 자세한 내용은 [에스컬레이션 권한](escalate-private-cloud-privileges.md)을 참조 하세요.
 
@@ -170,7 +170,7 @@ Express 경로를 [사용 하 여 Azure Virtual Network 연결](azure-expressrou
 3. VM에 대 한 NSG (네트워크 보안 그룹)를 구성 합니다. VM에 공용 IP 주소가 없고 공용 인터넷에서 연결할 수 없는지 확인 하세요.
 4. 새 VM에 대 한 사용자 이름 및 암호를 기반으로 사용자 계정을 만듭니다. 지침은 [Azure Portal에서 Linux 가상 컴퓨터 만들기](../virtual-machines/linux/quick-create-portal.md)를 참조 하세요.
 5. 1x512 GiB 표준 HDD를 만들어 리포지토리 VM에 연결 합니다.  자세한 내용은 [Azure Portal에서 관리 되는 데이터 디스크를 WINDOWS VM에 연결 하는 방법](../virtual-machines/windows/attach-managed-disk-portal.md)을 참조 하세요.
-6. [관리 디스크에 XFS 볼륨을 만듭니다](https://www.digitalocean.com/docs/volumes/how-to/format-and-mount). 앞에서 언급 한 자격 증명을 사용 하 여 VM에 로그인 합니다. 다음 스크립트를 실행 하 여 논리 볼륨을 만들고, 해당 볼륨에 디스크를 추가 하 고, XFS 파일 시스템 파티션을 만들고/backup1 경로 아래에 파티션을 탑재 합니다.
+6. [관리 디스크에 XFS 볼륨을 만듭니다](https://www.digitalocean.com/docs/volumes/how-to/). 앞에서 언급 한 자격 증명을 사용 하 여 VM에 로그인 합니다. 다음 스크립트를 실행 하 여 논리 볼륨을 만들고, 해당 볼륨에 디스크를 추가 하 고, XFS 파일 시스템 [파티션을](https://www.digitalocean.com/docs/volumes/how-to/partition/) 만들고/backup1 경로 아래에 파티션을 [탑재](https://www.digitalocean.com/docs/volumes/how-to/mount/) 합니다.
 
     예제 스크립트:
 
@@ -196,7 +196,7 @@ Express 경로를 [사용 하 여 Azure Virtual Network 연결](azure-expressrou
 
 1. Microsoft 비디오 [Azure Storage 시작](https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage)에 설명 된 대로 표준 유형 및 blob 컨테이너의 범용 저장소 계정 (GPv2)을 만듭니다.
 2. [컨테이너 참조 만들기](https://docs.microsoft.com/rest/api/storageservices/create-container) 에 설명 된 대로 Azure storage 컨테이너를 만듭니다.
-2. Microsoft에서 Linux 용 명령줄유틸리티를다운로드합니다.`azcopy` CentOS 7.5의 bash 셸에서 다음 명령을 사용할 수 있습니다.
+2. Microsoft에서 Linux 용 `azcopy` 명령줄 유틸리티를 다운로드 합니다. CentOS 7.5의 bash 셸에서 다음 명령을 사용할 수 있습니다.
 
     ```
     wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinux64
@@ -206,7 +206,7 @@ Express 경로를 [사용 하 여 Azure Virtual Network 연결](azure-expressrou
     sudo yum -y install icu
     ```
 
-3. `azcopy` 명령을 사용 하 여 blob 컨테이너에 백업 파일을 복사 합니다.  자세한 명령은 [Linux에서 AzCopy를 사용 하 여 데이터 전송](../storage/common/storage-use-azcopy-linux.md) 을 참조 하세요.
+3. @No__t-0 명령을 사용 하 여 blob 컨테이너에 백업 파일을 복사 합니다.  자세한 명령은 [Linux에서 AzCopy를 사용 하 여 데이터 전송](../storage/common/storage-use-azcopy-linux.md) 을 참조 하세요.
 
 ### <a name="vcenter-console-of-private-cloud-install-veeam-br"></a>사설 클라우드의 vCenter 콘솔: Veeam B & R 설치
 
@@ -228,7 +228,7 @@ Express 경로를 [사용 하 여 Azure Virtual Network 연결](azure-expressrou
 
 Veeam 콘솔을 사용 하 여 Veeam 백업 및 복구 소프트웨어를 구성 합니다. 자세한 내용은 [Veeam Backup & Replication v9-설치 및 배포](https://www.youtube.com/watch?v=b4BqC_WXARk)를 참조 하세요.
 
-1. VMware vSphere를 관리 되는 서버 환경으로 추가 합니다. 메시지가 표시 되 면 사설 클라우드의 [vCenter 콘솔을 시작할 때 만든 veeam 서비스 계정의 자격 증명을 제공 합니다. Veeam B & R](#vcenter-console-of-private-cloud-install-veeam-br)을 설치 합니다.
+1. VMware vSphere를 관리 되는 서버 환경으로 추가 합니다. 메시지가 표시 되 면 사설 클라우드의 VCenter 콘솔을 시작할 때 만든 Veeam 서비스 계정의 자격 증명을 제공 합니다 [. Veeam B & R을 설치](#vcenter-console-of-private-cloud-install-veeam-br)합니다.
 
     * 부하 제어 및 기본 고급 설정에 대 한 기본 설정을 사용 합니다.
     * 탑재 서버 위치를 백업 서버로 설정 합니다.
@@ -260,11 +260,11 @@ Veeam 백업 및 복구 서버에 대 한 공용 IP 주소를 만듭니다. 자�
 
 권한을 에스컬레이션 하려면 [권한 승격](escalate-private-cloud-privileges.md#de-escalate-privileges)을 참조 하세요.
 
-## <a name="references"></a>참조 항목
+## <a name="references"></a>참조
 
 ### <a name="cloudsimple-references"></a>CloudSimple 참조
 
-* [사설 클라우드 만들기](create-private-cloud.md)
+* [프라이빗 클라우드 만들기](create-private-cloud.md)
 * [Vlan/서브넷 만들기 및 관리](create-vlan-subnet.md)
 * [vCenter Id 원본](set-vcenter-identity.md)
 * [작업 DNS 및 DHCP 설정](dns-dhcp-setup.md)

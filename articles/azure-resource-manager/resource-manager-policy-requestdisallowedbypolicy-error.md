@@ -1,6 +1,6 @@
 ---
 title: Azure 리소스 정책의 RequestDisallowedByPolicy 오류 | Microsoft Docs
-description: RequestDisallowedByPolicy 오류의 원인을 설명합니다.
+description: Azure Resource Manager를 사용 하 여 리소스를 배포할 때 RequestDisallowedByPolicy 오류의 원인을 설명 합니다.
 services: azure-resource-manager
 documentationcenter: ''
 author: genlin
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e862637c688fd473b112fdfc0ee197da0444d02f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: c791342bf68f84f6893e549d8528d1a861aa9040
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121245"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390292"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Azure 리소스 정책의 RequestDisallowedByPolicy 오류
 

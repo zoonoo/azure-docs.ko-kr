@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 10/07/2019
-ms.openlocfilehash: 9db1b96cb495fd0de452091da79ab61f7ae59118
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 24b0deb60f1047228dc3ff6000d423e7cb6939ca
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030740"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387314"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>데이터 흐름 매핑 성능 및 튜닝 가이드
 
@@ -37,7 +37,7 @@ ADF UX에서 데이터 흐름을 디자인 하 고 테스트할 때 클러스터
 * 처리 속도가 입력 요금 보다 높은 경우 **계산에 최적화** 된 클러스터를 시도 합니다.
 * 메모리에 더 많은 데이터를 캐시 하려면 메모리 액세스에 **최적화** 된 클러스터를 시도 합니다.
 
-![새 ir](media/data-flow/ir-new.png "새 ir")
+![새 IR](media/data-flow/ir-new.png "새 IR")
 
 Integration Runtime를 만드는 방법에 대 한 자세한 내용은 [Azure Data Factory의 Integration Runtime](concepts-integration-runtime.md)를 참조 하세요.
 
@@ -56,7 +56,7 @@ Integration Runtime를 만드는 방법에 대 한 자세한 내용은 [Azure Da
 1. **열**을 선택한 경우 파티션 열을 선택 합니다.
 1. **쿼리**를 선택한 경우 데이터베이스 테이블의 파티션 구성표와 일치 하는 쿼리를 입력 합니다. 이 쿼리를 통해 원본 데이터베이스 엔진은 파티션 제거를 활용할 수 있습니다. 원본 데이터베이스 테이블을 분할할 필요가 없습니다. 원본이 아직 분할 되지 않은 경우 ADF는 원본 변환에서 선택한 키에 따라 Spark 변환 환경에서 데이터 분할을 계속 사용 합니다.
 
-![소스 파트](media/data-flow/sourcepart3.png "원본 파트")
+![원본 파트](media/data-flow/sourcepart3.png "원본 파트")
 
 ### <a name="source-batch-size-input-and-isolation-level"></a>원본 일괄 처리 크기, 입력 및 격리 수준
 
@@ -72,7 +72,7 @@ Integration Runtime를 만드는 방법에 대 한 자세한 내용은 [Azure Da
 
 데이터 흐름의 행 단위 처리를 방지 하려면 Azure SQL DB 및 Azure SQL DW 싱크에 대 한 설정 탭에서 **일괄 처리 크기** 를 설정 합니다. 일괄 처리 크기를 설정한 경우 ADF는 제공 된 크기에 따라 일괄 처리로 데이터베이스 쓰기를 처리 합니다.
 
-![싱크](media/data-flow/sink4.png "싱크")
+![싱크](media/data-flow/sink4.png "sink")
 
 ### <a name="partitioning-on-sink"></a>싱크에 분할
 

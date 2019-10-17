@@ -1,6 +1,6 @@
 ---
-title: Azure 상태 모니터 v2 문제 해결 및 알려진 문제 | Microsoft Docs
-description: 상태 모니터 v 2의 알려진 문제 및 문제 해결 예제입니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
+title: Azure 애플리케이션 Insights 에이전트 문제 해결 및 알려진 문제 | Microsoft Docs
+description: Application Insights 에이전트 및 문제 해결 예제에 대 한 알려진 문제입니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: c3e9bffaf3b533ef8fbe3e32c1dca671fb67c911
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: ab1ce01c41679c6ff686ab37692d3b8e9167a4f8
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058287"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388196"
 ---
-# <a name="troubleshooting-status-monitor-v2"></a>V2 상태 모니터 문제 해결
+# <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Application Insights 에이전트 문제 해결 (이전에 명명 된 상태 모니터 v2)
 
 모니터링을 사용 하도록 설정 하면 데이터 수집을 방해 하는 문제가 발생할 수 있습니다.
 이 문서에서는 알려진 모든 문제를 나열 하 고 문제 해결 예제를 제공 합니다.
@@ -31,9 +31,9 @@ ms.locfileid: "71058287"
 
 이러한 Dll이 bin 디렉터리에 있는 경우 모니터링이 실패할 수 있습니다.
 
-- Microsoft.ApplicationInsights.dll
-- Microsoft.AspNet.TelemetryCorrelation.dll
-- System.Diagnostics.DiagnosticSource.dll
+- Microsoft ApplicationInsights .dll
+- TelemetryCorrelation.
+- DiagnosticSource.
 
 이러한 Dll 중 일부는 앱에서 사용 하지 않는 경우에도 Visual Studio 기본 앱 템플릿에 포함 되어 있습니다.
 문제 해결 도구를 사용 하 여 증상 동작을 확인할 수 있습니다.
@@ -93,16 +93,16 @@ SDK 구성은 버전 1.0에서 최종 사용자에 게 노출 되지 않습니�
 ### <a name="troubleshooting-powershell"></a>PowerShell 문제 해결
 
 #### <a name="determine-which-modules-are-available"></a>사용할 수 있는 모듈 확인
-`Get-Module -ListAvailable` 명령을 사용 하 여 설치 된 모듈을 확인할 수 있습니다.
+@No__t-0 명령을 사용 하 여 설치 된 모듈을 확인할 수 있습니다.
 
 #### <a name="import-a-module-into-the-current-session"></a>모듈을 현재 세션으로 가져오기
 모듈이 PowerShell 세션으로 로드 되지 않은 경우 `Import-Module <path to psd1>` 명령을 사용 하 여 수동으로 로드할 수 있습니다.
 
 
-### <a name="troubleshooting-the-status-monitor-v2-module"></a>상태 모니터 v2 모듈 문제 해결
+### <a name="troubleshooting-the-application-insights-agent-module"></a>Application Insights Agent 모듈 문제 해결
 
-#### <a name="list-the-commands-available-in-the-status-monitor-v2-module"></a>상태 모니터 v2 모듈에서 사용할 수 있는 명령 나열
-명령을 `Get-Command -Module Az.ApplicationMonitor` 실행 하 여 사용 가능한 명령을 가져옵니다.
+#### <a name="list-the-commands-available-in-the-application-insights-agent-module"></a>Application Insights Agent 모듈에서 사용할 수 있는 명령을 나열 합니다.
+@No__t-0 명령을 실행 하 여 사용 가능한 명령을 가져옵니다.
 
 ```
 CommandType     Name                                               Version    Source
@@ -117,8 +117,8 @@ Cmdlet          Set-ApplicationInsightsMonitoringConfig            0.4.0      Az
 Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az.ApplicationMonitor
 ```
 
-#### <a name="determine-the-current-version-of-the-status-monitor-v2-module"></a>상태 모니터 v2 모듈의 현재 버전 확인
-`Get-ApplicationInsightsMonitoringStatus -PowerShellModule` 명령을 실행 하 여 모듈에 대 한 다음 정보를 표시 합니다.
+#### <a name="determine-the-current-version-of-the-application-insights-agent-module"></a>Application Insights 에이전트 모듈의 현재 버전 확인
+@No__t-0 명령을 실행 하 여 모듈에 대 한 다음 정보를 표시 합니다.
    - PowerShell 모듈 버전
    - Application Insights SDK 버전
    - PowerShell 모듈의 파일 경로
@@ -131,7 +131,7 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 계측 된 컴퓨터에서 프로세스를 검사 하 여 모든 Dll이 로드 되었는지 확인할 수 있습니다.
 모니터링이 작동 하는 경우 12 개 이상의 Dll을 로드 해야 합니다.
 
-`Get-ApplicationInsightsMonitoringStatus -InspectProcess` 명령을 사용 하 여 dll을 확인 합니다.
+@No__t-0 명령을 사용 하 여 Dll을 확인 합니다.
 
 이 cmdlet을 사용 하는 방법에 대 한 자세한 내용은 [API 참조를 참조](status-monitor-v2-api-get-status.md) 하세요.
 
@@ -145,12 +145,12 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 3. **고급 옵션**을 확장 합니다.
 4. 다음 확인란의 선택을 취소 합니다.
     - **우편번호**
-    - **병합**
+    - **결합**
     - **.NET 기호 컬렉션**
-5. 다음과 같은 **추가 공급자**를 설정 합니다.`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
+5. @No__t-1 **추가 공급자**를 설정 합니다.
 
 
-#### <a name="collecting-logs"></a>로그를 수집하는 중
+#### <a name="collecting-logs"></a>로그 수집
 
 1. 관리자 권한이 있는 명령 콘솔에서 `iisreset /stop` 명령을 실행 하 여 IIS 및 모든 웹 앱을 해제 합니다.
 2. PerfView에서 **컬렉션 시작**을 선택 합니다.

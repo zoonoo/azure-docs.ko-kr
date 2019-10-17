@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: b1331865224d34f731dbd388cebdaec8b7c9fe7f
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: c7b6abb9874c8b6bb2469595b9ce53541656834f
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264652"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430136"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -183,7 +183,7 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 ## <a name="access-to-run-history-data"></a>실행 기록 데이터에 대 한 액세스
 
-논리 앱을 실행 하는 동안 [TLS (Transport Layer Security](https://azure.microsoft.com/updates/app-service-and-functions-hosted-apps-can-now-update-tls-versions/) ) 및 [rest](../security/fundamentals/encryption-atrest.md)를 사용 하 여 전송 하는 동안 모든 데이터가 암호화 됩니다. 논리 앱의 실행이 완료 되 면 각 동작에 대 한 상태, 기간, 입력 및 출력과 함께 실행 된 단계를 포함 하 여 해당 실행에 대 한 기록을 볼 수 있습니다. 이 풍부한 정보는 논리 앱이 실행 되는 방법 및 발생 하는 문제 해결을 시작할 수 있는 위치에 대 한 통찰력을 제공 합니다.
+논리 앱을 실행 하는 동안 TLS (Transport Layer Security) 및 [rest](../security/fundamentals/encryption-atrest.md)를 사용 하 여 전송 하는 동안 모든 데이터가 [암호화](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) 됩니다. 논리 앱의 실행이 완료 되 면 각 동작에 대 한 상태, 기간, 입력 및 출력과 함께 실행 된 단계를 포함 하 여 해당 실행에 대 한 기록을 볼 수 있습니다. 이 풍부한 정보는 논리 앱이 실행 되는 방법 및 발생 하는 문제 해결을 시작할 수 있는 위치에 대 한 통찰력을 제공 합니다.
 
 논리 앱의 실행 기록에 액세스 하는 경우 Logic Apps는 액세스를 인증 하 고 논리 앱 실행에서 요청 및 응답의 입력 및 출력에 대 한 링크를 제공 합니다. 그러나 암호, 비밀, 키 또는 기타 중요 한 정보를 처리 하는 작업의 경우 다른 사용자가 해당 데이터를 보고 액세스 하지 못하도록 하는 것이 좋습니다. 예를 들어 논리 앱이 HTTP 작업을 인증할 때 사용할 [Azure Key Vault](../key-vault/key-vault-overview.md) 에서 비밀을 가져오는 경우 해당 비밀을 뷰에서 숨깁니다.
 

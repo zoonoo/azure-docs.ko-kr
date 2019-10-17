@@ -1,20 +1,20 @@
 ---
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 12/11/2018
-ms.author: tamram
-ms.openlocfilehash: 5be5cf6cd410874d870b351c209517e90fcf3848
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.author: rogarana
+ms.openlocfilehash: 02e9553b9704c96794e0c1113ab3e06458f0f7c8
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699333"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391719"
 ---
 Azure 파일 동기화 에이전트는 새 기능을 추가하고 문제를 해결하기 위해 주기적으로 업데이트됩니다. 사용할 수 있을 때 Microsoft 업데이트에서 Azure 파일 동기화 에이전트에 대한 업데이트를 가져오도록 구성하는 것이 좋습니다.
 
 #### <a name="major-vs-minor-agent-versions"></a>주 및 부 에이전트 버전 비교
-* 주 에이전트 버전에는 새로운 기능이 포함되는 경우가 많으며, 버전 번호의 첫 번째 부분에 증가하는 숫자가 있습니다. 예를 들어: \*2.\*.\*\*
+* 주 에이전트 버전에는 새로운 기능이 포함되는 경우가 많으며, 버전 번호의 첫 번째 부분에 증가하는 숫자가 있습니다. 예: \*2.\*.\*\*
 * 부 에이전트 버전은 "패치"라고도 하며, 주 버전보다 더 자주 릴리스됩니다. 버그가 수정되고 기능이 향상되는 경우가 많지만, 새로운 기능은 없습니다. 예: \*\*.3.\*\*
 
 #### <a name="upgrade-paths"></a>업그레이드 경로
@@ -23,7 +23,7 @@ Azure 파일 동기화 에이전트 업데이트를 설치하는 데 승인된 �
     항상 모든 Azure 파일 동기화 업데이트를 수행하여 서버 에이전트에 대한 최신 수정 프로그램에 액세스할 수 있도록 하는 것이 좋습니다. Microsoft 업데이트는 업데이트를 자동으로 다운로드하고 설치하여 이 프로세스를 원활하게 합니다.
 2. **AfsUpdater.exe를 사용하여 에이전트 업데이트를 다운로드하고 설치합니다.**  
     AfsUpdater.exe는 에이전트 설치 디렉터리에 있습니다. 실행 파일을 두 번 클릭하여 에이전트 업데이트를 다운로드하고 설치합니다. 
-3. **Microsoft 업데이트 패치 파일 또는 .msp 실행 파일을 사용하여 기존 Azure 파일 동기화 에이전트에 패치를 적용합니다. 최신 Azure 파일 동기화 업데이트 패키지는 [Microsoft 업데이트 카탈로그](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync)에서 다운로드할 수 있습니다.**  
+3. **Microsoft 업데이트 패치 파일 또는 .msp 실행 파일을 사용 하 여 기존 Azure File Sync 에이전트를 패치 합니다. 최신 Azure File Sync 업데이트 패키지는 [Microsoft 업데이트 카탈로그](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync)에서 다운로드할 수 있습니다.**  
     .msp 실행 파일을 실행하면 Microsoft 업데이트에서 자동으로 사용하는 방식과 동일하게 Azure 파일 동기화 설치가 이전 업그레이드 경로에서 업그레이드됩니다. Microsoft 업데이트 패치를 적용하면 Azure 파일 동기화 설치의 현재 위치 업그레이드가 수행됩니다.
 4. **[Microsoft 다운로드 센터](https://go.microsoft.com/fwlink/?linkid=858257)에서 최신 Azure File Sync 에이전트 설치 관리자를 다운로드 합니다.**  
     기존 Azure 파일 동기화 에이전트 설치를 업그레이드하려면 이전 버전을 제거한 다음, 다운로드한 설치 관리자에서 최신 버전을 설치합니다. Azure 파일 동기화 설치 관리자는 서버 등록, 동기화 그룹 및 다른 모든 설정을 관리합니다.
@@ -37,18 +37,23 @@ Azure 파일 동기화 에이전트 업데이트를 설치하는 데 승인된 �
 
 다음 지침에서는 설정을 변경 해야 하는 경우 설치 관리자를 완료 한 후 설정을 변경 하는 방법을 설명 합니다.
 
-셸을 열고 동기화 에이전트를 설치한 디렉터리로 이동한 후 서버 cmdlet을 가져옵니다. 기본적으로이 작업은 다음과 같습니다.
+PowerShell 콘솔을 열고 동기화 에이전트를 설치한 디렉터리로 이동한 후 서버 cmdlet을 가져옵니다. 기본적으로 다음과 같이 표시 됩니다.
 ```powershell
-cd C:\Program Files\Azure\StorageSyncAgent
-
-ipmo .\StorageSync.Management.ServerCmdlets.dll
+cd 'C:\Program Files\Azure\StorageSyncAgent'
+Import-Module -Name \StorageSync.Management.ServerCmdlets.dll
 ```
 
-를 실행 `Get-StorageSyncAgentAutoUpdatePolicy` 하 여 현재 정책 설정을 확인 하 고 변경 하려는 사항을 결정할 수 있습니다.
+@No__t-0을 실행 하 여 현재 정책 설정을 확인 하 고 변경할 것인지 여부를 결정할 수 있습니다.
 
-현재 정책 설정을 지연 업데이트 트랙으로 변경 하려면 다음을 사용할 수 있습니다.`Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode UpdateBeforeExpiration`
+현재 정책 설정을 지연 업데이트 트랙으로 변경 하려면 다음을 사용할 수 있습니다.
+```powershell
+Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode UpdateBeforeExpiration
+```
 
-현재 정책 설정을 즉시 업데이트 트랙으로 변경 하려면 다음을 사용할 수 있습니다.`Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode InstallLatest`
+현재 정책 설정을 즉시 업데이트 트랙으로 변경 하려면 다음을 사용할 수 있습니다.
+```powershell
+Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode InstallLatest
+```
 
 #### <a name="agent-lifecycle-and-change-management-guarantees"></a>에이전트 수명 주기 및 변경 관리 보장
 Azure File Sync은 새로운 기능 및 향상 된 기능을 지속적으로 도입 하는 클라우드 서비스입니다. 즉, 특정 Azure 파일 동기화 에이전트 버전은 제한된 시간 동안만 지원될 수 있습니다. 배포를 용이 하 게 하기 위해 다음 규칙을 통해 변경 관리 프로세스에서 에이전트 업데이트/업그레이드를 수용할 수 있는 충분 한 시간과 알림이 보장 됩니다.

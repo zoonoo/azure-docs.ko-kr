@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89cdab09e3ae03ddea6259eda657908f900f982e
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 6d44a4265c3729bff3d983395a37a6cb64a463d4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169868"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389127"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)의 위임 및 역할
 
@@ -96,7 +96,7 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 
 다음 표에는 자격 관리 역할이 수행할 수 있는 작업이 나열 되어 있습니다.
 
-| 태스크 | Admin | 카탈로그 작성자 | 카탈로그 소유자 | 액세스 패키지 관리자 |
+| 작업 | 관리자 | 카탈로그 작성자 | 카탈로그 소유자 | 액세스 패키지 관리자 |
 | --- | :---: | :---: | :---: | :---: |
 | [카탈로그 작성자에 게 위임](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
 | [새 카탈로그 만들기](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |
@@ -107,15 +107,15 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 | [액세스 패키지 관리자에 위임](entitlement-management-delegate-managers.md) | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | [액세스 패키지 관리자 제거](entitlement-management-delegate-managers.md#remove-an-access-package-manager) | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | [카탈로그에 새 액세스 패키지 만들기](entitlement-management-access-package-create.md) | :heavy_check_mark: |  | :heavy_check_mark:  | :heavy_check_mark:  |
-| [액세스 패키지의 리소스 역할 관리](entitlement-management-access-package-edit.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [정책 만들기 및 편집](entitlement-management-access-package-edit.md#add-a-new-policy) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [사용자를 액세스 패키지에 직접 할당](entitlement-management-access-package-edit.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [액세스 패키지에 할당 된 사용자 보기](entitlement-management-access-package-edit.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [액세스 패키지의 요청 보기](entitlement-management-access-package-edit.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [요청의 배달 오류 보기](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [보류 중인 요청 취소](entitlement-management-access-package-edit.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [액세스 패키지에서 리소스 역할 변경](entitlement-management-access-package-resources.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [정책 만들기 및 편집](entitlement-management-access-package-request-policy.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [사용자를 액세스 패키지에 직접 할당](entitlement-management-access-package-assignments.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [액세스 패키지에 할당 된 사용자 보기](entitlement-management-access-package-assignments.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [액세스 패키지의 요청 보기](entitlement-management-access-package-requests.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [요청의 배달 오류 보기](entitlement-management-access-package-requests.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [보류 중인 요청 취소](entitlement-management-access-package-requests.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [액세스 패키지 숨기기](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [액세스 패키지 삭제](entitlement-management-access-package-edit.md#delete) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [액세스 패키지 삭제](entitlement-management-access-package-edit.md#delete-an-access-package) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>카탈로그에 리소스를 추가 하는 데 필요한 역할
 

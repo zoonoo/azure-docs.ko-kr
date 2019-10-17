@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ac210a03f8b1a0a5f7fff07cbc68b4cd6bc98632
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 40fb44857126c3562e01585c3131afec87f01e42
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016353"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430068"
 ---
-# <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage와 함께 Azure PowerShell 사용
+# <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage와 Azure PowerShell 사용
 
 PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell이 사용됩니다. Azure Storage의 경우 이러한 cmdlet는 제어 평면과 데이터 평면 등, 두 범주로 나뉩니다. 제어 평면 cmdlet는 스토리지 계정 관리(스토리지 계정 만들기, 속성 설정, 스토리지 계정 삭제, 액세스 키 회전)에 사용됩니다. 데이터 평면 cmdlet는 스토리지 계정*에* 저장된 데이터를 관리하는 데 사용됩니다. 예를 들어 Blob 업로드, 파일 공유 만들기, 큐에 메시지 추가 등이 있습니다.
 
-이 방법 문서에서는 관리 평면 cmdlet를 사용하여 스토리지 계정을 관리 는 일반적인 작업에 대해 설명합니다. 여기에서는 다음과 같은 작업을 수행하는 방법에 대해 배우게 됩니다.
+이 방법 문서에서는 관리 평면 cmdlet를 사용하여 스토리지 계정을 관리 는 일반적인 작업에 대해 설명합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 스토리지 계정 나열
@@ -131,7 +131,7 @@ SKU 이름은 LRS(로컬 중복 스토리지)처럼 스토리지 계정에 대�
 
 * 스토리지 계정에 할당된 **태그**. 태그는 청구 목적으로 리소스를 분류하는 데 종종 사용됩니다.
 
-* **SKU**는 LRS(로컬 중복 스토리지)처럼 스토리지 계정에 대한 복제 설정을 나타냅니다. 예를 들어 Standard\_LRS를 Standard\_GRS 또는 Standard\_RAGRS로 변경할 수 있습니다. 표준\_ZRS, standard\_GZRS, standard\_RAGZRS 또는 Premium\_LRS를 다른 sku로 변경 하거나 다른 sku를 변경할 수 없습니다.
+* **SKU**는 LRS(로컬 중복 스토리지)처럼 스토리지 계정에 대한 복제 설정을 나타냅니다. 예를 들어 Standard\_LRS를 Standard\_GRS 또는 Standard\_RAGRS로 변경할 수 있습니다. 표준 @ no__t-0ZRS, Standard @ no__t-1GZRS, Standard @ no__t-2RAGZRS 또는 Premium @ no__t-3LRS를 다른 Sku로 변경 하거나 다른 Sku를 변경할 수 없습니다.
 
 * Blob Storage 계정에 대한 **액세스 계층**. 액세스 계층의 값은 **hot** 또는 **cool**로 설정되며 스토리지 계정을 사용하는 방법에 맞게 액세스 계층을 선택하여 비용을 최소화할 수 있습니다. 자세한 내용은 [핫, 쿨, 보관 스토리지 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요.
 
@@ -214,7 +214,7 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 * [PowerShell을 사용하여 큐를 관리하는 방법](../queues/storage-powershell-how-to-use-queues.md)
 * [PowerShell을 사용하여 Azure Table Storage 작업 수행](../../storage/tables/table-storage-how-to-use-powershell.md)
 
-Azure Cosmos DB 테이블 API는 턴키 글로벌 배포, 짧은 대기 시간 읽기 및 쓰기, 자동 보조 인덱싱 및 전용 처리량과 같은 Table Storage를 위한 고급 기능을 제공 합니다.
+Azure Cosmos DB Table API는 턴키 전역 배포, 짧은 읽기 및 쓰기 대기 시간, 자동 보조 인덱싱 및 전용 처리량 등 Table Storage에 대한 프리미엄 기능을 제공합니다.
 
 * 자세한 내용은 [Azure Cosmos DB 테이블 API](../../cosmos-db/table-introduction.md)를 참조하세요.
 
@@ -222,7 +222,7 @@ Azure Cosmos DB 테이블 API는 턴키 글로벌 배포, 짧은 대기 시간 �
 
 대부분의 사람들은 전역 Azure 배포에 Azure Public Cloud를 사용합니다. 또한 통치권 등의 사유로 인한 몇 가지 Microsoft Azure 독립 배포도 존재합니다. 이러한 독립 배포를 "환경"이라고 칭합니다. 다음은 사용 가능한 환경입니다.
 
-* [Azure Government 클라우드](https://azure.microsoft.com/features/gov/)
+* [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
 * [중국의 21Vianet에서 운영 하는 Azure 중국 21Vianet 클라우드](http://www.windowsazure.cn/)
 * [Azure German Cloud](../../germany/germany-welcome.md)
 
@@ -252,4 +252,4 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 * [Azure Storage 제어 평면 PowerShell cmdles](/powershell/module/az.storage/)
 * [Azure Storage 데이터 평면 PowerShell cmdles](/powershell/module/azure.storage/)
-* [Windows PowerShell 참조](https://msdn.microsoft.com/library/ms714469.aspx)
+* [Windows PowerShell 참조](/powershell/scripting/developer/windows-powershell)

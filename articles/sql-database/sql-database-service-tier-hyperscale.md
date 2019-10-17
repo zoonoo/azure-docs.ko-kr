@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: dc9acd4fc45de2599ac71427ec2676506071894b
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: df6926a8f50d7ffb2765557cdf75ed6d09b3810b
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035055"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72428046"
 ---
 # <a name="hyperscale-service-tier"></a>하이퍼스케일 서비스 계층
 
@@ -82,7 +82,7 @@ Azure SQL Database의 하이퍼스케일 서비스 계층은 다음과 같은 �
 
 다음 다이어그램은 하이퍼스케일 데이터베이스에 있는 여러 유형의 노드를 보여 줍니다.
 
-![architecture](./media/sql-database-hyperscale/hyperscale-architecture.png)
+![아키텍처](./media/sql-database-hyperscale/hyperscale-architecture.png)
 
 Hyperscale 데이터베이스에는 다음과 같은 다양 한 유형의 구성 요소가 포함 됩니다.
 
@@ -102,7 +102,7 @@ Hyperscale 데이터베이스에는 다음과 같은 다양 한 유형의 구성
 
 Azure Storage는 데이터베이스의 모든 데이터 파일을 포함 합니다. 페이지 서버는 Azure Storage의 데이터 파일을 최신 상태로 유지 합니다. 이 저장소는 백업 용도로 사용 되며 Azure 지역 간의 복제에도 사용 됩니다. 백업은 데이터 파일의 저장소 스냅숏을 사용 하 여 구현 됩니다. 스냅숏을 사용한 복원 작업은 데이터 크기에 관계 없이 빠르게 수행 됩니다. 데이터베이스의 백업 보존 기간 내의 특정 시점으로 데이터를 복원할 수 있습니다.
 
-## <a name="backup-and-restore"></a>Backup 및 Restore 메서드
+## <a name="backup-and-restore"></a>Backup 및 복원
 
 백업은 파일-스냅숏 기반 이므로 거의 즉각적입니다. 저장소 및 계산 분리를 사용 하면 백업/복원 작업을 저장소 계층에 푸시하여 기본 계산 복제본의 처리 부담을 줄일 수 있습니다. 따라서 데이터베이스 백업은 기본 계산 노드의 성능에 영향을 주지 않습니다. 마찬가지로 복원 작업은 파일 스냅숏으로 되돌리고 데이터 작업의 크기와는 다른 방식으로 수행 됩니다. 복원은 일정 시간 작업이 며 몇 시간 또는 며칠이 아닌 몇 분만에 여러 테라바이트 데이터베이스를 복원할 수 있습니다. 기존 백업을 복원 하 여 새 데이터베이스를 만들면이 기능이 활용 됩니다. 또한 1tb 크기의 데이터베이스를 포함 하 여 개발 또는 테스트 목적으로 데이터베이스 복사본을 만드는 작업은 몇 분 안에 심지어 됩니다.
 
@@ -173,8 +173,8 @@ Azure SQL Database Hyperscale 계층은 현재 다음 지역에서 사용할 수
 - 미국 중부
 - 중국 동부 2
 - 중국 북부 2
-- 아시아 동부
-- East US
+- 동아시아
+- 미국 동부
 - 미국 동부 2
 - 프랑스 중부
 - 일본 동부
@@ -182,13 +182,13 @@ Azure SQL Database Hyperscale 계층은 현재 다음 지역에서 사용할 수
 - 한국 중부
 - 한국 남부
 - 미국 중북부
-- 유럽 북부
-- 남아프리카 북부
+- 북유럽
+- 남아프리카 공화국 북부
 - 미국 중남부
 - 동남아시아
 - 영국 남부
 - 영국 서부
-- 유럽 서부
+- 서유럽
 - 미국 서부
 - 미국 서부 2
 
@@ -208,7 +208,7 @@ Azure SQL Database Hyperscale 계층은 현재 다음 지역에서 사용할 수
 
 5. **할당량 유형**에서 **SQL database** 를 선택 합니다.
 
-6. **다음: Solutions @ no__t-0
+6. **다음: 솔루션** 을 클릭 합니다.
 
 1. **세부 정보 제공** 을 클릭 합니다.
 
@@ -236,18 +236,19 @@ Azure SQL Database Hyperscale 계층은 현재 다음 지역에서 사용할 수
 ## <a name="known-limitations"></a>알려진 제한 사항
 이는 GA를 기준으로 하는 Hyperscale 서비스 계층에 대 한 현재 제한 사항입니다.  가능한 한 많은 제한 사항을 제거 하기 위해 적극적으로 노력 하 고 있습니다.
 
-| 문제점 | 설명 |
+| 문제 | 설명 |
 | :---- | :--------- |
 | 논리 서버에 대 한 백업 관리 창은 SQL server에서 필터링 되는 Hyperscale 데이터베이스를 표시 하지 않습니다.  | Hyperscale에는 백업을 관리 하는 별도의 방법이 있지만 장기 보존 및 지정 시간 백업 보존 설정은 적용/무효화 되지 않습니다. 따라서 하이퍼스케일 데이터베이스가 백업 관리 창에 나타나지 않습니다. |
-| 지정 시간 복원 | 데이터베이스가 하이퍼 크기 조정 서비스 계층으로 마이그레이션되면 마이그레이션 전의 특정 시점으로의 복원은 지원 되지 않습니다.|
+| 특정 시점 복원 | 데이터베이스가 하이퍼 크기 조정 서비스 계층으로 마이그레이션되면 마이그레이션 전의 특정 시점으로의 복원은 지원 되지 않습니다.|
 | 비 Hyperscale DB를 Hypserscale로 또는 그 반대로 복원 | Hyperscale 데이터베이스를 Hyperscale이 아닌 데이터베이스로 복원할 수 없으며 hyperscale 데이터베이스를 Hyperscale 데이터베이스로 복원할 수 없습니다.|
 | 데이터베이스에 1TB 보다 큰 데이터 파일이 하나 이상 있으면 마이그레이션이 실패 합니다. | 경우에 따라이 문제를 해결 하려면 많은 파일을 1TB 미만으로 축소 해야 할 수 있습니다. 마이그레이션 프로세스 중에 사용 되는 데이터베이스를 마이그레이션하는 경우 1tb 보다 큰 파일이 없는지 확인 합니다. 다음 쿼리를 사용 하 여 데이터베이스 파일의 크기를 확인 합니다. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | 관리되는 인스턴스 | 현재는 Hyperscale 데이터베이스에서 Azure SQL Database Managed Instance 지원 되지 않습니다. |
 | 탄력적 풀 |  탄력적 풀은 현재 SQL Database Hyperscale에서 지원 되지 않습니다.|
 | 하이퍼스케일로 마이그레이션은 현재 단방향 작업입니다. | 데이터베이스가 하이퍼스케일로 마이그레이션되고 나면 하이퍼스케일이 아닌 서비스 계층에 직접 마이그레이션할 수 없습니다. 현재는 데이터베이스를 Hyperscale에서 비-Hyperscale 마이그레이션하는 유일한 방법은 BACPAC 파일이 나 기타 데이터 이동 기술 (대량 복사, Azure Data Factory, Azure Databricks, SSIS 등)을 사용 하 여 내보내거나 가져오는 것입니다.|
 | 영구적 메모리 내 개체가 있는 데이터베이스 마이그레이션 | Hyperscale은 비영구 메모리 내 개체 (테이블 형식, 네이티브 SPs 및 함수)만 지원 합니다.  데이터베이스를 Hyperscale service 계층으로 마이그레이션하기 전에 메모리 내 영구 테이블 및 기타 개체를 삭제 하 고 메모리 내 개체로 다시 만들어야 합니다.|
-| 변경 내용 추적 | Hyperscale 데이터베이스에 변경 내용 추적를 사용할 수 없습니다. |
-| 지역에서 복제  | Azure SQL Database Hyperscale에 대해 지역에서 복제를 구성할 수 없습니다.  지역 복원을 수행할 수 있습니다 (DR 또는 기타 목적을 위해 다른 지리에서 데이터베이스 복원). |
+| 변경 추적 | Azure SQL Hyperscale 데이터베이스를 사용 하 여 변경 내용 추적를 구성 하 고 사용할 수 없습니다. |
+| 지역에서 복제  | Azure SQL Database Hyperscale에 대해 지역에서 복제를 구성할 수 없습니다. |
+| 데이터베이스 복사 | 아직 데이터베이스 복사를 사용 하 여 Azure SQL Hyperscale에서 새 데이터베이스를 만들 수는 없습니다. |
 | TDE/AKV 통합 | Azure Key Vault를 사용 하는 투명 한 데이터베이스 암호화 (일반적으로 사용자 지정 키 또는 BYOK 라고도 함)는 Azure SQL Database Hyperscale에 대해 아직 지원 되지 않지만 서비스 관리 키를 사용 하는 TDE는 완전히 지원 됩니다. |
 |Intelligent Database 기능 | "강제 계획" 옵션을 제외 하 고 다른 모든 자동 조정 옵션은 Hyperscale에서 아직 지원 되지 않습니다. 옵션은 사용 하도록 설정 된 것 처럼 보일 수 있지만 권장 사항이 나 작업은 적용 되지 않습니다. |
 

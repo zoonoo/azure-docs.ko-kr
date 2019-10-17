@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: ab5af0e5971b91f45cbb12b4d0583caafa5ad504
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d79cefa9adec403ebbb5105351d2909eac9d02a4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079651"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390496"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Azure Portal을 사용하여 VHD에서 VM 만들기
 
@@ -34,6 +34,7 @@ Azure에서 VM(가상 머신)을 만드는 방법은 여러 가지가 있습니�
 
 여러 VM을 만들려는 경우 특수 디스크를 사용하지 마세요. 대신 대규모 배포의 경우 [이미지를 만든](capture-image-resource.md) 다음, [해당 이미지를 사용하여 여러 VM을 만듭니다](create-vm-generalized-managed.md).
 
+단일 스냅숏 또는 VHD에서 20 개의 Vm에 대 한 동시 배포 수를 제한 하는 것이 좋습니다. 
 
 ## <a name="copy-a-disk"></a>디스크 복사
 
@@ -74,6 +75,7 @@ Azure에서 VM(가상 머신)을 만드는 방법은 여러 가지가 있습니�
 10. **게스트 구성** 페이지에서 필요에 따라 확장을 추가합니다.
 11. 완료되면 **검토 + 만들기**를 선택합니다. 
 12. VM 구성이 유효성 검사를 통과하는 경우 **만들기**를 선택하여 배포를 시작합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: Python에서 Azure Service Bus 큐를 사용하는 방법 | Microsoft Docs
+title: '자습서: Python에서 Azure Service Bus 큐 사용'
 description: Python에서 Azure Service Bus 큐를 사용하는 방법에 대해 알아봅니다.
 services: service-bus-messaging
 documentationcenter: python
@@ -14,20 +14,21 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 9bb53a8e68866e2ed346277171e2706f5907e8af
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.custom: seo-python-october2019
+ms.openlocfilehash: 69ae02ea7c0c04312dd4e64125c80384172c6528
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141905"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72438103"
 ---
-# <a name="how-to-use-service-bus-queues-with-python"></a>Python에서 Service Bus 큐를 사용하는 방법
+# <a name="tutorial-use-azure-service-bus-queues-with-python"></a>자습서: Python에서 Azure Service Bus 큐 사용
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 이 자습서에서는 Service Bus 큐에서 메시지를 보내고 받는 Python 응용 프로그램을 만드는 방법에 대해 알아봅니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) 을 활성화 하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 등록할 수 있습니다.
 2. [Azure Portal를 사용 하 여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계를 따릅니다.
     1. Service Bus **큐**에 대 한 간략 한 **개요** 를 참조 하세요. 
@@ -45,7 +46,7 @@ ms.locfileid: "70141905"
 from azure.servicebus import ServiceBusClient
 ```
 
-다음 코드는 **Servicebusclient** 개체를 만듭니다. 을 `<CONNECTION STRING>` servicebus connectionstring으로 바꿉니다.
+다음 코드는 **Servicebusclient** 개체를 만듭니다. @No__t-0을 servicebus connectionstring으로 바꿉니다.
 
 ```python
 sb_client = ServiceBusClient.from_connection_string('<CONNECTION STRING>')
@@ -67,7 +68,7 @@ sb_client.create_queue("taskqueue", max_size_in_megabytes=5120,
 자세한 내용은 [Azure Service Bus Python 설명서](/python/api/overview/azure/servicebus?view=azure-python)를 참조 하세요.
 
 ## <a name="send-messages-to-a-queue"></a>큐에 메시지 보내기
-Service Bus 큐로 메시지를 보내기 위해 응용 프로그램은 `send` `ServiceBusClient` 개체에 대해 메서드를 호출 합니다.
+Service Bus 큐에 메시지를 보내기 위해 응용 프로그램은 `ServiceBusClient` 개체에 대해 `send` 메서드를 호출 합니다.
 
 다음 예제에서는 `send_queue_message`를 사용하여 `taskqueue`라는 큐에 테스트 메시지를 보내는 방법을 보여줍니다.
 
@@ -88,7 +89,7 @@ Service Bus 큐는 [표준 계층](service-bus-premium-messaging.md)에서 256KB
 자세한 내용은 [Azure Service Bus Python 설명서](/python/api/overview/azure/servicebus?view=azure-python)를 참조 하세요.
 
 ## <a name="receive-messages-from-a-queue"></a>큐에서 메시지 받기
-개체의 메서드를 `get_receiver` 사용 하 여 큐에서 메시지를 받습니다. `ServiceBusService`
+@No__t-1 개체의 `get_receiver` 메서드를 사용 하 여 큐에서 메시지를 받습니다.
 
 ```python
 from azure.servicebus import QueueClient, Message

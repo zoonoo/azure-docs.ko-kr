@@ -1,6 +1,6 @@
 ---
-title: 'Azure 상태 모니터 v2 API 참조: 추적 시작 | Microsoft Docs'
-description: V2 API 참조를 상태 모니터 합니다. 시작-추적. 상태 모니터 및 Application Insights SDK에서 ETW 로그를 수집 합니다.
+title: 'Azure 애플리케이션 Insights 에이전트 API 참조: 시작 추적 | Microsoft Docs'
+description: 에이전트 API 참조를 Application Insights 합니다. 시작-추적. 상태 모니터 및 Application Insights SDK에서 ETW 로그를 수집 합니다.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: f4c43e6bdb70687606041c2f0859ab072db2b587
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b1c5aa34c46a20631b328abfb061dc2477150c72
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200379"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389857"
 ---
-# <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace"></a>상태 모니터 v2 API: ApplicationInsightsMonitoringTrace
+# <a name="application-insights-agent-api-start-applicationinsightsmonitoringtrace"></a>Application Insights 에이전트 API: ApplicationInsightsMonitoringTrace
 
 이 문서에서는 [Az. ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)의 멤버인 cmdlet에 대해 설명 합니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "71200379"
 > [!IMPORTANT] 
 > 이 cmdlet을 사용 하려면 관리자 권한이 있는 PowerShell 세션이 있어야 합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 ### <a name="how-to-collect-events"></a>이벤트를 수집 하는 방법
 
@@ -43,22 +43,22 @@ ms.locfileid: "71200379"
 코드 없는 attach 런타임은 IIS가 시작 될 때와 응용 프로그램이 시작 될 때 ETW 이벤트를 내보냅니다.
 
 이러한 이벤트를 수집 하려면:
-1. 관리자 권한이 있는 cmd 콘솔에서를 실행 `iisreset /stop` 하 여 IIS 및 모든 웹 앱을 해제 합니다.
+1. 관리자 권한이 있는 cmd 콘솔에서 `iisreset /stop`을 실행 하 여 IIS 및 모든 웹 앱을 해제 합니다.
 2. 이 cmdlet 실행
-3. 관리자 권한이 있는 cmd 콘솔에서를 실행 `iisreset /start` 하 여 IIS를 시작 합니다.
+3. 관리자 권한이 있는 cmd 콘솔에서 `iisreset /start`을 실행 하 여 IIS를 시작 합니다.
 4. 앱으로 이동 해 보세요.
 5. 앱 로드가 완료 되 면 수동으로 중지 (`Ctrl + C`) 하거나 시간 초과를 기다릴 수 있습니다.
 
 ### <a name="what-events-to-collect"></a>수집할 이벤트
 
 이벤트를 수집할 때 세 가지 옵션이 있습니다.
-1. Application Insights SDK에서 `-CollectSdkEvents` 내보낸 이벤트를 수집 하려면 스위치를 사용 합니다.
-2. 스위치 `-CollectRedfieldEvents` 를 사용 하 여 상태 모니터 및 Redfield 런타임에서 내보낸 이벤트를 수집 합니다. 이러한 로그는 IIS 및 응용 프로그램 시작을 진단할 때 유용 합니다.
+1. @No__t-0 스위치를 사용 하 여 Application Insights SDK에서 내보낸 이벤트를 수집 합니다.
+2. @No__t-0 스위치를 사용 하 여 상태 모니터 및 Redfield 런타임에서 내보낸 이벤트를 수집 합니다. 이러한 로그는 IIS 및 응용 프로그램 시작을 진단할 때 유용 합니다.
 3. 두 스위치를 모두 사용 하 여 두 이벤트 유형을 모두 수집 합니다.
 4. 기본적으로 스위치를 지정 하지 않으면 두 이벤트 유형이 모두 수집 됩니다.
 
 
-## <a name="parameters"></a>매개 변수
+## <a name="parameters"></a>parameters
 
 ### <a name="-maxdurationinminutes"></a>-MaxDurationInMinutes
 **선택** 이 매개 변수를 사용 하 여이 스크립트에서 이벤트를 수집 하는 기간을 설정 합니다. 기본값은 5분입니다.
@@ -115,13 +115,13 @@ Timeout Reached. Stopping...
 
 추가 문제 해결:
 
-- 여기에서 추가 문제 해결 단계를 검토 합니다. https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-troubleshoot
+- @No__t-0에서 추가 문제 해결 단계를 검토 합니다.
 - [API 참조](status-monitor-v2-overview.md#powershell-api-reference) 를 검토 하 여 누락 된 매개 변수에 대해 알아보세요.
 - 추가 도움이 필요 하면 [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues)에서 문의할 수 있습니다.
 
 
 
- 상태 모니터 v2를 사용 하 여 더 많은 작업 수행:
- - 가이드를 사용 하 여 상태 모니터 v2 [문제를 해결](status-monitor-v2-troubleshoot.md) 하세요.
+ Application Insights 에이전트를 사용 하 여 더 많은 작업 수행:
+ - 가이드를 사용 하 여 Application Insights 에이전트 [문제를 해결할](status-monitor-v2-troubleshoot.md) 수 있습니다.
  - [구성을 가져와서](status-monitor-v2-api-get-config.md) 설정이 올바르게 기록 되었는지 확인 합니다.
  - 모니터링을 검사할 [상태를 가져옵니다](status-monitor-v2-api-get-status.md) .

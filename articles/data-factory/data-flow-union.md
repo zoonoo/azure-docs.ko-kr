@@ -1,18 +1,18 @@
 ---
-title: Azure Data Factory Mapping Data Flow 새 분기 변환
-description: Azure Data Factory Mapping Data Flow 새 분기 변환
+title: 데이터 흐름 새 분기 변환 Azure Data Factory 매핑
+description: 데이터 흐름 새 분기 변환 Azure Data Factory 매핑
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 35d5b2250cb5f2f5bd5b3a0073dc2e3c655ceccb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 4832cd2036f615d1e90d5e7a21c1a9832c2fa837
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029924"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387126"
 ---
 # <a name="mapping-data-flow-union-transformation"></a>데이터 흐름 통합 변환 매핑
 
@@ -22,19 +22,19 @@ ms.locfileid: "72029924"
 
 설정 테이블에서 구성 된 각 행 옆에 있는 "+" 아이콘을 선택 하 여 설정 테이블에서 n-수의 스트림을 결합할 수 있습니다. 여기에는 원본 데이터와 데이터 흐름에 있는 기존 변환의 스트림이 모두 포함 됩니다.
 
-![Union 변환](media/data-flow/union.png "union")
+![Union 변환](media/data-flow/union.png "통합")
 
 이 경우 여러 원본 (이 예제에서는 3 개의 다른 소스 파일)에서 서로 다른 메타 데이터를 결합 하 여 단일 스트림으로 결합할 수 있습니다.
 
-![Union 변환 개요](media/data-flow/union111.png "union 1")
+![Union 변환 개요](media/data-flow/union111.png "합집합 1")
 
 이렇게 하려면 추가 하려는 모든 원본을 포함 하 여 Union 설정에서 추가 행을 추가 합니다. 공통 조회 또는 조인 키가 필요 하지 않습니다.
 
-![Union 변환 설정](media/data-flow/unionsettings.png "union 설정")
+![Union 변환 설정](media/data-flow/unionsettings.png "Union 설정")
 
 공용 구조체 뒤에 Select 변환을 설정 하는 경우 headerless 원본에서 이름이 지정 되지 않은 겹치는 필드 또는 필드의 이름을 바꿀 수 있습니다. "검사"를 클릭 하 여이 예제에서 세 개의 다른 원본에서 메타 데이터를 132 총 열과 결합 합니다.
 
-![Union 변환 최종](media/data-flow/union333.png "공용 구조체 3")
+![Union 변환 최종](media/data-flow/union333.png "합집합 3")
 
 ## <a name="name-and-position"></a>이름 및 위치
 
@@ -42,7 +42,7 @@ ms.locfileid: "72029924"
 
 "위치에 따라 통합"을 선택 하면 각 열 값이 해당 하는 각 원본에서 원래 위치로 이동 하 여 각 소스의 데이터가 동일한 스트림에 추가 되는 새로운 결합 된 데이터 스트림이 생성 됩니다.
 
-![Union output](media/data-flow/unionoutput.png "union 출력")
+![Union 출력](media/data-flow/unionoutput.png "Union 출력")
 
 ## <a name="next-steps"></a>다음 단계
 

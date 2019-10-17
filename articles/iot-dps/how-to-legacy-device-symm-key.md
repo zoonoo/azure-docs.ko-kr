@@ -8,15 +8,14 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 00161f8158ad73591687764528258e1081f81ce2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13e22d772ef9b90f415f10b65e4a4290a1f7bd81
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65914309"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434826"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>대칭 키를 사용하여 레거시 디바이스를 프로비전하는 방법
-
 
 많은 레거시 디바이스의 일반적인 문제는 종종 단일 정보 부분으로 구성된 ID가 있다는 것입니다. 이 ID 정보는 일반적으로 MAC 주소 또는 일련 번호입니다. 레거시 디바이스에는 디바이스를 안전하게 식별하는 데 사용할 수 있는 인증서, TPM 또는 다른 보안 기능이 없을 수 있습니다. IoT 허브에 대한 디바이스 프로비저닝 서비스는 대칭 키 증명을 포함합니다. MAC 주소 또는 일련 번호와 같은 정보 기반 디바이스를 식별하는 데 대칭 키 증명을 사용할 수 있습니다.
 
@@ -28,6 +27,8 @@ ms.locfileid: "65914309"
 
 이 문서는 Windows 기반 워크스테이션에 적용됩니다. 그러나 Linux에서 절차를 수행할 수 있습니다. Linux 예제는 [다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법](how-to-provision-multitenant.md)을 참조하세요.
 
+> [!NOTE]
+> 이 문서에 사용 된 샘플은 C로 작성 되었습니다. 사용할 수 있는 [ C# 장치 프로 비전 대칭 키 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) 도 있습니다. 이 샘플을 사용 하려면 [azure-iot-csharp-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) 리포지토리를 다운로드 하거나 복제 하 고 샘플 코드의 인라인 지침을 따르세요. 이 문서의 지침에 따라 포털을 사용 하 여 대칭 키 등록 그룹을 만들고이 샘플을 실행 하는 데 필요한 ID 범위 및 등록 그룹 기본 및 보조 키를 찾을 수 있습니다. 샘플을 사용 하 여 개별 등록를 만들 수도 있습니다.
 
 ## <a name="overview"></a>개요
 
@@ -40,7 +41,7 @@ ms.locfileid: "65914309"
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md) 빠른 시작을 완료해야 합니다.
 * ['C++를 사용한 데스크톱 개발'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드를 사용하도록 설정한 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 이상
@@ -108,13 +109,13 @@ SDK에는 시뮬레이트된 디바이스의 샘플 코드가 포함되어 있�
 
    - **그룹 이름**: **mylegacydevices**를 입력합니다.
 
-   - **증명 유형**: **대칭 키**를 선택합니다.
+   - **증명 형식**: **대칭 키**를 선택합니다.
 
-   - **키 자동 생성**: 이 확인란을 선택합니다.
+   - **키 자동 생성**: 이 상자를 선택합니다.
 
    - **허브에 디바이스를 할당할 방법 선택**: 특정 허브에 할당할 수 있도록 **정적 구성**을 선택합니다.
 
-   - **이 그룹을 할당할 수 있는 IoT 허브 선택**: 허브 중 하나를 선택합니다.
+   - **이 그룹을 할당할 IoT 허브 선택**: 사용자의 허브 중 하나를 선택합니다.
 
      ![대칭 키 증명에 대한 등록 그룹 추가](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
@@ -245,7 +246,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 8. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예**를 클릭하여 실행하기 전에 프로젝트를 다시 빌드합니다.
 
-    다음 출력은 시뮬레이션된 디바이스를 성공적으로 부팅하고, IoT 허브에 할당할 프로비저닝 서비스 인스턴스에 연결하는 예제입니다.
+    다음 출력은 시뮬레이션된 디바이스를 성공적으로 부팅하고, IoT 허브에 할당할 Provisioning Service 인스턴스에 연결하는 예제입니다.
 
     ```cmd
     Provisioning API Version: 1.2.8
@@ -262,7 +263,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
     Press enter key to exit:
     ```
 
-9. 포털에서 시뮬레이션된 디바이스가 할당된 IoT 허브로 이동하고 **IoT 디바이스** 탭을 클릭합니다. 시뮬레이션된 디바이스가 허브에 성공적으로 프로비전되면 *상태*가 **사용**인 디바이스 ID가 **IoT 디바이스** 블레이드에 표시됩니다. 위쪽에서 **새로 고침** 단추를 클릭해야 할 수 있습니다. 
+9. 포털에서 시뮬레이션 된 장치가 할당 된 IoT hub로 이동 하 고 **Iot 장치** 탭을 클릭 합니다. 허브에 시뮬레이션 된를 성공적으로 프로 비전 하면 장치 ID가 **IoT 장치** 블레이드에 표시 되 고 *상태가* **사용**으로 표시 됩니다. 위쪽에서 **새로 고침** 단추를 클릭해야 할 수 있습니다. 
 
     ![디바이스가 IoT Hub에 등록됨](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 
@@ -278,9 +279,9 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 ## <a name="next-steps"></a>다음 단계
 
-* 자세한 Reprovisioning에 알아보려면 [개념을 다시 프로 비전 된 IoT 허브 장치](concepts-device-reprovision.md) 
+* 다시 프로 비전에 대 한 자세한 내용은 [IoT Hub Device 다시 프로 비전 개념](concepts-device-reprovision.md) 을 참조 하세요. 
 * [빠른 시작: 대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전](quick-create-simulated-device-symm-key.md)
-* 자세한 프로 비전 해제에 알아보려면 [이전에 자동으로 프로 비전 된 장치를 프로 비전 해제 하는 방법](how-to-unprovision-devices.md) 
+* 프로 비전 해제에 대 한 자세한 내용은 [이전에 자동 프로 비전 된 장치의 프로 비전](how-to-unprovision-devices.md) 을 해제 하는 방법 
 
 
 

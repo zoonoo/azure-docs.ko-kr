@@ -1,19 +1,19 @@
 ---
-title: Azure Data Factory Mapping Data Flow 조회 변환
-description: Azure Data Factory Mapping Data Flow 조회 변환
+title: 데이터 흐름 조회 변환 Azure Data Factory 매핑
+description: 데이터 흐름 조회 변환 Azure Data Factory 매핑
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: d762bddbe098e30cbf9e9c02da3c06073a358b12
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 25d8588f8e2c968dc2516938263aaa7d6ddcff13
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249243"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387863"
 ---
-# <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory Mapping Data Flow 조회 변환
+# <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>데이터 흐름 조회 변환 Azure Data Factory 매핑
 
 조회를 사용하여 다른 원본의 참조 데이터를 Data Flow에 추가합니다. 조회 변환에는 참조 테이블을 가리키고 키 필드가 일치하는 정의된 원본이 필요합니다.
 

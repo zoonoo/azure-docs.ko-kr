@@ -3,15 +3,15 @@ title: Azure 리소스 검색
 description: 리소스 그래프 쿼리 언어를 사용 하 여 리소스를 탐색 하 고 연결 방법을 검색 하는 방법을 알아봅니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/22/2019
+ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: e6a43db764a3dbc001e132ef5e321f20aa36041f
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: b92975e3fe73fb1c882bdfc4338fd8e169728e8b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981265"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387644"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Resource Graph로 Azure 리소스 탐색
 
@@ -26,16 +26,17 @@ Azure에서 흔히 사용되는 리소스 중 하나로 가상 머신이 있습�
 먼저 간단한 쿼리를 실행하여 환경에서 VM 하나를 가져온 다음 반환되는 속성을 살펴보겠습니다.
 
 ```kusto
-where type =~ 'Microsoft.Compute/virtualMachines'
+Resources
+| where type =~ 'Microsoft.Compute/virtualMachines'
 | limit 1
 ```
 
 ```azurecli-interactive
-az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1"
+az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1" | ConvertTo-Json -Depth 100
+Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1" | ConvertTo-Json -Depth 100
 ```
 
 > [!NOTE]
@@ -113,16 +114,17 @@ JSON 결과는 다음 예제와 비슷한 구조로 되어 있습니다.
 앞에서 가상 머신 리소스가 무엇인지에 대해 간단히 알아보았으므로, 이번에는 **location** 속성을 사용하여 위치별로 모든 가상 머신 개수를 계산해 보겠습니다. 쿼리를 업데이트하기 위해 제한을 제거하고 위치 값 개수를 요약하겠습니다.
 
 ```kusto
-where type =~ 'Microsoft.Compute/virtualMachines'
+Resources
+| where type =~ 'Microsoft.Compute/virtualMachines'
 | summarize count() by location
 ```
 
 ```azurecli-interactive
-az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by location"
+az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by location"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by location"
+Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by location"
 ```
 
 JSON 결과는 다음 예제와 비슷한 구조로 되어 있습니다.
@@ -151,16 +153,17 @@ JSON 결과는 다음 예제와 비슷한 구조로 되어 있습니다.
 이제 처음에 살펴보았던 가상 머신 속성으로 돌아가서 SKU 크기가 **Standard_B2s**인 모든 가상 머신을 찾아 보겠습니다. 반환된 JSON을 살펴보면 SKU 크기가 **properties.hardwareprofile.vmsize**에 저장되어 있음을 확인할 수 있습니다. 이 크기와 일치하는 모든 VM을 찾은 다음 VM 및 지역 이름만 반환하도록 쿼리를 업데이트합니다.
 
 ```kusto
-where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s'
+Resources
+| where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s'
 | project name, resourceGroup"
 ```
 
 ```azurecli-interactive
-az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
+az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
+Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
 ```
 
 ### <a name="virtual-machines-connected-to-premium-managed-disks"></a>프리미엄 관리 디스크에 연결된 가상 머신
@@ -168,7 +171,8 @@ Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' and pro
 이러한 **Standard_B2s** 가상 머신에 연결된 프리미엄 관리 디스크의 세부 정보를 확인하려는 경우 해당 관리 디스크의 리소스 ID를 반환하도록 쿼리를 확장할 수 있습니다.
 
 ```kusto
-where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s'
+Resources
+| where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s'
 | extend disk = properties.storageProfile.osDisk.managedDisk
 | where disk.storageAccountType == 'Premium_LRS'
 | project disk.id
@@ -178,11 +182,11 @@ where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile
 > **aliases** 속성 **Microsoft.Compute/virtualMachines/sku.name**을 사용하여 SKU를 가져올 수도 있습니다. [별칭 표시](../samples/starter.md#show-aliases) 및 [고유 별칭 값 표시](../samples/starter.md#distinct-alias-values) 예를 참조 하세요.
 
 ```azurecli-interactive
-az graph query -q "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
+az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
 ```
 
 ```azurepowershell-interactive
-  Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
+Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
 ```
 
 그러면 디스크 ID 목록이 결과로 반환됩니다.
@@ -202,7 +206,8 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualmachines' and propert
 ```
 
 ```kusto
-where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'
+Resources
+| where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'
 ```
 
 쿼리를 실행하기 전에 고려할 점은, **type**을 이번에는 **Microsoft.Compute/disks**로 설정해야 한다는 것입니다.
@@ -212,11 +217,11 @@ where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionI
 > ID 필드를 실제 환경의 결과로 바꿔야 이 예제가 작동합니다.
 
 ```azurecli-interactive
-az graph query -q "where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'"
+az graph query -q "Resources | where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'"
+Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'"
 ```
 
 JSON 결과는 다음 예제와 비슷한 구조로 되어 있습니다.
@@ -259,7 +264,7 @@ JSON 결과는 다음 예제와 비슷한 구조로 되어 있습니다.
 
 ```azurecli-interactive
 # Use Resource Graph to get all NICs and store in the 'nics.txt' file
-az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project nic = tostring(properties['networkProfile']['networkInterfaces'][0]['id']) | where isnotempty(nic) | distinct nic | limit 20" --output table | tail -n +3 > nics.txt
+az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project nic = tostring(properties['networkProfile']['networkInterfaces'][0]['id']) | where isnotempty(nic) | distinct nic | limit 20" --output table | tail -n +3 > nics.txt
 
 # Review the output of the query stored in 'nics.txt'
 cat nics.txt
@@ -267,7 +272,7 @@ cat nics.txt
 
 ```azurepowershell-interactive
 # Use Resource Graph to get all NICs and store in the $nics variable
-$nics = Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | project nic = tostring(properties['networkProfile']['networkInterfaces'][0]['id']) | where isnotempty(nic) | distinct nic | limit 20"
+$nics = Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project nic = tostring(properties['networkProfile']['networkInterfaces'][0]['id']) | where isnotempty(nic) | distinct nic | limit 20"
 
 # Review the output of the query stored in the variable
 $nics.nic
@@ -277,7 +282,7 @@ $nics.nic
 
 ```azurecli-interactive
 # Use Resource Graph with the 'nics.txt' file to get all related public IP addresses and store in 'publicIp.txt' file
-az graph query -q="where type =~ 'Microsoft.Network/networkInterfaces' | where id in ('$(awk -vORS="','" '{print $0}' nics.txt | sed 's/,$//')') | project publicIp = tostring(properties['ipConfigurations'][0]['properties']['publicIPAddress']['id']) | where isnotempty(publicIp) | distinct publicIp" --output table | tail -n +3 > ips.txt
+az graph query -q="Resources | where type =~ 'Microsoft.Network/networkInterfaces' | where id in ('$(awk -vORS="','" '{print $0}' nics.txt | sed 's/,$//')') | project publicIp = tostring(properties['ipConfigurations'][0]['properties']['publicIPAddress']['id']) | where isnotempty(publicIp) | distinct publicIp" --output table | tail -n +3 > ips.txt
 
 # Review the output of the query stored in 'ips.txt'
 cat ips.txt
@@ -285,7 +290,7 @@ cat ips.txt
 
 ```azurepowershell-interactive
 # Use Resource Graph  with the $nics variable to get all related public IP addresses and store in $ips variable
-$ips = Search-AzGraph -Query "where type =~ 'Microsoft.Network/networkInterfaces' | where id in ('$($nics.nic -join "','")') | project publicIp = tostring(properties['ipConfigurations'][0]['properties']['publicIPAddress']['id']) | where isnotempty(publicIp) | distinct publicIp"
+$ips = Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/networkInterfaces' | where id in ('$($nics.nic -join "','")') | project publicIp = tostring(properties['ipConfigurations'][0]['properties']['publicIPAddress']['id']) | where isnotempty(publicIp) | distinct publicIp"
 
 # Review the output of the query stored in the variable
 $ips.publicIp
@@ -295,13 +300,15 @@ $ips.publicIp
 
 ```azurecli-interactive
 # Use Resource Graph with the 'ips.txt' file to get the IP address of the public IP address resources
-az graph query -q="where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$(awk -vORS="','" '{print $0}' ips.txt | sed 's/,$//')') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip" --output table
+az graph query -q="Resources | where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$(awk -vORS="','" '{print $0}' ips.txt | sed 's/,$//')') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip" --output table
 ```
 
 ```azurepowershell-interactive
 # Use Resource Graph with the $ips variable to get the IP address of the public IP address resources
-Search-AzGraph -Query "where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip"
+Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip"
 ```
+
+@No__t-0 연산자를 사용 하 여 단일 쿼리에서 이러한 단계를 수행 하는 방법을 보려면 [네트워크 인터페이스를 사용 하 여 가상 컴퓨터 나열 및 공용 IP](../samples/advanced.md#join-vmpip) 샘플을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

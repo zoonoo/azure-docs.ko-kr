@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c75ec0ec212c99e474d13892178acbdc14e5f386
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: c34f59c3e9f679adf8ae410f648cb7de6dba6447
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075284"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430045"
 ---
 #  <a name="adopting-azure-ad-conditional-access"></a>Azure AD 조건부 액세스 채택
 
@@ -43,7 +43,7 @@ Azure AD 조건부 액세스를 사용할 경우의 주요 이점은 다음과 �
 
 Azure AD 조건부 액세스에 대 한 고객 및 파트너 환경에 대해 자세히 알아보려면 [azure에서 사용자가 수행 하는 놀라운 작업을 참조](https://azure.microsoft.com/case-studies/?service=active-directory)하세요.
 
-## <a name="announcements"></a>알림
+## <a name="announcements"></a>발표
 
 Azure AD는 지속적인 향상되고 있습니다. 최신 개발을 최신 상태로 유지 하려면 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md) 을 참조 하세요.
 
@@ -52,7 +52,7 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발을 최신 상�
 * 2018 년 9 월 24 일 [Azure Active Directory Azure Databricks에서 조건부 액세스](https://azure.microsoft.com/updates/azure-active-directory-conditional-access-in-azure-databricks/)
 * 2018 년 9 월 21 일, [AZURE AD 조건부 액세스 사용자 지정 컨트롤은 공개 미리 보기로 제공 됩니다](https://azure.microsoft.com/updates/azure-ad-conditional-access-custom-controls-are-in-public-preview/) .
 * 2018 년 9 월 21 일, [Microsoft Cloud App Security에 대 한 제한 된 액세스에 대 한 AZURE AD 조건부 액세스 지원 사용 가능](https://azure.microsoft.com/updates/azure-ad-conditional-access-support-for-limited-access-with-microsoft-cloud-app-security-is-now-available/)
-* 2018 년 9 월 21 [일, Azure AD 조건부 액세스: 이제 미리 보기로 제공 되는 iOS/Android 플랫폼에 대 한 Managed browser 지원](https://azure.microsoft.com/updates/azure-ad-conditional-access-managed-browser-support-for-ios-android-platforms-now-in-preview/)
+* 2018 년 9 월 21 일, [AZURE AD 조건부 액세스: 이제 미리 보기로 제공 되는 iOS/Android 플랫폼에 대 한 Managed browser 지원](https://azure.microsoft.com/updates/azure-ad-conditional-access-managed-browser-support-for-ios-android-platforms-now-in-preview/)
 * 2018 년 9 월 21 일, [국가 코드에 대 한 AZURE AD 조건부 액세스는 공개 미리 보기로 제공 됩니다](https://azure.microsoft.com/updates/azure-ad-conditional-access-for-country-codes-is-in-public-preview/) .
 * 2018 년 9 월 21 일, [AZURE AD 사용 약관 현재 사용 가능](https://azure.microsoft.com/updates/azure-ad-terms-of-use-now-available/)
 
@@ -69,7 +69,6 @@ Azure AD 조건부 액세스의 작동 방식에 대 한 개요를 보려면 아
 
 또한 Azure Active Directory와 통합 된 모든 서비스에 대 한 액세스를 보호 하기 위한 지침은 다음 링크를 참조 하세요.
 
-* [기준선 보호 (미리 보기) 란?](baseline-protection.md) 기준 보호를 사용 하면 최소한 Azure Active Directory 환경에서 사용 하도록 설정 된 기본 보안 수준을 유지할 수 있습니다.
 * [Id 및 장치 액세스 구성](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations). 지정 된 조건부 액세스 정책 및 관련 기능 집합을 포함 하 여 권장 환경 및 구성을 구현 함으로써 Enterprise Mobility + Security 제품을 통해 클라우드 서비스에 대 한 보안 액세스를 구성 하는 방법을 설명 합니다.
 * [조건부 액세스 설정 참조를 Azure Active Directory](technical-reference.md)합니다. 자세한
    * 조건부 액세스를 사용 하는 앱은 무엇 인가요?
@@ -116,7 +115,7 @@ Azure AD 조건부 액세스의 작동 방식에 대 한 개요를 보려면 아
 * 2018 년 9 월 18 일에 게시 된 [응용 프로그램을 Azure Active Directory으로 마이그레이션하기 위한 리소스](../manage-apps/migration-resources.md)
    * 이 백서에는 Azure Active Directory (Azure AD)로 응용 프로그램 액세스 및 인증을 마이그레이션하는 데 도움이 되는 리소스 목록이 포함 되어 있습니다.
 
-* 2018 [년 7 월 12 일 게시 Azure 보안 및 규정 준수 청사진: 영국 공식 작업을 위한 PaaS 웹 응용 프로그램 호스팅](../../security/blueprints/ukofficial-paaswa-overview.md)
+* 2018 년 7 월 12 일 게시 됨 [Azure 보안 및 규정 준수 청사진: 영국 공식 워크 로드를 위한 PaaS 웹 응용 프로그램 호스팅](../../security/blueprints/ukofficial-paaswa-overview.md)
    * Azure Blueprint는 승인 또는 규정 준수 요구 사항이 있는 시나리오에 대한 솔루션을 제공하기 위해 클라우드 기반 아키텍처를 배포하는 지침 문서와 자동화 템플릿으로 구성되어 있습니다.
 
 ## <a name="guidance-for-it-administrators"></a>IT 관리자를 위한 지침
@@ -130,8 +129,8 @@ IT 관리자는 azure [AD 조건부 액세스](overview.md) 를 사용 하 여 �
 * [Azure Active Directory의 조건부 액세스에 대 한 모범 사례](best-practices.md)
 * [Azure AD 액세스 검토를 사용 하 여 조건부 액세스 정책에서 제외 된 사용자 관리](../governance/conditional-access-exclusion.md)
 * [방법: Azure Active Directory에서 조건부 액세스 배포 계획](plan-conditional-access.md)
-* [빠른 시작: 조건부 액세스 Azure Active Directory 있는 특정 앱에 대해 MFA 필요](app-based-mfa.md)
-* [빠른 시작: 클라우드 앱에 액세스하기 전에 사용 약관에 동의하도록 요구](require-tou.md)
+* [빠른 시작: 조건부 액세스 Azure Active Directory 있는 특정 앱에 대 한 MFA 요구](app-based-mfa.md)
+* [빠른 시작: 클라우드 앱에 액세스 하기 전에 동의 해야 하는 사용 약관](require-tou.md)
 * [빠른 시작: Azure Active Directory 조건부 액세스를 사용 하 여 세션 위험이 감지 되 면 액세스 차단](app-sign-in-risk.md)
 * [Azure AD 조건부 액세스 Faq](faqs.md)
    * 추가 질문이 있는 경우 [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&sort=relevancedesc&brandIgnore=True&searchTerm=password+reset+azure)을 볼 수도 있습니다.
@@ -139,7 +138,7 @@ IT 관리자는 azure [AD 조건부 액세스](overview.md) 를 사용 하 여 �
 
 ### <a name="tutorials"></a>자습서
 
-* [**빠른 시작: 조건부 액세스 Azure Active Directory 있는 특정 앱에 대해 MFA 필요**](app-based-mfa.md)
+* [**빠른 시작: 조건부 액세스 Azure Active Directory 있는 특정 앱에 대 한 MFA 요구**](app-based-mfa.md)
    * 이 빠른 시작에서는 사용자 환경에서 선택한 클라우드 앱에 대 한 multi-factor authentication을 요구 하는 Azure AD 조건부 액세스 정책을 구성 하는 방법을 보여 줍니다.
 
 * [**빠른 시작: 클라우드 앱에 액세스 하기 전에 동의 해야 하는 사용 약관**](require-tou.md)

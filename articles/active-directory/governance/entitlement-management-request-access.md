@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aaa58d3027fecdbfdf594e5712cbdbd758380a7
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 86ab995327522ac5dead9b3f944e0760084aedce
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169827"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389079"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 액세스 패키지에 대 한 액세스 요청
 
@@ -30,7 +30,7 @@ ms.locfileid: "72169827"
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-Azure AD 자격 관리를 사용 하면 액세스 패키지의 수명 동안 자동으로 액세스를 관리 하는 리소스 및 정책의 일회성 설치를 사용할 수 있습니다. 
+Azure AD 자격 관리를 통해 액세스 패키지는 액세스 패키지의 수명 동안 자동으로 액세스를 관리 하는 리소스 및 정책의 일회성 설치를 가능 하 게 합니다. 
 
 액세스 패키지 관리자는 사용자가 액세스 패키지에 액세스할 수 있도록 승인을 요구 하는 정책을 구성할 수 있습니다. 액세스 패키지에 대 한 액세스 권한이 필요한 사용자는 액세스 권한을 얻기 위한 요청을 제출할 수 있습니다. 이 문서에서는 액세스 요청을 제출 하는 방법을 설명 합니다.
 
@@ -40,7 +40,7 @@ Azure AD 자격 관리를 사용 하면 액세스 패키지의 수명 동안 자
 
 **필수 역할:** 요청
 
-1. 작업 중인 프로젝트 또는 비즈니스 관리자에서 전자 메일 또는 메시지를 찾습니다. 전자 메일에는 액세스 권한을 필요로 하는 액세스 패키지에 대 한 링크가 포함 되어야 합니다. 이 링크는 "myaccess"로 시작 하 고, 디렉터리 힌트를 포함 하 고, 다음과 유사한 액세스 패키지 ID로 끝납니다.
+1. 작업 중인 프로젝트 또는 비즈니스 관리자에서 전자 메일 또는 메시지를 찾습니다. 전자 메일에는 액세스 권한을 필요로 하는 액세스 패키지에 대 한 링크가 포함 되어야 합니다. 링크는 `myaccess`으로 시작 하 고, 디렉터리 힌트를 포함 하 고, 액세스 패키지 ID로 끝납니다.
  
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 

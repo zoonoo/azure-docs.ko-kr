@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8027a1290b4b771c17a1e748c06f3b86fa0bf95
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4e8543f1f6ef2cdf1695340b07dcbc51365a01a5
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244598"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72438144"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 머신 확장 및 기능
 
@@ -42,7 +42,7 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 Automatio
 
 프로세스 관련 확장 외에도 Windows 및 Linux 가상 머신에 대해 사용자 지정 스크립트 확장을 사용할 수 있습니다. Windows용 사용자 지정 스크립트 확장을 사용하면 PowerShell 스크립트를 VM에서 실행할 수 있습니다. 사용자 지정 스크립트는 네이티브 Azure 도구로 제공할 수 있는 것 이상의 구성이 필요한 Azure 배포를 디자인할 때 유용합니다. 자세한 내용은 [Windows VM 사용자 지정 스크립트 확장](custom-script-windows.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 VM에서 확장을 처리하려면 Azure Windows 에이전트를 설치해야 합니다. 일부 개별 확장에는 리소스에 대한 액세스 권한 또는 종속성 같은 필수 구성 요소가 있습니다.
 
@@ -65,7 +65,7 @@ Windows 게스트 에이전트는 여러 OS에서 실행되지만 확장 프레�
 
 #### <a name="network-access"></a>네트워크 액세스
 
-확장 패키지는 Azure Storage 확장 리포지토리에서 다운로드되고, 확장 상태 업로드는 Azure Storage에 게시됩니다. [지원 되](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) 는 버전의 에이전트를 사용 하는 경우 VM 지역에서 Azure Storage에 대 한 액세스를 허용할 필요가 없습니다. 에이전트를 사용 하 여 에이전트 통신을 위해 Azure 패브릭 컨트롤러로 통신을 리디렉션할 수 있습니다. 개인 IP 168.63.129.16의 특권 채널 지원되지 않는 버전의 에이전트가 설치된 경우 VM의 해당 지역에서 Azure Storage에 대한 아웃바운드 액세스 권한을 허용해야 합니다.
+확장 패키지는 Azure Storage 확장 리포지토리에서 다운로드되고, 확장 상태 업로드는 Azure Storage에 게시됩니다. [지원 되](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) 는 버전의 에이전트를 사용 하는 경우 VM 지역에서 Azure Storage에 대 한 액세스를 허용할 필요가 없습니다. 에이전트를 사용 하 여 에이전트 통신을 위해 Azure 패브릭 컨트롤러로 통신을 리디렉션할 수 있습니다. 개인 IP [168.63.129.16](https://docs.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16)의 특권 채널 지원되지 않는 버전의 에이전트가 설치된 경우 VM의 해당 지역에서 Azure Storage에 대한 아웃바운드 액세스 권한을 허용해야 합니다.
 
 > [!IMPORTANT]
 > 게스트 방화벽 또는 프록시를 사용 하 여 *168.63.129.16* 에 대 한 액세스를 차단 하는 경우에는 위의 방법에 관계 없이 확장이 실패 합니다. 포트 80, 443 및 32526가 필요 합니다.
@@ -148,7 +148,7 @@ Azure Portal을 통해 기존 VM에 VM 확장을 적용할 수 있습니다. 포
 
 ![Install antimalware extension](./media/features-windows/installantimalwareextension.png)
 
-### <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
+### <a name="azure-resource-manager-templates"></a>Azure Resource Manager 템플릿
 
 Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포를 통해 실행할 수 있습니다. 템플릿을 사용하여 확장을 배포할 때 완전히 구성된 Azure 배포를 만들 수 있습니다. 예를 들어 다음 JSON은 부하 분산된 VM 집합 및 Azure SQL 데이터베이스를 배포한 후 각 VM에 .NET Core 애플리케이션을 설치하는 Resource Manager 템플릿에서 가져옵니다. VM 확장은 소프트웨어 설치를 관리합니다.
 
@@ -311,7 +311,7 @@ Windows 게스트 에이전트에는 *확장 처리 코드*만 포함됩니다. 
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>확장이 VM에서 autoUpgradeMinorVersion로 설정되었는지를 식별합니다.
 
-확장이 ‘autoUpgradeMinorVersion’을 사용하여 프로비전된 경우 VM 모델에서 볼 수 있습니다. 확인하려면 [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)을 사용하고 다음과 같이 리소스 그룹 및 VM 이름을 제공합니다.
+확장이 'autoUpgradeMinorVersion'을 사용하여 프로비전된 경우 VM 모델에서 볼 수 있습니다. 확인하려면 [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)을 사용하고 다음과 같이 리소스 그룹 및 VM 이름을 제공합니다.
 
 ```powerShell
  $vm = Get-AzVm -ResourceGroupName "myResourceGroup" -VMName "myVM"

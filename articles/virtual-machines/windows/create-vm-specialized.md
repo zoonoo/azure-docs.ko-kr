@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 5dde098277b16c7ec5339aa6b963b04dd608c8ac
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6adeae69a4ef9e6f2d77588f8071498fd25beb3e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079662"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390600"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell을 사용하여 특수 디스크에서 Windows VM 만들기
 
@@ -36,7 +36,7 @@ Azure Portal을 사용하여 [특수 VHD에서 새 VM을 만들](create-vm-speci
 
 이 문서에서는 관리 디스크를 사용하는 방법을 보여줍니다. 스토리지 계정을 사용해야 하는 레거시 배포가 있는 경우 [스토리지 계정의 특수한 VHD에서 VM 만들기](sa-create-vm-specialized.md)를 참조하세요.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+단일 VHD 또는 스냅숏에서 최대 20 개의 Vm에 대 한 동시 배포 수를 제한 하는 것이 좋습니다. 
 
 ## <a name="option-1-use-an-existing-disk"></a>옵션 1: 기존 디스크 사용
 
@@ -74,7 +74,7 @@ Get-AzStorageAccount
 
 기존 스토리지 계정을 사용하려면 [VHD 업로드](#upload-the-vhd-to-your-storage-account) 섹션을 진행합니다.
 
-저장소 계정을 만듭니다.
+스토리지 계정을 만듭니다.
 
 1. 스토리지 계정을 만들 리소스 그룹의 이름을 알아야 합니다. 구독에 있는 모든 리소스 그룹 목록을 보려면 Get-AzResourceGroup을 사용합니다.
    
@@ -102,7 +102,7 @@ Get-AzStorageAccount
     ```
 
 ### <a name="upload-the-vhd-to-your-storage-account"></a>스토리지 계정에 VHD 업로드 
-[Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet을 사용하여 스토리지 계정의 컨테이너에 VHD를 업로드합니다. 이 예제에서는 “C:\Users\Public\Documents\Virtual hard disks\"의 *myVHD.vhd* 파일을 *myResourceGroup* 리소스 그룹의 *mystorageaccount*라는 스토리지 계정에 업로드합니다. 파일은 *mycontainer*라는 컨테이너에 저장되고 새 파일 이름은 *myUploadedVHD.vhd*가 됩니다.
+[Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet을 사용하여 스토리지 계정의 컨테이너에 VHD를 업로드합니다. 이 예제에서는 “C:\Users\Public\Documents\Virtual hard disks\"의 *myVHD.vhd* 파일을 *myResourceGroup* 리소스 그룹의 *mystorageaccount*라는 저장소 계정에 업로드합니다. 파일은 *mycontainer*라는 컨테이너에 저장되고 새 파일 이름은 *myUploadedVHD.vhd*가 됩니다.
 
 ```powershell
 $resourceGroupName = "myResourceGroup"
@@ -204,7 +204,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-이 스냅숏을 사용 하 여 높은 성능을 필요로 하는 VM을 만들려면 AzSnapshotConfig 명령에 매개 변수 `-AccountType Premium_LRS` 를 추가 합니다. 이 매개 변수는 스냅샷을 만들어서 프리미엄 관리 디스크로 저장되도록 합니다. 프리미엄 관리 디스크는 표준보다 비용이 높으므로 이 매개 변수를 사용하기 전에 프리미엄이 필요한지 확인하세요.
+이 스냅숏을 사용 하 여 높은 성능을 필요로 하는 VM을 만들려면 `-AccountType Premium_LRS` 매개 변수를 AzSnapshotConfig 명령에 추가 합니다. 이 매개 변수는 스냅샷을 만들어서 프리미엄 관리 디스크로 저장되도록 합니다. 프리미엄 관리 디스크는 표준보다 비용이 높으므로 이 매개 변수를 사용하기 전에 프리미엄이 필요한지 확인하세요.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>스냅샷에서 새 디스크 만들기
 

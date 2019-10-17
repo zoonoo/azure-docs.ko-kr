@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05c93c9fe2b34ae3b87c44608cc5c5c8947ecc73
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 356f2eac06365b90052cab214d9d1ac318710730
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499847"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389660"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>조건부 액세스를 사용 하 여 인증 세션 관리 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "68499847"
 
 사용자 로그인 빈도에 대 한 Azure Active Directory (Azure AD) 기본 구성은 90 일의 롤링 기간입니다. 사용자에 게 자격 증명을 요청 하는 것이 중요 한 것 처럼 보일 수 있지만,이 경우에는 사용자가 생각 하지 않고 자격 증명을 입력 하도록 학습 한 사용자가 실수로 악성 자격 증명 프롬프트에 해당 자격 증명을 제공할 수 있습니다.
 
-90 일 동안 사용자에 게 다시 로그인 하도록 요청 하지 않고 오류가 심각한 증가 수 있습니다. 실제로 IT 정책 위반으로 인해 세션이 해지 됩니다. 암호 변경, incompliant 장치 또는 계정 비활성화를 비롯 한 몇 가지 예가 있습니다. [PowerShell을 사용 하 여 사용자 세션](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0)을 명시적으로 해지할 수도 있습니다. Azure AD 기본 구성은 "세션의 보안 상태가 변경 되지 않은 경우 사용자에 게 자격 증명을 제공 하지 않습니다." 라는 메시지가 표시 됩니다.
+사용자에 게 다시 로그인 하 라는 메시지가 표시 되는 것을 오류가 심각한 증가 수 있습니다. 실제로 IT 정책 위반으로 인해 세션이 해지 됩니다. 암호 변경, incompliant 장치 또는 계정 비활성화를 비롯 한 몇 가지 예가 있습니다. [PowerShell을 사용 하 여 사용자 세션](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0)을 명시적으로 해지할 수도 있습니다. Azure AD 기본 구성은 "세션의 보안 상태가 변경 되지 않은 경우 사용자에 게 자격 증명을 제공 하지 않습니다." 라는 메시지가 표시 됩니다.
 
 로그인 빈도 설정은 표준에 따라 OAUTH2 또는 OIDC 프로토콜을 구현한 앱과 함께 작동 합니다. Windows, Mac 및 Mobile 용 Microsoft 네이티브 앱 대부분은 설정을 준수 합니다.
 
@@ -45,8 +45,8 @@ ms.locfileid: "68499847"
 
 영구 브라우저 세션을 사용 하면 사용자가 브라우저 창을 닫았다가 다시 연 후 로그인 상태를 유지할 수 있습니다.
 
-브라우저 세션 지 속성의 Azure AD 기본값은 개인 장치의 사용자가 "로그인 상태 유지"를 표시 하 여 세션을 유지할지 여부를 선택할 수 있도록 허용 합니다. 인증 성공 후 확인. 문서에 있는 지침을 사용 하 여 AD FS에서 브라우저 지 속성을 구성 하는 경우 해당 [AD FS Single sign-on 설정](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
-) 정책을 준수 하 고 Azure AD 세션도 유지 합니다. 또한 테 넌 트의 사용자에 게 "로그인 상태 유지"가 표시 되는지 여부를 구성할 수 있습니다. [AZURE AD 로그인 페이지 사용자 지정](../fundamentals/customize-branding.md)문서에 있는 지침을 사용 하 Azure Portal의 회사 브랜딩 창에서 적절 한 설정을 변경 하 여 프롬프트를 표시 합니다.
+브라우저 세션 지 속성의 Azure AD 기본값은 개인 장치의 사용자가 "로그인 상태 유지"를 표시 하 여 세션을 유지할지 여부를 선택할 수 있도록 허용 합니다. 인증 성공 후 확인. [AD FS Single Sign-on 설정](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+)문서에 있는 지침을 사용 하 여 AD FS에서 브라우저 지 속성을 구성 하는 경우 해당 정책을 준수 하 고 Azure AD 세션도 유지 합니다. 또한 테 넌 트의 사용자에 게 "로그인 상태 유지"가 표시 되는지 여부를 구성할 수 있습니다. [AZURE AD 로그인 페이지 사용자 지정](../fundamentals/customize-branding.md)문서에 있는 지침을 사용 하 Azure Portal의 회사 브랜딩 창에서 적절 한 설정을 변경 하 여 프롬프트를 표시 합니다.
 
 ## <a name="configuring-authentication-session-controls"></a>인증 세션 컨트롤 구성
 
@@ -63,7 +63,7 @@ ms.locfileid: "68499847"
    > [!NOTE]
    > 최상의 사용자 환경을 위해 Exchange Online, SharePoint Online 등의 주요 Microsoft Office 앱에 대해 동일한 인증 프롬프트 빈도를 설정 하는 것이 좋습니다.
 
-1. **액세스 제어** > **세션** 으로 이동 하 여 **로그인 빈도** 를 클릭 합니다.
+1. **액세스 제어** > **세션** 으로 이동 하 고 **로그인 빈도** 를 클릭 합니다.
 1. 첫 번째 텍스트 상자에 날짜 및 시간에 대 한 필수 값을 입력 합니다.
 1. 드롭다운에서 **시간** 또는 **일** 값을 선택 합니다.
 1. 정책 저장

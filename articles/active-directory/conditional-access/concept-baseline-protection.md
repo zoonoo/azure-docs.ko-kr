@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 10/15/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 572371f4abec413be5a2320c7d69d8126f26924f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: ecd46b8cb734355a8394b7480c6def341cf9700d
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533065"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430337"
 ---
 # <a name="what-are-baseline-policies"></a>기준 정책 이란?
 
@@ -28,23 +28,23 @@ ms.locfileid: "69533065"
 
 ![Azure Portal의 조건부 액세스 기준 정책](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
-조직에서 사용할 수 있는 기본 정책에는 다음 네 가지가 있습니다.
+다음 네 가지 기준 정책이 있습니다.
 
-* [관리자 용 MFA 필요 (미리 보기)](howto-baseline-protect-administrators.md)
-* [최종 사용자 보호 (미리 보기)](howto-baseline-protect-end-users.md)
-* [레거시 인증 차단 (미리 보기)](howto-baseline-protect-legacy-auth.md)
-* [서비스 관리를 위해 MFA 필요 (미리 보기)](howto-baseline-protect-azure.md)
+* 관리자 용 MFA 필요 (미리 보기)
+* 최종 사용자 보호 (미리 보기)
+* 레거시 인증 차단 (미리 보기)
+* 서비스 관리를 위해 MFA 필요 (미리 보기)
 
 이러한 정책 중 4 개는 POP, IMAP 및 이전 Office 데스크톱 클라이언트와 같은 레거시 인증 흐름에 영향을 줍니다.
 
 ### <a name="require-mfa-for-admins-preview"></a>관리자 용 MFA 필요 (미리 보기)
 
-관리자 계정에는 강력 하 고 액세스 권한이 있으므로 특별히 주의 해 서 처리 해야 합니다. 권한 있는 계정에 대 한 보호를 개선 하는 일반적인 방법 중 하나는 로그인에 사용할 때 보다 강력한 계정 확인을 요구 하는 것입니다. Azure Active Directory 관리자가 Azure Multi-factor Authentication을 등록 하 고 사용 하도록 요구 하 여 더 강력한 계정 확인을 얻을 수 있습니다.
+관리자 계정에는 강력 하 고 액세스 권한이 있으므로 특별히 주의 해 서 처리 해야 합니다. 권한 있는 계정에 대 한 보호를 개선 하는 일반적인 방법 중 하나는 로그인에 사용할 때 보다 강력한 계정 확인을 요구 하는 것입니다. Azure Active Directory 관리자가 Azure Multi-Factor Authentication를 등록 하 고 사용 하도록 요구 하 여 더 강력한 계정 확인을 얻을 수 있습니다.
 
-[관리자 용 Mfa 필요 (미리 보기)](howto-baseline-protect-administrators.md) 는 다음 디렉터리 역할에 대해 mfa (multi-factor authentication)를 요구 하는 기준 정책으로, 가장 권한 있는 Azure AD 역할로 간주 됩니다.
+관리자 용 MFA 필요 (미리 보기)는 다음 디렉터리 역할에 대해 MFA (multi-factor authentication)를 요구 하는 기준 정책으로, 가장 권한 있는 Azure AD 역할로 간주 됩니다.
 
 * 전역 관리자
-* SharePoint administrator
+* SharePoint 관리자
 * Exchange 관리자
 * 조건부 액세스 관리자
 * 보안 관리자
@@ -58,14 +58,14 @@ ms.locfileid: "69533065"
 
 권한이 높은 관리자는 공격 대상이 되는 유일한 관리자가 아닙니다. 잘못 된 행위자는 일반 사용자를 대상으로 하는 경향이 있습니다. 액세스 권한을 획득 한 후 이러한 잘못 된 행위자는 원래 계정 소유자를 대신 하 여 권한 있는 정보에 대 한 액세스를 요청 하거나 전체 디렉터리를 다운로드 하 고 전체 조직에서 피싱 공격을 수행할 수 있습니다. 모든 사용자에 대 한 보호를 개선 하는 일반적인 방법 중 하나는 위험한 로그인이 감지 될 때 더 강력한 형태의 계정 확인을 요구 하는 것입니다.
 
-**최종 사용자 보호 (미리 보기)** 는 디렉터리의 모든 사용자를 보호 하는 기준 정책입니다. 이 정책을 사용 하도록 설정 하려면 모든 사용자가 14 일 내에 Azure Multi-factor Authentication에 등록 해야 합니다. 등록 한 후에는 사용자에 게 위험한 로그인 시도 중에만 MFA를 입력 하 라는 메시지가 표시 됩니다. 손상 된 사용자 계정은 암호 재설정 및 위험 해제 될 때까지 차단 됩니다. 
+**최종 사용자 보호 (미리 보기)** 는 디렉터리의 모든 사용자를 보호 하는 기준 정책입니다. 이 정책을 사용 하도록 설정 하려면 모든 사용자가 14 일 이내에 Azure Multi-Factor Authentication에 등록 해야 합니다. 등록 한 후에는 사용자에 게 위험한 로그인 시도 중에만 MFA를 입력 하 라는 메시지가 표시 됩니다. 손상 된 사용자 계정은 암호 재설정 및 위험 해제 될 때까지 차단 됩니다. 
 
 [!NOTE]
 이전에 위험 플래그가 지정 된 사용자는 암호 재설정 및 정책 활성화 시 해제 위험에 도달할 때까지 차단 됩니다.
 
 ### <a name="block-legacy-authentication-preview"></a>레거시 인증 차단 (미리 보기)
 
-레거시 인증 프로토콜 (예: IMAP, SMTP, POP3)는 이전 메일 클라이언트가 인증 하는 데 일반적으로 사용 되는 프로토콜입니다. 레거시 프로토콜은 multi-factor authentication을 지원 하지 않습니다. 디렉터리에 대해 multi-factor authentication을 요구 하는 정책이 있는 경우에도 잘못 된 행위자는 이러한 레거시 프로토콜 중 하나를 사용 하 여 인증 하 고 multi-factor authentication을 우회할 수 있습니다.
+레거시 인증 프로토콜 (예: IMAP, SMTP, POP3)은 이전 메일 클라이언트가 인증 하는 데 일반적으로 사용 되는 프로토콜입니다. 레거시 프로토콜은 multi-factor authentication을 지원 하지 않습니다. 디렉터리에 대해 multi-factor authentication을 요구 하는 정책이 있는 경우에도 잘못 된 행위자는 이러한 레거시 프로토콜 중 하나를 사용 하 여 인증 하 고 multi-factor authentication을 우회할 수 있습니다.
 
 레거시 프로토콜에서 수행 하는 악의적인 인증 요청 으로부터 계정을 보호 하는 가장 좋은 방법은 차단 하는 것입니다.
 
@@ -83,23 +83,10 @@ ms.locfileid: "69533065"
 
 권한 있는 작업을 보호 하려면 **서비스 관리 (미리 보기)에 대 한 MFA** 를 사용 하려면 Azure Portal, Azure PowerShell 또는 Azure CLI에 액세스 하는 모든 사용자에 대해 다단계 인증이 필요 합니다.
 
-## <a name="enable-a-baseline-policy"></a>기준 정책 사용
-
-기준 정책을 설정 하려면:
-
-1. 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
-1. **Azure Active Directory** > **조건부 액세스**로 이동 합니다.
-1. 정책 목록에서 사용 하도록 설정할 기준 정책을 선택 합니다.
-1. **정책 사용** 을 **켜기**로 설정 합니다.
-1. 저장을 클릭합니다.
-
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음을 참조하세요.
+자세한 내용은
 
+* [일반적인 조건부 액세스 정책](concept-conditional-access-policy-common.md)
 * [ID 인프라를 보호하기 위한 5단계](../../security/fundamentals/steps-secure-identity.md)
 * [Azure Active Directory의 조건부 액세스란?](overview.md)
-* [관리자 용 MFA 필요 (미리 보기)](howto-baseline-protect-administrators.md)
-* [최종 사용자 보호 (미리 보기)](howto-baseline-protect-end-users.md)
-* [레거시 인증 차단 (미리 보기)](howto-baseline-protect-legacy-auth.md)
-* [서비스 관리를 위해 MFA 필요 (미리 보기)](howto-baseline-protect-azure.md)

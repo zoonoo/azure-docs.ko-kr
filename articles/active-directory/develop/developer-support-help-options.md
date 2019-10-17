@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa14e88eeb8ab43f998a32aaa0c14220acab03a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a160f78f69ed559c576147e9758c837d5ae9b77e
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235330"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429973"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
 
@@ -35,7 +35,7 @@ Azure AD(Azure Active Directory), Microsoft ID 또는 Microsoft Graph API와 통
 > * 인증 라이브러리 중 하나에서 문제가 발생하면 *GitHub* 문제를 제기합니다.
 > * 마지막으로 누군가와 대화할 필요가 있으면 지원 요청을 열 수 있습니다.
 
-## <a name="search"></a>검색
+## <a name="search"></a>Search
 
 개발 관련 질문이 있으면 문서, [GitHub 샘플](https://github.com/azure-samples) 또는 [Stack Overflow](https://www.stackoverflow.com) FAQ에서 답변을 찾을 수 있습니다.
 
@@ -62,7 +62,7 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 
 검색을 통해 질문에 대한 답변을 찾을 수 없으면 새 질문을 Stack Overflow에 제출합니다. 질문할 때 다음 태그 중 하나를 사용하면 커뮤니티에서 질문을 더 빠르게 식별하고 답변하는 데 도움이 됩니다.
 
-|구성 요소/영역  | 태그들 |
+|구성 요소/영역  | 태그 |
 |---------|---------|
 | ADAL 라이브러리 | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
 | MSAL 라이브러리     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |
@@ -81,10 +81,10 @@ Stack Overflow의 다음 게시물에는 질문하는 방법과 소스 코드를
 
 라이브러리와 관련된 버그 또는 문제가 있으면 GitHub 리포지토리에서 문제를 제기합니다. 라이브러리는 오픈 소스이므로 끌어오기 요청을 제출할 수도 있습니다.
 
-라이브러리 및 해당 GitHub 리포지토리의 목록이, 다음을 참조 합니다.
+라이브러리 및 해당 GitHub 리포지토리 목록은 다음을 참조 하세요.
 
 * [ADAL](active-directory-authentication-libraries.md) 라이브러리 및 GitHub 리포지토리
-* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL 합니다. Android](https://github.com/AzureAD/microsoft-authentication-library-for-android), 및 [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) 라이브러리 및 GitHub 리포지토리
+* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [msal .Js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [msal. Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)및 [msal .obj _c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) 라이브러리 및 GitHub 리포지토리
 
 ## <a name="open-a-support-request"></a>지원 요청 열기
 
@@ -95,9 +95,3 @@ Stack Overflow의 다음 게시물에는 질문하는 방법과 소스 코드를
 * Azure 고객이 아닌 경우 [상용 지원](https://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial)을 통해 Microsoft 지원 요청을 열 수도 있습니다.
 
 [가상 에이전트](https://support.microsoft.com/contactus/?ws=support)를 사용하여 지원을 받거나 질문할 수도 있습니다.
-
-### <a name="free-chat-support-for-a-limited-time"></a>제한된 시간 동안 체험 채팅 지원
-
-제한된 시간 동안 Microsoft 파트너에게 제공되는 채팅 지원을 사용할 수도 있습니다. Microsoft 파트너가 아닌 경우 [여기](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx)로 이동하여 추가 비용 없이 등록하고 다른 혜택을 얻을 수 있습니다.
-
-회사를 등록한 후에는 [여기서](https://aka.ms/devchat) 채팅 요청을 시작할 수 있습니다.

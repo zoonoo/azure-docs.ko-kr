@@ -13,18 +13,19 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: b67e0eaabe63707455eaa6cd4b235ec828dddff3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 991f3c8939c0f9e270423ff30282b02f110eb39e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025451"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388909"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android용 Azure Mobile Apps SDK를 사용하는 방법
 
 > [!NOTE]
-> Visual Studio App Center은 모바일 앱 개발에 대 한 종단 간 및 통합 서비스의 중심을 지원 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다.
-> 모바일 응용 프로그램에서 클라우드 서비스를 통합 하려는 경우 현재 App Center [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 에 등록 하세요.
+> Visual Studio App Center는 모바일 앱 개발의 중심인 엔드투엔드 통합 서비스를 지원합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용하여 지속적인 통합 및 업데이트 파이프라인을 설정할 수 있습니다. 앱이 배포되면 개발자는 **분석** 및 **진단** 서비스를 사용하여 앱의 상태와 사용 현황을 모니터링하고, **푸시** 서비스를 사용하여 사용자와 소통할 수 있습니다. 또한 개발자는 **인증** 서비스를 사용하여 사용자를 인증하고, **데이터** 서비스를 사용하여 클라우드에서 애플리케이션 데이터를 유지하고 동기화할 수도 있습니다.
+>
+> 모바일 애플리케이션에서 클라우드 서비스를 통합하려면 지금 [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc)에 등록하세요.
 
 이 가이드에서는 Mobile Apps용 Android 클라이언트 SDK를 사용하여 다음과 같은 일반적인 시나리오를 구현하는 방법을 보여줍니다.
 
@@ -112,7 +113,7 @@ MobileServiceClient mClient = new MobileServiceClient(
 
 클라이언트는 활동 또는 컨텍스트(예제의 `this` 매개 변수)에 대한 액세스도 필요합니다.  MobileServiceClient 생성은 `AndroidManifest.xml` 파일에 언급된 활동의 `onCreate()` 메서드 내에서 수행되어야 합니다.
 
-가장 좋은 방법은 서버 통신을 자체(singleton 패턴) 클래스로 추상화하는 것입니다.  이런 경우 서비스를 적절히 구성하려면 활동을 생성자 내에서 전달해야 합니다.  예를 들어 다음과 같은 가치를 제공해야 합니다.
+가장 좋은 방법은 서버 통신을 자체(singleton 패턴) 클래스로 추상화하는 것입니다.  이런 경우 서비스를 적절히 구성하려면 활동을 생성자 내에서 전달해야 합니다.  다음은 그 예입니다.
 
 ```java
 package com.example.appname.services;
@@ -201,7 +202,7 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Mobile Apps 백 엔드에 추가 테이블을 만드는 방법을 알아보려면 [방법: 테이블 컨트롤러 @ no__t-0 (.NET 백 엔드)을 정의 하거나 동적 스키마 (node.js 백 엔드) [를 사용 하 여 테이블을 정의][16] 합니다.
+Mobile Apps 백 엔드에서 추가 테이블을 만드는 방법을 알아보려면 [방법: 테이블 컨트롤러 정의][15] (.net 백 엔드) 또는 [동적 스키마를 사용 하 여 테이블 정의][16] (node.js 백 엔드)를 참조 하세요.
 
 Azure Mobile Apps 백 엔드 테이블은 5개의 특수 필드를 정의하며 이 중 4개는 클라이언트에서 사용할 수 있습니다.
 
@@ -211,7 +212,7 @@ Azure Mobile Apps 백 엔드 테이블은 5개의 특수 필드를 정의하며 
 * `byte[] version`: 일반적으로 문자열로 표시되며 버전도 서버에 의해 설정됩니다.
 * `boolean deleted`: 레코드가 삭제되었지만 아직 제거되지 않았음을 나타냅니다.  `deleted`를 클래스에서 속성으로 사용하지 마십시오.
 
-`id` 필드는 필수입니다.  `updatedAt` 필드 및 `version` 필드는 오프라인 동기화에(각각 증분 동기화 및 충돌 해결을 위해) 사용됩니다.  `createdAt` 필드는 참조 필드이며 클라이언트에서 사용되지 않습니다.  이름은 속성의 "across-the-wire" 이름이며 조정할 수 없습니다.  그러나 [gson][3] 라이브러리를 사용 하 여 개체와 "유선" 이름 간의 매핑을 만들 수 있습니다.  예를 들어 다음과 같은 가치를 제공해야 합니다.
+`id` 필드는 필수입니다.  `updatedAt` 필드 및 `version` 필드는 오프라인 동기화에(각각 증분 동기화 및 충돌 해결을 위해) 사용됩니다.  `createdAt` 필드는 참조 필드이며 클라이언트에서 사용되지 않습니다.  이름은 속성의 "across-the-wire" 이름이며 조정할 수 없습니다.  그러나 [gson][3] 라이브러리를 사용 하 여 개체와 "유선" 이름 간의 매핑을 만들 수 있습니다.  다음은 그 예입니다.
 
 ```java
 package com.example.zumoappname;
@@ -460,7 +461,7 @@ do {
 
 ### <a name="chaining"></a>방법: 쿼리 메서드 연결
 
-백 엔드 테이블을 쿼리하는 데 사용되는 메서드를 연결할 수 있습니다. 쿼리 메서드를 연결하면 정렬 및 페이징되는 필터링된 행의 특정 열을 선택할 수 있습니다. 상당히 복잡한 논리 필터를 만들 수 있습니다.  각 쿼리 메서드는 쿼리 개체를 반환합니다. 일련의 메서드를 종료하고 실제로 쿼리를 실행하려면 **execute** 메서드를 호출합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+백 엔드 테이블을 쿼리하는 데 사용되는 메서드를 연결할 수 있습니다. 쿼리 메서드를 연결하면 정렬 및 페이징되는 필터링된 행의 특정 열을 선택할 수 있습니다. 상당히 복잡한 논리 필터를 만들 수 있습니다.  각 쿼리 메서드는 쿼리 개체를 반환합니다. 일련의 메서드를 종료하고 실제로 쿼리를 실행하려면 **execute** 메서드를 호출합니다. 다음은 그 예입니다.
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -530,7 +531,7 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 }
 ```
 
-어댑터의 **getView** 메서드를 다시 정의합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+어댑터의 **getView** 메서드를 다시 정의합니다. 다음은 그 예입니다.
 
 ```java
     @Override
@@ -635,7 +636,7 @@ ToDoItem entity = mToDoTable
 
 반환된 엔터티는 백 엔드 테이블에 삽입된 데이터와 일치하며 이는 ID 및 백 엔드에 설정된 다른 값(예: `createdAt`, `updatedAt` 및 `version` 필드)을 포함합니다.
 
-Mobile Apps 테이블에는 **id**라고 하는 기본 키 열이 필요합니다. 이 열은 문자열이어야 합니다. ID 열의 기본값은 GUID입니다.  전자 메일 주소나 사용자 이름처럼 다른 고유한 값을 입력해도 됩니다. 삽입된 레코드에 대한 문자열 ID 값을 입력하지 않으면 백 엔드에서 새 GUID를 생성합니다.
+Mobile Apps 테이블에는 **id**라는 기본 키 열이 필요 합니다. 이 열은 문자열 이어야 합니다. ID 열의 기본값은 GUID입니다.  전자 메일 주소나 사용자 이름처럼 다른 고유한 값을 입력해도 됩니다. 삽입된 레코드에 대한 문자열 ID 값을 입력하지 않으면 백 엔드에서 새 GUID를 생성합니다.
 
 문자열 ID 값은 다음과 같은 이점을 제공합니다.
 
@@ -779,9 +780,9 @@ public void showAllUntyped(View view) {
 
 Azure Mobile Apps 클라이언트 SDK는 SQLite 데이터베이스를 사용하여 서버 데이터의 복사본을 로컬에 저장하여 데이터의 오프라인 동기화를 구현합니다.  오프라인 테이블에 수행되는 작업에는 모바일 연결이 필요하지 않습니다.  오프라인 동기화는 충돌 해결을 위해보다 복잡한 논리를 사용하는 대신 복원력과 성능을 향상시킵니다.  Azure Mobile Apps 클라이언트 SDK는 다음 기능을 구현합니다.
 
-* 증분 동기화: 업데이트된 레코드와 새 레코드만 다운로드되기 때문에 대역폭과 메모리 사용량이 절약됩니다.
+* 증분 동기화: 업데이트된 레코드와 새 레코드 만 다운로드되기 때문에 대역폭과 메모리 사용량이 절약됩니다.
 * 낙관적 동시성: 작업이 성공한 것으로 간주됩니다.  충돌 해결은 서버에서 업데이트가 수행될 때까지 지연됩니다.
-* 충돌 해결: SDK는 서버에서 충돌하는 변경이 발생하면 이를 탐지하고 사용자에게 경고하기 위해 후크를 제공합니다.
+* 충돌 해결: SDK는 서버에서 충돌하는 변경이 발생하면 이를 감지하고 사용자에게 경고하기 위해 후크를 제공합니다.
 * 일시 삭제: 삭제된 레코드가 삭제된 것으로 표시되기 때문에 다른 디바이스가 오프라인 캐시를 업데이트할 수 있습니다.
 
 ### <a name="initialize-offline-sync"></a>오프라인 동기화 초기화
@@ -904,7 +905,7 @@ public void completeItem(View view) {
 
 자습서는 이러한 기능을 추가하는 방법을 이미 자세히 설명합니다.
 
-App Service는 다음과 같이 다양한 외부 ID 공급자를 사용하여 [앱 사용자의 인증](app-service-mobile-android-get-started-users.md)을 지원합니다. Facebook, Google, Microsoft 계정, Twitter 및 Azure Active Directory. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다.
+App Service는 Facebook, Google, Microsoft 계정, Twitter 및 Azure Active Directory와 같이 다양한 외부 ID 공급자를 사용하여 [앱 사용자의 인증](app-service-mobile-android-get-started-users.md) 을 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다.
 
 두 가지의 인증 흐름, 즉 **서버** 흐름과 **클라이언트** 흐름이 지원됩니다. 서버 흐름의 경우 ID 공급자의 웹 인터페이스를 사용하므로 인증 경험이 가장 단순합니다.  서버 흐름 인증을 구현하기 위해 추가 SDK가 필요하지는 않습니다. 서버 흐름 인증은 모바일 디바이스와 긴밀하게 통합되지 않으므로 개념 증명 시나리오에만 권장됩니다.
 
@@ -917,7 +918,7 @@ App Service는 다음과 같이 다양한 외부 ID 공급자를 사용하여 [�
 * App Service 백 엔드에서 테이블 사용 권한을 인증된 사용자로 제한합니다.
 * 앱에 인증 코드 추가
 
-테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 SID를 사용하여 요청을 수정할 수도 있습니다.  자세한 내용은 [인증 시작] 및 서버 SDK 사용 방법 문서를 참조하세요.
+테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 SID를 사용하여 요청을 수정할 수도 있습니다.  자세한 내용은 [Get started with authentication] 및 서버 SDK 사용 방법 문서를 참조하세요.
 
 ### <a name="caching"></a>인증: 서버 흐름
 
@@ -1000,7 +1001,7 @@ dependencies {
 }
 ```
 
-**getUserId** 메서드를 사용하여 **MobileServiceUser**에서 로그인한 사용자의 ID를 가져옵니다. 미래를 사용하여 비동기 로그인 API를 호출하는 방법의 예제는 [인증 시작]을 참조하세요.
+**getUserId** 메서드를 사용하여 **MobileServiceUser**에서 로그인한 사용자의 ID를 가져옵니다. 미래를 사용하여 비동기 로그인 API를 호출하는 방법의 예제는 [Get started with authentication]을 참조하세요.
 
 > [!WARNING]
 > 언급한 URL 구성표는 대/소문자를 구분합니다.  `{url_scheme_of_you_app}`의 모든 경우가 대/소문자가 일치해야 합니다.
@@ -1304,7 +1305,7 @@ client.setGsonBuilder(
 [ASCII control codes C0 and C1]: https://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Mobile Services SDK for Android]: https://go.microsoft.com/fwlink/p/?LinkID=717033
 [Azure portal]: https://portal.azure.com
-[인증 시작]: app-service-mobile-android-get-started-users.md
+[Get started with authentication]: app-service-mobile-android-get-started-users.md
 [1]: https://static.javadoc.io/com.google.code.gson/gson/2.8.5/com/google/gson/JsonObject.html
 [2]: https://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
 [3]: https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5

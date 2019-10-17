@@ -1,17 +1,17 @@
 ---
-title: Azure Data Factory Mapping Data Flow 피벗 변환
+title: 데이터 흐름 피벗 변환 Azure Data Factory 매핑
 description: Azure Data Factory 매핑 데이터 흐름 피벗 변환을 사용 하 여 행에서 열로 데이터 피벗
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 1412f7d822d83a8712d27dd4e86311567d6ac714
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: e59f0623b898fedada63e51fabbaf88d8b17f59d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029305"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387787"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Azure 데이터 팩터리 피벗 변환
 
@@ -20,7 +20,7 @@ ADF Data Flow의 피벗을 하나 이상의 그룹화 열의 고유한 행 값�
 
 ![피벗 옵션](media/data-flow/pivot1.png "피벗 1")
 
-## <a name="group-by"></a>Group By
+## <a name="group-by"></a>그룹화 방법
 
 ![피벗 옵션](media/data-flow/pivot2.png "피벗 2")
 
@@ -38,15 +38,15 @@ ADF Data Flow의 피벗을 하나 이상의 그룹화 열의 고유한 행 값�
 
 마지막으로, 피벗된 값에 사용할 집계와 변환의 새 출력 프로젝션에 열을 표시하는 방법을 선택합니다.
 
-(선택 사항) 행 값에서 검색된 각각의 새 열 이름에 추가할 접두사, 중간 및 접미사를 사용한 이름 지정 패턴을 설정할 수 있습니다.
+(선택 사항) 행 값에서 검색된 각 새 열 이름에 추가할 접두사, 중간 및 접미사를 사용한 이름 지정 패턴을 설정할 수 있습니다.
 
-예를 들어 “Sales”를 “Region”으로 피벗하는 경우 단순히 각 판매 값의 새 열 값(예: "25", "50", "1000" 등)을 얻게 됩니다. 그러나 접두사 값 "Sales-"를 설정 하면 각 열 값이 값의 시작 부분에 "Sales-"를 추가 합니다.
+예를 들어 "Region"으로 "Sales"를 피벗 하면 각 판매 값의 새 열 값 (예: "25", "50", "1000" 등)이 발생 합니다. 그러나 접두사 값 "Sales-"를 설정 하면 각 열 값이 값의 시작 부분에 "Sales-"를 추가 합니다.
 
 ![피벗 옵션](media/data-flow/pivot5.png "피벗 5")
 
 열 정렬을 “기본”으로 설정하면 피벗된 모든 열이 집계된 값과 함께 그룹화됩니다. 열 정렬을 “횡적”으로 설정하면 열과 값이 교대로 지정됩니다.
 
-### <a name="aggregation"></a>통합
+### <a name="aggregation"></a>집계
 
 피벗 값에 사용하려는 집계를 설정하려면 피벗 열 창 아래쪽의 필드를 클릭합니다. 집계 식을 작성하고 집계된 새 값에 대해 설명이 포함된 별칭 이름을 제공할 수 있는 ADF Data Flow 식 작성기를 시작합니다.
 
@@ -60,7 +60,7 @@ ADF Data Flow 식 언어를 사용하여 식 작성기의 피벗 열 변환을 �
 
 피벗은 행 값에 따라 새 열 이름을 동적으로 생성 합니다. 이러한 새 열을 나중에 데이터 흐름에서 참조할 수 있는 메타 데이터로 전환할 수 있습니다. 이렇게 하려면 데이터 미리 보기 탭을 클릭 합니다. 피벗 변환에 의해 생성 된 모든 새 열은 테이블 헤더에 "데이터베이스가 드리프트" 아이콘이 표시 됩니다. "Map 데이터베이스가 드리프트" 단추를 클릭 하 여 이러한 새 열을 데이터 흐름의 모델에 포함 되도록 설정 합니다.
 
-![피벗 열](media/data-flow/newpivot1.png "데이터베이스가 드리프트 피벗 열 매핑")
+![열 피벗](media/data-flow/newpivot1.png "데이터베이스가 드리프트 Pivot 열 매핑")
 
 ### <a name="landing-new-columns-in-sink"></a>싱크에 새 열 방문
 

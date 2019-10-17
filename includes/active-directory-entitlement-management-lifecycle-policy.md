@@ -1,0 +1,44 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: active-directory
+author: msaburnley
+ms.service: active-directory
+ms.topic: include
+ms.date: 10/15/2019
+ms.author: ajburnle
+ms.custom: include file
+ms.openlocfilehash: 88e11adadcc06875964146ad2046828267258038
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389350"
+---
+## <a name="lifecycle"></a>수명 주기
+
+**수명 주기** 탭에서 액세스 패키지에 대 한 사용자의 할당이 만료 되는 시점을 지정 합니다. 또한 사용자가 할당을 확장할 수 있는지 여부를 지정할 수 있습니다.
+
+1. **만료** 섹션에서 **액세스 패키지 할당은 만료** **날짜**, **일 수**또는 **안 함**으로 설정 합니다.
+
+    **날짜에서**나중에 만료 날짜를 선택 합니다.
+
+    **일 수**의 경우 0 ~ 007e; 3660 일 사이의 숫자를 지정 합니다.
+
+    사용자의 선택에 따라 액세스 패키지에 대 한 사용자의 할당은 특정 날짜, 승인 된 후 특정 기간 (일) 또는 안 함에 따라 만료 됩니다.
+
+1. **고급 만료 설정 표시** 를 클릭 하 여 추가 설정을 표시 합니다.
+
+    ![액세스 패키지-수명 주기 만료 설정](./media/active-directory-entitlement-management-lifecycle-policy/expiration.png)
+
+1. 사용자가 할당을 확장할 수 있도록 허용 하려면 **사용자가 액세스를 확장할 수 있도록 허용** 을 **예**로 설정 합니다.
+
+    정책에서 확장이 허용 되는 경우 사용자는 14 일 동안 전자 메일을 받게 되며, 액세스 패키지 할당은 할당을 확장 하도록 요청 하는 만료로 설정 됩니다.
+
+    사용자의 액세스가 확장 될 경우 지정 된 확장 날짜 (정책을 만든 사용자의 표준 시간대에 설정 된 날짜) 이후에 액세스 패키지를 요청할 수 없습니다.
+
+1. 확장을 부여 하기 위해 승인을 요청 하려면 **승인 필요** 를 **예**로 설정 합니다.
+
+    **요청** 탭에 지정 된 것과 동일한 승인 설정이 사용 됩니다.
+
+1. **다음** 또는 **업데이트**를 클릭 합니다.

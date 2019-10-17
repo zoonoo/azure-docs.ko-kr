@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs를 사용하여 특정 사용자에게 알림 푸시 | Microsoft Docs
+title: Azure Notification Hubs을 사용 하 여 특정 사용자에 게 푸시 알림 보내기 Microsoft Docs
 description: Azure Notification Hubs를 사용하여 특정 사용자에게 푸시 알림을 보내는 방법을 알아봅니다.
 documentationcenter: ios
 author: sethm
@@ -16,18 +16,18 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 85461f72d4385805e2aa13691a574a2161036ca5
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 48135ea614bbab4ca6649a83895ae5f632918c61
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212228"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387469"
 ---
-# <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 사용자에게 알림 푸시
+# <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용 하 여 특정 사용자에 게 푸시 알림 보내기
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-이 자습서에서는 Azure Notification Hubs를 사용하여 특정 디바이스에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. [앱 백 엔드에서 등록](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) 지침 항목에 나와 있는 대로 ASP.NET WebAPI 백 엔드는 클라이언트를 인증하고 알림을 생성하는 데 사용됩니다.
+이 자습서에서는 Azure Notification Hubs를 사용하여 특정 디바이스의 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. [앱 백 엔드에서 등록](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) 지침 항목에 나와 있는 대로 ASP.NET WebAPI 백 엔드는 클라이언트를 인증하고 알림을 생성하는 데 사용됩니다.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "71212228"
 > * iOS 앱 수정
 > * 애플리케이션 테스트
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서에서는 [Notification Hubs 시작(iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md)에 설명된 대로 Notification Hubs를 만들고 구성했다고 가정합니다 이 자습서는 [보안 푸시(iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) 자습서의 필수 조건이기도 합니다.
 Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸시 시작](../app-service-mobile/app-service-mobile-ios-get-started-push.md)을 참조하세요.
@@ -58,11 +58,11 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
 
     ![Xcode interface builder에서 storyboard 편집][1]
 
-   * **사용자 이름**: 자리 표시자 텍스트가 있는 UITextField, *사용자 이름 입력*, 바로 아래 결과 레이블 보내기를 지정하고 왼쪽 및 오른쪽 여백 및 보내기 결과 레이블 아래로 제한됩니다.
-   * **암호**: 자리 표시자 텍스트가 있는 UITextField, *암호 입력*, 바로 아래 사용자 이름 텍스트 필드 및 왼쪽 및 오른쪽 여백 및 사용자 이름 텍스트 필드 아래로 제한됩니다. **반환 키** 아래 특성 검사기에서 *텍스트 항목 보안*옵션을 선택합니다.
+   * **Username**: 자리 표시자 텍스트가 있는 UITextField, *사용자 이름 입력*, 바로 아래 결과 레이블 보내기를 지정하고 왼쪽 및 오른쪽 여백 및 보내기 결과 레이블 아래로 제한됩니다.
+   * **암호**: 자리 표시자 텍스트가 있는 UITextField, *사용자 이름 입력*, 바로 아래 사용자 이름 텍스트 필드 및 왼쪽 및 오른쪽 여백 및 사용자 이름 텍스트 필드 아래로 제한됩니다. **반환 키** 아래 특성 검사기에서 *텍스트 항목 보안*옵션을 선택합니다.
    * **로그인**: 암호 텍스트 필드 바로 아래 레이블이 지정된 UIButton, *Control-Content* 아래 특성 검사기에서 **사용** 옵션의 선택을 취소합니다.
    * **WNS**: 허브에 설치된 경우 알림을 Windows 알림 서비스로 보낼 수 있는 레이블 및 스위치입니다. [Windows 시작](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 자습서를 참조하세요.
-   * **GCM**: 허브에 설치된 경우 알림을 Google Cloud Messaging으로 보낼 수 있는 레이블 및 스위치입니다. [Android 시작](notification-hubs-android-push-notification-google-gcm-get-started.md) 자습서를 참조하세요.
+   * **GCM**: 허브에 설치된 경우 알림을 Google 클라우드 메시징으로 보낼 수 있는 레이블 및 스위치입니다. [Android 시작](notification-hubs-android-push-notification-google-gcm-get-started.md) 자습서를 참조하세요.
    * **APNS**: Apple 플랫폼 알림 서비스로 알림을 보낼 수 있는 레이블 및 스위치입니다.
    * **받는 사람 사용자 이름**: 자리 표시자 텍스트가 있는 UITextField, *받는 사람 사용자 이름 태그*, GCM 레이블 바로 아래이며 왼쪽 및 오른쪽 여백으로 제한되고 GCM 레이블 아래입니다.
 
@@ -88,7 +88,7 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. `ViewController.h`에서 다음 `#define`을 import 문 뒤에 추가합니다. `<Enter Your Backend Endpoint>` 자리 표시자를 이전 섹션에서 앱 백 엔드를 배포하는 데 사용한 대상 URL로 대체합니다. 예를 들어, `http://your_backend.azurewebsites.net`을 입력합니다.
+4. `ViewController.h`에서 다음 `#define`을 import 문 뒤에 추가합니다. `<Enter Your Backend Endpoint>` 자리 표시자를 이전 섹션에서 앱 백 엔드를 배포하는 데 사용한 대상 URL로 대체합니다. 예: `http://your_backend.azurewebsites.net`
 
     ```objc
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"

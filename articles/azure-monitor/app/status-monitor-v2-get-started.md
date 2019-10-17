@@ -1,6 +1,6 @@
 ---
-title: Azure 상태 모니터 v2-시작 하기 | Microsoft Docs
-description: 상태 모니터 v 2에 대 한 빠른 시작 가이드입니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
+title: Azure 애플리케이션 Insights 에이전트-시작 하기 | Microsoft Docs
+description: Application Insights 에이전트에 대 한 빠른 시작 가이드입니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: d9c354edac3cbd3faccaa261654e56f858befdf6
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: f1911d8187b186f301bea771963f922ee3574fd6
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058242"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388226"
 ---
-# <a name="get-started-with-status-monitor-v2"></a>상태 모니터 v2 시작
+# <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>온-프레미스 서버에 대 한 Azure Monitor Application Insights 에이전트 시작
 
 이 문서에는 대부분의 환경에서 작동 하는 데 필요한 빠른 시작 명령이 포함 되어 있습니다.
 지침은 업데이트를 배포 하는 PowerShell 갤러리에 따라 달라 집니다.
@@ -41,7 +41,7 @@ Install-Module -Name PowerShellGet -Force
 ``` 
 PowerShell을 닫습니다.
 
-### <a name="install-status-monitor-v2"></a>상태 모니터 v2 설치
+### <a name="install-application-insights-agent"></a>Application Insights 에이전트 설치
 관리자 권한으로 PowerShell을 실행 합니다.
 ```powershell   
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
@@ -59,7 +59,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 ### <a name="download-the-module"></a>모듈 다운로드
 [PowerShell 갤러리](https://www.powershellgallery.com/packages/Az.ApplicationMonitor)에서 모듈의 최신 버전을 수동으로 다운로드 합니다.
 
-### <a name="unzip-and-install-status-monitor-v2"></a>상태 모니터 v2 압축 풀기 및 설치
+### <a name="unzip-and-install-application-insights-agent"></a>Application Insights 에이전트 압축 풀기 및 설치
 ```powershell
 $pathToNupkg = "C:\Users\t\Desktop\Az.ApplicationMonitor.0.3.0-alpha.nupkg"
 $pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))
@@ -89,7 +89,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 - 웹 [클라이언트 원격 분석을 추가](../../azure-monitor/app/javascript.md) 하 여 웹 페이지 코드에서 예외를 확인 하 고 추적 호출을 사용 하도록 설정 합니다.
 - 추적 및 로그 호출을 삽입할 수 있도록 [APPLICATION INSIGHTS SDK를 코드에 추가](../../azure-monitor/app/asp-net.md) 합니다.
 
-상태 모니터 v2를 사용 하 여 더 많은 작업 수행:
+Application Insights 에이전트를 사용 하 여 더 많은 작업 수행:
 
 - [자세한 지침은](status-monitor-v2-detailed-instructions.md) 여기에서 찾을 수 있는 명령에 대 한 설명을 참조 하세요.
-- 가이드를 사용 하 여 상태 모니터 v2 [문제를 해결](status-monitor-v2-troubleshoot.md) 하세요.
+- 가이드를 사용 하 여 Application Insights 에이전트 [문제를 해결할](status-monitor-v2-troubleshoot.md) 수 있습니다.

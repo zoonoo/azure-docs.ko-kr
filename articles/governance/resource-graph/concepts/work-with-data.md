@@ -3,15 +3,15 @@ title: 대규모 데이터 세트로 작업
 description: Azure Resource Graph를 사용하는 동안 큰 데이터 세트를 가져오고 제어하는 방법을 파악합니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/10/2019
+ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 0ecd0ea997520947b766912f834de2a0c2e64429
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: c78f2e37fa29fa1cdcb9acc6a4600688750b6d74
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274243"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387585"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>큰 Azure 리소스 데이터 세트 작업
 
@@ -29,11 +29,11 @@ Azure Resource Graph는 Azure 환경의 리소스로 작업하고 해당 정보�
 Resource Graph를 조작하는 모든 메서드를 통해 기본 제한을 재정의할 수 있습니다. 다음 예제에서는 데이터 세트 크기 제한을 _200_으로 변경하는 방법을 보여 줍니다.
 
 ```azurecli-interactive
-az graph query -q "project name | order by name asc" --first 200 --output table
+az graph query -q "Resources | project name | order by name asc" --first 200 --output table
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project name | order by name asc" -First 200
+Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
 [REST API](/rest/api/azureresourcegraph/resources/resources)에서 제어는 **$top**이며 **QueryRequestOptions**의 일부입니다.
@@ -52,11 +52,11 @@ Search-AzGraph -Query "project name | order by name asc" -First 200
 다음 예제에서는 반환된 결과 집합을 11번째 레코드로 시작하는 대신, 쿼리에서 생성하는 처음 _10_개의 레코드를 건너뛰는 방법을 보여 줍니다.
 
 ```azurecli-interactive
-az graph query -q "project name | order by name asc" --skip 10 --output table
+az graph query -q "Resources | project name | order by name asc" --skip 10 --output table
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project name | order by name asc" -Skip 10
+Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
 [REST API](/rest/api/azureresourcegraph/resources/resources)에서 제어는 **$skip**이며 **QueryRequestOptions**의 일부입니다.
@@ -71,11 +71,11 @@ Search-AzGraph -Query "project name | order by name asc" -Skip 10
 다음 예에서는 첫 번째 3000 레코드를 **건너뛰고** Azure CLI와 Azure PowerShell 건너뛴 후 **첫 번째** 1000 레코드를 반환 하는 방법을 보여 줍니다.
 
 ```azurecli-interactive
-az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
+az graph query -q "Resources | project id, name | order by id asc" --first 1000 --skip 3000
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 3000
+Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 1000 -Skip 3000
 ```
 
 > [!IMPORTANT]
@@ -156,14 +156,14 @@ _ObjectArray_ 형식을 사용 하도록 **resultformat** 을 설정 하는 몇 
 
 ```csharp
 var requestOptions = new QueryRequestOptions( resultFormat: ResultFormat.ObjectArray);
-var request = new QueryRequest(subscriptions, "limit 1", options: requestOptions);
+var request = new QueryRequest(subscriptions, "Resources | limit 1", options: requestOptions);
 ```
 
 ```python
 request_options = QueryRequestOptions(
     result_format=ResultFormat.object_array
 )
-request = QueryRequest(query="limit 1", subscriptions=subs_list, options=request_options)
+request = QueryRequest(query="Resources | limit 1", subscriptions=subs_list, options=request_options)
 response = client.resources(request)
 ```
 

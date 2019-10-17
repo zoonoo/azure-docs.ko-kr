@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 5eff92352251febca1d4e7033618372dc929d987
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 1d6560613294584c77f002e2380065d64ea143f7
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029414"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387961"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>데이터 흐름 매핑의 스키마 드리프트
 
@@ -62,11 +62,11 @@ Azure Data Factory은 데이터 흐름을 다시 컴파일할 필요 없이 일�
 
 데이터베이스가 드리프트 열을 명시적으로 참조 하기 위해 데이터 미리 보기 빠른 작업을 통해 이러한 열에 대 한 매핑을 빠르게 생성할 수 있습니다. [디버그 모드가](concepts-data-flow-debug-mode.md) 설정 되 면 데이터 미리 보기 탭으로 이동 하 고 **새로 고침** 을 클릭 하 여 데이터 미리 보기를 가져옵니다. Data factory가 데이터베이스가 드리프트 열이 있는 것으로 감지 되 면 **데이터베이스가 드리프트 매핑** 을 클릭 하 고 스키마 뷰 다운스트림의 모든 데이터베이스가 드리프트 열을 참조할 수 있는 파생 열을 생성할 수 있습니다.
 
-![Map 데이터베이스가 드리프트](media/data-flow/mapdrifted1.png "map 데이터베이스가 드리프트")
+![지도 데이터베이스가 드리프트](media/data-flow/mapdrifted1.png "지도 데이터베이스가 드리프트")
 
 생성 된 파생 열 변환에서 각 데이터베이스가 드리프트 열은 검색 된 이름 및 데이터 형식에 매핑됩니다. 위의 데이터 미리 보기에서 ' movieId ' 열은 정수로 검색 됩니다. **Map 데이터베이스가 드리프트** 을 클릭 한 후 MovieId은 파생 열에 `toInteger(byName('movieId'))`로 정의 되 고 다운스트림 변환의 스키마 뷰에 포함 됩니다.
 
-![Map 데이터베이스가 드리프트](media/data-flow/mapdrifted2.png "map 데이터베이스가 드리프트")
+![지도 데이터베이스가 드리프트](media/data-flow/mapdrifted2.png "지도 데이터베이스가 드리프트")
 
 ## <a name="next-steps"></a>다음 단계
 [데이터 흐름 식 언어](data-flow-expression-functions.md)에서 열 패턴에 대 한 추가 기능 및 "byName" 및 "byPosition"를 포함 하는 스키마 드리프트를 찾을 수 있습니다.

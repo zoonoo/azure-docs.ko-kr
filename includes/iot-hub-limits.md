@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: f0de7aedc3883978582da1950e95aaabac9a1695
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: b8d4c2691af8429e7b3a6c1916d12f1af609e744
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272988"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391712"
 ---
 다음 표에서는 다른 서비스 계층 S1, S2, S3 및 F1와 관련 된 제한을 나열 합니다. 각 계층의 각 *단위* 비용에 대 한 자세한 내용은 [Azure IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조 하세요.
 
@@ -31,13 +31,13 @@ ms.locfileid: "72272988"
 | Azure 구독당 최대 무료 IoT Hub |1 |
 | 장치 ID의 최대 문자 수 | 128 |
 | 단일 호출에서 반환되는 최대 디바이스 ID<br/> 수 |1,000 |
-| 디바이스-&gt;클라우드 메시지의 IoT Hub 메시지 최대 보존 |7 일 |
-| 디바이스-&gt;클라우드 메시지의 최대 크기 |256 KB |
+| 디바이스-&gt;클라우드 메시지의 IoT Hub 메시지 최대 보존 |7일 |
+| 디바이스-&gt;클라우드 메시지의 최대 크기 |256KB |
 | 디바이스-&gt;클라우드 배치의 최대 크기 |AMQP 및 HTTP: 전체 일괄 처리에 256KB <br/>MQTT: 각 메시지에 256KB |
 | 디바이스-&gt;클라우드 배치의 최대 메시지 |500 |
 | 클라우드-&gt;디바이스 메시지의 최대 크기 |64KB |
 | 클라우드-&gt;디바이스 메시지의 최대 TTL |2일 |
-| 클라우드-&gt;디바이스 <br/> messages |100 |
+| 클라우드-&gt;디바이스 <br/> 메시지의 최대 전달 수 |100 |
 | 장치당 클라우드-장치 최대 큐 깊이 |50 |
 | 클라우드->장치 메시지에 대한 응답에서 피드백 <br/> 메시지의 최대 전달 수 |100 |
 | 클라우드->장치 메시지에 대한 응답에서 피드백 <br/> 메시지의 최대 TTL |2일 |
@@ -56,7 +56,7 @@ ms.locfileid: "72272988"
 > Azure 구독에서 50 개 이상의 유료 IoT hub가 필요한 경우 Microsoft 지원에 문의 하세요.
 
 > [!NOTE]
-> 현재 단일 IoT Hub에 연결할 수 있는 디바이스의 최대 수는 1,000,000개입니다. 이 제한을 높이려면 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
+> 현재 단일 IoT hub에 등록할 수 있는 장치 및 모듈의 총 수는 100만로 표시 됩니다. 이 제한을 높이려면 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
 
 다음 할당량을 초과 하는 경우 제한 요청을 IoT Hub 합니다.
 

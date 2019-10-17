@@ -1,23 +1,23 @@
 ---
-title: Azure Data Factory Mapping Data Flow 식 작성기
-description: Azure Data Factory Mapping Data Flow용 식 작성기
+title: Azure Data Factory 매핑 데이터 흐름 식 작성기
+description: 데이터 흐름 Azure Data Factory 매핑하기 위한 식 작성기
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: 9862866d5cddb227d9417ac15db6b8ea851507e6
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 872c7ce6a0c39ab19165a5f16ea3e4f6ef8bd6a5
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030300"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388044"
 ---
-# <a name="mapping-data-flow-expression-builder"></a>Mapping Data Flow 식 작성기
+# <a name="mapping-data-flow-expression-builder"></a>데이터 흐름 식 작성기 매핑
 
 
 
-Azure Data Factory Mapping Data Flow에는 데이터 변환 식을 입력할 수 있는 식 상자가 있습니다. 해당 상자에 데이터 흐름의 열, 필드, 변수, 매개 변수, 함수를 사용합니다. 식을 작성하려면 변환 내의 식 텍스트 상자를 클릭할 때 시작되는 식 작성기를 사용합니다. 변환에 사용할 열을 선택할 때 “계산 열” 옵션이 표시되는 경우도 있습니다. 이 옵션을 클릭해도 식 작성기가 시작됩니다.
+데이터 흐름 Azure Data Factory 매핑에서는 데이터 변환 식을 입력할 수 있는 식 상자를 찾을 수 있습니다. 해당 상자에 데이터 흐름의 열, 필드, 변수, 매개 변수, 함수를 사용합니다. 식을 작성하려면 변환 내의 식 텍스트 상자를 클릭할 때 시작되는 식 작성기를 사용합니다. 변환에 사용할 열을 선택할 때 “계산 열” 옵션이 표시되는 경우도 있습니다. 이 옵션을 클릭해도 식 작성기가 시작됩니다.
 
 ![식 작성기](media/data-flow/xpb1.png "식 작성기")
 
@@ -27,11 +27,11 @@ Azure Data Factory Mapping Data Flow에는 데이터 변환 식을 입력할 수
 
 ## <a name="build-schemas-in-output-schema-pane"></a>출력 스키마 창에서 스키마 빌드
 
-![복합 열 추가](media/data-flow/complexcolumn.png "열") 추가
+![복합 열 추가](media/data-flow/complexcolumn.png "열 추가")
 
 왼쪽 출력 스키마 창에 수정 하 고 스키마에 추가 하는 열이 표시 됩니다. 여기에서 간단 하 고 복잡 한 데이터 구조를 대화형으로 작성할 수 있습니다. "열 추가"를 사용 하 여 필드를 추가 하 고 "하위 열 추가"를 사용 하 여 계층 구조를 작성 합니다.
 
-하위 ]열 추가 하위(media/data-flow/addsubcolumn.png "")열 추가
+![하위 열 추가](media/data-flow/addsubcolumn.png "하위 열 추가")
 
 ## <a name="data-preview-in-debug-mode"></a>디버그 모드의 데이터 미리 보기
 
@@ -45,11 +45,11 @@ Azure Data Factory Mapping Data Flow에는 데이터 변환 식을 입력할 수
 
 ![식 작성기](media/data-flow/exp5.png "식 데이터 미리 보기")
 
-## <a name="comments"></a>주석
+## <a name="comments"></a>의견
 
 한 줄 및 여러 줄 주석 구문을 사용하여 식에 주석을 추가합니다.
 
-![주석](media/data-flow/comments.png "주석")
+![설명](media/data-flow/comments.png "의견")
 
 ## <a name="regular-expressions"></a>정규식
 

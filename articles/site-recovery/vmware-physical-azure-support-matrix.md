@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 0ff8fb7a2e03ccaccff4f84d77486238acba0ba5
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 75b2c08ab02ef41ee4d196d8f81c633aeb46a14e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350236"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390062"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -30,7 +30,7 @@ VMware Vm의 재해 복구 | 온-프레미스 VMware VM을 Azure로 복제. Azur
 
 ## <a name="on-premises-virtualization-servers"></a>온-프레미스 가상화 서버
 
-**Server** | **요구 사항** | **세부 정보**
+**서버** | **요구 사항** | **세부 정보**
 --- | --- | ---
 vCenter Server | 버전 6.7, 6.5, 6.0 또는 5.5 | 재해 복구 배포에 vCenter 서버를 사용 하는 것이 좋습니다.
 vSphere 호스트 | 버전 6.7, 6.5, 6.0 또는 5.5 | vSphere 호스트와 vCenter 서버가 프로세스 서버와 동일한 네트워크에 있는 것이 좋습니다. 기본적으로 프로세스 서버는 구성 서버에서 실행 됩니다. [자세히 알아보기](vmware-physical-azure-config-process-server-overview.md).
@@ -54,10 +54,10 @@ RAM | 16GB
 운영 체제 로케일 | 미국 영어(en-us)
 [PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | 구성 서버 버전 [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) 이상에서는 필요 하지 않습니다. 
 Windows Server 역할 | Active Directory Domain Services 사용 안 함 인터넷 정보 서비스 (IIS) 또는 Hyper-v. 
-그룹 정책| - 명령 프롬프트에 대한 액세스 방지 <br/> - 레지스트리 편집 도구에 대한 액세스 방지 <br/> - 파일 첨부를 위한 트러스트 논리 <br/> - 스크립트 실행 켜기 <br/> - [더 알아보세요](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+그룹 정책| - 명령 프롬프트에 대한 액세스 방지 <br/> - 레지스트리 편집 도구에 대한 액세스 방지 <br/> - 파일 첨부를 위한 트러스트 논리 <br/> - 스크립트 실행 켜기 <br/> - [자세한 정보](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | 다음을 확인합니다.<br/><br/> - 기존의 기본 웹 사이트 없음 <br/> - [익명 인증](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) 사용 <br/> - [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 설정 사용  <br/> - 포트 443에서 수신 대기하는 기존의 웹 사이트/앱 없음<br/>
 NIC 유형 | VMXNET3(VMware VM으로 배포될 경우)
-IP 주소 유형 | 정적
+IP 주소 유형 | 공용
 포트 | 443 컨트롤 채널 오케스트레이션에 사용 됨<br/>데이터 전송의 경우 9443
 
 ## <a name="replicated-machines"></a>복제된 컴퓨터
@@ -68,13 +68,19 @@ Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드�
 --- | ---
 컴퓨터 설정 | Azure로 복제하는 컴퓨터는 [Azure 요구 사항](#azure-vm-requirements)을 충족해야 합니다.
 머신 워크로드 | Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드의 복제를 지원합니다. [자세히 알아보기](https://aka.ms/asr_workload).
-Windows | -Windows Server 2019 ( [업데이트 롤업 34](https://support.microsoft.com/help/4490016) (모바일 서비스 버전 9.22)부터 지원 됩니다.<br/> -Windows Server 2016 (64 비트 Server Core, 데스크톱 경험이 있는 서버)<br/> - Windows Server 2012 R2, Windows Server 2012<br/> -Windows Server 2008 R2 SP1 이상<br/> -Windows Server 2008, 64 및 32-bit SP2 이상]. 마이그레이션에만 지원 됩니다. [자세히 알아보기](migrate-tutorial-windows-server-2008.md).<br/> -Windows 10, Windows 8.1, Windows 8, Windows 7 64 비트 ( [업데이트 롤업 36](https://support.microsoft.com/help/4503156) (모바일 서비스 버전 9.22부터 시작)에서 지원 됩니다. Windows 7 RTM은 지원 되지 않습니다. 
+Windows Server 2019 | [업데이트 롤업 34](https://support.microsoft.com/help/4490016) (모바일 서비스 버전 9.22)부터 지원 됩니다.
+Windows Server 2016 64 비트 | Server Core, 데스크톱 환경 포함 서버에 대해 지원 됩니다.
+Windows Server 2012 R2/Windows Server 2012 | 지원됩니다.
+Windows Server 2008 R2 SP1 이상 | 지원됩니다.<br/><br/> 모바일 서비스 에이전트의 버전 9.30 (11 월 2019 일부 터 출시 예정)에서 Windows 2008 R2 SP1 이상을 실행 하는 컴퓨터에 설치 된 [SSU (서비스 스택 업데이트](https://support.microsoft.com/help/4490628) ) 및 [s h a-2 업데이트가](https://support.microsoft.com/help/4474419) 설치 되어 있어야 합니다. S h a-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://aka.ms/SHA-2KB)에 대해 자세히 알아보세요.
+Windows Server 2008 SP2 이상 (64 비트/32 비트) |  마이그레이션에만 지원 됩니다. [자세히 알아보기](migrate-tutorial-windows-server-2008.md).<br/><br/> 모바일 서비스 에이전트의 버전 9.30 (2019 년 11 월 출시 예정)에서 Windows 2008 SP2 컴퓨터에 설치 된 [SSU (서비스 스택 업데이트](https://support.microsoft.com/help/4493730) ) 및 [s h a-2 업데이트](h https://support.microsoft.com/help/4474419) 를 설치 해야 합니다. ISHA-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://aka.ms/SHA-2KB)에 대해 자세히 알아보세요.
+Windows 10, Windows 8.1, Windows 8 | 지원됩니다.
+Windows 7 SP1 64 비트 | [업데이트 롤업 36](https://support.microsoft.com/help/4503156) (모바일 서비스 버전 9.22)부터 지원 됩니다. </br></br> 모바일 서비스 에이전트의 버전 9.30 (2019 년 11 월 출시 예정)에서 Windows 7 SP1 컴퓨터에 설치 된 [SSU (서비스 스택 업데이트](https://support.microsoft.com/help/4490628) ) 및 [s h a-2 업데이트가](https://support.microsoft.com/help/4474419) 설치 되어 있어야 합니다.  S h a-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://aka.ms/SHA-2KB)에 대해 자세히 알아보세요.
 Linux | 64 비트 시스템만 지원 됩니다. 32 비트 시스템은 지원 되지 않습니다.<br/><br/>모든 Linux 서버에는 [LIS (linux Integration Services) 구성 요소가](https://www.microsoft.com/download/details.aspx?id=55106) 설치 되어 있어야 합니다. 테스트 장애 조치/장애 조치 (failover) 후 Azure에서 서버를 부팅 해야 합니다. LIS 구성 요소가 없는 경우 Azure에서 부팅 하도록 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 [구성 요소](https://www.microsoft.com/download/details.aspx?id=55106) 를 설치 해야 합니다. <br/><br/> Site Recovery는 Azure에서 Linux 서버를 실행하도록 장애 조치(failover)를 오케스트레이션합니다. 그러나 Linux 공급 업체 지원 수명 종료에 해당하지 않는 배포 버전만으로 제한될 수 있습니다.<br/><br/> Linux 배포에서는 배포의 부 버전 릴리스/업데이트에 포함된 스톡 커널만 지원됩니다.<br/><br/> 주요 Linux 배포 버전에서 보호된 시스템을 업그레이드하는 것은 지원되지 않습니다. 업그레이드하려면 복제를 사용하지 않도록 설정하고, 운영 체제를 업그레이드한 다음, 복제를 다시 사용하도록 설정합니다.<br/><br/> Azure에서 Linux 및 오픈 소스 기술에 대 한 지원에 대해 [자세히 알아보세요](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) .
-Linux Red Hat Enterprise | 5.2 ~ 5.11</b><br/> 6.1 ~ 6.10</b><br/> 7.0 ~ 7.6<br/> <br/> Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10을 실행 하는 서버는 미리 설치 된 [LIS (Linux Integration Services) 구성 요소가](https://www.microsoft.com/download/details.aspx?id=55106) 없습니다. Azure에서 부팅 하도록 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 [구성 요소](https://www.microsoft.com/download/details.aspx?id=55106) 를 설치 해야 합니다.
-Linux: CentOS | 5.2 ~ 5.11</b><br/> 6.1 ~ 6.10</b><br/> 7.0 ~ 7.6<br/> <br/> CentOS 5.2-5.11 & 6.1-6.10을 실행 하는 서버에는 미리 설치 된 [LIS (Linux Integration Services) 구성 요소가](https://www.microsoft.com/download/details.aspx?id=55106) 없습니다. Azure에서 부팅 하도록 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 [구성 요소](https://www.microsoft.com/download/details.aspx?id=55106) 를 설치 해야 합니다.
+Linux Red Hat Enterprise | 5.2 5.11 @ no__t-0<br/> 6.1 ~ 6.10 @ no__t-0<br/> 7.0 ~ 7.6<br/> <br/> Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10을 실행 하는 서버는 미리 설치 된 [LIS (Linux Integration Services) 구성 요소가](https://www.microsoft.com/download/details.aspx?id=55106) 없습니다. Azure에서 부팅 하도록 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 [구성 요소](https://www.microsoft.com/download/details.aspx?id=55106) 를 설치 해야 합니다.
+Linux: CentOS | 5.2 5.11 @ no__t-0<br/> 6.1 ~ 6.10 @ no__t-0<br/> 7.0 ~ 7.6<br/> <br/> CentOS 5.2-5.11 & 6.1-6.10을 실행 하는 서버에는 미리 설치 된 [LIS (Linux Integration Services) 구성 요소가](https://www.microsoft.com/download/details.aspx?id=55106) 없습니다. Azure에서 부팅 하도록 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 [구성 요소](https://www.microsoft.com/download/details.aspx?id=55106) 를 설치 해야 합니다.
 Ubuntu | Ubuntu 14.04 LTS 서버 [(지원 되는 커널 버전 검토)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 서버 [(지원 되는 커널 버전 검토)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8 [(지원 되는 커널 버전 검토)](#debian-kernel-versions)
-SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(지원 되는 커널 버전 검토)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3 또는 SUSE Linux Enterprise Server 11 SP4<br/> SUSE Linux Enterprise Server 11 SP3에서 s p 4로 복제 된 컴퓨터를 업그레이드할 수 없습니다. 업그레이드 하려면 복제를 사용 하지 않도록 설정 하 고 업그레이드 후 다시 사용 하도록 설정 합니다.
+SUSE, Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(지원 되는 커널 버전 검토)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3 또는 SUSE Linux Enterprise Server 11 SP4<br/> SUSE Linux Enterprise Server 11 SP3에서 s p 4로 복제 된 컴퓨터를 업그레이드할 수 없습니다. 업그레이드 하려면 복제를 사용 하지 않도록 설정 하 고 업그레이드 후 다시 사용 하도록 설정 합니다.
 Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6<br/><br/> Red Hat 호환 커널 또는 Unbreakable Enterprise 커널 릴리스 3, 4 & 5 (UNBREAKABLE, UEK4, UEK5) 실행 
 
 
@@ -126,7 +132,7 @@ HP CCISS 스토리지 컨트롤러가 있는 물리적 서버 | 지원되지 않
 디렉터리 | 버전 9.20 이전 버전의 모바일 서비스를 실행 하는 경우 ( [업데이트 롤업 31](https://support.microsoft.com/help/4478871/)에서 출시) 다음 제한이 적용 됩니다.<br/><br/> -이러한 디렉터리 (별도의 파티션/파일 시스템으로 설정 된 경우)는 원본 서버의 동일한 OS 디스크에 있어야 합니다./(root),/boot,/usr,/usr/local,/var,/etc</br> -/Boot 디렉터리는 디스크 파티션에 있어야 하며 LVM 볼륨이 아니어야 합니다.<br/><br/> 버전 9.20 부터는 이러한 제한이 적용 되지 않습니다. 
 루트 디렉터리 | -부팅 디스크는 GPT 파티션 형식 되어서는 안됩니다. 이것은 Azure 아키텍처의 제한 사항입니다. GPT 디스크는 데이터 디스크로 지원 됩니다.<br/><br/> VM의 여러 부팅 디스크가 지원 되지 않음<br/><br/> -두 개 이상의 디스크에서 LVM 볼륨의/boot 지원 되지 않습니다.<br/> -부팅 디스크가 없는 컴퓨터는 복제할 수 없습니다.
 사용 가능한 공간 요구 사항| /root 파티션: 2GB <br/><br/> 설치 폴더: 250MB
-XFSv5 | 메타 데이터 체크섬과 같은 XFS 파일 시스템의 XFSv5 기능이 지원 됩니다 (모바일 서비스 버전 9.10 이상).<br/> xfs_info 유틸리티를 사용하여 파티션에 대한 XFS 수퍼 블록을 확인합니다. 을 `ftype` 1로 설정 하면 XFSv5 기능이 사용 됩니다.
+XFSv5 | 메타 데이터 체크섬과 같은 XFS 파일 시스템의 XFSv5 기능이 지원 됩니다 (모바일 서비스 버전 9.10 이상).<br/> xfs_info 유틸리티를 사용하여 파티션에 대한 XFS 수퍼 블록을 확인합니다. @No__t-0을 1로 설정 하면 XFSv5 기능이 사용 됩니다.
 BTRFS | BTRFS는 [업데이트 롤업 34](https://support.microsoft.com/help/4490016) (모바일 서비스 버전 9.22)부터 지원 됩니다. 다음의 경우 BTRFS가 지원 되지 않습니다.<br/><br/> -보호를 사용 하도록 설정한 후 BTRFS 파일 시스템 하위 볼륨이 변경 됩니다.</br> -BTRFS 파일 시스템이 여러 디스크에 분산 되어 있습니다.</br> -BTRFS 파일 시스템은 RAID를 지원 합니다.
 
 ## <a name="vmdisk-management"></a>VM/디스크 관리
@@ -143,10 +149,10 @@ BTRFS | BTRFS는 [업데이트 롤업 34](https://support.microsoft.com/help/449
 호스트 네트워크 NIC 팀 | VMware VM에서 지원됩니다. <br/><br/>물리적 컴퓨터 복제에 지원되지 않습니다.
 호스트 네트워크 VLAN | 예.
 호스트 네트워크 IPv4 | 예.
-호스트 네트워크 IPv6 | 아니요.
-게스트/서버 네트워크 NIC 팀 | 아니요.
+호스트 네트워크 IPv6 | 아닙니다.
+게스트/서버 네트워크 NIC 팀 | 아닙니다.
 게스트/서버 네트워크 IPv4 | 예.
-게스트/서버 네트워크 IPv6 | 아니요.
+게스트/서버 네트워크 IPv6 | 아닙니다.
 게스트/서버 네트워크 정적 IP(Windows) | 예.
 게스트/서버 네트워크 정적 IP(Linux) | 예. <br/><br/>VM이 장애 복구(Failback) 시 DHCP를 사용하도록 구성되어 있습니다.
 게스트/서버 네트워크 다중 NIC | 예.
@@ -156,42 +162,42 @@ BTRFS | BTRFS는 [업데이트 롤업 34](https://support.microsoft.com/help/449
 
 **구성 요소** | **지원됨**
 --- | ---
-Azure ExpressRoute | 예
-ILB | 예
-ELB | 예
-Azure Traffic Manager | 예
-다중 NIC | 예
-예약된 IP 주소 | 예
-IPv4 | 예
-원본 IP 주소 유지 | 예
-Azure 가상 네트워크 서비스 엔드포인트<br/> | 예
-가속화된 네트워킹 | 아니요
+Azure ExpressRoute | yes
+ILB | yes
+ELB | yes
+Azure Traffic Manager | yes
+다중 NIC | yes
+예약된 IP 주소 | yes
+IPv4 | yes
+원본 IP 주소 유지 | yes
+Azure 가상 네트워크 서비스 엔드포인트<br/> | yes
+가속된 네트워킹 | 아닙니다.
 
 ## <a name="storage"></a>스토리지
 **구성 요소** | **지원됨**
 --- | ---
 동적 디스크 | OS 디스크는 기본 디스크 여야 합니다. <br/><br/>데이터 디스크는 동적 디스크일 수 있습니다.
-Docker 디스크 구성 | 아니요
+Docker 디스크 구성 | 아닙니다.
 호스트 NFS | VMware의 경우 예<br/><br/> 물리적 서버의 경우 아니요
-호스트 SAN(iSCSI/FC) | 예
+호스트 SAN(iSCSI/FC) | yes
 호스트 vSAN | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음
 호스트 다중 경로(MPIO) | 예. 테스트 제품: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 호스트 가상 볼륨(VVol) | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음
-게스트/서버 VMDK | 예
-게스트/서버 공유 클러스터 디스크 | 아니요
-게스트/서버 암호화된 디스크 | 아니요
-게스트/서버 NFS | 아니요
+게스트/서버 VMDK | yes
+게스트/서버 공유 클러스터 디스크 | 아닙니다.
+게스트/서버 암호화된 디스크 | 아닙니다.
+게스트/서버 NFS | 아닙니다.
 게스트/서버 iSCSI | 마이그레이션-예<br/>재해 복구의 경우 iSCSI는 VM에 연결 된 디스크로 장애 복구 (failback) 합니다.
-게스트/서버 SMB 3.0 | 아니요
-게스트/서버 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음
+게스트/서버 SMB 3.0 | 아닙니다.
+게스트/서버 RDM | yes<br/><br/> 물리적 서버의 경우 해당 없음
 게스트/서버 디스크 > 1 TB | 예, 디스크가 1024 MB 보다 커야 합니다.<br/><br/>관리 디스크에 복제 하는 경우 최대 8192 GB (9.26 버전 이상)<br></br> 저장소 계정에 복제 하는 경우 최대 4095 GB
-4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 아니요
-4K 논리 및 512 바이트의 실제 섹터 크기를 포함 하는 게스트/서버 디스크 | 아니요
-스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 <br/><br/>논리 볼륨 관리(LVM)| 예
-게스트/서버 - 스토리지 공간 | 아니요
-게스트/서버 디스크 핫 추가/제거 | 아니요
-게스트/서버 - 디스크 제외 | 예
-게스트/서버 다중 경로(MPIO) | 아니요
+4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 아닙니다.
+4K 논리 및 512 바이트의 실제 섹터 크기를 포함 하는 게스트/서버 디스크 | 아닙니다.
+스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 <br/><br/>논리 볼륨 관리(LVM)| yes
+게스트/서버 - 스토리지 공간 | 아닙니다.
+게스트/서버 디스크 핫 추가/제거 | 아닙니다.
+게스트/서버 - 디스크 제외 | yes
+게스트/서버 다중 경로(MPIO) | 아닙니다.
 게스트/서버 GPT 파티션 | 5 개의 파티션은 [업데이트 롤업 37](https://support.microsoft.com/help/4508614/) (모바일 서비스 버전 9.25)부터 지원 됩니다. 이전에는 4개가 지원되었습니다.
 ReFS | 복원 파일 시스템은 모바일 서비스 버전 9.23 이상에서 지원 됩니다.
 게스트/서버 EFI/UEFI 부팅 | -모바일 서비스 버전 9.13 이상을 실행 하는 경우 지원 됩니다.<br/> -Windows Server 2012 이상을 실행 하는 VMware Vm 또는 물리적 서버를 Azure로 마이그레이션할 때 지원 됩니다.<br/> -마이그레이션을 위해 Vm을 복제할 수 있습니다. 온-프레미스로 장애 복구 (Failback)가 지원 되지 않습니다.<br/> -NTFS만 지원 됩니다. <br/> -보안 UEFI 부팅 유형이 지원 되지 않습니다. <br/> -디스크 섹터 크기는 실제 섹터 당 512 바이트 여야 합니다.
@@ -200,23 +206,23 @@ ReFS | 복원 파일 시스템은 모바일 서비스 버전 9.23 이상에서 �
 
 |**복제 유형**   |**지원됨**  |
 |---------|---------|
-|ODX (오프 로드 된 데이터 전송)    |       아니요  |
-|오프라인 시드        |   아니요      |
-| Azure Data Box | 아니요
+|ODX (오프 로드 된 데이터 전송)    |       아닙니다.  |
+|오프라인 시드        |   아닙니다.      |
+| Azure Data Box | 아닙니다.
 
 ## <a name="azure-storage"></a>Azure Storage
 
 **구성 요소** | **지원됨**
 --- | ---
-로컬 중복 스토리지 | 예
-지역 중복 스토리지 | 예
-읽기 액세스 지역 중복 스토리지 | 예
-쿨 스토리지 | 아니요
-핫 스토리지| 아니요
-블록 Blob | 아니요
-미사용 암호화 (SSE)| 예
-Premium Storage | 예
-Import/Export 서비스 | 아니요
+로컬 중복 스토리지 | yes
+지역 중복 스토리지 | yes
+읽기 액세스 지역 중복 스토리지 | yes
+쿨 스토리지 | 아닙니다.
+핫 스토리지| 아닙니다.
+블록 Blob | 아닙니다.
+미사용 암호화 (SSE)| yes
+프리미엄 스토리지 | yes
+Import/Export 서비스 | 아닙니다.
 Vnet에 대 한 Azure Storage 방화벽 | 예.<br/> 복제 데이터를 저장 하는 데 사용 되는 대상 저장소/캐시 저장소 계정에 구성 됩니다.
 범용 v2 저장소 계정 (핫 및 쿨 계층) | 예 (v 2에 비해 트랜잭션 비용이 V1에 비해 크게 높음)
 
@@ -224,10 +230,10 @@ Vnet에 대 한 Azure Storage 방화벽 | 예.<br/> 복제 데이터를 저장 �
 
 **기능** | **지원됨**
 --- | ---
-가용성 집합 | 예
-가용성 영역 | 아니요
-HUB | 예
-관리 디스크 | 예
+가용성 집합 | yes
+가용성 영역 | 아닙니다.
+HUB | yes
+관리 디스크 | yes
 
 ## <a name="azure-vm-requirements"></a>Azure VM 요구 사항
 
@@ -282,19 +288,19 @@ VM의 모든 디스크에 대한 최고 데이터 변동률 | 54MB/초
 
 **작업** | **지원됨**
 --- | ---
-리소스 그룹 간 자격 증명 모음 이동 | 아니요
-구독 내 및 구독 간에 자격 증명 모음 이동 | 아니요
-스토리지 그룹 간 스토리지, 네트워크, Azure VM 이동 | 아니요
-저장소, 네트워크, Azure Vm을 구독 내 및 구독 간에 이동 합니다. | 아니요
+리소스 그룹 간 자격 증명 모음 이동 | 아닙니다.
+구독 내 및 구독 간에 자격 증명 모음 이동 | 아닙니다.
+스토리지 그룹 간 스토리지, 네트워크, Azure VM 이동 | 아닙니다.
+저장소, 네트워크, Azure Vm을 구독 내 및 구독 간에 이동 합니다. | 아닙니다.
 
 
 ## <a name="obtain-latest-components"></a>최신 구성 요소 가져오기
 
-**이름** | **설명** | **세부 정보**
+**Name** | **설명** | **세부 정보**
 --- | --- | ---
-구성 서버 | 온-프레미스에 설치 됩니다.<br/> 온-프레미스 VMware 서버 또는 물리적 컴퓨터와 Azure 간의 통신을 조정 합니다. | - 구성 서버 [에 대해 알아봅니다](vmware-physical-azure-config-process-server-overview.md) .<br/> - 최신 버전으로 업그레이드 하는 방법 [에 대해 알아봅니다](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) .<br/> - 구성 서버를 설정 하는 [방법에 대해 알아봅니다](vmware-azure-deploy-configuration-server.md) . 
-프로세스 서버 | 기본적으로 구성 서버에 설치합니다.<br/> 복제 데이터를 수신 하 고, 캐싱, 압축 및 암호화를 사용 하 여 최적화 하 고, Azure로 전송 합니다.<br/> 배포가 커지면 추가 프로세스 서버를 추가 하 여 더 많은 볼륨의 복제 트래픽을 처리할 수 있습니다. | - 프로세스 서버 [에 대해 알아봅니다](vmware-physical-azure-config-process-server-overview.md) .<br/> - 최신 버전으로 업그레이드 하는 방법 [에 대해 알아봅니다](vmware-azure-manage-process-server.md#upgrade-a-process-server) .<br/> - 스케일 아웃 프로세스 서버를 설정 하는 [방법에 대해 알아봅니다](vmware-physical-large-deployment.md#set-up-a-process-server) .
-모바일 서비스 | 복제 하려는 VMware VM 또는 물리적 서버에 설치 되어 있어야 합니다.<br/> 온-프레미스 VMware 서버/물리적 서버와 Azure 간 복제를 조정 합니다.| - 모바일 서비스 [에 대해 알아봅니다](vmware-physical-mobility-service-overview.md) .<br/> - 최신 버전으로 업그레이드 하는 방법 [에 대해 알아봅니다](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) .<br/> 
+구성 서버 | 온-프레미스에 설치 됩니다.<br/> 온-프레미스 VMware 서버 또는 물리적 컴퓨터와 Azure 간의 통신을 조정 합니다. | -  구성 서버[에 대해 알아봅니다](vmware-physical-azure-config-process-server-overview.md) .<br/> -  최신 버전으로 업그레이드 하는[방법을 알아봅니다](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) .<br/> -  구성 서버 설정[에 대해 알아봅니다](vmware-azure-deploy-configuration-server.md) . 
+프로세스 서버 | 기본적으로 구성 서버에 설치합니다.<br/> 복제 데이터를 수신 하 고, 캐싱, 압축 및 암호화를 사용 하 여 최적화 하 고, Azure로 전송 합니다.<br/> 배포가 커지면 추가 프로세스 서버를 추가 하 여 더 많은 볼륨의 복제 트래픽을 처리할 수 있습니다. | -  프로세스 서버[에 대해 알아봅니다](vmware-physical-azure-config-process-server-overview.md) .<br/> -  최신 버전으로 업그레이드 하는[방법을 알아봅니다](vmware-azure-manage-process-server.md#upgrade-a-process-server) .<br/> -  스케일 아웃 프로세스 서버 설정[에 대해 알아봅니다](vmware-physical-large-deployment.md#set-up-a-process-server) .
+Mobility Service | 복제 하려는 VMware VM 또는 물리적 서버에 설치 되어 있어야 합니다.<br/> 온-프레미스 VMware 서버/물리적 서버와 Azure 간 복제를 조정 합니다.| -  모바일 서비스[에 대해 알아봅니다](vmware-physical-mobility-service-overview.md) .<br/> -  최신 버전으로 업그레이드 하는[방법을 알아봅니다](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) .<br/> 
 
 
 

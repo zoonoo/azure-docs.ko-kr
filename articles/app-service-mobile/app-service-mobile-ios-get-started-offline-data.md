@@ -14,19 +14,20 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 0c96442de5b8eea2ec969c48e6a815b6ae78b5c4
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: f29a28f9a80b64ef0a6890fa8fc7ecd0ca205e66
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027286"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388765"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>iOS 모바일 앱으로 오프라인 동기화 사용
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 > [!NOTE]
-> Visual Studio App Center은 모바일 앱 개발에 대 한 종단 간 및 통합 서비스의 중심을 지원 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다.
-> 모바일 응용 프로그램에서 클라우드 서비스를 통합 하려는 경우 현재 App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 에 등록 하세요.
+> Visual Studio App Center는 모바일 앱 개발의 중심인 엔드투엔드 통합 서비스를 지원합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용하여 지속적인 통합 및 업데이트 파이프라인을 설정할 수 있습니다. 앱이 배포되면 개발자는 **분석** 및 **진단** 서비스를 사용하여 앱의 상태와 사용 현황을 모니터링하고, **푸시** 서비스를 사용하여 사용자와 소통할 수 있습니다. 또한 개발자는 **인증** 서비스를 사용하여 사용자를 인증하고, **데이터** 서비스를 사용하여 클라우드에서 애플리케이션 데이터를 유지하고 동기화할 수도 있습니다.
+>
+> 모바일 애플리케이션에서 클라우드 서비스를 통합하려면 지금 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc)에 등록하세요.
 
 ## <a name="overview"></a>개요
 이 자습서는 iOS용 Azure App Service의 Mobile Apps 기능을 사용한 오프라인 동기화를 설명합니다. 오프라인 동기화를 사용하면 네트워크에 연결되지 않은 경우에도 최종 사용자가 모바일 앱을 사용하여 데이터를 보거나, 추가하거나 수정할 수 있습니다. 변경 내용은 로컬 데이터베이스에 저장됩니다. 디바이스가 다시 온라인 상태가 되면 변경 내용이 원격 백 엔드와 동기화됩니다.
@@ -133,7 +134,7 @@ Swift 버전의 경우 푸시 작업이 꼭 필요하지 않기 때문에 **push
 
 Objective-C 버전과 Swift 버전 모두에서 **pullWithQuery** 메서드를 사용하여 쿼리를 지정하면 검색할 레코드를 필터링할 수 있습니다. 이 예제에서 쿼리는 원격 `TodoItem` 테이블의 모든 레코드를 검색합니다.
 
-**pullWithQuery**에 대한 두 번째 매개 변수는 *증분 동기화*에 사용되는 쿼리 ID입니다. 증분 동기화는 레코드의 `UpdatedAt` 타임스탬프(로컬 저장소에서는 `updatedAt`이라고 함)를 사용하여 마지막 동기화 이후에 수정된 레코드만 검색합니다. 쿼리 ID는 앱의 각 논리 쿼리에 고유한 설명 문자열이어야 합니다. 증분 동기화를 옵트아웃하려면 `nil`을 쿼리 ID로 전달합니다. 이런 방법은 각각의 끌어오기 작업에서 모든 레코드가 검색되므로 비효율적일 수 있습니다.
+**PullWithQuery** 의 두 번째 매개 변수는 *증분 동기화*에 사용 되는 쿼리 ID입니다. 증분 동기화는 레코드의 @no__t 2 타임 스탬프 (로컬 저장소에서 `updatedAt` 이라고 함)를 사용 하 여 마지막 동기화 이후에 수정 된 레코드만 검색 합니다. 쿼리 ID는 앱의 각 논리 쿼리에 고유한 설명 문자열 이어야 합니다. 증분 동기화를 옵트아웃하려면 `nil`을 쿼리 ID로 전달합니다. 이런 방법은 각각의 끌어오기 작업에서 모든 레코드가 검색되므로 비효율적일 수 있습니다.
 
 Objective-C 앱은 데이터를 추가하거나 수정할 때 사용자가 새로 고침 제스처를 수행할 때 및 시작 시 동기화됩니다.
 
@@ -163,50 +164,50 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
 
 ![MS_TableOperations 테이블 특성][defining-core-data-tableoperations-entity]
 
-| 특성 | 형식 |
+| 특성 | Type |
 | --- | --- |
-| id | Integer 64 |
-| itemId | String |
-| properties | Binary Data |
-| table | 문자열 |
-| tableKind | Integer 16 |
+| id | 정수 64 |
+| itemId | string |
+| properties | 이진 데이터 |
+| 테이블 | string |
+| tableKind | 정수 16 |
 
 
 **MS_TableOperationErrors**
 
  ![MS_TableOperationErrors 테이블 특성][defining-core-data-tableoperationerrors-entity]
 
-| 특성 | 형식 |
+| 특성 | Type |
 | --- | --- |
-| id |문자열 |
-| operationId |Integer 64 |
-| properties |Binary Data |
-| tableKind |Integer 16 |
+| id |string |
+| operationId |정수 64 |
+| properties |이진 데이터 |
+| tableKind |정수 16 |
 
  **MS_TableConfig**
 
  ![][defining-core-data-tableconfig-entity]
 
-| 특성 | 형식 |
+| 특성 | Type |
 | --- | --- |
-| id |String |
-| Key |String |
-| keyType |Integer 64 |
-| table |문자열 |
-| 값 |String |
+| id |string |
+| key |string |
+| keyType |정수 64 |
+| 테이블 |string |
+| 값 |string |
 
 ### <a name="data-table"></a>데이터 테이블
 
 **TodoItem**
 
-| 특성 | 형식 | 참고 |
+| 특성 | Type | 참고 |
 | --- | --- | --- |
 | id | 문자열, 필수로 표시 |원격 저장소의 기본 키 |
 | complete | Boolean | 할 일 항목 필드 |
-| text |String |할 일 항목 필드 |
-| createdAt | Date | (옵션) **createdAt** 시스템 속성에 매핑됩니다. |
-| updatedAt | Date | (옵션) **updatedAt** 시스템 속성에 매핑됩니다. |
-| version | 문자열 | (옵션) 충돌을 검색하는 데 사용되며 version에 매핑됩니다. |
+| text |string |할 일 항목 필드 |
+| createdAt | 날짜 | (옵션) **createdAt** 시스템 속성에 매핑됩니다. |
+| updatedAt | 날짜 | (옵션) **updatedAt** 시스템 속성에 매핑됩니다. |
+| 버전 | string | (옵션) 충돌을 검색하는 데 사용되며 version에 매핑됩니다. |
 
 ## <a name="setup-sync"></a>앱의 동기화 동작 변경
 이 섹션에서는 앱 시작 시 또는 항목을 삽입하거나 업데이트할 때 동기화하지 않도록 앱을 수정합니다. 새로 고침 제스처 단추를 누를 때만 동기화됩니다.
@@ -274,9 +275,9 @@ Mobile Apps에 대한 정상적인 만들기, 읽기, 업데이트 및 삭제(CR
 
 로컬 저장소를 서버와 동기화할 때 **MSSyncTable.pullWithQuery** 메서드를 사용했습니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 * [Mobile Apps에서 오프라인 데이터 동기화]
-* [클라우드 커버: Azure Mobile Services에서 오프라인 동기화] \(비디오는 Mobile Services에 대한 내용이지만 Mobile Apps 오프라인 동기화도 유사한 방식으로 작동합니다.\)
+* [Cloud Cover: Azure Mobile Services에서 오프라인 동기화] \(비디오는 Mobile Services에 대한 내용이지만 Mobile Apps 오프라인 동기화도 유사한 방식으로 작동합니다.\)
 
 <!-- URLs. -->
 
@@ -289,5 +290,5 @@ Mobile Apps에 대한 정상적인 만들기, 읽기, 업데이트 및 삭제(CR
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 
-[클라우드 커버: Azure Mobile Services에서 오프라인 동기화]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cloud Cover: Azure Mobile Services에서 오프라인 동기화]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: https://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/

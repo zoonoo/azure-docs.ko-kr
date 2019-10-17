@@ -7,12 +7,12 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 8c9043db8159e2b7ff6520e9525472048cf73ae1
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 5b618798c74393f3e7d89cfc69c67ba831356ce4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72031280"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72385548"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>매핑 데이터 흐름을 사용 하 여 데이터 변환
 
@@ -23,13 +23,13 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리를 만듭니다.
+> * 데이터 팩터리 만들기
 > * 데이터 흐름 작업을 사용 하 여 파이프라인을 만듭니다.
 > * 네 가지 변환으로 매핑 데이터 흐름을 작성 합니다. 
 > * 파이프라인 실행 테스트
 > * 데이터 흐름 작업 모니터링
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Storage 계정**. ADLS 저장소를 *원본* 및 *싱크* 데이터 저장소로 사용 합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
 
@@ -115,7 +115,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
     ![데이터 흐름 캔버스](media/tutorial-data-flow/dataflow5.png)
 1. 필터 변환의 이름을 **Filteryears**로 합니다. **필터 설정** 옆의 식 상자를 클릭 하 여 식 작성기를 엽니다. 여기서 필터링 조건을 지정 합니다. 
     
-    ![Filter](media/tutorial-data-flow/filter1.png)
+    ![필터링](media/tutorial-data-flow/filter1.png)
 1. 데이터 흐름 식 작성기를 사용 하면 다양 한 변환에서 사용할 식을 대화형으로 작성할 수 있습니다. 식에는 기본 제공 함수, 입력 스키마의 열 및 사용자 정의 매개 변수가 포함 될 수 있습니다. 식을 작성 하는 방법에 대 한 자세한 내용은 [데이터 흐름 식 작성기](concepts-data-flow-expression-builder.md)를 참조 하세요.
     
     이 자습서에서는 1910 년에서 2000 년 사이에 제공 된 장르 코미디의 영화를 필터링 하려고 합니다. 현재 연도는 문자열 이므로 ```toInteger()``` 함수를 사용 하 여 정수로 변환 해야 합니다. 다음 보다 크거나 같음 (> =) 및 작거나 같음 (< =) 연산자를 사용 하 여 리터럴 연도 값 1910 및 200을 비교 합니다. And (& &) 연산자를 사용 하 여 이러한 식을 결합 합니다. 식은 다음과 같이 제공 됩니다.
@@ -128,38 +128,38 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
     디버그 클러스터가 활성 상태 이면 **새로 고침** 을 클릭 하 여 논리를 확인할 수 있습니다. 사용 된 입력에 대 한 식 출력을 볼 수 있습니다. 데이터 흐름 식 언어를 사용 하 여이 논리를 수행 하는 방법에는 두 개 이상의 올바른 대답이 있습니다.
     
-    ![Filter](media/tutorial-data-flow/filter2.png)
+    ![필터링](media/tutorial-data-flow/filter2.png)
 
     **저장을** 클릭 하 고 식을 사용 하 여 작업을 완료 합니다.
 
 1. **데이터 미리 보기** 를 가져와 필터가 제대로 작동 하는지 확인 합니다.
     
-    ![Filter](media/tutorial-data-flow/filter3.png)
+    ![필터링](media/tutorial-data-flow/filter3.png)
 1. 추가할 다음 변환은 **Schema modifier**의 **집계** 변환입니다.
     
-    ![Aggregate](media/tutorial-data-flow/agg1.png)
+    ![집계](media/tutorial-data-flow/agg1.png)
 1. 집계 변환의 이름을 **AggregateComedyRatings**로 합니다. **묶는 방법** 탭의 드롭다운에서 **year** 를 선택 하 여 해당 집계가 생성 된 연도를 기준으로 집계를 그룹화 합니다.
     
-    ![Aggregate](media/tutorial-data-flow/agg2.png)
+    ![집계](media/tutorial-data-flow/agg2.png)
 1. **집계** 탭으로 이동 합니다. 왼쪽 텍스트 상자에서 집계 열의 이름을 **AverageComedyRating**로 합니다. 오른쪽 식 상자를 클릭 하 여 식 작성기를 통해 집계 식을 입력 합니다.
     
-    ![Aggregate](media/tutorial-data-flow/agg3.png)
+    ![집계](media/tutorial-data-flow/agg3.png)
 1. 열 **등급**의 평균을 얻으려면 ```avg()``` 집계 함수를 사용 합니다. **등급** 은 문자열이 고 ```avg()```은 숫자 입력을 사용 하므로 ```toInteger()``` 함수를 통해 값을 숫자로 변환 해야 합니다. 식은 다음과 같습니다.
 
     ```avg(toInteger(Rating))```
     
     **저장을 클릭 하 고** 완료 되 면 마침을 클릭 합니다. 
 
-    ![Aggregate](media/tutorial-data-flow/agg4.png)
+    ![집계](media/tutorial-data-flow/agg4.png)
 1. **데이터 미리 보기** 탭으로 이동 하 여 변환 출력을 볼 수 있습니다. 두 개의 열만 **year** 및 **AverageComedyRating**입니다.
     
-    ![Aggregate](media/tutorial-data-flow/agg3.png)
+    ![집계](media/tutorial-data-flow/agg3.png)
 1. 다음으로 **대상**아래에 **싱크** 변환을 추가 하려고 합니다.
     
-    ![싱크](media/tutorial-data-flow/sink1.png)
+    ![sink](media/tutorial-data-flow/sink1.png)
 1. 싱크 **싱크의**이름을로 합니다. **새로** 만들기를 클릭 하 여 싱크 데이터 집합을 만듭니다.
     
-    ![싱크](media/tutorial-data-flow/sink2.png)
+    ![sink](media/tutorial-data-flow/sink2.png)
 1. **Azure Data Lake Storage Gen2**를 선택 합니다. 계속을 클릭합니다.
 
     ![데이터 세트](media/tutorial-data-flow/dataset1.png)
@@ -168,7 +168,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
     ![데이터 세트](media/tutorial-data-flow/dataset2.png)
 1. 싱크 데이터 집합의 이름을 **MoviesSink**합니다. 연결 된 서비스의 경우 6 단계에서 만든 ADLS gen2 연결 된 서비스를 선택 합니다. 데이터를 쓸 출력 폴더를 입력 합니다. 이 자습서에서는 ' sample-data ' 컨테이너의 ' output ' 폴더에 쓰고 있습니다. 폴더는 미리 존재 하지 않아도 되며 동적으로 만들 수 있습니다. **첫 번째 행을 머리글로** true로 설정 하 고 **스키마 가져오기**에 대해 **없음** 을 선택 합니다. Finish를 클릭합니다.
     
-    ![싱크](media/tutorial-data-flow/sink3.png)
+    ![sink](media/tutorial-data-flow/sink3.png)
 
 이제 데이터 흐름 빌드를 완료 했습니다. 파이프라인에서 실행할 준비가 되었습니다.
 
@@ -196,7 +196,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 이 자습서의 파이프라인은 1910에서 2000 사이의 평균 등급을 집계 하 고 ADLS에 데이터를 기록 하는 데이터 흐름을 실행 합니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리를 만듭니다.
+> * 데이터 팩터리 만들기
 > * 데이터 흐름 작업을 사용 하 여 파이프라인을 만듭니다.
 > * 네 가지 변환으로 매핑 데이터 흐름을 작성 합니다. 
 > * 파이프라인 실행 테스트

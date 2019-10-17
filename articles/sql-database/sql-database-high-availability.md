@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: jovanpop-msft
+author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
-ms.date: 10/11/2019
-ms.openlocfilehash: 0307a905c1d3d7d9bc707fbda87fb8f3fd6d2aee
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.date: 10/14/2019
+ms.openlocfilehash: 28b702192b41d3b4a8151e3127a4297c28712fa2
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299702"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390707"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>고가용성 및 Azure SQL Database
 
@@ -88,6 +88,13 @@ Hyperscale의 가용성 모델에는 다음 4 개의 계층이 포함 됩니다.
 ## <a name="accelerated-database-recovery-adr"></a>ADR(가속 데이터베이스 복구)
 
 [ADR (가속화 된 데이터베이스 복구)](sql-database-accelerated-database-recovery.md) 는 특히 장기 실행 트랜잭션이 있을 때 데이터베이스 가용성을 크게 향상 시키는 새로운 SQL 데이터베이스 엔진 기능입니다. ADR은 현재 단일 데이터베이스, 탄력적 풀, Azure SQL Data Warehouse에 사용할 수 있습니다.
+
+## <a name="testing-database-fault-resiliency"></a>데이터베이스 오류 복원 력 테스트
+
+고가용성은 Azure SQL Database 플랫폼의 fundamenental 데이터베이스 응용 프로그램에 대해 투명 하 게 작동 합니다. 그러나 계획 되거나 계획 되지 않은 이벤트 중에 시작 된 자동 장애 조치 (failover) 작업이 프로덕션을 위해 배포 되기 전에 응용 프로그램에 영향을 주는지 확인 하는 것을 알 수 있습니다. 특수 API를 호출 하 여 데이터베이스 또는 탄력적 풀을 다시 시작할 수 있습니다. 그러면 장애 조치 (failover)가 트리거됩니다. 영역 중복 데이터베이스 또는 탄력적 풀의 경우 API 호출로 인해 클라이언트 연결이 다른 AZ의 새 주 데이터베이스로 리디렉션됩니다. 따라서 장애 조치 (failover)가 기존 데이터베이스 세션에 미치는 영향을 테스트 하는 것 외에도 종단 간 성능에 영향을 주는지 여부를 확인할 수 있습니다. 다시 시작 작업은 개입 하지 않으며,이로 인해 플랫폼에서 많은 시간을 발생 시킬 수 있기 때문에 각 데이터베이스 또는 탄력적 풀에 대해 30 분 마다 하나의 장애 조치 (failover) 호출만 허용 됩니다. 자세한 내용은 [데이터베이스 장애 조치](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) (failover) 및 [탄력적 풀 장애 조치 (failover](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover))를 참조 하세요.       
+
+> [!IMPORTANT]
+> 장애 조치 (Failover) 명령은 현재 Hypescale 데이터베이스 및 관리 되는 instanceses에 사용할 수 없습니다.  
 
 ## <a name="conclusion"></a>결론
 

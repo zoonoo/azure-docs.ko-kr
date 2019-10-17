@@ -8,22 +8,25 @@ ms.date: 09/17/2019
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: 18333d3da0bb444ea236a4fbda4d6b72d7647053
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.custom: seo-javascript-october2019
+ms.openlocfilehash: 242ba7dbe4bfcc003899e95e76dc57d809dbc95a
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059051"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72427980"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>Python에서 Azure Queue storage를 사용 하는 방법
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
+이 문서에서는 Azure Queue storage 서비스를 사용 하는 일반적인 시나리오를 보여 줍니다. 큐 메시지 삽입, 보기, 가져오기 및 삭제, 큐 만들기 및 삭제 등의 시나리오를 다룹니다.
+
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>개요
 
-이 가이드에서는 Azure Queue Storage 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 Python으로 작성되었으며 [Microsoft Azure Storage SDK for Python]을 사용합니다. 큐 메시지 삽입, 보기, 가져오기 및 삭제를 비롯 하 여 큐를 만들고 삭제 하는 시나리오를 다룹니다. 큐에 대 한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조 하세요.
+이 문서의 샘플은 Python으로 작성 되었으며 [Microsoft Azure Storage SDK for Python]를 사용 합니다. 큐에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -48,13 +51,13 @@ pip install azure-storage-queue
 
 ## <a name="view-the-sample-application"></a>샘플 애플리케이션 보기
 
-Azure Queues에서 Python을 사용하는 방법을 보여주는 샘플 애플리케이션을 보고 실행하려면 [Azure Storage: Python에서 Azure Queues 시작](https://github.com/Azure-Samples/storage-queue-python-getting-started)을 참조하세요. 
+Azure 큐에서 Python을 사용 하는 방법을 보여 주는 샘플 응용 프로그램을 보고 실행 하려면 [Azure Storage: python에서 Azure 큐 시작](https://github.com/Azure-Samples/storage-queue-python-getting-started)을 참조 하세요. 
 
 샘플 애플리케이션을 실행하려면 `azure-storage-queue` 및 `azure-storage-common` 패키지를 둘 다 설치해야 합니다.
 
 ## <a name="create-a-queue"></a>큐 만들기
 
-[QueueService](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice) 개체를 사용하면 큐로 작업할 수 있습니다. 다음 코드에서는 개체를 `QueueService` 만듭니다. 프로그래밍 방식으로 Azure Storage에 액세스하려는 Python 파일의 맨 위쪽에 다음을 추가합니다.
+[QueueService](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice) 개체를 사용하면 큐로 작업할 수 있습니다. 다음 코드는 `QueueService` 개체를 만듭니다. 프로그래밍 방식으로 Azure Storage에 액세스하려는 Python 파일의 맨 위쪽에 다음을 추가합니다.
 
 ```python
 from azure.storage.queue import QueueService
@@ -86,7 +89,7 @@ queue_service.decode_function = QueueMessageFormat.binary_base64decode
 
 ## <a name="peek-at-the-next-message"></a>다음 메시지 보기
 
-큐에서 메시지를 제거 하지 않고도 [peek_messages](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#peek-messages-queue-name--num-messages-none--timeout-none-) 메서드를 호출 하 여 큐의 맨 앞에 있는 메시지를 볼 수 있습니다. 기본적으로 단일 `peek_messages` 메시지를 피킹합니다.
+큐에서 메시지를 제거 하지 않고도 [peek_messages](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#peek-messages-queue-name--num-messages-none--timeout-none-) 메서드를 호출 하 여 큐의 맨 앞에 있는 메시지를 볼 수 있습니다. 기본적으로 `peek_messages`은 단일 메시지를 피킹합니다.
 
 ```python
 messages = queue_service.peek_messages('taskqueue')
@@ -96,7 +99,7 @@ for message in messages:
 
 ## <a name="dequeue-messages"></a>큐에서 메시지 제거
 
-다음 코드는 2단계를 거쳐 큐에서 메시지를 제거합니다. [Get_messages](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-)를 호출 하면 기본적으로 큐에서 다음 메시지를 가져옵니다. `get_messages`에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 기본적으로, 이 메시지는 30초간 표시되지 않습니다. 큐에서 메시지 제거를 완료하려면 [delete_message](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#delete-message-queue-name--message-id--pop-receipt--timeout-none-)도 호출해야 합니다. 메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 코드는 메시지가 `delete_message` 처리 된 직후에 호출 됩니다.
+다음 코드는 2단계를 거쳐 큐에서 메시지를 제거합니다. [Get_messages](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-)를 호출 하면 기본적으로 큐에서 다음 메시지를 가져옵니다. `get_messages`에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 기본적으로, 이 메시지는 30초간 표시되지 않습니다. 큐에서 메시지 제거를 완료하려면 [delete_message](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#delete-message-queue-name--message-id--pop-receipt--timeout-none-)도 호출해야 합니다. 메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 메시지를 처리 한 후 코드에서 `delete_message`을 호출 합니다.
 
 ```python
 messages = queue_service.get_messages('taskqueue')
@@ -128,7 +131,7 @@ for message in messages:
 
 ## <a name="get-the-queue-length"></a>큐 길이 가져오기
 
-큐에 있는 메시지의 추정된 개수를 가져올 수 있습니다. [Get_queue_metadata](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-queue-metadata-queue-name--timeout-none-) 메서드는 큐 서비스에 큐에 대 한 메타 데이터 및 `approximate_message_count`을 반환 하도록 요청 합니다. 큐 서비스가 요청에 응답한 후 메시지가 추가되거나 제거될 수 있으므로 이 결과는 근사치일 뿐입니다.
+큐에 있는 메시지의 추정된 개수를 가져올 수 있습니다. [Get_queue_metadata](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-queue-metadata-queue-name--timeout-none-) 메서드는 큐 서비스에 큐에 대 한 메타 데이터를 반환 하도록 요청 하 고 `approximate_message_count`을 반환 합니다. 큐 서비스가 요청에 응답한 후 메시지가 추가되거나 제거될 수 있으므로 이 결과는 근사치일 뿐입니다.
 
 ```python
 metadata = queue_service.get_queue_metadata('taskqueue')

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
-ms.openlocfilehash: 3da9fef8c7de248f30100f94724cd5dcdb7db8e3
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a17d98d49d2c653e2498a663829d26e8a171fd74
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727069"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433519"
 ---
 # <a name="azure-infrastructure-security"></a>Azure 인프라 보안
 Microsoft Azure는 Microsoft에서 관리하고 운영하는 데이터 센터에서 실행됩니다. 지리적으로 분산된 데이터 센터는 보안 및 안정성을 위해 ISO/IEC 27001:2013 및 NIST SP 800-53과 같은 주요 산업 표준을 준수합니다. 데이터 센터는 Microsoft 운영 담당자에 의해 관리되고 모니터링됩니다. 운영 담당자는 연중 무휴로 사용하여 세계에서 가장 규모가 큰 온라인 서비스를 제공하는 환경을 경험했습니다.
@@ -45,12 +45,12 @@ Microsoft Azure는 Microsoft에서 관리하고 운영하는 데이터 센터에
 
 고객은 배포 유형에 관계없이 항상 다음에 대한 책임이 있습니다.
 
-- 보기
+- 데이터
 - 엔드포인트
 - 계좌
 - 액세스 관리
 
-SaaS, PaaS 및 IaaS 배포에서 사용자와 Microsoft 간의 책임 분배를 이해해야 합니다. 자세한 내용은 [클라우드 컴퓨팅에 대한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)을 참조하세요.
+SaaS, PaaS 및 IaaS 배포에서 사용자와 Microsoft 간의 책임 분배를 이해해야 합니다. 자세한 내용은 [클라우드 컴퓨팅에 대한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225237/1/Shared%20Responsibilities%20for%20Cloud%20Computing%20(2017-04-03).pdf)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure 인프라를 보호하기 위해 Microsoft에서 수행하는 작업에 대해 자세히 알아보려면 다음을 참조하세요.

@@ -14,20 +14,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 8ce307df954575b3204f7a4b3f46af1f4a9c3089
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: ce5750a5071ee0dfc257498f83f41b6d59c99a8b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027453"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388527"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Xamarin.Forms 앱에 푸시 알림 추가
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 > [!NOTE]
-> Visual Studio App Center은 모바일 앱 개발에 대 한 종단 간 및 통합 서비스의 중심을 지원 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다.
-> 모바일 응용 프로그램에서 클라우드 서비스를 통합 하려는 경우 현재 App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 에 등록 하세요.
+> Visual Studio App Center는 모바일 앱 개발의 중심인 엔드투엔드 통합 서비스를 지원합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용하여 지속적인 통합 및 업데이트 파이프라인을 설정할 수 있습니다. 앱이 배포되면 개발자는 **분석** 및 **진단** 서비스를 사용하여 앱의 상태와 사용 현황을 모니터링하고, **푸시** 서비스를 사용하여 사용자와 소통할 수 있습니다. 또한 개발자는 **인증** 서비스를 사용하여 사용자를 인증하고, **데이터** 서비스를 사용하여 클라우드에서 애플리케이션 데이터를 유지하고 동기화할 수도 있습니다.
+>
+> 모바일 애플리케이션에서 클라우드 서비스를 통합하려면 지금 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc)에 등록하세요.
 
 ## <a name="overview"></a>개요
 
@@ -35,7 +36,7 @@ ms.locfileid: "72027453"
 
 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 푸시 알림 확장 패키지가 필요합니다. 자세한 내용은 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 iOS의 경우 [Apple 개발자 프로그램 멤버 자격](https://developer.apple.com/programs/ios/) 및 실제 iOS 디바이스가 필요합니다. [iOS 시뮬레이터는 푸시 알림을 지원하지 않습니다](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html).
 
@@ -122,9 +123,9 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
     }
     ```
 
-    `FirebaseRegistrationService` 클래스는 FCM에 액세스하는 애플리케이션을 인증하는 보안 토큰 생성을 담당합니다. 애플리케이션이 FCM에서 등록 토큰을 수신하는 경우 `OnTokenRefresh` 메서드가 호출됩니다. 토큰을 검색 하는 메서드는 `FirebaseInstanceId.Instance.Token` FCM에서 비동기적으로 업데이트 되는 속성입니다. `OnTokenRefresh` 메서드가 자주 호출 되 면 토큰은 응용 프로그램을 설치 하거나 제거, 사용자 응용 프로그램의 인스턴스 ID를 지울 때 응용 프로그램 데이터를 삭제 하는 경우에 업데이트 되므로 또는 토큰의 보안 된 경우 손상 됩니다. 또한 FCM 인스턴스 ID 서비스를 사용 하는 응용 프로그램 토큰 새로 고침의 정기적으로, 일반적으로 6 개월 마다 요청 합니다.
+    `FirebaseRegistrationService` 클래스는 FCM에 액세스하는 애플리케이션을 인증하는 보안 토큰 생성을 담당합니다. 애플리케이션이 FCM에서 등록 토큰을 수신하는 경우 `OnTokenRefresh` 메서드가 호출됩니다. 메서드는 FCM에서 비동기적으로 업데이트되는 `FirebaseInstanceId.Instance.Token` 속성에서 토큰을 검색합니다. 토큰은 애플리케이션을 설치하거나 제거할 때, 사용자가 애플리케이션 데이터를 삭제할 때, 애플리케이션이 인스턴스 ID를 지울 때 또는 토큰의 보안이 손상되었을 때만 업데이트되므로 `OnTokenRefresh` 메서드는 드물게 호출됩니다. 또한 FCM 인스턴스 ID 서비스는 애플리케이션에서 해당 토큰을 정기적으로, 일반적으로 6개월마다 새로 고치도록 요청합니다.
 
-    합니다 `OnTokenRefresh` 메서드는 호출을 `SendRegistrationTokenToAzureNotificationHub` Azure 알림 허브를 사용 하 여 사용자의 등록 토큰을 연결 하는 데 사용 되는 메서드.
+    `OnTokenRefresh` 메서드는 또한 사용자의 등록 토큰을 Azure 알림 허브에 연결하는 데 사용되는 `SendRegistrationTokenToAzureNotificationHub` 메서드를 호출합니다.
 
 #### <a name="registering-with-the-azure-notification-hub"></a>Azure 알림 허브 등록
 
@@ -224,7 +225,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
     }
     ```
 
-    애플리케이션이 FCM에서 알림을 받을 때 호출되는 `OnMessageReceived` 메서드는 메시지 콘텐츠를 추출하고 `SendNotification` 메서드를 호출합니다. 이 메서드는 메시지 콘텐츠를 알림 영역에 표시 되는 알림과 사용 하 여 응용 프로그램이 실행 되는 동안 실행 되는 로컬 알림으로 변환 합니다.
+    애플리케이션이 FCM에서 알림을 받을 때 호출되는 `OnMessageReceived` 메서드는 메시지 콘텐츠를 추출하고 `SendNotification` 메서드를 호출합니다. 이 메서드는 메시지 콘텐츠를 알림 영역에 표시되는 알림과 함께 애플리케이션이 실행되는 동안 시작되는 로컬 알림으로 변환합니다.
 
 이제 Android 디바이스 또는 에뮬레이터에서 실행 중인 앱에서 푸시 알림을 테스트할 준비가 되었습니다.
 
@@ -409,7 +410,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
 
 푸시 알림에 대해 자세히 알아봅니다.
 
-* [Azure 모바일 앱에서 푸시 알림을 보내기](https://developer.xamarin.com/guides/xamarin-forms/cloud-services/push-notifications/azure/)
+* [Azure Mobile Apps에서 푸시 알림 보내기](https://developer.xamarin.com/guides/xamarin-forms/cloud-services/push-notifications/azure/)
 * [Firebase Cloud Messaging](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/firebase-cloud-messaging/)
 * [Firebase Cloud Messaging을 사용하여 원격 알림](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/)
 * [푸시 알림 문제 진단](../notification-hubs/notification-hubs-push-notification-fixer.md)  

@@ -8,18 +8,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 8/18/2019
 ms.author: makromer
-ms.openlocfilehash: 9964aaf060c43cc3e9992f515bf272011e795043
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: d6885e9b30cc71bda822a29574c4d574f2b020a0
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962124"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387043"
 ---
 # <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>Data Factory 매핑 데이터 흐름을 사용 하 여 고정 길이 텍스트 파일 처리
 
 Microsoft Azure Data Factory에서 매핑 데이터 흐름을 사용 하 여 고정 너비 텍스트 파일에서 데이터를 변환할 수 있습니다. 다음 태스크에서는 구분 기호 없이 텍스트 파일에 대 한 데이터 집합을 정의한 다음 서 수 위치에 따라 부분 문자열 분할을 설정 합니다.
 
-## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
+## <a name="create-a-pipeline"></a>파이프라인을 만들기
 
 1. **+ 새 파이프라인** 을 선택 하 여 새 파이프라인을 만듭니다.
 
@@ -65,7 +65,7 @@ Microsoft Azure Data Factory에서 매핑 데이터 흐름을 사용 하 여 고
 
     ```substring(Column_1,1,4)```
 
-    ![파생 열(derived column)](media/data-flow/fwderivedcol1.png)
+    ![파생 열](media/data-flow/fwderivedcol1.png)
 
 11. 구문 분석 해야 하는 모든 열에 대해 10 단계를 반복 합니다.
 

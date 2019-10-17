@@ -1,6 +1,6 @@
 ---
-title: 'Azure 상태 모니터 v2 API 참조: 계측 엔진 사용 안 함 | Microsoft Docs'
-description: V2 API 참조를 상태 모니터 합니다. InstrumentationEngine를 사용 하지 않습니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
+title: 'Azure 애플리케이션 Insights 에이전트 API 참조: 계측 엔진을 사용 하지 않습니다. | Microsoft Docs'
+description: 에이전트 API 참조를 Application Insights 합니다. InstrumentationEngine를 사용 하지 않습니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,31 +12,31 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 98f70a457b1e09f755a854a28cfd31a8fc9ee9f2
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: aaf493b5f2075ead62087824773f21643a1246e4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033184"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388299"
 ---
-# <a name="status-monitor-v2-api-disable-instrumentationengine"></a>상태 모니터 v2 API: Disable-InstrumentationEngine
+# <a name="application-insights-agent-api-disable-instrumentationengine"></a>Application Insights 에이전트 API: InstrumentationEngine
 
 이 문서에서는 [Az. ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)의 멤버인 cmdlet에 대해 설명 합니다.
 
-## <a name="description"></a>Description
+## <a name="description"></a>설명
 일부 레지스트리 키를 제거 하 여 계측 엔진을 사용 하지 않도록 설정 합니다.
 변경 내용을 적용 하려면 IIS를 다시 시작 하십시오.
 
 > [!IMPORTANT] 
 > 이 cmdlet을 사용 하려면 관리자 권한이 있는 PowerShell 세션이 있어야 합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 ```powershell
 PS C:\> Disable-InstrumentationEngine
 ```
 
-## <a name="parameters"></a>매개 변수 
+## <a name="parameters"></a>parameters 
 
 ### <a name="-verbose"></a>-Verbose
 **일반 매개 변수입니다.** 이 스위치를 사용 하 여 자세한 로그를 출력 합니다.
@@ -57,5 +57,5 @@ Configuring registry for instrumentation engine...
 
 ## <a name="next-steps"></a>다음 단계
 
- 상태 모니터 v2를 사용 하 여 더 많은 작업 수행:
- - 가이드를 사용 하 여 상태 모니터 v2 [문제를 해결](status-monitor-v2-troubleshoot.md) 하세요.
+ Application Insights 에이전트를 사용 하 여 더 많은 작업 수행:
+ - 가이드를 사용 하 여 Application Insights 에이전트 [문제를 해결할](status-monitor-v2-troubleshoot.md) 수 있습니다.

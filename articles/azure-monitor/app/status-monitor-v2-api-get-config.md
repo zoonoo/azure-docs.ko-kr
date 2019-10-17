@@ -1,6 +1,6 @@
 ---
-title: 'Azure 상태 모니터 v2 API 참조: 구성 가져오기 | Microsoft Docs'
-description: V2 API 참조를 상태 모니터 합니다. Get-ApplicationInsightsMonitoringConfig. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
+title: 'Azure 애플리케이션 Insights 에이전트 API 참조: 구성 가져오기 | Microsoft Docs'
+description: 에이전트 API 참조를 Application Insights 합니다. ApplicationInsightsMonitoringConfig. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,31 +12,31 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 1da24a93a671b388c44d96711bc2fe007f33d197
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: e0b389dfb27443b9b26b8ed650399c641c55eb86
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033168"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388277"
 ---
-# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringconfig"></a>상태 모니터 v2 API: ApplicationInsightsMonitoringConfig
+# <a name="application-insights-agent-api-get-applicationinsightsmonitoringconfig"></a>Application Insights 에이전트 API: ApplicationInsightsMonitoringConfig
 
 이 문서에서는 [Az. ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)의 멤버인 cmdlet에 대해 설명 합니다.
 
-## <a name="description"></a>Description
+## <a name="description"></a>설명
 
 구성 파일을 가져오고 값을 콘솔에 출력 합니다.
 
 > [!IMPORTANT] 
 > 이 cmdlet을 사용 하려면 관리자 권한이 있는 PowerShell 세션이 있어야 합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 ```powershell
 PS C:\> Get-ApplicationInsightsMonitoringConfig
 ```
 
-## <a name="parameters"></a>매개 변수
+## <a name="parameters"></a>parameters
 
 매개 변수가 필요 하지 않습니다.
 
@@ -66,6 +66,6 @@ Filters:
 - 웹 [클라이언트 원격 분석을 추가](../../azure-monitor/app/javascript.md) 하 여 웹 페이지 코드에서 예외를 확인 하 고 추적 호출을 사용 하도록 설정 합니다.
 - 추적 및 로그 호출을 삽입할 수 있도록 [APPLICATION INSIGHTS SDK를 코드에 추가](../../azure-monitor/app/asp-net.md) 합니다.
  
- 상태 모니터 v2를 사용 하 여 더 많은 작업 수행:
- - 가이드를 사용 하 여 상태 모니터 v2 [문제를 해결](status-monitor-v2-troubleshoot.md) 하세요.
+ Application Insights 에이전트를 사용 하 여 더 많은 작업 수행:
+ - 가이드를 사용 하 여 Application Insights 에이전트 [문제를 해결할](status-monitor-v2-troubleshoot.md) 수 있습니다.
  - [Set config](status-monitor-v2-api-set-config.md) cmdlet을 사용 하 여 구성을 변경할 수 있습니다.

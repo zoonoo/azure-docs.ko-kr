@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 1b8297a797f83935f16365a15d100ce88cadca30
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6521c139463bb0de1e24783bbbdd6a2d3996be6f
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099550"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430095"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Azure용 SAP LaMa 커넥터
 
@@ -38,7 +38,7 @@ ms.locfileid: "70099550"
 [hana-ops-guide]:hana-vm-operations.md
 
 > [!NOTE]
-> 일반 지원 설명: SAP LaMa 또는 Azure 커넥터에 대한 지원이 필요한 경우 항상 구성 요소 BC-VCM-LVM-HYPERV에서 SAP에 대한 인시던트를 열어주세요.
+> SAP LaMa 또는 Azure 커넥터에 대한 지원이 필요한 경우 항상 구성 요소 BC-VCM-LVM-HYPERV에서 SAP에 대한 인시던트를 열어주세요.
 
 SAP LaMa는 많은 고객이 SAP 환경을 운영 및 모니터링하는 데 사용됩니다. SAP LaMa 3.0 SP05부터 Azure에 대한 커넥터가 기본적으로 제공됩니다. 이 커넥터를 사용하여 가상 머신을 할당 해제하여 시작하고, 관리 디스크를 복사하여 재배치하고, 관리 디스크를 삭제할 수 있습니다. 이러한 기본 작업을 통해 SAP LaMa를 사용하여 SAP 시스템을 재배치, 복사, 복제 및 새로 고칠 수 있습니다.
 
@@ -73,11 +73,11 @@ SAP LaMa는 많은 고객이 SAP 환경을 운영 및 모니터링하는 데 사
 
 Azure 커넥터는 SAP LaMa 3.0 SP05부터 제공됩니다. SAP LaMa 3.0용 최신 지원 패키지 및 패치를 항상 설치하는 것이 좋습니다. Azure 커넥터는 서비스 주체를 사용하여 Microsoft Azure에 대한 권한 부여합니다. 다음 단계에 따라 SAP LaMa(Landscape Management)에 대한 서비스 주체를 생성합니다.
 
-1. [https://resources.azure.com](https://portal.azure.com ) 으로 이동합니다.
+1. https://portal.azure.com (으)로 이동
 1. Azure Active Directory 블레이드 열기
 1. 앱 등록을 클릭합니다.
 1. 추가를 클릭합니다.
-1. 이름을 입력 하 고, 응용 프로그램 유형 "웹 앱/a p i"를 선택 하 고, 로그온 URL (예\/: http:/localhost)을 입력 하 고 만들기를 클릭 합니다.
+1. 이름을 입력 하 고 응용 프로그램 유형 "웹 앱/a p i"를 선택한 후 로그온 URL (예: http: \//localhost)을 입력 하 고 만들기를 클릭 합니다.
 1. 로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있음
 1. 새 앱을 선택하고 설정 탭에서 키를 클릭합니다.
 1. 새 키의 설명을 입력하고 “무기한”을 선택한 다음, 저장을 클릭합니다.
@@ -86,7 +86,7 @@ Azure 커넥터는 SAP LaMa 3.0 SP05부터 제공됩니다. SAP LaMa 3.0용 최�
 
 서비스 주체에는 기본적으로 Azure 리소스에 액세스할 권한이 없습니다. 액세스하려면 서비스 주체에 권한을 부여해야 합니다.
 
-1. [https://resources.azure.com](https://portal.azure.com ) 으로 이동합니다.
+1. https://portal.azure.com (으)로 이동
 1. 리소스 그룹 블레이드를 엽니다.
 1. 사용하려는 리소스 그룹을 선택합니다.
 1. 액세스 제어(IAM) 클릭
@@ -98,15 +98,15 @@ Azure 커넥터는 SAP LaMa 3.0 SP05부터 제공됩니다. SAP LaMa 3.0용 최�
 
 SAP LaMa 웹 사이트를 열고 Infrastructure(인프라)로 이동합니다. Cloud Managers(클라우드 관리자) 탭으로 이동하여 Add(추가)를 클릭합니다. Microsoft Azure 클라우드 어댑터를 선택하고 다음을 클릭합니다. 다음 정보를 입력합니다.
 
-* 레이블: 커넥터 인스턴스의 이름 선택
-* 사용자 이름: 서비스 사용자 애플리케이션 ID
-* 암호: 서비스 주체 키/암호
+* Label(레이블): 커넥터 인스턴스의 이름 선택
+* User Name(사용자 이름): 서비스 주체 애플리케이션 ID
+* Password(암호): 서비스 주체 키/암호
 * URL: 기본값 https://management.azure.com/ 유지
-* 모니터링 간격(초): 300 이상이어야 함
-* 구독 ID: Azure 구독 ID입니다.
-* Azure Active Directory 테넌트 ID: Active Directory 테넌트의 ID
-* 프록시 호스트: SAP LaMa가 인터넷에 연결하는 데 프록시가 필요한 경우 프록시의 호스트 이름
-* 프록시 포트: 프록시의 TCP 포트
+* Monitoring Interval (Seconds)(모니터링 간격(초)): 300 이상이어야 합니다.
+* Subscription ID(구독 ID): Azure 구독 ID
+* Azure Active Directory Tenant ID(테넌트 ID): Active Directory의 테넌트 ID
+* Proxy host(프록시 호스트): SAP LaMa가 인터넷에 연결하는 데 프록시가 필요한 경우 프록시의 호스트 이름
+* Proxy port(프록시 포트): 프록시의 TCP 포트
 
 [테스트 구성]을 클릭하여 사용자 입력의 유효성을 검사합니다. 다음과 같은 결과가 표시됩니다.
 
@@ -182,7 +182,7 @@ SAP LaMa는 SQL Server 자체를 재배치할 수 없습니다. 따라서 데이
 
 템플릿에는 다음과 같은 매개 변수가 있습니다.
 
-* sapSystemId: SAP 시스템 ID. 디스크 레이아웃(예: /usr/sap/\<sapsid>)을 만드는 데 사용됩니다.
+* sapSystemId: SAP 시스템 ID입니다. 디스크 레이아웃(예: /usr/sap/\<sapsid>)을 만드는 데 사용됩니다.
 
 * computerName: 새 가상 머신의 컴퓨터 이름입니다. 이 매개 변수는 SAP LaMa에도 사용됩니다. 이 템플릿을 사용하여 시스템 복사본의 일부로 새 가상 머신을 프로비전하면, SAP LaMa는 이 컴퓨터 이름을 가진 호스트에 연결할 수 있을 때까지 대기합니다.
 
@@ -289,7 +289,7 @@ NetApp 계정 내에서 용량 풀은 각 풀의 디스크 크기와 유형을 �
 
 ![SAP LaMa NetApp 용량 풀이 만들어짐 ](media/lama/sap-lama-capacitypool-list.png)
 
-이제 NFS 볼륨을 정의할 수 있습니다. 하나의 풀에 여러 시스템에 대 한 볼륨이 있으므로 자체 설명 명명 스키마를 선택 해야 합니다. SID를 추가 하면 관련 볼륨을 함께 그룹화 하는 데 도움이 됩니다. Ascs 및 AS 인스턴스의\<경우/sapmnt/sid\>,/usr/sap/\<sid\> 및/home/\<sid\>adm과 같은 탑재를 수행 해야 합니다. 중앙 전송 디렉터리에 대 한 선택적/usr/sap/trans으로, 한 곳의 모든 시스템에서 최소 사용 됩니다.
+이제 NFS 볼륨을 정의할 수 있습니다. 하나의 풀에 여러 시스템에 대 한 볼륨이 있으므로 자체 설명 명명 스키마를 선택 해야 합니다. SID를 추가 하면 관련 볼륨을 함께 그룹화 하는 데 도움이 됩니다. ASCS 및 AS 인스턴스의 경우 */sapmnt/\<SID @ no__t-2*, */usr/sap/\<sid @ no__t-5*, */home/\<sid @ no__t-8adm*을 수행 해야 합니다. 필요에 따라 중앙 전송 디렉터리에 대해 */usr/sap/trans* 가 필요 합니다 .이 디렉터리는 최소한 한 곳의 모든 시스템에서 사용 됩니다.
 
 > [!NOTE]
 > 베타 단계에서 볼륨 이름은 구독 내에서 고유 해야 합니다.
@@ -336,7 +336,7 @@ Df-h 명령을 사용 하 여 확인 합니다.
 
 탑재 지점은 ASCS 및 AS 인스턴스에 대해 다음과 같이 표시 됩니다.
 
-![LaMa ](media/lama/sap-lama-ascs.png) 의 SAP LaMa 탑재 위치 (예: IP 주소와 내보내기 경로가 이전에 사용한 것과 다릅니다.
+@no__t-@no__t LaMa의 SAP LaMa 탑재 지점은-1 (예: IP 주소와 내보내기 경로가 이전에 사용한 것과 다릅니다.
 
 
 #### <a name="install-sap-hana"></a>SAP HANA 설치
@@ -393,7 +393,7 @@ SAP NetWeaver 프로필 매개 변수 dbs/hdb/hdb_use_ident를 사용하여 HDB 
 
 테넌트 복사를 시도하기 전에 SYSTEMDB 및 모든 테넌트 데이터베이스를 백업해야 합니다. 테넌트가 시스템 복제본을 이동하거나 생성합니다.
 
-### <a name="microsoft-sql-server"></a>Microsoft SQL Server
+### <a name="microsoft-sql-server"></a>Microsoft SQL Server에 대한 연결 문자열
 
 아래 예제에서는 시스템 ID AS1로 SAP NetWeaver 시스템을 설치한다고 가정합니다. 가상 호스트 이름은 SAP NetWeaver 시스템에 사용되는 SQL Server 인스턴스는 as1-db이고 SAP NetWeaver ASCS는 as1-ascs이고 첫 번째 SAP NetWeaver Application Server는 as1-di-0입니다.
 
@@ -467,7 +467,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
 ### <a name="errors-and-warnings-during-a-system-clone"></a>시스템 복제 중 오류 및 경고
 
 * ASCS 또는 애플리케이션 서버의 *Forced Register and Start Instance Agent*(강제 등록 및 인스턴스 에이전트 시작) 단계에서 인스턴스 에이전트 등록을 시도하는 중 오류가 발생했습니다.
-  * 인스턴스 에이전트 등록을 시도하는 중 오류가 발생했습니다. (RemoteException: '프로필 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0'에서 인스턴스 데이터를 로드하지 못했습니다.  프로필 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0'에 액세스할 수 없습니다. 해당하는 파일이나 디렉터리가 없습니다.')
+  * 인스턴스 에이전트 등록을 시도하는 중 오류가 발생했습니다. (RemoteException: '프로필 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0'에서 인스턴스 데이터를 로드하지 못했습니다. 프로필 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0'에 액세스할 수 없습니다. 해당하는 파일이나 디렉터리가 없습니다.')
   * 솔루션  
    ASCS/SCS의 sapmnt 공유에 SAP_AS1_GlobalAdmin에 대한 전체 액세스 권한이 있는지 확인합니다.
 
@@ -503,12 +503,12 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
 ### <a name="errors-and-warnings-during-application-server-installation"></a>Application Server 설치 중 오류 및 경고
 
 * SAPinst 단계: getProfileDir 실행 중 오류 발생
-  * 오류: (단계에서 보고한 마지막 오류: 모듈 호출에서 ESAPinstException catch됨: 단계 '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_readProfileDir|ind|ind|ind|ind|readProfile|0|getProfileDir'의 유효성 검사기가 오류를 보고함: 노드 \\\as1-ascs\sapmnt\AS1\SYS\profile이 없습니다. SAPinst를 대화형 모드로 시작하여 문제를 해결하십시오.)
+  * 오류: (단계에서 보고한 마지막 오류: Caught ESAPinstException in module call: Validator of step '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_readProfileDir|ind|ind|ind|ind|readProfile|0|getProfileDir' reported an error: Node \\\as1-ascs\sapmnt\AS1\SYS\profile does not exist. SAPinst를 대화형 모드로 시작하여 문제를 해결하십시오.)
   * 솔루션  
     프로필에 대한 액세스 권한이 있는 사용자로 SWPM이 실행 중인지 확인합니다. 이 사용자는 Application Server 설치 마법사에서 구성할 수 있습니다.
 
 * SAPinst 단계: askUnicode 실행 중 오류 발생
-  * 오류: (단계에서 보고한 마지막 오류: 모듈 호출에서 ESAPinstException catch됨: 단계 '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_getUnicode|ind|ind|ind|ind|unicode|0|askUnicode'의 유효성 검사기가 오류를 보고함: SAPinst를 대화형 모드로 시작하여 문제를 해결하십시오.)
+  * 오류: (단계에서 보고한 마지막 오류: Caught ESAPinstException in module call: Validator of step '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_getUnicode|ind|ind|ind|ind|unicode|0|askUnicode' reported an error: SAPinst를 대화형 모드로 시작하여 문제를 해결하십시오.)
   * 솔루션  
     최근 SAP 커널을 사용하는 경우, SWPM은 ASCS의 메시지 서버를 사용하여 시스템이 더 이상 유니코드 시스템인지 여부를 확인할 수 없습니다. 자세한 내용은 SAP Note [2445033]을 참조하세요.  
     이 문제는 SAP LaMa의 새로운 지원 패키지/패치에서 수정될 예정입니다.  
@@ -525,7 +525,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
     애플리케이션 서버를 설치하려는 가상 머신에 SQL Server용 Microsoft ODBC 드라이버가 설치되어 있는지 확인합니다.
 
 * SAPinst 단계: copyScripts 실행 중 오류 발생
-  * 단계에서 보고한 마지막 오류: 시스템 호출 실패입니다. 세부 정보: 파일 (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/filesystem/syxxcfstrm2.cpp), 줄 (494)의 매개 변수 (\\\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w)가 있는 시스템 호출 'fopenU' 실행 시 오류 13 (0x0000000d) (사용 권한 거부됨) 발생, 스택 추적:  
+  * 단계에서 보고한 마지막 오류: 시스템 호출 실패입니다. 세부 정보 Error 13 (0x0000000d) (사용 권한 거부됨) in execution of system call 'fopenU' with parameter (\\\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w), line (494) in file (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/filesystem/syxxcfstrm2.cpp), 스택 추적:  
   CThrThread.cpp: 85: CThrThread::threadFunction()  
   CSiServiceSet.cpp: 63: CSiServiceSet::executeService()  
   CSiStepExecute.cpp: 913: CSiStepExecute::execute()  
@@ -543,7 +543,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
     프로필에 대한 액세스 권한이 있는 사용자로 SWPM이 실행 중인지 확인합니다. 이 사용자는 Application Server 설치 마법사에서 구성할 수 있습니다.
 
 * SAPinst 단계: askPasswords 실행 중 오류 발생
-  * 단계에서 보고한 마지막 오류: 시스템 호출 실패입니다. 세부 정보: 파일 (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp), 줄 (359)의 매개 변수 (...)가 있는 시스템 호출 'NetValidatePasswordPolicy' 실행 시 오류 5 (0x00000005) (액세스가 거부되었습니다.) 발생, 스택 추적:  
+  * 단계에서 보고한 마지막 오류: 시스템 호출 실패입니다. 세부 정보: Error 5 (0x00000005) (액세스가 거부되었습니다.) in execution of system call 'NetValidatePasswordPolicy' with parameter (...), line (359) in file (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp), 스택 추적:  
   CThrThread.cpp: 85: CThrThread::threadFunction()  
   CSiServiceSet.cpp: 63: CSiServiceSet::executeService()  
   CSiStepExecute.cpp: 913: CSiStepExecute::execute()  

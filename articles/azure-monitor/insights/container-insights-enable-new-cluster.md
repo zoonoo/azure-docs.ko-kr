@@ -1,6 +1,6 @@
 ---
-title: 새 Azure Kubernetes Service (AKS) 클러스터 모니터링 | Microsoft Docs
-description: 컨테이너 구독에 대 한 Azure Monitor를 사용 하 여 새 Azure Kubernetes Service (AKS) 클러스터에 대 한 모니터링을 사용 하는 방법에 알아봅니다.
+title: 새 AKS (Azure Kubernetes Service) 클러스터 모니터링 | Microsoft Docs
+description: 컨테이너 구독에 대 한 Azure Monitor를 사용 하 여 새 AKS (Azure Kubernetes Service) 클러스터에 대 한 모니터링을 사용 하도록 설정 하는 방법을 알아봅니다.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: magoedte
-ms.openlocfilehash: d73ab2d5cca4f20f954a0b0e972111d3f395c3c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cff0286e944414d70cffd801620159ffef3db1a5
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65077532"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389820"
 ---
-# <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>새 Azure Kubernetes Service (AKS) 클러스터의 모니터링을 사용 하도록 설정
+# <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>새 AKS (Azure Kubernetes Service) 클러스터의 모니터링 사용
 
-이 문서에서는 Azure Monitor 컨테이너에 대 한 관리 되는 Kubernetes 클러스터에서 호스트 모니터링를 설정 하는 방법을 설명 [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) 구독의 배포를 준비 하는 합니다.
+이 문서에서는 구독에 배포 하기 위해 준비 하 고 있는 [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) 에 호스트 된 관리 되는 Kubernetes 클러스터를 모니터링 하는 컨테이너에 대 한 Azure Monitor를 설정 하는 방법을 설명 합니다.
 
-지원 되는 방법 중 하나를 사용 하 여 AKS 클러스터의 모니터링을 사용할 수 있습니다.
+지원 되는 방법 중 하나를 사용 하 여 AKS 클러스터의 모니터링을 사용 하도록 설정할 수 있습니다.
 
 * Azure CLI
 * Terraform
@@ -34,8 +34,7 @@ ms.locfileid: "65077532"
 Azure CLI로 만든 새로운 AKS 클러스터에 대한 모니터링을 활성화하려면 [AKS 클러스터 만들기](../../aks/kubernetes-walkthrough.md#create-aks-cluster) 섹션 아래 빠른 시작 문서의 단계를 수행하세요.  
 
 >[!NOTE]
->Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.59 실행 해야 이상. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요. 
->
+>Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.74 이상을 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요. Aks preview CLI extension version 0.4.12 이상을 설치한 경우 Azure US Governmnet 클라우드에서 AKS 미리 보기 기능을 사용할 수 없기 때문에 기본 Azure CLI 동작을 재정의할 수 있으므로 미리 보기 확장을 사용 하도록 설정 된 모든 변경 내용을 제거 합니다.
 
 ## <a name="enable-using-terraform"></a>Terraform 사용
 

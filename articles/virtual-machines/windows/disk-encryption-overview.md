@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e38a58d076f6a8b7b2b07e468c61835ed06f55a4
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 05db717f5d3adc2429431503f588f2cc7f79aef6
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255614"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435742"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Windows Vm에 대 한 Azure Disk Encryption 
 
@@ -32,13 +32,13 @@ Azure Disk Encryption는 조직의 보안 및 규정 준수 약정에 맞게 데
 
 ### <a name="supported-vm-sizes"></a>지원되는 VM 크기
 
-Windows Vm은 [다양 한 크기로](sizes-general.md)사용할 수 있습니다. Azure Disk Encryption는 [기본, a 시리즈 vm](/pricing/details/virtual-machines/series/)또는 2gb 미만의 메모리가 있는 가상 컴퓨터에서 사용할 수 없습니다.
+Windows Vm은 [다양 한 크기로](sizes-general.md)사용할 수 있습니다. Azure Disk Encryption는 [기본, a 시리즈 vm](https://azure.microsoft.com/pricing/details/virtual-machines/series/)또는 2gb 미만의 메모리가 있는 가상 컴퓨터에서 사용할 수 없습니다.
 
 Azure Disk Encryption은 프리미엄 저장소가 있는 Vm에도 사용할 수 있습니다.
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-- Windows 클라이언트: Windows 8 이상.
+- Windows 클라이언트: Windows 8 이상
 - Windows Server: Windows Server 2008 R2 이상  
  
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure Disk Encryption를 사용 하도록 설정 하려면 Vm이 다음 네트�
 
 Azure Disk Encryption는 Windows Vm에 대해 BitLocker 외부 키 보호기를 사용 합니다. 도메인 가입 VM의 경우 TPM 보호기를 적용하는 그룹 정책을 푸시하지 않습니다. "호환되는 TPM이 없이 BitLocker 허용"에 대한 그룹 정책 정보는 [BitLocker 그룹 정책 참조](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1)를 참조하세요.
 
-사용자 지정 그룹 정책을 사용하는 도메인 가입 가상 머신의 BitLocker 정책은 다음 설정을 포함해야 합니다. [BitLocker 복구 정보의 사용자 저장소 구성-256 비트 복구 키를 허용 >](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)합니다. BitLocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 머신에서 새 정책을 적용하고, 새 정책을 강제로 업데이트한(gpupdate.exe /force) 다음, 다시 시작해야 할 수 있습니다.
+사용자 지정 그룹 정책을 사용 하는 도메인에 가입 된 가상 컴퓨터의 BitLocker 정책에는 [bitlocker 복구 정보의 사용자 저장소 구성-256 비트 복구 키 허용 >](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)설정이 포함 되어야 합니다. BitLocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 머신에서 새 정책을 적용하고, 새 정책을 강제로 업데이트한(gpupdate.exe /force) 다음, 다시 시작해야 할 수 있습니다.
 
 도메인 수준 그룹 정책이 BitLocker에서 사용 되는 AES CBC 알고리즘을 차단 하는 경우 Azure Disk Encryption 실패 합니다.
 

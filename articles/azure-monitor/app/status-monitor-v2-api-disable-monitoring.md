@@ -1,6 +1,6 @@
 ---
-title: 'Azure 상태 모니터 v2 API 참조: 모니터링 사용 안 함 | Microsoft Docs'
-description: V2 API 참조를 상태 모니터 합니다. Disable-ApplicationInsightsMonitoring. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
+title: 'Azure 애플리케이션 Insights 에이전트 API 참조: 모니터링 사용 안 함 | Microsoft Docs'
+description: 에이전트 API 참조를 Application Insights 합니다. ApplicationInsightsMonitoring를 사용 하지 않습니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: af105a6a819ced475f490d3c99fc1e63d8eee5c8
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: d305e664c68af34027510a4e27d293bb24abc021
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203440"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389909"
 ---
-# <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring"></a>상태 모니터 v2 API: Disable-ApplicationInsightsMonitoring
+# <a name="application-insights-agent-api-disable-applicationinsightsmonitoring"></a>Application Insights 에이전트 API: ApplicationInsightsMonitoring
 
 이 문서에서는 [Az. ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)의 멤버인 cmdlet에 대해 설명 합니다.
 
@@ -31,13 +31,13 @@ ms.locfileid: "71203440"
 > [!IMPORTANT] 
 > 이 cmdlet을 사용 하려면 관리자 권한이 있는 PowerShell 세션이 있어야 합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 ```powershell
 PS C:\> Disable-ApplicationInsightsMonitoring
 ```
 
-## <a name="parameters"></a>매개 변수 
+## <a name="parameters"></a>parameters 
 
 ### <a name="-verbose"></a>-Verbose
 **일반 매개 변수입니다.** 이 스위치를 사용 하 여 자세한 로그를 표시 합니다.
@@ -71,5 +71,5 @@ Successfully disabled Application Insights Status Monitor
 
 ## <a name="next-steps"></a>다음 단계
 
- 상태 모니터 v2를 사용 하 여 더 많은 작업 수행:
- - 가이드를 사용 하 여 상태 모니터 v2 [문제를 해결](status-monitor-v2-troubleshoot.md) 하세요.
+ Application Insights 에이전트를 사용 하 여 더 많은 작업 수행:
+ - 가이드를 사용 하 여 Application Insights 에이전트 [문제를 해결할](status-monitor-v2-troubleshoot.md) 수 있습니다.

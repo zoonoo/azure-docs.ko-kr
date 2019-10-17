@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6edbd21eaf6f0a6f4f07263e006cc31fb1529511
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 7b5017cdeade14e53778b58154456412507c5ce8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877830"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430713"
 ---
-# <a name="what-is-vmware-solution-on-azure-by-cloudsimple"></a>CloudSimple의 Azure에 대 한 VMware 솔루션 이란?
+# <a name="what-is-azure-vmware-solution-by-cloudsimple"></a>CloudSimple의 Azure VMware 솔루션 이란?
 
-Azure에서 **CloudSimple에의 한 Vmware 솔루션** 은 Azure에서 vmware 플랫폼을 실행 하는 데 사용할 수 있는 완전히 관리 되는 서비스입니다. 이 솔루션은 vSphere, vCenter, Vsphere, NSX 및 해당 도구를 포함 합니다. VMware 환경은 azure 클라우드 위치의 Azure 완전 인프라에서 기본적으로 실행 됩니다. 서비스는 VMware 플랫폼을 효율적이 고 안전 하 게 사용 하는 데 필요한 모든 기능을 포함 합니다.
+**CloudSimple의 Azure Vmware 솔루션** 은 Azure에서 vmware 플랫폼을 실행 하는 데 사용할 수 있는 완전히 관리 되는 서비스입니다. 이 솔루션은 vSphere, vCenter, Vsphere, NSX 및 해당 도구를 포함 합니다. VMware 환경은 azure 클라우드 위치의 Azure 완전 인프라에서 기본적으로 실행 됩니다. 서비스는 VMware 플랫폼을 효율적이 고 안전 하 게 사용 하는 데 필요한 모든 기능을 포함 합니다.
 
 ![CloudSimple의 Azure에 대 한 VMware 솔루션 개요](media/azure-vmware-solution-by-cloudsimple.png)
 
@@ -34,13 +34,13 @@ Azure에서 **CloudSimple에의 한 Vmware 솔루션** 은 Azure에서 vmware �
 * 작업 관리, 사용량, 대금 청구/계량, 사용자 관리 등의 관리 기능을 제공 합니다.
 * 연중 무휴 고객 지원.
 
-## <a name="benefits"></a>이점
+## <a name="benefits"></a>혜택
 
 * **운영 연속성**. CloudSimple은 VMware 플랫폼에 대 한 기본 액세스를 제공 합니다. CloudSimple 아키텍처는 기존 사용자와 호환 됩니다.
     * 애플리케이션
-    * 작업
+    * 운영
     * 보안
-    * 백업
+    * Backup
     * 재해 복구
     * 감사
     * 규정 준수 도구

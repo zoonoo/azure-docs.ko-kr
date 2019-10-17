@@ -1,17 +1,17 @@
 ---
-title: Azure Data Factory Mapping Data Flow 만들기
+title: Azure Data Factory 매핑 데이터 흐름 만들기
 description: Azure Data Factory 매핑 데이터 흐름을 만드는 방법
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: d8ebc026add9dfd85d7cbe312a8cfffd3e365f82
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 31528c0ac7796aafbde74a3814d971138ec4ba2e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026887"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387253"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>Azure Data Factory Data Flow 만들기
 

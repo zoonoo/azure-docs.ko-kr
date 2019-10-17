@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 4d801ada8fd8a8b35c71601d3ca274f26afb24f6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 90f3e80c92cd4409a77d4661462ae027c535eaf7
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262287"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434292"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL의 저속 쿼리 로그
 Azure Database for MySQL에서는 사용자에게 느린 쿼리 로그를 제공합니다. 트랜잭션 로그에 대한 액세스는 지원되지 않습니다. 느린 쿼리 로그를 사용하여 문제 해결을 위한 성능 병목을 파악할 수 있습니다.
@@ -21,7 +21,7 @@ MySQL 느린 쿼리 로그에 대한 자세한 내용은 MySQL 참조 설명서�
 ## <a name="access-slow-query-logs"></a>저속 쿼리 로그 액세스
 Azure Portal 및 Azure CLI를 사용 하 여 Azure Database for MySQL 느리게 쿼리 로그를 나열 하 고 다운로드할 수 있습니다.
 
-Azure Portal에서 Azure Database for MySQL Server를 찾습니다. **모니터링** 머리글 아래에서 **서버 로그** 페이지를 선택합니다.
+Azure Portal에서 Azure Database for MySQL Server를 찾습니다. **모니터링** 머리글 아레에서 **서버 로그** 페이지를 선택합니다.
 
 Azure CLI에 대한 자세한 내용은 [Azure CLI를 사용한 서버 로그 구성 및 액세스](howto-configure-server-logs-in-cli.md)를 참조하세요.
 
@@ -38,15 +38,18 @@ Azure CLI에 대한 자세한 내용은 [Azure CLI를 사용한 서버 로그 �
 - **long_query_time**: 쿼리가 기록되는 long_query_time(초)보다 쿼리가 오래 걸릴 경우 기본값은 10초입니다.
 - **log_slow_admin_statements**: ON에 slow_query_log에 쓰여진 문에서 ALTER_TABLE 및 ANALYZE_TABLE 등과 같은 관리 문이 포함된 경우
 - **log_queries_not_using_indexes**: 인덱스를 사용하지 않는 쿼리가 slow_query_log에 기록되는지 여부를 결정합니다.
-- **log_throttle_queries_not_using_indexes**: 이 매개 변수는 느린 쿼리 로그에 쓸 수 있는 인덱스가 아닌 쿼리 수의 한도를 결정합니다. 이 매개 변수는 log_queries_not_using_indexes가 ON으로 설정된 경우 적용됩니다.
+- **log_throttle_queries_not_using_indexes**:이 매개 변수는 느린 쿼리 로그에 쓸 수 있는 비 인덱스 쿼리의 수 한도를 결정합니다. 이 매개 변수는 log_queries_not_using_indexes가 ON으로 설정된 경우 적용됩니다.
+
+> [!Note]
+> @No__t-0의 경우 로그는 2048 자를 초과 하는 경우 잘립니다.
 
 느린 쿼리 로그 매개 변수의 전체 설명은 MySQL [느린 쿼리 로그 설명서](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)를 참조하세요.
 
 ## <a name="diagnostic-logs"></a>진단 로그
-Azure Database for MySQL은 Azure Monitor 진단 로그와 통합됩니다. MySQL 서버의 느린 쿼리 로그를 설정한 후에 Azure Monitor 로그, Event Hubs 또는 Azure Storage에 내보내는 것을 선택할 수 있습니다. 진단 로그를 사용하도록 설정하는 방법에 대한 자세한 내용은 [진단 로그 설명서](../azure-monitor/platform/resource-logs-overview.md)의 방법 섹션을 참조하세요.
+Azure Database for MySQL은 Azure Monitor 진단 로그와 통합됩니다. MySQL 서버에서 느리게 쿼리 로그를 사용 하도록 설정 하면 로그, Event Hubs 또는 Azure Storage를 Azure Monitor 하도록 선택할 수 있습니다. 진단 로그를 사용하도록 설정하는 방법에 대한 자세한 내용은 [진단 로그 설명서](../azure-monitor/platform/resource-logs-overview.md)의 방법 섹션을 참조하세요.
 
 > [!IMPORTANT]
-> 서버 로그에 대한 진단 기능은 범용 및 메모리 최적화 [가격 책정 계층](concepts-pricing-tiers.md)에만 사용할 수 있습니다.
+> 서버 로그에 대 한이 진단 기능은 범용 및 메모리 액세스에 최적화 된 [가격 책정 계층](concepts-pricing-tiers.md)에서만 사용할 수 있습니다.
 
 아래 표에는 각 로그의 내용에 대한 설명이 나와 있습니다. 포함되는 필드와 이러한 필드가 표시되는 순서는 출력 방법에 따라 달라질 수 있습니다.
 
@@ -61,13 +64,13 @@ Azure Database for MySQL은 Azure Monitor 진단 로그와 통합됩니다. MySQ
 | `ResourceProvider` | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | 리소스 URI |
-| `Resource` | 서버의 이름입니다. |
+| `Resource` | 서버의 이름 |
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
-| `Logical_server_name_s` | 서버의 이름입니다. |
+| `Logical_server_name_s` | 서버의 이름 |
 | `start_time_t` [UTC] | 쿼리가 시작된 시간 |
-| `query_time_s` | 쿼리를 실행하는 데 걸린 총 시간 |
-| `lock_time_s` | 쿼리가 잠긴 총 시간 |
+| `query_time_s` | 쿼리를 실행 하는 데 걸린 총 시간 (초)입니다. |
+| `lock_time_s` | 쿼리가 잠긴 총 시간 (초)입니다. |
 | `user_host_s` | 사용자 이름 |
 | `rows_sent_s` | 전송된 행 수 |
 | `rows_examined_s` | 검사된 행 수 |

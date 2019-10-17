@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 5b0d182e09a4978a4d9c1184f085e140e5c698bc
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: be639a67f70ab40f8d7dcc0f3793cbbd4a2ec4a3
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811706"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72436799"
 ---
 # <a name="create-containers-with-large-partition-key"></a>파티션 키가 많은 컨테이너 만들기
 
@@ -21,7 +21,7 @@ Azure Cosmos DB는 해시 기반 파티션 구성표를 사용 하 여 데이터
 
 ## <a name="create-a-large-partition-key-azure-portal"></a>대량 파티션 키 만들기 (Azure Portal)
 
-큰 파티션 키를 만들려면 Azure Portal를 사용 하 여 새 컨테이너를 만드는 동안 **내 파티션 키가 100-bytes 옵션 보다 큰지** 확인 합니다. 기본적으로 모든 새 컨테이너는 대량 파티션 키를 사용 하 여 옵트인 됩니다. 대량 파티션 키가 필요 하지 않거나 1.18 이전 버전의 Sdk에서 실행 중인 응용 프로그램이 있는 경우 확인란의 선택을 취소 합니다.
+큰 파티션 키를 만들려면 Azure Portal를 사용 하 여 새 컨테이너를 만들 때 **내 파티션 키가 100-바이트 옵션 보다 큰지** 확인 합니다. 대량 파티션 키가 필요 하지 않거나 1.18 이전 버전의 Sdk에서 실행 중인 응용 프로그램이 있는 경우 확인란의 선택을 취소 합니다.
 
 ![Azure Portal를 사용 하 여 대량 파티션 키 만들기](./media/large-partition-keys/large-partition-key-with-portal.png)
 
@@ -33,7 +33,7 @@ Azure Cosmos DB는 해시 기반 파티션 구성표를 사용 하 여 데이터
 
 ## <a name="create-a-large-partition-key-net-sdk"></a>대량 파티션 키 만들기 (.Net SDK)
 
-.Net SDK를 사용 하 여 파티션 키가 많은 컨테이너를 만들려면 `PartitionKeyDefinitionVersion.V2` 속성을 지정 합니다. 다음 예제에서는 파티션 속성을 파티션 내에서 지정 하는 방법을 보여 줍니다.
+.NET SDK를 사용 하 여 파티션 키가 많은 컨테이너를 만들려면 `PartitionKeyDefinitionVersion.V2` 속성을 지정 합니다. 다음 예제에서는 파티션 속성을 파티션 내에서 지정 하는 방법을 보여 줍니다.
 
 ### <a name="v3-net-sdk"></a>v3 .NET SDK
 
@@ -68,10 +68,10 @@ database,
 
 |SDK 형식  | 최소 버전   |
 |---------|---------|
-|.Net     |    1.18     |
+|.NET     |    1.18     |
 |Java 동기화     |   2.4.0      |
 |Java Async   |  2.5.0        |
-| REST API | 요청 헤더를 `2017-05-03` 사용 하는 `x-ms-version` 것 보다 높은 버전입니다.|
+| REST API | `x-ms-version` 요청 헤더를 사용 하 여 `2017-05-03` 보다 높은 버전입니다.|
 
 현재 Power BI 및 Azure Logic Apps 내에서 파티션 키가 많은 컨테이너를 사용할 수 없습니다. 이러한 응용 프로그램에서 많은 파티션 키가 없는 컨테이너를 사용할 수 있습니다.
 
@@ -79,5 +79,5 @@ database,
 
 * [Azure Cosmos DB에서 분할](partitioning-overview.md)
 * [Azure Cosmos DB의 요청 단위](request-units.md)
-* [컨테이너 및 데이터베이스에 대한 처리량 프로비전](set-throughput.md)
+* [컨테이너 및 데이터베이스의 처리량 프로비전](set-throughput.md)
 * [Azure Cosmos 계정 작업](account-overview.md)

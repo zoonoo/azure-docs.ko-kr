@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 35c8841220c116cc34ba670eaa9ac7b36dc4cd7a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 3c77cc1baa07b0ee0e9f0141d81c623259ea57c4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615528"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387518"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Azure Cosmos DB의 규정 준수 
 
@@ -36,7 +36,7 @@ Azure Cosmos DB는 해당 인증 검사를 지속적으로 확장하고 있습�
 
 | **전역적으로 적용** | **미국 정부** | **산업별** | **지역 또는 국가별** |
 | --- | --- | --- | --- |
-| CSA STAR 인증 | DoD SRG Level 2 | HIPAA BAA | Australia IRAP Unclassified |
+| CSA STAR 인증 | DoD SRG Level 2 | HIPAA BAA | 호주 IRAP |
 | CSA STAR 증명 | FedRAMP Moderate | HITRUST | Germany C5|
 | ISO 20000-1:2011 | GxP(FDA 21 CFR Part 11) | PCI DSS | Singapore MTCS Level 3 |
 | ISO 22301:2012 | | | Spain ENS High|

@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1a6d7901368d19cf5ca8221bc00f426980e6f48
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 85479abfd19110703d5ce9f59f545830e84feadb
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169918"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429582"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 리소스 카탈로그 만들기 및 관리
 
@@ -52,7 +52,7 @@ ms.locfileid: "72169918"
 
 1. 선택한 외부 디렉터리의 사용자가이 카탈로그에서 액세스 패키지를 요청할 수 있도록 하려면 **외부 사용자에 대해 사용** 을 **예**로 설정 합니다.
 
-    ![새 카탈로그 창](./media/entitlement-management-catalog-create/new-catalog.png)
+    ![새 카탈로그 창](./media/entitlement-management-shared/new-catalog.png)
 
 1. **만들기** 를 클릭 하 여 카탈로그를 만듭니다.
 
@@ -70,7 +70,7 @@ ms.locfileid: "72169918"
 
 1. **리소스 추가**를 클릭 합니다.
 
-1. 리소스 종류를 클릭 합니다. **그룹, 팀**, **응용 프로그램**또는 **SharePoint 사이트**.
+1. 리소스 종류를 클릭 합니다 ( **그룹, 팀**, **응용 프로그램**또는 **SharePoint 사이트**).
 
     추가 하려는 리소스가 표시 되지 않거나 리소스를 추가할 수 없는 경우 필요한 Azure AD 디렉터리 역할 및 자격 관리 역할이 있는지 확인 합니다. 필요한 역할이 있는 사용자에 게 카탈로그에 리소스를 추가 해야 할 수도 있습니다. 자세한 내용은 [카탈로그에 리소스를 추가 하는 데 필요한 역할](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)을 참조 하세요.
 
@@ -130,9 +130,11 @@ ms.locfileid: "72169918"
 
 1. 카탈로그의 **개요** 페이지에서 **편집**을 클릭 합니다.
 
-1. 카탈로그의 이름 또는 설명을 편집 합니다.
+1. 카탈로그의 이름, 설명 또는 사용 설정을 편집 합니다.
 
-1. **저장**을 클릭합니다.
+    ![카탈로그 설정 편집](./media/entitlement-management-shared/catalog-edit.png)
+
+1. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 
 ## <a name="delete-a-catalog"></a>카탈로그 삭제
 

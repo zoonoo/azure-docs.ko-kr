@@ -4,14 +4,14 @@ description: Azure Cosmos DB의 충돌을 관리하는 방법 알아보기
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/15/2019
 ms.author: mjbrown
-ms.openlocfilehash: c58828fd8ed0de73c03e9e741d14705ad88b1333
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4c62fcc81eb3b045d3b4233e1bb3770ecb9865b3
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093224"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388077"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 충돌 해결 정책 관리
 
@@ -107,10 +107,10 @@ udp_collection = self.try_create_document_collection(
 
 사용자 지정 충돌 해결 저장 프로시저는 아래에 표시된 함수 시그니처를 사용하여 구현해야 합니다. 함수 이름은 저장 프로시저를 컨테이너에 등록할 때 사용한 이름과 일치하지 않아도 되지만, 이 방법이 간단합니다. 다음은 이 저장 프로시저에 대해 구현해야 하는 매개 변수에 대한 설명입니다.
 
-- **incomingItem**: 커밋에서 삽입 또는 업데이트되는 항목이며, 이 항목 때문에 충돌이 발생합니다. 삭제 작업에 대해 Null입니다.
-- **existingItem**: 현재 커밋된 항목입니다. 이 값은 업데이트에서는 null이 아니고, 삽입 또는 삭제에서는 null입니다.
-- **isTombstone**: incomingItem이 이전에 삭제된 항목과 충돌하는지 여부를 나타내는 부울입니다. true이면 existingItem도 Null입니다.
-- **conflictingItems**: ID 또는 기타 고유 인덱스 속성에서 incomingItem과 충돌하는 컨테이너 내 모든 항목의 커밋된 버전의 배열입니다.
+- **incomingItem**: 충돌을 생성 하는 커밋에서 삽입 또는 업데이트 되는 항목입니다. 삭제 작업에 대해 Null입니다.
+- **existingitem**: 현재 커밋된 항목입니다. 이 값은 업데이트에서는 null이 아니고, 삽입 또는 삭제에서는 null입니다.
+- **Istombstone**: incomingItem가 이전에 삭제 한 항목과 충돌 하는지 여부를 나타내는 부울입니다. true이면 existingItem도 Null입니다.
+- **conflictingItems**: 컨테이너에서 incomingItem에 대 한 ID 또는 기타 고유 인덱스 속성과 충돌 하는 모든 항목의 커밋된 버전 배열입니다.
 
 > [!IMPORTANT]
 > 저장 프로시저와 마찬가지로, 사용자 지정 충돌 해결 프로시저는 파티션 키가 동일한 모든 데이터에 액세스하여 충돌 해결을 위한 삽입, 업데이트 또는 삭제 작업을 수행할 수 있습니다.
@@ -363,7 +363,7 @@ FeedResponse<Conflict> conflicts = await delClient.ReadConflictFeedAsync(this.co
 ### <a id="read-from-conflict-feed-dotnet-v3"></a>.NET SDK V3
 
 ```csharp
-FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictIterator();
+FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictQueryIterator();
 while (conflictFeed.HasMoreResults)
 {
     FeedResponse<ConflictProperties> conflicts = await conflictFeed.ReadNextAsync();
@@ -426,7 +426,7 @@ while conflict:
 
 다음 Azure Cosmos DB 개념에 대해 자세히 알아봅니다.
 
-- [글로벌 배포 - 내부 살펴보기](global-dist-under-the-hood.md)
+- [전역 분산 - 내부 살펴보기](global-dist-under-the-hood.md)
 - [애플리케이션에서 다중 마스터를 구성하는 방법](how-to-multi-master.md)
 - [클라이언트 멀티 호밍 구성](how-to-manage-database-account.md#configure-multiple-write-regions)
 - [Azure Cosmos DB 계정에서 지역 추가 또는 제거](how-to-manage-database-account.md#addremove-regions-from-your-database-account)

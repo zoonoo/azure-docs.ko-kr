@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory Mapping Data Flow 서로게이트 키 변환
+title: 데이터 흐름 서로게이트 키 변환 Azure Data Factory 매핑
 description: Azure Data Factory의 데이터 흐름의 매핑 서로게이트 키 변환을 사용 하 여 순차적 키 값을 생성 하는 방법
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 45e2d35a3b0a3f3c89913bbe70d7c43c17cbcee0
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 144d6298a13d35d94a68b35c443a3a47cefcfc2a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029185"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387174"
 ---
 # <a name="mapping-data-flow-surrogate-key-transformation"></a>데이터 흐름 서로게이트 키 변환 매핑
 

@@ -1,17 +1,17 @@
 ---
 title: Azure 부모 리소스 오류 | Microsoft Docs
-description: 부모 리소스 사용 시 발생하는 오류를 해결하는 방법을 설명합니다.
+description: Azure Resource Manager 템플릿에서 부모 리소스를 사용할 때 발생 하는 오류를 해결 하는 방법을 설명 합니다.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6111f9128c56fed97414734275a21612544cccb8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 197554e16e28b4928cab351838f00e1631c269fd
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205399"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390245"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>부모 리소스 오류 해결
 
@@ -41,7 +41,7 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 
 부모 리소스가 이미 존재하고 동일한 템플릿으로 배포되지 않는 경우 Resource Manager가 부모와 자식 리소스를 연결할 수 없을 때 오류가 발생합니다. 자식 리소스가 올바른 형식이 아니거나 자식 리소스가 부모 리소스용 리소스 그룹과 다른 리소스 그룹에 배포되는 경우 오류가 발생할 수 있습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 부모 및 자식 리소스가 동일한 템플릿으로 배포될 경우 이 오류를 해결하려면 종속성을 포함합니다.
 

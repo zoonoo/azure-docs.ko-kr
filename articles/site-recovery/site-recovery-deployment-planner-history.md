@@ -6,18 +6,26 @@ author: Daya-Patil
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 07/29/2019
+ms.date: 10/16/2019
 ms.author: dapatil
-ms.openlocfilehash: acce72a5ddfaab56a7fcce92f0153bb06cb1ae71
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: bf32809f426f3bfcabd08ec3bd95e76202aa8f84
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620107"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433421"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Azure Site Recovery Deployment Planner 버전 기록
 
 이 문서에서는 모든 버전의 Azure Site Recovery Deployment Planner에 대 한 기록과 각 릴리스 날짜 및 해당 릴리스 날짜의 알려진 제한 사항을 제공 합니다.
+
+## <a name="version-251"></a>버전 2.51
+
+**릴리스 날짜: 2019 년 8 월 22 일**
+
+**수정할**
+
+- Deployment Planner 버전 2.5의 비용 권장 사항 문제를 수정 했습니다.
 
 ## <a name="version-25"></a>버전 2.5
 
@@ -30,7 +38,7 @@ ms.locfileid: "68620107"
 
 ## <a name="version-24"></a>버전 2.4
 
-**릴리스 날짜: 2019 4 월 17 일**
+**릴리스 날짜: 4 월 17 일 2019**
 
 **수정할**
 
@@ -91,7 +99,7 @@ ms.locfileid: "68620107"
 
 ## <a name="version-20"></a>버전 2.0
 
-**릴리스 날짜: 11 월 28 일, 2017**
+**릴리스 날짜: 2017 년 11 월 28 일**
 
 **수정할**
 
@@ -101,7 +109,7 @@ ms.locfileid: "68620107"
 
 **알려진 제한 사항:**
 
-- Hyper-v에서 Azure로의 재해 복구를 위해 `,` `[`, `"` `]`,,, 및 ``` ` ``` 와 같은 문자를 포함 하는 이름의 VM은 지원 되지 않습니다. 프로 파일링 되는 경우 보고서 생성이 실패 하거나 결과가 잘못 됩니다.
+- Hyper-v에서 Azure로의 재해 복구를 위해 이름이 `,`, `"`, `[`, `]` 및 ``` ` ```와 같은 문자를 포함 하는 VM은 지원 되지 않습니다. 프로 파일링 되는 경우 보고서 생성이 실패 하거나 결과가 잘못 됩니다.
 - VMware에서 Azure로의 재해 복구를 위해 이름이 쉼표를 포함 하는 VM은 지원 되지 않습니다. 프로 파일링 되는 경우 보고서 생성에 실패 하거나 잘못 된 결과가 발생 합니다.
 
 ## <a name="version-131"></a>버전 1.3.1
@@ -115,7 +123,7 @@ ms.locfileid: "68620107"
 
 ## <a name="version-13"></a>버전 1.3
 
-**릴리스 날짜: 5 월 9 일, 2017**
+**릴리스 날짜: 2017 년 5 월 9 일**
 
 **수정할**
 
@@ -144,7 +152,7 @@ ms.locfileid: "68620107"
 
 ## <a name="version-10"></a>버전 1.0
 
-**릴리스 날짜: 2017 년 2 월 23 일**
+**릴리스 날짜: 2 월 23 일, 2017**
 
 **알려진 제한 사항:**
 

@@ -14,25 +14,26 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 410571320e5ffae9cf94c5035079e5b202190863
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 8a22de6b3e518bb3c9392d7fd64411969b32f33f
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027375"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388725"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps용 JavaScript 클라이언트 라이브러리를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center은 모바일 앱 개발에 대 한 종단 간 및 통합 서비스의 중심을 지원 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다.
-> 모바일 응용 프로그램에서 클라우드 서비스를 통합 하려는 경우 현재 App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 에 등록 하세요.
+> Visual Studio App Center는 모바일 앱 개발의 중심인 엔드투엔드 통합 서비스를 지원합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용하여 지속적인 통합 및 업데이트 파이프라인을 설정할 수 있습니다. 앱이 배포되면 개발자는 **분석** 및 **진단** 서비스를 사용하여 앱의 상태와 사용 현황을 모니터링하고, **푸시** 서비스를 사용하여 사용자와 소통할 수 있습니다. 또한 개발자는 **인증** 서비스를 사용하여 사용자를 인증하고, **데이터** 서비스를 사용하여 클라우드에서 애플리케이션 데이터를 유지하고 동기화할 수도 있습니다.
+>
+> 모바일 애플리케이션에서 클라우드 서비스를 통합하려면 지금 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc)에 등록하세요.
 
 ## <a name="overview"></a>개요
-이 가이드에서는 최신 [Azure Mobile Apps용 JavaScript SDK]를 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. Azure Mobile Apps를 처음 접하는 경우 먼저 [Azure Mobile Apps 빠른 시작] 을 완료하여 백 엔드를 만들고 테이블을 만듭니다. 이 가이드에서는 HTML/JavaScript 웹 애플리케이션에서 모바일 백 엔드를 사용하는 데 초점을 둡니다.
+이 가이드에서는 최신 [Azure Mobile Apps용 JavaScript SDK]를 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. Azure Mobile Apps를 처음 접하는 경우 먼저 [Azure Mobile Apps 빠른 시작]을 완료하여 백 엔드를 만들고 테이블을 만듭니다. 이 가이드에서는 HTML/JavaScript 웹 애플리케이션에서 모바일 백 엔드를 사용하는 데 초점을 둡니다.
 
 ## <a name="supported-platforms"></a>지원되는 플랫폼
-브라우저 지원을 다음 주요 브라우저의 최신 버전으로 제한합니다.  Google Chrome, Microsoft Edge, Microsoft Internet Explorer 및 Mozilla Firefox.  SDK가 비교적 최신 브라우저와는 호환될 것으로 예상됩니다.
+브라우저 지원은 주요 브라우저인 Google Chrome, Microsoft Edge, Microsoft Internet Explorer 및 Mozilla Firefox의 최신 버전으로 제한됩니다.  SDK가 비교적 최신 브라우저와는 호환될 것으로 예상됩니다.
 
 패키지는 범용 JavaScript 모듈로 배포되므로 전역, AMD 및 CommonJS 서식을 지원합니다.
 
@@ -45,7 +46,7 @@ ms.locfileid: "72027375"
 npm install azure-mobile-apps-client --save
 ```
 
-또한 라이브러리는 Browserify 및 Webpack과 같은 CommonJS 환경 내에서 ES2015 모듈로 사용할 수 있으며 AMD 라이브러리로 사용할 수도 있습니다.  예를 들어 다음과 같은 가치를 제공해야 합니다.
+또한 라이브러리는 Browserify 및 Webpack과 같은 CommonJS 환경 내에서 ES2015 모듈로 사용할 수 있으며 AMD 라이브러리로 사용할 수도 있습니다.  다음은 그 예입니다.
 
 ```javascript
 // For ECMAScript 5.1 CommonJS
@@ -63,7 +64,7 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
 ## <a name="auth"></a>방법: 사용자 인증
-Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 다양한 외부 ID 공급자를 사용하여 앱 사용자의 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [인증 시작] 자습서를 참조하십시오.
+Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 다양한 외부 ID 공급자를 사용하여 앱 사용자의 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [Get started with authentication] 자습서를 참조하세요.
 
 두 가지의 인증 흐름, 즉 서버 흐름과 클라이언트 흐름이 지원됩니다.  서버 흐름의 경우 공급자의 웹 인증 인터페이스를 사용하므로 인증 경험이 가장 단순합니다. 클라이언트 흐름의 경우 공급 기업별 SDK를 사용하므로 Single Sign-On과 같은 디바이스 특정 기능을 통해 심도 깊은 통합이 가능합니다.
 
@@ -78,7 +79,7 @@ Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 �
 
 로컬로 실행하면 기본적으로 App Service 인증이 모바일 앱 백 엔드에서 액세스만 허용하도록 구성되므로 문제가 발생할 수 있습니다. 다음 단계에 따라 App Service 설정을 변경하여 서버를 로컬로 실행할 때 인증을 사용하도록 설정합니다.
 
-1. [Azure Portal]에 로그인
+1. [Azure 포털]에 로그인
 2. 모바일 앱 백 엔드로 이동합니다.
 3. **개발 도구** 메뉴에서 **리소스 Explorer**를 선택합니다.
 4. **이동** 을 클릭하여 새 탭 또는 창에서 모바일 앱 백 엔드에 대한 리소스 Explorer를 엽니다.
@@ -96,7 +97,7 @@ Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 �
 
 또한 CORS 허용 목록 설정에 동일한 루프백 URL을 추가해야 합니다.
 
-1. [Azure Portal]로 다시 이동합니다.
+1. [Azure 포털]로 다시 이동합니다.
 2. 모바일 앱 백 엔드로 이동합니다.
 3. **API** 메뉴에서 **CORS**를 클릭합니다.
 4. 빈 **허용된 원본** 텍스트 상자에 각 URL을 입력합니다.  새 텍스트 상자가 생성됩니다.
@@ -106,9 +107,9 @@ Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 �
 
 <!-- URLs. -->
 [Azure Mobile Apps 빠른 시작]: app-service-mobile-cordova-get-started.md
-[인증 시작]: app-service-mobile-cordova-get-started-users.md
+[Get started with authentication]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
-[Azure Portal]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/
 [Azure Mobile Apps용 JavaScript SDK]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx

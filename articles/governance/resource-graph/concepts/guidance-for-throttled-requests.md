@@ -3,15 +3,15 @@ title: 제한된 요청에 대한 지침
 description: Azure 리소스 그래프가 제한 되는 것을 방지 하기 위해 더 나은 쿼리를 만드는 방법을 알아봅니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 06/19/2019
+ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 85d68beb27ab27a2ada9acbf9482d35dec438c06
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 1bbfd2a64de0b42da19d0a978874d564f1755c59
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980280"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387621"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Azure 리소스 그래프의 제한 된 요청에 대 한 지침
 
@@ -30,8 +30,8 @@ Azure 리소스 그래프는 특정 기간에 따라 각 사용자에 대 한 �
 
 모든 쿼리 응답에서 Azure 리소스 그래프는 다음과 같은 두 개의 제한 헤더를 추가 합니다.
 
-- `x-ms-user-quota-remaining`(int): 사용자의 나머지 리소스 할당량입니다. 이 값은 쿼리 수에 매핑됩니다.
-- `x-ms-user-quota-resets-after`(hh:mm:ss): 사용자의 할당량 소비가 다시 설정 될 때 까지의 기간입니다.
+- `x-ms-user-quota-remaining` (int): 사용자의 남은 리소스 할당량입니다. 이 값은 쿼리 수에 매핑됩니다.
+- `x-ms-user-quota-resets-after` (hh: mm: ss): 사용자의 할당량 소비가 다시 설정 될 때까지 소요 되는 기간입니다.
 
 헤더의 작동 방식을 설명 하기 위해 `x-ms-user-quota-remaining: 10` 및 `x-ms-user-quota-resets-after: 00:00:03`의 헤더와 값이 있는 쿼리 응답을 살펴보겠습니다.
 
@@ -55,7 +55,7 @@ Azure 리소스 그래프는 특정 기간에 따라 각 사용자에 대 한 �
   {
       var userQueryRequest = new QueryRequest(
           subscriptions: new[] { subscriptionId },
-          query: "project name, type");
+          query: "Resoures | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -78,7 +78,7 @@ Azure 리소스 그래프는 특정 기간에 따라 각 사용자에 대 한 �
       var currSubscriptionBatch = subscriptionIds.Skip(i * batchSize).Take(batchSize).ToList();
       var userQueryRequest = new QueryRequest(
           subscriptions: currSubscriptionBatch,
-          query: "project name, type");
+          query: "Resources | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -102,7 +102,7 @@ Azure 리소스 그래프는 특정 기간에 따라 각 사용자에 대 한 �
           resourceIds.Skip(i * batchSize).Take(batchSize).Select(id => string.Format("'{0}'", id)));
       var userQueryRequest = new QueryRequest(
           subscriptions: subscriptionList,
-          query: $"where id in~ ({resourceIds}) | project name, type");
+          query: $"Resources | where id in~ ({resourceIds}) | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -184,7 +184,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 }
 ```
 
-## <a name="pagination"></a>페이지 매기기
+## <a name="pagination"></a>페이지 매김
 
 Azure 리소스 그래프가 단일 쿼리 응답에서 최대 1000 개 항목을 반환 하므로 원하는 전체 데이터 집합을 가져오기 위해 [쿼리를 시작](./work-with-data.md#paging-results) 해야 할 수 있습니다. 그러나 일부 Azure 리소스 그래프 클라이언트는 페이지 매김을 다른 방식으로 처리 합니다.
 
@@ -196,7 +196,7 @@ Azure 리소스 그래프가 단일 쿼리 응답에서 최대 1000 개 항목�
   var results = new List<object>();
   var queryRequest = new QueryRequest(
       subscriptions: new[] { mySubscriptionId },
-      query: "project id, name, type | top 5000");
+      query: "Resources | project id, name, type | top 5000");
   var azureOperationResponse = await this.resourceGraphClient
       .ResourcesWithHttpMessagesAsync(queryRequest, header)
       .ConfigureAwait(false);
@@ -218,11 +218,11 @@ Azure 리소스 그래프가 단일 쿼리 응답에서 최대 1000 개 항목�
   Azure CLI 또는 Azure PowerShell를 사용 하는 경우 Azure 리소스 그래프에 대 한 쿼리는 최대 5000 항목에서 자동으로 페이지가 매겨집니다. 쿼리 결과는 페이지가 매겨진 모든 호출에서 항목의 결합 된 목록을 반환 합니다. 이 경우 쿼리 결과의 항목 수에 따라 페이지가 매겨진 단일 쿼리에서 둘 이상의 쿼리 할당량을 사용할 수 있습니다. 예를 들어 아래 예제에서는 쿼리를 한 번 실행할 때 쿼리 할당량을 5 개까지 사용할 수 있습니다.
 
   ```azurecli-interactive
-  az graph query -q 'project id, name, type' -top 5000
+  az graph query -q 'Resources | project id, name, type' -top 5000
   ```
 
   ```azurepowershell-interactive
-  Search-AzGraph -Query 'project id, name, type' -Top 5000
+  Search-AzGraph -Query 'Resources | project id, name, type' -Top 5000
   ```
 
 ## <a name="still-get-throttled"></a>제한 된 상태 인가요?

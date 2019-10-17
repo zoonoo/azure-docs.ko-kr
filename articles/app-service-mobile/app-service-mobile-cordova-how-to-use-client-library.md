@@ -14,22 +14,23 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 3cf18e6da56b25e453d52dc58020961f672da27d
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 25bff77da6c2bd89916fe40ebb153ff9631e62eb
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027439"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388798"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps용 Apache Cordova 클라이언트 라이브러리를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center은 모바일 앱 개발에 대 한 종단 간 및 통합 서비스의 중심을 지원 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다.
-> 모바일 응용 프로그램에서 클라우드 서비스를 통합 하려는 경우 현재 App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 에 등록 하세요.
+> Visual Studio App Center는 모바일 앱 개발의 중심인 엔드투엔드 통합 서비스를 지원합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용하여 지속적인 통합 및 업데이트 파이프라인을 설정할 수 있습니다. 앱이 배포되면 개발자는 **분석** 및 **진단** 서비스를 사용하여 앱의 상태와 사용 현황을 모니터링하고, **푸시** 서비스를 사용하여 사용자와 소통할 수 있습니다. 또한 개발자는 **인증** 서비스를 사용하여 사용자를 인증하고, **데이터** 서비스를 사용하여 클라우드에서 애플리케이션 데이터를 유지하고 동기화할 수도 있습니다.
+>
+> 모바일 애플리케이션에서 클라우드 서비스를 통합하려면 지금 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc)에 등록하세요.
 
 ## <a name="overview"></a>개요
-이 가이드에서는 최신 [Azure Mobile Apps용 Apache Cordova 플러그 인]을 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. Azure Mobile Apps를 처음 접하는 경우 먼저 [Azure Mobile Apps 빠른 시작] 을 완료하여 백 엔드를 만들고, 테이블을 만든 다음 미리 빌드된 Apache Cordova 프로젝트를 다운로드합니다. 이 가이드에서는 클라이언트 쪽 Apache Cordova 플러그 인에 초점을 둡니다.
+이 가이드에서는 최신 [Azure Mobile Apps용 Apache Cordova 플러그 인]을 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. Azure Mobile Apps를 처음 접하는 경우 먼저 [Azure Mobile Apps 빠른 시작]을 완료하여 백 엔드를 만들고, 테이블을 만든 다음 미리 빌드된 Apache Cordova 프로젝트를 다운로드합니다. 이 가이드에서는 클라이언트 쪽 Apache Cordova 플러그 인에 초점을 둡니다.
 
 ## <a name="supported-platforms"></a>지원되는 플랫폼
 이 SDK는 iOS, Android 및 Windows 디바이스에서 Apache Cordova v6.0.0 이상을 지원합니다.  지원되는 플랫폼은 다음과 같습니다.
@@ -77,7 +78,7 @@ Azure Mobile Apps Cordova 플러그 인은 Ionic v1 및 v2 앱을 모두 지원�
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
 ## <a name="auth"></a>방법: 사용자 인증
-Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 다양한 외부 ID 공급자를 사용하여 앱 사용자의 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [인증 시작] 자습서를 참조하세요.
+Azure App Service는 Facebook, Google, Microsoft 계정 및 Twitter와 같이 다양한 외부 ID 공급자를 사용하여 앱 사용자의 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [Get started with authentication] 자습서를 참조하세요.
 
 Apache Cordova 앱에 인증을 사용할 때는 다음 Cordova 플러그 인을 사용할 수 있어야 합니다.
 
@@ -98,7 +99,7 @@ Apache Cordova 앱에 인증을 사용할 때는 다음 Cordova 플러그 인을
 
 구성에 로컬 설정을 추가하려면 다음 지침을 따릅니다.
 
-1. [Azure Portal]에 로그인
+1. [Azure 포털]에 로그인
 2. **모든 리소스** 또는 **App Services**를 선택한 후 모바일 앱의 이름을 클릭합니다.
 3. **도구** 클릭
 4. 관찰 메뉴에서 **리소스 Explorer**를 클릭한 다음 **이동**을 클릭합니다.  새 창 또는 탭이 열립니다.
@@ -118,7 +119,7 @@ Apache Cordova 앱에 인증을 사용할 때는 다음 Cordova 플러그 인을
 이 시점에서 설정이 저장됩니다.  설정 저장이 완료될 때까지 브라우저 창을 닫지 않도록 합니다.
 또한 App Service에 대한 CORS 설정에 이러한 루프백 URL을 추가합니다.
 
-1. [Azure Portal]에 로그인
+1. [Azure 포털]에 로그인
 2. **모든 리소스** 또는 **App Services**를 선택한 후 모바일 앱의 이름을 클릭합니다.
 3. 설정 블레이드가 자동으로 열립니다.  자동으로 열리지 않으면 **모든 설정**을 클릭합니다.
 4. API 메뉴에서 **CORS**를 클릭합니다.
@@ -175,9 +176,9 @@ Notification Hubs SDK를 사용하여 서버에서 푸시 알림을 보냅니다
 우리의 [API 설명서](https://azure.github.io/azure-mobile-apps-js-client/)에서 자세한 API 세부 정보를 찾을 수 있습니다.
 
 <!-- URLs. -->
-[Azure Portal]: https://portal.azure.com
+[Azure 포털]: https://portal.azure.com
 [Azure Mobile Apps 빠른 시작]: app-service-mobile-cordova-get-started.md
-[인증 시작]: app-service-mobile-cordova-get-started-users.md
+[Get started with authentication]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [Azure Mobile Apps용 Apache Cordova 플러그 인]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps

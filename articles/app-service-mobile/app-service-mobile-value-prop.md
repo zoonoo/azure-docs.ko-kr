@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 48f7066f2db96165daa104dcf32fe8e2e2cd55cf
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 89e3fb57f29a6c24b64082db06678b3965ad8517
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025218"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388617"
 ---
 # <a name="getting-started"> </a>Azure App Service의 Mobile Apps 정보
 
 > [!NOTE]
-> Visual Studio App Center은 모바일 앱 개발에 대 한 종단 간 및 통합 서비스의 중심을 지원 합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용 하 여 지속적인 통합 및 배달 파이프라인을 설정할 수 있습니다. 앱이 배포 되 면 개발자는 **분석** 및 **진단** 서비스를 사용 하 여 앱의 상태와 사용 현황을 모니터링 하 고, **푸시** 서비스를 사용 하 여 사용자와 참여할 수 있습니다. 또한 개발자는 **Auth** 를 활용 하 여 사용자 및 **데이터** 서비스를 인증 하 여 클라우드에서 앱 데이터를 유지 하 고 동기화 할 수 있습니다.
-> 모바일 응용 프로그램에서 클라우드 서비스를 통합 하려는 경우 현재 App Center [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 에 등록 하세요.
+> Visual Studio App Center는 모바일 앱 개발의 중심인 엔드투엔드 통합 서비스를 지원합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용하여 지속적인 통합 및 업데이트 파이프라인을 설정할 수 있습니다. 앱이 배포되면 개발자는 **분석** 및 **진단** 서비스를 사용하여 앱의 상태와 사용 현황을 모니터링하고, **푸시** 서비스를 사용하여 사용자와 소통할 수 있습니다. 또한 개발자는 **인증** 서비스를 사용하여 사용자를 인증하고, **데이터** 서비스를 사용하여 클라우드에서 애플리케이션 데이터를 유지하고 동기화할 수도 있습니다.
+>
+> 모바일 애플리케이션에서 클라우드 서비스를 통합하려면 지금 [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc)에 등록하세요.
 
 Azure App Service는 완전히 관리되는 PaaS([platform as a service](https://azure.microsoft.com/overview/what-is-paas/))로써 전문 개발자를 위해 제공됩니다. 이 서비스는 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공합니다. 
 
@@ -36,7 +37,7 @@ Azure App Service의 Mobile Apps 기능은 엔터프라이즈 개발자 및 시�
 ## <a name="why-mobile-apps"></a>Mobile Apps 사용 이유
 Mobile Apps 기능을 사용하면 다음을 수행할 수 있습니다.
 
-* **네이티브 및 플랫폼 간 앱 빌드**: 빌드하는 앱이 네이티브 iOS, Android 및 Windows 앱인지 또는 크로스 플랫폼 Xamarin 앱이나 Cordova(PhoneGap) 앱인지에 관계없이 네이티브 SDK를 통해 App Service를 사용할 수 있습니다.
+* **네이티브 앱 및 크로스 플랫폼 앱 빌드**: 빌드하는 앱이 네이티브 iOS, Android 및 Windows 앱인지 또는 크로스 플랫폼 Xamarin 앱이나 Cordova(PhoneGap) 앱인지에 관계없이 네이티브 SDK를 통해 App Service를 사용할 수 있습니다.
 * **엔터프라이즈 시스템에 연결**: Mobile Apps 기능을 사용하면 몇 분 내에 회사 로그인을 추가하고 엔터프라이즈 온-프레미스 또는 클라우드 리소스에 연결할 수 있습니다.
 * **데이터 동기화를 사용하여 오프라인 지원 앱 빌드**: 오프라인에서 작동하는 앱을 빌드하여 모바일 작업자의 생산성을 높이고 엔터프라이즈 데이터 원본이나 SaaS(software as a service) API와 연결된 경우 Mobile Apps를 사용하여 백그라운드에서 데이터를 동기화합니다.
 * **몇 초 내에 수백만 명에게 푸시 알림 전송**: 모든 디바이스에서 고객의 요구에 맞게 개인 설정하고 적절한 시간에 보내는 즉시 푸시 알림을 통해 고객을 끌어들입니다.
@@ -44,7 +45,7 @@ Mobile Apps 기능을 사용하면 다음을 수행할 수 있습니다.
 ## <a name="mobile-apps-features"></a>Mobile Apps 기능
 다음 기능은 클라우드 사용 모바일 개발에 중요합니다.
 
-* **인증 및 권한 부여**: 엔터프라이즈 인증용 Azure Active Directory 및 소셜 공급 기업(예: Facebook, Google, Twitter 및 Microsoft 계정)을 포함한 ID 공급 기업을 지원합니다. Mobile Apps은 각 공급자에 대해 OAuth 2.0 서비스를 제공합니다. 또한 공급자 특정 기능에 대한 ID 공급자의 SDK도 통합할 수 있습니다.
+* **인증 및 권한 부여**: 엔터프라이즈 인증용 Azure Active Directory 및 소셜 공급자(예: Facebook, Google, Twitter 및 Microsoft 계정)를 포함한 ID 공급자를 지원합니다. Mobile Apps은 각 공급자에 대해 OAuth 2.0 서비스를 제공합니다. 또한 공급자 특정 기능에 대한 ID 공급자의 SDK도 통합할 수 있습니다.
 
     [인증 기능]에 대해 자세히 알아보세요.
 
