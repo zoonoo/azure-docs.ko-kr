@@ -150,8 +150,14 @@
     - name: 인프라 자동화
       href: ../virtual-machines/windows/infrastructure-automation.md
       maintainContext: true
-    - name: 보안 및 정책
-      href: ../virtual-machines/windows/security-policy.md
+    - name: 보안
+      items:
+        - name: 보안 및 정책
+          href: ../virtual-machines/windows/security-policy.md
+        - name: Azure 디스크 암호화
+          href: disk-encryption-overview.md
+        - name: 기본 제공 보안 컨트롤
+          href: virtual-machine-scale-sets-security-controls.md
       maintainContext: true
     - name: 모니터링
       href: ../virtual-machines/windows/monitor.md
@@ -163,8 +169,6 @@
           maintainContext: true
     - name: 확장 집합 FAQ
       href: virtual-machine-scale-sets-faq.md
-    - name: 기본 제공 보안 컨트롤
-      href: virtual-machine-scale-sets-security-controls.md
 - name: 방법
   items:
     - name: 계획 및 디자인
@@ -212,12 +216,15 @@
         - name: 확장 집합의 디스크 암호화
           items:
             - name: PowerShell 사용
-              href: virtual-machine-scale-sets-encrypt-disks-ps.md
+              href: disk-encryption-powershell.md
             - name: Azure CLI 사용
-              href: virtual-machine-scale-sets-encrypt-disks-cli.md
+              href: disk-encryption-cli.md
+            - name: Azure 리소스 관리자 템플릿 사용
+              href: disk-encryption-azure-resource-manager.md
             - name: 확장 시퀀싱
-              href: ../security/azure-security-disk-encryption-extension-sequencing.md
-              maintainContext: true
+              href: disk-encryption-extension-sequencing.md
+            - name: Azure Disk Encryption용 Key Vault
+              href: disk-encryption-key-vault.md
         - name: 큰 확장 집합으로 작업
           href: virtual-machine-scale-sets-placement-groups.md
         - name: 확장 집합 템플릿을 변환하여 관리 디스크 사용
