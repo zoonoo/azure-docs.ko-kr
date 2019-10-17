@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: bb0c6e9d20c12df3532a52df1fe4d9574344d4b3
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 8a72f70fbc1ab6052587beb1d949dd73b1ad3559
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104725"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376142"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Azure 개인 끝점을 사용 하 여 전용 저장소 계정에 연결
 Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입니다. Vm (가상 머신)과 같은 Azure 리소스가 개인 링크 리소스와 개인적으로 통신할 수 있도록 합니다.
@@ -22,7 +22,7 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 이 섹션에서는 개인 링크 리소스 (이 예제에서는 저장소 계정)에 액세스 하는 데 사용 되는 VM을 호스트 하는 가상 네트워크 및 서브넷을 만듭니다.
@@ -34,38 +34,38 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 1. 화면의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택합니다.
 1. **가상 네트워크 만들기**에서 다음 정보를 입력하거나 선택합니다.
 
-    | 설정 | 값 |
+    | 설정 | Value |
     | ------- | ----- |
-    | 이름 | *MyVirtualNetwork*를 입력 합니다. |
+    | name | *MyVirtualNetwork*를 입력합니다. |
     | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
-    | 구독 | 구독을 선택합니다.|
-    | 리소스 그룹 | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
-    | 위치 | **WestCentralUS**를 선택 합니다.|
-    | 서브넷 - 이름 | *Mysubnet*을 입력 합니다. |
+    | Subscription | 구독을 선택합니다.|
+    | Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
+    | 위치 | **WestCentralUS**를 선택합니다.|
+    | 서브넷 - 이름 | *mySubnet*을 입력합니다. |
     | 서브넷 - 주소 범위 | *10.1.0.0/24*를 입력합니다. |
     |||
 1. 나머지 항목은 기본값으로 유지하고 **만들기**를 선택합니다.
 
 
-### <a name="create-virtual-machine"></a>가상 머신 만들기
+### <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
 
-1. Azure Portal 화면의 왼쪽 위에서 **리소스** > 만들기**계산** > **가상 머신**를 선택 합니다.
+1. Azure Portal 화면의 왼쪽 위에서 **리소스 만들기** > **계산**@no__t 3**가상 머신을**선택 합니다.
 
 1. **가상 머신 만들기 - 기본 사항**에서 다음 정보를 입력하거나 선택합니다.
 
-    | 설정 | 값 |
+    | 설정 | Value |
     | ------- | ----- |
     | **프로젝트 정보** | |
-    | 구독 | 구독을 선택합니다. |
-    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.  |
+    | Subscription | 구독을 선택합니다. |
+    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.  |
     | **인스턴스 정보** |  |
-    | 가상 머신 이름 | *Myvm*을 입력 합니다. |
-    | Region | **WestCentralUS**를 선택 합니다. |
+    | 가상 머신 이름 | *myVm*을 입력합니다. |
+    | 지역 | **WestCentralUS**를 선택합니다. |
     | 가용성 옵션 | 기본값인 **인프라 중복이 필요하지 않습니다**를 그대로 둡니다. |
-    | 이미지 | **Windows Server 2019 Datacenter**를 선택 합니다. |
-    | Size | 기본값인 **표준 DS1 v2**를 그대로 둡니다. |
+    | 이미지 | **Windows Server 2019 Datacenter**를 선택합니다. |
+    | 크기 | 기본값인 **표준 DS1 v2**를 그대로 둡니다. |
     | **관리자 계정** |  |
-    | Username | 선택한 사용자 이름을 입력합니다. |
+    | 사용자 이름 | 선택한 사용자 이름을 입력합니다. |
     | 암호 | 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     | 암호 확인 | 암호를 다시 입력합니다. |
     | **인바운드 포트 규칙** |  |
@@ -74,17 +74,17 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
     | 이미 Windows 라이선스가 있나요? | 기본값인 **아니요**를 그대로 둡니다. |
     |||
 
-1. 완료되면 **다음: 디스크**를 선택합니다.
+1. **다음: 디스크**를 선택 합니다.
 
-1. **가상 머신 만들기-디스크**에서 기본값을 그대로 두고 다음을 선택 **합니다. 네트워킹**을 선택합니다.
+1. **가상 머신 만들기-디스크**에서 기본값을 그대로 두고 **다음: 네트워킹**을 선택 합니다.
 
 1. **가상 머신 만들기 - 네트워킹**에서 다음 정보를 선택합니다.
 
-    | 설정 | 값 |
+    | 설정 | Value |
     | ------- | ----- |
-    | 가상 네트워크 | 기본 **MyVirtualNetwork**을 그대로 둡니다.  |
-    | 주소 공간 | 기본 **10.1.0.0/24**를 그대로 둡니다.|
-    | Subnet | 기본 **Mysubnet (10.1.0.0/24)** 을 그대로 둡니다.|
+    | 가상 네트워크 | 기본값인 **MyVirtualNetwork**를 그대로 둡니다.  |
+    | 주소 공간 | 기본값인 **10.1.0.0/24**를 그대로 둡니다.|
+    | 서브넷 | 기본값인 **mySubnet(10.1.0.0/24)** 을 그대로 둡니다.|
     | 공용 IP | 기본값 **(신규) myVm-ip**를 그대로 둡니다. |
     | 공용 인바운드 포트 | **선택한 포트 허용**을 선택합니다. |
     | 인바운드 포트 선택 | **HTTP** 및 **RDP**를 선택합니다.|
@@ -97,61 +97,61 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 ## <a name="create-your-private-endpoint"></a>개인 끝점 만들기
 이 섹션에서는 개인 끝점을 사용 하 여 개인 저장소 계정을 만듭니다. 
 
-1. Azure Portal 화면의 왼쪽 위에서 **리소스** > 만들기**저장소** > **저장소 계정**을 선택 합니다.
+1. Azure Portal 화면의 왼쪽 위에서 **리소스 만들기** > **저장소** > **저장소 계정**을 선택 합니다.
 
 1. **저장소 계정 만들기-기본 사항**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | 설정 | 값 |
+    | 설정 | Value |
     | ------- | ----- |
     | **프로젝트 정보** | |
-    | 구독 | 구독을 선택합니다. |
-    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
+    | Subscription | 구독을 선택합니다. |
+    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
     | **인스턴스 정보** |  |
-    | 저장소 계정 이름  | *Mystorageaccount*를 입력 합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
-    | Region | **WestCentralUS**를 선택 합니다. |
-    | 성능| 기본값인 **표준**을 그대로 둡니다. |
+    | Storage 계정 이름  | *Mystorageaccount*를 입력 합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
+    | 지역 | **WestCentralUS**를 선택합니다. |
+    | 성능 중심| 기본값인 **표준**을 그대로 둡니다. |
     | 계정 종류 | 기본 **저장소 (범용 v2)** 를 그대로 둡니다. |
     | 복제 | **읽기 액세스 지역 중복 저장소 (RA-GRS)** 를 선택 합니다. |
     |||
   
-3. 다음 **을 선택 합니다. 네트워킹**을 선택합니다.
-4.  **저장소 계정 만들기-네트워킹**, 연결 방법에서 **개인 끝점**을 선택 합니다.
-5.  **저장소 계정 만들기-네트워킹**에서 **개인 끝점 추가**를 선택 합니다. 
-6.  **개인 끝점 만들기**에서 다음 정보를 입력 하거나 선택 합니다.
+3. **다음: 네트워킹**을 선택 합니다.
+4. **저장소 계정 만들기-네트워킹**, 연결 방법에서 **개인 끝점**을 선택 합니다.
+5. **저장소 계정 만들기-네트워킹**에서 **개인 끝점 추가**를 선택 합니다. 
+6. **개인 끝점 만들기**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | 설정 | 값 |
+    | 설정 | Value |
     | ------- | ----- |
     | **프로젝트 정보** | |
-    | 구독 | 구독을 선택합니다. |
-    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
-    |위치|**WestCentralUS**를 선택 합니다.|
-    |이름| *MyPrivateEndpoint*를 입력 합니다.  |
-    |저장소 하위 리소스|기본 **Blob**을 그대로 둡니다. |
-    | **LAN** |  |
+    | Subscription | 구독을 선택합니다. |
+    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
+    |위치|**WestCentralUS**를 선택합니다.|
+    |name| *MyPrivateEndpoint*를 입력 합니다.  |
+    |저장소 하위 리소스|기본 **Blob**을 그대로 둡니다. |
+    | **네트워킹** |  |
     | 가상 네트워크  | 리소스 그룹 *Myresourcegroup*에서 *MyVirtualNetwork* 을 선택 합니다. |
-    | Subnet |  *Mysubnet*을 선택 합니다. |
-    | **개인 DNS 통합**|  |
-    | 사설 DNS 영역과 통합  | 기본값 **예**를 그대로 둡니다. |
-    | 사설 DNS 영역  | **기본값 (New) privatelink.blob.core.windows.net**을 그대로 둡니다. |
+    | 서브넷 |  *mySubnet*을 선택합니다. |
+    | **프라이빗 DNS 통합**|  |
+    | 프라이빗 DNS 영역과 통합  | 기본값 **예**를 그대로 둡니다. |
+    | 프라이빗 DNS 영역  | 기본값인 * * (New) privatelink.blob.core.windows.net * *를 그대로 둡니다. |
     |||
-7.  **확인을**선택 합니다. 
-8.  **검토 + 만들기**를 선택 합니다. Azure에서 구성의 유효성을 검사 하는 **검토 + 만들기** 페이지로 이동 합니다. 
-9.  **유효성 검사 통과** 메시지가 표시 되 면 **만들기**를 선택 합니다. 
+7. **확인**을 선택합니다. 
+8. **검토 + 만들기**를 선택합니다. **검토 + 만들기** 페이지로 이동됩니다. 여기서 구성이 유효한지 검사됩니다. 
+9. **유효성 검사 통과** 메시지가 표시되면 **만들기**를 선택합니다. 
 10. 방금 만든 저장소 계정 리소스를 찾습니다.
-11. 왼쪽 콘텐츠 메뉴에서 **액세스 키** 를 선택 합니다.
+11. 왼쪽 콘텐츠 메뉴에서 **액세스 키** 를 선택 합니다.
 12. Key1에 대 한 연결 문자열에서 **복사** 를 선택 합니다.
  
 ## <a name="connect-to-a-vm-from-the-internet"></a>인터넷에서 VM에 연결
 
 다음과 같이 인터넷에서 VM *myvm* 에 연결 합니다.
 
-1. 포털의 검색 창에서 *Myvm*을 입력 합니다.
+1. 포털의 검색 창에 *myVm*을 입력합니다.
 
 1. **연결** 단추를 선택합니다. **연결** 단추를 선택하면 **가상 머신에 연결**이 열립니다.
 
-1. **RDP 파일 다운로드**를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp*) 파일을 만들고, 컴퓨터에 다운로드합니다.
+1. **RDP 파일 다운로드**를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp*) 파일을 만들고 컴퓨터에 다운로드합니다.
 
-1. 다운로드 한 .rdp * 파일을 엽니다.
+1. 다운로드 한 .rdp* 파일을 엽니다.
 
     1. 메시지가 표시되면 **연결**을 선택합니다.
 
@@ -173,8 +173,8 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 > [!IMPORTANT]
 > 저장소에 대 한 DNS 구성에는 특정 계정의 FQDN을 포함 하기 위해 호스트 파일을 수동으로 수정 해야 합니다. Windows에 대 한 관리자 권한을 사용 하 여 다음 파일을 수정 하십시오. c:\Windows\System32\Drivers\etc\hosts 또는 Linux/etc/hosts 이전 단계의 계정에 대 한 DNS 정보를 다음 형식 [개인 IP 주소] myaccount.blob.core.windows.net 포함 합니다.
 
-1.  *Myvm*의 원격 데스크톱에서 PowerShell을 엽니다.
-2. Enter `nslookup mystorageaccount.blob.core.windows.net` 키를 누르면 다음과 비슷한 메시지가 표시 됩니다.
+1.  *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
+2. @ No__t-0을 입력 하면 다음과 유사한 메시지가 표시 됩니다.
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -182,29 +182,30 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
     Name:    mystorageaccount123123.privatelink.blob.core.windows.net
     Address:  10.0.0.5
     Aliases:  mystorageaccount.blob.core.windows.net
-3. Install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
-4. Select **Storage accounts** with the right-click.
-5. Select **Connect to an azure storage**.
-6. Select **Use a connection string**.
-7. Select **Next**.
-8. Enter the connection string by pasting the information previously copied.
-9. Select **Next**.
-10. Select **Connect**.
-11. Browse the Blob containers from mystorageaccount 
-12. (Optionally) Create folders and/or upload files to *mystorageaccount*. 
-13. Close the remote desktop connection to *myVM*. 
+    ```
+3. [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows)를 설치합니다.
+4. 마우스 오른쪽 단추를 클릭 하 여 **저장소 계정** 을 선택 합니다.
+5. **Azure storage에 연결을**선택 합니다.
+6. **연결 문자열 사용을**선택 합니다.
+7. **다음**을 선택합니다.
+8. 이전에 복사한 정보를 붙여넣어 연결 문자열을 입력 합니다.
+9. **다음**을 선택합니다.
+10. **연결**을 선택합니다.
+11. Mystorageaccount에서 Blob 컨테이너 찾아보기 
+12. 생략할 폴더를 만들거나 *mystorageaccount*에 파일을 업로드 합니다. 
+13.  *Myvm*에 대 한 원격 데스크톱 연결을 닫습니다. 
 
-Additional options to access the storage account:
-- Microsoft Azure Storage Explorer is a standalone free app from Microsoft that enables you to work visually with Azure storage data on Windows, macOS, and Linux. You can install the application to browse privately the storage account content. 
+저장소 계정에 액세스 하기 위한 추가 옵션:
+- Microsoft Azure Storage 탐색기는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해 주는 Microsoft의 독립 실행형 무료 앱입니다. 응용 프로그램을 설치 하 여 전용 저장소 계정 콘텐츠를 찾아볼 수 있습니다. 
  
-- The AzCopy utility is another option for high-performance scriptable data transfer for Azure storage. Use AzCopy to transfer data to and from Blob, File, and Table storage. 
+- AzCopy 유틸리티는 Azure storage에 대 한 고성능 스크립트 가능 데이터 전송을 위한 또 다른 옵션입니다. AzCopy를 사용하여 Blob, File 및 Table Storage 간에 데이터를 전송합니다. 
 
 
-## Clean up resources 
-When you're done using the Private Endpoint, storage account and the VM, delete the resource group and all of the resources it contains: 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
-2. Select **Delete resource group**. 
-3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**. 
+## <a name="clean-up-resources"></a>리소스 정리 
+개인 끝점, 저장소 계정 및 VM을 사용 하 여 작업을 완료 하면 리소스 그룹 및 여기에 포함 된 모든 리소스를 삭제 합니다. 
+1. 포털 맨 위에 있는 **검색** 상자에 *myresourcegroup*@no__t 1in를 입력 하 고 검색 결과에서 *myresourcegroup* 를 선택 합니다. 
+2. **리소스 그룹 삭제**를 선택합니다. 
+3. 1for를 *@no__t 입력 하*고 **리소스 그룹 이름을** 입력 한 다음 **삭제**를 선택 합니다. 
 
-## Next steps
-In this Quickstart, you created a VM on a virtual network and storage account and a Private Endpoint. You connected to one VM from the internet and securely communicated to the storage account using Private Link. To learn more about Private Endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md).
+## <a name="next-steps"></a>다음 단계
+이 빠른 시작에서는 가상 네트워크와 저장소 계정 및 개인 끝점에서 VM을 만들었습니다. 인터넷에서 하나의 VM에 연결 하 고 개인 링크를 사용 하 여 저장소 계정에 안전 하 게 전달 했습니다. 개인 끝점에 대 한 자세한 내용은 [Azure 개인 끝점 이란?](private-endpoint-overview.md)을 참조 하세요.

@@ -5,18 +5,18 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 57070b297446badb92ae1df4c435dd54cfe26823
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 622b4e53be68025ad9553ce604041d14885bb2b2
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710190"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330839"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
 
-이 문서에서는 Vm (가상 머신)을 만들고 소프트웨어를 설치 하는 방법을 비롯 하 여 Azure에 업로드할 마스터 VHD (가상 하드 디스크) 이미지를 준비 하는 방법을 설명 합니다. 이러한 지침은 조직의 기존 프로세스에서 사용할 수 있는 Windows 가상 데스크톱 특정 구성에 대 한 것입니다.
+이 문서에서는 Vm (가상 머신)을 만들고 소프트웨어를 설치 하는 방법을 비롯 하 여 Azure에 업로드할 마스터 VHD (가상 하드 디스크) 이미지를 준비 하는 방법을 설명 합니다. 이러한 지침은 조직의 기존 프로세스에 사용할 수 있는 Windows Virtual Desktop 관련 구성에 대한 것입니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 
@@ -62,11 +62,25 @@ Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.
 
 ## <a name="software-preparation-and-installation"></a>소프트웨어 준비 및 설치
 
-이 섹션에서는 FSLogix, Windows Defender 및 기타 일반 응용 프로그램을 준비 하 고 설치 하는 방법을 설명 합니다. 
+이 섹션에서는 FSLogix 및 Windows Defender를 준비 하 고 설치 하는 방법 뿐만 아니라 앱 및 이미지 레지스트리의 몇 가지 기본 구성 옵션을 설명 합니다. 
 
-VM에 Office 365 ProPlus 및 OneDrive를 설치 하 [는 경우 마스터 VHD 이미지에 Office 설치](install-office-on-wvd-master-image.md)를 참조 하세요. 이 문서를 돌아가서 마스터 VHD 프로세스를 완료 하려면이 문서의 다음 단계에 있는 링크를 따르세요.
+VM에 Office 365 ProPlus 및 OneDrive를 설치 하는 경우 [마스터 VHD 이미지에 Office 설치](install-office-on-wvd-master-image.md) 로 이동 하 고 여기에 있는 지침에 따라 앱을 설치 합니다. 완료 되 면이 문서로 돌아옵니다.
 
 사용자가 특정 LOB 응용 프로그램에 액세스 해야 하는 경우이 섹션의 지침을 완료 한 후에 설치 하는 것이 좋습니다.
+
+### <a name="set-up-user-profile-container-fslogix"></a>사용자 프로필 컨테이너 설정 (FSLogix)
+
+FSLogix 컨테이너를 이미지의 일부로 포함 하려면 [파일 공유를 사용 하 여 호스트 풀에 대 한 프로필 컨테이너 만들기](create-host-pools-user-profile.md#configure-the-fslogix-profile-container)의 지침을 따르세요. [이 빠른](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial)시작을 사용 하 여 FSLogix 컨테이너의 기능을 테스트할 수 있습니다.
+
+### <a name="configure-windows-defender"></a>Windows Defender 구성
+
+Windows Defender가 VM에 구성 된 경우 첨부 파일 중에 VHD 및 VHDX 파일의 전체 콘텐츠를 검색 하지 않도록 구성 되어 있는지 확인 합니다.
+
+이 구성은 첨부 파일 중에 VHD 및 VHDX 파일의 검색만 제거 하 고 실시간 검색에는 영향을 주지 않습니다.
+
+Windows Server에서 Windows Defender를 구성 하는 방법에 대 한 자세한 내용은 [Windows server에서 Windows Defender 바이러스 백신 제외 구성](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus)을 참조 하세요.
+
+검색에서 특정 파일을 제외 하도록 Windows Defender를 구성 하는 방법에 대 한 자세한 내용은 [파일 확장명 및 폴더 위치에 따라 제외 구성 및 유효성 검사](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)를 참조 하세요.
 
 ### <a name="disable-automatic-updates"></a>자동 업데이트 사용 안 함
 
@@ -88,20 +102,6 @@ Windows 10 Pc에 대 한 시작 레이아웃을 지정 하려면이 명령을 �
 ```batch
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
-
-### <a name="set-up-user-profile-container-fslogix"></a>사용자 프로필 컨테이너 설정 (FSLogix)
-
-FSLogix 컨테이너를 이미지의 일부로 포함 하려면 [파일 공유를 사용 하 여 호스트 풀에 대 한 프로필 컨테이너 만들기](create-host-pools-user-profile.md#configure-the-fslogix-profile-container)의 지침을 따르세요. [이 빠른](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial)시작을 사용 하 여 FSLogix 컨테이너의 기능을 테스트할 수 있습니다.
-
-### <a name="configure-windows-defender"></a>Windows Defender 구성
-
-Windows Defender가 VM에 구성 된 경우 첨부 파일 중에 VHD 및 VHDX 파일의 전체 콘텐츠를 검색 하지 않도록 구성 되어 있는지 확인 합니다.
-
-이 구성은 첨부 파일 중에 VHD 및 VHDX 파일의 검색만 제거 하 고 실시간 검색에는 영향을 주지 않습니다.
-
-Windows Server에서 Windows Defender를 구성 하는 방법에 대 한 자세한 내용은 [Windows server에서 Windows Defender 바이러스 백신 제외 구성](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus)을 참조 하세요.
-
-검색에서 특정 파일을 제외 하도록 Windows Defender를 구성 하는 방법에 대 한 자세한 내용은 [파일 확장명 및 폴더 위치에 따라 제외 구성 및 유효성 검사](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)를 참조 하세요.
 
 ### <a name="configure-session-timeout-policies"></a>세션 제한 시간 정책 구성
 
@@ -225,7 +225,7 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-s
 이제 이미지가 있으므로 호스트 풀을 만들거나 업데이트할 수 있습니다. 호스트 풀을 만들고 업데이트 하는 방법에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
 - [Azure Resource Manager 템플릿으로 호스트 풀 만들기](create-host-pools-arm-template.md)
-- [자습서: Azure Marketplace를 사용하여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)
+- [자습서: Azure Marketplace를 사용 하 여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)
 - [PowerShell을 사용한 호스트 풀 만들기](create-host-pools-powershell.md)
 - [파일 공유를 사용 하 여 호스트 풀에 대 한 프로필 컨테이너 만들기](create-host-pools-user-profile.md)
 - [Windows 가상 데스크톱 부하 분산 방법 구성](configure-host-pool-load-balancing.md)

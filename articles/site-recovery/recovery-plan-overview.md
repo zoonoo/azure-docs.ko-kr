@@ -6,14 +6,14 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 8502e08db48700aefe51a6e4f0e79d1b08f6ca79
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9e45787e7ae39b62605f5d8a54afd4ad95c9cca7
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814433"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331908"
 ---
 # <a name="about-recovery-plans"></a>복구 계획 정보
 
@@ -33,6 +33,9 @@ ms.locfileid: "70814433"
 
 
 ## <a name="model-apps"></a>앱 모델링
+
+> [!NOTE]
+> 최대 100 개의 보호 된 인스턴스를 하나의 복구 계획에 추가할 수 있습니다.
 
 앱 특정 속성을 캡처하도록 복구 그룹을 계획하고 만들 수 있습니다. 예를 들어 SQL 서버 백 엔드, 미들웨어 및 웹 프런트 엔드의 일반적인 3계층 애플리케이션을 생각해 봅시다. 일반적으로 각 계층의 컴퓨터에서 장애 조치(failover) 후 올바른 순서로 시작하도록 복구 계획을 사용자 지정합니다.
 
@@ -60,16 +63,16 @@ ms.locfileid: "70814433"
 
 대규모 애플리케이션 복구는 복잡한 작업일 수 있습니다. 수동 단계는 프로세스를 오류가 발생하기 쉽게 만들고, 장애 조치(failover)를 실행하는 사용자는 모든 앱 복잡성을 인식하지 못할 수 있습니다. 복구 계획을 사용하여 순서를 적용하고 Azure 또는 스크립트로 장애 조치(failover)에 대한 Azure Automation Runbook을 사용하여 각 단계에 필요한 작업을 자동화할 수 있습니다. 자동화할 수 없는 작업의 경우 복구 계획에 수동 작업에 대한 일시 중지를 삽입할 수 있습니다. 두 가지 유형의 작업을 구성할 수 있습니다.
 
-* **장애 조치(failover) 후 Azure VM에서 작업**: Azure로 장애 조치(failover)하는 경우 일반적으로 장애 조치(failover) 후 VM에 연결할 수 있도록 작업을 수행해야 합니다. 예를 들어: 
+* **장애 조치(failover) 후 Azure VM에서 작업**: Azure로 장애 조치(failover)하는 경우 일반적으로 장애 조치(failover) 후 VM에 연결할 수 있도록 작업을 수행해야 합니다. 다음은 그 예입니다. 
     * Azure VM에서 공용 IP 주소를 만듭니다.
     * Azure VM의 네트워크 어댑터에 네트워크 보안 그룹을 할당합니다.
     * 가용성 집합에 부하 분산 장치를 추가합니다.
-* **장애 조치(failover) 후 VM 내 작업**: 이러한 작업은 일반적으로 새로운 환경에서 앱이 올바르게 작동하도록 머신에서 실행되는 앱을 재구성합니다. 예:
+* **장애 조치(failover) 후 VM 내 작업**: 이러한 작업은 일반적으로 새로운 환경에서 앱이 올바르게 작동하도록 컴퓨터에서 실행되는 앱을 재구성합니다. 다음은 그 예입니다.
     * 컴퓨터 내에서 데이터베이스 연결 문자열을 수정합니다.
     * 웹 서버 구성 또는 규칙을 변경합니다.
 
 
-## <a name="test-failover"></a>테스트 장애 조치(failover)
+## <a name="test-failover"></a>테스트 장애 조치
 
 복구 계획을 사용하여 테스트 장애 조치(failover)를 트리거할 수 있습니다. 다음 모범 사례를 사용합니다.
 
@@ -81,7 +84,7 @@ ms.locfileid: "70814433"
 
     ![Site Recovery의 테스트 복구 계획 예제 스크린샷](./media/recovery-plan-overview/rptest.png)
 
-## <a name="watch-the-video"></a>비디오 보기
+## <a name="watch-the-video"></a>동영상 보기
 
 2 계층 WordPress 앱에 대 한 클릭 하 여 장애 조치 (failover)를 보여 주는 간단한 예제 비디오를 시청 하세요.
     

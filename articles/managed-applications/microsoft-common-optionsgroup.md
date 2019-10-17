@@ -1,6 +1,6 @@
 ---
 title: Azure OptionsGroup UI 요소 | Microsoft Docs
-description: Azure Portal의 Microsoft.Common.OptionsGroup UI 요소에 대해 설명합니다.
+description: Azure Portal의 Microsoft.Common.OptionsGroup UI 요소에 대해 설명합니다. 사용자가 관리 되는 응용 프로그램을 배포할 때 사용 가능한 옵션 중에서 선택할 수 있습니다.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9aee881844e9338cc1da2484a94c8355f2516c82
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7bec506575f1c526e59487edb67349cdf862f1a7
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720767"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331663"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Microsoft.Common.OptionsGroup UI 요소
 사용 가능한 옵션 행을 포함하는 선택 컨트롤입니다.
@@ -53,7 +53,7 @@ ms.locfileid: "64720767"
 
 ## <a name="remarks"></a>설명
 - `constraints.allowedValues`의 레이블은 항목에 대한 표시 텍스트이며, 해당 값은 선택한 요소의 출력 값입니다.
-- 이 값을 지정하면 기본값은 `constraints.allowedValues`에 있는 레이블이어야 합니다. 지정하지 않으면 `constraints.allowedValues`의 첫 번째 항목이 기본적으로 선택됩니다. 기본값은 **null**합니다.
+- 이 값을 지정하면 기본값은 `constraints.allowedValues`에 있는 레이블이어야 합니다. 지정하지 않으면 `constraints.allowedValues`의 첫 번째 항목이 기본적으로 선택됩니다. 기본값은 **null**입니다.
 - `constraints.allowedValues`에는 적어도 하나의 항목이 합니다.
 
 ## <a name="sample-output"></a>샘플 출력

@@ -1,18 +1,18 @@
 ---
 title: Azure 관리 되는 응용 프로그램 createUiDefinition 아티팩트 참조
-description: 이 문서는 createUiDefinition 아티팩트에 대 한 참조입니다.
+description: Azure 관리 되는 응용 프로그램에 대 한 createUiDefinition 아티팩트를 만드는 방법을 보여 줍니다. 이 파일의 이름은 createUiDefinition. json입니다.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
-ms.openlocfilehash: 5168e977a7bc289ec8981ef1df8cddd5cc6df678
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
-ms.translationtype: MT
+ms.openlocfilehash: 09364a849926fc829a890bfcdc8b760c7c7e189c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68336479"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330189"
 ---
 # <a name="reference-user-interface-elements-artifact"></a>참조: 사용자 인터페이스 요소 아티팩트
 
@@ -85,4 +85,4 @@ ms.locfileid: "68336479"
 
 - [자습서: 사용자 지정 작업 및 리소스를 사용 하 여 관리 되는 응용 프로그램 만들기](tutorial-create-managed-app-with-custom-provider.md)
 - [참조: 배포 템플릿 아티팩트](reference-main-template-artifact.md)
-- [참조: 정의 아티팩트 보기](reference-view-definition-artifact.md)
+- [참조: 뷰 정의 아티팩트](reference-view-definition-artifact.md)

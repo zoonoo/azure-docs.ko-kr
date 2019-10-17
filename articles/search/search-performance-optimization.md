@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 97628535deb79733e9d286977534a6ea97ba60e6
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 566c208ef415f6fc9f3ada419e2f9e9244bc066d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182280"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333156"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Azure Search 성능 최적화를 위한 배포 전략 및 모범 사례
 
@@ -45,8 +45,8 @@ ms.locfileid: "70182280"
 ## <a name="scaling-for-high-query-volume-and-throttled-requests"></a>높은 쿼리 볼륨 및 제한 된 요청에 대 한 크기 조정
 제한 된 요청을 너무 많이 받거나 쿼리 부하가 증가 하 여 대상 대기 시간 비율을 초과 하는 경우 다음 두 가지 방법 중 하나로 대기 시간 비율을 낮출 수 있습니다.
 
-1. **복제본 증가:**  복제본은 데이터 복사본과 같은 것으로, Azure Search 기능은 이러한 복제본을 통해 여러 복사본에 대한 요청의 부하를 분산시킬 수 있습니다.  복제본에 대한 모든 부하 분산 및 데이터 복제 작업은 Azure Search를 통해 관리되며 언제든지 서비스에 할당되는 복제본 수를 변경할 수 있습니다.  표준 검색 서비스에서는 최대 12개, 기본 검색 서비스에서는 최대 3개의 복제본을 할당할 수 있습니다. 복제본은 [Azure Portal](search-create-service-portal.md) 또는 [PowerShell](search-manage-powershell.md)을 통해 조정할 수 있습니다.
-2. **검색 계층 증가:**  Azure Search에는 [여러 계층](https://azure.microsoft.com/pricing/details/search/)이 포함되어 있으며 이러한 각 계층은 다른 수준의 성능을 제공합니다.  경우에 따라 쿼리 수가 너무 많아서 복제본이 최대 제한을 초과한 경우에도 현재 사용자가 있는 계층에서 대기 시간 속도가 충분히 낮지 않을 수 있습니다. 이 경우 많은 수의 문서와 매우 높은 쿼리 워크 로드를 포함 하는 시나리오에 적합 한 Azure Search S3 계층 등의 상위 검색 계층 중 하나를 활용 하는 것이 좋습니다.
+1. **복제본 증가:** 복제본은 데이터 복사본과 같은 것으로, Azure Search 기능은 이러한 복제본을 통해 여러 복사본에 대한 요청의 부하를 분산시킬 수 있습니다.  복제본에 대한 모든 부하 분산 및 데이터 복제 작업은 Azure Search를 통해 관리되며 언제든지 서비스에 할당되는 복제본 수를 변경할 수 있습니다.  표준 검색 서비스에서는 최대 12개, 기본 검색 서비스에서는 최대 3개의 복제본을 할당할 수 있습니다. 복제본은 [Azure Portal](search-create-service-portal.md) 또는 [PowerShell](search-manage-powershell.md)을 통해 조정할 수 있습니다.
+2. **검색 계층 증가:** Azure Search에는 [여러 계층](https://azure.microsoft.com/pricing/details/search/) 이 포함되어 있으며 이러한 각 계층은 다른 수준의 성능을 제공합니다.  일부 경우에는 복제본이 최대값 된 경우에도, 계층에서 충분 한 대기 시간 비율을 제공할 수 없는 쿼리가 많은 경우가 있습니다. 이 경우 많은 수의 문서와 매우 높은 쿼리 워크 로드를 포함 하는 시나리오에 적합 한 Azure Search S3 계층 등의 상위 검색 계층 중 하나를 활용 하는 것이 좋습니다.
 
 ## <a name="scaling-for-slow-individual-queries"></a>저속 개별 쿼리를 위한 크기 조정
 대기 시간이 긴 또 다른 이유는 단일 쿼리를 완료 하는 데 너무 오래 걸립니다. 이 경우 복제본을 추가 하는 것은 도움이 되지 않습니다. 다음을 포함 하는 두 가지 옵션을 사용할 수 있습니다.
@@ -57,7 +57,7 @@ ms.locfileid: "70182280"
 
 2. **높은 카디널리티 필드 제한:** 높은 카디널리티 필드는 많은 수의 고유 값을 포함 하는 패싯 가능 또는 필터링 가능한 필드로 구성 되며 결과를 계산할 때 상당한 리소스를 소비 합니다. 예를 들어 패싯 가능/필터링 가능으로 제품 ID 또는 설명 필드를 설정 하는 것은 문서와 문서에 있는 대부분의 값이 고유 하기 때문에 높은 카디널리티로 계산 됩니다. 가능한 경우 높은 카디널리티 필드의 수를 제한하도록 합니다.
 
-3. **검색 계층 증가:**  상위 Azure Search 계층으로 이동하는 것도 느린 쿼리의 성능을 향상시키는 또 다른 방법일 수 있습니다. 각 상위 계층은 더 빠른 Cpu와 더 많은 메모리를 제공 하며, 둘 다 쿼리 성능에 긍정적인 영향을 줍니다.
+3. **검색 계층 증가:** 상위 Azure Search 계층으로 이동하는 것도 느린 쿼리의 성능을 향상시키는 또 다른 방법일 수 있습니다. 각 상위 계층은 더 빠른 Cpu와 더 많은 메모리를 제공 하며, 둘 다 쿼리 성능에 긍정적인 영향을 줍니다.
 
 ## <a name="scaling-for-availability"></a>가용성에 따른 크기 조정
 복제본은 쿼리 대기 시간을 줄이는 데 도움이 될 뿐만 아니라 고가용성도 가능하게 합니다. 단일 복제본을 사용하는 경우 소프트웨어 업데이트 이후의 서버 다시 부팅 또는 발생하게 되는 기타 유지 관리 이벤트로 인한 주기적인 작동 중지가 예상될 수 있습니다.  결과적으로 애플리케이션이 높은 검색(쿼리) 및 쓰기(인덱싱 이벤트) 가용성을 요구하는지를 고려하는 것이 중요합니다. Azure Search는 다음 특성을 갖는 모든 유료 Search 서비스에 대해 SLA 옵션을 제공합니다.
@@ -94,11 +94,6 @@ Azure Search REST API를 사용 하 여 [Azure Search 인덱스에 콘텐츠를 
 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 사용하면 여러 지역에 위치한 웹 사이트로 요청을 라우팅할 수 있습니다. 그러면 이러한 요청은 여러 Azure Search 서비스를 통해 처리될 수 있습니다. 이 Traffic Manager의 장점 중 하나는 Azure Search가 사용 가능한지 조사하고 가동 중지 시간이 발생할 경우 사용자를 대체 Search 서비스로 라우팅할 수 있다는 것입니다. 또한 Azure 웹 사이트를 통해 검색 요청을 라우팅하면, 웹 사이트는 작동되지만 Azure Search는 작동되지 않는 경우의 부하를 Azure Traffic Manager를 사용하면 분산할 수 있습니다. Traffic Manager를 활용하는 아키텍처 예는 다음과 같습니다.
 
    ![지역별 서비스 크로스탭(중앙 Traffic Manager 포함)][3]
-
-## <a name="monitor-performance"></a>성능 모니터링
-Azure Search는 [검색 트래픽 분석](search-traffic-analytics.md)을 통해 서비스의 성능을 분석 하 고 모니터링 하는 기능을 제공 합니다. 이 기능을 사용 하도록 설정 하 고 클라이언트 앱에 계측을 추가 하는 경우 필요에 따라 개별 검색 작업 뿐만 아니라 집계 된 메트릭을 Azure Storage 계정에 기록할 수 있습니다. 그러면 Power BI에서 분석을 위해 처리 하거나 시각화할 수 있습니다. 이러한 방식을 캡처하는 메트릭은 평균 쿼리 수 또는 쿼리 응답 시간과 같은 성능 통계를 제공 합니다. 또한 작업 로깅을 사용하여 특정 검색 작업의 세부 정보를 찾아볼 수 있습니다.
-
-트래픽 분석은 해당 Azure Search 관점에서 발생 하는 대기 시간 비율을 이해 하는 데 유용 합니다. 로깅된 쿼리 성능 메트릭은 Azure Search에서 쿼리가 완전히 처리되는 데 소요되는 시간(요청된 시간부터 전송된 시간까지)을 기준으로 하므로 이 값을 사용하여 대기 시간 문제가 Azure Search 서비스 쪽에서 발생한 것인지 또는 서비스 외부(예: 네트워크 대기 시간)에서 발생한 것인지 확인할 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 각각의 가격 책정 계층 및 서비스 제한에 대해 자세히 알아보려면 [Azure Search의 서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.

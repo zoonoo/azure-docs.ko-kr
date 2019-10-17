@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da694dd77186ce22bd7080540bd3b08e14f205b0
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 48be16827da21643af485d1fb94b9a7b76728325
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835373"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374042"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Azure Active Directory와의 통합
 
@@ -37,7 +37,7 @@ ms.locfileid: "68835373"
 
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>응용 프로그램에 로그인 하는 방법으로 Azure AD 지원
 
-**로그인 충돌을 줄이고 지원 비용을 절감합니다.** Azure AD를 사용하여 애플리케이션에 로그인하면 사용자는 이름 및 암호를 기억하지 않아도 됩니다. 개발자는 저장하고 보호할 암호가 줄어듭니다. 잊어버린 암호 재설정을 처리하지 않으므로 상당히 효율적입니다. Azure AD에서는 Office 365, Microsoft Azure 등과 같이 전 세계에서 인기가 많은 다양한 클라우드 애플리케이션에 로그인할 수 있도록 지원합니다. 약 500만 개의 조직에서 4억 3천 만명 이상이 사용 중이므로 사용자가 이미 Azure AD에 로그인되어 있을 가능성이 높습니다. [Azure AD 로그인 지원 추가](authentication-scenarios.md)에 대해 자세히 알아보세요.
+**로그인 충돌을 줄이고 지원 비용을 절감합니다.** Azure AD를 사용하여 애플리케이션에 로그인하면 사용자는 이름 및 암호를 기억하지 않아도 됩니다. 개발자는 저장하고 보호할 암호가 줄어듭니다. 잊어버린 암호 재설정을 처리하지 않으므로 상당히 효율적입니다. Azure AD에서는 Office 365, Microsoft Azure 등과 같이 전 세계에서 인기가 많은 다양한 클라우드 애플리케이션에 로그인할 수 있도록 지원합니다. 약 500만 개의 조직에서 4억 3천 만명 이상이 사용 중이므로 사용자가 이미 Azure AD에 로그인되어 있을 가능성이 높습니다. [Azure AD 로그인 지원 추가](v1-authentication-scenarios.md)에 대해 자세히 알아보세요.
 
 **애플리케이션 등록을 단순화합니다.**  애플리케이션을 등록하는 동안 등록 양식을 사전에 입력하거나 완전히 제거할 수 있도록 Azure AD가 사용자에 대한 필수 정보를 보낼 수 있습니다. 사용자는 소셜 미디어 및 모바일 애플리케이션에서 본 것과 비슷한 친숙한 동의 환경을 통해 자신의 Azure AD 계정을 사용하여 애플리케이션을 등록할 수 있습니다. 모든 사용자는 IT 담당자의 도움 없이 Azure AD와 통합된 애플리케이션을 등록 및 로그인할 수 있습니다. [Azure AD 계정 로그인을 위해 애플리케이션 등록](../../app-service/configure-authentication-provider-aad.md)에 대해 자세히 알아보세요.
 
@@ -97,5 +97,5 @@ Azure AD와 통합하면 추가 코드를 작성할 필요가 없다는 이점�
 
 [코드 작성 시작하기](v2-overview.md#getting-started).
 
-[Microsoft id 플랫폼을 사용 하 여 사용자 로그인](authentication-scenarios.md)
+[Microsoft id 플랫폼을 사용 하 여 사용자 로그인](v1-authentication-scenarios.md)
 

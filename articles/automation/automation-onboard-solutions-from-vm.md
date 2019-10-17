@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 6b8693768e08f7ed80765015efa5af1a73b850c7
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 0069d2e8ccd3b4f65ced8b6e18ce568689f81e14
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476610"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374419"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Azure 가상 머신에서 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 등록
 
@@ -22,11 +22,11 @@ Azure Automation은 운영 체제 보안 업데이트를 관리하고, 변경 �
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com )에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="enable-the-solutions"></a>솔루션을 사용하도록 설정
 
-기존 가상 머신으로 이동합니다. **작업** 아래에서 **업데이트 관리**, **인벤토리** 또는 **변경 내용 추적**을 선택합니다. 가상 컴퓨터는 Automation 계정의 위치에 관계 없이 모든 지역에 있을 수 있습니다. 때 VM에서 솔루션을 온 보 딩 할 수는 `Microsoft.OperationalInsights/workspaces/read` VM 작업 영역에 대 한 등록 인지 확인할 수 있는 권한이 있습니다. 일반적 필요한 추가 사용 권한에 대 한 자세한 내용은 참조 하세요 [컴퓨터를 등록 하는 데 필요한 권한을](automation-role-based-access-control.md#onboarding)합니다.
+기존 가상 머신으로 이동합니다. **작업** 아래에서 **업데이트 관리**, **인벤토리** 또는 **변경 내용 추적**을 선택합니다. 가상 머신은 Automation 계정의 위치와 상관 없이 모든 지역에 있을 수 있습니다. VM에서 솔루션을 온 보 딩 하는 경우 VM이 작업 영역에 등록 여부를 확인 하는 `Microsoft.OperationalInsights/workspaces/read` 권한이 있어야 합니다. 일반적으로 필요한 추가 사용 권한에 대 한 자세한 내용은 [컴퓨터를 등록 하는 데 필요한 권한](automation-role-based-access-control.md#onboarding)을 참조 하세요.
 
 VM에 대해서만 솔루션을 활성화하려면 **이 VM에 대해 활성화**가 선택되었는지 확인합니다. 솔루션에 여러 컴퓨터를 등록하려면 **이 구독에서 VM에 대해 활성화**를 선택한 다음, **클릭하여 활성화할 컴퓨터 선택**을 선택합니다. 한 번에 여러 컴퓨터를 등록하는 방법에 대해 알아보려면 [업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 등록](automation-onboard-solutions-from-automation-account.md)을 참조하세요.
 
@@ -34,7 +34,7 @@ Azure Log Analytics 작업 영역 및 Automation 계정을 선택한 다음, **�
 
 ![업데이트 관리 솔루션 등록](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
-다른 솔루션으로 이동한 다음, **사용**을 선택합니다. 이러한 솔루션에 사용 했던 솔루션과 동일한 작업 영역 및 Automation 계정을 사용 하기 때문에 Log Analytics 작업 영역 및 Automation 계정 드롭다운 목록이 비활성화 됩니다.
+다른 솔루션으로 이동한 다음, **사용**을 선택합니다. 이러한 솔루션은 이전에 사용 하도록 설정 된 솔루션과 동일한 작업 영역 및 Automation 계정을 사용 하므로 Log Analytics 작업 영역 및 Automation 계정 드롭다운 목록을 사용할 수 없습니다.
 
 > [!NOTE]
 > **변경 내용 추적** 및 **인벤토리**는 동일한 솔루션을 사용합니다. 이러한 솔루션 중 하나가 활성화되면 다른 것도 활성화됩니다.
@@ -59,7 +59,7 @@ Azure Log Analytics 작업 영역 및 Automation 계정을 선택한 다음, **�
 
 작업 영역으로 이동합니다. **일반** 아래에서 **저장된 검색**을 선택합니다. 다음 표에는 이러한 솔루션에서 사용하는 두 가지 저장된 검색이 나와 있습니다.
 
-|이름     |Category  |Alias  |
+|name     |범주  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | 업데이트        | Updates__MicrosoftDefaultComputerGroup         |
@@ -76,7 +76,7 @@ Azure Log Analytics 작업 영역 및 Automation 계정을 선택한 다음, **�
 * [변경 내용 추적](automation-change-tracking.md)
 * [작업이 없는 동안 VM 시작/중지](automation-solution-vm-management.md)
 
-더 이상 Log Analytics 작업 영역과 Automation 계정을 통합 하려는 경우 Azure portal에서 직접 계정 연결을 해제할 수 없습니다.  계속하기 전에 앞에서 언급한 솔루션을 제거해야 합니다. 그러지 않으면 이 프로세스가 계속 진행되지 않습니다. 가져온 특정 솔루션에 대한 문서를 검토하여 제거에 필요한 단계를 이해하세요.
+Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않기로 결정 한 경우 Azure Portal에서 직접 계정 연결을 해제할 수 있습니다.  계속하기 전에 앞에서 언급한 솔루션을 제거해야 합니다. 그러지 않으면 이 프로세스가 계속 진행되지 않습니다. 가져온 특정 솔루션에 대한 문서를 검토하여 제거에 필요한 단계를 이해하세요.
 
 이러한 솔루션을 제거한 후에 다음 단계에 따라 Automation 계정 연결을 해제할 수 있습니다.
 
@@ -103,9 +103,16 @@ Azure Log Analytics 작업 영역 및 Automation 계정을 선택한 다음, **�
 
 * VM runbook 시작 및 중지 일정
 * VM runbook 시작 및 중지
-* variables
+* 변수
 
-또는 수 연결을 끊을 수도 작업 영역이 Automation 계정에서 Log Analytics 작업 영역에서 합니다. 작업 영역 선택 **Automation 계정** 아래에서 **관련 된 리소스**합니다. Automation 계정 페이지에서 선택 **계정을 연결 해제**합니다.
+또는 Log Analytics 작업 영역에서 Automation 계정에서 작업 영역의 연결을 끊을 수도 있습니다. 작업 영역에서 **관련 리소스**아래에 있는 **Automation 계정** 을 선택 합니다. Automation 계정 페이지에서 **계정 연결 해제**를 선택 합니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+업데이트 관리에서 VM을 제거하려면:
+
+* Log Analytics 작업 영역에서, 범위 구성 `MicrosoftDefaultScopeConfig-Updates`에 대한 저장된 검색에서 VM을 제거합니다. 저장된 검색은 작업 영역의 **일반**에서 찾을 수 있습니다.
+* [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) 또는 [Linux용 Log Analytics 에이전트](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources)를 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

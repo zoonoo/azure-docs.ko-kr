@@ -10,12 +10,12 @@ ms.date: 05/02/2019
 manager: nitinme
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: d9ddb5af42c538558a69ce68e7ea90161c947b12
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: a17e2ae5313f9d0b662d343230a04dd3e726c16d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186450"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331170"
 ---
 # <a name="synonyms-in-azure-search"></a>Azure Search의 동의어
 
@@ -25,7 +25,7 @@ Azure Search에서 동의어 확장은 쿼리 시에 수행됩니다. 기존 작
 
 ## <a name="create-synonyms"></a>동의어 만들기
 
-동의어를 만들 수 있는 포털 지원은 없지만 REST API 또는 .NET SDK를 사용할 수 있습니다. REST를 시작 하려면이 API를 사용 하 여 Postman 및 공식화 요청을 [사용 하](search-get-started-postman.md) 는 것이 좋습니다. [동의어 맵을 만듭니다](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). 개발자 C# 를 위해를 [사용 하 여 C#Azure 검색에서 동의어 추가 ](search-synonyms-tutorial-sdk.md)를 시작할 수 있습니다.
+동의어를 만들 수 있는 포털 지원은 없지만 REST API 또는 .NET SDK를 사용할 수 있습니다. REST를 시작 하려면이 API를 사용 하 여 Postman 및 공식화 요청을 [사용 하](search-get-started-postman.md) 는 것이 좋습니다. [동의어 맵 만들기](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)를 사용 하는 것이 좋습니다. 개발자 C# 를 위해를 [사용 하 여 C#Azure 검색에서 동의어 추가 ](search-synonyms-tutorial-sdk.md)를 시작할 수 있습니다.
 
 선택적으로 서비스 쪽 암호화를 위해 [고객 관리 키](search-security-manage-encryption-keys.md) 를 사용 하는 경우 해당 보호를 동의어 맵의 내용에 적용할 수 있습니다.
 
@@ -40,6 +40,8 @@ Azure Search에서 동의어 지원은 사용자가 정의하고 서비스에 �
 1.  아래 API를 통해 동의어 맵을 검색 서비스에 추가합니다.  
 
 2.  인덱스 정의에서 동의어 맵을 사용하도록 검색 가능한 필드를 구성합니다.
+
+검색 애플리케이션에 대한 여러 동의어 맵(예: 애플리케이션이 다국어 고객 기반을 지원하는 언어별 맵)을 만들 수 있습니다. 현재 필드에서는 그중 하나만 사용할 수 있습니다. 언제든지 필드의 synonymMaps 속성을 업데이트할 수 있습니다.
 
 ### <a name="synonymmaps-resource-apis"></a>SynonymMaps 리소스 API
 
@@ -76,7 +78,7 @@ Azure Search에서 동의어 지원은 사용자가 정의하고 서비스에 �
 
 ##### <a name="apache-solr-synonym-format"></a>Apache Solr 동의어 형식
 
-Solr 형식은 동등하고 명시적인 동의어 매핑을 지원합니다. 매핑 규칙은이 문서에 설명 된 Apache Sr의 오픈 소스 동의어 필터 사양을 따릅니다. ([SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter))에 설명된 Apache Solr의 공개 소스 동의어 필터 사양을 준수합니다. 다음은 동등한 동의어에 대한 샘플 규칙입니다.
+Solr 형식은 동등하고 명시적인 동의어 매핑을 지원합니다. 매핑 규칙은이 문서에서 설명 하는 Apache [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter)r의 오픈 소스 동의어 필터 사양을 따릅니다. 다음은 동등한 동의어에 대한 샘플 규칙입니다.
 ```
 USA, United States, United States of America
 ```
@@ -154,16 +156,9 @@ Washington, Wash., WA => WA
 
 동의어 확장과 와일드카드, 정규식 또는 유사 항목 검색을 적용하는 단일 쿼리를 수행해야 하는 경우 OR 구문을 사용하여 쿼리를 결합할 수 있습니다. 예를 들어 간단한 쿼리 구문에서 동의어와 와일드카드를 결합하려면 용어는 `<query> | <query>*`가 됩니다.
 
-## <a name="tips-for-building-a-synonym-map"></a>동의어 맵 빌드에 대한 팁
-
-- 간결하고 잘 설계된 동의어 맵은 가능한 일치 항목의 철저한 목록보다 더 효율적입니다. 쿼리가 많은 동의어로 확장되는 경우 지나치게 크거나 복잡한 사전은 구문 분석하는 데 오래 걸리며 쿼리 대기 시간에 영향을 줍니다. 사용할 용어를 추측하지 않고 [검색 트래픽 분석 보고서](search-traffic-analytics.md)를 통해 실제 용어를 가져올 수 있습니다.
-
-- 예비 연습 및 유효성 검사 연습 모두에서 이 보고서를 설정 후 사용하여 동의어 일치의 이점이 되는 용어를 정확하게 결정한 다음 동의어 맵이 더 나은 결과를 산출하는지에 대한 유효성 검증으로 계속 사용합니다. 미리 정의된 보고서에서 타일 "가장 일반적인 검색 쿼리" 및 "결과가 0인 검색 쿼리"는 필요한 정보를 제공합니다.
-
-- 검색 애플리케이션에 대한 여러 동의어 맵(예: 애플리케이션이 다국어 고객 기반을 지원하는 언어별 맵)을 만들 수 있습니다. 현재 필드에서는 그중 하나만 사용할 수 있습니다. 언제든지 필드의 synonymMaps 속성을 업데이트할 수 있습니다.
+개발(비프로덕션) 환경에 기존 인덱스가 있는 경우 작은 사전을 사용하여 동의어 추가를 통해 점수 매기기 프로필, 강조 표시된 적중 항목 및 제안 사항을 비롯한 검색 환경을 변경하는 방법을 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 개발(비프로덕션) 환경에 기존 인덱스가 있는 경우 작은 사전을 사용하여 동의어 추가를 통해 점수 매기기 프로필, 강조 표시된 적중 항목 및 제안 사항을 비롯한 검색 환경을 변경하는 방법을 확인할 수 있습니다.
-
-- [검색 트래픽 분석을 사용하도록 설정](search-traffic-analytics.md)하고 미리 정의된 Power BI 보고서를 사용하여 가장 많이 사용되는 용어 및 제로 문서를 반환하는 용어를 참조합니다. 이러한 통찰력을 바탕으로 인덱스에 있는 문서로 해석되어야 하는 비생산적인 쿼리에 대한 동의어를 포함하도록 사전을 수정합니다.
+> [!div class="nextstepaction"]
+> [동의어 맵 만들기](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)

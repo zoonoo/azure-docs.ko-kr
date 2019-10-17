@@ -9,18 +9,18 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 100740e87c13887a3e7ac85aa5fce3d67c838ea0
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 5ff36230095b90418a2619bbf1c5bb02863072b5
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240317"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372841"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
 Azure Automation에서 실행되는 Runbook과 Hybrid Runbook Worker에서 실행되는 Runbook은 구조상 차이점이 없습니다. 각 항목에서 사용하는 Runbook은 크게 다를 수 있습니다. Hybrid Runbook Worker를 대상으로 하는 Runbook은 일반적으로 로컬 컴퓨터 자체에서 리소스를 관리하거나 배포된 로컬 환경의 리소스에 맞게 리소스를 관리하기 때문에 이 차이점이 나타납니다. Azure Automation의 Runbook은 일반적으로 Azure 클라우드에서 리소스를 관리합니다.
 
-Hybrid Runbook Worker에서 실행할 Runbook을 작성하는 경우, 하이브리드 작업자를 호스팅하는 컴퓨터 내에서 Runbook을 편집하고 테스트해야 합니다. 호스트 컴퓨터에는 로컬 리소스를 관리하고 액세스하는 데 필요한 모든 PowerShell 모듈과 네트워크 액세스가 있습니다. Hybrid Worker 머신에서 Runbook이 테스트되면 Hybrid Worker에서 실행하는 데 사용할 수 있는 Azure Automation 환경에 업로드할 수 있습니다. Windows용 로컬 시스템 계정 또는 Linux용 특수 사용자 계정 `nxautomation`으로 실행되는 작업을 아는 것이 중요합니다. Linux에서이는 `nxautomation` 계정에 모듈을 저장 하는 위치에 대 한 액세스 권한이 있는지 확인 하는 것을 의미 합니다. [Install-Module](/powershell/module/powershellget/install-module) cmdlet을 사용 하는 `-Scope` 경우 매개 변수에 **AllUsers** 를 지정 하 여 `naxautomation` 계정에 액세스 권한이 있는지 확인 합니다.
+Hybrid Runbook Worker에서 실행할 Runbook을 작성하는 경우, 하이브리드 작업자를 호스팅하는 컴퓨터 내에서 Runbook을 편집하고 테스트해야 합니다. 호스트 컴퓨터에는 로컬 리소스를 관리하고 액세스하는 데 필요한 모든 PowerShell 모듈과 네트워크 액세스가 있습니다. Hybrid Worker 머신에서 Runbook이 테스트되면 Hybrid Worker에서 실행하는 데 사용할 수 있는 Azure Automation 환경에 업로드할 수 있습니다. Windows용 로컬 시스템 계정 또는 Linux용 특수 사용자 계정 `nxautomation`으로 실행되는 작업을 아는 것이 중요합니다. Linux에서이는 `nxautomation` 계정에 모듈을 저장 하는 위치에 대 한 액세스 권한이 있는지 확인 하는 것을 의미 합니다. [Install-Module](/powershell/module/powershellget/install-module) cmdlet을 사용 하는 경우 `-Scope` 매개 변수에 **AllUsers** 를 지정 하 여 `naxautomation` 계정에 액세스 권한이 있는지 확인 합니다.
 
 Linux의 PowerShell에 대 한 자세한 내용은 [Windows 이외의 플랫폼에서 powershell에 대 한 알려진 문제](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms)를 참조 하세요.
 
@@ -89,9 +89,8 @@ Hybrid Runbook Worker에서 Azure 리소스에 대한 관리 ID를 사용하려�
 
 1. Azure VM 만들기
 2. [VM에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm)
-3. [VM에 Resource Manager의 리소스 그룹 액세스 권한 부여](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)
-4. [VM의 시스템 할당 관리 ID를 사용하여 액세스 토큰을 가져오기](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager)
-5. 가상 머신에 [Windows Hybrid Runbook Worker를 설치](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)합니다.
+3. [리소스 관리자에서 리소스 그룹에 대 한 VM 액세스 권한 부여](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager) -windows-vm-액세스-사용---------------------------------------------
+4. 가상 머신에 [Windows Hybrid Runbook Worker를 설치](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)합니다.
 
 이전 단계가 완료되면 Runbook에서 `Connect-AzureRmAccount -Identity`를 사용하여 Azure 리소스를 인증할 수 있습니다. 이 구성을 사용하면 실행 계정을 사용하고 실행 계정의 인증서를 관리해야 하는 필요성이 감소합니다.
 
@@ -102,6 +101,9 @@ Connect-AzureRmAccount -Identity
 # Get all VM names from the subscription
 Get-AzureRmVm | Select Name
 ```
+
+> [!NOTE]
+> `Connect-AzureRMAccount -Identity`은 시스템 할당 id 및 단일 사용자 할당 id를 사용 하 여 Hybrid Runbook Worker에 대해 작동 합니다. HRW에서 여러 사용자 할당 id를 사용 해야 하는 경우 `-AccountId` 매개 변수를 지정 하 여 특정 사용자 할당 id를 선택 해야 합니다.
 
 ### <a name="runas-script"></a>Automation 실행 계정
 

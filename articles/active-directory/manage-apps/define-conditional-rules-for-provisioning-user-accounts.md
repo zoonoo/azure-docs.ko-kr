@@ -16,10 +16,10 @@ ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4bb1ed48d501ca3166e0b906c622507b59ef059a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "70812676"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 애플리케이션 프로비전
@@ -83,11 +83,11 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 
    b. **NOT EQUALS** 평가된 특성이 입력 문자열 값과 정확히 일치하면(대소문자 구분) "true"를 반환합니다.
 
-   c. **IS TRUE** 평가된 특성이 부울 값 true를 포함하면 "true"를 반환합니다.
+   다. **IS TRUE** 평가된 특성이 부울 값 true를 포함하면 "true"를 반환합니다.
 
    d. **IS FALSE** 평가된 특성이 부울 값 false를 포함하면 "true"를 반환합니다.
 
-   e. **IS NULL** 평가된 특성이 비어 있으면 "true"를 반환합니다.
+   ㅁ. **IS NULL** 평가된 특성이 비어 있으면 "true"를 반환합니다.
 
    f. **IS NOT NULL** 평가된 특성이 비어 있지 않으면 "true"를 반환합니다.
 

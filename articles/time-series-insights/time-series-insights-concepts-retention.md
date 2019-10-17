@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5799974581ba74d3265f0a5a66f9b081ded9f800
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 2939e37c891a6ecc0421062493cab2e5d79223b5
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948201"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330922"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Azure Time Series Insights의 데이터 보존 이해
 
@@ -28,32 +28,31 @@ ms.locfileid: "71948201"
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
-각 Azure 시계열 환경에는 **데이터 보존 시간**을 제어 하는 설정이 있습니다. 값의 범위는 1~400일입니다. 데이터는 환경 저장소 용량 또는 보존 기간 중 먼저 도달 하는 기간에 따라 삭제 됩니다.
+각 Azure Time Series Insights 환경에는 **데이터 보존 시간**을 제어 하는 설정이 있습니다. 값의 범위는 1~400일입니다. 데이터는 환경 저장소 용량 또는 보존 기간 중 먼저 도달 하는 기간에 따라 삭제 됩니다.
 
-또한 Azure 시계열 환경에는 **저장소 제한 초과 동작** 설정이 있습니다. 환경의 최대 용량에 도달 하면 수신 및 제거 동작을 제어 합니다. 구성할 때 선택할 수 있는 두 가지 동작이 있습니다.
+또한 Azure Time Series Insights 환경에는 **저장소 제한 초과 동작** 설정이 있습니다. 환경의 최대 용량에 도달 하면 수신 및 제거 동작을 제어 합니다. 구성할 때 선택할 수 있는 두 가지 동작이 있습니다.
 
 - **이전 데이터 삭제**(기본값)  
 - **수신 일시 중지**
 
 > [!NOTE]
 > 기본적으로 새 환경을 만들면 보존 기간이 **이전 데이터 삭제**로 구성됩니다. Time Series Insights 환경의 **구성** 페이지에서 Azure Portal를 사용 하 여 만든 후 필요에 따라이 설정을 전환할 수 있습니다.
+> * 보존 정책을 구성 하는 방법에 대 한 자세한 내용은 [Time Series Insights에서 보존 구성](time-series-insights-how-to-configure-retention.md)을 참조 하세요.
 
-보존 동작을 전환하는 방법에 대한 자세한 내용은 [Time Series Insights의 보존 기간 구성](time-series-insights-how-to-configure-retention.md)을 참조하세요.
+데이터 보존 정책에 대 한 자세한 내용은 아래에 자세히 설명 되어 있습니다.
 
-데이터 보존 동작 비교:
+## <a name="purge-old-data"></a>이전 데이터 삭제
 
-## <a name="purge-old-data"></a>이전 데이터 제거
-
-- 이 동작은 Time Series Insights 환경의 기본 동작입니다.  
-- 이 동작은 사용자가 Time Series Insights 환경에서 항상 *최신 데이터* 를 확인 하려는 경우에 가장 좋습니다.
-- 이 동작은 환경의 한도(보존 시간, 크기 또는 개수 중 가장 처음으로 도달한 한도)에 도달한 경우 데이터를 *삭제*합니다. 기본적으로 보존 기간은 30일로 설정됩니다.
-- 가장 오래 전에 수집된 데이터부터 먼저 삭제됩니다(FIFO 방식).
+- **이전 데이터 제거** 는 Azure Time Series Insights 환경의 기본 설정입니다.  
+- 사용자가 Time Series Insights 환경에서 항상 *최신 데이터* 를 볼 수 있도록 하려면 **이전 데이터 제거** 를 선택 하는 것이 좋습니다.
+- **이전 데이터 제거** 설정은 환경의 제한 (보존 시간, 크기 또는 개수 중 먼저 도달 하는 경우)에 도달 하면 데이터를 *제거* 합니다. 기본적으로 보존 기간은 30일로 설정됩니다.
+- 가장 오래 된 수집 데이터가 먼저 제거 됩니다 ("처음부터 시작" 접근 방식).
 
 ### <a name="example-one"></a>예 1
 
 보존 동작 **수신을 계속하고 이전 데이터 삭제**가 지정된 예제 환경을 고려해 보세요.
 
-**데이터 보존 시간은** 400 일로 설정 됩니다. **용량**은 30GB의 총 용량을 포함하는 S1 단위로 설정됩니다.   인바운드 데이터가 매일 평균 500MB 누적된다고 가정하겠습니다. 인바운드 데이터의 속도에 따르면 60일째에 최대 용량에 도달하므로 이 환경은 데이터를 60일만 보존할 수 있습니다. 인바운드 데이터 누적: 매일 500MB x 60일 = 30GB
+**데이터 보존 시간은** 400 일로 설정 됩니다. **용량**은 30GB의 총 용량을 포함하는 S1 단위로 설정됩니다. 인바운드 데이터가 매일 평균 500MB 누적된다고 가정하겠습니다. 인바운드 데이터의 속도에 따르면 60일째에 최대 용량에 도달하므로 이 환경은 데이터를 60일만 보존할 수 있습니다. 이 기간 동안 인바운드 데이터의 누적량을 계산해 보면 다음과 같습니다. 500MB x 60일 = 30GB.
 
 6 일의 경우 환경은 최신 데이터를 표시 하지만 60 일 보다 오래 된 가장 오래 된 데이터를 제거 합니다. 삭제를 통해 스트리밍되는 새 데이터를 위한 공간을 확보하여 새 데이터를 계속 탐색할 수 있습니다. 데이터를 더 오래 보존하려면 단위를 추가하여 환경의 규모를 늘리거나 푸시되는 데이터의 양을 줄여야 합니다.  
 
@@ -93,8 +92,10 @@ Time Series Insights에서 수신 일시 중지가 발생할 경우 데이터 �
 
 이벤트 원본에 구성 된 속성이 없는 경우 (`timeStampPropertyName`) Time Series Insights 기본값은 X 축으로 이벤트 허브에 도착 타임 스탬프입니다. @No__t-0이 다른 항목으로 구성 된 경우 이벤트를 구문 분석할 때 환경에서 데이터 패킷에 구성 된 `timeStampPropertyName`을 찾습니다.
 
-추가 용량을 확보하거나 보존 기간을 늘리기 위해 환경의 규모를 확장해야 하는 경우 [Time Series Insights 환경의 규모를 조정하는 방법](time-series-insights-how-to-scale-your-environment.md)에서 자세한 내용을 참조하세요.  
+[Time Series Insights 환경의 크기를 조정 하는 방법](time-series-insights-how-to-scale-your-environment.md) 을 참조 하 여 추가 용량을 수용할 수 있도록 환경을 확장 하거나 보존 기간을 늘립니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - 데이터 보존 설정을 구성 하거나 변경 하는 방법에 대 한 자세한 내용은 [Time Series Insights에서 보존 구성](time-series-insights-how-to-configure-retention.md)을 참조 하세요.
+
+- [Azure Time Series Insights의 대기 시간 완화](time-series-insights-environment-mitigate-latency.md)에 대해 알아봅니다.

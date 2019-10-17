@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7c5786f4510e11d431f9e80dd52d1ffc3adb410
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 78a991fb310c635648513e6472543b9f5c01119d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129163"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330863"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Time Series Insights 환경에서 문제 진단 및 해결
 
@@ -40,11 +40,11 @@ Azure Time Series Insights는 JSON 데이터만 지원합니다. JSON 샘플의 
 
 * Azure IoT Hub에 있는 IoT Hub의 경우 **서비스 연결** 사용 권한이 있는 키를 제공해야 합니다. **iothubowner** 또는 **service** 정책에는 **서비스 연결** 권한이 있으므로 둘 다 사용할 수 있습니다.
 
-   [![IoT Hub 서비스 연결 권한](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
+   [![IoT Hub 서비스 연결 사용 권한](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
 * Azure Event Hubs의 이벤트 허브에서는 **수신** 권한이 있는 키를 제공해야 합니다. **read** 또는 **manage** 정책에는 **수신** 권한이 있으므로 둘 다 사용할 수 있습니다.
 
-   [![이벤트 허브 수신 권한](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
+   [![Event hub 수신 권한](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
 ### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>원인 C: 제공 된 소비자 그룹이 Time Series Insights 전용이 아닙니다.
 
@@ -69,7 +69,7 @@ IoT Hub 또는 이벤트 허브를 등록할 경우 데이터를 읽는 데 사�
 
 다음 그림에는 SKU S1 및 용량 3을 사용하는 Time Series Insights 환경이 나와 있습니다. 하루에 3백만 개의 이벤트를 수신할 수 있습니다.
 
-[![환경 SKU 현재 용량](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
+[![ 환경 SKU 현재 용량](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
 예를 들어, 환경이 이벤트 허브에서 메시지를 수집 하는 경우를 가정 합니다. 일일 수신 속도는 67,000개 이하 메시지입니다. 이 속도를 1분마다 약 46개 메시지로 변환합니다. 
 
@@ -109,12 +109,12 @@ IoT Hub 또는 이벤트 허브를 등록할 경우 데이터를 읽는 데 사�
 
 다음 값은 표시되지 않아야 합니다.
 
-- *(abc)* : Time Series Insights가 데이터 값을 문자열로 읽고 있음을 나타냅니다.
-- *달력 아이콘*: Time Series Insights가 데이터 값을 *날짜/시간*으로 읽고 있음을 나타냅니다.
-- *#* : Time Series Insights가 데이터 값을 정수로 읽고 있음을 나타냅니다.
+- *(abc)* : Time Series Insights에서 데이터 값을 문자열로 읽도록 지정 합니다.
+- *Calendar icon*: Time Series Insights에서 데이터 값을 *datetime*으로 읽도록 지정 합니다.
+- *#* : Time Series Insights에서 데이터 값을 정수로 읽도록 지정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 지원을 받으려면 [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) 또는 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)에서 대화를 시작합니다.
+- [Azure Time Series Insights에서 대기 시간을 완화 하는 방법](time-series-insights-environment-mitigate-latency.md)에 대해 알아봅니다.
 
-- 지원 옵션에 대해서는 [Azure 지원](https://azure.microsoft.com/support/options/)을 사용합니다.
+- [Time Series Insights 환경의 크기를 조정 하는 방법을](time-series-insights-how-to-scale-your-environment.md)알아봅니다.

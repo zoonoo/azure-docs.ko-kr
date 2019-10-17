@@ -1,21 +1,21 @@
 ---
-title: Azure Cost Management 데이터에 대한 액세스 할당 | Microsoft Docs
+title: Azure Cost Management 데이터에 대 한 액세스 권한 할당
 description: 이 문서에서는 다양한 액세스 범위에 맞게 Azure Cost Management 데이터에 대한 권한을 할당하는 방법을 안내합니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/30/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: f9db07f648956130bb5bdebb23321b0eb14679c7
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: ebc56d27b7adc8f1fea9eafabe1b211f3f0ad560
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695391"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375123"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Cost Management 데이터에 대한 액세스 할당
 
@@ -41,8 +41,8 @@ Azure EA 구독의 비용 데이터를 보려면 사용자에게 적어도 다�
 | 부서 | [https://ea.azure.com](https://ea.azure.com/) | 부서 관리자 | **DA 요금 보기** 사용 | 부서에 연결된 등록 계정에 속하는 모든 구독 |
 | 등록 계정<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | 계정 소유자 | **AO 요금 보기** 사용 | 등록 계정의 모든 구독 |
 | 관리 그룹 | [https://portal.azure.com](https://portal.azure.com/) | Cost Management 읽기 권한자(또는 읽기 권한자) | **AO 요금 보기** 사용 | 관리 그룹 아래의 모든 구독 |
-| 구독 | [https://portal.azure.com](https://portal.azure.com/) | Cost Management 읽기 권한자(또는 읽기 권한자) | **AO 요금 보기** 사용 | 구독의 모든 리소스/리소스 그룹 |
-| 리소스 그룹 | [https://portal.azure.com](https://portal.azure.com/) | Cost Management 읽기 권한자(또는 읽기 권한자) | **AO 요금 보기** 사용 | 리소스 그룹의 모든 리소스 |
+| Subscription | [https://portal.azure.com](https://portal.azure.com/) | Cost Management 읽기 권한자(또는 읽기 권한자) | **AO 요금 보기** 사용 | 구독의 모든 리소스/리소스 그룹 |
+| Resource group | [https://portal.azure.com](https://portal.azure.com/) | Cost Management 읽기 권한자(또는 읽기 권한자) | **AO 요금 보기** 사용 | 리소스 그룹의 모든 리소스 |
 
 <sup>1</sup> 청구 계정은 기업 계약 또는 등록이라고도 합니다.
 
@@ -62,7 +62,9 @@ EA 포털에서 **DA 요금 보기**가 비활성화되면 부서 및 계정의 
 
 - Azure 계정
 - 관리 그룹
-- 리소스 그룹
+- Resource group
+
+파트너가 고객을 Microsoft 고객 계약에 등록 한 후에는 다양 한 범위를 사용할 수 있습니다. Csp 고객은 CSP 파트너가 사용 하도록 설정 된 경우 Cost Management 기능을 사용할 수 있습니다. 자세한 내용은 [파트너에 대 한 Azure Cost Management 시작](get-started-partners.md)을 참조 하세요.
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>EA 포털에서 비용에 대한 액세스를 사용하도록 설정
 
@@ -136,11 +138,11 @@ EA 포털에서 **DA 요금 보기**가 비활성화되면 부서 및 계정의 
 3. 계층 구조에서 관리 그룹을 선택합니다.
 4. 관리 그룹 이름 옆에 있는 **세부 정보**를 클릭합니다.
 5. 왼쪽 창에서 **액세스 제어(IAM)** 를 선택합니다.
-6. **추가**를 클릭합니다.
+6. **추가**으로 로그온합니다.
 7. **역할** 아래에서 **Cost Management 읽기 권한자**를 선택합니다.
 8. **다음에 대한 액세스 할당** 아래에서 **Azure AD, 사용자, 그룹 또는 애플리케이션**을 선택합니다.
 9. 액세스 권한을 할당하려면 사용자를 검색하여 선택합니다.
-10. **저장**을 클릭합니다.  
+10. 페이지 맨 아래에 있는 **저장**을 참조하세요.  
     ![관리 그룹에 대한 사용 권한 추가 상자의 예제 정보](./media/assign-access-acm-data/add-permissions.png)
 
 ## <a name="assign-subscription-scope-access"></a>구독 범위 액세스 할당
@@ -151,11 +153,11 @@ EA 포털에서 **DA 요금 보기**가 비활성화되면 부서 및 계정의 
 2. 사이드바에서 **모든 서비스**를 선택하고, _구독_을 검색한 다음, **구독**을 선택합니다.
 3. 구독을 선택합니다.
 4. 왼쪽 창에서 **액세스 제어(IAM)** 를 선택합니다.
-5. **추가**를 클릭합니다.
+5. **추가**으로 로그온합니다.
 6. **역할** 아래에서 **Cost Management 읽기 권한자**를 선택합니다.
 7. **다음에 대한 액세스 할당** 아래에서 **Azure AD, 사용자, 그룹 또는 애플리케이션**을 선택합니다.
 8. 액세스 권한을 할당하려면 사용자를 검색하여 선택합니다.
-9. **저장**을 클릭합니다.
+9. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 
 ## <a name="assign-resource-group-scope-access"></a>리소스 그룹 범위 액세스 할당
 
@@ -165,17 +167,17 @@ EA 포털에서 **DA 요금 보기**가 비활성화되면 부서 및 계정의 
 2. 사이드바에서 **모든 서비스** 를 선택하고, _리소스 그룹_을 검색한 다음, **리소스 그룹**을 선택합니다.
 3. 리소스 그룹을 선택합니다.
 4. 왼쪽 창에서 **액세스 제어(IAM)** 를 선택합니다.
-5. **추가**를 클릭합니다.
+5. **추가**으로 로그온합니다.
 6. **역할** 아래에서 **Cost Management 읽기 권한자**를 선택합니다.
 7. **다음에 대한 액세스 할당** 아래에서 **Azure AD, 사용자, 그룹 또는 애플리케이션**을 선택합니다.
 8. 액세스 권한을 할당하려면 사용자를 검색하여 선택합니다.
-9. **저장**을 클릭합니다.
+9. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 
 ## <a name="cross-tenant-authentication-issues"></a>교차 테 넌 트 인증 문제
 
 현재 Azure Cost Management은 테 넌 트 간 인증을 제한적으로 지원 합니다. 테 넌 트 간에 인증을 시도 하는 경우 비용 분석에서 **액세스 거부** 오류가 발생할 수 있습니다. 이 문제는 RBAC (역할 기반 액세스 제어)를 다른 테 넌 트의 구독에 구성한 후 비용 데이터를 보려고 할 때 발생할 수 있습니다.
 
-*문제를 해결 하려면 다음을 수행 합니다*. 교차 테 넌 트 RBAC를 구성한 후 한 시간을 기다립니다. 그런 다음 비용 분석에서 비용을 보거나 두 테 넌 트의 사용자에 게 Cost Management 액세스 권한을 부여 합니다.  
+*문제를 해결 하려면*: 교차 테 넌 트 RBAC를 구성한 후 한 시간을 기다립니다. 그런 다음 비용 분석에서 비용을 보거나 두 테 넌 트의 사용자에 게 Cost Management 액세스 권한을 부여 합니다.  
 
 
 ## <a name="next-steps"></a>다음 단계

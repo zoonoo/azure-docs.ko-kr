@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
-ms.openlocfilehash: d0c93d941047413c5056b3718f57b360357affbd
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: fe8061f8e99742f9dc5c1181235c4203aaad82ca
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327150"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331205"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Azure Search에서 리소스 사용량 및 쿼리 작업 모니터링
 
@@ -56,11 +56,10 @@ Azure Search는 관리하는 개체 이외의 데이터를 저장하지 않으�
 
 다음 표에서는 로그를 저장하고 Application Insights를 통해 서비스 작업 및 쿼리 워크로드에 대한 심층적인 모니터링을 추가하는 옵션을 비교합니다.
 
-| 리소스 | 사용 대상 |
+| 리소스 | 용도 |
 |----------|----------|
-| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | 아래 스키마에 따라 기록 된 이벤트 및 쿼리 메트릭이 앱에서 사용자 이벤트와 상관 관계가 지정 됩니다. 이는 애플리케이션 코드를 통해 제출된 필터 요청과는 달리 사용자 작업 또는 신호를 고려하여 사용자 시작 검색의 이벤트를 매핑하는 유일한 솔루션입니다. 이 방법을 사용하려면 요청 정보를 Application Insights로 라우팅하는 계측 코드를 원본 파일에 복사하여 붙여넣습니다. 자세한 내용은 [트래픽 분석 검색](search-traffic-analytics.md)을 참조하세요. |
 | [Azure Monitor 로그](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | 아래 스키마에 따라 기록 된 이벤트 및 쿼리 메트릭입니다. 이벤트는 Log Analytics 작업 영역에 기록 됩니다. 작업 영역에 대해 쿼리를 실행하여 로그에서 자세한 정보를 반환할 수 있습니다. 자세한 내용은 [Azure Monitor 로그 시작](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) 을 참조 하세요. |
-| [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | 아래 스키마에 따라 기록 된 이벤트 및 쿼리 메트릭입니다. 이벤트는 Blob 컨테이너에 기록되고 JSON 파일로 저장됩니다. JSON 편집기를 사용하여 파일 내용을 봅니다.|
+| [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | 아래 스키마에 따라 기록 된 이벤트 및 쿼리 메트릭입니다. 이벤트는 Blob 컨테이너에 기록되고 JSON 파일로 저장됩니다. JSON 편집기를 사용하여 파일 내용을 봅니다.|
 | [이벤트 허브](https://docs.microsoft.com/azure/event-hubs/) | 기록된 이벤트 및 쿼리 메트릭은 이 문서에서 설명하는 스키마를 기반으로 합니다. 이 서비스는 매우 큰 로그에 대한 대체 데이터 수집 서비스로 선택합니다. |
 
 Azure Monitor 로그와 Blob 저장소는 모두 무료 서비스로 제공 되므로 Azure 구독의 수명 동안 무료로 사용해 볼 수 있습니다. 애플리케이션 데이터 크기가 특정 제한을 초과하지 않으면 Application Insights 평가판을 등록하여 사용할 수 있습니다(자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/monitor/) 참조).
@@ -96,7 +95,7 @@ Azure Monitor 로그와 Blob 저장소는 모두 무료 서비스로 제공 되�
 * insights-logs-operationlogs: 검색 트래픽 로그인 경우
 * insights-metrics-pt1m: 메트릭인 경우
 
-시간이 걸리며 Blob storage에 컨테이너가 표시 됩니다. 컨테이너 마다 시간당 하나의 blob이 있습니다. **
+**컨테이너가 Blob 저장소에 표시 되기 전에 1 시간이 걸립니다. 컨테이너 마다 시간당 하나의 blob이 있습니다.**
 
 [Visual Studio Code](#download-and-open-in-visual-studio-code) 또는 다른 JSON 편집기를 사용하여 파일을 볼 수 있습니다. 
 
@@ -109,42 +108,42 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 ## <a name="log-schema"></a>로그 스키마
 검색 서비스 트래픽 로그가 포함된 Blob은 이 섹션에서 설명한 대로 구성됩니다. 각 Blob에는 로그 개체의 배열이 포함된 **records**라는 하나의 루트 개체가 있습니다. 각 Blob에는 동일한 시간 동안 발생한 모든 작업에 대한 레코드가 포함됩니다.
 
-| 이름 | type | 예제 | 참고 |
+| name | Type | 예제 | 참고 |
 | --- | --- | --- | --- |
-| Time |datetime |"2018-12-07T00:00:43.6872559Z" |작업 타임스탬프 |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
-| operationName |string |"Query.Search" |작업 이름 |
-| operationVersion |string |"2019-05-06" |사용된 api-version |
-| category |string |"OperationLogs" |constant |
-| resultType |string |"Success" |가능한 값: Success 또는 Failure |
+| time |Datetime |"2018-12-07T00:00:43.6872559Z" |작업 타임스탬프 |
+| resourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
+| operationName |문자열 |"Query.Search" |작업 이름 |
+| operationVersion |문자열 |"2019-05-06" |사용된 api-version |
+| category |문자열 |"OperationLogs" |constant |
+| resultType |문자열 |"Success" |가능한 값: Success 또는 Failure |
 | resultSignature |int |200 |HTTP 결과 코드 |
 | durationMS |int |50 |밀리초 단위의 작업 기간 |
-| 속성 |object |다음 테이블 참조 |데이터별 작업을 포함하는 개체 |
+| properties |object |다음 테이블 참조 |데이터별 작업을 포함하는 개체 |
 
 **속성 스키마**
 
-| 이름 | 형식 | 예제 | 참고 |
+| name | Type | 예제 | 참고 |
 | --- | --- | --- | --- |
-| 설명 |string |"GET /indexes('content')/docs" |작업의 엔드포인트 |
-| 쿼리 |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |쿼리 매개 변수 |
+| 설명 |문자열 |"GET /indexes('content')/docs" |작업의 엔드포인트 |
+| 쿼리 |문자열 |"? search = AzureSearch & $count = true & api-version = 2019-05-06" |쿼리 매개 변수 |
 | 문서 |int |42 |처리된 문서 수 |
-| IndexName |string |"testindex" |작업과 연결된 인덱스의 이름 |
+| IndexName |문자열 |"testindex" |작업과 연결된 인덱스의 이름 |
 
 ## <a name="metrics-schema"></a>메트릭 스키마
 
 쿼리 요청에 대한 메트릭이 캡처됩니다.
 
-| 이름 | type | 예제 | 참고 |
+| name | Type | 예제 | 참고 |
 | --- | --- | --- | --- |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |리소스 ID |
-| metricName |string |"Latency" |메트릭 이름 |
-| 실시간 |datetime |"2018-12-07T00:00:43.6872559Z" |작업의 타임스탬프 |
-| 평균 |int |64 |메트릭 시간 간격에 원시 샘플의 평균 값 |
-| 최소 |int |37 |메트릭 시간 간격에 원시 샘플의 최소 값 |
-| 최대 |int |78 |메트릭 시간 간격에 원시 샘플의 최대 값 |
-| 합계 |int |258 |메트릭 시간 간격에 원시 샘플의 총 값 |
+| resourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |사용자의 리소스 ID |
+| metricName |문자열 |"Latency" |메트릭 이름 |
+| time |Datetime |"2018-12-07T00:00:43.6872559Z" |작업의 타임스탬프 |
+| average |int |64 |메트릭 시간 간격에 원시 샘플의 평균 값 |
+| minimum |int |37 |메트릭 시간 간격에 원시 샘플의 최소 값 |
+| maximum |int |78 |메트릭 시간 간격에 원시 샘플의 최대 값 |
+| total |int |258 |메트릭 시간 간격에 원시 샘플의 총 값 |
 | count |int |4 |메트릭을 생성하는 데 사용되는 원시 샘플 수 |
-| timegrain |string |"PT1M" |ISO 8601에서 메트릭의 시간 조직 |
+| timegrain |문자열 |"PT1M" |ISO 8601에서 메트릭의 시간 조직 |
 
 모든 메트릭은 1 분 간격으로 보고됩니다. 각 메트릭은 분당 최소, 최대 및 평균 값을 표시합니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: f51263a91ca174a6c8108ed4414ff0f8b9745aff
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
-ms.translationtype: MT
+ms.openlocfilehash: 39f04005776f3b451ad7c64c76f9aa5d8c4a7768
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311889"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330082"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Azure Virtual Machines에서 프리미엄 파일 공유를 사용 하 여 SQL Server 장애 조치 (Failover) 클러스터 인스턴스 구성
 
@@ -28,7 +28,7 @@ ms.locfileid: "72311889"
 프리미엄 파일 공유는 Windows Server 2012 이상에서 장애 조치 (Failover) 클러스터 인스턴스와 장애 조치 (Failover) 클러스터 인스턴스를 사용할 수 있도록 완전 하 게 지원 되는 일관 되지 않은 SSD 지원 파일 공유입니다 (SQL Server 2012 이상). 프리미엄 파일 공유는 더 많은 유연성을 제공 하 여 가동 중지 시간 없이 파일 공유 크기를 조정 하 고 크기를 조정할 수 있도록 합니다. 
 
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 진행하기 전에 알아야 할 몇 가지 사항이 있으며 준비해야 할 몇 가지 사항이 있습니다.
 
@@ -53,6 +53,8 @@ ms.locfileid: "72311889"
 
 현재 환경의 IOPS 작업을 확인 하 고 premium 파일이 배포 또는 마이그레이션을 시작 하기 전에 필요한 IOPS를 제공 하는지 확인 합니다. Windows 성능 모니터 디스크 카운터를 사용 하 고 데이터, 로그 및 임시 DB 파일을 SQL Server 하는 데 필요한 총 IOPS (디스크 전송 수/초) 및 처리량 (디스크 바이트/초)을 모니터링 합니다. 많은 워크 로드에는 버스트 IO가 있으므로 사용량이 많은 기간 중에 확인 하 고 최대 IOPS 뿐만 아니라 평균 IOPS를 확인 하는 것이 좋습니다. 프리미엄 파일 공유는 공유 크기에 따라 IOPS를 제공 합니다. 또한 프리미엄 파일은 IO를 최대 1 시간 동안 3 배까지 버스트 할 수 있는 무료 버스트를 제공 합니다. 
 
+프리미엄 파일 공유 성능에 대 한 자세한 내용은 [파일 공유 성능 계층](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-planning#file-share-performance-tiers)을 참조 하세요. 
+
 ### <a name="licensing-and-pricing"></a>라이선싱 및 가격 책정
 
 Azure Virtual Machines에서 종 량 제 (PAYG)을 사용 하거나 BYOL (사용자 라이선스) VM 이미지를 사용 하 여 SQL Server 라이선스를 제공할 수 있습니다. 선택하는 이미지의 유형은 청구 방식에 영향을 줍니다.
@@ -69,7 +71,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
 
 - Filestream은 프리미엄 파일 공유를 사용 하는 장애 조치 (failover) 클러스터에 대해 지원 되지 않습니다. Filestream을 사용 하려면 [스토리지 공간 다이렉트](virtual-machines-windows-portal-sql-create-failover-cluster.md)를 사용 하 여 클러스터를 배포 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>전제 조건 
 
 이 문서의 지침을 수행하기 전에 다음이 있어야 합니다.
 
@@ -100,12 +102,12 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
    - **가용성 집합**을 클릭합니다.
    - **만들기**를 클릭합니다.
    - **가용성 집합 만들기** 블레이드에서 다음 값을 설정합니다.
-      - **Name**: 가용성 집합의 이름입니다.
-      - **구독**: Azure 구독.
+      - **이름**: 가용성 집합에 대한 이름입니다.
+      - **구독:** 사용자의 Azure 구독입니다.
       - **리소스 그룹**: 기존 그룹을 사용하려는 경우 **기존 항목 사용**을 클릭하고 드롭다운 목록에서 그룹을 선택합니다. 그렇지 않으면 **새로 만들기**를 선택하고 그룹에 대한 이름을 입력합니다.
-      - **Location**: 가상 머신을 만들 위치를 설정합니다.
-      - **장애 도메인**: 기본값(3)을 사용하세요.
-      - **업데이트 도메인**: 기본값(5)을 사용하세요.
+      - **위치**: 가상 머신을 만들 위치를 설정합니다.
+      - **장애 도메인**: 기본 (3)을 사용합니다.
+      - **업데이트 도메인**: 기본 (5)를 사용합니다.
    - **만들기**를 클릭하여 가용성 집합을 만듭니다.
 
 1. 가용성 집합에 가상 머신을 만듭니다.
@@ -160,7 +162,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
 
 가상 머신을 만들고 구성한 후에는 프리미엄 파일 공유를 구성할 수 있습니다.
 
-## <a name="step-2-mount-premium-file-share"></a>2단계: 프리미엄 파일 공유 탑재
+## <a name="step-2-mount-premium-file-share"></a>2 단계: 프리미엄 파일 공유 탑재
 
 1. [Azure Portal](https://portal.azure.com) 에 로그인 하 여 저장소 계정으로 이동 합니다.
 1. **파일 서비스** 에서 **파일 공유** 로 이동 하 고 SQL 저장소에 사용할 프리미엄 파일 공유를 선택 합니다. 
@@ -180,7 +182,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
   > [!IMPORTANT]
   > 백업 파일에 대 한 별도의 파일 공유를 사용 하 여 데이터 및 로그 파일에 대 한이 공유의 IOPS 및 크기 용량을 저장 하는 것이 좋습니다. 백업 파일에 프리미엄 또는 표준 파일 공유 중 하나를 사용할 수 있습니다.
 
-## <a name="step-3-configure-failover-cluster-with-file-share"></a>3단계: 파일 공유를 사용 하 여 장애 조치 (failover) 클러스터 구성 
+## <a name="step-3-configure-failover-cluster-with-file-share"></a>3 단계: 파일 공유를 사용 하 여 장애 조치 (failover) 클러스터 구성 
 
 다음 단계는 장애 조치 (failover) 클러스터를 구성 하는 것입니다. 이 단계에서는 다음 하위 단계를 수행합니다.
 
@@ -219,14 +221,14 @@ UI를 사용하여 클러스터의 유효성을 검사하려면 가상 머신 �
 
 1. **서버 관리자**에서 **도구**를 클릭한 다음 **장애 조치(Failover) 클러스터 관리자**를 클릭합니다.
 1. **장애 조치(Failover) 클러스터 관리자**에서 **작업**을 클릭한 다음 **구성 유효성 검사...** 를 클릭합니다.
-1. **다음**을 클릭합니다.
+1. **다음**을 누릅니다.
 1. **서버 또는 클러스터 선택**에서 두 가상 머신의 이름을 입력합니다.
-1. **테스트 옵션**에서 **선택한 테스트만 실행**을 선택합니다. **다음**을 클릭합니다.
+1. **테스트 옵션**에서 **선택한 테스트만 실행**을 선택합니다. **다음**을 누릅니다.
 1. **테스트 선택**에서 **저장소** 및 **스토리지 공간 다이렉트**제외한 모든 테스트를 포함 합니다. 다음 그림을 참조하세요.
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/cluster-validation.png" alt-text="클러스터 유효성 검사 테스트":::
 
-1. **다음**을 클릭합니다.
+1. **다음**을 누릅니다.
 1. **확인**에서 **다음**을 클릭합니다.
 
 **구성 유효성 검사 마법사**가 유효성 검사 테스트를 실행합니다.
@@ -257,7 +259,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 #### <a name="windows-server-2019"></a>Windows Server 2019
 
-다음 PowerShell은 Windows Server 2019에 대 한 장애 조치 (failover) 클러스터를 만듭니다.  자세한 내용은 블로그 [Failover 조치 (failover) 클러스터를 검토 하세요. 클러스터 네트워크 개체 @ no__t-0.  스크립트를 노드의 이름(가상 머신 이름) 및 Azure VNET에서 사용 가능한 IP 주소 이름으로 업데이트합니다.
+다음 PowerShell은 Windows Server 2019에 대 한 장애 조치 (failover) 클러스터를 만듭니다.  자세한 내용은 블로그 [장애 조치 (Failover) 클러스터: 클러스터 네트워크 개체](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97)를 참조 하세요.  스크립트를 노드의 이름(가상 머신 이름) 및 Azure VNET에서 사용 가능한 IP 주소 이름으로 업데이트합니다.
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
@@ -277,13 +279,13 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 1. 장애 조치(Failover) 클러스터 쿼럼 감시를 구성합니다. UI에서 [사용자 인터페이스에서 쿼럼 감시 구성](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness)을 참조하세요.
 
 
-## <a name="step-4-test-cluster-failover"></a>4단계: 클러스터 장애 조치 테스트
+## <a name="step-4-test-cluster-failover"></a>4 단계: 클러스터 장애 조치 테스트
 
 클러스터의 장애 조치 (failover)를 테스트 합니다. 장애 조치(Failover) 클러스터 관리자에서 클러스터를 마우스 오른쪽 단추로 클릭 하 > **추가 작업** > **코어 클러스터 리소스 이동** > **노드를 선택** 하 고 클러스터의 다른 노드를 선택 합니다. 코어 클러스터 리소스를 클러스터의 모든 노드로 이동한 다음 주 노드로 다시 이동 합니다. 클러스터를 각 노드로 성공적으로 이동할 수 있는 경우 SQL Server를 설치할 준비가 된 것입니다.  
 
 :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/test-cluster-failover.png" alt-text="핵심 리소스를 다른 노드로 이동 하 여 클러스터 장애 조치 (failover) 테스트":::
 
-## <a name="step-5-create-sql-server-fci"></a>5단계: SQL Server FCI 만들기
+## <a name="step-5-create-sql-server-fci"></a>5 단계: SQL Server FCI 만들기
 
 장애 조치 (failover) 클러스터를 구성한 후 SQL Server FCI를 만들 수 있습니다.
 
@@ -312,7 +314,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
    >[!NOTE]
    >SQL Server와 함께 Azure Marketplace 갤러리 이미지를 사용한 경우 SQL Server 도구는 이미지에 포함되었습니다. 이 이미지를 사용하지 않은 경우 SQL Server 도구를 개별적으로 설치합니다. [SSMS(SQL Server Management Studio) 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)를 참조하세요.
 
-## <a name="step-6-create-azure-load-balancer"></a>6단계: Azure Load Balancer 만들기
+## <a name="step-6-create-azure-load-balancer"></a>6 단계: Azure 부하 분산 장치 만들기
 
 Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노드에 있어야 하는 IP 주소를 저장하는 부하 분산 장치를 사용합니다. 이 솔루션에서 부하 분산 장치는 SQL Server FCI에 대한 IP 주소를 저장합니다.
 
@@ -330,14 +332,14 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
 
 1. 다음으로 부하 분산 장치를 구성합니다.
 
-   - **구독**: Azure 구독.
+   - **구독:** 사용자의 Azure 구독입니다.
    - **리소스 그룹**: 가상 머신과 동일한 리소스 그룹을 사용합니다.
-   - **Name**: 부하 분산 장치를 식별하는 이름입니다.
-   - **지역**: 가상 머신과 동일한 Azure 위치를 사용합니다.
-   - **유형**: 부하 분산 장치는 공개 또는 프라이빗일 수 있습니다. 동일한 VNET 내에서 프라이빗 부하 분산 장치에 액세스할 수 있습니다. 대부분의 Azure 애플리케이션은 프라이빗 부하 분산 장치를 사용할 수 있습니다. 애플리케이션에 인터넷을 통해 직접 SQL Server에 대한 액세스가 필요한 경우 공개 부하 분산 장치를 사용합니다.
-   - **SKU**: 부하 분산 장치에 대 한 SKU는 표준 이어야 합니다. 
+   - **이름**: 부하 분산 장치를 식별하는 이름입니다.
+   - **지역**: 가상 머신과 동일한 Azure 위치를 사용 합니다.
+   - **형식**: 부하 분산 장치는 공개 또는 프라이빗일 수 있습니다. 동일한 VNET 내에서 프라이빗 부하 분산 장치에 액세스할 수 있습니다. 대부분의 Azure 애플리케이션은 프라이빗 부하 분산 장치를 사용할 수 있습니다. 애플리케이션에 인터넷을 통해 직접 SQL Server에 대한 액세스가 필요한 경우 공개 부하 분산 장치를 사용합니다.
+   - **Sku**: 부하 분산 장치에 대 한 sku는 표준 이어야 합니다. 
    - **Virtual Network**: 가상 머신과 동일한 네트워크입니다.
-   - **IP 주소 할당**: IP 주소 할당은 정적 이어야 합니다. 
+   - **Ip 주소 할당**: ip 주소 할당은 정적 이어야 합니다. 
    - **개인 IP 주소**: SQL Server FCI 클러스터 네트워크 리소스에 할당한 동일한 IP 주소입니다.
    다음 그림을 참조하세요.
 
@@ -365,11 +367,11 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
 
 1. **상태 프로브 추가** 블레이드에서 <a name="probe"></a>상태 프로브 매개 변수를 설정합니다.
 
-   - **Name**: 상태 프로브의 이름입니다.
+   - **이름**: 상태 프로브의 이름입니다.
    - **프로토콜**: TCP입니다.
    - **포트**: [이 단계](#ports)에서 상태 프로브에 대해 방화벽에서 만든 포트로 설정 합니다. 이 문서에서는이 예제에서는 TCP 포트 `59999`을 사용 합니다.
    - **간격**: 5초입니다.
-   - **비정상 임계값**: 2번 연속 실패입니다.
+   - **비정상 임계값**: 두 번 연속 실패입니다.
 
 1. 확인을 클릭합니다.
 
@@ -381,19 +383,19 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
 
 1. 부하 분산 규칙 매개 변수를 설정 합니다.
 
-   - **Name**: 부하 분산 규칙의 이름입니다.
+   - **이름**: 부하 분산 규칙의 이름입니다.
    - **프런트 엔드 IP 주소**: SQL Server FCI 클러스터 네트워크 리소스에 대한 IP 주소를 사용합니다.
    - **포트**: SQL Server FCI TCP 포트에 대해 설정합니다. 기본 인스턴스 포트는 1433입니다.
    - **백 엔드 포트**: 이 값은 **부동 IP(Direct Server Return)** 를 활성화할 때 **포트** 값과 동일한 포트를 사용합니다.
    - **백 엔드 풀**: 이전에 구성한 백 엔드 풀 이름을 사용합니다.
    - **상태 프로브**: 이전에 구성한 상태 프로브를 사용합니다.
-   - **세션 지속성**: 없음
+   - **세션 지속성**: 없음.
    - **유휴 제한 시간(분)** : 4.
-   - **부동 IP(Direct Server Return)** : Enabled
+   - **부동 IP(Direct Server Return)** : 사용
 
 1. **확인**을 클릭합니다.
 
-## <a name="step-7-configure-cluster-for-probe"></a>7단계: 프로브에 대한 클러스터 구성
+## <a name="step-7-configure-cluster-for-probe"></a>7 단계: 프로브에 대 한 클러스터 구성
 
 PowerShell에서 클러스터 프로브 포트 매개 변수를 설정합니다.
 
@@ -412,7 +414,7 @@ PowerShell에서 클러스터 프로브 포트 매개 변수를 설정합니다.
 
 이전 스크립트에서 사용자 환경에 대한 값을 설정합니다. 다음 목록에서는 값을 설명합니다.
 
-   - `<Cluster Network Name>`: 네트워크의 Windows Server 장애 조치(failover) 클러스터 이름입니다. **장애 조치(Failover) 클러스터 관리자** > **네트워크**에서 네트워크를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다. 
+   - `<Cluster Network Name>`: 네트워크에 대한 Windows Server 장애 조치(failover) 클러스터 이름입니다. **장애 조치(Failover) 클러스터 관리자** > **네트워크**에서 네트워크를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다. 
 
    - `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP 주소 리소스 이름입니다. **장애 조치(Failover) 클러스터 관리자**@no__t**역할**의 SQL Server Fci 역할 아래에서 **서버 이름**아래에 있는 IP 주소 리소스를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 클릭 합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다. 
 
@@ -429,7 +431,7 @@ PowerShell에서 클러스터 프로브 포트 매개 변수를 설정합니다.
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 
-## <a name="step-8-test-fci-failover"></a>8단계: FCI 장애 조치(failover) 테스트
+## <a name="step-8-test-fci-failover"></a>8 단계: FCI 장애 조치 (failover) 테스트
 
 FCI의 장애 조치(failover)를 테스트하여 클러스터 기능의 유효성을 검사합니다. 다음 단계를 수행합니다.
 
@@ -459,7 +461,7 @@ Azure Virtual Machines의 Windows Server 2016 및 이전 버전에서는 다음�
 - 클러스터형 MSDTC 리소스는 공유 스토리지를 사용하도록 구성할 수 없습니다. Windows Server 2016에서 MSDTC 리소스를 만드는 경우 공유 스토리지가 있더라도 사용 가능한 공유 스토리지가 표시되지 않습니다. 이 문제는 Windows Server 2019에서 수정되었습니다.
 - 기본 Load Balancer는 RPC 포트를 처리하지 않습니다.
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 
 - [Windows 클러스터 기술](/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server 장애 조치(Failover) 클러스터 인스턴스](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

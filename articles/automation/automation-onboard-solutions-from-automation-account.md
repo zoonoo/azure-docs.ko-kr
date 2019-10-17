@@ -9,12 +9,12 @@ ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 3c27c268ed2a1c369c9b42bd1cd5a2365547c52f
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: e117c6f8aa8526392678f37a05ec61b55983a1c7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667452"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374431"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 등록
 
@@ -65,7 +65,7 @@ Log Analytics 작업 영역 및 Automation 계정을 선택 하 고 **사용** �
 
 Automation 계정 이동하고 **일반** 아래에서 **저장된 검색**을 선택합니다. 다음 표에는 이러한 솔루션에서 사용하는 두 가지 저장된 검색이 나와 있습니다.
 
-|이름     |범주  |별칭  |
+|name     |범주  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | 업데이트        | Updates__MicrosoftDefaultComputerGroup         |
@@ -106,7 +106,7 @@ Azure에 없는 컴퓨터는 수동으로 추가해야 합니다. Automation 계
 
 초기에 저장 된 검색을 다시 추가 하 여 범위 구성을 다시 추가할 수 있습니다. 자세한 내용은 [저장 된 검색](#saved-searches)을 참조 하세요.
 
-### <a name="selected-machines"></a>선택된 컴퓨터
+### <a name="selected-machines"></a>선택한 컴퓨터
 
 하나 이상의 컴퓨터에서 솔루션을 사용하도록 설정하려면, **선택한 컴퓨터에서 사용**을 선택하고 솔루션에 추가하려는 각 컴퓨터 옆에 있는 **추가**를 클릭합니다. 이 작업은 선택한 컴퓨터의 이름을 솔루션에 대한 컴퓨터 그룹 저장된 검색 쿼리에 추가합니다.
 
@@ -129,7 +129,7 @@ Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않
 
 2. 작업 영역 연결 해제 페이지에서 **작업 영역 연결 해제**를 클릭합니다.
 
-   ![작업 영역 연결 해제 페이지](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png)을 선택합니다.
+   ![작업 영역 연결 해제 페이지](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
 
    계속 진행할지 확인하는 메시지가 나타납니다.
 
@@ -148,6 +148,13 @@ Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않
 * 변수
 
 또는 Log Analytics 작업 영역에서 Automation 계정에서 작업 영역의 연결을 끊을 수도 있습니다. 작업 영역에서 **관련 리소스**아래에 있는 **Automation 계정** 을 선택 합니다. Automation 계정 페이지에서 **계정 연결 해제**를 선택 합니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+업데이트 관리에서 VM을 제거하려면:
+
+* Log Analytics 작업 영역에서, 범위 구성 `MicrosoftDefaultScopeConfig-Updates`에 대한 저장된 검색에서 VM을 제거합니다. 저장된 검색은 작업 영역의 **일반**에서 찾을 수 있습니다.
+* [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) 또는 [Linux용 Log Analytics 에이전트](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources)를 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

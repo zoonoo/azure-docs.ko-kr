@@ -11,17 +11,17 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c747f25b92d9f165bfeb4468a0e263f102976f9
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 109db23976f6332b24bcfa565812bd9491062691
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350579"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330744"
 ---
 # <a name="collect-data-for-models-in-production"></a>프로덕션 환경에서 모델용 데이터 수집
 
 >[!IMPORTANT]
-> 이 SDK는 곧 사용 중지 되며 [Application Insights를 사용 하 여 간소화 된 데이터 모니터링](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights)으로 대체 될 예정입니다. 
+> 이 SDK는 곧 사용이 중지 됩니다. 이 SDK는 모델에서 데이터 드리프트를 모니터링 하는 개발자에 게 적합 하지만 대부분의 개발자는 [Application Insights로 간소화 된 데이터 모니터링](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights)을 사용 해야 합니다. 
 
 이 문서에서는 azure Kubernetes Cluster (AKS)에 배포한 Azure Machine Learning에서 Azure Blob 저장소로 입력 모델 데이터를 수집 하는 방법을 배울 수 있습니다. 
 
@@ -51,11 +51,11 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-- Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+- Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 서비스의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-- Azure Machine Learning 작업 영역, 스크립트가 포함된 로컬 디렉터리 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. [개발 환경 구성 방법](how-to-configure-environment.md) 문서를 사용하여 이러한 필수 구성 요소를 충족하는 방법을 알아보세요.
+- Azure Machine Learning 작업 영역, 스크립트가 포함된 로컬 디렉터리 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. [개발 환경 구성 방법](how-to-configure-environment.md) 문서를 사용하여 이러한 필수 조건을 가져오는 방법을 알아봅니다.
 
 - AKS(Azure Kubernetes Service)에 배포할 학습된 Machine Learning 모델. 이러한 모델이 없으면 [이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 자습서를 참조하세요.
 
@@ -84,7 +84,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 되는 모델에 �
     prediction_dc = ModelDataCollector("best_model", identifier="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
-    *CorrelationId*는 선택적 매개 변수이므로 모델에 필요하지 않으면 설정하지 않아도 됩니다. correlationId가 있으면 다른 데이터와의 매핑을 더 쉽게 수행할 수 있습니다. (예를 들면 다음과 같습니다: LoanNumber, CustomerId 등입니다.)
+    *CorrelationId*는 선택적 매개 변수이므로 모델에 필요하지 않으면 설정하지 않아도 됩니다. correlationId가 있으면 다른 데이터와의 매핑을 더 쉽게 수행할 수 있습니다. LoanNumber, CustomerId 등을 예로 들 수 있습니다.
     
     *Identifier*는 나중에 Blob에서 폴더 구조를 작성하는 데 사용되며 “raw” 데이터와 “processed” 데이터를 분리하는 데 사용할 수 있습니다.
 
@@ -192,7 +192,7 @@ Blob의 데이터에 빠르게 액세스하려면 다음을 수행합니다.
 
 1. 쿼리 편집기에서 “이름” 열 아래를 클릭하고 스토리지 계정 1을 추가합니다. 필터에 대한 경로를 모델링합니다. 참고: 특정 연도 또는 특정 월의 파일만 보려면 필터 경로를 확장하기만 하면 됩니다. 예를 들어, /modeldata/subscriptionid>/resourcegroupname>/workspacename>/webservicename>/modelname>/modelversion>/identifier>/year>/3에서 3월 데이터를 봅니다.
 
-1. **이름**을 기준으로 관련된 데이터를 필터링합니다. **예측** 및 **입력**을 저장한 경우 각각에 대해 쿼리를 만들어야 합니다.
+1. **이름**을 기준으로 관련된 데이터를 필터링합니다. **예측** 및 **입력**을 저장 한 경우 각각에 대 한 쿼리를 만들어야 합니다.
 
 1. 파일을 결합하려면 **콘텐츠** 열 옆에 있는 양방향 화살표를 클릭합니다. 
 
@@ -204,7 +204,7 @@ Blob의 데이터에 빠르게 액세스하려면 다음을 수행합니다.
 
 1. 이제 **닫기 및 적용**을 클릭할 수 있습니다.
 
-1.  입력 및 예측을 추가한 경우 자동으로 **RequestId**에 따라 테이블 상관 관계가 설정됩니다.
+1.  입력 및 예측을 추가한 경우 테이블은 **RequestId**에 의해 자동으로 상호 연결 됩니다.
 
 1. 모델 데이터에 대한 사용자 지정 보고서 빌드를 시작합니다.
 
@@ -215,7 +215,7 @@ Blob의 데이터에 빠르게 액세스하려면 다음을 수행합니다.
 
 1. Databricks 작업 영역으로 이동합니다. 
 
-1. Databricks 작업 영역에서 **데이터 업로드**를 선택합니다.
+1. Databricks 작업 영역에서 **데이터 업로드**를 선택 합니다.
 
     [![DB 업로드](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
 
@@ -223,7 +223,7 @@ Blob의 데이터에 빠르게 액세스하려면 다음을 수행합니다.
 
     [![DB 테이블](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
-1. 데이터 위치를 업데이트합니다. 다음 예를 참조하세요.
+1. 데이터 위치를 업데이트합니다. 다음은 예제입니다.
 
     ```
     file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 

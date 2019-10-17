@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91f406198418571ec0d2c4d488909d3baaa494b1
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e790728cbc7415532754d10773d466e9a0280422
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834675"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373902"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>개발자 용 Azure Active Directory (v1.0) 개요
 
@@ -33,11 +33,11 @@ Azure AD(Azure Active Directory)는 개발자가 Microsoft 회사 또는 학교 
 
 | | |
 | --- | --- |
-|[인증 기본 사항](authentication-scenarios.md) | Azure AD를 사용하는 인증에 대한 소개입니다. |
+|[인증 기본 사항](v1-authentication-scenarios.md) | Azure AD를 사용하는 인증에 대한 소개입니다. |
 |[애플리케이션 유형](app-types.md) | Azure AD에서 지원하는 인증 시나리오에 대한 개요입니다. |
 | | |
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 v1.0 빠른 시작 및 자습서에서는 ADAL(Azure AD 인증 라이브러리) SDK를 사용하여 선호하는 플랫폼에서 앱을 빌드하는 과정을 안내합니다. 시작하려면 [Microsoft ID 플랫폼(개발자용 Azure Active Directory)](index.yml)에서 **v1.0 빠른 시작** 및 **v1.0 자습서**를 참조하세요.
 

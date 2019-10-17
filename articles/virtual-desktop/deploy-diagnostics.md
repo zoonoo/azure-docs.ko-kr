@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 1bb23e3330f2350572175733445c8ef2c5ea79bb
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 4718ee7943b4130bb977d5eefeb82bb385c71835
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177779"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332843"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>진단 도구 배포
 
@@ -25,7 +25,7 @@ Windows 가상 데스크톱에 대 한 진단 도구는 다음과 같은 작업�
 - 특정 세션 호스트의 활성 사용자에 게 메시지를 보냅니다.
 - 세션 호스트에서 사용자를 로그 아웃 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 도구의 Azure Resource Manager 템플릿을 배포 하려면 먼저 Azure Active Directory 앱 등록 및 Log Analytics 작업 영역을 만들어야 합니다. 이러한 작업을 수행 하려면 사용자 또는 관리자에 게 다음 권한이 필요 합니다.
 
@@ -108,8 +108,8 @@ PowerShell 스크립트를 실행 하려면 다음을 수행 합니다.
 3. **설정** 섹션에서 **고급 설정**을 선택 합니다.
 4. 그런 다음, **데이터** > **Windows 성능 카운터** 로 이동 하 여 다음 카운터를 추가 합니다.
 
-    -   논리 디스크 (\*) \|% 사용 가능한 공간
-    -   논리 디스크 (C:) \\Avg. 디스크 큐 길이
+    -   논리 디스크 (\*) \%Free Space
+    -   논리 디스크 (C:) \\Avg. Disk Queue Length
     -   Memory (\*) \\Available Mb
     -   프로세서 정보 (\*) \\Processor Time
     -   세션당 사용자 입력 지연 (\*) \\Max 입력 지연
@@ -142,9 +142,9 @@ Log Analytics 작업 영역에 미리 구성 된 Windows 성능 카운터가 있
 3. 그런 다음, **데이터** > **Windows 성능 카운터**로 이동 합니다.
 4. 다음 카운터가 미리 구성 되어 있는지 확인 합니다.
 
-   - 논리 디스크 (\*) \|% 사용 가능한 공간: 디스크에서 사용 가능한 총 공간 (%)의 사용 가능한 공간 크기를 표시 합니다.
-   - 논리 디스크 (C:) \\Avg. 디스크 큐 길이: C 드라이브에 대 한 디스크 전송 요청의 길이입니다. 짧은 기간 동안 값은 2를 초과 해서는 안 됩니다.
-   - Memory (\*) \\Available Mb: 시스템에 사용 가능한 메모리 (mb)입니다.
+   - 논리 디스크 (\*) \%Free Space: 디스크에서 사용 가능한 총 공간의 크기 (백분율)를 표시 합니다.
+   - 논리 디스크 (C:) \\Avg. Disk Queue Length: C 드라이브에 대 한 디스크 전송 요청의 길이입니다. 짧은 기간 동안 값은 2를 초과 해서는 안 됩니다.
+   - Memory (\*) \\Available Mb: 시스템에 사용할 수 있는 메모리 (mb)입니다.
    - 프로세서 정보 (\*) \\Processor Time: 프로세서가 비 유휴 스레드를 실행 하는 데 걸린 시간의 백분율입니다.
    - 세션당 사용자 입력 지연 (\*) \\Max 입력 지연
 
@@ -185,7 +185,7 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 4.  왼쪽 패널의 관리 섹션에서 **인증**을 선택 합니다.
 5.  **리디렉션 uri** 텍스트 상자에 원하는 리디렉션 uri를 입력 한 다음 메뉴의 왼쪽 위 모서리에서 **저장** 을 선택 합니다.
 6. 유형 아래의 드롭다운 메뉴에서 **웹** 을 선택 합니다.
-7. 앱 개요 페이지에서 URL을 입력 하 고 끝에 **/security/signin-callback** 를 추가 합니다. 예를 들어 `https://<yourappname>.azurewebsites.net/security/signin-callback`을 참조하십시오.
+7. 앱 개요 페이지에서 URL을 입력 하 고 끝에 **/security/signin-callback** 를 추가 합니다. 예: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
    ![URI 리디렉션 페이지](media/redirect-uri-page.png)
 
@@ -239,7 +239,7 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
     - 논리 디스크에서 사용 가능한 총 공간의 비율을 표시 합니다.
     - 임계값: 20% 미만은 비정상으로 표시 됩니다.
 
-- 논리 디스크 (C:) \\Avg. 디스크 큐 길이:
+- 논리 디스크 (C:) \\Avg. Disk Queue Length:
 
     - 저장소 시스템 조건을 나타냅니다.
     - 임계값: 5 보다 크면 비정상으로 표시 됩니다.
@@ -255,4 +255,4 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 
 - [세션당 사용자 입력 지연 (\*) \\Max 입력 지연](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
-    - 임계값: 2000 밀리초 이상 비정상으로 표시 됩니다.
+    - 임계값: 2000 밀리초 이상 비정상으로 표시 되어 있습니다.

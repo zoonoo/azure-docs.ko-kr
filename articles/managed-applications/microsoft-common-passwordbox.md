@@ -1,6 +1,6 @@
 ---
 title: Azure PasswordBox UI 요소 | Microsoft Docs
-description: Azure Portal의 Microsoft.Common.PasswordBox UI 요소에 대해 설명합니다.
+description: Azure Portal의 Microsoft.Common.PasswordBox UI 요소에 대해 설명합니다. 사용자가 관리 되는 응용 프로그램을 배포할 때 비밀 값을 제공할 수 있도록 합니다.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 944f59da680c3a058a3cd245cca48d903e44ab87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4a8b760d113e29efb0efacbd41dcaa7432ecdcfd
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64710933"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332798"
 ---
 # <a name="microsoftcommonpasswordbox-ui-element"></a>Microsoft.Common.PasswordBox UI 요소
 암호를 제공하고 확인하는 데 사용할 수 있는 컨트롤입니다.

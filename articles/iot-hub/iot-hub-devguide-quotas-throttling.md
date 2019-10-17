@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 4941e7af000e97e4ace0a9e90a187ed92409942d
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 1ed1b105f64d109284de441af1bcaee5f0827d75
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264649"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331370"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
@@ -93,9 +93,9 @@ ms.locfileid: "72264649"
 
 IoT Hub에는 다른 작업 제한도 적용됩니다.
 
-| 연산 | 제한 |
+| 작업(Operation) | 제한 |
 | --------- | ----- |
-| 장치 | 단일 IoT hub에 연결할 수 있는 장치의 최대 수는 100만입니다. 이 한도를 늘리는 유일한 방법은 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 연결 하는 것입니다.|
+| 디바이스 | 단일 IoT hub에 등록할 수 있는 장치 및 모듈의 총 수는 100만로 표시 됩니다. 이 한도를 늘리는 유일한 방법은 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 연결 하는 것입니다.|
 | 파일 업로드 | 장치 당 10 개의 동시 파일 업로드. |
 | 작업<sup>1</sup> | 최대 동시 작업 수는 1 (무료 및 S1), 5 (S2의 경우) 및 10 (s 3의 경우)입니다. 그러나 최대 동시 [장치 가져오기/내보내기 작업](iot-hub-bulk-identity-mgmt.md) 은 모든 계층에 대해 1입니다. <br/>작업 기록은 30 일까지 유지 됩니다. |
 | 추가 엔드포인트 | 유료 SKU 허브에는 10개, 무료 SKU 허브에는 하나의 추가 엔드포인트가 있을 수 있습니다. |

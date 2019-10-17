@@ -10,29 +10,29 @@ ms.topic: article
 ms.custom: seodec18, seo-java-august2019, seo-java-september2019
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 054289de296488036dd0855d228d272fdea18baf
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: be9919950f24dbee7fb8a3f901767c298105bf53
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219415"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72325464"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs"></a>Java를 사용 하 여 Azure에서 이벤트를 보내거나 이벤트를 수신 Event Hubs
 
 이 자습서에서는 Azure Event Hubs에 이벤트를 보내거나 이벤트를 수신 하는 Java 응용 프로그램을 만드는 방법을 보여 줍니다.
 
-Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대 한 자세한 개요는 Event Hubs 개요 및 Event Hubs 기능을 참조 하세요.
+Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. 이벤트 허브로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대 한 자세한 개요는 Event Hubs 개요 및 Event Hubs 기능을 참조 하세요.
 
 > [!NOTE]
 > [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend)에서 샘플로 이 빠른 시작을 다운로드하여 `EventHubConnectionString` 및 `EventHubName` 문자열을 이벤트 허브 값으로 대체하고, 실행합니다. 또는 이 자습서의 단계를 수행하여 직접 만들 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 - 활성 Azure 계정. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 - Java 개발 환경. 이 자습서에서는 [Eclipse](https://www.eclipse.org/)를 사용합니다.
-- **Event Hubs 네임 스페이스 및 이벤트 허브를 만듭니다**. 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그런 다음 문서의 지침에 따라 이벤트 허브에 대 한 액세스 키의 값을 가져옵니다. [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 액세스 키는 이 자습서의 뒷부분에서 작성하는 코드에 사용합니다. 기본 키 이름은 **RootManageSharedAccessKey**입니다.
+- **Event Hubs 네임 스페이스 및 이벤트 허브를 만듭니다**. 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그런 다음 문서: [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)의 지침에 따라 이벤트 허브에 대 한 액세스 키의 값을 가져옵니다. 액세스 키는 이 자습서의 뒷부분에서 작성하는 코드에 사용합니다. 기본 키 이름은 **RootManageSharedAccessKey**입니다.
 
 ## <a name="send-events"></a>이벤트 보내기 
 이 섹션에서는 이벤트 허브로 이벤트를 전송 하는 Java 응용 프로그램을 만드는 방법을 보여 줍니다. 
@@ -138,9 +138,9 @@ ConnectionStringBuilder 클래스를 사용하여 Event Hubs 클라이언트 인
 
 프로그램을 빌드 및 실행하고, 오류가 없는지 확인합니다.
 
-지금까지 이제 Event Hub에 메시지를 보냈습니다.
+축하합니다. 이제 Event Hub에 메시지를 보냈습니다.
 
-### <a name="appendix-how-messages-are-routed-to-eventhub-partitions"></a>부록: 메시지가 EventHub 파티션으로 라우팅되는 원리
+### <a name="appendix-how-messages-are-routed-to-eventhub-partitions"></a>부록: 메시지가 EventHub 파티션으로 라우팅되는 방식
 
 소비자가 메시지를 검색할 수 있으려면 먼저 게시자가 파티션에 메시지를 게시해야 합니다. com.microsoft.azure.eventhubs.EventHubClient 개체에서 sendSync() 메서드를 사용하여 메시지를 이벤트 허브에 동기적으로 게시하면 파티션 키의 지정 여부에 따라 라운드 로빈 방식으로 메시지를 특정 파티션으로 보내거나 사용 가능한 모든 파티션에 분산할 수 있습니다.
 
@@ -191,7 +191,7 @@ EventProcessorHost를 사용 하려면 [Azure Storage 계정] [Azure Storage 계
 
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>EventProcessor 호스트를 사용하여 Java 프로젝트 만들기
 
-Event Hubs에 대한 Java 클라이언트 라이브러리는 [Maven 중앙 리포지토리](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22)의 Maven 프로젝트에 사용할 수 있으며 Maven 프로젝트 파일 내의 다음 종속성 선언을 사용하여 참조할 수 있습니다. 
+이벤트 허브에 대한 Java 클라이언트 라이브러리는 [Maven 중앙 리포지토리](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22)의 Maven 프로젝트에 사용할 수 있으며 Maven 프로젝트 파일 내의 다음 종속성 선언을 사용하여 참조할 수 있습니다. 
 
 ```xml
 <dependency>
@@ -206,7 +206,7 @@ Event Hubs에 대한 Java 클라이언트 라이브러리는 [Maven 중앙 리�
 </dependency>
 ```
 
-여러 유형의 빌드 환경에 대해 [Maven Central 리포지토리] [https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22 ]에서 최신 릴리스 JAR 파일을 명시적으로 가져올 수 있습니다.  
+다양한 형식의 빌드 환경을 위해, [Maven 중앙 리포지토리](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22)에서 최근에 릴리스된 JAR 파일을 명시적으로 가져올 수 있습니다.
 
 1. 다음 샘플에서는 먼저 즐겨 찾는 Java 개발 환경에서 콘솔/셸 애플리케이션에 대한 새 Maven 프로젝트를 만듭니다. 클래스는 `ErrorNotificationHandler`라고 합니다.     
    

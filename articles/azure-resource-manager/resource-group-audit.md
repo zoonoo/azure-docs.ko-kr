@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: aba06b07fef1cbc5d84d93cf38fec3bd936c1ac8
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 25bce613ab45f20f7060447bcfc47f452f4d70f2
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286125"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329451"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>활동 로그를 확인 하 여 리소스에 대 한 작업 모니터링
 
@@ -193,7 +193,7 @@ az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationNam
 
 * Power BI와 함께 Azure 활동 로그를 사용하면 구독의 작업을 면밀하게 살펴볼 수 있습니다. [Power BI 등에서 Azure 활동 로그 보기 및 분석](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)을 참조하세요.
 * 보안 정책 설정에 대해 자세히 알아보려면 [Azure 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
-* 응용 프로그램을 배포 하는 방법에 대 한 자세한 내용은 응용 프로그램 배포에 대 한 자세한 내용을 보려면 [Azure Monitor에서 응용 프로그램 변경 분석 사용] (... /azure-monitor/app/change-md)를 클릭 합니다.
+* 응용 프로그램 배포에 대 한 인프라 계층에서 응용 프로그램 변경 내용에 대 한 자세한 내용을 보려면 [Azure Monitor에서 응용 프로그램 변경 분석 사용](../azure-monitor/app/change-analysis.md)을 참조 하세요.
 * 배포 작업을 보는 명령에 대해 자세히 알아보려면 [배포 작업 보기](resource-manager-deployment-operations.md)를 참조하세요.
 * 모든 사용자의 리소스에서 삭제 작업을 방지하는 방법을 알아보려면 [Azure Resource Manager를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 * 각 Microsoft Azure Resource Manager 공급자에 대해 사용 가능한 작업의 목록을 보려면 [Azure Resource Manager 리소스 공급자 작업](../role-based-access-control/resource-provider-operations.md)을 참조하세요.

@@ -1,21 +1,20 @@
 ---
 title: Azure Functions 모니터링
 description: Azure Functions에서 Azure 애플리케이션 Insights를 사용 하 여 함수 실행을 모니터링 하는 방법에 대해 알아봅니다.
-services: functions
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 keywords: Azure 함수, 함수, 이벤트 처리, webhook, 동적 컴퓨팅, 서버리스 아키텍처
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 8092108ef13f4b86f20cf5a8a0b41b49d75aa626
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: dc333ef542da1330672ad1dc8ad731969eef6742
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098696"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374563"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -29,6 +28,8 @@ ms.locfileid: "71098696"
 
 무료로 함수 앱과 Application Insights 통합을 사용해 볼 수 있습니다. 무료로 처리할 수 있는 데이터의 양에 대 한 일일 제한이 있습니다. 테스트 하는 동안이 제한에 도달할 수 있습니다. Azure는 일일 한도에 가까워지면 포털 및 이메일 알림을 제공합니다. 이러한 경고를 놓친 후 한도에 도달 하면 Application Insights 쿼리에 새 로그가 표시 되지 않습니다. 불필요 한 문제 해결 시간을 방지 하기 위해 제한 사항을 알고 있어야 합니다. 자세한 내용은 [Application Insights에서 가격 책정 및 데이터 볼륨 관리](../azure-monitor/app/pricing.md)를 참조하세요.
 
+함수 앱에 사용할 수 있는 Application Insights 기능의 전체 목록은 [지원 되는 Azure Functions 기능에 대해 Application Insights](../azure-monitor/app/azure-functions-supported-features.md)에 자세히 설명 되어 있습니다.
+
 ## <a name="enable-application-insights-integration"></a>Application Insights 통합 사용
 
 함수 앱이 Application Insights로 데이터를 보내려면 Application Insights 리소스의 계측 키를 알고 있어야 합니다. 이 키는 **APPINSIGHTS_INSTRUMENTATIONKEY**라는 앱 설정에 있어야 합니다.
@@ -41,7 +42,7 @@ ms.locfileid: "71098696"
 
 ![함수 앱을 만들 때 Application Insights 사용](media/functions-monitoring/enable-ai-new-function-app.png)
 
-**만들기**를 선택 하면 응용 프로그램 설정에가 `APPINSIGHTS_INSTRUMENTATIONKEY` 설정 된 함수 앱을 사용 하 여 Application Insights 리소스가 생성 됩니다. 모든 것이 준비 되었습니다.
+**만들기**를 선택 하면 응용 프로그램 설정에서 `APPINSIGHTS_INSTRUMENTATIONKEY`이 설정 된 함수 앱을 사용 하 여 Application Insights 리소스가 생성 됩니다. 모든 것이 준비 되었습니다.
 
 <a id="manually-connect-an-app-insights-resource"></a>
 ### <a name="add-to-an-existing-function-app"></a>기존 함수 앱에 추가 
@@ -78,7 +79,7 @@ ms.locfileid: "71098696"
 
 ![Application Insights에서 실행](media/functions-monitoring/run-in-ai.png)
 
-다음 쿼리가 표시 됩니다. 호출 목록이 지난 30 일로 제한 되는 것을 볼 수 있습니다. 20 개 미만의 행 (`where timestamp > ago(30d) | take 20`)이 목록에 표시 됩니다. 호출 세부 정보 목록은 지난 30 일 동안 제한 없이 사용할 수 있습니다.
+다음 쿼리가 표시 됩니다. 호출 목록이 지난 30 일로 제한 되는 것을 볼 수 있습니다. 목록에 20 개 이하의 행이 표시 됩니다 (`where timestamp > ago(30d) | take 20`). 호출 세부 정보 목록은 지난 30 일 동안 제한 없이 사용할 수 있습니다.
 
 ![Application Insights 분석 호출 목록](media/functions-monitoring/ai-analytics-invocation-list.png)
 
@@ -96,7 +97,7 @@ Application Insights 사용 방법에 대한 자세한 내용은 [Application In
 
 함수의 동작, 성능 및 오류를 평가할 때 다음과 같은 Application Insights 영역을 유용 하 게 사용할 수 있습니다.
 
-| 탭 | Description |
+| 탭 | 설명 |
 | ---- | ----------- |
 | **[있어](../azure-monitor/app/asp-net-exceptions.md)** |  함수 오류 및 서버 예외를 기반으로 차트와 경고를 만듭니다. **작업 이름**은 함수 이름입니다. 종속성에 대 한 사용자 지정 원격 분석을 구현 하지 않으면 종속성의 실패가 표시 되지 않습니다. |
 | **[성능도](../azure-monitor/app/performance-counters.md)** | 성능 문제를 분석 합니다. |
@@ -123,13 +124,13 @@ requests
 
 사용할 수 있는 테이블이 왼쪽의 **스키마** 탭에 표시 됩니다. 다음 테이블에서 함수 호출에 의해 생성된 데이터를 찾을 수 있습니다.
 
-| Table | Description |
+| Table | 설명 |
 | ----- | ----------- |
-| **traces** | 런타임과 함수 코드에 의해 생성 된 로그입니다. |
+| **아니라** | 런타임과 함수 코드에 의해 생성 된 로그입니다. |
 | **requests** | 각 함수 호출에 대해 하나의 요청 |
 | **exceptions** | 런타임에 의해 throw 되는 예외입니다. |
 | **customMetrics** | 성공 및 실패 한 호출 수, 성공률 및 기간입니다. |
-| **customEvents** | 런타임에 의해 추적 되는 이벤트입니다. 예를 들면 다음과 같습니다. 함수를 트리거하는 HTTP 요청 |
+| **customEvents** | 런타임에 의해 추적 되는 이벤트 (예: 함수를 트리거하는 HTTP 요청)입니다. |
 | **performanceCounters** | 함수가 실행 되 고 있는 서버의 성능에 대 한 정보입니다. |
 
 다른 테이블은 가용성 테스트와 클라이언트 및 브라우저 원격 분석에 대 한 것입니다. 사용자 지정 원격 분석을 구현하여 테이블에 데이터를 추가할 수 있습니다.
@@ -141,7 +142,7 @@ traces
 | where customDimensions.LogLevel == "Error"
 ```
 
-런타임은 및 `customDimensions.LogLevel` `customDimensions.Category` 필드를 제공 합니다. 함수 코드에 작성 하는 로그에 추가 필드를 제공할 수 있습니다. 이 문서 뒷부분의 [구조적 로깅](#structured-logging)을 참조하세요.
+런타임은 `customDimensions.LogLevel` 및 `customDimensions.Category` 필드를 제공 합니다. 함수 코드에 작성 하는 로그에 추가 필드를 제공할 수 있습니다. 이 문서 뒷부분의 [구조적 로깅](#structured-logging)을 참조하세요.
 
 ## <a name="configure-categories-and-log-levels"></a>범주 및 로그 수준 구성
 
@@ -151,9 +152,9 @@ traces
 
 Azure Functions 로거에는 모든 로그에 대한 *범주*가 포함되어 있습니다. 범주는 런타임 코드 또는 함수 코드의 어느 부분이 로그를 작성했는지를 나타냅니다. 
 
-함수 런타임은 "Host"로 시작 하는 범주를 사용 하 여 로그를 만듭니다. 버전 `function started`1.x에서, `function executed`및 `function completed` 로그에는 범주가 `Host.Executor`있습니다. 2\.x 버전부터 이러한 로그에는 범주가 `Function.<YOUR_FUNCTION_NAME>`있습니다.
+함수 런타임은 "Host"로 시작 하는 범주를 사용 하 여 로그를 만듭니다. 버전 1.x에서 `function started`, `function executed`, `function completed` 로그의 범주는-3 @no__t입니다. 2\.x 버전부터 이러한 로그의 범주는-0 @no__t입니다.
 
-함수 코드에서 로그를 작성 하는 경우 범주 `Function` 는 함수 런타임의 버전 1.x에 있습니다. 버전 2.x에서 범주 `Function.<YOUR_FUNCTION_NAME>.User`는입니다.
+함수 코드에서 로그를 작성 하는 경우 범주는 함수 런타임의 버전 1.x에서 `Function`입니다. 버전 2.x에서 범주는 `Function.<YOUR_FUNCTION_NAME>.User`입니다.
 
 ### <a name="log-levels"></a>로그 수준
 
@@ -166,7 +167,7 @@ Azure Functions 로거에는 모든 로그에 대한 *범주*가 포함되어 �
 |정보 | 2 |
 |경고     | 3 |
 |오류       | 4 |
-|심각    | 5 |
+|위험    | 5 |
 |없음        | 6 |
 
 로그 수준 `None`은 다음 섹션에 설명되어 있습니다. 
@@ -212,13 +213,13 @@ v2.x 런타임은 [.NET Core 로깅 필터 계층 구조](https://docs.microsoft
 
 이 예제에서는 다음 규칙을 설정합니다.
 
-* `Error` 또는 `Host.Results` 범주가포함된로그의경우ApplicationInsights에만수준이상을보냅니다.`Function` `Warning` 수준 이하 로그는 무시됩니다.
+* 범주가 `Host.Results` 또는 `Function` 인 로그의 경우 `Error` 수준만 Application Insights로 보냅니다. `Warning` 수준 이하 로그는 무시됩니다.
 * `Host.Aggregator` 범주의 로그는 모든 로그를 Application Insights로 보냅니다. `Trace` 로그 수준은 `Verbose`를 호출하는 일부 로거와 동일하지만, [호스트 json] 파일의 `Trace`를 사용합니다.
 * 그 외의 로그는 `Information` 수준 이상만 Application Insights로 보냅니다.
 
-[호스트 json]의 범주 값은 같은 값으로 시작하는 모든 범주에 대한 로깅을 제어합니다. `Host`[호스트 json] 에서, `Host.General` `Host.Executor` ,등에대한`Host.Results`로깅을 제어 합니다.
+[호스트 json]의 범주 값은 같은 값으로 시작하는 모든 범주에 대한 로깅을 제어합니다. @no__t-@no__t, @no__t 3, `Host.Results` 등의 로깅을 제어 합니다 [호스트 json]
 
-[호스트 json]에 동일한 문자열로 시작되는 여러 범주가 포함된 경우 길이가 더 긴 범주가 먼저 일치합니다. 수준에서 로그 하는 것을 제외 `Host.Aggregator` 하 고 런타임의 모든 항목을 만들려고 한다고 가정 합니다. `Information` `Host.Aggregator` `Error`
+[호스트 json]에 동일한 문자열로 시작되는 여러 범주가 포함된 경우 길이가 더 긴 범주가 먼저 일치합니다. @No__t-0을 제외 하 고 `Error` @no__t @no__t 수준에서 로그를 기록 하는 것을 제외 하 고 런타임에 모든 항목을 만들려고 한다고 가정 합니다.
 
 ### <a name="version-2x"></a>버전 2.x 
 
@@ -263,7 +264,7 @@ v2.x 런타임은 [.NET Core 로깅 필터 계층 구조](https://docs.microsoft
 
 ![요청 차트](media/functions-monitoring/requests-chart.png)
 
-이러한 로그는 모두 `Information` 수준으로 작성 됩니다. 이상에서 필터링 `Warning` 하는 경우에는이 데이터를 볼 수 없습니다.
+이러한 로그는 모두 `Information` 수준으로 작성 됩니다. @No__t-0 이상에서 필터링 하는 경우이 데이터는 표시 되지 않습니다.
 
 ### <a name="category-hostaggregator"></a>범주 Host.Aggregator
 
@@ -273,7 +274,7 @@ v2.x 런타임은 [.NET Core 로깅 필터 계층 구조](https://docs.microsoft
 
 ![customMetrics 쿼리](media/functions-monitoring/custom-metrics-query.png)
 
-이러한 로그는 모두 `Information` 수준으로 작성 됩니다. 이상에서 필터링 `Warning` 하는 경우에는이 데이터를 볼 수 없습니다.
+이러한 로그는 모두 `Information` 수준으로 작성 됩니다. @No__t-0 이상에서 필터링 하는 경우이 데이터는 표시 되지 않습니다.
 
 ### <a name="other-categories"></a>기타 범주
 
@@ -281,9 +282,9 @@ v2.x 런타임은 [.NET Core 로깅 필터 계층 구조](https://docs.microsoft
 
 ![추적 쿼리](media/functions-monitoring/analytics-traces.png)
 
-로 `Host` 시작 하는 범주가 있는 모든 로그는 함수 런타임에 의해 작성 됩니다. "함수 시작 됨" 및 "함수 완료 됨" 로그에 `Host.Executor`범주가 있습니다. 성공적인 실행의 경우 이러한 로그는 `Information` 수준입니다. 예외는 수준에서 `Error` 기록 됩니다. 런타임에서 `Warning` 수준 로그도 작성하며, 포이즌 큐로 전송된 큐 메시지를 예로 들 수 있습니다.
+@No__t-0으로 시작 하는 범주를 포함 하는 모든 로그는 함수 런타임에 의해 기록 됩니다. "Function started" 및 "Function completed" 로그의 범주는-0 @no__t입니다. 성공적으로 실행 되는 경우 이러한 로그는 0 @no__t 수준입니다. 예외는 @no__t 0 수준으로 기록 됩니다. 런타임에서 `Warning` 수준 로그도 작성하며, 포이즌 큐로 전송된 큐 메시지를 예로 들 수 있습니다.
 
-함수 코드에 의해 작성 된 로그에 `Function` 는 범주가 있으며 모든 로그 수준이 될 수 있습니다.
+함수 코드에서 작성 한 로그에는 범주 `Function`이 있으며 모든 로그 수준이 될 수 있습니다.
 
 ## <a name="configure-the-aggregator"></a>수집기 구성
 
@@ -339,9 +340,9 @@ Application Insights에서 traces로 표시되는 로그를 함수 코드로 작
 
 ### <a name="ilogger"></a>ILogger
 
-함수에 `TraceWriter` 매개 변수 대신 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 매개 변수를 사용합니다. Application Insights로 이동 `ILogger` 을 `TraceWriter` 사용 하 여 만든 로그는 구조화 된 [로깅을](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)수행할 수 있습니다.
+함수에 `TraceWriter` 매개 변수 대신 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 매개 변수를 사용합니다. @No__t-0을 사용 하 여 만든 로그는 Application Insights으로 이동 하지만 `ILogger`을 사용 하면 [구조적 로깅을](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)수행할 수 있습니다.
 
-`ILogger` 개체를 사용하여 로그를 생성하는 `Log<level>` [ILogger의 확장 메서드](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods)를 호출합니다. 다음 코드는 " `Information` Function" 범주를 사용 하 여 로그를 작성 합니다.
+`ILogger` 개체를 사용하여 로그를 생성하는 `Log<level>` [ILogger의 확장 메서드](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods)를 호출합니다. 다음 코드는 "Function" 범주를 사용 하 여 `Information` 로그를 작성 합니다.
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -363,7 +364,7 @@ logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionK
 
 구조적 로깅을 수행할 수 있도록 자리 표시자는 이러한 방식으로 처리됩니다. Application Insights 매개 변수 이름-값 쌍 및 메시지 문자열을 저장 합니다. 그 결과로 메시지 인수는 사용자가 쿼리할 수 있는 필드가 됩니다.
 
-로 거 메서드 호출이 이전 예제와 같은 경우에는 필드 `customDimensions.prop__rowKey`를 쿼리할 수 있습니다. 런타임에서 추가 하는 필드와 함수 코드에서 추가 하는 필드 사이에 충돌이 없는지 확인 하기 위해 접두사가추가됩니다.`prop__`
+로 거 메서드 호출이 이전 예제와 같은 경우에는-0 @no__t 필드를 쿼리할 수 있습니다. 런타임에서 추가 하는 필드와 함수 코드에서 추가 하는 필드가 서로 충돌 하지 않도록 `prop__` 접두사가 추가 됩니다.
 
 `customDimensions.prop__{OriginalFormat}` 필드를 참조하여 원래 메시지 문자열을 쿼리할 수도 있습니다.  
 
@@ -388,7 +389,7 @@ C# 스크립트 함수에서, `ILogger`에 `LogMetric` 확장 메서드를 사�
 logger.LogMetric("TestMetric", 1234);
 ```
 
-이 코드는 .net 용 Application Insights API `TrackMetric` 를 사용 하 여를 호출 하는 대신 사용할 수 있습니다.
+이 코드는 .NET 용 Application Insights API를 사용 하 여 `TrackMetric`을 호출 하는 대신 사용할 수 있습니다.
 
 ## <a name="write-logs-in-javascript-functions"></a>JavaScript 함수로 로그 작성
 
@@ -406,7 +407,7 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 context.log.metric("TestMetric", 1234);
 ```
 
-이 코드는 Application Insights 용 node.js SDK `trackMetric` 를 사용 하 여를 호출 하는 대신 사용할 수 있습니다.
+이 코드는 Application Insights 용 node.js SDK를 사용 하 여 `trackMetric`을 호출 하는 대신 사용할 수 있습니다.
 
 ## <a name="log-custom-telemetry-in-c-functions"></a>함수에서 C# 사용자 지정 원격 분석 로깅
 
@@ -414,7 +415,7 @@ context.log.metric("TestMetric", 1234);
 
 ### <a name="version-2x"></a>버전 2.x
 
-버전 2.x 런타임에는 원격 분석 데이터와 현재 작업에 자동으로 상관 관계를 지정하는 Application Insights의 새로운 기능이 사용됩니다. 작업 `Id`, `ParentId`또는 필드를수동으로설정할필요는없습니다.`Name`
+버전 2.x 런타임에는 원격 분석 데이터와 현재 작업에 자동으로 상관 관계를 지정하는 Application Insights의 새로운 기능이 사용됩니다. 작업 `Id`, `ParentId` 또는 `Name` 필드를 수동으로 설정할 필요가 없습니다.
 
 ```cs
 using System;
@@ -563,7 +564,7 @@ namespace functionapp0915
 }
 ```
 
-함수 호출 `TrackRequest` 에 `StartOperation<RequestTelemetry>` 대 한 중복 요청이 표시 되므로 또는를 호출 하지 마세요.  Functions 런타임에서 자동으로 요청을 추적합니다.
+함수 호출에 대 한 중복 요청이 표시 되므로 `TrackRequest` 또는 `StartOperation<RequestTelemetry>`을 호출 하지 마세요.  Functions 런타임에서 자동으로 요청을 추적합니다.
 
 `telemetryClient.Context.Operation.Id`를 설정하지 마십시오. 여러 함수가 동시에 실행 되는 경우이 전역 설정으로 인해 잘못 된 상관 관계가 발생 합니다. 대신 새로운 원격 분석 인스턴스(`DependencyTelemetry`, `EventTelemetry`)를 만들고 해당하는 `Context` 속성을 수정합니다. 그런 다음, 원격 분석 인스턴스를 `TelemetryClient`의 해당 `Track` 메서드(`TrackDependency()`, `TrackEvent()`)로 전달합니다. 이 메서드는 원격 분석에 현재 함수 호출에 대 한 올바른 상관 관계 정보가 있는지 확인 합니다.
 
@@ -590,7 +591,7 @@ module.exports = function (context, req) {
 };
 ```
 
-매개 변수는를 `operation_Id` 함수의 호출 ID로 설정 합니다. `tagOverrides` 이 설정을 사용하면 특정 함수 호출에 대해 자동으로 생성된 모든 원격 분석 데이터와 사용자 지정 원격 분석의 상관 관계를 지정할 수 있습니다.
+@No__t-0 매개 변수는 `operation_Id`을 함수의 호출 ID로 설정 합니다. 이 설정을 사용하면 특정 함수 호출에 대해 자동으로 생성된 모든 원격 분석 데이터와 사용자 지정 원격 분석의 상관 관계를 지정할 수 있습니다.
 
 ## <a name="dependencies"></a>종속성
 
@@ -606,7 +607,7 @@ Application Insights의 Functions 통합 문제를 보고하거나 제안 사항
 
 ## <a name="streaming-logs"></a>스트리밍 로그
 
-응용 프로그램을 개발 하는 동안 Azure에서 실행할 때 거의 실시간으로 로그에 기록 되는 것이 좋습니다.
+응용 프로그램을 개발 하는 동안 Azure에서 실행할 때 거의 실시간으로 로그에 기록 되는 항목을 확인 하는 것이 좋습니다.
 
 함수 실행에 의해 생성 되는 로그 파일의 스트림을 보는 방법에는 두 가지가 있습니다.
 
@@ -638,7 +639,7 @@ Application Insights에서 **라이브 메트릭 스트림**를 선택 합니다
 
 ![포털에서 라이브 메트릭 스트림 보기](./media/functions-monitoring/live-metrics-stream.png) 
 
-### <a name="visual-studio-code"></a>Visual Studio 코드
+### <a name="visual-studio-code"></a>Visual Studio Code
 
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 
@@ -676,7 +677,7 @@ Application Insights를 사용 하도록 설정 하는 경우 Azure Storage를 �
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 리소스를 참조하십시오.
+자세한 내용은 다음 리소스를 참조하세요.
 
 * [Application Insights](/azure/application-insights/)
 * [ASP.NET Core 로깅](/aspnet/core/fundamentals/logging/)

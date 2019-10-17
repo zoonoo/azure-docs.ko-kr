@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
-ms.openlocfilehash: d34b1c39d9789409dc365cd4cf07fdc3d5a780fd
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b90fc6f1f50ec2ea75619188cca36f78061f28df
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003513"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326800"
 ---
-# <a name="select-clause"></a>SELECT 절
+# <a name="select-clause-in-azure-cosmos-db"></a>Azure Cosmos DB에서 절 선택
 
 모든 쿼리는 ANSI SQL 표준에 따라 SELECT 절과 optional [from](sql-query-from.md) 및 [WHERE](sql-query-where.md) 절로 구성 됩니다. 일반적으로 FROM 절의 소스는 열거 되 고 WHERE 절은 소스에 필터를 적용 하 여 JSON 항목의 하위 집합을 검색 합니다. 그런 다음 SELECT 절은 요청 된 JSON 값을 select 목록에 프로젝션 합니다.
 
@@ -76,9 +76,9 @@ SELECT <select_specification>
   
    `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
-다음 SELECT 쿼리 `address` 예제에서는 `id` 와 일치 `Families` 하 `AndersenFamily`는을 반환 합니다.
+다음 SELECT 쿼리 예제에서는 `id`가-3 @no__t와 일치 하는 `Families`에서 `address`을 반환 합니다.
 
 ```sql
     SELECT f.address
@@ -109,7 +109,7 @@ SELECT <select_specification>
 
 ### <a name="nested-properties"></a>중첩 속성
 
-다음 예제에서는 및 `f.address.state` `f.address.city`라는 두 개의 중첩 된 속성을 프로젝션 합니다.
+다음 예제에서는 두 개의 중첩 된 속성인 `f.address.state` 및 `f.address.city`을 프로젝션 합니다.
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -147,7 +147,7 @@ SELECT <select_specification>
     }]
 ```
 
-앞의 예제에서 SELECT 절은 JSON 개체를 만들어야 하며, 샘플에서 키를 제공 하지 않으므로 절은 암시적 인수 변수 이름을 `$1`사용 합니다. 다음 쿼리는 두 개의 암시적 인수 변수인 `$1` 및 `$2`를 반환 합니다.
+위의 예제에서 SELECT 절은 JSON 개체를 만들어야 하며, 샘플에서 키를 제공 하지 않으므로 절은 암시적 인수 변수 이름 `$1`을 사용 합니다. 다음 쿼리는 두 개의 암시적 인수 변수 `$1`과 `$2`을 반환 합니다.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },

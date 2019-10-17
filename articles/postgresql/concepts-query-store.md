@@ -1,17 +1,17 @@
 ---
 title: Azure Database for PostgreSQL 쿼리 저장소의 단일 서버
-description: 이 문서에서는 PostgreSQL-단일 서버에 대한 Azure Database의 쿼리 저장소 기능을 설명합니다.
+description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버의 쿼리 저장소 기능에 대해 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: deab527d44713bffed1f430ec283592d0e4232ee
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.date: 10/14/2019
+ms.openlocfilehash: 198ef6889ffb7874c44f15338afbd8b3135ae3ef
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764405"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331311"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>쿼리 저장소를 사용하여 성능 모니터링
 
@@ -29,14 +29,14 @@ Azure Database for PostgreSQL의 쿼리 저장소 기능은 시간 경과에 따
 1. Azure Portal에 로그인하고 Azure Database for PostgreSQL 서버를 선택합니다.
 2. 메뉴의 **설정** 섹션에서 **서버 매개 변수**를 선택합니다.
 3. `pg_qs.query_capture_mode` 매개 변수를 검색합니다.
-4. 값을 `TOP`으로 설정하고 **저장**합니다.
+4. 값 `TOP`으로 설정 하 고 **저장**합니다.
 
-쿼리 저장소에서 대기 통계를 활성화하려면 다음을 수행합니다. 
+쿼리 저장소에서 대기 통계를 사용 하도록 설정 하려면: 
 1. `pgms_wait_sampling.query_capture_mode` 매개 변수를 검색합니다.
-1. 값을 `ALL`으로 설정하고 **저장**합니다.
+1. 값 `ALL`으로 설정 하 고 **저장**합니다.
 
 
-또는 Azure CLI를 사용하여 이러한 매개 변수를 설정할 수 있습니다.
+또는 Azure CLI를 사용 하 여 이러한 매개 변수를 설정할 수 있습니다.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
 az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
@@ -58,6 +58,10 @@ az postgres server configuration set --name pgms_wait_sampling.query_capture_mod
 
 공간 사용량을 최소화하기 위해 런타임 통계 저장소의 런타임 실행 통계가 고정된 구성 가능 기간을 통해 집계됩니다. 이러한 저장소의 정보는 쿼리 저장소 보기를 쿼리하여 표시됩니다.
 
+## <a name="access-query-store-information"></a>쿼리 저장소 정보 액세스
+
+쿼리 저장소 데이터는 Postgres 서버의 azure_sys 데이터베이스에 저장 됩니다. 
+
 다음 쿼리는 쿼리 저장소의 쿼리에 대한 정보를 반환합니다.
 ```sql
 SELECT * FROM query_store.qs_view; 
@@ -67,6 +71,9 @@ SELECT * FROM query_store.qs_view;
 ```sql
 SELECT * FROM query_store.pgms_wait_sampling_view;
 ```
+
+또한 분석 및 경고를 위해 쿼리 저장소 데이터를 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md) 에, 스트리밍을 Event Hubs 하 고, 보관 하는 데 Azure Storage 수 있습니다. 구성할 로그 범주는 QueryStoreRuntimeStatistics 및 **Query** **waitstatistics**입니다. 설치에 대 한 자세한 내용은 [Azure Monitor 진단 설정](../azure-monitor/platform/diagnostic-settings.md) 문서를 참조 하세요.
+
 
 ## <a name="finding-wait-queries"></a>대기 쿼리 찾기
 대기 이벤트 유형은 유사성을 기준으로 서로 다른 대기 이벤트를 버킷으로 결합합니다. 쿼리 저장소는 대기 이벤트 유형, 특정 대기 이벤트 이름 및 해당하는 쿼리를 제공합니다. 이 대기 정보를 쿼리 런타임 통계와 상호 연관시킬 수 있다는 것은 쿼리 성능 특성에 영향을 미치는 내용을 더 잘 이해할 수 있음을 의미합니다.
@@ -84,16 +91,16 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 
 다음 옵션은 쿼리 저장소 매개 변수를 구성하는 데 사용할 수 있습니다.
 
-| **매개 변수** | **설명** | **Default** | **범위**|
+| **매개 변수** | **설명** | **기본값** | **Range**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | 추적되는 문을 설정합니다. | 없음 | none, top, all |
 | pg_qs.max_query_text_length | 저장할 수 있는 최대 쿼리 길이를 설정합니다. 더 긴 쿼리는 잘립니다. | 6000 | 100 - 10K |
 | pg_qs.retention_period_in_days | 보존 기간을 설정합니다. | 7 | 1 - 30 |
-| pg_qs.track_utility | 유틸리티 명령을 추적할지 여부를 설정합니다. | On | on, off |
+| pg_qs.track_utility | 유틸리티 명령을 추적할지 여부를 설정합니다. | on | on, off |
 
 다음 옵션은 특히 대기 통계에 적용됩니다.
 
-| **매개 변수** | **설명** | **Default** | **범위**|
+| **매개 변수** | **설명** | **기본값** | **Range**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | 대기 통계가 추적되는 문을 설정합니다. | 없음 | none, all|
 | Pgms_wait_sampling.history_period | 대기 이벤트가 샘플링되는 빈도(밀리초)를 설정합니다. | 100 | 1-600000 |
@@ -112,58 +119,58 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="query_storeqs_view"></a>query_store.qs_view
 이 보기는 쿼리 저장소의 모든 데이터를 반환합니다. 각 고유 데이터베이스 ID, 사용자 ID 및 쿼리 ID에 대한 하나의 행이 있습니다. 
 
-|**이름**   |**형식** | **참조**  | **설명**|
+|**Name**   |**형식** | **참조**  | **설명**|
 |---|---|---|---|
-|runtime_stats_entry_id |BIGINT | | runtime_stats_entries 테이블의 ID|
+|runtime_stats_entry_id |bigint | | runtime_stats_entries 테이블의 ID|
 |user_id    |oid    |pg_authid.oid  |문을 실행한 사용자의 OID|
 |db_id  |oid    |pg_database.oid    |문이 실행된 데이터베이스의 OID|
-|query_id   |BIGINT  || 문의 구문 분석 트리에서 계산된 내부 해시 코드|
+|query_id   |bigint  || 문의 구문 분석 트리에서 계산된 내부 해시 코드|
 |query_sql_text |Varchar(10000)  || 대표 문의 텍스트. 동일한 구조의 서로 다른 쿼리가 함께 클러스터되고, 이 텍스트는 클러스터에 있는 첫 번째 쿼리의 텍스트입니다.|
-|plan_id    |BIGINT |   |이 쿼리에 해당하는 계획의 ID로, 아직 사용할 수 없음|
+|plan_id    |bigint |   |이 쿼리에 해당하는 계획의 ID로, 아직 사용할 수 없음|
 |start_time |timestamp  ||  쿼리는 시간 버킷별로 집계되며 버킷의 시간 범위는 기본적으로 15분입니다. 이는 이 항목의 시간 버킷에 해당하는 시작 시간.|
 |end_time   |timestamp  ||  이 항목의 시간 버킷에 해당하는 종료 시간.|
-|호출  |BIGINT  || 쿼리 실행 횟수|
+|calls  |bigint  || 쿼리 실행 횟수|
 |total_time |double precision   ||  총 쿼리 실행 시간(밀리초)|
 |min_time   |double precision   ||  최소 쿼리 실행 시간(밀리초)|
 |max_time   |double precision   ||  최대 쿼리 실행 시간(밀리초)|
 |mean_time  |double precision   ||  평균 쿼리 실행 시간(밀리초)|
 |stddev_time|   double precision    ||  쿼리 실행 시간(밀리초)의 표준 편차 |
-|행   |BIGINT ||  문이 영향을 미치거나 검색하는 총 행 수|
-|shared_blks_hit|   BIGINT  ||  문을 통해 공유되는 총 블록 캐시 적중 수|
-|shared_blks_read|  BIGINT  ||  문이 읽은 총 공유 블록 수|
-|shared_blks_dirtied|   BIGINT   || 문에 의해 변경된 총 공유 블록 수 |
-|shared_blks_written|   BIGINT  ||  문이 쓴 총 공유 블록 수|
-|local_blks_hit|    BIGINT ||   문에 의한 총 로컬 블록 캐시 적중 수|
-|local_blks_read|   BIGINT   || 문이 읽은 총 로컬 블록 수|
-|local_blks_dirtied|    BIGINT  ||  문에 의해 변경된 총 로컬 블록 수|
-|local_blks_written|    BIGINT  ||  문이 쓴 총 로컬 블록 수|
-|temp_blks_read |BIGINT  || 문이 읽은 총 임시 블록 수|
-|temp_blks_written| BIGINT   || 문이 쓴 총 임시 블록 수|
+|rows   |bigint ||  문이 영향을 미치거나 검색하는 총 행 수|
+|shared_blks_hit|   bigint  ||  문을 통해 공유되는 총 블록 캐시 적중 수|
+|shared_blks_read|  bigint  ||  문이 읽은 총 공유 블록 수|
+|shared_blks_dirtied|   bigint   || 문에 의해 변경된 총 공유 블록 수 |
+|shared_blks_written|   bigint  ||  문이 쓴 총 공유 블록 수|
+|local_blks_hit|    bigint ||   문에 의한 총 로컬 블록 캐시 적중 수|
+|local_blks_read|   bigint   || 문이 읽은 총 로컬 블록 수|
+|local_blks_dirtied|    bigint  ||  문에 의해 변경된 총 로컬 블록 수|
+|local_blks_written|    bigint  ||  문이 쓴 총 로컬 블록 수|
+|temp_blks_read |bigint  || 문이 읽은 총 임시 블록 수|
+|temp_blks_written| bigint   || 문이 쓴 총 임시 블록 수|
 |blk_read_time  |double precision    || 문이 블록을 읽는 데 사용한 총 시간(밀리초)(track_io_timing이 사용하도록 설정된 경우, 이외의 경우에는 0)|
 |blk_write_time |double precision    || 문이 블록을 쓰는 데 사용한 총 시간(밀리초)(track_io_timing이 사용하도록 설정된 경우, 이외의 경우에는 0)|
     
 ### <a name="query_storequery_texts_view"></a>query_store.query_texts_view
 이 보기는 쿼리 저장소의 쿼리 텍스트 데이터를 반환합니다. 각 고유 query_text에 대한 하나의 행이 있습니다.
 
-|**이름**|  **Type**|   **설명**|
+|**Name**|  **형식**|   **설명**|
 |---|---|---|
-|query_text_id  |BIGINT     |query_texts 테이블의 ID|
+|query_text_id  |bigint     |query_texts 테이블의 ID|
 |query_sql_text |Varchar(10000)     |대표 문의 텍스트. 동일한 구조의 서로 다른 쿼리가 함께 클러스터되고, 이 텍스트는 클러스터에 있는 첫 번째 쿼리의 텍스트입니다.|
 
 ### <a name="query_storepgms_wait_sampling_view"></a>query_store.pgms_wait_sampling_view
 이 보기는 쿼리 저장소의 대기 이벤트 데이터를 반환합니다. 각 고유 데이터베이스 ID, 사용자 ID, 쿼리 ID 및 이벤트에 대한 하나의 행이 있습니다.
 
-|**이름**|  **형식**|   **참조**| **설명**|
+|**Name**|  **형식**|   **참조**| **설명**|
 |---|---|---|---|
 |user_id    |oid    |pg_authid.oid  |문을 실행한 사용자의 OID|
 |db_id  |oid    |pg_database.oid    |문이 실행된 데이터베이스의 OID|
-|query_id   |BIGINT     ||문의 구문 분석 트리에서 계산된 내부 해시 코드|
+|query_id   |bigint     ||문의 구문 분석 트리에서 계산된 내부 해시 코드|
 |event_type |text       ||백 엔드가 대기 중인 이벤트 유형|
-|이벤트  |text       ||백 엔드가 현재 대기 중인 경우 대기 이벤트 이름|
-|호출  |정수        ||캡처된 동일한 이벤트 수|
+|event  |text       ||백 엔드가 현재 대기 중인 경우 대기 이벤트 이름|
+|calls  |정수        ||캡처된 동일한 이벤트 수|
 
 
-### <a name="functions"></a>함수
+### <a name="functions"></a>Functions
 Query_store.qs_reset() returns void
 
 `qs_reset`은 쿼리 저장소가 지금까지 수집한 모든 통계를 무시합니다.  이 함수는 서버 관리자 역할만 실행할 수 있습니다.

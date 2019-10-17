@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 753e5c58b1417362943a9c12b29ad9aa9afa1f04
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 68249fc9a599ab49e8d5fd231fa63e91a6e3a21f
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648668"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330100"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent 설치
 
@@ -39,9 +39,14 @@ ms.locfileid: "69648668"
 |IP 주소를 기반으로 하는 아웃바운드 연결 | 방화벽의 IP 주소 기반 필터링은 [Azure IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 참조하세요.|
 | 아웃바운드 트래픽에 대한 SSL 조사가 필터링 또는 해제됨 | 네트워크 계층에 아웃바운드 트래픽에 대한 종료 또는 SSL 조사가 있으면 에이전트 등록 단계 또는 데이터 업로드 작업이 실패할 수 있습니다. [SSL 검사를 설정하는 방법](https://technet.microsoft.com/library/ee796230.aspx)에 대해 자세히 알아보기 |
 | 에이전트를 실행하는 서버의 방화벽 포트 |에이전트가 Azure AD Health 서비스 엔드포인트와 통신하기 위해 다음 방화벽 포트를 열어놓아야 합니다.<br /><br /><li>TCP 포트 443</li><li>TCP 포트 5671</li> <br />포트 5671은 최신 버전의 에이전트에 더 이상 필요하지 않습니다. 포트 443만 필요하도록 최신 버전으로 업그레이드합니다. [방화벽 포트 사용](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx)에 대해 자세히 알아보기 |
-| IE 보안 강화를 사용하는 경우 다음 웹 사이트 허용 |에이전트가 설치될 서버에서 IE 보안 강화를 사용하도록 설정되어 있는 경우 다음 웹 사이트를 허용해야 합니다.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https:\//aadcdn.msftauth.net</li><li>Azure Active Directory에 의해 신뢰할 수 있는 조직의 페더레이션 서버입니다. 예: https:\//sts.contoso.com</li> [IE를 구성하는 방법](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing)에 대해 자세히 알아보기 |
+| IE 보안 강화를 사용하는 경우 다음 웹 사이트 허용 |에이전트가 설치될 서버에서 IE 보안 강화를 사용하도록 설정되어 있는 경우 다음 웹 사이트를 허용해야 합니다.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https: \//aadcdn. msftauth</li><li>Azure Active Directory에 의해 신뢰할 수 있는 조직의 페더레이션 서버입니다. 예: https:\//sts.contoso.com</li> [IE를 구성 하는 방법](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing)에 대해 자세히 알아보세요. 네트워크 내에 프록시가 있는 경우 아래 참고를 참조 하세요.|
 | PowerShell v4.0 이상이 설치되어 있는지 확인합니다. | <li>Windows Server 2008 R2는 에이전트에 충분하지 않은 PowerShell v2.0과 함께 제공됩니다. [Windows Server 2008 R2 서버에 에이전트 설치](#agent-installation-on-windows-server-2008-r2-servers)에 설명된 대로 PowerShell을 업데이트합니다.</li><li>Windows Server 2012는 에이전트에 충분하지 않은 PowerShell v3.0과 함께 제공됩니다.  Windows Management Framework를 [업데이트](https://www.microsoft.com/download/details.aspx?id=40855)합니다.</li><li>Windows Server 2012 R2 이상은 PowerShell 최신 버전과 함께 제공됩니다.</li>|
 |FIPS 사용 안 함|FIPS는 Azure AD Connect Health 에이전트에서 지원되지 않습니다.|
+
+
+> [!NOTE]
+> 매우 잠금 수준이 매우 제한 된 환경이 있는 경우 위의 IE 보안 강화 구성에 나열 된 것 외에 아래 서비스 끝점 목록에서 언급 한 Url을 허용 목록 해야 합니다. 
+>
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Azure 서비스 엔드포인트에 대한 아웃바운드 연결
 
@@ -49,7 +54,7 @@ ms.locfileid: "69648668"
 
 | 도메인 환경 | 필수 Azure 서비스 엔드포인트 |
 | --- | --- |
-| 일반 공개 | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42;.servicebus.windows.net - 포트: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> |
+| 일반 공개 | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42;.servicebus.windows.net - Port: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> |
 | Azure Germany | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li> <li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https:\//management.microsoftazure.de </li><li>https:\//policykeyservice.aadcdi.microsoftazure.de </li><li>https:\//login.microsoftonline.de </li><li>https:\//secure.aadcdn.microsoftonline-p.de </li><li>https:\//www.office.de *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> |
 | Azure Government | <li>&#42;.blob.core.usgovcloudapi.net </li> <li>&#42;.servicebus.usgovcloudapi.net </li> <li>&#42;.aadconnecthealth.microsoftazure.us </li> <li>https:\//management.usgovcloudapi.net </li><li>https:\//policykeyservice.aadcdi.azure.us </li><li>https:\//login.microsoftonline.us </li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> |
 
@@ -312,7 +317,7 @@ HTTP 프록시와 작동하도록 Azure AD Connect Health Agent를 구성할 수
 HTTP 프록시를 사용하도록 Azure AD Connect Health Agent를 구성하는 옵션은 다음과 같습니다.
 
 > [!NOTE]
-> 프록시 설정이 업데이트되도록 하려면 모든 Azure AD Connect Health Agent 서비스를 다시 시작해야 합니다. 다음 명령을 실행합니다.<br />
+> 프록시 설정이 업데이트되도록 하려면 모든 Azure AD Connect Health Agent 서비스를 다시 시작해야 합니다. 다음 명령 실행:<br />
 > 서비스 다시 시작 AzureADConnectHealth *
 >
 >
@@ -337,7 +342,7 @@ WinHTTP 프록시 설정을 가져와서 Azure AD Connect Health Agent에서 사
 
     Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
 
-예제: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver: 443*
+예: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver: 443*
 
 * "address"는 DNS 확인 가능 서버 이름 또는 IPv4 주소일 수 있습니다.
 * "port"는 생략할 수 있습니다. 생략하면 443이 기본 포트로 선택됩니다.
@@ -360,7 +365,7 @@ WinHTTP 프록시 설정을 가져와서 Azure AD Connect Health Agent에서 사
 
 Azure AD Connect Health 에이전트에서 Azure AD Connect Health 서비스와의 연결이 끊어지게 하는 문제가 발생할 수 있습니다. 여기에는 네트워크 문제, 권한 문제 또는 기타 다양한 이유가 포함됩니다.
 
-에이전트에서 2시간 넘게 Azure AD Connect Health 서비스에 데이터를 보낼 수 없으면 “상태 서비스 데이터가 최신 상태가 아닙니다.”라는 경고가 포털에 표시됩니다. 다음 PowerShell 명령을 실행하면 영향을 받는 Azure AD Connect Health Agent가 Azure AD Connect Health 서비스에 데이터를 업로드할 수 있는지 확인할 수 있습니다.
+에이전트에서 2시간 넘게 Azure AD Connect Health 서비스에 데이터를 보낼 수 없으면 "상태 서비스 데이터가 최신 상태가 아닙니다."라는 경고가 포털에 표시됩니다. 다음 PowerShell 명령을 실행하면 영향을 받는 Azure AD Connect Health Agent가 Azure AD Connect Health 서비스에 데이터를 업로드할 수 있는지 확인할 수 있습니다.
 
     Test-AzureADConnectHealthConnectivity -Role ADFS
 
@@ -375,7 +380,7 @@ Azure AD Connect Health 에이전트에서 Azure AD Connect Health 서비스와�
 >
 >
 
-## <a name="related-links"></a>관련 링크
+## <a name="related-links"></a>관련된 링크
 
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Azure AD Connect Health 작업](how-to-connect-health-operations.md)

@@ -1,21 +1,21 @@
 ---
-title: Azure Cost Management 범위 이해 및 사용 | Microsoft Docs
+title: Azure Cost Management 범위 이해 및 사용
 description: 이 문서는 Azure에서 사용할 수 있는 청구 및 리소스 관리 범위를 이해 하 고 Cost Management 및 Api에서 범위를 사용 하는 방법을 설명 합니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 41d83d4a6c5aad4c3b575513c6b3e2e25a425829
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 664307b64d5a2869130df9ab123119d869f36e21
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338629"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374475"
 ---
 # <a name="understand-and-work-with-scopes"></a>범위 이해 및 작업
 
@@ -39,15 +39,15 @@ Azure는 리소스 관리를 위해 세 가지 범위를 지원 합니다. 각 �
 
 - [**관리 그룹**](../governance/management-groups/overview.md) -최대 8 수준의 계층 컨테이너는 Azure 구독을 구성 합니다.
 
-    리소스 종류: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
+    리소스 종류: [Microsoft Management/managementGroups](/rest/api/resources/managementgroups)
 
 - **구독** -Azure 리소스에 대 한 기본 컨테이너입니다.
 
-    리소스 종류: [Microsoft.Resources/subscriptions](/rest/api/resources/subscriptions)
+    리소스 종류: [Microsoft .resources/subscription](/rest/api/resources/subscriptions)
 
 - [**리소스 그룹**](../azure-resource-manager/resource-group-overview.md#resource-groups) -동일한 수명 주기를 공유 하는 Azure 솔루션에 대 한 관련 리소스의 논리적 그룹화입니다. 배포 하 고 함께 삭제 되는 리소스를 예로 들 수 있습니다.
 
-    리소스 종류: [Microsoft.Resources/subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
+    리소스 종류: [Microsoft .resources/subscription/resourceGroups](/rest/api/resources/resourcegroups)
 
 관리 그룹을 사용 하 여 구독을 계층 구조로 구성할 수 있습니다. 예를 들어 관리 그룹을 사용 하 여 논리적 조직 계층 구조를 만들 수 있습니다. 그런 다음 프로덕션 및 개발/테스트 워크 로드에 대 한 팀 구독을 제공 합니다. 그런 다음 구독에서 리소스 그룹을 만들어 각 하위 시스템 또는 구성 요소를 관리 합니다.
 
@@ -128,7 +128,10 @@ Microsoft 고객 계약 청구 계정의 범위는 다음과 같습니다.
 
     리소스 종류: `Microsoft.Billing/billingAccounts/invoiceSections`
 
+- **고객** -파트너에 의해 Microsoft 고객 계약에 등록 특정 고객에 연결 된 구독 그룹을 나타냅니다. 이 범위는 CSP와 관련이 있습니다.
+
 EA 청구 범위와 달리 고객 계약 청구 계정은 단일 디렉터리에 바인딩되고 여러 Azure AD 디렉터리에 _구독을 가질_ 수 없습니다.
+
 
 고객 계약 청구 범위는 다음 역할을 지원 합니다.
 
@@ -149,7 +152,7 @@ AWS 통합이 완료 된 후에는 [AWS integration 설정 및 구성](aws-integ
 - **외부 청구 계정** -타사 공급 업체와 고객 계약을 나타냅니다. EA 청구 계정과 유사 합니다.
 
     리소스 종류: `Microsoft.CostManagement/externalBillingAccounts`
-    
+
 - **외부 구독** -타사 공급 업체를 사용 하는 고객 운영 계정을 나타냅니다. 이는 Azure 구독과 유사 합니다.
 
     리소스 종류: `Microsoft.CostManagement/externalSubscriptions`
@@ -216,7 +219,7 @@ Cost Management Api를 사용 하는 경우 범위를 아는 것이 중요 합�
 3. 테이블에서 관리 그룹 ID를 복사 합니다.
 4. 범위는 `"/providers/Microsoft.Management/managementGroups/{id}"`입니다.
 
-### <a name="subscription"></a>구독
+### <a name="subscription"></a>Subscription
 
 1. Azure Portal를 열고 서비스 목록에서 **구독** 으로 이동 합니다.
 2. 테이블에서 구독 ID를 복사 합니다.

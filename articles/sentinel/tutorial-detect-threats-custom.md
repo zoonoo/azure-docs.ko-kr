@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 18c11198f6b81e72e371b3ab06ed3a7330078c52
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 5d4c549eaded78c69d3e7fa7173b5ad9b1d82f2f
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023778"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333138"
 ---
 # <a name="tutorial-create-custom-analytic-rules-to-detect-suspicious-threats"></a>자습서: 의심 스러운 위협을 검색 하는 사용자 지정 분석 규칙 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "72023778"
 
 사용자 환경에서 의심 스러운 위협 및 비정상 유형을 검색 하는 데 도움이 되는 사용자 지정 분석 규칙을 만들 수 있습니다. 규칙은 사용자에 게 즉시 알림이 표시 되도록 하 여 위협을 심사 하 고 조사 하 고 수정할 수 있습니다.
 
-1. Azure 센티널의 Azure Portal에서 **Analytics**를 선택 합니다.
+1. Azure Sentinel 아래의 Azure Portal에서 **Analytics**를 선택합니다.
 
 1. 상단 메뉴 모음에서 **+ 만들기** 를 선택 하 고 **예약 된 쿼리 규칙**을 선택 합니다. 그러면 **사용자 지정 규칙 만들기 마법사**가 열립니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "72023778"
     \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
 
    > [!NOTE]
-   > 쿼리 길이는 1 ~ 007e; 1 ~ 007e; 1 ~ 007e; 1 @no__t @no__t에서 1 사이 여야 합니다.
+   > 쿼리 길이는 1 ~ 007e; 1000 자 여야 하며 "search \*" 또는 "union \*"을 포함할 수 없습니다.
 
     1. **쿼리 일정**에서 다음 매개 변수를 설정 합니다.
 

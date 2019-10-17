@@ -1,6 +1,6 @@
 ---
 title: Azure FileUpload UI 요소 | Microsoft Docs
-description: Azure Portal의 Microsoft.Common.FileUpload UI 요소에 대해 설명합니다.
+description: Azure Portal의 Microsoft.Common.FileUpload UI 요소에 대해 설명합니다. 사용자가 관리 되는 응용 프로그램을 배포할 때 파일을 업로드 해야 할 수 있습니다.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: b06134c6694e54cf246f9527d10147c573b95ad9
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b7f73dcfe3e0e2827083feba906e2efcd0265305
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828009"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331707"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI 요소
 사용자가 업로드할 파일을 하나 이상 지정할 수 있게 하는 컨트롤입니다.
@@ -48,7 +48,7 @@ ms.locfileid: "71828009"
 ```
 
 ## <a name="remarks"></a>설명
-- `constraints.accept`는 브라우저의 파일 대화 상자에 표시되는 파일 형식을 지정합니다. 허용되는 값은 [HTML5 사양](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept)을 참조하세요. 기본값은 **null**합니다.
+- `constraints.accept`는 브라우저의 파일 대화 상자에 표시되는 파일 형식을 지정합니다. 허용되는 값은 [HTML5 사양](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept)을 참조하세요. 기본값은 **null**입니다.
 - `options.multiple`이 **true**로 설정되면 사용자가 브라우저의 파일 대화 상자에서 둘 이상의 파일을 선택할 수 있게 합니다. 기본값은 **false**입니다.
 - 이 요소는 `options.uploadMode` 값에 따라 두 가지 모드로 파일 업로드를 지원합니다. **file**을 지정하면 출력에 파일의 내용이 Blob으로 포함됩니다. **url**을 지정하면 파일은 임시 위치에 업로드되고 출력에 Blob의 URL이 포함됩니다. 임시 Blob은 24시간 후에 제거됩니다. 기본값은 **file**입니다.
 - 업로드된 파일은 보호됩니다. 출력 URL에는 배포 중에 파일에 액세스하기 위한 [SAS 토큰](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)이 포함됩니다.

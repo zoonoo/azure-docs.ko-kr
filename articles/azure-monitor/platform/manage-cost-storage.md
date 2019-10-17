@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: e1875ebdb62cfc6d606465b863215513aaa47c02
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 5b6ec913226f44a47bfa5c734e0c20ef3a87ca67
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972913"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329423"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 사용량 및 비용 관리
 
@@ -32,7 +32,7 @@ Azure Monitor 로그는 기업의 모든 원본에서 하루에 대량의 데이
 
 ## <a name="pricing-model"></a>가격 책정 모델
 
-Log Analytics에 대 한 기본 가격은 데이터 볼륨 수집을 기반으로 하는 **종 량** 제 모델 이며 필요에 따라 더 긴 데이터 보존을 위해 필요 합니다. 각 Log Analytics 작업 영역은 별도의 서비스로 청구 되며 Azure 구독에 대 한 청구에 기여 합니다. 데이터 수집의 양은 다음 요인에 따라 상당히 길어질 수 있습니다. 
+Log Analytics에 대 한 기본 가격은 데이터 볼륨 수집을 기반으로 하는 **종 량** 제 모델 이며 필요에 따라 더 긴 데이터 보존을 위해 필요 합니다. 데이터 볼륨은 저장 되는 데이터의 크기로 측정 됩니다. 각 Log Analytics 작업 영역은 별도의 서비스로 청구 되며 Azure 구독에 대 한 청구에 기여 합니다. 데이터 수집의 양은 다음 요인에 따라 상당히 길어질 수 있습니다. 
 
   - 사용 하도록 설정 된 관리 솔루션의 수 및 구성 (예: 
   - 모니터링 되는 Vm 수
@@ -102,8 +102,8 @@ Azure는 [Azure Cost Management + 청구](https://docs.microsoft.com/azure/cost-
    - 기준: 결과 수
    - 조건: 보다 큼
    - 임계값: 0
-   - 기간: 5분
-   - 빈도: 5분
+   - 기간: 5(분)
+   - 빈도: 5(분)
 - 경고 규칙 이름: 일일 데이터 한계 도달
 - 심각도: 경고(심각도 1)
 
@@ -123,13 +123,13 @@ Azure는 [Azure Cost Management + 청구](https://docs.microsoft.com/azure/cost-
 
     ![작업 영역 데이터 보존 설정 변경](media/manage-cost-storage/manage-cost-change-retention-01.png)
     
-@No__t-1 매개 변수를 사용 하 여 [ARM을 통해](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 보존을 설정할 수도 있습니다. 또한 데이터 보존 기간을 30 일로 설정 하는 경우 `immediatePurgeDataOn30Days` 매개 변수를 사용 하 여 이전 데이터를 즉시 제거할 수 있습니다 .이는 규정 준수 관련 시나리오에 유용할 수 있습니다. 이 기능은 ARM을 통해서만 노출 됩니다. 
+@No__t-1 매개 변수를 사용 하 여 [Azure Resource Manager를 통해](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 보존을 설정할 수도 있습니다. 또한 데이터 보존 기간을 30 일로 설정 하는 경우 `immediatePurgeDataOn30Days` 매개 변수를 사용 하 여 이전 데이터를 즉시 제거할 수 있습니다 .이는 규정 준수 관련 시나리오에 유용할 수 있습니다. 이 기능은 Azure Resource Manager 통해서만 노출 됩니다. 
 
 @No__t-0 및 `AzureActivity`의 두 가지 데이터 형식이 기본적으로 90 일 동안 유지 되며, 90 일 보존에 대 한 요금이 부과 되지 않습니다. 이러한 데이터 형식은 데이터 수집 요금에도 무료로 제공 됩니다. 
 
 ### <a name="retention-by-data-type"></a>데이터 유형별 보존
 
-또한 개별 데이터 형식에 대해 서로 다른 보존 설정을 지정할 수 있습니다. 각 데이터 형식은 작업 영역의 하위 리소스입니다. 예를 들어, SecurityEvent 테이블은 [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 에서 다음과 같이 주소를 지정할 수 있습니다.
+또한 개별 데이터 형식에 대해 서로 다른 보존 설정을 지정할 수 있습니다. 각 데이터 형식은 작업 영역의 하위 리소스입니다. 예를 들어 다음과 같이 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 에서 securityevent 테이블의 주소를 지정할 수 있습니다.
 
 ```
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
@@ -161,7 +161,7 @@ Azure는 [Azure Cost Management + 청구](https://docs.microsoft.com/azure/cost-
 
 @No__t-0 및 `AzureActivity` 데이터 형식은 사용자 지정 보존으로 설정할 수 없습니다. 기본 작업 영역 보존 또는 90 일의 최대값을 사용 합니다. 
 
-ARM에 직접 연결 하 여 데이터 형식으로 보존을 설정 하는 좋은 도구는 OSS 도구 [ARMclient](https://github.com/projectkudu/ARMClient)입니다.  [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) 및 [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)에서 ARMclient에 대해 자세히 알아보세요.  ARMClient를 사용 하 여 securityevent 데이터를 730 일 보존으로 설정 하는 예제는 다음과 같습니다.
+데이터 형식으로 보존을 설정 하기 위해 Azure Resource Manager에 직접 연결 하는 좋은 도구는 OSS 도구 [ARMclient](https://github.com/projectkudu/ARMClient)입니다.  [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) 및 [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)에서 ARMclient에 대해 자세히 알아보세요.  ARMClient를 사용 하 여 securityevent 데이터를 730 일 보존으로 설정 하는 예제는 다음과 같습니다.
 
 ```
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview "{properties: {retentionInDays: 730}}"
@@ -193,7 +193,7 @@ Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세�
 3. **가격 책정 계층**에서 가격 책정 계층을 선택하고 **선택**을 클릭합니다.  
     ![선택된 가격 책정 계획](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-또한 `sku` 매개 변수 (ARM 템플릿의 `pricingTier`)를 사용 하 여 [arm을 통해 가격 책정 계층을 설정할](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 수 있습니다. 
+@No__t-1 매개 변수 (ARM 템플릿의 `pricingTier`)를 사용 하 여 [Azure Resource Manager를 통해 가격 책정 계층을 설정할](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 수도 있습니다. 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Log Analytics에서 더 이상 데이터를 수집하지 않는 문제 해결
 
@@ -367,7 +367,7 @@ union withsource = tt *
 | 보안 이벤트            | [일반 또는 최소한의 보안 이벤트](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)를 선택합니다. <br> 보안 감사 정책을 변경하여 필요한 이벤트만을 수집합니다. 특히, 다음 항목에 대한 이벤트를 수집할 필요를 검토합니다. <br> - [감사 필터링 플랫폼](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [감사 레지스트리](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [감사 파일 시스템](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [감사 커널 개체](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [감사 핸들 조작](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - 이동식 저장소 감사 |
 | 성능 카운터       | [성능 카운터 구성](data-sources-performance-counters.md)을 다음과 같이 변경합니다. <br> - 컬렉션의 빈도 감소 <br> - 성능 카운터의 수 감소 |
 | 이벤트 로그                 | [이벤트 로그 구성](data-sources-windows-events.md)을 다음과 같이 변경합니다. <br> - 수집된 이벤트 로그의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 수준 이벤트를 수집하지 않습니다. |
-| Syslog                     | [syslog 구성](data-sources-syslog.md)을 다음과 같이 변경합니다. <br> - 수집된 기능의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 및 *디버그* 수준 이벤트를 수집하지 않습니다. |
+| syslog                     | [syslog 구성](data-sources-syslog.md)을 다음과 같이 변경합니다. <br> - 수집된 기능의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 및 *디버그* 수준 이벤트를 수집하지 않습니다. |
 | AzureDiagnostics           | 다음 작업을 수행하도록 리소스 로그 컬렉션을 변경합니다. <br> - Log Analytics로 보내는 리소스 송신 로그의 수 축소 <br> - 필요한 로그만 수집 |
 | 솔루션을 사용하지 않는 컴퓨터의 솔루션 데이터 | [솔루션 대상](../insights/solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다. |
 

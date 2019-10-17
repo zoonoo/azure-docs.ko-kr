@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: de45f2fe6230e48c3cffc999e2c84d6ee0a60edc
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 0a9a5e465e160da34a21f66fd7176a8fea5d1aac
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476781"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376259"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>명령 실행을 사용하여 Windows VM에서 PowerShell 스크립트 실행
 
@@ -21,7 +21,7 @@ ms.locfileid: "67476781"
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="benefits"></a>이점
+## <a name="benefits"></a>혜택
 
 가상 머신에 액세스하는 데 사용할 수 있는 여러 옵션이 있습니다. 명령 실행은 VM 에이전트를 사용하여 원격으로 가상 머신에서 스크립트를 실행할 수 있습니다. 명령 실행은 Azure Portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) 또는 Windows VM용 [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand)을 통해 사용할 수 있습니다.
 
@@ -43,7 +43,41 @@ ms.locfileid: "67476781"
 > [!NOTE]
 > 제대로 작동하려면 실행 명령이 Azure 공용 IP 주소에 연결(포트 443)되어야 합니다. 확장이 이러한 엔드포인트에 대해 액세스 권한이 없는 경우 스크립트는 성공적으로 실행되지만 결과를 반환하지는 않습니다. 가상 머신에서 트래픽을 차단하는 경우 `AzureCloud` 태그를 사용하여 Azure 공용 IP 주소로 트래픽을 허용하려면 [서비스 태그](../../virtual-network/security-overview.md#service-tags)를 사용할 수 있습니다.
 
-## <a name="run-a-command"></a>명령 실행
+## <a name="available-commands"></a>사용 가능한 명령
+
+이 표에서는 Windows VM에 대해 사용할 수 있는 명령 목록을 보여줍니다. **RunPowerShellScript** 명령은 원하는 모든 사용자 지정 스크립트를 실행하는 데 사용할 수 있습니다. Azure CLI 또는 PowerShell을 사용 하 여 명령을 실행 하는 경우 `--command-id` 또는 `-CommandId` 매개 변수에 대해 제공 하는 값은 아래에 나열 된 값 중 하나 여야 합니다. 사용할 수 있는 명령이 아닌 값을 지정 하면 오류가 표시 됩니다.
+
+```error
+The entity was not found in this Azure location
+```
+
+|**Name**|**설명**|
+|---|---|
+|**RunPowerShellScript**|PowerShell 스크립트 실행|
+|**EnableRemotePS**|원격 PowerShell을 사용하도록 설정하려면 컴퓨터를 구성합니다.|
+|**EnableAdminAccount**|로컬 관리자 계정이 비활성화됐는지 확인하여 그렇다면 활성화합니다.|
+|**IPConfig**| TCP/IP에 바인딩된 각 어댑터에 대해 IP 주소, 서브넷 마스크 및 기본 게이트웨이에 대한 자세한 정보를 표시합니다.|
+|**RDPSettings**|레지스트리 설정 및 도메인 정책 설정을 확인합니다. 컴퓨터가 도메인의 일부인 경우 또는 설정을 기본값으로 수정하는 경우 정책 작업을 제안합니다.|
+|**ResetRDPCert**|RDP 수신기에 연결 된 SSL 인증서를 제거 하 고 RDP 수신기 보안을 기본값으로 복원 합니다. 인증서에 문제가 있는 경우 이 스크립트를 사용합니다.|
+|**SetRDPPort**|원격 데스크톱 연결에 대한 기본 또는 사용자 지정 포트 번호를 설정합니다. 포트에 인바운드 액세스를 위한 방화벽 규칙을 사용하도록 설정합니다.|
+
+## <a name="azure-cli"></a>Azure CLI
+
+Azure Linux VM에서 셸 스크립트를 실행하기 위해 [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) 명령을 사용하는 예제는 다음과 같습니다.
+
+```azurecli-interactive
+# script.ps1
+#   param(
+#       [string]$arg1,
+#       [string]$arg2
+#   )
+#   Write-Host This is a sample script with parameters $arg1 and $arg2
+
+az vm run-command invoke  --command-id RunPowerShellScript --name win-vm -g my-resource-group \
+    --scripts @script.ps1 --parameters "arg1=somefoo" "arg2=somebar"
+```
+
+## <a name="azure-portal"></a>Azure Portal
 
 [Azure](https://portal.azure.com)에서 VM으로 이동하여 **작업** 아래에서 **명령 실행**을 선택합니다. VM에서 실행에 사용할 수 있는 명령 목록이 표시됩니다.
 
@@ -58,37 +92,22 @@ ms.locfileid: "67476781"
 
 ![명령 실행 스크립트 출력](./media/run-command/run-command-script-output.png)
 
-## <a name="commands"></a>명령
-
-이 표에서는 Windows VM에 대해 사용할 수 있는 명령 목록을 보여줍니다. **RunPowerShellScript** 명령은 원하는 모든 사용자 지정 스크립트를 실행하는 데 사용할 수 있습니다.
-
-|**Name**|**설명**|
-|---|---|
-|**RunPowerShellScript**|PowerShell 스크립트 실행|
-|**EnableRemotePS**|원격 PowerShell을 사용하도록 설정하려면 컴퓨터를 구성합니다.|
-|**EnableAdminAccount**|로컬 관리자 계정이 비활성화됐는지 확인하여 그렇다면 활성화합니다.|
-|**IPConfig**| TCP/IP에 바인딩된 각 어댑터에 대해 IP 주소, 서브넷 마스크 및 기본 게이트웨이에 대한 자세한 정보를 표시합니다.|
-|**RDPSettings**|레지스트리 설정 및 도메인 정책 설정을 확인합니다. 컴퓨터가 도메인의 일부인 경우 또는 설정을 기본값으로 수정하는 경우 정책 작업을 제안합니다.|
-|**ResetRDPCert**|RDP 수신기에 연결된 SSL 인증서를 제거하고 RDP 수신기 보안을 기본값으로 복원합니다. 인증서에 문제가 있는 경우 이 스크립트를 사용합니다.|
-|**SetRDPPort**|원격 데스크톱 연결에 대한 기본 또는 사용자 지정 포트 번호를 설정합니다. 포트에 인바운드 액세스를 위한 방화벽 규칙을 사용하도록 설정합니다.|
-
 ## <a name="powershell"></a>PowerShell
 
 다음은 Azure VM에서 PowerShell 스크립트를 실행하기 위해 [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) cmdlet을 사용하는 예제입니다. cmdlet에서는 `-ScriptPath` 매개 변수에서 참조되는 스크립트가 cmdlet이 실행되는 위치의 로컬이어야 합니다.
-
 
 ```azurepowershell-interactive
 Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
 
-## <a name="limiting-access-to-run-command"></a>명령 실행에 대한 액세스 제한
+## <a name="limiting-access-to-run-command"></a>명령 실행에 대 한 액세스 제한
 
-실행된 명령 나열 또는 명령의 세부 정보를 표시 해야 합니다 `Microsoft.Compute/locations/runCommands/read` 구독 수준에서 권한을 기본 제공 [판독기](../../role-based-access-control/built-in-roles.md#reader) 역할 있고 이상.
+실행 명령을 나열 하거나 명령의 세부 정보를 표시 하려면 구독 수준에서 `Microsoft.Compute/locations/runCommands/read` 권한 (기본 제공 [읽기 권한자](../../role-based-access-control/built-in-roles.md#reader) 역할 이상)이 필요 합니다.
 
-명령을 실행 하려면 필요 합니다 `Microsoft.Compute/virtualMachines/runCommand/action` 구독 수준에서 권한을를 [Virtual Machine 참여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 역할 이상 있고.
+명령을 실행 하려면 [가상 컴퓨터 참가자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 역할에 포함 된 구독 수준에서 `Microsoft.Compute/virtualMachines/runCommand/action` 권한이 필요 합니다.
 
 명령 실행을 사용하려면 [기본 제공](../../role-based-access-control/built-in-roles.md) 역할 중 하나를 사용하거나 [사용자 지정](../../role-based-access-control/custom-roles.md) 역할을 만들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-VM에서 원격으로 스크립트 및 명령을 실행하는 다른 방법을 알려면 [Windows VM에서 스크립트 실행](run-scripts-in-vm.md)을 참조합니다.
+VM에서 스크립트 및 명령을 원격으로 실행 하는 다른 방법에 대 한 자세한 내용은 [WINDOWS vm에서 스크립트 실행](run-scripts-in-vm.md) 을 참조 하세요.

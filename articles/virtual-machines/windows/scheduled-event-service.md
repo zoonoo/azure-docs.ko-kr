@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: conceptual
-ms.openlocfilehash: 49c82339e5a3774cd286d700d709371d46cf0571
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: d090fb52beb266f006e69688c09f66412f1fe8c2
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051850"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376208"
 ---
 # <a name="monitoring-scheduled-events"></a>모니터링 Scheduled Events
 
@@ -32,7 +32,7 @@ Scheduled Events는 azure [Instance Metadata Service](instance-metadata-service.
 
 ![이벤트 수명 주기를 보여 주는 다이어그램](./media/notifications/events.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 예에서는 [가용성 집합에 Windows 가상 머신을](tutorial-availability-sets.md)만들어야 합니다. 가용성 집합, 클라우드 서비스, 가상 머신 확장 집합 또는 독립 실행형 Vm의 가상 머신에 영향을 줄 수 있는 변경 내용에 대 한 알림을 제공 Scheduled Events 합니다. 가용성 집합의 다른 모든 Vm에 대 한 이벤트를 가져오기 위해 수집기 역할을 하는 Vm 중 하나에서 예약 된 이벤트를 폴링하는 [서비스](https://github.com/microsoft/AzureScheduledEventsService) 를 실행 합니다.    
 
@@ -61,7 +61,7 @@ New-AzVm `
 
 [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip)에서 프로젝트의 설치 .zip 파일을 다운로드 합니다.
 
-**MyCollectorVM** 에 연결 하 고 .zip 파일을 가상 머신에 복사 하 고 모든 파일을 추출 합니다. VM에서 PowerShell 프롬프트를 엽니다. 프롬프트를 포함 하 `SchService.ps1`는 폴더 (예: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`)로 이동 하 고 서비스를 설정 합니다.
+**MyCollectorVM** 에 연결 하 고 .zip 파일을 가상 머신에 복사 하 고 모든 파일을 추출 합니다. VM에서 PowerShell 프롬프트를 엽니다. @No__t-0 (예: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`)을 포함 하는 폴더로 메시지를 이동 하 고 서비스를 설정 합니다.
 
 ```powershell
 .\SchService.ps1 -Setup
@@ -81,7 +81,7 @@ New-AzVm `
 .\SchService.ps1 -status  
 ```
 
-이는을 `Running`반환 합니다.
+@No__t-0을 반환 해야 합니다.
 
 이제 서비스는 예약 된 이벤트에 대해 10 초 마다 폴링을 시작 하 고 이벤트를 승인 하 여 유지 관리를 신속 하 게 진행 합니다.  중지, 다시 부팅, 다시 배포 및 Preempt는 일정 이벤트에 의해 캡처된 이벤트입니다. 이벤트를 승인 하기 전에 스크립트를 확장 하 여 일부 완화를 트리거할 수 있습니다.
 
@@ -98,7 +98,7 @@ New-AzVm `
 >
 > 설치를 위해 Windows를 선택 했지만 Linux에서 비슷한 솔루션을 디자인할 수 있습니다.
 
-언제 든 지 및 `–stop` `–remove`스위치를 사용 하 여 예약 된 이벤트 서비스를 중지/제거할 수 있습니다.
+언제 든 지 `–stop` 및 `–remove` 스위치를 사용 하 여 예약 된 이벤트 서비스를 중지 하거나 제거할 수 있습니다.
 
 ## <a name="connect-to-the-workspace"></a>작업 영역에 연결
 
@@ -158,15 +158,15 @@ New-AzVm `
     ![쿼리 저장](./media/notifications/save-query.png)
 
 1. **새 경고 규칙**을 선택 합니다. 
-1. **규칙 만들기** 페이지에서를 **리소스로**둡니다 `collectorworkspace` .
-1. **조건**아래에서 *고객 로그 <login undefined>검색이 될 때마다* 항목을 선택 합니다. **신호 논리 구성** 페이지가 열립니다.
+1. **규칙 만들기** 페이지에서 `collectorworkspace`을 **리소스로**그대로 둡니다.
+1. **조건**아래에서 *고객 로그 검색이-2 @no__t 될 때마다*항목을 선택 합니다. **신호 논리 구성** 페이지가 열립니다.
 1. **임계값**에서 *0* 을 입력 한 다음 **완료**를 선택 합니다.
 1. **작업**아래에서 **작업 그룹 만들기**를 선택 합니다. **작업 그룹 추가** 페이지가 열립니다.
 1. **작업 그룹 이름**에 *myactiongroup*을 입력 합니다.
 1. **약식 이름**에 **myactiongroup**을 입력 합니다.
-1. **리소스 그룹**에서 *myResourceGroupAvailability* *를 선택 합니다.
+1. **리소스 그룹**에서 **Myresourcegroupavailability**를 선택 합니다.
 1. 작업 아래의 **동작 이름** 에 **전자 메일**을 입력 하 고 **전자 메일/SMS/푸시/음성**을 선택 합니다. **이메일/SMS/푸시/음성** 페이지가 열립니다.
-1. 전자메일을 선택 하 고 전자 메일 주소를 입력 한 다음 **확인**을 선택 합니다.
+1. 전자 **메일을 선택 하**고 전자 메일 주소를 입력 한 다음 **확인**을 선택 합니다.
 1. **작업 그룹 추가** 페이지에서 **확인**을 선택 합니다. 
 1. **규칙 만들기** 페이지의 **경고 세부 정보**에서 **경고 규칙 이름**에 *Myalert* 를 입력 하 고 **설명**에 *전자 메일 경고 규칙* 을 입력 합니다.
 1. 작업이 완료 되 면 **경고 규칙 만들기**를 선택 합니다.

@@ -1,6 +1,6 @@
 ---
 title: Azure Section UI 요소 | Microsoft Docs
-description: Azure Portal의 Microsoft.Common.Section UI 요소에 대해 설명합니다.
+description: Azure Portal의 Microsoft.Common.Section UI 요소에 대해 설명합니다. 를 사용 하 여 포털에서 관리 되는 응용 프로그램 배포를 위한 요소를 그룹화 합니다.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: c89b45dd4d8e6c2964f3d2bcbb6c3cef445c79e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a48c89785e0a448609026aab53364f6cf704e948
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698902"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331662"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Microsoft.Common.Section UI 요소
 제목 아래에 하나 이상의 요소를 그룹화하는 컨트롤입니다.

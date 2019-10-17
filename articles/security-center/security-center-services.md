@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: ed231bc05d58a40c93cea74081c027e5b49f5306
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
-ms.translationtype: MT
+ms.openlocfilehash: b6de3a520150a95316371c4454fd2537f2beab5d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254498"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331136"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Azure Security Center에서 사용할 수 있는 지원 되는 기능
 
@@ -37,7 +37,7 @@ ms.locfileid: "72254498"
 
 |서버|Windows|||Linux|||가격|
 |----|----|----|----|----|----|----|----|
-|**환경**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
+|**환경**|**Azure**||**비 Azure**|**Azure**||**비 Azure**||
 ||**Virtual Machine**|**Virtual Machine Scale Set**||**Virtual Machine**|**Virtual Machine Scale Set**|
 |[Microsoft Defender ATP 통합](https://docs.microsoft.com/azure/security-center/security-center-wdatp)|✔(지원되는 버전에서만)|✔(지원되는 버전에서만)|✔|X|X|X|Standard|
 |[가상 컴퓨터 동작 분석 위협 검색 경고](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas)|✔|✔|✔|✔(지원되는 버전에서만)|✔(지원되는 버전에서만)|✔|권장 사항 (무료) 위협 검색 (표준)|
@@ -51,12 +51,12 @@ ms.locfileid: "72254498"
 |적응형 네트워크 제어|✔|✔|X|✔|✔|X|Standard|
 |[규정 준수 대시보드 & 보고서](https://docs.microsoft.com/azure/security-center/security-center-compliance-dashboard)|✔|✔|✔|✔|✔|✔|Standard|
 |Docker에서 호스트 되는 IaaS 컨테이너의 권장 사항 및 위협 감지|X|X|X|✔|✔|✔|Standard|
-|누락 된 OS 패치 평가|✔|✔|✔|✔|✔|✔|무료|
-|보안 잘못 평가|✔|✔|✔|✔|✔|✔|무료|
-|[Endpoint protection 평가](https://docs.microsoft.com/azure/security-center/security-center-services#supported-endpoint-protection-solutions-)|✔|✔|✔|X|X|X|무료|
-|디스크 암호화 평가|✔|✔|X|✔|✔|X|무료|
-|타사 취약성 평가|✔|X|X|✔|X|X|무료|
-|[네트워크 보안 평가]()|✔|✔|X|✔|✔|X|무료|
+|누락 된 OS 패치 평가|✔|✔|✔|✔|✔|✔|체험판|
+|보안 잘못 평가|✔|✔|✔|✔|✔|✔|체험판|
+|[Endpoint protection 평가](https://docs.microsoft.com/azure/security-center/security-center-services#supported-endpoint-protection-solutions-)|✔|✔|✔|X|X|X|체험판|
+|디스크 암호화 평가|✔|✔|X|✔|✔|X|체험판|
+|타사 취약성 평가|✔|X|X|✔|X|X|체험판|
+|[네트워크 보안 평가](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)|✔|✔|X|✔|✔|X|체험판|
 
 ### 지원 되는 endpoint protection 솔루션<a name="endpoint-supported"></a>
 
@@ -67,15 +67,15 @@ ms.locfileid: "72254498"
 
 이러한 각 보호에 대 한 권장 사항이 생성 되는 경우에 대 한 자세한 내용은 [Endpoint Protection 평가 및 권장 사항](security-center-endpoint-protection.md)을 참조 하세요.
 
-| 엔드포인트 보호| 플랫폼 | Security Center 설치 | Security Center 검색 |
+| Endpoint Protection| 플랫폼 | Security Center 설치 | Security Center 검색 |
 |------|------|-----|-----|
-| Windows Defender(Microsoft 맬웨어 방지 프로그램)| Windows Server 2016| 아니오, OS에 기본 제공| 예 |
-| System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2(아래 참고 참조) | 확장을 통해 | 예 |
-| 추세 마이크로 – 모든 버전 * | Windows Server 제품군  | 아니요 | 예 |
-| Symantec v12.1.1100+| Windows Server 제품군  | 아니요 | 예 |
-| McAfee v10+ | Windows Server 제품군  | 아니요 | 예 |
-| McAfee v10+ | Linux 서버 제품군  | 아니요 | 예 **\*** |
-| Sophos V9 +| Linux 서버 제품군  | 아니요 | 예 **\***  |
+| Windows Defender(Microsoft 맬웨어 방지 프로그램)| Windows Server 2016| 아니오, OS에 기본 제공| yes |
+| System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2(아래 참고 참조) | 확장을 통해 | yes |
+| 추세 마이크로 – 모든 버전 * | Windows Server 제품군  | 아닙니다. | yes |
+| Symantec v12.1.1100+| Windows Server 제품군  | 아닙니다. | yes |
+| McAfee v10+ | Windows Server 제품군  | 아닙니다. | yes |
+| McAfee v10+ | Linux 서버 제품군  | 아닙니다. | 예 **\*** |
+| Sophos V9 +| Linux 서버 제품군  | 아닙니다. | 예 **\***  |
 
  **\*** 현재는 보호 된 구독과 연결 된 Log Analytics 작업 영역 에서만 검사 상태와 지원 데이터를 사용할 수 있습니다. Azure Security Center 포털에는 반영 되지 않습니다.
 
@@ -96,28 +96,28 @@ Azure Security Center에서 지 원하는 PaaS 리소스는 다음과 같습니�
 |MySQL*|✔| ✔|
 |CosmosDB|X| ✔|
 |Blob Storage|✔| ✔|
-|Storage 계정|✔| NA|
+|Storage 계정|✔| 해당 없음|
 |App Service|✔| ✔|
-|기능|✔| X|
+|함수|✔| X|
 |클라우드 서비스|✔| X|
-|VNet|✔| NA|
-|Subnet|✔| NA|
-|NIC|✔| NA|
-|NSG|✔| NA|
-|구독|✔ **| ✔|
+|VNet|✔| 해당 없음|
+|서브넷|✔| 해당 없음|
+|NIC|✔| 해당 없음|
+|NSG|✔| 해당 없음|
+|Subscription|✔ * *| ✔|
 |Batch 계정|✔| X|
 |Service fabric 계정|✔| X|
 |Automation 계정|✔| X|
-|부하 분산 장치|✔| X|
-|검색|✔| X|
+|Load Balancer|✔| X|
+|Search|✔| X|
 |Service Bus 네임스페이스|✔| X|
 |Stream Analytics|✔| X|
 |이벤트 허브 네임스페이스|✔| X|
 |논리 앱|✔| X|
-|Redis|✔| NA|
+|Redis|✔| 해당 없음|
 |Data Lake Analytics|✔| X|
 |Data Lake Store|✔| X|
-|주요 자격 증명 모음|✔| X|
+|Key Vault|✔| X|
 
 \* 이러한 기능은 현재 공개 미리 보기로 지원됩니다.
 

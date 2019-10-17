@@ -1,21 +1,21 @@
 ---
-title: Azure Cosmos DB ORDER BY 절
-description: Azure Cosmos DB에 대 한 SQL ORDER BY 절에 알아봅니다. Azure Cosmos DB JSON 쿼리 언어로 SQL을 사용 합니다.
+title: Azure Cosmos DB의 ORDER BY 절
+description: Azure Cosmos DB에 대 한 SQL ORDER BY 절에 대해 알아봅니다. Azure Cosmos DB JSON 쿼리 언어로 SQL을 사용 합니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: d0a1ed33d5848c3ed8d5f83af8b320d77fe0dc65
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 14f61d14b59dca4bcf2e0f4b93e918f101a61833
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342478"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326845"
 ---
-# <a name="order-by-clause"></a>ORDER BY 절
+# <a name="order-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 ORDER BY 절
 
-선택적 ORDER BY 절은 쿼리에서 반환 된 결과 대 한 정렬 순서를 지정 합니다.
+선택적인 ORDER BY 절은 쿼리에서 반환 되는 결과에 대 한 정렬 순서를 지정 합니다.
 
 ## <a name="syntax"></a>구문
   
@@ -29,15 +29,15 @@ ORDER BY <sort_specification>
   
 - `<sort_specification>`  
   
-   쿼리 결과 집합을 정렬할 속성이나 식을 지정합니다. 정렬 열의 이름 또는 속성 별칭으로 지정할 수 있습니다.  
+   쿼리 결과 집합을 정렬할 속성이나 식을 지정합니다. 정렬 열은 이름이 나 속성 별칭으로 지정할 수 있습니다.  
   
-   여러 속성을 지정할 수 있습니다. 속성 이름은 고유 해야 합니다. ORDER BY 절에서 정렬 속성의 순서 정렬된 된 결과 집합의 구조를 정의합니다. 즉 결과 집합이 첫 번째 속성으로 정렬된 다음 정렬된 해당 목록이 두 번째 속성으로 정렬되는 등등입니다.  
+   여러 속성을 지정할 수 있습니다. 속성 이름은 고유 해야 합니다. ORDER BY 절에서 정렬 속성의 순서는 정렬 된 결과 집합의 구성을 정의 합니다. 즉 결과 집합이 첫 번째 속성으로 정렬된 다음 정렬된 해당 목록이 두 번째 속성으로 정렬되는 등등입니다.  
   
-   Select 목록에 속성 또는 속성을 정확 하 게 from 절에 지정 된 컬렉션에 정의 된 ORDER BY 절에서 참조 된 속성 이름은 일치 해야 합니다.  
+   ORDER BY 절에서 참조 되는 속성 이름은 선택 목록의 속성 또는 모호성 없이 FROM 절에 지정 된 컬렉션에 정의 된 속성과 일치 해야 합니다.  
   
 - `<sort_expression>`  
   
-   하나 이상의 속성 또는 쿼리 결과 집합을 정렬 하는 식을 지정 합니다.  
+   쿼리 결과 집합을 정렬할 하나 이상의 속성이 나 식을 지정 합니다.  
   
 - `<scalar_expression>`  
   
@@ -49,11 +49,11 @@ ORDER BY <sort_specification>
   
 ## <a name="remarks"></a>설명  
   
-   ORDER BY 절은 인덱싱 정책을 정렬할 필드에 대 한 인덱스를 포함 해야 합니다. Azure Cosmos DB 쿼리 런타임의 속성 이름에 대해 계산 된 속성 대해서가 아니라 정렬 지원 합니다. Azure Cosmos DB는 여러 ORDER BY 속성을 지원합니다. 여러 ORDER BY 속성을 사용 하 여 쿼리를 실행 하기 위해 정의 해야 하는 [복합 인덱스](index-policy.md#composite-indexes) 정렬 하 고 필드에 합니다.
+   ORDER BY 절을 사용 하려면 정렬 중인 필드에 대 한 인덱스를 인덱싱 정책에 포함 해야 합니다. Azure Cosmos DB 쿼리 런타임은 계산 된 속성이 아닌 속성 이름에 대 한 정렬을 지원 합니다. Azure Cosmos DB는 여러 ORDER BY 속성을 지원 합니다. 여러 ORDER BY 속성을 사용 하 여 쿼리를 실행 하려면 정렬할 필드에 [복합 인덱스](index-policy.md#composite-indexes) 를 정의 해야 합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
-예를 들어 다음과 같습니다. 오름차순 상주 하는 도시의 이름으로 가족을 검색 하는 쿼리
+예를 들어 다음은 주 도시 이름의 오름차순으로 패밀리를 검색 하는 쿼리입니다.
 
 ```sql
     SELECT f.id, f.address.city
@@ -76,7 +76,7 @@ ORDER BY <sort_specification>
     ]
 ```
 
-다음 쿼리는 검색 제품군 `id`의 해당 항목 만든 날짜 순으로 합니다. 항목 `creationDate` 를 나타내는 숫자를 *epoch 시간*, 또는 1970 초에서 1 월 1 일 이후 경과 된 시간입니다.
+다음 쿼리는 항목을 만든 날짜를 기준으로 `id` 패밀리를 검색 합니다. 항목 `creationDate`은 *epoch 시간*또는 1970 년 1 월 1 일 이후 경과 된 시간 (초)을 나타내는 숫자입니다.
 
 ```sql
     SELECT f.id, f.creationDate
@@ -99,7 +99,7 @@ ORDER BY <sort_specification>
     ]
 ```
 
-또한 여러 속성으로 정렬할 수 있습니다. 여러 속성을 기준으로 정렬 하는 쿼리 필요는 [복합 인덱스](index-policy.md#composite-indexes)합니다. 다음 쿼리를 살펴보십시오.
+또한 여러 속성을 기준으로 순서를 지정할 수 있습니다. 여러 속성으로 정렬 하는 쿼리에는 [복합 인덱스가](index-policy.md#composite-indexes)필요 합니다. 다음과 같은 쿼리를 고려해 보세요.
 
 ```sql
     SELECT f.id, f.creationDate
@@ -107,10 +107,10 @@ ORDER BY <sort_specification>
     ORDER BY f.address.city ASC, f.creationDate DESC
 ```
 
-이 쿼리는 제품군 검색 `id` 군/시의 오름차순입니다. 쿼리를 기준으로 정렬 됩니다 여러 항목에 도시 이름이 같은 경우는 `creationDate` 내림차순으로 정렬 합니다.
+이 쿼리는 도시 이름의 오름차순으로 `id` 패밀리를 검색 합니다. 여러 항목의 도시 이름이 동일한 경우 쿼리는 `creationDate`을 기준으로 내림차순으로 정렬 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [시작](sql-query-getting-started.md)
 - [SELECT 절](sql-query-select.md)
-- [오프셋 LIMIT 절](sql-query-offset-limit.md)
+- [OFFSET LIMIT 절](sql-query-offset-limit.md)

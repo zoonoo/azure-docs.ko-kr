@@ -1,29 +1,29 @@
 ---
-title: Azure Cosmos DB에서 절에서
-description: Azure Cosmos DB에 대 한 SQL FROM 절에 알아봅니다
+title: Azure Cosmos DB의 FROM 절
+description: Azure Cosmos DB의 SQL FROM 절에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: tisande
-ms.openlocfilehash: 6bc93569dc9a0405ec3a8dfd719c89ede01df84d
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 79bb17277a041f71c095ed724737012f9501f16f
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342675"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326990"
 ---
-# <a name="from-clause"></a>FROM 절
+# <a name="from-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 FROM 절
 
-FROM (`FROM <from_specification>`) 소스를 필터링 / 나중에 쿼리에서 프로젝션 하지 않는 한 절은 선택 사항입니다. 같은 쿼리 `SELECT * FROM Families` 전체를 열거 `Families` 컨테이너입니다. 컨테이너 이름을 사용 하는 대신 컨테이너에 대 한 특수 식별자 ROOT 이용할 수 있습니다.
+FROM (`FROM <from_specification>`) 절은 소스를 필터링 하거나 나중에 쿼리에서 투영 하지 않는 한 선택 사항입니다. @No__t-0과 같은 쿼리는 전체 `Families` 컨테이너를 열거 합니다. 컨테이너 이름을 사용 하는 대신 컨테이너에 대해 특수 식별자 루트를 사용할 수도 있습니다.
 
-FROM 절 쿼리당 다음 규칙을 적용 합니다.
+FROM 절은 쿼리당 다음 규칙을 적용 합니다.
 
-* 컨테이너를 별칭으로 `SELECT f.id FROM Families AS f` 또는 간단히 `SELECT f.id FROM Families f`로 지정할 수 있습니다. 여기 `f` 의 별칭인 `Families`합니다. 선택적 키워드를 있는 그대로 [별칭](sql-query-aliasing.md) 식별자입니다.  
+* 컨테이너를 별칭으로 `SELECT f.id FROM Families AS f` 또는 간단히 `SELECT f.id FROM Families f`로 지정할 수 있습니다. 여기서 `f`은 `Families`의 별칭입니다. AS는 식별자의 [별칭](sql-query-aliasing.md) 을 지정 하는 선택적 키워드입니다.  
 
-* 별칭으로 지정한 후 원래 원본 이름에 바인딩할 수 없습니다. 예를 들어 `SELECT Families.id FROM Families f` 구문이 잘못 된 때문에 식별자 `Families` 별칭이 지정 되었으며 더 이상 확인할 수 없습니다.  
+* 별칭을 지정 하면 원래 원본 이름을 바인딩할 수 없습니다. 예를 들어 식별자 `Families`이 별칭이 지정 되었고 더 이상 확인할 수 없기 때문에 `SELECT Families.id FROM Families f`은 구문이 올바르지 않습니다.  
 
-* 모든 참조 된 속성은 정규화 된 이름, 엄격한 스키마 준수 없을 경우에서 모호한 바인딩을 방지 하려면 이어야 합니다. 예를 들어 `SELECT id FROM Families f` 구문이 잘못 된 때문에 속성 `id` 바인딩되어 있지 않은 합니다.
+* 엄격한 스키마 준수가 없는 경우 모호한 바인딩을 방지 하려면 모든 참조 된 속성을 정규화 해야 합니다. 예를 들어 `id` 속성이 바인딩되지 않기 때문에 `SELECT id FROM Families f`은 구문이 올바르지 않습니다.
 
 ## <a name="syntax"></a>구문
   
@@ -103,11 +103,11 @@ FROM <from_specification>
   
 -   컨테이너 식의 기본 원본이 쿼리의 앞 부분에 도입된 `input_alias`이면 식은 문서 범위입니다. 이러한 식은 별칭 지정된 컨테이너와 연결된 집합에 속한 각 문서의 범위에서 컨테이너 식을 평가하여 얻는 문서 집합을 나타냅니다.  결과 집합은 기본 집합에 있는 각 문서에 대해 컨테이너 식을 평가하여 얻는 집합의 합집합입니다. 
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 ### <a name="get-subitems-by-using-the-from-clause"></a>FROM 절을 사용 하 여 하위 항목 가져오기
 
-FROM 절을 더 작은 하위 집합으로 소스를 줄일 수 있습니다. 각 항목의 하위 트리만 열거 하려면 경우 다음 예와에서 같이 원본 될 수 있습니다.
+FROM 절을 통해 소스를 더 작은 하위 집합으로 줄일 수 있습니다. 각 항목의 하위 트리를 열거 하는 경우 다음 예제와 같이 subroot는 원본이 될 수 있습니다.
 
 ```sql
     SELECT *
@@ -147,7 +147,7 @@ FROM 절을 더 작은 하위 집합으로 소스를 줄일 수 있습니다. �
     ]
 ```
 
-앞의 쿼리에서 배열을 원본으로 사용 되는 하지만 원본으로 개체를 사용할 수도 있습니다. 쿼리 결과에 포함할 원본에 유효 하 고 정의 된 JSON 값을 고려합니다. 다음 예제에서는 제외 되 게 `Families` 없는 `address.state` 값입니다.
+앞의 쿼리에서는 배열을 소스로 사용 했지만 개체를 원본으로 사용할 수도 있습니다. 이 쿼리는 결과에 포함 될 원본에서 정의 된 유효한 모든 JSON 값을 고려 합니다. 다음 예에서는 `address.state` 값이 없는 `Families`을 제외 합니다.
 
 ```sql
     SELECT *

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: d43fe7f1f0fc63ab50821a345802a9e7e62881b2
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 83243ba7df48db5cd7757a464f0818ef69c4559e
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169488"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372555"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -33,7 +33,7 @@ ms.locfileid: "71169488"
 * 적응 샘플링은 ASP.NET 및 ASP.NET Core Sdk (소프트웨어 개발 키트)의 모든 최신 버전에서 기본적으로 사용 하도록 설정 되어 있습니다.
 * 샘플링을 수동으로 설정할 수도 있습니다. 이는 포털의 사용량 및 예상 비용 페이지에 있는 ASP.NET Core ASP.NET sdk의 코드를 통해 또는 ApplicationInsights .xml 파일의 Java SDK에서 *사용 및 예상 비용 페이지*에서 구성할 수 있습니다.
 * 사용자 지정 이벤트를 기록 하 고 이벤트 집합을 함께 유지 하거나 삭제 해야 하는 경우 이벤트의 OperationId 값은 동일 해야 합니다.
-* 샘플링 약수 *n*은 `itemCount` 속성의 각 레코드에서 보고되며 이는 검색의 이름 "요청 개수" 또는 "이벤트 개수"에 나타납니다. `itemCount==1`샘플링이 작동 하지 않는 경우
+* 샘플링 약수 *n*은 `itemCount` 속성의 각 레코드에서 보고되며 이는 검색의 이름 "요청 개수" 또는 "이벤트 개수"에 나타납니다. 샘플링이 작동 하지 않는 경우 `itemCount==1`입니다.
 * 분석 쿼리를 작성하는 경우 [샘플링을 고려](../../azure-monitor/log-query/aggregations.md)해야 합니다. 특히, 레코드를 단순히 세는 대신 `summarize sum(itemCount)`를 사용해야 합니다.
 
 ## <a name="types-of-sampling"></a>샘플링 유형
@@ -53,7 +53,7 @@ ms.locfileid: "71169488"
 
 적응 샘플링은 ASP.NET v 2.0.0-beta3 이상, AspNetCore SDK v 2.2.0-beta1 이상에서 Application Insights 사용할 수 있으며 기본적으로 사용 하도록 설정 되어 있습니다.
 
-적응 샘플링은 웹 서버 앱에서 Application Insights 서비스 엔드포인트로 보내는 원격 분석의 양에 영향을 줍니다. 볼륨은 지정 된 최대 트래픽 속도로 유지 하도록 자동으로 조정 되며 설정을 `MaxTelemetryItemsPerSecond`통해 제어 됩니다. 응용 프로그램에서 디버깅 또는 사용률이 낮은 경우와 같이 낮은 수준의 원격 분석을 생성 하는 경우 볼륨이 아래 `MaxTelemetryItemsPerSecond`에 있는 한 샘플링 프로세서에 의해 항목이 삭제 되지 않습니다. 원격 분석의 양이 늘어나면 샘플링 주기는 대상 볼륨을 달성할 수 있도록 조정 됩니다.
+적응 샘플링은 웹 서버 앱에서 Application Insights 서비스 엔드포인트로 보내는 원격 분석의 양에 영향을 줍니다. 볼륨이 지정 된 최대 트래픽 속도로 유지 되도록 자동으로 조정 되 고 `MaxTelemetryItemsPerSecond`을 통해 제어 됩니다. 응용 프로그램에서 디버깅 또는 사용률이 낮은 경우와 같이 낮은 원격 분석을 생성 하는 경우 볼륨의 크기가 0 @no__t 보다 낮으면 샘플링 프로세서에 의해 항목이 삭제 되지 않습니다. 원격 분석의 양이 늘어나면 샘플링 주기는 대상 볼륨을 달성할 수 있도록 조정 됩니다.
 
 목표량을 달성하기 위해 생성된 원격 분석 중 일부가 삭제됩니다. 그러나 다른 샘플링 유형과 마찬가지로 알고리즘에 관련 원격 분석 항목이 유지됩니다. 예를 들어 검색에서 원격 분석을 검사하는 경우 특정 예외와 관련된 요청을 찾을 수 있습니다.
 
@@ -92,11 +92,11 @@ ASP.NET Core 응용 프로그램에 대 한 적응 샘플링을 구성 하는 [�
 
 * `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
   
-    샘플링하지 않으려는 형식의 세미콜론으로 구분된 목록 인식할 수 있는 형식은 다음과 같습니다. 종속성, 이벤트, 예외, 페이지 보기, 요청, 추적 지정된 형식의 모든 인스턴스가 전송되고 지정되지 않은 형식은 샘플링됩니다.
+    샘플링하지 않으려는 형식의 세미콜론으로 구분된 목록 인식되는 형식: 종속성, 이벤트, 예외, 페이지 보기, 요청, 추적 지정된 형식의 모든 인스턴스가 전송되고 지정되지 않은 형식은 샘플링됩니다.
 
 * `<IncludedTypes>Request;Dependency</IncludedTypes>`
   
-    샘플링하려는 형식의 세미콜론으로 구분된 목록 인식할 수 있는 형식은 다음과 같습니다. 종속성, 이벤트, 예외, 페이지 보기, 요청, 추적 지정된 형식이 샘플링되고 다른 형식의 모든 인스턴스가 항상 전송됩니다.
+    샘플링하려는 형식의 세미콜론으로 구분된 목록 인식되는 형식: 종속성, 이벤트, 예외, 페이지 보기, 요청, 추적 지정된 형식이 샘플링되고 다른 형식의 모든 인스턴스가 항상 전송됩니다.
 
 
 적응 샘플링을 **해제 하려면** applicationinsights-구성에서 AdaptiveSamplingTelemetryProcessor 노드를 제거 합니다.
@@ -105,7 +105,7 @@ ASP.NET Core 응용 프로그램에 대 한 적응 샘플링을 구성 하는 [�
 
 .config 파일에서 샘플링 매개 변수를 설정하는 대신 프로그래밍 방식으로 이러한 값을 설정할 수 있습니다.
 
-1. .Config 파일에서 `AdaptiveSamplingTelemetryProcessor` 노드를 모두 제거 합니다.
+1. .Config 파일에서 모든 `AdaptiveSamplingTelemetryProcessor` 노드를 제거 합니다.
 2. 다음 코드 조각을 사용 하 여 적응 샘플링을 구성 합니다.
 
 *C#*
@@ -145,12 +145,12 @@ ASP.NET Core 응용 프로그램에 대 한 적응 샘플링을 구성 하는 [�
 
 ## <a name="configuring-adaptive-sampling-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 적응 샘플링을 구성 합니다.
 
-응용 프로그램에 `ApplicationInsights.Config` 대 한 ASP.NET Core 없으므로 모든 구성이 코드를 통해 수행 됩니다.
+ASP.NET Core 응용 프로그램에 대 한 `ApplicationInsights.Config`은 없으므로 모든 구성이 코드를 통해 수행 됩니다.
 적응 샘플링은 모든 ASP.NET Core 애플리케이션에 기본적으로 사용됩니다. 샘플링 동작을 사용하지 않도록 설정하거나 사용자 지정할 수 있습니다.
 
 ### <a name="turning-off-adaptive-sampling"></a>적응 샘플링 끄기
 
-메서드에 ```ConfigureServices```Application Insights 서비스를 추가 하는 동안 `Startup.cs` 파일 내에서를 사용 하 여 ```ApplicationInsightsServiceOptions``` 기본 샘플링 기능을 사용 하지 않도록 설정할 수 있습니다.
+Application Insights 서비스 @no__t @no__t @no__t를 추가 하는 동안 기본 샘플링 기능을 사용 하지 않도록 설정할 수 있습니다.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -195,9 +195,9 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ```
 
-**위의 메서드를 사용 하 여 샘플링을 구성 하는 경우 AddApplicationInsightsTelemetry ```aiOptions.EnableAdaptiveSampling = false;``` ()와 함께 설정을 사용 해야 합니다.**
+**위 메서드를 사용 하 여 샘플링을 구성 하는 경우 AddApplicationInsightsTelemetry ()와 ```aiOptions.EnableAdaptiveSampling = false;``` 설정을 사용 해야 합니다.**
 
-## <a name="fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites"></a>ASP.NET, ASP.NET Core 및 Java 웹 사이트에 대 한 고정 요금 샘플링
+## <a name="fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications"></a>ASP.NET, ASP.NET Core, Java websites 및 Python 응용 프로그램에 대 한 고정 요금 샘플링
 
 고정 비율 샘플링은 웹 서버와 웹 브라우저에서 전송되는 트래픽을 줄입니다. 적응 샘플링과 달리 사용자가 결정한 고정 비율로 원격 분석을 줄어듭니다. 또한 클라이언트와 서버 샘플링을 동기화하여 관련 항목이 유지되도록 합니다. 예를 들어 Search의 페이지 보기에서 관련 요청을 찾을 수 있습니다.
 
@@ -262,7 +262,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### <a name="configuring-fixed-rate-sampling-in-aspnet-core"></a>ASP.NET Core에서 고정 률 샘플링 구성
 
-1. **적응 샘플링을 사용하지 않도록 설정**:  다음을 사용 하 여 ```ConfigureServices``` ```ApplicationInsightsServiceOptions```메서드에서 변경 작업을 수행할 수 있습니다.
+1. **적응 샘플링 사용 안 함**: ```ConfigureServices``` ```ApplicationInsightsServiceOptions```를 사용 하 여 변경 내용을 적용할 수 있습니다.
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -276,7 +276,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
     }
     ```
 
-2. **고정 비율 샘플링 모듈을 사용하도록 설정합니다.** 아래 코드 조각과 같이 메서드에서 ```Configure``` 변경 작업을 수행할 수 있습니다.
+2. **고정 비율 샘플링 모듈을 사용하도록 설정합니다.** 아래 코드 조각에 표시 된 것 처럼 ```Configure``` 메서드에서 변경 내용을 적용할 수 있습니다.
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -327,7 +327,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
         </IncludedTypes>
     ```
 
-샘플링에서 포함 하거나 제외할 수 있는 원격 분석 유형은 다음과 같습니다. 종속성, 이벤트, 예외, 페이지 보기, 요청 및 추적입니다.
+샘플링에서 포함 하거나 제외할 수 있는 원격 분석 유형은 종속성, 이벤트, 예외, 페이지 보기, 요청 및 추적입니다.
 
 > [!NOTE]
 > 샘플링 비율의 경우 100/N(여기서 N은 정수)에 가까운 백분율을 선택합니다.  현재 샘플링은 다른 값을 지원하지 않습니다.
@@ -336,7 +336,27 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 <a name="other-web-pages"></a>
 
+### <a name="configuring-fixed-rate-sampling-in-opencensus-python"></a>OpenCensus Python에서 고정 된 등급 샘플링 구성 ###
 
+1. 최신 [OpenCensus Azure Monitor 내보내기](../../azure-monitor/app/opencensus-python.md)를 사용 하 여 응용 프로그램을 계측 합니다.
+
+> [!NOTE]
+> 고정 률 샘플링은 추적 내보내기를 사용 하는 경우에만 사용할 수 있습니다. 즉, 들어오고 나가는 요청은 샘플링을 구성할 수 있는 유일한 원격 분석 유형입니다.
+> 
+> 
+
+2. `Tracer` 구성의 일부로 `sampler`를 지정할 수 있습니다. 명시적 샘플러를 제공 하지 않으면 기본적으로 ProbabilitySampler가 사용 됩니다. ProbabilitySampler는 기본적으로 1/10000의 요금을 사용 합니다. 즉, 모든 1만 요청 중 하나가 Application Insights 전송 됩니다. 샘플링 속도를 지정하려면 아래를 참조하세요.
+
+3. 샘플러를 지정할 때 `Tracer`가 0.0에서 1.0 사이의 샘플링 비율에서 샘플러를 지정하는지 확인합니다. 샘플링 률 1.0은 100%를 나타내므로 모든 요청은 Application Insights에 대 한 원격 분석으로 전송 됩니다.
+
+    ```python
+    tracer = Tracer(
+        exporter=AzureExporter(
+            instrumentation_key='00000000-0000-0000-0000-000000000000',
+        ),
+        sampler=ProbabilitySampler(1.0),
+    )
+    ```
 
 ## <a name="ingestion-sampling"></a>수집 샘플링
 
@@ -361,7 +381,7 @@ SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 �
 ## <a name="sampling-for-web-pages-with-javascript"></a>JavaScript를 사용하는 웹 페이지에 대한 샘플링
 서버에서 고정 비율 샘플링에 대한 웹 페이지를 구성할 수 있습니다. 
 
-[Application Insights에 대한 웹 페이지를 구성](../../azure-monitor/app/javascript.md)할 때 Application Insights 포털에서 얻은 JavaScript 코드 조각을 수정합니다. (ASP.NET 앱에서 코드 조각은 일반적으로 _Layout.cshtml로 이동합니다.)  계측 키 앞에 `samplingPercentage: 10,`과 같은 줄을 삽입합니다.
+[Application Insights에 대한 웹 페이지를 구성](../../azure-monitor/app/javascript.md)할 때 Application Insights 포털에서 얻은 JavaScript 코드 조각을 수정합니다. ASP.NET apps에서 코드 조각은 일반적으로 _Layout. cshtml로 이동 합니다.  계측 키 앞에 `samplingPercentage: 10,`과 같은 줄을 삽입 합니다.
 
     <script>
     var appInsights= ... 
@@ -487,7 +507,7 @@ ASP.NET 버전 2.0.0 및 Java SDK 버전 2.0.1 이상에서 SDK의 고정 비율
 
 *원격 분석을 두 번 이상 샘플링할 수 있나요?*
 
-* 아니요. 항목이 이미 샘플링 된 경우 샘플링 고려 사항에서 항목을 무시 SamplingTelemetryProcessors. 수집 샘플링의 경우에도 마찬가지입니다. SDK 자체에서 이미 샘플링 된 항목에는 샘플링을 적용 하지 않습니다. '
+* 아닙니다. 항목이 이미 샘플링 된 경우 샘플링 고려 사항에서 항목을 무시 SamplingTelemetryProcessors. 수집 샘플링의 경우에도 마찬가지입니다. SDK 자체에서 이미 샘플링 된 항목에는 샘플링을 적용 하지 않습니다. '
 
 *샘플링은 왜 간단히 "각 원격 분석 형식의 X 퍼센트를 수집"하지 않습니까?*
 
@@ -519,7 +539,7 @@ ASP.NET 버전 2.0.0 및 Java SDK 버전 2.0.1 이상에서 SDK의 고정 비율
 
 *항상 보고 싶은 확실히 드문 이벤트가 있습니다. 이전의 샘플링 모듈에서 그 이벤트를 어떻게 가져올 수 있습니까?*
 
-* 이를 위해 사용자 지정 [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)을 작성 하는 것이 가장 좋습니다 .이 `SamplingPercentage` 는 아래와 같이 보존 하려는 원격 분석 항목에서를 100로 설정 합니다. 이니셜라이저가 원격 분석 프로세서 (샘플링 포함) 보다 먼저 실행 되도록 보장 되므로 모든 샘플링 기술이 샘플링 고려 사항에서이 항목을 무시 하 게 됩니다.
+* 이를 위해 사용자 지정 [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)을 작성 하는 것이 가장 좋습니다 .이는 아래와 같이 보존 하려는 원격 분석 항목에서 `SamplingPercentage`을 100로 설정 합니다. 이니셜라이저가 원격 분석 프로세서 (샘플링 포함) 보다 먼저 실행 되도록 보장 되므로 모든 샘플링 기술이 샘플링 고려 사항에서이 항목을 무시 하 게 됩니다.
 
 ```csharp
      public class MyTelemetryInitializer : ITelemetryInitializer

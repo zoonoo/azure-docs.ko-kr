@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bc671080a05e2c4e27fabcbab5cc40b9717dc85
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 41ff9bce6135936a4b23096fb18efecf7be1e1e2
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834884"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374107"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory 코드 샘플(v1.0 엔드포인트)
 
@@ -36,7 +36,7 @@ Microsoft Azure AD(Azure Active Directory)를 사용하여 웹 애플리케이�
 > [!NOTE]
 > Azure AD V2 코드 샘플에 관심이 있는 경우 [시나리오별 v2.0 코드 샘플](sample-v2-code.md)을 참조하세요.
 
-각 샘플 유형식에 대한 기본 시나리오를 이해하려면 [Azure AD의 인증 시나리오](authentication-scenarios.md)를 참조하세요.
+각 샘플 유형식에 대한 기본 시나리오를 이해하려면 [Azure AD의 인증 시나리오](v1-authentication-scenarios.md)를 참조하세요.
 
 GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsoft Azure Active Directory 샘플 및 설명서](https://github.com/Azure-Samples?page=3&query=active-directory)를 참조하세요.
 
@@ -67,7 +67,7 @@ GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Micro
 
 다음 샘플은 RBAC(역할 기반 액세스 제어)를 구현하는 방법을 보여 줍니다. RBAC는 웹 애플리케이션의 특정 기능에 대한 사용 권한을 특정 사용자로 제한하는 데 사용됩니다. 사용자가 **Azure AD 그룹**에 속해 있는지 또는 지정된 애플리케이션 **역할**이 있는지에 따라 권한이 부여됩니다.
 
-플랫폼 | 예제 |
+플랫폼 | 샘플 |
  -------- | ------------------- |
 ![이 이미지는 ASP.NET 로고를 보여줍니다.](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) </p>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | Azure AD **역할**을 권한 부여에 사용하는 .NET 4.5 MVC 웹앱
 
@@ -82,11 +82,11 @@ GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Micro
 클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 | ASP.NET 또는 ASP.NET Core 2.x Web API 호출
 ------------------ | -------- | ---------- | -------------------- | -------------------------
 데스크톱(WPF)           | ![이 이미지는 .NET/C# 로고를 보여줍니다.](media/sample-v2-code/logo_NET.png)  | 대화형 | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget)의 일부 | [Dotnet-native-desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotnet-native-aspnetcore](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validation](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
-모바일(UWP)            | 을 선택합니다.![이 이미지는 .NET/C#/uwp를 보여줍니다.](media/sample-v2-code/logo_Windows.png)   | 대화형 | [dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> 이 샘플은 [ADAL.NET](https://aka.ms/adalnet)이 아니라 [WAM](/windows/uwp/security/web-account-manager)을 사용합니다.|  [dotnet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store)(ADAL.NET을 사용하여 단일 테넌트 Web API를 호출하는 UWP 애플리케이션) </p> [dotnet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store)(ADAL.NET을 사용하여 다중 테넌트 Web API를 호출하는 UWP 애플리케이션)|
+모바일(UWP)            | .![이 이미지는 .NET/C#/uwp를 보여줍니다.](media/sample-v2-code/logo_Windows.png)   | 대화형 | [dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> 이 샘플은 [ADAL.NET](https://aka.ms/adalnet)이 아니라 [WAM](/windows/uwp/security/web-account-manager)을 사용합니다.|  [dotnet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store)(ADAL.NET을 사용하여 단일 테넌트 Web API를 호출하는 UWP 애플리케이션) </p> [dotnet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store)(ADAL.NET을 사용하여 다중 테넌트 Web API를 호출하는 UWP 애플리케이션)|
 모바일(Android, iOS, UWP)   | ![이 이미지는 .NET/C# (Xamarin)을 보여 줍니다.](media/sample-v2-code/logo_xamarin.png) | 대화형 | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
 모바일(Android)           | ![이 이미지는 Android 로고를 표시 합니다.](media/sample-v2-code/logo_Android.png) | 대화형 |   [android](https://github.com/Azure-Samples/active-directory-android) |
 모바일(iOS)           | ![이 이미지는 iOS/목표 C 또는 Swift를 보여 줍니다.](media/sample-v2-code/logo_iOS.png) | 대화형 |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
-데스크톱(콘솔)          | ![이 이미지는 .NET/C# 로고를 보여줍니다.](media/sample-v2-code/logo_NET.png) | 사용자 이름/암호 </p>  통합 Windows 인증 | | [dotnet-native-headless](https://github.com/azure-samples/active-directory-dotnet-native-headless)
+데스크톱(콘솔)          | ![이 이미지는 .NET/C# 로고를 보여줍니다.](media/sample-v2-code/logo_NET.png) | 사용자 이름/암호 </p>  Windows 통합 인증 | | [dotnet-native-headless](https://github.com/azure-samples/active-directory-dotnet-native-headless)
 데스크톱(콘솔)          | ![이 이미지는 Java 로고를 표시 합니다.](media/sample-v2-code/logo_Java.png) | 사용자 이름/암호 | | [java-native-headless](https://github.com/Azure-Samples/active-directory-java-native-headless)
 데스크톱(콘솔)           | ![이 이미지는 .NET Core/C# 로고를 표시 합니다.](media/sample-v2-code/logo_NETcore.png) | 디바이스 코드 흐름 | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
 
@@ -108,7 +108,7 @@ ASP.NET 웹앱  | ![이 이미지는 .NET 로고를 표시 합니다.](media/sam
 
 이 문서의 이전 섹션에서 ASP.NET 또는 ASP.NET Core **Web API**를 **호출**하는 클라이언트 애플리케이션을 보여 주는 다른 샘플을 확인할 수도 있습니다. 해당 샘플은 이 섹션에서 다시 언급되지 않지만 위 또는 아래 표의 마지막 열에 나와 있습니다.
 
-| 플랫폼 | 예제 |
+| 플랫폼 | 샘플 |
 |--------|-------------------|
 | ![이 이미지는 node.js 로고를 표시 합니다.](media/sample-v2-code/logo_nodejs.png)  | [node-webapi](https://github.com/Azure-Samples/active-directory-node-webapi) |
 
@@ -124,7 +124,7 @@ ASP.NET 웹앱  | ![이 이미지는 .NET 로고를 표시 합니다.](media/sam
 
 Azure AD 인증을 포함하여 Microsoft Graph API에 대한 여러 사용 패턴을 보여주는 샘플 및 자습서를 보려면 [Microsoft Graph 커뮤니티 샘플 및 자습서](https://github.com/microsoftgraph/msgraph-community-samples)를 참조하세요.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
 [Azure Active Directory 개발자 가이드](v1-overview.md)
 

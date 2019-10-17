@@ -5,26 +5,25 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 10/15/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 892cbe66222626a6847ad7a5b6c990d23991c182
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 74ca6f15baeeb9fe8adad4bda80e313a4b4cf03a
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002263"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376235"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>Azure Portal에서 Azure Storage 암호화를 위해 고객이 관리 하는 키 구성
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-이 문서에서는 [Azure Portal](https://portal.azure.com/)를 사용 하 여 고객이 관리 하는 키로 key vault를 구성 하는 방법을 보여 줍니다. Azure Portal를 사용 하 여 주요 자격 증명 모음을 만드는 방법에 [대 한 자세한 내용은 빠른 시작: Azure Portal](../../key-vault/quick-create-portal.md)를 사용 하 여 Azure Key Vault에서 비밀을 설정 하 고 검색 합니다. 
-
+이 문서에서는 [Azure Portal](https://portal.azure.com/)를 사용 하 여 고객이 관리 하는 키로 key vault를 구성 하는 방법을 보여 줍니다. Azure Portal를 사용 하 여 주요 자격 증명 모음을 만드는 방법을 알아보려면 [빠른 시작: Azure Portal을 사용 하 여 Azure Key Vault에서 비밀 설정 및 검색](../../key-vault/quick-create-portal.md)을 참조 하세요. 
 
 > [!IMPORTANT]
-> Azure Storage 암호화와 함께 고객 관리 키를 사용 하려면 키 자격 증명 모음에 구성 된 두 가지 필수 속성인 **일시 삭제** 및 **제거 안 함**이 있어야 합니다. 이러한 속성은 Azure Portal에서 새 키 자격 증명 모음을 만들 때 기본적으로 사용 하도록 설정 됩니다. 그러나 기존 키 자격 증명 모음에서 이러한 속성을 사용 하도록 설정 해야 하는 경우에는 PowerShell 또는 Azure CLI를 사용 해야 합니다.
+> Azure Storage 암호화와 함께 고객 관리 키를 사용 하려면 키 자격 증명 모음에 대해 두 개의 속성을 설정 해야 합니다. **일시 삭제** 하 고 **제거 하지**않아야 합니다. 이러한 속성은 기본적으로 사용 하도록 설정 되어 있지 않습니다. 이러한 속성을 사용 하도록 설정 하려면 PowerShell 또는 Azure CLI 중 하나를 사용 합니다.
 > RSA 키와 키 크기 2048만 지원 됩니다.
 
 ## <a name="enable-customer-managed-keys"></a>고객이 관리 하는 키 사용

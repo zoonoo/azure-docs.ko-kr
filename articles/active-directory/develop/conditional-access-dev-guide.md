@@ -16,18 +16,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc93a7de824aeaf173e7179de0b0233b73488feb
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 91947c243b521e970a89152f76abe9a99142b89d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321164"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373997"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>조건부 액세스 Azure Active Directory 개발자 지침
 
 Azure AD (Azure Active Directory)의 조건부 액세스 기능은 앱을 보호 하 고 서비스를 보호 하는 데 사용할 수 있는 여러 가지 방법 중 하나를 제공 합니다. 조건부 액세스를 통해 개발자와 기업 고객은 다음을 비롯 한 다양 한 방법으로 서비스를 보호할 수 있습니다.
 
-* Multi-Factor Authentication
+* Multi-factor authentication
 * Intune 등록 디바이스만 특정 서비스에 액세스할 수 있도록 허용
 * 사용자 위치 및 IP 범위 제한
 
@@ -35,13 +35,13 @@ Azure AD (Azure Active Directory)의 조건부 액세스 기능은 앱을 보호
 
 Azure AD 용 앱을 빌드하는 개발자를 위해이 문서에서는 조건부 액세스를 사용 하는 방법을 보여 주고, 조건부 액세스 정책을 적용할 수 있는 제어 권한이 없는 리소스에 대 한 액세스의 영향에 대해 알아봅니다. 또한이 문서에서는 흐름, 웹 앱, 액세스 Microsoft Graph 및 Api 호출에 대 한 조건부 액세스의 의미를 살펴봅니다.
 
-[단일](quickstart-v1-integrate-apps-with-azure-ad.md) 및 [다중 테넌트](howto-convert-app-to-be-multi-tenant.md) 앱과 [일반 인증 패턴](authentication-scenarios.md)에 대해 알고 있다고 가정합니다.
+[단일](quickstart-v1-integrate-apps-with-azure-ad.md) 및 [다중 테넌트](howto-convert-app-to-be-multi-tenant.md) 앱과 [일반 인증 패턴](v1-authentication-scenarios.md)에 대해 알고 있다고 가정합니다.
 
 ## <a name="how-does-conditional-access-impact-an-app"></a>조건부 액세스는 앱에 어떤 영향을 미칩니까?
 
 ### <a name="app-types-impacted"></a>영향을 받는 앱 형식
 
-대부분의 경우 조건부 액세스는 앱의 동작을 변경 하거나 개발자의 변경 내용을 요구 하지 않습니다. 앱에서 서비스에 대 한 토큰을 간접적으로 요청 하거나 자동으로 요청 하는 경우에만 앱에서 조건부 액세스 "챌린지"를 처리 하기 위해 코드를 변경 해야 합니다. 이것은 대화형 로그인 요청을 수행하는 것처럼 간단할 수도 있습니다.
+대부분의 경우 조건부 액세스는 앱의 동작을 변경 하거나 개발자의 변경 내용을 요구 하지 않습니다. 앱에서 서비스에 대 한 토큰을 간접적으로 요청 하거나 자동으로 요청 하는 경우에만 앱에서 조건부 액세스 "챌린지"를 처리 하기 위해 코드를 변경 해야 합니다. 대화형 로그인 요청을 수행 하는 것 처럼 간단할 수 있습니다.
 
 특히 다음 시나리오에서는 조건부 액세스 "챌린지"를 처리 하는 코드가 필요 합니다.
 
@@ -50,7 +50,7 @@ Azure AD 용 앱을 빌드하는 개발자를 위해이 문서에서는 조건�
 * ADAL.js를 사용하는 단일 페이지 앱
 * 리소스를 호출하는 Web Apps
 
-앱에 조건부 액세스 정책을 적용할 수 있지만 앱이 액세스 하는 웹 API에도 적용할 수 있습니다. 조건부 액세스 정책을 구성 하는 방법에 대 한 자세한 내용은 [빠른 시작: 조건부 액세스](../conditional-access/app-based-mfa.md)Azure Active Directory 있는 특정 앱에 대해 MFA를 요구 합니다.
+앱에 조건부 액세스 정책을 적용할 수 있지만 앱이 액세스 하는 웹 API에도 적용할 수 있습니다. 조건부 액세스 정책을 구성 하는 방법에 대 한 자세한 내용은 [빠른 시작: 조건부 액세스 Azure Active Directory를 사용 하 여 특정 앱에 대 한 MFA 요구](../conditional-access/app-based-mfa.md)를 참조 하세요.
 
 시나리오에 따라 기업 고객은 언제 든 지 조건부 액세스 정책을 적용 하 고 제거할 수 있습니다. 새 정책이 적용될 때 앱이 계속 작동하도록 하려면 “챌린지” 처리를 구현해야 합니다. 다음 예에서는 챌린지 처리를 보여 줍니다.
 
@@ -79,7 +79,7 @@ scopes="Bookings.Read.All Mail.Read"
 
 여러 가지 다른 앱 토폴로지에서는 세션이 설정 될 때 조건부 액세스 정책이 평가 됩니다. 조건부 액세스 정책은 앱 및 서비스의 세분성에서 작동 하므로 호출 되는 지점은 달성 하려는 시나리오에 따라 크게 달라 집니다.
 
-앱이 조건부 액세스 정책을 사용 하 여 서비스에 액세스 하려고 하면 조건부 액세스 과제가 발생할 수 있습니다. 이 챌린지는 Azure AD의 `claims` 응답에 제공 되는 매개 변수에 인코딩됩니다. 이 챌린지 매개 변수의 예는 다음과 같습니다. 
+앱이 조건부 액세스 정책을 사용 하 여 서비스에 액세스 하려고 하면 조건부 액세스 과제가 발생할 수 있습니다. 이 챌린지는 Azure AD의 응답에 제공 되는 `claims` 매개 변수로 인코딩됩니다. 이 챌린지 매개 변수의 예는 다음과 같습니다. 
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
@@ -114,7 +114,7 @@ Web API 1에서 항상 다운스트림 API를 호출하는 것은 아니므로 W
 Azure AD는 몇 가지 흥미로운 데이터가 포함된 HTTP 응답을 반환합니다.
 
 > [!NOTE]
-> 이 인스턴스에서는 multi-factor authentication 오류 설명 이지만 조건부 액세스와 관련 하 여 다양 한 범위 `interaction_required` 를 사용할 수 있습니다.
+> 이 경우 multi-factor authentication 오류 설명 이지만 조건부 액세스와 관련 하 여 다양 한 `interaction_required`을 사용할 수 있습니다.
 
 ```
 HTTP 400; Bad Request
@@ -146,7 +146,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ![새 토큰을 요청하는 여러 서비스에 액세스하는 앱](./media/conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
 
-앱에서 ADAL 라이브러리를 사용하는 경우 토큰을 획득하지 못하면 항상 대화형으로 다시 시도합니다. 이 대화형 요청이 발생 하면 최종 사용자가 조건부 액세스를 준수할 기회가 있습니다. 요청이 `AcquireTokenSilentAsync` ```AcquireToken``` 이거나 `PromptBehavior.Never` 응용 프로그램에서 최종 사용자에 게 정책을 준수할 수 있는 기회를 제공 하기 위해 대화형 요청을 수행 해야 하는 경우에만 마찬가지입니다.
+앱에서 ADAL 라이브러리를 사용하는 경우 토큰을 획득하지 못하면 항상 대화형으로 다시 시도합니다. 이 대화형 요청이 발생 하면 최종 사용자가 조건부 액세스를 준수할 기회가 있습니다. 요청이 `AcquireTokenSilentAsync` 또는 `PromptBehavior.Never` 인 경우에만 적용 됩니다 .이 경우 앱은 대화형 ```AcquireToken``` 요청을 수행 하 여 최종 사용자에 게 정책을 준수할 수 있는 기회를 제공 해야 합니다.
 
 ## <a name="scenario-single-page-app-spa-using-adaljs"></a>시나리오: ADAL.js를 사용하는 SPA(단일 페이지 앱)
 
@@ -154,15 +154,15 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ADAL.js에는 토큰을 얻기 위핸 몇 가지 함수가 있습니다(예: `login()`, `acquireToken(...)`, `acquireTokenPopup(…)` 및 `acquireTokenRedirect(…)`).
 
-* `login()`대화형 로그인 요청을 통해 ID 토큰을 가져오지만 조건부 액세스 보호 된 web API를 포함 하 여 모든 서비스에 대 한 액세스 토큰을 가져오지는 않습니다.
+* `login()`은 대화형 로그인 요청을 통해 ID 토큰을 가져오지만 조건부 액세스 보호 된 web API를 포함 하 여 모든 서비스에 대 한 액세스 토큰을 가져오지는 않습니다.
 * 그런 다음 `acquireToken(…)`을 사용하여 액세스 토큰을 자동으로 얻을 수 있는데, 이는 어떤 상황에서도 UI가 표시되지 않음을 의미합니다.
 * `acquireTokenPopup(…)` 및 `acquireTokenRedirect(…)`는 리소스에 대한 토큰을 대화형으로 요청하는 데 사용되며 이는 항상 로그인 UI가 표시됨을 의미합니다.
 
-앱에서 Web API를 호출하는 데 액세스 토큰이 필요한 경우 `acquireToken(…)`을 시도합니다. 토큰 세션이 만료 되었거나 조건부 액세스 정책을 준수 해야 하는 경우 *acquireToken* 함수는 실패 하 고 앱은 또는 `acquireTokenPopup()` `acquireTokenRedirect()`를 사용 합니다.
+앱에서 Web API를 호출하는 데 액세스 토큰이 필요한 경우 `acquireToken(…)`을 시도합니다. 토큰 세션이 만료 되었거나 조건부 액세스 정책을 준수 해야 하는 경우 *acquireToken* 함수는 실패 하 고 앱은 `acquireTokenPopup()` 또는 `acquireTokenRedirect()`를 사용 합니다.
 
 ![ADAL 흐름을 사용하는 단일 페이지 앱 다이어그램](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
 
-조건부 액세스 시나리오에 대 한 예제를 살펴보겠습니다. 최종 사용자는 방금 사이트에 연결되었고 세션이 없습니다. `login()` 호출을 수행하면 다단계 인증 없이 ID 토큰을 가져옵니다. 그러면 사용자는 단추를 눌러 앱이 Web API로부터 데이터를 요청하도록 해야 합니다. 앱은 `acquireToken()` 호출을 시도 하지만 사용자가 이미 multi-factor authentication을 수행 하지 않았으므로 조건부 액세스 정책을 준수 해야 하므로 실패 합니다.
+조건부 액세스 시나리오에 대 한 예제를 살펴보겠습니다. 최종 사용자는 방금 사이트에 연결되었고 세션이 없습니다. `login()` 호출을 수행하면 다단계 인증 없이 ID 토큰을 가져옵니다. 그러면 사용자는 단추를 눌러 앱이 Web API로부터 데이터를 요청하도록 해야 합니다. 앱은 `acquireToken()` 호출을 시도 하지만, 사용자가 multi-factor authentication을 아직 수행 하지 않았으므로 조건부 액세스 정책을 준수 해야 하므로 실패 합니다.
 
 Azure AD는 다음 HTTP 응답을 다시 보냅니다.
 
@@ -176,7 +176,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 이 시나리오를 사용해 보려면 [JS SPA On-behalf-of 샘플 코드](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca)를 참조하세요. 이 코드 샘플에서는이 시나리오를 보여 주기 위해 JS SPA를 사용 하 여 이전에 등록 한 조건부 액세스 정책 및 web API를 사용 합니다. 클레임 챌린지를 올바르게 처리하고 Web API에 사용할 수 있는 액세스 토큰을 가져오는 방법을 보여 줍니다. 또한 Angular SPA에 대한 지침은 일반 [Angular.js 샘플 코드](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp)를 확인하세요.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
 * 기능에 대해 자세히 알아보려면 [Azure Active Directory의 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 참조하세요.
 * 더 많은 Azure AD 샘플 코드를 보려면 [샘플 코드의 GitHub 리포지토리](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory)를 참조하세요.

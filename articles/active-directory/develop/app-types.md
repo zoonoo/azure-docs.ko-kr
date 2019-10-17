@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efed9e35aed729c9efa39b0772b681d8c53ba7b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72fab8a51f1ea1b9c7bda14d825dad538f96cde6
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540656"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374058"
 ---
 # <a name="application-types-in-v10"></a>v1.0의 애플리케이션 유형
 
@@ -34,11 +34,11 @@ Azure AD(Azure Active Directory)는 모두 업계 표준 프로토콜 OAuth 2.0 
 
 다음은 Azure AD에서 지원되는 다섯 가지 기본 애플리케이션 시나리오입니다.
 
-- **[SPA(단일 페이지 애플리케이션)](single-page-application.md)** : 사용자가 Azure AD로 보호되는 단일 페이지 애플리케이션에 로그인해야 합니다.
-- **[웹 브라우저-웹 애플리케이션](web-app.md)** : 사용자가 Azure AD로 보호되는 웹 애플리케이션에 로그인해야 합니다.
-- **[네이티브 애플리케이션-웹 API](native-app.md)** : Azure AD로 보호되는 웹 API에서 리소스를 가져오기 위해 전화, 태블릿 또는 PC에서 실행되는 네이티브 애플리케이션에서 사용자를 인증해야 합니다.
-- **[웹 애플리케이션-웹 API](web-api.md)** : 웹 애플리케이션에서 Azure AD로 보호되는 웹 API로부터 리소스를 가져와야 합니다.
-- **[디먼 또는 서버 애플리케이션-웹 API](service-to-service.md)** : 웹 사용자 인터페이스가 없는 디먼 애플리케이션 또는 서버 애플리케이션에서 Azure AD로 보호되는 웹 API로부터 리소스를 가져와야 합니다.
+- **[SPA(단일 페이지 애플리케이션)](single-page-application.md)** : 사용자가 Azure AD로 보호된 단일 페이지 애플리케이션에 로그인해야 합니다.
+- **[웹 브라우저-웹 애플리케이션](web-app.md)** : 사용자가 Azure AD로 보호된 웹 애플리케이션에 로그인해야 합니다.
+- **[네이티브 애플리케이션-웹 API](native-app.md)** : 전화, 태블릿 또는 PC에서 실행되는 네이티브 애플리케이션이 사용자를 인증해야 Azure AD로 보호된 웹 API에서 리소스를 가져올 수 있습니다.
+- **[웹 애플리케이션-웹 API](web-api.md)** : 웹 애플리케이션이 Azure AD로 보호된 웹 API에서 리소스를 가져와야 합니다.
+- **[디먼 또는 서버 애플리케이션-웹 API](service-to-service.md)** : 웹 사용자 인터페이스가 없는 서버 애플리케이션 또는 디먼 애플리케이션이 Azure AD로 보호된 웹 API에서 리소스를 가져와야 합니다.
 
 코드 작업을 시작하기 전에 링크를 따라 각 앱 유형에 대해 자세히 알아보고 대략적인 시나리오를 파악하세요. v1.0 엔드포인트 또는 v2.0 엔드포인트에서 작동하는 특정 앱을 작성할 때 알아야 할 차이점을 살펴볼 수도 있습니다.
 
@@ -82,4 +82,4 @@ Azure AD를 사용하여 개발 및 통합할 수 있는 두 가지 범주의 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 다른 Azure AD [인증 기본 사항](authentication-scenarios.md)에 대해 자세히 알아보기
+- 다른 Azure AD [인증 기본 사항](v1-authentication-scenarios.md)에 대해 자세히 알아보기

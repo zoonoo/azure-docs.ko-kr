@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0c1bbbdf9b42dfe2b507f533ad1806e06991f33
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e7008a5909d8f530920628125fec1b826be3f984
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835423"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374198"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>ADAL(Azure Active Directory 인증 라이브러리) 클라이언트에 대한 오류 처리 모범 사례
 
@@ -52,10 +52,10 @@ AcquireTokenSilent는 최종 사용자가 UI(사용자 인터페이스)를 보�
 
 기본적으로 AcquireTokenSilent 오류는 두 가지 사례가 있습니다.
 
-| 사례 | Description |
+| 사례 | 설명 |
 |------|-------------|
 | **사례 1**: 대화형 로그인으로 해결 가능한 오류 | 유효한 토큰이 부족하여 오류가 발생하면 대화형 요청이 필요합니다. 특히 캐시 조회 및 잘못된/만료된 새로 고침 토큰을 해결하려면 AcquireToken을 호출해야 합니다.<br><br>이러한 경우 최종 사용자에게 로그인하라는 메시지가 표시되어야 합니다. 애플리케이션은 최종 사용자 조작(예: 로그인 단추 누르기) 이후 또는 나중에 대화형 요청을 수행하도록 선택할 수 있습니다. 선택 사항은 원하는 애플리케이션 동작에 따라 달라집니다.<br><br>구체적인 사례와 진단되는 오류는 다음 섹션의 코드를 참조하세요.|
-| **사례 2**: 대화형 로그인으로 해결 가능하지 않은 오류 | 네트워크 오류 및 일시적/임시 오류 또는 기타 실패의 경우 대화형 AcquireToken 요청을 수행해도 문제가 해결되지 않습니다. 불필요한 대화형 로그인 프롬프트는 최종 사용자에게 불편을 줄 수도 있습니다. AcquireTokenSilent 실패 시 ADAL은 대부분의 오류에 대해 자동으로 다시 시도를 한 번 수행합니다.<br><br>클라이언트 애플리케이션에서 나중에 다시 시도할 수도 있지만 수행하는 시기와 방법은 애플리케이션 동작 및 원하는 최종 사용자 경험에 따라 달라집니다. 예를 들어 애플리케이션은 몇 분 후 또는 일부 최종 사용자 작업에 대한 응답으로 AcquireTokenSilent 다시 시도를 수행할 수 있습니다. 즉시 다시 시도는 애플리케이션이 제한되는 결과를 가져오므로 수행하지 않아야 합니다.<br><br>후속 다시 시도가 동일한 오류로 실패해도 클라이언트에서 AcquireToken을 사용하여 대화형 요청을 수행해야 한다는 것을 의미하지 않습니다. 오류가 해결되지 않기 때문입니다.<br><br>구체적인 사례와 진단되는 오류는 다음 섹션의 코드를 참조하세요. |
+| **사례 2**: 대화형 로그인으로 해결 가능하지 않은 오류 | 네트워크 오류 및 일시적/임시 오류 또는 기타 실패의 경우 대화형 AcquireToken 요청을 수행해도 문제가 해결되지 않습니다. 불필요한 대화형 로그인 프롬프트는 최종 사용자에게 불편을 줄 수도 있습니다. AcquireTokenSilent 실패 시 ADAL은 대부분의 오류에 대해 자동으로 다시 시도를 한 번 수행합니다.<br><br>클라이언트 응용 프로그램은 나중에 다시 시도를 시도할 수도 있지만 응용 프로그램 동작 및 원하는 최종 사용자 환경에 따라가 달라 지는 시기와 방법을 보여 줍니다. 예를 들어 애플리케이션은 몇 분 후 또는 일부 최종 사용자 작업에 대한 응답으로 AcquireTokenSilent 다시 시도를 수행할 수 있습니다. 즉시 다시 시도는 애플리케이션이 제한되는 결과를 가져오므로 수행하지 않아야 합니다.<br><br>후속 다시 시도가 동일한 오류로 실패해도 클라이언트에서 AcquireToken을 사용하여 대화형 요청을 수행해야 한다는 것을 의미하지 않습니다. 오류가 해결되지 않기 때문입니다.<br><br>구체적인 사례와 진단되는 오류는 다음 섹션의 코드를 참조하세요. |
 
 ### <a name="net"></a>.NET
 
@@ -200,8 +200,8 @@ AcquireToken 오류를 처리하는 경우 애플리케이션이 달성하려고
 
 |  |  |
 |------|-------------|
-| **사례 1**:<br>다시 시도할 수 없는 오류(대부분의 경우) | 1. 즉시 다시 시도하지 마세요. 특정 오류에 따라 다시 시도를 호출하는 최종 사용자 UI를 제시합니다(“다시 로그인 시도”, “Azure AD Broker 애플리케이션 다운로드” 등). |
-| **사례 2**:<br>다시 시도 가능한 오류 | 1. 최종 사용자가 성공하는 상태를 입력했을 수 있으므로 다시 한 번 시도합니다.<br><br>2. 다시 시도가 실패하면 특정 오류에 따라 다시 시도를 호출하는 최종 사용자 UI를 제시합니다(“다시 로그인 시도”, “Azure AD Broker 앱 다운로드” 등). |
+| **사례 1**:<br>다시 시도할 수 없는 오류(대부분의 경우) | 1. 즉각적인 재시도를 시도 하지 않습니다. 다시 시도를 호출 하는 특정 오류 (예: "다시 로그인 시도" 또는 "Azure AD broker 응용 프로그램 다운로드")를 기반으로 최종 사용자 UI를 표시 합니다. |
+| **사례 2**:<br>다시 시도 가능한 오류 | 1. 최종 사용자가 성공 하는 상태를 입력 했을 수 있으므로 단일 재시도를 수행 합니다.<br><br>2. 다시 시도에 실패 하는 경우 다시 시도를 호출 하는 특정 오류 ("다시 로그인 시도", "Azure AD broker 앱 다운로드" 등)를 기반으로 최종 사용자 UI를 표시 합니다. |
 
 > [!IMPORTANT]
 > 사용자 계정이 자동 호출로 ADAL로 전달되고 실패하는 경우 후속 대화형 요청을 사용하면 최종 사용자가 다른 계정을 사용하여 로그인할 수 있습니다. 사용자 계정을 사용하여 AcquireToken이 성공적으로 완료되면 애플리케이션에서 로그인한 사용자가 애플리케이션의 로컬 사용자 개체와 일치하는지 확인해야 합니다. 불일치해도 예외가 생성되지 않지만(Objective C 제외) 사용자가 인증 요청 전에 로컬에 알려져 있는 경우 불일치가 고려되어야 합니다(예: 실패한 자동 호출).
@@ -212,9 +212,9 @@ AcquireToken 오류를 처리하는 경우 애플리케이션이 달성하려고
 다음 지침에서는 아래 메서드를 *제외한* 모든 비자동 AcquireToken(…) ADAL 메서드 사용과 관련된 오류 처리 예를 제공합니다. 
 
 - AcquireTokenAsync(…, IClientAssertionCertification, …)
-- AcquireTokenAsync(…,ClientCredential, …)
-- AcquireTokenAsync(…,ClientAssertion, …)
-- AcquireTokenAsync(…,UserAssertion,…)   
+- AcquireTokenAsync (..., ClientCredential, ...)
+- AcquireTokenAsync (..., ClientAssertion, ...)
+- AcquireTokenAsync (..., UserAssertion,...)   
 
 코드는 다음과 같이 구현됩니다.
 
@@ -374,9 +374,9 @@ AcquireToken과 adal.js를 사용하여 단일 페이지 애플리케이션을 �
 
 |  |  |
 |------|-------------|
-| **사례 1**:<br>대화형 요청으로 해결 가능합니다. | 1. login()이 실패하는 경우 즉시 다시 시도하지 마세요. 사용자 작업 이후 다시 시도에서만 다시 시도 메시지가 표시됩니다.|
-| **사례 2**:<br>대화형 요청으로 해결 가능하지 않습니다. 오류가 다시 시도 가능합니다. | 1. 최종 사용자가 성공하는 상태를 입력했을 수 있으므로 다시 한 번 시도합니다.<br><br>2. 다시 시도가 실패하면 특정 오류에 따라 다시 시도를 호출할 수 있는 작업을 최종 사용자에게 제시합니다(“다시 로그인 시도”). |
-| **사례 3**:<br>대화형 요청으로 해결 가능하지 않습니다. 오류로 인해 다시 시도할 수 없습니다. | 1. 즉시 다시 시도하지 마세요. 특정 오류에 따라 다시 시도를 호출할 수 있는 작업을 최종 사용자에게 제시합니다(“다시 로그인 시도”). |
+| **사례 1**:<br>대화형 요청으로 해결 가능합니다. | 1. 로그인 ()이 실패 하면 즉시 다시 시도 하지 마십시오. 사용자 작업 이후 다시 시도에서만 다시 시도 메시지가 표시됩니다.|
+| **사례 2**:<br>대화형 요청으로 해결 가능하지 않습니다. 오류가 다시 시도 가능합니다. | 1. 최종 사용자의 주요 작업이 성공 하는 상태를 입력 하 여 한 번의 재시도를 수행 합니다.<br><br>2. 다시 시도에 실패 하는 경우 다시 시도를 호출할 수 있는 특정 오류에 따라 최종 사용자에 게 작업을 표시 합니다 ("다시 로그인 시도"). |
+| **사례 3**:<br>대화형 요청으로 해결 가능하지 않습니다. 오류로 인해 다시 시도할 수 없습니다. | 1. 즉각적인 재시도를 시도 하지 않습니다. 특정 오류에 따라 다시 시도를 호출할 수 있는 작업을 최종 사용자에게 제시합니다(“다시 로그인 시도”). |
 
 코드는 다음과 같이 구현됩니다.
 
@@ -482,8 +482,8 @@ catch (AdalException e) {
 
 ## <a name="error-and-logging-reference"></a>오류 및 로깅 참조
 
-### <a name="logging-personal-identifiable-information-pii--organizational-identifiable-information-oii"></a>PII(개인 식별이 가능한 정보) 및 OII(조직 식별이 가능한 정보) 로깅
-기본적으로 ADAL 로깅은 PII 또는 OII를 캡처하거나 로그하지 않습니다. 라이브러리는 앱 개발자가 로거 클래스의 setter를 통해 이를 켜도록 허용합니다. PII 또는 OII를 켜면 앱은 매우 중요한 데이터를 안전하게 처리하고 모든 규정 준수에 대한 책임을 지게 됩니다.
+### <a name="logging-personal-identifiable-information--organizational-identifiable-information"></a>조직에서 식별 가능한 정보 & 개인 식별이 가능한 정보 로깅 
+기본적으로 ADAL 로깅은 개인 식별이 가능한 정보나 조직에서 식별할 수 있는 정보를 캡처하거나 기록 하지 않습니다. 라이브러리는 앱 개발자가 로거 클래스의 setter를 통해 이를 켜도록 허용합니다. 개인 식별이 가능한 정보 또는 조직의 식별 가능한 정보를 기록 하 여 앱은 매우 중요 한 데이터를 안전 하 게 처리 하 고 규정 요구 사항을 준수 합니다.
 
 ### <a name="net"></a>.NET
 
@@ -586,11 +586,11 @@ window.Logging = {
 
 아래의 의견 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
 
-[!["Microsoft에 로그인" 단추를 표시 합니다.][AAD-Sign-In]][AAD-Sign-In]
+[![은 "Microsoft에 로그인" 단추를 표시 합니다.][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
-[AAD-Auth-Scenarios]:authentication-scenarios.md
+[AAD-Auth-Scenarios]:v1-authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AZURE-portal]: https://portal.azure.com

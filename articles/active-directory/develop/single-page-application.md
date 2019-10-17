@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f6f66779bec9ed4e38e5a662c2d3728ba2034b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8afb226406c02f395c7112d485d4616bfbec140e
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545307"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373863"
 ---
 # <a name="single-page-applications"></a>단일 페이지 애플리케이션
 
@@ -68,4 +68,4 @@ ADAL.js를 사용하면 다음과 같은 이점이 있습니다.
 ## <a name="next-steps"></a>다음 단계
 
 * 다른 [애플리케이션 유형 및 시나리오](app-types.md)에 대해 자세히 알아보기
-* Azure AD [인증 기본 사항](authentication-scenarios.md)에 대해 자세히 알아보기
+* Azure AD [인증 기본 사항](v1-authentication-scenarios.md)에 대해 자세히 알아보기

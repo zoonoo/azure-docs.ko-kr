@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: c1c374977460de04d2339ba8c93019cf9152dbe3
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 44b3830465bf2b5aa06612aa868b086b120f1ece
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262709"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372270"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>위협 인텔리전스 공급자의 데이터 연결
 
@@ -50,7 +50,7 @@ Azure 센티널을 사용 하면 조직에서 사용 하는 위협 지표를 가
 - [ThreatConnect 플랫폼](https://threatconnect.com/solution/)
 
 
-## <a name="prerequisites"></a>사전 요구 사항  
+## <a name="prerequisites"></a>전제 조건  
 
 - 전역 관리자 또는 보안 관리자의 Azure AD 역할로, Microsoft Graph Security tiIndicators API와의 직접 통합을 사용 하는 사용자 지정 응용 프로그램 또는 팁 제품에 대 한 사용 권한을 부여 합니다.
 
@@ -60,9 +60,9 @@ Azure 센티널을 사용 하면 조직에서 사용 하는 위협 지표를 가
 
 1. 응용 프로그램 ID, 응용 프로그램 암호 및 Azure Active Directory 테 넌 트 ID를 가져오려면 Azure Active Directory에 [응용 프로그램을 등록](/graph/auth-v2-service#1-register-your-app) 합니다. Microsoft Graph Security tiIndicators API와의 직접 통합을 사용 하는 통합 팁 제품 또는 앱을 구성 하는 경우에 이러한 값이 필요 합니다.
 
-2. 등록 된 응용 프로그램에 대 한 [API 권한 구성](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) : 등록 된 응용 프로그램에 Microsoft Graph 응용 프로그램 권한 OwnedBy를 추가 합니다. **ThreatIndicators** .
+2. 등록 된 응용 프로그램에 대 한 [API 권한 구성](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) : Microsoft Graph 응용 프로그램 권한 **ThreatIndicators** 을 등록 된 응용 프로그램에 추가 합니다.
 
-3. Azure Active Directory 테 넌 트 관리자에 게 문의 하 여 조직에 등록 된 응용 프로그램에 관리자 동의를 부여 합니다. Azure 포털에서 다음을 수행합니다. **Azure Active Directory** > **앱 등록** ***앱*이름ViewAPI>권한 부여에 대 한 관리자 동의 부여\<**  >  >  >  ***테 넌 트*이름>입니다. \<**
+3. Azure Active Directory 테 넌 트 관리자에 게 문의 하 여 조직에 등록 된 응용 프로그램에 관리자 동의를 부여 합니다. Azure Portal: **Azure Active Directory** > **앱 등록** >  @no__t-**5_앱 이름_>**  > **View API Permissions**0 @no__t**에 대 한 관리자 동의 부여-12_테 넌 트 이름_ 4**.
 
 4. 다음을 지정 하 여 Azure 센티널에 표시기를 보내도록 Microsoft Graph Security tiIndicators API와의 직접 통합을 사용 하는 TIP 제품 또는 앱을 구성 합니다.
     
@@ -70,13 +70,13 @@ Azure 센티널을 사용 하면 조직에서 사용 하는 위협 지표를 가
     
     b. 대상 제품의 경우 Azure 센티널을 지정 합니다.
     
-    c. 작업의 경우 경고를 지정 합니다.
+    다. 작업의 경우 경고를 지정 합니다.
 
 5. Azure Portal에서 **Azure 센티널** > **데이터 커넥터** 로 이동한 다음, **위협 인텔리전스 플랫폼 (미리 보기)** 커넥터를 선택 합니다.
 
 6. **커넥터 페이지 열기**를 선택한 다음 **연결**을 선택 합니다.
 
-7. Azure 센티널로 가져온 위협 지표를 보려면 **azure 센티널-Logs** > **securityinsights**로 이동한 다음 **ThreatIntelligenceIndicator**를 확장 합니다.
+7. Azure 센티널로 가져온 위협 지표를 보려면 **Azure 센티널-Logs** > **securityinsights**로 이동한 다음 **ThreatIntelligenceIndicator**를 확장 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

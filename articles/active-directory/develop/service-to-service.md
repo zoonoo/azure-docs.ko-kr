@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 683664b3172cb12ba6adf6c8006e9685a6d1ec35
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8f95dfd6410ae22a4596ac7d5d72add57e8029d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540312"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373887"
 ---
 # <a name="service-to-service-apps"></a>서비스 간 앱
 
@@ -73,4 +73,4 @@ ms.locfileid: "65540312"
 ## <a name="next-steps"></a>다음 단계
 
 - 다른 [애플리케이션 유형 및 시나리오](app-types.md)에 대해 자세히 알아보기
-- Azure AD [인증 기본 사항](authentication-scenarios.md)에 대해 자세히 알아보기
+- Azure AD [인증 기본 사항](v1-authentication-scenarios.md)에 대해 자세히 알아보기

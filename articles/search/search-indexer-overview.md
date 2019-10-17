@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: e50d88181a27dcc46da858f220404eb09ad9b4bd
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 55a9e06ad09c4c3635a2925956cac75c24b2c3c6
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308963"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376395"
 ---
 # <a name="indexers-in-azure-search"></a>Azure Search의 인덱서
 
@@ -35,25 +35,27 @@ Azure Search의 *인덱서*는 외부 Azure 데이터 원본에서 검색 가능
 
 처음에 새 인덱서는 미리 보기 기능으로 발표됩니다. 미리 보기 기능은 API(REST 및 .NET)에 도입된 다음 일반 공급으로 조정 후 포털로 통합됩니다. 새 인덱서를 평가하고 있다면 코드 작성을 계획해야 합니다.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 상태 또는 정의에 대 한 GET 요청을 포함 하 여 인덱서와 관련 된 모든 작업에는 [관리 api 키](search-security-api-keys.md)가 필요 합니다. 
 
 <a name="supported-data-sources"></a>
 
-## <a name="supported-data-sources"></a>지원되는 데이터 원본
+## <a name="supported-data-sources"></a>지원된 데이터 원본
 
 인덱서는 Azure에서 데이터 저장소를 크롤링합니다.
 
-* [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+* [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [Azure Virtual Machines의 SQL Server](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+* [Azure의 SQL 관리 되는 인스턴스](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
 ## <a name="basic-configuration-steps"></a>기본 구성 단계
 인덱서는 데이터 원본에 고유한 기능을 제공할 수 있습니다. 이러한 점에서 인덱서 또는 데이터 원본 구성의 일부 측면은 인덱서 유형에 따라 달라집니다. 그러나 인덱서는 모두 동일한 기본 구성 및 요구 사항을 공유합니다. 인덱서 모두에 공통되는 단계는 아래에서 다룹니다.
 
-### <a name="step-1-create-a-data-source"></a>1단계: 데이터 원본 만들기
+### <a name="step-1-create-a-data-source"></a>1단계: 데이터 소스 만들기
 인덱서는 *데이터 원본* 개체에서 데이터 원본 연결을 가져옵니다. 데이터 원본 정의는 연결 문자열 및 자격 증명을 제공 합니다. [데이터 원본 만들기](https://docs.microsoft.com/rest/api/searchservice/create-data-source) REST API 또는 [DataSource 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource)를 호출하여 리소스를 만듭니다.
 
 데이터 소스는 데이터 소스를 사용하는 인덱서와는 별도로 구성 및 관리됩니다. 즉 데이터 소스를 여러 인덱서에서 사용하여 한 번에 둘 이상의 인덱스를 로드할 수 있습니다.

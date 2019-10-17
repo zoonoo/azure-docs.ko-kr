@@ -12,45 +12,45 @@ ms.topic: reference
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: cf39c8b5e204493380c095519e0ff25c3ce19f68
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 46e7f5b5376622be9a05265942b6aceb38feebac
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959895"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372449"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Azure Functions에 대한 Application Insights 지원 기능
 
-Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Application Insights와의 [기본 제공 통합](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)을 제공합니다. 다음은 현재 지원되는 기능 목록입니다. Azure Functions 가이드에서 [시작](https://github.com/Azure/Azure-Functions/wiki/App-Insights) 방법을 검토하세요.
+Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Application Insights와의 [기본 제공 통합](../../azure-functions/functions-monitoring.md)을 제공합니다. 다음은 현재 지원되는 기능 목록입니다. Azure Functions 가이드에서 [시작](../../azure-functions/functions-monitoring.md#enable-application-insights-integration) 방법을 검토하세요.
 
 ## <a name="supported-features"></a>지원되는 기능
 
-| Azure Functions                       | V1                | V2(Ignite 2018)  | 
+| Azure Function                       | V1                | V2(Ignite 2018)  | 
 |-----------------------------------    |---------------    |------------------ |
 | **Application Insights .NET SDK**   | **2.5.0**       | **2.9.1**         |
 | | | | 
 | **자동 컬렉션**        |                 |                   |               
-| &bull; 요청                     | 예             | 예               | 
-| &bull; 예외                   | 예             | 예               | 
-| &bull; 성능 카운터         | 예             | 예               |
+| &bull; 요청                     | yes             | yes               | 
+| &bull; 예외                   | yes             | yes               | 
+| &bull; 성능 카운터         | yes             | yes               |
 | &bull; 종속성                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | 예               | 
-| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | 예               | 
-| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | 예               | 
-| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | 예               | 
+| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | yes               | 
+| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | yes               | 
+| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | yes               | 
+| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | yes               | 
 | | | | 
 | **지원되는 기능**                |                   |                   |               
-| &bull; QuickPulse/LiveMetrics       | 예             | 예               | 
-| &nbsp;&nbsp;&nbsp;&mdash; 컨트롤 채널 보호|                 | 예               | 
-| &bull; 샘플링                     | 예             | 예               | 
-| &bull; 하트비트                   |                 | 예               | 
+| &bull; QuickPulse/LiveMetrics       | yes             | yes               | 
+| &nbsp;&nbsp;&nbsp;&mdash; 컨트롤 채널 보호|                 | yes               | 
+| &bull; 샘플링                     | yes             | yes               | 
+| &bull; 하트비트                   |                 | yes               | 
 | | | | 
 | **상관 관계**                       |                   |                   |               
-| &bull; ServiceBus                     |                   | 예               | 
-| &bull; EventHub                       |                   | 예               | 
+| &bull; ServiceBus                     |                   | yes               | 
+| &bull; EventHub                       |                   | yes               | 
 | | | | 
 | **구성 가능 여부**                      |                   |                   |           
-| &bull;완전히 구성 가능합니다.<br/>지침을 보려면 [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852)를 참조하세요.<br/>모든 옵션에 대해서는 [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration)를 참조하세요.               |                   | 예                   | 
+| &bull;완전히 구성 가능합니다.<br/>지침을 보려면 [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852)를 참조하세요.<br/>모든 옵션에 대해서는 [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration)를 참조하세요.               |                   | yes                   | 
 
 
 ## <a name="performance-counters"></a>성능 카운터

@@ -1,27 +1,27 @@
 ---
-title: Azure PowerShell를 사용 하 여 Azure Blockchain Service 컨소시엄에서 구성원 관리
+title: Azure PowerShell를 사용 하 여 Azure Blockchain 서비스 구성원 관리
 description: Azure PowerShell를 사용 하 여 Azure Blockchain Service consortium 멤버를 관리 하는 방법을 알아봅니다.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/10/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 3e149a4a8e5ce7c82f0c9bf951bf9625763b30af
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: c35a3bd99518825805c2f29cfdc586e1ccf5b0bb
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286007"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329173"
 ---
 # <a name="manage-consortium-members-in-azure-blockchain-service-by-using-powershell"></a>PowerShell을 사용 하 여 Azure Blockchain 서비스의 컨소시엄 구성원 관리
 
 PowerShell을 사용 하 여 Azure Blockchain 서비스의 blockchain consortium 구성원을 관리할 수 있습니다. 관리자 권한이 있는 구성원은 blockchain 컨소시엄의 모든 참가자에 대해 역할을 초대, 추가, 제거 및 변경할 수 있습니다. 사용자 권한이 있는 구성원은 blockchain 컨소시엄의 모든 참가자를 보고 멤버 표시 이름을 변경할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * [Azure Portal](create-member.md)를 사용 하 여 블록 체인 멤버를 만듭니다.
 * Consortia, 멤버 및 노드에 대 한 자세한 내용은 [Azure Blockchain Service 컨소시엄](consortium.md)을 참조 하세요.
@@ -65,7 +65,7 @@ $ContractConnection = Import-ConsortiumManagementContracts -RootContractAddress 
 
 Azure Portal에서 다른 값을 찾습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 1. 기본 Blockchain 서비스 멤버 **개요** 페이지로 이동 합니다.
 
     ![멤버 개요](./media/manage-consortium-powershell/member-overview.png)
@@ -89,10 +89,10 @@ Azure Portal에서 다른 값을 찾습니다.
 
 `Import-ConsortiumManagementContracts -RootContractAddress <String> -Web3Client <IClient>`
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수를 포함해야 합니다. | 설명 | 필수 |
 |-----------|-------------|:--------:|
-| RootContractAddress | 컨소시엄 관리 스마트 계약의 루트 계약 주소 | 예 |
-| Web3Client | Web3Connection에서 가져온 Web3Client 개체 | 예 |
+| RootContractAddress | 컨소시엄 관리 스마트 계약의 루트 계약 주소 | yes |
+| Web3Client | Web3Connection에서 가져온 Web3Client 개체 | yes |
 
 #### <a name="example"></a>예제
 
@@ -100,16 +100,16 @@ Azure Portal에서 다른 값을 찾습니다.
 Import-ConsortiumManagementContracts -RootContractAddress '<RootContract address>'  -Web3Client $Connection
 ```
 
-### <a name="import-web3account"></a>Import-Web3Account
+### <a name="import-web3account"></a>Web3Account
 
 이 cmdlet을 사용 하 여 원격 노드의 관리 계정에 대 한 정보를 저장 하는 개체를 만들 수 있습니다.
 
 `Import-Web3Account -ManagedAccountAddress <String> -ManagedAccountPassword <String>`
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수를 포함해야 합니다. | 설명 | 필수 |
 |-----------|-------------|:--------:|
-| ManagedAccountAddress | Blockchain 구성원 계정 주소 | 예 |
-| ManagedAccountPassword | 계정 주소 암호 | 예 |
+| ManagedAccountAddress | Blockchain 구성원 계정 주소 | yes |
+| ManagedAccountPassword | 계정 주소 암호 | yes |
 
 #### <a name="example"></a>예제
 
@@ -117,15 +117,15 @@ Import-ConsortiumManagementContracts -RootContractAddress '<RootContract address
 Import-Web3Account -ManagedAccountAddress '<Member account address>'  -ManagedAccountPassword '<Member account password>'
 ```
 
-### <a name="new-web3connection"></a>New-Web3Connection
+### <a name="new-web3connection"></a>Web3Connection
 
 이 cmdlet을 사용 하 여 트랜잭션 노드의 RPC 끝점에 대 한 연결을 설정할 수 있습니다.
 
 `New-Web3Connection [-RemoteRPCEndpoint <String>]`
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수를 포함해야 합니다. | 설명 | 필수 |
 |-----------|-------------|:--------:|
-| RemoteRPCEndpoint | Blockchain 구성원 끝점 주소 | 예 |
+| RemoteRPCEndpoint | Blockchain 구성원 끝점 주소 | yes |
 
 #### <a name="example"></a>예제
 
@@ -137,17 +137,17 @@ New-Web3Connection -RemoteRPCEndpoint '<Endpoint address>'
 
 컨소시엄 구성원 관리 cmdlet을 사용 하 여 컨소시엄 내에서 멤버를 관리 합니다. 사용 가능한 작업은 consortium 역할에 따라 다릅니다.
 
-### <a name="get-blockchainmember"></a>Get-BlockchainMember
+### <a name="get-blockchainmember"></a>BlockchainMember
 
 이 cmdlet을 사용 하 여 컨소시엄의 멤버 세부 정보 또는 목록 멤버를 가져올 수 있습니다.
 
 `Get-BlockchainMember [[-Name] <String>] -Members <IContract> -Web3Client <IClient>`
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수를 포함해야 합니다. | 설명 | 필수 |
 |-----------|-------------|:--------:|
-| Name | 세부 정보를 검색할 Blockchain 서비스 멤버의 이름입니다. 이름을 입력 하면 멤버의 세부 정보를 반환 합니다. 이름을 생략 하면 모든 컨소시엄 멤버 목록이 반환 됩니다. | 아니요 |
-| Members | Import-ConsortiumManagementContracts에서 얻은 Members 개체 | 예 |
-| Web3Client | Web3Connection에서 가져온 Web3Client 개체 | 예 |
+| name | 세부 정보를 검색할 Blockchain 서비스 멤버의 이름입니다. 이름을 입력 하면 멤버의 세부 정보를 반환 합니다. 이름을 생략 하면 모든 컨소시엄 멤버 목록이 반환 됩니다. | 아닙니다. |
+| 멤버 | Import-ConsortiumManagementContracts에서 얻은 Members 개체 | yes |
+| Web3Client | Web3Connection에서 가져온 Web3Client 개체 | yes |
 
 #### <a name="example"></a>예제
 
@@ -168,18 +168,18 @@ AccountAddress : 0x85b911c9e103d6405573151258d668479e9ebeef
 Role           : ADMIN
 ```
 
-### <a name="remove-blockchainmember"></a>Remove-BlockchainMember
+### <a name="remove-blockchainmember"></a>BlockchainMember
 
 이 cmdlet을 사용 하 여 blockchain 멤버를 제거할 수 있습니다.
 
 `Remove-BlockchainMember -Name <String> -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>`
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수를 포함해야 합니다. | 설명 | 필수 |
 |-----------|-------------|:--------:|
-| Name | 제거할 멤버 이름 | 예 |
-| Members | Import-ConsortiumManagementContracts에서 얻은 Members 개체 | 예 |
-| Web3Account | Web3Account에서 가져온 개체를 가져옵니다. Web3Account | 예 |
-| Web3Client | Web3Connection에서 가져온 Web3Client 개체 | 예 |
+| name | 제거할 멤버 이름 | yes |
+| 멤버 | Import-ConsortiumManagementContracts에서 얻은 Members 개체 | yes |
+| Web3Account | Web3Account에서 가져온 개체를 가져옵니다. Web3Account | yes |
+| Web3Client | Web3Connection에서 가져온 Web3Client 개체 | yes |
 
 #### <a name="example"></a>예제
 
@@ -189,7 +189,7 @@ Role           : ADMIN
 $ContractConnection | Remove-BlockchainMember -Name <Member Name> -Web3Account $MemberAccount
 ```
 
-### <a name="set-blockchainmember"></a>Set-BlockchainMember
+### <a name="set-blockchainmember"></a>BlockchainMember
 
 이 cmdlet을 사용 하 여 표시 이름 및 consortium 역할을 비롯 한 blockchain 멤버 특성을 설정할 수 있습니다.
 
@@ -200,14 +200,14 @@ Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <St
  -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>
 ```
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수를 포함해야 합니다. | 설명 | 필수 |
 |-----------|-------------|:--------:|
-| Name | Blockchain 멤버의 이름 | 예 |
-| DisplayName | 새 표시 이름 | 아니요 |
-| AccountAddress | 계정 주소 | 아니요 |
-| Members | Import-ConsortiumManagementContracts에서 얻은 Members 개체 | 예 |
-| Web3Account | Web3Account에서 가져온 개체를 가져옵니다. Web3Account | 예 |
-| Web3Client |  Web3Connection에서 가져온 Web3Client 개체| 예 |
+| name | Blockchain 멤버의 이름 | yes |
+| displayName | 새 표시 이름 | 아닙니다. |
+| 계정 주소 | 계정 주소 | 아닙니다. |
+| 멤버 | Import-ConsortiumManagementContracts에서 얻은 Members 개체 | yes |
+| Web3Account | Web3Account에서 가져온 개체를 가져옵니다. Web3Account | yes |
+| Web3Client |  Web3Connection에서 가져온 Web3Client 개체| yes |
 
 #### <a name="example"></a>예제
 
@@ -221,7 +221,7 @@ $ContractConnection | Set-BlockchainMember -Name <Member Name> -DisplayName <Dis
 
 컨소시엄 구성원 초대 관리 cmdlet을 사용 하 여 컨소시엄 회원 초대를 관리 합니다. 사용 가능한 작업은 consortium 역할에 따라 다릅니다.
 
-### <a name="new-blockchainmemberinvitation"></a>New-BlockchainMemberInvitation
+### <a name="new-blockchainmemberinvitation"></a>BlockchainMemberInvitation
 
 이 cmdlet을 사용 하 여 새 멤버를 컨소시엄에 초대 합니다.
 
@@ -230,13 +230,13 @@ New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
  -Web3Account <IAccount> -Web3Client <IClient>
 ```
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수를 포함해야 합니다. | 설명 | 필수 |
 |-----------|-------------|:--------:|
-| SubscriptionId | 초대할 구성원의 Azure 구독 ID | 예 |
-| Role | 컨소시엄 역할입니다. 값은 관리자 또는 사용자 일 수 있습니다. 관리자는 consortium 관리자 역할입니다. 사용자는 consortium 구성원 역할입니다. | 예 |
-| Members | Import-ConsortiumManagementContracts에서 얻은 Members 개체 | 예 |
-| Web3Account | Web3Account에서 가져온 개체를 가져옵니다. Web3Account | 예 |
-| Web3Client | Web3Connection에서 가져온 Web3Client 개체 | 예 |
+| SubscriptionId | 초대할 구성원의 Azure 구독 ID | yes |
+| 역할 | 컨소시엄 역할입니다. 값은 관리자 또는 사용자 일 수 있습니다. 관리자는 consortium 관리자 역할입니다. 사용자는 consortium 구성원 역할입니다. | yes |
+| 멤버 | Import-ConsortiumManagementContracts에서 얻은 Members 개체 | yes |
+| Web3Account | Web3Account에서 가져온 개체를 가져옵니다. Web3Account | yes |
+| Web3Client | Web3Connection에서 가져온 Web3Client 개체 | yes |
 
 #### <a name="example"></a>예제
 
@@ -246,17 +246,17 @@ New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
 $ContractConnection | New-BlockchainMemberInvitation -SubscriptionId <Azure Subscription ID> -Role USER -Web3Account $MemberAccount
 ```
 
-### <a name="get-blockchainmemberinvitation"></a>Get-BlockchainMemberInvitation
+### <a name="get-blockchainmemberinvitation"></a>BlockchainMemberInvitation
 
 이 cmdlet을 사용 하 여 컨소시엄 회원의 초대 상태를 검색 하거나 나열할 수 있습니다.
 
 `Get-BlockchainMemberInvitation [[-SubscriptionId] <String>] -Members <IContract> -Web3Client <IClient>`
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수를 포함해야 합니다. | 설명 | 필수 |
 |-----------|-------------|:--------:|
-| SubscriptionId | 초대할 멤버의 Azure 구독 ID입니다. 구독 ID를 제공 하는 경우 구독 ID의 초대 정보를 반환 합니다. 구독 ID를 생략 하면 모든 멤버 초대 목록이 반환 됩니다. | 아니요 |
-| Members | Import-ConsortiumManagementContracts에서 얻은 Members 개체 | 예 |
-| Web3Client | Web3Connection에서 가져온 Web3Client 개체 | 예 |
+| SubscriptionId | 초대할 멤버의 Azure 구독 ID입니다. 구독 ID를 제공 하는 경우 구독 ID의 초대 정보를 반환 합니다. 구독 ID를 생략 하면 모든 멤버 초대 목록이 반환 됩니다. | 아닙니다. |
+| 멤버 | Import-ConsortiumManagementContracts에서 얻은 Members 개체 | yes |
+| Web3Client | Web3Connection에서 가져온 Web3Client 개체 | yes |
 
 #### <a name="example"></a>예제
 
@@ -274,7 +274,7 @@ SubscriptionId                       Role CorrelationId
 <Azure subscription ID>              USER             2
 ```
 
-### <a name="remove-blockchainmemberinvitation"></a>Remove-BlockchainMemberInvitation
+### <a name="remove-blockchainmemberinvitation"></a>BlockchainMemberInvitation
 
 이 cmdlet을 사용 하 여 컨소시엄 회원의 초대를 해지할 수 있습니다.
 
@@ -283,12 +283,12 @@ Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> 
  -Web3Client <IClient>
 ```
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수를 포함해야 합니다. | 설명 | 필수 |
 |-----------|-------------|:--------:|
-| SubscriptionId | 해지할 멤버의 Azure 구독 ID | 예 |
-| Members | Import-ConsortiumManagementContracts에서 얻은 Members 개체 | 예 |
-| Web3Account | Web3Account에서 가져온 개체를 가져옵니다. Web3Account | 예 |
-| Web3Client | Web3Connection에서 가져온 Web3Client 개체 | 예 |
+| SubscriptionId | 해지할 멤버의 Azure 구독 ID | yes |
+| 멤버 | Import-ConsortiumManagementContracts에서 얻은 Members 개체 | yes |
+| Web3Account | Web3Account에서 가져온 개체를 가져옵니다. Web3Account | yes |
+| Web3Client | Web3Connection에서 가져온 Web3Client 개체 | yes |
 
 #### <a name="example"></a>예제
 
@@ -298,7 +298,7 @@ Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> 
 $ContractConnection | Remove-BlockchainMemberInvitation -SubscriptionId <Subscription ID> -Web3Account $MemberAccount
 ```
 
-### <a name="set-blockchainmemberinvitation"></a>Set-BlockchainMemberInvitation
+### <a name="set-blockchainmemberinvitation"></a>BlockchainMemberInvitation
 
 이 cmdlet을 사용 하 여 기존 초대에 대 한 **역할** 을 설정 합니다. 컨소시엄 관리자만 초대를 변경할 수 있습니다.
 
@@ -307,13 +307,13 @@ Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
  -Web3Account <IAccount> -Web3Client <IClient>
 ```
 
-| 매개 변수 | Description | 필수 |
+| 매개 변수를 포함해야 합니다. | 설명 | 필수 |
 |-----------|-------------|:--------:|
-| SubscriptionId | 초대할 구성원의 Azure 구독 ID | 예 |
-| Role | 초대에 대 한 새 컨소시엄 역할입니다. 값은 **사용자** 또는 **관리자**일 수 있습니다. | 예 |
-| Members |  Import-ConsortiumManagementContracts에서 얻은 Members 개체 | 예 |
-| Web3Account | Web3Account에서 가져온 개체를 가져옵니다. Web3Account | 예 |
-| Web3Client | Web3Connection에서 가져온 Web3Client 개체 | 예 |
+| SubscriptionId | 초대할 구성원의 Azure 구독 ID | yes |
+| 역할 | 초대에 대 한 새 컨소시엄 역할입니다. 값은 **사용자** 또는 **관리자**일 수 있습니다. | yes |
+| 멤버 |  Import-ConsortiumManagementContracts에서 얻은 Members 개체 | yes |
+| Web3Account | Web3Account에서 가져온 개체를 가져옵니다. Web3Account | yes |
+| Web3Client | Web3Connection에서 가져온 Web3Client 개체 | yes |
 
 #### <a name="example"></a>예제
 

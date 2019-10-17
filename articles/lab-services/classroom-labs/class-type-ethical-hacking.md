@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: df24f846f1600685803fdd485f1810d66e32ae37
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 9c11d4648635e62ebc2e68734e14dd2bdc028a7c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028680"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330663"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>윤리적 해킹 클래스를 학습 하기 위한 랩 설정 
-이 문서에서는 윤리적 해킹의 법적 고 지에 초점을 맞춘 클래스를 설정 하는 방법을 보여 줍니다. 윤리적 해킹 커뮤니티에서 사용 되는 방법인 침투 테스트는 누군가가 악의적인 공격자가 악용할 수 있는 취약성을 보여 주기 위해 시스템 또는 네트워크에 대 한 액세스 권한을 얻으려고 할 때 발생 합니다. 
+이 문서에서는 윤리적 해킹의 법적 고 지에 초점을 맞춘 클래스를 설정 하는 방법을 보여 줍니다. 윤리적 해킹 커뮤니티에서 사용하는 방법인 침투 테스트는 누군가가 악의적인 공격자가 악용할 수 있는 취약성을 입증하기 위해 시스템 또는 네트워크에 대한 액세스 권한을 얻으려고 할 때 발생합니다. 
 
-윤리적 해킹 클래스에서 학생은 취약점을 방어 하기 위한 최신 기술을 배울 수 있습니다. 각 학생은 두 개의 중첩 된 가상 머신 ( **Metaspoiltable** 이미지가 있는 가상 머신과 [Kali Linux](https://www.kali.org/) 이미지를 포함 하는 다른 컴퓨터)가 있는 Windows Server 호스트 가상 머신을 가져옵니다. Metasploitable 가상 머신은 목적을 위해 사용 되며 Kali 가상 머신은 법정 작업을 실행 하는 데 필요한 도구에 대 한 액세스를 제공 합니다.
+윤리적 해킹 클래스에서 학생은 취약점을 방어하기 위한 최신 기술을 배울 수 있습니다. 각 학생에게는 두 개의 중첩된 가상 머신이 있는 Windows Server 호스트 가상 머신이 있습니다. 즉 **Metaspoiltable** 이미지가 있는 가상 머신과 [Kali Linux](https://www.kali.org/) 이미지가 있는 가상 머신이 있습니다. Metasploitable 가상 머신은 악용 목적을 위해 사용되며 Kali 가상 머신은 법정 작업을 실행하는 데 필요한 도구에 대한 액세스 권한을 제공합니다.
 
 이 문서에는 두 가지 주요 섹션이 있습니다. 첫 번째 섹션에서는 교실 랩을 만드는 방법을 설명 합니다. 두 번째 섹션에서는 중첩 된 가상화를 사용 하도록 설정 하 고 필요한 도구 및 이미지를 사용 하 여 템플릿 컴퓨터를 만드는 방법을 설명 합니다. 이 경우 Hyper-v를 사용 하 여 이미지를 호스트 하는 컴퓨터의 Metasploitable 이미지와 Kali Linux 이미지가 있습니다.
 
 ## <a name="lab-configuration"></a>랩 구성
-이 랩을 설정 하려면 시작 하려면 Azure 구독이 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독을 받은 후 Azure Lab Services에서 새 랩 계정을 만들거나 기존 계정을 사용할 수 있습니다. 새 랩 계정 만들기에 대 한 다음 자습서를 참조 하세요. [자습서를 통해 랩 계정을 설정할 수](tutorial-setup-lab-account.md)있습니다.
+이 랩을 설정 하려면 시작 하려면 Azure 구독이 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독을 받은 후 Azure Lab Services에서 새 랩 계정을 만들거나 기존 계정을 사용할 수 있습니다. 새 랩 계정 만들기에 대 한 자습서: [랩 계정 설정 자습서](tutorial-setup-lab-account.md)를 참조 하세요.
 
 [이 자습서](tutorial-setup-classroom-lab.md) 에 따라 새 랩을 만들고 다음 설정을 적용 합니다.
 
-| 가상 머신 크기 | 이미지 |
+| 가상 컴퓨터 크기 | 이미지 |
 | -------------------- | ----- | 
 | 중간 (중첩 된 가상화) | Windows Server 2019 Datacenter |
 
@@ -141,7 +141,7 @@ Rapid7 Metasploitable 이미지는 보안 취약성으로 의도적으로 구성
 다음 단계는 모든 랩을 설정 하는 데 일반적입니다.
 
 - [사용자 추가](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [할당량 설정](tutorial-setup-classroom-lab.md#set-quotas-for-users)
+- [할당량 설정](how-to-configure-student-usage.md#set-quotas-for-users)
 - [일정 설정](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [학생에 대 한 전자 메일 등록 링크](tutorial-setup-classroom-lab.md#send-an-email-with-the-registration-link). 
+- [학생에 대 한 전자 메일 등록 링크](how-to-configure-student-usage.md#send-invitations-to-users). 
 

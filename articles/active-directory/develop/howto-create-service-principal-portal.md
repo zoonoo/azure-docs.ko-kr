@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2019
+ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14c3f90918d246a63d50af7b3542e8e74d5fbcf1
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: a9f8163a3695260234107ad41cc7be125adc9091
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295512"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72324793"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
@@ -62,7 +62,7 @@ Azure AD 애플리케이션 및 서비스 주체를 만들었습니다.
 
 1. **액세스 제어(IAM)** 를 선택합니다.
 1. **역할 할당 추가**를 선택합니다.
-1. 애플리케이션에 할당할 역할을 선택합니다. 애플리케이션이 **다시 부팅**, **시작** 및 **중지** 인스턴스 같은 작업을 실행하게 하려면 **참가자** 역할을 선택합니다. 기본적으로 Azure AD 애플리케이션이 사용 가능한 옵션에 표시되지 않습니다. 애플리케이션을 찾으려면 이름을 검색하여 선택합니다.
+1. 애플리케이션에 할당할 역할을 선택합니다. 예를 들어 응용 프로그램에서 **다시 부팅**, **시작** 및 **중지** 와 같은 작업을 실행 하도록 허용 하려면 **참가자** 역할을 선택 합니다.  [사용 가능한 역할](../../role-based-access-control/built-in-roles.md) 에 대해 자세히 알아보세요. 기본적으로 Azure AD 응용 프로그램은 사용 가능한 옵션에 표시 되지 않습니다. 애플리케이션을 찾으려면 이름을 검색하여 선택합니다.
 
    ![응용 프로그램에 할당할 역할을 선택 합니다.](./media/howto-create-service-principal-portal/select-role.png)
 
@@ -89,7 +89,13 @@ Azure AD 애플리케이션 및 서비스 주체를 만들었습니다.
 
 ### <a name="upload-a-certificate"></a>인증서 업로드
 
-기존 인증서가 있는 경우이 인증서를 사용할 수 있습니다.  필요에 따라 테스트 목적으로 자체 서명 된 인증서를 만들 수 있습니다. PowerShell을 열고 다음 매개 변수를 사용 하 여 [new-selfsignedcertificate](/powershell/module/pkiclient/new-selfsignedcertificate) 를 실행 하 여 컴퓨터의 사용자 인증서 저장소에 자체 서명 된 인증서를 만듭니다. `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`.  Windows 제어판에서 액세스할 수 있는 [사용자 인증서](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC 스냅인 관리를 사용 하 여이 인증서를 내보냅니다.
+기존 인증서가 있는 경우이 인증서를 사용할 수 있습니다.  필요에 따라 테스트 목적으로 자체 서명 된 인증서를 만들 수 있습니다. PowerShell을 열고 다음 매개 변수를 사용 하 여 [new-selfsignedcertificate](/powershell/module/pkiclient/new-selfsignedcertificate) 를 실행 하 여 컴퓨터의 사용자 인증서 저장소에 자체 서명 된 인증서를 만듭니다. 
+
+```powershell
+$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
+```
+
+Windows 제어판에서 액세스할 수 있는 [사용자 인증서](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC 스냅인 관리를 사용 하 여이 인증서를 파일로 내보냅니다.
 
 인증서를 업로드 하려면:
 
@@ -114,6 +120,14 @@ Azure AD 애플리케이션 및 서비스 주체를 만들었습니다.
 
    ![나중에 이 키를 검색할 수 없으므로 비밀 값 복사](./media/howto-create-service-principal-portal/copy-secret.png)
 
+## <a name="configure-access-policies-on-resources"></a>리소스에 대 한 액세스 정책 구성
+응용 프로그램에서 액세스 해야 하는 리소스에 대 한 추가 권한을 구성 해야 할 수도 있습니다. 예를 들어 키, 암호 또는 인증서에 대 한 액세스 권한을 응용 프로그램에 부여 하려면 [키 자격 증명 모음 액세스 정책을 업데이트](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) 해야 합니다.  
+
+1. [Azure Portal](https://portal.azure.com)에서 주요 자격 증명 모음으로 이동 하 여 **액세스 정책**을 선택 합니다.  
+1. **액세스 정책 추가**를 선택 하 고 응용 프로그램에 부여 하려는 키, 암호 및 인증서 권한을 선택 합니다.  이전에 만든 서비스 사용자를 선택 합니다.
+1. **추가** 를 선택 하 여 액세스 정책을 추가 하 고 **저장** 을 선택 하 여 변경 내용을 커밋합니다.
+    ![ 추가 액세스 정책 @ no__t-1
+
 ## <a name="required-permissions"></a>필요한 사용 권한
 
 Azure AD 테넌트에 애플리케이션을 등록하고 Azure 구독의 역할에 애플리케이션을 할당하기 위한 충분한 권한이 있어야 합니다.
@@ -125,7 +139,7 @@ Azure AD 테넌트에 애플리케이션을 등록하고 Azure 구독의 역할�
 
    ![역할을 찾습니다. 사용자 인 경우 관리자가 아닌 사용자가 앱을 등록할 수 있는지 확인 합니다.](./media/howto-create-service-principal-portal/view-user-info.png)
 
-1. **사용자 설정**을 선택합니다.
+1. 왼쪽 창에서 **사용자 설정**을 선택 합니다.
 1. **앱 등록** 설정을 확인합니다. 이 값은 관리자만 설정할 수 있습니다. **예**로 설정하면 Azure AD 테넌트의 모든 사용자가 앱을 등록할 수 있습니다.
 
 앱 등록 설정이 **아니요**로 설정되어 있으면 관리자 역할이 있는 사용자만 이러한 유형의 애플리케이션을 등록할 수 있습니다. Azure AD에서 사용 가능한 관리자 역할 및 각 역할에 제공되는 특정 권한에 대한 자세한 내용은 [사용 가능한 역할](../users-groups-roles/directory-assign-admin-roles.md#available-roles) 및 [역할 권한](../users-groups-roles/directory-assign-admin-roles.md#role-permissions)을 참조하세요. 계정이 사용자 역할에 할당되어 있으나 앱 등록 설정이 관리자로 제한되어 있으면 관리자에게 앱 등록과 관련된 모든 것을 만들고 관리할 수 있는 관리자 역할 중 하나를 할당해 달라고 요청하거나 사용자가 앱을 등록할 수 있게 해달라고 요청하세요.
@@ -150,5 +164,5 @@ Azure 구독 권한을 확인하려면
 
 ## <a name="next-steps"></a>다음 단계
 
-* 보안 정책 지정에 대해 자세히 알아보려면 [Azure 역할 기반 Access Control](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.  
+* 보안 정책 지정에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.  
 * 권한이 부여되거나 사용자에 대해 거부될 수 있는 작업 목록은 [Azure Resource Manager 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md)을 참조하세요.

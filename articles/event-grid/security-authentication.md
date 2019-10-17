@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 87cfce6045ce84f83ca651472635227547c26ee9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f22d8c57b0127e646321a20587d0cd89f5c9ea45
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66117016"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72325415"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 보안 및 인증 
 
@@ -35,23 +35,23 @@ Azure Event Grid에는 세 가지 유형의 인증이 있습니다.
 
 HTTP 트리거 기반 Azure 함수와 같은 엔드포인트의 다른 형식을 사용하는 경우, 엔드포인트 코드가 Event Grid를 통해 핸드셰이크 유효성 검사에 참여해야 합니다. Event Grid는 두 가지 방법의 구독 유효성 검사를 지원합니다.
 
-1. **ValidationCode 핸드셰이크(프로그래밍 방식)** : 엔드포인트의 소스 코드를 제어하는 경우 이 방법이 권장됩니다. 이벤트 구독 생성 시 Event Grid는 엔드포인트에 구독 유효성 검사 이벤트를 전송합니다. 이 이벤트의 스키마는 다른 Event Grid 이벤트와 비슷합니다. 이 이벤트의 데이터 부분에는 `validationCode` 속성이 포함됩니다. 애플리케이션은 예상된 이벤트 구독에 대해 유효성 검사 요청이 수행된 것인지 확인하고 Event Grid로 유효성 검사 코드를 에코합니다. 이 핸드셰이크 메커니즘은 모든 Event Grid 버전에서 지원됩니다.
+1. **Validationcode 핸드셰이크 (프로그래밍 방식)** : 끝점에 대 한 소스 코드를 제어 하는 경우이 메서드를 권장 합니다. 이벤트 구독 생성 시 Event Grid는 엔드포인트에 구독 유효성 검사 이벤트를 전송합니다. 이 이벤트의 스키마는 다른 Event Grid 이벤트와 비슷합니다. 이 이벤트의 데이터 부분에는 `validationCode` 속성이 포함됩니다. 애플리케이션은 예상된 이벤트 구독에 대해 유효성 검사 요청이 수행된 것인지 확인하고 Event Grid로 유효성 검사 코드를 에코합니다. 이 핸드셰이크 메커니즘은 모든 Event Grid 버전에서 지원됩니다.
 
-2. **ValidationURL 핸드셰이크(수동)** : 경우에 따라 ValidationCode 핸드셰이크를 구현하기 위한 엔드포인트의 소스 코드에 액세스할 수 없습니다. 예를 들어, 타사 서비스를 사용하는 경우(예: [Zapier](https://zapier.com) 또는 [IFTTT](https://ifttt.com/)) 유효성 검사 코드를 통해 프로그래밍 방식으로 응답하지 못할 수 있습니다.
+2. **Validationurl 핸드셰이크 (수동)** : 특정 한 경우에는 끝점의 소스 코드에 액세스 하 여 validationurl 핸드셰이크를 구현할 수 없습니다. 예를 들어, 타사 서비스를 사용하는 경우(예: [Zapier](https://zapier.com) 또는 [IFTTT](https://ifttt.com/)) 유효성 검사 코드를 통해 프로그래밍 방식으로 응답하지 못할 수 있습니다.
 
    버전 2018-05-01-미리 보기부터 Event Grid는 수동 유효성 검사 핸드셰이크를 지원합니다. API 버전 2018-05-01-미리 보기 이상을 사용하는 SDK 또는 도구에서 이벤트 구독을 만드는 경우 Event Grid는 구독 유효성 검사 이벤트의 데이터 부분에 `validationUrl` 속성을 전송합니다. 핸드셰이크를 완료하려면 이벤트 데이터에서 해당 URL을 찾은 후 GET 요청을 수동으로 전송합니다. REST 클라이언트 또는 웹 브라우저를 사용할 수 있습니다.
 
-   제공된 된 URL은 5 분 동안 유효 합니다. 이 시간 동안 이벤트 구독의 프로비전 상태가 `AwaitingManualAction`입니다. 프로 비전 상태가로 설정 된 5 분 이내 수동 유효성 검사를 완료 하지 않은 경우 `Failed`합니다. 수동 유효성 검사를 시작하기 전에 이벤트 구독을 다시 작성해야 합니다.
+   제공 된 URL은 5 분 동안 유효 합니다. 이 시간 동안 이벤트 구독의 프로비전 상태가 `AwaitingManualAction`입니다. 5 분 내에 수동 유효성 검사를 완료 하지 않으면 프로 비전 상태가 `Failed`으로 설정 됩니다. 수동 유효성 검사를 시작하기 전에 이벤트 구독을 다시 작성해야 합니다.
 
-    이 인증 메커니즘은 웹 후크 엔드포인트 수동 유효성 검사 모드로 배치할 수 전에 유효성 검사 이벤트에 대 한 게시를 받았음을 알 수 있도록 HTTP 상태 코드 200 반환 해야 합니다. 즉, 끝점 200을 반환 하지만 반환 하지 다시 유효성 검사 응답을 프로그래밍 방식으로 모드를 수동 유효성 검사 모드를 전환 됩니다. 유효성 검사 URL에 GET을 5 분 내에 있으면 유효성 검사 핸드셰이크 성공으로 간주 됩니다.
+    또한이 인증 메커니즘을 사용 하려면 웹 후크 끝점에서 HTTP 상태 코드 200을 반환 하 여 유효성 검사 이벤트의 게시물이 수동 유효성 검사 모드에 배치 되기 전에 승인 되었음을 알 수 있습니다. 즉, 끝점이 200을 반환 하지만 프로그래밍 방식으로 유효성 검사 응답을 반환 하지 않는 경우 모드가 수동 유효성 검사 모드로 전환 됩니다. 5 분 이내에 유효성 검사 URL에 대 한 GET이 있으면 유효성 검사 핸드셰이크가 성공한 것으로 간주 됩니다.
 
 > [!NOTE]
-> 유효성 검사에 대 한 자체 서명 된 인증서를 사용 하 여 지원 되지 않습니다. 인증 기관 (CA)에서 서명 된 인증서를 대신 사용 합니다.
+> 유효성 검사에 자체 서명 된 인증서를 사용 하는 것은 지원 되지 않습니다. 대신 CA (인증 기관)에서 서명 된 인증서를 사용 합니다.
 
 ### <a name="validation-details"></a>유효성 검사 세부 정보
 
 * 이벤트 구독 생성/업데이트 시 Event Grid는 대상 엔드포인트에 구독 유효성 검사 이벤트를 게시합니다. 
-* 이벤트에는 "aeg-event-type: SubscriptionValidation" 헤더 값이 포함됩니다.
+* 이벤트에는 “aeg-event-type: SubscriptionValidation” 헤더 값이 포함됩니다.
 * 이벤트 본문에는 다른 Event Grid 이벤트와 동일한 스키마가 있습니다.
 * 이벤트의 eventType 속성은 `Microsoft.EventGrid.SubscriptionValidationEvent`입니다.
 * 이벤트의 데이터 속성에는 임의로 생성된 문자열을 포함한 `validationCode` 속성이 있습니다. 예를 들어 “validationCode: acb13...”과 같습니다.
@@ -67,8 +67,8 @@ SubscriptionValidationEvent 예가 다음 예제에 나와 있습니다.
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "subject": "",
   "data": {
-    "validationCode": "0000000000-0000-0000-0000-00000000000000",
-    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=0000000000-0000-0000-0000-0000000000000&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
+    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
+    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=512d38b6-c7b8-40c8-89fe-f46f9e9622b6&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
   "eventTime": "2018-01-25T22:12:19.4556811Z",
@@ -93,7 +93,7 @@ HTTP 200 정상 응답 상태 코드를 반환해야 합니다. HTTP 202 수락�
 
 ### <a name="checklist"></a>검사 목록
 
-이벤트 구독 만들기와 같은 오류 메시지가 표시 되 면 하는 동안 "제공 된 끝점 https의 유효성을 검사 하려고:\//your-endpoint-here 실패 했습니다. 자세한 내용은 방문 https:\//aka.ms/esvalidation ", 유효성 검사 핸드셰이크에서 오류가 임을 나타냅니다. 이 오류를 해결하려면 다음과 같은 측면을 확인합니다.
+이벤트 구독을 만드는 동안 "제공 된 끝점의 유효성을 검사 하는 중 https: \//끝점이 실패 했습니다."와 같은 오류 메시지가 표시 되는 경우 실패 합니다. 자세한 내용은 https: \//즉,/esvalidation "을 참조 하세요 .이는 유효성 검사 핸드셰이크에 오류가 있음을 나타냅니다. 이 오류를 해결하려면 다음과 같은 측면을 확인합니다.
 
 * 대상 엔드포인트에서 애플리케이션 코드를 제어할 수 있습니까? 예를 들어, HTTP 트리거 기반 Azure Function을 작성하는 경우 이를 변경하기 위해 애플리케이션 코드에 액세스할 수 있습니까?
 * 애플리케이션 코드에 액세스할 수 있는 경우 위의 샘플에서와 같이 ValidationCode 기반 핸드셰이크 메커니즘을 구현하세요.
@@ -278,7 +278,7 @@ Event Grid는 이벤트 구독을 관리하기 위한 두 가지 기본 제공 �
 
 사용자가 다른 동작을 수행할 수 있는 샘플 Event Grid 역할 정의는 다음과 같습니다. 이러한 사용자 지정 역할은 이벤트 구독보다 더 광범위한 액세스 권한을 부여하기 때문에 기본 제공 역할과는 다릅니다.
 
-**EventGridReadOnlyRole.json**: 읽기 전용 작업만 허용합니다.
+**EventGridReadOnlyRole.json**: 읽기 전용 작업만을 허용합니다.
 
 ```json
 {
@@ -320,7 +320,7 @@ Event Grid는 이벤트 구독을 관리하기 위한 두 가지 기본 제공 �
 }
 ```
 
-**EventGridContributorRole.json**: 모든 Event Grid 동작을 허용합니다.
+**EventGridContributorRole.json**: 모든 Event Grid 작업을 허용합니다.
 
 ```json
 {

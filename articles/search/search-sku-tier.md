@@ -1,6 +1,6 @@
 ---
 title: Azure Search 서비스에 대한 SKU 또는 가격 책정 계층 선택 - Azure Search
-description: Azure Search는 다음 Sku에서 프로 비전 할 수 있습니다. Free, Basic, Standard 및 Standard는 다양 한 리소스 구성 및 용량 수준에서 사용할 수 있습니다.
+description: Azure Search은 이러한 Sku에서 프로 비전 할 수 있습니다. 무료, 기본 및 표준, Standard는 다양 한 리소스 구성 및 용량 수준에서 사용할 수 있습니다.
 services: search
 author: HeidiSteen
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: heidist
-ms.openlocfilehash: 1c86649a989b16d928a46d322af3d805b6fbf832
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 32ec97ce923c1cffd92fa6522f30abf7ea87fff7
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647358"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331201"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure Search에 대한 가격 책정 계층 선택
 
@@ -39,9 +39,9 @@ Azure Search 서비스를 만들면 서비스 수명 동안 고정 된 가격 �
 
 선택한 계층에 따라 청구 요금이 결정 됩니다. Azure Portal의 다음 스크린샷은 사용 가능한 계층, 가격 책정 (포털 및 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)에서 찾을 수 있음)을 보여 줍니다. 가장 일반적인 계층은 **무료**, **기본**및 **표준** 입니다.
 
-**Free** 는 다른 구독자와 공유 되는 클러스터에서 제한 된 검색 서비스를 만듭니다. 빠른 시작 및 자습서를 비롯 한 작은 프로젝트를 완료할 수 있지만 서비스를 확장 하거나 중요 한 작업을 실행할 수는 없습니다. 기본 및 **표준은** 가장 일반적으로 사용 되는 청구 가능 계층으로, **표준** 을 기본값으로 사용 합니다.
+**Free** 는 다른 구독자와 공유 되는 클러스터에서 제한 된 검색 서비스를 만듭니다. 빠른 시작 및 자습서를 비롯 한 작은 프로젝트를 완료할 수 있지만 서비스를 확장 하거나 중요 한 작업을 실행할 수는 없습니다. **기본** 및 **표준은** 가장 일반적으로 사용 되는 청구 가능 계층으로, **표준** 을 기본값으로 사용 합니다.
 
-![Azure Search 가격 책정 계층](media/search-sku-tier/tiers.png "Azure Search 가격 책정 계층")
+(media/search-sku-tier/tiers.png "Azure Search의 Azure Search 가격") 책정 계층 ![가격 책정 계층]
 
 일부 계층은 특정 작업 유형에 맞게 최적화 되어 있습니다. 예를 들어 **표준 3 고밀도 (S3 HD)** 는 s 3의 *호스팅 모드* 입니다. 여기서 기본 하드웨어는 많은 수의 작은 인덱스에 대해 최적화 되 고 배포할지에 시나리오를 위한 것입니다. S3 HD는 S3와 동일한 단가를 갖지만 하드웨어는 많은 수의 작은 인덱스에서 빠른 파일 읽기에 최적화 되어 있습니다.
 
@@ -79,9 +79,9 @@ Azure Search을 기반으로 하는 솔루션은 다음과 같은 방법으로 �
 
 Cognitive Services를 사용 하는 [AI 보강](cognitive-search-concept-intro.md)의 경우 종 량 제 처리를 위한 S0 가격 책정 계층에서 Azure Search와 동일한 지역에 [청구 가능한 Azure Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)하도록 계획 해야 합니다. 연결 Cognitive Services와 관련 된 고정 비용은 없습니다. 필요한 처리에 대해서만 비용을 지불 하면 됩니다.
 
-| 연산 | 청구 영향 |
+| 작업(Operation) | 청구 영향 |
 |-----------|----------------|
-| 문서 크랙, 텍스트 추출 | Free |
+| 문서 크랙, 텍스트 추출 | 체험판 |
 | 문서 크랙, 이미지 추출 | 문서에서 추출 된 이미지의 수에 따라 요금이 청구 됩니다. [인덱서 구성](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters)에서 **imageaction** 은 이미지 추출을 트리거하는 매개 변수입니다. **Imageaction** 이 "none" (기본값)으로 설정 된 경우 이미지 추출에 대 한 요금이 청구 되지 않습니다. 이미지 추출 율은 Azure Search에 대 한 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/search/) 페이지에 설명 되어 있습니다.|
 | [미리 빌드된 인식 기술](cognitive-search-predefined-skills.md) | Cognitive Services를 직접 사용 하 여 작업을 수행한 것과 동일한 요금으로 청구 됩니다. |
 | 사용자 지정 기술 | 사용자 지정 기술은 사용자가 제공 하는 기능입니다. 사용자 지정 기술 사용 비용은 사용자 지정 코드가 다른 요금제 서비스를 호출 하는지 여부에 따라 전적으로 달라 집니다. |
@@ -92,9 +92,9 @@ Cognitive Services를 사용 하는 [AI 보강](cognitive-search-concept-intro.m
 
 Azure Search 작업을 이해 하는 가장 중요 한 청구 개념은 *검색 단위* (SU)입니다. Azure Search은 인덱싱 및 쿼리를 위해 복제본과 파티션 둘 다에 의존하므로 하나를 기준으로만 청구하는 것은 적절하지 않습니다. 대신, 청구는 둘 다의 복합을 기준으로 합니다.
 
-SU는 서비스에서 사용 하는 *복제본* 및 *파티션의* 제품입니다. **(R x P = SU)** .
+SU는 서비스에서 사용 하는 *복제본* 및 *파티션* **(R x P = SU)** 의 곱입니다.
 
-모든 서비스는 최소값으로 1SU(복제본 1개 x 파티션 1개)에서 시작합니다. 모든 서비스에 대 한 최대값은 36입니다. 이 최대값은 여러 가지 방법으로 연결할 수 있습니다. 6 파티션 x 6 개 또는 3 개의 파티션 x 12 복제본 (예:) 총 용량을 사용 하는 것이 일반적입니다 (예: 3 개 복제본, 3-파티션 서비스는 9 개 SUs로 청구 됨). 올바른 조합은 [파티션 및 복제본 조합](search-capacity-planning.md#chart) 차트를 참조 하세요.
+모든 서비스는 최소값으로 1SU(복제본 1개 x 파티션 1개)에서 시작합니다. 모든 서비스에 대 한 최대값은 36입니다. 이 최대 크기는 여러 가지 방법으로 연결할 수 있습니다. 예를 들어 6 개 파티션 x 복제본 6 개 또는 3 개의 파티션 x 12 복제본입니다. 총 용량을 사용 하는 것이 일반적입니다 (예: 3 개 복제본, 3-파티션 서비스는 9 개 SUs로 청구 됨). 올바른 조합은 [파티션 및 복제본 조합](search-capacity-planning.md#chart) 차트를 참조 하세요.
 
 요금 청구 요금은 SU 당 매시간입니다. 각 계층의 속도가 점차 높아집니다. 상위 계층에는 더 큰 및 speedier 파티션이 제공 되며,이는 해당 계층에 대 한 전반적인 시간당 요금에 기여 합니다. [가격 정보](https://azure.microsoft.com/pricing/details/search/) 페이지에서 각 계층에 대 한 요금을 볼 수 있습니다.
 
@@ -191,7 +191,7 @@ L2 offers twice the overall storage capacity of L1.  Choose your tier based on t
 
 1. 원본 데이터가 인덱스로 변환되는 방법을 결정하려면 [초기 인덱스를 만듭니다](search-create-index-portal.md). 인덱스 크기를 추정하는 유일한 방법입니다.
 
-1. 포털에서 [스토리지, 서비스 제한, 쿼리 볼륨 및 대기 시간을 모니터링](search-monitor-usage.md)합니다. 포털에는 초당 쿼리 수, 제한 된 쿼리 및 검색 대기 시간이 표시 됩니다. 이러한 모든 값은 올바른 계층을 선택 했는지 여부를 결정 하는 데 도움이 될 수 있습니다. [검색 트래픽 분석](search-traffic-analytics.md)을 사용 하도록 설정 하 여 클릭 광고 분석과 같은 값의 심층 모니터링을 구성할 수도 있습니다.
+1. 포털에서 [스토리지, 서비스 제한, 쿼리 볼륨 및 대기 시간을 모니터링](search-monitor-usage.md)합니다. 포털에는 초당 쿼리 수, 제한 된 쿼리 및 검색 대기 시간이 표시 됩니다. 이러한 모든 값은 올바른 계층을 선택 했는지 여부를 결정 하는 데 도움이 될 수 있습니다. 
 
 인덱스 번호와 크기는 분석에도 동일 하 게 중요 합니다. 최대 한도는 저장소 (파티션)의 전체 사용률 또는 리소스에 대 한 최대 제한 (인덱스, 인덱서 등)을 통해 도달할 수 있기 때문입니다. 포털을 사용하면 둘 모두 추적할 수 있으며, 개요 페이지에 현재 사용량 및 최대 한도가 나란히 표시됩니다.
 
@@ -215,8 +215,6 @@ QPS (초당 쿼리 수)는 성능 튜닝 중에 중요 한 메트릭입니다. �
 
 ## <a name="tips-for-tier-evaluation"></a>계층 평가에 대한 팁
 
-+ 효율적인 인덱스를 작성 하는 방법과 최소한의 영향을 주는 새로 고침 방법에 대해 알아봅니다. [검색 트래픽 분석](search-traffic-analytics.md) 을 사용 하 여 쿼리 작업에 대 한 정보를 얻습니다.
-
 + 메트릭을 사용 하 여 쿼리를 작성 하 고 사용 패턴 (업무 시간 동안 쿼리, 사용량이 적은 시간 동안 인덱싱)에 대 한 데이터를 수집 합니다. 이 데이터를 사용 하 여 서비스 프로 비전 결정을 알립니다. 시간별 또는 일별 주기에서는 실용적이 지 않지만 쿼리 볼륨의 계획 된 변경 내용을 수용 하기 위해 파티션 및 리소스를 동적으로 조정할 수 있습니다. 또한 수준에서 조치를 취하는 데 충분 한 시간을 보유 하는 경우 계획 되지 않았지만 지속적으로 변경 될 수 있습니다.
 
 + 프로 비전 중에는 실제 요구 사항이 예측 보다 큰 경우에만 서비스를 종료 해야 한다는 단점이 있습니다. 서비스 중단을 방지하려면 상위 계층의 동일한 구독에서 새 서비스를 만들고, 모든 앱과 요청이 새 엔드포인트를 대상으로 할 때까지 이를 나란히 실행합니다.
@@ -225,7 +223,7 @@ QPS (초당 쿼리 수)는 성능 튜닝 중에 중요 한 메트릭입니다. �
 
 무료 계층으로 시작 하 고 데이터의 하위 집합을 사용 하 여 초기 인덱스를 작성 하 여 특성을 이해 합니다. Azure Search의 데이터 구조는 반전 된 인덱스 구조입니다. 반전 된 인덱스의 크기 및 복잡성은 내용에 따라 결정 됩니다. 중복성이 큰 콘텐츠는 결과적으로 불규칙성이 큰 콘텐츠보다 더 작은 인덱스가 되는 경향이 있습니다. 따라서 데이터 집합의 크기가 아닌 콘텐츠 특성은 인덱스 저장소 요구 사항을 결정 합니다.
 
-인덱스 크기의 초기 추정치를 받은 후에는이 문서에서 설명 하는 계층 중 하나에서 [청구 가능한 서비스를 프로 비전](search-create-service-portal.md) 합니다. 기본, 표준 또는 저장소에 최적화 되어 있습니다. 데이터 크기 조정에 대 한 인공 제약 조건을 완화 하 고 검색 하려는 모든 데이터를 포함 하도록 [인덱스를 다시 작성](search-howto-reindex.md) 합니다.
+인덱스 크기의 초기 추정치를 받은 후에는이 문서에서 설명 하는 기본, 표준 또는 저장소 최적화 된 계층 중 하나에서 [청구 가능 서비스를 프로 비전](search-create-service-portal.md) 합니다. 데이터 크기 조정에 대 한 인공 제약 조건을 완화 하 고 검색 하려는 모든 데이터를 포함 하도록 [인덱스를 다시 작성](search-howto-reindex.md) 합니다.
 
 필요한 성능과 규모를 가져오려면 필요에 따라 [파티션 및 복제본을 할당](search-capacity-planning.md)합니다.
 

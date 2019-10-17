@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9a73b4664e363e80c514ba4c01f754de3a2eed24
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 31b005bd76591d8098f119c7aa9b87a68841658c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719873"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331263"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Azure 포털에서 Azure Search에 대한 서비스 관리
 > [!div class="op_single_selector"]
 > * [PowerShell](search-manage-powershell.md)
 > * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
-> * [포털](search-manage.md)
+> * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Azure Search는 사용자 지정 앱에 풍부한 검색 환경을 구축하기 위해 사용되는 완전히 관리되는 클라우드 기반 검색 서비스입니다. 이 문서에서는 이미 프로비전된 검색 서비스를 위한 [Azure Portal](https://portal.azure.com)에서 수행할 수 있는 서비스 관리 작업에 대해 설명합니다. 서비스 관리는 의도적으로 간단하게 작성되었으며 다음 작업으로 제한됩니다.
@@ -34,8 +34,7 @@ Azure Search는 사용자 지정 앱에 풍부한 검색 환경을 구축하기 
 
 *업그레이드*가 관리 작업으로 나열되지 않습니다. 서비스가 프로비저닝될 때 자원이 할당되기 때문에 다른 계층으로 이동하려면 새 서비스가 필요합니다. 자세한 내용은 [Azure Search 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
-> [!Tip]
-> 검색 트래픽 또는 쿼리 성능을 분석하는 방법에 대한 도움말이 필요하십니까? 쿼리 볼륨, 사용자가 검색하는 용어 및 인덱스의 특정 문서로 고객을 안내하는 경우 검색 결과의 성공 정도를 모니터링합니다. 자세한 내용은 [Azure Search에 대한 검색 트래픽 분석](search-traffic-analytics.md), [사용량 및 쿼리 메트릭 모니터링](search-monitor-usage.md) 및 [성능 및 최적화](search-performance-optimization.md)를 참조하세요.
+쿼리 볼륨 및 기타 메트릭을 모니터링 하 고 해당 정보를 사용 하 여 더 빠른 응답 시간으로 서비스를 조정할 수 있습니다. 자세한 내용은 [사용 및 쿼리 메트릭 모니터링](search-monitor-usage.md) 및 [성능 및 최적화](search-performance-optimization.md)를 참조합니다.
 
 <a id="admin-rights"></a>
 
@@ -55,7 +54,7 @@ Azure Search에서는 포털 또는 프로그래밍 방식 인터페이스를 �
 
 * 포털의 서비스 대시보드에서 알림, 속성 및 상태 메시지를 통해 정보를 얻습니다.
 * [PowerShell](search-manage-powershell.md) 또는 [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/)를 사용하여 [서비스 속성](https://docs.microsoft.com/rest/api/searchmanagement/services) 또는 인덱스 리소스 사용 현황에 대한 상태를 가져옵니다.
-* 이전에 설명한 것처럼 [검색 트래픽 분석](search-traffic-analytics.md)을 통해 정보를 얻습니다.
+
 
 <a id="sub-5"></a>
 
@@ -85,7 +84,7 @@ Azure Search는 기본 데이터 스토리지 솔루션이 아니므로 셀프 �
 
 <a id="scale"></a>
 
-## <a name="scale-up-or-down"></a>확장 또는 축소
+## <a name="scale-up-or-down"></a>계층 및 성능 수준 변경
 모든 검색 서비스는 최소 복제본 한 개와 파티션 한 개로 시작됩니다. [전용 리소스를 제공하는 계층](search-limits-quotas-capacity.md)에 등록한 경우 서비스 대시보드에서 **확장** 타일을 클릭하여 리소스 사용량을 조정합니다.
 
 어느 하나의 리소스를 통해 용량을 추가하면 서비스에서 자동으로 사용합니다. 추가적인 조치가 필요하지 않지만 새 리소스의 영향이 나타나기 전에 잠시 지연이 있습니다. 추가 리소스를 프로비전하는 데 15분 이상 걸릴 수 있습니다.

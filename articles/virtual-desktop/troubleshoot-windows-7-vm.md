@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: helohr
-ms.openlocfilehash: 7fdb46ac7cffc4eb6a791304c7a6b58378806296
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 282a4d166e48a41015cb2f08496fe39419bdcaf7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679894"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374256"
 ---
-# <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Windows 가상 데스크톱의 Windows 7 가상 컴퓨터 문제 해결
+# <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Windows Virtual Desktop에서 Windows 7 가상 머신 문제 해결
 
 이 문서를 사용 하 여 Windows 가상 데스크톱 세션 호스트 Vm (가상 컴퓨터)을 구성할 때 발생 하는 문제를 해결할 수 있습니다.
 
@@ -45,5 +45,5 @@ Windows 가상 데스크톱이 원격 데스크톱 사용자 그룹에서 사용
 4. @No__t-0을 추가 하려는 사용자의 이름으로 대체 하 여 다음 명령을 실행 합니다.
    
    ```cmd
-   localgroup "Remote Desktop Users" <username> /add
+   net localgroup "Remote Desktop Users" <username> /add
    ```

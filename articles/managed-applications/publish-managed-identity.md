@@ -1,6 +1,6 @@
 ---
-title: 관리 되는 Id 사용 하 여 azure 관리 되는 응용 프로그램
-description: 관리 Id를 사용 하 여 관리 되는 응용 프로그램을 구성 하는 방법에 알아봅니다. 관리 되는 리소스 그룹의 외부에 Azure 리소스 활동 로그에 대 한 관리 되는 응용 프로그램의 작업 id를 제공 하는 응용 프로그램 관리 권한을 부여할 관리 Id를 사용 하 여 기존 리소스에 연결 된 관리 되는 응용 프로그램을 배포할 수 있습니다 및 Azure 내에서 다른 서비스입니다.
+title: 관리 Id를 사용 하는 Azure 관리 되는 응용 프로그램
+description: 기존 리소스에 연결 하 고, Azure 리소스를 관리 하 고, 활동 로그에 운영 id를 제공 하기 위해 관리 되는 Id로 관리 되는 응용 프로그램을 구성
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
@@ -8,36 +8,36 @@ ms.reviewer: ''
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: 9fb5f7a4a62c2d323059f7c0b879482e93feef2f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9e1f5072921104c749a0acef95b7da09f1cbb662
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434854"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330219"
 ---
-# <a name="azure-managed-application-with-managed-identity"></a>관리 되는 Id 사용 하 여 azure 관리 되는 응용 프로그램
+# <a name="azure-managed-application-with-managed-identity"></a>관리 Id를 사용 하는 Azure 관리 되는 응용 프로그램
 
 > [!NOTE]
-> 관리 되는 Identity Managed Applications에 대 한 지원은 현재 미리 보기로 제공에서 됩니다. 관리 Id를 활용 하려면 2018-09-01-미리 보기 api 버전을 사용 하십시오.
+> 관리 되는 응용 프로그램에 대 한 관리 되는 Id 지원은 현재 미리 보기 상태입니다. 관리 Id를 활용 하려면 2018-09-01-preview api 버전을 사용 하세요.
 
-관리 Id를 포함 하는 관리 되는 응용 프로그램을 구성 하는 방법에 알아봅니다. 고객 추가 기존 리소스를 관리 되는 응용 프로그램 액세스 권한을 부여할 수 있도록 관리 Id는 사용할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. 관리 되는 id에 Azure Active Directory (AAD)에 대 한 자세한 내용은 참조 하세요 [Azure 리소스에 대 한 id 관리](../active-directory/managed-identities-azure-resources/overview.md)합니다.
+관리 되는 Id를 포함 하도록 관리 되는 응용 프로그램을 구성 하는 방법에 대해 알아봅니다. 관리 Id를 사용 하 여 고객이 추가 기존 리소스에 대 한 관리 되는 응용 프로그램 액세스 권한을 부여할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. AAD (Azure Active Directory)의 관리 되는 id에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md)를 참조 하세요.
 
 애플리케이션에 두 가지 형식의 ID를 부여할 수 있습니다.
 
 - **시스템 할당 ID**는 애플리케이션에 연결되어 있어 해당 앱을 삭제하면 이 ID도 삭제됩니다. 앱에는 하나의 시스템 할당 ID만 있을 수 있습니다.
-- A **사용자 할당 id** 은 독립 실행형 앱에 할당할 수 있는 Azure 리소스입니다. 앱에는 여러 사용자 할당 ID가 있을 수 있습니다.
+- **사용자 할당 id** 는 앱에 할당할 수 있는 독립 실행형 Azure 리소스입니다. 앱에는 여러 사용자 할당 ID가 있을 수 있습니다.
 
 ## <a name="how-to-use-managed-identity"></a>관리 Id를 사용 하는 방법
 
-관리 Id 관리 되는 응용 프로그램에 대 한 많은 시나리오를 지원합니다. 해결할 수 있는 몇 가지 일반적인 시나리오는:
+관리 되는 Id를 사용 하면 관리 되는 응용 프로그램에 대 한 많은 시나리오 해결할 수 있는 몇 가지 일반적인 시나리오는 다음과 같습니다.
 
-- 기존 Azure 리소스에 연결 된 관리 되는 응용 프로그램을 배포 합니다. 예제는 Azure 가상 머신 (VM)를 배포 하는 연결 된 관리 되는 응용 프로그램 내에서 프로그램 [기존 네트워크 인터페이스](../virtual-network/virtual-network-network-interface-vm.md)합니다.
-- 외부 Azure 리소스에 대 한 관리 되는 응용 프로그램 및 게시자 액세스 권한을 부여 합니다 **관리 되는 리소스 그룹**합니다.
-- 활동 로그 및 Azure 내에서 다른 서비스에 대 한 관리 되는 응용 프로그램의 작업 id를 제공합니다.
+- 기존 Azure 리소스에 연결 된 관리 되는 응용 프로그램 배포 [기존 네트워크 인터페이스](../virtual-network/virtual-network-network-interface-vm.md)에 연결 된 관리 되는 응용 프로그램 내에서 Azure VM (가상 머신)을 배포 하는 경우를 예로 들 수 있습니다.
+- 관리 되는 응용 프로그램 및 게시자에 게 **관리 되는 리소스 그룹**외부의 Azure 리소스에 대 한 액세스 권한 부여
+- Azure 내에서 활동 로그 및 기타 서비스에 대 한 관리 되는 응용 프로그램의 운영 id를 제공 합니다.
 
-## <a name="adding-managed-identity"></a>관리 되는 Id를 추가합니다.
+## <a name="adding-managed-identity"></a>관리 Id 추가
 
-관리 Id를 사용 하 여 관리 되는 응용 프로그램을 만드는 Azure 리소스에 대해 설정할 추가 속성이 필요 합니다. 다음 예에서는 예제를 보여 줍니다 **identity** 속성:
+관리 되는 Id를 사용 하 여 관리 되는 응용 프로그램을 만들려면 Azure 리소스에서 추가 속성을 설정 해야 합니다. 다음 예에서는 샘플 **id** 속성을 보여 줍니다.
 
 ```json
 {
@@ -49,11 +49,11 @@ ms.locfileid: "67434854"
 }
 ```
 
-두 가지 일반적인 사용 하 여 관리 되는 응용 프로그램을 만드는 **identity**: [CreateUIDefinition.json](./create-uidefinition-overview.md) 하 고 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)합니다. 단순한 단일에 대 한 시나리오를 만들 CreateUIDefinition 보다 풍부한 환경을 제공 하기 때문에 관리 되는 Id를 사용 하도록 설정 하려면 사용 해야 합니다. 그러나 고급 또는 복잡 한 처리할 때 필요한 시스템을 자동화 또는 템플릿에 여러 관리 되는 응용 프로그램 배포를 사용할 수 있습니다.
+**Id**를 사용 하 여 관리 되는 응용 프로그램을 만드는 두 가지 일반적인 방법으로는 [createuidefinition. json](./create-uidefinition-overview.md) 및 [Azure Resource Manager 템플릿이](../azure-resource-manager/resource-group-authoring-templates.md)있습니다. 간단한 단일 만들기 시나리오의 경우에는 보다 풍부한 환경을 제공 하기 때문에 CreateUIDefinition을 사용 하 여 관리 되는 Id를 사용 해야 합니다. 그러나 자동화 된 응용 프로그램이 나 여러 관리 되는 응용 프로그램 배포를 필요로 하는 고급 또는 복합 시스템을 처리할 때 템플릿을 사용할 수 있습니다.
 
-### <a name="using-createuidefinition"></a>CreateUIDefinition을 사용 하 여
+### <a name="using-createuidefinition"></a>CreateUIDefinition 사용
 
-관리 되는 응용 프로그램을 통해 관리 되는 Id를 사용 하 여 구성할 수 있습니다 합니다 [CreateUIDefinition.json](./create-uidefinition-overview.md)합니다. 에 [출력 섹션](./create-uidefinition-overview.md#outputs), 키 `managedIdentity` Managed Application 템플릿의 identity 속성을 재정의 하려면 사용할 수 있습니다. 샘플 아래 사용 하도록 설정 됩니다 **시스템 할당** 관리 되는 응용 프로그램에서 id입니다. 입력에 대 한 소비자에 게 CreateUIDefinition 요소를 사용 하 여 더 복잡 한 identity 개체를 구성할 수 있습니다. 이러한 입력 사용 하 여 관리 되는 응용 프로그램을 만드는 데 사용할 수 있습니다 **사용자 할당 id**합니다.
+관리 되는 응용 프로그램은 [Createuidefinition. json](./create-uidefinition-overview.md)을 통해 관리 되는 id로 구성할 수 있습니다. [출력 섹션](./create-uidefinition-overview.md#outputs)에서 키 `managedIdentity`을 사용 하 여 관리 되는 응용 프로그램 템플릿의 identity 속성을 재정의할 수 있습니다. 샘플 아래는 관리 되는 응용 프로그램에서 **시스템이 할당** 한 id를 사용 하도록 설정 합니다. 더 복잡 한 id 개체는 소비자에 게 입력을 요청 하는 CreateUIDefinition 요소를 사용 하 여 구성 될 수 있습니다. 이러한 입력은 **사용자 할당 id**를 사용 하 여 관리 되는 응용 프로그램을 구성 하는 데 사용할 수 있습니다.
 
 ```json
 "outputs": {
@@ -61,17 +61,17 @@ ms.locfileid: "67434854"
 }
 ```
 
-#### <a name="when-to-use-createuidefinition-for-managed-identity"></a>관리 되는 Id에 대 한 CreateUIDefinition을 사용 하는 경우
+#### <a name="when-to-use-createuidefinition-for-managed-identity"></a>관리 Id에 대해 CreateUIDefinition을 사용 하는 경우
 
-몇 가지 권장 사항 CreateUIDefinition을 사용 하 여 관리 되는 응용 프로그램에서 Id 관리를 사용 하도록 설정 하는 경우에 다음과 같습니다.
+관리 되는 응용 프로그램에서 관리 Id를 사용 하도록 설정 하기 위해 CreateUIDefinition을 사용 하는 경우에 대 한 몇 가지 권장 사항은
 
-- Azure portal 또는 marketplace를 통과 하는 관리 되는 응용 프로그램 만들기.
-- 관리 서비스 Id 복잡 한 소비자 입력이 필요 합니다.
-- 관리 서비스 Id 관리 되는 응용 프로그램 생성에 필요 합니다.
+- 관리 되는 응용 프로그램 생성은 Azure Portal 또는 marketplace를 거칩니다.
+- 관리 되는 Id에는 복잡 한 소비자 입력이 필요 합니다.
+- 관리 되는 응용 프로그램을 만들려면 관리 되는 Id가 필요 합니다.
 
-#### <a name="systemassigned-createuidefinition"></a>SystemAssigned CreateUIDefinition
+#### <a name="systemassigned-createuidefinition"></a>SystemAssigned 된 CreateUIDefinition
 
-기본 CreateUIDefinition을 관리 되는 응용 프로그램에 대 한 SystemAssigned id 수 있도록 합니다.
+관리 되는 응용 프로그램에 대해 SystemAssigned id를 사용 하도록 설정 하는 기본 CreateUIDefinition입니다.
 
 ```json
 {
@@ -91,9 +91,9 @@ ms.locfileid: "67434854"
 }
 ```
 
-#### <a name="userassigned-createuidefinition"></a>UserAssigned CreateUIDefinition
+#### <a name="userassigned-createuidefinition"></a>UserAssigned 된 CreateUIDefinition
 
-사용 하는 기본 CreateUIDefinition을 **사용자 할당 id** 리소스 입력으로 관리 되는 응용 프로그램에 대 한 UserAssigned id를 사용 하도록 설정 합니다.
+**사용자 할당 id** 리소스를 입력으로 사용 하 고 관리 되는 응용 프로그램에 대해 userassigned 된 id를 사용 하도록 설정 하는 기본 CreateUIDefinition입니다.
 
 ```json
 {
@@ -131,29 +131,29 @@ ms.locfileid: "67434854"
 }
 ```
 
-위의 CreateUIDefinition.json 소비자는 입력 수에 대 한 텍스트 상자에는 만들기 사용자 경험을 생성 합니다 **사용자 할당 id** Azure 리소스 id입니다. 생성 된 환경을 다음과 같이 보입니다.
+위의 CreateUIDefinition. json은 소비자가 **사용자에 게 할당 된 id** AZURE 리소스 id를 입력할 수 있는 입력란을 포함 하는 만들기 사용자 환경을 생성 합니다. 생성 된 환경은 다음과 같습니다.
 
 ![사용자 할당 id CreateUIDefinition 샘플](./media/publish-managed-identity/user-assigned-identity.png)
 
 ### <a name="using-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿 사용
 
 > [!NOTE]
-> Marketplace 응용 프로그램 관리 되는 템플릿은 Azure portal을 통해 전환 하는 고객 환경 만들기에 대 한 자동으로 생성 됩니다.
-> 이러한 시나리오는 `managedIdentity` 는 CreateUIDefinition의 출력 키를 사용 하 여 identity를 사용 하도록 설정 해야 합니다.
+> Marketplace 관리 응용 프로그램 템플릿은 Azure Portal 만들기 환경을 통해 고객에 게 자동으로 생성 됩니다.
+> 이러한 시나리오의 경우 CreateUIDefinition의 `managedIdentity` 출력 키를 사용 하 여 id를 설정 해야 합니다.
 
-Azure Resource Manager 템플릿을 통해 관리 되는 Id는 설정할 수도 있습니다. 샘플 아래 사용 하도록 설정 됩니다 **시스템 할당** 관리 되는 응용 프로그램에서 id입니다. Azure Resource Manager 템플릿 매개 변수를 사용 하 여 입력을 제공 하 여 더 복잡 한 identity 개체를 구성할 수 있습니다. 이러한 입력 사용 하 여 관리 되는 응용 프로그램을 만드는 데 사용할 수 있습니다 **사용자 할당 id**합니다.
+Azure Resource Manager 템플릿을 통해 관리 Id를 사용 하도록 설정할 수도 있습니다. 샘플 아래는 관리 되는 응용 프로그램에서 **시스템이 할당** 한 id를 사용 하도록 설정 합니다. 더 복잡 한 id 개체는 Azure Resource Manager 템플릿 매개 변수를 사용 하 여 입력을 제공 하 여 구성 될 수 있습니다. 이러한 입력은 **사용자 할당 id**를 사용 하 여 관리 되는 응용 프로그램을 구성 하는 데 사용할 수 있습니다.
 
-#### <a name="when-to-use-azure-resource-manager-templates-for-managed-identity"></a>관리 되는 Id에 대 한 Azure Resource Manager 템플릿을 사용 하는 경우
+#### <a name="when-to-use-azure-resource-manager-templates-for-managed-identity"></a>관리 Id에 Azure Resource Manager 템플릿을 사용 해야 하는 경우
 
-다음은 관리 되는 응용 프로그램에서 Id 관리를 사용 하도록 설정 하는 것에 대 한 Azure Resource Manager 템플릿을 사용 하는 경우에 몇 가지 권장 사항입니다.
+다음은 관리 되는 응용 프로그램에서 관리 Id를 사용 하도록 설정 하기 위해 Azure Resource Manager 템플릿을 사용 해야 하는 경우에 대 한 권장 사항
 
-- 관리 되는 응용 프로그램 템플릿을 기반으로 프로그래밍 방식으로 배포할 수 있습니다.
-- 관리 서비스 Id에 대 한 사용자 지정 역할 할당 관리 되는 응용 프로그램을 프로 비전 할 필요 합니다.
-- 관리 되는 응용 프로그램에는 Azure 포털 및 marketplace 만들기 흐름이 필요 하지 않습니다.
+- 템플릿을 기반으로 관리 되는 응용 프로그램을 프로그래밍 방식으로 배포할 수 있습니다.
+- 관리 되는 응용 프로그램을 프로 비전 하려면 관리 되는 Id에 대 한 사용자 지정 역할 할당이 필요 합니다.
+- 관리 되는 응용 프로그램에는 Azure Portal 및 마켓플레이스 생성 흐름이 필요 하지 않습니다.
 
-#### <a name="systemassigned-template"></a>SystemAssigned 템플릿
+#### <a name="systemassigned-template"></a>SystemAssigned 된 템플릿
 
-사용 하 여 관리 되는 응용 프로그램을 배포 하는 기본 Azure Resource Manager 템플릿을 **시스템 할당** identity입니다.
+**시스템이 할당** 한 id를 사용 하 여 관리 되는 응용 프로그램을 배포 하는 기본 Azure Resource Manager 템플릿입니다.
 
 ```json
 "resources": [
@@ -173,9 +173,9 @@ Azure Resource Manager 템플릿을 통해 관리 되는 Id는 설정할 수도 
 ]
 ```
 
-### <a name="userassigned-template"></a>UserAssigned 템플릿
+### <a name="userassigned-template"></a>UserAssigned 된 템플릿
 
-기본 Azure Resource Manager 템플릿을 사용 하 여 관리 되는 응용 프로그램을 배포 하는 **사용자 할당 id**합니다.
+**사용자 할당 id**를 사용 하 여 관리 되는 응용 프로그램을 배포 하는 기본 Azure Resource Manager 템플릿입니다.
 
 ```json
 "resources": [
@@ -204,24 +204,24 @@ Azure Resource Manager 템플릿을 통해 관리 되는 Id는 설정할 수도 
 ]
 ```
 
-## <a name="granting-access-to-azure-resources"></a>Azure 리소스에 대 한 액세스를 부여합니다.
+## <a name="granting-access-to-azure-resources"></a>Azure 리소스에 대 한 액세스 권한 부여
 
-관리 되는 응용 프로그램 id에 부여 되 면 기존 azure 리소스 액세스 권한을 부여할 수 있습니다. Azure portal에서 액세스 제어 (IAM) 인터페이스를 통해이 프로세스를 수행할 수 있습니다. 관리 되는 응용 프로그램의 이름 또는 **사용자 할당 id** 역할 할당을 추가 하기 위해 검색할 수 있습니다.
+관리 되는 응용 프로그램에 id가 부여 되 면 기존 azure 리소스에 대 한 액세스 권한을 부여할 수 있습니다. 이 프로세스는 Azure Portal의 액세스 제어 (IAM) 인터페이스를 통해 수행할 수 있습니다. 관리 되는 응용 프로그램 또는 **사용자 할당 id** 의 이름을 검색 하 여 역할 할당을 추가할 수 있습니다.
 
 ![관리 되는 응용 프로그램에 대 한 역할 할당 추가](./media/publish-managed-identity/identity-role-assignment.png)
 
 ## <a name="linking-existing-azure-resources"></a>기존 Azure 리소스 연결
 
 > [!NOTE]
-> A **사용자 할당 id** 있어야 [구성](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) 관리 되는 응용 프로그램을 배포 하기 전에 합니다. 또한 Managed Applications의 연결 된 리소스 배포에 대 한 지원만 되는 **marketplace** 종류입니다.
+> 관리 되는 응용 프로그램을 배포 하기 전에 **사용자 할당 id** 를 [구성](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) 해야 합니다. 또한 관리 되는 응용 프로그램의 연결 된 리소스 배포는 **marketplace** 종류에 대해서만 지원 됩니다.
 
-관리 Id는 배포 하는 동안 기존 리소스에 액세스 해야 하는 관리 되는 응용 프로그램을 배포 하려면 데도 사용할 수 있습니다. 고객에 의해 관리 되는 응용 프로그램 프로 비전 될 때 **사용자 할당 id** 에 추가 권한 부여를 제공 합니다. 추가할 수 있습니다 합니다 **mainTemplate** 배포 합니다.
+관리 Id를 사용 하 여 배포 중에 기존 리소스에 액세스 해야 하는 관리 되는 응용 프로그램을 배포할 수도 있습니다. 관리 되는 응용 프로그램을 고객이 프로 비전 할 때 **사용자 할당 id** 를 추가 하 여 **maintemplate.json** 배포에 대 한 추가 권한 부여를 제공할 수 있습니다.
 
-### <a name="authoring-the-createuidefinition-with-a-linked-resource"></a>연결 된 리소스를 사용 하 여 CreateUIDefinition 제작
+### <a name="authoring-the-createuidefinition-with-a-linked-resource"></a>링크 된 리소스를 사용 하 여 CreateUIDefinition 작성
 
-기존 리소스를 모두 기존 Azure 리소스 관리 되는 응용 프로그램의 배포를 연결 하는 경우와 **사용자 할당 id** 해당 역할을 사용 하 여 리소스 할당 제공 해야 합니다.
+관리 되는 응용 프로그램의 배포를 기존 리소스에 연결할 때 기존 Azure 리소스 및 해당 리소스에 대 한 해당 역할 할당을 가진 **사용자 할당 id** 를 모두 제공 해야 합니다.
 
- 샘플 입력 두 개가 필요는 CreateUIDefinition: 네트워크 인터페이스 리소스 ID 및 사용자 할당 id 리소스 id입니다.
+ 네트워크 인터페이스 리소스 ID와 사용자 할당 id 리소스 id의 두 입력이 필요한 샘플 CreateUIDefinition입니다.
 
 ```json
 {
@@ -269,15 +269,15 @@ Azure Resource Manager 템플릿을 통해 관리 되는 Id는 설정할 수도 
 }
 ```
 
-이 CreateUIDefinition.json 두 필드가 있는 만들기 사용자 경험을 생성 합니다. 첫 번째 필드에 사용자를를 관리 되는 응용 프로그램 배포에 연결 된 리소스에 대 한 Azure 리소스 ID에 입력할 수 있습니다. 두 번째는 소비자가 입력 해야 합니다 **사용자 할당 id** 연결된 된 Azure 리소스에 액세스 권한이 있는 Azure 리소스 ID입니다. 생성 된 환경을 다음과 같이 보입니다.
+이 CreateUIDefinition은 두 필드를 포함 하는 만들기 사용자 환경을 생성 합니다. 사용자는 첫 번째 필드를 사용 하 여 관리 되는 응용 프로그램 배포에 연결 되는 리소스에 대 한 Azure 리소스 ID를 입력할 수 있습니다. 두 번째는 소비자가 연결 된 Azure 리소스에 대 한 액세스 권한이 있는 **사용자 할당 id** AZURE 리소스 id를 입력 하는 것입니다. 생성 된 환경은 다음과 같습니다.
 
-![두 입력을 사용 하 여 CreateUIDefinition 샘플: 네트워크 인터페이스 리소스 ID 및 사용자 할당 id 리소스 ID](./media/publish-managed-identity/network-interface-cuid.png)
+![두 입력이 포함 된 샘플 CreateUIDefinition: 네트워크 인터페이스 리소스 ID 및 사용자 할당 id 리소스 ID](./media/publish-managed-identity/network-interface-cuid.png)
 
-### <a name="authoring-the-maintemplate-with-a-linked-resource"></a>연결 된 리소스를 사용 하 여 mainTemplate 제작
+### <a name="authoring-the-maintemplate-with-a-linked-resource"></a>링크 된 리소스를 사용 하 여 Maintemplate.json 작성
 
-CreateUIDefinition을 업데이트 하는 것 외에도 기본 템플릿에 또한 업데이트 해야 연결 된 리소스 id입니다. 전달 된 적용할 새 매개 변수를 추가 하 여 새 출력을 허용 하도록 기본 서식 파일을 업데이트할 수 있습니다. 이후를 `managedIdentity` 출력에서 생성 된 응용 프로그램 관리 되는 서식 파일의 값이 재정의 기본 템플릿에 전달 되지 않습니다 하 고 매개 변수 섹션에 포함 되지 않아야 합니다.
+CreateUIDefinition을 업데이트 하는 것 외에도 기본 템플릿은 전달 된 연결 된 리소스 ID를 수락 하도록 업데이트 해야 합니다. 새 매개 변수를 추가 하 여 새 출력을 허용 하도록 주 템플릿을 업데이트할 수 있습니다. @No__t-0 출력은 생성 된 관리 되는 응용 프로그램 템플릿의 값을 재정의 하므로 주 템플릿에 전달 되지 않으므로 매개 변수 섹션에 포함 되어서는 안 됩니다.
 
-CreateUIDefinition 제공한 기존 네트워크 인터페이스에 네트워크 프로필을 설정 하는 샘플 기본 템플릿.
+CreateUIDefinition에서 제공 하는 기존 네트워크 인터페이스로 네트워크 프로필을 설정 하는 샘플 기본 템플릿입니다.
 
 ```json
 {
@@ -311,15 +311,15 @@ CreateUIDefinition 제공한 기존 네트워크 인터페이스에 네트워크
 
 ### <a name="consuming-the-managed-application-with-a-linked-resource"></a>연결 된 리소스를 사용 하 여 관리 되는 응용 프로그램 사용
 
-관리 되는 응용 프로그램 패키지를 만든 후 Azure portal을 통해 관리 되는 응용 프로그램을 사용할 수 있습니다. 사용할 수 있습니다, 전에 몇 가지 필수 구성 요소 단계가 있습니다.
+관리 되는 응용 프로그램 패키지를 만든 후에는 Azure Portal를 통해 관리 되는 응용 프로그램을 사용할 수 있습니다. 이를 사용 하려면 몇 가지 필수 구성 요소 단계가 있습니다.
 
 - 필요한 연결 된 Azure 리소스의 인스턴스를 만들어야 합니다.
-- **사용자 할당 id** 여야 합니다 [생성 및 역할 할당을 지정](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) 연결 된 리소스입니다.
-- 기존의 연결 된 리소스 ID 및 **사용자 할당 id** ID는 CreateUIDefinition에 제공 됩니다.
+- **사용자 할당 id** 를 만들고 연결 된 리소스에 대 한 [역할 할당을 지정](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) 해야 합니다.
+- 기존의 연결 된 리소스 ID 및 **사용자 할당 id** Id는 CreateUIDefinition에 제공 됩니다.
 
-## <a name="accessing-the-managed-identity-token"></a>관리 되는 Id 토큰에 액세스
+## <a name="accessing-the-managed-identity-token"></a>관리 Id 토큰 액세스
 
-관리 되는 응용 프로그램의 토큰을 통해 액세스할 수 있습니다는 `listTokens` 게시자 테 넌 트에서 api. 요청 예제와 같습니다.
+이제 게시자 테 넌 트에서 `listTokens` api를 통해 관리 되는 응용 프로그램의 토큰에 액세스할 수 있습니다. 예제 요청은 다음과 같습니다.
 
 ``` HTTP
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}/listTokens?api-version=2018-09-01-preview HTTP/1.1
@@ -334,13 +334,13 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 요청 본문 매개 변수:
 
-매개 변수 | 필수 | 설명
+매개 변수를 포함해야 합니다. | 필수 | 설명
 ---|---|---
-authorizationAudience | *no* | 대상 리소스의 앱 ID URI입니다. 수도 `aud` 발급된 된 토큰의 클레임 (대상). 기본값은 "https://management.azure.com/"
-userAssignedIdentities | *no* | 목록에 대 한 토큰을 검색 하려면 사용자 할당 관리 되는 id입니다. 지정 하지 않으면 `listTokens` 시스템이 할당 하는 관리 되는 id에 대 한 토큰을 반환 합니다.
+authorizationAudience | *아니요* | 대상 리소스의 앱 ID URI입니다. 발급 된 토큰의 `aud` (대상) 클레임 이기도 합니다. 기본값은 "https://management.azure.com/"입니다.
+userAssignedIdentities | *아니요* | 토큰을 검색할 사용자 할당 관리 id 목록입니다. 지정 하지 않으면 `listTokens`은 시스템 할당 관리 id에 대 한 토큰을 반환 합니다.
 
 
-샘플 응답은 같습니다.
+샘플 응답은 다음과 같습니다.
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -361,16 +361,16 @@ Content-Type: application/json
 }
 ```
 
-응답에서 토큰의 배열에 포함 됩니다는 `value` 속성:
+응답은 `value` 속성 아래에 토큰 배열을 포함 합니다.
 
-매개 변수 | 설명
+매개 변수를 포함해야 합니다. | 설명
 ---|---
 access_token | 요청된 액세스 토큰입니다.
-expires_in | 액세스 토큰이 유효 하는 시간 (초) 수입니다.
-expires_on | 액세스 토큰이 만료되는 시간 범위입니다. 이 epoch의 초 수로 표시 됩니다.
-not_before | 액세스 토큰을 적용 하는 경우 timespan입니다. 이 epoch의 초 수로 표시 됩니다.
-authorizationAudience | `aud` (대상) 액세스 토큰 요청 되었습니다. 에 제공 된 것으로 동일 합니다 `listTokens` 요청 합니다.
-resourceId | 발급된 된 토큰에 대 한 Azure 리소스 ID입니다. 이 이름은 관리 되는 응용 프로그램 ID 또는 id 사용자 할당 id입니다.
+expires_in | 액세스 토큰이 유효한 시간 (초)입니다.
+expires_on | 액세스 토큰이 만료되는 시간 범위입니다. Epoch의 초 수로 표시 됩니다.
+not_before | 액세스 토큰이 적용 되는 timespan입니다. Epoch의 초 수로 표시 됩니다.
+authorizationAudience | 액세스 토큰이 요청 된 `aud` (대상 그룹)입니다. 이는 `listTokens` 요청에서 제공 된 것과 동일 합니다.
+resourceId | 발급 된 토큰에 대 한 Azure 리소스 ID입니다. 관리 되는 응용 프로그램 ID 또는 사용자 할당 id ID입니다.
 token_type | 토큰의 형식입니다.
 
 ## <a name="next-steps"></a>다음 단계

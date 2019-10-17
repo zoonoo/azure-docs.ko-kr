@@ -6,16 +6,16 @@ ms.author: dacoulte
 ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: fcb65e75de730178901742dc36c72776e39b044b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 0be6afc2d4d7f97717200b86d5e5b3bc2194afee
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977966"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376178"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>게스트 구성 정책을 만드는 방법
 
-게스트 구성은 DSC ( [필요한 상태 구성](/powershell/dsc) ) 리소스 모듈을 사용 하 여 Azure 컴퓨터의 감사에 대 한 구성을 만듭니다. DSC 구성은 컴퓨터가 속해야 하는 조건을 정의 합니다. 구성 평가에 실패 하는 경우 정책 효과 **auditIfNotExists** 가 트리거되고 컴퓨터가 **비준수**로 간주 됩니다.
+게스트 구성은 DSC ( [필요한 상태 구성](/powershell/scripting/dsc/overview/overview) ) 리소스 모듈을 사용 하 여 Azure 컴퓨터의 감사에 대 한 구성을 만듭니다. DSC 구성은 컴퓨터가 속해야 하는 조건을 정의 합니다. 구성 평가에 실패 하는 경우 정책 효과 **auditIfNotExists** 가 트리거되고 컴퓨터가 **비준수**로 간주 됩니다.
 
 [Azure Policy 게스트 구성은](/azure/governance/policy/concepts/guest-configuration) 컴퓨터 내의 설정을 감사 하는 데만 사용할 수 있습니다. 컴퓨터 내에서 설정의 재구성은 아직 사용할 수 없습니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "71977966"
 
 게스트 구성 리소스 모듈에는 다음 소프트웨어가 필요 합니다.
 
-- PowerShell을 사용하여 키 백업 파일 복원 아직 설치되지 않은 경우 [다음 지침](/powershell/scripting/install/installing-powershell)을 따릅니다.
+- 슬래시. 아직 설치되지 않은 경우 [다음 지침](/powershell/scripting/install/installing-powershell)을 따릅니다.
 - Azure PowerShell 1.5.0 이상입니다. 아직 설치되지 않은 경우 [다음 지침](/powershell/azure/install-az-ps)을 따릅니다.
 
 ### <a name="install-the-module"></a>모듈 설치
@@ -55,7 +55,7 @@ ms.locfileid: "71977966"
 
 ## <a name="create-custom-guest-configuration-configuration-and-resources"></a>사용자 지정 게스트 구성 구성 및 리소스 만들기
 
-게스트 구성에 대 한 사용자 지정 정책을 만드는 첫 번째 단계는 DSC 구성을 만드는 것입니다. DSC 개념 및 용어에 대 한 개요는 [POWERSHELL Dsc 개요](/powershell/dsc/overview/overview)를 참조 하세요.
+게스트 구성에 대 한 사용자 지정 정책을 만드는 첫 번째 단계는 DSC 구성을 만드는 것입니다. DSC 개념 및 용어에 대 한 개요는 [POWERSHELL Dsc 개요](/powershell/scripting/dsc/overview/overview)를 참조 하세요.
 
 구성에 게스트 구성 에이전트 설치와 함께 제공 되는 리소스만 필요한 경우에는 구성 MOF 파일을 작성 하기만 하면 됩니다. 추가 스크립트를 실행 해야 하는 경우 사용자 지정 리소스 모듈을 작성 해야 합니다.
 
@@ -73,9 +73,9 @@ ms.locfileid: "71977966"
 
 서비스에서 속성 **코드** 및 **구가** 필요 합니다. 사용자 지정 리소스를 작성 하는 경우 리소스를 준수 하지 않는 원인으로 표시 하려는 텍스트 (일반적으로 stdout)를 **구의**값으로 설정 합니다. **코드** 에는 특정 형식 지정 요구 사항이 있으므로 보고에서 감사를 수행 하는 데 사용 된 리소스에 대 한 정보를 명확 하 게 표시할 수 있습니다. 이 솔루션은 게스트 구성을 확장 가능 하 게 만듭니다. 출력을 캡처하여 **구** 속성의 문자열 값으로 반환할 수 있는 경우 모든 명령을 실행 하 여 컴퓨터를 감사할 수 있습니다.
 
-- **코드** (문자열): 리소스의 이름으로, 반복 되 고, 그에 대 한 식별자로 공백 없이 짧은 이름입니다. 이 세 값은 공백 없이 콜론으로 구분 되어야 합니다.
+- **Code** (string): 리소스의 이름으로, 반복 된 후 이유에 대 한 식별자로 공백 없이 짧은 이름입니다. 이 세 값은 공백 없이 콜론으로 구분 되어야 합니다.
   - 예는 `registry:registry:keynotpresent`입니다.
-- **구** (문자열): 사람이 읽을 수 있는 텍스트로 설정이 호환 되지 않는 이유를 설명 합니다.
+- **구** (문자열): 사람이 읽을 수 있는 텍스트로, 설정이 호환 되지 않는 이유를 설명 합니다.
   - 예는 `The registry key $key is not present on the machine.`입니다.
 
 ```powershell
@@ -115,7 +115,7 @@ Configuration baseline
 baseline
 ```
 
-자세한 내용은 [구성 작성, 컴파일 및 적용](/powershell/dsc/configurations/write-compile-apply-configuration)을 참조 하세요.
+자세한 내용은 [구성 작성, 컴파일 및 적용](/powershell/scripting/dsc/configurations/write-compile-apply-configuration)을 참조 하세요.
 
 ### <a name="custom-guest-configuration-configuration-on-windows"></a>Windows의 사용자 지정 게스트 구성 구성
 
@@ -141,7 +141,7 @@ Configuration AuditBitLocker
 AuditBitLocker
 ```
 
-자세한 내용은 [구성 작성, 컴파일 및 적용](/powershell/dsc/configurations/write-compile-apply-configuration)을 참조 하세요.
+자세한 내용은 [구성 작성, 컴파일 및 적용](/powershell/scripting/dsc/configurations/write-compile-apply-configuration)을 참조 하세요.
 
 ## <a name="create-guest-configuration-custom-policy-package"></a>게스트 구성 사용자 지정 정책 패키지 만들기
 
@@ -190,7 +190,7 @@ Azure Policy 게스트 구성에서 런타임에 사용 되는 암호를 관리 
 
 1. 마지막으로, 사용자 지정 리소스 내에서 위에 생성 된 클라이언트 ID를 사용 하 여 컴퓨터에서 사용할 수 있는 토큰을 사용 하 여 Key Vault에 액세스 합니다.
 
-   Key Vault 인스턴스에 대한 `client_id` 및 url을 리소스에 [속성](/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema)으로 전달하여 여러 환경에 대해 리소스를 업데이트할 필요가 없도록하거나 값을 변경해야 할 수 있습니다.
+   Key Vault 인스턴스에 대 한 `client_id` 및 url은 리소스에 [속성](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema) 으로 전달 될 수 있으므로 리소스를 여러 환경에 대해 업데이트 하거나 값을 변경 해야 할 필요가 없습니다.
 
 사용자 할당 id를 사용 하 여 Key Vault에서 비밀을 검색 하기 위해 사용자 지정 리소스에서 다음 코드 샘플을 사용할 수 있습니다. Key Vault 요청에서 반환 된 값은 일반 텍스트입니다. 자격 증명 개체에 저장 하는 것이 가장 좋습니다.
 
@@ -217,7 +217,7 @@ Test-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindowsS
 @No__t-0 cmdlet의 매개 변수:
 
 - **이름**: 게스트 구성 정책 이름입니다.
-- **매개 변수**: Hashtable 형식으로 제공 되는 정책 매개 변수입니다.
+- **매개 변수**: 해시 테이블 형식으로 제공 되는 정책 매개 변수입니다.
 - **경로**: 게스트 구성 패키지의 전체 경로입니다.
 
 Cmdlet은 PowerShell 파이프라인의 입력도 지원 합니다. @No__t-0 cmdlet의 출력을 `Test-GuestConfigurationPackage` cmdlet으로 파이프 합니다.
@@ -226,7 +226,7 @@ Cmdlet은 PowerShell 파이프라인의 입력도 지원 합니다. @No__t-0 cmd
 New-GuestConfigurationPackage -Name AuditWindowsService -Configuration .\DSCConfig\localhost.mof -Path .\package -Verbose | Test-GuestConfigurationPackage -Verbose
 ```
 
-매개 변수를 사용 하 여 테스트 하는 방법에 대 한 자세한 내용은 [사용자 지정 게스트 구성 정책에서 매개 변수 사용](/azure/governance/policy/how-to/guest-configuration-create#using-parameters-in-custom-guest-configuration-policies)섹션을 참조 하세요.
+매개 변수를 사용 하 여 테스트 하는 방법에 대 한 자세한 내용은 [사용자 지정 게스트 구성 정책에서 매개 변수 사용](#using-parameters-in-custom-guest-configuration-policies)섹션을 참조 하세요.
 
 ## <a name="create-the-azure-policy-definition-and-initiative-deployment-files"></a>Azure Policy 정의 및 이니셔티브 배포 파일 만들기
 
@@ -248,12 +248,12 @@ New-GuestConfigurationPolicy
 @No__t-0 cmdlet의 매개 변수:
 
 - **Contenturi**: 게스트 구성 콘텐츠 패키지의 공용 http (s) uri입니다.
-- **DisplayName**: 정책 표시 이름입니다.
+- **DisplayName**: Policy 표시 이름입니다.
 - **설명**: 정책 설명입니다.
-- **매개 변수**: Hashtable 형식으로 제공 되는 정책 매개 변수입니다.
-- **버전**: 정책 버전.
+- **매개 변수**: 해시 테이블 형식으로 제공 되는 정책 매개 변수입니다.
+- **버전**: 정책 버전
 - **경로**: 정책 정의가 생성 되는 대상 경로입니다.
-- **플랫폼**: 게스트 구성 정책 및 콘텐츠 패키지용 대상 플랫폼 (Windows/Linux)입니다.
+- **Platform**: 게스트 구성 정책 및 콘텐츠 패키지를 위한 대상 플랫폼 (Windows/Linux)입니다.
 
 다음 파일은 `New-GuestConfigurationPolicy`에 의해 생성 됩니다.
 
@@ -298,7 +298,7 @@ New-GuestConfigurationPolicy
     -Verbose
 ```
 
-Linux 정책의 경우 구성에 **AttributesYmlContent** 속성을 포함 하 고 적절 하 게 값을 덮어씁니다. 게스트 구성 에이전트는 InSpec에서 특성을 저장 하는 데 사용 하는 YaML 파일을 자동으로 만듭니다. 아래 예제를 참조하세요.
+Linux 정책의 경우 구성에 **AttributesYmlContent** 속성을 포함 하 고 적절 하 게 값을 덮어씁니다. 게스트 구성 에이전트는 InSpec에서 특성을 저장 하는 데 사용 하는 YaML 파일을 자동으로 만듭니다. 아래 예를 참조하세요.
 
 ```azurepowershell-interactive
 Configuration FirewalldEnabled {
@@ -360,14 +360,14 @@ Azure에서 만든 정책 및 이니셔티브 정의를 사용 하 여 마지막
 
 사용자 지정 콘텐츠 패키지를 사용 하 여 사용자 지정 Azure Policy를 게시 한 후 새 릴리스를 게시 하려는 경우 두 개의 필드를 업데이트 해야 합니다.
 
-- **버전**: @No__t-0 cmdlet을 실행할 때 현재 게시 된 것 보다 큰 버전 번호를 지정 해야 합니다. 속성은 새 정책 파일에 있는 게스트 구성 할당의 버전을 업데이트 하 여 패키지가 업데이트 되었다는 것을 인식 합니다.
-- **contentHash**: 이 속성은 `New-GuestConfigurationPolicy` cmdlet에 의해 자동으로 업데이트 됩니다. @No__t-0으로 만든 패키지의 해시 값입니다. 속성은 게시 하는 `.zip` 파일에 대해 정확 해야 합니다. 다른 사람이 포털에서 정책 정의를 수동으로 변경할 수 있는 경우와 같이 **Contenturi** 속성만 업데이트 된 경우에는 확장에서 콘텐츠 패키지를 수락 하지 않습니다.
+- **버전**: `New-GuestConfigurationPolicy` cmdlet을 실행할 때 현재 게시 된 것 보다 큰 버전 번호를 지정 해야 합니다. 속성은 새 정책 파일에 있는 게스트 구성 할당의 버전을 업데이트 하 여 패키지가 업데이트 되었다는 것을 인식 합니다.
+- **contentHash**:이 속성은 `New-GuestConfigurationPolicy` cmdlet에 의해 자동으로 업데이트 됩니다. @No__t-0으로 만든 패키지의 해시 값입니다. 속성은 게시 하는 `.zip` 파일에 대해 정확 해야 합니다. 다른 사람이 포털에서 정책 정의를 수동으로 변경할 수 있는 경우와 같이 **Contenturi** 속성만 업데이트 된 경우에는 확장에서 콘텐츠 패키지를 수락 하지 않습니다.
 
 업데이트 된 패키지를 해제 하는 가장 쉬운 방법은이 문서에 설명 된 프로세스를 반복 하 고 업데이트 된 버전 번호를 제공 하는 것입니다. 이 프로세스는 모든 속성이 올바르게 업데이트 되었는지 보장 합니다.
 
 ## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Windows 그룹 정책 콘텐츠를 Azure Policy 게스트 구성으로 변환
 
-Windows 컴퓨터를 감사할 때 게스트 구성은 PowerShell 필요한 상태 구성 구문의 구현입니다. DSC 커뮤니티에서는 내보낸 그룹 정책 템플릿을 DSC 형식으로 변환 하는 도구를 게시 했습니다. 위에서 설명한 게스트 구성 cmdlet과 함께이 도구를 사용 하 여 Windows 그룹 정책 콘텐츠를 변환 하 고 Azure Policy 감사를 위해 패키지/게시할 수 있습니다. 도구 사용에 대 한 자세한 내용은 [Quickstart 스타트 문서를 참조 하세요. 그룹 정책를 DSC @ no__t-0으로 변환 합니다.
+Windows 컴퓨터를 감사할 때 게스트 구성은 PowerShell 필요한 상태 구성 구문의 구현입니다. DSC 커뮤니티에서는 내보낸 그룹 정책 템플릿을 DSC 형식으로 변환 하는 도구를 게시 했습니다. 위에서 설명한 게스트 구성 cmdlet과 함께이 도구를 사용 하 여 Windows 그룹 정책 콘텐츠를 변환 하 고 Azure Policy 감사를 위해 패키지/게시할 수 있습니다. 도구를 사용 하는 방법에 대 한 자세한 내용은 [빠른 시작: DSC로 그룹 정책 변환](/powershell/scripting/dsc/quickstarts/gpo-quickstart)문서를 참조 하세요.
 콘텐츠를 변환한 후에는 패키지를 만들고 Azure Policy로 게시 하는 단계는 모든 DSC 콘텐츠와 동일 합니다.
 
 ## <a name="optional-signing-guest-configuration-packages"></a>선택 사항: 게스트 구성 패키지 서명
@@ -387,9 +387,9 @@ Protect-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindo
 @No__t-0 cmdlet의 매개 변수:
 
 - **경로**: 게스트 구성 패키지의 전체 경로입니다.
-- **인증서**: 패키지에 서명할 코드 서명 인증서입니다. 이 매개 변수는 Windows 콘텐츠에 서명 하는 경우에만 지원 됩니다.
+- **Certificate**: 패키지에 서명할 코드 서명 인증서입니다. 이 매개 변수는 Windows 콘텐츠에 서명 하는 경우에만 지원 됩니다.
 - **PrivateGpgKeyPath**: 개인 GPG 키 경로입니다. 이 매개 변수는 Linux 용 콘텐츠에 서명 하는 경우에만 지원 됩니다.
-- **PublicGpgKeyPath**: 공개 GPG 키 경로입니다. 이 매개 변수는 Linux 용 콘텐츠에 서명 하는 경우에만 지원 됩니다.
+- **PublicGpgKeyPath**: Public GPG key 경로입니다. 이 매개 변수는 Linux 용 콘텐츠에 서명 하는 경우에만 지원 됩니다.
 
 GuestConfiguration 에이전트는 인증서 공개 키가 Windows 컴퓨터의 "신뢰할 수 있는 루트 인증 기관"에 있고 Linux 컴퓨터의 경우 `/usr/local/share/ca-certificates/extra` 경로에 있어야 합니다. 노드가 서명 된 콘텐츠를 확인 하려면 사용자 지정 정책을 적용 하기 전에 컴퓨터에 인증서 공개 키를 설치 합니다. 이 프로세스는 VM 내에서 또는 Azure Policy를 사용 하 여 수행할 수 있습니다. 예제 템플릿이 여기에 [제공](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows)됩니다.
 Key Vault 액세스 정책은 배포 하는 동안 계산 리소스 공급자가 인증서에 액세스할 수 있도록 허용 해야 합니다. 자세한 단계는 [Azure Resource Manager에서 가상 컴퓨터에 대 한 Key Vault 설정](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault)을 참조 하세요.

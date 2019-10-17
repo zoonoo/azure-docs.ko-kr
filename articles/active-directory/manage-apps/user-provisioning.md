@@ -15,12 +15,12 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef652b05f62218ee1d0e72543bfa546f0c14abe
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 5ff6d9e33e15aa04adfa03705172166492f87e30
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001701"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330016"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제
 
@@ -56,11 +56,11 @@ Azure Active Directory (Azure AD)를 사용 하면 Dropbox, Salesforce, ServiceN
 
 **AZURE AD 프로 비전 서비스** 는 각 응용 프로그램 공급 업체에서 제공 하는 사용자 관리 API 끝점에 연결 하 여 SaaS 앱 및 기타 시스템에 사용자를 프로 비전 합니다. 이러한 사용자 관리 API 엔드포인트를 사용하면 Azure AD에서 프로그래밍 방식으로 사용자를 만들고, 업데이트하고, 제거할 수 있습니다. 선택한 응용 프로그램의 경우 프로 비전 서비스는 그룹 및 역할과 같은 추가 id 관련 개체를 만들고 업데이트 하 고 제거할 수도 있습니다.
 
-![Azure AD 프로 비전 서비스 @ no__t-1 @ no__t-2Figure 1: Azure AD Provisioning Service*
+![Azure AD 프로 비전 서비스 @ no__t-1*그림 1: AZURE Ad 프로 비전 서비스*
 
-![Outbound 바운드 사용자 프로 비전 워크플로 @ no__t-1 @ no__t-2Figure 2: Azure AD에서 인기 있는 SaaS 애플리케이션으로의 “아웃바운드” 사용자 프로비저닝 워크플로*
+![Outbound 바운드 사용자 프로 비전 워크플로 @ no__t-1*그림 2: "아웃 바운드" 사용자 프로 비전 워크플로를 AZURE AD에서 인기 있는 SaaS 응용 프로그램으로 프로 비전*
 
-![ 인바운드 사용자 프로 비전 워크플로 @ no__t-1 @ no__t-2Figure 3: 인기 있는 HCM(Human Capital Management) 애플리케이션에서 Azure Active Directory 및 Windows Server Active Directory로의 “인바운드”사용자 프로비저닝 워크플로*
+![ 인바운드 사용자 프로 비전 워크플로 @ no__t-1*그림 3: 인기 있는 HCM (인간 자본 관리) 응용 프로그램에서 Azure Active Directory 및 Windows Server로의 "인바운드" 사용자 프로 비전 워크플로 Active Directory*
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Azure AD 자동 사용자 프로비전에서 사용할 수 있는 애플리케이션과 시스템은 무엇입니까?
 
@@ -99,7 +99,7 @@ Azure Active Directory 포털을 사용 하 여 선택한 응용 프로그램에
 
 1. **프로 비전 모드** 에 대해 자동 옵션을 선택 하 여 관리자 자격 증명, 매핑, 시작 및 중지 및 동기화에 대 한 설정을 지정 합니다.
 
-   - **관리자 자격 증명** 을 확장 하 여 Azure AD에 응용 프로그램의 사용자 관리 API에 연결 하는 데 필요한 자격 증명을 입력 합니다. 또한이 섹션에서는 자격 증명이 실패 하거나 프로 비전 작업이 [격리](#quarantine)되는 경우 전자 메일 알림을 사용 하도록 설정할 수 있습니다.
+   - **관리자 자격 증명** 을 확장 하 여 Azure AD에 응용 프로그램의 사용자 관리 API에 연결 하는 데 필요한 자격 증명을 입력 합니다. 또한이 섹션에서는 자격 증명이 실패 하거나 프로 비전 작업이 [격리](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)되는 경우 전자 메일 알림을 사용 하도록 설정할 수 있습니다.
    - **매핑** 을 확장 하 여 사용자 계정이 프로 비전 되거나 업데이트 될 때 Azure AD와 대상 응용 프로그램 간에 흐르는 사용자 특성을 보고 편집 합니다. 대상 응용 프로그램에서 지 원하는 경우이 섹션에서 필요에 따라 그룹 및 사용자 계정 프로 비전을 구성할 수 있습니다. 테이블에서 매핑을 선택 하 여 사용자 특성을 확인 하 고 사용자 지정할 수 있는 오른쪽의 매핑 편집기를 엽니다.
 
      **범위 지정 필터** 는 프로 비전 서비스에 원본 시스템의 사용자 및 그룹을 프로 비전 하거나 대상 시스템에 프로 비전 해제를 알려 줍니다. **특성 매핑** 창에서 **원본 개체 범위** 를 선택 하 여 특정 특성 값을 필터링 합니다. 예를 들어 "Department" 특성이 "Sales"인 사용자만 프로비전 범위에 속해야 한다고 지정할 수 있습니다. 자세한 내용은 [범위 지정 필터 사용](define-conditional-rules-for-provisioning-user-accounts.md)을 참조하세요.
@@ -125,7 +125,7 @@ Azure AD가 소스 시스템인 경우 프로비저닝 서비스는 [Azure AD Gr
 
 1. [특성 매핑](customize-application-attributes.md)에 정의된 모든 특성을 검색하여 소스 시스템에서 모든 사용자와 그룹을 쿼리합니다.
 1. 구성된 [할당](assign-user-or-group-access-portal.md) 또는 [특성 기반 범위 지정 필터](define-conditional-rules-for-provisioning-user-accounts.md)를 사용하여 반환된 사용자 및 그룹을 필터링합니다.
-1. 사용자가 할당 되거나 프로 비전 범위에 있는 경우 서비스는 지정 된 [일치 특성](customize-application-attributes.md#understanding-attribute-mapping-properties)을 사용 하 여 대상 시스템에 일치 하는 사용자를 쿼리 합니다. 예: 원본 시스템의 userPrincipal 이름이 일치하는 특성이고 대상 시스템의 userName에 매핑되는 경우, 프로비전 서비스는 대상 시스템에서 원본 시스템의 userPrincipal 이름 값과 일치하는 userNames를 쿼리합니다.
+1. 사용자가 할당 되거나 프로 비전 범위에 있는 경우 서비스는 지정 된 [일치 특성](customize-application-attributes.md#understanding-attribute-mapping-properties)을 사용 하 여 대상 시스템에 일치 하는 사용자를 쿼리 합니다. 예: 소스 시스템의 userPrincipal 이름이 일치하는 특성이고 대상 시스템의 userName에 매핑되는 경우 프로비저닝 서비스는 대상 시스템에서 소스 시스템의 userPrincipal 이름 값과 일치하는 userNames를 쿼리합니다.
 1. 대상 시스템에서 일치 하는 사용자를 찾을 수 없는 경우 소스 시스템에서 반환 된 특성을 사용 하 여 생성 됩니다. 사용자 계정을 만든 후 프로 비전 서비스는 새 사용자에 대 한 대상 시스템의 ID를 검색 하 고 캐시 합니다 .이 ID는 해당 사용자에 대 한 모든 이후 작업을 실행 하는 데 사용 됩니다.
 1. 일치 하는 사용자가 있는 경우 원본 시스템에서 제공 하는 특성을 사용 하 여 업데이트 됩니다. 사용자 계정이 일치 한 후 프로 비전 서비스는 새 사용자에 대 한 대상 시스템의 ID를 검색 하 고 캐시 합니다 .이 ID는 해당 사용자에 대 한 모든 이후 작업을 실행 하는 데 사용 됩니다.
 1. 특성 매핑에 "참조" 특성이 포함 되어 있으면 서비스는 대상 시스템에서 추가 업데이트를 수행 하 여 참조 된 개체를 만들고 연결 합니다. 예를 들어 대상 시스템에 있는 한 사용자의 “Manager” 특성이 대상 시스템에서 생성된 다른 사용자에 연결되어 있을 수 있습니다.
@@ -173,7 +173,7 @@ ServiceNow, G Suite 및 Box와 같은 일부 응용 프로그램은 사용자를
 
 격리에서 증분 주기의 빈도는 하루에 한 번만 점차적으로 줄어듭니다.
 
-모든 잘못 된 오류를 수정 하 고 다음 동기화 주기를 시작 하면 프로 비전 작업이 격리에서 제거 됩니다. 프로비저닝 작업이 4주 넘게 격리 상태로 유지되면 프로비저닝 작업을 사용할 수 없게 됩니다.
+모든 잘못 된 오류를 수정 하 고 다음 동기화 주기를 시작 하면 프로 비전 작업이 격리에서 제거 됩니다. 프로비저닝 작업이 4주 넘게 격리 상태로 유지되면 프로비저닝 작업을 사용할 수 없게 됩니다. [여기에서 격리 상태에](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)대해 자세히 알아보세요.
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>사용자를 프로비전하는 데 걸리는 시간은 어느 정도인가요?
 
@@ -195,7 +195,7 @@ Azure Portal에서 프로 비전 로그를 읽는 방법에 대 한 자세한 �
 
 애플리케이션에 대한 아웃바운드 사용자 프로비저닝에 대한 단계별 배포 계획 예제는 [사용자 프로비저닝에 대한 ID 배포 가이드](https://aka.ms/userprovisioningdeploymentplan)를 참조하세요.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>SaaS 앱에 대한 자동 사용자 프로비저닝이 Azure AD의 B2B 사용자에게 작동하나요?
 
@@ -215,7 +215,7 @@ Azure Portal에서 프로 비전 로그를 읽는 방법에 대 한 자세한 �
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>SaaS 앱에 대한 자동 사용자 프로비저닝이 Azure AD의 중첩 그룹에 작동하나요?
 
-아니요. "할당 된 사용자 및 그룹만 동기화"로 구성 된 경우 Azure AD 사용자 프로 비전 서비스는 중첩 된 그룹에 있는 사용자를 읽거나 프로 비전 할 수 없습니다. 명시적으로 할당 된 그룹의 직접 구성원 인 사용자를 읽고 프로 비전 할 수 있습니다.
+아닙니다. "할당 된 사용자 및 그룹만 동기화"로 구성 된 경우 Azure AD 사용자 프로 비전 서비스는 중첩 된 그룹에 있는 사용자를 읽거나 프로 비전 할 수 없습니다. 명시적으로 할당 된 그룹의 직접 구성원 인 사용자를 읽고 프로 비전 할 수 있습니다.
 
 이것은 Single Sign-On에도 영향을 미치는 “애플리케이션에 대한 그룹 기반 할당”의 제한 사항으로, [그룹을 사용하여 SaaS 애플리케이션에 대한 액세스 관리](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps )에 설명되어 있습니다.
 

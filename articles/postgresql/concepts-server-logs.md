@@ -1,48 +1,97 @@
 ---
-title: PostgreSQL-단일 서버용 Azure Database에서의 서버 로그
-description: 이 문서에서는 PostgreSQL-단일 서버용 Azure 데이터베이스를 설명합니다. 쿼리 및 오류 로그를 생성하고 로그 보존을 구성하는 방법을 설명합니다.
+title: Azure Database for PostgreSQL의 로그-단일 서버
+description: Azure Database for PostgreSQL의 로깅 구성, 저장소 및 분석의 개념-단일 서버
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/18/2019
-ms.openlocfilehash: 17083029f2377037b99abfa3ce8371661eccb957
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.date: 10/14/2019
+ms.openlocfilehash: cc796733c9b0b1effd8043c49540f9b489610067
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029981"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331292"
 ---
-# <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 서버 로그-단일 서버
-Azure Database for PostgreSQL에서는 쿼리 및 오류 로그를 생성합니다. 쿼리 및 오류 로그는 구성 오류 및 최적 상태가 아닌 성능 문제를 식별하고, 문제를 해결하고, 복구하는 데 사용될 수 있습니다. 단, 트랜잭션 로그 액세스 권한은 포함되지 않습니다. 
+# <a name="logs-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 로그-단일 서버
+Azure Database for PostgreSQL를 사용 하 여 Postgres의 표준 로그를 구성 하 고 액세스할 수 있습니다. 로그를 사용 하 여 구성 오류를 식별 하 고, 문제를 해결 하 고, 문제를 해결할 수 있습니다. 구성 및 액세스할 수 있는 로깅 정보에는 오류, 쿼리 정보, autovacuum 레코드, 연결 및 검사점이 포함 됩니다. (트랜잭션 로그에 대 한 액세스를 사용할 수 없습니다.)
+
+감사 로깅은 Postgres 확장 (pgaudit)을 통해 사용할 수 있습니다. 자세히 알아보려면 [감사 개념](concepts-audit.md) 문서를 참조 하세요.
+
 
 ## <a name="configure-logging"></a>로깅 구성 
-로깅 서버 매개 변수를 사용하면 서버에서 로깅을 구성할 수 있습니다. 각 새 서버의 **log_checkpoints** 및 **log_connections**는 기본적으로 설정되어 있습니다. 로깅 요구에 맞게 매개 변수를 추가로 조정할 수도 있습니다. 
+로깅 서버 매개 변수를 사용 하 여 서버에서 Postgres 표준 로깅을 구성할 수 있습니다. 각 Azure Database for PostgreSQL 서버에서 `log_checkpoints` 및 `log_connections`은 기본적으로 설정 되어 있습니다. 로깅 요구에 맞게 매개 변수를 추가로 조정할 수도 있습니다. 
 
 ![Azure Database for PostgreSQL - 로깅 매개 변수](./media/concepts-server-logs/log-parameters.png)
 
-이러한 매개 변수에 대한 자세한 내용은 PostgreSQL의 [오류 보고 및 로깅](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) 설명서를 참조하세요. Azure Database for PostgreSQL 매개 변수를 구성하는 방법을 알아보려면 [포털 설명서](howto-configure-server-parameters-using-portal.md) 또는 [CLI 설명서](howto-configure-server-parameters-using-cli.md)를 참조하세요.
+Postgres 로그 매개 변수에 대 한 자세한 내용을 보려면 Postgres 설명서의 [시기를 기록](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN) 하는 시기 및 [로깅할 항목](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHAT) 섹션을 참조 하세요. Azure Database for PostgreSQL에서 대부분의 Postgres 로깅 매개 변수를 구성할 수 있습니다.
 
-## <a name="access-server-logs-through-portal-or-cli"></a>포털 또는 CLI를 통해 서버 로그 액세스
-로그를 사용하도록 설정한 경우 [Azure Portal](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md) 및 Azure REST API를 사용하여 Azure Database for PostgreSQL 로그 스토리지에서 로그에 액세스할 수 있습니다. 로그 파일은 1시간마다 또는 100MB 크기가 될 때마다(둘 중 먼저 도달할 때) 순환됩니다. 서버에 연결된 **log\_retention\_period** 매개 변수를 사용하여 이 로그 스토리지의 보존 기간을 설정할 수 있습니다. 기본값은 3일이며 최대값은 7일입니다. 로그 파일을 저장하기에 충분한 스토리지를 서버에 할당해야 합니다. Azure 진단 로그는 이 보존 매개 변수를 통해 제어되지 않습니다.
+Azure Database for PostgreSQL에서 매개 변수를 구성 하는 방법에 대 한 자세한 내용은 [포털 설명서](howto-configure-server-parameters-using-portal.md) 또는 [CLI 설명서](howto-configure-server-parameters-using-cli.md)를 참조 하세요. 
 
+> [!NOTE]
+> 문 로깅과 같이 많은 양의 로그를 구성 하면 상당한 성능 오버 헤드를 추가할 수 있습니다. 
+
+## <a name="access-log-files"></a>로그 파일 액세스
+Azure Database for PostgreSQL의 기본 로그 형식은 .log입니다. 이 로그의 샘플 줄은 다음과 같습니다.
+
+```
+2019-10-14 17:00:03 UTC-5d773cc3.3c-LOG: connection received: host=101.0.0.6 port=34331 pid=16216
+```
+
+Azure Database for PostgreSQL는 .log 파일에 대 한 단기 저장 위치를 제공 합니다. 새 파일은 1 시간 마다 또는 100 MB 중 먼저 도달 하는 것으로 시작 됩니다. 로그는 Postgres에서 내보낼 때 현재 파일에 추가 됩니다.  
+
+@No__t-0 매개 변수를 사용 하 여이 단기 로그 저장소에 대 한 보존 기간을 설정할 수 있습니다. 기본값은 3일이며 최대값은 7일입니다. 단기 저장소 위치는 최대 1gb의 로그 파일을 보유할 수 있습니다. 1gb 후에는 새 로그를 위한 공간을 확보 하기 위해 보존 기간에 관계 없이 가장 오래 된 파일이 삭제 됩니다. 
+
+로그 및 로그 분석에 대 한 장기 보존을 위해 .log 파일을 다운로드 하 고 타사 서비스로 이동할 수 있습니다. [Azure CLI](howto-configure-server-logs-using-cli.md) [Azure Portal](howto-configure-server-logs-in-portal.md)를 사용 하 여 파일을 다운로드할 수 있습니다. 또는 로그 (JSON 형식)를 장기 위치로 자동으로 내보내는 Azure Monitor 진단 설정을 구성할 수 있습니다. 이 옵션에 대 한 자세한 내용은 아래 섹션을 참조 하세요. 
+
+매개 변수 `logging_collector`을 OFF로 설정 하 여 .log 파일 생성을 중지할 수 있습니다. Azure Monitor 진단 설정을 사용 하는 경우 로그 파일 생성을 해제 하는 것이 좋습니다. 이 구성을 통해 추가 로깅의 성능 영향을 줄일 수 있습니다.
 
 ## <a name="diagnostic-logs"></a>진단 로그
-Azure Database for PostgreSQL은 Azure Monitor 진단 로그와 통합됩니다. PostgreSQL 서버에 로그를 사용 설정한 후에 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md), Event Hubs 또는 Azure 저장소에 내보내도록 선택할 수 있습니다. 
+Azure Database for PostgreSQL은 Azure Monitor 진단 설정과 통합 됩니다. 진단 설정을 사용 하면 분석 및 경고를 위해 Postgres 로그를 JSON 형식으로 Azure Monitor 하 고, 스트리밍 Event Hubs 하 고, 보관에 Azure Storage 보낼 수 있습니다. 
 
 > [!IMPORTANT]
-> 이 서버 로그에 대한 진단 기능은 범용 및 메모리 최적화 [가격 책정 계층](concepts-pricing-tiers.md)에서만 사용할 수 있습니다.
+> 서버 로그에 대 한이 진단 기능은 범용 및 메모리 액세스에 최적화 된 [가격 책정 계층](concepts-pricing-tiers.md)에서만 사용할 수 있습니다.
+
+
+### <a name="configure-diagnostic-settings"></a>진단 설정 구성
+Azure Portal, CLI, REST API 및 Powershell을 사용 하 여 Postgres server에 대 한 진단 설정을 사용 하도록 설정할 수 있습니다. 선택할 로그 범주는 **PostgreSQLLogs**입니다. [쿼리 저장소](concepts-query-store.md)를 사용 하는 경우 구성할 수 있는 다른 로그가 있습니다.
 
 Azure Portal를 사용 하 여 진단 로그를 사용 하도록 설정 하려면
 
    1. 포털에서 Postgres server의 탐색 메뉴에 있는 *진단 설정* 으로 이동 합니다.
    2. *진단 설정 추가*를 선택 합니다.
    3. 이 설정의 이름을로 설정 합니다. 
-   4. 기본 다운스트림 위치 (저장소 계정, 이벤트 허브, log analytics)를 선택 합니다. 
-   5. 원하는 데이터 형식을 선택 합니다.
-   6. 설정을 저장합니다.
+   4. 기본 설정 끝점 (저장소 계정, 이벤트 허브, log analytics)을 선택 합니다. 
+   5. **PostgreSQLLogs**로그 유형을 선택 합니다.
+   7. 설정을 저장합니다.
 
-다음 표에서는 각 로그의 내용에 대해 설명 합니다. 포함되는 필드와 이러한 필드가 표시되는 순서는 선택한 출력 엔드포인트에 따라 달라질 수 있습니다. 
+Powershell, CLI 또는 REST API를 사용 하 여 진단 로그를 사용 하도록 설정 하려면 [진단 설정](../azure-monitor/platform/diagnostic-settings.md) 문서를 참조 하세요.
+
+### <a name="access-diagnostic-logs"></a>진단 로그 액세스
+
+로그에 액세스 하는 방법은 선택한 끝점에 따라 다릅니다. Azure Storage의 경우 스키마는 [로그 저장소 계정](../azure-monitor/platform/resource-logs-collect-storage.md) 문서에 설명 되어 있습니다. Event Hubs에 대해서는 [Stream Azure logs](../azure-monitor/platform/resource-logs-stream-event-hubs.md) 문서를 참조 하세요.
+
+Azure Monitor 로그의 경우 로그는 선택한 작업 영역으로 전송 됩니다. Postgres 로그 **는 azurediagnostics 수집 모드** 를 사용 하므로 azurediagnostics 테이블에서 쿼리할 수 있습니다. 테이블의 필드는 아래에 설명 되어 있습니다. [Azure Monitor 로그 쿼리](../azure-monitor/log-query/log-query-overview.md) 개요의 쿼리 및 경고에 대해 자세히 알아보세요.
+
+다음은 시작 하기 위해 시도할 수 있는 쿼리입니다. 쿼리를 기반으로 경고를 구성할 수 있습니다.
+
+마지막 날에 특정 서버에 대 한 모든 Postgres 로그를 검색 합니다.
+```
+AzureDiagnostics
+| where LogicalServerName_s == 'myservername'
+| where TimeGenerated > ago(1d) 
+```
+
+지난 6 시간 동안이 작업 영역의 모든 Postgres 서버에 대 한 모든 오류를 검색 합니다.
+```
+AzureDiagnostics
+| where errorLevel_s == "error" and category == "PostgreSQLogs"
+| where TimeGenerated > ago(6h)
+```
+
+### <a name="log-format"></a>로그 형식
+
+다음 표에서는 **PostgreSQLLogs** 형식에 대 한 필드를 설명 합니다. 포함되는 필드와 이러한 필드가 표시되는 순서는 선택한 출력 엔드포인트에 따라 달라질 수 있습니다. 
 
 |**필드** | **설명** |
 |---|---|
@@ -55,22 +104,22 @@ Azure Portal를 사용 하 여 진단 로그를 사용 하도록 설정 하려�
 | ResourceProvider | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
 | ResourceId | 리소스 URI |
-| Resource | 서버의 이름 |
-| Category | `PostgreSQLLogs` |
+| 리소스 | 서버의 이름 |
+| 범주 | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | 로깅 수준(예: LOG, ERROR, NOTICE) |
-| Message | 기본 로그 메시지 | 
-| Domain | 서버 버전(예: postgres-10) |
-| Detail | 보조 로그 메시지(해당하는 경우) |
+| 메시지 | 기본 로그 메시지 | 
+| 도메인 | 서버 버전(예: postgres-10) |
+| 세부 정보 | 보조 로그 메시지(해당하는 경우) |
 | ColumnName | 열 이름(해당하는 경우) |
 | SchemaName | 스키마 이름(해당하는 경우) |
 | DatatypeName | 데이터 형식 이름(해당하는 경우) |
 | LogicalServerName | 서버의 이름 | 
 | _ResourceId | 리소스 URI |
-| Prefix | 로그 줄의 접두사 |
-
+| 접두사 | 로그 줄의 접두사 |
 
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Portal](howto-configure-server-logs-in-portal.md) 또는 [Azure CLI](howto-configure-server-logs-using-cli.md)에서 로그에 액세스하는 방법에 대해 자세히 알아봅니다.
 - [Azure Monitor 가격](https://azure.microsoft.com/pricing/details/monitor/)에 대해 자세히 알아봅니다.
+- [감사 로그](concepts-audit.md) 에 대해 자세히 알아보기

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
 ms.openlocfilehash: b6015ce2d52c140a966636b887d021e76e92990d
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "70993636"
 ---
 # <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource의 통합 솔루션
@@ -24,9 +24,9 @@ ms.locfileid: "70993636"
 
 통합 된 방법의 장점은 다음과 같습니다.
 
-* *산업 전문 지식*: 업계 고유의 솔루션 및 지식을 제공 하는 시스템 통합자
-* *시간 값*: 즉각적인 이점을 실현 하는 데 도움이 되는 통합 배포 방법
-* *최고의 솔루션*: 통합 구입 및 구현 경험의 용이성 살펴보기
+* *업계 전문 지식*: 업계 고유의 솔루션 및 지식을 제공 하는 시스템 통합자
+* *시간 값*: 즉각적인 혜택을 얻을 수 있는 통합 배포 방법
+* *최고의 솔루션*: 통합 구매 및 구현 경험의 용이성 살펴보기
 
 ## <a name="next-steps"></a>다음 단계
 

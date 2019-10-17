@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 167d880f82314fc3b5ade299442f04d62b5dacb9
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: a847ba7d782b332d9cae7f83bc1278fea58b8811
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274497"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330813"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>세션 호스트 가상 머신 구성
 
 이 문서를 사용 하 여 Windows 가상 데스크톱 세션 호스트 Vm (가상 컴퓨터)을 구성할 때 발생 하는 문제를 해결할 수 있습니다.
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 
 [Windows Virtual Desktop 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)를 방문하여 제품 팀 및 활발하게 활동하는 커뮤니티 멤버들과 Windows Virtual Desktop 서비스에 대해 토론해 보세요.
 
@@ -34,7 +34,7 @@ Vm을 도메인에 가입 하는 데 문제가 있는 경우 다음 지침을 �
 
 **원인:** Azure Resource Manager 템플릿 인터페이스 수정에서 자격 증명을 입력 했을 때 철자가 잘못 되었습니다.
 
-**방법을** 다음 작업 중 하나를 수행 하 여 해결 합니다.
+**해결 방법:** 다음 작업 중 하나를 수행 하 여 해결 합니다.
 
 - 수동으로 Vm을 도메인에 추가 합니다.
 - 자격 증명이 확인 되 면 템플릿을 다시 배포 합니다. [PowerShell을 사용 하 여 호스트 풀 만들기](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell)를 참조 하세요.
@@ -44,7 +44,7 @@ Vm을 도메인에 가입 하는 데 문제가 있는 경우 다음 지침을 �
 
 **원인:** 도메인 가입을 완료 하는 데 사용 되는 계정에 MFA (multi-factor authentication)가 있을 수 있습니다.
 
-**방법을** 다음 작업 중 하나를 수행 하 여 해결 합니다.
+**해결 방법:** 다음 작업 중 하나를 수행 하 여 해결 합니다.
 
 - 계정에 대 한 MFA를 일시적으로 제거 합니다.
 - 서비스 계정을 사용 합니다.
@@ -53,7 +53,7 @@ Vm을 도메인에 가입 하는 데 문제가 있는 경우 다음 지침을 �
 
 **원인:** 사용 중인 계정에는 규정 준수 및 규정으로 인해 Vm을 도메인에 가입 시킬 수 있는 권한이 없습니다.
 
-**방법을** 다음 작업 중 하나를 수행 하 여 해결 합니다.
+**해결 방법:** 다음 작업 중 하나를 수행 하 여 해결 합니다.
 
 - 관리자 그룹의 구성원 인 계정을 사용 합니다.
 - 사용 중인 계정에 필요한 사용 권한을 부여 합니다.
@@ -98,11 +98,11 @@ Vm을 프로 비전 하는 권장 방법은 **Windows 가상 데스크톱 호스
 - 테 넌 트 이름이 정확 하 고 테 넌 트가 Windows 가상 데스크톱에 존재 하는지 확인 합니다.
 - 계정에 최소한 RDS 참가자 권한이 있는지 확인 합니다.
 
-### <a name="error-authentication-failed-error-in-cwindowstempscriptlogslog"></a>오류: 인증 실패, C:\Windows\Temp\scriptlogs.log에서 오류 발생
+### <a name="error-authentication-failed-error-in-cwindowstempscriptlogslog"></a>오류: 인증에 실패 했습니다. C:\Windows\Temp\scriptlogs.log에서 오류가 발생 했습니다.
 
 **원인:** PowerShell DSC를 실행할 수 있었지만 Windows 가상 데스크톱에 연결할 수 없습니다.
 
-**방법을** 다음 목록에서 항목을 확인 합니다.
+**해결 방법:** 다음 목록에서 항목을 확인 합니다.
 
 - Windows 가상 데스크톱 서비스를 사용 하 여 Vm을 수동으로 등록 합니다.
 - Windows 가상 데스크톱에 연결 하는 데 사용 되는 계정에 테 넌 트에서 호스트 풀을 만들 수 있는 권한이 있는지 확인 합니다.
@@ -112,13 +112,13 @@ Vm을 프로 비전 하는 권장 방법은 **Windows 가상 데스크톱 호스
 
 Windows 가상 데스크톱 에이전트가 수동으로 또는 Azure Resource Manager 템플릿 및 PowerShell DSC를 통해 세션 호스트 Vm에 설치 되 면 등록 토큰을 제공 합니다. 다음 섹션에서는 Windows 가상 데스크톱 에이전트 및 토큰에 적용 되는 문제를 해결 하는 방법에 대해 설명 합니다.
 
-### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>오류: RdsSessionHost cmdlet에 있는 상태는 상태를 사용할 수 없음으로 표시 됩니다.
+### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>오류: RdsSessionHost cmdlet에 있는 상태는 상태를 사용할 수 없음으로 표시 합니다.
 
 ![RdsSessionHost cmdlet은 상태를 사용할 수 없음으로 표시 합니다.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **원인:** 에이전트는 자신을 새 버전으로 업데이트할 수 없습니다.
 
-**방법을** 에이전트를 수동으로 업데이트 하려면 다음 지침을 따르세요.
+**해결 방법:** 에이전트를 수동으로 업데이트 하려면 다음 지침을 따르세요.
 
 1. 세션 호스트 VM에서 새 버전의 에이전트를 다운로드 합니다.
 2. 작업 관리자를 시작 하 고 서비스 탭에서 RDAgentBootLoader 서비스를 중지 합니다.
@@ -127,11 +127,11 @@ Windows 가상 데스크톱 에이전트가 수동으로 또는 Azure Resource M
 5. 설치 마법사를 완료 합니다.
 6. 작업 관리자를 열고 RDAgentBootLoader 서비스를 시작 합니다.
 
-## <a name="error--windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>오류:  Windows 가상 데스크톱 에이전트 레지스트리 항목 IsRegistered은 값 0을 표시 합니다.
+## <a name="error--windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>오류: Windows 가상 데스크톱 에이전트 레지스트리 항목 IsRegistered에는 0 값이 표시 됩니다.
 
 **원인:** 등록 토큰이 만료 되었거나 만료 값 999999를 사용 하 여 생성 되었습니다.
 
-**방법을** 에이전트 레지스트리 오류를 해결 하려면 다음 지침을 따르세요.
+**해결 방법:** 에이전트 레지스트리 오류를 해결 하려면 다음 지침을 따르세요.
 
 1. 등록 토큰이 이미 있는 경우 RDSRegistrationInfo를 사용 하 여 제거 합니다.
 2. Rds-NewRegistrationInfo를 사용 하 여 새 토큰을 생성 합니다.
@@ -205,7 +205,7 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 
 **원인:** Side-by-side 스택이 세션 호스트 VM에 설치 되어 있지 않습니다.
 
-**방법을** 세션 호스트 VM에 side-by-side 스택을 설치 하려면 다음 지침을 따르세요.
+**해결 방법:** 세션 호스트 VM에 side-by-side 스택을 설치 하려면 다음 지침을 따르세요.
 
 1. RDP (원격 데스크톱 프로토콜)를 사용 하 여 로컬 관리자로 세션 호스트 VM에 직접 가져올 수 있습니다.
 2. PowerShell 세션에서 사용할 [Windows 가상 데스크톱 powershell 모듈](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) 을 다운로드 하 여 가져온 다음 (아직 없는 경우)이 cmdlet을 실행 하 여 계정에 로그인 합니다.
@@ -302,10 +302,17 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 
 시간 제한이 만료 되 면 "이 컴퓨터에 사용할 수 있는 원격 데스크톱 클라이언트 액세스 라이선스가 없어 원격 세션의 연결을 끊었습니다." 라는 오류 메시지가 표시 됩니다.
 
-이러한 메시지 중 하나가 표시 되 면 이미지에 최신 Windows 업데이트가 설치 되어 있지 않거나 **사용자 단위로**원격 데스크톱 라이선싱 모드를 설정 하는 것입니다. 이 정책을 설정 하는 구성을 제거한 후 Windows 10 Enterprise 다중 세션의 버전을 확인 하 고 해당 업데이트를 설치 하는 단계를 수행 합니다.  
+이러한 메시지 중 하나가 표시 되 면 이미지에 최신 Windows 업데이트가 설치 되어 있지 않거나 그룹 정책을 통해 원격 데스크톱 라이선스 모드를 설정 하는 것입니다. 다음 섹션의 단계에 따라 그룹 정책 설정을 확인 하 고, Windows 10 Enterprise 다중 세션 버전을 확인 하 고, 해당 업데이트를 설치 합니다.  
 
 >[!NOTE]
 >Windows 가상 데스크톱에는 호스트 풀에 Windows Server 세션 호스트가 포함 된 경우 RDS CAL (클라이언트 액세스 라이선스)만 필요 합니다. RDS CAL를 구성 하는 방법에 대 한 자세한 내용은 [클라이언트 액세스 라이선스를 사용 하 여 RDS 배포 라이선스](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license)를 참조 하세요.
+
+### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>원격 데스크톱 라이선싱 모드 그룹 정책 설정 사용 안 함
+
+VM에서 그룹 정책 편집기를 열고 **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스** > **원격 데스크톱 세션 호스트**으로 이동 하 여 그룹 정책 설정을 확인 @no __a-7**라이선스** > **원격 데스크톱 라이선싱 모드를 설정**합니다. 그룹 정책 설정을 **사용**하는 경우 **사용 안 함**으로 변경 합니다. 이미 사용 하지 않도록 설정 되어 있으면 그대로 둡니다.
+
+>[!NOTE]
+>도메인을 통해 그룹 정책을 설정 하는 경우 이러한 Windows 10 Enterprise 다중 세션 Vm을 대상으로 하는 정책에서이 설정을 사용 하지 않도록 설정 합니다.
 
 ### <a name="identify-which-version-of-windows-10-enterprise-multi-session-youre-using"></a>사용 중인 Windows 10 Enterprise 다중 세션 버전 확인
 
@@ -336,6 +343,6 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 - Windows 가상 데스크톱 클라이언트 연결 문제를 해결 하려면 [원격 데스크톱 클라이언트 연결](troubleshoot-client-connection.md)을 참조 하세요.
 - Windows 가상 데스크톱과 함께 PowerShell을 사용할 때 발생 하는 문제를 해결 하려면 [Windows 가상 데스크톱 PowerShell](troubleshoot-powershell.md)을 참조 하세요.
 - 서비스에 대 한 자세한 내용은 [Windows 가상 데스크톱 환경](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)을 참조 하세요.
-- 문제 해결 자습서를 진행하려면 [자습서: 리소스 관리자 템플릿 배포 @ no__t-0의 문제를 해결 합니다.
+- 문제 해결 자습서를 진행 하려면 [자습서: 템플릿 배포 리소스 관리자 문제 해결](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)을 참조 하세요.
 - 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)를 참조하세요.
 - 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)를 참조하세요.

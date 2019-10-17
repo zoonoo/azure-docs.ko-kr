@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor를 사용 하 여 Python 응용 프로그램 모니터링 | Microsoft Docs
+title: Azure Monitor (미리 보기)를 사용 하 여 Python 응용 프로그램 모니터링 | Microsoft Docs
 description: Azure Monitor를 사용 하 여 OpenCensus Python을 연결 하는 지침을 제공 합니다.
 services: application-insights
 keywords: ''
@@ -10,18 +10,18 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.reviewer: mbullwin
 manager: carmonm
-ms.openlocfilehash: 1316cf6808f6ccfc4165ad162c51421638b130be
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: ed61cb1bc88c48fe89c4a9390f04747749bd48c5
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293981"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329472"
 ---
-# <a name="set-up-azure-monitor-for-your-python-application"></a>Python 응용 프로그램에 대 한 Azure Monitor 설정
+# <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Python 응용 프로그램에 대 한 Azure Monitor 설정 (미리 보기)
 
 Azure Monitor는 [OpenCensus](https://opencensus.io)와의 통합을 통해 Python 응용 프로그램의 분산 추적, 메트릭 수집 및 로깅을 지원 합니다. 이 문서에서는 Python 용 OpenCensus를 설정 하 고 Azure Monitor 하는 모니터링 데이터를 가져오는 과정을 단계별로 안내 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 구독이 필요합니다.
 - Python을 설치 해야 합니다 .이 문서에서는 [python 3.7.0](https://www.python.org/downloads/)를 사용 하지만, 이전 버전에서는 약간의 조정을 사용 하는 경우가 많습니다.
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+[Azure portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-application-insights-resource-in-azure-monitor"></a>Azure Monitor에서 Application Insights 리소스 만들기
 
@@ -42,11 +42,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    구성 상자가 표시되면 다음 표를 사용하여 입력 필드를 채웁니다.
 
-    | 설정        | 값           | 설명  |
+    | 설정        | Value           | 설명  |
    | ------------- |:-------------|:-----|
-   | **이름**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
+   | **Name**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
    | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. |
-   | **Location**: | East US | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
+   | **위치** | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
 2. **만들기**를 클릭합니다.
 
@@ -130,7 +130,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 4. 이제 Python 스크립트를 실행할 때 값을 입력 하 라는 메시지가 표시 되지만 이제는 값만 셸에 인쇄 됩니다. 만든 `SpanData`이 Azure Monitor 전송 됩니다. @No__t-0에서 내보낸 범위 데이터를 찾을 수 있습니다.
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>메트릭
 
 1. 먼저 일부 로컬 메트릭 데이터를 생성 해 보겠습니다. 사용자가 enter 키를 누르는 횟수를 추적 하는 간단한 메트릭을 만듭니다.
 
@@ -306,7 +306,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     하나의 메서드 호출만 추적했으므로 애플리케이션 맵은 흥미롭지 않습니다. 하지만 애플리케이션은 훨씬 분산된 애플리케이션을 시각화하도록 확장될 수 있습니다.
 
-   ![애플리케이션 맵](media/opencensus-python/application-map.png)
+   ![Application Map](media/opencensus-python/application-map.png)
 
 3. **성능 조사**를 선택하여 자세한 성능 분석을 수행하고 성능 저하의 근본 원인을 확인합니다.
 
@@ -345,8 +345,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 * [애플리케이션 맵](./../../azure-monitor/app/app-map.md)
 * [엔드투엔드 성능 모니터링](./../../azure-monitor/learn/tutorial-performance.md)
 
-### <a name="alerts"></a>,
+### <a name="alerts"></a>경고
 
-* [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md): 테스트를 만들어 사이트가 웹에 표시되는지 확인합니다.
+* [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md): 웹 테스트를 만들어 사이트가 웹에 표시되는지 확인합니다.
 * [스마트 진단](../../azure-monitor/app/proactive-diagnostics.md): 이 테스트는 자동으로 실행되므로 아무것도 설정할 필요가 없습니다. 앱이 실패한 요청으로 비정상적인 속도를 보일 경우 알려줍니다.
-* [메트릭 경고](../../azure-monitor/app/alerts.md): 메트릭이 임계값을 초과할 경우 경고를 표시 하도록 경고를 설정 합니다. 앱에 코딩하는 사용자 지정 메트릭에 이러한 경고를 설정할 수 있습니다.
+* [메트릭 경고](../../azure-monitor/app/alerts.md): 메트릭이 임계값을 초과 하는 경우 경고를 표시 하도록 경고를 설정 합니다. 앱에 코딩하는 사용자 지정 메트릭에 이러한 경고를 설정할 수 있습니다.

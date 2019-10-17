@@ -15,13 +15,13 @@ ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
 ms.openlocfilehash: 56e420f9641638bfa79ff077be73132b00b934ab
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "71132092"
 ---
-# <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Azure 가상 컴퓨터 복구 명령을 사용 하 여 Linux VM 복구
+# <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Azure Virtual Machine 복구 명령을 사용하여 Linux VM 복구
 
 Azure의 Linux VM (가상 머신)에 부팅 또는 디스크 오류가 발생 하는 경우 디스크 자체에서 완화를 수행 해야 할 수 있습니다. 일반적인 예로는 애플리케이션 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에서는 Azure 가상 컴퓨터 복구 명령을 사용 하 여 다른 Linux VM에 디스크를 연결 하 여 오류를 수정한 다음 원래 VM을 다시 빌드하는 방법을 자세히 설명 합니다.
 
@@ -54,7 +54,7 @@ VM 문제를 해결 하려면 다음 단계를 수행 합니다.
 
    CLI를 로컬에서 설치하여 사용하려면, 빠른 시작에 Azure CLI 버전 2.0.30 이상이 필요합니다. ``az --version``을 실행하여 버전을 찾습니다. Azure CLI를 설치 하거나 업그레이드 해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조 하세요.
 
-2. `az vm repair` 명령을 처음 사용 하는 경우 vm 복구 CLI 확장을 추가 합니다.
+2. @No__t-0 명령을 처음 사용 하는 경우 vm 복구 CLI 확장을 추가 합니다.
 
    ```azurecli-interactive
    az extension add -n vm-repair
@@ -66,7 +66,7 @@ VM 문제를 해결 하려면 다음 단계를 수행 합니다.
    az extension update -n vm-repair
    ```
 
-3. `az vm repair create`을 실행합니다. 이 명령은 작동 하지 않는 VM에 대 한 OS 디스크의 복사본을 만들고, 복구 VM을 만들고, 디스크를 연결 합니다.
+3. `az vm repair create`. 이 명령은 작동 하지 않는 VM에 대 한 OS 디스크의 복사본을 만들고, 복구 VM을 만들고, 디스크를 연결 합니다.
 
    ```azurecli-interactive
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
@@ -74,7 +74,7 @@ VM 문제를 해결 하려면 다음 단계를 수행 합니다.
 
 4. 만든 복구 VM에서 필요한 모든 완화 단계를 수행한 후 5 단계를 진행 합니다.
 
-5. `az vm repair restore`을 실행합니다. 이 명령은 복구 된 OS 디스크를 VM의 원래 OS 디스크와 교환 합니다.
+5. `az vm repair restore`. 이 명령은 복구 된 OS 디스크를 VM의 원래 OS 디스크와 교환 합니다.
 
    ```azurecli-interactive
    az vm repair restore -g MyResourceGroup -n MyVM --verbose

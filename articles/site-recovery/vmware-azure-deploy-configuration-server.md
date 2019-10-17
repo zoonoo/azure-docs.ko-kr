@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: c25ca8c27b84f34b025ec5abce00c8d8c70e5df6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5812cc73fb1da58c591d0593e079851e05bd0940
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125698"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331967"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
@@ -26,30 +26,30 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 구성 서버는 특정 최소 하드웨어 및 크기 조정 요구 사항이 있는 고가용성 VMware VM으로 설정되어야 합니다. 편리하고 쉬운 배포를 위해 Site Recovery에서 다운로드 가능한 OVA(Open Virtualization Application) 템플릿을 제공하여 아래에 나열된 모든 필수 요구 사항을 준수하는 구성 서버를 설정합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 다음 표에는 구성 서버에 대한 최소 하드웨어 요구 사항이 요약되어 있습니다.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
-## <a name="azure-active-directory-permission-requirements"></a>Azure Active Directory 사용 권한 요구 사항
+## <a name="azure-active-directory-permission-requirements"></a>Azure Active Directory 권한 요구 사항
 
-사용자가 필요한 **다음 중 하나** 권한이 Azure Site Recovery 서비스를 사용 하 여 구성 서버를 등록 하려면 AAD (Azure Active Directory)에서 설정 합니다.
+Azure Site Recovery 서비스에 구성 서버를 등록 하려면 AAD (Azure Active Directory)에 설정 된 **다음 권한 중 하나가** 있는 사용자가 필요 합니다.
 
-1. 사용자 응용 프로그램을 만들려면 "응용 프로그램 개발자" 역할이 있어야 합니다.
-   1. 을 확인 하려면 Azure portal에 로그인</br>
-   1. Azure Active Directory로 이동 > 역할과 관리자</br>
-   1. "응용 프로그램 개발자" 역할은 사용자에 게 할당 하는 경우를 확인 합니다. 그렇지 않은 경우이 권한이 있는 사용자를 사용 하거나 연락 [관리자 권한을 사용할 수 있도록](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles)입니다.
+1. 응용 프로그램을 만들려면 "응용 프로그램 개발자" 역할이 있어야 합니다.
+   1. 확인 하려면 Azure Portal에 로그인 합니다.</br>
+   1. Azure Active Directory > 역할 및 관리자로 이동 합니다.</br>
+   1. "응용 프로그램 개발자" 역할이 사용자에 게 할당 되었는지 확인 합니다. 그렇지 않은 경우이 권한이 있는 사용자를 사용 하거나 관리자에 게 연락 하 여 사용 [권한을 설정](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles)합니다.
     
-1. "응용 프로그램 개발자" 역할을 할당할 수 없습니다, 하는 경우 "사용자 응용 프로그램을 등록할 수 있습니다" 플래그 id를 만드는 사용자에 대해 true로 설정 되어 있는지 확인 합니다. 위의 사용 권한을 사용 하도록 설정 하려면
+1. "응용 프로그램 개발자" 역할을 할당할 수 없는 경우 사용자가 id를 만들기 위해 "사용자가 응용 프로그램을 등록할 수 있음" 플래그가 true로 설정 되어 있는지 확인 합니다. 위의 사용 권한을 설정 하려면
    1. Azure Portal에 로그인
-   1. Azure Active Directory로 이동 > 사용자 설정
-   1. 아래에서 * * 앱 등록 ","사용자 응용 프로그램을 등록할 수 있습니다"[예]로 선택 해야 합니다.
+   1. Azure Active Directory > 사용자 설정으로 이동 합니다.
+   1. \* * 앱 등록 "에서" 사용자가 응용 프로그램을 등록할 수 있음 "은" 예 "로 선택 해야 합니다.
 
       ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
-> Active Directory 페더레이션 Services(ADFS) 됩니다 **지원 되지 않습니다**합니다. 통해 관리 되는 계정을 사용 하십시오 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)합니다.
+> Active Directory Federation Services (ADFS)는 **지원 되지 않습니다**. [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)를 통해 관리 되는 계정을 사용 하세요.
 
 ## <a name="capacity-planning"></a>용량 계획
 
@@ -74,7 +74,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
    >[Microsoft 다운로드 센터](https://aka.ms/asrconfigurationserver)에서 직접 최신 버전의 구성 서버 템플릿을 다운로드할 수도 있습니다.
 
 > [!NOTE]
-> OVA 템플릿과 함께 제공 라이선스는 평가판 라이선스를 180 일 동안 유효 합니다. Post이 기간 동안 고객 해야 확보 라이선스를 사용 하 여 windows 정품 인증 합니다.
+> OVA 템플릿과 함께 제공 되는 라이선스는 180 일 동안 유효한 평가 라이선스입니다. 이 기간을 게시 하면 고객이 원하는 라이선스를 사용 하 여 windows를 활성화 해야 합니다.
 
 ## <a name="import-the-template-in-vmware"></a>VMware에서 템플릿 가져오기
 
@@ -99,6 +99,9 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 ## <a name="add-an-additional-adapter"></a>어댑터 추가
 
+> [!NOTE]
+> 장애 조치 (failover) 시 원본 컴퓨터의 IP 주소를 유지 하 고 나중에 온-프레미스로 장애 복구 하려는 경우 두 개의 Nic가 필요 합니다. 하나의 NIC가 원본 컴퓨터에 연결 되 고 다른 NIC는 Azure 연결에 사용 됩니다.
+
 구성 서버에 NIC를 추가하려면 자격 증명 모음에 서버를 등록하기 전에 추가하세요. 등록 후에는 어댑터를 추가할 수 없습니다.
 
 1. VSphere 클라이언트 인벤토리에서 VM을 마우스 오른쪽 단추로 클릭하고 **설정 편집**을 선택합니다.
@@ -115,19 +118,19 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 5. Site Recovery에 구성 서버를 등록하는 데 사용된 이름을 입력합니다. 그런 후 **다음**을 선택합니다.
 6. VM이 Azure에 연결할 수 있는지 도구에서 확인합니다. 연결이 설정되면 **로그인**을 선택하여 Azure 구독에 로그인합니다.</br>
     a. 구성 서버를 등록하려는 자격 증명 모음에 자격 증명이 액세스할 수 있어야 합니다.</br>
-    b. 선택한 사용자 계정에 Azure에서 응용 프로그램을 만들 수 있는 권한이 있는지 확인 합니다. 필요한 사용 권한이 있도록 지정 하는 지침을 따릅니다 [여기](#azure-active-directory-permission-requirements)합니다.
+    b. 선택한 사용자 계정에 Azure에서 응용 프로그램을 만들 수 있는 권한이 있는지 확인 합니다. 필요한 권한을 사용 하려면 [여기](#azure-active-directory-permission-requirements)에 제공 된 지침을 따르세요.
 7. 도구에서 몇 가지 구성 작업을 수행한 후 다시 부팅합니다.
 8. 컴퓨터에 다시 로그인합니다. 몇 초 내에 구성 서버 관리 마법사가 **자동으로** 시작됩니다.
 
 ### <a name="configure-settings"></a>설정 구성
 
-1. 구성 서버 관리 마법사에서 **연결 설정**을 선택합니다. 드롭다운 목록에서 먼저 기본 제공 프로세스 서버가 원본 머신에서 Mobility Service의 검색 및 푸시 설치에 사용하는 NIC를 선택한 다음, 구성 서버에서 Azure와의 연결에 사용하는 NIC를 선택합니다. 그런 다음 **저장**을 선택합니다. 구성 된 후이 설정을 변경할 수 없습니다. 구성 서버의 IP 주소는 변경하지 않는 것이 좋습니다. 구성 서버에 할당된 IP가 DHCP IP가 아닌 정적 IP인지 확인합니다.
-2. **선택 Recovery Services 자격 증명 모음**에 사용 된 자격 증명을 사용 하 여 Microsoft Azure에 로그인 **6 단계** 의 "[Azure Site Recovery Services를 사용 하 여 구성 서버 등록](#register-the-configuration-server-with-azure-site-recovery-services)" .
-3. 로그인 한 후 Azure 구독 및 관련 리소스 그룹 및 자격 증명 모음을 선택 합니다.
+1. 구성 서버 관리 마법사에서 **연결 설정**을 선택합니다. 드롭다운 목록에서 먼저 기본 제공 프로세스 서버가 원본 머신에서 Mobility Service의 검색 및 푸시 설치에 사용하는 NIC를 선택한 다음, 구성 서버에서 Azure와의 연결에 사용하는 NIC를 선택합니다. 그런 다음 **저장**을 선택합니다. 구성 된 후에는이 설정을 변경할 수 없습니다. 구성 서버의 IP 주소는 변경하지 않는 것이 좋습니다. 구성 서버에 할당된 IP가 DHCP IP가 아닌 정적 IP인지 확인합니다.
+2. **Recovery Services 자격 증명 모음 선택**에서 "[Azure Site Recovery 서비스에 구성 서버 등록](#register-the-configuration-server-with-azure-site-recovery-services)"의 **6 단계** 에서 사용한 자격 증명을 사용 하 여 Microsoft Azure에 로그인 합니다.
+3. 로그인 한 후에 Azure 구독 및 관련 리소스 그룹 및 자격 증명 모음을 선택 합니다.
 
     > [!NOTE]
     > Recovery Services 자격 증명 모음은 등록되면 변경할 수 없습니다.
-    > 변경 recovery services 자격 증명 모음에는 현재 자격 증명 모음에서 구성 서버의 연결 해제 해야 하 고 구성 서버에서 모든 보호 된 가상 컴퓨터의 복제가 중지 됩니다. [자세히](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) 알아봅니다.
+    > Recovery services 자격 증명 모음을 변경 하려면 현재 자격 증명 모음에서 구성 서버를 분리 하 고 구성 서버에서 보호 되는 모든 가상 컴퓨터의 복제를 중지 해야 합니다. [자세한 정보](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault)
 
 4. **타사 소프트웨어 설치**에서 다음을 수행합니다.
 
@@ -156,7 +159,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 1. OVF를 통해 구성 서버에 제공된 라이선스는 얼마 동안 유효한가요? 라이선스를 다시 활성화하지 않으면 어떻게 되나요?
 
-    OVA 템플릿과 함께 제공 라이선스는 평가판 라이선스를 180 일 동안 유효 합니다. 라이선스가 만료되기 전에 다시 활성화해야 합니다. 그렇지 않으면 구성 서버가 자주 종료되어 복제 작업이 중단될 수 있습니다.
+    OVA 템플릿과 함께 제공 되는 라이선스는 180 일 동안 유효한 평가 라이선스입니다. 라이선스가 만료되기 전에 다시 활성화해야 합니다. 그렇지 않은 경우 구성 서버가 자주 종료되어 복제 작업이 원활히 진행되지 못합니다.
 
 2. 구성 서버가 설치된 VM을 다른 용도로 사용할 수 있나요?
 
@@ -184,7 +187,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
     **Recovery Services 자격 증명 모음**에서 **관리** > **Site Recovery 인프라** > **구성 서버**를 통해 다운로드합니다. 서버에서 **등록 키 다운로드**를 선택하여 자격 증명 모음 파일을 다운로드합니다.
 10. 기존 구성 서버를 복제하고 복제 오케스트레이션에 사용할 수 있나요?
 
-    **아니요**, 복제된 구성 서버 구성 요소를 사용하는 것은 지원되지 않습니다. 스케일 아웃 프로세스 서버는 복제는 지원 되지 않는 시나리오 이기도합니다. Site Recovery 복제 구성 요소는 진행 중인 복제 영향입니다.
+    **아니요**, 복제된 구성 서버 구성 요소를 사용하는 것은 지원되지 않습니다. 확장 프로세스 서버를 복제 하는 것도 지원 되지 않는 시나리오입니다. 복제 Site Recovery 구성 요소는 진행 중인 복제에 영향을 줍니다.
 
 11. 구성 서버의 IP를 변경할 수 있나요?
 

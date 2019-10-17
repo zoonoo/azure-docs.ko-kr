@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: 182c93ea0b887242d142eda5aeb44b2749c7ac66
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: f535a681ac3508aafc2823bcc9b9ae7f22cc2d8e
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937552"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333039"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>온-프레미스에서 장애 조치 (failover) 후 Azure Vm에 연결 
 
@@ -33,26 +33,26 @@ ms.locfileid: "71937552"
 
 Azure Vm에 대 한 연결을 보장 하려면 장애 조치 (failover) 전에 온-프레미스 컴퓨터를 준비 합니다.
 
-### <a name="prepare-windows-machines"></a>Windows 컴퓨터 준비
+### <a name="prepare-windows-machines"></a>Windows 머신 준비
 
-온-프레미스 Windows 컴퓨터에서 다음을 수행 합니다.
+온-프레미스 Windows 머신에서 다음을 수행합니다.
 
-1. Windows 설정을 구성 합니다. 여기에는 정적 영구 경로 또는 WinHTTP 프록시를 제거 하 고 디스크 SAN 정책을 **OnlineAll**로 설정 하는 작업이 포함 됩니다. 다음 지침을 [따르세요](../virtual-machines/windows/prepare-for-upload-vhd-image.md#set-windows-configurations-for-azure) .
+1. Windows 설정을 구성합니다. 여기에는 정적 영구 경로 또는 WinHTTP 프록시를 제거 하 고 디스크 SAN 정책을 **OnlineAll**로 설정 하는 작업이 포함 됩니다. 다음 지침을 [따르세요](../virtual-machines/windows/prepare-for-upload-vhd-image.md#set-windows-configurations-for-azure) .
 
-2. [이러한 서비스가](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services) 실행 되 고 있는지 확인 합니다.
+2. [이러한 서비스](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services)가 실행 중인지 확인합니다.
 
-3. RDP (원격 데스크톱)를 사용 하도록 설정 하 여 온-프레미스 컴퓨터에 대 한 원격 연결을 허용 합니다. PowerShell을 사용 하 여 RDP를 사용 하도록 설정 하 [는 방법을 알아봅니다](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings) .
+3. 원격 데스크톱(RDP)을 사용하도록 설정하여 온-프레미스 머신에 대한 원격 연결을 허용합니다. PowerShell을 통해 RDP를 사용하도록 설정하는 방법에 대해 [알아보세요](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings).
 
 4. 장애 조치 (failover) 후 인터넷을 통해 Azure VM에 액세스 하려면 온-프레미스 컴퓨터의 Windows 방화벽에서 공용 프로필의 TCP 및 UDP를 허용 하 고 RDP를 모든 프로필에 대해 허용 되는 앱으로 설정 합니다.
 
-5. 장애 조치 (failover) 후 사이트 간 VPN을 통해 Azure VM에 액세스 하려면 온-프레미스 컴퓨터의 Windows 방화벽에서 도메인 및 개인 프로필에 대 한 RDP를 허용 합니다. RDP 트래픽을 허용 하는 방법에 [대해 알아봅니다](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules) .
+5. 장애 조치 (failover) 후 사이트 간 VPN을 통해 Azure VM에 액세스 하려면 온-프레미스 컴퓨터의 Windows 방화벽에서 도메인 및 개인 프로필에 대 한 RDP를 허용 합니다. RDP 트래픽을 허용하는 방법에 대해 [알아보세요](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules).
 6. 장애 조치 (failover)를 트리거할 때 온-프레미스 VM에 보류 중인 Windows 업데이트가 없는지 확인 합니다. 업데이트가 있으면 장애 조치 (failover) 후 업데이트가 Azure VM에 설치를 시작할 수 있으며 업데이트가 완료 될 때까지 VM에 로그인 할 수 없습니다.
 
-### <a name="prepare-linux-machines"></a>Linux 컴퓨터 준비
+### <a name="prepare-linux-machines"></a>Linux 머신 준비
 
-온-프레미스 Linux 컴퓨터에서 다음을 수행 합니다.
+온-프레미스 Linux 머신에서 다음을 수행합니다.
 
-1. Secure Shell 서비스가 시스템 부팅 시 자동으로 시작 되도록 설정 되어 있는지 확인 합니다.
+1. 시스템 부팅 시 Secure Shell 서비스가 자동으로 시작되도록 설정되어 있는지 확인합니다.
 2. 방화벽 규칙에서 SSH 연결을 허용하는지 확인합니다.
 
 
@@ -60,13 +60,13 @@ Azure Vm에 대 한 연결을 보장 하려면 장애 조치 (failover) 전에 �
 
 장애 조치 (failover) 후 생성 된 Azure Vm에서 다음을 수행 합니다.
 
-1. 인터넷을 통해 VM에 연결 하려면 VM에 공용 IP 주소를 할당 합니다. 온-프레미스 컴퓨터에 사용한 것과 동일한 공용 IP 주소를 Azure VM에 사용할 수 없습니다. [자세히 알아보기](../virtual-network/virtual-network-public-ip-address.md)
-2. VM의 NSG (네트워크 보안 그룹) 규칙이 RDP 또는 SSH 포트로 들어오는 연결을 허용 하는지 확인 합니다.
-3. [부트 진단](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) 을 확인 하 여 VM을 확인 합니다.
+1. 인터넷을 통해 VM에 연결하려면 공용 IP 주소를 VM에 할당합니다. 온-프레미스 머신에 사용한 것과 동일한 공용 IP 주소는 Azure VM에 사용할 수 없습니다. [자세한 정보](../virtual-network/virtual-network-public-ip-address.md)
+2. VM의 NSG(네트워크 보안 그룹) 규칙에서 RDP 또는 SSH 포트로 들어오는 연결을 허용하는지 확인합니다.
+3. [부팅 진단](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine)을 확인하여 VM을 살펴봅니다.
 
 
 > [!NOTE]
-> Azure 방호 서비스는 Azure Vm에 대 한 개인 RDP 및 SSH 액세스를 제공 합니다. 이 서비스에 [대해 자세히 알아보세요](../bastion/bastion-overview.md) .
+> Azure Bastion 서비스는 Azure VM에 대한 프라이빗 RDP 및 SSH 액세스를 제공합니다. 이 서비스에 대해 [자세히 알아보세요](../bastion/bastion-overview.md).
 
 ## <a name="set-a-public-ip-address"></a>공용 IP 주소 설정
 
@@ -77,8 +77,8 @@ Azure VM에 공용 IP 주소를 수동으로 할당 하는 대신, Site Recovery
 
 장애 조치 (failover) 후 Azure VM의 내부 IP 주소를 설정 하려면 다음 두 가지 옵션을 사용할 수 있습니다.
 
-- **동일한 IP 주소 유지**: 온-프레미스 컴퓨터에 할당 된 것과 동일한 IP 주소를 Azure VM에서 사용할 수 있습니다.
-- **다른 IP 주소 사용**: Azure VM에 대해 다른 IP 주소를 사용할 수 있습니다.
+- **동일한 ip 주소 유지**: Azure VM에서 온-프레미스 컴퓨터에 할당 된 것과 동일한 ip 주소를 사용할 수 있습니다.
+- **다른 ip 주소 사용**: Azure VM에 다른 ip 주소를 사용할 수 있습니다.
 
 
 ## <a name="retain-ip-addresses"></a>IP 주소 유지
@@ -91,10 +91,10 @@ Site Recovery를 사용 하면 Azure로 장애 조치 (failover) 할 때 동일�
 
 IP 주소를 유지 하려면 다음 단계를 수행 해야 합니다.
 
-- 온-프레미스 컴퓨터 속성에서 대상 Azure VM에 대 한 네트워크 및 IP 주소를 설정 하 여 온-프레미스 설정을 미러링합니다.
+- 복제 된 항목의 Compute & 네트워크 속성에서 온-프레미스 설정을 미러링할 대상 Azure VM에 대 한 네트워크 및 IP 주소를 설정 합니다.
 - 서브넷은 재해 복구 프로세스의 일부로 관리 해야 합니다. 온-프레미스 네트워크와 일치 하는 Azure VNet이 필요 합니다. 그리고 장애 조치 (failover) 후에는 서브넷이 Azure로 이동 하 고 새 IP 주소 위치로 장애 조치 (failover) 네트워크 경로를 수정 해야 합니다.  
 
-### <a name="failover-example"></a>장애 조치 예제
+### <a name="failover-example"></a>장애 조치(failover) 예제
 
 예제를 살펴보겠습니다.
 
@@ -120,7 +120,7 @@ IP 주소를 유지 하려면 다음 단계를 수행 해야 합니다.
     > 응용 프로그램 요구 사항에 따라 장애 조치 (failover) 전에 VNet 간 연결을 설정 하거나, Site Recovery [복구 계획](site-recovery-create-recovery-plans.md)에서 수동 단계/스크립팅된 단계/a p a s e automation runbook으로 설정 하거나, 장애 조치 (failover)가 완료 된 후에 설정할 수 있습니다.
 
 4. 장애 조치 (failover) 전에 Site Recovery의 컴퓨터 속성에서는 다음 절차에 설명 된 대로 대상 IP 주소를 온-프레미스 컴퓨터의 주소로 설정 합니다.
-5. 장애 조치 (failover) 후 동일한 IP 주소를 사용 하 여 Azure Vm을 만듭니다. Woodgrove는를 사용 하 여 **Azure 네트워크** 에서 **복구 네트워크** VNet에 연결 합니다. 
+5. 장애 조치 (failover) 후 동일한 IP 주소를 사용 하 여 Azure Vm을 만듭니다. Woodgrove는 VNet 피어 링 (전송 연결 사용)을 사용 하 여 **Azure 네트워크** 에서 **복구 네트워크** vnet에 연결 합니다.
 6. 온-프레미스에서는 192.168.1.0/24가 Azure로 이동 했음을 반영 하기 위해 경로 수정을 비롯 하 여 네트워크를 변경 해야 합니다.  
 
 **장애 조치 전 인프라**

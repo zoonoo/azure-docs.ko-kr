@@ -1,21 +1,21 @@
 ---
-title: Azure Blockchain 워크 벤치 미리 보기 사용 REST API
+title: Azure Blockchain Workbench REST API 사용
 description: Azure Blockchain 워크 벤치 미리 보기를 사용 하는 방법에 대 한 시나리오 REST API
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 412b78363be70918969734cd8890a8ee940df431
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 2f751cc4f0037b8d60034636a0c512989113e441
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70843821"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72328866"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Azure Blockchain 워크 벤치 미리 보기 사용 REST API
 
@@ -210,8 +210,8 @@ Content-type: application/json
 
 사용자가 계약 중 하나를 자세히 살펴보기로 결정하면 블록체인 클라이언트는 계약의 상태를 고려하여 사용 가능한 사용자 작업을 표시할 수 있습니다. 이 예제의 사용자는 자신이 만든 새 스마트 계약에 사용 가능한 작업을 살펴봅니다.
 
-* 변경 사용자가 자산의 설명 및 가격을 수정할 수 있습니다.
-* 끝나야 사용자가 자산의 계약을 종료할 수 있습니다.
+* 수정: 사용자가 자산의 설명과 가격을 수정할 수 있게 허용합니다.
+* 종료: 사용자가 자산의 계약을 종료할 수 있게 허용합니다.
 
 [Contract Action GET API](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget) 사용:
 
@@ -277,7 +277,7 @@ Content-type: application/json
 
 그러면 사용자는 지정된 스마트 계약 인스턴스에 대한 조치를 취할 것인지 결정할 수 있습니다. 이 예제에서는 사용자가 자산의 설명과 가격을 다음 작업과 같이 수정하려 하는 시나리오를 고려해 보세요.
 
-* 설명: "내 업데이트 된 자동차"
+* 설명: "My updated car"
 * 가격: 54321
 
 [Contract Action POST API](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost) 사용:

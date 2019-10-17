@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 09/10/2019
 ms.author: juliako
-ms.openlocfilehash: 7233bea4a030b814a5332284a80f07a71f288dba
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: d6338f3840b6f8afe21f8115304ba00bba90c6ea
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128212"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372368"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -29,14 +29,15 @@ Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은
 
 비디오가 업로드되면 Video Indexer가 필요에 따라 비디오를 인코딩합니다(이 문서에서 설명). Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 미디어 계정과 관련된 요금을 지불합니다. 
 
-## <a name="uploading-considerations"></a>업로드 고려 사항
+## <a name="uploading-considerations-and-limitations"></a>고려 사항 및 제한 사항 업로드
  
+- 비디오 이름은 80 자이 하 여야 합니다.
 - URL (기본 설정)에 따라 비디오를 업로드 하는 경우에는 TLS 1.2 이상으로 끝점을 보호 해야 합니다.
 - URL 옵션을 사용 하는 업로드 크기는 30GB로 제한 됩니다.
 - 요청 URL 길이는 6144 자로 제한 됩니다. 쿼리 문자열 URL 길이는 4096 자로 제한 됩니다.
 - 바이트 배열이 포함 된 업로드 크기 옵션은 2GB로 제한 됩니다.
 - 바이트 배열 옵션은 30 분 후에 시간 초과 됩니다.
-- `videoURL` Param에 제공 된 URL을 인코딩해야 합니다.
+- @No__t-0 매개 변수에서 제공 된 URL을 인코딩해야 합니다.
 - 인덱싱 Media Services 자산에는 URL의 인덱싱과 동일한 제한이 적용 됩니다.
 - 단일 파일에 대 한 최대 기간 제한은 4 시간 Video Indexer 합니다.
 
@@ -60,22 +61,22 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 - 인덱싱 상태 변경 
     - 속성    
     
-        |이름|Description|
+        |name|설명|
         |---|---|
         |id|비디오 ID|
         |state|비디오 상태|  
-    - 예: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+    - 예: https: \//MyProject/notifyme? projectName = & id = 1234abcd & state = 처리 됨
 - 비디오에서 식별된 사용자
-  - 속성
+  - properties
     
-      |이름|Description|
+      |name|설명|
       |---|---|
       |id| 비디오 ID|
       |faceId|비디오 인덱스에 표시되는 얼굴 ID|
       |knownPersonId|얼굴 모델 내에서 고유한 사람 ID|
       |personName|사람의 이름|
         
-    - 예: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - 예: https: \//1234abcd notifyme? projectName = MyProject & id = abcd & faceid = 12 & knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5 & personName = Inigo_Montoya 
 
 #### <a name="notes"></a>참고
 
@@ -92,9 +93,9 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 
 가격은 선택한 인덱싱 옵션에 따라 달라집니다.  
 
-### <a name="priority"></a>priority
+### <a name="priority"></a>우선 순위
 
-비디오는 Video Indexer에서 우선 순위에 따라 인덱싱됩니다. **priority** 매개 변수를 사용하여 인덱스 우선 순위를 지정합니다. 유효한 값은 **낮음**, **보통**(기본값), **높음**입니다.
+비디오는 Video Indexer에서 우선 순위에 따라 인덱싱됩니다. **priority** 매개 변수를 사용하여 인덱스 우선 순위를 지정합니다. 유효한 값은 **Low**(낮음), **Normal**(보통, 기본값), and **High**(높음)입니다.
 
 **priority** 매개 변수는 유료 계정에서만 지원됩니다.
 
@@ -284,7 +285,7 @@ public class AccountContractSlim
 
 다음 표에 나열된 상태 코드는 업로드 작업에서 반환될 수 있습니다.
 
-|status code|ErrorType(응답 본문 내)|Description|
+|상태 코드|ErrorType(응답 본문 내)|설명|
 |---|---|---|
 |400|VIDEO_ALREADY_IN_PROGRESS|지정된 계정에서 동일한 비디오가 이미 처리되고 있습니다.|
 |400|VIDEO_ALREADY_FAILED|지정된 계정에서 2시간 이내에 동일한 비디오를 처리하지 못했습니다. API 클라이언트에서 2시간 이상 기다린 후에 비디오를 다시 업로드해야 합니다.|

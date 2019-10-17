@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 395e8b1bc92ea64c8a5cea114be443d6411c7412
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: c8fc6c552920cf7790bf5c89531fc04ad4c57d36
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170323"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333205"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>GZRS (지역 중복 저장소) (미리 보기)를 사용 하 여 항상 사용 가능한 Azure Storage 응용 프로그램 빌드
 
@@ -25,7 +25,7 @@ GZRS 저장소 계정을 사용 하 여 가용성 영역을 사용할 수 없게
 
 ## <a name="about-the-preview"></a>미리 보기 정보
 
-범용 v2 저장소 계정만 GZRS 및 RA-GZRS을 지원 합니다. 애플리케이션 계정 유형에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요. GZRS 및 RA-GZRS 지원 블록 blob, 페이지 blob (VHD 디스크, 파일, 테이블 및 큐)를 지원 하지 않습니다.
+범용 v2 저장소 계정만 GZRS 및 RA-GZRS을 지원 합니다. 애플리케이션 계정 유형에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요. GZRS 및 RA-GZRS는 블록 blob, 페이지 blob (VHD 디스크가 아님), 파일, 테이블 및 큐를 지원 합니다.
 
 GZRS 및 RA-GZRS는 현재 다음 지역에서 미리 보기로 제공 됩니다.
 
@@ -140,16 +140,16 @@ LRS, GRS 또는 RA-GRS 계정에서 GZRS 또는 GZRS로 마이그레이션하는
     - **심각도**: 기본값을 그대로 둡니다.
     - **문제 유형**: **데이터 마이그레이션**을 선택합니다.
     - **범주**: **지역 내에서 (RA-) GZRS로 마이그레이션을**선택 합니다.
-    - **제목**: 설명 제목을 입력 합니다 (예: **(RA-) GZRS account migration)** .
-    - **세부 정보**: **세부** 정보 상자에 추가 세부 정보를 입력 합니다. 예를 들어 \_ @ no__t-2 지역의 [LRS, GRS]에서 GZRS로 마이그레이션해야 합니다. " 또는 "\_ @ no__t-1 영역에 있는 [LRS, RA-GRS]에서 RA로 마이그레이션해야 합니다."
+    - **제목**: 설명 제목을 입력 합니다 (예: **(RA-) GZRS 계정 마이그레이션)** .
+    - **세부 정보**: **세부** 정보 상자에 추가 세부 정보를 입력 합니다. 예를 들어, \_ @ no__t-3 지역의 [LRS, GRS]에서 GZRS로 마이그레이션해야 합니다. " 또는 "\_ @ no__t-1 영역에 있는 [LRS, RA-GRS]에서 RA로 마이그레이션해야 합니다."
 5. **다음**을 선택합니다.
 6. **연락처 정보** 블레이드에서 연락처 정보가 올바른지 확인합니다.
 7. **만들기**를 선택합니다.
 
 지원 담당자는 도움을 요청 하 여 도움을 받을 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [Azure Storage 복제](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
-- [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복성](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
+- [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
 - [ZRS(영역 중복 스토리지): 고가용성 Azure Storage 애플리케이션](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 

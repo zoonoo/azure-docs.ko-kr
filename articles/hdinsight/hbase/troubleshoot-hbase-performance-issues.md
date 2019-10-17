@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
 ms.openlocfilehash: c67f21a6ed8a7697977bb7737f0e46348efb2530
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
-ms.translationtype: MT
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "71266654"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Azure HDInsight의 Apache HBase 성능 문제 해결
@@ -22,7 +22,7 @@ ms.locfileid: "71266654"
 
 대부분의 HBase 작업에서 발생 하는 가장 큰 병목은 WAL (쓰기 미리 로그)입니다. 쓰기 성능에 심각한 영향을 줍니다. HDInsight HBase에는 구분 된 저장소 계산 모델이 있습니다. 즉, 데이터는 Azure Storage에 원격으로 저장 되지만 지역 서버는 Vm에서 호스팅됩니다. 최근 까지는 쓰기 미리 로그가 Azure Storage에도 기록 되어 HDInsight의 경우 이러한 병목 현상이 암시. [가속화](./apache-hbase-accelerated-writes.md) 된 쓰기 기능은 AZURE premium SSD 관리 디스크에 미리 쓰기 로그를 작성 하 여이 문제를 해결 하도록 설계 되었습니다. 이를 통해 성능 크게을 작성할 수 있으며, 일부 쓰기 집약적인 작업에서 직면 하는 많은 문제를 방지할 수 있습니다.
 
-[프리미엄 블록 Blob Storage 계정을](https://azure.microsoft.com/blog/azure-premium-block-blob-storage-is-now-generally-available/) 원격 저장소로 사용 하 여 읽기 작업을 크게 향상 시킬 수 있습니다. 이 옵션은 미리 쓰기 로그 기능을 사용 하도록 설정한 경우에만 사용할 수 있습니다.
+읽기 작업을 크게 개선하려면 [프리미엄 블록 Blob 스토리지 계정](https://azure.microsoft.com/blog/azure-premium-block-blob-storage-is-now-generally-available/)을 원격 스토리지로 사용합니다. 이 옵션은 미리 쓰기 로그 기능이 사용하도록 설정된 경우에만 가능합니다.
 
 ## <a name="compaction"></a>압축
 
@@ -39,7 +39,7 @@ ms.locfileid: "71266654"
 * 모든 "읽기"는 검색으로 변환 됩니까?
     * 그렇다면 이러한 검색의 특징은 무엇 인가요?
     * 적절 한 인덱싱을 포함 하 여 이러한 검색에 대 한 phoenix 테이블 스키마를 최적화 했습니까?
-* `EXPLAIN` 문을 사용 하 여 "읽기"가 생성 하는 쿼리 계획을 이해 하 고 있어야 합니다.
+* @No__t-0 문을 사용 하 여 "읽기"가 생성 하는 쿼리 계획을 이해 하 고 있어야 합니다.
 * 작성 시 "upsert"가 선택 되어 있나요?
     * 이 경우 검색도 수행 됩니다. 예상 되는 검색 대기 시간은 HBase의 10 밀리초와는 달리 평균 100 밀리초의 순서입니다.  
 
@@ -65,49 +65,49 @@ Azure HDInsight로 마이그레이션하는 경우에는 자동화를 통해 매
 
 ## <a name="server-side-config-tunings"></a>서버 쪽 구성 방법
 
-HDInsight HBase에서 HFiles는 원격 저장소에 저장 됩니다. 따라서 캐시에 오류가 발생 하는 경우에는 관련 된 네트워크 대기 시간으로 인해 로컬 HDFS에서 데이터를 지 원하는 데이터를 포함 하는 온-프레미스 시스템 보다는 읽기 비용이 매우 높아집니다. 대부분의 시나리오에서는이 문제를 피하기 위해 HBase 캐시 (블록 캐시 및 버킷 캐시)를 지능적으로 사용 합니다. 그러나이 경우에는 고객에 게 문제가 될 수 있는 경우가 종종 있습니다. 프리미엄 블록 blob 계정을 사용 하는 것이 다소 도움이 되었습니다. 그러나 WASB (Windows Azure Storage Driver) blob을 사용 하면 읽기 모드로 결정 된 항목 `fs.azure.read.request.size` (순차 및 임의)에 따라 블록에서 데이터를 인출 하는 등의 특정 속성을 사용 하는 것이 좋습니다. 읽기 요청 블록 크기 (`fs.azure.read.request.size`)를 512 KB로 설정 하 고 HBase 테이블의 블록 크기와 일치 하는 경험적 실험을 통해 최상의 결과를 얻을 수 있습니다.
+HDInsight HBase에서 HFiles는 원격 저장소에 저장 됩니다. 따라서 캐시에 오류가 발생 하는 경우에는 관련 된 네트워크 대기 시간으로 인해 로컬 HDFS에서 데이터를 지 원하는 데이터를 포함 하는 온-프레미스 시스템 보다는 읽기 비용이 매우 높아집니다. 대부분의 시나리오에서는이 문제를 피하기 위해 HBase 캐시 (블록 캐시 및 버킷 캐시)를 지능적으로 사용 합니다. 그러나이 경우에는 고객에 게 문제가 될 수 있는 경우가 종종 있습니다. 프리미엄 블록 blob 계정을 사용 하는 것이 다소 도움이 되었습니다. 그러나 WASB (Windows Azure Storage Driver) blob을 사용 하 여 읽기 모드 (순차 및 임의)로 확인 된 항목을 기준으로 블록의 데이터를 인출 하는 것과 @no__t 같은 특정 속성에 의존 하는 경우 읽기와의 대기 시간이 더 길어질 수 있습니다. 읽기 요청 블록 크기 (`fs.azure.read.request.size`)를 512 KB로 설정 하 고 HBase 테이블의 블록 크기와 일치 하는 경험적 실험을 통해 최상의 결과를 얻을 수 있습니다.
 
-가장 큰 크기의 노드 클러스터에 대 한 HDInsight HBase `bucketcache` 는 `regionservers`를 실행 하는 VM에 연결 된 로컬 SSD의 파일로를 제공 합니다. 때때로 힙 캐시를 대신 사용 하는 것이 약간 개선 될 수 있습니다. 이는 사용 가능한 메모리를 사용 하는 제한 사항이 며 파일 기반 캐시 보다 크기가 작을 가능성이 있으므로 항상 적절 한 선택이 아닐 수 있습니다.
+가장 큰 크기의 노드 클러스터에 대 한 HDInsight HBase는-0을 VM에 연결 된 로컬 SSD의 파일로 @no__t 제공 하 여 `regionservers`을 실행 합니다. 때때로 힙 캐시를 대신 사용 하는 것이 약간 개선 될 수 있습니다. 이는 사용 가능한 메모리를 사용 하는 제한 사항이 며 파일 기반 캐시 보다 크기가 작을 가능성이 있으므로 항상 적절 한 선택이 아닐 수 있습니다.
 
 조정 된 다른 특정 매개 변수 중 일부는 다음과 같이 몇 가지 근거를 사용 하 여 다양 한 수준에 도움이 되었습니다.
 
-1. 기본 `memstore` 128 mb에서 256 mb로 크기 늘리기 –이 설정은 일반적으로 많은 쓰기 시나리오에 권장 됩니다.
+1. @No__t-0 크기를 기본값 128에서 256 MB로 늘리기 –이 설정은 일반적으로 많은 쓰기 시나리오에 권장 됩니다.
 
 1. 기본값인 1에서 4로 압축 전용 스레드 수를 늘립니다. 이 설정은 사소한 작업을 자주 관찰 하는 경우에 적합 합니다.
 
-1. 저장소 제한 `memstore` 으로 인해 플러시를 차단 하지 않습니다. `Hbase.hstore.blockingStoreFiles`이 버퍼를 제공 하기 위해 100으로 늘릴 수 있습니다.
+1. 저장소 제한으로 인해 0 @no__t 플러시가 차단 되지 않도록 합니다. 이 버퍼를 제공 하려면 `Hbase.hstore.blockingStoreFiles`을 100으로 늘릴 수 있습니다.
 
 1. 플러시를 제어 하기 위해 기본값은 아래와 같이 주소를 지정할 수 있습니다.
 
-    1. `Hbase.regionserver.maxlogs`32에서 140로 upped 수 있습니다 (WAL 제한으로 인해 플러시 방지).
+    1. `Hbase.regionserver.maxlogs`은 32에서 140로 upped 수 있습니다 (WAL 제한으로 인해 플러시 방지).
 
-    1. `Hbase.regionserver.global.memstore.lowerLimit`= 0.55.
+    1. `Hbase.regionserver.global.memstore.lowerLimit` = 0.55.
 
-    1. `Hbase.regionserver.global.memstore.upperLimit`= 0.60.
+    1. `Hbase.regionserver.global.memstore.upperLimit` = 0.60.
 
 1. 스레드 풀 조정을 위한 Phoenix 별 configs:
 
-    1. `Phoenix.query.queuesize`1만로 늘릴 수 있습니다.
+    1. `Phoenix.query.queuesize`을 1만로 늘릴 수 있습니다.
 
-    1. `Phoenix.query.threadpoolsize`512로 늘릴 수 있습니다.
+    1. `Phoenix.query.threadpoolsize`을 512로 늘릴 수 있습니다.
 
 1. 기타 phoenix 관련 configs:
 
-    1. `Phoenix.rpc.index.handler.count`크거나 많은 인덱스 조회가 있는 경우 50로 설정할 수 있습니다.
+    1. 인덱스 조회가 크거나 많은 경우 `Phoenix.rpc.index.handler.count`을 50로 설정할 수 있습니다.
 
-    1. `Phoenix.stats.updateFrequency`– 기본값 15 분에서 1 시간으로 upped 수 있습니다.
+    1. `Phoenix.stats.updateFrequency` – 기본값 15 분에서 1 시간으로 upped 수 있습니다.
 
-    1. `Phoenix.coprocessor.maxmetadatacachetimetolivems`– 30 분에서 1 시간으로 upped 수 있습니다.
+    1. `Phoenix.coprocessor.maxmetadatacachetimetolivems` – 30 분에서 1 시간까지 upped 수 있습니다.
 
-    1. `Phoenix.coprocessor.maxmetadatacachesize`– 20mb에서 50 upped 수 있습니다.
+    1. `Phoenix.coprocessor.maxmetadatacachesize`-20mb에서 50로 upped 수 있습니다.
 
-1. RPC 시간 제한 – HBase rpc 시간 제한, HBase 클라이언트 스캐너 시간 제한 및 Phoenix 쿼리 제한 시간을 3 분으로 늘릴 수 있습니다. 여기서 `hbase.client.scanner.caching` 매개 변수는 서버 end와 클라이언트 끝에서 일치 하는 값으로 설정 된다는 점에 유의 해야 합니다. 그렇지 않으면이 설정은 클라이언트 끝 `OutOfOrderScannerException` 에서와 관련 된 오류를 발생 시킵니다. 이 설정은 대량 검색에 대해 낮은 값으로 설정 해야 합니다. 이 값은 100로 설정 됩니다.
+1. RPC 시간 제한 – HBase rpc 시간 제한, HBase 클라이언트 스캐너 시간 제한 및 Phoenix 쿼리 제한 시간을 3 분으로 늘릴 수 있습니다. @No__t-0 매개 변수가 서버 end와 클라이언트 끝에서 일치 하는 값으로 설정 된다는 점에 유의 해야 합니다. 그렇지 않으면이 설정은 클라이언트 끝에서 `OutOfOrderScannerException`과 관련 된 오류를 발생 시킵니다. 이 설정은 대량 검색에 대해 낮은 값으로 설정 해야 합니다. 이 값은 100로 설정 됩니다.
 
 ## <a name="other-considerations"></a>기타 고려 사항
 
 튜닝에 고려할 다른 매개 변수는 다음과 같습니다.
 
-1. `Hbase.rs.cacheblocksonwrite`–이 설정은 기본적으로 HDI에 대해 true로 설정 됩니다.
+1. `Hbase.rs.cacheblocksonwrite` – HDI에서이 설정은 기본적으로 true로 설정 됩니다.
 
 1. 나중에 대 한 보조 압축을 연기할 수 있는 설정입니다.
 
@@ -119,6 +119,6 @@ HDInsight HBase에서 HFiles는 원격 저장소에 저장 됩니다. 따라서 
 
 - Azure [커뮤니티 지원을](https://azure.microsoft.com/support/community/)통해 azure 전문가 로부터 답변을 받으세요.
 
-- 을 사용 [@AzureSupport](https://twitter.com/azuresupport) 하 여 연결-고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
+- [@No__t-1](https://twitter.com/azuresupport) -고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정으로 연결 합니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
 
 - 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.

@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 6/27/2019
+ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: eb29f8280ac1da3cd366b0c54cc6e2ce92b06286
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 97aea824fac60f8bed71971a416f12e8df0e5e64
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726482"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333060"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure Site Recovery를 사용한 Azure ExpressRoute
 
@@ -46,13 +46,13 @@ Site Recovery는 공용 끝점을 통해 대상 Azure 지역에서 Azure Storage
 
 가상 머신 또는 서버가 Azure 가상 네트워크로 장애 조치된 후 [프라이빗 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering)을 사용하여 해당 가상 머신 또는 서버에 액세스할 수 있습니다. 
 
-결합된 시나리오는 다음 다이어그램, ![ExpressRoute를 포함한 Azure에 온-프레미스](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)에 표시됩니다.
+결합된 시나리오는 다음 다이어그램, ![ExpressRoute를 사용한 온-프레미스와 Azure](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)에 표시됩니다.
 
 ## <a name="azure-to-azure-replication-with-expressroute"></a>ExpressRoute를 사용한 Azure와 Azure 간 복제
 
 Azure Site Recovery를 사용하면 [Azure 가상 머신](azure-to-azure-architecture.md)의 재해 복구가 가능합니다. Azure 가상 머신이 [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md)를 사용하는지 여부에 따라 복제 데이터가 대상 Azure 지역의 Azure Storage 계정 또는 복제본 Managed Disks로 전송됩니다. 복제 엔드포인트가 공용이라고 해도 기본적으로 Azure VM 복제에 대한 복제 트래픽은 원본 가상 네트워크가 존재하는 Azure 지역과 무관하게 인터넷을 통과하지 않습니다. [사용자 지정 경로](../virtual-network/virtual-networks-udr-overview.md#custom-routes)를 사용하여 Azure 기본 시스템 경로의 0.0.0.0/0 주소 접두사를 재정의하고 VM 트래픽을 온-프레미스 NVA(네트워크 가상 어플라이언스)로 우회시킬 수 있지만 Site Recovery 복제에는 이 구성이 권장되지 않습니다. 사용자 지정 경로를 사용하는 경우 복제 트래픽이 Azure 경계를 나가지 않도록 "Storage"에 대한 가상 네트워크에서 [가상 네트워크 서비스 엔드포인트를 생성](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage)해야 합니다.
 
-Azure VM 재해 복구의 경우 기본적으로 ExpressRoute는 복제에 필요하지 않습니다. 가상 머신이 대상 Azure 지역으로 장애 조치된 후 [프라이빗 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering)을 사용하여 해당 가상 머신에 액세스할 수 있습니다.
+Azure VM 재해 복구의 경우 기본적으로 ExpressRoute는 복제에 필요하지 않습니다. 가상 머신이 대상 Azure 지역으로 장애 조치된 후 [프라이빗 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering)을 사용하여 해당 가상 머신에 액세스할 수 있습니다. 데이터 전송 가격은 Azure 지역 전체의 데이터 복제 모드에 관계 없이 적용 됩니다.
 
 온-프레미스 데이터센터에서 원본 지역의 Azure VM에 연결하기 위해 이미 ExpressRoute를 사용하고 있는 경우 장애 조치 대상 지역에서 ExpressRoute 연결을 다시 설정하기 위한 계획을 세울 수 있습니다. 새 가상 네트워크 연결을 통해 대상 지역에 연결하거나 별도 ExpressRoute 회로 및 재해 복구용 연결을 활용하려면 동일한 ExpressRoute 회로를 사용할 수 있습니다. 여러 가능한 시나리오가 [여기](azure-vm-disaster-recovery-with-expressroute.md#fail-over-azure-vms-when-using-expressroute)에 설명돼 있습니다.
 

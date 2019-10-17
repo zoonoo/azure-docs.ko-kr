@@ -1,6 +1,6 @@
 ---
 title: Azure 관리 되는 응용 프로그램의 만들기 환경에 대 한 CreateUiDefinition Microsoft Docs
-description: Azure Managed Applications에 대한 UI 정의를 만드는 방법에 대해 설명합니다.
+description: Azure Portal에 대 한 사용자 인터페이스 정의를 만드는 방법을 설명 합니다. Azure Managed Applications를 정의할 때 사용 됩니다.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 013e861bb93d76454f2f0fd9c36259197dd671b9
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
-ms.translationtype: MT
+ms.openlocfilehash: 7177b9513a1e51bc24672a69935a0e9430292537
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308656"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332697"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>Azure 관리 되는 응용 프로그램의 만들기 환경을 위한 CreateUiDefinition
 
@@ -43,10 +43,10 @@ ms.locfileid: "70308656"
 CreateUiDefinition에는 항상 다음 세 가지 속성이 포함됩니다. 
 
 * 처리기
-* version
+* 버전
 * parameters
 
-처리기는 항상 이어야 `Microsoft.Azure.CreateUIDef`하며, 지원 되는 최신 `0.1.2-preview`버전은입니다.
+처리기는 항상 0 @no__t 해야 하며, 지원 되는 최신 버전은-1 @no__t.
 
 매개 변수 속성의 스키마는 지정된 처리기와 버전의 조합에 따라 다릅니다. 관리되는 애플리케이션의 경우 지원되는 속성은 `basics`, `steps` 및 `outputs`입니다. basics 및 steps 속성에는 Azure Portal에서 표시할 [요소](create-uidefinition-elements.md)(예: 텍스트 상자 및 드롭다운)가 포함됩니다. outputs 속성은 지정된 요소의 출력 값을 Azure Resource Manager 배포 템플릿의 매개 변수에 매핑하는 데 사용됩니다.
 
@@ -62,7 +62,7 @@ JSON 편집기를 사용 하 여 createUiDefinition을 만든 다음 [Createuide
 
 steps 속성에는 하나 이상의 요소가 포함된 각 basics 뒤에 표시하는 추가 steps가 0개 이상 포함될 수 있습니다. 배포할 애플리케이션의 역할별 또는 계층별로 단계를 추가하는 것이 좋습니다. 예를 들어 마스터 노드 입력에 대 한 단계와 클러스터의 작업자 노드에 대 한 단계를 추가 합니다.
 
-## <a name="outputs"></a>출력
+## <a name="outputs"></a>outputs
 
 Azure Portal에서는 `outputs` 속성을 사용하여 `basics` 및 `steps`의 요소를 Azure Resource Manager 배포 템플릿의 매개 변수에 매핑합니다. 이 사전의 키는 템플릿 매개 변수의 이름이며, 값은 참조되는 요소에 있는 출력 개체의 속성입니다.
 
@@ -78,9 +78,9 @@ Azure Portal에서는 `outputs` 속성을 사용하여 `basics` 및 `steps`의 �
 }
 ```
 
-## <a name="resource-types"></a>리소스 종류
+## <a name="resource-types"></a>리소스 유형
 
-배포할 리소스 유형을 지 원하는 위치로만 사용 가능한 위치를 필터링 하려면 리소스 형식의 배열을 제공 합니다. 둘 이상의 리소스 형식을 제공 하는 경우 모든 리소스 유형을 지 원하는 위치만 반환 됩니다. 이 속성은 선택적입니다.
+배포할 리소스 유형을 지 원하는 위치로만 사용 가능한 위치를 필터링 하려면 리소스 형식의 배열을 제공 합니다. 둘 이상의 리소스 형식을 제공 하는 경우 모든 리소스 유형을 지 원하는 위치만 반환 됩니다. 이 속성은 선택 사항입니다.
 
 ```json
 {
@@ -93,7 +93,7 @@ Azure Portal에서는 `outputs` 속성을 사용하여 `basics` 및 `steps`의 �
         ...
 ```  
 
-## <a name="functions"></a>함수
+## <a name="functions"></a>Functions
 
 CreateUiDefinition은 요소의 입/출력 및 조건 등의 기능을 사용 하기 위한 [함수](create-uidefinition-functions.md) 를 제공 합니다. 이러한 함수는 템플릿 함수를 Azure Resource Manager 하는 구문과 기능에서 비슷합니다.
 

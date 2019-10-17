@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: 3437634ff70371f9679423149b6996a099c044b5
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: fb464d2c75e271bf2f7f1684ed991d01691d70e4
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950727"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330934"
 ---
 # <a name="summary-of-customer-data-request-features"></a>고객 데이터 요청 기능 요약
 
@@ -68,7 +68,7 @@ Time Series Insights 내에 저장된 데이터를 보고 내보내려면 해당
 
 ## <a name="next-steps"></a>다음 단계
 
-* [TSI 환경에 데이터 액세스 권한을 부여 하](./time-series-insights-data-access.md)는 방법에 대해 자세히 알아보세요.
+* [Azure Time Series Insights 환경에 데이터 액세스 권한을 부여 하](./time-series-insights-data-access.md)는 방법에 대해 자세히 알아보세요.
 
 * [Azure Time Series Insights 탐색기](time-series-insights-explorer.md)를 표시 합니다.
 

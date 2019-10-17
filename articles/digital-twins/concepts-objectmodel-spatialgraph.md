@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 67a4aceb157ee3fe1b1d1553efd587a0f2838d88
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 1186fec8d50d7e986d1c613cd96f741c34ca181a
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950004"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372609"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Digital Twins 개체 모델 및 공간 인텔리전스 그래프 이해
 
@@ -78,14 +78,14 @@ Digital Twins 개체 모델은 다음과 같은 주요 범주를 지원합니다
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| 이름 | 다음 항목으로 교체 |
+| name | 다음 항목으로 교체 |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Digital Twins 인스턴스의 이름 |
 | YOUR_LOCATION | 인스턴스를 호스팅하는 서버 지역 |
 
  전체 URL 형식은 이 이미지에 표시됩니다.
 
-(![Digital Twins 포털 관리 API](media/concepts/digital-twins-spatial-graph-management-api-url.png)] (media/개념/digital-twins-spatial-graph-management-api-url # 작게 보기)
+[![Digital Twins 포털 관리 API](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
 
 공간 인텔리전스 그래프를 사용하는 방법에 대한 자세한 내용은 Azure Digital Twins 관리 API 미리 보기를 방문하세요.
 

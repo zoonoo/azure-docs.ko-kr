@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36433aef75d38418cb74fcd195dc1e9e902f24a8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 08db59e26a66aca57d65458a302c3c1de2e34a7b
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124933"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373489"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Azure Active Directory를 사용 하는 강력한 identity foundation에 대 한 4 단계
 
@@ -81,9 +81,9 @@ Azure AD 응용 프로그램 프록시는 다음과 같은 이점을 제공 합�
 
 오늘날 기업에서 IT 부서는 사용자가 작업을 수행 하는 데 사용 하는 모든 클라우드 응용 프로그램을 인식 하지 못하는 경우가 많습니다. IT 관리자에 게 직원 들이 사용 하는 것으로 의심 되는 클라우드 앱의 수를 묻는 메시지가 표시 되 면 평균적으로 30 또는 40입니다. 실제로 평균은 조직의 직원이 사용 하는 1000 개 이상의 개별 앱입니다. 직원 중 80%는 아직 검토 하지 않은 사용 권한 앱을 사용 하 고 보안 및 규정 준수 정책을 준수 하지 않을 수 있습니다.
 
-[Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS)를 사용 하면 사용자가 SSO 및 조건부 액세스와 같은 기능을 활용할 수 있도록 사용 권한 부여 하 고 엔터프라이즈 응용 프로그램 갤러리에 추가할 수 있는 사용자에 게 널리 사용 되는 유용한 앱을 식별할 수 있습니다.
+Mcas ( [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) )를 사용 하면 사용자가 SSO 및 조건부 액세스와 같은 기능을 활용할 수 있도록 사용 권한 부여 하 고 엔터프라이즈 응용 프로그램 갤러리에 추가할 수 있는 사용자에 게 널리 사용 되는 유용한 앱을 식별할 수 있습니다.
 
-*"**Cloud App Security**은 Accenture를 보호 하는 기본 보안 정책을 지 원하는 방식으로 사용자가 클라우드 및 SaaS 응용 프로그램을 제대로 사용 하 고 있는지 확인 하는 데 도움이 됩니다."* --- [John Blasi, Director 관리, 정보 보안, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+<em>"**Cloud App Security** Accenture를 보호 하는 데 도움이 되는 기본 보안 정책을 지 원하는 방식으로 사용자가 클라우드 및 SaaS 응용 프로그램을 제대로 사용 하 고 있는지 확인 하는 데 도움이 됩니다."</em> --- [John Blasi, Director 관리, 정보 보안, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 섀도 IT를 검색 하는 것 외에도 MCAS는 앱의 위험 수준을 결정 하 고, 회사 데이터에 대 한 무단 액세스, 가능한 데이터 유출 및 기타 보안 위험을 응용 프로그램에 내재 할 수 있습니다.
 
@@ -227,7 +227,7 @@ SIEM 솔루션이 없는 조직은 Azure AD 용 [Power BI 콘텐츠 팩](https:/
 
 조직에서 더 견고한 identity foundation으로의 전환을 시작 하는 경우 참조를 위해 다음 검사 목록을 출력 하는 것이 좋습니다.
 
-### <a name="today"></a>오늘
+### <a name="today"></a>요즘
 
 |등록했나요?|항목|
 |:-|:-|

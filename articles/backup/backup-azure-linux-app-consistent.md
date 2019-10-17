@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/12/2018
 ms.author: dacurwin
-ms.openlocfilehash: dc7745c7c1110bf3635b1621cecfd5e61488b9f9
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 1835c6968bfdfcc3f3ce4d8a624e8f6bd62e224c
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210400"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375940"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Azure Linux VM의 애플리케이션 일치 백업
 
@@ -36,13 +36,13 @@ VM의 백업 스냅샷을 만들 때 애플리케이션 일관성이란 복원 �
 
 4. 다음 파일에 대해 다음과 같은 권한이 있는지 확인합니다.
 
-   - **VMSnapshotScriptPluginConfig.json**: 사용 권한 “600” 예를 들어 "루트" 사용자만 이 파일에 대한 "읽기" 및 "쓰기" 권한을 가져야 하며 사용자는 "실행" 권한을 가져서는 안됩니다.
+   - **VMSnapshotScriptPluginConfig.json**: 권한 "600" 예를 들어 "루트" 사용자만 이 파일에 대한 "읽기" 및 "쓰기" 권한을 가져야 하며 사용자는 "실행" 권한을 가져서는 안됩니다.
 
-   - **사전 스크립트 파일**: 사용 권한 “700”  예를 들어 "루트" 사용자만 이 파일에 대한 "읽기", "쓰기" 및 "실행" 권한을 가져야 합니다.
+   - **사전 스크립트 파일**: 권한 “700”  예를 들어 "루트" 사용자만 이 파일에 대한 "읽기", "쓰기" 및 "실행" 권한을 가져야 합니다.
 
    - **사후 스크립트**: 권한 “700” 예를 들어 "루트" 사용자만 이 파일에 대한 "읽기", "쓰기" 및 "실행" 권한을 가져야 합니다.
 
-   > [!Important]
+   > [!IMPORTANT]
    > 이 프레임워크는 사용자에게 강력한 권한을 부여합니다. 프레임워크를 보호하고 “root” 사용자만 중요한 JSON 및 스크립트 파일에 액세스할 수 있도록 합니다.
    > 요구 사항이 충족되지 않으면 스크립트가 실행되지 않아서 파일 시스템 작동이 중단되고 일관성 없는 백업이 만들어집니다.
    >
@@ -60,13 +60,15 @@ VM의 백업 스냅샷을 만들 때 애플리케이션 일관성이란 복원 �
 
     - **preScriptNoOfRetries**: 종료하기 전에 모든 오류에서 사전 스크립트가 다시 시도되어야 하는 횟수를 설정합니다. 0은 한 번의 시도를 의미하고 실패의 경우 시도 없음을 의미합니다.
 
-    - **postScriptNoOfRetries**:  종료하기 전에 모든 오류에서 사후 스크립트가 다시 시도되어야 하는 횟수를 설정합니다. 0은 한 번의 시도를 의미하고 실패의 경우 시도 없음을 의미합니다.
+    - **postScriptNoOfRetries**: 종료하기 전에 모든 오류에서 사후 스크립트가 다시 시도되어야 하는 횟수를 설정합니다. 0은 한 번의 시도를 의미하고 실패의 경우 시도 없음을 의미합니다.
 
-    - **timeoutInSeconds**: 사전 스크립트 및 사후 스크립트에 대한 개별 시간 제한을 지정합니다(최댓값은 1800).
+    - **timeoutInSeconds**: 사전 스크립트 및 사후 스크립트에 대 한 개별 시간 제한을 지정 합니다 (최 댓 값은 1800 일 수 있음).
 
     - **continueBackupOnFailure**: Azure Backup을 사전 스크립트 또는 사후 스크립트가 실패하는 경우 파일 시스템 일관성/충돌 일관성 백업으로 대체하려는 경우 이 값을 **true**로 설정합니다. 이 값을 **false**로 설정하면 스크립트 오류가 발생하는 경우 백업에 실패합니다(이 설정과 관련 없는 충돌 일관성 백업으로 대체하는 단일 디스크 VM의 경우 제외).
 
     - **fsFreezeEnabled**: 파일 시스템 일관성을 유지하는 VM 스냅샷을 만드는 동안 Linux fsfreeze를 호출해야 하는지 여부를 지정합니다. 애플리케이션이 fsfreeze 비활성화에 대한 종속성을 갖지 않는 한, 이 설정을 **true**로 유지하는 것이 좋습니다.
+
+    - **ScriptsExecutionPollTimeSeconds**: 스크립트 실행에 대 한 각 폴링 간에 확장이 대기 해야 하는 시간을 설정 합니다. 예를 들어 값이 2 인 경우 확장은 사전/사후 스크립트 실행이 2 초 마다 완료 되었는지 여부를 확인 합니다. 사용할 수 있는 최소값 및 최대값은 각각 1과 5입니다. 값은 반드시 정수 여야 합니다.
 
 6. 이제 스크립트 프레임워크가 구성되었습니다. VM 백업이 이미 구성된 경우 다음 백업 시 스크립트가 호출되고 애플리케이션 일치 백업이 트리거됩니다. VM 백업이 구성되지 않은 경우 [Recovery Services 자격 증명 모음에 Azure Virtual Machines 백업](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)을 사용하여 구성하세요.
 
@@ -74,13 +76,13 @@ VM의 백업 스냅샷을 만들 때 애플리케이션 일관성이란 복원 �
 
 사전 스크립트 및 사후 스크립트를 작성하는 동안 적절한 로깅을 추가했는지 확인하고 스크립트 로그를 검토하여 모든 스크립트 문제를 해결하세요. 스크립트를 실행하는 데 여전히 문제가 있는 경우 자세한 내용은 다음 표를 참조하세요.
 
-| Error | 오류 메시지 | 권장 작업 |
+| 오류 | 오류 메시지 | 권장 작업 |
 | ------------------------ | -------------- | ------------------ |
-| Pre-ScriptExecutionFailed |사전 스크립트가 오류를 반환하여 백업이 애플리케이션에 일관되지 않을 수 있습니다.   | 이 문제를 해결하려면 스크립트에 대한 오류 로그를 확인하세요.|  
-|   Post-ScriptExecutionFailed |    사후 스크립트가 애플리케이션 상태에 영향을 줄 수 있는 오류를 반환했습니다. |    이 문제를 해결하려면 스크립트에 대한 오류 로그를 확인하고 애플리케이션 상태를 확인하세요. |
-| Pre-ScriptNotFound |  **VMSnapshotScriptPluginConfig.json** 구성 파일에 지정된 위치에서 사전 스크립트를 찾지 못했습니다. |   애플리케이션 일관성 백업을 위해 사전 스크립트가 구성 파일에 지정된 경로에 있는지 확인하세요.|
-| Post-ScriptNotFound | **VMSnapshotScriptPluginConfig.json** 구성 파일에 지정된 위치에서 사후 스크립트를 찾지 못했습니다. |   애플리케이션 일관성 백업을 위해 사후 스크립트가 구성 파일에 지정된 경로에 있는지 확인하세요.|
-| IncorrectPluginhostFile | VmSnapshotLinux 확장과 함께 제공되는 **Pluginhost** 파일이 손상되어서 사전 스크립트 및 사후 스크립트를 실행할 수 없으며 백업이 애플리케이션에 일관되지 않습니다. | **VmSnapshotLinux** 확장을 제거하세요. 문제를 해결하기 위해 다음 백업과 함께 자동으로 다시 설치됩니다. |
+| Pre-ScriptExecutionFailed |사전 스크립트가 오류를 반환하여 백업이 애플리케이션에 일관되지 않을 수 있습니다.| 이 문제를 해결하려면 스크립트에 대한 오류 로그를 확인하세요.|  
+|Post-ScriptExecutionFailed |사후 스크립트가 애플리케이션 상태에 영향을 줄 수 있는 오류를 반환했습니다. |이 문제를 해결하려면 스크립트에 대한 오류 로그를 확인하고 애플리케이션 상태를 확인하세요. |
+| Pre-ScriptNotFound |**VMSnapshotScriptPluginConfig.json** 구성 파일에 지정된 위치에서 사전 스크립트를 찾지 못했습니다. |애플리케이션 일관성 백업을 위해 사전 스크립트가 구성 파일에 지정된 경로에 있는지 확인하세요.|
+| Post-ScriptNotFound |**VMSnapshotScriptPluginConfig.json** 구성 파일에 지정된 위치에서 사후 스크립트를 찾지 못했습니다. |애플리케이션 일관성 백업을 위해 사후 스크립트가 구성 파일에 지정된 경로에 있는지 확인하세요.|
+| IncorrectPluginhostFile |VmSnapshotLinux 확장과 함께 제공되는 **Pluginhost** 파일이 손상되어서 사전 스크립트 및 사후 스크립트를 실행할 수 없으며 백업이 애플리케이션에 일관되지 않습니다.| **VmSnapshotLinux** 확장을 제거하세요. 문제를 해결하기 위해 다음 백업과 함께 자동으로 다시 설치됩니다. |
 | IncorrectJSONConfigFile | **VMSnapshotScriptPluginConfig.json** 파일이 잘못되어서 사전 스크립트 및 사후 스크립트를 실행할 수 없으며 백업이 애플리케이션에 일관되지 않습니다. | [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig)에서 복사본을 다운로드하고 다시 구성하세요. |
 | InsufficientPermissionforPre-Script | 스크립트 실행을 위해 “루트” 사용자는 파일의 소유자여야 하며 파일은 "700" 권한을 가져야 합니다. 즉, “소유자”만이 "읽기", "쓰기" 및 "실행" 권한을 가져야 합니다. | "루트" 사용자가 스크립트 파일의 "소유자"이고 “소유자”만이 "읽기", "쓰기" 및 "실행" 권한을 갖는지 확인합니다. |
 | InsufficientPermissionforPost-Script | 스크립트 실행을 위해 루트 사용자는 파일의 소유자여야 하며 파일은 "700" 권한을 가져야 합니다. 즉, “소유자”만이 "읽기", "쓰기" 및 "실행" 권한을 가져야 합니다. | "루트" 사용자가 스크립트 파일의 "소유자"이고 “소유자”만이 "읽기", "쓰기" 및 "실행" 권한을 갖는지 확인합니다. |
@@ -88,4 +90,5 @@ VM의 백업 스냅샷을 만들 때 애플리케이션 일관성이란 복원 �
 | Post-ScriptTimeout | 애플리케이션 일치 백업 사후 스크립트의 실행이 시간 초과되었습니다. | 스크립트를 확인하고 **/etc/azure**에 있는 **VMSnapshotScriptPluginConfig.json** 파일에서 시간 제한을 늘립니다. |
 
 ## <a name="next-steps"></a>다음 단계
+
 [Recovery Services 자격 증명 모음에 VM 백업 구성](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)

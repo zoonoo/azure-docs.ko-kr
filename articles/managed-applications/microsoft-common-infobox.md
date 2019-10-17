@@ -1,6 +1,6 @@
 ---
 title: Azure InfoBox UI 요소 | Microsoft Docs
-description: Azure Portal의 Microsoft.Common.TextBlock UI 요소에 대해 설명합니다.
+description: Azure Portal에 대 한 Microsoft의 InfoBox UI 요소에 대해 설명 합니다. 를 사용 하 여 관리 되는 응용 프로그램을 배포할 때 텍스트 또는 경고를 추가 합니다.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2330197b4512dfdd72de3529145103b644594e25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67ae05c2ec7b36d76e49f26d5765bbc68b952292
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711230"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331680"
 ---
 # <a name="microsoftcommoninfobox-ui-element"></a>Microsoft.Common.InfoBox UI 요소
 정보 상자를 추가하는 컨트롤입니다. 이 상자에는 사용자가 입력하는 값을 파악하는 데 도움이 되는 중요한 텍스트나 경고가 포함됩니다. 상자를 자세한 정보를 제공하는 URI에 연결할 수도 있습니다.

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: db0921d709f842b004ec4c23d15a986f2e59ec23
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 43b8dfd571537aaaf6753d6b762ab84cfe4cfd0d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687069"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376159"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 개인 끝점 만들기
 프라이빗 엔드포인트는 Azure에서 프라이빗 링크를 만드는 데 사용되는 기본 구성 요소입니다. 프라이빗 엔드포인트는 VM(Virtual Machines) 같은 Azure 리소스가 프라이빗 링크 리소스와 비공개로 통신할 수 있게 해줍니다. 
@@ -32,10 +32,10 @@ New-AzResourceGroup `
   -Location westcentralus
 ```
 
-## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
+## <a name="create-a-virtual-network"></a>Virtual Network 만들기
 이 섹션에서는 가상 네트워크 및 서브넷을 만듭니다. 그런 다음 서브넷을 Virtual Network 연결 합니다.
 
-### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
+### <a name="create-a-virtual-network"></a>Virtual Network 만들기
 
 [AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용 하 여 개인 끝점에 대 한 가상 네트워크를 만듭니다. 다음 예에서는 *MyVirtualNetwork*라는 Virtual Network를 만듭니다.
  
@@ -50,7 +50,7 @@ $virtualNetwork = New-AzVirtualNetwork `
 
 ### <a name="add-a-subnet"></a>서브넷 추가
 
-Azure는 Virtual Network 내의 서브넷에 리소스를 배포 하므로 서브넷을 만들어야 합니다.  [AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig)를 사용 하 여 *mysubnet* 이라는 서브넷 구성을 만듭니다. 다음 예제에서는 개인 끝점 네트워크 정책 플래그가 **사용 안 함으로**설정 된 *mysubnet* 이라는 서브넷을 만듭니다.
+Azure는 Virtual Network 내의 서브넷에 리소스를 배포 하므로 서브넷을 만들어야 합니다.  [AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig)를 사용 하 여 *mysubnet* 이라는 서브넷 구성을 만듭니다. 다음 예제에서는 개인 끝점 네트워크 정책 플래그가 **사용 안 함으로**설정 된 *mysubnet* 이라는 서브넷을 만듭니다.
 
 ```azurepowershell
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -68,7 +68,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-## <a name="create-a-virtual-machine"></a>Virtual Machine 만들기
+## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
 [New-azvm](/powershell/module/az.compute/new-azvm)를 사용 하 여 VIRTUAL NETWORK에서 VM을 만듭니다. 다음 명령을 실행하면 자격 증명을 묻는 메시지가 표시됩니다. VM의 사용자 이름 및 암호를 입력합니다.
 
@@ -167,7 +167,7 @@ New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink
   
 ## <a name="connect-to-a-vm-from-the-internet"></a>인터넷에서 VM에 연결
 
- [AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) 를 사용하여 VM의 공용 IP 주소를 반환합니다. 이 예제에서는 *myvm* vm의 공용 IP 주소를 반환 합니다.
+ [AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) 을 사용 하 여 VM의 공용 IP 주소를 반환 합니다. 이 예제에서는 *myvm* vm의 공용 IP 주소를 반환 합니다.
 
 ```azurepowershell
 Get-AzPublicIpAddress `
@@ -175,7 +175,7 @@ Get-AzPublicIpAddress `
   -ResourceGroupName myResourceGroup `
   | Select IpAddress 
 ```  
-로컬 컴퓨터에서 명령 프롬프트를 엽니다. Mstsc 명령을 실행 합니다. 을 <publicIpAddress>마지막 단계에서 반환 된 공용 IP 주소로 바꿉니다 . 
+로컬 컴퓨터에서 명령 프롬프트를 엽니다. Mstsc 명령을 실행 합니다. @ No__t-0 @ no__t-1을 마지막 단계에서 반환 된 공용 IP 주소로 바꿉니다. 
 
 
 > [!NOTE]
@@ -184,13 +184,13 @@ Get-AzPublicIpAddress `
 mstsc /v:<publicIpAddress>
 ```
 
-1. 메시지가 표시 되 면 **연결**을 선택 합니다. 
+1. 메시지가 표시되면 **연결**을 선택합니다. 
 2. VM을 만들 때 지정한 사용자 이름과 암호를 입력합니다.
   > [!NOTE]
   > VM을 만들 때 입력 한 자격 증명을 지정 하려면 다른 계정을 사용 하 > 다른 옵션을 선택 해야 할 수도 있습니다. 
   
-3.  **확인**을 선택합니다. 
-4. 인증서 경고가 표시될 수도 있습니다. 이렇게 하려면 **예** 또는 **계속**을 선택 합니다. 
+3. **확인**을 선택합니다. 
+4. 인증서 경고가 표시될 수도 있습니다. 표시되는 경우 **예** 또는 **계속**을 선택합니다. 
 
 ## <a name="access-sql-database-server-privately-from-the-vm"></a>VM에서 전용 SQL Database 서버 액세스
 
@@ -214,7 +214,7 @@ mstsc /v:<publicIpAddress>
 5. 연결을 선택 합니다.
 6. 왼쪽 메뉴에서 데이터베이스를 검색 합니다. 
 7. 생략할 Mydatabase에서 정보 만들기 또는 쿼리
-8.  *Myvm*에 대 한 원격 데스크톱 연결을 닫습니다. 
+8. *Myvm*에 대 한 원격 데스크톱 연결을 닫습니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 개인 끝점, SQL Database 서버 및 VM을 사용 하 여 완료 한 경우 [AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 를 사용 하 여 리소스 그룹 및 해당 그룹에 포함 된 모든 리소스를 제거 합니다.

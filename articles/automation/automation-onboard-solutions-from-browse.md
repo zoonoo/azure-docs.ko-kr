@@ -9,12 +9,12 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5be247e8bb999ee5306d10e67c46c7273953dc71
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 3e56b44988dc6dbfed99f339795fee6d15c7dd57
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534692"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372797"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>여러 VM에서 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 사용
 
@@ -89,7 +89,7 @@ Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않
 
 2. 작업 영역 연결 해제 페이지에서 **작업 영역 연결 해제**를 클릭합니다.
 
-   ![작업 영역 연결 해제 페이지](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png)을 선택합니다.
+   ![작업 영역 연결 해제 페이지](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
 
    계속할지 묻는 메시지가 나타납니다.
 
@@ -133,13 +133,13 @@ Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않
 
 **원인:** 솔루션이 일부 Linux 배포판 또는 일부 Windows에 지원되지 않습니다.
 
-**해결 방법:** 해결 방법은 [지원되는 클라이언트 목록](automation-update-management.md#clients)을 참조하세요.
+**해결 방법:** [지원되는 클라이언트 목록](automation-update-management.md#clients)을 참조하세요.
 
 ### <a name="classic-vms-cannot-be-enabled"></a>클래식 VM을 사용할 수 없음
 
-**원인**: 클래식 배포 모델을 사용하는 가상 머신이 지원되지 않습니다.
+**원인**: 클래식 배포 모델을 사용하는 VM이 지원되지 않습니다.
 
-**해결 방법**: 가상 컴퓨터를 리소스 관리자 배포 모델로 마이그레이션합니다. 작업 방법은 [클래식 배포 모델 리소스 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-overview.md)을 참조하세요.
+**해결**방법: 가상 컴퓨터를 리소스 관리자 배포 모델로 마이그레이션합니다. 작업 방법은 [클래식 배포 모델 리소스 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-overview.md)을 참조하세요.
 
 ### <a name="vm-is-stopped-deallocated"></a>VM이 중지되었습니다. (할당 취소됨)
 
@@ -147,12 +147,19 @@ Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않
 
 **해결 방법**: VM을 솔루션에 등록하려면 VM이 실행 중이어야 합니다. 페이지에서 나가지 말고 **VM 시작** 인라인 링크를 클릭하여 VM을 시작합니다.
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+업데이트 관리에서 VM을 제거하려면:
+
+* Log Analytics 작업 영역에서, 범위 구성 `MicrosoftDefaultScopeConfig-Updates`에 대한 저장된 검색에서 VM을 제거합니다. 저장된 검색은 작업 영역의 **일반**에서 찾을 수 있습니다.
+* [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) 또는 [Linux용 Log Analytics 에이전트](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources)를 제거합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-가상 머신에 솔루션을 사용하도록 설정했으니, 업데이트 관리 개요 문서를 방문하여 컴퓨터의 업데이트 평가를 살펴보는 방법을 알아보세요.
+이제 가상 머신에 대 한 솔루션을 사용 하도록 설정 했으므로 업데이트 관리 개요 문서를 방문 하 여 컴퓨터에 대 한 **업데이트 배포** 를 만드는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
-> [업데이트 관리 - 업데이트 평가 보기](./automation-update-management.md#viewing-update-assessments)
+> [업데이트 관리-Azure Vm에 대 한 업데이트 및 패치 관리](./automation-tutorial-update-management.md)
 
 솔루션 및 솔루션 사용 방법에 대한 추가 자습서:
 

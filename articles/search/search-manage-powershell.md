@@ -9,16 +9,16 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: heidist
-ms.openlocfilehash: 6090881cc2b94fa42fdac22220c858a0153ccc5c
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: d56ddcd48f6a1907bed865d391e1d4e64da2999d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648104"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331253"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>PowerShell을 사용한 Azure Search 서비스 관리
 > [!div class="op_single_selector"]
-> * [포털](search-manage.md)
+> * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
 > * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
@@ -40,7 +40,7 @@ PowerShell을 사용 하 여 서비스의 이름, 지역 또는 계층을 변경
 
 PowerShell 또는 다른 API를 통해 지원 되지 않는 다른 작업 (포털 전용)은 다음과 같습니다.
 + [AI 보강 인덱싱을](cognitive-search-concept-intro.md)위한 [인식 서비스 리소스를 연결](cognitive-search-attach-cognitive-services.md) 합니다. 인지 서비스는 구독 또는 서비스가 아닌 기술에 연결 됩니다.
-+ Azure Search 모니터링에 사용 되는 [추가 기능 모니터링 솔루션](search-monitor-usage.md#add-on-monitoring-solutions) 또는 [검색 트래픽 분석](search-traffic-analytics.md)
++ Azure Search 모니터링을 위한 [추가 모니터링 솔루션](search-monitor-usage.md#add-on-monitoring-solutions) 입니다.
 
 <a name="check-versions-and-load"></a>
 
@@ -197,11 +197,11 @@ Tags
 
 [**AzSearchAdminKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) 는 관리 [API 키](search-security-api-keys.md)를 롤오버 하는 데 사용 됩니다. 각 서비스에서 인증 된 액세스에 대해 두 개의 관리 키가 생성 됩니다. 모든 요청에 키가 필요 합니다. 두 관리 키는 기능적으로 동일 하며, 모든 정보를 검색 하거나 개체를 만들고 삭제할 수 있는 기능을 사용 하 여 검색 서비스에 대 한 모든 쓰기 권한을 부여 합니다. 다른 키를 대체할 때 사용할 수 있도록 두 개의 키가 있습니다. 
 
-`primary` 또는`secondary` 키로 지정 된 한 번에 하나씩만 다시 생성할 수 있습니다. 중단 없는 서비스의 경우 기본 키를 롤링 하는 동안 보조 키를 사용 하도록 모든 클라이언트 코드를 업데이트 해야 합니다. 작업이 진행 되는 동안에는 키를 변경 하지 마세요.
+@No__t-0 또는 `secondary` 키로 지정 된 한 번에 하나씩만 다시 생성할 수 있습니다. 중단 없는 서비스의 경우 기본 키를 롤링 하는 동안 보조 키를 사용 하도록 모든 클라이언트 코드를 업데이트 해야 합니다. 작업이 진행 되는 동안에는 키를 변경 하지 마세요.
 
 짐작할 수 있듯이 클라이언트 코드를 업데이트 하지 않고 키를 다시 생성 하면 이전 키를 사용 하는 요청이 실패 합니다. 모든 새 키를 다시 생성 해도 서비스에서 영구적으로 잠기지 않으며 포털을 통해 서비스에 계속 액세스할 수 있습니다. 기본 및 보조 키를 다시 생성 한 후 새 키를 사용 하도록 클라이언트 코드를 업데이트할 수 있으며 그에 따라 작업이 다시 시작 됩니다.
 
-API 키에 대 한 값은 서비스에 의해 생성 됩니다. Azure Search 사용할 사용자 지정 키를 제공할 수 없습니다. 마찬가지로, 관리 API 키에 대 한 사용자 정의 이름이 없습니다. 키에 대 한 참조는 고정 문자열 `primary` 또는 `secondary`입니다. 
+API 키에 대 한 값은 서비스에 의해 생성 됩니다. Azure Search 사용할 사용자 지정 키를 제공할 수 없습니다. 마찬가지로, 관리 API 키에 대 한 사용자 정의 이름이 없습니다. 키에 대 한 참조는 `primary` 또는 `secondary` 인 고정 문자열입니다. 
 
 ```azurepowershell-interactive
 New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary

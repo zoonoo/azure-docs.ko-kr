@@ -1,5 +1,5 @@
 ---
-title: Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
+title: Resource Manager 템플릿을 사용하여 메트릭 알림 만들기
 description: Resource Manager 템플릿을 사용하여 메트릭 경고를 만드는 방법에 대해 알아봅니다.
 author: snehithm
 services: azure-monitor
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 70da3a518746d1989e8807cee9bc7c87cc634c27
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: b08c7d1b91f89aba4c9cb8a23bb5c688521cb37e
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873285"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372765"
 ---
-# <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
+# <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 알림 만들기
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 이 문서에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Azure Monitor에서 [최신 메트릭 경고](../../azure-monitor/platform/alerts-metric-near-real-time.md)를 구성하는 방법을 설명합니다. Resource Manager 템플릿을 사용하면 환경 전체에서 일관되고 재현 가능한 방법으로 경보를 프로그래밍 방식으로 설정할 수 있습니다. 최신 메트릭 경고는 현재 [이 리소스 유형 집합](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)에 대해 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 리소스 형식에 대한 메트릭 경고를 만드는 리소스 템플릿: Azure Log Analytics 작업 영역(예를 들면,) `Microsoft.OperationalInsights/workspaces`에는 추가적인 단계가 필요합니다. 자세한 내용은 [로그에 대한 메트릭 경고 - 리소스 템플릿](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs)의 문서를 참조하세요.
+> 리소스 종류에 대 한 메트릭 경고를 만들기 위한 리소스 템플릿: Azure Log Analytics 작업 영역 (즉, `Microsoft.OperationalInsights/workspaces`)에는 추가 단계가 필요 합니다. 자세한 내용은 [로그에 대한 메트릭 경고 - 리소스 템플릿](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs)의 문서를 참조하세요.
 
-기본 단계는 다음과 같습니다.
+기본적인 단계는 다음과 같습니다.
 
 1. 다음 템플릿 중 하나를 경고 생성 방법을 설명하는 JSON 파일로 사용합니다.
 2. 해당 매개 변수 파일을 편집하고 JSON으로 사용하여 경고를 사용자 지정합니다.
@@ -2480,7 +2480,7 @@ az group deployment create \
                 "PT5M",
                 "PT15M",
                 "PT30M",
-                "PT1H""
+                "PT1H"
             ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"

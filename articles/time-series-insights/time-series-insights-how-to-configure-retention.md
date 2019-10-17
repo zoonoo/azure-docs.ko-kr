@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9986f57b05032c1e12769d59781e8b7aca443abb
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: bf6788bac7003bec0ccfc171d622cd9b28bf43e0
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299005"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330895"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Time Series Insights의 보존 기간 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "72299005"
 
 각 Azure Time Series Insights 환경에는 **데이터 보존 시간**을 구성 하는 설정이 있습니다. 값의 범위는 1~400일입니다. 데이터는 환경 스토리지 용량 또는 보존 기간(1-400) 중 더 빠른 시간을 기준으로 삭제됩니다.
 
-각 TSI 환경에는 **스토리지 제한을 초과하는 동작**이라는 추가 설정이 있습니다. 이 설정은 환경의 최대 용량에 도달하면 수신 및 삭제 동작을 제어합니다. 두 가지 동작 중에서 선택할 수 있습니다.
+각 Time Series Insights 환경에는 **저장소 제한을 초과**하는 추가 설정 동작이 있습니다. 이 설정은 환경의 최대 용량에 도달하면 수신 및 삭제 동작을 제어합니다. 두 가지 동작 중에서 선택할 수 있습니다.
 
 - **이전 데이터 삭제**(기본값)
 - **수신 일시 중지**
@@ -35,7 +35,7 @@ ms.locfileid: "72299005"
 
 ## <a name="configure-data-retention"></a>데이터 보존 구성하기
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 
 1. 기존 Time Series Insights 환경을 찾습니다. Azure Portal의 왼쪽에 있는 메뉴에서 **모든 리소스**를 선택합니다. Time Series Insights 환경을 선택합니다.
 
@@ -49,10 +49,14 @@ ms.locfileid: "72299005"
 
 1. **스토리지 제한을 초과하는 동작** 설정을 전환합니다. **이전 데이터 삭제** 또는 **수신 일시 중지** 동작을 선택합니다.
 
-    [![ 데이터 보존 수락 및 저장.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
+    [![ 데이터 보존-수락 및 저장 합니다.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
 
 1. 설명서를 검토 하 고 잠재적인 데이터 손실 위험을 이해 한다는 것을 나타내는 확인란을 그대로 적용 합니다. **저장**을 선택하여 변경 내용을 구성합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - 자세한 내용은 [Time Series Insights의 보존 기간 이해](time-series-insights-concepts-retention.md)를 참조하세요.
+
+- [Time Series Insights 환경의 크기를 조정 하는 방법을](time-series-insights-how-to-scale-your-environment.md)알아봅니다.
+
+- [환경 계획](time-series-insights-environment-planning.md)에 대해 알아봅니다.

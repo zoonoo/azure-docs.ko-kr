@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure 기반 VM 이미지에 대 한 공유 액세스 서명 URI를 가져올 | Azure Marketplace
+title: Microsoft Azure 기반 VM 이미지에 대 한 공유 액세스 서명 URI 가져오기 | Azure Marketplace
 description: VM 이미지에 대한 SAS(공유 액세스 서명) URI를 가져오는 방법을 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 4da82b2f6aaa3fc664d2e91b80722329533b0cd0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c242fbcd19187abb608ca80a49d04dae195bd7c6
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938677"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374365"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>VM 이미지에 대한 공유 액세스 서명 URI 가져오기
 
@@ -44,7 +44,7 @@ SAS URL은 다음 도구를 사용하여 일반적인 두 가지 방법으로 �
    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
    ```
     
-3. 파일을 편집하여 다음 매개 변수 값을 제공합니다.  날짜는 UTC 날짜/시간 형식(예: `10-25-2016T00:00:00Z`)으로 제공해야 합니다.
+3. 파일을 편집하여 다음 매개 변수 값을 제공합니다.  날짜는 UTC 날짜/시간 형식(예: `2016-10-25T00:00:00Z`)으로 제공해야 합니다.
    - `<account-name>` -Azure Storage 계정 이름
    - `<account-key>` - Azure Storage 계정 키
    - `<vhd-name>` - VHD 이름

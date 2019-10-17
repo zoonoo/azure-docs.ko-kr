@@ -5,24 +5,24 @@ author: sideeksh
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 10/15/2019
 ms.author: sideeksh
-ms.openlocfilehash: 2078aa33ca735b91b5923d94028a286427f107a6
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: d8c896bc655339fbd7d51f738fb629450e8c12ae
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70146866"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376212"
 ---
 # <a name="support-for-using-site-recovery-with-azure-backup"></a>Azure Backup에서 Site Recovery 사용에 대 한 지원
 
 이 문서에서는 [Azure Backup 서비스](https://docs.microsoft.com/azure/backup/backup-overview)와 함께 [Site Recovery 서비스](site-recovery-overview.md) 를 사용 하는 데 대 한 지원을 요약 합니다.
 
-**동작** | **지원 Site Recovery** | **세부 정보**
+**작업** | **지원 Site Recovery** | **세부 정보**
 --- | --- | ---
 **서비스를 함께 배포** | 지원됨 | 서비스는 상호 운용할 수 있으며 함께 구성할 수 있습니다.
 **파일 백업/복원** | 지원됨 | VM에 대해 백업 및 복제를 사용 하도록 설정 하 고 백업을 수행 하는 경우 원본 측 Vm 또는 Vm 그룹에서 파일을 복원 하는 데 문제가 없습니다. 복제 상태를 변경 하지 않고 정상적으로 복제를 계속 합니다.
-**디스크 백업/복원** | 현재 지원 안 함 | 백업 된 디스크를 복원 하는 경우 VM에 대 한 복제를 다시 사용 하지 않도록 설정 하 고 다시 활성화 해야 합니다.
-**VM 백업/복원** | 현재 지원 안 함 | VM 또는 vm 그룹을 백업 하거나 복원 하는 경우 VM에 대 한 복제를 사용 하지 않도록 설정 하 고 다시 활성화 해야 합니다.  
+**디스크 복원** | 현재 지원 안 함 | 백업 된 디스크를 복원 하는 경우 VM에 대 한 복제를 다시 사용 하지 않도록 설정 했다가 다시 사용 하도록 설정 해야 합니다.
+**VM 복원** | 현재 지원 안 함 | VM 또는 vm 그룹을 복원 하는 경우 VM에 대 한 복제를 사용 하지 않도록 설정 하 고 다시 사용 하도록 설정 해야 합니다.  
 
 

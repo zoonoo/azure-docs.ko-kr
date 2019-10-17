@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 275eff59c56229f45a131e107668b8fefab24536
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 389e1472e1e1fcbed6dd3b6c1d155199246d877f
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70123760"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332950"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Azure Time Series Insights에서 모니터링을 수행하고 제한을 축소하여 대기 시간 줄이기
 
@@ -44,19 +44,19 @@ ms.locfileid: "70123760"
 
 1. Azure Portal에서 **경고**를 선택 합니다.
 
-   [![알립니다](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
+   [![ 경고](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
 
 1. 그러면 **규칙 만들기** 패널이 표시 됩니다. **조건**아래에서 **추가** 를 선택 합니다.
 
-   [![경고 추가](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
+   [![ 경고 추가](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
 
 1. 그런 다음 신호 논리에 대 한 정확한 조건을 구성 합니다.
 
-   [![신호 논리 구성](media/environment-mitigate-latency/configure-alert-rule.png)](media/environment-mitigate-latency/configure-alert-rule.png#lightbox)
+   [![ 신호 논리 구성](media/environment-mitigate-latency/configure-alert-rule.png)](media/environment-mitigate-latency/configure-alert-rule.png#lightbox)
 
    여기에서 다음 조건 중 일부를 사용 하 여 경고를 구성할 수 있습니다.
 
-   |메트릭  |Description  |
+   |메트릭  |설명  |
    |---------|---------|
    |**수신된 바이트**     | 이벤트 원본에서 읽은 원시 바이트 수입니다. 일반적으로 원시 바이트 수에는 속성 이름 및 값이 포함됩니다.  |  
    |**수신된 잘못된 메시지**     | 모든 Azure Event Hubs 또는 Azure IoT Hub 이벤트 원본에서 읽은 잘못된 메시지 수입니다.      |
@@ -70,15 +70,15 @@ ms.locfileid: "70123760"
 
 1. 원하는 신호 논리를 구성한 후에는 선택한 경고 규칙을 시각적으로 검토 합니다.
 
-   [![수신](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
+   [![ 수신](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
 
 ## <a name="throttling-and-ingress-management"></a>제한 및 수신 관리
 
-* 제한 되는 경우 *수신 받은 메시지의 지연 시간*에 대 한 값이 표시 됩니다. 여기서 tsi의 초 수는 메시지가 이벤트 원본에 도달 하는 실제 시간 (appx의 인덱싱 시간 제외)에서 발생 한 시간입니다. 30-60초의 인덱싱 시간 제외).  
+* 제한 되는 경우 *수신 받은 메시지의 지연 시간*에 대 한 값이 표시 됩니다 .이 값은 Time Series Insights 환경에서 메시지가 이벤트 원본에 도달 하는 실제 시간 (인덱싱 시간 제외)에서 발생 한 초 수를 알려 줍니다. appx의입니다. 30-60초의 인덱싱 시간 제외).  
 
   *수신된 메시지 수 지연*에도 값이 표시되므로 메시지가 뒤에 몇 개나 더 남아 있는지 알 수 있습니다.  이러한 차이를 해소하는 가장 쉬운 방법은 작업 환경의 용량을 차이가 극복될 수 있는 크기로 늘리는 것입니다.  
 
-  예를 들어 단일 단위 S1 환경이 있고 500만 메시지 지연이 있음을 확인 하는 경우 사용자 환경의 크기를 하루 중 6 개 단위로 늘려 검색할 수 있습니다.  더 빠르게 따라잡기 위해 더 크게 늘릴 수도 있습니다. 캐치업 시간은 처음에 환경을 프로비전할 때 일반적으로 발생하고, 이미 이벤트가 포함된 이벤트 원본에 연결하거나 많은 기록 데이터를 대량으로 업로드할 때 특히 두드러집니다.
+  예를 들어 S1 환경에서 500만 메시지의 지연 시간을 보여 주는 것으로 표시 되는 경우,이를 위해 하루 종일 6 개 단위로 환경의 크기를 늘릴 수 있습니다.  더 빠르게 따라잡기 위해 더 크게 늘릴 수도 있습니다. 캐치업 시간은 처음에 환경을 프로비전할 때 일반적으로 발생하고, 이미 이벤트가 포함된 이벤트 원본에 연결하거나 많은 기록 데이터를 대량으로 업로드할 때 특히 두드러집니다.
 
 * 또 다른 방법은 **저장된 수신 이벤트** 경고를 2시간 동안의 전체 환경 용량보다 약간 낮게 설정하는 것입니다.  이 경고는 용량이 일정한지 이해하는 데 도움이 되며 대기 시간이 길어질 가능성이 높다는 것을 나타냅니다. 
 
@@ -94,6 +94,6 @@ ms.locfileid: "70123760"
 
 ## <a name="next-steps"></a>다음 단계
 
-- 추가 문제 해결 단계는 [Time Series Insights 환경에서 문제 진단 및 해결](time-series-insights-diagnose-and-solve-problems.md)을 참조하세요.
+- [Time Series Insights 환경에서 문제 진단 및 해결](time-series-insights-diagnose-and-solve-problems.md)을 참조 하세요.
 
-- 추가 지원을 받으려면 [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) 또는 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)에서 대화를 시작합니다. 지원 옵션에 대해서는 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의할 수도 있습니다.
+- [Time Series Insights 환경의 크기를 조정 하는 방법을](time-series-insights-how-to-scale-your-environment.md)알아봅니다.

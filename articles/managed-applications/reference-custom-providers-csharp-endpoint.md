@@ -1,22 +1,22 @@
 ---
 title: 사용자 지정 C# 공급자 RESTful 끝점 참조-Azure
-description: 이 문서는 사용자 지정 공급자 C# RESTful 끝점에 대 한 기본 참조입니다.
+description: Azure 사용자 지정 공급자 C# RESTful 끝점에 대 한 기본 참조를 제공 합니다. 끝점은 Azure 함수 앱을 통해 제공 됩니다.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: 8007c92c832ab7621d0192f924b15abf8bda9262
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 37b7997bc029942a84c9be5743f6ef3c6195fd27
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172908"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332659"
 ---
 # <a name="custom-provider-c-restful-endpoint-reference"></a>사용자 지정 C# 공급자 RESTful 끝점 참조
 
-이 문서는 사용자 지정 공급자 C# RESTful 끝점에 대 한 기본 참조입니다. Azure 사용자 지정 공급자에 대해 잘 모를 경우 [사용자 지정 리소스 공급자에 대 한 개요](./custom-providers-overview.md)를 참조 하세요.
+이 문서는 사용자 지정 공급자 C# RESTful 끝점에 대 한 기본 참조입니다. Azure 사용자 지정 공급자에 익숙하지 않은 경우 [사용자 지정 리소스 공급자에 대한 개요](./custom-providers-overview.md)를 참조하세요.
 
 ## <a name="azure-function-app-restful-endpoint"></a>Azure 함수 앱 RESTful 끝점
 

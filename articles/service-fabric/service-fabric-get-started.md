@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/22/2019
+ms.date: 10/03/2019
 ms.author: atsenthi
-ms.openlocfilehash: 0bc8a5bbecc4e7d58265e9c10c2c8a3351fcc312
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: cc77995e12d756c5878ee62ef6dd0f0229506d4c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036007"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333083"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Windows 개발 컴퓨터에서 [Azure Service Fabric 응용 프로그램][1] 을
 * Windows 8/Windows 8.1
 * Windows Server 2012 R2
 * Windows Server 2016
-* Windows 10
+* Windows 10
 
 > [!NOTE]
 > Windows 7 지원:
@@ -69,8 +69,8 @@ SDK만 필요한 경우 다음 패키지를 설치할 수 있습니다.
 * [Microsoft Azure Service Fabric SDK 설치][core-sdk]
 
 현재 버전은 다음과 같습니다.
-* Service Fabric SDK 및 도구 3.4.664
-* Service Fabric runtime 6.5.664
+* Service Fabric SDK 및 도구 3.4.676
+* Service Fabric runtime 6.5.676
 * Visual Studio 2015 2.5.20615.1에 대 한 Service Fabric 도구
 * Visual Studio 2017 15.9에는 Visual Studio 2.4.11024.1용 Service Fabric 도구가 포함되어 있습니다. 
 * Visual Studio 2019 16.1에는 Visual Studio 2.5.20423.3에 대 한 Service Fabric 도구 포함 되어 있습니다.

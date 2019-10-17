@@ -1,20 +1,20 @@
 ---
-title: Azure Monitor 로그를 사용 하 여 Azure Site Recovery 모니터링 (Log Analytics)
+title: Azure Monitor 로그를 사용 하 여 Azure Site Recovery 모니터링 (Log Analytics) | Microsoft Docs
 description: Azure Monitor 로그 (Log Analytics)를 사용 하 여 Azure Site Recovery를 모니터링 하는 방법을 알아봅니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/13/2019
 ms.author: raynew
-ms.openlocfilehash: 4eb88658437d3b29cc55d24bb83f73b660daea43
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 889fa3bee17aa3b0300431b058332c5ec10d9faf
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68718484"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331928"
 ---
-# <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 Site Recovery 모니터링
+# <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 Site Recovery 모니터링
 
 이 문서에서는 [Azure Monitor 로그](../azure-monitor/platform/data-platform-logs.md)및 [Log Analytics](../azure-monitor/log-query/log-query-overview.md)를 사용 하 여 Azure [Site Recovery](site-recovery-overview.md)에서 복제 된 컴퓨터를 모니터링 하는 방법을 설명 합니다.
 
@@ -25,10 +25,14 @@ Site Recovery의 경우 로그를 Azure Monitor 하 여 다음 작업을 수행�
 - **Site Recovery 상태 및 상태를 모니터링**합니다. 예를 들어, 복제 상태, 테스트 장애 조치 상태, Site Recovery 이벤트, 보호 된 컴퓨터에 대 한 Rpo (복구 지점 목표) 및 디스크/데이터 변경 비율을 모니터링할 수 있습니다.
 - **Site Recovery에 대 한 경고를 설정**합니다. 예를 들어 컴퓨터 상태, 테스트 장애 조치 (failover) 상태 또는 Site Recovery 작업 상태에 대 한 경고를 구성할 수 있습니다.
 
-Site Recovery에서 Azure Monitor 로그 사용은 azure에서 Azure로 복제, VMware v m/물리적 서버에서 Azure로 복제에 대해 지원 됩니다.
+Site Recovery에서 Azure Monitor 로그 사용은 azure **에서 azure로** 복제, **VMware v m/물리적 서버에서 azure** 로 복제에 대해 지원 됩니다.
+
+> [!NOTE]
+> 변동 데이터 로그 및 업로드 율 로그는 보조 Azure 지역에 복제 하는 Azure Vm에만 사용할 수 있습니다.
+
 ## <a name="before-you-start"></a>시작하기 전에
 
-필요한 사항은 다음과 같습니다.
+다음 항목이 필요합니다.
 
 - Recovery Services 자격 증명 모음에 보호 된 컴퓨터가 하나 이상 있습니다.
 - Site Recovery 로그를 저장할 Log Analytics 작업 영역입니다. 작업 영역을 설정 하는 [방법에 대해 알아봅니다](../azure-monitor/learn/quick-create-workspace.md) .
@@ -38,13 +42,14 @@ Site Recovery에서 Azure Monitor 로그 사용은 azure에서 Azure로 복제, 
 
 ## <a name="configure-site-recovery-to-send-logs"></a>로그를 보내도록 Site Recovery 구성
 
-1. 자격 증명 모음에서 **진단 설정 진단 설정** > **추가**를 클릭 합니다.
+1. 자격 증명 모음에서 **진단 설정** > **진단 설정 추가**를 클릭 합니다.
 
     ![진단 로깅 선택](./media/monitoring-log-analytics/add-diagnostic.png)
 
-2. **진단 설정**에서 로그 작업의 이름을 지정 하 고 **Log Analytics 보내기를**선택 합니다.
+2. **진단 설정**에서 이름을 지정 하 고 **Log Analytics로 보내기**상자를 선택 합니다.
 3. Azure Monitor 로그 구독 및 Log Analytics 작업 영역을 선택 합니다.
-4. 로그 목록에서 접두사가 **AzureSiteRecovery**인 모든 로그를 선택 합니다. 그런 다음 **확인**을 클릭합니다.
+4. 설정/해제에서 **Azure 진단** 를 선택 합니다.
+5. 로그 목록에서 접두사가 **AzureSiteRecovery**인 모든 로그를 선택 합니다. 그런 후 **OK**를 클릭합니다.
 
     ![작업 영역 선택](./media/monitoring-log-analytics/select-workspace.png)
 
@@ -61,7 +66,7 @@ Site Recovery 로그는 선택한 작업 영역에서 테이블 (**Azurediagnost
 
 ### <a name="query-replication-health"></a>복제 상태 쿼리
 
-이 쿼리는 모든 보호 된 Azure Vm의 현재 복제 상태에 대 한 원형 차트를 플롯 하 여 세 가지 상태로 세분화 합니다. 정상, 경고 또는 위험입니다.
+이 쿼리는 모든 보호 된 Azure Vm의 현재 복제 상태에 대 한 원형 차트를 그립니다. 표준, 경고 또는 위험의 세 가지 상태로 분류 됩니다.
 
 ```
 AzureDiagnostics  
@@ -88,7 +93,7 @@ AzureDiagnostics 
 
 ### <a name="query-rpo-time"></a>RPO 시간 쿼리
 
-이 쿼리는 RPO (복구 지점 목표)에 따라 분할 된 Site Recovery으로 복제 된 Azure Vm의 가로 막대형 차트를 그립니다. 15 분 미만, 30 분 이상 15-30 분
+이 쿼리는 Site Recovery로 복제 되 고 RPO (복구 지점 목표)에 따라 분할 된 Azure Vm의 가로 막대형 차트를 표시 합니다. 15-30 15 분 이내에 30 분 이상 30 분이 소요 됩니다.
 
 ```
 AzureDiagnostics 
@@ -171,7 +176,10 @@ AzureDiagnostics  
 
 ### <a name="query-data-change-rate-churn-for-a-vm"></a>VM에 대 한 쿼리 데이터 변경 률 (변동)
 
-이 쿼리는 데이터 변경 률 (초당 쓰기 바이트) 및 데이터 업로드 율을 추적 하는 특정 Azure VM (ContosoVM123)에 대 한 추세 그래프를 그립니다. 이 정보는 보조 Azure 지역에 복제 된 Azure Vm에만 사용할 수 있습니다.
+> [!NOTE] 
+> 변동 정보는 보조 Azure 지역에 복제 하는 Azure Vm에만 사용할 수 있습니다.
+
+이 쿼리는 데이터 변경 률 (초당 쓰기 바이트) 및 데이터 업로드 율을 추적 하는 특정 Azure VM (ContosoVM123)에 대 한 추세 그래프를 그립니다. 
 
 ```
 AzureDiagnostics   

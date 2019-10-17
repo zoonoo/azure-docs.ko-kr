@@ -4,16 +4,16 @@ description: Bulk Executor 라이브러리를 사용하여 그래프 데이터�
 author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 51bd14c536e46291c8720e6c22e2e03a30243ddf
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
-ms.translationtype: HT
+ms.openlocfilehash: 35f42f3e222767d9d201d9948581151ae3cb5127
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827264"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327185"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Graph Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos DB Gremlin API에서 대량 작업 수행
 
@@ -113,7 +113,7 @@ e.AddProperty("customProperty", "value");
 
 ## <a name="sample-application"></a>샘플 애플리케이션
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>전제 조건
 * Azure 개발 워크로드를 사용하는 Visual Studio 2019. [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/)을 무료로 시작할 수 있습니다.
 * Azure 구독. [여기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db)서 무료 Azure 계정을 만들 수 있습니다. 또는 Azure 구독 없이 [Azure Cosmos DB 평가판 사용해보기](https://azure.microsoft.com/try/cosmosdb/)로 Cosmos 데이터베이스 계정을 만들 수 있습니다.
 * **무제한 컬렉션**을 사용하는 Azure Cosmos DB Gremlin API 데이터베이스. 이 가이드에서는 [.NET의 Azure Cosmos DB Gremlin API](https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet)를 시작하는 방법을 보여줍니다.
@@ -128,7 +128,7 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 
 이 리포지토리에는 다음 파일이 포함된 GraphBulkExecutor 샘플이 들어 있습니다.
 
-파일|설명
+File|설명
 ---|---
 `App.config`|여기서 애플리케이션 및 데이터베이스 관련 매개 변수를 지정합니다. 대상 데이터베이스 및 컬렉션에 연결하도록 이 파일을 먼저 수정해야 합니다.
 `Program.cs`| 이 파일에는 `DocumentClient` 컬렉션을 만들고 Bulk Executor 요청의 정리 및 전송을 처리하는 논리가 들어 있습니다.

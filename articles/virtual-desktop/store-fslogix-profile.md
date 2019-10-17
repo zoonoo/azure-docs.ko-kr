@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 8bee226c85e6433500fcbef9b084cc547ef2b58f
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: fc869bc0c52a54044cbc095cd20f0395e590c852
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301673"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332828"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Windows 가상 데스크톱의 FSLogix 프로필 컨테이너에 대 한 저장소 옵션
 
@@ -24,23 +24,22 @@ Windows 가상 데스크톱은 FSLogix 프로필 컨테이너를 권장 사용�
 
 ## <a name="azure-platform-details"></a>Azure 플랫폼 세부 정보
 
-|기능|Azure 파일|Azure NetApp Files|저장소 공간 다이렉트|
+|기능|Azure Files|Azure NetApp Files|Storage Spaces Direct|
 |--------|-----------|------------------|---------------------|
 |플랫폼 서비스|예, Azure 네이티브 솔루션|예, Azure 네이티브 솔루션|아니요, 자체 관리|
-|국가별 가용성|링 0, 광범위 한 가용성|링 1 (현재는 [9 개 이상의 지역](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) 에서 사용 가능)|Azure Compute 지원 DC 지역, 프리미엄 디스크는 광범위 하 게 사용 가능 하며 스토리지 공간 다이렉트에 권장 됩니다.|
-|중복|로컬 중복/영역 중복/지역 중복|로컬 중복|로컬 중복/영역 중복/지역 중복|
-|계층 및 성능|Standard<br>Premium<br>약 3 밀리초 대기 시간에 공유 당 5gbps와 공유 당 최대 10만 IOPS|Standard<br>Premium<br>매우<br>최대 320k (16K) IOPS (볼륨 당 4.5 GBps, 약 1 밀리초 대기 시간)|표준 HDD: 최대 500 IOPS 디스크당 제한<br>표준 SSD: 디스크당 최대 4k IOPS 제한<br>프리미엄 SSD: 디스크당 최대 20k IOPS 제한|
-|용|100 공유 당 TiB|볼륨당 100 TiB, 구독 당 최대 12.5 PiB|디스크당 최대 32 TiB|
+|지역별 가용성|모든 지역|[영역 선택](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|모든 지역|
+|중복성|로컬 중복/영역 중복/지역 중복|로컬 중복|로컬 중복/영역 중복/지역 중복|
+|계층 및 성능|Standard<br>Premium<br>약 3 밀리초 대기 시간에 공유 당 5gbps와 공유 당 최대 10만 IOPS|Standard<br>Premium<br>매우<br>최대 320k (16K) IOPS (볼륨 당 4.5 GBps, 약 1 밀리초 대기 시간)|표준 HDD: 최대 500 IOPS 디스크당 제한<br>표준 SSD: 디스크당 최대 4k IOPS 제한<br>프리미엄 SSD: 디스크당 최대 20k IOPS 제한<br>스토리지 공간 다이렉트 프리미엄 디스크를 권장 합니다.|
+|용량 중심|100 공유 당 TiB|볼륨당 100 TiB, 구독 당 최대 12.5 PiB|디스크당 최대 32 TiB|
 |필수 인프라|최소 공유 크기 1 GiB|최소 용량 풀 4 TiB, 최소 볼륨 크기 100 GiB|Azure IaaS의 두 Vm (+ 클라우드 감시) 또는 디스크에 대 한 비용 없이 3 개 이상의 Vm|
 |프로토콜|SMB 2.1/3. 및 REST|NFSv3, NFSv 4.1 (preview), SMB 3.x/2.x|NFSv3, NFSv 4.1, SMB 3.1|
 
 ## <a name="azure-management-details"></a>Azure 관리 세부 정보
 
-|기능|Azure 파일|Azure NetApp Files|저장소 공간 다이렉트|
+|기능|Azure Files|Azure NetApp Files|Storage Spaces Direct|
 |--------|-----------|------------------|---------------------|
 |액세스|클라우드, 온-프레미스 및 하이브리드 (Azure 파일 동기화)|클라우드, 온-프레미스 (Express 경로를 통해)|클라우드, 온-프레미스|
-|Azure Active Directory 통합|Azure Active Directory 및 Azure Active Directory Domain Services|Azure Active Directory Domain Services 및 네이티브 Active Directory|네이티브 Active Directory 또는 Azure Active Directory Domain Services 지원만|
-|백업|Azure backup 스냅숏 통합|Azure NetApp Files 스냅숏|Azure backup 스냅숏 통합|
+|Backup|Azure backup 스냅숏 통합|Azure NetApp Files 스냅숏|Azure backup 스냅숏 통합|
 |보안 및 규정 준수|[모든 Azure 지원 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO 완료|[모든 Azure 지원 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
 |Azure Active Directory 통합|Azure Active Directory 및 Azure Active Directory Domain Services|[Azure Active Directory Domain Services 및 네이티브 Active Directory](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|네이티브 Active Directory 또는 Azure Active Directory Domain Services 지원만|
 
