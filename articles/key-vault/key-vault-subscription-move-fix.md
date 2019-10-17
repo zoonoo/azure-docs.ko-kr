@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 3819742e82fe6877b6a1aa58e52eec01b6b05515
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: bc2e73d037b05c012002d7a07e2a2af2431423fa
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001251"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72428915"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>구독 이동 후에 주요 자격 증명 모음 테넌트 ID 변경
 
@@ -51,7 +51,7 @@ az keyvault update -n myvault --remove Properties.accessPolicies           # Rem
 az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Update the key vault tenantId
 ```
 
-이제 자격 증명 모음이 올바른 테넌트 ID와 연결되고 이전 액세스 정책 항목이 제거되었으므로 Azure PowerShell [Set-AzKeyVaultAccessPolicy](https://powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) cmdlet 또는 Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 명령을 사용하여 새 액세스 정책 항목을 설정합니다.
+이제 자격 증명 모음이 올바른 테넌트 ID와 연결되고 이전 액세스 정책 항목이 제거되었으므로 Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) cmdlet 또는 Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 명령을 사용하여 새 액세스 정책 항목을 설정합니다.
 
 Azure 리소스에 관리 ID를 사용하는 경우 새 Azure AD 테넌트로도 업데이트해야 합니다. 관리 ID에 대한 자세한 내용은 [관리 ID를 사용하여 Key Vault 인증 제공](managed-identity.md)을 참조하세요.
 

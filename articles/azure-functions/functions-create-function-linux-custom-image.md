@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 54d7dc4e57991f6b773169f539a86fdc8451cbba
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: d4a72edbe762afd2a94962c1440357ce3ad46862
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950385"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329540"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>사용자 지정 이미지를 사용하여 Linux에서 함수 만들기
 
@@ -365,11 +365,7 @@ docker push <docker-id>/mydockerimage:v1.0.0
 
 브라우저에서 이전과 동일한 URL을 사용하여 함수를 트리거합니다. 동일한 응답이 표시됩니다. 단, 이번에는 `name` 매개 변수로 전달한 문자열이 `outqueue` 스토리지 큐에 기록됩니다.
 
-### <a name="set-the-storage-account-connection"></a>Storage 계정 연결 설정
-
 [!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
-
-### <a name="query-the-storage-queue"></a>Storage 큐 쿼리
 
 [!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
 

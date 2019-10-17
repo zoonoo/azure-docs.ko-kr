@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 05bc4fe23c0bea58e62db0ceab3fbfdc70660dd9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 77d68763bac37a35b070bb7c95e2c16df7f67a27
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091174"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299344"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-same-or-different-subscription-with-powershell"></a>PowerShell을 사용하여 동일한 또는 다른 구독에 있는 스토리지 계정의 VHD 파일에서 관리 디스크 만들기
 
@@ -28,8 +28,6 @@ ms.locfileid: "70091174"
 VHD 파일에서 단시간에 동일한 관리 디스크를 여러 개 만들지 마세요. Vhd 파일에서 관리 디스크를 만들기 위해 vhd 파일에서 Blob 스냅샷이 만들어진 후 관리 디스크를 만드는 데 사용됩니다. 1분에 하나의 Blob 스냅샷만 만들 수 있으므로 제한으로 인해 디스크 생성 오류가 발생합니다. 이 제한을 피하려면 [vhd 파일에서 관리 스냅샷](virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 만든 후 관리 스냅샷을 사용하여 단시간에 여러 관리 디스크를 만듭니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 

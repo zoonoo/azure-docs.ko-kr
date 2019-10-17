@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 66394600963cf154b3cb1fe661968f4ded2ec225
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 0607c2b848a486e24654081bd7937cb734394e58
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992275"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331830"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>자습서: Spark를 사용하여 Azure Databricks로 Data Lake Storage Gen2 데이터에 액세스
 
@@ -76,7 +76,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     |**작업 영역 이름**     | Databricks 작업 영역에 대한 이름을 제공합니다.  |
     |**구독**     | 드롭다운에서 Azure 구독을 선택합니다.        |
     |**리소스 그룹**     | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하세요. |
-    |**위치**:     | **미국 서부 2**를 선택합니다. 사용 가능한 다른 영역은 [지역별 사용 가능한 Azure 서비스](https://azure.microsoft.com/regions/services/)를 참조하세요.       |
+    |**위치**     | **미국 서부 2**를 선택합니다. 사용 가능한 다른 영역은 [지역별 사용 가능한 Azure 서비스](https://azure.microsoft.com/regions/services/)를 참조하세요.       |
     |**가격 책정 계층**     |  **표준**을 선택합니다.     |
 
     ![Azure Databricks 작업 영역 만들기](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Azure Databricks 서비스 만들기")
@@ -97,15 +97,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     ![Azure에서 Databricks Spark 클러스터 만들기](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Azure에서 Databricks Spark 클러스터 만들기")
 
-4. 다음 필드에 대한 값을 입력하고, 다른 필드에는 기본값을 그대로 적용합니다.
+    다음 필드에 대한 값을 입력하고, 다른 필드에는 기본값을 그대로 적용합니다.
 
-    * 클러스터의 이름을 입력합니다.
+    - 클러스터의 이름을 입력합니다.
+     
+    - **Terminate after 120 minutes of inactivity**(비활성 120분 후 종료) 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
 
-    * 이 문서에서는 **5.1** 런타임을 사용하여 클러스터를 만듭니다.
-
-    * **비활성 \_\_분 후 종료** 확인란을 선택합니다. 클러스터가 사용되지 않는 경우 클러스터를 종료할 시간(분)을 입력합니다.
-
-    * **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 Notebook을 클러스터에 연결하고 Spark 작업을 실행할 수 있습니다.
+4. **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 Notebook을 클러스터에 연결하고 Spark 작업을 실행할 수 있습니다.
 
 ## <a name="ingest-data"></a>데이터 수집
 

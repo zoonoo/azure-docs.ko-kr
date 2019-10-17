@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 713b43f720e3bccae3b9c6457a3317427fb3fc1a
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 20d5db9656dbcab31d73e504f1ca67fd577aec8e
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960046"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72439747"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>자습서: JIRA SAML SSO by Microsoft와 Azure Active Directory SSO(Single Sign-On) 연결 | Microsoft Docs
 
@@ -214,8 +214,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     1. Azure AD 자격 증명을 통해서만 로그인하려면 **Force Azure Login** 확인란을 활성화합니다.
     
        > [!Note]
-       >Azure 강제 로그인을 활성화한 경우 로그인 페이지에서 관리자 로그인에 대한 기본 로그인 양식을 사용하려면 브라우저 URL에 쿼리 매개 변수를 추가합니다.
-       > `https://<domain:port>/login.action?force_azure_login=false`
+       > Azure 강제 로그인을 활성화한 경우 로그인 페이지에서 관리자 로그인에 대한 기본 로그인 양식을 사용하려면 브라우저 URL에 쿼리 매개 변수를 추가합니다.
+       > `https://<domain:port>/login.jsp?force_azure_login=false`
 
     1. **저장** 단추를 클릭하여 설정을 저장합니다.
 

@@ -9,12 +9,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: d247369647106cf1671a8770a6dce21f1a34a4b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cacd9206eb0213d410a11ee3a2dcf5c0e28989c6
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082197"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372823"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Azure Automation에 업데이트 및 변경 내용 추적 솔루션 등록
 
@@ -130,6 +130,13 @@ Automation 계정의 **공유 리소스** 아래에서 **모듈**을 선택합�
 
 1. **확인**을 선택하여 Runbook 작업을 시작합니다.
 1. runbook 작업 페이지에서 진행률 및 오류를 모니터링합니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+업데이트 관리에서 VM을 제거하려면:
+
+* Log Analytics 작업 영역에서, 범위 구성 `MicrosoftDefaultScopeConfig-Updates`에 대한 저장된 검색에서 VM을 제거합니다. 저장된 검색은 작업 영역의 **일반**에서 찾을 수 있습니다.
+* [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) 또는 [Linux용 Log Analytics 에이전트](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources)를 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

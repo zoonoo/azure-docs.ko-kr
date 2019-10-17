@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: fmegen
 ms.openlocfilehash: 77afdb491e4a6cee0a3d6861ea76f57502e56278
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "71802427"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 브라우저에서 JavaScript로 음성 인식

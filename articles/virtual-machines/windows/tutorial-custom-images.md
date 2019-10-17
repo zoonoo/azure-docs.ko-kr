@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1c216e5a572a36d2306326dd0dd6e1b7ed586de8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 58f7e530008303f16f2d015e29e60e95480cab2c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350842"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390564"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Azure VM의 사용자 지정 이미지 만들기
 
@@ -134,6 +134,7 @@ New-AzVm `
 ```
 
 단일 이미지에서 동시 배포 수를 VM 20개로 제한하는 것이 좋습니다. 동일한 사용자 지정 이미지에서 20개가 넘는 VM에 대한 대규모 동시 배포를 계획하는 경우 여러 이미지 복제본과 함께 [Shared Image Gallery](shared-image-galleries.md)를 사용해야 합니다. 
+
 
 ## <a name="image-management"></a>이미지 관리 
 

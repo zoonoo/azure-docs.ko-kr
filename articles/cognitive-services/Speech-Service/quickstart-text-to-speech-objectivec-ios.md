@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/20/2019
 ms.author: yulili
-ms.openlocfilehash: 9d7fb4dfef2ac3ab14a8a10eb4d9a7afb91ac71e
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 099a2f707431827996aa304aa706a9efbe54f589
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803857"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72438826"
 ---
 # <a name="quickstart-synthesize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 iOS에서 Objective-C로 음성 합성
 
@@ -67,7 +67,8 @@ Xcode를 시작하고, **파일** > **새로 만들기** > **프로젝트**를 �
 ## <a name="add-the-sample-code"></a>샘플 코드 추가
 
 1. XCode에서 `helloworld.xcworkspace` 작업 영역을 엽니다.
-1. 자동으로 생성된 `AppDelegate.m` 파일의 콘텐츠를 [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/objectivec-ios/helloworld/helloworld/AppDelegate.m#code)]로 바꿉니다.
+1. 자동으로 생성된 `AppDelegate.m` 파일의 콘텐츠를 다음으로 바꿉니다.  
+   [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/objectivec-ios/helloworld/helloworld/AppDelegate.m#code)]
 1. 자동으로 생성된 `ViewController.m` 파일의 콘텐츠를 다음으로 바꿉니다.  
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
 1. 문자열 `YourSubscriptionKey`를 구독 키로 바꿉니다.

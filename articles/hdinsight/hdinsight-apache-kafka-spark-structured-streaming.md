@@ -2,18 +2,18 @@
 title: '자습서: Apache Kafka를 사용하는 Apache Spark 구조적 스트리밍 - Azure HDInsight'
 description: Apache Spark 스트림을 사용하여 Apache Kafka 간에 데이터를 이동하는 방법을 알아봅니다. 이 자습서에서는 HDInsight의 Spark에서 Jupyter Notebook을 사용하여 데이터를 스트리밍합니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
-ms.date: 05/22/2019
-ms.author: hrasheed
-ms.openlocfilehash: bcf1b967cf8eeab7aae4b720683785309689858e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.date: 10/08/2019
+ms.openlocfilehash: db2174451f01ef38dc69e4e14561175203e075c3
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204237"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264274"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Kafka의 Apache Spark 정형 스트림 사용
 
@@ -41,8 +41,8 @@ Spark Structured Streaming은 Spark SQL을 기반으로 하는 스트리밍 처�
 
 > [!IMPORTANT]  
 > 이 문서의 단계를 수행하려면 HDInsight의 Spark와 HDInsight의 Kafka 클러스터를 모두 포함하는 Azure 리소스 그룹이 필요합니다. 이러한 클러스터는 모두 Azure Virtual Network에 있으며, 여기서는 Spark 클러스터와 Kafka 클러스터 간에 직접 통신할 수 있습니다.
-> 
-> 사용자의 편의를 위해, 이 문서는 필요한 모든 Azure 리소스를 만들 수 있는 템플릿에 연결되어 있습니다. 
+>
+> 사용자의 편의를 위해, 이 문서는 필요한 모든 Azure 리소스를 만들 수 있는 템플릿에 연결되어 있습니다.
 >
 > 가상 네트워크에서 HDInsight 사용에 대한 자세한 내용은 [HDInsight용 가상 네트워크 계획](hdinsight-plan-virtual-network-deployment.md) 문서를 참조하세요.
 
@@ -94,7 +94,7 @@ kafkaStreamDF.select(from_json(col("value").cast("string"), schema) as "trip")
 | `write` | `writeStream` |
 | `save` | `start` |
 
-스트리밍 작업에서도 30,000밀리초 후에 스트림을 중지하는 `awaitTermination(30000)`을 사용합니다. 
+스트리밍 작업에서도 30,000밀리초 후에 스트림을 중지하는 `awaitTermination(30000)`을 사용합니다.
 
 Kafka에서 구조적 스트리밍을 사용하려면 프로젝트가 `org.apache.spark : spark-sql-kafka-0-10_2.11` 패키지에 대해 종속성이 있어야 합니다. 이 패키지의 버전은 HDInsight의 Spark 버전과 일치해야 합니다. Spark 2.2.0(HDInsight 3.6에서 사용 가능)의 경우, [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar)에서 다른 프로젝트 형식에 대한 종속성 정보를 찾을 수 있습니다.
 
@@ -112,7 +112,7 @@ Kafka에서 구조적 스트리밍을 사용하려면 프로젝트가 `org.apach
 
 ## <a name="create-the-clusters"></a>클러스터 만들기
 
-HDInsight의 Apache Kafka는 공용 인터넷을 통한 액세스를 Kafka broker에 제공하지 않습니다. Kafka를 사용하는 경우 동일한 Azure 가상 네트워크에 있어야 합니다. 이 자습서에서는 Kafka 클러스터와 Spark 클러스터가 동일한 Azure 가상 네트워크에 있습니다. 
+HDInsight의 Apache Kafka는 공용 인터넷을 통한 액세스를 Kafka broker에 제공하지 않습니다. Kafka를 사용하는 경우 동일한 Azure 가상 네트워크에 있어야 합니다. 이 자습서에서는 Kafka 클러스터와 Spark 클러스터가 동일한 Azure 가상 네트워크에 있습니다.
 
 다음 다이어그램은 Spark와 Kafka 사이의 통신 흐름을 보여줍니다.
 
@@ -151,12 +151,12 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
     | 클러스터 로그인 암호 | 클러스터의 관리 사용자 암호입니다. |
     | SSH 사용자 이름 | 클러스터용으로 만들 SSH 사용자입니다. |
     | SSH 암호 | SSH 사용자에 대한 암호입니다. |
-   
+
     ![사용자 지정된 템플릿의 스크린샷](./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png)
 
 3. **사용 약관**을 읽은 다음 **위에 명시된 사용 약관에 동의함**을 선택합니다.
 
-4. 마지막으로 **대시보드에 고정**을 선택한 다음 **구매**를 선택합니다. 
+4. **구매**를 선택합니다.
 
 > [!NOTE]  
 > 클러스터를 만드는 데 최대 20분이 걸릴 수 있습니다.
@@ -184,11 +184,11 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
 
 3. **새로 만들기 > Spark**를 차례로 선택하여 Notebook을 만듭니다.
 
-4. Notebook 셀에 다음 정보를 입력하여 Notebook에서 사용하는 패키지를 로드합니다. **Ctrl + Enter**를 사용하여 명령을 실행합니다.
+4. Spark 스트리밍에는 마이크로 일괄 처리가 있습니다. 즉, 데이터가 일괄 처리로 제공되고 실행기가 데이터 일괄 처리에서 실행됩니다. 실행기가 일괄 처리를 처리하는 데 걸리는 시간보다 유휴 시간 제한이 적은 경우 실행기는 지속적으로 추가 및 제거됩니다. 실행기 유휴 시간 제한이 일괄 처리 지속 시간 보다 크면 실행기는 제거되지 않습니다. 따라서 **스트리밍 애플리케이션을 실행할 때 spark.dynamicAllocation.enabled를 false로 설정하여 동적 할당을 비활성화하는 것이 좋습니다.**
 
-Spark 스트리밍에는 마이크로 일괄 처리가 있습니다. 즉, 데이터가 일괄 처리로 제공되고 실행기가 데이터 일괄 처리에서 실행됩니다. 실행기가 일괄 처리를 처리하는 데 걸리는 시간보다 유휴 시간 제한이 적은 경우 실행기는 지속적으로 추가 및 제거됩니다. 실행기 유휴 시간 제한이 일괄 처리 지속 시간 보다 크면 실행기는 제거되지 않습니다. 따라서 **스트리밍 애플리케이션을 실행할 때 spark.dynamicAllocation.enabled를 false로 설정하여 동적 할당을 비활성화하는 것이 좋습니다.**
+    Notebook 셀에 다음 정보를 입력하여 Notebook에서 사용하는 패키지를 로드합니다. **Ctrl + Enter**를 사용하여 명령을 실행합니다.
 
-    ```
+    ```configuration
     %%configure -f
     {
         "conf": {
@@ -216,10 +216,10 @@ Spark 스트리밍에는 마이크로 일괄 처리가 있습니다. 즉, 데이
     // Load the data from the New York City Taxi data REST API for 2016 Green Taxi Trip Data
     val url="https://data.cityofnewyork.us/resource/pqfs-mqru.json"
     val result = scala.io.Source.fromURL(url).mkString
-    
+
     // Create a dataframe from the JSON data
     val taxiDF = spark.read.json(Seq(result).toDS)
-    
+
     // Display the dataframe containing trip data
     taxiDF.show()
     ```
@@ -230,7 +230,7 @@ Spark 스트리밍에는 마이크로 일괄 처리가 있습니다. 즉, 데이
     // The Kafka broker hosts and topic used to write to Kafka
     val kafkaBrokers="YOUR_KAFKA_BROKER_HOSTS"
     val kafkaTopic="tripdata"
-    
+
     println("Finished setting Kafka broker and topic configuration.")
     ```
 
@@ -250,7 +250,7 @@ Spark 스트리밍에는 마이크로 일괄 처리가 있습니다. 즉, 데이
     import org.apache.spark.sql._
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
-    
+
     // Define a schema for the data
     val schema = (new StructType).add("dropoff_latitude", StringType).add("dropoff_longitude", StringType).add("extra", StringType).add("fare_amount", StringType).add("improvement_surcharge", StringType).add("lpep_dropoff_datetime", StringType).add("lpep_pickup_datetime", StringType).add("mta_tax", StringType).add("passenger_count", StringType).add("payment_type", StringType).add("pickup_latitude", StringType).add("pickup_longitude", StringType).add("ratecodeid", StringType).add("store_and_fwd_flag", StringType).add("tip_amount", StringType).add("tolls_amount", StringType).add("total_amount", StringType).add("trip_distance", StringType).add("trip_type", StringType).add("vendorid", StringType)
     // Reproduced here for readability
@@ -275,7 +275,7 @@ Spark 스트리밍에는 마이크로 일괄 처리가 있습니다. 즉, 데이
     //   .add("trip_distance", StringType)
     //   .add("trip_type", StringType)
     //   .add("vendorid", StringType)
-    
+
     println("Schema declared")
     ```
 
@@ -284,10 +284,10 @@ Spark 스트리밍에는 마이크로 일괄 처리가 있습니다. 즉, 데이
     ```scala
     // Read a batch from Kafka
     val kafkaDF = spark.read.format("kafka").option("kafka.bootstrap.servers", kafkaBrokers).option("subscribe", kafkaTopic).option("startingOffsets", "earliest").load()
-    
+
     // Select data and write to file
     val query = kafkaDF.select(from_json(col("value").cast("string"), schema) as "trip").write.format("parquet").option("path","/example/batchtripdata").option("checkpointLocation", "/batchcheckpoint").save()
-    
+
     println("Wrote data to file")
     ```
 
@@ -303,7 +303,7 @@ Spark 스트리밍에는 마이크로 일괄 처리가 있습니다. 즉, 데이
     ```scala
     // Stream from Kafka
     val kafkaStreamDF = spark.readStream.format("kafka").option("kafka.bootstrap.servers", kafkaBrokers).option("subscribe", kafkaTopic).option("startingOffsets", "earliest").load()
-    
+
     // Select data from the stream and write to file
     kafkaStreamDF.select(from_json(col("value").cast("string"), schema) as "trip").writeStream.format("parquet").option("path","/example/streamingtripdata").option("checkpointLocation", "/streamcheckpoint").start.awaitTermination(30000)
     println("Wrote data to file")
@@ -328,7 +328,7 @@ Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 
 > [!WARNING]  
 > 클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 분 단위로 청구되므로 더 이상 사용하지 않으면 항상 클러스터를 삭제해야 합니다.
-> 
+>
 > HDInsight 클러스터의 Kafka를 삭제하면 Kafka에 저장된 데이터가 모두 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
