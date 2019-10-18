@@ -205,7 +205,11 @@
                 - name: Node.js
                   href: app/nodejs.md
                 - name: Python
-                  href: app/opencensus-python.md
+                  items:
+                    - name: 개요
+                      href: app/opencensus-python.md
+                    - name: 종속성
+                      href: app/opencensus-python-dependency.md
                 - name: 웹 페이지
                   items:
                     - name: 클라이언트 쪽 JavaScript

@@ -49,16 +49,6 @@
             - name: Azure Disk Encryption 정보
               displayName: 'BitLocker, bek'
               href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview'
-            - name: 빠른 시작
-              items:
-                - name: Azure CLI를 사용하여 Linux VM 암호화
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-linux-cli-quickstart'
-                - name: Azure PowerShell을 사용하여 Linux VM 암호화
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-linux-powershell-quickstart'
-                - name: Azure CLI를 사용하여 Windows VM 암호화
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-windows-cli-quickstart'
-                - name: Azure PowerShell을 사용하여 Windows VM 암호화
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-windows-powershell-quickstart'
             - name: Azure 디스크 암호화
               items:
                 - name: 디스크 암호화 필수 구성 요소
@@ -151,8 +141,6 @@
           href: network-best-practices.md
         - name: DDoS Protection
           href: ddos-best-practices.md
-        - name: 경계 보안
-          href: network-best-practices.md
 - name: 애플리케이션
   items:
     - name: PaaS
@@ -185,9 +173,6 @@
   items:
     - name: 감사 및 로깅
       items:
-        - name: 보안 관리
-          displayName: 'vulnerability, incident, virus,'
-          href: 'https://docs.microsoft.com/azure/security-center/security-center-intro?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
         - name: 원격 관리 보안
           href: management.md
         - name: Azure 로그 통합
@@ -199,9 +184,6 @@
             - name: Azure AD 감사 로그 통합
               displayName: active directory
               href: azure-log-integration-ad.md
-            - name: Security Center 경고 통합
-              displayName: splunk
-              href: 'https://docs.microsoft.com/azure/security-center/security-center-export-data-to-siem?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
             - name: Key Vault의 로그 통합
               displayName: keyvault
               href: azure-log-integration-keyvault-eventhub.md
