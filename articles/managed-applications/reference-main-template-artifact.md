@@ -1,5 +1,5 @@
 ---
-title: Azure 관리 되는 응용 프로그램 배포 템플릿 아티팩트 참조
+title: Azure 관리 되는 응용 프로그램 템플릿 아티팩트 참조
 description: Azure Managed Applications에 대 한 배포 템플릿 아티팩트의 예를 제공 합니다.
 services: managed-applications
 ms.service: managed-applications
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
-ms.openlocfilehash: ec59c9cde4f23b4a9d641d286e152ea737576534
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
-ms.translationtype: HT
+ms.openlocfilehash: b260524c7e23e68bf6cd57a88356568faf724605
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330180"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528946"
 ---
 # <a name="reference-deployment-template-artifact"></a>참조: 배포 템플릿 아티팩트
 

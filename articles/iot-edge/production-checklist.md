@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 599b5b075f32294f9e68c776c4a7744283e9c269
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: d227a0b43a641ae8f5333a62d4c55f4bbb6c781c
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244036"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529018"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -93,7 +93,7 @@ IoT Edge 에이전트 및 IoT Edge 허브 모듈에 대해 UpstreamProtocol 환�
 
 IoT Edge 허브 및 에이전트 모듈은 로컬 저장소를 사용 하 여 상태를 유지 관리 하 고 모듈, 장치 및 클라우드 간의 메시징을 사용 하도록 설정 합니다. 안정성과 성능을 향상 시키려면 호스트 파일 시스템의 저장소를 사용 하도록 시스템 모듈을 구성 합니다.
 
-자세한 내용은 [시스템 모듈의 호스트 저장소](offline-capabilities.md#host-storage-for-system-modules)를 참조 하세요.
+자세한 내용은 [시스템 모듈의 호스트 저장소](how-to-access-host-storage-from-module.md)를 참조 하세요.
 
 ### <a name="reduce-memory-space-used-by-iot-edge-hub"></a>IoT Edge 허브에 사용 되는 메모리 공간 줄이기
 
@@ -172,7 +172,7 @@ Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구�
 
 다음 검사 목록은 방화벽 규칙의 시작점입니다.
 
-   | URL(\* = 와일드카드) | 아웃바운드 TCP 포트 | 사용법 |
+   | URL(\* = 와일드카드) | 아웃바운드 TCP 포트 | 사용량 |
    | ----- | ----- | ----- |
    | mcr.microsoft.com  | 443 | Microsoft 컨테이너 레지스트리 |
    | global.azure-devices-provisioning.net  | 443 | DPS 액세스(선택 사항) |
@@ -207,9 +207,9 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 기본적으로 Moby 컨테이너 엔진은 컨테이너 로그 크기 제한을 설정 하지 않습니다. 시간이 지남에 따라 로그를 채우고 디스크 공간이 부족 해질 수 있습니다. 이를 방지 하려면 다음 옵션을 고려 하십시오.
 
-**Option: 모든 컨테이너 모듈에 적용 되는 전역 제한 설정 @ no__t-0
+**옵션: 모든 컨테이너 모듈에 적용 되는 전역 제한 설정**
 
-컨테이너 엔진 로그 옵션에서 모든 컨테이너 로그의 크기를 제한할 수 있습니다. 다음 예에서는 로그 드라이버를 파일 크기 및 수에 대 한 제한으로 `json-file` (권장)으로 설정 합니다.
+컨테이너 엔진 로그 옵션에서 모든 컨테이너 로그의 크기를 제한할 수 있습니다. 다음 예에서는 파일 크기 및 수에 대 한 제한으로 로그 드라이버를 `json-file` (권장)로 설정 합니다.
 
 ```JSON
 {
@@ -221,7 +221,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 }
 ```
 
-이 정보를 `daemon.json` 이라는 파일에 추가 하거나 추가 하 고 장치 플랫폼의 올바른 위치에 배치 합니다.
+@No__t_0 이라는 파일에이 정보를 추가 하거나 추가 하 고 장치 플랫폼의 올바른 위치에 배치 합니다.
 
 | 플랫폼 | 위치 |
 | -------- | -------- |
@@ -230,9 +230,9 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 변경 내용을 적용 하려면 컨테이너 엔진을 다시 시작 해야 합니다.
 
-**Option: 각 컨테이너 모듈의 로그 설정 조정 @ no__t-0
+**옵션: 각 컨테이너 모듈에 대해 로그 설정 조정**
 
-각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 다음은 그 예입니다.
 
 ```yml
 "createOptions": {
@@ -250,7 +250,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 **Linux 시스템에 대 한 추가 옵션**
 
-* 기본 로깅 드라이버로 `journald`를 설정 하 여 `systemd` [저널](https://docs.docker.com/config/containers/logging/journald/) 로 로그를 보내도록 컨테이너 엔진을 구성 합니다. 
+* @No__t_2를 기본 로깅 드라이버로 설정 하 여 `systemd` [저널](https://docs.docker.com/config/containers/logging/journald/) 로 로그를 보내도록 컨테이너 엔진을 구성 합니다. 
 
 * Logrotate 도구를 설치 하 여 장치에서 오래 된 로그를 주기적으로 제거 합니다. 다음 파일 사양을 사용합니다. 
 

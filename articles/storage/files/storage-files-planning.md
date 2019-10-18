@@ -1,18 +1,18 @@
 ---
 title: Azure Files 배포에 대한 계획 | Microsoft Docs
-description: Azure Files 배포에 대한 계획 시 고려해야 할 사항에 대해 알아봅니다.
+description: Azure Files 배포를 계획할 때 고려할 사항을 알아봅니다.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 075eaaa188307e4320337ef21fd0875942e9e7e7
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: fa3e3c6d89657d328182da667c153f14f70bbd7e
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249346"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514669"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 
@@ -24,15 +24,15 @@ ms.locfileid: "72249346"
 
 ![파일 구조](./media/storage-files-introduction/files-concepts.png)
 
-* **스토리지 계정**: Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. 스토리지 계정 용량에 대한 자세한 내용은 [확장성 및 성능 목표](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
+* **Storage 계정**: Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. 스토리지 계정 용량에 대한 자세한 내용은 [확장성 및 성능 목표](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
 
-* **공유**: Azure에서 File Storage 공유는 SMB 파일 공유입니다. 모든 디렉터리 및 파일을 부모 공유에 만들어야 합니다. 계정에는 공유를 무제한 포함할 수 있으며, 공유는 파일 공유의 총 용량까지 파일 수에 제한 없이 저장할 수 있습니다. 표준 파일 공유의 경우 총 용량은 GA (최대 5 TiB) 또는 100 TiB (미리 보기)입니다. 프리미엄 파일 공유의 경우 총 용량은 100 TiB입니다.
+* **공유**: File Storage 공유는 Azure의 SMB 파일 공유입니다. 모든 디렉터리 및 파일을 부모 공유에 만들어야 합니다. 계정에는 공유를 무제한 포함할 수 있으며, 공유는 파일 공유의 총 용량까지 파일 수에 제한 없이 저장할 수 있습니다. 프리미엄 및 표준 파일 공유에 대 한 총 용량은 100 TiB입니다.
 
-* **디렉터리**: 디렉터리 계층 구조(선택 사항)입니다.
+* **디렉터리**: 선택적인 디렉터리 계층 구조입니다.
 
 * **파일**: 공유에 있는 파일입니다. 파일의 크기는 최대 1TiB일 수 있습니다.
 
-* **URL 형식**: 파일 REST 프로토콜을 사용하여 Azure 파일 공유에 대해 수행하는 요청의 경우 다음 URL 형식을 사용하여 파일의 주소를 지정할 수 있습니다.
+* **URL 형식**: 파일 REST 프로토콜을 사용하여 Azure 파일 공유에 적용된 요청의 경우, 다음 URL 형식을 사용하여 파일의 주소를 지정할 수 있습니다.
 
     ```
     https://<storage account>.file.core.windows.net/<share>/<directory>/<file>
@@ -42,26 +42,26 @@ ms.locfileid: "72249346"
 
 Azure Files는 두 가지의 편리한 데이터 액세스 방법을 기본 제공하며, 이 두 가지 방법을 따로 또는 서로 조합하여 데이터에 액세스할 수 있습니다.
 
-1. **직접 클라우드 액세스**: [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md) 및/또는 [Linux](storage-how-to-use-files-linux.md)를 에서 업계 표준 SMB(서버 메시지 블록) 프로토콜 또는 파일 REST API를 통해 Azure 파일 공유를 탑재할 수 있습니다. SMB를 사용하면 공유되는 파일의 읽기 및 쓰기는 Azure에서 파일 공유에서 직접 수행됩니다. Azure에서 VM으로 탑재하려면 운영 체제의 SMB 클라이언트가 SMB 2.1 이상을 지원해야 합니다. 사용자의 워크스테이션과 같은 온-프레미스를 탑재하려면 워크스테이션이 지원하는 SMB 클라이언트는 SMB 3.0 이상(암호화 사용)을 지원해야 합니다. SMB 외에도 새로운 애플리케이션 또는 서비스는 소프트웨어 개발을 위해 쉽고 확장 가능한 애플리케이션 인터페이스를 제공하는 파일 REST를 통해 파일 공유에 직접 액세스할 수 있습니다.
-2. **Azure 파일 동기화**: Azure 파일 동기화를 사용하면 공유를 Azure에서/Windows Server 온-프레미스로 복제할 수 있습니다. 사용자는 Windows Server를 통해(예: SMB 또는 NFS 공유를 통해) 파일 공유에 액세스하게 됩니다. 이는 지사와 같이 Azure 데이터 센터에서 멀리 떨어진 곳에서 데이터에 액세스하고 수정하는 시나리오에 유용합니다. 여러 Windows Server 엔드포인트 간(예: 여러 지사 간)에 데이터가 복제될 수 있습니다. 마지막으로, 모든 데이터를 여전히 서버를 통해 액세스할 수 있지만 서버에는 데이터의 전체 복사본이 없도록 데이터는 Azure Files에 계층화될 수 있습니다. 오히려 사용자가 열 때 데이터 원활하게 호출됩니다.
+1. **직접 클라우드 액세스**: Azure 파일 공유는 업계 표준 서버 메시지 블록(SMB) 프로토콜 또는 파일 REST API를 통해 [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md) 및/또는 [Linux](storage-how-to-use-files-linux.md)에 의해 탑재될 수 있습니다. SMB를 사용하면 공유되는 파일의 읽기 및 쓰기는 Azure에서 파일 공유에서 직접 수행됩니다. Azure에서 VM으로 탑재하려면 운영 체제의 SMB 클라이언트가 SMB 2.1 이상을 지원해야 합니다. 사용자의 워크스테이션과 같은 온-프레미스를 탑재하려면 워크스테이션이 지원하는 SMB 클라이언트는 SMB 3.0 이상(암호화 사용)을 지원해야 합니다. SMB 외에도 새로운 애플리케이션 또는 서비스는 소프트웨어 개발을 위해 쉽고 확장 가능한 애플리케이션 인터페이스를 제공하는 파일 REST를 통해 파일 공유에 직접 액세스할 수 있습니다.
+2. **Azure 파일 동기화**: Azure 파일 동기화를 사용하면 공유를 Windows 서버 온-프레미스 또는 Azure에 복제할 수 있습니다. 사용자는 Windows Server를 통해(예: SMB 또는 NFS 공유를 통해) 파일 공유에 액세스하게 됩니다. 이는 지사와 같이 Azure 데이터 센터에서 멀리 떨어진 곳에서 데이터에 액세스하고 수정하는 시나리오에 유용합니다. 여러 Windows Server 엔드포인트 간(예: 여러 지사 간)에 데이터가 복제될 수 있습니다. 마지막으로, 모든 데이터를 여전히 서버를 통해 액세스할 수 있지만 서버에는 데이터의 전체 복사본이 없도록 데이터는 Azure Files에 계층화될 수 있습니다. 오히려 사용자가 열 때 데이터 원활하게 호출됩니다.
 
 다음 표는 사용자와 애플리케이션이 Azure 파일 공유에 액세스할 수 있는 방법을 보여줍니다.
 
 | | 직접 클라우드 액세스 | Azure 파일 동기화 |
 |------------------------|------------|-----------------|
 | 어떤 프로토콜을 사용해야 합니까? | Azure Files는 SMB 2.1, SMB 3.0 및 파일 REST API를 지원합니다. | Windows Server(SMB, NFS, FTPS, 등)에서 지원되는 프로토콜을 통해 Azure 파일 공유 액세스 |  
-| 어디에서 워크로드를 실행합니까? | **Azure**: Azure Files에서 데이터에 직접 액세스할 수 있습니다. | **네트워크 속도가 느린 온-프레미스**: Windows, Linux 및 macOS 클라이언트가 로컬 온-프레미스 Windows 파일 공유를 Azure 파일 공유의 빠른 캐시로 탑재할 수 있습니다. |
+| 어디에서 워크로드를 실행합니까? | **Azure에서**: Azure Files는 데이터에 직접 액세스할 수 있습니다. | **느린 네트워크의 온-프레미스**: Windows, Linux 및 macOS 클라이언트는 Azure 파일 공유의 빠른 캐시로서 로컬 온-프레미스 Windows 파일 공유를 탑재할 수 있습니다. |
 | ACL의 어떤 수준이 필요합니까? | 공유 및 파일 수준입니다. | 공유, 파일 및 사용자 수준입니다. |
 
 ## <a name="data-security"></a>데이터 보안
 
 Azure Files에는 데이터 보안을 위한 몇 가지 기본 제공 옵션이 있습니다.
 
-* 두 네트워크상 프로토콜에서 암호화 지원: SMB 3.0 암호화 및 HTTPS를 통한 파일 REST가 지원됩니다. 기본적으로: 
+* 두 네트워크 상 프로토콜에서 암호화 지원: SMB 3.0 암호화 및 HTTPS를 통한 파일 REST입니다. 기본적으로: 
     * SMB 3.0 암호화를 지 원하는 클라이언트는 암호화 된 채널을 통해 데이터를 보내고 받습니다.
     * 암호화를 사용 하 여 SMB 3.0을 지원 하지 않는 클라이언트는 암호화 되지 않은 smb 2.1 또는 SMB 3.0를 통해 데이터 센터 내에서 통신할 수 있습니다. SMB 클라이언트는 암호화 기능이 없는 SMB 3.0 또는 SMB 2.1을 통해 데이터 센터 내에서 통신할 수 없습니다.
     * 클라이언트는 HTTP 또는 HTTPS를 사용하여 파일 REST를 통해 통신할 수 있습니다.
-* 미사용 데이터 암호화([Azure 스토리지 서비스 암호화](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): 모든 스토리지 계정에 대해 SSE(스토리지 서비스 암호화)가 사용하도록 설정됩니다. 미사용 데이터는 완전히 관리되는 키로 암호화됩니다. 미사용 암호화를 사용할 경우 스토리지 비용이 증가하거나 성능이 저하되지 않습니다. 
+* 미사용 데이터 암호화([Azure Storage 서비스 암호화](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): SSE(스토리지 서비스 암호화)는 모든 스토리지 계정에 대해 사용되도록 설정됩니다. 미사용 데이터는 완전히 관리되는 키로 암호화됩니다. 미사용 암호화를 사용할 경우 스토리지 비용이 증가하거나 성능이 저하되지 않습니다. 
 * 암호화 된 데이터 전송 시 선택적 요구 사항:이 옵션을 선택 하면 암호화 되지 않은 채널을 통해 데이터에 대 한 액세스를 거부 Azure Files. 구체적으로 말하면, 암호화 연결을 통한 HTTPS 및 SMB 3.0만 허용됩니다.
 
     > [!Important]  
@@ -79,10 +79,8 @@ Azure Files는 standard 및 premium의 두 가지 성능 계층을 제공 합니
 
 표준 파일 공유는 Hdd (하드 디스크 드라이브)로 지원 됩니다. 표준 파일 공유는 일반적인 용도의 파일 공유 및 개발/테스트 환경과 같은 성능 변동에 대 한 낮은 수준의 IO 작업 부하에 대 한 안정적인 성능을 제공 합니다. 종량제 청구 모델에서만 제공됩니다.
 
-최대 5 TiB의 표준 파일 공유는 GA 제품으로 사용할 수 있습니다. TiB 5 보다 큰 공유 (최대 100 TiB)의 더 큰 파일 공유는 현재 미리 보기 제공으로 제공 됩니다.
-
 > [!IMPORTANT]
-> 등록 단계와 미리 보기의 범위 및 제한 사항에 대해서는 [더 큰 파일 공유에 등록 (표준 계층)](#onboard-to-larger-file-shares-standard-tier) 섹션을 참조 하세요.
+> 5 TiB 보다 큰 파일 공유를 사용 하려면 온보드 단계와 지역 가용성 및 제한 사항에 대해 [더 큰 파일 공유에 등록 (표준 계층)](#onboard-to-larger-file-shares-standard-tier) 섹션을 참조 하세요.
 
 ### <a name="premium-file-shares"></a>프리미엄 파일 공유
 
@@ -90,7 +88,7 @@ Azure Files는 standard 및 premium의 두 가지 성능 계층을 제공 합니
 
 Azure Backup는 프리미엄 파일 공유에 사용할 수 있으며 Azure Kubernetes Service는 1.13 이상 버전에서 프리미엄 파일 공유를 지원 합니다.
 
-프리미엄 파일 공유를 만드는 방법을 알아보려면 주제에 대 한 문서를 참조 하세요. [Azure premium file storage 계정을 만드는 방법](storage-how-to-create-premium-fileshare.md)
+프리미엄 파일 공유를 만드는 방법을 알아보려면 [Azure premium file storage 계정을 만드는 방법](storage-how-to-create-premium-fileshare.md)에 대 한 문서를 참조 하세요.
 
 현재 표준 파일 공유와 프리미엄 파일 공유 사이에서 직접 변환할 수 없습니다. 두 계층으로 전환 하려는 경우 해당 계층에서 새 파일 공유를 만들고 원래 공유에서 만든 새 공유로 데이터를 수동으로 복사 해야 합니다. Azure Files 지원 되는 복사 도구 (예: Robocopy 또는 AzCopy)를 사용 하 여이 작업을 수행할 수 있습니다.
 
@@ -128,10 +126,10 @@ Azure Backup는 프리미엄 파일 공유에 사용할 수 있으며 Azure Kube
 |500         | 500     | 최대 1500   | 90   | 60   |
 |1,024       | 1,024   | 최대 3072   | 122   | 81   |
 |5,120       | 5,120   | 최대 15360  | 368   | 245   |
-|10,240      | 10,240  | 최대 30720  | 675 | 450   |
-|33,792      | 33,792  | 최대 10만 | 2088 | 1,392   |
-|51,200      | 51,200  | 최대 10만 | 3,132 | 2088   |
-|102,400     | 100,000 | 최대 10만 | 6204 | 4136   |
+|10240      | 10240  | 최대 30720  | 675 | 450   |
+|33792      | 33792  | 최대 10만 | 2088 | 1392   |
+|51200      | 51200  | 최대 10만 | 3,132 | 2088   |
+|102400     | 100,000개의 | 최대 10만 | 6204 | 4136   |
 
 > [!NOTE]
 > 파일 공유 성능에는 컴퓨터 네트워크 제한, 사용 가능한 네트워크 대역폭, IO 크기, 병렬 처리 등 많은 요인이 적용 됩니다. 최대 성능 확장을 얻으려면 부하를 여러 Vm에 분산 합니다. 몇 가지 일반적인 성능 문제 및 해결 방법에 대해서는 [문제 해결 가이드](storage-troubleshooting-files-performance.md) 를 참조 하세요.
@@ -184,7 +182,7 @@ GRS는 데이터를 보조 지역의 다른 데이터 센터에 복제하지만,
 
 GRS를 사용 하는 저장소 계정의 경우 모든 데이터는 먼저 LRS (로컬 중복 저장소)를 사용 하 여 복제 됩니다. 업데이트는 먼저 기본 위치에 커밋되고 LRS를 사용하여 복제됩니다. 그런 다음, 업데이트는 GRS를 사용하여 보조 지역에 비동기적으로 복제됩니다. 데이터가 보조 위치에 기록되는 경우 LRS를 사용하여 해당 위치 내에도 복제됩니다.
 
-주 지역 및 보조 지역에서 모두 별도의 장애 도메인에서 복제본을 관리하고, 스토리지 배율 단위 내에서 도메인을 업그레이드합니다. 스토리지 배율 단위는 데이터 센터 내의 기본 복제 단위입니다. 이 수준의 복제는 LRS에서 제공 됩니다. 자세한 내용은 [Locally (로컬 중복 저장소)를 참조 하세요. Azure Storage에 대한 저렴한 데이터 중복성](../common/storage-redundancy-lrs.md)을 참조하세요.
+주 지역 및 보조 지역에서 모두 별도의 장애 도메인에서 복제본을 관리하고, 스토리지 배율 단위 내에서 도메인을 업그레이드합니다. 스토리지 배율 단위는 데이터 센터 내의 기본 복제 단위입니다. 이 수준의 복제는 LRS에서 제공합니다. 자세한 내용은 [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복](../common/storage-redundancy-lrs.md)을 참조하세요.
 
 사용할 복제 옵션을 결정할 때 다음 사항에 유의하세요.
 
@@ -195,83 +193,51 @@ GRS를 사용 하는 저장소 계정의 경우 모든 데이터는 먼저 LRS (
 
 ## <a name="onboard-to-larger-file-shares-standard-tier"></a>더 큰 파일 공유에 등록 (표준 계층)
 
-이 섹션은 표준 파일 공유에만 적용 됩니다. 모든 프리미엄 파일 공유는 100 TiB에서 GA 제품으로 사용할 수 있습니다.
+이 섹션은 표준 파일 공유에만 적용 됩니다. 모든 프리미엄 파일 공유는 100 TiB 용량으로 제공 됩니다.
 
-### <a name="restrictions"></a>Restrictions
+### <a name="restrictions"></a>제한
 
-- Azure 미리 보기 [조건은](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Azure File Sync 배포와 함께 사용 되는 경우를 포함 하 여 미리 보기 상태인 동안 대량 파일 공유에 적용 됩니다.
-- 새 범용 저장소 계정 (기존 저장소 계정을 확장할 수 없음)을 만들어야 합니다.
-- LRS/ZRS to GRS/GZRS 계정 변환은 더 큰 파일 공유 미리 보기에 구독이 수락 된 후 생성 되는 새 저장소 계정에서 사용할 수 없습니다.
+- LRS/ZRS to GRS/GZRS 계정 변환은 대량 파일 공유를 사용 하는 모든 저장소 계정에 사용할 수 없습니다.
 
+### <a name="regional-availability"></a>지역별 가용성
 
-### <a name="regional-availability"></a>국가별 가용성
+표준 파일 공유는 최대 5 TiB의 모든 지역에서 사용할 수 있습니다. 특정 지역에서는 100 TiB 한도를 사용할 수 있습니다. 이러한 지역은 다음 표에 나와 있습니다.
 
-표준 파일 공유는 최대 5 TiB의 모든 지역에서 사용할 수 있습니다. 특정 지역에서 100 TiB 한도를 사용할 수 있습니다. 이러한 지역은 다음 표에 나와 있습니다.
+|지역 |지원 되는 중복성 |
+|-------|---------|
+|오스트레일리아 동부 |LRS     |
+|오스트레일리아 남동부|LRS |
+|인도 중부  |LRS     |
+|동아시아      |LRS     |
+|미국 동부 *        |LRS     |
+|프랑스 중부 |LRS, ZRS|
+|프랑스 남부   |LRS     |
+|인도 남부    |LRS     |
+|동남아시아 |LRS, ZRS|
+|미국 중서부|LRS     |
+|유럽 서부 *    |LRS, ZRS|
+|미국 서 부 *        |LRS     |
+|미국 서부 2      |LRS, ZRS|
 
-|Region |지원 되는 중복성 |기존 저장소 계정 지원 |포털 지원 * |
-|-------|---------|---------|---------|
-|오스트레일리아 동부 |LRS     |아니요    |예|
-|오스트레일리아 남동부|LRS |아니요    |예|
-|인도 중부  |LRS     |아니요    |예|
-|아시아 동부      |LRS     |아니요    |예|
-|East US        |LRS     |아니요    |예|
-|프랑스 중부 |LRS, ZRS|아니요    |예|
-|프랑스 남부   |LRS     |아니요    |예|
-|유럽 북부   |LRS     |아니요    |아직 준비되지 않음|
-|인도 남부    |LRS     |아니요    |예|
-|동남아시아 |LRS, ZRS|아니요    |예|
-|미국 중서부|LRS     |아니요    |예|
-|유럽 서부    |LRS, ZRS|아니요    |예|
-|미국 서부        |LRS     |아니요    |예|
-|미국 서부 2      |LRS, ZRS|아니요    |예|
-
-
-\* 포털을 지원 하지 않는 지역의 경우에도 PowerShell 또는 Azure CLI (명령줄 인터페이스)를 사용 하 여 5 개 보다 큰 TiB 공유를 만들 수 있습니다. 또는 할당량을 지정 하지 않고 포털을 통해 새 공유를 만듭니다. 그러면 나중에 PowerShell 또는 Azure CLI를 통해 업데이트 될 수 있는 기본 크기인 100 TiB 공유가 생성 됩니다.
+새 계정에 대해 지원 \*. 기존 계정이 모두 업그레이드 프로세스를 완료 한 것은 아닙니다.
 
 새 지역과 기능의 우선 순위를 지정 하는 데 도움이 되도록이 [설문 조사](https://aka.ms/azurefilesatscalesurvey)를 작성해 주세요.
 
-### <a name="steps-to-onboard"></a>등록 단계
+### <a name="enable-and-create-larger-file-shares"></a>더 큰 파일 공유 사용 및 만들기
 
-더 큰 파일 공유 미리 보기에 구독을 등록 하려면 Azure PowerShell를 사용 해야 합니다. [Azure Cloud Shell](https://shell.azure.com/) 를 사용 하거나 [Azure PowerShell 모듈을 로컬로](https://docs.microsoft.com/powershell/azure/install-Az-ps?view=azps-2.4.0) 설치 하 여 다음 PowerShell 명령을 실행할 수 있습니다.
-
-먼저 미리 보기에 등록 하려는 구독이 선택 되어 있는지 확인 합니다.
-
-```powershell
-$context = Get-AzSubscription -SubscriptionId ...
-Set-AzContext $context
-```
-
-그런 다음, 다음 명령을 사용 하 여 미리 보기에 등록 합니다.
-
-```powershell
-Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-두 명령이 실행 되 면 구독이 자동으로 승인 됩니다.
-
-등록 상태를 확인 하려면 다음 명령을 실행할 수 있습니다.
-
-```powershell
-Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
-```
-
-상태가 **등록**됨으로 업데이트 되는 데 최대 15 분이 걸릴 수 있습니다. 상태를 **등록**한 후에는 기능을 사용할 수 있습니다.
-
-### <a name="use-larger-file-shares"></a>더 큰 파일 공유 사용
-
-더 큰 파일 공유 사용을 시작 하려면 새 범용 v2 저장소 계정 및 새 파일 공유를 만듭니다.
+대용량 파일 공유 사용을 시작 하려면 [대용량 파일 공유 사용](storage-files-how-to-create-large-file-share.md)문서를 참조 하세요.
 
 ## <a name="data-growth-pattern"></a>데이터 증가 패턴
 
-현재 Azure 파일 공유의 최대 크기는 5 TiB (미리 보기 상태 100 TiB)입니다. 현재 이 제한으로 인해 Azure 파일 공유를 배포할 때 예상되는 데이터 증가를 고려해야 합니다.
+현재 Azure 파일 공유의 최대 크기는 100 TiB입니다. 현재 이 제한으로 인해 Azure 파일 공유를 배포할 때 예상되는 데이터 증가를 고려해야 합니다.
 
-Azure 파일 동기화를 사용하여 여러 Azure 파일 공유를 하나의 Windows 파일 서버에 동기화할 수 있습니다. 이를 통해 온-프레미스가 있을 수 있는 이전의 큰 파일 공유를 Azure 파일 동기화로 가져올 수 있습니다. 자세한 내용은 [Azure 파일 동기화 배포 계획](storage-files-planning.md)을 참조하세요.
+Azure File Sync를 사용 하 여 여러 Azure 파일 공유를 단일 Windows 파일 서버에 동기화 할 수 있습니다. 이를 통해 온-프레미스에 있을 수 있는 오래 된 대량 파일 공유를 Azure File Sync으로 가져올 수 있습니다. 자세한 내용은 [Azure File Sync 배포 계획](storage-files-planning.md)을 참조 하세요.
 
 ## <a name="data-transfer-method"></a>데이터 전송 방법
 
 온-프레미스 파일 공유와 같은 기존 파일 공유에서 Azure Files로 데이터를 대량으로 쉽게 전송할 수 있는 여러 옵션이 있습니다. 자주 사용되는 옵션 몇 가지는 다음과 같습니다(비 한정적 목록).
 
-* **Azure 파일 동기화**: Azure 파일 동기화는 Azure 파일 공유("클라우드 엔드포인트")와 Windows 디렉터리 네임스페이스("서버 엔드포인트") 간 첫 번째 동기화의 일환으로 기존 파일 공유의 모든 데이터를 Azure Files에 복제합니다.
+* **Azure 파일 동기화**: Azure 파일 공유("클라우드 엔드포인트")와 Windows 디렉터리 네임스페이스("서버 엔드포인트") 사이의 첫 번째 동기화의 일부로서, Azure 파일 동기화는 기존 파일 공유에서 Azure Files로 모든 데이터를 복제합니다.
 * **[Azure Import/Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure 파일 공유로 전송할 수 있습니다. 
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy는 Windows 및 Windows Server와 함께 제공되는 잘 알려진 복사 도구입니다. 파일 공유를 로컬로 탑재하고 탑재된 위치를 Robocopy 명령의 대상으로 사용하는 방식으로 Robocopy를 사용하여 데이터를 Azure Files로 전송할 수 있습니다.
 * **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Azure Files 및 Azure Blob Storage에서 복사하도록 디자인된 명령줄 유틸리티입니다.

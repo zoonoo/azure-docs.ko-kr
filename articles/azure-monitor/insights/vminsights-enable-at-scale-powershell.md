@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/09/2019
+ms.date: 10/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 1025041ae69f2048a6c5396aaebb50b5fa884f86
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
-ms.translationtype: MT
+ms.openlocfilehash: 78fe9eec757274e4262857ac0441af61c47a992b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444164"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515549"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>Azure PowerShell 또는 리소스 관리자 템플릿을 사용 하 여 VM용 Azure Monitor (미리 보기) 사용
 
@@ -36,7 +36,8 @@ Log Analytics 작업 영역이 없는 경우 새로 만들어야 합니다. 구�
 * 수동으로([Log Analytics의 Windows 및 Linux 성능 데이터 원본](../../azure-monitor/platform/data-sources-performance-counters.md)에 설명되어 있음)
 * [Azure PowerShell 갤러리](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1) 에서 사용할 수 있는 PowerShell 스크립트를 다운로드 하 여 실행 합니다.
 
-### <a name="install-the-servicemap-and-infrastructureinsights-solutions"></a>ServiceMap 및 InfrastructureInsights 솔루션 설치
+### <a name="install-the-servicemap-solution"></a>ServiceMap 솔루션 설치
+
 이 방법은 Log Analytics 작업 영역에 솔루션 구성 요소를 사용하도록 구성을 지정하는 JSON 템플릿을 포함합니다.
 
 템플릿을 사용 하 여 리소스를 배포 하는 방법을 모르는 경우 다음을 참조 하세요.
@@ -84,24 +85,6 @@ Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해�
                             "product": "[Concat('OMSGallery/', 'ServiceMap')]",
                             "promotionCode": ""
                         }
-                    },
-                    {
-                        "apiVersion": "2015-11-01-preview",
-                        "location": "[parameters('WorkspaceLocation')]",
-                        "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                        "type": "Microsoft.OperationsManagement/solutions",
-                        "dependsOn": [
-                            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        ],
-                        "properties": {
-                            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        },
-                        "plan": {
-                            "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                            "publisher": "Microsoft",
-                            "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
-                            "promotionCode": ""
-                        }
                     }
                 ]
             }
@@ -142,6 +125,7 @@ Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해�
         ```
 
 ## <a name="enable-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿으로 사용
+
 가상 머신 및 가상 머신 확장 집합을 등록 하기 위한 예제 Azure Resource Manager 템플릿을 만들었습니다. 이러한 템플릿에는 기존 리소스에 대 한 모니터링을 사용 하도록 설정 하 고 모니터링을 사용 하는 새 리소스를 만드는 데 사용할 수 있는 시나리오가 포함 되어 있습니다.
 
 >[!NOTE]
@@ -163,7 +147,7 @@ Azure Resource Manager 템플릿은 GitHub 리포지토리에서 [다운로드�
 - **Newvmonboarding** 템플릿은 가상 머신을 만들고 VM용 Azure Monitor 모니터링 하는 데 사용 됩니다.
 - **Existingvmssonboarding 보 딩** 템플릿을 사용 하면 가상 머신 확장 집합이 이미 있는 경우 VM용 Azure Monitor 수 있습니다.
 - **Newvmssonboarding** 템플릿은 가상 머신 확장 집합을 만들고 VM용 Azure Monitor를 모니터링 하는 데 사용 됩니다.
-- **ConfigureWorksapce** 템플릿 Linux 및 Windows 운영 체제 성능 카운터의 솔루션 및 컬렉션을 사용 하도록 설정 하 여 VM용 Azure Monitor을 지원 하도록 Log Analytics 작업 영역을 구성 합니다.
+- **ConfigureWorkspace** 템플릿 Linux 및 Windows 운영 체제 성능 카운터의 솔루션 및 컬렉션을 사용 하도록 설정 하 여 VM용 Azure Monitor을 지원 하도록 Log Analytics 작업 영역을 구성 합니다.
 
 >[!NOTE]
 >가상 머신 확장 집합이 이미 있고 업그레이드 정책이 **수동**으로 설정 된 경우에는 **Existingvmssonboarding 보 딩** Azure Resource Manager 템플릿을 실행 한 후 기본적으로 인스턴스에 대해 VM용 Azure Monitor 사용 되지 않습니다. 인스턴스를 수동으로 업그레이드 해야 합니다.
@@ -180,6 +164,7 @@ New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceG
 ```powershell
 provisioningState       : Succeeded
 ```
+
 ### <a name="deploy-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 배포
 
 다음 단계에서는 Azure CLI를 사용 하 여 모니터링을 사용 하도록 설정 합니다.
@@ -206,7 +191,7 @@ provisioningState       : Succeeded
 
 각 VM 또는 가상 머신 확장 집합의 경우 스크립트에서 VM 확장을 이미 설치했는지 여부를 확인합니다. VM 확장을 설치 하지 않은 경우 스크립트에서 다시 설치 하려고 시도 합니다. VM 확장이 설치 된 경우 스크립트는 Log Analytics 및 Dependency Agent VM 확장을 설치 합니다.
 
-호환성 별칭을 `Enable-AzureRM` 사용 하는 Azure PowerShell 모듈 Az version 1.0.0 이상을 사용 하 고 있는지 확인 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+@No__t_0 호환성 별칭을 사용 하 여 Azure PowerShell 모듈 Az version 1.0.0 이상을 사용 중인지 확인 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 스크립트의 인수 세부 정보 및 사용법 예제 목록을 가져오려면 `Get-Help`를 실행합니다.
 
@@ -363,7 +348,6 @@ Failed: (0)
 
 이제 가상 머신에 대 한 모니터링을 사용 하도록 설정 했으므로이 정보는 VM용 Azure Monitor 분석에 사용할 수 있습니다.
  
-- 상태 기능을 사용 하는 방법에 대 한 자세한 내용은 [VM용 Azure Monitor 상태 보기](vminsights-health.md)를 참조 하세요. 
 - 검색된 애플리케이션 종속성을 보려면 [VM용 Azure Monitor 맵 보기](vminsights-maps.md)를 참조하세요. 
+
 - VM의 성능에 대 한 병목 및 전반적인 사용률을 식별 하려면 [AZURE Vm 성능 보기](vminsights-performance.md)를 참조 하세요. 
-- 검색된 애플리케이션 종속성을 보려면 [VM용 Azure Monitor 맵 보기](vminsights-maps.md)를 참조하세요.

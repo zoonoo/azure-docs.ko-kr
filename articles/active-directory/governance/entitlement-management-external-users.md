@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcf4a0272e21a1fba3cf9adbd9158492e4318578
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 419970985b9531ffab348491730aaf6c00e143b1
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72452992"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527105"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 외부 사용자에 대 한 액세스 제어
 
@@ -90,12 +90,15 @@ Azure AD 자격 관리는 [AZURE AD b2b (기업 간)](../b2b/what-is-b2b.md) 를
 
 1. 외부 사용자가 액세스 패키지에 대 한 마지막 할당을 잃은 후이 디렉터리에 로그인 하지 못하도록 차단 하려면 **외부 사용자가이 디렉터리에 로그인 하지 못하도록 차단** 을 **예**로 설정 합니다.
 
-1. 외부 사용자가 액세스 패키지에 대 한 마지막 할당을 잃은 후 디렉터리에서 게스트 사용자 계정을 제거 하려면 **외부 사용자 제거** 를 **예**로 설정 합니다.
+    > [!NOTE]
+    > 사용자가이 디렉터리에 로그인 하지 못하도록 차단 되 면 사용자는 액세스 패키지를 다시 요청 하거나이 디렉터리에서 추가 액세스를 요청할 수 없습니다. 이후에 다른 액세스 패키지에 대 한 액세스를 요청 해야 하는 경우 로그인을 차단 하도록 구성 하지 마십시오.
+
+1. 외부 사용자가 액세스 패키지에 대 한 마지막 할당을 잃은 후이 디렉터리에서 게스트 사용자 계정을 제거 하려면 **외부 사용자 제거** 를 **예**로 설정 합니다.
 
     > [!NOTE]
-    > 자격 관리는 자격 관리를 통해 초대 된 계정만 제거 합니다. 또한 사용자가 디렉터리에서 패키지 할당에 액세스 하지 않은 리소스에 추가 된 경우에도 사용자가 로그인 하지 못하도록 차단 되 고 디렉터리에서 제거 됩니다. 게스트는 액세스 패키지 할당을 받기 전에 디렉터리에 있는 경우 유지 됩니다. 그러나 액세스 패키지 할당을 통해 게스트를 초대 하 고 초대 된 후에도 비즈니스용 OneDrive 또는 SharePoint Online 사이트에 할당 된 경우에도 제거 됩니다.
+    > 자격 관리는 자격 관리를 통해 초대 된 계정만 제거 합니다. 또한 사용자가 패키지 할당에 액세스 하지 않은이 디렉터리의 리소스에 추가 된 경우에도 사용자가이 디렉터리에서 로그인 및 제거 되는 것을 차단 합니다. 게스트는 액세스 패키지 할당을 받기 전에이 디렉터리에 있는 경우 유지 됩니다. 그러나 액세스 패키지 할당을 통해 게스트를 초대 하 고 초대 된 후에도 비즈니스용 OneDrive 또는 SharePoint Online 사이트에 할당 된 경우에도 제거 됩니다.
 
-1. 디렉터리에서 게스트 사용자 계정을 제거 하려는 경우 제거 전 일 수를 설정할 수 있습니다. 액세스 패키지에 대 한 마지막 할당이 손실 되는 즉시 게스트 사용자 계정을 제거 하려면 **이 디렉터리에서 외부 사용자를 제거 하기 전까지 남은 일 수** 를 **0**으로 설정 합니다.
+1. 이 디렉터리에서 게스트 사용자 계정을 제거 하려면 제거 전 일 수를 설정할 수 있습니다. 액세스 패키지에 대 한 마지막 할당이 손실 되는 즉시 게스트 사용자 계정을 제거 하려면 **이 디렉터리에서 외부 사용자를 제거 하기 전까지 남은 일 수** 를 **0**으로 설정 합니다.
 
 1. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 
@@ -113,6 +116,6 @@ Azure AD 자격 관리는 [AZURE AD b2b (기업 간)](../b2b/what-is-b2b.md) 를
 
 ## <a name="next-steps"></a>다음 단계
 
-- [디렉터리에 없는 사용자의 경우](entitlement-management-access-package-create.md#for-users-not-in-your-directory)
+- [디렉터리에 없는 사용자의 경우](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
 - [리소스 카탈로그 만들기 및 관리](entitlement-management-catalog-create.md)
 - [위임 및 역할](entitlement-management-delegate.md)

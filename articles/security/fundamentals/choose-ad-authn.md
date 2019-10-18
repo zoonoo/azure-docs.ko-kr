@@ -9,18 +9,14 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 22a5a2e157c0b2095673e75e7a3bc9ccb80f8ffd
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4de4da63abea1c4f6ab006ffd65a58ea0e34c015
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "69997813"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529406"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택 
-
-이 문서는 조직에서 완전한 Azure AD(Azure Active Directory) 하이브리드 ID 솔루션을 구현하도록 지원하기 위한 일련의 문서 중 첫 번째 문서입니다. 이 솔루션은 [하이브리드 ID 디지털 변환 프레임워크](https://aka.ms/aadframework)로 간략하게 설명되었으며, 조직에서 강력하고 안전한 하이브리드 ID 솔루션을 구현하기 위해 중점을 둘 수 있는 비즈니스 결과 및 목표를 포함합니다. 
-
-프레임워크의 첫 번째 비즈니스 결과는 사용자가 클라우드 앱에 액세스할 때 조직이 인증 프로세스를 보호하기 위한 요구 사항을 자세히 설명합니다. 인증으로 보호된 비즈니스 결과에서 첫 번째 비즈니스 목표는 사용자가 온-프레미스 사용자 이름 및 암호를 사용하여 클라우드 앱에 로그인할 수 있도록 하는 기능입니다. 이 로그인 및 인증 프로세스를 통해 클라우드의 모든 항목을 사용할 수 있습니다.
 
 올바른 인증 방법을 선택하는 것은 앱에서 클라우드로 이동하려는 조직이 첫 번째로 고려해야 할 사항입니다. 이 결정을 가볍게 여겨서는 안 되는 이유는 다음과 같습니다.
 
@@ -177,11 +173,11 @@ Azure AD에서 확인할 수 없는 라우팅 불가능한 도메인의 경우 �
 |고려 사항|암호 해시 동기화 + 원활한 SSO|통과 인증 + 원활한 SSO|AD FS로 페더레이션|
 |:-----|:-----|:-----|:-----|
 |인증은 어디서 수행되나요?|클라우드|클라우드에서 온-프레미스 인증 에이전트와 보안 암호 확인을 교환한 후|온-프레미스|
-|프로비저닝 시스템인 Azure AD Connect 이외의 온-프레미스 서버 요구 사항은 무엇인가요?|없음|각 추가 인증 에이전트마다 서버 1개|둘 이상의 AD FS 서버<br><br>경계/DMZ 네트워크에 둘 이상의 WAP 서버|
+|프로비저닝 시스템(Azure AD Connect) 이외의 온-프레미스 서버 요구 사항은 무엇인가요?|없음|각 추가 인증 에이전트마다 서버 1개|둘 이상의 AD FS 서버<br><br>경계/DMZ 네트워크에 둘 이상의 WAP 서버|
 |프로비저닝 시스템 이외의 온-프레미스 인터넷 및 네트워킹 요구 사항은 무엇인가요?|없음|인증 에이전트를 실행하는 서버의[아웃바운드 인터넷 액세스](../../active-directory/hybrid/how-to-connect-pta-quick-start.md)|경계에 있는 WAP 서버에 대한 [인바운드 인터넷 액세스](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements)<br><br>경계에 있는 WAP 서버에서 AD FS 서버로의 인바운드 네트워크 액세스<br><br>네트워크 부하 분산|
-|SSL 인증서 요구 사항이 있나요?|아니오|아니요|예|
-|상태 모니터링 솔루션이 있나요?|필요하지 않음|[Azure Active Directory 관리 센터](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)에서 제공한 에이전트 상태|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
-|사용자가 회사 네트워크 내의 도메인 가입 디바이스에서 Single Sign-On 방식으로 클라우드 리소스에 액세스할 수 있나요?|[원활한 SSO](../../active-directory/hybrid/how-to-connect-sso.md)의 경우 예|[원활한 SSO](../../active-directory/hybrid/how-to-connect-sso.md)의 경우 예|예|
+|SSL 인증서 요구 사항이 있나요?|아닙니다.|아닙니다.|yes|
+|상태 모니터링 솔루션이 있나요?|필요 없음|[Azure Active Directory 관리 센터](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)에서 제공한 에이전트 상태|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
+|사용자가 회사 네트워크 내의 도메인 가입 디바이스에서 Single Sign-On 방식으로 클라우드 리소스에 액세스할 수 있나요?|[원활한 SSO](../../active-directory/hybrid/how-to-connect-sso.md)의 경우 예|[원활한 SSO](../../active-directory/hybrid/how-to-connect-sso.md)의 경우 예|yes|
 |지원되는 로그인 유형은 무엇인가요?|UserPrincipalName + 암호<br><br>[원활한 SSO](../../active-directory/hybrid/how-to-connect-sso.md)를 사용하는 Windows 통합 인증<br><br>[대체 로그인 ID](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + 암호<br><br>[원활한 SSO](../../active-directory/hybrid/how-to-connect-sso.md)를 사용하는 Windows 통합 인증<br><br>[대체 로그인 ID](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + 암호<br><br>sAMAccountName + 암호<br><br>Windows 통합 인증<br><br>[인증서 및 스마트 카드 인증](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[대체 로그인 ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |비즈니스용 Windows Hello가 지원되나요?|[키 신뢰 모델](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[키 신뢰 모델](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Windows Server 2016 도메인 기능 수준 필요*|[키 신뢰 모델](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[인증서 신뢰 모델](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |다단계 인증 옵션은 무엇인가요?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[조건부 액세스를 사용 하는 사용자 지정 컨트롤 *](../../active-directory/conditional-access/controls.md)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[조건부 액세스를 사용 하는 사용자 지정 컨트롤 *](../../active-directory/conditional-access/controls.md)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Azure MFA 서버](../../active-directory/authentication/howto-mfaserver-deploy.md)<br><br>[타사 MFA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[조건부 액세스를 사용 하는 사용자 지정 컨트롤 *](../../active-directory/conditional-access/controls.md)|

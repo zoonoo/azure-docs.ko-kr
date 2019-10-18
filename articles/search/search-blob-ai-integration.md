@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 192d1a7b3bb10395aa662a4b915fe0189b1306b5
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: f7e264be9a02514972f9c9702adec8fa55a157bd
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434040"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529386"
 ---
 # <a name="use-ai-to-understand-blob-data"></a>AI를 사용 하 여 Blob 데이터 이해
 
@@ -40,7 +40,7 @@ AI 보강는 필드로 캡처된 새 정보를 필드에 저장 합니다. 보�
 
 Between은 파이프라인 아키텍처 자체입니다. 파이프라인은 *인덱서* 기능을 기반으로 하며,이 기능을 사용 하 여 AI를 제공 하는 하나 이상의 *기술로* 구성 된 *기술*를 할당할 수 있습니다. 파이프라인의 목적은 원시 콘텐츠로 입력 하는 *보강 문서* 를 생성 하는 것이 고 파이프라인을 통해 이동 하는 동안 추가 구조, 컨텍스트 및 정보를 선택 하는 것입니다. 보강 문서는 인덱싱 중에 사용 되어 전체 텍스트 검색 또는 탐색 및 분석에 사용 되는 반전 된 인덱스 및 기타 구조를 만드는 데 사용 됩니다.
 
-## <a name="start-with-services-and-data"></a>서비스 및 데이터 시작
+## <a name="start-with-services"></a>서비스 시작
 
 Azure Search 및 Azure Blob storage가 필요 합니다. Blob storage 내에서 원본 콘텐츠를 제공 하는 컨테이너가 필요 합니다.
 
@@ -113,5 +113,6 @@ Azure Storage에서 기술 자료 저장소에는 두 가지 징후 (blob 컨테
 다양 한 방식으로 Cognitive Services을 결합 하 고 시나리오에 대 한 기존 인지 서비스가 없는 경우에 대 한 사용자 지정 기술을 제작 하 여 Azure Storage에서 데이터를 최대한 활용 하기 위해 AI 보강로 더 많은 작업을 수행할 수 있습니다. 아래 링크를 따라 자세히 알아볼 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [AI 보강 개요](cognitive-search-concept-intro.md) 
->  주석 트리에서 기술 @no__t 3[Map 노드](cognitive-search-output-field-mapping.md) [만들기](cognitive-search-defining-skillset.md)
+> [AI 보강 개요](cognitive-search-concept-intro.md)  
+>  주석 트리에서 기술 
+> [Map 노드](cognitive-search-output-field-mapping.md) [만들기](cognitive-search-defining-skillset.md)

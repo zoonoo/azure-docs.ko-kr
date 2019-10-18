@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 046c2308d5cef2df7e12b6185fc24b8df4f821dc
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 293d0de024ad815b4755d48833b7058c29ebcd5a
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326965"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513278"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>저장소 계정에 대 한 확장성 및 성능 목표 Azure Storage
 
@@ -46,8 +46,8 @@ Azure File 및 Azure 파일 동기화의 크기 조정 및 성능 목표에 대�
 > [!IMPORTANT]
 > 저장소 계정 제한은 모든 공유에 적용 됩니다. 저장소 계정에 대 한 공유를 하나만 있는 경우에만 저장소 계정에 대 한 최대 크기를 확장할 수 있습니다.
 >
-> 5 TiB 보다 큰 표준 파일 공유는 미리 보기 상태 이며 특정 제한 사항이 있습니다.
-> 이러한 큰 파일 공유 크기의 미리 보기에 대 한 제한 사항 목록과 등록 지침은 Azure Files 계획 가이드의 [표준 파일 공유](../files/storage-files-planning.md#standard-file-shares) 섹션을 참조 하세요.
+> 5 보다 큰 표준 파일 공유에는 특정 제한 사항과 지역 제한이 TiB.
+> 이러한 큰 파일 공유 크기를 설정 하는 제한 사항, 지역별 정보 및 지침을 보려면 Azure Files 계획 가이드의 [더 큰 파일 공유에 대 한 온보드 (표준 계층)](../files/storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) 섹션을 참조 하십시오.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -55,7 +55,7 @@ Azure File 및 Azure 파일 동기화의 크기 조정 및 성능 목표에 대�
 
 프리미엄 파일에는 저장소 계정, 공유 및 파일의 세 가지 범주를 고려해 야 합니다.
 
-예: 단일 공유에서 10만 IOPS를 달성할 수 있으며 단일 파일이 5000 IOPS까지 확장 될 수 있습니다. 예를 들어 한 공유에 세 개의 파일이 있는 경우 해당 공유에서 얻을 수 있는 최대 IOPs는 15000입니다.
+예를 들어 단일 공유에서 10만 IOPS를 달성할 수 있으며 단일 파일이 5000 IOPS까지 확장 될 수 있습니다. 예를 들어 한 공유에 세 개의 파일이 있는 경우 해당 공유에서 얻을 수 있는 최대 IOPs는 15000입니다.
 
 #### <a name="premium-file-share-limits"></a>프리미엄 파일 공유 제한
 
@@ -75,7 +75,7 @@ Azure 파일 동기화는 무제한 사용을 목적으로 설계되었으나 �
 
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
 - [스토리지 가격 정보](https://azure.microsoft.com/pricing/details/storage/)
 - [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-subscription-service-limits.md)

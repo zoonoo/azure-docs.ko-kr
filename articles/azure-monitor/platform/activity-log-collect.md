@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: bwren
-ms.openlocfilehash: affefa96d6e38a88c994938115ddf44bcf8bd36d
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: c9fdd0c530ca34305aa3a9197c3bb938d4fb9f1f
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695060"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528708"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 합니다.
 Azure [활동 로그](activity-logs-overview.md) 는 azure 구독에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. 이 문서에서는 Log Analytics 작업 영역에 활동 로그를 수집 하는 방법과이 데이터를 분석 하기 위한 로그 쿼리 및 보기를 제공 하는 활동 로그 분석 [모니터링 솔루션](../insights/solutions.md)을 사용 하는 방법을 설명 합니다. 
@@ -31,7 +31,7 @@ Azure [활동 로그](activity-logs-overview.md) 는 azure 구독에서 발생 �
 - [로그 쿼리](../log-query/log-query-overview.md) 를 사용 하 여 복잡 한 분석을 수행 하 고 활동 로그 항목에 대 한 심층 통찰력을 얻습니다.
 
 ## <a name="connect-to-log-analytics-workspace"></a>Log Analytics 작업 영역에 연결
-활동 로그는 하나의 작업 영역에만 연결할 수 있지만 동일한 Azure 테 넌 트의 여러 구독에 대해 활동 로그에 단일 작업 영역을 연결할 수 있습니다. 여러 테 넌 트에 걸친 컬렉션의 경우 [다른 Azure Active Directory 테 넌 트의 구독에서 Log Analytics 작업 영역으로 Azure 활동 로그 수집](activity-log-collect-tenants.md)을 참조 하세요.
+단일 작업 영역을 동일한 Azure 테 넌 트의 여러 구독에 대 한 활동 로그에 연결할 수 있습니다. 여러 테 넌 트에 걸친 컬렉션의 경우 [다른 Azure Active Directory 테 넌 트의 구독에서 Log Analytics 작업 영역으로 Azure 활동 로그 수집](activity-log-collect-tenants.md)을 참조 하세요.
 
 > [!IMPORTANT]
 > OperationalInsights 및 Microsoft.operationsmanagement 리소스 공급자가 구독에 등록 되지 않은 경우 다음 절차에 따라 오류가 발생할 수 있습니다. 이러한 공급자를 등록 하려면 [Azure 리소스 공급자 및 형식](../../azure-resource-manager/resource-manager-supported-services.md) 을 참조 하세요.
@@ -72,7 +72,7 @@ Azure **활동 로그** 타일을 클릭 하 여 **azure 활동 로그** 보기�
 | Azure 활동 로그 항목 | 선택한 날짜 범위에 대 한 상위 Azure 활동 로그 항목 레코드 합계의 가로 막대형 차트를 표시 하 고 상위 10 개 활동 호출자의 목록을 표시 합니다. 가로 막대형 차트를 클릭하면 `AzureActivity`에 대한 로그 검색이 실행됩니다. 호출자 항목을 클릭 하면 해당 항목에 대 한 모든 활동 로그 항목을 반환 하는 로그 검색이 실행 됩니다. |
 | 상태별 활동 로그 | 선택한 날짜 범위에 대 한 Azure 활동 로그 상태와 상위 10 개 상태 레코드의 목록에 대 한 도넛형 차트를 표시 합니다. 차트를 클릭 하 `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`에 대 한 로그 쿼리를 실행 합니다. 상태 항목을 클릭 하면 해당 상태 레코드에 대 한 모든 활동 로그 항목을 반환 하는 로그 검색이 실행 됩니다. |
 | 리소스별 활동 로그 | 활동 로그를 포함 하는 총 리소스 수를 표시 하 고 각 리소스에 대 한 레코드 수를 포함 하는 상위 10 개 리소스를 나열 합니다. 전체 영역을 클릭하여 `AzureActivity | summarize AggregatedValue = count() by Resource`에 대해 로그 검색을 실행하면 솔루션에 사용할 수 있는 모든 Azure 리소스가 표시됩니다. 리소스를 클릭 하 여 해당 리소스에 대 한 모든 활동 레코드를 반환 하는 로그 쿼리를 실행 합니다. |
-| 리소스 공급자별 활동 로그 | 활동 로그를 생성 하는 리소스 공급자의 총 수를 표시 하 고 상위 10 개를 나열 합니다. 전체 영역을 클릭 하 여 모든 Azure 리소스 공급자를 보여 주는 `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`에 대 한 로그 쿼리를 실행 합니다. 리소스 공급자를 클릭 하 여 공급자에 대 한 모든 활동 레코드를 반환 하는 로그 쿼리를 실행 합니다. |
+| 리소스 공급자별 활동 로그 | 활동 로그를 생성 하는 리소스 공급자의 총 수를 표시 하 고 상위 10 개를 나열 합니다. 전체 영역을 클릭 하 여 모든 Azure 리소스 공급자를 표시 하는 `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`에 대 한 로그 쿼리를 실행 합니다. 리소스 공급자를 클릭 하 여 공급자에 대 한 모든 활동 레코드를 반환 하는 로그 쿼리를 실행 합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

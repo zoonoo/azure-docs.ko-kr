@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9671ddcf98ae97c0a3df49cce008faf403f5dcd2
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 5adcf252fed4ac94ae4261886b24eb087424bdbe
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981103"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533136"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup에 대 한 지원 매트릭스
 
@@ -35,7 +35,7 @@ Azure Backup는 Recovery Services 자격 증명 모음을 사용 하 여 백업�
 **구독의 자격 증명 모음 수** | 단일 구독에서 최대 500개의 Recovery Services 자격 증명 모음입니다.
 **자격 증명 모음의 머신 수** | 단일 자격 증명 모음에서 최대 1000 Azure Vm.<br/><br/> 최대 50대의 MABS 서버를 단일 자격 증명 모음에 등록할 수 있습니다.
 **자격 증명 모음 스토리지의 데이터 원본 수** | 최대 54400 GB Azure VM 백업에는 제한이 없습니다.
-**자격 증명 모음에 대한 백업 횟수** | **Azure Vm:** 하루에 한 번<br/><br/>**DPM/MABS로 보호 되는 컴퓨터:** 하루에 두 번<br/><br/> **MARS 에이전트를 사용 하 여 직접 백업 하는 컴퓨터:** 하루에 3 번
+**자격 증명 모음에 대한 백업 횟수** | **Azure vm:** 하루에 한 번<br/><br/>**DPM/MABS로 보호 되는 컴퓨터:** 하루에 두 번<br/><br/> **MARS 에이전트를 사용 하 여 직접 백업 하는 컴퓨터:** 하루에 3 번
 **자격 증명 모음 간 백업** | 백업은 한 지역 내에서 수행됩니다.<br/><br/> 백업할 VM이 포함된 각 Azure 지역에 자격 증명 모음이 있어야 합니다. 다른 지역으로 백업할 수 없습니다.
 **자격 증명 모음 이동** | [자격 증명](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) 모음은 구독 간에 이동 하거나 동일한 구독의 리소스 그룹 간에 이동할 수 있습니다.
 **자격 증명 모음 간 데이터 이동** | 자격 증명 모음 간에 백업 데이터를 이동 하는 것은 지원 되지 않습니다.
@@ -45,7 +45,7 @@ Azure Backup는 Recovery Services 자격 증명 모음을 사용 하 여 백업�
 
 온-프레미스 컴퓨터를 백업 하려는 경우 다음 같습니다 지원 됩니다.
 
-**머신** | **백업 대상** | **Location**: | **기능**
+**머신** | **백업 대상** | **위치** | **기능**
 --- | --- | --- | ---
 **MARS 에이전트를 사용한 Windows 머신 직접 백업** | 파일, 폴더, 시스템 상태 | Recovery Services 자격 증명 모음에 백업 합니다. | 하루에 세 번 백업<br/><br/> 앱 인식 백업 없음<br/><br/> 파일, 폴더, 볼륨 복원
 **MARS 에이전트를 사용한 Linux 머신 직접 백업** | 백업이 지원 되지 않음
@@ -59,13 +59,13 @@ Azure Backup는 Recovery Services 자격 증명 모음을 사용 하 여 백업�
 **제한** | **세부 정보**
 --- | ---
 **Azure VM 데이터 디스크** | 16 개로 제한
-**Azure VM 데이터 디스크 크기** | VM의 모든 디스크에 대해 최대 30tb의 각 디스크 크기와 최대 256 TB를 결합 하 여 가상 머신의 백업을 지원 합니다.
+**Azure VM 데이터 디스크 크기** | 개별 디스크 크기는 최대 32 TB 이며 VM의 모든 디스크에 대해 최대 256 TB를 결합할 수 있습니다.
 
 ### <a name="azure-vm-backup-options"></a>Azure VM 백업 옵션
 
 Azure Vm을 백업 하려는 경우 다음 같습니다 지원 됩니다.
 
-**머신** | **백업 대상** | **Location**: | **기능**
+**머신** | **백업 대상** | **위치** | **기능**
 --- | --- | --- | ---
 **VM 확장을 사용 하 여 Azure VM 백업** | 전체 VM | 자격 증명 모음에 백업 합니다. | VM에 백업을 사용하도록 설정할 때 설치된 확장<br/><br/> 하루에 한 번 백업 합니다.<br/><br/> Windows Vm에 대 한 앱 인식 백업 Linux Vm에 대 한 파일 일치 백업 사용자 지정 스크립트를 사용 하 여 Linux 컴퓨터에 대 한 앱 일관성을 구성할 수 있습니다.<br/><br/> VM 또는 디스크를 복원 합니다.<br/><br/> Azure VM을 온-프레미스 위치에 백업할 수 없습니다.
 **MARS 에이전트를 사용 하 여 Azure VM 백업** | 파일, 폴더, 시스템 상태 | 자격 증명 모음에 백업 합니다. | 하루에 세 번 백업 합니다.<br/><br/> 전체 VM이 아닌 특정 파일 또는 폴더를 백업 하려는 경우 MARS 에이전트는 VM 확장과 함께 실행할 수 있습니다.
@@ -116,10 +116,10 @@ Azure Backup은 전송 중 및 미사용 데이터에 대 한 암호화를 지�
 
 **머신** | **전송 중** | **저장**
 --- | --- | ---
-**DPM/MABS를 사용 하지 않는 온-프레미스 Windows 컴퓨터** | ![예][green] | ![예][green]
-**Azure VM** | ![예][green] | ![예][green]
-**DPM을 사용 하는 온-프레미스 Windows 컴퓨터 또는 Azure Vm** | ![예][green] | ![예][green]
-**MABS를 사용 하는 온-프레미스 Windows 컴퓨터 또는 Azure Vm** | ![예][green] | ![예][green]
+**DPM/MABS를 사용 하지 않는 온-프레미스 Windows 컴퓨터** | ![yes][green] | ![yes][green]
+**Azure VM** | ![yes][green] | ![yes][green]
+**DPM을 사용 하는 온-프레미스 Windows 컴퓨터 또는 Azure Vm** | ![yes][green] | ![yes][green]
+**MABS를 사용 하는 온-프레미스 Windows 컴퓨터 또는 Azure Vm** | ![yes][green] | ![yes][green]
 
 ## <a name="compression-support"></a>압축 지원
 
@@ -130,18 +130,18 @@ Backup은 다음 표에 요약 된 것 처럼 백업 트래픽의 압축을 지�
 
 **머신** | **MABS/DPM에 압축(TCP)** | **자격 증명 모음으로 압축 (HTTPS)**
 --- | --- | ---
-**온-프레미스 Windows 머신 직접 백업** | NA | ![예][green]
-**VM 확장을 사용 하 여 Azure Vm 백업** | NA | NA
-**MABS/DPM을 사용 하 여 온-프레미스/Azure 컴퓨터에서 백업** | ![예][green] | ![예][green]
+**온-프레미스 Windows 머신 직접 백업** | 해당 없음 | ![yes][green]
+**VM 확장을 사용 하 여 Azure Vm 백업** | 해당 없음 | 해당 없음
+**MABS/DPM을 사용 하 여 온-프레미스/Azure 컴퓨터에서 백업** | ![yes][green] | ![yes][green]
 
 ## <a name="retention-limits"></a>보존 제한
 
 **설정** | **제한**
 --- | ---
 **보호 된 인스턴스당 최대 복구 위치 (컴퓨터 또는 작업)** | 9999
-**복구 지점에 대 한 최대 만료 시간** | 제한 없음
+**복구 지점에 대 한 최대 만료 시간** | 무제한
 **DPM/MABS에 대 한 최대 백업 빈도** | SQL Server에 대해 15분마다<br/><br/> 다른 작업에 대해 한 시간에 한 번
-**자격 증명 모음에 대 한 최대 백업 빈도** | **MARS를 실행 하는 온-프레미스 Windows 컴퓨터 또는 Azure Vm:** 하루 3 개<br/><br/> **DPM/MABS:** 하루에 두 번<br/><br/> **Azure VM 백업:** 하루에 하나씩
+**자격 증명 모음에 대 한 최대 백업 빈도** | **MARS를 실행 하는 온-프레미스 Windows 컴퓨터 또는 Azure vm:** 하루 3 개<br/><br/> **DPM/MABS:** 하루에 2 개<br/><br/> **AZURE VM 백업:** 하루에 하나씩
 **복구 지점 보존** | 매일, 매주, 매월, 매년
 **최대 보존 기간** | 백업 빈도에 따라 다름
 **DPM/MABS 디스크의 복구 위치** | 파일 서버의 경우 64 448 앱 서버 <br/><br/>온-프레미스 DPM의 무제한 테이프 복구 시점

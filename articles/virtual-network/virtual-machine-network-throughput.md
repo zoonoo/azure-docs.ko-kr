@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: f5694e18d5743118e2b6e73708dd3acb17151198
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 68fe50c75fc25106a0f47af8bf6cfc0db562fbe5
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874936"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529109"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>가상 머신 네트워크 대역폭
 
@@ -39,10 +39,10 @@ Azure 가상 머신은 하나지만 여기에 연결된 네트워크 인터페�
 각 VM 크기별로 지원되는 네트워크 인터페이스 수 및 예상 아웃바운드 처리량은 Azure [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM 크기에 자세히 나와 있습니다. 형식(예: 범용)을 선택한 다음 결과 페이지에서 크기 계열(예: Dv2 계열)을 선택합니다. 각 계열에는 **최대 NIC / 예상 네트워크 성능(Mbps)** 이라는 마지막 열에 네트워킹 사양이 포함된 표가 있습니다. 
 
 처리량 제한은 가상 컴퓨터에 적용됩니다. 처리량은 다음 요인에 영향을 받지 않습니다.
-- **네트워크 인터페이스 수**: 대역폭 제한은 가상 컴퓨터에서 모든 아웃 바운드 트래픽의 누적입니다.
-- **가속 네트워킹**: 이 기능은 게시 된 제한을 달성 하는 데 도움이 될 수 있지만 제한을 변경 하지는 않습니다.
-- **트래픽 대상**: 모든 대상은 아웃 바운드 제한에 계산 됩니다.
-- **프로토콜**: 모든 프로토콜에 대 한 모든 아웃 바운드 트래픽은 제한 값으로 계산 됩니다.
+- **네트워크 인터페이스 수**: 대역폭 제한은 가상 머신에서 모든 아웃바운드 트래픽의 누적입니다.
+- **가속화된 네트워킹**: 게시된 제한에 도달하는 데 유용한 기능이지만 제한을 변경하지는 않습니다.
+- **트래픽 대상**: 모든 대상이 아웃바운드 제한에 대해 계산됩니다.
+- **프로토콜**: 모든 프로토콜을 통한 모든 아웃바운드 트래픽이 제한에 대해 계산됩니다.
 
 ## <a name="network-flow-limits"></a>네트워크 흐름 제한
 
@@ -60,11 +60,11 @@ Azure 가상 머신은 하나지만 여기에 연결된 네트워크 인터페�
 |---|---|---|
 |<b>뛰어난 성능</b>|10만의 흐름 |250K 흐름|
 |<b>성능 저하</b>|10만 개 흐름 초과|250K 흐름 초과|
-|<b>흐름 제한</b>|1M 흐름|1M 흐름|
+|<b>흐름 제한</b>|500K 흐름|500K 흐름|
 
 [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) 에서 메트릭을 사용 하 여 VM 또는 vmss 인스턴스의 네트워크 흐름 수와 흐름 생성 률을 추적할 수 있습니다.
 
-![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+![azure-monitor-flow-metrics](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
 
 연결 설정 및 종료 속도는 패킷 처리 루틴을 사용 하 여 CPU를 공유 하 고 연결을 설정 하면 네트워크 성능에 영향을 줄 수도 있습니다. 예상 되는 트래픽 패턴에 대해 워크 로드를 벤치 마크 하 고 성능 요구 사항에 맞게 워크 로드를 적절히 확장 하는 것이 좋습니다. 
 

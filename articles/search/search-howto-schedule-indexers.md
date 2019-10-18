@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: ''
 ms.topic: conceptual
-ms.openlocfilehash: f72067637f9db84a432562ea5502861355426469
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: d30c4532c43c5df568cf32a1025b796b3be9ee8e
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186583"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533613"
 ---
 # <a name="how-to-schedule-indexers-for-azure-search"></a>Azure Search에 대 한 인덱서를 예약 하는 방법
 인덱서는 생성 후 즉시 한 번 실행 됩니다. 포털, REST API 또는 .NET SDK를 사용 하 여 요청 시 다시 실행할 수 있습니다. 정기적으로 일정에 따라 실행 되도록 인덱서를 구성할 수도 있습니다.
@@ -48,7 +48,7 @@ Scheduler는 Azure Search의 기본 제공 기능입니다. 외부 스케줄러�
 
 <a name="portal"></a>
 
-## <a name="define-a-schedule-in-the-portal"></a>포털에서 일정 정의
+## <a name="schedule-in-the-portal"></a>포털의 일정
 
 포털에서 데이터 가져오기 마법사를 사용 하 여 만들 때 인덱서의 일정을 정의할 수 있습니다. 기본 일정 설정은 **매시간**이며이는 인덱서를 만든 후 한 번 실행 하 고 나중에 1 시간 마다 다시 실행 함을 의미 합니다.
 
@@ -64,7 +64,7 @@ Scheduler는 Azure Search의 기본 제공 기능입니다. 외부 스케줄러�
 
 <a name="restApi"></a>
 
-## <a name="define-a-schedule-using-the-rest-api"></a>REST API를 사용 하 여 일정 정의
+## <a name="schedule-using-rest-apis"></a>REST Api를 사용 하 여 예약
 
 REST API를 사용 하 여 인덱서의 일정을 정의할 수 있습니다. 이렇게 하려면 인덱서를 만들거나 업데이트할 때 **schedule** 속성을 포함 합니다. 다음 예에서는 기존 인덱서를 업데이트 하는 PUT 요청을 보여 줍니다.
 
@@ -86,7 +86,7 @@ REST API를 사용 하 여 인덱서의 일정을 정의할 수 있습니다. �
 
 <a name="dotNetSdk"></a>
 
-## <a name="define-a-schedule-using-the-net-sdk"></a>.NET SDK를 사용 하 여 일정 정의
+## <a name="schedule-using-the-net-sdk"></a>.NET SDK를 사용 하 여 예약
 
 Azure Search .NET SDK를 사용 하 여 인덱서의 일정을 정의할 수 있습니다. 이렇게 하려면 인덱서를 만들거나 업데이트할 때 **schedule** 속성을 포함 합니다.
 

@@ -1,17 +1,17 @@
 ---
-title: 여러 구독 및 리소스 그룹에 Azure 리소스 배포 | Microsoft Docs
+title: 리소스 그룹 & Azure 리소스 간 구독 배포
 description: 배포 중에 둘 이상의 Azure 구독 및 리소스 그룹을 대상으로 지정하는 방법을 보여 줍니다.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 33b0a998206b68f1807f5bfa3c3f39164798842c
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c90096043f54eb8db5834fbe83ed1d6ae710d371
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205479"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528321"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포
 

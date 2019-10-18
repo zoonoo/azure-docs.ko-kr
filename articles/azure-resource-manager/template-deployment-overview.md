@@ -1,5 +1,5 @@
 ---
-title: Azure 리소스 관리자 템플릿
+title: Azure Resource Manager 템플릿
 description: 리소스 배포를 위해 Azure Resource Manager 템플릿을 사용 하는 방법을 설명 합니다.
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: tomfitz
 ms.openlocfilehash: 96f140cfa5e6151ad53ca242d1fc87ba3397316e
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 10/17/2019
 ms.locfileid: "71300145"
 ---
-# <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
+# <a name="azure-resource-manager-templates"></a>Azure Resource Manager 템플릿
 
 클라우드로 이동 하면 많은 팀에서 agile 개발 방법을 채택 했습니다. 이러한 팀은 빠르게 반복 됩니다. It는 솔루션을 클라우드에 반복적으로 배포 하 고 인프라가 신뢰할 수 있는 상태 인지를 알고 있어야 합니다. 인프라가 반복적인 프로세스의 일부가 되기 때문에 작업과 개발 간의 분할이 사라졌습니다. 팀은 통합 된 프로세스를 통해 인프라 및 응용 프로그램 코드를 관리 해야 합니다.
 
@@ -25,11 +25,11 @@ Azure 솔루션에 대 한 코드로 인프라를 구현 하려면 Azure Resourc
 
 리소스 관리자 템플릿과 다른 인프라 중 하나를 코드 서비스로 사용 하는 방법을 결정 하려는 경우 템플릿 사용 시 다음과 같은 이점을 고려 하세요.
 
-* **선언 구문**: 리소스 관리자 템플릿을 사용 하면 전체 Azure 인프라를 선언적으로 만들고 배포할 수 있습니다. 예를 들어 virtual machines 뿐만 아니라 네트워크 인프라, 저장소 시스템 및 필요한 기타 리소스도 배포할 수 있습니다.
+* **선언적 구문**: 리소스 관리자 템플릿을 사용 하면 전체 Azure 인프라를 선언적으로 만들고 배포할 수 있습니다. 예를 들어 virtual machines 뿐만 아니라 네트워크 인프라, 저장소 시스템 및 필요한 기타 리소스도 배포할 수 있습니다.
 
-* **반복 가능한 결과**: 개발 수명 주기 전반에 걸쳐 인프라를 반복적으로 배포 하 고 일관 된 방식으로 리소스를 배포할 수 있습니다. 템플릿은 idempotent입니다. 즉, 동일한 템플릿을 여러 번 배포 하 고 동일한 상태에서 동일한 리소스 종류를 가져올 수 있습니다. 업데이트를 나타내는 별도의 여러 템플릿을 개발 하는 대신 원하는 상태를 나타내는 하나의 템플릿을 개발할 수 있습니다.
+* **반복 가능한 결과**: 개발 수명 주기 전반에 걸쳐 인프라를 반복적으로 배포 하 고 리소스가 일관 된 방식으로 배포 되도록 합니다. 템플릿은 idempotent입니다. 즉, 동일한 템플릿을 여러 번 배포 하 고 동일한 상태에서 동일한 리소스 종류를 가져올 수 있습니다. 업데이트를 나타내는 별도의 여러 템플릿을 개발 하는 대신 원하는 상태를 나타내는 하나의 템플릿을 개발할 수 있습니다.
 
-* **오케스트레이션**: 정렬 작업의 복잡성에 대해 걱정 하지 않아도 됩니다. 리소스 관리자은 올바른 순서로 생성 되도록 상호 의존적인 리소스의 배포를 오케스트레이션 합니다. 가능 하면 리소스 관리자는 리소스가 병렬로 배포 되므로 배포가 직렬 배포 보다 더 빨리 완료 됩니다. 여러 명령적 명령을 통해서가 아니라 명령 하나를 통해 템플릿을 배포 합니다.
+* **오케스트레이션**: 순서 지정 작업의 복잡성에 대해 걱정 하지 않아도 됩니다. 리소스 관리자은 올바른 순서로 생성 되도록 상호 의존적인 리소스의 배포를 오케스트레이션 합니다. 가능 하면 리소스 관리자는 리소스가 병렬로 배포 되므로 배포가 직렬 배포 보다 더 빨리 완료 됩니다. 여러 명령적 명령을 통해서가 아니라 명령 하나를 통해 템플릿을 배포 합니다.
 
    ![템플릿 배포 비교](./media/template-deployment-overview/template-processing.png)
 
@@ -37,17 +37,17 @@ Azure 솔루션에 대 한 코드로 인프라를 구현 하려면 Azure Resourc
 
 * **모듈식 파일**: 템플릿을 더 작고 재사용 가능한 구성 요소로 나누고 배포 시 함께 연결할 수 있습니다. 하나의 템플릿을 다른 템플릿 내에 중첩할 수도 있습니다.
 
-* **모든 Azure 리소스를 만듭니다**. 템플릿에서 새로운 Azure 서비스 및 기능을 즉시 사용할 수 있습니다. 리소스 공급자가 새 리소스를 도입 하는 즉시 템플릿을 통해 해당 리소스를 배포할 수 있습니다. 새 서비스를 사용 하기 전에 도구 또는 모듈이 업데이트 될 때까지 기다릴 필요가 없습니다.
+* **Azure 리소스 만들기**: 템플릿에서 새로운 azure 서비스 및 기능을 즉시 사용할 수 있습니다. 리소스 공급자가 새 리소스를 도입 하는 즉시 템플릿을 통해 해당 리소스를 배포할 수 있습니다. 새 서비스를 사용 하기 전에 도구 또는 모듈이 업데이트 될 때까지 기다릴 필요가 없습니다.
 
 * **추적 된 배포**: Azure Portal에서 배포 기록을 검토 하 고 템플릿 배포에 대 한 정보를 가져올 수 있습니다. 배포 된 템플릿, 전달 된 매개 변수 값 및 출력 값을 볼 수 있습니다. 코드 서비스를 비롯 한 다른 인프라는 포털을 통해 추적 되지 않습니다.
 
    ![배포 기록](./media/template-deployment-overview/deployment-history.png)
 
-* **코드로 서의 정책**: [Azure Policy](../governance/policy/overview.md) 는 거 버 넌 스를 자동화 하는 코드 프레임 워크로 서의 정책입니다. Azure 정책을 사용 하는 경우 템플릿을 통해 배포 되는 경우 비규격 리소스에서 정책 관리가 수행 됩니다.
+* **코드를 코드로**: [Azure Policy](../governance/policy/overview.md) 는 거 버 넌 스를 자동화 하는 코드 프레임 워크로 서의 정책입니다. Azure 정책을 사용 하는 경우 템플릿을 통해 배포 되는 경우 비규격 리소스에서 정책 관리가 수행 됩니다.
 
-* **배포 청사진**: Microsoft에서 제공 하는 [청사진](../governance/blueprints/overview.md) 을 활용 하 여 규정 및 규정 준수 표준을 충족할 수 있습니다. 이러한 청사진에는 다양 한 아키텍처를 위한 미리 빌드된 템플릿이 포함 되어 있습니다.
+* **배포 청사진**: 규정 및 규정 준수 표준을 충족 하기 위해 Microsoft에서 제공 하는 [청사진](../governance/blueprints/overview.md) 을 활용할 수 있습니다. 이러한 청사진에는 다양 한 아키텍처를 위한 미리 빌드된 템플릿이 포함 되어 있습니다.
 
-* **CI/CD 통합**: 템플릿을 통합 및 CI/CD (연속 통합 및 지속적인 배포) 도구에 통합 하 여 빠르고 안정적인 응용 프로그램 및 인프라 업데이트를 위한 릴리스 파이프라인을 자동화할 수 있습니다. Azure DevOps 및 리소스 관리자 템플릿 작업을 사용 하 여 Azure Pipelines를 사용 하 여 Azure Resource Manager 템플릿 프로젝트를 지속적으로 빌드 및 배포할 수 있습니다. 자세히 알아보려면 [파이프라인을 사용한 VS 프로젝트](./vs-resource-groups-project-devops-pipelines.md) 및 [Azure Pipelines와의 연속 통합](./resource-manager-tutorial-use-azure-pipelines.md)을 참조 하세요.
+* **Ci/cd 통합**: 템플릿을 통합 및 CI/cd (연속 통합 및 연속 배포) 도구에 통합 하 여 빠르고 안정적인 응용 프로그램 및 인프라 업데이트를 위한 릴리스 파이프라인을 자동화할 수 있습니다. Azure DevOps 및 리소스 관리자 템플릿 작업을 사용 하 여 Azure Pipelines를 사용 하 여 Azure Resource Manager 템플릿 프로젝트를 지속적으로 빌드 및 배포할 수 있습니다. 자세히 알아보려면 [파이프라인을 사용한 VS 프로젝트](./vs-resource-groups-project-devops-pipelines.md) 및 [Azure Pipelines와의 연속 통합](./resource-manager-tutorial-use-azure-pipelines.md)을 참조 하세요.
 
 * **내보낼**수 있는 코드: 리소스 그룹의 현재 상태를 내보내거나 특정 배포에 사용 된 템플릿을 확인 하 여 기존 리소스 그룹에 대 한 템플릿을 가져올 수 있습니다. [내보낸 템플릿](export-template-portal.md)을 살펴보면 템플릿 구문에 대해 알아보는 데 도움이 됩니다.
 
@@ -126,4 +126,4 @@ REQUEST BODY
 ## <a name="next-steps"></a>다음 단계
 
 * 템플릿 파일의 속성에 대 한 자세한 내용은 [Azure Resource Manager 템플릿 구조 및 구문 이해](resource-group-authoring-templates.md)를 참조 하세요.
-* 템플릿 내보내기에 대 한 자세한 내용은 [빠른 시작: Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](./resource-manager-quickstart-create-templates-use-the-portal.md)를 참조하세요.
+* 템플릿 내보내기에 대 한 자세한 내용은 [빠른 시작: Azure Portal를 사용 하 여 Azure Resource Manager 템플릿 만들기 및 배포](./resource-manager-quickstart-create-templates-use-the-portal.md)를 참조 하세요.

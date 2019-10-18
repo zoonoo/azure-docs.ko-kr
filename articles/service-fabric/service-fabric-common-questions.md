@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 23479692e815b5dda010ec2035c206df15715347
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 28a0418fd94c03f1fe308c7cd6f17b6d9a331fb0
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167420"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529360"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric에 대해 자주 묻는 질문
 
@@ -104,10 +104,10 @@ Azure에서 실행되지 않는 클러스터의 경우 Service Fabric 노드 아
 Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 대한 책임은 귀하에게 있습니다. 클러스터의 가상 머신에서 OS 이미지를 업그레이드하고 한 번에 하나의 VM에서 수행해야 합니다. 
 
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>클러스터 노드 형식(가상 머신 확장 집합)의 연결된 데이터 디스크를 암호화할 수 있나요?
-예.  자세한 내용은 [연결된 데이터 디스크를 사용하여 클러스터 만들기](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [디스크 암호화(PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) 및 [디스크 암호화(CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md)를 참조하세요.
+예.  자세한 내용은 [연결 된 데이터 디스크를 사용 하 여 클러스터 만들기](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) 및 [Virtual Machine Scale Sets에 대 한 Azure Disk Encryption](../virtual-machine-scale-sets/disk-encryption-overview.md)를 참조 하세요.
 
 ### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>클러스터 노드 형식(가상 머신 확장 집합)에서 우선 순위가 낮은 VM을 사용할 수 있나요?
-아니요. 우선 순위가 낮은 VM은 지원되지 않습니다. 
+아닙니다. 우선 순위가 낮은 VM은 지원되지 않습니다. 
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>클러스터에서 바이러스 백신 프로그램을 실행하는 경우 제외해야 하는 디렉터리 및 프로세스는 무엇입니까?
 
@@ -136,7 +136,7 @@ Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 �
 다음은 애플리케이션을 keyVault로 인증하기 위해 자격 증명을 얻기 위한 방법입니다.
 
 A. 애플리케이션 빌드/압축 작업을 하는 동안 인증서를 SF 앱의 데이터 패키지로 가져오고, 이를 사용하여 KeyVault에 인증할 수 있습니다.
-2\. 가상 머신 확장 집합 MSI 사용 호스트의 경우 SF 앱에 대 한 간단한 PowerShell SetupEntryPoint를 개발 하 여 [msi 끝점에서 액세스 토큰](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)을 가져온 다음, [keyvault에서 비밀을 검색할](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret)수 있습니다.
+B. 가상 머신 확장 집합 MSI 사용 호스트의 경우 SF 앱에 대 한 간단한 PowerShell SetupEntryPoint를 개발 하 여 [msi 끝점에서 액세스 토큰](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)을 가져온 다음, [keyvault에서 비밀을 검색할](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret)수 있습니다.
 
 ## <a name="application-design"></a>애플리케이션 설계
 

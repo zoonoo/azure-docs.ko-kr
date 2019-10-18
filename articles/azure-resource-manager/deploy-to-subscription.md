@@ -1,17 +1,17 @@
 ---
-title: 구독에서 리소스 그룹 및 리소스 만들기-Azure Resource Manager 템플릿
+title: 구독 수준 Azure Resource Manager 템플릿 배포
 description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드는 방법을 설명합니다. 또한 Azure 구독 범위에서 리소스를 배포하는 방법도 보여 줍니다.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 913014a9b7e24345cd21979ba20ea1a1a938d022
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: d8b1be1d79ae0426d73c45408dd3c4f4f4660afb
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001608"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532200"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>구독 수준에서 리소스 그룹 및 리소스 만들기
 
@@ -153,7 +153,7 @@ Azure Resource Manager 템플릿에서 리소스 그룹을 만들려면 리소�
 }
 ```
 
-리소스 반복에 대한 자세한 내용은 [Azure Resource Manager 템플릿에서 두 개 이상의 리소스 또는 속성 인스턴스 배포](./resource-group-create-multiple.md) 및 [자습서: Resource Manager 템플릿을 사용하여 여러 리소스 인스턴스 만들기](./resource-manager-tutorial-create-multiple-instances.md)를 참조하세요.
+리소스 반복에 대 한 자세한 내용은 [Azure Resource Manager 템플릿에 리소스 또는 속성의 인스턴스](./resource-group-create-multiple.md)를 둘 이상 배포 및 [자습서: 리소스 관리자 템플릿을 사용 하 여 여러 리소스 인스턴스 만들기](./resource-manager-tutorial-create-multiple-instances.md)를 참조 하세요.
 
 ## <a name="resource-group-and-resources"></a>리소스 그룹 및 리소스
 

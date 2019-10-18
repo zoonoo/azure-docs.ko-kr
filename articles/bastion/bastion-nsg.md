@@ -5,49 +5,61 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4f99b24435998fc4d0c7ab724c66a318586a80d4
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 24279ff81daf0a350aa5234e78f27a99b7e4a03e
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694938"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528005"
 ---
-# <a name="working-with-nsg-access-and-azure-bastion-preview"></a>NSG 액세스 및 Azure 방호 (미리 보기) 작업
+# <a name="working-with-nsg-access-and-azure-bastion"></a>NSG 액세스 및 Azure 방호 작업
 
 Azure 방호에서 작업 하는 경우 NSGs (네트워크 보안 그룹)를 사용할 수 있습니다. 자세한 내용은 [보안 그룹](../virtual-network/security-overview.md)을 참조 하세요. 
 
-> [!IMPORTANT]
-> 이 공개 미리 보기는 Service Level Agreement(서비스 수준 약정)없이 제공되므로 프로덕션 워크로드에 사용하지 말아야 합니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
->
-
-![아키텍처](./media/bastion-nsg/nsg_architecture.png)
+![건축](./media/bastion-nsg/nsg-architecture.png)
 
 이 다이어그램에서
 
-* Bastion 호스트는 가상 네트워크에 배포되어 있습니다.
+* 요새 호스트는 가상 네트워크에 배포 됩니다.
 * 사용자는 HTML5 브라우저를 사용하여 Azure Portal에 연결합니다.
-* 사용자가 연결할 가상 머신을 선택합니다.
-* 한 번의 클릭으로 RDP/SSH 세션이 브라우저에서 열립니다.
+* 사용자가 Azure 가상 머신을 RDP/SSH로 이동 합니다.
+* 통합 연결-브라우저 내부에서 단일 클릭 RDP/SSH 세션
 * Azure VM에 공용 IP가 필요하지 않습니다.
 
 ## <a name="nsg"></a>네트워크 보안 그룹
 
-* **AzureBastionSubnet:** Azure 방호은 특정 AzureBastionSubnet 배포 됩니다.  
-    * **공용 인터넷에서 수신 되는 트래픽:** Azure 방호는 수신 트래픽에 대 한 공용 IP에서 포트 443를 사용 하도록 설정 해야 하는 공용 IP를 만듭니다. AzureBastionSubnet에서 포트 3389/22을 열 필요는 없습니다.
-    * **대상 Vm에 대 한 송신 트래픽:** Azure 방호는 개인 IP를 통해 대상 Vm에 도달 합니다. NSGs는 다른 대상 VM 서브넷에 대 한 송신 트래픽을 허용 해야 합니다.
+이 섹션에서는 사용자와 Azure 방호 간의 네트워크 트래픽과, 가상 네트워크의 대상 Vm에 대 한 네트워크 트래픽을 보여 줍니다.
+
+### <a name="azurebastionsubnet"></a>AzureBastionSubnet
+
+Azure 방호는 특히 AzureBastionSubnet에 배포 됩니다.
+
+* **수신 트래픽:**
+
+   * **공용 인터넷에서 수신 되는 트래픽:** Azure 방호는 수신 트래픽에 대 한 공용 IP에서 포트 443를 사용 하도록 설정 해야 하는 공용 IP를 만듭니다. AzureBastionSubnet에서 포트 3389/22을 열 필요는 없습니다.
+   * **Azure 방호 제어 평면의 수신 트래픽:** 제어 평면 연결의 경우 **Gmanager** 서비스 태그에서 포트 443 인바운드를 사용 하도록 설정 합니다. 그러면 제어 평면, 즉 게이트웨이 관리자가 Azure 방호와 통신할 수 있습니다.
+
+* **송신 트래픽:**
+
+   * **대상 vm에 대 한 송신 트래픽:** Azure 방호는 개인 IP를 통해 대상 Vm에 도달 합니다. NSGs는 포트 3389 및 22의 다른 대상 VM 서브넷에 송신 트래픽을 허용 해야 합니다.
+   * **Azure의 다른 공용 끝점에 대 한 송신 트래픽:** Azure 방호는 Azure 내에서 다양 한 공용 끝점 (예: 진단 로그 저장 및 계량 로그)에 연결할 수 있어야 합니다. 이러한 이유로 Azure 방호에는 443 ~ **Azurecloud** service 태그의 아웃 바운드가 필요 합니다.
+
 * **대상 VM 서브넷:** 이 서브넷은 RDP/SSH 하려는 대상 가상 머신을 포함 하는 서브넷입니다.
-    * **Azure 방호의 수신 트래픽:** Azure 방호는 개인 IP를 통해 대상 VM에 연결 됩니다. RDP/SSH 포트 (각각 포트 3389 및 22)는 개인 IP를 통해 대상 VM 쪽에서 열어야 합니다.
+
+   * **Azure 방호의 수신 트래픽:** Azure 방호는 개인 IP를 통해 대상 VM에 연결 됩니다. RDP/SSH 포트 (각각 포트 3389/22)는 개인 IP를 통해 대상 VM 쪽에서 열어야 합니다. 모범 사례로,이 규칙에서 Azure 방호 서브넷 IP 주소 범위를 추가 하 여, 대상 VM 서브넷의 대상 Vm에서 이러한 포트를 열 수만 있게 할 수 있습니다.
 
 ## <a name="apply"></a>AzureBastionSubnet에 NSGs 적용
 
-**AzureBastionSubnet**에 nsgs를 적용 하는 경우 Azure 제어 평면과 인프라에 대해 다음과 같은 두 가지 서비스 태그를 허용 합니다.
+***AzureBastionSubnet***에 nsg를 만들고 적용 하는 경우 nsg에서 다음 규칙을 추가 했는지 확인 합니다. 이러한 규칙을 추가 하지 않으면 NSG 생성/업데이트가 실패 합니다.
 
-* **게이트웨이 관리자 (리소스 관리자에만 해당)** : 이 태그는 Azure Gateway Manager 서비스의 주소 접두사를 나타냅니다. 값으로 Gmanager를 지정 하는 경우에는 게이트웨이 관리자에 대 한 트래픽이 허용 되거나 거부 됩니다.  AzureBastionSubnet에서 NSGs를 만드는 경우 인바운드 트래픽에 대해 Gmanager 태그를 사용 하도록 설정 합니다.
+* **제어 평면 연결:** 게이트웨이 관리자의 443에 대 한 인바운드
+* **진단 로깅 및 기타:** 443에 대 한 아웃 바운드를 AzureCloud로 설정 합니다. 이 서비스 태그 내의 지역 태그는 아직 지원 되지 않습니다.
+* **대상 VM:** 3389 및 22의 아웃 바운드 VirtualNetwork
 
-* **Azurecloud (리소스 관리자에만 해당)** : 이 태그는 모든 데이터 센터 공용 IP 주소를 포함 하는 Azure의 IP 주소 공간을 나타냅니다. 값에 대해 AzureCloud를 지정 하는 경우 Azure 공용 IP 주소에 대 한 트래픽이 허용 되거나 거부 됩니다. 특정 지역의 AzureCloud에만 액세스를 허용 하려는 경우 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서 Azure AzureCloud에만 액세스를 허용 하려는 경우 서비스 태그로 AzureCloud를 지정할 수 있습니다. AzureBastionSubnet에서 NSGs를 만드는 경우 아웃 바운드 트래픽에 대해 AzureCloud 태그를 사용 하도록 설정 합니다. 인터넷에 대 한 인바운드 포트 443을 여는 경우 인바운드 트래픽에 대해 AzureCloud 태그를 사용 하도록 설정할 필요가 없습니다.
+이 [빠른 시작 템플릿에서](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion)nsg 규칙 예제를 참조할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 방호에 대 한 자세한 내용은 [FAQ](bastion-faq.md) 를 참조 하세요.
+Azure 방호에 대 한 자세한 내용은 [FAQ](bastion-faq.md)를 참조 하세요.

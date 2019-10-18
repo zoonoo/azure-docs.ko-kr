@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell를 사용 하 여 Azure Resource Manager 그룹 관리 Microsoft Docs
+title: 리소스 그룹 관리-Azure PowerShell
 description: Azure PowerShell를 사용 하 여 Azure Resource Manager를 통해 리소스 그룹을 관리할 수 있습니다. 리소스 그룹을 만들고, 나열 하 고, 삭제 하는 방법을 보여 줍니다.
 services: azure-resource-manager
 documentationcenter: ''
@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 1e057bc484a0b526927654fafa8f88ae4a5b4deb
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 5a9768a3c4f398b3c3f88e2321f6df1a1b6fc8b7
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390421"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532169"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure Resource Manager 리소스 그룹 관리
 

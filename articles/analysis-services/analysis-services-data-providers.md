@@ -4,15 +4,15 @@ description: 클라이언트 애플리케이션 및 도구에서 Azure Analysis 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1ea14f141ed4fa698a21da8030878b04a81f1d08
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 89f8ffc58458ce75d1acd897f224f61bab9158b4
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298671"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512777"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Azure Analysis Services에 연결하기 위한 클라이언트 라이브러리
 
@@ -29,14 +29,14 @@ ms.locfileid: "72298671"
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO 및 ADOMD(NuGet 패키지)
 
-AMO(Analysis Services Management Objects) 및 ADOMD 클라이언트 라이브러리는 [NuGet.org](https://www.nuget.org/)에서 설치 가능한 패키지 형태로 제공됩니다. Windows Installer를 사용하는 대신 NuGet 참조로 마이그레이션하는 것이 좋습니다. 
+AMO (Analysis Services Management Objects) 및 ADOMD 클라이언트 라이브러리는 [NuGet.org](https://www.nuget.org/)에서 설치 가능한 패키지로 사용할 수 있습니다. Windows Installer를 사용 하는 대신 NuGet 참조로 마이그레이션하는 것이 좋습니다. 
 
 |패키지  | 제품 버전  | 
 |---------|---------|
 |[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.0.9     |
 |[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.0.9      |
 
-NuGet 패키지 어셈블리 AssemblyVersion은 유의적 버전 MAJOR.MINOR.PATCH를 따릅니다. NuGet 참조는 GAC에 다른 버전이 있더라도(MSI 설치의 결과) 필요한 버전을 로드합니다. 패치는 각 릴리스에 대해 증가합니다. AMO 및 ADOMD 버전은 동기 상태로 유지됩니다.
+NuGet 패키지 어셈블리 AssemblyVersion은 의미 체계 버전 지정 MAJOR.MINOR.PATCH를 따릅니다. NuGet 참조는 GAC에 다른 버전이 있더라도(MSI 설치의 결과) 필요한 버전을 로드합니다. 패치는 각 릴리스에 대해 증가합니다. AMO 및 ADOMD 버전은 동기 상태로 유지됩니다.
 
 ## <a name="understanding-client-libraries"></a>클라이언트 라이브러리 이해
 
@@ -44,7 +44,7 @@ Analysis Services는 데이터 공급자로도 알려진 세 가지 클라이언
 
 Power BI Desktop 및 Excel과 같은 Microsoft 클라이언트 애플리케이션은 이러한 세 가지 클라이언트 라이브러리를 모두 설치하고 새 버전이 사용 가능해지면 업데이트합니다. 업데이트의 버전 또는 빈도에 따라 일부 클라이언트 라이브러리가 Azure Analysis Services에서 요구하는 최신 버전이 아닐 수도 있습니다. 사용자 지정 애플리케이션, 또는 AsCmd, TOM, ADOMD.NET과 같은 다른 인터페이스에도 마찬가지입니다. 이러한 애플리케이션에서는 라이브러리를 수동으로 또는 프로그래밍 방식으로 설치해야 합니다. 수동 설치를 위한 클라이언트 라이브러리는 SQL Server 기능 팩에 배포 가능 패키지로 포함되어 있습니다. 그러나 이러한 클라이언트 라이브러리는 SQL Server 버전에 연결되며 최신 버전이 아닐 수도 있습니다.  
 
-클라이언트 연결을 위한 클라이언트 라이브러리는 Azure Analysis Services 서버에서 데이터 원본에 연결하는 데 필요한 데이터 공급자와는 다릅니다. 데이터 원본 연결에 대한 자세한 내용은 [데이터 원본 연결](analysis-services-datasource.md)을 참조하세요.
+클라이언트 연결을 위한 클라이언트 라이브러리는 Azure Analysis Services 서버에서 데이터 원본에 연결하는 데 필요한 데이터 공급자와는 다릅니다. 데이터 원본 연결에 대 한 자세한 내용은 [데이터 원본 연결](analysis-services-datasource.md)을 참조 하세요.
 
 ## <a name="client-library-types"></a>클라이언트 라이브러리 형식
 
@@ -72,7 +72,7 @@ Power BI Desktop 및 Excel과 같은 Microsoft 클라이언트 애플리케이�
   
 ### <a name="oleddb-msolap"></a>OLEDDB(MSOLAP)  
   
-1.  로 이동하세요.`C:\Program Files\Microsoft Analysis Services\AS OLEDB\` 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
+1.  `C:\Program Files\Microsoft Analysis Services\AS OLEDB\`로 이동합니다. 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
   
 2.  마우스 오른쪽 단추로 **msolap.dll** > **Properties** > **Details**를 클릭합니다. 파일 이름이 msolap140.dll이면 최신 버전보다 오래된 것이므로 업그레이드해야 합니다.
     
@@ -81,12 +81,12 @@ Power BI Desktop 및 Excel과 같은 Microsoft 클라이언트 애플리케이�
   
 ### <a name="amo"></a>AMO
 
-1. 로 이동하세요 `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\`. 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
+1. `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\`로 이동합니다. 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
 2. 마우스 오른쪽 단추로 **Microsoft.AnalysisServices** > **속성** > **세부 정보**를 클릭합니다.  
 
 ### <a name="adomd"></a>ADOMD
 
-1. 로 이동하세요 `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\` 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
+1. `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\`로 이동합니다. 둘 이상의 폴더가 있는 경우 더 높은 숫자를 선택합니다.
 2. 마우스 오른쪽 단추로 **Microsoft.AnalysisServices.AdomdClient** > **속성** > **세부 정보**를 클릭합니다.  
 
 

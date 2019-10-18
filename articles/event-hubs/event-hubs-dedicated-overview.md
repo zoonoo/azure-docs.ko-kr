@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ebc6dd672fd180e22cc1edf5c9978e0985427e50
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: f67be1d31125b21048deca4d9cafcc76f4ffc3b1
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991867"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516752"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Event Hubs Dedicated의 개요
 
@@ -50,18 +50,18 @@ ms.locfileid: "69991867"
 
 Event Hubs Dedicated 제품은 최소 4 시간 사용으로 고정 된 월별 가격으로 청구 됩니다. 전용 계층은 표준 요금제의 모든 기능을 제공 하지만, 엔터프라이즈 규모 용량과 워크 로드가 까다로운 고객에 대 한 제한을 제공 합니다. 
 
-| 기능 | 표준 | 전용 |
+| 기능 | Standard | 전용 |
 | --- |:---:|:---:|
-| 대역폭 | 20 Tu (최대 40 Tu) | 20 CUs |
+| Bandwidth | 20 Tu (최대 40 Tu) | 20 CUs |
 | 네임스페이스 |  1 | CU 당 50 |
-| Event Hubs |  네임 스페이스 당 10 | 1000 네임 스페이스 |
-| 수신 이벤트 | 100만 이벤트당 요금 부과 | 포함 |
+| Event Hubs(영문) |  네임 스페이스 당 10 | 1000 네임 스페이스 |
+| 수신 이벤트 | 100만 이벤트당 요금 부과 | 포함 항목 |
 | 메시지 크기 | 100만 바이트 | 100만 바이트 |
-| 파티션 | 40 네임 스페이스 | CU 당 2000 |
+| 파티션 | 32 이벤트 허브 당 | 1024 이벤트 허브 당 |
 | 소비자 그룹 | 이벤트 허브 당 20 | CU 당 제한 없음, 이벤트 허브 당 1000 |
 | 조정된 연결 | 1000 포함, 최대 5000 | 100 K 포함 및 최대 |
-| 메시지 보존기간 | TU 당 7 일, 84 GB 포함 | CU 당 90 일, 10TB 포함 |
-| 캡처 | 시간당 요금 부과 | 포함 |
+| 메시지 보존 | TU 당 7 일, 84 GB 포함 | CU 당 90 일, 10TB 포함 |
+| 캡처 | 시간당 요금 부과 | 포함 항목 |
 
 ## <a name="how-to-onboard"></a>등록 방법
 

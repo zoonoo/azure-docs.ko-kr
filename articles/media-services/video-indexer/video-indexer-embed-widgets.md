@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
 ms.openlocfilehash: fc0b447630b5e1ac360b1d84869cea02186672fc
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 10/17/2019
 ms.locfileid: "71036620"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>응용 프로그램에 Video Indexer 위젯 포함
 
-이 문서에서는 응용 프로그램에 Video Indexer 위젯을 포함 하는 방법을 보여 줍니다. Video Indexer에서는 세 가지 유형의 위젯을 응용 프로그램에 포함 하는 것을 지원 합니다. *인식 통찰력*, *플레이어*및 *편집자*. 
+이 문서에서는 응용 프로그램에 Video Indexer 위젯을 포함 하는 방법을 보여 줍니다. Video Indexer는 응용 프로그램에 세 가지 형식의 위젯을 포함 하는 것을 지원 합니다. *인식 통찰력*, *플레이어*및 *편집기*입니다. 
 
 버전 2부터 위젯 기준 URL에는 지정 된 계정의 지역이 포함 됩니다. 예를 들어 미국 서부 지역의 계정은 `https://wus2.videoindexer.ai/embed/insights/...`를 생성합니다.
 
@@ -29,36 +29,36 @@ ms.locfileid: "71036620"
 
 인식 통찰력 위젯은 비디오 인덱싱 프로세스에서 추출 된 모든 시각적 정보를 포함 합니다. 인식 정보 위젯은 다음과 같은 선택적 URL 매개 변수를 지원 합니다.
 
-|이름|정의|설명|
+|name|정의|설명|
 |---|---|---|
-|`widgets`|쉼표로 구분된 문자열|렌더링 하려는 정보를 제어할 수 있습니다. <br/> 예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` 사용자 및 브랜드 UI 정보를 렌더링 합니다.<br/>사용 가능한 옵션: people, keywords, annotations, brands, sentiments, transcript, search<br/>`widgets` URL 매개 변수는 버전 2에서 지원 되지 않습니다.<br/>|
-|`locale`|짧은 언어 코드|Insights 언어를 제어 합니다. 기본값은 `en`입니다. <br/> 예를 들어, `locale=de` 같은 형식입니다.|
-|`tab`|기본 선택 된 탭|기본적으로 렌더링 되는 **Insights** 탭을 제어 합니다. <br/> 예: `tab=timeline` **타임 라인** 탭이 선택 된 상태에서 정보를 렌더링 합니다.|
+|`widgets`|쉼표로 구분된 문자열|렌더링 하려는 정보를 제어할 수 있습니다. <br/> 예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`는 사람 및 브랜드 UI 정보를 렌더링 합니다.<br/>사용 가능한 옵션: people, keywords, annotations, brands, sentiments, transcript, search<br/>@No__t_0 URL 매개 변수는 버전 2에서 지원 되지 않습니다.<br/>|
+|`locale`|짧은 언어 코드|Insights 언어를 제어 합니다. 기본값은 `en`입니다. <br/> 예: `locale=de`.|
+|`tab`|기본 선택 된 탭|기본적으로 렌더링 되는 **Insights** 탭을 제어 합니다. <br/> 예: **타임 라인** 탭이 선택 된 상태에서 정보를 렌더링 하는 `tab=timeline`.|
 
 ### <a name="player-widget"></a>플레이어 위젯
 
 플레이어 위젯을 사용 하 여 적응 비트 전송률을 사용 하 여 비디오를 스트리밍할 수 있습니다. 플레이어 위젯은 다음과 같은 선택적 URL 매개 변수를 지원 합니다.
 
-|이름|정의|설명|
+|name|정의|설명|
 |---|---|---|
-|`t`|시작부터 초|지정 된 시간 지점에서 플레이어의 재생을 시작 합니다.<br/> 예를 들어, `t=60` 같은 형식입니다.|
-|`captions`|언어 코드|**캡션** 메뉴에서 위젯 로드를 사용할 수 있도록 지정 된 언어의 캡션을 페치합니다.<br/> 예를 들어, `captions=en-US` 같은 형식입니다.|
-|`showCaptions`|부울 값|플레이어가 자막을 사용하도록 설정된 상태로 로드되도록 합니다.<br/> 예를 들어, `showCaptions=true` 같은 형식입니다.|
-|`type`||오디오 플레이어 스킨을 활성화 합니다 (비디오 부분이 제거 됨).<br/> 예를 들어, `type=audio` 같은 형식입니다.|
-|`autoplay`|부울 값|플레이어가 로드 될 때 비디오 재생을 시작 해야 하는지 여부를 나타냅니다. 기본값은 `true`입니다.<br/> 예를 들어, `autoplay=false` 같은 형식입니다.|
-|`language`|언어 코드|플레이어 언어를 제어 합니다. 기본값은 `en-US`입니다.<br/>예를 들어, `language=de-DE` 같은 형식입니다.|
+|`t`|시작부터 초|지정 된 시간 지점에서 플레이어의 재생을 시작 합니다.<br/> 예: `t=60`.|
+|`captions`|언어 코드|**캡션** 메뉴에서 위젯 로드를 사용할 수 있도록 지정 된 언어의 캡션을 페치합니다.<br/> 예: `captions=en-US`.|
+|`showCaptions`|부울 값|플레이어가 자막을 사용하도록 설정된 상태로 로드되도록 합니다.<br/> 예: `showCaptions=true`.|
+|`type`||오디오 플레이어 스킨을 활성화 합니다 (비디오 부분이 제거 됨).<br/> 예: `type=audio`.|
+|`autoplay`|부울 값|플레이어가 로드 될 때 비디오 재생을 시작 해야 하는지 여부를 나타냅니다. 기본값은 `true`입니다.<br/> 예: `autoplay=false`.|
+|`language`|언어 코드|플레이어 언어를 제어 합니다. 기본값은 `en-US`입니다.<br/>예: `language=de-DE`.|
 
 ### <a name="editor-widget"></a>편집기 위젯
 
 편집기 위젯을 사용 하 여 새 프로젝트를 만들고 비디오의 정보를 관리할 수 있습니다. 편집기 위젯은 다음과 같은 선택적 URL 매개 변수를 지원 합니다.
 
-|이름|정의|Description|
+|name|정의|설명|
 |---|---|---|
-|`accessToken`<sup>*</sup>|String|위젯을 포함 하는 데 사용 되는 계정에만 있는 비디오에 대 한 액세스를 제공 합니다.<br> 편집기 위젯에는 `accessToken` 매개 변수가 필요 합니다.|
-|`language`|언어 코드|플레이어 언어를 제어 합니다. 기본값은 `en-US`입니다.<br/>예를 들어, `language=de-DE` 같은 형식입니다.|
-|`locale`|짧은 언어 코드|Insights 언어를 제어 합니다. 기본값은 `en`입니다.<br/>예를 들어, `language=de` 같은 형식입니다.|
+|`accessToken`<sup>*</sup>|string|위젯을 포함 하는 데 사용 되는 계정에만 있는 비디오에 대 한 액세스를 제공 합니다.<br> 편집기 위젯에는 `accessToken` 매개 변수가 필요 합니다.|
+|`language`|언어 코드|플레이어 언어를 제어 합니다. 기본값은 `en-US`입니다.<br/>예: `language=de-DE`.|
+|`locale`|짧은 언어 코드|Insights 언어를 제어 합니다. 기본값은 `en`입니다.<br/>예: `language=de`.|
 
-<sup>*</sup>소유자는 신중 하 `accessToken` 게 제공 해야 합니다.
+<sup>*</sup> 소유자는 `accessToken`을 주의 해 서 제공 해야 합니다.
 
 ## <a name="embedding-public-content"></a>공용 콘텐츠 포함
 
@@ -76,7 +76,7 @@ ms.locfileid: "71036620"
     ![위젯](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
 > [!NOTE]
-> 비디오 url을 공유 하는 데 문제가 있는 경우 `location` 매개 변수를 링크에 추가 합니다. 매개 변수는 [Video Indexer 있는 Azure 지역](regions.md)으로 설정 해야 합니다. 예를 들어 `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`을 참조하십시오.
+> 비디오 Url을 공유 하는 데 문제가 있는 경우 링크에 `location` 매개 변수를 추가 합니다. 매개 변수는 [Video Indexer 있는 Azure 지역](regions.md)으로 설정 해야 합니다. 예: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 ## <a name="embedding-private-content"></a>프라이빗 콘텐츠 포함
 
@@ -88,7 +88,7 @@ ms.locfileid: "71036620"
 - [Insights 위젯 가져오기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) API입니다.<br/>
 - [비디오 액세스 토큰을 가져옵니다](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?). URL에 쿼리 매개 변수로 추가 합니다. 앞에서 설명한 것 처럼이 URL을 iframe의 **src** 값으로 지정 합니다.
 
-포함 된 위젯에 편집 정보 기능을 제공 하려면 편집 권한을 포함 하는 액세스 토큰을 전달 해야 합니다. 에서 [Insights 위젯 가져오기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) 또는 [비디오 액세스 토큰 가져오기](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) 를 `&allowEdit=true`사용 합니다. 
+포함 된 위젯에 편집 정보 기능을 제공 하려면 편집 권한을 포함 하는 액세스 토큰을 전달 해야 합니다. @No__t_2에서 [Insights 위젯 가져오기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) 또는 [비디오 액세스 토큰 가져오기](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) 를 사용 합니다. 
 
 ## <a name="widgets-interaction"></a>위젯 상호 작용
 
@@ -186,7 +186,7 @@ Azure Media Player 이외의 비디오 플레이어를 사용 하는 경우 비�
         </video>    
 
 2. 인지 인사이트 위젯을 포함합니다.
-3. "메시지" 이벤트를 수신 대기하여 플레이어에 대한 통신을 구현합니다. 예:
+3. "메시지" 이벤트를 수신 대기하여 플레이어에 대한 통신을 구현합니다. 다음은 그 예입니다.
 
         <script>
     
@@ -227,7 +227,7 @@ Azure Media Player 이외의 비디오 플레이어를 사용 하는 경우 비�
 
 ### <a name="cognitive-insights-widget"></a>인지 인사이트 위젯
 
-원하는 유형의 정보를 선택할 수 있습니다. 이렇게 하려면 API 또는 웹 응용 프로그램 `&widgets=<list of wanted widgets>`에서 가져온 embed 코드에 추가 되는 다음 URL 매개 변수에 값으로 지정 합니다.
+원하는 유형의 정보를 선택할 수 있습니다. 이렇게 하려면 API 또는 웹 응용 프로그램에서 가져온 embed 코드에 추가 되는 다음 URL 매개 변수에 대 한 값으로 지정 합니다. `&widgets=<list of wanted widgets>` 합니다.
 
 가능한 값은 **사람**, **키워드**, **정서**, **성적 증명서**및 **검색**입니다.
 
@@ -235,7 +235,7 @@ Azure Media Player 이외의 비디오 플레이어를 사용 하는 경우 비�
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`
 
-iframe 창의 제목도 iframe URL에 `&title=<YourTitle>`을 제공하여 사용자 지정할 수 있습니다. (> 값) HTML \<제목을 사용자 지정 합니다.
+iframe 창의 제목도 iframe URL에 `&title=<YourTitle>`을 제공하여 사용자 지정할 수 있습니다. HTML \<title > 값)을 사용자 지정 합니다.
     
 예를 들어 iframe 창에 "MyInsights"라는 제목을 지정하려는 경우 URL은 다음과 같습니다.
 
@@ -247,22 +247,22 @@ iframe 창의 제목도 iframe URL에 `&title=<YourTitle>`을 제공하여 사�
 
 Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하여 플레이어 크기를 선택할 수 있습니다.
 
-예:
+다음은 그 예입니다.
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
 기본적으로 Video Indexer 플레이어는 비디오의 성적을 바탕으로 자동 생성 된 폐쇄 캡션을 가집니다. 비디오에서 비디오를 업로드할 때 선택한 원본 언어로 인 증명서가 추출 됩니다.
 
-다른 언어로 포함 하려는 경우 포함 플레이어 URL에를 추가할 `&captions=< Language | ”all” | “false” >` 수 있습니다. 사용 가능한 모든 언어 캡션에 캡션을 원하는 경우 값 `all`을 사용 합니다. 자막을 기본적으로 표시하려면 `&showCaptions=true`를 전달하면 됩니다.
+다른 언어로 포함 하려는 경우 포함 플레이어 URL에 `&captions=< Language | ”all” | “false” >`를 추가할 수 있습니다. 사용 가능한 모든 언어 캡션에 캡션을 원하는 경우 `all` 값을 사용 합니다. 자막을 기본적으로 표시하려면 `&showCaptions=true`를 전달하면 됩니다.
 
 그러면 포함 URL이 다음과 같습니다. 
 
 `https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian`
 
-캡션을 사용 하지 않도록 설정 하려면 `captions` 매개 변수 값을로 `false`전달 하면 됩니다.
+캡션을 사용 하지 않도록 설정 하려면 `captions` 매개 변수 값을 `false` 전달 하면 됩니다.
 
 #### <a name="autoplay"></a>재생
-기본적으로 플레이어는 비디오 재생을 시작 합니다. 이전 embed URL에 전달 `&autoplay=false` 하 여 하지 않도록 선택할 수 있습니다.
+기본적으로 플레이어는 비디오 재생을 시작 합니다. 이전 embed URL에 `&autoplay=false` 전달 하 여 하지 않도록 선택할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

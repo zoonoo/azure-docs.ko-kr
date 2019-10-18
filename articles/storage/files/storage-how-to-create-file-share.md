@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 000dacb7530b52784a68663d295fde9784d50e29
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 3b30df7410f56c203eb600089cce130a8de23d1b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013573"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514610"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Azure Files에 파일 공유 만들기
  [Azure Portal](https://portal.azure.com/), Azure Storage PowerShell cmdlet, Azure Storage 클라이언트 라이브러리 또는 Azure Storage REST API를 사용하여 Azure 파일 공유를 만들 수 있습니다. 이 자습서에서는 다음에 대해 알아봅니다.
@@ -20,8 +20,11 @@ ms.locfileid: "70013573"
 * [Powershell을 사용하여 Azure 파일 공유를 만드는 방법](#create-file-share-through-powershell)
 * [CLI를 사용하여 Azure 파일 공유를 만드는 방법](#create-file-share-through-command-line-interface-cli)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 Azure 파일 공유를 만들려면 이미 존재하는 저장소 계정을 사용하거나 [새 Azure Storage 계정을 만들](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 수 있습니다. PowerShell을 사용하여 Azure 파일 공유를 만들려면 스토리지 계정의 계정 키와 이름이 필요합니다. Powershell 또는 CLI를 사용하려면 스토리지 계정 키가 필요합니다.
+
+> [!NOTE]
+> 5 TiB 보다 큰 파일 공유를 만들려면 [대용량 파일 공유 사용](storage-files-how-to-create-large-file-share.md)문서를 참조 하세요.
 
 ## <a name="create-a-file-share-through-the-azure-portal"></a>Azure Portal을 통해 파일 공유 만들기
 1. **Azure Portal에서 스토리지 계정 블레이드로 이동합니다**.    
@@ -30,14 +33,14 @@ Azure 파일 공유를 만들려면 이미 존재하는 저장소 계정을 사�
 2. **파일 공유 추가 단추를 클릭합니다**.    
     ![파일 공유 단추 클릭](./media/storage-how-to-create-file-share/create-file-share-portal2.png)
 
-3. **이름과 할당량을 제공합니다. 할당량의 현재 최댓값은 5TiB입니다**.    
+3. **이름 및 할당량을 제공**합니다.    
     ![새 파일 공유에 대한 이름과 원하는 할당량 제공](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
-4. **새 파일 공유 보기**:  ![새 파일 공유 보기](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
+4. **새 파일 공유를 확인합니다**. ![새 파일 공유 보기](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
 
-5. **파일 업로드**:  ![파일 업로드](./media/storage-how-to-create-file-share/create-file-share-portal5.png)
+5. **파일을 업로드합니다**. ![파일 업로드](./media/storage-how-to-create-file-share/create-file-share-portal5.png)
 
-6. **파일 공유를 찾아보고 디렉터리와 파일을 관리합니다**.  ![파일 공유 찾아보기](./media/storage-how-to-create-file-share/create-file-share-portal6.png)
+6. **파일 공유를 찾아보고 디렉터리와 파일을 관리합니다**. ![파일 공유 찾아보기](./media/storage-how-to-create-file-share/create-file-share-portal6.png)
 
 
 ## <a name="create-file-share-through-powershell"></a>PowerShell 통해 파일 공유 만들기

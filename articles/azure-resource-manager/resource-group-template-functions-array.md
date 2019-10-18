@@ -1,17 +1,17 @@
 ---
-title: Azure Resource Manager 템플릿 함수 - 배열 및 개체 | Microsoft Docs
+title: Azure Resource Manager 템플릿 함수-배열 및 개체
 description: 배열 및 개체 작업을 위해 Azure Resource Manager 템플릿에서 사용할 수 있는 함수에 대해 설명합니다.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: cd4a74a9e9e9bb1c91a0a7a103a1cfb861fa7770
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 3366a1be88043c792de8efa3b0d0ab735e558e2a
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194417"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528493"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에 대한 배열 및 개체 함수
 
@@ -29,7 +29,7 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 * [last](#last)
 * [length](#length)
 * [max](#max)
-* [분](#min)
+* [min](#min)
 * [range](#range)
 * [skip](#skip)
 * [take](#take)
@@ -41,16 +41,16 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="array"></a>배열
+## <a name="array"></a>array
 `array(convertToArray)`
 
 값을 배열로 변환합니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| convertToArray |예 |int, string, array, 또는 object |배열로 변환할 값입니다. |
+| convertToArray |yes |int, 문자열, 배열 또는 개체 |배열로 변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -99,11 +99,11 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| intOutput | Array | [1] |
-| stringOutput | Array | ["efgh"] |
-| objectOutput | Array | [{"a": "b", "c": "d"}] |
+| intOutput | 배열 | [1] |
+| stringOutput | 배열 | ["efgh"] |
+| objectOutput | 배열 | [{"a": "b", "c": "d"}] |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -124,12 +124,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 매개 변수에서 첫 번째 null이 아닌 값을 반환합니다. 빈 문자열, 빈 배열 및 빈 개체는 null이 아닙니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |int, string, array, 또는 object |null인지 테스트할 첫 번째 값입니다. |
-| 추가 인수 |아니요 |int, string, array, 또는 object |null인지 테스트할 추가 값입니다. |
+| arg1 |yes |int, 문자열, 배열 또는 개체 |null인지 테스트할 첫 번째 값입니다. |
+| 추가 인수 |아닙니다. |int, 문자열, 배열 또는 개체 |null인지 테스트할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -185,12 +185,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| stringOutput | String | 기본 |
+| stringOutput | string | 기본값 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"first": "default"} |
-| arrayOutput | Array | [1] |
+| arrayOutput | 배열 | [1] |
 | emptyOutput | Bool | True |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
@@ -212,12 +212,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 여러 배열을 결합하고 연결된 배열을 반환하거나 여러 문자열 값을 결합하고 연결된 문자열을 반환합니다. 
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |배열 또는 문자열 |연결을 위한 첫 번째 배열 또는 문자열입니다. |
-| 추가 인수 |아니요 |배열 또는 문자열 |연결 순서로 나타낸 추가 배열 또는 문자열입니다. |
+| arg1 |yes |배열 또는 문자열 |연결을 위한 첫 번째 배열 또는 문자열입니다. |
+| 추가 인수 |아닙니다. |배열 또는 문자열 |연결 순서로 나타낸 추가 배열 또는 문자열입니다. |
 
 이 함수는 인수를 개수에 관계없이 사용할 수 있으며 매개 변수에 대한 문자열이나 배열 중 하나를 사용할 수 있습니다.
 
@@ -263,9 +263,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| return | 배열 | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -303,9 +303,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput | string | prefix-5yj4yjf5mbg72 |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -326,12 +326,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 배열에 값이 포함되는지, 개체에 키가 포함되는지 또는 문자열에 하위 문자열이 포함되는지를 확인합니다. 문자열 비교에서는 대/소문자를 구분합니다. 그러나 개체에 키가 포함되어 있는지를 테스트할 때는 비교에서 대/소문자를 구분하지 않습니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
-| itemToFind |예 |문자열 또는 int |찾을 값입니다. |
+| container |yes |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
+| itemToFind |yes |문자열 또는 int |찾을 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -392,14 +392,14 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
-| stringFalse | Bool | False |
+| stringFalse | Bool | false |
 | objectTrue | Bool | True |
-| objectFalse | Bool | False |
+| objectFalse | Bool | false |
 | arrayTrue | Bool | True |
-| arrayFalse | Bool | False |
+| arrayFalse | Bool | false |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -420,12 +420,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 매개 변수에서 배열을 만듭니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |문자열, 정수, 배열 또는 개체 |배열의 첫 번째 값입니다. |
-| 추가 인수 |아니요 |문자열, 정수, 배열 또는 개체 |배열의 추가 값입니다. |
+| arg1 |yes |문자열, 정수, 배열 또는 개체 |배열의 첫 번째 값입니다. |
+| 추가 인수 |아닙니다. |문자열, 정수, 배열 또는 개체 |배열의 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -474,12 +474,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| stringArray | Array | ["a", "b", "c"] |
-| intArray | Array | [1, 2, 3] |
-| objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
-| arrayArray | Array | [["one", "two", "three"]] |
+| stringArray | 배열 | ["a", "b", "c"] |
+| intArray | 배열 | [1, 2, 3] |
+| objectArray | 배열 | [{"one": "a", "two": "b", "three": "c"}] |
+| arrayArray | 배열 | [["one", "two", "three"]] |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -501,11 +501,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 배열, 개체 또는 문자열이 비어 있는지를 확인합니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
+| itemToTest |yes |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -554,7 +554,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -579,11 +579,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 배열의 첫 번째 요소 또는 문자열의 첫 번째 문자를 반환합니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |배열 또는 문자열 |첫 번째 요소 또는 문자를 검색할 값입니다. |
+| arg1 |yes |배열 또는 문자열 |첫 번째 요소 또는 문자를 검색할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -620,10 +620,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | String | one |
-| stringOutput | String | O |
+| arrayOutput | string | 1 |
+| stringOutput | string | O |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -644,13 +644,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 매개 변수에서 공통 요소를 갖는 단일 배열 또는 개체를 반환합니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 첫 번째 값입니다. |
-| arg2 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 두 번째 값입니다. |
-| 추가 인수 |아니요 |배열 또는 개체 |공통 요소를 찾는 데 사용할 추가 값입니다. |
+| arg1 |yes |배열 또는 개체 |공통 요소를 찾는 데 사용할 첫 번째 값입니다. |
+| arg2 |yes |배열 또는 개체 |공통 요소를 찾는 데 사용할 두 번째 값입니다. |
+| 추가 인수 |아닙니다. |배열 또는 개체 |공통 요소를 찾는 데 사용할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -699,10 +699,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
-| arrayOutput | Array | ["two", "three"] |
+| arrayOutput | 배열 | ["two", "three"] |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -716,16 +716,16 @@ PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
 ```
 
-## <a name="json"></a>JSON
+## <a name="json"></a>json :
 `json(arg1)`
 
 JSON 개체를 반환합니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |string |JSON으로 변환할 값입니다. |
+| arg1 |yes |문자열 |JSON으로 변환할 값입니다. |
 
 
 ### <a name="return-value"></a>반환 값
@@ -771,7 +771,7 @@ JSON 개체에 매개 변수 값이나 변수를 포함해야 하는 경우 [con
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | jsonOutput | Object | {"a": "b"} |
 | nullOutput | Boolean | True |
@@ -796,11 +796,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 배열의 마지막 요소 또는 문자열의 마지막 문자를 반환합니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |배열 또는 문자열 |마지막 요소 또는 문자를 검색할 값입니다. |
+| arg1 |yes |배열 또는 문자열 |마지막 요소 또는 문자를 검색할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -837,10 +837,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | String | three |
-| stringOutput | String | e |
+| arrayOutput | string | 3 |
+| stringOutput | string | e |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -861,11 +861,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 배열의 요소 수, 문자열의 문자 또는 개체의 루트 수준 속성을 반환 합니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |array, string 또는 object |요소 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준 속성의 수를 가져오는 데 사용할 개체입니다. |
+| arg1 |yes |array, string 또는 object |요소 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준 속성의 수를 가져오는 데 사용할 개체입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -925,10 +925,10 @@ int입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| arrayLength | int | 3 |
-| stringLength | int | 13 |
+| arrayLength | Int | 3 |
+| stringLength | Int | 13 |
 | objectLength | Int | 4 |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
@@ -956,16 +956,16 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="max" />
 
-## <a name="max"></a>최대
+## <a name="max"></a>max
 `max(arg1)`
 
 정수 배열 또는 쉼표로 구분된 정수 목록 중에서 최대값을 반환합니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
+| arg1 |yes |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1001,7 +1001,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
@@ -1020,16 +1020,16 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>min
+## <a name="min"></a>분
 `min(arg1)`
 
 정수 배열 또는 쉼표로 구분된 정수 목록 중에서 최소값을 반환합니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
+| arg1 |yes |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1065,7 +1065,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -1089,12 +1089,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 시작 정수 및 항목의 수를 포함하는 정수 배열을 만듭니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | Description |
+| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| startingInteger |예 |int |배열에서 첫 번째 정수입니다. |
-| numberofElements |예 |int |배열에 있는 정수의 수입니다. |
+| startingInteger |yes |int |배열에서 첫 번째 정수입니다. |
+| numberofElements |yes |int |배열에 있는 정수의 수입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1130,9 +1130,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| rangeOutput | Array | [5, 6, 7] |
+| rangeOutput | 배열 | [5, 6, 7] |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -1148,17 +1148,17 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="skip" />
 
-## <a name="skip"></a>건너뛰기
+## <a name="skip"></a>skip
 `skip(originalValue, numberToSkip)`
 
 배열에서 지정된 숫자 이후의 모든 요소를 포함하는 배열을 반환하거나 문자열에서 지정된 숫자 이후의 모든 숫자를 포함하는 문자열을 반환합니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| originalValue |예 |배열 또는 문자열 |건너뛰는 데 사용할 배열 또는 문자열입니다. |
-| numberToSkip |예 |int |건너뛸 요소 또는 문자 수입니다. 이 값이 0 이하이면 값의 모든 요소 또는 문자가 반환됩니다. 이 값이 배열 또는 문자열의 길이보다 크면 빈 배열 또는 문자열이 반환됩니다. |
+| originalValue |yes |배열 또는 문자열 |건너뛰는 데 사용할 배열 또는 문자열입니다. |
+| numberToSkip |yes |int |건너뛸 요소 또는 문자 수입니다. 이 값이 0 이하이면 값의 모든 요소 또는 문자가 반환됩니다. 이 값이 배열 또는 문자열의 길이보다 크면 빈 배열 또는 문자열이 반환됩니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1210,10 +1210,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | Array | ["three"] |
-| stringOutput | String | two three |
+| arrayOutput | 배열 | ["three"] |
+| stringOutput | string | two three |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -1234,12 +1234,12 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 배열 시작부터 지정된 수의 요소를 포함하는 배열 또는 문자열 시작부터 지정된 수의 문자를 포함하는 문자열을 반환합니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| originalValue |예 |배열 또는 문자열 |요소를 가져올 배열 또는 문자열입니다. |
-| numberToTake |예 |int |수락할 요소 또는 문자의 수입니다. 이 값이 0 이하이면 빈 배열 또는 문자열이 반환됩니다. 지정된 배열 또는 문자열의 길이보다 크면 배열 또는 문자열의 모든 요소가 반환됩니다. |
+| originalValue |yes |배열 또는 문자열 |요소를 가져올 배열 또는 문자열입니다. |
+| numberToTake |yes |int |수락할 요소 또는 문자의 수입니다. 이 값이 0 이하이면 빈 배열 또는 문자열이 반환됩니다. 지정된 배열 또는 문자열의 길이보다 크면 배열 또는 문자열의 모든 요소가 반환됩니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1291,10 +1291,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| name | Type | Value |
 | ---- | ---- | ----- |
-| arrayOutput | Array | ["one", "two"] |
-| stringOutput | String | on |
+| arrayOutput | 배열 | ["one", "two"] |
+| stringOutput | string | on |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -1315,13 +1315,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 매개 변수의 모든 요소를 포함하는 단일 배열 또는 개체를 반환합니다. 중복된 값 또는 키는 한 번만 포함됩니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 첫 번째 값입니다. |
-| arg2 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 두 번째 값입니다. |
-| 추가 인수 |아니요 |배열 또는 개체 |요소를 조인하는 데 사용할 추가 값입니다. |
+| arg1 |yes |배열 또는 개체 |요소를 조인하는 데 사용할 첫 번째 값입니다. |
+| arg2 |yes |배열 또는 개체 |요소를 조인하는 데 사용할 두 번째 값입니다. |
+| 추가 인수 |아닙니다. |배열 또는 개체 |요소를 조인하는 데 사용할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1370,10 +1370,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| name | Type | Value |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
-| arrayOutput | Array | ["one", "two", "three", "four"] |
+| arrayOutput | 배열 | ["one", "two", "three", "four"] |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 

@@ -1,17 +1,17 @@
 ---
-title: Azure 리소스를 새 구독 또는 리소스 그룹으로 이동할 때 발생 하는 오류 문제 해결
+title: 이동 오류 문제 해결-Azure Resource Manager
 description: Azure Resource Manager를 사용하여 리소스를 새 리소스 그룹 또는 구독으로 이동합니다.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: d56f6a5ffe01540b9ce1e5a20ec628a90da594c6
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 383098ab227013119bca668b42035c93334c8464
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061787"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533345"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Azure 리소스를 새 리소스 그룹 또는 구독으로 이동 하는 문제 해결
 

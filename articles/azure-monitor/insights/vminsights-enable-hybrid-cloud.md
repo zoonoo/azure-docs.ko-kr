@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.date: 10/15/2019
 ms.author: magoedte
-ms.openlocfilehash: b06fe477f551977b1357f3b1b185cb340a948052
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
-ms.translationtype: MT
+ms.openlocfilehash: f4c483c36dc7a19e3e16dcaabab10af03cdfe17e
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905490"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515506"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>하이브리드 환경에 대 한 VM용 Azure Monitor (미리 보기) 사용
 
@@ -55,7 +55,7 @@ ms.locfileid: "69905490"
 
 다음 표에는 명령줄에서 에이전트 설정을 통해 지원되는 매개 변수가 강조 표시되어 있습니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 |:--|:--|
 | /? | 명령줄 옵션의 목록을 반환합니다. |
 | /S | 사용자 상호 작용 없이 자동 설치를 수행합니다. |
@@ -72,15 +72,15 @@ Dependency Agent는 셀프 추출 이진이 포함된 셸 스크립트인 *Insta
 > 에이전트를 설치 또는 구성하려면 루트 액세스가 필요합니다.
 >
 
-| 매개 변수 | Description |
+| 매개 변수를 포함해야 합니다. | 설명 |
 |:--|:--|
 | -help | 명령줄 옵션 목록을 가져옵니다. |
-| -S | 사용자 프롬프트 없이 자동 설치를 수행합니다. |
+| -s | 사용자 프롬프트 없이 자동 설치를 수행합니다. |
 | --check | 권한 및 운영 체제를 확인하지만 에이전트는 설치하지 않습니다. |
 
 예를 들어 `-help` 매개 변수를 사용 하 여 설치 프로그램을 실행 하려면 **installdependencyagent-linux64.bin-help**를 입력 합니다.
 
-명령을 `sh InstallDependencyAgent-Linux64.bin`실행 하 여 루트로 Linux 종속성 에이전트를 설치 합니다.
+@No__t_0 명령을 실행 하 여 루트로 Linux 종속성 에이전트를 설치 합니다.
 
 Dependency Agent를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Linux 에이전트에서 로그 디렉터리는 */var/opt/microsoft/dependency-agent/log*입니다.
 
@@ -206,24 +206,6 @@ Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해�
                             "product": "[Concat('OMSGallery/', 'ServiceMap')]",
                             "promotionCode": ""
                         }
-                    },
-                    {
-                        "apiVersion": "2015-11-01-preview",
-                        "location": "[parameters('WorkspaceLocation')]",
-                        "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                        "type": "Microsoft.OperationsManagement/solutions",
-                        "dependsOn": [
-                            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        ],
-                        "properties": {
-                            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        },
-                        "plan": {
-                            "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                            "publisher": "Microsoft",
-                            "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
-                            "promotionCode": ""
-                        }
                     }
                 ]
             }
@@ -256,9 +238,9 @@ Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해�
 
 1. 종속성 에이전트가 성공적으로 설치되었나요? 서비스가 설치되어 실행 중인지 확인하여 성공적인 설치 여부를 검사할 수 있습니다.
 
-    **Windows**: "Microsoft 종속성 에이전트"라는 서비스를 찾아봅니다. 
+    **Windows**: “Microsoft 종속성 에이전트”라는 서비스를 찾아봅니다. 
 
-    **Linux**: "microsoft-dependency-agent" 실행 프로세스를 찾아봅니다.
+    **Linux**: “microsoft-dependency-agent” 실행 프로세스를 찾아봅니다.
 
 2. [Log Analytics의 무료 가격 책정 계층](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)에 있나요? 무료 요금제에서는 최대 5 개의 고유 컴퓨터를 사용할 수 있습니다. 이전 5 개에서 더 이상 데이터를 전송 하지 않는 경우에도 모든 후속 컴퓨터가 맵에 표시 되지 않습니다.
 
@@ -281,7 +263,6 @@ C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log 파일(Windows) 또
 
 이제 가상 머신에 대 한 모니터링을 사용 하도록 설정 했으므로이 정보는 VM용 Azure Monitor 분석에 사용할 수 있습니다.
  
-- 상태 기능을 사용 하는 방법에 대 한 자세한 내용은 [VM용 Azure Monitor 상태 보기](vminsights-health.md)를 참조 하세요.
 - 검색된 애플리케이션 종속성을 보려면 [VM용 Azure Monitor 맵 보기](vminsights-maps.md)를 참조하세요.
+
 - VM의 성능에 대 한 병목 및 전반적인 사용률을 식별 하려면 [AZURE vm 성능 보기](vminsights-performance.md)를 참조 하세요.
-- 검색된 애플리케이션 종속성을 보려면 [VM용 Azure Monitor 맵 보기](vminsights-maps.md)를 참조하세요.

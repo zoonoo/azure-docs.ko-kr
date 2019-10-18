@@ -7,12 +7,12 @@ services: service-health
 ms.service: service-health
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: a6f6288aebe599db794a7f15fc733563d26c66cc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3e3c83b7233ad4da263dec31c6012209ebaca0fe
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067106"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515855"
 ---
 # <a name="service-health-overview"></a>Service Health 개요
 
@@ -27,7 +27,7 @@ Service Health는 리소스에 영향을 줄 수 있는 다음과 같은 세 가
 3. **상태 자문** - 주의가 필요한 Azure 서비스의 변경 내용입니다. Azure 기능이 사용되지 않거나 사용 할당량을 초과하는 경우를 예로 들 수 있습니다.
 
 > [!NOTE]
-> Service Health 이벤트를 보려면 사용자에게 구독의 reader 역할이 있어야 합니다.
+> Service Health 이벤트를 보려면 사용자에 게 구독에 대 한 [읽기 권한자 역할을 부여](../role-based-access-control/role-assignments-portal.md) 해야 합니다.
 
 ## <a name="get-started-with-service-health"></a>Service Health 시작
 
@@ -71,4 +71,4 @@ Service Health는 Azure Monitor와 통합되어 업무상 중요한 리소스가
 
 ## <a name="next-steps"></a>다음 단계
 
-상태 문제 알림을 받도록 경고를 설정합니다. 자세한 내용은 [Azure 서비스 상태 경고를 설정 하는 것에 대 한 유용한](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s)합니다. 
+상태 문제 알림을 받도록 경고를 설정합니다. 자세한 내용은 [Azure Service Health 경고 설정 모범 사례](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s)를 참조 하세요. 

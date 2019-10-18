@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: e145c7af3ff3cdd6d3cca2a7b0da0fdc23a418b7
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 398da52ba424c08bd1bbdc6f02641109e136f45c
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72245254"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72511500"
 ---
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -89,7 +89,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
      az keyvault update --name "<your-unique-keyvault-name>" --resource-group "MyResourceGroup" --enabled-for-deployment "true"
      ``` 
 
- - **필요한 경우 템플릿 배포에 Key Vault 사용:** Resource Manager가 자격 증명 모음에서 비밀을 검색할 수 있습니다.
+ - **필요한 경우 템플릿 배포에 Key Vault 사용:** Resource Manager에서 자격 증명 모음으로부터 비밀을 검색할 수 있도록 허용합니다.
      ```azurecli-interactive  
      az keyvault update --name "<your-unique-keyvault-name>" --resource-group "MyResourceGroup" --enabled-for-template-deployment "true"
      ```
@@ -120,7 +120,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
 1. 키 자격 증명 모음을 선택 하 고 **액세스 정책**으로 이동한 다음 **고급 액세스 정책을 클릭 하 여 표시**합니다.
 2. **볼륨 암호화를 위해 Azure Disk Encryption에 대한 액세스 사용**이라는 레이블이 있는 상자를 선택합니다.
 3. 필요한 경우 **배포를 위해 Azure Virtual Machines에 대한 액세스 사용** 및/또는 **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용**을 선택합니다. 
-4. **저장**을 클릭합니다.
+4. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 
     ![Azure 키 자격 증명 모음에 대한 고급 액세스 정책](../articles/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
 
@@ -131,7 +131,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
 
 Azure CLI [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) 명령, Azure PowerShell [AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet 또는 [Azure Portal](https://portal.azure.com/)를 사용 하 여 새 KEK을 생성할 수 있습니다. RSA 키 유형을 생성 해야 합니다. Azure Disk Encryption은 아직 타원 Curve 키 사용을 지원 하지 않습니다.
 
-대신 온-프레미스 키 관리 HSM에서 KEK를 가져올 수 있습니다. 자세한 내용은 [Key Vault 설명서](/key-vault/key-vault-hsm-protected-keys)를 참조하세요. 
+대신 온-프레미스 키 관리 HSM에서 KEK를 가져올 수 있습니다. 자세한 내용은 [Key Vault 설명서](/azure/key-vault/key-vault-hsm-protected-keys)를 참조하세요.
 
 주요 자격 증명 모음 KEK Url의 버전을 지정 해야 합니다. Azure에서 이 버전 관리 제한을 적용합니다. 유효한 비밀과 KEK URL은 다음 예제를 참조하세요.
 

@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 6a8eaca029767e1d6bce4bc8ce22ce5523be26d8
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 0096334e06051b9ff474543384febb37bdf1c8e2
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186586"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533707"
 ---
 # <a name="how-to-monitor-azure-search-indexer-status-and-results"></a>Azure Search 인덱서 상태 및 결과를 모니터링 하는 방법
 
@@ -27,7 +27,7 @@ Azure Search는 모든 인덱서의 현재 및 과거 실행에 대 한 상태 �
 * 진행 중이거나 이전 인덱서 실행의 결과를 검토 합니다.
 * 인덱싱된 개별 문서에 대 한 최상위 인덱서 오류 및 오류 또는 경고를 식별 합니다.
 
-## <a name="find-indexer-status-and-history-details"></a>인덱서 상태 및 기록 정보 찾기
+## <a name="get-status-and-history"></a>상태 및 기록 가져오기
 
 다음과 같은 다양 한 방법으로 인덱서 모니터링 정보에 액세스할 수 있습니다.
 
@@ -45,7 +45,7 @@ Azure Search는 모든 인덱서의 현재 및 과거 실행에 대 한 상태 �
 
 <a name="portal"></a>
 
-## <a name="monitor-indexers-in-the-portal"></a>포털에서 인덱서 모니터링
+## <a name="monitor-using-the-portal"></a>포털을 사용 하 여 모니터링
 
 검색 서비스 개요 페이지의 **인덱서** 목록에서 모든 인덱서의 현재 상태를 볼 수 있습니다.
 
@@ -79,7 +79,7 @@ Azure Search는 모든 인덱서의 현재 및 과거 실행에 대 한 상태 �
 
 <a name="restapi"></a>
 
-## <a name="monitor-indexers-using-the-rest-api"></a>REST API를 사용 하 여 인덱서 모니터링
+## <a name="monitor-using-rest-apis"></a>REST Api를 사용 하 여 모니터링
 
 인덱서 [상태 가져오기 명령을](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)사용 하 여 인덱서의 상태 및 실행 기록을 검색할 수 있습니다.
 
@@ -126,7 +126,7 @@ Azure Search는 모든 인덱서의 현재 및 과거 실행에 대 한 상태 �
 
 <a name="dotnetsdk"></a>
 
-## <a name="monitor-indexers-using-the-net-sdk"></a>.NET SDK를 사용 하 여 인덱서 모니터링
+## <a name="monitor-using-the-net-sdk"></a>.NET SDK를 사용 하 여 모니터링
 
 Azure Search .NET SDK를 사용 하 여 인덱서의 일정을 정의할 수 있습니다. 이렇게 하려면 인덱서를 만들거나 업데이트할 때 **schedule** 속성을 포함 합니다.
 
@@ -181,6 +181,6 @@ static void CheckIndexerStatus(Indexer indexer, SearchServiceClient searchServic
 
 상태 코드 및 인덱서 모니터링 정보에 대 한 자세한 내용은 REST API [Getindexerstatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) 를 참조 하십시오.
 
-문서 관련 오류 또는 경고에 대 한 세부 정보는 목록과 `IndexerExecutionResult.Errors` `IndexerExecutionResult.Warnings`를 열거 하 여 검색할 수 있습니다.
+문서 관련 오류 또는 경고에 대 한 자세한 내용은 `IndexerExecutionResult.Errors` 목록과 `IndexerExecutionResult.Warnings`를 열거 하 여 검색할 수 있습니다.
 
 인덱서를 모니터링 하는 데 사용 되는 .NET SDK 클래스에 대 한 자세한 내용은 [Indexerexecutioninfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) 및 [Indexerexecutioninfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet)를 참조 하세요.

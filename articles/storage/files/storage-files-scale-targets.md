@@ -4,15 +4,15 @@ description: 용량, 요청 속도 및 인바운드/아웃바운드 대역폭 �
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 5/5/2019
+ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ed4aa832c4ec7ccda760d535aa920be8d5c4e2e3
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 766dacb69a3f1857197684f552d05a1376e94509
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699635"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514871"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 
@@ -35,7 +35,7 @@ Azure 파일 공유에 대한 부모 리소스는 Azure Storage 계정입니다.
 
 저장소 계정, 공유 및 파일 Azure Files에 대해 고려할 세 가지 제한 범주가 있습니다.
 
-예: 프리미엄 파일 공유를 사용 하는 경우 단일 공유에서 10만 IOPS를 달성할 수 있으며 단일 파일이 5000 IOPS까지 확장 될 수 있습니다. 따라서 한 공유에 세 개의 파일이 있는 경우 해당 공유에서 얻을 수 있는 최대 IOPS는 15000입니다.
+예를 들어 프리미엄 파일 공유를 사용 하는 경우 단일 공유에서 10만 IOPS를 달성할 수 있으며 단일 파일이 5000 IOPS까지 확장 될 수 있습니다. 따라서 한 공유에 세 개의 파일이 있는 경우 해당 공유에서 얻을 수 있는 최대 IOPS는 15000입니다.
 
 ### <a name="standard-storage-account-limits"></a>표준 저장소 계정 제한
 
@@ -51,8 +51,8 @@ Azure 파일 공유에 대한 부모 리소스는 Azure Storage 계정입니다.
 ### <a name="file-share-and-file-scale-targets"></a>파일 공유 및 파일 크기 조정 대상
 
 > [!NOTE]
-> 5 TiB 보다 큰 표준 파일 공유는 미리 보기 상태 이며 특정 제한 사항이 있습니다.
-> 제한 사항 목록과 이러한 큰 파일 공유 크기의 미리 보기에 등록 하려면 계획 가이드의 [표준 파일 공유](storage-files-planning.md#standard-file-shares) 섹션을 참조 하세요.
+> 5 보다 큰 표준 파일 공유에는 특정 제한 사항과 지역 제한이 TiB.
+> 이러한 큰 파일 공유 크기를 설정 하는 제한 사항, 지역별 정보 및 지침을 보려면 계획 가이드의 [더 큰 파일 공유에 대 한 온보드](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) 섹션을 참조 하십시오.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -66,12 +66,12 @@ Azure 파일 동기화는 무제한 사용을 목적으로 설계되었으나 �
 
 ### <a name="azure-file-sync-performance-metrics"></a>Azure 파일 동기화 성능 메트릭
 
-Azure 파일 동기화 에이전트는 Azure 파일 공유에 연결하는 Windows Server 머신에서 실행되기 때문에 효과적인 동기화 성능은 인프라의 여러 요소에 따라 달라집니다. 이러한 요소는 Windows Server 및 기본 디스크 구성, 서버와 Azure Storage 간의 네트워크 대역폭, 파일 크기, 전체 데이터 세트 크기 및 데이터 세트에 대한 작업 등입니다. Azure 파일 동기화가 파일 수준에서 작동하므로 Azure 파일 동기화 기반 솔루션의 성능 특성은 초당 처리된 개체(예: 파일 및 디렉터리)의 수에서 정확하게 측정됩니다.
+Azure 파일 동기화 에이전트가 Azure 파일 공유에 연결된 Windows Server 컴퓨터에서 실행되므로 유효한 동기화 성능은 인프라에 포함된 많은 요소(Windows Server 및 기본 디스크 구성,서버와 Azure Storage 간의 네트워크 대역폭, 파일 크기, 데이터 세트의 총 크기 및 데이터 세트의 작업 등)에 따라 달라집니다. Azure 파일 동기화가 파일 수준에서 작동하므로 Azure 파일 동기화 기반 솔루션의 성능 특성은 초당 처리된 개체(예: 파일 및 디렉터리)의 수에서 정확하게 측정됩니다.
 
 Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중요합니다.
 
-1. **일회성 초기 프로비전**: 초기 프로비전에 대한 성능을 최적화하려면 [Azure 파일 동기화에 온보딩](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync)에서 최적의 배포 세부 정보를 참조하세요.
-2. **진행 중인 동기화**: Azure 파일 공유에서 데이터를 처음으로 시드한 후에 Azure 파일 동기화는 여러 엔드포인트를 동기화된 상태로 유지합니다.
+1. **일회성 초기 프로비전**: 초기 프로비전에 대한 성능을 최적화하기 위해 최적의 배포 세부 정보는 [Azure 파일 동기화에 온보딩](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync)을 참조하세요.
+2. **진행 중인 동기화**: Azure 파일 공유에서 데이터를 처음으로 시드한 후에 Azure 파일 동기화는 여러 엔트포인트를 동기화된 상태로 유지합니다.
 
 각 단계에 대한 배포를 계획하기 위해 구성이 포함된 시스템의 내부 테스트 중에 확인되는 결과는 아래와 같습니다.
 
@@ -79,7 +79,7 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 |-|-|
 | CPU | 64개의 MiB L3 캐시를 포함한 64개의 가상 코어 |
 | 메모리 | 128GiB |
-| 디스크 | 배터리 지원 캐시를 사용하는 RAID 10을 포함한 SAS 디스크 |
+| Disk | 배터리 지원 캐시를 사용하는 RAID 10을 포함한 SAS 디스크 |
 | 네트워크 | 1Gbps 네트워크 |
 | 작업 | 범용 파일 서버|
 
@@ -87,7 +87,7 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 |-|-|
 | 개체 수 | 2500만 개 개체 |
 | 데이터 세트 크기| ~ 4.7 TiB |
-| 평균 파일 크기 | ~ 200 KiB (가장 큰 파일: 100GiB) |
+| 평균 파일 크기 | ~ 200 KiB (가장 큰 파일: 100 GiB) |
 | 처리량 업로드 | 초당 20개 개체 |
 | 네임스페이스 다운로드 처리량* | 초당 개체 400개 |
 
@@ -111,7 +111,7 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 - 개체 처리량은 서버의 동기화 그룹 수에 비례하여 크기를 조정합니다. 서버의 여러 동기화 그룹으로 데이터를 분할하면 처리량이 향상됩니다. 처리량은 서버 및 네트워크에 의해서도 제한됩니다
 - 개체 처리량은 초당 MiB 처리량에 반비례합니다. 더 작은 파일의 경우 초당 처리된 개체 수 측면에서 더 높은 처리량이 발생하지만 초당 MiB 처리량은 더 낮습니다. 반대로 큰 파일의 경우 초당 처리되는 개체는 적지만 초당 MiB 처리량은 높습니다. 초당 MiB 처리량은 Azure Files 크기 조정 목표에 의해 제한됩니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
 - [Azure 파일 배포에 대한 계획](storage-files-planning.md)
 - [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)

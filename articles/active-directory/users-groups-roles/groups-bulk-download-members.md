@@ -13,24 +13,21 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94c2ac1d662851b5a0b44ec475becb5f5e0403c4
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 4e29aacb1357509e2b000a9d05c5ced8f9a30dce
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146390"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72517167"
 ---
 # <a name="bulk-download-members-of-a-group-preview-in-azure-active-directory"></a>Azure Active Directory에서 그룹 구성원 대량 다운로드 (미리 보기)
 
 Azure Active Directory (Azure AD) 포털을 사용 하 여 조직의 그룹 멤버를 쉼표로 구분 된 값 (CSV) 파일에 대량으로 다운로드할 수 있습니다.
 
-> [!NOTE]
-> Azure AD 대량 작업은 Azure AD의 공개 미리 보기 기능이 며 유료 Azure AD 라이선스 계획과 함께 사용할 수 있습니다. 미리 보기 사용 약관에 대 한 자세한 내용은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
-
 ## <a name="to-bulk-download-group-membership"></a>그룹 구성원을 대량으로 다운로드 하려면
 
 1. 조직의 사용자 관리자 계정으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다. 그룹 소유자는 자신이 소유한 그룹의 멤버를 대량으로 다운로드할 수도 있습니다.
-1. Azure AD에서 **그룹** > **모든 그룹**을 선택 합니다.
+1. Azure AD에서 **그룹**  > **모든 그룹**을 선택 합니다.
 1. 구성원이 다운로드 될 그룹을 열고 **구성원**을 선택 합니다.
 1. **구성원** 페이지에서 **구성원 다운로드** 를 선택 하 여 그룹 구성원을 나열 하는 CSV 파일을 다운로드 합니다.
 

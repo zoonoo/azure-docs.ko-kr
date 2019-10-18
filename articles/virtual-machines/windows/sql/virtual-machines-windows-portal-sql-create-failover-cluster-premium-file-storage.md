@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 39f04005776f3b451ad7c64c76f9aa5d8c4a7768
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
-ms.translationtype: HT
+ms.openlocfilehash: b281344084cb558ab490e9e3c24774311ede7866
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330082"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529426"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Azure Virtual Machines에서 프리미엄 파일 공유를 사용 하 여 SQL Server 장애 조치 (Failover) 클러스터 인스턴스 구성
 
@@ -45,7 +45,7 @@ ms.locfileid: "72330082"
 - [Azure 리소스 그룹](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> SQL Server 현재 Azure 가상 컴퓨터의 장애 조치 (failover) 클러스터 인스턴스는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)의 [경량](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) 관리 모드 에서만 지원 됩니다. 장애 조치 (failover) 클러스터에 참여 하는 Vm에서 전체 확장을 제거한 다음 `lightweight` 모드로 SQL VM 리소스 공급자에 등록 합니다. 전체 확장은 자동화 된 백업, 패치, 고급 포털 관리 등의 기능을 지원 합니다. 이러한 기능은 에이전트가 경량 관리 모드로 다시 설치 된 후 SQL Vm에 대해 작동 하지 않습니다.
+> SQL Server 현재 Azure 가상 컴퓨터의 장애 조치 (failover) 클러스터 인스턴스는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)의 [경량](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) 관리 모드 에서만 지원 됩니다. 전체 확장 모드에서 경량으로 변경 하려면 correspinding Vm에 대 한 "SQL 가상 머신" 리소스를 삭제 한 다음 `lightweight` 모드에서 SQL VM 리소스 공급자에 등록 합니다. Azure Portal를 사용 하 여 "SQL 가상 컴퓨터" 리소스를 삭제 하는 경우 실제 가상 컴퓨터의 선택을 취소 해야 합니다. 전체 확장은 자동화 된 백업, 패치, 고급 포털 관리 등의 기능을 지원 합니다. 이러한 기능은 에이전트가 경량 관리 모드로 다시 설치 된 후 SQL Vm에 대해 작동 하지 않습니다.
 
 ### <a name="workload-consideration"></a>워크 로드 고려 사항
 
@@ -344,8 +344,7 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
    다음 그림을 참조하세요.
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
-
-   ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
+   
 
 ### <a name="configure-the-load-balancer-backend-pool"></a>부하 분산 장치 백 엔드 풀 구성
 
@@ -416,7 +415,7 @@ PowerShell에서 클러스터 프로브 포트 매개 변수를 설정합니다.
 
    - `<Cluster Network Name>`: 네트워크에 대한 Windows Server 장애 조치(failover) 클러스터 이름입니다. **장애 조치(Failover) 클러스터 관리자** > **네트워크**에서 네트워크를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다. 
 
-   - `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP 주소 리소스 이름입니다. **장애 조치(Failover) 클러스터 관리자**@no__t**역할**의 SQL Server Fci 역할 아래에서 **서버 이름**아래에 있는 IP 주소 리소스를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 클릭 합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다. 
+   - `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP 주소 리소스 이름입니다. **장애 조치(Failover) 클러스터 관리자**  > **역할**의 SQL Server Fci 역할 아래에서 **서버 이름**아래에 있는 IP 주소 리소스를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 클릭 합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다. 
 
    - `<ILBIP>`: ILB IP 주소입니다. 이 주소는 Azure Portal에서 ILB 프런트 엔드 주소로 구성됩니다. 또한 SQL Server FCI IP 주소입니다. 이 주소는 `<SQL Server FCI IP Address Resource Name>`이 있는 동일한 속성 페이지의 **장애 조치(Failover) 클러스터 관리자**에서 확인할 수 있습니다.  
 

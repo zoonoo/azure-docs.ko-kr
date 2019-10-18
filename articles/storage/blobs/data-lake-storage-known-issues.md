@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 300da59aa1a16bb2c4cfeaf8035cbe882ae83358
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f635360c5a6da19d60f3992878a8950b03c5f748
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300250"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513871"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -32,7 +32,7 @@ Blob Storage Api는 Blob Storage Api가 아직 Azure Data Lake Gen2 Api와 상�
 
 이러한 Api가 Blob Api를 사용 하 고이를 사용 하 여 계정의 모든 콘텐츠를 사용 하려는 경우 두 가지 옵션이 있습니다.
 
-* **옵션 1**: [Data Lake Storage에서 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md) 를 사용할 수 있을 때까지 Blob Storage 계정에서 계층적 네임 스페이스를 사용 하지 않도록 설정 하 고, Blob api는 Azure Data Lake Gen2 api와 완전히 상호 운용 될 수 있습니다. [Data Lake Storage에 대 한 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md) 는 현재 공개 미리 보기로 제공 됩니다.  계층적 네임 스페이스 **없이** 저장소 계정을 사용 하면 디렉터리 및 컨테이너 액세스 제어 목록과 같은 Data Lake Storage Gen2 특정 기능에 액세스할 수 없습니다.
+* **옵션 1**: [Data Lake Storage에서 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md) 를 사용할 수 있을 때까지 Blob Storage 계정에서 계층적 네임 스페이스를 사용 하지 않도록 설정 하 고, Blob Api를 Azure Data Lake Gen2 api와 완전히 상호 운용할 수 있습니다. [Data Lake Storage에 대 한 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md) 는 현재 공개 미리 보기로 제공 됩니다.  계층적 네임 스페이스 **없이** 저장소 계정을 사용 하면 디렉터리 및 컨테이너 액세스 제어 목록과 같은 Data Lake Storage Gen2 특정 기능에 액세스할 수 없습니다.
 
 * **옵션 2**: 계층적 네임 스페이스를 사용 합니다. [Data Lake Storage에 대 한 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md)의 공개 미리 보기를 사용 하면 Blob api를 호출 하는 도구와 응용 프로그램 뿐만 아니라 진단 로그와 같은 Blob Storage 기능을 사용 하 여 계층 네임 스페이스가 있는 계정을 사용할 수 있습니다. 알려진 문제 및 제한 사항에 대해서는이 문서를 검토 해야 합니다.
 
@@ -100,12 +100,13 @@ Data Lake Storage에 대 한 다중 프로토콜 액세스의 공개 미리 보�
 | **Blobfuse** |아직 지원 되지 않음|
 | **사용자 지정 도메인** |아직 지원 되지 않음|
 | **파일 시스템 탐색기** | 제한 된 지원 |
-| **진단 로깅** |진단 로그는 Data Lake Storage 미리 보기 [에서 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md) 에서 지원 됩니다. <br><br>Azure Portal에서 로그를 사용 하도록 설정 하는 것은 현재 지원 되지 않습니다. PowerShell을 사용 하 여 로그를 사용 하도록 설정 하는 방법의 예는 다음과 같습니다. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>이 예에 표시 된 것 처럼 `-ServiceType` 매개 변수의 값으로 `Blob`을 지정 해야 합니다. <br><br>현재 Azure Storage 탐색기 진단 로그를 보는 데 사용할 수 없습니다. 로그를 보려면 AzCopy 또는 Sdk를 사용 하세요.
+| **진단 로깅** |진단 로그는 Data Lake Storage 미리 보기 [에서 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md) 에서 지원 됩니다. <br><br>Azure Portal에서 로그를 사용 하도록 설정 하는 것은 현재 지원 되지 않습니다. PowerShell을 사용 하 여 로그를 사용 하도록 설정 하는 방법의 예는 다음과 같습니다. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. <br><br>이 예제에 표시 된 대로 `Blob`를 `-ServiceType` 매개 변수의 값으로 지정 해야 합니다. <br><br>현재 Azure Storage 탐색기 진단 로그를 보는 데 사용할 수 없습니다. 로그를 보려면 AzCopy 또는 Sdk를 사용 하세요.
 | **변경할 수 없는 저장소** |아직 지원 되지 않음 <br><br>변경할 수 없는 저장소는 데이터를 [웜 (한 번 쓰기, 많은 읽기)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) 상태에 저장 하는 기능을 제공 합니다.|
 | **개체 수준 계층** |쿨 및 archive 계층은 Data Lake Storage 미리 보기 [에서 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md) 에서 지원 됩니다. <br><br> 다른 모든 액세스 계층은 아직 지원 되지 않습니다.|
 | **Powershell 및 CLI 지원** | 제한 된 기능 <br><br>계정 만들기와 같은 관리 작업이 지원 됩니다. 파일 업로드 및 다운로드 등의 데이터 평면 작업은 [Data Lake Storage에 대 한 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md)의 일부로 공개 미리 보기로 제공 됩니다. 디렉터리 작업 및 Acl (액세스 제어 목록) 설정은 아직 지원 되지 않습니다. |
 | **정적 웹 사이트** |아직 지원 되지 않음 <br><br>특히 [정적 웹 사이트](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)에 파일을 제공 하는 기능입니다.|
-| **타사 응용 프로그램** | 제한 된 지원 <br><br>REST Api를 사용 하 여 작동 하는 타사 응용 프로그램은 Data Lake Storage Gen2와 함께 사용 하는 경우 계속 작동 합니다. <br>Blob Api를 호출 하는 응용 프로그램은 [Data Lake Storage에서 멀티 프로토콜 액세스](data-lake-storage-multi-protocol-access.md)의 공개 미리 보기를 사용할 가능성이 높습니다. 
-| **버전 관리 기능** |아직 지원 되지 않음 <br><br>여기에는 [스냅숏](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) 및 [일시 삭제가](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)포함 됩니다.|
+| **타사 응용 프로그램** | 제한 된 지원 <br><br>REST Api를 사용 하 여 작동 하는 타사 응용 프로그램은 Data Lake Storage Gen2와 함께 사용 하는 경우 계속 작동 합니다. <br>Blob Api를 호출 하는 응용 프로그램은 [Data Lake Storage에서 멀티 프로토콜 액세스](data-lake-storage-multi-protocol-access.md)의 공개 미리 보기를 사용할 가능성이 높습니다. |
+|**일시 삭제** |아직 지원 되지 않음|
+| **버전 관리 기능** |아직 지원 되지 않음 <br><br>여기에는 [일시 삭제](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)및 [스냅숏과](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)같은 기타 버전 관리 기능이 포함 됩니다.|
 
 

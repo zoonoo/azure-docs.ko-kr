@@ -7,12 +7,12 @@ ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: cc827f52d227ee36620bd215dfcba96b433804d3
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 6fecd143055da2829ac49cee4f50d448a37a6e1b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103050"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514875"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -78,7 +78,7 @@ ms.locfileid: "71103050"
     > Blob storage 계정 또는 *premium* 범용 용도 (GPv1 또는 GPv2) 저장소 계정에서 Azure 파일 공유를 만들 수 없습니다. 표준 Azure 파일 공유는 *표준* 범용 계정 에서만 생성 되어야 하며 프리미엄 Azure 파일 공유는 FileStorage storage 계정에만 만들어야 합니다. *프리미엄* 범용 (GPv1 및 GPv2) 저장소 계정은 프리미엄 페이지 blob에만 해당 됩니다. 
 
 * <a id="give-us-feedback"></a>
-  **Azure Files에 특정 기능이 추가되는 것을 정말 보고 싶습니다. 추가해줄 수 있나요?**  
+  **Azure Files에 추가 된 특정 기능을 확인 하려고 합니다. 추가할 수 있나요?**  
     Azure Files 팀은 당사 서비스에 대한 여러분의 모든 의견을 환영합니다. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)에서 기능 요청에 투표하세요. 많은 새로운 기능으로 고객에게 만족을 드리고 싶습니다.
 
 ## <a name="azure-file-sync"></a>Azure 파일 동기화
@@ -91,8 +91,8 @@ ms.locfileid: "71103050"
   **도메인에 가입된 서버와 도메인에 가입되지 않은 서버를 같은 동기화 그룹에 둘 수 있나요?**  
     예. 동기화 그룹에는 도메인에 가입되지 않은 경우에도 다른 Active Directory 구성원 자격을 갖는 서버 엔드포인트가 포함될 수 있습니다. 이 구성이 기술적으로는 작동하지만, 한 서버의 파일 및 폴더에 대해 정의된 ACL(액세스 제어 목록)은 동기화 그룹의 다른 서버에 의해 적용될 수 없으므로 이러한 구성은 일반적인 구성으로 권장되지 않습니다. 최상의 결과를 얻으려면 동일한 Active Directory 포리스트에 있는 서버 간, 다른 Active Directory 포리스트에 있지만 설정된 트러스트 관계에 있는 서버 간 또는 도메인에 있지 않은 서버 간의 동기화를 권장합니다. 이러한 구성 간의 혼합 사용은 방지하는 것이 좋습니다.
 
-* <a id="afs-change-detection"></a>
-  **SMB를 사용하여 또는 포털에서 Azure Files 공유에서 직접 파일을 만들었습니다. 파일을 동기화 그룹의 서버와 동기화하는 데 얼마나 소요되나요?**  
+* <a id="afs-change-detection"></a>**SMB 또는 포털을 사용 하 여 Azure 파일 공유에서 직접 파일을 만든 
+  . 파일이 동기화 그룹의 서버와 동기화 되** 는 데 얼마나 걸립니까?  
     [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
 * <a id="afs-conflict-resolution"></a>**같은 파일이 두 서버에서 거의 동시에 변경하는 경우 어떻게 되나요?**  
@@ -114,7 +114,7 @@ ms.locfileid: "71103050"
   **파일이 계층화되어 있는지 여부를 어떻게 알 수 있나요?**  
   [클라우드 계층화 이해](storage-sync-cloud-tiering.md#is-my-file-tiered) 참조
 
-* <a id="afs-recall-file"></a>**사용하려는 파일이 계층화되어 있습니다. 파일을 로컬에서 사용하기 위해 디스크로 회수할 수 있는 방법은 무엇인가요?**  
+* <a id="afs-recall-file"></a>**사용 하려는 파일이 계층화 되어 있습니다. 파일을 로컬로 사용 하기 위해 디스크로 회수할 수 있는 방법은 무엇입니까?**  
   [클라우드 계층화 이해](storage-sync-cloud-tiering.md#afs-recall-file) 참조
 
 * <a id="afs-force-tiering"></a>
@@ -151,7 +151,7 @@ ms.locfileid: "71103050"
     Azure 파일 동기화 에이전트 버전 3 이전에 Azure 파일 동기화는 서버 엔드포인트인 동일한 볼륨이 아닌 서버 엔드포인트 외부에서 계층화된 파일의 이동을 차단합니다. 복사 작업, 계층화되지 않은 파일의 이동 및 다른 볼륨에 계층화된 파일의 이동은 영향을 받지 않았습니다. 이 동작의 이유는 파일 탐색기 및 다른 Windows API에서 동일한 볼륨에서의 이동 작업이 거의 순간적인 이름 바꾸기 작업이라는 암시적 가정 때문이었습니다. 즉, 이동하면 Azure 파일 동기화가 클라우드의 데이터를 다시 호출하는 동안 파일 탐색기 또는 다른 이동 방법(예: 명령줄 또는 PowerShell)이 응답하지 않는다고 표시됩니다. [Azure 파일 동기화 에이전트 버전 3.0.12.0](storage-files-release-notes.md#supported-versions)부터 Azure 파일 동기화를 사용하면 외부 서버 엔드포인트에서 계층화된 파일을 이동할 수 있습니다. 계층화된 파일을 서버 엔드포인트 외부에서 계층화된 파일로 유지한 다음, 백그라운드에서 파일을 회수하여 앞에서 언급한 부정적인 영향을 방지합니다. 즉, 동일한 볼륨에서의 이동은 즉각적이고, 이동이 완료되면 파일을 디스크로 회수하는 모든 작업을 수행합니다. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
-  **내 서버 (동기화, 클라우드 계층화 등)에서 Azure File Sync 하는 데 문제가 있습니다. 서버 엔드포인트를 제거하고 다시 만들어야 하나요?**  
+  **서버 (동기화, 클라우드 계층화 등)의 Azure File Sync에 문제가 있습니다. 서버 끝점을 제거 하 고 다시 만들어야 하나요?**  
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
     
 * <a id="afs-resource-move"></a>
@@ -159,7 +159,7 @@ ms.locfileid: "71103050"
    예, 스토리지 동기화 서비스 및/또는 스토리지 계정은 기존 Azure AD 테넌트 내의 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 스토리지 계정이 이동되는 경우 스토리지 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 스토리지 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
 
     > [!Note]  
-    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동하는 작업을 지원하지 않습니다.
+    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동할 수 없습니다.
     
 * <a id="afs-ntfs-acls"></a>
   **Azure 파일 동기화는 Azure Files에 저장된 데이터와 함께 디렉터리/파일 수준 NTFS ACL을 보존하나요?**
@@ -167,8 +167,8 @@ ms.locfileid: "71103050"
     온-프레미스 파일 서버에서 수행된 NTFS ACL은 Azure 파일 동기화를 통해 메타데이터로 지속됩니다. Azure Files는 Azure 파일 동기화 서비스에서 관리되는 파일 공유에 액세스하기 위한 Azure AD 자격 증명을 통한 인증을 지원하지 않습니다.
     
 ## <a name="security-authentication-and-access-control"></a>보안, 인증 및 액세스 제어
-* <a id="ad-support"></a>
-**Azure Files에서 id 기반 인증 및 액세스 제어를 지원 하나요?**  
+* <a id="ad-support"></a>**Azure Files에서 
+ id 기반 인증 및 액세스 제어를 지원 하나요?**  
     
     예, Azure Files는 azure AD 도메인 서비스 (Azure AD DS)를 활용 하는 id 기반 인증 및 액세스 제어를 지원 합니다. Azure Files SMB를 통한 azure AD DS 인증을 사용 하면 azure AD DS 도메인에 가입 된 Windows Vm에서 Azure AD 자격 증명을 사용 하 여 공유, 디렉터리 및 파일에 액세스할 수 있습니다. 자세한 내용은 [SMB 액세스를 위한 Azure AD DS (Azure Files Azure Active Directory 도메인 서비스) 인증 지원 개요](storage-files-active-directory-overview.md)를 참조 하세요. 
 
@@ -180,8 +180,8 @@ ms.locfileid: "71103050"
     
     Azure Storage에 대 한 [액세스 권한을 부여](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 하 여 Azure Storage 서비스에서 지원 되는 모든 프로토콜의 포괄적인 표현을 참조할 수 있습니다. 
 
-* <a id="ad-support-devices"></a>
-**Azure AD DS 인증 Azure Files azure ad 자격 증명을 사용 하 여 azure ad에 연결 되었거나 Azure AD에 등록 된 장치에서 SMB 액세스를 지원 하나요?**
+* <a id="ad-support-devices"></a>azure**ad 자격 증명을 사용 하 AD DS Azure Files는 azure ad 자격 증명을 사용 하 여 azure ad에 연결 하거나 azure ad에 등록 된 장치에서 SMB 액세스를 지 원하는** 
+
 
     아니요. 이 시나리오는 지원되지 않습니다.
 
@@ -195,20 +195,20 @@ ms.locfileid: "71103050"
 
     파일 공유가 배포된 구독과 VM이 도메인에 조인된 Azure AD Domain Services 배포와 동일한 Azure AD 테넌트가 연결되어 있는 경우 동일한 Azure AD 자격 증명을 사용하여 Azure Files에 액세스할 수 있습니다. 제한 사항은 연결된 Azure AD 테넌트가 아닌 구독에만 적용됩니다.    
     
-* <a id="ad-support-subscription"></a>
-**파일 공유와 연결 된 기본 테 넌 트와 다른 Azure AD 테 넌 트를 사용 하 여 Azure AD DS 인증 Azure Files을 사용 하도록 설정할 수 있나요?**
+* <a id="ad-support-subscription"></a>**파일 공유와 연결 된 기본 테 넌 트와 다른 AZURE AD 테 넌 트를 사용 하 여 azure AD DS 인증 Azure Files를 사용할 수 
+ 있나요?**
 
     아니요, Azure Files는 azure AD 테 넌 트와 파일 공유와 동일한 구독에 있는 azure AD DS 통합만 지원 합니다. 하나의 구독만 Azure AD 테넌트와 연결할 수 있습니다.
 
 * <a id="ad-linux-vms"></a>
-**Azure AD DS 인증 Azure Files Linux Vm을 지원 하나요?**
+**Azure AD DS 인증 지원 Linux vm을 Azure Files 하나요?**
 
     아니요, Linux Vm에서의 인증은 지원 되지 않습니다.
 
-* <a id="ad-aad-smb-afs"></a>
-**Azure File Sync에서 관리 하는 파일 공유에서 Azure AD DS 인증 Azure Files 활용할 수 있나요?**
+* <a id="ad-aad-smb-afs"></a>**Azure File Sync에서 관리 하는 파일 공유에서 Azure AD DS 인증 Azure Files 활용할 수 
+?**
 
-    아니요. Azure Files는 Azure 파일 동기화에서 관리되는 파일 공유에서 NTFS ACL 보존을 지원하지 않습니다. 온-프레미스 파일 서버에서 수행된 파일 ACL은 Azure 파일 동기화를 통해 지속됩니다. Azure Files에 대해 기본적으로 구성된 NTFS ACL은 Azure 파일 동기화 서비스가 덮어씁니다. 또한 Azure Files는 Azure 파일 동기화 서비스에서 관리되는 파일 공유에 액세스하기 위한 Azure AD 자격 증명을 통한 인증을 지원하지 않습니다.
+    아니요, Azure Files는 Azure File Sync에서 관리 하는 파일 공유에 대 한 NTFS Acl 유지를 지원 하지 않습니다. 온-프레미스 파일 서버에서 전달 되는 파일 Acl은 Azure File Sync에 의해 지속 됩니다. Azure Files에 대해 기본적으로 구성 된 모든 NTFS Acl은 Azure File Sync 서비스에서 덮어쓰게 됩니다. 또한 Azure Files는 Azure 파일 동기화 서비스에서 관리되는 파일 공유에 액세스하기 위한 Azure AD 자격 증명을 통한 인증을 지원하지 않습니다.
 
 * <a id="encryption-at-rest"></a>
 **Azure 파일 공유가 미사용 암호화되도록 하려면 어떻게 해야 하나요?**  
@@ -237,22 +237,22 @@ ms.locfileid: "71103050"
 
 ## <a name="on-premises-access"></a>온-프레미스 액세스
 
-* <a id="port-445-blocked"></a>
-**ISP 또는 IT는 포트 445을 차단 Azure Files 탑재 하지 못합니다. 어떻게 해야 하나요?**
+* <a id="port-445-blocked"></a>**내 ISP를 
+ Azure Files 탑재에 실패 하는 포트 445을 차단 합니다. 어떻게 해야 하나요?**
 
     [여기에서 차단 된 포트 445을 해결 하는 다양 한 방법](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)에 대해 알아볼 수 있습니다. Azure Files는 지역 또는 데이터 센터 외부에서 SMB 3.0 (암호화 지원)을 사용 하는 연결만 허용 합니다. SMB 3.0 프로토콜에는 인터넷을 통해 사용 하기에 매우 안전한 채널 암호화를 비롯 한 많은 보안 기능이 도입 되었습니다. 그러나 낮은 SMB 버전에서 발견 된 취약점의 기록 이유로 인해 포트 445이 차단 될 수 있습니다. 이상적인 경우에는 포트가 SMB 1.0 트래픽에 대해서만 차단 되 고 SMB 1.0은 모든 클라이언트에서 해제 되어야 합니다.
 
 * <a id="expressroute-not-required"></a>
 **Azure Files에 연결하거나 온-프레미스에서 Azure 파일 동기화를 사용하려면 Azure ExpressRoute를 사용해야 하나요?**  
 
-    아니요. ExpressRoute는 Azure 파일 공유에 액세스하는 데 필요하지 않습니다. Azure 파일 공유를 온-프레미스에 직접 탑재하는 경우 인터넷 액세스를 위해 포트 445(TCP 아웃바운드)만 열어 두면 됩니다(SMB가 통신하기 위해 사용하는 포트). Azure 파일 동기화를 사용하는 경우에는 HTTPS 액세스를 위해 포트 443(TCP 아웃바운드)만 열어 두면 됩니다(SMB 필요 없음). 그러나 이러한 액세스 옵션 중 하나로 ExpressRoute를 사용*할 수 있습니다*.
+    아닙니다. ExpressRoute는 Azure 파일 공유에 액세스하는 데 필요하지 않습니다. Azure 파일 공유를 온-프레미스에 직접 탑재하는 경우 인터넷 액세스를 위해 포트 445(TCP 아웃바운드)만 열어 두면 됩니다(SMB가 통신하기 위해 사용하는 포트). Azure 파일 동기화를 사용하는 경우에는 HTTPS 액세스를 위해 포트 443(TCP 아웃바운드)만 열어 두면 됩니다(SMB 필요 없음). 그러나 이러한 액세스 옵션 중 하나로 ExpressRoute를 사용*할 수 있습니다*.
 
 * <a id="mount-locally"></a>
 **내 로컬 컴퓨터에서 Azure 파일 공유를 탑재하려면 어떻게 해야 하나요?**  
 
     445 포트(TCP 아웃바운드)가 열려 있고 클라이언트(예: Windows 10 또는 Windows Server 2016을 사용하는 경우)에서 SMB 3.0 프로토콜을 지원하는 경우 SMB 프로토콜을 사용하여 파일 공유를 탑재할 수 있습니다. 포트 445가 조직의 정책이나 ISP에 의해 차단되어 있으면 Azure 파일 동기화를 사용하여 Azure 파일 공유에 액세스할 수 있습니다.
 
-## <a name="backup"></a>백업
+## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **내 Azure 파일 공유를 백업하려면 어떻게 하나요?**  
     실수로 삭제하지 않도록 보호하기 위해 주기적인 [공유 스냅샷](storage-snapshots-files.md)을 사용할 수 있습니다. 탑재된 파일 공유를 백업할 수 있는 AzCopy, RoboCopy 또는 타사 백업 도구를 사용할 수도 있습니다. Azure Backup에서는 Azure Files의 백업을 제공합니다. [Azure Backup으로 Azure 파일 공유 백업](https://docs.microsoft.com/azure/backup/backup-azure-files)에 대해 자세히 알아봅니다.
@@ -342,21 +342,26 @@ ms.locfileid: "71103050"
 **Azure Files의 크기 제한은 무엇인가요?**  
     Azure Files의 확장성 및 성능 목표에 대한 자세한 내용은 [Azure Files 확장성 및 성능 목표](storage-files-scale-targets.md)를 참조하세요.
 
-* <a id="need-larger-share"></a>
-**Azure 파일 공유에 사용할 수 있는 크기**  
-    Azure 파일 공유 크기 (프리미엄 및 표준)는 최대 100 TiB까지 확장할 수 있습니다. 프리미엄 파일 공유 크기는 최대 100 TiB GA 제품으로 제공 됩니다. 최대 5 개 TiB 표준 파일 공유 크기는 GA 제품으로 사용할 수 있으며 최대 100 TiB 크기는 미리 보기 상태입니다. 표준 계층에 대 한 더 큰 파일 공유 미리 보기에 대 한 온 보 딩 지침은 계획 가이드의 [더 큰 파일 공유에 등록 (표준 계층)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) 섹션을 참조 하세요.
+* <a id="need-larger-share"></a>**Azure 파일 공유에 사용할 수 있는 크기를 
+?**  
+    Azure 파일 공유 크기 (프리미엄 및 표준)는 최대 100 TiB까지 확장할 수 있습니다. 표준 계층의 더 큰 파일 공유에 대 한 온 보 딩 지침은 계획 가이드의 [더 큰 파일 공유에 등록 (표준 계층)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) 섹션을 참조 하세요.
+
+* <a id="lfs-performance-impact"></a>내**파일 공유 할당량을 확장 
+ 내 작업 또는 Azure File Sync에 영향을 미칩니까?**
+    
+    아닙니다. 할당량을 확장 해도 작업 또는 Azure File Sync에는 영향을 주지 않습니다.
 
 * <a id="open-handles-quota"></a>
 **동일한 파일에 동시에 액세스할 수 있는 클라이언트는 몇 개인가요?**    
     단일 파일에 대한 열린 핸들 할당량은 2000개입니다. 2000개의 열린 핸들이 있는 경우 할당량에 도달했다는 오류 메시지가 표시됩니다.
 
-* <a id="zip-slow-performance"></a>
-**Azure Files의 파일 압축을 풀면 내 성능이 저하됩니다. 어떻게 해야 하나요?**  
+* <a id="zip-slow-performance"></a>**Azure Files에서 파일의 압축을 풀면 성능이 저하 
+. 어떻게 해야 하나요?**  
     많은 파일을 Azure Files로 전송하려면 AzCopy(Windows용, Linux 및 UNIX용 미리 보기에서) 또는 Azure PowerShell을 사용하는 것이 좋습니다. 이러한 도구는 네트워크 전송을 위해 최적화되었습니다.
 
 * <a id="slow-perf-windows-81-2012r2"></a>
 **Windows Server 2012 R2 또는 Windows 8.1에 Azure 파일 공유를 탑재한 후 성능이 느려진 이유는 무엇인가요?**  
-    Windows Server 2012 R2 및 Windows 8.1에 Azure 파일 공유를 탑재하는 경우 알려진 문제가 있습니다. Windows 8.1 및 Windows Server 2012 R2용 2014년 4월 누적 업데이트에서 문제가 패치되었습니다. 최적의 성능을 위해 Windows Server 2012 R2 및 Windows 8.1의 모든 인스턴스에 이 패치가 적용되었는지 확인합니다. (Windows 업데이트를 통해 Windows 패치를 항상 받아야 합니다.) 자세한 내용은 관련된 Microsoft 기술 자료 문서인 [Windows 8.1 또는 Server 2012 R2에서 Azure Files에 액세스할 때 성능 저하](https://support.microsoft.com/kb/3114025)를 확인하세요.
+    Windows Server 2012 R2 및 Windows 8.1에 Azure 파일 공유를 탑재하는 경우 알려진 문제가 있습니다. Windows 8.1 및 Windows Server 2012 R2용 2014년 4월 누적 업데이트에서 문제가 패치되었습니다. 최적의 성능을 위해 Windows Server 2012 R2 및 Windows 8.1의 모든 인스턴스에 이 패치가 적용되었는지 확인합니다. Windows 업데이트를 통해 항상 Windows 패치를 받아야 합니다. 자세한 내용은 관련 Microsoft 기술 자료 문서 [Windows 8.1 또는 Server 2012 r 2에서 Azure Files에 액세스할 때 성능 저하](https://support.microsoft.com/kb/3114025)를 참조 하세요.
 
 ## <a name="features-and-interoperability-with-other-services"></a>다른 서비스와의 기능 및 상호 운용성
 * <a id="cluster-witness"></a>
@@ -369,17 +374,17 @@ ms.locfileid: "71103050"
 
 * <a id="rest-rename"></a>
 **REST API에 이름 바꾸기 작업이 있나요?**  
-    지금은 없습니다.
+    현재는 사용할 수 없습니다.
 
-* <a id="nested-shares"></a>
-**중첩된 공유를 설정할 수 있나요? 즉, 공유 아래에 공유를 설정할 수 있나요?**  
-    아니요. 파일 공유*는* 마운트할 수 있는 가상 드라이버이므로 중첩된 공유는 지원되지 않습니다.
+* <a id="nested-shares"></a>**중첩 된 공유를 설정할 수 
+? 즉, 공유에서 공유 하는** 경우  
+    아닙니다. 파일 공유*는* 마운트할 수 있는 가상 드라이버이므로 중첩된 공유는 지원되지 않습니다.
 
 * <a id="ibm-mq"></a>
 **IBM MQ에서 Azure Files를 어떻게 사용하나요?**  
     IBM은 IBM MQ 고객이 IBM 서비스로 Azure Files를 구성할 수 있도록 돕는 문서를 발표했습니다. 자세한 내용은 [Microsoft Azure 파일 서비스와 IBM MQ 다중 인스턴스 큐 관리자를 설치하는 방법](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)을 참조하세요.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 * [Windows에서 Azure Files 문제 해결](storage-troubleshoot-windows-file-connection-problems.md)
 * [Linux에서 Azure Files 문제 해결](storage-troubleshoot-linux-file-connection-problems.md)
 * [Azure 파일 동기화 문제 해결](storage-sync-files-troubleshoot.md)

@@ -1,5 +1,5 @@
 ---
-title: 지역 간 안전한 배포 사례 - Azure 배포 관리자
+title: 지역 간 안전 배포-Azure 배포 관리자
 description: Azure 배포 관리자를 사용하여 여러 지역에 서비스를 배포하는 방법을 설명합니다. 모든 지역에 롤아웃하기 전에 배포의 안정성을 확인하는 안전한 배포 사례를 보여 줍니다.
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 6a25444f0207ec5eceb029c5d31d222a31813e22
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6cbbd2aef1911bdfe64e781a7cad64a64722192d
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066829"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532305"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Azure Deployment Manager (공개 미리 보기) 사용 하 여 안전한 배포 사례를 사용 하도록 설정
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Azure 배포 관리자을 사용 하 여 안전한 배포 방법 사용 (공개 미리 보기)
 
 여러 지역에서 서비스를 배포하고 각 지역에서 예상대로 실행되고 있는지 확인하려면 Azure 배포 관리자를 사용하여 서비스의 단계적 롤아웃을 조정할 수 있습니다. Azure 배포의 경우와 마찬가지로 [Resource Manager 템플릿](resource-group-authoring-templates.md)에서 서비스의 리소스를 정의합니다. 템플릿을 만든 후에는 배포 관리자를 사용하여 서비스의 토폴로지와 롤아웃 방식을 설명합니다.
 
 배포 관리자는 Resource Manager의 기능입니다. 배포 중에 기능이 확장됩니다. 여러 영역에 배포해야 하는 복합 서비스가 있는 경우 배포 관리자를 사용합니다. 서비스의 출시를 준비하여 모든 지역에 배포되기 전에 잠재적인 문제를 찾을 수 있습니다. 단계적 롤아웃에 대해 추가 주의 사항이 필요하지 않은 경우 Resource Manager의 표준 [배포 옵션](resource-group-template-deploy-portal.md)을 사용합니다. 배포 관리자는 CI/CD(지속적인 통합 및 지속적인 업데이트) 제안과 같이 Resource Manager 배포를 지원하는 기존의 모든 타사 도구와 원활하게 통합됩니다.
 
-Azure Deployment Manager 미리 보기입니다. 기능을 제공 하 여 개선에 참여해 주세요 [피드백](https://aka.ms/admfeedback)합니다.
+Azure 배포 관리자 미리 보기 상태입니다. [피드백](https://aka.ms/admfeedback)을 제공 하 여 기능을 개선 하는 데 도움을 주세요.
 
 배포 관리자를 사용하려면 다음 4개의 파일을 만들어야 합니다.
 
@@ -33,16 +33,16 @@ Azure Deployment Manager 미리 보기입니다. 기능을 제공 하 여 개선
 
 추가 리소스:
 
-- 합니다 [Azure Deployment Manager REST API 참조](https://docs.microsoft.com/rest/api/deploymentmanager/)합니다.
-- [자습서: Resource Manager 템플릿에서 Azure Deployment Manager 사용](./deployment-manager-tutorial.md)의 지침을 따르세요.
-- [자습서: Azure Deployment Manager에서 상태 확인 사용](./deployment-manager-tutorial-health-check.md)을 참조하세요.
-- [Azure Deployment Manager 샘플을](https://github.com/Azure-Samples/adm-quickstart)입니다.
+- [Azure Deployment Manager REST API 참조](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [자습서: 리소스 관리자 템플릿과 함께 Azure 배포 관리자를 사용](./deployment-manager-tutorial.md)합니다.
+- [자습서: Azure 배포 관리자에서 상태 검사를 사용](./deployment-manager-tutorial-health-check.md)합니다.
+- [Azure Deployment Manager 샘플](https://github.com/Azure-Samples/adm-quickstart).
 
 ## <a name="identity-and-access"></a>ID 및 액세스
 
 배포 관리자를 사용할 경우 [사용자가 할당한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)가 배포 작업을 수행합니다. 배포를 시작하기 전에 이 ID를 만듭니다. 이 ID에는 서비스를 배포할 구독에 대한 액세스 권한이 있어야 하며 배포를 수행하기 위한 충분한 권한이 있어야 합니다. 역할을 통해 부여되는 작업에 대한 내용은 [Azure 리소스에 대한 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요.
 
-Id는 출시와 같은 위치에 있어야 합니다.
+Id는 롤아웃과 동일한 위치에 있어야 합니다.
 
 ## <a name="topology-template"></a>토폴로지 템플릿
 
@@ -196,7 +196,7 @@ Id는 출시와 같은 위치에 있어야 합니다.
 
 ### <a name="steps"></a>단계
 
-배포 작업 전후에 수행할 단계를 정의할 수 있습니다. 현재만 `wait` 단계 및 'healthCheck' 단계를 사용할 수 있습니다.
+배포 작업 전후에 수행할 단계를 정의할 수 있습니다. 현재 `wait` 단계와 ' healthCheck ' 단계만 사용할 수 있습니다.
 
 대기 단계는 계속하기 전에 배포를 일시 중지합니다. 다음 서비스 단위를 배포하기 전에 서비스가 예상대로 실행되고 있는지 확인할 수 있습니다. 다음 예제에서는 대기 단계의 일반 형식을 보여 줍니다.
 
@@ -217,7 +217,7 @@ Id는 출시와 같은 위치에 있어야 합니다.
 
 지속 기간 속성은 [ISO 8601 표준](https://en.wikipedia.org/wiki/ISO_8601#Durations)을 사용합니다. 이전 예제는 1분 대기를 지정합니다.
 
-상태 확인 단계에 대 한 자세한 내용은 참조 하세요. [상태 통합 출시 Azure Deployment Manager를 소개](./deployment-manager-health-check.md) 고 [자습서: Azure Deployment Manager에서 상태 확인 사용](./deployment-manager-tutorial-health-check.md)을 참조하세요.
+상태 검사 단계에 대 한 자세한 내용은 [azure 배포 관리자에 상태 통합 출시 소개](./deployment-manager-health-check.md) 및 [자습서: azure 배포 관리자에서 상태 검사 사용](./deployment-manager-tutorial-health-check.md)을 참조 하세요.
 
 자세한 내용은 [단계 템플릿 참조](/azure/templates/Microsoft.DeploymentManager/steps)를 참조하세요.
 
@@ -340,4 +340,4 @@ Azure 리소스를 배포하려면 템플릿용 매개 변수 파일에서 `$con
 이 문서에서는 배포 관리자에 대해 알아보았습니다. 다음 문서에서 계속해서 배포 관리자를 통한 배포 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
-> [자습서: Resource Manager 템플릿에서 Azure 배포 관리자 사용](./deployment-manager-tutorial.md)
+> [자습서: Azure 배포 관리자에서 Resource Manager 템플릿 사용](./deployment-manager-tutorial.md)

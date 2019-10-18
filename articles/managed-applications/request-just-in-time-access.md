@@ -1,17 +1,17 @@
 ---
-title: Azure Managed Applications에 대 한 just-in-time 액세스를 사용 하도록 설정 및 요청
+title: Just-in-time 액세스 요청-Azure Managed Applications
 description: 게시자 Azure Managed Applications 관리 되는 응용 프로그램에 just-in-time 액세스를 요청 하는 방법을 설명 합니다.
 author: MSEvanhi
 ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
-ms.openlocfilehash: 0d595d4c96e9f87f1c8eece5d47bf4c8cdd58d7c
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: fdd1dcf5ab6b58a91534a465a8c92c10de0d2097
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574990"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528958"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Azure Managed Applications에 대 한 just-in-time 액세스를 사용 하도록 설정 및 요청
 

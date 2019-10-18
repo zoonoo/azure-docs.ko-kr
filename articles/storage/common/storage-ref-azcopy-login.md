@@ -4,18 +4,18 @@ description: 이 문서에서는 azcopy login 명령에 대 한 참조 정보를
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 2938d85becbea738acc21fc7b15991301eef759f
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 058506110a8ac4b11f272406a854f72062a1c90d
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195725"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514710"
 ---
-# <a name="azcopy-login"></a>azcopy 로그인
+# <a name="azcopy-login"></a>azcopy login
 
 Azure Active Directory에 로그인 하 여 Azure Storage 리소스에 액세스 합니다.
 
@@ -36,7 +36,7 @@ Azure Storage 계정에 대 한 권한을 부여 하려면 저장소 계정, 부
 azcopy login [flags]
 ```
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 일반으로 설정 된 기본 AAD 테 넌 트 ID로 대화형으로 로그인 합니다.
 
@@ -50,25 +50,25 @@ azcopy login
 azcopy login --tenant-id "[TenantID]"
 ```
 
-VM의 시스템 할당 id를 사용 하 여 로그인 합니다.
+VM (가상 컴퓨터)의 시스템 할당 id를 사용 하 여 로그인 합니다.
 
 ```azcopy
 azcopy login --identity
 ```
 
-서비스 id의 클라이언트 ID를 사용 하 여 VM의 사용자 할당 id를 사용 하 여 로그인 합니다.
+사용자가 할당 한 VM id와 서비스 id의 클라이언트 ID를 사용 하 여 로그인 합니다.
 
 ```azcopy
 azcopy login --identity --identity-client-id "[ServiceIdentityClientID]"
 ```
 
-서비스 id의 개체 ID를 사용 하 여 VM의 사용자 할당 id를 사용 하 여 로그인 합니다.
+VM의 사용자 할당 id와 서비스 id의 개체 ID를 사용 하 여 로그인 합니다.
 
 ```azcopy
 azcopy login --identity --identity-object-id "[ServiceIdentityObjectID]"
 ```
 
-서비스 id의 리소스 ID를 사용 하 여 VM의 사용자 할당 id를 사용 하 여 로그인 합니다.
+VM의 사용자 할당 id와 서비스 id의 리소스 ID를 사용 하 여 로그인 합니다.
 
 ```azcopy
 azcopy login --identity --identity-resource-id "/subscriptions/<subscriptionId>/resourcegroups/myRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID"
@@ -90,9 +90,9 @@ azcopy login --service-principal --certificate-path /path/to/my/cert
 
 --인증서 기반 서비스 주체 인증을 수행할 때 인증서 경로는 필수입니다.
 
-## <a name="options"></a>변수
+## <a name="options"></a>옵션
 
-|옵션|Description|
+|옵션|설명|
 |--|--|
 |--응용 프로그램 id 문자열|사용자 할당 id의 응용 프로그램 ID입니다. 서비스 주체 인증에 필요 합니다.|
 |--certificate-path 문자열|SPN 인증을 위한 인증서의 경로입니다. 인증서 기반 서비스 주체 인증에 필요 합니다.|
@@ -101,7 +101,7 @@ azcopy login --service-principal --certificate-path /path/to/my/cert
 |--id-클라이언트-id 문자열|사용자 할당 id의 클라이언트 ID입니다.|
 |--id-개체 id 문자열|사용자 할당 id의 개체 ID입니다.|
 |--id-리소스 id 문자열|사용자 할당 id의 리소스 ID입니다.|
-|--서비스 주체|인증서 또는 암호를 사용 하 여 SPN (서비스 사용자 이름)을 통해 로그인 합니다. 클라이언트 암호 또는 인증서 암호는 해당 환경 변수에 배치 되어야 합니다. 환경 `AzCopy env` 변수의 이름 및 설명을 보려면을 입력 합니다.|
+|--서비스 주체|인증서 또는 암호를 사용 하 여 SPN (서비스 사용자 이름)을 통해 로그인 합니다. 클라이언트 암호 또는 인증서 암호는 해당 환경 변수에 배치 되어야 합니다. 환경 변수의 이름 및 설명을 보려면 `AzCopy env`를 입력 합니다.|
 |--테 넌 트-id 문자열| OAuth 장치 대화형 로그인에 사용할 Azure active directory 테 넌 트 ID입니다.|
 
 ## <a name="options-inherited-from-parent-commands"></a>부모 명령에서 상속 된 옵션
@@ -111,6 +111,6 @@ azcopy login --service-principal --certificate-path /path/to/my/cert
 |--0mbps uint32|전송 률 (메가 비트/초)을 대문자로 처리 합니다. 순간 처리량은 cap와 약간 다를 수 있습니다. 이 옵션을 0으로 설정 하거나 생략 하면 처리량이 생략 되지 않습니다.|
 |--출력 형식 문자열|명령의 출력 형식입니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 "text"입니다.|
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
 - [azcopy](storage-ref-azcopy.md)

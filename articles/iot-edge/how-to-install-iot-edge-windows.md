@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 513cf477e8c2899da17ee8e9bdfdb9ad2bedd159
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: c1b507398a2edd839b610a7c52892e23a88481a0
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828085"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516605"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows에 Azure IoT Edge 런타임 설치
 
@@ -28,13 +28,13 @@ IoT Edge 런타임에 대한 자세한 내용은 [Azure IoT Edge 런타임 및 �
 > [!NOTE]
 > 알려진 Windows 운영 체제 문제는 IoT Edge 모듈 (프로세스 격리 Windows Nano Server 컨테이너)이 실행 중일 때 절전 모드 및 최대 절전 모드로 전환 하는 것을 방지 합니다. 이 문제는 장치의 배터리 수명에 영향을 줍니다.
 >
-> 이 문제를 해결 하려면 명령을 `Stop-Service iotedge` 사용 하 여 이러한 전원 상태를 사용 하기 전에 실행 중인 IoT Edge 모듈을 모두 중지 합니다. 
+> 이 문제를 해결 하려면 명령 `Stop-Service iotedge`를 사용 하 여 이러한 전원 상태를 사용 하기 전에 실행 중인 IoT Edge 모듈을 모두 중지 합니다. 
 
 Windows 시스템에서 Linux 컨테이너를 사용하는 것은 Azure IoT Edge에 추천되거나 지원되는 프로덕션 구성이 아닙니다. 그러나 개발 및 테스트 용도로만 사용할 수 있습니다. 자세히 알아보려면 [Windows에서 IoT Edge를 사용 하 여 Linux 컨테이너 실행](how-to-install-iot-edge-windows-with-linux.md)을 참조 하세요.
 
 최신 버전의 IoT Edge에 포함 된 내용에 대 한 자세한 내용은 [Azure IoT Edge 릴리스](https://github.com/Azure/azure-iotedge/releases)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 섹션을 사용하여 Windows 디바이스에서 IoT Edge를 지원할 수 있는지 여부를 검토하고 설치 전에 컨테이너 엔진에 대해 준비합니다. 
 
@@ -76,7 +76,7 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 
 1. 아직 만들지 않은 경우 새 IoT Edge 장치를 등록 하 고 **장치 연결 문자열**을 검색 합니다. 이 섹션의 뒷부분에서 사용할 연결 문자열을 복사 합니다. 다음 도구를 사용 하 여이 단계를 완료할 수 있습니다.
 
-   * [Azure Portal](how-to-register-device-portal.md)
+   * [Azure 포털](how-to-register-device-portal.md)
    * [Azure CLI](how-to-register-device-cli.md)
    * [Visual Studio Code](how-to-register-device-vscode.md)
 
@@ -105,9 +105,9 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
    Initialize-IoTEdge
    ```
 
-6. 메시지가 표시되면 1단계에서 검색된 장치 연결 문자열을 제공합니다. 장치 연결 문자열은 물리적 장치를 IoT Hub의 장치 ID와 연결합니다. 
+6. 메시지가 표시 되 면 1 단계에서 검색 한 장치 연결 문자열을 제공 합니다. 장치 연결 문자열은 물리적 장치를 IoT Hub의 장치 ID와 연결 합니다. 
 
-   장치 연결 문자열은 다음 형식을 사용 하며 따옴표를 포함 하지 않아야 합니다.`HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
+   장치 연결 문자열은 다음 형식을 사용 하며 따옴표를 포함 하지 않아야 합니다. `HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
 
 7. [설치 성공 확인](#verify-successful-installation) 의 단계를 사용 하 여 장치에서 IoT Edge 상태를 확인 합니다. 
 
@@ -145,7 +145,7 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 
 이전 버전과 함께 최신 IoT Edge 설치 파일은 [Azure IoT Edge 릴리스](https://github.com/Azure/azure-iotedge/releases)를 참조 하세요.
 
-오프 라인 구성 요소를 사용 하 여 `-OfflineInstallationPath` 설치 하려면 매개 변수를 배포-iotedge 명령의 일부로 사용 하 고 파일 디렉터리에 대 한 절대 경로를 제공 합니다. 예를 들면 다음과 같습니다.
+오프 라인 구성 요소를 사용 하 여 설치 하려면 `-OfflineInstallationPath` 매개 변수를 배포-IoTEdge 명령의 일부로 사용 하 고 파일 디렉터리에 대 한 절대 경로를 제공 합니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
@@ -156,7 +156,7 @@ Deploy-IoTEdge -OfflineInstallationPath C:\Downloads\iotedgeoffline
 
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인
 
-IoT Edge 서비스의 상태를 확인합니다. 실행 중으로 표시되어야 합니다.  
+IoT Edge 서비스의 상태를 확인합니다. 실행 중으로 나열 되어야 합니다.  
 
 ```powershell
 Get-Service iotedge
@@ -166,6 +166,12 @@ Get-Service iotedge
 
 ```powershell
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+```
+
+가장 일반적인 구성 및 네트워킹 오류에 대 한 자동화 된 검사를 실행 합니다.
+
+```powershell
+iotedge check
 ```
 
 실행 중인 모듈을 나열합니다. 새로 설치한 후에는 실행 중인 것으로 표시 되는 유일한 모듈은 **edgeAgent**입니다. [IoT Edge 모듈](how-to-deploy-modules-portal.md) 을 처음으로 배포한 후에는 다른 시스템 모듈인 **edgeHub**가 장치에서 시작 됩니다. 
@@ -221,7 +227,7 @@ IoT Edge를 업데이트할 때 다음을 비롯 한 추가 매개 변수를 사
 
 이전 설치의 구성 파일에는 해당 정보가 이미 설정 되어 있으므로 스크립트 매개 변수를 사용 하 여 IoT Edge 에이전트 컨테이너 이미지를 선언할 수 없습니다. 에이전트 컨테이너 이미지를 수정하려는 경우 config.yaml 파일을 사용합니다. 
 
-이러한 업데이트 옵션에 대 한 자세한 내용은 명령을 `Get-Help Update-IoTEdge -full` 사용 하거나 [모든 설치 매개 변수](#all-installation-parameters)를 참조 하세요.
+이러한 업데이트 옵션에 대 한 자세한 내용은 명령 `Get-Help Update-IoTEdge -full`를 사용 하거나 [모든 설치 매개 변수](#all-installation-parameters)를 참조 하세요.
 
 ## <a name="uninstall-iot-edge"></a>IoT Edge 제거
 
@@ -234,17 +240,17 @@ Uninstall-IoTEdge
 
 제거-IoTEdge 명령은 Windows IoT Core에서 작동 하지 않습니다. Windows IoT Core 장치에서 IoT Edge를 제거 하려면 Windows IoT 핵심 이미지를 다시 배포 해야 합니다. 
 
-제거 옵션에 대 한 자세한 내용을 보려면 명령을 `Get-Help Uninstall-IoTEdge -full`사용 하세요. 
+제거 옵션에 대 한 자세한 내용을 보려면 명령 `Get-Help Uninstall-IoTEdge -full`를 사용 합니다. 
 
 ## <a name="all-installation-parameters"></a>모든 설치 매개 변수
 
 이전 섹션에서는 매개 변수를 사용하여 설치 스크립트를 수정하는 방법의 예제와 함께 일반적인 설치 시나리오를 소개했습니다. 이 섹션에서는 IoT Edge를 설치, 업데이트 또는 제거 하는 데 사용 되는 일반 매개 변수의 참조 테이블을 제공 합니다. 
 
-### <a name="deploy-iotedge"></a>Deploy-IoTEdge
+### <a name="deploy-iotedge"></a>배포-IoTEdge
 
-배포-IoTEdge 명령은 IoT Edge 보안 디먼 및 해당 종속성을 다운로드 하 고 배포 합니다. 배포 명령은 이러한 공통 매개 변수를 허용 합니다. 전체 목록은 명령을 `Get-Help Deploy-IoTEdge -full`사용 합니다.  
+배포-IoTEdge 명령은 IoT Edge 보안 디먼 및 해당 종속성을 다운로드 하 고 배포 합니다. 배포 명령은 이러한 공통 매개 변수를 허용 합니다. 전체 목록은 명령 `Get-Help Deploy-IoTEdge -full`를 사용 합니다.  
 
-| 매개 변수 | 허용되는 값 | 주석 |
+| 매개 변수를 포함해야 합니다. | 허용되는 값 | 의견 |
 | --------- | --------------- | -------- |
 | **ContainerOs** | **Windows** 또는 **Linux** | 컨테이너 운영 체제가 지정 되지 않은 경우 Windows가 기본값입니다.<br><br>Windows 컨테이너의 경우 IoT Edge는 설치에 포함 된 moby 컨테이너 엔진을 사용 합니다. Linux 컨테이너의 경우 설치를 시작하기 전에 컨테이너 엔진을 설치해야 합니다. |
 | **프록시** | 프록시 URL | 디바이스가 프록시 서버를 통해 인터넷에 연결해야 하는 경우 이 매개 변수를 포함합니다. 자세한 내용은 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)을 참조하세요. |
@@ -254,9 +260,9 @@ Uninstall-IoTEdge
 
 ### <a name="initialize-iotedge"></a>Initialize-IoTEdge
 
-Initialize IoTEdge 명령은 장치 연결 문자열 및 작업 세부 정보를 사용 하 여 IoT Edge를 구성 합니다. 이 명령에 의해 생성 된 대부분의 정보는 iotedge\config.yaml 파일에 저장 됩니다. 초기화 명령은 이러한 공통 매개 변수를 허용 합니다. 전체 목록은 명령을 `Get-Help Initialize-IoTEdge -full`사용 합니다. 
+Initialize IoTEdge 명령은 장치 연결 문자열 및 작업 세부 정보를 사용 하 여 IoT Edge를 구성 합니다. 이 명령에 의해 생성 된 대부분의 정보는 iotedge\config.yaml 파일에 저장 됩니다. 초기화 명령은 이러한 공통 매개 변수를 허용 합니다. 전체 목록은 명령 `Get-Help Initialize-IoTEdge -full`를 사용 합니다. 
 
-| 매개 변수 | 허용되는 값 | 주석 |
+| 매개 변수를 포함해야 합니다. | 허용되는 값 | 의견 |
 | --------- | --------------- | -------- |
 | **수동** | 없음 | **매개 변수를 전환**합니다. 프로 비전 유형을 지정 하지 않으면 manual이 기본값입니다.<br><br>디바이스 연결 문자열을 제공하여 디바이스를 수동으로 프로비전할 것을 선언합니다. |
 | **Dps** | 없음 | **매개 변수를 전환**합니다. 프로 비전 유형을 지정 하지 않으면 manual이 기본값입니다.<br><br>DPS(Device Provisioning Service) 범위 ID 및 디바이스의 등록 ID를 제공하여 DPS를 통해 프로비전할 것을 선언합니다.  |
@@ -270,9 +276,9 @@ Initialize IoTEdge 명령은 장치 연결 문자열 및 작업 세부 정보를
 | **사용자 이름** | 컨테이너 레지스트리 사용자 이름입니다. | -AgentImage 매개 변수를 프라이빗 레지스트리의 컨테이너로 설정한 경우에만 이 매개 변수를 사용합니다. 레지스트리에 대한 액세스 권한이 있는 사용자 이름을 제공합니다. |
 | **암호** | 보안 암호 문자열입니다. | -AgentImage 매개 변수를 프라이빗 레지스트리의 컨테이너로 설정한 경우에만 이 매개 변수를 사용합니다. 레지스트리에 액세스하기 위한 암호를 제공합니다. |
 
-### <a name="update-iotedge"></a>Update-IoTEdge
+### <a name="update-iotedge"></a>업데이트-IoTEdge
 
-| 매개 변수 | 허용되는 값 | 주석 |
+| 매개 변수를 포함해야 합니다. | 허용되는 값 | 의견 |
 | --------- | --------------- | -------- |
 | **ContainerOs** | **Windows** 또는 **Linux** | 컨테이너 OS가 지정 되지 않은 경우 기본값은 Windows입니다. Windows 컨테이너의 경우 컨테이너 엔진이 설치에 포함됩니다. Linux 컨테이너의 경우 설치를 시작하기 전에 컨테이너 엔진을 설치해야 합니다. |
 | **프록시** | 프록시 URL | 디바이스가 프록시 서버를 통해 인터넷에 연결해야 하는 경우 이 매개 변수를 포함합니다. 자세한 내용은 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)을 참조하세요. |
@@ -280,9 +286,9 @@ Initialize IoTEdge 명령은 장치 연결 문자열 및 작업 세부 정보를
 | **OfflineInstallationPath** | 디렉터리 경로 | 이 매개 변수를 포함 하는 경우 설치 관리자는 설치에 필요한 IoT Edge cab 및 VC Runtime MSI 파일에 대해 나열 된 디렉터리를 확인 합니다. 디렉터리에서 찾을 수 없는 파일이 다운로드 됩니다. 두 파일이 모두 디렉터리에 있으면 인터넷에 연결 하지 않고 IoT Edge를 설치할 수 있습니다. 이 매개 변수를 사용 하 여 특정 버전을 사용할 수도 있습니다. |
 | **RestartIfNeeded** | 없음 | 이 플래그를 사용 하면 필요에 따라 메시지를 표시 하지 않고 배포 스크립트에서 컴퓨터를 다시 시작할 수 있습니다. |
 
-### <a name="uninstall-iotedge"></a>Uninstall-IoTEdge
+### <a name="uninstall-iotedge"></a>제거-IoTEdge
 
-| 매개 변수 | 허용되는 값 | 주석 |
+| 매개 변수를 포함해야 합니다. | 허용되는 값 | 의견 |
 | --------- | --------------- | -------- |
 | **설정** | 없음 | 이전 제거 시도가 실패 한 경우이 플래그는 제거를 강제로 수행 합니다. 
 | **RestartIfNeeded** | 없음 | 필요한 경우이 플래그를 사용 하 여 컴퓨터를 다시 시작 하 라는 메시지를 표시 하지 않고 제거할 수 있습니다. |

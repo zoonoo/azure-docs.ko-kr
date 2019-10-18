@@ -4,15 +4,15 @@ description: Azure Analysis Services의 데이터 모델에 지원되는 데이�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 79346f0bf80386fb83f55daccda8790652ff8541
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c6043d9e18c364073ad1ea46e26335577e0ec3b2
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298629"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512450"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -22,14 +22,14 @@ Visual Studio에서 데이터 가져오기 또는 마법사 가져오기에 표�
 
 |데이터 원본  |메모리 내  |DirectQuery  |
 |---------|---------|---------|
-|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   예      |    예      |
-|Azure SQL 데이터 웨어하우스     |   예      |   예       |
-|Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   예       |    아니요      |
-|Azure Table Storage<sup>[1](#tab1400a)</sup>    |   예       |    아니요      |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  예        |  아니요        |
-|Azure Data Lake Store(Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   예       |    아니요      |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     예     |   아니요       |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   예       |   아니요       |
+|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   yes      |    yes      |
+|Azure SQL Data Warehouse     |   yes      |   yes       |
+|Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   yes       |    아닙니다.      |
+|Azure Table Storage<sup>[1](#tab1400a)</sup>    |   yes       |    아닙니다.      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  yes        |  아닙니다.        |
+|Azure Data Lake Store(Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   yes       |    아닙니다.      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     yes     |   아닙니다.       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   yes       |   아닙니다.       |
 ||||
 
 <a name="tab1400a">1</a> - 테이블 형식 1400 이상 모델에만 해당됩니다.   
@@ -49,8 +49,8 @@ Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델�
 
 |데이터 원본 | 메모리 내 공급자 | DirectQuery 공급자 |
 |  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
-| SQL Server 데이터 웨어하우스 |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
+| SQL Server |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | SQL Server용 .NET Framework 데이터 공급자 |
+| SQL Server 데이터 웨어하우스 |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | SQL Server용 .NET Framework 데이터 공급자 |
 | Oracle | Oracle에 대 한 OLE DB 공급자, .NET 용 Oracle Data Provider |.NET용 Oracle Data Provider |
 | Teradata |Teradata용 OLE DB Provider, .NET용 Teradata Data Provider |.NET용 Teradata Data Provider |
 | | | |
@@ -71,7 +71,7 @@ Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델�
 |IBM Informix<sup>[1](#tab1400b)</sup>(베타) |
 |JSON 문서<sup>[1](#tab1400b)</sup>     |  
 |이진의 줄<sup>[1](#tab1400b)</sup>     | 
-|MySQL 데이터베이스     | 
+|MySQL Database     | 
 |OData 피드<sup>[1](#tab1400b)</sup>     |  
 |ODBC 쿼리     | 
 |OLE DB     |   
@@ -80,7 +80,7 @@ Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델�
 |Salesforce 보고서<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
-|SharePoint List<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
+|SharePoint 목록<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
 |Sybase 데이터베이스     |  
 |TXT 파일  |
 |XML 테이블<sup>[1](#tab1400b)</sup>    |  
@@ -91,7 +91,7 @@ Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델�
 
 ## <a name="specifying-a-different-provider"></a>다른 공급자 지정
 
-특정 데이터 원본에 연결할 때 Azure Analysis Service의 데이터 모델은 서로 다른 데이터 공급자가 필요할 수 있습니다. 경우에 따라 SQL Server Native Client(SQLNCLI11)와 같은 네이티브 공급자를 사용하여 데이터 원본에 연결하는 테이블 형식 모델은 오류를 반환할 수 있습니다. SQLOLEDB 이외의 네이티브 공급자를 사용하는 경우 **공급자 'SQLNCLI11.1'이 등록되지 않았습니다.** 라는 오류 메시지가 표시될 수 있습니다. 또는 온-프레미스 데이터 원본에 DirectQuery 모델을 연결하고 네이티브 공급자를 사용하는 경우 **OLE DB 행 집합을 만드는 데 오류가 발생했습니다. 'LIMIT' 가까이에 잘못된 구문이 있습니다.** 라는 오류 메시지가 표시될 수 있습니다.
+특정 데이터 원본에 연결할 때 Azure Analysis Service의 데이터 모델은 서로 다른 데이터 공급자가 필요할 수 있습니다. 경우에 따라 SQL Server Native Client(SQLNCLI11)와 같은 네이티브 공급자를 사용하여 데이터 원본에 연결하는 테이블 형식 모델은 오류를 반환할 수 있습니다. SQLOLEDB 이외의 네이티브 공급자를 사용하는 경우 **공급자 'SQLNCLI11.1'이 등록되지 않았습니다.** 라는 오류 메시지가 표시될 수 있습니다. 또는 온-프레미스 데이터 원본에 연결 하는 DirectQuery 모델이 있고 네이티브 공급자를 사용 하는 경우, **OLE DB 행 집합을 만드는 동안 오류 메시지가 표시 될 수 있습니다. ' LIMIT ' 근처의 구문이 잘못 되었습니다**.
 
 온-프레미스 SQL Server Analysis Services 테이블 형식 모델을 Azure Analysis Services로 마이그레이션하는 경우 공급자를 변경해야 할 수도 있습니다.
 

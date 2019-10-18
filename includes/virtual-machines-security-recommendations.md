@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/19/2019
 ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: 795b9beedabd119df98487a0bc00160bcf21507f
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: d43860d71b14bdac275df51695c9206539529171
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174161"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72511497"
 ---
-이 문서에는 Azure Virtual Machines에 대 한 보안 권장 사항이 포함 되어 있습니다. 이러한 권장 사항을 따라 공유 책임에 대 한 모델에 설명 된 보안 의무를 달성 합니다. 또한 권장 사항은 웹 앱 솔루션에 대 한 전반적인 보안을 개선 하는 데 도움이 됩니다. Microsoft에서 서비스 공급자 역할을 수행 하는 데 필요한 사항에 대 한 자세한 내용은 [클라우드 컴퓨팅을 위한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)을 참조 하세요.
+이 문서에는 Azure Virtual Machines에 대 한 보안 권장 사항이 포함 되어 있습니다. 이러한 권장 사항을 따라 공유 책임에 대 한 모델에 설명 된 보안 의무를 달성 합니다. 또한 권장 사항은 웹 앱 솔루션에 대 한 전반적인 보안을 개선 하는 데 도움이 됩니다. Microsoft에서 서비스 공급자 역할을 수행 하는 데 필요한 사항에 대 한 자세한 내용은 [클라우드 컴퓨팅을 위한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225237/1/Shared%20Responsibilities%20for%20Cloud%20Computing%20(2017-04-03).pdf)을 참조 하세요.
 
 이 문서의 권장 사항 중 일부는 Azure Security Center 하 여 자동으로 해결할 수 있습니다. Azure에서 리소스에 대 한 첫 번째 방어선은 Azure Security Center입니다. Azure 리소스의 보안 상태를 주기적으로 분석 하 여 잠재적인 보안 취약성을 식별 합니다. 그런 다음 취약점을 해결 하는 방법을 권장 합니다. 자세한 내용은 [Azure Security Center의 보안 권장 사항](../articles/security-center/security-center-recommendations.md)을 참조 하세요.
 
@@ -23,7 +23,7 @@ Azure Security Center에 대 한 일반 정보 [는 Azure Security Center 무엇
 
 ## <a name="recommendations"></a>권장 사항
 
-| Category | 권장 | 주석 | Security Center |
+| 범주 | 권장 사항 | 의견 | Security Center |
 |-|-|----|--|
 | 일반 | 사용자 지정 VM 이미지를 빌드할 때 최신 업데이트를 적용 합니다. | 이미지를 만들기 전에 이미지에 포함 될 모든 응용 프로그램 및 운영 체제에 대 한 최신 업데이트를 설치 합니다.  | - |
 | 일반 | 최신 상태로 VM 유지 | Azure Automation에서 [업데이트 관리](../articles/automation/automation-update-management.md) 솔루션을 사용 하 여 Azure에서 Windows 및 Linux 컴퓨터에 대 한 운영 체제 업데이트를 관리할 수 있습니다. | [예](../articles/security-center/security-center-apply-system-updates.md) |

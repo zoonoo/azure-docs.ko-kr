@@ -11,12 +11,12 @@ metadata:
   author: HeidiSteen
   ms.author: heidist
   ms.date: 09/20/2019
-  ms.openlocfilehash: ece327a4155e0336de97b95ffa0a58a1d48097da
-  ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+  ms.openlocfilehash: 5521f784704fe4d97ed30de0ec5367b9b4bb4f5f
+  ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/14/2019
-  ms.locfileid: "72302730"
+  ms.lasthandoff: 10/17/2019
+  ms.locfileid: "72529455"
 landingContent:
 - title: Azure Search 정보
   linkLists:
@@ -52,10 +52,10 @@ landingContent:
     links:
     - text: AI를 사용하여 Blob 데이터 이해
       url: search-blob-ai-integration.md
-    - text: Blob 데이터에 전체 텍스트 검색 추가
+    - text: Blob 콘텐츠 검색
       url: search-blob-storage-integration.md
     - text: AI 보강 저장
-      url: knowledge-store-create-portal.md
+      url: knowledge-store-concept-intro.md
   - linkListType: tutorial
     links:
     - text: 반 구조화된 Blob 데이터 인덱싱

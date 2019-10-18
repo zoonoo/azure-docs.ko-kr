@@ -304,19 +304,33 @@
           href: spark-job.md
         - name: GPU 사용
           href: gpu-cluster.md
-        - name: Istio 사용
-          items:
-            - name: 설치 및 구성
-              href: istio-install.md
-            - name: 지능형 라우팅 및 카나리아 릴리스
-              href: istio-scenario-routing.md
-        - name: Hashicorp Consul 연결 사용
-          items:
-            - name: 설치 및 구성
-              href: consul-install.md
         - name: Azure Database for PostgreSQL 사용
           href: ../postgresql/concepts-aks.md
           maintainContext: true
+    - name: 서비스 메시 선택 및 배포
+      items:
+        - name: 서비스 메시 정보
+          href: servicemesh-about.md
+        - name: Istio 사용
+          items:
+            - name: Istio 정보
+              href: servicemesh-istio-about.md
+            - name: 설치 및 구성
+              href: servicemesh-istio-install.md
+            - name: 시나리오 - 지능형 라우팅 및 카나리아 릴리스
+              href: servicemesh-istio-scenario-routing.md
+        - name: Linkerd 사용
+          items:
+            - name: Linkerd 정보
+              href: servicemesh-linkerd-about.md
+            - name: 설치 및 구성
+              href: servicemesh-linkerd-install.md
+        - name: Consul 사용
+          items:
+            - name: Consul 정보
+              href: servicemesh-consul-about.md
+            - name: 설치 및 구성
+              href: servicemesh-consul-install.md
     - name: DevOps
       items:
         - name: Ansible을 사용하여 AKS 클러스터 만들기

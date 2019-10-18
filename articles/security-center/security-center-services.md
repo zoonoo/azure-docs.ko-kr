@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: b6de3a520150a95316371c4454fd2537f2beab5d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
-ms.translationtype: HT
+ms.openlocfilehash: 275598aa50c252512348f4a04543e1beaf538626
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331136"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529488"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Azure Security Center에서 사용할 수 있는 지원 되는 기능
 
@@ -96,14 +96,14 @@ Azure Security Center에서 지 원하는 PaaS 리소스는 다음과 같습니�
 |MySQL*|✔| ✔|
 |CosmosDB|X| ✔|
 |Blob Storage|✔| ✔|
-|Storage 계정|✔| 해당 없음|
+|Storage 계정|✔| X|
 |App Service|✔| ✔|
 |함수|✔| X|
 |클라우드 서비스|✔| X|
-|VNet|✔| 해당 없음|
-|서브넷|✔| 해당 없음|
-|NIC|✔| 해당 없음|
-|NSG|✔| 해당 없음|
+|VNet|✔| X|
+|서브넷|✔| X|
+|NIC|✔| X|
+|NSG|✔| X|
 |Subscription|✔ * *| ✔|
 |Batch 계정|✔| X|
 |Service fabric 계정|✔| X|
@@ -114,14 +114,14 @@ Azure Security Center에서 지 원하는 PaaS 리소스는 다음과 같습니�
 |Stream Analytics|✔| X|
 |이벤트 허브 네임스페이스|✔| X|
 |논리 앱|✔| X|
-|Redis|✔| 해당 없음|
+|Redis|✔| X|
 |Data Lake Analytics|✔| X|
 |Data Lake Store|✔| X|
 |Key Vault|✔| X|
 
 \* 이러한 기능은 현재 공개 미리 보기로 지원됩니다.
 
-\* @ no__t-1 Azure Active Directory (Azure AD) 권장 사항은 표준 구독에 대해서만 사용할 수 있습니다.
+Azure AD (\* \* Azure Active Directory 권장 사항은 표준 구독에 대해서만 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

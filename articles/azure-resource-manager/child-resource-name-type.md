@@ -1,17 +1,17 @@
 ---
-title: Azure Resource Manager 템플릿에서 자식 리소스의 이름 및 형식
+title: 자식 리소스-Azure Resource Manager 템플릿
 description: Azure Resource Manager 템플릿에서 자식 리소스의 이름 및 형식을 설정 하는 방법을 설명 합니다.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: bd1c38547866c34eb5c4808ed5b185b50fa44a01
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 3a90b2155b11d4c12bc1f571af3f15fdbceb12b9
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035574"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532291"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>자식 리소스의 이름 및 형식 설정
 

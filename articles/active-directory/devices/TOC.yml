@@ -49,6 +49,8 @@
       href: manage-stale-devices.md
     - name: 엔터프라이즈 상태 로밍 사용
       href: enterprise-state-roaming-enable.md
+    - name: 가상 데스크톱 인프라
+      href: howto-device-identity-virtual-desktop-infrastructure.md
     - name: Azure 관리 워크스테이션 배포
       href: howto-azure-managed-workstation.md
     - name: 디바이스 ID 문제 해결

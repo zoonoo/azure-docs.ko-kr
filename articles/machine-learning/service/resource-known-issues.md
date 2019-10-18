@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee7bbff8ab501a1159030a8ee9c57f1c5a64ea22
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: b69eda59c9c8032510df036d3aa0d160105fbc16
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286538"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533183"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>알려진 문제 및 문제 해결 Azure Machine Learning
 
@@ -37,13 +37,13 @@ Machine learning 서비스 문제에 대 한 시각적 인터페이스입니다.
  
 이 문제를 해결 하기 전에 데이터 집합을 데이터 변환 모듈 (데이터 집합의 열 선택, 메타 데이터 편집, 데이터 분할 등)에 연결 하 고 실험을 실행할 수 있습니다. 그런 다음 데이터 집합을 시각화할 수 있습니다. 
 
-다음 이미지는 0visulize @ no__t-1을 보여 줍니다 @no__t.
+다음 그림에서는 ![visulize 데이터 ](./media/resource-known-issues/aml-visualize-data.png)를 보여 줍니다.
 
 ## <a name="sdk-installation-issues"></a>SDK 설치 문제
 
 **오류 메시지: ‘PyYAML’을 제거할 수 없습니다.**
 
-Python용 Azure Machine Learning SDK: PyYAML은 distutils 설치 프로젝트입니다. 따라서 부분 제거가 있는 경우 속해 있는 파일을 정확히 확인할 수 없습니다. 이 오류를 무시하면서 SDK를 게속 설치하려면 다음을 사용합니다.
+Python 용 Azure Machine Learning SDK: PyYAML는 distutils 설치 된 프로젝트입니다. 따라서 부분 제거가 있는 경우 속해 있는 파일을 정확히 확인할 수 없습니다. 이 오류를 무시하면서 SDK를 게속 설치하려면 다음을 사용합니다.
 
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
@@ -87,7 +87,7 @@ Databricks 및 Azure Machine Learning 문제.
 
 ### <a name="failure-when-installing-packages"></a>패키지 설치 시 실패
 
-추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예:
+추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예제:
 
 ```python
 psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
@@ -130,9 +130,9 @@ displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.g
 
 Azure Databricks 클러스터에서 데이터를 읽을 때 `FailToSendFeather` 오류가 표시 되는 경우 다음 해결 방법을 참조 하세요.
 
-* @No__t-0 패키지를 최신 버전으로 업그레이드 합니다.
-* @No__t-0 버전 1.1.8 이상을 추가 합니다.
-* @No__t-0 버전 0.11 이상을 추가 합니다.
+* @No__t_0 패키지를 최신 버전으로 업그레이드 합니다.
+* @No__t_0 버전 1.1.8 이상을 추가 합니다.
+* @No__t_0 버전 0.11 이상을 추가 합니다.
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -171,13 +171,13 @@ Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당�
 
 ## <a name="overloaded-azurefile-storage"></a>오버 로드 된 AzureFile 저장소
 
--0 @no__t 오류가 표시 되 면 다음 해결 방법을 적용 하십시오.
+@No__t_0 오류가 표시 되 면 다음 해결 방법을 적용 합니다.
 
 데이터 전송과 같은 다른 작업에 대해 파일 공유를 사용 하는 경우 파일 공유를 사용 하 여 실행을 제출할 수 있도록 blob을 사용 하는 것이 좋습니다. 작업을 서로 다른 두 작업 영역 간에 분할할 수도 있습니다.
 
 ## <a name="webservices-in-azure-kubernetes-service-failures"></a>Azure Kubernetes 서비스 실패의 Webservices 
 
-@No__t-0을 사용 하 여 클러스터에 연결 하 여 Azure Kubernetes Service에서 많은 webservice 오류를 디버그할 수 있습니다. 을 실행 하 여 Azure Kubernetes 서비스 클러스터에 대 한 `kubeconfig.json`을 가져올 수 있습니다.
+@No__t_0를 사용 하 여 클러스터에 연결 하 여 Azure Kubernetes Service에서 많은 webservice 오류를 디버그할 수 있습니다. 을 실행 하 여 Azure Kubernetes 서비스 클러스터에 대 한 `kubeconfig.json`를 가져올 수 있습니다.
 
 ```bash
 az aks get-credentials -g <rg> -n <aks cluster name>
@@ -211,14 +211,14 @@ compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceNa
 compute_target.wait_for_completion(show_output=True)
 ```
 
-SSL 인증서와 개인 키가 더 이상 없거나 Azure Machine Learning에 의해 생성 된 인증서를 사용 하는 경우 `kubectl`을 사용 하 여 클러스터에 연결 하 고 암호 `azuremlfessl`을 검색 하 여 클러스터를 분리 하기 전에 파일을 검색할 수 있습니다.
+SSL 인증서와 개인 키가 더 이상 없거나 Azure Machine Learning에 의해 생성 된 인증서를 사용 하는 경우 `kubectl`를 사용 하 여 클러스터에 연결 하 고 비밀 `azuremlfessl`을 검색 하 여 클러스터를 분리 하기 전에 파일을 검색할 수 있습니다.
 
 ```bash
 kubectl get secret/azuremlfessl -o yaml
 ```
 
 >[!Note]
->Kubernetes는 암호를 base-64로 인코딩된 형식으로 저장 합니다. @No__t-2에 제공 하기 전에 비밀의 `cert.pem` 및 `key.pem` 구성 요소를 64으로 디코드 해야 합니다. 
+>Kubernetes는 암호를 base-64로 인코딩된 형식으로 저장 합니다. @No__t_2에 제공 하기 전에 `cert.pem` 및 암호의 `key.pem` 구성 요소를 먼저 디코딩하는 것이 64 필요 합니다. 
 
 ## <a name="recommendations-for-error-fix"></a>오류 수정에 대 한 권장 사항
 일반적인 관찰을 기준으로 azure ML에서 일반적인 오류 중 일부를 해결 하기 위한 Azure ML 권장 사항은 다음과 같습니다.
@@ -226,7 +226,7 @@ kubectl get secret/azuremlfessl -o yaml
 ### <a name="moduleerrors-no-module-named"></a>ModuleErrors (이름이 지정 된 모듈 없음)
 Azure ML에서 실험을 제출 하는 동안 ModuleErrors를 실행 하는 경우 학습 스크립트는 패키지를 설치 하는 것으로 예상 하지만 추가 되지 않았음을 의미 합니다. 패키지 이름을 제공 하면 Azure ML은 교육에 사용 되는 환경에 패키지를 설치 합니다. 
 
-[추정](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) 를 사용 하 여 실험을 제출 하는 경우 패키지를 설치 하려는 원본에서 기반으로 평가기에서 `pip_packages` 또는 `conda_packages` 매개 변수를 통해 패키지 이름을 지정할 수 있습니다. @No__t-0을 사용 하 여 모든 종속성이 포함 된 iisnode.yml 파일을 지정 하거나 `pip_requirements_file` 매개 변수를 사용 하 여 txt 파일에 모든 pip 요구 사항을 나열할 수도 있습니다.
+[추정](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) 를 사용 하 여 실험을 제출 하는 경우 패키지를 설치 하려는 원본에서 기반으로 평가기의 `conda_packages` 매개 변수를 사용 하 여 패키지 `pip_packages` 이름을 지정할 수 있습니다. @No__t_0or를 사용 하 여 모든 종속성이 포함 된 iisnode.yml 파일을 지정 하 `pip_requirements_file` 매개 변수를 사용 하 여 txt 파일에 모든 pip 요구 사항을 나열할 수도 있습니다.
 
 또한 Azure ML은 Tensorflow, PyTorch, 체 이너 및 추정에 대 한 프레임 워크 관련 제공 합니다. 이러한 추정을 사용 하면 학습에 사용 되는 환경에서 프레임 워크 종속성을 대신 설치할 수 있습니다. 위에서 설명한 대로 추가 종속성을 지정 하는 옵션이 있습니다. 
  
@@ -236,7 +236,7 @@ Azure ML에서 실험을 제출 하는 동안 ModuleErrors를 실행 하는 경�
 >[참고!] 특정 패키지가 Azure 기계 학습에서 유지 관리 되는 이미지 및 환경에 추가할 수 있는 것으로 생각 되는 경우 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 GitHub 문제를 제기 하세요. 
  
  ### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>NameError (이름이 정의 되지 않음), AttributeError (개체에 특성이 없음)
-이 예외는 학습 스크립트에서 제공 되어야 합니다. Azure Portal에서 로그 파일을 확인 하 여 지정 되지 않은 특정 이름 또는 특성 오류에 대 한 자세한 정보를 볼 수 있습니다. SDK에서 `run.get_details()`을 사용 하 여 오류 메시지를 확인할 수 있습니다. 또한 실행을 위해 생성 된 모든 로그 파일을 나열 합니다. 학습 스크립트를 확인 하 고 다시 시도 하기 전에 오류를 수정 하세요. 
+이 예외는 학습 스크립트에서 제공 되어야 합니다. Azure Portal에서 로그 파일을 확인 하 여 지정 되지 않은 특정 이름 또는 특성 오류에 대 한 자세한 정보를 볼 수 있습니다. SDK에서 `run.get_details()`를 사용 하 여 오류 메시지를 확인할 수 있습니다. 또한 실행을 위해 생성 된 모든 로그 파일을 나열 합니다. 학습 스크립트를 확인 하 고 다시 시도 하기 전에 오류를 수정 하세요. 
 
 ### <a name="horovod-is-shutdown"></a>Horovod가 종료 되었습니다.
-대부분의 경우이 예외는 horovod를 종료 시킨 프로세스 중 하나에 기본 예외가 있음을 의미 합니다. MPI 작업의 각 순위는 Azure ML의 전용 로그 파일을 가져옵니다. 이러한 로그의 이름은 `70_driver_logs`입니다. 분산 교육의 경우 로그 이름에 `_rank`을 지정 하 여 로그를 쉽게 구분할 수 있습니다. Horovod shutdown이 발생 한 정확한 오류를 찾으려면 모든 로그 파일을 확인 하 고 driver_log 파일의 끝에 `Traceback`이 있는지 확인 하세요. 이러한 파일 중 하나는 실제 기본 예외를 제공 합니다. 
+대부분의 경우이 예외는 horovod를 종료 시킨 프로세스 중 하나에 기본 예외가 있음을 의미 합니다. MPI 작업의 각 순위는 Azure ML의 전용 로그 파일을 가져옵니다. 이러한 로그의 이름은 `70_driver_logs`입니다. 분산 교육의 경우 로그를 쉽게 구분할 수 있도록 로그 이름에 `_rank` 접미사가 붙습니다. Horovod shutdown이 발생 한 정확한 오류를 찾으려면 모든 로그 파일을 살펴보고 driver_log 파일의 끝에 있는 `Traceback`를 찾습니다. 이러한 파일 중 하나는 실제 기본 예외를 제공 합니다. 

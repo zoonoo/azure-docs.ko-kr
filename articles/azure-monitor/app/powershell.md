@@ -1,6 +1,6 @@
 ---
 title: PowerShell 사용하여 Azure Application Insights 자동화 | Microsoft Docs
-description: Azure Resource Manager 템플릿을 사용하여 PowerShell에서 리소스, 경고 및 가용성 테스트 생성을 자동화합니다.
+description: Azure Resource Manager 템플릿을 사용 하 여 PowerShell에서 리소스, 경고 및 가용성 테스트 만들기 및 관리를 자동화 합니다.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -10,22 +10,22 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 10/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: b4f3d2eba70be39b23e86ebde3c71dfc7c19a374
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
-ms.translationtype: MT
+ms.openlocfilehash: 7ac5d933406af10307ba3312a8f609bfde2413fc
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936715"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514394"
 ---
-#  <a name="create-application-insights-resources-using-powershell"></a>PowerShell을 사용하여 Application Insights 리소스 만들기
+#  <a name="manage-application-insights-resources-using-powershell"></a>PowerShell을 사용 하 여 Application Insights 리소스 관리
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 이 문서에서는 Azure Resource Management를 사용하여 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 리소스의 생성 및 업데이트를 자동화하는 방법을 보여줍니다. 예를 들어 빌드 프로세스의 일부로 이 작업을 수행할 수 있습니다. 기본 Application Insights 리소스와 함께 [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 만들고, [경고](../../azure-monitor/app/alerts.md)를 설정하고, [가격 책정 계층](pricing.md)을 설정하고, 기타 Azure 리소스를 만들 수 있습니다.
 
-이러한 리소스를 만드는 데 핵심 사항은 [Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md)용 JSON 템플릿입니다. 간단히 말하면 절차는 다음과 같습니다. 기존 리소스의 JSON 정의를 다운로드하고, 이름과 같은 특정 값을 매개 변수화한 다음 새 리소스를 만들려고 할 때마다 템플릿을 실행합니다. 여러 리소스를 함께 패키지하여 모두 한꺼번에 만들 수 있습니다(예: 가용성 테스트, 경고 및 연속 내보내기에 대한 스토리지를 포함하는 앱 모니터). 일부 매개 변수화에 있는 약간의 미묘한 사항은 여기서 설명합니다.
+이러한 리소스를 만드는 데 핵심 사항은 [Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md)용 JSON 템플릿입니다. 기본 절차는 다음과 같습니다. 기존 리소스의 JSON 정의를 다운로드 합니다. 이름 등의 특정 값 매개 변수화 그런 다음 새 리소스를 만들려는 때마다 템플릿을 실행 합니다. 여러 리소스를 함께 패키지하여 모두 한꺼번에 만들 수 있습니다(예: 가용성 테스트, 경고 및 연속 내보내기에 대한 스토리지를 포함하는 앱 모니터). 일부 매개 변수화에 있는 약간의 미묘한 사항은 여기서 설명합니다.
 
 ## <a name="one-time-setup"></a>일 회 설정
 아직 Azure 구독에서 PowerShell을 사용한 적이 없을 경우:
@@ -35,7 +35,30 @@ ms.locfileid: "71936715"
 1. [Microsoft 웹 플랫폼 설치 관리자(v5 이상)](https://www.microsoft.com/web/downloads/platform.aspx)를 설치합니다.
 2. 이를 사용하여 Microsoft Azure Powershell을 설치합니다.
 
-## <a name="create-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 만들기
+리소스 관리자 템플릿 사용 외에도 Application Insights 리소스를 프로그래밍 방식으로 쉽게 구성할 수 있도록 하는 다양 한 [Application Insights PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.applicationinsights)이 있습니다. Cmdlet에 의해 활성화 되는 기능은 다음과 같습니다.
+
+* Application Insights 리소스 만들기 및 삭제
+* Application Insights 리소스 및 해당 속성의 목록을 가져옵니다.
+* 연속 내보내기 만들기 및 관리
+* 응용 프로그램 키 만들기 및 관리
+* 일일 상한 설정
+* 가격 책정 계획 설정
+
+## <a name="create-application-insights-resources-using-a-powershell-cmdlet"></a>PowerShell cmdlet을 사용 하 여 Application Insights 리소스 만들기
+
+[AzApplicationInsights](https://docs.microsoft.com/powershell/module/az.applicationinsights/New-AzApplicationInsights) cmdlet을 사용 하 여 Azure 미국 동부 데이터 센터에 새 Application Insights 리소스를 만드는 방법은 다음과 같습니다.
+
+```PS
+New-AzApplicationInsights -ResourceGroupName <resource group> -Name <resource name> -location eastus
+```
+
+
+## <a name="create-application-insights-resources-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Application Insights 리소스 만들기
+
+리소스 관리자 템플릿을 사용 하 여 새 Application Insights 리소스를 만드는 방법은 다음과 같습니다.
+
+### <a name="create-the-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 만들기
+
 새 .json 파일을 만듭니다. 이 예제에서는 `template1.json`입니다. 아래 내용을 이 파일에 복사합니다.
 
 ```JSON
@@ -160,7 +183,7 @@ ms.locfileid: "71936715"
                 ],
                 "properties": {
                     "CurrentBillingFeatures": "[variables('pricePlan')]",
-                    "retentionInDays": "[variables('retentionInDays')]",
+                    "retentionInDays": "[parameters('retentionInDays')]",
                     "DataVolumeCap": {
                         "Cap": "[parameters('dailyQuota')]",
                         "WarningThreshold": "[parameters('warningThreshold')]",
@@ -172,16 +195,13 @@ ms.locfileid: "71936715"
     }
 ```
 
+### <a name="use-the-resource-manager-template-to-create-a-new-application-insights-resource"></a>리소스 관리자 템플릿을 사용 하 여 새 Application Insights 리소스 만들기
 
-
-## <a name="create-application-insights-resources"></a>Application Insights 리소스 만들기
-1. PowerShell에서 Azure에 로그인합니다.
-   
-    `Connect-AzAccount`
-2. 다음과 같은 명령을 실행합니다.
+1. PowerShell에서 `$Connect-AzAccount`를 사용 하 여 Azure에 로그인 합니다.
+2. 를 사용 하 여 컨텍스트를 구독으로 설정 `Set-AzContext "<subscription ID>"`
+2. 새 배포를 실행 하 여 새 Application Insights 리소스를 만듭니다.
    
     ```PS
-   
         New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -appName myNewApp
@@ -194,41 +214,95 @@ ms.locfileid: "71936715"
 
 다른 매개 변수를 추가할 수 있습니다. 템플릿의 매개 변수 섹션에서 해당 설명을 찾을 수 있습니다.
 
-## <a name="to-get-the-instrumentation-key"></a>계측 키를 가져오려면
+## <a name="get-the-instrumentation-key"></a>계측 키 가져오기
+
 애플리케이션 리소스를 만든 후 계측 키가 필요할 수 있습니다. 
 
+1. `$Connect-AzAccount`
+2. `Set-AzContext "<subscription ID>"`
+3. `$resource = Get-AzResource -Name "<resource name>" -ResourceType "Microsoft.Insights/components"`
+4. `$details = Get-AzResource -ResourceId $resource.ResourceId`
+5. `$details.Properties.InstrumentationKey`
+
+Application Insights 리소스의 여러 다른 속성 목록을 보려면 다음을 사용 합니다.
+
 ```PS
-    $resource = Find-AzResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
-    $details = Get-AzResource -ResourceId $resource.ResourceId
-    $ikey = $details.Properties.InstrumentationKey
+Get-AzApplicationInsights -ResourceGroupName Fabrikam -Name FabrikamProd | Format-List
 ```
 
+Cmdlet을 통해 추가 속성을 사용할 수 있습니다.
+* `Set-AzApplicationInsightsDailyCap`
+* `Set-AzApplicationInsightsPricingPlan`
+* `Get-AzApplicationInsightsApiKey`
+* `Get-AzApplicationInsightsContinuousExport`
 
-<a id="price"></a>
-## <a name="set-the-price-plan"></a>가격 계획 설정
+이러한 cmdlet의 매개 변수에 대 한 [자세한 설명서](https://docs.microsoft.com/powershell/module/az.applicationinsights) 를 참조 하세요.  
 
-[가격 계획](pricing.md)을 설정할 수 있습니다.
+## <a name="set-the-data-retention"></a>데이터 보존 설정 
 
-위의 템플릿을 사용하여 엔터프라이즈 가격 계획이 있는 앱 리소스를 만들려면
+Application Insights 리소스에 대 한 현재 데이터 보존을 얻으려면 OSS 도구 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용할 수 있습니다.  [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) 및 [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)에서 ARMClient에 대해 자세히 알아보세요.  현재 보존을 얻기 위해 `ARMClient`를 사용 하는 예제는 다음과 같습니다.
 
 ```PS
-        New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
+armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview
+```
+
+보존을 설정 하기 위해 명령은 유사 하 게 배치 됩니다.
+
+```PS
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview "{location: 'eastus', properties: {'retentionInDays': 365}}"
+```
+
+위의 템플릿을 사용 하 여 데이터 보존을 365 일로 설정 하려면 다음을 실행 합니다.
+
+```PS
+        New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
                -TemplateFile .\template1.json `
-               -priceCode 2 `
-               -appName myNewApp
+               -retentionInDays 365 `
+               -appName myApp
+```
+
+## <a name="set-the-daily-cap"></a>일일 상한 설정
+
+일일 상한 속성을 가져오려면 [AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) cmdlet을 사용 합니다. 
+
+```PS
+Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> | Format-List
+```
+
+일일 상한 속성을 설정 하려면 동일한 cmdlet을 사용 합니다. 예를 들어 cap를 300 g b/일로 설정 하려면 
+
+```PS
+Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> -DailyCapGB 300
+```
+
+<a id="price"></a>
+## <a name="set-the-pricing-plan"></a>가격 책정 계획 설정 
+
+현재 가격 책정 계획을 얻으려면 [AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) cmdlet을 사용 합니다. 
+
+```PS
+Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> | Format-List
+```
+
+가격 책정 계획을 설정 하려면 지정 된 `-PricingPlan`와 동일한 cmdlet을 사용 합니다.  
+
+```PS
+Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> -PricingPlan Basic
+```
+
+위의 리소스 관리자 템플릿을 사용 하 여 기존 Application Insights 리소스에 대 한 가격 책정 계획을 설정할 수도 있습니다 .이 경우에는 "microsoft Insights/components" 리소스와 청구 리소스의 `dependsOn` 노드가 생략 됩니다. 예를 들어 GB 당 요금제 (이전의 기본 계획)로 설정 하려면 다음을 실행 합니다.
+
+```PS
+        New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
+               -TemplateFile .\template1.json `
+               -priceCode 1 `
+               -appName myApp
 ```
 
 |priceCode|계획|
 |---|---|
-|1|기본|
-|2|Enterprise|
-
-* 기본적인 Basic 가격 계획만 사용하려는 경우 템플릿에서 CurrentBillingFeatures 리소스를 생략해도 됩니다.
-* 구성 요소 리소스를 만든 후에 가격 계획을 변경하려는 경우 "microsoft.insights/components" 리소스를 생략하는 템플릿을 사용할 수 있습니다. 또한 청구 리소스에서 `dependsOn` 노드를 생략합니다. 
-
-업데이트된 요금제를 확인하려면 브라우저에서 **사용량 및 예상 비용 페이지** 블레이드를 살펴보세요. **브라우저 보기를 새로 고쳐** 최신 상태를 표시합니다.
-
-
+|1|GB 당 (이전의 기본 계획 이라고 명명)|
+|2|노드당 (이전에는 엔터프라이즈 계획 이름)|
 
 ## <a name="add-a-metric-alert"></a>메트릭 경고 추가
 
@@ -424,7 +498,7 @@ ms.locfileid: "71936715"
    * `InstrumentationKey`
    * `CreationDate`
    * `TenantId`
-4. webtests 및 alertrules 섹션을 열고 개별 항목에 대한 JSON을 템플릿에 복사합니다. (webtests 또는 alertrules 노드에서 복사하지 말고 그 아래에 있는 항목으로 이동)
+4. @No__t_0 및 `alertrules` 섹션을 열고 개별 항목에 대 한 JSON을 템플릿에 복사 합니다. @No__t_0 또는 `alertrules` 노드에서 복사 하지 않습니다. 아래 항목으로 이동 합니다.
    
     각 웹 테스트에는 연결된 경고 규칙이 있으므로 둘 다 복사해야 합니다.
    
@@ -449,7 +523,7 @@ ms.locfileid: "71936715"
 | `"myTestName-myAppName-subsId"` |`"[variables('alertRuleName')]"` |
 | `"myAppName"` |`"[parameters('appName')]"` |
 | `"myappname"` (소문자) |`"[toLower(parameters('appName'))]"` |
-| `"<WebTest Name=\"myWebTest\" ...`<br/>`Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`<br/>GUID 및 ID를 삭제합니다. |
+| `"<WebTest Name=\"myWebTest\" ...`<br/>`Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`|
 
 ### <a name="set-dependencies-between-the-resources"></a>리소스 간의 종속성 설정
 Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 설정 시작 전에 하나의 설정이 완료되게 하려면 종속성 줄을 추가합니다.

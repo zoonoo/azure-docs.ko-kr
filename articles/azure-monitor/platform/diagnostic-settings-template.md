@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: f65e3c4f9582fcc5c28412d44e513fa6bcb9e870
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/17/2019
 ms.locfileid: "71262337"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Azure에서 진단 설정 만들기
@@ -22,7 +22,7 @@ Azure의 [플랫폼 로그](platform-logs-overview.md) 는 azure 리소스 및 �
 ## <a name="resource-manager-template"></a>Resource Manager 템플릿
 리소스 관리자 템플릿에는 진단 설정을 만들기 위해 편집 해야 하는 두 섹션이 있습니다. 이러한 섹션은 다음 섹션에 설명 되어 있습니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 진단 설정의 [대상](diagnostic-settings.md#destinations) 에 따라 저장소 계정 이름, 이벤트 허브 권한 부여 규칙 id 및 Log Analytics 작업 영역 id에 대 한 매개 변수 blob에 매개 변수를 추가 합니다.
    
 ```json
@@ -59,7 +59,7 @@ Azure의 [플랫폼 로그](platform-logs-overview.md) 는 azure 리소스 및 �
 ```
 
 ### <a name="resources"></a>리소스
-진단 설정을 만들 리소스의 리소스 배열에서 형식의 `[resource namespace]/providers/diagnosticSettings`리소스를 추가 합니다. 속성 섹션은 [진단 설정-만들기 또는 업데이트](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)에 설명 된 형식을 따릅니다. [리소스가 메트릭을 지 원하는](metrics-supported.md)경우 속성을추가하여리소스메트릭을동일한대상으로수집합니다.`metrics`
+진단 설정을 만들 리소스의 리소스 배열에서 `[resource namespace]/providers/diagnosticSettings` 형식의 리소스를 추가 합니다. 속성 섹션은 [진단 설정-만들기 또는 업데이트](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)에 설명 된 형식을 따릅니다. [리소스가 메트릭을 지 원하는](metrics-supported.md)경우 리소스 메트릭을 동일한 대상으로 수집 하려면 `metrics` 속성을 추가 합니다.
    
 ```json
 "resources": [

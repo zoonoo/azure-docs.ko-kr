@@ -1,5 +1,5 @@
 ---
-title: Azure 관리 되는 응용 프로그램의 만들기 환경에 대 한 CreateUiDefinition Microsoft Docs
+title: CreateUiDefinition. json-Azure 관리 되는 응용 프로그램
 description: Azure Portal에 대 한 사용자 인터페이스 정의를 만드는 방법을 설명 합니다. Azure Managed Applications를 정의할 때 사용 됩니다.
 services: managed-applications
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7177b9513a1e51bc24672a69935a0e9430292537
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
-ms.translationtype: HT
+ms.openlocfilehash: 9009d6a54c27617dd0d1d53369405555becde59d
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332697"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529323"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>Azure 관리 되는 응용 프로그램의 만들기 환경을 위한 CreateUiDefinition
 
@@ -46,7 +46,7 @@ CreateUiDefinition에는 항상 다음 세 가지 속성이 포함됩니다.
 * 버전
 * parameters
 
-처리기는 항상 0 @no__t 해야 하며, 지원 되는 최신 버전은-1 @no__t.
+처리기는 항상 `Microsoft.Azure.CreateUIDef` 해야 하며 지원 되는 최신 버전은 `0.1.2-preview` 됩니다.
 
 매개 변수 속성의 스키마는 지정된 처리기와 버전의 조합에 따라 다릅니다. 관리되는 애플리케이션의 경우 지원되는 속성은 `basics`, `steps` 및 `outputs`입니다. basics 및 steps 속성에는 Azure Portal에서 표시할 [요소](create-uidefinition-elements.md)(예: 텍스트 상자 및 드롭다운)가 포함됩니다. outputs 속성은 지정된 요소의 출력 값을 Azure Resource Manager 배포 템플릿의 매개 변수에 매핑하는 데 사용됩니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Backup 오류 문제 해결: 게스트 에이전트 상태를 사용할 수 없음'
+title: 'Azure Backup 오류 문제 해결: 게스트 에이전트 상태 사용할 수 없음'
 description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오류의 증상, 원인 및 해결 방법
 ms.reviewer: saurse
 author: dcurwin
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: ab03056557c7c67c5b75d701c9995c9ad500caae
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 9d76dfa338a697825868c31cfe6fc11e5235730b
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268768"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533729"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -25,7 +25,7 @@ ms.locfileid: "71268768"
 ## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - VM 에이전트가 Azure Backup과 통신할 수 없습니다.
 
 **오류 코드**: UserErrorGuestAgentStatusUnavailable <br>
-**오류 메시지**: VM 에이전트를 Azure Backup과 통신할 수 없음<br>
+**오류 메시지**: VM 에이전트가 Azure Backup과 통신할 수 없습니다.<br>
 
 Azure VM 에이전트가 중지 되었거나, 기한이 지난 상태 이거나, 설치 되지 않았거나 Azure Backup 서비스에서 스냅숏을 트리거하기를 방지할 수 있습니다.  
 
@@ -35,7 +35,7 @@ Azure VM 에이전트가 중지 되었거나, 기한이 지난 상태 이거나,
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - 스냅샷 상태에 대해 VM 에이전트와 통신할 수 없습니다.
 
 **오류 코드**: GuestAgentSnapshotTaskStatusError<br>
-**오류 메시지**: 스냅샷 상태에 대해 VM 에이전트와 통신할 수 없음 <br>
+**오류 메시지**: 스냅샷 상태에 대해 VM 에이전트와 통신할 수 없습니다. <br>
 
 Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM 백업 확장과 통신함으로써 작업을 시작하여 지정 시간 스냅샷을 수행합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅샷이 트리거되지 않을 수 있습니다. 스냅샷이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.  
 
@@ -50,7 +50,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - 복원 지점 컬렉션이 최대 한도에 도달했습니다.
 
 **오류 코드**: UserErrorRpCollectionLimitReached <br>
-**오류 메시지**: 복원 지점 컬렉션 최대 한도에 도달했습니다. <br>
+**오류 메시지**: 복원 지점 컬렉션이 최대 한도에 도달했습니다. <br>
 
 - 복구 지점 리소스 그룹에 복구 지점의 자동 정리를 방지 하는 잠금이 있는 경우이 문제가 발생할 수 있습니다.
 - 하루에 여러 개의 백업이 트리거되는 경우에도 이 문제가 발생할 수 있습니다. 현재는 하루에 한 번만 백업 하는 것이 좋습니다. 즉시 복원 지점은 구성 된 스냅숏 보존 당 1-5 일 동안 유지 되 고 지정 된 시간에 18 개의 인스턴트 RPs만 VM에 연결 될 수 있기 때문입니다. <br>
@@ -58,7 +58,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 권장 작업:<br>
 이 문제를 해결하려면 VM의 리소스 그룹에 대한 잠금을 제거하고 정리를 트리거하는 작업을 다시 시도합니다.
 > [!NOTE]
-> 백업 서비스는 VM의 리소스 그룹과 별개의 리소스 그룹을 만들어 복원 지점 컬렉션을 저장합니다. 고객은 백업 서비스에서 사용하기 위해 생성된 리소스 그룹을 잠그지 않는 것이 좋습니다. 백업 서비스가 만드는 리소스 그룹의 명명 형식은 AzureBackupRG_`<Geo>`_`<number>`입니다. 예: AzureBackupRG_northeurope_1
+> 백업 서비스는 VM의 리소스 그룹과 별개의 리소스 그룹을 만들어 복원 지점 컬렉션을 저장합니다. 고객은 백업 서비스에서 사용하기 위해 생성된 리소스 그룹을 잠그지 않는 것이 좋습니다. 백업 서비스에서 생성되는 리소스 그룹의 명명 형식은 AzureBackupRG_`<Geo>`_`<number>`(예: AzureBackupRG_northeurope_1)입니다.
 
 **1단계: [복원 지점 리소스 그룹에서 잠금 제거](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **2단계: [복원 지점 컬렉션 정리](#clean_up_restore_point_collection)**<br>
@@ -66,7 +66,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 ## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - Backup에는 암호화된 VM을 백업할 수 있는 키 자격 증명 모음에 대한 충분한 사용 권한이 없습니다.
 
 **오류 코드**: UserErrorKeyvaultPermissionsNotConfigured <br>
-**오류 메시지**: Backup에 암호화된 VM의 백업을 위한 Key Vault에 대한 충분한 권한이 없습니다. <br>
+**오류 메시지**: Backup에는 암호화된 VM을 백업하기 위한 키 자격 증명 모음에 대한 충분한 사용 권한이 없습니다. <br>
 
 암호화 된 Vm에서 백업 작업이 성공 하려면 키 자격 증명 모음에 액세스할 수 있는 권한이 있어야 합니다. [Azure Portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) 또는 [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)을 사용 하 여이 작업을 수행할 수 있습니다.
 
@@ -94,7 +94,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 ## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed / BackUpOperationFailedV2 - 내부 오류가 발생하여 백업하지 못했습니다.
 
-**오류 코드**: BackUpOperationFailed / BackUpOperationFailedV2 <br>
+**오류 코드**: BackUpOperationFailed/BackUpOperationFailedV2 <br>
 **오류 메시지**: 내부 오류가 발생하여 백업하지 못했습니다. 몇 분 후에 작업을 다시 시도하세요. <br>
 
 Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM 백업 확장과 통신함으로써 작업을 시작하여 지정 시간 스냅샷을 수행합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅샷이 트리거되지 않을 수 있습니다. 스냅샷이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.  
@@ -102,7 +102,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 **원인 2: [VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **원인 3: [스냅샷 상태를 검색할 수 없거나 스냅샷을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **원인 4: [백업 확장을 업데이트 또는 로드할 수 없습니다.](#the-backup-extension-fails-to-update-or-load)**  
-**원인 5: 리소스 그룹이 잠겨 있으므로 Backup 서비스에 이전 복원 지점을 삭제할 수 있는 권한이 없습니다.** <br>
+**원인 5: 백업 서비스에 리소스 그룹 잠금으로 인해 이전 복원 지점은 삭제할 권한이 없습니다.** <br>
 **원인 6: [VM이 인터넷에 액세스할 수 없습니다.](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorunsupporteddisksize---the-configured-disk-sizes-is-currently-not-supported-by-azure-backup"></a>UserErrorUnsupportedDiskSize-현재 Azure Backup에서 구성 된 디스크 크기를 지원 하지 않습니다.
@@ -110,12 +110,12 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 **오류 코드**: UserErrorUnsupportedDiskSize <br>
 **오류 메시지**: 구성 된 디스크 크기는 현재 Azure Backup에서 지원 되지 않습니다. <br>
 
-디스크 크기가 30tb를 초과 하는 VM을 백업 하는 경우 백업 작업이 실패할 수 있습니다. 또한 2TB 보다 큰 암호화 된 디스크의 백업은 현재 지원 되지 않습니다. 디스크를 분할 하 여 디스크 크기가 지원 되는 한도 보다 작거나 같은지 확인 하십시오.
+32 TB 보다 큰 디스크 크기를 사용 하 여 VM을 백업 하는 경우 백업 작업이 실패할 수 있습니다. 또한 2TB 보다 큰 암호화 된 디스크의 백업은 현재 지원 되지 않습니다. 디스크를 분할 하 여 디스크 크기가 지원 되는 한도 보다 작거나 같은지 확인 하십시오.
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - 다른 백업 작업이 현재 진행 중이어서 백업을 시작할 수 없습니다.
 
 **오류 코드**: UserErrorBackupOperationInProgress <br>
-**오류 메시지**: 다른 백업 작업이 현재 진행 중이어서 백업을 시작할 수 없습니다.<br>
+**오류 메시지**: 다른 백업 작업이 현재 진행 중 이므로 백업을 시작할 수 없습니다.<br>
 
 기존 백업 작업이 진행 중이어서 최근 백업 작업이 실패했습니다. 현재 작업이 완료될 때까지 새 백업 작업을 시작할 수 없습니다. 현재 진행 중인 백업 작업이 완료된 후 다른 백업 작업을 트리거 또는 예약해야 합니다. 백업 작업 상태를 확인하려면 아래 단계를 수행합니다.
 
@@ -224,7 +224,7 @@ Linux VM의 경우 VMSnapshot 확장이 Azure Portal에 표시되지 않으면 [
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>복구 지점 리소스 그룹에서 잠금 제거
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 2. **모든 리소스 옵션**으로 이동한 다음, AzureBackupRG_`<Geo>`_`<number>` 형식의 복원 지점 컬렉션 리소스 그룹을 선택합니다.
 3. **설정** 섹션에서 **잠금**을 선택하여 잠금을 표시합니다.
 4. 잠금을 제거하려면 줄임표를 선택하고 **삭제**를 클릭합니다.
@@ -253,7 +253,7 @@ VM의 리소스 그룹 또는 VM 자체를 삭제 하는 경우 관리 디스크
 
 리소스 그룹의 잠금으로 인해 제거 되지 않는 복원 지점의 컬렉션을 수동으로 지우려면 다음 단계를 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 2. **허브** 메뉴에서 **모든 리소스**를 클릭하고 사용자 VM이 있는, AzureBackupRG_`<Geo>`_`<number>` 형식의 리소스 그룹을 선택합니다.
 
     ![잠금 삭제](./media/backup-azure-arm-vms-prepare/resource-group.png)

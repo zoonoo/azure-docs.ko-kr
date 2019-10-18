@@ -10,24 +10,22 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d266f5edb85dd732cc39cfe98a64bee8019cdbd1
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 147a2b690139aff546d82fc89a2fbcdefed03e01
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656672"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533757"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Azure Search Blob 인덱서를 사용 하 여 JSON blob을 인덱싱하는 방법
 이 문서에서는 Azure Blob storage의 JSON 문서에서 구조화 된 콘텐츠를 추출 하 고 Azure Search에서 검색 가능 하도록 Azure Search blob [인덱서](search-indexer-overview.md) 를 구성 하는 방법을 보여 줍니다. 이 워크플로는 Azure Search 인덱스를 만들고 JSON blob에서 추출 된 기존 텍스트와 함께 로드 합니다. 
 
 [포털](#json-indexer-portal), [REST API](#json-indexer-rest) 또는 [.NET SDK](#json-indexer-dotnet)를 사용하여 JSON 콘텐츠를 인덱싱할 수 있습니다. 모든 접근 방식에 일반적으로 JSON 문서는 Azure Storage 계정의 blob 컨테이너에 있습니다. 다른 비 Azure 플랫폼에서 JSON 문서를 푸시하는 방법에 대한 지침은 [Azure Search에서 데이터 가져오기](search-what-is-data-import.md)를 참조하세요.
 
-Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSON 엔터티 컬렉션입니다. JSON 컬렉션의 경우 blob에는 올바른 형식의 JSON 요소 **배열이** 있을 수 있습니다. Blob은 줄 바꿈으로 구분 된 여러 개별 JSON 엔터티로 구성 될 수도 있습니다. Azure Search의 blob 인덱서는 요청에 대해 **parsingMode** 매개 변수를 설정 하는 방법에 따라 이러한 생성을 구문 분석할 수 있습니다.
-
-모든 JSON 구문 분석 모드`json`( `jsonArray`, `jsonLines`,)가 이제 일반 공급 됩니다. 
+Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 (구문 분석 모드 `json`) 또는 JSON 엔터티 컬렉션입니다. 컬렉션의 경우 blob에 올바른 형식의 JSON 요소 **배열이** 있을 수 있습니다 (구문 분석 모드는 `jsonArray`). Blob는 줄 바꿈으로 구분 된 여러 개별 JSON 엔터티로 구성 될 수도 있습니다 (구문 분석 모드는 `jsonLines`). 요청의 **parsingMode** 매개 변수는 출력 구조를 결정 합니다.
 
 > [!NOTE]
-> 일대다 [인덱싱](search-howto-index-one-to-many-blobs.md) 의 인덱서 구성 권장 사항에 따라 하나의 Azure blob에서 여러 검색 문서를 출력 합니다.
+> 단일 blob에서 여러 검색 문서를 인덱싱하는 방법에 대 한 자세한 내용은 [일 대 다 인덱싱](search-howto-index-one-to-many-blobs.md)을 참조 하세요.
 
 <a name="json-indexer-portal"></a>
 
@@ -39,17 +37,15 @@ JSON 문서를 인덱싱하는 가장 쉬운 방법은 [Azure Portal](https://po
 
 ### <a name="1---prepare-source-data"></a>1 - 원본 데이터 준비
 
-1. [Azure Portal에 로그인](https://portal.azure.com/)합니다.
-
-1. 데이터를 포함 하 [는 Blob 컨테이너를 만듭니다](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) . 공용 액세스 수준을 유효한 값으로 설정할 수 있습니다.
+[Azure Portal에 로그인](https://portal.azure.com/) 하 고 데이터를 포함 하 [는 Blob 컨테이너를 만듭니다](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) . 공용 액세스 수준을 유효한 값으로 설정할 수 있습니다.
 
 **데이터 가져오기** 마법사에서 데이터를 검색 하려면 저장소 계정 이름, 컨테이너 이름 및 액세스 키가 필요 합니다.
 
 ### <a name="2---start-import-data-wizard"></a>2 - 데이터 가져오기 마법사 시작
 
-Azure Search 서비스의 개요 페이지에 있는 명령 모음에서 또는 저장소 계정의 왼쪽 탐색 창에 있는 **Blob service** 섹션에서 **Azure Search 추가** 를 클릭 하 여 [마법사를 시작할](search-import-data-portal.md) 수 있습니다.
+Azure Search 서비스의 개요 페이지에 있는 명령 모음에서 [마법사를 시작할](search-import-data-portal.md) 수 있습니다.
 
-   ![포털의 데이터 가져오기 명령](./media/search-import-data-portal/import-data-cmd2.png "데이터 가져오기 마법사 시작")
+   ![포털에서 데이터 가져오기 명령](./media/search-import-data-portal/import-data-cmd2.png "데이터 가져오기 마법사 시작")
 
 ### <a name="3---set-the-data-source"></a>3 - 데이터 원본 설정
 
@@ -85,7 +81,7 @@ JSON 문서 가져오기를 위해 반드시 인식 기술을 추가할 필요�
 
 **인덱스** 페이지에는 데이터 형식을 포함하는 필드 목록과 인덱스 특성을 설정하기 위한 여러 확인란이 표시됩니다. 마법사는 메타 데이터를 기반으로 하 고 원본 데이터를 샘플링 하 여 필드 목록을 생성할 수 있습니다. 
 
-특성 열의 맨 위에 있는 확인란을 클릭 하 여 특성을 일괄 선택할 수 있습니다. 클라이언트 앱에 반환 되어야 하는 모든 필드에 대해 검색 가능 하 고 **검색** 가능을 선택 하 고 전체 텍스트 검색 처리를 적용 합니다. 정수는 전체 텍스트 또는 유사 항목 검색이 아닌 것을 알 수 있습니다. 숫자는 축 자로 계산 되며 필터에 유용한 경우가 많습니다.
+특성 열의 맨 위에 있는 확인란을 클릭 하 여 특성을 일괄 선택할 수 있습니다. 클라이언트 앱에 반환 되어야 하는 모든 필드에 대해 검색 가능 하 고 **검색** 가능 **을 선택 하 고 전체** 텍스트 검색 처리를 적용 합니다. 정수는 전체 텍스트 또는 유사 항목 검색이 아닌 것을 알 수 있습니다. 숫자는 축 자로 계산 되며 필터에 유용한 경우가 많습니다.
 
 자세한 내용은 [인덱스 특성](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) 및 [언어 분석기](https://docs.microsoft.com/rest/api/searchservice/language-support) 에 대 한 설명을 참조 하세요. 
 
@@ -120,15 +116,15 @@ REST API를 사용 하 여 JSON blob를 인덱싱할 수 있습니다. 여기에
 
 코드 기반 JSON 인덱싱의 경우 [Postman](search-get-started-postman.md) 및 REST API를 사용 하 여 이러한 개체를 만듭니다.
 
-+ [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
++ [인덱싱할](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [데이터 원본](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
-+ [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [인덱서](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 작업 순서에 따라이 순서로 개체를 만들고 호출 해야 합니다. 포털 워크플로와 달리 코드 접근 방식에서는 **인덱서 만들기** 요청을 통해 보낸 JSON 문서를 수락 하기 위해 사용 가능한 인덱스가 필요 합니다.
 
 Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSON "배열"입니다. Azure Search에서 Blob 인덱서는 요청에 대한 **parsingMode** 매개 변수를 설정하는 방법에 따라 생성을 구문 분석할 수 있습니다.
 
-| JSON 문서 | parsingMode | Description | 가용성 |
+| JSON 문서 | parsingMode | 설명 | 가용성 |
 |--------------|-------------|--------------|--------------|
 | Blob 당 하나 | `json` | JSON Blob을 텍스트의 단일 청크로 구문 분석합니다. 각 JSON Blob은 단일 Azure Search 문서가 됩니다. | [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API와 [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK에서 일반적으로 사용할 수 있습니다. |
 | Blob 당 여러 개 | `jsonArray` | Blob에서 JSON 배열을 구문 분석합니다. 여기서 배열의 각 요소는 별도의 Azure Search 문서가 됩니다.  | [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API와 [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK에서 일반적으로 사용할 수 있습니다. |
@@ -155,7 +151,7 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
 
 ### <a name="2---create-a-data-source"></a>2-데이터 원본 만들기
 
-이 단계에서는 인덱서에 사용 되는 데이터 원본 연결 정보를 제공 합니다. 데이터 원본은 연결 정보를 유지 하는 Azure Search의 명명 된 개체입니다. 데이터 원본 유형인 `azureblob`는 인덱서에 의해 호출 되는 데이터 추출 동작을 결정 합니다. 
+이 단계에서는 인덱서에 사용 되는 데이터 원본 연결 정보를 제공 합니다. 데이터 원본은 연결 정보를 유지 하는 Azure Search의 명명 된 개체입니다. 데이터 원본 유형 `azureblob`는 인덱서에 의해 호출 되는 데이터 추출 동작을 결정 합니다. 
 
 서비스 이름, 관리자 키, 저장소 계정 및 계정 키 자리 표시자에 대 한 유효한 값을 대체 합니다.
 
@@ -209,7 +205,7 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 또는 JSO
 
 인덱서 구성이 요청의 본문에 있습니다. Azure Search에 이미 존재 하는 데이터 원본 및 빈 대상 인덱스가 필요 합니다. 
 
-일정 및 매개 변수는 선택 사항입니다. 생략 하는 경우 인덱서는 구문 분석 모드로를 사용 `json` 하 여 즉시 실행 됩니다.
+일정 및 매개 변수는 선택 사항입니다. 생략 하는 경우 인덱서는 `json`를 구문 분석 모드로 사용 하 여 즉시 실행 됩니다.
 
 이 특정 인덱서는 필드 매핑을 포함 하지 않습니다. 원본 JSON 문서의 속성이 대상 검색 인덱스의 필드와 일치 하는 경우 인덱서 정의 내에서 **필드 매핑을** 비워 둘 수 있습니다. 
 
@@ -292,18 +288,18 @@ Azure Search 트리거 데이터 가져오기에서 인덱서를 만듭니다. �
 
 JSON blob은 여러 폼을 가정할 수 있습니다. Json 인덱서의 **parsingMode** 매개 변수는 Azure Search 인덱스에서 json blob 콘텐츠를 구문 분석 하 고 구성 하는 방법을 결정 합니다.
 
-| parsingMode | Description |
+| parsingMode | 설명 |
 |-------------|-------------|
-| `json`  | 각 blob을 단일 문서로 인덱싱합니다. 기본값입니다. |
+| `json`  | 각 blob을 단일 문서로 인덱싱합니다. 이것이 기본값입니다. |
 | `jsonArray` | Blob이 JSON 배열로 구성 된 경우이 모드를 선택 하 고 배열의 각 요소가 Azure Search의 개별 문서가 되도록 해야 합니다. |
 |`jsonLines` | Blob이 새 줄로 구분 되는 여러 JSON 엔터티로 구성 된 경우이 모드를 선택 하 고 각 엔터티가 Azure Search의 개별 문서가 되도록 해야 합니다. |
 
 문서를 검색 결과의 단일 항목으로 생각할 수 있습니다. 배열의 각 요소가 검색 결과에 독립 된 항목으로 표시 되도록 하려면 `jsonArray` 또는 `jsonLines` 옵션을 적절 하 게 사용 합니다.
 
-인덱서 정의 내에서 [필드 매핑](search-indexer-field-mappings.md)을 사용하여 대상 검색 인덱스를 채우는 데 사용되는 원본 JSON 문서의 속성을 선택할 수도 있습니다. 구문 `jsonArray` 분석 모드의 경우 배열이 하위 수준 속성으로 존재 하는 경우 blob 내에서 배열이 배치 되는 위치를 나타내는 문서 루트를 설정할 수 있습니다.
+인덱서 정의 내에서 [필드 매핑](search-indexer-field-mappings.md)을 사용하여 대상 검색 인덱스를 채우는 데 사용되는 원본 JSON 문서의 속성을 선택할 수도 있습니다. @No__t_0 구문 분석 모드의 경우 배열이 하위 수준 속성으로 존재 하는 경우 blob 내에서 배열이 배치 되는 위치를 나타내는 문서 루트를 설정할 수 있습니다.
 
 > [!IMPORTANT]
-> `jsonArray` `json` 또는`jsonLines` 구문 분석 모드를 사용 하는 경우 Azure Search는 데이터 원본의 모든 blob에 JSON이 포함 되어 있다고 가정 합니다. 동일한 데이터 원본에서 JSON 및 비 JSON BLOB을 지원해야 하는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search)를 통해 알려주세요.
+> @No__t_0, `jsonArray` 또는 `jsonLines` 구문 분석 모드를 사용 하는 경우 Azure Search는 데이터 원본의 모든 blob에 JSON이 포함 되어 있다고 가정 합니다. 동일한 데이터 원본에서 JSON 및 비 JSON BLOB을 지원해야 하는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search)를 통해 알려주세요.
 
 
 <a name="parsing-single-blobs"></a>
@@ -355,7 +351,7 @@ JSON 배열의 경우 인덱서 정의는 다음 예제와 비슷해야 합니�
 <a name="nested-json-arrays"></a>
 
 ## <a name="parse-nested-arrays"></a>중첩 배열 구문 분석
-중첩 된 요소가 있는 `documentRoot` JSON 배열의 경우를 지정 하 여 다중 수준 구조를 나타낼 수 있습니다. 예를 들어 blob은 다음과 같습니다.
+중첩 된 요소가 있는 JSON 배열의 경우 `documentRoot`를 지정 하 여 다중 수준 구조를 나타낼 수 있습니다. 예를 들어 blob은 다음과 같습니다.
 
     {
         "level1" : {
@@ -397,7 +393,7 @@ JSON 줄의 경우 인덱서 정의는 다음 예제와 유사 하 게 표시 �
       "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
     }
 
-다시 말하지만, 필드 매핑은 `jsonArray` 구문 분석 모드와 유사 하 게 생략할 수 있습니다.
+@No__t_0 구문 분석 모드와 비슷하게 필드 매핑을 생략할 수 있습니다.
 
 ## <a name="add-field-mappings"></a>필드 매핑 추가
 
@@ -434,9 +430,9 @@ JSON 줄의 경우 인덱서 정의는 다음 예제와 유사 하 게 표시 �
 >
 >
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
 + [Azure Search의 인덱서](search-indexer-overview.md)
 + [Azure Search로 Azure Blob Storage 인덱싱](search-howto-index-json-blobs.md)
 + [Azure Search Blob 인덱서를 사용하여 CSV Blob 인덱싱](search-howto-index-csv-blobs.md)
-+ [자습서: Azure Blob Storage에서 반구조화된 데이터 검색](search-semi-structured-data.md)
++ [자습서: Azure Blob storage에서 반 구조화 된 데이터 검색](search-semi-structured-data.md)

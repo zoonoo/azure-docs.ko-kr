@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: ba2288ecebbeda97b3cd9c24ae930be6af193ab8
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 2d460688392ae017c0d87ce60fa980701e5d47d3
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177727"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528198"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 규모에 맞게 모니터링
 
@@ -29,15 +29,15 @@ Azure Backup은 Recovery Services 자격 증명 모음에 [기본 제공 모니�
 ## <a name="using-log-analytics-workspace"></a>Log Analytics 작업 영역 사용
 
 > [!NOTE]
-> Azure VM 백업, Azure Backup 에이전트, System Center Data Protection Manager, Azure Vm의 SQL 백업 및 Azure Files 공유 백업 데이터는 진단 설정을 통해 Log Analytics 작업 영역으로 펌프 됩니다. 
+> Azure VM 백업, Azure Backup 에이전트, System Center Data Protection Manager, Azure Vm의 SQL 백업 및 Azure Files 공유 백업 데이터는 진단 설정을 통해 Log Analytics 작업 영역으로 펌프 됩니다.
 
-규모에 맞게 모니터링/보고 하려면 두 Azure 서비스의 기능이 필요 합니다. *진단 설정은* 여러 Azure Resource Manager 리소스의 데이터를 다른 리소스에 보냅니다. *Log Analytics* 는 작업 그룹을 사용 하 여 다른 알림 채널을 정의할 수 있는 사용자 지정 경고를 생성 합니다. 
+규모에 맞게 모니터링/보고 하려면 두 Azure 서비스의 기능이 필요 합니다. *진단 설정은* 여러 Azure Resource Manager 리소스의 데이터를 다른 리소스에 보냅니다. *Log Analytics* 는 작업 그룹을 사용 하 여 다른 알림 채널을 정의할 수 있는 사용자 지정 경고를 생성 합니다.
 
 다음 섹션에서는 Log Analytics를 사용 하 여 대규모로 Azure Backup를 모니터링 하는 방법에 대해 자세히 설명 합니다.
 
 ### <a name="configure-diagnostic-settings"></a>진단 설정 구성
 
-Recovery Services 자격 증명 모음과 같은 Azure Resource Manager 리소스는 예약 된 작업 및 사용자가 트리거한 작업에 대 한 정보를 진단 데이터로 기록 합니다. 
+Recovery Services 자격 증명 모음과 같은 Azure Resource Manager 리소스는 예약 된 작업 및 사용자가 트리거한 작업에 대 한 정보를 진단 데이터로 기록 합니다.
 
 모니터링 섹션에서 **진단 설정** 을 선택 하 고 Recovery Services 자격 증명 모음 진단 데이터의 대상을 지정 합니다.
 
@@ -60,27 +60,27 @@ Recovery Services 자격 증명 모음과 같은 Azure Resource Manager 리소�
 템플릿을 배포한 후 Azure Backup의 모니터링 및 보고에 대 한 솔루션이 작업 영역 요약 영역에 표시 됩니다. 요약으로 이동 하려면 다음 경로 중 하나를 수행 합니다.
 
 - **Azure Monitor**: **Insights** 섹션에서 **자세히** 를 선택 하 고 관련 작업 영역을 선택 합니다.
-- **Log Analytics 작업 영역**: 관련 작업 영역을 선택 하 고 **일반**에서 **작업 영역 요약**을 선택 합니다.
+- **Log Analytics 작업 영역**: 관련 작업 영역을 선택한 다음 **일반**에서 **작업 영역 요약**을 선택 합니다.
 
 ![Log Analytics 모니터링 및 보고 타일](media/backup-azure-monitoring-laworkspace/la-azurebackup-overview-dashboard.png)
 
 개요 타일 중 하나를 선택 하면 추가 정보를 볼 수 있습니다. 표시 되는 보고서는 다음과 같습니다.
 
-* 로그가 아닌 백업 작업
+- 로그가 아닌 백업 작업
 
    ![백업 작업에 대 한 Log Analytics 그래프](media/backup-azure-monitoring-laworkspace/la-azurebackup-backupjobsnonlog.png)
 
-* Azure 리소스 백업에서 발생 하는 경고
+- Azure 리소스 백업에서 발생 하는 경고
 
    ![복원 작업에 대 한 Log Analytics 그래프](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertsazure.png)
 
 마찬가지로, 다른 타일을 클릭 하면 복원 작업, 클라우드 저장소, 백업 항목, 온-프레미스 리소스 백업에서 발생 하는 경고 및 로그 백업 작업에 대 한 보고서를 볼 수 있습니다.
- 
+
 이러한 그래프가 템플릿과 함께 제공 됩니다. 필요한 경우 그래프를 편집 하거나 더 많은 그래프를 추가할 수 있습니다.
 
 ### <a name="create-alerts-by-using-log-analytics"></a>Log Analytics를 사용 하 여 경고 만들기
 
-Azure Monitor에서 Log Analytics 작업 영역에 경고를 직접 만들 수 있습니다. 작업 영역에서 *Azure 작업 그룹* 을 사용 하 여 기본 설정 된 알림 메커니즘을 선택 합니다. 
+Azure Monitor에서 Log Analytics 작업 영역에 경고를 직접 만들 수 있습니다. 작업 영역에서 *Azure 작업 그룹* 을 사용 하 여 기본 설정 된 알림 메커니즘을 선택 합니다.
 
 > [!IMPORTANT]
 > 이 쿼리를 만드는 데 드는 비용에 대 한 자세한 내용은 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조 하세요.
@@ -115,7 +115,7 @@ Log Analytics의 모든 경고 및 모니터링 요구 사항을 충족 하거�
 
 기본 그래프는 경고를 작성할 수 있는 기본 시나리오에 대 한 Kusto 쿼리를 제공 합니다. 또한 경고를 발생 시킬 데이터를 가져오도록 쿼리를 수정할 수 있습니다. **로그** 페이지에서 다음 샘플 Kusto 쿼리를 붙여넣은 다음 쿼리에 대 한 경고를 만듭니다.
 
-* 성공한 모든 백업 작업
+- 성공한 모든 백업 작업
 
     ````Kusto
     AzureDiagnostics
@@ -124,8 +124,8 @@ Log Analytics의 모든 경고 및 모니터링 요구 사항을 충족 하거�
     | where OperationName == "Job" and JobOperation_s == "Backup"
     | where JobStatus_s == "Completed"
     ````
-    
-* 실패 한 모든 백업 작업
+
+- 실패 한 모든 백업 작업
 
     ````Kusto
     AzureDiagnostics
@@ -134,8 +134,8 @@ Log Analytics의 모든 경고 및 모니터링 요구 사항을 충족 하거�
     | where OperationName == "Job" and JobOperation_s == "Backup"
     | where JobStatus_s == "Failed"
     ````
-    
-* 모든 성공한 Azure VM 백업 작업
+
+- 모든 성공한 Azure VM 백업 작업
 
     ````Kusto
     AzureDiagnostics
@@ -158,7 +158,7 @@ Log Analytics의 모든 경고 및 모니터링 요구 사항을 충족 하거�
     | project-away Resource
     ````
 
-* 모든 성공한 SQL 로그 백업 작업
+- 모든 성공한 SQL 로그 백업 작업
 
     ````Kusto
     AzureDiagnostics
@@ -181,7 +181,7 @@ Log Analytics의 모든 경고 및 모니터링 요구 사항을 충족 하거�
     | project-away Resource
     ````
 
-* 성공한 모든 Azure Backup 에이전트 작업
+- 성공한 모든 Azure Backup 에이전트 작업
 
     ````Kusto
     AzureDiagnostics
@@ -223,7 +223,7 @@ Log Analytics의 모든 경고 및 모니터링 요구 사항을 충족 하거�
 활동 로그를 사용 하 여 백업 성공 같은 이벤트에 대 한 알림을 받을 수도 있습니다. 시작 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에 로그인합니다.
-1. 관련 Recovery Services 자격 증명 모음을 엽니다. 
+1. 관련 Recovery Services 자격 증명 모음을 엽니다.
 1. 자격 증명 모음의 속성에서 **활동 로그** 섹션을 엽니다.
 
 적절 한 로그를 확인 하 고 경고를 만들려면 다음을 수행 합니다.
@@ -233,7 +233,7 @@ Log Analytics의 모든 경고 및 모니터링 요구 사항을 충족 하거�
    ![Azure VM 백업에 대 한 활동 로그를 검색 하는 필터링](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
 1. 작업 이름을 선택 하 여 관련 세부 정보를 확인 합니다.
-1. **새 경고 규칙** 을 선택 하 여 **규칙 만들기** 페이지를 엽니다. 
+1. **새 경고 규칙** 을 선택 하 여 **규칙 만들기** 페이지를 엽니다.
 1. [Azure Monitor를 사용 하 여 활동 로그 경고 만들기, 보기 및 관리](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)의 단계를 수행 하 여 경고를 만듭니다.
 
    ![새 경고 규칙](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
@@ -247,7 +247,7 @@ Log Analytics의 모든 경고 및 모니터링 요구 사항을 충족 하거�
 활동 로그를 통해 알림을 받을 수는 있지만, 대규모로 모니터링 하기 위해 활동 로그가 아닌 Log Analytics를 사용 하는 것이 좋습니다. 이유는 다음과 같습니다.
 
 - **제한 된 시나리오**: 활동 로그를 통한 알림은 Azure VM 백업에만 적용 됩니다. 모든 Recovery Services 자격 증명 모음에 대해 알림을 설정 해야 합니다.
-- **정의 맞춤**: 예약 된 백업 작업은 활동 로그의 최신 정의와 일치 하지 않습니다. 대신 [진단 로그](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-resource-logs-in-a-workspace)에 맞춥니다. 이 맞춤은 활동 로그 채널을 통해 흐르는 데이터가 변경 될 때 예기치 않은 효과를 발생 시킵니다.
+- **정의 맞춤**: 예약 된 백업 작업이 활동 로그의 최신 정의와 일치 하지 않습니다. 대신 [리소스 로그](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-resource-logs-in-a-workspace)에 맞춰집니다. 이 맞춤은 활동 로그 채널을 통해 흐르는 데이터가 변경 될 때 예기치 않은 효과를 발생 시킵니다.
 - **활동 로그 채널 문제**: Recovery Services 자격 증명 모음에서 Azure Backup 펌프 활동 로그는 새 모델을 따릅니다. 아쉽게도이 변경 내용은 Azure Government, Azure 독일 및 Azure 중국 21Vianet에서 활동 로그를 생성 하는 것에 영향을 줍니다. 이러한 클라우드 서비스 사용자가 Azure Monitor의 활동 로그에서 경고를 만들거나 구성 하는 경우 경고가 트리거되지 않습니다. 또한 모든 Azure 공용 지역에서 사용자가 [Recovery Services 활동 로그를 Log Analytics 작업 영역으로 수집](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs)하면 이러한 로그가 표시 되지 않습니다.
 
 Log Analytics 작업 영역을 사용 하 여 Azure Backup으로 보호 되는 모든 작업에 대해 대규모로 모니터링 하 고 경고 합니다.

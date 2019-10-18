@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: e08999798c72545f9fa1d1b5d362e23450ce16f5
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 9bc4d60eab0dac80d1b2b524f32bc506a66dee18
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695320"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516671"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Debian 기반 Linux 시스템에 Azure IoT Edge 런타임 설치
 
@@ -192,7 +192,7 @@ sudo nano /etc/iotedge/config.yaml
    #     method: "tpm"
    #     registration_id: "{registration_id}"
 ```
-클립보드 내용을 Nano @no__t에 붙여넣으려면-0 `Shift+Insert`을 누릅니다.
+클립보드 내용을 Nano `Shift+Right Click`에 붙여넣으려면 `Shift+Insert`를 누릅니다.
 
 파일을 저장하고 닫습니다.
 
@@ -232,7 +232,7 @@ sudo nano /etc/iotedge/config.yaml
        registration_id: "{registration_id}"
    ```
 
-클립보드 내용을 Nano @no__t에 붙여넣으려면-0 `Shift+Insert`을 누릅니다.
+클립보드 내용을 Nano `Shift+Right Click`에 붙여넣으려면 `Shift+Insert`를 누릅니다.
 
 파일을 저장하고 닫습니다.
 
@@ -248,19 +248,25 @@ sudo systemctl restart iotedge
 
 이전 섹션의 **수동 구성** 단계를 사용한 경우 IoT Edge 런타임을 디바이스에 성공적으로 프로비전하고 실행해야 합니다. **자동 구성** 단계를 사용한 경우 사용자를 대신하여 런타임에서 디바이스를 IoT 허브에 등록할 수 있도록 몇 가지 추가 단계를 수행해야 합니다. 다음 단계는 [Linux 가상 머신에서 시뮬레이션 된 TPM IoT Edge 장치 만들기 및 프로 비전](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm)을 참조 하세요.
 
-다음을 사용하여 IoT Edge 디먼의 상태를 확인할 수 있습니다.
+IoT Edge 디먼의 상태를 확인할 수 있습니다.
 
 ```bash
 systemctl status iotedge
 ```
 
-다음을 사용하여 디먼 로그를 검사합니다.
+디먼 로그 검사:
 
 ```bash
 journalctl -u iotedge --no-pager --no-full
 ```
 
-다음을 사용하여 실행 중인 모듈을 나열합니다.
+가장 일반적인 구성 및 네트워킹 오류에 대해 자동화 된 검사를 실행 합니다. 
+
+```bash
+sudo iotedge check
+```
+
+그리고 실행 중인 모듈을 나열 합니다.
 
 ```bash
 sudo iotedge list
@@ -286,7 +292,7 @@ sudo iotedge list
    ./check-config.sh
    ```
 
-그러면 Moby 런타임에 사용 되는 커널 기능의 상태를 포함 하는 자세한 출력이 제공 됩니다. `Generally Necessary` 및`Network Drivers` 아래의 모든 항목을 사용 하도록 설정 하 여 커널이 Moby 런타임과 완전히 호환 되는지 확인 해야 합니다.  누락 된 기능을 확인 한 경우 원본에서 커널을 다시 작성 하 고 적절 한 커널 .config에 포함 하기 위해 관련 모듈을 선택 하 여 해당 기능을 사용 하도록 설정 합니다.  마찬가지로 defconfig 또는 menuconfig와 같은 커널 구성 생성기를 사용 하는 경우 해당 기능을 찾아서 사용 하도록 설정 하 고 그에 따라 커널을 다시 빌드합니다.  새로 수정 된 커널을 배포한 후에는 확인-구성 스크립트를 다시 실행 하 여 필요한 모든 기능이 성공적으로 설정 되었는지 확인 합니다.
+그러면 Moby 런타임에 사용 되는 커널 기능의 상태를 포함 하는 자세한 출력이 제공 됩니다. @No__t_0 및 `Network Drivers` 아래의 모든 항목을 사용 하도록 설정 하 여 커널이 Moby 런타임과 완전히 호환 되는지 확인 해야 합니다.  누락 된 기능을 확인 한 경우 원본에서 커널을 다시 작성 하 고 적절 한 커널 .config에 포함 하기 위해 관련 모듈을 선택 하 여 해당 기능을 사용 하도록 설정 합니다.  마찬가지로 defconfig 또는 menuconfig와 같은 커널 구성 생성기를 사용 하는 경우 해당 기능을 찾아서 사용 하도록 설정 하 고 그에 따라 커널을 다시 빌드합니다.  새로 수정 된 커널을 배포한 후에는 확인-구성 스크립트를 다시 실행 하 여 필요한 모든 기능이 성공적으로 설정 되었는지 확인 합니다.
 
 
 ## <a name="uninstall-iot-edge"></a>IoT Edge 제거
