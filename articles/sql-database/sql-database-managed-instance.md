@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: ebf4f516b8f90ce2ba8b277281300ae3239821c5
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 0d59b1cfed1de710725a5dfc91341fec0baa6cb4
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640798"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331020"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스는 무엇입니까?
 
@@ -56,15 +56,15 @@ Managed Instance의 주요 기능을 다음 표에서 볼 수 있습니다.
 |기능 | 설명|
 |---|---|
 | SQL Server 버전/빌드 | SQL Server 데이터베이스 엔진(안정적인 최신 버전) |
-| 관리되는 자동 백업 | 예 |
-| 기본 제공 인스턴스/데이터베이스 모니터링 및 메트릭 | 예 |
-| 자동 소프트웨어 패치 | 예 |
-| 최신 데이터베이스 엔진 기능 | 예 |
-| 데이터베이스당 데이터 파일(행) 수 | 다중 |
+| 관리되는 자동 백업 | yes |
+| 기본 제공 인스턴스/데이터베이스 모니터링 및 메트릭 | yes |
+| 자동 소프트웨어 패치 | yes |
+| 최신 데이터베이스 엔진 기능 | yes |
+| 데이터베이스당 데이터 파일(행) 수 | 여러 접두사 |
 | 데이터베이스당 로그 파일(로그) 수 | 1 |
-| VNet - Azure Resource Manager 배포 | 예 |
-| VNet - 클래식 배포 모델 | 아니요 |
-| 포털 지원 | 예|
+| VNet - Azure Resource Manager 배포 | yes |
+| VNet - 클래식 배포 모델 | 아닙니다. |
+| 포털 지원 | yes|
 | 기본 제공 통합 서비스(SSIS) | 아니요 - SSIS는 [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)의 일부입니다. |
 | 기본 제공 분석 서비스(SSAS) | 아니요 - SSAS는 별도의 [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview)입니다. |
 | 기본 제공 보고 서비스(SSRS) | 아니요 - Power BI 또는 SSRS IaaS를 사용합니다. |
@@ -88,8 +88,8 @@ vCore 모델에서는 하드웨어 세대를 선택할 수 있습니다.
 
 관리형 인스턴스는 두 개의 서비스 계층에서 사용할 수 있습니다.
 
-- **범용**: 일반적인 성능 및 IO 대기 시간 요구 사항이 있는 애플리케이션용으로 설계됩니다.
-- **중요 비즈니스용**: IO 대기 시간 요구 사항이 낮고 기본 유지 관리 작업으로 워크로드에 미치는 영향이 최소화된 애플리케이션용으로 설계되었습니다.
+- **범용: 일반적인**성능 및 IO 대기 시간 요구 사항이 있는 응용 프로그램을 위해 설계 되었습니다.
+- **업무상 중요**: IO 대기 시간 요구 사항이 적고 워크 로드에 대 한 기본 유지 관리 작업의 영향을 최소화 하는 응용 프로그램용으로 설계 되었습니다.
 
 두 서비스 계층은 모두 99.99% 가용성을 보장하며 스토리지 크기와 컴퓨팅 용량을 독립적으로 선택할 수 있습니다. Azure SQL Database의 고가용성 아키텍처에 대한 자세한 내용은 [고가용성 및 Azure SQL Database](sql-database-high-availability.md)를 참조하세요.
 
@@ -122,13 +122,13 @@ vCore 모델에서는 하드웨어 세대를 선택할 수 있습니다.
 
 ## <a name="managed-instance-management-operations"></a>관리 되는 인스턴스 관리 작업
 
-Azure SQL Database은 새로운 관리 되는 인스턴스를 자동으로 배포 하 고, 인스턴스 속성을 업데이트 하 고, 더 이상 필요 하지 않은 경우 인스턴스를 삭제 하는 데 사용할 수 있는 관리 작업을 이 섹션에서는 관리 작업 및 일반적인 기간에 대 한 정보를 제공 합니다.
+Azure SQL Database에서는 관리되는 새로운 인스턴스를 자동으로 배포하고, 인스턴스 속성을 업데이트하며, 더 이상 필요하지 않은 경우 인스턴스를 삭제하는 데 사용할 수 있는 관리 작업을 제공합니다. 이 섹션에서는 관리 작업 및 일반적인 기간에 대 한 정보를 제공 합니다.
 
-[Azure vnet (가상 네트워크) 내에서 배포](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) 를 지원 하 고 고객에 대 한 격리 및 보안을 제공하기 위해 [가상 클러스터](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture)관리 되는 인스턴스는 고객의 가상 네트워크 서브넷. 기본적으로 빈 서브넷에 있는 모든 관리 되는 인스턴스 배포는 새 가상 클러스터가 buildout을 생성 합니다.
+[Azure vnet (가상 네트워크) 내에서 배포](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) 를 지원 하 고 고객에 대 한 격리 및 보안을 제공 [하기 위해 관리 되는 인스턴스는 고객의 가상 네트워크 서브넷](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). 기본적으로 빈 서브넷에 있는 모든 관리 되는 인스턴스 배포는 새 가상 클러스터가 buildout을 생성 합니다.
 
 배포 된 관리 되는 인스턴스의 후속 작업은 기본 가상 클러스터에도 영향을 미칠 수 있습니다. 이는 관리 작업 기간에 영향을 줍니다. 추가 가상 컴퓨터를 배포 하는 경우 새 배포 또는 기존 관리 되는 인스턴스에 대 한 업데이트를 계획 하는 경우 고려해 야 하는 오버 헤드가 발생 합니다.
 
-모든 관리 작업은 다음과 같이 분류 될 수 있습니다.
+모든 관리 작업은 다음과 같이 분류될 수 있습니다.
 
 - 인스턴스 배포 (새 인스턴스 생성). 
 - 인스턴스 업데이트 (vCores, 예약 된 저장소 등의 인스턴스 속성 변경)
@@ -147,28 +147,28 @@ Azure SQL Database은 새로운 관리 되는 인스턴스를 자동으로 배�
 
 다음 표에는 작업과 일반적인 전체 기간이 요약 되어 있습니다.
 
-|범주  |연산  |장기 실행 세그먼트  |예상 기간  |
+|범주  |작업(Operation)  |장기 실행 세그먼트  |예상 기간  |
 |---------|---------|---------|---------|
 |**배포** |빈 서브넷의 첫 번째 인스턴스|가상 클러스터 만들기|4 시간 내에 완료 된 작업의 90%|
 |배포 |비어 있지 않은 서브넷에 있는 다른 하드웨어 생성의 첫 번째 인스턴스 (예: Gen 4 인스턴스가 있는 서브넷의 첫 번째 Gen 5 인스턴스)|가상 클러스터 만들기 *|4 시간 내에 완료 된 작업의 90%|
 |배포 |비어 있거나 비어 있지 않은 서브넷에 있는 4 개 vCores의 첫 번째 인스턴스 생성|가상 클러스터 만들기 * *|4 시간 내에 완료 된 작업의 90%|
 |배포 |비어 있지 않은 서브넷 (두 번째, 세 번째 등) 내에서 후속 인스턴스 만들기|가상 클러스터 크기 조정|2\.5 시간 내에 완료 된 작업의 90%|
-|**Update 함수** |인스턴스 속성 변경 (관리자 암호, AAD 로그인, Azure 하이브리드 혜택 플래그)|해당 사항 없음|최대 1 분|
-|업데이트 |인스턴스 저장소 확장/축소 (범용 서비스 계층)|-가상 클러스터 크기 조정<br>-데이터베이스 파일 연결|2\.5 시간 내에 완료 된 작업의 90%|
-|업데이트 |인스턴스 저장소 확장/축소 (중요 비즈니스용 서비스 계층)|-가상 클러스터 크기 조정<br>-Always On 가용성 그룹 시드|2\.5 시간에 완료 된 작업의 90% + 모든 데이터베이스를 시드 하는 시간 (220 g b/시간)|
-|업데이트 |인스턴스 계산 (vCores) 확장 및 축소 (범용)|-가상 클러스터 크기 조정<br>-데이터베이스 파일 연결|2\.5 시간 내에 완료 된 작업의 90%|
-|업데이트 |인스턴스 계산 (vCores) 확장 및 축소 (중요 비즈니스용)|-가상 클러스터 크기 조정<br>-Always On 가용성 그룹 시드|2\.5 시간에 완료 된 작업의 90% + 모든 데이터베이스를 시드 하는 시간 (220 g b/시간)|
-|업데이트 |인스턴스를 4 개까지 확장 (범용)|-가상 클러스터 크기 조정 (처음으로 수행 하는 경우 가상 클러스터를 만드는 데 필요 합니다. * *)<br>-데이터베이스 파일 연결|4 h 5 분 내에 완료 된 작업의 90%|
-|업데이트 |인스턴스를 4 개까지 확장 (범용)|-가상 클러스터 크기 조정 (처음으로 수행 하는 경우 가상 클러스터를 만드는 데 필요 합니다. * *)<br>-Always On 가용성 그룹 시드|4 시간 동안 완료 된 작업의 90% + 모든 데이터베이스 초기값 (220 g b/시간)|
-|업데이트 |인스턴스 서비스 계층 변경 (일반적인 중요 비즈니스용 용도 및 그 반대로)|-가상 클러스터 크기 조정<br>-Always On 가용성 그룹 시드|2\.5 시간에 완료 된 작업의 90% + 모든 데이터베이스를 시드 하는 시간 (220 g b/시간)|
+|**업데이트** |인스턴스 속성 변경 (관리자 암호, AAD 로그인, Azure 하이브리드 혜택 플래그)|N/A|최대 1 분|
+|주 지역에서 |인스턴스 저장소 확장/축소 (범용 서비스 계층)|-가상 클러스터 크기 조정<br>-데이터베이스 파일 연결|2\.5 시간 내에 완료 된 작업의 90%|
+|주 지역에서 |인스턴스 저장소 확장/축소 (중요 비즈니스용 서비스 계층)|-가상 클러스터 크기 조정<br>-Always On 가용성 그룹 시드|2\.5 시간에 완료 된 작업의 90% + 모든 데이터베이스를 시드 하는 시간 (220 g b/시간)|
+|주 지역에서 |인스턴스 계산 (vCores) 확장 및 축소 (범용)|-가상 클러스터 크기 조정<br>-데이터베이스 파일 연결|2\.5 시간 내에 완료 된 작업의 90%|
+|주 지역에서 |인스턴스 계산 (vCores) 확장 및 축소 (중요 비즈니스용)|-가상 클러스터 크기 조정<br>-Always On 가용성 그룹 시드|2\.5 시간에 완료 된 작업의 90% + 모든 데이터베이스를 시드 하는 시간 (220 g b/시간)|
+|주 지역에서 |인스턴스를 4 개까지 확장 (범용)|-가상 클러스터 크기 조정 (처음으로 수행 하는 경우 가상 클러스터를 만드는 데 필요 합니다. * *)<br>-데이터베이스 파일 연결|4 h 5 분 내에 완료 된 작업의 90%|
+|주 지역에서 |인스턴스를 4 개까지 확장 (범용)|-가상 클러스터 크기 조정 (처음으로 수행 하는 경우 가상 클러스터를 만드는 데 필요 합니다. * *)<br>-Always On 가용성 그룹 시드|4 시간 동안 완료 된 작업의 90% + 모든 데이터베이스 초기값 (220 g b/시간)|
+|주 지역에서 |인스턴스 서비스 계층 변경 (일반적인 중요 비즈니스용 용도 및 그 반대로)|-가상 클러스터 크기 조정<br>-Always On 가용성 그룹 시드|2\.5 시간에 완료 된 작업의 90% + 모든 데이터베이스를 시드 하는 시간 (220 g b/시간)|
 |**삭제할지**|인스턴스 삭제|모든 데이터베이스에 대 한 비상 백업 로그|90% 작업이 최대 1 분 내에 완료 되었습니다.<br>참고: 서브넷의 마지막 인스턴스가 삭제 된 경우이 작업은 12 시간 후에 가상 클러스터 삭제를 예약 합니다. * * *|
 |삭제|가상 클러스터 삭제 (사용자 시작 작업)|가상 클러스터 삭제|90%의 작업이 최대 1.5 시간 내에 완료 되었습니다.|
 
-\*가상 클러스터는 하드웨어 생성 별로 빌드됩니다.
+\* 가상 클러스터는 하드웨어 생성 별로 빌드됩니다.
 
-\*\*4 개 vCores 배포 옵션은 6 월 2019에 출시 되었으며 새 가상 클러스터 버전이 필요 합니다. 6 월 12 일 이전에 생성 된 대상 서브넷에 인스턴스가 있는 경우 새 가상 클러스터가 4 개 vCore 인스턴스를 호스트 하기 위해 자동으로 배포 됩니다.
+\* @ no__t-1 4 vCores 배포 옵션은 6 월 2019에 출시 되었으며 새 가상 클러스터 버전이 필요 합니다. 6 월 12 일 이전에 생성 된 대상 서브넷에 인스턴스가 있는 경우 새 가상 클러스터가 4 개 vCore 인스턴스를 호스트 하기 위해 자동으로 배포 됩니다.
 
-\*\*\*12 시간은 현재 구성 이지만 나중에 변경 될 수 있으므로이에 대 한 하드 종속성을 주지 않습니다. 이전에 가상 클러스터를 삭제 해야 하는 경우 (예: 서브넷을 해제 하려면) [Azure SQL Database 관리 되는 인스턴스를 삭제 한 후 서브넷 삭제](sql-database-managed-instance-delete-virtual-cluster.md)를 참조 하세요.
+\* @ no__t-1 @ no__t-2 12 시간은 현재 구성 이지만 나중에 변경 될 수 있으므로 하드 종속성을 주지 않습니다. 이전에 가상 클러스터를 삭제 해야 하는 경우 (예: 서브넷을 해제 하려면) [Azure SQL Database 관리 되는 인스턴스를 삭제 한 후 서브넷 삭제](sql-database-managed-instance-delete-virtual-cluster.md)를 참조 하세요.
 
 ### <a name="instance-availability-during-management"></a>관리 중 인스턴스 가용성
 
@@ -213,7 +213,7 @@ Azure SQL Database는 데이터를 보호하는 데 사용할 수 있는 일단�
 - [Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) 은 서비스에 기본 제공 되는 추가 보안 인텔리전스 계층을 제공 하 여 [감사](sql-database-managed-instance-auditing.md) 를 보완 하 여 데이터베이스에 액세스 하거나 악용 하려는 비정상적이 고 잠재적으로 유해한 시도를 검색 합니다. 의심스러운 활동, 잠재적 취약성 및 SQL 삽입 공격은 물론 비정상적인 데이터베이스 액세스 패턴에 대해 경고합니다. [Azure Security Center](https://azure.microsoft.com/services/security-center/) 에서 Advanced threat Protection 경고를 확인 하 고 의심 스러운 활동의 세부 정보를 제공 하 고 위협을 조사 하 고 완화 하는 방법에 대 한 조치를 수행할 수 있습니다.  
 - [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking)은 권한이 없는 사용자에게 중요한 데이터를 마스킹하여 데이터 노출을 제한합니다. 동적 데이터 마스킹을 수행하면 애플리케이션 계층에 대한 영향을 최소화하면서 표시할 중요한 데이터의 양을 지정할 수 있도록 하여 중요한 데이터에 대한 무단 액세스를 방지할 수 있습니다. 동적 데이터 마스킹은 지정된 데이터베이스 필드에 대한 쿼리의 결과 집합에서 중요한 데이터를 숨기는 정책 기반 보안 기능입니다. 이때 데이터베이스의 데이터 자체는 변경되지 않습니다.
 - [행 수준 보안](/sql/relational-databases/security/row-level-security)을 통해 쿼리를 실행하는 사용자의 특성(예: 그룹 멤버 자격 또는 실행 컨텍스트)을 기반으로 하여 데이터베이스 테이블의 행에 대한 액세스를 제어할 수 있습니다. RLS(행 수준 보안)는 애플리케이션의 보안 설계 및 코딩을 간소화합니다. RLS를 사용하면 데이터 행 액세스에 대한 제한을 구현할 수 있습니다. 예를 들어 작업자가 소속 부서와 관련된 데이터 행에만 액세스하게 하거나 데이터 액세스를 관련 데이터로 제한할 수 있습니다.
-- [TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)는 Managed Instance 데이터 파일을 암호화하고, 이를 미사용 데이터 암호화라고 합니다. TDE(투명한 데이터 암호화)를 통해 데이터 및 로그 파일의 실시간 I/O 암호화 및 암호 해독을 수행합니다. 이 암호화에서는 DEK(데이터베이스 암호화 키)를 사용하며 이 키는 복구하는 동안 사용할 수 있도록 데이터베이스 부트 레코드에 저장됩니다. 투명한 데이터 암호화를 사용하여 Managed Instance의 모든 데이터베이스를 보호할 수 있습니다. TDE는 스토리지 미디어의 도용으로부터 보호하기 위해 많은 규정 준수 표준에 필요한 정지된 암호화 기술로써 SQL Server에서 입증되었습니다.
+- [TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)는 Managed Instance 데이터 파일을 암호화하고, 이를 미사용 데이터 암호화라고 합니다. TDE는 데이터 및 로그 파일에 대한 실시간 I/O 암호화 및 암호 해독을 수행합니다. 암호화에는 복구 중에 사용 가능하도록 데이터베이스 부트 레코드에 저장된 DEK(데이터베이스 암호화 키)가 사용됩니다. 투명한 데이터 암호화를 사용하여 Managed Instance의 모든 데이터베이스를 보호할 수 있습니다. TDE는 스토리지 미디어의 도용으로부터 보호하기 위해 많은 규정 준수 표준에 필요한 정지된 암호화 기술로써 SQL Server에서 입증되었습니다.
 
 암호화된 데이터베이스를 Managed Instance로 마이그레이션하는 작업은 Azure DMS(Database Migration Service) 또는 네이티브 복원을 통해 지원됩니다. 기본 복원을 사용 하 여 암호화 된 데이터베이스를 마이그레이션하려는 경우 SQL Server 온-프레미스 또는 가상 머신의 SQL Server에서 관리 되는 인스턴스로 기존 TDE 인증서를 마이그레이션하는 것이 필수 단계입니다. 마이그레이션 옵션에 대한 자세한 내용은 [SQL Server 인스턴스를 Managed Instance로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요.
 
@@ -227,7 +227,7 @@ Azure AD 서버 보안 주체(로그인)(**공개 미리 보기**)를 만들기 
 
 Managed Instance 배포 옵션을 사용하면 [Azure Active Directory 통합](sql-database-aad-authentication.md)에서 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 중앙 집중식으로 관리할 수 있습니다. 이 기능은 사용 권한 관리를 간소화하고 보안을 향상시킵니다. Azure Active Directory는 MFA([Multi-Factor Authentication](sql-database-ssms-mfa-authentication-configure.md))을 제공하여 SSO(Single Sign-On) 프로세스를 지원하는 동시에 데이터 및 애플리케이션 보안을 향상시킵니다.
 
-### <a name="authentication"></a>인증
+### <a name="authentication"></a>Authentication
 
 Managed Instance 인증은 사용자가 데이터베이스에 연결할 때 자신의 ID를 증명하는 방법을 나타냅니다. SQL Database는 두 가지 인증 유형을 지원합니다.  
 
@@ -238,7 +238,7 @@ Managed Instance 인증은 사용자가 데이터베이스에 연결할 때 자�
 
   이 인증 방법은 Azure Active Directory에서 관리하는 ID를 사용하며, 관리되는 도메인과 통합된 도메인에 대해 지원됩니다. [가능한 경우](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode) Active Directory 인증(통합 보안)을 사용합니다.
 
-### <a name="authorization"></a>Authorization
+### <a name="authorization"></a>권한 부여
 
 권한 부여는 사용자가 Azure SQL Database에서 수행할 수 있는 작업을 나타내며, 사용자 계정의 데이터베이스 역할 멤버 자격과 개체 수준 권한으로 제어합니다. Managed Instance는 SQL Server 2017과 동일한 권한 부여 기능을 갖고 있습니다.
 
@@ -250,7 +250,7 @@ Managed Instance는 온-프레미스 또는 IaaS 데이터베이스 구현에서
 
 마이그레이션 방식에서는 Azure Blob Storage에 SQL을 백업합니다. Azure Storage Blob에 저장된 백업은 [T-SQL RESTORE 명령](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current)을 사용하여 Managed Instance에 직접 복원할 수 있습니다.
 
-- Wide World Importers 표준 데이터베이스 백업 파일을 복원하는 방법을 보여주는 빠른 시작은 [Managed Instance에 백업 파일 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요. 이 빠른 시작에서는 백업 파일을 Azure Blob 저장소에 업로드하고 SAS(보안 공유 액세스 서명) 키를 사용하여 보호해야 한다는 것을 보여줍니다.
+- Wide World Importers 표준 데이터베이스 백업 파일을 복원하는 방법을 보여주는 빠른 시작은 [Managed Instance에 백업 파일 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요. 이 빠른 시작에서는 백업 파일을 Azure Blob 스토리지에 업로드하고 SAS(보안 공유 액세스 서명) 키를 사용하여 보호해야 한다는 것을 보여줍니다.
 - URL에서 복원하는 방법에 대한 자세한 내용은 [URL에서 네이티브 복원](sql-database-managed-instance-migrate.md#native-restore-from-url)을 참조하세요.
 
 > [!IMPORTANT]
@@ -276,10 +276,10 @@ Managed Instance 배포 옵션은 클라우드에서 항상 최신 상태로 유
 
 - [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)과 유사한 기술을 사용하여 고가용성이 기본 제공되고 미리 구성됩니다.
 - 자동 백업 및 특정 시점 복원. 고객은 자동 백업 체인을 방해하지 않는 `copy-only` 백업을 시작할 수 있습니다.
-- Managed Instance는 전체 실제 경로 지정을 허용하지 않으므로 해당하는 모든 시나리오를 약간씩 다르게 지원해야 합니다. RESTORE DB는 WITH MOVE를 지원하지 않고, CREATE DB는 실제 경로를 허용하지 않고, BULK INSERT는 Azure Blob에서만 작동합니다.
+- 관리 되는 인스턴스는 전체 실제 경로를 지정 하는 것을 허용 하지 않으므로 모든 해당 시나리오를 다르게 지원 해야 합니다. RESTORE DB는 이동을 지원 하지 않으며, CREATE DB는 실제 경로를 허용 하지 않고, BULK INSERT Azure Blob 에서만 작동 합니다.
 - Managed Instance는 Windows 인증의 클라우드 대안으로 [Azure AD 인증](sql-database-aad-authentication.md)을 지원합니다.
 - Managed Instance는 메모리 내 OLTP 개체가 포함된 데이터베이스의 XTP 파일 그룹 및 파일을 자동으로 관리합니다.
-- Managed Instance는 SSIS(SQL Server Integration Services)를 지원하며 SSIS 패키지를 저장하는 SSIS 카탈로그(SSISDB)를 호스트할 수 있지만, ADF(Azure Data Factory)의 관리되는 Azure-SSIS IR(Integration Runtime)에서 실행됩니다. [ADF에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. SQL Database의 SSIS 기능을 비교하려면 [Azure SQL Database 단일 데이터베이스/탄력적 풀 및 Managed Instance 비교](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance)를 참조하세요.
+- Managed Instance는 SSIS(SQL Server Integration Services)를 지원하며 SSIS 패키지를 저장하는 SSIS 카탈로그(SSISDB)를 호스트할 수 있지만, ADF(Azure Data Factory)의 관리되는 Azure-SSIS IR(Integration Runtime)에서 실행됩니다. [ADF에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. SQL Database의 SSIS 기능을 비교 하려면 [Azure SQL Database 단일 데이터베이스, 탄력적 풀 및 관리 되는 인스턴스 비교](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance)를 참조 하세요.
 
 ### <a name="managed-instance-administration-features"></a>Managed Instance 관리 기능
 
@@ -292,7 +292,7 @@ SQL Database 서비스는 사용자를 위해 작업을 수행하거나 이러�
 
 다음 표는 Transact SQL을 통해 액세스할 수 있으며 애플리케이션이 Managed Instance와 함께 작동 중인지 감지하고 중요한 속성을 검색하는 데 사용할 수 있는 여러 속성을 보여줍니다.
 
-|속성|값|설명|
+|자산|Value|주석|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure(RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|이 값은 SQL Database와 같습니다.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|이 값은 SQL Database와 같습니다.|
