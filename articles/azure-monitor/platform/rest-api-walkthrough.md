@@ -1,19 +1,18 @@
 ---
 title: Azure Monitoring REST API 연습
 description: 요청을 인증하고 Azure Monitor REST API를 사용하여 사용 가능한 메트릭 정의 및 메트릭 값을 검색하는 방법입니다.
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 03/19/2018
-ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: bbc5aaf02f4ab4388e816faaf8df536770f3302a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 03/19/2018
+ms.openlocfilehash: 68c90f6c763fe7cd634aee886c5c8c6b8153253e
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205625"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72551834"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API 연습
 
@@ -88,7 +87,7 @@ $authHeader = @{
 2. 메트릭 값 검색
 
 > [!NOTE]
-> Azure REST API를 사용 하 여 인증에 대 한 자세한 내용은 참조 하십시오 합니다 [Azure REST API 참조](https://docs.microsoft.com/rest/api/azure/)합니다.
+> Azure REST API을 사용 하 여 인증 하는 방법에 대 한 자세한 내용은 [azure REST API 참조](https://docs.microsoft.com/rest/api/azure/)를 참조 하세요.
 >
 >
 
@@ -98,7 +97,7 @@ $authHeader = @{
 
 **메서드**: GET
 
-**요청 URI**: https:\/\/management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/microsoft.insights/metricDefinitions?api-version= *{ apiVersion}*
+**요청 URI**: https: \/ \/management *{subscriptionId}* /Stggs/ *{ResourceGroupName}* /providers/ *{resourceprovidernamespace}* / *{resourceType}* / *{context.resourcename}* /providers/microsoft.insights/metricdefinitions? api-version? api-version = *{apiVersion}*
 
 예를 들어 Azure Storage 계정의 메트릭 정의를 검색하기 위해 요청이 다음과 같이 표시됩니다.
 
@@ -118,7 +117,7 @@ Invoke-RestMethod -Uri $request `
 >
 >
 
-결과 JSON 응답 본문은 다음 예제와 유사합니다. (두 번째 메트릭에 차원이 있음)
+결과 JSON 응답 본문은 다음 예제와 유사합니다(두 번째 메트릭에 차원이 있음)
 
 ```JSON
 {
@@ -242,7 +241,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**요청 URI**: https\://management.azure.com/subscriptions/ *{구독 id}* /resourceGroups/ *{0} 리소스 그룹 이름}* /providers/ *{ 리소스-공급자-namespace}* / *{0} 리소스 유형의}* / *{0} 리소스 이름}* /providers/microsoft.insights/metrics? metricnames = *{0} 메트릭}* & timespan = *{starttime/endtime}* & $filter = *{filter}* & resultType 메타 데이터 api-버전 = = *{apiVersion}*
+**요청 URI**: https \://management.azure.com/subscriptions/ *{subscription-id}* /stgg/ *{* */providers/} {* } / {resource-*type* } / *{resource name}* /providers/microsoft.insights/metrics? metricnames = *{metric}* & timespan = {*starttime/endtime}* & $Filter = *{filter}* & resultType = 메타 데이터 & api-version = *{ apiVersion}*
 
 예를 들어 지정된 시간 범위 동안 GeoType dimension = 'Primary'인 'API Name dimension'에 대해 내보내진 차원의 값 목록을 검색하기 위해 요청은 다음과 같을 수 있습니다.
 
@@ -394,7 +393,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**요청 URI**: https:\/\/management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/microsoft.insights/metricDefinitions?api-version= *{ apiVersion}*
+**요청 URI**: https: \/ \/management *{subscriptionId}* /Stggs/ *{ResourceGroupName}* /providers/ *{resourceprovidernamespace}* / *{resourceType}* / *{context.resourcename}* /providers/microsoft.insights/metricdefinitions? api-version? api-version = *{apiVersion}*
 
 예를 들어 Azure Logic App의 메트릭 정의를 검색하기 위해 요청이 다음과 같이 표시됩니다.
 
@@ -621,7 +620,7 @@ Azure Resource Explorer 등, 다른 방법으로 리소스 ID를 검색하고 Az
 
 ![Alt "Azure Resource Explorer"](./media/rest-api-walkthrough/azure_resource_explorer.png)
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure 포털에서 리소스 ID를 가져올 수도 있습니다. 이렇게 하려면 원하는 리소스로 이동한 다음 속성을 선택합니다. 리소스 ID는 다음 스크린샷에 표시된 것처럼 속성 섹션에 표시됩니다.
 
@@ -657,7 +656,7 @@ Version        : 08586982649483762729
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI를 사용 하 여 Azure Storage 계정의 리소스 ID를 검색 하려면 다음을 실행 합니다 `az storage account show` 다음 예와에서 같이 명령:
+Azure CLI를 사용 하 여 Azure Storage 계정에 대 한 리소스 ID를 검색 하려면 다음 예제와 같이 `az storage account show` 명령을 실행 합니다.
 
 ```
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017

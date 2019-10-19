@@ -1,18 +1,18 @@
 ---
 title: Azure Monitor에서 메트릭 및 자동 크기 조정을 위한 클래식 배포 모델 API 사용 중지
 description: ASM(Azure 서비스 관리) 또는 RDFE 배포 모델이라고도 하는 메트릭 및 크기 자동 조정 클래식 API의 사용이 중지됨
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.date: 11/19/2018
+author: rboucher
 ms.author: robb
-ms.openlocfilehash: ce54b63aa7831ed40a8592d536c43fc83fdc5567
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/19/2018
+ms.openlocfilehash: 7a93419ee84e6a50ce07cefa941a8df9f85b7b6e
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60709986"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552204"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor에서 메트릭 및 자동 크기 조정을 위한 클래식 배포 모델 API 사용 중지
 
@@ -61,7 +61,7 @@ Azure Portal 또는 다양한 [모니터링 파트너 서비스](../../azure-mon
 - 차원 지원
 - 모든 서비스에서 일관성 있는 1분 메트릭 세분성 적용 
 - 향상된 쿼리
-- 데이터 보존 기간 증가(93일 메트릭 대비 30일) 
+- 더 높은 데이터 보존 (93 일간의 메트릭 및 30 일) 
 
 전반적으로, Azure의 다른 모든 서비스처럼 Resource Manager 기반 Azure Monitor API는 성능, 확장성 및 안정성을 개선합니다. 
 
@@ -75,9 +75,9 @@ Azure 서비스나 해당 워크로드에 대한 직접적인 영향은 없습�
 
 앞에 나열된 클래식 API에 대한 모든 호출이 실패하고 다음과 유사한 오류 메시지가 반환됩니다.
 
-자동 크기 조정의 경우: *이 API는 더 이상 사용되지 않습니다. Azure Portal, Azure Monitor SDK, PowerShell, CLI 또는 Resource Manager 템플릿을 사용하여 자동 크기 조정 설정을 관리합니다.*  
+자동 크기 조정의 경우: *이 API는 더 이상 사용 되지 않습니다. Azure Portal, Azure Monitor SDK, PowerShell, CLI 또는 리소스 관리자 템플릿을 사용 하 여 자동 크기 조정 설정을 관리*합니다.  
 
-메트릭의 경우: *이 API는 더 이상 사용되지 않습니다. Azure Portal, Azure Monitor SDK, PowerShell, CLI 등을 사용하여 메트릭을 쿼리합니다.*
+메트릭의 경우: *이 API는 더 이상 사용 되지 않습니다. Azure Portal, Azure Monitor SDK, PowerShell, CLI를 사용 하 여 메트릭을 쿼리*합니다.
 
 ## <a name="email-notifications"></a>전자 메일 알림
 

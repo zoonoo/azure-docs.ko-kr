@@ -1,21 +1,18 @@
 ---
 title: GA (VM용 Azure Monitor) 질문과 대답 | Microsoft Docs
 description: VM용 Azure Monitor는 Azure VM 운영 체제의 상태 및 성능 모니터링뿐만 아니라 애플리케이션 구성 요소 및 종속성의 자동 검색도 다른 리소스와 결합하고, 이러한 항목 간의 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 GA 릴리스에 대 한 일반적인 질문에 답변 합니다.
-services: azure-monitor
-author: mgoedtel
-manager: carmonm
-editor: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 10/07/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: cb21d3bed1efc8f6ee7e16a0976ce46d03404983
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.date: 10/07/2019
+ms.openlocfilehash: 523fb2d3a3b148afc9219e666c2fbe7fa40d58ad
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72275966"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553805"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>GA (VM용 Azure Monitor 일반 공급) 질문과 대답
 
@@ -25,9 +22,9 @@ ms.locfileid: "72275966"
 
 11 월에 새 버전의 VM용 Azure Monitor를 출시 하 고 있습니다. 이 릴리스 후 Vm에 대 한 Azure 모니터를 사용 하도록 설정 하는 고객은 자동으로 새 버전을 수신 하지만 이미 VM용 Azure Monitor를 사용 하는 기존 고객은 업그레이드 하 라는 메시지가  이 FAQ 및 설명서에서는 여러 작업 영역에 대규모 배포를 수행 하는 경우 대량 업그레이드를 수행 하는 지침을 제공 합니다.
 
-이 업그레이드를 사용 하면 VM용 Azure Monitor 성능 데이터 집합이 [컨테이너의 Azure Monitor](container-insights-overview.md)같은 `InsightsMetrics` 테이블에 저장 되 고 두 데이터 집합을 보다 쉽게 쿼리할 수 있습니다. 또한 이전에 사용한 테이블에 저장할 수 없는 다양 한 데이터 집합을 저장할 수 있습니다.  또한이 새 테이블을 사용 하도록 성능 보기를 업데이트 합니다.
+이 업그레이드를 사용 하면 VM용 Azure Monitor 성능 데이터 집합이 [컨테이너에 대해 Azure Monitor](container-insights-overview.md)같은 `InsightsMetrics` 테이블에 저장 되 고 두 데이터 집합을 보다 쉽게 쿼리할 수 있습니다. 또한 이전에 사용한 테이블에 저장할 수 없는 다양 한 데이터 집합을 저장할 수 있습니다.  또한이 새 테이블을 사용 하도록 성능 보기를 업데이트 합니다.
 
-연결 데이터 집합에 대 한 새 데이터 형식으로 이동 하 고 있습니다. 현재 `ServiceMapComputer_CL`에 저장 된 데이터와 사용자 지정 로그 테이블을 사용 하는 `ServiceMapProcess_CL`은 `VMComputer` 및 `VMProcess` 이라는 전용 데이터 형식으로 이동 됩니다.  전용 데이터 형식으로 이동 하면 데이터 수집을 위해 이러한 우선 순위를 지정할 수 있으며, 테이블 스키마는 모든 고객에 게 표준화 됩니다.
+연결 데이터 집합에 대 한 새 데이터 형식으로 이동 하 고 있습니다. 사용자 지정 로그 테이블을 사용 하는 `ServiceMapComputer_CL` 및 `ServiceMapProcess_CL`에 현재 저장 된 데이터는 `VMComputer` 및 `VMProcess` 이라는 전용 데이터 형식으로 이동 됩니다.  전용 데이터 형식으로 이동 하면 데이터 수집을 위해 이러한 우선 순위를 지정할 수 있으며, 테이블 스키마는 모든 고객에 게 표준화 됩니다.
 
 기존 고객에 게 업그레이드를 요청 하면 워크플로가 중단 될 수 있습니다. 따라서 GA에 도착 하 고 나면 나중에 공개 미리 보기에서이 작업을 수행 하도록 선택 해야 합니다.
 
@@ -35,11 +32,11 @@ ms.locfileid: "72275966"
 
 현재 VM용 Azure Monitor에 대 한 온 보 딩 프로세스를 완료 하면 모니터링 데이터를 저장 하기 위해 선택한 작업 영역에서 서비스 맵 솔루션을 사용 하도록 설정 하 고 Vm에서 수집한 데이터에 대 한 성능 카운터를 구성 합니다. 이후 주에는 Log Analytics에이 데이터를 저장 하기 위한 새 위치와 함께 데이터 수집에 대 한 추가 기능을 포함 하는 **VMInsights**라는 새 솔루션이 출시 될 예정입니다.
 
-작업 영역에서 성능 카운터를 사용 하는 현재 프로세스는 Log Analytics의 Perf 테이블로 데이터를 보냅니다.  이 새 솔루션은 컨테이너에 대해 Azure Monitor 에서도 사용 되는 `InsightsMetrics` 이라는 테이블로 데이터를 보냅니다. 이 테이블 스키마를 사용 하면 성능 테이블 형식과 호환 되지 않는 추가 메트릭과 서비스 데이터 집합을 저장할 수 있습니다.
+작업 영역에서 성능 카운터를 사용 하는 현재 프로세스는 Log Analytics의 Perf 테이블로 데이터를 보냅니다.  이 새 솔루션은 Azure Monitor 컨테이너에도 사용 되는 `InsightsMetrics` 라는 테이블로 데이터를 보냅니다. 이 테이블 스키마를 사용 하면 성능 테이블 형식과 호환 되지 않는 추가 메트릭과 서비스 데이터 집합을 저장할 수 있습니다.
 
 ## <a name="what-should-i-do-about-the-performance-counters-on-my-workspace-if-i-install-the-vminsights-solution"></a>VMInsights 솔루션을 설치 하는 경우 내 작업 영역에서 성능 카운터는 어떻게 해야 하나요?
 
-VM용 Azure Monitor 사용 하도록 설정 하는 현재 방법은 작업 영역에서 성능 카운터를 사용 합니다. 새 메서드는 `InsightsMetrics` 이라는 새 테이블에이 데이터를 저장 합니다.
+VM용 Azure Monitor 사용 하도록 설정 하는 현재 방법은 작업 영역에서 성능 카운터를 사용 합니다. 새 메서드는 `InsightsMetrics` 라는 새 테이블에이 데이터를 저장 합니다.
 
 InsightsMetrics의 데이터를 사용 하도록 사용자 인터페이스를 업데이트 하면 설명서를 업데이트 하 고 Azure Portal에 배너를 표시 하는 것을 포함 하 여 여러 채널을 통해이 공지를 전달 합니다. 이 시점에서 더 이상 사용 하지 않으려는 경우 작업 영역에서 이러한 [성능 카운터](vminsights-enable-overview.md#performance-counters-enabled) 를 사용 하지 않도록 선택할 수 있습니다. 
 
@@ -50,7 +47,7 @@ InsightsMetrics의 데이터를 사용 하도록 사용자 인터페이스를 �
 
 ## <a name="how-will-this-change-affect-my-alert-rules"></a>이 변경 내용은 내 경고 규칙에 어떤 영향을 미칩니까?
 
-작업 영역에서 사용 하도록 설정 된 성능 카운터를 대상으로 하는 `Perf` 테이블을 쿼리 하는 [로그 경고](../platform/alerts-unified-log.md) 를 만든 경우 `InsightsMetrics` 테이블을 대신 참조 하도록 이러한 규칙을 업데이트 해야 합니다. 이 지침은 `ServiceMapComputer_CL` 및 `ServiceMapProcess_CL`을 사용 하는 모든 로그 검색 규칙에도 적용 됩니다. 해당 데이터 집합은 `VMComputer` 및 `VMProcess` 테이블로 이동 하기 때문입니다.
+작업 영역에서 사용 하도록 설정 된 성능 카운터를 대상으로 하는 `Perf` 테이블을 쿼리 하는 [로그 경고](../platform/alerts-unified-log.md) 를 만든 경우 대신 `InsightsMetrics` 테이블을 참조 하도록 이러한 규칙을 업데이트 해야 합니다. 이 지침은 `ServiceMapComputer_CL` 및 `ServiceMapProcess_CL`를 사용 하는 모든 로그 검색 규칙에도 적용 됩니다. 이러한 데이터 집합은 `VMComputer` 테이블과 `VMProcess` 테이블로 이동 하기 때문입니다.
 
 수집 하는 데이터 집합에 대 한 예제 로그 검색 경고 규칙을 포함 하도록이 질문과 설명서를 업데이트할 예정입니다.
 
@@ -64,17 +61,17 @@ InsightsMetrics의 데이터를 사용 하도록 사용자 인터페이스를 �
 
 괜찮습니다.  예정 된 업데이트에 대 한 VM용 Azure Monitor를 볼 때 Azure Portal에 프롬프트가 표시 됩니다. 릴리스된 후 새 버전으로 업데이트 하 라는 메시지가 표시 됩니다. [지도](vminsights-maps.md) 기능을 사용 하려는 경우에만 업그레이드 하지 않고 작업 영역 또는 대시보드 타일에서 액세스할 수 있는 서비스 맵 솔루션 VM용 Azure Monitor 및 맵 기능을 계속 사용 하도록 선택할 수 있습니다.
 
-작업 영역에서 성능 카운터를 수동으로 사용 하도록 선택한 경우 Azure Monitor에서 볼 수 있는 일부 성능 차트에서 데이터를 볼 수 있습니다. 새 솔루션이 출시 되 면 `InsightsMetrics` 테이블에 저장 된 데이터를 쿼리 하기 위해 성능 차트를 업데이트 합니다. 이러한 차트에서 해당 테이블의 데이터를 보려면 VM용 Azure Monitor 새 버전으로 업그레이드 해야 합니다.
+작업 영역에서 성능 카운터를 수동으로 사용 하도록 선택한 경우 Azure Monitor에서 볼 수 있는 일부 성능 차트에서 데이터를 볼 수 있습니다. 새 솔루션이 릴리스되면 성능 차트를 업데이트 하 여 `InsightsMetrics` 테이블에 저장 된 데이터를 쿼리 합니다. 이러한 차트에서 해당 테이블의 데이터를 보려면 VM용 Azure Monitor 새 버전으로 업그레이드 해야 합니다.
 
-@No__t-0 및 `ServiceMapProcess_CL`에서 데이터를 이동 하는 변경 내용은 서비스 맵와 VM용 Azure Monitor 모두에 영향을 주므로이 업데이트에 대 한 계획을 세워야 합니다.
+@No__t_0 및 `ServiceMapProcess_CL`에서 데이터를 이동 하는 변경 내용은 서비스 맵와 VM용 Azure Monitor 모두에 영향을 주므로이 업데이트에 대 한 계획을 세워야 합니다.
 
-**VMInsights** 솔루션으로 업그레이드 하지 않기로 선택한 경우에는 `Perf` 테이블의 데이터를 참조 하는 레거시 버전의 성능 통합 문서를 계속 제공 합니다.  
+**VMInsights** 솔루션으로 업그레이드 하지 않기로 선택한 경우에는 `Perf` 테이블의 데이터를 참조 하는 레거시 버전의 성능 통합 문서가 계속 제공 됩니다.  
 
 ## <a name="will-the-service-map-data-sets-also-be-stored-in-insightsmetrics"></a>서비스 맵 데이터 집합이 InsightsMetrics에도 저장 됩니까?
 
 두 솔루션을 모두 사용 하는 경우 데이터 집합이 중복 되지 않습니다. 두 제품은 모두 `VMComputer` (이전의 ServiceMapComputer_CL), `VMProcess` (이전의 ServiceMapProcess_CL), `VMConnection` 및 `VMBoundPort` 테이블에 저장 되는 데이터 집합을 공유 하 여 수집 하는 맵 데이터 집합을 저장 합니다.  
 
-@No__t-0 테이블은 수집 하는 VM, 프로세스 및 서비스 데이터 집합을 저장 하는 데 사용 되며 VM용 Azure Monitor를 사용 하는 경우에만 채워집니다.
+@No__t_0 테이블은 수집 하는 VM, 프로세스 및 서비스 데이터 집합을 저장 하는 데 사용 되며 VM용 Azure Monitor를 사용 하는 경우에만 채워집니다.
 
 ## <a name="will-i-be-double-charged-if-i-have-the-service-map-and-vminsights-solutions-on-my-workspace"></a>내 작업 영역에 서비스 맵 및 VMInsights 솔루션이 있는 경우 두 배가 청구 되나요?
 
@@ -106,9 +103,9 @@ Microsoft는 VM 상태 기능 집합에 대 한 고객의 많은 유용한 피�
 
 상태 기능을 사용 하는 기존 고객은 계속 액세스할 수 있지만 새 고객에 게는 제공 되지 않습니다.  
 
-이 기능에 액세스 하려면 `feature.vmhealth=true` 기능 플래그를 포털 URL [https://portal.azure.com](https://portal.azure.com)에 추가할 수 있습니다. 예 `https://portal.azure.com/?feature.vmhealth=true`.
+기능에 액세스 하려면 포털 URL [https://portal.azure.com](https://portal.azure.com)에 `feature.vmhealth=true` 다음 기능 플래그를 추가할 수 있습니다. 예 `https://portal.azure.com/?feature.vmhealth=true`.
 
-이 짧은 url을 사용 하 여 자동으로 기능 플래그를 설정할 수도 있습니다. [https://aka.ms/vmhealthpreview](https://aka.ms/vmhealthpreview).
+[@No__t_1](https://aka.ms/vmhealthpreview)기능 플래그를 자동으로 설정 하는이 짧은 url을 사용할 수도 있습니다.
 
 기존 고객으로 서 상태 기능을 사용 하 여 기존 작업 영역 설정에 연결 된 Vm에서 상태 기능을 계속 사용할 수 있습니다.  
 

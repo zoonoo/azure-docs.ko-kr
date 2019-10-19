@@ -1,20 +1,18 @@
 ---
 title: Event Hubs에 Azure Diagnostics 데이터 스트리밍
 description: 일반적인 시나리오에 대한 지침을 포함하여 Event Hubs로 Azure Diagnostics를 완벽하게 구성.
-services: azure-monitor
-author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 07/13/2017
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: c5fc2199de8623dd3a9f2bc5faf23c7c40d67d75
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 07/13/2017
+ms.openlocfilehash: 2b24618e4d7c12366db5e72226c6f94924d4d3a5
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "64922815"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555535"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Event Hubs를 사용하여 실행 부하 과다 경로에서 Azure Diagnostics 데이터 스트리밍
 Azure Diagnostics에서는 클라우드 서비스 VM(가상 머신)에서 메트릭 및 로그를 수집하고 결과를 Azure Storage로 전송하는 유연한 방법을 제공합니다. 2016년 3월(SDK 2.9)부터 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)를 사용하여 데이터 원본을 사용자 지정하고 몇 초 만에 실행 부하 과다 경로 데이터를 전송할 수 있는 진단을 보낼 수 있습니다.
@@ -41,11 +39,11 @@ Azure Diagnostics에서 데이터를 수신하는 Event Hubs는 Azure SDK 2.9 �
 * [Visual Studio 2013 이상](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * *.wadcfgx* 파일과 다음 방법 중 하나를 사용하는 애플리케이션에서 Azure Diagnostics의 기존 구성은 다음과 같습니다.
   * Visual Studio: [Azure Cloud Services 및 Virtual Machines에서 진단 구성](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
-  * Windows PowerShell: [PowerShell을 사용하여 Azure Cloud Services에 진단 사용](../../cloud-services/cloud-services-diagnostics-powershell.md)
-* [Event Hubs 시작](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+  * Windows PowerShell: [PowerShell을 사용하여 Azure Cloud Services에서 진단 사용](../../cloud-services/cloud-services-diagnostics-powershell.md)
+* 항목별로 프로비전되는 Event Hubs 네임스페이스([Event Hubs 시작](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) 참조)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Event Hubs 싱크에 Azure Diagnostics 연결
-기본적으로 Azure Diagnostics는 항상 Azure Storage 계정에 로그 및 메트릭을 전송합니다. 애플리케이션은 *.wadcfgx* 파일의 **PublicConfig** / **WadCfg** 요소에 새로운 **Sinks** 섹션을 추가하여 Event Hubs에 데이터를 전송할 수도 있습니다. Visual Studio에서 *.wadcfgx* 파일은 **클라우드 서비스 프로젝트** > **역할** >  **(RoleName)**  > **diagnostics.wadcfgx** 파일 경로에 저장됩니다.
+기본적으로 Azure Diagnostics는 항상 Azure Storage 계정에 로그 및 메트릭을 전송합니다. 애플리케이션은 *.wadcfgx* 파일의 **PublicConfig** / **WadCfg** 요소에 새로운 **Sinks** 섹션을 추가하여 Event Hubs에 데이터를 전송할 수도 있습니다. Visual Studio에서 *.wadcfgx* 파일은 **클라우드 서비스 프로젝트** > **역할** >  **(RoleName)**  > **diagnostics.wadcfgx** 파일이라는 경로에 저장됩니다.
 
 ```xml
 <SinksConfig>
@@ -68,7 +66,7 @@ Azure Diagnostics에서 데이터를 수신하는 Event Hubs는 Azure SDK 2.9 �
 }
 ```
 
-이 예제에서 이벤트 허브 URL은 이벤트 허브의 정규화된 네임스페이스로 설정됩니다. Event Hubs 네임스페이스 + "/" + 이벤트 허브 이름  
+이 예제에서 이벤트 허브 URL은 이벤트 허브의 정규화된 네임스페이스(Event Hubs 네임스페이스 + “/” + 이벤트 허브 이름)로 설정됩니다.  
 
 이벤트 허브 URL은 Event Hubs 대시보드의 [Azure Portal](https://go.microsoft.com/fwlink/?LinkID=213885)에 표시됩니다.  
 
@@ -184,7 +182,7 @@ Azure Diagnostics에서 데이터를 수신하는 Event Hubs는 Azure SDK 2.9 �
 }
 ```
 
-이전 예제에서는 싱크가 세 개의 카운터, **대기 중인 요청**, **거부된 요청** 및 **% 프로세서 시간**에만 적용됩니다.  
+이전 예제에서 싱크는 단 세 개의 카운터(**대기 중인 요청**, **거부된 요청** 및 **% 프로세서 시간**)에만 적용되었습니다.  
 
 다음 예제에서는 개발자가 전송될 데이터 양을 이 서비스의 상태에 사용되는 중요 메트릭으로 제한하는 방법을 보여 줍니다.  
 
@@ -313,10 +311,10 @@ namespace EventHubListener
     이벤트 허브가 성공적으로 프로비저닝되었는지 확인합니다. **.wadcfgx**의 *PrivateConfig* 섹션에 있는 모든 연결 정보는 포털에서 보이는 리소스의 값과 일치해야 합니다. 포털에 정의된 SAS 정책(예에서는 "SendRule")이 있고 *보내기* 권한이 부여되도록 해야 합니다.  
 * 업데이트 이후에 이벤트 허브는 들어오거나 나가는 이벤트 작업을 더 이상 표시하지 않습니다.
 
-    우선 이벤트 허브 및 구성 정보가 이전에 설명한 대로 정확한지를 확인합니다. 때로는 배포 업데이트에서 **PrivateConfig**가 다시 설정됩니다. 권장되는 해결 방법은 프로젝트에서 *.wadcfgx* 에 모든 변경 사항을 적용한 다음 전체 애플리케이션 업데이트를 푸시하는 것입니다. 불가능한 경우 진단 업데이트가 SAS 키를 포함하여 전체 **PrivateConfig** 를 푸시하도록 해야 합니다.  
+    우선 이벤트 허브 및 구성 정보가 이전에 설명한 대로 정확한지를 확인합니다. 때로는 배포 업데이트에서 **PrivateConfig**가 다시 설정됩니다. 권장되는 해결 방법은 프로젝트에서 *.wadcfgx* 에 모든 변경 사항을 적용한 다음, 전체 애플리케이션 업데이트를 푸시하는 것입니다. 불가능한 경우 진단 업데이트가 SAS 키를 포함하여 전체 **PrivateConfig** 를 푸시하도록 해야 합니다.  
 * 제안된 방법을 시도했지만 이벤트 허브가 여전히 작동하지 않습니다.
 
-    Azure Diagnostics 자체에 대한 로그 및 오류가 포함된 Azure Storage 테이블을 살펴보세요. (**WADDiagnosticInfrastructureLogsTable**)을 살펴봅니다. 한 가지 옵션은 [Azure Storage Explorer](https://www.storageexplorer.com) 등의 도구를 사용하여 이 Storage 계정에 연결하고 이 테이블을 본 후 지난 24시간 동안의 타임스탬프에 대한 쿼리를 추가하는 것입니다. 이 도구를 사용하여 .csv 파일을 내보내고 Microsoft Excel과 같은 애플리케이션에서 열 수 있습니다. Excel를 통해 어떤 오류가 보고되는지 확인하는 **EventHubs**와 같은 전화 카드 문자열을 쉽게 검색할 수 있습니다.  
+    Azure Diagnostics 자체에 대한 로그 및 오류가 포함된 Azure Storage 테이블(**WADDiagnosticInfrastructureLogsTable**)을 살펴봅니다. 한 가지 옵션은 [Azure Storage Explorer](https://www.storageexplorer.com) 등의 도구를 사용하여 이 Storage 계정에 연결하고 이 테이블을 본 후 지난 24시간 동안의 타임스탬프에 대한 쿼리를 추가하는 것입니다. 이 도구를 사용하여 .csv 파일을 내보내고 Microsoft Excel과 같은 애플리케이션에서 열 수 있습니다. Excel를 통해 어떤 오류가 보고되는지 확인하는 **EventHubs**와 같은 전화 카드 문자열을 쉽게 검색할 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 • [Event Hubs에 대해 자세히 알아보기](https://azure.microsoft.com/services/event-hubs/)

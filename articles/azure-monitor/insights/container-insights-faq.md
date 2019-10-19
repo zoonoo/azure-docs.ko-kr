@@ -1,21 +1,18 @@
 ---
 title: 컨테이너용 Azure Monitor 질문과 대답 | Microsoft Docs
 description: 컨테이너용 Azure Monitor는 Azure에서 AKS 클러스터 및 Container Instances의 상태를 모니터링하는 솔루션입니다. 이 문서에서는 일반적인 질문에 답변합니다.
-services: azure-monitor
-author: mgoedtel
-manager: carmonm
-editor: tysonn
 ms.service: azure-monitor
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 08/14/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: f8d763f8bb228a0d4d83a3776f818d59939b942d
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.date: 08/14/2019
+ms.openlocfilehash: bda64dd555f1970b70878d827f6be1dab3f1e2d5
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559070"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555438"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>컨테이너용 Azure Monitor 질문과 대답
 
@@ -75,16 +72,16 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 
 ## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>라이브 로그를 사용 하도록 설정할 때 Azure AD 오류를 해결할 어떻게 할까요? 있나요? 
 
-다음 오류가 표시될 수 있습니다. **요청에 지정 된 회신 url이 ' < 응용 프로그램 ID\>' 응용 프로그램에 대해 구성 된 회신 url과 일치 하지**않습니다. 이 문제를 해결 하는 [방법은 컨테이너에 대 한 Azure Monitor를 사용 하 여 컨테이너 로그를 실시간으로 보는 방법](container-insights-live-logs.md#configure-aks-with-azure-active-directory)문서에서 찾을 수 있습니다. 
+다음 오류가 표시 될 수 있습니다. **요청에 지정 된 회신 url이 응용 프로그램에 대해 구성 된 회신 url (' < 응용 프로그램 ID \> ')과 일치 하지**않습니다. 이 문제를 해결 하는 [방법은 컨테이너에 대 한 Azure Monitor를 사용 하 여 컨테이너 로그를 실시간으로 보는 방법](container-insights-live-logs.md#configure-aks-with-azure-active-directory)문서에서 찾을 수 있습니다. 
 
 ## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>온 보 딩 후 클러스터를 업그레이드할 수 없는 이유는 무엇입니까?
 
 AKS 클러스터의 컨테이너에 대 한 Azure Monitor를 사용 하도록 설정한 후 클러스터를 업그레이드 하려고 할 때 클러스터가 데이터를 전송 하는 Log Analytics 작업 영역을 삭제 하면 오류가 발생 합니다. 이 문제를 해결 하려면 모니터링을 사용 하지 않도록 설정한 다음 구독에서 다른 유효한 작업 영역을 참조 하 여 다시 사용 하도록 설정 해야 합니다. 클러스터 업그레이드를 다시 수행 하려고 하면 성공적으로 처리 되 고 완료 됩니다.  
 
 ## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>에이전트에 대해 열기/허용 목록 해야 하는 포트 및 도메인은 무엇 인가요?
-- *.ods.opinsights.azure.com   443
-- *.oms.opinsights.azure.com   443
-- *.blob.core.windows.net      443
+- *. ods.opinsights.azure.com 443
+- *. oms.opinsights.azure.com 443
+- *. blob.core.windows.net 443
 - dc.services.visualstudio.com 443
 - *. microsoftonline.com 443
 - *. monitoring.azure.com 443

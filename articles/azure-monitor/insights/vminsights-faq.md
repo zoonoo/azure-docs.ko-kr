@@ -1,21 +1,18 @@
 ---
 title: VM용 Azure Monitor(미리 보기) 질문과 대답 | Microsoft Docs
 description: VM용 Azure Monitor는 Azure VM 운영 체제의 상태 및 성능 모니터링뿐만 아니라 애플리케이션 구성 요소 및 종속성의 자동 검색도 다른 리소스와 결합하고, 이러한 항목 간의 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 일반적인 질문에 답변합니다.
-services: azure-monitor
-author: mgoedtel
-manager: carmonm
-editor: tysonn
 ms.service: azure-monitor
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 420ba9d74532095c2d028fef8f549d532e5dfa05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/09/2018
+ms.openlocfilehash: 675277a33a5613507297f1c77ee9cef3215b22a2
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522200"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555204"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>VM용 Azure Monitor(미리 보기) 질문과 대답
 Microsoft FAQ는 VM용 Azure Monitor에 대한 질문과 대답 목록입니다. 솔루션에 대한 추가 질문이 있으면 [토론 포럼](https://feedback.azure.com/forums/34192--general-feedback)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
@@ -25,18 +22,18 @@ Microsoft FAQ는 VM용 Azure Monitor에 대한 질문과 대답 목록입니다.
 
 온보딩하면 VM용 Azure Monitor에서 표시하고 분석할 이 정보의 수집을 시작하기 위해 모든 VM이 작업 영역에 데이터를 보고하게 되는 작업 영역에 대한 성능 카운터를 구성합니다.  결과적으로, 선택된 작업 영역에 연결된 VM의 모든 성능 데이터가 표시됩니다.  상태 및 맵 기능은 온보딩하도록 지정된 VM에 대해서만 활성화됩니다.
 
-카운터를 사용할 수 있는 성능에 자세한 내용은 참조 하세요 [개요를 사용 하도록 설정](vminsights-enable-overview.md#performance-counters-enabled) 문서.
+사용 가능한 성능 카운터에 대 한 자세한 내용은 [사용 개요](vminsights-enable-overview.md#performance-counters-enabled) 문서를 참조 하세요.
 
 ## <a name="can-i-onboard-to-a-new-workspace"></a>새 작업 영역에 온보딩할 수 있나요? 
 현재 VM이 기존 Log Analytics 작업 영역에 연결되지 않은 경우 데이터를 저장할 새 작업 영역을 만들어야 합니다. Azure Portal을 통해 VM용 Azure Monitor에 대해 단일 Azure VM을 구성한 경우 새 기본 작업 영역을 만드는 작업이 자동으로 수행됩니다.
 
-스크립트 기반 메서드를 사용 하려는 경우 다음이 단계에 나와 합니다 [사용 Azure Monitor (미리 보기) Vm에 대 한 Azure PowerShell 또는 Resource Manager 템플릿을 사용 하 여](vminsights-enable-at-scale-powershell.md) 문서. 
+스크립트 기반 방법을 사용 하도록 선택 하는 경우 이러한 단계는 [Azure PowerShell 또는 리소스 관리자 템플릿 사용 VM용 Azure Monitor (미리 보기)](vminsights-enable-at-scale-powershell.md) 사용 문서에서 설명 합니다. 
 
 ## <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>내 VM에서 이미 기존 작업 영역에 보고하는 경우 어떻게 해야 하나요?
 이미 가상 머신의 데이터를 수집하는 경우 기존 Log Analytics 작업 영역에 데이터를 보고하도록 이미 구성되었을 수 있습니다.  해당 작업 영역이 지원되는 지역 중 하나라면 기존 작업 영역에 VM용 Azure Monitor를 사용하도록 설정할 수 있습니다.  이미 사용 중인 작업 영역이 지원되는 지역 중 하나가 아닌 경우 이번에는 VM용 Azure Monitor에 온보딩할 수 없습니다.  본사에서는 추가 지역을 지원하기 위해 적극적으로 노력하고 있습니다.
 
 >[!NOTE]
->VM용 Azure Monitor에 온보딩하도록 선택했는지 여부와 상관 없이 작업 영역에 보고는 모든 VM에 영향을 주는 작업 영역에 대한 성능 카운터를 구성합니다. 작업 영역에 대해 성능 카운터를 구성하는 방법에 대한 자세한 내용은 [설명서](../../azure-monitor/platform/data-sources-performance-counters.md)를 참조하세요. Vm에 대 한 Azure Monitor에 대해 구성 된 카운터에 대 한 자세한 내용은 참조 하십시오 우리의 [Vm에 대 한 Azure Monitor를 사용 하도록 설정](vminsights-enable-overview.md#performance-counters-enabled) 문서.  
+>VM용 Azure Monitor에 온보딩하도록 선택했는지 여부와 상관 없이 작업 영역에 보고는 모든 VM에 영향을 주는 작업 영역에 대한 성능 카운터를 구성합니다. 작업 영역에 대해 성능 카운터를 구성하는 방법에 대한 자세한 내용은 [설명서](../../azure-monitor/platform/data-sources-performance-counters.md)를 참조하세요. VM용 Azure Monitor에 대해 구성 된 카운터에 대 한 자세한 내용은 [VM용 Azure Monitor 사용](vminsights-enable-overview.md#performance-counters-enabled) 문서를 참조 하세요.  
 
 ## <a name="why-did-my-vm-fail-to-onboard"></a>내 VM이 온보딩하지 못한 이유는?
 Azure Portal에서 Azure VM을 온보딩한 경우 다음 단계가 수행됩니다.
@@ -100,7 +97,7 @@ VM용 Azure Monitor 맵 기능은 서비스 맵을 기반으로 하지만 다음
 * 이제 모니터링된 VM은 클라이언트 그룹 노드에 포함됩니다. 도넛형 차트에서는 그룹에서 모니터링된 가상 머신 및 모니터링되지 않는 가상 머신의 비율을 보여줍니다.  그룹이 확장되면 머신의 목록을 필터링하는 데 사용할 수도 있습니다.
 * 이제 모니터링된 가상 머신은 서버 포트 그룹 노드에 포함됩니다. 도넛형 차트에서는 그룹에서 모니터링된 머신 및 모니터링되지 않는 머신의 비율을 보여줍니다.  그룹이 확장되면 머신의 목록을 필터링하는 데 사용할 수도 있습니다.
 * 맵 스타일은 Application insights에서 앱 맵을 사용하여 더욱 일관되게 업데이트되었습니다.
-* 쪽 패널 업데이트 되었으며 및 통합의 서비스 맵-업데이트 관리, 변경 내용 추적, 보안 및 서비스 데스크에에서 지원 하 던 중 일부만 필요가 없습니다. 
+* 측면 패널이 업데이트 되었으며 서비스 맵 업데이트 관리, 변경 내용 추적, 보안 및 서비스 데스크에서 지원 되는 통합의 전체 집합이 없습니다. 
 * 맵에 대한 그룹 및 머신을 선택하는 옵션이 업데이트되어 이제 구독, 리소스 그룹, Azure 가상 머신 확장 집합 및 클라우드 서비스를 지원합니다.
 * VM용 Azure Monitor 맵 기능에서 새 서비스 맵 머신 그룹을 만들 수 없습니다.  
 
@@ -126,11 +123,11 @@ VM용 Azure Monitor 맵 기능은 서비스 맵을 기반으로 하지만 다음
 
 Azure VM의 개요 페이지에는 게스트 VM에서 작업의 호스트 측정값에 따라 차트가 표시됩니다.  Azure VM 개요에 대한 네트워크 차트의 경우 청구되는 네트워크 트래픽만 표시합니다.  여기에는 VNet 간 트래픽이 포함되지 않습니다.  VM용 Azure Monitor에 대해 표시된 데이터 및 차트는 게스트 VM의 데이터를 기반으로 하고 네트워크 차트는 VNet 간 트래픽을 비롯하여 해당 VM에 대한 인바운드 및 아웃바운드인 모든 TCP/IP 트래픽을 표시합니다.
 
-## <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>VMConnection에 저장 되 고 통합 문서 연결 패널에 표시 된 데이터에 대 한 응답 시간 측정 방법
+## <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>VMConnection에 저장 되 고 연결 패널 및 통합 문서에 표시 되는 데이터에 대 한 응답 시간은 어떻게 측정 되나요?
 
-응답 시간은 근사값입니다. 응용 프로그램의 코드를 계측 하지 수행 되므로 파악 하지 못해도 실제로 요청을 시작 하는 시점 및 응답이 도착 하는 경우. 대신 데이터 연결에서 전송 되 고 해당 연결에서 다시 가져온 데이터를 관찰 했습니다. 이 에이전트 추적 이러한 송신 및 수신 하 고 연결할 하려고: 시퀀스 뒤에 보내기 시퀀스로 수신 요청/응답 쌍으로 해석 됩니다. 이러한 작업 간의 시간 응답 시간입니다. 네트워크 대기 시간 및 서버 처리에 포함 됩니다.
+응답 시간은 근사값입니다. 응용 프로그램 코드를 계측 하지 않으므로 요청이 시작 되는 시기와 응답이 도착할 때를 알 수 없습니다. 대신 연결에서 전송 되는 데이터를 관찰 한 다음 해당 연결에서 데이터를 다시 가져올 것입니다. 에이전트는 이러한 송신 및 수신을 추적 하 고 쌍으로 연결을 시도 합니다. 즉, 일련의 전송 후 일련의 수신이 요청/응답 쌍으로 해석 됩니다. 이러한 작업 간의 타이밍은 응답 시간입니다. 여기에는 네트워크 대기 시간 및 서버 처리 시간이 포함 됩니다.
 
-이 근사치 프로토콜 요청/응답 기반에 적합 합니다: 단일 요청에 연결 하는 사용자는 단일 응답에 도착 합니다. 이 경우 HTTP (S) (파이프라인)를 제외 하지만 다른 프로토콜에 대 한 충족 하지 않습니다.
+이러한 근사값은 요청/응답을 기반으로 하는 프로토콜에 대해 효과적으로 작동 합니다. 단, 단일 요청은 연결에서 수행 되 고 단일 응답은 도착 합니다. 이는 HTTP (S) (파이프라인 제외)의 경우 이지만 다른 프로토콜에는 충족 되지 않습니다.
 
 ## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Log Analytics 무료 가격 플랜을 사용하고 있는 경우 제한 사항이 있나요?
 *무료* 가격 책정 계층을 사용하여 Log Analytics 작업 영역에 Azure Monitor를 구성한 경우 VM용 Azure Monitor 맵 기능은 5대의 작업 영역에 연결된 머신만 지원합니다. 무료 작업 영역에 5대의 VM이 연결되어 있는 경우 VM 중 하나의 연결을 끊은 후 나중에 새 VM을 연결하면 맵 페이지에서 새 VM이 모니터링 및 반영되지 않습니다.  
@@ -138,4 +135,4 @@ Azure VM의 개요 페이지에는 게스트 VM에서 작업의 호스트 측정
 따라서 **Insights(미리 보기)** 가 VM에 이미 설치된 후라도 해당 VM을 열고 왼쪽 창에서 Insights(미리 보기)를 선택하면 **지금 사용해 보기** 옵션이 포함된 메시지가 표시됩니다.  그러나 이 VM이 VM용 Azure Monitor에 등록되지 않은 경우에는 일반적인 경우처럼 옵션이 포함된 메시지가 표시되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-검토 [Vm에 대 한 Azure Monitor를 사용 하도록 설정](vminsights-enable-overview.md) 가상 머신의 모니터링을 사용 하도록 요구 사항 및 메서드를 알아야 합니다.
+[VM용 Azure Monitor 사용](vminsights-enable-overview.md) 을 검토 하 여 가상 컴퓨터의 모니터링을 사용 하도록 설정 하는 요구 사항 및 방법을 이해 합니다.

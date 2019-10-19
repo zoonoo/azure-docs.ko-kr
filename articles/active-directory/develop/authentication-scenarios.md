@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2201b7701dae90b43a01a6fb45decd94e45bab74
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 40d0cd29452b5473d16851451a88c93e78ef3f36
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429995"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554430"
 ---
 # <a name="authentication-basics"></a>인증 기본 사항
 
@@ -35,7 +35,7 @@ ms.locfileid: "72429995"
 
 **권한 부여** 는 인증 된 당사자에 게 작업을 수행할 수 있는 권한을 부여 하는 행위입니다. 액세스할 수 있는 데이터와 해당 데이터로 수행할 수 있는 작업을 지정 합니다. Authorization(권한 부여)는 종종 AuthZ로 축약됩니다.
 
-앱을 만드는 대신 각각 고유한 사용자 이름 및 암호 정보를 유지 관리 하는 대신 여러 앱이 있고 사용자를 추가 하거나 제거 해야 하는 경우 높은 관리 부담을 초래 하는 앱은 중앙 집중식으로 id 공급자입니다.
+여러 앱에서 사용자를 추가 하거나 제거 해야 하는 경우 높은 관리 부담을 초래 하는 앱을 만드는 대신, 앱이 중앙 집중식 id 공급자에 게 해당 책임을 위임할 수 있습니다.
 
 Azure AD (Azure Active Directory)는 클라우드의 중앙 집중식 id 공급자입니다. 인증 및 권한 부여를 위임 하면 사용자가 특정 위치에 있어야 하는 조건부 액세스 정책, multi-factor authentication 사용 및 사용자가 한 번 로그인 한 다음 자동으로 로그인 할 수 있도록 하는 시나리오를 사용할 수 있습니다. 동일한 중앙 디렉터리를 공유 하는 모든 웹 앱에 로그인 합니다. 이 기능을 SSO (Single Sign On) 라고 합니다.
 
@@ -43,7 +43,7 @@ Azure AD (Azure Active Directory)는 클라우드의 중앙 집중식 id 공급�
 
 Microsoft id 플랫폼은 OAuth 2.0 및 Openid connect Connect와 같은 업계 표준 프로토콜과 다양 한 오픈 소스 라이브러리를 지원 하 여 id를 서비스로 제공 함으로써 응용 프로그램 개발자에 대 한 인증을 간소화 합니다. 신속 하 게 코딩을 시작 하는 데 도움이 되는 플랫폼입니다. 이 플랫폼을 사용하면 개발자가 모든 Microsoft ID에 로그인하고, Microsoft Graph, 기타 Microsoft API 또는 개발자가 빌드한 API를 호출하기 위한 토큰을 가져오는 애플리케이션을 빌드할 수 있습니다. 자세한 내용은 [Microsoft id 플랫폼의 진화](about-microsoft-identity-platform.md)를 참조 하세요.
 
-## <a name="tenants"></a>테 넌 트
+### <a name="tenants"></a>테 넌 트
 
 클라우드 id 공급자는 많은 조직에 서비스를 제공 합니다. 서로 다른 조직의 사용자를 유지 하기 위해 Azure AD는 조직 마다 하나의 테 넌 트를 사용 하 여 테 넌 트로 분할 됩니다.
 
@@ -76,7 +76,7 @@ Microsoft id 플랫폼은 OAuth 2.0 및 Openid connect Connect와 같은 업계 
 
 액세스 토큰은 웹 API에 `Authenticate` 헤더의 전달자 토큰으로 전달 됩니다. 앱은 STS에 새로 고침 토큰을 제공할 수 있으며, 앱에 대 한 사용자 액세스가 취소 되지 않은 경우 새 액세스 토큰과 새로 고침 토큰을 다시 받게 됩니다. 이는 엔터프라이즈를 종료 하는 사람의 시나리오를 처리 하는 방법입니다. STS는 새로 고침 토큰을 받을 때 사용자에 게 더 이상 권한이 부여 되지 않은 경우 다른 유효한 액세스 토큰을 발급 하지 않습니다.
 
-### <a name="applications"></a>애플리케이션
+## <a name="application-model"></a>애플리케이션 모델
 
 응용 프로그램은 사용자 자체에 로그인 하거나 id 공급자에 로그인을 위임할 수 있습니다. Azure AD에서 지 원하는 로그인 시나리오에 대해 알아보려면 [인증 흐름 및 앱 시나리오](authentication-flows-app-scenarios.md) 를 참조 하세요.
 
@@ -90,18 +90,16 @@ Id 공급자가 사용자에 게 특정 앱에 대 한 액세스 권한이 있�
 
 등록 된 응용 프로그램에는 토큰을 요청할 때 앱이 Azure AD와 공유 하는 GUID가 제공 됩니다. 앱이 기밀 클라이언트 응용 프로그램 인 경우 인증서 또는 암호의 사용 여부에 따라 비밀 또는 공개 키도 공유 됩니다.
 
-### <a name="application-model"></a>애플리케이션 모델
-
 Microsoft id 플랫폼은 다음과 같은 두 가지 주요 함수를 사용 하는 모델을 사용 하는 응용 프로그램을 나타냅니다.
 
-**지 원하는 인증 프로토콜을 통해 앱을 식별 하 고 인증에 필요한 모든 식별자, Url, 암호 및 관련 정보를 제공 합니다.**
+지 원하는 인증 프로토콜을 통해 앱을 식별 하 고 인증에 필요한 모든 식별자, Url, 암호 및 관련 정보를 제공 합니다.
 Microsoft id 플랫폼:
 
 * 런타임에 인증을 지 원하는 데 필요한 모든 데이터를 저장 합니다.
 * 앱에서 액세스 해야 하는 리소스를 결정 하는 데 필요한 모든 데이터와 지정 된 요청을 충족 해야 하는 상황에 대 한 모든 데이터를 저장 합니다.
 * 앱 개발자 테 넌 트 및 다른 Azure AD 테 넌 트 내에서 앱 프로 비전을 구현 하기 위한 인프라를 제공 합니다.
 
-**토큰 요청 시 사용자 동의를 처리 하 고 테 넌 트 간에 앱을 동적으로 프로 비전 합니다** . 동의는 리소스 소유자를 대신 하 여 특정 권한으로 보호 되는 리소스에 액세스 하기 위해 클라이언트 응용 프로그램에 권한을 부여 하는 리소스 소유자의 프로세스입니다. Microsoft id 플랫폼:
+토큰 요청 시 사용자 동의를 처리 하 고 테 넌 트 승인에서 앱을 동적으로 프로 비전 하는 작업은 리소스 소유자가 클라이언트 응용 프로그램에 권한 부여를 부여 하 여 특정 사용 권한으로 보호 되는 리소스에 액세스 하는 프로세스입니다. 리소스 소유자를 대신 하 여. Microsoft id 플랫폼:
 
 * 앱이 대신 리소스에 액세스하는 데 관해 사용자 및 관리자가 동적으로 권한을 부여하거나 동의를 거부할 수 있도록 설정합니다.
 * 관리자가 궁극적으로 앱이 수행할 수 있는 작업, 특정 앱을 사용할 수 있는 사용자 및 디렉터리 리소스에 액세스하는 방식을 결정하도록 설정합니다.
@@ -142,7 +140,7 @@ Microsoft id 플랫폼에서 **응용 프로그램 개체** 는 응용 프로그
 
 ### <a name="how-a-web-app-determines-if-the-user-is-authenticated"></a>웹 앱에서 사용자 인증 여부를 결정 하는 방법
 
-웹 앱 개발자는 모든 또는 특정 페이지에 인증이 필요한 지 여부를 나타낼 수 있습니다. 예를 들어 ASP.NET/ASP.NET Core에서는 `[Authorize]` 특성을 컨트롤러 작업에 추가 하 여이 작업을 수행 합니다. 
+웹 앱 개발자는 모든 또는 특정 페이지에 인증이 필요한 지 여부를 나타낼 수 있습니다. 예를 들어 ASP.NET/ASP.NET Core에서는 컨트롤러 작업에 `[Authorize]` 특성을 추가 하 여이 작업을 수행 합니다. 
 
 이 특성을 사용 하면 ASP.NET는 사용자의 id가 포함 된 세션 쿠키의 존재 여부를 확인 합니다. 쿠키가 없는 경우 ASP.NET는 인증을 지정 된 id 공급자로 리디렉션합니다. Id 공급자가 Azure AD 인 경우 웹 앱은 인증을 https://login.microsoftonline.com 으로 리디렉션합니다 .이는 로그인 대화 상자를 표시 합니다.
 
@@ -154,7 +152,7 @@ Microsoft id 플랫폼에서 **응용 프로그램 개체** 는 응용 프로그
 - 리디렉션은 웹 앱에서 리디렉션 URI 형식으로 제공 됩니다. 이 리디렉션 URI는 Azure AD 응용 프로그램 개체에 등록 됩니다. 응용 프로그램을 여러 Url에 배포할 수 있기 때문에 여러 리디렉션 Uri가 있을 수 있습니다. 따라서 웹 앱은 사용할 리디렉션 URi도 지정 해야 합니다.
 - Azure AD는 웹 앱에서 보낸 리디렉션 URI가 앱에 대해 등록 된 리디렉션 uri 중 하나 인지 확인 합니다.
 
-## <a name="generalization-to-desktop-and-mobile-apps"></a>데스크톱 및 모바일 앱에 대 한 일반화
+## <a name="desktop-and-mobile-app-sign-in-flow-with-azure-ad"></a>Azure AD를 사용 하는 데스크톱 및 모바일 앱 로그인 흐름
 
 위에서 설명한 흐름은 데스크톱 및 모바일 응용 프로그램에 약간의 차이가 있습니다.
 

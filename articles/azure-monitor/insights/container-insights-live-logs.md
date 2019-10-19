@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor에서 실시간으로 컨테이너 로그 보기 | Microsoft Docs
 description: 이 문서에서는 컨테이너의 Azure Monitor with kubectl를 사용 하지 않고 컨테이너 로그 (stdout/stderr) 및 이벤트의 실시간 보기에 대해 설명 합니다.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: d947b44177e9aa5777d759286d982e974e378497
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 07/12/2019
+ms.openlocfilehash: 25cfe10ec192f874d050bca22ce1b85c2d1afbb4
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389779"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554092"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>실시간으로 로그 및 이벤트를 보는 방법 (미리 보기)
 컨테이너에 대 한 Azure Monitor는 현재 미리 보기로 제공 되는 기능을 포함 하 여 kubectl 명령을 실행할 필요 없이 AKS (Azure Kubernetes Service) 컨테이너 로그 (stdout/stderr) 및 이벤트에 대 한 실시간 보기를 제공 합니다. 두 옵션 중 하나를 선택 하면 **노드**, **컨트롤러**및 **컨테이너** 보기의 성능 데이터 테이블 아래에 새 창이 표시 됩니다. 실시간으로 문제 해결에 도움이 되는 컨테이너 엔진에 의해 생성 된 라이브 로깅 및 이벤트를 보여 줍니다.
@@ -74,11 +68,11 @@ Kubernetes RBAC 권한 부여를 사용하도록 설정한 경우 클러스터 �
 
 사용자 인증에 Azure AD(Active Directory)를 사용하도록 AKS를 구성할 수 있습니다. 처음으로 구성 하는 경우 [Azure Kubernetes 서비스와 Azure Active Directory 통합](../../aks/azure-ad-integration.md)을 참조 하세요. [클라이언트 응용 프로그램](../../aks/azure-ad-integration.md#create-the-client-application)을 만드는 단계에서 다음을 지정 합니다.
 
--  **리디렉션 URI**: 두 개의 **웹** 응용 프로그램 유형을 만들어야 합니다. 첫 번째 기준 URL 값은 0 @no__t 이어야 하 고 두 번째 기준 URL 값은-1 @no__t 이어야 합니다.
+-  **리디렉션 URI**: 두 개의 **웹** 응용 프로그램 유형을 만들어야 합니다. 첫 번째 기준 URL 값을 `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` 해야 하 고 두 번째 기준 URL 값을 `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` 해야 합니다.
 - 응용 프로그램을 등록 한 후 **개요** 페이지의 왼쪽 창에서 **인증** 을 선택 합니다. **인증** 페이지의 **고급 설정** 아래에서 암시적으로 **액세스 토큰** 및 **ID 토큰** 을 부여 하 고 변경 내용을 저장 합니다.
 
 >[!NOTE]
->Azure 중국 지역에서이 기능을 사용 하는 경우 첫 번째 기준 URL 값은 0 @no__t 이어야 하 고 두 번째 기준 URL 값은-1 @no__t 이어야 합니다.
+>Azure 중국 지역에서이 기능을 사용 하는 경우 첫 번째 기준 URL 값을 `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` 하 고 두 번째 기준 URL 값을 `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` 해야 합니다.
 
 >[!NOTE]
 >Single sign-on에 대 한 Azure Active Directory를 사용 하 여 인증을 구성 하는 것은 새 AKS 클러스터의 초기 배포 중에만 수행할 수 있습니다. 이미 배포된 AKS 클러스터에는 Single Sign-On을 구성할 수 없습니다.

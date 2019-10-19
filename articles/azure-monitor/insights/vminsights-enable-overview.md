@@ -1,24 +1,18 @@
 ---
 title: VM용 Azure Monitor 사용 (미리 보기) 개요 | Microsoft Docs
 description: VM용 Azure Monitor를 배포 하 고 구성 하는 방법을 알아봅니다. 시스템 요구 사항을 확인 합니다.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/24/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 477343e188bece55f72a59debbab8c9a3f3e2905
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.date: 09/24/2019
+ms.openlocfilehash: 9d132faf0b4d1de232e2b7e6e5ab6730978e27a8
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264990"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555230"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>VM용 Azure Monitor 사용 (미리 보기) 개요
 
@@ -31,7 +25,7 @@ VM용 Azure Monitor을 설정 하려면:
 * PowerShell을 사용하여 지정된 구독 또는 리소스 그룹에 걸친 둘 이상의 Azure VM 또는 가상 머신 확장 집합을 사용하도록 설정합니다.
 * VM용 Azure Monitor 사용 하 여 회사 네트워크 또는 다른 클라우드 환경에서 호스트 되는 Vm 또는 물리적 컴퓨터를 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 시작하기 전에 다음 섹션의 정보를 이해해야 합니다. 
 
@@ -44,12 +38,12 @@ VM용 Azure Monitor는 다음 지역에서 Log Analytics 작업 영역을 지원
 
 - 미국 중서부
 - 미국 서 부 2<sup>1</sup>
-- East US
+- 미국 동부
 - 동부 미국<sup>1</sup>
 - 캐나다 중부
 - 영국 남부
 - 북아메리카 유럽<sup>1</sup>
-- 유럽 서부
+- 서유럽
 - 동남아시아
 - 일본 동부<sup>1</sup>
 - 오스트레일리아 동부<sup>1</sup>
@@ -83,7 +77,7 @@ Log Analytics 작업 영역에서 Azure Policy, Azure PowerShell 또는 Azure Re
 
 다음 표에는 VM용 Azure Monitor에서 지 원하는 Windows 및 Linux 운영 체제가 나와 있습니다. 이 섹션의 뒷부분에는 주요 Linux OS 릴리스와 지원 되는 커널 버전에 대 한 전체 목록이 나와 있습니다.
 
-|OS 버전 |성능 |지도 |의료 |
+|OS 버전 |성능 중심 |지도 |보건 |
 |-----------|------------|-----|-------|
 |Windows Server 2019 | X | X | X |
 |Windows Server 2016 1803 | X | X | X |
@@ -134,8 +128,8 @@ Log Analytics 작업 영역에서 Azure Policy, Azure PowerShell 또는 Azure Re
 
 | OS 버전 | 커널 버전 |
 |:--|:--|
-| 6.10 | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
-| 6.9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
+| 6.10 | 2.6.32 커널을-754.3.5<br>2.6.32 커널을-696.30.1 |
+| 6.9 | 2.6.32 커널을-696.30.1<br>2.6.32 커널을-696.18.7 |
 
 #### <a name="ubuntu-server"></a>Ubuntu Server
 
@@ -174,13 +168,13 @@ VM용 Azure Monitor 맵 기능은 Microsoft 종속성 에이전트에서 해당 
 
 | 연결된 원본 | 지원됨 | 설명 |
 |:--|:--|:--|
-| Windows 에이전트 | 예 | [Windows에 대 한 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)와 함께 windows 에이전트에는 종속성 에이전트가 필요 합니다. 자세한 내용은 [지원 되는 운영 체제](#supported-operating-systems)를 참조 하세요. |
-| Linux 에이전트 | 예 | Linux [에 대 한 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)와 함께 linux 에이전트에는 종속성 에이전트가 필요 합니다. 자세한 내용은 [지원 되는 운영 체제](#supported-operating-systems)를 참조 하세요. |
-| System Center Operations Manager 관리 그룹 | 아니요 | |
+| Windows 에이전트 | yes | [Windows에 대 한 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)와 함께 windows 에이전트에는 종속성 에이전트가 필요 합니다. 자세한 내용은 [지원 되는 운영 체제](#supported-operating-systems)를 참조 하세요. |
+| Linux 에이전트 | yes | Linux [에 대 한 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)와 함께 linux 에이전트에는 종속성 에이전트가 필요 합니다. 자세한 내용은 [지원 되는 운영 체제](#supported-operating-systems)를 참조 하세요. |
+| System Center Operations Manager 관리 그룹 | 아닙니다. | |
 
 다음 위치에서 종속성 에이전트를 다운로드할 수 있습니다.
 
-| 파일 | OS | 버전 | SHA-256 |
+| File | OS | 버전 | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
@@ -195,7 +189,7 @@ Log Analytics 작업 영역에 대한 액세스를 제어하는 방법에 대한
 
 이 표에 설명 된 방법 중 하나를 사용 하 여 VM용 Azure Monitor를 사용 하도록 설정 합니다.
 
-| 배포 상태 | 메서드 | 설명 |
+| 배포 상태 | 방법 | 설명 |
 |------------------|--------|-------------|
 | 단일 Azure VM 또는 가상 머신 확장 집합 | [VM에서 사용](vminsights-enable-single-vm.md) | VM 또는 가상 머신 확장 집합에서 직접 **Insights (미리 보기)** 를 선택 하 여 단일 Azure vm을 사용 하도록 설정할 수 있습니다. |
 | 여러 Azure Vm 또는 가상 머신 확장 집합 | [Azure Policy 통해 사용](vminsights-enable-at-scale-policy.md) | Azure Policy 및 사용 가능한 정책 정의를 사용 하 여 여러 Azure Vm을 사용 하도록 설정할 수 있습니다. |
@@ -211,9 +205,9 @@ VM용 Azure Monitor Log Analytics 작업 영역을 구성 하 여 사용 하는 
 |개체 이름 |카운터 이름 |
 |------------|-------------|
 |LogicalDisk |% 사용 가능한 공간 |
-|LogicalDisk |평균 디스크 초/읽기 |
-|LogicalDisk |평균 디스크 초/전송 |
-|LogicalDisk |평균 디스크 초/쓰기 |
+|LogicalDisk |Avg. Disk sec/Read |
+|LogicalDisk |Avg. Disk sec/Transfer |
+|LogicalDisk |Avg. Disk sec/Write |
 |LogicalDisk |디스크 바이트/초 |
 |LogicalDisk |디스크 읽기 바이트/초 |
 |LogicalDisk |디스크 읽기/초 |
@@ -221,7 +215,7 @@ VM용 Azure Monitor Log Analytics 작업 영역을 구성 하 여 사용 하는 
 |LogicalDisk |디스크 쓰기 바이트/초 |
 |LogicalDisk |디스크 쓰기/초 |
 |LogicalDisk |사용 가능한 메가바이트 |
-|메모리 |사용 가능한 MB |
+|메모리 |Available MBytes |
 |네트워크 어댑터 |Bytes Received/sec |
 |네트워크 어댑터 |Bytes Sent/sec |
 |프로세서 |% Processor Time |
@@ -247,7 +241,7 @@ VM용 Azure Monitor Log Analytics 작업 영역을 구성 하 여 사용 하는 
 
 VM용 Azure Monitor를 사용 하도록 설정 하 고 Log Analytics 작업 영역을 사용 하 여 구성 하면 관리 팩이 해당 작업 영역에 보고 하는 모든 Windows 컴퓨터에 전달 됩니다. [System Center Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md) 을 Log Analytics 작업 영역과 통합 한 경우 서비스 맵 관리 팩은 관리 그룹에서 관리 그룹에 보고 하는 Windows 컴퓨터에 배포 됩니다.  
 
-관리 팩의 이름은 *microsoft.intelligencepacks.updateassessment. ApplicationDependencyMonitor*입니다. 폴더에 `%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\` 기록 됩니다. 관리 팩에서 사용 `%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll`하는 데이터 원본은입니다.
+관리 팩의 이름은 *microsoft.intelligencepacks.updateassessment. ApplicationDependencyMonitor*입니다. @No__t_0 폴더에 기록 됩니다. 관리 팩에서 사용 하는 데이터 원본은 `%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll`입니다.
 
 ## <a name="diagnostic-and-usage-data"></a>진단 및 사용량 현황 데이터
 

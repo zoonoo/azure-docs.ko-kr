@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 10/16/2019
 ms.author: lahugh
-ms.openlocfilehash: 314056b6e55838d32c70d81570cdeaf7a84b6671
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 1b906a9e3ce803b7f319a920f29b5a60f62c47b1
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300644"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550159"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Azure에서 2 세대 Vm (미리 보기)에 대 한 지원
 
@@ -42,7 +42,7 @@ ms.locfileid: "72300644"
 * [Dsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv2-series) 및 [Dsv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
 * [Esv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#esv3-series)
 * [Fsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute#fsv2-series-1)
-* [GS-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#gs-series)
+* [GS 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#gs-series)
 * [HB-시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#hb-series)
 * [HC 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#hc-series)
 * [Ls 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) 및 [Lsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-storage#lsv2-series)
@@ -51,13 +51,16 @@ ms.locfileid: "72300644"
 * [ND 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nd-series)
 * [NVv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nvv3-series--1)
 
+> [!NOTE]
+> Mv2 시리즈는 2 세대 VM 이미지와 독점적으로 작동 하므로 Mv2 시리즈 Vm에 대 한 2 세대 VM 이미지 사용은 일반적으로 사용할 수 있습니다. 1 세대 VM 이미지는 Mv2 시리즈 Vm에서 지원 되지 않습니다. 
+
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Azure Marketplace의 2 세대 VM 이미지
 
 2 세대 Vm은 다음 Marketplace 이미지를 지원 합니다.
 
 * Windows Server 2019 Datacenter
 * Windows Server 2016 Datacenter
-* Windows Server 2012 R2 데이터 센터
+* Windows Server 2012 R2 Datacenter
 * Windows Server 2012 Datacenter
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
@@ -144,15 +147,15 @@ OS로 Windows Server 2012를 사용 하 여 VM을 만드는 경우 1 세대 (BIO
 
 또한 가상 머신 확장 집합을 사용 하 여 2 세대 Vm을 만들 수 있습니다. Azure CLI에서 Azure 확장 집합을 사용 하 여 2 세대 Vm을 만듭니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
 
 * **모든 Azure 지역에서 2 세대 Vm을 사용할 수 있나요?**  
     예. 하지만 모든 지역에서 [2 세대 VM 크기](#generation-2-vm-sizes) 를 사용할 수 있는 것은 아닙니다. 2 세대 VM의 가용성은 VM 크기의 가용성에 따라 달라 집니다.
 
 * **1 세대 및 2 세대 Vm 간에 가격 차이가 있나요?**  
-   아니요.
+   아닙니다.
 
-* @no__t-온-프레미스 2 세대 VM의 .vhd 파일이 있습니다. 이 .vhd 파일을 사용 하 여 Azure에서 2 세대 VM을 만들 수 있나요? **
+* **온-프레미스 2 세대 VM의 .vhd 파일이 있습니다. 이 .vhd 파일을 사용 하 여 Azure에서 2 세대 VM을 만들 수 있나요?**
   예, 2 세대 .vhd 파일을 Azure로 가져와서이를 사용 하 여 2 세대 VM을 만들 수 있습니다. 이렇게 하려면 다음 단계를 사용 합니다.
     1. VM을 만들려는 동일한 지역의 저장소 계정에 .vhd를 업로드 합니다.
     1. .Vhd 파일에서 관리 디스크를 만듭니다. Hyper-v 생성 속성을 V2로 설정 합니다. 다음 PowerShell 명령은 관리 디스크를 만들 때 Hyper-v 생성 속성을 설정 합니다.

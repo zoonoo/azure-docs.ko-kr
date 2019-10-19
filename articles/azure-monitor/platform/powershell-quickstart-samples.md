@@ -1,19 +1,18 @@
 ---
 title: Azure Monitor PowerShell 빠른 시작 샘플
 description: PowerShell을 사용하여 자동 크기 조정, 경고, webhook 및 활동 로그 검색 등의 Azure Monitor 기능에 액세스합니다.
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 2/14/2018
-ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: 886eb8578e004eba3b6fabc1deb42db0fb7fac70
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 2/14/2018
+ms.openlocfilehash: d1aa4b4e2d72f10ca73616bc7e69b0d02f13a501
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350253"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72551844"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure Monitor PowerShell 빠른 시작 샘플
 이 문서에서는 Azure Monitor 기능에 액세스할 수 있는 샘플 PowerShell 명령을 보여 줍니다.
@@ -152,15 +151,15 @@ Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resou
 
 | 매개 변수 | 값 |
 | --- | --- |
-| 이름 |simpletestdiskwrite |
-| 이 경고 규칙의 위치 |East US |
+| name |simpletestdiskwrite |
+| 이 경고 규칙의 위치 |미국 동부 |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | 생성된 경고의 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec. 정확한 메트릭 이름을 검색하는 방법은 `Get-MetricDefinitions` cmdlet를 참조하세요. |
-| 적용한 후 |GreaterThan |
+| operator |GreaterThan |
 | 임계값(이 메트릭의 경우 수/초) |1 |
 | WindowSize(h:mm:ss 형식) |00:05:00 |
-| 집계(이 경우, 평균 횟수를 사용하는 메트릭 통계) |Average |
+| 집계(이 경우, 평균 횟수를 사용하는 메트릭 통계) |평균 |
 | 사용자 지정 전자 메일(문자열 배열) |'foo@example.com','bar@example.com' |
 | 소유자, 참가자 및 일기 권한자에게 전자 메일 보내기 |-SendToServiceOwners |
 
@@ -229,7 +228,7 @@ Set-AzActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGr
 
 1. 규칙을 만듭니다.
 2. 이전에 만든 규칙을 프로필에 매핑하는 프로필을 만듭니다.
-3. 선택 사항: 웹후크 및 메일 속성을 구성하여 자동 크기 조정 알림을 만듭니다.
+3. 선택 사항: webhook 및 전자 메일 속성을 구성하여 자동 크기 조정에 대한 알림을 만듭니다.
 4. 이전 단계에서 만든 프로필과 알림을 매핑하여 대상 리소스에 대한 자동 크기 조정 설정과 이름을 만듭니다.
 
 다음은 CPU 사용률 메트릭을 사용하여 Windows 운영 체제 기반 Virtual Machine Scale Set에 대한 자동 크기 조정 설정을 만드는 방법을 보여 주는 예입니다.

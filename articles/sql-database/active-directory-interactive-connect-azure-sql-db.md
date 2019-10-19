@@ -9,43 +9,43 @@ ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
-ms.reviewer: GeneMi
-ms.date: 03/12/2019
-ms.openlocfilehash: 4f36dcc9953134ac5dd24d3d762ac0dde9949ab7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.reviewer: GeneMi, vanto
+ms.date: 10/11/2019
+ms.openlocfilehash: c55fa6d58109345a0c600bd0c1c76c5a229c03bc
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561376"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554506"
 ---
-# <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Azure Multi-factor Authentication을 사용 하 여 Azure SQL Database에 연결
+# <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication를 사용 하 여 Azure SQL Database에 연결
 
-이 문서에서는 Azure SQL Database C# 에 연결 하는 프로그램을 제공 합니다. 프로그램은 [Azure Multi-factor authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)을 지 원하는 대화형 모드 인증을 사용 합니다.
+이 문서에서는 Azure SQL Database C# 에 연결 하는 프로그램을 제공 합니다. 프로그램은 [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)를 지 원하는 대화형 모드 인증을 사용 합니다.
 
-SQL tools에 대 한 Multi-factor Authentication 지원에 대 한 자세한 내용은 [Azure Active Directory support in SQL Server Data Tools (SSDT) (](https://docs.microsoft.com/sql/ssdt/azure-active-directory)영문으로 표시 될 수 있습니다.
+SQL tools에 대 한 Multi-Factor Authentication 지원에 대 한 자세한 내용은 [SQL Server Data Tools의 Azure Active Directory 지원 (SSDT) (영문)](https://docs.microsoft.com/sql/ssdt/azure-active-directory)을 참조 하십시오.
 
-## <a name="multi-factor-authentication-for-azure-sql-database"></a>Azure SQL Database에 대 한 multi-factor Authentication
+## <a name="multi-factor-authentication-for-azure-sql-database"></a>Azure SQL Database에 대 한 Multi-Factor Authentication
 
-.NET Framework 버전 4.7.2부터 열거형 [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) 에는 새 `ActiveDirectoryInteractive`값이 있습니다. 클라이언트 C# 프로그램에서 열거형 값은 multi-factor Authentication을 지 원하는 azure AD (Azure Active Directory) 대화형 모드를 사용 하 여 azure SQL database에 연결 하도록 시스템에 지시 합니다. 그러면 프로그램을 실행하는 사용자에게 다음 대화 상자가 표시됩니다.
+.NET Framework 버전 4.7.2부터 열거 [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) 에 새 값 `ActiveDirectoryInteractive` 있습니다. 클라이언트 C# 프로그램에서 열거형 값은 Multi-Factor Authentication을 지 원하는 azure AD (Azure Active Directory) 대화형 모드를 사용 하 여 azure SQL database에 연결 하도록 시스템에 지시 합니다. 그러면 프로그램을 실행하는 사용자에게 다음 대화 상자가 표시됩니다.
 
 * Azure AD 사용자 이름을 표시하고 사용자의 암호를 요청하는 대화 상자.
 
    사용자의 도메인이 Azure AD와 페더레이션된 경우 암호가 필요 하지 않기 때문에이 대화 상자는 표시 되지 않습니다.
 
-   Azure AD 정책이 사용자에 게 Multi-factor Authentication을 적용 하는 경우 다음 두 대화 상자가 표시 됩니다.
+   Azure AD 정책이 사용자에 게 Multi-Factor Authentication 하는 경우 다음 두 대화 상자가 표시 됩니다.
 
-* 사용자가 Multi-factor Authentication을 처음으로 이동할 때 시스템은 문자 메시지를 보낼 휴대폰 번호를 요청 하는 대화 상자를 표시 합니다. 각 메시지는 사용자가 그 다음 대화 상자에서 입력해야 하는 *확인 코드*를 제공합니다.
+* 사용자가 Multi-Factor Authentication를 처음으로 이동할 때 텍스트 메시지를 보낼 휴대폰 번호를 요청 하는 대화 상자가 시스템에 표시 됩니다. 각 메시지는 사용자가 그 다음 대화 상자에서 입력해야 하는 *확인 코드*를 제공합니다.
 
-* 시스템이 휴대폰으로 전송 된 Multi-factor Authentication 인증 코드를 요청 하는 대화 상자입니다.
+* 시스템이 휴대폰으로 보낸 Multi-Factor Authentication 확인 코드를 요청 하는 대화 상자입니다.
 
-Multi-factor Authentication을 요구 하도록 Azure AD를 구성 하는 방법에 대 한 자세한 내용은 [클라우드에서 Azure Multi-factor authentication 시작](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud)을 참조 하세요.
+Multi-Factor Authentication를 요구 하도록 Azure AD를 구성 하는 방법에 대 한 자세한 내용은 [클라우드에서 azure Multi-Factor Authentication 시작](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud)하기를 참조 하세요.
 
 이러한 대화 상자의 스크린샷 [SQL Server Management Studio 및 AZURE AD에 대 한 다단계 인증 구성](sql-database-ssms-mfa-authentication-configure.md)을 참조 하세요.
 
 > [!TIP]
 > [.NET Api 브라우저 도구 페이지](https://docs.microsoft.com/dotnet/api/)를 사용 하 여 .NET Framework api를 검색할 수 있습니다.
 >
-> [선택적인? term =&lt;search value&gt; 매개 변수](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod)를 사용 하 여 직접 검색할 수도 있습니다.
+> [선택적? term = &lt;search value &gt; 매개 변수](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod)를 사용 하 여 직접 검색할 수도 있습니다.
 
 ## <a name="configure-your-c-application-in-the-azure-portal"></a>Azure Portal에서 C# 애플리케이션 구성
 
@@ -59,7 +59,7 @@ Azure AD 인증을 사용하려면 C# 프로그램이 Azure AD 애플리케이�
 
 애플리케이션에 등록하고 필요한 권한을 설정하려면
 
-1. Azure Portal에서 **Azure Active Directory** > **앱 등록** > **새 애플리케이션 등록**을 선택합니다.
+1. Azure Portal에서 **Azure Active Directory**  > 를 선택 하**앱 등록** **새 등록**을  >  합니다.
 
     ![앱 등록](media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
@@ -67,15 +67,15 @@ Azure AD 인증을 사용하려면 C# 프로그램이 Azure AD 애플리케이�
 
     ![표시된 앱 ID](media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
-2. **등록 된 앱** > **설정** > **필요한**권한추가 > 를 선택 합니다.
+2. **API 권한**  > **사용 권한 추가를**선택 합니다.
 
     ![등록된 앱의 권한 설정](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
-3. **필요한 권한** > **추가** **API** **Azure SQL Database 선택**을 선택 합니다. >  > 
+3. **내 조직에서 사용** > 검색 >에 **Azure SQL Database** 입력 하 고 **Azure SQL Database**를 선택 합니다.
 
     ![Azure SQL Database에 대한 API 액세스 추가](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
-4. **API 액세스** > **권한**위임된권한선택을선택합니다. > 
+4. **위임 된 권한**  > **User_impersonation**  > **권한 추가**를 선택 합니다.
 
     ![Azure SQL Database에 대한 API에 권한 위임](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
@@ -83,7 +83,7 @@ Azure AD 인증을 사용하려면 C# 프로그램이 Azure AD 애플리케이�
 
 C# 프로그램을 실행 하려면 azure SQL server 관리자가 SQL Database 서버에 대 한 azure AD 관리자를 할당 해야 합니다. 
 
-**SQL Server** 페이지에서 **Active Directory admin** > **Set admin**을 선택 합니다.
+**SQL Server** 페이지에서 **Active Directory 관리자**  > **설정 관리자**를 선택 합니다.
 
 Azure SQL Database에 대 한 Azure AD 관리자 및 사용자에 대 한 자세한 내용은 [SQL Database를 사용 하 여 Azure Active Directory 인증 구성 및 관리](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)의 스크린샷을 참조 하세요.
 
@@ -91,25 +91,25 @@ Azure SQL Database에 대 한 Azure AD 관리자 및 사용자에 대 한 자세
 
 SQL Database 서버의 Azure AD 관리자는 C# 예제 프로그램을 실행할 수 있습니다. Azure AD 사용자는 데이터베이스에 있는 경우 해당 프로그램을 실행할 수 있습니다. Azure AD SQL 관리자 또는 데이터베이스에 이미 있으며 데이터베이스에 대해 `ALTER ANY USER` 권한이 있는 Azure AD 사용자는 사용자를 추가할 수 있습니다.
 
-SQL [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) 명령을 사용하여 데이터베이스에 사용자를 추가할 수 있습니다. 예제입니다. `CREATE USER [<username>] FROM EXTERNAL PROVIDER`
+SQL [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) 명령을 사용하여 데이터베이스에 사용자를 추가할 수 있습니다. 예는 `CREATE USER [<username>] FROM EXTERNAL PROVIDER`입니다.
 
 자세한 내용은 [SQL Database, Managed Instance 및 SQL Data Warehouse에서 인증을 위해 Azure Active Directory 인증 사용](sql-database-aad-authentication.md)을 참조하세요.
 
 ## <a name="new-authentication-enum-value"></a>새 인증 열거형 값
 
-C# 예제는 [`System.Data.SqlClient`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) 네임스페이스에 의존합니다. Multi-factor Authentication에 대 한 특별 한 관심은 다음 값 `SqlAuthenticationMethod`이 포함 된 열거형입니다.
+C# 예제는 [`System.Data.SqlClient`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) 네임스페이스에 의존합니다. Multi-Factor Authentication에 대 한 특별 한 관심은 다음 값을 가진 열거형 `SqlAuthenticationMethod`입니다.
 
 - `SqlAuthenticationMethod.ActiveDirectoryInteractive`
 
-   Multi-factor Authentication을 구현 하려면 Azure AD 사용자 이름과 함께이 값을 사용 합니다. 이 문서에서는 이 값을 집중적으로 다룹니다. 사용자 암호에 대 한 대화 상자를 표시 한 다음 Multi-factor authentication이 사용자에 게 적용 되는 경우 Multi-factor Authentication 유효성 검사에 대 한 대화 상자를 표시 하 여 대화형 환경을 생성 합니다. 이 값은 .NET framework 버전 4.7.2부터 사용할 수 있습니다.
+   Azure AD 사용자 이름에이 값을 사용 하 여 Multi-Factor Authentication을 구현 합니다. 이 문서에서는 이 값을 집중적으로 다룹니다. 사용자 암호에 대 한 대화 상자를 표시 한 다음이 사용자에 게 Multi-Factor Authentication가 설정 된 경우 Multi-Factor Authentication 유효성 검사에 대 한 대화 상자를 표시 하 여 대화형 환경을 생성 합니다. 이 값은 .NET framework 버전 4.7.2부터 사용할 수 있습니다.
 
 - `SqlAuthenticationMethod.ActiveDirectoryIntegrated`
 
-  *페더레이션된* 계정에 이 값을 사용합니다. 페더레이션된 계정에서 사용자 이름은 Windows 도메인에 알려져 있습니다. 이 인증 방법은 Multi-factor Authentication을 지원 하지 않습니다.
+  *페더레이션된* 계정에 이 값을 사용합니다. 페더레이션된 계정에서 사용자 이름은 Windows 도메인에 알려져 있습니다. 이 인증 방법은 Multi-Factor Authentication을 지원 하지 않습니다.
 
 - `SqlAuthenticationMethod.ActiveDirectoryPassword`
 
-  Azure AD 사용자 이름 및 암호가 필요한 인증에 이 값을 사용합니다. Azure SQL Database가 인증을 수행합니다. 이 메서드는 Multi-factor Authentication을 지원 하지 않습니다.
+  Azure AD 사용자 이름 및 암호가 필요한 인증에 이 값을 사용합니다. Azure SQL Database가 인증을 수행합니다. 이 메서드는 Multi-Factor Authentication을 지원 하지 않습니다.
 
 ## <a name="set-c-parameter-values-from-the-azure-portal"></a>Azure Portal에서 C# 매개 변수 값 설정
 
@@ -118,10 +118,10 @@ C# 프로그램이 성공적으로 실행되려면 정적 필드에 적절한 �
 | 정적 필드 이름 | 예제 값 | Azure Portal 내 위치 |
 | :---------------- | :------------ | :-------------------- |
 | Az_SQLDB_svrName | "my-sqldb-svr.database.windows.net" | **SQL 서버** > **이름으로 필터링** |
-| AzureAD_UserID | "auser\@abc.onmicrosoft.com" | **Azure Active Directory** > **사용자** > **새 게스트 사용자** |
+| AzureAD_UserID | "auser \@abc. onmicrosoft.com" | **Azure Active Directory** > **사용자** > **새 게스트 사용자** |
 | Initial_DatabaseName | "myDatabase" | **SQL 서버** > **SQL 데이터베이스** |
 | ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** > **앱 등록** > **이름별로 검색** > **애플리케이션 ID** |
-| RedirectUri | new Uri("https://mywebserver.com/") |  > **이름으로 검색** **앱 등록**AzureActiveDirectory[ > *사용자 앱 등록]*  > 설정redirecturis >   > <br /><br />이 문서에서 유효한 값은 여기에서 사용 되지 않으므로 RedirectUri에 대해 적절 합니다. |
+| RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** **앱 등록**  > **이름으로 검색**  >   >  *[사용자 앱 등록]* ** > ** **redirecturis**<br /><br />이 문서에서 유효한 값은 여기에서 사용 되지 않으므로 RedirectUri에 대해 적절 합니다. |
 | &nbsp; | &nbsp; | &nbsp; |
 
 ## <a name="verify-with-sql-server-management-studio"></a>SQL Server Management Studio 확인
@@ -132,14 +132,14 @@ C# 프로그램을 실행 하기 전에 SSMS (SQL Server Management Studio)에�
 
 C# 프로그램을 실행하려는 같은 컴퓨터, 같은 건물에서 SSMS를 실행합니다. 이 테스트의 경우 **인증** 모드는 정상입니다. 데이터베이스 서버 방화벽에서 IP 주소를 허용하지 않는 경우 [Azure SQL Database 서버 수준 및 데이터베이스 수준 방화벽 규칙](sql-database-firewall-configure.md)을 참조하여 도움을 얻을 수 있습니다.
 
-### <a name="verify-azure-active-directory-multi-factor-authentication"></a>Multi-factor Authentication Azure Active Directory 확인
+### <a name="verify-azure-active-directory-multi-factor-authentication"></a>Azure Active Directory Multi-Factor Authentication 확인
 
 이번에는 **인증**을 **Active Directory - MFA 지원을 통한 유니버설 인증**으로 설정하고 SSMS를 다시 실행합니다. 이 옵션에는 SSMS 버전 17.5 이상이 필요합니다.
 
-자세한 내용은 [SSMS 및 AZURE AD에 대 한 Multi-factor Authentication 구성](sql-database-ssms-mfa-authentication-configure.md)을 참조 하세요.
+자세한 내용은 [SSMS 및 AZURE AD에 대 한 Multi-Factor Authentication 구성](sql-database-ssms-mfa-authentication-configure.md)을 참조 하세요.
 
 > [!NOTE]
-> 데이터베이스의 게스트 사용자 인 경우 데이터베이스에 대 한 Azure AD 도메인 이름도 제공 해야 합니다. **옵션** > **AD 도메인 이름 또는 테 넌 트 ID**를 선택 합니다. Azure Portal에서 도메인 이름을 찾으려면 **Azure Active Directory** > **사용자 지정 도메인 이름**을 선택합니다. C# 예제 프로그램에서는 도메인 이름을 지정하지 않아도 됩니다.
+> 데이터베이스의 게스트 사용자 인 경우 데이터베이스에 대 한 Azure AD 도메인 이름을 제공 해야 합니다. **옵션**  > **AD 도메인 이름 또는 테 넌 트 ID**를 선택 합니다. Azure Portal에서 도메인 이름을 찾으려면 **Azure Active Directory** > **사용자 지정 도메인 이름**을 선택합니다. C# 예제 프로그램에서는 도메인 이름을 지정하지 않아도 됩니다.
 
 ## <a name="c-code-example"></a>C# 코드 예제
 
@@ -335,6 +335,6 @@ In method 'AcquireTokenAsync', case_0 == '.ActiveDirectoryInteractive'.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> PowerShell Azure Resource Manager 모듈은 Azure SQL Database에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az module 및 AzureRm 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다.
 
-- [Get-AzSqlServerActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator)
+- [AzSqlServerActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator)

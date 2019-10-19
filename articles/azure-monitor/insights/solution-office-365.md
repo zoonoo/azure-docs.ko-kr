@@ -1,23 +1,18 @@
 ---
 title: Azure에서 Office 365 관리 솔루션 | Microsoft Docs
 description: 이 문서에서는 Azure에서 Office 365 솔루션을 구성하고 사용하는 방법에 대해 자세히 설명합니다.  또한 Azure Monitor에서 작성되는 Office 365 레코드에 대해서도 자세히 설명합니다.
-services: operations-management-suite
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
 ms.service: azure-monitor
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/13/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 3818547eee05a1d6f8cf84ccb0f5f4ecb44a9ab3
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.date: 08/13/2019
+ms.openlocfilehash: 032d52961b4867cad94d06802adb0a1f3eb00f5f
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061622"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553944"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -66,16 +61,16 @@ Office 365 관리 솔루션을 사용하면 Azure Monitor에서 Office 365 환�
 
 Log Analytics 작업 영역에서 수집할 정보:
 
-- 작업 영역 이름: Office 365 데이터가 수집되는 작업 영역입니다.
-- 리소스 그룹 이름: 작업 영역을 포함하는 리소스 그룹입니다.
-- Azure 구독 ID: 작업 영역을 포함하는 구독입니다.
+- 작업 영역 이름: Office 365 데이터가 수집되는 작업 영역.
+- 리소스 그룹 이름: 작업 영역을 포함하는 리소스 그룹.
+- Azure 구독 ID: 작업 영역을 포함하는 구독.
 
 Office 365 구독에서 수집할 정보:
 
-- 사용자 이름: 관리 계정의 메일 주소입니다.
-- 테넌트 ID: Office 365 구독의 고유 ID입니다.
-- 클라이언트 ID: Office 365 클라이언트를 나타내는 16자 길이의 문자열입니다.
-- 클라이언트 암호: 인증에 필요한 암호화된 문자열입니다.
+- 사용자 이름: 관리 계정의 이메일 주소.
+- 테넌트 ID: Office 365 구독의 고유 ID.
+- 클라이언트 ID: Office 365 클라이언트를 나타내는 16자 길이의 문자열.
+- 클라이언트 암호: 인증에 필요한 암호화된 문자열.
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Azure Active Directory에서 Office 365 애플리케이션 만들기
 
@@ -91,7 +86,7 @@ Office 365 구독에서 수집할 정보:
     ![애플리케이션 만들기](media/solution-office-365/create-application.png)
 1. **등록** 을 클릭 하 고 응용 프로그램 정보를 확인 합니다.
 
-    ![등록된 앱](media/solution-office-365/registered-app.png)
+    ![앱 등록](media/solution-office-365/registered-app.png)
 
 ### <a name="configure-application-for-office-365"></a>Office 365에 대한 애플리케이션 구성
 
@@ -119,12 +114,12 @@ Office 365 구독에서 수집할 정보:
 
 1. **인증서 & 암호** , **새 클라이언트 암호**를 차례로 선택 합니다.
 
-    ![키](media/solution-office-365/secret.png)
+    ![구성](media/solution-office-365/secret.png)
  
 1. 새 키의 **설명** 및 **기간**을 입력합니다.
 1. **추가** 를 클릭 한 다음 생성 된 **값** 을 복사 합니다.
 
-    ![키](media/solution-office-365/keys.png)
+    ![구성](media/solution-office-365/keys.png)
 
 ### <a name="add-admin-consent"></a>관리자 동의 추가
 
@@ -398,7 +393,7 @@ At line:12 char:18
 
 ```
 
-## <a name="uninstall"></a>Uninstall
+## <a name="uninstall"></a>제거
 
 [관리 솔루션을 제거](solutions.md#remove-a-monitoring-solution)의 프로세스를 사용하여 Office 365 관리 솔루션을 제거할 수 있습니다. 이렇게 해도 Office 365에서 Azure Monitor로 데이터 수집이 중단되지 않습니다. 아래 절차에 따라 Office 365에서 구독을 취소하고 데이터 수집을 중지합니다.
 
@@ -522,10 +517,10 @@ Office 365 솔루션을 Log Analytics 작업 영역에 추가하면 대시보드
 
 대시보드는 다음 표의 열을 포함하고 있습니다. 각 열은 지정된 범위 및 시간 범위에 대한 열의 기준과 일치하는 카운트별로 상위 열 개의 경고를 나열합니다. 열 아래쪽의 모두 보기를 클릭하거나 열 머리글을 클릭하여 전체 목록을 제공하는 로그 검색을 실행할 수 있습니다.
 
-| Column | 설명 |
+| 열 | 설명 |
 |:--|:--|
-| 작업 | 모니터링되는 모든 Office 365 구독의 활성 사용자에 대한 정보를 제공합니다. 시간에 따라 발생하는 활동의 수도 확인할 수 있습니다.
-| Exchange | Add-MailboxPermission, Set-Mailbox 등의 Exchange Server 활동이 자세히 구분되어 표시됩니다. |
+| 운영 | 모니터링되는 모든 Office 365 구독의 활성 사용자에 대한 정보를 제공합니다. 시간에 따라 발생하는 활동의 수도 확인할 수 있습니다.
+| 교환 | Add-MailboxPermission, Set-Mailbox 등의 Exchange Server 활동이 자세히 구분되어 표시됩니다. |
 | SharePoint | 사용자가 SharePoint 문서에 대해 가장 많이 수행하는 활동이 표시됩니다. 이 타일에서 드릴다운하면 검색 페이지에 이 활동의 위치와 대상 문서 등 이러한 활동의 세부 정보가 표시됩니다. 예를 들어 파일 액세스 이벤트의 경우 액세스한 문서, 연결된 계정 이름 및 IP 주소를 확인할 수 있습니다. |
 | Azure Active Directory | 사용자 암호 다시 설정, 로그인 시도 등 자주 수행하는 사용자 활동이 포함됩니다. 드릴다운하면 결과 상태와 같은 이러한 활동의 세부 정보를 확인할 수 있습니다. 이러한 정보는 대개 Azure Active Directory에서 의심스러운 활동을 모니터링하려는 경우에 유용합니다. |
 
@@ -540,25 +535,25 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 속성은 모든 Office 365 레코드에 공통적으로 적용됩니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--- |:--- |
-| 형식 | *OfficeActivity* |
+| Type | *OfficeActivity* |
 | ClientIP | 활동이 기록될 때 사용된 디바이스의 IP 주소입니다. IP 주소는 IPv4 또는 IPv6 주소 형식으로 표시됩니다. |
-| OfficeWorkload | 레코드가 참조하는 office 365 서비스입니다.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
-| 연산 | 사용자 또는 관리자 활동의 이름입니다.  |
+| OfficeWorkload | 레코드가 참조하는 office 365 서비스입니다.<br><br>AzureActiveDirectory<br>교환<br>SharePoint|
+| 작업(Operation) | 사용자 또는 관리자 활동의 이름입니다.  |
 | OrganizationId | 조직의 Office 365 테넌트 GUID입니다. 이 값은 값이 나타나는 Office 365 서비스에 관계없이 조직에서 항상 동일하게 유지됩니다. |
 | RecordType | 수행한 작업의 유형입니다. |
 | ResultStatus | Operation 속성에 지정된 작업이 성공했는지 여부를 나타냅니다. 가능한 값은 Succeeded, PartiallySucceeded 또는 Failed입니다. Exchange 관리자 활동의 경우 값은 True 또는 False입니다. |
 | UserId | 레코드가 기록된 원인인 작업을 수행한 사용자의 UPN(사용자 계정 이름)입니다. 예를 들면 my_name@my_domain_name과 같습니다. SHAREPOINT\system 또는 NTAUTHORITY\SYSTEM과 같은 시스템 계정이 수행한 활동에 대한 레코드도 포함됩니다. | 
 | UserKey | UserId 속성에 나와 있는 사용자의 대체 ID입니다.  예를 들어 SharePoint, 비즈니스용 OneDrive 및 Exchange에서 사용자가 수행한 이벤트의 경우에는 이 속성에 PUID(Passport 고유 ID)가 입력됩니다. 시스템 계정이 수행한 이벤트와 기타 서비스에서 발생하는 이벤트의 경우 이 속성이 UserID 속성과 같은 값을 지정할 수도 있습니다.|
-| UserType | 작업을 수행한 사용자의 유형입니다.<br><br>관리<br>애플리케이션<br>DcAdmin<br>기본<br>Reserved<br>ServicePrincipal<br>시스템 |
+| UserType | 작업을 수행한 사용자의 유형입니다.<br><br>관리자<br>애플리케이션<br>DcAdmin<br>일반<br>예약<br>ServicePrincipal<br>시스템 |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory 기본 속성
 
 다음 속성은 모든 Azure Active Directory 레코드에 공통적으로 적용됩니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -570,7 +565,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Active Directory 사용자가 로그온을 시도할 때 생성됩니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--- |:--- |
 | `OfficeWorkload` | AzureActiveDirectory |
 | `RecordType`     | AzureActiveDirectoryAccountLogon |
@@ -584,7 +579,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 이러한 레코드는 Azure Active Directory 개체를 추가하거나 변경할 때 생성됩니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -602,7 +597,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 데이터 센터 보안 감사 데이터에서 생성됩니다.  
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--- |:--- |
 | EffectiveOrganization | 권한 상승/cmdlet의 대상 테넌트 이름입니다. |
 | ElevationApprovedTime | 권한 상승이 승인된 시간에 해당하는 타임스탬프입니다. |
@@ -618,24 +613,24 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Exchange 구성을 변경하면 생성됩니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | 교환 |
 | RecordType     | ExchangeAdmin |
 | ExternalAccess |  cmdlet을 실행한 주체(조직 내 사용자, Microsoft 데이터 센터 담당자 또는 데이터 센터 서비스 계정, 위임된 관리자)를 지정합니다. 값이 False이면 조직 내 사용자가 cmdlet을 실행한 것입니다. 값이 True이면 데이터 센터 담당자, 데이터 센터 서비스 계정 또는 위임된 관리자가 cmdlet을 실행한 것입니다. |
 | ModifiedObjectResolvedName |  cmdlet에 의해 수정된 개체의 사용자에게 친숙한 이름입니다. cmdlet이 개체를 수정하는 경우에만 이 속성이 기록됩니다. |
 | OrganizationName | 테넌트의 이름입니다. |
 | OriginatingServer | cmdlet이 실행된 서버의 이름입니다. |
-| 매개 변수 | Operations 속성에 나와 있는 cmdlet과 함께 사용된 모든 매개 변수의 이름과 값입니다. |
+| parameters | Operations 속성에 나와 있는 cmdlet과 함께 사용된 모든 매개 변수의 이름과 값입니다. |
 
 
 ### <a name="exchange-mailbox"></a>Exchange 사서함
 
 다음 레코드는 Exchange 사서함을 변경하거나 추가하면 생성됩니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | 교환 |
 | RecordType     | ExchangeItem |
 | ClientInfoString | 브라우저 버전, Outlook 버전, 모바일 디바이스 정보 등 작업을 수행하는 데 사용된 전자 메일 클라이언트에 대한 정보입니다. |
 | Client_IPAddress | 작업이 기록될 때 사용된 디바이스의 IP 주소입니다. IP 주소는 IPv4 또는 IPv6 주소 형식으로 표시됩니다. |
@@ -656,9 +651,9 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 사서함 감사 항목을 만들면 생성됩니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | 교환 |
 | RecordType     | ExchangeItem |
 | 항목 | 작업을 수행한 항목을 나타냅니다. | 
 | SendAsUserMailboxGuid | 전자 메일을 보내기 위해 액세스한 사서함의 Exchange GUID입니다. |
@@ -671,9 +666,9 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Exchange 그룹을 변경하거나 추가하면 생성됩니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | 교환 |
 | OfficeWorkload | ExchangeItemGroup |
 | AffectedItems | 그룹의 각 항목에 대한 정보입니다. |
 | CrossMailboxOperations | 두 개 이상의 사서함에 대해 작업이 수행되었는지를 나타냅니다. |
@@ -690,7 +685,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 속성은 모든 SharePoint 레코드에 공통적으로 적용됩니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -707,7 +702,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 SharePoint 구성을 변경하면 생성됩니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -720,7 +715,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 SharePoint의 파일 작업에 대한 응답으로 생성됩니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |
@@ -741,10 +736,10 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 테이블은 이 솔루션에 의해 수집된 업데이트 레코드에 대한 샘플 로그 검색을 제공합니다.
 
-| Query | Description |
+| 쿼리 | 설명 |
 | --- | --- |
 |Office 365 구독의 모든 작업 수 |OfficeActivity &#124; summarize count() by Operation |
-|SharePoint 사이트 사용량|OfficeActivity &#124; where OfficeWorkload =~ "sharepoint" &#124; summarize count() by SiteUrl \| sort by Count asc|
+|SharePoint 사이트 사용량|&#124; @No__t_2 SiteUrl 작업 = ~ "sharepoint" &#124; 는 count ()를 기준으로 count ()를 요약 합니다.|
 |사용자 유형별 파일 액세스 작업|search in (OfficeActivity) OfficeWorkload =~ "azureactivedirectory" and "MyTest"|
 |특정 키워드를 사용한 검색|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
 |Exchange에서 외부 작업 모니터링|OfficeActivity &#124; where OfficeWorkload =~ "exchange" and ExternalAccess == true|

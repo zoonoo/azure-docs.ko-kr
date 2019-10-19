@@ -1,18 +1,18 @@
 ---
 title: Azure Diagnostics 확장 개요
 description: 클라우드 서비스, 가상 머신 및 서비스 패브릭에서 디버깅, 성능 측정, 모니터링, 트래픽 분석을 위해 Azure 진단 사용
-author: rboucher
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 02/13/2019
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: e0325a3bda912c95d8d27646bc1e80fff5ce10a8
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 02/13/2019
+ms.openlocfilehash: d1721411b57fc3542af48fc5f48eca7e4a2d06c8
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639421"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552155"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Azure Diagnostics 확장이란?
 Azure Diagnostics 확장은 배포된 애플리케이션에서 진단 데이터를 수집할 수 있도록 하는 Azure 내의 에이전트입니다. 다양한 원본에서 진단 확장을 사용할 수 있습니다. 현재 Azure Cloud Service(클래식) 웹 및 작업자 역할, Virtual Machines, Virtual Machine Scale Sets 및 Service Fabric이 지원됩니다. 다른 Azure 서비스에는 여러 진단 메서드가 있습니다. [Azure의 모니터링 개요](../../azure-monitor/overview.md)를 참조하세요.
@@ -26,7 +26,7 @@ Azure Diagnostics 확장은 다음과 같은 유형의 데이터를 수집할 �
 | 데이터 원본 | 설명 |
 | --- | --- |
 | 성능 카운터 메트릭 |운영 체제 및 사용자 지정 성능 카운터 |
-| 응용 프로그램 로그 |애플리케이션에서 작성한 메시지 추적 |
+| 애플리케이션 로그 |애플리케이션에서 작성한 메시지 추적 |
 | Windows 이벤트 로그 |Windows 이벤트 로깅 시스템으로 전송된 정보 |
 | .NET EventSource 로그 |.NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 클래스를 사용하여 이벤트를 작성하는 코드 |
 | IIS 로그 |IIS 웹 사이트에 대한 정보 |

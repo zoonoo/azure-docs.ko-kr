@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: c513a7fe4df14ee21f4b26993a5eddb93bb90eac
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: dca032cceb4f1561d7ee8b35de502f8f5259cfe8
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533314"
+ms.locfileid: "72553624"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -315,6 +315,8 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
 
 ### <a name="install-the-correct-sdk-into-a-databricks-library"></a>Databricks 라이브러리에 올바른 SDK 설치
 클러스터가 실행 되 면 [라이브러리를 만들어](https://docs.databricks.com/user-guide/libraries.html#create-a-library) 적절 한 Azure Machine Learning SDK 패키지를 클러스터에 연결 합니다.
+
+1. 라이브러리를 저장 하려는 현재 작업 영역 폴더를 마우스 오른쪽 단추로 클릭 합니다. @No__t_1**라이브러리** **만들기** 를 선택 합니다.
 
 1. 옵션을 **하나만** 선택 하십시오. 다른 SDK 설치는 지원 되지 않습니다.
 

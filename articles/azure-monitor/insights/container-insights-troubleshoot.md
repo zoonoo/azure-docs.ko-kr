@@ -1,24 +1,18 @@
 ---
 title: 컨테이너용 Azure Monitor 문제 해결 방법 | Microsoft Docs
 description: 이 문서에서는 컨테이너용 Azure Monitor의 문제를 해결하는 방법을 설명합니다.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/27/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: b6c245142eea12bcec5ed642ec9bd91a58e10eb0
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.date: 03/27/2018
+ms.openlocfilehash: ec75f607f707405d6a5bea98deb784f4306c04f1
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813760"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555362"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor 문제 해결
 
@@ -31,7 +25,7 @@ ms.locfileid: "68813760"
 
 다음 단계를 수행 하 여 Azure Portal에서이 역할을 수동으로 부여할 수도 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+1. [Azure portal](https://portal.azure.com)에 로그인합니다. 
 2. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Kubernetes**을 입력 합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Azure Kubernetes**를 선택 합니다.
 3. Kubernetes 클러스터 목록에서 목록 중 하나를 선택 합니다.
 2. 왼쪽 메뉴에서 **액세스 제어 (IAM)** 를 클릭 합니다.
@@ -80,7 +74,7 @@ ms.locfileid: "68813760"
 
 4. 에이전트 로그를 확인합니다. 컨테이너화된 에이전트가 배포되면 OMI 명령을 실행하여 빠른 검사가 실행되고 에이전트 및 공급자의 버전이 표시됩니다. 
 
-5. 에이전트가 성공적으로 배포 되었는지 확인 하려면 명령을 실행 합니다.`kubectl logs omsagent-484hw --namespace=kube-system`
+5. 에이전트가 성공적으로 배포 되었는지 확인 하려면 다음 명령을 실행 합니다. `kubectl logs omsagent-484hw --namespace=kube-system`
 
     상태는 다음 예제와 유사합니다.
 
@@ -109,11 +103,11 @@ ms.locfileid: "68813760"
 
 아래 표에서는 Azure Monitor를 컨테이너에 사용할 때 발생할 수 있는 알려진 오류를 요약하고 있습니다.
 
-| 오류 메시지  | 작업 |  
+| 오류 메시지  | 실행력 |  
 | ---- | --- |  
 | 오류 메시지: `No data for selected filters`  | 새로 만든 클러스터에 대한 모니터링 데이터 흐름을 설정하는 데는 약간의 시간이 걸릴 수 있습니다. 클러스터에 대 한 데이터가 표시 될 때까지 10 ~ 15 분 이상 허용 합니다. |   
 | 오류 메시지: `Error retrieving data` | Azure Kubenetes 서비스 클러스터에서 상태 및 성능 모니터링을 설정하는 동안 클러스터와 Azure Log Analytics 작업 영역 간에 연결이 설정됩니다. Log Analytics 작업 영역은 클러스터에 대한 모든 모니터링 데이터를 저장하는 데 사용됩니다. Log Analytics 작업 영역이 삭제 된 경우이 오류가 발생할 수 있습니다. 작업 영역을 삭제 했는지 확인 하 고, 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터의 모니터링을 다시 사용 하도록 설정 하 고 기존을 지정 하거나 새 작업 영역을 만들어야 합니다. 다시 사용 하도록 설정 하려면 클러스터에 대 한 모니터링을 [사용 하지 않도록](container-insights-optout.md) 설정 하 고 컨테이너에 대 한 Azure Monitor를 다시 [사용 하도록 설정](container-insights-enable-new-cluster.md) 해야 합니다. |  
-| 오류 메시지: `Error retrieving data`(az aks cli를 통해 컨테이너용 Azure Monitor를 추가한 후) | 을 사용 하 여 `az aks cli`모니터링을 사용 하도록 설정 하면 컨테이너에 대 한 Azure Monitor 제대로 배포 되지 않을 수 있습니다. 솔루션이 배포 되었는지 여부를 확인 합니다. 이렇게 하려면 Log Analytics 작업 영역으로 이동하여 왼쪽 창에서 **솔루션**을 선택하여 해당 솔루션을 사용할 수 있는지 확인합니다. 이 문제를 해결하려면 [컨테이너용 Azure Monitor를 배포하는 방법](container-insights-onboard.md)의 지침에 따라 솔루션을 다시 배포해야 합니다. |  
+| 오류 메시지: `Error retrieving data`(az aks cli를 통해 컨테이너용 Azure Monitor를 추가한 후) | @No__t_0를 사용 하 여 모니터링을 사용 하도록 설정 하면 컨테이너에 대 한 Azure Monitor 제대로 배포 되지 않을 수 있습니다. 솔루션이 배포 되었는지 여부를 확인 합니다. 이렇게 하려면 Log Analytics 작업 영역으로 이동하여 왼쪽 창에서 **솔루션**을 선택하여 해당 솔루션을 사용할 수 있는지 확인합니다. 이 문제를 해결하려면 [컨테이너용 Azure Monitor를 배포하는 방법](container-insights-onboard.md)의 지침에 따라 솔루션을 다시 배포해야 합니다. |  
 
 문제 진단을 지원하기 위해 [여기](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script)서 사용할 수 있는 문제 해결 스크립트를 제공했습니다.  
 

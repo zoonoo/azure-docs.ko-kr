@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2fcace82eed81b85571ba88243a3de991ae01aa0
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: ce91d53bec3c74a8a55d46fd53bc3cf0ccd7e28a
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180111"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550631"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 크기 조정 및 호스팅
 
-Azure에서 함수 앱을 만들 때 앱에 대 한 호스팅 계획을 선택 해야 합니다. Azure Functions에는 세 가지 호스팅 계획을 사용할 수 있습니다. [소비 계획](#consumption-plan), [프리미엄 계획](#premium-plan)및 [App Service 계획](#app-service-plan).
+Azure에서 함수 앱을 만들 때 앱에 대 한 호스팅 계획을 선택 해야 합니다. Azure Functions에 사용할 수 있는 세 가지 호스팅 계획 ( [소비 계획](#consumption-plan), [프리미엄 계획](#premium-plan)및 [App Service 계획](#app-service-plan))이 있습니다.
 
 선택한 호스팅 계획에 따라 다음과 같은 동작이 결정 됩니다.
 
@@ -45,12 +45,12 @@ App Service 계획을 사용 하면 관리 하는 전용 인프라를 활용할 
 
 다음 표는 Windows 또는 Linux에서 실행 되는 경우 세 가지 호스팅 계획에 대 한 현재 지원 수준을 나타냅니다.
 
-| | 소비 계획 | 프리미엄 플랜 | 전용 계획 |
+| | 사용량 과금 플랜 | 프리미엄 플랜 | 전용 계획 |
 |-|:----------------:|:------------:|:----------------:|
 | Windows | GA | 미리 보기 | GA |
 | Linux | GA | 미리 보기 | GA |
 
-## <a name="consumption-plan"></a>소비 계획
+## <a name="consumption-plan"></a>사용량 과금 플랜
 
 소비 계획을 사용 하는 경우 Azure Functions 호스트의 인스턴스는 들어오는 이벤트의 수에 따라 동적으로 추가 및 제거 됩니다. 이 서버리스 계획은 자동으로 규모를 조정하며, 함수를 실행하는 경우에만 컴퓨팅 리소스에 대한 요금이 청구됩니다. 소비 계획에서 구성 가능한 시간 후 함수 실행 시간이 초과됩니다.
 
@@ -78,11 +78,12 @@ App Service 계획을 사용 하면 관리 하는 전용 인프라를 활용할 
 
 이러한 옵션을 구성 하는 방법에 대 한 정보는 [Azure Functions 프리미엄 계획 문서](functions-premium-plan.md)에서 찾을 수 있습니다.
 
-실행 당 청구 및 사용 되는 메모리 대신 프리미엄 요금제에 대 한 청구는 필수 및 예약 된 인스턴스에 사용 되는 코어 초, 실행 시간 및 메모리의 수를 기준으로 합니다.  하나 이상의 인스턴스가 항상 웜 되어야 합니다. 즉, 실행 수에 관계 없이 활성 요금제 당 고정 월별 비용이 발생 합니다.
+실행 당 청구 및 사용 되는 메모리 대신 프리미엄 요금제에 대 한 청구는 필요한 코어 초와 준비 인스턴스 수에 사용 되는 메모리에 따라 결정 됩니다. 하나 이상의 인스턴스가 계획 당 항상 웜 되어야 합니다. 즉, 실행 수에 관계 없이 활성 계획 당 최소 월별 비용이 발생 합니다. 프리미엄 계획의 모든 함수 앱은 준비 및 활성 인스턴스를 공유 한다는 점에 유의 하세요.
 
 다음과 같은 경우 Azure Functions 프리미엄 계획을 고려 합니다.
 
 * 함수 앱을 계속해서 또는 거의 끊임없이 실행합니다.
+* 적은 수의 작은 실행을 보유 하 고 있으며 소비 계획에 높은 실행 청구서가 있지만 낮은 GB의 두 번째 청구서가 있습니다.
 * 소비 계획에서 제공 하는 것 보다 더 많은 CPU 또는 메모리 옵션이 필요 합니다.
 * 코드는 소비 계획에서 [허용 되는 최대 실행 시간](#timeout) 보다 오래 실행 해야 합니다.
 * VNET/VPN 연결과 같은 프리미엄 요금제 에서만 사용할 수 있는 기능이 필요 합니다.
@@ -127,7 +128,7 @@ appServicePlanId=$(az functionapp show --name <my_function_app_name> --resource-
 az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
 ```  
 
-이 명령의 출력이 `dynamic`인 경우 함수 앱은 소비 계획 상태입니다. 이 명령의 출력이 인 `ElasticPremium`경우 함수 앱은 프리미엄 계획에 있습니다. 다른 모든 값은 App Service 계획의 다른 계층을 표시 합니다.
+이 명령의 출력이 `dynamic`인 경우 함수 앱은 소비 계획 상태입니다. 이 명령의 출력을 `ElasticPremium` 경우 함수 앱은 프리미엄 계획에 있습니다. 다른 모든 값은 App Service 계획의 다른 계층을 표시 합니다.
 
 ## <a name="storage-account-requirements"></a>Storage 계정 요구 사항
 

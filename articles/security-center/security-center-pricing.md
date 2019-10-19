@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: memildin
-ms.openlocfilehash: cce57053e265446a6307554509c34c5f802ed07f
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: c5e457a6478fce070070ba7d0d610cbfe4f55024
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372602"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554683"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>보안 강화를 위해 Security Center의 표준 계층으로 업그레이드
 Azure Security Center는 Azure, 온-프레미스 및 기타 클라우드용으로 통합 보안 관리 및 고급 위협 보호 기능을 제공합니다. 또한 하이브리드 클라우드 작업을 확인하고 제어하는 기능, 위협에 대한 노출을 줄이는 적극적인 방어 기능, 그리고 빠르게 발전하는 사이버 공격에 대응할 수 있는 지능형 검색 기능을 제공합니다.
@@ -26,9 +26,10 @@ Azure Security Center는 Azure, 온-프레미스 및 기타 클라우드용으�
 ## <a name="pricing-tiers"></a>가격 책정 계층
 Security Center는 두 계층으로 제공됩니다.
 
-- Azure Portal에서 Azure Security Center 대시보드를 처음 방문 하거나 API를 통해 progremmaticaly을 사용 하도록 설정한 경우 **무료** 계층은 모든 azure 구독에서 사용 하도록 설정 됩니다. 무료 계층은 Azure 리소스를 보호할 수 있도록 보안 정책, 지속적인 보안 평가 및 실행 가능한 보안 권장 사항을 제공 합니다.
+- Azure Portal에서 Azure Security Center 대시보드를 처음 방문 하거나 API를 통해 progremmaticaly을 사용 하도록 설정한 경우 **무료** 계층은 모든 azure 구독에서 사용 하도록 설정 됩니다. 다른 구독을 추가 하는 경우 aftewards는 기본적으로 Security Center 사용 하도록 설정 되어 있지 않습니다. 그러나 Security Center 포털을 시작 하기만 하면 새 구독이 등록 되 고 사용 가능한 계층이 적용 됩니다. 무료 계층은 Azure 리소스를 보호할 수 있도록 보안 정책, 지속적인 보안 평가 및 실행 가능한 보안 권장 사항을 제공 합니다.
 - **표준** 계층의 경우 무료 계층의 기능이 프라이빗 클라우드 및 기타 퍼블릭 클라우드에서 실행되는 작업으로 확장 적용되며, 하이브리드 클라우드 작업 전반에 걸쳐 통합 보안 관리 및 위협 방지 기능이 제공됩니다. 또한 표준 계층에서는 기본 제공 행동 분석 및 Machine Learning을 사용하여 공격 및 제로 데이 익스플로잇을 식별하는 고급 위협 탐지 기능, 네트워크 공격과 맬웨어에 대한 노출을 줄여 주는 액세스 및 애플리케이션 컨트롤 등도 추가로 제공합니다. 표준 계층을 무료로 사용해 볼 수 있습니다. Security Center Standard는 Vm, 가상 머신 확장 집합, App Service, SQL server 및 저장소 계정을 비롯 한 Azure 리소스를 지원 합니다. Azure Security Center 표준을 사용하는 경우 리소스 종류에 따라 지원을 옵트아웃할 수 있습니다. 
 
+Vm에 대 한 무료 계층 보안 평가의 대부분 표준 계층 보안 경고에는 Microsoft Monitoring Agent (MMA) 기능을 설치 해야 합니다. Security Center에서 자동 프로 비전을 사용 하도록 설정 하 여 Azure Vm에 대 한 에이전트를 자동으로 배포할 수 있습니다.
 
 자세한 내용은 Security Center [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
@@ -45,7 +46,7 @@ Security Center는 두 계층으로 제공됩니다.
 4. **표준**을 선택하여 업그레이드합니다.
 5. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 
-(이미지의 가격은 예를 들어 목적 으로만 사용 됩니다.) ![Security Center 가격 책정 @ no__t-1
+(이미지의 가격은 예를 들어 목적 으로만 사용 됩니다.)  ![Security 센터 가격 책정 ](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
 > 모든 Security Center 기능을 사용하도록 설정하려면 해당하는 가상 머신이 포함된 구독에 표준 가격 책정 계층을 적용해야 합니다. 작업 영역에 대 한 가격 책정 구성은 just-in-time VM 액세스, 적응 응용 프로그램 제어 및 Azure 리소스에 대 한 네트워크 검색을 사용 하도록 설정 하지 않습니다.

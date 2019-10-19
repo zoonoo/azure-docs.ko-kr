@@ -1,24 +1,18 @@
 ---
 title: 하이브리드 환경에 대해 Azure Monitor (미리 보기) 사용 Microsoft Docs
 description: 이 문서에서는 하나 이상의 가상 머신을 포함 하는 하이브리드 클라우드 환경에 대 한 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/15/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: f4c483c36dc7a19e3e16dcaabab10af03cdfe17e
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
-ms.translationtype: HT
+ms.date: 10/15/2019
+ms.openlocfilehash: e9e5504125920cedaf383f8fa4299a4b1b1d60ed
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515506"
+ms.locfileid: "72553861"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>하이브리드 환경에 대 한 VM용 Azure Monitor (미리 보기) 사용
 

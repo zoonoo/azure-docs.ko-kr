@@ -3,19 +3,19 @@ title: Apache Kafka용 Apache Flink 사용 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Apache Kafka를 사용하는 Azure Event Hub에 Apache Flink를 연결하는 방법에 대한 정보를 제공합니다.
 services: event-hubs
 documentationcenter: ''
-author: basilhariri
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.author: bahariri
-ms.openlocfilehash: dc4a982dde62f62eb8f2d91a61fd70ba79fa13d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: shvija
+ms.openlocfilehash: 881546a97b01bef993cc24c6b868ec97ddf5ac36
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821423"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555726"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Apache Kafka용 Azure Event Hubs에서 Apache Flink 사용
 이 자습서에서는 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행하지 않고 Apache Flink를 Kafka 지원 이벤트 허브에 연결하는 방법을 보여 줍니다. Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다.
@@ -32,7 +32,7 @@ Apache Kafka를 사용하는 주요 이점 중 하나는 연결할 수 있는 �
 > [!NOTE]
 > 이 샘플은 [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/flink)에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 있어야 합니다.
 
@@ -137,7 +137,7 @@ Event Hubs 및 Kafka용 Event Hubs에 대해 자세히 알아보려면 다음 �
 - [Event Hubs에 대해 알아봅니다](event-hubs-what-is-event-hubs.md).
 - [Apache Kafka용 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)
 - [Kafka 사용 Event Hubs 만드는 방법](event-hubs-create-kafka-enabled.md)
-- [Kafka 애플리케이션에서 이벤트 허브로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [Kafka 애플리케이션에서 Event Hubs에 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [Kafka 지원 이벤트 허브에서 Kafka broker 미러링](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Kafka 지원 이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md)
 - [Kafka 지원 이벤트 허브에 Kafka Connect 통합](event-hubs-kafka-connect-tutorial.md)

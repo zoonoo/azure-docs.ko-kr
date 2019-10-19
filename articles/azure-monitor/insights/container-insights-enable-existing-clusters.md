@@ -1,24 +1,18 @@
 ---
 title: 배포 된 Azure Kubernetes 서비스 (AKS) 클러스터 모니터링 | Microsoft Docs
 description: 구독에 이미 배포 된 컨테이너에 대 한 Azure Monitor를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터의 모니터링을 사용 하도록 설정 하는 방법에 대해 알아봅니다.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/12/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 0153d39e1307458baa920d8e9107c8931242014e
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.date: 09/12/2019
+ms.openlocfilehash: e9837aaf538648fe24a762f83a2e855f432df2a5
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996261"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555469"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>이미 배포 된 AKS (Azure Kubernetes Service) 클러스터의 모니터링 사용
 
@@ -29,11 +23,11 @@ ms.locfileid: "70996261"
 * Azure CLI
 * Terraform
 * [Azure Monitor에서](#enable-from-azure-monitor-in-the-portal) 또는 AZURE PORTAL의 [AKS 클러스터에서 직접](#enable-directly-from-aks-cluster-in-the-portal) 
-* Azure PowerShell cmdlet `New-AzResourceGroupDeployment` 을 사용 하거나 Azure CLI를 사용 하 여 [제공 된 Azure Resource Manager 템플릿을](#enable-using-an-azure-resource-manager-template) 사용 합니다. 
+* 제공 된 [Azure Resource Manager 템플릿을](#enable-using-an-azure-resource-manager-template) 사용 하 여 Azure PowerShell cmdlet `New-AzResourceGroupDeployment` 또는 Azure CLI를 사용 합니다. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure Portal](https://portal.azure.com)에 로그인합니다. 
+[Azure portal](https://portal.azure.com)에 로그인합니다. 
 
 ## <a name="enable-using-azure-cli"></a>Azure CLI 사용
 
@@ -51,7 +45,7 @@ provisioningState       : Succeeded
 
 ### <a name="integrate-with-an-existing-workspace"></a>기존 작업 영역과 통합
 
-기존 작업 영역에 통합 하는 경우 다음 단계를 수행 하 여 `--workspace-resource-id` 매개 변수에 필요한 Log Analytics 작업 영역의 전체 리소스 ID를 먼저 확인 한 후 명령을 실행 하 여에 대해 모니터링 추가 기능을 사용 하도록 설정 합니다. 지정 된 작업 영역입니다.  
+기존 작업 영역에 통합 하는 경우 다음 단계를 수행 하 여 `--workspace-resource-id` 매개 변수에 필요한 Log Analytics 작업 영역의 전체 리소스 ID를 먼저 확인 한 후 명령을 실행 하 여에 대해 모니터링 추가 기능을 사용 하도록 설정 합니다. 지정 된 작업 영역.  
 
 1. 다음 명령을 사용 하 여 액세스 권한이 있는 모든 구독을 나열 합니다.
 

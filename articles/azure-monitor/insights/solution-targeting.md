@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor의 모니터링 솔루션 대상 지정 | Microsoft Docs
 description: 모니터링 솔루션을 대상으로 지정하면 모니터링 솔루션을 특정 에이전트 세트로 한정할 수 있습니다.  이 문서에서는 범위 구성을 만들고 솔루션에 적용하는 방법을 설명합니다.
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1f054a4e-6243-4a66-a62a-0031adb750d8
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/27/2017
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 4082847e1871fc03713471b0c043dddb80f91b0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 04/27/2017
+ms.openlocfilehash: 04b47cb6079d9213c1a20425f62286f1b2aa778b
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110347"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555319"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Azure Monitor의 모니터링 솔루션 대상 지정(미리 보기)
 모니터링 솔루션을 구독에 추가하면 기본적으로 Log Analytics 작업 영역에 연결된 모든 Windows 및 Linux 에이전트에 의해 자동 배포됩니다.  특정 에이전트 집합으로 제한하여 비용을 관리하고 솔루션에 대해 수집되는 데이터 양을 제한할 수 있습니다.  이 문서에서는 솔루션에 범위를 적용할 수 있는 기능인 **솔루션 대상 지정**을 사용하는 방법을 설명합니다.
@@ -49,7 +43,7 @@ Azure Monitor에서 [컴퓨터 그룹](../platform/computer-groups.md)을 만들
  6. **확인**을 클릭하여 범위 구성을 만듭니다. 
 
 
-### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. 솔루션에 범위 구성을 적용합니다.
+### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. 범위 구성을 솔루션에 적용 합니다.
 범위를 구성했으면 하나 이상의 솔루션에 적용할 수 있습니다.  단일 범위 구성을 여러 솔루션에서 사용할 수 있지만, 각 솔루션은 범위 구성을 하나만 사용할 수 있습니다.
 
 다음 프로세스를 사용하여 범위 구성을 적용합니다.  

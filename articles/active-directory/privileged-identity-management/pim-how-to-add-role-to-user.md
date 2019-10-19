@@ -1,10 +1,10 @@
 ---
-title: PIM에서 Azure AD 역할 할당-Azure Active Directory | Microsoft Docs
+title: Privileged Identity Management에서 Azure AD 역할 할당-Azure Active Directory | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM)에서 Azure AD 역할을 할당 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
@@ -13,14 +13,14 @@ ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64c08f2dcf6df67401160775db60bf613d1c5241
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 61efc9d9d12cb67ea9c22e44ba0060db0f224f73
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804450"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554315"
 ---
-# <a name="assign-azure-ad-roles-in-pim"></a>PIM에서 Azure AD 역할 할당
+# <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할 할당
 
 전역 관리자는 Azure Active Directory (Azure AD)를 사용 하 여 **영구** Azure AD 관리자 역할 할당을 만들 수 있습니다. 이러한 역할은 [Azure Portal](../users-groups-roles/directory-assign-admin-roles.md) 또는 [PowerShell 명령](/powershell/module/azuread#directory_roles)을 사용하여 할당할 수 있습니다.
 
@@ -32,11 +32,11 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
 
 1. [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) 역할의 구성원인 사용자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-    다른 관리자에게 PIM 관리를 위한 액세스 권한을 부여하는 방법에 대한 자세한 내용은 [다른 관리자에게 PIM을 관리하기 위한 액세스 권한 부여](pim-how-to-give-access-to-pim.md)를 참조하세요.
+    다른 관리자에 게 Privileged Identity Management 관리 권한을 부여 하는 방법에 대 한 자세한 내용은 [다른 관리자에 게 Privileged Identity Management를 관리할](pim-how-to-give-access-to-pim.md)수 있는 권한 부여를 참조 하세요.
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
-    Azure Portal에서 PIM을 아직 시작하지 않은 경우 [PIM 사용](pim-getting-started.md)으로 이동합니다.
+    아직 Azure Portal에서 Privileged Identity Management를 시작 하지 않은 경우 [Privileged Identity Management 사용 시작](pim-getting-started.md)으로 이동 합니다.
 
 1. **Azure AD 역할**을 클릭합니다.
 
@@ -62,7 +62,7 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
 
     ![역할의 멤버는 해당 활성화 상태와 함께 나열 됩니다.](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
 
-1. 이제 사용자에 게 역할에 대 한 자격이 있으므로 [PIM에서 내 AZURE AD 역할 활성화](pim-how-to-activate-role.md)의 지침에 따라 사용자가 해당 역할을 활성화할 수 있음을 알립니다.
+1. 이제 사용자에 게 역할에 대 한 자격이 있으므로 [Privileged Identity Management에서 내 AZURE AD 역할 활성화](pim-how-to-activate-role.md)의 지침에 따라 사용자가 해당 역할을 활성화할 수 있음을 알고 있어야 합니다.
 
     적격 관리자의 경우 활성화 중에 Azure MFA(Multi-factor Authentication)에 등록하라는 메시지가 표시됩니다. 사용자가 MFA에 등록할 수 없거나 Microsoft 계정(일반적으로 @outlook.com)을 사용하고 있는 경우 사용자 정보는 모든 역할에서 영구적으로 유지되도록 해야 합니다.
 
@@ -96,19 +96,19 @@ Azure AD 관리자 역할에서 특정 사용자를 제거 하려면 다음 단�
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
-1. **Azure AD 역할**을 클릭합니다.
+1. **AZURE AD 역할**을 선택 합니다.
 
-1. **구성원**을 클릭합니다.
+1. **구성원**을 선택합니다.
 
     ![Azure AD 역할-역할 및 활성화 통계를 보여 주는 멤버 목록](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
-1. 제거할 역할 할당을 클릭합니다.
+1. 제거할 역할 할당을 선택 합니다.
 
-1. **추가**를 클릭한 후 **제거**를 클릭합니다.
+1. **자세히** 를 선택 하 고 **제거**를 선택 합니다.
 
     ![더 많은 메뉴 옵션이 열려 있는 영구 역할이 있는 사용자를 나열 하는 창](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
 
-1. 확인하라는 메시지에서 **예**를 클릭합니다.
+1. 작업을 확인 하 라는 메시지가 표시 되 면 **예**를 선택 합니다.
 
     ![역할에서 구성원을 제거할지 묻는 메시지](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
@@ -116,11 +116,11 @@ Azure AD 관리자 역할에서 특정 사용자를 제거 하려면 다음 단�
 
 ## <a name="authorization-error-when-assigning-roles"></a>역할을 할당할 때 권한 부여 오류
 
-최근에 구독에 대해 PIM을 사용 하도록 설정 하 고 사용자에 게 Azure AD 관리자 역할에 대 한 자격을 부여할 때 권한 부여 오류가 발생 하는 경우,이는 MS-PIM 서비스 사용자에 게 아직 적절 한 권한이 없기 때문일 수 있습니다. MS-PIM 서비스 주체에는 다른 사용자에게 역할을 할당하는 [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) 역할이 있어야 합니다. MS-PIM에 사용자 액세스 관리자 역할이 할당될 때까지 대기하는 대신 수동으로 할당할 수 있습니다.
+최근 Azure 구독에 대 한 Privileged Identity Management를 사용 하도록 설정 했 고 사용자에 게 Azure AD 관리자 역할에 대 한 자격을 부여 하려고 할 때 권한 부여 오류가 발생 하는 경우,이는 MS-PIM 서비스 주체가 아직 적절 한 권한에. 역할을 할당 하려면 azure AD 관리 역할이 아닌 azure 리소스 액세스에 대 한 Azure 역할 기반 액세스 제어에서 [사용자 액세스 관리자 역할](../../role-based-access-control/built-in-roles.md#user-access-administrator) 을 할당 받아야 합니다. MS-PIM에 사용자 액세스 관리자 역할이 할당될 때까지 대기하는 대신 수동으로 할당할 수 있습니다.
 
-다음의 단계를 따라 구독의 MS-PIM 서비스 주체에 사용자 액세스 관리자 역할을 할당합니다.
+다음 단계에서는 구독에 대 한 사용자 액세스 관리자 역할을 MS-PIM 서비스 주체에 할당 합니다.
 
-1. 글로벌 관리자 권한으로 Azure Portal에 로그인합니다.
+1. Azure AD 조직에서 전역 관리자로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
 
 1. **모든 서비스**, **구독**을 차례로 선택합니다.
 
@@ -151,5 +151,5 @@ Azure AD 관리자 역할에서 특정 사용자를 제거 하려면 다음 단�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM에서 Azure AD 관리자 역할 설정 구성](pim-how-to-change-default-settings.md)
-- [PIM에서 Azure 리소스 역할 할당](pim-resource-roles-assign-roles.md)
+- [Privileged Identity Management에서 Azure AD 관리자 역할 설정 구성](pim-how-to-change-default-settings.md)
+- [Privileged Identity Management에서 Azure 리소스 역할 할당](pim-resource-roles-assign-roles.md)

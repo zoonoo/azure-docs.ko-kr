@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 4e2cd3b66385d37815d0fc51a70ca31aba25db29
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
-ms.translationtype: HT
+ms.openlocfilehash: aab5d9a4cb7527e8a2085f826febc64bbd74854c
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528615"
+ms.locfileid: "72551970"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 
@@ -1437,68 +1437,78 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|cpu_percent|CPU 비율|백분율|평균|CPU 비율|차원 없음|
-|physical_data_read_percent|데이터 IO 비율|백분율|평균|데이터 IO 비율|차원 없음|
-|log_write_percent|로그 IO 비율|백분율|평균|로그 IO 백분율입니다. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
-|dtu_consumption_percent|DTU 비율|백분율|평균|DTU 백분율. DTU 기반 데이터베이스에 적용 됩니다.|차원 없음|
-|스토리지|사용 되는 데이터 공간|바이트|최대|총 데이터베이스 크기입니다. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
-|connection_successful|성공적인 연결|카운트|합계|성공적인 연결|차원 없음|
-|connection_failed|실패한 연결|카운트|합계|실패한 연결|차원 없음|
-|blocked_by_firewall|방화벽에 의해 차단|카운트|합계|방화벽에 의해 차단|차원 없음|
-|교착 상태|교착 상태|카운트|합계|상태가. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
-|storage_percent|사용 되는 데이터 공간 (%)|백분율|최대|데이터베이스 크기 비율입니다. 데이터 웨어하우스 또는 대규모 데이터베이스에는 적용 되지 않습니다.|차원 없음|
-|xtp_storage_percent|메모리 내 OLTP 스토리지 백분율|백분율|평균|메모리 내 OLTP 저장소 백분율입니다. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
-|workers_percent|작업자 백분율|백분율|평균|작업자 비율. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
-|sessions_percent|세션 백분율|백분율|평균|세션 백분율. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
-|dtu_limit|DTU 제한|카운트|평균|DTU 한도입니다. DTU 기반 데이터베이스에 적용 됩니다.|차원 없음|
-|dtu_used|DTU 사용됨|카운트|평균|DTU를 사용 했습니다. DTU 기반 데이터베이스에 적용 됩니다.|차원 없음|
-|cpu_limit|CPU 제한|카운트|평균|CPU 제한. VCore 기반 데이터베이스에 적용 됩니다.|차원 없음|
-|cpu_used|사용 되는 CPU|카운트|평균|사용 되는 CPU입니다. VCore 기반 데이터베이스에 적용 됩니다.|차원 없음|
-|dwu_limit|DWU 제한|카운트|최대|DWU 제한. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
-|dwu_consumption_percent|DWU 백분율|백분율|최대|DWU 백분율. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
-|dwu_used|DWU 사용됨|카운트|최대|DWU를 사용 했습니다. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
-|dw_cpu_percent|DW 노드 수준 CPU 비율|백분율|평균|DW 노드 수준 CPU 비율|DwLogicalNodeId|
-|dw_physical_data_read_percent|DW 노드 수준 데이터 IO 백분율|백분율|평균|DW 노드 수준 데이터 IO 백분율|DwLogicalNodeId|
-|cache_hit_percent|캐시 적중 비율|백분율|최대|캐시 적중 비율입니다. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
-|cache_used_percent|캐시 사용 비율|백분율|최대|캐시 사용 백분율입니다. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
-|local_tempdb_usage_percent|로컬 tempdb 백분율|백분율|평균|로컬 tempdb 비율입니다. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
+|allocated_data_storage|할당 된 데이터 공간|바이트|평균|할당 된 데이터 공간. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
 |app_cpu_billed|청구 되는 앱 CPU|카운트|합계|청구 되는 앱 CPU입니다. 서버를 사용 하지 않는 데이터베이스에 적용 됩니다.|차원 없음|
 |app_cpu_percent|앱 CPU 비율|백분율|평균|앱 CPU 비율입니다. 서버를 사용 하지 않는 데이터베이스에 적용 됩니다.|차원 없음|
 |app_memory_percent|앱 메모리 사용 비율|백분율|평균|앱 메모리 사용 백분율입니다. 서버를 사용 하지 않는 데이터베이스에 적용 됩니다.|차원 없음|
-|allocated_data_storage|할당 된 데이터 공간|바이트|평균|할당 된 데이터 공간. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
+|blocked_by_firewall|방화벽에 의해 차단|카운트|합계|방화벽에 의해 차단|차원 없음|
+|cache_hit_percent|캐시 적중 비율|백분율|최대|캐시 적중 비율입니다. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
+|cache_used_percent|캐시 사용 비율|백분율|최대|캐시 사용 백분율입니다. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
+|connection_failed|실패한 연결|카운트|합계|실패한 연결|차원 없음|
+|connection_successful|성공적인 연결|카운트|합계|성공적인 연결|차원 없음|
+|cpu_percent|CPU 비율|백분율|평균|CPU 비율|차원 없음|
+|cpu_limit|CPU 제한|카운트|평균|CPU 제한. VCore 기반 데이터베이스에 적용 됩니다.|차원 없음|
+|cpu_used|사용 되는 CPU|카운트|평균|사용 되는 CPU입니다. VCore 기반 데이터베이스에 적용 됩니다.|차원 없음|
+|교착 상태|교착 상태|카운트|합계|상태가. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
+|dtu_limit|DTU 제한|카운트|평균|DTU 한도입니다. DTU 기반 데이터베이스에 적용 됩니다.|차원 없음|
+|dtu_consumption_percent|DTU 비율|백분율|평균|DTU 백분율. DTU 기반 데이터베이스에 적용 됩니다.|차원 없음|
+|dtu_used|DTU 사용됨|카운트|평균|DTU를 사용 했습니다. DTU 기반 데이터베이스에 적용 됩니다.|차원 없음|
+|dw_cpu_percent|DW 노드 수준 CPU 비율|백분율|평균|DW 노드 수준 CPU 비율|DwLogicalNodeId|
+|dw_physical_data_read_percent|DW 노드 수준 데이터 IO 백분율|백분율|평균|DW 노드 수준 데이터 IO 백분율|DwLogicalNodeId|
+|dwu_consumption_percent|DWU 백분율|백분율|최대|DWU 백분율. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
+|dwu_limit|DWU 제한|카운트|최대|DWU 제한. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
+|dwu_used|DWU 사용됨|카운트|최대|DWU를 사용 했습니다. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
+|local_tempdb_usage_percent|로컬 tempdb 백분율|백분율|평균|로컬 tempdb 비율입니다. 데이터 웨어하우스에만 적용 됩니다.|차원 없음|
+|log_write_percent|로그 IO 비율|백분율|평균|로그 IO 백분율입니다. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
+|physical_data_read_percent|데이터 IO 비율|백분율|평균|데이터 IO 비율|차원 없음|
+|sessions_percent|세션 백분율|백분율|평균|세션 백분율. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
+|sqlserver_process_core_percent|SQL Server 프로세스 코어 백분율|백분율|최대|이 메트릭은 자리 표시자 이며 지금은 채워지지 않습니다.|차원 없음|
+|sqlserver_process_memory_percent|SQL Server 프로세스 메모리 비율|백분율|최대|이 메트릭은 자리 표시자 이며 지금은 채워지지 않습니다.|차원 없음|
+|스토리지|사용 되는 데이터 공간|바이트|최대|총 데이터베이스 크기입니다. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
+|storage_percent|사용 되는 데이터 공간 (%)|백분율|최대|데이터베이스 크기 비율입니다. 데이터 웨어하우스 또는 대규모 데이터베이스에는 적용 되지 않습니다.|차원 없음|
+|tempdb_data_size|Tempdb 데이터 파일 크기 (Kb)|카운트|최대|Tempdb 데이터 파일 크기 (Kb)입니다. 데이터 웨어하우스에는 적용 되지 않습니다. 이 메트릭은 DTU 기반 구매 모델에 대해 vCore 구매 모델 또는 100 DTU 이상을 사용 하는 데이터베이스에서 사용할 수 있습니다.|차원 없음|
+|tempdb_log_size|Tempdb 로그 파일 크기 (Kb)|카운트|최대|Tempdb 로그 파일 크기 (Kb)입니다. 데이터 웨어하우스에는 적용 되지 않습니다. 이 메트릭은 DTU 기반 구매 모델에 대해 vCore 구매 모델 또는 100 DTU 이상을 사용 하는 데이터베이스에서 사용할 수 있습니다.|차원 없음|
+|tempdb_log_used_percent|Tempdb 백분율 로그가 사용 됨|백분율|최대|Tempdb 백분율 로그가 사용 되었습니다. 데이터 웨어하우스에는 적용 되지 않습니다. 이 메트릭은 DTU 기반 구매 모델에 대해 vCore 구매 모델 또는 100 DTU 이상을 사용 하는 데이터베이스에서 사용할 수 있습니다.|차원 없음|
+|workers_percent|작업자 백분율|백분율|평균|작업자 비율. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
+|xtp_storage_percent|메모리 내 OLTP 스토리지 백분율|백분율|평균|메모리 내 OLTP 저장소 백분율입니다. 데이터 웨어하우스에는 적용 되지 않습니다.|차원 없음|
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|cpu_percent|CPU 비율|백분율|평균|CPU 비율|차원 없음|
-|physical_data_read_percent|데이터 IO 비율|백분율|평균|데이터 IO 비율|차원 없음|
-|log_write_percent|로그 IO 비율|백분율|평균|로그 IO 비율|차원 없음|
-|dtu_consumption_percent|DTU 비율|백분율|평균|DTU 백분율. DTU 기반 탄력적 풀에 적용 됩니다.|차원 없음|
-|storage_percent|사용 되는 데이터 공간 (%)||백분율|평균|스토리지 비율|차원 없음|
-|workers_percent|작업자 백분율|백분율|평균|작업자 백분율|차원 없음|
-|sessions_percent|세션 백분율|백분율|평균|세션 백분율|차원 없음|
-|eDTU_limit|eDTU 제한|카운트|평균|eDTU 제한. DTU 기반 탄력적 풀에 적용 됩니다.|차원 없음|
-|storage_limit|데이터 최대 크기|바이트|평균|스토리지 제한|차원 없음|
-|eDTU_used|eDTU 사용|카운트|평균|eDTU를 사용 했습니다. DTU 기반 탄력적 풀에 적용 됩니다.|차원 없음|
-|storage_used|사용 되는 데이터 공간|바이트|평균|사용된 스토리지|차원 없음|
-|xtp_storage_percent|메모리 내 OLTP 스토리지 백분율|백분율|평균|메모리 내 OLTP 스토리지 백분율|차원 없음|
-|cpu_limit|CPU 제한|카운트|평균|CPU 제한. VCore 기반 탄력적 풀에 적용 됩니다.|차원 없음|
-|cpu_used|사용 되는 CPU|카운트|평균|사용 되는 CPU입니다. VCore 기반 탄력적 풀에 적용 됩니다.|차원 없음|
 |allocated_data_storage|할당 된 데이터 공간|바이트|평균|할당 된 데이터 공간|차원 없음|
 |allocated_data_storage_percent|할당 된 데이터 공간 비율|백분율|최대|할당 된 데이터 공간 비율|차원 없음|
+|cpu_limit|CPU 제한|카운트|평균|CPU 제한. VCore 기반 탄력적 풀에 적용 됩니다.|차원 없음|
+|cpu_percent|CPU 비율|백분율|평균|CPU 비율|차원 없음|
+|cpu_used|사용 되는 CPU|카운트|평균|사용 되는 CPU입니다. VCore 기반 탄력적 풀에 적용 됩니다.|차원 없음|
+|dtu_consumption_percent|DTU 비율|백분율|평균|DTU 백분율. DTU 기반 탄력적 풀에 적용 됩니다.|차원 없음|
+|eDTU_limit|eDTU 제한|카운트|평균|eDTU 제한. DTU 기반 탄력적 풀에 적용 됩니다.|차원 없음|
+|eDTU_used|eDTU 사용|카운트|평균|eDTU를 사용 했습니다. DTU 기반 탄력적 풀에 적용 됩니다.|차원 없음|
+|log_write_percent|로그 IO 비율|백분율|평균|로그 IO 비율|차원 없음|
+|physical_data_read_percent|데이터 IO 비율|백분율|평균|데이터 IO 비율|차원 없음|
+|sessions_percent|세션 백분율|백분율|평균|세션 백분율|차원 없음|
+|storage_limit|데이터 최대 크기|바이트|평균|스토리지 제한|차원 없음|
+|storage_percent|사용 되는 데이터 공간 (%)||백분율|평균|스토리지 비율|차원 없음|
+|storage_used|사용 되는 데이터 공간|바이트|평균|사용된 스토리지|차원 없음|
+|sqlserver_process_core_percent|SQL Server 프로세스 코어 백분율|백분율|최대|이 메트릭은 자리 표시자 이며 지금은 채워지지 않습니다.|차원 없음|
+|sqlserver_process_memory_percent|SQL Server 프로세스 메모리 비율|백분율|최대|이 메트릭은 자리 표시자 이며 지금은 채워지지 않습니다.|차원 없음|
+|tempdb_data_size|Tempdb 데이터 파일 크기 (Kb)|카운트|최대|Tempdb 데이터 파일 크기 (Kb)입니다. 데이터 웨어하우스에는 적용 되지 않습니다. 이 메트릭은 DTU 기반 구매 모델에 대해 vCore 구매 모델 또는 100 DTU 이상을 사용 하는 데이터베이스에서 사용할 수 있습니다.|차원 없음|
+|tempdb_log_size|Tempdb 로그 파일 크기 (Kb)|카운트|최대|Tempdb 로그 파일 크기 (Kb)입니다. 데이터 웨어하우스에는 적용 되지 않습니다. 이 메트릭은 DTU 기반 구매 모델에 대해 vCore 구매 모델 또는 100 DTU 이상을 사용 하는 데이터베이스에서 사용할 수 있습니다.|차원 없음|
+|tempdb_log_used_percent|Tempdb 백분율 로그가 사용 됨|백분율|최대|Tempdb 백분율 로그가 사용 되었습니다. 데이터 웨어하우스에는 적용 되지 않습니다. 이 메트릭은 DTU 기반 구매 모델에 대해 vCore 구매 모델 또는 100 DTU 이상을 사용 하는 데이터베이스에서 사용할 수 있습니다.|차원 없음|
+|workers_percent|작업자 백분율|백분율|평균|작업자 백분율|차원 없음|
+|xtp_storage_percent|메모리 내 OLTP 스토리지 백분율|백분율|평균|메모리 내 OLTP 스토리지 백분율|차원 없음|
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|virtual_core_count|가상 코어 수|카운트|평균|가상 코어 수|차원 없음|
 |avg_cpu_percent|평균 CPU 비율|백분율|평균|평균 CPU 비율|차원 없음|
+|io_bytes_read|읽은 IO 바이트|바이트|평균|읽은 IO 바이트|차원 없음|
+|io_requests|IO 요청 수|카운트|평균|IO 요청 수|차원 없음|
+|io_bytes_written|기록된 IO 바이트|바이트|평균|기록된 IO 바이트|차원 없음|
 |reserved_storage_mb|예약된 스토리지 공간|카운트|평균|예약된 스토리지 공간|차원 없음|
 |storage_space_used_mb|사용된 스토리지 공간|카운트|평균|사용된 스토리지 공간|차원 없음|
-|io_requests|IO 요청 수|카운트|평균|IO 요청 수|차원 없음|
-|io_bytes_read|읽은 IO 바이트|바이트|평균|읽은 IO 바이트|차원 없음|
-|io_bytes_written|기록된 IO 바이트|바이트|평균|기록된 IO 바이트|차원 없음|
+|virtual_core_count|가상 코어 수|카운트|평균|가상 코어 수|차원 없음|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 

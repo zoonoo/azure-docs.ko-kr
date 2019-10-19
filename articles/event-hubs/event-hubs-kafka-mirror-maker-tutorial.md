@@ -3,19 +3,19 @@ title: Apache Kafka MirrorMaker 사용 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Kafka MirrorMaker를 사용하여 Azure Event Hubs에서 Kafka 클러스터를 미러링하는 방법에 대한 정보를 제공합니다.
 services: event-hubs
 documentationcenter: .net
-author: basilhariri
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.author: bahariri
-ms.openlocfilehash: 43a32177280361bb0c2a433af0cb5dd3cfc6b9d3
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.author: shvija
+ms.openlocfilehash: 6d1596cf0a50ed5dcb896896282178b6fc12c1a1
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967598"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555113"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Apache Kafka용 Event Hubs에서 Kafka MirrorMaker 사용
 
@@ -27,7 +27,7 @@ ms.locfileid: "70967598"
 > 이 샘플은 [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker)에서 사용할 수 있습니다.
 
 
-이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
+이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * Event Hubs 네임스페이스 만들기
 > * 프로젝트 예제 복제
@@ -128,7 +128,7 @@ GitHub의 다음 샘플을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
+이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * Event Hubs 네임스페이스 만들기
 > * 프로젝트 예제 복제
@@ -141,7 +141,7 @@ Event Hubs 및 Kafka용 Event Hubs에 대해 자세히 알아보려면 다음 �
 - [Event Hubs에 대해 알아봅니다](event-hubs-what-is-event-hubs.md).
 - [Apache Kafka용 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)
 - [Kafka 사용 Event Hubs 만드는 방법](event-hubs-create-kafka-enabled.md)
-- [Kafka 애플리케이션에서 이벤트 허브로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [Kafka 애플리케이션에서 Event Hubs에 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [Kafka 지원 이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md)
 - [Kafka 지원 이벤트 허브에 Apache Flink 연결](event-hubs-kafka-flink-tutorial.md)
 - [Kafka 지원 이벤트 허브에 Kafka Connect 통합](event-hubs-kafka-connect-tutorial.md)

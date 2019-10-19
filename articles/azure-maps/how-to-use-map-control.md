@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: fa6a3af7893830eba2f4a5c43184991bff68d8a8
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4fd213a6550d045fe4bea280449ed228ba9eda35
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898198"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550279"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
 
@@ -41,8 +41,8 @@ ms.locfileid: "69898198"
     그런 다음, Azure Maps 스타일시트에 대한 참조와 스크립트 소스 참조를 파일의 `<head>` 요소에 추가합니다.
 
     ```HTML
-    <link rel="stylesheet" href="node_modules/azure-maps-control/dist/css/atlas.min.css" type="text/css">
-    <script src="node_modules/azure-maps-control/dist/js/atlas.min.js"></script>
+    <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
+    <script src="node_modules/azure-maps-control/dist/atlas.min.js"></script>
     ```
 
 3. 맵이 페이지 본문 전체를 채우도록 렌더링하려면 `<head>` 요소에 다음 `<style>` 요소를 추가합니다.
@@ -68,7 +68,7 @@ ms.locfileid: "69898198"
     </body>
     ```
 
-5. 맵 컨트롤을 초기화하려면 HTML 본문에 새 섹션을 정의하고 스크립트를 만듭니다. `Map` `document.getElementById('myMap')` `<div>` 클래스의 인스턴스를 만들 때 맵의 또는 `HTMLElement` (예:)를 첫 번째 매개 변수로 전달 합니다. `id` 자신의 Azure Maps 계정 키나 AAD(Azure Active Directory) 자격 증명으로 [인증 옵션](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)을 사용하여 맵을 인증합니다. 계정을 만들거나 키를 찾아야 하는 경우 [Azure Maps 계정과 키를 관리하는 방법](how-to-manage-account-keys.md)을 참조하세요. **언어** 옵션은 맵 레이블 및 컨트롤에 사용할 언어를 지정합니다. 지원되는 언어에 대한 자세한 내용은 [지원되는 언어](supported-languages.md)를 참조하세요. 인증에 구독 키를 사용하는 경우입니다.
+5. 맵 컨트롤을 초기화하려면 HTML 본문에 새 섹션을 정의하고 스크립트를 만듭니다. @No__t_4 클래스의 인스턴스를 만들 때 맵 `<div>`의 `id` 또는 `HTMLElement` (예: `document.getElementById('myMap')`)를 첫 번째 매개 변수로 전달 합니다. 자신의 Azure Maps 계정 키나 AAD(Azure Active Directory) 자격 증명으로 [인증 옵션](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)을 사용하여 맵을 인증합니다. 계정을 만들거나 키를 찾아야 하는 경우 [Azure Maps 계정과 키를 관리하는 방법](how-to-manage-account-keys.md)을 참조하세요. **언어** 옵션은 맵 레이블 및 컨트롤에 사용할 언어를 지정합니다. 지원되는 언어에 대한 자세한 내용은 [지원되는 언어](supported-languages.md)를 참조하세요. 인증에 구독 키를 사용하는 경우입니다.
 
     ```HTML
     <script type="text/javascript">
@@ -166,12 +166,12 @@ ms.locfileid: "69898198"
 
 8. 웹 브라우저에서 파일을 열고 렌더링된 맵을 봅니다. 이 코드는 다음 코드와 같습니다.
 
-    <iframe height="700" style="width: 100%;" scrolling="no" title="맵 컨트롤을 사용하는 방법" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true"><a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 사용 하 여 <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>지도 컨트롤을 사용 하는 방법을</a> 참조 하세요.
+    <iframe height="700" style="width: 100%;" scrolling="no" title="맵 컨트롤을 사용하는 방법" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true"><a href='https://codepen.io'>CodePen</a>에서 <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>지도 컨트롤을 사용</a> 하는 방법 Azure Maps (<a href='https://codepen.io/azuremaps'> @azuremaps</a>)을 참조 하세요.
     </iframe>
 
 ## <a name="localizing-the-map"></a>맵 지역화
 
-Azure Maps은 지도의 언어 및 지역 보기를 설정 하는 두 가지 다른 방법을 제공 합니다. 첫 번째 옵션은이 정보를 전역 `atlas` 네임 스페이스에 추가 하는 것입니다. 그러면 앱의 모든 맵 컨트롤 인스턴스가 이러한 설정을 기본값으로 설정 합니다. 다음은 언어를 프랑스어 ("fr-fr")로 설정 하 고 국가별 보기를 "auto"로 설정 합니다.
+Azure Maps은 지도의 언어 및 지역 보기를 설정 하는 두 가지 다른 방법을 제공 합니다. 첫 번째 옵션은 전역 `atlas` 네임 스페이스에이 정보를 추가 하는 것입니다. 그러면 앱의 모든 맵 컨트롤 인스턴스가 이러한 설정을 기본값으로 설정 합니다. 다음은 언어를 프랑스어 ("fr-fr")로 설정 하 고 국가별 보기를 "auto"로 설정 합니다.
 
 ```javascript
 atlas.setLanguage('fr-FR');
@@ -213,7 +213,7 @@ map = new atlas.Map('myMap', {
 맵 스타일을 지정하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [지도 스타일 선택](choose-map-style.md)
+> [맵 스타일 선택](choose-map-style.md)
 
 지도에 데이터를 더 추가 하려면:
 

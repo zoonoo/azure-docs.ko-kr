@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 843cac8c7a5e6c80b7663df2a48079dd307b7d5a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: f0b66806138311508725d377b59b83c1b1365674
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72383504"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553539"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>한 지역에서 다른 지역으로 Azure VM 복제를 위한 지원 매트릭스
 
@@ -102,8 +102,8 @@ Windows 7 (x64) SP1 이상 | Azure Vm에 대 한 모바일 서비스 확장의 9
 
 **운영 체제** | **세부 정보**
 --- | ---
-Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6  
-CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6
+Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7 
+CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7
 Ubuntu 14.04 LTS Server | [지원되는 커널 버전](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Ubuntu 16.04 LTS Server | [지원되는 커널 버전](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> 암호 기반 인증 및 로그인을 사용 하는 Ubuntu 서버와 클라우드 Vm을 구성 하는 클라우드 초기화 패키지는 cloudinit 구성에 따라 장애 조치 (failover) 시 암호 기반 로그인을 사용 하지 않도록 설정할 수 있습니다. Azure Portal에서 장애 조치 (failover) 된 VM의 지원 > 문제 해결 > 설정 메뉴에서 암호를 다시 설정 하 여 가상 머신에서 암호 기반 로그인을 다시 사용 하도록 설정할 수 있습니다.
 Debian 7 | [지원되는 커널 버전](#supported-debian-kernel-versions-for-azure-virtual-machines)

@@ -1,30 +1,24 @@
 ---
 title: VM용 Azure Monitor(미리 보기)의 알려진 문제 | Microsoft Docs
 description: 이 문서에서는 Azure VM 운영 체제의 상태, 애플리케이션 종속성 검색 및 성능 모니터링을 결합하는 Azure의 솔루션인 VM용 Azure Monitor의 알려진 문제를 설명합니다.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/02/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 86a56e71b89e7408d1bc8ca0ee1dc8112bea368f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 04/02/2019
+ms.openlocfilehash: f6719a8c28571faceb6ebad0567d13a4edc60fe6
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522136"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553770"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)의 알려진 문제
 
 이 문서에서는 Azure VM 운영 체제의 상태, 애플리케이션 구성 요소 검색 및 성능 모니터링을 결합하는 Azure의 솔루션인 VM용 Azure Monitor의 알려진 문제를 설명합니다. 
 
-## <a name="health"></a>상태 
+## <a name="health"></a>보건 
 현재 상태 기능 릴리스의 알려진 문제는 다음과 같습니다.
 
 - 제거하거나 삭제한 Azure VM은 얼마 동안 VM 목록 보기에 표시됩니다. 또한 제거하거나 삭제한 VM의 상태를 클릭하면 **상태 진단** 보기가 열리고 로딩 루프가 시작됩니다. 삭제한 VM의 이름을 선택하면 VM이 삭제되었다는 내용의 메시지가 포함된 창이 열립니다.
@@ -35,4 +29,4 @@ ms.locfileid: "65522136"
 - 작업 영역에서 솔루션 구성 요소를 제거한 후에는 Azure VM의 성능 상태, 특히 포털에서 보기로 이동할 경우 성능 및 맵 데이터를 계속 확인할 수 있습니다. 결국 데이터는 잠시 후 성능 및 맵 보기에서 표시되지 않지만 상태 보기는 VM에 대한 성능 상태를 계속 표시합니다. **지금 사용해 보기** 옵션을 사용하여 성능 및 맵 보기에서만 다시 온보딩할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-검토 요구 사항 및 가상 컴퓨터의 모니터링을 사용 하는 것에 대 한 메서드를 알아야 [Vm에 대 한 Azure Monitor를 사용 하도록 설정](vminsights-enable-overview.md)합니다.
+가상 컴퓨터의 모니터링을 사용 하도록 설정 하는 데 필요한 요구 사항 및 방법에 대 한 자세한 내용은 [VM용 Azure Monitor 사용](vminsights-enable-overview.md)을 참조 하세요.

@@ -1,25 +1,24 @@
 ---
 title: Azure Monitor에서 System Center Operations Manager, Zabbix 및 Nagios의 경고 관리
 description: Azure Monitor에서 System Center Operations Manager, Zabbix 및 Nagios의 경고 관리
-author: anantr
-services: monitoring
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 6730402348069df7c2597aa0d73a4211669c2d66
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 09/24/2018
+ms.openlocfilehash: 0e774633542f9b7f8b7de9f8f187821bfbe6b9cf
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702824"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555625"
 ---
 # <a name="manage-alerts-from-system-center-operations-manager-zabbix-and-nagios-in-azure-monitor"></a>Azure Monitor에서 System Center Operations Manager, Zabbix 및 Nagios의 경고 관리
 
 이제 [Azure Monitor](https://aka.ms/azure-alerts-overview)에서 Nagios, Zabbix 및 System Center Operations Manager의 경고를 볼 수 있습니다. 이러한 경고는 Nagios/Zabbix 서버 또는 System Center Operations Manager와의 통합에서 Log Analytics로 제공됩니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 Log Analytics 리포지토리에서 경고 유형인 모든 레코드를 Azure Monitor로 가져오므로, 이러한 레코드를 수집하는 데 필요한 구성을 수행해야 합니다.
 1. **Nagios** 및 **Zabbix** 경고의 경우 Log Analytics로 [경고를 보내도록](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-alerts-nagios-zabbix?toc=%2Fazure%2Fazure-monitor%2Ftoc.json) [해당 서버를 구성](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)합니다.
 1. **System Center Operations Manager** 경고의 경우 [Operations Manager 관리 그룹을 Log Analytics 작업 영역에 연결](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents)합니다. 이 작업 후에 Azure 솔루션 Marketplace에서 [경고 관리](https://docs.microsoft.com/azure/azure-monitor/platform/alert-management-solution) 솔루션을 배포합니다. 완료되면 System Center Operations Manager에서 생성된 모든 경고를 Log Analytics로 가져옵니다.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 10/11/2019
-ms.openlocfilehash: db96663ef3d901546e1b32362a9eb9c9ae09dd21
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 1ef9f3f847cb74aca0cae66dc8354838d28a645f
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377513"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553664"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Git 통합
 
@@ -24,17 +24,17 @@ Azure Machine Learning는 로컬 git 리포지토리의 정보를 추적 하므�
 
 ## <a name="how-does-git-integration-work"></a>Git 통합은 어떻게 작동 하나요?
 
-Python SDK 또는 Machine Learning CLI에서 학습 실행을 제출 하면 모델을 학습 하는 데 필요한 파일이 작업 영역에 업로드 됩니다. @No__t-0 명령을 개발 환경에서 사용할 수 있는 경우 업로드 프로세스에서이 명령을 사용 하 여 파일이 git 리포지토리에 저장 되었는지 확인 합니다. 그렇다면 git 리포지토리의 정보는 학습 실행의 일부로도 업로드 됩니다. 이 정보는 학습 실행을 위해 다음 속성에 저장 됩니다.
+Python SDK 또는 Machine Learning CLI에서 학습 실행을 제출 하면 모델을 학습 하는 데 필요한 파일이 작업 영역에 업로드 됩니다. @No__t_0 명령을 개발 환경에서 사용할 수 있는 경우 업로드 프로세스에서이 명령을 사용 하 여 파일이 git 리포지토리에 저장 되었는지 확인 합니다. 그렇다면 git 리포지토리의 정보는 학습 실행의 일부로도 업로드 됩니다. 이 정보는 학습 실행을 위해 다음 속성에 저장 됩니다.
 
-| 자산 | 설명 |
-| ----- | ----- |
-| `azureml.git.repository_uri` | 리포지토리가 복제 된 URI입니다. |
-| `mlflow.source.git.repoURL` | 리포지토리가 복제 된 URI입니다. |
-| `azureml.git.branch` | 실행을 제출한 활성 분기입니다. |
-| `mlflow.source.git.branch` | 실행을 제출한 활성 분기입니다. |
-| `azureml.git.commit` | 실행을 위해 제출 된 코드의 커밋 해시입니다. |
-| `mlflow.source.git.commit` | 실행을 위해 제출 된 코드의 커밋 해시입니다. |
-| `azureml.git.dirty` | 커밋이 커밋되지 않은 경우 `True`입니다. 그렇지 않으면-1을 @no__t 합니다. |
+| 자산 | 값을 가져오는 데 사용 되는 Git 명령입니다. | 설명 |
+| ----- | ----- | ----- |
+| `azureml.git.repository_uri` | `git ls-remote --get-url` | 리포지토리가 복제 된 URI입니다. |
+| `mlflow.source.git.repoURL` | `git ls-remote --get-url` | 리포지토리가 복제 된 URI입니다. |
+| `azureml.git.branch` | `git symbolic-ref --short HEAD` | 실행을 제출한 활성 분기입니다. |
+| `mlflow.source.git.branch` | `git symbolic-ref --short HEAD` | 실행을 제출한 활성 분기입니다. |
+| `azureml.git.commit` | `git rev-parse HEAD` | 실행을 위해 제출 된 코드의 커밋 해시입니다. |
+| `mlflow.source.git.commit` | `git rev-parse HEAD` | 실행을 위해 제출 된 코드의 커밋 해시입니다. |
+| `azureml.git.dirty` | `git status --porcelain .` | 분기/커밋이 커밋되지 않은 경우 `True` 합니다. 그렇지 않으면 `false` 합니다. |
 
 이 정보는 평가기, machine learning 파이프라인 또는 스크립트 실행을 사용 하는 실행을 위해 전송 됩니다.
 
@@ -49,7 +49,9 @@ Git 정보는 학습 실행을 위한 속성에 저장 됩니다. Azure Portal, 
 1. [Azure Portal](https://portal.azure.com)에서 작업 영역을 선택 합니다.
 1. __실험__을 선택 하 고 실험 중 하나를 선택 합니다.
 1. __실행 번호__ 열에서 실행 중 하나를 선택 합니다.
-1. __로그__를 선택한 다음 __로그__ 및 __azureml__ 항목을 확장 합니다. __@No__t-1 @ no__t-2azure__로 시작 하는 링크를 선택 합니다.
+1. __로그__를 선택한 다음 __로그__ 및 __azureml__ 항목을 확장 합니다. __@No__t_1 \_azure__으로 시작 하는 링크를 선택 합니다.
+
+    ![포털의 # # #_azure 항목](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
 
 기록 된 정보에는 다음 JSON과 유사한 텍스트가 포함 됩니다.
 
@@ -80,7 +82,7 @@ run.properties['azureml.git.commit']
 
 ### <a name="cli"></a>CLI
 
-@No__t-0 CLI 명령은 실행에서 속성을 검색 하는 데 사용할 수 있습니다. 예를 들어 다음 명령은 `train-on-amlcompute` 이라는 실험에서 마지막으로 실행 된 속성을 반환 합니다.
+@No__t_0 CLI 명령은 실행에서 속성을 검색 하는 데 사용할 수 있습니다. 예를 들어 다음 명령은 `train-on-amlcompute` 이라는 실험에서 마지막으로 실행 된 속성을 반환 합니다.
 
 ```azurecli-interactive
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'

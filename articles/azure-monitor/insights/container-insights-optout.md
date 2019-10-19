@@ -1,24 +1,18 @@
 ---
 title: Azure Kubernetes Service 클러스터 모니터링을 중지하는 방법 | Microsoft Docs
 description: 이 문서에서는 Azure Monitor를 사용하여 컨테이너에 대한 Azure AKS 클러스터의 모니터링을 중단하는 방법을 설명합니다.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/19/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 376259686d1668d62cc79f340e2161ef11be5e12
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.date: 08/19/2019
+ms.openlocfilehash: 508bfa9cf7bff0084e7f0644ee5e053e683cb9cf
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624363"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554105"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS(Azure Kubernetes Service) 모니터링을 중단하는 방법
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 75b2c08ab02ef41ee4d196d8f81c633aeb46a14e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 7d46773ce45cb3ef8b70d3c6074b9f1c771e9e24
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390062"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554632"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -76,8 +76,8 @@ Windows Server 2008 SP2 이상 (64 비트/32 비트) |  마이그레이션에만
 Windows 10, Windows 8.1, Windows 8 | 지원됩니다.
 Windows 7 SP1 64 비트 | [업데이트 롤업 36](https://support.microsoft.com/help/4503156) (모바일 서비스 버전 9.22)부터 지원 됩니다. </br></br> 모바일 서비스 에이전트의 버전 9.30 (2019 년 11 월 출시 예정)에서 Windows 7 SP1 컴퓨터에 설치 된 [SSU (서비스 스택 업데이트](https://support.microsoft.com/help/4490628) ) 및 [s h a-2 업데이트가](https://support.microsoft.com/help/4474419) 설치 되어 있어야 합니다.  S h a-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://aka.ms/SHA-2KB)에 대해 자세히 알아보세요.
 Linux | 64 비트 시스템만 지원 됩니다. 32 비트 시스템은 지원 되지 않습니다.<br/><br/>모든 Linux 서버에는 [LIS (linux Integration Services) 구성 요소가](https://www.microsoft.com/download/details.aspx?id=55106) 설치 되어 있어야 합니다. 테스트 장애 조치/장애 조치 (failover) 후 Azure에서 서버를 부팅 해야 합니다. LIS 구성 요소가 없는 경우 Azure에서 부팅 하도록 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 [구성 요소](https://www.microsoft.com/download/details.aspx?id=55106) 를 설치 해야 합니다. <br/><br/> Site Recovery는 Azure에서 Linux 서버를 실행하도록 장애 조치(failover)를 오케스트레이션합니다. 그러나 Linux 공급 업체 지원 수명 종료에 해당하지 않는 배포 버전만으로 제한될 수 있습니다.<br/><br/> Linux 배포에서는 배포의 부 버전 릴리스/업데이트에 포함된 스톡 커널만 지원됩니다.<br/><br/> 주요 Linux 배포 버전에서 보호된 시스템을 업그레이드하는 것은 지원되지 않습니다. 업그레이드하려면 복제를 사용하지 않도록 설정하고, 운영 체제를 업그레이드한 다음, 복제를 다시 사용하도록 설정합니다.<br/><br/> Azure에서 Linux 및 오픈 소스 기술에 대 한 지원에 대해 [자세히 알아보세요](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) .
-Linux Red Hat Enterprise | 5.2 5.11 @ no__t-0<br/> 6.1 ~ 6.10 @ no__t-0<br/> 7.0 ~ 7.6<br/> <br/> Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10을 실행 하는 서버는 미리 설치 된 [LIS (Linux Integration Services) 구성 요소가](https://www.microsoft.com/download/details.aspx?id=55106) 없습니다. Azure에서 부팅 하도록 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 [구성 요소](https://www.microsoft.com/download/details.aspx?id=55106) 를 설치 해야 합니다.
-Linux: CentOS | 5.2 5.11 @ no__t-0<br/> 6.1 ~ 6.10 @ no__t-0<br/> 7.0 ~ 7.6<br/> <br/> CentOS 5.2-5.11 & 6.1-6.10을 실행 하는 서버에는 미리 설치 된 [LIS (Linux Integration Services) 구성 요소가](https://www.microsoft.com/download/details.aspx?id=55106) 없습니다. Azure에서 부팅 하도록 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 [구성 요소](https://www.microsoft.com/download/details.aspx?id=55106) 를 설치 해야 합니다.
+Linux Red Hat Enterprise | 5.2 ~ 5.11 </b><br/> 6.1 ~ 6.10 </b><br/> 7.0 ~ 7.7<br/> <br/> Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10을 실행 하는 서버는 미리 설치 된 [LIS (Linux Integration Services) 구성 요소가](https://www.microsoft.com/download/details.aspx?id=55106) 없습니다. Azure에서 부팅 하도록 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 [구성 요소](https://www.microsoft.com/download/details.aspx?id=55106) 를 설치 해야 합니다.
+Linux: CentOS | 5.2 ~ 5.11 </b><br/> 6.1 ~ 6.10 </b><br/> 7.0 ~ 7.7<br/> <br/> CentOS 5.2-5.11 & 6.1-6.10을 실행 하는 서버에는 미리 설치 된 [LIS (Linux Integration Services) 구성 요소가](https://www.microsoft.com/download/details.aspx?id=55106) 없습니다. Azure에서 부팅 하도록 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 [구성 요소](https://www.microsoft.com/download/details.aspx?id=55106) 를 설치 해야 합니다.
 Ubuntu | Ubuntu 14.04 LTS 서버 [(지원 되는 커널 버전 검토)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 서버 [(지원 되는 커널 버전 검토)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8 [(지원 되는 커널 버전 검토)](#debian-kernel-versions)
 SUSE, Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(지원 되는 커널 버전 검토)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3 또는 SUSE Linux Enterprise Server 11 SP4<br/> SUSE Linux Enterprise Server 11 SP3에서 s p 4로 복제 된 컴퓨터를 업그레이드할 수 없습니다. 업그레이드 하려면 복제를 사용 하지 않도록 설정 하 고 업그레이드 후 다시 사용 하도록 설정 합니다.
@@ -132,7 +132,7 @@ HP CCISS 스토리지 컨트롤러가 있는 물리적 서버 | 지원되지 않
 디렉터리 | 버전 9.20 이전 버전의 모바일 서비스를 실행 하는 경우 ( [업데이트 롤업 31](https://support.microsoft.com/help/4478871/)에서 출시) 다음 제한이 적용 됩니다.<br/><br/> -이러한 디렉터리 (별도의 파티션/파일 시스템으로 설정 된 경우)는 원본 서버의 동일한 OS 디스크에 있어야 합니다./(root),/boot,/usr,/usr/local,/var,/etc</br> -/Boot 디렉터리는 디스크 파티션에 있어야 하며 LVM 볼륨이 아니어야 합니다.<br/><br/> 버전 9.20 부터는 이러한 제한이 적용 되지 않습니다. 
 루트 디렉터리 | -부팅 디스크는 GPT 파티션 형식 되어서는 안됩니다. 이것은 Azure 아키텍처의 제한 사항입니다. GPT 디스크는 데이터 디스크로 지원 됩니다.<br/><br/> VM의 여러 부팅 디스크가 지원 되지 않음<br/><br/> -두 개 이상의 디스크에서 LVM 볼륨의/boot 지원 되지 않습니다.<br/> -부팅 디스크가 없는 컴퓨터는 복제할 수 없습니다.
 사용 가능한 공간 요구 사항| /root 파티션: 2GB <br/><br/> 설치 폴더: 250MB
-XFSv5 | 메타 데이터 체크섬과 같은 XFS 파일 시스템의 XFSv5 기능이 지원 됩니다 (모바일 서비스 버전 9.10 이상).<br/> xfs_info 유틸리티를 사용하여 파티션에 대한 XFS 수퍼 블록을 확인합니다. @No__t-0을 1로 설정 하면 XFSv5 기능이 사용 됩니다.
+XFSv5 | 메타 데이터 체크섬과 같은 XFS 파일 시스템의 XFSv5 기능이 지원 됩니다 (모바일 서비스 버전 9.10 이상).<br/> xfs_info 유틸리티를 사용하여 파티션에 대한 XFS 수퍼 블록을 확인합니다. @No__t_0 1로 설정 된 경우 XFSv5 기능이 사용 됩니다.
 BTRFS | BTRFS는 [업데이트 롤업 34](https://support.microsoft.com/help/4490016) (모바일 서비스 버전 9.22)부터 지원 됩니다. 다음의 경우 BTRFS가 지원 되지 않습니다.<br/><br/> -보호를 사용 하도록 설정한 후 BTRFS 파일 시스템 하위 볼륨이 변경 됩니다.</br> -BTRFS 파일 시스템이 여러 디스크에 분산 되어 있습니다.</br> -BTRFS 파일 시스템은 RAID를 지원 합니다.
 
 ## <a name="vmdisk-management"></a>VM/디스크 관리

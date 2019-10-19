@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 8ba50e5b55e31c6542e81879068bf231918ce1b0
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 1ec241e261a7710b7a5b92d88f147ce8d148602b
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244890"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554033"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Azure Monitor를 사용 하 여 Azure 리소스 모니터링
 Azure 리소스를 사용 하는 중요 한 응용 프로그램 및 비즈니스 프로세스를 사용 하는 경우 해당 리소스의 가용성, 성능 및 작업을 모니터링 하려고 합니다. 이 문서에서는 Azure 리소스에서 생성 되는 모니터링 데이터와 Azure Monitor 기능을 사용 하 여이 데이터를 분석 하 고 경고 하는 방법에 대해 설명 합니다.
@@ -30,7 +30,7 @@ Azure 리소스를 만드는 즉시 Azure Monitor 사용 하도록 설정 되 �
 
 
 ## <a name="costs-associated-with-monitoring"></a>모니터링과 관련 된 비용
-기본적으로 수집 되는 모니터링 데이터의 분석 비용은 없습니다. 여기에는 다음이 포함됩니다.
+기본적으로 수집 되는 모니터링 데이터의 분석 비용은 없습니다. 이 제품에는 다음이 포함됩니다.
 
 - 메트릭 탐색기를 사용 하 여 플랫폼 메트릭을 수집 하 고 분석 합니다.
 - 활동 로그를 수집 하 고 Azure Portal 분석 합니다.
@@ -92,7 +92,7 @@ Azure의 리소스는 다음 다이어그램에 표시 된 [로그](../platform/
 - 메트릭 탐색기 사용에 대 한 기본 사항은 [Azure 메트릭 탐색기 시작](../platform/metrics-getting-started.md) 을 참조 하세요.
 - 여러 메트릭 사용, 필터 및 분할 적용과 같은 메트릭 탐색기의 고급 기능에 대 한 [Azure 메트릭 탐색기의 고급 기능](../platform/metrics-charts.md) 을 참조 하세요.
 
-![metrics](media/monitor-azure-resource/metrics.png)
+![메트릭](media/monitor-azure-resource/metrics.png)
 
 
 ## <a name="analyzing-logs"></a>로그 분석
@@ -119,7 +119,7 @@ Azure Monitor 로그는 강력한 쿼리 도구를 사용 하 여 분석을 위�
 ![로그](media/monitor-azure-resource/logs.png)
 
 
-## <a name="alerts"></a>,
+## <a name="alerts"></a>경고
 [경고](../platform/alerts-overview.md) 는 모니터링 데이터에서 중요 한 조건이 발견 될 때 사용자에 게 사전에 알리고 잠재적으로 조치를 취합니다. 경고의 대상, 경고를 만들지 여부에 대 한 조건 및 응답으로 수행할 작업을 정의 하는 경고 규칙을 만듭니다.
 
 다양 한 종류의 모니터링 데이터가 다양 한 종류의 경고 규칙에 사용 됩니다.
@@ -140,7 +140,7 @@ Azure Monitor 로그는 강력한 쿼리 도구를 사용 하 여 분석을 위�
 
 - 사용 가능한 정보 또는 솔루션이 있는지 확인 하려면 각 서비스에 대 한 모니터링 설명서를 참조 하세요.
 
-![자세한 정보](media/monitor-azure-resource/insights.png)
+![인사이트](media/monitor-azure-resource/insights.png)
 
 ## <a name="next-steps"></a>다음 단계
 

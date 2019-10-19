@@ -1,19 +1,18 @@
 ---
 title: Azure Monitor에 대 한 일반적인 경고 스키마 정의
 description: Azure Monitor에 대 한 일반적인 경고 스키마 정의 이해
-author: anantr
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 03/14/2019
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 9e2c3849cca392539b96f47d8d7c32815851cf78
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 03/14/2019
+ms.openlocfilehash: d1d822a5e7dadffd6be841e51ac407995adba2ea
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702877"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552563"
 ---
 # <a name="common-alert-schema-definitions"></a>일반 경고 스키마 정의
 
@@ -72,14 +71,14 @@ ms.locfileid: "71702877"
 }
 ```
 
-## <a name="essentials"></a>필수
+## <a name="essentials"></a>기본 정보
 
 | 필드 | 설명|
 |:---|:---|
 | alertId | 경고 인스턴스를 고유 하 게 식별 하는 GUID입니다. |
-| alertRule | 경고 인스턴스를 생성 한 경고 규칙의 이름입니다. |
-| severity | 경고의 심각도입니다. 가능한 값: Sev0, Sev1, Sev2, Sev3 또는 Sev4입니다. |
-| signalType | 경고 규칙이 정의 된 신호를 식별 합니다. 가능한 값: 메트릭, 로그 또는 활동 로그입니다. |
+| Add-alertrule | 경고 인스턴스를 생성 한 경고 규칙의 이름입니다. |
+| 심각도 | 경고의 심각도입니다. 가능한 값은 Sev0, Sev1, Sev2, Sev3 또는 Sev4입니다. |
+| signalType | 경고 규칙이 정의 된 신호를 식별 합니다. 가능한 값은 메트릭, 로그 또는 활동 로그입니다. |
 | monitorCondition | 경고가 발생 하면 경고의 모니터 조건이 실행 됨으로 설정 **됩니다.** 경고를 발생 시킨 기본 조건이 취소 되 면 모니터 조건이 **해결 됨**으로 설정 됩니다.   |
 | monitoringService | 경고를 생성 한 모니터링 서비스 또는 솔루션입니다. 경고 컨텍스트에 대 한 필드는 모니터링 서비스에 의해 결정 됩니다. |
 | alertTargetIds | 경고의 대상에 영향을 주는 Azure Resource Manager Id의 목록입니다. Log Analytics 작업 영역 또는 Application Insights 인스턴스에 정의 된 로그 경고의 경우 해당 작업 영역 또는 응용 프로그램입니다. |
@@ -88,7 +87,7 @@ ms.locfileid: "71702877"
 | resolvedDateTime | 경고 인스턴스의 모니터 조건이 UTC로 **확인** 되도록 설정 된 날짜 및 시간입니다. 현재 메트릭 경고에만 적용 됩니다.|
 | description | 경고 규칙에 정의 된 설명입니다. |
 |essentialsVersion| Essentials 섹션의 버전 번호입니다.|
-|alertContextVersion | `alertContext` 섹션의 버전 번호입니다. |
+|alertContextVersion | @No__t_0 섹션의 버전 번호입니다. |
 
 **샘플 값**
 ```json
@@ -152,7 +151,7 @@ ms.locfileid: "71702877"
 ### <a name="log-alerts"></a>로그 경고
 
 > [!NOTE]
-> 사용자 지정 JSON 페이로드가 정의 된 로그 경고의 경우 공통 스키마를 사용 하도록 설정 하면 페이로드 스키마가 다음과 같이 설명 된 것으로 되돌아갑니다. 공통 스키마를 사용 하는 경고는 경고 당 256 KB로 제한 됩니다. 검색 결과는 경고 크기가이 임계값을 초과 하는 경우 로그 경고 페이로드에 포함 되지 않습니다. 플래그 `IncludedSearchResults`를 확인 하 여이를 확인할 수 있습니다. 검색 결과가 포함 되지 않은 경우 [LOG ANALYTICS API](https://docs.microsoft.com/rest/api/loganalytics/query/get)와 함께 검색 쿼리를 사용 해야 합니다. 
+> 사용자 지정 JSON 페이로드가 정의 된 로그 경고의 경우 공통 스키마를 사용 하도록 설정 하면 페이로드 스키마가 다음과 같이 설명 된 것으로 되돌아갑니다. 공통 스키마를 사용 하는 경고는 경고 당 256 KB로 제한 됩니다. 검색 결과는 경고 크기가이 임계값을 초과 하는 경우 로그 경고 페이로드에 포함 되지 않습니다. @No__t_0 플래그를 선택 하 여이를 확인할 수 있습니다. 검색 결과가 포함 되지 않은 경우 [LOG ANALYTICS API](https://docs.microsoft.com/rest/api/loganalytics/query/get)와 함께 검색 쿼리를 사용 해야 합니다. 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 

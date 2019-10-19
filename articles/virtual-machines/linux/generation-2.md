@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/16/2019
 ms.author: lahugh
-ms.openlocfilehash: 6f787760c1224172982e0818d8592ce0d36b5e2c
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
-ms.translationtype: HT
+ms.openlocfilehash: 3d4585e032d92049a4f087cd510bdef963025250
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527298"
+ms.locfileid: "72550141"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Azure에서 2 세대 Vm (미리 보기)에 대 한 지원
 
@@ -52,8 +52,8 @@ ms.locfileid: "72527298"
 * [NVv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
 
 
->[!NOTE]
->Mv2 시리즈는 2 세대 VM 이미지와 독점적으로 작동 하므로 Mv2 시리즈에 대 한 2 세대 VM 이미지를 사용 하는 것이 일반적으로 사용 가능 합니다. 1 세대 VM 이미지가 Mv2 시리즈에서 작동 하지 않습니다. 
+> [!NOTE]
+> Mv2 시리즈는 2 세대 VM 이미지와 독점적으로 작동 하므로 Mv2 시리즈 Vm에 대 한 2 세대 VM 이미지 사용은 일반적으로 사용할 수 있습니다. 1 세대 VM 이미지는 Mv2 시리즈 Vm에서 지원 되지 않습니다. 
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Azure Marketplace의 2 세대 VM 이미지
 

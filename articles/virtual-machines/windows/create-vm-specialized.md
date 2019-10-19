@@ -2,7 +2,6 @@
 title: Azure의 특수한 VHD에서 Windows VM 만들기 | Microsoft Docs
 description: Resource Manager 배포 모델을 사용하여 특수한 관리 디스크를 OS 디스크로 연결하여 새 Windows VM을 만듭니다.
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
 manager: gwallace
 editor: ''
@@ -12,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 6adeae69a4ef9e6f2d77588f8071498fd25beb3e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: be773779b25a32a5904012ae31950b18c33341dc
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390600"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553422"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell을 사용하여 특수 디스크에서 Windows VM 만들기
 
@@ -63,100 +62,15 @@ VHD를 그대로 사용하여 새 VM을 만듭니다.
   * VM이 DHCP를 통해 IP 주소 및 DNS 설정을 가져오도록 구성되었는지 확인합니다. 이렇게 하면 서버를 시작할 때 가상 네트워크 내의 IP 주소를 가져옵니다. 
 
 
-### <a name="get-the-storage-account"></a>스토리지 계정 가져오기
-업로드한 VHD를 저장할 Azure의 스토리지 계정이 필요합니다. 기존 스토리지 계정을 사용하거나 새 계정을 만들 수 있습니다. 
+### <a name="upload-the-vhd"></a>VHD 업로드
 
-사용 가능한 스토리지 계정을 표시합니다.
-
-```powershell
-Get-AzStorageAccount
-```
-
-기존 스토리지 계정을 사용하려면 [VHD 업로드](#upload-the-vhd-to-your-storage-account) 섹션을 진행합니다.
-
-스토리지 계정을 만듭니다.
-
-1. 스토리지 계정을 만들 리소스 그룹의 이름을 알아야 합니다. 구독에 있는 모든 리소스 그룹 목록을 보려면 Get-AzResourceGroup을 사용합니다.
-   
-    ```powershell
-    Get-AzResourceGroup
-    ```
-
-    *미국 서부* 지역에 *myResourceGroup*이라는 이름의 리소스 그룹을 만듭니다.
-
-    ```powershell
-    New-AzResourceGroup `
-       -Name myResourceGroup `
-       -Location "West US"
-    ```
-
-2. [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 새 리소스 그룹에 *mystorageaccount*라는 이름의 스토리지 계정을 만듭니다.
-   
-    ```powershell
-    New-AzStorageAccount `
-       -ResourceGroupName myResourceGroup `
-       -Name mystorageaccount `
-       -Location "West US" `
-       -SkuName "Standard_LRS" `
-       -Kind "Storage"
-    ```
-
-### <a name="upload-the-vhd-to-your-storage-account"></a>스토리지 계정에 VHD 업로드 
-[Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet을 사용하여 스토리지 계정의 컨테이너에 VHD를 업로드합니다. 이 예제에서는 “C:\Users\Public\Documents\Virtual hard disks\"의 *myVHD.vhd* 파일을 *myResourceGroup* 리소스 그룹의 *mystorageaccount*라는 저장소 계정에 업로드합니다. 파일은 *mycontainer*라는 컨테이너에 저장되고 새 파일 이름은 *myUploadedVHD.vhd*가 됩니다.
-
-```powershell
-$resourceGroupName = "myResourceGroup"
-$urlOfUploadedVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzVhd -ResourceGroupName $resourceGroupName `
-   -Destination $urlOfUploadedVhd `
-   -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
-```
-
-
-명령이 성공하면 다음과 유사한 응답을 얻게 됩니다.
-
-```powershell
-MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
-MD5 hash calculation is completed.
-Elapsed time for the operation: 00:03:35
-Creating new page blob of size 53687091712...
-Elapsed time for upload: 01:12:49
-
-LocalFilePath           DestinationUri
--------------           --------------
-C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
-```
-
-이 명령은 네트워크 연결 및 VHD 파일의 크기에 따라 완료하는 데 다소 시간이 걸립니다.
-
-### <a name="create-a-managed-disk-from-the-vhd"></a>VHD에서 관리 디스크를 만들려면
-
-[New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk)를 사용하여 사용자의 스토리지 계정에 있는 특수한 VHD로 관리 디스크를 만듭니다. 이 예제에서는 디스크 이름에 *myOSDisk1*을 사용하고, 디스크를 *Standard_LRS* 스토리지에 배치하고, *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* 을 원본 VHD의 URI로 사용합니다.
-
-새 VM에 대한 새 리소스 그룹을 만듭니다.
-
-```powershell
-$destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzResourceGroup -Location $location `
-   -Name $destinationResourceGroup
-```
-
-업로드된 VHD에서 새 OS 디스크를 만듭니다. 
-
-```powershell
-$sourceUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
-$osDiskName = 'myOsDisk'
-$osDisk = New-AzDisk -DiskName $osDiskName -Disk `
-    (New-AzDiskConfig -AccountType Standard_LRS  `
-    -Location $location -CreateOption Import `
-    -SourceUri $sourceUri) `
-    -ResourceGroupName $destinationResourceGroup
-```
+이제 VHD를 관리 디스크로 직접 업로드할 수 있습니다. 지침은 [Azure PowerShell를 사용 하 여 Azure에 VHD 업로드](disks-upload-vhd-to-managed-disk-powershell.md)를 참조 하세요.
 
 ## <a name="option-3-copy-an-existing-azure-vm"></a>옵션 3: 기존 Azure VM 복사
 
 VM의 스냅샷을 만든 다음, 이 스냅샷을 사용하여 새 관리 디스크 및 새 VM을 만드는 방식으로 관리 디스크를 사용하는 VM의 복사본을 만들 수 있습니다.
 
+기존 VM을 다른 지역에 복사 하려는 경우 azcopy를 사용 하 여 [다른 지역에 디스크의 복사본](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk)을 만들어야 할 수 있습니다. 
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>OS 디스크의 스냅샷 만들기
 
@@ -204,7 +118,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-이 스냅숏을 사용 하 여 높은 성능을 필요로 하는 VM을 만들려면 `-AccountType Premium_LRS` 매개 변수를 AzSnapshotConfig 명령에 추가 합니다. 이 매개 변수는 스냅샷을 만들어서 프리미엄 관리 디스크로 저장되도록 합니다. 프리미엄 관리 디스크는 표준보다 비용이 높으므로 이 매개 변수를 사용하기 전에 프리미엄이 필요한지 확인하세요.
+이 스냅숏을 사용 하 여 높은 성능을 필요로 하는 VM을 만들려면 AzSnapshotConfig 명령에 `-AccountType Premium_LRS` 매개 변수를 추가 합니다. 이 매개 변수는 스냅샷을 만들어서 프리미엄 관리 디스크로 저장되도록 합니다. 프리미엄 관리 디스크는 표준보다 비용이 높으므로 이 매개 변수를 사용하기 전에 프리미엄이 필요한지 확인하세요.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>스냅샷에서 새 디스크 만들기
 

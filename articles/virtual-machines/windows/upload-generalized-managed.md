@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: be3ccfd0c562763d0968398ddb042dc5f07dbdcf
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6382a39e67805eb9bddb356a7b76205a82f3f7c2
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101569"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553456"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>일반화된 VHD를 업로드하고 사용하여 Azure에서 새 VM 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "70101569"
 
 샘플 스크립트는 [Azure에 VHD를 업로드하고 새 VM을 만드는 샘플 스크립트](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md)를 참조하세요.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 - Azure에 VHD를 업로드하기 전에 [Azure에 업로드할 Windows VHD 또는 VHDX 준비](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 수행해야 합니다.
 - [Managed Disks](managed-disks-overview.md)로 마이그레이션을 시작하기 전에 [Managed Disks로 마이그레이션하기 위한 계획](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks)을 검토하세요.
@@ -46,8 +46,8 @@ Sysprep은 여러 정보 중에서 모든 개인 계정 정보를 제거하고 �
 > 
 > 
 
-1. Windows 가상 머신에 로그인
-2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 %windir%\system32\sysprep으로 변경한 다음, `sysprep.exe`를 실행합니다.
+1. Windows 가상 컴퓨터에 로그인
+2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 %windir%\system32\sysprep로 변경한 후 `sysprep.exe`를 실행합니다.
 3. **시스템 준비 도구** 대화 상자에서 **시스템 OOBE(첫 실행 경험) 입력**을 선택하고 **일반화** 확인란을 선택했는지 확인합니다.
 4. **종료 옵션**에서 **종료**를 선택합니다.
 5. **확인**을 선택합니다.
@@ -56,67 +56,14 @@ Sysprep은 여러 정보 중에서 모든 개인 계정 정보를 제거하고 �
 6. Sysprep이 완료되면 가상 머신을 종료합니다. VM을 다시 시작하지 않습니다.
 
 
-## <a name="get-a-storage-account"></a>스토리지 계정 가져오기
-
-업로드한 VM 이미지를 저장할 Azure의 스토리지 계정이 필요합니다. 기존 스토리지 계정을 사용하거나 새 계정을 만들 수 있습니다. 
-
-VHD를 사용하여 VM의 관리 디스크를 만드는 경우 스토리지 계정 위치가 VM을 만들 위치와 동일해야 합니다.
-
-사용 가능한 스토리지 계정을 표시하려면 다음을 입력합니다.
-
-```azurepowershell
-Get-AzStorageAccount | Format-Table
-```
-
 ## <a name="upload-the-vhd-to-your-storage-account"></a>스토리지 계정에 VHD 업로드
 
-[Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet을 사용하여 스토리지 계정의 컨테이너에 VHD를 업로드합니다. 이 예제에서는 *C:\Users\Public\Documents\Virtual hard disks\\* 의 *myVHD.vhd* 파일을 *myResourceGroup* 리소스 그룹의 *mystorageaccount*라는 스토리지 계정에 업로드합니다. 파일은 *mycontainer*라는 컨테이너에 배치되고 새 파일 이름은 *myUploadedVHD.vhd*가 됩니다.
-
-```powershell
-$rgName = "myResourceGroup"
-$urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
-    -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
-```
-
-
-성공하면 다음과 유사한 응답을 얻게 됩니다.
-
-```powershell
-MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
-MD5 hash calculation is completed.
-Elapsed time for the operation: 00:03:35
-Creating new page blob of size 53687091712...
-Elapsed time for upload: 01:12:49
-
-LocalFilePath           DestinationUri
--------------           --------------
-C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
-```
-
-이 명령은 네트워크 연결 및 VHD 파일의 크기에 따라 완료하는 데 다소 시간이 걸립니다.
-
-### <a name="other-options-for-uploading-a-vhd"></a>VHD를 업로드하기 위한 기타 옵션
- 
-또한 다음 방법 중 하나를 사용하여 스토리지 계정에 VHD를 업로드할 수 있습니다.
-
-- [AZCopy](https://aka.ms/downloadazcopy)
-- [Azure Storage Blob 복사 API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
-- [Azure Storage Explorer Blob 업로드](https://azurestorageexplorer.codeplex.com/)
-- [스토리지 Import/Export 서비스 REST API 참조](https://msdn.microsoft.com/library/dn529096.aspx)
--   예상 업로드 시간이 7일보다 긴 경우 Import/Export 서비스를 사용하는 것이 좋습니다. [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html)를 사용하여 데이터 크기 및 전송 단위로 시간을 예측할 수 있습니다. 
-    Import/Export를 사용하여 표준 스토리지 계정을 복사할 수 있습니다. AzCopy와 같은 도구를 사용하여 표준 스토리지에서 Premium Storage 계정으로 복사해야 합니다.
-
-> [!IMPORTANT]
-> AzCopy를 사용하여 VHD를 Azure에 업로드하는 경우, 업로드 스크립트를 실행하기 전에 [ **/BlobType:page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs#upload-a-file)를 설정했는지 확인합니다. 대상이 Blob인데 이 옵션을 지정하지 않으면 기본적으로 AzCopy는 블록 Blob를 만듭니다.
-> 
-> 
-
+이제 VHD를 관리 디스크로 직접 업로드할 수 있습니다. 지침은 [Azure PowerShell를 사용 하 여 Azure에 VHD 업로드](disks-upload-vhd-to-managed-disk-powershell.md)를 참조 하세요.
 
 
 ## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>업로드된 VHD에서 관리되는 이미지 만들기 
 
-일반화된 OS VHD에서 관리되는 이미지를 만듭니다. 다음 값을 사용자 고유의 정보로 바꿉니다.
+일반화 된 OS 관리 디스크에서 관리 되는 이미지를 만듭니다. 다음 값을 사용자 고유의 정보로 바꿉니다.
 
 
 먼저 일부 매개 변수를 설정합니다.

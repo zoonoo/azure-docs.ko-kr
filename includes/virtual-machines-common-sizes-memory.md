@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/08/2019
-ms.author: azcspmt;jonbeck;cynthn;joelpell
+ms.date: 10/17/2019
+ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 55f82344956af7d6096fce7dbc3d7023589daa69
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 82d12d3f88199a11ec3c53da50b755d90be373d3
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428025"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72560475"
 ---
 메모리 최적화 VM 크기는 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합한 높은 메모리 대 CPU 비율을 제공합니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 
@@ -21,7 +21,7 @@ ms.locfileid: "72428025"
 
 * Eav3 시리즈 및 Easv3 시리즈의 미리 보기 크기는 최대 256MB L3 캐시가 포함 된 다중 스레드 구성에서 AMD의 2.35 Ghz EPYC<sup>TM</sup> 7452 프로세서를 활용 하 여 대부분의 메모리 액세스에 최적화 된 워크 로드를 실행 하기 위한 옵션을 늘립니다.  Eav3 시리즈와 Easv3 시리즈는 Ev3 & Esv3 시리즈와 동일한 메모리 및 디스크 구성을 포함 합니다.
 
-* Mv2 시리즈는 클라우드에서 VM의 가장 높은 vCPU 수 (최대 208 Vcpu) 및 가장 큰 메모리 (최대 5.7 TiB)를 제공 합니다. 높은 vCPU 개수 및 많은 양의 메모리를 활용하는 매우 큰 데이터베이스 또는 다른 애플리케이션에 이상적입니다.
+* Mv2 시리즈는 클라우드에서 VM의 가장 높은 vCPU 수 (최대 416 Vcpu) 및 가장 큰 메모리 (최대 8.19 TiB)를 제공 합니다. 높은 vCPU 개수 및 많은 양의 메모리를 활용하는 매우 큰 데이터베이스 또는 다른 애플리케이션에 이상적입니다.
 
 * M 시리즈는 높은 vCPU 수 (최대 128 Vcpu) 및 많은 양의 메모리 (최대 3.8 TiB)를 제공 합니다. 매우 큰 데이터베이스 또는 높은 vCPU 수 및 많은 양의 메모리를 활용 하는 다른 응용 프로그램에도 적합 합니다.
 
@@ -50,7 +50,7 @@ ESv3 시리즈 인스턴스는 Intel® Xeon® 8171M 2.1 g h z (Skylake) 또는 I
 | Standard_E16s_v3&nbsp;<sup>2</sup> | 16     | 128         | 256            | 32             | 32000/256 (400)                                                    | 25600/384                              | 8 / 8000                                       |
 | Standard_E20s_v3                   | 20     | 160         | 320            | 32             | 4만/320 (400)                                                    | 32000/480                              | 8 / 10000                                       |
 | Standard_E32s_v3&nbsp;<sup>2</sup> | 32     | 256         | 512            | 32             | 64000/512 (800)                                                    | 51200/768                              | 8 / 16000                             |
-| Standard_E48s_v3 @ no__t-0<sup>2</sup> | 48     | 384         | 768            | 32             | 96000/768 (1200)                                                   | 76800/1152                             | 8 / 24000                             |
+| Standard_E48s_v3 &nbsp;<sup>2</sup> | 48     | 384         | 768            | 32             | 96000/768 (1200)                                                   | 76800/1152                             | 8 / 24000                             |
 | Standard_E64s_v3&nbsp;<sup>2</sup> | 64     | 432         | 864            | 32             | 128000/1024 (1600)                                                   | 8만/1200                             | 8 / 30000                             |
 | Standard_E64is_v3&nbsp;<sup>3</sup> | 64     | 432         | 864            | 32             | 128000/1024 (1600)                                                   | 8만/1200                             | 8 / 30000                             |
 
@@ -69,7 +69,7 @@ Premium Storage 캐싱: 지원 됨
 
 Easv3 시리즈 크기는 3.35 GHz의 승격 된 Fmax를 실현 하 고 premium storage를 사용할 수 있는 2.35 Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 합니다. Easv3 시리즈 크기는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다.
 
-[미리 보기에 등록 하려면 여기를 클릭](http://aka.ms/azureamdpreview)하세요.
+[미리 보기에 가입](http://aka.ms/azureamdpreview)하세요.
 
 | 크기 | vCPU | 메모리: GiB | 임시 저장소 (SSD): GiB |
 |---|---|---|---|
@@ -120,7 +120,7 @@ Premium Storage 캐싱: 지원 되지 않음
 
 Eav3 시리즈 크기는 3.35 GHz의 승격 된 Fmax를 실현 하 고 premium storage를 사용할 수 있는 2.35 Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 합니다. Eav3 시리즈 크기는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다. 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. Premium storage 디스크를 사용 하려면 Easv3 시리즈 크기를 사용 합니다. Easv3 크기에 대 한 가격 책정 및 요금 청구 기준은 Eav3 시리즈와 동일 합니다.
 
-[미리 보기에 등록 하려면 여기를 클릭](http://aka.ms/azureamdpreview)하세요.
+[미리 보기에 가입](http://aka.ms/azureamdpreview)하세요.
 
 | 크기             | vCPU | 메모리: GiB | 임시 저장소 (SSD): GiB |
 |------------------|------|-------------|-------------------------|
@@ -134,63 +134,28 @@ Eav3 시리즈 크기는 3.35 GHz의 승격 된 Fmax를 실현 하 고 premium s
 
 ## <a name="mv2-series"></a>Mv2 시리즈
 
+ACU: 188-280<sup>1</sup>
+
 Premium Storage: 지원됨
 
 Premium Storage 캐싱: 지원 됨
 
 쓰기 가속기: [지원 됨](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-Mv2 시리즈는 높은 처리량, 짧은 대기 시간, 하이퍼 스레드 Intel® Xeon® 플래티넘 8180M 2.5 g h z (Skylake) 프로세서에서 실행 되는 로컬 NVMe 저장소를 모두 2.5 GHz의 코어 기본 주파수와 최대 터보 빈도로 3.8 GHz로 제공 합니다. 모든 Mv2 시리즈 가상 머신 크기는 standard 및 premium 영구 디스크를 모두 사용할 수 있습니다. Mv2 시리즈 인스턴스는 메모리 내 데이터베이스 및 워크 로드를 지원 하기 위해 뛰어난 계산 성능을 제공 하는 메모리 액세스에 최적화 된 VM 크기 이며, 관계형 데이터베이스 서버, 큰 캐시 및 메모리 내에서 가장 적합 한 메모리 대 CPU 비율을 제공 합니다. analytics. 
+Mv2 시리즈는 2.5 GHz의 모든 코어 기본 주파수와 3.8 g h z의 최대 터보 주파수를 사용 하 여 하이퍼 스레드 Intel® Xeon® 플래티넘 8180M 2.5 g h z (Skylake) 프로세서에서 실행 되는 높은 처리량, 짧은 대기 시간 플랫폼을 갖추고 있습니다. 모든 Mv2 시리즈 가상 머신 크기는 standard 및 premium 영구 디스크를 모두 사용할 수 있습니다. Mv2 시리즈 인스턴스는 메모리 내 데이터베이스 및 워크 로드를 지원 하기 위해 뛰어난 계산 성능을 제공 하는 메모리 액세스에 최적화 된 VM 크기 이며, 관계형 데이터베이스 서버, 큰 캐시 및 메모리 내에서 가장 적합 한 메모리 대 CPU 비율을 제공 합니다. analytics.
 
 |크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| Standard_M208ms_v2<sup>1, 2</sup> | 208 | 5700 | 4096 | 64 | 8만/800 (7040) | 4만/1000 | 8 / 16000 |
-| Standard_M208s_v2<sup>1, 2</sup> | 208 | 2850 | 4096 | 64 | 8만/800 (7040) | 4만/1000 | 8 / 16000 |
+| Standard_M208ms_v2<sup>2</sup> | 208 | 5700 | 4096 | 64 | 8만/800 (7040) | 4만/1000 | 8 / 16000 |
+| Standard_M208s_v2<sup>2</sup> | 208 | 2850 | 4096 | 64 | 8만/800 (7040) | 4만/1000 | 8 / 16000 |
+| Standard_M416ms_v2<sup>2, 3</sup> | 416 | 11400 | 8192 | 64 | 25만/1600 (14080) | 8만/2000 | 8/32000 |
+| Standard_M416s_v2<sup>2, 3</sup> | 416 | 5700 | 8192 | 64 | 25만/1600 (14080) | 8만/2000 | 8/32000 |
 
-Mv2 시리즈 VM의 기능 Intel® 하이퍼 스레딩 기술  
+<sup>1</sup> MV2 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술
 
-<sup>1</sup> 이러한 많은 vm에는 windows server 2016, windows server 2019, SLES 12 SP4, SLES 15의 지원 되는 게스트 os 중 하나가 필요 합니다.
+<sup>2</sup> Mv2 시리즈 vm은 2 세대 전용입니다. Linux를 사용 하는 경우 이미지를 찾고 선택 하는 방법에 대 한 지침은 [Azure의 2 세대 vm에 대 한 지원](../articles/virtual-machines/linux/generation-2.md) 을 참조 하세요.
 
-<sup>2</sup> Mv2 시리즈 vm은 2 세대 전용입니다. Linux를 사용 하는 경우 SUSE Linux 이미지를 찾고 선택 하는 방법에 대해서는 다음 섹션을 참조 하세요.
-
-#### <a name="find-a-suse-image"></a>SUSE 이미지 찾기
-
-Azure Portal에서 적절 한 SUSE Linux 이미지를 선택 하려면 다음을 수행 합니다. 
-
-1. Azure Portal에서 **리소스 만들기** 를 선택 합니다. 
-1. "SUSE SAP" 검색 
-1. SLES for SAP generation 2 이미지는 종 량 제로 제공 되거나 BYOS (사용자 고유의 구독)를 제공 합니다. 검색 결과에서 원하는 이미지 범주를 확장 합니다.
-
-    * SAP 용 SUSE Linux Enterprise Server (SLES)
-    * SAP 용 SUSE Linux Enterprise Server (SLES) (BYOS)
-    
-1. Mv2 시리즈와 호환 되는 SUSE 이미지에는 이름 `GEN2:`이 접두사로 붙습니다. Mv2 시리즈 Vm에 사용할 수 있는 SUSE 이미지는 다음과 같습니다.
-
-    * GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 for SAP Applications
-    * GEN2: SAP 응용 프로그램용 SUSE Linux Enterprise Server (SLES) 15
-    * GEN2: SUSE Linux Enterprise Server (SLES) 12 SAP 응용 프로그램용 SP4 (BYOS)
-    * GEN2: SAP 응용 프로그램용 SUSE Linux Enterprise Server (SLES) 15 (BYOS)
-
-#### <a name="select-a-suse-image-via-azure-cli"></a>Azure CLI를 통해 SUSE 이미지를 선택 합니다.
-
-Mv2 시리즈 Vm에 대해 현재 사용할 수 있는 SLES for SAP 이미지 목록을 보려면 다음 [`az vm image list`](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list) 명령을 사용 합니다.
-
-```azurecli
-az vm image list --output table --publisher SUSE --sku gen2 --all
-```
-
-명령은 Mv2 시리즈 Vm에 대 한 SUSE에서 사용할 수 있는 현재 사용 가능한 2 세대 Vm을 출력 합니다. 
-
-예제 출력:
-
-```
-Offer          Publisher  Sku          Urn                                        Version
--------------  ---------  -----------  -----------------------------------------  ----------
-SLES-SAP       SUSE       gen2-12-sp4  SUSE:SLES-SAP:gen2-12-sp4:2019.05.13       2019.05.13
-SLES-SAP       SUSE       gen2-15      SUSE:SLES-SAP:gen2-15:2019.05.13           2019.05.13
-SLES-SAP-BYOS  SUSE       gen2-12-sp4  SUSE:SLES-SAP-BYOS:gen2-12-sp4:2019.05.13  2019.05.13
-SLES-SAP-BYOS  SUSE       gen2-15      SUSE:SLES-SAP-BYOS:gen2-15:2019.05.13      2019.05.13
-```
+<sup>3</sup> M416ms_v2 및 M416s_v2 크기의 경우 다음 이미지만 지원 됩니다. "GEN2: SUSE LINUX ENTERPRISE SERVER (SLES) 12 SP4 For SAP Applications"를 참조 하십시오.
 
 ## <a name="m-series"></a>M 시리즈 
 

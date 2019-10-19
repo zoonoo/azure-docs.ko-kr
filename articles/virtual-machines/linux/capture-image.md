@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 328748b9dd81834b9c69f81bc0bda60c9ad12cb0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 0767031ff6eee59de6cf447464328f66c50ef71a
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879965"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552800"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>가상 머신 또는 VHD의 이미지를 만드는 방법
 
@@ -31,8 +31,6 @@ Azure에서 사용할 VM(가상 머신)의 복사본을 여러 개 만들려면 
 백업 또는 디버깅을 위해 기존 Linux VM의 복사본을 만들거나 온-프레미스 VM에서 특수한 Linux VHD를 업로드하려면 [사용자 지정 디스크 이미지에서 Linux VM 업로드 및 만들기](upload-vhd.md)를 참조하세요.  
 
 **AZURE VM 이미지 작성기 (공개 미리 보기)** 서비스를 사용 하 여 사용자 지정 이미지를 작성 하거나, 도구를 배울 필요가 없으며, 빌드 파이프라인을 설정 하 여 이미지 구성을 제공 하기만 하면 이미지 작성기에서 이미지를 만들 수 있습니다. 자세한 내용은 [AZURE VM 이미지 작성기 시작](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview)을 참조 하세요.
-
-또한에서 패키지 를 사용 하 여 사용자 지정 구성을 만듭니다. 자세한 내용은 [Azure에서 Packer를 사용하여 Linux 가상 머신 이미지를 만드는 방법](build-image-with-packer.md)을 참조하세요.
 
 이미지를 만들려면 다음 항목이 필요합니다.
 
@@ -98,7 +96,7 @@ Azure CLI를 사용하여 VM을 일반화된 항목으로 표시하고 이미지
    
 이 명령은 VM 이미지를 설명 하는 JSON을 반환 합니다. 나중에 참조할 때 사용할 출력을 저장 합니다.
 
-## <a name="step-3-create-a-vm-from-the-captured-image"></a>3단계: 캡처한 이미지에서 VM 만들기
+## <a name="step-3-create-a-vm-from-the-captured-image"></a>3단계: 캡처한 이미지로부터 새 VM 만들기
 [az vm create](/cli/azure/vm)로 만든 이미지를 사용하여 VM을 만듭니다. 다음 예제에서는 *myImage*라는 이미지에서 *myVMDeployed*라는 VM을 만듭니다.
 
 ```azurecli

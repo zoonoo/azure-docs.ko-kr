@@ -1,20 +1,18 @@
 ---
 title: Azure Diagnostics 확장 구성 스키마 버전 기록
 description: Azure Virtual Machines, VM Scale Sets, Service Fabric 및 Cloud Services에서 성능 카운터 수집과 관련됩니다.
-services: azure-monitor
-author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: reference
-ms.date: 09/04/2019
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: e8ea8ea749243821e5382fc285e3c38f05d4c6b5
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.topic: reference
+author: rboucher
+ms.author: robb
+ms.date: 09/04/2019
+ms.openlocfilehash: fe07c93ada2e8635d0f64caf8451ccdf530f6a22
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735081"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552126"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure Diagnostics 확장 구성 스키마 버전 및 기록
 이 페이지는 Microsoft Azure SDK의 일부로 제공되는 Azure Diagnostics 확장 스키마 버전을 인덱스합니다.  
@@ -24,7 +22,7 @@ ms.locfileid: "70735081"
 > - Azure Virtual Machines
 > - Virtual Machine Scale Sets
 > - Service Fabric
-> - 클라우드 서비스
+> - Cloud Services
 > - 네트워크 보안 그룹
 >
 > 이 페이지는 이러한 서비스 중 하나를 사용하는 경우에만 해당됩니다.
@@ -33,7 +31,7 @@ Azure 진단 확장은 Application Insights 및 Log Analytics를 포함 하는 A
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Azure SDK 및 진단 버전 전달 차트  
 
-|Azure SDK 버전 | 진단 확장 버전 | Model|  
+|Azure SDK 버전 | 진단 확장 버전 | 모델|  
 |------------------|-------------------------------|------|  
 |1.x               |1.0                            |플러그 인|  
 |2.0 - 2.4         |1.0                            |플러그 인|  
@@ -113,7 +111,7 @@ Docker 지원이 추가되었습니다.
 
 
 ### <a name="diagnostics-extension-181"></a>진단 확장 1.8.1
-프라이빗 구성에서 스토리지 계정 키 대신 SAS 토큰을 지정할 수 있습니다. SAS 토큰이 제공된 경우 스토리지 계정 키가 무시됩니다.
+는 개인 구성에서 저장소 계정 키 대신 SAS 토큰을 지정할 수 있습니다. SAS 토큰을 제공 하는 경우 저장소 계정 키가 무시 됩니다.
 
 
 ```json
@@ -181,8 +179,8 @@ Azure SDK 2.4 이하와 Azure SDK 2.6 이상 버전에서 연결 문자열이 �
 
 * Azure SDK 2.4 이하 버전에서는 진단 로그를 전송하기 위한 스토리지 계정 정보를 가져오기 위해 진단 플러그인에 의해 런타임으로 연결 문자열이 사용되었습니다.
 * Azure SDK 2.6 이상 버전에서 Visual Studio는 게시하는 동안 진단 연결 문자열을 사용하여 적절한 스토리지 계정 정보로 진단 확장을 구성합니다. 연결 문자열을 통해 사용자는 Visual Studio에서 게시하는 동안 사용할 다양한 서비스 구성에 대해 서로 다른 스토리지 계정을 정의할 수 있습니다. 그러나 진단 플러그인을 더 이상 사용할 수 없으므로(Azure SDK 2.5 이후) .cscfg 파일 자체만으로 진단 확장을 활성화할 수 없습니다. Visual Studio 또는 PowerShell과 같은 도구를 통해 별도로 확장을 사용하도록 설정해야 합니다.
-* PowerShell을 사용한 진단 확장 구성 프로세스를 단순화하기 위해 Visual Studio의 패키지 출력에도 각 역할에 대한 진단 확장의 공용 구성 XML이 포함됩니다. Visual Studio에서는 진단 연결 문자열을 사용하여 공용 구성에 있는 스토리지 계정 정보를 채웁니다. 공용 구성 파일은 Extensions 폴더에 만들어지고 패턴 `PaaSDiagnostics.<RoleName>.PubConfig.xml`을 따릅니다. 모든 PowerShell 기반 배포에서 이 패턴을 사용하여 각 구성을 역할에 매핑합니다.
-* .cscfg 파일의 연결 문자열은 Azure 포털에서 진단 데이터에 액세스하는 데도 사용되므로 **모니터링** 탭에 나타날 수 있습니다. 이 연결 문자열은 포털에서 자세한 모니터링 데이터를 표시하도록 서비스를 구성하는 데 필요 합니다.
+* PowerShell을 사용한 진단 확장 구성 프로세스를 단순화하기 위해 Visual Studio의 패키지 출력에도 각 역할에 대한 진단 확장의 공용 구성 XML이 포함됩니다. Visual Studio에서는 진단 연결 문자열을 사용하여 공용 구성에 있는 스토리지 계정 정보를 채웁니다. 공용 구성 파일은 Extensions 폴더에 생성 되 고 `PaaSDiagnostics.<RoleName>.PubConfig.xml` 패턴을 따릅니다. 모든 PowerShell 기반 배포에서 이 패턴을 사용하여 각 구성을 역할에 매핑합니다.
+* .Cscfg 파일의 연결 문자열은 Azure Portal에서 진단 데이터에 액세스 하는 데도 사용 되므로 **모니터링** 탭에 나타날 수 있습니다. 연결 문자열은 포털에서 자세한 모니터링 데이터를 표시 하도록 서비스를 구성 하는 데 필요 합니다.
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Azure SDK 2.6 이상으로 프로젝트 마이그레이션
 Azure SDK 2.5에서 Azure SDK 2.6 이상으로 마이그레이션하는 경우 .wadcfgx 파일에 진단 스토리지 계정이 지정된 경우 값이 계속 유지됩니다. 서로 다른 스토리지 구성에 대해 서로 다른 스토리지 계정을 유연성 있게 사용하려면 프로젝트에 연결 문자열을 수동으로 추가해야 합니다. Azure SDK 2.4 또는 이전 버전에서 Azure SDK 2.6으로 프로젝트를 마이그레이션하는 경우 진단 연결 문자열이 유지됩니다. 그러나 이전 섹션에서 지정된 것처럼 Azure SDK 2.6에서 연결 문자열을 처리하는 방식이 변경되었음에 유의하세요.

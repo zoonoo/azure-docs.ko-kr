@@ -1,24 +1,18 @@
 ---
 title: Azure에서 서비스 맵 솔루션 사용 | Microsoft Docs
 description: 서비스 맵은 Windows 및 Linux 시스템의 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 사용자 환경에 서비스 맵을 배포하고 다양한 시나리오에서 사용하는 것에 대해 자세히 설명합니다.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/24/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 98bf38a6c293f6d339413b5395bb32d74bcb30c0
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 07/24/2019
+ms.openlocfilehash: 00bb58c88b7dc535bf76e1a96e9748a2c366b338
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905709"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554005"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure에서 서비스 맵 솔루션 사용
 
@@ -161,7 +155,7 @@ Azure Site Recovery를 사용 중이고 애플리케이션 환경에 대한 복�
 
 특정 프로세스는 컴퓨터에서 웹 서버, 애플리케이션 서버, 데이터베이스 등과 같은 특정 역할을 담당합니다. 서비스 맵은 역할 아이콘이 있는 프로세스 및 컴퓨터 상자에 주석을 달아서 한 눈에 프로세스나 서버가 맡은 역할을 식별할 수 있습니다.
 
-| 역할 아이콘 | Description |
+| 역할 아이콘 | 설명 |
 |:--|:--|
 | ![웹 서버](media/service-map/role-web-server.png) | 웹 서버 |
 | ![앱 서버](media/service-map/role-application-server.png) | 애플리케이션 서버 |
@@ -325,7 +319,7 @@ Linux:
 
 지정된 시간 범위 내에서 지정된 프로세스 및 컴퓨터에 대해 여러 레코드가 존재할 수 있으므로 쿼리는 동일한 컴퓨터 또는 프로세스에 대해 둘 이상의 레코드를 반환할 수 있습니다. 가장 최근 레코드만 포함하려면 쿼리에 "| dedup ResourceId"를 추가합니다.
 
-### <a name="connections"></a>Connections
+### <a name="connections"></a>연결
 
 연결 메트릭은 Log Analytics - VMConnection에서 새 테이블에 작성됩니다. 이 테이블은 머신에 대한 연결 관련 정보를 제공합니다(인바운드 및 아웃바운드). 또한 연결 메트릭은 해당 기간 동안 특정 메트릭을 가져올 수 있는 방법을 제공하는 API를 사용하여 노출됩니다.  수신 대기 소켓에서의 *수락*으로 인해 발생한 TCP 연결은 인바운드되는 반면, 지정된 IP 및 포트로 *연결*되면서 생성된 연결은 아웃바운드됩니다. 연결의 방향은 **인바운드** 또는 **아웃바운드** 중 하나로 설정할 수 있는 Direction 속성으로 표현됩니다. 
 
@@ -333,7 +327,7 @@ Linux:
 
 비용 및 복잡성을 관리하기 위해 연결 레코드는 개별 물리적 네트워크 연결을 나타내지 않습니다. 여러 물리적 네트워크 연결은 논리적 연결로 그룹화됩니다. 그런 다음, 각 테이블에 반영됩니다.  즉, *VMConnection* 테이블의 레코드는 관찰되는 개별 물리적 연결이 아닌 논리적 그룹화를 나타냅니다. 지정된 1분 간격 동안 다음 특성에 대해 동일한 값을 공유하는 물리적 네트워크 연결이 *VMConnection*의 단일 논리적 레코드에 집계됩니다. 
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--|:--|
 | `Direction` |연결 방향으로 값은 *인바운드* 또는 *아웃바운드*입니다. |
 | `Machine` |컴퓨터 FQDN |
@@ -345,18 +339,18 @@ Linux:
 
 그룹화의 영향을 고려하기 위해 그룹화된 물리적 연결 수에 대한 정보가 다음과 같은 레코드 속성에서 제공됩니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--|:--|
 | `LinksEstablished` |보고 기간 동안 설정된 물리적 네트워크 연결의 수 |
 | `LinksTerminated` |보고 기간 동안 종료된 물리적 네트워크 연결의 수 |
 | `LinksFailed` |보고 기간 동안 실패한 물리적 네트워크 연결의 수. 이 정보는 현재 아웃바운드 연결에 대해서만 사용할 수 있습니다. |
 | `LinksLive` |보고 기간의 마지막에 시작된 물리적 네트워크 연결의 수|
 
-#### <a name="metrics"></a>metrics
+#### <a name="metrics"></a>메트릭
 
 연결 수 메트릭 외에도 지정된 논리적 연결 또는 네트워크 포트에 전송 및 수신된 데이터의 볼륨에 대한 정보도 다음과 같은 레코드 속성에 포함됩니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--|:--|
 | `BytesSent` |보고 기간 동안 전송된 총 바이트 수 |
 | `BytesReceived` |보고 기간 동안 수신된 총 바이트 수 |
@@ -384,7 +378,7 @@ Linux:
 
 또한 *VMConnection*은 다음과 같은 레코드 속성에서 각 연결 레코드의 원격 끝에 대한 지리적 위치 정보를 포함합니다. 
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--|:--|
 | `RemoteCountry` |RemoteIp를 호스트 하는 국가/지역의 이름입니다.  예: *United States* |
 | `RemoteLatitude` |지리적 위치 위도입니다.  예: *47.68* |
@@ -394,7 +388,7 @@ Linux:
 
 *VMConnection* 테이블의 모든 RemoteIp 속성을 알려진 악의적인 활동의 IP 집합에 대해 검사합니다. RemoteIp가 악성으로 식별되면 다음과 같은 속성이 다음과 같은 레코드 속성에서 채워집니다(IP가 악성으로 간주되지 않으면 비어 있음).
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--|:--|
 | `MaliciousIp` |RemoteIp 주소 |
 | `IndicatorThreadType` |검색된 위협 표시기가 *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist* 값 중 하나입니다.   |
@@ -412,7 +406,7 @@ Linux:
 
 *ServiceMapComputer_CL* 형식의 레코드는 서비스 맵 에이전트가 있는 서버에 대한 인벤토리 데이터를 포함합니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--|:--|
 | `Type` | *ServiceMapComputer_CL* |
 | `SourceSystem` | *OpsManager* |
@@ -438,7 +432,7 @@ Linux:
 
 *ServiceMapProcess_CL* 형식의 레코드는 서비스 맵 에이전트가 있는 서버에서 TCP 연결 프로세스에 대한 인벤토리 데이터를 포함합니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--|:--|
 | `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |
@@ -549,7 +543,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 서비스 맵의 모든 서버, 프로세스 및 종속성 데이터는 [서비스 맵 REST API](https://docs.microsoft.com/rest/api/servicemap/)를 통해 사용할 수 있습니다.
 
-## <a name="diagnostic-and-usage-data"></a>진단 및 사용 데이터
+## <a name="diagnostic-and-usage-data"></a>진단 및 사용량 현황 데이터
 
 Microsoft는 서비스 맵 서비스를 사용하여 사용 현황 및 성능 데이터를 자동으로 수집합니다. Microsoft는 이 데이터를 사용하여 서비스 맵 서비스의 품질, 보안 및 무결성을 제공 및 개선합니다. 정확하고 효율적인 문제 해결 기능을 제공하기 위해, 운영 체제 및 버전, IP 주소, DNS 이름 및 워크스테이션 이름과 같은 소프트웨어 구성 정보가 데이터에 포함됩니다. 이름, 주소 또는 기타 연락처 정보는 수집하지 않습니다.
 
@@ -568,19 +562,19 @@ Log Analytics의 [로그 검색](../../azure-monitor/log-query/log-query-overvie
 #### <a name="installer-prompts-for-a-reboot"></a>재부팅용 설치 관리자 프롬프트
 종속성 에이전트는 *일반적으로* 설치 또는 제거 시 다시 부팅할 필요가 없습니다. 그러나 드문 경우이지만 설치를 계속하기 위해 Windows Server를 다시 부팅해야 합니다. 이는 일반적으로 Microsoft Visual C++ 재배포 가능 라이브러리에서 잠긴 파일로 인해 다시 부팅 해야 하는 종속성을 사용할 때 발생 합니다.
 
-#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>"종속성 에이전트를 설치할 수 없습니다. Visual Studio 런타임 라이브러리를 설치하지 못했습니다(코드 = [코드 번호])" 메시지가 표시됩니다.
+#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>“Dependency Agent를 설치할 수 없습니다: Visual Studio 런타임 라이브러리를 설치하지 못했습니다(코드 = [코드 번호])” 메시지가 표시됩니다.
 
 Microsoft Dependency Agent는 Microsoft Visual Studio 런타임 라이브러리를 기반으로 합니다. 라이브러리를 설치하는 동안 문제가 발생하면 메시지가 표시됩니다. 
 
-런타임 라이브러리 설치 관리자는 %LOCALAPPDATA%\temp 폴더에 로그를 만듭니다. 이 파일은 `dd_vcredist_arch_yyyymmddhhmmss.log`입니다. 여기서 아치 `x86` 는 `amd64` 또는이 고 *yyyymmddhhmmss* 는 로그가 생성 된 날짜 및 시간 (24 시간제)입니다. 로그는 설치를 방해하는 문제에 대한 세부 내용을 제공합니다.
+런타임 라이브러리 설치 관리자는 %LOCALAPPDATA%\temp 폴더에 로그를 만듭니다. 이 파일은 `dd_vcredist_arch_yyyymmddhhmmss.log`입니다. 여기서, *아치* 는 `x86` `amd64` 고 *yyyymmddhhmmss* 는 로그가 생성 된 날짜 및 시간 (24 시간제)입니다. 로그는 설치를 방해하는 문제에 대한 세부 내용을 제공합니다.
 
 [최신 런타임 라이브러리](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) 를 먼저 설치 하는 것이 유용할 수 있습니다.
 
 다음 테이블에는 코드 번호 및 제안된 해결 방법이 나와 있습니다.
 
-| 코드 | Description | 해결 방법 |
+| 코드 | 설명 | 해상도 |
 |:--|:--|:--|
-| 0x17 | 라이브러리 설치 관리자에는 설치하지 않은 Windows 업데이트가 필요합니다. | 가장 최근의 라이브러리 설치 관리자 로그를 확인합니다.<br><br>에 대 `Windows8.1-KB2999226-x64.msu` 한 참조 다음에 줄 `Error 0x80240017: Failed to execute MSU package,` 이 나오면 k b 2999226를 설치 하기 위한 필수 구성 요소가 없습니다. [Windows의 유니버설 C 런타임](https://support.microsoft.com/kb/2999226) 문서에 있는 필수 구성 요소 섹션의 지침을 따르세요. 필수 구성 요소를 설치하려면 Windows Update를 실행하고 여러 번 다시 부팅해야 할 수 있습니다.<br><br>Microsoft 종속성 에이전트 설치 관리자를 다시 실행합니다. |
+| 0x17 | 라이브러리 설치 관리자에는 설치하지 않은 Windows 업데이트가 필요합니다. | 가장 최근의 라이브러리 설치 관리자 로그를 확인합니다.<br><br>@No__t_0에 대 한 참조 다음에 `Error 0x80240017: Failed to execute MSU package,` 줄이 나오면 K B 2999226를 설치 하기 위한 필수 구성 요소가 없습니다. [Windows의 유니버설 C 런타임](https://support.microsoft.com/kb/2999226) 문서에 있는 필수 구성 요소 섹션의 지침을 따르세요. 필수 구성 요소를 설치하려면 Windows Update를 실행하고 여러 번 다시 부팅해야 할 수 있습니다.<br><br>Microsoft 종속성 에이전트 설치 관리자를 다시 실행합니다. |
 
 ### <a name="post-installation-issues"></a>사후 설치 문제
 
@@ -599,14 +593,14 @@ Microsoft Dependency Agent는 Microsoft Visual Studio 런타임 라이브러리�
     Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
     ```
 
-결과에서 다양한 이벤트를 얻었나요? 최근 데이터인가요? 이 경우 Log Analytics 에이전트가 제대로 작동 하 고 작업 영역과 통신 하 고 있는 것입니다. 그렇지 않은 경우 컴퓨터에서 에이전트를 확인 합니다. [Windows용 Log Analytics 에이전트 문제 해결](../platform/agent-windows-troubleshoot.md) 또는 [Linux용 Log Analytics 에이전트 문제 해결](../platform/agent-linux-troubleshoot.md)을 참조하여 서버의 에이전트를 확인합니다.
+결과에서 다양한 이벤트를 얻었나요? 최근 데이터인가요? 이 경우 Log Analytics 에이전트가 제대로 작동 하 고 작업 영역과 통신 하 고 있는 것입니다. 그렇지 않은 경우 컴퓨터의 에이전트: [Windows 문제 해결을 위한 Log Analytics 에이전트](../platform/agent-windows-troubleshoot.md) 또는 [Linux 용 Log Analytics 에이전트 문제 해결](../platform/agent-linux-troubleshoot.md)을 확인 합니다.
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>서버가 서비스 맵에 표시되지만 프로세스가 없습니다.
 
 서비스 맵에 컴퓨터가 표시 되지만 프로세스 또는 연결 데이터가 없는 경우 종속성 에이전트가 설치 되어 실행 중이지만 커널 드라이버가 로드 되지 않았음을 나타냅니다. 
 
-(Windows `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` ) 또는 `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux)를 확인 합니다. 파일의 마지막 줄에 커널이 로드되지 않은 이유가 표시되어야 합니다. 예를 들어, 커널을 업데이트 한 경우 Linux에서 커널이 지원되지 않을 수 있습니다.
+@No__t_0 (Windows) 또는 `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux)를 확인 합니다. 파일의 마지막 줄에 커널이 로드되지 않은 이유가 표시되어야 합니다. 예를 들어, 커널을 업데이트 한 경우 Linux에서 커널이 지원되지 않을 수 있습니다.
 
-## <a name="feedback"></a>사용자 의견
+## <a name="feedback"></a>피드백
 
 서비스 맵 또는 이 설명서에 대한 의견이 있습니까?  기능을 제안하거나 기존 제안에 투표할 수 있는 [사용자 의견 페이지](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)를 방문하세요.

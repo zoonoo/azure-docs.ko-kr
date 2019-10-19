@@ -1,22 +1,19 @@
 ---
 title: Azure Monitor 리소스 그룹 인사이트 | Microsoft Docs
 description: Azure Monitor를 사용하여 리소스 그룹 수준에서 분산 애플리케이션 및 서비스의 상태 및 성능 이해
-services: azure-monitor
-author: NumberByColors
-manager: carmonm
 ms.service: azure-monitor
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.subservice: ''
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.author: daviste
-ms.openlocfilehash: d5c07e0d4aca8bda42ea9f78a1475ea7bb5861f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fba94a5e723bfbc2719b3b4cf5cd130eda382276
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119424"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553980"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Azure Monitor(미리 보기)를 사용하여 리소스 그룹 모니터링
 
@@ -42,7 +39,7 @@ Azure Resource Health를 표시하려면 표 위에 있는 **Azure Resource Heal
 
 ![리소스 상태 그래프가 추가된 스크린샷](./media/resource-group-insights/0003-overview.png)
 
-기본적으로 리소스는 앱 계층 및 리소스 종류별로 그룹화됩니다. **앱 계층**은 리소스 그룹 인사이트 개요 페이지의 컨텍스트 내에서만 존재하는 리소스 종류의 간단한 분류 입니다. 애플리케이션 코드, 계산 인프라, 네트워킹, 스토리지 + 데이터베이스와 관련된 리소스 종류가 있습니다. 관리 도구에는 자체 앱 계층이 있으며 다른 모든 리소스는 **기타** 앱 계층으로 분류됩니다. 이러한 그룹화는 애플리케이션에서 정상 및 비정상 상태의 하위 시스템을 일목요연하게 확인하는 데 도움이 될 수 있습니다.
+기본적으로 리소스는 앱 계층 및 리소스 종류별로 그룹화됩니다. **앱 계층**은 리소스 그룹 인사이트 개요 페이지의 컨텍스트 내에서만 존재하는 리소스 종류의 간단한 분류 입니다. 애플리케이션 코드, 컴퓨팅 인프라, 네트워킹, 스토리지 + 데이터베이스와 관련된 리소스 종류가 있습니다. 관리 도구에는 자체 앱 계층이 있으며 다른 모든 리소스는 **기타** 앱 계층으로 분류됩니다. 이러한 그룹화는 애플리케이션에서 정상 및 비정상 상태의 하위 시스템을 일목요연하게 확인하는 데 도움이 될 수 있습니다.
 
 ## <a name="diagnose-issues-in-your-resource-group"></a>리소스 그룹의 문제 진단
 

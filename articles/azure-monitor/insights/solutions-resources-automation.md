@@ -1,25 +1,19 @@
 ---
 title: 관리 솔루션의 Azure Automation 리소스 | Microsoft Docs
 description: 관리 솔루션에는 일반적으로 모니터링 데이터를 수집하고 처리하는 등의 프로세스를 자동화하기 위한 Azure Automation의 runbook이 포함됩니다.  이 문서에서는 솔루션에 runbook과 관련 리소스를 포함하는 방법을 설명합니다.
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
+ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1c9b13f44dae068597cb82a0aa803283ad5e67bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63e09bacd1ce70f05f04798f092d3eb4b3e36ab5
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110364"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555250"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>관리 솔루션에 Azure Automation 리소스 추가(미리 보기)
 > [!NOTE]
@@ -32,7 +26,7 @@ ms.locfileid: "62110364"
 > 이 문서의 샘플에는 관리 솔루션에 필요하거나 공통적이며 [Azure의 관리 솔루션 디자인 및 빌드]( solutions-creating.md)에서 설명한 매개 변수와 변수가 사용 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 이 문서에서는 이미 다음 정보에 대해 잘 알고 있다고 가정합니다.
 
 - 방법: [관리 솔루션 만들기]( solutions-creating.md)
@@ -172,7 +166,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 | 자산 | 설명 |
 |:--- |:--- |
 | userName |인증서의 사용자 이름입니다. |
-| password |인증서의 암호입니다. |
+| 암호 |인증서의 암호입니다. |
 
 
 ## <a name="schedules"></a>일정
@@ -242,12 +236,12 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 | 자산 | 설명 |
 |:--- |:--- |
-| schedule name |일정의 이름을 포함하는 단일 **name** 엔터티입니다. |
-| runbook name  |runbook 이름을 포함하는 단일 **name** 엔터티입니다.  |
+| 일정 이름 |일정의 이름을 포함하는 단일 **이름** 엔터티입니다. |
+| Runbook 이름  |runbook 이름을 포함하는 단일 **name** 엔터티입니다.  |
 
 
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>변수
 [Azure Automation 변수](../../automation/automation-variables.md)의 형식은 **Microsoft.Automation/automationAccounts/variables**이며, 다음과 같은 구조를 가집니다.  여기에는 일반 변수 및 매개 변수가 포함되어 있으므로 이 코드 조각을 복사하여 솔루션 파일에 붙여넣고 매개 변수 이름을 변경할 수 있습니다.
 
     {
@@ -272,19 +266,19 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 | description | 변수에 대한 선택적 설명입니다. |
 | isEncrypted | 변수를 암호화해야 하는지 지정합니다. |
 | type | 이 속성은 현재 적용되지 않습니다.  변수의 데이터 형식은 초기 값에 의해 결정됩니다. |
-| value | 변수의 값입니다. |
+| 값 | 변수의 값입니다. |
 
 > [!NOTE]
 > **type** 속성은 현재 생성 중인 변수에 적용되지 않습니다.  변수의 데이터 형식은 해당 값에 의해 결정됩니다.  
 
 변수에 대한 초기 값을 설정하는 경우 올바른 데이터 형식으로 구성해야 합니다.  다음 표에서는 허용 가능한 여러 데이터 형식과 해당 구문을 제공합니다.  JSON의 값에서는 항상 특수 문자를 인용 부호로 묶고 전체 값도 인용 부호로 묶어야 합니다.  예를 들어 문자열 값은 따옴표로 묶고(이스케이프 문자(\\) 사용), 숫자 값은 하나의 인용 부호 세트로 묶어야 합니다.
 
-| 데이터 형식 | 설명 | 예 | 결과 값 |
+| 데이터 형식 | 설명 | 예제 | 결과 값 |
 |:--|:--|:--|:--|
-| string   | 값을 큰따옴표로 묶습니다.  | "\"Hello world\"" | "Hello world" |
+| 문자열   | 값을 큰따옴표로 묶습니다.  | "\"Hello world\"" | "Hello world" |
 | numeric  | 작은따옴표가 있는 숫자 값| "64" | 64 |
-| boolean  | 따옴표로 묶은 **true** 또는 **false**.  이 값은 소문자여야 합니다. | "true" | true |
-| datetime | 직렬화된 날짜 값.<br>PowerShell에서 ConvertTo-Json cmdlet을 사용하여 특정 날짜에 대해 이 값을 생성할 수 있습니다.<br>예: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| 부울  | 따옴표로 묶은 **true** 또는 **false**.  이 값은 소문자여야 합니다. | "true" | true |
+| Datetime | 직렬화된 날짜 값.<br>PowerShell에서 ConvertTo-Json cmdlet을 사용하여 특정 날짜에 대해 이 값을 생성할 수 있습니다.<br>예: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>모듈
 관리 솔루션은 Automation 계정에서 항상 사용할 수 있으므로 Runbook에서 사용하는 [전역 모듈](../../automation/automation-integration-modules.md)을 정의할 필요가 없습니다.  Runbook에서 사용하는 다른 모듈에 대한 리소스를 포함해야 합니다.

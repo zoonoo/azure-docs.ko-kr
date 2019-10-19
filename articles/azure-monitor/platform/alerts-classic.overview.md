@@ -1,18 +1,18 @@
 ---
 title: Microsoft Azure 및 Azure Monitor의 클래식 경고 개요
 description: 클래식 경고는 더 이상 사용되지 않습니다. 경고를 통해 Azure 리소스 메트릭, 이벤트 또는 로그를 모니터링하고 사용자가 지정한 조건에 부합하면 알림을 받을 수 있습니다.
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.date: 05/19/2018
+author: rboucher
 ms.author: robb
-ms.openlocfilehash: 96183e22f0aeafc681a782e7d3d8bd29a6ec9617
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/19/2018
+ms.openlocfilehash: 3ad0bdc2ec5db2f34a3bb6a1b8fda54cf9037483
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65914714"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555689"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft Azure의 클래식 경고란?
 
@@ -24,7 +24,7 @@ ms.locfileid: "65914714"
 
 ## <a name="old-and-new-alerting-capabilities"></a>이전 및 새 경고 기능
 
-이전 Azure Monitor에서 Application Insights, Log Analytics 및 Service Health에는 개별 경고 기능이 있습니다. 시간이 지나면서 Azure가 개선되고 사용자 인터페이스가 다른 여러 경고 방법과 결합되었습니다. 통합은 여전히 진행 중입니다.
+이전 Azure Monitor에서 Application Insights, Log Analytics 및 Service Health에는 개별 경고 기능이 있습니다. 시간이 경과함에 따라 Azure가 개선되어 여러 다른 경고 방법과 사용자 인터페이스를 결합했습니다. 통합은 여전히 진행 중입니다.
 
 Azure Portal의 클래식 경고 사용자 화면에서만 클래식 경고를 볼 수 있습니다. 경고 화면의 **클래식 경고 보기** 단추를 누르면 이 화면을 표시할 수 있습니다. 
 
@@ -44,7 +44,7 @@ Azure Portal의 클래식 경고 사용자 화면에서만 클래식 경고를 �
 -   **메트릭 조건 세부 제어**: 경고 규칙을 다양하게 정의할 수 있습니다. 최신 경고는 메트릭의 최대, 최소, 평균 및 전체 값을 모니터링하도록 지원합니다.
 -   **여러 가지 메트릭의 결합 모니터링**: 단일 규칙을 사용하여 다중 메트릭(현재 최대 2개)을 모니터링할 수 있습니다. 두 메트릭이 지정된 기간 동안 해당 임계값을 위반하면 경고가 트리거됩니다.
 -   **향상된 알림 시스템**: 모든 최신 경고는 여러 경고에서 다시 사용할 수 있는 알림 및 작업으로 명명된 그룹인 [작업 그룹](../../azure-monitor/platform/action-groups.md)을 사용합니다.  클래식 메트릭 경고 및 이전 Log Analytics 경고는 작업 그룹을 사용하지 않습니다. 
--   **로그의 메트릭**(공개 미리 보기): 이제 Log Analytics로 이동하는 로그 데이터를 추출하고 Azure Monitor 메트릭으로 변환한 다음, 다른 메트릭과 마찬가지로 경고할 수 있습니다. 클래식 경고의 고유 용어는 [경고(클래식)](alerts-classic.overview.md)를 참조하세요. 
+-   **로그의 메트릭**(공용 미리 보기): 이제 Log Analytics로 이동하는 로그 데이터를 추출하고 Azure Monitor 메트릭으로 변환한 다음, 다른 메트릭과 마찬가지로 경고할 수 있습니다. 클래식 경고의 고유 용어는 [경고(클래식)](alerts-classic.overview.md)를 참조하세요. 
 
 
 ## <a name="classic-alerts-on-azure-monitor-data"></a>Azure Monitor 데이터에 대한 클래식 경고

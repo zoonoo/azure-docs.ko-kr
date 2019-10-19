@@ -1,29 +1,23 @@
 ---
 title: Azure에서 관리 솔루션 빌드 | Microsoft Docs
 description: 관리 솔루션에는 고객이 Log Analytics 작업 영역에 추가할 수 있는 Azure의 패키지된 관리 시나리오가 포함되어 있습니다.  이 문서에서는 자체 환경에 사용할 관리 솔루션 또는 고객에게 제공할 관리 솔루션을 만드는 방법에 대해 자세히 설명합니다.
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
+ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ef1af4d3d27bc098341a4de716e293557baa946a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 97472a65af6eb2c5c2da93d93f38450cc021f680
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595821"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555298"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Azure에서 관리 솔루션 디자인 및 빌드(Preview)
 > [!NOTE]
-> 현재 Preview로 제공되는 Azure의 사용자 지정 솔루션 만들기에 대한 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.
+> 현재 미리 보기 상태로 제공되는 Azure에서 관리 솔루션을 만드는 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.
 
 [관리 솔루션]( solutions.md)은 고객이 Log Analytics 작업 영역에 추가할 수 있는 패키지된 관리 시나리오를 제공합니다.  이 문서에서는 가장 일반적인 요구 사항에 적합한 관리 솔루션을 설계하고 만들기 위한 기본 프로세스를 제공합니다.  관리 솔루션을 처음 만드는 경우 이 프로세스를 시작 지점으로 사용한 다음, 요구 사항이 진화함에 따라 더 복잡한 솔루션에 대한 개념을 활용할 수 있습니다.
 

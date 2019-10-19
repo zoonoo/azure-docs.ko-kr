@@ -1,24 +1,18 @@
 ---
 title: 저장소에 대 한 Azure Monitor를 사용 하 여 Azure Storage 서비스 모니터링 (미리 보기) | Microsoft Docs
 description: 이 문서에서는 저장소 관리자에 게 Azure Storage 계정에 대 한 성능 및 사용 문제를 신속 하 게 이해 하는 저장소 기능을 제공 하는 Azure Monitor에 대해 설명 합니다.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/15/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 1ab49d17ebf10a1ae0277768ddbd1878195d835d
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.date: 08/15/2019
+ms.openlocfilehash: e5738b9f7cca03898d3bb5c593004bb316aa0b23
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212772"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553888"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>저장소에 대 한 Azure Monitor를 사용 하 여 저장소 서비스 모니터링 (미리 보기)
 
@@ -53,7 +47,7 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 
 모든 구독에서 저장소 계정의 사용률과 가용성을 보려면 다음 단계를 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 
 2. Azure Portal의 왼쪽 창에서 **모니터** 를 선택 하 고, **Insights** 섹션 아래에서 **Storage 계정 (미리 보기)** 을 선택 합니다.
 

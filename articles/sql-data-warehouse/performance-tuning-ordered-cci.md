@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 0aecb2309743ffecc2fb68435192224c6c690aee
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
-ms.translationtype: MT
+ms.openlocfilehash: 0acdf1496151df57d4097ce5bc71d782dc465873
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035116"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554540"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>순서가 지정 된 클러스터형 columnstore 인덱스로 성능 튜닝  
 
@@ -119,16 +119,20 @@ OPTION (MAXDOP 1);
 ## <a name="create-ordered-cci-on-large-tables"></a>많은 테이블에 순서가 지정 된 CCI 만들기
 정렬 된 CCI를 만드는 작업은 오프 라인 작업입니다.  파티션이 없는 테이블의 경우에는 순서가 지정 된 CCI 생성 프로세스가 완료 될 때까지 사용자가 데이터에 액세스할 수 없습니다.   분할 된 테이블의 경우 엔진은 파티션에 의해 순서가 지정 된 CCI 파티션을 만들기 때문에, 사용자는 정렬 된 CCI 생성이 아직 진행 되지 않는 파티션에서 데이터에 계속 액세스할 수 있습니다.   이 옵션을 사용 하 여 많은 테이블에서 순서가 지정 된 CCI를 만드는 동안 가동 중지 시간을 최소화할 수 있습니다. 
 
-1.  대상 대량 테이블 (테이블 A 라고 함)에 파티션을 만듭니다.
-2.  테이블 A와 동일한 테이블 및 파티션 스키마를 사용 하 여 빈 정렬 된 CCI 테이블 (테이블 B 라고 함)을 만듭니다.
+1.  대상 대량 테이블 (Table_A 라고 함)에 파티션을 만듭니다.
+2.  테이블 A와 동일한 테이블 및 파티션 스키마를 사용 하 여 빈 정렬 된 CCI 테이블 (Table_B 이라고 함)을 만듭니다.
 3.  테이블 A에서 테이블 B로 파티션 하나를 전환 합니다.
-4.  테이블 B에서 ALTER INDEX < Ordered_CCI_Index > REBUILD PARTITION = < Partition_ID >를 실행 하 여 전환 된 파티션을 다시 작성 합니다.  
-5.  표 A의 각 파티션에 대해 3 단계와 4 단계를 반복 합니다.
-6.  모든 파티션이 테이블 A에서 테이블 B로 전환 되 고 다시 작성 된 후 테이블 A를 삭제 하 고 테이블 B의 이름을 Table A로 변경 합니다. 
+4.  ALTER INDEX < Ordered_CCI_Index >를 실행 하 여 테이블 B의 < Table_B > REBUILD PARTITION = < Partition_ID >를 실행 하 여 전환 된 파티션을 다시 작성 합니다.  
+5.  Table_A의 각 파티션에 대해 3 단계와 4 단계를 반복 합니다.
+6.  모든 파티션이 Table_A에서 Table_B로 전환 되 고 다시 작성 된 후 Table_A를 삭제 하 고 Table_B를 Table_A로 바꿉니다. 
 
-## <a name="examples"></a>예
+>[!NOTE]
+>Azure SQL Data Warehouse에서 순서가 지정 된 클러스터형 columnstore 인덱스 (CCI)의 미리 보기 중에는 분할 된 테이블에서 클러스터형 COLUMNSTORE 인덱스 만들기를 통해 순서가 지정 된 CCI를 만들거나 다시 작성 하는 경우 중복 데이터가 생성 될 수 있습니다. 데이터 손실이 수반 되지 않습니다. 이 문제에 대 한 픽스는 곧 제공 될 예정입니다. 해결 방법으로 사용자는 CTAS 명령을 사용 하 여 분할 된 테이블에 순서가 지정 된 CCI를 만들 수 있습니다.
 
-**A. 정렬 된 열 및 순서 서 수를 확인 하려면**
+
+## <a name="examples"></a>예시
+
+**입니다. 순서가 지정 된 열 및 주문 서 수를 확인 하려면 다음을 수행 합니다.**
 ```sql
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
 FROM sys.index_columns i 
@@ -136,7 +140,7 @@ JOIN sys.columns c ON i.object_id = c.object_id AND c.column_id = i.column_id
 WHERE column_store_order_ordinal <>0
 ```
 
-**B. 열 서 수를 변경 하려면 order 목록에서 열을 추가 또는 제거 하거나 CCI에서 정렬 된 CCI:** 으로 변경 합니다.
+**B. 열 서 수를 변경 하려면 order 목록에서 열을 추가 또는 제거 하거나 CCI에서 정렬 된 CCI로 변경 합니다.**
 ```sql
 CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales
 ORDER (ProductKey, SalesAmount)

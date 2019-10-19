@@ -1,25 +1,19 @@
 ---
 title: Azure에서 관리 솔루션 파일 만들기 | Microsoft Docs
 description: 관리 솔루션은 고객이 Azure 환경에 추가할 수 있는 패키지된 관리 시나리오를 제공합니다.  이 문서에서는 자체 환경에 사용할 관리 솔루션 또는 고객에게 제공할 관리 솔루션을 만드는 방법에 대해 자세히 설명합니다.
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
+ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 47ee691186da7f915ca8fcf87415784ab12ef1e0
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595759"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553852"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Azure에서 관리 솔루션 파일 만들기(Preview)
 > [!NOTE]
@@ -50,7 +44,7 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
        "outputs": {  }
     }
 
-## <a name="parameters"></a>매개 변수
+## <a name="parameters"></a>parameters
 [매개 변수](../../azure-resource-manager/resource-group-authoring-templates.md#parameters)는 사용자가 관리 솔루션을 설치할 때 사용자에게 요구할 값입니다.  모든 솔루션에 포함될 표준 매개 변수가 있고, 특정 솔루션에 필요한 다른 매개 변수를 추가할 수 있습니다.  사용자가 솔루션을 설치할 때 매개 변수 값을 제공하는 방법은 솔루션 설치 방법과 특정 매개 변수에 따라 다릅니다.
 
 사용자가 Azure Marketplace 또는 Azure 빠른 시작 템플릿을 통해 [관리 솔루션을 설치](solutions.md#install-a-monitoring-solution)하는 경우 [Log Analytics 작업 영역 및 Automation 계정](solutions.md#log-analytics-workspace-and-automation-account)을 선택하라는 메시지가 표시됩니다.  이러한 템플릿은 각 표준 매개 변수의 값을 채우는 데 사용됩니다.  사용자에게는 표준 매개 변수의 값을 직접 제공하라는 메시지가 표시되지 않고 추가 매개 변수의 값을 제공하라는 메시지가 표시됩니다.
@@ -83,14 +77,14 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 >
 >
 
-| 매개 변수 | type | 설명 |
+| 매개 변수를 포함해야 합니다. | Type | 설명 |
 |:--- |:--- |:--- |
-| accountName |string |Azure Automation 계정 이름입니다. |
-| pricingTier |string |Log Analytics 작업 영역 및 Azure Automation 계정의 가격 책정 계층입니다. |
-| regionId |string |Azure Automation 계정의 지역입니다. |
-| solutionName |string |솔루션의 이름입니다.  빠른 시작 템플릿을 통해 솔루션을 배포하는 경우 사용자에게 지정하도록 요구하는 대신 문자열을 정의할 수 있도록 solutionName을 매개 변수로 정의해야 합니다. |
-| workspaceName |string |Log Analytics 작업 영역 이름입니다. |
-| workspaceRegionId |string |Log Analytics 작업 영역의 지역입니다. |
+| accountName |문자열 |Azure Automation 계정 이름입니다. |
+| pricingTier |문자열 |Log Analytics 작업 영역 및 Azure Automation 계정의 가격 책정 계층입니다. |
+| regionId |문자열 |Azure Automation 계정의 지역입니다. |
+| solutionName |문자열 |솔루션의 이름입니다.  빠른 시작 템플릿을 통해 솔루션을 배포하는 경우 사용자에게 지정하도록 요구하는 대신 문자열을 정의할 수 있도록 solutionName을 매개 변수로 정의해야 합니다. |
+| workspaceName |문자열 |Log Analytics 작업 영역 이름입니다. |
+| workspaceRegionId |문자열 |Log Analytics 작업 영역의 지역입니다. |
 
 
 다음은 솔루션 파일에 복사하여 붙여넣을 수 있는 표준 매개 변수 구조입니다.  
@@ -131,7 +125,7 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 
 **parameters('매개 변수 이름')** 구문을 사용하여 솔루션의 다른 요소에 있는 매개 변수 값을 참조할 수 있습니다.  예를 들어 작업 영역 이름에 액세스하려면 **parameters('workspaceName')** 을 사용합니다.
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>변수
 [Variables](../../azure-resource-manager/resource-group-authoring-templates.md#variables)는 관리 솔루션의 나머지 부분에 사용할 값입니다.  이러한 값은 솔루션을 설치하는 사용자에게 노출되지 않습니다.  작성자가 솔루션을 만드는 동안 여러 번 사용할지도 모르는 값을 관리할 수 있는 단일 위치를 제공하는 것이 이러한 값의 목적입니다. 솔루션 관련 값을 **resources** 요소로 하드 코드하지 않고 해당 값을 변수에 포함해야 합니다.  이렇게 하면 코드를 더 쉽게 읽을 수 있고 이후 버전에서 이들 값을 쉽게 변경할 수 있습니다.
 
 다음은 솔루션에 일반적인 매개 변수를 사용한 **variables** 요소의 예입니다.
@@ -213,19 +207,19 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 
 | 자산 | 설명 |
 |:--- |:--- |
-| workspaceResourceId |폼에서 Log Analytics 작업 영역 ID  *\<리소스 그룹 ID > /providers/Microsoft.OperationalInsights/workspaces/\<작업 영역 이름\>* 합니다. |
+| workspaceResourceId |*@No__t_1Resource 그룹 id >/providers/Microsoft.OperationalInsights/workspaces/\<Workspace 이름 \>* 형식으로 된 Log Analytics 작업 영역의 ID입니다. |
 | referencedResources |솔루션을 제거해도 함께 제거되면 안 되는 솔루션의 리소스 목록입니다. |
 | containedResources |솔루션을 제거하면 함께 제거되어야 하는 솔루션의 리소스 목록입니다. |
 
 위의 예제는 runbook, 일정, 보기가 포함된 솔루션과 관련됩니다.  일정 및 runbook은 **properties** 요소에서 *참조*되므로 솔루션이 제거될 때 제거되지 않습니다.  보기는 *포함*되어 있으므로 솔루션을 제거하면 함께 제거됩니다.
 
-### <a name="plan"></a>계획
+### <a name="plan"></a>요금제
 솔루션 리소스의 **plan** 엔터티는 테이블의 속성을 가집니다.
 
 | 자산 | 설명 |
 |:--- |:--- |
-| name |솔루션의 이름입니다. |
-| version |솔루션 버전은 작성자가 결정합니다. |
+| 이름 |솔루션의 이름입니다. |
+| 버전 |솔루션 버전은 작성자가 결정합니다. |
 | product |솔루션을 식별하는 고유 문자열입니다. |
 | publisher |솔루션의 게시자입니다. |
 

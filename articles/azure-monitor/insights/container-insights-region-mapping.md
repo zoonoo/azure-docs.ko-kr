@@ -1,20 +1,18 @@
 ---
 title: 컨테이너 영역 매핑에 대 한 Azure Monitor
 description: 이 문서에서는 컨테이너, Log Analytics 작업 영역 및 사용자 지정 메트릭에 대 한 Azure Monitor 간에 지원 되는 지역 매핑을 설명 합니다.
-services: azure-monitor
 ms.service: azure-monitor
-ms.workload: infrastructure-services
+ms.subservice: ''
+ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 06/26/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: ca77277c8d8d405b8fe81f612a8d7600d3c937ab
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: f22c62dddf2e38fa2c9471ce98b49a8aa32390b3
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388193"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554013"
 ---
 # <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>컨테이너에 대해 Azure Monitor에서 지 원하는 지역 매핑
 

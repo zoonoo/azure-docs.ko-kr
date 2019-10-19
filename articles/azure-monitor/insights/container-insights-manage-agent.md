@@ -1,24 +1,18 @@
 ---
 title: 컨테이너용 Azure Monitor 에이전트를 관리하는 방법 | Microsoft Docs
 description: 이 문서에서는 컨테이너용 Azure Monitor에서 사용되는 컨테이너화된 Log Analytics 에이전트를 통해 가장 일반적인 유지 관리 작업을 관리하는 방법을 설명합니다.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/06/2018
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: e1d47be159d4721aed4b055a51acf675688b855e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/06/2018
+ms.openlocfilehash: bfedd7989e71bcb8cf58cef7ad7122749350ae26
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65071794"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554062"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>컨테이너용 Azure Monitor 에이전트를 관리하는 방법
 컨테이너용 Azure Monitor는 Log Analytics 에이전트가 Linux용으로 컨테이너화된 버전을 사용합니다. 초기 배치 후에 수명 주기 동안 수행해야 하는 루틴 또는 선택적 작업이 있습니다. 이 문서에서는 에이전트를 수동으로 업그레이드하고 특정 컨테이너에서 환경 변수 수집을 사용하지 않도록 설정하는 방법을 자세히 설명합니다. 
@@ -35,7 +29,7 @@ ms.locfileid: "65071794"
 >사용자가 이 유지 관리 활동을 수행하는 동안 클러스터에 포함된 노드는 수집된 데이터를 전달하지 않고, 사용자가 에이전트를 제거한 시점과 새로운 버전을 설치한 시점 사이의 데이터가 성능 보기에 표시되지 않습니다. 
 >
 
-새 버전의 에이전트를 설치 하려면에 설명 된 단계를 수행 합니다 [Azure CLI를 사용 하 여 모니터링을 사용 하도록 설정](container-insights-enable-new-cluster.md#enable-using-azure-cli)이 프로세스를 완료 합니다.  
+새 버전의 에이전트를 설치 하려면 [Azure CLI을 사용 하 여 모니터링 사용](container-insights-enable-new-cluster.md#enable-using-azure-cli)에서 설명한 단계를 수행 하 여이 프로세스를 완료 합니다.  
 
 모니터링을 다시 사용하도록 설정한 후에 해당 클러스터의 업데이트된 상태 메트릭이 나타나기까지는 약 15분 정도 소요됩니다. 에이전트가 성공적으로 업그레이드되었는지 확인하려면 `kubectl logs omsagent-484hw --namespace=kube-system` 명령을 실행합니다.
 

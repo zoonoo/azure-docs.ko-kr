@@ -1,22 +1,22 @@
 ---
 title: Apache Kafka 지원 이벤트 허브 만들기 - Azure Event Hubs | Microsoft Docs
-description: 이 문서에서는 Apache Kafka를 만드는 연습은 Azure portal을 사용 하 여 Azure Event Hubs 네임 스페이스를 사용 합니다.
+description: 이 문서에서는 Azure Portal을 사용 하 여 Apache Kafka 사용 가능한 Azure Event Hubs 네임 스페이스를 만드는 연습을 제공 합니다.
 services: event-hubs
 documentationcenter: .net
-author: basilhariri
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.author: bahariri
-ms.openlocfilehash: 125da95349fce0e75b44b5619baba28d34a74be1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: shvija
+ms.openlocfilehash: 9ce0f74ec6d4e536bfb3fe827ae6f8ae143b640e
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822491"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555805"
 ---
 # <a name="create-apache-kafka-enabled-event-hubs"></a>Apache Kafka 지원 이벤트 허브 만들기
 
@@ -26,13 +26,13 @@ Azure Event Hubs는 Kafka 엔드포인트를 제공합니다. 이 엔드포인�
 
 이 문서에서는 Event Hubs 네임스페이스를 만들고 Kafka 지원 이벤트 허브에 Kafka 애플리케이션을 연결하는 데 필요한 연결 문자열을 확보하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Kafka 지원 Event Hubs 네임스페이스 만들기
 
-1. [Azure Portal][Azure portal]에 로그온하고 화면 왼쪽 위에서 **리소스 만들기**를 클릭합니다.
+1. [Azure Portal][Azure portal]에 로그인하고, 화면 왼쪽 위에서 **리소스 만들기**를 클릭합니다.
 
 2. Event Hubs를 검색하고 아래 표시된 옵션을 선택합니다.
     
@@ -58,7 +58,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 Event Hubs에 대한 자세한 내용은 다음 링크를 방문하세요.
 
-* [Kafka 애플리케이션에서 이벤트 허브로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+* [Kafka 애플리케이션에서 Event Hubs에 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 * [Kafka용 Event Hubs에 대해 알아보기](event-hubs-for-kafka-ecosystem-overview.md)
 * [Event Hubs에 대해 알아봅니다](event-hubs-what-is-event-hubs.md).
 

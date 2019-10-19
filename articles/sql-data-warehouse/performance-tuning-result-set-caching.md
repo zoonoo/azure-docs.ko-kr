@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
-ms.openlocfilehash: f6323501fc0078677c4c0e2cd0e43a15583df29b
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
-ms.translationtype: HT
+ms.openlocfilehash: 3e6af57840cf60516aba994a6b5728bfb7b35f09
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513990"
+ms.locfileid: "72553535"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>결과 집합 캐싱을 사용한 성능 조정  
 결과 집합 캐싱을 사용 하도록 설정 하면 Azure SQL Data Warehouse에서 자동으로 쿼리 결과를 사용자 데이터베이스에 자동으로 캐시 하 여 반복 해 서 사용 합니다.  이렇게 하면 다시 계산 기능가 필요 하지 않도록 이후 쿼리 실행에서 지속형 캐시에서 직접 결과를 가져올 수 있습니다.   결과 집합 캐싱은 쿼리 성능을 향상 시키고 계산 리소스 사용량을 줄입니다.  또한 캐시 된 결과 집합을 사용 하는 쿼리는 동시성 슬롯을 사용 하지 않으므로 기존 동시성 제한에 대해 계산 되지 않습니다. 보안을 위해 사용자가 캐시 된 결과를 만드는 사용자와 동일한 데이터 액세스 권한이 있는 경우에만 캐시 된 결과에 액세스할 수 있습니다.  
@@ -34,11 +34,10 @@ ms.locfileid: "72513990"
 데이터베이스에 대해 결과 집합 캐싱이 설정 되 면 다음 쿼리를 제외 하 고 캐시가 가득 찼을 때까지 모든 쿼리에 대해 결과가 캐시 됩니다.
 - DateTime. Now ()와 같은 비결 정적 함수를 사용 하 여 쿼리
 - 사용자 정의 함수를 사용 하 여 쿼리
+- 행 수준 보안 또는 열 수준 보안이 설정 된 테이블을 사용 하는 쿼리
 - 행 크기가 64KB 보다 큰 데이터를 반환 하는 쿼리
 
 결과 집합이 많은 쿼리 (예: > 100만 행)를 사용 하면 결과 캐시가 생성 될 때 처음 실행 하는 동안 성능이 저하 될 수 있습니다.
-
-행 수준 보안은 결과 집합 캐싱에 의해 지원 되지 않습니다.  
 
 ## <a name="when-cached-results-are-used"></a>캐시 된 결과가 사용 되는 경우
 

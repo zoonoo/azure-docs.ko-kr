@@ -1,24 +1,18 @@
 ---
 title: 컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 방법 | Microsoft Docs
 description: 이 문서에서는 컨테이너의 작동 방식 및 식별 된 성능 관련 문제를 이해할 수 있도록 컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하 고 구성 하는 방법을 설명 합니다.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/12/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 48e84517fba1caee771f6985b4c502227cae9e72
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 07/12/2019
+ms.openlocfilehash: 44cdc2d6b93ac9a62f96875ca6c679fbb97d85a9
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389798"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555389"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 방법
 

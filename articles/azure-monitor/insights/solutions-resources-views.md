@@ -1,24 +1,18 @@
 ---
 title: 관리 솔루션 보기 | Microsoft Docs
 description: '관리 솔루션은 대개 데이터를 시각화하기 위한 하나 이상의 보기를 포함합니다.  이 문서에서는 뷰 디자이너에서 만들어진 보기를 내보내고 관리 솔루션에 포함하는 방법을 설명합니다. '
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: jwhit
-editor: tysonn
-ms.assetid: 570b278c-2d47-4e5a-9828-7f01f31ddf8c
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/16/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: cefb83d5336bb99fd09001b5ea369a0b8fc4b942
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/16/2018
+ms.openlocfilehash: 473d10bbec6ca056554f7223800a32e9ca93578e
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60596640"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553907"
 ---
 # <a name="views-in-management-solutions-preview"></a>관리 솔루션 보기(미리 보기)
 > [!NOTE]
@@ -32,7 +26,7 @@ ms.locfileid: "60596640"
 >
 >
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 이 문서에서는 [관리 솔루션을 만드는](solutions-creating.md) 방법과 솔루션 파일의 구조를 잘 알고 있다고 가정합니다.
 
 ## <a name="overview"></a>개요
@@ -95,15 +89,15 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 
 | 작업 영역 버전 | API 버전 | 쿼리 |
 |:---|:---|:---|
-| v1(레거시)   | 2015-11-01-preview | 레거시 형식입니다.<br> 예제: Type=Event EventLevelName = Error  |
-| v2(업그레이드된 버전) | 2015-11-01-preview | 레거시 형식입니다.  설치 시 업그레이드된 형식으로 변환됩니다.<br> 예제: Type=Event EventLevelName = Error<br>변환 대상: Event &#124; where EventLevelName == "Error"  |
-| v2(업그레이드된 버전) | 2017-03-03-preview | 업그레이드 형식입니다. <br>예제: Event &#124; where EventLevelName == "Error"  |
+| v1(레거시)   | 2015-11-01-preview | 레거시 형식입니다.<br> 예: Type=Event EventLevelName = Error  |
+| v2(업그레이드된 버전) | 2015-11-01-preview | 레거시 형식입니다.  설치 시 업그레이드된 형식으로 변환됩니다.<br> 예: Type=Event EventLevelName = Error<br>변환 대상: Event &#124; where EventLevelName == "Error"  |
+| v2(업그레이드된 버전) | 2017-03-03-preview | 업그레이드 형식입니다. <br>예: Event &#124; where EventLevelName == "Error"  |
 
 
 ## <a name="add-the-view-details"></a>보기 세부 정보 추가
 내보낸 보기 파일의 보기 리소스에는 보기의 세부 구성이 들어 있는 **properties** 요소의 두 가지 요소 **Dashboard** 및 **OverviewTile**이 포함됩니다.  이 두 가지 요소와 해당 내용을 솔루션 파일에 있는 보기 리소스의 **properties** 요소에 복사합니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 예를 들어 다음 샘플에서는 보기가 있는 단순 솔루션 파일을 보여 줍니다.  공간 문제로 **Dashboard** 및 **OverviewTile** 내용에는 줄임표(...)가 표시됩니다.
 
     {
