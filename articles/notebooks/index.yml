@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Azure Notebooks 설명서
 metadata:
-  title: 'Azure Notebooks 설명서 - 빠른 시작, 자습서, 가이드 | Microsoft Docs'
+  title: Azure Notebooks 설명서
   description: '호스티드 Azure Notebooks 서비스를 통해 Jupyter Notebook을 만들고, 실행하고, 공유하는 방법에 대해 알아봅니다.'
   services: notebooks
   author: kraigb
