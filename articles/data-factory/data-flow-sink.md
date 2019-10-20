@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 5fc9262dd53f390dbc43646626cc324d8655f1de
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 124b52d920ef36b373eef895187727499068f3eb
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387785"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596536"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>데이터 흐름에 대 한 싱크 변환
 
@@ -61,6 +61,10 @@ Azure Blob 저장소 또는 Data Lake Storage 싱크 형식의 경우 변환 된
 규칙 기반 매핑을 선택 하면 ADF는 들어오는 패턴 규칙과 일치 하는 일치 하는 식을 평가 하 고 보내는 필드 이름을 정의 합니다. 필드 및 규칙 기반 매핑의 모든 조합을 추가할 수 있습니다. 그런 다음 원본에서 들어오는 메타 데이터를 기반으로 ADF에 의해 런타임에 필드 이름이 생성 됩니다. 디버그 중에 생성 된 필드의 이름과 데이터 미리 보기 창을 사용 하 여 볼 수 있습니다.
 
 패턴 일치에 대 한 세부 정보는 [열 패턴 설명서](concepts-data-flow-column-pattern.md)에 있습니다.
+
+행을 확장 하 고 "이름 일치:" 옆에 정규식을 입력 하 여 규칙 기반 일치를 사용할 때 정규식 패턴을 입력할 수도 있습니다.
+
+![Regex 매핑](media/data-flow/scdt1g4.png "Regex 매핑")
 
 ## <a name="file-name-options"></a>파일 이름 옵션
 

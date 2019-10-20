@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 65cd59933fa31d870a507cbe80b454934c9008d0
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 626f446c18acf1f07f458fb1b4238f182546e479
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265096"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596936"
 ---
 # <a name="my-first-python-runbook"></a>내 첫 번째 Python Runbook
 
@@ -29,7 +29,7 @@ ms.locfileid: "71265096"
 > [!NOTE]
 > Webhook를 사용 하 여 Python runbook을 시작 하는 것은 지원 되지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -205,6 +205,30 @@ async_vm_start.wait()
 ![매개 변수 값 입력](media/automation-first-runbook-textual-python/runbook-python-params.png)
 
 **확인**을 클릭하여 Runbook을 시작합니다. Runbook이 실행되고 지정한 VM이 시작됩니다.
+
+## <a name="error-handling-in-python"></a>Python의 오류 처리
+
+또한 다음 규칙을 사용 하 여 **경고**, **오류**및 **디버그** 스트림을 포함 하 여 Python runbook에서 다양 한 스트림을 검색할 수 있습니다.
+
+```python
+print("Hello World output") 
+print("ERROR: - Hello world error")
+print("WARNING: - Hello world warning")
+print("DEBUG: - Hello world debug")
+print("VERBOSE: - Hello world verbose")
+```
+
+다음 예제에서는 `try...except` 블록에서 사용 되는이 규칙을 보여 줍니다.
+
+```python
+try:
+    raise Exception('one', 'two')
+except Exception as detail:
+    print 'ERROR: Handling run-time error:', detail
+```
+
+> [!NOTE]
+> **sys.debug** 는 Azure Automation에서 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

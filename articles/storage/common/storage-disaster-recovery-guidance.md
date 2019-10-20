@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 4a621f8976efe395014c073a6bd7c5d09d19d915
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 3717199d2fa342fff5996d97bc5cdaf6da6e9880
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671071"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595199"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Azure Storage에서 재해 복구 및 스토리지 계정 장애 조치(Failover)(미리 보기)
 
@@ -47,16 +47,16 @@ Azure Storage는 지역 중복 스토리지 계정에 대해 계정 장애 조�
 
 처음부터 고가용성을 위해 애플리케이션을 디자인하는 것이 중요합니다. 애플리케이션을 디자인하고 재해 복구를 계획하기 위한 지침에 대해서는 다음 Azure 리소스를 참조하세요.
 
-* [Azure용 복원 애플리케이션 디자인](https://docs.microsoft.com/azure/architecture/resiliency/): Azure에서 고가용성 애플리케이션을 설계하기 위한 주요 개념을 간략하게 설명합니다.
-* [가용성 검사 목록](https://docs.microsoft.com/azure/architecture/checklist/availability): 애플리케이션이 고가용성을 위한 디자인 모범 사례를 구현하는지 확인하기 위한 검사 목록입니다.
-* [RA-GRS를 사용하여 항상 사용 가능한 애플리케이션 디자인](storage-designing-ha-apps-with-ragrs.md): RA-GRS를 활용하도록 애플리케이션을 빌드하기 위한 디자인 지침입니다.
-* [자습서: Blob 스토리지에서 고가용성 애플리케이션 빌드](../blobs/storage-create-geo-redundant-storage.md): 실패 및 복구를 시뮬레이트할 때 엔드포인트 간을 자동으로 전환하는 고가용성 애플리케이션을 빌드하는 방법을 보여 주는 자습서입니다. 
+* [Azure 용 복원 력 있는 응용 프로그램 디자인](https://docs.microsoft.com/azure/architecture/resiliency/): azure에서 항상 사용 가능한 응용 프로그램을 설계 하는 주요 개념에 대 한 개요입니다.
+* [가용성 검사 목록](https://docs.microsoft.com/azure/architecture/checklist/availability): 응용 프로그램에서 고가용성을 위한 최상의 디자인 방법을 구현 하는지 확인 하기 위한 검사 목록입니다.
+* [Ra를 사용 하 여 항상 사용 가능한 응용 프로그램 디자인](storage-designing-ha-apps-with-ragrs.md): RA-GRS를 활용 하는 응용 프로그램을 빌드하기 위한 디자인 지침을 GRS.
+* [자습서: Blob storage를 사용 하 여 항상 사용 가능한 응용 프로그램 빌드](../blobs/storage-create-geo-redundant-storage.md): 오류 및 복구를 시뮬레이션 하는 것으로 끝점 간을 자동으로 전환 하는 고가용성 응용 프로그램을 빌드하는 방법을 보여 주는 자습서입니다. 
 
 또한 Azure Storage 데이터에 대해 고가용성을 유지하기 위한 다음 모범 사례도 참조하세요.
 
-* **디스크:** [Azure Backup](https://azure.microsoft.com/services/backup/)을 사용하여 Azure Virtual Machines에서 사용하는 VM 디스크를 백업합니다. 또한 [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)를 사용하여 지역 재해 발생 시 VM을 보호하는 것이 좋습니다.
-* **블록 Blob:** [일시 삭제](../blobs/storage-blob-soft-delete.md)를 설정하여 개체 수준 삭제 및 덮어쓰기에 대해 보호하거나 [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) 또는 [Azure 데이터 이동 라이브러리](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)를 사용하여 다른 지역에 있는 다른 스토리지 계정에 블록 Blob을 복사합니다.
-* **파일:** [AzCopy](storage-use-azcopy.md) 또는 [Azure PowerShell](storage-powershell-guide-full.md)을 사용하여 다른 지역에 있는 다른 스토리지 계정에 파일을 복사합니다.
+* **디스크:** [Azure Backup](https://azure.microsoft.com/services/backup/) 를 사용 하 여 Azure 가상 머신에서 사용 하는 VM 디스크를 백업 합니다. 또한 [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)를 사용하여 지역 재해 발생 시 VM을 보호하는 것이 좋습니다.
+* **블록 blob:** [일시 삭제](../blobs/storage-blob-soft-delete.md) 를 설정 하 여 개체 수준 삭제 및 덮어쓰기를 방지 하거나 [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md)또는 [Azure 데이터 이동 라이브러리](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)를 사용 하 여 다른 지역에 있는 다른 저장소 계정에 블록 blob을 복사 합니다.
+* **파일:** [AzCopy](storage-use-azcopy.md) 또는 [Azure PowerShell](storage-powershell-guide-full.md) 를 사용 하 여 다른 지역에 있는 다른 저장소 계정으로 파일을 복사 합니다.
 * **테이블:** [AzCopy](storage-use-azcopy.md)를 사용하여 다른 지역에 있는 다른 스토리지 계정으로 테이블 데이터를 내보냅니다.
 
 ## <a name="track-outages"></a>중단 추적
@@ -119,8 +119,14 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Storage 리소스 공급자 API
 
 계정 장애 조치 (failover)는 Azure Resource Manager 배포와 함께 GRS 또는 GRS를 사용 하는 모든 고객에 대해 미리 보기로 제공 됩니다. 범용 v1, 범용 v2 및 Blob 스토리지 계정 유형을 사용할 수 있습니다. 계정 장애 조치(failover)는 현재 다음 지역에서 사용할 수 있습니다.
 
-- 미국 서부 2
+- 아시아 동부
+- 동남아시아
+- 오스트레일리아 동부
+- 오스트레일리아 남동부
+- 미국 중부
+- 미국 동부 2
 - 미국 중서부
+- 미국 서부 2
 
 이 미리 보기는 프로덕션 이외 용도로 사용해야 합니다. 현재 프로덕션 SLA(서비스 수준 계약)는 사용할 수 없습니다.
 
@@ -143,7 +149,7 @@ Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace
 
 미리 보기 기간 동안 강제 장애 조치(failover)를 수행할 경우 애플리케이션 및 서비스가 어떤 영향을 받을 수 있는지를 이해하려면 이 섹션에 설명된 추가 고려 사항을 검토합니다.
 
-#### <a name="azure-virtual-machines"></a>Azure 가상 컴퓨터
+#### <a name="azure-virtual-machines"></a>Azure 가상 머신
 
 Azure VM(Virtual Machines)은 계정 장애 조치(failover)의 일부로 장애 조치(failover)되지 않습니다. 주 지역을 사용할 수 없으며 보조 지역으로 장애 조치(failover)할 경우 장애 조치(failover) 후에 VM을 다시 만들어야 합니다. 
 
@@ -170,7 +176,7 @@ VM이 종료되면 임시 디스크에 저장된 데이터가 손실됩니다.
 - Azure 파일 동기화는 스토리지 계정 장애 조치(Failover)를 지원하지 않습니다. Azure 파일 동기화에서 클라우드 엔드포인트로 사용되는 Azure 파일 공유를 포함하는 스토리지 계정은 장애 조치(failover)하지 않아야 합니다. 이러한 계정을 장애 조치(failover)하면 동기화가 더 이상 진행되지 않고, 새로 계층화된 파일의 경우 예기치 않은 데이터 손실이 발생할 수도 있습니다.  
 - 보관된 blob을 포함하는 스토리지 계정은 장애 조치(failover)할 수 없습니다. 보관된 blob은 장애 조치(failover)하지 않으려는 별도 스토리지 계정에 유지 관리합니다.
 - 프리미엄 블록 blob을 포함하는 스토리지 계정은 장애 조치(failover)할 수 없습니다. 프리미엄 블록 blob를 지원하는 스토리지 계정은 현재 지리적 중복을 지원하지 않습니다.
-- 장애 조치 (failover)가 완료 되 면 원래 사용 하도록 설정 된 경우 다음 기능이 작동을 중지 합니다. [이벤트 구독](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [수명 주기 정책](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [스토리지 분석 로깅](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging)
+- 장애 조치 (failover)가 완료 된 후에는 [이벤트 구독](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [수명 주기 정책](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [스토리지 분석 로깅을](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging)사용 하는 경우 다음 기능이 작동을 중지 합니다.
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>장애 조치(failover) 대신 데이터 복사
 
@@ -180,8 +186,8 @@ VM이 종료되면 임시 디스크에 저장된 데이터가 손실됩니다.
 
 중대한 재해로 인해 지역이 손실되는 극단적인 경우 Microsoft는 지역 장애 조치(failover)를 시작할 수 있습니다. 이 경우에 사용자의 조치가 필요하지 않습니다. Microsoft에서 관리하는 장애 조치(failover)가 완료될 때까지 스토리지 계정에 대한 쓰기 액세스 권한이 없습니다. 애플리케이션은 스토리지 계정이 RA-GRS용으로 구성된 경우 보조 지역에서 읽을 수 있습니다. 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [계정 장애 조치(failover) 시작(미리 보기)](storage-initiate-account-failover.md)
 * [RA-GRS를 사용하여 항상 사용 가능한 애플리케이션 디자인](storage-designing-ha-apps-with-ragrs.md)
-* [자습서: Blob Storage에서 고가용성 애플리케이션 빌드](../blobs/storage-create-geo-redundant-storage.md) 
+* [자습서: Blob storage를 사용 하 여 고가용성 응용 프로그램 빌드](../blobs/storage-create-geo-redundant-storage.md) 

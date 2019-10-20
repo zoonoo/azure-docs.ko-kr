@@ -15,14 +15,14 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f9b6d4ce4048b31f17b50184f90aed4d2a8ba81
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 68d47d4233aec62ec5f1955e52025b0d55221af8
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086566"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596708"
 ---
-# <a name="scenario-web-app-that-signs-in-users"></a>시나리오: 사용자가 로그인하는 웹앱
+# <a name="scenario-web-app-that-signs-in-users"></a>시나리오: 사용자에 게 로그인 하는 웹 앱
 
 Microsoft id 플랫폼을 사용 하 여 사용자를 로그인 하는 웹 앱을 빌드하는 데 필요한 모든 것을 알아보세요.
 
@@ -37,7 +37,7 @@ Microsoft id 플랫폼을 사용 하 여 사용자를 로그인 하는 웹 앱�
 사용자를 로그인 하는 첫 번째 휴대용 (ASP.NET Core) 웹 앱을 만들려면 다음 빠른 시작을 수행 합니다.
 
 > [!div class="nextstepaction"]
-> [빠른 시작: 사용자를 로그인 하는 ASP.NET Core 웹 앱](quickstart-v2-aspnet-core-webapp.md)
+> [빠른 시작: 사용자를 로그인 하는 웹 앱 ASP.NET Core](quickstart-v2-aspnet-core-webapp.md)
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -81,5 +81,24 @@ Python을 사용 하 여 개발 하는 경우 다음을 시도해 보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+
 > [!div class="nextstepaction"]
-> [앱 등록](scenario-web-app-sign-user-app-registration.md)
+> [앱 등록](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnetcore?tabs=aspnetcore)
+
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+> [!div class="nextstepaction"]
+> [앱 등록](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnet)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [앱 등록](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=java)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [앱 등록](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=python)
+
+---

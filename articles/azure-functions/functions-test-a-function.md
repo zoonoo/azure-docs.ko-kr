@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: ff3d7d1272f9067f6bf9791c7964f8bf5f71945b
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 9155df315a5afb9a0fa7722c955333a47a73085a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709331"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596849"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
@@ -110,11 +110,11 @@ namespace Functions.Tests
 
 `ListLogger` 클래스는 `ILogger` 인터페이스에서 계약된 대로 다음 멤버를 구현합니다.
 
-- **BeginScope**: 범위는 로깅에 컨텍스트를 추가합니다. 이 경우 테스트는 `NullScope` 클래스의 정적 인스턴스를 가리키기 때문에 테스트가 작동할 수 있습니다.
+- **Beginscope**: 범위는 로깅에 컨텍스트를 추가 합니다. 이 경우 테스트는 `NullScope` 클래스의 정적 인스턴스를 가리키며 테스트가 작동할 수 있도록 합니다.
 
-- **IsEnabled**: `false`의 기본값이 제공됩니다.
+- **IsEnabled**: `false`의 기본값이 제공 됩니다.
 
-- **Log**: 이 메서드는 제공된 `formatter` 함수를 사용하여 메시지의 형식을 지정하고 결과 텍스트를 `Logs` 컬렉션에 추가합니다.
+- **로그**:이 메서드는 제공 된 `formatter` 함수를 사용 하 여 메시지의 서식을 지정한 다음 결과 텍스트를 `Logs` 컬렉션에 추가 합니다.
 
 `Logs` 컬렉션은 `List<string>`의 인스턴스이고 생성자에서 초기화됩니다.
 
@@ -195,13 +195,13 @@ namespace Functions.Tests
 ```
 `TestFactory` 클래스는 다음 멤버를 구현합니다.
 
-- **Data**: 이 속성은 샘플 데이터의 [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) 컬렉션을 반환합니다. 키 값 쌍은 쿼리 문자열로 전달되는 값을 나타냅니다.
+- **데이터**:이 속성은 예제 데이터의 [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) 컬렉션을 반환 합니다. 키 값 쌍은 쿼리 문자열로 전달되는 값을 나타냅니다.
 
-- **CreateDictionary**: 이 메서드는 키/값 쌍을 인수로 허용하고 쿼리 문자열 값을 나타내는 `QueryCollection`를 만드는 데 사용되는 새 `Dictionary`를 반환합니다.
+- **CreateDictionary**:이 메서드는 키/값 쌍을 인수로 수락 하 고 쿼리 문자열 값을 나타내는 `QueryCollection`를 만드는 데 사용 되는 새 `Dictionary`을 반환 합니다.
 
-- **CreateHttpRequest**: 이 메서드는 지정된 쿼리 문자열 매개 변수로 초기화된 HTTP 요청을 만듭니다.
+- **CreateHttpRequest**:이 메서드는 지정 된 쿼리 문자열 매개 변수를 사용 하 여 초기화 된 HTTP 요청을 만듭니다.
 
-- **CreateLogger**: 로거 형식에 따라 이 메서드는 테스트에 사용되는 로거 클래스를 반환합니다. `ListLogger`는 테스트에서 평가에 사용할 수 있는 기록된 메시지를 추적합니다.
+- **Createlogger**:로 거 형식을 기반으로 하는이 메서드는 테스트에 사용 되는로 거 클래스를 반환 합니다. `ListLogger`는 테스트에서 평가에 사용할 수 있는 기록된 메시지를 추적합니다.
 
 그런 다음, *Functions.Test* 애플리케이션을 **마우스 오른쪽 단추로 클릭**하고, **추가 > 클래스**를 선택하고, 이름을 **FunctionsTests.cs**로 지정하고, 다음 코드를 입력합니다.
 
@@ -246,11 +246,11 @@ namespace Functions.Tests
 ```
 이 클래스에 구현된 멤버는 다음과 같습니다.
 
-- **Http_trigger_should_return_known_string**: 이 테스트는 HTTP 함수에 대한 `name=Bill`의 쿼리 문자열 값이 포함된 요청을 만들고 예상 응답이 반환되었는지 확인합니다.
+- **Http_trigger_should_return_known_string**:이 테스트는 Http 함수에 `name=Bill` 쿼리 문자열 값을 사용 하 여 요청을 만들고 필요한 응답이 반환 되는지 확인 합니다.
 
-- **Http_trigger_should_return_string_from_member_data**: 이 테스트는 xUnit 특성을 사용하여 HTTP 함수에 샘플 데이터를 제공합니다.
+- **Http_trigger_should_return_string_from_member_data**:이 테스트는 xunit 특성을 사용 하 여 Http 함수에 샘플 데이터를 제공 합니다.
 
-- **Timer_should_log_message**: 이 테스트는 `ListLogger` 인스턴스를 만들고 타이머 함수에 전달합니다. 함수가 실행되면 로그를 확인하여 예상 메시지가 있는지 확인합니다.
+- **Timer_should_log_message**:이 테스트는 `ListLogger`의 인스턴스를 만들어 타이머 함수에 전달 합니다. 함수가 실행되면 로그를 확인하여 예상 메시지가 있는지 확인합니다.
 
 테스트에서 응용 프로그램 설정에 액세스 하려는 경우 [GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables)를 사용할 수 있습니다.
 
@@ -363,7 +363,8 @@ npm test
   "type": "node",
   "request": "launch",
   "name": "Jest Tests",
-  "program": "${workspaceRoot}\\node_modules\\jest\\bin\\jest.js",
+  "disableOptimisticBPs": true,
+  "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
   "args": [
       "-i"
   ],

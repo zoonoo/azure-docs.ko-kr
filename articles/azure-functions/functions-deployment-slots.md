@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
 ms.openlocfilehash: 50337745b008cdd38dd860a0329e44ee712e7acd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/18/2019
 ms.locfileid: "70085677"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions 배포 슬롯
@@ -33,7 +33,7 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
 배포 슬롯을 사용 하면 여러 가지 이점이 있습니다. 다음 시나리오에서는 슬롯의 일반적인 용도를 설명 합니다.
 
-- **용도가 다른 환경**: 다른 슬롯을 사용 하면 프로덕션 또는 스테이징 슬롯으로 교환 하기 전에 앱 인스턴스를 구분할 수 있습니다.
+- **용도에**따라 다른 환경: 다른 슬롯을 사용 하면 프로덕션 또는 스테이징 슬롯으로 교환 하기 전에 앱 인스턴스를 구분할 수 있습니다.
 - **사전 준비**: 프로덕션에 직접 배포 하는 대신 슬롯에 배포 하면 앱이 라이브 전환 전에 준비 될 수 있습니다. 또한 슬롯을 사용 하면 HTTP로 트리거되는 워크 로드에 대 한 대기 시간이 줄어듭니다. 인스턴스는 배포 전에 준비 새로 배포 된 함수에 대 한 콜드 시작을 줄입니다.
 - **간편한 대체**: 프로덕션을 사용한 교환 후 이전에 준비 된 앱이 있는 슬롯에는 이제 이전 프로덕션 앱이 있습니다. 프로덕션 슬롯으로 교환 되는 변경 내용이 원하는 대로 변경 되지 않은 경우 교체를 즉시 취소 하 여 "마지막으로 성공한 인스턴스"를 다시 가져올 수 있습니다.
 
@@ -60,7 +60,7 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
 - *교환을 시작 하기 전에*이벤트 원본 및 바인딩과 관련 된 설정을 [배포 슬롯 설정](#manage-settings) 으로 구성 해야 합니다. 앞에 "고정"으로 표시 하면 이벤트와 출력이 적절 한 인스턴스로 전달 됩니다.
 
-## <a name="manage-settings"></a>설정을관리
+## <a name="manage-settings"></a>설정 관리
 
 [!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
 
@@ -77,7 +77,7 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 - *플랫폼 기능 > 일반 설정*에서 **구성** 을 클릭 합니다.
 - 현재 슬롯과 함께 사용할 설정 이름을 클릭 합니다.
 - **배포 슬롯 설정** 확인란을 클릭 합니다.
-- **확인** 을 클릭합니다.
+- **확인**
 - 설정 블레이드가 사라지면 **저장** 을 클릭 하 여 변경 내용을 유지 합니다.
 
 ![배포 슬롯 설정](./media/functions-deployment-slots/azure-functions-deployment-slots-deployment-setting.png)
@@ -111,8 +111,8 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
 1. 함수 앱으로 이동 합니다.
 1. 교환 하려는 원본 슬롯 이름을 클릭 합니다.
-1. *개요* 탭에서 **교환** 단추 ![를 클릭 하 Azure Functions 배포 슬롯을 교체 합니다.](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
-1. 교환에 대 한 구성 설정을 확인 하 고 ![교환 교체 Azure Functions 배포 슬롯을 클릭 합니다.](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
+1. *개요* 탭에서 **교환** 단추를 클릭 하 ![Swap Azure Functions 배포 슬롯을 클릭 ](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
+1. 교환에 대 한 구성 설정을 확인 하 고 **교체** ![Swap Azure Functions 배포 슬롯을 클릭 ](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
 
 교환 작업을 실행 하는 동안 작업이 잠시 소요 될 수 있습니다.
 
@@ -134,10 +134,10 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest)를 사용 하 여 슬롯에 대해 다음 작업을 자동화할 수 있습니다.
 
-- [create](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
+- [만들기](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
 - [delete](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
 - [list](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
-- [swap](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
+- [스왑을](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
 - [자동 교환](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
 
 ## <a name="change-app-service-plan"></a>App service 계획 변경
@@ -159,7 +159,7 @@ App Service 계획으로 실행 되는 함수 앱을 사용 하는 경우 슬롯
 
 1. 새 App Service 계획을 선택 하거나 새 계획을 만듭니다.
 
-1. **확인** 을 클릭합니다.
+1. **확인**
 
     ![App service 계획 변경](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-select.png)
 
@@ -169,7 +169,7 @@ App Service 계획으로 실행 되는 함수 앱을 사용 하는 경우 슬롯
 Azure Functions 배포 슬롯에는 다음과 같은 제한 사항이 있습니다.
 
 - 앱에 사용할 수 있는 슬롯 수는 계획에 따라 다릅니다. 소비 계획은 배포 슬롯을 하나만 허용 합니다. App Service 계획에서 실행 되는 앱에 대 한 추가 슬롯을 사용할 수 있습니다.
-- 슬롯을 교환 하면 `AzureWebJobsSecretStorageType` 앱 설정이 `files`와 동일한 앱에 대 한 키가 다시 설정 됩니다.
+- 슬롯을 교환 하면 `AzureWebJobsSecretStorageType` 앱 설정이 `files` 같은 앱에 대 한 키가 다시 설정 됩니다.
 - Linux 소비 계획에는 슬롯을 사용할 수 없습니다.
 
 ## <a name="support-levels"></a>지원 수준
@@ -182,10 +182,10 @@ Azure Functions 배포 슬롯에는 다음과 같은 제한 사항이 있습니�
 | OS/호스팅 계획           | 지원 수준     |
 | ------------------------- | -------------------- |
 | Windows 사용량       | 일반 공급 |
-| Windows Premium (미리 보기) | Preview              |
+| Windows Premium (미리 보기) | 미리 보기              |
 | Windows 전용         | 일반 공급 |
 | Linux 소비         | 지원되지 않음          |
-| Linux 프리미엄 (미리 보기)   | Preview              |
+| Linux 프리미엄 (미리 보기)   | 미리 보기              |
 | Linux 전용           | 일반 공급 |
 
 ## <a name="next-steps"></a>다음 단계

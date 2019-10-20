@@ -5,126 +5,116 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/18/2019
+ms.date: 10/17/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: bed661873b195694c2fd9b30b1d98a3ecf1fc8a4
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 833aa7dcce5c429b3005a378e93e2177df1eb0d4
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671112"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595190"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Azure 리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
 
 Azure Blob 및 Queue Storage는 [Azure 리소스에 대한 관리 ID를 사용](../../active-directory/managed-identities-azure-resources/overview.md)하는 Azure Active Directory(Azure AD) 인증을 지원합니다. Azure 리소스에 대 한 관리 되는 id는 azure Vm (가상 머신), 함수 앱, 가상 머신 확장 집합 및 기타 서비스에서 실행 되는 응용 프로그램의 Azure AD 자격 증명을 사용 하 여 blob 및 큐 데이터 액세스 권한을 부여할 수 있습니다. Azure 리소스에 대 한 관리 되는 id를 Azure AD 인증과 함께 사용 하 여 클라우드에서 실행 되는 응용 프로그램에 자격 증명을 저장 하지 않을 수 있습니다.  
 
-이 문서에서는 Azure VM에서 관리 id를 사용 하 여 blob 또는 큐 데이터에 대 한 액세스 권한을 부여 하는 방법을 보여 줍니다.
+이 문서에서는 Azure 리소스에 대 한 관리 id를 사용 하 여 Azure VM에서 blob 또는 큐 데이터에 대 한 액세스 권한을 부여 하는 방법을 보여 줍니다. 개발 환경에서 코드를 테스트 하는 방법에 대해서도 설명 합니다.
 
 ## <a name="enable-managed-identities-on-a-vm"></a>VM에서 관리 ID 사용
 
 Azure 리소스에 관리 되는 id를 사용 하 여 VM에서 blob 및 큐에 대 한 액세스 권한을 부여 하려면 먼저 VM에서 Azure 리소스에 대 한 관리 되는 id를 사용 하도록 설정 해야 합니다. Azure 리소스의 관리 ID를 사용하도록 설정하는 방법을 알아보려면 다음 문서 중 하나를 참조하세요.
 
-- [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure 포털](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager 템플릿](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Azure Resource Manager 클라이언트 라이브러리](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
-## <a name="grant-permissions-to-an-azure-ad-managed-identity"></a>Azure AD 관리 id에 사용 권한 부여
+관리 id에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md)를 참조 하세요.
 
-Blob에 대 한 요청이 나 Azure Storage 응용 프로그램의 관리 되는 id에서 큐 서비스 권한을 부여 하려면 먼저 해당 관리 되는 id에 대 한 RBAC (역할 기반 액세스 제어) 설정을 구성 합니다. Azure Storage는 blob 및 큐 데이터에 대 한 사용 권한을 포함 하는 RBAC 역할을 정의 합니다. RBAC 역할이 관리 id에 할당 되 면 관리 되는 id에 해당 범위의 blob 또는 큐 데이터에 대 한 해당 권한이 부여 됩니다.
+## <a name="authenticate-with-the-azure-identity-library-preview"></a>Azure Id 라이브러리 (미리 보기)를 사용 하 여 인증
 
-RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 다음 문서 중 하나를 참조 하세요.
+.NET 용 Azure Id 클라이언트 라이브러리 (미리 보기)는 보안 주체를 인증 합니다. 코드가 Azure에서 실행 되는 경우 보안 주체는 Azure 리소스에 대 한 관리 되는 id입니다.
 
-- [Azure Portal에서 RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 부여](storage-auth-aad-rbac-portal.md)
-- [Azure CLI에서 RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 부여](storage-auth-aad-rbac-cli.md)
-- [PowerShell에서 RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 부여](storage-auth-aad-rbac-powershell.md)
+개발 환경에서 코드가 실행 되는 경우 인증을 자동으로 처리 하거나 사용 중인 도구에 따라 브라우저 로그인이 필요할 수 있습니다. Microsoft Visual Studio는 SSO (Single Sign-On)를 지원 하므로 활성 Azure AD 사용자 계정이 인증에 자동으로 사용 됩니다. SSO에 대 한 자세한 내용은 [응용 프로그램에 대 한 Single sign-on](../../active-directory/manage-apps/what-is-single-sign-on.md)을 참조 하세요.
 
-## <a name="azure-storage-resource-id"></a>Azure Storage 리소스 ID
+다른 개발 도구는 웹 브라우저를 통해 로그인 하 라는 메시지를 표시할 수 있습니다. 서비스 주체를 사용 하 여 개발 환경에서 인증할 수도 있습니다. 자세한 내용은 [포털에서 Azure 앱에 대 한 Id 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조 하세요.
 
-[!INCLUDE [storage-resource-id-include](../../../includes/storage-resource-id-include.md)]
+인증 후에 Azure Id 클라이언트 라이브러리는 토큰 자격 증명을 가져옵니다. 그런 다음이 토큰 자격 증명은 Azure Storage에 대해 작업을 수행 하기 위해 만드는 서비스 클라이언트 개체에 캡슐화 됩니다. 라이브러리는 적절 한 토큰 자격 증명을 가져와이를 원활 하 게 처리 합니다.
+
+Azure Id 클라이언트 라이브러리에 대 한 자세한 내용은 [.net 용 Azure id 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity)를 참조 하세요.
+
+## <a name="assign-rbac-roles-for-access-to-data"></a>데이터에 액세스 하기 위한 RBAC 역할 할당
+
+Azure AD 보안 주체가 blob 또는 큐 데이터에 액세스 하려는 경우 해당 보안 주체에 게 리소스에 대 한 권한이 있어야 합니다. 보안 주체가 Azure에서 관리 되는 id이 든, 개발 환경에서 코드를 실행 하는 Azure AD 사용자 계정 인지에 관계 없이 보안 주체는 Azure Storage의 blob 또는 큐 데이터에 대 한 액세스 권한을 부여 하는 RBAC 역할을 할당 받아야 합니다. RBAC를 통해 사용 권한을 할당 하는 방법에 대 한 자세한 내용은 [Azure Active Directory 사용 하 여 Azure blob 및 큐에](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights)대 한 액세스 권한 부여에서 **액세스 권한에 대 한 RBAC 역할 할당** 섹션을 참조 하세요.
+
+## <a name="install-the-preview-packages"></a>미리 보기 패키지 설치
+
+이 문서의 예제에서는 Blob 저장소에 대 한 Azure Storage 클라이언트 라이브러리의 최신 미리 보기 버전을 사용 합니다. 미리 보기 패키지를 설치 하려면 NuGet 패키지 관리자 콘솔에서 다음 명령을 실행 합니다.
+
+```powershell
+Install-Package Azure.Storage.Blobs -IncludePrerelease
+```
+
+이 문서의 예제에서는 Azure AD 자격 증명을 사용 하 여 인증 하기 위해 [.net 용 Azure id 클라이언트 라이브러리](https://www.nuget.org/packages/Azure.Identity/) 의 최신 미리 보기 버전도 사용 합니다. 미리 보기 패키지를 설치 하려면 NuGet 패키지 관리자 콘솔에서 다음 명령을 실행 합니다.
+
+```powershell
+Install-Package Azure.Identity -IncludePrerelease
+```
 
 ## <a name="net-code-example-create-a-block-blob"></a>.NET 코드 예제: 블록 Blob 만들기
 
-이 코드 예제에서는 Azure AD에서 OAuth 2.0 토큰을 가져온 후이를 사용 하 여 블록 blob 만들기 요청에 권한을 부여 하는 방법을 보여 줍니다. 이 예제가 작동 하려면 먼저 앞의 섹션에 설명 된 단계를 따르세요.
-
-[!INCLUDE [storage-app-auth-lib-include](../../../includes/storage-app-auth-lib-include.md)]
-
-### <a name="add-the-callback-method"></a>콜백 메서드 추가
-
-콜백 메서드는 토큰의 만료 시간을 확인 하 고 필요에 따라 갱신 합니다.
+Azure Id 및 Azure Storage 클라이언트 라이브러리의 미리 보기 버전을 사용 하려면 코드에 다음 `using` 지시문을 추가 합니다.
 
 ```csharp
-private static async Task<NewTokenAndFrequency> TokenRenewerAsync(Object state, CancellationToken cancellationToken)
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Azure.Identity;
+using Azure.Storage;
+using Azure.Storage.Sas;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+```
+
+코드에서 Azure Storage 요청에 권한을 부여 하는 데 사용할 수 있는 토큰 자격 증명을 가져오려면 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 클래스의 인스턴스를 만듭니다. 다음 코드 예제에서는 인증 된 토큰 자격 증명을 가져와서이를 사용 하 여 서비스 클라이언트 개체를 만든 다음 서비스 클라이언트를 사용 하 여 새 blob을 업로드 하는 방법을 보여 줍니다.
+
+```csharp
+async static Task CreateBlockBlobAsync(string accountName, string containerName, string blobName)
 {
-    // Specify the resource ID for requesting Azure AD tokens for Azure Storage.
-    // Note that you can also specify the root URI for your storage account as the resource ID.
-    const string StorageResource = "https://storage.azure.com/";  
+    // Construct the blob container endpoint from the arguments.
+    string containerEndpoint = string.Format("https://{0}.blob.core.windows.net/{1}",
+                                                accountName,
+                                                containerName);
 
-    // Use the same token provider to request a new token.
-    var authResult = await ((AzureServiceTokenProvider)state).GetAuthenticationResultAsync(StorageResource);
+    // Get a credential and create a client object for the blob container.
+    BlobContainerClient containerClient = new BlobContainerClient(new Uri(containerEndpoint),
+                                                                    new DefaultAzureCredential());
 
-    // Renew the token 5 minutes before it expires.
-    var next = (authResult.ExpiresOn - DateTimeOffset.UtcNow) - TimeSpan.FromMinutes(5);
-    if (next.Ticks < 0)
+    try
     {
-        next = default(TimeSpan);
-        Console.WriteLine("Renewing token...");
-    }
+        // Create the container if it does not exist.
+        await containerClient.CreateIfNotExistsAsync();
 
-    // Return the new token and the next refresh time.
-    return new NewTokenAndFrequency(authResult.AccessToken, next);
+        // Upload text to a new block blob.
+        string blobContents = "This is a block blob.";
+        byte[] byteArray = Encoding.ASCII.GetBytes(blobContents);
+
+        using (MemoryStream stream = new MemoryStream(byteArray))
+        {
+            await containerClient.UploadBlobAsync(blobName, stream);
+        }
+    }
+    catch (StorageRequestFailedException e)
+    {
+        Console.WriteLine(e.Message);
+        Console.ReadLine();
+        throw;
+    }
 }
 ```
-
-### <a name="get-a-token-and-create-a-block-blob"></a>토큰 가져오기 및 블록 blob 만들기
-
-앱 인증 라이브러리는 **AzureServiceTokenProvider** 클래스를 제공 합니다. 이 클래스의 인스턴스는 토큰을 가져오는 콜백에 전달 된 다음 만료 되기 전에 토큰을 갱신할 수 있습니다.
-
-다음 예제에서는 토큰을 가져와서이를 사용 하 여 새 blob을 만든 다음 동일한 토큰을 사용 하 여 blob을 읽습니다.
-
-```csharp
-const string blobName = "https://storagesamples.blob.core.windows.net/sample-container/blob1.txt";
-
-// Get the initial access token and the interval at which to refresh it.
-AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
-var tokenAndFrequency = await TokenRenewerAsync(azureServiceTokenProvider,CancellationToken.None);
-
-// Create storage credentials using the initial token, and connect the callback function
-// to renew the token just before it expires
-TokenCredential tokenCredential = new TokenCredential(tokenAndFrequency.Token,
-                                                        TokenRenewerAsync,
-                                                        azureServiceTokenProvider,
-                                                        tokenAndFrequency.Frequency.Value);
-
-StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
-
-// Create a blob using the storage credentials.
-CloudBlockBlob blob = new CloudBlockBlob(new Uri(blobName),
-                                            storageCredentials);
-
-// Upload text to the blob.
-await blob.UploadTextAsync(string.Format("This is a blob named {0}", blob.Name));
-
-// Continue to make requests against Azure Storage.
-// The token is automatically refreshed as needed in the background.
-do
-{
-    // Read blob contents
-    Console.WriteLine("Time accessed: {0} Blob Content: {1}",
-                        DateTimeOffset.UtcNow,
-                        await blob.DownloadTextAsync());
-
-    // Sleep for ten seconds, then read the contents of the blob again.
-    Thread.Sleep(TimeSpan.FromSeconds(10));
-} while (true);
-```
-
-앱 인증 라이브러리에 대 한 자세한 내용은 [.net을 사용 하 여 Azure Key Vault에 대 한 서비스 간 인증을](../../key-vault/service-to-service-authentication.md)참조 하세요.
-
-액세스 토큰을 획득 하는 방법에 대 한 자세한 내용은 [AZURE VM에서 azure 리소스에 대해 관리 되는 id를 사용 하 여 액세스 토큰을 가져오는 방법](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)을 참조 하세요.
 
 > [!NOTE]
 > Azure AD를 사용 하 여 blob 또는 큐 데이터에 대 한 요청에 권한을 부여 하려면 해당 요청에 대해 HTTPS를 사용 해야 합니다.

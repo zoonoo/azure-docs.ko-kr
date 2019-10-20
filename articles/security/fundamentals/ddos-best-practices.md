@@ -1,9 +1,9 @@
 ---
-title: Azure DDoS Protection 모범 사례 및 참조 아키텍처 | Microsoft Docs
+title: 복원 력 있는 솔루션을 Azure DDoS Protection 설계 | Microsoft Docs
 description: 로깅 데이터를 사용하여 애플리케이션에 대해 깊이 이해할 수 있는 방법에 대해 알아봅니다.
 services: security
 author: barclayn
-manager: barbkess
+manager: RKarlin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -12,58 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
+ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: a5b4451a6d03cec8e100ed67c0ed9333e8a221de
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: ac36a4c59dbec8bf27850de1565e86b78643148a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727480"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595413"
 ---
-# <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: 모범 사례 및 참조 아키텍처
+# <a name="azure-ddos-protection---designing-resilient-solutions"></a>복원 력 있는 솔루션 Azure DDoS Protection 설계
 
 이 아티클은 IT 의사 결정권자 및 보안 담당자를 위해 작성되었습니다. 사용자가 Azure, 네트워킹 및 보안에 익숙하다고 가정합니다.
-
-DDoS(분산 서비스 거부) 복원력을 설계하려면 다양한 오류 모드에 대한 계획과 설계가 필요합니다. 이 아티클에서는 Azure에서 DDoS 공격에 대한 복원력을 갖춘 애플리케이션을 디자인하기 위한 모범 사례를 제공합니다.
-
-## <a name="types-of-attacks"></a>공격 유형
-
-DDoS는 애플리케이션 리소스를 고갈시키려는 공격 유형입니다. 공격 목표는 애플리케이션의 가용성과 합법적인 요청을 처리하는 기능을 약화시키는 것입니다. 최근에는 공격이 점점 정교해지고 그 규모와 영향도 점점 커지고 있습니다. 인터넷을 통해 공개적으로 도달 가능한 모든 엔드포인트는 DDoS 공격의 대상이 될 수 있습니다.
-
-Azure는 DDoS 공격으로부터 지속적으로 보호하는 기능을 제공합니다. 이 보호 기능은 기본적으로 추가 비용 없이 Azure 플랫폼에 통합됩니다. 
+DDoS는 애플리케이션 리소스를 고갈시키려는 공격 유형입니다. 공격 목표는 애플리케이션의 가용성과 합법적인 요청을 처리하는 기능을 약화시키는 것입니다. 최근에는 공격이 점점 정교해지고 그 규모와 영향도 점점 커지고 있습니다. 인터넷을 통해 공개적으로 도달 가능한 모든 엔드포인트는 DDoS 공격의 대상이 될 수 있습니다. DDoS(분산 서비스 거부) 복원력을 설계하려면 다양한 오류 모드에 대한 계획과 설계가 필요합니다. Azure는 DDoS 공격으로부터 지속적으로 보호하는 기능을 제공합니다. 이 보호 기능은 기본적으로 추가 비용 없이 Azure 플랫폼에 통합됩니다.
 
 플랫폼에서 핵심 DDoS 보호 외에도 [Azure DDoS Protection 표준](https://azure.microsoft.com/services/ddos-protection/)에서는 네트워크 공격에 대한 고급 DDoS 완화 기능을 제공합니다. 특정 Azure 리소스를 보호하도록 자동으로 조정됩니다. 새 가상 네트워크를 만드는 동안 간단하게 보호를 사용하도록 설정할 수 있습니다. 생성 후에도 설정 가능하며 애플리케이션 또는 리소스를 변경할 필요가 없습니다.
 
 ![고객 및 가상 네트워크를 공격자로부터 보호하는 작업에서 Azure DDoS Protection의 역할](./media/ddos-best-practices/image1.png)
 
-DDoS 공격은 볼륨, 프로토콜 및 리소스라는 세 가지 범주로 분류할 수 있습니다.
-
-### <a name="volumetric-attacks"></a>대규모 공격
-
-대규모 공격은 가장 일반적인 유형의 DDoS 공격입니다. 대규모 공격은 네트워크 및 전송 레이어를 대상으로 하는 무차별 암호 대입 공격입니다. 네트워크 연결과 같은 리소스를 고갈시키려고 합니다. 
-
-종종 이 공격은 감염된 여러 시스템을 사용하여 정상으로 보이는 트래픽으로 네트워크 레이어를 마비시킵니다. ICMP(Internet Control Message Protocol), UDP(User Datagram Protocol) 및 TCP(Transmission Control Protocol)과 같은 네트워크 레이어 프로토콜을 사용합니다.
-
-가장 일반적으로 사용되는 네트워크 레이어 DDoS 공격은 TCP SYN 초과, ICMP 에코, UDP 초과, DNS 및 NTP 증폭 공격입니다. 이러한 유형의 공격은 서비스를 중단시킬 목적뿐 아니라 특정 네트워크에 불법적으로 침입하기 위한 위장 공격에도 사용될 수 있습니다. 최근에 있었던 대규모 공격의 예로는 GitHub에 영향을 미친 [Memcached 악용](https://www.wired.com/story/github-ddos-memcached/)이 있습니다. 이 공격은 UDP 포트 11211을 대상으로 1.35Tb/s의 공격 볼륨을 생성했습니다.
-
-### <a name="protocol-attacks"></a>프로토콜 공격
-
-프로토콜 공격은 애플리케이션 프로토콜을 대상으로 합니다. 방화벽, 애플리케이션 서버 및 부하 분산 디바이스 등의 인프라 디바이스에서 사용할 수 있는 모든 리소스를 남김 없이 사용하려고 시도합니다. 프로토콜 공격은 형식이 잘못되었거나 프로토콜 이상이 있는 패킷을 사용합니다. 이 공격은 대량의 열린 요청, 서버 및 기타 통신 디바이스 응답을 보내고 패킷 응답을 기다립니다. 대상이 열린 요청에 응답하려고 하면 결국 시스템이 크래시를 일으킵니다.
-
-프로토콜 기반 DDoS 공격의 대표적인 예는 TCP SYN 초과입니다. 이 공격에서 TCP SYN 요청의 연속으로 대상에 과부하를 일으키려고 합니다. 대상이 응답하지 않게 만드는 것이 공격 목표입니다. 애플리케이션 레이어 공격과 달리 2016 Dyn 중단은 Dyn의 DNS 서버 포트 53을 대상으로 하는 TCP SYN 초과로 구성됩니다.
-
-### <a name="resource-attacks"></a>리소스 공격
-
-리소스 공격은 애플리케이션 계층을 대상으로 합니다. 시스템에 과부하를 일으키기 위해 백 엔드 프로세스를 트리거합니다. 리소스 공격은 정상으로 보이지만 CPU를 많이 사용하는 쿼리를 서버로 보내 트래픽을 유발합니다. 리소스를 고갈시키는 데 필요한 트래픽 볼륨이 다른 유형의 공격에 비해 적습니다. 리소스 공격의 트래픽과 정당한 트래픽을 구분할 수 없기 때문에 감지하기가 어렵습니다. 리소스 공격은 대부분 HTTP/HTTPS 및 DNS 서비스에서 이루어집니다.
-
-## <a name="shared-responsibility-in-the-cloud"></a>클라우드의 공동 책임
-
-심층 방어 전략을 통해 점점 다양해지고 정교해지는 공격을 막을 수 있습니다. 보안은 고객과 Microsoft 간의 공동 책임입니다. Microsoft는 이를 [공동 책임 모델](https://azure.microsoft.com/blog/microsoft-incident-response-and-shared-responsibility-for-cloud-computing/)이라고 합니다. 다음 그림은 이 책임의 분산을 보여줍니다.
-
-![고객의 책임 및 Azure의 책임](./media/ddos-best-practices/image2.png)
-
-Azure 고객은 Microsoft 모범 사례를 검토하고 오류에 대한 설계 및 테스트를 마친 전역 배포 애플리케이션을 빌드할 수 있습니다.
 
 ## <a name="fundamental-best-practices"></a>기본 모범 사례
 
@@ -80,7 +46,7 @@ Microsoft Azure에서 실행되는 서비스를 보호하기 위해 애플리케
 
 ### <a name="design-for-scalability"></a>확장성을 위한 디자인
 
-확장성은 시스템이 증가된 로드를 처리할 수 있는 정도입니다. 증폭되는 부하, 특히 DDoS 공격 시 증폭되는 부하 수요를 충족할 수 있도록 애플리케이션이 [수평으로 확장 가능](/azure/architecture/guide/design-principles/scale-out)하도록 설계해야 합니다. 애플리케이션이 서비스의 단일 인스턴스에 종속된 경우 단일 실패 지점이 생깁니다. 여러 인스턴스를 프로비전하면 시스템에 복원성 및 확장성이 증가하게 됩니다.
+확장성은 시스템이 증가된 로드를 처리할 수 있는 정도입니다. 특히 DDoS 공격이 발생 하는 경우 증폭 된 부하의 수요를 충족 하도록 응용 프로그램을 [수평으로 확장](/azure/architecture/guide/design-principles/scale-out) 하도록 설계 합니다. 애플리케이션이 서비스의 단일 인스턴스에 종속된 경우 단일 실패 지점이 생깁니다. 여러 인스턴스를 프로비전하면 시스템에 복원성 및 확장성이 증가하게 됩니다.
 
 [Azure App Service](/azure/app-service/app-service-value-prop-what-is)의 경우 여러 인스턴스를 제공하는 [App Service 계획](/azure/app-service/overview-hosting-plans)을 선택합니다. Azure Cloud Services의 경우 각각의 역할을 [여러 인스턴스](/azure/cloud-services/cloud-services-choose-me)를 사용하도록 구성합니다. [Azure Virtual Machines](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 경우, VM(가상 머신) 아키텍처가 둘 이상의 VM을 포함하는지 그리고 각각의 VM이 [가용성 집합](/azure/virtual-machines/virtual-machines-windows-manage-availability)에 포함되는지 확인합니다. 자동 크기 조정 기능을 위한 [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)을 사용하는 것이 좋습니다.
 
@@ -107,7 +73,7 @@ Azure는 네트워크 공격(레이어 3 및 4)으로부터 보호하는 DDoS Pr
 
 Azure에서 기본 DDoS 보호는 소프트웨어 및 하드웨어 구성 요소로 구성됩니다. 소프트웨어 제어 평면은 공격 트래픽을 분석 및 제거하는 하드웨어 어플라이언스를 통해 언제, 어디서, 어떤 종류의 트래픽을 조정해야 하는지 결정합니다. 제어 평면은 인프라 수준의 DDoS Protection *정책*에 따라 이 결정을 내립니다. 이 정책은 고정으로 설정되고 모든 Azure 고객에게 전체적으로 적용됩니다.
 
-예를 들어 DDoS Protection 정책은 보호가 *트리거*되어야 하는 트래픽 볼륨을 지정합니다. (즉, 테넌트의 트래픽은 스크럽빙 어플라이언스를 통해 라우팅되어야 합니다.) 정책은 스크러빙 어플라이언스가 공격을 *완화*하는 방법을 지정합니다.
+예를 들어 DDoS Protection 정책은 보호가 *트리거*되어야 하는 트래픽 볼륨을 지정합니다. 즉, 테 넌 트의 트래픽은 스크러빙 어플라이언스를 통해 라우팅됩니다. 그런 다음 삭제 기기가 공격을 *완화* 하는 방법을 지정 합니다.
 
 Azure DDoS Protection 기본 서비스는 인프라 보호와 Azure 플랫폼 보호를 목표로 합니다. 다중 테넌트 환경의 여러 고객에게 영향을 줄 수 있을 만큼 상당히 속도를 초과하는 경우 트래픽을 완화합니다. 경고 또는 고객별로 사용자 지정된 정책을 제공하지 않습니다.
 
@@ -115,7 +81,7 @@ Azure DDoS Protection 기본 서비스는 인프라 보호와 Azure 플랫폼 �
 
 표준 보호는 향상된 DDoS 완화 기능을 제공합니다. 가상 네트워크에서 특정 Azure 리소스를 보호하도록 자동으로 조정됩니다. 보호는 새 가상 네트워크 또는 기존 가상 네트워크에서 간단하게 설정할 수 있으며 애플리케이션 또는 리소스를 변경할 필요가 없습니다. 로깅, 경고 및 원격 분석을 포함하여 기본 서비스에 비해 여러 가지 장점이 있습니다. 다음 섹션에서는 Azure DDoS Protection 표준 서비스의 주요 기능을 간략하게 설명합니다.
 
-#### <a name="adaptive-real-time-tuning"></a>적응형 실시간 조정
+#### <a name="adaptive-real-time-tuning"></a>적응 실시간 튜닝
 
 Azure DDoS Protection Basic 서비스를 통해 고객을 보호하고 다른 고객에 영향을 주지 않도록 방지합니다. 예를 들어 인프라 수준 DDoS Protection 정책의 *트리거 비율*보다 작고 합법적인 수신 트래픽의 일반 볼륨에 대해 서비스가 프로비전되면 해당 고객의 리소스에 대한 DDoS 공격을 알아차리지 못할 수 있습니다. 뿐만 아니라 최근 공격(예: 다중 벡터 DDoS) 및 테넌트의 애플리케이션별 동작이 더욱 복잡해지면서 고객별로 사용자 지정된 보호 정책의 필요성이 대두되었습니다. 서비스에서는 두 개의 정보를 사용하여 이 사용자 지정을 수행합니다.
 
@@ -161,7 +127,7 @@ DDoS Protection 표준은 DDoS를 사용하도록 설정된 가상 네트워크�
 
 DDoS Protection 표준이 설치된 경우 인터넷 연결 엔드포인트의 가상 네트워크에서 사용하도록 설정해야 합니다. DDoS 경고를 구성하면 인프라에 대한 잠재적 공격을 지속적으로 감시할 수 있습니다. 
 
-애플리케이션을 독립적으로 모니터링해야 합니다. 애플리케이션의 정상 동작을 이해해야 합니다. DDoS 공격을 받는 동안 애플리케이션이 예상대로 작동하지 않을 경우를 준비합니다.
+응용 프로그램을 독립적으로 모니터링 합니다. 애플리케이션의 정상 동작을 이해해야 합니다. DDoS 공격을 받는 동안 애플리케이션이 예상대로 작동하지 않을 경우를 준비합니다.
 
 #### <a name="testing-through-simulations"></a>시뮬레이션을 통해 테스트
 
@@ -193,7 +159,8 @@ Microsoft는 중요한 인프라 공급자로써 위협에 대한 조기 경고�
 
 ### <a name="risk-evaluation-of-your-azure-resources"></a>Azure 리소스의 위험 평가
 
-반드시 DDoS 공격의 위험 범위를 지속적으로 파악해야 합니다. 주기적으로 확인: 
+반드시 DDoS 공격의 위험 범위를 지속적으로 파악해야 합니다. 주기적으로 확인:
+
 - 보호가 필요한 새로 공개된 Azure 리소스는 무엇인가요?
 
 - 서비스에 단일 실패 지점이 있나요? 
@@ -226,7 +193,7 @@ Azure DDoS Protection 표준은 사용자 개입 없이 DDoS 공격을 식별하
 
 - 작업자가 리소스에 대한 DDoS 공격을 시작하겠다고 위협합니다.
 
-- Azure DDoS Protection 표준에서 IP 또는 IP 범위를 허용 목록 해야 하는 경우 트래픽이 외부 클라우드 WAF에서 Azure로 라우팅되는 경우에는 IP를 허용 목록 하는 것이 일반적인 시나리오입니다. 
+- 허용 해야 하는 경우 Azure DDoS Protection Standard에서 IP 또는 IP 범위를 나열 합니다. 일반적인 시나리오는 트래픽이 외부 클라우드 WAF에서 Azure로 라우팅되는 경우 list IP를 허용 하는 것입니다. 
 
 중요한 비즈니스에 영향을 주는 공격의 경우 심각도-A [지원 티켓](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 만듭니다.
 
@@ -301,8 +268,8 @@ Azure Traffic Manager는 들어오는 요청을 한 지역의 Application Gatewa
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure DDoS Protection 제품 페이지](https://azure.microsoft.com/services/ddos-protection/)
+* [클라우드의 공유 책임](shared-responsibility.md)
 
-* [Azure DDoS Protection 블로그](https://aka.ms/ddosblog)
+* [Azure DDoS Protection 제품 페이지](https://azure.microsoft.com/services/ddos-protection/)
 
 * [Azure DDoS Protection 설명서](/azure/virtual-network/ddos-protection-overview)

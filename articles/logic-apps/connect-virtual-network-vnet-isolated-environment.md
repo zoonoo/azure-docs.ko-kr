@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 9cb86d65c84f9a315541172f5d0efa77eee3e7ed
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: d6530eb95dc26b9abe4bb27146b16eb2952e9f9b
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529317"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595683"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -49,6 +49,8 @@ ISE는 실행 지속 시간, 저장소 보존, 처리량, HTTP 요청 및 응답
   * 가상 네트워크에는 ISE에서 리소스를 만들고 배포 하기 위한 4 개의 *빈* 서브넷이 있어야 합니다. 이러한 서브넷을 미리 만들 수도 있고, 한 번에 서브넷을 만들 수 있는 ISE를 만들 때까지 기다릴 수도 있습니다. [서브넷 요구 사항](#create-subnet)에 대해 자세히 알아보세요.
 
   * 서브넷 이름은 알파벳 문자 또는 밑줄로 시작 해야 하 고, `<`, `>`, `%`, `&`, `\\`, `?`, `/` 문자를 사용할 수 없습니다. 
+  
+  * Azure Resource Manager 템플릿을 통해 ISE를 배포 하려는 경우 먼저 빈 서브넷 하나를 Microsoft. integrationServiceEnvironment/에 위임 해야 합니다. Azure Portal를 통해 배포할 때이 위임을 수행할 필요가 없습니다.
 
   * 가상 네트워크가 [이러한 포트를 사용할 수](#ports) 있도록 하 여 ISE가 제대로 작동 하 고 액세스할 수 있도록 해야 합니다.
 

@@ -4,14 +4,14 @@ description: Visual Studio에서 Azure 리소스 그룹 배포 프로젝트를 �
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 10/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: ae896fa0820fbd25ed3f2d29c89fbcd56e7fd6f5
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 9306ff8787a4e2b873cb11458a4cf9a10589bf6b
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982454"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597506"
 ---
 # <a name="integrate-resource-manager-templates-with-azure-pipelines"></a>Azure Pipelines와 리소스 관리자 템플릿 통합
 
@@ -71,25 +71,25 @@ steps:
   inputs:
     azureSubscription: 'demo-deploy-sp'
     ScriptPath: 'AzureResourceGroupDemo/Deploy-AzureResourceGroup.ps1'
-    ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus' 
+    ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus'
     azurePowerShellVersion: LatestVersion
 ```
 
-작업을로 `AzurePowerShell@3`설정 하면 파이프라인은 AzureRM 모듈의 명령을 사용 하 여 연결을 인증 합니다. 기본적으로 Visual Studio 프로젝트의 PowerShell 스크립트는 AzureRM 모듈을 사용 합니다. [Az module](/powershell/azure/new-azureps-module-az)을 사용 하도록 스크립트를 업데이트 한 경우 작업을로 `AzurePowerShell@4`설정 합니다.
+작업을 `AzurePowerShell@3` 설정 하면 파이프라인은 AzureRM 모듈의 명령을 사용 하 여 연결을 인증 합니다. 기본적으로 Visual Studio 프로젝트의 PowerShell 스크립트는 AzureRM 모듈을 사용 합니다. [Az module](/powershell/azure/new-azureps-module-az)을 사용 하도록 스크립트를 업데이트 한 경우 작업을 `AzurePowerShell@4` 설정 합니다.
 
 ```yaml
 steps:
 - task: AzurePowerShell@4
 ```
 
-`azureSubscription`에서, 만든 서비스 연결의 이름을 제공 합니다.
+@No__t_0에서 사용자가 만든 서비스 연결의 이름을 제공 합니다.
 
 ```yaml
 inputs:
     azureSubscription: '<your-connection-name>'
 ```
 
-의 `scriptPath`경우 파이프라인 파일에서 스크립트에 대 한 상대 경로를 제공 합니다. 리포지토리를 살펴보면 경로를 볼 수 있습니다.
+@No__t_0의 경우 파이프라인 파일에서 스크립트에 대 한 상대 경로를 제공 합니다. 리포지토리를 살펴보면 경로를 볼 수 있습니다.
 
 ```yaml
 ScriptPath: '<your-relative-path>/<script-file-name>.ps1'
@@ -139,7 +139,7 @@ ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocati
 
 ## <a name="copy-and-deploy-tasks"></a>작업 복사 및 배포
 
-이 섹션에서는 두 작업을 사용 하 여 아티팩트를 준비 하 고 템플릿을 배포 하 여 연속 배포를 구성 하는 방법을 보여 줍니다. 
+이 섹션에서는 두 작업을 사용 하 여 아티팩트를 준비 하 고 템플릿을 배포 하 여 연속 배포를 구성 하는 방법을 보여 줍니다.
 
 다음 YAML은 [Azure 파일 복사 작업](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)을 보여 줍니다.
 
@@ -157,13 +157,13 @@ ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocati
     sasTokenTimeOutInMinutes: '240'
 ```
 
-이 작업에는 환경에 맞게 수정 하는 여러 부분이 있습니다. 는 `SourcePath` 파이프라인 파일을 기준으로 아티팩트의 위치를 나타냅니다. 이 예제에서 파일은 프로젝트의 이름인 라는 `AzureResourceGroup1` 폴더에 있습니다.
+이 작업에는 환경에 맞게 수정 하는 여러 부분이 있습니다. @No__t_0 파이프라인 파일을 기준으로 아티팩트의 위치를 나타냅니다. 이 예제에서 파일은 프로젝트의 이름인 `AzureResourceGroup1` 라는 폴더에 있습니다.
 
 ```yaml
 SourcePath: '<path-to-artifacts>'
 ```
 
-`azureSubscription`에서, 만든 서비스 연결의 이름을 제공 합니다.
+@No__t_0에서 사용자가 만든 서비스 연결의 이름을 제공 합니다.
 
 ```yaml
 azureSubscription: '<your-connection-name>'
@@ -176,35 +176,45 @@ storage: '<your-storage-account-name>'
 ContainerName: '<container-name>'
 ```
 
-다음 YAML은 [Azure 리소스 그룹 배포 작업](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops)을 보여 줍니다.
+다음 YAML은 [Azure Resource Manager 템플릿 배포 작업](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md)을 보여 줍니다.
 
 ```yaml
 - task: AzureResourceGroupDeployment@2
   displayName: 'Deploy template'
   inputs:
-    azureSubscription: 'demo-deploy-sp'
+    deploymentScope: 'Resource Group'
+    ConnectedServiceName: 'demo-deploy-sp'
+    subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
+    action: 'Create Or Update Resource Group'
     resourceGroupName: 'demogroup'
-    location: 'centralus'
+    location: 'Central US'
     templateLocation: 'URL of the file'
     csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
     csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
     overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+    deploymentMode: 'Incremental'
 ```
 
-이 작업에는 환경에 맞게 수정 하는 여러 부분이 있습니다. `azureSubscription`에서, 만든 서비스 연결의 이름을 제공 합니다.
+이 작업에는 환경에 맞게 수정 하는 여러 부분이 있습니다.
 
-```yaml
-azureSubscription: '<your-connection-name>'
-```
+- `deploymentScope`: `Management Group`, `Subscription` 및 `Resource Group` 옵션에서 배포 범위를 선택 합니다. 이 연습에서는를 통해 **리소스 그룹** 을 사용 합니다. 범위에 대해 자세히 알아보려면 [배포 범위](./resource-group-template-deploy-rest.md#deployment-scope)를 참조 하세요.
 
-`resourceGroupName` 및`location`의 경우 배포 하려는 리소스 그룹의 이름과 위치를 제공 합니다. 리소스가 없는 경우 태스크에서 리소스 그룹을 만듭니다.
+- `ConnectedServiceName`: 만든 서비스 연결의 이름을 제공 합니다.
 
-```yaml
-resourceGroupName: '<resource-group-name>'
-location: '<location>'
-```
+    ```yaml
+    ConnectedServiceName: '<your-connection-name>'
+    ```
 
-배포 작업은 이름이 인 `WebSite.json` 템플릿 및 매개 변수 파일 (. parameters. json)에 연결 됩니다. 템플릿 및 매개 변수 파일의 이름을 사용 합니다.
+- `subscriptionName`: 대상 구독 ID를 제공 합니다. 이 속성은 리소스 그룹 배포 범위 및 구독 배포 혜택 적용 됩니다.
+
+- `resourceGroupName` 및 `location`: 배포 하려는 리소스 그룹의 이름과 위치를 제공 합니다. 리소스가 없는 경우 태스크에서 리소스 그룹을 만듭니다.
+
+    ```yaml
+    resourceGroupName: '<resource-group-name>'
+    location: '<location>'
+    ```
+
+배포 작업은 `WebSite.json` 템플릿 및 WebSite 라는 매개 변수 파일에 연결 됩니다. 템플릿 및 매개 변수 파일의 이름을 사용 합니다.
 
 이제 작업을 만드는 방법을 이해 하 고 파이프라인을 편집 하는 단계를 살펴보겠습니다.
 
@@ -226,16 +236,20 @@ location: '<location>'
        outputStorageUri: 'artifactsLocation'
        outputStorageContainerSasToken: 'artifactsLocationSasToken'
        sasTokenTimeOutInMinutes: '240'
-   - task: AzureResourceGroupDeployment@2
-     displayName: 'Deploy template'
-     inputs:
-       azureSubscription: 'demo-deploy-sp'
-       resourceGroupName: demogroup
-       location: 'centralus'
-       templateLocation: 'URL of the file'
-       csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
-       csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
-       overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+    - task: AzureResourceGroupDeployment@2
+      displayName: 'Deploy template'
+      inputs:
+        deploymentScope: 'Resource Group'
+        ConnectedServiceName: 'demo-deploy-sp'
+        subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: 'demogroup'
+        location: 'Central US'
+        templateLocation: 'URL of the file'
+        csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
+        csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
+        overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+        deploymentMode: 'Incremental'
    ```
 
 1. **저장**을 선택합니다.
@@ -250,4 +264,4 @@ location: '<location>'
 
 ## <a name="next-steps"></a>다음 단계
 
-리소스 관리자 템플릿과 함께 Azure Pipelines를 사용 하는 단계별 프로세스를 보려면 [자습서: Azure Pipelines](resource-manager-tutorial-use-azure-pipelines.md)를 사용 하 여 Azure Resource Manager 템플릿 연속 통합.
+리소스 관리자 템플릿과 함께 Azure Pipelines를 사용 하는 방법에 대 한 단계별 프로세스는 [자습서: Azure Resource Manager 템플릿의 연속 통합 Azure Pipelines](resource-manager-tutorial-use-azure-pipelines.md)를 참조 하세요.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: b281344084cb558ab490e9e3c24774311ede7866
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: cba7102c39f9e5231a3fe726f2e4c74e814109f1
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529426"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597988"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Azure Virtual Machines에서 프리미엄 파일 공유를 사용 하 여 SQL Server 장애 조치 (Failover) 클러스터 인스턴스 구성
 
@@ -45,7 +45,7 @@ ms.locfileid: "72529426"
 - [Azure 리소스 그룹](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> SQL Server 현재 Azure 가상 컴퓨터의 장애 조치 (failover) 클러스터 인스턴스는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)의 [경량](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) 관리 모드 에서만 지원 됩니다. 전체 확장 모드에서 경량으로 변경 하려면 correspinding Vm에 대 한 "SQL 가상 머신" 리소스를 삭제 한 다음 `lightweight` 모드에서 SQL VM 리소스 공급자에 등록 합니다. Azure Portal를 사용 하 여 "SQL 가상 컴퓨터" 리소스를 삭제 하는 경우 실제 가상 컴퓨터의 선택을 취소 해야 합니다. 전체 확장은 자동화 된 백업, 패치, 고급 포털 관리 등의 기능을 지원 합니다. 이러한 기능은 에이전트가 경량 관리 모드로 다시 설치 된 후 SQL Vm에 대해 작동 하지 않습니다.
+> SQL Server 현재 Azure 가상 컴퓨터의 장애 조치 (failover) 클러스터 인스턴스는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)의 [경량](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) 관리 모드 에서만 지원 됩니다. 전체 확장 모드에서 경량 모드로 변경 하려면 해당 Vm에 대 한 **Sql 가상 컴퓨터** 리소스를 삭제 한 다음 [경량](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) 모드로 sql VM 리소스 공급자에 등록 합니다. Azure Portal를 사용 하 여 **SQL 가상 컴퓨터** 리소스를 삭제 하는 경우 올바른 가상 컴퓨터 옆의 확인란을 선택 취소 합니다. 전체 확장은 자동화 된 백업, 패치, 고급 포털 관리 등의 기능을 지원 합니다. 이러한 기능은 에이전트가 [경량](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) 관리 모드로 다시 설치 된 후 SQL vm에 대해 작동 하지 않습니다.
 
 ### <a name="workload-consideration"></a>워크 로드 고려 사항
 

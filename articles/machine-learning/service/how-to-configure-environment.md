@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: dca032cceb4f1561d7ee8b35de502f8f5259cfe8
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: HT
+ms.openlocfilehash: 5080ec4db46f717a9e9ecdcdfbea42fbe43c349d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553624"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598434"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -353,8 +353,7 @@ Databricks ](./media/how-to-configure-environment/automlonadb.jpg)에 자동 mac
 ### <a name="start-exploring"></a>탐색 시작
 
 사용해 보기:
-+ Azure Databricks/Azure Machine Learning SDK 용 [노트북 보관 파일](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc) 을 다운로드 하 고 Databricks 클러스터에 [보관 파일을 가져옵니다](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) .
-  많은 샘플 노트북을 사용할 수 있지만  **[이러한 샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) 만 Azure Databricks 작업을 수행 합니다.**
++ 많은 샘플 노트북을 사용할 수 있지만  **[이러한 샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) 만 Azure Databricks 작업을 수행 합니다.**
 
 + [Databricks를 학습 계산으로 사용 하 여 파이프라인을 만드는](how-to-create-your-first-pipeline.md)방법에 대해 알아봅니다.
 

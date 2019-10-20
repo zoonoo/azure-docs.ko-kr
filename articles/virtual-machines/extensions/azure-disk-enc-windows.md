@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 11394f692765cc1df5db0eb5c0dd06425026505d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 00891122015bb3e6adb500b6f6c30fa031161b92
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092639"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598006"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Windows용 Azure Disk Encryption(Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -26,25 +26,19 @@ ms.locfileid: "70092639"
 
 Azure Disk Encryption은 BitLocker를 활용하여 Windows를 실행하는 Azure 가상 머신에서 전체 디스크 암호화를 제공합니다.  이 솔루션은 Azure Key Vault와 통합되어 키 자격 증명 모음 구독의 디스크 암호화 키와 비밀을 관리합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
-필수 조건에 대한 전체 목록은 [Azure Disk Encryption 필수 조건](
-../../security/azure-security-disk-encryption-prerequisites.md)을 참조하세요.
+필수 구성 요소의 전체 목록은 [Linux vm에 대 한 Azure Disk Encryption](../linux/disk-encryption-overview.md), 특히 다음 섹션을 참조 하세요.
 
-### <a name="operating-system"></a>운영 체제
-
-현재 Windows 버전에 대한 목록은 [Azure Disk Encryption 필수 조건](../../security/azure-security-disk-encryption-prerequisites.md)을 참조하세요.
-
-### <a name="internet-connectivity"></a>인터넷에 연결
-
-Azure Disk Encryption을 사용하려면 Active Directory, Key Vault, Storage 및 패키지 관리 엔드포인트에 액세스하기 위한 인터넷 연결이 필요합니다.  네트워크 보안 설정에 대한 자세한 내용은 [Azure Disk Encryption 필수 조건](
-../../security/azure-security-disk-encryption-prerequisites.md)을 참조하세요.
+- [Linux Vm에 대 한 Azure Disk Encryption](../windows/disk-encryption-overview.md#supported-vms-and-operating-systems)
+- [네트워킹 요구 사항](../windows/disk-encryption-overview.md#networking-requirements)
+- [그룹 정책 요구 사항](../windows/disk-encryption-overview.md#group-policy-requirements)
 
 ## <a name="extension-schemata"></a>확장 schemata
 
 Azure Disk Encryption에 대 한 두 가지 schemata 있습니다. v 1.1, AAD (Azure Active Directory) 속성을 사용 하지 않는 권장 스키마, AAD 속성을 필요로 하는 오래 된 스키마 인 v 0.1. 사용 중인 확장에 해당 하는 스키마 버전을 사용 해야 합니다. AzureDiskEncryption 확장 버전 1.1에 대 한 schema v1.0 및 AzureDiskEncryption 확장 버전 0.1에 대 한 schema v 0.1을 사용 해야 합니다.
 
-### <a name="schema-v11-no-aad-recommended"></a>스키마 v 1.1: AAD 안 함 (권장)
+### <a name="schema-v11-no-aad-recommended"></a>Schema v1.0: AAD 없음 (권장)
 
 V 1.1 스키마를 권장 하며 Azure Active Directory 속성이 필요 하지 않습니다.
 
@@ -75,9 +69,9 @@ V 1.1 스키마를 권장 하며 Azure Active Directory 속성이 필요 하지 
 
 ### <a name="schema-v01-with-aad"></a>Schema v 0.1: AAD 사용 
 
-0\.1 스키마에는 `aadClientID` 및 `AADClientCertificate`중 `aadClientSecret` 하나가 필요 합니다.
+0\.1 스키마에 `aadClientID` `aadClientSecret` 또는 `AADClientCertificate` 필요 합니다.
 
-`aadClientSecret`사용:
+`aadClientSecret`을 사용할 경우 다음을 실행합니다.
 
 ```json
 {
@@ -107,7 +101,7 @@ V 1.1 스키마를 권장 하며 Azure Active Directory 속성이 필요 하지 
 }
 ```
 
-`AADClientCertificate`사용:
+`AADClientCertificate`을 사용할 경우 다음을 실행합니다.
 
 ```json
 {
@@ -140,23 +134,23 @@ V 1.1 스키마를 권장 하며 Azure Active Directory 속성이 필요 하지 
 
 ### <a name="property-values"></a>속성 값
 
-| 이름 | 값/예제 | 데이터 형식 |
+| name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | string |
-| type | AzureDiskEncryptionForLinux | string |
+| publisher | Microsoft.Azure.Security | 문자열 |
+| type | AzureDiskEncryptionForLinux | 문자열 |
 | typeHandlerVersion | 0.1, 1.1 | int |
 | (0.1 스키마) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (0.1 스키마) AADClientSecret | password | string |
-| (0.1 스키마) AADClientCertificate | thumbprint | string |
+| (0.1 스키마) AADClientSecret | 암호 | 문자열 |
+| (0.1 스키마) AADClientCertificate | thumbprint | 문자열 |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON 사전 |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
-| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
-| KeyEncryptionKeyURL | url | string |
-| KeyVaultURL | url | string |
-| (선택 사항) Passphrase | password | string | 
-| SequenceVersion | uniqueidentifier | string |
-| VolumeType | OS, Data, All | string |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | 문자열 | 
+| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | 문자열 |
+| KeyEncryptionKeyURL | URL | 문자열 |
+| KeyVaultURL | URL | 문자열 |
+| 필드 전달 | 암호 | 문자열 | 
+| SequenceVersion | uniqueidentifier | 문자열 |
+| VolumeType | OS, Data, All | 문자열 |
 
 ## <a name="template-deployment"></a>템플릿 배포
 템플릿 배포에 대한 예제는 [갤러리 이미지에서 암호화된 새 Windows VM 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)를 참조하세요.

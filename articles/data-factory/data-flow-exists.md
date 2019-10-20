@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: dfd304b0c15b325208daba104bb79863fcd3f53f
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 79bdfc84310686b2648e12d73d783de049e9d2fa
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527436"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596503"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 존재 변환
 
@@ -20,11 +20,10 @@ ms.locfileid: "72527436"
 
 ## <a name="configuration"></a>구성
 
-**올바른 스트림** 드롭다운에서 있는지 확인 하는 데이터 스트림을 선택 합니다.
-
-존재 **하는 데이터** 를 찾고 있는지 여부를 지정 합니다.
-
-존재 조건으로 비교할 키 열을 선택 합니다. 기본적으로 데이터 흐름은 각 스트림의 한 열이 같은지 검색 합니다. 계산 값을 통해 비교 하려면 열 드롭다운을 마우스로 가리키고 **계산 열**을 선택 합니다.
+1. **올바른 스트림** 드롭다운에서 있는지 확인 하는 데이터 스트림을 선택 합니다.
+1. 존재 **하는 데이터** 를 찾고 있는지 여부를 지정 합니다.
+1. **사용자 지정 식을**사용할지 여부를 선택 합니다.
+1. 존재 조건으로 비교할 키 열을 선택 합니다. 기본적으로 데이터 흐름은 각 스트림의 한 열이 같은지 검색 합니다. 계산 된 값을 통해 비교 하려면 열 드롭다운을 마우스로 가리키고 **계산 열**을 선택 합니다.
 
 ![Exists 설정](media/data-flow/exists.png "exists 1")
 

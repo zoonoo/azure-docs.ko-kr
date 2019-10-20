@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1ebf4feb0687d9580bba29cd8213030e542a06da
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 1bfd156f9fbdb69766e4588a342a695fbd79ca3a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268842"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595306"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -50,7 +50,7 @@ Key Vault에서 키, 암호 또는 인증서를 사용하기 전에 다음 문�
 
 ### <a name="supported-programming-and-scripting-languages"></a>지원되는 프로그래밍 및 스크립팅 언어
 
-#### <a name="rest"></a>REST(영문)
+#### <a name="rest"></a>REST (영문)
 
 REST 인터페이스를 통해 자격 증명 모음, 키, 암호 등을 비롯한 모든 Key Vault 리소스에 액세스할 수 있습니다. 
 
@@ -72,7 +72,7 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 
 [Node.js용 Azure Key Vault 모듈](/nodejs/api/overview/azure/key-vault)
 
-#### <a name="python"></a>Python
+#### <a name="python"></a>파이썬
 
 [Python용 Azure Key Vault 라이브러리](/python/api/overview/azure/key-vault)
 
@@ -84,7 +84,7 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 
 [Key Vault용 Azure PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)
 
-### <a name="quick-start-guides"></a>빠른 시작 가이드
+### <a name="quickstart-guides"></a>빠른 시작 가이드
 
 - [주요 자격 증명 모음 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 - [Node.js에서 Key Vault 시작](https://github.com/Azure-Samples/key-vault-node-getting-started)
@@ -101,7 +101,7 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 다음 문서 및 시나리오에서는 Azure Key Vault 사용에 대한 작업별 지침을 제공합니다.
 
 - [구독 이동 후 Key Vault 테넌트 변경](key-vault-subscription-move-fix.md) - Azure 구독을 테넌트 A에서 테넌트 B로 이동할 때 기존 주요 자격 증명 모음에는 테넌트 B의 주체(사용자 및 애플리케이션)가 액세스할 수 없게 됩니다. 이 가이드를 통해 이 문제를 해결합니다.
-- [방화벽 뒤 Key Vault 액세스](key-vault-access-behind-firewall.md) - 주요 자격 증명 모음에 액세스하려면 주요 자격 증명 모음 클라이언트 애플리케이션은 다양한 기능에 대한 여러 엔드포인트에 액세스할 수 있어야 합니다.
+- [방화벽 뒤 Key Vault 액세스](key-vault-access-behind-firewall.md) - 주요 자격 증명 모음에 액세스하려면 주요 자격 증명 모음 클라이언트 애플리케이션은 다양한 기능에 대한 여러 끝점에 액세스할 수 있어야 합니다.
 - [Azure Key Vault용으로 HSM 보호 키를 생성하여 전송하는 방법](key-vault-hsm-protected-keys.md) - 이 문서를 통해 Azure Key Vault에서 사용할 고유의 HSM 보호 키를 생성하고 전송하는 데 필요한 계획을 세울 수 있습니다.
 - [배포하는 동안 보안 값(예: 암호)을 전달하는 방법](../azure-resource-manager/resource-manager-keyvault-parameter.md) - 배포하는 동안 보안 값(예: 암호)을 매개 변수로 전달해야 하는 경우 이 값을 Azure Key Vault에 암호로 저장하고 다른 리소스 관리자 템플릿에서 이 값을 참조할 수 있습니다.
 - [확장 가능 키 관리를 위해 SQL Server에서 키 자격 증명을 사용하는 방법](https://msdn.microsoft.com/library/dn198405.aspx) - Azure Key Vault용 SQL Server 커넥터를 사용하면 SQL Server 및 SQL-in-a-VM에서 Azure Key Vault를 EKM(확장 가능 키 관리) 공급자로 활용하여 애플리케이션 링크에 대한 암호화 키를 보호할 수 있습니다(투명한 데이터 암호화, 백업 암호화 및 열 수준 암호화).
@@ -117,7 +117,7 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 
 다음 문서에서는 사용하거나 Key Vault와 통합하는 다른 시나리오 및 서비스에 대한 정보를 다룹니다.
 
-- [Azure Disk Encryption](../security/azure-security-disk-encryption.md)은 업계 표준인 Windows의 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 기능과 Linux의 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 활용하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다. 이 솔루션은 Azure Key Vault와 함께 통합되어 주요 자격 증명 모음 구독에서 디스크 암호화 키 및 암호를 제어하고 관리할 수 있도록 하며 가상 머신 디스크의 모든 휴지 상태 데이터가 Azure Storage에서 암호화되도록 보장합니다.
+- [Azure Disk Encryption](../security/fundamentals/encryption-overview.md)은 업계 표준인 Windows의 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 기능과 Linux의 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 활용하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다. 이 솔루션은 Azure Key Vault와 함께 통합되어 주요 자격 증명 모음 구독에서 디스크 암호화 키 및 암호를 제어하고 관리할 수 있도록 하며 가상 머신 디스크의 모든 휴지 상태 데이터가 Azure Storage에서 암호화되도록 보장합니다.
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)는 계정에 저장된 데이터의 암호화에 대한 옵션을 제공합니다. 키 관리의 경우 Data Lake Store는 Data Lake Store에 저장된 모든 데이터의 암호를 해독하는 데 필요한 MEK(마스터 암호화 키)를 관리하는 두 가지 모드를 제공합니다. Data Lake Store에서 MEK를 관리하도록 하거나 Azure Key Vault 계정을 사용하여 MEK의 소유권을 유지하도록 선택할 수 있습니다. Data Lake Store 계정을 만들면서 키 관리 모드를 지정합니다.
 - [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key)을 통해 테넌트 키를 직접 관리할 수 있습니다. 예를 들어, Microsoft가 테넌트 키를 관리하는 대신(기본값) 테넌트 키를 직접 관리하여 해당 조직에 적용되는 특정 규정을 준수할 수 있습니다. 테넌트 키 직접 관리는 BYOK(Bring Your Own Key)라고 하기도 합니다.
 

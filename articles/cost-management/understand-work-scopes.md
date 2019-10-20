@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 10/17/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 664307b64d5a2869130df9ab123119d869f36e21
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 1f02cf3abaae7d67ba3d204dc9419d9fbfa4a86d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374475"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597090"
 ---
 # <a name="understand-and-work-with-scopes"></a>범위 이해 및 작업
 
@@ -132,6 +132,7 @@ Microsoft 고객 계약 청구 계정의 범위는 다음과 같습니다.
 
 EA 청구 범위와 달리 고객 계약 청구 계정은 단일 디렉터리에 바인딩되고 여러 Azure AD 디렉터리에 _구독을 가질_ 수 없습니다.
 
+파트너에 게는 고객 계약 청구 범위가 적용 되지 않습니다. 파트너 역할 및 사용 권한은 [사용자 할당 역할 및 사용 권한](/partner-center/permissions-overview)에 설명 되어 있습니다.
 
 고객 계약 청구 범위는 다음 역할을 지원 합니다.
 
@@ -159,11 +160,25 @@ AWS 통합이 완료 된 후에는 [AWS integration 설정 및 구성](aws-integ
 
 ## <a name="cloud-solution-provider-csp-scopes"></a>CSP (클라우드 솔루션 공급자) 범위
 
-CSP (클라우드 솔루션 공급자) 파트너는 현재 Cost Management에서 지원 되지 않습니다. 대신 [파트너 센터](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview)를 사용할 수 있습니다.
+Microsoft 고객 계약을 체결 한 고객의 Csp에 대해 지원 되는 범위는 다음과 같습니다.
+
+- **청구 계정** -여러 Microsoft 제품 및 서비스에 대 한 고객 규약을 나타냅니다. 고객 계약 청구 계정은 EA 등록와 기능적으로 동일 하지 않습니다. EA 등록는 청구 프로필에 더 가깝게 정렬 됩니다.
+
+    리소스 종류: `Microsoft.Billing/billingAccounts (accountType = Organization)`
+
+- **청구 프로필** -청구서에 포함 되는 구독을 정의 합니다. 청구 프로필은에서 송장이 생성 되는 범위 이므로 EA 등록과 동등한 기능입니다. 마찬가지로 사용 하지 않는 구매 (예: 마켓플레이스 및 예약)는이 범위 에서만 사용할 수 있습니다.
+
+    리소스 종류: `Microsoft.Billing/billingAccounts/billingProfiles`
+
+- **고객** -파트너에 의해 Microsoft 고객 계약에 등록 특정 고객에 연결 된 구독 그룹을 나타냅니다.
+
+*전역 관리자* 및 *관리 에이전트* 역할이 있는 사용자만 파트너의 Azure 테 넌 트에서 직접 청구 계정, 청구 프로필 및 고객에 대 한 비용을 관리 하 고 볼 수 있습니다. 파트너 센터 역할에 대 한 자세한 내용은 [사용자 역할 및 사용 권한 할당](/partner-center/permissions-overview)을 참조 하세요.
+
+Azure Cost Management는 고객이 Microsoft 고객 계약을 체결 한 경우에만 CSP 파트너 고객만 지원 합니다. 아직 Microsoft 고객 계약에 없는 CSP 지원 고객은 [파트너 센터](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview)를 참조 하세요.
 
 ## <a name="switch-between-scopes-in-cost-management"></a>Cost Management 범위 간 전환
 
-Azure Portal의 모든 Cost Management 보기에는 뷰의 왼쪽 위에 약 **범위** 선택이 포함 됩니다. 이를 사용 하 여 범위를 신속 하 게 변경 합니다. **범위 약를** 클릭 하 여 범위 선택기를 엽니다. 여기에는 청구 계정, 루트 관리 그룹 및 루트 관리 그룹에 중첩 되지 않은 구독이 표시 됩니다. 범위를 선택 하려면 배경을 클릭 하 여 강조 표시 하 고 맨 아래에 있는 **선택** 을 클릭 합니다. 구독에서 리소스 그룹과 같은 중첩 된 범위에 대 한 드릴을 하려면 범위 이름 링크를 클릭 합니다. 중첩 된 수준에서 부모 범위를 선택 하려면 범위 선택의 맨 위에 있는 **&lt;scope @ no__t-2를 선택** 합니다.
+Azure Portal의 모든 Cost Management 보기에는 뷰의 왼쪽 위에 약 **범위** 선택이 포함 됩니다. 이를 사용 하 여 범위를 신속 하 게 변경 합니다. **범위 약를** 클릭 하 여 범위 선택기를 엽니다. 여기에는 청구 계정, 루트 관리 그룹 및 루트 관리 그룹에 중첩 되지 않은 구독이 표시 됩니다. 범위를 선택 하려면 배경을 클릭 하 여 강조 표시 하 고 맨 아래에 있는 **선택** 을 클릭 합니다. 구독에서 리소스 그룹과 같은 중첩 된 범위에 대 한 드릴을 하려면 범위 이름 링크를 클릭 합니다. 중첩 된 수준에서 부모 범위를 선택 하려면 범위 선택의 위쪽에서 **이 &lt;scope &gt; 선택** 을 클릭 합니다.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>범위에 대 한 리소스 ID를 식별 합니다.
 

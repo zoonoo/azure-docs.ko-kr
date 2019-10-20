@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 10/18/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f6e1ab2c2b02ab4279e95840135bdc87710cd66
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: HT
+ms.openlocfilehash: 56e5fb986431ec47a34b81491bc61b4c38a24e31
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72551649"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592879"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -224,12 +224,14 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 > [!NOTE]
 > 전역 판독기 역할은 몇 가지 제한 사항이 있습니다.
 >
->* SharePoint 관리 센터-SharePoint 관리 센터는 전역 읽기 권한자 역할을 지원 하지 않습니다. [관리 센터 Microsoft 365 관리 센터](https://admin.microsoft.com/Adminportal/Home#/homepage)의 왼쪽 창에 ' SharePoint '가 표시 되지 않으며, *https://{Azure AD 조직 이름}-admin.sharepoint.com*로 이동 하려고 할 때 액세스가 거부 됩니다.
+>* SharePoint 관리 센터-SharePoint 관리 센터는 전역 읽기 권한자 역할을 지원 하지 않습니다. 관리 [센터 Microsoft 365 관리 센터](https://admin.microsoft.com/Adminportal/Home#/homepage)의 왼쪽 창에는 ' SharePoint '가 표시 되지 않습니다.
+>* [Onedrive 관리 센터](https://admin.onedrive.com/) -onedrive 관리 센터는 전역 읽기 권한자 역할을 지원 하지 않습니다.
 >* [AZURE AD 포털](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) -전역 판독기는 엔터프라이즈 앱의 프로 비전 모드를 읽을 수 없습니다.
 >* [M365 관리 센터](https://admin.microsoft.com/Adminportal/Home#/homepage) -전역 판독기는 고객 lockbox 요청을 읽을 수 없습니다. M365 관리 센터의 왼쪽 창에 있는 **지원** 에서 **고객 lockbox 요청** 탭을 찾을 수 없습니다.
 >* [M365 Security center](https://security.microsoft.com/homepage) -전역 판독기는 민감도 및 보존 레이블을 읽을 수 없습니다. M365 Security center의 왼쪽 창에서 **민감도 레이블**, **보존 레이블**및 **레이블 분석** 탭을 찾을 수 없습니다.
 >* [팀 관리 센터](https://admin.teams.microsoft.com) -전역 읽기 권한자는 **팀 수명 주기**, **분석 & 보고서**, **IP 전화 장치 관리** 및 **앱 카탈로그**를 읽을 수 없습니다.
 >* [PAM (Privileged Access Management)](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) 은 전역 읽기 권한자 역할을 지원 하지 않습니다.
+>* [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) 전역 판독기는 [중앙 보고](https://docs.microsoft.com/azure/information-protection/reports-aip) 에만 지원 되 고 테 넌 트가 [통합 레이블 플랫폼](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform)에 있지 않은 경우에만 지원 됩니다.
 >
 > 이러한 기능은 현재 개발 중입니다.
 >

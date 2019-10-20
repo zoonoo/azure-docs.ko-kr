@@ -4,16 +4,16 @@ description: AzCopy를 구성 하 고 최적화 하 고 문제를 해결 합니�
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 42d2dae148b83687ff06d4ed321a881bcb9e7ae0
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 2b3fcba755c9ddb28e37400c5cba790ed0df41b9
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273930"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595136"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>AzCopy 구성, 최적화 및 문제 해결
 
@@ -32,7 +32,7 @@ AzCopy에 대 한 프록시 설정을 구성 하려면 `https_proxy` 환경 변�
 
 | 운영 체제 | 명령  |
 |--------|-----------|
-| **Windows** | 명령 프롬프트에서 `set https_proxy=<proxy IP>:<proxy port>`을 사용 합니다.<br> PowerShell에서 다음을 사용 합니다. `$env:https_proxy="<proxy IP>:<proxy port>"`|
+| **Windows** | 명령 프롬프트에서 다음을 사용 합니다. `set https_proxy=<proxy IP>:<proxy port>`<br> PowerShell에서 다음을 사용 합니다. `$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
 | **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
@@ -58,19 +58,19 @@ AzCopy에 대 한 프록시 설정을 구성 하려면 `https_proxy` 환경 변�
 
 이 명령은 테스트 데이터를 지정 된 대상에 업로드 하 여 성능 벤치 마크를 실행 합니다. 테스트 데이터는 메모리에 생성 되 고 대상에 업로드 된 후 테스트가 완료 된 후 대상에서 삭제 됩니다. 선택적 명령 매개 변수를 사용 하 여 생성할 파일 수 및 원하는 크기를 지정할 수 있습니다.
 
-이 명령에 대 한 자세한 도움말 지침을 보려면 `azcopy bench -h`을 입력 한 다음 ENTER 키를 누릅니다.
+이 명령에 대 한 자세한 도움말 지침을 보려면 `azcopy bench -h`를 입력 한 다음 ENTER 키를 누릅니다.
 
 ### <a name="optimize-throughput"></a>처리량 최적화
 
-@No__t-0 플래그를 사용 하 여 처리량 데이터 속도를 최대값으로 지정할 수 있습니다. 예를 들어 다음 명령은 @no__t 처리량을 초당-0 메가 비트 (MB)로 제한 합니다.
+@No__t_0 플래그를 사용 하 여 처리량 데이터 속도를 최대값으로 지정할 수 있습니다. 예를 들어 다음 명령은 초당 메가 비트 (MB)의 처리량을 `10` 합니다.
 
 ```azcopy
 azcopy cap-mbps 10
 ```
 
-작은 파일을 전송할 때 처리량이 줄어들 수 있습니다. @No__t-0 환경 변수를 설정 하 여 처리량을 늘릴 수 있습니다. 이 변수는 발생할 수 있는 동시 요청 수를 지정 합니다.  
+작은 파일을 전송할 때 처리량이 줄어들 수 있습니다. @No__t_0 환경 변수를 설정 하 여 처리량을 늘릴 수 있습니다. 이 변수는 발생할 수 있는 동시 요청 수를 지정 합니다.  
 
-컴퓨터에 5 개 미만의 Cpu가 있는 경우이 변수의 값은 `32`으로 설정 됩니다. 그렇지 않으면 기본값은 16에 Cpu 수를 곱한 값과 같습니다. 이 변수의 최대 기본값은 0 @no__t 이지만이 값을 더 높거나 낮게 수동으로 설정할 수 있습니다. 
+컴퓨터에 5 개 미만의 Cpu가 있는 경우이 변수의 값은 `32`로 설정 됩니다. 그렇지 않으면 기본값은 16에 Cpu 수를 곱한 값과 같습니다. 이 변수의 최대 기본값은 `3000` 이지만이 값을 더 높거나 낮게 수동으로 설정할 수 있습니다. 
 
 | 운영 체제 | 명령  |
 |--------|-----------|
@@ -80,11 +80,11 @@ azcopy cap-mbps 10
 
 이 변수의 현재 값을 확인 하려면 `azcopy env`을 사용 합니다. 값이 비어 있으면 AzCopy 로그 파일의 시작 부분을 확인 하 여 사용 되는 값을 읽을 수 있습니다. 선택한 값과 선택 된 이유가 보고 됩니다.
 
-이 변수를 설정 하기 전에 벤치 마크 테스트를 실행 하는 것이 좋습니다. 벤치 마크 테스트 프로세스에서는 권장 되는 동시성 값을 보고 합니다. 또는 네트워크 조건 및 페이로드가 다를 경우이 변수를 특정 숫자가 아닌 `AUTO` 단어로 설정 합니다. 이로 인해 AzCopy는 항상 벤치 마크 테스트에서 사용 하는 것과 동일한 자동 조정 프로세스를 실행 합니다.
+이 변수를 설정 하기 전에 벤치 마크 테스트를 실행 하는 것이 좋습니다. 벤치 마크 테스트 프로세스에서는 권장 되는 동시성 값을 보고 합니다. 또는 네트워크 조건 및 페이로드가 다를 경우이 변수를 특정 숫자가 아닌 `AUTO`로 설정 합니다. 이로 인해 AzCopy는 항상 벤치 마크 테스트에서 사용 하는 것과 동일한 자동 조정 프로세스를 실행 합니다.
 
 ### <a name="optimize-memory-use"></a>메모리 사용 최적화
 
-@No__t-0 환경 변수를 설정 하 여 파일을 다운로드 하 고 업로드할 때 AzCopy 사용할 시스템 메모리의 최대 크기를 지정 합니다.
+@No__t_0 환경 변수를 설정 하 여 파일을 다운로드 하 고 업로드할 때 AzCopy 사용할 시스템 메모리의 최대 크기를 지정 합니다.
 이 값을 기가바이트 (GB) 단위로 표현 합니다.
 
 | 운영 체제 | 명령  |
@@ -97,16 +97,16 @@ azcopy cap-mbps 10
 
 AzCopy는 모든 작업에 대해 로그 및 계획 파일을 만듭니다. 로그를 사용하여 잠재적 문제를 조사하고 해결할 수 있습니다. 
 
-로그에는 실패 상태 (`UPLOADFAILED`, `COPYFAILED`, `DOWNLOADFAILED`), 전체 경로 및 오류의 원인이 포함 됩니다.
+로그에는 실패 상태 (`UPLOADFAILED`, `COPYFAILED` 및 `DOWNLOADFAILED`), 전체 경로 및 오류의 원인이 포함 됩니다.
 
-기본적으로 로그 및 계획 파일은 Windows의 `%USERPROFILE$\.azcopy` 디렉터리 또는 Mac 및 Linux의 `$HOME$\.azcopy` 디렉터리에 있습니다. 하지만 원하는 경우 해당 위치를 변경할 수 있습니다.
+기본적으로 로그 및 계획 파일은 Windows의 `%USERPROFILE$\.azcopy` 디렉터리 또는 Mac 및 Linux의 `$HOME$\.azcopy` 디렉터리에 위치 하지만 원하는 경우 해당 위치를 변경할 수 있습니다.
 
 > [!IMPORTANT]
 > Microsoft 지원에 대 한 요청을 제출 하거나, 타사와 관련 된 문제를 해결 하는 경우 실행 하려는 명령의 교정 된 버전을 공유 합니다. 이렇게 하면 SAS를 실수로 공유 하지 않습니다. 수정 버전은 로그 파일의 시작 부분에서 찾을 수 있습니다.
 
 ### <a name="review-the-logs-for-errors"></a>오류에 대한 로그 검토
 
-다음 명령은 `04dc9ca9-158f-7945-5933-564021086c79` 로그에서 `UPLOADFAILED` 상태의 모든 오류를 가져옵니다.
+다음 명령을 사용 하 여 `04dc9ca9-158f-7945-5933-564021086c79` 로그에서 `UPLOADFAILED` 상태의 모든 오류를 가져옵니다.
 
 **Windows (PowerShell)**
 
@@ -179,9 +179,9 @@ azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 
 ## <a name="change-the-default-log-level"></a>기본 로그 수준 변경
 
-기본적으로 AzCopy 로그 수준은 `INFO`으로 설정 됩니다. 로그의 자세한 정도를 줄이기 위해 디스크 공간을 절약 하려면 ``--log-level`` 옵션을 사용 하 여이 설정을 덮어씁니다. 
+기본적으로 AzCopy 로그 수준은 `INFO`로 설정 됩니다. 로그의 자세한 정도를 줄이기 위해 디스크 공간을 절약 하려면 ``--log-level`` 옵션을 사용 하 여이 설정을 덮어씁니다. 
 
-사용 가능한 로그 수준은 `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC` 및 `FATAL`입니다.
+사용 가능한 로그 수준은 `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`, `FATAL`입니다.
 
 ## <a name="remove-plan-and-log-files"></a>계획 및 로그 파일 제거
 

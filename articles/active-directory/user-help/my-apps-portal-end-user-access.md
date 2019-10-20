@@ -14,10 +14,10 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 901067e198616dba390e0e1162ec26a0b11768f1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 10/18/2019
 ms.locfileid: "68383144"
 ---
 # <a name="access-and-use-apps-on-the-my-apps-portal"></a>내 앱 포털에서 앱 액세스 및 사용
@@ -43,7 +43,7 @@ ms.locfileid: "68383144"
 
 ## <a name="download-and-install-the-my-apps-secure-sign-in-extension"></a>내 앱 보안 로그인 확장을 다운로드 하 여 설치 합니다.
 
-메시지가 표시 되 면 내 앱 보안 로그인 확장을 다운로드 하 여 설치 합니다. 이 확장은 single sign-on 프로세스를 사용 해야 하는 조직의 클라우드 앱을 시작 하는 데 도움이 됩니다. 조직에서 이미 single sign-on을 설정한 경우 확장이 자동으로 설치 되며이 섹션을 건너뛸 수 있습니다.
+메시지가 표시 되 면 내 앱 보안 로그인 확장을 다운로드 하 여 설치 합니다. 이 확장은 Single Sign-On 프로세스를 사용 해야 하는 조직의 클라우드 앱을 시작 하는 데 도움이 됩니다. 조직에서 Single Sign-On를 이미 설정한 경우에는 확장이 자동으로 설치 되며이 섹션을 건너뛸 수 있습니다.
 
 이 확장을 통해 다음과 같은 작업을 할 수 있습니다.
 
@@ -70,9 +70,9 @@ ms.locfileid: "68383144"
 #### <a name="to-change-your-my-apps-portal-using-the-extension"></a>확장을 사용 하 여 내 앱 포털을 변경 하려면
 **최근에 사용한** 섹션에서 볼 앱 수를 선택 하 고 조직의 내부 url을 리디렉션할 수 있도록 허용할지 여부를 결정할 수 있습니다.
 
-1. **주소** 표시줄의 오른쪽에 있는 새 **내 앱 보안 로그인 확장** ![아이콘](media/my-apps-portal/my-apps-portal-extension-icon.png) 확장 아이콘을 선택 하 고 **로그인을 선택 하 여 시작**합니다.
+1. 새 **내 앱 보안 로그인 확장** 아이콘 ![Extension 아이콘을 선택 하 고 **주소** 표시줄의 오른쪽에 ](media/my-apps-portal/my-apps-portal-extension-icon.png) 한 다음 **로그인을 선택 하 여 시작**합니다.
 
-2. **설정** 아이콘 ![설정 아이콘](media/my-apps-portal/my-apps-portal-extension-settings-icon.png)을 마우스 오른쪽 단추로 클릭 한 다음 **설정**을 선택 합니다.
+2. **설정** 아이콘 ![Settings 아이콘 ](media/my-apps-portal/my-apps-portal-extension-settings-icon.png)을 마우스 오른쪽 단추로 클릭 한 다음 **설정**을 선택 합니다.
 
 3. **설정** 상자에서 포털에 표시 하려는 최근 앱 수를 선택 하 고, 원격으로 사용할 수 있도록 조직의 내부 url을 리디렉션할 수 있도록 허용할지 여부를 선택 합니다.
 
@@ -88,7 +88,7 @@ ms.locfileid: "68383144"
 
 1. 회사 또는 학교 계정에 로그인합니다.
 
-2. 웹 브라우저를 열고로 https://myapps.microsoft.com 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어와 https://myapps.microsoft.com/contoso.com 같은 조직의 사용자 지정 페이지로 이동할 수 있습니다.
+2. 웹 브라우저를 열고 https://myapps.microsoft.com 로 이동 하거나 조직에서 제공 하는 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
 
     조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
 
@@ -102,7 +102,7 @@ IOS 및 Android 장치의 Intune Managed Browser에서 조직의 앱을 보고 �
 
 1. 모바일 장치에서 [Apple 앱 스토어](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) 및 [Google Play 스토어](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser)에서 Intune Managed Browser 앱을 다운로드 하 여 설치 합니다.
 
-2. Intune Managed Browser 앱을 열거나으로 https://myapps.microsoft.com 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어와 https://myapps.microsoft.com/contoso.com 같은 조직의 사용자 지정 페이지로 이동할 수 있습니다.
+2. Intune Managed Browser 앱을 열거나 https://myapps.microsoft.com 으로 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
 
     조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
 
@@ -116,7 +116,7 @@ IOS 버전 7 이상을 실행 하는 iPhone 또는 iPad 장치에서 **내 앱**
 
 1. 모바일 장치에서 Safari와 같은 웹 브라우저 앱을 시작 합니다.
 
-2. 로 https://myapps.microsoft.com 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어와 https://myapps.microsoft.com/contoso.com 같은 조직의 사용자 지정 페이지로 이동할 수 있습니다.
+2. @No__t_0로 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
 
     조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
 
@@ -130,7 +130,7 @@ Android 장치에서 **내 앱** 포털을 보고 사용 합니다.
 
 1. 모바일 장치에서 Google Chrome 등의 웹 브라우저 앱을 시작 합니다.
 
-2. 로 https://myapps.microsoft.com 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어와 https://myapps.microsoft.com/contoso.com 같은 조직의 사용자 지정 페이지로 이동할 수 있습니다.
+2. @No__t_0로 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
 
     조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
 
@@ -150,7 +150,7 @@ Android 장치에서 **내 앱** 포털을 보고 사용 합니다.
 
 2. 제공 된 목록에서 추가 하려는 앱을 선택 하 고 **추가**를 선택 합니다.
 
-3. 앱이 **앱 페이지의** 목록에 추가 됩니다.
+3. **앱이 앱 페이지의** 목록에 추가 됩니다.
 
     일부 앱은 추가 하기 전에 관리자 승인이 필요할 수 있습니다. 이 경우 관리자가 앱을 승인할 때까지 앱이 **앱 페이지에** 추가 되지 않습니다.
 

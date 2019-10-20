@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: juliako
-ms.openlocfilehash: 329c7191482787f25cfddfd8c4d70074df9a7c1f
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 2b8553c4c4b27e70eb5e4aeff447da9526c4ed1e
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719973"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598287"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Media Indexer에서 Media Indexer 2에서 Video Indexer으로 마이그레이션
 
@@ -29,7 +29,7 @@ Azure Media Services Video Indexer Azure 미디어 분석, Azure Search Cognitiv
 [Azure Media Services v3 analyzer 미리 설정을](../latest/analyzing-video-audio-files-concept.md) 사용 하 여 비디오 및 오디오 파일에서 정보를 추출 하거나 [Video Indexer api](https://api-portal.videoindexer.ai/)를 사용 하 여 직접 정보를 추출할 수 있습니다. 현재 Video Indexer Api 및 Media Services v3 Api에서 제공 하는 기능 사이에 중복이 있습니다.
 
 > [!NOTE]
-> Video Indexer 및 Media Services 분석기 미리 설정을 사용하려는 경우를 이해하려면 [비교 문서](../video-indexer/compare-video-indexer-with-media-services-presets.md)를 확인하세요. 
+> Video Indexer와 Media Services analyzer 미리 설정을 사용 하려는 경우를 이해 하려면 [비교 문서](../video-indexer/compare-video-indexer-with-media-services-presets.md)를 확인 하세요. 
 
 이 문서에서는 Azure Media Indexer Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션하는 단계를 설명 합니다.  
 
@@ -37,12 +37,12 @@ Azure Media Services Video Indexer Azure 미디어 분석, Azure Search Cognitiv
 
 |필요한 경우  |다음으로 |
 |---|---|
-|폐쇄 캡션 파일 형식으로 모든 미디어 파일 형식에 대 한 음성 텍스트 기록을 제공 하는 솔루션입니다. VTT, SRT 또는 TTML<br/>키워드, 토픽 추론, 음향 이벤트, 스피커 diarization, 엔터티 추출 및 변환과 같은 추가 오디오 통찰력도 있습니다.| Video Indexer v2 REST API 또는 Azure Media Services v3 Audio Analyzer 미리 설정을 통해 Azure Video Indexer 기능을 사용 하도록 응용 프로그램을 업데이트 합니다.|
+|VTT, SRT 또는 TTML의 폐쇄 캡션 파일 형식으로 모든 미디어 파일 형식에 대 한 음성-텍스트 기록을 제공 하는 솔루션입니다.<br/>키워드, 토픽 추론, 음향 이벤트, 스피커 diarization, 엔터티 추출 및 변환과 같은 추가 오디오 통찰력도 있습니다.| Video Indexer v2 REST API 또는 Azure Media Services v3 Audio Analyzer 미리 설정을 통해 Azure Video Indexer 기능을 사용 하도록 응용 프로그램을 업데이트 합니다.|
 |음성 텍스트 기능| Cognitive Services Speech API를 직접 사용 합니다.|  
 
 ## <a name="getting-started-with-video-indexer"></a>Video Indexer 시작
 
-다음 섹션에서는 관련 링크를 안내 합니다. [Video Indexer를 시작 하려면 어떻게 해야 하나요?](https://docs.microsoft.com/azure/media-services/video-indexer/video-indexer-overview#how-can-i-get-started-with-video-indexer) 
+다음 섹션에서는 관련 링크를 제공 합니다. [Video Indexer 시작 하려면 어떻게 해야 하나요?](https://docs.microsoft.com/azure/media-services/video-indexer/video-indexer-overview#how-can-i-get-started-with-video-indexer) 
 
 ## <a name="getting-started-with-media-services-v3-apis"></a>Media Services v3 Api 시작
 
@@ -50,7 +50,7 @@ Azure Media Services v3 API를 사용 하면 [Azure Media Services v3 분석기 
 
 **AudioAnalyzerPreset**를 사용하면 오디오 또는 비디오 파일에서 여러 오디오 인사이트를 추출할 수 있습니다. 출력에는 오디오 녹음/출력에 대 한 VTT 또는 TTML 파일과 JSON 파일 (추가 오디오 정보 모두 포함)이 포함 됩니다. 오디오 정보에는 키워드, 스피커 인덱싱 및 음성 감정 분석이 포함 됩니다. AudioAnalyzerPreset는 특정 언어에 대 한 언어 검색도 지원 합니다. 자세한 내용은 [변환](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)을 참조 하세요.
 
-### <a name="get-started"></a>시작
+### <a name="get-started"></a>시작하기
 
 시작 하려면 다음을 참조 하세요.
 
@@ -77,9 +77,9 @@ Video Indexer, Azure Media Services v3 AudioAnalyzerPreset 및 Cognitive Service
 * AIB (오디오 인덱싱 Blob) 파일은 더 이상 지원 되지 않습니다. 이 기능은 인덱서 1 기술에만 적용 되며 더 이상 제공 되지 않습니다.  
 * Cognitive Services Speech Services는 키워드 추출을 지원 하지 않습니다. 그러나 Video Indexer 및 Media Services v3 AudioAnalyzerPreset는 JSON 파일 형식에서 보다 강력한 키워드 집합을 제공 합니다. 
 
-## <a name="contact-us"></a>문의 
+## <a name="need-help"></a>도움이 필요하십니까?
 
-Azure Media Indexer 1 및 Azure Media Indexer 2를 사용 하지 않거나 다른 서비스로 마이그레이션하는 데 대 한 질문이 있는 경우 다음을 통해 문의 하세요.amshelp@microsoft.com 
+[새 지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 으로 이동 하 여 지원 티켓을 열 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad2f56388b49692d799202d06ed3dc0123f272e5
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: ad7bdfd3abc4d3b4b672f5471ea826d4cef0f3fc
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294367"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596880"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure Functions의 성능 및 안정성 최적화
 
-이 문서에서는 [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 함수 앱의 성능 및 안정성을 개선하기 위한 지침을 제공합니다. 
+이 문서에서는 [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 함수 앱의 성능 및 안정성을 개선하기 위한 지침을 제공합니다.  
 
 ## <a name="general-best-practices"></a>일반 모범 사례
 
@@ -60,7 +60,7 @@ Idempotent 함수는 특히 타이머 트리거 사용이 권장됩니다. 예�
 1. Db의 10,000개 행에 대해 쿼리합니다.
 2. 앞으로 처리할 각 행에 대한 큐 메시지를 만듭니다.
  
-시스템의 복잡성에 따라 잘못 작동되는 관련된 다운스트림 서비스, 네트워킹 작동 중단 또는 할당량 제한 초과 등이 있을 수 있습니다. 이러한 항목은 모두 언제든지 함수에 영향을 줄 수 있습니다. 함수가 이에 대비할 수 있도록 설계해야 합니다.
+시스템의 복잡성에 따라 다음과 같은 작업을 수행 해야 합니다. 관련 된 다운스트림 서비스가 잘못 동작 하거나, 네트워킹 중단이 발생 하거나, 할당량 제한에 도달 했을 수 있습니다. 이러한 모든 것은 언제 든 지 함수에 영향을 줄 수 있습니다. 함수가 이에 대비할 수 있도록 설계해야 합니다.
 
 이러한 항목 중 5,000개를 처리를 위해 큐에 삽입한 후 오류가 발생한다면 코드는 어떻게 반응할까요? 사용자가 완료한 집합에서 항목을 추적합니다. 다른 방법으로 다음 번에 해당 항목을 삽입할 수도 있습니다. 이는 작업 흐름에 심각한 영향을 미칠 수 있습니다. 
 
@@ -116,7 +116,7 @@ C# 함수의 경우 강력한 형식의 배열로 형식을 변경할 수 있습
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 리소스를 참조하십시오.
+자세한 내용은 다음 리소스를 참조하세요.
 
 * [Azure Functions에서 연결을 관리하는 방법](manage-connections.md)
 * [Azure App Service 모범 사례](../app-service/app-service-best-practices.md)

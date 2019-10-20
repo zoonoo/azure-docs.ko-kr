@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: b714559c6c009139da97c7d90425011fb3130ef8
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 9eb68bb4accafa708d738ea40210980358f60f24
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263318"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596868"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Azure Functions 2.x에 대한 host.json 참조  
 
@@ -69,7 +69,7 @@ ms.locfileid: "72263318"
         "applicationInsights": {
             "samplingSettings": {
               "isEnabled": true,
-              "maxTelemetryItemsPerSecond" : 5
+              "maxTelemetryItemsPerSecond" : 20
             }
         }
     },
@@ -104,7 +104,7 @@ ms.locfileid: "72263318"
     "applicationInsights": {
         "samplingSettings": {
           "isEnabled": true,
-          "maxTelemetryItemsPerSecond" : 5
+          "maxTelemetryItemsPerSecond" : 20
         }
     }
 }
@@ -113,10 +113,10 @@ ms.locfileid: "72263318"
 > [!NOTE]
 > 로그 샘플링으로 인해 Application Insights 모니터 블레이드에 일부 실행이 표시되지 않을 수 있습니다.
 
-|속성  |Default | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------| 
 |isEnabled|true|샘플링을 사용 여부를 설정합니다.| 
-|maxTelemetryItemsPerSecond|5|샘플링이 시작되는 임계값입니다.| 
+|maxTelemetryItemsPerSecond|20|샘플링이 시작되는 임계값입니다.| 
 |EnableLiveMetrics |true|라이브 메트릭 수집을 사용 하도록 설정 합니다.|
 |EnableDependencyTracking|true|종속성 추적을 사용 합니다.|
 |EnablePerformanceCountersCollection|true|Kudu 성능 카운터 수집을 사용 하도록 설정 합니다.|
@@ -137,7 +137,7 @@ ms.locfileid: "72263318"
 
 [http](#http), [eventHub](#eventhub) 등의 모든 바인딩 관련 설정이 포함된 개체를 반환하는 속성입니다.
 
-## <a name="functions"></a>functions
+## <a name="functions"></a>Functions
 
 작업 호스트가 실행하는 함수 목록입니다. 빈 배열은 모든 함수를 실행한다는 의미입니다. [로컬로 실행](functions-run-local.md)할 때만 사용할 수 있습니다. Azure의 함수 앱에서는 이 설정을 사용하는 대신 [Azure Functions에서 함수를 사용하지 않도록 설정하는 방법](disable-function.md)의 단계를 수행하여 특정 함수를 사용하지 않도록 설정해야 합니다.
 
@@ -152,7 +152,7 @@ ms.locfileid: "72263318"
 모든 함수에 대한 시간 제한 기간을 나타냅니다. Timespan 문자열 형식을 따릅니다. 서버리스 사용 계획에서 유효한 범위는 1초에서 10분 사이이고 기본값은 5분입니다.  
 전용 (App Service) 계획에서는 전체 제한이 없으며 기본값은 런타임 버전에 따라 달라 집니다. 
 + 버전 1.x: 기본값은 시간 제한이 없음을 나타내는 *null*입니다.   
-+ 버전 2.x: 기본값은 30 분입니다. 값 `-1`은 무제한 실행을 나타냅니다.
++ 버전 2.x: 기본값은 30 분입니다. @No__t_0 값은 바인딩되지 않은 실행을 나타냅니다.
 
 ```json
 {
@@ -176,9 +176,9 @@ ms.locfileid: "72263318"
 }
 ```
 
-|속성  |Default | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------| 
-|enabled|true|기능의 사용 여부를 지정합니다. | 
+|사용|true|기능의 사용 여부를 지정합니다. | 
 |healthCheckInterval|10초|정기적인 백그라운드 상태 검사 사이의 간격 | 
 |healthCheckWindow|2분|`healthCheckThreshold` 설정과 함께 사용되는 슬라이딩 시간 범위| 
 |healthCheckThreshold|6|호스트 재생이 시작되기 전에 상태 검사 실패가 용인되는 최대 횟수| 
@@ -224,11 +224,11 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 }
 ```
 
-|속성  |Default | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|활성화할 파일 로깅의 수준을 정의합니다.  옵션은 `never`, `always`, `debugOnly`입니다. |
 |logLevel|n/a|앱의 함수에 대한 로그 범주 필터링을 정의하는 개체입니다. 버전 2.x는 로그 범주 필터링용 ASP.NET Core 레이아웃을 따릅니다. 따라서 특정 함수의 로깅을 필터링할 수 있습니다. 자세한 내용은 ASP.NET Core 설명서의 [로그 필터링](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)을 참조하세요. |
-|console|n/a| [console](#console) 로깅 설정입니다. |
+|console|n/a| [콘솔](#console) 로깅 설정입니다. |
 |applicationInsights|n/a| [applicationInsights](#applicationinsights) 설정입니다. |
 
 ## <a name="console"></a>console
@@ -247,7 +247,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 }
 ```
 
-|속성  |Default | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------| 
 |isEnabled|false|콘솔 로깅을 사용하거나 사용하지 않도록 설정합니다.| 
 
@@ -279,7 +279,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 }
 ```
 
-|속성  |Default | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|함수 수준 잠금이 적용되는 기간입니다. 잠금은 자동 갱신됩니다.| 
 |listenerLockPeriod|00:01:00|수신기 잠금이 적용되는 기간입니다.| 
@@ -287,7 +287,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 |lockAcquisitionTimeout|00:01:00|런타임이 잠금을 확보하려고 시도하는 최대 시간입니다.| 
 |lockAcquisitionPollingInterval|n/a|잠금 확보 시도 사이의 간격입니다.| 
 
-## <a name="version"></a>version
+## <a name="version"></a>버전
 
 v2 런타임을 대상으로 하는 함수 앱에서는 버전 문자열 `"version": "2.0"`이 필수 항목입니다.
 

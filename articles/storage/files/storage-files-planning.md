@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fa3e3c6d89657d328182da667c153f14f70bbd7e
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6361814a30cc7d1bc9703dae8ddb14d955c1582d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514669"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598036"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 
@@ -219,13 +219,13 @@ GRS를 사용 하는 저장소 계정의 경우 모든 데이터는 먼저 LRS (
 |미국 서 부 *        |LRS     |
 |미국 서부 2      |LRS, ZRS|
 
-새 계정에 대해 지원 \*. 기존 계정이 모두 업그레이드 프로세스를 완료 한 것은 아닙니다.
+새 계정에 대해 지원 \*. 기존 계정이 모두 업그레이드 프로세스를 완료 한 것은 아닙니다. 기존 저장소 계정이 [대량 파일 공유를 사용 하도록 설정](storage-files-how-to-create-large-file-share.md)하 여 업그레이드 프로세스를 완료 했는지 여부를 확인할 수 있습니다.
 
 새 지역과 기능의 우선 순위를 지정 하는 데 도움이 되도록이 [설문 조사](https://aka.ms/azurefilesatscalesurvey)를 작성해 주세요.
 
 ### <a name="enable-and-create-larger-file-shares"></a>더 큰 파일 공유 사용 및 만들기
 
-대용량 파일 공유 사용을 시작 하려면 [대용량 파일 공유 사용](storage-files-how-to-create-large-file-share.md)문서를 참조 하세요.
+큰 파일 공유 사용을 시작 하려면 [큰 파일 공유를 사용 하도록 설정 하 고 만드는 방법](storage-files-how-to-create-large-file-share.md)문서를 참조 하세요.
 
 ## <a name="data-growth-pattern"></a>데이터 증가 패턴
 

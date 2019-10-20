@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/17/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 5b6ec913226f44a47bfa5c734e0c20ef3a87ca67
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 1480418a70166887e7327452d407f78c2c992378
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329423"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597309"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 사용량 및 비용 관리
 
@@ -123,9 +123,9 @@ Azure는 [Azure Cost Management + 청구](https://docs.microsoft.com/azure/cost-
 
     ![작업 영역 데이터 보존 설정 변경](media/manage-cost-storage/manage-cost-change-retention-01.png)
     
-@No__t-1 매개 변수를 사용 하 여 [Azure Resource Manager를 통해](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 보존을 설정할 수도 있습니다. 또한 데이터 보존 기간을 30 일로 설정 하는 경우 `immediatePurgeDataOn30Days` 매개 변수를 사용 하 여 이전 데이터를 즉시 제거할 수 있습니다 .이는 규정 준수 관련 시나리오에 유용할 수 있습니다. 이 기능은 Azure Resource Manager 통해서만 노출 됩니다. 
+@No__t_1 매개 변수를 사용 하 여 [Azure Resource Manager를 통해](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 보존을 설정할 수도 있습니다. 또한 데이터 보존 기간을 30 일로 설정 하는 경우 `immediatePurgeDataOn30Days` 매개 변수를 사용 하 여 이전 데이터를 즉시 제거할 수 있습니다 .이는 규정 준수 관련 시나리오에 유용할 수 있습니다. 이 기능은 Azure Resource Manager 통해서만 노출 됩니다. 
 
-@No__t-0 및 `AzureActivity`의 두 가지 데이터 형식이 기본적으로 90 일 동안 유지 되며, 90 일 보존에 대 한 요금이 부과 되지 않습니다. 이러한 데이터 형식은 데이터 수집 요금에도 무료로 제공 됩니다. 
+@No__t_0 및 `AzureActivity`의 두 데이터 형식은 기본적으로 90 일 동안 유지 되며, 90 일 보존에 대해 요금이 청구 되지 않습니다. 이러한 데이터 형식은 데이터 수집 요금에도 무료로 제공 됩니다. 
 
 ### <a name="retention-by-data-type"></a>데이터 유형별 보존
 
@@ -159,7 +159,7 @@ Azure는 [Azure Cost Management + 청구](https://docs.microsoft.com/azure/cost-
     }
 ```
 
-@No__t-0 및 `AzureActivity` 데이터 형식은 사용자 지정 보존으로 설정할 수 없습니다. 기본 작업 영역 보존 또는 90 일의 최대값을 사용 합니다. 
+사용자 지정 보존을 사용 하 여 `Usage` 및 `AzureActivity` 데이터 형식을 설정할 수 없습니다. 기본 작업 영역 보존 또는 90 일의 최대값을 사용 합니다. 
 
 데이터 형식으로 보존을 설정 하기 위해 Azure Resource Manager에 직접 연결 하는 좋은 도구는 OSS 도구 [ARMclient](https://github.com/projectkudu/ARMClient)입니다.  [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) 및 [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)에서 ARMclient에 대해 자세히 알아보세요.  ARMClient를 사용 하 여 securityevent 데이터를 730 일 보존으로 설정 하는 예제는 다음과 같습니다.
 
@@ -193,7 +193,7 @@ Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세�
 3. **가격 책정 계층**에서 가격 책정 계층을 선택하고 **선택**을 클릭합니다.  
     ![선택된 가격 책정 계획](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-@No__t-1 매개 변수 (ARM 템플릿의 `pricingTier`)를 사용 하 여 [Azure Resource Manager를 통해 가격 책정 계층을 설정할](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 수도 있습니다. 
+@No__t_1 매개 변수 (ARM 템플릿의 `pricingTier`)를 사용 하 여 [Azure Resource Manager를 통해 가격 책정 계층을 설정할](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 수도 있습니다. 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Log Analytics에서 더 이상 데이터를 수집하지 않는 문제 해결
 
@@ -268,7 +268,7 @@ union withsource = tt *
 
 ```kusto
 Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+| summarize TotalVolumeGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution| render barchart
 ```
 
 여기서 “where IsBillable = true” 절은 수집 비용이 없는 특정 솔루션에서 데이터 형식을 필터링합니다. 
@@ -278,12 +278,12 @@ Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 ```kusto
 Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 | where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+| summarize TotalVolumeGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution| render barchart
 ```
 
 ### <a name="data-volume-by-computer"></a>컴퓨터별 데이터 볼륨
 
-컴퓨터별 수집 청구 가능 이벤트의 **크기** 를 보려면 바이트 단위로 크기를 제공 하는 `_BilledSize` [속성](log-standard-properties.md#_billedsize)을 사용 합니다.
+컴퓨터당 수집 청구 가능 이벤트의 **크기** 를 확인 하려면 바이트 단위로 크기를 제공 하는 `_BilledSize` [속성](log-standard-properties.md#_billedsize)을 사용 합니다.
 
 ```kusto
 union withsource = tt * 
@@ -292,7 +292,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
-@No__t-0 [속성](log-standard-properties.md#_isbillable) 은 수집 데이터가 요금을 부과 하는지 여부를 지정 합니다.
+@No__t_0 [속성](log-standard-properties.md#_isbillable) 은 수집 데이터가 요금을 부과 하는지 여부를 지정 합니다.
 
 컴퓨터별 수집 **청구** 가능 이벤트 수를 확인 하려면 다음을 사용 합니다. 
 
@@ -322,7 +322,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
 ```
 
-Azure에서 호스트 되는 노드의 데이터에 대해 수집 속성을 다음과 같이 구문 @no__t 분석 하 여 __azure 구독__에 따라 청구 가능한 이벤트의 **크기** 를 가져올 수 있습니다.
+Azure에서 호스트 되는 노드의 데이터에 대해 수집 속성을 다음과 같이 구문 `_ResourceId` 분석 하는 __azure 구독 당__청구 가능한 이벤트의 **크기** 를 가져올 수 있습니다.
 
 ```kusto
 union withsource = tt * 
@@ -332,7 +332,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
 ```
 
-@No__t-0을 `resourceGroup`로 변경 하면 Azure 리소스 그룹별 청구 가능 수집 데이터 볼륨이 표시 됩니다. 
+@No__t_1 `subscriptionId` 변경 하면 Azure 리소스 그룹별 청구 가능한 수집 데이터 볼륨이 표시 됩니다. 
 
 
 > [!NOTE]
@@ -428,7 +428,7 @@ union
 ```kusto
 union withsource = $table Usage 
 | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
-| extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type 
+| extend Type = $table | summarize DataGB = sum((Quantity / 1000.)) by Type 
 | where DataGB > 100
 ```
 
@@ -438,7 +438,7 @@ union withsource = $table Usage
 union withsource = $table Usage 
 | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
 | extend Type = $table 
-| summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type 
+| summarize EstimatedGB = sum(((Quantity * 8) / 1000.)) by Type 
 | where EstimatedGB > 100
 ```
 
@@ -451,7 +451,7 @@ union withsource = $table Usage
 - **경고 조건 정의**는 리소스 대상으로 Log Analytics 작업 영역을 지정합니다.
 - **경고 조건**은 다음을 지정합니다.
    - **신호 이름**은 **로그 검색 사용자 지정**을 선택합니다.
-   - **쿼리 검색**을 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`으로
+   - **쿼리 검색**을 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1000.)) by Type | where DataGB > 100`으로
    - **경고 논리**는 *결과 수*에 **기반**하고 **조건**은 *0*의 **임계값**을 *초과*합니다.
    - 사용량 데이터가 시간당 한 번만 업데이트되므로 **기간**은 *1440*분이고 **주파수 경고**는 *60*분마다입니다.
 - **경고 세부 정보 정의**는 다음을 지정합니다.
@@ -465,7 +465,7 @@ union withsource = $table Usage
 - **경고 조건 정의**는 리소스 대상으로 Log Analytics 작업 영역을 지정합니다.
 - **경고 조건**은 다음을 지정합니다.
    - **신호 이름**은 **로그 검색 사용자 지정**을 선택합니다.
-   - **쿼리 검색**을 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`으로
+   - **쿼리 검색**을 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1000.)) by Type | where EstimatedGB > 100`으로
    - **경고 논리**는 *결과 수*에 **기반**하고 **조건**은 *0*의 **임계값**을 *초과*합니다.
    - 사용량 데이터가 시간당 한 번만 업데이트되므로 **기간**은 *180*분이고 **주파수 경고**는 *60*분마다입니다.
 - **경고 세부 정보 정의**는 다음을 지정합니다.

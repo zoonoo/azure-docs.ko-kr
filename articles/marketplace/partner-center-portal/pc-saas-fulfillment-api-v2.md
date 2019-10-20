@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: a2041aefcfdcb1746e64f50c7cb53b3bfaec3299
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 75e806e56fa94916f76f9e7fa6572ae07987e017
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872800"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595550"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS 처리 Api, 버전 2 
 
@@ -29,15 +29,15 @@ Azure SaaS는 SaaS 구독 구매의 전체 수명 주기를 관리 합니다. �
 
 다음 표에서는 각 (해당 하는 경우)에 대 한 설명 및 시퀀스 다이어그램을 포함 하 여 SaaS 구독의 프로 비전 상태를 보여 줍니다. 
 
-#### <a name="provisioning"></a>프로비전
+#### <a name="provisioning"></a>프로비저닝
 
-고객이 구매를 시작 하면 파트너는 URL 매개 변수를 사용 하는 고객 대화형 웹 페이지의 인증 코드에서이 정보를 받습니다. 예를 들면 `https://contoso.com/signup?token=..`, 반면 파트너 `https://contoso.com/signup`센터의 방문 페이지 URL은입니다. 인증 코드는 확인 API를 호출 하 여 프로 비전 서비스의 세부 정보를 확인 하 고 교환할 수 있습니다.  SaaS 서비스는 프로 비전을 완료 하면 해당 작업이 완료 되 고 고객의 요금이 청구 될 수 있음을 알리기 위해 활성화 호출을 보냅니다. 
+고객이 구매를 시작 하면 파트너는 URL 매개 변수를 사용 하는 고객 대화형 웹 페이지의 인증 코드에서이 정보를 받습니다. 예는 `https://contoso.com/signup?token=..` 반면 파트너 센터의 방문 페이지 URL은 `https://contoso.com/signup` 됩니다. 인증 코드는 확인 API를 호출 하 여 프로 비전 서비스의 세부 정보를 확인 하 고 교환할 수 있습니다.  SaaS 서비스는 프로 비전을 완료 하면 해당 작업이 완료 되 고 고객의 요금이 청구 될 수 있음을 알리기 위해 활성화 호출을 보냅니다. 
 
 다음 다이어그램에서는 프로 비전 시나리오에 대 한 API 호출의 시퀀스를 보여 줍니다.  
 
 ![SaaS 서비스 프로 비전을 위한 API 호출](./media/saas-post-provisioning-api-v2-calls.png)
 
-#### <a name="provisioned"></a>프로비전됨
+#### <a name="provisioned"></a>프로비저닝됨
 
 이 상태는 프로 비전 된 서비스의 안정 된 상태입니다.
 
@@ -57,7 +57,7 @@ Azure SaaS는 SaaS 구독 구매의 전체 수명 주기를 관리 합니다. �
 
 ![SaaS 서비스에서 업데이트를 시작 하면 API 호출](./media/saas-update-api-v2-calls-from-saas-service-a.png) 
 
-#### <a name="suspended"></a>Suspended
+#### <a name="suspended"></a>일시 중단
 
 이 상태는 고객의 지불을 받지 못했음을 나타냅니다. 정책에 따라 구독을 취소 하기 전에 고객에 게 유예 기간을 제공 합니다. 구독이 다음 상태에 있는 경우: 
 
@@ -65,14 +65,14 @@ Azure SaaS는 SaaS 구독 구매의 전체 수명 주기를 관리 합니다. �
 - 구독은 데이터 나 설정의 손실 없이 전체 기능을 복원할 수 있는 복구 가능한 상태로 유지 되어야 합니다. 
 - 유예 기간이 종료 되 면 처리 Api 또는 프로 비전 해제 요청을 통해이 구독에 대해 복원 요청을 받을 것으로 간주 합니다. 
 
-#### <a name="unsubscribed"></a>구독 취소됨 
+#### <a name="unsubscribed"></a>취소 
 
 구독은 명시적인 고객 요청 또는 dues에 대 한 응답으로이 상태에 도달 합니다. 파트너의 기대는 특정 기간 (일) 동안 요청 시 복구를 위해 고객의 데이터를 보존 한 후 삭제 하는 것입니다. 
 
 
 ## <a name="api-reference"></a>API 참조
 
-이 섹션에서는 SaaS *구독 api* 및 *작업 api*에 대해 설명 합니다.  버전 2 `api-version` `2018-08-31`api에 대 한 매개 변수 값은입니다.  
+이 섹션에서는 SaaS *구독 api* 및 *작업 api*에 대해 설명 합니다.  버전 2 Api에 대 한 `api-version` 매개 변수의 값이 `2018-08-31` 됩니다.  
 
 
 ### <a name="parameter-and-entity-definitions"></a>매개 변수 및 엔터티 정의
@@ -87,7 +87,7 @@ Azure SaaS는 SaaS 구독 구매의 전체 수명 주기를 관리 합니다. �
 | `offerId`                | 각 제품에 대 한 고유 문자열 식별자입니다 (예: "offer1").  |
 | `planId`                 | 각 계획/SKU에 대 한 고유 문자열 식별자입니다 (예: "은색"). |
 | `operationId`            | 특정 작업에 대 한 GUID 식별자입니다.  |
-|  `action`                | `unsubscribe`리소스 `changePlan` `transfer` `changeQuantity`에서 수행 되는 작업입니다.,, 또는,,. `suspend` `reinstate`  |
+|  `action`                | 리소스에서 수행 되는 작업 (`unsubscribe`, `suspend`, `reinstate` 또는 `changePlan`, `changeQuantity`, `transfer`입니다.  |
 |   |   |
 
 [Guid](https://en.wikipedia.org/wiki/Universally_unique_identifier)(Globally unique identifier)는 일반적으로 자동으로 생성 되는 128 비트 (32-16 진수) 번호입니다. 
@@ -96,7 +96,7 @@ Azure SaaS는 SaaS 구독 구매의 전체 수명 주기를 관리 합니다. �
 
 확인 끝점은 게시자가 marketplace 토큰을 영구 리소스 ID로 확인할 수 있도록 합니다. 리소스 ID는 SaaS 구독의 고유 식별자입니다. 사용자가 파트너의 웹 사이트로 리디렉션되는 경우 URL에는 쿼리 매개 변수의 토큰이 포함 됩니다. 파트너는이 토큰을 사용 하 고이 토큰을 확인 하도록 요청 해야 합니다. 응답에는 고유한 SaaS 구독 ID, 이름, 제품 ID 및 리소스에 대 한 계획이 포함 됩니다. 이 토큰은 1 시간 동안만 유효 합니다. 
 
-##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>게시<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
+##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>올리기<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
 
 *쿼리 매개 변수:*
 
@@ -108,11 +108,11 @@ Azure SaaS는 SaaS 구독 구매의 전체 수명 주기를 관리 합니다. �
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      | `application/json` |
+|  콘텐츠 형식      | `application/json` |
 |  x-ms-requestid    |  클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다. |
 |  x-ms-correlationid |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수는 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상관 관계를 설정 합니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다.  |
-|  권한 부여(authorization)     |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). 예: "`Bearer <access_token>`". |
-|  x-ms-marketplace-token  |  사용자가 Azure에서 SaaS 파트너의 웹 사이트로 리디렉션되는 경우 URL의 토큰 쿼리 매개 변수 (예: `https://contoso.com/signup?token=..`)입니다. *참고:* URL은 사용 하기 전에 브라우저에서 토큰 값을 디코딩합니다.  |
+|  authorization     |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). 예를 들면 "`Bearer <access_token>`"입니다. |
+|  x-ms-marketplace-token  |  사용자가 Azure에서 SaaS 파트너의 웹 사이트로 리디렉션되는 경우 URL의 토큰 쿼리 매개 변수 (예: `https://contoso.com/signup?token=..`). *참고:* URL은 사용 하기 전에 브라우저에서 토큰 값을 디코딩합니다.  |
 
 *응답 코드:*
 
@@ -153,10 +153,10 @@ Azure SaaS는 SaaS 구독 구매의 전체 수명 주기를 관리 합니다. �
 
 ### <a name="subscription-api"></a>구독 API
 
-구독 API는 다음과 같은 HTTPS 작업을 지원 합니다. **Get**, **Post**, **Patch**및 **Delete**입니다.
+구독 API는 **Get**, **Post**, **PATCH**및 **Delete**와 같은 HTTPS 작업을 지원 합니다.
 
 
-#### <a name="list-subscriptions"></a>구독 목록 표시
+#### <a name="list-subscriptions"></a>구독 나열
 
 게시자에 대 한 모든 SaaS 구독을 나열 합니다.
 
@@ -172,16 +172,20 @@ Azure SaaS는 SaaS 구독 구매의 전체 수명 주기를 관리 합니다. �
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-| Content-Type       |  `application/json`  |
+| 콘텐츠 형식       |  `application/json`  |
 | x-ms-requestid     |  클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다. |
 | x-ms-correlationid |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수는 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상관 관계를 설정 합니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다.  |
-| 권한 부여(authorization)      |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). 예: "`Bearer <access_token>`".  |
+| authorization      |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). 예를 들면 "`Bearer <access_token>`"입니다.  |
 
 *응답 코드:*
 
 코드: 200 <br/>
 인증 토큰을 기반으로 모든 게시자의 제품에 대 한 게시자 및 해당 구독을 가져옵니다.
-응답 페이로드:<br>
+
+>[!Note]
+>[모의 api](#mock-apis) 는 제품을 처음 개발할 때 사용 되는 반면 실제 api는 실제로 제품을 게시할 때 사용 해야 합니다.  실제 Api와 모의 Api는 코드의 첫 번째 줄과 다릅니다.  실제 API에는 `subscription` 섹션이 있지만이 섹션은 모의 API에는 존재 하지 않습니다.
+
+모의 API에 대 한 응답 페이로드:<br>
 
 ```json
 {
@@ -215,7 +219,46 @@ Azure SaaS는 SaaS 구독 구매의 전체 수명 주기를 관리 합니다. �
   "continuationToken": ""
 }
 ```
+실제 API의 경우: <br>
 
+```json
+{
+  "subscriptions": [
+      {
+          "id": "<guid>",
+          "name": "Contoso Cloud Solution",
+          "publisherId": "contoso",
+          "offerId": "offer1",
+          "planId": "silver",
+          "quantity": "10",
+          "beneficiary": { // Tenant, object id and email address for which SaaS subscription is purchased.
+              "emailId": "<email>",
+              "objectId": "<guid>",                     
+              "tenantId": "<guid>"
+          },
+          "purchaser": { // Tenant, object id and email address that purchased the SaaS subscription. These could be different for reseller scenario
+              "emailId": "<email>",
+              "objectId": "<guid>",                      
+              "tenantId": "<guid>"
+          },
+            "term": {
+                "startDate": "2019-05-31",
+                "endDate": "2019-06-29",
+                "termUnit": "P1M"
+          },
+          "allowedCustomerOperations": [
+              "Read" // Possible Values: Read, Update, Delete.
+          ], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
+          "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
+          "isFreeTrial": true, // true – the customer subscription is currently in free trial, false – the customer subscription is not currently in free trial.(optional field – default false)
+          "isTest": false, //indicating whether the current subscription is a test asset
+          "sandboxType": "None", // Possible Values: None, Csp (Csp sandbox purchase)
+          "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
+      }
+  ],
+  "@nextLink": ""
+}
+```
 연속 토큰은 검색할 계획의 추가 "페이지"가 있는 경우에만 표시 됩니다. 
 
 코드: 403 <br>
@@ -243,17 +286,17 @@ Azure SaaS는 SaaS 구독 구매의 전체 수명 주기를 관리 합니다. �
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-| SubscriptionId     |   확인 API를 통해 토큰을 확인 한 후에 얻은 SaaS 구독의 고유 식별자입니다.   |
+| subscriptionId     |   확인 API를 통해 토큰을 확인 한 후에 얻은 SaaS 구독의 고유 식별자입니다.   |
 |  ApiVersion        |   이 요청에 사용할 작업의 버전입니다.   |
 
 *요청 헤더:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      |  `application/json`  |
+|  콘텐츠 형식      |  `application/json`  |
 |  x-ms-requestid    |  클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다. |
 |  x-ms-correlationid |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수는 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상관 관계를 설정 합니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다.  |
-|  권한 부여(authorization)     |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). 예: "`Bearer <access_token>`".  |
+|  authorization     |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). 예를 들면 "`Bearer <access_token>`"입니다.  |
 
 *응답 코드:*
 
@@ -320,10 +363,10 @@ Response Body:
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Content-Type     |  `application/json` |
+|   콘텐츠 형식     |  `application/json` |
 |   x-ms-requestid   |   클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다. |
 |  x-ms-correlationid  | 클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수는 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상관 관계를 설정 합니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다. |
-|  권한 부여(authorization)     |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  예: "`Bearer <access_token>`". |
+|  authorization     |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  예를 들면 "`Bearer <access_token>`"입니다. |
 
 *응답 코드:*
 
@@ -359,23 +402,23 @@ Response Body:
 
 #### <a name="activate-a-subscription"></a>구독 활성화
 
-##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>게시<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
+##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>올리기<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
 
 *쿼리 매개 변수:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
 |  ApiVersion        |  이 요청에 사용할 작업의 버전입니다.  |
-| SubscriptionId     | 확인 API를 사용 하 여 토큰을 확인 한 후에 얻은 SaaS 구독의 고유 식별자입니다.  |
+| subscriptionId     | 확인 API를 사용 하 여 토큰을 확인 한 후에 얻은 SaaS 구독의 고유 식별자입니다.  |
 
 *요청 헤더:*
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      | `application/json`  |
+|  콘텐츠 형식      | `application/json`  |
 |  x-ms-requestid    | 클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다.  |
 |  x-ms-correlationid  | 클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 문자열은 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상관 관계를 설정 합니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다.  |
-|  권한 부여(authorization)     |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  예: "`Bearer <access_token>`". |
+|  authorization     |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  예를 들면 "`Bearer <access_token>`"입니다. |
 
 *요청 페이로드:*
 
@@ -423,16 +466,16 @@ Response Body:
 |                    |                   |
 |  ---------------   |  ---------------  |
 |  ApiVersion        |  이 요청에 사용할 작업의 버전입니다.  |
-| SubscriptionId     | 확인 API를 사용 하 여 토큰을 확인 한 후에 얻은 SaaS 구독의 고유 식별자입니다.  |
+| subscriptionId     | 확인 API를 사용 하 여 토큰을 확인 한 후에 얻은 SaaS 구독의 고유 식별자입니다.  |
 
 *요청 헤더:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      | `application/json` |
+|  콘텐츠 형식      | `application/json` |
 |  x-ms-requestid    |   클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다.  |
 |  x-ms-correlationid  |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수는 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상관 관계를 설정 합니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다.    |
-| 권한 부여(authorization)      |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  예: "`Bearer <access_token>`".  |
+| authorization      |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  예를 들면 "`Bearer <access_token>`"입니다.  |
 
 *요청 페이로드:*
 
@@ -476,7 +519,7 @@ Request Body:
 ```
 
 >[!Note]
->한 번에 하나의 계획 또는 수량만 패치를 적용할 수 있습니다. **업데이트** 를 사용 하는 구독에 대 `allowedCustomerOperations`한 편집은에 없습니다.
+>한 번에 하나의 계획 또는 수량만 패치를 적용할 수 있습니다. **업데이트** 를 사용 하는 구독에 대 한 편집은 `allowedCustomerOperations` 되지 않습니다.
 
 #### <a name="change-the-quantity-on-the-subscription"></a>구독 수량 변경
 
@@ -489,16 +532,16 @@ Request Body:
 |                    |                   |
 |  ---------------   |  ---------------  |
 |  ApiVersion        |  이 요청에 사용할 작업의 버전입니다.  |
-| SubscriptionId     | 확인 API를 사용 하 여 토큰을 확인 한 후에 얻은 SaaS 구독의 고유 식별자입니다.  |
+| subscriptionId     | 확인 API를 사용 하 여 토큰을 확인 한 후에 얻은 SaaS 구독의 고유 식별자입니다.  |
 
 *요청 헤더:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      | `application/json` |
+|  콘텐츠 형식      | `application/json` |
 |  x-ms-requestid    |   클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다.  |
 |  x-ms-correlationid  |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수는 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상관 관계를 설정 합니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다.    |
-| 권한 부여(authorization)      |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  예: "`Bearer <access_token>`".  |
+| authorization      |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  예를 들면 "`Bearer <access_token>`"입니다.  |
 
 *요청 페이로드:*
 
@@ -543,7 +586,7 @@ Request Body:
 ```
 
 >[!Note]
->한 번에 하나의 계획 또는 수량만 패치를 적용할 수 있습니다. **업데이트** 를 사용 하는 구독에 대 `allowedCustomerOperations`한 편집은에 없습니다.
+>한 번에 하나의 계획 또는 수량만 패치를 적용할 수 있습니다. **업데이트** 를 사용 하는 구독에 대 한 편집은 `allowedCustomerOperations` 되지 않습니다.
 
 #### <a name="delete-a-subscription"></a>구독 삭제
 
@@ -556,16 +599,16 @@ Request Body:
 |                    |                   |
 |  ---------------   |  ---------------  |
 |  ApiVersion        |  이 요청에 사용할 작업의 버전입니다.  |
-| SubscriptionId     | 확인 API를 사용 하 여 토큰을 확인 한 후에 얻은 SaaS 구독의 고유 식별자입니다.  |
+| subscriptionId     | 확인 API를 사용 하 여 토큰을 확인 한 후에 얻은 SaaS 구독의 고유 식별자입니다.  |
 
 *요청 헤더:*
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Content-Type     |  `application/json` |
+|   콘텐츠 형식     |  `application/json` |
 |  x-ms-requestid    |   클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다.   |
 |  x-ms-correlationid  |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수는 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상관 관계를 설정 합니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다.   |
-|  권한 부여(authorization)     |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  예: "`Bearer <access_token>`".  |
+|  authorization     |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  예를 들면 "`Bearer <access_token>`"입니다.  |
 
 *응답 코드:*
 
@@ -573,7 +616,7 @@ Request Body:
 파트너가 SaaS 구독을 구독 취소 하는 호출을 시작 했습니다.<br>
 
 코드: 400<br>
-**Delete** not in `allowedCustomerOperations`을 사용 하 여 구독을 삭제 합니다.
+@No__t_1에서 **삭제가** 없는 구독에 대해를 삭제 합니다.
 
 코드: 403<br>
 권한이 없습니다. 인증 토큰이 제공 되지 않았거나 잘못 되었거나 요청에서 현재 게시자에 속하지 않은 획득에 액세스 하려고 합니다.
@@ -609,16 +652,16 @@ Request Body:
 |             |        |
 |  ---------------   |  ---------------  |
 |    ApiVersion                |   이 요청에 사용할 작업의 버전입니다.                |
-| SubscriptionId     | 확인 API를 사용 하 여 토큰을 확인 한 후에 얻은 SaaS 구독의 고유 식별자입니다.  |
+| subscriptionId     | 확인 API를 사용 하 여 토큰을 확인 한 후에 얻은 SaaS 구독의 고유 식별자입니다.  |
 
 *요청 헤더:*
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Content-Type     |  `application/json` |
+|   콘텐츠 형식     |  `application/json` |
 |  x-ms-requestid    |  클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다.  |
 |  x-ms-correlationid |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수는 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상관 관계를 설정 합니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다.  |
-|  권한 부여(authorization)     |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  예: "`Bearer <access_token>`".  |
+|  authorization     |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  예를 들면 "`Bearer <access_token>`"입니다.  |
 
 *응답 코드:*
 
@@ -664,7 +707,7 @@ Request Body:
 
 #### <a name="get-operation-status"></a>작업 상태 가져오기
 
-게시자가 지정 된 트리거된 비동기 `subscribe`작업 (예: `unsubscribe` `changePlan`,, 또는 `changeQuantity`)의 상태를 추적할 수 있도록 합니다.
+게시자가 지정 된 트리거된 비동기 작업 (예: `subscribe`, `unsubscribe`, `changePlan` 또는 `changeQuantity`)의 상태를 추적할 수 있도록 합니다.
 
 ##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>가져오기<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -678,10 +721,10 @@ Request Body:
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      |  `application/json`   |
+|  콘텐츠 형식      |  `application/json`   |
 |  x-ms-requestid    |   클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다.  |
 |  x-ms-correlationid |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수는 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상관 관계를 설정 합니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다.  |
-|  권한 부여(authorization)     |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). 예: "`Bearer <access_token>`".  |
+|  authorization     |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). 예를 들면 "`Bearer <access_token>`"입니다.  |
 
 *응답 코드:*<br>
 
@@ -735,17 +778,17 @@ Response body:
 |                    |                   |
 |  ---------------   |  ---------------  |
 |   ApiVersion       |  이 요청에 사용할 작업의 버전입니다.  |
-| SubscriptionId     | 확인 API를 사용 하 여 토큰을 확인 한 후에 얻은 SaaS 구독의 고유 식별자입니다.  |
+| subscriptionId     | 확인 API를 사용 하 여 토큰을 확인 한 후에 얻은 SaaS 구독의 고유 식별자입니다.  |
 |  operationId       | 완료 중인 작업입니다. |
 
 *요청 헤더:*
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Content-Type     | `application/json`   |
+|   콘텐츠 형식     | `application/json`   |
 |   x-ms-requestid   |   클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다. |
 |  x-ms-correlationid |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수는 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상관 관계를 설정 합니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다. |
-|  권한 부여(authorization)     |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  예: "`Bearer <access_token>`".  |
+|  authorization     |  [JWT (JSON web token) 전달자 토큰을 가져옵니다](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  예를 들면 "`Bearer <access_token>`"입니다.  |
 
 *요청 페이로드:*
 
@@ -807,11 +850,11 @@ Response body:
 }
 ```
 작업은 다음 중 하나일 수 있습니다. 
-- `unsubscribe`(리소스가 삭제 된 경우)
-- `changePlan`(변경 계획 작업이 완료 된 경우)
-- `changeQuantity`(수량 변경 작업이 완료 된 경우)
-- `suspend`(리소스가 일시 중단 된 경우)
-- `reinstate`(일시 중단 후 리소스가 복원 된 경우)
+- `unsubscribe` (리소스가 삭제 된 경우)
+- `changePlan` (변경 계획 작업이 완료 된 경우)
+- `changeQuantity` (수량 변경 작업이 완료 된 경우)
+- `suspend` (리소스가 일시 중단 된 경우)
+- `reinstate` (일시 중단 후 리소스가 복원 된 경우)
 
 여기서 상태는 다음 중 하나일 수 있습니다. 
 - **NotStarted** <br>
@@ -827,10 +870,10 @@ Response body:
 모의 Api를 사용 하 여 개발, 특히 프로토타입 작성 및 프로젝트 테스트를 시작할 수 있습니다. 
 
 호스트 끝점: `https://marketplaceapi.microsoft.com/api` (인증 필요 없음)<br/>
-API 버전:`2018-09-15`<br/>
-샘플 URI:`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15` <br/>
+API 버전: `2018-09-15`<br/>
+샘플 URI: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15` <br/>
 
-API 끝점 경로는 모의 Api와 실제 Api에서 동일 하지만 API 버전은 다릅니다. 버전은 모의 `2018-09-15` `2018-08-31` 버전과 프로덕션 버전에 대 한 버전입니다. 
+API 끝점 경로는 모의 Api와 실제 Api에서 동일 하지만 API 버전은 다릅니다. 버전은 모의 버전과 프로덕션 버전의 `2018-08-31` `2018-09-15` 됩니다. 
 
 이 문서의 모든 API 호출은 모의 호스트 끝점에 대해 설정할 수 있습니다. 일반적으로 모의 데이터는 응답으로 다시 가져올 것으로 간주 됩니다. 모의 API에서 구독 업데이트 메서드를 호출 하면 항상 500이 반환 됩니다. 
 

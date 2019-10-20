@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 10/19/2019
 ms.author: victorh
-ms.openlocfilehash: cb5b8bbb322dc401c7a8b057418d392120ef68e3
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: f64e9717a1e6391c15ee5207c7566114f2bf9f8f
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130218"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596772"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -30,7 +30,7 @@ Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 �
 * 아웃바운드 SNAT 지원
 * 인바운드 DNAT 지원
 * Azure 구독 및 VNET 전반에 걸쳐 애플리케이션 및 네트워크 연결 정책을 중앙에서 만들고 적용하고 기록
-* 로깅 및 분석을 위한 Azure Monitor와 완전히 통합
+* 로깅 및 분석을 위한 Azure Monitor와 완전히 통합됨
 
 ## <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Azure Firewall의 일반적인 배포 모델은 무엇입니까?
 
@@ -48,9 +48,9 @@ Azure Firewall은 규칙 및 규칙 컬렉션을 지원합니다. 규칙 컬렉�
 
 규칙 컬렉션에는 다음 세 가지 유형이 있습니다.
 
-* *애플리케이션 규칙*: 서브넷에서 액세스할 수 있는 Fqdn (정규화 된 도메인 이름)을 구성 합니다.
-* *네트워크 규칙*: 원본 주소, 프로토콜, 대상 포트 및 대상 주소가 포함 된 규칙을 구성 합니다.
-* *NAT 규칙*: 들어오는 연결을 허용 하도록 DNAT 규칙을 구성 합니다.
+* *응용 프로그램 규칙*: 서브넷에서 액세스할 수 있는 fqdn (정규화 된 도메인 이름)을 구성 합니다.
+* *네트워크 규칙*: 원본 주소, 프로토콜, 대상 포트 및 대상 주소를 포함 하는 규칙을 구성 합니다.
+* *NAT 규칙*: 들어오는 연결을 허용 하도록 dnat 규칙을 구성 합니다.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Azure Firewall은 인바운드 트래픽 필터링을 지원하나요?
 
@@ -88,7 +88,7 @@ PaaS 서비스에 안전하게 액세스하려면 서비스 엔드포인트를 �
 
 Azure PowerShell *할 당 취소* 및 *할당* 메서드를 사용할 수 있습니다.
 
-예를 들어 다음과 같은 가치를 제공해야 합니다.
+다음은 그 예입니다.
 
 ```azurepowershell
 # Stop an existing firewall
@@ -131,7 +131,7 @@ Azure 방화벽은 대상 IP 주소가 [IANA RFC 1918](https://tools.ietf.org/ht
 
 강제 터널링은 현재 지원 되지 않습니다. Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewallSubnet이 BGP를 통해 온-프레미스 네트워크에 대한 기본 경로를 학습하는 경우 이 경로를 직접 인터넷 연결을 유지하기 위해 **Internet**으로 설정된 **NextHopType** 값을 통해 0.0.0.0/0 UDR로 재정의해야 합니다.
 
-구성에서 온-프레미스 네트워크에 대 한 강제 터널링이 필요 하 고 인터넷 대상의 대상 IP 접두사를 확인할 수 있는 경우에는에서 사용자 정의 경로를 통해 다음 홉으로 온-프레미스 네트워크를 사용 하 여 이러한 범위를 구성할 수 있습니다. AzureFirewallSubnet. 또는 BGP를 사용 하 여 이러한 경로를 정의할 수 있습니다.
+구성에 온-프레미스 네트워크에 대한 강제 터널링이 필요하고 인터넷 대상의 대상 IP 접두사를 확인할 수 있는 경우, AzureFirewallSubnet의 사용자 정의 경로를 통해 온-프레미스 네트워크를 사용하여 이러한 범위를 다음 홉으로 구성할 수 있습니다. 또는 BGP를 사용하여 이러한 경로를 정의할 수 있습니다.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>방화벽 리소스 그룹 제한 사항이 있나요?
 
@@ -139,13 +139,13 @@ Azure 방화벽은 대상 IP 주소가 [IANA RFC 1918](https://tools.ietf.org/ht
 
 ## <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>인바운드 네트워크 트래픽에 대해 DNAT를 구성할 때 해당 트래픽을 허용하도록 해당 네트워크 규칙을 구성해야 하나요?
 
-아니요. NAT 규칙은 해당 네트워크 규칙을 암시적으로 추가하여 변환된 트래픽을 허용합니다. 변환된 트래픽을 일치시키는 거부 규칙을 사용하여 네트워크 규칙 컬렉션을 명시적으로 추가함으로써 이 동작을 재정의할 수 있습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](rule-processing.md)를 참조하세요.
+아닙니다. NAT 규칙은 해당 네트워크 규칙을 암시적으로 추가하여 변환된 트래픽을 허용합니다. 변환된 트래픽을 일치시키는 거부 규칙을 사용하여 네트워크 규칙 컬렉션을 명시적으로 추가함으로써 이 동작을 재정의할 수 있습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](rule-processing.md)를 참조하세요.
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>응용 프로그램 규칙 대상 FQDN에서 와일드 카드를 사용 하는 방법
 
 * **. Contoso.com**을 구성 하는 경우 contoso.com (도메인 apex)가 아닌 *anyvalue*. contoso.com가 허용 됩니다. 도메인 apex을 허용 하려면 대상 FQDN으로 명시적으로 구성 해야 합니다.
 
-## <a name="what-does-provisioning-state-failed-mean"></a>프로 비전 *상태는 다음과 같습니다. 실패* 평균
+## <a name="what-does-provisioning-state-failed-mean"></a>*프로 비전 상태: 실패* 평균 이란?
 
 구성 변경이 적용 될 때마다 Azure 방화벽은 모든 기본 백 엔드 인스턴스를 업데이트 하려고 합니다. 드문 경우 지만 이러한 백 엔드 인스턴스 중 하나가 새 구성으로 업데이트 되지 않고 업데이트 프로세스가 실패 한 프로 비전 상태로 중지 될 수 있습니다. Azure 방화벽은 여전히 작동 하지만 적용 된 구성은 일관 되지 않은 상태일 수 있습니다 .이 경우 일부 인스턴스에는 업데이트 된 규칙 집합이 있는 이전 구성이 있습니다. 이 문제가 발생 하는 경우 작업이 성공 하 고 방화벽이 *성공한* 프로 비전 상태에 도달할 때까지 구성을 한 번 더 업데이트 해 보세요.
 
@@ -162,8 +162,16 @@ Azure 방화벽은 규모에 따라 더 많은 가상 머신 인스턴스를 프
 
 ## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>서비스가 확장 됨에 따라 방화벽 서브넷 크기를 변경 해야 하나요?
 
-아니요. Azure 방화벽에는/26 보다 큰 서브넷이 필요 하지 않습니다.
+아닙니다. Azure 방화벽에는/26 보다 큰 서브넷이 필요 하지 않습니다.
+
+## <a name="how-can-i-increase-my-firewall-throughput"></a>방화벽 처리량을 늘리려면 어떻게 해야 하나요?
+
+Azure 방화벽의 초기 처리량 용량은 2.5-3gbps입니다. 현재 scale out은 CPU 사용량만을 기준으로 합니다. 네트워크 규칙을 사용 하는 방화벽은 CPU 사용에 심각한 영향을 주지 않으므로 처리량을 높이도록 확장할 수 없는 경우도 있습니다. 방화벽에 더 높은 처리량이 필요한 경우 지원에 문의 하 여 방화벽의 초기 처리량 용량을 늘리세요.
+
+## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Azure 방화벽을 확장 하는 데 얼마나 걸립니까?
+
+현재 Azure 방화벽을 확장 하는 데 5 ~ 7 분이 걸립니다. 더 빠른 자동 크기 조정을 필요로 하는 버스트가 있는 경우 지원에 문의 하 여 방화벽의 초기 처리량 용량을 늘리세요.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Azure 방화벽에서 기본적으로 Active Directory에 대 한 액세스를 허용 하나요?
 
-아니요. Azure 방화벽은 기본적으로 Active Directory 액세스를 차단 합니다. 액세스를 허용 하려면 AzureActiveDirectory service 태그를 구성 합니다. 자세한 내용은 [Azure 방화벽 서비스 태그](service-tags.md)를 참조 하세요.
+아닙니다. Azure 방화벽은 기본적으로 Active Directory 액세스를 차단 합니다. 액세스를 허용 하려면 AzureActiveDirectory service 태그를 구성 합니다. 자세한 내용은 [Azure 방화벽 서비스 태그](service-tags.md)를 참조 하세요.

@@ -1,23 +1,18 @@
 ---
 title: Azure Monitor를 사용하여 연속 모니터링 | Microsoft Docs
 description: Azure Monitor를 사용하여 전체 워크플로에서 연속 모니터링을 사용하도록 설정하는 특정 단계를 설명합니다.
-author: bwren
-manager: carmonm
-editor: ''
-services: azure-monitor
-documentationcenter: azure-monitor
 ms.service: azure-monitor
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: ''
 ms.topic: conceptual
-ms.date: 10/12/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: f101a8885d9bf67e8bd589d7cf932b0d35cdfe32
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.date: 10/12/2018
+ms.openlocfilehash: 88934d469ddcca50d7dfc3f35b18ab332d4bd172
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744490"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596793"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Azure Monitor를 사용하여 연속 모니터링
 
@@ -64,7 +59,7 @@ ms.locfileid: "70744490"
 
 - [Azure Pipelines](/azure/devops/pipelines)를 사용하여 지속적인 배포를 구현하고 CI/CD 테스트를 기반으로 코드 커밋에서 프로덕션으로 전체 프로세스를 자동화합니다.
 - [품질 게이트](/azure/devops/pipelines/release/approvals/gates)를 사용하여 모니터링을 사전 배포 또는 사후 배포에 통합합니다. 이렇게 하면 애플리케이션이 개발 환경에서 프로덕션 환경으로 이동하고 인프라 환경 또는 규모의 차이가 KPI에 부정적인 영향을 주지 않으므로 핵심 상태/성과 지표(KPI)가 충족됩니다.
-- 개발, 테스트, 카나리아 및 프로덕션과 같은 다양한 배포 환경 간에 [개별 모니터링 인스턴스를 유지 관리](../azure-monitor/app/separate-resources.md)합니다. 이렇게 하면 수집된 데이터가 연결된 애플리케이션 및 인프라 간에 관련됩니다. 환경 간에 데이터를 상호 연결해야 하면 [메트릭 탐색기에서 다중 리소스 차트](../azure-monitor/platform/metrics-charts.md)를 사용하거나 [Azure Monitor에서 리소스 간 쿼리](log-query/cross-workspace-query.md)를 만들 수 있습니다.
+- 개발, 테스트, 카나리아 및 Prod와 같은 서로 다른 배포 환경 간에 [별도의 모니터링 인스턴스를 유지](../azure-monitor/app/separate-resources.md) 합니다. 이렇게 하면 수집 된 데이터가 연결 된 응용 프로그램 및 인프라에서 관련 됩니다. 환경 간에 데이터를 상호 연결해야 하면 [메트릭 탐색기에서 다중 리소스 차트](../azure-monitor/platform/metrics-charts.md)를 사용하거나 [Azure Monitor에서 리소스 간 쿼리](log-query/cross-workspace-query.md)를 만들 수 있습니다.
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>작업을 사용하여 실행 가능한 경고 만들기

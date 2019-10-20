@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 10/18/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b7fc3508f7f672e277577f92218ff1860b676cb
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: HT
+ms.openlocfilehash: f54382d652c3fc59b8ff462d41ec8c0fbdbe8498
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72559477"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596702"
 ---
 # <a name="troubleshoot-a-problem-with-privileged-identity-management"></a>Privileged Identity Management 문제 해결
 
@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD)의 Privileged Identity Management (PIM)에 문
 
 ### <a name="problem"></a>문제
 
-사용자에 게 Azure AD 관리자 역할에 대 한 자격이 부여 되 고 Privileged Identity Management에서 Azure 리소스에 액세스할 수 없게 되 면 권한 부여 오류가 발생 합니다. 전역 관리자 및 구독의 소유자 인 경우에도 Privileged Identity Management에서 Azure 리소스에 액세스할 수 없습니다.
+Azure 리소스에 대 한 활성 소유자 또는 사용자 액세스 관리자는 Privileged Identity Management 내에서 리소스를 볼 수 있지만 적격 할당 만들기 또는 리소스에서 역할 할당 목록 보기와 같은 작업을 수행할 수 없습니다. 개요 페이지. 이러한 작업으로 인해 권한 부여 오류가 발생 합니다.
 
 ### <a name="cause"></a>원인
 

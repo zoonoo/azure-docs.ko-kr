@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: cephalin
 ms.openlocfilehash: e00db06346b19ef85eb77626eb2ed169d2224b6c
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 10/18/2019
 ms.locfileid: "71129688"
 ---
 다른 배포 슬롯으로부터 구성을 복제할 때 복제된 구성을 편집할 수 있습니다. 일부 구성 요소는 교환 (슬롯 특정)에서 콘텐츠를 따르고, 다른 구성 요소는 교환 (슬롯 특정) 후에 동일한 슬롯에 유지 됩니다. 다음 목록은 슬롯을 교환할 때 변경되는 설정을 보여줍니다.
@@ -30,16 +30,16 @@ ms.locfileid: "71129688"
 
 **교환되지 않은 설정**:
 
-* 게시 끝점
+* 게시 엔드포인트
 * 사용자 지정 도메인 이름
 * 공용이 아닌 인증서 및 TLS/SSL 설정
 * 크기 조정 설정
 * WebJob 스케줄러
 * IP 제한
-* 항상 설정됨
+* 무중단
 * 진단 로그 설정
 * CORS (원본 간 리소스 공유)
 
 > [!NOTE]
-> 또한 스왑 되지 않은 설정에 적용 되는 특정 앱 설정은 교환 되지 않습니다. 예를 들어 진단 로그 설정은 교환 되지 않으므로 및 `WEBSITE_HTTPLOGGING_RETENTION_DAYS` `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` 와 같은 관련 앱 설정은 슬롯 설정으로 표시 되지 않는 경우에도 교환 되지 않습니다.
+> 또한 스왑 되지 않은 설정에 적용 되는 특정 앱 설정은 교환 되지 않습니다. 예를 들어 진단 로그 설정이 교환 되지 않으므로 `WEBSITE_HTTPLOGGING_RETENTION_DAYS` 및 `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS`와 같은 관련 앱 설정은 슬롯 설정으로 표시 되지 않는 경우에도 교환 되지 않습니다.
 >

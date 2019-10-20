@@ -3,19 +3,18 @@ layout: HubPage
 hide_bc: false
 title: Azure Monitor Application Insights 문서 - 자습서, API 참조 | Microsoft Docs
 description: Azure Monitor Application Insights는 자세한 코드 수준의 애플리케이션 성능 모니터링을 제공합니다.
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
 ms.service: application-insights
-ms.topic: landing-page
-ms.date: 01/15/2019
+ms.subservice: ''
+ms.topic: hub-page
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 6f35bf82e1c3275772bc9f5ccdcaceed024bd7d9
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.date: 01/15/2019
+ms.openlocfilehash: 254cd4e67c0c64ba9b21133e957ae2cacfefe7a7
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967781"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596813"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -71,7 +70,7 @@ ms.locfileid: "68967781"
                                                             <a href="./app/status-monitor-v2-overview.md">IIS 앱에 대 한 상태 모니터 v2</a><br>
                                                         </p>
                                                         <br><br>
-                                                        <h3>빠른 시작</h3>
+                                                        <h3>퀵 스타트</h3>
                                                         <p>
                                                             <a href="./learn/quick-monitor-portal.md">ASP.NET</a><br>
                                                             <a href="./learn/dotnetcore-quick-start.md">ASP.NET Core</a><br>

@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/28/2019
 ms.author: rambala
 ms.openlocfilehash: 4984b30daf6170873cad9472bfed2d879af57efe
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 10/18/2019
 ms.locfileid: "67466641"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Express 경로를 사용 하 여 고가용성을 위한 디자인
@@ -87,9 +87,9 @@ Express 경로는 개인 피어 링을 통해 BFD를 지원 합니다. BFD는 ad
 전체 지역에 영향을 주는 치명적인 오류를 견딜 수 있는 Microsoft 백본으로 지역 중복 네트워크 연결을 빌드하기 위한 디자인 고려 사항은 Express 경로 [개인 피어 링을 사용 하 여 재해 복구 디자인][DR]을 참조 하세요.
 
 <!--Image References-->
-[1]: ./media/designing-for-high-availability-with-expressroute/exr-reco.png  "Express 경로를 사용 하 여 연결 하는 데 권장 되는 방법"
-[2]: ./media/designing-for-high-availability-with-expressroute/suboptimal-lastmile-connectivity.png  "최적이 아닌 마지막 마일 연결"
-[3]: ./media/designing-for-high-availability-with-expressroute/nat-options.png  "NAT 옵션"
+[1]: ./media/designing-for-high-availability-with-expressroute/exr-reco.png "express 경로를 사용 하 여 연결 하는 권장 방법" 1 개
+[2]: ./media/designing-for-high-availability-with-expressroute/suboptimal-lastmile-connectivity.png "가장 최적이 아닌 마지막 마일 연결"
+[3]: ./media/designing-for-high-availability-with-expressroute/nat-options.png "NAT 옵션"
 
 
 <!--Link References-->

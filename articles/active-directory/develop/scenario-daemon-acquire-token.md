@@ -16,20 +16,20 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef28520edd8500be0da52996e6484a0407fb03c8
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 605614265d033647bfcf22bb99d45c89f275298b
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056438"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596392"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>웹 Api를 호출 하는 디먼 앱-토큰 획득
 
-기밀 클라이언트 응용 프로그램을 생성 한 후에는를 호출 ``AcquireTokenForClient``하 고, 범위를 전달 하 고, 토큰을 강제로 새로 고치지 않고 앱에 대 한 토큰을 가져올 수 있습니다.
+기밀 클라이언트 응용 프로그램을 생성 한 후에는 ``AcquireTokenForClient``를 호출 하 고, 범위를 전달 하 고, 토큰을 강제로 새로 고치지 않도록 하 여 앱에 대 한 토큰을 가져올 수 있습니다.
 
 ## <a name="scopes-to-request"></a>요청할 범위
 
-클라이언트 자격 증명 흐름에 대해 요청할 범위는 리소스의 이름 뒤에 나옵니다 `/.default`. 이 표기법은 Azure AD에서 응용 프로그램 등록 중에 정적으로 선언 된 **응용 프로그램 수준 권한을** 사용 하도록 지시 합니다. 또한 앞서 살펴본 것 처럼 테 넌 트 관리자가 이러한 API 권한을 부여 해야 합니다.
+클라이언트 자격 증명 흐름에 대해 요청할 범위는 리소스 이름 뒤에 `/.default`입니다. 이 표기법은 Azure AD에서 응용 프로그램 등록 중에 정적으로 선언 된 **응용 프로그램 수준 권한을** 사용 하도록 지시 합니다. 또한 앞서 살펴본 것 처럼 테 넌 트 관리자가 이러한 API 권한을 부여 해야 합니다.
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -62,11 +62,11 @@ final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default"
 
 > [!IMPORTANT]
 > V 1.0 액세스 토큰을 수락 하는 리소스에 대 한 액세스 토큰을 요청 하는 MSAL의 경우, Azure AD는 마지막 슬래시 앞에 있는 모든 항목을 사용 하 고 리소스 식별자로 사용 하 여 요청 된 범위에서 원하는 대상 그룹을 구문 분석 합니다.
-> 따라서 azure sql ( **https://database.windows.net** )와 같이 리소스에서 슬래시 (azure `https://database.windows.net/` sql의 경우)로 끝나는 대상이 필요한 경우 범위 `https://database.windows.net//.default` 를 요청 해야 합니다 (이중 슬래시 참고). 참고 항목 MSAL.NET issue [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): 리소스 url의 후행 슬래시가 생략 되어 sql 인증 실패가 발생 했습니다.
+> 따라서 Azure SQL ( **https://database.windows.net** )와 마찬가지로 리소스에서 슬래시 (azure sql: `https://database.windows.net/` )로 끝나는 대상 그룹을 예상 하는 경우 `https://database.windows.net//.default` 범위를 요청 해야 합니다 (이중 슬래시). 참고 항목: MSAL.NET issue [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): 리소스 url의 후행 슬래시가 생략 되었으며이로 인해 sql 인증 오류가 발생 했습니다.
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
 
-앱에 대 한 토큰을 얻으려면 플랫폼에 따라 또는 `AcquireTokenForClient` 이와 동등한를 사용 합니다.
+앱에 대 한 토큰을 얻기 위해 플랫폼에 따라 `AcquireTokenForClient` 또는이에 해당 하는를 사용 합니다.
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -152,7 +152,7 @@ future.join();
 
 선택한 언어에 대 한 라이브러리가 아직 없는 경우 프로토콜을 직접 사용 하는 것이 좋습니다.
 
-#### <a name="first-case-access-token-request-with-a-shared-secret"></a>첫 번째 사례: 공유 비밀을 사용하여 액세스 토큰 요청
+#### <a name="first-case-access-token-request-with-a-shared-secret"></a>첫 번째 사례: 공유 암호를 사용한 액세스 토큰 요청
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
@@ -165,7 +165,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &grant_type=client_credentials
 ```
 
-#### <a name="second-case-access-token-request-with-a-certificate"></a>두 번째 사례: 인증서를 사용하여 액세스 토큰 요청
+#### <a name="second-case-access-token-request-with-a-certificate"></a>두 번째 사례: 인증서를 사용한 액세스 토큰 요청
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
@@ -179,11 +179,11 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-자세한 내용은 프로토콜 설명서를 참조 하세요. [Microsoft id 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름](v2-oauth2-client-creds-grant-flow.md)
+자세한 내용은 프로토콜 설명서 ( [Microsoft id 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름](v2-oauth2-client-creds-grant-flow.md))를 참조 하세요.
 
 ## <a name="application-token-cache"></a>응용 프로그램 토큰 캐시
 
-MSAL.NET에서는 `AcquireTokenForClient` 를 호출 `AcquireTokenSilent` 하기 `AcquireTokenForClient` 전에 `AcquireTokenSilent` **사용자** 토큰 캐시를 사용 하 여 **응용 프로그램 토큰 캐시** 를 사용 합니다 (다른 모든 AcquireTokenXX 메서드는 사용자 토큰 캐시를 사용 함). `AcquireTokenForClient`**응용 프로그램** 토큰 캐시 자체를 확인 하 고 업데이트 합니다.
+MSAL.NET에서는 **응용 프로그램 토큰 캐시** 를 사용 `AcquireTokenForClient` (다른 모든 AcquireTokenXX 메서드는 사용자 토큰 캐시를 사용 함) `AcquireTokenSilent` **사용자** 토큰 캐시를 사용 하기 때문에 `AcquireTokenForClient`를 호출 하기 전에 `AcquireTokenSilent` 호출 하지 않습니다. `AcquireTokenForClient`는 **응용 프로그램** 토큰 캐시 자체를 확인 하 고 업데이트 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -212,5 +212,19 @@ Content: {
 
 ## <a name="next-steps"></a>다음 단계
 
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+
 > [!div class="nextstepaction"]
-> [디먼 앱-web API 호출](scenario-daemon-call-api.md)
+> [디먼 앱-web API 호출](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=dotnet)
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [디먼 앱-web API 호출](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=python)
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [디먼 앱-web API 호출](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=java)
+
+---

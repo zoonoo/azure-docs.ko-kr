@@ -1,6 +1,6 @@
 ---
 title: Azure Notebooks에 사용할 사용자 프로필 및 ID
-description: Azure Notebooks를 사용하여 사용자 프로필 및 ID를 만들고 관리하는 방법
+description: 공유 전자 필기장의 URL에 포함 되는 Azure Notebooks을 사용 하 여 사용자 프로필 및 사용자 ID를 만들고 관리 하는 방법입니다.
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 1fddefeb2a54ae775a9016799ffff1963eab247e
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 3985e3d5fbe6e24014694665557f13bcc9a35a25
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970156"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598203"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Azure Notebooks에 대한 프로필 및 사용자 ID
 
@@ -27,11 +27,11 @@ Azure Notebooks의 강력하고 공동 작업 공간 내, 사용자 프로필에
 
 사용자 ID는 프로젝트와 Notebook을 공유하는 데 사용하는 URL의 일부입니다. 다음 목록에서는 다른 URL 패턴을 설명합니다.
 
-- `https://notebooks.azure.com/<user_id>`: 프로필 페이지
-- `https://notebooks.azure.com/<user_id>/projects`: 프로젝트 모든 프로젝트를 볼 수 있지만, 다른 사용자는 공용 프로젝트만 볼 수 있습니다.
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>`: 프로젝트 파일
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: 특정 프로젝트의 클론
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: 특정 노트북 또는 파일의 HTML 미리 보기
+- `https://notebooks.azure.com/<user_id>`: 프로필 페이지입니다.
+- `https://notebooks.azure.com/<user_id>/projects`: 프로젝트. 모든 프로젝트를 볼 수 있지만, 다른 사용자는 공용 프로젝트만 볼 수 있습니다.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>`: 프로젝트 파일.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: 특정 프로젝트의 클론입니다.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: 특정 노트북 또는 파일의 HTML 미리 보기입니다.
 
 ## <a name="your-user-id"></a>사용자 ID
 
@@ -56,14 +56,14 @@ Azure Notebooks의 강력하고 공동 작업 공간 내, 사용자 프로필에
 
 프로필을 편집하려면 프로필 페이지에서 **프로필 정보 편집** 명령을 사용합니다. 프로필의 섹션은 다음과 같습니다.
 
-| 섹션 | 내용 |
+| 섹션 | 콘텐츠 |
 | --- | --- |
 | 프로필 사진 | 프로필 페이지에 표시되는 이미지입니다. |
 | 계정 정보 | 표시 이름, 사용자 ID와 공용 이메일 계정입니다. 여기에서 이메일 계정은 다른 사용자가 사용자에게 연락할 수 있는 수단을 제공하며 Azure Notebooks에 로그인하는 데 사용하는 [계정](azure-notebooks-user-account.md)과는 다를 수 있습니다. |
 | 프로필 정보 | 사용자의 위치, 회사, 직위, 웹 사이트 및 자신에 대한 간단한 설명입니다. |
 | 소셜 프로필 | 공유하려는 경우 사용자의 GItHub, Twitter 및 Facebook ID입니다. |
-| 개인 정보 설정 | 두 가지 명령을 제공합니다.<ul><li>**내 프로필 내보내기**: 사진, 프로필 정보 및 보안 로그를 포함하여 Azure Notebooks의 프로필에 저장하는 모든 정보가 포함된 *.zip* 파일을 만들고 다운로드합니다.</li><li>**내 계정 삭제**: Azure Notebooks에 저장된 모든 개인 정보를 영구적으로 삭제합니다.</li></ul> |
-| 사이트 기능 활성화 | Azure Notebooks의 동작 측면을 컨트롤할 수 있습니다.<ul><li>**Notebook에 대한 통합 프런트 엔드**: 더 빠른 Notebook 시작 및 더 나은 지속성을 제공합니다.</li><li>**기본적으로 JupyterLab 실행**: Azure Notebooks는 기본적으로 대부분의 사용자를 위한 적합한 간단한 사용자 인터페이스를 제공 합니다. JupyterLab은 숙련된 사용자를 위한 강하지만 더 복잡한 인터페이스를 제공합니다.</li><li>**VNext 웹 사이트**: 이 설명서에 표시된 최신 웹 레이아웃을 사용하도록 설정합니다.</li></ul> |
+| 개인 정보 설정 | 두 가지 명령을 제공합니다.<ul><li>**내 프로필 내보내기**: 사진, 프로필 정보 및 보안 로그를 포함하여 Azure Notebooks의 프로필에 저장하는 모든 정보가 포함된 *.zip* 파일을 만들고 다운로드합니다.</li><li>**내 계정 삭제**: Azure Notebooks에 저장 된 모든 개인 정보를 영구적으로 삭제 합니다.</li></ul> |
+| 사이트 기능 활성화 | Azure Notebooks의 동작 측면을 컨트롤할 수 있습니다.<ul><li>**Notebook에 대한 통합 프런트 엔드**: 더 빠른 Notebook 시작 및 더 나은 지속성을 제공합니다.</li><li>**JupyterLab에서 실행**: 기본적으로 Azure Notebooks 대부분의 사용자에 게 적합 한 간단한 사용자 인터페이스를 제공 합니다. JupyterLab은 숙련된 사용자를 위한 강하지만 더 복잡한 인터페이스를 제공합니다.</li><li>**VNext 웹 사이트**: 이 설명서에 표시된 최신 웹 레이아웃을 사용하도록 설정합니다.</li></ul> |
 
 ## <a name="next-steps"></a>다음 단계  
 

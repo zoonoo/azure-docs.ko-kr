@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 3718b79562ec05383b9881a1a97cc5bcc5e04258
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 06ab1783a6e0f4884ab46d3f00a26c47f28d02b0
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075448"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596894"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Azure Databricks 클러스터의 지역 재해 복구
 
@@ -21,17 +21,17 @@ ms.locfileid: "67075448"
 
 ## <a name="azure-databricks-architecture"></a>Azure Databricks 아키텍처
 
-간략하게 설명하자면, Azure Portal에서 Azure Databricks 작업 영역을 만들면 선택한 Azure 지역(예: 미국 서부)에 [관리되는 어플라이언스](../managed-applications/overview.md)가 구독의 Azure 리소스로 배포됩니다. 이 어플라이언스는 구독에서 사용할 수 있는 [네트워크 보안 그룹](../virtual-network/manage-network-security-group.md) 및 Azure Storage 계정을 사용하여 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)에 배포됩니다. 가상 네트워크는 Databricks 작업 영역에 경계 수준 보안을 제공하며 네트워크 보안 그룹을 통해 보호됩니다. 작업 영역 내에서, 작업자 및 드라이버 VM 유형과 Databricks 런타임 버전을 제공하여 Databricks 클러스터를 만들 수 있습니다. 지속형 데이터는 스토리지 계정에서 사용할 수 있으며, 스토리지 계정은 Azure Blob Storage 또는 Azure Data Lake Store입니다. 클러스터가 만들어지면 작업을 특정 클러스터에 연결하여 노트북, REST API, ODBC/JDBC 엔드포인트를 통해 작업을 실행할 수 있습니다.
+간략하게 설명하자면, Azure Portal에서 Azure Databricks 작업 영역을 만들면 선택한 Azure 지역(예: 미국 서부)에 [관리되는 어플라이언스](../managed-applications/overview.md)가 구독의 Azure 리소스로 배포됩니다. 이 어플라이언스는 구독에서 사용할 수 있는 [네트워크 보안 그룹](../virtual-network/manage-network-security-group.md) 및 Azure Storage 계정을 사용하여 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)에 배포됩니다. 가상 네트워크는 Databricks 작업 영역에 경계 수준 보안을 제공하며 네트워크 보안 그룹을 통해 보호됩니다. 작업 영역 내에서, 작업자 및 드라이버 VM 유형과 Databricks 런타임 버전을 제공하여 Databricks 클러스터를 만들 수 있습니다. 지속형 데이터는 저장소 계정에서 사용할 수 있으며, Azure Blob Storage 하거나 Azure Data Lake Storage 수 있습니다. 클러스터가 만들어지면 작업을 특정 클러스터에 연결하여 노트북, REST API, ODBC/JDBC 엔드포인트를 통해 작업을 실행할 수 있습니다.
 
 Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모니터링합니다. 클러스터 만들기 같은 관리 작업은 제어 평면에서 시작됩니다. 예약된 작업 같은 모든 메타데이터는 내결함성을 위해 지역 복제 기능을 갖춘 Azure Database에 저장됩니다.
 
 ![Databricks 아키텍처](media/howto-regional-disaster-recovery/databricks-architecture.png)
 
-이 아키텍처의 장점 중 하나는 사용자가 Azure Databricks를 본인 계정의 스토리지 리소스에 연결할 수 있다는 것입니다. 주요 장점은 계산(Azure Databricks) 및 스토리지를 서로 독립적으로 크기 조정할 수 있다는 것입니다.
+이 아키텍처의 장점 중 하나는 사용자가 Azure Databricks를 본인 계정의 스토리지 리소스에 연결할 수 있다는 것입니다. 주요 장점은 컴퓨팅(Azure Databricks) 및 스토리지를 서로 독립적으로 크기 조정할 수 있다는 것입니다.
 
 ## <a name="how-to-create-a-regional-disaster-recovery-topology"></a>지역 재해 복구 토폴로지를 만드는 방법
 
-이전 아키텍처 설명에 표시 된 대로 Azure Databricks를 사용 하 여 빅 데이터 파이프라인에 사용 되는 구성 요소는 여러 가지가 있습니다.  Azure Storage, Azure 데이터베이스 및 기타 데이터 원본입니다. Azure Databricks는 빅 데이터 파이프라인을 위한 *컴퓨팅*입니다. 본질적으로 *임시적*입니다. 다시 말해서, Azure Storage에서 데이터를 계속 사용할 수 있더라도 컴퓨팅이 필요 없을 때 불필요한 비용이 발생하지 않도록 *컴퓨팅*(Azure Databricks 클러스터)이 종료될 수 있습니다. 작업의 대기 시간이 길어지지 않도록 *계산*(Azure Databricks) 및 스토리지 소스가 같은 지역에 있어야 합니다.  
+이전 아키텍처 설명에서 보았듯이, Azure Databricks와 함께 Azure Storage, Azure Database, 기타 데이터 원본을 포함한 여러 구성 요소가 빅 데이터 파이프라인에 사용됩니다. Azure Databricks는 빅 데이터 파이프라인을 위한 *컴퓨팅*입니다. 본질적으로 *임시적*입니다. 다시 말해서, Azure Storage에서 데이터를 계속 사용할 수 있더라도 컴퓨팅이 필요 없을 때 불필요한 비용이 발생하지 않도록 *컴퓨팅*(Azure Databricks 클러스터)이 종료될 수 있습니다. 작업의 대기 시간이 길어지지 않도록 *컴퓨팅*(Azure Databricks) 및 스토리지 소스가 같은 지역에 있어야 합니다.  
 
 고유한 지역 재해 복구 토폴로지를 만들려면 다음 요구 사항을 따릅니다.
 
@@ -284,9 +284,9 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
    현재는 라이브러리를 한 작업 영역에서 다른 작업 영역으로 직접 마이그레이션할 수 없습니다. 대신, 해당 라이브러리를 새 작업 영역에 수동으로 설치해야 합니다. [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples) 조합을 사용하여 작업 영역 및 [라이브러리 CLI](https://github.com/databricks/databricks-cli#libraries-cli)에 사용자 지정 라이브러리를 업로드하는 과정을 자동화할 수 있습니다.
 
-8. **Azure Blob Storage 및 Azure Data Lake Store 탑재 마이그레이션**
+8. **Azure blob 저장소 및 Azure Data Lake Storage 탑재 마이그레이션**
 
-   노트북 기반 솔루션을 사용하여 모든 [Azure Blob storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) 및 [Azure Data Lake Store(Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 탑재 지점을 수동으로 다시 탑재합니다. 스토리지 리소스는 기본 작업 영역에 탑재되었을 것이며, 보조 작업 영역에서도 반복해야 합니다. 탑재를 위한 외부 API는 없습니다.
+   노트북 기반 솔루션을 사용 하 여 모든 [Azure Blob storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) 및 [Azure Data Lake Storage (Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 탑재 위치를 수동으로 다시 탑재 합니다. 스토리지 리소스는 기본 작업 영역에 탑재되었을 것이며, 보조 작업 영역에서도 반복해야 합니다. 탑재를 위한 외부 API는 없습니다.
 
 9. **클러스터 init 스크립트 마이그레이션**
 
@@ -306,9 +306,9 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
     액세스 제어 기능을 사용하는 경우 리소스(노트북, 클러스터, 작업, 테이블)에 대한 액세스 제어를 수동으로 다시 적용합니다.
 
-## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Azure 에코 시스템에 대한 재해 복구
+## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Azure 에코 시스템에 대 한 재해 복구
 
-다른 Azure 서비스를 사용하는 경우, 해당 서비스에 대한 재해 복구 모범 사례를 구현해야 합니다. 예를 들어 외부 Hive metastore 인스턴스를 사용하려는 경우, [Azure SQL Server](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md) 및/또는 [Azure Database for MySQL ](../mysql/concepts-business-continuity.md)에 대한 재해 복구를 고려해야 합니다. 재해 복구에 대한 일반적인 정보는 [Azure 응용 프로그램에 대한 재해 복구](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications)를 참조하세요.
+다른 Azure 서비스를 사용 하는 경우 해당 서비스에 대 한 재해 복구 모범 사례를 구현 해야 합니다. 예를 들어 외부 Hive metastore 인스턴스를 사용 하도록 선택 하는 경우 [azure SQL Server](../sql-database/sql-database-disaster-recovery.md), [azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md)및/또는 [Azure Database for MySQL](../mysql/concepts-business-continuity.md)에 대 한 재해 복구를 고려해 야 합니다. 재해 복구에 대 한 일반적인 내용은 [Azure 응용 프로그램에 대 한 재해 복구](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

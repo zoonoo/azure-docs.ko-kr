@@ -9,18 +9,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
-ms.openlocfilehash: c77d1d1a66d3ee92f5ad3f2016d2160831fa3ad9
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9b44db3e8ffc02d211f7f97404f0cdd8d319fe03
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299317"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597497"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Azure Databricks에서 데이터 원본에 연결
 
 이 문서에서는 Azure Databricks에 연결할 수 있는 Azure의 다른 모든 데이터 원본에 대한 링크를 제공합니다. 이러한 링크의 예제를 따라 Azure 데이터 원본(예: Azure Blob Storage, Azure Event Hubs 등)의 데이터를 Azure Databricks 클러스터로 추출하고 데이터에 대한 분석 작업을 실행합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * Azure Databricks 작업 영역 및 Spark 클러스터가 있어야 합니다. [Azure Databricks 시작](quickstart-create-databricks-workspace-portal.md)의 지침을 따르세요.
 
@@ -33,7 +33,7 @@ ms.locfileid: "72299317"
     이 링크는 JDBC를 사용하여 SQL 데이터베이스에 연결하기 위한 DataFrame API 및 JDBC 인터페이스를 통해 읽기의 병렬 처리를 제어하는 방법을 제공합니다. 이 항목에서는 Scala API를 사용하여 자세한 예제를 제공하며, 끝에 축약된 Python 및 Spark SQL 예제가 나와 있습니다.
 - [Azure Data Lake Storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)
 
-    이 링크는 Azure Active Directory 서비스 주체를 사용하여 Data Lake Store에 인증하는 방법의 예제를 제공합니다. 또한 Azure Databricks에서 Data Lake Store의 데이터에 액세스하는 방법에 대한 지침을 제공합니다.
+    이 링크는 Azure Active Directory 서비스 주체를 사용 하 여 Azure Data Lake Storage 인증 하는 방법에 대 한 예제를 제공 합니다. 또한 Azure Databricks에서 Azure Data Lake Storage 데이터에 액세스 하는 방법에 대 한 지침을 제공 합니다.
 
 - [Azure Blob Storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html)
 

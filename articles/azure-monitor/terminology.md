@@ -1,23 +1,18 @@
 ---
 title: Azure Monitor 용어 업데이트 | Microsoft Docs
 description: Azure 모니터링 서비스의 최근 용어 변경을 설명합니다.
-author: bwren
-manager: carmonm
-editor: tysonn
-services: azure-monitor
-documentationcenter: azure-monitor
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/08/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: dc7d839c81edd67d69e1525d219f87ee70f17502
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.date: 10/08/2019
+ms.openlocfilehash: 5324c17cdf2593d8e1022e6ddbf52b4e24ee64e8
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300510"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597818"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor 이름 지정 및 용어 변경
 Azure 고객을 위한 모니터링 간소화를 위해 다양한 서비스가 통합되면서 Azure Monitor가 최근 상당히 변화되었습니다. 이 문서에서는 Azure Monitor 설명서의 이름 및 용어 변경 내용을 설명합니다.

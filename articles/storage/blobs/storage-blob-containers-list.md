@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a76b83218a194c2b5cbf3ce582e8094014004123
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: b7e5b0725049fa5de95f435c848502c36a3a1726
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803374"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598115"
 ---
 # <a name="list-blob-containers-with-net"></a>.NET을 사용 하 여 blob 컨테이너 나열
 
@@ -30,9 +30,9 @@ ms.locfileid: "71803374"
 
 ### <a name="manage-how-many-results-are-returned"></a>반환 되는 결과 수 관리
 
-기본적으로 목록 작업은 한 번에 최대 5000 개의 결과를 반환 합니다. 더 작은 결과 집합을 반환 하려면 **ListContainerSegmented** 메서드 중 하나를 호출할 때 `maxresults` 매개 변수에 0이 아닌 값을 제공 합니다.
+기본적으로 목록 작업은 한 번에 최대 5000 개의 결과를 반환 합니다. 더 작은 결과 집합을 반환 하려면 **ListContainerSegmented** 메서드 중 하나를 호출할 때 `maxresults` 매개 변수에 대 한 0이 아닌 값을 제공 합니다.
 
-저장소 계정에 5000 개 이상의 컨테이너가 포함 된 경우 또는 목록 작업이 저장소 계정에서 컨테이너의 `maxresults` 하위 집합을 반환 하도록 값을 지정한 경우에는 Azure Storage에서 *연속 토큰* 을 반환 합니다. 컨테이너 목록입니다. 연속 토큰은 Azure Storage에서 다음 결과 집합을 검색 하는 데 사용할 수 있는 불투명 값입니다.
+저장소 계정에 5000 개 이상의 컨테이너가 포함 된 경우 또는 목록 작업이 저장소 계정에서 컨테이너의 하위 집합을 반환 하도록 `maxresults` 값을 지정한 경우 *에는 Azure Storage* 컨테이너가. 연속 토큰은 Azure Storage에서 다음 결과 집합을 검색 하는 데 사용할 수 있는 불투명 값입니다.
 
 코드에서 연속 토큰의 값을 확인 하 여 null 인지 여부를 확인 합니다. 연속 토큰이 null 이면 결과 집합이 완료 됩니다. 연속 토큰이 null이 아닌 경우 연속 토큰이 null이 될 때까지 연속 토큰을 전달 하 여 다음 결과 집합을 검색 하는 **ListContainersSegmented** 또는 **ListContainersSegmentedAsync** 를 다시 호출 합니다.
 
@@ -40,11 +40,11 @@ ms.locfileid: "71803374"
 
 컨테이너 목록을 필터링 하려면 `prefix` 매개 변수에 대 한 문자열을 지정 합니다. 접두사 문자열은 하나 이상의 문자를 포함할 수 있습니다. 그런 다음 Azure Storage은 해당 접두사로 시작 하는 이름을 가진 컨테이너만 반환 합니다.
 
-### <a name="return-container-metadata"></a>컨테이너 메타 데이터 반환
+### <a name="return-metadata"></a>메타 데이터 반환
 
-결과를 사용 하 여 컨테이너 메타 데이터를 반환 하려면 [ContainerListDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) 열거에 대 한 **메타 데이터** 값을 지정 합니다. Azure Storage에는 각 컨테이너가 반환 된 메타 데이터가 포함 되어 있으므로 **Fetchattributes** 메서드 중 하나를 호출 하 여 컨테이너 메타 데이터를 검색할 필요가 없습니다.
+결과를 사용 하 여 컨테이너 메타 데이터를 반환 하려면 [ContainerListingDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) 열거에 대 한 **메타 데이터** 값을 지정 합니다. Azure Storage에는 각 컨테이너가 반환 된 메타 데이터가 포함 되어 있으므로 **Fetchattributes** 메서드 중 하나를 호출 하 여 컨테이너 메타 데이터를 검색할 필요가 없습니다.
 
-## <a name="example-list-containers"></a>예제: 컨테이너 나열
+## <a name="example-list-containers"></a>예: 컨테이너 나열
 
 다음 예제에서는 지정 된 접두사로 시작 하는 저장소 계정에서 컨테이너를 비동기적으로 나열 합니다. 이 예제에서는 한 번에 5 개 결과의 증분 컨테이너를 나열 하 고 연속 토큰을 사용 하 여 결과의 다음 세그먼트를 가져옵니다. 또한이 예제에서는 결과와 함께 컨테이너 메타 데이터를 반환 합니다.
 
@@ -97,7 +97,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
-[Blob 리소스를 열거하는](/rest/api/storageservices/list-containers2)
-[ 컨테이너 나열](/rest/api/storageservices/enumerating-blob-resources)
+[컨테이너 나열](/rest/api/storageservices/list-containers2) 
+[Blob 리소스 열거](/rest/api/storageservices/enumerating-blob-resources)

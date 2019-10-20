@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 09/06/2018
 ms.author: atsenthi
 ms.openlocfilehash: 123795730e8468591bb02fa7c756ad48222dff82
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 10/18/2019
 ms.locfileid: "68600024"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure에서 서비스 패브릭 클러스터 만들기
 > [!div class="op_single_selector"]
 > * [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
-> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
+> * [Azure 포털](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -47,11 +47,11 @@ Azure Portal을 사용하여 Azure에 Service Fabric 클러스터(Linux 또는 W
 이 인증서는 클러스터를 보호하고 무단 액세스를 방지하기 위해 필요합니다. 다음 몇 가지 방법으로 클러스터 보안을 제공합니다.
 
 * **클러스터 인증:** 클러스터 페더레이션에 대한 노드 간 통신을 인증합니다. 이 인증서로 자신의 신분을 증명할 수 있는 노드만 클러스터에 가입할 수 있습니다.
-* **서버 인증:** 관리 클라이언트에 클러스터 관리 엔드포인트를 인증하여 관리 클라이언트가 실제 클러스터와 통신하는지 알 수 있도록 합니다. 이 인증서는 HTTPS 관리 API 및 HTTPS를 통한 Service Fabric Explorer에 대해 SSL도 제공합니다.
+* **서버 인증:** 관리 클라이언트에 클러스터 관리 엔드포인트를 인증하여 관리 클라이언트기 실제 클러스터와 통신하는지 알 수 있도록 합니다. 이 인증서는 HTTPS 관리 API 및 HTTPS를 통한 Service Fabric Explorer에 대해 SSL도 제공합니다.
 
 이를 위해 인증서는 다음 요구 사항을 충족해야 합니다.
 
-* 인증서에 개인 키가 있어야 합니다.
+* 인증서에 프라이빗 키가 포함되어 있어야 합니다.
 * 개인 정보 교환(.pfx) 파일로 내보낼 수 있는 키 교환용 인증서를 만들어야 합니다.
 * 인증서의 **주체 이름은 Service Fabric 클러스터 액세스에 사용되는 도메인과 일치해야 합니다**. 클러스터의 HTTPS 관리 엔드포인트 및 Service Fabric Explorer에 대해 SSL을 제공하려면 이러한 조건이 충족되어야 합니다. `.cloudapp.azure.com` 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다. 클러스터에 대한 사용자 지정 도메인 이름을 획득합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
 
@@ -79,7 +79,7 @@ Service Fabric을 사용하기 위해 클라이언트 인증 인증서를 Key Va
 
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>서비스 패브릭 클러스터 리소스 검색
 
-[Azure Portal][azure-portal]에 로그인합니다.
+[Azure portal][azure-portal]에 로그인합니다.
 **리소스 만들기**를 클릭하여 새 리소스 템플릿을 추가합니다. **Marketplace**의 **모두**에서 Service Fabric 클러스터 템플릿을 검색합니다.
 목록에서 **서비스 패브릭 클러스터** 를 선택합니다.
 
@@ -186,7 +186,7 @@ Service Fabric을 사용하기 위해 클라이언트 인증 인증서를 Key Va
 
 ![요약]
 
-알림에서 만들기 진행률을 볼 수 있습니다. (화면 오른쪽 위의 상태 표시줄 근처에 있는 "종" 모양 아이콘을 클릭합니다.) 클러스터를 만드는 동안 **시작 보드에 고정**을 클릭하면 **Service Fabric 클러스터 배포 중**이 **시작** 보드에 고정됩니다. 이 프로세스는 시간이 약간 걸립니다. 
+알림에서 만들기 진행률을 볼 수 있습니다. 화면 오른쪽 위의 상태 표시줄 근처에 있는 "종" 아이콘을 클릭 합니다. 클러스터를 만드는 동안 시작 **보드에 고정을** 클릭 한 경우에는 **시작** 보드에 고정 된 **Service Fabric 클러스터가 배포** 되는 것을 볼 수 있습니다. 이 프로세스는 시간이 약간 걸립니다. 
 
 Powershell 또는 CLI를 사용하여 클러스터에 대한 관리 작업을 수행하려면 클러스터에 연결하여 [클러스터에 연결](service-fabric-connect-to-secure-cluster.md)에서 자세한 방법을 확인해야 합니다.
 
@@ -210,7 +210,7 @@ Powershell 또는 CLI를 사용하여 클러스터에 대한 관리 작업을 �
 클러스터에서 지정한 각 NodeType에 따라 Virtual Machine Scale Set가 설정됩니다. <!--See [Remote connect to a Virtual Machine Scale Set instance][remote-connect-to-a-vm-scale-set] for details. -->
 
 ## <a name="next-steps"></a>다음 단계
-이제 관리 인증을 위해 인증서를 사용하는 보안 클러스터가 구축되었습니다. 다음으로, [클러스터에 연결](service-fabric-connect-to-secure-cluster.md)하고 [애플리케이션 비밀을 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.  또한 [Service Fabric 지원 옵션](service-fabric-support.md)을 알아봅니다.
+이제 관리 인증을 위해 인증서를 사용하는 보안 클러스터가 구축되었습니다. 다음으로, [클러스터에 연결](service-fabric-connect-to-secure-cluster.md)하고 [애플리케이션 암호를 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.  또한 [Service Fabric 지원 옵션](service-fabric-support.md)을 알아봅니다.
 
 <!-- Links -->
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/

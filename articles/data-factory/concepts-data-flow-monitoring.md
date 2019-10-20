@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 5d69e29c83bcbe433b800d6877ba1c7440eceedc
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e92471bd467557f3ac8eb0404d672355ccab8449
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387982"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597101"
 ---
 # <a name="monitor-data-flows"></a>데이터 흐름 모니터링
 
@@ -47,6 +47,11 @@ Spark에서 데이터 흐름을 실행 하는 경우 Azure Data Factory은 전�
   * 계산 됨: 데이터 흐름에서 조건부 처리 나 식 내에서 열을 사용 하지만 싱크에 배치 하지 않습니다.
   * 파생: 열이 흐름에서 생성 된 새 열 (즉, 원본에 없음)입니다.
   * 매핑: 소스에서 시작 된 열이 싱크 필드에 매핑되고 있습니다.
+  * 데이터 흐름 상태: 실행의 현재 상태입니다.
+  * 클러스터 시작 시간: 데이터 흐름 실행을 위한 JIT Spark 계산 환경을 확보 하는 데 걸리는 시간입니다.
+  * 변환 수: 흐름에서 실행 중인 변환 단계 수
+  
+![Acit 데이터 흐름 모니터링](media/data-flow/monitornew.png "데이터 흐름 모니터링 새로 만들기")  
   
 ## <a name="monitor-icons"></a>모니터 아이콘
 

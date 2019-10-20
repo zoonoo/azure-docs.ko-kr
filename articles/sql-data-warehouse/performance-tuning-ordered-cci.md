@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 0acdf1496151df57d4097ce5bc71d782dc465873
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: HT
+ms.openlocfilehash: 37d8f17e825daa3a1c160509b1a38f8c70256d1c
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554540"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595375"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>순서가 지정 된 클러스터형 columnstore 인덱스로 성능 튜닝  
 
@@ -125,10 +125,6 @@ OPTION (MAXDOP 1);
 4.  ALTER INDEX < Ordered_CCI_Index >를 실행 하 여 테이블 B의 < Table_B > REBUILD PARTITION = < Partition_ID >를 실행 하 여 전환 된 파티션을 다시 작성 합니다.  
 5.  Table_A의 각 파티션에 대해 3 단계와 4 단계를 반복 합니다.
 6.  모든 파티션이 Table_A에서 Table_B로 전환 되 고 다시 작성 된 후 Table_A를 삭제 하 고 Table_B를 Table_A로 바꿉니다. 
-
->[!NOTE]
->Azure SQL Data Warehouse에서 순서가 지정 된 클러스터형 columnstore 인덱스 (CCI)의 미리 보기 중에는 분할 된 테이블에서 클러스터형 COLUMNSTORE 인덱스 만들기를 통해 순서가 지정 된 CCI를 만들거나 다시 작성 하는 경우 중복 데이터가 생성 될 수 있습니다. 데이터 손실이 수반 되지 않습니다. 이 문제에 대 한 픽스는 곧 제공 될 예정입니다. 해결 방법으로 사용자는 CTAS 명령을 사용 하 여 분할 된 테이블에 순서가 지정 된 CCI를 만들 수 있습니다.
-
 
 ## <a name="examples"></a>예시
 

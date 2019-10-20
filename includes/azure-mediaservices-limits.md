@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: e61b804c20063e87c19df4484291f81fdbb03a7b
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67182584"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72601034"
 ---
 >[!NOTE]
 >수정 되지 않은 리소스의 경우 할당량 증가를 요청 하는 지원 티켓을 엽니다. 더 높은 한도를 얻기 위해 추가 Azure Media Services 계정을 만들지 마세요.
@@ -29,7 +29,7 @@ ms.locfileid: "67182584"
 | 채널당 실행 상태인 프로그램 |3|
 | Media Services 계정 마다 중지 또는 실행 되는 스트리밍 끝점|2|
 | 스트리밍 엔드포인트당 스트리밍 단위 |10 |
-| 저장소 계정 | 1,000<sup>5</sup>(고정) |
+| Storage 계정 | 1,000<sup>5</sup>(고정) |
 | 정책 | 1,000,000<sup>6</sup> |
 | 파일 크기| 일부 시나리오에서는 Media Services 처리에 대해 지원 되는 최대 파일 크기에 제한이 있습니다. <sup>7</sup> |
 
@@ -52,7 +52,7 @@ ms.locfileid: "67182584"
 
 <sup>7</sup> 단일 blob에 대해 지원 되는 최대 크기는 현재 Azure Blob Storage의 최대 5TB입니다. 서비스에서 사용 하는 VM 크기에 따라 Media Services에 추가 제한이 적용 됩니다. 크기 제한은 업로드 하는 파일 및 Media Services 처리 (인코딩 또는 분석)의 결과로 생성 되는 파일에도 적용 됩니다. 원본 파일이 260GB보다 크면 작업이 실패할 수 있습니다. 
 
-다음 표에서는 미디어 예약 단위 S1, S2 및 S3의 제한을 보여 줍니다. 원본 파일이 테이블에 정의 된 제한 보다 큰 경우 인코딩 작업이 실패 합니다. 장시간의 4K 해상도 원본을 인코딩하는 경우 필요한 성능을 얻으려면 S3 미디어 예약 단위를 사용 해야 합니다. S3 미디어 예약 단위에 대 한 260-GB 제한 보다 큰 4k 콘텐츠가 있는 경우 시나리오를 지원 하기 위한 잠재적 완화 amshelp@microsoft.com 를 위해에 문의 하세요.
+다음 표에서는 미디어 예약 단위 S1, S2 및 S3의 제한을 보여 줍니다. 원본 파일이 테이블에 정의 된 제한 보다 큰 경우 인코딩 작업이 실패 합니다. 장시간의 4K 해상도 원본을 인코딩하는 경우 필요한 성능을 얻으려면 S3 미디어 예약 단위를 사용 해야 합니다. S3 미디어 예약 단위에서 260-GB 제한 보다 큰 4K 콘텐츠가 있는 경우 지원 티켓을 엽니다.
 
 |미디어 예약 단위 유형   |최대 입력 크기 (GB)|
 |---|---|
