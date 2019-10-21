@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 19a817124afb9afcee25b5f2bff73b8a17e16519
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: d555c51838f3595367e931341a3cf6161857faef
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72431284"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554623"
 ---
 # <a name="set-up-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Kafka에 대 한 SSL(Secure Sockets Layer) (SSL) 암호화 및 인증 설정
 
@@ -49,7 +49,7 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
 다음 세부 지침을 사용 하 여 broker 설치를 완료 합니다.
 
 > [!Important]
-> 다음 코드 조각에서는 세 개의 작업자 노드 중 하나에 대 한 약어 이며 적절 한 `wn0`, `wn1` 또는 `wn2`로 대체 되어야 합니다. `WorkerNode0_Name` 및 `HeadNode0_Name`은 `wn0-abcxyz` 또는 `hn0-abcxyz`과 같은 해당 컴퓨터의 이름으로 대체 되어야 합니다.
+> 다음 코드 조각에서는 세 개의 작업자 노드 중 하나에 대 한 약어 이며 적절 한 `wn0`, `wn1` 또는 `wn2`로 대체 되어야 합니다. `WorkerNode0_Name` 및 `HeadNode0_Name`은 `wn0-abcxyz` 또는 `hn0-abcxyz`와 같이 해당 컴퓨터의 이름으로 대체 되어야 합니다.
 
 1. 헤드 노드 0에 대 한 초기 설치를 수행 합니다 .이 경우 HDInsight는 CA (인증 기관)의 역할을 채웁니다.
 
@@ -76,6 +76,12 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
     keytool -genkey -keystore kafka.server.keystore.jks -validity 365 -storepass "MyServerPassword123" -keypass "MyServerPassword123" -dname "CN=FQDN_WORKER_NODE" -storetype pkcs12
     keytool -keystore kafka.server.keystore.jks -certreq -file cert-file -storepass "MyServerPassword123" -keypass "MyServerPassword123"
     scp cert-file sshuser@HeadNode0_Name:~/ssl/wnX-cert-sign-request
+    ```
+
+1. CA 컴퓨터에서 다음 명령을 실행 하 여 ca 인증서 및 ca 키 파일을 만듭니다.
+
+    ```bash
+    openssl req -new -newkey rsa:4096 -days 365 -x509 -subj "/CN=Kafka-Security-CA" -keyout ca-key -out ca-cert -nodes
     ```
 
 1. CA 컴퓨터로 변경 하 고 수신 된 모든 인증서 서명 요청을 서명 합니다.
@@ -128,30 +134,18 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
 
     ![Ambari에서 kafka SSL 구성 속성 편집](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
 
-1. 아래 명령을 실행 하 여 FQDN (정규화 된 도메인 이름)이 아닌 IP 주소를 보급 하도록 Kafka `server.properties` 파일에 구성 속성을 추가 합니다.
+1. **고급 kafka-env** 아래에서 **kafka-env 템플릿** 속성의 끝에 다음 줄을 추가 합니다.
 
-    ```bash
-    IP_ADDRESS=$(hostname -i)
-    echo advertised.listeners=$IP_ADDRESS
-    sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092,SSL://$IP_ADDRESS:9093" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.keystore.location=/home/sshuser/ssl/kafka.server.keystore.jks" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.keystore.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.key.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.truststore.location=/home/sshuser/ssl/kafka.server.truststore.jks" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.truststore.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    ```
-
-1. 이전 변경 내용이 올바르게 적용되었는지 확인하기 위해 필요한 경우 Kafka `server.properties` 파일에 다음 줄이 있는지 확인할 수 있습니다.
-
-    ```bash
-    advertised.listeners=PLAINTEXT://10.0.0.11:9092,SSL://10.0.0.11:9093
+    ```config
+    # Needed to configure IP address advertising
     ssl.keystore.location=/home/sshuser/ssl/kafka.server.keystore.jks
     ssl.keystore.password=MyServerPassword123
     ssl.key.password=MyServerPassword123
     ssl.truststore.location=/home/sshuser/ssl/kafka.server.truststore.jks
     ssl.truststore.password=MyServerPassword123
     ```
+
+    ![Ambari에서 kafka-env 템플릿 속성 편집](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env.png)
 
 1. 모든 Kafka 브로커를 다시 시작합니다.
 1. 생산자와 소비자 옵션으로 관리 클라이언트를 시작 하 여 생산자와 소비자가 포트 9093에서 작동 하는지 확인 합니다.

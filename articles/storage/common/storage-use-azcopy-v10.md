@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: d26535d18233533d1d72c02ad997008cba536fce
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 37d8c483a1ef49a87205dcc848aae974f5b0e47e
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595160"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675854"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -294,6 +294,14 @@ URL은이 명령의 출력에 표시 됩니다. 그런 다음 스크립트에서
 ### <a name="escape-special-characters-in-sas-tokens"></a>SAS 토큰의 이스케이프 특수 문자
 
 @No__t_0 확장이 있는 배치 파일에서 SAS 토큰에 표시 되는 `%` 문자를 이스케이프 해야 합니다. SAS 토큰 문자열의 기존 `%` 문자 옆에 추가 `%` 문자를 추가 하 여이 작업을 수행할 수 있습니다.
+
+### <a name="run-scripts-by-using-jenkins"></a>Jenkins를 사용 하 여 스크립트 실행
+
+[Jenkins](https://jenkins.io/) 를 사용 하 여 스크립트를 실행 하려는 경우 스크립트의 시작 부분에 다음 명령을 입력 해야 합니다.
+
+```
+/usr/bin/keyctl new_session
+```
 
 ## <a name="use-azcopy-in-storage-explorer"></a>Storage 탐색기에서 AzCopy 사용
 
