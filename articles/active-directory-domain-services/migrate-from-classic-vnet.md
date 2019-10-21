@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: iainfou
-ms.openlocfilehash: c0744335dd13a0e8c35826c9b7da6fa71094e01e
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 8cba2cbf8fcbad1acae8c36892308c3249fc4181
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72600034"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674913"
 ---
 # <a name="preview---migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>미리 보기-클래식 가상 네트워크 모델에서 리소스 관리자로 Azure AD Domain Services 마이그레이션
 
@@ -40,7 +40,7 @@ Azure Active Directory Domain Services (AD DS)는 현재 클래식 가상 네트
 
 이 마이그레이션 프로세스를 사용 하 여 Azure AD DS 관리 되는 도메인으로 이동 하는 경우 컴퓨터를 관리 되는 도메인에 다시 가입 하거나 Azure AD DS 인스턴스를 삭제 하 고 처음부터 새로 만들 필요가 없습니다. Vm은 마이그레이션 프로세스가 끝날 때 Azure AD DS 관리 되는 도메인에 계속 가입 됩니다.
 
-마이그레이션 후 Azure AD DS는 다음과 같은 리소스 관리자 가상 네트워크에서를 사용 하는 도메인에만 사용할 수 있는 많은 기능을 제공 합니다.
+마이그레이션 후 Azure AD DS는 다음과 같은 리소스 관리자 가상 네트워크를 사용 하는 도메인에만 사용할 수 있는 많은 기능을 제공 합니다.
 
 * 세분화 암호 정책 지원.
 * AD 계정 잠금 보호.
@@ -55,7 +55,8 @@ Azure Active Directory Domain Services (AD DS)는 현재 클래식 가상 네트
 
 Azure AD DS 관리 되는 도메인을 마이그레이션하기 위한 몇 가지 일반적인 시나리오에는 다음 예제가 포함 됩니다.
 
-[!NOTE] 성공적인 마이그레이션을 확인할 때까지 클래식 가상 네트워크를 변환 하지 마십시오. 마이그레이션 및 확인 단계 중에 문제가 발생 하는 경우 가상 네트워크를 변환 하면 Azure AD DS 관리 되는 도메인을 롤백하거나 복원 하는 옵션이 제거 됩니다.
+> [!NOTE]
+> 성공적인 마이그레이션을 확인할 때까지 클래식 가상 네트워크를 변환 하지 마십시오. 마이그레이션 및 확인 단계 중에 문제가 발생 하는 경우 가상 네트워크를 변환 하면 Azure AD DS 관리 되는 도메인을 롤백하거나 복원 하는 옵션이 제거 됩니다.
 
 ### <a name="migrate-azure-ad-ds-to-an-existing-resource-manager-virtual-network-recommended"></a>Azure AD DS을 기존 리소스 관리자 virtual network로 마이그레이션 (권장)
 
@@ -133,7 +134,7 @@ Azure AD DS는 일반적으로 주소 범위에서 처음 두 개의 사용 가�
 
 ### <a name="roll-back-and-restore"></a>롤백 및 복원
 
-마이그레이션이 실패 한 경우 Azure AD DS 관리 되는 도메인을 롤백하거나 복원 하는 프로세스가 있습니다. 롤백은 마이그레이션 시도 전에 관리 되는 도메인의 상태를 즉시 반환 하는 셀프 서비스 옵션입니다. Azure 지원 엔지니어가 마지막 수단으로 백업에서 관리 되는 도메인을 복원할 수도 있습니다. 자세한 내용은 [실패 한 마이그레이션에서 롤백 또는 복원 하는 방법](#roll-back-and-restore)을 참조 하세요.
+마이그레이션이 실패 한 경우 Azure AD DS 관리 되는 도메인을 롤백하거나 복원 하는 프로세스가 있습니다. 롤백은 마이그레이션 시도 전에 관리 되는 도메인의 상태를 즉시 반환 하는 셀프 서비스 옵션입니다. Azure 지원 엔지니어가 마지막 수단으로 백업에서 관리 되는 도메인을 복원할 수도 있습니다. 자세한 내용은 [실패 한 마이그레이션에서 롤백 또는 복원 하는 방법](#roll-back-and-restore-from-migration)을 참조 하세요.
 
 ### <a name="restrictions-on-available-virtual-networks"></a>사용 가능한 가상 네트워크에 대 한 제한 사항
 
@@ -153,9 +154,9 @@ Azure AD DS 관리 되는 도메인을 마이그레이션할 수 있는 가상 �
 | 단계    | 수행한  | 예상 시간  | 가동 중지 시간  | 롤백/복원 할까요? |
 |---------|--------------------|-----------------|-----------|-------------------|
 | [1 단계-새 가상 네트워크 업데이트 및 찾기](#update-and-verify-virtual-network-settings) | Azure Portal | 15분 | 가동 중지 시간 없음 | N/A |
-| [2 단계-마이그레이션을 위해 Azure AD DS 관리 되는 도메인 준비](#prepare-the-managed-domain-for-migration) | PowerShell | 15 ~ 30 분 (평균) | 이 명령이 완료 된 후 Azure AD DS의 가동 중지 시간이 시작 됩니다. | 롤백 및 복원 사용 가능 |
-| [3 단계-Azure AD DS 관리 되는 도메인을 기존 가상 네트워크로 이동](#migrate-the-managed-domain) | PowerShell | 1 ~ 3 시간 (평균) | 이 명령이 완료 되 면 하나의 도메인 컨트롤러를 사용할 수 있으며 가동 중지 시간이 종료 됩니다. | 복원 전용 |
-| [4 단계-복제본 도메인 컨트롤러 테스트 및 대기](#test-and-verify-connectivity-after-the-migration)| PowerShell 및 Azure Portal | 테스트 수에 따라 1 시간 이상 | 두 도메인 컨트롤러를 모두 사용할 수 있으며 정상적으로 작동 해야 합니다. | 복원 전용 |
+| [2 단계-마이그레이션을 위해 Azure AD DS 관리 되는 도메인 준비](#prepare-the-managed-domain-for-migration) | PowerShell | 15 ~ 30 분 (평균) | 이 명령이 완료 된 후 Azure AD DS의 가동 중지 시간이 시작 됩니다. | 롤백 및 복원 사용 가능. |
+| [3 단계-Azure AD DS 관리 되는 도메인을 기존 가상 네트워크로 이동](#migrate-the-managed-domain) | PowerShell | 1 ~ 3 시간 (평균) | 이 명령이 완료 되 면 하나의 도메인 컨트롤러를 사용할 수 있으며 가동 중지 시간이 종료 됩니다. | 오류가 발생 하면 롤백 (셀프 서비스) 및 복원을 모두 사용할 수 있습니다. |
+| [4 단계-복제본 도메인 컨트롤러 테스트 및 대기](#test-and-verify-connectivity-after-the-migration)| PowerShell 및 Azure Portal | 테스트 수에 따라 1 시간 이상 | 두 도메인 컨트롤러를 모두 사용할 수 있으며 정상적으로 작동 해야 합니다. | 해당 없음. 첫 번째 VM이 성공적으로 마이그레이션되면 롤백 또는 복원에 대 한 옵션이 없습니다. |
 | [5 단계-선택적 구성 단계](#optional-post-migration-configuration-steps) | Azure Portal 및 Vm | N/A | 가동 중지 시간 없음 | N/A |
 
 > [!IMPORTANT]
@@ -171,7 +172,7 @@ Azure AD DS 관리 되는 도메인을 마이그레이션할 수 있는 가상 �
 
 1. 기존 리소스 관리자 가상 네트워크를 만들거나 선택 합니다.
 
-    네트워크 설정이 Azure AD DS에 필요한 포트를 차단 하지 않는지 확인 합니다. 포트는 클래식 가상 네트워크와 리소스 관리자 가상 네트워크에서 모두 열어야 합니다. 이러한 설정에는 경로 테이블과 네트워크 보안 그룹이 포함 됩니다.
+    네트워크 설정이 Azure AD DS에 필요한 포트를 차단 하지 않는지 확인 합니다. 포트는 클래식 가상 네트워크와 리소스 관리자 가상 네트워크에서 모두 열어야 합니다. 이러한 설정에는 경로 테이블을 사용 하지 않는 것이 좋지만 경로 테이블은 사용 하지 않는 것이 좋지만 네트워크 보안 그룹도 있습니다.
 
     필요한 포트를 보려면 [네트워크 보안 그룹 및 필요한 포트][network-ports]를 참조 하세요. 네트워크 통신 문제를 최소화 하려면 마이그레이션이 성공적으로 완료 된 후에 네트워크 보안 그룹 또는 경로 테이블을 대기 하 고 리소스 관리자 가상 네트워크에 적용 하는 것이 좋습니다.
 
@@ -181,7 +182,7 @@ Azure AD DS 관리 되는 도메인을 마이그레이션할 수 있는 가상 �
 1. 필요에 따라 다른 리소스를 리소스 관리자 배포 모델 및 가상 네트워크로 이동 하려는 경우 해당 리소스를 마이그레이션할 수 있는지 확인 합니다. 자세한 내용은 [클래식에서 리소스 관리자 IaaS 리소스의 플랫폼 지원 마이그레이션][migrate-iaas]을 참조 하세요.
 
     > [!NOTE]
-    > 클래식 가상 네트워크를 리소스 관리자 가상 네트워크로 변환 하지 마세요. Azure AD DS 관리 되는 도메인을 롤백하거나 복원 하는 옵션은 없습니다.
+    > 클래식 가상 네트워크를 리소스 관리자 가상 네트워크로 변환 하지 마세요. 이렇게 하면 Azure AD DS 관리 되는 도메인을 롤백하거나 복원할 수 있는 옵션이 없습니다.
 
 ## <a name="prepare-the-managed-domain-for-migration"></a>관리 되는 도메인의 마이그레이션 준비
 
@@ -189,7 +190,7 @@ Azure PowerShell은 마이그레이션을 위해 Azure AD DS 관리 되는 도�
 
 마이그레이션을 위해 Azure AD DS 관리 되는 도메인을 준비 하려면 다음 단계를 완료 합니다.
 
-1. [PowerShell 갤러리][powershell-script]에서 `Migrate-Aaads` 모듈을 설치 합니다. 이 PowerShell 마이그레이션 스크립트는 Azure AD 엔지니어링 팀에서 디지털 서명 하는 것입니다.
+1. [PowerShell 갤러리][powershell-script]에서 `Migrate-Aaads` 스크립트를 설치 합니다. 이 PowerShell 마이그레이션 스크립트는 Azure AD 엔지니어링 팀에서 디지털 서명 하는 것입니다.
 
     ```powershell
     Install-Script -Name Migrate-Aadds
@@ -294,16 +295,16 @@ Azure AD DS 관리 되는 도메인에서 문제가 검색 되 면 알림을 받
 
 #### <a name="creating-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
-Azure AD DS는 관리 되는 도메인에 필요한 포트를 열고 다른 모든 들어오는 트래픽을 차단 하는 네트워크 보안 그룹을 만듭니다. 이 네트워크 보안 그룹은 관리 되는 도메인에 대 한 액세스를 잠그기 위한 추가 보호 계층으로 작동 합니다. 이 네트워크 보안 그룹을 자동으로 만들어야 합니다. 그렇지 않거나 추가 포트를 열어야 하는 경우 다음 단계를 검토 합니다.
+Azure AD DS에는 관리 되는 도메인에 필요한 포트를 보호 하 고 들어오는 모든 트래픽을 차단 하는 네트워크 보안 그룹이 필요 합니다. 이 네트워크 보안 그룹은 관리 되는 도메인에 대 한 액세스를 잠그기 위한 추가 보호 계층 역할을 하며 자동으로 생성 되지 않습니다. 네트워크 보안 그룹을 만들고 필요한 포트를 열려면 다음 단계를 검토 합니다.
 
-1. Azure Portal에서 Azure AD DS 리소스를 선택 합니다. 개요 페이지에서 네트워크 보안 그룹을 만드는 단추가 표시 됩니다 (연결 된 항목이 없는 경우). Azure AD Domain Services
+1. Azure Portal에서 Azure AD DS 리소스를 선택 합니다. 개요 페이지에는 Azure AD Domain Services와 연결 되어 있지 않은 경우 네트워크 보안 그룹을 만드는 단추가 표시 됩니다.
 1. 보안 LDAP를 사용 하는 경우 *TCP* 포트 *636*에 들어오는 트래픽을 허용 하도록 네트워크 보안 그룹에 규칙을 추가 합니다. 자세한 내용은 [보안 LDAP 구성][secure-ldap]을 참조 하세요.
 
-## <a name="roll-back-and-restore"></a>롤백 및 복원
+## <a name="roll-back-and-restore-from-migration"></a>마이그레이션에서 롤백 및 복원
 
 ### <a name="roll-back"></a>롤백
 
-2 단계에서 마이그레이션을 준비 하기 위한 PowerShell cmdlet이 실패 하면 Azure AD DS 관리 되는 도메인은 원래 구성으로 롤백될 수 있습니다. 이 롤백에는 원래 클래식 가상 네트워크가 필요 합니다. 롤백 후에도 IP 주소는 변경 될 수 있습니다.
+3 단계에서 마이그레이션을 준비 하기 위해 PowerShell cmdlet을 실행 하는 동안 오류가 발생 하는 경우 Azure AD DS 관리 되는 도메인에서 원래 구성으로 롤백할 수 있습니다. 이 롤백에는 원래 클래식 가상 네트워크가 필요 합니다. 롤백 후에도 IP 주소는 변경 될 수 있습니다.
 
 *-Abort* 매개 변수를 사용 하 여 `Migrate-Aadds` cmdlet을 실행 합니다. *Contoso.com*와 같은 이전 섹션에서 준비한 Azure AD DS 관리 되는 도메인에 대 한 *-ManagedDomainFqdn* 을 제공 합니다.
 

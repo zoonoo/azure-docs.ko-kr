@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2847a25411ed0125f4af0a84f30cd3d9d630eb84
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 72e695762f2e45309787e6f62fa97aae4c959f34
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299610"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598084"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage 보안 가이드
 
@@ -25,7 +25,7 @@ Azure Storage는 여러 개발자가 보안 애플리케이션을 빌드하도�
     - 스토리지 계정으로 범위가 지정된 RBAC 역할을 보안 주체에 할당하고 Azure AD를 사용하여 키 관리와 같은 리소스 관리 작업의 권한을 부여할 수 있습니다.
     - Azure AD 통합은 blob 및 큐 데이터 작업에 대해 지원 됩니다. 구독, 리소스 그룹, 스토리지 계정 또는 개별 컨테이너 또는 큐로 범위가 지정된 RBAC 역할을 보안 주체 또는 Azure 리소스의 관리 ID에 할당할 수 있습니다. 자세한 내용은 [Azure Active Directory를 사용하여 Azure Storage에 대한 액세스 인증](storage-auth-aad.md)을 참조하세요.   
 - [클라이언트 쪽 암호화](../storage-client-side-encryption.md), HTTP 또는 SMB 3.0을 사용하여 애플리케이션과 Azure 간에 전송 중인 데이터의 보안을 유지할 수 있습니다.  
-- 가상 머신에서 사용되는 OS 및 데이터 디스크는 [Azure Disk Encryption](../../security/azure-security-disk-encryption.md)을 사용하여 암호화될 수 있습니다.
+- 가상 머신에서 사용되는 OS 및 데이터 디스크는 [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md)을 사용하여 암호화될 수 있습니다.
 - 공유 액세스 서명을 사용 하 여 Azure Storage의 데이터 개체에 대 한 위임 된 액세스 권한을 부여할 수 있습니다. 자세한 내용은 [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](storage-sas-overview.md)를 참조 하세요.
 
 이 문서에서는 Azure Storage에서 사용할 수 있는 이러한 각 보안 기능에 대해 간략히 설명합니다. 각 항목을 좀 더 자세히 확인할 수 있도록 각 기능의 세부 정보를 제공하는 문서에 대한 링크가 제공됩니다.
@@ -162,7 +162,7 @@ Azure Storage에서 데이터 개체에 대한 액세스를 인증하는 데 다
 
 권한 부여를 통해 액세스를 제한할 뿐 아니라 [방화벽 및 가상 네트워크](storage-network-security.md)를 사용하여 네트워크 규칙에 따라 스토리지 계정에 대한 액세스를 제한할 수도 있습니다.  이 방법을 통해 공용 인터넷 트래픽에 대한 액세스를 거부하고 특정 Azure Virtual Network 또는 공용 인터넷 IP 주소 범위에 대한 액세스 권한만 부여할 수 있습니다.
 
-### <a name="storage-account-keys"></a>Storage 계정 키
+### <a name="storage-account-keys"></a>스토리지 계정 키
 Storage 계정 키는 Azure에서 생성되는 512비트 문자열로, Storage 계정에 저장된 데이터 개체에 액세스하기 위해 Storage 계정 이름과 함께 사용될 수 있습니다.
 
 예를 들어, Blob을 읽고, 큐에 쓰고, 테이블을 만들고, 파일을 수정할 수 있습니다. Azure 포털을 통해 또는 많은 Storage Explorer 애플리케이션 중 하나를 사용하여 이러한 많은 작업을 수행할 수 있습니다. REST API 또는 Storage 클라이언트 라이브러리 중 하나를 사용하여 이러한 작업을 수행하기 위한 코드를 작성할 수도 있습니다.
@@ -237,7 +237,7 @@ SAS가 손상되었거나, 회사 보안 또는 규정 준수 요구 때문에 �
   * [서비스 SAS 생성(영문)](https://msdn.microsoft.com/library/dn140255.aspx)
   * [계정 SAS 생성(영문)](https://msdn.microsoft.com/library/mt584140.aspx)
 
-* 인증
+* Authentication
 
   * [Azure Storage 서비스에 대한 인증](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * 공유 액세스 서명 시작 자습서
@@ -300,7 +300,7 @@ Azure Disk Encryption를 사용 하 여 IaaS 가상 머신에서 사용 하는 O
 이 솔루션은 Microsoft Azure에서 사용되도록 설정될 경우 IaaS VM에 대해 다음 시나리오를 지원합니다.
 
 * Azure Key Vault와 통합
-* 표준 계층 VM: [A, D, DS, G, GS 및 기타 시리즈 IaaS VM](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* 표준 계층 VM: [A, D, DS, G, GS 등 시리즈 IaaS VM](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * Windows 및 Linux IaaS VM에서 암호화 사용
 * Windows IaaS VM에 대한 OS 및 데이터 드라이브에서 암호화 사용 안 함
 * Linux IaaS VM에 대한 데이터 드라이브에서 암호화 사용 안 함
@@ -321,14 +321,14 @@ Azure Disk Encryption를 사용 하 여 IaaS 가상 머신에서 사용 하는 O
 
 
 > [!NOTE]
-> Linux OS 디스크 암호화는 현재 Linux 배포 버전 RHEL 7.2, CentOS 7.2n, Ubuntu 16.04에서 지원됩니다.
+> Linux OS 디스크 암호화는 현재 RHEL 7.2, CentOS 7.2n, Ubuntu 16.04의 Linux 배포판에서 지원됩니다.
 >
 >
 
 이 기능은 가상 머신 디스크에 있는 모든 데이터가 휴지 상태로 Azure Storage에 암호화되도록 합니다.
 
 #### <a name="resources"></a>리소스
-* [Windows 및 Linux IaaS VM용 Azure 디스크 암호화](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
+* [Windows 및 Linux IaaS VM용 Azure 디스크 암호화](../../security/fundamentals/encryption-overview.md)
 
 ### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Azure 디스크 암호화, SSE 및 클라이언트 쪽 암호화의 비교
 
@@ -425,7 +425,7 @@ Microsoft Message Analyzer를 사용하여 이러한 로그를 보고 및 분석
 
   이 문서는 Microsoft Message Analyzer에 대한 참조로, 자습서, 빠른 시작 및 기능 요약에 대한 링크를 포함합니다.
 
-## <a name="cross-origin-resource-sharing-cors"></a>CORS(크로스-원본 자원 공유)
+## <a name="cross-origin-resource-sharing-cors"></a>CORS(원본 간 리소스 공유)
 ### <a name="cross-domain-access-of-resources"></a>리소스의 도메인 간 액세스
 한 도메인에서 실행되는 웹 브라우저가 다른 도메인의 리소스에 대해 HTTP 요청을 수행하는 경우를 크로스-원본 HTTP 요청이라고 합니다. 예를 들어 contoso.com에서 제공되는 HTML 페이지에서 fabrikam.blob.core.windows.net에서 호스트되는 jpeg를 요청한다고 가정합니다. 보안상의 이유로 브라우저는 JavaScript와 같은 스크립트 내에서 시작된 크로스-원본 HTTP 요청을 제한합니다. 즉, contoso.com의 웹 페이지에 있는 일부 JavaScript 코드가 fabrikam.blob.core.windows.net의 해당 jpeg를 요청하면 브라우저는 해당 요청을 허용하지 않습니다.
 
@@ -472,7 +472,7 @@ CORS 및 이를 사용하도록 설정하는 방법에 대한 자세한 내용�
 * [MSDN의 Azure Storage 서비스에 대한 CORS(크로스-원본 자원 공유) 지원(영문)](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
   Azure Storage 서비스의 CORS 지원에 대한 참조 설명서입니다. 여기에는 각 스토리지 서비스에 적용되는 문서에 대한 링크와 예제가 포함되어 있고 CORS 파일의 각 요소에 대한 설명도 수록되어 있습니다.
-* [Microsoft Azure Storage: CORS 소개](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+* [Microsoft Azure Storage: CORS 소개(영문)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
   CORS를 소개하고 사용 방법을 보여 주는 초기 블로그 문서로 연결되는 링크입니다.
 
@@ -497,6 +497,6 @@ CORS 및 이를 사용하도록 설정하는 방법에 대한 자세한 내용�
 * [FIPS 140 유효성 검사(영문)](https://technet.microsoft.com/library/cc750357.aspx)
 
   이 문서에서는 Microsoft 제품 및 암호화 모듈이 미국 연방 정부의 FIPS 표준을 준수하는 방법에 대한 정보를 제공합니다.
-* [Windows XP 이상 버전의 Windows에서 "시스템 암호화: 암호화, 해시 및 서명에 FIPS 호환 알고리즘 사용" 보안 설정의 영향](https://support.microsoft.com/kb/811833)
+* [Windows XP 이상 버전의 Windows에서 “시스템 암호화: 암호화, 해시, 서명에 FIPS 준수 알고리즘 사용” 보안 설정 효과](https://support.microsoft.com/kb/811833)
 
   이 문서에서는 이전 Windows 컴퓨터에서 FIPS 모드를 사용하는 경우에 대해 설명합니다.
