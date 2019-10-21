@@ -11,16 +11,22 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: b69eda59c9c8032510df036d3aa0d160105fbc16
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: a3ba28960327f1e0a56b1ac838b2cb90ab6ac72a
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533183"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675641"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>알려진 문제 및 문제 해결 Azure Machine Learning
 
 이 문서는 Azure Machine Learning를 사용할 때 발생 하는 오류 또는 오류를 찾고 수정 하는 데 도움이 됩니다.
+
+## <a name="upcoming-sr-iov-upgrade-to-ncv3-machines-in-amlcompute"></a>AmlCompute에서 NCv3 컴퓨터에 대 한 향후 SR-IOV 업그레이드
+
+Azure Compute는 모든 MPI 구현 및 버전을 지원 하기 위해 11 월부터 시작 하는 NCv3 Sku와 InfiniBand 장착 가상 컴퓨터에 대 한 RDMA 동사를 업데이트 합니다. 이 작업을 수행 하려면 짧은 가동 중지 시간이 필요 합니다. [sr-iov 업그레이드에 대해 자세히](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku)알아보세요.
+
+Azure Machine Learning의 관리 되는 계산 제공 (AmlCompute)의 고객으로 서 지금은 변경할 필요가 없습니다. [업데이트 일정](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) 에 따라 교육의 짧은 중단을 계획 해야 합니다. 서비스는 클러스터 노드의 VM 이미지를 업데이트 하 고 클러스터를 자동으로 확장 하는 작업을 담당 합니다. 업그레이드가 완료 되 면 더 높은 InfiniBand 대역폭, 짧은 대기 시간 및 향상 된 배포 응용 프로그램 성능을 얻는 것 외에도 다른 모든 MPI discibutions (예: Pytorch에서 OpenMPI)를 사용할 수 있습니다.
 
 ## <a name="visual-interface-issues"></a>시각적 인터페이스 문제
 

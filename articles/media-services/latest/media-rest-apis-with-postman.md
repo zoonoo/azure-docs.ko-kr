@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2019
 ms.author: juliako
-ms.openlocfilehash: d25596884acdb356779eafa4348240239855ce37
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c402381534087f1e8cdab711bd1b2a34c78417f4
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308458"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675717"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Media Services REST API 호출에 대해 Postman 구성
 
@@ -26,13 +26,13 @@ ms.locfileid: "70308458"
 
 개발을 시작 하기 전에 [Media Services V3 api를 사용 하 여 개발](media-services-apis-overview.md)을 검토 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - [Media Services 계정 만들기](create-account-cli-how-to.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해 두어야 합니다. 
 - [API에 액세스](access-api-cli-how-to.md)하는 데 필요한 정보 가져오기
 - [Postman](https://www.getpostman.com/) REST 클라이언트를 설치하여 일부 AMS REST 자습서에 표시되는 REST API를 실행합니다. 
 
-    지금은 **Postman**을 사용하고 있지만 어떤 REST 도구도 괜찮습니다. 다른 대안은 다음과 같습니다. **Visual Studio Code**와 REST 플러그 인을 함께 사용하거나, **Telerik Fiddler**를 사용할 수도 있습니다. 
+    지금은 **Postman**을 사용하고 있지만 어떤 REST 도구도 괜찮습니다. **Visual Studio Code**와 REST 플러그 인을 함께 사용하거나, **Telerik Fiddler**를 사용할 수도 있습니다. 
 
 > [!IMPORTANT]
 > [명명 규칙](media-services-apis-overview.md#naming-conventions)을 검토 합니다.
@@ -47,11 +47,9 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
 
 ## <a name="configure-postman"></a>Postman 구성
 
-이 섹션에서는 Postman을 구성합니다.
-
 ### <a name="configure-the-environment"></a>환경 구성 
 
-1. **Postman**을 엽니다.
+1. **Postman** 앱을 엽니다.
 2. 화면 오른쪽에서 **환경 관리** 옵션을 선택합니다.
 
     ![환경 관리](./media/develop-with-postman/postman-import-env.png)
@@ -80,7 +78,7 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
 
 AMS v3 리소스 조작을 시작하려면 먼저 서비스 주체 인증을 위한 Azure AD 토큰을 가져오고 설정해야 합니다.
 
-1. Postman의 왼쪽 창에서 "1단계: AAD 인증 토큰 가져오기"를 선택합니다.
+1. Postman 앱의 왼쪽 창에서 "1 단계: AAD Auth 토큰 가져오기"를 선택 합니다.
 2. 그런 다음, "서비스 주체 인증을 위한 Azure AD 토큰 가져오기"를 선택합니다.
 3. **보내기**를 누릅니다.
 
@@ -94,7 +92,7 @@ AMS v3 리소스 조작을 시작하려면 먼저 서비스 주체 인증을 위
 
     ![AAD 토큰 가져오기](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
 - [Media Services 계정에 파일 업로드 - REST](upload-files-rest-how-to.md)
 - [Media Services로 필터 만들기 - REST](filters-dynamic-manifest-rest-howto.md)
@@ -103,4 +101,4 @@ AMS v3 리소스 조작을 시작하려면 먼저 서비스 주체 인증을 위
 ## <a name="next-steps"></a>다음 단계
 
 - [REST를 사용하여 파일을 스트리밍](stream-files-tutorial-with-rest.md)합니다.  
-- [자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - REST](stream-files-tutorial-with-rest.md)
+- [자습서: URL을 기반으로 원격 파일 인코딩 및 비디오 스트리밍-REST](stream-files-tutorial-with-rest.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: b-juche
-ms.openlocfilehash: d73ac199df03f4d789db0634be1e926afc77e623
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: d323bd0b9684cfe4930d8c779a6728fcfd3836fb
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597538"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674920"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>NFS 볼륨에 대한 내보내기 정책 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "72597538"
 
 ## <a name="steps"></a>단계 
 
-1.  볼륨 관리 블레이드에서 **내보내기 정책 만들기** 블레이드를 클릭합니다. 
+1.  Azure NetApp Files 탐색 창에서 **정책 내보내기** 를 클릭 합니다. 
 
 2.  내보내기 정책 규칙을 만들도록 다음 필드에 대한 정보를 지정합니다.   
     *  **인덱스**   

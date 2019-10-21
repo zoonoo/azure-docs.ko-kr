@@ -11,15 +11,15 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: c9d6bc8802b54e970fe863ed6a7283f01c947916
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5631b34fee64c6ad0917b95ec68fcd586717a1b0
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066851"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675194"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure App Service 진단 개요
 
@@ -37,7 +37,7 @@ Azure Functions의 경우 함수 앱으로 이동 하 고, 상단 탐색에서 *
 
 App Service 진단 홈페이지에서 각 홈페이지 타일의 키워드를 사용 하 여 앱에 대 한 문제를 가장 잘 설명 하는 범주를 선택할 수 있습니다. 또한이 페이지에서는 Windows 앱에 대 한 **진단 도구** 를 찾을 수 있습니다. [진단 도구 (Windows 앱에만 해당)](#diagnostic-tools-only-for-windows-app)를 참조 하세요.
 
-![홈 페이지](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
+![홈페이지](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
 
 ## <a name="interactive-interface"></a>대화형 인터페이스
 
@@ -47,7 +47,7 @@ App Service 진단 홈페이지에서 각 홈페이지 타일의 키워드를 �
 
 이러한 타일을 클릭 한 후 타일에 설명 된 문제와 관련 된 항목의 목록을 볼 수 있습니다. 이러한 항목에서는 전체 보고서에서 주목할 만한 정보를 제공 합니다. 이러한 항목 중 하나를 클릭 하 여 문제를 자세히 조사할 수 있습니다. 또한 **전체 보고서 보기** 를 클릭 하 여 단일 페이지의 모든 항목을 탐색할 수 있습니다.
 
-![항목](./media/app-service-diagnostics/application-logs-insights-3.png)
+![토픽](./media/app-service-diagnostics/application-logs-insights-3.png)
 
 ![전체 보고서 보기](./media/app-service-diagnostics/view-full-report-4.png)
 
@@ -92,17 +92,17 @@ Application Insights 예외 및 종속성을 보려면 **웹 앱 다운** 또는
 
 ### <a name="proactive-cpu-monitoring"></a>자동 관리 CPU 모니터링
 
-자동 관리 CPU 모니터링을 통해 앱 또는 앱에 대 한 자식 프로세스가 높은 CPU 리소스를 사용 하는 경우 작업을 쉽게 수행할 수 있습니다. 예기치 않은 문제에 대 한 실제 원인이 발견 될 때까지 cpu 임계값 규칙을 일시적으로 완화 하도록 사용자 고유의 CPU 임계값 규칙을 설정할 수 있습니다.
+자동 관리 CPU 모니터링을 통해 앱 또는 앱에 대 한 자식 프로세스가 높은 CPU 리소스를 사용 하는 경우 작업을 쉽게 수행할 수 있습니다. 예기치 않은 문제에 대 한 실제 원인이 발견 될 때까지 cpu 임계값 규칙을 일시적으로 완화 하도록 사용자 고유의 CPU 임계값 규칙을 설정할 수 있습니다. 자세한 내용은 [CPU 문제가 발생 하기 전에](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html)이를 완화 하는 방법을 참조 하세요. 자동 관리 CPU 모니터링을 통해 앱 또는 앱에 대 한 자식 프로세스가 높은 CPU 리소스를 사용 하는 경우 작업을 쉽게 수행할 수 있습니다. 예기치 않은 문제에 대 한 실제 원인이 발견 될 때까지 cpu 임계값 규칙을 일시적으로 완화 하도록 사용자 고유의 CPU 임계값 규칙을 설정할 수 있습니다.
 
 ![자동 관리 CPU 모니터링](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 
 ### <a name="auto-healing-and-proactive-auto-healing"></a>자동 복구 및 자동 복구 자동 복구
 
-자동 복구는 응용 프로그램에 예기치 않은 동작이 있을 때 수행할 수 있는 완화 작업입니다. 요청 수, 저속 요청, 메모리 제한 및 HTTP 상태 코드에 따라 사용자 고유의 규칙을 설정 하 여 완화 작업을 트리거할 수 있습니다. 이 도구를 사용 하 여 근본 원인을 찾을 때까지 예기치 않은 동작을 일시적으로 완화할 수 있습니다.
+자동 복구는 응용 프로그램에 예기치 않은 동작이 있을 때 수행할 수 있는 완화 작업입니다. 요청 수, 저속 요청, 메모리 제한 및 HTTP 상태 코드에 따라 사용자 고유의 규칙을 설정 하 여 완화 작업을 트리거할 수 있습니다. 이 도구를 사용 하 여 근본 원인을 찾을 때까지 예기치 않은 동작을 일시적으로 완화할 수 있습니다. 자세한 내용은 [app service diagnostics에서 새로운 자동 치료 환경 발표](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html)를 참조 하세요.
 
 ![자동 복구](./media/app-service-diagnostics/auto-healing-10.png)
 
-자동 관리 CPU 모니터링과 마찬가지로 자동 복구는 응용 프로그램의 예기치 않은 동작을 완화 하기 위한 턴 키 솔루션입니다. 자동 복구는 앱이 복구할 수 없는 상태에 있는 것으로 확인 App Service 때 앱을 다시 시작 합니다. 자세한 내용은 [app service diagnostics에서 새로운 자동 치료 환경 발표](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html)를 참조 하세요.
+자동 관리 CPU 모니터링과 마찬가지로 자동 복구는 응용 프로그램의 예기치 않은 동작을 완화 하기 위한 턴 키 솔루션입니다. 자동 복구는 앱이 복구할 수 없는 상태에 있는 것으로 확인 App Service 때 앱을 다시 시작 합니다. 자세한 내용은 [자동 치료 소개](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html)를 참조 하세요.
 
 ## <a name="navigator-and-change-analysis-only-for-windows-app"></a>탐색기 및 변경 분석 (Windows 앱에만 해당)
 

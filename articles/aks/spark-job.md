@@ -6,21 +6,21 @@ author: lenadroid
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 647cb0573922bb53232dbce3f3a7a2557553d47d
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: c4fca9b8f4c8a01124074396985b1ec3f1c896c6
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263889"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675139"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>AKS에서 Apache Spark 작업 실행
 
 [Apache Spark][apache-spark] 는 대규모 데이터 처리를 위한 고속 엔진입니다. [Spark 2.3.0 릴리스에서][spark-latest-release]는 Apache Spark Kubernetes 클러스터와의 기본 통합을 지원 합니다. AKS(Azure Kubernetes Service)는 Azure에서 실행되는 관리 Kubernetes 환경입니다. 이 문서에서는 Apache Spark 작업을 준비하고 AKS(Azure Kubernetes Service) 클러스터에서 실행하는 방법을 자세히 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 아티클 내의 단계를 완료하기 위해 다음 항목이 필요합니다.
 
@@ -43,10 +43,16 @@ Spark는 대규모 데이터 처리에 사용되며 Kubernetes 노드의 크기�
 az group create --name mySparkCluster --location eastus
 ```
 
-노드 크기가 `Standard_D3_v2`인 AKS 클러스터를 만듭니다.
+클러스터에 대 한 서비스 주체를 만듭니다. 만든 후에는 다음 명령에 대 한 서비스 사용자 appId 및 암호가 필요 합니다.
 
 ```azurecli
-az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2
+az ad sp create-for-rbac --name SparkSP
+```
+
+@No__t_0 크기의 노드 및 서비스 사용자 및 클라이언트 암호 매개 변수로 전달 되는 appId 및 암호의 값을 사용 하 여 AKS 클러스터를 만듭니다.
+
+```azurecli
+az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2 --generate-ssh-keys --service-principal <APPID> --client-secret <PASSWORD>
 ```
 
 AKS 클러스터에 연결합니다.
@@ -64,7 +70,7 @@ AKS 클러스터에서 Spark 작업을 실행하기 전에 Spark 소스 코드�
 Spark 프로젝트 리포지토리를 개발 시스템에 복제합니다.
 
 ```bash
-git clone -b branch-2.3 https://github.com/apache/spark
+git clone -b branch-2.4 https://github.com/apache/spark
 ```
 
 복제된 리포지토리의 디렉터리를 변경하고 Spark 소스의 경로를 변수에 저장합니다.
@@ -136,7 +142,7 @@ cd sparkpi
 
 ```bash
 touch project/assembly.sbt
-echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.6")' >> project/assembly.sbt
+echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.10")' >> project/assembly.sbt
 ```
 
 다음 명령을 실행하여 샘플 코드를 새로 만든 프로젝트에 복사하고 필요한 모든 종속성을 추가합니다.
@@ -151,7 +157,7 @@ cat <<EOT >> build.sbt
 libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.3.0" % "provided"
 EOT
 
-sed -ie 's/scalaVersion.*/scalaVersion := "2.11.11",/' build.sbt
+sed -ie 's/scalaVersion.*/scalaVersion := "2.11.11"/' build.sbt
 sed -ie 's/name.*/name := "SparkPi",/' build.sbt
 ```
 
@@ -214,6 +220,13 @@ Spark 리포지토리의 루트로 돌아갑니다.
 cd $sparkdir
 ```
 
+작업을 실행 하는 데 충분 한 권한이 있는 서비스 계정을 만듭니다.
+
+```bash
+kubectl create serviceaccount spark
+kubectl create clusterrolebinding spark-role --clusterrole=edit --serviceaccount=default:spark --namespace=default
+```
+
 `spark-submit` 명령을 사용하여 작업을 제출합니다.
 
 ```bash
@@ -223,6 +236,7 @@ cd $sparkdir
   --name spark-pi \
   --class org.apache.spark.examples.SparkPi \
   --conf spark.executor.instances=3 \
+  --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
   --conf spark.kubernetes.container.image=$REGISTRY_NAME/spark:$REGISTRY_TAG \
   $jarUrl
 ```
@@ -257,7 +271,7 @@ Spark UI에 액세스하려면 브라우저에서 `127.0.0.1:4040` 주소를 엽
 kubectl get pods --show-all
 ```
 
-출력:
+출력
 
 ```bash
 NAME                                               READY     STATUS      RESTARTS   AGE

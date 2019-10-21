@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 1d13db922ae84e4032304a8865ba6fcdafa65748
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: bdb0322083f842922359f0c91da77f5df81613cb
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201623"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675805"
 ---
 # <a name="supported-platforms"></a>지원되는 플랫폼 
 
@@ -41,15 +41,15 @@ Azure 구독에서 활성화 된 Azure 환경의 경우 Azure Security Center는
 
 ### Windows server 운영 체제<a name="os-windows"></a>
 
-* Windows Server 2019
-* Windows Server 2016
-* Windows Server 2012 R2
-* Windows Server 2012
-* Windows Server 2008 R2
-* Windows Server 2008
-
-> [!NOTE]
-> Microsoft Defender ATP와의 통합은 Windows Server 2012 R2 및 Windows Server 2016만 지원 합니다.
+[!div class="mx-tableFixed"]
+|OS|Azure Security Center에서 지원|Microsoft Defender ATP와의 통합 지원|
+|---|---|---|
+|Windows Server 2019|✔|X|
+|Windows Server 2016|✔|✔|
+|Windows Server 2012 R2|✔|✔|
+|Windows Server 2012|✔|✔|
+|Windows Server 2008 R2|✔|✔|
+|Windows Server 2008|✔|✔|
 
 위에 나열 된 Windows 운영 체제에 대해 지원 되는 기능에 대해 자세히 알아보려면 [가상 머신/서버 지원 기능](security-center-services.md##vm-server-features)을 참조 하세요.
 
@@ -94,26 +94,26 @@ Azure Security Center에서 지 원하는 Azure PaaS 리소스는 다음과 같�
 * MySQL
 * CosmosDB
 * Storage 계정
-* 앱 서비스
-* 기능
+* App Service
+* 함수
 * 클라우드 서비스
 * VNet
-* Subnet
+* 서브넷
 * NIC
 * NSG
-* 배치 계정
+* Batch 계정
 * Service fabric 계정
 * Automation 계정
-* 부하 분산 장치
-* 검색
+* Load Balancer
+* Search
 * Service Bus 네임스페이스
 * Stream Analytics
 * 이벤트 허브 네임스페이스
-* Logic Apps
+* 논리 앱
 * Redis
 * Data Lake Analytics
 * Data Lake Store
-* 키 자격 증명 모음
+* Key Vault
 
 위의 PaaS 리소스 목록에서 지원 되는 기능에 대해 자세히 알아보려면 [paas 서비스 지원 기능](security-center-services.md#paas-services)을 참조 하세요.
 

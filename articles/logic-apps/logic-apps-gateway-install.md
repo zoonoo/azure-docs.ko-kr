@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 09/01/2019
-ms.openlocfilehash: 7384f058c82699095e1209e677dc5c6f61b57178
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.date: 10/18/2019
+ms.openlocfilehash: 7533b391917175fd9dea395f58906a9f78a61488
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309864"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675696"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -29,19 +29,23 @@ ms.locfileid: "71309864"
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 계정 및 구독 구독이 있는 Azure 계정이 없는 경우 [무료 azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-  * 게이트웨이를 설치 하 고 관리 하려면 동일한 Azure 계정을 사용 해야 합니다. 설치 하는 동안이 Azure 계정을 사용 하 여 컴퓨터의 게이트웨이를 Azure 구독과 연결 합니다. 나중에 게이트웨이 설치에 대 한 Azure Portal에서 Azure 리소스를 만들 때 동일한 Azure 계정을 사용 합니다. 
+  * 로컬 컴퓨터에서 게이트웨이를 설치 하 고 관리 하려면 동일한 Azure 계정을 사용 해야 합니다.
 
-  * 회사 계정 또는 학교 계정 (예: *조직* 계정 `username@contoso.com`)을 사용 하 여 로그인 해야 합니다. Azure B2B (게스트) 계정 또는 개인 Microsoft 계정 (예: @hotmail.com 또는 @outlook.com)을 사용할 수 없습니다.
+    게이트웨이 설치 중에 azure 계정으로 로그인 합니다. 그러면 azure 계정 및 해당 계정에만 연결 됩니다. 나중에 Azure Portal에서 게이트웨이 설치를 등록 하 고 클레임 하는 Azure 게이트웨이 리소스를 만들기 위해 동일한 Azure 계정을 사용 해야 합니다. Azure Logic Apps 온-프레미스 트리거 및 작업은 온-프레미스 데이터 원본에 연결 하기 위해 게이트웨이 리소스를 사용 합니다.
+
+    > [!NOTE]
+    > 하나의 게이트웨이 설치와 하나의 Azure 게이트웨이 리소스를 서로 연결할 수 있습니다. 동일한 게이트웨이 설치를 여러 Azure 계정 또는 Azure 게이트웨이 리소스에 연결할 수 없습니다. 그러나 Azure 계정은 여러 게이트웨이 설치 및 Azure gateway 리소스에 연결할 수 있습니다. 온-프레미스 트리거 또는 작업에서 다양 한 Azure 구독을 선택 하 고 연결 된 게이트웨이 리소스를 선택할 수 있습니다.
+
+  * 회사 계정 또는 학교 계정으로 로그인 해야 합니다. *조직* 계정이 라고도 합니다 .이 계정에는 `username@contoso.com` 같습니다. Azure B2B (게스트) 계정 또는 개인 Microsoft 계정 (예: @hotmail.com 또는 @outlook.com)을 사용할 수 없습니다.
 
     > [!TIP]
-    > Office 365 제품에 등록 하 고 회사 메일 주소를 제공 하지 않은 경우 주소는와 `username@domain.onmicrosoft.com`같을 수 있습니다. 사용자 계정은 Azure Active Directory (Azure AD)의 테 넌 트 내에 저장 됩니다. 대부분의 경우 Azure AD 계정의 UPN (사용자 계정 이름)은 전자 메일 주소와 동일 합니다.
+    > Office 365 제품에 등록 하 고 회사 메일 주소를 제공 하지 않은 경우 주소는 `username@domain.onmicrosoft.com` 처럼 보일 수 있습니다. 사용자 계정은 Azure Active Directory (Azure AD)의 테 넌 트 내에 저장 됩니다. 대부분의 경우 Azure AD 계정의 UPN (사용자 계정 이름)은 전자 메일 주소와 동일 합니다.
     >
-    > Microsoft 계정와 연결 된 [Visual Studio 표준 구독](https://visualstudio.microsoft.com/vs/pricing/) 을 사용 하려면 먼저 [Azure AD에서 테 넌 트를 만들거나](../active-directory/develop/quickstart-create-new-tenant.md)기본 디렉터리를 사용 합니다. 암호가 있는 사용자를 디렉터리를 추가한 다음 해당 사용자에게 구독에 대한 액세스 권한을 제공합니다. 
-    > 그런 다음 이 사용자 이름 및 암호를 사용하여 게이트웨이 설치 중에 로그인할 수 있습니다.
+    > Microsoft 계정에 연결 된 [Visual Studio 표준 구독](https://visualstudio.microsoft.com/vs/pricing/) 을 사용 하려면 먼저 [Azure AD에서 테 넌 트를 만들거나](../active-directory/develop/quickstart-create-new-tenant.md) 기본 디렉터리를 사용 합니다. 디렉터리에 암호를 가진 사용자를 추가한 다음 해당 사용자에 게 Azure 구독에 대 한 액세스 권한을 부여 합니다. 그런 다음 이 사용자 이름 및 암호를 사용하여 게이트웨이 설치 중에 로그인할 수 있습니다.
 
 * 로컬 컴퓨터에 대한 요구 사항은 다음과 같습니다.
 
@@ -75,7 +79,7 @@ ms.locfileid: "71309864"
 
   * 게이트웨이에는 Power BI에만 적용 되는 표준 모드와 개인 모드의 두 가지 모드가 있습니다. 동일한 컴퓨터에서 동일한 모드로 실행 되는 게이트웨이가 둘 이상 있을 수 없습니다.
 
-  * Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 포함 하 여 쓰기 작업을 지원 합니다. 그러나 이러한 작업 [은 페이로드 크기에 제한이](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)있습니다.
+  * Azure Logic Apps는 게이트웨이를 통해 읽기 및 쓰기 작업을 지원 합니다. 그러나 이러한 작업 [은 페이로드 크기에 제한이](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)있습니다.
 
 <a name="install-gateway"></a>
 
@@ -95,13 +99,13 @@ ms.locfileid: "71309864"
 
    ![요구 사항을 검토 하 고 사용 약관에 동의 합니다.](./media/logic-apps-gateway-install/accept-terms.png)
 
-1. 게이트웨이가 성공적으로 설치 되 면 조직 계정에 대 한 전자 메일 주소를 입력 하 고 **로그인**을 선택 합니다. 예를 들면 다음과 같습니다.
+1. 게이트웨이가 성공적으로 설치 되 면 Azure 계정에 대 한 전자 메일 주소를 입력 하 고 **로그인**을 선택 합니다. 예를 들면 다음과 같습니다.
 
    ![회사 또는 학교 계정으로 로그인](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-   이제 계정에 로그인 되었습니다.
+   게이트웨이 설치는 하나의 Azure 계정에만 연결할 수 있습니다.
 
-1.  >  **이 컴퓨터에 새 게이트웨이 등록** **다음**을 선택 합니다. 이 단계에서는 게이트웨이 [클라우드 서비스](#gateway-cloud-service)에 게이트웨이 설치를 등록 합니다.
+1. **이 컴퓨터에 새 게이트웨이 등록**  > **다음**을 선택 합니다. 이 단계에서는 게이트웨이 [클라우드 서비스](#gateway-cloud-service)에 게이트웨이 설치를 등록 합니다.
 
    ![게이트웨이 등록](./media/logic-apps-gateway-install/register-gateway.png)
 
@@ -155,7 +159,7 @@ ms.locfileid: "71309864"
 
 온-프레미스 데이터 액세스에 대 한 단일 실패 지점이 발생 하지 않도록 하려면 서로 다른 컴퓨터에서 여러 게이트웨이 설치 (표준 모드에만 해당)를 사용 하 고 클러스터 또는 그룹으로 설정할 수 있습니다. 이렇게 하면 기본 게이트웨이를 사용할 수 없는 경우 데이터 요청이 두 번째 게이트웨이로 라우팅됩니다. 컴퓨터에 표준 게이트웨이를 하나만 설치할 수 있으므로 클러스터에 있는 각 추가 게이트웨이를 다른 컴퓨터에 설치 해야 합니다. 온-프레미스 데이터 게이트웨이를 사용 하는 모든 커넥터는 고가용성을 지원 합니다.
 
-* 해당 설치에 대한 기본 게이트웨이 및 복구 키가 있는 동일한 Azure 구독 내에 하나 이상의 게이트웨이 설치가 이미 있어야 합니다.
+* 기본 게이트웨이와 동일한 Azure 계정 및 해당 설치에 대 한 복구 키를 사용 하 여 하나 이상의 게이트웨이 설치가 이미 있어야 합니다.
 
 * 기본 게이트웨이에서는 2017년 11월 또는 이후의 게이트웨이 업데이트가 실행되고 있어야 합니다.
 
@@ -175,7 +179,7 @@ ms.locfileid: "71309864"
 
 1. 설치 관리자가 열리면 게이트웨이를 설치 하는 데 사용 된 것과 동일한 Azure 계정으로 로그인 합니다.
 
-1. **다음**예와 같이 >  **기존 게이트웨이 마이그레이션, 복원 또는 인수**를 선택 합니다.
+1. **다음**예와 같이 **기존 게이트웨이  >  마이그레이션, 복원 또는 인수** 를 선택 합니다.
 
    ![Migrate, restore, or takeover an existing gateway(기존 게이트웨이 마이그레이션, 복원 또는 인수) 선택](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 
@@ -195,7 +199,7 @@ Azure AD 테 넌 트의 모든 온-프레미스 데이터 게이트웨이에 대
 
 ## <a name="restart-gateway"></a>게이트웨이 다시 시작
 
-기본적으로 로컬 컴퓨터의 게이트웨이 설치는 "온-프레미스 데이터 게이트웨이 서비스" 라는 Windows 서비스 계정으로 실행 됩니다. 그러나 게이트웨이 설치는 "다음 계정 `NT SERVICE\PBIEgwService` 으로 로그온" 계정 자격 증명에 이름을 사용 하 고 "서비스로 로그온" 권한을 사용 합니다.
+기본적으로 로컬 컴퓨터의 게이트웨이 설치는 "온-프레미스 데이터 게이트웨이 서비스" 라는 Windows 서비스 계정으로 실행 됩니다. 그러나 게이트웨이 설치에는 "다음 계정으로 로그온" 계정 자격 증명에 `NT SERVICE\PBIEgwService` 이름이 사용 되 고 "서비스로 로그온" 권한이 있습니다.
 
 > [!NOTE]
 > Windows 서비스 계정은 온-프레미스 데이터 원본에 연결 하는 데 사용 되는 계정과 클라우드 서비스에 로그인 할 때 사용 하는 Azure 계정에 차이가 있습니다.
@@ -235,19 +239,19 @@ Azure AD 테 넌 트의 모든 온-프레미스 데이터 게이트웨이에 대
 
 저장 된 자격 증명은 게이트웨이에서 온-프레미스 데이터 원본에 연결 하는 데 사용 됩니다. 사용자에 관계 없이 게이트웨이는 저장 된 자격 증명을 사용 하 여 연결 합니다. Power BI에서 Analysis Services에 대 한 DirectQuery, LiveConnect 등의 특정 서비스에 대 한 인증 예외가 있을 수 있습니다.
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory-azure-ad"></a>Azure AD(Azure Active Directory)
 
-Microsoft 클라우드 서비스는 [AZURE AD (Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md) 를 사용 하 여 사용자를 인증 합니다. Azure AD 테 넌 트에는 사용자 이름 및 보안 그룹이 포함 됩니다. 일반적으로 로그인 하는 데 사용 하는 전자 메일 주소는 계정에 대 한 UPN (사용자 계정 이름)과 동일 합니다.
+Microsoft 클라우드 서비스는 [AZURE AD](../active-directory/fundamentals/active-directory-whatis.md) 를 사용 하 여 사용자를 인증 합니다. Azure AD 테 넌 트에는 사용자 이름 및 보안 그룹이 포함 됩니다. 일반적으로 로그인 하는 데 사용 하는 전자 메일 주소는 계정에 대 한 UPN (사용자 계정 이름)과 동일 합니다.
 
 ### <a name="what-is-my-upn"></a>UPN 이란?
 
 도메인 관리자가 아닌 경우 UPN을 모를 수 있습니다. 계정에 대 한 UPN을 찾으려면 워크스테이션에서 `whoami /upn` 명령을 실행 합니다. 결과는 전자 메일 주소와 유사 하지만 결과는 로컬 도메인 계정에 대 한 UPN입니다.
 
-### <a name="synchronize-an-on-premises-active-directory-with-azure-active-directory"></a>온-프레미스 Active Directory Azure Active Directory와 동기화
+### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>Azure AD와 온-프레미스 Active Directory 동기화
 
-온-프레미스 Active Directory 계정 및 Azure AD 계정에 대 한 UPN은 동일 해야 합니다. 따라서 각 온-프레미스 Active Directory 계정이 Azure AD 계정과 일치 하는지 확인 합니다. 클라우드 서비스는 Azure AD 내의 계정에 대해서만 알고 있습니다. 따라서 온-프레미스 Active Directory에 계정을 추가할 필요가 없습니다. 계정이 Azure AD에 존재 하지 않는 경우 해당 계정을 사용할 수 없습니다. 
+온-프레미스 Active Directory 계정 및 Azure AD 계정에 대 한 UPN은 동일 해야 합니다. 따라서 각 온-프레미스 Active Directory 계정이 Azure AD 계정과 일치 하는지 확인 합니다. 클라우드 서비스는 Azure AD 내의 계정에 대해서만 알고 있습니다. 따라서 온-프레미스 Active Directory에 계정을 추가할 필요가 없습니다. 계정이 Azure AD에 존재 하지 않는 경우 해당 계정을 사용할 수 없습니다.
 
-Azure AD와 온-프레미스 Active Directory 계정을 일치 시킬 수 있는 방법은 다음과 같습니다. 
+Azure AD와 온-프레미스 Active Directory 계정을 일치 시킬 수 있는 방법은 다음과 같습니다.
 
 * Azure AD에 계정을 수동으로 추가 합니다.
 
