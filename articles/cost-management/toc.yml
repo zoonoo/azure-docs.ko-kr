@@ -32,6 +32,8 @@
       items:
         - name: 데이터에 대한 액세스 할당
           href: assign-access-acm-data.md
+        - name: 일반 작업에 대한 비용 분석 사용
+          href: cost-analysis-common-uses.md
         - name: 비용 경고 사용
           href: cost-mgt-alerts-monitor-usage-spending.md
         - name: AWS 통합 설정 및 구성

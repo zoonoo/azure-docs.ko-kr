@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.openlocfilehash: c5fb547b18bc4014f91341070f49c4af84c01005
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71265176"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Azure Search의 기술 자료 저장소에서 프로젝션 사용
@@ -29,7 +29,7 @@ Azure Search는 인덱싱의 일부로 AI 인식 기술 및 사용자 지정 기
 
 지식 저장소는 두 가지 유형의 프로젝션을 지원 합니다.
 
-+ **테이블**: 행과 열로 가장 잘 표현 되는 데이터의 경우 테이블 프로젝션을 사용 하 여 테이블 저장소에서 스키마 화 된 셰이프 또는 프로젝션을 정의할 수 있습니다. 
++ **테이블**: 행 및 열로 가장 잘 표현 되는 데이터의 경우 테이블 프로젝션을 사용 하 여 테이블 저장소에서 스키마 화 된 셰이프 또는 프로젝션을 정의할 수 있습니다. 
 
 + **개체**: 데이터 및 강화의 JSON 표현이 필요한 경우 개체 프로젝션이 blob으로 저장 됩니다.
 
@@ -73,9 +73,9 @@ Azure Search는 인덱싱의 일부로 AI 인식 기술 및 사용자 지정 기
 
 + tableName: Azure Storage에 있는 테이블의 이름입니다.
 
-+ generatedKeyName: 이 행을 고유 하 게 식별 하는 키의 열 이름입니다.
++ generatedKeyName:이 행을 고유 하 게 식별 하는 키의 열 이름입니다.
 
-+ 원본: 강화에서 소싱 한 보강 트리의 노드입니다. 이는 일반적으로 shaper의 출력 이지만 모든 기술의 출력이 될 수 있습니다.
++ 원본: 강화를 소싱 하는 보강 트리의 노드입니다. 이는 일반적으로 shaper의 출력 이지만 모든 기술의 출력이 될 수 있습니다.
 
 표 프로젝션의 예는 다음과 같습니다.
 
@@ -155,8 +155,8 @@ Azure Search는 인덱싱의 일부로 AI 인식 기술 및 사용자 지정 기
 개체 프로젝션을 생성 하려면 몇 가지 개체 관련 특성이 필요 합니다.
 
 + storageContainer: 개체가 저장 될 컨테이너입니다.
-+ 원본: 프로젝션의 루트인 보강 트리의 노드에 대 한 경로입니다.
-+ 키인지 저장할 개체의 고유 키를 나타내는 경로입니다. 컨테이너에서 blob의 이름을 만드는 데 사용 됩니다.
++ source: 프로젝션의 루트인 보강 트리의 노드에 대 한 경로입니다.
++ 키: 저장할 개체의 고유 키를 나타내는 경로입니다. 컨테이너에서 blob의 이름을 만드는 데 사용 됩니다.
 
 ## <a name="projection-lifecycle"></a>프로젝션 수명 주기
 

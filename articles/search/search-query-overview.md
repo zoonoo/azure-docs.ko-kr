@@ -9,15 +9,15 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.openlocfilehash: 4646cb30ef7602da990e24f923c8eceada4debd0
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71178024"
 ---
 # <a name="query-types-and-composition-in-azure-search"></a>Azure Search의 쿼리 유형 및 구성
 
-Azure Search에서 쿼리는 왕복 작업의 전체 사양입니다. 요청에 대 한 매개 변수는 인덱스의 문서를 찾기 위한 일치 조건, 포함 하거나 제외할 필드, 엔진으로 전달 되는 실행 명령, 응답을 셰이핑 하기 위한 지시문을 제공 합니다. 지정 되지`search=*`않음 (). 쿼리는 모든 검색 가능 필드에 대해 전체 텍스트 검색 작업으로 실행 되어 점수가 매겨진 결과 집합을 임의의 순서로 반환 합니다.
+Azure Search에서 쿼리는 왕복 작업의 전체 사양입니다. 요청에 대 한 매개 변수는 인덱스의 문서를 찾기 위한 일치 조건, 포함 하거나 제외할 필드, 엔진으로 전달 되는 실행 명령, 응답을 셰이핑 하기 위한 지시문을 제공 합니다. 지정 되지 않음 (`search=*`)-전체 텍스트 검색 작업으로 모든 검색 가능 필드에 대해 쿼리를 실행 하 여 점수가 지정 되지 않은 결과 집합을 임의의 순서로 반환 합니다.
 
 다음 예는 [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)에서 생성 된 대표적인 쿼리입니다. 이 예에서는 [호텔 데모 인덱스](search-get-started-portal.md) 를 대상으로 하며 일반 매개 변수를 포함 합니다.
 
@@ -33,13 +33,13 @@ Azure Search에서 쿼리는 왕복 작업의 전체 사양입니다. 요청에 
 }
 ```
 
-+ **`queryType`** [기본 단순 쿼리 파서](search-query-simple-examples.md) (전체 텍스트 검색에 최적) 인 파서 또는 정규식, 근접 검색, 유사 항목 및 와일드 카드 검색 등의 고급 쿼리 구문에 사용 되는 [전체 Lucene 쿼리 파서](search-query-lucene-examples.md) 를 설정 하 여 이름을 몇.
++ [기본 단순 쿼리 파서](search-query-simple-examples.md) (전체 텍스트 검색에 최적) 인 파서 또는 정규식, 근접 검색, 유사 항목 검색, 유사 항목 검색, 유사 항목 검색 등의 고급 쿼리 구문에 사용 되는 [전체 Lucene 쿼리 파서](search-query-lucene-examples.md) 를 설정 하 **`queryType`** 를 설정 합니다. 와일드 카드 검색 (몇 가지 이름)
 
 + **`search`** 는 일치 조건을 제공하며, 일반적으로 텍스트이지만 부울 연산자가 자주 사용됩니다. 독립형 단일 용어는 용어 쿼리입니다. 따옴표로 묶인 여러 부분 쿼리는 핵심 구문 쿼리입니다. 검색은 **`search=*`** 처럼 정의되지 않을 수 있지만 예제에 나타나는 것과 유사한 용어, 구문 및 연산자로 구성될 가능성이 큽니다.
 
 + **`searchFields`** 쿼리 실행을 특정 필드로 제한 합니다. 인덱스 스키마에서 *검색* 가능으로 특성을 지정 하는 모든 필드는이 매개 변수에 대 한 후보입니다.
 
-응답은 쿼리에 포함된 매개 변수에 의해 형성됩니다. 예제에서 결과 집합은 **`select`** 문에 나열된 필드로 구성됩니다. 검색 가능으로 표시 된 필드만 $select 문에서 사용할 *수 있습니다.* 또한이 쿼리에서는 **`top`** 10 개의 적중만 반환 되 고,는 **`count`** 전체와 일치 하는 문서 수를 알려 줍니다 .이는 반환 되는 것 보다 많은 문서입니다. 이 쿼리에서 행은 등급을 기준으로 내림차순으로 정렬 됩니다.
+응답은 쿼리에 포함된 매개 변수에 의해 형성됩니다. 예제에서 결과 집합은 **`select`** 문에 나열된 필드로 구성됩니다. 검색 가능으로 표시 된 필드만 $select 문에서 사용할 *수 있습니다.* 또한이 쿼리에서는 **`top`** 10 개 적중만 반환 되 고, **`count`** 는 전체 일치 항목 수를 보여 줍니다 .이는 반환 되는 것 보다 많은 문서를 반환 합니다. 이 쿼리에서 행은 등급을 기준으로 내림차순으로 정렬 됩니다.
 
 Azure Search에서 쿼리 실행은 항상 하나의 인덱스에 대해 수행되며 요청에 제공된 API 키를 사용하여 인증됩니다. REST에서 둘 다 요청 헤더에 제공됩니다.
 
@@ -53,7 +53,7 @@ Azure Search에서 쿼리 실행은 항상 하나의 인덱스에 대해 수행�
 
 인덱스 디자인과 쿼리 디자인은 Azure Search와 밀접하게 결합됩니다. 먼저 알아야 하는 중요한 사실은 각 필드의 특성과 함께 인덱스 스키마에 의해 빌드할 수 있는 쿼리의 종류가 결정된다는 것입니다. 
 
-필드의 인덱스 특성은 허용된 작업(예: 인덱스에서 필드를 검색할 수 있는지(*searchable*), 결과에서 검색이 가능한지(*retrievable*), 정렬이 가능한지(*sortable*), 필터링이 가능한지(*filterable*) 등)을 설정합니다. 예제 쿼리 문자열 `"$orderby": "Rating"` 에서는 등급 필드가 인덱스 스키마에서 *정렬할* 수 있는 것으로 표시 되기 때문에만 작동 합니다. 
+필드의 인덱스 특성은 허용된 작업(예: 인덱스에서 필드를 검색할 수 있는지(*searchable*), 결과에서 검색이 가능한지(*retrievable*), 정렬이 가능한지(*sortable*), 필터링이 가능한지(*filterable*) 등)을 설정합니다. 예제 쿼리 문자열에서 `"$orderby": "Rating"`는 등급 필드가 인덱스 스키마에서 *정렬* 가능한 것으로 표시 되기 때문에만 작동 합니다. 
 
 ![호텔 샘플에 대 한 인덱스 정의](./media/search-query-overview/hotel-sample-index-definition.png "호텔 샘플에 대 한 인덱스 정의")
 
@@ -93,13 +93,13 @@ Azure Search는 Apache Lucene을 기반으로 하고 일반적인 쿼리와 특�
 
 요청에 `queryType=full`을 추가하면 사용되도록 설정되는 [전체 Lucene 쿼리 구문](query-Lucene-syntax.md#bkmk_syntax)은 [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)의 일부로 개발된 널리 채택되고 표현적인 쿼리 언어를 공개합니다. 전체 구문은 단순 구문을 확장합니다. 단순 구문에 대해 작성한 쿼리는 전체 Lucene 파서에서 실행됩니다. 
 
-다음 예제는 이런 점을 보여줍니다. 동일한 쿼리이지만 다른 queryType 설정을 사용하면 다른 결과가 나타납니다. 첫 번째 쿼리에서 `^3` after `historic` 는 검색 용어의 일부로 처리 됩니다. 이 쿼리에 대해 가장 순위가 높은 결과는 "Plaza & 도구 모음" 이며, 해당 설명에는 *바다* 가 있습니다.
+다음 예제는 이런 점을 보여줍니다. 동일한 쿼리이지만 다른 queryType 설정을 사용하면 다른 결과가 나타납니다. 첫 번째 쿼리에서 `historic` 후 `^3`는 검색 용어의 일부로 처리 됩니다. 이 쿼리에 대해 가장 순위가 높은 결과는 "Plaza & 도구 모음" 이며, 해당 설명에는 *바다* 가 있습니다.
 
 ```
 queryType=simple&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
-전체 Lucene 파서를 사용 하는 동일한 쿼리 `^3` 는 필드 내 용어 부스터로 해석 됩니다. 파서를 전환 하면 순위가 변경 되 고 맨 *위로 이동 하* 는 용어를 포함 하는 결과가 변경 됩니다.
+전체 Lucene 파서를 사용 하는 동일한 쿼리는 `^3`를 현장 용어 부스터로 해석 합니다. 파서를 전환 하면 순위가 변경 되 고 맨 *위로 이동 하* 는 용어를 포함 하는 결과가 변경 됩니다.
 
 ```
 queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
@@ -111,7 +111,7 @@ queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=Ho
 
 Azure Search는 광범위한 쿼리 유형을 지원합니다. 
 
-| 쿼리 유형 | 사용법 | 예제 및 자세한 정보 |
+| 쿼리 유형 | 사용량 | 예제 및 자세한 정보 |
 |------------|--------|-------------------------------|
 | 자유 형식 텍스트 검색 | 매개 변수와 파서 중 하나를 검색| 전체 텍스트 검색은 인덱스의 *검색 가능한* 모든 필드에서 하나 이상의 단어를 검색하고 Google 또는 Bing과 같은 검색 엔진이 작동할 것으로 예상되는 방식으로 작동합니다. 소개의 예는 전체 텍스트 검색입니다.<br/><br/>전체 텍스트 검색은 표준 Lucene 분석기(기본값)를 사용하여 모든 용어를 소문자 텍스트로 분석하여 "the"와 같은 중지 단어를 제거합니다. 텍스트 분석을 수정하는 [영어가 아닌 분석기](index-add-language-analyzers.md#language-analyzer-list) 또는 [특수 언어 중립적 분석기](index-add-custom-analyzers.md#AnalyzerTable)로 기본값을 재정의할 수 있습니다. 필드의 전체 내용을 단일 토큰으로 취급하는 [키워드](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html)가 예입니다. 우편 번호, ID 및 일부 제품 이름과 같은 데이터에 유용합니다. | 
 | 필터링된 검색 | [OData 필터 식](query-odata-filter-orderby-syntax.md)과 파서 중 하나 | 필터 쿼리는 인덱스의 *필터링 가능한* 모든 필드에 걸쳐 부울 식을 계산합니다. 검색과 달리 필터 쿼리는 문자열 필드에서 대/소문자 구분을 포함하여 필드의 정확한 내용을 검색합니다. 또 다른 차이점은 필터 쿼리는 OData 구문으로 표현된다는 점입니다. <br/>[필터 식 예제](search-query-simple-examples.md#example-3-filter-queries) |
@@ -157,7 +157,7 @@ Azure Search에서 검색 결과를 검색 점수가 아닌 다른 값으로 정
 ### <a name="hit-highlighting"></a>적중 항목 강조 표시
 Azure Search에서 검색 쿼리와 일치하는 검색 결과의 정확한 부분을 강조하려면 **`highlight`** , **`highlightPreTag`** 및 **`highlightPostTag`** 매개 변수를 사용합니다. 어떤 *검색 가능한* 필드의 일치 텍스트를 강조할지를 지정할 수 있으며 Azure Search에서 반환하는 일치 텍스트의 시작 및 끝부분에 추가할 정확한 문자열 태그를 지정할 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [Azure Search에서 전체 텍스트 검색이 작동하는 원리(아키텍처를 구문 분석하는 쿼리)](search-lucene-query-architecture.md)
 + [검색 탐색기](search-explorer.md)

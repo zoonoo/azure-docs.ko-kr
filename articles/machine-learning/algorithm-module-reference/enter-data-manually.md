@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: d7e6cede12f5a348f59db83b31b19c89266dfdf7
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: bd5fb636dbf79534e84a21a461f8912ceb6d9633
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128834"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693155"
 ---
 # <a name="enter-data-manually-module"></a>수동으로 데이터 입력 모듈
 
@@ -32,11 +32,11 @@ ms.locfileid: "70128834"
 
 ## <a name="enter-data-manually"></a>수동으로 데이터 입력 
   
-1.  데이터를 [수동으로 입력](./enter-data-manually.md) 모듈을 실험에 추가 합니다. 이 모듈은 Azure Machine Learning의 **데이터 입력 및 출력** 범주에서 찾을 수 있습니다. 
+1.  [수동으로 데이터 입력](./enter-data-manually.md) 모듈을 파이프라인에 추가 합니다. 이 모듈은 Azure Machine Learning의 **데이터 입력 및 출력** 범주에서 찾을 수 있습니다. 
   
 2.  **DataFormat**의 경우 다음 옵션 중 하나를 선택 합니다. 이러한 옵션은 사용자가 제공 하는 데이터를 구문 분석 해야 하는 방법을 결정 합니다. 각 형식에 대 한 요구 사항은 크게 다르므로 관련 항목을 참조 하십시오.  
   
-    -   **ARFF**입니다. Weka에서 사용 되는 특성 관계 파일 형식입니다.   
+    -   **Arff**입니다. Weka에서 사용 되는 특성 관계 파일 형식입니다.   
   
     -   **CSV**. 쉼표로 구분 된 값 형식입니다. 자세한 내용은 [CSV로 변환](./convert-to-csv.md)을 참조 하세요.  
   
@@ -48,7 +48,7 @@ ms.locfileid: "70128834"
   
 3.  데이터 입력을 시작 하려면 **데이터** 텍스트 상자 내부를 클릭 합니다. 다음 형식에는 특별 한 주의가 필요 합니다.  
   
-    - **CSV**:  여러 열을 만들려면 쉼표로 구분 된 텍스트를 붙여넣거나 필드 사이에 쉼표를 사용 하 여 여러 열을 입력 합니다.
+    - **CSV**: 여러 열을 만들려면 쉼표로 구분 된 텍스트로 붙여넣거나 필드 사이에 쉼표를 사용 하 여 여러 열을 입력 합니다.
   
         **Hasheader** 옵션을 선택 하는 경우 값의 첫 번째 행을 열 머리글로 사용할 수 있습니다.  
   
@@ -60,9 +60,9 @@ ms.locfileid: "70128834"
   
         이 옵션의 선택을 취소 하면 이름, Col1, Col2 등의 열이 사용 됩니다. 나중에 [메타 데이터 편집](./edit-metadata.md)을 사용 하 여 열 이름을 추가 하거나 변경할 수 있습니다.  
   
-    -   **ARFF**:  기존 ARFF 서식 파일에 붙여넣습니다. 값을 직접 입력 하는 경우 데이터 시작 부분에 선택적 헤더 및 필수 특성 필드를 추가 해야 합니다. 
+    -   **Arff**: 기존 arff 서식 파일에 붙여넣습니다. 값을 직접 입력 하는 경우 데이터 시작 부분에 선택적 헤더 및 필수 특성 필드를 추가 해야 합니다. 
     
-        예를 들어 다음 헤더 및 특성 행을 간단한 목록에 추가할 수 있습니다. 열 머리글 `SampleText`은입니다.
+        예를 들어 다음 헤더 및 특성 행을 간단한 목록에 추가할 수 있습니다. 열 머리글을 `SampleText` 합니다.
     
         ```text
         % Title: SampleText.ARFF  

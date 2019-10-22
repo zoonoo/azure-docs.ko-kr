@@ -10,14 +10,14 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 08/22/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4a9cf134a3db5b9bc62cd0f9054aefa6092954d9
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 09d2a637099bae414400f49bb89efc5b6652f150
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129914"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692814"
 ---
-# <a name="multiclass-boosted-decision-tree"></a>다중 클래스 승격 된 의사 결정 트리
+# <a name="multiclass-boosted-decision-tree"></a>다중 클래스 향상된 의사 결정 트리
 
 이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "70129914"
 
 [학습 모델](././train-model.md)을 사용 하 여 이러한 유형의 모델을 학습할 수 있습니다. 
 
-1.  실험에 **다중 클래스 승격 된 의사 결정 트리** 모듈을 추가 합니다.
+1.  파이프라인에 **다중 클래스 승격 된 의사 결정 트리** 모듈을 추가 합니다.
 
 1.  **강사 모드 만들기** 옵션을 설정 하 여 모델을 학습 하는 방법을 지정 합니다.
 

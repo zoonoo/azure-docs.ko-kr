@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: c25f555fd7870afa4e75a3d1e490914e85118d20
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c8d8b6a873ee17d1658b0cb47de830848b215b89
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129005"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693245"
 ---
 # <a name="add-rows-module"></a>행 추가 모듈
 
@@ -32,11 +32,11 @@ ms.locfileid: "70129005"
 
 두 데이터 집합의 행을 연결 하려면 행에 정확히 동일한 스키마가 있어야 합니다. 즉, 열에 동일한 수의 열과 동일한 데이터 형식이 있습니다.
 
-1.  **행 추가** 모듈을 실험으로 끌어 **데이터 변환**의 **조작** 범주에서 찾을 수 있습니다.
+1.  **행 추가** 모듈을 파이프라인으로 끌어 **데이터 변환**의 **조작** 범주에서 찾을 수 있습니다.
 
 2. 두 입력 포트에 데이터 집합을 연결 합니다. 추가 하려는 데이터 집합을 두 번째 (오른쪽) 포트에 연결 해야 합니다. 
   
-3.  실험을 실행합니다. 출력 데이터 집합의 행 수는 두 입력 데이터 집합의 행 합계와 같아야 합니다.
+3.  파이프라인을 실행합니다. 출력 데이터 집합의 행 수는 두 입력 데이터 집합의 행 합계와 같아야 합니다.
 
     **행 추가** 모듈의 두 입력에 동일한 데이터 집합을 추가 하는 경우 데이터 집합이 중복 됩니다. 
 

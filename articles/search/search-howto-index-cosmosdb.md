@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 802a4e9c6191d33051eb075543691845595bc9c3
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69656688"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Azure Search 인덱서를 사용 하 여 Cosmos DB를 인덱싱하는 방법
@@ -35,7 +35,7 @@ ms.locfileid: "69656688"
 * [MongoDB API (미리 보기)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)
 
 > [!Note]
-> 사용자 의견에는 추가 API 지원을 위한 기존 항목이 있습니다. Azure Search에서 지원 되는 것으로 확인 하려는 Cosmos Api에 대 한 투표를 캐스팅할 수 있습니다. [Table API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab), [Graph API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4), [Apache Cassandra API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu).
+> 사용자 의견에는 추가 API 지원을 위한 기존 항목이 있습니다. Azure Search [Table API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab), [Graph API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4), [Apache Cassandra API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu)에서 지원 되는 것으로 확인 하려는 Cosmos api에 대 한 투표를 캐스팅할 수 있습니다.
 >
 
 <a name="cosmos-indexer-portal"></a>
@@ -50,13 +50,13 @@ Azure Search와 Azure Cosmos DB 모두 동일한 지역에 동일한 Azure 구�
 
 Cosmos 계정, SQL API 또는 MongoDB API에 매핑된 Azure Cosmos 데이터베이스 및 JSON 문서 컨테이너를가지고 있어야 합니다. 
 
-Cosmos DB 데이터베이스에 데이터가 포함 되어 있는지 확인 합니다. [데이터 가져오기 마법사](search-import-data-portal.md) 는 메타 데이터를 읽고 데이터 샘플링을 수행 하 여 인덱스 스키마를 유추 하지만 Cosmos DB에서 데이터를 로드 합니다. 데이터가 없으면 "데이터 원본에서 인덱스 스키마를 검색 하는 동안 오류가 발생 했습니다. 데이터 원본 ' emptycollection '이 (가) 데이터를 반환 하지 않았으므로 프로토타입 인덱스를 작성할 수 없습니다.
+Cosmos DB 데이터베이스에 데이터가 포함 되어 있는지 확인 합니다. [데이터 가져오기 마법사](search-import-data-portal.md) 는 메타 데이터를 읽고 데이터 샘플링을 수행 하 여 인덱스 스키마를 유추 하지만 Cosmos DB에서 데이터를 로드 합니다. 데이터가 누락 된 경우 "데이터 원본에서 인덱스 스키마를 검색 하는 동안 오류 발생: 데이터 원본 ' emptycollection '에서 데이터를 반환 하지 않았으므로 프로토타입 인덱스를 작성할 수 없습니다." 라는 오류와 함께 마법사가 중단 됩니다.
 
 ### <a name="2---start-import-data-wizard"></a>2 - 데이터 가져오기 마법사 시작
 
 Azure Search 서비스 페이지의 명령 모음에서 또는 저장소 계정의 왼쪽 탐색 창의 **설정** 섹션에서 **Azure Search 추가** 를 클릭 하 여 [마법사를 시작할](search-import-data-portal.md) 수 있습니다.
 
-   ![포털의 데이터 가져오기 명령](./media/search-import-data-portal/import-data-cmd2.png "데이터 가져오기 마법사 시작")
+   ![포털에서 데이터 가져오기 명령](./media/search-import-data-portal/import-data-cmd2.png "데이터 가져오기 마법사 시작")
 
 ### <a name="3---set-the-data-source"></a>3 - 데이터 원본 설정
 
@@ -67,7 +67,7 @@ Azure Search 서비스 페이지의 명령 모음에서 또는 저장소 계정�
 
 + **Name** 은 데이터 원본 개체의 이름입니다. 만든 후에는 다른 작업에 대해 선택할 수 있습니다.
 
-+ **Cosmos DB 계정은** `AccountEndpoint` 및가 `AccountKey`있는 Cosmos DB의 기본 또는 보조 연결 문자열 이어야 합니다. 이 계정은 데이터가 SQL API 또는 Mongo DB API로 캐스팅 되는지 여부를 결정 합니다.
++ **Cosmos DB 계정은** `AccountEndpoint` 및 `AccountKey`를 사용 하 여 Cosmos DB의 기본 또는 보조 연결 문자열 이어야 합니다. 이 계정은 데이터가 SQL API 또는 Mongo DB API로 캐스팅 되는지 여부를 결정 합니다.
 
 + **데이터베이스** 는 계정의 기존 데이터베이스입니다. 
 
@@ -93,7 +93,7 @@ Azure Search 서비스 페이지의 명령 모음에서 또는 저장소 계정�
 
 **인덱스** 페이지에는 데이터 형식을 포함하는 필드 목록과 인덱스 특성을 설정하기 위한 여러 확인란이 표시됩니다. 마법사는 메타 데이터를 기반으로 하 고 원본 데이터를 샘플링 하 여 필드 목록을 생성할 수 있습니다. 
 
-특성 열의 맨 위에 있는 확인란을 클릭 하 여 특성을 일괄 선택할 수 있습니다. 클라이언트 앱에 반환 되어야 하는 모든 필드에 대해 검색 가능 하 고 **검색** 가능을 선택 하 고 전체 텍스트 검색 처리를 적용 합니다. 정수는 전체 텍스트 또는 유사 항목 검색이 아닌 것을 알 수 있습니다. 숫자는 축 자로 계산 되며 필터에 유용한 경우가 많습니다.
+특성 열의 맨 위에 있는 확인란을 클릭 하 여 특성을 일괄 선택할 수 있습니다. 클라이언트 앱에 반환 되어야 하는 모든 필드에 대해 검색 가능 하 고 **검색** 가능 **을 선택 하 고 전체** 텍스트 검색 처리를 적용 합니다. 정수는 전체 텍스트 또는 유사 항목 검색이 아닌 것을 알 수 있습니다. 숫자는 축 자로 계산 되며 필터에 유용한 경우가 많습니다.
 
 자세한 내용은 [인덱스 특성](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) 및 [언어 분석기](https://docs.microsoft.com/rest/api/searchservice/language-support) 에 대 한 설명을 참조 하세요. 
 
@@ -124,12 +124,12 @@ Azure Search 서비스 페이지의 명령 모음에서 또는 저장소 계정�
 
 REST API를 사용 하 여 Azure Cosmos DB 데이터를 인덱싱할 수 있습니다. 즉, 데이터 원본 만들기, 인덱스 만들기, 인덱서 만들기 Azure Search의 모든 인덱서에 공통 된 세 부분으로 구성 된 워크플로를 수행 합니다. Cosmos 저장소에서 데이터 추출은 인덱서 만들기 요청을 제출할 때 발생 합니다. 이 요청을 완료 한 후에는 쿼리 가능한 인덱스를 갖게 됩니다. 
 
-MongoDB를 평가 하는 경우 나머지 `api-version=2019-05-06-Preview` 를 사용 하 여 데이터 원본을 만들어야 합니다.
+MongoDB를 평가 하는 경우에는 REST `api-version=2019-05-06-Preview`를 사용 하 여 데이터 원본을 만들어야 합니다.
 
 Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 여부를 선택할 수 있습니다. 기본적으로 모든 문서는 자동으로 인덱싱되지만 자동 인덱싱을 해제할 수도 있습니다. 인덱싱을 해제하면 자체 링크를 통해서나 문서 ID를 사용한 쿼리로만 문서에 액세스할 수 있습니다. Azure Search를 사용하려면 Azure Search로 인덱싱할 컬렉션에서 Cosmos DB 자동 인덱싱이 설정되어 있어야 합니다. 
 
 > [!WARNING]
-> Azure Cosmos DB는 DocumentDB의 다음 세대입니다. 이전에는 `documentdb` API 버전 **2017-11-11** 을 사용 하 여 구문을 사용할 수 있었습니다. 즉, 데이터 원본 유형을 또는 `cosmosdb` `documentdb`로 지정할 수 있습니다. Api 버전 **2019-05-06** 부터 Azure Search api 및 포털은 모두이 문서에 설명 `cosmosdb` 된 대로 구문만 지원 합니다. 즉, Cosmos DB 끝점에 연결 하려면 데이터 `cosmosdb` 원본 유형이 필요 합니다.
+> Azure Cosmos DB는 DocumentDB의 다음 세대입니다. 이전에는 API 버전 **2017-11-11** 을 사용 하 여 `documentdb` 구문을 사용할 수 있었습니다. 따라서 데이터 원본 유형을 `cosmosdb` 또는 `documentdb`으로 지정할 수 있습니다. API 버전 **2019-05-06** 부터 Azure Search Api 및 포털 모두이 문서에 설명 된 대로 `cosmosdb` 구문을 지원 합니다. 즉, Cosmos DB 끝점에 연결 하려는 경우 데이터 원본 유형이 `cosmosdb` 해야 합니다.
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-요청에 대 한 입력을 조합 합니다.
 
@@ -174,12 +174,12 @@ Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 �
 
 요청 본문에는 다음 필드를 포함해야 하는 데이터 소스 정의가 포함됩니다.
 
-| 필드   | Description |
+| 필드   | 설명 |
 |---------|-------------|
-| **name** | 필수 요소. 데이터 원본 개체를 나타내는 이름을 선택 합니다. |
-|**type**| 필수 요소. `cosmosdb`여야 합니다. |
-|**credentials** | 필수 요소. Cosmos DB 연결 문자열 이어야 합니다.<br/>SQL 컬렉션의 경우 연결 문자열은 다음과 같은 형식입니다.`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>MongoDB 컬렉션의 경우 **Apikind = MongoDB** 를 연결 문자열에 추가 합니다.<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>엔드포인트 URL에는 포트 번호를 사용하지 않습니다. 포트 번호를 포함하는 경우 Azure Search는 Azure Cosmos DB 데이터베이스를 인덱싱할 수 없습니다.|
-| **container** | 에는 다음 요소가 포함 되어 있습니다. <br/>**name**: 필수 요소. 인덱싱할 데이터베이스 컬렉션의 ID를 지정 합니다.<br/>**query**: 선택 사항입니다. 추상 JSON 문서를 Azure Search가 인덱싱할 수 있는 평면 스키마로 평면화하는 쿼리를 지정할 수 있습니다.<br/>MongoDB 컬렉션의 경우 쿼리가 지원되지 않습니다. |
+| **name** | 필수 사항입니다. 데이터 원본 개체를 나타내는 이름을 선택 합니다. |
+|**type**| 필수 사항입니다. `cosmosdb`이어야 합니다. |
+|**credentials** | 필수 사항입니다. Cosmos DB 연결 문자열 이어야 합니다.<br/>SQL 컬렉션의 경우 연결 문자열 형식은 다음과 같습니다. `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>MongoDB 컬렉션의 경우 **Apikind = MongoDB** 를 연결 문자열에 추가 합니다.<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>엔드포인트 URL에는 포트 번호를 사용하지 않습니다. 포트 번호를 포함하는 경우 Azure Search는 Azure Cosmos DB 데이터베이스를 인덱싱할 수 없습니다.|
+| **container** | 에는 다음 요소가 포함 되어 있습니다. <br/>**이름**: 필수입니다. 인덱싱할 데이터베이스 컬렉션의 ID를 지정 합니다.<br/>**쿼리**: 선택 사항입니다. 추상 JSON 문서를 Azure Search가 인덱싱할 수 있는 평면 스키마로 평면화하는 쿼리를 지정할 수 있습니다.<br/>MongoDB 컬렉션의 경우 쿼리가 지원되지 않습니다. |
 | **dataChangeDetectionPolicy** | 권장됩니다. [변경된 문서 인덱싱](#DataChangeDetectionPolicy) 섹션을 참조하세요.|
 |**dataDeletionDetectionPolicy** | 선택 사항입니다. [삭제된 문서 인덱싱](#DataDeletionDetectionPolicy) 섹션을 참조하세요.|
 
@@ -258,10 +258,10 @@ Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 �
 | Bool |Edm.Boolean, Edm.String |
 | 정수와 같이 보이는 숫자 |Edm.Int32, Edm.Int64, Edm.String |
 | 부동소수점처럼 보이는 숫자 |Edm.Double, Edm.String |
-| String |Edm.String |
+| string |Edm.String |
 | 기본 형식의 배열, 예: ["a", "b", "c"] |Collection(Edm.String) |
 | 날짜처럼 보이는 문자열 |Edm.DateTimeOffset, Edm.String |
-| GeoJSON 개체(예: { “type”: “Point”, “coordinates”: [long, lat] } |Edm.GeographyPoint |
+| GeoJSON 개체, 예: { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
 | 기타 JSON 개체 |N/A |
 
 ### <a name="4---configure-and-run-the-indexer"></a>4-인덱서 구성 및 실행

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.openlocfilehash: ecb393ea1f64897f17ce73170da1673886ef8916
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71266177"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Azure HDInsight IO 캐시를 사용 하 여 Apache Spark 작업의 성능 향상
@@ -41,7 +41,7 @@ Azure HDInsight IO 캐시는 기본적으로 미리 보기에서 비활성화됩
 
 1. **동작** 및 **활성화**를 선택합니다.
 
-    ![Ambari에서 IO Cache 서비스를 사용하도록 설정](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Ambari에서 IO Cache 서비스를 사용하도록 설정")
+    ![Ambari에서 IO 캐시 서비스 사용](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Ambari에서 IO 캐시 서비스 사용")
 
 1. 클러스터에 영향을 주는 모든 서비스를 다시 시작하는지 확인합니다.
 
@@ -64,7 +64,7 @@ IO 캐시를 사용하도록 설정한 후 Spark 작업을 실행하는 디스�
 
 1. 상자의 값을 변경합니다.
 
-    ![IO 캐시 사용률 비율 편집](./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png "IO 캐시 사용률 비율 편집")
+    ![IO 캐시의 평균 사용률 편집](./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png "IO 캐시의 평균 사용률 편집")
 
 1. 오른쪽의 **저장**을 선택합니다.
 
@@ -78,4 +78,4 @@ IO 캐시를 사용하도록 설정한 후 Spark 작업을 실행하는 디스�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 다음 블로그 게시물에서 성능 벤치마크를 포함한 IO 캐시에 대해 자세히 알아보세요. [Apache Spark jobs gain up to 9x speed up with HDInsight IO Cache](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)(HDInsight IO 캐시로 Apache Spark 작업 속도 9배 높이기)
+- 이 블로그 게시물의 성능 벤치마크를 포함하여 IO 캐시에 대해 더 자세히 읽기: [HDInsight IO 캐시를 사용할 경우 Apache Spark 작업의 속도가 최대 9배 향상](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)

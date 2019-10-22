@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: b8bb3285aecb6aff399606e6263f014027a86581
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7b89d08f4621ecde77a60510b05d96decff0cfde
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128895"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693183"
 ---
 # <a name="decision-forest-regression-module"></a>의사 결정 포리스트 회귀 모듈
 
@@ -24,7 +24,7 @@ ms.locfileid: "70128895"
 
 모델을 구성한 후에는 레이블이 지정 된 데이터 집합 및 [모델 학습](./train-model.md) 모듈을 사용 하 여 모델을 학습 해야 합니다.  그런 다음 학습 된 모델을 사용 하 여 예측을 만들 수 있습니다. 
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 원리
 
 의사 결정 트리는 각 인스턴스에 대해 간단한 테스트 시퀀스를 수행 하 고 리프 노드 (의사 결정)에 도달할 때까지 이진 트리 데이터 구조를 트래버스하는 패라메트릭 모델이 아닙니다.
 
@@ -38,21 +38,21 @@ ms.locfileid: "70128895"
 
 이 회귀 모델은 의사 결정 트리의 앙상블 구성 됩니다. 회귀 의사 결정 포리스트의 각 트리는 가우스 분포를 예측으로 출력 합니다. 모델의 모든 트리에 대해 결합 된 분포와 가장 가까운 가우스 분포를 찾기 위해 트리의 앙상블 대해 집계가 수행 됩니다.
 
-이 알고리즘 및 해당 구현에 대 한 이론적인 프레임 워크에 대 한 자세한 내용은 다음 문서를 참조 하세요. [의사 결정 포리스트: 분류, 회귀, 밀도 예측, 다 기관의 학습 및 반 감독 된 학습을 위한 통합 프레임 워크](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
+이 알고리즘과 해당 구현에 대 한 이론적인 프레임 워크에 대 한 자세한 내용은 [의사 결정 포리스트: 분류, 회귀, 밀도 예측, 다 기관의 학습 및 반 감독 학습을 위한 통합 프레임 워크 문서를 참조 하세요. ](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>의사 결정 포리스트 회귀 모델을 구성 하는 방법
 
-1. **의사 결정 포리스트 회귀** 모듈을 실험에 추가 합니다. 인터페이스에서 모듈은 **Machine Learning**, **모델 초기화**및 **재발**아래에서 찾을 수 있습니다.
+1. **의사 결정 포리스트 회귀** 모듈을 파이프라인에 추가 합니다. 인터페이스에서 모듈은 **Machine Learning**, **모델 초기화**및 **재발**아래에서 찾을 수 있습니다.
 
 2. 모듈 속성을 열고, **재샘플링 방법**의 경우 개별 트리를 만드는 데 사용 되는 메서드를 선택 합니다.  **모음 만들기** 에서 선택 하거나 **복제할**수 있습니다.
 
-    - **모음 만들기**: 모음 만들기는 *부트스트랩 집계*라고도 합니다. 회귀 의사 결정 포리스트의 각 트리는 예측을 통해 가우스 분포를 출력 합니다. 집계는 개별 트리에서 반환 된 모든 Gaussians을 결합 하 여 지정 된 Gaussians 혼합의 시점에서 처음 두 분이 일치 하는 가우스을 찾는 것입니다.
+    - **모음 만들기**: 모음 만들기를 *부트스트랩 집계*라고도 합니다. 회귀 의사 결정 포리스트의 각 트리는 예측을 통해 가우스 분포를 출력 합니다. 집계는 개별 트리에서 반환 된 모든 Gaussians을 결합 하 여 지정 된 Gaussians 혼합의 시점에서 처음 두 분이 일치 하는 가우스을 찾는 것입니다.
 
          자세한 내용은 [부트스트랩 집계](https://wikipedia.org/wiki/Bootstrap_aggregating)를 위한 위키백과 항목을 참조 하세요.
 
-    - **복제**: 복제에서 각 트리는 정확히 동일한 입력 데이터에 대해 학습 됩니다. 각 트리 노드에 사용 되는 분할 조건자의 결정은 임의로 유지 되 고 트리는 다양 합니다.
+    - **복제: 복제**에서 각 트리는 정확히 동일한 입력 데이터에 대해 학습 됩니다. 각 트리 노드에 사용 되는 분할 조건자의 결정은 임의로 유지 되 고 트리는 다양 합니다.
 
-         **복제** 옵션을 사용 하는 학습 프로세스에 대 한 자세한 내용은 [Computer Vision 및 의료 이미지 분석에 대 한 의사 결정 포리스트를 참조 하세요. Criminisi 및 J. Shotton입니다. Springer 2013. ](https://research.microsoft.com/projects/decisionforests/).
+         **복제** 옵션을 사용 하는 학습 프로세스에 대 한 자세한 내용은 [Computer Vision 및 의료 이미지 분석에 대 한 의사 결정 포리스트를 참조 하세요. Criminisi 및 J. Shotton입니다. Springer 2013.](https://research.microsoft.com/projects/decisionforests/)
 
 3. **강사 모드 만들기** 옵션을 설정 하 여 모델을 학습 하는 방법을 지정 합니다.
 
@@ -82,7 +82,7 @@ ms.locfileid: "70128895"
 
    
 
-10. 실험을 실행합니다.
+10. 파이프라인을 실행합니다.
 
 ### <a name="results"></a>결과
 
@@ -92,7 +92,7 @@ ms.locfileid: "70128895"
 
 + 각 노드에 대 한 규칙을 보려면 각 트리를 클릭 하 고 분할을 드릴 다운 합니다.
 
-+ 학습 된 모델의 스냅숏을 저장 하려면 학습 모듈의 출력을 마우스 오른쪽 단추로 클릭 하 고 학습 된 **모델로 저장**을 선택 합니다. 이 모델 복사본은 실험의 연속 실행에서 업데이트 되지 않습니다. 
++ 학습 된 모델의 스냅숏을 저장 하려면 학습 모듈의 출력을 마우스 오른쪽 단추로 클릭 하 고 학습 된 **모델로 저장**을 선택 합니다. 이 모델 복사본은 파이프라인의 후속 실행에서 업데이트 되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

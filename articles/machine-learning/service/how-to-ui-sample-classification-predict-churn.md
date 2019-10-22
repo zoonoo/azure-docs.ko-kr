@@ -1,7 +1,7 @@
 ---
 title: '시각적 인터페이스 예제 #5: 변동 + 욕구 + 위쪽 판매를 예측 하는 분류'
 titleSuffix: Azure Machine Learning
-description: 이 시각적 인터페이스 샘플 실험에서는 CRM (고객 관계 관리)에 대 한 일반 작업 인 변동의 이진 분류자 예측을 보여 줍니다.
+description: 이 시각적 인터페이스 샘플 파이프라인은 CRM (고객 관계 관리)에 대 한 일반 작업 인 변동의 이진 분류자 예측을 보여 줍니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,45 +9,45 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/10/2019
-ms.openlocfilehash: 260d94ddf2572979e819ee89dfcbd315ef3c4769
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 09/23/2019
+ms.openlocfilehash: 82639779dde08bb1f71fb75dba62038dbf34d1b6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131936"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693569"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>샘플 5-분류: 변동, 욕구 및 업 판매 예측 
 
-시각적 인터페이스를 사용 하 여 코드를 한 줄도 작성 하지 않고 복잡 한 기계 학습 실험을 빌드하는 방법을 알아봅니다.
+시각적 인터페이스를 사용 하 여 코드를 한 줄도 작성 하지 않고 복잡 한 기계 학습 파이프라인을 빌드하는 방법에 대해 알아봅니다.
 
-이 실험에서는 세 가지 **2 클래스 승격 된 의사 결정 트리** 분류자를 학습 하 여 CRM (고객 관계 관리) 시스템에 대 한 일반 작업 (예: 변동, 욕구 및 업 판매)을 예측 합니다. 데이터 값과 레이블은 여러 데이터 원본에 걸쳐 분할 되 고 익명화 고객 정보를 제공 합니다. 그러나 여전히 시각적 인터페이스를 사용 하 여 데이터 집합을 결합 하 고 스크램블 된 값을 사용 하 여 모델을 학습 시킬 수 있습니다.
+이 파이프라인은 3 **개의 2 클래스 승격 된 의사 결정 트리** 분류자를 학습 하 여 CRM (고객 관계 관리) 시스템에 대 한 일반 작업 (예: 변동, 욕구 및 업 판매)을 예측 합니다. 데이터 값과 레이블은 여러 데이터 원본에 걸쳐 분할 되 고 익명화 고객 정보를 제공 합니다. 그러나 시각적 인터페이스를 사용 하 여 데이터 집합을 결합 하 고 가려진 값을 사용 하 여 모델을 학습 시킬 수 있습니다.
 
-"무엇 인가요?" 라는 질문에 답변 하려고 하기 때문에 이를 분류 문제 라고 하지만,이 프로젝트에 동일한 논리를 적용 하 여 재발, 분류, 클러스터링 등의 모든 유형의 기계 학습 문제를 다룰 수 있습니다.
+"무엇 인가요?" 라는 질문에 답변 하려고 하기 때문에 이를 분류 문제 라고 하지만,이 샘플에 표시 된 것과 동일한 논리를 적용 하 여 재발, 분류, 클러스터링 등의 모든 유형의 기계 학습 문제를 다룰 수 있습니다.
 
-이 실험의 완료 된 그래프는 다음과 같습니다.
+이 파이프라인에 대 한 완료 된 그래프는 다음과 같습니다.
 
-![실험 그래프](./media/how-to-ui-sample-classification-predict-churn/experiment-graph.png)
+![파이프라인 그래프](./media/how-to-ui-sample-classification-predict-churn/pipeline-graph.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. 샘플 5 실험의 **열기** 단추를 선택 합니다.
+4. 샘플 5 파이프라인에 대 한 **열기** 단추를 선택 합니다.
 
-    ![실험 열기](media/how-to-ui-sample-classification-predict-churn/open-sample5.png)
+    ![파이프라인 열기](media/how-to-ui-sample-classification-predict-churn/open-sample5.png)
 
-## <a name="data"></a>data
+## <a name="data"></a>데이터
 
-이 실험의 데이터는 KDD 컵 2009입니다. 5만 행 및 230 기능 열이 있습니다. 이 작업은 이러한 기능을 사용 하는 고객을 위한 변동, 욕구 및 업 판매를 예측 하는 것입니다. 데이터 및 작업에 대 한 자세한 내용은 [Kdd 웹 사이트](https://www.kdd.org/kdd-cup/view/kdd-cup-2009)를 참조 하세요.
+이 파이프라인에 대 한 데이터는 KDD 컵 2009입니다. 5만 행 및 230 기능 열이 있습니다. 이 작업은 이러한 기능을 사용 하는 고객을 위한 변동, 욕구 및 업 판매를 예측 하는 것입니다. 데이터 및 작업에 대 한 자세한 내용은 [Kdd 웹 사이트](https://www.kdd.org/kdd-cup/view/kdd-cup-2009)를 참조 하세요.
 
-## <a name="experiment-summary"></a>실험 요약
+## <a name="pipeline-summary"></a>파이프라인 요약
 
-이 시각적 인터페이스 샘플 실험에서는 CRM (고객 관계 관리)에 대 한 일반 작업 인 변동, 욕구 및 업 판매의 이진 분류자 예측을 보여 줍니다.
+이 시각적 인터페이스 샘플 파이프라인은 CRM (고객 관계 관리)에 대 한 일반 작업 인 변동, 욕구 및 업 판매의 이진 분류자 예측을 보여 줍니다.
 
-먼저, 몇 가지 간단한 데이터 처리를 수행 합니다.
+첫째, 몇 가지 간단한 데이터 처리를 수행 합니다.
 
-- 원시 데이터 집합에는 누락 된 값이 많이 포함 되어 있습니다. 누락 된 **데이터 정리** 모듈을 사용 하 여 누락 된 값을 0으로 바꿉니다.
+- 원시 데이터 집합에 누락 값이 많이 있습니다. 누락 된 **데이터 정리** 모듈을 사용 하 여 누락 된 값을 0으로 바꿉니다.
 
     ![데이터 집합 정리](./media/how-to-ui-sample-classification-predict-churn/cleaned-dataset.png)
 
@@ -57,7 +57,7 @@ ms.locfileid: "71131936"
 
 - **데이터 분할** 모듈을 사용 하 여 데이터 집합을 학습 및 테스트 집합으로 분할할 수 있습니다.
 
-    그런 다음 기본 매개 변수와 함께 승격 된 의사 결정 트리 이진 분류자를 사용 하 여 예측 모델을 작성 합니다. 작업 당 하나의 모델, 즉 각 작업을 예측 하 고, 욕구 하 고, 변동 하는 모델을 만듭니다.
+- 그런 다음 기본 매개 변수와 함께 승격 된 의사 결정 트리 이진 분류자를 사용 하 여 예측 모델을 작성 합니다. 작업 당 하나의 모델, 즉 각 작업을 예측 하 고, 욕구 하 고, 변동 하는 모델을 만듭니다.
 
 ## <a name="results"></a>결과
 
@@ -80,3 +80,4 @@ ms.locfileid: "71131936"
 - [샘플 3-분류: 신용 위험 예측](how-to-ui-sample-classification-predict-credit-risk-basic.md)
 - [샘플 4-분류: 신용 위험 예측 (비용 구분)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [샘플 6-분류: 비행 지연 예측](how-to-ui-sample-classification-predict-flight-delay.md)
+- [샘플 7-텍스트 분류: 책 리뷰](how-to-ui-sample-text-classification.md)

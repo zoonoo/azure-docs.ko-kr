@@ -9,10 +9,10 @@ ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 93f6bc8533218af7f0e6dcd1c5f7be6fe8c00e29
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69520860"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "69520860"
 
 ### <a name="can-i-use-certificates-from-azure-key-vault"></a>Azure Key Vault에서 인증서를 사용할 수 있나요?
 
-아니요.
+아닙니다.
 
 ### <a name="what-tools-can-i-use-to-create-certificates"></a>인증서를 만들려면 어떤 도구를 사용합니까?
 
@@ -31,11 +31,11 @@ You can use your Enterprise PKI 솔루션(사용자 인터넷 PKI), Azure PowerS
 
 ### <a name="certsettings"></a>인증서 설정 및 매개 변수에 대한 지침이 있습니까?
 
-* **내부 PKI/엔터프라이즈 PKI 솔루션:** [인증서를 생성](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert)하는 단계를 참조 하세요.
+* **Internal PKI/Enterprise PKI 솔루션:** [인증서 생성](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert)단계를 봅니다.
 
-* **Azure PowerShell:** 단계는 [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) 문서를 참조 하세요.
+* **Azure PowerShell:** 단계는 [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) 문서를 참조하세요.
 
-* **MakeCert:** 단계는 [makecert.exe](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) 문서를 참조 하세요.
+* **Makecert:** 단계는 [Makecert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) 문서를 참조하세요.
 
 * **OpenSSL:** 
 

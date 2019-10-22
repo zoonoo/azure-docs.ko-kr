@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.openlocfilehash: f78b8c3b9619b7eea92b6a4f04ed4f6543916efe
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71265523"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>보강 파이프라인에서 기술 집합을 만드는 방법
 
-인식 검색은 데이터를 추출하고 보강하여 Azure Search에서 검색 가능하게 합니다. 인덱싱 동안 참조된 *기술 집합*에 결합된 추출 및 보강 단계를 *인식 기술*이라고 합니다. 기술는 [기본 제공 기술](cognitive-search-predefined-skills.md) 또는 사용자 지정 기술을 사용할 수 있습니다 ( [예: 추가 정보에 대 한 인식 검색](cognitive-search-create-custom-skill-example.md) 을 위한 사용자 지정 기술 만들기
+인식 검색은 데이터를 추출하고 보강하여 Azure Search에서 검색 가능하게 합니다. 인덱싱 동안 참조된 *기술 집합*에 결합된 추출 및 보강 단계를 *인식 기술*이라고 합니다. 기술는 [기본 제공 기술](cognitive-search-predefined-skills.md) 또는 사용자 지정 기술을 사용할 수 있습니다 (자세한 내용은 [인지 검색을 위한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md) 참조).
 
 이 문서에서는 사용하려는 기술에 대한 보강 파이프라인을 만드는 방법을 알아 봅니다. 기술 집합은 Azure Search [인덱서](search-indexer-overview.md)에 첨부되어 있습니다. 이 문서에서 다루는 파이프라인 디자인의 한 부분은 기술 집합 자체를 생성하는 것입니다. 
 
@@ -27,7 +27,7 @@ ms.locfileid: "71265523"
 유념해야 할 주요 사항입니다.
 
 + 인덱서 당 하나의 기술 집합만 사용할 수 있습니다.
-+ 기술 집합에는 최소 하나 이상의 기술이 있어야 합니다.
++ 기능에는 하나 이상의 기술이 있어야 합니다.
 + 동일한 형식의 여러 기술(예: 이미지 분석 기술의 변형)을 만들 수 있습니다.
 
 ## <a name="begin-with-the-end-in-mind"></a>종료로 시작
@@ -163,7 +163,7 @@ Content-Type: application/json
     }
 ```
 
-* 모든 기본 제공 기술 `odata.type`에는, `input`및 `output` 속성이 있습니다. 기술 관련 속성은 해당 기술에 적용 가능한 추가 정보를 제공합니다. 엔터티 인식의 경우 `categories`은 미리 학습된 모델이 인식할 수 있는 엔터티 형식의 고정 집합 중 한 엔터티입니다.
+* 모든 기본 제공 기술에는 `odata.type`, `input` 및 `output` 속성이 있습니다. 기술 관련 속성은 해당 기술에 적용 가능한 추가 정보를 제공합니다. 엔터티 인식의 경우 `categories`은 미리 학습된 모델이 인식할 수 있는 엔터티 형식의 고정 집합 중 한 엔터티입니다.
 
 * 각 기술에는 ```"context"```이 있어야 합니다. 컨텍스트는 작업을 수행할 수준을 나타냅니다. 위의 기술에서 컨텍스트는 전체 문서입니다. 즉, 엔터티 인식 기술이 문서 당 한 번 호출 됩니다. 출력은 또한 해당 수준에서 생성됩니다. 보다 구체적으로, ```"organizations"```은 ```"/document"```의 구성원으로 생성됩니다. 다운스트림 기술에서 새로 만든 이 정보를 ```"/document/organizations"```로 언급할 수 있습니다.  ```"context"``` 필드가 명시적으로 설정되지 않은 경우 기본 컨텍스트는 문서입니다.
 
@@ -171,7 +171,7 @@ Content-Type: application/json
 
 * 기술에는 ```"organizations"```이라는 하나의 출력이 있습니다. 출력은 처리 동안만 존재합니다. 이 출력을 다운스트림 기술의 입력에 연결하려면 출력을 ```"/document/organizations"```로 참조합니다.
 
-* 특정 문서의 경우 ```"/document/organizations"```의 값은 텍스트에서 추출된 조직의 배열입니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+* 특정 문서의 경우 ```"/document/organizations"```의 값은 텍스트에서 추출된 조직의 배열입니다. 다음은 그 예입니다.
 
   ```json
   ["Microsoft", "LinkedIn"]
@@ -235,9 +235,9 @@ Content-Type: application/json
 
 ## <a name="add-structure"></a>구조 추가
 
-기술 집합은 구조화되지 않은 데이터에서 구조화된 정보를 생성합니다. 다음 예를 살펴 보십시오.
+기술 집합은 구조화되지 않은 데이터에서 구조화된 정보를 생성합니다. 다음 예제를 살펴보세요.
 
-*"4분기에 Microsoft는 작년에 사들인 소셜 네트워킹 회사 LinkedIn에서 11억 달러의 수익을 기록했습니다. 이 인수는 Microsoft가 LinkedIn 기능을 자사의 CRM 및 Office 기능과 결합할 수 있게 했습니다. 주주들은 지금까지의 진행 상황에 만족해 합니다.”*
+*"네 번째 분기에서 Microsoft는 작년의 수익에서 $11억을 기록 하 고 작년에 구매한 소셜 네트워킹 회사를 구매 했습니다. 이를 통해 Microsoft는 LinkedIn 기능과 해당 CRM 및 Office 기능을 결합할 수 있습니다. 주주는 지금까지 진행 되 고 있습니다. "*
 
 가능성 있는 결과는 다음 그림과 유사하게 생성된 구조입니다.
 

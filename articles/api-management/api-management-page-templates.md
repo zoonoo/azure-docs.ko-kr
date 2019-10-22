@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/09/2018
 ms.author: apimpm
 ms.openlocfilehash: 1189689566da84df6d6b8845bf7c81bd8aa5f1ab
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70072219"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Azure API Management의 페이지 템플릿
@@ -186,7 +186,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ##  <a name="PageNotFound"></a> 페이지를 찾을 수 없음  
  **페이지를 찾을 수 없음** 템플릿을 통해 개발자 포털에서 페이지를 찾을 수 없음 페이지를 사용자 지정할 수 있습니다.  
   
- ![페이지를 찾을 수 없음](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM 페이지를 찾을 수 없음 개발자 포털 템플릿")  
+ ![찾을 수 없음 페이지](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM을 찾을 수 없음 페이지 개발자 포털 템플릿")  
   
 ### <a name="default-template"></a>기본 템플릿  
   
@@ -225,13 +225,13 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|형식|설명|  
+|자산|Type|설명|  
 |--------------|----------|-----------------|  
-|referenceCode|string|이 페이지가 내부 오류의 결과로 표시된 경우에 생성되는 코드입니다.|  
-|errorCode|string|이 페이지가 내부 오류의 결과로 표시된 경우에 생성되는 코드입니다.|  
-|emailBody|string|내부 오류로 인해이 페이지 표시 된 경우 생성 된 본문을 전자 메일로 보냅니다.|  
-|requestedUrl|string|페이지를 찾을 수 없는 경우 요청되는 URL입니다.|  
-|referrerUrl|string|요청된 URL의 참조 페이지 URL입니다.|  
+|referenceCode|문자열|이 페이지가 내부 오류의 결과로 표시된 경우에 생성되는 코드입니다.|  
+|errorCode|문자열|이 페이지가 내부 오류의 결과로 표시된 경우에 생성되는 코드입니다.|  
+|emailBody|문자열|내부 오류로 인해이 페이지 표시 된 경우 생성 된 본문을 전자 메일로 보냅니다.|  
+|requestedUrl|문자열|페이지를 찾을 수 없는 경우 요청되는 URL입니다.|  
+|referrerUrl|문자열|요청된 URL의 참조 페이지 URL입니다.|  
   
 ### <a name="sample-template-data"></a>샘플 템플릿 데이터  
   

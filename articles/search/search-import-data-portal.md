@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 사용하여 검색 인덱스로 데이터 가져오기 - Azure Search
-description: Azure Portal에서 데이터 가져오기 마법사를 사용하여 Azure VM에 있는 Cosmos DB, Blob Storage, 테이블 스토리지, SQL Database 및 SQL Server에서 Azure 데이터를 크롤링하는 방법을 알아봅니다.
+description: Azure Portal에서 데이터 가져오기 마법사를 사용하여 Azure VM에 있는 Cosmos DB, Blob Storage, 테이블 저장소, SQL Database 및 SQL Server에서 Azure 데이터를 크롤링하는 방법을 알아봅니다.
 author: HeidiSteen
 manager: nitinme
 services: search
@@ -10,10 +10,10 @@ ms.date: 10/03/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 89f43227cfca3519a4985c5c961cf0b3c5774177
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71936917"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Azure Search의 데이터 가져오기 마법사
@@ -92,9 +92,9 @@ Azure Portal은 Azure Search 대시보드에서 인덱스를 프로토타입 및
 
 2. 맨 위에 있는 서비스 개요 페이지에서 **데이터 가져오기**를 클릭합니다.
 
-   ![포털의 데이터 가져오기 명령](./media/search-import-data-portal/import-data-cmd2.png "데이터 가져오기 마법사 시작")
+   ![포털에서 데이터 가져오기 명령](./media/search-import-data-portal/import-data-cmd2.png "데이터 가져오기 마법사 시작")
 
-Azure Cosmos DB, Azure SQL Database 및 Azure Blob storage를 비롯 한 다른 Azure 서비스에서 **데이터 가져오기를** 시작할 수도 있습니다. 서비스 개요 페이지의 왼쪽 탐색 창에서 **Azure Search 추가**를 찾아보세요.
+Azure Cosmos DB, Azure SQL Database 및 Azure Blob storage를 비롯 한 다른 Azure 서비스에서 **데이터 가져오기를** 시작할 수도 있습니다. 서비스 개요 페이지의 왼쪽 탐색 창에서 **Azure Search 추가**를 찾아봅니다.
 
 <a name="index-definition"></a>
 
@@ -106,13 +106,13 @@ Azure Cosmos DB, Azure SQL Database 및 Azure Blob storage를 비롯 한 다른 
 
 1. 들어오는 데이터에 적합 한 데이터 형식 입니까? Azure Search [EDM (엔터티 데이터 모델) 데이터 형식을](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)지원 합니다. Azure SQL 데이터의 경우 해당 값을 레이아웃 하는 [매핑 차트가](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#mapping-between-sql-and-azure-search-data-types) 있습니다. 자세한 배경 정보는 [필드 매핑 및 변환](search-indexer-field-mappings.md)을 참조 하세요.
 
-1. *키*로 사용할 수 있는 필드가 하나 있나요? 이 필드는 Edm 이어야 하며 문서를 고유 하 게 식별 해야 합니다. 관계형 데이터의 경우 기본 키에 매핑될 수 있습니다. Blob의 경우 `metadata-storage-path` 일 수 있습니다. 필드 값에 공백 또는 대시를 포함하는 경우 **고급 옵션**의 **인덱서 만들기** 단계에서 **Base-64 인코딩 키** 옵션을 설정하여 이러한 문자에 대한 유효성 검사를 비활성화해야 합니다.
+1. *키*로 사용할 수 있는 필드가 하나 있나요? 이 필드는 Edm 이어야 하며 문서를 고유 하 게 식별 해야 합니다. 관계형 데이터의 경우 기본 키에 매핑될 수 있습니다. Blob의 경우 `metadata-storage-path` 일 수 있습니다. 필드 값에 공백 또는 대시를 포함하는 경우 **고급 옵션**의 **인덱서 만들기** 단계에서 **Base-64 인코딩 키** 옵션을 설정하여 이러한 문자에 대한 유효성 검사를 억제해야 합니다.
 
 1. 특성을 설정 하 여 인덱스에서 필드가 사용 되는 방법을 결정 합니다. 
 
    특성은 인덱스의 필드에 대 한 물리적 식을 결정 하기 때문에이 단계를 수행 합니다. 나중에 프로그래밍 방식으로 특성을 변경 하려는 경우에는 항상 인덱스를 삭제 하 고 다시 작성 해야 합니다. **검색** 가능 하 고 **검색할** 수 있는 것과 같은 핵심 특성은 [저장소에 미치는 영향을 무시](search-what-is-an-index.md#storage-implications)합니다. 필터를 사용 하도록 설정 하 고 확인 기를 사용 하면 저장소 요구 사항이 증가 합니다. 
    
-   + **검색 가능**을 선택하면 전체 텍스트를 검색할 수 있습니다. 자유 형식 쿼리 또는 쿼리 식에 사용되는 모든 필드에는 이 특성이 있어야 합니다. **검색 가능**으로 표시한 각 필드에 대해 반전된 인덱스가 만들어집니다.
+   + **검색 가능**을 통해 전체 텍스트를 검색할 수 있습니다. 자유 형식 쿼리 또는 쿼리 식에 사용되는 모든 필드에는 이 특성이 있어야 합니다. **검색 가능**으로 표시한 각 필드에 대해 반전된 인덱스가 만들어집니다.
 
    + **검색 가능**은 검색 결과에 필드를 반환합니다. 검색 결과에 콘텐츠를 제공하는 모든 필드에는 이 특성이 있어야 합니다. 이 필드를 설정해도 인덱스 크기는 두드러지게 영향을 받지 않습니다.
 

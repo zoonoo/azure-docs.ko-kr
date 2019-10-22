@@ -269,6 +269,8 @@
         - name: CI/CD용 Azure Pipelines
           displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: Python에서 ML 파이프라인 예약
+          href: how-to-schedule-pipelines.md
     - name: 리소스 할당량 관리
       displayName: limits
       href: how-to-manage-quotas.md

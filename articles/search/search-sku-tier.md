@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: heidist
 ms.openlocfilehash: 32ec97ce923c1cffd92fa6522f30abf7ea87fff7
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72331201"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure Search에 대한 가격 책정 계층 선택
@@ -41,7 +41,7 @@ Azure Search 서비스를 만들면 서비스 수명 동안 고정 된 가격 �
 
 **Free** 는 다른 구독자와 공유 되는 클러스터에서 제한 된 검색 서비스를 만듭니다. 빠른 시작 및 자습서를 비롯 한 작은 프로젝트를 완료할 수 있지만 서비스를 확장 하거나 중요 한 작업을 실행할 수는 없습니다. **기본** 및 **표준은** 가장 일반적으로 사용 되는 청구 가능 계층으로, **표준** 을 기본값으로 사용 합니다.
 
-(media/search-sku-tier/tiers.png "Azure Search의 Azure Search 가격") 책정 계층 ![가격 책정 계층]
+![Azure Search 가격 책정 계층](media/search-sku-tier/tiers.png "Azure Search 가격 책정 계층")
 
 일부 계층은 특정 작업 유형에 맞게 최적화 되어 있습니다. 예를 들어 **표준 3 고밀도 (S3 HD)** 는 s 3의 *호스팅 모드* 입니다. 여기서 기본 하드웨어는 많은 수의 작은 인덱스에 대해 최적화 되 고 배포할지에 시나리오를 위한 것입니다. S3 HD는 S3와 동일한 단가를 갖지만 하드웨어는 많은 수의 작은 인덱스에서 빠른 파일 읽기에 최적화 되어 있습니다.
 

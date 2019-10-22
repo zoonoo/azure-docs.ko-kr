@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: f560923b0a5457ac5fd03c7f76fc4315c6ca08e8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 369974e52cb3585e4333b6033573b433e0a1a41a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128433"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693638"
 ---
 # <a name="two-class-averaged-perceptron-module"></a>2 클래스 평균 퍼셉트론 모듈
 
@@ -32,11 +32,11 @@ ms.locfileid: "70128433"
 
 ## <a name="how-to-configure-two-class-averaged-perceptron"></a>2 클래스 평균 퍼셉트론를 구성 하는 방법
 
-1.  실험에 **2 클래스 평균 퍼셉트론** 모듈을 추가 합니다.  
+1.  **2 클래스 평균 퍼셉트론** 모듈을 파이프라인에 추가 합니다.  
 
 2.  **강사 모드 만들기** 옵션을 설정 하 여 모델을 학습 하는 방법을 지정 합니다.  
   
-    -   **단일 매개 변수**: 모델을 구성 하는 방법을 알고 있는 경우 특정 값 집합을 인수로 제공 합니다.
+    -   **단일 매개 변수**: 모델을 구성 하는 방법을 아는 경우 특정 값 집합을 인수로 제공 합니다.
   
 3.  **학습 률**에 대해 *학습 률*값을 지정 합니다. 학습 률 값은 모델을 테스트 하 고 수정할 때마다 추계 그라데이션 하강에 사용 되는 단계의 크기를 제어 합니다.
   
@@ -46,7 +46,7 @@ ms.locfileid: "70128433"
   
      조기에 중지 하면 더 나은 일반화가 제공 됩니다. 반복 횟수를 증가 시키면 과잉 맞춤 위험에 노출 됩니다.
   
-5.  **난수 초기값**의 경우 초기값으로 사용할 정수 값을 입력 합니다. 실행 간에 실험의 재현 가능성 보장 하려면 초기값을 사용 하는 것이 좋습니다.  
+5.  **난수 초기값**의 경우 초기값으로 사용할 정수 값을 입력 합니다. 실행 간에 파이프라인이 재현 가능성 보장 하려면 초기값을 사용 하는 것이 좋습니다.  
   
 1.  학습 데이터 집합 및 학습 모듈 중 하나를 연결 합니다.
   

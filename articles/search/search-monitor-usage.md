@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
 ms.openlocfilehash: fe8061f8e99742f9dc5c1181235c4203aaad82ca
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72331205"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Azure Search에서 리소스 사용량 및 쿼리 작업 모니터링
@@ -30,8 +30,8 @@ Azure Search 서비스의 개요 페이지에서 리소스 사용량, 쿼리 메
 
 **사용량** 탭에는 현재 [제한](search-limits-quotas-capacity.md) 기준의 리소스 가용성이 표시됩니다. 다음 그림에서는 각 형식의 3개 개체와 50MB의 스토리지로 제한된 체험 서비스를 보여 줍니다. 기본 또는 표준 서비스의 제한이 더 높으며, 파티션 수를 늘리면 최대 스토리지 크기도 비례하여 증가합니다.
 
-![유효 제한 대비 사용량](./media/search-monitor-usage/usage-tab.png
- "유효 제한 대비 사용량")
+![유효 한도에 상대적인 사용 상태](./media/search-monitor-usage/usage-tab.png
+ "유효 한도에 상대적인 사용 상태")
 
 ## <a name="queries-per-second-qps-and-other-metrics"></a>QPS(초당 쿼리 수) 및 기타 메트릭
 
@@ -40,7 +40,7 @@ Azure Search 서비스의 개요 페이지에서 리소스 사용량, 쿼리 메
 
 이러한 숫자는 근사값이며, 시스템의 요청 처리 상태를 일반적으로 파악하기 위한 것입니다. 실제 QPS는 포털에 보고된 수보다 높거나 낮을 수 있습니다.
 
-![초당 쿼리 수 활동](./media/search-monitor-usage/monitoring-tab.png "초당 쿼리 수 활동")
+![초당 쿼리 작업](./media/search-monitor-usage/monitoring-tab.png "초당 쿼리 작업")
 
 ## <a name="activity-logs"></a>활동 로그
 
@@ -84,7 +84,7 @@ Azure Monitor 로그와 Blob 저장소는 모두 무료 서비스로 제공 되�
 
    Blob 스토리지에 보관하려면 스토리지 계정만 있어야 합니다. 컨테이너 및 blob은 로그 데이터를 내보낼 때 필요에 따라 만들어집니다.
 
-   ![Blob 스토리지 보관 구성](./media/search-monitor-usage/configure-blob-storage-archive.png "Blob 스토리지 보관 구성")
+   ![Blob storage 보관 파일 구성](./media/search-monitor-usage/configure-blob-storage-archive.png "Blob storage 보관 파일 구성")
 
 4. 프로필을 저장합니다.
 

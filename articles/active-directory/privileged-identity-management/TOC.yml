@@ -83,6 +83,8 @@
           href: azure-pim-resource-rbac.md
         - name: 사용자 지정 역할 사용
           href: pim-resource-roles-custom-role-policy.md
+    - name: PIM 문제 해결
+      href: pim-troubleshoot.md
     - name: 액세스 검토
       items:
         - name: Azure AD 역할

@@ -8,15 +8,15 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.openlocfilehash: d934568f09e62ad8c1b472583cbfee79d2c837f6
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71936867"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에서 Azure Storage 사용
 
-HDInsight 클러스터에서 데이터를 분석 하려면 데이터를 [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake Storage gen 2](../storage/blobs/data-lake-storage-introduction.md)또는 조합 중 하나로 저장할 수 있습니다. 이러한 저장소 옵션을 사용 하면 사용자 데이터 손실 없이 계산에 사용 되는 HDInsight 클러스터를 안전 하 게 삭제할 수 있습니다.
+HDInsight 클러스터에서 데이터를 분석 하려면 데이터를 [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage gen 1](../data-lake-store/data-lake-store-overview.md) /[Azure Data Lake Storage gen 2](../storage/blobs/data-lake-storage-introduction.md)또는 조합 중 하나로 저장할 수 있습니다. 이러한 저장소 옵션을 사용 하면 사용자 데이터 손실 없이 계산에 사용 되는 HDInsight 클러스터를 안전 하 게 삭제할 수 있습니다.
 
 Apache Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 파일 시스템은 기본 체계와 권한을 의미합니다. 상대 경로를 확인하기 위해 사용할 수 있습니다. HDInsight 클러스터를 만드는 과정에서 Azure Storage에서나 HDInsight 3.6을 통해 Blob 컨테이너를 기본 파일 시스템으로 지정하거나, 몇 가지 예외를 제외하고 Azure Storage 또는 Azure Data Lake Storage Gen 1/Azure Data Lake Storage Gen 2 중 하나를 기본 파일 시스템으로 선택할 수 있습니다. 기본 및 연결된 스토리지로 Data Lake Storage Gen1을 사용하는 지원 가능성은 [HDInsight 클러스터에 대한 가용성](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters)을 참조하세요.
 
@@ -27,11 +27,11 @@ Azure Storage는 HDInsight와 매끄럽게 통합되는 강력한 범용 스토�
 > [!IMPORTANT]  
 > 저장소 계정 종류 **Blobstorage** 는 HDInsight 클러스터의 보조 저장소로만 사용할 수 있습니다.
 
-| 스토리지 계정 종류 | 지원되는 서비스 | 지원되는 성능 계층 | 지원되는 액세스 계층 |
+| 저장소 계정 종류 | 지원되는 서비스 | 지원되는 성능 계층 | 지원되는 액세스 계층 |
 |----------------------|--------------------|-----------------------------|------------------------|
-| StorageV2(범용 v2)  | Blob     | Standard                    | 핫, 쿨, 보관\*   |
-| 저장소 (범용 v1)   | Blob     | Standard                    | 해당 사항 없음                    |
-| BlobStorage                    | Blob     | Standard                    | 핫, 쿨, 보관\*   |
+| StorageV2(범용 v2)  | Blob     | Standard                    | 핫, 쿨, 보관 \*   |
+| 저장소 (범용 v1)   | Blob     | Standard                    | N/A                    |
+| BlobStorage                    | Blob     | Standard                    | 핫, 쿨, 보관 \*   |
 
 기본 Blob 컨테이너는 비즈니스 데이터를 저장하는 데 사용하지 않는 것이 좋습니다. 스토리지 비용을 줄이기 위해 사용한 후에는 매번 기본 Blob 컨테이너를 삭제하는 것이 좋습니다. 기본 컨테이너에는 애플리케이션 및 시스템 로그가 포함되어 있습니다. 컨테이너를 삭제하기 전에 이러한 로그를 검색해야 합니다.
 
@@ -46,7 +46,7 @@ Azure Storage는 HDInsight와 매끄럽게 통합되는 강력한 범용 스토�
 
 다음 다이어그램은 Azure Storage 사용의 HDInsight 스토리지 아키텍처의 추상 보기를 제공합니다.
 
-![Hadoop 클러스터는 HDFS API를 사용 하 여 Blob storage에 데이터를 액세스 하 고 저장 합니다] . (./media/hdinsight-hadoop-use-blob-storage/storage-architecture.png "HDInsight 저장소 아키텍처")
+![Hadoop 클러스터는 HDFS API를 사용 하 여 Blob storage에 데이터를 액세스 하 고 저장 합니다.](./media/hdinsight-hadoop-use-blob-storage/storage-architecture.png "HDInsight 저장소 아키텍처")
 
 HDInsight는 컴퓨팅 노드에 로컬로 연결된 분산 파일 시스템에 대한 액세스를 제공합니다. 정규화된 URI를 사용하여 이 파일 시스템에 액세스할 수 있습니다. 예를 들면 다음과 같습니다.
 
@@ -58,18 +58,18 @@ HDInsight는 컴퓨팅 노드에 로컬로 연결된 분산 파일 시스템에 
 
 다음은 HDInsight 클러스터와 Azure Storage 계정을 사용하는 경우 고려 사항입니다.
 
-* **클러스터에 연결된 스토리지 계정의 컨테이너**: 계정 이름과 키는 만들기 중 클러스터와 연결되므로 사용자는 이러한 컨테이너의 Blob에 대한 모든 권한을 보유합니다.
+* **클러스터에 연결된 스토리지 계정의 컨테이너:** 계정 이름과 키는 만들기 중 클러스터와 연결되므로 사용자는 이러한 컨테이너의 Blob에 대한 모든 권한을 보유합니다.
 
 * **클러스터에 연결되지 않은 스토리지 계정의 공용 컨테이너 또는 공용 Blob:** 컨테이너의 Blob에 대한 읽기 전용 권한을 가집니다.
   
 > [!NOTE]  
 > 공용 컨테이너를 사용하면 해당 컨테이너에서 사용할 수 있는 모든 Blob 목록 및 컨테이너 메타데이터를 가져올 수 있습니다. 공용 Blob을 사용하면 정확한 URL을 아는 경우에만 Blob에 액세스할 수 있습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 액세스 관리](../storage/blobs/storage-manage-access-to-resources.md)를 참조하세요.
 
-* **클러스터에 연결되지 않은 스토리지 계정의 프라이빗 컨테이너:** WebHCat 작업을 제출할 때 스토리지 계정을 정의하지 않는 경우 컨테이너의 Blob에 액세스할 수 없습니다. 이것은 문서 뒷부분에 설명되어 있습니다.
+* **클러스터에 연결 되지 않은 저장소 계정의 개인 컨테이너:** WebHCat 작업을 제출할 때 저장소 계정을 정의 하지 않는 한 컨테이너의 blob에 액세스할 수 없습니다. 이것은 문서 뒷부분에 설명되어 있습니다.
 
-만들기 프로세스에 정의 된 저장소 계정과 해당 키는 클러스터 노드에 저장 `%HADOOP_HOME%/conf/core-site.xml` 됩니다. HDInsight의 기본 동작은 core-site.xml 파일에 정의된 스토리지 계정을 사용하는 것입니다. [Apache Ambari](./hdinsight-hadoop-manage-ambari.md)를 사용하여 이 설정을 수정할 수 있습니다.
+만들기 프로세스에 정의 된 저장소 계정과 해당 키는 클러스터 노드에 `%HADOOP_HOME%/conf/core-site.xml`에 저장 됩니다. HDInsight의 기본 동작은 core-site.xml 파일에 정의된 스토리지 계정을 사용하는 것입니다. [Apache Ambari](./hdinsight-hadoop-manage-ambari.md)를 사용하여 이 설정을 수정할 수 있습니다.
 
-Apache Hive, MapReduce, Apache Hadoop 스트리밍 및 Apache Pig를 비롯한 여러 WebHCat 작업은 스토리지 계정 및 메타데이터 설명을 포함할 수 있습니다. (현재 메타데이터가 아닌 스토리지 계정이 있는 Pig에서 작동합니다.) 자세한 내용은 [대체 Storage 계정 및 Metastore와 HDInsight 클러스터 사용](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)을 참조하세요.
+Apache Hive, MapReduce, Apache Hadoop 스트리밍 및 Apache Pig를 비롯한 여러 WebHCat 작업은 스토리지 계정 및 메타데이터 설명을 포함할 수 있습니다. (현재는 저장소 계정을 사용 하는 Pig에 대해서는 작동 하지만 메타 데이터에 대해서는 작동 하지 않습니다.) 자세한 내용은 [대체 저장소 계정 및 metastore를 사용 하 여 HDInsight 클러스터 사용](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)을 참조 하세요.
 
 구조적 및 비구조적 데이터에 대한 Blob을 사용할 수 있습니다. Blob 컨테이너는 데이터를 키/값 쌍으로 저장 하 고 디렉터리 계층 구조는 없습니다. 그러나 파일이 디렉터리 구조 내에 저장된 것처럼 보이도록 키 이름에 슬래쉬 문자(/)를 사용할 수 있습니다. 예를 들어 Blob의 키 이름을 *input/log1.txt*로 지정할 수 있습니다. 실제로 *input* 디렉터리는 없지만 키 이름에 슬래쉬 문자가 있으므로 파일 경로처럼 보입니다.
 
@@ -81,11 +81,11 @@ HDFS 대신 Azure Storage에 데이터를 저장할 경우 몇 가지 이점이 
 
 * **데이터 다시 사용 및 공유:** HDFS의 데이터는 컴퓨팅 클러스터 내에 있습니다. 컴퓨팅 클러스터에 액세스할 수 있는 애플리케이션만 HDFS API를 통해 데이터를 사용할 수 있습니다. Azure storage의 데이터는 HDFS Api 또는 [BLOB STORAGE REST api](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)를 통해 액세스할 수 있습니다. 따라서 데이터의 생성과 소비에 더 많은 애플리케이션(기타 HDInsight 클러스터 포함)과 도구를 사용할 수 있습니다.
 
-* **데이터 보관:** Azure 스토리지에 데이터를 저장하면 사용자 데이터를 손실하지 않고 계산에 사용되는 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
+* **데이터 보관:** Azure Storage에 데이터를 저장하면 계산에 사용된 HDInsight 클러스터를 사용자 데이터 손실 없이 안전하게 삭제할 수 있습니다.
 
-* **데이터 스토리지 비용:** 데이터를 장기간 저장하는 경우 DFS에 저장하는 것이 Azure 스토리지에 저장하는 것보다 비용이 많이 드는데, 이는 컴퓨팅 클러스터의 비용이 Azure 스토리지의 비용보다 비싸기 때문입니다. 또한 모든 계산 클러스터 생성에 대해 데이터를 다시 로드할 필요가 없기 때문에 데이터 로드 비용도 절감 하 고 있습니다.
+* **데이터 스토리지 비용:** 데이터를 장기간 저장하는 경우 DFS에 저장하는 것이 Azure Storage에 저장하는 것보다 비용이 많이 드는데, 이는 컴퓨팅 클러스터의 비용이 Azure Storage의 비용보다 비싸기 때문입니다. 또한 모든 계산 클러스터 생성에 대해 데이터를 다시 로드할 필요가 없기 때문에 데이터 로드 비용도 절감 하 고 있습니다.
 
-* **탄력적인 규모 확장:** HDFS는 확장된 파일 시스템을 제공하지만, 크기 조정은 클러스터에 대해 만드는 노드의 수에 따라 결정됩니다. 규모를 변경하는 것이 Azure Storage에서 자동으로 수행되는 탄력적인 확장 기능에 의존하는 것보다 더 복잡한 프로세스가 될 수 있습니다.
+* **탄력적인 확장:** HDFS는 확장된 파일 시스템을 제공하지만, 확장은 클러스터에 대해 만드는 노드의 수에 의해 결정됩니다. 규모를 변경하는 것이 Azure Storage에서 자동으로 수행되는 탄력적인 확장 기능에 의존하는 것보다 더 복잡한 프로세스가 될 수 있습니다.
 
 * **지역에서 복제:** Azure Storage를 지역에서 복제할 수 있습니다. 이 경우 지리적 복구와 데이터 중복 기능이 제공되지만, 지역에서 복제된 위치에 대한 장애 조치(Failover)는 성능에 심각한 영향을 미치게 되며 추가 비용을 발생시킬 수 있습니다. 따라서 지역에서 복제 기능은 추가 비용을 감수할 만큼 가치 있는 데이터에 한해서만 현명하게 사용하는 것이 좋습니다.
 
@@ -104,10 +104,10 @@ wasbs://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<p
 
 URI 체계는 암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SSL로 암호화된 액세스(*wasbs*가 있음)를 제공합니다. Azure의 동일한 지역에 있는 데이터에 액세스하는 경우에도 가능하면 *wasbs*를 사용하는 것이 좋습니다.
 
-는 `<BlobStorageContainerName>` Azure storage에서 blob 컨테이너의 이름을 식별 합니다.
-는 `<StorageAccountName>` Azure Storage 계정 이름을 식별 합니다. FQDN(정규화된 도메인 이름)이 필요합니다.
+@No__t_0는 Azure storage에서 blob 컨테이너의 이름을 식별 합니다.
+@No__t_0 Azure Storage 계정 이름을 식별 합니다. FQDN(정규화된 도메인 이름)이 필요합니다.
 
-`<BlobStorageContainerName>` 및`<StorageAccountName>` 를 모두 지정 하지 않으면 기본 파일 시스템이 사용 됩니다. 기본 파일 시스템의 파일에 대해서는 상대 경로나 절대 경로를 사용할 수 있습니다. 예를 들어, HDInsight 클러스터와 함께 제공되는 *hadoop-mapreduce-examples.jar* 파일을 가리킬 때 다음 중 하나를 사용할 수 있습니다:
+@No__t_0 또는 `<StorageAccountName>` 모두 지정 하지 않으면 기본 파일 시스템이 사용 됩니다. 기본 파일 시스템의 파일에 대해서는 상대 경로나 절대 경로를 사용할 수 있습니다. 예를 들어, HDInsight 클러스터와 함께 제공되는 *hadoop-mapreduce-examples.jar* 파일을 가리킬 때 다음 중 하나를 사용할 수 있습니다:
 
 ```config
 wasbs://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
@@ -143,7 +143,7 @@ Microsoft에서는 Azure Storage와 함께 사용할 수 있는 다음과 같은
 
 | 도구 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure 포털](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AZCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
@@ -159,7 +159,7 @@ HDInsight 클러스터를 만드는 동안 클러스터와 연결할 Azure Stora
 
 이 문서에서는 HDInsight로 HDFS 호환 Azure Storage를 사용하는 방법을 알아보았습니다. 이제 장기적이고 확장성 있는 보관 데이터 취득 솔루션을 구축할 수 있으며, 저장된 구조적 및 비구조적 데이터 내부의 정보를 활용하는 데 HDInsight를 사용할 수 있습니다.
 
-자세한 내용은 다음을 참조하세요.
+자세한 내용은
 
 * [Azure HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Azure Data Lake Storage 시작](../data-lake-store/data-lake-store-get-started-portal.md).

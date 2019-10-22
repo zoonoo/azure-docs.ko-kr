@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
 ms.openlocfilehash: 113286f829b628d4740fbba34e7279741a934aef
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71265937"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search에서 기술과 Cognitive Services 리소스 연결 
@@ -28,7 +28,7 @@ AI 알고리즘은 Azure Search 문서 보강에 사용 되는 [인지 인덱싱
 
 ## <a name="same-region-requirement"></a>동일한 지역 요구 사항
 
-Azure Search와 Azure Cognitive Services는 동일한 지역 내에 있어야 합니다. 그렇지 않으면 런타임에이 메시지를 받게 됩니다.`"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
+Azure Search와 Azure Cognitive Services는 동일한 지역 내에 있어야 합니다. 그렇지 않으면 런타임에이 메시지를 받게 됩니다. `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
 
 여러 지역에서 서비스를 이동할 수 있는 방법은 없습니다. 이 오류가 발생 하는 경우 Azure Search와 동일한 지역에 새 Cognitive Services 리소스를 만들어야 합니다.
 
@@ -51,7 +51,7 @@ Azure Search와 Azure Cognitive Services는 동일한 지역 내에 있어야 �
 
    ![확장 된 Attach Cognitive Services 섹션](./media/cognitive-search-attach-cognitive-services/attach1.png "확장 된 Attach Cognitive Services 섹션")
 
-1. 다음 단계인 **강화 추가**로 계속 진행 합니다. 포털에서 사용할 수 있는 기술에 대 한 자세한 내용은 [2 단계: 인지 검색 빠른](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) 시작에서 인지 기술을 추가 합니다.
+1. 다음 단계인 **강화 추가**로 계속 진행 합니다. 포털에서 사용할 수 있는 기술에 대 한 자세한 내용은 인식 검색 퀵 스타트의 [2 단계: 인식 기술 추가](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) 를 참조 하세요.
 
 ## <a name="use-billable-resources"></a>유료 리소스 사용
 
@@ -79,9 +79,9 @@ Cognitive Services API를 호출 하는 기술에 대해서만 요금이 청구 
 
 1. 데이터 가져오기 마법사가 포함 된 이전 탭으로 돌아갑니다. **새로 고침** 을 선택 하 Cognitive Services 리소스를 표시 한 다음 리소스를 선택 합니다.
 
-   ![Cognitive Services 리소스를 선택 합니다] . (./media/cognitive-search-attach-cognitive-services/attach2.png "Cognitive Services 리소스를 선택 합니다") .
+   ![Cognitive Services 리소스를 선택 합니다.](./media/cognitive-search-attach-cognitive-services/attach2.png "Cognitive Services 리소스를 선택 합니다.")
 
-1. **강화 추가** 섹션을 확장 하 여 데이터에서 실행 하려는 특정 인지 기술을 선택 합니다. 마법사의 나머지 단계를 완료 합니다. 포털에서 사용할 수 있는 기술에 대 한 자세한 내용은 [2 단계: 인지 검색 빠른](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) 시작에서 인지 기술을 추가 합니다.
+1. **강화 추가** 섹션을 확장 하 여 데이터에서 실행 하려는 특정 인지 기술을 선택 합니다. 마법사의 나머지 단계를 완료 합니다. 포털에서 사용할 수 있는 기술에 대 한 자세한 내용은 인식 검색 퀵 스타트의 [2 단계: 인식 기술 추가](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) 를 참조 하세요.
 
 ## <a name="attach-an-existing-skillset-to-a-cognitive-services-resource"></a>Cognitive Services 리소스에 기존 기술 연결
 
@@ -89,7 +89,7 @@ Cognitive Services API를 호출 하는 기술에 대해서만 요금이 청구 
 
 1. **서비스 개요** 페이지에서 **기술력과**를 선택 합니다.
 
-   ![기술 탭](./media/cognitive-search-attach-cognitive-services/attach-existing1.png "기술 탭")
+   ![기술력과 탭](./media/cognitive-search-attach-cognitive-services/attach-existing1.png "기술력과 탭")
 
 1. 기술의 이름을 선택한 다음 기존 리소스를 선택 하거나 새 리소스를 만듭니다. **확인**을 선택하여 변경 내용을 확인합니다.
 
@@ -101,7 +101,7 @@ Cognitive Services API를 호출 하는 기술에 대해서만 요금이 청구 
 
 프로그래밍 방식으로 기술을 정의하는 경우 `cognitiveServices` 섹션을 기술에 추가합니다. 이 섹션에는 기술 연결 하려는 Cognitive Services 리소스의 키가 포함 되어 있습니다. 리소스는 Azure Search 리소스와 동일한 지역에 있어야 합니다. 또한 `@odata.type`을 포함하고, 이를 `#Microsoft.Azure.Search.CognitiveServicesByKey`로 설정하세요.
 
-다음 예제는 이러한 패턴을 보여줍니다. 정의의 `cognitiveServices` 끝 부분에 있는 섹션을 확인 합니다.
+다음 예제는 이러한 패턴을 보여줍니다. 정의 끝의 `cognitiveServices` 섹션을 확인 합니다.
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
@@ -160,6 +160,6 @@ Content-Type: application/json
 
 ## <a name="next-steps"></a>다음 단계
 + [Azure Search 가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)
-+ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
-+ [기능 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기술 집합 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)

@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 Salesforce 구성 | Microsoft Docs'
+title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Salesforce 구성 | Microsoft Docs'
 description: Azure Active Directory와 Salesforce 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 64de004a1d9b3aa011c447fdded51658582586b0
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68825769"
 ---
-# <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Salesforce 구성
+# <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Salesforce 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Salesforce로 자동 프로비전 및 프로비전 해제하도록 Salesforce 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
@@ -82,15 +82,15 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 6. Salesforce 보안 토큰을 얻으려면 새 탭을 열고 동일한 Salesforce 관리자 계정에 로그인합니다. 페이지의 오른쪽 위 모서리에 있는 사용자 이름을 클릭하고 **설정**을 클릭합니다.
 
-    ![자동 사용자 프로비저닝 사용](./media/salesforce-provisioning-tutorial/sf-my-settings.png "자동 사용자 프로비저닝 사용")
+    ![자동 사용자 프로 비전 사용](./media/salesforce-provisioning-tutorial/sf-my-settings.png "자동 사용자 프로비전 사용")
 
-7. 왼쪽 탐색 패널에서 **내 개인 정보**를 클릭하여 관련 섹션을 확장하고 **내 보안 토큰 재설정**을 클릭합니다.
+7. 왼쪽 탐색 창에서 **내 개인 정보**를 클릭하여 관련된 섹션을 확장한 다음 **내 보안 토큰 재설정**을 클릭합니다.
   
-    ![자동 사용자 프로비저닝 사용](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "자동 사용자 프로비저닝 사용")
+    ![자동 사용자 프로 비전 사용](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "자동 사용자 프로비전 사용")
 
 8. **보안 토큰 재설정** 페이지에서 **보안 토큰 재설정** 단추를 클릭합니다.
 
-    ![자동 사용자 프로비저닝 사용](./media/salesforce-provisioning-tutorial/sf-reset-token.png "자동 사용자 프로비저닝 사용")
+    ![자동 사용자 프로 비전 사용](./media/salesforce-provisioning-tutorial/sf-reset-token.png "자동 사용자 프로비전 사용")
 
 9. 이 관리자 계정과 연결된 전자 메일 받은 편지함을 확인합니다. Salesforce.com에서 새 보안 토큰이 포함된 전자 메일을 찾습니다.
 

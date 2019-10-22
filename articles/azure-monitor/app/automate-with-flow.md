@@ -1,22 +1,18 @@
 ---
 title: Microsoft Flow를 사용하여 Azure Application Insights 프로세스 자동화
 description: Microsoft Flow를 통해 Application Insights 커넥터를 사용하여 반복 가능한 프로세스를 신속하게 자동화하는 방법을 알아봅니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/29/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 541d5b70ee56d62831f0947e64b9522e17a07dd9
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.date: 08/29/2019
+ms.openlocfilehash: ff0896498c0270b8eb43b762228916985f924def
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195008"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678314"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Microsoft Flow용 커넥터를 사용하여 Azure Application Insights 프로세스 자동화
 
@@ -92,7 +88,7 @@ ms.locfileid: "70195008"
     
     ![Analytics 쿼리 구성 창](./media/automate-with-flow/5-query.png)
 
-### <a name="step-6-configure-the-flow-to-send-email"></a>6단계: 이메일을 보내도록 흐름 구성
+### <a name="step-6-configure-the-flow-to-send-email"></a>6단계: 메일을 보내도록 흐름 구성
 
 1. **Office 365 Outlook**을 검색합니다.
 2. **Office 365 Outlook - 이메일 보내기**를 클릭합니다.
@@ -105,9 +101,9 @@ ms.locfileid: "70195008"
 
    b. 이메일의 제목을 입력합니다.
 
-   c. **본문** 상자의 임의의 위치를 클릭한 다음, 오른쪽에서 열리는 동적 콘텐츠 메뉴에서 **본문**을 선택합니다.
+   다. **본문** 상자의 임의의 위치를 클릭한 다음, 오른쪽에서 열리는 동적 콘텐츠 메뉴에서 **본문**을 선택합니다.
 
-   e. **고급 옵션 표시** 를 선택 합니다.
+   ㅁ. **고급 옵션 표시** 를 선택 합니다.
 
 1. 동적 콘텐츠 메뉴에서 다음을 수행 합니다.
 
@@ -115,15 +111,15 @@ ms.locfileid: "70195008"
 
     b. **첨부 파일 콘텐츠**를 선택합니다.
     
-    c. **HTML임** 상자에서 **예**를 선택합니다.
+    다. **HTML임** 상자에서 **예**를 선택합니다.
 
     ![Office 365 Outlook 구성](./media/automate-with-flow/7-email.png)
 
 ### <a name="step-7-save-and-test-your-flow"></a>7단계: 흐름 저장 및 테스트
 
-**Save**을 클릭합니다.
+페이지 맨 아래에 있는 **저장**을 참조하세요.
 
-트리거가이 작업을 실행할 때까지 기다리거나 위쪽에서 ![반쯤 테스트 아이콘 ](./media/automate-with-flow/testicon.png) 테스트를 클릭할 수 있습니다.
+트리거가이 작업을 실행할 때까지 기다리거나 ![beaker 테스트 아이콘을 클릭 하 여 맨 위에 있는 **테스트** 를 ](./media/automate-with-flow/testicon.png) 수 있습니다.
 
 **테스트**를 선택한 후:
 

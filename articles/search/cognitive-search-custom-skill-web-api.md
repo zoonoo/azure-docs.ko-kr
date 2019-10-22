@@ -9,12 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 89539d42e9ac9456c7ee971f6ea607b6b2c6befa
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: a148f974671e0d909591cbf24a433384a7570842
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266318"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693303"
 ---
 # <a name="custom-web-api-skill"></a>사용자 지정 Web API 기술
 
@@ -37,10 +37,10 @@ Microsoft.Skills.Custom.WebApiSkill
 
 | 매개 변수 이름     | 설명 |
 |--------------------|-------------|
-| URI | _JSON_ 페이로드가 전송 될 웹 API의 URI입니다. **https** URI 체계만 허용됩니다. |
+| uri | _JSON_ 페이로드가 전송 될 웹 API의 URI입니다. **https** URI 체계만 허용됩니다. |
 | httpMethod | 페이로드를 보내는 데 사용하는 메서드입니다. 허용되는 메서드는 `PUT` 또는 `POST`입니다. |
 | httpHeaders | 키-값 쌍 컬렉션입니다. 여기서 키는 헤더 이름을 나타내고, 값은 페이로드와 함께 Web API로 보낼 헤더 값을 나타냅니다. 헤더 `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via`는 이 컬렉션에서 금지됩니다. |
-| timeout | (선택 사항) 지정할 경우 API 호출을 수행하는 http 클라이언트에 대한 시간 제한을 나타냅니다. 형식은 XSD "dayTimeDuration" 값( [ISO 8601 기간](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 예를 들어, 60초인 경우 `PT60S`입니다. 설정하지 않으면 기본값 30초가 선택됩니다. 제한 시간은 최대 230 초, 최소 1 초로 설정할 수 있습니다. |
+| 시간 제한 | (선택 사항) 지정할 경우 API 호출을 수행하는 http 클라이언트에 대한 시간 제한을 나타냅니다. 형식은 XSD "dayTimeDuration" 값( [ISO 8601 기간](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 예를 들어, 60초인 경우 `PT60S`입니다. 설정하지 않으면 기본값 30초가 선택됩니다. 제한 시간은 최대 230 초, 최소 1 초로 설정할 수 있습니다. |
 | batchSize | (선택 사항) API 호출당 보낼 "데이터 레코드" 수를 나타냅니다(아래의 _JSON_ 페이로드 구조 참조). 설정하지 않으면 기본값인 1,000이 선택됩니다. 인덱싱 처리량과 API의 부하 간에 적절한 절충을 이루려면 이 매개 변수를 사용하는 것이 좋습니다. |
 
 ## <a name="skill-inputs"></a>기술 입력
@@ -138,7 +138,7 @@ Microsoft.Skills.Custom.WebApiSkill
 
 ## <a name="sample-output-json-structure"></a>샘플 출력 JSON 구조
 
-"출력"은 웹 API에서 반환 된 응답에 해당 합니다. Web API는 _JSON_ 페이로드 ( `Content-Type` 응답 헤더를 확인 하 여 확인 됨)만 반환 하 고 다음 제약 조건을 충족 해야 합니다.
+"출력"은 웹 API에서 반환 된 응답에 해당 합니다. Web API는 _JSON_ 페이로드를 반환 해야 하며 (`Content-Type` 응답 헤더를 확인 하 여 확인 됨) 다음 제약 조건을 충족 해야 합니다.
 
 * 개체 배열에 해당하는 `values`라는 최상위 엔터티가 있어야 합니다.
 * 배열의 개체 수는 Web API에 전송 된 개체의 수와 같아야 합니다.
@@ -200,8 +200,9 @@ Web API가 사용 가능하지 않거나 성공적이지 않은 상태 코드를
 
 Web API가 사용 가능하지 않거나 HTTP 오류를 반환하는 경우 HTTP 오류에 대해 사용 가능한 모든 세부 정보를 포함하는 오류가 인덱서 실행 기록에 추가됩니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-+ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [전원 기술: 사용자 지정 기술의 리포지토리입니다.](https://aka.ms/powerskills)
++ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [Cognitive Search에 사용자 지정 기술 추가](cognitive-search-custom-skill-interface.md)
-+ [예제: 인지 검색에 대한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
++ [예: 인지 검색에 대 한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)

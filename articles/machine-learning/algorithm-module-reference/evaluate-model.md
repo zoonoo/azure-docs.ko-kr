@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 17263c8e7300f427b7d82aea65e1f83edf6d6fc4
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 0ad4ceedf9c1d65339c9e4aabebc0a47475ed568
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128859"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693812"
 ---
 # <a name="evaluate-model-module"></a>모델 평가 모듈
 
@@ -30,7 +30,7 @@ ms.locfileid: "70128859"
 
 
 > [!TIP]
-> 모델 평가를 처음 접하는 경우 Dr으로 비디오 시리즈를 권장 합니다. Stephen Elston는 EdX에서 [기계 학습 과정](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) 의 일부로 서 
+> 모델 평가를 처음 접하는 경우 EdX에서 [기계 학습 과정](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) 의 일부로 Stephen Elston에 의해 비디오 시리즈를 권장 합니다. 
 
 
 **모델 평가** 모듈을 사용 하는 방법에는 세 가지가 있습니다.
@@ -44,7 +44,7 @@ ms.locfileid: "70128859"
 모델을 평가 하려면 입력 열 및 점수 집합을 포함 하는 데이터 집합을 연결 해야 합니다.  다른 데이터를 사용할 수 없는 경우 원래 데이터 집합을 사용할 수 있습니다.
 
 1. [점수 매기기 모델](./score-model.md) 의 **점수가 매겨진 데이터 집합** 출력을 **모델 평가**의 입력에 연결 합니다. 
-2. **모델 평가** 모듈을 클릭 하 고 실험을 실행 하 여 평가 점수를 생성 합니다.
+2. **모델 평가** 모듈을 클릭 하 고 파이프라인을 실행 하 여 평가 점수를 생성 합니다.
 
 ## <a name="use-testing-data"></a>테스트 데이터 사용
 
@@ -66,7 +66,7 @@ ms.locfileid: "70128859"
 
 ## <a name="results"></a>결과
 
-**모델 평가**를 실행 한 후 모듈을 마우스 오른쪽 단추로 클릭 하 고 **평가 결과** 를 선택 하 여 결과를 확인 합니다. 다음을 할 수 있습니다.
+**모델 평가**를 실행 한 후 모듈을 마우스 오른쪽 단추로 클릭 하 고 **평가 결과** 를 선택 하 여 결과를 확인 합니다. 다음과 같은 기능이 가능합니다.
 
 + 다른 도구를 사용 하 여 쉽게 분석할 수 있도록 결과를 데이터 집합으로 저장
 + 인터페이스에서 시각화를 생성 합니다.
@@ -80,7 +80,7 @@ ms.locfileid: "70128859"
 
 이는 클러스터링 모델 이므로 평가 결과는 두 회귀 모델의 점수를 비교 하거나 두 개의 분류 모델을 비교 하는 경우와 다릅니다. 그러나 전체 프레젠테이션은 동일 합니다. 
 
-## <a name="metrics"></a>metrics
+## <a name="metrics"></a>메트릭
 
 이 섹션에서는 **모델 평가**에서 사용 하도록 지원 되는 특정 유형의 모델에 대해 반환 되는 메트릭에 대해 설명 합니다.
 
@@ -119,7 +119,7 @@ ms.locfileid: "70128859"
   
 - **RSE (상대 제곱 오차** ) 마찬가지로 실제 값의 총 제곱 오차로 나누어 예측 값의 총 제곱 오차를 표준화 합니다.  
   
-- **평균 0 개의 오류 (MZOE)** 는 예측이 올바른지 여부를 나타냅니다.  즉, `x!=y` `0`when 이면이 고, 그렇지 않으면입니다. `ZeroOneLoss(x,y) = 1`
+- **평균 0 개의 오류 (MZOE)** 는 예측이 올바른지 여부를 나타냅니다.  즉, `x!=y` 때 `ZeroOneLoss(x,y) = 1` 합니다. 그렇지 않으면 `0` 합니다.
   
 - 일반적으로 R<sup>2</sup>라고도 하는 **결정 계수**는 모델의 예측 능력을 0에서 1 사이의 값으로 나타냅니다. 0은 모델이 무작위로 사용 됨을 의미 합니다 (아무 것도 설명 하지 않음). 1은 완벽 한 일치를 의미 합니다. 그러나 낮은 값은 완전히 정상이 고 높은 값은 주의 대상이 될 수 있으므로 R<sup>2</sup> 값을 해석 하는 데 주의를 기울여야 합니다.
   

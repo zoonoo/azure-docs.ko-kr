@@ -11,10 +11,10 @@ ms.workload: big-compute
 ms.date: 07/19/2019
 ms.author: lahugh
 ms.openlocfilehash: 6ccf530fe2164b3d9b1936648ffe9057c334efd6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70094216"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Azure Batch에 대 한 비용 분석 및 예산
@@ -29,7 +29,7 @@ ms.locfileid: "70094216"
 
 Batch 풀은 네트워킹 리소스를 사용 합니다. 특히 **VirtualMachineConfiguration** 풀의 경우 고정 IP 주소가 필요한 표준 부하 분산 장치가 사용 됩니다. Batch에서 사용 하는 부하 분산 장치는 **사용자 구독** 계정에 대해 표시 되지만 **batch 서비스** 계정에는 표시 되지 않습니다. 표준 부하 분산 장치는 Batch 풀 Vm에 전달 되는 모든 데이터에 대해 요금을 부과 합니다. 풀 노드 (예: 작업/노드 파일 가져오기)에서 데이터를 검색 하는 Batch Api, 작업 응용 프로그램 패키지, 리소스/출력 파일 및 컨테이너 이미지를 선택 하면 요금이 발생 합니다.
 
-### <a name="additional-services"></a>서비스
+### <a name="additional-services"></a>추가 서비스
 
 Vm 및 저장소를 포함 하지 않는 서비스는 Batch 계정의 비용을 고려해 야 할 수 있습니다.
 
@@ -50,9 +50,9 @@ Azure Portal를 통해 Batch 풀 또는 Batch 계정에 대 한 예산 및 지�
 1. Azure Portal의 왼쪽 탐색 모음에서 **Cost Management + 청구** 를 선택 합니다.
 1. **내 구독** 섹션에서 구독을 선택 합니다.
 1. 왼쪽 탐색 모음의 **Cost Management** 섹션에서 **비용 분석** 으로 이동 하 여 다음과 같은 뷰를 표시 합니다.
-1. **필터 추가**를 선택 합니다. 첫 번째 드롭다운에서 **리소스** ![를 선택 하 고 리소스 필터를 선택 합니다.](./media/batch-budget/resource-filter.png)
+1. **필터 추가**를 선택 합니다. 첫 번째 드롭다운에서 리소스 필터 ![Select **리소스** 를 선택 ](./media/batch-budget/resource-filter.png)
 1. 두 번째 드롭다운에서 Batch 풀을 선택 합니다. 풀을 선택 하면 비용 분석은 다음과 같이 분석 됩니다.
-    ![풀의 비용 분석](./media/batch-budget/pool-cost-analysis.png)
+    풀 ](./media/batch-budget/pool-cost-analysis.png) ![Cost 분석
 
 결과 비용 분석은이 비용에 영향을 주는 리소스 뿐만 아니라 풀의 비용을 보여 줍니다. 이 예에서 풀에서 사용 되는 Vm은 가장 비용이 많이 드는 리소스입니다.
 
@@ -75,7 +75,7 @@ Batch를 사용 하 [여 우선 순위가 낮은 Vm 사용](batch-low-pri-vms.md
 
 ### <a name="virtual-machine-os-disk-type"></a>가상 컴퓨터 OS 디스크 유형
 
-여러 [VM OS 디스크 유형이](../virtual-machines/windows/disks-types.md)있습니다. 대부분의 VM 시리즈는 프리미엄 및 표준 저장소를 모두 지 원하는 크기를 가집니다. 풀에 대해의 VM 크기를 선택 하면 Batch는 프리미엄 SSD OS 디스크를 구성 합니다. ' 비 s ' VM 크기를 선택 하면 더 저렴 한 표준 HDD 디스크 유형이 사용 됩니다. 예를 들어 프리미엄 SSD os 디스크는에 사용 `Standard_D2s_v3` 되 고 표준 HDD os 디스크는에 `Standard_D2_v3`사용 됩니다.
+여러 [VM OS 디스크 유형이](../virtual-machines/windows/disks-types.md)있습니다. 대부분의 VM 시리즈는 프리미엄 및 표준 저장소를 모두 지 원하는 크기를 가집니다. 풀에 대해의 VM 크기를 선택 하면 Batch는 프리미엄 SSD OS 디스크를 구성 합니다. ' 비 s ' VM 크기를 선택 하면 더 저렴 한 표준 HDD 디스크 유형이 사용 됩니다. 예를 들어 프리미엄 SSD OS 디스크는 `Standard_D2s_v3`에 사용 되 고 표준 HDD OS 디스크는 `Standard_D2_v3`에 사용 됩니다.
 
 프리미엄 SSD OS 디스크는 비용이 더 많이 들지만 프리미엄 디스크를 사용 하는 Vm은 표준 HDD OS 디스크를 사용 하는 Vm 보다 약간 더 빠르게 시작할 수 있습니다. Batch를 사용 하면 응용 프로그램 및 태스크 파일이 Vm 임시 SSD 디스크에 있는 것 처럼 OS 디스크는 자주 사용 되지 않습니다. 따라서 대부분의 경우의 VM 크기를 지정할 때 프로 비전 되는 프리미엄 SSD에 대해 증가 된 비용을 지불할 필요가 없습니다.
 

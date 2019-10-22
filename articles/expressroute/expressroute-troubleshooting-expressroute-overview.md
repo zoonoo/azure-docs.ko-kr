@@ -1,5 +1,5 @@
 ---
-title: '연결 확인 - ExpressRoute 문제 해결 가이드: Azure | Microsoft Docs'
+title: '연결 확인-Express 경로 문제 해결 가이드: Azure | Microsoft Docs'
 description: ExpressRoute 회로에 대한 종단 간 연결의 유효성 검사 및 문제 해결에 대한 지침을 제공합니다.
 services: expressroute
 author: rambk
@@ -9,10 +9,10 @@ ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
 ms.openlocfilehash: 026900e3dcbf7c20750bb8e17e44ba64897c9a30
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71123449"
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute 연결 확인
@@ -157,7 +157,7 @@ ExpressRoute 회로가 작동하는지 확인하려면 다음 필드에 특히 �
     Sku                              : Standard
     Status                           : Enabled
 
-ExpressRoute 회로가 작동하는지 확인하려면 다음 필드에 특히 주의하세요. ServiceProviderProvisioningState : 프로비전된 상태: Enabled
+ExpressRoute 회로가 작동하는지 확인하려면 ServiceProviderProvisioningState : Provisioned Status                           : Enabled 필드에 특히 주의하세요.
 
 > [!NOTE]
 > *상태* 를 사용할 수 없는 경우 [Microsoft 지원][Support]에 문의 하세요. *ServiceProviderProvisioningState*가 '프로비전되지 않음'이면 서비스 공급자에게 문의하세요.
@@ -165,7 +165,7 @@ ExpressRoute 회로가 작동하는지 확인하려면 다음 필드에 특히 �
 >
 
 ## <a name="validate-peering-configuration"></a>피어링 구성 유효성 검사
-서비스 공급자가 ExpressRoute 회로 프로비전을 완료하면 MSEE-PR(4)와 MSEE(5) 사이의 ExpressRoute 회로를 통해 라우팅 구성을 만들 수 있습니다. ExpressRoute 회로마다 하나, 둘 또는 셋의 라우팅 컨텍스트, Azure 개인 피어 링 (Azure에서 개인 가상 네트워크로의 트래픽), Azure 공용 피어 링 (Azure의 공용 IP 주소에 대 한 트래픽) 및 Microsoft 피어 링 (Office 365에 대 한 트래픽) 라우팅 구성을 만들고 수정 하는 방법에 대 한 자세한 내용은 [express 경로 회로에 대 한 라우팅 만들기 및 수정][CreatePeering]문서를 참조 하세요.
+서비스 공급자가 ExpressRoute 회로 프로비전을 완료하면 MSEE-PR(4)와 MSEE(5) 사이의 ExpressRoute 회로를 통해 라우팅 구성을 만들 수 있습니다. 각 Express 경로 회로는 Azure 개인 피어 링 (Azure에서 개인 가상 네트워크로의 트래픽), Azure 공용 피어 링 (Azure의 공용 IP 주소에 대 한 트래픽) 및 Microsoft 피어 링 (Office 365에 대 한 트래픽)을 사용할 수 있습니다. 라우팅 구성을 만들고 수정 하는 방법에 대 한 자세한 내용은 [express 경로 회로에 대 한 라우팅 만들기 및 수정][CreatePeering]문서를 참조 하세요.
 
 ### <a name="verification-via-the-azure-portal"></a>Azure Portal을 통한 확인
 

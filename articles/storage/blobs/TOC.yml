@@ -248,6 +248,16 @@
               href: storage-blob-containers-list.md
             - name: 속성 및 메타데이터 관리(.NET)
               href: storage-blob-container-properties-metadata.md
+        - name: Blob 만들기 및 관리
+          items:
+            - name: Blob 나열(.NET)
+              href: storage-blobs-list.md
+            - name: Blob 속성 및 메타데이터 관리(.NET)
+              href: storage-blob-properties-metadata.md
+            - name: Blob 복사(.NET)
+              href: storage-blob-copy.md
+            - name: Blob 스냅샷 만들기 및 관리(.NET)
+              href: storage-blob-snapshots.md
         - name: Blob 데이터 보호
           items:
             - name: Blob 데이터에 대한 액세스 권한 부여

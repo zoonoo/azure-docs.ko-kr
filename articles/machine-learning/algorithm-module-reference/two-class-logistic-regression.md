@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 818b8627decd5ee7db711abc417f71c83e32b6c0
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7020bf529fa635d74959a9dac071aa6e2b134c5b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128375"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692618"
 ---
 # <a name="two-class-logistic-regression-module"></a>2 클래스 로지스틱 회귀 모듈
 
@@ -36,7 +36,7 @@ ms.locfileid: "70128375"
 
 예를 들어 레이블 열은 "Yes" 또는 "No"의 가능한 값을 사용 하 여 [투표] 일 수 있습니다. 또는 가능한 값이 "높음" 또는 "낮음" 인 [신용 위험] 일 수 있습니다. 
   
-1.  실험에 **2 클래스 로지스틱 회귀** 모듈을 추가 합니다.  
+1.  **2 클래스 로지스틱 회귀** 모듈을 파이프라인에 추가 합니다.  
   
 2.  **강사 모드 만들기** 옵션을 설정 하 여 모델을 학습 하는 방법을 지정 합니다.  
   
@@ -54,10 +54,10 @@ ms.locfileid: "70128375"
   
     -   이와 대조적으로, 스파스가 아닌 데이터에 대해 L2 정규화이 좋습니다.  
   
-     이 알고리즘은 L1 및 L2 정규화 값의 선형 조합을 지원 합니다. 즉, 및 <code>x = L1</code> <code>y = L2</code> <code>ax + by = c</code> 인 경우는 정규화 용어의 선형 범위를 정의 합니다.  
+     이 알고리즘은 L1 및 L2 정규화 값의 선형 조합을 지원 합니다. 즉, <code>x = L1</code> 및 <code>ax + by = c</code> <code>y = L2</code> 경우 정규화 용어의 선형 범위를 정의 합니다.  
   
     > [!NOTE]
-    >  L1 및 L2 정규화에 대해 자세히 알아보고 싶습니까? 다음 문서에서는 L1 및 L2 정규화 어떻게 다르고, 로지스틱 회귀 및 신경망 모델에 대 한 코드 샘플을 사용 하 여 모델 피팅의 영향을 받는 방법에 대해 설명 합니다.  [Machine Learning에 대 한 L1 및 L2 정규화](https://msdn.microsoft.com/magazine/dn904675.aspx)  
+    >  L1 및 L2 정규화에 대해 자세히 알아보고 싶습니까? 다음 문서에서는 L1 및 L2 정규화 어떻게 다르고, 로지스틱 회귀 및 신경망 모델에 대 한 코드 샘플을 사용 하 여 모델 피팅에 어떻게 영향을 주는지에 대해 설명 합니다. [l1 및 L2 정규화 for Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
     >
     > 로지스틱 회귀 모델에 대해 L1 및 L2 용어의 여러 선형 조합이 고안 되었습니다 (예: [탄력적 네트워크 정규화](https://wikipedia.org/wiki/Elastic_net_regularization)). 이러한 조합을 참조 하 여 모델에 적용 되는 선형 조합을 정의 하는 것이 좋습니다.
       
@@ -67,14 +67,14 @@ ms.locfileid: "70128375"
   
      이 최적화 매개 변수는 다음 단계 및 방향을 계산 하는 데 사용 되는 메모리 양을 제한 합니다. 메모리를 더 작게 지정 하면 학습 속도는 빨라지지만 정확도는 낮아집니다.  
   
-6.  **난수 초기값**에 정수 값을 입력 합니다. 동일한 실험을 여러 번 실행 하 여 결과를 재현할 수 있도록 하려면 초기값을 정의 하는 것이 중요 합니다.  
+6.  **난수 초기값**에 정수 값을 입력 합니다. 동일한 파이프라인을 여러 번 실행 하 여 결과를 재현할 수 있도록 하려면 초기값을 정의 하는 것이 중요 합니다.  
   
   
-8. 태그가 지정 된 데이터 집합을 실험에 추가 하 고 [학습 모듈](module-reference.md)중 하나를 연결 합니다.  
+8. 태그가 지정 된 데이터 집합을 파이프라인에 추가 하 고 [학습 모듈](module-reference.md)중 하나를 연결 합니다.  
   
     -   담당자 **모드 만들기** 를 **단일 매개 변수로**설정한 경우 [모델 학습](./train-model.md) 모듈을 사용 합니다.  
   
-9. 실험을 실행합니다.  
+9. 파이프라인을 실행합니다.  
   
 ## <a name="results"></a>결과
 

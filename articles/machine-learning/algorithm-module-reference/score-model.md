@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 43a398b091b282da6ede06796250cda17117dc18
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: f046b41d02ac392d003a9ecd15f25b43e5449cd0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128513"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692666"
 ---
 # <a name="score-model-module"></a>모델 점수 매기기 모듈
 
@@ -24,13 +24,13 @@ ms.locfileid: "70128513"
 
 ## <a name="how-to-use"></a>사용 방법
 
-1. 실험에 **모델 점수 매기기** 모듈을 추가 합니다.
+1. **모델 점수 매기기** 모듈을 파이프라인에 추가 합니다.
 
 2. 학습 된 모델 및 새 입력 데이터를 포함 하는 데이터 집합을 연결 합니다. 
 
     데이터는 사용 중인 학습 된 모델의 형식과 호환 되는 형식 이어야 합니다. 입력 데이터 집합의 스키마도 일반적으로 모델을 학습 하는 데 사용 되는 데이터의 스키마와 일치 해야 합니다.
 
-3. 실험을 실행합니다.
+3. 파이프라인을 실행합니다.
 
 ## <a name="results"></a>결과
 
@@ -48,7 +48,7 @@ ms.locfileid: "70128513"
 
 ## <a name="publish-scores-as-a-web-service"></a>점수를 웹 서비스로 게시
 
-점수 매기기의 일반적인 용도는 예측 웹 서비스의 일부로 출력을 반환 하는 것입니다. 자세한 내용은 Azure Machine Learning 실험을 기반으로 웹 서비스를 만드는 방법에 대 한 자습서를 참조 하세요.
+점수 매기기의 일반적인 용도는 예측 웹 서비스의 일부로 출력을 반환 하는 것입니다. 자세한 내용은 Azure Machine Learning 파이프라인을 기반으로 웹 서비스를 만드는 방법에 대 한 자습서를 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

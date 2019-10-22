@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
 ms.openlocfilehash: 1f6eeea85a348bb8e88a387fa0fc6bed55e41a5e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71262778"
 ---
-# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 보안 및 규정 준수 청사진: UK OFFICIAL 워크로드 준수 PaaS 웹 애플리케이션 호스팅
+# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: UK OFFICIAL 워크로드 준수 PaaS 웹 애플리케이션 호스팅
 
 ## <a name="azure-security-and-compliance-blueprints"></a>Azure 보안 및 규정 준수 청사진
 
@@ -39,13 +39,13 @@ Azure Blueprint는 승인 또는 규정 준수 요구 사항이 있는 시나리
 
 이 청사진은 기초 아키텍처입니다. 고객은 이 청사진을 OFFICIAL 분류 웹 기반 워크로드의 기반으로 사용하고 템플릿 및 리소스를 자체 요구 사항으로 확장할 수 있습니다. 이 청사진은 웹 기반 워크로드를 호스팅하기 위한 [IaaS(Infrastructure as a Service)](https://azure.microsoft.com/overview/what-is-iaas/)와 PaaS 구현 옵션을 고객에게 제공하는 [UK-OFFICAL 3계층 IaaS 웹 애플리케이션 청사진](https://aka.ms/ukofficial-iaaswa)의 원칙을 기반으로 합니다.
 
-이 청사진을 배포하려면 Azure 구독이 필요합니다. Azure 구독이 없으면 평가판으로 빠르고 쉽게 가입할 수 있습니다. Azure를 시작하세요. 배포 지침을 보려면 [여기](https://aka.ms/ukofficial-paaswa-repo/)를 클릭하세요.
+이 청사진을 배포하려면 Azure 구독이 필요합니다. Azure 구독이 없으면 평가판을 통해 빠르고 쉽게 등록할 수 있습니다. Azure를 시작하세요. 배포 지침을 보려면 [여기](https://aka.ms/ukofficial-paaswa-repo/)를 클릭하세요.
 
 ## <a name="architecture-and-components"></a>아키텍처 및 구성 요소
 
 이 청사진은 UK OFFICIAL 워크로드를 지원하는 Azure 클라우드 환경에서 웹 애플리케이션 호스팅 솔루션을 제공합니다. 아키텍처에서는 Azure Platform as a Service 기능을 활용하는 보안 환경을 제공합니다. 환경 내에서 웹 프런트 엔드에 대한 비즈니스 서비스를 제공하는 API 앱 계층이 있는 두 개의 App Service 웹앱(공용 사용자용 및 백오피스 사용자용)이 배포됩니다. Azure SQL Database는 애플리케이션에 대한 관리되는 관계형 데이터 저장소로 배포됩니다. 플랫폼 외부에서의 연결 및 이러한 모든 구성 요소 간의 연결은 TLS 1.2를 통해 암호화되어 Azure Active Directory에서 인증된 액세스 권한으로 전송 개인 정보의 데이터를 보장합니다.
 
-![UK OFFICIAL 워크로드 준수 PaaS 웹 애플리케이션 호스팅에 대한 참조 아키텍처 다이어그램](images/ukofficial-paaswa-architecture.png?raw=true "UK OFFICIAL 워크로드를 준수하는 PaaS 웹 애플리케이션 호스팅에 대한 참조 아키텍처 다이어그램")
+![영국 공식 작업을 위한 PaaS 웹 응용 프로그램 호스팅 참조 아키텍처 다이어그램](images/ukofficial-paaswa-architecture.png?raw=true "영국 공식 작업을 위한 PaaS 웹 응용 프로그램 호스팅 참조 아키텍처 다이어그램")
 
 배포 아키텍처의 일부로 보안 스토리지 프로비전, 모니터링 및 로깅, 통합 보안 관리 및 고급 위협 보호, 관리 기능도 배포되어 고객이 이 솔루션에 대한 환경을 보호하고 모니터링하는 데 필요한 모든 도구를 사용할 수 있도록 합니다.
 
@@ -54,14 +54,14 @@ Azure Blueprint는 승인 또는 규정 준수 요구 사항이 있는 시나리
 - Azure Active Directory
 - App Service
 - 웹앱
-- API 앱
+- API App
 - Azure DNS
 - Key Vault
 - Azure Monitor (로그)
 - Application Insights
-- Azure Resource Manager
+- Azure 리소스 관리자
 - Azure Security Center
-- Azure SQL 데이터베이스
+- Azure SQL Database
 - Azure Storage
 
 ## <a name="deployment-architecture"></a>배포 아키텍처
@@ -78,7 +78,7 @@ Azure Blueprint는 승인 또는 규정 준수 요구 사항이 있는 시나리
 
 - [Azure AD(Azure Active Directory)](https://azure.microsoft.com/services/active-directory/)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. SQL Database에 액세스하는 사용자를 포함하여 모든 솔루션 사용자가 Azure Active Directory에서 만들어졌습니다.
 - Azure AD를 사용하여 웹 애플리케이션을 연결하는 운영자와 Azure 리소스 관리에 대한 액세스의 인증이 수행됩니다. 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)을 참조하세요.
-- 데이터베이스 열 암호화는 Azure AD를 사용하여 Azure SQL Database에 대한 애플리케이션을 인증합니다. 자세한 내용은 [Always Encrypted: SQL Database의 중요 데이터 보호](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)를 참조하세요.
+- 데이터베이스 열 암호화는 Azure AD를 사용하여 Azure SQL Database에 대한 애플리케이션을 인증합니다. 자세한 내용은 [Always Encrypted: SQL Database에서 중요 데이터 보호](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)를 참조하세요.
 - 일반 사용자가 연결하는 웹 애플리케이션은 공용 액세스로 구성됩니다. Active Directory 또는 소셜 네트워크 ID 공급자를 통해 계정을 만들거나 인증할 수 있도록 하기 위해 필요한 경우 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)를 통합할 수 있습니다.
 - [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md)은 잠재적인 취약성을 감지하고, 위험한 계정에는 조직의 ID 보안 상태를 향상시키는 권장 사항이 제공되며, 조직의 ID와 관련하여 감지된 의심스러운 활동에 대한 자동 응답을 구성하고, 의심스러운 인시던트를 조사하여 해결하기 위한 적절한 조치를 수행합니다.
 - [Azure RBAC(Role-based Access Control)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)은 Azure에 대해 세밀하게 초점을 맞춘 액세스 관리를 구현합니다. 구독 액세스는 구독 관리자로 제한되며, Azure Key Vault 액세스는 키 관리 액세스가 필요한 사용자로만 제한됩니다.
@@ -91,7 +91,7 @@ Azure Blueprint는 승인 또는 규정 준수 요구 사항이 있는 시나리
 
 #### <a name="security-and-malware-protection"></a>보안 및 맬웨어 방지
 
-[Azure Security Center](https://azure.microsoft.com/services/security-center/)는 모든 Azure 리소스의 보안 상태에 대한 중앙화된 보기를 제공합니다. 적절한 보안 제어가 준비되고 올바르게 구성되었는지와 주의가 필요한 리소스를 한눈에 빠르게 확인할 수 있습니다.
+[Azure Security Center](https://azure.microsoft.com/services/security-center/)는 모든 Azure 리소스의 보안 상태에 대한 중앙 집중식 보기를 제공합니다. 적절한 보안 제어가 준비되고 올바르게 구성되었는지와 주의가 필요한 리소스를 한눈에 빠르게 확인할 수 있습니다.
 
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview)는 Azure 배포를 최적화하기 위한 모범 사례를 따르는 데 도움이 되는 개인 설정된 클라우드 컨설턴트입니다. 리소스 구성 및 사용량 원격 분석을 수행하고 Azure 리소스의 경제성, 성능, 고가용성 및 보안을 개선하는 데 도움이 되는 해결 방법을 권장합니다.
 
@@ -110,14 +110,14 @@ App Service는 [ISO, SOC 및 PCI 규격](https://www.microsoft.com/TrustCenter/)
 이 템플릿에서 배포하는 App Service 기능은 다음과 같습니다.
 
 - [표준](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) App Service 계획 계층
-- 여러 App Service [배포 슬롯](https://docs.microsoft.com/azure/app-service/deploy-staging-slots): 개발, 미리 보기, QA, UAT 및 프로덕션(기본 슬롯).
+- 여러 App Service [배포 슬롯](https://docs.microsoft.com/azure/app-service/deploy-staging-slots): 개발, 미리 보기, QA, UAT 및 과정 프로덕션 (기본 슬롯).
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에 연결하는 [Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/app-service/overview-managed-identity)([Azure SQL Database](https://azure.microsoft.com/services/sql-database/)에 대한 액세스를 제공하는 데 사용할 수도 있음) 
 - 성능을 모니터링하는 [Azure Application Insights](../../azure-monitor/app/azure-web-apps.md)와의 통합
 - [진단 로그](../../azure-monitor/platform/resource-logs-overview.md) 
 - 메트릭 [경고](../../azure-monitor/app/alerts.md) 
 - [Azure API Apps](https://azure.microsoft.com/services/app-service/api/) 
 
-#### <a name="azure-sql-database"></a>Azure SQL 데이터베이스
+#### <a name="azure-sql-database"></a>Azure SQL Database
 
 SQL Database는 관계형 데이터, 공간, JSON 및 XML과 같은 구조를 지원하는 Microsoft Azure의 범용 관계형 데이터베이스 관리 서비스입니다. SQL Database는 관리되는 단일 SQL 데이터베이스, [탄력적 풀](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)의 관리되는 SQL 데이터베이스 및 SQL [Managed Instances](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)(공개 미리 보기)를 제공합니다. [동적으로 확장 가능한 성능](../../sql-database/sql-database-purchase-models.md)을 제공하고 고도의 분석 및 보고를 위한 [columnstore 인덱스](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) 및 고도의 트랜잭션 처리를 위한 [메모리 내 OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory)와 같은 옵션을 제공합니다. Microsoft에서는 SQL 코드 베이스를 모두 원활하게 패치하고 업데이트하며 기본 인프라의 모든 관리를 추상화합니다.
 
@@ -201,7 +201,7 @@ Azure Storage 보안에 대한 자세한 내용은 [보안 가이드](https://do
 
 이 참조 아키텍처에 대한 데이터 흐름 다이어그램은 [다운로드](https://aka.ms/ukofficial-paaswa-tm)에서 사용할 수 있거나 아래에 나와 있습니다. 이 모델을 사용하면 고객이 수정할 때 발생할 수 있는 시스템 인프라의 잠재적 위험 요소를 파악할 수 있습니다.
 
-![UK OFFICIAL 워크로드 위협 모델 준수 PaaS 웹 애플리케이션 호스팅](images/ukofficial-paaswa-threat-model.png?raw=true "UK OFFICIAL 워크로드 위협 모델 준수 PaaS 웹 애플리케이션 호스팅")
+![영국 공식 워크 로드 위협 모델에 대 한 PaaS 웹 응용 프로그램 호스팅](images/ukofficial-paaswa-threat-model.png?raw=true "영국 공식 워크 로드 위협 모델에 대 한 PaaS 웹 응용 프로그램 호스팅")
 
 ## <a name="ncsc-cloud-security-principles-compliance-documentation"></a>NCSC 클라우드 보안 원칙 준수 설명서
 
@@ -231,11 +231,11 @@ Crown Commercial Service(영국 정부의 상업 및 조달 활동을 향상시�
 1.  [이](https://aka.ms/ukofficial-paaswa-repo) GitHub 리포지토리를 로컬 워크스테이션에 복제하거나 다운로드합니다.
 2.  [방법 1: Azure CLI 2(Express 버전)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version)를 검토하고 제공된 명령을 실행합니다.
 3.  [방법 1a: Azure CLI 2(스크립트 인수를 통한 배포 구성)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments)를 검토하고 제공된 명령을 실행합니다.
-4.  [방법 2: Azure Portal 배포 프로세스](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process)를 검토하고 나열된 명령을 실행합니다.
+4.  [방법 2: Azure Portal 배포 프로세스](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) 를 검토 하 고 나열 된 명령을 실행 합니다.
 
 ## <a name="guidance-and-recommendations"></a>지침 및 권장 사항
 
-### <a name="api-management"></a>API 관리
+### <a name="api-management"></a>API Management
 
 API App Service 앞에서 [Azure API Management](https://azure.microsoft.com/services/api-management/)를 사용하여 보안 계층, 제한 계층 및 API를 노출, 프록시 및 보호하는 제어 계층을 추가로 제공할 수 있습니다.
 

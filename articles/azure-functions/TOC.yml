@@ -75,9 +75,9 @@
       href: functions-cli-samples.md
 - name: 개념
   items:
-    - name: 버전 1.x 및 2.x 비교
+    - name: 런타임 버전 비교
       href: functions-versions.md
-      displayName: 'migrate, migration'
+      displayName: 'migrate, migration, v3'
     - name: 프리미엄 플랜
       href: functions-premium-plan.md
     - name: 배포

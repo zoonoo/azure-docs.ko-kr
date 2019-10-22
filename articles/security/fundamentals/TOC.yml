@@ -44,39 +44,8 @@
           href: data-encryption-best-practices.md
         - name: 미사용 데이터 암호화
           href: encryption-atrest.md
-        - name: IaaS VM용 디스크 암호화
-          items:
-            - name: Azure Disk Encryption 정보
-              displayName: 'BitLocker, bek'
-              href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview'
-            - name: Azure 디스크 암호화
-              items:
-                - name: 디스크 암호화 필수 구성 요소
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites'
-                - name: Windows VM용 디스크 암호화
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-windows'
-                - name: Linux VM용 디스크 암호화
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-linux'
-                - name: 가상 머신 확장 집합 확장 시퀀싱을 사용하여 디스크 암호화
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-extension-sequencing'
-                - name: 디스크 암호화에 대한 부록
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-appendix'
-                - name: 디스크 암호화 FAQ
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq'
-                - name: 문제 해결
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg'
-                - name: Azure AD 앱(이전 릴리스)을 포함한 Azure Disk Encryption
-                  displayName: active directory
-                  items:
-                    - name: Azure AD 앱 필수 구성 요소를 포함한 디스크 암호화
-                      displayName: active directory
-                      href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites-aad'
-                    - name: Windows VM용 Azure AD 앱을 포함한 디스크 암호화
-                      displayName: active directory
-                      href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-windows-aad'
-                    - name: Linux VM용 Azure AD 앱을 포함한 디스크 암호화
-                      displayName: active directory
-                      href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-linux-aad'
+        - name: VM 및 VM 확장 집합용 Azure Disk Encryption
+          href: azure-disk-encryption-vms-vmss.md
     - name: 스토리지 보안 지침
       href: 'https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: 고객 Lockbox
@@ -154,13 +123,6 @@
           href: paas-applications-using-sql.md
     - name: IoT
       href: iot-overview.md
-      items:
-        - name: IoT 보안 모범 사례
-          href: 'https://docs.microsoft.com/azure/iot-accelerators/iot-security-best-practices?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
-        - name: IoT 보안
-          href: 'https://docs.microsoft.com/azure/iot-accelerators/iot-security-architecture?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json#security-in-iot'
-        - name: IoT 배포 보안 유지
-          href: 'https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-security-deployment?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: Azure Service Fabric 보안
       href: service-fabric-overview.md
       items:
@@ -273,8 +235,8 @@
           href: ../blueprints/ukofficial-iaaswa-overview.md
         - name: PaaS 웹 애플리케이션
           href: ../blueprints/ukofficial-paaswa-overview.md
-- name: 백서
-  href: white-papers.md
+- name: 보안 백서
+  href: 'https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource'
 - name: Azure 보안 서비스
   href: services-technologies.md
 - name: 기술 개요

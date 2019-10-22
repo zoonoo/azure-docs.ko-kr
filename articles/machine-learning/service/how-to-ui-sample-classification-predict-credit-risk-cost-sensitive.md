@@ -1,7 +1,7 @@
 ---
-title: '시각적 인터페이스 예제 #4: 신용 위험을 예측 하는 분류 (비용 구분)'
+title: '시각적 인터페이스 예 #4: 신용 위험을 예측 하는 분류 (비용 구분)'
 titleSuffix: Azure Machine Learning
-description: 이 문서에서는 시각적 인터페이스를 사용 하 여 복잡 한 기계 학습 실험을 빌드하는 방법을 보여 줍니다. 사용자 지정 Python 스크립트를 구현 하 고 여러 모델을 비교 하 여 가장 적합 한 옵션을 선택 하는 방법을 배웁니다.
+description: 이 문서에서는 시각적 인터페이스를 사용 하 여 복잡 한 기계 학습 파이프라인을 빌드하는 방법을 보여 줍니다. 사용자 지정 Python 스크립트를 구현 하 고 여러 모델을 비교 하 여 가장 적합 한 옵션을 선택 하는 방법을 배웁니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,52 +9,52 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/10/2019
-ms.openlocfilehash: c06da0fd325f6b79bc0e14c4e6a246497f86a900
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 09/23/2019
+ms.openlocfilehash: 7196e9522695a28a5560faa77860073bd08e25ee
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131910"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693509"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>샘플 4-분류: 신용 위험 예측 (비용 구분)
 
-이 문서에서는 시각적 인터페이스를 사용 하 여 복잡 한 기계 학습 실험을 빌드하는 방법을 보여 줍니다. Python 스크립트를 사용 하 여 사용자 지정 논리를 구현 하 고 여러 모델을 비교 하 여 가장 적합 한 옵션을 선택 하는 방법을 배웁니다.
+이 문서에서는 시각적 인터페이스를 사용 하 여 복잡 한 기계 학습 파이프라인을 빌드하는 방법을 보여 줍니다. Python 스크립트를 사용 하 여 사용자 지정 논리를 구현 하 고 여러 모델을 비교 하 여 가장 적합 한 옵션을 선택 하는 방법을 배웁니다.
 
 이 샘플은 신용 기록, 연령 및 신용 카드 수와 같은 크레딧 응용 프로그램 정보를 사용 하 여 신용 위험을 예측 하는 분류자를 학습 합니다. 그러나이 문서의 개념을 적용 하 여 고유한 기계 학습 문제를 다룰 수 있습니다.
 
 Machine learning을 처음 사용 하는 경우 [기본 분류자 샘플](how-to-ui-sample-classification-predict-credit-risk-basic.md) 을 먼저 살펴볼 수 있습니다.
 
-이 실험의 완료 된 그래프는 다음과 같습니다.
+이 파이프라인에 대 한 완료 된 그래프는 다음과 같습니다.
 
-[![실험 그래프](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[파이프라인 ![Graph](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. 샘플 4 실험에 대 한 **열기** 단추를 선택 합니다.
+4. 샘플 4 파이프라인에 대 한 **열기** 단추를 선택 합니다.
 
-    ![실험 열기](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
+    ![파이프라인 열기](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
-## <a name="data"></a>data
+## <a name="data"></a>데이터
 
-이 샘플에서는 UC Irvine 리포지토리에서 독일어 신용 카드 데이터 집합을 사용 합니다. 이 데이터 집합에는 20 개의 기능이 포함 된 1000 샘플 및 1 개의 레이블이 포함 되어 있습니다. 각 샘플은 사람을 나타냅니다. 20 개의 기능에는 숫자 및 범주 기능이 포함 됩니다. 데이터 집합에 대 한 자세한 내용은 [UCI 웹 사이트](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29)를 참조 하세요. 마지막 열은 신용 위험을 나타내며 두 개의 가능한 값, 즉 높은 신용 위험 = 2, 낮은 신용 위험 = 1만 포함 하는 레이블입니다.
+이 샘플에서는 UC Irvine 리포지토리에서 독일어 신용 카드 데이터 집합을 사용 합니다. 20 개의 기능이 포함 된 1000 샘플 및 1 개의 레이블이 포함 되어 있습니다. 각 샘플은 사람을 나타냅니다. 20 개의 기능에는 숫자 및 범주 기능이 포함 됩니다. 데이터 집합에 대 한 자세한 내용은 [UCI 웹 사이트](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29)를 참조 하세요. 마지막 열은 신용 위험을 나타내며 두 개의 가능한 값, 즉 높은 신용 위험 = 2, 낮은 신용 위험 = 1만 포함 하는 레이블입니다.
 
-## <a name="experiment-summary"></a>실험 요약
+## <a name="pipeline-summary"></a>파이프라인 요약
 
-이 실험에서는이 문제를 해결 하기 위해 모델을 생성 하는 두 가지 방법을 비교 합니다.
+이 파이프라인에서는이 문제를 해결 하기 위해 모델을 생성 하는 두 가지 방법을 비교 합니다.
 
 - 원래 데이터 집합으로 학습 합니다.
 - 복제 된 데이터 집합으로 학습 합니다.
 
-두 방법을 모두 사용 하 여 테스트 데이터 집합을 복제와 함께 사용 하 여 결과를 cost 함수에 맞추도록 모델을 평가 합니다. 두 가지 방법으로 두 분류자를 테스트 합니다. **2 클래스 지원 벡터 컴퓨터** 와 **2 클래스 승격 된 의사 결정 트리입니다**.
+두 방법을 모두 사용 하 여 테스트 데이터 집합을 복제와 함께 사용 하 여 결과를 cost 함수에 맞추도록 모델을 평가 합니다. 두 가지 방법, 즉 **2 클래스 지원 벡터 컴퓨터** 와 **2 클래스 승격 의사 결정 트리**를 사용 하 여 두 분류자를 테스트 합니다.
 
 낮은 위험 수준 예제를 high로 잘못 분류 하는 비용은 1이 고 높은 위험 수준 예제를 낮음으로 잘못 분류 비용은 5입니다. **Python 스크립트 실행** 모듈을 사용 하 여이 오 분류 비용을 고려 합니다.
 
-실험 그래프는 다음과 같습니다.
+파이프라인의 그래프는 다음과 같습니다.
 
-[![실험 그래프](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[파이프라인 ![Graph](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="data-processing"></a>데이터 처리
 
@@ -66,8 +66,8 @@ Machine learning을 처음 사용 하는 경우 [기본 분류자 샘플](how-to
 
 위험을 과소 평가 하는 비용은 매우 높아 다음과 같이 오 분류 비용을 설정 합니다.
 
-- 위험 수준이 높은 경우에는 위험이 잘못 분류. 5
-- 위험 수준이 낮은 경우 높은 위험으로 잘못 분류: 1
+- 위험 수준이 높은 경우에는 잘못 분류: 5
+- 위험 수준이 낮은 경우 잘못 분류: 1
 
 이 비용 함수를 반영 하려면 새 데이터 집합을 생성 합니다. 새 데이터 집합에서 위험이 높은 각 예제는 5 번 복제 되지만 위험이 낮은 예제의 수는 변경 되지 않습니다. 복제 전에 데이터를 학습 및 테스트 데이터 집합으로 분할 하 여 동일한 행이 두 집합에 있는 것을 방지 합니다.
 
@@ -89,7 +89,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 ### <a name="feature-engineering"></a>기능 엔지니어링
 
-**2 클래스 지원 벡터 컴퓨터** 알고리즘에는 정규화 된 데이터가 필요 합니다. 따라서 **데이터 정규화** 모듈을 사용 하 여 모든 숫자 기능의 범위를 `tanh` 변환으로 정규화 합니다. `tanh` 변환은 값의 전체 분포를 유지 하면서 모든 숫자 기능을 0에서 1 사이의 값으로 변환 합니다.
+**2 클래스 지원 벡터 컴퓨터** 알고리즘에는 정규화 된 데이터가 필요 합니다. 따라서 **데이터 정규화** 모듈을 사용 하 여 모든 숫자 기능의 범위를 `tanh` 변환으로 정규화 합니다. @No__t_0 변환은 값의 전체 분포를 유지 하면서 모든 숫자 기능을 0과 1의 범위 내에 있는 값으로 변환 합니다.
 
 **2 클래스 지원 벡터 컴퓨터** 모듈은 문자열 기능을 범주 기능으로 변환 하 고 값이 0 또는 1 인 이진 기능으로 변환 합니다. 따라서 이러한 기능을 정규화 할 필요가 없습니다.
 
@@ -108,11 +108,11 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 1. **모델 학습** 을 사용 하 여 데이터에 알고리즘을 적용 하 고 실제 모델을 만듭니다.
 1. 테스트 예제를 사용 하 여 점수를 산출 하려면 **모델 점수 매기기** 를 사용 합니다.
 
-다음 다이어그램에서는 원래 및 복제 된 학습 집합을 사용 하 여 두 개의 서로 다른 SVM 모델을 학습 하는이 실험의 일부를 보여 줍니다. 학습 **모델** 은 학습 집합에 연결 되 고 **모델 점수 매기기** 는 테스트 집합에 연결 됩니다.
+다음 다이어그램에서는 원래 및 복제 된 학습 집합을 사용 하 여 두 개의 서로 다른 SVM 모델을 학습 하는이 파이프라인의 일부를 보여 줍니다. 학습 **모델** 은 학습 집합에 연결 되 고 **모델 점수 매기기** 는 테스트 집합에 연결 됩니다.
 
-![실험 그래프](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
+![파이프라인 그래프](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
 
-실험의 평가 단계에서 4 개의 각 모델에 대 한 정확도를 계산 합니다. 이 실험의 경우 **모델 평가** 를 사용 하 여 동일한 오 분류 비용을 가진 예를 비교 합니다.
+파이프라인의 평가 단계에서 4 개의 각 모델에 대 한 정확도를 계산 합니다. 이 파이프라인의 경우 **모델 평가** 를 사용 하 여 동일한 오 분류 비용을 가진 예를 비교 합니다.
 
 **모델 평가** 모듈은 점수가 매겨진 두 모델에 대 한 성능 메트릭을 계산할 수 있습니다. **모델 평가** 의 한 인스턴스를 사용 하 여 두 개의 SVM 모델을 평가 하 고 **모델 평가** 의 다른 인스턴스를 사용 하 여 승격 된 두 의사 결정 트리 모델을 평가할 수 있습니다.
 
@@ -142,12 +142,14 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 ## <a name="results"></a>결과
 
-실험의 결과를 보려면 **데이터 집합에서 마지막 열 선택** 모듈의 시각화 출력을 마우스 오른쪽 단추로 클릭 합니다.
+파이프라인의 결과를 보려면 **데이터 집합에서 마지막 열 선택** 모듈의 시각화 출력을 마우스 오른쪽 단추로 클릭 합니다.
 
 ![출력 시각화](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/result.png)
 
 첫 번째 열에는 모델을 생성 하는 데 사용 되는 기계 학습 알고리즘이 나열 됩니다.
+
 두 번째 열은 학습 집합의 유형을 나타냅니다.
+
 세 번째 열은 비용에 민감한 정확도 값을 포함 합니다.
 
 이러한 결과를 통해 **2 클래스 지원 벡터 컴퓨터** 를 사용 하 여 생성 되 고 복제 된 학습 데이터 집합에 대해 학습 된 모델에서 가장 높은 정확도를 제공 하는 것을 알 수 있습니다.
@@ -165,3 +167,4 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 - [샘플 3-분류: 신용 위험 예측](how-to-ui-sample-classification-predict-credit-risk-basic.md)
 - [샘플 5-분류: 변동 예측](how-to-ui-sample-classification-predict-churn.md)
 - [샘플 6-분류: 비행 지연 예측](how-to-ui-sample-classification-predict-flight-delay.md)
+- [샘플 7-텍스트 분류: 책 리뷰](how-to-ui-sample-text-classification.md)

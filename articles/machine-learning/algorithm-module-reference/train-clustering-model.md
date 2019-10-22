@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 4883b1420913eb4e5f3bd5f13a95e410370d9184
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: fc6d889fb9be40c98e1a2a0de6fddb29939f3b5d
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128487"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693660"
 ---
 # <a name="train-clustering-model"></a>클러스터링 모델 학습
 
@@ -29,7 +29,7 @@ ms.locfileid: "70128487"
   
 ## <a name="how-to-use-train-clustering-model"></a>클러스터링 학습 모델을 사용 하는 방법  
   
-1.  스튜디오에서 실험에 **클러스터링 모델 학습** 모듈을 추가 합니다. **학습** 범주에서 모듈 **Machine Learning**모듈 아래에 있는 모듈을 찾을 수 있습니다.  
+1.  Studio에서 파이프라인에 **클러스터링 모델 학습** 모듈을 추가 합니다. **학습** 범주에서 모듈 **Machine Learning**모듈 아래에 있는 모듈을 찾을 수 있습니다.  
   
 2. [K 의미](k-means-clustering.md) 클러스터링 모듈 또는 호환 클러스터링 모델을 만들고 클러스터링 모델의 매개 변수를 설정 하는 다른 사용자 지정 모듈을 추가 합니다.  
     
@@ -43,7 +43,7 @@ ms.locfileid: "70128487"
 
     이 옵션의 선택을 취소 하면 클러스터 할당만 출력 됩니다. 
 
-7. 실험을 실행 하거나 **클러스터링 모델 학습** 모듈을 클릭 하 고 **선택 된 실행**을 선택 합니다.  
+7. 파이프라인을 실행 하거나 **클러스터링 모델 학습** 모듈을 클릭 하 고 **선택 된 실행**을 선택 합니다.  
   
 ### <a name="results"></a>결과
 

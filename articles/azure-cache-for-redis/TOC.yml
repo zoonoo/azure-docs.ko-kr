@@ -39,6 +39,8 @@
           href: cache-best-practices.md
         - name: 캐싱에 대한 Azure Architecture 모범 사례
           href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
+    - name: 장애 조치(failover) 및 패치 적용 설명
+      href: cache-failover.md
 - name: 방법 가이드
   items:
     - name: 계획

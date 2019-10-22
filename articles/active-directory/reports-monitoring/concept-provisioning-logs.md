@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d48aa3ead28ab0b0a22478a0c4183995483058a
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70983496"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Azure Active Directory 포털에서 보고서 프로 비전 (미리 보기)
@@ -39,7 +39,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 이 항목에서는 프로 비전 보고서의 개요를 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 ### <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 * 보안 관리자, 보안 읽기 권한자, 보고서 구독자, 응용 프로그램 관리자 및 클라우드 응용 프로그램 관리자 역할의 사용자
@@ -48,7 +48,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-provisioning-activities"></a>프로 비전 작업에 액세스 하는 데 필요한 Azure AD 라이선스는 무엇 인가요?
 
-모든 프로 비전 활동 보고서를 보려면 테 넌 트에 연결 된 Azure AD Premium 라이선스가 있어야 합니다. [Azure Active Directory Premium 시작하기](../fundamentals/active-directory-get-started-premium.md)를 참조하여 Azure Active Directory 버전을 업그레이드하세요. 
+모든 프로 비전 활동 보고서를 보려면 테 넌 트에 연결 된 Azure AD Premium 라이선스가 있어야 합니다. Azure Active Directory 버전을 업그레이드 하려면 [Azure Active Directory Premium 시작](../fundamentals/active-directory-get-started-premium.md) 을 참조 하세요. 
 
 ## <a name="provisioning-logs"></a>프로비저닝 로그
 
@@ -60,7 +60,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 블레이드의 **모니터링** 섹션에서 **프로 비전** 로그를 선택 하 여 프로 비전 로그에 액세스할 수 있습니다. 일부 프로 비전 레코드가 포털에 표시 되는 데 최대 2 시간이 걸릴 수 있습니다.
 
-![프로 비전 로그](./media/concept-provisioning-logs/access-provisioning-logs.png "프로 비전 로그")
+![프로 비전 로그](./media/concept-provisioning-logs/access-provisioning-logs.png "프로비저닝 로그")
 
 
 프로 비전 로그에는 다음을 보여 주는 기본 목록 보기가 있습니다.
@@ -85,22 +85,22 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 자세한 정보를 가져오려면 목록 보기에서 항목을 선택합니다.
 
-![자세한 정보](./media/concept-provisioning-logs/steps.png "필터")
+![자세한 정보](./media/concept-provisioning-logs/steps.png "필터링")
 
 
 ## <a name="filter-provisioning-activities"></a>프로 비전 작업 필터링
 
 보고 된 데이터를 자신에 게 적합 한 수준으로 좁히려면 다음 기본 필드를 사용 하 여 프로 비전 데이터를 필터링 할 수 있습니다. 필터의 값은 테 넌 트에 따라 동적으로 채워집니다. 예를 들어 테 넌 트에 생성 이벤트가 없는 경우 create에 대 한 필터 옵션이 없습니다.
 
-- 클레임
-- 동작
+- ID
+- 실행력
 - 원본 시스템
 - 대상 시스템
-- Status
+- 상태
 - 날짜
 
 
-![필터](./media/concept-provisioning-logs/filter.png "필터")
+![Filter](./media/concept-provisioning-logs/filter.png "필터링")
 
 **Id** 필터를 사용 하면 관심 있는 이름이 나 id를 지정할 수 있습니다. 이 id는 사용자, 그룹, 역할 또는 다른 개체 일 수 있습니다. 개체의 이름 또는 ID를 기준으로 검색할 수 있습니다. ID는 시나리오에 따라 달라 집니다. 예를 들어 Azure AD에서 SalesForce로 개체를 프로 비전 할 때 원본 ID는 Azure AD에서 사용자의 개체 ID이 고 TargetID는 Salesforce의 사용자 ID입니다. Workday에서 Active Directory로 프로 비전 할 때 원본 ID는 Workday 작업자 직원 ID입니다. 사용자 이름은 항상 Id 열에 표시 되지 않을 수 있습니다. 항상 하나의 ID가 있습니다. 
 
@@ -110,21 +110,21 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 **상태** 필터를 사용하면 다음을 선택할 수 있습니다.
 
-- 모두
-- Success
+- 전체
+- 성공
 - 실패
-- 건너 뜀
+- 생략
 
 **작업** 필터를 사용 하 여를 필터링 할 수 있습니다.
 
-- 만들기 
-- 업데이트
+- Create 
+- 주 지역에서
 - 삭제
-- 없음
-- 기타
+- 사용 안 함
+- 다른
 
 **날짜** 필터를 사용하면 반환되는 데이터의 시간 범위를 정의할 수 있습니다.  
-가능한 값은
+가능한 값은 다음과 같습니다.
 
 - 1개월
 - 7일
@@ -161,7 +161,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 - 요약
 
 
-![필터](./media/concept-provisioning-logs/provisioning-tabs.png "탭")
+![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "탭")
 
 
 
@@ -176,7 +176,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 
 
-![필터](./media/concept-provisioning-logs/steps.png "필터")
+![Filter](./media/concept-provisioning-logs/steps.png "필터링")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>문제 해결 및 권장 사항

@@ -4,16 +4,16 @@ description: 이 문서에서는 Azure 엔터프라이즈 등록에 사용되는
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: a8cf0d2eb87a823ee4b1d27484e7ea8d89c1abfc
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 70e1e988ad3abdb90ecb60d33830f03f8dffb127
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105449"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329320"
 ---
 # <a name="azure-enterprise-rest-apis"></a>Azure 엔터프라이즈 REST API
 
@@ -95,7 +95,11 @@ API를 사용하는 경우 응답 상태 코드가 표시됩니다. 다음 표�
 
 ### <a name="test-enrollment-for-development"></a>개발을 위한 테스트 등록
 
-Azure 엔터프라이즈 등록이 없는 파트너 또는 개발자가 API에 액세스하려면 테스트 등록을 사용하면 됩니다. 등록 이름은 _EnrollmentNumber 100_입니다. 그 후 [등록 액세스 키로 테스트](https://automaticbillingspec.blob.core.windows.net/spec/TestEnrollmentUsageApiKey.txt)하여 API를 호출하고 샘플 데이터를 볼 수 있습니다.
+Azure 엔터프라이즈 등록이 없는 파트너 또는 개발자가 API에 액세스하려면 테스트 등록을 사용하면 됩니다. 등록 이름은 _EnrollmentNumber 100_이며, 2018년 6월까지 사용 정보를 찾아 테스트할 수 있습니다. 그런 후, 다음 키를 사용하여 API를 호출하고 샘플 데이터를 볼 수 있습니다.
+
+```
+eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImpoeXA2UU9DWlZmY1pmdmhDVGR1OFdxeTJ5byJ9.eyJFbnJvbGxtZW50TnVtYmVyIjoiMTAwIiwiSWQiOiI1ZTc2ZmNiMy0xN2I4LTQ5ZDItYjdkOC0zMDU0YjUwOWY0MWYiLCJSZXBvcnRWaWV3IjoiU3lzdGVtIiwiUGFydG5lcklkIjoiIiwiRGVwYXJ0bWVudElkIjoiIiwiQWNjb3VudElkIjoiIiwiaXNzIjoiZWEubWljcm9zb2Z0YXp1cmUuY29tIiwiYXVkIjoiY2xpZW50LmVhLm1pY3Jvc29mdGF6dXJlLmNvbSIsImV4cCI6MTU4NjM5MDA2OSwibmJmIjoxNTcwNTc4ODY5fQ.lENR5pCBph6iZCVexUlN1b-j7StaILCyBewVHoILD-_fn8S2o2bHY1qUseGOkBwNlaFQfk2OZIo-jQYvnf3eP3UNrNVTCINT0APbc1RqgwSjZSxugVVHH9jnSzEjONkJaSKmi4tlidk6zkF1-uY-TPJkKxYN_9ar7BgLshF9JGXk7t8OZhxSCxDZc-smntu6ORFDl4gRZZVBKXhqOGjOAdYX5tPiGDF2Bxb68RSzh9Xyr5PXxKLx5yivZzUdo0-GFHo13V9w6a5VQM4R1w4_ro8jF8WAo3mpGZ_ovx_U5IY6zMNmi_AoA1mUyvTGotgcu94RragutoJRxAGHbNJZ0Q
+```
 
 ### <a name="azure-service-catalog"></a>Azure 서비스 카탈로그
 

@@ -10,10 +10,10 @@ ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 8e325abf1f58458d2fa035c8c8f081173efb0e65
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69649904"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Search에서 패싯 탐색을 구현하는 방법
@@ -38,7 +38,7 @@ ms.locfileid: "69649904"
 
 -   [GitHub의 Azure 샘플 리포지토리](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)에서 코드를 다운로드하세요.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 검색 개발을 처음 접하는 경우 패싯 탐색을 자기 주도형 검색에 대한 가능성을 보여 주는 것이라고 생각하는 것이 가장 좋습니다. 패싯 탐색은 포인트 클릭 동작을 통해 검색 결과의 범위를 신속하게 좁히는 데 사용되는 미리 정의된 필터를 기반으로 하는 드릴다운 검색 환경에 일종입니다. 
 
 ### <a name="interaction-model"></a>상호 작용 모델
@@ -321,7 +321,7 @@ Numeric 및 DateTime 값에 한해, 패싯 필드에서 값을 명시적으로 �
 
 패싯 수는 분할 아키텍처로 인해 부정확할 수 있습니다. 모든 검색 인덱스에는 여러 개의 분할된 데이터베이스가 있으며, 각 분할된 데이터베이스는 문서 수에 따라 상위 N개의 패싯을 보고합니다. 이 값이 단일 결과로 통합됩니다. 분할된 데이터베이스 중에 일치하는 값이 많은 것과 적은 것이 있는 경우 결과에서 일부 패싯 값이 누락되거나 적은 개수로 나타날 수 있습니다.
 
-이 동작은 언제 든 지 변경 될 수 있지만, 현재이 동작이 발생 한 경우 count:\<number >를 인위적으로 않아서 하 여 각 분할 된 데이터베이스가 전체 보고를 적용 하도록 하 여 해결할 수 있습니다. count: 값이 필드의 고유 값 수보다 크거나 같으면 정확한 결과가 반환됩니다. 그러나 문서 수가 많은 경우에는 성능이 저하되므로 이 옵션을 신중하게 사용해야 합니다.
+이 동작은 언제 든 지 변경 될 수 있지만, 현재이 동작이 발생 한 경우 count: \<number >를 인위적으로 않아서 하 여 각 분할 된 데이터베이스가 전체 보고를 적용 하도록 하 여 해결할 수 있습니다. count: 값이 필드의 고유 값 수보다 크거나 같으면 정확한 결과가 반환됩니다. 그러나 문서 수가 많은 경우에는 성능이 저하되므로 이 옵션을 신중하게 사용해야 합니다.
 
 ### <a name="user-interface-tips"></a>사용자 인터페이스 팁
 **패싯 탐색의 각 필드에 대한 레이블 추가**
@@ -385,7 +385,7 @@ Azure Search 구직 포털 데모에는 이 문서에 나와 있는 예제가 �
    
    검색 결과와 함께 패싯 탐색 구조도 반환됩니다. 검색 결과 페이지의 패싯 탐색 구조에 각 패싯 결과의 개수가 포함됩니다. 패싯을 선택하지 않았으므로 일치하는 모든 결과가 반환됩니다.
    
-   ![패싯을 선택 하기 전에 검색 결과](media/search-faceted-navigation/faceted-search-before-facets.png "패싯을 선택 하기 전에 검색 결과")
+   ![패싯을 선택 하기 전에 검색 결과](media/search-faceted-navigation/faceted-search-before-facets.png "패싯을 선택하기 전의 검색 결과")
 
 4. 직함, 위치 또는 최소 급여를 클릭합니다. 패싯은 초기 검색 시 null이었지만 값을 취하는 순간 더 이상 일치하지 않는 항목이 검색 결과에서 잘립니다.
    
@@ -395,7 +395,7 @@ Azure Search 구직 포털 데모에는 이 문서에 나와 있는 예제가 �
    
 <a name="nextstep"></a>
 
-## <a name="learn-more"></a>자세한 정보
+## <a name="learn-more"></a>자세히 알아보기
 [Azure Search 심층 정보](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410)를 살펴보세요. 45분 25초 구간에 패싯을 구현하는 방법에 대한 데모가 있습니다.
 
 패싯 탐색의 디자인 원칙에 대한 자세한 내용은 다음 링크를 참조하는 것이 좋습니다.

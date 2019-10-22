@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 2b8f235014efe440e518f1f9c4d0d454f6918955
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 37c1653b31049dc0142cf8c0c6f6d405338b1d1f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128908"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693188"
 ---
 # <a name="convert-to-csv-module"></a>CSV 모듈로 변환
 
@@ -26,7 +26,7 @@ ms.locfileid: "70128908"
 
 "쉼표로 구분 된 값"을 의미 하는 CSV 형식은 여러 외부 기계 학습 도구에서 사용 하는 파일 형식입니다. CSV는 R 또는 Python과 같은 오픈 소스 언어로 작업할 때 일반적인 교환 형식입니다.
 
-Azure Machine Learning에서 대부분의 작업을 수행 하는 경우에도 외부 도구에서 사용 하기 위해 데이터 집합을 CSV로 변환 하는 것이 유용할 수 있습니다. 예를 들어:
+Azure Machine Learning에서 대부분의 작업을 수행 하는 경우에도 외부 도구에서 사용 하기 위해 데이터 집합을 CSV로 변환 하는 것이 유용할 수 있습니다. 다음은 그 예입니다.
 
 + CSV 파일을 다운로드 하 여 Excel에서 열거나 관계형 데이터베이스로 가져옵니다.  
 + CSV 파일을 클라우드 저장소에 저장 하 고 Power BI에서 연결 하 여 시각화를 만듭니다.  
@@ -36,18 +36,18 @@ Azure Machine Learning에서 대부분의 작업을 수행 하는 경우에도 �
 
 ## <a name="how-to-configure-convert-to-csv"></a>CSV로 변환 구성 방법
 
-1.  [CSV로 변환](./convert-to-csv.md) 모듈을 실험에 추가 합니다. 이 모듈은 인터페이스의 **데이터 형식 변환** 그룹에서 찾을 수 있습니다. 
+1.  [CSV로 변환](./convert-to-csv.md) 모듈을 파이프라인에 추가 합니다. 이 모듈은 인터페이스의 **데이터 형식 변환** 그룹에서 찾을 수 있습니다. 
 
 2. 데이터 집합을 출력 하는 모듈에 연결 합니다.   
   
-3.  실험을 실행합니다.
+3.  파이프라인을 실행합니다.
 
 ### <a name="results"></a>결과
   
 
 [CSV로 변환](./convert-to-csv.md)의 출력을 두 번 클릭 하 고 다음 옵션 중 하나를 선택 합니다.  
 
- + **결과 데이터 집합-> 다운로드**: 는 로컬 폴더에 저장할 수 있는 CSV 형식의 데이터 복사본을 즉시 엽니다. 폴더를 지정 하지 않으면 기본 파일 이름이 적용 되 고 CSV 파일이 로컬 **다운로드** 라이브러리에 저장 됩니다.
+ + **결과 데이터 집합-> Download**: 로컬 폴더에 저장할 수 있는 CSV 형식의 데이터 복사본을 즉시 엽니다. 폴더를 지정 하지 않으면 기본 파일 이름이 적용 되 고 CSV 파일이 로컬 **다운로드** 라이브러리에 저장 됩니다.
 
 
  + **결과 데이터 집합-> 데이터 집합으로 저장**: CSV 파일을 별도의 데이터 집합으로 Azure ML 작업 영역에 다시 저장 합니다.

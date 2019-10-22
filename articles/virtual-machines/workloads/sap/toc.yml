@@ -102,6 +102,8 @@
           href: sap-hana-high-availability-rhel.md
         - name: SLES에서 SAP HANA 스케일 아웃 및 Pacemaker 문제 해결
           href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
+        - name: SLES에서 Azure NetApp Files를 사용하여 대기 노드를 통한 SAP HANA 스케일 아웃
+          href: sap-hana-scale-out-standby-netapp-files-suse.md
     - name: SAP HANA 백업 개요
       href: sap-hana-backup-guide.md
     - name: SAP HANA 파일 수준 백업

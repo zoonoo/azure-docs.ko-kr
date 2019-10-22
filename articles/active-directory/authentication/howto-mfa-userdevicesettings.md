@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 190d697dca56fa51d92987f32db0146aa79881aa
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70162408"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 설정 관리
@@ -32,7 +32,7 @@ ms.locfileid: "70162408"
 
 ![Azure Portal에서 인증 방법 관리](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽에서 **Azure Active Directory** > **사용자** > **모든 사용자**를 선택합니다.
 1. 작업을 수행 하려는 사용자를 선택 하 고 **인증 방법**을 선택 합니다.
    - **암호 재설정** 은 사용자의 암호를 다시 설정 하 고 다음에 로그인 할 때 변경 해야 하는 임시 암호를 할당 합니다.
@@ -45,13 +45,13 @@ ms.locfileid: "70162408"
 
 ### <a name="how-to-require-users-to-provide-contact-methods-again"></a>연락처 메서드를 다시 제공할 사용자를 요구하는 방법
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 **Azure Active Directory** > **사용자** > **모든 사용자**를 선택합니다.
 3. 오른쪽의 도구 모음에서 **Multi-Factor Authentication**을 선택합니다. 다단계 인증 페이지가 열립니다.
 4. 관리하려는 사용자 한 명 또는 여러 명 옆의 상자를 선택합니다. 오른쪽에 빠른 단계 옵션 목록이 표시 됩니다.
 5. **Manage user settings**(사용자 설정 관리)를 선택합니다.
 6. **Require selected users to provide contact methods again**(선택한 사용자가 연락 방법을 다시 제공하도록 요청) 상자를 선택합니다.
-   ![사용자가 연락 방법을 다시 제공 해야 함](./media/howto-mfa-userdevicesettings/reproofup.png)
+   사용자가 연락 방법을 다시 제공 하도록 ![Require ](./media/howto-mfa-userdevicesettings/reproofup.png)
 7. **저장**을 클릭합니다.
 8. **닫기**를 클릭합니다.
 
@@ -69,13 +69,13 @@ Set-MsolUser -UserPrincipalName $Upn -StrongAuthenticationMethods $noMfaConfig
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>사용자 기존 앱 암호를 삭제하는 방법
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 **Azure Active Directory** > **사용자** > **모든 사용자**를 선택합니다.
 3. 오른쪽의 도구 모음에서 **Multi-Factor Authentication**을 선택합니다. 다단계 인증 페이지가 열립니다.
 4. 관리하려는 사용자 한 명 또는 여러 명 옆의 상자를 선택합니다. 오른쪽에 빠른 단계 옵션 목록이 표시 됩니다.
 5. **Manage user settings**(사용자 설정 관리)를 선택합니다.
 6. **선택한 사용자에 의해 생성된 모든 기존 앱 암호 삭제** 상자를 선택합니다.
-   ![기존 앱 암호를 모두 삭제 합니다.](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
+   모든 기존 앱 암호를 ![Delete ](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 7. **저장**을 클릭합니다.
 8. **닫기**를 클릭합니다.
 
@@ -89,13 +89,13 @@ Azure Multi-Factor Authentication의 구성 가능한 기능 중 하나는 사�
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>사용자에 대해 일시 중단된 모든 디바이스에서 MFA를 복원하는 방법
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 **Azure Active Directory** > **사용자** > **모든 사용자**를 선택합니다.
 3. 오른쪽의 도구 모음에서 **Multi-Factor Authentication**을 선택합니다. 다단계 인증 페이지가 열립니다.
 4. 관리하려는 사용자 한 명 또는 여러 명 옆의 상자를 선택합니다. 오른쪽에 빠른 단계 옵션 목록이 표시 됩니다.
 5. **Manage user settings**(사용자 설정 관리)를 선택합니다.
-6. 모든 기억
-   된장치에서multi-factorauthentication복원확인란을선택하여기억된모든장치에서multi-factorauthentication복원![](./media/howto-mfa-userdevicesettings/rememberdevices.png)
+6. 모든 기억 된 장치에서 **multi-factor Authentication 복원** 확인란을 선택 하 여 기억 된 모든 장치에서 multi-factor authentication을 ![Restore 
+    ](./media/howto-mfa-userdevicesettings/rememberdevices.png)
 7. **저장**을 클릭합니다.
 8. **닫기**를 클릭합니다.
 

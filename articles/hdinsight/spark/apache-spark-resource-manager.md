@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
 ms.openlocfilehash: ac0109ff8c5dd7f6013acefbe5ee08a13494cb77
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71001717"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터용 리소스 관리 
 
 [Apache Ambari](https://ambari.apache.org/) UI, [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI 및 [Apache Spark](https://spark.apache.org/) 클러스터와 관련된 Spark 기록 서버와 같은 인터페이스에 액세스하는 방법과 최적의 성능을 위해 클러스터 구성을 튜닝하는 방법을 알아봅니다.
 
-**사전 요구 사항:**
+**필수 조건:**
 
 * HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
@@ -74,7 +74,7 @@ YARN UI를 사용하여 현재 Spark 클러스터에서 실행 중인 애플리�
     ![Ambari 사용자 지정을 사용 하 여 매개 변수 설정](./media/apache-spark-resource-manager/set-parameters-using-ambari.png "Ambari 사용자 지정을 사용 하 여 매개 변수 설정")
 2. 기본값으로 Spark 클러스터에서 4개의 애플리케이션을 동시에 실행할 수 있습니다. 다음 스크린샷에 표시된 대로 사용자 인터페이스에서 이러한 값을 변경할 수 있습니다.
 
-    ![Ambari를 사용 하 여 매개 변수 설정](./media/apache-spark-resource-manager/set-executor-parameters.png "Ambari를 사용 하 여 매개 변수 설정")
+    ![Ambari를 사용 하 여 매개 변수 설정](./media/apache-spark-resource-manager/set-executor-parameters.png "Ambari를 사용하여 매개 변수 설정")
 
 3. **저장** 을 클릭하여 구성 변경을 저장합니다. 페이지 맨 위에 모든 영향을 받는 서비스를 다시 시작하라는 메시지가 표시됩니다. **다시 시작**을 클릭합니다.
 
@@ -107,7 +107,7 @@ Spark Thrift 서버는 Spark 동적 실행자 할당을 사용하며 따라서 `
 
 * **고급 spark-thrift-sparkconf** 범주를 확장하여 `spark.dynamicAllocation.minExecutors`, `spark.dynamicAllocation.maxExecutors` 및 `spark.executor.memory` 매개 변수를 업데이트합니다.
 
-    ![Spark thrift 서버 구성](./media/apache-spark-resource-manager/spark-thrift-server-1.png "Spark thrift 서버 구성")
+    ![Spark thrift 서버 구성](./media/apache-spark-resource-manager/spark-thrift-server-1.png "Spark Thrift 서버 구성")
 * **사용자 지정 spark thrift sparkconf** 범주를 확장하여 `spark.executor.cores` 매개 변수를 업데이트합니다.
 
     ![Spark thrift 서버 매개 변수 구성](./media/apache-spark-resource-manager/spark-thrift-server-2.png "Spark thrift 서버 매개 변수 구성")
@@ -125,13 +125,13 @@ Spark 동적 할당 때문에 Thrift 서버에서 사용되는 리소스만이 �
 1. Ambari UI의 왼쪽된 창에서 **Spark**를 클릭합니다.
 2. 다음 페이지에서 **Spark Thrift 서버**를 클릭합니다.
 
-    ![Thrift Server1 다시 시작](./media/apache-spark-resource-manager/restart-thrift-server-1.png "Thrift Server1 다시 시작")
+    ![Thrift server1 다시 시작](./media/apache-spark-resource-manager/restart-thrift-server-1.png "Thrift server1 다시 시작")
 3. Spark Thrift 서버가 실행되는 두 개의 헤드 노드가 표시되어야 됩니다. 헤드 노드 중 하나를 클릭합니다.
 
-    ![Thrift Server2 다시 시작](./media/apache-spark-resource-manager/restart-thrift-server-2.png "Thrift Server2 다시 시작")
+    ![Thrift server2 다시 시작](./media/apache-spark-resource-manager/restart-thrift-server-2.png "Thrift server2 다시 시작")
 4. 다음 페이지는 헤드 노드에서 실행 중인 모든 서비스를 나열합니다. 목록에서 Spark Thrift 서버 옆에 있는 드롭다운 단추를 클릭한 다음 **중지**를 클릭합니다.
 
-    ![Thrift Server3 다시 시작](./media/apache-spark-resource-manager/restart-thrift-server-3.png "Thrift Server3 다시 시작")
+    ![Thrift server3 다시 시작](./media/apache-spark-resource-manager/restart-thrift-server-3.png "Thrift server3 다시 시작")
 5. 다른 헤드 노드에서도 이 단계를 반복합니다.
 
 ## <a name="restart-the-jupyter-service"></a>Jupyter 서비스 다시 시작
@@ -147,18 +147,18 @@ Spark 동적 할당 때문에 Thrift 서버에서 사용되는 리소스만이 �
 ## <a name="kill-running-applications"></a>애플리케이션 실행 종료
 1. Yarn UI의 왼쪽 패널에서 **실행 중**을 클릭합니다. 실행 중인 애플리케이션 목록에서 종료할 애플리케이션을 결정하고 **ID**를 클릭합니다.
 
-    ![App1 종료](./media/apache-spark-resource-manager/apache-ambari-kill-app1.png "App1 종료")
+    ![Kill App1](./media/apache-spark-resource-manager/apache-ambari-kill-app1.png "Kill App1")
 
 2. 오른쪽 위 구석에서 **애플리케이션 종료**를 클릭하고 **확인**을 클릭합니다.
 
-    ![App2 종료](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "App2 종료")
+    ![Kill App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Kill App2")
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](apache-spark-job-debugging.md)
 
 ### <a name="for-data-analysts"></a>데이터 분석가
 
-* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 HVAC 데이터로 건물 온도 분석](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
 * [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 * [HDInsight의 Apache Spark를 사용한 Application Insight 원격 분석 데이터 분석](apache-spark-analyze-application-insight-logs.md)

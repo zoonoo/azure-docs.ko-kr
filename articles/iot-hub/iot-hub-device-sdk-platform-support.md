@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: 030ea87018e1a2d438e3e4d728af76e429efda08
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ac5817675d3cfc97a8732ee2e10ec7b9246b12a5
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169011"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693329"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Azure IoT 장치 Sdk 플랫폼 지원
 
@@ -30,7 +30,7 @@ Microsoft는 Azure IoT Hub 지원 장치의 universe를 지속적으로 확장 �
 
 ## <a name="microsoft-sdks-and-device-platform-support"></a>Microsoft Sdk 및 장치 플랫폼 지원
 
-Microsoft는 GitHub에서 다음 언어에 대 한 오픈 소스 Sdk를 게시 합니다. C, .NET (C#), Node.js, Java 및 Python이 있습니다. 이 섹션에는 Sdk 및 해당 종속성이 나열 되어 있습니다. Sdk는 이러한 종속성을 충족 하는 모든 장치 플랫폼에서 지원 됩니다.
+Microsoft는 C, .NET (C#), Node.js, Java 및 Python 언어로 GitHub에 오픈 소스 sdk를 게시 합니다. 이 섹션에는 Sdk 및 해당 종속성이 나열 되어 있습니다. Sdk는 이러한 종속성을 충족 하는 모든 장치 플랫폼에서 지원 됩니다.
 
 나열 된 각 Sdk에 대해 Microsoft:
 
@@ -56,11 +56,13 @@ Microsoft는 GitHub에서 다음 언어에 대 한 오픈 소스 Sdk를 게시 �
 
 [Azure IoT Hub Python 장치 SDK](https://github.com/Azure/azure-iot-sdk-python) 는를 사용 하 여 테스트 하 고 다음 구성을 지원 합니다.
 
-| OS                  | 컴파일러                       |
-|---------------------|--------------------------------|
-| Linux               | Python 2.7, 3.4, 3.5, 3.6, 3.7 |
-| MacOS High Sierra   | Python 2.7, 3.4, 3.5, 3.6, 3.7 |
-| Windows 10 제품군   | Python 2.7, 3.4, 3.5, 3.6, 3.7 |
+| OS                  | 컴파일러                          |
+|---------------------|-----------------------------------|
+| Linux               | Python 2.7 *, 3.4*, 3.5 *, 3.6, 3.7 |
+| MacOS High Sierra   | Python 2.7 *, 3.4*, 3.5 *, 3.6, 3.7 |
+| Windows 10 제품군   | Python 2.7 *, 3.4*, 3.5 *, 3.6, 3.7 |
+
+\* Python 버전 3.5.3 이상 에서만 비동기 Api를 지원 합니다. 3.7 이상을 사용 하는 것이 좋습니다.
 
 ### <a name="net-sdk"></a>.NET SDK
 
@@ -70,6 +72,8 @@ Microsoft는 GitHub에서 다음 언어에 대 한 오픈 소스 Sdk를 게시 �
 |--------------------------------------|------------------------------------------------------------|
 | Linux                                | .NET Core 2.1                                              |
 | Windows 10 Desktop 및 Server Sku   | .NET Core 2.1, .NET Framework 4.5.1 또는 .NET Framework 4.7 |
+
+.NET SDK는 [RPC를 사용 하 여 UWP 응용 프로그램과 통신할 수 있는](https://docs.microsoft.com/samples/microsoft/windows-iotcore-samples/ntservice-rpc/) [Azure 장치 에이전트](https://github.com/ms-iot/azure-client-tools/blob/master/docs/device-agent/device-agent.md) 또는 사용자 지정 Ntservice에서 Windows IoT Core와 함께 사용할 수도 있습니다.
 
 ### <a name="nodejs-sdk"></a>Node.js SDK
 
@@ -94,7 +98,7 @@ Microsoft는 GitHub에서 다음 언어에 대 한 오픈 소스 Sdk를 게시 �
 
 Microsoft는 다양 한 파트너와 협력 하 여 여러 마이크로프로세서 아키텍처에 대 한 개발 키트를 제공 합니다. 이러한 파트너는 Azure IoT C SDK를 플랫폼으로 이식 했습니다. 파트너는 SDK의 PAL (플랫폼 추상화 계층)을 만들고 유지 관리 합니다. Microsoft는 이러한 파트너와 협력 하 여 확장 된 지원을 제공 합니다.
 
-| 파트너             | 장치                            | 링크                     | 지원 |
+| Partner             | 디바이스                            | 링크                     | 지원 |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IoT 모뎀     | [IoT SDK용 Qualcomm LTE](https://developer.qualcomm.com/software/lte-iot-sdk) | [포럼](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |

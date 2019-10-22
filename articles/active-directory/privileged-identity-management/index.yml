@@ -12,18 +12,18 @@ metadata:
   author: curtand
   ms.author: curtand
   ms.date: 08/28/2019
-  ms.openlocfilehash: b1782c41bce2de6a9da0858519dfeb87f6597df8
-  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.openlocfilehash: 80b562ff3f5fba7c57253e3761802dd3379b017b
+  ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/28/2019
-  ms.locfileid: "70127412"
+  ms.lasthandoff: 10/17/2019
+  ms.locfileid: "72554324"
 landingContent:
 - title: Privileged Identity Management 정보
   linkLists:
   - linkListType: overview
     links:
-    - text: Azure AD PIM이란?
+    - text: Azure AD Privileged Identity Management란?
       url: pim-configure.md
   - linkListType: concept
     links:
@@ -37,9 +37,9 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: PIM 배포
+    - text: Privileged Identity Management 배포
       url: pim-deployment-plan.md
-    - text: PIM 사용
+    - text: Privileged Identity Management 사용 시작
       url: pim-getting-started.md
 - title: 내 역할 활성화(자격을 갖춘 활성 역할 사용자)
   linkLists:

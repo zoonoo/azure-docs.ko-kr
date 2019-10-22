@@ -8,18 +8,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 070365c79e14b80c50c70aa3277a6eddd9286a37
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 39a7e78085f297838a028489de23c1991b6d672f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018754"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693424"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>방화벽을 사용 하 여 Azure HDInsight 클러스터에 대 한 아웃 바운드 네트워크 트래픽 구성 (미리 보기)
 
 이 문서에서는 Azure 방화벽을 사용 하 여 HDInsight 클러스터에서 아웃 바운드 트래픽을 보호 하는 단계를 제공 합니다. 아래 단계에서는 기존 클러스터에 대 한 Azure 방화벽을 구성 한다고 가정 합니다. 새 클러스터를 배포 하 고 방화벽 뒤에 있는 경우 먼저 HDInsight 클러스터 및 서브넷을 만든 다음이 가이드의 단계를 따릅니다.
 
-## <a name="background"></a>배경
+## <a name="background"></a>백그라운드
 
 Azure HDInsight 클러스터는 일반적으로 자체 가상 네트워크에 배포 됩니다. 클러스터에 네트워크 액세스가 제대로 작동 하는 데 필요한 가상 네트워크 외부의 서비스에 대 한 종속성이 있습니다.
 
@@ -40,33 +40,33 @@ Azure 방화벽을 사용 하 여 기존 HDInsight에서 송신을 잠그는 단
 ### <a name="create-a-new-firewall-for-your-cluster"></a>클러스터에 대 한 새 방화벽 만들기
 
 1. 클러스터가 있는 가상 네트워크에서 **AzureFirewallSubnet** 이라는 서브넷을 만듭니다. 
-1. 자습서의 [단계를 사용 하 여 새 방화벽 **FW01** 을 만듭니다. Azure Portal을 사용하여 Azure Firewall 배포 및 구성](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall)을 참조하세요.
+1. [자습서: Azure Portal을 사용 하 여 Azure 방화벽 배포 및 구성](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall)의 단계를 사용 하 여 새 방화벽 **FW01** 을 만듭니다.
 
 ### <a name="configure-the-firewall-with-application-rules"></a>응용 프로그램 규칙을 사용 하 여 방화벽 구성
 
 클러스터가 중요 한 통신을 보내고 받을 수 있도록 하는 응용 프로그램 규칙 컬렉션을 만듭니다.
 
-Azure Portal에서 새 방화벽 **FW01** 을 선택 합니다. **설정**응용프로그램 > 규칙 컬렉션**응용 프로그램 규칙 컬렉션 추가**에서 규칙을 클릭 합니다. > 
+Azure Portal에서 새 방화벽 **FW01** 을 선택 합니다. **설정**  >  응용 프로그램 규칙**컬렉션**  > **응용 프로그램 규칙 컬렉션 추가**에서 **규칙** 을 클릭 합니다.
 
-![제목: 애플리케이션 규칙 컬렉션 추가](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
+![제목: 응용 프로그램 규칙 컬렉션 추가](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
 **응용 프로그램 규칙 컬렉션 추가** 화면에서 다음 단계를 완료 합니다.
 
 1. **이름**, **우선 순위**를 입력 하 고 **작업** 드롭다운 메뉴에서 **허용** 을 클릭 한 후 **FQDN 태그 섹션** 에 다음 규칙을 입력 합니다.
 
-   | **이름** | **원본 주소** | **FQDN 태그** | **참고** |
+   | **Name** | **원본 주소** | **FQDN 태그** | **참고 사항** |
    | --- | --- | --- | --- |
    | Rule_1 | * | HDInsight 및 Windowsupdate.log | HDI 서비스에 필요 합니다. |
 
 1. **대상 Fqdn 섹션** 에 다음 규칙을 추가 합니다.
 
-   | **이름** | **원본 주소** | **Protocol:Port** | **대상 FQDN** | **참고** |
+   | **Name** | **원본 주소** | **프로토콜: 포트** | **대상 FQDN** | **참고 사항** |
    | --- | --- | --- | --- | --- |
-   | Rule_2 | * | https:443 | login.windows.net | Windows 로그인 작업을 허용 합니다. |
-   | Rule_3 | * | https:443 | login.microsoftonline.com | Windows 로그인 작업을 허용 합니다. |
-   | Rule_4 | * | https: 443, http: 80 | <storage_account_name.blob.core.windows.net> | 클러스터가 WASB에서 지원 되는 경우 WASB에 대 한 규칙을 추가 합니다. Https 연결만 사용 하려면 저장소 계정에 ["보안 전송 필요"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 가 설정 되어 있는지 확인 합니다. |
+   | Rule_2 | * | https: 443 | login.windows.net | Windows 로그인 작업을 허용 합니다. |
+   | Rule_3 | * | https: 443 | login.microsoftonline.com | Windows 로그인 작업을 허용 합니다. |
+   | Rule_4 | * | https: 443, http: 80 | storage_account_name >를 < 합니다. | 클러스터가 WASB에서 지원 되는 경우 WASB에 대 한 규칙을 추가 합니다. Https 연결만 사용 하려면 저장소 계정에 ["보안 전송 필요"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 가 설정 되어 있는지 확인 합니다. |
 
-1. **추가**를 클릭합니다.
+1. **추가**으로 로그온합니다.
 
    ![제목: 응용 프로그램 규칙 컬렉션 정보 입력](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
@@ -75,20 +75,20 @@ Azure Portal에서 새 방화벽 **FW01** 을 선택 합니다. **설정**응용
 HDInsight 클러스터를 올바르게 구성 하는 네트워크 규칙을 만듭니다.
 
 1. Azure Portal에서 새 방화벽 **FW01** 을 선택 합니다.
-1. **설정** **네트워크 규칙 컬렉션** **네트워크 규칙 컬렉션 추가**에서 규칙을 클릭 합니다. >  > 
+1. **설정**  > **네트워크 규칙 컬렉션**  > **네트워크 규칙 컬렉션 추가**에서 **규칙** 을 클릭 합니다.
 1. **네트워크 규칙 컬렉션 추가** 화면에서 **이름**, **우선 순위**를 입력 하 고 **작업** 드롭다운 메뉴에서 **허용** 을 클릭 합니다.
 1. **IP 주소** 섹션에서 다음 규칙을 만듭니다.
 
-   | **이름** | **프로토콜** | **원본 주소** | **대상 주소** | **대상 포트** | **참고** |
+   | **Name** | **프로토콜** | **원본 주소** | **대상 주소** | **대상 포트** | **참고 사항** |
    | --- | --- | --- | --- | --- | --- |
    | Rule_1 | UDP | * | * | `123` | 시간 서비스 |
-   | Rule_2 | 임의의 값 | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | Enterprise Security Package (ESP)를 사용 하는 경우 ESP 클러스터에 대해 AAD와 통신할 수 있도록 하는 IP 주소 섹션에서 네트워크 규칙을 추가 합니다. 도메인 컨트롤러의 IP 주소는 포털의 AAD DS 섹션에서 찾을 수 있습니다. | 
-   | Rule_3 | TCP | * | Data Lake Storage 계정의 IP 주소 | `*` | Azure Data Lake Storage를 사용 하는 경우 IP 주소 섹션에서 네트워크 규칙을 추가 하 여 ADLS Gen1 및 Gen2의 SNI 문제를 해결할 수 있습니다. 이 옵션을 선택 하면 트래픽이 방화벽으로 전달 되 고,이로 인해 큰 데이터 로드 비용이 더 많이 들 수 있지만 방화벽 로그에서 트래픽이 기록 되 고 감사 될 수 있습니다. Data Lake Storage 계정에 대 한 IP 주소를 확인 합니다. 와 `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` 같은 powershell 명령을 사용 하 여 IP 주소에 대 한 FQDN을 확인할 수 있습니다.|
+   | Rule_2 | 모두 | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | Enterprise Security Package (ESP)를 사용 하는 경우 ESP 클러스터에 대해 AAD와 통신할 수 있도록 하는 IP 주소 섹션에서 네트워크 규칙을 추가 합니다. 도메인 컨트롤러의 IP 주소는 포털의 AAD DS 섹션에서 찾을 수 있습니다. | 
+   | Rule_3 | TCP | * | Data Lake Storage 계정의 IP 주소 | `*` | Azure Data Lake Storage를 사용 하는 경우 IP 주소 섹션에서 네트워크 규칙을 추가 하 여 ADLS Gen1 및 Gen2의 SNI 문제를 해결할 수 있습니다. 이 옵션을 선택 하면 트래픽이 방화벽으로 전달 되 고,이로 인해 큰 데이터 로드 비용이 더 많이 들 수 있지만 방화벽 로그에서 트래픽이 기록 되 고 감사 될 수 있습니다. Data Lake Storage 계정에 대 한 IP 주소를 확인 합니다. @No__t_0와 같은 powershell 명령을 사용 하 여 IP 주소에 대 한 FQDN을 확인할 수 있습니다.|
    | Rule_4 | TCP | * | * | `12000` | 필드 Log Analytics를 사용 하는 경우 IP 주소 섹션에서 네트워크 규칙을 만들어 Log Analytics 작업 영역과 통신할 수 있도록 합니다. |
 
 1. **서비스 태그** 섹션에서 다음 규칙을 만듭니다.
 
-   | **이름** | **프로토콜** | **원본 주소** | **서비스 태그** | **대상 포트** | **참고** |
+   | **Name** | **프로토콜** | **원본 주소** | **서비스 태그** | **대상 포트** | **참고 사항** |
    | --- | --- | --- | --- | --- | --- |
    | Rule_7 | TCP | * | SQL | `1433` | Sql SQL Server 트래픽을 기록 하 고 감사 하는 데 사용할 수 있는 SQL에 대 한 서비스 태그 섹션에서 네트워크 규칙을 구성 합니다. |
 
@@ -113,14 +113,14 @@ HDInsight 클러스터를 올바르게 구성 하는 네트워크 규칙을 만�
 1. **설정**아래에서 **경로** 를 클릭 합니다.
 1. **추가** 를 클릭 하 여 아래 표에서 IP 주소에 대 한 경로를 만듭니다.
 
-| 경로 이름 | 주소 접두사 | 다음 홉 형식 | 다음 홉 주소 |
+| 경로 이름 | 주소 접두사 | 다음 홉 유형 | 다음 홉 주소 |
 |---|---|---|---|
-| 168.61.49.99 | 168.61.49.99/32 | 인터넷 | NA |
-| 23.99.5.239 | 23.99.5.239/32 | 인터넷 | NA |
-| 168.61.48.131 | 168.61.48.131/32 | 인터넷 | NA |
-| 138.91.141.162 | 138.91.141.162/32 | 인터넷 | NA |
-| 13.67.223.215 | 13.67.223.215/32 | 인터넷 | NA |
-| 40.86.83.253 | 40.86.83.253/32 | 인터넷 | NA |
+| 168.61.49.99 | 168.61.49.99/32 | 인터넷 | 해당 없음 |
+| 23.99.5.239 | 23.99.5.239/32 | 인터넷 | 해당 없음 |
+| 168.61.48.131 | 168.61.48.131/32 | 인터넷 | 해당 없음 |
+| 138.91.141.162 | 138.91.141.162/32 | 인터넷 | 해당 없음 |
+| 13.67.223.215 | 13.67.223.215/32 | 인터넷 | 해당 없음 |
+| 40.86.83.253 | 40.86.83.253/32 | 인터넷 | 해당 없음 |
 | 0.0.0.0 | 0.0.0.0/0 | 가상 어플라이언스 | 10.1.1.4 |
 
 경로 테이블 구성을 완료 합니다.
@@ -139,9 +139,9 @@ HDInsight 클러스터를 올바르게 구성 하는 네트워크 규칙을 만�
 
 응용 프로그램에 다른 종속성이 있는 경우 Azure 방화벽에 추가 해야 합니다. 다른 모든 항목에 대해 HTTP/HTTPS 트래픽 및 네트워크 규칙을 허용하는 애플리케이션 규칙을 만듭니다.
 
-## <a name="logging"></a>로깅
+## <a name="logging-and-scale"></a>로깅 및 크기 조정
 
-Azure 방화벽은 몇 가지 다른 저장소 시스템에 로그를 보낼 수 있습니다. 방화벽에 대 한 로깅을 구성 하는 방법에 대 한 지침은 [다음 자습서의 단계를 따르세요. Azure 방화벽 로그 및 메트릭을](../firewall/tutorial-diagnostics.md)모니터링 합니다.
+Azure 방화벽은 몇 가지 다른 저장소 시스템에 로그를 보낼 수 있습니다. 방화벽에 대 한 로깅을 구성 하는 방법에 대 한 지침은 [자습서: Azure 방화벽 로그 및 메트릭 모니터링](../firewall/tutorial-diagnostics.md)의 단계를 따르세요.
 
 로깅 설정을 완료 한 후 Log Analytics에 데이터를 기록 하는 경우 다음과 같은 쿼리를 사용 하 여 차단 된 트래픽을 볼 수 있습니다.
 
@@ -151,8 +151,12 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 Azure 방화벽을 Azure Monitor 로그와 통합 하는 것은 응용 프로그램의 모든 종속성을 인식 하지 못할 때 응용 프로그램을 처음 사용할 때 유용 합니다. Azure Monitor 로그에 대한 자세한 내용은 [Azure Monitor에서 로그 데이터 분석](../azure-monitor/log-query/log-query-overview.md)을 참조하세요.
 
+Azure 방화벽 및 요청 수의 확장 제한에 대해 알아보려면 [이](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#azure-firewall-limits) 문서를 참조 하세요.
+
 ## <a name="access-to-the-cluster"></a>클러스터에 대 한 액세스
-방화벽이 성공적으로 설정 되 면 내부 끝점 (`https://<clustername>-int.azurehdinsight.net`)을 사용 하 여 VNET 내에서 Ambari에 액세스할 수 있습니다. 공용 끝점 (`https://<clustername>.azurehdinsight.net`) 또는 ssh 끝점 (`<clustername>-ssh.azurehdinsight.net`)을 사용 하려면 [여기](https://docs.microsoft.com/azure/firewall/integrate-lb)에 설명 된 비대칭 라우팅 문제를 방지 하기 위해 경로 테이블 및 nsg 규칙 설정에 올바른 경로가 있는지 확인 합니다.
+방화벽이 성공적으로 설정 되 면 내부 끝점 (`https://<clustername>-int.azurehdinsight.net`)을 사용 하 여 VNET 내부에서 Ambari에 액세스할 수 있습니다. 
+
+공용 끝점 (`https://<clustername>.azurehdinsight.net`) 또는 ssh 끝점 (`<clustername>-ssh.azurehdinsight.net`)을 사용 하려면 [여기](https://docs.microsoft.com/azure/firewall/integrate-lb)에 설명 된 비대칭 라우팅 문제를 방지 하기 위해 경로 테이블 및 nsg 규칙에 올바른 경로가 있는지 확인 합니다. 특히이 경우 인바운드 NSG 규칙의 클라이언트 IP 주소를 허용 하 고, 다음 홉이 `internet`로 설정 된 사용자 정의 경로 테이블에도 추가 해야 합니다. 올바르게 설정 되지 않은 경우 시간 초과 오류가 표시 됩니다.
 
 ## <a name="configure-another-network-virtual-appliance"></a>다른 네트워크 가상 어플라이언스 구성
 
@@ -183,7 +187,7 @@ Azure 방화벽을 Azure Monitor 로그와 통합 하는 것은 응용 프로그
 | [여기](hdinsight-management-ip-addresses.md) 에 게시 된 ip | HDInsight 서비스 |
 | ESP 클러스터에 대 한 AAD-DS 개인 Ip |
 | \*: KMS Windows 정품 인증의 경우 16800 |
-| \*12000 Log Analytics |
+| Log Analytics에 대 한 \*12000 |
 
 #### <a name="fqdn-httphttps-dependencies"></a>FQDN HTTP/HTTPS 종속성
 
