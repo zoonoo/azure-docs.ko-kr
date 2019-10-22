@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: jhakulin
 ms.custom: ''
-ms.openlocfilehash: 02031e8e2800329134eaf34f5f99c93a20b99aac
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c9467bac8b5998252c021faca4eb4177c42a1736
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803879"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387379"
 ---
 # <a name="quickstart-recognize-speech-using-cross-platform-xamarin-app-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 플랫폼 간 Xamarin 앱을 통해 음성 인식
 
@@ -64,7 +64,9 @@ ms.locfileid: "71803879"
 
 1. `OnRecognitionButtonClicked` 처리기에서 `YourServiceRegion` 문자열을 찾아 구독과 연결된 [지역](regions.md)으로 바꿉니다. 예를 들어 평가판 구독의 경우 `westus`를 사용합니다.
 
-1. 다음으로, 다른 플랫폼 프로젝트(UWP, Android 및 iOS)에서 마이크 권한을 쿼리하는 데 사용되는 [Xamarin 서비스](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/)를 만들어야 합니다. 이렇게 하려면 새 `Services` 폴더를 `helloworld` 프로젝트 아래에 추가하고, 새 C# 소스 파일을 이 폴더 아래에 만들고(마우스 오른쪽 단추로 `Services` 폴더 및 **추가** > **새 항목** > **코드 파일**을 차례로 클릭), 파일 이름을 `IMicrophoneService.cs`로 바꾸고, [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-xamarin/helloworld/helloworld/Services/IMicrophoneService.cs)] 코드 조각의 모든 코드를 해당 파일에 배치합니다.
+1. 다음으로, 다른 플랫폼 프로젝트(UWP, Android 및 iOS)에서 마이크 권한을 쿼리하는 데 사용되는 [Xamarin 서비스](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/)를 만들어야 합니다. 이렇게 하려면 새 `Services` 폴더를 `helloworld` 프로젝트 아래에 추가하고, 새 C# 소스 파일을 이 폴더 아래에 만들고(마우스 오른쪽 단추로 `Services` 폴더 및 **추가** > **새 항목** > **코드 파일**을 차례로 클릭), 파일 이름을 `IMicrophoneService.cs`로 바꾸고, 다음 코드 조각의 모든 코드를 해당 파일에 배치합니다.
+
+[!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-xamarin/helloworld/helloworld/Services/IMicrophoneService.cs)]
 
 ## <a name="add-sample-code-for-the-helloworldandroid-project"></a>`helloworld.Android` 프로젝트용 샘플 코드 추가
 

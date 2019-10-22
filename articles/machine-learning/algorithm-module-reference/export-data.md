@@ -1,7 +1,7 @@
 ---
 title: '데이터 내보내기: 모듈 참조'
 titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스에서 데이터 내보내기 모듈을 사용 하 여 실험의 결과, 중간 데이터 및 작업 데이터를 Azure Machine Learning 외부의 클라우드 저장소 대상에 저장 하는 방법을 알아봅니다.
+description: Azure Machine Learning service에서 데이터 내보내기 모듈을 사용 하 여 파이프라인의 결과, 중간 데이터 및 작업 데이터를 Azure Machine Learning 외부의 클라우드 저장소 대상에 저장 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: a4fb539f4c86d27813b60964794fc1f398d3f2a4
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: b7b4b9de1e91279243e35f1b71f1ef6d2244e9e0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128772"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693729"
 ---
 # <a name="export-data-module"></a>데이터 내보내기 모듈
 
 이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
 
-이 모듈을 사용 하 여 실험의 결과, 중간 데이터 및 작업 데이터를 Azure Machine Learning 외부의 클라우드 저장소 대상에 저장 합니다.
+이 모듈을 사용 하 여 파이프라인의 결과, 중간 데이터 및 작업 데이터를 Azure Machine Learning 외부의 클라우드 저장소 대상에 저장 합니다.
 
 이 모듈은 데이터를 다음 클라우드 데이터 서비스로 내보내거나 저장할 수 있도록 지원 합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "70128772"
   
 ## <a name="how-to-configure-export-data"></a>내보내기 데이터를 구성 하는 방법
 
-1. 인터페이스의 실험에 **데이터 내보내기** 모듈을 추가 합니다. 이 모듈은 **입력 및 출력** 범주에서 찾을 수 있습니다.
+1. 인터페이스에서 파이프라인에 **데이터 내보내기** 모듈을 추가 합니다. 이 모듈은 **입력 및 출력** 범주에서 찾을 수 있습니다.
 
 2. 내보낼 데이터를 포함 하는 모듈에 **내보내기 데이터** 를 연결 합니다.
 
@@ -51,15 +51,15 @@ ms.locfileid: "70128772"
 
         파일 형식의 경우 CSV 및 TSV가 지원 됩니다.
 
-    3. 개인 계정의 경우, **계정**을 선택 하 고, 실험에서 저장소 계정에 쓸 수 있도록 계정 이름과 계정 키를 제공 합니다.
+    3. 개인 계정의 경우, **계정**을 선택 하 고, 파이프라인에서 저장소 계정에 쓸 수 있도록 계정 이름과 계정 키를 제공 합니다.
 
-         - **계정 이름**: 데이터를 저장 하려는 계정 이름을 입력 하거나 붙여 넣습니다. 예를 들어 저장소 계정의 전체 URL이 인 `http://myshared.blob.core.windows.net`경우을 입력 `myshared`합니다.
+         - **계정 이름**: 데이터를 저장 하려는 계정 이름을 입력 하거나 붙여 넣습니다. 예를 들어 저장소 계정의 전체 URL이 `http://myshared.blob.core.windows.net` 되는 경우 `myshared`을 입력 합니다.
 
         - **계정 키**: 계정과 연결 된 저장소 액세스 키를 붙여넣습니다.
 
-        -  **컨테이너, 디렉터리 또는 blob의 경로**: 내보낸 데이터를 저장할 blob의 이름을 입력 합니다. 예를 들어 **mymldata**라는 계정의 컨테이너 `http://mymldata.blob.core.windows.net/predictions/results01.csv` **예측** 에서 **results01** 라는 새 blob에 실험 결과를 저장 하기 위해 blob의 전체 URL은가 됩니다.
+        -  **컨테이너, 디렉터리 또는 Blob 경로**: 내보낸 데이터가 저장 될 blob의 이름을 입력 합니다. 예를 들어, 파이프라인의 결과를 **mymldata**라는 계정의 컨테이너 **예측** 에 있는 **results01** 라는 새 blob에 저장 하려면 blob에 대 한 전체 URL을 `http://mymldata.blob.core.windows.net/predictions/results01.csv` 합니다.
 
-            따라서 **컨테이너, 디렉터리 또는 blob에 대**한 필드 경로에서 다음과 같이 컨테이너와 blob 이름을 지정 합니다.`predictions/results01.csv`
+            따라서 **컨테이너, 디렉터리 또는 blob에 대**한 필드 경로에서 다음과 같이 컨테이너와 blob 이름을 지정 합니다. `predictions/results01.csv`
 
         - 아직 존재 하지 않는 blob의 이름을 지정 하면 Azure에서 blob을 만듭니다.
 
@@ -68,14 +68,14 @@ ms.locfileid: "70128772"
 
     4. **Blob 파일의 파일 형식**에 대해 데이터를 저장할 형식을 선택 합니다.
 
-        - **CSV**: CSV (쉼표로 구분 된 값)는 기본 저장소 형식입니다. 열 머리글을 데이터와 함께 내보내려면 **blob 헤더 행 쓰기**옵션을 선택 합니다.  Azure Machine Learning에서 사용 되는 쉼표로 구분 된 형식에 대 한 자세한 내용은 [CSV로 변환](./convert-to-csv.md)을 참조 하세요.
+        - **Csv**: csv (쉼표로 구분 된 값)는 기본 저장소 형식입니다. 열 머리글을 데이터와 함께 내보내려면 **blob 헤더 행 쓰기**옵션을 선택 합니다.  Azure Machine Learning에서 사용 되는 쉼표로 구분 된 형식에 대 한 자세한 내용은 [CSV로 변환](./convert-to-csv.md)을 참조 하세요.
 
         - **TSV**: TSV (탭으로 구분 된 값) 형식은 많은 기계 학습 도구와 호환 됩니다. 열 머리글을 데이터와 함께 내보내려면 **blob 헤더 행 쓰기**옵션을 선택 합니다.  
 
  
-    5. **캐시 된 결과 사용**: 실험을 실행할 때마다 blob 파일에 결과를 다시 작성 하지 않으려면이 옵션을 선택 합니다. 모듈 매개 변수에 대 한 다른 변경 내용이 없는 경우 실험은 모듈이 처음 실행 될 때 또는 데이터가 변경 된 경우에만 결과를 기록 합니다.
+    5. **캐시 된 결과 사용**: 파이프라인을 실행할 때마다 blob 파일에 결과를 다시 작성 하지 않으려면이 옵션을 선택 합니다. 모듈 매개 변수에 대 한 다른 변경 내용이 없는 경우 파이프라인은 모듈이 처음 실행 될 때 또는 데이터가 변경 된 경우에만 결과를 기록 합니다.
 
-    6. 실험을 실행합니다.
+    6. 파이프라인을 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

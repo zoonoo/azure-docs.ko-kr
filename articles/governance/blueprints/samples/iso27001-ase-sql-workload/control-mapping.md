@@ -1,17 +1,17 @@
 ---
-title: 샘플 - ISO 27001 ASE/SQL 워크로드 청사진 - 컨트롤 매핑
+title: ISO 27001 ASE/SQL 워크로드 청사진 샘플 - 컨트롤 매핑
 description: Azure Policy 및 RBAC에 대한 ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플의 컨트롤 매핑입니다.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 9b59926ef5b98aeb1f899bca2820c79757d855d8
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: aa60305e6733b18aa563b77c19ca81bfc6eced57
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978306"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297656"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>ISO 27001 ASE/SQL 워크로드 청사진 샘플에 대한 컨트롤 매핑
 

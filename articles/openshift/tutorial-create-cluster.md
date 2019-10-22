@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 05/14/2019
-ms.openlocfilehash: 4c186787af08a565dc100dfbd79d166688d89d8f
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 01319de8fd72875ca35bb7a869a6eaedee62f2a7
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013431"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285526"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>자습서: Azure Red Hat OpenShift 클러스터 만들기
 
@@ -126,6 +126,9 @@ VNET_ID=$(az network vnet show -n {VNET name} -g {VNET resource group} --query i
 ### <a name="create-the-cluster"></a>클러스터 만들기
 
 이제 클러스터를 만들 준비가 되었습니다. 다음에서는 지정된 Azure AD 테넌트에서 클러스터를 만들고, 보안 주체로 사용할 Azure AD 앱 개체 및 비밀, 클러스터에 대해 관리자 권한이 있는 멤버를 포함하는 보안 그룹을 지정합니다.
+
+> [!IMPORTANT]
+> 클러스터를 만들기 전에 [여기에 설명된 대로](howto-aad-app-configuration.md#add-api-permissions) Azure AD 앱에 대한 적절한 사용 권한이 올바르게 추가되었는지 확인합니다.
 
 클러스터를 가상 네트워크에 연결하지 **않으려는 경우** 다음 명령을 사용합니다.
 

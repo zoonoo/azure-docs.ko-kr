@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 특정 Android 디바이스에 알림 푸시 | Microsoft Docs
+title: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 특정 Android 디바이스에 알림 보내기 | Microsoft Docs
 description: Notification Hubs를 사용하여 Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 특정 Android 디바이스에 알림을 푸시하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: android
@@ -17,12 +17,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 4a369b72d5c19a63c65f8d693d131b2c10ff2023
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: aa2aa7b77bf174f4a2ca89408ee037b398a32e4d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212813"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387438"
 ---
 # <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 특정 Android 디바이스에 알림 푸시(더 이상 사용되지 않음)
 

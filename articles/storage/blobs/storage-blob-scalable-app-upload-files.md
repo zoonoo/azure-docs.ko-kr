@@ -1,18 +1,18 @@
 ---
 title: Azure Storage에 대량의 임의 데이터를 병렬로 업로드 | Microsoft Docs
-description: Azure SDK를 사용하여 Azure Storage 계정에 대량의 임의 데이터를 병렬로 업로드하는 방법에 대해 알아봅니다.
+description: Azure Storage 클라이언트를 사용하여 Azure Storage 계정에 대량의 임의 데이터를 병렬로 업로드하는 방법 알아보기
 author: roygara
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: e5c1a78bf2f482e99d8ff13590a8bb81f9601991
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 5b20686399db9537e5db8622a433b5e506939d19
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698960"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302986"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Azure Storage에 대량의 임의 데이터를 병렬로 업로드
 
@@ -28,7 +28,7 @@ ms.locfileid: "68698960"
 
 Azure Blob Storage는 데이터를 저장하기 위한 확장 가능한 서비스를 제공합니다. 애플리케이션 성능을 가능한 한 높게 유지하려면 Blob Storage 작동 방식을 이해하는 것이 좋습니다. Azure Blob에 대한 제한을 알고 있어야 합니다. 이러한 제한을 자세히 알아보려면 [Blob Storage 확장성 대상](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets)을 참조하세요.
 
-[파티션 이름 지정](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47)은 Blob을 사용하여 고성능 애플리케이션을 설계할 때 고려한 또 다른 잠재적인 중요한 요소입니다. 크기가 4MiB보다 크거나 같은 블록의 경우 [처리량이 높은 블록 Blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)이 사용되고 파티션 명명으로 인해 성능에 영향이 없습니다. 크기가 4MiB 미만인 블록의 경우 Azure Storage는 확장/축소 및 부하 분산에 범위 기준 분할 구성표를 사용합니다. 이 구성은 이름 지정 규칙 또는 접두사가 유사한 파일이 동일한 파티션으로 이동함을 의미합니다. 이 논리에는 파일이 업로드되는 컨테이너의 이름이 포함됩니다. 이 자습서에서는 임의로 생성된 콘텐츠뿐만 아니라 이름에 대한 GUID가 있는 파일을 사용합니다. 그런 다음, 임의 이름을 가진 5개의 다른 컨테이너로 업로드됩니다.
+[파티션 이름 지정](../blobs/storage-performance-checklist.md#partitioning)은 Blob을 사용하여 고성능 애플리케이션을 설계할 때 고려한 또 다른 잠재적인 중요한 요소입니다. 크기가 4MiB보다 크거나 같은 블록의 경우 [처리량이 높은 블록 Blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)이 사용되고 파티션 이름 지정은 성능에 영향을 미치지 않습니다. 크기가 4MiB 미만인 블록의 경우 Azure Storage는 확장/축소 및 부하 분산에 범위 기준 분할 구성표를 사용합니다. 이 구성은 이름 지정 규칙 또는 접두사가 유사한 파일이 동일한 파티션으로 이동함을 의미합니다. 이 논리에는 파일이 업로드되는 컨테이너의 이름이 포함됩니다. 이 자습서에서는 임의로 생성된 콘텐츠뿐만 아니라 이름에 대한 GUID가 있는 파일을 사용합니다. 그런 다음, 임의 이름을 가진 5개의 다른 컨테이너로 업로드됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

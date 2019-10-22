@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: c6d7aabd41e9d0e872926adbbcb2d18332cb7d5e
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 2a035644dc0d3d533aa052217c89968a5692230b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128914"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693884"
 ---
 # <a name="create-python-model"></a>Python 모델 만들기
 
@@ -33,14 +33,14 @@ Azure Machine Learning 환경의 Python 패키지에 포함 된 모든 학습자
 이 모듈을 사용 하려면 Python에 대해 중급 또는 전문 지식이 필요 합니다. 이 모듈은 Azure Machine Learning에 이미 설치 된 Python 패키지에 포함 된 모든 학습자의 사용을 지원 합니다. [Python 스크립트 실행](execute-python-script.md)의 미리 설치 된 python 패키지 목록을 참조 하세요.
   
 
-이 문서에서는 간단한 실험에서 **Python 모델 만들기** 를 사용 하는 방법을 보여 줍니다. 실험 그래프는 다음과 같습니다.
+이 문서에서는 간단한 파이프라인에서 **Python 모델 만들기** 를 사용 하는 방법을 보여 줍니다. 파이프라인의 그래프는 다음과 같습니다.
 
 ![만들기-python-모델](./media/module/aml-create-python-model.png)
 
-1.  **Python 모델 만들기**를 클릭 하 고 스크립트를 편집 하 여 모델링 또는 데이터 관리 프로세스를 구현 합니다. Azure Machine Learning 환경의 Python 패키지에 포함 된 모든 학습자 모델을 기반으로 할 수 있습니다.
+1.  **Python 모델 만들기**를 클릭 하 고, 스크립트를 편집 하 여 모델링 또는 데이터 관리 프로세스를 구현 합니다. Azure Machine Learning 환경의 Python 패키지에 포함 된 모든 학습자 모델을 기반으로 할 수 있습니다.
 
 
-    다음은 인기 있는 기능을 사용 하는 Naive Bayes 분류자의 샘플 코드입니다 .
+    다음 *은 인기 있는 기능을 사용 하* 는 Naive Bayes 분류자의 샘플 코드입니다.
 
 ```Python
 

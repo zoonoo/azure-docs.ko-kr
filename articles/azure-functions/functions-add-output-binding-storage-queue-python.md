@@ -1,26 +1,22 @@
 ---
 title: Python 함수에 Azure Storage 큐 바인딩 추가
-description: Azure CLI 및 Functions Core Tools를 사용하여 Azure Storage 큐 출력 바인딩을 Python 함수에 추가하는 방법을 알아봅니다.
-services: functions
-keywords: ''
+description: Python 함수에 Azure Storage 큐 출력 바인딩을 추가하는 방법에 대해 알아봅니다.
 author: ggailey777
 ms.author: glenga
-ms.date: 04/24/2019
+ms.date: 10/02/2019
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: mvc
-ms.devlang: python
-manager: jeconnoc
-ms.openlocfilehash: 92ee9b0a8a0906bca31d7dcb1730c3464d0d6cbc
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+manager: gwallace
+ms.openlocfilehash: 2307a296453247a5deee082aadb474f3641cce88
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71839189"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329726"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Python 함수에 Azure Storage 큐 바인딩 추가
 
-Azure Functions를 사용하면 자체 통합 코드를 작성하지 않고도 함수에 Azure 서비스 및 기타 리소스를 연결할 수 있습니다. 입력과 출력을 모두 나타내는 이러한 *바인딩*은 함수 정의 내에서 선언됩니다. 바인딩의 데이터는 함수에 매개 변수로 제공됩니다. *트리거*는 특수한 형식의 입력 바인딩입니다. 함수에는 하나의 트리거만 있지만, 여러 개의 입력 및 출력 바인딩이 있을 수 있습니다. 자세한 내용은 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md)을 참조하세요.
+[!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
 [이전의 빠른 시작 문서](functions-create-first-function-python.md)에서 Azure Storage 큐를 사용하여 만든 함수를 통합하는 방법을 보여줍니다. 이 함수에 추가하는 출력 바인딩은 HTTP 요청의 데이터를 큐의 메시지에 씁니다.
 
@@ -34,7 +30,7 @@ Azure Functions를 사용하면 자체 통합 코드를 작성하지 않고도 �
 
 ## <a name="download-the-function-app-settings"></a>함수 앱 설정 다운로드
 
-[!INCLUDE [functions-app-settings-download-local-cli](../../includes/functions-app-settings-download-local-cli.md)]
+[!INCLUDE [functions-app-settings-download-cli](../../includes/functions-app-settings-download-local-cli.md)]
 
 ## <a name="enable-extension-bundles"></a>확장 번들 사용
 
@@ -63,7 +59,7 @@ func host start
 ```
 
 > [!NOTE]  
-> 이전의 빠른 시작에서 host.json의 확장 번들을 사용하도록 설정했으므로 시작 시 [Storage 바인딩 확장](functions-bindings-storage-blob.md#packages---functions-2x)이 다른 Microsoft 바인딩 확장과 함께 자동으로 다운로드되어 설치되었습니다.
+> host.json에서 확장 번들을 사용하도록 설정했으므로 시작 시 [Storage 바인딩 확장](functions-bindings-storage-blob.md#packages---functions-2x)이 다른 Microsoft 바인딩 확장과 함께 자동으로 다운로드되어 설치되었습니다.
 
 런타임 출력에서 `HttpTrigger` 함수의 URL을 복사하고 브라우저의 주소 표시줄에 붙여넣습니다. `?name=<yourname>` 쿼리 문자열을 이 URL에 추가하고 요청을 실행합니다. 브라우저에 이전 문서와 똑같은 응답이 표시됩니다.
 
@@ -71,17 +67,17 @@ func host start
 
 다음으로, Azure CLI를 사용하여 새 큐를 살펴보고 메시지가 추가되었는 확인합니다. 큐는 [Microsoft Azure Storage Explorer][Azure Storage Explorer] 또는 [Azure Portal](https://portal.azure.com)을 사용하여 확인할 수도 있습니다.
 
-### <a name="set-the-storage-account-connection"></a>Storage 계정 연결 설정
-
 [!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
-
-### <a name="query-the-storage-queue"></a>Storage 큐 쿼리
 
 [!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
 
-이제 업데이트된 함수 앱을 Azure에 다시 게시할 때입니다.
+### <a name="redeploy-the-project"></a>프로젝트 다시 배포 
 
-[!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
+게시된 앱을 업데이트하려면 [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) Core Tools 명령을 사용하여 프로젝트 코드를 Azure에 배포합니다. 이 예제에서는 `<APP_NAME>`을 앱 이름으로 바꿉니다.
+
+```command
+func azure functionapp publish <APP_NAME> --build remote
+```
 
 마찬가지로 cURL 또는 브라우저를 사용하여 배포된 함수를 테스트할 수 있습니다. 이전과 마찬가지로 다음 예제와 같이 `&name=<yourname>` 쿼리 문자열을 URL에 추가합니다.
 
@@ -89,7 +85,7 @@ func host start
 curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
 ```
 
-[Storage 큐 메시지를 검사](#query-the-storage-queue)하여 출력 바인딩에서 새 메시지를 큐에 다시 생성하는지 확인할 수 있습니다.
+[Storage 큐 메시지를 검사](#query-the-storage-queue)하여 출력 바인딩이 예상대로 큐에 새 메시지를 생성하는지 다시 확인할 수 있습니다.
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 

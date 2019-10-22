@@ -10,19 +10,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: ed69775de71a371153a888749efc9069389e61d5
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 90fa6b0db180ca93d9b57178c32c5e156ecc3bb0
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709677"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375815"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Azure 무료 계정에 포함된 서비스 만들기
 
-Azure 무료 계정에는 12개월 동안 사용할 수 있는 제한 수량의 무료 서비스가 포함되어 있습니다. 자세한 내용은 [Azure 무료 계정이란?](https://azure.microsoft.com/free/free-account-faq/)을 참조하세요. Azure는 각 서비스의 사용량을 추적하고 제한을 초과하지 않으면 요금을 청구하지 않습니다. 이러한 제한 내에서 Azure 무료 계정을 사용하면 요구에 맞는 다양한 서비스 구성을 유연하게 사용할 수 있습니다.
+Azure 체험 계정에는 12개월 동안 사용할 수 있는 제한 수량의 평가판 서비스가 포함되어 있습니다. 이러한 제한 내에서 요구 사항에 맞게 다양한 서비스 구성을 유연하게 사용할 수 있습니다.
 
 ## <a name="create-free-services-in-the-azure-portal"></a>Azure Portal에서 무료 서비스 만들기
-[무료 서비스 페이지](https://go.microsoft.com/fwlink/?linkid=859151)를 사용하여 새 서비스를 만드는 것이 좋습니다. 또는 [Azure Portal](https://portal.azure.com)에 로그인하고 왼쪽에서 **모든 서비스**를 선택한 후 **평가판 서비스**를 검색할 수 있습니다.
+[평가판 서비스 페이지](https://go.microsoft.com/fwlink/?linkid=859151)에 대한 링크를 사용하여 평가판 서비스를 만드는 것이 좋습니다. 또는 [Azure Portal](https://portal.azure.com)에 로그인하여 **평가판 서비스**를 검색할 수 있습니다. 평가판 서비스 페이지에서 서비스를 만들면 대부분의 필드가 미리 선택되어 있어 무료로 서비스를 쉽게 만들 수 있습니다.
+
+![평가판 서비스 페이지를 보여주는 스크린샷](./media/billing-create-free-services-included-free-account/billing-freeservices-grid.png)
 
 ## <a name="services-can-be-created-in-any-region"></a>모든 지역에서 서비스를 만들 수 있음
 제한을 벗어나지만 않으면 서비스를 사용할 수 있는 모든 지역에서 무료로 서비스를 만들 수 있습니다. 예를 들어 Azure 무료 계정을 사용하여 매월 750시간 동안 B1S Windows 가상 머신을 무료로 사용할 수 있습니다. B-시리즈 가상 머신을 사용할 수 있는 모든 지역에서 가상 머신을 만들 수 있습니다. 또한 750시간을 초과하지 않는 한, 요금은 청구되지 않습니다. 예를 들어 미국의 고객은 유럽 서부에서 B1S Windows 가상 머신을 프로비전할 수 있고 750시간 동안 무료로 사용할 수 있습니다.
@@ -37,5 +39,5 @@ Azure 무료 계정에는 12개월 동안 사용할 수 있는 제한 수량의 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>다음 단계
-
+- [Azure 체험 계정에 포함된 평가판 서비스의 사용량을 확인](billing-check-free-service-usage.md)하는 방법에 대해 알아봅니다.
 - [Azure 체험 계정에 대한 요금 청구를 방지](billing-avoid-charges-free-account.md)하는 방법을 알아봅니다.

@@ -5,15 +5,15 @@ services: azure-resource-manager
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.date: 05/31/2019
+ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 17e27fcbd0e31c8602869be3d884888fe4fe7db0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b381c4be5d0c56e14ccd01657542ef3bff2f8894
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095824"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285675"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>자습서: Azure Deployment Manager에서 상태 확인 사용(공개 미리 보기)
 
@@ -38,8 +38,8 @@ ms.locfileid: "70095824"
 
 추가 리소스:
 
-- [Azure Deployment Manager REST API 참조](https://docs.microsoft.com/rest/api/deploymentmanager/).
-- [Azure Deployment Manager 샘플](https://github.com/Azure-Samples/adm-quickstart).
+* [Azure Deployment Manager REST API 참조](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [Azure Deployment Manager 샘플](https://github.com/Azure-Samples/adm-quickstart).
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -48,7 +48,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이 문서를 완료하려면 다음이 필요합니다.
 
 * [Azure 배포 관리자에서 Resource Manager 템플릿 사용](./deployment-manager-tutorial.md)을 완료합니다.
-* 이 자습서에 사용되는 [템플릿 및 아티팩트](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip)를 다운로드합니다.
+
+## <a name="install-the-artifacts"></a>아티팩트 설치
+
+[템플릿 및 아티팩트](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip)를 다운로드하여 로컬로 압축을 풉니다(아직 수행되지 않은 경우). 그런 다음, [아티팩트 준비](./deployment-manager-tutorial.md#prepare-the-artifacts)에 있는 PowerShell 스크립트를 실행합니다. 이 스크립트는 리소스 그룹을 만들고, 스토리지 컨테이너를 만들고, Blob 컨테이너를 만들고, 다운로드한 파일을 업로드한 다음, SAS 토큰을 만듭니다.
+
+SAS 토큰을 사용하여 URL의 복사본을 만듭니다. 이 URL은 두 매개 변수 파일(토폴로지 매개 변수 파일 및 롤아웃 매개 변수 파일)의 필드를 채우는 데 필요합니다.
+
+CreateADMServiceTopology.Parameters.json을 열고 **projectName** 및 **artifactSourceSASLocation**의 값을 업데이트합니다.
+
+CreateADMRollout.Parameters.json을 열고 **projectName** 및 **artifactSourceSASLocation**의 값을 업데이트합니다.
 
 ## <a name="create-a-health-check-service-simulator"></a>상태 확인 서비스 시뮬레이터 만들기
 
@@ -56,22 +65,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 다음 두 파일은 Azure Function 배포에 사용됩니다. 자습서를 진행하기 위해 두 파일을 다운로드할 필요는 없습니다.
 
-* [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json)에 있는 Resource Manager 템플릿. Azure Function을 만들기 위해 이 템플릿을 배포합니다.
-* Azure Function 소스 코드의 [https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip) zip 파일. 이 zip 파일은 Resource Manager 템플릿에 의해 호출됩니다.
+* [https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json)에 있는 Resource Manager 템플릿. Azure Function을 만들기 위해 이 템플릿을 배포합니다.
+* Azure Function 소스 코드의 [https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip) zip 파일. 이 zip 파일은 Resource Manager 템플릿에 의해 호출됩니다.
 
 Azure 함수를 배포하려면 **사용해보기**를 선택하여 Azure Cloud Shell을 열고, 다음 스크립트를 셸 창에 붙여넣습니다.  코드를 붙여넣으려면 셸 창을 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
 
-> [!IMPORTANT]
-> PowerShell 스크립트의 **projectName**은 이 자습서에서 배포되는 Azure 서비스의 이름을 생성하는 데 사용합니다. Azure 서비스마다 이름에 대한 요구 사항이 다릅니다. 배포가 성공하도록 소문자와 숫자로만 구성된 12자 미만의 이름을 선택합니다.
-> 프로젝트 이름의 복사본을 저장합니다. 이 자습서 전체에서 동일한 projectName을 사용합니다.
-
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$resourceGroupName = "${projectName}rg"
-
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json" -projectName $projectName
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json" -projectName $projectName
 ```
 
 Azure 함수를 확인하고 테스트하려면 다음을 수행합니다.
@@ -107,9 +107,9 @@ Azure 함수를 확인하고 테스트하려면 다음을 수행합니다.
 
 ## <a name="revise-the-rollout-template"></a>롤아웃 템플릿 수정
 
-이 섹션의 목적은 롤아웃 템플릿에 상태 확인 단계를 포함하는 방법을 보여주는 것입니다. 이 자습서를 완료하기 위해 사용자 고유의 CreateADMRollout.json 파일을 만들 필요가 없습니다. 수정된 롤아웃 템플릿은 후속 섹션에 사용되는 스토리지 계정에서 공유됩니다.
+이 섹션의 목적은 롤아웃 템플릿에 상태 확인 단계를 포함하는 방법을 보여주는 것입니다.
 
-1. **CreateADMRollout.json** 파일을 엽니다. 이 JSON 파일은 다운로드한 파일에 포함되어 있습니다.  [필수 조건](#prerequisites)을 참조하세요.
+1. [Resource Manager 템플릿에서 Azure Deployment Manager 사용](./deployment-manager-tutorial.md)에서 만든 **CreateADMRollout.json**을 엽니다. 이 JSON 파일은 다운로드한 파일에 포함되어 있습니다.  [필수 조건](#prerequisites)을 참조하세요.
 1. 다음 두 매개 변수를 추가합니다.
 
     ```json
@@ -233,26 +233,14 @@ Azure 함수를 확인하고 테스트하려면 다음을 수행합니다.
 
 ## <a name="deploy-the-topology"></a>토폴로지 배포
 
-자습서를 간소화하기 위해, 여러분이 복사본을 직접 준비할 필요가 없도록 다음 위치에 토폴로지 템플릿과 아티팩트를 공유해 놓았습니다. 직접 준비한 복사본을 사용하려면 [자습서: Resource Manager 템플릿에서 Azure Deployment Manager 사용](./deployment-manager-tutorial.md)의 지침을 따르세요.
+다음 PowerShell 스크립트를 실행하여 토폴로지를 배포합니다. [Resource Manager 템플릿에서 Azure Deployment Manager 사용](./deployment-manager-tutorial.md)에서 사용한 것과 동일한 **CreateADMServiceTopology.json** 및 **CreateADMServiceTopology.Parameters.json**이 필요합니다.
 
-* 토폴로지 템플릿: https:\//armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
-* 아티팩트 저장소: https:\//armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
-
-토폴로지를 배포하려면 **사용해보기**를 선택하여 Cloud Shell을 연 다음, PowerShell 스크립트를 붙여넣습니다.
-
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$resourceGroupName = "${projectName}rg"
-$artifactLocation = "https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore?st=2019-05-06T03%3A57%3A31Z&se=2020-05-07T03%3A57%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=gOh%2Bkhi693rmdxiZFQ9xbKZMU1kbLJDqXw7EP4TaGlI%3D" | ConvertTo-SecureString -AsPlainText -Force
-
+```azurepowershell
 # Create the service topology
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateUri "https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMServiceTopology.json" `
-    -namePrefix $projectName `
-    -azureResourceLocation $location `
-    -artifactSourceSASLocation $artifactLocation
+    -TemplateFile "$filePath\ADMTemplates\CreateADMServiceTopology.json" `
+    -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
 ```
 
 Azure Portal을 사용하여 서비스 토폴로지와 밑줄 표시된 리소스가 성공적으로 만들어졌는지 확인합니다.
@@ -263,32 +251,18 @@ Azure Portal을 사용하여 서비스 토폴로지와 밑줄 표시된 리소�
 
 ## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>상태가 비정상인 롤아웃 배포
 
-자습서를 간소화하기 위해, 여러분이 복사본을 직접 준비할 필요가 없도록 다음 위치에 수정된 롤아웃 템플릿을 공유해 놓았습니다. 직접 준비한 복사본을 사용하려면 [자습서: Resource Manager 템플릿에서 Azure Deployment Manager 사용](./deployment-manager-tutorial.md)의 지침을 따르세요.
-
-* 토폴로지 템플릿: https:\//armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
-* 아티팩트 저장소: https:\//armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
-
-[상태 확인 서비스 시뮬레이터 만들기](#create-a-health-check-service-simulator)에서 만든 비정상 상태 URL을 사용합니다. **managedIdentityID**는 [사용자가 할당한 관리 ID](./deployment-manager-tutorial.md#create-the-user-assigned-managed-identity)를 참조하세요.
+[상태 확인 서비스 시뮬레이터 만들기](#create-a-health-check-service-simulator)에서 만든 비정상 상태 URL을 사용합니다. 수정된 **CreateADMServiceTopology.json** 및 [Resource Manager 템플릿에서 Azure Deployment Manager 사용](./deployment-manager-tutorial.md)에서 사용한 것과 동일한 **CreateADMServiceTopology.Parameters.json**이 필요합니다.
 
 ```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$managedIdentityID = Read-Host -Prompt "Enter a user-assigned managed identity"
 $healthCheckUrl = Read-Host -Prompt "Enter the health check Azure function URL"
 $healthCheckAuthAPIKey = $healthCheckUrl.Substring($healthCheckUrl.IndexOf("?code=")+6, $healthCheckUrl.Length-$healthCheckUrl.IndexOf("?code=")-6)
 $healthCheckUrl = $healthCheckUrl.Substring(0, $healthCheckUrl.IndexOf("?"))
 
-$resourceGroupName = "${projectName}rg"
-$artifactLocation = "https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore?st=2019-05-06T03%3A57%3A31Z&se=2020-05-07T03%3A57%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=gOh%2Bkhi693rmdxiZFQ9xbKZMU1kbLJDqXw7EP4TaGlI%3D" | ConvertTo-SecureString -AsPlainText -Force
-
 # Create the rollout
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateUri "https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json" `
-    -namePrefix $projectName `
-    -azureResourceLocation $location `
-    -artifactSourceSASLocation $artifactLocation `
-    -managedIdentityID $managedIdentityID `
+    -TemplateFile "$filePath\ADMTemplates\CreateADMRollout.json" `
+    -TemplateParameterFile "$filePath\ADMTemplates\CreateADMRollout.Parameters.json" `
     -healthCheckUrl $healthCheckUrl `
     -healthCheckAuthAPIKey $healthCheckAuthAPIKey
 ```
@@ -388,9 +362,9 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
 2. **이름으로 필터링** 필드를 사용하여 범위를 이 자습서에서 만든 리소스 그룹으로 좁힙니다. 다음과 같이 3-4개가 있습니다.
 
-    * **&lt;namePrefix>rg**: Deployment Manager 리소스가 포함되어 있습니다.
-    * **&lt;namePrefix>ServiceWUSrg**: ServiceWUS에서 정의한 리소스가 포함되어 있습니다.
-    * **&lt;namePrefix>ServiceEUSrg**: ServiceEUS에서 정의한 리소스가 포함되어 있습니다.
+    * **&lt;projectName>rg**: Deployment Manager 리소스가 포함되어 있습니다.
+    * **&lt;projectName>ServiceWUSrg**: ServiceWUS에서 정의한 리소스가 포함되어 있습니다.
+    * **&lt;projectName>ServiceEUSrg**: ServiceEUS에서 정의한 리소스가 포함되어 있습니다.
     * 사용자 정의 관리 ID에 대한 리소스 그룹
 3. 해당 리소스 그룹 이름을 선택합니다.
 4. 위쪽 메뉴에서 **리소스 그룹 삭제**를 선택합니다.

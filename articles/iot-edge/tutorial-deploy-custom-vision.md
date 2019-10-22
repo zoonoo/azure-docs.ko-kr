@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/25/2019
+ms.date: 10/15/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 55203c4b555b54514425b484b367f8b735e98e40
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b84ab9691064e7040e586ad82835f27fa5555920
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003918"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434642"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>자습서: Custom Vision Service를 사용하여 에지에서 이미지 분류 수행
 
@@ -76,7 +76,7 @@ Custom Vision 서비스를 사용하여 IoT Edge 모듈을 개발하려면 다�
    | ----- | ----- |
    | Name | **EdgeTreeClassifier**와 같은 프로젝트의 이름을 제공합니다. |
    | 설명 | 선택적인 프로젝트 설명입니다. |
-   | 리소스 그룹 | Custom Vision Service 리소스를 포함하는 Azure 리소스 그룹 중 하나를 선택하거나 아직 추가하지 않은 경우 **새로 만듭니다**. |
+   | 리소스 | Custom Vision Service 리소스를 포함하는 Azure 리소스 그룹 중 하나를 선택하거나 아직 추가하지 않은 경우 **새로 만듭니다**. |
    | 프로젝트 형식 | **분류** |
    | 분류 형식 | **다중 클래스(이미지당 단일 태그)** |
    | 도메인 | **일반(압축)** |
@@ -142,8 +142,6 @@ Custom Vision 서비스를 사용하여 IoT Edge 모듈을 개발하려면 다�
 
 솔루션은 단일 IoT Edge 배포에 대해 여러 모듈을 개발 및 구성하는 논리적 방법입니다. 솔루션은 하나 이상의 모듈에 대한 코드 및 IoT Edge 디바이스에서 구성하는 방법을 선언하는 배포 매니페스트를 포함합니다. 
 
-1. Visual Studio Code에서 **보기** > **터미널**을 선택하여 VS Code 통합 터미널을 엽니다.
-
 1. **보기** > **명령 팔레트**를 차례로 선택하여 VS Code 명령 팔레트를 엽니다. 
 
 1. 명령 팔레트에서 **Azure IoT Edge: 새 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 명령 팔레트에서 다음 정보를 제공하여 솔루션을 만듭니다. 
@@ -154,7 +152,7 @@ Custom Vision 서비스를 사용하여 IoT Edge 모듈을 개발하려면 다�
    | 솔루션 이름 제공 | **CustomVisionSolution**과 같은 솔루션에 대한 설명이 포함된 이름을 입력하거나 기본값을 적용합니다. |
    | 모듈 템플릿 선택 | **Python 모듈**을 선택합니다. |
    | 모듈 이름 제공 | 모듈 이름을 **classifier**로 지정합니다.<br><br>이 모듈 이름은 반드시 소문자여야 합니다. IoT Edge는 모듈을 참조할 때 대/소문자를 구분하고 이 솔루션에서는 소문자로 모든 요청을 서식 지정하는 라이브러리를 사용합니다. |
-   | 모듈의 Docker 이미지 리포지토리 제공 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 마지막 단계에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. 마지막 문자열은 \<registry name\>.azurecr.io/classifier 형식입니다. |
+   | 모듈의 Docker 이미지 리포지토리 제공 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 마지막 단계에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다.<br><br>마지막 문자열은 **\<registry name\>.azurecr.io/classifier** 형식입니다. |
  
    ![Docker 이미지 리포지토리 제공](./media/tutorial-deploy-custom-vision/repository.png)
 
@@ -219,7 +217,7 @@ Visual Studio 코드의 Python 모듈 템플릿은 IoT Edge를 테스트하도�
    | 배포 템플릿 파일 선택 | CustomVisionSolution 폴더에서 deployment.template.json 파일을 선택합니다. |
    | 모듈 템플릿 선택 | **Python 모듈** 선택 |
    | 모듈 이름 제공 | 모듈의 이름을 **cameraCapture**로 지정 |
-   | 모듈의 Docker 이미지 리포지토리 제공 | **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. 마지막 문자열은 **\<registryname\>.azurecr.io/cameracapture** 형식입니다. |
+   | 모듈의 Docker 이미지 리포지토리 제공 | **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다.<br><br>마지막 문자열은 **\<registryname\>.azurecr.io/cameracapture** 형식입니다. |
 
    VS Code 창은 솔루션 작업 영역에서 새 모듈을 로드하고, deployment.template.json 파일을 업데이트합니다. 이제 두 개의 모듈 폴더, classifier 및 cameraCapture가 표시됩니다. 
 

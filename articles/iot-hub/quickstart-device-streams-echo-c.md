@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: a5c4ffde886735e096c4c4a96a648c997d1e7dec
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 7187bc7a42971a86b31d663f0a3754a061a2421a
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050186"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515048"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>빠른 시작: IoT Hub 디바이스 스트림을 통해 C에서 디바이스 애플리케이션과 통신(미리 보기)
 
@@ -121,23 +121,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. 디바이스 ID를 만들려면 Cloud Shell에서 다음 명령을 실행합니다.
 
    > [!NOTE]
-   > * *YourIoTHubName* 자리 표시자를 IoT Hub에서 선택한 이름으로 바꿉니다.
-   > * 다음과 같이 *MyDevice*를 사용합니다. 등록된 디바이스에 지정된 이름입니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후에 실행하세요.
+   > * *YourIoTHubName* 자리 표시자를 IoT 허브에서 선택한 이름으로 바꿉니다.
+   > * 등록하려는 디바이스의 이름에는 표시된 대로 *MyDevice* 를 사용하는 것이 좋습니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후에 실행하세요.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. 방금 등록한 디바이스의 *디바이스 연결 문자열*을 가져오려면 Cloud Shell에서 다음 명령을 실행합니다.
 
    > [!NOTE]
-   > *YourIoTHubName* 자리 표시자를 IoT Hub에서 선택한 이름으로 바꿉니다.
+   > *YourIoTHubName* 자리 표시자를 IoT 허브에서 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
-    나중에 이 빠른 시작에서 사용할 수 있도록 디바이스 연결 문자열을 적어 두세요. 다음 예제와 유사합니다.
+    나중에 이 빠른 시작에서 사용할 수 있도록 반환된 디바이스 연결 문자열을 적어 두세요. 다음 예제와 유사합니다.
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -149,14 +149,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 디바이스 쪽 애플리케이션을 실행하려면 다음 단계를 수행합니다.
 
-1. *iothub_client/samples/iothub_client_c2d_streaming_sample* 폴더의 *iothub_client_c2d_streaming_sample.c* 원본 파일을 편집한 다음, 디바이스 연결 문자열을 입력하여 디바이스 자격 증명을 제공합니다.
+1. `iothub_client/samples/iothub_client_c2d_streaming_sample` 폴더에서 **iothub_client_c2d_streaming_sample.c** 원본 파일을 편집하고 디바이스 연결 문자열을 추가하여 디바이스 자격 증명을 제공합니다.
 
    ```C
    /* Paste in your iothub connection string  */
-   static const char* connectionString = "[device connection string]";
+   static const char* connectionString = "{DeviceConnectionString}";
    ```
 
-1. 다음과 같이 코드를 컴파일합니다.
+1. 다음 명령을 사용하여 코드를 컴파일합니다.
 
    ```bash
    # In Linux
@@ -186,7 +186,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ### <a name="run-the-service-side-application"></a>서비스 쪽 애플리케이션 실행
 
-앞서 언급했듯이, IoT Hub C SDK는 디바이스 쪽에서만 디바이스 스트림을 지원합니다. 서비스 쪽 애플리케이션을 빌드하여 실행하려면 다음 빠른 시작 중 하나의 지침을 따르세요.
+앞서 언급했듯이, IoT Hub C SDK는 디바이스 쪽에서만 디바이스 스트림을 지원합니다. 함께 제공되는 서비스 쪽 애플리케이션을 빌드하고 실행하려면 다음 빠른 시작 중 하나의 지침을 따르세요.
 
 * [IoT Hub 디바이스 스트림을 통해 C#에서 디바이스 앱과 통신](./quickstart-device-streams-echo-csharp.md)
 
@@ -198,7 +198,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 IoT Hub를 설정하고, 디바이스를 등록하고, 디바이스의 C 애플리케이션과 서비스 쪽의 다른 애플리케이션 간에 디바이스 스트림을 설정하고, 스트림을 사용하여 애플리케이션 간에 데이터를 주고 받았습니다.
+이 빠른 시작에서는 IoT 허브를 설정하고, 디바이스를 등록하고, 디바이스의 C 애플리케이션과 서비스 쪽의 다른 애플리케이션 간에 디바이스 스트림을 설정하고, 스트림을 사용하여 애플리케이션 간에 데이터를 주고 받았습니다.
 
 디바이스 스트림에 대한 자세한 내용은 다음을 참조하세요.
 

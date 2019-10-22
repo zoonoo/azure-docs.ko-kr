@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 03/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f933cf54b354475146c1291b486173e0b57dbb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 9dddd9f6904aa5ef7840850792aeabf04666dddc
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026726"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373432"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur-travel-and-expense"></a>자습서: Concur Travel and Expense와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -38,16 +38,18 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 시작하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-* Concur Travel and Expense SSO(Single Sign-On) 사용 구독
+* Concur Travel and Expense 구독
+* Concur 사용자 계정의 “회사 관리자” 역할 [Concur SSO 셀프 서비스 도구](https://www.concursolutions.com/nui/authadmin/ssoadmin)로 이동하여 올바른 액세스 권한이 있는지 테스트할 수 있습니다. 액세스 권한이 없는 경우 Concur 지원 또는 구현 프로젝트 관리자에게 문의하세요. 
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
+이 자습서에서는 Azure AD SSO를 구성하고 테스트합니다.
 
-* Concur Travel and Expense는 **IDP**에서 시작된 SSO를 지원합니다.
+* Concur Travel and Expense는 **IDP** 및 **SP** 시작 SSO를 지원합니다.
+* Concur Travel and Expense는 프로덕션 환경과 구현 환경에서 SSO 테스트를 지원합니다. 
 
 > [!NOTE]
-> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
+> 이 애플리케이션의 식별자는 미국, EMEA 및 중국의 세 개 지역 각각에 대한 고정 문자열 값입니다. 따라서 한 테넌트의 각 지역에 대해 하나의 인스턴스만 구성할 수 있습니다. 
 
 ## <a name="adding-concur-travel-and-expense-from-the-gallery"></a>갤러리에서 Concur Travel and Expense 추가
 
@@ -85,13 +87,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 애플리케이션은 **IDP** 시작 모드로 미리 구성되어 있으며 필요한 URL은 이미 Azure로 미리 채워져 있습니다. 사용자는 **저장** 단추를 클릭하여 구성을 저장해야 합니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML**을 찾고, **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
+    > [!NOTE]
+    > 식별자(엔터티 ID) 및 회신 URL(Assertion Consumer Service URL)은 지역별로 한정됩니다. Concur 엔터티의 데이터 센터에 따라 선택하세요. Concur 엔터티의 데이터 센터를 모르는 경우 Concur 지원 담당자에게 문의하세요. 
+
+5. **SAML로 Single Sign-On 설정** 페이지에서 **사용자 특성**에 대한 편집/연필 모양 아이콘을 클릭하여 설정을 편집합니다. 고유한 사용자 ID는 Concur 사용자 로그인 ID와 일치해야 합니다. 일반적으로 **user.userprincipalname**을 **user.mail**로 변경해야 합니다.
+
+    ![사용자 특성 편집](common/edit-attribute.png)
+
+6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML**을 찾고, **다운로드**를 선택하여 메타데이터를 컴퓨터에 다운로드 및 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
-
-1. **Concur Travel and Expense 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
-
-    ![구성 URL 복사](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -125,11 +130,31 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-concur-travel-and-expense-sso"></a>Concur Travel and Expense SSO 구성
 
-**Concur Travel and Expense** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [Concur Travel and Expense 지원 팀](https://www.concur.com/support)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+1. **Concur Travel and Expense** 쪽에 Single Sign-On를 구성하려면 다운로드한 **페더레이션 메타데이터 XML**을 [Concur SSO 셀프 서비스 도구](https://www.concursolutions.com/nui/authadmin/ssoadmin)에 업로드하고 “회사 관리자” 역할 계정으로 로그인해야 합니다. 
+
+1. **추가**를 클릭합니다.
+1. IdP에 대한 사용자 지정 이름(예: “Azure AD(US)”)을 입력합니다. 
+1. **XML 파일 업로드**를 클릭하고 이전에 다운로드한 **페더레이션 메타데이터 XML**을 연결합니다.
+1. **메타데이터 추가**를 클릭하여 변경 내용을 저장합니다.
+
+    ![Concur SSO 셀프 서비스 도구 스크린샷](./media/concur-travel-and-expense-tutorial/add-metadata-concur-self-service-tool.png)
 
 ### <a name="create-concur-travel-and-expense-test-user"></a>Concur Travel and Expense 테스트 사용자 만들기
 
-이 섹션에서는 Concur Travel and Expense에 B.Simon이라는 사용자를 만듭니다. Concur Travel and Expense 플랫폼에 사용자를 추가하려면  [Concur Travel and Expense 지원 팀](https://www.concur.com/support)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Concur Travel and Expense에 B.Simon이라는 사용자를 만듭니다. Concur Travel and Expense 플랫폼에 사용자를 추가하려면 Concur Travel and Expense 지원 팀에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
+
+> [!NOTE]
+> B. Simon의 Concur 로그인 ID는 Azure AD에서의 B.Simon의 고유 식별자와 일치해야 합니다. 예를 들어 B.Simon의 Azure AD 고유 식별자가 `B.Simon@contoso.com`인 경우 B.Simon의 Concur 로그인 ID도 `B.Simon@contoso.com`여야 합니다. 
+
+## <a name="configure-concur-mobile-sso"></a>Concur 모바일 SSO 구성
+Concur 모바일 SSO를 사용하도록 설정하려면 Concur 지원 팀에게 **사용자 액세스 URL**을 제공해야 합니다. Azure AD에서 **사용자 액세스 URL**을 가져오려면 아래 단계를 따르세요.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다.
+1. **Concur Travel and Expense**를 클릭합니다.
+1. **속성**을 클릭합니다.
+1. **사용자 액세스 URL**을 복사하여 이 URL을 Concur 지원 팀에게 제공합니다.
+
+> [!NOTE]
+> SSO를 구성하는 셀프 서비스 옵션을 사용할 수 없으므로 Concur 지원 팀과 협력하여 모바일 SSO를 사용하도록 설정합니다. 
 
 ## <a name="test-sso"></a>SSO 테스트 
 

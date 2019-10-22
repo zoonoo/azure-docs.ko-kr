@@ -1,5 +1,5 @@
 ---
-title: Azure 빠른 시작 - Python을 사용하여 개체 스토리지에 Blob 만들기 | Microsoft Docs
+title: '빠른 시작: Python을 사용하여 Azure Blob 스토리지에서 Blob 만들기'
 description: 이 빠른 시작에서는 개체(Blob) 스토리지에서 스토리지 계정 및 컨테이너를 만듭니다. 그런 다음, Python용 스토리지 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,16 +7,17 @@ ms.date: 09/11/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: a6c0ae8c63739d37ad8417d1dff2d0f7181e6ae9
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.custom: seo-python-october2019
+ms.openlocfilehash: 8a3f8b5f8944552c92ac5a1c1d5fb2eabffad2c9
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981217"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430142"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-with-python"></a>빠른 시작: Python을 사용하여 Blob 업로드, 다운로드 및 나열
+# <a name="quickstart-upload-download-and-list-blobs-in-azure-blob-storage-with-python"></a>빠른 시작: Python을 사용하여 Azure Blob 스토리지에서 Blob 업로드, 다운로드 및 나열
 
-이 빠른 시작에서 Python을 사용하여 Azure Blob Storage의 컨테이너에 블록 Blob을 업로드 및 다운로드하고, 나열합니다. Blob은 이미지, 문서, 스트리밍 미디어 및 보관 데이터를 포함하여 대량의 텍스트 또는 이진 데이터를 저장할 수 있는 개체입니다. Azure Storage의 Blob은 파일 공유, 스키마 없는 테이블 및 메시지 큐와 다릅니다.  자세한 내용은 [Azure Storage 소개](/azure/storage/common/storage-introduction)를 참조하세요.
+이 문서에서는 Python을 사용하여 Azure Blob 스토리지의 컨테이너에 블록 Blob을 업로드, 다운로드 및 나열합니다. Blob은 이미지, 문서, 스트리밍 미디어 및 보관 데이터를 포함하여 대량의 텍스트 또는 이진 데이터를 저장할 수 있는 개체입니다. Azure Storage의 Blob은 파일 공유, 스키마 없는 테이블 및 메시지 큐와 다릅니다.  자세한 내용은 [Azure Storage 소개](/azure/storage/common/storage-introduction)를 참조하세요.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 

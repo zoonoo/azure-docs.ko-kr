@@ -1,11 +1,11 @@
 ---
-title: '자습서: Check Point CloudGuard Dome9 Arc와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: Check Point CloudGuard Dome9 Arc와 Azure Active Directory SSO(Single Sign-On) 연결 | Microsoft Docs'
 description: Azure Active Directory 및 Check Point CloudGuard Dome9 Arc 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: celested
+ms.reviewer: barbkess
 ms.assetid: 4c12875f-de71-40cb-b9ac-216a805334e5
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/14/2019
+ms.date: 09/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 240d962d56e4a2dc0758f3170c51b343d22ef98d
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: fb47d60f609e63e5a17fd8abd3efe420ea7fd187
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68944584"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264091"
 ---
-# <a name="tutorial-integrate-check-point-cloudguard-dome9-arc-with-azure-active-directory"></a>자습서: Azure Active Directory와 Check Point CloudGuard Dome9 Arc 통합
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>자습서: Check Point CloudGuard Dome9 Arc와 Azure Active Directory SSO(Single Sign-On) 연결
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Check Point CloudGuard Dome9 Arc를 통합하는 방법에 대해 알아봅니다. Azure AD와 Check Point CloudGuard Dome9 Arc를 통합하면 다음을 수행할 수 있습니다.
 
@@ -42,7 +42,12 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다. Check Point CloudGuard Dome9 Arc는 **SP 및 IDP** 시작 SSO를 지원합니다.
+이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
+
+* Check Point CloudGuard Dome9 Arc는 **SP 및 IDP** 시작 SSO를 지원합니다.
+
+> [!NOTE]
+> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
 
 ## <a name="adding-check-point-cloudguard-dome9-arc-from-the-gallery"></a>갤러리의 Check Point CloudGuard Dome9 Arc 추가
 
@@ -55,20 +60,20 @@ Azure AD에 Check Point CloudGuard Dome9 Arc를 통합하도록 구성하려면 
 1. **갤러리에서 추가** 섹션의 검색 상자에 **Check Point CloudGuard Dome9 Arc**를 입력합니다.
 1. 결과 패널에서 **Check Point CloudGuard Dome9 Arc**를 선택한 후 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-single-sign-on-for-check-point-cloudguard-dome9-arc"></a>Check Point CloudGuard Dome9 Arc에 대한 Azure AD Single Sign-On 구성 및 테스트
 
 **B.Simon**이라는 테스트 사용자를 사용하여 Check Point CloudGuard Dome9 Arc에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Check Point CloudGuard Dome9 Arc의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 Check Point CloudGuard Dome9 Arc에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
-1. 사용자가 이 기능을 사용할 수 있도록 **[Azure AD SSO를 구성](#configure-azure-ad-sso)** 합니다.
-2. **[Check Point CloudGuard Dome9 Arc 구성](#configure-check-point-cloudguard-dome9-arc)** - 애플리케이션 쪽에서 SSO 설정을 구성합니다.
-3. **[Azure AD 테스트 사용자를 생성](#create-an-azure-ad-test-user)** 하여 B.Simon으로 Azure AD Single Sign-On을 테스트합니다.
-4. **[Azure AD 테스트 사용자를 할당](#assign-the-azure-ad-test-user)** 하여 B.Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Check Point CloudGuard Dome9 Arc 테스트 사용자를 생성](#create-check-point-cloudguard-dome9-arc-test-user)** 하여 B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Check Point CloudGuard Dome9 Arc에 만듭니다.
-6. **[SSO를 테스트](#test-sso)** 하여 구성이 작동하는지 여부를 확인합니다.
+1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+1. **[Check Point CloudGuard Dome9 Arc SSO 구성](#configure-check-point-cloudguard-dome9-arc-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+    1. **[Check Point CloudGuard Dome9 Arc 테스트 사용자 만들기](#create-check-point-cloudguard-dome9-arc-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Check Point CloudGuard Dome9 Arc에 만듭니다.
+1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
@@ -78,83 +83,31 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
 
-    a. **식별자** 텍스트 상자에서 `https://secure.dome9.com/` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에 URL을 입력합니다. `https://secure.dome9.com/`
 
-    b. **회신 URL** 텍스트 상자에서 `https://secure.dome9.com/sso/saml/yourcompanyname` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 `https://secure.dome9.com/sso/saml/<yourcompanyname>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이 자습서의 뒷부분에서 설명하는 dome9 관리 포털에서 회사 이름 값을 선택합니다.
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     **로그인 URL** 텍스트 상자에서 `https://secure.dome9.com/sso/saml/<yourcompanyname>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 확인하려면 [Check Point CloudGuard Dome9 Arc 클라이언트 지원 팀](mailto:Dome9@checkpoint.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-6. Check Point CloudGuard Dome9 Arc 애플리케이션은 특정 형식의 SAML 어설션을 예상하며, 따라서 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 사용자 특성 대화 상자를 엽니다.
+1. Check Point CloudGuard Dome9 Arc는 Azure AD에서 역할을 구성해야 합니다. 역할 클레임은 미리 구성되어 있으므로 구성할 필요가 없지만, 이 [문서](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)를 사용하여 Azure AD에서 만들어야 합니다.
 
-    ![이미지](common/edit-attribute.png)
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
-7. 위에서 언급한 특성 외에도, Check Point CloudGuard Dome9 Arc 애플리케이션에는 SAML 응답에 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다. 
-
-    | Name |  원본 특성|
-    | ---------------| --------------- |
-    | memberof | user.assignedroles |
-
-    a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
-
-    ![이미지](common/new-save-attribute.png)
-
-    ![이미지](common/new-attribute-details.png)
-
-    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
-
-    다. **네임스페이스**를 비워 둡니다.
-
-    d. 원본을 **특성**으로 선택합니다.
-
-    e. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 입력합니다.
-
-    f. **확인**을 클릭합니다.
-
-    g. **저장**을 클릭합니다.
-
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드하고 본인의 컴퓨터에 저장합니다.
-
-   ![인증서 다운로드 링크](common/certificatebase64.png)
+    ![인증서 다운로드 링크](common/certificatebase64.png)
 
 1. **Check Point CloudGuard Dome9 Arc 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
-   ![구성 URL 복사](common/copy-configuration-urls.png)
-
-### <a name="configure-check-point-cloudguard-dome9-arc"></a>Check Point CloudGuard Dome9 Arc 구성
-
-1. 다른 웹 브라우저 창에서 Check Point CloudGuard Dome9 Arc 회사 사이트에 관리자 권한으로 로그인합니다.
-
-2. 오른쪽 위 모서리에서 **프로필 설정**을 클릭한 다음, **계정 설정**을 클릭합니다. 
-
-    ![Check Point CloudGuard Dome9 Arc 구성](./media/dome9arc-tutorial/configure1.png)
-
-3. **SSO**로 이동한 다음 **사용**을 클릭합니다.
-
-    ![Check Point CloudGuard Dome9 Arc 구성](./media/dome9arc-tutorial/configure2.png)
-
-4. [SSO 구성] 섹션에서 다음 단계를 수행합니다.
-
-    ![Check Point CloudGuard Dome9 Arc 구성](./media/dome9arc-tutorial/configure3.png)
-
-    a. **계정 ID** 텍스트 상자에서 회사 이름을 입력합니다. 이 값은 Azure Portal **기본 SAML 구성** 섹션에서 언급한 회신 URL에 사용됩니다.
-
-    b. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **발급자** 텍스트 상자에 붙여넣습니다.
-
-    다. Azure Portal에서 복사한 **로그인 URL** 값을 **Idp 엔드포인트 URL** 텍스트 상자에 붙여넣습니다.
-
-    d. 다운로드한 Base64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음, **X.509 인증서** 텍스트 상자에 붙여넣습니다.
-
-    e. **저장**을 클릭합니다.
+    ![구성 URL 복사](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -185,6 +138,40 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+
+## <a name="configure-check-point-cloudguard-dome9-arc-sso"></a>Check Point CloudGuard Dome9 Arc SSO 구성
+
+1. Check Point CloudGuard Dome9 Arc 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
+
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+2. 브라우저에 확장을 추가한 후에는 **Check Point CloudGuard Dome9 Arc 설정**을 클릭하여 Check Point CloudGuard Dome9 Arc 애플리케이션으로 이동합니다. 여기에서 애플리케이션에서 관리자 자격 증명을 입력하여 Check Point CloudGuard Dome9 Arc에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-6단계를 자동으로 수행합니다.
+
+    ![구성 설정](common/setup-sso.png)
+
+3. Check Point CloudGuard Dome9 Arc를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Check Point CloudGuard Dome9 Arc 회사 사이트에 관리자로 로그인하여 다음 단계를 수행합니다.
+
+2. 오른쪽 위 모서리에서 **프로필 설정**을 클릭한 다음, **계정 설정**을 클릭합니다. 
+
+    ![Check Point CloudGuard Dome9 Arc 구성](./media/dome9arc-tutorial/configure1.png)
+
+3. **SSO**로 이동한 다음 **사용**을 클릭합니다.
+
+    ![Check Point CloudGuard Dome9 Arc 구성](./media/dome9arc-tutorial/configure2.png)
+
+4. [SSO 구성] 섹션에서 다음 단계를 수행합니다.
+
+    ![Check Point CloudGuard Dome9 Arc 구성](./media/dome9arc-tutorial/configure3.png)
+
+    a. **계정 ID** 텍스트 상자에서 회사 이름을 입력합니다. 이 값은 Azure Portal **기본 SAML 구성** 섹션에서 언급한 회신 URL에 사용됩니다.
+
+    b. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **발급자** 텍스트 상자에 붙여넣습니다.
+
+    다. Azure Portal에서 복사한 **로그인 URL** 값을 **Idp 엔드포인트 URL** 텍스트 상자에 붙여넣습니다.
+
+    d. 다운로드한 Base64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음, **X.509 인증서** 텍스트 상자에 붙여넣습니다.
+
+    e. **저장**을 클릭합니다.
 
 ### <a name="create-check-point-cloudguard-dome9-arc-test-user"></a>Check Point CloudGuard Dome9 Arc 테스트 사용자 만들기
 
@@ -219,14 +206,19 @@ Azure AD 사용자가 Check Point CloudGuard Dome9 Arc에 로그인할 수 있�
 
     e. **만들기**를 클릭합니다.
 
-### <a name="test-sso"></a>SSO 테스트
+## <a name="test-sso"></a>SSO 테스트 
 
-액세스 패널에서 Check Point CloudGuard Dome9 Arc 타일을 선택하면 SSO를 설정한 Check Point CloudGuard Dome9 Arc에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+
+액세스 패널에서 Check Point CloudGuard Dome9 Arc 타일을 클릭하면 SSO를 설정한 Check Point CloudGuard Dome9 Arc에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Azure AD로 Check Point CloudGuard Dome9 Arc 사용해보기](https://aad.portal.azure.com/)
+

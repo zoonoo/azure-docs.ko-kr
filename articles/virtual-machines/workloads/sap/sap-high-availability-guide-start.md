@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8a4e4cb8330f6b02d721f2228fee17a91cd44499
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70078354"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
@@ -203,9 +203,9 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 ## <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>SAP NetWeaver에 대한 고가용성 아키텍처 및 시나리오
 
-**요약:** 이 문서에서는 Azure에서 SAP 시스템의 고가용성 아키텍처에 대해 설명 합니다. SAP SPOF(단일 실패 지점)의 고가용성과 Azure 인프라의 고가용성의 중복 구성 요소 및 사양을 해결하는 방법을 논의합니다. 또한 이러한 부분이 SAP 시스템 구성 요소와 어떻게 관련되어 있는지도 알아봅니다. 추가적으로 Windows 및 Linux 사양에 대한 논의도 진행됩니다. 다양한 SAP 고가용성 시나리오에 대해서도 설명됩니다.
+**요약:** 이 문서에서는 Azure의 SAP 시스템에 대한 고가용성 아키텍처에 대해 알아봅니다. SAP SPOF(단일 실패 지점)의 고가용성과 Azure 인프라의 고가용성의 중복 구성 요소 및 사양을 해결하는 방법을 논의합니다. 또한 이러한 부분이 SAP 시스템 구성 요소와 어떻게 관련되어 있는지도 알아봅니다. 추가적으로 Windows 및 Linux 사양에 대한 논의도 진행됩니다. 다양한 SAP 고가용성 시나리오에 대해서도 설명됩니다.
 
-**Updated** 2017년 10월
+**업데이트 날짜:** 2017년 10월
 
 * [SAP NetWeaver에 대 한 Azure Virtual Machines 고가용성 아키텍처 및 시나리오][sap-high-availability-architecture-scenarios]
 
@@ -214,37 +214,37 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 ## <a name="azure-infrastructure-preparation-for-sap-netweaver-high-availability-deployment"></a>SAP NetWeaver 고가용성 배포를 위한 Azure 인프라 준비
 
-**요약:** 여기에 나열 된 문서에서는 SAP 설치 준비를 위해 Azure 인프라를 배포 하기 위해 수행할 수 있는 단계를 다룹니다. Azure 인프라 배포를 단순화하기 위해 SAP Azure Resource Manager 템플릿을 사용하여 전체 프로세스를 자동화합니다.
+**요약:** 여기에 나열된 문서에서는 SAP 설치 준비 단계에서 Azure 인프라를 배포하기 위해 수행할 수 있는 작업 단계를 살펴봅니다. Azure 인프라 배포를 단순화하기 위해 SAP Azure Resource Manager 템플릿을 사용하여 전체 프로세스를 자동화합니다.
 
-**Updated** 2019년 3월
+**업데이트 됨:** 3 월 2019
 
-* ![Windows][Logo_Windows] [sap ascs/SCS 인스턴스에 대해 windows 장애 조치 (failover) 클러스터 및 **공유 디스크** 를 사용 하 여 sap 고가용성을 위한 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
+* ![Windows ][Logo_Windows] [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치 (failover) 클러스터 **및 공유 디스크** 를 사용 하 여 sap 고가용성을 위한 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
 
-* ![Windows][Logo_Windows] [sap ascs/SCS 인스턴스에 대 한 windows 장애 조치 (failover) 클러스터 및 **파일 공유** 를 사용 하 여 sap 고가용성을 위한 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-file-share]
+* ![Windows ][Logo_Windows] [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치 (failover) 클러스터 **및 파일 공유** 를 사용 하 여 sap 고가용성을 위한 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-file-share]
 
-* ![Linux][Logo_Linux] [sap ascs/SCS 인스턴스에 대 한 SUSE Linux Enterprise Server 클러스터 프레임 워크를 사용 하 여 sap 고가용성을 위한 Azure 인프라 준비][sap-suse-ascs-ha-setting-ha-nfs]
+* [SAP ASCS/SCS 인스턴스에 대 한 SUSE Linux Enterprise Server 클러스터 프레임 워크를 사용 하 여 sap 고가용성을 위한 Azure 인프라 준비][sap-suse-ascs-ha-setting-ha-nfs] ![Linux ][Logo_Linux]
 
-* ![Linux][Logo_Linux] [azure netapp 파일을 사용 하 여 sap ascs/SCS 인스턴스에 대 한 SUSE Linux Enterprise Server 클러스터 프레임 워크를 사용 하 여 sap 고가용성을 위한 azure 인프라 준비][sap-suse-ascs-ha-setting-ha-anf]
+* [Azure NetApp 파일을 사용 하 여 SAP ASCS/SCS 인스턴스에 대 한 SUSE Linux Enterprise Server 클러스터 프레임 워크를 사용 하 여 sap 고가용성을 위한 azure 인프라 준비][sap-suse-ascs-ha-setting-ha-anf] ![Linux ][Logo_Linux]
 
-* ![][Logo_Linux] [SAP ascs/SCS 고가용성을 위한 Azure 인프라 준비 RHEL-RHEL에서 GlusterFS 설정][high-availability-guide-rhel-glusterfs]
+* ![RHEL ][Logo_Linux] [SAP ASCS/SCS 고가용성을 위한 Azure 인프라 준비-RHEL에서 GlusterFS 설정][high-availability-guide-rhel-glusterfs]
 
-* ![][Logo_Linux] [SAP ascs/SCS 고가용성을 위한 Azure 인프라 준비 RHEL-RHEL에서 Pacemaker 설정][high-availability-guide-rhel-pacemaker]
+* ![RHEL ][Logo_Linux] [SAP ASCS/SCS 고가용성을 위한 Azure 인프라 준비-RHEL에서 Pacemaker 설정][high-availability-guide-rhel-pacemaker]
 
 ## <a name="installation-of-an-sap-netweaver-high-availability-system-in-azure"></a>Azure에 SAP NetWeaver 고가용성 시스템 설치
 
-**요약:** 여기에 나열 된 문서에서는 Azure의 Windows Server 장애 조치 (Failover) 클러스터링 클러스터 및 Linux 클러스터 프레임 워크에서 고가용성 SAP 시스템을 설치 하 고 구성 하는 방법에 대 한 단계별 예제를 제공 합니다.
+**요약:** 여기에 나열된 문서에서는 Azure의 Windows Server 장애 조치(failover) 클러스터링 클러스터 및 Linux 클러스터 프레임워크에서 고가용성 SAP 시스템을 설치하고 구성하는 단계별 예제를 보여줍니다.
 
-**Updated** 2019년 3월
+**업데이트 됨:** 3 월 2019
 
-* ![Windows][Logo_Windows] [sap ascs/SCS 인스턴스에 대해 windows 장애 조치 (failover) 클러스터 및 **공유 디스크** 를 사용 하 여 sap NetWeaver 고가용성 설치][sap-high-availability-installation-wsfc-shared-disk]
+* ![Windows ][Logo_Windows] [SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치 (failover) 클러스터 및 **공유 디스크** 를 사용 하 여 Sap NetWeaver 고가용성 설치][sap-high-availability-installation-wsfc-shared-disk]
 
-* ![Windows][Logo_Windows] [sap ascs/SCS 인스턴스에 대 한 windows 장애 조치 (failover) 클러스터 및 **파일 공유** 를 사용 하 여 sap NetWeaver 고가용성 설치][sap-high-availability-installation-wsfc-file-share]
+* [SAP ASCS/SCS 인스턴스에 대 한 Windows 장애 조치 (failover) 클러스터 및 **파일 공유** 를 사용 하 여 Sap NetWeaver 고가용성 설치][sap-high-availability-installation-wsfc-file-share] ][Logo_Windows] ![Windows
 
-* ![Linux][Logo_Linux] [sap ascs/SCS 인스턴스에 대 한 SUSE Linux Enterprise Server 클러스터 프레임 워크를 사용 하 여 sap NetWeaver 고가용성 설치][sap-suse-ascs-ha-sap-installation]
+* ![Linux [SAP ASCS/SCS 인스턴스에 대 한 SUSE Linux Enterprise Server 클러스터 프레임 워크를 사용 하 여 Sap NetWeaver 고가용성 설치][sap-suse-ascs-ha-sap-installation] ][Logo_Linux]
 
-* ![Linux][Logo_Linux] [sap ascs/SCS 인스턴스에 대 한 SUSE Linux Enterprise Server 클러스터 프레임 워크를 사용 하 여 sap NetWeaver 고가용성 설치 Azure NetApp Files][sap-suse-ascs-ha-sap-installation-anf]
+* 을 사용 하 여 sap [ASCS/SCS 인스턴스에 대 한 SUSE Linux Enterprise Server 클러스터 프레임 워크를 사용 하 여 Sap NetWeaver 고가용성 설치 ][Logo_Linux]를 Azure NetApp Files][sap-suse-ascs-ha-sap-installation-anf] ![Linux
 
-* ![][Logo_Linux] [RHEL의 고가용성 구성에서 SAP NetWeaver ascs/SCS 설치][sap-rhel-ascs-ha] RHEL
+* [RHEL의 고가용성 구성에서 SAP NetWeaver ASCS/SCS를 설치][sap-rhel-ascs-ha] 하 ][Logo_Linux] ![RHEL
 
-* ![RHEL][Logo_Linux] [를 사용 하 여 RHEL의 고가용성 구성에서 SAP NetWeaver ascs/SCS 설치 Azure NetApp Files][sap-rhel-ascs-ha-sap-installation-anf]
+* [Azure NetApp Files를 사용 하 여 RHEL에 대 한 고가용성 구성에서 SAP NetWeaver ASCS/SCS를 설치][sap-rhel-ascs-ha-sap-installation-anf] ][Logo_Linux] ![RHEL
 

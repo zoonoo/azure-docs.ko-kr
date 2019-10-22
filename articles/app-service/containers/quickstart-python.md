@@ -1,5 +1,5 @@
 ---
-title: Linux에서 Python 앱 만들기 - Azure App Service | Microsoft Docs
+title: '빠른 시작: Linux에서 Python 앱 만들기 - Azure App Service'
 description: 몇 분 안에 Linux의 Azure App Service에서 첫 번째 Python Hello World 앱을 배포합니다.
 services: app-service\web
 documentationcenter: ''
@@ -13,20 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: cephalin
+ms.custom: seo-python-october2019
 experimental: true
 experiment_id: 1e304dc9-5add-4b
-ms.openlocfilehash: 253e2e5015c2cb7a71386b88b4d86ac6bff6a0fe
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: e8ca84f233b3e6202a4647d15e07b36c2b8f1128
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242455"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433046"
 ---
-# <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Azure App Service on Linux에서 Python 앱 만들기
+# <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>빠른 시작: Azure App Service on Linux에서 Python 앱 만들기
 
-이 빠른 시작에서는 간단한 Python 앱을 [Linux의 App Service](app-service-linux-intro.md)에 배포합니다. 이는 확장성이 높은 셀프 패치 웹 호스팅 서비스를 제공합니다. 대화형, 브라우저 기반 Azure Cloud Shell을 통해 Azure 명령줄 인터페이스([Azure CLI](/cli/azure/install-azure-cli))를 사용하므로 Mac, Linux 또는 Windows 컴퓨터를 사용하여 단계를 수행할 수 있습니다.
+이 문서에서는 간단한 Python 앱을 [Linux의 App Service](app-service-linux-intro.md)에 배포합니다. 이는 확장성이 높은 셀프 패치 웹 호스팅 서비스를 제공합니다. 대화형, 브라우저 기반 Azure Cloud Shell을 통해 Azure 명령줄 인터페이스([Azure CLI](/cli/azure/install-azure-cli))를 사용하므로 Mac, Linux 또는 Windows 컴퓨터를 사용하여 단계를 수행할 수 있습니다.
 
-![Azure에서 실행되는 샘플 앱](media/quickstart-python/hello-world-in-browser.png)
+![Azure의 App Service에서 샘플 Python 앱 실행](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -71,7 +72,7 @@ flask run
 
 이 페이지에 표시된 샘플 앱의 **Hello World!** 메시지가 표시됩니다.
 
-![로컬로 실행되는 샘플 앱](media/quickstart-python/hello-world-in-browser.png)
+![샘플 Python 앱을 로컬로 실행](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
 터미널 창에서 **Ctrl+C**를 눌러 웹 서버를 종료합니다.
 
@@ -154,7 +155,7 @@ http://<app-name>.azurewebsites.net
 
 Python 샘플 코드가 기본 제공 이미지가 있는 Linux의 App Service에서 실행됩니다.
 
-![Azure에서 실행되는 샘플 앱](media/quickstart-python/hello-world-in-browser.png)
+![Azure에서 샘플 Python 앱 실행](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
 **축하합니다.** Linux에서 App Service에 첫 번째 Python 앱을 배포했습니다.
 
@@ -162,7 +163,7 @@ Python 샘플 코드가 기본 제공 이미지가 있는 Linux의 App Service�
 
 Cloud Shell에서 `code application.py`를 입력하여 Cloud Shell 편집기를 엽니다.
 
-![application.py 코드](media/quickstart-python/code-applicationpy.png)
+![Cloud Shell 편집기에서 application.py 열기](./media/quickstart-python/open-application-py-in-the-cloud-shell-editor.png)
 
  `return`에 대한 호출에서 텍스트를 약간 변경합니다.
 
@@ -180,7 +181,7 @@ az webapp up -n <app-name> -l <location-name>
 
 배포가 완료되면 **앱으로 이동** 단계에서 열린 브라우저 창으로 다시 전환하고 페이지를 새로 고칩니다.
 
-![Azure에서 실행되는 업데이트된 샘플 앱](media/quickstart-python/hello-azure-in-browser.png)
+![Azure에서 업데이트된 샘플 Python 앱 실행](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
 
 ## <a name="manage-your-new-azure-app"></a>새 Azure 앱 관리
 
@@ -188,11 +189,11 @@ az webapp up -n <app-name> -l <location-name>
 
 왼쪽 메뉴에서 **App Services**를 선택한 다음, Azure 앱의 이름을 선택합니다.
 
-![Azure 앱에 대한 포털 탐색](./media/quickstart-python/app-service-list.png)
+![Azure Portal의 App Services에서 Python 앱으로 이동](./media/quickstart-python/navigate-to-app-in-app-services-in-the-azure-portal.png)
 
-앱의 개요 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다.
+앱의 [개요] 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다.
 
-![Azure Portal의 App Service 페이지](media/quickstart-python/app-service-detail.png)
+![Azure Portal의 개요 페이지에서 Python 앱 관리](./media/quickstart-python/manage-an-app-in-app-services-in-the-azure-portal.png)
 
 왼쪽 메뉴로 앱 구성을 위한 여러가지 페이지를 볼 수 있습니다. 
 

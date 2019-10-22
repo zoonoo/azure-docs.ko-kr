@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 60fe9569b0e6e92ae161271439ecbf1b04788ed4
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 9ac95896e67338437325e8290a96b8e42b2fa3a7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694568"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374242"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 단일 페이지 애플리케이션에서 ASP.NET Core 웹 API로의 액세스 권한 부여
 
@@ -70,7 +70,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 
 ### <a name="configure-the-web-api"></a>Web API 구성
 
-1. Visual Studio 또는 Visual Studio Code에서 *B2C-WebApi/ **appsettings.json*** 파일을 엽니다.
+1. Visual Studio 또는 Visual Studio Code에서 <em>B2C-WebApi/**appsettings.json**</em> 파일을 엽니다.
 1. 테넌트 이름, 웹 API 애플리케이션의 애플리케이션 ID, 가입/로그인 정책 이름 및 앞에서 정의한 범위를 반영하도록 `AzureAdB2C` 블록을 수정합니다. 블록은 적절한 `Tenant` 및 `ClientId` 값을 사용하여 다음 예제와 비슷해야 합니다.
 
     ```json

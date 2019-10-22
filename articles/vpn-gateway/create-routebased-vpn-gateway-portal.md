@@ -1,5 +1,5 @@
 ---
-title: 경로 기반 VPN gateway를 만듭니다. Azure Portal | Microsoft Docs
+title: 경로 기반 VPN 게이트웨이 만들기 - Azure Portal | Microsoft Docs
 description: Azure Portal을 사용하여 경로 기반 VPN 게이트웨이 만들기
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/24/2019
 ms.author: cherylmc
 ms.openlocfilehash: 3ab662a4f06b2d73ab0dab52f562398fee23686c
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71266539"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Azure Portal을 사용하여 경로 기반 VPN 게이트웨이 만들기
@@ -41,11 +41,11 @@ ms.locfileid: "71266539"
 
 1. 게이트웨이가 생성된 후 포털에서 VNet1로 이동합니다. VPN 게이트웨이가 개요 페이지에 연결된 디바이스로 나타납니다.
 
-   ![연결된 디바이스](./media/create-routebased-vpn-gateway-portal/view-connected-devices.png "연결된 디바이스")
+   ![연결 된 장치](./media/create-routebased-vpn-gateway-portal/view-connected-devices.png "연결된 디바이스")
 
 2. 디바이스 목록에서 **VNet1GW**를 클릭하여 자세한 정보를 확인합니다.
 
-   ![VPN 게이트웨이 보기](./media/create-routebased-vpn-gateway-portal/view-gateway.png "VPN 게이트웨이 보기")
+   ![VPN gateway 보기](./media/create-routebased-vpn-gateway-portal/view-gateway.png "VPN gateway 보기")
 
 ## <a name="next-steps"></a>다음 단계
 

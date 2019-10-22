@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/11/2019
+ms.date: 10/14/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 2ca0c0741ea543b30695303d473389979f2e1045
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f2e1d19f69b426cee870d2ede489b7c458404704
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855043"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374764"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>빠른 시작: 비용 분석을 사용하여 비용 탐색 및 분석
 
@@ -34,16 +34,7 @@ Azure 비용을 적절히 제어하고 최적화하려면 먼저 조직 내의 �
 
 비용 분석은 다양한 종류의 Azure 계정 유형을 지원합니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 비용 데이터를 보려면 적어도 Azure 계정에 대한 읽기 권한이 필요합니다.
 
-[EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/) 고객은 비용 데이터를 보려면 적어도 다음 범위 중 하나 이상에 대한 읽기 권한이 필요합니다.
-
-- 청구 계정
-- department
-- 등록 계정
-- 관리 그룹
-- Subscription
-- Resource group
-
-Azure Cost Management 데이터에 액세스하는 방법에 대한 자세한 내용은 [데이터에 대한 액세스 할당](assign-access-acm-data.md)을 참조하세요.
+Azure Cost Management 데이터에 액세스하는 방법에 대한 정보는 [데이터에 대한 액세스 할당](assign-access-acm-data.md)을 참조하세요.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -116,7 +107,7 @@ Azure Cost Management 데이터에 액세스하는 방법에 대한 자세한 �
 
 ![지난달의 Azure 서비스 비용 예제를 보여 주는 그룹화된 일별 누적 보기](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-기본적으로 비용 분석은 발생된 모든 사용량 및 구매 비용을 표시하며, 청구서에는 **실제 비용**이라고도 하는 비용이 표시됩니다. 실제 비용을 확인하면 청구서를 조정하는 데 유용합니다. 그렇지만 지출 변칙 및 기타 비용 변화를 주시할 때 구매 비용 급증에 놀랄 수도 있습니다. 예약 구매 비용으로 인한 급증을 완화하려면 **분할 상환 비용**으로 전환합니다. 
+기본적으로 비용 분석은 발생된 모든 사용량 및 구매 비용을 표시하며, 청구서에는 **실제 비용**이라고도 하는 비용이 표시됩니다. 실제 비용을 확인하면 청구서를 조정하는 데 유용합니다. 그렇지만 지출 변칙 및 기타 비용 변화를 주시할 때 구매 비용 급증에 놀랄 수도 있습니다. 예약 구매 비용으로 인한 급증을 완화하려면 **분할 상환 비용**으로 전환합니다.
 
 ![기간 전체에 분산되고 예약을 사용한 리소스에 할당된 예약 구매를 확인하기 위한 실제 비용과 분할 상환 비용 간의 변경](./media/quick-acm-cost-analysis/metric-picker.png)
 
@@ -169,11 +160,11 @@ Azure Cost Management 데이터에 액세스하는 방법에 대한 자세한 �
 
 ## <a name="saving-and-sharing-customized-views"></a>사용자 지정 보기 저장 및 공유
 
-비용 분석을 Azure Portal 대시보드에 고정시키거나 비용 분석에 대한 링크를 복사하여 사용자 지정 보기를 저장하고 다른 사용자와 공유할 수 있습니다. 
+비용 분석을 Azure Portal 대시보드에 고정시키거나 비용 분석에 대한 링크를 복사하여 사용자 지정 보기를 저장하고 다른 사용자와 공유할 수 있습니다.
 
 비용 분석을 고정하려면 오른쪽 위 모서리에 있는 핀 아이콘을 선택합니다. 비용 분석이 고정되면 기본 차트 또는 테이블 보기만 저장합니다. 다른 사용자가 타일에 액세스할 수 있도록 대시보드를 공유합니다. 이는 대시보드 구성만 공유하며, 다른 사용자에게 기본 데이터에 대한 액세스 권한을 부여하지 않습니다. 비용에 대한 액세스 권한이 없지만 공유 대시보드에 대한 액세스은 있는 경우 “액세스 거부” 메시지가 표시됩니다.
 
-비용 분석에 대한 링크를 공유하려면 블레이드 위쪽에 있는 **공유**를 선택합니다. 그러면 해당 특정 범위의 해당 특정 보기가 열리는 사용자 지정 URL이 표시됩니다. 비용에 대한 액세스 권한이 없고 이 URL이 없으면 "액세스 거부" 메시지가 표시됩니다. 
+비용 분석에 대한 링크를 공유하려면 블레이드 위쪽에 있는 **공유**를 선택합니다. 그러면 해당 특정 범위의 해당 특정 보기가 열리는 사용자 지정 URL이 표시됩니다. 비용에 대한 액세스 권한이 없고 이 URL이 없으면 "액세스 거부" 메시지가 표시됩니다.
 
 지원되는 각 범위의 비용에 대한 액세스 권한을 부여하는 방법을 자세히 알아보려면 [범위 이해 및 작업](understand-work-scopes.md)을 검토하세요.
 
@@ -183,14 +174,14 @@ Azure Cost Management 데이터에 액세스하는 방법에 대한 자세한 �
 
 집계되지 않은 전체 데이터 세트가 필요한 경우 청구 계정에서 해당 데이터 세트를 다운로드합니다. 그런 다음, 포털의 왼쪽 탐색 창에 있는 서비스 목록에서 **비용 관리 + 청구**로 이동합니다. 청구 계정(해당하는 경우)을 선택합니다. **사용량 + 요금**으로 이동한 후 원하는 청구 기간에 대해 **다운로드** 아이콘을 선택합니다.
 
-비슷한 방법을 사용하여 비용 데이터 수신을 자동화합니다. 동적 필터링, 그룹화 및 집계를 통한 더 풍부한 분석을 위해 [쿼리 API](/rest/api/cost-management/query)를 사용하거나, 집계되지 않은 전체 데이터 세트에 대해 [UsageDetails API](/rest/api/consumption/usageDetails)를 사용합니다. 이러한 API의 GA(일반 공급) 버전은 2019-01-01입니다. 이러한 API 내에서 예약 및 Marketplace 구매의 미리 보기에 액세스하려면 **2019-04-01-preview**를 사용합니다. 
+비슷한 방법을 사용하여 비용 데이터 수신을 자동화합니다. 동적 필터링, 그룹화 및 집계를 통한 더 풍부한 분석을 위해 [쿼리 API](/rest/api/cost-management/query)를 사용하거나, 집계되지 않은 전체 데이터 세트에 대해 [UsageDetails API](/rest/api/consumption/usageDetails)를 사용합니다. 이러한 API의 GA(일반 공급) 버전은 2019-01-01입니다. 이러한 API 내에서 예약 및 Marketplace 구매의 미리 보기에 액세스하려면 **2019-04-01-preview**를 사용합니다.
 
 예를 들어, 다음은 요금 유형(사용량, 구매 또는 환불), 게시자 유형(Azure 또는 Marketplace), 리소스 그룹(구매의 경우 비어 있음) 및 예약(해당되지 않는 경우 비어 있음)별로 분류된 분할 상환 비용에 대한 집계 보기입니다.
 
 ```
 POST https://management.azure.com/{scope}/providers/Microsoft.CostManagement/query?api-version=2019-04-01-preview
 Content-Type: application/json
- 
+
 {
   "type": "AmortizedCost",
   "timeframe": "Custom",
@@ -221,7 +212,7 @@ GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDe
 ```
 
 구매가 발생한 대로 표시하기 위해 실제 비용이 필요한 경우 **type**/**metric**을 **ActualCost**로 변경합니다. 이러한 API에 대한 자세한 내용은 [쿼리](/rest/api/cost-management/query) 및 [UsageDetails](/rest/api/consumption/usageDetails) API 설명서를 참조하세요. 게시된 문서는 GA 버전에 대한 것입니다. 그렇지만 새 type/metric 특성 및 변경된 속성 이름을 제외하고는 *2019-04-01-preview* API 버전에서 모두 동일하게 작동합니다. (아래의 속성 이름에 대해 자세히 읽어보세요.)
- 
+
 Cost Management API는 리소스 위의 모든 범주, Azure RBAC 액세스를 통한 리소스 그룹, 구독 및 관리 그룹, EA 포털 액세스를 통한 EA 청구 계정(등록), 부서 및 등록 계정 등에 작동합니다. 범위 ID를 결정하는 방법 또는 액세스를 관리하는 방법을 포함하여 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)에서 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계

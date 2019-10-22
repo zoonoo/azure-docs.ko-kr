@@ -1,17 +1,17 @@
 ---
-title: 샘플 - VM 네트워크 인터페이스에 대해 승인된 vNet 사용
+title: 샘플 - VM 네트워크 인터페이스에 나열된 vNet 사용
 description: 이 샘플 정책 정의에서는 네트워크 인터페이스가 승인된 가상 네트워크를 사용해야 합니다.
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: c1f12d40ea0e5dbf0c9f56e856e5e4fa8831970b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 8ab21677c99150770339a5d34e00b692ca3cfc48
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980391"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255685"
 ---
 # <a name="sample---use-approved-vnet-for-vm-network-interfaces"></a>샘플 - VM 네트워크 인터페이스에 대해 승인된 vNet 사용
 

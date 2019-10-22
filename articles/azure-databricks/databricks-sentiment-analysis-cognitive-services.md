@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석'
+title: 감정 분석을 위해 Azure Databricks 사용
 description: Event Hubs 및 Cognitive Services API를 통해 Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석을 거의 실시간으로 실행하는 방법을 알아봅니다.
 services: azure-databricks
 author: lenadroid
@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.openlocfilehash: 9718a6e394c7628cdf7bb62b2dafea2f3d59a3ca
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 1d8b3aad3104f07f8f6499c88f00328c95047816
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "68619504"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274213"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Windows VM에 대한 업데이트 및 패치 관리
+title: Azure VM에 대한 업데이트 및 패치 관리
 description: 이 아티클에서는 Azure Automation 업데이트 관리를 사용하여 Azure Windows VM에 대한 업데이트 및 패치를 관리하는 방법에 대한 개요를 제공합니다.
 services: automation
 author: zjalexander
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: fbca620fca1aeb53acc9bd70561e783b49ff1a60
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a2d13833b60076caa371a7fa8a696ab5964a28e3
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822356"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376075"
 ---
-# <a name="manage-windows-updates-by-using-azure-automation"></a>Azure Automation을 사용하여 Windows 업데이트 관리
+# <a name="manage-updates-and-patches-for-your-azure-vms"></a>Azure VM에 대한 업데이트 및 패치 관리
 
 업데이트 관리 솔루션을 사용하여 가상 머신의 업데이트 및 패치를 관리할 수 있습니다. 이 자습서에서는 사용 가능한 업데이트의 상태를 빠르게 평가하고, 필수 업데이트의 설치를 예약하고, 배포 결과를 검토하고, 업데이트가 성공적으로 적용되었는지 확인하는 경고를 만드는 방법을 알아봅니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "56822356"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="enable-update-management"></a>업데이트 관리 사용
 
@@ -135,7 +135,7 @@ VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리**�
 
 * **운영 체제**: 업데이트 배포의 대상 OS를 선택합니다.
 
-* **업데이트할 그룹(미리 보기)**: 구독, 리소스 그룹, 위치 및 태그의 조합을 기반으로 쿼리를 정의하여 배포에 포함할 Azure VM의 동적 그룹을 빌드합니다. 자세한 내용은 [동적 그룹](automation-update-management.md#using-dynamic-groups)을 참조하세요.
+* **업데이트할 그룹(미리 보기)** : 구독, 리소스 그룹, 위치 및 태그의 조합을 기반으로 쿼리를 정의하여 배포에 포함할 Azure VM의 동적 그룹을 빌드합니다. 자세한 내용은 [동적 그룹](automation-update-management-groups.md)을 참조하세요.
 
 * **업데이트할 머신**: 저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다. Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)을 참조하세요.
 
@@ -145,25 +145,40 @@ VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리**�
 
    |OS  |Type  |
    |---------|---------|
-   | Windows     | 중요 업데이트</br>보안 업데이트</br>업데이트 롤업</br>기능 팩</br>서비스 팩</br>정의 업데이트</br>도구</br>업데이트        |
+   |Windows     | 중요 업데이트</br>보안 업데이트</br>업데이트 롤업</br>기능 팩</br>서비스 팩</br>정의 업데이트</br>도구</br>업데이트        |
    |Linux     | 중요 업데이트 및 보안 업데이트</br>다른 업데이트       |
 
-   분류 형식에 대한 설명은 [업데이트 분류](automation-update-management.md#update-classifications)를 참조하세요.
+   분류 형식에 대한 설명은 [업데이트 분류](automation-view-update-assessments.md#update-classifications)를 참조하세요.
 
-* **포함/제외할 업데이트** - **포함/제외** 페이지가 열립니다. 포함 또는 제외할 업데이트는 별도의 탭에 있습니다. 포함이 처리되는 방식에 대한 자세한 내용은 [포함 동작](automation-update-management.md#inclusion-behavior)을 참조하세요.
+* **포함/제외할 업데이트** - **포함/제외** 페이지가 열립니다. 포함 또는 제외할 업데이트는 별도의 탭에 있습니다.
+
+> [!NOTE]
+> 제외는 포함을 재정의한다는 사실을 기억해야 합니다. 예를 들어 `*`의 제외 규칙을 정의하는 경우 모든 패치 또는 패키지가 제외되므로 설치되지 않습니다. 제외된 패치가 여전히 머신에서 누락된 것으로 표시됩니다. Linux 머신의 경우 패키지가 포함되었지만 종속 패키지가 제외되면 패키지가 설치되지 않습니다.
 
 * **일정 설정**: **일정 설정** 창이 열립니다. 기본 시작 시간은 현재 시간으로부터 30분 후입니다. 앞으로 10분 이후부터 언제든지 시작 시간을 설정할 수 있습니다.
 
    배포가 한 번만 수행될지 여부를 지정하거나 되풀이 일정을 설정할 수도 있습니다. **되풀이**에서 **한 번**을 선택합니다. 기본값을 1일로 그대로 두고 **확인**을 선택합니다. 이렇게 하면 되풀이 일정이 설정됩니다.
 
 * **사전 스크립트 + 사후 스크립트**: 배포 전후에 실행할 스크립트를 선택합니다. 자세한 내용은 [사전 및 사후 스크립트 관리](pre-post-scripts.md)를 참조하세요.
-* **유지 관리 기간(분)**: 기본값을 그대로 둡니다. 업데이트 배포를 수행하려는 기간을 설정할 수 있습니다. 이 설정을 통해 정해진 서비스 기간 내에 변경 내용을 수행할 수 있습니다.
+
+* **유지 관리 기간(분)** : 기본값을 그대로 둡니다. 유지 관리 기간은 업데이트 설치에 허용되는 시간을 제어합니다. 유지 관리 기간을 지정할 때는 다음 사항을 고려하세요.
+
+  * 유지 관리 기간은 설치하려는 업데이트의 수를 제어합니다.
+  * 유지 관리 기간이 종료될 경우에도 업데이트 관리는 새 업데이트 설치를 중지하지 않습니다.
+  * 유지 관리 기간을 초과하는 경우 업데이트 관리는 진행 중인 업데이트를 종료하지 않습니다.
+  * Windows에서 유지 관리 기간을 초과하는 경우 서비스 팩 업데이트를 설치하는 데 오랜 시간이 소요되는 경우가 많습니다.
+
+  > [!NOTE]
+  > 작업에 중요하지 않은 “부언” 정보: Ubuntu에서 유지 관리 기간 외에 업데이트가 적용되지 않도록 하려면 자동 업데이트를 사용하지 않도록 Unattended-Upgrade 패키지를 다시 구성합니다. 패키지 구성 방법에 대한 자세한 내용은 [Ubuntu Server 가이드의 자동 업데이트 항목](https://help.ubuntu.com/lts/serverguide/automatic-updates.html)을 참조하세요.
 
 * **다시 부팅 옵션**: 이 설정은 다시 부팅을 처리하는 방법을 결정합니다. 사용 가능한 옵션은 다음과 같습니다.
   * 필요한 경우 다시 부팅(기본값)
   * 항상 다시 부팅
   * 다시 부팅 안 함
   * 다시 부팅만 - 업데이트 설치 안 함
+
+> [!NOTE]
+> [다시 시작을 관리하는 데 사용되는 레지스트리 키](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart)에 나열된 레지스트리 키는 **재부팅 제어**가 **재부팅하지 않음**으로 설정되면 재부팅 이벤트가 발생할 수 있습니다.
 
 일정 구성을 마쳤으면 **만들기**를 선택합니다.
 
@@ -172,7 +187,9 @@ VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리**�
 상태 대시보드로 돌아갑니다. **예약된 업데이트 배포**를 선택하여 만든 배포 일정을 표시합니다.
 
 > [!NOTE]
-> 업데이트 관리는 자사 업데이트 배포와 미리 다운로드 패치를 지원합니다. 이를 위해 패치 대상 시스템을 변경해야 합니다. 시스템에서 이러한 설정을 구성하는 방법은 [자사 및 미리 다운로드 지원](automation-update-management.md#firstparty-predownload)을 참조하세요.
+> 업데이트 관리는 자사 업데이트 배포와 미리 다운로드 패치를 지원합니다. 이를 위해 패치 대상 시스템을 변경해야 합니다. 시스템에서 이러한 설정을 구성하는 방법은 [자사 및 미리 다운로드 지원](automation-configure-windows-update.md)을 참조하세요.
+
+**업데이트 배포**를 프로그래밍 방식으로 만들 수도 있습니다. REST API를 사용하여 **업데이트 배포**를 만드는 방법은 [소프트웨어 업데이트 구성 - 만들기](/rest/api/automation/softwareupdateconfigurations/create)를 참조하세요. 주간 **업데이트 배포**를 만드는 데 사용할 수 있는 샘플 Runbook도 있습니다. 이 Runbook에 대한 자세한 내용은 [리소스 그룹에 있는 하나 이상의 VM에 대한 주간 업데이트 배포 만들기](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1)를 참조하세요.
 
 ## <a name="view-results-of-an-update-deployment"></a>업데이트 배포의 결과 보기
 

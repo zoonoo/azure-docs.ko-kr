@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/25/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: b262a06bc3d80bd1f8105c6629bbc07e6ccd34eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c00c1ecf001162964b01a3e858534fa502b7484c
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077150"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285853"
 ---
 # <a name="what-is-azure-event-grid"></a>Azure Event Grid란?
 
@@ -22,7 +22,7 @@ Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 애플�
 
 필터를 사용하여 다른 엔드포인트에 대한 특정 이벤트를 라우팅하고, 여러 엔드포인트로 멀티캐스트하며, 이벤트가 안정적으로 배달되도록 할 수 있습니다.
 
-Azure Event Grid는 각 지역의 여러 장애 도메인과 가용성 영역(지원하는 지역 안)으로 고유하게 분산되어 가용성을 극대화하기 위해 배포됩니다. 현재, Azure Event Grid는 모든 공용 지역에서 사용할 수 있습니다. Azure 독일, Azure 중국 21Vianet 또는 Azure Government 클라우드에서는 아직 사용할 수 없습니다.
+Azure Event Grid는 각 지역의 여러 장애 도메인과 가용성 영역(지원하는 지역 안)으로 고유하게 분산되어 가용성을 극대화하기 위해 배포됩니다. Event Grid에서 지원되는 지역 목록은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all)을 참조하세요.
 
 이 문서는 Azure Event Grid의 개요를 제공합니다. Event Grid를 시작하려는 경우 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요. 
 

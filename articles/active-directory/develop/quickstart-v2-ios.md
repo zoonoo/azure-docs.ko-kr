@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdb1ae92b17bef281e3b82a8c1a21344fa37f0da
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dce3fea1427632f37d826b79016e3aa3e22dad5f
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345541"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264163"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>빠른 시작: iOS 또는 macOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -266,7 +266,7 @@ self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error
 > |위치: ||
 > |---------|---------|
 > | `scopes` | 요청된 범위(즉 Microsoft Graph의 경우 `[ "user.read" ]`, 사용자 지정 Web API(`api://<Application ID>/access_as_user`)의 경우 `[ "<Application ID URL>/scope" ]`가 포함됩니다. |
-> | `account` | 토큰을 요청하는 계정입니다. 이 빠른 시작은 단일 계정 애플리케이션입니다. 다중 계정 앱을 빌드하려면 `applicationContext.account(forHomeAccountId: self.homeAccountId)` 토큰 요청에 사용할 계정을 식별하는 논리를 정의해야 합니다. |
+> | `account` | 토큰을 요청하는 계정입니다. 이 빠른 시작은 단일 계정 애플리케이션에 대한 것입니다. 다중 계정 앱을 빌드하려면 `applicationContext.account(forHomeAccountId: self.homeAccountId)`를 사용하여 토큰 요청에 사용할 계정을 식별하는 논리를 정의해야 합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

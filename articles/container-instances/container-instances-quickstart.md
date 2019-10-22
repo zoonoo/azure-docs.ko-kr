@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure Container Instances에 Docker 컨테이너 배포 - CLI
+title: '빠른 시작: Azure Container Instances에 Docker 컨테이너 배포 - Azure CLI'
 description: 이 빠른 시작에서는 Azure CLI를 사용하여, 격리된 Azure 컨테이너 인스턴스에서 실행하는 컨테이너화된 웹앱을 신속하게 배포합니다.
 services: container-instances
 author: dlepow
@@ -8,13 +8,16 @@ ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: danlep
-ms.custom: seodec18, mvc
-ms.openlocfilehash: b344e5fefdef6cd25dcafc0577b9fbbd7f0e398d
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.custom:
+- seo-python-october2019
+- seodec18
+- mvc
+ms.openlocfilehash: 65c067792499017a7e00fdbb6199e591981683f8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050631"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429208"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure에서 컨테이너 인스턴스 배포
 
@@ -22,7 +25,7 @@ Azure Container Instances를 사용하여 Azure에서 서버리스 Docker 컨테
 
 이 빠른 시작에서는 Azure CLI를 사용하여 격리된 Docker 컨테이너를 배포하고 해당 애플리케이션을 정규화된 도메인 이름(FQDN)으로 사용 가능하게 합니다. 단일 배포 명령을 실행한 후 몇 초 내에 컨테이너에서 실행 중인 애플리케이션을 찾아볼 수 있습니다.
 
-![Azure Container Instances에 배포되어 브라우저에 표시된 응용 프로그램][aci-app-browser]
+![브라우저에서 Azure Container Instances에 배포된 앱 보기][aci-app-browser]
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][azure-account]을 만듭니다.
 
@@ -69,7 +72,7 @@ aci-demo.eastus.azurecontainer.io  Succeeded
 
 컨테이너의 `ProvisioningState`가 **Succeeded**(성공)이면 브라우저에서 해당 FQDN으로 이동합니다. 다음과 비슷한 웹 페이지가 표시됩니다. Docker 컨테이너에서 실행되는 애플리케이션이 Azure에 성공적으로 배포되었습니다.
 
-![Azure 컨테이너 인스턴스에서 실행되는 애플리케이션을 보여주는 브라우저 스크린샷][aci-app-browser]
+![브라우저에서 Azure Container Instances에 배포된 앱 보기][aci-app-browser]
 
 처음에 애플리케이션이 표시되지 않으면 DNS가 전파되는 동안 잠시 기다린 후에 브라우저를 새로 고쳐야 할 수 있습니다.
 
@@ -155,7 +158,7 @@ az group delete --name myResourceGroup
 Azure에서 오케스트레이션 시스템의 컨테이너 실행 옵션을 사용하려면 [AKS(Azure Kubernetes Service)][container-service] 빠른 시작을 참조하세요.
 
 <!-- IMAGES -->
-[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+[aci-app-browser]: ./media/container-instances-quickstart/view-an-application-running-in-an-azure-container-instance.png
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git

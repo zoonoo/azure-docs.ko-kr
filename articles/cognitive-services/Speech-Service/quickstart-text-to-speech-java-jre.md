@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/19/2019
 ms.author: yulili
-ms.openlocfilehash: 832525ae1441fca85f8df661b4a187c0be8d91dc
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c66e321618b46d52f791f95dab570e3721e806a9
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803859"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299232"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-java"></a>빠른 시작: Java용 Speech SDK를 사용하여 음성 합성
 
@@ -79,7 +79,7 @@ Windows(64비트)를 실행하는 경우 플랫폼에 맞는 Microsoft Visual C+
 ## <a name="build-and-run-the-app"></a>앱 빌드 및 실행
 
 F11 키를 누르거나 **실행** > **디버그**를 선택합니다.
-승격 시 텍스트를 입력하면 기본 스피커에서 재생되는 합성 오디오가 여기에 표시됩니다.
+메시지가 표시될 때 텍스트를 입력하면 기본 스피커에서 재생되는 합성 오디오를 들을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

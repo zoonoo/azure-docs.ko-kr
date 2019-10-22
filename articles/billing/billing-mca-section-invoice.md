@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: ba2a274397aa1941ef2be03ce97b0f0c9ce96a31
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 77dd8a5e54697a37a2039238ecdedb3e2a2fa326
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709559"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375472"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>비용을 구성하도록 청구서에 섹션 만들기
 
@@ -55,5 +55,5 @@ ms.locfileid: "71709559"
 ## <a name="next-steps"></a>다음 단계
 
 - [Microsoft 고객 계약에 대한 추가 Azure 구독 만들기](billing-mca-create-subscription.md)
-- [다른 사용자에게 Azure 구독을 만들 수 있는 권한 부여](billing-mca-create-subscription.md#give-others-permission)
+- [Azure Portal에서 청구 역할 관리](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 - [다른 청구 계정의 사용자에서 Azure 구독의 청구 소유권 얻기](billing-mca-request-billing-ownership.md)

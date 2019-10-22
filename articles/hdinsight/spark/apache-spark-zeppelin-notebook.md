@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.openlocfilehash: 26634e2fe23e0a23540638c4559af6e11eccbe72
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71180740"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용
 
 HDInsight Spark 클러스터에는 [Apache Spark](https://spark.apache.org/) 작업을 실행하는 데 사용할 수 있는 [Apache Zeppelin](https://zeppelin.apache.org/) Notebook이 포함되어 있습니다. 이 문서에서는 HDInsight 클러스터에서 Zeppelin Notebook을 사용하는 방법에 대해 알아 봅니다.
 
-**사전 요구 사항:**
+**필수 조건:**
 
 * Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
-* 클러스터 기본 저장소에 대 한 URI 체계입니다. Azure Data Lake Storage Gen2 또는 `wasb://` AzureDataLakeStorageGen1`adl://` 에 대 한 `abfs://` Azure Blob Storage입니다. Blob Storage에 대해 보안 전송이 사용 되는 경우 URI `wasbs://`는입니다.  자세한 내용은 [Azure Storage에서 보안 전송 필요](../../storage/common/storage-require-secure-transfer.md) 를 참조 하세요.
+* 클러스터 기본 저장소에 대 한 URI 체계입니다. 이는 `adl://`에 대 한 Azure Data Lake Storage Gen2 또는 Azure Data Lake Storage Gen1 `abfs://` Azure Blob Storage `wasb://` 됩니다. Blob Storage에 대해 보안 전송이 사용 되는 경우 URI는 `wasbs://` 됩니다.  자세한 내용은 [Azure Storage에서 보안 전송 필요](../../storage/common/storage-require-secure-transfer.md) 를 참조 하세요.
 
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Apache Zeppelin Notebook 시작
 
@@ -34,17 +34,17 @@ HDInsight Spark 클러스터에는 [Apache Spark](https://spark.apache.org/) 작
    >
    > `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
-2. 새 Notebook을 만듭니다. 머리글 창에서 **노트북** > **새 노트 만들기**로 이동 합니다.
+2. 새 Notebook을 만듭니다. 머리글 창에서 **노트북** 으로 이동 하  > **새 노트 만들기를 참조**하세요.
 
-    ![새 Zeppelin Notebook 만들기](./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png "새 Zeppelin Notebook 만들기")
+    ![새 Zeppelin 노트북 만들기](./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png "새 Zeppelin 노트북 만들기")
 
     노트북의 이름을 입력 한 다음 **메모 만들기**를 선택 합니다.
 
 3. 노트북 머리글이 연결 된 상태를 표시 하는지 확인 합니다. 오른쪽 위 모서리에 녹색 점으로 표시됩니다.
 
-    ![Zeppelin Notebook 상태](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png "Zeppelin Notebook 상태")
+    ![Zeppelin 노트북 상태](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png "Zeppelin 노트북 상태")
 
-4. 샘플 데이터를 임시 테이블에 로드합니다. HDInsight에서 Spark 클러스터를 만들 때 샘플 데이터 파일 `hvac.csv`는의 연결 된 저장소 `\HdiSamples\SensorSampleData\hvac`계정에 복사 됩니다.
+4. 샘플 데이터를 임시 테이블에 로드합니다. HDInsight에서 Spark 클러스터를 만들 때 샘플 데이터 파일 `hvac.csv`은 `\HdiSamples\SensorSampleData\hvac`의 연결 된 저장소 계정에 복사 됩니다.
 
     새 노트북에 기본적으로 만들어지는 빈 단락에 다음 코드 조각을 붙여넣습니다.
 
@@ -92,9 +92,9 @@ HDInsight Spark 클러스터에는 [Apache Spark](https://spark.apache.org/) 작
 
 6. **가로 막대형 차트** 아이콘을 선택 하 여 표시를 변경 합니다.  **가로 막대형 차트**를 선택한 후 표시 되는 **설정**을 사용 하 여 **키**및 **값**을 선택할 수 있습니다.  다음 스크린샷은 출력을 보여 줍니다.
 
-    ![Notebook1를 사용 하 여 SPARK SQL 문 실행](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Notebook1를 사용 하 여 SPARK SQL 문 실행")
+    ![Notebook1를 사용 하 여 Spark SQL 문 실행](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Notebook1를 사용 하 여 Spark SQL 문 실행")
 
-7. 또한 쿼리에 변수를 사용하여 Spark SQL 문을 실행할 수도 있습니다. 다음 코드 조각에서는 쿼리할 수 있는 값을 사용 `Temp`하 여 쿼리에서 변수를 정의 하는 방법을 보여 줍니다. 쿼리를 처음 실행하면 드롭다운이 변수에 지정한 값으로 자동으로 채워집니다.
+7. 또한 쿼리에 변수를 사용하여 Spark SQL 문을 실행할 수도 있습니다. 다음 코드 조각에서는 쿼리를 사용할 수 있는 값을 사용 하 여 쿼리에서 `Temp` 변수를 정의 하는 방법을 보여 줍니다. 쿼리를 처음 실행하면 드롭다운이 변수에 지정한 값으로 자동으로 채워집니다.
 
     ```sql
     %sql  
@@ -105,12 +105,12 @@ HDInsight Spark 클러스터에는 [Apache Spark](https://spark.apache.org/) 작
 
 8. **가로 막대형 차트** 아이콘을 선택 하 여 표시를 변경 합니다.  그런 다음 **설정** 을 선택 하 고 다음과 같이 변경 합니다.
 
-   * **그룹과**  **Targettemp**를 추가 합니다.  
-   * **값인** 1. **날짜**를 제거 합니다.  2. **Temp_diff**를 추가 합니다.  3.  집계를 **SUM** 에서 **AVG**로 변경 합니다.  
+   * **그룹:**  **Targettemp**를 추가 합니다.  
+   * **값:** 1(sp1). **날짜**를 제거 합니다.  2. **Temp_diff**를 추가 합니다.  3.  집계를 **SUM** 에서 **AVG**로 변경 합니다.  
 
      다음 스크린샷은 출력을 보여 줍니다.
 
-     ![Notebook2를 사용 하 여 SPARK SQL 문 실행](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Notebook2를 사용 하 여 SPARK SQL 문 실행")
+     ![Notebook2를 사용 하 여 Spark SQL 문 실행](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Notebook2를 사용 하 여 Spark SQL 문 실행")
 
 9. Livy 인터프리터를 다시 시작하여 애플리케이션을 종료합니다. 이렇게 하려면 오른쪽 위 모서리에서 로그인 한 사용자 이름을 선택 하 여 인터프리터 설정을 열고 **인터프리터**를 선택 합니다.  
 
@@ -118,7 +118,7 @@ HDInsight Spark 클러스터에는 [Apache Spark](https://spark.apache.org/) 작
 
 10. **Livy**으로 스크롤한 다음 **다시 시작**을 선택 합니다.  프롬프트에서 **확인을** 선택 합니다.
 
-    ![Livy 인터프리터를 다시 시작 합니다] . (./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Zeppelin 인터프리터를 다시 시작 합니다") .
+    ![Livy 인터프리터를 다시 시작 합니다.](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Zeppelin 인터프리터를 다시 시작 합니다.")
 
 ## <a name="how-do-i-use-external-packages-with-the-notebook"></a>Notebook에서 외부 패키지 사용 방법
 클러스터에 기본 제공 되지 않는 외부의 커뮤니티 제공 패키지를 사용 하도록 HDInsight의 Apache Spark 클러스터에서 Zeppelin 노트북을 구성할 수 있습니다. 사용할 수 있는 패키지의 전체 목록은 [Maven 리포지토리](https://search.maven.org/) 를 검색할 수 있습니다. 다른 소스에서 사용 가능한 패키지 목록을 가져올 수도 있습니다. 예를 들어 커뮤니티 제공 패키지의 전체 목록은 [Spark 패키지](https://spark-packages.org/)에서 사용할 수 있습니다.
@@ -133,7 +133,7 @@ HDInsight Spark 클러스터에는 [Apache Spark](https://spark.apache.org/) 작
 
     ![변경 인터프리터 run settings1](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "변경 인터프리터 run settings1")
 
-3. 라는 `livy.spark.jars.packages`새 키를 추가 하 고 해당 값을 형식 `group:id:version`으로 설정 합니다. 따라서 [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) 패키지를 사용하려면 키 값을 `com.databricks:spark-csv_2.10:1.4.0`으로 설정해야 합니다.
+3. @No__t_0 라는 새 키를 추가 하 고 `group:id:version` 형식으로 해당 값을 설정 합니다. 따라서 [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) 패키지를 사용하려면 키 값을 `com.databricks:spark-csv_2.10:1.4.0`으로 설정해야 합니다.
 
     ![변경 인터프리터 settings2](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "변경 인터프리터 settings2")
 
@@ -145,16 +145,16 @@ HDInsight Spark 클러스터에는 [Apache Spark](https://spark.apache.org/) 작
    
     b. 해당 리포지토리에서 **GroupId**, **ArtifactId** 및 **Version** 값을 수집합니다.
    
-    ![Jupyter Notebook에서 외부 패키지 사용](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Jupyter Notebook에서 외부 패키지 사용")
+    ![Jupyter 노트북에서 외부 패키지 사용](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Jupyter 노트북에서 외부 패키지 사용")
    
-    c. 콜론( **:** )으로 구분된 세 개의 값을 연결합니다.
+    다. 콜론( **:** )으로 구분된 세 개의 값을 연결합니다.
    
         com.databricks:spark-csv_2.10:1.4.0
 
 ## <a name="where-are-the-zeppelin-notebooks-saved"></a>Zeppelin Notebook 저장 위치
 Zeppelin Notebook은 클러스터 헤드 노드에 저장됩니다. 따라서 클러스터를 삭제하면 Notebook도 삭제됩니다. 나중에 다른 클러스터에서 사용하기 위해 Notebook을 유지하려면 작업 실행을 완료 한 후 Notebook을 내보내야 합니다. 노트북을 내보내려면 아래 이미지에 표시 된 것 처럼 **내보내기** 아이콘을 선택 합니다.
 
-![Notebook 다운로드](./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png "Notebook 다운로드")
+![노트북 다운로드](./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png "노트북 다운로드")
 
 이렇게 하면 Notebook이 다운로드 위치에 JSON 파일로 저장됩니다.
 
@@ -169,16 +169,16 @@ Zeppelin Notebook에서 첫 번째 코드 단락을 실행하면 HDInsight Spark
 
 2. **Livy**으로 스크롤한 다음 **다시 시작**을 선택 합니다.
 
-    ![Livy 인터프리터를 다시 시작 합니다] . (./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Zeppelin 인터프리터를 다시 시작 합니다") .
+    ![Livy 인터프리터를 다시 시작 합니다.](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Zeppelin 인터프리터를 다시 시작 합니다.")
 
 3. 기존 Zeppelin Notebook에서 코드 셀을 실행합니다. 이렇게 하면 HDInsight 클러스터에 새로운 Livy 세션이 만들어집니다.
 
 ## <a name="seealso"></a>참고 항목
-* [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
+* [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
 * [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 HVAC 데이터로 건물 온도 분석](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
 * [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 

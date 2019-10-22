@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b3210b97fe6fb0cd16499d5c33538c8e2babe612
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5e9b94f0c67b4b4630d554f4dde22502c90e777c
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173662"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376365"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>자습서: Azure Service Fabric에서 Java API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 애플리케이션 만들기
 
@@ -228,7 +228,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 ### <a name="add-the-httpcommunicationlistenerjava-file"></a>HTTPCommunicationListener.java 파일 추가
 
-HTTP 통신 수신기는 HTTP 서버를 설정하고 컨트롤러로서 투표 작업을 정의하는 API를 공개하는 역할을 합니다. *VotingWeb/src/statelessservice* 폴더에서 *statelessservice* 패키지를 마우스 오른쪽 단추로 클릭한 다음, **새로 만들기****파일**을 선택합니다.  *HttpCommunicationListener.java* 파일 이름을 지정하고 **마침**을 선택합니다.
+HTTP 통신 수신기는 HTTP 서버를 설정하고 컨트롤러로서 투표 작업을 정의하는 API를 공개하는 역할을 합니다. *VotingWeb/src/statelessservice* 폴더에서 *statelessservice* 패키지를 마우스 오른쪽 단추로 클릭한 다음, **새로 만들기** > **파일**을 선택합니다.  *HttpCommunicationListener.java* 파일 이름을 지정하고 **마침**을 선택합니다.
 
 파일 내용을 다음으로 바꾸고 변경 내용을 저장합니다.  나중에 이 파일은 HttpCommunicationListener.java 파일 업데이트에서 백 엔드 서비스의 투표 데이터를 렌더링하고 읽고 쓰도록 수정됩니다.  지금은 수신기가 Voting 앱에 대한 고정적인 HTML을 반환합니다.
 

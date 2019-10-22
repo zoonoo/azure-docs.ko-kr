@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 630f8f7d4561ed6e7e9f943f4b3b123daeee4d67
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: cbb1249b529fde1368bfaff0c6c251c93fa6c309
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129032"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693853"
 ---
 # <a name="add-columns-module"></a>열 추가 모듈
 
@@ -25,7 +25,7 @@ ms.locfileid: "70129032"
 
 
 ## <a name="how-to-configure-add-columns"></a>열 추가를 구성 하는 방법
-1. **열 추가** 모듈을 실험에 추가 합니다.
+1. 파이프라인에 **열 추가** 모듈을 추가 합니다.
 
 2. 연결 하려는 두 데이터 집합을 연결 합니다. 세 개 이상의 데이터 집합을 결합 하려는 경우에는 여러 개의 **열**을 조합 하 여 함께 사용할 수 있습니다.
 
@@ -33,10 +33,10 @@ ms.locfileid: "70129032"
 
     - 추가할 개별 열을 선택할 수 없습니다. **열 추가**를 사용 하는 경우 각 데이터 집합의 모든 열이 연결 됩니다. 따라서 열의 하위 집합만 추가 하려면 데이터 집합의 열 선택을 사용 하 여 원하는 열이 포함 된 데이터 집합을 만듭니다.
 
-3. 실험을 실행합니다.
+3. 파이프라인을 실행합니다.
 
 ### <a name="results"></a>결과
-실험을 실행 한 후:
+파이프라인이 실행 된 후 다음을 수행 합니다.
 
 - 새 데이터 집합의 첫 번째 행을 보려면 **열 추가** 의 출력을 마우스 오른쪽 단추로 클릭 하 고 시각화를 선택 합니다.
 

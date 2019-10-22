@@ -1,21 +1,21 @@
 ---
-title: 자습서 - Azure Cost Management에서 내보낸 데이터를 만들고 관리 | Microsoft Docs
+title: 자습서 - Azure Cost Management에서 내보낸 데이터 만들기 및 관리
 description: 이 문서에서는 내보낸 Azure Cost Management 데이터를 외부 시스템에서 사용할 수 있도록 만들고 관리하는 방법을 보여줍니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/14/2019
+ms.date: 10/12/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 521a5f2543b9a4a84d50f8f0e53a6ae5108f760b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 070844cbf8f6a550b92d764ddb8a31afec12f437
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792881"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374602"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>자습서: 내보낸 데이터 만들기 및 관리
 
@@ -50,8 +50,8 @@ Azure Storage 계정의 경우:
 데이터 내보내기를 만들거나 보려면 또는 내보내기를 예약하려면 Azure Portal에서 원하는 범위를 열고 메뉴에서 **비용 분석**을 선택합니다. 예를 들어 **구독**으로 이동하여 목록에서 구독을 선택한 다음, 메뉴에서 **비용 분석**을 선택합니다. 비용 분석 페이지의 맨 위에 있는 **내보내기**를 클릭한 다음, 내보내기 옵션을 선택합니다. 예를 들어,**내보내기 예약**을 클릭합니다.  
 
 > [!NOTE]
-> 구독 외에도 리소스 그룹, 계정, 부서 및 등록에서 내보내기를 만들 수 있습니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
->
+> - 구독 외에도 리소스 그룹, 계정, 부서 및 등록에서 내보내기를 만들 수 있습니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
+>- 청구 계정 범위 또는 고객 테넌트에서 파트너로 로그인한 경우 파트너 스토리지 계정에 연결된 Azure Storage 계정으로 데이터를 내보낼 수 있습니다. 그러나 CSP 테넌트에 활성 구독이 있어야 합니다.
 >
 
 
@@ -91,15 +91,15 @@ Azure Storage 계정에 대한 구독을 지정하고 스토리지 계정을 선
 
 ## <a name="verify-that-data-is-collected"></a>데이터가 수집되는지 확인
 
-Azure Storage 탐색기를 사용하여 간단하게 Cost Management 데이터가 수집되는지 확인하고 내보낸 CSV 파일을 볼 수 있습니다.
+Azure Storage Explorer를 사용하여 간단하게 Cost Management 데이터가 수집되는지 확인하고 내보낸 CSV 파일을 볼 수 있습니다.
 
-내보내기 목록에서 스토리지 계정 이름을 클릭합니다. 스토리지 계정 페이지의 탐색기에서 [열기]를 클릭합니다. 확인 상자가 나타나면 **예**를 클릭하여 Azure Storage 탐색기에서 파일을 엽니다.
+내보내기 목록에서 스토리지 계정 이름을 클릭합니다. 스토리지 계정 페이지의 탐색기에서 [열기]를 클릭합니다. 확인 상자가 나타나면 **예**를 클릭하여 Azure Storage Explorer에서 파일을 엽니다.
 
 ![예제 정보 및 탐색기에서 열기 링크를 표시하는 스토리지 계정 페이지](./media/tutorial-export-acm-data/storage-account-page.png)
 
-Storage 탐색기에서 열고 싶은 컨테이너로 이동한 후 현재 월에 해당하는 폴더를 선택합니다. CSV 파일 목록이 표시됩니다. 파일 하나를 선택하고 **열기**를 클릭합니다.
+Storage Explorer에서 열고 싶은 컨테이너로 이동한 후 현재 월에 해당하는 폴더를 선택합니다. CSV 파일 목록이 표시됩니다. 파일 하나를 선택하고 **열기**를 클릭합니다.
 
-![Storage 탐색기에 표시되는 예제 정보](./media/tutorial-export-acm-data/storage-explorer.png)
+![Storage Explorer에 표시되는 예제 정보](./media/tutorial-export-acm-data/storage-explorer.png)
 
 CSV 파일 확장명을 열도록 설정된 프로그램 또는 애플리케이션에서 파일이 열립니다. 다음은 Excel 예제입니다.
 

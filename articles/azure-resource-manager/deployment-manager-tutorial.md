@@ -5,15 +5,15 @@ services: azure-resource-manager
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.date: 05/23/2019
+ms.date: 10/10/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 97d9aa1ed9440011fdaab3aa8eb9d3942b5a8acf
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 3f10093b1d3087e87279258d04d86fc3d47ba313
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170356"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285888"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>자습서: Azure Deployment Manager에서 Resource Manager 템플릿 사용(공개 미리 보기)
 
@@ -61,8 +61,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```powershell
     Install-Module -Name Az.DeploymentManager
     ```
-
-* [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)가 있어야 합니다. Azure Storage Explorer는 필요하지 않지만 작업을 더 쉽게 수행할 수 있습니다.
 
 ## <a name="understand-the-scenario"></a>시나리오 이해
 
@@ -135,16 +133,55 @@ ArtifactStore 다운로드 폴더에는 다음 두 개의 폴더가 있습니다
 
 템플릿 아티팩트는 서비스 토폴로지 템플릿에서 사용되며, 이진 아티팩트는 롤아웃 템플릿에서 사용됩니다. 토폴로지 템플릿과 롤아웃 템플릿은 모두 Resource Manager를 템플릿 및 배포에 사용되는 이진 아티팩트로 가리키는 데 사용되는 리소스인 아티팩트 소스 Azure 리소스를 정의합니다. 자습서를 간소화하기 위해 하나의 스토리지 계정을 사용하여 템플릿 아티팩트와 이진 아티팩트를 모두 저장합니다. 두 아티팩트 소스는 모두 동일한 스토리지 계정을 가리킵니다.
 
-1. Azure Storage 계정 만들기 지침은 [빠른 시작: Azure Portal을 사용하여 Blob 업로드, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-portal.md)을 참조하세요.
-2. Blob 컨테이너를 스토리지 계정에 만듭니다.
-3. 두 폴더(binaries 및 templates) 및 두 폴더의 콘텐츠를 Blob 컨테이너에 복사합니다. [Microsoft Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409)는 끌어서 놓기 기능을 지원합니다.
-4. 다음 지침에 따라 컨테이너의 SAS 위치를 가져옵니다.
+다음 PowerShell 스크립트를 실행하여 리소스 그룹을 만들고, 스토리지 컨테이너를 만들고, Blob 컨테이너를 만들고, 다운로드한 파일을 업로드한 다음, SAS 토큰을 만듭니다.
 
-    1. Azure Storage Explorer에서 Blob 컨테이너로 이동합니다.
-    2. 왼쪽 창에서 Blob 컨테이너를 마우스 오른쪽 단추로 클릭한 다음, **공유 액세스 서명 가져오기**를 선택합니다.
-    3. **시작 시간** 및 **만료 시간**을 구성합니다.
-    4. **만들기**를 선택합니다.
-    5. URL 복사본을 만듭니다. 이 URL은 두 매개 변수 파일([토폴로지 매개 변수 파일](#topology-parameters-file) 및 [롤아웃 매개 변수 파일](#rollout-parameters-file))의 필드를 채우는 데 필요합니다.
+> [!IMPORTANT]
+> PowerShell 스크립트의 **projectName**은 이 자습서에서 배포되는 Azure 서비스의 이름을 생성하는 데 사용합니다. Azure 서비스마다 이름에 대한 요구 사항이 다릅니다. 배포가 성공하도록 소문자와 숫자로만 구성된 12자 미만의 이름을 선택합니다.
+> 프로젝트 이름의 복사본을 저장합니다. 이 자습서 전체에서 동일한 projectName을 사용합니다.
+
+```azurepowershell
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$filePath = Read-Host -Prompt "Enter the folder that contains the downloaded files"
+
+
+$resourceGroupName = "${projectName}rg"
+$storageAccountName = "${projectName}store"
+$containerName = "admfiles"
+$filePathArtifacts = "${filePath}\ArtifactStore"
+
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroupName `
+  -Name $storageAccountName `
+  -Location $location `
+  -SkuName Standard_RAGRS `
+  -Kind StorageV2
+
+$storageContext = $storageAccount.Context
+
+$storageContainer = New-AzStorageContainer -Name $containerName -Context $storageContext -Permission Off
+
+
+$filesToUpload = Get-ChildItem $filePathArtifacts -Recurse -File
+
+foreach ($x in $filesToUpload) {
+    $targetPath = ($x.fullname.Substring($filePathArtifacts.Length + 1)).Replace("\", "/")
+
+    Write-Verbose "Uploading $("\" + $x.fullname.Substring($filePathArtifacts.Length + 1)) to $($storageContainer.CloudBlobContainer.Uri.AbsoluteUri + "/" + $targetPath)"
+    Set-AzStorageBlobContent -File $x.fullname -Container $storageContainer.Name -Blob $targetPath -Context $storageContext | Out-Null
+}
+
+$token = New-AzStorageContainerSASToken -name $containerName -Context $storageContext -Permission rl -ExpiryTime (Get-date).AddMonths(1)  -Protocol HttpsOrHttp
+
+$url = $storageAccount.PrimaryEndpoints.Blob + $containerName + $token
+
+Write-Host $url
+```
+
+SAS 토큰을 사용하여 URL의 복사본을 만듭니다. 이 URL은 두 매개 변수 파일(토폴로지 매개 변수 파일 및 롤아웃 매개 변수 파일)의 필드를 채우는 데 필요합니다.
+
+Azure Portal에서 컨테이너를 열고 **이진** 및 **템플릿** 폴더와 파일이 모두 업로드되었는지 확인합니다.
 
 ## <a name="create-the-user-assigned-managed-identity"></a>사용자가 할당한 관리 ID 만들기
 
@@ -176,9 +213,7 @@ ArtifactStore 다운로드 폴더에는 다음 두 개의 폴더가 있습니다
 
 템플릿에 포함되는 매개 변수는 다음과 같습니다.
 
-![Azure Deployment Manager 자습서 - 토폴로지 템플릿 매개 변수](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-topology-template-parameters.png)
-
-* **namePrefix**: 이 접두사는 Deployment Manager 리소스에 대한 이름을 만드는 데 사용됩니다. 예를 들어 "jdoe" 접두사를 사용하는 경우 서비스 토폴로지 이름은 **jdoe** ServiceTopology입니다.  리소스 이름은 템플릿의 variables 섹션에 정의됩니다.
+* **projectName**: 이 이름은 Deployment Manager 리소스에 대한 이름을 만드는 데 사용됩니다. 예를 들어 "jdoe"를 사용하는 경우 서비스 토폴로지 이름은 **jdoe**ServiceTopology입니다.  리소스 이름은 템플릿의 variables 섹션에 정의됩니다.
 * **azureResourcelocation**: 이 자습서를 간소화하기 위해 달리 지정하지 않는 한 모든 리소스에서 이 위치를 공유합니다. 현재 Azure Deployment Manager 리소스는 **미국 중부** 또는 **미국 동부 2**에서만 만들 수 있습니다.
 * **artifactSourceSASLocation**: 서비스 단위 템플릿 및 매개 변수 파일이 배포를 위해 저장되는 Blob 컨테이너에 대한 SAS URI입니다.  [아티팩트 준비](#prepare-the-artifacts)를 참조하세요.
 * **templateArtifactRoot**: 템플릿과 매개 변수가 저장되는 Blob 컨테이너의 오프셋 경로입니다. 기본값은 **templates/1.0.0.0**입니다. [아티팩트 준비](#prepare-the-artifacts)에서 설명한 폴더 구조를 변경하려는 경우가 아니면 이 값을 변경하지 마세요. 이 자습서에서는 상대 경로를 사용합니다.  전체 경로는 **artifactSourceSASLocation**, **templateArtifactRoot** 및 **templateArtifactSourceRelativePath**(또는 **parametersArtifactSourceRelativePath**)를 연결하여 생성됩니다.
@@ -215,14 +250,13 @@ variables 섹션에서는 리소스 이름, 두 서비스 **Service WUS** 및 **
 1. Visual Studio 코드 또는 텍스트 편집기에서 **\ADMTemplates\CreateADMServiceTopology.Parameters**를 엽니다.
 2. 매개 변수 값을 다음과 같이 채웁니다.
 
-    * **namePrefix**: 4-5자의 문자열을 입력합니다. 이 접두사는 고유한 Azure 리소스 이름을 만드는 데 사용됩니다.
+    * **projectName**: 4-5자의 문자열을 입력합니다. 이 이름은 고유한 Azure 리소스 이름을 만드는 데 사용됩니다.
     * **azureResourceLocation**: Azure 위치를 잘 모르는 경우 이 자습서에서는 **centralus**를 사용합니다.
     * **artifactSourceSASLocation**: 서비스 단위 템플릿 및 매개 변수 파일이 배포를 위해 저장되는 루트 디렉터리(Blob 컨테이너)의 SAS URI를 입력합니다.  [아티팩트 준비](#prepare-the-artifacts)를 참조하세요.
     * **templateArtifactRoot**: 아티팩트의 폴더 구조를 변경하지 않는 한 이 자습서에서는 **templates/1.0.0.0**을 사용합니다.
-    * **targetScriptionID**: Azure 구독 ID를 입력합니다.
 
 > [!IMPORTANT]
-> 토폴로지 템플릿과 롤아웃 템플릿은 몇 가지 공통 매개 변수를 공유합니다. 이러한 매개 변수에는 동일한 값이 있어야 합니다. 이러한 매개 변수로 **namePrefix**, **azureResourceLocation** 및 **artifactSourceSASLocation**이 있습니다(이 자습서에서는 두 아티팩트 소스에서 동일한 스토리지 계정을 공유함).
+> 토폴로지 템플릿과 롤아웃 템플릿은 몇 가지 공통 매개 변수를 공유합니다. 이러한 매개 변수에는 동일한 값이 있어야 합니다. 이러한 매개 변수는 **projectName**, **azureResourceLocation** 및 **artifactSourceSASLocation**입니다(이 자습서에서는 두 아티팩트 소스에서 동일한 스토리지 계정을 공유함).
 
 ## <a name="create-the-rollout-template"></a>롤아웃 템플릿 만들기
 
@@ -234,7 +268,7 @@ variables 섹션에서는 리소스 이름, 두 서비스 **Service WUS** 및 **
 
 ![Azure Deployment Manager 자습서 - 롤아웃 템플릿 매개 변수](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-parameters.png)
 
-* **namePrefix**: 이 접두사는 Deployment Manager 리소스에 대한 이름을 만드는 데 사용됩니다. 예를 들어 "jdoe" 접두사를 사용하는 경우 롤아웃 이름은 **jdoe**Rollout입니다.  이름은 템플릿의 variables 섹션에 정의됩니다.
+* **projectName**: 이 이름은 Deployment Manager 리소스에 대한 이름을 만드는 데 사용됩니다. 예를 들어 "jdoe"를 사용하는 경우 롤아웃 이름은 **jdoe**Rollout입니다.  이름은 템플릿의 variables 섹션에 정의됩니다.
 * **azureResourcelocation**: 이 자습서를 간소화하기 위해 달리 지정하지 않는 한 모든 Deployment Manager 리소스에서 이 위치를 공유합니다. 현재 Azure Deployment Manager 리소스는 **미국 중부** 또는 **미국 동부 2**에서만 만들 수 있습니다.
 * **artifactSourceSASLocation**: 서비스 단위 템플릿 및 매개 변수 파일이 배포를 위해 저장되는 루트 디렉터리(Blob 컨테이너)의 SAS URI입니다.  [아티팩트 준비](#prepare-the-artifacts)를 참조하세요.
 * **binaryArtifactRoot**:  기본값은 **binaries/1.0.0.0**입니다. [아티팩트 준비](#prepare-the-artifacts)에서 설명한 폴더 구조를 변경하려는 경우가 아니면 이 값을 변경하지 마세요. 이 자습서에서는 상대 경로를 사용합니다.  전체 경로는 CreateWebApplicationParameters.json에 지정된 **artifactSourceSASLocation**, **binaryArtifactRoot** 및 **deployPackageUri**를 연결하여 생성됩니다.  [아티팩트 준비](#prepare-the-artifacts)를 참조하세요.
@@ -276,7 +310,7 @@ duration(기간)은 [ISO 8601 표준](https://en.wikipedia.org/wiki/ISO_8601#Dur
 1. Visual Studio 코드 또는 임의의 텍스트 편집기에서 **\ADMTemplates\CreateADMRollout.Parameters**를 엽니다.
 2. 매개 변수 값을 다음과 같이 채웁니다.
 
-    * **namePrefix**: 4-5자의 문자열을 입력합니다. 이 접두사는 고유한 Azure 리소스 이름을 만드는 데 사용됩니다.
+    * **projectName**: 4-5자의 문자열을 입력합니다. 이 이름은 고유한 Azure 리소스 이름을 만드는 데 사용됩니다.
     * **azureResourceLocation**: 현재 Azure Deployment Manager 리소스는 **미국 중부** 또는 **미국 동부 2**에서만 만들 수 있습니다.
     * **artifactSourceSASLocation**: 서비스 단위 템플릿 및 매개 변수 파일이 배포를 위해 저장되는 루트 디렉터리(Blob 컨테이너)의 SAS URI를 입력합니다.  [아티팩트 준비](#prepare-the-artifacts)를 참조하세요.
     * **binaryArtifactRoot**: 아티팩트의 폴더 구조를 변경하지 않는 한 이 자습서에서는 **binaries/1.0.0.0**을 사용합니다.
@@ -287,7 +321,7 @@ duration(기간)은 [ISO 8601 표준](https://en.wikipedia.org/wiki/ISO_8601#Dur
         ```
 
 > [!IMPORTANT]
-> 토폴로지 템플릿과 롤아웃 템플릿은 몇 가지 공통 매개 변수를 공유합니다. 이러한 매개 변수에는 동일한 값이 있어야 합니다. 이러한 매개 변수로 **namePrefix**, **azureResourceLocation** 및 **artifactSourceSASLocation**이 있습니다(이 자습서에서는 두 아티팩트 소스에서 동일한 스토리지 계정을 공유함).
+> 토폴로지 템플릿과 롤아웃 템플릿은 몇 가지 공통 매개 변수를 공유합니다. 이러한 매개 변수에는 동일한 값이 있어야 합니다. 이러한 매개 변수는 **projectName**, **azureResourceLocation** 및 **artifactSourceSASLocation**입니다(이 자습서에서는 두 아티팩트 소스에서 동일한 스토리지 계정을 공유함).
 
 ## <a name="deploy-the-templates"></a>템플릿 배포
 
@@ -296,19 +330,14 @@ Azure PowerShell을 사용하여 템플릿을 배포할 수 있습니다.
 1. 스크립트를 실행하여 서비스 토폴로지를 배포합니다.
 
     ```azurepowershell
-    $resourceGroupName = "<Enter a Resource Group Name>"
-    $location = "Central US"
-    $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
-
-    # Create a resource group
-    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-
     # Create the service topology
     New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMServiceTopology.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
     ```
+
+    [아티팩트 준비](#prepare-the-artifacts) 스크립트를 실행한 것과 다른 PowerShell 세션에서 이 스크립트를 실행하는 경우, 먼저 **$resourceGroupName** 및 **$filePath**를 포함하는 변수를 다시 채워야 합니다.
 
     > [!NOTE]
     > `New-AzResourceGroupDeployment`는 비동기 호출입니다. 성공 메시지는 성공적으로 배포가 시작되었다는 의미일 뿐입니다. 배포를 확인하려면 이 절차의 2단계와 4단계를 참조하세요.
@@ -333,7 +362,7 @@ Azure PowerShell을 사용하여 템플릿을 배포할 수 있습니다.
 
     ```azurepowershell
     # Get the rollout status
-    $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
+    $rolloutname = "${projectName}Rollout" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
         -Name $rolloutName `
@@ -424,9 +453,9 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
 2. **이름으로 필터링** 필드를 사용하여 범위를 이 자습서에서 만든 리소스 그룹으로 좁힙니다. 다음과 같이 3-4개가 있습니다.
 
-    * **&lt;namePrefix>rg**: Deployment Manager 리소스가 포함되어 있습니다.
-    * **&lt;namePrefix>ServiceWUSrg**: ServiceWUS에서 정의한 리소스가 포함되어 있습니다.
-    * **&lt;namePrefix>ServiceEUSrg**: ServiceEUS에서 정의한 리소스가 포함되어 있습니다.
+    * **&lt;projectName>rg**: Deployment Manager 리소스가 포함되어 있습니다.
+    * **&lt;projectName>ServiceWUSrg**: ServiceWUS에서 정의한 리소스가 포함되어 있습니다.
+    * **&lt;projectName>ServiceEUSrg**: ServiceEUS에서 정의한 리소스가 포함되어 있습니다.
     * 사용자 정의 관리 ID에 대한 리소스 그룹
 3. 해당 리소스 그룹 이름을 선택합니다.
 4. 위쪽 메뉴에서 **리소스 그룹 삭제**를 선택합니다.

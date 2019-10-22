@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 812fb8d312b165bd43f600da520f390f9c6399fe
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 5795dc994872ac5da37a1226524dddd35aa35126
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128411"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692643"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>2 클래스 승격 된 의사 결정 트리 모듈
 
@@ -32,7 +32,7 @@ ms.locfileid: "70128411"
 
 [모델 학습](././train-model.md)을 사용 하 여 이러한 모델 유형을 학습 시킬 수 있습니다. 
 
-1.  Azure Machine Learning에서 향상 된 **의사 결정 트리** 모듈을 실험에 추가 합니다.
+1.  Azure Machine Learning에서 **승격 된 의사 결정 트리** 모듈을 파이프라인에 추가 합니다.
   
 2.  **강사 모드 만들기** 옵션을 설정 하 여 모델을 학습 하는 방법을 지정 합니다.
   

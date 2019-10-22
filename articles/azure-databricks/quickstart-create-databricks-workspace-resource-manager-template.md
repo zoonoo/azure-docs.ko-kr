@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Resource Manager 템플릿을 사용하여 Azure Databricks에서 Spark 작업 실행 '
+title: Azure Resource 관리자를 사용하여 Azure Databricks 작업 영역 만들기
 description: 빠른 시작은 Azure Resource Manager 템플릿을 사용하여 Azure Databricks 작업 영역을 만든 다음, Apache Spark 클러스터를 만들고 Spark 작업을 실행하는 방법을 보여 줍니다.
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: 8d4cfb2be687f258255379d93fd60028dcd2eb2c
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 5f22c9e7b7f040a0e6b957cbc184720918ce9222
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "68932603"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274148"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure Databricks에서 Spark 작업 실행
 

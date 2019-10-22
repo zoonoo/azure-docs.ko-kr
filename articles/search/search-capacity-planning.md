@@ -10,10 +10,10 @@ ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c048dcf31d8f434f742d2da9351ef9b46f0a71d4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69650073"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Azure Search의 쿼리 및 인덱싱 작업을 위한 파티션 및 복제본 크기 조정
@@ -89,10 +89,10 @@ Azure Search에서 서비스에는 1개 파티션과 1개 복제본으로 구성
 | **복제본 1개.** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
 | **복제본 2개** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
 | **복제본 3개** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
-| **복제본 4개** |4 SU |8 SU |12 SU |16 SU |24 SU |해당 사항 없음 |
-| **복제본 5개** |5 SU |10 SU |15 SU |20 SU |30 SU |해당 사항 없음 |
+| **복제본 4개** |4 SU |8 SU |12 SU |16 SU |24 SU |N/A |
+| **복제본 5개** |5 SU |10 SU |15 SU |20 SU |30 SU |N/A |
 | **복제본 6개** |6 SU |12 SU |18 SU |24 SU |36 SU |N/A |
-| **복제본 12개** |12 SU |24 SU |36 SU |해당 사항 없음 |해당 사항 없음 |해당 사항 없음 |
+| **복제본 12개** |12 SU |24 SU |36 SU |N/A |N/A |N/A |
 
 SU, 가격 책정 및 용량에 대해서는 Azure Websites에 자세히 설명되어 있습니다. 자세한 내용은 [가격 정보](https://azure.microsoft.com/pricing/details/search/)를 참조하세요.
 

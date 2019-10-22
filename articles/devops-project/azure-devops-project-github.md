@@ -12,16 +12,16 @@ ms.prod: devops
 ms.technology: devops-cicd
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/09/2018
+ms.date: 06/27/2019
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 2abe24ad65e1e8997b48a28b35ec0e65162022f2
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 4a48b5c413f6dfb58a1ba3f896ded49250cde306
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898005"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286250"
 ---
 # <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>자습서: Azure DevOps Projects를 사용하여 기존 코드용 CI/CD 파이프라인 만들기
 
@@ -35,7 +35,6 @@ Azure DevOps Projects는 기존 코드와 Git 리포지토리를 가져오거나
 > * Azure DevOps 및 Azure 구독 구성 
 > * GitHub에 변경 내용 커밋 및 자동으로 Azure에 배포
 > * Azure Pipelines CI/CD 파이프라인 검사
-> * Azure Application Insights 모니터링 구성
 > * 리소스 정리
 
 ## <a name="prerequisites"></a>필수 조건
@@ -49,140 +48,67 @@ Azure DevOps Projects는 Azure Pipelines에 CI/CD 파이프라인을 만듭니�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. 왼쪽 창에서 **새로 만들기**를 선택합니다.
+2. 왼쪽 창의 왼쪽 탐색 모음에서 **+리소스 만들기**를 선택한 다음, **DevOps Projects**를 검색하고 **만들기**를 선택합니다.
 
-1. 검색 상자에 **DevOps Projects**를 입력하고 **만들기**를 선택합니다.
+   ![DevOps Projects 대시보드](_img/azure-devops-project-github/azuredashboard.png)
 
-    ![DevOps Projects 대시보드](_img/azure-devops-project-github/fullbrowser.png)
-
-1. **사용자 코드 가져오기**를 선택한 후 **다음**을 선택합니다.
+3. **사용자 코드 가져오기**를 선택한 다음, **다음**을 선택합니다.
 
 ## <a name="configure-access-to-your-github-repo-and-choose-a-framework"></a>GitHub 리포지토리에 대한 액세스 구성 및 프레임워크 선택
 
-1. **GitHub** 또는 외부 Git 리포지토리를 선택한 후 사용자 애플리케이션을 포함하는 리포지토리 및 분기를 선택합니다.
+1. **GitHub** 또는 외부 **Git**  코드 리포지토리 중 하나를 선택합니다. 이 자습서에서는 **GitHub**를 선택합니다. Azure가 GitHub 리포지토리에 액세스할 수 있도록 허용하려면 처음에 GitHub를 사용하여 인증해야 할 수도 있습니다.
 
-1. 웹 프레임워크를 선택한 후 **다음**을 선택합니다.
+2. **리포지토리** 및 **분기**를 선택하여 마치고 **다음**을 선택합니다.
 
-    ![.NET Framework](_img/azure-devops-project-github/webframework.png)
+3. Docker 컨테이너를 사용하는 경우 **컨테이너화된 앱입니까**를 **예**로 변경합니다. 이 자습서에서는 **아니오**를 선택한 상태로 두고 **다음**을 선택합니다. Docker 컨테이너 사용에 관해 자세히 알아보려면 **i** 아이콘을 마우스로 가리킵니다.
 
-    이전에 선택한 애플리케이션 프레임워크는 여기에서 사용 가능한 Azure 서비스 배포 대상의 유형을 나타냅니다. 
-    
-1. 대상 서비스를 선택하고 **다음**을 선택합니다.
+   ![.NET Framework](_img/azure-devops-project-github/appframework.png)
 
-## <a name="configure-azure-devops-and-an-azure-subscription"></a>Azure DevOps 및 Azure 구독 구성 
+4. 드롭다운에서 **애플리케이션 런타임** 및 **프레임워크**를 선택한 다음, **다음**을 선택합니다. 이전에 선택한 애플리케이션 프레임워크는 여기에서 사용 가능한 Azure 서비스 배포 대상의 유형을 나타냅니다.
 
-1. 새 Azure DevOps 조직을 만들거나 기존 조직을 선택합니다.
+5. 애플리케이션을 배포할 **Azure 서비스**를 선택한 다음, **다음**을 선택합니다.
 
-    a. Azure DevOps에서 프로젝트의 이름을 입력합니다. 
-    
-    b. Azure 구독 및 위치를 선택하고 애플리케이션의 이름을 입력한 후 **완료**를 선택합니다.
+## <a name="configure-azure-devops-and-an-azure-subscription"></a>Azure DevOps 및 Azure 구독 구성
 
-    잠시 후에 DevOps Projects 대시보드가 Azure Portal에 표시됩니다. 샘플 애플리케이션이 Azure DevOps 조직의 리포지토리에서 설정되고, 빌드가 실행되고, 애플리케이션이 Azure에 배포됩니다. 이 대시보드에서는 GitHub 코드 리포지토리, CI/CD 파이프라인 및 Azure의 애플리케이션에 가시성을 제공합니다. 
-    
-1. **찾아보기**를 선택하여 실행 중인 애플리케이션을 볼 수 있습니다.
+1. **프로젝트 이름**을 입력합니다.
 
-    ![DevOps Projects 대시보드 보기](_img/azure-devops-project-github/dashboardnopreview.png) 
-    
-Azure DevOps Projects는 CI 빌드 및 릴리스 트리거를 자동으로 구성합니다. 코드가 GitHub 리포지토리 또는 다른 외부 리포지토리에 남아 있습니다. 
+2. 새 무료 **Azure DevOps 조직**을 만들거나 드롭다운에서 기존 조직을 선택합니다.
 
-## <a name="commit-changes-to-github-and-automatically-deploy-them-to-azure"></a>GitHub에 변경 내용 커밋 및 자동으로 Azure에 배포 
+3. **Azure 구독**을 선택하고, **웹앱**에 사용할 이름을 입력하거나 기본값을 선택합니다. **위치**를 선택한 다음, **완료**를 선택합니다. 잠시 후에 DevOps Project 배포 개요가 Azure Portal에 표시됩니다.
+
+4. **리소스로 이동**을 선택하여 DevOps Project 대시보드를 확인합니다. 오른쪽 위 모서리에서 빠른 액세스를 위해 **프로젝트**를 대시보드에 고정합니다. Azure DevOps Projects는 CI 빌드 및 릴리스 트리거를 자동으로 구성합니다. 코드가 GitHub 리포지토리 또는 다른 외부 리포지토리에 남아 있습니다. 샘플 앱은 **Azure DevOps 조직**의 리포지토리에서 설정됩니다. 빌드가 실행되고, 앱이 Azure에 배포됩니다.
+
+   ![DevOps Projects 대시보드 보기](_img/azure-devops-project-github/projectsdashboard.png)
+
+5. 이 대시보드에서는 코드 리포지토리, CI/CD 파이프라인 및 Azure의 애플리케이션에 가시성을 제공합니다. Azure 리소스의 오른쪽에서 **찾아보기**를 선택하여 실행 중인 앱을 확인합니다.
+
+## <a name="commit-changes-to-github-and-automatically-deploy-them-to-azure"></a>GitHub에 변경 내용 커밋 및 자동으로 Azure에 배포
 
 이제 웹 사이트에 최신 작업을 자동으로 배포하는 CI/CD 프로세스를 사용하여 앱에서 팀과 협업할 준비가 되었습니다. GitHub 리포지토리에 대한 각 변경은 Azure DevOps에서 빌드를 시작하고, CD 파이프라인은 Azure에 배포를 실행합니다.
 
-1. 애플리케이션을 변경하고 GitHub 리포지토리에 변경 내용을 커밋합니다.  
-    잠시 후 Azure Pipelines에서 빌드가 시작됩니다. Azure DevOps Services 조직이 있는 브라우저에서 또는 DevOps Projects 대시보드를 사용하여 빌드 상태를 모니터링할 수 있습니다.
+1. DevOps Project 대시보드에서 **리포지토리**를 선택합니다. GitHub 리포지토리가 새 브라우저 탭에서 열립니다. 애플리케이션을 변경한 다음, **변경 내용 커밋**을 클릭합니다.
 
-1. 빌드가 완료된 후 애플리케이션을 새로 고쳐 변경 내용을 확인합니다.
+2. 잠시 후 Azure Pipelines에서 빌드가 시작됩니다. 프로젝트 대시보드에서 **빌드 파이프라인**을 선택하면 DevOps Projects 대시보드에서 빌드 상태를 모니터링하거나 Azure DevOps 조직에서 모니터링할 수 있습니다.
 
 ## <a name="examine-the-azure-pipelines-cicd-pipeline"></a>Azure Pipelines CI/CD 파이프라인 검사
 
 Azure DevOps Projects는 Azure Pipelines에서 CI/CD 파이프라인을 자동으로 구성합니다. 필요에 따라 파이프라인을 탐색하고 사용자 지정합니다. 빌드 및 릴리스 파이프라인에 익숙해지려면 다음을 수행합니다.
 
-1. DevOps Projects 대시보드 맨 위에서 **빌드 파이프라인**을 선택합니다.  
-    브라우저 탭에 새 프로젝트에 대한 빌드 파이프라인이 표시됩니다.
+1. DevOps Projects 대시보드에서 **빌드 파이프라인**을 선택합니다.
 
-1. **상태** 필드를 가리킨 후 줄임표(...)를 선택합니다.  
-    메뉴에 새 빌드 쿼리, 빌드 일시 중지 및 빌드 파이프라인 편집과 같은 몇 가지 옵션이 표시됩니다.
+2. **Azure Pipelines** 페이지가 열리면 최신 빌드의 기록과 각 빌드에 대한 상태가 표시됩니다.
 
-1. **편집**을 선택합니다.
+   ![Azure DevOps 파이프라인 빌드](_img/azure-devops-project-github/pipelinesbuildpage.png)
 
-1. 이 창에서 빌드 파이프라인의 다양한 작업을 검사할 수 있습니다.  
-    빌드는 Git 리포지토리에서 원본 가져오기, 종속성 복원 및 배포에 사용된 출력 게시 등 다양한 작업을 수행합니다.
+3. **빌드** 페이지의 오른쪽 위 모서리에는 현재 빌드를 **편집**하는 옵션, 새 빌드를 큐에 대기하는 **큐**, 더 많은 옵션이 포함된 메뉴를 여는 줄임표( **&#8942;** )가 있습니다. **편집**을 선택합니다.
 
-1. 빌드 파이프라인의 맨 위에서 빌드 파이프라인 이름을 선택합니다.
+4. 빌드는 리포지토리에서 원본 가져오기, 종속성 복원 및 배포에 사용된 출력 게시 등 다양한 작업을 수행합니다. **이름**의 오른쪽에서 빌드 파이프라인 이름을 더 설명적인 이름으로 변경합니다. **저장 및 큐에 넣기**, **저장**을 차례로 선택하고, 주석을 그대로 둔 다음, **저장**을 다시 선택합니다.
 
-1. 빌드 파이프라인의 이름을 좀 더 구체적인 것으로 변경하고 **저장 및 큐에 넣기**, **저장**을 차례로 선택합니다.
+   ![Azure DevOps 빌드 페이지](_img/azure-devops-project-github/buildpage.png)
 
-1. 빌드 파이프라인 이름에서 **기록**을 선택합니다.  
-    빌드에 대한 최근 변경 내용의 감사 내역이 표시됩니다. Azure DevOps는 빌드 파이프라인에 대한 모든 변경 내용을 계속 추적하고 버전을 비교할 수 있습니다.
+5. 빌드에 대한 최근 변경 내용의 감사 내역을 보려면 **기록** 탭을 선택합니다. Azure DevOps는 빌드 파이프라인에 대한 모든 변경을 모니터링하고 버전을 비교할 수 있도록 합니다.
 
-1. **트리거**를 선택합니다.  
-    Azure DevOps Projects는 CI 트리거를 자동으로 생성하면 리포지토리에 대한 모든 커밋이 새 빌드를 시작합니다. 필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
-
-1. **보존**을 선택합니다.  
-        시나리오에 따라 특정 수의 빌드를 유지하거나 제거하는 정책을 지정할 수 있습니다.
-
-1. **빌드 및 릴리스**를 선택한 다음, **릴리스**를 선택합니다.  
-    Azure DevOps Projects는 Azure에 대한 배포를 관리하는 릴리스 파이프라인을 만듭니다.
-
-1. 릴리스 파이프라인 옆의 줄임표(...)를 선택하고 **편집**을 선택합니다.  
-    릴리스 파이프라인에는 릴리스 프로세스를 정의하는 *파이프라인*이 포함됩니다. 
-    
-1. **아티팩트** 아래에서 **드롭**을 선택합니다.  
-    이전 단계에서 검사한 빌드 파이프라인이 아티팩트에 사용된 출력을 생성합니다. 
-
-1. **드롭** 아이콘 옆에서 **지속적인 배포 트리거**를 선택합니다.  
-    이 릴리스 파이프라인은 새 빌드 아티팩트를 사용할 수 있을 때마다 배포를 실행하는 CD 트리거를 사용하도록 설정했습니다. 필요에 따라 트리거를 비활성화할 수 있으므로 배포는 수동 실행이 필수적입니다. 
-
-1. 왼쪽에서 **작업**을 선택합니다.  
-    작업은 배포 프로세스가 실행하는 활동입니다. 이 예제에서는 Azure App Service에 배포하기 위해 작업을 만들었습니다.
-
-1. 오른쪽에서 **릴리스 보기**를 선택하여 릴리스의 기록을 표시합니다.
-
-1. 릴리스 옆에 있는 줄임표(...)를 선택하고 **열기**를 선택합니다.  
-    릴리스 요약, 연결된 작업 항목 및 테스트 등 여러 메뉴를 탐색할 수 있습니다.
-
-1. **커밋**을 선택합니다.  
-    이 보기에는 이 배포와 연결된 코드 커밋이 표시됩니다. 
-
-1. **로그**를 선택합니다.  
-    로그에는 배포 프로세스에 대한 유용한 정보가 포함됩니다. 배포 도중 및 이후 모두에서 로그를 볼 수 있습니다.
-
-## <a name="configure-azure-application-insights-monitoring"></a>Azure Application Insights 모니터링 구성
-
-Azure Application Insights를 사용하면 애플리케이션의 성능 및 사용량을 쉽게 모니터링할 수 있습니다. Azure DevOps Projects는 자동으로 애플리케이션에 대한 Application Insights 리소스를 구성합니다. 필요에 따라 다양한 경고 및 모니터링 기능을 추가로 구성할 수 있습니다.
-
-1. Azure Portal에서 DevOps Projects 대시보드로 이동합니다. 
-
-1. 오른쪽 아래에서 앱에 대한 **Application Insights** 링크를 선택합니다.  
-    **Application Insights** 창이 열립니다. 이 보기에는 앱에 대한 사용량, 성능 및 가용성 모니터링 정보가 포함됩니다.
-
-    ![Application Insights 창](_img/azure-devops-project-github/appinsights.png) 
-
-1. **시간 범위**를 선택한 다음, **지난 시간**을 선택합니다. 결과를 필터링하려면 **업데이트**를 선택합니다.  
-    이제 지난 60분의 모든 활동이 표시됩니다. 시간 범위를 종료하려면 **x**를 선택합니다.
-
-1. **경고**를 선택한 다음, **메트릭 경고 추가**를 선택합니다. 
-
-1. 경고의 이름을 입력합니다.
-
-1. **원본 경고** 드롭다운 목록에서 **App Service 리소스**를 선택합니다. <!-- Please confirm whether this should be "Source Alter on" or "Source Alert on" -->
-
-1. **메트릭** 드롭다운 목록에서 다양한 경고 메트릭을 검사합니다.  
-    기본 경고는 **1초 보다 큰 서버 응답 시간**의 경우에 해당합니다. 다양한 경고를 쉽게 구성하여 앱의 모니터링 기능을 개선할 수 있습니다.
-
-1. **이메일 소유자, 기여자 및 구독자를 통해 알림** 확인란을 선택합니다.  
-    필요에 따라 Azure 논리 앱을 실행하여 경고가 표시되면 추가 작업을 수행할 수 있습니다.
-
-1. **확인**을 선택하여 경고를 만듭니다.  
-    곧 경고가 대시보드에서 활성으로 표시됩니다.
-    
-1. **경고** 영역을 종료하고 **Application Insights** 창으로 돌아갑니다.
-
-1. **가용성**을 선택한 다음, **테스트 추가**를 선택합니다. 
-
-1. 테스트 이름을 입력하고 **만들기**를 선택합니다.  
-    애플리케이션의 가용성을 확인하려면 간단한 ping 테스트를 생성합니다. 몇 분 후 테스트 결과를 사용할 수 있고, Application Insights 대시보드에 가용성 상태가 표시됩니다.
+6. **트리거** 탭을 선택합니다. Azure DevOps Project는 일부 기본 설정을 사용하여 CI 트리거를 자동으로 만듭니다. **지속적인 통합 활성화**와 같은 트리거를 설정하여 코드 변경 내용이 커밋될 때마다 빌드를 실행하도록 설정하거나 빌드를 특정 시간에 실행하도록 예약할 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -193,15 +119,19 @@ Azure Application Insights를 사용하면 애플리케이션의 성능 및 사�
 이 자습서에서 CI/CD 프로세스를 구성한 경우 빌드 및 릴리스 파이프라인이 Azure DevOps Projects에서 자동으로 생성됐습니다. 팀의 요구를 충족하려면 이러한 빌드 및 릴리스 파이프라인을 수정할 수 있습니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * DevOps Projects를 사용하여 CI/CD 파이프라인 만들기
+>  * DevOps Projects를 사용하여 CI/CD 파이프라인 만들기
 > * GitHub 리포지토리에 대한 액세스 구성 및 프레임워크 선택
-> * Azure DevOps 및 Azure 구독 구성 
+> * Azure DevOps 및 Azure 구독 구성
 > * GitHub에 변경 내용 커밋 및 자동으로 Azure에 배포
 > * Azure Pipelines CI/CD 파이프라인 검사
-> * Azure Application Insights 모니터링 구성
 > * 리소스 정리
 
 CI/CD 파이프라인에 대한 자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [다단계 CD(연속 배포) 파이프라인 정의](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+
+애플리케이션 모니터링에 대해 자세히 알아보려면 다음을 참조하세요.
+  
+ > [!div class="nextstepaction"]
+ > [Azure Monitor란?](https://docs.microsoft.com/azure/azure-monitor/overview)

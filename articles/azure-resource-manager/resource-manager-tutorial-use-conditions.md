@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager 템플릿에서 조건 사용 | Microsoft Docs
-description: 조건에 따라 Azure 리소스를 배포하는 방법을 알아봅니다.
+description: 조건에 따라 Azure 리소스를 배포하는 방법을 알아봅니다. 새 리소스를 배포하거나 기존 리소스를 사용하는 방법을 보여줍니다.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 50c6c2a1f8be979d10b77793adb168e6bd276e49
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 5fa1db5131f555c92aa12fc01a109469c2cf819e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258859"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390184"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>자습서: Azure Resource Manager 템플릿에서 조건 사용
 

@@ -1,18 +1,18 @@
 ---
-title: Azure Lighthouse를 사용한 테넌트 간 관리 환경
+title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 09/25/2019
+ms.date: 10/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 17a32d50e2e0330218ff51b849cb4f3aeadb3d13
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 0c6fed9cd83f18df0fe0a77d57a76c60cd570c21
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309662"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300994"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -58,6 +58,7 @@ Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정�
 - 모든 구독에서 경고를 볼 수 있는 기능을 사용하여 Azure Portal에서 또는 REST API 호출을 통해 프로그래밍 방식으로 위임된 구독에 대한 경고를 봅니다.
 - 위임된 구독의 활동 로그 세부 정보를 봅니다.
 - 로그 분석: 여러 테넌트의 원격 고객 작업 영역에서 데이터를 쿼리합니다.
+- 웹 후크를 통해 서비스 공급자 테넌트에서 Azure Automation Runbook 또는 Azure Functions와 같은 자동화를 트리거하는 고객 테넌트에서 경고를 만듭니다.
 
 [Azure Policy](https://docs.microsoft.com/azure/governance/policy/):
 
@@ -65,7 +66,7 @@ Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정�
 - 위임된 구독 내에서 정책 정의를 만들고 편집합니다.
 - 위임된 구독 내에서 고객 정의 정책 정의를 할당합니다.
 - 고객은 자신이 직접 작성한 정책과 함께 서비스 공급자가 작성한 정책을 볼 수 있습니다.
-- 고객이 해당 정책 할당에 대해 관리 ID 및 *roleDefinitionIds*를 구성한 경우 고객 테넌트 내에서 deployIfNotExists 할당을 수정할 수 있습니다.
+- [deployIfNotExists를 수정하거나 고객 테넌트 내에서 할당을 수정](../how-to/deploy-policy-remediation.md)할 수 있습니다.
 
 [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/):
 

@@ -1,6 +1,6 @@
 ---
 title: Resource Manager 배포 문제 해결 | Microsoft Docs
-description: Resource Manager 배포를 모니터링하고 문제를 해결하는 방법에 대해 알아봅니다.
+description: Azure Resource Manager 템플릿 배포를 모니터링하고 문제를 해결하는 방법에 대해 알아봅니다. 활동 로그 및 배포 기록을 표시합니다.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c889c3123160680d96889227d6964ff197dc41cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ad32ed83d731a26b6bb72fca230d00d5465c45a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388645"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390206"
 ---
 # <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>자습서: Resource Manager 템플릿 배포 문제 해결
 

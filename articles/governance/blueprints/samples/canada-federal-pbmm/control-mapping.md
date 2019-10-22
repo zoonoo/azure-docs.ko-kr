@@ -1,17 +1,17 @@
 ---
-title: 샘플 - 캐나다 연방 PBMM 청사진 - 컨트롤 매핑
-description: 캐나다 연방 PBMM 청사진 샘플을 Azure Policy로 컨트롤 매핑합니다.
+title: 캐나다 연방 PBMM 청사진 샘플 - 컨트롤 매핑
+description: 캐나다 연방 PBMM 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure 정책에 매핑됩니다.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 8fae03acf33d80502869e2f8d19aa619d72f038c
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: b16ad4fd08776312d318067b4bc84f79b9797e70
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981652"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299150"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>캐나다 연방 PBMM 청사진 샘플의 컨트롤 매핑
 

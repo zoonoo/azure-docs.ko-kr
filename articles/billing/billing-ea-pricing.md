@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 486a6b46b6c4590b7f49cd8aba449204cd8f4fac
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: c38cd7f4b2fb1ae88b65031d3c93b153500b96ac
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709695"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375774"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>조직의 Azure 가격 책정 보기 및 다운로드
 
-Azure EA(기업계약) 또는 [Microsoft 고객 계약](#check-your-access-to-a-microsoft-customer-agreement)이 있는 Azure 고객은 Azure Portal의 가격 책정을 보고 다운로드할 수 있습니다.
+Azure EA(기업계약), MCA(Microsoft 고객 계약) 또는 MPA(Microsoft 파트너 계약)가 있는 Azure 고객은 Azure Portal의 가격 책정을 보고 다운로드할 수 있습니다. [청구 계정 유형을 확인하는 방법을 알아봅니다](#check-your-billing-account-type).
 
-## <a name="ea-pricing"></a>EA 가격 책정
+## <a name="download-pricing-for-an-enterprise-agreement"></a>기업 계약에 대한 가격 책정 다운로드
 
 엔터프라이즈 관리자가 조직에 대해 설정한 정책에 따라 특정 관리 역할만 조직의 EA 가격 정보에 대한 액세스 권한을 제공합니다. 자세한 내용은 [Azure의 Azure 기업계약 관리 역할 이해](billing-understand-ea-roles.md)를 참조하세요.
 
@@ -42,18 +42,9 @@ Azure EA(기업계약) 또는 [Microsoft 고객 계약](#check-your-access-to-a-
 
    ![가격표 csv 다운로드 단추를 보여 주는 스크린샷](./media/billing-ea-pricing/download-ea-price-sheet.png)
 
-## <a name="microsoft-customer-agreement-pricing"></a>Microsoft 고객 계약 가격 책정
+## <a name="download-pricing-for-an-mca-or-mpa-account"></a>MCA 또는 MPA 계정에 대한 가격 책정 다운로드
 
-가격 책정을 보고 다운로드하려면 청구 프로필 소유자, 기여자, 독자 또는 청구서 관리자여야 합니다. Microsoft 고객 계약의 청구 역할에 대해 자세히 알아보려면 [청구 프로필 역할 및 작업](billing-understand-mca-roles.md#billing-profile-roles-and-tasks)을 참조하세요.
-
-### <a name="download-price-sheets-for-the-current-billing-period"></a>현재 청구 기간에 대한 가격표 다운로드
-
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-1. *Cost Management + 청구*를 검색합니다.
-1. 청구 프로필을 선택합니다. 액세스 권한에 따라 청구 계정을 먼저 선택해야 할 수도 있습니다.
-1. **개요** 영역에서 월간 누계 요금 아래의 다운로드 링크를 찾습니다.
-1. **Azure 가격표**를 선택합니다.
-![개요에서 다운로드를 보여 주는 스크린샷](./media/billing-ea-pricing/open-pricing.png)
+MCA가 있는 경우 가격 책정을 보고 다운로드하려면 청구 프로필 소유자, 기여자, 독자 또는 송장 관리자여야 합니다. MPA가 있는 경우 가격 책정을 보고 다운로드하려면 파트너 조직에 글로벌 관리자 및 관리자 에이전트 역할이 있어야 합니다.
 
 ### <a name="download-price-sheets-for-billed-charges"></a>청구 요금에 대한 가격표 다운로드
 
@@ -69,6 +60,17 @@ Azure EA(기업계약) 또는 [Microsoft 고객 계약](#check-your-access-to-a-
 1. 지정된 청구 기간에 대한 모든 Azure 서비스의 가격을 확인하려면 **Azure 가격표**를 선택합니다.
 
 ![가격표가 있는 상황에 맞는 메뉴를 보여 주는 스크린샷](./media/billing-ea-pricing/contextmenu-pricesheet.png)
+
+### <a name="download-price-sheets-for-the-current-billing-period"></a>현재 청구 기간에 대한 가격표 다운로드
+
+MCA가 있는 경우 현재 청구 기간에 대한 가격 책정을 다운로드할 수 있습니다.
+
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. *Cost Management + 청구*를 검색합니다.
+1. 청구 프로필을 선택합니다. 액세스 권한에 따라 청구 계정을 먼저 선택해야 할 수도 있습니다.
+1. **개요** 영역에서 월간 누계 요금 아래의 다운로드 링크를 찾습니다.
+1. **Azure 가격표**를 선택합니다.
+![개요에서 다운로드를 보여 주는 스크린샷](./media/billing-ea-pricing/open-pricing.png)
 
 ## <a name="estimate-costs-with-the-azure-pricing-calculator"></a>Azure 가격 책정 계산기가 있는 비용 예상
 
@@ -86,8 +88,8 @@ Azure EA(기업계약) 또는 [Microsoft 고객 계약](#check-your-access-to-a-
 1. 제품을 검색한 다음, 예상에 추가합니다.
 1. 표시된 예상 가격은 선택한 조직의 가격을 기준으로 합니다.
 
-## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 액세스 확인
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+## <a name="check-your-billing-account-type"></a>청구 계정 유형 확인
+[!INCLUDE [billing-check-account-type](../../includes/billing-check-account-type.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,8 +3,8 @@ title: .NET Framework 지원 Azure App Configuration용 빠른 시작 | Microsof
 description: .NET Framework 앱 지원 Azure App Configuration 사용 빠른 시작
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
-manager: balans
+author: lisaguthrie
+manager: maiye
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -12,14 +12,14 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
-ms.date: 02/24/2019
-ms.author: yegu
-ms.openlocfilehash: 8aa8c8132220965d55097c4fed8ba1b2e9501301
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 10/09/2019
+ms.author: lcozzens
+ms.openlocfilehash: 17b2e7272d499ce99d40d2ee52de1c7a5a1d0d04
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326523"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329805"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 .NET Framework 앱 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "68326523"
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
-- [.NET Framework 4.7.1](https://dotnet.microsoft.com/download)
+- [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>앱 구성 저장소 만들기
 
@@ -47,7 +47,9 @@ ms.locfileid: "68326523"
 
 1. Visual Studio를 시작하고 **파일** > **새로 만들기** > **프로젝트**를 차례로 선택합니다.
 
-2. **새 프로젝트**에서 **설치됨** > **Visual C#**  > **Windows 데스크톱**을 차례로 선택합니다. **콘솔 앱(.NET Framework)** 을 선택하고, 프로젝트 이름을 입력합니다. **.NET Framework 4.7.1** 이상을 선택하고, **확인**을 선택합니다.
+1. **새 프로젝트 만들기**에서 **콘솔** 프로젝트 형식을 필터링하고 **콘솔 앱(.NET Framework)** 을 클릭합니다. **다음**을 클릭합니다.
+
+1. **새 프로젝트 구성**에서 프로젝트 이름을 입력합니다. **Framework**에서 **.NET Framework 4.7.1** 이상을 선택합니다. **만들기**를 클릭합니다.
 
 ## <a name="connect-to-an-app-configuration-store"></a>앱 구성 저장소에 연결
 
@@ -56,9 +58,10 @@ ms.locfileid: "68326523"
     ```
     Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later
     Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later
+    System.Configuration.ConfigurationManager version 4.6.0 or later
     ```
 
-2. 프로젝트의 *App.config* 파일을 다음과 같이 업데이트합니다.
+1. 프로젝트의 *App.config* 파일을 다음과 같이 업데이트합니다.
 
     ```xml
     <configSections>
@@ -80,12 +83,12 @@ ms.locfileid: "68326523"
 
    앱 구성 저장소의 연결 문자열은 `ConnectionString` 환경 변수에서 읽습니다. `appSettings` 섹션의 `configBuilders` 속성에 있는 `MyConfigStore` 앞에 `Environment` 구성 작성기를 추가합니다.
 
-3. *Program.cs*를 열고, `ConfigurationManager`를 호출하여 App Configuration을 사용하도록 `Main` 메서드를 업데이트합니다.
+1. *Program.cs*를 열고, `ConfigurationManager`를 호출하여 App Configuration을 사용하도록 `Main` 메서드를 업데이트합니다.
 
     ```csharp
     static void Main(string[] args)
     {
-        string message = ConfigurationManager.AppSettings["TestApp:Settings:Message"];
+        string message = System.Configuration.ConfigurationManager.AppSettings["TestApp:Settings:Message"];
 
         Console.WriteLine(message);
     }
@@ -101,7 +104,7 @@ ms.locfileid: "68326523"
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-2. Visual Studio를 다시 시작하여 변경 내용을 적용합니다. Ctrl+F5를 눌러 콘솔 앱을 빌드하고 실행합니다.
+1. Visual Studio를 다시 시작하여 변경 내용을 적용합니다. Ctrl+F5를 눌러 콘솔 앱을 빌드하고 실행합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

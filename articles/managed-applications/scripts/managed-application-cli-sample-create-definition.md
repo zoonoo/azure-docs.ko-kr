@@ -1,6 +1,6 @@
 ---
 title: Azure CLI 스크립트 샘플 - 관리되는 애플리케이션 정의 만들기 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - 관리되는 애플리케이션 정의 만들기
+description: 구독에서 관리되는 애플리케이션 정의를 만드는 Azure CLI 스크립트 샘플을 제공합니다.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 79af2918c2342d1a0cc3b11763c30b35ab5e9f72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a653f2c10c28683c79f86c1c882bf00112f61ec0
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61043903"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332609"
 ---
 # <a name="create-a-managed-application-definition-with-azure-cli"></a>Azure CLI를 사용하여 관리되는 애플리케이션 정의 만들기
 

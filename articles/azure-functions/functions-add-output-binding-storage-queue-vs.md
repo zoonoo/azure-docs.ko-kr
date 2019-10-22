@@ -8,18 +8,16 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 6ef6f4ae86f0f732164603bd8b38dc1bbef95dd9
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 383401c1486bcbebc39b64d5794f8bdc660d2778
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600150"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329620"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Visual Studio를 사용하여 Azure Storage에 함수 연결
 
-Azure Functions를 사용하면 자체 통합 코드를 작성하지 않고도 함수를 Azure 서비스 및 기타 리소스에 연결할 수 있습니다. 이러한 미리 정의된 연결을 *바인딩*이라고 합니다. 바인딩을 사용하면 함수에서 Azure 서비스 및 기타 리소스를 함수의 입력 및 출력으로 사용할 수 있습니다.
-
-함수 실행은 단일 *트리거*를 통해 시작됩니다. 트리거는 특수한 형식의 입력 바인딩입니다. 한 함수는 하나의 트리거만 가질 수 있지만, 입력 및 출력 바인딩은 여러 개 가질 수 있습니다. 자세한 내용은 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md)을 참조하세요.
+[!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
 이 문서에서는 Visual Studio를 사용하여 [이전 빠른 시작 문서]에서 만든 함수를 Azure Storage에 연결하는 방법을 보여 줍니다. 이 함수에 추가되는 출력 바인딩은 HTTP 요청의 데이터를 Azure Queue storage 큐의 메시지에 씁니다. 
 
@@ -31,7 +29,7 @@ Azure Functions를 사용하면 자체 통합 코드를 작성하지 않고도 �
 
  - [Visual Studio 빠른 시작 1부][./functions-create-first-function-vs-code.md] 완료 
 
-- Visual Studio에서 Azure 구독에 로그인
+- Visual Studio에서 Azure 구독에 로그인합니다.
 
 ## <a name="download-the-function-app-settings"></a>함수 앱 설정 다운로드
 

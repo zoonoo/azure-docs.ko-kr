@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 174f0f3d8984e102e098b4c981d3784f50c7d7c6
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 4308ed6d00bd3900986f08a93a686f0d7d00bcfb
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345227"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515604"
 ---
-# <a name="quickstart-personalize-client-library-for-net"></a>빠른 시작: .NET용 Personalizer 클라이언트 라이브러리
+# <a name="quickstart-personalizer-client-library-for-net"></a>빠른 시작: .NET용 Personalizer 클라이언트 라이브러리
 
 이 C# 빠른 시작에서는 Personalizer 서비스를 사용하여 맞춤형 콘텐츠를 표시합니다.
 

@@ -8,18 +8,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: d76a250cc3554b086501899376cb411346a4251c
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: ab2f9e8859fba0c906e181727aab923254e9b620
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266342"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692210"
 ---
-# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>예: Bing Entity Search API를 사용 하 여 사용자 지정 기술 만들기
+# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>예: Bing Entity Search API을 사용 하 여 사용자 지정 기술 만들기
 
 이 예제에서는 web API 사용자 지정 기술을 만드는 방법에 대해 알아봅니다. 이 스킬은 위치, 공개, 조직 및 조직에 대 한 설명을 반환 합니다. 이 예제에서는 [Azure 함수](https://azure.microsoft.com/services/functions/) 를 사용 하 여 사용자 지정 기술 인터페이스를 구현 하도록 [Bing Entity Search API](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) 를 래핑합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 + 사용자 지정 기술에서 구현 해야 하는 입력/출력 인터페이스에 익숙하지 않은 경우 [사용자 지정 기술 인터페이스](cognitive-search-custom-skill-interface.md) 문서를 참조 하세요.
 
@@ -311,11 +311,11 @@ namespace SampleSkills
 }
 ```
 
-Bing entity search API에 등록할 때 가져온 키를 `key` 기반으로 상수에 고유한 키 값을 입력 해야 합니다.
+Bing entity search API에 등록할 때 가져온 키를 기반으로 `key` 상수에 고유한 *키* 값을 입력 해야 합니다.
 
-이 샘플에는 편의상 모든 필요한 코드가 단일 파일에 포함 되어 있습니다. [Power skills 리포지토리에서](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch)이와 동일한 기술에 대해 약간 더 구조적인 버전을 찾을 수 있습니다.
+이 샘플에는 편의상 모든 필요한 코드가 단일 파일에 포함 되어 있습니다. 동일한 기술에 대해 약간 더 구조화 된 버전을 찾을 수 있으며, [power skills 리포지토리의](https://aka.ms/entity-search-power-skill)사용자 지정 기술에 대 한 다른 예제도 찾을 수 있습니다.
 
-물론 파일의 이름을에서 `Function1.cs` 로 `BingEntitySearch.cs`바꿀 수도 있습니다.
+물론 파일의 이름을 `Function1.cs`에서 `BingEntitySearch.cs`로 바꿀 수 있습니다.
 
 ## <a name="test-the-function-from-visual-studio"></a>Visual Studio에서 함수 테스트
 
@@ -418,7 +418,7 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 이 예에서는 로컬 환경에서 함수를 실행할 때 이전에 살펴본 것과 동일한 결과를 생성 해야 합니다.
 
 ## <a name="connect-to-your-pipeline"></a>파이프라인에 연결
-이제 새 사용자 지정 기술이 있으므로 기능에 추가할 수 있습니다. 아래 예제에서는 기술를 호출 하 여 문서에서 조직에 설명을 추가 하는 방법을 보여 줍니다 .이는 위치 및 사용자에 대해서도 작동 하도록 확장할 수 있습니다. 를 `[your-entity-search-app-name]` 앱의 이름으로 바꿉니다.
+이제 새 사용자 지정 기술이 있으므로 기능에 추가할 수 있습니다. 아래 예제에서는 기술를 호출 하 여 문서에서 조직에 설명을 추가 하는 방법을 보여 줍니다 .이는 위치 및 사용자에 대해서도 작동 하도록 확장할 수 있습니다. @No__t_0를 앱 이름으로 바꿉니다.
 
 ```json
 {
@@ -476,9 +476,10 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 ```
 
 ## <a name="next-steps"></a>다음 단계
-지금까지 첫 번째 사용자 지정 사용자를 만들었습니다. 이제 동일한 패턴을 따라 고유한 사용자 지정 기능을 추가할 수 있습니다. 
+축하합니다. 첫 번째 사용자 지정 사용자를 만들었습니다. 이제 동일한 패턴을 따라 고유한 사용자 지정 기능을 추가할 수 있습니다. 
 
++ [전원 기술: 사용자 지정 기술의 리포지토리입니다.](https://aka.ms/powerskills)
 + [인식 검색 파이프라인에 사용자 지정 기술 추가](cognitive-search-custom-skill-interface.md)
 + [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
-+ [기능 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [기술 집합 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)

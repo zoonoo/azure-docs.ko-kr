@@ -1,6 +1,6 @@
 ---
 title: Azure CLI 샘플 - Azure Managed Applications | Microsoft Docs
-description: Azure CLI 샘플 - Azure Managed Applications
+description: Azure Managed Applications 작업 시 사용할 Azure CLI 샘플 스크립트를 제공합니다.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: d8b7c645bd9ee87faf51eab58651ddc5c7cde46a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77a25e3d92306e4e5d0f597a02a69dfb62d54398
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60588868"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332711"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 샘플
 

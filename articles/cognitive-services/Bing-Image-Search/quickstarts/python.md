@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/26/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9f43b056275ba83630e711ff1a512cb73e84216a
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 8dc7bc36b3d4b172521b0fbbf9aa09cf4d1a9b29
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034637"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390125"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>빠른 시작: Bing Image Search REST API 및 Python을 사용하여 이미지 검색
 
@@ -67,12 +67,13 @@ ms.locfileid: "70034637"
     params  = {"q": search_term, "license": "public", "imageType": "photo"}
     ```
 
-2. `requests` 라이브러리를 사용하여 Bing Image Search API를 호출합니다. 헤더와 매개 변수를 요청에 추가하고 응답을 JSON 개체로 반환합니다. 
+2. `requests` 라이브러리를 사용하여 Bing Image Search API를 호출합니다. 헤더와 매개 변수를 요청에 추가하고 응답을 JSON 개체로 반환합니다. 응답의 `thumbnailUrl` 필드에서 URL을 여러 썸네일 이미지로 가져옵니다.
 
     ```python
     response = requests.get(search_url, headers=headers, params=params)
     response.raise_for_status()
     search_results = response.json()
+    thumbnail_urls = [img["thumbnailUrl"] for img in search_results["value"][:16]]
     ```
 
 ## <a name="view-the-response"></a>응답 보기
@@ -80,6 +81,8 @@ ms.locfileid: "70034637"
 1. matplotlib 라이브러리를 사용하여 4개의 열과 4개의 행을 사용하여 새 그림을 만듭니다. 
 
 2. 그림의 행과 열을 반복하고, PIL 라이브러리의 `Image.open()` 메서드를 사용하여 이미지 썸네일을 각 공간에 추가합니다. 
+
+3. `plt.show()`를 사용하여 그림을 그리고 이미지를 표시합니다.
 
     ```python
     f, axes = plt.subplots(4, 4)
@@ -90,9 +93,9 @@ ms.locfileid: "70034637"
             image = Image.open(BytesIO(image_data.content))        
             axes[i][j].imshow(image)
             axes[i][j].axis("off")
+    plt.show()
     ```
 
-3. `plt.show()`를 사용하여 그림을 그리고 이미지를 표시합니다.
 
 ## <a name="example-json-response"></a>예제 JSON 응답
 

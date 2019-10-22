@@ -1,24 +1,21 @@
 ---
 title: Azure에서 첫 번째 Linux 기반 함수 만들기
-description: Azure에서 Azure Functions Core Tools 및 Azure CLI를 사용하여 Linux에 호스트되는 첫 번째 함수를 만드는 방법을 알아봅니다.
-services: functions
-keywords: ''
+description: Azure에서 명령줄 도구, Azure Functions Core Tools 및 Azure CLI를 사용하여 Linux에 호스트되는 첫 번째 함수를 만드는 방법을 알아봅니다.
 author: ggailey777
 ms.author: glenga
 ms.date: 03/12/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc, fasttrack-edit
-ms.devlang: javascript
-manager: jeconnoc
-ms.openlocfilehash: 40a2d3ab4ec358b5b2d0105703cdc25cdb777c29
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+manager: gwallace
+ms.openlocfilehash: 34f4dc4b36f4efd75c5a7cd14b3214886955a403
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562978"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329690"
 ---
-# <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli"></a>Core Tools 및 Azure CLI를 사용하여 Linux에 호스트되는 첫 번째 함수 만들기
+# <a name="quickstart-create-your-first-function-hosted-on-linux-using-command-line-tools"></a>빠른 시작: 명령줄 도구를 사용하여 Linux에 호스트되는 첫 번째 함수 만들기
 
 Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션을 게시하지 않고도 [서버리스](https://azure.com/serverless) Linux 환경에서 코드를 실행할 수 있습니다. Linux 호스팅에는 [Functions 2.x 런타임](functions-versions.md)이 필요합니다. 서버리스 함수는 [사용 계획](functions-scale.md#consumption-plan)에서 실행됩니다.
 
@@ -30,7 +27,7 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션
 
 이 샘플을 실행하기 전에 다음 사항이 준비되어야 합니다.
 
-- [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.6.666 이상을 설치합니다.
++ [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.6.666 이상을 설치합니다.
 
 + [Azure CLI]( /cli/azure/install-azure-cli)를 설치합니다. 이 문서에서 설명하는 단계를 수행하려면 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. [Azure Cloud Shell](https://shell.azure.com/bash)을 사용할 수도 있습니다.
 

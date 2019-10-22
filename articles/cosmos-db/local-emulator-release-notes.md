@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 06/20/2019
-ms.openlocfilehash: 03163d75681bee7434e2b7576a678b1094d47b94
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: cda3b0db1a4f1b098d8ea57887a047fcdef04243
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973705"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286499"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos Emulator - 릴리스 정보 및 다운로드 정보
 
@@ -25,6 +25,10 @@ ms.locfileid: "71973705"
 |**시작**|[Azure Cosmos 에뮬레이터로 로컬에서 개발](local-emulator.md)|
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="270"></a>2.7.0
+
+- 이 릴리스에서는 .NET 코어 또는 x86 .NET 기반 클라이언트를 사용할 때 사용자가 에뮬레이터에서 SQL API 계정에 대해 쿼리를 실행할 수 없도록 하는 회귀를 수정합니다.
 
 ### <a name="246"></a>2.4.6
 

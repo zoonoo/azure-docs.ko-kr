@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: b6d1de1ee24ce9ca67d3bd8fa514ec9ea7a5c771
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: ca0f83628edeef9e55ebc81798d0229791b80a7a
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709549"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375492"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약의 청구 계정에서 기업계약 작업 완료
 
@@ -27,7 +27,7 @@ ms.locfileid: "71709549"
 
 다음 다이어그램은 새 청구 계정에서 청구를 구성하는 방법을 설명합니다.
 
-![ea-mca-post-transition-hierarchy 이미지](./media/billing-mca-setup-account/mca-post-transition-hierarchy.png)
+![ea-mca-post-transition-hierarchy 이미지](./media/mca-setup-account/mca-post-transition-hierarchy.png)
 
 | 기업 계약   | Microsoft 고객 계약    |
 |------------------------|--------------------------------------------------------|
@@ -72,9 +72,9 @@ ms.locfileid: "71709549"
 
 청구 계정의 각 청구 프로필에 대한 월별 청구서가 생성됩니다. 청구서별로 Azure 사용량 및 요금 csv 파일, 가격표, 세금 문서(해당하는 경우)를 다운로드할 수 있습니다. 이번 달 요금에 대한 Azure 사용량 및 요금 csv 파일을 다운로드할 수도 있습니다.
 
-Azure 사용량 및 요금 csv 파일을 다운로드하는 방법은 [Microsoft 고객 계약에 대한 사용량 다운로드](billing-download-azure-daily-usage.md#download-usage-for-your-microsoft-customer-agreement)를 참조하세요.
+Azure 사용량 및 요금 csv 파일을 다운로드하는 방법은 [Microsoft 고객 계약에 대한 사용량 다운로드](billing-download-azure-daily-usage.md)를 참조하세요.
 
-가격표를 다운로드하는 방법은 [Microsoft 고객 계약에 대한 가격표 다운로드](billing-ea-pricing.md#microsoft-customer-agreement-pricing)를 참조하세요.
+가격표를 다운로드하는 방법은 [Microsoft 고객 계약에 대한 가격표 다운로드](billing-ea-pricing.md)를 참조하세요.
 
 세금 문서를 다운로드하는 방법은 [Microsoft 고객 계약에 대한 세금 문서 보기](billing-mca-download-tax-document.md#view-and-download-tax-documents)를 참조하세요.
 
@@ -90,7 +90,7 @@ Azure 사용량 및 요금 csv 파일을 다운로드하는 방법은 [Microsoft
 
 ### <a name="create-a-new-account"></a>새 계정 만들기
 
-기업계약 등록에서 만든 계정처럼 청구서 섹션에서 사용자에게 Azure 구독 작성자 역할을 할당하여 Azure 구독을 만들 수 있는 권한을 부여합니다. 자세한 내용은 [다른 사용자에게 Azure 구독을 만들 수 있는 권한 부여](billing-mca-create-subscription.md#give-others-permission)를 참조하세요.
+기업계약 등록에서 만든 계정처럼 청구서 섹션에서 사용자에게 Azure 구독 작성자 역할을 할당하여 Azure 구독을 만들 수 있는 권한을 부여합니다. 역할 할당에 대한 자세한 내용은 [Azure Portal에서 청구 역할 관리](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)를 참조하세요.
 
 ## <a name="changes-for-department-administrators"></a>부서 관리자를 위한 변경 내용
 
@@ -116,7 +116,7 @@ Azure Portal의 [Cost Management + 청구 페이지](https://portal.azure.com/#b
 
 ### <a name="create-a-new-account-in-your-department"></a>부서의 새 계정 만들기
 
-부서별로 생성된 청구서 섹션에서 사용자에게 Azure 구독 작성자 역할을 할당합니다. 자세한 내용은 [다른 사용자에게 Azure 구독을 만들 수 있는 권한 부여](billing-mca-create-subscription.md#give-others-permission)를 참조하세요.
+부서별로 생성된 청구서 섹션에서 사용자에게 Azure 구독 작성자 역할을 할당합니다. 역할 할당에 대한 자세한 내용은 [Azure Portal에서 청구 역할 관리](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)를 참조하세요.
 
 ### <a name="view-charges-for-accounts-in-your-departments"></a>부서 내 계정의 요금 보기
 

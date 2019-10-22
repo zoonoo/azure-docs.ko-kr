@@ -7,12 +7,12 @@ ms.date: 08/12/2019
 ms.topic: quickstart
 ms.service: app-service
 ms.devlang: javascript
-ms.openlocfilehash: b28e8e4dccf75d36b318e838e35de23d176c5c23
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 32e141cae98e3fe34c8207f1565a82d2d76bdd25
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71176798"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72439213"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Azure에서 Node.js 앱 만들기
 
@@ -28,7 +28,7 @@ Node.js 패키지 관리자인 [Node.js 및 npm](https://nodejs.org/en/download)
 
 ### <a name="sign-in"></a>로그인
 
-확장이 설치되면 Azure 계정에 로그인합니다. 작업 막대에서 Azure 로고를 클릭하여 **AZURE APP SERVICE** 탐색기를 표시합니다. **Azure에 로그인...** 을 클릭하고 지침을 따릅니다.
+확장이 설치되면 Azure 계정에 로그인합니다. 작업 표시줄에서 Azure 로고를 선택하여 **AZURE APP SERVICE** 탐색기를 표시합니다. **Azure에 로그인...** 을 선택하고 지침을 따릅니다.
 
 ![Azure에 로그인](./media/quickstart-nodejs/sign-in.png)
 
@@ -41,7 +41,7 @@ export HTTPS_PROXY=https://username:password@proxy:8080
 export HTTP_PROXY=http://username:password@proxy:8080
 ```
 
-환경 변수를 설정해도 문제가 해결되지 않으면 아래에 있는 **문제가 발생했습니다.** 단추를 클릭하여 문의해 주세요.
+환경 변수를 설정해도 문제가 해결되지 않으면 아래에 있는 **문제가 발생했습니다.** 단추를 선택하여 문의해 주세요.
 
 ### <a name="prerequisite-check"></a>필수 구성 요소 확인
 
@@ -57,24 +57,14 @@ VS Code에서 상태 표시줄에는 Azure 이메일 주소가 표시되고, **A
 다음으로, 클라우드에 배포할 수 있는 Node.js 애플리케이션을 만듭니다. 이 빠른 시작에서는 애플리케이션 생성기를 사용하여 터미널에서 애플리케이션을 빠르게 스캐폴드합니다.
 
 > [!TIP]
-> [Node.js 자습서](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)를 이미 완료한 경우 [웹 사이트 배포](#deploy-the-website)로 건너뛸 수 있습니다.
+> [Node.js 자습서](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)를 이미 완료한 경우 [Azure에 배포](#deploy-to-azure)로 건너뛸 수 있습니다.
 
-### <a name="install-the-express-generator"></a>Express 생성기 설치
+### <a name="scaffold-a-new-application-with-the-express-generator"></a>Express 생성기를 사용하여 새 애플리케이션 스캐폴드
 
-[Express](https://www.expressjs.com)는 Node.js 애플리케이션을 빌드하고 실행하는 데 널리 사용되는 프레임워크입니다. [Express 생성기](https://expressjs.com/en/starter/generator.html) 도구를 사용하여 새 Express 애플리케이션을 스캐폴드할(만들) 수 있습니다. Express 생성기는 npm 모듈로 제공되며, npm 명령줄 도구(`npm`)를 사용하여 설치됩니다.
-
-```bash
-npm install -g express-generator
-```
-
-`-g` 스위치는 어디서나 실행할 수 있도록 Express 생성기를 머신에 전역적으로 설치합니다.
-
-### <a name="scaffold-a-new-application"></a>새 애플리케이션 스캐폴드
-
-다음으로, 다음을 실행하여 `myExpressApp`이라는 새 Express 애플리케이션을 스캐폴드합니다.
+[Express](https://www.expressjs.com)는 Node.js 애플리케이션을 빌드하고 실행하는 데 널리 사용되는 프레임워크입니다. [Express 생성기](https://expressjs.com/en/starter/generator.html) 도구를 사용하여 새 Express 애플리케이션을 스캐폴드할(만들) 수 있습니다. Express 생성기는 npm 모듈로 제공되며, npm 명령줄 도구 `npx`를 사용하여 직접(설치 없이) 실행할 수 있습니다.
 
 ```bash
-express myExpressApp --view pug --git
+npx express-generator myExpressApp --view pug --git
 ```
 
 `--view pug --git` 매개 변수는 [pug](https://pugjs.org/api/getting-started.html) 템플릿 엔진(이전의 `jade`)을 사용하고 `.gitignore` 파일을 만들도록 생성기에 지시합니다.
@@ -101,9 +91,9 @@ npm start
 > [!div class="nextstepaction"]
 > [문제가 발생했습니다.](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=create-app)
 
-## <a name="deploy-the-website"></a>웹 사이트 배포
+## <a name="deploy-to-azure"></a>Deploy to Azure
 
-이 섹션에서는 VS Code와 Azure App Service 확장을 사용하여 Node.js 웹 사이트를 배포합니다. 이 빠른 시작에서는 앱이 압축되어 Linux의 Azure 웹앱에 배포되는 가장 기본적인 배포 모델을 사용합니다.
+이 섹션에서는 VS Code와 Azure App Service 확장을 사용하여 Node.js 앱을 배포합니다. 이 빠른 시작에서는 앱이 압축되어 Linux의 Azure 웹앱에 배포되는 가장 기본적인 배포 모델을 사용합니다.
 
 ### <a name="deploy-using-azure-app-service"></a>Azure App Service를 사용하여 배포
 
@@ -113,7 +103,7 @@ npm start
 code .
 ```
 
-**AZURE APP SERVICE** 탐색기에서 파란색 위쪽 화살표 아이콘을 클릭하여 앱을 Azure에 배포합니다.
+**AZURE APP SERVICE** 탐색기에서 파란색 위쪽 화살표 아이콘을 선택하여 앱을 Azure에 배포합니다.
 
 ![웹앱에 배포](./media/quickstart-nodejs/deploy.png)
 
@@ -122,43 +112,43 @@ code .
 
 1. 현재 열려 있는 `myExpressApp` 디렉터리를 선택합니다.
 
-2. **새 웹앱 만들기**를 선택합니다.
+1. 기본적으로 Linux의 App Service에 배포되는 **새 웹앱 만들기**를 선택합니다.
 
-3. 웹앱에 대해 전역적으로 고유한 이름을 입력하고, Enter 키를 누릅니다. 앱 이름에 유효한 문자는 'a-z', '0-9' 및 '-'입니다.
+1. 웹앱에 대해 전역적으로 고유한 이름을 입력하고, Enter 키를 누릅니다. 앱 이름에 유효한 문자는 'a-z', '0-9' 및 '-'입니다.
 
-4. **Node.js 버전**을 선택합니다. LTS가 추천됩니다.
+1. **Node.js 버전**을 선택합니다. LTS가 추천됩니다.
 
     알림 채널에는 앱에 대해 만들어지는 Azure 리소스가 표시됩니다.
 
-대상 서버에서 `npm install`을 실행하도록 구성을 업데이트하라는 메시지가 표시되면 **예**를 클릭합니다. 그러면 앱이 배포됩니다.
+1. 대상 서버에서 `npm install`을 실행하도록 구성을 업데이트하라는 메시지가 표시되면 **예**를 선택합니다. 그러면 앱이 배포됩니다.
 
-![구성된 배포](./media/quickstart-nodejs/server-build.png)
+    ![구성된 배포](./media/quickstart-nodejs/server-build.png)
 
-배포가 시작되면 이후 배포에서 자동으로 동일한 App Service 웹앱을 대상으로 지정하도록 작업 영역을 업데이트하라는 메시지가 표시됩니다. 변경 내용이 올바른 앱에 배포되도록 하려면 **예**를 선택합니다.
+1. 배포가 시작되면 이후 배포에서 자동으로 동일한 App Service 웹앱을 대상으로 지정하도록 작업 영역을 업데이트하라는 메시지가 표시됩니다. 변경 내용이 올바른 앱에 배포되도록 하려면 **예**를 선택합니다.
 
-![구성된 배포](./media/quickstart-nodejs/save-configuration.png)
+    ![구성된 배포](./media/quickstart-nodejs/save-configuration.png)
 
 > [!TIP]
 > 애플리케이션이 PORT 환경 변수(`process.env.PORT`)에서 제공하는 포트를 수신 대기하고 있는지 확인하세요.
 
-### <a name="browse-the-website"></a>웹 사이트 찾아보기
+### <a name="browse-the-app-in-azure"></a>Azure에서 앱 찾아보기
 
-배포가 완료되면 프롬프트에서 **웹 사이트 찾아보기**를 클릭하여 새로 배포된 웹 사이트를 확인합니다.
+배포가 완료되면 프롬프트에서 **웹 사이트 찾아보기**를 선택하여 새로 배포된 웹앱을 확인합니다.
 
 ### <a name="troubleshooting"></a>문제 해결
 
-**"이 디렉터리 또는 페이지를 볼 수 있는 권한을 가지고 있지 않습니다."** 오류가 표시되면 애플리케이션이 제대로 시작되지 못했을 수 있습니다. 다음 섹션으로 이동하여 로그 출력을 확인하고 오류를 찾아 해결합니다. 해결할 수 없는 경우 아래에 있는 **문제가 발생했습니다.** 단추를 클릭하여 문의해 주세요. 성심껏 도와드리겠습니다!
+**"이 디렉터리 또는 페이지를 볼 수 있는 권한을 가지고 있지 않습니다."** 오류가 표시되면 애플리케이션이 제대로 시작되지 못했을 수 있습니다. 다음 섹션으로 이동하여 로그 출력을 확인하고 오류를 찾아 해결합니다. 해결할 수 없는 경우 아래에 있는 **문제가 발생했습니다.** 단추를 선택하여 문의해 주세요. 성심껏 도와드리겠습니다!
 
 > [!div class="nextstepaction"]
 > [문제가 발생했습니다.](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=deploy-app)
 
-### <a name="updating-the-website"></a>웹 사이트 업데이트
+### <a name="update-the-app"></a>앱 업데이트
 
 동일한 프로세스를 사용하여 새 앱을 만들지 않고 기존 앱을 선택하여 변경 내용을 해당 앱에 배포할 수 있습니다.
 
 ## <a name="viewing-logs"></a>로그 보기
 
-이 섹션에서는 실행 중인 웹 사이트에서 로그를 보거나 "추적(tail)"하는 방법에 대해 알아봅니다. 사이트의 `console.log`에 대한 모든 호출이 Visual Studio Code의 출력 창에 표시됩니다.
+이 섹션에서는 실행 중인 App Service 앱에서 로그를 보거나 "추적(tail)"하는 방법에 대해 알아봅니다. 앱에서 `console.log`에 대한 모든 호출은 Visual Studio Code의 출력 창에 표시됩니다.
 
 **AZURE APP SERVICE** 탐색기에서 앱을 찾아서 마우스 오른쪽 단추로 클릭하고, **스트리밍 로그 보기**를 선택합니다.
 

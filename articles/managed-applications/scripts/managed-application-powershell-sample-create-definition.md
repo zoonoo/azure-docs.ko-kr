@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell 스크립트 샘플 - 관리되는 애플리케이션 정의 만들기 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 관리되는 애플리케이션 정의 만들기
+description: Azure 구독에서 관리되는 애플리케이션 정의를 만드는 Azure PowerShell 스크립트 샘플을 제공합니다.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 35f1b805323da03f1622e5c355d6ffa6d960b275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0491a5025886317faf7cb4601f8db3915527b80
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171500"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332591"
 ---
 # <a name="create-a-managed-application-definition-with-powershell"></a>PowerShell을 사용하여 관리되는 애플리케이션 정의 만들기
 

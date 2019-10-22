@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/04/2019
 ms.author: v-vasuke
-ms.openlocfilehash: 74a47bc5fc6dbcadef5e1a0da88eb93056334703
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 59770bccec57220560eeb5a5204e574ce172fc80
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244870"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296494"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Spring Cloud 애플리케이션 시작
 
@@ -57,9 +57,11 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 
 ## <a name="provision-a-service-instance-on-the-azure-portal"></a>Azure Portal에서 서비스 인스턴스 프로비저닝
 
-1. 웹 브라우저에서 [Azure Portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension) 을 열고 계정에 로그인합니다.
+1. 웹 브라우저에서 [Azure Portal의 Azure Spring Cloud에 대한 이 링크](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/Azure%20Spring%20Cloud)를 엽니다.
 
-1. **Azure Spring Cloud**를 검색하고 선택하여 개요 페이지로 이동합니다. **만들기** 단추를 선택하여 시작합니다.
+    ![ASC 포털의 스크린샷](media/spring-cloud-quickstart-launch-app-portal/goto-portal.png)
+
+1. **Azure Spring Cloud**를 선택하여 개요 페이지로 이동합니다. 그런 다음, **만들기** 단추를 선택하여 시작합니다.
 
 1. 다음 지침을 고려하여 양식을 작성합니다.
     - 서비스 이름: 서비스 인스턴스의 이름을 지정합니다.  이름은 4-32자 사이여야 하며, 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다.  서비스 이름의 첫 글자는 문자여야 하며 마지막 문자는 문자 또는 숫자여야 합니다.
@@ -74,6 +76,8 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 1. 서비스 **개요** 페이지로 이동하여 **구성 서버**를 선택합니다.
 
 1. **기본 리포지토리** 섹션에서 **URI**를 "https://github.com/Azure-Samples/piggymetrics"로 설정하고 **LABEL**을 "config"로 설정하고 **적용**을 선택하여 변경 내용을 저장합니다.
+
+    ![ASC 포털의 스크린샷](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 ## <a name="build-and-deploy-microservice-applications"></a>마이크로서비스 애플리케이션 빌드 및 배포
 
@@ -130,10 +134,15 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 
 ## <a name="assign-a-public-endpoint-to-gateway"></a>게이트웨이에 공용 엔드포인트 할당
 
-1. **애플리케이션 대시보드** 페이지를 엽니다.
-2. `gateway` 애플리케이션을 선택하여 **애플리케이션 세부 정보** 페이지를 표시합니다.
-3. **도메인 할당**을 선택하여 게이트웨이에 공용 엔드포인트를 할당합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다. 
-4. 브라우저에 할당된 공용 IP를 입력하여 실행 중인 애플리케이션을 봅니다.
+1. 왼쪽 메뉴에서 **Apps** 탭을 엽니다.
+2. `gateway` 애플리케이션을 선택하여 **개요** 페이지를 표시합니다.
+3. **도메인 할당**을 선택하여 게이트웨이에 공용 엔드포인트를 할당합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
+
+    ![ASC 포털의 스크린샷](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
+
+1. 브라우저에 할당된 공용 엔드포인트(레이블이 지정된 **URL**)를 입력하여 실행 중인 애플리케이션을 봅니다.
+
+    ![ASC 포털의 스크린샷](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 
 
 ## <a name="next-steps"></a>다음 단계

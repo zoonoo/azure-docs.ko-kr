@@ -1,5 +1,5 @@
 ---
-title: '자습서: Kanbanize와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: Kanbanize와 Azure Active Directory SSO(Single Sign-On) 연결 | Microsoft Docs'
 description: Azure Active Directory 및 Kanbanize 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/07/2019
+ms.date: 10/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69103ea0e6088b4a823df34ebd982c67e2502cb3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 7c5a3a096c5a44f681d23587837ae31fd1af33b2
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879526"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373221"
 ---
-# <a name="tutorial-integrate-kanbanize-with-azure-active-directory"></a>자습서: Azure Active Directory와 Kanbanize 연결
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kanbanize"></a>자습서: Kanbanize와 Azure Active Directory SSO(Single Sign-On) 연결
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Kanbanize를 연결하는 방법에 대해 알아봅니다. Kanbanize를 Azure AD와 연결하면 다음을 수행할 수 있습니다.
 
@@ -58,20 +58,20 @@ Kanbanize의 Azure AD 통합을 구성하려면 갤러리의 Kanbanize를 관리
 1. **갤러리에서 추가** 섹션의 검색 상자에서 **Kanbanize**를 입력합니다.
 1. 결과 패널에서 **Kanbanize**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-single-sign-on-for-kanbanize"></a>Kanbanize에 대한 Azure AD Single Sign-On 구성 및 테스트
 
 **B.Simon**이라는 테스트 사용자를 사용하여 Kanbanize에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Kanbanize의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 Kanbanize에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Kanbanize SSO 구성](#configure-kanbanize-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-5. **[Kanbanize 테스트 사용자 만들기](#create-kanbanize-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Kanbanize에 만듭니다.
-6. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
+    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+1. **[Kanbanize SSO 구성](#configure-kanbanize-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+    1. **[Kanbanize 테스트 사용자 만들기](#create-kanbanize-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Kanbanize에 만듭니다.
+1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
@@ -83,7 +83,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
 
-    a. **식별자** 텍스트 상자에서 `https://<subdomain>.kanbanize.com/` 패턴을 사용하여 URL을 입력합니다.
+     a. **식별자** 텍스트 상자에서 `https://<subdomain>.kanbanize.com/` 패턴을 사용하여 URL을 입력합니다.
 
     b. **회신 URL** 텍스트 상자에서 `https://<subdomain>.kanbanize.com/saml/acs` 패턴을 사용하여 URL을 입력합니다.
 
@@ -109,47 +109,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **Kanbanize 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
-
-### <a name="configure-kanbanize-sso"></a>Kanbanize SSO 구성
-
-1. 다른 웹 브라우저 창에서 Kanbanize에 보안 관리자로 로그인합니다.
-
-2. 페이지 오른쪽 상단으로 이동하고, **설정** 로고를 클릭합니다.
-
-    ![Kanbanize 설정](./media/kanbanize-tutorial/tutorial-kanbanize-set.png)
-
-3. 메뉴 왼쪽의 관리 패널 페이지에서 **통합**을 클릭한 다음, **Single Sign-on**을 사용하도록 설정합니다.
-
-    ![Kanbanize 통합](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
-
-4. 통합 섹션 아래에서 **구성**을 클릭하여 **Single Sign-on 통합** 페이지를 엽니다.
-
-    ![Kanbanize 구성](./media/kanbanize-tutorial/tutorial-kanbanize-config.png)
-
-5. **Single Sign-On 통합** 페이지의 **구성**에서 다음 단계를 수행합니다.
-
-    ![Kanbanize 통합](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
-
-    a. **IDP 엔터티 ID** 텍스트 상자에 Azure Portal에서 복사한 **Azure AD 식별자** 값을 붙여넣습니다.
-
-    b. **IDP 로그인 엔드포인트** 텍스트 상자에, Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
-
-    다. **IDP 로그아웃 엔드포인트** 텍스트 상자에, Azure Portal에서 복사한 **로그아웃 URL** 값을 붙여넣습니다.
-
-    d. **이메일에 대한 특성 이름** 텍스트 상자에 다음 값을 입력합니다. `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
-
-    e. **이름에 대한 특성 이름** 텍스트 상자에 다음 값을 입력합니다. `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
-
-    f. **성에 대한 특성 이름** 텍스트 상자에 다음 값을 입력합니다. `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
-
-    > [!Note]
-    > Azure Portal의 사용자 특성 섹션에서 해당 특성의 네임스페이스 및 이름 값을 결합하여 이러한 값을 가져올 수 있습니다.
-
-    g. 메모장에서 Azure Portal에서 다운로드한 base-64로 인코딩된 인증서를 열고, (시작 및 끝 표시를 제외한) 콘텐츠를 복사한 다음, **Idp X.509 인증서** 상자에 붙여넣습니다.
-
-    h. **SSO 및 Kanbanize 모두를 사용하여 로그인 사용**을 선택합니다.
-
-    i. **설정 저장**을 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -181,11 +140,60 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
+## <a name="configure-kanbanize-sso"></a>Kanbanize SSO 구성
+
+1. Kanbanize 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
+
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+2. 브라우저에 확장을 추가한 후 **Kanbanize 설정**을 클릭하면 Kanbanize 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 Kanbanize에 로그인합니다. 브라우저 확장에서 애플리케이션을 자동으로 구성하고 3-7단계를 자동화합니다.
+
+    ![구성 설정](common/setup-sso.png)
+
+3. Kanbanize를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Kanbanize 회사 사이트에 관리자로 로그인하여 다음 단계를 수행합니다.
+
+4. 페이지 오른쪽 상단으로 이동하고, **설정** 로고를 클릭합니다.
+
+    ![Kanbanize 설정](./media/kanbanize-tutorial/tutorial-kanbanize-set.png)
+
+5. 메뉴 왼쪽의 관리 패널 페이지에서 **통합**을 클릭한 다음, **Single Sign-on**을 사용하도록 설정합니다.
+
+    ![Kanbanize 통합](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
+
+6. 통합 섹션 아래에서 **구성**을 클릭하여 **Single Sign-on 통합** 페이지를 엽니다.
+
+    ![Kanbanize 구성](./media/kanbanize-tutorial/tutorial-kanbanize-config.png)
+
+7. **Single Sign-On 통합** 페이지의 **구성**에서 다음 단계를 수행합니다.
+
+    ![Kanbanize 통합](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
+
+    a. **IDP 엔터티 ID** 텍스트 상자에 Azure Portal에서 복사한 **Azure AD 식별자** 값을 붙여넣습니다.
+
+    b. **IDP 로그인 엔드포인트** 텍스트 상자에, Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
+
+    다. **IDP 로그아웃 엔드포인트** 텍스트 상자에, Azure Portal에서 복사한 **로그아웃 URL** 값을 붙여넣습니다.
+
+    d. **이메일에 대한 특성 이름** 텍스트 상자에 다음 값을 입력합니다. `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+
+    e. **이름에 대한 특성 이름** 텍스트 상자에 다음 값을 입력합니다. `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+
+    f. **성에 대한 특성 이름** 텍스트 상자에 다음 값을 입력합니다. `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+
+    > [!Note]
+    > Azure Portal의 사용자 특성 섹션에서 해당 특성의 네임스페이스 및 이름 값을 결합하여 이러한 값을 가져올 수 있습니다.
+
+    g. 메모장에서 Azure Portal에서 다운로드한 base-64로 인코딩된 인증서를 열고, (시작 및 끝 표시를 제외한) 콘텐츠를 복사한 다음, **Idp X.509 인증서** 상자에 붙여넣습니다.
+
+    h. **SSO 및 Kanbanize 모두를 사용하여 로그인 사용**을 선택합니다.
+
+    i. **설정 저장**을 클릭합니다.
+
 ### <a name="create-kanbanize-test-user"></a>Kanbanize 테스트 사용자 만들기
 
-이 섹션에서는 Kanbanize에서 Britta Simon이라는 사용자를 만듭니다. Kanbanize는 기본적으로 사용하도록 설정된 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. Kanbanize에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다. 사용자를 수동으로 만들어야 하는 경우, [Kanbanize 클라이언트 지원 팀](mailto:support@ms.kanbanize.com)에 문의하세요.
+이 섹션에서는 Kanbanize에서 B.Simon이라는 사용자를 만듭니다. Kanbanize는 기본적으로 사용하도록 설정된 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. Kanbanize에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다. 사용자를 수동으로 만들어야 하는 경우, [Kanbanize 클라이언트 지원 팀](mailto:support@ms.kanbanize.com)에 문의하세요.
 
-### <a name="test-sso"></a>SSO 테스트
+## <a name="test-sso"></a>SSO 테스트 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
@@ -198,4 +206,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 - [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Azure AD로 Kanbanize 시도](https://aad.portal.azure.com/)
 

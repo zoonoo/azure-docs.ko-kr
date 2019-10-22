@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: larryfr
-ms.openlocfilehash: 65956ab9fa182794b4cb9ac1fc1800198f2dcdaa
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 025779edd1400c65d10788def17529e84349d582
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561122"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515755"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>자습서: Windows ML을 통해 Custom Vision에서 ONNX 모델 사용(미리 보기)
 
@@ -31,9 +31,9 @@ Windows ML을 사용하여 Custom Vision Service에서 내보낸 ONNX 모델을 
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Windows 10 빌드 17738 이상
+* Windows 10 버전 1809 이상
 
-* 빌드 17738 이상용 Windows SDK
+* 빌드 17763 이상용 Windows SDK
 
 * __유니버설 Windows 플랫폼 개발__ 워크로드가 사용하도록 설정된 Visual Studio 2017 버전 15.7 이상.
 
@@ -45,7 +45,7 @@ Windows ML을 사용하여 Custom Vision Service에서 내보낸 ONNX 모델을 
 
 ## <a name="get-the-example-code"></a>예제 코드 가져오기
 
-예제 애플리케이션은 [https://github.com/Azure-Samples/cognitive-services-onnx12-customvision-sample/](https://github.com/Azure-Samples/cognitive-services-onnx12-customvision-sample/)에서 사용할 수 있습니다.
+예제 애플리케이션은 [https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample](https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample)에서 사용할 수 있습니다.
 
 ## <a name="run-the-example"></a>예제 실행
 
@@ -59,7 +59,7 @@ Windows ML을 사용하여 Custom Vision Service에서 내보낸 ONNX 모델을 
 
 1. Custom Vision Service를 사용하여 분류자를 [만들고 학습](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier)합니다. 모델을 내보내려면 **일반(컴팩트)** 같은 __컴팩트__ 도메인을 선택합니다. 기존 분류자를 내보내려면 오른쪽 위에서 기어 아이콘을 선택하여 도메인을 컴팩트로 변환합니다. __설정__ 에서 컴팩트 모델을 선택하고 저장한 다음, 프로젝트를 학습합니다.  
 
-1. [성능] 탭으로 이동하여 [모델을 내보냅니다](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model). 컴팩트 도메인으로 교육한 반복을 선택하면 "내보내기" 단추가 표시됩니다. *내보내기*, *ONNX*, *ONNX1.2*를 차례로 선택한 다음, *내보내기*를 선택합니다. 파일이 준비되면 *다운로드* 단추를 선택합니다.
+1. [성능] 탭으로 이동하여 [모델을 내보냅니다](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model). 컴팩트 도메인으로 교육한 반복을 선택하면 "내보내기" 단추가 표시됩니다. *내보내기*, *ONNX*를 차례로 선택한 다음, *내보내기*를 선택합니다. 파일이 준비되면 *다운로드* 단추를 선택합니다.
 
 1. ONNX 파일을 프로젝트의 __자산__ 폴더에 끌어 놓습니다. 
 

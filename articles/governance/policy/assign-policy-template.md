@@ -1,17 +1,17 @@
 ---
-title: Resource Manager 템플릿을 사용하여 정책 할당 만들기
+title: Resource Manager 템플릿을 사용하여 할당 만들기
 description: 이 문서에서는 Resource Manager 템플릿을 사용하여 비준수 리소스를 식별하는 정책 할당을 만드는 단계를 안내합니다.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: azure-policy
-ms.openlocfilehash: 72d8fab39e8dd11cf46eb2977a9b9fe288ca2de1
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 842b29160e3abaea5edc4bfb4f2e1c345e3ffc85
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980811"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254808"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 비준수 리소스를 식별하는 정책 할당 만들기
 

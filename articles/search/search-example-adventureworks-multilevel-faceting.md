@@ -1,5 +1,5 @@
 ---
-title: '예제: 다중 수준 패싯 - Azure Search'
+title: '예: 다중 수준 패싯-Azure Search'
 description: 다중 수준 분류를 위한 패싯 구조를 빌드하여 애플리케이션 페이지에 포함할 수 있는 중첩 탐색 구조를 만드는 방법을 알아봅니다.
 author: HeidiSteen
 manager: nitinme
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.openlocfilehash: 9a56bba55f9b3a59126168bc2bbbd50927c3fc78
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70274091"
 ---
-# <a name="example-multi-level-facets-in-azure-search"></a>예제: Azure Search의 다중 수준 패싯
+# <a name="example-multi-level-facets-in-azure-search"></a>예: Azure Search의 다중 수준 패싯
 
 Azure Search 스키마는 다중 수준 분류 범주를 명시적으로 지원하지는 않지만, 인덱싱 전에 콘텐츠를 조작하여 근사치를 구한 다음, 결과에 특수 처리를 적용할 수 있습니다. 
 
@@ -84,10 +84,10 @@ categories.count = sum;
 
 이제 **범주** 개체를 사용하여 축소 가능한 분류 트리를 정확한 카운트 값으로 렌더링할 수 있습니다.
 
-  ![다중 수준 패싯 필터](./media/search-example-adventureworks/multi-level-facet.png "다중 수준 패싯 필터")
+  ![다단계 패싯 필터](./media/search-example-adventureworks/multi-level-facet.png "다단계 패싯 필터")
 
  
-트리의 각 링크는 관련 필터를 적용해야 합니다. 예를 들어:
+트리의 각 링크는 관련 필터를 적용해야 합니다. 다음은 그 예입니다.
 
 + **taxonomy/any**`(x:x eq 'Accessories')`는 액세서리 분기의 모든 문서를 반환합니다.
 + **taxonomy/any**`(x:x eq 'Accessories|Bike Racks')`는 액세서리 분기 아래에서 하위 범주가 자전거 고정대인 문서만 반환합니다.
@@ -97,6 +97,6 @@ categories.count = sum;
 > [!TIP]
 > 쿼리 속도는 반환되는 패싯의 수에 영향을 받습니다. 매우 큰 분류 세트를 지원하려면 각 문서의 최상위 분류 값을 보관하는 패싯 가능한 **Edm.String** 필드를 추가하는 방법을 고려해 보세요. 그 후 위의 기술을 똑같이 적용하되, 사용자가 최상위 노드를 확장할 때 컬렉션-패싯 쿼리(루트 분류 필드에서 필터링됨)만 수행합니다. 또는 100% 회수가 필요 없는 경우 패싯 수를 적절하게 줄이고, 개수를 기준으로 패싯 항목을 정렬합니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
-[예제: Azure Search에 대한 AdventureWorks Inventory 데이터베이스 모델링](search-example-adventureworks-modeling.md)
+[예: Azure Search에 대 한 AdventureWorks 인벤토리 데이터베이스 모델링](search-example-adventureworks-modeling.md)

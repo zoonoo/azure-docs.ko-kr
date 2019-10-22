@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 23a005ebb16f4786c7dde9ec5b2a7ae7c5685cb8
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 4474a36c2b87a618a9f755d2f42e330e837568f4
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377242"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516479"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>빠른 시작: C 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용(미리 보기)
 
@@ -28,7 +28,7 @@ Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기능](https:/
 
 ## <a name="how-it-works"></a>작동 방법
 
-아래 그림에서는 디바이스-로컬 프록시 프로그램 및 서비스-로컬 프록시 프로그램에서 SSH 클라이언트와 SSH 디먼 프로세스 간의 엔드투엔드 연결을 사용하도록 설정하는 방법을 보여 줍니다. 공개 미리 보기 동안 C SDK는 디바이스 쪽의 디바이스 스트림만 지원합니다. 결과적으로 이 빠른 시작에서는 디바이스-로컬 프록시 애플리케이션만 실행하는 지침에 대해 설명합니다. 다음 서비스 쪽 빠른 시작 중 하나를 실행해야 합니다.
+아래 그림에서는 디바이스-로컬 프록시 프로그램 및 서비스-로컬 프록시 프로그램에서 SSH 클라이언트와 SSH 디먼 프로세스 간의 엔드투엔드 연결을 사용하도록 설정하는 방법을 보여 줍니다. 공개 미리 보기 동안 C SDK는 디바이스 쪽의 디바이스 스트림만 지원합니다. 결과적으로 이 빠른 시작에서는 디바이스-로컬 프록시 애플리케이션만 실행하는 지침에 대해 설명합니다. 함께 제공되는 서비스 쪽 애플리케이션을 빌드하고 실행하려면 다음 빠른 시작 중 하나의 지침을 따르세요.
 
 * [C#을 사용하여 IoT Hub 디바이스 스트림을 통한 SSH/RDP](./quickstart-device-streams-proxy-csharp.md)
 * [NodeJS 프록시를 사용하여 IoT Hub 디바이스 스트림을 통한 SSH/RDP](./quickstart-device-streams-proxy-nodejs.md)
@@ -123,23 +123,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. 디바이스 ID를 만들려면 Cloud Shell에서 다음 명령을 실행합니다.
 
    > [!NOTE]
-   > * *YourIoTHubName* 자리 표시자를 IoT Hub에서 선택한 이름으로 바꿉니다.
-   > * 다음과 같이 *MyDevice*를 사용합니다. 등록된 디바이스에 지정된 이름입니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후에 실행하세요.
+   > * *YourIoTHubName* 자리 표시자를 IoT 허브에서 선택한 이름으로 바꿉니다.
+   > * 등록하려는 디바이스의 이름에는 표시된 대로 *MyDevice* 를 사용하는 것이 좋습니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후에 실행하세요.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. 방금 등록한 디바이스의 *디바이스 연결 문자열*을 가져오려면 Cloud Shell에서 다음 명령을 실행합니다.
 
    > [!NOTE]
-   > *YourIoTHubName* 자리 표시자를 IoT Hub에서 선택한 이름으로 바꿉니다.
+   > *YourIoTHubName* 자리 표시자를 IoT 허브에서 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
-    나중에 이 빠른 시작에서 사용할 수 있도록 디바이스 연결 문자열을 적어 두세요. 다음 예제와 유사합니다.
+    나중에 이 빠른 시작에서 사용할 수 있도록 반환된 디바이스 연결 문자열을 적어 두세요. 다음 예제와 유사합니다.
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -149,12 +149,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ### <a name="run-the-device-local-proxy-application"></a>디바이스-로컬 프록시 애플리케이션 실행
 
-1. *iothub_client/samples/iothub_client_c2d_streaming_proxy_sample* 폴더에 있는 *iothub_client_c2d_streaming_proxy_sample.c* 원본 파일을 편집하여 디바이스 연결 문자열, 대상 디바이스 IP/호스트 이름 및 22 SSH 포트를 제공합니다.
+1. `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample` 폴더에서 원본 파일 **iothub_client_c2d_streaming_proxy_sample.c**를 편집하고 디바이스 연결 문자열, 대상 디바이스 IP/호스트 이름 및 SSH 포트 22를 제공합니다.
 
    ```C
-   /* Paste in your iothub connection string  */
-   static const char* connectionString = "[Connection string of IoT Hub]";
-   static const char* localHost = "[IP/Host of your target machine]"; // Address of the local server to connect to.
+   /* Paste in your device connection string  */
+   static const char* connectionString = "{DeviceConnectionString}";
+   static const char* localHost = "{IP/Host of your target machine}"; // Address of the local server to connect to.
    static const size_t localPort = 22; // Port of the local server to connect to.
    ```
 
@@ -198,7 +198,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 디바이스- 및 서비스-로컬 프록시가 모두 실행되면, SSH 클라이언트 프로그램을 사용하여 포트 2222에서 서비스-로컬 프록시에 연결합니다(SSH 디먼에서 직접 연결하는 대신).
 
 ```cmd/sh
-ssh <username>@localhost -p 2222
+ssh {username}@localhost -p 2222
 ```
 
 이 시점에서 자격 증명을 입력하라는 메시지가 SSH 로그인 창에 표시됩니다.
@@ -217,7 +217,7 @@ ssh <username>@localhost -p 2222
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 IoT Hub를 설정하고, 디바이스를 등록하고, 디바이스-로컬 프록시 프로그램 및 서비스-로컬 프록시 프로그램을 배포하여 IoT Hub를 통한 디바이스 스트림을 설정하고, 프록시를 사용하여 SSH 트래픽을 터널링했습니다.
+이 빠른 시작에서는 IoT 허브를 설정하고, 디바이스를 등록하고, 디바이스-로컬 프록시 프로그램 및 서비스-로컬 프록시 프로그램을 배포하여 IoT Hub를 통한 디바이스 스트림을 설정하고, 프록시를 사용하여 SSH 트래픽을 터널링했습니다.
 
 디바이스 스트림에 대한 자세한 내용은 다음을 참조하세요.
 

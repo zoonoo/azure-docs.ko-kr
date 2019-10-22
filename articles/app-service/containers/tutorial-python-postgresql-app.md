@@ -1,5 +1,5 @@
 ---
-title: Linux에서 PostgreSQL을 사용하는 Python(Django) 웹앱 - Azure App Service | Microsoft Docs
+title: '자습서: Linux에서 PostgreSQL을 사용하는 Python(Django) 웹앱 - Azure App Service'
 description: Azure에서 데이터 기반 Python(Django) 웹앱을 실행하고 PostgreSQL 데이터베이스에 연결하는 방법을 알아봅니다.
 services: app-service\web
 documentationcenter: python
@@ -11,19 +11,22 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 1fc322cf7e425e35751369ab8daf1ef1809d5f07
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.custom:
+- mvc
+- seodec18
+- seo-python-october2019
+ms.openlocfilehash: 34dbce2a6da2395bbc627a30d464a9817dfe76fe
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203271"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72439459"
 ---
-# <a name="build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Azure App Service에서 PostgreSQL을 사용하여 Python(Django) 웹앱 빌드
+# <a name="tutorial-build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>자습서: Azure App Service에서 PostgreSQL을 사용하여 Python(Django) 웹앱 빌드
 
 [Linux의 App Service](app-service-linux-intro.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 PostgreSQL을 데이터베이스 백 엔드로 사용하여 데이터 기반 Python(Django) 웹앱을 만드는 방법을 보여 줍니다. 완료되면 Linux의 Azure App Service에서 Django 웹 애플리케이션을 실행하게 됩니다.
 
-![Linux의 App Service의 Python Django 웹앱](./media/tutorial-python-postgresql-app/django-admin-azure.png)
+![Linux에서 Azure App Service의 Python Django 웹앱](./media/tutorial-python-postgresql-app/run-python-django-app-in-azure.png)
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -144,7 +147,7 @@ Quit the server with CONTROL-C.
 
 `http://localhost:8000/admin`으로 이동하고 마지막 단계에서 만든 관리 사용자를 사용하여 로그인합니다. **질문** 옆의 **추가**를 선택하고 몇 가지 옵션을 사용하여 설문 조사 질문을 만듭니다.
 
-![로컬로 Python Django 애플리케이션 실행](./media/tutorial-python-postgresql-app/django-admin-local.png)
+![App Service에서 Python Django 앱을 로컬로 실행](./media/tutorial-python-postgresql-app/run-python-django-app-locally.png)
 
 `http://localhost:8000`으로 다시 이동하고 표시되는 설문 조사 질문을 확인합니다.
 
@@ -273,7 +276,7 @@ python manage.py runserver
 
 `http://localhost:8000/admin`으로 이동하고 만든 관리 사용자를 사용하여 로그인하고, 전과 같이 설문 조사 질문을 만듭니다.
 
-![로컬로 Python Django 애플리케이션 실행](./media/tutorial-python-postgresql-app/django-admin-local.png)
+![App Service에서 Python Django 앱을 로컬로 실행](./media/tutorial-python-postgresql-app/run-python-django-app-locally.png)
 
 `http://localhost:8000`으로 다시 이동하고 표시되는 설문 조사 질문을 확인합니다. 이제 앱이 Azure에서 데이터베이스에 데이터를 쓰고 있습니다.
 
@@ -388,7 +391,7 @@ App Service는 기본적으로 `manage.py startproject`에서 만들어진 각 �
 
 `<app-name>.azurewebsites.net`으로 이동하고 사용자가 만든 동일한 관리 사용자를 사용하여 로그인합니다. 원하는 경우 자세한 일부 설문 조사 질문을 만들어 보세요.
 
-![로컬로 Python Django 애플리케이션 실행](./media/tutorial-python-postgresql-app/django-admin-azure.png)
+![Azure의 App Service에서 Python Django 앱 실행](./media/tutorial-python-postgresql-app/run-python-django-app-in-azure.png)
 
 **축하합니다.** Linux용 Azure App Service에서 Python(Django) 웹앱이 실행되고 있습니다.
 
@@ -402,11 +405,11 @@ App Service는 기본적으로 `manage.py startproject`에서 만들어진 각 �
 
 왼쪽 메뉴에서 **App Services**를 선택한 다음, Azure 앱의 이름을 선택합니다.
 
-![Azure 앱에 대한 포털 탐색](./media/tutorial-python-postgresql-app/app-resource.png)
+![Azure Portal에서 Python Django 앱으로 이동합니다.](./media/tutorial-python-postgresql-app/navigate-to-django-app-in-app-services-in-the-azure-portal.png)
 
 기본적으로 포털에 앱의 **개요** 페이지가 표시됩니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 페이지의 왼쪽에 있는 탭에서는 열 수 있는 여러 구성 페이지를 보여 줍니다.
 
-![Azure Portal의 App Service 페이지](./media/tutorial-python-postgresql-app/app-mgmt.png)
+![Azure Portal의 개요 페이지에서 Python Django 앱 관리](./media/tutorial-python-postgresql-app/manage-django-app-in-app-services-in-the-azure-portal.png)
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 

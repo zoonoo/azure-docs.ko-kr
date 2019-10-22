@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/07/2018
+ms.date: 10/16/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d5452f23e830ca7a9ffe5ca5ed3d4aa12fb717
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a11c5489c97e1050e525c0b83c160c1360119b60
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66236054"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433161"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure SQL에 액세스
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Windows VM(가상 머신)에 대한 시스템 할당 ID를 사용하여 Azure SQL 서버에 액세스하는 방법을 보여줍니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Windows VM(가상 머신)에 대한 시스템 할당 ID를 사용하여 Azure SQL 서버에 액세스하는 방법을 보여줍니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * VM에 Azure SQL Server에 대한 액세스 권한 부여
@@ -62,7 +62,7 @@ VM에 데이터베이스에 대한 액세스 권한을 부여하는 과정은 �
 
 이 다음 단계를 위해 [Microsoft SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)가 필요합니다. 시작하기 전에 다음 문서를 검토하여 Azure AD 통합의 배경 정보를 숙지하면 도움이 될 수 있습니다.
 
-- [SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)](/azure/sql-database/sql-database-ssms-mfa-authentication)
+- [SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)](/azure/sql-database/sql-database-ssms-mfa-authentication) 문서를 참조하세요.
 - [SQL Database 또는 SQL Data Warehouse에서의 Azure Active Directory 인증 구성 및 관리](/azure/sql-database/sql-database-aad-authentication-configure)
 
 SQL DB에는 고유한 AAD 표시 이름이 필요합니다. 이를 통해 사용자, 그룹 및 서비스 주체(애플리케이션)와 같은 AAD 계정 및 관리 ID에 사용하도록 설정된 VM 이름은 해당 표시 이름과 관련하여 AAD에서 고유하게 정의되어야 합니다. SQL DB는 이러한 사용자의 T-SQL을 만드는 중에 AAD 표시 이름을 확인하고, 고유하지 않은 경우 지정된 계정에 고유한 AAD 표시 이름을 제공하도록 요청하는 데 실패합니다.
@@ -103,7 +103,7 @@ SQL DB에는 고유한 AAD 표시 이름이 필요합니다. 이를 통해 사�
 
 Azure SQL은 기본적으로 Azure AD 인증을 지원하므로 Azure 리소스에 대한 관리 ID를 사용하여 획득한 액세스 토큰을 직접 수락할 수 있습니다. SQL에 대한 연결을 만들기 위해 **액세스 토큰** 방법을 사용합니다. 이 방법은 Azure SQL을 Azure AD와 통합하는 작업의 일부로, 연결 문자열에서 자격 증명을 제공하는 것과는 다릅니다.
 
-다음은 액세스 토큰을 사용하여 SQL에 대한 연결을 여는 .NET 코드 예제입니다. VM의 시스템 할당 관리 ID의 엔드포인트에 액세스하기 위해서는 VM에 대해 이 코드를 실행해야 합니다. 액세스 토큰 방법을 사용하려면 **.NET Framework 4.6** 이상이 필요합니다. 그에 따라 AZURE-SQL-SERVERNAME 및 DATABASE 값을 바꿉니다. Azure SQL에 대한 리소스 ID는 `https://database.windows.net/`입니다.
+다음은 액세스 토큰을 사용하여 SQL에 대한 연결을 여는 .NET 코드 예제입니다. VM의 시스템 할당 관리 ID의 엔드포인트에 액세스하기 위해서는 VM에 대해 이 코드를 실행해야 합니다. 액세스 토큰 방법을 사용하려면 **.NET Framework 4.6** 이상 또는 **.NET Core 2.2** 이상이 필요합니다. 그에 따라 AZURE-SQL-SERVERNAME 및 DATABASE 값을 바꿉니다. Azure SQL에 대한 리소스 ID는 `https://database.windows.net/`입니다.
 
 ```csharp
 using System.Net;

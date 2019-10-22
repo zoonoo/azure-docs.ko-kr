@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 09/14/2019
-ms.openlocfilehash: 0465dcba5130f3b2dc5c615c884bfa0d3b138eb7
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.date: 10/10/2019
+ms.openlocfilehash: f5136084530c48815fd6a9f9e25b7358df00af07
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514938"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692547"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인 이란?
 
@@ -112,6 +112,14 @@ Azure ML 파이프라인에서 종속성 분석은 단순한 타임 스탬프 �
 Azure ML 파이프라인은 Azure Machine Learning 작업 영역에 연결 되 고 파이프라인 단계는 해당 작업 영역 내에서 사용할 수 있는 계산 대상과 연결 됩니다. 자세한 내용은 [Azure Portal에서 Azure Machine Learning 작업 영역 만들기 및 관리](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) 또는 [Azure Machine Learning에서 계산 대상 이란?](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target)를 참조 하세요.
 
 Azure Machine Learning에서 계산 대상은 ML 단계가 수행 되는 환경입니다. 소프트웨어 환경은 원격 VM, Azure Machine Learning 계산, Azure Databricks, Azure Batch 등이 될 수 있습니다. 또한 하드웨어 환경은 GPU 지원, 메모리, 저장소 등에 따라 크게 달라질 수 있습니다. 각 단계에 대 한 계산 대상을 지정 하 여 비용을 세밀 하 게 제어할 수 있습니다. 프로젝트의 특정 작업, 데이터 볼륨 및 성능 요구 사항에 대해 보다 강력 하거나 더 강력 하지 않은 리소스를 사용할 수 있습니다. 
+
+## <a name="how-do-i-build-pipelines-using-the-azure-machine-learning-visual-interface"></a>Azure Machine Learning 시각적 인터페이스를 사용 하 여 파이프라인을 빌드 어떻게 할까요?
+
+시각적 디자인 화면을 선호 하는 개발자는 Azure Machine Learning 시각적 인터페이스를 사용 하 여 파이프라인을 만들 수 있습니다. 작업 영역 홈페이지의 **시각적 인터페이스** 선택 영역에서이 도구에 액세스할 수 있습니다.  시각적 인터페이스를 사용 하 여 디자인 화면으로 단계를 끌어서 놓을 수 있습니다. 신속한 개발을 위해 ML 작업의 스펙트럼에서 기존 모듈을 사용할 수 있습니다. 기존 모듈은 배포에 대 한 학습에 대 한 데이터 변환에서 알고리즘 선택에 이르기까지 모든 것을 다룹니다. 또는 Python 스크립트에 정의 된 고유한 단계를 결합 하 여 완전 한 사용자 지정 파이프라인을 만들 수 있습니다.
+
+파이프라인을 시각적으로 디자인 하는 경우 단계의 입력 및 출력이 눈에 띄게 표시 됩니다. 데이터 연결을 끌어서 놓을 수 있으므로 파이프라인의 데이터 흐름을 빠르게 이해 하 고 수정할 수 있습니다.
+ 
+![Azure Machine Learning 시각적 인터페이스 예제](./media/concept-ml-pipelines/visual-design-surface.gif)
 
 ### <a name="understanding-the-execution-graph"></a>실행 그래프 이해
 

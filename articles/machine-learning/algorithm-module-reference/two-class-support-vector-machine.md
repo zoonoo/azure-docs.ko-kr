@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 23f5c638146472b72078e76745e557b6babe7a49
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c58e66070f137f9c5d713a45682afac5f30bbd1e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128316"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692597"
 ---
 # <a name="two-class-support-vector-machine-module"></a>2 클래스 지원 벡터 컴퓨터 모듈
 
@@ -38,7 +38,7 @@ SVMs (Support vector machines)는 감독 된 학습 방법의 잘 연구 된 클
 
 이 모델 유형의 경우 분류자를 학습 하는 데 사용 하기 전에 데이터 집합을 정규화 하는 것이 좋습니다.
   
-1.  실험에 **2 클래스 지원 벡터 컴퓨터** 모듈을 추가 합니다.  
+1.  파이프라인에 **2 클래스 지원 벡터 컴퓨터** 모듈을 추가 합니다.  
   
 2.  **강사 모드 만들기** 옵션을 설정 하 여 모델을 학습 하는 방법을 지정 합니다.  
   
@@ -67,7 +67,7 @@ SVMs (Support vector machines)는 감독 된 학습 방법의 잘 연구 된 클
     -   담당자 **모드 만들기** 를 **단일 매개 변수로**설정한 경우 [모델 학습](train-model.md) 모듈을 사용 합니다.
   
 
-10. 실험을 실행합니다.
+10. 파이프라인을 실행합니다.
 
 ## <a name="results"></a>결과
 

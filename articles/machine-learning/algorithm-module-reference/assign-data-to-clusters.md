@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 56f608044716ea3655576c11aa7a62343215f508
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3caf568590beb5b1f9d346d472c93f134a4f3a5f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128984"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693223"
 ---
 # <a name="module-assign-data-to-clusters"></a>모듈: 클러스터에 데이터 할당
 
@@ -44,7 +44,7 @@ ms.locfileid: "70128984"
   
     이 확인란의 선택을 취소 하면 결과만 반환 됩니다. 이 옵션은 웹 서비스의 일부로 예측을 만들 때 유용할 수 있습니다.
   
-5.  실험을 실행합니다.  
+5.  파이프라인을 실행합니다.  
   
 ### <a name="results"></a>결과
 

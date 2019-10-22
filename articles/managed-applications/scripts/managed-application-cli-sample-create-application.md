@@ -1,6 +1,6 @@
 ---
 title: Azure CLI 스크립트 샘플 - 관리되는 애플리케이션 배포 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - 관리되는 애플리케이션 정의 배포
+description: 구독에 Azure Managed Application 정의를 배포하는 Azure CLI 샘플 스크립트를 제공합니다.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: f09d9dcb60370c2cc51f5652def92e5ad9c9b512
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18dbd46df3e5e1f7dc0368b2c007e0c15d76decc
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61226398"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330152"
 ---
 # <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Azure CLI를 사용하여 서비스 카탈로그에 대한 관리되는 애플리케이션 배포
 

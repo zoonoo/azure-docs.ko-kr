@@ -1,5 +1,5 @@
 ---
-title: Azure Cache for Redis를 사용하는 Python 앱 만들기 빠른 시작 | Microsoft Docs
+title: '빠른 시작: Azure Cache for Redis를 사용하는 Python 앱 만들기'
 description: 이 빠른 시작에서는 Azure Cache for Redis를 사용하는 Python 앱을 만드는 방법을 알아봅니다.
 services: cache
 documentationcenter: ''
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
-ms.custom: mvc
-ms.openlocfilehash: fcb5d74305375c9883f2d601a2ab7d2d9a50b9cb
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.custom:
+- mvc
+- seo-python-october2019
+ms.openlocfilehash: 5367896c931bf7c5f52b0874d49ede2fc78614ab
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743944"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435538"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-python"></a>빠른 시작: Python에서 Azure Cache for Redis 사용
+# <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>빠른 시작: Azure Cache for Redis를 사용하는 Python 앱 만들기
 
-이 빠른 시작에서는 Azure 내 모든 애플리케이션에서 액세스할 수 있는 안전한 전용 캐시에 액세스할 수 있도록 Azure Cache for Redis를 Python 앱에 통합합니다.
+이 문서에서는 Azure 내 모든 애플리케이션에서 액세스할 수 있는 안전한 전용 캐시에 액세스할 수 있도록 Azure Cache for Redis를 Python 앱에 통합합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -46,7 +48,7 @@ ms.locfileid: "70743944"
     pip3 install redis
 ```
 
-![redis-py 설치](./media/cache-python-get-started/cache-python-install-redis-py.png)
+![Azure Cache for Redis에 redis-py Python 인터페이스 설치](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
 
 ## <a name="read-and-write-to-the-cache"></a>캐시 읽기 및 캐시에 쓰기
@@ -98,7 +100,7 @@ for c in result:
 
 Python을 사용하여 스크립트를 실행합니다.
 
-![Python 테스트가 완료되었습니다.](./media/cache-python-get-started/cache-python-completed.png)
+![Python 스크립트를 실행하여 Azure Cache for Redis에서 캐시 액세스 테스트](./media/cache-python-get-started/cache-python-completed.png)
 
 
 ## <a name="clean-up-resources"></a>리소스 정리
@@ -115,7 +117,7 @@ Python을 사용하여 스크립트를 실행합니다.
 
 **이름으로 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *TestResources*라는 리소스 그룹을 사용했습니다. 결과 목록의 리소스 그룹에서 **...** 를 선택한 다음, **리소스 그룹 삭제**를 선택합니다.
 
-![삭제](./media/cache-web-app-howto/cache-delete-resource-group.png)
+![Azure Cache for Redis에 대한 빠른 시작 리소스 그룹 삭제](./media/cache-web-app-howto/delete-your-resource-group-for-azure-cache-for-redis.png)
 
 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인하고 **삭제**를 선택합니다.
 

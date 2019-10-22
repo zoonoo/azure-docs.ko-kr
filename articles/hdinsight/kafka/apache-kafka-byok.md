@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: ba49944011546db45d25cc87c2c4b93c8b99502a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71122676"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Kafka에 대 한 고유한 키 가져오기
@@ -55,13 +55,13 @@ BYOK를 사용 하도록 설정 된 Kafka 클러스터를 만들려면 다음 �
 
         a. 새 키를 만들려면 **설정** 아래 **키** 메뉴에서 **생성/가져오기**를 선택합니다.
 
-        ![Azure Key Vault에서 새 키를 생성 합니다](./media/apache-kafka-byok/kafka-create-new-key.png "Azure Key Vault에서 새 키를 생성 합니다") .
+        ![Azure Key Vault에서 새 키를 생성 합니다.](./media/apache-kafka-byok/kafka-create-new-key.png "Azure Key Vault에 새 키 생성")
 
         b. **옵션**을 **생성**으로 설정하고 키에 이름을 지정합니다.
 
         ![Apache kafka는 키 이름을 생성 합니다.](./media/apache-kafka-byok/apache-kafka-create-key.png "키 이름 생성")
 
-        c. 키 목록에서 만든 키를 선택합니다.
+        다. 키 목록에서 만든 키를 선택합니다.
 
         ![Apache kafka 키 자격 증명 모음 키 목록](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
 
@@ -79,7 +79,7 @@ BYOK를 사용 하도록 설정 된 Kafka 클러스터를 만들려면 다음 �
 
         ![Azure Key Vault 액세스 정책에 대한 주체 선택 설정](./media/apache-kafka-byok/add-key-vault-access-policy-select-principal.png)
 
-        c. **키 권한**을 **가져오기**, **키 래핑 해제** 및 **키 래핑**으로 설정합니다.
+        다. **키 권한**을 **가져오기**, **키 래핑 해제** 및 **키 래핑**으로 설정합니다.
 
         ![Azure Key Vault access policy1에 대 한 키 권한 설정](./media/apache-kafka-byok/add-key-vault-access-policy-keys.png "Azure Key Vault access policy1에 대 한 키 권한 설정")
 
@@ -87,7 +87,7 @@ BYOK를 사용 하도록 설정 된 Kafka 클러스터를 만들려면 다음 �
 
         ![Azure Key Vault access policy2에 대 한 키 권한 설정](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png "Azure Key Vault access policy2에 대 한 키 권한 설정")
 
-        e. **Save**를 클릭합니다. 
+        ㅁ. **Save**를 클릭합니다. 
 
         ![Azure Key Vault 액세스 정책 저장](./media/apache-kafka-byok/add-key-vault-access-policy-save.png)
 
@@ -97,7 +97,7 @@ BYOK를 사용 하도록 설정 된 Kafka 클러스터를 만들려면 다음 �
 
    ![Azure Portal의 Kafka 디스크 암호화](./media/apache-kafka-byok/apache-kafka-byok-portal.png)
 
-   클러스터를 만드는 동안 키 버전을 포함한 전체 키 URL을 제공합니다. 예를 들어, `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`을 입력합니다. 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
+   클러스터를 만드는 동안 키 버전을 포함한 전체 키 URL을 제공합니다. 예: `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4` 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
 
 ## <a name="rotating-the-encryption-key"></a>암호화 키 회전
 
@@ -136,7 +136,7 @@ BYOK를 사용 하도록 설정 된 Kafka 클러스터를 만들려면 다음 �
 
 **OS 디스크/리소스 디스크도 암호화되나요?**
 
-   아니요. OS 디스크 및 리소스 디스크는 암호화되지 않습니다.
+   아닙니다. OS 디스크 및 리소스 디스크는 암호화되지 않습니다.
 
 **클러스터가 강화될 경우 새 broker가 BYOK를 원활하게 지원할까요?**
 

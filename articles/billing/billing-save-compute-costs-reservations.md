@@ -7,12 +7,12 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: bb90a9dec161746356b8c13df448718c53626684
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b2c3fd9b59b371330e37dceb52b2e89b3db6c48e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70806352"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390153"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
@@ -40,11 +40,11 @@ Windows 가상 머신 및 SQL Database의 경우 [Azure 하이브리드 혜택](
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>예약을 구매할 수 있는 주체는?
 
-플랜을 구매하려면 기업(MS-AZR-0017P 또는 MS-AZR-0148P) 또는 종량제 구독(MS-AZR-0003P 또는 MS-AZR-0023P)의 구독 소유자 역할이 있어야 합니다. 클라우드 솔루션 공급자는 Azure Portal 또는  [파트너 센터](/partner-center/azure-reservations) 를 사용하여 Azure 예약을 구매할 수 있습니다.
+플랜을 구매하려면 엔터프라이즈(MS-AZR-0017P 또는 MS-AZR-0148P), 종량제 구독(MS-AZR-0003P 또는 MS-AZR-0023P) 또는 Microsoft 고객 계약 구독의 구독 소유자 역할이 있어야 합니다. 클라우드 솔루션 공급자는 Azure Portal 또는  [파트너 센터](/partner-center/azure-reservations) 를 사용하여 Azure 예약을 구매할 수 있습니다.
 
 EA(기업계약) 고객은 EA Portal에서 **예약 인스턴스 추가** 옵션을 해제하여 EA 관리자만 구매 가능하도록 제한할 수 있습니다. 예약을 구매하려면 EA 관리자가 하나 이상의 EA 구독에 대한 구독 소유자여야 합니다. 이 옵션은 중앙의 팀이 다양한 비용 센터의 예약을 대신 구매하도록 하려는 기업에 유용합니다. 구매 후에는 중앙의 팀이 예약에 비용 센터 소유자를 추가할 수 있습니다. 그러면 소유자는 예약의 범위를 구독으로 지정할 수 있습니다. 중앙의 팀은 예약을 구매하는 구독 소유자 액세스 권한이 필요 없습니다.
 
-예약 할인은 엔터프라이즈, CSP(클라우드 솔루션 공급자) 및 종량제 요금을 사용하는 개별 플랜을 통해 구매한 구독과 연결된 리소스에만 적용됩니다.
+예약 할인은 엔터프라이즈, CSP(클라우드 솔루션 공급자), Microsoft 고객 계약 및 종량제 요금을 사용하는 개별 플랜을 통해 구매한 구독과 연결된 리소스에만 적용됩니다.
 
 ## <a name="scope-reservations"></a>예약 범위 지정
 
@@ -56,7 +56,7 @@ EA(기업계약) 고객은 EA Portal에서 **예약 인스턴스 추가** 옵션
 
 - **단일 리소스 그룹 범위** - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.
 - **단일 구독 범위** - 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.
-- **공유 범위** - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. 기업계약 고객의 경우 청구 컨텍스트는 등록입니다. 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.
+- **공유 범위** - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. 기업계약 고객의 경우 청구 컨텍스트는 등록입니다. Microsoft 고객 계약 고객의 경우 청구 범위는 청구 프로필입니다. 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.
 
 사용 요금에 예약 할인을 적용할 때 Azure는 다음과 같은 순서로 예약을 처리합니다.
 
@@ -84,7 +84,7 @@ EA(기업계약) 고객은 EA Portal에서 **예약 인스턴스 추가** 옵션
 
 여러 가지 방법으로(Azure Portal, API 또는 사용량 데이터를 통해) 예약 사용량을 모니터링할 수 있습니다. 액세스 권한이 있는 모든 예약을 보려면 Azure Portal에서 **예약**으로 이동합니다. 예약 그리드는 예약에 대해 마지막으로 기록된 사용률 비율을 보여줍니다. 예약을 클릭하면 예약의 장기 사용률이 표시됩니다.
 
-또한 기업계약 고객의 경우 [API](billing-reservation-apis.md#see-reservation-usage)를 사용하여 또는 [사용량 데이터](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks)를 통해 예약 사용률을 확인할 수 있습니다.
+또한 기업 계약 또는 Microsoft 고객 계약 고객의 경우 [API](billing-reservation-apis.md#see-reservation-usage) 및 [사용량 데이터](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks)를 통해 예약 사용률을 확인할 수 있습니다.
 
 범위가 리소스 그룹으로 지정된 예약의 사용률이 낮은 것으로 확인되는 경우 예약 범위를 단일 구독으로 업데이트하거나 청구 컨텍스트에서 공유할 수 있습니다. 예약을 분할하고 그 결과로 얻은 예약을 여러 리소스 그룹에 적용할 수도 있습니다.
 
@@ -99,6 +99,7 @@ EA(기업계약) 고객은 EA Portal에서 **예약 인스턴스 추가** 옵션
 예약 할인은 다음과 같은 적격 구독 및 제품 유형에 적용됩니다.
 
 - 기업계약(제품 번호: MS-AZR-0017P 또는 MS-AZR-0148P)
+- Microsoft 고객 계약 구독.
 - 종량제 요금을 사용한 개별 계획(제품 번호: MS-AZR-0003P 또는 MS-AZR-0023P)
 - CSP 구독
 
@@ -106,7 +107,7 @@ EA(기업계약) 고객은 EA Portal에서 **예약 인스턴스 추가** 옵션
 
 ## <a name="how-is-a-reservation-billed"></a>예약 요금은 어떻게 청구되나요?
 
-예약 요금은 구독에 연결된 결제 방법으로 청구됩니다. Enterprise 구독이 있는 경우 예약 비용은 현금 약정 잔액에서 차감됩니다. 현금 약정 잔액으로 예약 비용이 해결되지 않는 경우 초과분에 대한 요금이 청구됩니다. 종량제 요금을 사용하는 개별 플랜의 구독이 있는 경우 계정에 등록된 신용 카드로 선결제 요금이 즉시 청구됩니다. 월간 결제 금액이 청구서에 표시되며 매월 신용 카드로 요금이 청구됩니다. 요금 청구를 청구서로 받는 경우 다음 달 청구서에 요금이 표시됩니다.
+예약 요금은 구독에 연결된 결제 방법으로 청구됩니다. 가능한 경우, 예액 비용은 현금 약정 잔액에서 차감됩니다. 현금 약정 잔액으로 예약 비용이 해결되지 않는 경우 초과분에 대한 요금이 청구됩니다. 종량제 요금을 사용하는 개별 플랜의 구독이 있는 경우 계정에 등록된 신용 카드로 선결제 요금이 즉시 청구됩니다. 월간 결제 금액이 청구서에 표시되며 매월 신용 카드로 요금이 청구됩니다. 요금 청구를 청구서로 받는 경우 다음 달 청구서에 요금이 표시됩니다.
 
 ## <a name="how-reservation-discount-is-applied"></a>예약 할인이 적용되는 방법
 
@@ -120,7 +121,7 @@ EA(기업계약) 고객은 EA Portal에서 **예약 인스턴스 추가** 옵션
 
 가상 머신이 사용자의 등록/계정 내 다른 구독에서 실행되는 경우는 범위를 공유로 선택합니다. 공유 범위를 사용하면 예약 할인을 구독 전체에 적용할 수 있습니다. 예약 구매 후 범위를 변경할 수 있습니다. 자세한 내용은 [Azure 예약 관리](billing-manage-reserved-vm-instance.md)를 참조하세요.
 
-예약 할인은 Enterprise, CSP 또는 종량제를 사용하는 구독과 연결된 리소스에만 적용됩니다. 다른 유형의 구독에서 실행되는 리소스는 예약 할인을 받지 못합니다.
+예약 할인은 Enterprise, Microsoft 고객 계약, CSP 또는 종량제를 사용하는 구독과 연결된 리소스에만 적용됩니다. 다른 유형의 구독에서 실행되는 리소스는 예약 할인을 받지 못합니다.
 
 ## <a name="when-the-reservation-term-expires"></a>예약 기간이 만료되는 경우
 

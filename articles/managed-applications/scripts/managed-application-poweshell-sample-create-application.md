@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell 스크립트 샘플 - 관리되는 애플리케이션 배포 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 관리되는 애플리케이션 정의 배포
+description: 구독에 관리되는 애플리케이션 정의를 배포하는 Azure PowerShell 샘플 스크립트를 제공합니다.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 03b453e441b92d21f29e7e1f401bebae0b8589da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d450c2292f5d2982b7c8b266cc6780a72d426321
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171459"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332566"
 ---
 # <a name="deploy-a-managed-application-for-a-service-catalog-with-powershell"></a>PowerShell을 사용하여 서비스 카탈로그용 관리되는 애플리케이션 배포
 

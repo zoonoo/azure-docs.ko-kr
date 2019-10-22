@@ -11,12 +11,12 @@ ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.devlang: powershell
-ms.openlocfilehash: cb175191cb080cffb6feb52b724c29568fd549a5
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c9de4cec417625bb8451457652dacb61550c31b0
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706529"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248325"
 ---
 # <a name="create-your-first-powershell-function-in-azure-preview"></a>Azure에서 첫 번째 PowerShell 함수 만들기(미리 보기)
 
@@ -96,7 +96,7 @@ Azure Functions Core Tools는 Visual Studio Code와 통합되어 사용자가 Az
 
     또한 브라우저에서 GET 요청을 실행할 수도 있습니다.
 
-    `name` 매개 변수를 쿼리 매개 변수로 또는 본문에 전달하지 않고 HttpTrigger 엔드포인트을 호출하는 경우 이 함수는 500 오류를 반환합니다. run.ps1의 코드를 검토하면 의도적으로 이 오류가 발생하는 것을 확인할 수 있습니다.
+    `name` 매개 변수를 쿼리 매개 변수로 또는 본문에 전달하지 않고 HttpTrigger 엔드포인트를 호출하면 이 함수는 [HttpStatusCode]::BadRequest 오류를 반환합니다. run.ps1의 코드를 검토하면 의도적으로 이 오류가 발생하는 것을 확인할 수 있습니다.
 
 1. 디버깅을 중지하려면 Shift+F5를 누릅니다.
 

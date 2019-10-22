@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 937fca5698378a8c877b4a981557f87d06170e9a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5100af99046a03345230ed0468071766aae1c77b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879383"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389618"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>빠른 시작: 웹 API에 액세스하는 클라이언트 애플리케이션 구성
 
@@ -80,8 +80,9 @@ ms.locfileid: "68879383"
 
 1. 공용 클라이언트(모바일, 데스크톱)에 대해 제안된 리디렉션 URI에서 선택하려면 다음 단계를 따릅니다.
     1. **공용 클라이언트(모바일, 데스크톱)에 대해 제안된 리디렉션 URI** 섹션을 찾습니다.
-    1. 확인란을 사용하여 애플리케이션에 적합한 리디렉션 URI를 선택합니다.
+    1. 확인란을 사용하여 애플리케이션에 적합한 리디렉션 URI를 선택합니다. 사용자 지정 리디렉션 URI를 입력할 수 있습니다. 사용할 항목이 확실하지 않으면 라이브러리 설명서를 확인하세요.
 
+리디렉션 URI에 적용되는 특정 제한 사항이 있습니다. [리디렉션 URI 한계 및 제한 사항](https://docs.microsoft.com/azure/active-directory/develop/reply-url)에 대해 자세히 알아봅니다.
 > [!NOTE]
 > 대상으로 지정하려는 플랫폼 또는 디바이스에 따라 애플리케이션에 대한 설정을 구성할 수 있는 새 **인증** 설정 환경을 사용해 보세요.
 >

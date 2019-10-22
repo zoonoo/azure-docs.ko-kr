@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
-ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 7fd74e31b0527b256f6bb9f17029a02aaf41568b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.custom: seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: b9cadbf35680953058bd38d7db26a6e6c684836b
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931815"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327284"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>빠른 시작: 기존 MongoDB Node.js 웹앱을 Azure Cosmos DB로 마이그레이션 
 
@@ -27,9 +27,9 @@ ms.locfileid: "70931815"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Cosmos DB의 핵심인 글로벌 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
+이 빠른 시작에서는 Node.js로 작성된 기존 MongoDB 앱을 사용하는 방법을 보여주고, MongoDB 클라이언트를 지원하는 Azure Cosmos 데이터베이스에 연결합니다. 즉, Cosmos 데이터베이스에서 데이터가 저장되는 애플리케이션에 대해 투명합니다.
 
-이 빠른 시작에서는 Node.js로 작성된 기존 MongoDB 앱을 사용하는 방법을 보여주고, MongoDB 클라이언트를 지원하는 Cosmos 데이터베이스에 연결합니다. 즉, Cosmos 데이터베이스에서 데이터가 저장되는 애플리케이션에 대해 투명합니다.
+Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Cosmos DB의 핵심인 글로벌 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.
 
 완료하고 나면 MEAN 애플리케이션(MongoDB, Express, Angular 및 Node.js)이 [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)에서 실행됩니다. 
 

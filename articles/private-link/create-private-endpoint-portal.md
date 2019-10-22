@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 95dbe2b9ccfdc0a900ba53668869e3872b6e51d5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d8d7c0232110d3d5b040debc3a24941988d4ee29
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030312"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372232"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Azure Portal를 사용하여 프라이빗 엔드포인트 만들기
 
-프라이빗 엔드포인트는 Azure에서 프라이빗 링크를 만드는 데 사용되는 기본 구성 요소입니다. 프라이빗 엔드포인트는 VM(Virtual Machines) 같은 Azure 리소스가 프라이빗 링크 리소스와 비공개로 통신할 수 있게 해줍니다. 이 빠른 시작에서는 Azure PowerShell을 통해 Azure Virtual Network에 VM을 만들고, Azure 프라이빗 엔드포인트를 사용하는 SQL Database Server를 만드는 방법에 대해 알아봅니다. 그러면 VM에서 SQL Database Server에 안전하게 액세스할 수 있습니다.
+프라이빗 엔드포인트는 Azure에서 프라이빗 링크를 만드는 데 사용되는 기본 구성 요소입니다. 프라이빗 엔드포인트는 VM(Virtual Machines) 같은 Azure 리소스가 프라이빗 링크 리소스와 비공개로 통신할 수 있게 해줍니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Azure 프라이빗 엔드포인트가 있는 SQL Database Server인 Azure Virtual Network에서 VM을 만드는 방법에 대해 알아봅니다. 그러면 VM에서 SQL Database Server에 안전하게 액세스할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -115,8 +115,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | **인스턴스 정보** |  |
     | 데이터베이스 이름  | *mydatabase*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
     |||
-5.  **서버**에서 **새로 만들기**를 선택합니다. 
-6.  **새 서버**에서 다음 정보를 입력하거나 선택합니다.
+5. **서버**에서 **새로 만들기**를 선택합니다. 
+6. **새 서버**에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
@@ -125,9 +125,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 암호 | 선택한 암호를 입력합니다. 암호는 8자 이상이어야 하며 정의된 요구 사항을 충족해야 합니다. |
     | 위치 | SQL Server가 상주할 Azure 지역을 선택합니다. |
     
-7.  **확인**을 선택합니다. 
-8.  **검토 + 만들기**를 선택합니다.  **검토 + 만들기** 페이지로 이동됩니다. 이 페이지에서 Azure가 구성의 유효성을 검사합니다. 
-9. 유효성 검사 통과 메시지가 표시되면  **만들기**를 선택합니다. 
+7. **확인**을 선택합니다. 
+8. **검토 + 만들기**를 선택합니다. **검토 + 만들기** 페이지로 이동됩니다. 여기서 구성이 유효한지 검사됩니다. 
+9. 유효성 검사 통과 메시지가 표시되면 **만들기**를 선택합니다. 
 10. 유효성 검사 통과 메시지가 표시되면 [만들기]를 선택합니다. 
 
 ## <a name="create-a-private-endpoint"></a>프라이빗 엔드포인트 만들기
@@ -147,18 +147,18 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | Name | * myPrivateEndpoint*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
     |지역|**WestCentralUS**를 선택합니다.|
     |||
-5.  **다음: 리소스**를 선택합니다.
-6.  **프라이빗 엔드포인트 만들기 - 리소스**에서 다음 정보를 입력하거나 선택합니다.
+5. 완료되면 **다음: 리소스**를 선택합니다.
+6. **프라이빗 엔드포인트 만들기 - 리소스**에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
     |연결 방법  | 내 디렉터리의 Azure 리소스에 연결하도록 선택합니다.|
     | Subscription| 구독을 선택합니다. |
-    | 리소스 종류 |  **Microsoft.Sql/servers**를 선택합니다. |
+    | 리소스 종류 | **Microsoft.Sql/servers**를 선택합니다. |
     | 리소스 |*myServer*를 선택합니다.|
     |대상 하위 리소스 |*sqlServer*를 선택합니다.|
     |||
-7.  **다음: 구성**을 선택합니다.
+7. 완료되면 **다음: 구성**을 선택합니다.
 8. **프라이빗 엔드포인트 만들기(미리 보기) - 구성**에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
@@ -167,17 +167,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 가상 네트워크| *MyVirtualNetwork*를 선택합니다. |
     | 서브넷 |  *mySubnet*을 선택합니다. |
     |**프라이빗 DNS 통합**||
-    |프라이빗 DNS 영역과 통합 | **예**를 선택합니다. |
+    |프라이빗 DNS 영역과 통합 |**예**를 선택합니다. |
     |프라이빗 DNS 영역 |*(New)privatelink.database.windows.net*을 선택합니다. |
     |||
 
-1.  **검토 + 만들기**를 선택합니다.  **검토 + 만들기** 페이지로 이동됩니다. 이 페이지에서 Azure가 구성의 유효성을 검사합니다. 
-2.  **유효성 검사 통과** 메시지가 표시되면  **만들기**를 선택합니다. 
+1. **검토 + 만들기**를 선택합니다. **검토 + 만들기** 페이지로 이동됩니다. 여기서 구성이 유효한지 검사됩니다. 
+2. **유효성 검사 통과** 메시지가 표시되면 **만들기**를 선택합니다. 
  
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>RDP(원격 데스크톱)를 사용하여 VM에 연결
 
 
-**myVm*을 만들었으면 다음과 같이 인터넷을 통해 연결합니다. 
+**myVm*을 만든 후 다음과 같이 인터넷을 통해 연결합니다. 
 
 1. 포털의 검색 창에 *myVm*을 입력합니다.
 
@@ -217,26 +217,26 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     ```
 3. [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)를 설치합니다.
 
-4.  **서버에 연결**에서 다음 정보를 입력하거나 선택합니다.
+4. **서버에 연결**에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
     | 서버 유형| **데이터베이스 엔진**을 선택합니다.|
     | 서버 이름| *myserver.database.windows.net*을 선택합니다. |
-    | 사용자 이름 | SQL Server를 만들 때 입력한 암호를 입력합니다. |
+    | 사용자 이름 | SQL 서버 생성 중에 제공되는 username@servername으로 사용자 이름을 입력합니다. |
     |암호 |SQL Server를 만들 때 입력한 암호를 입력합니다. |
     |암호 기억|**예**를 선택합니다.|
     |||
-1.  **연결**을 선택합니다.
+1. **연결**을 선택합니다.
 2. 왼쪽 메뉴에서 데이터베이스를 찾아봅니다.
 3. (선택 사항) Mydatabase에서 정보를 만들거나 쿼리합니다.
 4.  *myVm*에 대한 원격 데스크톱 연결을 닫습니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 프라이빗 엔드포인트, SQL Server 및 VM을 다 사용했으면 리소스 그룹과 리소스 그룹에 포함된 모든 리소스를 삭제합니다. 
-1. 포털 맨 위에 있는  **검색**  상자에  *myResourceGroup* 을 입력하고 검색 결과에서  *myResourceGroup* 을 선택합니다. 
-2.  **리소스 그룹 삭제**를 선택합니다. 
-3.  **리소스 그룹 이름 입력** 에 대해 myResourceGroup을 입력하고  **삭제**를 선택합니다.
+1. 포털 맨 위에 있는 **검색** 상자에  *myResourceGroup* 을 입력하고 검색 결과에서  *myResourceGroup* 을 선택합니다. 
+2. **리소스 그룹 삭제**를 선택합니다. 
+3. **리소스 그룹 이름 입력**에 대해 myResourceGroup을 입력하고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,20 +6,21 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 04/18/2019
-ms.openlocfilehash: 0b3062e14873ec971163c125fccd6852d8662663
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.date: 10/09/2019
+ms.openlocfilehash: 00937197536ede7d6eed168e0a84bad294800159
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098714"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264570"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>자습서: Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터 만들기
+
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 이 자습서에서는 Azure Data Factory를 사용하여 Azure HDInsight에서 주문형 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 만드는 방법을 알아봅니다. 그런 후 Azure Data Factory에서 데이터 파이프라인을 사용하여 Hive 작업을 실행하고 클러스터를 삭제합니다. 이 자습서를 마치면 클러스터 생성, 작업 실행 및 클러스터 삭제가 일정에 따라 수행되는 빅 데이터 작업 실행을 운용하는 방법을 알게 됩니다.
 
-이 자습서에서 다루는 작업은 다음과 같습니다. 
+이 자습서에서 다루는 작업은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * Azure Storage 계정 만들기
@@ -51,9 +52,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 4. 스토리지 계정에 Blob 컨테이너를 만듭니다.
 5. 샘플 HiveQL 스크립트(**partitionweblogs.hql**)를 Blob 컨테이너에 복사합니다. 스크립트는 [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql)에서 사용할 수 있습니다. 샘플 스크립트를 이미 다른 공용 Blob 컨테이너에서 사용할 수 있습니다. 아래의 PowerShell 스크립트는 만든 Azure Storage 계정에 이러한 파일의 복사본을 만듭니다.
 
-> [!WARNING]  
-> 스토리지 계정 종류 `BlobStorage`는 HDInsight 클러스터에 사용할 수 없습니다.
-
 **Azure PowerShell을 사용하여 스토리지 계정을 만들고 파일을 복사하려면**
 
 > [!IMPORTANT]  
@@ -81,6 +79,10 @@ if(-not($sub))
 {
     Connect-AzAccount
 }
+
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
+
 #endregion
 
 ####################################
@@ -127,11 +129,13 @@ Write-Host "`nCopying files ..." -ForegroundColor Green
 
 $blobs = Get-AzStorageBlob `
     -Context $sourceContext `
-    -Container $sourceContainerName
+    -Container $sourceContainerName `
+    -Blob "hivescripts\hivescript.hql"
 
 $blobs|Start-AzStorageBlobCopy `
     -DestContext $destContext `
-    -DestContainer $destContainerName
+    -DestContainer $destContainerName `
+    -DestBlob "hivescripts\partitionweblogs.hql"
 
 Write-Host "`nCopied files ..." -ForegroundColor Green
 Get-AzStorageBlob `
@@ -150,16 +154,16 @@ Write-host "`nScript completed" -ForegroundColor Green
 **스토리지 계정 만들기를 확인하려면**
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 창에서 **리소스 그룹** 을 선택합니다.
-3. PowerShell 스크립트에서 만든 리소스 그룹 이름을 선택합니다. 나열된 리소스 그룹이 너무 많은 경우 필터를 사용합니다.
-4. **리소스** 타일에서 리소스 그룹을 다른 프로젝트와 공유하지 않는 한, 하나의 리소스가 나열됩니다. 그 리소스는 이전에 지정한 이름의 스토리지 계정입니다. 스토리지 계정 이름을 선택합니다.
-5. **Blob** 타일을 선택합니다.
-6. **adfgetstarted** 컨테이너를 선택합니다. **hivescripts**라는 폴더가 표시됩니다.
-7. 이 폴더를 열고 예제 스크립트 파일 **partitionweblogs.hql**이 포함되어 있는지 확인합니다.
+1. 왼쪽에서 **모든 서비스** > **일반** > **리소스 그룹**으로 이동합니다.
+1. PowerShell 스크립트에서 만든 리소스 그룹 이름을 선택합니다. 나열된 리소스 그룹이 너무 많은 경우 필터를 사용합니다.
+1. **개요** 보기에서 리소스 그룹을 다른 프로젝트와 공유하지 않는 한, 하나의 리소스가 나열됩니다. 그 리소스는 이전에 지정한 이름의 스토리지 계정입니다. 스토리지 계정 이름을 선택합니다.
+1. **컨테이너** 타일을 선택합니다.
+1. **adfgetstarted** 컨테이너를 선택합니다. **hivescripts**라는 폴더가 표시됩니다.
+1. 이 폴더를 열고 예제 스크립트 파일 **partitionweblogs.hql**이 포함되어 있는지 확인합니다.
 
 ## <a name="understand-the-azure-data-factory-activity"></a>Azure Data Factory 작업 이해
 
-[Azure Data Factory](../data-factory/introduction.md)는 데이터의 이동 및 변환을 조율하고 자동화합니다. Azure Data Factory는 입력 데이터 조각을 처리하고 처리가 완료되면 클러스터를 삭제하기 위해 HDInsight Hadoop 클러스터를 적시에 만들 수 있습니다. 
+[Azure Data Factory](../data-factory/introduction.md)는 데이터의 이동 및 변환을 조율하고 자동화합니다. Azure Data Factory는 입력 데이터 조각을 처리하고 처리가 완료되면 클러스터를 삭제하기 위해 HDInsight Hadoop 클러스터를 적시에 만들 수 있습니다.
 
 Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 파이프라인이 포함될 수 있습니다. 데이터 파이프라인은 하나 이상의 활동을 포함합니다. 활동에는 다음 두 가지 유형이 있습니다.
 
@@ -194,6 +198,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
     |Resource group | **기존 항목 사용**을 선택하고 PowerShell 스크립트를 사용하여 만든 리소스 그룹을 선택합니다. |
     |버전 | **V2**로 둡니다. |
     |위치 | 이 위치는 이전에 리소스 그룹을 만드는 동안 지정한 위치로 자동으로 설정됩니다. 이 자습서에서 위치는 **미국 동부**로 설정됩니다. |
+    |GIT 사용|이 상자의 선택을 취소합니다.|
 
     ![Azure Portal을 사용하여 Azure Data Factory 만들기](./media/hdinsight-hadoop-create-linux-clusters-adf/create-data-factory-portal.png "Azure Portal을 사용하여 Azure Data Factory 만들기")
 
@@ -234,7 +239,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
     |Azure 구독 |드롭다운 목록에서 구독을 선택합니다.|
     |Storage 계정 이름 |PowerShell 스크립트의 일부로 만든 Azure Storage 계정을 선택합니다.|
 
-    그런 다음, **마침**을 선택합니다.
+    **연결 테스트**를 선택하고, 성공하면 **만들기**를 선택합니다.
 
     ![Azure Storage 연결된 서비스의 이름 제공](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-storage-linked-service-details.png "Azure Storage 연결된 서비스의 이름 제공")
 
@@ -262,13 +267,12 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
     | 클러스터 이름 접두사 | 데이터 팩터리에 의해 만들어진 모든 클러스터 유형에 접두사로 추가될 값을 제공합니다. |
     |Subscription |드롭다운 목록에서 구독을 선택합니다.|
     | 리소스 그룹 선택 | 이전에 사용했던 PowerShell 스크립트의 일부로 만든 리소스 그룹을 선택합니다.|
-    |지역 선택 | 드롭다운 목록에서 지역을 선택합니다.|
     | OS 유형/클러스터 SSH 사용자 이름 | SSH 사용자 이름(일반적으로 `sshuser`)을 입력합니다. |
     | OS 유형/클러스터 SSH 암호 | SSH 사용자에 대한 암호를 제공합니다. |
     | OS 유형/클러스터 사용자 이름 | 클러스터 사용자 이름(일반적으로 `admin`)을 입력합니다. |
-    | OS 유형/클러스터 사용자 암호 | 클러스터 사용자의 암호를 제공합니다. |
+    | OS 유형/클러스터 암호 | 클러스터 사용자의 암호를 제공합니다. |
 
-    그런 다음, **마침**을 선택합니다.
+    그런 다음 **만들기**를 선택합니다.
 
     ![HDInsight 연결된 서비스의 값 제공](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service-details.png "HDInsight 연결된 서비스의 값 제공")
 
@@ -282,7 +286,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
     ![Data Factory 파이프라인에 활동 추가](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-add-hive-pipeline.png "Data Factory 파이프라인에 활동 추가")
 
-3. Hive 활동을 선택했는지 확인하고, **HDI 클러스터** 탭을 선택하고 **HDInsight 연결된 서비스** 드롭다운 목록에서 HDInsight에 대해 이전에 만든 연결된 서비스, **HDinightLinkedService**를 선택합니다.
+3. Hive 활동을 선택했는지 확인하고, **HDI 클러스터** 탭을 선택하고 **HDInsight 연결된 서비스** 드롭다운 목록에서 HDInsight에 대해 이전에 만든 연결된 서비스, **HDInsightLinkedService**를 선택합니다.
 
     ![파이프라인의 HDInsight 클러스터에 대한 자세한 설명 제공](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-hive-activity-select-hdinsight-linked-service.png "파이프라인의 HDInsight 클러스터에 대한 자세한 설명 제공")
 

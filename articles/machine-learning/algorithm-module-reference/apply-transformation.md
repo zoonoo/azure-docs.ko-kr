@@ -1,5 +1,5 @@
 ---
-title: '변환 적용: 모듈 참조'
+title: '변형 적용: 모듈 참조'
 titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning 서비스에서 변환 적용 모듈을 사용 하 여 이전에 계산 된 변환을 기반으로 입력 데이터 집합을 수정 하는 방법에 대해 알아봅니다.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 8b4ec9e71d9ce932a7b206467db91760f4a4fc47
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: adb2477fe2b7eea0dd0a98c7240843d90411d832
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128975"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693870"
 ---
 # <a name="apply-transformation-module"></a>변환 모듈 적용
 
@@ -32,7 +32,7 @@ Azure Machine Learning는 다양 한 종류의 사용자 지정 변환을 만들
 
 ## <a name="how-to-use-apply-transformation"></a>변형 적용 사용 방법  
   
-1. 실험에 **변환 적용** 모듈을 추가 합니다. **점수** 범주의 **Machine Learning**아래에서이 모듈을 찾을 수 있습니다. 
+1. 파이프라인에 **변환 적용** 모듈을 추가 합니다. **점수** 범주의 **Machine Learning**아래에서이 모듈을 찾을 수 있습니다. 
   
 2. 입력으로 사용할 기존 변환을 찾습니다.  이전에 저장 한 변환은 왼쪽 탐색 창의 **변환** 그룹에서 찾을 수 있습니다.  
   
@@ -42,7 +42,7 @@ Azure Machine Learning는 다양 한 종류의 사용자 지정 변환을 만들
   
 4. 변환을 정의할 때 모든 사용자 지정이 수행 되기 때문에 다른 매개 변수를 설정 하지 않아도 됩니다.  
   
-5. 새 데이터 집합에 변환을 적용 하려면 실험을 실행 합니다.  
+5. 새 데이터 집합에 변환을 적용 하려면 파이프라인을 실행 합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

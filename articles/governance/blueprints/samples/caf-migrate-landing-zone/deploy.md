@@ -1,22 +1,22 @@
 ---
-title: 샘플 - CAF Migrate 방문 영역 청사진 - 배포 단계
-description: CAF Migrate 방문 영역 청사진 샘플의 배포 단계
+title: CAF Migration 방문 영역 청사진 샘플 - 배포 단계
+description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 CAF Migration 방문 영역 청사진 샘플에 대한 단계를 배포합니다.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 ms.custom: fasttrack-new
-ms.openlocfilehash: cec8d224e52de25fe026a17d57144da3cd53fc5b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: cb41d363b208400598c8afb06dfdb4acaeb02d2b
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981675"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298012"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Migration 방문 영역 청사진 샘플 배포
 
-Azure Blueprints CAF Migrate 방문 영역 청사진 샘플을 배포하려면 다음 단계를 수행해야 합니다.
+Azure Blueprints CAF Migration 방문 영역 청사진 샘플을 배포하려면 다음 단계를 수행해야 합니다.
 
 > [!div class="checklist1"]
 > - [CAF Foundation](../caf-foundation/index.md) 청사진 샘플을 배포하는 것이 좋습니다.
@@ -118,7 +118,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 지금까지 CAF Migrate 방문 영역 청사진 샘플을 배포하는 단계를 살펴보았으므로 다음 문서를 참조하여 아키텍처에 대해 알아보세요.
 
 > [!div class="nextstepaction"]
-> [CAF Migrate 방문 영역 청사진 - 개요](./index.md)
+> [CAF Migration 방문 영역 청사진 - 개요](./index.md)
 
 청사진 및 사용 방법에 대한 추가 문서:
 

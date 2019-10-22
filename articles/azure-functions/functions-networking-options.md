@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 967988d802a1b3d33ff50f578650e44794015583
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9fe7147325b2e14a7ae6bb4b31aa941fb4059b11
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550851"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690819"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -36,7 +36,7 @@ ms.locfileid: "72550851"
 |[인바운드 IP 제한 & 개인 사이트 액세스](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
 |[가상 네트워크 통합](#virtual-network-integration)|❌No|✅Yes (지역)|✅Yes (지역 및 게이트웨이)|✅Yes|
 |[가상 네트워크 트리거 (비 HTTP)](#virtual-network-triggers-non-http)|❌No| ❌No|✅Yes|✅Yes|
-|[VNet](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
+|[VNet](#hybrid-connections)|❌No|✅Yes|✅Yes|✅Yes|
 |[아웃 바운드 IP 제한](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Yes|
 
 
@@ -127,11 +127,11 @@ VNet 통합에서 지원하지 않는 다음 몇 가지 항목이 있습니다.
 
 ## <a name="hybrid-connections"></a>하이브리드 연결
 
-[하이브리드 연결](../service-bus-relay/relay-hybrid-connections-protocol.md) 는 다른 네트워크의 응용 프로그램 리소스에 액세스 하는 데 사용할 수 있는 Azure Relay의 기능입니다. 이를 통해 앱에서 애플리케이션 엔드포인트에 액세스할 수 있습니다. 응용 프로그램에 액세스 하는 데 사용할 수 없습니다. 하이브리드 연결는 [App Service 계획과](functions-scale.md#app-service-plan) [App Service Environment](../app-service/environment/intro.md)에서 실행 되는 함수에 사용할 수 있습니다.
+[하이브리드 연결](../service-bus-relay/relay-hybrid-connections-protocol.md) 는 다른 네트워크의 응용 프로그램 리소스에 액세스 하는 데 사용할 수 있는 Azure Relay의 기능입니다. 이를 통해 앱에서 애플리케이션 엔드포인트에 액세스할 수 있습니다. 응용 프로그램에 액세스 하는 데 사용할 수 없습니다. 하이브리드 연결는 소비 계획을 제외한 모든 함수에서 실행 되는 함수에 사용할 수 있습니다.
 
 Azure Functions에서 사용 되는 것 처럼 각 하이브리드 연결은 단일 TCP 호스트 및 포트 조합과 관련이 있습니다. 즉, TCP 수신 대기 포트에 액세스 하는 한, 하이브리드 연결의 끝점은 모든 운영 체제 및 응용 프로그램에 있을 수 있습니다. 하이브리드 연결 기능은 응용 프로그램 프로토콜이 무엇 인지 또는 사용자가 액세스 하는 것을 알 수 없습니다. 단지 네트워크 액세스를 제공 합니다.
 
-자세한 내용은 App Service 계획의 함수를 지 원하는 [하이브리드 연결에 대 한 App Service 설명서](../app-service/app-service-hybrid-connections.md)를 참조 하세요.
+자세히 알아보려면 동일한 구성 단계를 통해 함수를 지 원하는 [하이브리드 연결에 대 한 App Service 설명서](../app-service/app-service-hybrid-connections.md)를 참조 하세요.
 
 ## <a name="outbound-ip-restrictions"></a>아웃 바운드 IP 제한
 

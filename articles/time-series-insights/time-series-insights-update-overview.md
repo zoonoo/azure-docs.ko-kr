@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4a57c6d4a9034d9145058e9137759c2cea19aa6
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: da81d5603eb26ae3b209bbbc01a8d6fc31e1ba3a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978666"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72382027"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>Azure Time Series Insights Preview란?
 
@@ -45,7 +45,7 @@ IoT 데이터란 자산 집약적 조직에서 사용할 수 있는 모든 산�
 
 다음 이미지에는 일반적인 IoT 데이터 흐름이 나와 있습니다.
 
-  ![IoT 데이터 흐름][1]
+  [![IoT 데이터 흐름](media/v2-update-overview/overview-one.png)](media/v2-update-overview/overview-one.png#lightbox)
 
 ## <a name="azure-time-series-insights-for-industrial-iot"></a>산업 IoT용 Azure Time Series Insights
 
@@ -70,7 +70,7 @@ Time Series Insights는 현재 미리 보기 상태인 운영 인사이트 기�
 
 이 개괄적인 데이터 흐름 다이어그램은 업데이트를 보여 줍니다.
 
-  ![주요 기능][2]
+  [![주요 기능](media/v2-update-overview/overview-two.png)](media/v2-update-overview/overview-two.png#lightbox)
 
 이러한 주요 산업 IoT 기능이 도입되면서, Time Series Insights는 다음과 같은 주요 혜택을 제공합니다.
 
@@ -94,7 +94,3 @@ Azure Time Series Insights 미리 보기 시작:
 
 > [!div class="nextstepaction"]
 > [Azure Time Series Insights Preview 사용 사례](./time-series-insights-update-use-cases.md)
-
-<!-- Images -->
-[1]: media/v2-update-overview/overview-one.png
-[2]: media/v2-update-overview/overview-two.png

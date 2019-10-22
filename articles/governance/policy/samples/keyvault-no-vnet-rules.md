@@ -1,17 +1,17 @@
 ---
-title: 샘플 - 가상 네트워크 엔드포인트가 없는 Key Vault 감사
+title: 샘플 - vNet 엔드포인트가 없는 Key Vaults
 description: 이 샘플 정책 정의에서는 Key Vault 자격 증명 모음을 감사하여 가상 네트워크 서비스 엔드포인트가 없는 인스턴스를 검색합니다.
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: ccfba0eae8d3c51cf153f58d554dc09b574d3873
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 7bcbcdf68b3c8f882a1e0fbb9953fea575f96556
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976972"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255733"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>샘플 - 가상 네트워크 엔드포인트가 없는 Key Vault 자격 증명 모음
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: ab6c381e779ddc19211f183b9bc80e586f58e804
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 90fb3fe732889f3ba3965210cd8a681a0487f78e
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261417"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515043"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>빠른 시작: C# 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용(미리 보기)
 
@@ -54,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
   * 미국 중부
   * 미국 중부 EUAP
 
-* 이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 C#을 사용하여 작성되었습니다. 개발 머신에는 .NET Core SDK 2.1.0 이상이 필요합니다.
+* 이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 C#으로 작성되었습니다. 개발 머신에는 .NET Core SDK 2.1.0 이상이 필요합니다.
 
   [.NET](https://www.microsoft.com/net/download/all)에서 여러 플랫폼에 대한 .NET Core SDK를 다운로드할 수 있습니다.
 
@@ -85,36 +85,36 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. 디바이스 ID를 만들려면 Cloud Shell에서 다음 명령을 실행합니다.
 
    > [!NOTE]
-   > * *YourIoTHubName* 자리 표시자를 IoT Hub에서 선택한 이름으로 바꿉니다.
-   > * 다음과 같이 *MyDevice*를 사용합니다. 등록된 디바이스에 지정된 이름입니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후에 실행하세요.
+   > * *YourIoTHubName* 자리 표시자를 IoT 허브에서 선택한 이름으로 바꿉니다.
+   > * 등록하려는 디바이스의 이름에는 표시된 대로 *MyDevice* 를 사용하는 것이 좋습니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후에 실행하세요.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. 방금 등록한 디바이스의 *디바이스 연결 문자열*을 가져오려면 Cloud Shell에서 다음 명령을 실행합니다.
 
    > [!NOTE]
-   > *YourIoTHubName* 자리 표시자를 IoT Hub에서 선택한 이름으로 바꿉니다.
+   > *YourIoTHubName* 자리 표시자를 IoT 허브에서 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
-    나중에 이 빠른 시작에서 사용할 수 있도록 디바이스 연결 문자열을 적어 두세요. 다음 예제와 유사합니다.
+    나중에 이 빠른 시작에서 사용할 수 있도록 반환된 디바이스 연결 문자열을 적어 두세요. 다음 예제와 유사합니다.
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
 1. IoT Hub에 연결하고 디바이스 스트림을 설정하려면 서비스 쪽 애플리케이션을 사용하도록 설정하기 위해 IoT Hub의 *서비스 연결 문자열*도 필요합니다. 다음 명령은 IoT Hub에 대한 이 값을 검색합니다.
 
    > [!NOTE]
-   > *YourIoTHubName* 자리 표시자를 IoT Hub에서 선택한 이름으로 바꿉니다.
+   > *YourIoTHubName* 자리 표시자를 IoT 허브에서 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
     ```
 
-    나중에 이 빠른 시작에서 사용할 수 있도록 반환된 값을 적어 두세요. 다음 예제와 유사합니다.
+    나중에 이 빠른 시작에서 사용할 수 있도록 반환된 서비스 연결 문자열을 적어 두세요. 다음 예제와 유사합니다.
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
@@ -124,15 +124,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ### <a name="run-the-device-local-proxy-application"></a>디바이스-로컬 프록시 애플리케이션 실행
 
-압축을 푼 프로젝트 폴더의 *device-streams-proxy/device* 디렉터리로 이동합니다. 다음 정보를 편리하게 보관합니다.
+로컬 터미널 창에서 압축 해제된 프로젝트 폴더의 `device-streams-proxy/device` 디렉터리로 이동합니다. 다음 정보를 잘 보관해 둡니다.
 
 | 인수 이름 | 인수 값 |
 |----------------|-----------------|
-| `deviceConnectionString` | 이전에 만든 디바이스의 연결 문자열입니다. |
+| `DeviceConnectionString` | 이전에 만든 디바이스의 디바이스 연결 문자열입니다. |
 | `targetServiceHostName` | SSH 서버에서 수신 대기하는 IP 주소입니다. 디바이스-로컬 프록시 애플리케이션이 실행되는 IP와 동일한 경우 주소는 `localhost`입니다. |
 | `targetServicePort` | 애플리케이션 프로토콜에서 사용하는 포트입니다(SSH의 경우 기본적으로 22 포트임).  |
 
-다음과 같이 코드를 컴파일하고 실행합니다.
+다음 명령을 사용하여 코드를 컴파일하고 실행합니다.
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/device/
@@ -142,23 +142,23 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run $deviceConnectionString localhost 22
+dotnet run ${DeviceConnectionString} localhost 22
 
 # In Windows
-dotnet run %deviceConnectionString% localhost 22
+dotnet run {DeviceConnectionString} localhost 22
 ```
 
 ### <a name="run-the-service-local-proxy-application"></a>서비스-로컬 프록시 애플리케이션 실행
 
-압축을 푼 프로젝트 폴더에서 `device-streams-proxy/service`로 이동합니다. 다음 정보가 필요합니다.
+다른 로컬 터미널 창에서 압축 해제된 프로젝트 폴더의 `device-streams-proxy/service`로 이동합니다. 다음 정보를 잘 보관해 둡니다.
 
 | 매개 변수 이름 | 매개 변수 값 |
 |----------------|-----------------|
-| `iotHubConnectionString` | IoT Hub의 서비스 연결 문자열입니다. |
-| `deviceId` | 이전에 만든 디바이스의 식별자입니다. |
+| `ServiceConnectionString` | IoT Hub의 서비스 연결 문자열입니다. |
+| `MyDevice` | 이전에 만든 디바이스의 식별자입니다. |
 | `localPortNumber` | SSH 클라이언트에서 연결하는 로컬 포트입니다. 이 샘플에서는 2222 포트를 사용하지만 다른 임의의 숫자를 사용할 수도 있습니다. |
 
-다음과 같이 코드를 컴파일하고 실행합니다.
+다음 명령을 사용하여 코드를 컴파일하고 실행합니다.
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/service/
@@ -168,10 +168,10 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run $serviceConnectionString MyDevice 2222
+dotnet run ${ServiceConnectionString} MyDevice 2222
 
 # In Windows
-dotnet run %serviceConnectionString% MyDevice 2222
+dotnet run {ServiceConnectionString} MyDevice 2222
 ```
 
 ### <a name="run-the-ssh-client"></a>SSH 클라이언트 실행
@@ -179,7 +179,7 @@ dotnet run %serviceConnectionString% MyDevice 2222
 이제 SSH 클라이언트 애플리케이션을 사용하고, 2222 포트에서 서비스-로컬 프록시 애플리케이션에 연결합니다(SSH 디먼에서 직접 연결하는 대신).
 
 ```
-ssh <username>@localhost -p 2222
+ssh {username}@localhost -p 2222
 ```
 
 이 시점에서 자격 증명을 입력하라는 메시지가 SSH 로그인 창에 표시됩니다.
@@ -198,42 +198,42 @@ SSH 클라이언트 애플리케이션의 콘솔 출력입니다. SSH 클라이�
 
 ## <a name="rdp-to-a-device-via-device-streams"></a>디바이스 스트림을 통해 디바이스에 대한 RDP
 
-RDP 설정은 위에서 설명한 SSH 설정과 매우 비슷합니다. RDP 대상 IP 및 3389 포트를 대신 사용하고, SSH 클라이언트 대신 RDP 클라이언트를 사용합니다.
+RDP 설정은 위에서 설명한 SSH 설정과 비슷합니다. RDP 대상 IP 및 3389 포트를 대신 사용하고, SSH 클라이언트 대신 RDP 클라이언트를 사용합니다.
 
 ### <a name="run-the-device-local-proxy-application-rdp"></a>디바이스-로컬 프록시 애플리케이션(RDP) 실행
 
-압축을 푼 프로젝트 폴더의 *device-streams-proxy/device* 디렉터리로 이동합니다. 다음 정보를 편리하게 보관합니다.
+로컬 터미널 창에서 압축 해제된 프로젝트 폴더의 `device-streams-proxy/device` 디렉터리로 이동합니다. 다음 정보를 잘 보관해 둡니다.
 
 | 인수 이름 | 인수 값 |
 |----------------|-----------------|
-| `DeviceConnectionString` | 이전에 만든 디바이스의 연결 문자열입니다. |
+| `DeviceConnectionString` | 이전에 만든 디바이스의 디바이스 연결 문자열입니다. |
 | `targetServiceHostName` | RDP 서버가 실행되는 호스트 이름 또는 IP 주소입니다. 디바이스-로컬 프록시 애플리케이션이 실행되는 IP와 동일한 경우 주소는 `localhost`입니다. |
 | `targetServicePort` | 애플리케이션 프로토콜에서 사용하는 포트입니다(RDP의 경우 기본적으로 3389 포트임).  |
 
-다음과 같이 코드를 컴파일하고 실행합니다.
+다음 명령을 사용하여 코드를 컴파일하고 실행합니다.
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/device
 
 # Run the application
 # In Linux or macOS
-dotnet run $DeviceConnectionString localhost 3389
+dotnet run ${DeviceConnectionString} localhost 3389
 
 # In Windows
-dotnet run %DeviceConnectionString% localhost 3389
+dotnet run {DeviceConnectionString} localhost 3389
 ```
 
 ### <a name="run-the-service-local-proxy-application-rdp"></a>서비스-로컬 프록시 애플리케이션(RDP) 실행
 
-압축을 푼 프로젝트 폴더에서 `device-streams-proxy/service`로 이동합니다. 다음 정보가 필요합니다.
+다른 로컬 터미널 창에서 압축 해제된 프로젝트 폴더의 `device-streams-proxy/service`로 이동합니다. 다음 정보를 잘 보관해 둡니다.
 
 | 매개 변수 이름 | 매개 변수 값 |
 |----------------|-----------------|
-| `iotHubConnectionString` | IoT Hub의 서비스 연결 문자열입니다. |
-| `deviceId` | 이전에 만든 디바이스의 식별자입니다. |
+| `ServiceConnectionString` | IoT Hub의 서비스 연결 문자열입니다. |
+| `MyDevice` | 이전에 만든 디바이스의 식별자입니다. |
 | `localPortNumber` | SSH 클라이언트에서 연결하는 로컬 포트입니다. 이 샘플에서는 2222 포트를 사용하지만 다른 임의의 숫자로 수정할 수 있습니다. |
 
-다음과 같이 코드를 컴파일하고 실행합니다.
+다음 명령을 사용하여 코드를 컴파일하고 실행합니다.
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/service/
@@ -243,10 +243,10 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run $serviceConnectionString MyDevice 2222
+dotnet run ${ServiceConnectionString} MyDevice 2222
 
 # In Windows
-dotnet run %serviceConnectionString% MyDevice 2222
+dotnet run {ServiceConnectionString} MyDevice 2222
 ```
 
 ### <a name="run-rdp-client"></a>RDP 클라이언트 실행
@@ -261,7 +261,7 @@ dotnet run %serviceConnectionString% MyDevice 2222
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 IoT Hub를 설정하고, 디바이스를 등록하고, 디바이스-로컬 프록시 애플리케이션 및 서비스-로컬 프록시 애플리케이션을 배포하여 IoT Hub를 통한 디바이스 스트림을 설정하고, 프록시 애플리케이션을 사용하여 SSH 또는 RDP 트래픽을 터널링했습니다. 동일한 패러다임에서 서버가 디바이스(예: SSH 디먼)에서 실행되는 다른 클라이언트-서버 프로토콜을 수용할 수 있습니다.
+이 빠른 시작에서는 IoT Hub를 설정하고, 디바이스를 등록하고, 디바이스-로컬 프록시 애플리케이션 및 서비스-로컬 프록시 애플리케이션을 배포하여 IoT 허브를 통한 디바이스 스트림을 설정하고, 프록시 애플리케이션을 사용하여 SSH 또는 RDP 트래픽을 터널링했습니다. 동일한 패러다임에서 서버가 디바이스(예: SSH 디먼)에서 실행되는 다른 클라이언트-서버 프로토콜을 수용할 수 있습니다.
 
 디바이스 스트림에 대한 자세한 내용은 다음을 참조하세요.
 

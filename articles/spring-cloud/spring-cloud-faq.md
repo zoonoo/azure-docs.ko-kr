@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/07/2019
 ms.author: v-vasuke
-ms.openlocfilehash: 09970468a277dcaf3f28b4f5065572568089a12e
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: d4edc634ad41042642b1d73f28ec61cb6dc15ac4
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038492"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433313"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -30,7 +30,7 @@ Azure Spring Cloud는 Azure Monitor, Application Insights 및 Log Analytics를 �
 
 ### <a name="what-service-plans-does-azure-spring-cloud-offer"></a>Azure Spring Cloud에서 제공하는 서비스 계획은 어떻게 되나요?
 
-Azure Spring Cloud는 미리 보기 기간 동안 체험 서비스로 제공됩니다.
+Azure Spring Cloud는 미리 보기 기간 동안 하나의 서비스 계획을 제공합니다.
 
 리소스 | Amount
 ------- | -------

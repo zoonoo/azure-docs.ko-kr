@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 10/10/2019
 ms.author: juliako
-ms.openlocfilehash: fca8dc31a0f909a1602819a2830d9bebbbda0c88
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9d89247740852b7bfc185fbcf864947efe30ef0f
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799309"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372340"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>빠른 시작: 가입하고 첫 번째 비디오를 업로드하는 방법
 
@@ -28,6 +28,9 @@ Video Indexer 계정을 만들 때 평가판 계정(일정한 무료 인덱싱 �
 Video Indexer를 사용하여 개발을 시작하려면 [Video Indexer](https://www.videoindexer.com) 웹 사이트로 이동하고 가입합니다.
 
 ## <a name="upload-a-video-using-the-video-indexer-website"></a>Video Indexer 웹 사이트를 사용하여 비디오 업로드
+
+> [!NOTE]
+> 비디오 이름은 80자를 넘지 않아야 합니다.
 
 1. [Video Indexer](https://www.videoindexer.ai/) 웹 사이트에서 로그인합니다.
 2. 비디오를 업로드하려면 **업로드** 단추나 링크를 누릅니다.

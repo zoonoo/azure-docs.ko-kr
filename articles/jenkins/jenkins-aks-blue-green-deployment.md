@@ -1,5 +1,5 @@
 ---
-title: Jenkins와 파란색/녹색 배포 패턴을 사용하여 AKS(Azure Kubernetes Service) 배포
+title: Jenkins와 파란색/녹색 배포 패턴을 사용하여 Azure Kubernetes Service에 배포
 description: Jenkins와 파란색/녹색 배포 패턴을 사용하여 AKS(Azure Kubernetes Service) 배포하는 방법에 대해 알아봅니다.
 ms.service: jenkins
 keywords: Jenkins, Azure, DevOps, Kubernetes, k8s, AKS, 파란색/녹색 배포, 지속적인 업데이트, CD
@@ -7,13 +7,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/11/2018
-ms.openlocfilehash: 93f2ac284931ba664e0965e537e515c824e6f7a6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 10/09/2019
+ms.openlocfilehash: de9088333f69a22246fe5873d6e09ddb7ba3044a
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092296"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249402"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Jenkins와 파란색/녹색 배포 패턴을 사용하여 AKS(Azure Kubernetes Service) 배포
 
@@ -147,7 +147,7 @@ GitHub의 Microsoft 리포지토리에서 Jenkins와 파란색/녹색 배포 패
     kubectl apply -f  test-endpoint-green.yml
     ```
 
-1. 공용 및 테스트 엔드포인트에 대한 DNS 이름을 업데이트합니다. Kubernetes 클러스터를 만드는 경우 **MC_&lt;your-resource-group-name>_&lt;your-kubernetes-cluster-name>_&lt;your-location>** 의 이름 지정 패턴을 사용하여 [추가 리소스 그룹](https://github.com/Azure/AKS/issues/3)도 만듭니다.
+1. 공용 및 테스트 엔드포인트에 대한 DNS 이름을 업데이트합니다. Kubernetes 클러스터를 만드는 경우 **MC_&lt;your-resource-group-name> _&lt;your-kubernetes-cluster-name>_ &lt;your-location>** 의 이름 지정 패턴을 사용하여 [추가 리소스 그룹](https://github.com/Azure/AKS/issues/3)도 만듭니다.
 
     리소스 그룹에서 공용 IP를 찾습니다.
 

@@ -2,18 +2,17 @@
 title: Azure Analysis Services란? | Microsoft Docs
 description: Azure에서 Analysis Services의 큰 그림을 가져옵니다.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 08/27/2019
+ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1f3552fe574291bf696e3b4418924c7e005d713e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 4369f1ce7d6ef90e8489dbec5daa181406c0fecf
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259547"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512601"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -149,7 +148,7 @@ Azure Analysis Services에서 테이블 형식 모델은 간단한 텍스트 파
 
 ## <a name="compatibility-level"></a>호환성 수준
 
-호환성 수준은 Analysis Services 엔진의 릴리스 관련 동작을 가리킵니다. 1200 이상 호환성 수준의 테이블 형식 모델을 지원합니다. 자세히 알아보려면 [Analysis Services 테이블 형식 모델의 호환성 수준](analysis-services-compat-level.md)을 참조하세요.
+호환성 수준은 Analysis Services 엔진의 릴리스 관련 동작을 가리킵니다. 1200 이상 호환성 수준의 테이블 형식 모델을 지원합니다. 자세히 알아보려면 [테이블 형식 모델의 호환성 수준](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services)을 참조하세요.
 
 
 ## <a name="your-data-is-secure"></a>데이터가 안전함
@@ -201,7 +200,7 @@ Azure 보안에 대한 자세한 내용은 [Microsoft 보안 센터](https://www
 
 ### <a name="visual-studio"></a>Visual Studio
 
-[Visual Studio용 SSDT(SQL Server Data Tools)](/sql/ssdt/download-sql-server-data-tools-ssdt) 평가판을 사용하여 모델을 개발하고 배포합니다. SSDT에는 빠르게 준비하고 실행할 수 있는 Analysis Services 프로젝트 템플릿이 포함되어 있습니다. 이제는 SSDT에 1400 테이블 형식 모델에 대한 최신 데이터 가져오기 데이터 원본 쿼리 및 매시업 기능도 포함되어 있습니다. Power BI Desktop 및 Excel 2016에서 데이터 가져오기에 익숙한 경우 고도로 사용자 지정된 데이터 원본 쿼리를 만드는 것이 얼마나 쉬운지 이미 알고 있습니다. 
+[Visual Studio용 SSDT(SQL Server Data Tools)](/sql/ssdt/download-sql-server-data-tools-ssdt) 평가판을 사용하여 모델을 개발하고 배포합니다. SSDT에는 빠르게 준비하고 실행할 수 있는 Analysis Services 프로젝트 템플릿이 포함되어 있습니다. 이제 SSDT에는 1400 테이블 형식 모델에 대한 최신 데이터 가져오기 데이터 원본 쿼리 및 매시업 기능도 포함되어 있습니다. Power BI Desktop 및 Excel 2016에서 데이터 가져오기에 익숙한 경우 고도로 사용자 지정된 데이터 원본 쿼리를 만드는 것이 얼마나 쉬운지 이미 알고 있습니다. 
 
 Visual Studio 2017 이상을 사용하는 경우 Microsoft Analysis Services Projects는 무료로 설치할 수 있는 VSIX 패키지로 제공됩니다. [Marketplace에서 다운로드](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 

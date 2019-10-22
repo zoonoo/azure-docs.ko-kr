@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
 ms.openlocfilehash: f7cbee13416c090e59c82c928946b512af1c620b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69611913"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>기존 Azure Service Bus 표준 네임 스페이스를 프리미엄 계층으로 마이그레이션
@@ -94,30 +94,30 @@ Azure CLI 또는 PowerShell 도구를 사용 하 여 Service Bus 표준 네임 �
 Azure Portal를 사용 하 여 마이그레이션하는 경우에는 명령을 사용 하 여 마이그레이션하는 것과 동일한 논리 흐름이 사용 됩니다. Azure Portal를 사용 하 여 마이그레이션하려면 다음 단계를 수행 합니다.
 
 1. 왼쪽 창의 **탐색** 메뉴에서 **premium으로 마이그레이션**을 선택 합니다. **시작** 단추를 클릭 하 여 다음 페이지로 이동 합니다.
-    ![마이그레이션 방문 페이지][]
+    ![Migration 방문 페이지 ][]
 
 1. **설치**를 완료 합니다.
-   ![설치 네임 스페이스][]
+   ![Setup 네임 스페이스 ][]
    1. 프리미엄 네임 스페이스를 만들고 할당 하 여 기존 표준 네임 스페이스를로 마이그레이션합니다.
-        ![설치 네임 스페이스-premium 네임 스페이스 만들기][]
+        ![Setup 네임 스페이스-premium 네임 스페이스 만들기 ][]
    1. **마이그레이션 후 이름을**선택 합니다. 마이그레이션이 완료 된 후이 이름을 사용 하 여 표준 네임 스페이스에 액세스 합니다.
-        ![네임 스페이스 설정-마이그레이션 후 이름 선택][]
+        ![Setup 네임 스페이스-마이그레이션 후 이름 선택 ][]
    1. 계속 하려면 **' 다음 '** 을 선택 합니다.
 1. 표준 네임 스페이스와 프리미엄 네임 스페이스 간에 엔터티를 동기화 합니다.
-    ![네임 스페이스-동기화 엔터티 설정-시작][]
+    ![Setup 네임 스페이스-동기화 엔터티-시작 ][]
 
    1. **동기화 시작** 을 선택 하 여 엔터티 동기화를 시작 합니다.
    1. 대화 상자에서 **예** 를 선택 하 여 동기화를 확인 하 고 시작 합니다.
    1. 동기화가 완료 될 때까지 기다립니다. 상태 표시줄에 상태를 사용할 수 있습니다.
-        ![네임 스페이스-동기화 엔터티 설정-진행률][]
+        ![Setup 네임 스페이스-동기화 엔터티-진행률 ][]
         >[!IMPORTANT]
         > 어떤 이유로 든 마이그레이션을 중단 해야 하는 경우이 문서의 FAQ 섹션에서 중단 흐름을 검토 하세요.
    1. 동기화가 완료 되 면 페이지 아래쪽에서 **다음** 을 선택 합니다.
 
 1. 요약 페이지에서 변경 내용을 검토 합니다. **마이그레이션 완료** 를 선택 하 여 네임 스페이스를 전환 하 고 마이그레이션을 완료 합니다.
-    ![네임 스페이스 전환-전환 메뉴][]  
+    ![Switch 네임 스페이스-전환 메뉴 ][]  
     마이그레이션이 완료 되 면 확인 페이지가 표시 됩니다.
-    ![네임 스페이스 전환-성공][]
+    ![Switch 네임 스페이스-성공 ][]
 
 ## <a name="caveats"></a>주의 사항
 
@@ -169,7 +169,7 @@ Azure Service Bus 표준 계층에서 제공 하는 일부 기능은 Azure Servi
 아니요, 마이그레이션을 수행 하는 데 필요한 코드 또는 구성 변경 내용이 없습니다. 보낸 사람 및 받는 사람 응용 프로그램이 표준 네임 스페이스에 액세스 하는 데 사용 하는 연결 문자열은 프리미엄 네임 스페이스에 대 한 별칭 역할을 하도록 자동으로 매핑됩니다.
 
 ### <a name="what-happens-when-i-abort-the-migration"></a>마이그레이션을 중단 하면 어떻게 되나요?
-`Abort` 명령을 사용 하거나 Azure Portal를 사용 하 여 마이그레이션을 중단할 수 있습니다. 
+@No__t_0 명령을 사용 하거나 Azure Portal를 사용 하 여 마이그레이션을 중단할 수 있습니다. 
 
 #### <a name="azure-cli"></a>Azure CLI
 
@@ -179,8 +179,8 @@ az servicebus migration abort --resource-group $resourceGroup --name $standardNa
 
 #### <a name="azure-portal"></a>Azure Portal
 
-![흐름 중단-동기화 중단][]
-![흐름 중단-중단 완료][]
+![Abort flow-동기화 ][]
+ ![Abort 흐름 중단 완료 ][]
 
 마이그레이션 프로세스가 중단 되 면 표준에서 프리미엄 네임 스페이스로 엔터티 (토픽, 구독 및 필터)를 복사 하는 프로세스를 중단 하 고 페어링을 중단 합니다.
 
@@ -191,7 +191,7 @@ az servicebus migration abort --resource-group $resourceGroup --name $standardNa
 >[!IMPORTANT]
 > 마이그레이션을 중단 하기로 결정 한 경우 리소스에 대 한 요금이 청구 되지 않도록 마이그레이션하기 위해 프로 비전 한 premium 네임 스페이스를 삭제 합니다.
 
-#### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>메시지를 드레이닝 하지 않으려고 합니다. 어떻게 해야 합니까?
+#### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>메시지를 드레이닝 하지 않으려고 합니다. 어떻게 하나요?
 
 마이그레이션이 진행 되는 동안 및 마이그레이션이 커밋될 때까지 발신자 응용 프로그램에서 전송 되 고 표준 네임 스페이스의 저장소에 커밋된 메시지가 있을 수 있습니다.
 

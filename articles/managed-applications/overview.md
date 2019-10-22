@@ -1,17 +1,17 @@
 ---
 title: Azure 관리되는 애플리케이션 개요 | Microsoft Docs
-description: Azure 관리형 애플리케이션에 대한 개념을 설명합니다.
+description: 소비자가 쉽게 배포하고 운영할 수 있는 클라우드 솔루션을 제공하는 Azure Managed Applications에 대한 개념을 설명합니다.
 author: tfitzmac
 ms.service: managed-applications
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 97d6a229651f1c3fbcdbb79c7ae7d1c1f855882b
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: fa37536b800203e981a841d049dc385640733f92
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234748"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332681"
 ---
 # <a name="azure-managed-applications-overview"></a>Azure 관리되는 애플리케이션 개요
 

@@ -8,12 +8,13 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 358f55594037f4a468d31265f4e65a6ec4d7ef28
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.custom: seo-python-october2019
+ms.openlocfilehash: d4cfba26192eb097d06f82e18acb41c1f9640e66
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020146"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437340"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>빠른 시작: Python 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드
 
@@ -84,7 +85,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 1. [Azure Portal](https://portal.azure.com/)에서 **연결 문자열**을 선택합니다. 
 
-    ![연결 문자열 창에서 연결 문자열 보기 및 복사](./media/create-table-python/connection-string.png)
+    ![연결 문자열 설정에서 연결 문자열 보기 및 복사](./media/create-table-python/view-and-copy-connection-string-in-connection-string-settings.png)
 
 2. 오른쪽에 있는 단추를 사용하여 계정 이름을 복사합니다.
 
@@ -94,7 +95,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 5. 포털의 기본 키를 20번째 줄의 STORAGE_ACCOUNT_KEY 값에 붙여넣습니다.
 
-3. config.py 파일을 저장합니다.
+6. config.py 파일을 저장합니다.
 
 ## <a name="run-the-app"></a>앱 실행
 
