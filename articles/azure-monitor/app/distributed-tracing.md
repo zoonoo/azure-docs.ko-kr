@@ -1,21 +1,19 @@
 ---
 title: Azure Application Insights의 분산 추적 | Microsoft Docs
 description: OpenCensus 프로젝트에서 현지 전달자 및 파트너 관계를 통해 분산 추적에 대한 Microsoft의 지원 정보를 제공합니다.
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: nikmd23
 ms.author: nimolnar
-ms.reviewer: mbullwin
 ms.date: 09/17/2018
-ms.service: application-insights
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 7bc04748f2a5b8caa8f589140dd46f0650b7b390
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.reviewer: mbullwin
+ms.openlocfilehash: 0b51617966ad85037ad29f3e5005a17f66602e01
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60898850"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677130"
 ---
 # <a name="what-is-distributed-tracing"></a>분산 추적이란?
 
@@ -40,7 +38,7 @@ Azure Monitor에는 [애플리케이션 맵](https://docs.microsoft.com/azure/ap
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
 * [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
-* [Node.JS](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
+* [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
 * [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
 
 적절한 Application Insight SDK가 설치되고 구성되면, 많이 사용되는 프레임워크, 라이브러리 및 기술에 대한 추적 정보가 SDK 종속성 자동 수집기를 통해 자동으로 수집됩니다. 지원되는 기술의 전체 목록은 [종속성 자동 수집 설명서](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies)에 제공됩니다.
@@ -59,4 +57,4 @@ OpenCensus 웹 사이트에는 [Python](https://opencensus.io/api/python/trace/u
 
 * [OpenCensus Python 사용 가이드](https://opencensus.io/api/python/trace/usage.html)
 * [애플리케이션 맵](./../../azure-monitor/app/app-map.md)
-* [종단 간 성능 모니터링](./../../azure-monitor/learn/tutorial-performance.md)
+* [엔드투엔드 성능 모니터링](./../../azure-monitor/learn/tutorial-performance.md)

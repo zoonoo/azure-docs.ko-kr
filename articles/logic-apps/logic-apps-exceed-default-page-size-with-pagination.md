@@ -1,6 +1,6 @@
 ---
-title: 데이터, 항목 또는 페이지 매김-Azure Logic Apps를 사용 하 여 레코드 추가
-description: Azure Logic Apps에서 커넥터 작업에 대 한 기본 페이지 크기 제한을 초과 하 게 페이지 매김을 설정합니다
+title: 페이지 매김을 사용 하 여 더 많은 항목 또는 레코드 가져오기-Azure Logic Apps
+description: 의 커넥터 동작에 대 한 기본 페이지 크기 제한을 초과 하는 페이지 매김을 설정 Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,26 +9,26 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 04/11/2019
-ms.openlocfilehash: 2d1bcf2cf83fab106f79120c3caacc424f839836
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e86600312490c77ed492cb28a359add0fed90596
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64476543"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679886"
 ---
-# <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Azure Logic Apps에서 페이지 매김을 사용 하 여 데이터, 항목 또는 레코드 가져오기
+# <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Azure Logic Apps에서 페이지 매김을 사용 하 여 더 많은 데이터, 항목 또는 레코드 가져오기
 
-커넥터 작업을 사용 하 여 데이터, 항목 또는 레코드 검색 되는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 표시 될 수 있습니다 결과 집합이 너무 커서 작업을 동시에 모든 결과 반환 하지 않습니다. 일부 작업을 사용 하 여 결과의 수는 커넥터의 기본 페이지 크기를 초과할 수 있습니다. 이 경우 작업은 결과의 첫 번째 페이지만 반환합니다. 예를 들어, SQL Server 커넥터에 대 한 기본 페이지 크기 **행 가져오기** 작업 2048 이지만 다른 설정에 따라 달라질 수 있습니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md)에서 커넥터 작업을 사용 하 여 데이터, 항목 또는 레코드를 검색 하는 경우 작업에서 모든 결과를 동시에 반환 하지 않도록 결과 집합을 가져올 수 있습니다. 일부 작업의 경우 결과 수가 커넥터의 기본 페이지 크기를 초과할 수 있습니다. 이 경우 작업은 결과의 첫 번째 페이지만 반환합니다. 예를 들어 SQL Server 커넥터의 **Rows Get** 작업에 대 한 기본 페이지 크기는 2048 이지만 다른 설정에 따라 달라질 수 있습니다.
 
-일부 작업을 사용 하 여는 *페이지 매김* 논리 앱에 페이지 매김 제한까지 더 많은 결과 검색할 수 있지만 작업이 완료 되 면 단일 메시지로 결과만 반환 되도록 설정 합니다. 페이지 매김을 사용 하는 경우 지정 해야는 *임계값* 값 결과 반환할 작업의 대상입니다. 지정 된 임계값에 도달할 때까지 결과 검색 하는 작업입니다. 총 항목 수가 지정된 된 임계값 미만인 경우 작업이 모든 결과 검색 합니다.
+일부 동작을 사용 하면 논리 앱에서 페이지 매김 제한까지 더 많은 결과를 검색할 수 있지만 작업이 완료 되 면 해당 결과를 단일 메시지로 반환 하도록 *페이지 매김* 설정을 켤 수 있습니다. 페이지 매김을 사용 하는 경우 작업에서 반환할 결과의 대상 수 인 *임계값* 을 지정 해야 합니다. 작업은 지정 된 임계값에 도달할 때까지 결과를 검색 합니다. 총 항목 수가 지정 된 임계값 보다 적으면 작업에서 모든 결과를 검색 합니다.
 
-커넥터의 페이지 크기를 기준으로 결과의 페이지 매김 설정 검색 페이지에 설정 합니다. 이 동작은 경우에 따라 발생할 수 있습니다 지정 된 임계값 보다 더 많은 결과 의미 합니다. 예를 들어, SQL Server를 사용 하는 경우 **행 가져오기** 페이지 매김 설정을 지 원하는 작업:
+페이지 매김 설정을 켜면 연결선의 페이지 크기에 따라 결과의 페이지를 검색 합니다. 이 동작은 때때로 지정 된 임계값 보다 더 많은 결과를 얻을 수 있음을 의미 합니다. 예를 들어 SQL Server **행 가져오기** 작업을 사용 하는 경우 페이지 매김 설정을 지원 합니다.
 
 * 작업의 기본 페이지 크기는 페이지당 2048 레코드입니다.
-* 10,000 개의 레코드로 있고 5,000 개 레코드를 최소값으로 지정 한다고 가정 합니다.
-* 페이지 매김을 가져옵니다 하도록 권장 사항을 가져올 하나 이상 지정된 된 최소 레코드의 페이지, 작업 6144 (레코드 3 페이지 x 2048), 없습니다 5,000 개 레코드를 반환 합니다.
+* 1만 레코드가 있고 5000 레코드를 최소로 지정 했다고 가정 합니다.
+* 페이지 매김은 레코드의 페이지를 가져오며, 최소한 지정 된 최소를 얻기 위해이 작업은 5000 레코드가 아닌 6144 레코드 (3 페이지 x 2048 레코드)를 반환 합니다.
 
-특정 작업에 대 한 기본 페이지 크기를 초과할 수 있는 커넥터 중 일부를 사용 하 여 목록을 다음과 같습니다.
+다음은 특정 작업에 대 한 기본 페이지 크기를 초과할 수 있는 일부 커넥터를 포함 하는 목록입니다.
 
 * [Azure Blob Storage](https://docs.microsoft.com/connectors/azureblob/)
 * [Dynamics 365](https://docs.microsoft.com/connectors/dynamicscrmonline/)
@@ -41,23 +41,23 @@ ms.locfileid: "64476543"
 * [SharePoint](https://docs.microsoft.com/connectors/sharepointonline/)
 * [SQL Server](https://docs.microsoft.com/connectors/sql/)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. 아직 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* 논리 앱 및 페이지 매김 설정 하려는 작업입니다. 논리 앱에 없는 경우 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
+* 페이지 매김을 설정 하려는 논리 앱 및 작업입니다. 논리 앱이 없는 경우 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조 하세요.
 
-## <a name="turn-on-pagination"></a>페이지 매김 켜기
+## <a name="turn-on-pagination"></a>페이지 매김 설정
 
-액션 논리 앱 디자이너에서 페이지 매김을 지원 하는지 여부를 결정할에 대 한 작업의 설정을 확인 합니다 **페이지 매김** 설정 합니다. 이 예제에서 SQL Server의 페이지 매김을 설정 하는 방법을 보여 줍니다 **행 가져오기** 작업 합니다.
+작업에서 논리 앱 디자이너의 페이지 매김을 지원 하는지 확인 하려면 **페이지 매김** 설정에 대 한 작업 설정을 확인 합니다. 이 예에서는 SQL Server의 **행 가져오기** 작업에서 페이지 매김을 설정 하는 방법을 보여 줍니다.
 
-1. 작업의 오른쪽 위 모서리에서 줄임표를 선택 ( **...** ) 단추를 선택한 **설정을**합니다.
+1. 작업의 오른쪽 위 모서리에서 줄임표 ( **...** ) 단추를 선택 하 고 **설정**을 선택 합니다.
 
    ![작업의 설정 열기](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings.png)
 
-   작업 페이지 매김을 지 원하는 작업을 표시 합니다 **페이지 매김** 설정 합니다.
+   동작에서 페이지 매김을 지 원하는 경우 작업에 **페이지 매김** 설정이 표시 됩니다.
 
-1. 변경 된 **페이지 매김** 에서 설정 **해제** 에 **에**합니다. 에 **임계값** 속성 결과 반환할 작업의 대상 수에 대 한 정수 값을 지정 합니다.
+1. **페이지 매김** 설정을 **해제** 에서 **켜기**로 변경 합니다. **임계값** 속성에서 작업에서 반환할 결과의 대상 수에 대 한 정수 값을 지정 합니다.
 
    ![반환할 결과의 최소 수를 지정 합니다.](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings-pagination.png)
 
@@ -65,7 +65,7 @@ ms.locfileid: "64476543"
 
 ## <a name="workflow-definition---pagination"></a>워크플로 정의-페이지 매김
 
-논리 앱 워크플로 정의 포함 하는이 기능을 지 원하는 작업에 대 한 페이지 매김을 켜면 합니다 `"paginationPolicy"` 와 함께 속성을 `"minimumItemCount"` 해당 작업의 속성 `"runtimeConfiguration"` 같은 속성:
+이 기능을 지 원하는 작업에 대해 페이지 매김 기능을 설정 하는 경우 논리 앱의 워크플로 정의에는 해당 작업의 `"runtimeConfiguration"` 속성에 `"minimumItemCount"` 속성과 함께 `"paginationPolicy"` 속성이 포함 됩니다. 예를 들면 다음과 같습니다.
 
 ```json
 "actions": {

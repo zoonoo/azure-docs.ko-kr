@@ -1,23 +1,19 @@
 ---
 title: 다단계 웹 테스트 및 Azure 애플리케이션 Insights를 사용 하 여 웹 응용 프로그램 모니터링 | Microsoft Docs
 description: Azure 애플리케이션 Insights를 사용 하 여 웹 응용 프로그램을 모니터링 하도록 다단계 웹 테스트 설정
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 07/25/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: a836e4cf66bf1e957f7b3779e21ec6a0296f7abe
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f34695cb4a92fbed285ba8c56764606a124194a4
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881437"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678230"
 ---
 # <a name="multi-step-web-tests"></a>다단계 웹 테스트
 
@@ -31,7 +27,7 @@ ms.locfileid: "68881437"
 * Visual Studio 2017 Enterprise 이상
 * Visual Studio 웹 성능 및 부하 테스트 도구.
 
-테스트 도구 필수 구성 요소를 찾을 수 있습니다. **웹 성능 및 부하 테스트 도구**를**디버깅 하 고 테스트** > 하는 **Visual Studio 설치 관리자** > **개별 구성 요소** > 를 시작 합니다.
+테스트 도구 필수 구성 요소를 찾을 수 있습니다. **웹 성능 및 부하 테스트 도구** > **디버깅 및 테스트**  > **개별 구성 요소**  >  **Visual Studio 설치 관리자** 를 시작 합니다.
 
 ![웹 성능 및 부하 테스트 도구 항목 옆에 있는 확인란을 선택 하 여 개별 구성 요소가 선택 된 Visual Studio 설치 관리자 UI의 스크린샷](./media/availability-multistep/web-performance-load-testing.png)
 
@@ -48,11 +44,11 @@ ms.locfileid: "68881437"
 
 Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 
-1. 웹 성능 및 부하 테스트 프로젝트를 만듭니다. **파일** **새로 만들기**프로젝트Visual >  **Test C#**  >  >   > 
+1. 웹 성능 및 부하 테스트 프로젝트를 만듭니다. **파일**  > **새**  > **프로젝트**  > **Visual C#**   > **테스트**
 
     ![Visual Studio 새 프로젝트 UI](./media/availability-multistep/vs-web-performance-and-load-test.png)
 
-2. 파일을 `.webtest` 열고 기록을 시작 합니다.
+2. @No__t_0 파일을 열고 기록을 시작 합니다.
 
     ![Visual Studio 테스트 기록 UI](./media/availability-multistep/open-web-test.png)
 
@@ -73,7 +69,7 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 
 ## <a name="upload-the-web-test"></a>웹 테스트 업로드
 
-1. 가용성 창의 Application Insights 포털에서 **테스트** > 테스트**형식** > **다단계 웹 테스트**만들기를 선택 합니다.
+1. 가용성 창의 Application Insights 포털에서 **테스트 만들기**  > **테스트 형식**  > **다단계 웹 테스트**를 선택 합니다.
 
 2. 테스트 위치, 빈도 및 경고 매개 변수를 설정 합니다.
 
@@ -92,13 +88,13 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 | **HTTP 응답** | 성공으로 계산되어 반환된 상태 코드입니다. 200은 일반적인 웹 페이지의 반환을 나타내는 코드입니다.|
 | **콘텐츠 일치** | 문자열 (예: "환영!") 정확한 대/소문자 구분 일치가 모든 응답에서 발생하는지 테스트합니다. 와일드카드 없는 일반 문자열이어야 합니다. 페이지 내용이 변경되면 업데이트해야 할 수 있습니다. **내용 일치에서는 영어 문자만 지원 됩니다.** |
 
-### <a name="alerts"></a>,
+### <a name="alerts"></a>경고
 
 |설정| 설명
 |----|----|----|
 |**거의 실시간 (미리 보기)** | 거의 실시간으로 경고를 사용 하는 것이 좋습니다. 이 유형의 경고 구성은 가용성 테스트를 만든 후에 수행 됩니다.  |
 |**클래식** | 새 가용성 테스트에 대 한 클래식 경고를 사용 하는 것이 더 이상 권장 되지 않습니다.|
-|**경고 위치 임계값**|최소 3/5 위치를 사용하는 것이 좋습니다. 경고 위치 임계값과 테스트 위치 수 간의 최적 관계는**최소 5 개의 테스트 위치를 포함 하는 테스트 위치-2의** **경고 위치 임계값** = 번호입니다.|
+|**경고 위치 임계값**|최소 3/5 위치를 사용하는 것이 좋습니다. 경고 위치 임계값과 테스트 위치 수 간의 최적 관계는**최소 5 개의 테스트 위치를 사용 하는 테스트 위치-2의 수**  =  **경고 위치 임계값** 입니다.|
 
 ## <a name="advanced-configuration"></a>고급 구성
 
@@ -138,14 +134,14 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 
 **SAML 인증**
 
-|속성 이름| Description|
+|속성 이름| 설명|
 |----|-----|
 | 대상 Uri | SAML 토큰에 대 한 대상 URI입니다.  Acs 네임 스페이스 및 호스트 이름을 포함 하 여 ACS (Access Control Service)에 대 한 URI입니다. |
 | 인증서 암호 | 포함 된 개인 키에 대 한 액세스 권한을 부여 하는 클라이언트 인증서의 암호입니다. |
 | 클라이언트 인증서  | Base64 인코딩 형식의 개인 키가 있는 클라이언트 인증서 값입니다. |
 | 이름 식별자 | 토큰에 대 한 이름 식별자입니다. |
-| 다음 날짜까지 | 토큰을 사용할 timespan입니다.  기본값은 5분입니다. |
-| 다음 날짜부터 | 이전에 만든 토큰이 유효 하 게 되는 시간 범위는 시간을 기울입니다.  기본값은 (음수) 5 분입니다. |
+| 다음 이후 | 토큰을 사용할 timespan입니다.  기본값은 5 분입니다. |
+| 이전이 아님 | 이전에 만든 토큰이 유효 하 게 되는 시간 범위는 시간을 기울입니다.  기본값은 (음수) 5 분입니다. |
 | 대상 컨텍스트 매개 변수 이름 | 생성 된 어설션을 수신 하는 컨텍스트 매개 변수입니다. |
 
 

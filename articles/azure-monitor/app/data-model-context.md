@@ -1,23 +1,19 @@
 ---
 title: Azure Application Insights 원격 분석 데이터 모델 - 원격 분석 컨텍스트 | Microsoft Docs
 description: Application Insights 원격 분석 컨텍스트 데이터 모델
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: 7c1f47c9b88bd68b326b3c8923ba5b81d425c3e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0351f4fe65745242da58d3c3fb2f9fbe5c722d06
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900713"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677449"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>원격 분석 컨텍스트: Application Insights 데이터 모델
 
@@ -82,7 +78,7 @@ ms.locfileid: "60900713"
 
 ## <a name="anonymous-user-id"></a>익명 사용자 ID
 
-익명 사용자 ID입니다. 애플리케이션의 최종 사용자를 나타냅니다. 원격 분석이 서비스에서 전송되는 경우 사용자 컨텍스트는 서비스에서 작업을 시작한 사용자와 관련이 있습니다.
+익명 사용자 id입니다. 응용 프로그램의 최종 사용자를 나타냅니다. 원격 분석이 서비스에서 전송되는 경우 사용자 컨텍스트는 서비스에서 작업을 시작한 사용자와 관련이 있습니다.
 
 [샘플링](../../azure-monitor/app/sampling.md)은 수집된 원격 분석의 양을 최소화하는 기술 중 하나입니다. 샘플링 알고리즘은 상관 관계가 지정된 모든 원격 분석을 샘플링합니다. 익명 사용자 ID는 샘플링 점수 생성에 사용됩니다. 따라서 익명 사용자 ID는 충분히 임의의 값이어야 합니다. 
 
@@ -93,7 +89,7 @@ ms.locfileid: "60900713"
 
 ## <a name="authenticated-user-id"></a>인증된 사용자 ID
 
-인증된 사용자 ID입니다. 익명 사용자 ID와 반대되는 이 필드는 표시 이름으로 사용자를 나타냅니다. PII 정보이므로 기본적으로 대부분의 SDK에서 수집되지 않습니다.
+인증 된 사용자 id입니다. 익명 사용자 id와 반대 되는이 필드는 친숙 한 이름을 가진 사용자를 나타냅니다. PII 정보이므로 기본적으로 대부분의 SDK에서 수집되지 않습니다.
 
 최대 길이: 1024
 

@@ -1,22 +1,18 @@
 ---
 title: Azure Functions를 사용 하 여 사용자 지정 가용성 테스트 만들기 및 실행
 description: 이 문서에서는 동작 트리거 함수에 지정 된 구성에 따라 주기적으로 실행 되는 지 수 ()를 사용 하 여 Azure 함수를 만드는 방법을 설명 합니다. 이 테스트의 결과는 Application Insights 리소스로 전송 되며, 여기서 가용성 결과 데이터를 쿼리하고 경고할 수 있습니다. 사용자 지정 된 테스트를 통해 포털 UI를 사용 하 여 보다 복잡 한 가용성 테스트를 작성 하거나, Azure VNET 내부에서 앱을 모니터링 하거나, 끝점 주소를 변경 하거나, 지역에서 사용할 수 없는 경우 가용성 테스트를 만들 수 있습니다.
-services: application-insights
-documentationcenter: ''
-author: morgangrobin
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 10/11/2019
+author: morgangrobin
 ms.author: mogrobin
-ms.openlocfilehash: 38a83169a7d1ffa03416f5947ada703bcba5017a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.date: 10/11/2019
+ms.openlocfilehash: a2b29f2c24a3244cdc800d882e7c2ed8f943eabe
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301374"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677594"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Azure Functions를 사용 하 여 사용자 지정 가용성 테스트 만들기 및 실행
 
@@ -48,7 +44,7 @@ ms.locfileid: "72301374"
 ![Azure Portal에서 Azure 함수의 실행. csx](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
-> 끝점 주소에 대해 `EndpointAddress= https://dc.services.visualstudio.com/v2/track`을 사용 합니다. 리소스가 Azure Government 또는 Azure 중국와 같은 지역에 있는 경우를 제외 하 고 [기본 끝점 재정의](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) 에 대 한이 문서를 참조 하 고 해당 지역에 적절 한 원격 분석 채널 끝점을 선택 합니다.
+> @No__t_0 사용 하는 끝점 주소: 리소스가 Azure Government 또는 Azure 중국와 같은 지역에 있는 경우를 제외 하 고 [기본 끝점 재정의](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) 에 대 한이 문서를 참조 하 고 해당 지역에 적절 한 원격 분석 채널 끝점을 선택 합니다.
 
 ```C#
 using System;

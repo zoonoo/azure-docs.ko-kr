@@ -1,20 +1,18 @@
 ---
 title: Azure VM 및 Azure virtual machine scale sets에서 호스트 되는 응용 프로그램 성능 모니터링 | Microsoft Docs
 description: Azure VM 및 Azure virtual machine scale sets에 대 한 응용 프로그램 성능 모니터링. 차트 로드 및 응답 시간, 종속성 정보 및 성능에 대 한 경고를 설정 합니다.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/26/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 3b100fb4d7dfa03cfcc828180f2ca63f7219f610
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 08/26/2019
+ms.openlocfilehash: 4eb515d63d746e2f1f0b96431848a8b450d09358
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389922"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678210"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Azure virtual machines 및 Azure virtual machine scale sets에 Azure Monitor Application Insights 에이전트 배포
 

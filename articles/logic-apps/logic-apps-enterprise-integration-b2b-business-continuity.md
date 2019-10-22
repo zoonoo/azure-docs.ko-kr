@@ -1,6 +1,6 @@
 ---
-title: B2B 통합 계정을 위한 재해 복구 - Azure Logic Apps | Microsoft Docs
-description: Azure Logic Apps에서 지역 간 재해 복구를 위한 준비
+title: 통합 계정에 대 한 재해 복구-Azure Logic Apps
+description: Azure Logic Apps의 통합 계정에 대 한 지역 간 재해 복구 설정
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,16 +8,15 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
-ms.openlocfilehash: ac29ef7f0599cc41924ba1a5a00e46b0292e7e9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 321bfb673bab748176d75db7bcf21d76ddf0c819
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967753"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680405"
 ---
-# <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Azure Logic Apps에서 B2B 통합 계정을 위한 지역 간 재해 복구
+# <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Azure Logic Apps의 통합 계정에 대 한 지역 간 재해 복구 설정
 
 B2B 워크로드에는 주문 및 청구서와 같은 금전 거래가 포함됩니다. 재해 이벤트 동안 기업은 파트너와 계약한 비즈니스 수준 SLA를 충족할 수 있도록 신속하게 복구하는 것이 매우 중요합니다. 이 문서에서는 B2B 워크로드에 대한 비즈니스 연속성 계획을 작성하는 방법을 보여 줍니다. 
 

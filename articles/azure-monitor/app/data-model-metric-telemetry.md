@@ -1,23 +1,19 @@
 ---
 title: Azure Application Insights 원격 분석 데이터 모델 - 메트릭 원격 분석 | Microsoft Docs
 description: 메트릭 원격 분석을 위한 Azure Application Insights 데이터 모델
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: 0973c86d055ff4ebbe7e5a3c4a2ca4e3dcabc6a0
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 816fa37ea052b18dab80bcc0d5c1528cd3d9a014
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60900463"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678137"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>메트릭 원격 분석: Application Insights 데이터 모델
 
@@ -41,15 +37,15 @@ Application Insights에서는 잘 알려진 몇 가지 메트릭 이름을 지�
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | 진행 중인 작업... | [requestExecutionTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | 평균 요청 실행 시간
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | 진행 중인 작업... | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | 큐에서 처리를 대기 중인 요청 수
 
-## <a name="name"></a>이름
+## <a name="name"></a>name
 
 Application Insights 포털 및 UI에서 참조하려는 메트릭의 이름입니다. 
 
-## <a name="value"></a>값
+## <a name="value"></a>Value
 
 단일 측정 값입니다. 집계의 개별 측정값의 합계입니다.
 
-## <a name="count"></a>개수
+## <a name="count"></a>카운트
 
 집계된 메트릭의 메트릭 가중치입니다. 측정값에 대해서는 설정하지 않아야 합니다.
 
@@ -57,7 +53,7 @@ Application Insights 포털 및 UI에서 참조하려는 메트릭의 이름입�
 
 집계된 메트릭의 최소값입니다. 측정값에 대해서는 설정하지 않아야 합니다.
 
-## <a name="max"></a>max
+## <a name="max"></a>최대
 
 집계된 메트릭의 최대값입니다. 측정값에 대해서는 설정하지 않아야 합니다.
 

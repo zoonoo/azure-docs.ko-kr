@@ -1,23 +1,18 @@
 ---
 title: 데이터 없음 문제 해결 - .NET용 Application Insights
 description: Azure Application Insights에서 데이터를 볼 수 없나요? 여기를 참조하세요.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
-ms.service: application-insights
-ms.workload: mobile
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/23/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: b4bfd984f1e169cb1044002118f9534c4efc9bd8
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 07/23/2018
+ms.openlocfilehash: 0bb32486ea3fcfd37337b18b02f4f432effa8f75
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169578"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678338"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>데이터 없음 문제 해결 - .NET용 Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>일부 원격 분석이 누락됨
@@ -34,7 +29,7 @@ ms.locfileid: "71169578"
 
 *앱이 중지 될 때 콘솔 앱 또는 웹 앱에서 데이터 손실이 발생 합니다.*
 
-* SDK 채널은 버퍼에 원격 분석을 유지 하 고 일괄 처리로 보냅니다. 응용 프로그램을 종료 하는 경우 [Flush ()](api-custom-events-metrics.md#flushing-data)를 명시적으로 호출 해야 할 수 있습니다. 의 `Flush()` 동작은 사용 되는 실제 [채널](telemetry-channels.md#built-in-telemetry-channels) 에 따라 다릅니다.
+* SDK 채널은 버퍼에 원격 분석을 유지 하 고 일괄 처리로 보냅니다. 응용 프로그램을 종료 하는 경우 [Flush ()](api-custom-events-metrics.md#flushing-data)를 명시적으로 호출 해야 할 수 있습니다. @No__t_0 동작은 사용한 실제 [채널](telemetry-channels.md#built-in-telemetry-channels) 에 따라 다릅니다.
 
 ## <a name="no-data-from-my-server"></a>내 서버에서 데이터 없음
 *웹 서버에 이 앱을 설치했지만 지금 원격 분석이 표시되지 않습니다. 내 개발 컴퓨터에서 문제 없이 작동했습니다.*
@@ -42,7 +37,7 @@ ms.locfileid: "71169578"
 * 아마도 방화벽 문제일 것입니다. [Application Insights에 대한 방화벽 예외를 설정하여 데이터를 전송합니다](../../azure-monitor/app/ip-addresses.md).
 * IIS 서버에 필수 구성 요소 .NET Extensibility 4.5 및 ASP.NET 4.5가 없는 것이 원인일 수 있습니다.
 
-기존 앱을 모니터링하려고 웹 서버에 *[상태 모니터를 설치](../../azure-monitor/app/monitor-performance-live-website-now.md)했지만 결과가 보이지 않습니다.*
+*기존 앱을 모니터링 하기 위해 웹 서버에 [상태 모니터를 설치](../../azure-monitor/app/monitor-performance-live-website-now.md) 했습니다. 결과가 표시 되지 않습니다.*
 
 * [상태 모니터 문제 해결](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot)을 참조하세요.
 
@@ -94,20 +89,20 @@ Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어
 * **도구**, **확장 및 업데이트**를 차례로 선택하고 **개발자 분석 도구**가 설치 및 활성화되었는지 확인하세요. 그렇다면 **업데이트** 를 클릭하여 제공되는 업데이트가 있는지 확인합니다.
 * 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **Application Insights > Application Insights 구성** 명령이 보이면 그 명령을 사용하여 Application Insights 서비스의 리소스에 프로젝트를 연결합니다.
 
-그렇지 않으면 개발자 분석 도구에서 직접 프로젝트 형식을 지원 하지 않습니다. 원격 분석을 보려면 [Azure Portal](https://portal.azure.com)에 로그인하고, 왼쪽의 탐색 모음에서 Application Insights를 선택하고, 애플리케이션을 선택합니다.
+그렇지 않으면 개발자 분석 도구에서 직접 프로젝트 형식을 지원 하지 않습니다. 원격 분석을 보려면 [Azure 포털](https://portal.azure.com)에 로그인하고, 왼쪽의 탐색 모음에서 Application Insights를 선택하고, 애플리케이션을 선택합니다.
 
 ## <a name="access-denied-on-opening-application-insights-from-visual-studio"></a>Visual Studio에서 Application Insights를 열면 '액세스 거부' 오류
-*'Application Insights 열기' 메뉴 명령을 실행하면 Azure Portal로 이동되지만 '액세스 거부' 오류가 발생합니다.*
+*'Application Insights 열기' 메뉴 명령을 실행하면 Azure 포털로 이동되지만 '액세스 거부' 오류가 발생합니다.*
 
 기본 브라우저에서 마지막으로 사용한 Microsoft 로그인은 [이 앱에 Application Insights를 추가할 때 만들어진 리소스](../../azure-monitor/app/asp-net.md)에 대한 액세스 권한을 갖고 있지 않습니다. 가능한 원인은 두 가지입니다.
 
 * Microsoft 계정이 여러 개 있습니다. 예를 들어 회사용 Microsoft 계정과 개인용 Microsoft 계정이 있습니다. 기본 브라우저에서 마지막으로 사용한 로그인이 [프로젝트에 Application Insights를 추가](../../azure-monitor/app/asp-net.md)할 수 있는 액세스 권한을 가진 계정이 아닌 다른 계정의 로그인입니다.
-  * 해결 방법: 브라우저 창 오른쪽 상단에서 본인의 이름을 클릭하고 로그아웃합니다. 액세스 권한이 있는 계정으로 로그인합니다. 그런 다음, 왼쪽의 탐색 모음에서 Application Insights를 클릭하고 앱을 선택합니다.
+  * Fix: 브라우저 창의 오른쪽 위에 있는 이름을 클릭 하 고 로그 아웃 합니다. 그런 다음 액세스 권한이 있는 계정으로 로그인 합니다. 그런 다음, 왼쪽의 탐색 모음에서 Application Insights를 클릭하고 앱을 선택합니다.
 * 다른 사용자가 프로젝트에 Application Insights를 추가한 후 나에게 프로젝트가 생성된 [리소스 그룹에 대한 액세스 권한](../../azure-monitor/app/resources-roles-access-control.md)을 부여하는 것을 잊어버렸습니다.
-  * 해결 방법: 조직 계정을 사용하는 다른 사용자가 나를 팀에 추가해 주거나 나에게 리소스 그룹에 대한 개별 액세스 권한을 부여하는 방법도 있습니다.
+  * 해결 방법: 다른 사용자가 조직 계정을 사용한 경우 나를 팀에 추가해 주면 됩니다. 또는 나에게 리소스 그룹에 대한 개별 액세스 권한을 부여하는 방법도 있습니다.
 
 ## <a name="asset-not-found-on-opening-application-insights-from-visual-studio"></a>Visual Studio에서 Application Insights를 열면 '자산을 찾을 수 없음' 오류
-*'Application Insights 열기' 메뉴 명령을 실행하면 Azure Portal로 이동되지만 '자산을 찾을 수 없음' 오류가 발생합니다.*
+*'Application Insights 열기' 메뉴 명령을 실행하면 Azure 포털로 이동되지만 '자산을 찾을 수 없음' 오류가 발생합니다.*
 
 가능한 원인:
 
@@ -118,11 +113,11 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 
 해결 방법:
 
-* 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights, Application Insights 구성을 차례로 선택합니다. 대화 상자에서 기존 리소스로 원격 분석을 전송하거나 새로 만들 수 있습니다. 또는:
-* 리소스를 직접 엽니다. [Azure Portal](https://portal.azure.com)에 로그인하고, 왼쪽의 탐색 모음에서 Application Insights를 클릭한 다음 앱을 선택합니다.
+* 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights, Application Insights 구성을 차례로 선택합니다. 대화 상자에서 기존 리소스로 원격 분석을 전송하거나 새로 만들 수 있습니다. 또는
+* 리소스를 직접 엽니다. [Azure 포털](https://portal.azure.com)에 로그인하고 왼쪽의 탐색 모음에서 Application Insights를 클릭한 다음, 앱을 선택합니다.
 
 ## <a name="where-do-i-find-my-telemetry"></a>내 원격 분석은 어디서 찾을 수 있습니까?
-*[Microsoft Azure Portal](https://portal.azure.com)에 로그인한 다음 Azure 홈 대시보드를 보고 있습니다. 내 Application Insights 데이터는 어디서 찾나요?*
+*[Microsoft Azure portal](https://portal.azure.com)에 로그인 했 고 Azure 홈 대시보드를 보고 있습니다. 그렇다면 Application Insights 데이터는 어디에서 찾을 까 요?*
 
 * 왼쪽의 탐색 모음에서 Application Insights를 클릭한 다음 앱 이름을 클릭합니다. 선택할 프로젝트가 없는 경우 [웹 프로젝트에서 Application Insights를 추가 또는 구성](../../azure-monitor/app/asp-net.md)해야 합니다.  
   요약 차트 몇 개가 보일 것입니다. 요약 차트를 클릭하면 세부 정보를 수 있습니다.
@@ -135,7 +130,7 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
   ![](./media/asp-net-troubleshoot-no-data/output-window.png)
 * Application Insights 포털에서 [진단 검색](../../azure-monitor/app/diagnostic-search.md)을 엽니다. 일반적으로 데이터는 여기에 처음으로 나타납니다.
 * 새로고침 단추를 클릭합니다. 블레이드 자체는 주기적으로 새로 고쳐지지만 수동으로 새로 고칠 수도 있습니다. 시간 범위가 커지면 새로 고침 간격이 길어집니다.
-* 계측 키가 일치하는지 확인합니다. Application Insights 포털에서 내 앱의 기본 블레이드로 이동한 다음 **기본 정보** 드롭다운 목록에서 **계측 키**를 확인합니다. 그런 다음, Visual Studio의 프로젝트에서 ApplicationInsights.config를 열고 `<instrumentationkey>`를 찾습니다. 두 키가 같은지 확인합니다. 같이 않으면  
+* 계측 키가 일치하는지 확인합니다. Application Insights 포털에서 내 앱의 기본 블레이드로 이동하여 **Essentials** 드롭다운 목록에서 **계측 키**를 확인합니다. 그런 다음, Visual Studio의 프로젝트에서 ApplicationInsights.config를 열고 `<instrumentationkey>`를 찾습니다. 두 키가 같은지 확인합니다. 같이 않으면  
   * 포털에서 Application Insights를 클릭하고 오른쪽 키를 사용하여 앱 리소스를 찾아봅니다. 또는
   * Visual Studio 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights, 구성을 차례로 선택합니다. 올바른 리소스에 원격 분석을 보내도록 앱을 다시 설정합니다.
   * 일치하는 키를 찾을 수 없는 경우 포털에서 사용한 것과 동일한 로그인 자격 증명을 Visual Studio에서 사용하고 있는지 확인합니다.
@@ -163,11 +158,11 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 * 실제로 Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll을 포함하여 모든 Microsoft ApplicationInsights DLL을 Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll과 함께 서버에 추가합니다.
 * 방화벽에서 [일부 TCP 포트를 열어야](../../azure-monitor/app/ip-addresses.md)할 수 있습니다.
 * 회사 네트워크를 벗어나 보내기 위해 프록시를 사용해야 하는 경우, Web.config에서 [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) 를 설정하십시오.
-* Windows Server 2008: 다음 업데이트를 설치했는지 확인합니다. [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
+* Windows Server 2008: 다음 업데이트를 설치했는지 확인하십시오. [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>데이터를 보는 데 중지되었습니다.
 * [상태 블로그](https://blogs.msdn.com/b/applicationinsights-status/)를 참조하세요.
-* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 찾아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](https://azure.microsoft.com/pricing/details/application-insights/)를 참조하세요.
+* 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격 책정을 열어 확인 합니다. 그렇다면 요금제를 업그레이드 하거나 추가 용량에 대 한 비용을 지불할 수 있습니다. [가격 체계](https://azure.microsoft.com/pricing/details/application-insights/)를 참조하세요.
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>기대한 모든 데이터가 표시되지 않는 경우
 애플리케이션이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에 대해 Application Insights SDK를 사용하는 경우 [적응 샘플링](../../azure-monitor/app/sampling.md) 기능이 작동하여 원격 분석의 백분율만 보낼 수 있습니다.

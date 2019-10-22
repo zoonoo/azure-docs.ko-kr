@@ -1,21 +1,20 @@
 ---
-title: 논리 앱 정의를 위한 JSON 만들기, 편집 또는 확장 - Azure Logic Apps | Microsoft Docs
-description: Azure Logic Apps에서 논리 앱 정의를 위한 JSON 작성 및 확장
+title: 논리 앱 정의 만들기, 편집 또는 확장-Azure Logic Apps
+description: Azure Logic Apps에서 논리 앱 JSON 정의를 작성, 편집 및 확장 하는 방법
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, jehollan, LADocs
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
+ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: a96cc56c85db6726bf2cdaff72904e76ecbaf087
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 03203a5fdb6d61ed95e96581a7e4a979c911cd02
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164640"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680030"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Azure Logic Apps에서 논리 앱 정의를 위한 JSON 만들기, 편집 또는 확장
 
@@ -29,7 +28,7 @@ JSON에서 논리 앱 정의를 사용하려면 Azure Portal 또는 Visual Studi
 
 ## <a name="edit-json---azure-portal"></a>JSON 편집 - Azure Portal
 
-1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에 로그인합니다.
+1. <a href="https://portal.azure.com" target="_blank">Azure portal</a>에 로그인합니다.
 
 2. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에서 “논리 앱”을 찾은 다음, 결과에서 사용자의 논리 앱을 선택합니다.
 
@@ -39,7 +38,7 @@ JSON에서 논리 앱 정의를 사용하려면 Azure Portal 또는 Visual Studi
 
 ## <a name="edit-json---visual-studio"></a>JSON 편집 - Visual Studio
 
-Visual Studio에서 논리 앱 정의를 작업하려면 [필요한 도구가 설치되었는지](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites) 확인해야 합니다. Visual Studio를 사용하여 논리 앱을 만들려면 [빠른 시작을 검토하세요. Azure Logic Apps - Visual Studio를 사용하여 작업 및 프로세스를 자동화합니다](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+Visual Studio에서 논리 앱 정의를 작업하려면 [필요한 도구가 설치되었는지](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites) 확인해야 합니다. Visual Studio를 사용하여 논리 앱을 만들려면 [빠른 시작: Azure Logic Apps - Visual Studio를 사용하여 작업 및 프로세스 자동화](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)를 검토합니다.
 
 Visual Studio에서 생성되어 직접 Azure Portal에서 또는 Visual Studio에서 Azure Resource Manager 프로젝트로 배포된 논리 앱을 열 수 있습니다.
 
@@ -60,11 +59,11 @@ Visual Studio에서 생성되어 직접 Azure Portal에서 또는 Visual Studio�
 
 5. 디자이너 보기로 돌아가려면 코드 보기 편집기의 맨 아래에서 **디자인**을 선택합니다.
 
-## <a name="parameters"></a>매개 변수
+## <a name="parameters"></a>parameters
 
 배포 수명 주기는 일반적으로 개발, 테스트, 스테이징 및 프로덕션에 대해 서로 다른 환경을 포함 합니다. 하드 코딩 하지 않고 논리 앱 전체에서 다시 사용 하거나 배포 요구 사항에 따라 달라 지는 값이 있는 경우 논리 앱을 자동화할 수도 있도록 워크플로 정의에 대 한 [Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-overview.md) 만들 수 있습니다. 배포가. 
 
-이러한 값에 대 한 매개 변수를 매개 *변수화*하거나 정의 하 고 사용 하는 일반적인 단계를 수행 합니다. 그런 다음 해당 값을 템플릿에 전달 하는 별도의 매개 변수 파일에 값을 제공할 수 있습니다. 이렇게 하면 논리 앱을 업데이트 하 고 다시 배포 하지 않고도 이러한 값을 보다 쉽게 변경할 수 있습니다. 자세한 [내용은 개요: Azure Resource Manager 템플릿을](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)사용 하 여 논리 앱에 대 한 배포를 자동화 합니다.
+이러한 값에 대 한 매개 변수를 매개 *변수화*하거나 정의 하 고 사용 하는 일반적인 단계를 수행 합니다. 그런 다음 해당 값을 템플릿에 전달 하는 별도의 매개 변수 파일에 값을 제공할 수 있습니다. 이렇게 하면 논리 앱을 업데이트 하 고 다시 배포 하지 않고도 이러한 값을 보다 쉽게 변경할 수 있습니다. 자세한 내용은 [개요: Azure Resource Manager 템플릿을 사용 하 여 논리 앱에 대 한 배포 자동화](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)를 참조 하세요.
 
 1. 템플릿에서 각각 배포 및 런타임에 사용할 값을 허용 하기 위한 템플릿 매개 변수 및 워크플로 정의 매개 변수를 정의 합니다.
 

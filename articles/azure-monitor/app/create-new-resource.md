@@ -1,23 +1,18 @@
 ---
 title: 새 Azure Application Insights 리소스 만들기 | Microsoft Docs
 description: 새 라이브 애플리케이션에 대한 Application Insights 모니터링을 수동으로 설정합니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/16/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: ae9c885b342664baf90f9c2b5702a092c9d838df
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.date: 08/16/2019
+ms.openlocfilehash: be68c70a105737f232741f02994da87c0c628bd7
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562846"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677498"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 
@@ -33,11 +28,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ![왼쪽 위 모서리에 있는 ' + ' 기호를 클릭 합니다. 개발자 도구 다음에 Application Insights를 선택 합니다.](./media/create-new-resource/new-app-insights.png)
 
-   | 설정        |  값           | Description  |
+   | 설정        |  Value           | 설명  |
    | ------------- |:-------------|:-----|
-   | **이름**      | 전역적으로 고유한 값 | 모니터링할 앱을 식별 하는 이름입니다. |
+   | **Name**      | 전역적으로 고유한 값 | 모니터링할 앱을 식별 하는 이름입니다. |
    | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스트할 새 리소스 그룹 또는 기존 리소스 그룹의 이름입니다. |
-   | **위치** | East US | 가까운 위치 또는 앱이 호스트 되는 위치를 선택 합니다. |
+   | **위치** | 미국 동부 | 가까운 위치 또는 앱이 호스트 되는 위치를 선택 합니다. |
 
 필요한 필드에 적절 한 값을 입력 한 다음 **검토 + 만들기**를 선택 합니다.
 
@@ -108,7 +103,7 @@ TenantId           : {subid}
  az extension add -n application-insights
 ```
 
-`az extension add` 명령을 실행 하지 않으면 다음 오류 메시지가 표시 됩니다.`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+@No__t_0 명령을 실행 하지 않으면 다음 오류 메시지가 표시 됩니다. `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
 이제 다음을 실행 하 여 Application Insights 리소스를 만들 수 있습니다.
 

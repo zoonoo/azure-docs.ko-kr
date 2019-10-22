@@ -1,23 +1,19 @@
 ---
 title: Azure Application Insights 데이터를 사용하여 사용자 지정 보고서 자동화
 description: Azure Application Insights 데이터를 사용하여 사용자 지정 일간/주간/월간 보고서 자동화
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: 3becf5ef579acdc52a51f9ad618e37460491c2ec
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 2b23374972a071421b59bedf0eb5b9358b37d7a9
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146755"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677617"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Azure Application Insights 데이터를 사용하여 사용자 지정 보고서 자동화
 
@@ -95,7 +91,7 @@ availabilityResults
 5. **_Application Insights 예약된 다이제스트 템플릿_** 을 선택합니다.
 
      > [!NOTE]
-     > 기본적으로 함수 앱은 런타임 버전 2.x로 생성 됩니다. Application Insights 예약 된 다이제스트 템플릿을 사용 하려면 [Azure Functions 런타임 버전](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) 1.x를 대상으로 해야 **합니다.**  ![런타임 스크린샷](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
+     > 기본적으로 함수 앱은 런타임 버전 2.x로 생성 됩니다. Application Insights 예약 된 다이제스트 템플릿을 사용 하려면 [Azure Functions 런타임 버전](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) 1.x를 대상으로 해야 **합니다.**  ![runtime 스크린샷 ](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
 
 
 

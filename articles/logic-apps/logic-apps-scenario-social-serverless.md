@@ -1,5 +1,5 @@
 ---
-title: 서버를 사용하지 않는 시나리오 - Azure 서비스를 사용하여 사용자 지정 인사이트 대시보드 만들기 | Microsoft Docs
+title: Customer insights 대시보드 만들기-Azure Logic Apps
 description: Azure Logic Apps 및 Azure Functions로 고객 대시보드를 빌드하여 고객 피드백, 소셜 미디어 데이터 등을 관리
 services: logic-apps
 ms.service: logic-apps
@@ -7,21 +7,20 @@ ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
 ms.reviewer: estfan, LADocs
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: b8ba341252679a07e50f9b276f7f485b08a6acba
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: c9c5cf9c56f2e22faa973c983c6fd81733119daa
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164874"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680119"
 ---
-# <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Azure Logic Apps 및 Azure Functions를 사용하여 스트리밍 Customer Insights 대시보드 만들기
+# <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Azure Logic Apps 및 Azure Functions를 사용하여 스트리밍 Customer Insights 대시보드 만들기
 
 Azure는 인프라에 대한 염려 없이 클라우드에서 앱을 빠르게 빌드하고 호스팅하는 데 도움이 되는 [서버리스](https://azure.microsoft.com/solutions/serverless/) 도구를 제공합니다. 이 자습서에서는 고객 피드백을 트리거하고 Machine Learning으로 피드백을 분석하고 Power BI 또는 Azure Data Lake와 같은 원본 정보를 게시하는 대시보드를 만들 수 있습니다.
 
-이 솔루션의 경우 서버리스 앱을 위해 [Azure Functions](https://azure.microsoft.com/services/functions/) 및 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)와 같은 핵심 Azure 구성 요소를 사용합니다.
+이 솔루션의 경우 서버를 사용하지 않는 앱을 위해 [Azure Functions](https://azure.microsoft.com/services/functions/) 및 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)와 같은 핵심 Azure 구성 요소를 사용합니다.
 Azure Logic Apps는 서버가 없는 구성 요소에서 오케스트레이션을 만들고 200개 이상의 서비스 및 API에 연결할 수 있도록 클라우드에서 서버를 사용하지 않는 워크플로 엔진을 제공합니다. Azure Functions는 클라우드에 서버를 사용하지 않는 계산을 제공합니다. 이 솔루션은 미리 정의된 키워드를 기반으로 고객 트윗에 플래그를 지정하도록 Azure Functions를 사용합니다.
 
 이 시나리오에서는 고객의 피드백을 찾도록 트리거하는 논리 앱을 만듭니다. 고객 피드백에 응답하는 데 도움이 되는 일부 커넥터에는 Outlook.com, Office 365, Survey Monkey, Twitter 및 [웹 형식의 HTTP 요청](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/)이 포함됩니다. 사용자가 만든 워크플로는 Twitter에서 해시태그를 모니터링합니다.
@@ -34,7 +33,7 @@ Azure Logic Apps는 서버가 없는 구성 요소에서 오케스트레이션�
 
    논리 앱을 처음 접하는 경우 [Azure Portal을 위한 빠른 시작](../logic-apps/quickstart-create-first-logic-app-workflow.md) 또는 [Visual Studio을 위한 빠른 시작](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)을 검토하세요.
 
-2. Logic Apps 디자이너에서 다음 동작이 있는 Twitter 트리거를 찾아서 추가합니다. **새 트윗이 게시될 때**
+2. Logic Apps 디자이너에서 **새 트윗이 게시될 때**라는 동작이 있는 Twitter 트리거를 찾아서 추가합니다.
 
 3. 키워드 또는 해시태그를 기준으로 트윗을 수신하도록 트리거를 설정합니다.
 

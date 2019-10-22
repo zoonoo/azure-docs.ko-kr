@@ -1,26 +1,22 @@
 ---
 title: Azure Monitor-Azure 애플리케이션 Insights 기본 SDK 끝점 재정의 | Microsoft Docs
 description: Azure Government와 같은 영역에 대 한 기본 Azure 애플리케이션 Insights SDK 끝점을 수정 합니다.
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/26/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 25087c5b3a078b740764f51a7780a24277d5c642
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 07/26/2019
+ms.openlocfilehash: e1db9782fe923f7a5759f4e001cd0db970606fed
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639569"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677487"
 ---
- # <a name="application-insights-overriding-default-endpoints"></a>기본 끝점 재정의 Application Insights
+# <a name="application-insights-overriding-default-endpoints"></a>기본 끝점 재정의 Application Insights
 
-Application Insights에서 특정 지역으로 데이터를 보내려면 기본 끝점 주소를 재정의 해야 합니다. 각 SDK에는 약간 다른 수정이 필요 하며,이에 대해서는이 문서에 설명 되어 있습니다. 이러한 변경을 수행 하려면 샘플 코드를 조정 하 고, `QuickPulse_Endpoint_Address` `TelemetryChannel_Endpoint_Address`및 `Profile_Query_Endpoint_address` 에 대 한 자리 표시자 값을 특정 지역의 실제 끝점 주소로 바꾸어야 합니다. 이 문서의 끝에는이 구성이 필요한 지역의 끝점 주소에 대 한 링크가 포함 되어 있습니다.
+Application Insights에서 특정 지역으로 데이터를 보내려면 기본 끝점 주소를 재정의 해야 합니다. 각 SDK에는 약간 다른 수정이 필요 하며,이에 대해서는이 문서에 설명 되어 있습니다. 이러한 변경을 수행 하려면 샘플 코드를 조정 하 고 `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address` 및 `Profile_Query_Endpoint_address`에 대 한 자리 표시자 값을 특정 지역의 실제 끝점 주소로 바꾸어야 합니다. 이 문서의 끝에는이 구성이 필요한 지역의 끝점 주소에 대 한 링크가 포함 되어 있습니다.
 
 ## <a name="sdk-code-changes"></a>SDK 코드 변경
 
@@ -62,7 +58,7 @@ Application Insights에서 특정 지역으로 데이터를 보내려면 기본 
   }
 ```
 
-라이브 메트릭 및 프로필 쿼리 끝점에 대 한 값은 코드를 통해서만 설정할 수 있습니다. 코드를 통해 모든 끝점 값의 기본값을 재정의 하려면 `ConfigureServices` `Startup.cs` 파일의 메서드에서 다음과 같이 변경 합니다.
+라이브 메트릭 및 프로필 쿼리 끝점에 대 한 값은 코드를 통해서만 설정할 수 있습니다. 코드를 통해 모든 끝점 값의 기본값을 재정의 하려면 `Startup.cs` 파일의 `ConfigureServices` 메서드에서 다음과 같이 변경 합니다.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
@@ -157,7 +153,7 @@ Applicationinsights .xml 파일을 수정 하 여 기본 끝점 주소를 변경
 
 ### <a name="spring-boot"></a>Spring Boot
 
-파일을 `application.properties` 수정 하 고 다음을 추가 합니다.
+@No__t_0 파일을 수정 하 고 다음을 추가 합니다.
 
 ```yaml
 azure.application-insights.channel.in-process.endpoint-address= TelemetryChannel_Endpoint_Address
@@ -199,21 +195,21 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 
 현재는 끝점을 수정 해야 하는 유일한 지역은 [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) 및 [Azure 중국](https://docs.microsoft.com/azure/china/resources-developer-guide)입니다.
 
-|Region |  끝점 이름 | 값 |
+|지역 |  엔드포인트 이름 | Value |
 |-----------------|:------------|:-------------|
-| Azure 중국 | 원격 분석 채널 | `https://dc.applicationinsights.azure.cn/v2/track` |
-| Azure 중국 | QuickPulse (라이브 메트릭) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
-| Azure 중국 | 프로필 쿼리 |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
+| Azure China | 원격 분석 채널 | `https://dc.applicationinsights.azure.cn/v2/track` |
+| Azure China | QuickPulse (라이브 메트릭) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
+| Azure China | 프로필 쿼리 |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
 | Azure Government | 원격 분석 채널 |`https://dc.applicationinsights.us/v2/track` |
 | Azure Government | QuickPulse (라이브 메트릭) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
 | Azure Government | 프로필 쿼리 |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
 
-현재 ' api.applicationinsights.io '를 [통해 액세스](https://dev.applicationinsights.io/
-) 되는 Application Insights REST API를 사용 하는 경우 지역에 로컬인 끝점을 사용 해야 합니다.
+현재 ' api.applicationinsights.io '를 통해 액세스 되는 [Application Insights REST API](https://dev.applicationinsights.io/
+) 를 사용 하는 경우 지역에 로컬인 끝점을 사용 해야 합니다.
 
-|Region |  끝점 이름 | 값 |
+|지역 |  엔드포인트 이름 | Value |
 |-----------------|:------------|:-------------|
-| Azure 중국 | REST API | `api.applicationinsights.azure.cn` |
+| Azure China | REST API | `api.applicationinsights.azure.cn` |
 | Azure Government | REST API | `api.applicationinsights.us`|
 
 > [!NOTE]

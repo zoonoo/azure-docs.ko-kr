@@ -1,23 +1,18 @@
 ---
 title: Azure Application Insights를 사용하여 웹앱의 실패 및 예외 진단 | Microsoft Docs
 description: 요청 원격 분석과 함께 ASP.NET 앱에서 예외를 캡처합니다.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: d1e98390-3ce4-4d04-9351-144314a42aa2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/11/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: c8d46ddc834cb12aa63720673c83d745ab53ab4d
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.date: 07/11/2019
+ms.openlocfilehash: 90f03baa35d0bf2b63ec480a23db30409df3845f
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226874"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677793"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Application Insights를 사용하여 웹앱에서 예외 진단
 라이브 웹앱의 예외는 [Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 보고됩니다. 클라이언트와 서버에서 실패한 요청을 예외 및 다른 이벤트와 상호 연결하여 원인을 신속하게 진단할 수 있습니다.
@@ -25,9 +20,9 @@ ms.locfileid: "68226874"
 ## <a name="set-up-exception-reporting"></a>예외 보고 설정
 * 서버 앱에서 예외를 보고하도록 하려면
   * Azure 웹앱: [Application Insights 확장](../../azure-monitor/app/azure-web-apps.md) 추가
-  * Azure VM 및 Azure 가상 머신 확장 집합 IIS에서 호스트 되는 앱: [응용 프로그램 모니터링 확장](../../azure-monitor/app/azure-vm-vmss-apps.md) 추가
+  * Azure VM 및 Azure 가상 머신 확장 집합 IIS에서 호스팅되는 앱: [응용 프로그램 모니터링 확장](../../azure-monitor/app/azure-vm-vmss-apps.md) 추가
   * 앱 코드에서 [Application Insights SDK](../../azure-monitor/app/asp-net.md)를 설치합니다.
-  * IIS 웹 서버: [Application Insights 에이전트](../../azure-monitor/app/monitor-performance-live-website-now.md) 실행 또는
+  * IIS 웹 서버: [Application Insights 에이전트](../../azure-monitor/app/monitor-performance-live-website-now.md)를 실행합니다.
   * Java 웹앱: [Java 에이전트](../../azure-monitor/app/java-agent.md) 설치
 * 웹 페이지에 [JavaScript 조각](../../azure-monitor/app/javascript.md)을 설치하여 브라우저 예외를 catch합니다.
 * 일부 애플리케이션 프레임워크 또는 일부 설정에서는 더 많은 예외를 catch하기 위해 몇 가지 추가 단계를 수행해야 합니다.
@@ -48,7 +43,7 @@ Visual Studio에서 Application Insights Search 창을 열고 앱에서 이벤�
 
 예외를 표시하도록 보고서를 필터링 할 수 있습니다.
 
-*예외가 표시되지 않나요? [예외 캡처](#exceptions)를 참조하세요.*
+*예외를 표시 하지 않나요? [캡처 예외](#exceptions)를 참조 하세요.*
 
 예외 보고서를 클릭하여 해당 스택 추적을 표시합니다.
 스택 추적에서 라인 참조를 클릭하여 관련 코드 파일을 엽니다.
@@ -69,7 +64,7 @@ Application Insights는 APM 환경과 함께 제공되어 모니터링된 애플
 
 **또는** 특정 실패 작업에 대 한 예외를 확인 하는 대신 위쪽의 예외 탭으로 전환 하 여 전체 예외 뷰에서 시작할 수 있습니다. 여기서 모니터링한 앱에 대해 수집된 모든 예외를 확인할 수 있습니다.
 
-*예외가 표시되지 않나요? [예외 캡처](#exceptions)를 참조하세요.*
+*예외를 표시 하지 않나요? [캡처 예외](#exceptions)를 참조 하세요.*
 
 
 ## <a name="custom-tracing-and-log-data"></a>사용자 지정 추적 및 로그 데이터
@@ -101,7 +96,7 @@ Application Insights는 APM 환경과 함께 제공되어 모니터링된 애플
 ## <a name="exceptions"></a> 예외 및 관련 진단 데이터 캡처
 처음에는 앱에서 실패를 유발하는 예외가 포털에 전부 표시되지 않을 것입니다. 웹 페이지에서 [JavaScript SDK](../../azure-monitor/app/javascript.md)를 사용 중이라면 브라우저 예외가 보일 것입니다. 하지만 대부분 서버 예외는 IIS에서 catch하며 서버 예외를 보려면 약간의 코드를 작성해야 합니다.
 
-다음을 할 수 있습니다.
+다음과 같은 기능이 가능합니다.
 
 * **예외를 명시적으로 기록** 합니다.
 * **예외를 자동으로 캡처** 합니다. 프레임워크 유형에 따라 추가할 항목이 다릅니다.
@@ -206,7 +201,7 @@ public class GoodController : ApiController
 ## <a name="mvc"></a>MVC
 Application Insights 웹 SDK 버전 2.6(beta3 및 이후 버전)부터 Application Insights는 MVC 5 + 컨트롤러 메서드에서 자동으로 throw된 처리되지 않은 예외를 수집합니다. (다음 예제에 설명된 대로) 이전에 사용자 지정 처리기를 추가하여 이러한 예외를 추적한 경우 예외의 이중 추적을 방지하기 위해 제거할 수 있습니다.
 
-예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 예:
+예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 다음은 그 예입니다.
 
 * 컨트롤러 생성자에서 throw된 예외
 * 메시지 처리기에서 throw된 예외
@@ -295,10 +290,10 @@ FilterConfig.cs에서 AiHandleErrorAttribute를 글로벌 필터로 등록합니
 
 [샘플](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
 
-## <a name="web-api"></a>Web API
+## <a name="web-api"></a>웹 API
 Application Insights 웹 SDK 버전 2.6(beta3 및 이후 버전)부터 Application Insights는 WebAPI 2+의 컨트롤러 메서드에서 자동으로 throw된 처리되지 않은 예외를 수집합니다. (다음 예제에 설명된 대로) 이전에 사용자 지정 처리기를 추가하여 이러한 예외를 추적한 경우 예외의 이중 추적을 방지하기 위해 제거할 수 있습니다.
 
-예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 예를 들어:
+예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 다음은 그 예입니다.
 
 * 컨트롤러 생성자에서 throw된 예외
 * 메시지 처리기에서 throw된 예외

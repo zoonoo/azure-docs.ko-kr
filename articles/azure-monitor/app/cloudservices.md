@@ -1,38 +1,32 @@
 ---
 title: Azure Cloud Services용 Application Insights | Microsoft Docs
 description: Application Insights를 사용하여 웹 및 작업자 역할을 효과적으로 모니터링
-services: application-insights
-documentationcenter: ''
-keywords: WAD2AI, Azure Diagnostics
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
-ms.service: application-insights
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.workload: tbd
-ms.date: 09/05/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 9325d2dd6c897f4c8dacb3dcf3a382f9f0e856a8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.date: 09/05/2018
+ms.openlocfilehash: d77bbe355b3f6a2666f46246d1d12cfb2e43e559
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933005"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677571"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services용 Application Insights
 [Application Insights][start] 는 Application Insights sdk의 데이터를 클라우드 서비스의 [Azure 진단](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 데이터와 결합 하 여 [Azure 클라우드 서비스 앱](https://azure.microsoft.com/services/cloud-services/) 의 가용성, 성능, 실패 및 사용 현황을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
 
 ![개요 대시보드](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 이 작업을 시작하려면 다음이 필요합니다.
 
 * [Azure](https://azure.com) 구독. Windows, Xbox Live 또는 기타 Microsoft 클라우드 서비스의 Microsoft 계정으로 로그인합니다. 
 * Microsoft Azure 도구 2.9 이상
 * 개발자 분석 도구 7.10 이상
 
-## <a name="get-started-quickly"></a>신속하게 시작하기
+## <a name="get-started-quickly"></a>신속히 시작하세요
 Application Insights를 사용하여 클라우드 서비스를 모니터링하는 가장 쉽고 빠른 방법은 Azure에 서비스를 게시할 때 이 옵션을 선택하는 것입니다.
 
 ![진단 설정 페이지 예시](./media/cloudservices/azure-cloud-application-insights.png)
@@ -80,7 +74,7 @@ Application Insights를 사용하여 클라우드 서비스를 모니터링하�
 
 각 역할에 대한 별도의 리소스(각 빌드 구성에 대한 별도의 집합)를 만들기로 결정한 경우 Application Insights 포털에서 모든 리소스를 만드는 것이 가장 간편합니다. 많은 리소스를 만드는 경우 [프로세스를 자동화](../../azure-monitor/app/powershell.md)할 수 있습니다.
 
-1. [Azure Portal][portal]에서 **새** > **개발자 서비스** > **Application Insights**를 선택 합니다.  
+1. [Azure Portal][portal]에서 **새로 만들기**  > **Developer Services**  > **Application Insights**를 선택 합니다.  
 
     ![Application Insights 창](./media/cloudservices/01-new.png)
 
@@ -142,7 +136,7 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 
 .NET Framework에서 전체 SQL 쿼리를 캡처하려면이 단계가 필요 합니다. 
 
-1. 다음과 유사한 각 역할에 대 한 [시작 작업 추가](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) `\*.csdef` 
+1. @No__t_0 파일에서 다음과 같은 각 역할에 대 한 [시작 작업](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) 추가 
 
     ```xml
     <Startup>
@@ -157,7 +151,7 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
     </Startup>
     ```
     
-2. [Installagent .bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) 및 [installagent.](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1)p s 1을 다운로드 하 여 각 `AppInsightsAgent` 역할 프로젝트의 폴더에 배치 합니다. Visual Studio 파일 속성 또는 빌드 스크립트를 통해 출력 디렉터리에 복사 해야 합니다.
+2. [Installagent .bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) 및 [installagent.](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1)p s 1을 다운로드 하 여 각 역할 프로젝트의 `AppInsightsAgent` 폴더에 배치 합니다. Visual Studio 파일 속성 또는 빌드 스크립트를 통해 출력 디렉터리에 복사 해야 합니다.
 
 3. 모든 작업자 역할에 대해 환경 변수를 추가 합니다. 
 
@@ -230,12 +224,12 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 ## <a name="performance-counters"></a>성능 카운터
 다음 카운터가 기본적으로 수집됩니다.
 
-* \Process(??APP_WIN32_PROC??)\% Processor Time
+* \Process (?? APP_WIN32_PROC??) \% 프로세서 시간
 * \Memory\Available Bytes
 * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
 * \Process(??APP_WIN32_PROC??)\Private Bytes
 * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
-* \Processor(_Total)\% 프로세서 시간
+* \Processor(_Total)\% Processor Time
 
 웹 역할의 경우 이러한 카운터도 수집됩니다.
 

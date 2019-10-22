@@ -1,26 +1,21 @@
 ---
 title: Azure Application Insights에서 SQL로 내보내기 | Microsoft Docs
 description: Stream Analytics를 사용하여 Application Insights 데이터를 SQL로 계속 내보냅니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/11/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: eecd2a50607fa42562a9ae6a7fb950a253655a45
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/11/2017
+ms.openlocfilehash: 41efcbc7b70395302858638a9f44f3cbba27bf9a
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65872716"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678260"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>연습: Stream Analytics를 사용하여 Application Insights에서 SQL로 내보내기
-이 문서에서는 [연속 내보내기][export] 및 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)을 사용하여 [Azure Application Insights][start]에서 Azure SQL 데이터베이스로 원격 분석 데이터를 이동하는 방법을 보여줍니다. 
+이 문서에서는 [연속 내보내기][export] 및 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)를 사용 하 여 [Azure 애플리케이션 Insights][start] 에서 Azure SQL database로 원격 분석 데이터를 이동 하는 방법을 보여 줍니다. 
 
 연속 내보내기는 원격 분석 데이터를 JSON 형식으로 Azure Storage로 이동합니다. Azure Stream Analytics를 사용하여 JSON 개체를 구문 분석하고 데이터베이스 테이블에 행을 만들 것입니다.
 
@@ -31,7 +26,7 @@ ms.locfileid: "65872716"
 이 예제에서는 페이지 보기 데이터를 사용하지만, 동일한 패턴을 사용자 지정 이벤트 및 예외와 같은 다른 데이터 형식으로 쉽게 확장할 수 있습니다. 
 
 ## <a name="add-application-insights-to-your-application"></a>애플리케이션에 Application Insights 추가
-시작하기:
+시작하려면:
 
 1. [웹 페이지용 Application Insights를 설치합니다](../../azure-monitor/app/javascript.md). 
    
@@ -41,7 +36,7 @@ ms.locfileid: "65872716"
 ## <a name="create-storage-in-azure"></a>Azure에서 스토리지 만들기
 연속 내보내기는 항상 Azure Storage 계정에 데이터를 출력하므로 스토리지를 먼저 만들어야 합니다.
 
-1. [Azure Portal][portal]에서 구독에 스토리지 계정을 만듭니다.
+1. [Azure 포털][portal]에서 구독에 스토리지 계정을 만듭니다.
    
     ![Azure Portal에서 새로 만들기, 데이터, 스토리지를 선택합니다. 클래식을 선택하고 만들기를 선택합니다. 스토리지 이름을 제공합니다.](./media/code-sample-export-sql-stream-analytics/040-store.png)
 2. 컨테이너 만들기
@@ -73,7 +68,7 @@ ms.locfileid: "65872716"
 1. 일부 데이터가 누적되도록 합니다. 한동안 사용자가 애플리케이션을 사용하도록 놓아둡니다. 원격 분석이 제공되어 [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md)에서 통계 차트가, [진단 검색](../../azure-monitor/app/diagnostic-search.md)에서 개별 이벤트가 표시됩니다. 
    
     또한 데이터를 스토리지로 내보냅니다. 
-2. 포털 또는 Visual Studio에서 내보낸 데이터를 검사합니다. 포털에서 **찾아보기**, 스토리지 계정을 선택한 다음 **컨테이너**를 선택합니다. Visual Studio에서 **보기/클라우드 탐색기**를 선택하고 Azure/스토리지를 엽니다. (이 메뉴 옵션이 없는 경우 Azure SDK를 설치해야 합니다. 새 프로젝트 대화 상자를 열고 시각적 개체 C# / 클라우드 / .NET용 Microsoft Azure SDK 가져오기를 엽니다.)
+2. 포털 또는 Visual Studio에서 내보낸 데이터를 검사합니다. 포털에서 **찾아보기**, 스토리지 계정을 선택한 다음 **컨테이너**를 선택합니다. Visual Studio에서 **보기/클라우드 탐색기**를 선택하고 Azure/스토리지를 엽니다. 이 메뉴 옵션이 없는 경우 Azure SDK를 설치해야 합니다. 새 프로젝트 대화 상자를 열고 Visual C#/클라우드/Microsoft Azure SDK for .NET 가져오기를 엽니다.
    
     ![Visual Studio에서 서버 브라우저, Azure, 스토리지 열기](./media/code-sample-export-sql-stream-analytics/087-explorer.png)
    
@@ -82,7 +77,7 @@ ms.locfileid: "65872716"
 이벤트는 JSON 형식으로 blob 파일에 기록됩니다. 각 파일에는 하나 이상의 이벤트가 있을 수 있습니다. 따라서 이벤트 데이터를 읽고 원하는 필드를 필터링하려고 합니다. 데이터로 온갖 종류의 작업을 수행할 수 있지만, 지금은 Stream Analytics를 사용하여 데이터를 SQL 데이터베이스로 이동하려고 합니다. 이렇게 하면 흥미로운 많은 쿼리를 쉽게 실행할 수 있습니다.
 
 ## <a name="create-an-azure-sql-database"></a>Azure SQL Database 만들기
-다시 한 번 [Azure Portal][portal]의 구독에서 시작하여 데이터를 작성할 데이터베이스(및 이미 있는 경우 새 서버)를 만듭니다.
+[Azure Portal][portal]의 구독에서 다시 시작 하 여 데이터를 작성할 데이터베이스 (및 이미 있는 경우 새 서버)를 만듭니다.
 
 ![새로 만들기, 데이터, SQL](./media/code-sample-export-sql-stream-analytics/090-sql.png)
 
@@ -171,7 +166,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 이 예제에서:
 
 * `webapplication27`은 Application Insights 리소스의 이름으로, **모두 소문자**입니다. 
-* `1234...`은 **대시를 제거한**Application Insights 리소스의 계측 키입니다. 
+* `1234...`은 **대시를 제거한** Application Insights 리소스의 계측 키입니다. 
 * `PageViews` 는 분석하려는 데이터의 형식입니다. 사용 가능한 형식은 연속 내보내기에 설정한 필터에 따라 다릅니다. 내보낸 데이터를 검사하여 사용 가능한 다른 형식을 확인하고 [데이터 모델 내보내기](../../azure-monitor/app/export-data-model.md)를 참조합니다.
 * `/{date}/{time}` 은 문자로 기록된 패턴입니다.
 

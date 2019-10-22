@@ -1,25 +1,20 @@
 ---
 title: Azure Application Insights에서 Docker 애플리케이션 모니터링 | Microsoft Docs
 description: Docker 성능 카운터, 이벤트 및 예외는 컨테이너식 앱에서 보낸 원격 분석과 함께 Application Insights에 표시될 수 있습니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 115e2d6b041ecc3f38a2a6438d90777da9660221
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/14/2019
+ms.openlocfilehash: 66a2481d25c863bbdbf4d72c4683a309918776db
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62098034"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677930"
 ---
-# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Application Insights (사용 되지 않음)에서 Docker 응용 프로그램 모니터링
+# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Application Insights에서 Docker 응용 프로그램 모니터링 (사용 되지 않음)
 
 > [!NOTE]
 > 이 솔루션은 더 이상 사용되지 않습니다. 컨테이너 모니터링의 현재 투자에 대한 자세한 내용을 보려면 [컨테이너용 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)를 확인해보세요.
@@ -32,7 +27,7 @@ Docker 호스트에서 [Application Insights 이미지](https://hub.docker.com/r
 
 * 호스트에서 실행하는 모든 컨테이너에 대한 수명 주기 원격 분석 – 시작, 중지 등
 * 모든 컨테이너에 대한 성능 카운터 CPU, 메모리, 네트워크 사용량 외 다수
-* 컨테이너에서 실행되는 앱에 [Java용 Application Insights SDK를 설치하면](../../azure-monitor/app/java-get-started.md) 해당 앱에 대한 모든 원격 분석에 컨테이너와 호스트 머신을 식별하는 추가적인 속성이 포함됩니다. 예를 들어 둘 이상의 호스트에서 실행되는 앱 인스턴스가 있다면 앱 원격 분석을 호스트별로 쉽게 필터링할 수 있습니다.
+* 컨테이너에서 실행되는 앱에 [Java용 Application Insights SDK를 설치하면](../../azure-monitor/app/java-get-started.md) 해당 앱에 대한 모든 원격 분석에 컨테이너와 호스트 컴퓨터를 식별하는 추가적인 속성이 포함됩니다. 예를 들어 둘 이상의 호스트에서 실행되는 앱 인스턴스가 있다면 앱 원격 분석을 호스트별로 쉽게 필터링할 수 있습니다.
 
 ## <a name="set-up-your-application-insights-resource"></a>Application Insights 리소스 설정
 
@@ -90,7 +85,7 @@ Docker 타일을 클릭합니다.
 ### <a name="docker-context-added-to-app-telemetry"></a>앱 원격 분석에 추가되는 Docker 컨텍스트
 AI SDK를 사용하여 계측되는 애플리케이션에서 보내는 요청 원격 분석은 Docker 컨텍스트 정보를 사용하여 보강됩니다.
 
-## <a name="q--a"></a>질문과 대답
+## <a name="q--a"></a>질문과 답변
 *Docker에서 얻을 수 없는 어떤 기능을 Application Insights가 제공하나요?*
 
 * 컨테이너 및 이미지별로 성능 카운터의 자세한 분석 결과를 제공합니다.
@@ -99,7 +94,7 @@ AI SDK를 사용하여 계측되는 애플리케이션에서 보내는 요청 �
 
 *앱 자체에서 원격 분석을 가져오려면 어떻게 해야 하나요?*
 
-* Application Insights SDK를 앱에 설치합니다. 방법 알아보기: [Java 웹앱](../../azure-monitor/app/java-get-started.md), [Windows 웹앱](../../azure-monitor/app/asp-net.md)
+* Application Insights SDK를 앱에 설치합니다. [Java 웹앱](../../azure-monitor/app/java-get-started.md), [Windows 웹앱](../../azure-monitor/app/asp-net.md)에 대한 방법을 알아봅니다.
 
 ## <a name="video"></a>비디오
 

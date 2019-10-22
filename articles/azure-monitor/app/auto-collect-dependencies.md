@@ -1,23 +1,19 @@
 ---
 title: Azure Application Insights - 종속성 자동 수집 | Microsoft Docs
 description: Application Insights에서 자동으로 종속성 수집 및 시각화
-services: application-insights
-documentationcenter: .net
-author: nikmd23
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: reference
+author: nikmd23
+ms.author: nimolnar
 ms.date: 04/29/2019
 ms.reviewer: mbullwin
-ms.author: nimolnar
-ms.openlocfilehash: 839ab291a99de646053b638520ce43f459d5c41f
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 6fe43eb5963f2918f41ad15f1904f883b5e9c298
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297008"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678296"
 ---
 # <a name="dependency-auto-collection"></a>종속성 자동 수집
 
@@ -73,20 +69,20 @@ ms.locfileid: "68297008"
 | [HTTP](https://nodejs.org/api/http.html), [HTTPS](https://nodejs.org/api/https.html) | 0.10+ |
 | <b>Storage 클라이언트</b> | |
 | [Redis](https://www.npmjs.com/package/redis) | 2.x |
-| [MongoDb](https://www.npmjs.com/package/mongodb); [MongoDb Core](https://www.npmjs.com/package/mongodb-core) | 2.x - 3.x |
+| [MongoDb](https://www.npmjs.com/package/mongodb); [MongoDb Core](https://www.npmjs.com/package/mongodb-core) | 2.x-에서처럼 |
 | [MySQL](https://www.npmjs.com/package/mysql) | 2.0.0-2.16 |
-| [PostgreSql](https://www.npmjs.com/package/pg); | 6.x - 7.x |
-| [pg-pool](https://www.npmjs.com/package/pg-pool) | 1.x - 2.x |
+| [PostgreSql](https://www.npmjs.com/package/pg); | 6gb-7.x |
+| [pg-pool](https://www.npmjs.com/package/pg-pool) | 1.x-2.x |
 | <b>로깅 라이브러리</b> | |
 | [콘솔](https://nodejs.org/api/console.html) | 0.10+ |
 | [Bunyan](https://www.npmjs.com/package/bunyan) | 1.x |
-| [윈스턴](https://www.npmjs.com/package/winston) | 2.x - 3.x |
+| [윈스턴](https://www.npmjs.com/package/winston) | 2.x-에서처럼 |
 
 ## <a name="javascript"></a>JavaScript
 
 | 통신 라이브러리 | 버전 |
 | ------------------------|----------|
-| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | 모두 |
+| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | 전체 |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,23 +1,18 @@
 ---
 title: Azure Application Insights 데이터 보존 및 스토리지 | Microsoft Docs
 description: 보존 및 개인 정보 취급 방침
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/22/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: df441a55ef4a9a40fe4defcabca5f667eeddbf29
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.date: 08/22/2019
+ms.openlocfilehash: 62758ef82b074e093e837b2095dd9f27ab31657b
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207300"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678093"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 스토리지
 
@@ -26,13 +21,13 @@ ms.locfileid: "70207300"
 우선 짧은 응답은 다음과 같습니다.
 
 * "초기"를 실행하는 표준 원격 분석 모듈은 서비스에 중요한 데이터를 전송하지 않을 가능성이 있습니다. 원격 분석은 로드, 성능 및 사용 현황 메트릭, 예외 보고서 및 기타 진단 데이터와 관련되어 있습니다. 진단 보고서에 표시되는 기본 사용자 데이터는 URL입니다. 하지만 앱은 어떤 경우에도 URL에 일반 텍스트로 중요한 데이터를 배치하지 않아야 합니다.
-* 추가 사용자 지정 원격 분석을 보내는 코드를 작성하여 사용 현황의 진단 및 모니터링을 도울 수 있습니다. (이 확장성은 Application Insights의 매우 유용한 기능입니다.) 실수로 개인 및 기타 중요한 데이터가 포함되도록 이 코드를 작성할 수 있습니다. 애플리케이션이 이러한 데이터를 사용하여 작동하는 경우 작성하는 모든 코드에 철저한 검토 프로세스를 적용해야 합니다.
+* 추가 사용자 지정 원격 분석을 보내는 코드를 작성하여 사용 현황의 진단 및 모니터링을 도울 수 있습니다. 이 확장성은 Application Insights의 유용한 기능입니다. 실수로 개인 및 기타 중요 한 데이터를 포함 하도록이 코드를 작성 하는 것이 가능 합니다. 애플리케이션이 이러한 데이터를 사용하여 작동하는 경우 작성하는 모든 코드에 철저한 검토 프로세스를 적용해야 합니다.
 * 앱을 개발하고 테스트하는 동안 SDK에서 보낼 항목을 검사하기 쉽습니다. IDE 및 브라우저의 디버깅 출력 창에 데이터가 나타납니다. 
-* 데이터는 미국 또는 유럽의 [Microsoft Azure](https://azure.com) 서버에 저장됩니다. 그러나 앱은 어디서나 실행할 수 있습니다. Azure는 [강력한 보안 프로세스를 가지고 광범위한 규정 준수 표준을 충족](https://azure.microsoft.com/support/trust-center/)합니다. 사용자와 지정된 팀만 데이터에 액세스할 수 있습니다. Microsoft 직원은 지식으로 제한된 특정 상황에서만 해당 데이터에 제한된 액세스 권한을 갖을 수 있습니다. 전송 중 및 미사용 시 암호화 됩니다.
+* 데이터는 미국 또는 유럽의 [Microsoft Azure](https://azure.com) 서버에 저장됩니다. 응용 프로그램은 어디에서 나 실행할 수 있습니다. Azure는 [강력한 보안 프로세스를 포함 하 고 광범위 한 규정 준수 표준을 충족](https://azure.microsoft.com/support/trust-center/)합니다. 사용자와 지정된 팀만 데이터에 액세스할 수 있습니다. Microsoft 직원은 지식으로 제한된 특정 상황에서만 해당 데이터에 제한된 액세스 권한을 갖을 수 있습니다. 전송 중 및 미사용 시 암호화 됩니다.
 
 이 문서의 나머지 부분에서는 이러한 대답에 대해 더 자세하게 설명합니다. 자체 포함되도록 설계되어 소속 팀에 속하지 않은 동료에게 표시할 수 있습니다.
 
-## <a name="what-is-application-insights"></a>Application Insights란?
+## <a name="what-is-application-insights"></a>Application Insights란 무엇인가요?
 [Azure 애플리케이션 Insights][start] 는 라이브 응용 프로그램의 성능과 유용성을 개선 하는 데 도움이 되는 Microsoft에서 제공 하는 서비스입니다. 테스트 중인 경우 및 게시하거나 배포한 후에 실행 중인 모든 시간 동안 애플리케이션을 모니터링합니다. 예를 들어 Application Insights는 많은 사용자를 가져오는 시간, 앱이 얼마나 반응하는지, 종속된 외부 서비스에서 얼마나 잘 제공되는지를 보여주는 차트 및 테이블을 만듭니다. 충돌, 오류 또는 성능 문제가 있는 경우 세부 정보에서 원격 분석 데이터를 통해 검색하여 원인을 진단할 수 있습니다. 그리고 앱의 성능과 가용성에 변경 사항이 있는 경우 서비스는 사용자에게 전자 메일을 보냅니다.
 
 이 기능을 가져오기 위해 애플리케이션에서 해당 코드의 일부가 되는 Application Insights SDK를 설치합니다. 앱이 실행 중일 때 SDK는 작업을 모니터링하고 Application Insights 서비스에 원격 분석을 보냅니다. [Microsoft Azure](https://azure.com)에서 호스팅하는 클라우드 서비스입니다. (하지만 Application Insights는 Azure에서 호스팅되는 서비스가 아닌 모든 애플리케이션에 대해 작동합니다.)
@@ -103,7 +98,7 @@ Microsoft는 서비스를 제공하기 위한 목적으로만 데이터를 사�
 * 새 Application Insights 리소스를 만들 때 위치를 선택할 수 있습니다. 지역별 Application Insights 가용성에 대 한 자세한 내용은 [여기](https://azure.microsoft.com/global-infrastructure/services/?products=all)를 참조 하세요.
 
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>내 앱을 미국, 유럽 또는 동남 아시아에서 호스트해야 한다는 뜻인가요?
-* 아니요. 애플리케이션은 자체 온-프레미스 호스트 또는 클라우드의 어디에서나 실행할 수 있습니다.
+* 아닙니다. 애플리케이션은 자체 온-프레미스 호스트 또는 클라우드의 어디에서나 실행할 수 있습니다.
 
 ## <a name="how-secure-is-my-data"></a>내 데이터는 어느 정도 안전한가요?
 Application Insights는 Azure 서비스입니다. 보안 정책은 [Azure 보안, 개인 정보 보호 및 규정 준수 백서](https://go.microsoft.com/fwlink/?linkid=392408)에 설명되어 있습니다.
@@ -139,7 +134,7 @@ Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있�
 
 `C:\Users\username\AppData\Local\Temp`는 데이터를 지속하는 데 사용됩니다. 이 위치는 구성 디렉터리에서 구성할 수 없으며 이 폴더에 대한 액세스 권한은 필수 자격 증명이 있는 특정 사용자로 제한됩니다. (여기서 [구현](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72) 참조)
 
-###  <a name="net"></a>.Net
+###  <a name="net"></a>.NET
 
 기본적으로 `ServerTelemetryChannel`은 현재 사용자의 로컬 앱 데이터 폴더 `%localAppData%\Microsoft\ApplicationInsights` 또는 임시 폴더`%TMP%`를 사용합니다. (여기서 [구현](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) 참조)
 
@@ -164,7 +159,7 @@ Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있�
 
 ### <a name="netcore"></a>NetCore
 
-기본적으로 `ServerTelemetryChannel`은 현재 사용자의 로컬 앱 데이터 폴더 `%localAppData%\Microsoft\ApplicationInsights` 또는 임시 폴더`%TMP%`를 사용합니다. (여기서 [구현](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) 참조) Linux 환경에서는 스토리지 폴더를 지정하지 않으면 로컬 스토리지가 비활성화됩니다.
+기본적으로 `ServerTelemetryChannel`은 현재 사용자의 로컬 앱 데이터 폴더 `%localAppData%\Microsoft\ApplicationInsights` 또는 임시 폴더`%TMP%`를 사용합니다. 여기에서 [구현](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) 을 참조 하세요. Linux 환경에서는 저장소 폴더가 지정 되지 않은 경우 로컬 저장소를 사용할 수 없습니다.
 
 다음 코드 조각은 `Startup.cs` 클래스의 `ConfigureServices()` 메서드에서 `ServerTelemetryChannel.StorageFolder`를 설정하는 방법을 보여줍니다.
 
@@ -192,7 +187,7 @@ TLS 1.3 등을 사용할 수 있게 되면 더 안전한 최신 프로토콜을 
 
 ### <a name="platformlanguage-specific-guidance"></a>플랫폼/언어 특정 지침
 
-|플랫폼/언어 | 지원 | 추가 정보 |
+|플랫폼/언어 | 지원 | 자세한 정보 |
 | --- | --- | --- |
 | Azure App Services  | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)에 대한 공지를 참고하세요.  |
 | Azure 함수 앱 | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)에 대한 공지를 참고하세요. |
@@ -233,21 +228,21 @@ openssl s_client -connect bing.com:443 -tls1_2
 그러나 애플리케이션에서 이러한 기능을 구현할 수 있습니다. 모든 SDK에는 원격 분석 수집을 끄는 API 설정이 포함되어 있습니다. 
 
 ## <a name="data-sent-by-application-insights"></a>Application Insights에서 보내는 데이터
-SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 있습니다. [Application Insights-개요][start]를 참조 하세요. 각 구성 요소마다 다른 데이터를 보냅니다.
+SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 있습니다. [Application Insights-개요][start]를 참조 하세요. 각 구성 요소는 서로 다른 데이터를 보냅니다.
 
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>다양한 시나리오에서 전송되는 데이터 클래스
 
 | 사용자 작업 | 수집되는 데이터 클래스(다음 표 참조) |
 | --- | --- |
-| [.NET 웹 프로젝트에 Application Insights SDK 추가][greenbrown] |ServerContext<br/>유추<br/>성능 카운터<br/>요청<br/>**예외**<br/>세션<br/>사용자 |
+| [.NET 웹 프로젝트에 Application Insights SDK 추가][greenbrown] |ServerContext<br/>유추<br/>성능 카운터<br/>요청<br/>**예외**<br/>Session<br/>users |
 | [IIS에 상태 모니터 설치][redfield] |종속성<br/>ServerContext<br/>유추<br/>성능 카운터 |
-| [Java 웹 앱에 Application Insights SDK 추가][java] |ServerContext<br/>유추<br/>요청<br/>세션<br/>사용자 |
+| [Java 웹 앱에 Application Insights SDK 추가][java] |ServerContext<br/>유추<br/>요청<br/>Session<br/>users |
 | [웹 페이지에 JavaScript SDK 추가][client] |ClientContext <br/>유추<br/>Page<br/>ClientPerf<br/>Ajax |
 | [기본 속성 정의][apiproperties] |**속성** |
-| [통화 통신 메트릭][api] |숫자 값<br/>**Properties** |
-| [호출 추적 *][api] |이벤트 이름<br/>**Properties** |
-| [호출 통신 예외][api] |**예외**<br/>스택 덤프<br/>**Properties** |
-| SDK는 데이터를 수집할 수 없습니다. 예: <br/> - 성능 카운터에 액세스할 수 없음<br/> - 원격 분석 이니셜라이저 예외 |SDK 진단 |
+| [통화 통신 메트릭][api] |숫자 값<br/>**속성** |
+| [호출 추적 *][api] |이벤트 이름<br/>**속성** |
+| [호출 통신 예외][api] |**예외**<br/>스택 덤프<br/>**속성** |
+| SDK는 데이터를 수집할 수 없습니다. 다음은 그 예입니다. <br/> - 성능 카운터에 액세스할 수 없음<br/> - 원격 분석 이니셜라이저 예외 |SDK 진단 |
 
 [다른 플랫폼용 sdk][platforms]는 해당 문서를 참조 하세요.
 
@@ -255,13 +250,13 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 
 | 수집되는 데이터 클래스 | 포함(전체 목록 아님) |
 | --- | --- |
-| **Properties** |**임의 데이터 - 코드에 의해 결정됨** |
+| **속성** |**임의 데이터 - 코드에 의해 결정됨** |
 | DeviceContext |ID, IP, 로캘, 디바이스 모델, 네트워크, 네트워크 종류, OEM 이름, 화면 해상도, 역할 인스턴스, 역할 이름, 디바이스 유형 |
 | ClientContext |OS, 로캘, 언어, 네트워크, 창 해상도 |
-| 세션 |세션 ID |
+| Session |세션 ID |
 | ServerContext |컴퓨터 이름, 로캘, OS, 디바이스, 사용자 세션, 사용자 컨텍스트, 작업 |
 | 유추 |IP 주소, 타임스탬프, OS, 브라우저에서 지리적 위치 유추 |
-| metrics |메트릭 이름 및 값 |
+| 메트릭 |메트릭 이름 및 값 |
 | 이벤트 |이벤트 이름 및 값 |
 | PageViews |URL 및 페이지 이름이나 화면 이름 |
 | 클라이언트 성능 |URL/페이지 이름, 브라우저 로드 시간 |

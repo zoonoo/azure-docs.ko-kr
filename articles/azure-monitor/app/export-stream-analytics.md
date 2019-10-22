@@ -1,23 +1,18 @@
 ---
 title: Azure Application Insights에서 Stream Analytics를 사용하여 내보내기 | Microsoft Docs
 description: Stream Analytics를 사용하면 Application Insights에서 내보내는 데이터를 지속적으로 변환, 필터링 및 라우팅할 수 있습니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 31594221-17bd-4e5e-9534-950f3b022209
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/08/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: d4a4196aa601fc8da79da3962faec026eff5ec87
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.date: 01/08/2019
+ms.openlocfilehash: 3be1a643cbe942c0b740ae8ebcc2c7f2dda24854
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67625069"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677943"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Stream Analytics를 사용하여 Application Insights에서 내보낸 데이터 처리
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)는 [Application Insights에서 내보낸](export-telemetry.md) 데이터를 처리하는 위한 이상적인 도구입니다. Stream Analytics는 다양한 원본의 데이터를 가져와서 변환하고 필터링한 다음 다양한 싱크로 라우팅할 수 있습니다.
@@ -34,7 +29,7 @@ ms.locfileid: "67625069"
 ## <a name="create-storage-in-azure"></a>Azure에서 스토리지 만들기
 연속 내보내기는 항상 Azure Storage 계정에 데이터를 출력하므로 스토리지를 먼저 만들어야 합니다.
 
-1. [Azure 포털](https://portal.azure.com)에서 구독에 "클래식" 저장소 계정을 만듭니다.
+1. [Azure 포털](https://portal.azure.com)에서 구독에 &quot;클래식&quot; 스토리지 계정을 만듭니다.
    
    ![Azure Portal에서 새로 만들기, 데이터, 스토리지 선택](./media/export-stream-analytics/030.png)
 2. 컨테이너 만들기
@@ -67,7 +62,7 @@ ms.locfileid: "67625069"
 1. 일부 데이터가 누적되도록 합니다. 한동안 사용자가 애플리케이션을 사용하도록 놓아둡니다. 원격 분석이 제공되어 [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md)에서 통계 차트가, [진단 검색](../../azure-monitor/app/diagnostic-search.md)에서 개별 이벤트가 표시됩니다. 
    
     또한 데이터를 스토리지로 내보냅니다. 
-2. 내보낸 데이터를 검사합니다. Visual Studio에서 **보기/클라우드 탐색기**를 선택하고 Azure/스토리지를 엽니다. (이 메뉴 옵션이 없는 경우 Azure SDK를 설치해야 합니다. 새 프로젝트 대화 상자를 열고 시각적 개체 C# / 클라우드 / .NET용 Microsoft Azure SDK 가져오기를 엽니다.)
+2. 내보낸 데이터를 검사합니다. Visual Studio에서 **보기/클라우드 탐색기**를 선택하고 Azure/스토리지를 엽니다. 이 메뉴 옵션이 없는 경우 Azure SDK를 설치해야 합니다. 새 프로젝트 대화 상자를 열고 Visual C#/클라우드/Microsoft Azure SDK for .NET 가져오기를 엽니다.
    
     ![](./media/export-stream-analytics/04-data.png)
    
@@ -107,7 +102,7 @@ ms.locfileid: "67625069"
 이 예제에서:
 
 * `webapplication27`은 Application Insights 리소스의 이름으로, **모두 소문자**입니다.
-* `1234...`는 **대시를 생략한**Application Insights 리소스의 계측 키입니다. 
+* `1234...`은 **대시를 생략한** Application Insights 리소스의 계측 키입니다. 
 * `PageViews` 는 분석하려는 데이터의 형식입니다. 사용 가능한 형식은 연속 내보내기에 설정한 필터에 따라 다릅니다. 내보낸 데이터를 검사하여 사용 가능한 다른 형식을 확인하고 [데이터 모델 내보내기](export-data-model.md)를 참조합니다.
 * `/{date}/{time}` 은 문자로 기록된 패턴입니다.
 
@@ -210,7 +205,7 @@ Test 함수를 사용하여 올바른 출력이 표시되는지 확인합니다.
 
 ![Power BI에서 데이터 세트와 필드를 선택합니다.](./media/export-stream-analytics/210.png)
 
-## <a name="no-data"></a>데이터가 없나요?
+## <a name="no-data"></a>데이터가 없으세요?
 * [날짜 형식](#set-path-prefix-pattern) 을 YYYY-MM-DD(대시 사용)로 정확하게 설정했는지 확인합니다.
 
 ## <a name="video"></a>비디오

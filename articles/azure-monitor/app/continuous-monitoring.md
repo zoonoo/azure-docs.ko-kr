@@ -1,20 +1,18 @@
 ---
 title: Azure Pipelines 및 Azure 애플리케이션 Insights를 사용 하 여 DevOps 릴리스 파이프라인의 지속적인 모니터링 | Microsoft Docs
 description: Application Insights를 사용 하 여 연속 모니터링을 신속 하 게 설정 하는 지침을 제공 합니다.
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/16/2019
-ms.service: application-insights
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: c39a2f75fe74b61463af464078b4446bba07dec0
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c891cc7564a60dfd665d84d569e266332d255fa9
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277681"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677527"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>릴리스 파이프라인에 연속 모니터링 추가
 
@@ -26,7 +24,7 @@ Azure Pipelines는 Azure 애플리케이션 정보를 통합 하 여 소프트�
 
 1. [Azure DevOps](https://dev.azure.com)에서 조직 및 프로젝트를 선택 합니다.
    
-1. 프로젝트 페이지의 왼쪽 메뉴에서 **파이프라인** > **릴리스**를 선택 합니다. 
+1. 프로젝트 페이지의 왼쪽 메뉴에서 **파이프라인**  > **릴리스**를 선택 합니다. 
    
 1. **새로 만들기** 옆에 있는 화살표를 드롭다운 하 고 **새 릴리스 파이프라인**을 선택 합니다. 또는 파이프라인이 아직 없는 경우 표시 되는 페이지에서 **새 파이프라인** 을 선택 합니다.
    
@@ -40,7 +38,7 @@ Azure Pipelines는 Azure 애플리케이션 정보를 통합 하 여 소프트�
 
 1. **단계 1** 구성 창에서 다음 필드를 완료 합니다. 
 
-    | 매개 변수        | 값 |
+    | 매개 변수를 포함해야 합니다.        | Value |
    | ------------- |:-----|
    | **단계 이름**      | 스테이지 이름을 제공 하거나 **1 단계**에 그대로 둡니다. |
    | **Azure 구독** | 드롭다운 및 사용 하려는 연결 된 Azure 구독을 선택 합니다.|
@@ -53,13 +51,13 @@ Azure Pipelines는 Azure 애플리케이션 정보를 통합 하 여 소프트�
 
 ## <a name="modify-alert-rules"></a>경고 규칙 수정
 
-기본적으로 **연속 모니터링 템플릿을 사용 하는 Azure App Service 배포** 에는 다음과 같은 4 개의 경고 규칙이 있습니다. **가용성**, **실패 한 요청**, **서버 응답 시간**및 **서버 예외**를 제공 합니다. 규칙을 추가 하거나 서비스 수준 요구 사항에 맞게 규칙 설정을 변경할 수 있습니다. 
+기본적으로 **연속 모니터링 템플릿을 사용 하는 Azure App Service 배포** 에는 **가용성**, **실패 한 요청**, **서버 응답 시간**및 **서버 예외의**네 가지 경고 규칙이 있습니다. 규칙을 추가 하거나 서비스 수준 요구 사항에 맞게 규칙 설정을 변경할 수 있습니다. 
 
 경고 규칙 설정을 수정 하려면:
 
 1. 릴리스 파이프라인 페이지의 왼쪽 창에서 **Application Insights 경고 구성**을 선택 합니다.
 
-1. **Azure Monitor 경고** 창에서 **경고 규칙**옆에 있는 **줄임표 (** ...)를 선택 합니다.
+1. **Azure Monitor 경고** 창에서 **경고 규칙**옆에 있는 **줄임표 (...)** 를 선택 합니다.
    
 1. **경고 규칙** 대화 상자에서 **가용성**과 같은 경고 규칙 옆에 있는 드롭다운 기호를 선택 합니다. 
    

@@ -1,23 +1,18 @@
 ---
 title: Azure Application Insights에서 Search 사용 | Microsoft Docs
 description: 웹앱에서 전송된 원시 원격 분석을 검색하고 필터링합니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/30/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: d08fd2ac6db63eee01c0653d2dbb1623fb1b51ed
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.date: 07/30/2019
+ms.openlocfilehash: 77cd0a8d0c1a93e7dc1db931e987a172d31978ef
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705415"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678008"
 ---
 # <a name="using-search-in-application-insights"></a>Application Insights에서 Search 사용
 
@@ -101,7 +96,7 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 
 하위 문자열이 아닌 전체 단어를 검색합니다. 인용 부호를 사용하여 특수 문자를 묶습니다.
 
-| String | 찾을 수 *없음* | 찾음 |
+| string | 찾을 수 *없음* | 있음 |
 | --- | --- | --- |
 | HomeController.About |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |미국|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`

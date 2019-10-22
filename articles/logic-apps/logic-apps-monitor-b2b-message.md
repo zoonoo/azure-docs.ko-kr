@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor 로그를 사용 하 여 B2B 메시지 모니터링-Azure Logic Apps | Microsoft Docs
-description: Azure Monitor 로그를 사용 하 여 통합 계정 및 Azure Logic Apps에 대 한 AS2, X12 및 EDIFACT 메시지를 모니터링 하 고 진단 로깅을 설정 합니다.
+title: Azure Monitor를 사용 하 여 B2B 메시지 모니터링-Azure Logic Apps
+description: 을 사용 하 여 Azure Logic Apps에서 AS2, X12 및 EDIFACT 메시지에 대 한 진단 로깅을 설정 Azure Monitor
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,14 +9,14 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: a4a7f951d34455f2e333f2c11e30d24efdfd22c1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: e5c8e5f3d42f4e85406fcc7dd5a2f6602045c8ed
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261214"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680196"
 ---
-# <a name="monitor-b2b-messages-with-azure-monitor-logs-in-azure-logic-apps"></a>Azure Logic Apps에서 Azure Monitor 로그를 사용 하 여 B2B 메시지 모니터링
+# <a name="set-up-diagnostics-logging-for-b2b-messages-in-azure-logic-apps-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 Azure Logic Apps에서 B2B 메시지에 대 한 진단 로깅 설정
 
 통합 계정에서 거래 업체 간에 B2B 통신을 설정한 후 해당 업체는 서로 메시지를 교환할 수 있습니다. 이 통신이 원하는 방식으로 작동 하는지 확인 하기 위해 AS2, X12 및 EDIFACT 메시지를 모니터링 하 고 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md)를 사용 하 여 통합 계정에 대 한 진단 로깅을 설정할 수 있습니다. 이 서비스는 클라우드 및 온-프레미스 환경을 모니터링하고 해당 가용성 및 성능을 유지할 수 있고 런타임 세부 정보 및 보다 다양한 디버깅에 대한 이벤트를 수집합니다. 또한 Azure Storage 및 Azure Event Hub와 같은 기타 서비스를 통해 이 데이터를 사용할 수도 있습니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "71261214"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * 진단 로깅과 함께 설정된 논리 앱. [논리 앱을 만드는 방법](quickstart-create-first-logic-app-workflow.md) 및 [해당 논리 앱에 대한 로깅을 설정하는 방법](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)을 알아봅니다.
 
@@ -46,15 +46,15 @@ ms.locfileid: "71261214"
 1. 이제 통합 계정을 찾아 선택합니다. 필터 목록에서 통합 계정에 적용되는 값을 선택합니다.
 완료되면 **진단 설정 추가**를 선택합니다.
 
-   | 속성 | 값 | 설명 | 
+   | 자산 | Value | 설명 | 
    |----------|-------|-------------|
    | **구독** | <*Azure-subscription-name*> | 사용자 통합 계정과 연결된 Azure 구독 | 
    | **리소스 그룹** | <*Azure-resource-group-name*> | 통합 계정에 대한 Azure 리소스 그룹 | 
    | **리소스 종류** | **통합 계정** | 로깅을 켜려는 Azure 리소스의 유형 | 
-   | **Resource** | <*integration-account-name*> | 로깅을 켜려는 Azure 리소스의 이름 | 
+   | **리소스** | <*integration-account-name*> | 로깅을 켜려는 Azure 리소스의 이름 | 
    ||||  
 
-   예를 들어 다음과 같은 가치를 제공해야 합니다.
+   다음은 그 예입니다.
 
    ![통합 계정에 대한 진단 설정](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
@@ -71,7 +71,7 @@ ms.locfileid: "71261214"
 
    1. **로그** 아래에서 **IntegrationAccountTrackingEvents** 범주 및 **저장**을 차례로 선택합니다.
 
-   예를 들어 다음과 같은 가치를 제공해야 합니다. 
+   다음은 그 예입니다. 
 
    ![로그에 진단 데이터를 보낼 수 있도록 Azure Monitor 로그 설정](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -88,15 +88,15 @@ ms.locfileid: "71261214"
 1. 이제 통합 계정을 찾아 선택합니다. 필터 목록에서 통합 계정에 적용되는 값을 선택합니다.
 완료되면 **진단 설정 추가**를 선택합니다.
 
-   | 속성 | 값 | 설명 | 
+   | 자산 | Value | 설명 | 
    |----------|-------|-------------|
    | **구독** | <*Azure-subscription-name*> | 사용자 통합 계정과 연결된 Azure 구독 | 
    | **리소스 그룹** | <*Azure-resource-group-name*> | 통합 계정에 대한 Azure 리소스 그룹 | 
    | **리소스 종류** | **통합 계정** | 로깅을 켜려는 Azure 리소스의 유형 | 
-   | **Resource** | <*integration-account-name*> | 로깅을 켜려는 Azure 리소스의 이름 | 
+   | **리소스** | <*integration-account-name*> | 로깅을 켜려는 Azure 리소스의 이름 | 
    ||||  
 
-   예를 들어 다음과 같은 가치를 제공해야 합니다.
+   다음은 그 예입니다.
 
    ![통합 계정에 대한 진단 설정](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
@@ -113,7 +113,7 @@ ms.locfileid: "71261214"
 
    1. **로그** 아래에서 **IntegrationAccountTrackingEvents** 범주 및 **저장**을 차례로 선택합니다.
 
-   예를 들어 다음과 같은 가치를 제공해야 합니다. 
+   다음은 그 예입니다. 
 
    ![로그에 진단 데이터를 보낼 수 있도록 Azure Monitor 로그 설정](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -126,7 +126,7 @@ Azure Monitor 로그를 사용 하 여 논리 앱의 진단 데이터를 다른 
 * [Azure Storage에 Azure Diagnostics 로그 보관](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Azure Event Hubs로 Azure Diagnostics 로그 스트림](../azure-monitor/platform/resource-logs-stream-event-hubs.md) 
 
-그런 다음 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 및 [Power BI](../azure-monitor/platform/powerbi.md)와 같은 다른 서비스의 원격 분석 및 분석을 사용하여 실시간으로 모니터링할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+그런 다음 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 및 [Power BI](../azure-monitor/platform/powerbi.md)와 같은 다른 서비스의 원격 분석 및 분석을 사용하여 실시간으로 모니터링할 수 있습니다. 다음은 그 예입니다.
 
 * [Event Hub에서 Stream Analytics로 데이터 스트림](../stream-analytics/stream-analytics-define-inputs.md)
 * [Stream Analytics를 사용하여 스트리밍 데이터 분석 및 Power BI에서 실시간 분석 대시보드 만들기](../stream-analytics/stream-analytics-power-bi-dashboard.md)

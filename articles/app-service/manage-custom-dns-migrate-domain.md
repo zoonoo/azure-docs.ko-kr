@@ -4,23 +4,22 @@ description: 가동 중지 시간 없이 라이브 사이트에 이미 할당된
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
-editor: jimbe
+manager: gwallace
 tags: top-support-issue
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 10/21/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 703a151f801f65b968ecf93eaa97640c22a71bd2
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5f11173c7b7f7396a8cf5cda4b9c8975cd7bb38e
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073100"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679807"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Azure App Service로 활성 DNS 이름 마이그레이션
 
@@ -120,15 +119,21 @@ A 레코드를 다시 매핑하려면 **사용자 지정 도메인** 페이지�
 
 `contoso.com` 루트 도메인 예제의 경우 다음 표의 예제와 같은 A 또는 CNAME 레코드를 다시 매핑합니다. 
 
-| FQDN 예 | 레코드 유형 | 호스트 | 값 |
+| FQDN 예 | 레코드 형식 | 호스트 | Value |
 | - | - | - | - |
-| contoso.com(루트) | 변수를 잠그기 위한 | `@` | [앱의 IP 주소 복사](#info)에서 가져온 IP 주소 |
-| www\.contoso.com (sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |
+| contoso.com(루트) | 문자열(UTF-8 형식) 또는 | `@` | [앱의 IP 주소 복사](#info)에서 가져온 IP 주소 |
+| www \.contoso (sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |
 | \*.contoso.com(와일드카드) | CNAME | _\*_ | _&lt;appname>.azurewebsites.net_ |
 
 설정을 저장합니다.
 
 DNS 쿼리는 DNS가 전파된 직후 App Service 앱에 대해 확인을 시작해야 합니다.
+
+## <a name="active-domain-in-azure"></a>Azure의 활성 도메인
+
+Azure에서 구독 또는 동일한 구독 내에서 활성 사용자 지정 도메인을 마이그레이션할 수 있습니다. 그러나 가동 중지 시간 없이 마이그레이션하는 경우 원본 앱이 필요 하 고 대상 앱은 특정 시간에 동일한 사용자 지정 도메인에 할당 됩니다. 따라서 두 앱이 동일한 배포 단위 (내부적으로는 웹 공간 이라고 함)에 배포 되지 않았는지 확인 해야 합니다. 도메인 이름은 각 배포 단위에서 하나의 앱에만 할당할 수 있습니다.
+
+@No__t_0 FTP/S URL의 도메인 이름을 살펴보면 앱에 대 한 배포 단위를 찾을 수 있습니다. 배포 단위가 원본 앱과 대상 앱 간에 다른 지 확인 합니다. 앱의 배포 단위는의 [App Service 계획](overview-hosting-plans.md) 에 따라 결정 됩니다. 계획을 만들 때 Azure에서 임의로 선택 되며 변경할 수 없습니다. Azure는 동일한 [리소스 그룹 *및* 동일한 지역에서](app-service-plan-manage.md#create-an-app-service-plan)두 요금제를 만들 때 동일한 배포 단위에 있지만 계획이 다른 배포 단위에 있는지 확인 하는 논리는 없습니다. 다른 배포 단위로 계획을 만드는 유일한 방법은 다른 배포 단위가 나타날 때까지 새 리소스 그룹이 나 지역에 계획을 계속 만드는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
-title: 예외 처리 및 오류 로깅 시나리오 - Azure Logic Apps | Microsoft Docs
-description: 다음은 Azure Logic Apps에 대한 고급 예외 처리 및 오류 로깅에 대한 실제 사용 사례입니다.
+title: 예외 처리 & 오류 로깅 시나리오-Azure Logic Apps
+description: 고급 예외 처리 및 오류 로깅에 대 한 실제 사용 사례 및 시나리오 Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,16 +10,16 @@ ms.reviewer: LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: ec01f738ee4943659de1b49ab8d52218e6a8fb79
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 7930d487d367ee19b869becae5017f80ea1df8cb
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385469"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680170"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>시나리오: 논리 앱에 대한 예외 처리 및 오류 로깅
 
-이 시나리오에서는 논리 앱을 확장하여 예외 처리를 더 잘 지원할 수 있는 방법에 대해 설명합니다. 실제 사용 사례를 사용하여 "Azure Logic Apps에서 예외 및 오류 처리를 지원하나요?"라는 질문에 답변했습니다.
+이 시나리오에서는 논리 앱을 확장하여 예외 처리를 더 잘 지원할 수 있는 방법에 대해 설명합니다. 실제 사용 사례를 사용하여 "Logic Apps가 예외 및 오류 처리를 지원하나요?"라는 질문에 대해 답변을 제공하고 있습니다.
 
 > [!NOTE]
 > 최신 버전의 Azure Logic Apps 스키마는 작업 응답에 대한 표준 템플릿을 제공합니다. 이 템플릿은 API 앱에서 반환된 내부 유효성 검사 및 오류 응답을 모두 포함합니다.
@@ -40,9 +40,9 @@ ms.locfileid: "68385469"
 
 ## <a name="how-we-solved-the-problem"></a>문제를 해결한 방법
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB")를 로그 및 오류 레코드에 대한 리포지토리로 선택했습니다(Cosmos DB에서는 레코드를 문서로 참조함). Azure Logic Apps에 모든 응답에 대한 표준 템플릿이 있으므로 사용자 지정 스키마를 만들 필요가 없습니다. 오류 및 로그 기록에 대한 **삽입** 및 **쿼리**에 API 앱을 만들 수 있습니다. API 앱 내에서 각각에 대한 스키마를 정의할 수도 있습니다.  
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") 를 로그 및 오류 레코드에 대 한 리포지토리로 선택 했습니다 (Cosmos DB 레코드를 문서로 참조). Azure Logic Apps에 모든 응답에 대한 표준 템플릿이 있으므로 사용자 지정 스키마를 만들 필요가 없습니다. 오류 및 로그 기록에 대한 **삽입** 및 **쿼리**에 API 앱을 만들 수 있습니다. API 앱 내에서 각각에 대한 스키마를 정의할 수도 있습니다.  
 
-다른 요구 사항은 특정 날짜 이후 기록을 제거하는 것입니다. Cosmos DB에는 TTL([Time To Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time To Live"))이라는 속성이 있으며, 이 속성을 사용하여 각 기록 또는 컬렉션에 대한 **Time To Live** 값을 설정할 수 있습니다. 이 기능 덕분에 Cosmos DB에서 레코드를 수동으로 삭제할 필요가 없어졌습니다.
+다른 요구 사항은 특정 날짜 이후 기록을 제거하는 것입니다. Cosmos DB에는 TTL ( [time To live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Ttl (Time to Live)") ) 이라는 속성이 있으며,이 속성을 통해 각 레코드 또는 컬렉션의 Ttl ( **time to live** ) 값을 설정할 수 있었습니다. 이 기능 덕분에 Cosmos DB에서 레코드를 수동으로 삭제할 필요가 없어졌습니다.
 
 > [!IMPORTANT]
 > 이 자습서를 완료하려면 Cosmos DB 데이터베이스와 두 개의 컬렉션(로깅 및 오류)을 만들어야 합니다.
@@ -479,7 +479,7 @@ Azure Cosmos DB의 모든 문서에는 고유 ID가 있어야 합니다. `Patien
 
 ### <a name="source-code"></a>소스 코드
 
-Logic Apps 예외 관리 API 애플리케이션에 대한 소스 코드는 이 [GitHub 리포지토리](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "논리 앱 예외 관리 API")에서 프로젝트의 높은 수준의 비디오를 볼 수 있습니다.
+Logic Apps exception management API 응용 프로그램에 대 한 소스 코드는이 [GitHub 리포지토리에서](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "논리 앱 예외 관리 API")사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

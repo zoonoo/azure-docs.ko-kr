@@ -1,6 +1,6 @@
 ---
-title: 호출 하거나 Azure Functions 및 Azure Service Bus를 사용 하 여 논리 앱 트리거
-description: Azure functions를 호출 하거나 Azure Service Bus를 사용 하 여 논리 앱 트리거를 만들려면
+title: Azure Functions-Azure Logic Apps를 사용 하 여 논리 앱 호출
+description: Azure Service Bus을 수신 하 여 논리 앱을 호출 하거나 트리거하는 Azure 함수를 만듭니다.
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,42 +8,41 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
-ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.date: 06/04/2019
-ms.openlocfilehash: 3d4f642ae25a179ea2c3241240996da774cd8c23
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ab6ace7c30c3dd385928b6b0ae8000485d5f495
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494916"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680151"
 ---
-# <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>호출 하거나 Azure Functions 및 Azure Service Bus를 사용 하 여 논리 앱 트리거
+# <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Azure Functions 및 Azure Service Bus를 사용 하 여 논리 앱 호출 또는 트리거
 
-사용할 수 있습니다 [Azure Functions](../azure-functions/functions-overview.md) 장기 실행 수신기 또는 작업을 배포 해야 하는 경우 논리 앱을 트리거할 수 있습니다. 예를 들어에서 수신 대기 하는 Azure 함수를 만들 수 있습니다는 [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) 큐를 즉시 푸시 트리거로 논리 앱을 실행 합니다.
+장기 실행 수신기 또는 작업을 배포 해야 하는 경우 [Azure Functions](../azure-functions/functions-overview.md) 를 사용 하 여 논리 앱을 트리거할 수 있습니다. 예를 들어 [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) 큐에서 수신 대기 하 고 즉시 논리 앱을 밀어넣기 트리거로 실행 하는 Azure 함수를 만들 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* Azure Service Bus 네임 스페이스입니다. 네임 스페이스 없다면 [네임 스페이스를 먼저 만들어야](../service-bus-messaging/service-bus-create-namespace-portal.md)합니다.
+* Azure Service Bus 네임 스페이스입니다. 네임 스페이스가 없는 경우 [먼저 네임 스페이스를 만듭니다](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
-* Azure functions에 대 한 컨테이너인 Azure 함수 앱입니다. 함수 앱을 없다면 [함수 앱을 먼저 만든](../azure-functions/functions-create-first-azure-function.md),.NET 런타임 스택으로 선택 되었는지 확인 합니다.
+* Azure 함수에 대 한 컨테이너인 Azure 함수 앱입니다. 함수 앱이 없으면 [먼저 함수 앱을 만든](../azure-functions/functions-create-first-azure-function.md)다음 .net을 런타임 스택으로 선택 해야 합니다.
 
 * [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
 ## <a name="create-logic-app"></a>논리 앱 만들기
 
-이 시나리오에 대 한 함수 트리거 하려는 각 논리 앱을 실행 해야 합니다. 먼저, HTTP 요청 트리거를 시작 하는 논리 앱을 만듭니다. 이 함수는 큐 메시지를 수신할 때마다 엔드포인트를 호출합니다.  
+이 시나리오에서는 트리거할 각 논리 앱을 실행 하는 함수가 있습니다. 먼저 HTTP 요청 트리거로 시작 하는 논리 앱을 만듭니다. 이 함수는 큐 메시지를 수신할 때마다 엔드포인트를 호출합니다.  
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고, 빈 논리 앱을 만듭니다.
 
-   논리 앱을 처음 접하는 경우 검토 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
+   논리 앱을 처음 접하는 경우 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
 
-1. 검색 상자에 "http 요청"을 입력합니다. 트리거 목록에서 다음 트리거를 선택합니다. **HTTP 요청을 수신 되는 경우**
+1. 검색 상자에 "http 요청"을 입력합니다. 트리거 목록에서 **HTTP 요청을 수신하는 경우** 트리거를 선택합니다.
 
    ![트리거 선택](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
-   요청 트리거를 사용 하 여 큐 메시지와 함께 사용할 JSON 스키마를 선택적으로 입력할 수 있습니다. JSON 스키마 도움말 Logic App Designer 입력된 데이터의 구조를 이해 하 고 출력을 더 쉽게 워크플로에서 사용할 수 있습니다.
+   요청 트리거를 사용 하 여 큐 메시지에 사용할 JSON 스키마를 선택적으로 입력할 수 있습니다. JSON 스키마를 사용 하면 논리 앱 디자이너가 입력 데이터의 구조를 이해 하 고 워크플로에서 더 쉽게 사용할 수 있도록 합니다.
 
 1. 스키마를 지정하려면 다음과 같이 **요청 본문 JSON 스키마** 상자에 스키마를 입력합니다.
 
@@ -87,13 +86,13 @@ ms.locfileid: "66494916"
    }
    ```
 
-1. 큐 메시지를 받으면 실행 하려는 다른 작업을 추가 합니다.
+1. 큐 메시지를 받은 후에 실행 하려는 다른 작업을 추가 합니다.
 
    예를 들어 Office 365 Outlook 커넥터를 사용하여 이메일을 보낼 수 있습니다.
 
-1. 논리 앱을 저장합니다. 그러면 이 논리 앱의 트리거에 대한 콜백 URL이 생성됩니다. 나중에 사용할 콜백 URL이 코드에서 Azure Service Bus 큐 트리거에 대 한 합니다.
+1. 논리 앱을 저장합니다. 그러면 이 논리 앱의 트리거에 대한 콜백 URL이 생성됩니다. 나중에 Azure Service Bus 큐 트리거에 대 한 코드에서이 콜백 URL을 사용 합니다.
 
-   콜백 URL에 표시 된 **HTTP POST URL** 속성입니다.
+   콜백 URL은 **HTTP POST url** 속성에 나타납니다.
 
    ![트리거에 대해 생성된 콜백 URL](./media/logic-apps-scenario-function-sb-trigger/callback-URL-for-trigger.png)
 
@@ -107,19 +106,19 @@ ms.locfileid: "66494916"
 
    !["함수"를 확장 하 고 "새 함수"를 선택 합니다.](./media/logic-apps-scenario-function-sb-trigger/create-new-function.png)
 
-1. .NET 런타임 스택으로 선택 하는 새 함수 앱을 만들었는지 여부에 따라이 템플릿을 선택 하거나 기존 함수 앱을 사용 하는 합니다.
+1. 런타임 스택으로 .NET을 선택한 새 함수 앱을 만들었는지 아니면 기존 함수 앱을 사용 하 고 있는지 여부에 따라이 템플릿을 선택 합니다.
 
-   * 새 함수 앱의 경우이 서식 파일을 선택 합니다. **Service Bus 큐 트리거**
+   * 새 함수 앱의 경우 **Service Bus 큐 트리거** 템플릿을 선택 합니다.
 
      ![새 함수 앱에 대 한 템플릿 선택](./media/logic-apps-scenario-function-sb-trigger/current-add-queue-trigger-template.png)
 
-   * 기존 함수 앱의 경우이 서식 파일을 선택 합니다. **Service Bus 큐 트리거-C#**
+   * 기존 함수 앱의 경우 **큐 트리거 C# Service Bus** 템플릿을 선택 합니다.
 
-     ![기존 함수 앱에 대 한 템플릿 선택](./media/logic-apps-scenario-function-sb-trigger/legacy-add-queue-trigger-template.png)
+     ![기존 함수 앱의 템플릿 선택](./media/logic-apps-scenario-function-sb-trigger/legacy-add-queue-trigger-template.png)
 
-1. 에 **Azure Service Bus 큐 트리거** 창에 트리거에 대 한 이름을 입력 하 고 설정 합니다 **Service Bus 연결** Azure Service Bus SDK를 사용 하는 큐에 대 한 `OnMessageReceive()` 수신기 선택 **만들**합니다.
+1. **Azure Service Bus 큐 트리거** 창에서 트리거의 이름을 제공 하 고, Azure Service Bus SDK `OnMessageReceive()` 수신기를 사용 하는 큐에 대 한 **Service Bus 연결** 을 설정 하 고, **만들기**를 선택 합니다.
 
-1. 큐 메시지를 트리거로 사용 하 여 이전에 만든된 논리 앱 끝점을 호출 하는 기본 함수를 작성 합니다. 이 예제에서는 `application/json` 메시지 콘텐츠 형식을 사용하지만, 필요에 따라 형식을 변경할 수 있습니다. 가능한 경우 HTTP 클라이언트의 인스턴스를 다시 사용 합니다. 자세한 내용은 [Azure Functions에서 연결을 관리](../azure-functions/manage-connections.md)합니다.
+1. 큐 메시지를 트리거로 사용 하 여 이전에 만든 논리 앱 끝점을 호출 하는 기본 함수를 작성 합니다. 이 예제에서는 `application/json` 메시지 콘텐츠 형식을 사용하지만, 필요에 따라 형식을 변경할 수 있습니다. 가능 하면 HTTP 클라이언트의 인스턴스를 다시 사용 합니다. 자세한 내용은 [Azure Functions에서 연결 관리](../azure-functions/manage-connections.md)를 참조 하세요.
 
    ```CSharp
    using System;
@@ -147,4 +146,4 @@ ms.locfileid: "66494916"
 
 ## <a name="next-steps"></a>다음 단계
 
-[호출, 트리거 또는 HTTP 끝점을 사용 하 여 워크플로 중첩](../logic-apps/logic-apps-http-endpoint.md)
+[HTTP 끝점을 사용 하 여 워크플로 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)

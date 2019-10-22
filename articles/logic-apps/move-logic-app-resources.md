@@ -1,5 +1,5 @@
 ---
-title: 구독, 리소스 그룹 또는 지역 간에 논리 앱 리소스 이동-Azure Logic Apps
+title: 구독, 리소스 그룹 또는 지역에서 논리 앱 이동-Azure Logic Apps
 description: 논리 앱 또는 통합 계정을 다른 Azure 구독, 리소스 그룹 또는 위치 (지역)로 마이그레이션
 services: logic-apps
 ms.service: logic-apps
@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: e7c201004be6c4d39f482cc288824cba74e302cb
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 8c3bad32943b83cbfe4c96087f3fef1c51f64bb1
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737499"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679101"
 ---
-# <a name="migrate-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>논리 앱 리소스를 다른 Azure 구독, 리소스 그룹 또는 지역으로 마이그레이션
+# <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>논리 앱 리소스를 다른 Azure 구독, 리소스 그룹 또는 지역으로 이동
 
 논리 앱 또는 관련 리소스를 다른 Azure 구독, 리소스 그룹 또는 지역으로 이동 하기 위해 Azure Portal, Azure PowerShell, Azure CLI, REST API 등의 여러 가지 방법으로 이러한 작업을 완료할 수 있습니다. 리소스를 이동 하기 전에 다음 사항을 검토 하십시오. 
 
@@ -87,7 +87,7 @@ ms.locfileid: "68737499"
 * [Azure Logic Apps에 대 한 Azure Resource Manager 템플릿 만들기](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
 * [Azure Logic Apps에 대 한 Azure Resource Manager 템플릿 배포](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
 
-### <a name="related-resources"></a>관련 참고 자료
+### <a name="related-resources"></a>관련 리소스
 
 Azure의 온-프레미스 데이터 게이트웨이 리소스와 같은 일부 Azure 리소스는 해당 리소스를 사용 하는 논리 앱과 다른 지역에 있을 수 있습니다. 그러나 연결 된 통합 계정과 같은 다른 Azure 리소스는 논리 앱과 동일한 지역에 있어야 합니다. 시나리오에 따라 논리 앱이 동일한 지역에 있는 것으로 간주 되는 리소스에 액세스할 수 있는지 확인 합니다.
 

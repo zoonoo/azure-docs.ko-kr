@@ -1,5 +1,5 @@
 ---
-title: AI를 사용 하 여 Blob 데이터 이해
+title: AI를 사용 하 여 Blob 저장소 데이터 이해
 titleSuffix: Azure Search
 description: Azure Search에서 AI 보강 파이프라인을 사용 하 여 Azure blob에 의미 체계, 자연어 처리 및 이미지 분석을 추가 합니다.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: f7e264be9a02514972f9c9702adec8fa55a157bd
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 1a8840aca71daacc08cf85b178668e42ff9f796c
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529386"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678429"
 ---
-# <a name="use-ai-to-understand-blob-data"></a>AI를 사용 하 여 Blob 데이터 이해
+# <a name="use-ai-to-understand-blob-storage-data"></a>AI를 사용 하 여 Blob 저장소 데이터 이해
 
 Azure Blob storage의 데이터는 종종 이미지, 긴 텍스트, Pdf 및 Office 문서와 같은 구조화 되지 않은 다양 한 콘텐츠입니다. Azure Search의 AI 기능을 사용 하면 다양 한 방식으로 blob에서 중요 한 정보를 이해 하 고 추출할 수 있습니다. Blob 콘텐츠에 AI를 적용 하는 예는 다음과 같습니다.
 
@@ -112,7 +112,8 @@ Azure Storage에서 기술 자료 저장소에는 두 가지 징후 (blob 컨테
 
 다양 한 방식으로 Cognitive Services을 결합 하 고 시나리오에 대 한 기존 인지 서비스가 없는 경우에 대 한 사용자 지정 기술을 제작 하 여 Azure Storage에서 데이터를 최대한 활용 하기 위해 AI 보강로 더 많은 작업을 수행할 수 있습니다. 아래 링크를 따라 자세히 알아볼 수 있습니다.
 
-> [!div class="nextstepaction"]
-> [AI 보강 개요](cognitive-search-concept-intro.md)  
->  주석 트리에서 기술 
-> [Map 노드](cognitive-search-output-field-mapping.md) [만들기](cognitive-search-defining-skillset.md)
++ [Azure Portal를 사용 하 여 blob 업로드, 다운로드 및 나열 (Azure Blob storage)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
++ [Blob 인덱서 설정 (Azure Search)](search-howto-indexing-azure-blob-storage.md) 
++ [AI 보강 개요 (Azure Search)](cognitive-search-concept-intro.md) 
++ [기술 (Azure Search) 만들기](cognitive-search-defining-skillset.md)
++ [주석 트리의 지도 노드 (Azure Search)](cognitive-search-output-field-mapping.md)

@@ -1,23 +1,19 @@
 ---
 title: Azure Application Insights 원격 분석 데이터 모델 - 요청 원격 분석 | Microsoft Docs
 description: 요청 원격 분석을 위한 Azure Application Insights 데이터 모델
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff7b52cbd88e4927db275dee4d7fbc4691ad076b
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900530"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677320"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>요청 원격 분석: Application Insights 데이터 모델
 
@@ -25,11 +21,11 @@ ms.locfileid: "60900530"
 
 요청 원격 분석은 사용자 지정 `properties` 및 `measurements`를 사용하여 표준 확장성 모델을 지원합니다.
 
-## <a name="name"></a>이름
+## <a name="name"></a>name
 
 요청의 이름은 요청을 처리하기 위해 진행된 코드 경로를 나타냅니다. 더 나은 요청 그룹화를 허용하는 낮은 카디널리티 값입니다. HTTP 요청의 경우 HTTP 메서드 및 실제 `id` 값이 없는 `GET /values/{id}`와 같은 URL 경로 템플릿을 나타냅니다.
 
-Application Insights 웹 SDK는 요청 이름을 대/소문자를 바꾸지 않고 “있는 그대로” 전송합니다. UI의 그룹화는 대/소문자를 구분하므로 `GET /Home/Index`와 `GET /home/INDEX`는 동일한 컨트롤러 및 작업 실행을 발생하더라도 다른 것으로 계산됩니다. 그 이유는 URL이 일반적으로 [대/소문자를 구분](https://www.w3.org/TR/WD-html40-970708/htmlweb.html)하기 때문입니다. 대문자로 입력한 URL에 대해 `404`가 항상 발생하는지 확인하고 싶을 수 있습니다. ASP.NET 웹 SDK에서 사용 하 여 자세한 on 요청 이름 컬렉션을 읽을 수는 [블로그 게시물](https://apmtips.com/blog/2015/02/23/request-name-and-url/)합니다.
+Application Insights 웹 SDK는 요청 이름을 대/소문자를 바꾸지 않고 “있는 그대로” 전송합니다. UI의 그룹화는 대/소문자를 구분하므로 `GET /Home/Index`와 `GET /home/INDEX`는 동일한 컨트롤러 및 작업 실행을 발생하더라도 다른 것으로 계산됩니다. 그 이유는 URL이 일반적으로 [대/소문자를 구분](https://www.w3.org/TR/WD-html40-970708/htmlweb.html)하기 때문입니다. 대문자로 입력한 URL에 대해 `404`가 항상 발생하는지 확인하고 싶을 수 있습니다. [블로그 게시물](https://apmtips.com/blog/2015/02/23/request-name-and-url/)에서 ASP.NET 웹 SDK를 통해 요청 이름 수집에 대 한 자세한 내용을 볼 수 있습니다.
 
 최대 길이: 1024자
 
@@ -45,7 +41,7 @@ Application Insights 웹 SDK는 요청 이름을 대/소문자를 바꾸지 않�
 
 최대 길이: 2048자
 
-## <a name="source"></a>source
+## <a name="source"></a>원본
 
 요청의 원본입니다. 호출자의 계측 키 또는 호출자의 IP 주소를 예로 들 수 있습니다. 자세한 내용은 [상관 관계](../../azure-monitor/app/correlation.md) 페이지를 참조하세요.
 

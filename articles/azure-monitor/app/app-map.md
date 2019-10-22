@@ -1,24 +1,19 @@
 ---
 title: Azure Application Insights의 애플리케이션 맵 | Microsoft Docs
 description: 애플리케이션 맵을 사용하여 복잡한 애플리케이션 토폴로지 모니터링
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: f895aa9aa4bc66c32f10d290b7ee708345be8c9b
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 49efad50b988da263a715c1aba9d53ad4b4a7121
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983760"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678384"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -82,7 +77,7 @@ ms.locfileid: "70983760"
 
 ![Analytics 환경 스크린샷](media/app-map/analytics.png)
 
-### <a name="alerts"></a>,
+### <a name="alerts"></a>경고
 
 경고가 트리거될 수 있는 활성 경고 및 기본 규칙을 보려면 **경고**를 선택합니다.
 
@@ -147,11 +142,11 @@ ApplicationInsights에서 다음을 수행 합니다.
 ```
 
 > [!NOTE]
-> 또는를 사용 `ApplicationInsights.config`하여 이니셜라이저를추가하는것은ASP.NETCore응용프로그램에적합하지않습니다.`TelemetryConfiguration.Active` 
+> @No__t_0 또는 `TelemetryConfiguration.Active`를 사용 하 여 이니셜라이저를 추가 하는 것은 ASP.NET Core 응용 프로그램에 적합 하지 않습니다. 
 
-**ASP.NET Core 앱: TelemetryConfiguration에 이니셜라이저 로드**
+**ASP.NET Core apps: TelemetryConfiguration에 이니셜라이저를 로드 합니다.**
 
-[ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 응용 프로그램의 경우 아래와 `TelemetryInitializer` 같이 종속성 주입 컨테이너에 새를 추가 하 여 새를 추가 합니다. 클래스의 메서드에서`ConfigureServices` 이 작업을 수행 합니다. `Startup.cs`
+[ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 응용 프로그램의 경우 아래와 같이 종속성 주입 컨테이너에 추가 하 여 새 `TelemetryInitializer`를 추가 합니다. 이 작업은 `Startup.cs` 클래스의 `ConfigureServices` 메서드에서 수행 됩니다.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -210,7 +205,7 @@ appInsights.addTelemetryInitializer((envelope) => {
 
 ![애플리케이션 맵 스크린샷](media/app-map/cloud-rolename.png)
 
-위의 응용 프로그램 맵에서 녹색 상자에는이 특정 배포 응용 프로그램의 다양 한 측면에 대 한 클라우드 역할 이름 값이 있습니다. 따라서이 앱의 `Authentication`역할은 `Inventory Management`, `acmefrontend`,, a `Payment Processing Worker Role`로 구성 됩니다. 
+위의 응용 프로그램 맵에서 녹색 상자에는이 특정 배포 응용 프로그램의 다양 한 측면에 대 한 클라우드 역할 이름 값이 있습니다. 따라서이 앱의 역할은 `Authentication`, `acmefrontend`, `Inventory Management`, `Payment Processing Worker Role`로 구성 됩니다. 
 
 이 앱의 경우 각 클라우드 역할 이름은 고유한 계측 키가 있는 다른 고유한 Application Insights 리소스도 나타냅니다. 이 응용 프로그램의 소유자는 이러한 4 개의 서로 다른 Application Insights 리소스에 대해 액세스할 수 있으므로 응용 프로그램 맵은 기본 관계의 맵을 함께 연결할 수 있습니다.
 
@@ -230,7 +225,7 @@ appInsights.addTelemetryInitializer((envelope) => {
 
 앱이 특정 문제를 찾기에 충분 한 정보가 없을 수 있는 컨테이너 화 된 환경에서 앱이 실행 되는 경우 클라우드 역할 인스턴스의 값을 재정의 하는 것이 좋습니다.
 
-원격 분석 이니셜라이저 [를 사용 하 여 클라우드 역할 이름 속성을 재정의 하는 방법에 대 한 자세한 내용은 속성 추가: ITelemetryInitializer 추가](api-filtering-sampling.md#add-properties-itelemetryinitializer)를 참조하세요.
+원격 분석 이니셜라이저를 사용 하 여 클라우드 역할 이름 속성을 재정의 하는 방법에 대 한 자세한 내용은 [Add 속성: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer)를 참조 하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 

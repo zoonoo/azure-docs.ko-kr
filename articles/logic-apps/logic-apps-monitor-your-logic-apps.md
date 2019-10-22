@@ -1,5 +1,5 @@
 ---
-title: 상태 확인, 로깅 설정 및 경고 받기 - Azure Logic Apps | Microsoft Docs
+title: 상태를 확인 하 고, 로깅을 설정 하 고, 경고를 가져옵니다.-Azure Logic Apps
 description: Azure Logic Apps의 상태 모니터링, 진단 데이터 로깅 및 경고 설정
 services: logic-apps
 ms.service: logic-apps
@@ -8,14 +8,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: f6ece10c43c2c4a6bea92d14a8bf6fbdb49fd318
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 336e2ac93a954c35b7afc8dbb98dd1fca1838985
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261362"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680292"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>상태 모니터링, 진단 로깅 설정, Azure Logic Apps에 대한 경고 설정
 
@@ -35,7 +34,7 @@ ms.locfileid: "71261362"
 
 2. 논리 앱을 선택한 후 **개요**를 선택합니다.
 
-   Azure Portal에서는 논리 앱에 대한 실행 기록 및 트리거 기록을 보여 줍니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+   Azure Portal에서는 논리 앱에 대한 실행 기록 및 트리거 기록을 보여 줍니다. 다음은 그 예입니다.
 
    ![논리 앱 실행 기록 및 트리거 기록](media/logic-apps-monitor-your-logic-apps/overview.png)
 
@@ -49,7 +48,7 @@ ms.locfileid: "71261362"
 
 3. 특정 실행의 단계를 보려면 **실행 기록** 아래에서 해당 실행을 선택합니다. 
 
-   모니터링 보기는 해당 실행의 각 단계를 표시합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+   모니터링 보기는 해당 실행의 각 단계를 표시합니다. 다음은 그 예입니다.
 
    ![특정 실행에 대한 작업](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
 
@@ -59,7 +58,7 @@ ms.locfileid: "71261362"
 
    예를 들어 [Logic Apps에 대한 REST API](https://docs.microsoft.com/rest/api/logic)를 사용할 때 필요할 수 있는 실행의 **상관 관계 ID**를 가져올 수 있습니다.
 
-5. 특정 단계에 대한 세부 정보를 얻으려면 해당 단계를 선택합니다. 이제 해당 단계에 대해 발생한 입력, 출력 및 모든 오류와 같은 세부 정보를 검토할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+5. 특정 단계에 대한 세부 정보를 얻으려면 해당 단계를 선택합니다. 이제 해당 단계에 대해 발생한 입력, 출력 및 모든 오류와 같은 세부 정보를 검토할 수 있습니다. 다음은 그 예입니다.
 
    ![단계 세부 정보](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
@@ -80,7 +79,7 @@ ms.locfileid: "71261362"
 
 1. [Azure Portal](https://portal.azure.com)에서 논리 앱을 찾고 선택합니다. 
 
-2. 논리 앱 블레이드 메뉴의 **모니터링**아래에서 **진단** > **진단 설정**을 선택 합니다.
+2. 논리 앱 블레이드 메뉴의 **모니터링**아래에서 **진단 >** **진단 설정**을 선택 합니다.
 
    ![모니터링, 진단, 진단 설정으로 이동](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
 
@@ -160,7 +159,7 @@ Azure Monitor 로그를 사용 하 여 논리 앱의 진단 데이터를 다른 
 * [Azure Storage에 Azure Diagnostics 로그 보관](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Azure Event Hubs로 Azure Diagnostics 로그 스트림](../azure-monitor/platform/resource-logs-stream-event-hubs.md) 
 
-그런 다음 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 및 [Power BI](../azure-monitor/platform/powerbi.md)와 같은 다른 서비스의 원격 분석 및 분석을 사용하여 실시간으로 모니터링할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+그런 다음 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 및 [Power BI](../azure-monitor/platform/powerbi.md)와 같은 다른 서비스의 원격 분석 및 분석을 사용하여 실시간으로 모니터링할 수 있습니다. 다음은 그 예입니다.
 
 * [Event Hub에서 Stream Analytics로 데이터 스트림](../stream-analytics/stream-analytics-define-inputs.md)
 * [Stream Analytics를 사용하여 스트리밍 데이터 분석 및 Power BI에서 실시간 분석 대시보드 만들기](../stream-analytics/stream-analytics-power-bi-dashboard.md)

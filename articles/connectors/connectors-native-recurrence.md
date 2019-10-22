@@ -1,5 +1,5 @@
 ---
-title: 되풀이 트리거를 사용 하 여 되풀이 작업 예약-Azure Logic Apps
+title: 되풀이 작업 및 워크플로 예약-Azure Logic Apps
 description: Azure Logic Apps 되풀이 트리거를 사용 하 여 되풀이 자동화 된 작업 및 워크플로 예약 및 실행
 services: logic-apps
 ms.service: logic-apps
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 0bd7262daf23f205552e46bc3ca2802cf35f85db
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 8715bbcb6926fbfc2f77bd05d0ce036a6255eb85
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914448"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679071"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Azure Logic Apps 되풀이 트리거를 사용 하 여 되풀이 작업 및 워크플로를 만들고 예약 하 고 실행 합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "70914448"
 > [!TIP]
 > 논리 앱을 트리거하고 나중에 한 번만 실행 하려는 경우 [한 번만 실행 작업](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. 구독이 없는 경우 [무료 Azure 계정에 등록할](https://azure.microsoft.com/free/)수 있습니다.
 
@@ -45,9 +45,9 @@ ms.locfileid: "70914448"
 
 ## <a name="add-recurrence-trigger"></a>되풀이 트리거 추가
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 빈 논리 앱을 만듭니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다. 빈 논리 앱을 만듭니다.
 
-1. 논리 앱 디자이너가 표시 되 면 검색 상자에 필터로 "되풀이"를 입력 합니다. 트리거 목록에서 논리 앱 워크플로의 첫 번째 단계로이 트리거를 선택 합니다. **되풀이**
+1. 논리 앱 디자이너가 표시 되 면 검색 상자에 필터로 "되풀이"를 입력 합니다. 트리거 목록에서 논리 앱 워크플로에서 첫 번째 단계로이 트리거를 선택 합니다. **되풀이**
 
    !["되풀이" 트리거를 선택 합니다.](./media/connectors-native-recurrence/add-recurrence-trigger.png)
 
@@ -55,10 +55,10 @@ ms.locfileid: "70914448"
 
    ![간격 및 빈도 설정](./media/connectors-native-recurrence/recurrence-trigger-details.png)
 
-   | 속성 | 필수 | JSON 이름 | 형식 | 설명 |
+   | 자산 | 필수 | JSON 이름 | Type | 설명 |
    |----------|----------|-----------|------|-------------|
-   | **간격** | 예 | 간격 | 정수 | 빈도에 따라 워크플로가 얼마나 자주 실행되는지를 설명하는 양의 정수입니다. 다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. |
-   | **빈도** | 예 | 빈도 | 문자열 | 되풀이에 대한 시간 단위: **초**, **분**, **시간**, **일**, **주** 또는 **월** |
+   | **간격** | yes | interval | 정수 | 빈도에 따라 워크플로가 얼마나 자주 실행되는지를 설명하는 양의 정수입니다. 다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. |
+   | **Frequency(빈도)** | yes | frequency | string | 되풀이 시간 단위: **초**, **분**, **시간**, **일**, **주** 또는 **월** |
    ||||||
 
    추가 예약 옵션을 보려면 **새 매개 변수 추가** 목록을 엽니다. 
@@ -66,13 +66,13 @@ ms.locfileid: "70914448"
 
    ![고급 일정 옵션](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
-   | 속성 | 필수 | JSON 이름 | 형식 | 설명 |
+   | 자산 | 필수 | JSON 이름 | Type | 설명 |
    |----------|----------|-----------|------|-------------|
-   | **표준 시간대** | 아니요 | timeZone | String | 이 트리거는 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset)을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 선택합니다. |
-   | **시작 시간** | 아니요 | startTime | 문자열 | 시작 날짜와 시간을 다음 형식으로 지정 합니다. <p>표준 시간대를 선택하는 경우 YYYY-MM-DDThh:mm:ss <p>또는 <p>표준 시간대를 선택하지 않은 경우 YYYY-MM-DDThh:mm:ssZ <p>예를 들어 오후 2:00에 2017 년 9 월 18 일을 원하는 경우 "2017-09-18T14:00:00"을 지정 하 고 태평양 표준시와 같은 표준 시간대를 선택 합니다. 또는 표준 시간대 없이 “2017-09-18T14:00:00Z”를 지정합니다. <p>**참고:** 이 시작 시간은 미래의 최대 49 년 이며 utc [오프셋](https://en.wikipedia.org/wiki/UTC_offset)없이 [utc 날짜/시간 형식의](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) [ISO 8601 날짜 시간 사양을](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) 따라야 합니다. 표준 시간대를 선택하지 않으면 공백 없이 맨 끝에 문자 “Z”를 추가해야 합니다. 이 “Z”는 해당 [항해 시간](https://en.wikipedia.org/wiki/Nautical_time)을 나타냅니다. <p>단순 일정의 경우 시작 시간은 첫 번째 발생이지만 복잡한 일정의 경우 트리거는 시작 시간보다 더 일찍 발생하지 않습니다. [*시작 날짜 및 시간을 사용할 수 있는 방법에는 무엇이 있나요?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
-   | **요일 선택** | 아니요 | weekDays | 문자열 또는 문자열 배열 | "주"를 선택하는 경우 워크플로 실행하려고 할 때 하나 이상의 요일을 선택할 수 있습니다. **Monday**, **Tuesday**, **Wednesday**, **Thursday**, **Friday**, **Saturday** 및 **Sunday** |
-   | **시간 선택** | 아니요 | 시간 | 정수 또는 정수 배열 | "일" 또는 "주"를 선택 하는 경우 워크플로를 실행 하려는 시간에 대해 0에서 23 사이의 정수를 하나 이상 선택할 수 있습니다. <p><p>예를 들어 "10", "12" 및 "14"를 지정 하면 하루 중 오전 10 시, 오후 12 시 및 오후 2 시가 되 고, 하루 중 분은 되풀이 시작 시간을 기준으로 계산 됩니다. 시간 (분)을 설정 하려면 해당 **분** 속성의 값을 지정 합니다. |
-   | **분 선택** | 아니요 | 분 | 정수 또는 정수 배열 | “일” 또는 “주”를 선택하는 경우 워크플로를 실행하려는 시간의 분으로 0~59 사이의 정수를 하나 이상 선택할 수 있습니다. <p>예를 들어 분 표시로 “30”을 지정하고, 앞에 나온 하루 시간 예제를 사용하면 10:30 AM, 12:30 PM 및 2:30 PM이 표시됩니다. |
+   | **표준 시간대** | 아닙니다. | timeZone | string | 이 트리거가 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset)을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 선택합니다. |
+   | **시작 시간** | 아닙니다. | startTime | string | 시작 날짜와 시간을 다음 형식으로 지정 합니다. <p>표준 시간대를 선택하는 경우 YYYY-MM-DDThh:mm:ss <p>또는 <p>표준 시간대를 선택하지 않은 경우 YYYY-MM-DDThh:mm:ssZ <p>예를 들어 오후 2:00에 2017 년 9 월 18 일을 원하는 경우 "2017-09-18T14:00:00"을 지정 하 고 태평양 표준시와 같은 표준 시간대를 선택 합니다. 또는 표준 시간대 없이 "2017-09-18T14:00:00Z"를 지정합니다. <p>**참고:** 이 시작 시간은 미래의 최대 49 년 이며 utc [오프셋](https://en.wikipedia.org/wiki/UTC_offset)없이 [utc 날짜/시간 형식의](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) [ISO 8601 날짜 시간 사양을](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) 따라야 합니다. 표준 시간대를 선택하지 않으면 공백 없이 맨 끝에 문자 “Z”를 추가해야 합니다. 이 "Z"는 해당 [항해 시간](https://en.wikipedia.org/wiki/Nautical_time)을 나타냅니다. <p>단순 일정의 경우 시작 시간이 첫 번째 발생이지만 복잡한 일정의 경우 트리거는 시작 시간보다 더 일찍 발생하지 않습니다. [*시작 날짜 및 시간을 사용할 수 있는 방법에는 무엇이 있나요?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **요일 선택** | 아닙니다. | weekDays | 문자열 또는 문자열 배열 | “주”를 선택하는 경우 워크플로를 실행하려는 요일을 하나 이상 선택할 수 있습니다.**월요일**, **화요일**, **수요일**, **목요일**, **금요일**, **토요일** 및 **일요일** |
+   | **시간 선택** | 아닙니다. | 시간 | 정수 또는 정수 배열 | "일" 또는 "주"를 선택 하는 경우 워크플로를 실행 하려는 시간에 대해 0에서 23 사이의 정수를 하나 이상 선택할 수 있습니다. <p><p>예를 들어 "10", "12" 및 "14"를 지정 하면 하루 중 오전 10 시, 오후 12 시 및 오후 2 시가 되 고, 하루 중 분은 되풀이 시작 시간을 기준으로 계산 됩니다. 시간 (분)을 설정 하려면 해당 **분** 속성의 값을 지정 합니다. |
+   | **분 선택** | 아닙니다. | 분 | 정수 또는 정수 배열 | “일” 또는 “주”를 선택하는 경우 워크플로를 실행하려는 시간의 분으로 0~59 사이의 정수를 하나 이상 선택할 수 있습니다. <p>예를 들어 분 표시로 "30"을 지정하고, 앞에 나온 시간 예제를 사용하면 10:30 AM, 12:30 PM 및 2:30 PM이 표시됩니다. |
    |||||
 
    예를 들어 오늘이 2017년 9월 4일 월요일이라고 가정합니다. 다음 되풀이 트리거는 시작 날짜 및 시간 보다 더 *일찍* 발생 하지 않습니다. 즉, 8:00 오전 9 시 2017 오전 6 시에입니다. 반면 되풀이 일정이 월요일에 한해서만 10:30 AM, 12:30 PM 및 2:30 PM으로 설정되어 있습니다. 따라서 트리거가 발생하고 논리 앱 워크플로 인스턴스가 만들어지는 처음 시간은 10:30 AM이 됩니다. 시작 시간이 작동하는 방법에 대한 자세한 내용은 [시작 시간 예](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time)를 참조하세요.

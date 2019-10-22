@@ -1,32 +1,31 @@
 ---
-title: 작업을 반복하거나 배열을 처리하는 루프 추가 - Azure Logic Apps | Microsoft Docs
-description: Azure Logic Apps에서 워크플로 작업을 반복하거나 배열을 처리하는 루프를 만드는 방법입니다.
+title: 작업을 반복 하는 루프 추가-Azure Logic Apps
+description: Azure Logic Apps에서 워크플로 작업을 반복하거나 배열을 처리하는 루프를 만듭니다.
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-manager: jeconnoc
-ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/05/2019
+ms.openlocfilehash: 31885749a7194a94a403e5c156220b3fceab951d
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60684093"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680457"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업을 반복하거나 배열을 처리하는 루프를 만듭니다.
 
 논리 앱에서 배열을 처리하려면 ["Foreach" 루프](#foreach-loop)를 만들 수 있습니다. 이 루프는 배열의 각 항목에 대해 하나 이상의 작업을 반복합니다. "Foreach" 루프가 처리할 수 있는 배열 항목 수의 제한에 대해서는 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하세요. 
 
-조건이 충족되거나 상태가 변경될 때마다 작업을 반복하려면 ["Until" 루프](#until-loop)를 만들 수 있습니다. 먼저 논리 앱 루프 내에서 모든 작업을 실행 하 고 조건 또는 상태를 확인 합니다. 조건이 충족되면 루프가 중지됩니다. 그렇지 않으면 루프가 반복됩니다. 논리 앱 실행의 "Until" 루프 수 제한에 대해서는 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하세요. 
+조건이 충족되거나 상태가 변경될 때마다 작업을 반복하려면 ["Until" 루프](#until-loop)를 만들 수 있습니다. 논리 앱은 먼저 루프 내에서 모든 작업을 실행 한 다음 조건 또는 상태를 확인 합니다. 조건이 충족되면 루프가 중지됩니다. 그렇지 않으면 루프가 반복됩니다. 논리 앱 실행의 "Until" 루프 수 제한에 대해서는 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하세요. 
 
 > [!TIP]
 > 배열을 받는 트리거가 있고 각 배열 항목에 대한 워크플로를 실행하려는 경우, [**SplitOn** 트리거 속성](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)을 사용하여 해당 배열을 *분리 처리(debatch)* 할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
@@ -58,7 +57,7 @@ ms.locfileid: "60684093"
 
       ![“작업 추가” 선택](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
-   1. 검색 상자에서 **모두**를 선택합니다. 검색 상자에서 필터로 “for each”를 입력합니다. 작업 목록에서 다음 작업을 선택합니다. **For each - 컨트롤**
+   1. 검색 상자에서 **모두**를 선택합니다. 검색 상자에서 필터로 “for each”를 입력합니다. 작업 목록에서 **각 컨트롤에 대해** 다음 작업을 선택 합니다.
 
       !["For each" 루프 추가](media/logic-apps-control-flow-loops/select-for-each.png)
 
@@ -122,7 +121,7 @@ ms.locfileid: "60684093"
 
 <a name="sequential-foreach-loop"></a>
 
-## <a name="foreach-loop-sequential"></a>"Foreach" 루프: 순차
+## <a name="foreach-loop-sequential"></a>순차적 "Foreach" 루프
 
 기본적으로 "Foreach" 루프의 주기는 병렬로 실행됩니다. 각 주기를 순차적으로 실행하려면 루프의 **순차** 옵션을 설정합니다. "Foreach" 루프는 예측 가능한 결과를 예상할 경우 루프 내에 중첩된 루프 또는 변수가 있으면 순차적으로 실행되어야 합니다. 
 
@@ -154,7 +153,7 @@ ms.locfileid: "60684093"
 
 ## <a name="until-loop"></a>"Until" 루프
   
-를 실행 하 고 조건을 충족 가져옵니다 또는 상태 변경 될 때까지 작업 반복 "Until" 루프에 이러한 작업을 배치 합니다. 먼저 논리 앱 루프 내에서 모든 작업을 실행 하 고 조건 또는 상태를 확인 합니다. 조건이 충족되면 루프가 중지됩니다. 그렇지 않으면 루프가 반복됩니다.
+조건이 충족 되거나 상태가 변경 될 때까지 실행 하 고 작업을 반복 하려면 "Until" 루프에 해당 작업을 배치 합니다. 논리 앱은 먼저 루프 내에서 모든 작업을 실행 한 다음 조건 또는 상태를 확인 합니다. 조건이 충족되면 루프가 중지됩니다. 그렇지 않으면 루프가 반복됩니다.
 
 "Until" 루프를 사용할 수 있는 몇 가지 일반적인 시나리오는 다음과 같습니다.
 
@@ -169,7 +168,7 @@ ms.locfileid: "60684093"
 > [여기에 있는 커넥터 목록을 확인](https://docs.microsoft.com/connectors/)합니다. 다른 이메일 계정을 사용하는 경우 일반적인 단계는 동일하지만 UI가 약간 다르게 표시될 수 있습니다. 
 
 1. 빈 논리 앱을 만듭니다. Logic Apps 디자이너의 검색 상자에서 **모두**를 선택합니다. "되풀이"를 검색합니다. 
-   트리거 목록에서 다음 트리거를 선택합니다. **되풀이 - 일정**
+   트리거 목록에서 다음 트리거: **되풀이-일정** 을 선택 합니다.
 
    !["되풀이 - 일정" 트리거 추가](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
 
@@ -177,7 +176,7 @@ ms.locfileid: "60684093"
 
    ![되풀이 일정 설정](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
-   | 자산 | 값 |
+   | 자산 | Value |
    | -------- | ----- |
    | **간격** | 1 | 
    | **Frequency(빈도)** | 일 |
@@ -185,7 +184,7 @@ ms.locfileid: "60684093"
    ||| 
 
 1. 트리거 아래에서 **새 단계**를 선택합니다. 
-   "변수"를 검색하고 다음 작업을 선택합니다. **변수 초기화 - 변수**
+   "변수"를 검색 하 고 **변수 초기화-변수** 를 선택 합니다.
 
    !["변수 초기화 - 변수" 작업 추가](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
@@ -193,16 +192,16 @@ ms.locfileid: "60684093"
 
    ![변수 속성 설정](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | 자산 | 값 | 설명 |
+   | 자산 | Value | 설명 |
    | -------- | ----- | ----------- |
    | **Name** | 제한 | 변수의 이름 | 
-   | **형식** | Integer | 변수의 데이터 형식 | 
+   | **형식** | 정수 | 변수의 데이터 형식 | 
    | **값** | 0 | 변수의 시작 값 | 
    |||| 
 
 1. **변수 초기화** 작업 아래에서 **새 단계**를 차례로 선택합니다. 
 
-1. 검색 상자에서 **모두**를 선택합니다. "Until"을 검색하고 다음 작업을 선택합니다. **Until - 컨트롤**
+1. 검색 상자에서 **모두**를 선택합니다. "Until"을 검색 하 고 **until-Control** 작업을 선택 합니다.
 
    !["Until" 루프 추가](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
 
@@ -213,7 +212,7 @@ ms.locfileid: "60684093"
 
 1. 루프 내부에서 **작업 추가**를 선택합니다. 
 
-1. 검색 상자에서 **모두**를 선택합니다. "변수"를 검색하고 다음 작업을 선택합니다. **변수 증가 - 변수**
+1. 검색 상자에서 **모두**를 선택합니다. "변수"를 검색 하 고 **변수 증가-변수** 를 선택 합니다.
 
    ![변수를 증가시키기 위한 작업 추가](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
@@ -234,10 +233,10 @@ ms.locfileid: "60684093"
 
       ![이메일 속성 설정](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | 자산 | 값 | 설명 |
+      | 자산 | Value | 설명 |
       | -------- | ----- | ----------- | 
-      | **To** | *\<email-address\@domain>* | 받는 사람의 이메일 주소입니다. 테스트를 위해 자신의 이메일 주소를 사용합니다. | 
-      | **Subject** | "제한"에 대한 현재 값은 **Limit**입니다. | 이메일 제목을 지정합니다. 이 예에서는 **Limit** 변수를 포함해야 합니다. | 
+      | **To** | *\<email 주소 \@domain >* | 받는 사람의 이메일 주소입니다. 테스트를 위해 자신의 이메일 주소를 사용합니다. | 
+      | **제목** | "제한"에 대한 현재 값은 **Limit**입니다. | 이메일 제목을 지정합니다. 이 예에서는 **Limit** 변수를 포함해야 합니다. | 
       | **본문** | <*email-content*> | 보내려는 이메일 메시지의 내용을 지정합니다. 이 예에서는 텍스트를 원하는 대로 입력합니다. | 
       |||| 
 
@@ -254,7 +253,7 @@ ms.locfileid: "60684093"
 | 자산 | 기본값 | 설명 | 
 | -------- | ------------- | ----------- | 
 | **개수** | 60 | 루프가 종료되기 전에 실행되는 최대 루프 수입니다. 기본값은 60회 주기입니다. | 
-| **Timeout** | PT1H | 루프가 종료되기 전에 루프를 실행하는 가장 많은 시간입니다. 기본값은 1시간이며 ISO 8601 형식으로 지정됩니다. <p>시간 제한 값은 각 루프 주기에 대해 평가됩니다. 루프의 작업이 시간 제한보다 오래 걸리면 현재 주기가 중지되지 않습니다. 그러나 제한 조건이 충족되지 않으면 다음 주기가 시작되지 않습니다. | 
+| **시간 제한** | PT1H | 루프가 종료되기 전에 루프를 실행하는 가장 많은 시간입니다. 기본값은 1시간이며 ISO 8601 형식으로 지정됩니다. <p>시간 제한 값은 각 루프 주기에 대해 평가됩니다. 루프의 작업이 시간 제한보다 오래 걸리면 현재 주기가 중지되지 않습니다. 그러나 제한 조건이 충족되지 않으면 다음 주기가 시작되지 않습니다. | 
 |||| 
 
 이러한 기본 제한을 변경하려면 루프 작업 셰이프에서 **고급 옵션 표시**를 선택합니다.

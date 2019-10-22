@@ -1,6 +1,6 @@
 ---
-title: HTTP 끝점을 사용 하 여 워크플로 호출, 트리거 또는 중첩-Azure Logic Apps
-description: Azure Logic Apps에 대해 워크플로를 호출, 트리거 또는 중첩하기 위해 HTTP 엔드포인트 설정
+title: 논리 앱 호출, 트리거 또는 중첩-Azure Logic Apps
+description: Azure Logic Apps에서 논리 앱 워크플로를 호출, 트리거 또는 중첩 하기 위해 HTTP 끝점을 설정 합니다.
 services: logic-apps
 ms.service: logic-apps
 ms.workload: integration
@@ -12,14 +12,14 @@ ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.openlocfilehash: f93e90ef442740e4fb17f166023fbe3d5f0bae66
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: eb8451272ecb5bc7b9a7c670545170cd74621883
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875945"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680319"
 ---
-# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 끝점을 사용 하 여 워크플로 호출, 트리거 또는 중첩
+# <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 끝점을 사용 하 여 논리 앱 호출, 트리거 또는 중첩
 
 URL을 통해 Logic Apps를 트리거 또는 호출할 수 있도록 동기식 HTTP 엔드포인트를 기본적으로 논리 앱에 트리거로 표시할 수 있습니다. 또한 호출 가능 엔드포인트의 패턴을 사용하여 Logic Apps에서 워크플로를 중첩할 수도 있습니다.
 
@@ -38,7 +38,7 @@ HTTP 엔드포인트를 만들려면 Logic Apps가 들어오는 요청을 받을
 
 HTTP 엔드포인트를 만들려면 들어오는 요청을 받을 수 있는 트리거를 추가합니다.
 
-1. [Azure Portal](https://portal.azure.com "Azure Portal")에 로그인합니다. 논리 앱으로 이동하고 논리 앱 디자이너를 엽니다.
+1. [Azure portal](https://portal.azure.com "Azure Portal")에 로그인합니다. 논리 앱으로 이동하고 논리 앱 디자이너를 엽니다.
 
 2. 논리 앱이 들어오는 요청을 받을 수 있도록 하는 트리거를 추가합니다. 예를 들어, 논리 앱에 **요청** 트리거를 추가합니다.
 
@@ -241,10 +241,10 @@ HTTP 엔드포인트를 만든 후 `POST` 메서드를 통해 논리 앱을 전�
 
 응답 속성:
 
-| 속성 | Description |
+| 자산 | 설명 |
 | --- | --- |
 | statusCode |들어오는 요청에 응답하는 HTTP 상태 코드를 지정합니다. 이 코드는 2xx, 4xx 또는 5xx로 시작하는 모든 유효한 상태 코드가 될 수 있습니다. 하지만 3xx 상태 코드는 허용되지 않습니다. |
-| headers |응답에 포함될 헤더의 수를 정의합니다. |
+| 헤더 |응답에 포함될 헤더의 수를 정의합니다. |
 | body |문자열, JSON 개체 또는 이전 단계에서 참조한 이진 콘텐츠일 수도 있는 본문 개체를 지정합니다. |
 
 **응답** 작업에 대한 JSON 스키마는 이제 다음과 유사하게 표시됩니다.
@@ -269,11 +269,11 @@ HTTP 엔드포인트를 만든 후 `POST` 메서드를 통해 논리 앱을 전�
 > [!TIP]
 > 논리 앱에 대한 전체 JSON 정의를 보려면 논리 앱 디자이너에서 **코드 보기**를 선택합니다.
 
-## <a name="q--a"></a>Q&A
+## <a name="q--a"></a>질문과 답변
 
-#### <a name="q-what-about-url-security"></a>Q: URL 보안 이란?
+#### <a name="q-what-about-url-security"></a>Q: URL 보안이란 무엇입니까?
 
-A: Azure는 SAS (공유 액세스 서명)를 사용 하 여 논리 앱 콜백 Url을 안전 하 게 생성 합니다. 이 서명은 쿼리 매개 변수로 전달되고 논리 앱이 시작하기 전에 유효성이 검사되어야 합니다. Azure는 논리 앱, 트리거 이름 및 수행되는 작업 별로 비밀 키의 고유한 조합을 사용하여 서명을 생성합니다. 따라서 사용자가 비밀 논리 앱 키에 액세스하지 않으면 유효한 서명을 생성할 수 없습니다.
+A: Azure는 공유 액세스 서명(SAS)을 사용하여 논리 앱 콜백 URL을 안전하게 생성합니다. 이 서명은 쿼리 매개 변수로 전달되고 논리 앱이 시작하기 전에 유효성이 검사되어야 합니다. Azure는 논리 앱, 트리거 이름 및 수행되는 작업 별로 비밀 키의 고유한 조합을 사용하여 서명을 생성합니다. 따라서 사용자가 비밀 논리 앱 키에 액세스하지 않으면 유효한 서명을 생성할 수 없습니다.
 
    > [!IMPORTANT]
    > 프로덕션 및 보안 시스템의 경우 다음과 같은 이유로 논리 앱을 브라우저에서 직접 호출하는 것을 권장하지 않습니다.
@@ -281,18 +281,18 @@ A: Azure는 SAS (공유 액세스 서명)를 사용 하 여 논리 앱 콜백 Ur
    > * URL에 공유 액세스 키가 나타납니다.
    > * 논리 앱 고객 간에 공유 도메인으로 인해 보안 콘텐츠 정책을 관리할 수 없습니다.
 
-#### <a name="q-can-i-configure-http-endpoints-further"></a>Q: HTTP 끝점을 추가로 구성할 수 있나요?
+#### <a name="q-can-i-configure-http-endpoints-further"></a>Q: HTTP 엔드포인트를 추가로 구성할 수 있습니까?
 
-A: 예, HTTP 끝점은 [**API Management**](../api-management/api-management-key-concepts.md)를 통해 보다 고급 구성을 지원 합니다. 또한 이 서비스는 Logic Apps를 포함한 모든 API를 일관성 있게 관리하고 사용자 지정 도메인 이름을 설정하고 다음과 같은 더 많은 인증 방법을 사용하는 기능을 제공합니다.
+A: 예, HTTP 엔드포인트는 [**API Management**](../api-management/api-management-key-concepts.md)를 통해 고급 구성을 지원합니다. 또한 이 서비스는 Logic Apps를 포함한 모든 API를 일관성 있게 관리하고 사용자 지정 도메인 이름을 설정하고 다음과 같은 더 많은 인증 방법을 사용하는 기능을 제공합니다.
 
 * [요청 메서드 변경](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
 * [요청의 URL 세그먼트 변경](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
-* [Azure Portal](https://portal.azure.com/ "Azure Portal")에서 API Management 도메인 설정
+* [Azure Portal](https://portal.azure.com/ "Azure Portal") 에서 API Management 도메인 설정
 * 기본 인증을 확인하는 정책 설정
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>Q: 스키마가 2014 년 12 월 1 일부 터 미리 보기에서 마이그레이션되면 어떻게 변경 되나요?
+#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>Q: 스키마가 2014년 12월 1일 마이그레이션되었을 때 미리 보기가 어떻게 변경되었습니까?
 
-A: 이러한 변경 내용에 대 한 요약은 다음과 같습니다.
+A: 다음은 이러한 변경 내용에 대한 요약입니다.
 
 | 2014 년 12 월 1 일 미리 보기 | 2016년 6월 1일 |
 | --- | --- |
@@ -304,7 +304,7 @@ A: 이러한 변경 내용에 대 한 요약은 다음과 같습니다.
 | `@triggerOutputs().body.Content`을 통해 들어오는 본문을 참조합니다. |`@triggerOutputs().body`을 통해 참조합니다. |
 | **HTTP 응답 보내기** 작업 |**HTTP 요청에 응답** 클릭(API 앱 필요 없음) |
 
-## <a name="get-help"></a>도움말 보기
+## <a name="get-help"></a>도움 받기
 
 질문하고, 질문에 답변하고, 다른 Azure Logic Apps 사용자가 어떤 일을 하는지 알아보려면 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문하세요.
 

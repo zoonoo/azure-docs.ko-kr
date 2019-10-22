@@ -1,23 +1,19 @@
 ---
 title: Azure Application Insights 원격 분석 상관 관계 | Microsoft 문서
 description: Application Insights 원격 분석 상관 관계
-services: application-insights
-documentationcenter: .net
-author: lgayhardt
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.author: lagayhar
-ms.openlocfilehash: fe52fe51b347b232e03bad943906413b90c853c0
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: aa683e90a328e9525fa7d0a78981aa107818188a
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338181"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678182"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -51,10 +47,10 @@ Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 
 
 결과에서 모든 원격 분석 항목은 루트 `operation_Id`를 공유합니다. 페이지에서 Ajax 호출이 수행되면 새 고유 ID(`qJSXU`)가 종속성 원격 분석에 할당되고 pageView의 ID가 `operation_ParentId`로 사용됩니다. 그러면 서버 요청에서 Ajax ID를 `operation_ParentId`로 사용합니다.
 
-| itemType   | name                      | id           | operation_ParentId | operation_Id |
+| itemType   | 이름                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Stock page                |              | STYz               | STYz         |
-| 종속성 | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
+| dependency | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
 | request    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
 | dependency | GET /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
 
@@ -64,22 +60,22 @@ Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 
 
 다음을 정의 하는 [W3C 추적 컨텍스트로](https://w3c.github.io/trace-context/) 전환 하 고 있습니다.
 
-- `traceparent`: 글로벌로 고유한 작업 ID와 호출의 고유 식별자를 전달합니다.
-- `tracestate`: 추적 시스템 특정 컨텍스트를 전달합니다.
+- `traceparent`: 전역 고유 작업 ID와 호출의 고유 식별자를 전달 합니다.
+- `tracestate`: 추적 시스템 관련 컨텍스트를 전달 합니다.
 
 최신 버전의 Application Insights Sdk는 추적 컨텍스트 프로토콜을 지원 하지만이를 옵트인 (opt in) 해야 할 수 있습니다 .이는 ApplicationInsights Sdk에서 지 원하는 이전 상관 관계 프로토콜과 이전 버전과의 호환성을 유지 합니다.
 
 [상관 관계 HTTP 프로토콜 즉,](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) 은 사용 중단 경로에 있습니다. 이 프로토콜은 두 가지 헤더를 정의 합니다.
 
-- `Request-Id`: 호출의 글로벌 고유 ID를 전달합니다.
-- `Correlation-Context`: 분산 추적 속성의 이름-값 쌍 컬렉션을 전달합니다.
+- `Request-Id`: 호출의 guid (globally unique ID)를 전달 합니다.
+- `Correlation-Context`: 분산 추적 속성의 이름-값 쌍 컬렉션을 전달 합니다.
 
 또한 Application Insights은 상관 관계 HTTP 프로토콜에 대 한 [확장](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) 을 정의 합니다. `Request-Context` 이름-값 쌍을 사용하여 즉각적인 호출자 또는 호출 수신자에서 사용하는 속성의 컬렉션을 전파합니다. Application Insights SDK는 이 헤더를 사용하여 `dependency.target` 및 `request.source` 필드를 설정합니다.
 
 ### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>클래식 ASP.NET 앱에 W3C 분산 추적 지원을 사용하도록 설정
  
   > [!NOTE]
-  > @No__t-0 및 `Microsoft.ApplicationInsights.DependencyCollector`부터 시작 하는 구성이 필요 하지 않습니다. 
+  > @No__t_0 및 `Microsoft.ApplicationInsights.DependencyCollector`부터 구성이 필요 하지 않습니다. 
 
 W3C 추적-컨텍스트 지원은 이전 버전과 호환 되는 방식으로 수행 되며 상관 관계는 이전 버전의 SDK를 사용 하 여 계측 된 응용 프로그램에서 작동 합니다 (W3C 지원 없음). 
 
@@ -96,7 +92,7 @@ W3C 추적-컨텍스트 지원은 이전 버전과 호환 되는 방식으로 �
 
 - `RequestTrackingTelemetryModule` 아래에서 `EnableW3CHeadersExtraction` 요소를 추가하고 값을 `true`로 설정합니다.
 - `DependencyTrackingTelemetryModule` 아래에서 `EnableW3CHeadersInjection` 요소를 추가하고 값을 `true`로 설정합니다.
-- 다음과 유사 하 게-1 @no__t에서 `W3COperationCorrelationTelemetryInitializer`을 추가 합니다. 
+- 다음과 유사 하 게 `TelemetryInitializers`에 `W3COperationCorrelationTelemetryInitializer`를 추가 합니다. 
 
 ```xml
 <TelemetryInitializers>
@@ -108,7 +104,7 @@ W3C 추적-컨텍스트 지원은 이전 버전과 호환 되는 방식으로 �
 ### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>ASP.NET Core 앱에 W3C 분산 추적 지원을 사용하도록 설정
 
  > [!NOTE]
-  > @No__t-0 버전 2.8.0로 시작 하는 구성이 필요 하지 않습니다.
+  > @No__t_0 버전 2.8.0로 시작 하는 구성이 필요 하지 않습니다.
  
 W3C 추적-컨텍스트 지원은 이전 버전과 호환 되는 방식으로 수행 되며 상관 관계는 이전 버전의 SDK를 사용 하 여 계측 된 응용 프로그램에서 작동 합니다 (W3C 지원 없음). 
 
@@ -172,7 +168,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="enable-w3c-distributed-tracing-support-for-web-apps"></a>웹 앱에 대해 W3C distributed tracing 지원 사용
 
-이 기능은 `Microsoft.ApplicationInsights.JavaScript`입니다. 기본적으로 사용하지 않도록 설정되어 있습니다. 이 기능을 사용 하도록 설정 하려면 `distributedTracingMode` 구성을 사용 합니다. AI_AND_W3C은 레거시 Application Insights 계측 된 서비스와의 이전 버전과의 호환성을 위해 제공 됩니다.
+이 기능은 `Microsoft.ApplicationInsights.JavaScript`에 있습니다. 기본적으로 사용하지 않도록 설정되어 있습니다. 사용 하도록 설정 하려면 `distributedTracingMode` config를 사용 합니다. AI_AND_W3C은 레거시 Application Insights 계측 된 서비스와의 이전 버전과의 호환성을 위해 제공 됩니다.
 
 - **NPM 설치 (조각 설치를 사용 하는 경우 무시)**
 

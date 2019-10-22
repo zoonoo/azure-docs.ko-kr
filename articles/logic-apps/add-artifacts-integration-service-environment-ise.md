@@ -1,6 +1,6 @@
 ---
-title: Azure Logic Apps에서 integration service environment (ISEs)에 아티팩트 추가
-description: Azure 가상 네트워크 (Vnet)에 액세스 하기 위해 ISE (integration service environment)에 논리 앱, 사용자 지정 커넥터 및 통합 계정을 추가 하는 동시에 공용 또는 "글로벌" Azure에서 비공개 및 격리
+title: Integration service environment에 아티팩트 추가-Azure Logic Apps
+description: Azure virtual network (Vnet)에 액세스할 수 있도록 통합 서비스 환경 (ISE)에 논리 앱, 통합 계정 및 사용자 지정 커넥터를 추가 합니다.
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,18 +9,18 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 6327f0c14b46ceaadbf7adaa58a70c32b39b7c2a
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 266c942adb62b187d39d2eac4a47455482bfadaa
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960484"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680524"
 ---
 # <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Azure Logic Apps에서 ISE (통합 서비스 환경)에 아티팩트를 추가 합니다.
 
 [ISE (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)를 만든 후에는 Azure 가상 네트워크의 리소스에 액세스할 수 있도록 논리 앱, 통합 계정 및 커넥터와 같은 아티팩트를 추가 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "71960484"
 
 ISE (통합 서비스 환경)에서 실행 되는 논리 앱을 빌드하려면 다음 단계를 수행 합니다.
 
-1. ISE를 찾아 엽니다 (아직 열지 않은 경우). ISE 메뉴의 **설정**에서 **논리 앱** > **추가**를 선택 합니다.
+1. ISE를 찾아 엽니다 (아직 열지 않은 경우). ISE 메뉴의 **설정**에서 **논리 앱**  > **추가**를 선택 합니다.
 
    ![ISE에 새 논리 앱 추가](./media/add-artifacts-integration-service-environment-ise/add-logic-app-to-ise.png)
 
@@ -63,13 +63,13 @@ ISE (통합 서비스 환경)에서 실행 되는 논리 앱을 빌드하려면 
 
 ISE를 사용 하는 통합 계정을 만들려면 다음 단계를 수행 합니다.
 
-1. ISE를 찾아 엽니다 (아직 열지 않은 경우). ISE 메뉴의 **설정**에서 **통합 계정** > **추가**를 선택 합니다.
+1. ISE를 찾아 엽니다 (아직 열지 않은 경우). ISE 메뉴의 **설정**에서 **통합 계정**  > **추가**를 선택 합니다.
 
    ![ISE에 새 통합 계정 추가](./media/add-artifacts-integration-service-environment-ise/add-integration-account-to-ise.png)
 
    또는
 
-   기본 Azure 메뉴에서 **리소스 만들기** > **통합** > **통합 계정**을 선택 합니다.
+   기본 Azure 메뉴에서 **리소스 만들기** ** >  통합**  > **통합 계정**을 선택 합니다.
 
 1. 통합 계정에 사용할 이름, Azure 구독, Azure 리소스 그룹 (신규 또는 기존) 및 가격 책정 계층을 제공 합니다.
 
@@ -105,7 +105,7 @@ ISE에서 사용 하기 위해 사용할 수 있지만 ISE에 배포 되지 않�
 
 ISE에서 사용자 지정 커넥터를 사용 하려면 ISE 내에서 직접 사용자 지정 커넥터를 만듭니다.
 
-1. ISE를 찾아 엽니다 (아직 열지 않은 경우). ISE 메뉴의 **설정**에서 **사용자 지정 커넥터** > **추가**를 선택 합니다.
+1. ISE를 찾아 엽니다 (아직 열지 않은 경우). ISE 메뉴의 **설정**에서 **사용자 지정 커넥터**  > **추가**를 선택 합니다.
 
    ![사용자 지정 커넥터 만들기](./media/add-artifacts-integration-service-environment-ise/add-custom-connector-to-ise.png)
 

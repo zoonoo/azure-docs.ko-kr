@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus-Azure Logic Apps를 사용 하 여 메시지 보내기 및 받기
-description: Azure Service Bus 및 Azure Logic Apps를 사용 하 여 엔터프라이즈 클라우드 메시징 설정
+title: Azure Service Bus를 사용 하 여 메시지 교환-Azure Logic Apps
+description: Azure Logic Apps에서 Azure Service Bus를 사용 하 여 메시지 보내기 및 받기
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,16 +9,15 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 09/19/2019
-ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 tags: connectors
-ms.openlocfilehash: f2034686e4a8de5e1ccc246f49337a6600bf441f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 0cf5486e77e69f83973f7e62669e5ab45d1c94a2
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121078"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679195"
 ---
-# <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-with-azure-service-bus"></a>Azure Service Bus와 함께 Azure Logic Apps를 사용 하 여 클라우드의 메시지 교환
+# <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Azure Logic Apps 및 Azure Service Bus를 사용 하 여 클라우드의 메시지 교환
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) 커넥터를 사용 하 여 조직의 응용 프로그램에서 판매 및 구매 주문서, 저널, 인벤토리 이동과 같은 데이터를 전송 하는 자동화 된 작업 및 워크플로를 만들 수 있습니다. 커넥터는 메시지의 모니터링, 전송 및 관리뿐만 아니라 다음과 같이 큐, 세션, 토픽, 구독 등을 사용한 작업을 수행합니다.
 
@@ -33,7 +32,7 @@ ms.locfileid: "71121078"
 
 [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -49,7 +48,7 @@ ms.locfileid: "71121078"
 
 논리 앱에 Service Bus 네임스페이스에 액세스하기 위한 권한이 있는지 확인합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 
 1. Service Bus *네임스페이스*로 이동합니다. 네임스페이스 페이지의 **설정**에서 **공유 액세스 정책**을 선택합니다. **클레임** 아래에서 해당 네임스페이스에 대한 **관리** 권한이 있는지 확인합니다.
 
@@ -118,7 +117,7 @@ ms.locfileid: "71121078"
 
 1. 작업을 추가 하려는 단계 아래에서 **새 단계**를 선택 합니다.
 
-   또는 단계 간에 작업을 추가 하려면 해당 단계 사이의 화살표 위로 포인터를 이동 합니다. 표시 되는 더하기 기호 **+** ()를 선택 하 고 **작업 추가**를 선택 합니다.
+   또는 단계 간에 작업을 추가 하려면 해당 단계 사이의 화살표 위로 포인터를 이동 합니다. 표시 되는 더하기 기호 ( **+** )를 선택 하 고 **작업 추가**를 선택 합니다.
 
 1. **작업 선택**아래의 검색 상자에 "azure service bus"를 필터로 입력 합니다. 작업 목록에서 원하는 작업을 선택 합니다. 
 

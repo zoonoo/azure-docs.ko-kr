@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: db54c7886f5256dab41325cd12f1b893be732d72
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 6d8ad27766e85568cc759af84cc586476ad3ef9a
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529039"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678432"
 ---
 # <a name="add-full-text-search-to-azure-blob-data-using-azure-search"></a>Azure Search를 사용 하 여 Azure blob 데이터에 전체 텍스트 검색 추가
 
@@ -70,5 +70,5 @@ JSON이 포함된 Blob에 있는 구조화된 콘텐츠를 추출하도록 Azure
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [Blob 인덱서 설정](search-howto-indexing-azure-blob-storage.md) 
++ [Azure Portal를 사용 하 여 blob 업로드, 다운로드 및 나열 (Azure Blob storage)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
++ [Blob 인덱서 설정 (Azure Search)](search-howto-indexing-azure-blob-storage.md) 

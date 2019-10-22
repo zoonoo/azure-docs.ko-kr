@@ -1,23 +1,18 @@
 ---
 title: 웹 애플리케이션 성능 모니터링 - Azure Application Insights | Microsoft Docs
 description: devOps 주기에 Application Insights를 적용하는 방법
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 12/21/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 24b0bc01b5cb4f1d2696a7c9526d586c9b42d0fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/21/2018
+ms.openlocfilehash: bf7c0b4db2b7eb662f55b917dbe318d0ad8023ce
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60899715"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677300"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights로 웹앱 및 서비스 심층 진단
 ## <a name="why-do-i-need-application-insights"></a>Application Insights가 필요한 이유는 무엇일까요?
@@ -25,7 +20,7 @@ Application Insights는 실행 중인 웹앱을 모니터링합니다. 오류와
 
 ![Web Apps을 제공하는 방법의 복잡성 측면](./media/devops/010.png)
 
-최신 애플리케이션은 실행하는 동안 모니터링이 필요합니다. 특히, 대부분의 고객보다 빠르게 오류를 탐지해야 합니다. 또한 치명적이진 않지만 속도를 저해하거나 사용자에게 불편을 초래할 수도 있는 성능 문제들을 검색하고 수정하려고 합니다. 시스템이 만족스럽게 작동될 때 사용자가 어떤 작업을 하는지 알고 싶을 것입니다. 최신 기능을 사용하고 있나요? 잘 사용하고 있는지 궁금할 것입니다.
+최신 애플리케이션은 실행하는 동안 모니터링이 필요합니다. 특히, 대부분의 고객보다 빠르게 오류를 탐지해야 합니다. 또한 치명적이진 않지만 속도를 저해하거나 사용자에게 불편을 초래할 수도 있는 성능 문제들을 검색하고 수정하려고 합니다. 시스템이 만족스럽게 작동될 때 사용자가 어떤 작업을 하는지 알고 싶을 것입니다. 잘 사용하고 있는지 궁금할 것입니다.
 
 최신 웹 애플리케이션은 지속적인 업데이트 주기에 맞추어 개발됩니다. 즉, 새로운 기능 및 개선 사항을 릴리스하고, 사용자의 입장에서 잘 작동하는지 관찰하고, 이러한 수집된 정보를 바탕으로 다음 점진적 개발을 계획합니다. 이 주기의 핵심 부분은 관찰 단계입니다. Application Insights는 웹 애플리케이션의 성능과 사용을 모니터링하는 도구를 제공합니다.
 
@@ -56,7 +51,7 @@ Application Insights는 실행 중인 웹앱을 모니터링합니다. 오류와
 * 근본적 원인은 무엇인가? 오류의 원인은 구성 요소인가, 종속성인가? 통신 문제인가?
 * 얼마나 많은 사용자가 영향을 받았는가? 해결해야 할 문제가 둘 이상이라면, 그 중에서 가장 중요한 문제는 무엇인가?
 
-## <a name="what-is-application-insights"></a>Application Insights란?
+## <a name="what-is-application-insights"></a>Application Insights란 무엇인가요?
 ![Application Insights의 기본 워크플로](./media/devops/020.png)
 
 1. Application Insights는 앱이 실행되는 동안 이를 계측하고 원격 분석을 전송합니다. Application Insights SDK를 앱에 빌드하거나 런타임에 계측을 적용할 수 있습니다. Application Insights SDK를 빌드하는 방법은 일반 모듈에 원격 분석을 추가할 수 있으므로 더욱 유연합니다.
@@ -113,12 +108,12 @@ Samtec 고객은 다음과 같이 말했습니다. "최근 기능 컷오버를 �
 
 ![라이브 실패 이벤트](./media/devops/002-live-stream-failures.png)
 
-## <a name="application-map"></a>애플리케이션 맵
+## <a name="application-map"></a>Application Map
 애플리케이션 맵은 애플리케이션 토폴로지를 자동으로 검색하고 그 위에 성능 정보를 배치하여, 배포된 환경 전반에 걸쳐 성능 병목 현상 및 문제가 있는 흐름을 쉽게 파악할 수 있도록 합니다. Azure 서비스에서 애플리케이션 종속성을 검색할 수도 있습니다. 문제가 코드 관련인지 종속성 관련인지 분류하고, 한 곳에서부터 관련 진단 항목까지 파고들 수 있습니다. 예를 들어, SQL 계층에서 성능이 저하되어 애플리케이션에 오류가 발생할 수 있습니다. 애플리케이션 맵을 사용하면 SQL Index Advisor 또는 Query Insights 환경을 즉시 확인하고 자세히 살펴볼 수 있습니다.
 
-![애플리케이션 맵](./media/devops/0050.png)
+![Application Map](./media/devops/0050.png)
 
-## <a name="application-insights-analytics"></a>Application Insights Analytics
+## <a name="application-insights-analytics"></a>Application Insights 분석
 [Analytics](../../azure-monitor/app/analytics.md)를 사용하면 SQL과 유사한 강력한 언어로 임의의 쿼리를 작성할 수 있습니다.  다양한 관점을 연결하고 서비스 성능과 비즈니스 메트릭, 고객 경험을 연관시킬 수 있는 올바른 질문을 던질 수 있으므로 전체 앱 스택 진단이 손쉬워집니다. 
 
 포털에 저장된 모든 원격 분석 인스턴스와 메트릭 원시 데이터를 쿼리할 수 있습니다. 언어에는 필터, 조인, 집계 및 기타 연산자가 포함됩니다. 필드 계산과 통계 분석도 수행할 수 있습니다. 테이블 형식 및 그래픽 시각화가 모두 들어 있습니다.
@@ -166,7 +161,7 @@ Application Insights가 예외를 기록하면 Visual Studio에서 데이터 포
 ## <a name="next-steps"></a>다음 단계
 Application Insights로 시작하기가 쉽습니다. 기본 옵션:
 
-* [IIS 서버](../../azure-monitor/app/monitor-performance-live-website-now.md), 및 [Azure App Service](../../azure-monitor/app/app-insights-overview.md)합니다.
+* [IIS 서버](../../azure-monitor/app/monitor-performance-live-website-now.md)및 [Azure App Service](../../azure-monitor/app/app-insights-overview.md)에 대 한도 있습니다.
 * 개발 중에 프로젝트를 계측합니다. [ASP.NET](../../azure-monitor/app/asp-net.md) 또는 [Java](../../azure-monitor/app/java-get-started.md) 앱, [Node.js](../../azure-monitor/app/nodejs.md), 여러 가지 [기타 유형](../../azure-monitor/app/platforms.md) 호스트에 적용할 수 있습니다. 
 * 짧은 코드 조각을 추가하여 [아무 웹 페이지](../../azure-monitor/app/javascript.md) 나 계측합니다.
 

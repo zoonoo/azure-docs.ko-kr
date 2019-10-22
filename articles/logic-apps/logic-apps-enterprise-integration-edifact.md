@@ -1,5 +1,5 @@
 ---
-title: B2B 엔터프라이즈 통합용 EDIFACT 메시지 - Azure Logic Apps | Microsoft Docs
+title: B2B 통합에 대 한 EDIFACT 메시지-Azure Logic Apps
 description: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 EDI 형식의 B2B 엔터프라이즈 통합용 EDIFACT 메시지 교환
 services: logic-apps
 ms.service: logic-apps
@@ -8,14 +8,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.date: 07/26/2016
-ms.openlocfilehash: bbcdad7c5496cd08994a613b07e1bc7c611e4572
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 42197f8bf08ae1f36c531c220ebbf78484a5946e
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60684508"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680356"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 EDIFACT 메시지 교환
 
@@ -38,9 +37,9 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 ## <a name="create-an-edifact-agreement"></a>EDIFACT 규약 만들기 
 
-1. [Azure Portal](https://portal.azure.com "Azure Portal")에 로그인합니다. 
+1. [Azure portal](https://portal.azure.com "Azure Portal")에 로그인합니다. 
 
-2. Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 "통합"을 입력한 다음, **통합 계정**을 선택합니다.
+2. Azure의 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 "통합"을 입력한 다음, **통합 계정**을 선택합니다.
 
    ![통합 계정 찾기](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
@@ -63,9 +62,9 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
    ![규약 세부 정보 제공](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-   | 자산 | Description |
+   | 자산 | 설명 |
    | --- | --- |
-   | 이름 |규약 이름 |
+   | name |규약 이름 |
    | 규약 유형 | EDIFACT여야 함 |
    | 호스트 파트너 |규약에는 호스트 및 게스트 파트너가 필요합니다. 호스트 파트너는 규약을 구성하는 조직을 나타냅니다. |
    | 호스트 ID |호스트 파트너의 식별자입니다. |
@@ -82,7 +81,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 1. **추가** 아래에서 **수신 설정**을 선택합니다.
 사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 구성합니다. 속성 설명은 이 섹션에 있는 테이블을 참조하세요.
 
-   **수신 설정** 이 섹션으로 구성 됩니다. 식별자, 승인, 스키마, 컨트롤 번호, 유효성 검사 및 내부 설정 합니다.
+   **수신 설정**은 식별자, 승인, 스키마, 제어 번호, 유효성 검사 및 내부 설정이라는 섹션으로 구성됩니다.
 
    !["수신 설정" 구성](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
@@ -114,7 +113,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 | UNH2.5(연결 할당 코드) |할당된 코드를 입력합니다. (최대 6자. 영숫자여야 함) |
 | UNG2.1(앱 보낸 사람 ID) |1 ~ 35자의 영숫자 값을 입력합니다. |
 | UNG2.2(앱 보낸 사람 코드 한정자) |최대 4자의 영숫자 값을 입력합니다. |
-| SCHEMA |연결된 통합 계정으로부터 사용하려는 이전에 업로드한 스키마를 선택합니다. |
+| 스키마 |연결된 통합 계정으로부터 사용하려는 이전에 업로드한 스키마를 선택합니다. |
 
 ### <a name="control-numbers"></a>컨트롤 번호
 | 자산 | 설명 |
@@ -155,7 +154,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 1.  **추가** 아래에서 **송신 설정**을 선택합니다.
 사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 구성합니다. 속성 설명은 이 섹션에 있는 테이블을 참조하세요.
 
-    **송신 설정** 이 섹션으로 구성 됩니다. 식별자, 승인, 스키마, 봉투 (envelope), 문자 집합 및 구분 기호, 컨트롤 번호 및 유효성 검사 합니다.
+    **송신 설정**은 식별자, 승인, 스키마, 봉투, 문자 집합 및 구분 기호, 컨트롤 번호, 유효성 검사라는 섹션으로 구성됩니다.
 
     !["송신 설정" 구성](./media/logic-apps-enterprise-integration-edifact/edifact-3.png)    
 
@@ -187,7 +186,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 | UNH2.1(유형) |트랜잭션 집합 유형을 선택합니다. |
 | UNH2.2(버전) |메시지 버전 번호를 입력합니다. |
 | UNH2.3(릴리스) |메시지 릴리스 번호를 입력합니다. |
-| SCHEMA |사용할 스키마를 선택합니다. 스키마는 통합 계정에 있습니다. 스키마에 액세스하려면 먼저 통합 계정을 논리 앱에 연결합니다. |
+| 스키마 |사용할 스키마를 선택합니다. 스키마는 통합 계정에 있습니다. 스키마에 액세스하려면 먼저 통합 계정을 논리 앱에 연결합니다. |
 
 ### <a name="envelopes"></a>봉투
 | 자산 | 설명 |
@@ -245,6 +244,6 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 ## <a name="view-swagger-file"></a>Swagger 파일 보기
 EDIFACT 커넥터에 대 한 Swagger 세부 정보를 보려면 [EDIFACT](/connectors/edifact/)를 참조하세요.
 
-## <a name="learn-more"></a>자세한 정보
+## <a name="learn-more"></a>자세히 알아보기
 * [엔터프라이즈 통합 팩에 대해 자세히 알아보기](logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")  
 

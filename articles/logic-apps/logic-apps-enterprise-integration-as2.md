@@ -1,6 +1,6 @@
 ---
-title: B2B 엔터프라이즈 통합에 대 한 AS2 메시지-Azure Logic Apps
-description: 엔터프라이즈 통합 팩를 사용 하 여 Azure Logic Apps AS2 메시지 교환
+title: B2B Azure Logic Apps에 대 한 AS2 메시지 송신 및 수신
+description: Azure Logic Apps를 사용 하 여 B2B 엔터프라이즈 통합 시나리오용 AS2 메시지 교환
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 08/22/2019
-ms.openlocfilehash: b1e7664aa08171c16c83e17ad93977b29e31b5c0
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 1f063c0e8dada8eb6c4eee031764f6ca7dd3a91d
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656431"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680376"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 AS2 메시지 교환
 
@@ -40,7 +40,7 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 통신을 관리 �
 
   또한이 작업은 구성 될 때 다음 작업을 수행 합니다.
 
-  * 서명을 확인합니다.
+  * 서명을 확인 합니다.
   * 메시지의 암호를 해독 합니다.
   * 메시지의 압축을 풉니다.
   * 메시지 ID 중복을 확인 하 고 허용 하지 않습니다.
@@ -54,7 +54,7 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 통신을 관리 �
 
 * Azure 구독. 아직 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* AS2 커넥터를 사용 하려는 논리 앱 및 논리 앱의 워크플로를 시작 하는 트리거 AS2 커넥터는 트리거가 아니라 동작만 제공 합니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
+* AS2 커넥터를 사용 하려는 논리 앱 및 논리 앱의 워크플로를 시작 하는 트리거 AS2 커넥터는 트리거가 아니라 동작만 제공 합니다. 논리 앱을 처음 사용하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토합니다.
 
 * Azure 구독과 연결 되 고 AS2 커넥터를 사용 하려는 논리 앱에 연결 된 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 입니다. 논리 앱과 통합 계정은 모두 동일한 위치 또는 Azure 지역에 있어야 합니다.
 
@@ -76,20 +76,20 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 통신을 관리 �
 
 1. 디자이너에서 논리 앱에 새 작업을 추가 합니다.
 
-1. **작업 선택** 및 검색 상자에서 **모두**를 선택 합니다. 검색 상자에 "as2 인코드"를 입력 하 고 AS2 (v2) 작업을 선택 했는지 확인 합니다. **AS2 인코딩**
+1. **작업 선택** 및 검색 상자 아래에서 **모두**를 선택합니다. 검색 상자에 "as2 인코드"를 입력 하 고 AS2 (v2) 작업을 선택 했는지 확인 합니다. **As2 인코드**
 
    !["AS2 인코드"를 선택 합니다.](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
 
 1. 이제 이러한 속성에 대 한 정보를 제공 합니다.
 
-   | 속성 | Description |
+   | 자산 | 설명 |
    |----------|-------------|
    | **인코딩할 메시지** | 메시지 페이로드 |
    | **AS2 원본** | AS2 규약에서 지정한 메시지 보낸 사람의 식별자입니다. |
    | **AS2 to** | AS2 규약에서 지정한 메시지 수신기의 식별자입니다. |
    |||
 
-   예:
+   다음은 그 예입니다.
 
    ![메시지 인코딩 속성](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 
@@ -101,7 +101,7 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 통신을 관리 �
 
 1. 디자이너에서 논리 앱에 새 작업을 추가 합니다.
 
-1. **작업 선택** 및 검색 상자에서 **모두**를 선택 합니다. 검색 상자에 "as2 디코드"를 입력 하 고 AS2 (v2) 작업을 선택 했는지 확인 합니다. **AS2 디코드**
+1. **작업 선택** 및 검색 상자 아래에서 **모두**를 선택합니다. 검색 상자에 "as2 디코드"를 입력 하 고 AS2 (v2) 작업: **As2 디코딩** 을 선택 했는지 확인 합니다.
 
    !["AS2 디코드"를 선택 합니다.](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
 
@@ -111,7 +111,7 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 통신을 관리 �
 
    ![요청 출력에서 본문 및 헤더를 선택합니다.](media/logic-apps-enterprise-integration-as2/as2-message-decoding-details.png)
 
-## <a name="sample"></a>예제
+## <a name="sample"></a>샘플
 
 완벽하게 작동하는 논리 앱 및 샘플 AS2 시나리오를 배포하려면 [AS2 논리 앱 템플릿 및 시나리오](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/)를 참조하세요.
 

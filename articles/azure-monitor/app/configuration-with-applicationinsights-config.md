@@ -1,24 +1,19 @@
 ---
 title: ApplicationInsights.config 참조 - Azure | Microsoft Docs
 description: 데이터 수집 모듈을 사용하거나 사용하지 않도록 설정하고 성능 카운터 및 기타 매개 변수를 추가합니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 6e397752-c086-46e9-8648-a1196e8078c2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/22/2019
 ms.reviewer: olegan
-ms.author: mbullwin
-ms.openlocfilehash: 02ad74e5b1f8b86a0072b413db2a572f8ed92781
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 94ae9035c1657c1ce20c40234ddca95ae30d9edd
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932139"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677529"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
 Application Insights .NET SDK는 NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 애플리케이션에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저*를 제공합니다. 구성 파일을 조정 하 여 원격 분석 모듈 및 이니셜라이저를 사용 하거나 사용 하지 않도록 설정 하 고 그 중 일부에 대 한 매개 변수를 설정할 수 있습니다.
@@ -62,7 +57,7 @@ IIS 설치에서 CPU, 메모리 및 네트워크 부하와 같은 [시스템 성
 ```
 
 ### <a name="developer-mode"></a>개발자 모드
-`DeveloperModeWithDebuggerAttachedTelemetryModule`이 Application Insights`TelemetryChannel`를 적용하여 디버거가 애플리케이션 프로세스에 연결될 때 한번에 원격 분석 항목을 하나씩 즉시 보냅니다. 애플리케이션이 원격 분석을 추적할 때와 Application insights 포털에 나타날 때의 간격의 시간차를 감소시킵니다. CPU 및 네트워크 대역폭에 상당한 오버 헤드가 발생합니다.
+`DeveloperModeWithDebuggerAttachedTelemetryModule`이 Application Insights `TelemetryChannel`를 적용하여 디버거가 애플리케이션 프로세스에 연결될 때 한번에 원격 분석 항목을 하나씩 즉시 보냅니다. 애플리케이션이 원격 분석을 추적할 때와 Application insights 포털에 나타날 때의 간격의 시간차를 감소시킵니다. CPU 및 네트워크 대역폭에 상당한 오버 헤드가 발생합니다.
 
 * `Microsoft.ApplicationInsights.WindowsServer.DeveloperModeWithDebuggerAttachedTelemetryModule`
 * [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet 패키지
@@ -103,8 +98,8 @@ Microsoft.ApplicationInsights 패키지는 SDK의 [코어 API](https://msdn.micr
 ## <a name="telemetry-channel"></a>원격 분석 채널
 [원격 분석 채널](telemetry-channels.md) 은 Application Insights 서비스에 대 한 원격 분석의 버퍼링 및 전송을 관리 합니다.
 
-* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`는 웹 응용 프로그램의 기본 채널입니다. 데이터를 메모리에 버퍼링 하 고 재시도 메커니즘과 로컬 디스크 저장소를 활용 하 여 보다 안정적인 원격 분석 배달을 제공 합니다.
-* `Microsoft.ApplicationInsights.InMemoryChannel`는 다른 채널이 구성 되지 않은 경우에 사용 되는 경량 원격 분석 채널입니다. 
+* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`은 웹 응용 프로그램의 기본 채널입니다. 데이터를 메모리에 버퍼링 하 고 재시도 메커니즘과 로컬 디스크 저장소를 활용 하 여 보다 안정적인 원격 분석 배달을 제공 합니다.
+* `Microsoft.ApplicationInsights.InMemoryChannel`은 다른 채널이 구성 되지 않은 경우에 사용 되는 경량 원격 분석 채널입니다. 
 
 ## <a name="telemetry-initializers-aspnet"></a>원격 분석 이니셜라이저(ASP.NET)
 원격 분석 이니셜라이저는 원격 분석의 모든 항목과 함께 전송 되는 컨텍스트 속성을 설정 합니다.
@@ -133,7 +128,7 @@ Microsoft.ApplicationInsights 패키지는 SDK의 [코어 API](https://msdn.micr
 
     `<Filters>` 는 요청의 식별 속성을 설정합니다.
 * `UserTelemetryInitializer`은 사용자의 브라우저에서 실행되는 Application insights JavaScript 계측 코드에 의해 제공된 `ai_user` 쿠키의 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `User` 컨텍스트의 `Id` 및 `AcquisitionDate`속성을 업데이트합니다.
-* `WebTestTelemetryInitializer`[가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)에서 제공 하는 HTTP 요청에 대 한 사용자 ID, 세션 ID 및 가상 원본 속성을 설정 합니다.
+* `WebTestTelemetryInitializer`은 [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)에서 제공 되는 HTTP 요청에 대 한 사용자 ID, 세션 ID 및 가상 원본 속성을 설정 합니다.
   `<Filters>` 는 요청의 식별 속성을 설정합니다.
 
 Service Fabric에서 실행되는 .NET 애플리케이션에 대해 `Microsoft.ApplicationInsights.ServiceFabric` NuGet 패키지를 포함할 수 있습니다. 이 패키지에는 Service Fabric 속성을 원격 분석 항목에 추가하는 `FabricTelemetryInitializer`가 포함되어 있습니다. 자세한 내용은 이 NuGet 패키지에 의해 추가된 속성에 대한 [GitHub 페이지](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md)를 참조하세요.
@@ -144,7 +139,7 @@ Service Fabric에서 실행되는 .NET 애플리케이션에 대해 `Microsoft.A
 사용자 [고유의 원격 분석 프로세서를 작성할](../../azure-monitor/app/api-filtering-sampling.md#filtering)수 있습니다.
 
 #### <a name="adaptive-sampling-telemetry-processor-from-200-beta3"></a>적응 샘플링 원격 분석 프로세서 (2.0.0-beta3)
-이 기능은 기본적으로 사용됩니다. 앱에서 다양한 원격 분석을 보내는 경우 이 프로세서는 일부 정보를 제거합니다.
+이 옵션은 기본적으로 사용하도록 설정되어 있습니다. 앱에서 다양한 원격 분석을 보내는 경우 이 프로세서는 일부 정보를 제거합니다.
 
 ```xml
 

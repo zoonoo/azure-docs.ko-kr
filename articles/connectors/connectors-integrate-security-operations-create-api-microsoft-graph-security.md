@@ -1,6 +1,6 @@
 ---
-title: Microsoft Graph Security와 보안 작업 통합 - Azure Logic Apps
-description: Microsoft Graph Security 및 Azure Logic Apps에서 보안 작업을 관리하여 앱의 위협 방지, 탐지 및 대응 기능 향상
+title: 보안 작업 통합 및 관리-Azure Logic Apps & Microsoft Graph 보안
+description: Microsoft Graph Security &를 사용 하 여 앱의 위협 방지, 검색 및 응답을 개선 Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,12 +10,12 @@ ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/30/2019
 tags: connectors
-ms.openlocfilehash: 24963a35bc3e54b2d140bf4ed1d169b213bd9b2a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 845f57d84f49bdd964cc6f61790faff093f59466
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60448051"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679087"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Microsoft Graph Security 및 Azure Logic Apps와 보안 작업을 통합하여 위협 방지 향상
 
@@ -30,11 +30,11 @@ ms.locfileid: "60448051"
 
 Microsoft Graph Security에 대한 자세한 내용은 [Microsoft Graph 보안 API 개요](https://aka.ms/graphsecuritydocs)를 참조하세요. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다. Microsoft Flow 또는 PowerApps를 찾고 있는 경우 [Flow란?](https://flow.microsoft.com/) 또는 [PowerApps란?](https://powerapps.microsoft.com/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
-* Microsoft Graph Security 커넥터를 사용하려면 [Microsoft Graph Security 인증 요구 사항](https://aka.ms/graphsecurityauth)의 일부인 ‘명시적으로 제공된’ Azure AD(Active Directory) 테넌트 관리자 동의가 있어야 합니다.  이 동의에는 [Azure Portal](https://portal.azure.com)에서 확인할 수 있는 Microsoft Graph Security 커넥터의 애플리케이션 ID 및 이름이 필요합니다.
+* Microsoft Graph Security 커넥터를 사용하려면 [Microsoft Graph Security 인증 요구 사항](https://aka.ms/graphsecurityauth)의 일부인 ‘명시적으로 제공된’ Azure AD(Active Directory) 테넌트 관리자 동의가 있어야 합니다. 이 동의에는 [Azure Portal](https://portal.azure.com)에서 확인할 수 있는 Microsoft Graph Security 커넥터의 애플리케이션 ID 및 이름이 필요합니다.
 
    | 자산 | Value |
    |----------|-------|
@@ -56,7 +56,7 @@ Microsoft Graph Security에 대한 자세한 내용은 [Microsoft Graph 보안 A
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인하고, 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인하고 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
 
 1. 빈 논리 앱의 경우 Microsoft Graph Security 작업을 추가하기 전에 원하는 트리거 및 기타 작업을 추가합니다.
 
@@ -81,13 +81,13 @@ Microsoft Graph Security 커넥터에서 사용 가능한 다양한 작업의 �
 
 ### <a name="manage-alerts"></a>경고 관리
 
-가장 최근 결과를 필터링, 정렬 또는 가져오려면 [Microsoft Graph에서 지원하는 ODATA 쿼리 매개 변수](https://docs.microsoft.com/graph/query-parameters)만을 제공합니다.  전체 기준 URL이나 HTTP 작업(예: `https://graph.microsoft.com/v1.0/security/alerts`, `GET` 또는 `PATCH` 작업)을 ‘지정하지 마세요’.  높은 심각도 경고 목록을 원하는 경우 **경고 가져오기** 작업의 매개 변수를 표시하는 특정 예제는 다음과 같습니다.
+가장 최근 결과를 필터링, 정렬 또는 가져오려면 [Microsoft Graph에서 지원하는 ODATA 쿼리 매개 변수](https://docs.microsoft.com/graph/query-parameters)만을 제공합니다. 전체 기준 URL이나 HTTP 작업(예: `https://graph.microsoft.com/v1.0/security/alerts`, `GET` 또는 `PATCH` 작업)을 ‘지정하지 마세요’. 높은 심각도 경고 목록을 원하는 경우 **경고 가져오기** 작업의 매개 변수를 표시하는 특정 예제는 다음과 같습니다.
 
 `Filter alerts value as Severity eq 'high'`
 
 이 커넥터에서 사용할 수 있는 쿼리에 대한 자세한 내용은 [Microsoft Graph Security 경고 참조 문서](https://docs.microsoft.com/graph/api/alert-list)를 참조하세요. 이 커넥터를 사용하여 향상된 환경을 빌드하려면 커넥터가 지원하는 [스키마 속성 경고](https://docs.microsoft.com/graph/api/resources/alert)를 자세히 알아보세요.
 
-| 액션(Action) | 설명 |
+| 실행력 | 설명 |
 |--------|-------------|
 | **경고 가져오기** | 하나 이상의 [경고 속성](https://docs.microsoft.com/graph/api/resources/alert)을 기준으로 필터링된 경고를 가져옵니다. 예: <p>`Provider eq 'Azure Security Center' or 'Palo Alto Networks'` | 
 | **ID로 경고 가져오기** | 경고 ID를 기준으로 특정 경고를 가져옵니다. | 
@@ -96,12 +96,12 @@ Microsoft Graph Security 커넥터에서 사용 가능한 다양한 작업의 �
 
 ### <a name="manage-alert-subscriptions"></a>경고 구독 관리
 
-Microsoft Graph는 [구독](https://docs.microsoft.com/graph/api/resources/subscription) 또는 [웹후크](https://docs.microsoft.com/graph/api/resources/webhooks)를 지원합니다.   구독을 가져오거나, 업데이트 또는 삭제하려면 [Microsoft Graph에서 지원하는 ODATA 쿼리 매개 변수](https://docs.microsoft.com/graph/query-parameters)를 Microsoft Graph 엔터티 구문에 제공하고 `security/alerts` 및 ODATA 쿼리를 차례로 포함합니다. 
-기준 URL(예: `https://graph.microsoft.com/v1.0`)을 ‘포함하지 마세요’.  대신, 다음 예제의 형식을 사용합니다.
+Microsoft Graph는 [구독](https://docs.microsoft.com/graph/api/resources/subscription) 또는 [웹후크](https://docs.microsoft.com/graph/api/resources/webhooks)를 지원합니다. 구독을 가져오거나, 업데이트 또는 삭제하려면 [Microsoft Graph에서 지원하는 ODATA 쿼리 매개 변수](https://docs.microsoft.com/graph/query-parameters)를 Microsoft Graph 엔터티 구문에 제공하고 `security/alerts` 및 ODATA 쿼리를 차례로 포함합니다. 
+기준 URL(예: `https://graph.microsoft.com/v1.0`)을 ‘포함하지 마세요’. 대신, 다음 예제의 형식을 사용합니다.
 
 `security/alerts?$filter=status eq 'New'`
 
-| 액션(Action) | 설명 |
+| 실행력 | 설명 |
 |--------|-------------|
 | **구독 만들기** | 변경 내용에 대해 알리는 [구독을 만듭니다](https://docs.microsoft.com/graph/api/subscription-post-subscriptions). 원하는 특정 경고 유형에 대해 이 구독을 필터링할 수 있습니다. 예를 들어 높은 심각도 경고에 대해 알리는 구독을 만들 수 있습니다. |
 | **활성 구독 가져오기** | [만료되지 않은 구독을 가져옵니다](https://docs.microsoft.com/graph/api/subscription-list). | 
@@ -111,7 +111,7 @@ Microsoft Graph는 [구독](https://docs.microsoft.com/graph/api/resources/subsc
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](https://aka.ms/graphsecurityconnectorreference)를 검토하세요.
+커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](https://aka.ms/graphsecurityconnectorreference)를 참조하세요.
 
 ## <a name="get-support"></a>지원 받기
 

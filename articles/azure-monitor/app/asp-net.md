@@ -1,23 +1,18 @@
 ---
 title: Azure Application Insights로 ASP.NET에 대한 웹앱 분석 설정 | Microsoft Docs
 description: Azure 또는 온-프레미스에 호스트되는 ASP.NET 웹 사이트에 대한 성능, 가용성 및 사용자 동작 분석을 구성합니다.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: d0eee3c0-b328-448f-8123-f478052751db
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/08/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 73f62ff8c95fae694a43df48aa99b696fb05d131
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.date: 05/08/2019
+ms.openlocfilehash: a72bb5dd02776fe8410bb515e4e17a292d12048f
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916272"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677666"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트용 Application Insights 설정
 
@@ -25,7 +20,7 @@ ms.locfileid: "70916272"
 
 Visual Studio에서 설치 프로그램을 몇 번만 클릭하면 됩니다. 원격 분석의 양을 제한하여 비용 부담을 피할 수 있는 옵션이 있습니다. 이 기능을 사용 하면 사용자가 많지 않은 사이트를 실험 하 고 디버그 하거나 모니터링할 수 있습니다. 프로덕션 사이트를 먼저 모니터링하려고 결정하는 경우 나중에 제한을 쉽게 늘릴 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 Application Insights를 ASP.NET 웹 사이트에 추가하려면 다음을 수행해야 합니다.
 
 - 다음 워크 로드를 사용 하 여 [Windows 용 Visual Studio 2019](https://www.visualstudio.com/downloads/) 을 설치 합니다.
@@ -39,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 > [!IMPORTANT]
 > 이 예제의 스크린샷은 Visual Studio 2017 버전 15.9.9 이상을 기반으로 합니다. Application Insights를 추가 하는 환경은 Visual Studio의 버전 및 ASP.NET 템플릿 형식에 따라 달라 집니다. 이전 버전에는 "Configure Application Insights"와 같은 대체 텍스트가 있을 수 있습니다.
 
-솔루션 탐색기에서 웹 앱 이름을 마우스 오른쪽 단추로 클릭 하 고 **추가** > 를 선택**Application Insights 원격 분석**
+솔루션 탐색기에서 웹 앱 이름을 마우스 오른쪽 단추로 클릭 하 고  >  **추가** 를 선택**Application Insights 원격 분석**
 
 ![Application Insights 구성이 강조 표시된 솔루션 탐색기 스크린샷](./media/asp-net/add-telemetry-new.png)
 
@@ -59,7 +54,7 @@ Application Insights 구성 화면:
 
 ![Application Insights에 앱 등록 페이지의 스크린샷](./media/asp-net/00005-register-ed.png)
 
- **프로젝트** > 의**NuGet 패키지** > 관리**패키지 원본: nuget.org** > 선택 하 여 안정적인 최신 릴리스의 Application Insights SDK가 있는지 확인 합니다.
+ **프로젝트**  > **NuGet 패키지 관리**  > **패키지 원본: nuget.org** > Application Insights SDK의 안정적인 최신 릴리스가 있는지 확인 합니다.
 
  원격 분석이 디버깅 중 및 앱을 게시한 후에 [Azure Portal](https://portal.azure.com)로 전송됩니다.
 > [!NOTE]
@@ -148,12 +143,12 @@ ApplicationInsights.config에 대한 사용자 지정을 수행한 경우, 업�
 * **[Visual Studio Online에서 Application Insights로 작업](../../azure-monitor/app/visual-studio.md)**<br/>원격 분석, 진단 검색 및 코드 드릴스루를 통한 디버깅에 대한 정보가 포함되어 있습니다.
 * **[분석](../../azure-monitor/log-query/get-started-portal.md)** - 강력한 쿼리 언어입니다.
 
-### <a name="alerts"></a>,
+### <a name="alerts"></a>경고
 
-* [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md): 테스트를 만들어 사이트가 웹에 표시되는지 확인합니다.
+* [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md): 웹 테스트를 만들어 사이트가 웹에 표시되는지 확인합니다.
 * [스마트 진단](../../azure-monitor/app/proactive-diagnostics.md): 이 테스트는 자동으로 실행되므로 아무것도 설정할 필요가 없습니다. 앱이 실패한 요청으로 비정상적인 속도를 보일 경우 알려줍니다.
-* [메트릭 경고](../../azure-monitor/app/alerts.md): 메트릭이 임계값을 초과할 경우 경고를 표시 하도록 경고를 설정 합니다. 앱에 코딩하는 사용자 지정 메트릭에 이러한 경고를 설정할 수 있습니다.
+* [메트릭 경고](../../azure-monitor/app/alerts.md): 메트릭이 임계값을 초과 하는 경우 경고를 표시 하도록 경고를 설정 합니다. 앱에 코딩하는 사용자 지정 메트릭에 이러한 경고를 설정할 수 있습니다.
 
-### <a name="automation"></a>자동화
+### <a name="automation"></a>Automation
 
 * [Application Insights 리소스 만들기 자동화](../../azure-monitor/app/powershell.md)

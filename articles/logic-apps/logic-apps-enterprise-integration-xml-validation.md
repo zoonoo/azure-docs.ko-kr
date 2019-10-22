@@ -1,6 +1,6 @@
 ---
-title: B2B 엔터프라이즈 통합용 XML 유효성 검사 - Azure Logic Apps | Microsoft Docs
-description: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 솔루션용 스키마로 XML 유효성 검사
+title: B2B 엔터프라이즈 통합에 대 한 XML 유효성 검사-Azure Logic Apps
+description: 엔터프라이즈 통합 팩에서 Azure Logic Apps 스키마를 사용 하 여 XML 유효성 검사
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,53 +8,62 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: d700588f-2d8a-4c92-93eb-e1e6e250e760
-ms.date: 07/08/2016
-ms.openlocfilehash: 8db0dbadd944007ff953f9ea69695bf988ffebb7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/21/2019
+ms.openlocfilehash: 7813dcb375ff4a123b1314f8f9db453b1f0b187e
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996333"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680210"
 ---
 # <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 XML 유효성 검사
 
-종종 B2B 시나리오에서 규약을 맺은 파트너는 데이터 처리를 시작하기 위해 먼저 교환하는 메시지가 유효한지 확인해야 합니다. 엔터프라이즈 통합 팩의 XML 유효성 검사 커넥터를 사용하여 미리 정의된 스키마에 대해 문서의 유효성을 검사할 수 있습니다.
+종종 B2B 시나리오에서 규약의 거래 업체는 데이터 처리를 시작 하기 전에 교환 하는 메시지가 유효한 지 확인 해야 합니다. 엔터프라이즈 통합 팩에서 사용할 수 있는 XML 유효성 검사 작업을 사용 하 여 미리 정의 된 스키마에 대해 문서의 유효성을 검사할 수 있습니다.
 
-## <a name="validate-a-document-with-the-xml-validation-connector"></a>XML 유효성 검사 커넥터로 문서 유효성 검사
+## <a name="prerequisites"></a>전제 조건
 
-1. 논리 앱을 만들고 XML 데이터의 유효성을 검사하는 데 사용할 스키마를 포함하는 [통합 계정에 앱을 연결](../logic-apps/logic-apps-enterprise-integration-accounts.md "논리 앱에 통합 계정을 연결하는 방법 알아보기")합니다.
+* Azure 구독. 아직 구독이 없는 경우 [무료 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-2. **요청 - HTTP 요청을 받은 경우** 트리거를 논리 앱에 추가합니다.
+* XML 유효성 검사 작업을 사용 하려는 빈 또는 기존 논리 앱입니다. 논리 앱을 처음 사용하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토합니다.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1.png)
+* Azure 구독과 연결 된 [통합 계정은](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) xml 유효성 검사 작업을 사용 하려는 논리 앱에 연결 되며 xml 콘텐츠의 유효성을 검사 하는 데 사용할 스키마를 포함 합니다. 논리 앱과 통합 계정은 모두 동일한 위치 또는 Azure 지역에 있어야 합니다.
 
-3. **XML 유효성 검사** 작업을 추가하려면 **작업 추가**를 선택합니다.
+## <a name="add-xml-validation-action"></a>XML 유효성 검사 동작 추가
 
-4. 사용하려는 논리 앱으로 모든 작업을 필터링하려면 검색 상자에 *xml*을 입력합니다. **XML 유효성 검사**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-2.png)
+1. 논리 앱이 비어 있는 경우 논리 앱 디자이너의 검색 상자에 `HTTP request`를 필터로 입력 하 고 **HTTP 요청을 받을 때** 트리거를 선택 합니다. 그렇지 않은 경우 다음 단계를 계속 진행합니다.
 
-5. 유효성을 검사할 XML 콘텐츠를 지정하려면 **콘텐츠**를 선택합니다.
+1. 워크플로의 마지막 단계에서 **새 단계**를 선택 합니다.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1-5.png)
+   기존 단계 사이에 작업을 추가 하려면 더하기 기호 ( **+** )가 나타나도록 해당 단계를 연결 하는 화살표 위로 포인터를 이동 합니다. 더하기 기호를 선택 하 고 **작업 추가**를 선택 합니다.
 
-6. 본문 태그를 유효성을 검사하려는 콘텐츠로 선택합니다.
+1. **작업 선택** 아래에서 **기본 제공**을 선택합니다. 검색 상자에서 필터로 `xml validation`을 입력합니다. 작업 목록에서 **XML 유효성 검사**를 선택 합니다.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-3.png)
+   !["XML 유효성 검사" 작업을 찾아 선택 합니다.](./media/logic-apps-enterprise-integration-xml-validation/select-xml-validation-action.png)
 
-7. 이전 *콘텐츠*의 유효성을 검사하는 데 사용할 스키마를 지정하려면 **스키마 이름**을 선택합니다.
+1. 유효성을 검사할 XML 콘텐츠를 지정 하려면 동적 콘텐츠 목록이 표시 되도록 **콘텐츠** 상자 내부를 클릭 합니다.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-4.png)
+   ![동적 콘텐츠 목록 열기](./media/logic-apps-enterprise-integration-xml-validation/open-dynamic-content-list.png)
 
-8. 작업을 저장합니다.  
+   동적 콘텐츠 목록에는 워크플로의 이전 단계의 출력을 나타내는 속성 토큰이 표시 됩니다. 목록에 필요한 속성이 표시 되지 않으면 **자세히 보기**를 선택할 수 있는지 여부에 관계 없이 트리거 또는 작업 머리글을 선택 합니다.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-5.png)
+1. 동적 콘텐츠 목록에서 유효성을 검사할 콘텐츠가 있는 속성을 선택 합니다.
 
-이제 유효성 검사 커넥터 설정이 끝났습니다. 실제 애플리케이션에서는 유효성을 검사한 데이터를 SalesForce와 같은 LOB(기간 업무) 앱에 저장하려고 할 수도 있습니다. 유효성을 검사한 출력을 Salesforce에 보내려면 작업을 추가합니다.
+   이 예에서는 트리거에서 **본문** 출력을 선택 합니다.
 
-유효성 검사 작업을 테스트하려면 HTTP 엔드포인트에 대해 요청을 수행합니다.
+   ![유효성을 검사할 콘텐츠 선택](./media/logic-apps-enterprise-integration-xml-validation/select-content-to-validate.png)
+
+1. 유효성 검사에 사용할 스키마를 지정 하려면 **스키마 이름** 목록을 열고 연결 된 통합 계정에 추가한 유효성 검사 스키마를 선택 합니다.
+
+   ![유효성 검사에 사용할 스키마를 선택 합니다.](./media/logic-apps-enterprise-integration-xml-validation/select-validation-schema.png)
+
+1. 논리 앱을 저장합니다.
+
+   이제 유효성 검사 설정이 완료 되었습니다. 실제 응용 프로그램에서는 SalesForce와 같은 LOB (기간 업무) 앱에 유효성이 검사 된 데이터를 저장 하는 것이 좋습니다. 유효성을 검사한 출력을 Salesforce에 보내려면 작업을 추가합니다.
+
+1. 유효성 검사 동작을 테스트 하기 위해 논리 앱의 워크플로를 트리거하는 요청을 보낼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[엔터프라이즈 통합 팩에 대해 자세히 알아보기](../logic-apps/logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")   
 
+* [엔터프라이즈 통합 팩](../logic-apps/logic-apps-enterprise-integration-overview.md) 에 대 한 자세한 정보

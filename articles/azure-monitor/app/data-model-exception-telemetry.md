@@ -1,23 +1,19 @@
 ---
 title: Azure Application Insights 원격 분석 데이터 모델 - 예외 원격 분석 | Microsoft Docs
 description: 예외 원격 분석을 위한 Azure Application Insights 데이터 모델
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: efd7ad43ee9a2206f474621612eca7dfe5079f99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ba1c94ee8dc78b937d650cff32e1518a7ca5a12
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60908068"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677415"
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>예외 원격 분석: Application Insights 데이터 모델
 
@@ -29,7 +25,7 @@ ms.locfileid: "60908068"
 
 최대 길이: 1024자
 
-## <a name="severity-level"></a>심각도
+## <a name="severity-level"></a>심각도 수준
 
 추적 심각도 수준입니다. 값은 `Verbose`, `Information`, `Warning`, `Error`, `Critical`일 수 있습니다.
 

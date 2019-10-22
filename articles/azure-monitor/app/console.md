@@ -1,24 +1,19 @@
 ---
 title: 콘솔 애플리케이션용 Azure Application Insights | Microsoft Docs
 description: 애플리케이션의 가용성, 성능 및 사용 현황을 모니터링합니다.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 01/30/2019
 ms.reviewer: lmolkova
-ms.author: mbullwin
-ms.openlocfilehash: 53a765cd2e71b5b1eb1ac2c70506fd55aec6736e
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 1cafa78fb4fba28fbd0691e256efe482fc9664ef
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274137"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678195"
 ---
 # <a name="application-insights-for-net-console-applications"></a>.NET 콘솔 애플리케이션용 Application Insights
 
@@ -27,7 +22,7 @@ ms.locfileid: "72274137"
 [Microsoft Azure](https://azure.com)를 구독해야 합니다. Microsoft 계정으로 로그인합니다. Windows, Xbox Live 또는 기타 Microsoft 클라우드 서비스의 계정을 사용할 수 있습니다. 팀에서 Azure를 단체 구독할 수도 있습니다. 소유자에게 Microsoft 계정을 사용하여 추가해 달라고 요청하세요.
 
 > [!NOTE]
-> 콘솔 응용 프로그램에 대해 Application Insights를 사용 하도록 설정 하는 데 사용할 수 있는 [Microsoft](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) Application Insights SDK 라는 새로운 베타 SDK가 있습니다. [여기](../../azure-monitor/app/worker-service.md)에서이 패키지 및 관련 지침을 사용 하는 것이 좋습니다. 이 패키지는 [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard)을 대상으로 하므로 .net Core 2.0 이상 및 .NET Framework 4.7.2 이상에서 사용할 수 있습니다.
+> 콘솔 응용 프로그램에 대해 Application Insights를 사용 하도록 설정 하는 데 사용할 수 있는 [Microsoft](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) Application Insights SDK 라는 새로운 베타 SDK가 있습니다. [여기](../../azure-monitor/app/worker-service.md)에서이 패키지 및 관련 지침을 사용 하는 것이 좋습니다. 이 패키지는 [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard)를 대상으로 하므로 .net Core 2.0 이상에서 사용 하 고 .NET Framework 4.7.2 이상에서 사용할 수 있습니다.
 이 새 패키지의 안정적인 버전이 릴리스되면이 문서는 더 이상 사용 되지 않습니다.
 
 ## <a name="getting-started"></a>시작
@@ -130,7 +125,7 @@ module.Initialize(configuration);
 configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-일반 `TelemetryConfiguration()` 생성자를 사용 하 여 구성을 만든 경우 상관 관계 지원을 추가로 사용 하도록 설정 해야 합니다. 파일에서 구성을 읽는 경우에는 **필요 하지 않습니다** .-1 또는 `TelemetryConfiguration.Active` @no__t 사용 됩니다.
+일반 `TelemetryConfiguration()` 생성자를 사용 하 여 구성을 만든 경우 상관 관계 지원을 추가로 사용 하도록 설정 해야 합니다. 파일에서 구성을 읽는 경우 `TelemetryConfiguration.CreateDefault()` 또는 `TelemetryConfiguration.Active` 사용 되는 경우에는 **필요 하지 않습니다** .
 
 ```csharp
 configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());

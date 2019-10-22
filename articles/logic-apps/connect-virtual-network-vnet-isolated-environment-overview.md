@@ -1,6 +1,6 @@
 ---
-title: ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 액세스
-description: 이 개요에서는 ISE(통합 서비스 환경)가 논리 앱이 Azure VNET(가상 네트워크)에 액세스하는 데 도움이 되는 방법 설명
+title: Azure virtual networks에 대 한 액세스-Azure Logic Apps
+description: ISEs (integration service environment)가 Azure 가상 네트워크에 액세스 하는 방법에 대 한 개요 (Vnet)
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 831a1457d865429fd53af1887a14c363b806300c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 5d42b9fc2dfd7cbee230b65f7d9844c9e7332147
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516613"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680495"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스
 
@@ -72,7 +72,7 @@ ISE 커넥터와 기타 커넥터의 차이는 트리거와 작업이 실행되�
 
 ISE를 만들 때 개발자 SKU 또는 프리미엄 SKU를 선택할 수 있습니다. 이러한 Sku 간의 차이점은 다음과 같습니다.
 
-* **Developer**
+* **개발자**
 
   는 실험, 개발 및 테스트에 사용할 수 있지만 프로덕션 또는 성능 테스트에는 사용할 수 없는 저렴 한 ISE를 제공 합니다. 개발자 SKU에는 고정 월별 가격에 대 한 기본 제공 트리거 및 작업, 표준 커넥터, 엔터프라이즈 커넥터 및 단일 [무료 계층](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) 통합 계정이 포함 되어 있습니다. 그러나이 SKU에는 SLA (서비스 수준 계약), 용량을 확장 하는 옵션 또는 재활용 중 중복성을 포함 하지 않습니다. 즉, 지연 또는 가동 중지 시간이 발생할 수 있습니다.
 

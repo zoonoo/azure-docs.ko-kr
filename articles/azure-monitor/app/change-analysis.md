@@ -1,21 +1,18 @@
 ---
 title: Azure Monitor에서 응용 프로그램 변경 분석을 사용 하 여 웹 앱 문제 찾기 | Microsoft Docs
 description: Azure Monitor에서 응용 프로그램 변경 분석을 사용 하 여 Azure App Service에서 라이브 사이트의 응용 프로그램 문제를 해결할 수 있습니다.
-services: application-insights
-author: cawams
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/07/2019
+author: cawams
 ms.author: cawa
-ms.openlocfilehash: 84e423ac055c074028df217060a548b932823496
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 05/07/2019
+ms.openlocfilehash: 3805d7b39c25bcb213a1d4f110161dcd00eb3630
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033375"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678246"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Azure Monitor에서 응용 프로그램 변경 분석 (미리 보기) 사용
 
@@ -80,7 +77,7 @@ Azure Monitor 변경 분석은 현재 셀프 서비스 **진단 및 문제 해�
     !["변경 분석 설정" 사용자 인터페이스의 스크린샷](./media/change-analysis/change-analysis-on.png)
 
 
-1. 변경 분석에 액세스 하려면 >  **진단 및 문제 해결 및** **성능** > **응용 프로그램 충돌**을 선택 합니다. 시간에 따른 변경 내용 유형과 해당 변경 내용에 대 한 세부 정보를 요약 하는 그래프가 표시 됩니다.
+1. 변경 분석에 액세스 하려면**응용 프로그램 작동 중단** > **가용성 및 성능**  >  **진단 및 해결** 을 선택 합니다. 시간에 따른 변경 내용 유형과 해당 변경 내용에 대 한 세부 정보를 요약 하는 그래프가 표시 됩니다.
 
      ![Diff 뷰 변경의 스크린샷](./media/change-analysis/change-view.png)
 
@@ -90,7 +87,7 @@ Azure Monitor 변경 분석은 현재 셀프 서비스 **진단 및 문제 해�
 구독에 다양 한 웹 앱이 포함 되어 있는 경우 웹 앱 수준에서 서비스를 사용 하도록 설정 하는 것은 비효율적입니다. 다음 스크립트를 실행 하 여 구독의 모든 웹 앱을 사용 하도록 설정 합니다.
 
 필수 조건:
-* PowerShell Az Module. [Azure PowerShell 모듈 설치](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.6.0) 의 지침을 따르세요.
+* PowerShell Az Module. [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.6.0) 의 지침을 따르세요.
 
 다음 스크립트를 실행합니다.
 
