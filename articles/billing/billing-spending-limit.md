@@ -11,39 +11,40 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: banders
-ms.openlocfilehash: 1324b60de05805cd409975358ff78e5b2b27eef1
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 97e6e04bf7fab3a48f1ce0552e1b653b208be77b
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70114445"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375441"
 ---
 # <a name="azure-spending-limit"></a>Azure 지출 한도
 
-Azure에서 지출 한도는 크레딧 금액을 초과하여 지출하는 것을 방지하기 위함입니다. Azure 평가판이나 여러 달의 크레딧을 포함하는 제품에 가입하는 모든 신규 고객은 기본적으로 지출 한도가 설정됩니다. 지출 한도는 $0이며 변경할 수 없습니다. 예를 들어 지출 한도를 $100로 변경할 수 없습니다. 단, 지출 한도를 제거할 수는 있습니다. 따라서 제한이 아예 없거나 대부분의 지출을 방지하는 0의 제한이 적용됩니다. 약정 요금제와 종량제 가격을 사용한 요금제와 같은 일부 요금제 구독에서는 지출 한도를 사용할 수 없습니다. [전체 Azure 제품 목록 및 지출 한도 가용성](https://azure.microsoft.com/support/legal/offer-details/)를 참조하세요.
+Azure에서 지출 한도는 크레딧 금액을 초과하여 지출하는 것을 방지하기 위함입니다. Azure 체험 계정 또는 여러 달의 크레딧을 포함하는 구독 유형에 가입한 모든 신규 고객은 기본적으로 지출 한도가 설정됩니다. 지출 한도는 크레딧 양과 같으며 변경할 수 없습니다. 예를 들어 Azure 체험 계정에 가입한 경우 지출 한도는 $200이며 $500로 변경할 수 없습니다. 단, 지출 한도를 제거할 수는 있습니다. 따라서 제한이 없거나 크레딧 양과 같은 제한이 있습니다. 이렇게 하면 대부분의 지출을 방지할 수 있습니다. 약정 플랜 또는 종량제 가격 책정을 사용하는 구독에서는 지출 한도를 사용할 수 없습니다. [전체 Azure 구독 유형 목록 및 지출 한도 가용성](https://azure.microsoft.com/support/legal/offer-details/)을 참조하세요.
 
 ## <a name="reaching-a-spending-limit"></a>지출 한도에 도달
 
-Azure 구독에 포함된 월별 금액을 모두 사용할 경우 해당 청구 기간의 나머지 기간 동안 배포한 서비스가 비활성화됩니다.
+지출 한도를 모두 사용할 경우 해당 청구 기간의 나머지 기간 동안 배포한 서비스가 비활성화됩니다.
 
-예를 들어 구독에 포함된 모든 크레딧을 소비하는 경우 배포한 Azure 리소스가 프로덕션에서 제거되고 Azure 가상 머신이 중지되고 할당이 취소됩니다. 스토리지 계정의 데이터는 읽기 전용으로 사용할 수 있습니다.
+예를 들어 Azure 체험 계정에 포함된 모든 크레딧을 소비하는 경우 배포한 Azure 리소스가 프로덕션에서 제거되고 Azure 가상 머신이 중지되고 할당이 취소됩니다. 스토리지 계정의 데이터는 읽기 전용으로 사용할 수 있습니다.
 
-다음 청구 기간이 시작될 때 구독에 여러 달에 대한 크레딧이 포함될 경우 구독이 다시 사용되도록 자동으로 설정됩니다. 그런 다음, Azure 리소스를 다시 배포하고 스토리지 계정 및 데이터베이스에 대한 모든 권한을 가질 수 있습니다.
+다음 청구 기간이 시작될 때 구독 유형에 여러 달에 대한 크레딧이 포함될 경우 구독이 다시 사용되도록 자동으로 설정됩니다. 그런 다음, Azure 리소스를 다시 배포하고 스토리지 계정 및 데이터베이스에 대한 모든 권한을 가질 수 있습니다.
 
-Azure에서는 구독에 대한 지출 한도에 도달할 경우 이메일 알림을 보냅니다. [계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인하면 지출 한도에 도달한 구독에 대한 알림이 표시됩니다.
+Azure에서는 지출 한도에 도달할 경우 이메일 알림을 보냅니다. [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에 로그인하면 지출 한도에 도달한 구독에 대한 알림이 표시됩니다.
 
-평가판 구독이 있으며 지출 한도에 도달하는 경우 지출 한도를 제거하고 자동으로 구독을 활성화시키는 [종량제](billing-upgrade-azure-subscription.md)를 사용한 요금제로 업그레이드할 수 있습니다.
+Azure 체험 계정에 가입하고 지출 한도에 도달하는 경우 지출 한도를 제거하고 자동으로 구독을 활성화시키는 [종량제](billing-upgrade-azure-subscription.md) 가격 책정으로 업그레이드할 수 있습니다.
 
 <a id="remove"></a>
 
-## <a name="remove-the-spending-limit-in-account-center"></a>계정 센터에서 지출 한도 제거
+## <a name="remove-the-spending-limit-in-azure-portal"></a>Azure Portal에서 지출 한도 제거
 
-유효한 결제 방법이 Azure 구독과 연결되어 있는 경우 언제든지 지출 한도를 제거할 수 있습니다. 여러 달의 크레딧을 포함하는 제품의 경우 다음 청구 기간이 시작될 때 지출 한도를 사용하도록 설정할 수도 있습니다.
+유효한 결제 방법이 Azure 구독과 연결되어 있는 경우 언제든지 지출 한도를 제거할 수 있습니다. Visual Studio Enterprise 및 Visual Studio Professional과 같이 여러 달에 대한 크레딧이 있는 구독 유형의 경우 다음 청구 기간이 시작될 때 지출 한도를 사용하도록 설정할 수 있습니다.
 
 지출 한도를 제거하려면 다음 단계를 수행합니다.
 
-1. [계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인합니다.
-1. 구독을 선택합니다. 지출 한도에 도달하여 구독이 비활성화된 경우 **구독이 지출 한도에 도달하여 요금이 부과되지 않도록 비활성화되었습니다.** 알림을 클릭합니다. 그렇지 않으면 **구독 상태** 영역에서 **지출 한도 제거**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에 로그인합니다.
+1. 구독을 선택합니다. 구독의 지출 한도에 도달하면 사용하지 않도록 설정됩니다.
+1. 페이지 맨 위에서 **지출 한도 제거**를 선택합니다.
 1. 적절한 옵션을 선택합니다.
 
 ![지출 한도 제거를 위한 옵션 선택](./media/billing-spending-limit/remove-spending-limit.PNG)
@@ -57,13 +58,13 @@ Azure에서는 구독에 대한 지출 한도에 도달할 경우 이메일 알�
 
 지출 한도에 도달하면 특정 타사 및 Microsoft 서비스를 배포 또는 사용할 수 없게 됩니다. 다음은 구독에서 지출 한도를 제거해야 하는 상황입니다.
 
--  Oracle 등의 자사 이미지와 Azure DevOps Services 등의 서비스를 배포하려는 경우. 이 경우 지출 한도가 거의 순식간에 초과되어 구독이 비활성화됩니다.
-- 중단하면 안되는 서비스가 있습니다.
-- 손실되지 않아야 하는 가상 IP 주소와 같은 설정을 사용하는 서비스 및 리소스가 있는 경우. 서비스 및 리소스의 할당이 취소되면 이러한 설정이 손실됩니다.
+-  Oracle 등의 자사 이미지 또는 Azure DevOps Services 등의 서비스를 배포하려는 경우. 이 경우 지출 한도가 거의 순식간에 도달하게 되어 구독이 비활성화됩니다.
+- 중단하면 안되는 서비스가 있습니다. 지출 한도에 도달하면 배포한 Azure 리소스가 프로덕션에서 제거되고 Azure 가상 머신이 중지되고 할당 최소됩니다. 중단하지 않으려는 서비스가 있는 경우 지출 한도를 제거해야 합니다.
+- 손실되지 않아야 하는 가상 IP 주소와 같은 설정을 사용하는 서비스 및 리소스가 있는 경우. 지출 한도에 도달하고 서비스 및 리소스의 할당이 취소되면 이러한 설정이 손실됩니다.
 
 ## <a name="turn-on-the-spending-limit-after-removing"></a>제거한 후에 지출 한도 기능 켜기
 
-이 기능은 지출 한도가 무기한으로 제거된 경우에만 사용할 수 있습니다. 다음 청구 기간이 시작될 때 자동으로 설정하도록 변경합니다.
+이 기능은 여러 달의 크레딧을 포함하는 구독 유형에 대해 지출 한도가 무기한으로 제거된 경우에만 사용할 수 있습니다. 이 기능을 사용하여 다음 청구 기간이 시작될 때 자동으로 지출 한도를 설정할 수 있습니다.
 
 1. [계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인합니다.
 1. 지출 한도 옵션을 변경하려면 노란색 배너를 클릭합니다.

@@ -1,6 +1,6 @@
 ---
 title: Azure에서 예상치 못한 비용 방지 및 청구 관리
-description: Azure 청구서에 예기치 않은 요금이 부과되지 않도록 하는 방법을 알아봅니다. Azure 구독에 대한 비용 추적 및 관리 기능을 사용합니다.
+description: Azure 청구서에 예기치 않은 요금이 부과되지 않도록 하는 방법을 알아봅니다. Azure 계정에 대한 비용 추적 및 관리 기능을 사용합니다.
 author: bandersmsft
 manager: amberb
 tags: billing
@@ -11,110 +11,80 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: d6c287d5ead0095a4f7bb5ad754212b134f7103c
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 6f7a29adfbd145be11f9f6c91e8e66dd229fed62
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719813"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375611"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리를 사용하여 예기치 않은 비용 방지
 
 Azure에 등록하면 몇 가지 방법을 통해 지출을 보다 명확히 파악할 수 있습니다.
 
-- [가격 계산기](https://azure.microsoft.com/pricing/calculator/)는 Azure 리소스를 만들기 전에 예상 비용을 제공할 수 있습니다. 
-
-- [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)은 사용자 구독에 대한 현재 비용 분석 및 예측을 제공합니다. 
-
-- 여러 다른 프로젝트 또는 팀의 비용을 그룹화하고 파악하려는 경우 [리소스 태그](../azure-resource-manager/resource-group-using-tags.md)를 살펴봅니다. 선호하는 보고 시스템이 조직에 있는 경우 [청구 API](billing-usage-rate-card-overview.md)를 확인하세요.
-
-- EA(기업계약)에서 구독을 만든 경우 Azure Portal에서 비용을 볼 수 있습니다. CSP(클라우드 솔루션 공급자) 또는 Azure 스폰서쉽을 통한 구독인 경우 다음 기능 중 일부는 적용되지 않습니다. 자세한 내용은 [EA, CSP 및 스폰서쉽에 대한 추가 리소스](#other-offers)를 참조하세요.
-
-- 구독이 평가판, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), AIO(Azure in Open) 또는 BizSpark인 경우, 크레딧을 모두 사용하면 구독이 자동으로 사용되지 않도록 설정됩니다. 구독이 예기치 않게 사용할 수 없도록 설정되는 것을 방지하려면 [지출 한도](#spending-limit)에 대해 자세히 알아보세요.
-
-- [Azure 체험 계정](https://azure.microsoft.com/free/)에 가입하는 경우 [12개월 동안 체험용으로 가장 널리 사용되는 Azure 서비스의 일부를 사용할 수 있습니다](billing-create-free-services-included-free-account.md). 아래에 나열된 권장 사항과 함께 [체험 계정에서 요금 청구 방지](billing-avoid-charges-free-account.md)를 참조하세요.
+- [가격 계산기](https://azure.microsoft.com/pricing/calculator/), Azure 가격표를 사용하여 서비스를 추가하기 전에 또는 Azure Portal에서 서비스를 추가하면서 예상 비용을 얻습니다.
+- [예산](../cost-management/tutorial-acm-create-budgets.md), [경고](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) 및 [비용 분석](../cost-management/quick-acm-cost-analysis.md)을 사용하여 비용을 모니터링합니다.
+- 청구서의 요금을 [상세 사용 현황 파일](billing-download-azure-invoice-daily-usage-date.md)과 비교하여 검토합니다.
+- [청구](https://docs.microsoft.com/rest/api/billing/) 및 [사용량](https://docs.microsoft.com/rest/api/consumption/) API를 사용하여 청구 및 비용 데이터를 사용자 고유의 보고 시스템과 통합합니다.
+- EA(기업계약), CSP(클라우드 솔루션 공급자) 및 Azure 스폰서쉽 고객을 위한 추가 리소스와 도구를 사용합니다.
+- [Azure 체험 계정](https://azure.microsoft.com/free/)으로 [가장 인기 있는 Azure 서비스 중 일부를 12개월 동안 무료로](billing-create-free-services-included-free-account.md) 사용합니다. 아래에 나열된 권장 사항과 함께 [체험 계정에서 요금 청구 방지](billing-avoid-charges-free-account.md)를 참조하세요.
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Azure 서비스를 추가하기 전에 예상 비용 얻기
 
-다음 도구를 사용한 비용 계산에 대한 몇 가지 추가 정보가 아래에 나와 있습니다.
+다음 도구 중 하나를 사용하여 Azure 서비스 사용에 대한 비용을 예측합니다.
 - Azure 요금 계산기
+- Azure 가격표
 - Azure portal
-- 지출 한도
 
 다음 섹션의 이미지에서는 미국 달러로 가격 책정 예를 보여 줍니다.
 
 ### <a name="estimate-cost-online-using-the-pricing-calculator"></a>가격 계산기를 사용하여 온라인으로 비용 예측
 
-[가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 확인하여 관심 있는 서비스의 월별 비용을 예측하세요. 예상 비용을 구하기 위해 첫 번째 파티 Azure 리소스를 추가할 수 있습니다. 가격 계산기에서 통화 유형을 변경할 수 있습니다.
+[가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 확인하여 추가하려는 서비스의 월별 비용을 예측합니다. 통화를 변경하여 현지 통화로 추정할 수 있습니다.
 
 ![가격 계산기 메뉴의 스크린샷](./media/billing-getting-started/pricing-calc.png)
 
-예를 들어 A1 Windows VM(Virtual Machine)은 계속 실행 상태를 유지할 경우 월별 컴퓨팅 시간이 일정 금액으로 예측됩니다.
+모든 자사 Azure 서비스의 예상 비용을 확인할 수 있습니다. 예를 들어 아래 스크린샷에서 A1 Windows VM(Virtual Machine)은 전체 시간 동안 실행하는 경우 컴퓨팅 시간 기준으로 매월 66.96달러가 소요될 것으로 예측됩니다.
 
 ![A1 Windows VM의 예상 월별 비용을 보여 주는 가격 계산기 스크린샷](./media/billing-getting-started/pricing-calcvm.png)
 
 가격 책정에 대한 자세한 내용은 [가격 책정 FAQ](https://azure.microsoft.com/pricing/faq/)를 참조하세요. Azure 영업 직원에게 문의하려면 FAQ 페이지 맨 위에 표시된 전화 번호로 전화하세요.
 
+### <a name="view-and-download-azure-price-sheet"></a>Azure 가격표 보기 및 다운로드
+
+EA(기업계약) 또는 MCA(Microsoft 고객 계약)를 통해 Azure에 액세스할 수 있는 경우 Azure 계정에 대한 가격표를 보고 다운로드할 수 있습니다. 가격표는 모든 Azure 서비스에 대한 가격이 포함된 Excel 파일입니다. 자세한 내용은 [Azure 가격 책정 보기 및 다운로드](billing-ea-pricing.md)를 참조하세요.
+
 ### <a name="review-estimated-costs-in-the-azure-portal"></a>Azure Portal에서 예상 비용 검토
 
-일반적으로 Azure Portal에서 서비스를 추가하는 경우 청구된 통화로 월별 예상 비용이 표시되는 보기가 제공됩니다. 예를 들어 Windows VM의 크기를 선택하는 경우 컴퓨팅 시간에 대해 예상되는 월별 비용이 표시됩니다.
+Azure Portal에서 서비스를 추가하면서 월별 예상 비용을 확인할 수 있습니다. 예를 들어 Windows VM의 크기를 선택하는 경우 컴퓨팅 시간에 대해 예상되는 월별 비용이 표시됩니다.
 
 ![예제: 월별 예상 비용을 보여 주는 A1 Windows VM](./media/billing-getting-started/vm-size-cost.png)
-
-### <a name="spending-limit"></a> 지출 한도가 설정되어 있는지 확인
-
-크레딧을 사용하는 구독이 있는 경우 기본적으로 지출 한도가 켜져 있습니다. 이러한 방식으로 모든 크레딧을 지출하면 신용 카드에 요금이 청구되지 않습니다. [전체 Azure 제품 목록 및 지출 한도 가용성](https://azure.microsoft.com/support/legal/offer-details/)을 참조하세요.
-
-그러나 지출 한도에 도달하면 서비스는 사용되지 않도록 설정됩니다. 즉, VM이 할당 취소됩니다. 서비스 가동 중지를 방지하려면 지출 한도를 해제해야 합니다. 초과분이 파일의 신용 카드에 부과됩니다.
-
-지출 한도가 있는지 확인하려면 [계정 센터의 구독 보기](https://account.windowsazure.com/Subscriptions)로 이동합니다. 지출 한도가 켜져 있으면 다음과 유사하게 배너가 표시됩니다.
-
-![계정 센터에서 지출 한도가 설정되어 있다는 사실에 대한 경고를 표시하는 스크린 샷](./media/billing-getting-started/spending-limit-banner.png)
-
-배너를 클릭하고 지출 한도 제거 지침을 따릅니다. 등록 시 신용 카드 정보를 입력하지 않은 경우 지출 한도를 제거하려면 해당 정보를 입력해야 합니다. 자세한 내용은 [Azure 지출 한도 – 작동 방식 및 사용 또는 제거하는 방법](https://azure.microsoft.com/pricing/spending-limits/)을 참조하세요.
-
-## <a name="use-budgets-and-cost-alerts"></a>예산 및 비용 경고 사용
-
-[예산](../cost-management/tutorial-acm-create-budgets.md)을 만들면 비용을 관리하고 관련자에게 비정상 지출 및 과다 지출 위험을 자동으로 알리는 [경고](../cost-management/cost-mgt-alerts-monitor-usage-spending.md)를 만들 수 있습니다. 경고는 예산 및 비용 임계값에 따른 지출을 기준으로 합니다.
 
 ## <a name="monitor-costs-when-using-azure-services"></a>Azure 서비스를 사용할 때 비용 모니터링
 다음 도구를 사용하여 비용을 모니터링할 수 있습니다.
 
-- 태그들
-- 비용 분석 및 진행 속도
+- 예산 및 비용 경고
 - 비용 분석
 
-### <a name="tags"></a> 리소스에 태그를 추가하여 청구 데이터 그룹화
+### <a name="track-costs-with-budgets-and-cost-alerts"></a>예산 및 비용 경고를 사용하여 비용 추적
 
-태그를 사용하여 지원되는 서비스에 대한 청구 데이터를 그룹화할 수 있습니다. 예를 들어 여러 다른 팀에 대한 여러 VM을 실행하는 경우 태그를 사용하여 비용 센터(예: HR, 마케팅, 재무) 또는 환경(예: 프로덕션, 프로덕션 전 테스트)별로 비용을 분류할 수 있습니다.
+[예산](../cost-management/tutorial-acm-create-budgets.md)을 만들어 비용을 관리하고, [경고](../cost-management/cost-mgt-alerts-monitor-usage-spending.md)를 만들어 관련자에게 비정상 지출 및 과다 지출을 자동으로 알립니다. 
 
-![포털의 태그 설정을 보여 주는 스크린 샷](./media/billing-getting-started/tags.png)
+### <a name="costs"></a> 비용 분석을 사용하여 비용 검색 및 분석
 
-태그는 여러 다른 비용 보고 보기에 표시됩니다. 예를 들어 지금 바로 [비용 분석 보기](#costs)에 표시되거나 첫 번째 청구 기간 후에 상세 사용 현황 CSV 파일에 표시됩니다.
+Azure 서비스가 실행되면 비용을 정기적으로 확인하여 Azure 지출을 추적합니다. 비용 분석을 사용하여 Azure 사용량에 대한 비용이 발생한 위치를 파악할 수 있습니다. 
 
-자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/resource-group-using-tags.md)을 참조하세요.
+1. [Azure Portal에서 Cost Management + 청구 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade)로 이동합니다.
 
-### <a name="costs"></a> 비용 분석 및 진행 속도 모니터링
-
-Azure 서비스를 실행한 후 요금을 정기적으로 확인합니다. Azure Portal에서 현재 지출 및 진행 속도를 확인할 수 있습니다.
-
-1. [Azure Portal의 구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)을 방문하여 구독을 선택합니다.
-
-2. 구독에 지원되는 경우 비용 분석 및 진행 속도가 표시됩니다.
-
-    ![Azure Portal의 진행 속도 및 분석 스크린 샷](./media/billing-getting-started/burn-rate.PNG)
-
-3. 왼쪽 목록에서 [비용 분석](../cost-management/quick-acm-cost-analysis.md)을 클릭하여 리소스별 비용 분석을 표시합니다. 서비스를 추가한 후 24시간 정도 데이터가 표시될 때까지 기다립니다.
+2. 화면의 왼쪽에서 **비용 분석**을 클릭하여 서비스, 위치 및 구독과 같은 다양한 피벗을 통해 분석된 현재 비용을 확인합니다. 서비스를 추가하거나 구입한 후 데이터가 표시될 때까지 24시간 동안 기다립니다. 기본적으로 비용 분석에는 사용자가 있는 범위의 비용이 표시됩니다. 예를 들어 아래 스크린샷에는 Contoso 청구 계정에 대한 비용이 표시됩니다. [범위] 필을 사용하여 비용 분석에서 다른 범위로 전환합니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](../cost-management/understand-work-scopes.md#scopes)을 참조하세요.
 
     ![Azure Portal의 비용 분석 보기의 스크린 샷](./media/billing-getting-started/cost-analysis.png)
 
-4. [태그](#tags), 리소스 종류, 리소스 그룹 및 시간 간격 등의 다양한 속성별로 필터링할 수 있습니다. 보기를 쉼표로 구분된 값(.csv) 파일로 내보내려면 **적용**을 클릭하여 필터를 확인하고 **다운로드**를 클릭합니다.
+4. 태그, 리소스 종류 및 시간 범위와 같은 다양한 속성을 기준으로 필터링할 수 있습니다. 속성에 대한 필터를 추가하고 필터링할 값을 선택하려면 **필터 추가**를 클릭합니다. 보기를 쉼표로 구분된 값(.csv) 파일로 내보내려면 **내보내기**를 선택합니다.
 
-5. 또한 리소스를 클릭하여 매일 사용 기록과 일일 리소스 비용을 확인할 수 있습니다.
+5. 또한 차트의 레이블을 눌러 해당 레이블의 일별 지출 기록을 확인할 수 있습니다. 예를 들어 아래 스크린샷에서 가상 머신을 클릭하면 VM 실행에 대한 일별 비용이 표시됩니다.
 
     ![Azure Portal의 사용 기록 보기 스크린 샷](./media/billing-getting-started/costhistory.png)
-
-표시되는 비용과 서비스를 선택할 때 확인한 예측 비용을 비교합니다. 비용이 예측 비용과 크게 다른 경우 리소스에 대해 선택한 가격 책정 플랜을 확인합니다.
 
 ## <a name="optimize-and-reduce-costs"></a>비용 최적화 및 절감
 비용 관리 원칙에 익숙하지 않은 경우 [Azure Cost Management로 클라우드 투자를 최적화하는 방법](../cost-management/cost-mgt-best-practices.md)을 참조하세요.
@@ -133,23 +103,25 @@ Azure Portal에서 VM에 대한 자동 종료 및 Advisor 권장 지침을 사�
 
 ### <a name="turn-on-and-review-azure-advisor-recommendations"></a>Azure Advisor 권장 지침 설정 및 검토
 
-[Azure Advisor](../advisor/advisor-overview.md)는 사용량이 낮은 리소스를 식별하여 비용을 절감하는 데 도움을 줍니다. Azure Portal에서 Advisor를 방문합니다.
+[Azure Advisor](../advisor/advisor-overview.md)는 사용량이 낮은 리소스를 식별하여 비용을 절감하는 데 도움을 줍니다. Azure Portal에서 **Advisor**를 검색합니다.
 
 ![Azure Portal의 Azure Advisor 단추 스크린 샷](./media/billing-getting-started/advisor-button.png)
 
-Advisor 대시보드의 **비용** 탭에서 실행 가능한 권장 지침을 얻을 수 있습니다.
+왼쪽에서 **비용**을 선택합니다. **비용** 탭에 실행 가능한 추천 사항이 표시됩니다.
 
 ![Advisor cost 권장 지침 예제 스크린 샷](./media/billing-getting-started/advisor-action.png)
 
 비용 절감을 위한 Advisor 권장 지침에 대한 단계별 자습서는 [권장 사항에서 비용 최적화](../cost-management/tutorial-acm-opt-recommendations.md) 자습서를 검토합니다.
 
-## <a name="review-costs-against-your-latest-invoice"></a>최신 청구서에 대한 비용 검토
+## <a name="review-charges-against-your-latest-invoice"></a>최신 청구서에 대한 요금 검토
 
-대금 청구 주기가 끝날 때 최신 청구서를 사용할 수 있습니다. [청구서 및 자세한 사용 현황 파일을 다운로드](billing-download-azure-invoice-daily-usage-date.md)하여 요금이 정확하게 부과되었는지 확인할 수도 있습니다. 청구서에서 일간 사용 현황 비교에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](billing-understand-your-bill.md)를 참조하세요.
+청구 주기가 끝나면 청구서를 사용할 수 있습니다. [청구서 및 상세 사용 현황 파일을 다운로드](billing-download-azure-invoice-daily-usage-date.md)하고, 이를 비교하여 요금이 정확하게 청구되었는지 확인할 수 있습니다. 청구서에서 일간 사용 현황 비교에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](billing-understand-your-bill.md)를 참조하세요.
 
-### <a name="billing-api"></a>청구 API
+MCA(Microsoft 고객 계약)를 통해 Azure를 사용하는 경우 [청구서를 트랜잭션과 비교](billing-mca-understand-your-bill.md#view-transactions-for-an-invoice-in-the-azure-portal)하여 청구서의 요금을 이해할 수도 있습니다.
 
-Azure 청구 API를 사용하여 프로그래밍 방식으로 사용 현황 데이터를 가져옵니다. RateCard API 및 사용 현황 API를 함께 사용하여 청구된 사용량을 확인합니다. 자세한 내용은 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기](billing-usage-rate-card-overview.md)를 참조하세요.
+## <a name="integrate-with-billing-and-consumption-apis"></a>청구 및 사용량 API와 통합
+
+Azure [청구](https://docs.microsoft.com/rest/api/billing/) 및 [사용량](https://docs.microsoft.com/rest/api/consumption/) API를 사용하여 청구 및 비용 데이터를 프로그래밍 방식으로 가져옵니다. RateCard API 및 사용 현황 API를 함께 사용하여 청구된 사용량을 확인합니다. 자세한 내용은 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기](billing-usage-rate-card-overview.md)를 참조하세요.
 
 ## <a name="other-offers"></a> 추가 리소스 및 특수 사례
 
@@ -164,7 +136,7 @@ Azure 청구 API를 사용하여 프로그래밍 방식으로 사용 현황 데�
 
 대기업의 IT를 관리하는 경우 [Azure 엔터프라이즈 스 캐폴드](/azure/architecture/cloud-adoption-guide/subscription-governance) 및 [엔터프라이즈 IT 백서](https://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf)(.pdf 다운로드, 영어 버전만 제공)를 읽어보세요.
 
-#### <a name="EA"></a> Azure Portal에서 기업계약 비용 보기
+### <a name="EA"></a> Azure Portal에서 기업계약 비용 보기
 
 엔터프라이즈 비용 보기는 현재 공개 미리 보기 상태입니다. 참고할 항목:
 
@@ -175,21 +147,18 @@ Azure 청구 API를 사용하여 프로그래밍 방식으로 사용 현황 데�
     - 사용자는 계정 소유자이며 등록 관리자가 “AO 보기 요금” 설정을 비활성화했습니다.  등록 관리자에게 비용에 대한 액세스 권한을 문의하세요.
     - 사용자는 부서 관리자이며 등록 관리자가 **DA 보기 요금** 설정을 비활성화했습니다.  등록 관리자에게 액세스 권한을 문의하세요.
     - 채널 파트너를 통해 Azure를 구매했고 파트너가 가격 정보를 릴리스하지 않았습니다.  
-- 엔터프라이즈 포털에서 비용 액세스와 관련된 설정을 업데이트하는 경우 Azure Portal에 변경 내용이 표시되기 전에 몇 분 정보 지연됩니다.
+- 비용과 관련된 설정을 업데이트하는 경우 엔터프라이즈 포털에서 액세스하면 변경 내용이 Azure Portal에 표시될 때까지 몇 분 정도 지연됩니다.
 - 지출 한도 및 송장 지침은 EA 구독에 적용되지 않습니다.
 
 ### <a name="check-your-subscription-and-access"></a>구독 및 액세스 권한 확인
 
-비용을 보려면 [청구 정보에 대한 구독 수준 액세스 권한](billing-manage-access.md)이 있어야 합니다. 계정 관리자만 [계정 센터](https://account.azure.com/Subscriptions)에 액세스하고, 청구 정보를 변경하고, 구독을 관리할 수 있습니다. 계정 관리자는 가입 프로세스를 거친 사용자입니다. 자세한 내용은 [구독 또는 서비스를 관리하는 Azure 관리자 역할 추가 또는 변경](billing-add-change-azure-subscription-administrator.md)을 참조하세요.
+비용을 확인하려면 비용 또는 청구 정보에 대한 계정 또는 구독 수준 액세스 권한이 필요합니다. 액세스 권한은 청구 계정 유형에 따라 달라집니다. 청구 계정에 대해 자세히 알아보고 청구 계정 유형을 확인하려면 [Azure Portal에서 청구 계정 보기](billing-view-all-accounts.md)를 참조하세요.
 
-계정 관리자인지 확인하려면 [Azure Portal의 구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)으로 이동합니다. 구독 목록을 확인하고 **내 역할**을 찾습니다. *계정 관리자* 역할인 경우에는 모든 권한이 부여됩니다. *소유자* 등이 표시되면 모든 권한이 있는 것은 아닙니다.
+MOSP(Microsoft 온라인 서비스 프로그램) 청구 계정을 통해 Azure에 액세스할 수 있는 경우 [Azure의 청구 정보에 대한 액세스 관리](billing-manage-access.md)를 참조하세요.
 
-![Azure Portal의 구독 보기에 표시되는 역할의 스크린 샷](./media/billing-getting-started/sub-blade-view.PNG)
+EA(기업계약) 청구 계정을 통해 Azure에 액세스할 수 있는 경우 [Azure의 Azure 기업계약 관리 역할 이해](billing-understand-ea-roles.md)를 참조하세요.
 
-구독을 관리하고 청구 정보를 변경하려면 [계정 관리자를 찾습니다](billing-subscription-transfer.md#whoisaa). 계정 관리자에게 작업을 완료하거나 [구독을 전송](billing-subscription-transfer.md)하도록 요청합니다.
-
-계정 관리자가 더 이상 조직에 있지 않은 상태에서 청구를 관리해야 하는 경우에는 [문의하세요](https://go.microsoft.com/fwlink/?linkid=2083458).
-
+MCA(Microsoft 고객 계약) 청구 계정을 통해 Azure에 액세스할 수 있는 경우 [Azure의 Microsoft 고객 계약 관리 역할 이해](billing-understand-mca-roles.md)를 참조하세요.
 
 ### <a name="request-a-service-level-agreement-credit-for-a-service-incident"></a>서비스 인시던트에 대한 Service Level Agreement(서비스 수준 계약) 크레딧 요청
 
@@ -197,7 +166,7 @@ SLA(서비스 수준 계약)에서는 작동 시간 및 연결에 대한 Microso
 
 크레딧을 요청하려면
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. 계정이 여러 개인 경우 Azure 가동 중지 시간의 영향을 받는 계정을 사용해야 합니다. 
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 계정이 여러 개인 경우 Azure 가동 중지 시간의 영향을 받는 계정을 사용해야 합니다. 
 2. 새 지원 요청을 만듭니다.
 3. **문제점 유형**에서 **청구**를 선택합니다.
 4. **문제 유형**에서 **환불 요청**을 선택합니다.

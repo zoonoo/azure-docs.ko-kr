@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43986ce57b8d320beeae748d3b848cf9ef38744d
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 2803f8d659726ac95bcefa6191a816ed2b2dcb2d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718719"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375402"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>Azure 외부 서비스 요금의 이해
 외부 서비스는 Azure Marketplace의 타사 소프트웨어 공급 업체에 의해 게시됩니다. 예를 들어 SendGrid는 Azure에서 구입할 수 있지만 Microsoft에서 게시하지 않은 외부 서비스입니다. 일부 Microsoft 제품은 Azure Marketplace를 통해서도 판매됩니다.
 
 ## <a name="how-external-services-are-billed"></a>외부 서비스에 요금이 청구되는 방식
 
-- [Microsoft 고객 계약](#check-access)이 있는 경우 타사 서비스에는 나머지 Azure 서비스가 청구됩니다.
-- Microsoft 고객 계약이 없는 경우 외부 서비스는 Azure 서비스와는 별도로 청구됩니다.
+- MCA(Microsoft 고객 계약) 또는 MPA(Microsoft 파트너 계약)가 있는 경우 타사 서비스에는 나머지 Azure 서비스가 청구됩니다. [청구 계정 유형을 확인](#check-billing-account-type)하여 MCA 또는 MPA에 액세스할 수 있는지 확인합니다.
+- MCA 또는 MPA가 없는 경우 외부 서비스는 Azure 서비스와는 별도로 청구됩니다.
 - 각 외부 서비스에는 다른 청구 모델이 있습니다. 일부 서비스는 종량제 방식으로 청구되는 반면, 다른 서비스는 월별 고정 요금을 사용합니다.
 - 외부 서비스에 대한 월별 무료 크레딧을 사용할 수 없습니다. [무료 크레딧](https://azure.microsoft.com/pricing/spending-limits/)을 포함하는 Azure 구독을 사용하는 경우 외부 서비스에 대한 요금에 적용될 수 없습니다. 새 외부 서비스 또는 리소스를 프로비전하면 다음 경고가 표시됩니다.
 
@@ -48,11 +48,11 @@ You can view a list of the external services that are on each subscription withi
 
     ![View external services billing history](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png) -->
 
-## <a name="view-and-download-invoices"></a>청구서 보기 및 다운로드
+## <a name="view-and-download-invoices-for-external-services"></a>외부 서비스에 대한 청구서 보기 및 다운로드
 
-[Microsoft 고객 계약](#check-access)이 있는 경우 타사 요금은 Azure 요금과 동일한 청구서에 표시됩니다. Azure Portal에서 [Azure 청구서를 보고 다운로드](billing-download-azure-invoice.md)하여 타사 요금을 확인하는 방법을 알아봅니다.
+MCA(Microsoft 고객 계약) 또는 MPA(Microsoft 파트너 계약)가 있는 경우 타사 서비스에는 나머지 Azure 서비스가 청구됩니다. [청구 계정 유형을 확인](#check-billing-account-type)하여 MCA 또는 MPA에 액세스할 수 있는지 확인합니다. 이 경우에는 [Azure Portal에서 청구서 보기 및 다운로드](billing-download-azure-invoice.md)를 참조하여 타사 요금을 확인합니다.
 
-Microsoft 고객 계약이 없는 경우 타사 요금에 대해 별도의 청구서를 받습니다. Azure Marketplace 청구서는 다음 단계에 따라 Azure Portal에서 보고 다운로드할 수 있습니다.
+MCA 또는 MPA가 없는 경우 타사 요금에 대해 별도의 청구서를 받습니다. Azure Marketplace 청구서는 다음 단계에 따라 Azure Portal에서 보고 다운로드할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Cost Management + 청구**를 검색합니다.
@@ -108,8 +108,8 @@ EA 고객은 EA 포털에서 외부 서비스 지출을 살펴보고 다운로�
     ![리소스 삭제](./media/billing-understand-your-azure-marketplace-charges/delete-resource.PNG)
 1. **삭제**를 클릭합니다.
 
-## <a name="check-access"></a>액세스 권한 확인
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+## <a name="check-billing-account-type"></a>청구 계정 유형 확인
+[!INCLUDE [billing-check-account-type](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 

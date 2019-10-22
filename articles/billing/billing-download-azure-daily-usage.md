@@ -12,48 +12,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 23cd7c3765fc99eb5907aa853d7431d5e247aea6
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: e7d1947b2194c04bb5269887b73e2f4fa13df6e7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709721"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375725"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Azure 사용량 및 요금 보기 및 다운로드
 
-EA 고객이거나 [Microsoft 고객 계약](#check-your-access-to-a-microsoft-customer-agreement)이 있는 경우 [Azure Portal](https://portal.azure.com/)에서 Azure 사용량 및 요금을 다운로드할 수 있습니다. 다른 구독의 경우 [Azure 계정 센터](https://account.azure.com/Subscriptions)로 이동하여 사용량을 다운로드합니다.
+Azure Portal에서 Azure 사용량 및 요금에 대한 일별 분석을 다운로드할 수 있습니다. 계정 관리자 또는 엔터프라이즈 관리자와 같은 특정 역할만 Azure 사용량 정보를 확인할 수 있는 권한이 있습니다. 청구 정보에 액세스하는 방법에 대한 자세한 내용은 [역할을 사용하여 Azure 청구에 대한 액세스 관리](billing-manage-access.md)를 참조하세요.
 
-계정 관리자 또는 엔터프라이즈 관리자와 같은 특정 역할만 Azure 사용량 정보를 확인할 수 있는 권한이 있습니다. 청구 정보에 액세스하는 방법에 대한 자세한 내용은 [역할을 사용하여 Azure 청구에 대한 액세스 관리](billing-manage-access.md)를 참조하세요.
+MCA(Microsoft 고객 계약)가 있는 경우 청구 프로필 소유자, 기여자, 독자 또는 청구서 관리자여야 Azure 사용량과 요금을 확인할 수 있습니다.  MPA(Microsoft 파트너 계약)가 있는 경우 파트너 조직의 글로벌 관리자 및 관리 에이전트 역할만 Microsoft에서 Azure 사용량과 요금을 보고 다운로드할 수 있습니다. [Azure Portal에서 청구 계정 유형을 확인합니다](#check-your-billing-account-type).
 
-[Microsoft 고객 계약](#check-your-access-to-a-microsoft-customer-agreement)이 있는 경우 청구 프로필 소유자, 기여자, 독자 또는 청구서 관리자여야 Azure 사용량과 요금을 확인할 수 있습니다. Microsoft 고객 계약의 청구 역할에 대해 자세히 알아보려면 [청구 프로필 역할 및 작업](billing-understand-mca-roles.md#billing-profile-roles-and-tasks)을 참조하세요.
+## <a name="download-usage-from-the-azure-portal-csv"></a>Azure Portal에서 사용량 다운로드(.csv)
 
-## <a name="download-usage-from-the-account-center-csv"></a>계정 센터에서 사용 현황 다운로드(.csv)
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. *Cost Management + 청구*를 검색합니다.
 
-1. [Azure 계정 센터](https://account.windowsazure.com/subscriptions)에 계정 관리자로 로그인합니다.
+    ![Azure Portal 검색을 보여 주는 스크린샷](./media/billing-download-azure-usage/portal-cm-billing-search.png)
 
-2. 원하는 송장 및 사용 정보에 대한 구독을 선택합니다.
-
-3. **청구 내역**을 선택합니다.
-
-    ![청구 내역 옵션을 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/Billinghisotry.png)
-
-4. 이전 6개의 청구 기간 및 현재 미결제한 기간의 명세서를 볼 수 있습니다.
-
-    ![청구 기간, 청구서 및 일간 사용 현황 다운로드 옵션, 각 청구 기간에 대한 총 요금을 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/billingSum.png)
-
-5. **현재 명세서 보기** 를 선택하여 예상 요금을 볼 수 있습니다. 이 정보는 매일 업데이트만 될 뿐 모든 사용량을 포함하지 않습니다. 월별 청구서는 이 예상과 다를 수 있습니다.
-
-    ![현재 명세서 보기 옵션을 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/billingSum2.png)
-
-    ![현재 예상 요금을 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/billingSum3.png)
-
-6. **사용량 다운로드**를 선택하여 일간 사용 데이터를 CSV 파일로 다운로드 할 수 있습니다. 사용할 수 있는 두 가지 버전이 표시되면 버전 2를 다운로드합니다.
-
-    ![사용 현황 다운로드 옵션을 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
-
-계정 관리자만 Azure 계정 센터에 액세스할 수 있습니다. 소유자 등의 기타 청구 관리자는 [청구 API](billing-usage-rate-card-overview.md)를 사용하여 사용량 정보를 볼 수 있습니다.
-
-일간 사용 현황에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](billing-understand-your-bill.md)를 참조하세요. 비용 관리에 대한 도움말은 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](billing-getting-started.md)를 참조하세요.
+1. 액세스 권한에 따라 청구 계정 또는 청구 프로필을 선택해야 할 수도 있습니다.
+1. 왼쪽 메뉴에서 **청구** 아래의 **청구서**를 선택합니다.
+1. 청구서 그리드에서 다운로드하려는 사용량에 해당하는 청구 기간의 행을 찾습니다.
+1. 다운로드 아이콘 또는 오른쪽에 있는 줄임표(`...`)를 클릭합니다.
+1. 다운로드한 메뉴에서 **Azure 사용량 및 요금 다운로드**를 선택합니다.
 
 ## <a name="download-usage-for-ea-customers"></a>EA 고객의 사용량 다운로드
 
@@ -62,33 +45,14 @@ EA 고객이 사용량 데이터를 살펴보고 다운로드하려면 요금 �
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. *Cost Management + 청구*를 검색합니다.
 
-    ![Azure Portal 검색을 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
+    ![Azure Portal 검색을 보여 주는 스크린샷](./media/billing-download-azure-usage/portal-cm-billing-search.png)
 
 1. **사용량 + 요금**을 선택합니다.
 1. 다운로드하려는 월의 **다운로드**를 선택합니다.
 
-## <a name="download-usage-for-your-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 사용량 다운로드
+## <a name="download-usage-for-pending-charges"></a>보류 중인 요금에 대한 사용량 다운로드
 
-Microsoft 고객 계약이 있는 경우 청구 프로필에 대한 Azure 사용량 및 요금을 다운로드할 수 있습니다. 청구 프로필 소유자, 기여자, 독자 또는 청구서 관리자여야 Azure 사용량과 요금 CSV를 다운로드할 수 있습니다.
-
-### <a name="download-usage-for-billed-charges"></a>청구 요금에 대한 사용량 다운로드
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. *Cost Management + 청구*를 검색합니다.
-3. 청구 프로필을 선택합니다. 액세스 권한에 따라 청구 계정을 먼저 선택해야 할 수도 있습니다.
-4. **청구서**를 선택합니다.
-5. 송장 그리드에서 다운로드하려는 사용량에 해당하는 송장의 행을 찾습니다.
-6. 행 끝에 있는 줄임표(`...`)를 클릭합니다.
-
-    ![행 끝에 있는 줄임표를 보여 주는 스크린샷](./media/billing-download-azure-invoice/billingprofile-invoicegrid.png)
-
-7. 다운로드 상황에 맞는 메뉴에서 **Azure 사용량 및 요금**을 선택합니다.
-
-     ![선택한 Azure 사용량 및 요금을 보여 주는 스크린샷](./media/billing-download-azure-usage/contextmenu-usage.png)
-
-### <a name="download-usage-for-pending-charges"></a>보류 중인 요금에 대한 사용량 다운로드
-
-현재 청구 기간에 대한 월간 누계 사용량을 다운로드할 수도 있습니다. 이러한 사용량 요금은 아직 청구되지 않았습니다.
+Microsoft 고객 계약이 있는 경우 현재 청구 기간에 대한 월간 누계 사용량을 다운로드할 수 있습니다. 이러한 사용량 요금은 아직 청구되지 않았습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. *Cost Management + 청구*를 검색합니다.
@@ -98,8 +62,8 @@ Microsoft 고객 계약이 있는 경우 청구 프로필에 대한 Azure 사용
 
     ![개요에서 다운로드를 보여 주는 스크린샷](./media/billing-download-azure-usage/open-usage.png)
 
-## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 액세스 확인
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+## <a name="check-your-billing-account-type"></a>청구 계정 유형 확인
+[!INCLUDE [billing-check-account-type](../../includes/billing-check-account-type.md)]
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 

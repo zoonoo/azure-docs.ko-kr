@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/10/2019
+ms.date: 10/03/2019
 ms.author: juliako
-ms.openlocfilehash: 152a767ad1aa2494579f15dd8051c6bc1f718a92
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: af6542757e75d7d6226c2470adf3c2b51d60875a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910293"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383523"
 ---
 # <a name="dynamic-packaging"></a>동적 패키징
 
@@ -236,11 +236,30 @@ MPD(MPEG-DASH Media Presentation Description)라고도 하는 MPEG-DASH 매니�
 
 ### <a name="signaling-audio-description-tracks"></a>오디오 설명 트랙 신호 보내기
 
-고객은 매니페스트에서 오디오 트랙을 오디오 설명의 주석으로 추가할 수 있습니다. 이렇게 하려면 "accessibility" 및 "role" 매개 변수를 .ism 파일에 추가합니다. 오디오 트랙에 "description" 값의 "accessibility" 매개 변수와 "alternate" 값의 "role" 매개 변수가 있는 경우 Media Services에서 오디오 설명을 인식합니다. Media Services에서 .ism 파일의 오디오 설명을 검색하면 오디오 설명 정보가 `Accessibility="description"` 및 `Role="alternate"` 특성으로 클라이언트 매니페스트의 `StreamIndex` 요소에 전달됩니다.
+비디오에 내레이션 트랙을 추가하여 시각적으로 장애가 있는 클라이언트가 내레이션을 들어 비디오 녹화를 따르도록 할 수 있습니다. 매니페스트에서 오디오 트랙을 오디오 설명의 주석으로 추가해야 합니다. 이렇게 하려면 "accessibility" 및 "role" 매개 변수를 .ism 파일에 추가합니다. 오디오 트랙을 오디오 설명으로 알리기 위해 이러한 매개 변수를 올바르게 설정하는 것은 사용자의 책임입니다. 예를 들어 특정 오디오 트랙에 대한 .ism 파일에 `<param name="accessibility" value="description" />` 및 `<param name="role" value="alternate"`를 추가합니다. 
 
-.ism 파일에 "accessibility" = "description" 및 "role" = "alternate"의 조합이 설정되면 DASH 매니페스트와 부드러운 매니페스트에서 "accessibility" 및 "role" 매개 변수에 설정된 값을 전달합니다. 고객이 이러한 두 값을 올바르게 설정하고 오디오 트랙을 오디오 설명으로 표시해야 합니다. DASH 사양에 따라 "accessibility" = "description" 및 "role" = "alternate"는 오디오 트랙이 오디오 설명임을 의미합니다.
+자세한 내용은 [설명이 포함된 오디오 트랙을 알리는 방법](signal-descriptive-audio-howto.md) 예제를 참조하세요.
 
-HLS v7 이상(`format=m3u8-cmaf`)의 경우 "accessibility" = "description" 및 "role" = "alternate"의 조합이 .ism 파일에 설정된 경우에만 해당 재생 목록에서 `CHARACTERISTICS="public.accessibility.describes-video"`를 전달합니다. 
+#### <a name="smooth-streaming-manifest"></a>부드러운 스트리밍 매니페스트
+
+부드러운 스트리밍 스트림을 재생하는 경우 매니페스트는 해당 오디오 트랙에 대한 `Accessibility` 및 `Role` 특성에 값을 전달합니다. 예를 들어 `StreamIndex` 요소에 `Role="alternate" Accessibility="description"`을 추가하여 오디오 설명임을 나타낼 수 있습니다.
+
+#### <a name="dash-manifest"></a>DASH 매니페스트
+
+DASH 매니페스트의 경우 오디오 설명을 알리기 위해 다음 두 요소가 추가됩니다.
+
+```xml
+<Accessibility schemeIdUri="urn:mpeg:dash:role:2011" value="description"/>
+<Role schemeIdUri="urn:mpeg:dash:role:2011" value="alternate"/>
+```
+
+#### <a name="hls-playlist"></a>HLS 재생 목록
+
+HLS v7 이상의 경우 `(format=m3u8-cmaf)` 해당 재생 목록은 오디오 설명 트랙이 신호를 받으면 `AUTOSELECT=YES,CHARACTERISTICS="public.accessibility.describes-video"`를 전달합니다.
+
+#### <a name="example"></a>예
+
+자세한 내용은 [오디오 설명 트랙을 알리는 방법](signal-descriptive-audio-howto.md)을 참조하세요.
 
 ## <a name="dynamic-manifest"></a>동적 매니페스트
 

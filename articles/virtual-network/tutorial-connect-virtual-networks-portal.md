@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: a83980c3d4d03f53a19918ed213c965e50baa406
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: bf7b9b288a32d9f6cc2c9e0d7dba4b074c4bf878
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720049"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515718"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
 
@@ -46,21 +46,18 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 1. Azure Portal의 왼쪽 위에서 **+ 리소스 만들기**를 선택합니다.
 2. **네트워킹**을 선택한 다음 **가상 네트워크**를 선택합니다.
-3. 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용한 다음, **만들기**를 선택합니다.
+3. **기본** 페이지에서 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용합니다.
 
     |설정|값|
     |---|---|
-    |Name|myVirtualNetwork1|
-    |주소 공간|10.0.0.0/16|
     |Subscription| 구독을 선택합니다.|
     |Resource group| **새로 만들기**를 선택하고 *myResourceGroup*을 입력합니다.|
-    |위치| **미국 동부**를 선택합니다.|
-    |서브넷 이름|Subnet1|
-    |서브넷 주소 범위|10.0.0.0/24|
-
-      ![가상 네트워크 만들기](./media/tutorial-connect-virtual-networks-portal/create-virtual-network.png)
-
-4. 다음과 같은 변경 내용을 사용하여 다시 1~3단계를 완료합니다.
+    |지역| **미국 동부**를 선택합니다.|
+    |Name|myVirtualNetwork1|
+    ![기본 가상 네트워크 설정 구성] (
+4. **IP 주소** 페이지에서 **주소 공간** 필드에 10.0.0.0/16을 입력합니다. 아래 **서브넷 추가** 단추를 클릭하고 **서브넷 이름**에 Subnet1을 입력하고 **서브넷 주소 범위**에 대해 10.0.0.0/24를 입력합니다.
+   
+5. 다음과 같은 변경 내용을 사용하여 다시 1~3단계를 완료합니다.
 
     |설정|값|
     |---|---|
@@ -105,22 +102,26 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
     |설정|값|
     |---|---|
+    |Resource group| **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다.|
     |Name|myVm1|
+    |위치| **미국 동부**를 선택합니다.|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
-    |Resource group| **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다.|
-    |위치| **미국 동부**를 선택합니다.|
-4. **크기 선택**에서 VM 크기를 선택합니다.
-5. **설정**에 대해 다음 값을 선택하고 **확인**을 선택합니다.
+   
+4. **크기** 옵션에 대해 VM 크기를 선택합니다.
+5. **네트워킹**에서 다음 값을 선택합니다.
 
     |설정|값|
     |---|---|
-    |가상 네트워크| myVirtualNetwork1 - 아직 선택하지 않은 경우 **가상 네트워크**를 선택한 다음, **가상 네트워크 선택**에서 **myVirtualNetwork1**을 선택합니다.|
-    |서브넷| Subnet1 - 아직 선택하지 않은 경우 **서브넷**을 선택한 다음, **서브넷 선택**에서 **Subnet1**을 선택합니다.|
+    |가상 네트워크| myVirtualNetwork1 - 아직 선택하지 않은 경우 **가상 네트워크**를 선택한 다음, **myVirtualNetwork1**을 선택합니다.|
+    |서브넷| Subnet1 - 아직 선택하지 않은 경우 **서브넷**을 선택한 다음, **Subnet1**을 선택합니다.|
     
+
     ![가상 머신 설정](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
- 
-6. **요약**의 **만들기** 아래에서 **만들기**를 선택하여 VM 배포를 시작합니다.
+   
+6. **네트워킹**을 선택합니다. **공용 인바운드 포트** 옵션에 대해 **선택한 포트 허용**을 선택합니다. 아래 **인바운드 포트 선택** 옵션에 대해 **RDP**를 선택합니다. 
+
+7. 왼쪽 아래 모서리에 있는 **검토 + 만들기** 단추를 선택하여 VM 배포를 시작합니다.
 
 ### <a name="create-the-second-vm"></a>두 번째 VM 만들기
 
