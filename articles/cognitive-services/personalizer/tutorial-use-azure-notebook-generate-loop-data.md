@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: b724e54eb2d9e61bd576ab8a094489bbed6db20d
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 7c0dc40ee2d748b1f48c3254a3e3a6e197069c08
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71975262"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515178"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>자습서: Azure Notebook에서 Personalizer 사용
 
@@ -122,7 +122,7 @@ personalization_base_url = "https://<your-resource-name>.cognitiveservices.azure
 resource_key = "<your-resource-key>"
 ```
 
-### <a name="print-current-data-and-time"></a>현재 날짜 및 시간 출력
+### <a name="print-current-date-and-time"></a>현재 날짜 및 시간 인쇄
 이 함수를 사용하여 반복 함수의 시작 및 종료 시간, 반복 횟수를 기록합니다.
 
 이러한 셀에는 출력이 없습니다. 이 함수가 호출되면 현재 날짜 및 시간을 출력합니다.
@@ -587,7 +587,7 @@ createChart(count,rewards)
 1. Azure Portal에서 Personalizer 리소스의 **평가** 페이지를 엽니다.
 1. **평가 만들기**를 선택합니다.
 1. 루프 평가에 필요한 평가 이름 및 날짜 범위의 데이터를 입력합니다. 날짜 범위에는 평가에 집중하는 날짜만 포함되어야 합니다. 
-    ![Azure Portal에서 Personalizer 리소스의 [평가] 페이지를 엽니다. 평가 만들기를 선택합니다. 평가 이름과 날짜 범위를 입력합니다.](./media/tutorial-azure-notebook/create-offline-evaluation.png)
+    ![Azure Portal에서 Personalizer 리소스의 평가 페이지를 엽니다. 평가 만들기를 선택합니다. 평가 이름과 날짜 범위를 입력합니다.](./media/tutorial-azure-notebook/create-offline-evaluation.png)
 
     이 오프라인 평가를 실행하는 목적은 이 루프에 사용되는 기능과 작업에 대해 더 나은 학습 정책이 있는지 확인하는 것입니다. 더 나은 학습 정책을 찾으려면 **최적화 정책**이 설정되어 있는지 확인합니다.
 

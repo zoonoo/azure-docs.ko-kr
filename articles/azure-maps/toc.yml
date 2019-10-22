@@ -53,8 +53,6 @@
       href: supported-languages.md
     - name: 지원되는 맵 스타일
       href: supported-map-styles.md
-    - name: 웹 SDK 지원 브라우저
-      href: supported-browsers.md
     - name: 확대/축소 수준 및 타일 그리드
       href: zoom-levels-and-tile-grid.md
     - name: Mobility Service 데이터 구조
@@ -147,6 +145,8 @@
               href: map-get-information-from-coordinate.md
             - name: A에서 B로의 방향 표시
               href: map-route.md
+        - name: 웹 SDK 지원 브라우저
+          href: supported-browsers.md
     - name: Android SDK를 사용하여 개발
       items:
         - name: Android 지도 컨트롤 시작

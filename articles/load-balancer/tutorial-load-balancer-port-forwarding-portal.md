@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: ee4ed818364d04f03caedc8b876ea29c41cb59b7
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: aa4837ec1fd8ef19eb6d0c77f946ef358becd542
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273438"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72428231"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>자습서: 포털을 사용하여 Azure Load Balancer에서 포트 전달 구성
 
 포트 전달을 사용하면 Azure Load Balancer 공용 IP 주소 및 포트 번호를 통해 Azure 가상 네트워크의 VM(가상 머신)에 연결할 수 있습니다. 
 
-이 자습서에서는 Azure Load Balancer에 포트 전달을 설정합니다. 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Load Balancer에 포트 전달을 설정합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 공용 표준 부하 분산 장치를 만들어 여러 VM에 네트워크 트래픽 부하를 분산합니다. 
@@ -235,12 +235,13 @@ VM을 만들 때 부하 분산 장치 백 엔드 풀을 만들고 VM을 풀에 �
    - **이름**: *MyNATRuleVM1*을 입력합니다.
    - **포트**: *4221*을 입력합니다.
    - **대상 가상 머신**: 드롭다운에서 **MyVM1**을 선택합니다.
+   - **Network IP 구성**: 드롭다운에서 **ipconfig1**을 선택합니다.
    - **포트 매핑**: **사용자 지정**을 선택합니다.
    - **대상 포트**: *3389*를 입력합니다.
    
 1. **확인**을 선택합니다.
    
-1. 단계를 반복해서 **포트**:  *4222* 및 **대상 가상 머신**: **MyVM2**를 사용하여 MyNATRuleVM2라는 인바운드 NAT 규칙을 추가합니다.
+1. 단계를 반복해서 **포트**:  *4222* 및 **대상 가상 머신**: **MyVM2**를 사용하여 *MyNATRuleVM2*라는 인바운드 NAT 규칙을 추가합니다.
 
 ## <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
 

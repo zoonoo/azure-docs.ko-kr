@@ -121,15 +121,8 @@
           href: paas-applications-using-storage.md
         - name: PaaS용 DB 모범 사례
           href: paas-applications-using-sql.md
-    - name: IoT
-      href: iot-overview.md
     - name: Azure Service Fabric 보안
-      href: service-fabric-overview.md
-      items:
-        - name: 모범 사례
-          href: service-fabric-best-practices.md
-        - name: 보안 검사 목록
-          href: service-fabric-checklist.md
+      href: service-fabric-best-practices.md
 - name: '모니터링, 감사 및 작업'
   href: management-monitoring-overview.md
   items:
