@@ -43,7 +43,7 @@ install-script PrivateDnsMigrationScript
 
 ![스크립트 설치](./media/private-dns-migration-guide/install-migration-script.png)
 
-https://www.powershellgallery.com/packages/PrivateDnsMigrationScript 에서 최신 버전의 PowerShell 스크립트를 수동으로 받을 수 있습니다.
+[https://www.powershellgallery.com/packages/PrivateDnsMigrationScript](https://www.powershellgallery.com/packages/PrivateDnsMigrationScript ) 에서 최신 버전의 PowerShell 스크립트를 수동으로 받을 수 있습니다.
 
 ## <a name="running-the-script"></a>스크립트 실행
 
