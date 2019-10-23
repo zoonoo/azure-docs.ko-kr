@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB의 API for MongoDB 및 Golang SDK를 사용하여 콘솔 앱 빌드
 description: Azure Cosmos DB의 API for MongoDB를 사용하여 연결 및 쿼리할 수 있는 Golang 코드 샘플을 제공합니다.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.author: rimman
-ms.openlocfilehash: 5b60ac28cd8f65d464e659f328872524be59b3ed
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: e16b9b7e591fcc089d74794c98ddfc951cbdced9
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586882"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755125"
 ---
 # <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>빠른 시작: Azure Cosmos DB의 API for MongoDB 및 Golang SDK를 사용하여 콘솔 앱 빌드
 

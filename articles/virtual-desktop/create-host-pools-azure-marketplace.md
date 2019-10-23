@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: c0b93529872de774e1a6e915ef8254c5c0e0a1a9
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: f5b40e59a4ed2393e3b9912f8e4caa06ee267428
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676701"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757514"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>자습서: Azure Marketplace를 사용하여 호스트 풀 만들기
 
@@ -73,7 +73,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 **가상 머신 설정** 블레이드의 경우:
 
 >[!NOTE]
-> Azure AD DS(Azure Active Directory Domain Services) 환경에 VM을 조인하는 경우 도메인 가입 사용자가 [AAD DC 관리자 그룹](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group)의 멤버이기도 한지 확인합니다.
+> Azure AD DS(Azure Active Directory Domain Services) 환경에 VM을 조인하는 경우 도메인 가입 사용자가 [AAD DC 관리자 그룹](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group)의 멤버이기도 한지 확인합니다.
 
 1. **이미지 원본**의 경우 원본을 선택하고 원본을 찾고 저장할 방법에 대한 적절한 정보를 입력합니다. 관리 디스크를 사용하지 않으려면 .vhd 파일이 포함된 스토리지 계정을 선택합니다.
 2. Active Directory 도메인에 VM을 조인하는 도메인 계정에 대한 사용자 계정 이름 및 암호를 입력합니다. 이 동일한 사용자 이름과 암호는 로컬 계정으로 가상 머신에서 생성됩니다. 이러한 로컬 계정은 나중에 다시 설정할 수 있습니다.

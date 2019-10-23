@@ -3,15 +3,15 @@ title: Azure Resource Graph Explorer를 사용하여 첫 번째 쿼리 실행
 description: 이 문서에서는 Azure Resource Graph Explorer를 사용하여 Azure Portal에서 첫 번째 쿼리를 실행하는 단계를 안내합니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/18/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: 755556b9ba049da7542494ee580215d29c1eb5f4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: abee722e725b55933d7ff1acdcd1e9a2e701502b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387612"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752142"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>빠른 시작: Azure Resource Graph Explorer를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -45,7 +45,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ### <a name="schema-browser"></a>스키마 브라우저
 
-스키마 브라우저는 Resource Graph Explorer의 왼쪽 창에 있습니다. 이 리소스 목록에는 Azure Resource Graph에서 지원하고 액세스할 수 있는 테넌트에 있는 Azure 리소스의 모든 _리소스 종류_가 표시됩니다. 리소스 종류 또는 하위 속성을 펼치면 Resource Graph 쿼리를 만드는 데 사용할 수 있는 자식 속성이 표시됩니다. 리소스 종류를 선택하면 `where type =="<resource type>"`이 쿼리 상자에 배치됩니다. 자식 속성 중 하나를 선택하면 `where <propertyName> == "INSERT_VALUE_HERE"`가 쿼리 상자에 추가됩니다. 스키마 브라우저는 쿼리에 사용할 속성을 검색하는 좋은 방법입니다. 원하는 결과를 얻기 위해 _INSERT\_VALUE\_HERE_를 사용자 고유의 값으로 바꾸고, 조건, 연산자 및 함수를 사용하여 쿼리를 조정합니다.
+스키마 브라우저는 Resource Graph Explorer의 왼쪽 창에 있습니다. 이 리소스 목록에는 Azure Resource Graph에서 지원하고 액세스할 수 있는 테넌트에 있는 Azure 리소스의 모든 _리소스 종류_가 표시됩니다. 리소스 종류 또는 하위 속성을 펼치면 Resource Graph 쿼리를 만드는 데 사용할 수 있는 자식 속성이 표시됩니다.
+
+리소스 종류를 선택하면 `where type =="<resource type>"`이 쿼리 상자에 배치됩니다. 자식 속성 중 하나를 선택하면 `where <propertyName> == "INSERT_VALUE_HERE"`가 쿼리 상자에 추가됩니다.
+스키마 브라우저는 쿼리에 사용할 속성을 검색하는 좋은 방법입니다. 원하는 결과를 얻기 위해 _INSERT\_VALUE\_HERE_를 사용자 고유의 값으로 바꾸고, 조건, 연산자 및 함수를 사용하여 쿼리를 조정합니다.
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Resource Graph 쿼리에서 차트 만들기
 

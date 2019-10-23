@@ -3,19 +3,19 @@ title: 코드 샘플 - Content Moderator, .NET
 titleSuffix: Azure Cognitive Services
 description: SDK를 통해 .NET 애플리케이션에서 Content Moderator를 사용합니다.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: sample
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 0c7db3c48f1ff7a141fda84caaad84ac8ff7f85d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 23ef7b515f5391a30f6d1fa9fce1dcb856643c69
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564435"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757275"
 ---
 # <a name="content-moderator-net-sdk-samples"></a>Content Moderator .NET SDK 샘플
 

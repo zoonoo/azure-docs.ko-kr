@@ -4,14 +4,14 @@ description: Visual Studio를 사용하여 Azure 리소스 그룹 프로젝트�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.date: 06/20/2019
+ms.date: 10/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: c7f71dbadf24244756cf65f68ceea24547190737
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ae7ff9370bd289dfdec578e6daeb471bbd53a072
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170248"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597622"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포
 
@@ -23,7 +23,8 @@ Visual Studio를 사용하여 Azure로 인프라 및 코드를 배포하는 프�
 
 이 섹션에서는 **웹앱** 템플릿으로 Azure 리소스 그룹 프로젝트를 만듭니다.
 
-1. Visual Studio에서 **파일**, **새로 만들기** 및 **프로젝트**를 차례로 선택합니다. **Azure 리소스 그룹** 프로젝트 템플릿 및 **다음**을 선택합니다.
+1. Visual Studio에서 **파일**>**새로 만들기**>**프로젝트**를 선택합니다.
+1. **Azure 리소스 그룹** 프로젝트 템플릿 및 **다음**을 선택합니다.
 
     ![프로젝트 만들기](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 

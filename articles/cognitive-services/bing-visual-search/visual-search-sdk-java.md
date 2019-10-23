@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 09/30/2019
 ms.author: aahi
 ms.openlocfilehash: 7fb00fd3ce588aeeba4f315f191f6b82d6b75715
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
+ms.lasthandoff: 10/17/2019
 ms.locfileid: "71695756"
 ---
 # <a name="quickstart-bing-visual-search-client-library-for-java"></a>빠른 시작: Java용 Bing Visual Search 클라이언트 라이브러리

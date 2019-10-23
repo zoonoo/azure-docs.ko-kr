@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 10/14/2019
 ms.author: aahi
-ms.openlocfilehash: 97efa5cd91646809178d685ca51e29ef2fda7c0d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 222fb5d37065bc40e9c96a9ff3487a7ea8ad0570
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564728"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554760"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>빠른 시작: Anomaly Detector REST API와 C#을 사용하여 시계열 데이터에서 변칙 검색 
 
@@ -42,23 +42,16 @@ ms.locfileid: "68564728"
 
 - 시계열 데이터 요소가 포함된 JSON 파일입니다. 이 빠른 시작의 예제 데이터는 [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json)에서 확인할 수 있습니다.
 
-[!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
+### <a name="create-an-anomaly-detector-resource"></a>Anomaly Detector 리소스 만들기
 
-[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
+[!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
 ## <a name="create-a-new-application"></a>새 애플리케이션 만들기
 
 1. Visual Studio에서 새 콘솔 솔루션을 만들고 다음 패키지를 추가합니다. 
 
-    ```csharp
-    using System;
-    using System.IO;
-    using System.Net;
-    using System.Net.Http;
-    using System.Net.Http.Headers;
-    using System.Text;
-    using System.Threading.Tasks;
-    ```
+    [!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=usingStatements)]
+
 
 2. 구독 키 및 엔드포인트에 대한 변수를 만듭니다. 아래는 변칙 검색에 사용할 수 있는 URI입니다. 나중에 API 요청 URL을 만드는 서비스 엔드포인트에 추가됩니다.
 
@@ -67,17 +60,7 @@ ms.locfileid: "68564728"
     |일괄 검색    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
     |최신 데이터 요소에서 검색     | `/anomalydetector/v1.0/timeseries/last/detect`        |
     
-    ```csharp
-    // Replace the subscriptionKey string value with your valid subscription key.
-    const string subscriptionKey = "[YOUR_SUBSCRIPTION_KEY]";
-    // Replace the endpoint URL with the correct one for your subscription. 
-    // Your endpoint can be found in the Azure portal. For example: https://westus2.api.cognitive.microsoft.com
-    const string endpoint = "[YOUR_ENDPOINT_URL]";
-    // Replace the dataPath string with a path to the JSON formatted time series data.
-    const string dataPath = "[PATH_TO_TIME_SERIES_DATA]";
-    const string latestPointDetectionUrl = "/anomalydetector/v1.0/timeseries/last/detect";
-    const string batchDetectionUrl = "/anomalydetector/v1.0/timeseries/entire/detect";
-    ```
+    [!code-csharp[initial variables for endpoint, key and data file](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=vars)]
 
 ## <a name="create-a-function-to-send-requests"></a>요청을 보내는 함수 만들기
 
@@ -87,19 +70,7 @@ ms.locfileid: "68564728"
 
 3. `PostAsync()`를 사용하여 요청을 보낸 다음, 응답을 반환합니다.
 
-```csharp
-static async Task<string> Request(string apiAddress, string endpoint, string subscriptionKey, string requestData){
-    using (HttpClient client = new HttpClient { BaseAddress = new Uri(apiAddress) }){
-        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-
-        var content = new StringContent(requestData, Encoding.UTF8, "application/json");
-        var res = await client.PostAsync(endpoint, content);
-        return await res.Content.ReadAsStringAsync();
-    }
-}
-```
+    [!code-csharp[Request method](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=requestMethod)]
 
 ## <a name="detect-anomalies-as-a-batch"></a>일괄 처리로 변칙 검색
 
@@ -111,34 +82,8 @@ static async Task<string> Request(string apiAddress, string endpoint, string sub
 
 4. 그렇지 않으면 데이터 세트에서 변칙의 위치를 찾습니다. 응답의 `isAnomaly` 필드에 부울 값 배열이 포함되고 이들 각각은 데이터 요소가 변칙인지 여부를 나타냅니다. 이것을 응답 개체의 `ToObject<bool[]>()` 함수를 사용하여 문자열 배열로 변환합니다. 배열을 반복하고 `true` 값의 인덱스를 출력합니다. 이 값은 변칙 데이터 요소의 인덱스와 일치합니다(발견된 경우).
 
-```csharp
-static void detectAnomaliesBatch(string requestData){
-    System.Console.WriteLine("Detecting anomalies as a batch");
+    [!code-csharp[Detect anomalies batch](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesBatch)]
 
-    var result = Request(
-        endpoint,
-        batchDetectionUrl,
-        subscriptionKey,
-        requestData).Result;
-
-    dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
-    System.Console.WriteLine(jsonObj);
-
-    if (jsonObj["code"] != null){
-        System.Console.WriteLine($"Detection failed. ErrorCode:{jsonObj["code"]}, ErrorMessage:{jsonObj["message"]}");
-    }
-    else{
-        bool[] anomalies = jsonObj["isAnomaly"].ToObject<bool[]>();
-        System.Console.WriteLine("\nAnomalies detected in the following data positions:");
-        for (var i = 0; i < anomalies.Length; i++){
-            if (anomalies[i])
-            {
-                System.Console.Write(i + ", ");
-            }
-        }
-    }
-}
-```
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>최신 데이터 요소의 변칙 상태 검색
 
@@ -146,19 +91,7 @@ static void detectAnomaliesBatch(string requestData){
 
 2. JSON 개체를 deserialize하여 콘솔에 작성합니다.
 
-```csharp
-static void detectAnomaliesLatest(string requestData){
-    System.Console.WriteLine("\n\nDetermining if latest data point is an anomaly");
-    var result = Request(
-        endpoint,
-        latestPointDetectionUrl,
-        subscriptionKey,
-        requestData).Result;
-
-    dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
-    System.Console.WriteLine(jsonObj);
-}
-```
+[!code-csharp[Detect anomalies latest](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesLatest)]
 
 ## <a name="load-your-time-series-data-and-send-the-request"></a>시계열 데이터를 로드하고 요청 보내기
 
@@ -166,17 +99,7 @@ static void detectAnomaliesLatest(string requestData){
 
 2. 위에서 만든 변칙 검색 함수를 호출합니다. `System.Console.ReadKey()`를 사용하여 애플리케이션을 실행한 후 콘솔 창을 열어 둡니다.
 
-```csharp
-static void Main(string[] args){
-
-    var requestData = File.ReadAllText(dataPath);
-
-    detectAnomaliesBatch(requestData);
-    detectAnomaliesLatest(requestData);
-
-    System.Console.ReadKey();
-}
-```
+    [!code-csharp[Main method](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=main)]
 
 ### <a name="example-response"></a>예제 응답
 
@@ -187,4 +110,8 @@ static void Main(string[] args){
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [REST API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)
+>[Azure Databricks를 사용하여 스트리밍 변칙 검색](../tutorials/anomaly-detection-streaming-databricks.md)
+
+* [Anomaly Detector API](../overview.md)란?
+* Anomaly Detector API를 사용하는 경우 [모범 사례](../concepts/anomaly-detection-best-practices.md)
+* 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs)에서 확인할 수 있습니다.

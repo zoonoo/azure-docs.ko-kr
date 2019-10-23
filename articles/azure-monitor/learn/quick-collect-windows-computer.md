@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: magoedte
-ms.custom: mvc
-ms.openlocfilehash: 50059711df195c13ee44061ee4844f0192e0e10d
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.custom: mvc, seo-javascript-october2019
+ms.openlocfilehash: 1b8888c2c8aaedce181d19c015206323ccf2b0ba
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992091"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677259"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Azure Monitor를 사용하여 하이브리드 환경에서 Windows 컴퓨터의 데이터 수집
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.
 
-    ![Azure portal](media/quick-collect-azurevm/azure-portal-01.png)<br>  
+    ![Azure portal](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. **만들기**를 선택한 후, 다음 항목에 대한 선택 사항을 지정합니다.
 
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    * VM이 배포된 **위치**를 선택합니다.  자세한 내용은 [Log Analytics를 사용할 수 있는 지역](https://azure.microsoft.com/regions/services/)을 참조하세요.
    * 2018년 4월 2일 이후에 만들어진 새 구독에서 작업 영역을 만드는 경우 *GB당* 가격 책정 계획이 자동으로 사용되며 가격 책정 계층을 선택할 수 있는 옵션이 제공되지 않습니다.  4월 2일 전에 만들어진 기존 구독 또는 기존 EA 등록과 연결된 구독에서 작업 영역을 만드는 경우 선호하는 가격 책정 계층을 선택합니다.  특정 계층에 대한 자세한 내용은 [Log Analytics 가격 책정 정보](https://azure.microsoft.com/pricing/details/log-analytics/)를 참조하세요.
   
-        ![Log Analytics 리소스 블레이드 만들기](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+        ![Log Analytics 리소스 블레이드 만들기](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
 
 3. **Log Analytics 작업 영역** 창에서 필요한 정보를 제공한 후 **확인**을 선택합니다.  
 
@@ -64,7 +64,7 @@ Windows용 Log Analytics 에이전트(MMA(Microsoft Monitoring Agent)라고도 �
 
 3. **고급 설정**을 선택합니다.
 
-    ![Log Analytics 고급 설정](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
+    ![Log Analytics 고급 설정](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
   
 4. **연결된 원본**을 선택한 다음 **Windows 서버**를 선택합니다.
 
@@ -109,7 +109,7 @@ Azure Monitor는 장기 분석 및 보고를 위해 Windows 이벤트 로그 및
 
 2. **고급 설정**을 선택합니다.
 
-    ![Log Analytics 고급 설정](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
+    ![Log Analytics 고급 설정](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
  
 3. **데이터**를 선택한 후 **Windows 이벤트 로그**를 선택합니다.  
 

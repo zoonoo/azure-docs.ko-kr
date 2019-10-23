@@ -1,5 +1,5 @@
 ---
-title: Windows Server VM을 관리형 도메인에 연결 | Microsoft Docs
+title: Windows Server VM을 관리되는 도메인에 연결 | Microsoft Docs
 description: 이 자습서에서는 Windows Server 가상 머신을 Azure Active Directory Domain Services 관리형 도메인에 조인하는 방법을 알아봅니다.
 author: iainfoulds
 manager: daveba
@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: iainfou
-ms.openlocfilehash: 3fd2a50946f0857d527c34b62687b2dbdd71298e
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 00e717202116cf9a48c2c2d889374d451b8e4d45
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172037"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754365"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>자습서: Windows Server 가상 머신을 관리되는 도메인에 가입
 

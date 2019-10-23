@@ -4,8 +4,8 @@ description: Azure에서 Docker Compose, WordPress 및 MySQL을 사용하여 다
 keywords: Azure App Service, 웹앱, Linux, Docker, Compose, 다중 컨테이너, 다중-컨테이너, 컨테이너용 웹앱, 다중 컨테이너, 컨테이너, wordpress, azure db for mysql, 컨테이너를 포함한 프로덕션 데이터베이스
 services: app-service
 documentationcenter: ''
-author: msangapu
-manager: jeconnoc
+author: msangapu-msft
+manager: gwallace
 editor: ''
 ms.service: app-service
 ms.workload: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.openlocfilehash: b83edae698ed62deea189c979478c2170a034fc8
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: f4a366809bd5c6267ef76632e8990309f100c393
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070874"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554931"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>자습서: Web App for Containers에서 다중 컨테이너(미리 보기) 앱 만들기
 
@@ -42,11 +42,9 @@ ms.locfileid: "70070874"
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
-이 자습서에서는 [Docker](https://docs.docker.com/compose/wordpress/#define-the-project)의 작성 파일을 사용하지만 Azure Database for MySQL, 영구 스토리지 및 Redis를 포함하도록 수정합니다. 구성 파일은 [Azure 샘플](https://github.com/Azure-Samples/multicontainerwordpress)에 있습니다.
+이 자습서에서는 [Docker](https://docs.docker.com/compose/wordpress/#define-the-project)의 작성 파일을 사용하지만 Azure Database for MySQL, 영구 스토리지 및 Redis를 포함하도록 수정합니다. 구성 파일은 [Azure 샘플](https://github.com/Azure-Samples/multicontainerwordpress)에 있습니다. 지원되는 구성 옵션은 [Docker Compose 옵션](configure-custom-container.md#docker-compose-options)을 참조하세요.
 
 [!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
-
-지원되는 구성 옵션은 [Docker Compose 옵션](configure-custom-container.md#docker-compose-options)을 참조하세요.
 
 Cloud Shell에서 자습서 디렉터리를 만든 다음, 변경합니다.
 

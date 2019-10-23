@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 그래프를 통해 시스템 문서 속성 액세스
 description: Gremlin API를 통해 Cosmos DB 시스템 문서 속성을 읽고 쓰는 방법을 알아봅니다.
-author: olignat
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 09/10/2019
-ms.author: olignat
-ms.openlocfilehash: 4354d37a32bde006a9bee70c39df1fee9b269365
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+author: luisbosquez
+ms.author: lbosq
+ms.openlocfilehash: e762674936ab2fbdf198ca67f79acfa545127f02
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70911320"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755066"
 ---
 # <a name="system-document-properties"></a>시스템 문서 속성
 

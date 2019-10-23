@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 3ccc5c7c0def7ec1d8d2f8927dc8f8e5d3678a52
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 4faf889755b6f3e5f8fc6ef08cb69b4265fec355
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718977"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755805"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>빠른 시작: .NET용 Azure Key Vault 클라이언트 라이브러리
 
@@ -25,7 +25,7 @@ Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되
 - SSL/TLS 인증서 작업을 간소화하고 자동화합니다.
 - FIPS 140-2 수준 2 유효성이 검사된 HSM을 사용합니다.
 
-[API 참조 설명서](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/KeyVault) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
+[API 참조 설명서](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
 
 ## <a name="prerequisites"></a>필수 조건
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 3ff1a119ed87c8bffff227679bec41bc653c0c42
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 47668169841cc2b180995808349487cefed02391
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718765"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754298"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>REST API를 사용하여 기업 등록 청구 검토
 
@@ -78,7 +78,7 @@ Authorization: Bearer
 }
 ```  
 
-이 예제는 요약된 것입니다. 각 응답 필드 및 오류 처리에 대한 전체 설명은 [청구 계정에 대한 사용량 상세 정보 가져오기](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist)를 참조하세요.
+이 예제는 요약된 것입니다. 각 응답 필드 및 오류 처리에 대한 전체 설명은 [청구 계정에 대한 사용량 상세 정보 가져오기](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist-legacy)를 참조하세요.
 
 ## <a name="department-billing"></a>부서 청구 
 
@@ -134,7 +134,7 @@ Authorization: Bearer
 }
 ```  
 
-이 예제는 요약된 것입니다. 각 응답 필드 및 오류 처리에 대한 전체 설명은 [부서에 대한 사용량 상세 정보 가져오기](/rest/api/consumption/usagedetails/list#departmentusagedetailslist)를 참조하세요.
+이 예제는 요약된 것입니다. 각 응답 필드 및 오류 처리에 대한 전체 설명은 [부서에 대한 사용량 상세 정보 가져오기](/rest/api/consumption/usagedetails/list#departmentusagedetailslist-legacy)를 참조하세요.
 
 ## <a name="enrollment-account-billing"></a>등록 계정 청구
 
@@ -187,7 +187,7 @@ Authorization: Bearer
 }
 ``` 
 
-이 예제는 요약된 것입니다. 각 응답 필드 및 오류 처리에 대한 전체 설명은 [등록 계정에 대한 사용량 상세 정보 가져오기](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist)를 참조하세요.
+이 예제는 요약된 것입니다. 각 응답 필드 및 오류 처리에 대한 전체 설명은 [등록 계정에 대한 사용량 상세 정보 가져오기](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist-legacy)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계 
 - [기업 보고 개요](https://docs.microsoft.com/azure/billing/billing-enterprise-api) 검토

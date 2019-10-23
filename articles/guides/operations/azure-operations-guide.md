@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: b225052daa61932f3b8b868789cfb3c204eca88f
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 9b23e3b69b4970e765ea1cd5af690cf074bad774
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543419"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693441"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 운영자를 위한 시작하기
 
@@ -461,7 +461,6 @@ Azure Virtual network는 기본적으로 Azure에 저장된 리소스에만 액�
 ### <a name="hybrid-virtual-networks"></a>하이브리드 가상 네트워크
 
 ExpressRoute 또는 사이트 간 VPN 연결을 사용하여 온-프레미스 네트워크를 Azure virtual network에 연결할 수 있습니다. 이 구성에서 Azure virtual network는 기본적으로 온-프레미스 네트워크의 클라우드 기반 확장입니다.
-![VPN을 사용하는 하이브리드 가상 네트워크](https://docs.microsoft.com/azure/architecture/reference-architectures/_images/blueprints/hybrid-network-vpn.png)
 
 Azure virtual network가 온-프레미스 네트워크에 연결되어 있으므로 프레미스 간 가상 네트워크는 조직에서 사용하는 고유한 주소 공간을 사용해야 합니다. 서로 다른 회사 위치에 특정 IP 서브넷이 할당되는 것과 같은 방식으로 Azure는 네트워크를 확장할 때 다른 위치가 됩니다.
 가상 네트워크를 배포하기 위한 몇 가지 옵션이 있습니다.

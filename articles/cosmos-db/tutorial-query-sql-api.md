@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB에서 SQL을 사용하여 쿼리하는 방법
 description: Azure Cosmos DB에서 SQL을 사용하여 쿼리하는 방법을 알아봅니다.
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 05/21/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7e57abcc3df17dadd2e607895a8de011761ed68c
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ffebdb0a46fdae981ca73a4569344365459dd7b8
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932790"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756811"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>자습서: SQL API를 사용하여 Azure Cosmos DB 쿼리
 
@@ -65,7 +65,7 @@ SQL 쿼리에 대한 자세한 내용은 다음을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에서는 Azure Cosmos DB 계정과 컬렉션이 있다고 가정합니다. 이들 중 하나라도 없는가요? [5분 빠른 시작](create-mongodb-nodejs.md)을 완료하세요.
+이 자습서에서는 Azure Cosmos DB 계정과 컬렉션이 있다고 가정합니다. 이들 중 하나라도 없는가요? [5분 빠른 시작](create-cosmosdb-resources-portal.md)을 완료하세요.
 
 ## <a name="example-query-1"></a>예제 쿼리 1
 

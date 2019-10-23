@@ -3,19 +3,19 @@ title: Apache Spark 앱과의 연결 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Kafka에 대한 Azure Event Hubs에서 Apache Spark를 사용하는 방법을 설명합니다.
 services: event-hubs
 documentationcenter: .net
-author: basilhariri
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.author: bahariri
-ms.openlocfilehash: 93fdd85d1fd1b91e01d8f38b4890e1b588a5c704
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.author: shvija
+ms.openlocfilehash: 5bd25604844ce0521b6bac2d637a2d48a6ef089b
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091240"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555743"
 ---
 # <a name="connect-your-apache-spark-application-with-kafka-enabled-azure-event-hubs"></a>Apache Spark 애플리케이션을 Kafka 지원 Azure Event Hubs에 연결
 이 자습서에서는 Spark 애플리케이션을 Kafka 지원 Event Hubs에 연결하여 실시간으로 스트리밍하는 방법을 안내합니다. 이렇게 통합하면 프로토콜 클라이언트를 변경하거나 사용자 고유의 Kafka 또는 Zookeeper 클러스터를 실행할 필요 없이 스트리밍이 가능합니다. 이 자습서에서는 Apache Spark v2.4+ 및 Apache Kafka v2.0+가 필요합니다.
@@ -115,7 +115,7 @@ Event Hubs 및 Kafka용 Event Hubs에 대해 자세히 알아보려면 다음 �
 - [Event Hubs에 대해 알아봅니다](event-hubs-what-is-event-hubs.md).
 - [Apache Kafka용 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)
 - [Kafka 사용 Event Hubs 만드는 방법](event-hubs-create-kafka-enabled.md)
-- [Kafka 응용 프로그램에서 이벤트 허브로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [Kafka 애플리케이션에서 이벤트 허브로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [Kafka 지원 이벤트 허브에서 Kafka broker 미러링](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Kafka 지원 이벤트 허브에 Apache Flink 연결](event-hubs-kafka-flink-tutorial.md)
 - [Kafka 지원 이벤트 허브에 Kafka Connect 통합](event-hubs-kafka-connect-tutorial.md)
