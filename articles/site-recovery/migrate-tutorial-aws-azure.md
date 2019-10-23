@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1533ceebcda15c45a71c04580c35432de4125ccd
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 4a1952f5ece4c021834fb98f8a09f1a2738e6469
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984992"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789383"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services)에서 Azure로 VM 마이그레이션
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 
 > [!NOTE]
-    > 이제 Azure Migrate 서비스를 사용하여 AWS 인스턴스를 Azure로 마이그레이션할 수 있습니다. [자세히 알아보기](../migrate/tutorial-migrate-physical-virtual-machines.md).
+> 이제 Azure Migrate 서비스를 사용하여 AWS 인스턴스를 Azure로 마이그레이션할 수 있습니다. [자세히 알아보기](../migrate/tutorial-migrate-physical-virtual-machines.md).
 
 ## <a name="prerequisites"></a>필수 조건
 - 마이그레이션할 VM이 지원되는 OS 버전을 실행하고 있는지 확인합니다. 지원되는 버전은 다음과 같습니다. 
