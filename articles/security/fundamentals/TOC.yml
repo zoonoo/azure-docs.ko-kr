@@ -3,10 +3,6 @@
 - name: 아키텍처 및 디자인
   href: overview.md
   expanded: false
-  items: null
-- name: 아키텍처 및 디자인
-  href: overview.md
-  expanded: false
   items:
     - name: 클라우드의 공동 책임
       href: shared-responsibility.md
@@ -232,16 +228,12 @@
   href: 'https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource'
 - name: Azure 보안 서비스
   href: services-technologies.md
-- name: 기술 개요
-  href: overviews.md
 - name: 모범 사례
   href: best-practices-and-patterns.md
 - name: 리소스
   items:
     - name: 기본 제공 보안 컨트롤
       href: security-controls.md
-    - name: Azure 보안 MVP 프로그램
-      href: mvp.md
     - name: 사이버 보안 컨설팅
       href: cyber-services.md
     - name: 보안 이벤트 지원 티켓 로깅

@@ -98,13 +98,13 @@
     - name: 진단 및 문제 해결
       items:
         - name: Redis 서버 문제 해결
-          href: cache-how-to-troubleshoot-server.md
+          href: cache-troubleshoot-server.md
         - name: Redis 클라이언트 문제 해결
-          href: cache-how-to-troubleshoot-client.md
+          href: cache-troubleshoot-client.md
         - name: 시간 제한 문제 해결
-          href: cache-how-to-troubleshoot-timeouts.md
+          href: cache-troubleshoot-timeouts.md
         - name: 데이터 손실 문제 해결
-          href: cache-how-to-troubleshoot-data-loss.md
+          href: cache-troubleshoot-data-loss.md
     - name: 확장
       items:
         - name: 다른 크기 및 계층으로 업데이트
