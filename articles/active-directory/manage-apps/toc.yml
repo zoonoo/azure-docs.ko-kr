@@ -68,6 +68,8 @@
               href: end-user-experiences.md
     - name: 자동 사용자 프로비전
       items:
+        - name: 자동 사용자 프로비저닝 배포 계획
+          href: plan-auto-user-provisioning.md
         - name: SCIM 사용 앱에 대한 자동 프로비저닝
           href: use-scim-to-provision-users-and-groups.md
     - name: 온-프레미스 앱에 대한 애플리케이션 프록시

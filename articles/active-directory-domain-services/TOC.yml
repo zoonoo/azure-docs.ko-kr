@@ -9,8 +9,10 @@
 - name: 자습서
   expanded: true
   items:
-    - name: 관리형 도메인 만들기
+    - name: 기본 관리되는 도메인 만들기
       href: tutorial-create-instance.md
+    - name: 앱용 가상 네트워크 구성
+      href: tutorial-configure-networking.md
     - name: Windows Server VM에 도메인 가입
       href: join-windows-vm.md
     - name: 관리 도구 설치
@@ -19,6 +21,8 @@
       href: tutorial-configure-ldaps.md
     - name: 암호 해시 동기화 구성
       href: tutorial-configure-password-hash-sync.md
+    - name: 고급 관리되는 도메인 만들기
+      href: tutorial-create-instance-advanced.md
 - name: 샘플
   items:
     - name: Azure PowerShell을 사용하여 관리되는 도메인 만들기

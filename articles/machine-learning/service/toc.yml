@@ -297,7 +297,15 @@
         - name: 데이터 입력 및 출력
           items:
             - name: 데이터 가져오기
-              href: ../algorithm-module-reference/import-data.md
+              items:
+                - name: 데이터 가져오기
+                  href: ../algorithm-module-reference/import-data.md
+                - name: HTTP를 통해 웹 URL에서 가져오기
+                  href: ../algorithm-module-reference/import-from-web-url-via-http.md
+                - name: Azure Blob Storage 모듈에서 가져오기
+                  href: ../algorithm-module-reference/import-from-azure-blob-storage.md
+                - name: Azure SQL Database에서 가져오기
+                  href: ../algorithm-module-reference/import-from-azure-sql-database.md
             - name: 데이터 내보내기
               href: ../algorithm-module-reference/export-data.md
             - name: 수동으로 데이터 입력
@@ -330,6 +338,10 @@
               href: ../algorithm-module-reference/normalize-data.md
             - name: 파티션 및 샘플
               href: ../algorithm-module-reference/partition-and-sample.md
+            - name: 값 잘라내기
+              href: ../algorithm-module-reference/clip-values.md
+            - name: SQL 변환 적용
+              href: ../algorithm-module-reference/apply-sql-transformation.md
         - name: Machine Learning
           items:
             - name: 모델 채점
@@ -382,6 +394,12 @@
               href: ../algorithm-module-reference/create-python-model.md
             - name: R 스크립트 실행
               href: ../algorithm-module-reference/execute-r-script.md
+        - name: 통계 함수
+          items:
+            - name: 수학 연산 적용
+              href: ../algorithm-module-reference/apply-math-operation.md
+            - name: 데이터 요약
+              href: ../algorithm-module-reference/summarize-data.md
         - name: 오류 메시지 및 코드
           href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: 리소스

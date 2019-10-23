@@ -28,19 +28,17 @@
     - name: Azure Cache for Redis 샘플
       href: cache-redis-samples.md
     - name: Azure PowerShell
-      href: cache-howto-manage-redis-cache-powershell.md
+      href: cache-how-to-manage-redis-cache-powershell.md
     - name: Azure CLI
       href: cli-samples.md
 - name: 개념
   items:
     - name: 모범 사례
-      items:
-        - name: Azure Cache for Redis의 모범 사례
-          href: cache-best-practices.md
-        - name: 캐싱에 대한 Azure Architecture 모범 사례
-          href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
-    - name: 장애 조치(failover) 및 패치 적용 설명
+      href: cache-best-practices.md
+    - name: 장애 조치(failover) 및 패치
       href: cache-failover.md
+    - name: 캐싱에 대한 아키텍처 모범 사례
+      href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
 - name: 방법 가이드
   items:
     - name: 계획
@@ -58,19 +56,25 @@
     - name: 자동화
       items:
         - name: Azure Powershell을 사용하여 배포 및 관리
-          href: cache-howto-manage-redis-cache-powershell.md
+          href: cache-how-to-manage-redis-cache-powershell.md
         - name: Azure CLI를 사용하여 배포 및 관리
           href: cli-samples.md
         - name: Azure Cache for Redis 프로비전
           href: cache-redis-cache-arm-provision.md
         - name: Azure Cache for Redis가 포함된 웹앱 프로비전
           href: cache-web-app-arm-with-redis-cache-provision.md
-    - name: ASP.NET과 통합
+    - name: 애플리케이션과 통합
       items:
-        - name: 세션 상태 공급자
-          href: cache-aspnet-session-state-provider.md
-        - name: 출력 캐시 공급자
-          href: cache-aspnet-output-cache-provider.md
+        - name: ASP.NET
+          items:
+            - name: 세션 상태 공급자 사용
+              href: cache-aspnet-session-state-provider.md
+            - name: 출력 캐시 공급자 사용
+              href: cache-aspnet-output-cache-provider.md
+        - name: Java Spring
+          items:
+            - name: Spring Boot Initializer 구성
+              href: cache-java-spring-boot-initializer-with-redis-cache.md
     - name: 관리
       items:
         - name: Azure Portal에서 구성
@@ -85,24 +89,28 @@
           href: 'cache-administration.md#schedule-updates'
         - name: redis-cli.exe 액세스 구성
           href: cache-how-to-redis-cli-tool.md
-    - name: 모니터링 및 문제 해결
+    - name: 모니터
       items:
         - name: Azure Portal에서 모니터링
           href: cache-how-to-monitor.md
-        - name: 캐시 문제 해결
-          href: cache-how-to-troubleshoot.md
         - name: 예외에 대한 경고 설정
           href: 'cache-how-to-monitor.md#operations-and-alerts'
+    - name: 진단 및 문제 해결
+      items:
+        - name: Redis 서버 문제 해결
+          href: cache-how-to-troubleshoot-server.md
+        - name: Redis 클라이언트 문제 해결
+          href: cache-how-to-troubleshoot-client.md
+        - name: 시간 제한 문제 해결
+          href: cache-how-to-troubleshoot-timeouts.md
+        - name: 데이터 손실 문제 해결
+          href: cache-how-to-troubleshoot-data-loss.md
     - name: 확장
       items:
         - name: 다른 크기 및 계층으로 업데이트
           href: cache-how-to-scale.md
         - name: Redis 클러스터를 이용한 확장/감축
           href: cache-how-to-premium-clustering.md
-    - name: Spring Boot와 통합
-      items:
-        - name: Azure Cache for Redis에서 Spring Boot Initializer 앱 사용
-          href: cache-java-spring-boot-initializer-with-redis-cache.md
 - name: 참고 자료
   items:
     - name: 코드 샘플

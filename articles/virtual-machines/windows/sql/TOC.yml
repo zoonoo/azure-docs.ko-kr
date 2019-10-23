@@ -64,9 +64,9 @@
           href: virtual-machines-windows-ps-sql-create.md
     - name: 리소스 공급자 등록
       href: virtual-machines-windows-sql-register-with-resource-provider.md
-    - name: SQL VM의 라이선스 모델 변경
+    - name: 라이선스 모델 변경
       href: virtual-machines-windows-sql-ahb.md
-    - name: SQL Server 버전 변경
+    - name: 버전 변경
       href: virtual-machines-windows-sql-change-edition.md
     - name: 마이그레이션
       items:
@@ -103,7 +103,7 @@
             - name: Storage Spaces Direct 사용
               href: virtual-machines-windows-portal-sql-create-failover-cluster.md
             - name: 프리미엄 파일 공유 사용
-              href: virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md
+              href: virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md
 - name: 참고 자료
   items:
     - name: Azure PowerShell
