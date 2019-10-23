@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 50de654fb9222951a7380a322160496421006e7a
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 57e38888249de448f5286baa1b5ebb0e2c01bda9
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719673"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757408"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>Azure 예약 자동화용 API
 
@@ -26,7 +26,7 @@ Azure API를 사용하여 프로그래밍 방식으로 Azure 서비스 또는 �
 
 예약 권장 사항 API를 사용하여 조직의 사용량을 기준으로 구입할 예약 플랜에 대한 권장 사항을 가져옵니다. 자세한 내용은 [예약 권장 사항 가져오기](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)를 참조하세요.
 
-또한 소비 API 사용량 세부 정보를 사용하여 리소스 사용량을 분석할 수도 있습니다. 자세한 내용은 [사용량 세부 정보 - 청구 계정별 청구 기간 목록](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslistforbillingperiod)을 참조하세요. 일관되게 사용하는 Azure 리소스가 일반적으로 예약에 가장 적합한 후보입니다.
+또한 소비 API 사용량 세부 정보를 사용하여 리소스 사용량을 분석할 수도 있습니다. 자세한 내용은 [사용량 세부 정보 - 청구 계정별 청구 기간 목록](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslistforbillingperiod-legacy)을 참조하세요. 일관되게 사용하는 Azure 리소스가 일반적으로 예약에 가장 적합한 후보입니다.
 
 ## <a name="buy-a-reservation"></a>예약 구입
 

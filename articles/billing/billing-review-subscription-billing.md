@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 33fc6e59a0a85275b055524d8ccf5d78935725a8
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 05ce5fd560168c1f60b7c559539f4a368ba83ca8
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718752"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754290"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Azure REST API를 사용하여 구독 청구 검토
 
@@ -92,7 +92,7 @@ Authorization: Bearer
 |**meterDetails** | 사용 관련 상세 정보 |
 |**nextLink**| 설정한 경우 세부 정보의 다음 "페이지" URL을 지정합니다. 페이지가 마지막이면 비어 있습니다. |
 
-이 예는 요약된 것입니다. 각 응답 필드에 대한 전체 설명은 [사용량 상세 정보 목록](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod)을 참조하세요.
+이 예는 요약된 것입니다. 각 응답 필드에 대한 전체 설명은 [사용량 상세 정보 목록](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod-legacy)을 참조하세요.
 
 다른 상태 코드는 오류 조건을 나타냅니다. 이런 경우 응답 개체가 요청 실패 이유를 설명합니다.
 
