@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5ea900efffe1aa0eec768c5376128bad72e85ca4
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.openlocfilehash: afad2648ec73b02d4e06ad55f850a518d2488f68
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693541"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756047"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -904,7 +904,7 @@ Azure Machine Learning SDK for Python v 1.0.30가 릴리스 되었습니다.
 
  + **변경된 기능**
    + Azureml tensorboard 패키지는 azureml-tensorboard를 대체 합니다.
-   + 이 릴리스에서는 생성 하는 동안 관리 되는 계산 클러스터 (amlcompute)에서 사용자 계정을 설정할 수 있습니다. 프로 비전 구성에서 이러한 속성을 전달 하 여이 작업을 수행할 수 있습니다. 자세한 내용은 [SDK 참조 설명서](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remotelogin-port-public-access--notspecified--)에서 확인할 수 있습니다.
+   + 이 릴리스에서는 생성 하는 동안 관리 되는 계산 클러스터 (amlcompute)에서 사용자 계정을 설정할 수 있습니다. 프로 비전 구성에서 이러한 속성을 전달 하 여이 작업을 수행할 수 있습니다. 자세한 내용은 [SDK 참조 설명서](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remote-login-port-public-access--notspecified--)에서 확인할 수 있습니다.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1017"></a>Azure Machine Learning 데이터 준비 SDK v 1.0.17
 

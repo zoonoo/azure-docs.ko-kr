@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: 2cc6493d01508d439d8dcef2d12ca1ea40632d81
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ce83d521d5bc986be7bb24ef874f1f0e1051e3ae
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096239"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755408"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions 프리미엄 계획 (미리 보기)
 
@@ -31,7 +31,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 --location <REGION> --sku EP1
 ```
 
-이 예제에서을 리소스 `<RESOURCE_GROUP>` `<PLAN_NAME>` 그룹으로 바꾸고를 리소스 그룹에서 고유한 계획의 이름으로 바꿉니다. [지원 되 `<REGION>` ](#regions)는를 지정 합니다. Linux를 지 원하는 프리미엄 요금제를 만들려면 `--is-linux` 옵션을 포함 합니다.
+이 예제에서는 `<RESOURCE_GROUP>`를 리소스 그룹으로 바꾸고 리소스 그룹에서 고유한 계획의 이름을 사용 하 여 `<PLAN_NAME>` 합니다. [지원 되는 `<REGION>`](#regions)를 지정 합니다. Linux를 지 원하는 프리미엄 계획을 만들려면 `--is-linux` 옵션을 포함 합니다.
 
 계획을 만든 후에는 [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 를 사용 하 여 함수 앱을 만들 수 있습니다. 포털에서 계획과 앱은 동시에 생성 됩니다. 
 
@@ -94,38 +94,46 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 계획을 만들거나 크기를 조정할 때 세 가지 인스턴스 크기 중에서 선택할 수 있습니다.  총 코어 수와 초당 사용 된 메모리에 대 한 요금이 청구 됩니다.  필요에 따라 앱이 여러 인스턴스로 자동 확장 될 수 있습니다.  
 
-|SKU|코어|메모리|저장 공간|
+|SKU|코어 수|메모리|스토리지|
 |--|--|--|--|
-|EP1|1|3.5GB|250GB|
-|EP2|2|7GB|250GB|
-|EP3|4|14GB|250GB|
+|EP1|1|3.5 g b|250GB|
+|E P 2|2|7GB|250GB|
+|노출할|4|14GB|250GB|
 
-## <a name="regions"></a>영역
+## <a name="regions"></a>개 지역
 
 다음은 각 OS에 대 한 공개 미리 보기에 대해 현재 지원 되는 지역입니다.
 
-|Region| Windows | Linux |
+|지역| Windows | Linux |
 |--| -- | -- |
+|오스트레일리아 중부| ✔ * | |
+|오스트레일리아 중부 2| ✔ * | |
 |오스트레일리아 동부| ✔ | |
 |오스트레일리아 남동부 | ✔ | ✔ |
+|브라질 남부| ✔ * * |  |
 |캐나다 중부| ✔ |  |
 |미국 중부| ✔ |  |
-|아시아 동부| ✔ |  |
-|East US | | ✔ |
+|동아시아| ✔ |  |
+|미국 동부 | ✔ | ✔ |
 |미국 동부 2| ✔ |  |
 |프랑스 중부| ✔ |  |
-|일본 동부|  | ✔ |
+|일본 동부| ✔ | ✔ |
 |일본 서부| ✔ | |
 |한국 중부| ✔ |  |
 |미국 중북부| ✔ |  |
-|유럽 북부| ✔ | ✔ |
+|북유럽| ✔ | ✔ |
 |미국 중남부| ✔ |  |
 |인도 남부 | ✔ | |
 |동남아시아| ✔ | ✔ |
+|영국 남부| ✔ | |
 |영국 서부| ✔ |  |
-|유럽 서부| ✔ | ✔ |
+|서유럽| ✔ | ✔ |
 |인도 서부| ✔ |  |
 |미국 서부| ✔ | ✔ |
+
+최대 확장 수를 20 개 인스턴스로 제한 \*
+
+\* * 최대 규모 제한이 60 인스턴스로 제한 됨
 
 ## <a name="known-issues"></a>알려진 문제
 

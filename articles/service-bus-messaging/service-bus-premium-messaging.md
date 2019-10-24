@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 600577ebf05a8bc89dbec35d3b3ee5162aa246e1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7565ce24199dd8f86f756f01f66aa79e764a1a12
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64872722"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752200"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus 프리미엄 및 표준 메시징 계층
 
@@ -37,7 +37,7 @@ Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 애플리케�
 | 작업을 확장 및 축소하는 기능 |N/A |
 | 최대 1MB의 메시지 크기 |최대 256KB의 메시지 크기 |
 
-**Service Bus 프리미엄 메시지**는 각 고객의 워크로드가 따로 실행되도록 CPU 및 메모리 수준에서 리소스 격리를 제공합니다. 이 리소스 컨테이너를 *메시징 단위*라고 합니다. 각 프리미엄 네임스페이스에는 하나 이상의 메시징 단위가 할당됩니다. 1, 2, 4 또는 8 메시징 각 Service Bus 프리미엄 네임 스페이스에 대 한 단위를 구입할 수 있습니다. 단일 워크 로드 또는 엔터티가 여러 메시징 단위에 걸쳐 수 및 메시징 단위 수를 변경할 수 있습니다. 그 결과, Service Bus 기반 솔루션에 대해 예측 가능하고 반복 가능한 성능이 구현됩니다.
+**Service Bus 프리미엄 메시지**는 각 고객의 워크로드가 따로 실행되도록 CPU 및 메모리 수준에서 리소스 격리를 제공합니다. 이 리소스 컨테이너를 *메시징 단위*라고 합니다. 각 프리미엄 네임스페이스에는 하나 이상의 메시징 단위가 할당됩니다. 각 Service Bus 프리미엄 네임 스페이스에 대해 1, 2, 4 또는 8 개의 메시징 단위를 구입할 수 있습니다. 단일 작업 또는 엔터티는 여러 메시징 단위에 걸쳐 있을 수 있으며 메시징 단위 수는 변경 될 수 있습니다. 그 결과, Service Bus 기반 솔루션에 대해 예측 가능하고 반복 가능한 성능이 구현됩니다.
 
 이로 인해 예측 가능성 및 가용성도 높아질 뿐 아니라 속도도 더 빨라집니다. Service Bus 프리미엄 메시징은 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)에 도입된 스토리지 엔진에 빌드됩니다. 프리미엄 메시징을 사용할 경우 표준 계층을 사용하는 것보다 최고 성능이 훨씬 더 빠릅니다.
 
@@ -56,19 +56,44 @@ Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 애플리케�
 표준 메시지에서 실행되는 코드가 있고 프리미엄 계층으로 이식하려는 경우 [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) 속성이 **false**(기본값)로 설정되어 있는지 확인합니다.
 
 ## <a name="premium-messaging-resource-usage"></a>프리미엄 메시징 리소스 사용량
-일반적으로 엔터티의 모든 작업에는 CPU 및 메모리 사용량을 발생할 수 있습니다. 다음은 이러한 작업의 일부입니다. 
+일반적으로 엔터티에 대 한 모든 작업을 수행 하면 CPU 및 메모리 사용이 발생할 수 있습니다. 이러한 작업 중 일부는 다음과 같습니다. 
 
-- CRUD 등의 관리 작업 (만들기, 검색, 업데이트 및 삭제) 작업 큐, 토픽 및 구독에 있습니다.
+- 큐, 토픽 및 구독에 대 한 CRUD (만들기, 검색, 업데이트 및 삭제) 작업과 같은 관리 작업입니다.
 - 런타임 작업 (메시지 보내기 및 받기)
 - 작업 및 경고 모니터링
 
-하지만 추가 CPU 및 메모리 사용량 또한 가격이 하지는. 프리미엄 메시징 계층에 대 한 메시지 단위에 대 한 단일 가격을 있습니다.
+추가 CPU 및 메모리 사용은 그 외에도 가격이 책정 되지 않습니다. 프리미엄 메시징 계층에는 메시지 단위에 대 한 단일 가격이 있습니다.
 
-CPU 및 메모리 사용량 추적 되며 다음과 같은 이유로 있습니다에 게 표시 됩니다. 
+다음과 같은 이유로 CPU 및 메모리 사용량이 추적 되 고 사용자에 게 표시 됩니다. 
 
-- 시스템 내부에 대 한 투명성을 제공 합니다.
-- 구매 하는 리소스의 용량을 이해 합니다.
-- 용량 계획 하는 확장/축소를 결정 하도록 도와줍니다.
+- 시스템 내부에 투명성 제공
+- 구매한 리소스의 용량을 파악 합니다.
+- 확장/축소를 결정 하는 데 도움이 되는 용량 계획입니다.
+
+## <a name="messaging-unit---how-many-are-needed"></a>메시징 단위-필요한 개수
+
+Azure Service Bus Premium 네임 스페이스를 프로 비전 할 때 할당 된 메시징 단위 수를 지정 해야 합니다. 이러한 메시징 단위는 네임 스페이스에 할당 되는 전용 리소스입니다.
+
+Service Bus Premium 네임 스페이스에 할당 된 메시징 단위 수는 워크 로드의 변경 (증가 또는 감소)을 고려 하 여 **동적으로 조정할** 수 있습니다.
+
+아키텍처의 메시징 단위 수를 결정할 때 고려해 야 할 여러 요인이 있습니다.
+
+- 네임 스페이스에 할당 된 ***1 ~ 2 개의 메시징 단위*** 를 사용 하 여 시작 합니다.
+- 네임 스페이스에 대 한 [리소스 사용 메트릭](service-bus-metrics-azure-monitor.md#resource-usage-metrics) 내에서 CPU 사용 메트릭을 연구 합니다.
+    - CPU 사용량이 ***20% 미만이***면 네임 스페이스에 할당 된 메시징 단위의 수를 ***줄일*** 수 있습니다.
+    - CPU 사용량이 ***70%를 초과***하면 응용 프로그램은 네임 스페이스에 할당 된 메시징 단위 수를 ***확장*** 하는 이점을 누릴 수 있습니다.
+
+Service Bus 네임 스페이스에 할당 된 리소스의 크기를 조정 하는 프로세스는 [Azure Automation runbook](../automation/automation-quickstart-create-runbook.md)을 사용 하 여 자동화할 수 있습니다.
+
+> [!NOTE]
+> 네임 스페이스에 할당 된 리소스의 **크기 조정은** 선점형 이거나 대응식 일 수 있습니다.
+>
+>  * **선점형**: 계절성 또는 추세 때문에 추가 작업이 필요한 경우 작업에 도달 하기 전에 네임 스페이스에 더 많은 메시징 단위를 할당할 수 있습니다.
+>
+>  * **사후**: 리소스 사용 메트릭을 조사 하 여 추가 작업을 식별 한 경우 추가 리소스를 네임 스페이스에 할당 하 여 수요를 늘릴 수 있습니다.
+>
+> Service Bus 요금은 매시간 청구 됩니다. 수직 확장의 경우 사용 된 시간에 대 한 추가 리소스에 대해서만 비용을 지불 합니다.
+>
 
 ## <a name="get-started-with-premium-messaging"></a>프리미엄 메시징 시작
 

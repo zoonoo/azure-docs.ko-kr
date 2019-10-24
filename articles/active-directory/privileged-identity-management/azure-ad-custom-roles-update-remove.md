@@ -4,23 +4,23 @@ description: PIM(Privileged Identity Management)에서 Azure AD 사용자 지정
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.assetid: ''
-ms.service: role-based-access-control
+ms.service: active-directory
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63c2c96f53861eafcd95df8f5163d14bcb5fbd5f
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
-ms.translationtype: HT
+ms.openlocfilehash: ccbc9fbd763b9393a64d6cfc29f6b5a9d021da88
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947529"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756349"
 ---
 # <a name="update-or-remove-an-assigned-azure-ad-custom-role-in-privileged-identity-management"></a>Privileged Identity Management에서 할당된 Azure AD 사용자 지정 역할 업데이트 또는 제거
 
@@ -30,7 +30,7 @@ ms.locfileid: "68947529"
 - Privileged Identity Management를 아직 사용하지 않은 경우 [Privileged Identity Management 사용 시작](pim-getting-started.md)에서 자세한 정보를 확인하세요.
 
 > [!NOTE]
-> Azure AD 사용자 지정 역할은 미리 보기 동안 기본 제공 디렉터리 역할과 통합되지 않습니다. 이 기능을 일반적으로 사용할 수 있게 되면 기본 제공 역할 환경에서 역할 관리가 수행됩니다.
+> 미리 보기 기간 중에는 Azure AD 사용자 지정 역할이 기본 제공 디렉터리 역할과 통합되지 않습니다. 이 기능을 일반적으로 사용할 수 있게 되면 기본 제공 역할 환경에서 역할 관리가 수행됩니다.
 
 ## <a name="update-or-remove-an-assignment"></a>할당 업데이트 또는 제거
 

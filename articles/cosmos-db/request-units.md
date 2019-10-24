@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB의 요청 단위 및 처리량
 description: Azure Cosmos DB에서 요청 단위 요구 사항을 지정하고 예측하는 방법에 대한 자세한 정보
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
-ms.openlocfilehash: a1143f912d894c1219de05b03a2338dc4e5bdc5f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 6e5d95a47261445e3031f55368f4e2cd8e2830a7
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467649"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754859"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB의 요청 단위
 
@@ -33,24 +33,24 @@ Azure Cosmos DB는 SQL, MongoDB, Cassandra, Gremlin, Table 등의 많은 API를 
 
 두 가지 고유 단위로 처리량을 프로비전할 수 있습니다. 
 
-* **컨테이너**: 자세한 내용은 [Azure Cosmos 컨테이너의 처리량 프로비전](how-to-provision-container-throughput.md)을 참조하세요.
-* **데이터베이스**: 자세한 내용은 [Azure Cosmos 데이터베이스의 처리량 프로비전](how-to-provision-database-throughput.md)을 참조하세요.
+* **컨테이너**: 자세한 내용은 [Azure Cosmos 컨테이너에서 처리량 프로 비전](how-to-provision-container-throughput.md)을 참조 하세요.
+* **데이터베이스**: 자세한 내용은 [Azure Cosmos 데이터베이스에서 처리량 프로 비전](how-to-provision-database-throughput.md)을 참조 하세요.
 
 ## <a name="request-unit-considerations"></a>요청 단위 고려 사항
 
 프로비전할 초당 RU 수를 예상하는 동안 다음 요소를 고려하세요.
 
-* **항목 크기**: 항목의 크기가 증가함에 따라 항목을 읽거나 쓰는 데 사용되는 RU 수도 증가합니다.
+* **항목 크기**: 항목의 크기가 늘어나면 항목을 읽거나 쓰는 데 사용 된 RUs의 수도 늘어납니다.
 
-* **항목 인덱싱**: 기본적으로 각 항목은 자동으로 인덱싱됩니다. 컨테이너에서 일부 항목을 인덱싱하지 않도록 선택하면 더 적은 RU가 사용됩니다.
+* **항목 인덱싱**: 기본적으로 각 항목이 자동으로 인덱싱됩니다. 컨테이너에서 일부 항목을 인덱싱하지 않도록 선택하면 더 적은 RU가 사용됩니다.
 
-* **항목 속성 개수**: 기본 인덱싱이 모든 속성에 대해 설정 된 것으로 가정 하면 항목 속성 수가 증가할수록 항목을 작성 하는 데 사용 된 RUs 수가 늘어납니다.
+* **항목 속성 수**: 기본 인덱싱이 모든 속성에 있다고 가정 하면 항목 속성 수가 증가할수록 항목을 쓰는 데 사용 된 RUs 수가 늘어납니다.
 
-* **인덱싱된 속성**: 각 컨테이너의 인덱스 정책에 따라 기본적으로 인덱싱되는 속성이 결정됩니다. 쓰기 작업에 대한 RU 사용을 줄이려면 인덱싱되는 속성 수를 제한합니다.
+* **인덱싱된 속성**: 각 컨테이너의 인덱스 정책에 따라 기본적으로 인덱싱되는 속성이 결정 됩니다. 쓰기 작업에 대한 RU 사용을 줄이려면 인덱싱되는 속성 수를 제한합니다.
 
-* **데이터 일관성**: 강력하고 제한된 부실 일관성 수준은 다른 완화된 일관성 수준과 비교할 경우 읽기 작업을 수행하는 동안 RU를 대략 2배 더 사용합니다.
+* **데이터 일관성**: 강력 하 고 제한 된 부실 일관성 수준에는 다른 완화 된 일관성 수준과 비교할 때 읽기 작업을 수행 하는 동안 두 배 더 많은 RUs가 사용 됩니다.
 
-* **쿼리 패턴**: 쿼리의 복잡성은 작업에 사용되는 RU 수에 영향을 줍니다. 쿼리 작업 비용에 영향을 주는 요소는 다음과 같습니다. 
+* **쿼리 패턴**: 쿼리의 복잡성은 작업에 사용 된 RUs의 수에 영향을 줍니다. 쿼리 작업 비용에 영향을 주는 요소는 다음과 같습니다. 
     
     - 쿼리 결과의 수입니다.
     - 조건자 수
@@ -62,7 +62,7 @@ Azure Cosmos DB는 SQL, MongoDB, Cassandra, Gremlin, Table 등의 많은 API를 
 
   Azure Cosmos DB는 동일한 데이터의 동일한 쿼리가 항상 반복 실행에서 동일한 RU 수를 사용하도록 보장합니다.
 
-* **스크립트 사용량**: 쿼리와 마찬가지로, 저장된 프로시저 및 트리거는 수행하는 작업의 복잡성에 따라 RU를 사용합니다. 응용 프로그램을 개발할 때 [요청 요금 헤더](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query) 를 검사 하 여 각 작업이 사용 하는 수 용량을 더 잘 파악 합니다.
+* **스크립트 사용법**: 쿼리를 사용할 때와 마찬가지로 저장 프로시저와 트리거는 수행 되는 작업의 복잡성을 기준으로 RUs를 사용 합니다. 응용 프로그램을 개발할 때 [요청 요금 헤더](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query) 를 검사 하 여 각 작업이 사용 하는 수 용량을 더 잘 파악 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

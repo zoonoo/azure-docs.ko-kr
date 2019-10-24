@@ -1,7 +1,7 @@
 ---
 title: Azure Machine Learning에 대 한 Git 통합
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 로컬 Git 리포지토리와 통합 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning 로컬 Git 리포지토리와 통합 하는 방법에 대해 알아봅니다. Git 리포지토리의 로컬 디렉터리에서 학습 실행을 제출할 때 리포지토리, 분기 및 현재 커밋에 대 한 정보는 실행의 일부로 추적 됩니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 10/11/2019
-ms.openlocfilehash: 1ef9f3f847cb74aca0cae66dc8354838d28a645f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: c8b2407b18f0d7115ce51fc28b956e7fd764c71e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553664"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756007"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Git 통합
 
@@ -92,5 +92,4 @@ az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup
 
 ## <a name="next-steps"></a>다음 단계
 
-* Visual Studio Code에서 Azure Machine Learning를 학습 하는 방법에 대 한 연습은 [자습서: Azure Machine Learning를 사용 하 여 모델 학습](tutorial-train-models-with-aml.md)을 참조 하세요.
-* 코드를 로컬로 편집, 실행 및 디버그 하는 방법에 대 한 연습은 [Python hello-세계 자습서](https://code.visualstudio.com/docs/Python/Python-tutorial)를 참조 하세요.
+* [모델 학습을 위한 계산 대상 설정 및 사용](how-to-set-up-training-targets.md)

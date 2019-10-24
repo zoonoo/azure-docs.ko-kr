@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: af20c9e3a50c0c60135b1e447e7e1cba1fc36526
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: fe4a2082647ef1325d03ce4eec428ed1579704c5
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815720"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755978"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용 하 여 machine learning 파이프라인 만들기 및 실행
 
@@ -32,7 +32,7 @@ ML 파이프라인은 계산에 원격 계산 대상을 사용 하 고 해당 �
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * 모든 파이프라인 리소스를 수용하는 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 
@@ -122,7 +122,7 @@ Azure Machine Learning에서 computes__ (또는 __계산 대상__) 이라는 용
 
 * Azure Machine Learning 컴퓨팅
 * Azure Databricks 
-* Azure Data Lake Analytics
+* Azure 데이터 레이크 분석
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning 컴퓨팅
 
@@ -163,9 +163,9 @@ Azure Databricks는 Azure 클라우드의 Apache Spark 기반 환경입니다. �
 
 Azure Databricks를 컴퓨팅 대상으로 연결하려면 다음 정보를 제공합니다.
 
-* __Databricks 컴퓨팅 이름__: 이 컴퓨팅 리소스에 할당하려는 이름입니다.
-* __Databricks 작업 영역__: Azure Databricks 작업 영역의 이름입니다.
-* __Databricks 액세스 토큰__: Azure Databricks에서 인증을 받는 데 사용하는 액세스 토큰입니다. 액세스 토큰을 생성하려면 [인증](https://docs.azuredatabricks.net/api/latest/authentication.html) 문서를 참조하세요.
+* __Databricks compute name__:이 계산 리소스에 할당할 이름입니다.
+* __Databricks 작업 영역 이름__: Azure Databricks 작업 영역의 이름입니다.
+* __Databricks access token__: Azure Databricks을 인증 하는 데 사용 되는 액세스 토큰입니다. 액세스 토큰을 생성하려면 [인증](https://docs.azuredatabricks.net/api/latest/authentication.html) 문서를 참조하세요.
 
 다음 코드는 Azure Machine Learning SDK를 사용하여 Azure Databricks를 컴퓨팅 대상으로 연결하는 방법을 보여줍니다.
 
@@ -217,7 +217,7 @@ Azure Data Lake Analytics는 Azure 클라우드의 빅 데이터 분석 플랫�
 Data Lake Analytics를 컴퓨팅 대상으로 연결하려면 Azure Machine Learning SDK를 사용하고 다음 정보를 제공해야 합니다.
 
 * __컴퓨팅 이름__: 이 컴퓨팅 리소스에 할당하려는 이름입니다.
-* __리소스 그룹__: Data Lake Analytics 계정을 포함하는 리소스 그룹입니다.
+* __리소스 그룹__: Data Lake Analytics 계정이 포함 된 리소스 그룹입니다.
 * __계정 이름__: Data Lake Analytics 계정 이름입니다.
 
 다음 코드는 컴퓨팅 대상으로 Data Lake Analytics에 연결하는 방법을 보여 줍니다.
@@ -278,7 +278,7 @@ trainStep = PythonScriptStep(
 )
 ```
 
-이전 결과 (`allow_reuse`)를 다시 사용 하는 것은 불필요 한 다시 정렬을 제거 하면 민첩성을 제공 하므로 공동 작업 환경에서 파이프라인을 사용할 때 키입니다. 다시 사용은 script_name, 입력 및 단계의 매개 변수가 동일 하 게 유지 되는 경우의 기본 동작입니다. 단계의 출력이 다시 사용 되는 경우 작업은 계산에 전송 되지 않고 이전 실행의 결과를 다음 단계의 실행에 즉시 사용할 수 있습니다. 가 `allow_reuse` false로 설정 된 경우 파이프라인 실행 중에이 단계에 대 한 새 실행이 항상 생성 됩니다. 
+불필요 한 다시 작업을 제거 하면 민첩성을 제공 하므로 공동 작업 환경에서 파이프라인을 사용 하는 경우 이전 결과 (`allow_reuse`)의 재사용은 중요 합니다. 다시 사용은 script_name, 입력 및 단계의 매개 변수가 동일 하 게 유지 되는 경우의 기본 동작입니다. 단계의 출력이 다시 사용 되는 경우 작업은 계산에 전송 되지 않고 이전 실행의 결과를 다음 단계의 실행에 즉시 사용할 수 있습니다. @No__t_0을 false로 설정 하면 파이프라인 실행 중에이 단계에 대해 새 실행이 항상 생성 됩니다. 
 
 단계를 정의한 후 일부 또는 모든 단계를 사용하여 파이프라인을 빌드합니다.
 
@@ -325,7 +325,7 @@ pipeline1 = Pipeline(workspace=ws, steps=steps)
 파이프라인을 제출할 때 Azure Machine Learning는 각 단계에 대 한 종속성을 확인 하 고 지정한 원본 디렉터리의 스냅숏을 업로드 합니다. 소스 디렉터리를 지정하지 않으면 현재 로컬 디렉터리가 업로드됩니다. 또한 스냅숏은 작업 영역에 실험의 일부로 저장 됩니다.
 
 > [!IMPORTANT]
-> 파일이 스냅숏에 포함 되지 않도록 하려면 디렉터리에 [.gitignore](https://git-scm.com/docs/gitignore) 또는 `.amlignore` 파일을 만들고 파일을 추가 합니다. 이 `.amlignore` 파일은 [.gitignore](https://git-scm.com/docs/gitignore) 파일과 동일한 구문과 패턴을 사용 합니다. 두 파일이 모두 있는 경우 `.amlignore` 파일이 우선적으로 적용 됩니다.
+> 파일이 스냅숏에 포함 되지 않도록 하려면 디렉터리에 [.gitignore](https://git-scm.com/docs/gitignore) 또는 `.amlignore` 파일을 만들고 파일을 추가 합니다. @No__t_0 파일은 [.gitignore](https://git-scm.com/docs/gitignore) 파일과 동일한 구문과 패턴을 사용 합니다. 두 파일이 모두 있는 경우 `.amlignore` 파일이 우선적으로 적용 됩니다.
 >
 > 자세한 내용은 [스냅샷](concept-azure-machine-learning-architecture.md#snapshots)을 참조하세요.
 
@@ -342,7 +342,7 @@ pipeline_run1.wait_for_completion()
 * 작업 영역과 연결된 Blob Storage에서 컴퓨팅 대상으로 프로젝트 스냅샷을 다운로드합니다.
 * 파이프라인의 각 단계에 해당하는 Docker 이미지를 빌드합니다.
 * 각 단계에 대 한 Docker 이미지를 컨테이너 레지스트리에서 계산 대상으로 다운로드 합니다.
-* 단계에서 `DataReference` 개체가 지정 된 경우 데이터 저장소를 탑재 합니다. 탑재가 지원되지 않는 경우 데이터가 대신 컴퓨팅 대상에 복사됩니다.
+* 단계에 `DataReference` 개체가 지정 된 경우 데이터 저장소를 탑재 합니다. 탑재가 지원되지 않는 경우 데이터가 대신 컴퓨팅 대상에 복사됩니다.
 * 단계 정의에 지정된 컴퓨팅 대상에서 단계를 실행합니다. 
 * 단계에서 지정한 로그, stdout, stderr, 메트릭, 출력 등의 아티팩트를 만듭니다. 그런 다음, 이러한 아티팩트가 업로드되어 사용자의 기본 데이터 저장소에 보관됩니다.
 
@@ -354,7 +354,7 @@ pipeline_run1.wait_for_completion()
 
 ## <a name="github-tracking-and-integration"></a>GitHub 추적 및 통합
 
-원본 디렉터리가 로컬 Git 리포지토리 인 학습 실행을 시작 하면 리포지토리에 대 한 정보가 실행 기록에 저장 됩니다. 예를 들어 리포지토리의 현재 커밋 ID는 기록의 일부로 기록 됩니다.
+원본 디렉터리가 로컬 Git 리포지토리 인 학습 실행을 시작 하면 리포지토리에 대 한 정보가 실행 기록에 저장 됩니다. 자세한 내용은 [Azure Machine Learning에 대 한 Git 통합](concept-train-model-git-integration.md)을 참조 하세요.
 
 ## <a name="publish-a-pipeline"></a>파이프라인 게시
 
@@ -410,7 +410,7 @@ response = requests.post(published_pipeline1.endpoint,
 ### <a name="view-results-of-a-published-pipeline"></a>게시 된 파이프라인의 결과 보기
 
 게시 된 모든 파이프라인 목록과 해당 실행 세부 정보를 확인 합니다.
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 
 1. [작업 영역을 보고](how-to-manage-workspace.md#view) 파이프라인 목록을 찾습니다.
  ![기계 학습 파이프라인 목록](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
@@ -429,17 +429,17 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-에서 `p.enable()`다시 사용 하도록 설정할 수 있습니다. 자세한 내용은 [PublishedPipeline 클래스](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py) 참조를 참조 하세요.
+@No__t_0를 사용 하 여 다시 사용 하도록 설정할 수 있습니다. 자세한 내용은 [PublishedPipeline 클래스](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py) 참조를 참조 하세요.
 
 
 ## <a name="caching--reuse"></a>캐싱 & 재사용  
 
 파이프라인의 동작을 최적화 하 고 사용자 지정 하기 위해 캐싱 및 다시 사용에 대 한 몇 가지 작업을 수행할 수 있습니다. 예를 들어 다음을 선택할 수 있습니다.
-+ [단계 정의](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)중에를 설정 `allow_reuse=False` 하 여 **단계의 기본 재사용을 해제** 합니다. 불필요 한 실행을 제거 하면 민첩성을 제공 하므로 공동 작업 환경에서 파이프라인을 사용할 때 재사용할 수 있습니다. 그러나 재사용을 옵트아웃 (opt out) 할 수 있습니다.
-+ Source_directory를 사용 @no__t 하 여 다른 파일 및 디렉터리에 대 한 절대 경로 또는 상대 경로를 포함 하도록 **스크립트를 넘어 해시를 확장**합니다. 
-+ 를 사용 하 여 **실행의 모든 단계에 대해 출력 다시 생성**`pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
++ [단계 정의](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)중에 `allow_reuse=False`를 설정 하 여 **단계의 기본 재사용을 해제** 합니다. 불필요 한 실행을 제거 하면 민첩성을 제공 하므로 공동 작업 환경에서 파이프라인을 사용할 때 재사용할 수 있습니다. 그러나 재사용을 옵트아웃 (opt out) 할 수 있습니다.
++ Source_directory를 사용 하 여 다른 파일 및 디렉터리에 대 한 절대 경로 또는 상대 경로를 포함 하도록 **스크립트를 넘어 해시를 확장**`hash_paths=['<file or directory']` 합니다. 
++ @No__t_1를 사용 하 여 **실행의 모든 단계에 대해 출력 다시 생성**
 
-기본적 `allow_reuse` 으로 단계를 사용 하 고 주 스크립트 파일만 해시 합니다. 따라서 지정 된 단계의 스크립트가 동일 (`script_name`, 입력 및 매개 변수) 상태로 유지 되는 경우 이전 단계 실행의 출력이 다시 사용 되 고, 작업이 계산에 전송 되지 않고, 이전 실행의 결과를 다음 단계에서 즉시 사용할 수 있습니다. .  
+기본적으로 단계에 대 한 `allow_reuse` 사용 되며 주 스크립트 파일만 해시 됩니다. 따라서 지정 된 단계의 스크립트가 동일 하 게 유지 되는 경우 (`script_name`, 입력 및 매개 변수) 이전 단계 실행의 출력이 다시 사용 되 고, 작업이 계산에 전송 되지 않고, 이전 실행의 결과를 다음 단계에서 즉시 사용할 수 있습니다.  
 
 ```python
 step = PythonScriptStep(name="Hello World",

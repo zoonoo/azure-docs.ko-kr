@@ -1,5 +1,5 @@
 ---
-title: 보안 Azure AD Domain Services | Microsoft Docs '
+title: 보안 Azure AD Domain Services | Microsoft Docs
 description: Azure Active Directory Domain Services 관리 되는 도메인에 대해 weak 암호화, 이전 프로토콜 및 NTLM 암호 해시 동기화를 사용 하지 않도록 설정 하는 방법에 대해 알아봅니다.
 services: active-directory-ds
 author: iainfoulds
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/09/2019
 ms.author: iainfou
-ms.openlocfilehash: db086c56c9f16f4691efaade03571bf8a36c6444
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 6d60663e345f297246a423e1b4e7a4fb45f352a5
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842633"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754329"
 ---
 # <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인을 보호 하기 위해 약한 암호화 및 암호 해시 동기화 사용 안 함
 
@@ -24,7 +24,7 @@ ms.locfileid: "70842633"
 
 이 문서에서는 NTLM v1 및 TLS v1 암호화를 사용 하지 않도록 설정 하 고 NTLM 암호 해시 동기화를 사용 하지 않도록 설정 하는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 문서를 완료 하려면 다음 리소스가 필요 합니다.
 
