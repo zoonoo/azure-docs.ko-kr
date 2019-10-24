@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB에서 변경 피드 지원 사용
 description: Azure Cosmos DB의 변경 피드 지원을 사용하여 문서에서 변경 내용을 추적하고 트리거와 마찬가지로 이벤트 기반 처리를 수행하고 캐시 및 분석 시스템을 최신 상태로 유지합니다.
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f50f1b3e2ee7f98d14d29f1e2205a97d76eaacc8
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 8e6bd3dadd636127f212db0ea0c0755a6b52a087
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219898"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757019"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 변경 피드 - 개요
 
@@ -35,10 +35,10 @@ Azure Cosmos DB의 변경 피드를 사용하면 다음 그림과 같이 이러�
 
 | **클라이언트 드라이버** | **Azure CLI** | **SQL API** | **Cassandra API** | **Azure Cosmos DB의 MongoDB API** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | NA | 예 | 아니오 | 아니요 | 사용자 계정 컨트롤 | 아니요 |
-|Java|NA|예|아니오|아니요|사용자 계정 컨트롤|아니요|
-|Python|NA|예|아니오|아니요|사용자 계정 컨트롤|아니요|
-|Node/JS|NA|예|아니오|아니요|사용자 계정 컨트롤|아니요|
+| .NET | 해당 없음 | yes | 아닙니다. | 아닙니다. | yes | 아닙니다. |
+|Java|해당 없음|yes|아닙니다.|아닙니다.|yes|아닙니다.|
+|파이썬|해당 없음|yes|아닙니다.|아닙니다.|yes|아닙니다.|
+|Node/JS|해당 없음|yes|아닙니다.|아닙니다.|yes|아닙니다.|
 
 ## <a name="change-feed-and-different-operations"></a>변경 피드 및 다양한 작업
 
@@ -64,7 +64,7 @@ _etag 형식은 내부적이며 언제든지 변경될 수 있으므로 의존�
 
 변경 피드를 통해 대량의 쓰기가 있는 큰 데이터 세트를 효율적으로 처리할 수 있습니다. 변경 피드는 또한 변경된 내용을 식별하기 위해 전체 데이터 세트를 쿼리하는 대안을 제공합니다.
 
-### <a name="use-cases"></a>사용 사례
+### <a name="use-cases"></a>사례 사용
 
 예를 들어 변경 피드를 사용하여 다음 작업을 효율적으로 수행할 수 있습니다.
 

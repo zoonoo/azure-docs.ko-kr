@@ -1,5 +1,5 @@
 ---
-title: Azure AD Domain Services에 Ubuntu VM 참여 | Microsoft Docs '
+title: Azure AD Domain Services에 Ubuntu VM 참여 | Microsoft Docs
 description: Ubuntu Linux 가상 머신을 구성 하 고 Azure AD Domain Services 관리 되는 도메인에 가입 하는 방법을 알아봅니다.
 services: active-directory-ds
 author: iainfoulds
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.author: iainfou
-ms.openlocfilehash: e92327323f632f6b922e3eb948df75bb3666e2a9
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 9fb41b08cb29a68b39fb416b4b7b7bcce9e821dd
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075372"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754359"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인에 Ubuntu Linux 가상 컴퓨터 연결
 
@@ -42,7 +42,7 @@ Azure에 기존 Ubuntu Linux VM이 있는 경우 SSH를 사용 하 여 연결 �
 
 Ubuntu Linux VM을 만들거나이 문서에서 사용할 테스트 VM을 만들려는 경우 다음 방법 중 하나를 사용할 수 있습니다.
 
-* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
+* [Azure 포털](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -61,7 +61,7 @@ VM 호스트 이름이 관리 되는 도메인에 대해 올바르게 구성 되
 sudo vi /etc/hosts
 ```
 
-*Hosts* 파일에서 *localhost* 주소를 업데이트 합니다. 다음 예제에서는
+*Hosts* 파일에서 *localhost* 주소를 업데이트 합니다. 다음 예제에서:
 
 * *contoso.com* 는 Azure AD DS 관리 되는 도메인의 DNS 도메인 이름입니다.
 * *ubuntu* 는 관리 되는 도메인에 가입 하는 ubuntu VM의 호스트 이름입니다.
@@ -76,9 +76,9 @@ sudo vi /etc/hosts
 
 ## <a name="install-required-packages"></a>필요한 패키지를 설치합니다.
 
-Vm을 Azure AD DS 관리 되는 도메인에 가입 하려면 VM에 몇 가지 추가 패키지가 필요 합니다. 이러한 패키지를 설치 하 고 구성 하려면를 사용 하 여 도메인 가입 도구를 업데이트 하 고 설치 합니다.`apt-get`
+Vm을 Azure AD DS 관리 되는 도메인에 가입 하려면 VM에 몇 가지 추가 패키지가 필요 합니다. 이러한 패키지를 설치 및 구성 하려면 `apt-get`를 사용 하 여 도메인 가입 도구를 업데이트 하 고 설치 합니다.
 
-Kerberos 설치 중에 *krb5.conf* 패키지는 모두 대문자로 영역 이름을 입력 하 라는 메시지를 표시 합니다. 예를 들어 Azure AD DS 관리 되는 도메인의 이름이 *contoso.com*인 경우 *CONTOSO.COM* 를 영역으로 입력 합니다. 설치 시 `[realm]` 및 `[domain_realm]` 섹션이 */etc/krb5.conf* 구성 파일에 기록 됩니다. 영역을 모두 대문자로 지정 해야 합니다.
+Kerberos 설치 중에 *krb5.conf* 패키지는 모두 대문자로 영역 이름을 입력 하 라는 메시지를 표시 합니다. 예를 들어 Azure AD DS 관리 되는 도메인의 이름이 *contoso.com*인 경우 *CONTOSO.COM* 를 영역으로 입력 합니다. 설치는 */etc/krb5.conf* 구성 파일의 `[realm]` 및 `[domain_realm]` 섹션을 작성 합니다. 영역을 모두 대문자로 지정 해야 합니다.
 
 ```console
 sudo apt-get update
@@ -109,7 +109,7 @@ sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp n
     * 관리 되는 도메인에서 날짜 및 시간 업데이트
     * NTP 서비스를 시작 합니다.
 
-    다음 명령을 실행 하 여 이러한 단계를 완료 합니다. 명령을 사용 하 여 사용자 고유의 DNS `ntpdate` 이름을 사용 합니다.
+    다음 명령을 실행 하 여 이러한 단계를 완료 합니다. @No__t_0 명령을 사용 하 여 사용자 고유의 DNS 이름을 사용 합니다.
 
     ```console
     sudo systemctl stop ntp
@@ -121,27 +121,27 @@ sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp n
 
 필요한 패키지가 VM에 설치 되어 있고 NTP가 구성 되었으므로 Azure AD DS 관리 되는 도메인에 VM을 가입 시킵니다.
 
-1. `realm discover` 명령을 사용 하 여 Azure AD DS 관리 되는 도메인을 검색 합니다. 다음 예에서는 영역 *CONTOSO.COM*을 검색 합니다. Azure AD DS 관리 되는 도메인 이름을 모두 대문자로 지정 합니다.
+1. @No__t_0 명령을 사용 하 여 Azure AD DS 관리 되는 도메인을 검색 합니다. 다음 예에서는 영역 *CONTOSO.COM*을 검색 합니다. Azure AD DS 관리 되는 도메인 이름을 모두 대문자로 지정 합니다.
 
     ```console
     sudo realm discover CONTOSO.COM
     ```
 
-   `realm discover` 명령이 Azure AD DS 관리 되는 도메인을 찾을 수 없는 경우 다음 문제 해결 단계를 검토 합니다.
+   @No__t_0 명령이 Azure AD DS 관리 되는 도메인을 찾을 수 없는 경우 다음 문제 해결 단계를 검토 합니다.
 
-    * VM에서 도메인에 연결할 수 있는지 확인 합니다. `ping contoso.com` 긍정 회신이 반환 되는지 확인 합니다.
+    * VM에서 도메인에 연결할 수 있는지 확인 합니다. @No__t_0를 시도 하 여 긍정 회신이 반환 되는지 확인 합니다.
     * VM이 Azure AD DS 관리 되는 도메인을 사용할 수 있는 동일한 또는 피어 링 가상 네트워크에 배포 되었는지 확인 합니다.
     * 가상 네트워크에 대 한 DNS 서버 설정이 Azure AD DS 관리 되는 도메인의 도메인 컨트롤러를 가리키도록 업데이트 되었는지 확인 합니다.
 
 1. 이제 `kinit` 명령을 사용 하 여 Kerberos를 초기화 합니다. *AAD DC 관리자* 그룹에 속한 사용자를 지정 합니다. 필요한 경우 [AZURE AD의 그룹에 사용자 계정을 추가](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)합니다.
 
-    Azure AD DS 관리 되는 도메인 이름을 모두 대문자로 입력 해야 합니다. 다음 예에서는 라는 `contosoadmin@contoso.com` 계정이 Kerberos를 초기화 하는 데 사용 됩니다. *AAD DC 관리자* 그룹의 구성원 인 사용자 계정을 입력 합니다.
+    Azure AD DS 관리 되는 도메인 이름을 모두 대문자로 입력 해야 합니다. 다음 예에서는 `contosoadmin@contoso.com` 라는 계정이 Kerberos를 초기화 하는 데 사용 됩니다. *AAD DC 관리자* 그룹의 구성원 인 사용자 계정을 입력 합니다.
 
     ```console
     kinit contosoadmin@CONTOSO.COM
     ```
 
-1. 마지막으로 `realm join` 명령을 사용 하 여 Azure AD DS 관리 되는 도메인에 컴퓨터를 가입 시킵니다. 이전`kinit`명령에서 지정한 *AAD DC Administrators* 그룹의 구성원 인 동일한 사용자 계정 (예 :)을사용합니다.`contosoadmin@CONTOSO.COM`
+1. 마지막으로 `realm join` 명령을 사용 하 여 Azure AD DS 관리 되는 도메인에 컴퓨터를 가입 시킵니다. 이전 `kinit` 명령에서 지정한 *AAD DC Administrators* 그룹의 구성원 인 동일한 사용자 계정 (예: `contosoadmin@CONTOSO.COM`)을 사용 합니다.
 
     ```console
     sudo realm join --verbose CONTOSO.COM -U 'contosoadmin@CONTOSO.COM' --install=/
@@ -217,13 +217,13 @@ Azure AD DS 관리 되는 도메인에 가입 되 고 인증을 위해 구성 �
     sudo vi /etc/pam.d/common-session
     ```
 
-1. 이 파일의 줄 `session optional pam_sss.so`아래에 다음 줄을 추가 합니다.
+1. 이 파일에서 줄 `session optional pam_sss.so` 아래에 다음 줄을 추가 합니다.
 
     ```console
     session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
     ```
 
-    완료 되 면 편집기의 `:wq` 명령을 사용 하 여 *공통 세션* 파일을 저장 하 고 종료 합니다.
+    완료 되 면 편집기의 `:wq` 명령을 사용 하 여 *공용 세션* 파일을 저장 하 고 종료 합니다.
 
 ### <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>'AAD DC Administrators' 그룹 sudo 권한 부여
 
@@ -248,7 +248,7 @@ Azure AD DS 관리 되는 도메인에 가입 되 고 인증을 위해 구성 �
 
 VM이 Azure AD DS 관리 되는 도메인에 성공적으로 가입 되었는지 확인 하려면 도메인 사용자 계정을 사용 하 여 새 SSH 연결을 시작 합니다. 홈 디렉터리가 만들어지고 도메인의 그룹 구성원이 적용 되었는지 확인 합니다.
 
-1. 콘솔에서 새 SSH 연결을 만듭니다. `ssh -l` 명령을 사용 하 여 관리 되는 도메인에 속하는 도메인 계정을 사용 하 `contosoadmin@contoso.com` 고 (예:) *ubuntu.contoso.com*와 같은 VM의 주소를 입력 합니다. Azure Cloud Shell 사용 하는 경우 내부 DNS 이름이 아닌 VM의 공용 IP 주소를 사용 합니다.
+1. 콘솔에서 새 SSH 연결을 만듭니다. @No__t_1와 같은 `ssh -l` 명령을 사용 하 여 관리 되는 도메인에 속하는 도메인 계정을 사용한 다음 VM의 주소 (예: *ubuntu.contoso.com*)를 입력 합니다. Azure Cloud Shell 사용 하는 경우 내부 DNS 이름이 아닌 VM의 공용 IP 주소를 사용 합니다.
 
     ```console
     ssh -l contosoadmin@CONTOSO.com ubuntu.contoso.com

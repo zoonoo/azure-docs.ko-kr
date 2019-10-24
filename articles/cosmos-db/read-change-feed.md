@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB Azure Cosmos DB에서 변경 피드 액세스
 description: 이 문서에서는 Azure Cosmos DB Azure Cosmos DB에서 변경 피드를 읽고 액세스할 수 있는 다양한 옵션에 대해 설명합니다.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
-ms.openlocfilehash: 3d52ba1abc22aae6121ea6a36f943851dfcca7a0
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 3d30c9f946f97f06c1a3ba1cd2e77e1ab151a572
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467676"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754880"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Cosmos DB 변경 피드 읽기
 
@@ -31,12 +31,12 @@ Azure Functions는 가장 간단하고 권장되는 옵션입니다. Cosmos DB�
 
 ## <a name="using-the-azure-cosmos-db-sql-api-sdk"></a>Azure Cosmos DB SQL API SDK 사용
 
-SDK를 사용하면 변경 피드의 하위 수준 컨트롤을 가져올 수 있습니다. 검사점을 관리하고 특정 논리 파티션 키에 액세스할 수 있습니다. 복수의 reader가 있는 경우 `ChangeFeedOptions`를 사용하여 읽기 로드를 다른 스레드 또는 다른 클라이언트로 분산할 수 있습니다. 
+SDK를 사용하면 변경 피드의 하위 수준 컨트롤을 가져올 수 있습니다. 검사점을 관리 하 고 특정 논리적 파티션 키 등에 액세스할 수 있습니다. 여러 판독기가 있는 경우 `ChangeFeedOptions`를 사용 하 여 읽기 부하를 다른 스레드나 다른 클라이언트에 배포할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 이제 다음 문서에서 변경 피드에 대해 자세히 알아볼 수 있습니다.
 
 * [변경 피드 개요](change-feed.md)
-* [Azure Functions와 함께 변경 피드 사용](change-feed-functions.md)
+* [Azure Functions로 변경 피드 사용](change-feed-functions.md)
 * [변경 피드 프로세서 라이브러리 사용](change-feed-processor.md)

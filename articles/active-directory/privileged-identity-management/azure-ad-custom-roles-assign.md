@@ -4,34 +4,34 @@ description: PIM(Privileged Identity Management) 할당을 위해 Azure AD 사�
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.assetid: ''
-ms.service: role-based-access-control
+ms.service: active-directory
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a3f6eb815677133f3d7fe6ce07d6abf23db1f04
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
-ms.translationtype: HT
+ms.openlocfilehash: 1c4963e6563db166566cff41d381295a8a9e576b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947519"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756353"
 ---
 # <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 사용자 지정 역할 할당
 
 이 문서에서는 PIM(Privileged Identity Management)을 사용하여 Azure AD(Azure Active Directory) 관리 환경에서 애플리케이션을 관리하기 위해 만든 사용자 지정 역할에 대한 Just-In-Time 및 시간 제한 할당을 만드는 방법에 대해 설명합니다.
 
 - Azure AD에서 애플리케이션 관리를 위임하기 위한 사용자 지정 역할을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory의 사용자 지정 관리자 역할(미리 보기)](../users-groups-roles/roles-custom-overview.md)을 참조하세요.
-- Privileged Identity Management를 아직 사용하지 않은 경우 [PIM 사용](pim-getting-started.md)에서 자세한 정보를 확인하세요.
-- 다른 관리자에게 Privileged Identity Management를 관리하기 위한 액세스 권한을 부여하는 방법에 대한 자세한 내용은 [PIM 관리를 위해 다른 관리자에게 액세스 권한 부여](pim-how-to-give-access-to-pim.md)를 참조하세요.
+- Privileged Identity Management를 아직 사용하지 않은 경우 [Privileged Identity Management 사용 시작](pim-getting-started.md)에서 자세한 정보를 확인하세요.
+- 다른 관리자에 게 Privileged Identity Management 관리 권한을 부여 하는 방법에 대 한 자세한 내용은 [다른 관리자에 게 Privileged Identity Management를 관리할](pim-how-to-give-access-to-pim.md)수 있는 권한 부여를 참조 하세요.
 
 > [!NOTE]
-> Azure AD 사용자 지정 역할은 미리 보기 동안 기본 제공 디렉터리 역할과 통합되지 않습니다. 이 기능을 일반적으로 사용할 수 있게 되면 기본 제공 역할 환경에서 역할 관리가 수행됩니다.
+> 미리 보기 기간 중에는 Azure AD 사용자 지정 역할이 기본 제공 디렉터리 역할과 통합되지 않습니다. 이 기능이 일반 공급되면 기본 제공 역할 환경에서 역할 관리가 수행됩니다.
 
 ## <a name="assign-a-role"></a>역할 할당
 

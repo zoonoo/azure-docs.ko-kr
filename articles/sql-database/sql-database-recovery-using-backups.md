@@ -11,16 +11,16 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: f316f77d0f4ca3132a2ae77d807e2dd66ba62a43
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: b858776d8309be94a0dd64f994a9e34e589d3c49
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71846347"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750452"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>자동화 된 데이터베이스 백업을 사용 하 여 Azure SQL 데이터베이스 복구
 
-기본적으로 Azure SQL Database 백업은 지역 복제 blob 저장소에 저장 됩니다. [자동화 된 데이터베이스 백업을](sql-database-automated-backups.md)사용 하 여 데이터베이스 복구에 사용할 수 있는 옵션은 다음과 같습니다. 다음을 할 수 있습니다.
+기본적으로 Azure SQL Database 백업은 지역 복제 blob 저장소 (RA-GRS 저장소 유형)에 저장 됩니다. [자동화 된 데이터베이스 백업을](sql-database-automated-backups.md)사용 하 여 데이터베이스 복구에 사용할 수 있는 옵션은 다음과 같습니다. 다음과 같은 기능이 가능합니다.
 
 - 보존 기간 내에 지정 된 특정 시점으로 복구 되는 동일한 SQL Database 서버에 새 데이터베이스를 만듭니다.
 - 삭제 된 데이터베이스에 대 한 삭제 시간으로 복구 된 동일한 SQL Database 서버에서 데이터베이스를 만듭니다.
@@ -34,9 +34,6 @@ ms.locfileid: "71846347"
 
 Standard 또는 Premium 서비스 계층을 사용 하는 경우 데이터베이스 복원에 추가 저장소 비용이 발생할 수 있습니다. 복원 된 데이터베이스의 최대 크기가 대상 데이터베이스의 서비스 계층 및 성능 수준에 포함 된 저장소 용량 보다 큰 경우 추가 비용이 발생 합니다. 추가 스토리지에 대한 가격 책정 정보는 [SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요. 실제 사용 된 공간의 양이 포함 된 저장소 용량 보다 작은 경우 최대 데이터베이스 크기를 포함 된 용량으로 설정 하 여 이러한 추가 비용을 방지할 수 있습니다.
 
-> [!NOTE]
-> [데이터베이스 복사본](sql-database-copy.md)을 만들 때 [자동화 된 데이터베이스 백업을](sql-database-automated-backups.md)사용 합니다.
-
 ## <a name="recovery-time"></a>복구 시간
 
 자동화 된 데이터베이스 백업을 사용 하 여 데이터베이스를 복원 하는 복구 시간은 다음과 같은 여러 가지 요인의 영향을 받습니다.
@@ -48,9 +45,9 @@ Standard 또는 Premium 서비스 계층을 사용 하는 경우 데이터베이
 - 다른 지역으로 복원 하는 경우 네트워크 대역폭
 - 대상 지역에서 처리되는 동시 복원 요청의 수
 
-대규모 또는 매우 활성 데이터베이스의 경우 복원에는 몇 시간이 걸릴 수 있습니다. 지역에서 장시간 가동 중단 된 경우 다른 지역에서 많은 수의 지리적 복원 요청이 처리 될 수 있습니다. 많은 요청이 있는 경우 해당 지역의 데이터베이스에 대해 복구 시간이 늘어날 수 있습니다. 대부분의 데이터베이스는 12시간 내에 완전히 복원됩니다.
+대규모 또는 매우 활성 데이터베이스의 경우 복원에는 몇 시간이 걸릴 수 있습니다. 지역에서 장시간 가동 중단이 발생 한 경우 재해 복구를 위해 많은 수의 지역 복원 요청이 시작 될 수 있습니다. 많은 요청이 있는 경우 개별 데이터베이스의 복구 시간이 늘어날 수 있습니다. 대부분의 데이터베이스는 12시간 내에 완전히 복원됩니다.
 
-단일 구독의 경우 동시 복원 요청 수에 제한이 있습니다.  이러한 제한 사항은 특정 시점 복원, 지역 복원, 장기 보존 백업에서 복원 하는 모든 조합에 적용 됩니다.
+단일 구독의 경우 동시 복원 요청 수에 제한이 있습니다. 이러한 제한 사항은 특정 시점 복원, 지역 복원, 장기 보존 백업에서 복원 등의 모든 조합에 적용 됩니다.
 
 | | **처리되는 최대 동시 요청 수** | **제출되는 최대 동시 요청 수** |
 | :--- | --: | --: |
@@ -58,16 +55,16 @@ Standard 또는 Premium 서비스 계층을 사용 하는 경우 데이터베이
 |탄력적 풀(풀당)|4|200|
 ||||
 
-전체 서버를 복원 하는 기본 제공 메서드는 없습니다. 이 작업을 수행 하는 방법에 대 한 예는 [Azure SQL Database를 참조 하세요. 전체 서버 복구 @ no__t-0
+전체 서버를 복원 하는 기본 제공 메서드는 없습니다. 이 작업을 수행 하는 방법에 대 한 예제는 [Azure SQL Database: 전체 서버 복구](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666)를 참조 하세요.
 
 > [!IMPORTANT]
-> 자동화 된 백업을 사용 하 여 복구 하려면 구독에서 SQL Server 참여자 역할의 구성원 이거나 구독 소유자 여야 합니다. 자세한 내용은 [RBAC: 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요. Azure Portal, PowerShell 또는 REST API를 사용 하 여 복구할 수 있습니다. Transact-sql은 사용할 수 없습니다.
+> 자동화 된 백업을 사용 하 여 복구 하려면 구독에서 SQL Server 참여자 역할의 구성원 이거나 구독 소유자 여야 합니다. 자세한 내용은 [RBAC: 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조 하세요. Azure Portal, PowerShell 또는 REST API를 사용 하 여 복구할 수 있습니다. Transact-sql은 사용할 수 없습니다.
 
-## <a name="point-in-time-restore"></a>지정 시간 복원
+## <a name="point-in-time-restore"></a>특정 시점 복원
 
 Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)또는 [REST API](https://docs.microsoft.com/rest/api/sql/databases)를 사용 하 여 독립 실행형, 풀링된 또는 인스턴스 데이터베이스를 이전 시점으로 복원할 수 있습니다. 요청은 복원 된 데이터베이스에 대 한 서비스 계층 또는 계산 크기를 지정할 수 있습니다. 데이터베이스를 복원할 서버에 충분 한 리소스가 있는지 확인 합니다. 완료 되 면 복원 시 원본 데이터베이스와 동일한 서버에 새 데이터베이스가 만들어집니다. 복원 된 데이터베이스는 서비스 계층 및 계산 크기를 기준으로 정상 요금으로 청구 됩니다. 데이터베이스 복원이 완료 될 때까지 요금이 부과 되지 않습니다.
 
-일반적으로 복구를 위해 이전 지점까지 데이터베이스를 복원합니다. 복원 된 데이터베이스를 원래 데이터베이스에 대 한 대체 항목으로 처리 하거나 원본 데이터로 사용 하 여 원본 데이터베이스를 업데이트할 수 있습니다.
+일반적으로 복구를 위해 이전 지점까지 데이터베이스를 복원합니다. 복원 된 데이터베이스를 원래 데이터베이스에 대 한 대체 항목으로 처리 하거나 데이터 원본으로 사용 하 여 원본 데이터베이스를 업데이트할 수 있습니다.
 
 - **데이터베이스 교체**
 
@@ -148,14 +145,14 @@ Azure Portal에서 새 단일 또는 관리 되는 인스턴스 데이터베이�
 
 선택한 지역 및 서버의 Azure Portal에서 단일 SQL 데이터베이스를 지역 복원 하려면 다음 단계를 수행 합니다.
 
-1. **대시보드**에서 **추가** > **SQL Database 만들기**를 선택 합니다. **기본 사항** 탭에서 필요한 정보를 입력 합니다.
+1. **대시보드**에서 **추가**  > **SQL Database 만들기**를 선택 합니다. **기본 사항** 탭에서 필요한 정보를 입력 합니다.
 2. **추가 설정을**선택 합니다.
 3. **기존 데이터 사용**에 대해 **백업**을 선택 합니다.
 4. **Backup**의 경우 사용 가능한 지역 복원 백업 목록에서 백업을 선택 합니다.
 
     ![SQL Database 만들기 옵션의 스크린샷](./media/sql-database-recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
 
-새 데이터베이스를 만드는 과정을 완료 합니다. 단일 Azure SQL database를 만들면 복원 된 지역 복원 백업이 포함 됩니다.
+백업에서 새 데이터베이스를 만드는 과정을 완료 합니다. 단일 Azure SQL database를 만들면 복원 된 지역 복원 백업이 포함 됩니다.
 
 #### <a name="managed-instance-database"></a>관리 되는 인스턴스 데이터베이스
 
@@ -185,7 +182,7 @@ Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 �
 지역 보조 데이터베이스에서는 특정 시점 복원을 수행할 수 없습니다. 주 데이터베이스 에서만이 작업을 수행할 수 있습니다. 지역 복원 기능을 사용하여 가동 중단에서 복구하는 방법에 대한 자세한 내용은 [가동 중단에서 복구](sql-database-disaster-recovery.md)를 참조하세요.
 
 > [!IMPORTANT]
-> 지역 복원은 SQL Database에서 사용할 수 있는 가장 기본적인 재해 복구 솔루션입니다. 복구 지점 목표 (RPO)가 1 시간과 같고 예상 복구 시간이 최대 12 시간인 자동으로 생성 된 지역에서 복제 된 백업을 사용 합니다. 지역 가동 중단 후에는 대상 지역에서 데이터베이스를 복원할 수 있는 용량을 보장 하지 않습니다. 응용 프로그램에서 비교적 작은 데이터베이스를 사용 하 고 비즈니스에 중요 하지 않은 경우 지역 복원이 적절 한 재해 복구 솔루션입니다. 대량 데이터베이스를 사용 하 고 비즈니스 연속성을 보장 해야 하는 업무상 중요 한 응용 프로그램의 경우 [자동 장애 조치 (failover) 그룹](sql-database-auto-failover-group.md)을 사용 해야 합니다. 이는 훨씬 낮은 RPO 및 복구 시간 목표를 제공 하며 용량은 항상 보장 됩니다. 비즈니스 연속성 선택에 대한 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
+> 지역 복원은 SQL Database에서 사용할 수 있는 가장 기본적인 재해 복구 솔루션입니다. 복구 지점 목표 (RPO)가 1 시간과 같고 예상 복구 시간이 최대 12 시간인 자동으로 생성 된 지역에서 복제 된 백업을 사용 합니다. 지역 가동 중단 후에는 대상 지역에서 데이터베이스를 복원할 수 있는 용량을 보장 하지 않습니다. 응용 프로그램에서 비교적 작은 데이터베이스를 사용 하 고 비즈니스에 중요 하지 않은 경우 지역 복원이 적절 한 재해 복구 솔루션입니다. 데이터베이스 규모가 크고 비즈니스 연속성을 보장 해야 하는 업무상 중요 한 응용 프로그램의 경우 [자동 장애 조치 (failover) 그룹](sql-database-auto-failover-group.md)을 사용 합니다. 이는 훨씬 낮은 RPO 및 복구 시간 목표를 제공 하며 용량은 항상 보장 됩니다. 비즈니스 연속성 선택에 대한 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
 
 ## <a name="programmatically-performing-recovery-by-using-automated-backups"></a>자동화 된 백업을 사용 하 여 프로그래밍 방식으로 복구 수행
 
@@ -195,7 +192,7 @@ Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az module 및 AzureRm 모듈의 명령에 대 한 인수는 뛰어난 익스텐트와 동일 합니다.
+> PowerShell Azure Resource Manager 모듈은 Azure SQL Database에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az module 및 AzureRm 모듈의 명령에 대 한 인수는 뛰어난 익스텐트와 동일 합니다.
 
 #### <a name="single-azure-sql-database"></a>단일 Azure SQL database
 
@@ -217,8 +214,8 @@ Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 �
 
   | Cmdlet | 설명 |
   | --- | --- |
-  | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |하나 이상의 관리 되는 인스턴스를 가져옵니다. |
-  | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | 인스턴스 데이터베이스를 가져옵니다. |
+  | [AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |하나 이상의 관리 되는 인스턴스를 가져옵니다. |
+  | [AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | 인스턴스 데이터베이스를 가져옵니다. |
   | [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase) |인스턴스 데이터베이스를 복원 합니다. |
 
 ### <a name="rest-api"></a>REST API

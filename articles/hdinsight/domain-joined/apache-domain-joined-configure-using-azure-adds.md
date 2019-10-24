@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 10/02/2019
-ms.openlocfilehash: 5989aca2b577621c31fe486877ea006cb25d47b5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 448b2674aa6021107d138bc0d91f1bda399eb4a6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030366"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755894"
 ---
 # <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>HDInsight에서 Azure Active Directory Domain Services를 사용 하 여 Enterprise Security Package 구성
 
@@ -22,7 +22,7 @@ ESP(Enterprise Security Package) 클러스터는 Azure HDInsight 클러스터에
 이 문서에서는 Azure AD DS(Azure Active Directory Domain Services)를 사용하여 ESP로 HDInsight 클러스터를 구성하는 방법을 알아봅니다.
 
 > [!NOTE]  
-> ESP는 일반적으로 HDInsight 3.6 및 4.0에서 클러스터 유형에 사용할 수 있습니다. Apache Spark, 대화형, Hadoop 및 HBase가 있습니다. Apache Kafka 클러스터 유형의 ESP는 최상의 지원과 함께 미리 보기 상태입니다. ESP GA 날짜 이전에 만든 ESP 클러스터 (2018 년 10 월 1 일)는 지원 되지 않습니다.
+> ESP는 Apache Spark, Interactive, Hadoop 및 HBase와 같은 클러스터 유형에 대해 일반적으로 HDInsight 3.6 및 4.0에서 사용할 수 있습니다. Apache Kafka 클러스터 유형의 ESP는 최상의 지원과 함께 미리 보기 상태입니다. ESP GA 날짜 이전에 만든 ESP 클러스터 (2018 년 10 월 1 일)는 지원 되지 않습니다.
 
 ## <a name="enable-azure-ad-ds"></a>Azure AD-DS 사용
 
@@ -70,7 +70,7 @@ ESP 클러스터를 설정하려면 사용자 할당 관리 ID를 만들어야 �
 ## <a name="networking-considerations"></a>네트워킹 고려 사항
 
 > [!NOTE]  
-> Azure AD DS는 Azure Resource Manager 기반 vNET에 배포 되어야 합니다. Azure AD-DS에서는 클래식 가상 네트워크가 지원되지 않습니다. 자세한 내용은 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](../../active-directory-domain-services/tutorial-create-instance.md#create-and-configure-the-virtual-network)를 참조하세요.
+> Azure AD DS는 Azure Resource Manager 기반 vNET에 배포 되어야 합니다. Azure AD-DS에서는 클래식 가상 네트워크가 지원되지 않습니다. 자세한 내용은 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](../../active-directory-domain-services/tutorial-create-instance-advanced.md#create-and-configure-the-virtual-network)를 참조하세요.
 
 Azure AD-DS를 사용하도록 설정하면 로컬 DNS(도메인 이름 서비스) 서버가 AD VM(Virtual Machine)에서 실행됩니다. 이러한 사용자 지정 DNS 서버를 사용하도록 Azure AD-DS VNET(가상 네트워크)을 구성합니다. 올바른 IP 주소를 찾으려면 **관리** 범주 아래에서 **속성**을 선택하고, **가상 네트워크의 IP 주소** 아래에 나열된 IP 주소를 살펴봅니다.
 
@@ -82,7 +82,7 @@ Azure AD-DS를 사용하도록 설정하면 로컬 DNS(도메인 이름 서비�
 
 Azure AD-DS 인스턴스와 HDInsight 클러스터를 동일한 Azure Virtual Network에 배치하는 것이 더 쉽습니다. 다른 VNET을 사용할 계획인 경우 HDI VM이 도메인 컨트롤러를 인식할 수 있도록 해당 가상 네트워크를 피어링해야 합니다. 자세한 내용은 [가상 네트워크 피어링](../../virtual-network/virtual-network-peering-overview.md)을 참조하세요. 
 
-VNET이 피어링된 후에는 사용자 지정 DNS 서버를 사용하도록 HDInsight VNET을 구성하고 Azure AD-DS 프라이빗 IP를 DNS 서버 주소로 입력합니다. 두 VNET이 동일한 DNS 서버를 사용하는 경우 사용자 지정 도메인 이름이 올바른 IP로 확인되고 HDInsight에서 연결할 수 있게 됩니다. 예를 들어 도메인 이름이 `contoso.com` 인 경우이 단계를 수행한 후에는-1 @no__t 올바른 Azure AD DS IP로 확인 되어야 합니다.
+VNET이 피어링된 후에는 사용자 지정 DNS 서버를 사용하도록 HDInsight VNET을 구성하고 Azure AD-DS 프라이빗 IP를 DNS 서버 주소로 입력합니다. 두 VNET이 동일한 DNS 서버를 사용하는 경우 사용자 지정 도메인 이름이 올바른 IP로 확인되고 HDInsight에서 연결할 수 있게 됩니다. 예를 들어 도메인 이름을 `contoso.com` 하는 경우이 단계를 수행한 후 `ping contoso.com` 올바른 Azure AD DS IP로 확인 되어야 합니다.
 
 ![피어링된 VNET에 대한 사용자 지정 DNS 서버 구성](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
@@ -110,11 +110,11 @@ ESP로 HDInsight 클러스터를 만드는 경우 다음 매개 변수를 제공
 
 - **클러스터 액세스 그룹**: 클러스터에 동기화하고 액세스 권한을 부여하고 싶은 사용자의 보안 그룹을 Azure AD-DS에서 사용할 수 있어야 합니다. 예: HiveUsers 그룹. 자세한 내용은 [Azure Active Directory에서 그룹 만들기 및 멤버 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
 
-- **LDAPS URL**: 예제입니다. `ldaps://contoso.com:636`
+- **LDAPS URL**: 예를 `ldaps://contoso.com:636` 합니다.
 
 만든 관리 ID는 새 클러스터를 만들 때 사용자 할당 관리 ID 드롭다운에서 선택할 수 있습니다.
 
-![Azure HDInsight ESP Active Directory Domain Services 관리 id](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-identity.png)을 선택합니다.
+![Azure HDInsight ESP Active Directory Domain Services 관리 id](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-identity.png).
 
 ## <a name="next-steps"></a>다음 단계
 

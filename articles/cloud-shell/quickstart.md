@@ -1,25 +1,21 @@
 ---
-title: Azure Cloud Shell 빠른 시작 | Microsoft Docs
-description: Azure Cloud Shell에 대 한 빠른 시작
-services: ''
-documentationcenter: ''
+title: Azure Cloud Shell 빠른 시작-Bash
+description: Azure Cloud Shell를 사용 하 여 브라우저에서 Bash 명령줄을 사용 하는 방법을 알아봅니다.
 author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 8151013f263c6cf2f90e89fa1c3b0b3025f2ea38
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 574841b3a89385a3b8bf048d5ed36f40fac99a83
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741979"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757391"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell의 Bash에 대한 빠른 시작
 
@@ -33,7 +29,7 @@ ms.locfileid: "68741979"
 ![](media/quickstart/shell-icon.png)
 
 2. 구독을 선택하여 스토리지 계정 및 Microsoft Azure Files 공유를 만듭니다.
-3. "저장소 만들기"를 선택합니다.
+3. &quot;스토리지 만들기&quot;를 선택합니다.
 
 > [!TIP]
 > 모든 세션에서 Azure CLI에 자동으로 인증됩니다.

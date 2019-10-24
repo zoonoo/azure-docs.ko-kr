@@ -7,14 +7,14 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/7/2019
-ms.openlocfilehash: 94bde7b2e2a6f3902d83de90b06638035fd34397
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 7f6c131737ca63d120e111b3ef4504a36dbd7fc1
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679131"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754703"
 ---
-# <a name="what-are-mapping-data-flows"></a>매핑 데이터 흐름 이란?
+# <a name="what-are-mapping-data-flows"></a>데이터 흐름 매핑이란?
 
 데이터 흐름 매핑은 Azure Data Factory에서 시각적으로 디자인 된 데이터 변환입니다. 데이터 흐름을 통해 데이터 엔지니어는 코드를 작성 하지 않고도 그래픽 데이터 변환 논리를 개발할 수 있습니다. 결과 데이터 흐름은 확장 된 Spark 클러스터를 사용 하는 Azure Data Factory 파이프라인 내에서 작업으로 실행 됩니다. 기존 Data Factory 일정, 제어, 흐름 및 모니터링 기능을 통해 데이터 흐름 활동을 조작 가능한 수 있습니다.
 
@@ -39,6 +39,38 @@ ms.locfileid: "72679131"
 그래프는 변환 스트림을 표시 합니다. 하나 이상의 싱크로 전달 되는 원본 데이터의 계보를 보여 줍니다. 새 원본을 추가 하려면 **원본 추가**를 선택 합니다. 새 변환을 추가 하려면 기존 변환의 오른쪽 아래에 있는 더하기 기호를 선택 합니다.
 
 ![캔버스](media/data-flow/canvas2.png "캔버스")
+
+### <a name="azure-integration-runtime-data-flow-properties"></a>Azure integration runtime 데이터 흐름 속성
+
+![디버그 단추](media/data-flow/debugbutton.png "디버그 단추")
+
+ADF에서 데이터 흐름에 대 한 작업을 시작 하는 경우 브라우저 UI의 맨 위에 있는 데이터 흐름에 대해 "디버그" 스위치를 설정 하는 것이 좋습니다. 그러면 대화형 디버깅, 데이터 미리 보기 및 파이프라인 디버그 실행에 사용할 Azure Databricks 클러스터가 실행 됩니다. 사용자 지정 [Azure Integration Runtime](concepts-integration-runtime.md)를 선택 하 여 사용 되는 클러스터의 크기를 설정할 수 있습니다. 디버그 세션은 마지막 데이터 미리 보기 또는 마지막 디버그 파이프라인 실행 후 최대 60 분 동안 활성 상태를 유지 합니다.
+
+데이터 흐름 활동을 사용 하 여 파이프라인을 운영 하면 ADF는 "실행" 속성의 [활동과](control-flow-execute-data-flow-activity.md) 연결 된 Azure Integration Runtime를 사용 합니다.
+
+기본 Azure Integration Runtime는 데이터를 미리 보고 최소한의 비용으로 디버그 파이프라인을 신속 하 게 실행할 수 있도록 하는 작은 4 코어 단일 작업자 노드 클러스터입니다. 큰 데이터 집합에 대해 작업을 수행 하는 경우 더 큰 Azure IR 구성을 설정 합니다.
+
+Azure IR 데이터 흐름 속성에서 TTL을 설정 하 여 Vm (클러스터 리소스)의 풀을 유지 하도록 ADF에 지시할 수 있습니다. 이렇게 하면 후속 작업에서 작업을 더 빠르게 실행할 수 있습니다.
+
+#### <a name="azure-integration-runtime-and-data-flow-strategies"></a>Azure 통합 런타임 및 데이터 흐름 전략
+
+##### <a name="execute-data-flows-in-parallel"></a>병렬로 데이터 흐름 실행
+
+파이프라인에서 병렬로 데이터 흐름을 실행 하는 경우 ADF는 각 작업에 연결 된 Azure Integration Runtime의 설정에 따라 각 작업 실행에 대해 별도의 Azure Databricks 클러스터를 표시 합니다. ADF 파이프라인에서 병렬 실행을 디자인 하려면 UI에서 선행 제약 조건 없이 데이터 흐름 작업을 추가 합니다.
+
+이러한 세 가지 옵션 중에서이 옵션은 가장 짧은 시간에 실행할 수 있습니다. 그러나 각 병렬 데이터 흐름은 별도의 클러스터에서 동시에 실행 되므로 이벤트 순서는 결정적이 지 않습니다.
+
+##### <a name="overload-single-data-flow"></a>단일 데이터 흐름 오버 로드
+
+모든 논리를 단일 데이터 흐름 내에 배치 하는 경우 ADF는 모두 단일 Spark 클러스터 인스턴스에서 동일한 작업 실행 컨텍스트에서 실행 됩니다.
+
+비즈니스 규칙 및 비즈니스 논리가 함께 혼합 되므로이 옵션을 수행 하 고 문제를 해결 하는 것이 더 어려울 수 있습니다. 이 옵션은 훨씬 더 많은 유용성을 제공 하지 않습니다.
+
+##### <a name="execute-data-flows-serially"></a>직렬로 데이터 흐름 실행
+
+파이프라인에서 데이터 흐름 작업을 연속 실행 하 고 Azure IR 구성에 TTL을 설정 하는 경우 ADF는 계산 리소스 (Vm)를 다시 사용 하 여 후속 실행 시간을 단축 합니다. 각 실행에 대해 새 Spark 컨텍스트를 계속 받게 됩니다.
+
+이 세 가지 옵션 중에서 종단 간 실행에 가장 긴 시간이 소요 될 수 있습니다. 그러나 각 데이터 흐름 단계에서 논리적 작업을 명확 하 게 분리 합니다.
 
 ### <a name="configuration-panel"></a>구성 패널
 

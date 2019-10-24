@@ -1,18 +1,18 @@
 ---
 title: Azure Functions에서 Azure Cosmos DB 변경 피드를 사용하는 방법
 description: Azure Functions에서 Azure Cosmos DB 변경 피드 사용
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 2ec38659b0bafa8836ac787ac36b662970141843
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 95fec1ef57c1d70ea484de9ad49b3410ed8594a4
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249100"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757064"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용 하는 서버 리스 이벤트 기반 아키텍처
 
@@ -29,7 +29,7 @@ Azure Functions는 [변경 피드에](change-feed.md)연결 하는 가장 간단
 
 서버를 사용 하지 않는 이벤트 기반 흐름을 구현 하려면 다음이 필요 합니다.
 
-* **모니터링 되는 컨테이너**: 모니터링 되는 컨테이너는 모니터링 되는 Azure Cosmos 컨테이너 이며, 변경 피드가 생성 되는 데이터를 저장 합니다. 모든 삽입, 모니터링 되는 컨테이너에 대 한 업데이트는 컨테이너의 변경 피드에 반영 됩니다.
+* 모니터링 되는 **컨테이너**: 모니터링 되는 컨테이너는 모니터링 되는 Azure Cosmos 컨테이너 이며, 변경 피드가 생성 되는 데이터를 저장 합니다. 모든 삽입, 모니터링 되는 컨테이너에 대 한 업데이트는 컨테이너의 변경 피드에 반영 됩니다.
 * **임대 컨테이너**: 임대 컨테이너는 여러 서버 및 동적 서버를 사용 하지 않는 Azure 함수 인스턴스에 걸쳐 상태를 유지 관리 하 고 동적 크기 조정을 지원 합니다. 이 임대 컨테이너는 Cosmos DB에 대 한 Azure Functions 트리거에서 수동으로 또는 자동으로 만들 수 있습니다. 임대 컨테이너를 자동으로 만들려면 [구성](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)에서 *CreateLeaseCollectionIfNotExists* 플래그를 설정 합니다. 분할 된 임대 컨테이너는 `/id` 파티션 키 정의를 포함 해야 합니다.
 
 ## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>Cosmos DB에 대 한 Azure Functions 트리거 만들기

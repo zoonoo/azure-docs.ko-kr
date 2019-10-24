@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에서 처리량 비용 최적화
 description: 이 문서에서는 Azure Cosmos DB에 저장된 데이터의 처리량 비용을 최적화하는 방법을 설명합니다.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.author: rimman
-ms.openlocfilehash: d874f1ba8823ceddbef378decde127cef4ff8885
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 24812b8d97080d59fd50f4dc528117b3020fd8dc
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020101"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753259"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 프로비전된 처리량 비용 최적화
 
@@ -56,16 +56,16 @@ Azure Cosmos DB는 프로비전된 처리량 모델을 제공하여 규모에 �
 |API|**공유** 처리량의 경우 구성 항목 |**전용** 처리량의 경우 구성 항목 |
 |----|----|----|
 |SQL API|데이터베이스|컨테이너|
-|Azure Cosmos DB의 API for MongoDB|데이터베이스|Collection|
-|Cassandra API|키스페이스|Table|
+|Azure Cosmos DB의 API for MongoDB|데이터베이스|컬렉션|
+|Cassandra API|Keyspace|Table|
 |Gremlin API|데이터베이스 계정|그래프|
-|테이블 API|데이터베이스 계정|Table|
+|Table API|데이터베이스 계정|Table|
 
 다양한 수준에서 처리량을 프로비전하여 워크로드의 특징을 기준으로 비용을 최적화할 수 있습니다. 앞에서 설명한 것처럼 프로비전된 처리량을 개별 컨테이너에 대해 또는 컨테이너 세트에 대해 전체적으로 언제든지 프로그래밍 방식으로 늘리거나 줄일 수 있습니다. 워크로드가 변경되면서 처리량 규모를 탄력적으로 조정할 수 있으므로 구성한 처리량에 대해서만 비용을 지불하면 됩니다. 컨테이너 또는 컨테이너 세트가 여러 지역에 분산될 경우 컨테이너 또는 컨테이너 세트에 대해 구성한 처리량을 모든 지역에서 사용할 수 있도록 보장됩니다.
 
 ## <a name="optimize-with-rate-limiting-your-requests"></a>요청 속도 제한 최적화
 
-대기 시간이 중요하지 않은 워크로드의 경우 더 적은 처리량을 프로비전한 후, 실제 처리량이 프로비전된 처리량을 초과할 때 애플리케이션이 속도 제한을 처리하도록 할 수 있습니다. 서버는 미리 (HTTP 상태 코드 429 `RequestRateTooLarge` )를 사용 하 여 요청을 종료 하 `x-ms-retry-after-ms` 고 요청을 다시 시도 하기 전에 사용자가 대기 해야 하는 시간 (밀리초)을 나타내는 헤더를 반환 합니다. 
+대기 시간이 중요하지 않은 워크로드의 경우 더 적은 처리량을 프로비전한 후, 실제 처리량이 프로비전된 처리량을 초과할 때 애플리케이션이 속도 제한을 처리하도록 할 수 있습니다. 서버는 `RequestRateTooLarge` (HTTP 상태 코드 429)를 사용 하 여 요청을 종료 하 고 요청을 다시 시도 하기 전에 사용자가 대기 해야 하는 시간 (밀리초)을 나타내는 `x-ms-retry-after-ms` 헤더를 반환 합니다. 
 
 ```html
 HTTP Status 429, 
@@ -77,7 +77,7 @@ HTTP Status 429,
 
 기본 SDK(.NET/.NET Core, Java, Node.js 및 Python)는 이 응답을 암시적으로 모두 catch하고, server-specified retry-after 헤더를 준수하고 요청을 다시 시도합니다. 동시에 여러 클라이언트가 계정에 액세스하지만 않으면 다음 재시도가 성공할 것입니다.
 
-둘 이상의 클라이언트가 요청 속도 이상으로 누적해서 계속 작동할 경우 현재 9로 설정된 기본 재시도 횟수가 충분하지 않을 수 있습니다. 이러한 경우 클라이언트는 상태 코드 429의 `DocumentClientException`을 애플리케이션에 throw합니다. 기본 재시도 횟수는 ConnectionPolicy 인스턴스에서 `RetryOptions`를 설정하여 변경할 수 있습니다. 기본적 `DocumentClientException` 으로 요청이 요청 률을 초과 하 여 계속 작동 하는 경우 누적 대기 시간 30 초 후에 상태 코드 429이 반환 됩니다. 현재 재시도 횟수가 최대 재시도 횟수보다 작은 경우에도 이러한 현상이 발생하기 때문에 기본값인 9 또는 사용자 정의 값으로 두세요. 
+둘 이상의 클라이언트가 요청 속도 이상으로 누적해서 계속 작동할 경우 현재 9로 설정된 기본 재시도 횟수가 충분하지 않을 수 있습니다. 이러한 경우 클라이언트는 상태 코드 429의 `DocumentClientException`을 애플리케이션에 throw합니다. 기본 재시도 횟수는 ConnectionPolicy 인스턴스에서 `RetryOptions`를 설정하여 변경할 수 있습니다. 기본적으로 요청이 요청 속도로 계속 작동 하는 경우 누적 대기 시간 30 초 후에 상태 코드 429의 `DocumentClientException` 반환 됩니다. 현재 재시도 횟수가 최대 재시도 횟수보다 작은 경우에도 이러한 현상이 발생하기 때문에 기본값인 9 또는 사용자 정의 값으로 두세요. 
 
 [MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) 은 3으로 설정 되므로이 경우 요청 작업은 컨테이너에 대 한 예약 된 처리량을 초과 하 여 속도가 제한 되는 경우 요청 작업은 응용 프로그램에 예외를 throw 하기 전에 3 번 다시 시도 합니다. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) 가 60로 설정 되어 있으므로이 경우 첫 번째 요청이 60 초를 초과 하 여 누적 된 재시도 대기 시간 (초)이 초를 초과 하면 예외가 throw 됩니다.
 

@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB에서 변경 피드 프로세서 라이브러리 사용
 description: Azure Cosmos DB 변경 피드 프로세서 라이브러리 사용.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 4074f26cdefd650c1b927293f422623841dfff7d
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 4bd7a31abf47664d1a6ffdd39fe46d9370dbbc97
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71073702"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757037"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 프로세서 
 
@@ -39,7 +39,7 @@ ms.locfileid: "71073702"
 
 ## <a name="implementing-the-change-feed-processor"></a>변경 피드 프로세서 구현
 
-항목의 지점은 호출 `Container` `GetChangeFeedProcessorBuilder`하는 인스턴스에서 항상 모니터링 되는 컨테이너입니다.
+항목의 지점은 `GetChangeFeedProcessorBuilder` 호출 하는 `Container` 인스턴스에서 항상 모니터링 되는 컨테이너입니다.
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
@@ -49,16 +49,16 @@ ms.locfileid: "71073702"
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
-마지막으로 및를 사용 `WithInstanceName` 하 여이 프로세서 인스턴스의 이름을 정의 하 고 임대 `WithLeaseContainer`상태를 유지 하는 데 사용할 컨테이너를 지정 합니다.
+마지막으로 `WithInstanceName` 및 `WithLeaseContainer`를 사용 하 여 임대 상태를 유지 하는 컨테이너를 사용 하 여이 프로세서 인스턴스의 이름을 정의 합니다.
 
-을 `Build` 호출 하면를 호출 `StartAsync`하 여 시작할 수 있는 프로세서 인스턴스를 제공 합니다.
+@No__t_0를 호출 하면 `StartAsync`를 호출 하 여 시작할 수 있는 프로세서 인스턴스가 제공 됩니다.
 
 ## <a name="processing-life-cycle"></a>처리 수명 주기
 
 호스트 인스턴스의 일반적인 수명 주기는 다음과 같습니다.
 
 1. 변경 피드를 읽습니다.
-1. 변경 내용이 없는 경우에는 미리 정의 된 시간 (작성기 `WithPollInterval` 에서 사용자 지정 가능)에 대해 절전 모드로 전환 하 고 #1로 이동 합니다.
+1. 변경 내용이 없는 경우에는 미리 정의 된 시간 (작성기에서 `WithPollInterval`로 사용자 지정 가능)에 대해 절전 모드로 전환 하 고 #1로 이동 합니다.
 1. 변경 내용이 있으면 **대리자로**보냅니다.
 1. 대리자가 변경 내용을 **성공적으로**처리 하는 작업이 완료 되 면 처리 된 최신 시점으로 임대 저장소를 업데이트 하 고 #1로 이동 합니다.
 
@@ -84,7 +84,7 @@ ms.locfileid: "71073702"
 
 Cosmos 컨테이너 내부 및 외부의 데이터 이동은 항상 RU를 사용하므로 사용된 RU 요금이 청구됩니다. 임대 컨테이너에서 사용되는 RU 요금이 청구됩니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
 * [GitHub의 사용 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)

@@ -2,18 +2,17 @@
 title: Azure Cosmos DB에서 데이터 모델링
 titleSuffix: Azure Cosmos DB
 description: NoSQL 데이터베이스의 데이터 모델링과 관계형 데이터베이스 및 문서 데이터베이스의 데이터 모델링 간 차이점에 대해 알아봅니다.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
-ms.custom: rimman
-ms.openlocfilehash: da119b2858c6b6c7bbc99b40d340f79964e0fae3
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 523049ea3286445117f41147f3dd12a2c911d1ae
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467892"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755010"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터 모델링
 
@@ -374,7 +373,7 @@ Azure Cosmos DB의 엄지 단추는 모든 항목을 비 정규화 하 고 모�
 
 여기에서는 주로 포함된 모델을 따랐으며, 다른 엔터티의 데이터가 최상위 문서에 포함되지만 다른 데이터는 참조됩니다.
 
-책 문서를 보면 저자 배열을 볼 때 몇 가지 흥미로운 필드를 발견할 수 있습니다. 정규화 된 모델에서 작성자 문서를 다시 참조 하는 데 사용 하는 필드인 `name` `thumbnailUrl` 필드가있으며,그다음에도`id` 및가 있습니다. "링크"를 사용 `id` 하 여 각 작성자 문서에서 필요한 추가 정보를 가져오기 위해 응용 프로그램을 중지 하 고 남겨 둘 수 있습니다. 그러나 응용 프로그램에는 모든 책과 함께 작성자 이름과 축소판 그림이 표시 되기 때문입니다. 표시 되는 경우 작성자의 **일부** 데이터를 비 정규화 하 여 목록에서 책 당 서버에 대 한 왕복을 저장할 수 있습니다.
+책 문서를 보면 저자 배열을 볼 때 몇 가지 흥미로운 필드를 발견할 수 있습니다. 정규화 된 모델에서 작성자 문서를 다시 참조 하는 데 사용 하는 필드인 `id` 필드가 있으며, 그 후에는 `name` 및 `thumbnailUrl`도 있습니다. "링크"를 사용 하 여 해당 작성자 문서에서 필요한 추가 정보를 얻기 위해 응용 프로그램을 중단 `id` 했을 수 있습니다. 그러나 응용 프로그램에는 작성자의 이름과 모든 책이 표시 된 축소판 그림 그림이 표시 되기 때문에 응용 프로그램에는 해당 작성자의 이름과 축소판 그림이 표시 됩니다. 작성자의 **일부** 데이터를 비 정규화 하 여 목록에서 책 당 서버에 대 한 왕복을 저장할 수 있습니다.
 
 작성자의 이름이 변경 되거나 사진을 업데이트 하려는 경우 게시 한 모든 책을 업데이트 해야 하지만, 작성자가 이름을 자주 변경 하지 않는다는 가정에 따라 응용 프로그램에 대해이는 적합 한 디자인 결정입니다.  
 
@@ -384,7 +383,7 @@ Azure Cosmos DB의 엄지 단추는 모든 항목을 비 정규화 하 고 모�
 
 ## <a name="distinguishing-between-different-document-types"></a>여러 문서 형식 구별
 
-일부 시나리오에서는 동일한 컬렉션에서 여러 문서 형식을 혼합할 수 있습니다. 이는 일반적으로 동일한 [파티션에](partitioning-overview.md)여러 관련 문서를 연결 하려는 경우에 해당 합니다. 예를 들어 동일한 컬렉션에 책과 책 리뷰를 모두 배치 하 고이 `bookId`를 분할할 수 있습니다. 이러한 상황에서는 일반적으로 해당 유형을 식별 하는 필드를 사용 하 여 문서를 구분 하기 위해 문서에 추가 하려고 합니다.
+일부 시나리오에서는 동일한 컬렉션에서 여러 문서 형식을 혼합할 수 있습니다. 이는 일반적으로 동일한 [파티션에](partitioning-overview.md)여러 관련 문서를 연결 하려는 경우에 해당 합니다. 예를 들어 동일한 컬렉션에 책과 책 리뷰를 모두 배치 하 고 `bookId` 하 여 분할할 수 있습니다. 이러한 상황에서는 일반적으로 해당 유형을 식별 하는 필드를 사용 하 여 문서를 구분 하기 위해 문서에 추가 하려고 합니다.
 
     Book documents:
     {

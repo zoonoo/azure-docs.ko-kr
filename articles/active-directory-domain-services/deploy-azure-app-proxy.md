@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Azure AD 응용 프로그램 프록시 배포 | Microsoft Docs'
+title: Azure AD Domain Services에 대 한 Azure AD 응용 프로그램 프록시 배포 | Microsoft Docs
 description: Azure Active Directory Domain Services 관리되는 도메인에서 Azure AD 애플리케이션 프록시 사용
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 21693926bae681cf15d31dca06344dfa5d865e3b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 80c3b2120a617e5c4c0f8de252b9436753fea011
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612996"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754395"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에서 Azure AD 애플리케이션 프록시 배포
 Azure AD(Active Directory) 애플리케이션 프록시를 사용하면 인터넷을 통해 액세스할 수 있는 온-프레미스 애플리케이션을 게시하여 원격 작업자를 지원할 수 있습니다. 이제 Azure AD Domain Services를 통해 온-프레미스를 운영 중인 레거시 애플리케이션을 Azure Infrastructure Services로 전환할 수 있습니다. 그러면 Azure AD 애플리케이션 프록시를 사용하는 이러한 애플리케이션을 게시하여 조직 내 사용자에게 안전한 원격 액세스를 제공할 수 있습니다.
@@ -29,13 +29,13 @@ Azure AD 애플리케이션 프록시를 처음 사용하는 경우 다음에 �
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 이 문서에 나열된 작업을 수행하려면 다음이 필요합니다.
 
 1. 유효한 **Azure 구독**.
 2. **Azure AD 디렉터리** - 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화됩니다.
 3. **Azure AD Premium 라이선스** 는 Azure AD 응용 프로그램 프록시를 사용 하는 데 필요 합니다.
-4. **Azure AD 도메인 서비스** 를 사용하도록 설정해야 합니다. 그렇지 않은 경우 [시작 가이드](tutorial-create-instance.md)에 간략히 설명된 모든 작업을 따릅니다.
+4. **Azure AD 도메인 서비스**를 사용하도록 설정해야 합니다. 그렇지 않은 경우 [시작 가이드](tutorial-create-instance.md)에 간략히 설명된 모든 작업을 따릅니다.
 
 <br>
 
@@ -125,7 +125,7 @@ Set-ADComputer contoso-resource.contoso.com -PrincipalsAllowedToDelegateToAccoun
 관리되는 도메인에서 여러 애플리케이션 프록시 커넥터를 배포한 경우 이러한 각 커넥터 인스턴스에 대한 리소스 기반 KCD를 구성해야 합니다.
 
 
-## <a name="related-content"></a>관련 내용
+## <a name="related-content"></a>관련 콘텐츠
 * [Azure AD Domain Services - 시작 가이드](tutorial-create-instance.md)
 * [관리되는 도메인에서 Kerberos 제한 위임 구성](deploy-kcd.md)
 * [Kerberos 제한 위임 개요](https://technet.microsoft.com/library/jj553400.aspx)

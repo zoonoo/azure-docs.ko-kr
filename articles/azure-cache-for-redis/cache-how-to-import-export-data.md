@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: dfa8b47ced70386efa1daa44af318f1da55f49e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fda366f631e392379bd52b4bba728d0373f3e75e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60542348"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756648"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Azure Cache for Redis에서 데이터 가져오기 및 내보내기
 가져오기/내보내기는 Azure Cache for Redis 데이터 관리 작업입니다. 즉 프리미엄 캐시에서 Azure Storage 계정의 Blob으로 Azure Cache for Redis 데이터베이스(RDB) 스냅샷을 가져오고 내보내는 방식으로 Azure Cache for Redis에서 데이터를 가져오고 내보낼 수 있습니다. 
 
-- **내보내기** - Azure Cache for Redis RDB 스냅숏을 페이지 Blob으로 내보낼 수 있습니다.
-- **가져오기** - Azure Cache for Redis RDB 스냅숏을 페이지 Blob 또는 블록 Blob에서 가져올 수 있습니다.
+- **내보내기** - Azure Cache for Redis RDB 스냅샷을 페이지 Blob으로 내보낼 수 있습니다.
+- **가져오기** - Azure Cache for Redis RDB 스냅샷을 페이지 Blob 또는 블록 Blob에서 가져올 수 있습니다.
 
 가져오기/내보내기를 사용하면 다양한 Azure Cache for Redis 인스턴스 간에 마이그레이션하거나 데이터를 사용하기 전에 캐시에 채울 수 있습니다.
 
@@ -46,16 +46,16 @@ ms.locfileid: "60542348"
 
 1. 내보낸 캐시 Blob을 하나 이상 가져오려면 Azure Portal에서 [캐시로 이동](cache-configure.md#configure-azure-cache-for-redis-settings)하여 **리소스 메뉴**에서 **데이터 가져오기**를 클릭합니다.
 
-    ![데이터 가져오기][cache-import-data]
+    ![데이터 가져오기](./media/cache-how-to-import-export-data/cache-import-data.png)
 2. **Blob 선택** 을 클릭하고 가져올 데이터를 포함하는 스토리지 계정을 선택합니다.
 
-    ![스토리지 계정 선택][cache-import-choose-storage-account]
+    ![스토리지 계정 선택](./media/cache-how-to-import-export-data/cache-import-choose-storage-account.png)
 3. 가져올 데이터를 포함하는 컨테이너를 클릭합니다.
 
-    ![컨테이너 선택][cache-import-choose-container]
+    ![컨테이너 선택](./media/cache-how-to-import-export-data/cache-import-choose-container.png)
 4. Blob 이름의 왼쪽 영역을 클릭하여 가져올 Blob을 하나 이상 선택한 다음 **선택**을 클릭합니다.
 
-    ![Blob 선택][cache-import-choose-blobs]
+    ![Blob 선택](./media/cache-how-to-import-export-data/cache-import-choose-blobs.png)
 5. **가져오기** 를 클릭하여 가져오기 프로세스를 시작합니다.
 
    > [!IMPORTANT]
@@ -63,36 +63,35 @@ ms.locfileid: "60542348"
    >
    >
 
-    ![가져오기][cache-import-blobs]
+    ![가져오기](./media/cache-how-to-import-export-data/cache-import-blobs.png)
 
     Azure Portal의 알림에 따르거나 [감사 로그](../azure-resource-manager/resource-group-audit.md)의 이벤트를 확인하여 가져오기 작업의 진행 상황을 모니터링할 수 있습니다.
 
-    ![가져오기 진행][cache-import-data-import-complete]
+    ![가져오기 진행](./media/cache-how-to-import-export-data/cache-import-data-import-complete.png)
 
 ## <a name="export"></a>내보내기
 내보내기를 사용하면 Azure Cache for Redis에 저장된 데이터를 Redis 호환 RDB 파일로 내보낼 수 있습니다. 이 기능을 사용하여 데이터를 Azure Cache for Redis 인스턴스에서 다른 인스턴스 또는 다른 Redis 서버로 이동할 수 있습니다. 내보내기 프로세스 중에는 임시 파일이 Azure Cache for Redis 서버 인스턴스를 호스팅하는 VM에 만들어지고, 지정된 스토리지 계정에 업로드됩니다. 성공 또는 실패 상태로 내보내기 작업이 완료되면, 임시 파일은 삭제됩니다.
 
 1. 캐시의 현재 콘텐츠를 스토리지로 내보내려면 Azure Portal에서 [캐시로 이동](cache-configure.md#configure-azure-cache-for-redis-settings)하여 **리소스 메뉴**에서 **데이터 내보내기**를 클릭합니다.
 
-    ![스토리지 컨테이너 선택][cache-export-data-choose-storage-container]
+    ![스토리지 컨테이너 선택](./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png)
 2. **스토리지 컨테이너 선택**을 클릭하고 원하는 스토리지 계정을 선택합니다. 스토리지 계정은 캐시와 동일한 구독 및 지역 내에 있어야 합니다.
 
    > [!IMPORTANT]
    > 내보내기는 페이지 Blob을 사용하고, 클래식 및 Resource Manager 스토리지 계정 양쪽 모두에서 지원되지만, Blob Storage 계정에서는 현재 지원되지 않습니다. 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md)를 참조하세요.
    >
-   >
 
-    ![Storage 계정][cache-export-data-choose-account]
+    ![Storage 계정](./media/cache-how-to-import-export-data/cache-export-data-choose-account.png)
 3. 원하는 Blob 컨테이너를 선택하고 **선택**을 클릭합니다. 새 컨테이너를 사용하려면 **컨테이너 추가** 를 클릭하여 컨테이너를 추가한 다음 목록에서 선택합니다.
 
-    ![스토리지 컨테이너 선택][cache-export-data-container]
+    ![스토리지 컨테이너 선택](./media/cache-how-to-import-export-data/cache-export-data-container.png)
 4. **Blob 이름 접두사**를 입력하고 **내보내기**를 클릭하여 내보내기 프로세스를 시작합니다. Blob 이름 접두사는 내보내기 작업에 의해 생성되는 파일의 이름에 접두사를 붙이는 데 사용됩니다.
 
-    ![내보내기][cache-export-data]
+    ![내보내기](./media/cache-how-to-import-export-data/cache-export-data.png)
 
     Azure Portal의 알림에 따르거나 [감사 로그](../azure-resource-manager/resource-group-audit.md)에서 이벤트를 확인하여 내보내기 작업의 진행 상황을 모니터링할 수 있습니다.
 
-    ![데이터 내보내기 완료][cache-export-data-export-complete]
+    ![데이터 내보내기 완료](./media/cache-how-to-import-export-data/cache-export-data-export-complete.png)
 
     내보내기 프로세스를 진행하는 동안 캐시는 사용할 수 있는 상태로 유지됩니다.
 
@@ -107,7 +106,7 @@ ms.locfileid: "60542348"
 * [Import/Export는 사용자 지정 데이터베이스 설정에서 어떻게 작동합니까?](#how-does-importexport-work-with-a-custom-databases-setting)
 * [Import/Export가 Redis 지속성과 어떻게 다른가요?](#how-is-importexport-different-from-redis-persistence)
 * [PowerShell, CLI, 또는 다른 관리 클라이언트를 사용하여 Import/Export를 자동화할 수 있나요?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
-* [Import/Export 작업을 진행하는 동안 시간 초과 오류가 발생했습니다. 무엇을 의미하나요?](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
+* [ 작업을 진행하는 동안 시간 초과 오류가 발생했습니다. 무엇을 의미하나요?](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
 * [Azure Blob Storage로 데이터를 내보내다가 오류가 발생했습니다. 어떻게 된 건가요?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
 
 ### <a name="what-pricing-tiers-can-use-importexport"></a>어떤 가격 책정 계층에서 Import/Export를 사용할 수 있나요?
@@ -146,7 +145,7 @@ Azure Cache for Redis 지속성을 사용하면 Redis에 저장된 데이터를 
 가져오기/내보내기를 사용하면 Azure Cache for Redis에서 데이터를 가져오거나 내보낼 수 있습니다. Redis 지속성을 사용하여 백업 및 복원을 구성하지 않습니다.
 
 ### <a name="can-i-automate-importexport-using-powershell-cli-or-other-management-clients"></a>PowerShell, CLI, 또는 다른 관리 클라이언트를 사용하여 Import/Export를 자동화할 수 있나요?
-예, PowerShell 명령은 [Azure Cache for Redis 가져오기](cache-howto-manage-redis-cache-powershell.md#to-import-an-azure-cache-for-redis) 및 [Azure Cache for Redis 내보내기](cache-howto-manage-redis-cache-powershell.md#to-export-an-azure-cache-for-redis)를 참조하세요.
+예, PowerShell 명령은 [Azure Cache for Redis 가져오기](cache-how-to-manage-redis-cache-powershell.md#to-import-an-azure-cache-for-redis) 및 [Azure Cache for Redis 내보내기](cache-how-to-manage-redis-cache-powershell.md#to-export-an-azure-cache-for-redis)를 참조하세요.
 
 ### <a name="i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean"></a>Import/Export 작업을 진행하는 동안 시간 초과 오류가 발생했습니다. 무엇을 의미하나요?
 작업을 시작하기 전에 **데이터 가져오기**나 **데이터 내보내기** 블레이드에 15분 넘게 머무르는 경우 다음 예제와 유사한 오류 메시지를 받게 됩니다.
@@ -161,18 +160,4 @@ Azure Cache for Redis 지속성을 사용하면 Redis에 저장된 데이터를 
 ## <a name="next-steps"></a>다음 단계
 더 많은 프리미엄 캐시 기능을 사용하는 방법에 대해 알아봅니다.
 
-* [Azure Cache for Redis 프리미엄 계층 소개](cache-premium-tier-intro.md)    
-
-<!-- IMAGES -->
-[cache-settings-import-export-menu]: ./media/cache-how-to-import-export-data/cache-settings-import-export-menu.png
-[cache-export-data-choose-account]: ./media/cache-how-to-import-export-data/cache-export-data-choose-account.png
-[cache-export-data-choose-storage-container]: ./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png
-[cache-export-data-container]: ./media/cache-how-to-import-export-data/cache-export-data-container.png
-[cache-export-data-export-complete]: ./media/cache-how-to-import-export-data/cache-export-data-export-complete.png
-[cache-export-data]: ./media/cache-how-to-import-export-data/cache-export-data.png
-[cache-import-data]: ./media/cache-how-to-import-export-data/cache-import-data.png
-[cache-import-choose-storage-account]: ./media/cache-how-to-import-export-data/cache-import-choose-storage-account.png
-[cache-import-choose-container]: ./media/cache-how-to-import-export-data/cache-import-choose-container.png
-[cache-import-choose-blobs]: ./media/cache-how-to-import-export-data/cache-import-choose-blobs.png
-[cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
-[cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
+* [Azure Cache for Redis 프리미엄 계층 소개](cache-premium-tier-intro.md)
