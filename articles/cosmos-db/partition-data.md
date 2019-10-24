@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB의 분할 및 수평적 크기 조정
 description: Azure Cosmos DB에서 분할이 작동 하는 방식, 분할 및 파티션 키를 구성 하는 방법 및 응용 프로그램에 적합 한 파티션 키를 선택 하는 방법에 대해 알아봅니다.
-ms.author: rimman
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 8f83c40aeecdbf9ca30adc20286712850882ee41
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: cbd171e10cc1a8b27de98d9d4d779f345ac5a3ed
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616787"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754916"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Azure Cosmos DB의 분할 및 수평적 크기 조정
 
@@ -19,7 +19,7 @@ ms.locfileid: "69616787"
 
 ## <a name="logical-partitions"></a>논리 파티션
 
-논리적 파티션은 동일한 파티션 키를 가진 항목 집합으로 구성 됩니다. 예를 들어 모든 항목에 `City` 속성이 포함 된 컨테이너에서는를 컨테이너에 대 한 파티션 키로 사용할 `City` 수 있습니다. `London`, `City` ,`Paris`등의 특정 값이 있는 항목 그룹은 고유한 논리 파티션을 형성 합니다. `NYC` 기본 데이터를 삭제할 때 파티션을 삭제 하는 것에 대해 걱정할 필요가 없습니다.
+논리적 파티션은 동일한 파티션 키를 가진 항목 집합으로 구성 됩니다. 예를 들어 모든 항목에 `City` 속성이 포함 된 컨테이너에서 `City`를 컨테이너에 대 한 파티션 키로 사용할 수 있습니다. @No__t_1, `Paris` 및 `NYC`와 같이 `City`에 대 한 특정 값을 가진 항목의 그룹은 고유한 논리 파티션을 형성 합니다. 기본 데이터를 삭제할 때 파티션을 삭제 하는 것에 대해 걱정할 필요가 없습니다.
 
 Azure Cosmos DB에서 컨테이너는 확장성의 기본 단위입니다. 컨테이너에 추가 되는 데이터와 컨테이너에서 프로 비전 하는 처리량은 논리적 파티션 집합에서 자동으로 (가로) 분할 됩니다. 데이터와 처리량은 Azure Cosmos 컨테이너에 대해 지정 하는 파티션 키에 따라 분할 됩니다. 자세한 내용은 [Azure Cosmos 컨테이너 만들기](how-to-create-container.md)를 참조 하세요.
 

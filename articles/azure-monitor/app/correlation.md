@@ -8,12 +8,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: aa683e90a328e9525fa7d0a78981aa107818188a
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: df93405940c02affa224fba2d2e6f07ce5278b15
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678182"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755366"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -214,6 +214,82 @@ public void ConfigureServices(IServiceCollection services)
 자세한 내용은 [Application Insights 원격 분석 데이터 모델](../../azure-monitor/app/data-model.md)을 참조하세요. 
 
 OpenTracing 개념에 대한 정의는 OpenTracing [사양](https://github.com/opentracing/specification/blob/master/specification.md) 및 [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)를 참조하세요.
+
+## <a name="telemetry-correlation-in-opencensus-python"></a>OpenCensus Python의 원격 분석 상관 관계
+
+OpenCensus Python은 위에서 설명한 `OpenTracing` 데이터 모델 사양을 따릅니다. 또한 구성이 필요 없는 [W3C 추적 컨텍스트](https://w3c.github.io/trace-context/) 를 지원 합니다.
+
+### <a name="incoming-request-correlation"></a>들어오는 요청 상관 관계
+
+OpenCensus Python은 요청 자체에서 생성 된 범위에 대 한 들어오는 요청에서 W3C 추적 컨텍스트 헤더를 연관 시킵니다. OpenCensus `flask`, `django` 및 `pyramid`와 같은 인기 있는 웹 응용 프로그램 프레임 워크에 대 한 통합을 통해이 작업을 자동으로 수행 합니다. W3C 추적 컨텍스트 헤더를 [올바른 형식](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)으로 입력 하 고 요청과 함께 전송 해야 합니다. 다음은이를 보여 주는 예제 `flask` 응용 프로그램입니다.
+
+```python
+from flask import Flask
+from opencensus.ext.azure.trace_exporter import AzureExporter
+from opencensus.ext.flask.flask_middleware import FlaskMiddleware
+from opencensus.trace.samplers import ProbabilitySampler
+
+app = Flask(__name__)
+middleware = FlaskMiddleware(
+    app,
+    exporter=AzureExporter(),
+    sampler=ProbabilitySampler(rate=1.0),
+)
+
+@app.route('/')
+def hello():
+    return 'Hello World!'
+
+if __name__ == '__main__':
+    app.run(host='localhost', port=8080, threaded=True)
+```
+
+이렇게 하면 로컬 컴퓨터에서 샘플 `flask` 응용 프로그램을 실행 하 `8080` 포트를 수신 대기 합니다. 추적 컨텍스트의 상관 관계를 위해 끝점에 요청을 보냅니다. 이 예제에서는 `curl` 명령을 사용할 수 있습니다.
+```
+curl --header "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01" localhost:8080
+```
+[추적 컨텍스트 헤더 형식을](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)살펴보면 다음 정보를 파생 합니다. `version`: `00` 
+ `trace-id`: `4bf92f3577b34da6a3ce929d0e0e4736` 
+ `parent-id/span-id`: `00f067aa0ba902b7` 
+ 0: 1
+
+Azure Monitor로 전송 된 요청 항목을 살펴보면 추적 헤더 정보로 채워진 필드를 볼 수 있습니다.
+
+![빨간색 상자에 강조 표시 된 추적 헤더 필드가 있는 로그 (분석)의 요청 원격 분석 스크린샷](./media/opencensus-python/0011-correlation.png)
+
+@No__t_0 필드는 `<trace-id>.<span-id>` 형식으로 되어 있습니다. 여기서 `trace-id`는 요청에 전달 된 추적 헤더에서 가져오며 `span-id`는이 범위에 대해 생성 된 8 바이트 배열입니다. 
+
+@No__t_0 필드는 `<trace-id>.<parent-id>` 형식으로 되어 있습니다. 여기에서 `trace-id` 및 `parent-id`는 모두 요청에 전달 된 추적 헤더에서 가져옵니다.
+
+### <a name="logs-correlation"></a>로그 상관 관계
+
+OpenCensus Python에서는 추적 ID, 범위 ID 및 샘플링 플래그를 사용 하 여 로그 레코드를 보강 로그의 상관 관계를 지정할 수 있습니다. 이 작업은 OpenCensus [로깅 통합](https://pypi.org/project/opencensus-ext-logging/)을 설치 하 여 수행 됩니다. 다음 특성은 Python `LogRecord`s에 추가 됩니다. `traceId`, `spanId` 및 `traceSampled`. 이는 통합 후에 생성 된로 거에만 적용 됩니다.
+다음은이를 보여 주는 샘플 응용 프로그램입니다.
+
+```python
+import logging
+
+from opencensus.trace import config_integration
+from opencensus.trace.samplers import AlwaysOnSampler
+from opencensus.trace.tracer import Tracer
+
+config_integration.trace_integrations(['logging'])
+logging.basicConfig(format='%(asctime)s traceId=%(traceId)s spanId=%(spanId)s %(message)s')
+tracer = Tracer(sampler=AlwaysOnSampler())
+
+logger = logging.getLogger(__name__)
+logger.warning('Before the span')
+with tracer.span(name='hello'):
+    logger.warning('In the span')
+logger.warning('After the span')
+```
+이 코드가 실행 되 면 콘솔에서 다음을 가져옵니다.
+```
+2019-10-17 11:25:59,382 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 Before the span
+2019-10-17 11:25:59,384 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=70da28f5a4831014 In the span
+2019-10-17 11:25:59,385 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 After the span
+```
+@No__t_0 범위에 속하는 로그 메시지에 대 한 spanId가 있는지 확인 합니다. 범위 내에는 범위에 속하는 동일한 spanId입니다.
 
 ## <a name="telemetry-correlation-in-net"></a>.NET의 원격 분석 상관 관계
 

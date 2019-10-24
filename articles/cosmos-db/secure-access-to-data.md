@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에서 데이터에 대한 액세스를 보호하는 방법
 description: 마스터 키, 읽기 전용 키, 사용자 및 권한을 포함해서 Azure Cosmos DB의 액세스 제어 개념에 대해 알아봅니다.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.author: rimman
-ms.openlocfilehash: f2e01e42a53f6f099191c03f45d6521668ea73a1
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 7e732f1d35097730d4468b43a2d9804fe7a18514
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616678"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753166"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 액세스 보호
 
@@ -124,7 +124,7 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 
 <a id="permissions"></a>
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 Cosmos DB 권한 리소스는 Cosmos DB 사용자와 연결됩니다.  각 사용자는 0개 이상의 Cosmos DB 권한을 포함할 수 있습니다.  권한 리소스는 사용자가 특정 애플리케이션 리소스에 액세스하려고 시도할 때 필요한 보안 토큰에 대한 액세스 권한을 제공합니다.
 권한 리소스에서 제공될 수 있는 사용 가능한 액세스 수준은 다음 두 가지입니다.
 
@@ -183,7 +183,7 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 4. **다음에 대한 액세스 할당** 상자에서 **Azure AD 사용자, 그룹 또는 애플리케이션**을 선택합니다.
 5. 액세스 권한을 부여하려는 디렉터리에서 사용자, 그룹 또는 애플리케이션을 선택합니다.  표시 이름, 이메일 주소 또는 개체 식별자로 디렉터리를 검색할 수 있습니다.
     선택한 사용자, 그룹 또는 애플리케이션이 선택한 멤버 목록에 나타납니다.
-6. **Save**을 클릭합니다.
+6. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 
 이제 엔터티는 Azure Cosmos DB 리소스를 읽을 수 있습니다.
 
@@ -193,5 +193,5 @@ Azure Cosmos DB를 사용하면 데이터베이스 또는 컬렉션에 있는 �
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>다음 단계
-* Cosmos 데이터베이스 보안에 대 한 자세한 내용은 Cosmos DB [를 참조 하세요. 데이터베이스 보안](database-security.md)을 참조하세요.
+* Cosmos database 보안에 대해 자세히 알아보려면 [Cosmos DB: 데이터베이스 보안](database-security.md)을 참조 하세요.
 * Azure Cosmos DB 권한 부여 토큰을 생성하는 방법에 대한 자세한 내용은 [Azure Cosmos DB 리소스에 대한 Access Control](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources)을 참조하세요.

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: 5631b34fee64c6ad0917b95ec68fcd586717a1b0
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 2919c7a2fa3a8912de0272af5131583988184704
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675194"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755525"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure App Service 진단 개요
 
@@ -92,7 +92,7 @@ Application Insights 예외 및 종속성을 보려면 **웹 앱 다운** 또는
 
 ### <a name="proactive-cpu-monitoring"></a>자동 관리 CPU 모니터링
 
-자동 관리 CPU 모니터링을 통해 앱 또는 앱에 대 한 자식 프로세스가 높은 CPU 리소스를 사용 하는 경우 작업을 쉽게 수행할 수 있습니다. 예기치 않은 문제에 대 한 실제 원인이 발견 될 때까지 cpu 임계값 규칙을 일시적으로 완화 하도록 사용자 고유의 CPU 임계값 규칙을 설정할 수 있습니다. 자세한 내용은 [CPU 문제가 발생 하기 전에](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html)이를 완화 하는 방법을 참조 하세요. 자동 관리 CPU 모니터링을 통해 앱 또는 앱에 대 한 자식 프로세스가 높은 CPU 리소스를 사용 하는 경우 작업을 쉽게 수행할 수 있습니다. 예기치 않은 문제에 대 한 실제 원인이 발견 될 때까지 cpu 임계값 규칙을 일시적으로 완화 하도록 사용자 고유의 CPU 임계값 규칙을 설정할 수 있습니다.
+자동 관리 CPU 모니터링을 통해 앱 또는 앱에 대 한 자식 프로세스가 높은 CPU 리소스를 사용 하는 경우 작업을 쉽게 수행할 수 있습니다. 예기치 않은 문제에 대 한 실제 원인이 발견 될 때까지 cpu 임계값 규칙을 일시적으로 완화 하도록 사용자 고유의 CPU 임계값 규칙을 설정할 수 있습니다. 자세한 내용은 [CPU 문제가 발생 하기 전에](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html)이를 완화 하는 방법을 참조 하세요.
 
 ![자동 관리 CPU 모니터링](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 

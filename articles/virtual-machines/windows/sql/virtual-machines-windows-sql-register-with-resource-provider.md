@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a0e5076f6ecb102b239a94b986830235eb720125
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 2f0fac5e1951f593ea769f73feb21a60afe9c02b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512368"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756164"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>SQL VM 리소스 공급자를 사용 하 여 Azure에 SQL Server 가상 머신 등록
 
@@ -203,7 +203,7 @@ PowerShell을 사용 하 여 SQL Server IaaS 에이전트의 현재 모드를 �
      $sqlvm.Properties.sqlManagement
   ```
 
-*경량* IaaS 확장이 설치 된 SQL Server vm은 Azure Portal를 사용 하 여 모드를 _full_ 로 업그레이드할 수 있습니다. _에이전트가 없는_ SQL Server Vm은 Windows 2008 R2 이상으로 업그레이드 한 후에 _전체_ 로 업그레이드할 수 있습니다. 다운 그레이드 하는 것은 불가능 합니다. 이렇게 하려면 Azure Portal를 사용 하 여 SQL VM 리소스 공급자 리소스를 삭제 하 고 SQL VM 리소스 공급자에 다시 등록 해야 합니다. 
+*경량* IaaS 확장이 설치 된 SQL Server vm은 Azure Portal를 사용 하 여 모드를 _full_ 로 업그레이드할 수 있습니다. _에이전트가 없는_ SQL Server Vm은 Windows 2008 R2 이상으로 업그레이드 한 후에 _전체_ 로 업그레이드할 수 있습니다. 다운 그레이드할 수는 없습니다. 이렇게 하려면 sql vm 리소스를 삭제 하 여 sql vm 리소스 공급자에서 SQL Server VM [등록을 취소](#unregister-vm-from-resource-provider) 하 고 sql vm 리소스 공급자에 다시 등록 해야 합니다. 
 
 에이전트 모드를 full로 업그레이드 하려면 다음을 수행 합니다. 
 
@@ -281,6 +281,49 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
 ---
 
+## <a name="unregister-vm-from-resource-provider"></a>리소스 공급자에서 VM 등록 취소 
+
+SQL VM 리소스 공급자를 사용 하 여 SQL Server VM 등록을 취소 하려면 Azure Portal 또는 Azure CLI를 사용 하 여 SQL 가상 머신 *리소스* 를 삭제 합니다. SQL 가상 컴퓨터 *리소스* 를 삭제 해도 SQL Server VM는 삭제 되지 않습니다. 그러나 *리소스*를 제거 하려고 할 때 실수로 가상 컴퓨터를 삭제할 수 있으므로 주의 하 여 단계를 신중 하 게 수행 해야 합니다. 
+
+관리 모드를 전체로 다운 그레이드 하려면 sql vm 리소스 공급자를 사용 하 여 SQL VM 등록을 취소 해야 합니다. 
+
+### <a name="azure-portal"></a>Azure Portal
+
+Azure Portal를 사용 하 여 리소스 공급자에 SQL Server VM 등록을 취소 하려면 다음 단계를 수행 합니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. SQL Server VM 리소스로 이동 합니다. 
+  
+   ![SQL 가상 컴퓨터 리소스](media/virtual-machines-windows-sql-manage-portal/sql-vm-manage.png)
+
+1. **삭제**를 선택합니다. 
+
+   ![SQL VM 리소스 공급자 삭제](media/virtual-machines-windows-sql-register-with-rp/delete-sql-vm-resource-provider.png)
+
+1. SQL 가상 컴퓨터의 이름을 입력 하 고 **가상 컴퓨터 옆에 있는 확인란의 선택을 취소**합니다.
+
+   ![SQL VM 리소스 공급자 삭제](media/virtual-machines-windows-sql-register-with-rp/confirm-delete-of-resource-uncheck-box.png)
+
+   >[!WARNING]
+   > 가상 컴퓨터 이름 옆의 확인란을 선택 하지 않으면 가상 컴퓨터가 완전히 *삭제* 됩니다. 리소스 공급자에서 SQL Server VM의 등록을 취소 하지만 *실제 가상 컴퓨터는 삭제 하지*않으려면 확인란의 선택을 취소 합니다. 
+
+1. **삭제** 를 선택 하 여 SQL Server 가상 머신이 아닌 SQL 가상 머신 *리소스*삭제를 확인 합니다. 
+
+
+### <a name="azure-cli"></a>Azure CLI 
+
+Azure CLI를 사용 하 여 리소스 공급자에서 SQL Server 가상 컴퓨터의 등록을 취소 하려면 [az SQL vm delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) 명령을 사용 합니다. 그러면 SQL Server 가상 컴퓨터 *리소스가* 제거 되지만 가상 컴퓨터는 삭제 되지 않습니다. 
+
+
+```azurecli-interactive
+   az sql vm delete 
+     --name <SQL VM resource name> |
+     --resource-group <Resource group name> |
+     --yes 
+```
+
+
+
 ## <a name="remarks"></a>설명
 
 - SQL VM 리소스 공급자는 Azure Resource Manager를 통해 배포 된 SQL Server Vm만 지원 합니다. 클래식 모델을 통해 배포 된 SQL Server Vm은 지원 되지 않습니다. 
@@ -353,7 +396,7 @@ SQL Server IaaS 확장을 설치 하는 경우에만 SQL Server를 다시 시작
 
 아닙니다. SQL Server IaaS 확장 관리 효율성 모드의 다운 그레이드는 지원 되지 않습니다. 관리 효율성 모드는 전체 모드에서 경량 모드로 또는 에이전트 없음 모드로 다운 그레이드할 수 없으며 경량 모드에서 에이전트 없음 모드로 다운 그레이드할 수 없습니다. 
 
-관리 효율성 모드를 전체 관리 기능으로 변경 하려면 SqlVirtualMachine 리소스를 삭제 하 고 SQL VM 리소스 공급자를 사용 하 여 SQL Server VM를 다시 등록 합니다.
+관리 효율성 모드를 전체 관리 기능으로 변경 하려면 SQL Server *리소스* 를 삭제 하 여 SQL Server 리소스 공급자에서 SQL Server 가상 컴퓨터의 [등록을 취소](#unregister-vm-from-resource-provider) 하 고 SQL VM 리소스 공급자를 사용 하 여 SQL Server VM를 다시 등록 합니다. 다른 관리 모드로 다시 전환 합니다.
 
 **Azure Portal에서 SQL VM 리소스 공급자에 등록할 수 있나요?**
 

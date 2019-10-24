@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aacedeb2c047d1abfc5affdcf94404abbb2c7b62
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 516f61775060b3e4073ed9d623545d4f227563ed
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168607"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750351"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스)를 설치하고 구성하는 방법
 
@@ -29,7 +29,7 @@ SAP HANA 설치는 사용자의 책임입니다. Azure 가상 네트워크와 HA
 > [!Note]
 > SAP 정책에 따라 SAP HANA의 설치는 인증 된 SAP 기술을 통과 한 사용자 (시험, SAP HANA 설치 인증 시험 또는 SAP 인증 된 SI (시스템 통합자) 인 사용자에 의해 수행 되어야 합니다.
 
-HANA 2.0을 설치하려는 경우 [SAP 지원 참고 사항 #2235581 - SAP HANA: 지원되는 운영 체제](https://launchpad.support.sap.com/#/notes/2235581/E)에서 OS가 설치할 SAP HANA 릴리스에서 지원되는지 확인하세요. HANA 2.0에서 지원되는 OS는 HANA 1.0에서 지원되는 OS보다 더 제한적입니다. 
+HANA 2.0을 설치하려는 경우 [SAP Support Note # 2235581 - SAP HANA: 지원되는 운영 체제](https://launchpad.support.sap.com/#/notes/2235581/E)에서 OS가 설치할 SAP HANA 릴리스에서 지원되는지 확인하세요. HANA 2.0에서 지원되는 OS는 HANA 1.0에서 지원되는 OS보다 더 제한적입니다. 
 
 > [!IMPORTANT] 
 > 유형 II 단위의 경우 현재 SLES 12 SP2 OS 버전만 지원됩니다. 
@@ -87,7 +87,7 @@ RHEL 6.3부터 시작 하는 모든 RHEL 릴리스에 대해서는 다음 사항
 > [!IMPORTANT] 
 > 유형 II 단위의 경우 현재 SLES 12 SP2 OS 버전만 지원됩니다. 
 
-제공되는 OS 이미지의 스왑 공간은 [SAP 지원 참고 사항 #1999997 - FAQ: SAP HANA 메모리](https://launchpad.support.sap.com/#/notes/1999997/E)에 따라 2GB로 설정됩니다. 고객이 다른 설정을 원하는 경우 직접 설정해야 합니다.
+제공되는 OS 이미지의 스왑 공간은 [SAP Support Note #1999997 - FAQ: SAP HANA 메모리](https://launchpad.support.sap.com/#/notes/1999997/E)(영문)에 따라 2GB로 설정됩니다. 고객이 다른 설정을 원하는 경우 직접 설정해야 합니다.
 
 [SUSE Linux Enterprise Server 12 SP1 for SAP Applications](https://www.suse.com/products/sles-for-sap/download/)는 Azure의 SAP HANA(대규모 인스턴스)용으로 설치되는 Linux 배포판입니다. 이 특정 배포판은 SAP 관련 기능을 “바로 사용할 수 있게” 제공합니다(SLES에서 SAP를 효과적으로 실행하기 위해 미리 설정된 매개 변수 포함).
 
@@ -96,15 +96,15 @@ SLES의 SAP HANA 배포와 관련된 몇 가지 유용한 리소스(고가용성
 다음은 SUSE의 SAP와 관련된 유용한 추가 링크입니다.
 
 - [SUSE Linux의 SAP HANA 사이트](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)
-- [SAP 관련 모범 사례: 복제 큐에 넣기 – SUSE Linux Enterprise 12의 SAP NetWeaver](https://www.suse.com/docrepcontent/container.jsp?containerId=9113)
+- [SAP 모범 사례: 복제 큐에 넣기 – SUSE Linux Enterprise 12의 SAP NetWeaver](https://www.suse.com/docrepcontent/container.jsp?containerId=9113)(영문)
 - [ClamSAP - SAP용 SLES 바이러스 방지](https://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap)(SLES 12 for SAP Applications 포함)(영문)
 
 다음은 SLES 12의 SAP HANA 구현에 적용할 수 있는 SAP Support Note입니다.
 
-- [SAP Support Note #1944799 – SLES 운영 체제 설치에 대한 SAP HANA 지침](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)(영문)
+- [SAP Support Note #1944799 – SLES 운영 체제 설치에 대한 SAP HANA 지침](http://service.sap.com/sap/support/notes/1944799)(영문)
 - [SAP Support Note #2205917 – SAP HANA DB: SLES 12 for SAP Applications에 대한 권장 OS 설정](https://launchpad.support.sap.com/#/notes/2205917/E)(영문)
 - [SAP Support Note #1984787 – SUSE Linux Enterprise Server 12: 설치 노트](https://launchpad.support.sap.com/#/notes/1984787)(영문)
-- [SAP 지원 참고 사항 #171356 – Linux의 SAP 소프트웨어:  일반 정보](https://launchpad.support.sap.com/#/notes/1984787)
+- [SAP Support Note #171356 – SAP Software on Linux: 일반 정보](https://launchpad.support.sap.com/#/notes/1984787)(영문)
 - [SAP Support Note #1391070 – Linux UUID 솔루션](https://launchpad.support.sap.com/#/notes/1391070)(영문)
 
 [SAP HANA용 Red Hat Enterprise Linux](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana)(영문)는 HANA 큰 인스턴스에서 SAP HANA를 실행하기 위한 또 다른 제품입니다. RHEL 6.7 및 7.2 릴리스를 사용할 수 있습니다. RHEL 7.2 및 최신 릴리스가 지원 되는 네이티브 Azure Vm과 반대 되는 HANA Large Instances는 RHEL 6.7도 지원 합니다. 그러나 RHEL 7.x 릴리스를 사용하는 것이 좋습니다.
@@ -115,13 +115,13 @@ SLES의 SAP HANA 배포와 관련된 몇 가지 유용한 리소스(고가용성
 다음은 Red Hat의 SAP HANA 구현에 적용할 수 있는 SAP Support Note입니다.
 
 - [SAP Support Note #2009879 – RHEL(Red Hat Enterprise Linux) 운영 체제에 대한 SAP HANA 지침](https://launchpad.support.sap.com/#/notes/2009879/E)(영문)
-- [SAP 지원 참고 사항 #2292690 - SAP HANA DB: RHEL 7에 대한 권장 OS 설정](https://launchpad.support.sap.com/#/notes/2292690)
-- [SAP 지원 참고 사항 #2247020 - SAP HANA DB: RHEL 6.7의 권장 OS 설정](https://launchpad.support.sap.com/#/notes/2247020)
+- [SAP Support Note #2292690 - SAP HANA DB: RHEL 7에 대한 권장 OS 설정](https://launchpad.support.sap.com/#/notes/2292690)(영문)
+- [SAP Support Note #2247020 - SAP HANA DB: RHEL 6.7에 대한 권장 OS 설정](https://launchpad.support.sap.com/#/notes/2247020)(영문)
 - [SAP Support Note #1391070 – Linux UUID 솔루션](https://launchpad.support.sap.com/#/notes/1391070)(영문)
-- [SAP 지원 참고 사항 #2228351 - Linux: RHEL 6 또는 SLES 11의 SAP HANA Database SPS 11 수정 번호 110 이상](https://launchpad.support.sap.com/#/notes/2228351)
-- [SAP 지원 참고 사항 #2397039 - FAQ: RHEL의 SAP](https://launchpad.support.sap.com/#/notes/2397039)
-- [SAP 지원 참고 사항 #1496410 - Red Hat Enterprise Linux 6.x: 설치 및 업그레이드](https://launchpad.support.sap.com/#/notes/1496410)
-- [SAP 지원 참고 사항 #2002167 - Red Hat Enterprise Linux 7.x: 설치 및 업그레이드](https://launchpad.support.sap.com/#/notes/2002167)
+- [SAP Support Note #2228351 - Linux: RHEL 6 또는 SLES 11의 SAP HANA Database SPS 11 수정 번호 110 이상](https://launchpad.support.sap.com/#/notes/2228351)(영문)
+- [SAP Support Note #2397039 - FAQ: RHEL의 SAP](https://launchpad.support.sap.com/#/notes/2397039)(영문)
+- [SAP Support Note #1496410 - Red Hat Enterprise Linux 6.x: 설치 및 업그레이드](https://launchpad.support.sap.com/#/notes/1496410)(영문)
+- [SAP Support Note #2002167 - Red Hat Enterprise Linux 7.x: 설치 및 업그레이드](https://launchpad.support.sap.com/#/notes/2002167)(영문)
 
 ### <a name="time-synchronization"></a>시간 동기화
 
@@ -152,8 +152,8 @@ Azure (Large Instances)의 SAP HANA에 대 한 저장소 레이아웃은 SAP 권
 
 | 스토리지 사용 | 탑재 이름 | 볼륨 이름 | 
 | --- | --- | ---|
-| HANA data | /hana/data/SID/mnt0000\<m> | 스토리지 IP:/hana_data_SID_mnt00001_tenant_vol |
-| HANA log | /hana/log/SID/mnt0000\<m> | 스토리지 IP:/hana_log_SID_mnt00001_tenant_vol |
+| HANA data | /hana/data/SID/mnt0000 \<m > | 스토리지 IP:/hana_data_SID_mnt00001_tenant_vol |
+| HANA log | /hana/log/SID/mnt0000 \<m > | 스토리지 IP:/hana_log_SID_mnt00001_tenant_vol |
 | HANA log backup | /hana/log/backups | 스토리지 IP:/hana_log_backups_SID_mnt00001_tenant_vol |
 | HANA shared | /hana/shared/SID | 스토리지 IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
 | usr/sap | /usr/sap/SID | 스토리지 IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
@@ -172,7 +172,7 @@ HANA/log/backup 볼륨은 데이터베이스 백업용 볼륨으로 지원되지
 
 제공된 스토리지 외에도 1TB 단위로 추가 스토리지 용량을 구입할 수 있습니다. 이 추가 스토리지는 HANA 대규모 인스턴스에 새 볼륨으로 추가할 수 있습니다.
 
-Azure @no__t에서 SAP HANA를 사용 하 여 온 보 딩 하는 동안 고객은 sidadm 사용자 및 sapsys 그룹에 대 한 사용자 ID (UID) 및 그룹 ID (GID)를 지정 합니다. 예를 들면 다음과 같습니다. 지정합니다(예: 1000,500). SAP HANA 시스템을 설치하는 동안 동일한 값을 사용해야 합니다. 한 단위에 여러 개의 HANA 인스턴스를 배포하려고 하므로 다수의 볼륨 세트(인스턴스당 하나씩)를 갖게 됩니다. 결과적으로 배포 시 다음을 정의해야 합니다.
+Azure `service management`에서 SAP HANA를 사용 하 여 온 보 딩 하는 동안 고객은 sidadm 사용자 및 sapsys 그룹 (예: 1000500)에 대 한 사용자 ID (UID) 및 그룹 ID (GID)를 지정 합니다. SAP HANA 시스템을 설치하는 동안 동일한 값을 사용해야 합니다. 한 단위에 여러 개의 HANA 인스턴스를 배포하려고 하므로 다수의 볼륨 세트(인스턴스당 하나씩)를 갖게 됩니다. 결과적으로 배포 시 다음을 정의해야 합니다.
 
 - 다양한 HANA 인스턴스의 SID(sidadm은 여기서 파생됨)
 - 다양한 HANA 인스턴스의 메모리 크기. 인스턴스당 메모리 크기는 각각의 개별적인 볼륨 세트에서 볼륨 크기를 정의합니다.
@@ -208,13 +208,13 @@ HANA 큰 인스턴스에 사용 되는 저장소에는 파일 크기 제한이 �
 > [!IMPORTANT]
 > Hana 큰 인스턴스 저장소의 16TB 파일 크기 제한을 초과 하 여 데이터 파일을 확장 하려는 HANA를 방지 하려면 SAP HANA global.asax 구성 파일에서 다음 매개 변수를 설정 해야 합니다.
 > 
-> - datavolume_striping=true
+> - datavolume_striping = true
 > - datavolume_striping_size_gb = 15000
 > - SAP note를 참조 하세요 [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
 > - SAP note에 유의 하십시오 [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
-SAP HANA 2.0에서는 hdbparam 프레임워크가 사용되지 않습니다. 따라서 SQL 명령을 사용하여 매개 변수를 설정해야 합니다. 자세한 내용은 [SAP 참고 사항 #2399079: HANA 2에서 hdbparam 제거](https://launchpad.support.sap.com/#/notes/2399079)를 참조하세요.
+SAP HANA 2.0에서는 hdbparam 프레임워크가 사용되지 않습니다. 따라서 SQL 명령을 사용하여 매개 변수를 설정해야 합니다. 자세한 내용은 [SAP Note #2399079: HANA 2에서 hdbparam 제거](https://launchpad.support.sap.com/#/notes/2399079)를 참조하세요.
 
 아키텍처의 스토리지 레이아웃에 대한 자세한 내용은 [HLI 지원 시나리오](hana-supported-scenario.md)를 참조하세요.
 

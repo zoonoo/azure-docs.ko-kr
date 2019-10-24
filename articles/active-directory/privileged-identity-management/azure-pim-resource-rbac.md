@@ -4,28 +4,28 @@ description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e1ed018f66d4f5eefd02d587504cf64969f47b
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 0c9a58fb6cd8591f571b4e65c3ab88cc59e38cda
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804056"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756323"
 ---
-# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할에 대한 작업 및 감사 기록 보기
+# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할에 대 한 활동 및 감사 기록 보기
 
-Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용하면 조직 내 Azure 리소스 역할에 대한 작업, 활성화 및 감사 기록을 볼 수 있습니다. 여기에는 구독, 리소스 그룹 및 가상 머신도 포함됩니다. Azure Portal에서 Azure RBAC(역할 기반 액세스 제어) 기능을 사용하는 모든 리소스는 PIM의 보안 및 수명 주기 관리 기능을 모두 사용할 수 있습니다.
+Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용하면 조직 내 Azure 리소스 역할에 대한 작업, 활성화 및 감사 기록을 볼 수 있습니다. 여기에는 구독, 리소스 그룹 및 가상 머신도 포함됩니다. Azure RBAC (역할 기반 액세스 제어) 기능을 활용 하는 Azure Portal 내의 모든 리소스는 Privileged Identity Management의 보안 및 수명 주기 관리 기능을 활용할 수 있습니다.
 
 ## <a name="view-activity-and-activations"></a>작업 및 활성화 보기
 
@@ -51,7 +51,7 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
 ## <a name="export-role-assignments-with-children"></a>자식 요소가 있는 역할 할당 내보내기
 
-감사자에 역할 할당의 전체 목록을 제공해야 하는 규정 준수 요구 사항이 있을 수 있습니다. PIM을 사용하면 특정 리소스에서 역할 할당을 쿼리할 수 있으며, 여기에는 모든 자식 리소스에 대한 역할 할당이 포함됩니다. 이전에는 관리자가 구독의 역할 할당 전체 목록을 가져오기가 어려웠으며, 각 특정 리소스의 역할 할당을 내보내야 했습니다. PIM을 사용하면 모든 리소스 그룹 및 리소스에 대한 역할 할당을 포함하여 구독의 모든 활성 및 적격 역할 할당을 쿼리할 수 있습니다.
+감사자에 역할 할당의 전체 목록을 제공해야 하는 규정 준수 요구 사항이 있을 수 있습니다. Privileged Identity Management를 사용 하면 모든 자식 리소스에 대 한 역할 할당을 포함 하 여 특정 리소스에서 역할 할당을 쿼리할 수 있습니다. 이전에는 관리자가 구독의 역할 할당 전체 목록을 가져오기가 어려웠으며, 각 특정 리소스의 역할 할당을 내보내야 했습니다. Privileged Identity Management를 사용 하 여 모든 리소스 그룹 및 리소스에 대 한 역할 할당을 포함 하 여 구독에서 모든 활성 및 적격 역할 할당을 쿼리할 수 있습니다.
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
@@ -67,7 +67,7 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
 1. 모든 역할 할당을 CSV 파일로 내보려면 **모든 멤버 자격 내보내기**를 클릭합니다.
 
-    ![CSV fil에서 내보낸 역할 할당은 Excel에서 표시로 표시 됩니다.](media/azure-pim-resource-rbac/export-csv.png)
+    ![CSV 파일의 역할 할당을 Excel에 표시로 내보냈습니다.](media/azure-pim-resource-rbac/export-csv.png)
 
 ## <a name="view-resource-audit-history"></a>리소스 감사 기록 보기
 
@@ -111,6 +111,6 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM에서 Azure 리소스 역할 할당](pim-resource-roles-assign-roles.md)
-- [PIM에서 Azure 리소스 역할에 대한 요청 승인 또는 거부](pim-resource-roles-approval-workflow.md)
-- [PIM에서 Azure AD 역할에 대 한 감사 기록 보기](pim-how-to-use-audit-log.md)
+- [Privileged Identity Management에서 Azure 리소스 역할 할당](pim-resource-roles-assign-roles.md)
+- [Privileged Identity Management에서 Azure 리소스 역할에 대 한 요청 승인 또는 거부](pim-resource-roles-approval-workflow.md)
+- [Privileged Identity Management에서 Azure AD 역할에 대 한 감사 기록 보기](pim-how-to-use-audit-log.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 4fd213a6550d045fe4bea280449ed228ba9eda35
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: c764460fb65287dab0031b27291d2f332cec3b3d
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550279"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756542"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
 
@@ -44,6 +44,12 @@ ms.locfileid: "72550279"
     <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
     <script src="node_modules/azure-maps-control/dist/atlas.min.js"></script>
     ```
+
+    >[!Note]
+    > 다음을 추가 하 여 Typescript 정의를 응용 프로그램으로 가져올 수 있습니다.
+    > ```Javascript
+    > import * as atlas from 'azure-maps-control';
+    > ```
 
 3. 맵이 페이지 본문 전체를 채우도록 렌더링하려면 `<head>` 요소에 다음 `<style>` 요소를 추가합니다.
 
@@ -102,6 +108,8 @@ ms.locfileid: "72550279"
     </script>
     ```
 
+    Azure Maps와 AAD (Azure Active Directory)를 통합 하는 방법을 보여 주는 샘플 목록은 [여기](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)에서 찾을 수 있습니다. 
+    
     자세한 내용은 [Azure Maps를 사용 하 여 인증](azure-maps-authentication.md) 문서를 참조 하세요.
 
 6. 선택적으로 다음 메타 태그 요소를 페이지 머리글에 추가하는 것이 도움이 될 수 있습니다.
@@ -222,3 +230,8 @@ map = new atlas.Map('myMap', {
 
 > [!div class="nextstepaction"]
 > [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+
+Azure Maps와 AAD (Azure Active Directory)를 통합 하는 방법을 보여 주는 샘플 목록은 다음을 참조 하세요.
+
+> [!div class="nextstepaction"]
+> [AAD 인증 샘플](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

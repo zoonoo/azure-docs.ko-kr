@@ -4,11 +4,11 @@ description: Azure AD Privileged Identity Management (PIM)에서 Azure AD 역할
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
@@ -16,14 +16,14 @@ ms.date: 04/09/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60a8d373a7e6edeaefd933e4f8ec8ee11e3c14ee
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 3245f7343a48d3e54795c14dcb23b836c8d9d988
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804032"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756422"
 ---
-# <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>PIM에서 Azure AD 역할에 대 한 요청 승인 또는 거부
+# <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 요청 승인 또는 거부
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)를 사용 하 여 활성화에 대 한 승인이 필요 하도록 역할을 구성 하 고 하나 이상의 사용자 또는 그룹을 위임 된 승인자로 선택할 수 있습니다. 위임된 승인자는 24시간 동안 요청을 승인할 수 있습니다. 24시간 내에 요청이 승인되지 않으면 적격 사용자는 새 요청을 다시 제출해야 합니다. 24시간 승인 시간 범위는 구성이 불가능합니다.
 
@@ -31,9 +31,9 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)를 사용
 
 ## <a name="view-pending-requests"></a>보류 중인 요청 보기
 
-위임 승인자는 Azure AD 역할 요청이 승인 보류 중인 경우 전자 메일 알림을 받게 됩니다. PIM에서 이러한 보류 중인 요청을 볼 수 있습니다.
+위임 승인자는 Azure AD 역할 요청이 승인 보류 중인 경우 전자 메일 알림을 받게 됩니다. Privileged Identity Management에서 이러한 보류 중인 요청을 볼 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
@@ -77,5 +77,5 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)를 사용
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM에서 이메일 알림](pim-email-notifications.md)
-- [PIM에서 Azure 리소스 역할에 대한 요청 승인 또는 거부](pim-resource-roles-approval-workflow.md)
+- [Privileged Identity Management의 전자 메일 알림](pim-email-notifications.md)
+- [Privileged Identity Management에서 Azure 리소스 역할에 대 한 요청 승인 또는 거부](pim-resource-roles-approval-workflow.md)

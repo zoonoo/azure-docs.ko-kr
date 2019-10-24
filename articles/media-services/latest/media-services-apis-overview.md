@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/05/2019
+ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: c6c8bcfec9a8bdf6948190c5f132c2e1763b9973
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 574b1591669cc32ce30677cad5158e13b944486f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025640"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750196"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Media Services v3 Api를 사용 하 여 개발
 
@@ -75,7 +75,7 @@ Azure Media Services v3 리소스 이름(예: 자산, 작업, 변환)은 Azure R
 
 Media Services 리소스 이름에는 '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', 작은 따옴표 또는 제어 문자가 포함될 수 없습니다. 다른 문자를 모두 허용합니다. 리소스 이름의 최대 길이는 260자입니다. 
 
-Azure Resource Manager 이름 지정에 대한 자세한 내용은 [명명 요구 사항](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) 및 [명명 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.
+Azure Resource Manager의 이름을 지정하는 방법에 대한 자세한 내용은 [명명 요구 사항](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) 및 [명명 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.
 
 ### <a name="names-of-filesblobs-within-an-asset"></a>자산 내의 파일/blob 이름
 
@@ -83,7 +83,7 @@ Azure Resource Manager 이름 지정에 대한 자세한 내용은 [명명 요�
 
 ## <a name="long-running-operations"></a>장기 실행 작업
 
-Azure Media Services [swagger 파일](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) 에 `x-ms-long-running-operation`으로 표시 된 작업은 장기 실행 작업입니다. 
+Azure Media Services [swagger 파일](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) 에 `x-ms-long-running-operation`로 표시 된 작업은 장기 실행 작업입니다. 
 
 비동기 Azure 작업을 추적 하는 방법에 대 한 자세한 내용은 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)을 참조 하세요.
 
@@ -95,7 +95,7 @@ Media Services에는 다음과 같은 장기 실행 작업이 있습니다.
 * [라이브 이벤트 시작](https://docs.microsoft.com/rest/api/media/liveevents/start)
 * [라이브 중지](https://docs.microsoft.com/rest/api/media/liveevents/stop)
 
-  @No__t-0 매개 변수를 사용 하 여 이벤트를 중지할 때 연결 된 모든 라이브 출력을 삭제 합니다.  
+  이벤트를 중지할 때 연결 된 모든 라이브 출력을 삭제 하려면 `removeOutputsOnStop` 매개 변수를 사용 합니다.  
 * [라이브 다시 설정](https://docs.microsoft.com/rest/api/media/liveevents/reset)
 * [LiveOutput 만들기](https://docs.microsoft.com/rest/api/media/liveevents/create)
 * [LiveOutput 삭제](https://docs.microsoft.com/rest/api/media/liveevents/delete)
@@ -107,6 +107,8 @@ Media Services에는 다음과 같은 장기 실행 작업이 있습니다.
 * [StreamingEndpoint 크기 조정](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
 
 긴 작업을 성공적으로 제출 하면 ' 202 수락 됨 '이 수신 되 고 반환 된 작업 ID를 사용 하 여 작업 완료에 대해 폴링해야 합니다.
+
+[비동기 azure 작업 추적](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) 문서에서는 응답에서 반환 된 값을 통해 비동기 azure 작업의 상태를 추적 하는 방법에 대해 자세히 설명 합니다.
 
 지정 된 라이브 이벤트 또는 연결 된 라이브 출력에는 장기 실행 작업이 하나만 지원 됩니다. 시작 된 후에는 동일한 라이브 또는 연결 된 실시간 출력에서 후속 장기 실행 작업을 시작 하기 전에 장기 실행 작업을 완료 해야 합니다. 여러 라이브 출력이 있는 라이브 이벤트의 경우 다른 라이브 출력에서 장기 실행 작업을 트리거하기 전에 단일 라이브 출력에서 장기 실행 작업이 완료 될 때까지 기다려야 합니다. 
 
@@ -124,7 +126,7 @@ Media Services에는 다음과 같은 장기 실행 작업이 있습니다.
 |[SDK로 이동](https://aka.ms/ams-v3-go-sdk) |[참조로 이동](https://aka.ms/ams-v3-go-ref)|
 |[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
 
-### <a name="see-also"></a>참조
+### <a name="see-also"></a>참고 항목
 
 - [미디어 서비스 이벤트를 포함하는 EventGrid .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Media Services 이벤트의 정의](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
@@ -143,7 +145,7 @@ AMSE는 오픈 소스 프로젝트이며, 커뮤니티에서 지원을 제공합
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 

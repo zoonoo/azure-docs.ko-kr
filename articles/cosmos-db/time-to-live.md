@@ -1,18 +1,18 @@
 ---
 title: TTL(Time To Live)을 사용한 Azure Cosmos DB의 데이터 만료
 description: TTL을 사용하여 Microsoft Azure Cosmos DB는 일정 기간 후에 시스템에서 문서를 자동으로 삭제하는 기능을 제공합니다.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: c3e1c4f56c641bf5bfa189836a4bcdf99672a3c1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: f66508a4794b8009523cc2820efe0156b4a9e2f6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597491"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756860"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB의 TTL (Time to Live) 
 
@@ -48,40 +48,40 @@ Time to live 값은 초 단위로 설정 되며 항목이 마지막으로 수정
 
 TTL을 기준으로 항목을 삭제하는 것은 무료입니다. TTL 만료의 결과로 항목을 삭제하는 경우 추가 비용은 청구되지 않습니다(즉, 추가 RU 없음).
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 이 섹션에서는 컨테이너와 항목에 할당 된 ttl (time to live) 값이 다른 몇 가지 예를 보여 줍니다.
 
-### <a name="example-1"></a>예제 1
+### <a name="example-1"></a>예 1
 
 컨테이너의 TTL이 null (DefaultTimeToLive = null)로 설정 되어 있습니다.
 
 |항목에 대 한 TTL| 결과|
 |---|---|
 |ttl = null|    TTL을 사용할 수 없습니다. 항목이 만료 되지 않습니다 (기본값).|
-|ttl = -1   |TTL을 사용할 수 없습니다. 항목이 만료 되지 않습니다.|
+|ttl =-1   |TTL을 사용할 수 없습니다. 항목이 만료 되지 않습니다.|
 |ttl = 2000 |TTL을 사용할 수 없습니다. 항목이 만료 되지 않습니다.|
 
 
-### <a name="example-2"></a>예제 2
+### <a name="example-2"></a>예 2
 
 컨테이너의 TTL이-1 (DefaultTimeToLive =-1)로 설정 되어 있습니다.
 
 |항목에 대 한 TTL| 결과|
 |---|---|
 |ttl = null |TTL이 사용 됩니다. 항목이 만료 되지 않습니다 (기본값).|
-|ttl = -1   |TTL이 사용 됩니다. 항목이 만료 되지 않습니다.|
+|ttl =-1   |TTL이 사용 됩니다. 항목이 만료 되지 않습니다.|
 |ttl = 2000 |TTL이 사용 됩니다. 항목은 2000 초 후에 만료 됩니다.|
 
 
-### <a name="example-3"></a>예제 3
+### <a name="example-3"></a>예 3
 
 컨테이너의 TTL이 1000 (DefaultTimeToLive = 1000)로 설정 되어 있습니다.
 
 |항목에 대 한 TTL| 결과|
 |---|---|
 |ttl = null|    TTL이 사용 됩니다. 항목은 1000 초 (기본값) 후에 만료 됩니다.|
-|ttl = -1   |TTL이 사용 됩니다. 항목이 만료 되지 않습니다.|
+|ttl =-1   |TTL이 사용 됩니다. 항목이 만료 되지 않습니다.|
 |ttl = 2000 |TTL이 사용 됩니다. 항목은 2000 초 후에 만료 됩니다.|
 
 ## <a name="next-steps"></a>다음 단계

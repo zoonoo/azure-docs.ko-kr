@@ -6,21 +6,21 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 ms.assetid: ''
-ms.service: role-based-access-control
+ms.service: active-directory
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e38b0f4463c2188f0b2da6ebb1b57d08af69b41f
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
-ms.translationtype: HT
+ms.openlocfilehash: 2ac8acf2193442de5c85e0a1134d46330821c77b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947509"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756436"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 사용자 지정 역할 활성화
 
@@ -31,7 +31,7 @@ ms.locfileid: "68947509"
 
 ## <a name="activate-a-role"></a>역할 활성화
 
-Azure AD 사용자 지정 역할을 활성화해야 하는 경우에는 PIM에서 내 역할 탐색 옵션을 선택하여 활성화를 요청하십시오.
+Azure AD 사용자 지정 역할을 활성화 해야 하는 경우 Privileged Identity Management에서 내 역할 탐색 옵션을 선택 하 여 활성화를 요청 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure AD [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart)를 엽니다.

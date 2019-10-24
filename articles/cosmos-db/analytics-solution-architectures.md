@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB에서 전역적으로 분산 분석을 사용 하는 솔루션입니다.
 description: Azure Cosmos DB의 전역적으로 분산 된 분석을 사용 하 여 빌드할 수 있는 솔루션에 대해 알아봅니다.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.topic: conceptual
 ms.service: cosmos-db
 ms.date: 09/26/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: d5c6b8727a24a7ea8ddf05f7983618b55884d3bf
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: d50b946e67bbcc171850b71021165356011f58e3
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338985"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755194"
 ---
 # <a name="solutions-using-globally-distributed-analytics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 전역적으로 분산 분석을 사용 하는 솔루션
 
@@ -51,7 +51,7 @@ Azure Cosmos DB의 기본 제공 분석 플랫폼을 사용하면 전 세계 수
 
 ![Azure Cosmos DB Spark 지원을 통한 IoT 디바이스의 메트릭스 읽기](./media/spark-api-introduction/read-metrics-from-iot-devices.png)
 
-## <a name="predictive-maintenance"></a>예측 유지 관리
+## <a name="predictive-maintenance"></a>예측적 유지관리
 
 * 소형 시추 장치에 사용되는 압축기와 같은 자산을 심해 플랫폼에 유지하는 것은 복잡한 노력입니다. 이러한 자산은 전 세계에 있으며 페타바이트 단위의 데이터를 생성합니다. Azure Cosmos DB를 사용하면 Spark 스트리밍을 통해 대량의 센서 원격 분석, 자산 부품 저장 및 센서 매핑 데이터를 처리하는 엔드투엔드 예측 데이터 파이프라인을 작성할 수 있습니다.
 

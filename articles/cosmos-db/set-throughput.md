@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos 컨테이너 및 데이터베이스에 대한 처리량 프로비전
 description: Azure Cosmos 컨테이너 및 데이터베이스에 프로비전되는 처리량을 설정하는 방법을 알아봅니다.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.author: rimman
-ms.openlocfilehash: 0f906cc6b62252d8d94498ed22e22a5cab12765e
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 4c25e8b93fe9bcce17189bd7b787eaf4c3885716
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298340"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752481"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>컨테이너 및 데이터베이스에 대한 처리량 프로비전
 

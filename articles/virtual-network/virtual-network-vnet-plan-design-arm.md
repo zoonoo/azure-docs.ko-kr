@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 17db8dbcba8dd0181be9ca7289ea1b85079ff9a1
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: f7f45e479ad21b27832573b73a5e09e8da1b37b1
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168505"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756124"
 ---
 # <a name="plan-virtual-networks"></a>가상 네트워크 계획
 
@@ -29,7 +29,7 @@ ms.locfileid: "72168505"
 
 모든 Azure 리소스에는 이름이 있습니다. 이름은 각 리소스 종류에 따라 다를 수 있는 범위 내에서 고유해야 합니다. 예를 들어 가상 네트워크의 이름은 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) 내에서 고유해야 하지만 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) 또는 Azure [지역](https://azure.microsoft.com/regions/#services) 내에서는 중복될 수 있습니다. 리소스 이름을 지정할 때 일관적으로 사용할 수 있는 명명 규칙을 정의하면 시간이 지남에 따라 여러 네트워크 리소스를 관리할 때 유용합니다. 권장 사항은 [명명 규칙](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#virtual-networking)을 참조하세요.
 
-## <a name="regions"></a>영역
+## <a name="regions"></a>개 지역
 
 모든 Azure 리소스는 Azure 지역 및 구독에서 만들어집니다. 리소스는 해당 리소스와 동일한 지역 및 구독에 있는 가상 네트워크에서만 만들 수 있습니다. 그러나 다른 구독 및 지역에 있는 가상 네트워크를 연결할 수 있습니다. 자세한 내용은 [연결](#connectivity)을 참조하세요. 리소스를 배포할 지역을 결정할 때는 리소스 사용자가 실제로 있는 위치를 고려해야 합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "72168505"
 - 데이터 상주, 주권, 규정 준수 또는 복원력 요구 사항이 있나요? 그렇다면 요구 사항에 맞는 지역을 선택하는 것이 매우 중요합니다. 자세한 내용은 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/)을 참조하세요.
 - 배포하는 리소스에 대해 동일한 Azure 지역 내의 Azure 가용성 영역에서 복원력이 필요한가요? VM(가상 머신)과 같은 리소스를 동일한 가상 네트워크 내의 여러 가용성 영역에 배포할 수 있습니다. 하지만 일부 Azure 지역은 가용성 영역을 지원하지 않습니다. 가용성 영역 및 이를 지원하는 지역에 대한 자세한 내용은 [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
 
-## <a name="subscriptions"></a>구독
+## <a name="subscriptions"></a>Subscriptions
 
 각 구독 내에서 [한도](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)까지 필요한 개수의 가상 네트워크를 배포할 수 있습니다. 일부 조직은 예를 들어 부서마다 구독이 다릅니다. 자세한 내용 및 구독에 대한 고려 사항은 [구독 거버넌스](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy)를 참조하세요.
 
@@ -107,13 +107,13 @@ Azure [VPN 게이트웨이](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2
 
 ## <a name="permissions"></a>권한
 
-Azure에서는 리소스에 대한 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 활용합니다. 사용 권한은 다음 계층의 [범위](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope)에 할당됩니다. 구독, 관리 그룹, 리소스 그룹 및 개별 리소스. 계층에 대한 자세한 내용은 [리소스 구성](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. Azure 가상 네트워크 및 모든 관련 기능(예: 피어링, 네트워크 보안 그룹, 서비스 엔드포인트 및 경로 테이블)을 사용하기 위해 조직의 구성원을 기본 제공 [소유자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor) 또는 [네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 할당한 다음 역할을 적절한 범위에 할당할 수 있습니다. 가상 네트워크의 하위 집합에 특정 사용 권한을 할당하려는 경우 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 만들고 [가상 네트워크](manage-virtual-network.md#permissions), [ 서브넷 및 서비스 엔드포인트](virtual-network-manage-subnet.md#permissions), [네트워크 인터페이스](virtual-network-network-interface.md#permissions), [피어링](virtual-network-manage-peering.md#permissions), [네트워크 및 애플리케이션 보안 그룹](manage-network-security-group.md#permissions) 또는 [경로 테이블](manage-route-table.md#permissions)에 필요한 특정 사용 권한을 할당합니다.
+Azure에서는 리소스에 대한 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 활용합니다. 권한은 관리 그룹, 구독, 리소스 그룹 및 개별 리소스 계층의 [범위](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) 에 할당 됩니다. 계층에 대한 자세한 내용은 [리소스 구성](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. Azure 가상 네트워크 및 모든 관련 기능(예: 피어링, 네트워크 보안 그룹, 서비스 엔드포인트 및 경로 테이블)을 사용하기 위해 조직의 구성원을 기본 제공 [소유자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor) 또는 [네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 할당한 다음 역할을 적절한 범위에 할당할 수 있습니다. 가상 네트워크의 하위 집합에 특정 사용 권한을 할당하려는 경우 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 만들고 [가상 네트워크](manage-virtual-network.md#permissions), [ 서브넷 및 서비스 엔드포인트](virtual-network-manage-subnet.md#permissions), [네트워크 인터페이스](virtual-network-network-interface.md#permissions), [피어링](virtual-network-manage-peering.md#permissions), [네트워크 및 애플리케이션 보안 그룹](manage-network-security-group.md#permissions) 또는 [경로 테이블](manage-route-table.md#permissions)에 필요한 특정 사용 권한을 할당합니다.
 
 ## <a name="policy"></a>정책
 
 Azure Policy를 사용하여 정책 정의를 만들고, 할당하고, 관리할 수 있습니다. 정책 정의는 리소스에 대해 다양한 규칙을 적용하여 리소스를 조직의 표준 및 서비스 수준 계약을 준수하는 상태로 유지합니다. Azure Policy는 리소스 평가를 실행하여 사용자의 정책 정의를 준수하지 않는 리소스를 검색합니다. 예를 들어 특정 리소스 그룹 또는 지역에서만 가상 네트워크를 만들도록 허용하는 정책을 정의하고 적용할 수 있습니다. 또 다른 정책은 모든 서브넷에 연결된 네트워크 보안 그룹을 필요로 할 수 있습니다. 이러한 정책은 리소스를 만들고 업데이트할 때 평가됩니다.
 
-정책은 다음 계층에 적용됩니다. 구독, 관리 그룹 및 리소스 그룹. [Azure Policy](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아보거나 일부 가상 네트워크 [정책 템플릿](policy-samples.md) 샘플을 배포하세요.
+정책은 관리 그룹, 구독 및 리소스 그룹의 계층에 적용 됩니다. [Azure Policy](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아보거나 일부 가상 네트워크 [정책 템플릿](policy-samples.md) 샘플을 배포하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

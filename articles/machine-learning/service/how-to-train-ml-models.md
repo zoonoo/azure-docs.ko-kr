@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 73887c39ebcee2efc4a31925f4aacfffb3c53ca7
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 087e1cd84aa182a0aae1bef6ba3dd38f369d5189
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828048"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755951"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>추정기를 사용하여 Azure Machine Learning에서 모델 학습
 
@@ -56,15 +56,15 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 이 코드 조각에서 `Estimator` 생성자에 지정한 매개 변수는 다음과 같습니다.
 
-매개 변수 | 설명
+매개 변수를 포함해야 합니다. | 설명
 --|--
 `source_directory`| 학습 작업에 필요한 모든 코드가 포함된 로컬 디렉터리입니다. 이 폴더는 로컬 컴퓨터에서 원격 계산으로 복사 됩니다.
-`script_params`| 학습 스크립트 `entry_script` `<command-line argument, value>` 에 전달할 명령줄 인수를 쌍으로 지정 하는 사전입니다. 에서 `script_params`자세한 정보 플래그를 지정 하려면를 `<command-line argument, "">`사용 합니다.
+`script_params`| 사전 `<command-line argument, value>` 쌍으로 학습 스크립트에 전달할 명령줄 인수를 지정 하 `entry_script` 합니다. @No__t_0에서 자세한 정보 플래그를 지정 하려면 `<command-line argument, "">`를 사용 합니다.
 `compute_target`| 이 경우 학습 스크립트가 Azure Machine Learning 컴퓨팅([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) 클러스터에서 실행되는 원격 컴퓨팅 대상입니다. (AmlCompute 클러스터가 일반적으로 사용 되는 대상이 어도 불구 하 고 Azure Vm 또는 심지어 로컬 컴퓨터와 같은 다른 계산 대상 유형도 선택할 수 있습니다.)
 `entry_script`| 원격 컴퓨팅에서 실행할 학습 스크립트의 파일 경로(`source_directory` 기준)입니다. 이 파일 및이 파일에 종속 된 모든 추가 파일은이 폴더에 위치 해야 합니다.
 `conda_packages`| conda를 통해 설치할 학습 스크립트에 필요한 Python 패키지의 목록입니다.  
 
-생성자에는 필요한 pip 패키지 `pip_packages` 에 사용 하는 라는 또 다른 매개 변수가 있습니다.
+생성자에는 필요한 pip 패키지에 사용 하는 `pip_packages` 라는 또 다른 매개 변수가 있습니다.
 
 `Estimator` 개체를 만들었으므로 [Experiment](concept-azure-machine-learning-architecture.md#experiments) 개체`experiment`의 `submit` 함수 호출을 통해 원격 컴퓨팅에서 실행할 학습 작업을 제출합니다. 
 
@@ -108,7 +108,7 @@ estimator = Estimator(source_directory='./my-keras-proj',
 
 위의 코드는 `Estimator` 생성자에 다음과 같은 새 매개 변수를 표시합니다.
 
-매개 변수 | 설명 | 기본값
+매개 변수를 포함해야 합니다. | 설명 | 기본값
 --|--|--
 `custom_docker_image`| 사용하려는 이미지의 이름입니다. 공용 Docker 리포지토리(여기서는 Docker 허브)에서 사용할 수 있는 이미지만 제공합니다. 프라이빗 Docker 리포지토리의 이미지를 사용하려면 생성자의 `environment_definition` 매개 변수를 대신 사용합니다. [예제를 참조하세요](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| 학습 작업에 사용할 노드의 수입니다. | `1`
@@ -124,9 +124,9 @@ print(run.get_portal_url())
 
 ## <a name="github-tracking-and-integration"></a>GitHub 추적 및 통합
 
-원본 디렉터리가 로컬 Git 리포지토리 인 학습 실행을 시작 하면 리포지토리에 대 한 정보가 실행 기록에 저장 됩니다. 예를 들어 리포지토리의 현재 커밋 ID는 기록의 일부로 기록 됩니다.
+원본 디렉터리가 로컬 Git 리포지토리 인 학습 실행을 시작 하면 리포지토리에 대 한 정보가 실행 기록에 저장 됩니다. 자세한 내용은 [Azure Machine Learning에 대 한 Git 통합](concept-train-model-git-integration.md)을 참조 하세요.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 평가기 패턴의 기본 사항을 보여 주는 노트북은 다음을 참조 하세요.
 * [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 
@@ -143,5 +143,5 @@ print(run.get_portal_url())
 * [학습 중에 실행 메트릭 추적](how-to-track-experiments.md)
 * [PyTorch 모델 학습](how-to-train-pytorch.md)
 * [TensorFlow 모델 학습](how-to-train-tensorflow.md)
-* [하이퍼 매개 변수 튜닝](how-to-tune-hyperparameters.md)
+* [하이퍼 매개 변수 조정](how-to-tune-hyperparameters.md)
 * [학습된 모델 배포](how-to-deploy-and-where.md)

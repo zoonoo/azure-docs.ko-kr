@@ -14,12 +14,12 @@ ms.date: 06/28/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9d9b2aff1d196d8b2987d77046831e7200ee2fe
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 6007762c897337170dec69c3486302aa62723480
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804478"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756297"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>PIM에서 내 Azure AD 역할 활성화
 
@@ -27,15 +27,15 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
 관리 역할에 대해 적격이 되었다면 권한이 필요한 작업을 수행해야 하는 경우 해당 역할을 활성화할 수 있다는 의미입니다. 예를 들어 경우에 따라 Office 365 기능을 관리하는 경우 조직의 권한 있는 역할 관리자는 해당 역할이 다른 서비스에도 또한 영향을 주므로 사용자를 영구적인 전역 관리자로 만들지 못할 수 있습니다. 대신 Exchange Online 관리자와 같은 Azure AD 역할에 대한 자격을 줍니다. 이러한 권한이 필요한 경우 해당 역할을 활성화하도록 요청하고 미리 결정된 기간 동안 제어할 수 있는 관리자 권한을 부여받습니다.
 
-이 문서는 PIM에서 Azure AD 역할을 활성화 해야 하는 관리자를 위한 것입니다.
+이 문서는 Privileged Identity Management에서 Azure AD 역할을 활성화 해야 하는 관리자를 위한 것입니다.
 
 ## <a name="activate-a-role"></a>역할 활성화
 
-Azure AD 역할을 수행 해야 하는 경우 PIM의 **내 역할** 탐색 옵션을 사용 하 여 활성화를 요청할 수 있습니다.
+Azure AD 역할을 수행 해야 하는 경우 Privileged Identity Management의 **내 역할** 탐색 옵션을 사용 하 여 활성화를 요청할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 
-1. **Azure AD Privileged Identity Management**를 엽니다. 대시보드에 PIM 타일을 추가하는 방법에 대한 자세한 내용은 [PIM 사용](pim-getting-started.md)을 참조하세요.
+1. **Azure AD Privileged Identity Management**를 엽니다. 대시보드에 Privileged Identity Management 타일을 추가 하는 방법에 대 한 자세한 내용은 [Privileged Identity Management 사용 시작](pim-getting-started.md)을 참조 하세요.
 
 1. **Azure AD 역할**을 클릭합니다.
 
@@ -127,16 +127,16 @@ Azure AD 역할을 수행 해야 하는 경우 PIM의 **내 역할** 탐색 옵�
 
 ## <a name="troubleshoot"></a>문제 해결
 
-### <a name="permissions-are-not-granted-after-activating-a-role"></a>역할을 활성화한 후 권한이 부여되지 않음
+### <a name="permissions-are-not-granted-after-activating-a-role"></a>역할을 활성화한 후 권한이 부여되지 않습니다.
 
-PIM에서 역할을 활성화할 때 활성화는 권한 있는 역할이 필요한 모든 포털에 즉시 전파 되지 않을 수 있습니다. 경우에 따라 변경 내용이 전파되더라도 포털의 웹 캐싱 때문에 변경 내용이 즉시 적용되지 않을 수 있습니다. 정품 인증이 지연 되는 경우 다음 작업을 수행 해야 합니다.
+Privileged Identity Management에서 역할을 활성화할 때 활성화는 권한 있는 역할이 필요한 모든 포털에 즉시 전파 되지 않을 수 있습니다. 경우에 따라 변경 내용이 전파되더라도 포털의 웹 캐싱 때문에 변경 내용이 즉시 적용되지 않을 수 있습니다. 정품 인증이 지연 되는 경우 다음 작업을 수행 해야 합니다.
 
 1. Azure Portal에서 로그아웃한 다음, 다시 로그인합니다.
 
-    Azure AD 역할을 활성화 하면 활성화 단계가 표시 됩니다. 모든 단계가 완료되면 **로그아웃** 링크가 표시됩니다. 이 링크를 사용하여 로그아웃할 수 있습니다. 이렇게 하면 활성화 지연이 대부분 해결됩니다.
+    Azure AD 역할을 활성화 하면 활성화 단계가 표시 됩니다. 모든 단계가 완료되면 **로그아웃** 링크가 표시됩니다. 이 링크를 사용 하 여 로그 아웃할 수 있습니다. 이렇게 하면 대부분의 경우 활성화 지연 시간이 해결 됩니다.
 
-1. PIM에서 역할의 멤버로 나열 되어 있는지 확인 합니다.
+1. Privileged Identity Management에서 역할의 멤버로 나열 되어 있는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM에서 Azure 리소스 역할 활성화](pim-resource-roles-activate-your-roles.md)
+- [Privileged Identity Management에서 내 Azure 리소스 역할 활성화](pim-resource-roles-activate-your-roles.md)

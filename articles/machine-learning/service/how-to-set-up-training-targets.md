@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: bce04a14a13d5b3615963f298f35af0d2fc480bb
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 95ded3c184836ac58a0f97d1bf30dd2e3c123ccb
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244428"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755960"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>모델 학습을 위한 계산 대상 설정 및 사용 
 
@@ -68,7 +68,7 @@ ML 파이프라인은 파이프라인에서 고유한 계산 단위인 여러 **
 > [!TIP]
 > ML 파이프라인은 모델을 학습 하는 경우 실행 구성 또는 추정를 사용할 수 있습니다.
 
-ML 파이프라인은 모델을 트레인 할 수 있지만 학습 후 모델을 학습 하 고 배포 하기 전에 데이터를 준비할 수도 있습니다. 파이프라인의 주요 사용 사례 중 하나는 일괄 처리 점수 매기기입니다. 자세한 내용은 [Pipelines을 참조 하세요. Machine learning 워크플로 @ no__t를 최적화 합니다.
+ML 파이프라인은 모델을 트레인 할 수 있지만 학습 후 모델을 학습 하 고 배포 하기 전에 데이터를 준비할 수도 있습니다. 파이프라인의 주요 사용 사례 중 하나는 일괄 처리 점수 매기기입니다. 자세한 내용은 [파이프라인: machine learning 워크플로 최적화](concept-ml-pipelines.md)를 참조 하세요.
 
 ## <a name="set-up-in-python"></a>Python에서 설정
 
@@ -82,9 +82,9 @@ ML 파이프라인은 모델을 트레인 할 수 있지만 학습 후 모델을
 
 ### <a id="local"></a>로컬 컴퓨터
 
-1. **만들기 및 연결**: 로컬 컴퓨터를 학습 환경으로 사용하기 위해 컴퓨팅 대상을 만들거나 연결하지 않아도 됩니다.  
+1. **만들기 및 연결**: 로컬 컴퓨터를 학습 환경으로 사용 하기 위해 계산 대상을 만들거나 연결할 필요가 없습니다.  
 
-1. **구성**:  로컬 컴퓨터를 컴퓨팅 대상으로 사용하는 경우 학습 코드가 [개발 환경](how-to-configure-environment.md)에서 실행됩니다.  해당 환경에 필요한 Python 패키지가 이미 있으면 사용자 관리 환경을 사용합니다.
+1. **구성**: 로컬 컴퓨터를 계산 대상으로 사용 하는 경우 [개발 환경](how-to-configure-environment.md)에서 교육 코드를 실행 합니다.  해당 환경에 필요한 Python 패키지가 이미 있으면 사용자 관리 환경을 사용합니다.
 
  [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=run_local)]
 
@@ -106,12 +106,12 @@ Azure Machine Learning 컴퓨팅에는 할당할 수 있는 코어 수와 같은
 Azure Machine Learning 컴퓨팅을 런타임에 컴퓨팅 대상으로 만들 수 있습니다. 실행에 대해 컴퓨팅이 자동으로 만들어집니다. 실행이 완료되면 컴퓨팅이 자동으로 삭제됩니다. 
 
 > [!NOTE]
-> 사용할 최대 노드 수를 지정 하려면 일반적으로 `node_count`을 노드 수로 설정 합니다. 현재이 작업을 수행 하지 못하게 하는 버그가 있습니다 (04/04/2019). 이 문제를 해결 하려면 실행 구성의 `amlcompute._cluster_max_node_count` 속성을 사용 합니다. 예를 들어, `run_config.amlcompute._cluster_max_node_count = 5`을 입력합니다.
+> 사용할 최대 노드 수를 지정 하려면 일반적으로 `node_count` 노드 수로 설정 합니다. 현재이 작업을 수행 하지 못하게 하는 버그가 있습니다 (04/04/2019). 이 문제를 해결 하려면 실행 구성의 `amlcompute._cluster_max_node_count` 속성을 사용 합니다. 예: `run_config.amlcompute._cluster_max_node_count = 5`
 
 > [!IMPORTANT]
 > Azure Machine Learning 컴퓨팅의 실행 기반 만들기는 현재 미리 보기로 제공됩니다. 하이퍼 매개 변수 튜닝 또는 자동화된 Machine Learning을 사용 중인 경우에는 실행 기반 만들기를 사용하지 마세요. 하이퍼 매개 변수 튜닝 또는 자동화된 기계 학습을 사용하려면 [영구적 컴퓨팅](#persistent) 대상을 대신 만듭니다.
 
-1.  **만들기, 연결 및 구성**: 실행 기반 만들기는 실행 구성을 사용하여 컴퓨팅 대상을 만들고 연결하고 구성하는데 필요한 모든 단계를 수행합니다.  
+1.  **만들기, 연결 및 구성**: 실행 기반 생성은 실행 구성을 사용 하 여 계산 대상을 만들고 연결 하 고 구성 하는 데 필요한 모든 단계를 수행 합니다.  
 
   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute.py?name=run_temp_compute)]
 
@@ -122,10 +122,10 @@ Azure Machine Learning 컴퓨팅을 런타임에 컴퓨팅 대상으로 만들 �
 
 영구적 Azure Machine Learning 컴퓨팅은 작업 전반에서 다시 사용할 수 있습니다. 컴퓨팅은 작업 영역의 다른 사용자와 공유할 수 있고 작업 간에 유지됩니다.
 
-1. **만들기 및 연결**: Python에서 영구적 Azure Machine Learning 컴퓨팅 리소스를 만들려면 **vm_size** 및 **max_nodes** 속성을 지정합니다. 그런 다음, Azure Machine Learning은 다른 속성에 스마트 기본값을 사용합니다. 사용되지 않는 경우 컴퓨팅은 0개 노드로 자동 축소됩니다.   필요에 따라 작업을 실행하기 위해 전용 VM이 만들어집니다.
+1. **만들기 및 연결**: Python에서 영구 Azure Machine Learning 계산 리소스를 만들려면 **vm_size** 및 **max_nodes** 속성을 지정 합니다. 그런 다음, Azure Machine Learning은 다른 속성에 스마트 기본값을 사용합니다. 사용되지 않는 경우 컴퓨팅은 0개 노드로 자동 축소됩니다.   필요에 따라 작업을 실행하기 위해 전용 VM이 만들어집니다.
     
-    * **vm_size**: Azure Machine Learning 컴퓨팅에서 만든 노드의 VM 제품군입니다.
-    * **max_nodes**: Azure Machine Learning 컴퓨팅에서 작업을 실행할 때 자동으로 확장할 최대 노드 수입니다.
+    * **vm_size**: Azure Machine Learning Compute에서 만든 노드의 vm 패밀리입니다.
+    * **max_nodes**: Azure Machine Learning Compute에서 작업을 실행할 때 자동으로 크기를 조정 하는 최대 노드 수입니다.
     
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
@@ -134,7 +134,7 @@ Azure Machine Learning 컴퓨팅을 런타임에 컴퓨팅 대상으로 만들 �
     
    또는 [Azure Portal](#portal-create)에서 영구적 Azure Machine Learning 컴퓨팅 리소스를 만들고 연결할 수 있습니다.
 
-1. **구성**: 영구적 컴퓨팅 대상에 대한 실행 구성을 만듭니다.
+1. **구성**: 영구 계산 대상에 대 한 실행 구성을 만듭니다.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
@@ -149,12 +149,12 @@ Azure Machine Learning은 자신만의 컴퓨팅 리소스를 가져와서 작�
 
 이 시나리오에서 선택하는 Azure VM으로 Azure Data Science Virtual Machine(DSVM)을 사용합니다. 이 VM은 Azure에서 미리 구성된 데이터 과학 및 AI 개발 환경입니다. 이 VM은 전체 수명 주기 기계 학습을 위해 큐레이팅된 도구 및 프레임워크 옵션을 제공합니다. Azure Machine Learning과 함께 DSVM을 사용하는 방법에 관한 자세한 내용은 [개발 환경 구성](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm)을 참조하세요.
 
-1. **만들기**: 모델 학습에 사용할 DSVM을 만듭니다. 이 리소스를 만들려면 [Linux(Ubuntu) 용 Data Science Virtual Machine 프로비전](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)을 참조하세요.
+1. **만들기**: 모델을 학습 하는 데 사용 하기 전에 dsvm을 만듭니다. 이 리소스를 만들려면 [Linux(Ubuntu) 용 Data Science Virtual Machine 프로비전](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)을 참조하세요.
 
     > [!WARNING]
     > Azure Machine Learning은 Ubuntu를 실행하는 가상 머신만 지원합니다. VM을 만들거나 기존 VM을 선택하는 경우 Ubuntu를 사용하는 VM을 선택해야 합니다.
 
-1. **연결**: 기존 가상 머신을 컴퓨팅 대상으로 연결하려면 가상 머신의 FQDN(정규화된 도메인 이름), 사용자 이름 및 암호를 입력해야 합니다. 이 예제에서는 \<fqdn>을 VM의 공용 FQDN 또는 공용 IP 주소로 바꿉니다. \<사용자 이름> 및 \<암호>를 VM에 대한 SSH 사용자 이름 및 암호로 바꿉니다.
+1. **연결**: 기존 가상 컴퓨터를 계산 대상으로 연결 하려면 가상 컴퓨터에 대 한 FQDN (정규화 된 도메인 이름), 사용자 이름 및 암호를 제공 해야 합니다. 이 예제에서는 \<fqdn>을 VM의 공용 FQDN 또는 공용 IP 주소로 바꿉니다. \<사용자 이름> 및 \<암호>를 VM에 대한 SSH 사용자 이름 및 암호로 바꿉니다.
 
    ```python
    from azureml.core.compute import RemoteCompute, ComputeTarget
@@ -181,7 +181,7 @@ Azure Machine Learning은 자신만의 컴퓨팅 리소스를 가져와서 작�
 
    또는 [Azure Portal을 사용하여](#portal-reuse) 작업 영역에 DSVM을 연결할 수 있습니다.
 
-1. **구성**: DSVM 컴퓨팅 대상에 대한 실행 구성을 만듭니다. Docker 및 conda는 DSVM에서 학습 환경을 만들고 구성하는 데 사용됩니다.
+1. **구성**: dsvm 계산 대상에 대 한 실행 구성을 만듭니다. Docker 및 conda는 DSVM에서 학습 환경을 만들고 구성하는 데 사용됩니다.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
 
@@ -192,13 +192,13 @@ Azure Machine Learning은 자신만의 컴퓨팅 리소스를 가져와서 작�
 
 Azure HDInsight는 빅 데이터 분석을 위한 인기 있는 플랫폼입니다. 플랫폼은 모델을 학습하는 데 사용할 수 있는 Apache Spark를 제공합니다.
 
-1. **만들기**:  모델을 학습하는 데 사용할 HDInsight 클러스터를 만듭니다. HDInsight 클러스터에서 Spark를 만들려면 [HDInsight에서 Spark 클러스터 만들기](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql)를 참조하세요. 
+1. **만들기**: HDInsight 클러스터를 사용 하 여 모델을 학습 하기 전에 만듭니다. HDInsight 클러스터에서 Spark를 만들려면 [HDInsight에서 Spark 클러스터 만들기](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql)를 참조하세요. 
 
     클러스터를 만들 때 SSH 사용자 이름 및 암호를 지정해야 합니다. 이러한 값은 HDInsight를 컴퓨팅 대상으로 사용할 때 필요하므로 기록해 둡니다.
     
     클러스터를 만든 후 호스트이름 \<clustername>.azurehdinsight.net과 연결합니다. 여기서 \<clustername>은 클러스터에 대해 사용자가 제공한 이름입니다. 
 
-1. **연결**: HDInsight 클러스터를 컴퓨팅 대상으로 연결하려면 HDInsight 클러스터의 호스트 이름, 사용자 이름 및 암호를 입력해야 합니다. 다음 예제에서는 SDK를 사용하여 작업 영역에 클러스터를 연결합니다. 예제에서는 \<clustername>을 클러스터의 이름으로 바꿉니다. \<username> 및 \<password>를 클러스터에 대한 SSH 사용자 이름 및 암호로 바꿉니다.
+1. **연결**: hdinsight 클러스터를 계산 대상으로 연결 하려면 hdinsight 클러스터에 대 한 호스트 이름, 사용자 이름 및 암호를 제공 해야 합니다. 다음 예제에서는 SDK를 사용하여 작업 영역에 클러스터를 연결합니다. 예제에서는 \<clustername>을 클러스터의 이름으로 바꿉니다. \<username> 및 \<password>를 클러스터에 대한 SSH 사용자 이름 및 암호로 바꿉니다.
 
    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
@@ -222,7 +222,7 @@ Azure HDInsight는 빅 데이터 분석을 위한 인기 있는 플랫폼입니�
 
    또는 [Azure Portal을 사용하여](#portal-reuse) 작업 영역에 HDInsight 클러스터를 연결할 수 있습니다
 
-1. **구성**: HDI 컴퓨팅 대상에 대한 실행 구성을 만듭니다. 
+1. **구성**: hdi 계산 대상에 대 한 실행 구성을 만듭니다. 
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
@@ -236,9 +236,9 @@ Azure Batch은 클라우드에서 대규모 병렬 및 HPC (고성능 컴퓨팅)
 
 Azure Batch를 계산 대상으로 연결 하려면 Azure Machine Learning SDK를 사용 하 고 다음 정보를 제공 해야 합니다.
 
--   **Azure Batch 계산 이름**: 작업 영역 내에서 계산에 사용할 이름입니다.
--   **Azure Batch 계정 이름**: Azure Batch 계정의 이름입니다.
--   **리소스 그룹**: Azure Batch 계정을 포함 하는 리소스 그룹입니다.
+-   **Azure Batch compute name**: 작업 영역 내에서 계산에 사용 되는 식별 이름입니다.
+-   **Azure Batch 계정 이름**: Azure Batch 계정의 이름
+-   **리소스 그룹**: Azure Batch 계정이 포함 된 리소스 그룹입니다.
 
 다음 코드는 Azure Batch를 계산 대상으로 연결 하는 방법을 보여 줍니다.
 
@@ -379,7 +379,7 @@ Azure Machine Learning에 대 한 [VS Code 확장](how-to-vscode-tools.md#create
 > [!IMPORTANT]
 > 학습 실행을 제출 하면 학습 스크립트가 포함 된 디렉터리의 스냅숏이 만들어지고 계산 대상으로 전송 됩니다. 또한 작업 영역에 실험의 일부로 저장 됩니다. 파일을 변경 하 고 실행을 다시 제출 하면 변경 된 파일만 업로드 됩니다.
 >
-> 파일이 스냅숏에 포함 되지 않도록 하려면 디렉터리에 [.gitignore](https://git-scm.com/docs/gitignore) 또는 `.amlignore` 파일을 만들고 파일을 추가 합니다. @No__t-0 파일은 [.gitignore](https://git-scm.com/docs/gitignore) 파일과 동일한 구문과 패턴을 사용 합니다. 두 파일이 모두 있는 경우 `.amlignore` 파일이 우선적으로 적용 됩니다.
+> 파일이 스냅숏에 포함 되지 않도록 하려면 디렉터리에 [.gitignore](https://git-scm.com/docs/gitignore) 또는 `.amlignore` 파일을 만들고 파일을 추가 합니다. @No__t_0 파일은 [.gitignore](https://git-scm.com/docs/gitignore) 파일과 동일한 구문과 패턴을 사용 합니다. 두 파일이 모두 있는 경우 `.amlignore` 파일이 우선적으로 적용 됩니다.
 > 
 > 자세한 내용은 [스냅샷](concept-azure-machine-learning-architecture.md#snapshots)을 참조하세요.
 
@@ -393,9 +393,9 @@ Azure Machine Learning에 대 한 [VS Code 확장](how-to-vscode-tools.md#create
 
 `ScriptRunConfig` 개체와 함께 실험을 제출합니다.  이 개체는 다음을 포함합니다.
 
-* **source_directory**: 학습 스크립트를 포함하는 원본 디렉터리
-* **스크립트**: 학습 스크립트 식별
-* **run_config**: 학습이 발생할 위치를 차례로 정의하는 실행 구성입니다.
+* **source_directory**: 학습 스크립트를 포함 하는 원본 디렉터리입니다.
+* **스크립트**: 학습 스크립트를 식별 합니다.
+* **run_config**: 실행 구성으로, 학습의 발생 위치를 정의 합니다.
 
 예를 들어 [로컬 대상](#local) 구성을 사용하려면:
 
@@ -432,7 +432,7 @@ Azure Machine Learning에 대 한 [VS Code 확장](how-to-vscode-tools.md#create
 az ml folder attach
 ```
 
-이 명령은 다른 계산 대상의 템플릿 실행 구성 파일을 포함 하는 하위 폴더 `.azureml`을 만듭니다. 이러한 파일을 복사 및 편집 하 여 Python 패키지를 추가 하거나 Docker 설정을 변경 하는 등의 방법으로 구성을 사용자 지정할 수 있습니다.  
+이 명령은 다양 한 계산 대상에 대 한 템플릿 실행 구성 파일을 포함 하는 하위 폴더 `.azureml`를 만듭니다. 이러한 파일을 복사 및 편집 하 여 Python 패키지를 추가 하거나 Docker 설정을 변경 하는 등의 방법으로 구성을 사용자 지정할 수 있습니다.  
 
 ### <a name="structure-of-run-configuration-file"></a>실행 구성 파일의 구조
 
@@ -499,7 +499,7 @@ az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configur
 
 ## <a name="git-tracking-and-integration"></a>Git 추적 및 통합
 
-원본 디렉터리가 로컬 Git 리포지토리 인 학습 실행을 시작 하면 리포지토리에 대 한 정보가 실행 기록에 저장 됩니다. 예를 들어 리포지토리의 현재 커밋 ID는 기록의 일부로 기록 됩니다.
+원본 디렉터리가 로컬 Git 리포지토리 인 학습 실행을 시작 하면 리포지토리에 대 한 정보가 실행 기록에 저장 됩니다. 자세한 내용은 [Azure Machine Learning에 대 한 Git 통합](concept-train-model-git-integration.md)을 참조 하세요.
 
 ## <a name="notebook-examples"></a>Notebook 예제
 
@@ -511,7 +511,7 @@ az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configur
 
 ## <a name="next-steps"></a>다음 단계
 
-* [자습서: 모델 학습](tutorial-train-models-with-aml.md)은 모델 학습에 관리되는 컴퓨팅 대상을 사용합니다.
+* [자습서: 모델 학습](tutorial-train-models-with-aml.md) 은 관리 되는 계산 대상을 사용 하 여 모델을 학습 합니다.
 * 하이퍼 [매개 변수를 효율적으로 조정](how-to-tune-hyperparameters.md) 하 여 더 나은 모델을 만드는 방법에 대해 알아봅니다.
 * 모델을 학습했으면 [모델을 배포하는 방법 및 위치](how-to-deploy-and-where.md)를 알아봅니다.
 * [RunConfiguration 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK 참조를 확인합니다.

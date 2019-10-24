@@ -1,5 +1,5 @@
 ---
-title: CoreOS VM을 Azure AD Domain Services에 조인 | Microsoft Docs '
+title: CoreOS VM을 Azure AD Domain Services에 조인 | Microsoft Docs
 description: CoreOS 가상 머신을 구성 하 고 관리 되는 Azure AD Domain Services 도메인에 가입 하는 방법을 알아봅니다.
 services: active-directory-ds
 author: iainfoulds
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/14/2019
 ms.author: iainfou
-ms.openlocfilehash: c0c298a9aa0b9d46ec2c7510cdb5c3ba1c8c84af
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 4cdc2fff05270a296d9c4c9151f73cadeb2a1cfc
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075546"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754387"
 ---
 # <a name="join-a-coreos-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>CoreOS 가상 컴퓨터를 관리 되는 Azure AD Domain Services 도메인에 가입
 
@@ -42,7 +42,7 @@ Azure에 기존 CoreOS Linux VM이 있는 경우 SSH를 사용 하 여 연결 �
 
 CoreOS Linux VM을 만들거나이 문서에서 사용할 테스트 VM을 만들려는 경우 다음 방법 중 하나를 사용할 수 있습니다.
 
-* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
+* [Azure 포털](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -61,7 +61,7 @@ VM 호스트 이름이 관리 되는 도메인에 대해 올바르게 구성 되
 sudo vi /etc/hosts
 ```
 
-*Hosts* 파일에서 *localhost* 주소를 업데이트 합니다. 다음 예제에서는
+*Hosts* 파일에서 *localhost* 주소를 업데이트 합니다. 다음 예제에서:
 
 * *contoso.com* 는 Azure AD DS 관리 되는 도메인의 DNS 도메인 이름입니다.
 * *coreos* 는 관리 되는 도메인에 가입 하는 coreos VM의 호스트 이름입니다.
@@ -128,21 +128,21 @@ SSSD 구성 파일이 업데이트 되 면 이제 가상 컴퓨터를 관리 되
     sudo adcli info CONTOSO.COM
     ```
 
-   `adcli info` 명령이 Azure AD DS 관리 되는 도메인을 찾을 수 없는 경우 다음 문제 해결 단계를 검토 합니다.
+   @No__t_0 명령이 Azure AD DS 관리 되는 도메인을 찾을 수 없는 경우 다음 문제 해결 단계를 검토 합니다.
 
-    * VM에서 도메인에 연결할 수 있는지 확인 합니다. `ping contoso.com` 긍정 회신이 반환 되는지 확인 합니다.
+    * VM에서 도메인에 연결할 수 있는지 확인 합니다. @No__t_0를 시도 하 여 긍정 회신이 반환 되는지 확인 합니다.
     * VM이 Azure AD DS 관리 되는 도메인을 사용할 수 있는 동일한 또는 피어 링 가상 네트워크에 배포 되었는지 확인 합니다.
     * 가상 네트워크에 대 한 DNS 서버 설정이 Azure AD DS 관리 되는 도메인의 도메인 컨트롤러를 가리키도록 업데이트 되었는지 확인 합니다.
 
-1. 이제 `adcli join` 명령을 사용 하 여 Azure AD DS 관리 되는 도메인에 VM을 가입 시킵니다. *AAD DC 관리자* 그룹에 속한 사용자를 지정 합니다. 필요한 경우 [AZURE AD의 그룹에 사용자 계정을 추가](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)합니다.
+1. 이제 `adcli join` 명령을 사용 하 여 VM을 Azure AD DS 관리 되는 도메인에 가입 시킵니다. *AAD DC 관리자* 그룹에 속한 사용자를 지정 합니다. 필요한 경우 [AZURE AD의 그룹에 사용자 계정을 추가](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)합니다.
 
-    Azure AD DS 관리 되는 도메인 이름을 모두 대문자로 입력 해야 합니다. 다음 예에서는 라는 `contosoadmin@contoso.com` 계정이 Kerberos를 초기화 하는 데 사용 됩니다. *AAD DC Administrators* 그룹의 구성원 인 사용자 계정을 입력 합니다.
+    Azure AD DS 관리 되는 도메인 이름을 모두 대문자로 입력 해야 합니다. 다음 예에서는 `contosoadmin@contoso.com` 라는 계정이 Kerberos를 초기화 하는 데 사용 됩니다. *AAD DC Administrators* 그룹의 구성원 인 사용자 계정을 입력 합니다.
 
     ```console
     sudo adcli join -D CONTOSO.COM -U contosoadmin@CONTOSO.COM -K /etc/krb5.keytab -H coreos.contoso.com -N coreos
     ```
 
-    VM `adcli join` 이 Azure AD DS 관리 되는 도메인에 성공적으로 가입 된 경우에는 명령이 정보를 반환 하지 않습니다.
+    VM이 Azure AD DS 관리 되는 도메인에 성공적으로 가입 된 경우 `adcli join` 명령이 정보를 반환 하지 않습니다.
 
 1. 도메인 가입 구성을 적용 하려면 SSSD 서비스를 시작 합니다.
   
@@ -154,7 +154,7 @@ SSSD 구성 파일이 업데이트 되 면 이제 가상 컴퓨터를 관리 되
 
 VM이 Azure AD DS 관리 되는 도메인에 성공적으로 가입 되었는지 확인 하려면 도메인 사용자 계정을 사용 하 여 새 SSH 연결을 시작 합니다. 홈 디렉터리가 만들어지고 도메인의 그룹 구성원이 적용 되었는지 확인 합니다.
 
-1. 콘솔에서 새 SSH 연결을 만듭니다. `ssh -l` 명령을 사용 하 여 관리 되는 도메인에 속하는 도메인 계정을 사용 하 `contosoadmin@contoso.com` 고 (예:) *coreos.contoso.com*와 같은 VM의 주소를 입력 합니다. Azure Cloud Shell 사용 하는 경우 내부 DNS 이름이 아닌 VM의 공용 IP 주소를 사용 합니다.
+1. 콘솔에서 새 SSH 연결을 만듭니다. @No__t_1와 같은 `ssh -l` 명령을 사용 하 여 관리 되는 도메인에 속하는 도메인 계정을 사용한 다음 VM의 주소 (예: *coreos.contoso.com*)를 입력 합니다. Azure Cloud Shell 사용 하는 경우 내부 DNS 이름이 아닌 VM의 공용 IP 주소를 사용 합니다.
 
     ```console
     ssh -l contosoadmin@CONTOSO.com coreos.contoso.com

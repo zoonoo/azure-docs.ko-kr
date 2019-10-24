@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: ef67609f4448dc7ce4d1676d7212890e1fe6561f
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 5f5fc4ecc0949f2f224c1d6a05742900a751ef45
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529500"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756247"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server에 대한 고가용성 및 재해 복구
 
@@ -50,7 +50,7 @@ Azure에서 지원하는 SQL Server HADR 기술은 다음과 같습니다.
 | 기술 | 아키텍처의 예 |
 | --- | --- |
 | **가용성 그룹** |동일한 지역에 있는 Azure VM에서 실행되는 모든 가용성 복제본은 고가용성을 제공합니다.  Windows 장애 조치 클러스터링에 Active Directory 도메인이 필요하기 때문에 도메인 컨트롤러 VM을 구성해야 합니다.<br/><br/> 더 높은 중복성 및 가용성을 위해 Azure Vm은 [가용성 그룹 개요](virtual-machines-windows-portal-sql-availability-group-overview.md)에 설명 된 대로 다른 [가용성 영역](../../../availability-zones/az-overview.md) 에 배포할 수 있습니다. 가용성 그룹의 SQL Server Vm이 가용성 영역에 배포 된 경우 다음 문서에서 설명 하는 것 처럼 수신기 용 [표준 부하 분산 장치](../../../load-balancer/load-balancer-standard-overview.md) 를 사용 합니다 ( [AZURE SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) & [azure 빠른 시작 템플릿](virtual-machines-windows-sql-availability-group-quickstart-template.md)).<br/> ![가용성 그룹](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-ha-always-on.png)<br/>자세한 내용은 [Azure에서 가용성 그룹 구성(GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)을 참조하세요. |
-| **장애 조치 클러스터 인스턴스** |공유 저장소가 필요한 FCI (장애 조치 (Failover) 클러스터 인스턴스)는 4 가지 방법으로 만들 수 있습니다.<br/><br/>1. [Windows Server 2016 스토리지 공간 다이렉트](virtual-machines-windows-portal-sql-create-failover-cluster.md) 를 사용 하 여 연결 된 저장소를 사용 하는 Azure vm에서 실행 되는 2 노드 장애 조치 (failover) 클러스터는 소프트웨어 기반 가상 SAN을 제공 하기 위해 \) \(S2D.<br/><br/> 2. [프리미엄 파일 공유](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md)를 사용 하 여 Azure vm에서 실행 되는 2 노드 장애 조치 (failover) 클러스터. 프리미엄 파일 공유는 장애 조치 (Failover) 클러스터 인스턴스와 함께 사용할 수 있도록 완전 하 게 지원 되는 SSD 지원-대기 시간이 짧은 파일 공유입니다.<br/><br/>3. 타사 클러스터링 솔루션에서 지 원하는 저장소를 사용 하 여 Azure Vm에서 실행 되는 2 노드 장애 조치 (failover) 클러스터. SIOS DataKeeper를 사용하는 특정 예제는 [장애 조치 클러스터링 및 타사 소프트웨어 SIOS DataKeeper를 사용하는 파일 공유에 대한 고가용성](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)을 참조하세요.<br/><br/>4. Express 경로를 통한 원격 iSCSI 대상 공유 블록 저장소를 사용 하 여 Azure Vm에서 실행 되는 2 노드 장애 조치 (failover) 클러스터. 예를 들어 NPS(NetApp 프라이빗 스토리지)는 Equinix와 함께 ExpressRoute를 사용하여 iSCSI 대상을 Azure VM에 공개합니다.<br/><br/>타사 공유 스토리지 및 데이터 복제 솔루션의 경우 장애 조치 시 데이터 액세스와 관련된 문제는 공급 업체에 문의해야 합니다.<br/><br/>이 솔루션은 Premium Storage를 사용하지 않기 때문에 [Azure File Storage](https://azure.microsoft.com/services/storage/files/) 맨 위에서 FCI를 사용하는 것은 아직 지원되지 않습니다. 빠른 시일 내에 지원하기 위해 노력하고 있습니다. |
+| **장애 조치 클러스터 인스턴스** |공유 저장소가 필요한 FCI (장애 조치 (Failover) 클러스터 인스턴스)는 4 가지 방법으로 만들 수 있습니다.<br/><br/>1. [Windows Server 2016 스토리지 공간 다이렉트](virtual-machines-windows-portal-sql-create-failover-cluster.md) 를 사용 하 여 연결 된 저장소를 사용 하는 Azure vm에서 실행 되는 2 노드 장애 조치 (failover) 클러스터는 소프트웨어 기반 가상 SAN을 제공 하기 위해 \) \(S2D.<br/><br/> 2. [프리미엄 파일 공유](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md)를 사용 하 여 Azure vm에서 실행 되는 2 노드 장애 조치 (failover) 클러스터. 프리미엄 파일 공유는 장애 조치 (Failover) 클러스터 인스턴스와 함께 사용할 수 있도록 완전 하 게 지원 되는 SSD 지원-대기 시간이 짧은 파일 공유입니다.<br/><br/>3. 타사 클러스터링 솔루션에서 지 원하는 저장소를 사용 하 여 Azure Vm에서 실행 되는 2 노드 장애 조치 (failover) 클러스터. SIOS DataKeeper를 사용하는 특정 예제는 [장애 조치 클러스터링 및 타사 소프트웨어 SIOS DataKeeper를 사용하는 파일 공유에 대한 고가용성](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)을 참조하세요.<br/><br/>4. Express 경로를 통한 원격 iSCSI 대상 공유 블록 저장소를 사용 하 여 Azure Vm에서 실행 되는 2 노드 장애 조치 (failover) 클러스터. 예를 들어 NPS(NetApp 프라이빗 스토리지)는 Equinix와 함께 ExpressRoute를 사용하여 iSCSI 대상을 Azure VM에 공개합니다.<br/><br/>타사 공유 스토리지 및 데이터 복제 솔루션의 경우 장애 조치 시 데이터 액세스와 관련된 문제는 공급 업체에 문의해야 합니다.<br/><br/>|
 
 ## <a name="azure-only-disaster-recovery-solutions"></a>Azure 전용: 재해 복구 솔루션
 가용성 그룹, 데이터베이스 미러링을 사용하여 Azure 내의 SQL Server 데이터베이스에 대한 재해 복구 솔루션을 구축하거나 스토리지 blob을 사용하여 백업 및 복원할 수 있습니다.

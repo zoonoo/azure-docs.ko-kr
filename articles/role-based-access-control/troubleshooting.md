@@ -15,12 +15,12 @@ ms.date: 08/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: eb7c2cb4a20c89f3a54f23e354d56e5dc3711ef0
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
-ms.translationtype: MT
+ms.openlocfilehash: 158222c256e3efc7ca87d7a3781ca68e1c4307b1
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967111"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750181"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Azure 리소스에 대한 RBAC 문제 해결
 
@@ -28,15 +28,15 @@ ms.locfileid: "70967111"
 
 ## <a name="problems-with-rbac-role-assignments"></a>RBAC 역할 할당 관련 문제
 
-- **추가** > **역할 할당** 추가 옵션이 사용 하지 않도록 설정 되어 있거나 **액세스 제어 (IAM)** 의 Azure Portal에서 역할 할당을 추가할 수 없는 경우 "개체 id가 있는 클라이언트에 작업을 수행 하기 위한 권한 부여-역할을 할당 하려는 범위에서 `Microsoft.Authorization/roleAssignments/write` [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 와 같은 권한이 있는 사용자로 현재 로그인 했는지 확인 합니다.
-- "추가 역할 할당을 만들 수 없습니다 (코드: RoleAssignmentLimitExceeded)" 오류 메시지가 표시되면 그룹에 역할을 할당하여 역할 할당 수를 줄여보세요. Azure는 구독당 최대 **2000**개의 역할 할당을 지원합니다.
+- **추가**  > **역할 할당** 추가 옵션이 사용 하지 않도록 설정 되거나 "개체 id가 있는 클라이언트에 권한이 없습니다." 라는 권한 오류가 발생 하 여 AZURE PORTAL **액세스 제어 (IAM)** 에서 역할 할당을 추가할 수 없는 경우 작업을 수행할 수 있는 권한 부여 "는 역할을 할당 하려는 범위에서 [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 와 같은 `Microsoft.Authorization/roleAssignments/write` 권한이 있는 사용자로 현재 로그인 했는지 확인 합니다.
+- 역할을 할당 하려고 할 때 "더 이상 역할 할당을 만들 수 없습니다 (코드: RoleAssignmentLimitExceeded)" 라는 오류 메시지가 표시 되는 경우 대신 그룹에 역할을 할당 하 여 역할 할당의 수를 줄여 보세요. Azure는 구독당 최대 **2000**개의 역할 할당을 지원합니다.
 
 ## <a name="problems-with-custom-roles"></a>사용자 지정 역할의 문제
 
 - 사용자 지정 역할을 만드는 방법에 대 한 단계가 필요한 경우 [Azure PowerShell](tutorial-custom-role-powershell.md) 또는 [Azure CLI](tutorial-custom-role-cli.md)를 사용 하 여 사용자 지정 역할 자습서를 참조 하세요.
-- 기존 사용자 지정 역할을 업데이트할 수 없는 경우 `Microsoft.Authorization/roleDefinition/write` [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator)와 같은 권한이 있는 역할이 할당 된 사용자로 현재 로그인 했는지 확인 합니다.
-- 사용자 지정 역할을 삭제할 수 없고 "역할을 참조하는 기존 역할 할당이 있습니다(코드: RoleDefinitionHasAssignments)" 오류 메시지가 표시되면 사용자 지정 역할을 사용하는 역할 할당이 여전히 있는 것입니다. 이 경우 해당 역할 할당을 제거하고 다시 삭제해 봅니다.
-- 새 사용자 지정 역할을 만들려고 할 때 "역할 정의 제한을 초과했습니다. 더 이상 역할 정의를 만들 수 없습니다 (코드: Roledefinition한계가 초과 됨) "새 사용자 지정 역할을 만들려고 하면 사용 되지 않는 모든 사용자 지정 역할을 삭제 합니다. Azure는 테 넌 트에서 최대 **5000** 개의 사용자 지정 역할을 지원 합니다. (Azure Government, Azure 독일, Azure 중국 21Vianet 같은 특수 클라우드는 사용자 지정 역할 2000개로 제한됩니다.)
+- 기존 사용자 지정 역할을 업데이트할 수 없는 경우 [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator)와 같은 `Microsoft.Authorization/roleDefinition/write` 권한이 있는 역할이 할당 된 사용자로 현재 로그인 했는지 확인 합니다.
+- 사용자 지정 역할을 삭제할 수 없고 "역할을 참조 하는 기존 역할 할당이 있습니다 (코드: RoleDefinitionHasAssignments)" 라는 오류 메시지가 표시 되는 경우 사용자 지정 역할을 사용 하는 역할 할당도 있습니다. 이 경우 해당 역할 할당을 제거하고 다시 삭제해 봅니다.
+- 새 사용자 지정 역할을 만들려고 할 때 "역할 정의 제한을 초과했습니다. 더 이상 역할 정의를 만들 수 없습니다. (코드: Roledefinition한계가 초과 됨) "새 사용자 지정 역할을 만들려고 하면 사용 되지 않는 모든 사용자 지정 역할을 삭제 합니다. Azure는 테 넌 트에서 최대 **5000** 개의 사용자 지정 역할을 지원 합니다. (Azure Government, Azure 독일, Azure 중국 21Vianet 같은 특수 클라우드는 사용자 지정 역할 2000개로 제한됩니다.)
 - "클라이언트에 '/subscriptions/{subscriptionid} ' 범위에서 ' Microsoft. Authorization/roleDefinitions/write ' 작업을 수행할 수 있는 권한이 있지만 연결 된 구독을 찾을 수 없습니다." 라는 오류 메시지가 표시 되 면 사용자 지정 역할을 업데이트 하려고 할 때 다음을 확인 합니다. 하나 이상의 할당 가능한 [범위가](role-definitions.md#assignablescopes) 테 넌 트에서 삭제 되었는지 여부입니다. 범위가 삭제되었으면 지원 티켓을 만듭니다. 현재는 사용 가능한 셀프 서비스 솔루션이 없기 때문입니다.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>테넌트에서 구독이 이동될 때 RBAC 복구
@@ -51,12 +51,12 @@ ms.locfileid: "70967111"
 
 ## <a name="access-denied-or-permission-errors"></a>액세스 거부 또는 사용 권한 오류
 
-- 리소스를 만들려고 할 때 "이 개체 ID를 가진 클라이언트는 이 범위에서 작업을 수행할 수 있는 권한이 없습니다(코드: AuthorizationFailed)"라는 권한 오류가 발생하면 현재 선택한 범위에서 리소스에 쓰기 권한이 있는 역할이 할당된 사용자로 로그인했는지 확인합니다. 예를 들어 리소스 그룹의 가상 머신을 관리하려면 리소스 그룹(또는 부모 범위)에 대한 [가상 머신 기여자](built-in-roles.md#virtual-machine-contributor) 역할이 필요합니다. 각 기본 제공 역할의 권한 목록은 [Azure 리소스의 기본 제공 역할](built-in-roles.md)을 참조하세요.
-- 지원 티켓을 만들거나 업데이트 하려고 할 때 "지원 요청을 만들 수 있는 권한이 없습니다." 라는 권한 오류가 표시 되는 경우 현재 `Microsoft.Support/supportTickets/write` 사용 권한을 가진 역할이 할당 된 사용자 (예: [)를 사용 하 여 로그인 했는지 확인 합니다. 지원 요청 기여자](built-in-roles.md#support-request-contributor).
+- 리소스를 만들려고 할 때 "개체 id가 있는 클라이언트에 대해 작업을 수행 하기 위한 권한 부여가 없습니다 (코드: AuthorizationFailed)" 라는 권한 오류가 표시 되 면 쓰기 권한이 있는 사용자로 현재 로그인 했는지 확인 합니다. 선택한 범위에서 리소스에 대 한 사용 권한입니다. 예를 들어 리소스 그룹의 가상 머신을 관리하려면 리소스 그룹(또는 부모 범위)에 대한 [가상 머신 기여자](built-in-roles.md#virtual-machine-contributor) 역할이 필요합니다. 각 기본 제공 역할의 권한 목록은 [Azure 리소스의 기본 제공 역할](built-in-roles.md)을 참조하세요.
+- 지원 티켓을 만들거나 업데이트 하려고 할 때 "지원 요청을 만들 수 있는 권한이 없습니다." 라는 권한 오류가 표시 되 면 현재 `Microsoft.Support/supportTickets/write` 권한이 있는 역할이 할당 된 사용자로 로그인 했는지 확인 합니다. (예: [지원 요청 기여자](built-in-roles.md#support-request-contributor)).
 
-## <a name="role-assignments-without-a-security-principal"></a>보안 주체를 사용 하지 않는 역할 할당
+## <a name="role-assignments-with-unknown-security-principal"></a>보안 주체를 알 수 없는 역할 할당
 
-Azure PowerShell를 사용 하 여 역할 할당을 나열 하면 빈 `DisplayName` `ObjectType` 및 알 수 없음으로 설정 된 할당이 표시 될 수 있습니다. 예를 들어 [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) 는 다음과 유사한 역할 할당을 반환 합니다.
+Azure PowerShell를 사용 하 여 역할 할당을 나열 하는 경우 빈 `DisplayName`를 사용 하 여 할당을 표시 하 고 `ObjectType`를 알 수 없음으로 설정할 수 있습니다. 예를 들어 [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) 는 다음과 유사한 역할 할당을 반환 합니다.
 
 ```azurepowershell
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -70,7 +70,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-마찬가지로 Azure CLI를 사용 하 여 역할 할당을 나열 하는 경우 빈 `principalName`로 할당 된 것을 볼 수 있습니다. 예를 들어 [az role 할당 목록은](/cli/azure/role/assignment#az-role-assignment-list) 다음과 같은 역할 할당을 반환 합니다.
+마찬가지로 Azure CLI를 사용 하 여 역할 할당을 나열 하는 경우 `principalName` 빈 할당이 표시 될 수 있습니다. 예를 들어 [az role 할당 목록은](/cli/azure/role/assignment#az-role-assignment-list) 다음과 같은 역할 할당을 반환 합니다.
 
 ```azurecli
 {
@@ -90,7 +90,7 @@ CanDelegate        : False
 
 이러한 역할 할당을 제거 하려면 [AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) 또는 [az role 할당 delete](/cli/azure/role/assignment#az-role-assignment-delete) 명령을 사용 합니다.
 
-PowerShell에서 개체 ID 및 역할 정의 이름을 사용 하 여 역할 할당을 제거 하려고 하지만 둘 이상의 역할 할당이 매개 변수와 일치 하는 경우 오류 메시지를 받게 됩니다. "제공 된 정보는 역할 할당에 매핑되지 않습니다." 다음은 오류 메시지의 예를 보여 줍니다.
+PowerShell에서 개체 ID 및 역할 정의 이름을 사용 하 여 역할 할당을 제거 하려고 하지만 둘 이상의 역할 할당이 매개 변수와 일치 하는 경우 "제공 된 정보가 역할 할당에 매핑되지 않습니다." 라는 오류 메시지가 표시 됩니다. 다음은 오류 메시지의 예를 보여 줍니다.
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor"
@@ -103,7 +103,7 @@ At line:1 char:1
 + FullyQualifiedErrorId : Microsoft.Azure.Commands.Resources.RemoveAzureRoleAssignmentCommand
 ```
 
-이 오류 메시지가 나타나면 `-Scope` 또는 `-ResourceGroupName` 매개 변수도 지정 해야 합니다.
+이 오류 메시지가 표시 되는 경우 `-Scope` 또는 `-ResourceGroupName` 매개 변수도 지정 해야 합니다.
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" - Scope /subscriptions/11111111-1111-1111-1111-111111111111
@@ -163,7 +163,7 @@ Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 �
 * 엔드포인트  
 * IP 주소  
 * 디스크  
-* 확장명  
+* 확장  
 
 다음 항목을 사용하려면 **가상 머신**와 가상 머신이 속한 **리소스 그룹**(도메인 이름 포함) 둘 다에 대한 **쓰기** 권한이 필요합니다.  
 

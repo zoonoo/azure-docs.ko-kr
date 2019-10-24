@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에서 다중 지역 배포에 대해 비용 최적화
 description: 이 문서에서는 Azure Cosmos DB에서 다중 지역 배포 비용을 관리하는 방법을 설명합니다.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: rimman
-ms.openlocfilehash: 233eab1fc49d7ce4cbb1e5b98b67eda9a64aa195
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: e0a24b52c12bce6a8e016a926dfa64a1e36a7cc6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667588"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753311"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 여러 지역 비용 최적화
 
@@ -25,7 +25,7 @@ ms.locfileid: "68667588"
 
 ## <a name="costs-for-multiple-write-regions"></a>여러 쓰기 지역에 대한 비용
 
-다중 마스터 시스템에서 쓰기 작업에 대해 사용 가능한 순 RU는 `N`배만큼 증가합니다. 여기서 `N`은 쓰기 지역 수입니다. 단일 지역 쓰기와 달리, 모든 지역은 이제 쓰기 가능하며 충돌 해결을 지원해야 합니다. 작성자의 워크로드 양도 증가했습니다. 비용 계획 관점에서 전 세계의 쓰기를 수행 `M` 하려면 컨테이너 또는 데이터베이스 수준에서 M `RUs` 을 프로 비전 해야 합니다. 원하는 수의 지역을 추가하고 쓰기에 사용하여 전 세계적으로 `M` RU에 상당하는 쓰기를 수행할 수 있습니다. 
+다중 마스터 시스템에서 쓰기 작업에 대해 사용 가능한 순 RU는 `N`배만큼 증가합니다. 여기서 `N`은 쓰기 지역 수입니다. 단일 지역 쓰기와 달리, 모든 지역은 이제 쓰기 가능하며 충돌 해결을 지원해야 합니다. 작성자의 워크로드 양도 증가했습니다. 비용 계획 관점에서 전 세계에서 쓰기에 대 한 `M`를 수행 하려면 컨테이너 또는 데이터베이스 수준에서 M `RUs`를 프로 비전 해야 합니다. 원하는 수의 지역을 추가하고 쓰기에 사용하여 전 세계적으로 `M` RU에 상당하는 쓰기를 수행할 수 있습니다. 
 
 ### <a name="example"></a>예제
 

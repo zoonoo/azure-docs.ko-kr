@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4eaf59200295a25498d3c8b84196e73a703b055d
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
-ms.translationtype: MT
+ms.openlocfilehash: 5a6ed66efa0f73f957c3acb048136a5328f9c264
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995243"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750175"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>RBAC 및 Azure PowerShell을 사용하여 Azure 리소스에 대한 액세스 관리
 
@@ -27,7 +27,7 @@ ms.locfileid: "70995243"
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 액세스를 관리하려면 다음 중 하나가 필요합니다.
 
@@ -239,7 +239,7 @@ PS C:\> Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGr
 Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
 
-## <a name="grant-access"></a>액세스 허용
+## <a name="grant-access"></a>액세스 권한 부여
 
 RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다.
 
@@ -310,7 +310,7 @@ CanDelegate        : False
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-다음 예에서는 *pharma-sales-projectforcast* 리소스 그룹 범위에서 사용자에 *alain@example.com* 게 [가상 컴퓨터 참가자](built-in-roles.md#virtual-machine-contributor) 역할을 할당 합니다. 고유한 역할 ID를 얻기 위해 [AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 를 사용 하거나 [Azure 리소스에 대 한 기본 제공 역할](built-in-roles.md)을 확인할 수 있습니다.
+다음 예에서는 *pharma-sales-projectforcast* 리소스 그룹 범위에서 *alain@example.com* 사용자에 게 [가상 컴퓨터 참가자](built-in-roles.md#virtual-machine-contributor) 역할을 할당 합니다. 고유한 역할 ID를 얻기 위해 [AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 를 사용 하거나 [Azure 리소스에 대 한 기본 제공 역할](built-in-roles.md)을 확인할 수 있습니다.
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -405,7 +405,7 @@ CanDelegate        : False
 
 RBAC에서 액세스 권한을 제거하려면 [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment)를 사용하여 역할 할당을 제거합니다.
 
-다음 예에서는 *pharma-sales-projectforcast sales* 리소스 그룹의 *alain\@example.com* 사용자에서 *가상 컴퓨터 참가자* 역할 할당을 제거 합니다.
+다음 예에서는 *pharma-sales-projectforcast* 리소스 그룹의 *alain \@example .Com* 사용자에서 *가상 컴퓨터 참가자* 역할 할당을 제거 합니다.
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
@@ -423,10 +423,10 @@ Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -S
 Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
-오류 메시지가 표시 되는 경우: "제공 된 정보가 역할 할당에 매핑되지 않습니다." 라는 메시지가 `-Scope` `-ResourceGroupName` 표시 되는지 확인 합니다. 자세한 내용은 [Azure 리소스에 대 한 RBAC 문제 해결](troubleshooting.md#role-assignments-without-a-security-principal)을 참조 하세요.
+"제공 된 정보가 역할 할당에 매핑되지 않습니다." 라는 오류 메시지가 표시 되는 경우 `-Scope` 또는 `-ResourceGroupName` 매개 변수도 지정 해야 합니다. 자세한 내용은 [Azure 리소스에 대 한 RBAC 문제 해결](troubleshooting.md#role-assignments-with-unknown-security-principal)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: RBAC 및 Azure PowerShell을 사용하여 그룹에 Azure 리소스에 대한 액세스 권한 부여](tutorial-role-assignments-group-powershell.md)
-- [자습서: Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)
+- [자습서: RBAC 및 Azure PowerShell를 사용 하 여 Azure 리소스에 대 한 그룹 액세스 권한 부여](tutorial-role-assignments-group-powershell.md)
+- [자습서: Azure PowerShell을 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)
 - [Azure PowerShell을 사용하여 리소스 관리](../azure-resource-manager/manage-resources-powershell.md)

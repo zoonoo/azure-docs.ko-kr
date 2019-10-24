@@ -7,12 +7,12 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: ec2a174c365e31520fe99ca0b505bbb62faad8c6
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 84e8f1d7b723bb86b31abb1ff60bce5351d7d996
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883411"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750149"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>상업적 Marketplace 제안의 게시 상태를 확인 합니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "70883411"
 
 이 단계에서는 고객 관리 시스템에서 제품 설치에 제공 된 세부 정보에 따라 고객 리드를 받을 수 있음을 확인 합니다. 이 단계는 잠재 고객 관리를 사용 하도록 설정한 경우에만 적용 됩니다.
 
-## <a name="certification"></a>Certification
+## <a name="certification"></a>인증
 
 게시 하기 전에 파트너 센터에서 상업적 Marketplace에 제출 된 제품은 인증을 받아야 합니다. 제출 된 제품은 [Azure Marketplace 인증 정책](https://docs.microsoft.com/legal/marketplace/general-policies)에 대 한 검사를 비롯 하 여 엄격한 테스트, 일부 자동화 및 기타 설명서를 제공 합니다. 게시 흐름의 다음 단계로 진행 하기 전에 제품 제출을 인증 적격으로 표시 해야 합니다.
 

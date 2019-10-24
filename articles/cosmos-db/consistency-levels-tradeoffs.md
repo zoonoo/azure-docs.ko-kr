@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB에서 다양한 일관성 수준의 가용성 및 성능 절충
 description: Azure Cosmos DB에서 다양한 일관성 수준의 가용성 및 성능 절충
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 2d80e291b3c054fec92b169c8a216a7189e24b79
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9178b8007d707af2df150102b2d344a44106a9ca
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384191"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755178"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>일관성, 가용성 및 성능의 장단점 
 
@@ -54,10 +54,10 @@ Azure Cosmos DB는 선택 사항 스펙트럼으로 데이터 일관성에 접�
 |---------|---------|---------|---------|---------|
 |1|단일 또는 다중 마스터|일관성 수준|< 240분|< 1주|
 |>1|단일 마스터|세션, 일관된 접두사, 최종|< 15분|< 15분|
-|>1|단일 마스터|제한된 부실|*K* & *T*|< 15분|
-|>1|단일 마스터|강력|0|< 15분|
+|>1|단일 마스터|제한된 부실|*K*  & *t*|< 15분|
+|>1|단일 마스터|Strong|0|< 15분|
 |>1|다중 마스터|세션, 일관된 접두사, 최종|< 15분|0|
-|>1|다중 마스터|제한된 부실|*K* & *T*|0|
+|>1|다중 마스터|제한된 부실|*K*  & *t*|0|
 
 *K* = 항목의 *"K"* 버전 (즉, 업데이트) 수입니다.
 

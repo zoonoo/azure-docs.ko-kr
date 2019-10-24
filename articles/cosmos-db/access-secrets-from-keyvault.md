@@ -1,20 +1,20 @@
 ---
 title: Key Vault를 사용하여 Azure Cosmos DB 키 저장 및 액세스
 description: Azure Key Vault를 사용하여 Azure Cosmos DB 연결 문자열, 키, 엔드포인트를 저장 및 액세스합니다.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 157ccd284c25cb5c7275aa942823ade2a40795cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55e6bbc338c1ac6f9ef935b4a3a05c32f2b5e9f5
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239861"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755219"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Azure Key Vault를 사용하여 Azure Cosmos 키 보호 
 
@@ -34,7 +34,7 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
 2. **[리소스 만들기] > [보안] > [Key Vault]** 를 선택합니다.  
 3. **Key Vault 만들기** 섹션에서 다음 정보를 제공합니다.  
    * **이름:** Key Vault의 고유한 이름을 제공합니다.  
-   * **구독:** 사용할 구독을 선택합니다.  
+   * **구독**: 사용할 구독을 선택합니다.  
    * **리소스 그룹**에서 **새로 만들기**를 선택하고 리소스 그룹 이름을 입력합니다.  
    * 위치 풀 다운 메뉴에서 위치를 선택합니다.  
    * 다른 옵션은 기본값으로 그대로 둡니다.  

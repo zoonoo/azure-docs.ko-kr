@@ -5,14 +5,14 @@ services: service-fabric
 author: athinanthny
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 10/21/2019
 ms.author: atsenthi
-ms.openlocfilehash: dcffc1ba783b49343bf3380b62c3d4085f5aa347
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b9a3534c24649e71385cd8fdc8b4981ac471cf90
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390089"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752314"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>Service Fabric 응용 프로그램 리소스 모델은 무엇 인가요?
 Service Fabric 응용 프로그램은 Azure Resource Manager를 통해 Service Fabric 클러스터에 배포 하는 것이 좋습니다. 이 방법을 사용 하면 JSON에서 응용 프로그램 및 서비스를 설명 하 고 클러스터와 동일한 리소스 관리자 템플릿에 배포할 수 있습니다. PowerShell 또는 Azure CLI를 통해 응용 프로그램을 배포 하 고 관리 하는 것과는 반대로 클러스터가 준비 될 때까지 기다릴 필요가 없습니다. 애플리케이션 등록, 프로비저닝 및 배포 프로세스를 모두 한 단계로 수행할 수 있습니다. 이 방식은 클러스터의 애플리케이션 수명 주기를 관리하는 모범 사례입니다. 자세한 내용은 [모범 사례](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources)를 참조 하세요.
@@ -41,8 +41,14 @@ Azure Resource Manager 응용 프로그램 리소스 모델을 사용 하 여 �
 ![스토리지 계정 만들기][CreateStorageAccount]
 
 ### <a name="configure-storage-account"></a>저장소 계정 구성 
-저장소 계정을 만든 후에는 응용 프로그램이 준비 될 수 있는 blob 컨테이너를 만들어야 합니다. Azure Portal에서 응용 프로그램을 저장 하려는 저장소 계정으로 이동 합니다. **Blob** 블레이드를 선택 하 고 **컨테이너 추가** 단추를 클릭 합니다. Blob 공용 액세스 수준을 사용 하 여 새 컨테이너를 추가 합니다.
-   
+저장소 계정을 만든 후에는 응용 프로그램이 준비 될 수 있는 blob 컨테이너를 만들어야 합니다. Azure Portal에서 응용 프로그램을 저장 하려는 저장소 계정으로 이동 합니다. **Blob** 블레이드를 선택 하 고 **컨테이너 추가** 단추를 클릭 합니다. 공용 액세스 수준을 개인으로 설정 하 여 클러스터의 리소스를 보호할 수 있습니다. 액세스는 여러 가지 방법으로 부여할 수 있습니다.
+* [Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여](../storage/common/storage-auth-aad-app.md)
+* [Azure Portal에서 RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 부여](../storage/common/storage-auth-aad-rbac-portal.md)
+* [SAS (공유 액세스 서명)를 사용 하 여 액세스 위임](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature
+)
+
+ 이 예에서는 blob에 대 한 익명 읽기 액세스를 계속 사용 합니다.
+
 ![Blob 만들기][CreateBlob]
 
 ### <a name="stage-application-in-a-storage-account"></a>저장소 계정의 스테이지 응용 프로그램
@@ -51,10 +57,10 @@ Azure Resource Manager 응용 프로그램 리소스 모델을 사용 하 여 �
 1. Visual Studio에서 투표 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 패키지를 선택 합니다.   
 ![패키지 응용 프로그램][PackageApplication]  
 2. 방금 만든 **.\service-fabric-dotnet-quickstart\Voting\pkg\Debug** 디렉터리를 열고 해당 콘텐츠를 **응답 .zip** 이라는 파일에 압축 합니다 .이 파일은 applicationmanifest이 zip 파일의 루트에 있습니다.  
-![Zip 응용 프로그램 @ no__t-1  
+응용 프로그램 ][ZipApplication] ![Zip  
 3. 파일 확장명을 .zip에서 **. .sfpkg**로 바꿉니다.
 4. Azure Portal의 저장소 계정에 대 한 **앱** 컨테이너에서 **업로드** 및 업로드 **.sfpkg**를 클릭 합니다.  
-![ 업로드 앱 패키지 @ no__t-1
+앱 패키지 ![Upload ][UploadAppPkg]
 
 이제 응용 프로그램이 준비 되었습니다. 이제 응용 프로그램을 배포 하는 Azure Resource Manager 템플릿을 만들 준비가 되었습니다.      
    

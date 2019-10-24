@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: 68fe50c75fc25106a0f47af8bf6cfc0db562fbe5
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 47f58b25b082784177910d14ab95d8d242fda71a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529109"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750316"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>가상 머신 네트워크 대역폭
 
@@ -54,7 +54,7 @@ Azure 가상 머신은 하나지만 여기에 연결된 네트워크 인터페�
 
 ## <a name="flow-limits-and-recommendations"></a>흐름 제한 및 권장 사항
 
-현재 Azure 네트워킹 스택은 cpu 코어가 8 개를 초과 하는 Vm에 대해 뛰어난 성능을 갖춘 250K 총 네트워크 흐름과 CPU 코어가 8 개 미만인 Vm에 대해 뛰어난 성능을 갖춘 총 흐름을 지원 합니다. 이 제한을 초과 하는 경우에는 추가 흐름이 삭제 된 후에 추가 흐름이 최대 1M 인 총 흐름 500K 인바운드 및 500K 아웃 바운드로 추가 될 때까지 네트워크 성능이 저하 됩니다.
+현재 Azure 네트워킹 스택은 cpu 코어가 8 개를 초과 하는 Vm에 대해 뛰어난 성능을 갖춘 250K 총 네트워크 흐름과 CPU 코어가 8 개 미만인 Vm에 대해 뛰어난 성능을 갖춘 총 흐름을 지원 합니다. 이 제한을 초과 하는 경우에는 추가 흐름이 삭제 되는 최대 500K 총 흐름 (250K 인바운드 및 250K 아웃 바운드)의 추가 흐름에 대 한 추가 흐름에 대해 네트워크 성능이 정상적으로 저하 됩니다.
 
 ||< 8 CPU 코어를 사용 하는 Vm|8 개 이상의 CPU 코어가 있는 Vm|
 |---|---|---|
