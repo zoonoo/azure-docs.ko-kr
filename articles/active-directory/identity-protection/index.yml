@@ -12,44 +12,40 @@ metadata:
   ms.author: joflore
   ms.date: 08/20/2019
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: b493af4372c612c41bafeaef863d8542e6730cb1
-  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.openlocfilehash: aeaa23138fb7d0a6d73625fdf7c6507c7fd8152a
+  ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/28/2019
-  ms.locfileid: "70126206"
+  ms.lasthandoff: 10/24/2019
+  ms.locfileid: "72880687"
 landingContent:
 - title: Identity Protection 정보
   linkLists:
   - linkListType: overview
     links:
     - text: Identity Protection이란?
-      url: overview-v2.md
+      url: overview-identity-protection.md
     - text: 보안 개요 소개
-      url: security-overview.md
+      url: concept-identity-protection-security-overview.md
 - title: 위험 검색 조사
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: 위험 정책 구성
-      url: howto-configure-risk-policies.md
+      url: howto-identity-protection-configure-risk-policies.md
     - text: 위험 조사
-      url: howto-investigate-risk.md
+      url: howto-identity-protection-investigate-risk.md
   - linkListType: reference
     links:
     - text: 이벤트 유형
-      url: risk-events-reference.md
+      url: concept-identity-protection-risks.md
 - title: Identity Protection 환경
   linkLists:
   - linkListType: concept
     links:
     - text: 로그인 환경
-      url: flows.md
+      url: concept-identity-protection-user-experience.md
   - linkListType: how-to-guide
     links:
     - text: 위험 검색 시뮬레이션
-      url: playbook.md
-  - linkListType: quickstart
-    links:
-    - text: 세션 위험이 감지되면 액세스 차단
-      url: quickstart-sign-in-risk-policy.md
+      url: howto-identity-protection-simulate-risk.md
