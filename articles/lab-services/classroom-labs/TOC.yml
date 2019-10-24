@@ -1,0 +1,92 @@
+- name: Lab Services 설명서
+  href: index.yml
+- name: DevTest Labs로 전환 설명서
+  href: ../devtest-lab-overview.md
+- name: 개요
+  items:
+    - name: 클래스룸 랩 정보
+      href: classroom-labs-overview.md
+    - name: Lab Services 및 DevTest Labs 정보
+      href: ../lab-services-overview.md?toc=%2fazure%2flab-services%2fclassroom-labs%2ftoc.json
+- name: 자습서
+  items:
+    - name: 랩 계정 설정
+      href: tutorial-setup-lab-account.md
+    - name: 클래스룸 랩 설정
+      href: tutorial-setup-classroom-lab.md
+    - name: 클래스룸 랩 액세스
+      href: tutorial-connect-virtual-machine-classroom-lab.md
+    - name: 클래스룸 랩의 사용량 추적
+      href: tutorial-track-usage.md
+- name: 개념
+  items:
+    - name: 클래스룸 랩 개념
+      href: classroom-labs-concepts.md
+    - name: 시나리오
+      items:
+        - name: 클래스를 수행하기 위해 랩 사용
+          href: classroom-labs-scenarios.md
+- name: 방법 가이드
+  items:
+    - name: 클래스룸 랩 - 클래스 형식
+      items:
+        - name: 클래스 형식 개요
+          href: class-types.md
+        - name: 자연 처리에 대한 딥 러닝
+          href: class-type-deep-learning-natural-processing.md
+        - name: Linux에서 셸 스크립팅
+          href: class-type-shell-scripting-linux.md
+        - name: 윤리적 해킹
+          href: class-type-ethical-hacking.md
+    - name: 랩 계정 만들기 및 구성(랩 계정 소유자)
+      items:
+        - name: 랩 계정 만들기 및 관리
+          href: how-to-manage-lab-accounts.md
+        - name: 랩 계정 구성
+          href: how-to-configure-lab-accounts.md
+        - name: 피어 가상 네트워크에 랩 연결
+          href: how-to-connect-peer-virtual-network.md
+        - name: 공유 이미지 갤러리 연결 또는 분리
+          href: how-to-attach-detach-shared-image-gallery.md
+    - name: 클래스룸 랩 만들기 및 구성(교사)
+      items:
+        - name: 클래스룸 랩 만들기 및 관리
+          href: how-to-manage-classroom-labs.md
+        - name: '템플릿 설정, 사용자 지정 및 게시'
+          href: how-to-create-manage-template.md
+        - name: 가상 머신 풀 설정 및 관리
+          href: how-to-set-virtual-machine-passwords.md
+        - name: 랩 사용자 추가 및 관리
+          href: how-to-configure-student-usage.md
+        - name: 일정 만들기 및 관리
+          href: how-to-create-schedules.md
+        - name: 공유 이미지 갤러리 사용
+          href: how-to-use-shared-image-gallery.md
+        - name: Linux에 대한 원격 데스크톱 연결을 사용하도록 설정
+          href: how-to-enable-remote-desktop-linux.md
+        - name: 템플릿 VM에서 중첩된 가상화 사용
+          href: how-to-enable-nested-virtualization-template-vm.md
+        - name: 템플릿 VM 내에서 여러 VM이 있는 환경 만들기
+          href: how-to-enable-multi-vm-environment.md
+    - name: 클래스룸 랩에서 VM에 연결(학생)
+      items:
+        - name: 클래스룸 랩 액세스
+          href: how-to-use-classroom-lab.md
+        - name: Linux VM용 원격 데스크톱 연결 사용
+          href: how-to-use-remote-desktop-linux-student.md
+        - name: 가상 머신의 암호 설정 또는 재설정
+          href: how-to-set-virtual-machine-passwords-student.md
+- name: 참고 자료
+  items:
+    - name: REST API
+      href: 'https://docs.microsoft.com/rest/api/labservices/'
+- name: 리소스
+  items:
+    - name: Azure 업데이트
+      href: 'https://azure.microsoft.com/updates/?product=lab-services'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/lab-services/'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/azure-lab-services'
+    - name: 질문과 대답
+      href: classroom-labs-faq.md

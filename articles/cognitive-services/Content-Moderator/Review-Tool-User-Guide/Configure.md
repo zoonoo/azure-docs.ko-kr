@@ -3,19 +3,19 @@ title: 검토 도구 설정 구성-Content Moderator
 titleSuffix: Azure Cognitive Services
 description: 검토 도구를 사용 하 여 Content Moderator에 대 한 팀, 태그, 커넥터, 워크플로 및 자격 증명을 구성 하거나 검색할 수 있습니다.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.author: sajagtap
-ms.openlocfilehash: 5e12806aca7c53c254cc43c8ff5bb8d314f9993e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.author: pafarley
+ms.openlocfilehash: 2ba314c814bdc92f62a607e28aefa30372bf297f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882733"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757426"
 ---
 # <a name="configure-the-review-tool"></a>검토 도구 구성
 
@@ -25,7 +25,7 @@ ms.locfileid: "68882733"
 
 ## <a name="manage-team-and-subteams"></a>팀 및 하위 팀 관리
 
-**팀** 탭에서는 특정 사용자 [검토가](../review-api.md#reviews) 시작 될 때 알릴&mdash;수 있는 팀 및 하위 팀 그룹을 관리할 수 있습니다. 검토 도구를 사용 하 여 등록할 때 만든 팀은 하나만 포함할 수 있지만 여러 하위 팀을 만들 수 있습니다. 팀 관리자는 구성원을 초대 하 고, 사용 권한을 설정 하 고, 다른 하위 팀에 할당할 수 있습니다.
+**팀** 탭을 사용 하면 특정 [사람의 검토가](../review-api.md#reviews) 시작 될 때 알릴 수 있는 사용자 &mdash;groups 팀 및 하위 팀을 관리할 수 있습니다. 검토 도구를 사용 하 여 등록할 때 만든 팀은 하나만 포함할 수 있지만 여러 하위 팀을 만들 수 있습니다. 팀 관리자는 구성원을 초대 하 고, 사용 권한을 설정 하 고, 다른 하위 팀에 할당할 수 있습니다.
 
 ![검토 도구 팀 설정](images/settings-2-team.png)
 
@@ -64,9 +64,9 @@ ms.locfileid: "68882733"
 
 ![하위 팀 간에 전환](images/3-review-image-subteam-2.png)
 
-## <a name="tags"></a>Tags
+## <a name="tags"></a>태그
 
-**태그** 탭에서는 두 개의 기본 중재&mdash;태그**isadult** (**a**) 및 **isracy** (**r**)와 함께 사용자 지정 중재 태그를 정의할 수 있습니다. 사용자 지정 태그를 만들 때 기본 태그와 함께 검토에서 사용할 수 있게 됩니다. 표시 유형 설정을 전환 하 여 리뷰에 표시 되는 태그를 변경할 수 있습니다.
+**태그** 탭에서는**isadult** (**a**) 및 **isracy** (**r**) &mdash; 두 개의 기본 중재 태그 외에도 사용자 지정 중재 태그를 정의할 수 있습니다. 사용자 지정 태그를 만들 때 기본 태그와 함께 검토에서 사용할 수 있게 됩니다. 표시 유형 설정을 전환 하 여 리뷰에 표시 되는 태그를 변경할 수 있습니다.
 
 ![태그 보기 ("표시 됨" 확인란 포함)](images/tags-4-disable.png)
 
@@ -74,9 +74,9 @@ ms.locfileid: "68882733"
 
 새 태그를 만들려면 해당 필드에 짧은 코드, 이름 및 설명을 입력 해야 합니다.
 
-- **짧은 코드**: 태그에 대 한 두 문자로 된 코드를 입력 합니다. 예: **cb**
-- **이름**: 짧은 태그 이름과 설명 태그 이름을 공백 없이 소문자로 입력 합니다. 예: **is인**
-- **설명**: (선택 사항) 태그가 대상으로 하는 콘텐츠 종류에 대 한 설명을 입력 합니다. 예제: **사이버 인의 묘사 또는 인스턴스**
+- **Short code**: 태그에 대해 두 문자로 된 코드를 입력 합니다. 예: **cb**
+- **이름**: 공백 없이 소문자에 짧은 설명 태그 이름을 입력 합니다. 예: **is인**
+- **설명**: (선택 사항) 태그가 대상으로 하는 콘텐츠 종류에 대 한 설명을 입력 합니다. 예: **사이버 인의 묘사 또는 인스턴스**
 
 **추가** 를 클릭 하 여 태그를 추가 하 고 태그 만들기를 마치면 **저장** 을 클릭 합니다.
 

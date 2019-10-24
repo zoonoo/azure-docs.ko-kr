@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: d50b0858ac7c4c0e5e0263bd157e044d0fec4489
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 8ca994b0b4abb27eef284eedf5a76571fe19699d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972675"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595314"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Azure 명령줄 인터페이스 (CLI)를 사용 하 여 Cognitive Services 리소스 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "71972675"
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * 유효한 Azure 구독-무료로 [하나를 만듭니다](https://azure.microsoft.com/free/) .
 * [AZURE CLI (명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -74,50 +74,57 @@ az group create \
 
 새 리소스를 만들 때 원하는 [가격 책정 계층](https://azure.microsoft.com/pricing/details/cognitive-services/) (또는 sku)과 함께 사용 하려는 서비스의 "종류"를 알고 있어야 합니다. 리소스를 만들 때이 및 기타 정보를 매개 변수로 사용 합니다.
 
+### <a name="multi-service"></a>다중 서비스
+
+| 서비스                    | 종류                      |
+|----------------------------|---------------------------|
+| 여러 서비스. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/) 페이지를 참조 하세요.            | `CognitiveServices`     |
+
+
 > [!NOTE]
-> 수많은 인식 서비스에는 서비스를 시도 하는 데 사용할 수 있는 무료 계층이 있습니다. 무료 계층을 사용 하려면 리소스의 sku로 `F0`을 사용 합니다.
+> 아래 Cognitive Services 대부분은 서비스를 시도 하는 데 사용할 수 있는 무료 계층이 있습니다. 무료 계층을 사용 하려면 리소스의 sku로 `F0`를 사용 합니다.
 
 ### <a name="vision"></a>시각
 
-| 서비스                    | Kind                      |
+| 서비스                    | 종류                      |
 |----------------------------|---------------------------|
-| Computer Vision            | `ComputerVision`          |
+| Computer Vision API            | `ComputerVision`          |
 | Custom Vision-예측 | `CustomVision.Prediction` |
 | Custom Vision 교육   | `CustomVision.Training`   |
 | Face API                   | `Face`                    |
 | Form Recognizer            | `FormRecognizer`          |
 | Ink Recognizer             | `InkRecognizer`           |
 
-### <a name="search"></a>검색
+### <a name="search"></a>Search
 
-| 서비스            | Kind                  |
+| 서비스            | 종류                  |
 |--------------------|-----------------------|
 | Bing Autosuggest   | `Bing.Autosuggest.v7` |
-| Bing 사용자 지정 검색 | `Bing.CustomSearch`   |
+| Bing Custom Search | `Bing.CustomSearch`   |
 | Bing Entity Search | `Bing.EntitySearch`   |
 | Bing Search        | `Bing.Search.v7`      |
-| Bing 맞춤법 검사   | `Bing.SpellCheck.v7`  |
+| Bing Spell Check   | `Bing.SpellCheck.v7`  |
 
-### <a name="speech"></a>음성 명령
+### <a name="speech"></a>Speech
 
-| 서비스            | Kind                 |
+| 서비스            | 종류                 |
 |--------------------|----------------------|
-| Speech Services    | `SpeechServices`     |
+| 음성 서비스    | `SpeechServices`     |
 | 음성 인식 | `SpeakerRecognition` |
 
 ### <a name="language"></a>언어
 
-| 서비스            | Kind                |
+| 서비스            | 종류                |
 |--------------------|---------------------|
 | 양식 이해 | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
 | QnA Maker          | `QnAMaker`          |
-| 텍스트 분석     | `TextAnalytics`     |
+| Text Analytics     | `TextAnalytics`     |
 | 텍스트 번역   | `TextTranslation`   |
 
-### <a name="decision"></a>의사 결정
+### <a name="decision"></a>결정
 
-| 서비스           | Kind               |
+| 서비스           | 종류               |
 |-------------------|--------------------|
 | Anomaly Detector  | `AnomalyDetector`  |
 | Content Moderator | `ContentModerator` |
@@ -191,7 +198,7 @@ Cognitive Services 리소스를 정리 하 고 제거 하려면 해당 리소스
 az group delete --name storage-resource-group
 ```
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [Azure Cognitive Services에 대한 요청 인증](authentication.md)
 * [Azure Cognitive Services 이란?](Welcome.md)

@@ -3,19 +3,19 @@ title: 사용자 지정 목록 및 API 콘솔을 사용하여 이미지 조정 -
 titleSuffix: Azure Content Moderator
 description: Azure Content Moderator의 목록 관리 API를 사용하여 사용자 지정 이미지 목록을 만듭니다.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 2b2ab138945d32ca874dc20576d412c862965dc9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 27d9b12d9e1a0237050243c2b5f07edaa8d8857a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564358"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757184"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>API 콘솔에서 사용자 지정 이미지 목록을 사용하여 조정
 
@@ -52,7 +52,7 @@ Azure Content Moderator에서 [목록 관리 API](https://westus.dev.cognitive.m
 
     **이미지 목록 - 검색 인덱스 새로 고침** API 콘솔이 열립니다.
 
-3. **listId** 상자에 목록 ID를 입력합니다. 구독 키를 입력한 다음, **보내기**를 선택합니다.
+3. **listId** 상자에 목록 ID를 입력합니다. 구독 키를 입력하고 **보내기**를 선택합니다.
 
    ![이미지 목록 - 검색 인덱스 새로 고침 콘솔 응답 콘텐츠 상자](images/try-image-list-refresh-1.png)
 
@@ -103,7 +103,7 @@ Azure Content Moderator에서 [목록 관리 API](https://westus.dev.cognitive.m
 
    **이미지 - 이미지 추가** API 콘솔이 열립니다.
  
-10. **listId** 상자에 생성한 목록 ID를 입력한 다음, 추가하려는 이미지의 URL을 입력합니다. 구독 키를 입력한 다음, **보내기**를 선택합니다.
+10. **listId** 상자에 생성한 목록 ID를 입력한 다음, 추가하려는 이미지의 URL을 입력합니다. 구독 키를 입력하고 **보내기**를 선택합니다.
 
 11. 목록에 이미지가 추가되었는지 확인하려면 왼쪽 메뉴에서 **이미지**를 선택한 다음, **모든 이미지 ID 가져오기**를 선택합니다.
 
@@ -119,7 +119,7 @@ Azure Content Moderator에서 [목록 관리 API](https://westus.dev.cognitive.m
 
 이미지 또는 목록을 삭제하는 것은 간단합니다. API를 사용하여 다음 작업을 수행할 수 있습니다.
 
-- 이미지 삭제를 삭제합니다. (**이미지 - 삭제**)
+- 이미지를 삭제합니다. (**이미지 - 삭제**)
 - 목록을 삭제하지 않고 목록의 모든 이미지를 삭제합니다. (**이미지 - 모든 이미지 삭제**)
 - 목록 및 모든 해당 콘텐츠를 삭제합니다. (**이미지 목록 - 삭제**)
 
@@ -139,7 +139,7 @@ Azure Content Moderator에서 [목록 관리 API](https://westus.dev.cognitive.m
 
 예제에서 목록 ID는 **ContentSource**에 대한 값, **58953**입니다. 이미지 ID는 **ContentIds**에 대한 값, **59021**입니다.
 
-1. 구독 키를 입력한 다음, **보내기**를 선택합니다.
+1. 구독 키를 입력하고 **보내기**를 선택합니다.
 
 1. 이미지가 삭제되었는지 확인하려면 **이미지 - 모든 이미지 ID 가져오기** 콘솔을 사용합니다.
  

@@ -123,6 +123,8 @@
               href: deploy-continuous-deployment.md
             - name: 로컬 Git에서 배포
               href: deploy-local-git.md
+            - name: GitHub 작업을 사용하여 배포
+              href: deploy-github-actions.md
             - name: 템플릿을 사용하여 배포
               href: deploy-complex-application-predictably.md
         - name: 배포 자격 증명 설정

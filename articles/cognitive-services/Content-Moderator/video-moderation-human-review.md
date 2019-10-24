@@ -3,19 +3,19 @@ title: 사용자 검토를 사용한 비디오 조정 - Content Moderator
 titleSuffix: Azure Cognitive Services
 description: 컴퓨터 지원 비디오 조정 및 사용자 검토 도구를 사용하여 부적절한 콘텐츠 조정
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 04/30/2019
-ms.author: sajagtap
-ms.openlocfilehash: 69075f6b36a0be7cd4d0dd4453ea9cdfc08d77dc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: a4e7b079367a4b4dec1d2b3d6c0afde1d8276766
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561171"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754166"
 ---
 # <a name="video-moderation-with-human-review"></a>사용자 검토를 사용한 비디오 조정
 

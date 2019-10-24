@@ -639,6 +639,8 @@
                   href: insights/vminsights-workbooks.md
                 - name: 로그 쿼리를 사용하여 데이터 분석
                   href: insights/vminsights-log-search.md
+                - name: 종속성 에이전트 업그레이드
+                  href: insights/vminsights-dependency-agent-maintenance.md
                 - name: 모니터링 사용 안 함
                   href: insights/vminsights-optout.md
             - name: 용량 및 성능 솔루션

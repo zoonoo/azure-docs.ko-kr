@@ -719,6 +719,8 @@
           href: sql-database-managed-instance-aad-security-tutorial.md
         - name: 장애 조치(failover) 그룹에 관리형 인스턴스 추가
           href: sql-database-managed-instance-failover-group-tutorial.md
+        - name: 온-프레미스 사용자 및 그룹 마이그레이션
+          href: tutorial-managed-instance-azure-active-directory-migration.md
     - name: 개념
       items:
         - name: 관리 API 참조

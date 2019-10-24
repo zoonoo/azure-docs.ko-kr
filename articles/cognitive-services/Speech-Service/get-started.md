@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 41d12013ec7eaa4e2aae59e1b366cc511a41f749
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.custom: seodec18, seo-javascript-october2019
+ms.openlocfilehash: eb4478a435fbfc899055a60e13b318be771652f7
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535101"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527615"
 ---
 # <a name="try-speech-services-for-free"></a>Speech Service 평가판 사용해 보기
 
@@ -26,7 +26,7 @@ Speech Service는 쉽고 저렴하게 시작할 수 있습니다. 30일 평가�
 
 마지막으로 Speech Service는 애플리케이션 개발에 적합한 작은 용량의 체험 계층을 제공합니다. 서비스 크레딧이 만료된 후에도 이 무료 구독을 유지할 수 있습니다.
 
-## <a name="free-trial"></a>무료 평가판
+## <a name="free-trial"></a>평가판
 
 30일 평가판을 사용하면 제한된 기간 동안 표준 가격 책정 계층에 액세스할 수 있습니다.
 
@@ -36,15 +36,15 @@ Speech Service는 쉽고 저렴하게 시작할 수 있습니다. 30일 평가�
 
 1. **Speech API** 탭을 선택합니다.
 
-   ![Speech Services 탭](media/index/try-speech-api-free-trial1.png)
+   ![Speech API-Speech Services 탭](media/index/cognitive-services-speech-api-tab.png)
 
 1. **Speech service**에서 **API 키 가져오기**를 선택 합니다.
 
-   ![API 키](media/index/try-speech-api-free-trial2.png)
+   ![Speech API-API 키 가져오기](media/index/speech-api-get-api-key.png)
 
 1. 사용 약관에 동의하고 드롭다운 메뉴에서 로캘을 선택합니다.
 
-   ![사용 약관에 동의](media/index/try-speech-api-free-trial3.png)
+   ![Speech API-약관에 동의 합니다.](media/index/speech-api-agree-to-terms.png)
 
 1. Microsoft, Facebook, LinkedIn 또는 GitHub 계정을 사용하여 로그인합니다.
 
@@ -73,17 +73,17 @@ Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추�
 
 1. 포털의 왼쪽 위에서 **리소스 만들기**를 선택합니다.
 
-    ![리소스 만들기](media/index/try-speech-api-create-speech1.png)
+    ![Speech API-리소스 만들기](media/index/speech-api-create-resource.png)
 
 1. **새로 만들기** 창에서 **speech**를 검색합니다.
 
 1. 검색 결과에서 **Speech**를 선택합니다.
 
-    ![Speech 선택](media/index/try-speech-api-create-speech2.png)
+    ![Speech API 음성 선택](media/index/speech-api-select-speech.png)
 
 1. **Speech** 아래에서 **만들기** 단추를 선택합니다.
 
-    ![만들기 단추 선택](media/index/try-speech-api-create-speech3.png)
+    ![Speech API-만들기 단추](media/index/speech-api-create-button.png)
 
 1. **만들기** 아래에서 다음을 입력합니다.
 
@@ -95,11 +95,11 @@ Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추�
    * 나중에 구독에 편리하게 액세스하려면 **대시보드에 고정** 확인란을 선택합니다.
    * **만들기**를 선택합니다.
 
-     ![만들기 단추 선택](media/index/try-speech-api-create-speech4.png)
+     ![Speech API 만들기를 선택 합니다.](media/index/speech-api-select-create.png)
 
      새 Speech 리소스를 만들고 배포하는 데 약간의 시간이 걸립니다. 새 리소스에 대한 정보를 보려면 **빠른 시작**을 선택합니다.
 
-     ![빠른 시작 패널](media/index/try-speech-api-create-speech5.png)
+     ![Speech API-리소스를 배포 합니다.](media/index/speech-api-deploy-resource.png)
 
 1. **빠른**시작에서 1 단계 아래의 **키** 링크를 선택 하 여 구독 키를 표시 합니다. 각 구독에는 두 개의 키가 있으며, 애플리케이션에서 두 키 중 하나를 사용할 수 있습니다. 코드에 붙여넣기 위해 클립보드에 복사하려면 각 키 옆에 있는 단추를 선택합니다.
 
