@@ -3,23 +3,23 @@ title: REST API 콘솔을 사용 하 여 중재 검토 만들기-Content Moderat
 titleSuffix: Azure Cognitive Services
 description: Azure Content Moderator 검토 Api를 사용 하 여 휴먼 중재를 위한 이미지 또는 텍스트 검토를 만듭니다.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: sajagtap
-ms.openlocfilehash: ec45f182e24f44c2222d64f18e2aa0aeea845727
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.author: pafarley
+ms.openlocfilehash: a9726e41a84926d00d48b51e31f534a3d8c2fe0c
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882337"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757134"
 ---
 # <a name="create-human-reviews-rest"></a>사용자 리뷰 만들기 (REST)
 
-[검토](./review-api.md#reviews)는 평가를 위해 인적 중재자의 콘텐츠를 저장 하 고 표시 합니다. 사용자가 검토를 완료 하면 결과가 지정 된 콜백 끝점으로 전송 됩니다. 이 가이드에서는 API 콘솔을 통해 REST Api 검토를 사용 하 여 리뷰를 설정 하는 방법을 알아봅니다. Api의 구조를 이해 하면 이러한 호출을 모든 REST 호환 플랫폼으로 쉽게 이식할 수 있습니다.
+[평가를](./review-api.md#reviews) 위해 인적 중재자의 콘텐츠를 저장 하 고 표시 합니다. 사용자가 검토를 완료 하면 결과가 지정 된 콜백 끝점으로 전송 됩니다. 이 가이드에서는 API 콘솔을 통해 REST Api 검토를 사용 하 여 리뷰를 설정 하는 방법을 알아봅니다. Api의 구조를 이해 하면 이러한 호출을 모든 REST 호환 플랫폼으로 쉽게 이식할 수 있습니다.
 
 ## <a name="prerequisites"></a>전제 조건
 
@@ -35,17 +35,17 @@ ms.locfileid: "68882337"
 
 **Teamname**및 **Ocp-Apim-Subscription 키**에 대 한 값을 입력 합니다.
 
-- **teamName**: 검토 [도구](https://contentmoderator.cognitive.microsoft.com/) 계정 (검토 도구의 자격 증명 화면에서 **ID** 필드에 있음)을 설정할 때 만든 팀 ID입니다.
-- **Ocp-Apim-Subscription-Key**: Content Moderator 키입니다. 이는 [검토 도구의](https://contentmoderator.cognitive.microsoft.com) **설정** 탭에서 찾을 수 있습니다.
+- **Teamname**: 검토 [도구](https://contentmoderator.cognitive.microsoft.com/) 계정 (검토 도구의 자격 증명 화면에서 **ID** 필드에 있음)을 설정할 때 만든 팀 ID입니다.
+- **Ocp-Apim-Subscription-키**: Content Moderator 키입니다. 이는 [검토 도구의](https://contentmoderator.cognitive.microsoft.com) **설정** 탭에서 찾을 수 있습니다.
 
 ### <a name="enter-a-review-definition"></a>검토 정의 입력
 
 **요청 본문** 상자를 편집 하 여 다음 필드를 포함 하는 JSON 요청을 입력 합니다.
 
-- **메타데이터**: 콜백 끝점에 반환할 사용자 지정 키-값 쌍입니다. 키가 [검토 도구](https://contentmoderator.cognitive.microsoft.com)에 정의 된 짧은 코드 이면 태그로 표시 됩니다.
+- **메타 데이터**: 콜백 끝점에 반환할 사용자 지정 키-값 쌍입니다. 키가 [검토 도구](https://contentmoderator.cognitive.microsoft.com)에 정의 된 짧은 코드 이면 태그로 표시 됩니다.
 - **콘텐츠**: 이미지 및 비디오 콘텐츠의 경우 콘텐츠를 가리키는 URL 문자열입니다. 텍스트 콘텐츠의 경우 실제 텍스트 문자열입니다.
 - **ContentId**: 사용자 지정 식별자 문자열입니다. 이 문자열은 API로 전달되고 콜백을 통해 반환됩니다. 내부 식별자 또는 메타 데이터를 중재 작업의 결과와 연결 하는 데 유용 합니다.
-- **CallbackEndpoint**: 필드 검토가 완료 되 면 콜백 정보를 수신 하는 URL입니다.
+- **Callbackendpoint**: (선택 사항) 검토가 완료 되 면 콜백 정보를 수신 하는 URL입니다.
 
 기본 요청 본문은 만들 수 있는 다양 한 유형의 검토 예를 보여 줍니다.
 
@@ -129,13 +129,13 @@ ms.locfileid: "68882337"
 
 ### <a name="submit-your-request"></a>요청 제출
   
-**보내기**를 선택합니다. 작업에 성공 하면 **응답 상태** 는이 `200 OK`고 **응답 콘텐츠** 상자에는 검토에 대 한 ID가 표시 됩니다. 다음 단계에서 사용할 수 있도록 ID를 복사합니다.
+**보내기**를 선택합니다. 작업에 성공 하면 **응답 상태** 는 `200 OK`이 고 **응답 콘텐츠** 상자에는 검토에 대 한 ID가 표시 됩니다. 다음 단계에서 사용할 수 있도록 ID를 복사합니다.
 
 ![검토 - 콘솔 만들기 응답 콘텐츠 상자에 검토 ID 표시](images/test-drive-review-2.PNG)
 
 ### <a name="examine-the-new-review"></a>새 검토를 검토 합니다.
 
-[검토 도구](https://contentmoderator.cognitive.microsoft.com)에서 사용 하는 내용에 따라**이미지**/**텍스트**/**비디오** **검토** > 를 선택 합니다. 업로드 한 콘텐츠는 사용자가 검토할 준비가 된 상태로 표시 되어야 합니다.
+[검토 도구](https://contentmoderator.cognitive.microsoft.com)에서 사용 하는 내용에 **따라  > ** **이미지** /**텍스트** /**비디오** 를 선택 합니다. 업로드 한 콘텐츠는 사용자가 검토할 준비가 된 상태로 표시 되어야 합니다.
 
 ![축구공 이미지 검토 도구](images/test-drive-review-5.PNG)
 
@@ -149,7 +149,7 @@ ms.locfileid: "68882337"
 
 ![검토 - 콘솔 만들기 결과 가져오기](images/test-drive-review-3.PNG)
   
-**보내기**를 선택합니다. 작업에 성공 하면 **응답 상태** 는이 `200 OK`고 **응답 콘텐츠** 상자는 다음과 같이 JSON 형식으로 검토 세부 정보를 표시 합니다.
+**보내기**를 선택합니다. 작업에 성공 하면 **응답 상태** 는 `200 OK`이 고 **응답 콘텐츠** 상자는 다음과 같이 JSON 형식으로 검토 세부 정보를 표시 합니다.
 
 ```json
 {  
@@ -186,9 +186,9 @@ ms.locfileid: "68882337"
 
 응답에서 다음 필드를 기록해 둡니다.
 
-- **상태**
-- **reviewerResultTags**: 사용자 리뷰 팀에서 태그를 수동으로 추가한 경우 ( **createdBy** 필드가 표시 됨) 표시 됩니다.
-- **메타데이터**: 이는 사용자 검토 팀이 변경 하기 전에 검토에서 처음 추가 된 태그를 보여 줍니다.
+- **status**
+- **reviewerResultTags**: 인간 리뷰 팀에서 수동으로 추가 된 태그 ( **createdBy** 필드 표시)가 있는 경우 표시 됩니다.
+- **메타 데이터**: 사용자 검토 팀이 변경 내용을 적용 하기 전에 검토에서 처음 추가 된 태그를 보여 줍니다.
 
 ## <a name="next-steps"></a>다음 단계
 

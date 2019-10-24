@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: fb54df2e1eb89d30e62ae80355635356343994ee
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d7c38a44e3111a319e4146b3c9b71a22b0d31bfd
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595453"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675477"
 ---
 # <a name="what-are-parallel-documents"></a>병렬 문서란?
 
@@ -23,7 +23,7 @@ ms.locfileid: "68595453"
 
 ## <a name="requirements"></a>요구 사항
 
-시스템을 학습 하려면 최소 1만의 고유한 병렬 문장이 필요 합니다. 모범 사례로서 지속적으로 더 많은 병렬 콘텐츠를 추가하고 재학습시켜 번역 시스템의 품질을 개선할 수 있습니다.
+시스템을 학습 하려면 최소 1만의 고유한 맞춤 병렬 문장이 필요 합니다. 이러한 제한 사항은 병렬 문장에 번역 모델을 성공적으로 학습할 수 있는 충분 한 고유 어휘가 포함 되어 있는지 확인 하는 보안 네트워크입니다. 변환 시스템의 품질을 향상 시키기 위해 지속적으로 더 많은 병렬 콘텐츠와 다시 학습를 추가 하는 것이 가장 좋습니다. [문장 맞춤](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment)을 참조 하십시오.
 
 Microsoft에서는 Custom Translator에 업로드된 문서가 타사의 저작권 또는 지적 재산권을 위반하지 말 것을 요구합니다. 자세한 내용은 [사용 약관](https://azure.microsoft.com/support/legal/cognitive-services-terms/)을 참조하세요.
 포털을 사용하여 문서를 업로드하면 문서 자체의 지적 재산 소유권은 변경되지 않습니다.
@@ -46,4 +46,4 @@ Microsoft에서는 Custom Translator에 업로드된 문서가 타사의 저작�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Custom Translator에서 [사전](what-is-dictionary.md)을 사용하는 방법을 알아봅니다.
+- Custom Translator에서 [사전](what-is-dictionary.md)을 사용하는 방법을 알아보세요.

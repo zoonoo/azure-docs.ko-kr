@@ -3,19 +3,19 @@ title: .NET을 사용 하 여 중재 작업 사용-Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Content Moderator .NET SDK를 사용 하 여 Azure Content Moderator에서 이미지 또는 텍스트 콘텐츠에 대 한 종단 간 콘텐츠 중재 작업을 시작 합니다.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: sajagtap
-ms.openlocfilehash: bc20af10e2e5b2ceb26c1cc891a8f69eb44e5740
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: c6925b979e5a93a2d73c2d6e8ac48f62714a5cd0
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242877"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757335"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>중재 작업 정의 및 사용 (.NET)
 
@@ -26,7 +26,7 @@ ms.locfileid: "72242877"
 - 검토의 최종 상태 추적 및 가져오기
 - 검토 결과를 콜백 URL에 제출 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에서 로그인 하거나 계정을 만드세요.
 

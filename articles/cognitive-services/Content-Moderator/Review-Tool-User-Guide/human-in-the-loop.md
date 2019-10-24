@@ -3,19 +3,19 @@ title: 검토 도구 개념 알아보기-Content Moderator
 titleSuffix: Azure Cognitive Services
 description: 결합 된 AI와 인간 리뷰 중재 작업을 조정 하는 웹 사이트인 Content Moderator 검토 도구에 대해 알아봅니다.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: mikemcca
 ms.date: 03/15/2019
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.author: sajagtap
-ms.openlocfilehash: 7f20b9c824045ac2f8c13df3ed8f776195de611a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 465f24c3d9b7f53c0b494f387cc5d21aa6bd83b5
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564516"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754238"
 ---
 # <a name="content-moderator-review-tool"></a>Content Moderator 검토 도구
 
@@ -43,7 +43,7 @@ Azure Content Moderator는 기계 학습 콘텐츠 조정을 사용자 리뷰와
 
 ## <a name="review-tool-credentials"></a>검토 도구 자격 증명
 
-[검토 도구](https://contentmoderator.cognitive.microsoft.com)를 사용 하 여 등록 하면 계정에 대 한 Azure 지역을 선택 하 라는 메시지가 표시 됩니다. 이는 [검토 도구](https://contentmoderator.cognitive.microsoft.com) 에서 Azure Content Moderator services에 대 한 무료 평가판 키를 생성 하기 때문입니다. REST 호출 또는 클라이언트 SDK에서 서비스에 액세스 하려면이 키가 필요 합니다. **설정** > **자격 증명**을 선택 하 여 키 및 API 끝점 URL을 볼 수 있습니다.
+[검토 도구](https://contentmoderator.cognitive.microsoft.com)를 사용 하 여 등록 하면 계정에 대 한 Azure 지역을 선택 하 라는 메시지가 표시 됩니다. 이는 [검토 도구](https://contentmoderator.cognitive.microsoft.com) 에서 Azure Content Moderator services에 대 한 무료 평가판 키를 생성 하기 때문입니다. REST 호출 또는 클라이언트 SDK에서 서비스에 액세스 하려면이 키가 필요 합니다. **설정**  > **자격 증명**을 선택 하 여 키 및 API 끝점 URL을 볼 수 있습니다.
 
 ![Content Moderator 자격 증명](images/settings-6-credentials.png)
 
