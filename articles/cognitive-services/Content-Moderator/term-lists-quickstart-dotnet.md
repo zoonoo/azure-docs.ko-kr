@@ -3,19 +3,19 @@ title: C#-Content Moderator의 사용자 지정 단어 목록에 대해 텍스�
 titleSuffix: Azure Cognitive Services
 description: C#용 Content Moderator SDK를 사용하여 사용자 지정 용어 목록으로 텍스트를 조정하는 방법
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
-ms.author: sajagtap
-ms.openlocfilehash: d1c2f8b06d333be23f25a2d150c23269bf84cd2e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: 272063c3fcc77c76536dbd007b1ab0132a565e61
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242836"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757260"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>C#에서 사용자 지정 단어 목록에 대해 텍스트 확인
 
@@ -274,7 +274,7 @@ static void RefreshSearchIndex (ContentModeratorClient client, string list_id)
 - "text/html", "text/xml", "text/markdown" 또는 "text/plain"일 수 있는 MIME 형식입니다.
 - 차단할 텍스트입니다.
 - 부울 값입니다. 이 필드를 **true**로 설정하여 차단하기 전에 텍스트를 자동으로 고칩니다.
-- 부울 값입니다. 이 필드를 **true**로 설정하여 텍스트에서 PII(개인 식별 가능 정보)를 검색합니다.
+- 부울 값입니다. 텍스트의 개인 데이터를 검색 하려면이 필드를 **true** 로 설정 합니다.
 - 용어 목록 ID입니다.
 
 자세한 내용은 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f)를 참조하세요.

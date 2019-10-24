@@ -3,19 +3,19 @@ title: 사용자 지정 용어 목록을 사용하여 텍스트 조정 - Content
 titleSuffix: Azure Cognitive Services
 description: 목록 관리 API를 사용하여 텍스트 조정 API와 함께 사용할 사용자 지정 용어 목록을 만드는 방법을 설명합니다.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 0a4e9b7925c2309a9682156934e9d94fa83c0d4b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 828e8ae68286d7c208462d77a31a764427c79637
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564390"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755275"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>API 콘솔에서 사용자 지정 용어 목록을 사용하여 조정
 
@@ -24,7 +24,7 @@ Azure Content Moderator에서 기본 전역 용어 목록은 대부분의 콘텐
 [목록 관리 API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)를 사용하여 텍스트 조정 API와 함께 사용할 사용자 지정 용어 목록을 만듭니다. **텍스트 - 차단** 작업은 텍스트에서 욕설을 검색하고 사용자 지정 및 공유 블랙리스트에 대해 텍스트를 비교합니다.
 
 > [!NOTE]
-> 최대 **5개 용어 목록**으로 제한되고, 각 목록이 **10,000개 용어를 초과하지 않아야** 합니다.
+> 최대 **5개 용어 목록**으로 제한되고, 각 목록은 **10,000개 용어를 초과하지 않아야** 합니다.
 >
 
 목록 관리 API를 사용하여 다음 작업을 수행할 수 있습니다.
@@ -38,7 +38,7 @@ Azure Content Moderator에서 기본 전역 용어 목록은 대부분의 콘텐
 
 ## <a name="use-the-api-console"></a>API 콘솔 사용
 
-온라인 콘솔에서 API를 시험 사용할 수 있으려면 먼저 구독 키가 필요합니다. 이 키는 **Ocp-Apim-Subscription-Key** 상자의 **설정** 탭에 있습니다. 자세한 내용은 [개요](overview.md)를 참조하세요.
+온라인 콘솔에서 API를 테스트하려면 구독 키가 필요합니다. 이 키는 **Ocp-Apim-Subscription-Key** 상자의 **설정** 탭에 있습니다. 자세한 내용은 [개요](overview.md)를 참조하세요.
 
 ## <a name="refresh-search-index"></a>검색 인덱스 새로 고침
 
@@ -54,7 +54,7 @@ Azure Content Moderator에서 기본 전역 용어 목록은 대부분의 콘텐
 
    **용어 목록 - 검색 인덱스 새로 고침** API 콘솔이 열립니다.
 
-3. **listId** 상자에 목록 ID를 입력합니다. 구독 키를 입력한 다음, **보내기**를 선택합니다.
+3. **listId** 상자에 목록 ID를 입력합니다. 구독 키를 입력하고 **보내기**를 선택합니다.
 
    ![용어 목록 API - 검색 인덱스 새로 고침 콘솔 응답 콘텐츠 상자](images/try-terms-list-refresh-1.png)
 
@@ -103,7 +103,7 @@ Azure Content Moderator에서 기본 전역 용어 목록은 대부분의 콘텐
 
    **용어 - 용어 추가** API 콘솔이 열립니다.
  
-9. **listId** 상자에 생성한 목록 ID를 입력하고, **언어**에 대한 값을 선택합니다. 구독 키를 입력한 다음, **보내기**를 선택합니다.
+9. **listId** 상자에 생성한 목록 ID를 입력하고, **언어**에 대한 값을 선택합니다. 구독 키를 입력하고 **보내기**를 선택합니다.
 
    ![용어 - 용어 추가 콘솔 쿼리 매개 변수](images/try-terms-list-create-3.png)
  
@@ -143,7 +143,7 @@ Azure Content Moderator에서 기본 전역 용어 목록은 대부분의 콘텐
  
    ![용어 - 삭제 콘솔 쿼리 매개 변수](images/try-terms-list-delete-1.png)
 
-4. 구독 키를 입력한 다음, **보내기**를 선택합니다.
+4. 구독 키를 입력하고 **보내기**를 선택합니다.
 
 5. 용어가 삭제되었는지 확인하려면 **용어 목록 - 모두 가져오기** 콘솔을 사용합니다.
 

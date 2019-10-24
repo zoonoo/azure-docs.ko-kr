@@ -3,25 +3,25 @@ title: 검토, 워크플로 및 작업 개념-Content Moderator
 titleSuffix: Azure Cognitive Services
 description: 검토, 워크플로 및 작업에 대 한 자세한 정보
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: sajagtap
-ms.openlocfilehash: a77b93c46c9989181cf4473e8b908571a3df2f20
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 0050e2b687b6001514d1ae80c269b1a0499efbea
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565551"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757286"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>콘텐츠 중재 검토, 워크플로 및 작업
 
 Content Moderator은 기계 지원 조정을 사용자의 루프 기능과 결합 하 여 실제 시나리오에 대 한 최적의 중재 프로세스를 만듭니다. 클라우드 기반 [검토 도구](https://contentmoderator.cognitive.microsoft.com)를 통해이를 수행 합니다. 이 가이드에서는 검토 도구, 워크플로 및 작업의 핵심 개념에 대해 알아봅니다.
 
-## <a name="reviews"></a>리뷰
+## <a name="reviews"></a>검토
 
 검토에서 콘텐츠는 검토 도구에 업로드 되 고 **검토** 탭 아래에 나타납니다. 여기에서 사용자는 적용 된 태그를 변경 하 고 적절 하 게 사용자 지정 태그를 적용할 수 있습니다. 사용자가 검토를 제출 하면 결과가 지정 된 콜백 끝점으로 전송 되 고 사이트에서 콘텐츠가 제거 됩니다.
 
@@ -35,7 +35,7 @@ Content Moderator은 기계 지원 조정을 사용자의 루프 기능과 결�
 
 ### <a name="view-workflows"></a>워크플로 보기
 
-기존 워크플로를 보려면 [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 로 이동 하 고 **설정** > **워크플로**를 선택 합니다.
+기존 워크플로를 보려면 [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 로 이동 하 고 **설정**  > **워크플로**를 선택 합니다.
 
 ![기본 워크플로](images/default-workflow-listed.PNG)
 
@@ -66,7 +66,7 @@ Content Moderator은 기계 지원 조정을 사용자의 루프 기능과 결�
 
 워크플로 만들기 및 사용을 시작 하려면 [검토 도구 가이드](./review-tool-user-guide/workflows.md) 를 참조 하거나 프로그래밍 방식으로 작업을 수행 하는 방법을 알아보려면 [REST API 가이드](./try-review-api-workflow.md) 를 참조 하세요.
 
-## <a name="jobs"></a>에서
+## <a name="jobs"></a>교육
 
 중재 작업은 콘텐츠 조정, 워크플로 및 검토 기능을 위한 일종의 래퍼 역할을 합니다. 작업은 Content Moderator 이미지 조정 API 또는 텍스트 중재 API를 사용 하 여 콘텐츠를 검색 한 다음 지정 된 워크플로를 사용 하 여 확인 합니다. 워크플로 결과에 따라 [검토 도구](./review-tool-user-guide/human-in-the-loop.md)에서 콘텐츠에 대 한 검토가 생성 되거나 생성 되지 않을 수 있습니다. 검토와 워크플로를 각각의 해당 Api를 사용 하 여 만들고 구성할 수 있지만 작업 API를 사용 하면 지정 된 콜백 끝점에 보낼 수 있는 전체 프로세스에 대 한 자세한 보고서를 가져올 수 있습니다.
 

@@ -3,19 +3,19 @@ title: 텍스트 조정 API를 사용하여 텍스트 조정 - Content Moderator
 titleSuffix: Azure Cognitive Services
 description: 온라인 콘솔에서 텍스트 조정 API를 사용하여 텍스트 조정을 시험 사용해 보세요.
 services: cognitive-services
-author: sanjeev3
-ms.author: sajagtap
+author: PatrickFarley
+ms.author: pafarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 49047c21f86530aac6ed3e0138a643fd08c35af8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bf3f08436fb4bac56907b342c991709947f4c24d
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561181"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754194"
 ---
 # <a name="moderate-text-from-the-api-console"></a>API 콘솔에서 텍스트 조정
 
@@ -23,7 +23,7 @@ Azure Content Moderator에서 [텍스트 조정 API](https://westus.dev.cognitiv
 
 ## <a name="get-your-api-key"></a>API key 가져오기
 
-온라인 콘솔에서 API를 시험 사용할 수 있으려면 먼저 구독 키가 필요합니다. 구독 키는 **Ocp-Apim-Subscription-Key** 상자의 **설정** 탭에 있습니다. 자세한 내용은 [개요](overview.md)를 참조하세요.
+온라인 콘솔에서 API를 테스트하려면 구독 키가 필요합니다. 구독 키는 **Ocp-Apim-Subscription-Key** 상자의 **설정** 탭에 있습니다. 자세한 내용은 [개요](overview.md)를 참조하세요.
 
 ## <a name="navigate-to-the-api-reference"></a>API 참조로 이동
 
@@ -41,7 +41,7 @@ Azure Content Moderator에서 [텍스트 조정 API](https://westus.dev.cognitiv
 
 ## <a name="select-the-inputs"></a>입력 선택
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
 텍스트 화면에서 사용하려는 쿼리 매개 변수를 선택합니다. 이 예제의 경우 **언어**에 대한 기본값을 사용합니다. 작업에서 실행의 일부로 가능성이 있는 언어를 자동으로 검색하므로 비워둘 수도 있습니다.
 
