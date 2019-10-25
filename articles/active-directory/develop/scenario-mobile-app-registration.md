@@ -1,5 +1,6 @@
 ---
-title: 웹 Api를 호출 하는 모바일 앱-앱의 코드 구성 | Microsoft id 플랫폼
+title: 웹 Api를 호출 하는 모바일 앱-앱의 코드 구성
+titleSuffix: Microsoft identity platform
 description: 웹 Api를 호출 하는 모바일 앱을 빌드하는 방법에 대해 알아봅니다 (앱 코드 구성).
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bebaa5d35876d562e567a8398cc7a9ce7e6f488
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 5f55e73fa1a73908d7e77bacc6af24ea1a40ba92
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413588"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803726"
 ---
 # <a name="mobile-app-that-calls-web-apis---app-registration"></a>웹 Api를 호출 하는 모바일 앱-앱 등록
 
@@ -48,29 +49,29 @@ ms.locfileid: "68413588"
 
 대화형 인증을 사용 하 여 모바일 앱을 빌드하는 경우 가장 중요 한 등록 단계는 리디렉션 URI입니다. 이는 [인증 블레이드의 플랫폼 구성을](https://aka.ms/MobileAppReg)통해 설정할 수 있습니다.
 
-이 환경에서는 앱이 Microsoft Authenticator (및 Android의 Intune 회사 포털)를 통해 SSO (single sign-on)를 가져오고 장치 관리 정책을 지원할 수 있습니다.
+이 환경을 사용 하면 앱이 Microsoft Authenticator (및 Android의 Intune 회사 포털)를 통해 Single Sign-On (SSO)를 가져오고 장치 관리 정책을 지원할 수 있습니다.
 
 앱 등록 포털에는 iOS 및 Android 응용 프로그램에 대 한 조정 된 회신 URI를 계산 하는 데 도움이 되는 미리 보기 환경이 있습니다.
 
-1. 앱 등록에서 **인증** 및 선택 선택 **새 환경**
-   ![이미지를 선택 합니다.](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
+1. 앱 등록에서 **인증** 및 선택을 선택 **합니다. 새 환경**
+   ![이미지를 선택](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
-2. **플랫폼**
-   이미지추가![를 선택 합니다.](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
+2. **플랫폼 추가**
+   ![이미지를 선택](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
 
-3. 플랫폼 목록이 지원 되 면 **iOS**
-   ![이미지를 선택 합니다.](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
+3. 플랫폼 목록이 지원 되는 경우 **iOS**
+   ![이미지를 선택](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
-4. 요청에 따라 번들 ID를 입력 하 고 이미지 **등록**
-   ![을 누릅니다.](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
+4. 요청에 따라 번들 ID를 입력 하 고 **등록**
+   ![이미지를 누릅니다](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
 5. 리디렉션 URI가 계산 됩니다.
    ![image](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
 
 리디렉션 URI를 수동으로 구성 하려는 경우 응용 프로그램 매니페스트를 통해 수행할 수 있습니다. 권장 되는 형식은 다음과 같습니다.
 
-- ***iOS***: `msauth.<BUNDLE_ID>://auth` (예: "msauth. .com. appName:/인증")
-- ***Android***:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+- ***iOS***: `msauth.<BUNDLE_ID>://auth` (예: "msauth .Com. appName:/인증")
+- ***Android***: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - Android 서명 해시는 KeyTool 명령을 통해 릴리스 또는 디버그 키를 사용 하 여 생성할 수 있습니다.
 
 ### <a name="username-password"></a>사용자 이름 암호
