@@ -25,6 +25,8 @@
       items:
         - name: ASP.NET Core
           href: quickstart-feature-flag-aspnet-core.md
+        - name: .NET Framework
+          href: quickstart-feature-flag-dotnet.md
         - name: Java Spring
           href: quickstart-feature-flag-spring-boot.md
 - name: 자습서
@@ -33,6 +35,8 @@
       href: enable-dynamic-configuration-aspnet-core.md
     - name: .NET Core 앱에서 동적 구성을 사용하도록 설정
       href: enable-dynamic-configuration-dotnet-core.md
+    - name: .NET Framework에서 동적 구성을 사용하도록 설정
+      href: enable-dynamic-configuration-dotnet.md
     - name: .NET Core 앱에서 기능 플래그 사용
       href: use-feature-flags-dotnet-core.md
     - name: Spring Boot 앱에서 기능 플래그 사용

@@ -3,65 +3,49 @@
 - name: 개요
   items:
     - name: Azure AD Identity Protection이란?
-      href: overview.md
-- name: 빠른 시작
-  items:
-    - name: 세션 위험이 감지되면 액세스 차단
-      href: quickstart-sign-in-risk-policy.md
+      href: overview-identity-protection.md
 - name: 개념
   expanded: false
   items:
-    - name: 취약성이란?
-      href: vulnerabilities.md
-    - name: 알림이란?
-      href: notifications.md
+    - name: 보안 개요
+      href: concept-identity-protection-security-overview.md
+    - name: 위험이란?
+      href: concept-identity-protection-risks.md
+    - name: ID 보호 정책
+      href: concept-identity-protection-policies.md
     - name: 로그인 환경이란?
-      href: flows.md
+      href: concept-identity-protection-user-experience.md
     - name: ID 보호 및 B2B 사용자
       href: concept-identity-protection-b2b.md
 - name: 방법 가이드
   expanded: true
   items:
-    - name: ID 보호
+    - name: 알림 구성
+      href: howto-identity-protection-configure-notifications.md
+    - name: 정책 구성
       items:
-        - name: Azure Active Directory Identity Protection 사용
-          href: enable.md
         - name: MFA 등록 정책 구성
-          href: howto-mfa-policy.md
-        - name: 로그인 위험 정책 구성
-          href: howto-sign-in-risk-policy.md
-        - name: 사용자 위험 정책 구성
-          href: howto-user-risk-policy.md
-        - name: 활성 위험 검색 닫기
-          href: howto-close-active-risk-events.md
-        - name: 사용자 차단 해제
-          href: howto-unblock-user.md
-        - name: 위험 검색 시뮬레이션
-          href: playbook.md
-        - name: FAQ
-          href: faqs.md
-    - name: ID 보호(새로 고침)
-      items:
-        - name: 개요
-          href: overview-v2.md
-        - name: 보안 개요
-          href: security-overview.md
-        - name: 위험 조사
-          href: howto-investigate-risk.md
-        - name: 위험 검색에 대한 피드백 제공
-          href: howto-provide-risk-event-feedback.md
+          href: howto-identity-protection-configure-mfa-policy.md
         - name: 위험 정책 구성
-          href: howto-configure-risk-policies.md
-        - name: FAQ 및 알려진 문제
-          href: known-issues.md
+          href: howto-identity-protection-configure-risk-policies.md
+    - name: 위험 검색 시뮬레이션
+      href: howto-identity-protection-simulate-risk.md
+    - name: 조사 및 수정
+      items:
+        - name: 위험 조사
+          href: howto-identity-protection-investigate-risk.md
+        - name: 위험 검색을 수정하고 차단 해제
+          href: howto-identity-protection-remediate-unblock.md
+        - name: Microsoft Graph API 사용
+          href: howto-identity-protection-graph-api.md
+    - name: 위험 검색에 대한 피드백 제공
+      href: howto-identity-protection-risk-feedback.md
+    - name: FAQ
+      href: troubleshooting-identity-protection-faq.md
 - name: 참고 자료
   items:
-    - name: Microsoft Graph API 사용
-      href: graph-get-started.md
-    - name: 위험 검색
-      href: risk-events-reference.md
     - name: 용어
-      href: glossary.md
+      href: reference-identity-protection-glossary.md
 - name: 리소스
   items:
     - name: Azure 피드백 포럼

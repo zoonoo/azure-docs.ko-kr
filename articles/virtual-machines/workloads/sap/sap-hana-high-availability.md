@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 7b9d3791d44e9541df7fc95c34b5e8c83a4295b3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5632ccf6c9b9cb67d169c5b60f1adefd85b576b8
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078401"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791655"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server의 Azure VM에 있는 SAP HANA의 고가용성
 
@@ -71,7 +71,7 @@ Azure VM(Virtual Machines)에서 Azure의 HANA 시스템 복제는 현재 지원
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)는 Linux에 필요한 모든 SAP Note를 포함하고 있습니다.
 * [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 * [Linux에서 SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide] 가이드를 참조 하세요.
-* [Linux에서 SAP 용 Azure Virtual Machines 배포][deployment-guide] (이 문서).
+* [Linux에서 SAP 용 Azure Virtual Machines 배포][deployment-guide] (이 문서)
 * [Linux에서 SAP 용 Azure VIRTUAL MACHINES DBMS 배포][dbms-guide] 가이드를 참조 하세요.
 * [SAP 응용 프로그램용 SUSE Linux Enterprise Server 12 SP3 모범 사례 가이드][sles-for-sap-bp]
   * SAP HANA SR 성능 최적화 인프라 설정(SAP 애플리케이션 12 SP1용 SLES). 이 가이드에는 온-프레미스 개발을 위해 SAP HANA 시스템 복제를 설정하는 데 필요한 모든 정보가 들어 있습니다. 이 가이드를 기준으로 사용합니다.
@@ -85,7 +85,7 @@ Azure VM(Virtual Machines)에서 Azure의 HANA 시스템 복제는 현재 지원
 
 SAP HANA 시스템 복제 설정은 전용 가상 호스트 이름과 가상 IP 주소를 사용합니다. Azure에서는 가상 IP 주소를 사용하려면 부하 분산 장치가 필요합니다. 다음 목록에는 부하 분산 장치의 구성이 나와 있습니다.
 
-* 프런트 엔드 구성: hn1-db의 IP 주소 10.0.0.13
+* 프런트 엔드 구성: hn1-db에 대한 IP 주소 10.0.0.13
 * 백 엔드 구성: HANA 시스템 복제의 일부분이어야 하는 모든 가상 머신의 주 네트워크 인터페이스에 연결됨
 * 프로브 포트: 포트 62503
 * 부하 분산 규칙: 30313 TCP, 30315 TCP, 30317 TCP
@@ -105,14 +105,14 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 1. 다음 매개 변수를 입력합니다.
     - **SAP 시스템 ID**: 설치하려는 SAP 시스템의 SAP 시스템 ID를 입력합니다. 이 ID는 배포되는 리소스의 접두사로 사용됩니다.
-    - **스택 유형**: (이 매개 변수는 수렴형 템플릿을 사용하는 경우에만 해당) SAP NetWeaver 스택 유형을 선택합니다.
+    - **Stack 형식**: (이 매개 변수는 수렴 된 템플릿을 사용 하는 경우에만 적용 됩니다.) SAP NetWeaver stack 유형을 선택 합니다.
     - **OS 유형**: Linux 배포판 중 하나를 선택합니다. 이 예제에서는 **SLES 12**를 선택합니다.
-    - **Db 형식**: **HANA**를 선택합니다.
+    - **DB 유형**: **HANA**를 선택합니다.
     - **SAP 시스템 크기**: 새 시스템에서 제공할 SAP의 수를 입력합니다. 시스템에 필요한 SAP의 수를 모를 경우 SAP 기술 파트너 또는 시스템 통합자에 문의하세요.
     - **시스템 가용성**: **HA**를 선택합니다.
-    - **관리자 사용자 이름 및 관리자 암호**: 컴퓨터에 로그인 하는 데 사용할 수 있는 새 사용자가 만들어집니다.
-    - **새 서브넷 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들어야 하는지 또는 기존 서브넷을 사용해야 하는지 결정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존**을 선택합니다.
-    - **서브넷 ID**: 서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 대개 **/subscriptions/\<구독 ID>/resourceGroups/\<리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/\<가상 네트워크 이름>/subnets/\<서브넷 이름>** 과 같은 형식입니다.
+    - **관리자 사용자 이름 및 관리자 암호**: 컴퓨터에 로그인 하는 데 사용할 수 있는 새 사용자를 만듭니다.
+    - **새로운 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들어야 하는지 또는 기존 서브넷을 사용해야 하는지 결정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존**을 선택합니다.
+    - **서브넷 ID**: VM을 할당하도록 서브넷이 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 대개 **/subscriptions/\<구독 ID>/resourceGroups/\<리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/\<가상 네트워크 이름>/subnets/\<서브넷 이름>** 과 같은 형식입니다.
 
 ### <a name="manual-deployment"></a>수동 배포
 
@@ -321,16 +321,16 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
    * 설치 선택: **1**을 입력합니다.
    * 설치할 추가 구성 요소 선택: **1**을 입력합니다.
    * 설치 경로 [/hana/shared] 입력: Enter 키를 선택합니다.
-   * 로컬 호스트 이름 입력 [..]: Enter 키를 선택합니다.
+   * 로컬 호스트 이름 [..] 입력: Enter 키를 선택합니다.
    * 시스템에 호스트를 추가할까요? (y/n) [n]: Enter 키를 선택합니다.
-   * SAP HANA 시스템 ID 입력: HANA의 SID를 입력합니다. 예: **HN1**.
+   * SAP HANA 시스템 ID 입력: HANA의 SID를 입력합니다(예: **HN1**).
    * 인스턴스 번호 [00] 입력: HANA 인스턴스 번호를 입력합니다. Azure 템플릿을 사용하거나 이 문서의 수동 배포 섹션을 수행한 경우 **03**을 입력합니다.
    * 데이터베이스 모드 선택/인덱스 [1] 입력: Enter 키를 선택합니다.
-   * 시스템 사용량 선택 / 인덱스 [4] 입력: 시스템 사용량 값을 선택합니다.
+   * 시스템 사용량 선택/인덱스 [4] 입력: 시스템 사용량 값을 선택합니다.
    * 데이터 볼륨의 위치 [/hana/data/HN1] 입력: Enter 키를 선택합니다.
    * 로그 볼륨의 위치 [/hana/log/HN1] 입력: Enter 키를 선택합니다.
    * 최대 메모리 할당 제한? [n]: Enter 키를 선택합니다.
-   * '...' [...] 호스트의 인증서 호스트 이름 입력: Enter 키를 선택합니다.
+   * 호스트의 인증서 호스트 이름 ‘...’ [...] 입력: Enter 키를 선택합니다.
    * SAP 호스트 에이전트 사용자(sapadm) 암호 입력: 호스트 에이전트 사용자 암호를 입력합니다.
    * SAP 호스트 에이전트 사용자(sapadm) 암호 확인: 호스트 에이전트 사용자 암호를 다시 입력하여 확인합니다.
    * 시스템 관리자(hdbadm) 암호 입력: 시스템 관리자 암호를 입력합니다.
@@ -338,7 +338,7 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
    * 시스템 관리자 홈 디렉터리 [/usr/sap/HN1/home] 입력: Enter 키를 선택합니다.
    * 시스템 관리자 로그인 셸 [/bin/sh] 입력: Enter 키를 선택합니다.
    * 시스템 관리자 사용자 ID [1001] 입력: Enter 키를 선택합니다.
-   * 사용자 그룹 ID(sapsys) [79] 입력: Enter 키를 선택합니다.
+   * 사용자 그룹(sapsys)의 ID [79] 입력: Enter 키를 선택합니다.
    * 데이터베이스 사용자(SYSTEM) 암호 입력: 데이터베이스 사용자 암호를 입력합니다.
    * 데이터베이스 사용자(SYSTEM) 암호 확인: 데이터베이스 사용자 암호를 다시 입력하여 확인합니다.
    * 컴퓨터를 다시 부팅한 다음 시스템 다시 시작? [n]: Enter 키를 선택합니다.
@@ -370,7 +370,7 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
 
 1. **[1]** 첫 번째 노드에서 시스템 복제를 구성합니다.
 
-   Hanasid\>adm < 데이터베이스를 백업 합니다.
+   < Hanasid\>adm으로 데이터베이스를 백업 합니다.
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -390,7 +390,7 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
 
 1. **[2]** 두 번째 노드에서 시스템 복제를 구성합니다.
     
-   두 번째 노드를 등록하여 시스템 복제를 시작합니다. Hanasid\>adm < 다음 명령을 실행 합니다.
+   두 번째 노드를 등록하여 시스템 복제를 시작합니다. < Hanasid\>adm으로 다음 명령을 실행 합니다.
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -437,7 +437,7 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
 
 1. **[1]** 첫 번째 노드에서 시스템 복제를 구성합니다.
 
-   기본 사이트를 < hanasid\>adm으로 만듭니다.
+   < Hanasid\>adm으로 기본 사이트를 만듭니다.
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -472,6 +472,10 @@ sudo crm configure clone cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> rsc_SAPHana
 
 다음으로, HANA 리소스를 만듭니다.
 
+> [!IMPORTANT]
+> 최신 테스트로 인해 netcat이 백로그로 인 한 요청 응답을 중지 하 고 하나의 연결만 처리할 수 있는 경우를 확인할 수 있습니다. Netcat 리소스는 Azure 부하 분산 장치 요청에 대 한 수신 대기를 중지 하 고 부동 IP는 사용할 수 없게 됩니다.  
+> 기존 Pacemaker 클러스터의 경우 [Azure 부하 분산 장치 검색 강화](https://www.suse.com/support/kb/doc/?id=7024128)의 지침에 따라 netcat을 socat로 바꾸는 것이 좋습니다. 변경 작업을 수행 하려면 짧은 가동 중지 시간이 필요 합니다.  
+
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 
 sudo crm configure primitive rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHana \
@@ -495,7 +499,7 @@ sudo crm configure primitive rsc_ip_<b>HN1</b>_HDB<b>03</b> ocf:heartbeat:IPaddr
   params ip="<b>10.0.0.13</b>"
 
 sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> anything \
-  params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>03</b>" \
+  params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:625<b>03</b>,backlog=10,fork,reuseaddr /dev/null" \
   op monitor timeout=20s interval=10 depth=0
 
 sudo crm configure group g_ip_<b>HN1</b>_HDB<b>03</b> rsc_ip_<b>HN1</b>_HDB<b>03</b> rsc_nc_<b>HN1</b>_HDB<b>03</b>
@@ -692,11 +696,11 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 다음 테스트는 SAP HANA SR 성능 최적화 시나리오 SAP 애플리케이션 12 SP1용 SUSE Linux Enterprise Server 가이드의 테스트 설명을 복사한 것입니다. 최신 버전의 경우 항상 자체 가이드를 읽습니다. 테스트를 시작하기 전에 항상 HANA가 동기화되어 있는지 확인하고, Pacemaker 구성이 올바른지 확인합니다.
 
 다음 테스트 설명에서는 PREFER_SITE_TAKEOVER=“true” 및 AUTOMATED_REGISTER=“false”로 가정합니다.
-참고:  다음 테스트는 순서대로 실행되도록 설계되었으며, 이전 테스트의 종료 상태에 따라 달라집니다.
+참고: 다음 테스트는 이전 테스트가 종료된 상태에서 시퀀스에서 실행하도록 설계되었습니다.
 
 1. 테스트 1: 노드 1에서 주 데이터베이스 중지
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -708,7 +712,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   H n 1-db-0에서 hanasid\>adm < 하는 다음 명령을 실행 합니다.
+   H n 1-db-0 노드에서 < hanasid\>adm으로 다음 명령을 실행 합니다.
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -737,7 +741,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 1. 테스트 2: 노드 2에서 주 데이터베이스 중지
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -749,7 +753,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-   H n 1-1 노드에서 hanasid\>adm < 하는 다음 명령을 실행 합니다.
+   H n 1 노드에서 hanasid\>adm < 다음 명령을 실행 합니다.
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -778,7 +782,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 1. 테스트 3: 노드에서 주 데이터베이스 크래시
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -790,7 +794,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   H n 1-db-0에서 hanasid\>adm < 하는 다음 명령을 실행 합니다.
+   H n 1-db-0 노드에서 < hanasid\>adm으로 다음 명령을 실행 합니다.
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -819,7 +823,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 1. 테스트 4: 노드 2에서 주 데이터베이스 크래시
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -831,7 +835,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-   H n 1-1 노드에서 hanasid\>adm < 하는 다음 명령을 실행 합니다.
+   H n 1 노드에서 hanasid\>adm < 다음 명령을 실행 합니다.
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -860,7 +864,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 1. 테스트 5: 주 사이트 노드 크래시(노드 1)
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -911,7 +915,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 1. 테스트 6: 보조 사이트 노드 크래시(노드 2)
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -962,7 +966,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 1. 테스트 7: 노드 2에서 보조 데이터베이스 중지
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -974,7 +978,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   H n 1-1 노드에서 hanasid\>adm < 하는 다음 명령을 실행 합니다.
+   H n 1 노드에서 hanasid\>adm < 다음 명령을 실행 합니다.
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -999,7 +1003,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 1. 테스트 8: 노드 2에서 보조 데이터베이스 크래시
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -1011,7 +1015,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-   H n 1-1 노드에서 hanasid\>adm < 하는 다음 명령을 실행 합니다.
+   H n 1 노드에서 hanasid\>adm < 다음 명령을 실행 합니다.
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -1036,7 +1040,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 1. 테스트 9: 보조 HANA 데이터베이스를 실행 중인 보조 사이트 노드 크래시(노드 2)
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
