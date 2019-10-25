@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 37ca2b655d30ffd330d5430da20d07d9548a7c84
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 63fe6c4a2d02489b5e25100aa6aa23407bbe6bc7
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260865"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809374"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 미사용 Azure Event Hubs 데이터를 암호화 하기 위한 고객 관리 키 구성
 Azure Event Hubs는 Azure SSE (Azure Storage 서비스 암호화)를 사용 하 여 미사용 데이터의 암호화를 제공 합니다. Event Hubs는 Azure Storage를 사용 하 여 데이터를 저장 하 고, 기본적으로 Azure Storage와 함께 저장 되는 모든 데이터는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 
@@ -28,10 +28,10 @@ BYOK 기능을 사용 하도록 설정 하는 작업은 네임 스페이스에�
 
 Azure Key Vault를 사용 하 여 키를 관리 하 고 키 사용을 감사할 수 있습니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장 하거나 Azure Key Vault Api를 사용 하 여 키를 생성할 수 있습니다. Azure Key Vault에 대한 자세한 내용은 [Azure Key Vault란?](../key-vault/key-vault-overview.md)
 
-이 문서에서는 Azure Portal를 사용 하 여 고객이 관리 하는 키로 key vault를 구성 하는 방법을 보여 줍니다. Azure Portal를 사용 하 여 주요 자격 증명 모음을 만드는 방법에 대 한 자세한 내용은 [] 빠른 시작: Azure Portal] (. .를 사용 하 여 Azure Key Vault에서 비밀을 설정 하 고 검색 합니다. /key-vault/quick-create-portal.md).
+이 문서에서는 Azure Portal를 사용 하 여 고객이 관리 하는 키로 key vault를 구성 하는 방법을 보여 줍니다. Azure Portal를 사용 하 여 주요 자격 증명 모음을 만드는 방법을 알아보려면 [빠른 시작: Azure Portal을 사용 하 여 Azure Key Vault에서 비밀 설정 및 검색](../key-vault/quick-create-portal.md)을 참조 하세요.
 
 > [!IMPORTANT]
-> Azure Event Hubs에서 고객 관리 키를 사용 하려면 키 자격 증명 모음에 두 개의 필수 속성이 구성 되어 있어야 합니다. 구현되지 않은 것은 다음과 같습니다.  **일시 삭제** 및 **제거 안 함** 이러한 속성은 Azure Portal에서 새 키 자격 증명 모음을 만들 때 기본적으로 사용 하도록 설정 됩니다. 그러나 기존 키 자격 증명 모음에서 이러한 속성을 사용 하도록 설정 해야 하는 경우에는 PowerShell 또는 Azure CLI를 사용 해야 합니다.
+> Azure Event Hubs에서 고객 관리 키를 사용 하려면 키 자격 증명 모음에 두 개의 필수 속성이 구성 되어 있어야 합니다. **일시 삭제** 및 **제거 안 함**입니다. 이러한 속성은 Azure Portal에서 새 키 자격 증명 모음을 만들 때 기본적으로 사용 하도록 설정 됩니다. 그러나 기존 키 자격 증명 모음에서 이러한 속성을 사용 하도록 설정 해야 하는 경우에는 PowerShell 또는 Azure CLI를 사용 해야 합니다.
 
 ## <a name="enable-customer-managed-keys"></a>고객이 관리 하는 키 사용
 Azure Portal에서 고객이 관리 하는 키를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
@@ -104,18 +104,18 @@ BYOK 사용 네임 스페이스에 대 한 진단 로그를 설정 하면 고객
 ## <a name="log-schema"></a>로그 스키마 
 모든 로그는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 각 항목에는 다음 표에 설명 된 형식을 사용 하는 문자열 필드가 있습니다. 
 
-| 이름 | 설명 |
+| name | 설명 |
 | ---- | ----------- | 
 | TaskName | 실패한 작업에 대한 설명입니다. |
 | ActivityId | 추적에 사용 되는 내부 ID입니다. |
 | category | 태스크의 분류를 정의 합니다. 예를 들어 키 자격 증명 모음의 키를 사용 하지 않도록 설정 하는 경우 정보 범주 이거나 키를 래핑 해제할 수 없는 경우 오류가 발생할 수 있습니다. |
 | resourceId | Azure Resource Manager 리소스 ID |
 | KeyVault | 키 자격 증명 모음의 전체 이름입니다. |
-| Key | Event Hubs 네임 스페이스를 암호화 하는 데 사용 되는 키 이름입니다. |
-| version | 사용 되는 키의 버전입니다. |
-| operation(작업) | 키 자격 증명 모음의 키에 대해 수행 되는 작업입니다. 예를 들어 키, 줄 바꿈 또는 래핑 해제를 사용 하거나 사용 하지 않도록 설정 합니다. |
-| code | 작업과 연결 된 코드입니다. 예: 오류 코드 404는 키를 찾을 수 없음을 의미 합니다. |
-| message | 작업과 관련 된 오류 메시지 |
+| key | Event Hubs 네임 스페이스를 암호화 하는 데 사용 되는 키 이름입니다. |
+| 버전 | 사용 되는 키의 버전입니다. |
+| operation | 키 자격 증명 모음의 키에 대해 수행 되는 작업입니다. 예를 들어 키, 줄 바꿈 또는 래핑 해제를 사용 하거나 사용 하지 않도록 설정 합니다. |
+| 코드 | 작업과 연결 된 코드입니다. 예: 오류 코드 404는 키를 찾을 수 없음을 의미 합니다. |
+| Message | 작업과 관련 된 오류 메시지 |
 
 고객 관리 키에 대 한 로그의 예는 다음과 같습니다.
 
@@ -154,7 +154,7 @@ BYOK 사용 네임 스페이스에 대 한 진단 로그를 설정 하면 고객
 
 BYOK 암호화를 사용 하는 경우 다음은 일반적인 오류 코드입니다.
 
-| 작업 | 오류 코드 | 데이터의 결과 상태 |
+| 실행력 | 오류 코드 | 데이터의 결과 상태 |
 | ------ | ---------- | ----------------------- | 
 | 키 자격 증명 모음에서 래핑/래핑 해제 권한 제거 | 403 |    없고 |
 | 줄 바꿈/래핑 해제 권한이 부여 된 AAD 사용자에서 AAD 역할 멤버 자격 제거 | 403 |  없고 |

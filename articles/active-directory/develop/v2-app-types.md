@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6799e604b9e5e2acc3af35e4038ea6f14271d5c8
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e07136eed9c14eb4b6eda49ef635171aaf543445
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834719"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809277"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft id 플랫폼용 응용 프로그램 종류
 
@@ -110,7 +110,7 @@ Web API는 웹 서버 앱, 데스크톱 및 모바일 앱, 단일 페이지 앱,
 
 OAuth2 액세스 토큰을 사용 하 여 Web API를 보호 하는 방법을 알아보려면 [Microsoft id 플랫폼 시작](v2-overview.md#getting-started) 섹션에서 web api 코드 샘플을 확인 하세요.
 
-대부분의 경우 웹 Api는 Microsoft id 플랫폼에 의해 보호 되는 다른 다운스트림 웹 Api에 대 한 아웃 바운드 요청을 만들어야 합니다. 이렇게 하기 위해 web api는 들어오는 흐름을 활용할 수 있습니다 .이를 통해 웹 api는 들어오는 액세스 토큰을 사용 하 여 아웃 바운드 요청에 사용할 다른 액세스 토큰을 교환할 수 있습니다. 자세한 내용은 [Microsoft id 플랫폼 및 OAuth 2.0 On flow](v2-oauth2-on-behalf-of-flow.md)를 참조 하세요.
+대부분의 경우 웹 Api는 Microsoft id 플랫폼에 의해 보호 되는 다른 다운스트림 웹 Api에 대 한 아웃 바운드 요청을 만들어야 합니다. 이렇게 하기 위해 web **api는 들어오는 흐름을** 활용할 수 있습니다 .이를 통해 웹 api는 들어오는 액세스 토큰을 사용 하 여 아웃 바운드 요청에 사용할 다른 액세스 토큰을 교환할 수 있습니다. 자세한 내용은 [Microsoft id 플랫폼 및 OAuth 2.0 On flow](v2-oauth2-on-behalf-of-flow.md)를 참조 하세요.
 
 ## <a name="mobile-and-native-apps"></a>모바일 및 네이티브 앱
 
@@ -122,9 +122,9 @@ OAuth2 액세스 토큰을 사용 하 여 Web API를 보호 하는 방법을 알
 
 ## <a name="daemons-and-server-side-apps"></a>디먼 및 서버 쪽 앱
 
-장기 실행 프로세스가 있거나 사용자와의 상호 작용 없이 작동하는 앱은 Web API와 같은 보안 리소스에 액세스하는 방법도 필요로 합니다. 이러한 앱은 OAuth 2.0 클라이언트 자격 증명 흐름을 사용하여 사용자의 위임된 ID 대신 앱 ID로 인증하고 토큰을 가져올 수 있습니다. 클라이언트 암호 또는 인증서를 사용하여 앱 ID를 증명할 수 있습니다. 자세한 내용은 [인증서를 사용 하 여 디먼 앱에서 Microsoft id 플랫폼 인증을](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/)참조 하세요.
+장기 실행 프로세스가 있거나 사용자와의 상호 작용 없이 작동하는 앱은 Web API와 같은 보안 리소스에 액세스하는 방법도 필요로 합니다. 이러한 앱은 OAuth 2.0 클라이언트 자격 증명 흐름을 사용하여 사용자의 위임된 ID 대신 앱 ID로 인증하고 토큰을 가져올 수 있습니다. 클라이언트 암호 또는 인증서를 사용하여 앱 ID를 증명할 수 있습니다. 자세한 내용은 [인증서를 사용 하 여 디먼 앱에서 Microsoft id 플랫폼 인증을](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/)참조 하세요.
 
-이 흐름에서 앱은 `/token` 끝점을 직접 조작 하 여 액세스 권한을 얻습니다.
+이 흐름에서 앱은 `/token` 끝점과 직접 상호 작용 하 여 액세스 권한을 얻습니다.
 
 ![디먼 앱 인증 흐름을 표시 합니다.](./media/v2-app-types/convergence-scenarios-daemon.svg)
 

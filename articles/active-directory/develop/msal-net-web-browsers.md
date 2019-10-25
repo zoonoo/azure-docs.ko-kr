@@ -1,5 +1,6 @@
 ---
-title: Microsoft Authentication Library for .NET의 웹 브라우저 Microsoft
+title: Microsoft Authentication Library for .NET의 웹 브라우저
+titleSuffix: Microsoft identity platform
 description: MSAL.NET (Microsoft Authentication Library for .NET)에서 Xamarin Android를 사용 하는 경우의 특정 고려 사항에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,15 +18,15 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1285c5c61cee25e387ca5fb598f0e062088e549
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 2446166aa8078040c06d7cb54ce01666d9931727
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532508"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802680"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>MSAL.NET에서 웹 브라우저 사용
-대화형 인증에는 웹 브라우저가 필요 합니다. 기본적으로 MSAL.NET 및 Xamarin.ios에서 [시스템 웹 브라우저](#system-web-browser-on-xamarinios-xamarinandroid) 를 지원 합니다. 그러나 [xamarin.ios](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) 및 [xamarin Android](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) 앱에서 요구 사항 (UX, sso (single sign-on)에 대 한 요구 사항)에 따라 [포함 된 웹 브라우저를 사용 하도록 설정할 수도 있습니다](#enable-embedded-webviews-on-ios-and-android) . 뿐만 아니라 Android에서 chrome 사용자 지정 탭을 지 원하는 Chrome 또는 브라우저를 지 원하는 브라우저의 유무에 따라 사용할 웹 브라우저를 [동적으로 선택할](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) 수도 있습니다. MSAL.NET는 .NET Core 데스크톱 응용 프로그램에서 시스템 브라우저만 지원 합니다.
+대화형 인증에는 웹 브라우저가 필요 합니다. 기본적으로 MSAL.NET 및 Xamarin.ios에서 [시스템 웹 브라우저](#system-web-browser-on-xamarinios-xamarinandroid) 를 지원 합니다. 그러나 [xamarin.ios](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) 및 [xamarin Android](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) 앱에서 요구 사항 (UX, SSO (Single Sign-On에 필요), 보안)에 따라 [포함 된 웹 브라우저를 사용 하도록 설정할 수도 있습니다](#enable-embedded-webviews-on-ios-and-android) . 뿐만 아니라 Android에서 chrome 사용자 지정 탭을 지 원하는 Chrome 또는 브라우저를 지 원하는 브라우저의 유무에 따라 사용할 웹 브라우저를 [동적으로 선택할](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) 수도 있습니다. MSAL.NET는 .NET Core 데스크톱 응용 프로그램에서 시스템 브라우저만 지원 합니다.
 
 ## <a name="web-browsers-in-msalnet"></a>MSAL.NET의 웹 브라우저
 
@@ -42,21 +43,21 @@ ms.locfileid: "69532508"
 
 ### <a name="embedded-vs-system-web-ui"></a>포함 된 vs 시스템 웹 UI
 
-MSAL.NET는 다중 프레임 워크 라이브러리 이며 UI 컨트롤에서 브라우저를 호스트 하는 프레임 워크 관련 코드가 있습니다. 예를 들어, .Net 클래식 it에서는 WinForms를 사용 하 고, Xamarin it에서는 네이티브 모바일 컨트롤을 사용 합니다. 이 컨트롤을 웹 `embedded` UI 라고 합니다. 또는 MSAL.NET가 시스템 OS 브라우저를 시작할 수도 있습니다.
+MSAL.NET는 다중 프레임 워크 라이브러리 이며 UI 컨트롤에서 브라우저를 호스트 하는 프레임 워크 관련 코드가 있습니다. 예를 들어, .Net 클래식 it에서는 WinForms를 사용 하 고, Xamarin it에서는 네이티브 모바일 컨트롤을 사용 합니다. 이 컨트롤을 웹 UI `embedded` 이라고 합니다. 또는 MSAL.NET가 시스템 OS 브라우저를 시작할 수도 있습니다.
 
-일반적으로 플랫폼 기본값을 사용 하는 것이 좋으며,이는 일반적으로 시스템 브라우저입니다. 시스템 브라우저는 이전에 로그인 한 사용자를 기억 하는 것이 더 좋습니다. 이 동작을 변경 해야 하는 경우 다음을 사용 합니다.`WithUseEmbeddedWebView(bool)`
+일반적으로 플랫폼 기본값을 사용 하는 것이 좋으며,이는 일반적으로 시스템 브라우저입니다. 시스템 브라우저는 이전에 로그인 한 사용자를 기억 하는 것이 더 좋습니다. 이 동작을 변경 해야 하는 경우 `WithUseEmbeddedWebView(bool)` 사용
 
 ### <a name="at-a-glance"></a>한눈에 보기
 
-| 프레임워크        | 포함된 | 시스템 | 기본값 |
+| 프레임워크        | 개체나 | 시스템 | 기본값 |
 | ------------- |-------------| -----| ----- |
-| .NET 클래식     | 예 | 예 ^ | 포함된 |
-| .NET Core     | 아니요 | 예 ^ | 시스템 |
-| .NET Standard | 아니요 | 예 ^ | 시스템 |
-| UWP | 예 | 아니요 | 포함된 |
-| Xamarin.Android | 예 | 예  | 시스템 |
-| Xamarin.iOS | 예 | 예  | 시스템 |
-| Xamarin.ios| 예 | 아니요 | 포함된 |
+| .NET 클래식     | yes | 예 ^ | 개체나 |
+| .NET Core     | 아닙니다. | 예 ^ | 시스템 |
+| .NET Standard | 아닙니다. | 예 ^ | 시스템 |
+| UWP | yes | 아닙니다. | 개체나 |
+| Xamarin.Android | yes | yes  | 시스템 |
+| Xamarin.iOS | yes | yes  | 시스템 |
+| Xamarin.ios| yes | 아닙니다. | 개체나 |
 
 ^ "http://localhost" 리디렉션 URI가 필요 합니다.
 
@@ -77,15 +78,15 @@ await pca.AcquireTokenInteractive(s_scopes)
          .WithUseEmbeddedWebView(false)
 ```
 
-MSAL.NET 사용자가 탐색 하는 경우 나 브라우저를 닫는 경우를 감지할 수 없습니다. 이 기술을 사용 하는 앱은 시간 제한 (via `CancellationToken`)을 정의 하는 것이 좋습니다. 사용자에 게 암호를 변경 하거나 multi-factor authentication을 수행 하 라는 메시지가 표시 되는 경우를 고려 하 여 최소한 몇 분 이상의 시간 제한을 사용 하는 것이 좋습니다.
+MSAL.NET 사용자가 탐색 하는 경우 나 브라우저를 닫는 경우를 감지할 수 없습니다. 이 기술을 사용 하는 앱은 제한 시간 (`CancellationToken`을 통해)을 정의 하는 것이 좋습니다. 사용자에 게 암호를 변경 하거나 multi-factor authentication을 수행 하 라는 메시지가 표시 되는 경우를 고려 하 여 최소한 몇 분 이상의 시간 제한을 사용 하는 것이 좋습니다.
 
 ### <a name="how-to-use-the-default-os-browser"></a>기본 OS 브라우저를 사용 하는 방법
 
-MSAL.NET는 사용자가 인증 `http://localhost:port` 을 수행할 때 AAD에서 전송 하는 코드를 수신 하 고 가로채 야 합니다 (자세한 내용은 [권한 부여 코드](v2-oauth2-auth-code-flow.md) 참조).
+MSAL.NET는 `http://localhost:port`에서 수신 대기 하 고 사용자가 인증을 수행할 때 AAD에서 전송 하는 코드를 가로채 야 합니다 (자세한 내용은 [권한 부여 코드](v2-oauth2-auth-code-flow.md) 참조).
 
 시스템 브라우저를 사용 하도록 설정 하려면:
 
-1. 앱 등록 중에를 `http://localhost` 리디렉션 uri로 구성 합니다 (현재 B2C에서 지원 되지 않음).
+1. 앱을 등록 하는 동안 `http://localhost`를 리디렉션 uri로 구성 합니다 (현재 B2C에서 지원 되지 않음).
 2. PublicClientApplication을 생성 하는 경우 다음 리디렉션 uri를 지정 합니다.
 
 ```csharp
@@ -97,12 +98,12 @@ IPublicClientApplication pca = PublicClientApplicationBuilder
 ```
 
 > [!Note]
-> 를 구성 `http://localhost`하는 경우 내부적으로 MSAL.NET는 임의의 열린 포트를 찾아 사용 합니다.
+> `http://localhost`를 구성 하는 경우 내부적으로 MSAL.NET는 임의의 열린 포트를 찾아 사용 합니다.
 
 ### <a name="linux-and-mac"></a>Linux 및 MAC
 
-Linux에서 MSAL.NET는 xdg-열기 도구를 사용 하 여 기본 OS 브라우저를 엽니다. 문제를 해결 하려면 터미널에서 도구를 실행 합니다. 예를 들면`xdg-open "https://www.bing.com"`  
-Mac에서는를 호출 하 여 브라우저를 엽니다.`open <url>`
+Linux에서 MSAL.NET는 xdg-열기 도구를 사용 하 여 기본 OS 브라우저를 엽니다. 문제를 해결 하려면 터미널에서 도구를 실행 합니다 (예: `xdg-open "https://www.bing.com"`  
+Mac에서는를 호출 하 여 브라우저를 엽니다 `open <url>`
 
 ### <a name="customizing-the-experience"></a>환경 사용자 지정
 
@@ -145,7 +146,7 @@ Xamarin.ios 및 Xamarin Android 앱에서 포함 된 웹 보기를 사용 하도
 
 Xamarin을 대상으로 하는 MSAL.NET를 사용 하는 개발자는 embedded 웹 보기 또는 시스템 브라우저 중 하나를 사용 하도록 선택할 수 있습니다. 대상으로 지정할 사용자 환경 및 보안 문제에 따라 선택 하는 것이 좋습니다.
 
-현재 MSAL.NET는 Android 및 iOS broker를 아직 지원 하지 않습니다. 따라서 SSO (single sign-on)를 제공 해야 하는 경우에도 시스템 브라우저가 더 나은 옵션 일 수 있습니다. 포함 된 웹 브라우저에서 broker를 지 원하는 것은 MSAL.NET 백로그에 있습니다.
+현재 MSAL.NET는 Android 및 iOS broker를 아직 지원 하지 않습니다. 따라서 SSO (Single Sign-On)를 제공 해야 하는 경우에도 시스템 브라우저가 더 나은 옵션 일 수 있습니다. 포함 된 웹 브라우저에서 broker를 지 원하는 것은 MSAL.NET 백로그에 있습니다.
 
 ### <a name="differences-between-embedded-webview-and-system-browser"></a>포함 된 웹 보기와 시스템 브라우저의 차이점
 MSAL.NET의 포함 된 웹 보기와 시스템 브라우저 간에는 몇 가지 시각적 차이점이 있습니다.
@@ -163,7 +164,7 @@ MSAL.NET의 포함 된 웹 보기와 시스템 브라우저 간에는 몇 가지
 MSAL.NET를 사용 하는 개발자는 STS의 대화형 대화 상자를 표시 하는 몇 가지 옵션이 있습니다.
 
 - **시스템 브라우저.** 시스템 브라우저는 기본적으로 라이브러리에 설정 되어 있습니다. Android를 사용 하는 경우 인증을 위해 지원 되는 브라우저에 대 한 특정 정보는 [시스템 브라우저](msal-net-system-browser-android-considerations.md) 를 참조 하세요. Android에서 시스템 브라우저를 사용 하는 경우 장치에 Chrome 사용자 지정 탭을 지 원하는 브라우저를 사용 하는 것이 좋습니다.  그렇지 않으면 인증이 실패할 수 있습니다.
-- **포함 된 웹 보기.** MSAL.NET `AcquireTokenInteractively` 에 포함 된 웹 보기만 사용 하려면 매개 변수 작성기에 `WithUseEmbeddedWebView()` 메서드가 포함 되어 있습니다.
+- **포함 된 웹 보기.** MSAL.NET에 포함 된 웹 보기만 사용 하려면 `AcquireTokenInteractively` 매개 변수 작성기에 `WithUseEmbeddedWebView()` 메서드가 포함 되어 있습니다.
 
     iOS
 
@@ -185,7 +186,7 @@ MSAL.NET를 사용 하는 개발자는 STS의 대화형 대화 상자를 표시 
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinios"></a>Xamarin.ios의 포함 된 웹 브라우저 또는 시스템 브라우저 중에서 선택
 
-IOS 앱에서의 `AppDelegate.cs` `ParentWindow` 를로 `null`초기화할 수 있습니다. IOS에서 사용 되지 않습니다.
+IOS 앱의 `AppDelegate.cs`에서 `ParentWindow`를 초기화 하 여 `null`수 있습니다. IOS에서 사용 되지 않습니다.
 
 ```csharp
 App.ParentWindow = null; // no UI parent on iOS
@@ -193,13 +194,13 @@ App.ParentWindow = null; // no UI parent on iOS
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid"></a>Xamarin Android에서 포함 된 웹 브라우저 또는 시스템 브라우저 중에서 선택
 
-Android 앱의에서 `MainActivity.cs` 부모 활동을 설정 하 여 인증 결과가 다시 표시 되도록 할 수 있습니다.
+Android 앱의 `MainActivity.cs`에서 부모 작업을 설정 하 여 인증 결과가 반환 되도록 할 수 있습니다.
 
 ```csharp
  App.ParentWindow = this;
 ```
 
-그런 다음에서 `MainPage.xaml.cs`다음을 수행 합니다.
+그런 다음 `MainPage.xaml.cs`에서 다음을 수행 합니다.
 
 ```csharp
 authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
@@ -210,11 +211,11 @@ authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
 
 #### <a name="detecting-the-presence-of-custom-tabs-on-xamarinandroid"></a>Xamarin Android에서 사용자 지정 탭의 존재 여부 감지
 
-시스템 웹 브라우저를 사용 하 여 브라우저에서 실행 중인 앱에 SSO를 사용 하도록 설정 하 고 사용자 지정 탭을 지 원하는 `IsSystemWebViewAvailable()` 브라우저가 없는 Android 장치에 대 한 사용자 환경에 대해 걱정 하는 경우에는 2 > `IPublicClientApplication` . PackageManager가 사용자 `true` 지정 탭을 검색 하 고 `false` 장치에서 검색 되지 않는 경우이 메서드는를 반환 합니다.
+시스템 웹 브라우저를 사용 하 여 브라우저에서 실행 중인 앱에 SSO를 사용 하도록 설정 하 고 사용자 지정 탭을 지 원하는 브라우저가 없는 Android 장치에 대 한 사용자 환경에 대해 걱정 하는 경우에서 `IsSystemWebViewAvailable()` 메서드를 호출 하 여 결정할 수 있습니다 `IPublicClientApplication`. 이 메서드는 PackageManager에서 사용자 지정 탭을 검색 `false` 하 고 장치가 검색 되지 않는 경우에는 `true`를 반환 합니다.
 
 이 메서드에서 반환 된 값과 요구 사항에 따라 결정을 내릴 수 있습니다.
 
-- 사용자에 게 사용자 지정 오류 메시지를 반환할 수 있습니다. 예를 들어: "인증을 계속 하려면 Chrome을 설치 하십시오." 또는-
+- 사용자에 게 사용자 지정 오류 메시지를 반환할 수 있습니다. 예: "인증을 계속 하려면 Chrome을 설치 하세요."-또는-
 - 포함 된 웹 보기 옵션으로 대체 하 고 UI를 포함 된 웹 보기로 시작할 수 있습니다.
 
 아래 코드에서는 포함 된 웹 보기 옵션을 보여 줍니다.

@@ -1,5 +1,6 @@
 ---
 title: 국가별 클라우드의 Azure Active Directory를 사용 하 여 인증
+titleSuffix: Microsoft identity platform
 description: 국가별 클라우드의 앱 등록 및 인증 엔드포인트에 관해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: negoe
 ms.reviewer: negoe,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca82efbd4e26ccb8a169c84332e3d24196fae95e
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 70f1f80744043893dd7206bc6388b8e080c07d0f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135868"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803894"
 ---
 # <a name="national-clouds"></a>국가별 클라우드
 
@@ -67,7 +68,7 @@ ms.locfileid: "70135868"
   - 권한 부여 공통 엔드포인트는 `https://login.microsoftonline.de/common/oauth2/authorize`입니다.
   - 토큰 공통 엔드포인트는 `https://login.microsoftonline.de/common/oauth2/token`입니다.
 
-단일 테 넌 트 응용 프로그램의 경우 이전 Url의 "일반"을 테 넌 트 ID 또는 이름으로 바꿉니다. 예제입니다. `https://login.microsoftonline.de/contoso.com`
+단일 테 넌 트 응용 프로그램의 경우 이전 Url의 "일반"을 테 넌 트 ID 또는 이름으로 바꿉니다. 예는 `https://login.microsoftonline.de/contoso.com`입니다.
 
 ## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
@@ -83,6 +84,6 @@ Microsoft id 플랫폼을 사용 하 여 응용 프로그램을 빌드하는 방
 다음에 대해 자세히 알아봅니다.
 
 - [Azure Government](https://docs.microsoft.com/azure/azure-government/)
-- [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
+- [Azure 중국 21Vianet](https://docs.microsoft.com/azure/china/)
 - [Azure 독일](https://docs.microsoft.com/azure/germany/)
 - [Azure AD 인증 기본 사항](authentication-scenarios.md)

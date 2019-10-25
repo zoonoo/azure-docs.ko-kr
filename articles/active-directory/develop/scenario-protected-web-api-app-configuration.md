@@ -1,5 +1,6 @@
 ---
-title: 보호 된 웹 API-앱 코드 구성 | Microsoft
+title: 보호 된 웹 API-앱 코드 구성
+titleSuffix: Microsoft identity platform
 description: 보호 된 웹 API를 빌드하고 응용 프로그램의 코드를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fdc30df1f932a35702b01d7146017c4ca82c91a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 49dc3b0542e3f5e24c556ed78c20b16c3a6f1796
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562322"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803694"
 ---
 # <a name="protected-web-api-code-configuration"></a>보호 된 웹 API: 코드 구성
 
@@ -29,7 +30,7 @@ ms.locfileid: "68562322"
 
 ## <a name="what-defines-aspnetaspnet-core-apis-as-protected"></a>ASP.NET/ASP.NET Core Api를 보호 된 것으로 정의 하는 것은 무엇 인가요?
 
-웹 앱과 마찬가지로 ASP.NET/ASP.NET 핵심 웹 api는 해당 컨트롤러 작업에 `[Authorize]` 특성을 접두사로 사용 하기 때문에 "보호" 됩니다. 따라서 인증 된 id를 사용 하 여 API를 호출 하는 경우에만 컨트롤러 작업을 호출할 수 있습니다.
+웹 앱과 마찬가지로 ASP.NET/ASP.NET 핵심 웹 Api는 해당 컨트롤러 작업에 `[Authorize]` 특성이 접두사로 추가 되기 때문에 "보호" 됩니다. 따라서 인증 된 id를 사용 하 여 API를 호출 하는 경우에만 컨트롤러 작업을 호출할 수 있습니다.
 
 다음 질문을 고려 합니다.
 
@@ -61,7 +62,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 
 이 섹션에서는 전달자 토큰을 구성 하는 방법을 설명 합니다.
 
-### <a name="config-file"></a>구성 파일
+### <a name="config-file"></a>Config 파일
 
 ```Json
 {
@@ -129,7 +130,7 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
 
 ## <a name="token-validation"></a>토큰 유효성 검사
 
-웹 앱의 openid connect Connect 미들웨어와 같은 JwtBearer 미들웨어는 토큰의 유효성을 검사 `TokenValidationParameters` 하기 위해에 의해 전달 됩니다. 토큰은 암호 해독 됩니다 (필요에 따라). 클레임을 추출 하 고 서명을 확인 합니다. 그러면 미들웨어는 다음 데이터를 확인 하 여 토큰의 유효성을 검사 합니다.
+웹 앱의 Openid connect Connect 미들웨어와 같은 JwtBearer 미들웨어는 토큰의 유효성을 검사 하기 위해 `TokenValidationParameters`에 의해 전달 됩니다. 토큰은 암호 해독 됩니다 (필요에 따라). 클레임을 추출 하 고 서명을 확인 합니다. 그러면 미들웨어는 다음 데이터를 확인 하 여 토큰의 유효성을 검사 합니다.
 
 - 웹 API (대상)를 대상으로 합니다.
 - 웹 API (sub)를 호출할 수 있는 앱에 대해 발급 되었습니다.
@@ -141,20 +142,20 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
 
 ### <a name="validators"></a>유효성 검사기
 
-유효성 검사 단계는 모든 [.net 용 Microsoft System.identitymodel Extensions](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) 오픈 소스 라이브러리의 단일 소스 파일에 있는 유효성 검사기에서 캡처됩니다. [Microsoft.IdentityModel.Tokens/Validators.cs](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/Microsoft.IdentityModel.Tokens/Validators.cs).
+유효성 검사 단계는 유효성 검사기에서 캡처됩니다 .이는 모든 [.net 용 Microsoft System.identitymodel Extensions](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) 오픈 소스 라이브러리의 한 소스 파일 ( [system.identitymodel/validation. cs](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/Microsoft.IdentityModel.Tokens/Validators.cs))에 있습니다.
 
 유효성 검사기는 다음 표에 설명 되어 있습니다.
 
-| 유효성 검사기 | Description |
+| 검사기 | 설명 |
 |---------|---------|
 | `ValidateAudience` | 토큰의 유효성을 검사 하는 응용 프로그램에 대 한 토큰을 확인 합니다. |
 | `ValidateIssuer` | 신뢰할 수 있는 STS에서 토큰을 발급 했는지 확인 합니다 (다른 사람이 신뢰 함). |
 | `ValidateIssuerSigningKey` | 토큰의 유효성을 검사 하는 응용 프로그램에서 토큰을 서명 하는 데 사용 된 키를 신뢰 하는지 확인 합니다. 토큰에 키가 포함 되는 특수 한 경우입니다. 일반적으로 필요 하지 않습니다.) |
-| `ValidateLifetime` | 토큰이 아직 (또는 이미) 유효한 지 확인 합니다. 유효성 검사기는 토큰 (`notbefore` 및 `expires` 클레임)의 수명이 범위 내에 있는지 여부를 확인 합니다. |
+| `ValidateLifetime` | 토큰이 아직 (또는 이미) 유효한 지 확인 합니다. 유효성 검사기는 토큰의 수명 (`notbefore` 및 `expires` 클레임)이 범위 내에 있는지 확인 합니다. |
 | `ValidateSignature` | 토큰이 변조 되지 않았는지 확인 합니다. |
 | `ValidateTokenReplay` | 토큰을 재생 하지 않도록 합니다. Onetime 프로토콜을 사용 하는 특수 한 경우입니다. |
 
-유효성 검사기는 모두 ASP.NET/ASP.NET Core 구성에서 초기화 `TokenValidationParameters` 되는 클래스의 속성과 연결 됩니다. 대부분의 경우 매개 변수를 변경할 필요가 없습니다. 단일 테 넌 트가 아닌 앱에 대 한 한 가지 예외가 있습니다. 즉, 모든 조직이 나 개인 Microsoft 계정의 사용자를 수락 하는 웹 앱입니다. 이 경우 발급자의 유효성을 검사 해야 합니다.
+유효성 검사기는 모두 ASP.NET/ASP.NET Core 구성에서 초기화 되는 `TokenValidationParameters` 클래스의 속성과 연결 됩니다. 대부분의 경우 매개 변수를 변경할 필요가 없습니다. 단일 테 넌 트가 아닌 앱에 대 한 한 가지 예외가 있습니다. 즉, 모든 조직이 나 개인 Microsoft 계정의 사용자를 수락 하는 웹 앱입니다. 이 경우 발급자의 유효성을 검사 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

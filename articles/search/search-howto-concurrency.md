@@ -1,29 +1,28 @@
 ---
-title: 리소스에 대한 동시 쓰기를 관리하는 방법 - Azure Search
-description: Azure Search 인덱스, 인덱서, 데이터 원본을 업데이트나 삭제하는 중에 충돌이 발생하지 않도록 하려면 낙관적 동시성을 사용합니다.
-author: HeidiSteen
+title: 리소스에 대 한 동시 쓰기를 관리 하는 방법
+titleSuffix: Azure Cognitive Search
+description: 낙관적 동시성을 사용 하 여 Azure Cognitive Search 인덱스, 인덱서, 데이터 원본에 대 한 업데이트나 삭제에 대 한 중간 무선 충돌을 방지 합니다.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 07/21/2017
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 67f2dad016d3958dc10ba87e785d31694a1c94f5
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: edfb2fe5cc37a00335ca7b5be851a88825b03eb1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656730"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792208"
 ---
-# <a name="how-to-manage-concurrency-in-azure-search"></a>Azure Search에서 동시성을 관리하는 방법
+# <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Azure Cognitive Search에서 동시성을 관리 하는 방법
 
-인덱스 및 데이터 원본과 같은 Azure Search 리소스를 관리할 때는 리소스를 안전하게 업데이트해야 합니다. 특히 애플리케이션의 여러 구성 요소가 리소스에 동시에 액세스할 때는 안전한 업데이트가 더욱 중요합니다. 두 클라이언트가 조정 없이 리소스를 동시에 업데이트하면 경합 상태가 발생할 수 있습니다. Azure Search에서는 이러한 상황을 방지하기 위해 *낙관적 동시성 모델*을 제공합니다. 이 모델에서는 리소스가 잠기지 않습니다. 대신 요청을 작성할 수 있도록 리소스 버전을 식별하는 ETag가 모든 리소스에 포함되어 있으므로 실수로 인한 덮어쓰기를 방지할 수 있습니다.
+인덱스 및 데이터 원본과 같은 Azure Cognitive Search 리소스를 관리할 때는 리소스를 안전 하 게 업데이트 하는 것이 중요 합니다. 특히 리소스를 응용 프로그램의 다른 구성 요소에서 동시에 액세스 하는 경우에는 특히 그렇습니다. 두 클라이언트가 조정 없이 리소스를 동시에 업데이트하면 경합 상태가 발생할 수 있습니다. 이를 방지 하기 위해 Azure Cognitive Search는 *낙관적 동시성 모델*을 제공 합니다. 이 모델에서는 리소스가 잠기지 않습니다. 대신 요청을 작성할 수 있도록 리소스 버전을 식별하는 ETag가 모든 리소스에 포함되어 있으므로 실수로 인한 덮어쓰기를 방지할 수 있습니다.
 
 > [!Tip]
-> [샘플 C# 솔루션](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer)의 개념 코드를 통해 Azure Search에서 동시성 제어가 작동하는 방식을 파악할 수 있습니다. 이 코드는 동시성 제어를 호출하는 조건을 만듭니다. 대부분의 개발자는 [아래의 코드 조각](#samplecode)만 확인해도 되겠지만, 해당 코드를 실행하려는 경우 appsettings.json을 편집하여 서비스 이름과 관리 API 키를 추가하세요. 서비스 URL이 `http://myservice.search.windows.net`인 경우 서비스 이름은 `myservice`입니다.
+> [샘플 C# 솔루션](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) 의 개념 코드는 Azure Cognitive Search에서 동시성 제어가 작동 하는 방식을 설명 합니다. 이 코드는 동시성 제어를 호출하는 조건을 만듭니다. 대부분의 개발자는 [아래의 코드 조각](#samplecode)만 확인해도 되겠지만, 해당 코드를 실행하려는 경우 appsettings.json을 편집하여 서비스 이름과 관리 API 키를 추가하세요. 서비스 URL이 `http://myservice.search.windows.net`인 경우 서비스 이름은 `myservice`입니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 원리
 
 낙관적 동시성은 인덱스, 인덱서, 데이터 원본 및 synonymMap 리소스에 데이터를 기록하는 API 호출에서 액세스 조건을 확인하는 방식으로 구현됩니다.
 
@@ -51,7 +50,7 @@ ms.locfileid: "69656730"
     class Program
     {
         // This sample shows how ETags work by performing conditional updates and deletes
-        // on an Azure Search index.
+        // on an Azure Cognitive Search index.
         static void Main(string[] args)
         {
             IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
@@ -62,14 +61,14 @@ ms.locfileid: "69656730"
             Console.WriteLine("Deleting index...\n");
             DeleteTestIndexIfExists(serviceClient);
 
-            // Every top-level resource in Azure Search has an associated ETag that keeps track of which version
+            // Every top-level resource in Azure Cognitive Search has an associated ETag that keeps track of which version
             // of the resource you're working on. When you first create a resource such as an index, its ETag is
             // empty.
             Index index = DefineTestIndex();
             Console.WriteLine(
                 $"Test index hasn't been created yet, so its ETag should be blank. ETag: '{index.ETag}'");
 
-            // Once the resource exists in Azure Search, its ETag will be populated. Make sure to use the object
+            // Once the resource exists in Azure Cognitive Search, its ETag will be populated. Make sure to use the object
             // returned by the SearchServiceClient! Otherwise, you will still have the old object with the
             // blank ETag.
             Console.WriteLine("Creating index...\n");
@@ -129,9 +128,9 @@ ms.locfileid: "69656730"
             serviceClient.Indexes.Delete("test", accessCondition: AccessCondition.GenerateIfExistsCondition());
 
             // This is slightly better than using the Exists method since it makes only one round trip to
-            // Azure Search instead of potentially two. It also avoids an extra Delete request in cases where
+            // Azure Cognitive Search instead of potentially two. It also avoids an extra Delete request in cases where
             // the resource is deleted concurrently, but this doesn't matter much since resource deletion in
-            // Azure Search is idempotent.
+            // Azure Cognitive Search is idempotent.
 
             // And we're done! Bye!
             Console.WriteLine("Complete.  Press any key to end application...\n");
@@ -170,7 +169,7 @@ ms.locfileid: "69656730"
 
 낙관적 동시성 구현을 위한 디자인 패턴에는 액세스 조건 확인을 다시 시도하는 루프와 액세스 조건에 대한 테스트를 포함해야 하며, 필요에 따라 변경 내용을 다시 적용하기 전에 업데이트된 리소스를 검색하는 과정을 포함할 수 있습니다.
 
-다음 코드 조각은 이미 있는 인덱스에 synonymMap을 추가하는 방법을 보여 줍니다. 이 코드는 [Azure Search에 대 C# 한 동의어 예제](search-synonyms-tutorial-sdk.md)에서 가져온 것입니다.
+다음 코드 조각은 이미 있는 인덱스에 synonymMap을 추가하는 방법을 보여 줍니다. 이 코드는 [Azure Cognitive Search에 C# 대 한 동의어 예제](search-synonyms-tutorial-sdk.md)에서 가져온 것입니다.
 
 해당 코드 조각은 "hotels" 인덱스를 가져와 업데이트 작업의 개체 버전을 확인한 다음 조건이 실패하면 예외를 throw합니다. 그런 후에 작업을 최대 3회까지 다시 시도하는데, 이때 먼저 서버에서 인덱스를 검색하여 최신 버전을 가져옵니다.
 
@@ -215,7 +214,7 @@ ms.locfileid: "69656730"
 + [GitHub의 REST API 샘플](https://github.com/Azure-Samples/search-rest-api-getting-started)
 + [GitHub의 .NET SDK 샘플](https://github.com/Azure-Samples/search-dotnet-getting-started) 이 솔루션에는 이 문서에 나와 있는 코드를 포함하는 "DotNetEtagsExplainer" 프로젝트가 들어 있습니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
 [일반 HTTP 요청 및 응답 헤더](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
 [HTTP 상태 코드](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)

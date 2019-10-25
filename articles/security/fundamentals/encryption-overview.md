@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 408c9fb58b428c1671794c6e4e5cc890a153813f
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 541039c82d5ea21c43a847da2710bef4162a2bc7
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003937"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804048"
 ---
 # <a name="azure-encryption-overview"></a>Azure 암호화 개요
 
@@ -51,15 +51,15 @@ Azure는 서비스 관리 키를 사용하는 서버 쪽 암호화, Key Vault의
 
 세 가지 서버 쪽 암호화 모델은 요구 사항에 따라 선택할 수 있는 서로 다른 키 관리 특성을 제공합니다.
 
-- **서비스 관리형 키**: 낮은 오버헤드로 제어와 편의성을 모두 제공합니다.
+- **서비스 관리 키**: 낮은 오버헤드로 제어와 편의성을 모두 제공합니다.
 
-- **고객 관리형 키**: BYOK(Bring Your Own Key)를 지원하거나 새 키를 생성하는 등 키를 제어하도록 허용합니다.
+- **고객 관리 키**: BYOK를 지원하거나 새 키를 생성하는 기능을 비롯하여 고객이 키를 제어할 수 있습니다.
 
-- **고객 제어형 하드웨어의 서비스 관리형 키**: Microsoft의 제어 범위 밖에 있는 독점적인 리포지토리에서 키를 관리할 수 있습니다. 이 특성을 HYOK(Host Your Own Key)라고 합니다. 그러나 구성이 복잡하고 대부분의 Azure 서비스는 이 모델을 지원하지 않습니다.
+- **고객 제어 하드웨어에서 서비스 관리 키**: Microsoft의 제어 범위 밖에 있는 독점적인 리포지토리에서 키를 관리할 수 있습니다. 이 특성을 HYOK(Host Your Own Key)라고 합니다. 그러나 구성이 복잡하고 대부분의 Azure 서비스는 이 모델을 지원하지 않습니다.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-[Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) 기술과 Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt)를 사용하여 전체 볼륨 암호화로 운영 체제 디스크와 데이터 디스크를 모두 보호하는 [Azure Disk Encryption](/azure/security/azure-security-disk-encryption)으로 Windows 및 Linux 가상 머신을 보호할 수 있습니다.
+[Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) 기술과 Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt)를 사용하여 전체 볼륨 암호화로 운영 체제 디스크와 데이터 디스크를 모두 보호하는 [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss)으로 Windows 및 Linux 가상 머신을 보호할 수 있습니다.
 
 암호화 키 및 비밀은 사용자의 [Azure Key Vault](../../key-vault/key-vault-overview.md) 구독에서 보호됩니다. Azure Backup 서비스를 사용하여 KEK(키 암호화) 구성으로 암호화된 VM을 백업 및 복원할 수 있습니다.
 
@@ -87,7 +87,7 @@ Key Vault를 사용한 클라이언트 쪽 암호화에 대해 자세히 알아�
 
 [Azure SQL Database](../../sql-database/sql-database-technical-overview.md)는 관계형 데이터, 공간, JSON 및 XML과 같은 구조를 지원하는 Azure의 범용 관계형 데이터베이스 서비스입니다. SQL Database는 TDE(투명한 데이터 암호화) 기능을 통한 서버 쪽 암호화와 Always Encrypted 기능을 통한 클라이언트 쪽 암호화를 모두 지원합니다.
 
-#### <a name="transparent-data-encryption"></a>Transparent Data Encryption
+#### <a name="transparent-data-encryption"></a>투명한 데이터 암호화
 
 [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde)는 복구 중에 사용 가능하도록 데이터베이스 부트 레코드에 저장된 DEK(데이터베이스 암호화 키)를 사용하여 [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) 및 [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 데이터 파일을 실시간으로 암호화하는 데 사용됩니다.
 
@@ -181,7 +181,7 @@ Azure에서 원격 데스크톱을 사용하여 Azure의 Linux VM에 연결할 �
 
 Azure Portal, PowerShell 또는 Azure CLI를 사용하여 가상 네트워크에 사이트 간 VPN 연결을 구성할 수 있습니다.
 
-자세한 내용은 다음을 참조하세요.
+자세한 내용은
 
 [Azure Portal에서 사이트 간 연결 만들기](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 

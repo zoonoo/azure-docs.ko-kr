@@ -5,20 +5,20 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: eeaa709b88ca795d906fe3688301b4cd7d8c726e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 39cf6b2d0f6d8ea3e894e46a9294a671780225d0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244124"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793839"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Express 경로 직접 포트에서 MACsec 구성
 
 이 문서는 PowerShell을 사용 하 여에 지 라우터와 Microsoft edge 라우터 간 연결을 보호 하도록 MACsec을 구성 하는 데 도움이 됩니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 구성을 시작하기 전에 다음을 확인합니다.
 
@@ -97,10 +97,10 @@ ms.locfileid: "72244124"
     $erDirect = Get-AzExpressRoutePort -ResourceGroupName "your_resource_group" -Name "your_direct_port_name"
     $erDirect.Links[0]. MacSecConfig.CknSecretIdentifier = $MacSecCKNSecret.Id
     $erDirect.Links[0]. MacSecConfig.CakSecretIdentifier = $MacSecCAKSecret.Id
-    $erDirect.Links[0]. MacSecConfig.Cipher = "gcm-aes-128"
+    $erDirect.Links[0]. MacSecConfig.Cipher = "GcmAes256"
     $erDirect.Links[1]. MacSecConfig.CknSecretIdentifier = $MacSecCKNSecret.Id
     $erDirect.Links[1]. MacSecConfig.CakSecretIdentifier = $MacSecCAKSecret.Id
-    $erDirect.Links[1]. MacSecConfig.Cipher = "gcm-aes-128"
+    $erDirect.Links[1]. MacSecConfig.Cipher = "GcmAes256"
     $erDirect.identity = $erIdentity
     Set-AzExpressRoutePort -ExpressRoutePort $erDirect
     ```

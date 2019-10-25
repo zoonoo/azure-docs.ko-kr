@@ -1,10 +1,9 @@
 ---
-title: Java 메시지 서비스 API와 함께 AMQP 1.0 사용 및 Azure Service Bus
+title: Java 메시지 서비스 API를 사용 하 여 AMQP & Azure Service Bus
 description: Azure Service Bus 및 AMQP(Advanced Message Queuing Protocol) 1.0과 함께 JMS(Java Message Service)를 사용하는 방법을 설명합니다.
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
 ms.service: service-bus-messaging
@@ -12,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 10/22/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 9dff2cc11b71f314de81fd99ed3b72c6337d977f
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: f1a679deca8ee33bb4801eb1d1023684a37d0f59
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967974"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793173"
 ---
 # <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Azure Service Bus 및 AMQP 1.0와 함께 JMS (Java Message Service) 사용
 이 문서에서는 널리 사용 되는 JMS (Java Message Service) API 표준을 사용 하 여 Java 응용 프로그램에서 Azure Service Bus 메시징 기능 (큐 및 게시/구독 토픽)을 사용 하는 방법을 설명 합니다. Azure Service Bus .NET API를 사용 하 여 동일한 작업을 수행 하는 방법을 설명 하는 [동반 문서가](service-bus-amqp-dotnet.md) 있습니다. AMQP 1.0을 사용한 플랫폼 간 메시징에 대해 알아보려면 이 두 가지 가이드를 함께 사용할 수 있습니다.
@@ -50,7 +49,7 @@ Service Bus를 사용하여 JMS 애플리케이션을 빌드 및 실행할 때 A
 
 ## <a name="coding-java-applications"></a>Java 애플리케이션 코딩
 ### <a name="java-naming-and-directory-interface-jndi"></a>JNDI(Java Naming and Directory Interface)
-JMS는 JNDI(Java Naming and Directory Interface)를 사용하여 논리적 이름과 물리적 이름 간에 구분을 만듭니다. JNDI를 사용하여 확인되는 두 가지 유형의 JMS 개체는 ConnectionFactory 및 Destination입니다. JNDI는 다양한 디렉터리 서비스를 연결할 수 있는 공급자 모델을 사용하여 이름 확인 책임을 처리합니다. Apache Qpid JMS AMQP 1.0 라이브러리에는 다음 형식의 속성 파일을 사용하여 구성된 간단한 속성 파일 기반 JNDI 공급자가 포함되어 있습니다.
+JMS는 JNDI(Java Naming and Directory Interface)를 사용하여 논리적 이름과 물리적 이름 간에 구분을 만듭니다. JNDI를 사용하여 두 유형의 JMS 개체인 ConnectionFactory와 Destination을 확인합니다. JNDI는 다양한 디렉터리 서비스를 연결할 수 있는 공급자 모델을 사용하여 이름 확인 책임을 처리합니다. Apache Qpid JMS AMQP 1.0 라이브러리에는 다음 형식의 속성 파일을 사용하여 구성된 간단한 속성 파일 기반 JNDI 공급자가 포함되어 있습니다.
 
 ```TEXT
 # servicebus.properties - sample JNDI configuration

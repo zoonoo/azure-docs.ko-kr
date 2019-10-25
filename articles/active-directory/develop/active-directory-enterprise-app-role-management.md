@@ -1,5 +1,6 @@
 ---
-title: Azure AD의 엔터프라이즈 애플리케이션에 대해 SAML 토큰에서 발급된 역할 클레임 구성 | Microsoft Docs
+title: Azure AD에서 엔터프라이즈 응용 프로그램에 대 한 역할 클레임 구성
+titleSuffix: Microsoft identity platform
 description: Azure Active Directory의 엔터프라이즈 애플리케이션에 SAML 토큰에서 발급된 역할 클레임을 구성하는 방법 알아보기
 services: active-directory
 documentationcenter: ''
@@ -17,18 +18,18 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 699c8ce559d26ad226ad1dfd7f7266fe8c4acdfb
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c671626a431a47e5100cf42ca0c9e29ab580ab3a
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207195"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803501"
 ---
-# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발급된 역할 클레임 구성
+# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발행된 역할 클레임 구성
 
 Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나는 응답 토큰에서 역할 클레임에 대한 클레임 유형을 지정할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - 디렉터리가 설치된 Azure AD 구독
 - SSO(Single Sign-On)를 사용하도록 설정된 구독 애플리케이션에 SSO를 구성해야 함
@@ -67,7 +68,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
       !["권한 수정" 단추](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
 
-    c. 목록에서 다음 권한을 선택하고(아직 선택하지 않은 경우) **권한 수정**을 선택합니다.
+    다. 목록에서 다음 권한을 선택하고(아직 선택하지 않은 경우) **권한 수정**을 선택합니다.
 
       ![권한 목록 및 "권한 수정" 단추](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
 
@@ -76,7 +77,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     d. 동의 확인에 동의합니다. 시스템에 다시 로그인됩니다.
 
-    e. 버전을 **베타**로 변경하고 다음 쿼리를 사용하여 테넌트에서 서비스 사용자 목록을 가져옵니다.
+    ㅁ. 버전을 **베타**로 변경하고 다음 쿼리를 사용하여 테넌트에서 서비스 사용자 목록을 가져옵니다.
 
      `https://graph.microsoft.com/beta/servicePrincipals`
 
@@ -140,7 +141,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
       ![성공 메시지가 있는 패치 작업](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
 
-7. 서비스 사용자에 더 많은 역할이 패치되면 각 역할에 사용자를 할당할 수 있습니다. 포털로 이동하고 애플리케이션을 검색하여 사용자를 할당할 수 있습니다. **사용자 및 그룹** 탭을 선택합니다. 이 탭은 앱에 이미 할당된 모든 사용자 및 그룹을 나열합니다. 새 역할에 새 사용자를 추가할 수 있습니다. 또한 기존 사용자를 선택하고 **편집**을 선택하여 역할을 변경할 수도 있습니다.
+7. 서비스 사용자에 더 많은 역할이 패치되면 각 역할에 사용자를 할당할 수 있습니다. 포털로 이동하고 애플리케이션을 검색하여 사용자를 할당할 수 있습니다. **사용자 및 그룹** 탭을 선택 합니다. 이 탭에는 이미 앱에 할당 된 모든 사용자 및 그룹이 나열 됩니다. 새 역할에 새 사용자를 추가할 수 있습니다. 또한 기존 사용자를 선택하고 **편집**을 선택하여 역할을 변경할 수도 있습니다.
 
     !["사용자 및 그룹" 탭](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
 
@@ -172,11 +173,11 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
       !["특성 추가" 창](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    c. **이름** 상자에서 필요에 따라 특성 이름을 입력합니다. 이 예에서는 클레임 이름으로 **역할 이름**을 사용합니다.
+    다. **이름** 상자에서 필요에 따라 특성 이름을 입력합니다. 이 예에서는 클레임 이름으로 **역할 이름**을 사용합니다.
 
     d. **네임스페이스** 상자를 비워 둡니다.
 
-    e. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 입력합니다.
+    ㅁ. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 입력합니다.
 
     f. **저장**을 선택합니다.
 
@@ -216,7 +217,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     b. 기존 역할을 복사하여 **요청 본문** 아래에 붙여넣습니다.
 
-    c. 필요에 따라 역할 설명, 역할 값 또는 역할 표시 이름을 업데이트하여 역할 값을 업데이트합니다.
+    다. 필요에 따라 역할 설명, 역할 값 또는 역할 표시 이름을 업데이트하여 역할 값을 업데이트합니다.
 
     d. 모든 필요한 역할을 업데이트 한 후 **쿼리 실행**을 선택합니다.
 
@@ -254,7 +255,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     b. 애플리케이션에서 기존 역할을 복사하여 **요청 본문** 아래에 붙여넣습니다.
 
-    c. 삭제하려는 역할의 **IsEnabled** 값을 **false**로 설정합니다.
+    다. 삭제하려는 역할의 **IsEnabled** 값을 **false**로 설정합니다.
 
     d. **쿼리 실행**을 선택합니다.
 

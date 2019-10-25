@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 70030c9014e83984b2cd493ba0d3b2a36180feb3
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: f307d6245b107fdbd3c6d6baafa5a162988235da
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575076"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800015"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Storm 문제 해결
 
@@ -46,9 +46,9 @@ HDInsight Storm 이벤트 허브 spout .jar 파일을 사용하여 Azure Event H
 
 오프셋에 대한 검사점 데이터는 Zookeeper의 이벤트 허브 Spout를 통해 다음 두 루트 경로에 저장됩니다.
 
-- 비트랜잭션 spout 검사점은에 `/eventhubspout`저장 됩니다.
+- 비트랜잭션 spout 검사점은 `/eventhubspout`에 저장 됩니다.
 
-- 트랜잭션 spout 검사점 데이터는에 `/transactional`저장 됩니다.
+- 트랜잭션 spout 검사점 데이터는 `/transactional`에 저장 됩니다.
 
 ### <a name="how-to-restore"></a>복원하는 방법
 
@@ -60,12 +60,12 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
 
 내보내기 명령은 설정한 Azure Blob Storage 또는 Azure Data Lake Storage의 Apache HDFS(Hadoop 분산 파일 시스템) 경로에 메타데이터를 씁니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 #### <a name="export-offset-metadata"></a>오프셋 메타데이터 내보내기
 
 1. SSH를 사용하여 검사점 오프셋을 내보내야 하는 클러스터의 ZooKeeper 클러스터로 이동합니다.
-2. HDP 버전 문자열을 업데이트 한 후 다음 명령을 실행 하 여 `/stormmetadta/zkdata` HDFS 경로에 사육 사 오프셋 데이터를 내보냅니다.
+2. HDP 버전 문자열을 업데이트 한 후 다음 명령을 실행 하 여 사육 사 오프셋 데이터를 `/stormmetadta/zkdata` HDFS 경로로 내보냅니다.
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter export /eventhubspout /stormmetadata/zkdata
@@ -74,7 +74,7 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
 #### <a name="import-offset-metadata"></a>오프셋 메타데이터 가져오기
 
 1. SSH를 사용하여 검사점 오프셋을 내보내야 하는 클러스터의 ZooKeeper 클러스터로 이동합니다.
-2. HDP 버전 문자열을 업데이트 한 후 다음 명령을 실행 하 여 HDFS 경로 `/stormmetadata/zkdata` 에서 대상 클러스터의 사육 사 서버로의 사육 사 오프셋 데이터를 가져옵니다.
+2. HDP 버전 문자열을 업데이트 한 후 다음 명령을 실행 하 여 HDFS 경로에서 대상 클러스터의 사육 사 서버로 `/stormmetadata/zkdata` 사육 사 오프셋 데이터를 가져옵니다.
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter import /eventhubspout /home/sshadmin/zkdata
@@ -91,9 +91,9 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
 
 ## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>클러스터에서 Storm 이진을 찾는 방법
 
-현재 HDP 스택에 대 한 스톰 이진 파일은 `/usr/hdp/current/storm-client`에 있습니다. 위치는 헤드 노드 및 작업자 노드 둘 다에 대해 동일합니다.
+현재 HDP stack의 스톰 이진 파일이 `/usr/hdp/current/storm-client`되었습니다. 위치는 헤드 노드 및 작업자 노드 둘 다에 대해 동일합니다.
 
-/Usr/hdp에는 특정 HDP 버전에 대 한 여러 바이너리가 있을 수 있습니다 ( `/usr/hdp/2.5.0.1233/storm`예:). 폴더 `/usr/hdp/current/storm-client` 는 클러스터에서 실행 되는 최신 버전에 연결 되어 있습니다.
+/Usr/hdp에는 특정 HDP 버전에 대 한 여러 이진 파일이 있을 수 있습니다 (예: `/usr/hdp/2.5.0.1233/storm`). `/usr/hdp/current/storm-client` 폴더는 클러스터에서 실행 되는 최신 버전에 symlinked 됩니다.
 
 자세한 내용은 [SSH를 사용하여 HDInsight 클러스터에 연결](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) 및 [Apache Storm](https://storm.apache.org/)을 참조하세요.
 
@@ -127,7 +127,7 @@ HDInsight는 3 노드 ZooKeeper 쿼럼을 제공합니다. 쿼럼 크기는 고�
 ### <a name="worker-nodes"></a>작업자 노드
 
 Storm 작업자 노드에서 실행하는 서비스는 다음과 같습니다.
-* 감독자
+* Supervisor
 * 토폴로지를 실행하기 위한 작업자 JVM(Java Virtual Machines)
 * Ambari 에이전트
 
@@ -137,7 +137,7 @@ Storm 작업자 노드에서 실행하는 서비스는 다음과 같습니다.
 
 ### <a name="java-based-topology"></a>Java 기반 토폴로지
 
-[HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(Java)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
+[HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)
 
 ### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>C# 기반 토폴로지(HDInsight 3.4 이상 Linux Storm 클러스터의 Mono)
 
@@ -157,15 +157,15 @@ Storm 서비스에 대한 [Apache Log4j 2](https://logging.apache.org/log4j/2.x/
 
 ### <a name="on-head-nodes"></a>헤드 노드에서
 
-Nimbus Log4J 구성은에서 `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`읽습니다.
+`/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`에서 Nimbus Log4J 구성을 읽습니다.
 
 ### <a name="on-worker-nodes"></a>작업자 노드에서
 
-감독자 Log4J 구성은에서 `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`읽습니다.
+`/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`에서 감독자 Log4J 구성을 읽습니다.
 
-Worker Log4J 구성 파일은에서 `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml`읽습니다.
+Worker Log4J 구성 파일은 `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml`에서 읽습니다.
 
-예와`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
+예: `/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 `/usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml`
 
 ## <a name="next-steps"></a>다음 단계
@@ -174,6 +174,6 @@ Worker Log4J 구성 파일은에서 `/usr/hdp/\<HDP version>/storm/log4j2/worker
 
 - Azure [커뮤니티 지원을](https://azure.microsoft.com/support/community/)통해 azure 전문가 로부터 답변을 받으세요.
 
-- 을 사용 [@AzureSupport](https://twitter.com/azuresupport) 하 여 연결-고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
+- [@AzureSupport](https://twitter.com/azuresupport) 연결-고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
 
 - 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대 한 액세스는 Microsoft Azure 구독에 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.

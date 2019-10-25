@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 10/22/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61efc9d9d12cb67ea9c22e44ba0060db0f224f73
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 5ad03e69df4ca03d58bba98b912ade354f90042e
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554315"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809206"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할 할당
 
@@ -38,25 +38,25 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
 
     아직 Azure Portal에서 Privileged Identity Management를 시작 하지 않은 경우 [Privileged Identity Management 사용 시작](pim-getting-started.md)으로 이동 합니다.
 
-1. **Azure AD 역할**을 클릭합니다.
+1. **AZURE AD 역할**을 선택 합니다.
 
-1. **역할** 또는 **멤버**를 클릭합니다.
+1. **역할** 또는 **멤버**를 선택 합니다.
 
     ![역할 및 멤버 메뉴 옵션이 강조 표시 된 Azure AD 역할](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
-1. **멤버 추가**를 클릭하여 관리되는 멤버 추가를 엽니다.
+1. 관리 되는 멤버 추가를 열려면 **구성원 추가** 를 선택 합니다.
 
-1. **역할 선택**을 클릭하고 관리하려는 역할을 클릭한 후 **선택**을 클릭합니다.
+1. **역할 선택**을 선택 하 고 관리 하려는 역할을 선택한 다음 **선택**을 선택 합니다.
 
     ![Azure AD 역할을 나열 하는 역할 창 선택](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
 
-1. **멤버 선택**을 클릭하고 역할에 할당할 사용자를 선택한 후 **선택**을 클릭합니다.
+1. **구성원 선택**을 선택 하 고 역할에 할당 하려는 사용자를 선택한 다음 **선택**을 선택 합니다.
 
     ![사용자를 선택할 수 있는 구성원 창 선택](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
-1. 관리되는 멤버 추가에서 **확인**을 클릭하여 역할에 사용자를 추가합니다.
+1. 관리 되는 멤버 추가에서 **확인** 을 선택 하 여 역할에 사용자를 추가 합니다.
 
-1. 역할 목록에서 방금 할당한 역할을 클릭하여 멤버 목록을 봅니다.
+1. 역할 목록에서 방금 할당 한 역할을 선택 하 여 멤버 목록을 표시 합니다.
 
      역할이 할당되면 선택한 사용자가 멤버 목록에 해당 역할의 **적격** 사용자로 표시됩니다.
 
@@ -72,15 +72,15 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
-1. **Azure AD 역할**을 클릭합니다.
+1. **AZURE AD 역할**을 선택 합니다.
 
-1. **구성원**을 클릭합니다.
+1. **구성원**을 선택합니다.
 
     ![Azure AD 역할-역할 및 활성화 상태를 보여 주는 구성원 목록](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
-1. 영구적으로 유지하려는 **적격** 역할을 클릭합니다.
+1. 영구적으로 만들려는 **적격** 역할을 선택 합니다.
 
-1. **추가**를 클릭하고 **영구 상태로 만들기**를 클릭합니다.
+1. **자세히** 를 선택한 다음, **perm 만들기**를 선택 합니다.
 
     ![추가 메뉴 옵션이 열려 있는 역할에 적합 한 사용자를 나열 하는 창](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
 
@@ -116,7 +116,9 @@ Azure AD 관리자 역할에서 특정 사용자를 제거 하려면 다음 단�
 
 ## <a name="authorization-error-when-assigning-roles"></a>역할을 할당할 때 권한 부여 오류
 
-최근 Azure 구독에 대 한 Privileged Identity Management를 사용 하도록 설정 했 고 사용자에 게 Azure AD 관리자 역할에 대 한 자격을 부여 하려고 할 때 권한 부여 오류가 발생 하는 경우,이는 MS-PIM 서비스 주체가 아직 적절 한 권한에. 역할을 할당 하려면 azure AD 관리 역할이 아닌 azure 리소스 액세스에 대 한 Azure 역할 기반 액세스 제어에서 [사용자 액세스 관리자 역할](../../role-based-access-control/built-in-roles.md#user-access-administrator) 을 할당 받아야 합니다. MS-PIM에 사용자 액세스 관리자 역할이 할당될 때까지 대기하는 대신 수동으로 할당할 수 있습니다.
+시나리오: Azure 리소스에 대 한 활성 소유자 또는 사용자 액세스 관리자는 Privileged Identity Management 내에서 리소스를 볼 수 있지만 적격 할당을 수행 하거나 역할 할당 목록을 보는 등의 작업은 수행할 수 없습니다. 리소스 개요 페이지. 이러한 작업으로 인해 권한 부여 오류가 발생 합니다.
+
+역할을 할당 하려면 azure AD 관리 역할이 아닌 azure 리소스 액세스에 대 한 Azure 역할 기반 액세스 제어에서 [사용자 액세스 관리자 역할](../../role-based-access-control/built-in-roles.md#user-access-administrator) 을 할당 받아야 합니다. MS-PIM에 사용자 액세스 관리자 역할이 할당될 때까지 대기하는 대신 수동으로 할당할 수 있습니다.
 
 다음 단계에서는 구독에 대 한 사용자 액세스 관리자 역할을 MS-PIM 서비스 주체에 할당 합니다.
 
@@ -147,7 +149,6 @@ Azure AD 관리자 역할에서 특정 사용자를 제거 하려면 다음 단�
    몇 분 후 MS-PIM 서비스 주체가 구독 범위에서 사용자 액세스 관리자 역할로 할당됩니다.
 
    ![MS-PIM에 대 한 사용자 액세스 관리자 역할 할당을 보여 주는 액세스 제어 (IAM) 블레이드](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
-
 
 ## <a name="next-steps"></a>다음 단계
 

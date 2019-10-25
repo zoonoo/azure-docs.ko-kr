@@ -9,18 +9,18 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5738161e88c42f4d4033fab091d8e8c8d7162042
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9eba76d78c2070f03ed835cdf2bf303ed72b1f7f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301725"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72801870"
 ---
 # <a name="developers-guide-to-durable-entities-in-net-preview"></a>.NET의 내구성이 있는 엔터티에 대 한 개발자 가이드 (미리 보기)
 
 이 문서에서는 예제 및 일반적인 조언을 포함 하 여 .NET을 사용 하 여 내구성이 있는 엔터티를 개발 하는 데 사용할 수 있는 인터페이스에 대해 설명 합니다. 
 
-엔터티 함수는 서버를 사용 하지 않는 응용 프로그램 개발자에 게 응용 프로그램 상태를 세분화 된 엔터티의 컬렉션으로 구성 하는 편리한 방법을 제공 합니다. 기본 개념에 대 한 자세한 내용은 [Durable 있는 엔터티: 개념 @ no__t-0 문서.
+엔터티 함수는 서버를 사용 하지 않는 응용 프로그램 개발자에 게 응용 프로그램 상태를 세분화 된 엔터티의 컬렉션으로 구성 하는 편리한 방법을 제공 합니다. 기본 개념에 대 한 자세한 내용은 지 [속성 엔터티: 개념](durable-functions-entities.md) 문서를 참조 하세요.
 
 현재 엔터티를 정의 하는 두 가지 Api를 제공 합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "72301725"
  
 ## <a name="defining-entity-classes"></a>엔터티 클래스 정의
 
-다음 예제는 정수 형식의 단일 값을 저장 하는 `Counter` 엔터티의 구현 이며,-1, `Reset`, `Get` 및 `Delete`의 4 가지 작업 @no__t 제공 합니다.
+다음 예제는 정수 형식의 단일 값을 저장 하 고 `Add`, `Reset`, `Get`및 `Delete`의 네 가지 작업을 제공 하는 `Counter` 엔터티의 구현입니다.
 
 ```csharp
 [JsonObject(MemberSerialization.OptIn)]
@@ -71,10 +71,10 @@ public class Counter
 }
 ```
 
-@No__t-0 함수는 클래스 기반 구문을 사용 하는 데 필요한 상용구를 포함 합니다. *정적* Azure 함수 여야 합니다. 엔터티에 의해 처리 되는 각 작업 메시지에 대해 한 번 실행 됩니다. @No__t-0이 호출 되 고 엔터티가 메모리에 없으면-1 @no__t 형식의 개체를 생성 하 고 저장소 (있는 경우)에 있는 마지막으로 지속 된 JSON에서 해당 필드를 채웁니다. 그런 다음 일치 하는 이름을 사용 하 여 메서드를 호출 합니다.
+`Run` 함수는 클래스 기반 구문을 사용 하는 데 필요한 상용구를 포함 합니다. *정적* Azure 함수 여야 합니다. 엔터티에 의해 처리 되는 각 작업 메시지에 대해 한 번 실행 됩니다. `DispatchAsync<T>`를 호출 하 고 엔터티가 메모리에 없는 경우 `T` 형식의 개체를 생성 하 고 저장소에 있는 마지막으로 유지 된 JSON (있는 경우)에서 해당 필드를 채웁니다. 그런 다음 일치 하는 이름을 사용 하 여 메서드를 호출 합니다.
 
 > [!NOTE]
-> 클래스 기반 엔터티의 상태는 엔터티가 작업을 처리 하기 전에 **암시적으로 생성** 되며, `Entity.Current.DeleteState()`를 호출 하 여 작업에서 **명시적으로 삭제할** 수 있습니다.
+> 클래스 기반 엔터티의 상태는 엔터티가 작업을 처리 하기 전에 **암시적으로 생성** 되며 `Entity.Current.DeleteState()`를 호출 하 여 작업에서 **명시적으로 삭제할** 수 있습니다.
 
 ### <a name="class-requirements"></a>클래스 요구 사항
  
@@ -86,7 +86,7 @@ public class Counter
 또한 작업으로 호출 되는 모든 메서드는 추가 요구 사항을 충족 해야 합니다.
 
 - 작업에는 최대 하나의 인수만 사용할 수 있으며 오버 로드 또는 제네릭 형식 인수를 포함 하지 않아야 합니다.
-- 인터페이스를 사용 하 여 오케스트레이션에 서 호출 하는 작업은 `Task` 또는 `Task<T>`을 반환 해야 합니다.
+- 인터페이스를 사용 하 여 오케스트레이션에 서 호출 해야 하는 작업은 `Task` 또는 `Task<T>`를 반환 해야 합니다.
 - 인수 및 반환 값은 serialize 할 수 있는 값 또는 개체 여야 합니다.
 
 ### <a name="what-can-operations-do"></a>작업은 무엇을 수행할 수 있나요?
@@ -120,7 +120,7 @@ public class Counter
 클래스 기반 엔터티는 엔터티의 명시적 문자열 이름 및 해당 작업을 사용 하 여 직접 액세스할 수 있습니다. 몇 가지 예제를 제공 합니다. 기본 개념 (예: 신호 및 호출)에 대 한 자세한 설명은 [엔터티 액세스](durable-functions-entities.md#accessing-entities)의 설명을 참조 하세요. 
 
 > [!NOTE]
-> 가능 하면 더 많은 형식 검사를 제공 하므로 [인터페이스를 통해 엔터티에 액세스]()하는 것이 좋습니다.
+> 가능 하면 더 많은 형식 검사를 제공 하므로 [인터페이스를 통해 엔터티에 액세스](#accessing-entities-through-interfaces)하는 것이 좋습니다.
 
 ### <a name="example-client-signals-entity"></a>예: 클라이언트 신호 엔터티
 
@@ -157,7 +157,7 @@ public static async Task<HttpResponseMessage> GetCounter(
 ```
 
 > [!NOTE]
-> @No__t-0에서 반환 되는 개체는 단지 로컬 복사본, 즉 이전 특정 시점에서 엔터티 상태의 스냅숏입니다. 특히 오래 된 것일 수 있으며,이 개체를 수정 해도 실제 엔터티에는 영향을 주지 않습니다. 
+> `ReadEntityStateAsync`에서 반환 되는 개체는 단지 로컬 복사본, 즉 이전 특정 시점에서 엔터티 상태의 스냅숏입니다. 특히 오래 된 것일 수 있으며,이 개체를 수정 해도 실제 엔터티에는 영향을 주지 않습니다. 
 
 ### <a name="example-orchestration-first-signals-then-calls-entity"></a>예: 오케스트레이션 먼저 신호를 전달 하 고 엔터티를 호출 합니다.
 
@@ -206,7 +206,7 @@ public class Counter : ICounter
 
 ### <a name="example-client-signals-entity-through-interface"></a>예: 클라이언트에서 인터페이스를 통해 신호를 보냅니다.
 
-클라이언트 코드는 `SignalEntityAsync<TEntityInterface>`을 사용 하 여 `TEntityInterface`을 구현 하는 엔터티로 신호를 보낼 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+클라이언트 코드는 `SignalEntityAsync<TEntityInterface>`를 사용 하 여 `TEntityInterface`를 구현 하는 엔터티로 신호를 보낼 수 있습니다. 다음은 그 예입니다.
 
 ```csharp
 [FunctionName("DeleteCounter")]
@@ -221,15 +221,15 @@ public static async Task<HttpResponseMessage> DeleteCounter(
 }
 ```
 
-이 예제에서 `proxy` 매개 변수는 내부적으로 생성 된 @no__t 인스턴스입니다 .이 인스턴스는 내부적으로 `Delete`에 대 한 호출을 신호로 변환 합니다.
+이 예제에서 `proxy` 매개 변수는 내부적으로 생성 되는 `ICounter`인스턴스이고, 내부적으로 `Delete`에 대 한 호출을 신호로 변환 합니다.
 
 > [!NOTE]
-> @No__t-0 Api는 단방향 작업에만 사용할 수 있습니다. 작업이-0 @no__t 반환 하는 경우에도 `T` 매개 변수의 값은 항상 null 또는 `default` 이며 실제 결과가 아닙니다.
-예를 들어 값이 반환 되지 않으므로 `Get` 연산을 알리는 것은 의미가 없습니다. 대신 클라이언트는 `ReadStateAsync` 중 하나를 사용 하 여 카운터 상태에 직접 액세스 하거나 `Get` 작업을 호출 하는 orchestrator 함수를 시작할 수 있습니다. 
+> `SignalEntityAsync` Api는 단방향 작업에만 사용할 수 있습니다. 작업이 `Task<T>`반환 하는 경우에도 `T` 매개 변수의 값은 항상 null 또는 `default`이며 실제 결과가 아닙니다.
+예를 들어 값이 반환 되지 않으므로 `Get` 작업에 신호를 보내는 것은 적절 하지 않습니다. 대신, 클라이언트는 `ReadStateAsync` 사용 하 여 카운터 상태에 직접 액세스 하거나 `Get` 작업을 호출 하는 orchestrator 함수를 시작할 수 있습니다. 
 
 ### <a name="example-orchestration-first-signals-then-calls-entity-through-proxy"></a>예: 오케스트레이션은 먼저 신호를 전달 하 고 프록시를 통해 엔터티를 호출 합니다.
 
-오케스트레이션 내에서 엔터티를 호출 하거나 신호를 보내기 위해 인터페이스 형식과 함께 `CreateEntityProxy`을 사용 하 여 엔터티에 대 한 프록시를 생성할 수 있습니다. 그런 다음이 프록시를 사용 하 여 작업을 호출 하거나 신호를 보낼 수 있습니다.
+오케스트레이션 내에서 엔터티를 호출 하거나 신호를 보내기 위해 인터페이스 형식과 함께 `CreateEntityProxy`를 사용 하 여 엔터티에 대 한 프록시를 생성할 수 있습니다. 그런 다음이 프록시를 사용 하 여 작업을 호출 하거나 신호를 보낼 수 있습니다.
 
 ```csharp
 [FunctionName("IncrementThenGet")]
@@ -249,7 +249,7 @@ public static async Task<int> Run(
 }
 ```
 
-암시적으로 `void`을 반환 하는 모든 작업은 신호를 보내고 `Task` 또는 `Task<T>`를 반환 하는 모든 작업을 호출 합니다. @No__t-0 메서드를 명시적으로 사용 하 여이 기본 동작을 변경 하 고 작업을 반환 하는 경우에도 신호 작업을 수행할 수 있습니다.
+암시적으로 `void`을 반환 하는 모든 작업에 신호를 보내고 `Task` 또는 `Task<T>`를 반환 하는 모든 작업을 호출 합니다. `SignalEntity<IInterfaceType>` 메서드를 명시적으로 사용 하 여이 기본 동작을 변경 하 고 작업을 반환 하는 경우에도 신호를 보낼 수 있습니다.
 
 ### <a name="shorter-option-for-specifying-the-target"></a>대상을 지정 하는 짧은 옵션
 
@@ -260,7 +260,7 @@ context.SignalEntity<ICounter>(new EntityId(nameof(Counter), "myCounter"), ...);
 context.SignalEntity<ICounter>("myCounter", ...);
 ```
 
-엔터티 키만 지정 하 고 런타임에 고유한 구현을 찾을 수 없는 경우 `InvalidOperationException`이 throw 됩니다. 
+엔터티 키만 지정 하 고 런타임에 고유한 구현을 찾을 수 없으면 `InvalidOperationException`이 throw 됩니다. 
 
 ### <a name="restrictions-on-entity-interfaces"></a>엔터티 인터페이스에 대 한 제한 사항
 
@@ -270,12 +270,12 @@ context.SignalEntity<ICounter>("myCounter", ...);
 * 엔터티 인터페이스는 메서드만 정의 해야 합니다.
 * 엔터티 인터페이스에 제네릭 매개 변수를 포함 하면 안 됩니다.
 * 엔터티 인터페이스 메서드에는 매개 변수를 둘 이상 사용할 수 없습니다.
-* 엔터티 인터페이스 메서드는 `void`, `Task` 또는 `Task<T>`를 반환 해야 합니다. 
+* 엔터티 인터페이스 메서드는 `void`, `Task`또는을 반환 해야 `Task<T>` 
 
-이러한 규칙을 위반 하는 경우 인터페이스를 `SignalEntity` 또는 `CreateProxy`에 대 한 형식 인수로 사용 하는 경우 런타임에 `InvalidOperationException`이 throw 됩니다. 예외 메시지는 중단 된 규칙을 설명 합니다.
+이러한 규칙을 위반 하는 경우 인터페이스를 `SignalEntity` 또는 `CreateProxy`하는 형식 인수로 사용 하는 경우 런타임에 `InvalidOperationException` 발생 합니다. 예외 메시지는 중단 된 규칙을 설명 합니다.
 
 > [!NOTE]
-> @No__t-0을 반환 하는 인터페이스 메서드는 (단방향) 호출 되지 않고 (양방향)만 신호를 받을 수 있습니다. @No__t-0 또는 `Task<T>`을 반환 하는 인터페이스 메서드를 호출 하거나 신호를 받을 수 있습니다. 호출 된 경우 작업의 결과를 반환 하거나 작업에서 throw 된 예외를 다시 throw 합니다. 그러나 신호를 보낸 경우 작업에서 실제 결과 또는 예외를 반환 하지 않고 기본값만 반환 합니다.
+> `void`를 반환 하는 인터페이스 메서드는 호출 되지 않는 단방향 (단방향) 으로만 신호를 받을 수 있습니다 (양방향). `Task` 또는 `Task<T>`를 반환 하는 인터페이스 메서드를 호출 하거나 신호를 받을 수 있습니다. 호출 된 경우 작업의 결과를 반환 하거나 작업에서 throw 된 예외를 다시 throw 합니다. 그러나 신호를 보낸 경우 작업에서 실제 결과 또는 예외를 반환 하지 않고 기본값만 반환 합니다.
 
 ## <a name="entity-serialization"></a>엔터티 serialization
 
@@ -313,8 +313,8 @@ public class User
 ### <a name="serialization-attributes"></a>Serialization 특성
 
 위의 예제에서는 기본 serialization이 더 표시 되도록 여러 특성을 포함 하도록 선택 했습니다.
-- 클래스에 `[JsonObject(MemberSerialization.OptIn)]`으로 주석을 추가 하 여 클래스를 serialize 할 수 있어야 한다는 것을 알려 고 JSON 속성으로 명시적으로 표시 된 멤버만 유지 합니다.
--  @No__t-0과 함께 유지 되는 필드에 주석을 추가 하 여 필드가 지속형 엔터티 상태의 일부임을 상기 하 고 JSON 표현에 사용할 속성 이름을 지정 합니다.
+- 클래스를 serialize 할 수 있어야 함을 알려 주는 `[JsonObject(MemberSerialization.OptIn)]` 클래스에 주석을 달고 JSON 속성으로 명시적으로 표시 된 멤버만 유지 합니다.
+-  필드가 지속형 엔터티 상태의 일부임을 알리기 위해 `[JsonProperty("name")]`와 함께 유지 될 필드에 주석을 달고 JSON 표현에 사용할 속성 이름을 지정 합니다.
 
 그러나 이러한 특성은 필요 하지 않습니다. 다른 규칙 또는 특성은 Json.NET에서 작동 하는 한 허용 됩니다. 예를 들어 `[DataContract]` 특성을 사용 하거나 특성을 전혀 사용 하지 않을 수 있습니다.
 
@@ -334,7 +334,7 @@ public class Counter
 }
 ```
 
-기본적으로 클래스의 이름은 JSON 표현의 일부로 저장 *되지* 않습니다. 즉, `TypeNameHandling.None`을 기본 설정으로 사용 합니다. @No__t-0 또는 `JsonProperty` 특성을 사용 하 여이 기본 동작을 재정의할 수 있습니다.
+기본적으로 클래스의 이름은 JSON 표현의 일부로 저장 *되지* 않습니다. 즉, `TypeNameHandling.None`를 기본 설정으로 사용 합니다. `JsonObject` 또는 `JsonProperty` 특성을 사용 하 여이 기본 동작을 재정의할 수 있습니다.
 
 ### <a name="making-changes-to-class-definitions"></a>클래스 정의 변경
 
@@ -348,7 +348,7 @@ public class Counter
 1. 속성 형식이 변경 되어 저장 된 JSON에서 더 이상 deserialize 할 수 없는 경우 예외가 throw 됩니다.
 1. 속성의 형식이 변경 되었지만 저장 된 JSON에서 deserialize 할 수 있는 경우에는이 작업을 수행 합니다.
 
-Json.NET의 동작을 사용자 지정 하는 데 사용할 수 있는 여러 가지 옵션이 있습니다. 예를 들어 저장 된 JSON에 클래스에 없는 필드가 포함 된 경우 예외를 강제로 적용 하려면 특성 `JsonObject(MissingMemberHandling = MissingMemberHandling.Error)`을 지정 합니다. 임의의 형식으로 저장 된 JSON을 읽을 수 있는 deserialization에 대 한 사용자 지정 코드를 작성할 수도 있습니다.
+Json.NET의 동작을 사용자 지정 하는 데 사용할 수 있는 여러 가지 옵션이 있습니다. 예를 들어 저장 된 JSON에 클래스에 없는 필드가 포함 된 경우 예외를 강제로 적용 하려면 `JsonObject(MissingMemberHandling = MissingMemberHandling.Error)`특성을 지정 합니다. 임의의 형식으로 저장 된 JSON을 읽을 수 있는 deserialization에 대 한 사용자 지정 코드를 작성할 수도 있습니다.
 
 ## <a name="entity-construction"></a>엔터티 생성
 
@@ -356,7 +356,7 @@ Json.NET의 동작을 사용자 지정 하는 데 사용할 수 있는 여러 �
 
 ### <a name="custom-initialization-on-first-access"></a>처음 액세스할 때 사용자 지정 초기화
 
-액세스 하지 않았거나 삭제 된 엔터티를 작업에 디스패치하기 전에 몇 가지 특수 한 초기화를 수행 해야 하는 경우도 있습니다. 이 동작을 지정 하기 위해 @no__t 이전에 조건부를 추가할 수 있습니다.
+액세스 하지 않았거나 삭제 된 엔터티를 작업에 디스패치하기 전에 몇 가지 특수 한 초기화를 수행 해야 하는 경우도 있습니다. 이 동작을 지정 하기 위해 `DispatchAsync`전에 조건부를 추가할 수 있습니다.
 
 ```csharp
 [FunctionName(nameof(Counter))]
@@ -482,7 +482,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 
 ### <a name="the-entity-context-object"></a>엔터티 컨텍스트 개체입니다.
 
-@No__t-0 형식의 컨텍스트 개체를 통해 엔터티 관련 기능에 액세스할 수 있습니다. 이 컨텍스트 개체는 엔터티 함수에 대 한 매개 변수로 사용할 수 있으며 비동기-로컬 속성 `Entity.Current`을 통해 사용할 수 있습니다.
+`IDurableEntityContext`형식의 컨텍스트 개체를 통해 엔터티 관련 기능에 액세스할 수 있습니다. 이 컨텍스트 개체는 엔터티 함수에 대 한 매개 변수로 사용할 수 있으며 비동기-로컬 속성 `Entity.Current`를 통해 사용할 수 있습니다.
 
 다음 멤버는 현재 작업에 대 한 정보를 제공 하 고 반환 값을 지정할 수 있도록 합니다. 
 
@@ -495,12 +495,12 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 
 다음 멤버는 엔터티의 상태를 관리 합니다 (만들기, 읽기, 업데이트, 삭제). 
 
-* `HasState`: 엔터티가 있는지 여부 (즉, 특정 상태)입니다. 
+* `HasState`: 엔터티가 존재 하는지 여부에 관계 없이 몇 가지 상태가 있습니다. 
 * `GetState<TState>()`: 엔터티의 현재 상태를 가져옵니다. 아직 존재 하지 않는 경우 생성 됩니다.
 * `SetState(arg)`: 엔터티의 상태를 만들거나 업데이트 합니다.
-* `DeleteState()`: 엔터티 (있는 경우)의 상태를 삭제 합니다. 
+* `DeleteState()`: 엔터티의 상태 (있는 경우)를 삭제 합니다. 
 
-@No__t-0에서 반환 된 상태가 개체 이면 응용 프로그램 코드에서 직접 수정할 수 있습니다. 종료 시에는 `SetState`을 다시 호출할 필요가 없습니다 (하지만 피해도 않음). @No__t-0을 여러 번 호출 하는 경우 동일한 형식을 사용 해야 합니다.
+`GetState`에서 반환 된 상태가 개체 이면 응용 프로그램 코드에서 직접 수정할 수 있습니다. 종료 시에는 `SetState`을 다시 호출할 필요가 없습니다 (하지만 피해도 않음). `GetState<TState>` 여러 번 호출 되는 경우 동일한 형식을 사용 해야 합니다.
 
 마지막으로, 다음 멤버를 사용 하 여 다른 엔터티에 신호를 보내거나 새 오케스트레이션을 시작 합니다.
 

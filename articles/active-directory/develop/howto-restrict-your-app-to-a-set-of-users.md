@@ -1,5 +1,6 @@
 ---
-title: Azure Active Directory에 등록된 앱을 사용자 집합으로 제한하는 방법
+title: Azure Active Directory 등록 된 앱을 사용자 집합으로 제한
+titleSuffix: Microsoft identity platform
 description: Azure AD에 등록된 앱에 대한 액세스를 선택한 사용자 집합으로 제한하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +18,14 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a51c49633e68fdc5f9afd4bf0205adaa625940ff
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: c768730a00d424333e735bb4f6a385d294f38513
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812967"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803956"
 ---
-# <a name="how-to-restrict-your-app-to-a-set-of-users"></a>방법: 사용자 집합으로 앱 제한
+# <a name="how-to-restrict-your-app-to-a-set-of-users"></a>방법: 앱을 사용자 집합으로 제한
 
 기본적으로 Azure AD(Azure Active Directory) 테넌트에 등록된 애플리케이션은 성공적으로 인증한 테넌트의 모든 사용자에게 제공됩니다.
 

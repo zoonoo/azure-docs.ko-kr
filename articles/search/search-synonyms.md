@@ -1,37 +1,35 @@
 ---
-title: 검색 인덱스에 대한 쿼리 확장을 위한 동의어 - Azure Search
-description: Azure Search 인덱스에 대한 검색 쿼리 범위를 확장하기 위한 동의어 맵을 만듭니다. 범위는 목록으로 제공하는 동급 용어를 포함하도록 확장됩니다.
-author: brjohnstmsft
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: conceptual
-ms.date: 05/02/2019
+title: 검색 인덱스에 대 한 쿼리 확장의 동의어
+titleSuffix: Azure Cognitive Search
+description: 동의어 맵을 만들어 Azure Cognitive Search 인덱스에서 검색 쿼리의 범위를 확장 합니다. 범위는 목록으로 제공하는 동급 용어를 포함하도록 확장됩니다.
 manager: nitinme
+author: brjohnstmsft
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: a17e2ae5313f9d0b662d343230a04dd3e726c16d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 7c94ad096cf7d0d01bf2076f6748b49cf4ae1bb4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331170"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794218"
 ---
-# <a name="synonyms-in-azure-search"></a>Azure Search의 동의어
+# <a name="synonyms-in-azure-cognitive-search"></a>Azure Cognitive Search의 동의어
 
 검색 엔진의 동의어는 사용자가 실제로 용어를 제공할 필요 없이 쿼리의 범위를 암시적으로 확장하는 동등한 용어를 연결합니다. 예를 들어 용어 "dog"와 "canine" 및 "puppy"의 동의어 연결을 지정하면 "dog", "canine" 또는 "puppy"를 포함하는 모든 문서는 쿼리의 범위에 속하게 됩니다.
 
-Azure Search에서 동의어 확장은 쿼리 시에 수행됩니다. 기존 작업을 중단하지 않고 동의어 맵을 서비스에 추가할 수 있습니다. 인덱스를 다시 빌드할 필요 없이 **synonymMaps** 속성을 필드 정의에 추가할 수 있습니다.
+Azure Cognitive Search에서 동의어 확장은 쿼리 시에 수행 됩니다. 기존 작업을 중단하지 않고 동의어 맵을 서비스에 추가할 수 있습니다. 인덱스를 다시 빌드할 필요 없이 **synonymMaps** 속성을 필드 정의에 추가할 수 있습니다.
 
 ## <a name="create-synonyms"></a>동의어 만들기
 
-동의어를 만들 수 있는 포털 지원은 없지만 REST API 또는 .NET SDK를 사용할 수 있습니다. REST를 시작 하려면이 API를 사용 하 여 Postman 및 공식화 요청을 [사용 하](search-get-started-postman.md) 는 것이 좋습니다. [동의어 맵 만들기](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)를 사용 하는 것이 좋습니다. 개발자 C# 를 위해를 [사용 하 여 C#Azure 검색에서 동의어 추가 ](search-synonyms-tutorial-sdk.md)를 시작할 수 있습니다.
+동의어를 만들 수 있는 포털 지원은 없지만 REST API 또는 .NET SDK를 사용할 수 있습니다. REST를 시작 하려면이 API를 사용 하 여 Postman 및 공식화 요청을 [사용 하](search-get-started-postman.md) 는 것이 좋습니다. [동의어 맵 만들기](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)를 사용 하는 것이 좋습니다. 개발자 C# 의 경우를 [사용 하 여 C#Azure 인식 검색에서 동의어 추가 ](search-synonyms-tutorial-sdk.md)를 시작할 수 있습니다.
 
 선택적으로 서비스 쪽 암호화를 위해 [고객 관리 키](search-security-manage-encryption-keys.md) 를 사용 하는 경우 해당 보호를 동의어 맵의 내용에 적용할 수 있습니다.
 
 ## <a name="use-synonyms"></a>동의어 사용
 
-Azure Search에서 동의어 지원은 사용자가 정의하고 서비스에 업로드하는 동의어 맵을 기반으로 합니다. 이러한 맵은 독립적인 리소스(인덱스 또는 데이터 원본 등)를 구성하며 검색 서비스의 모든 인덱스에서 검색 가능한 필드에 의해 사용될 수 있습니다.
+Azure Cognitive Search에서 동의어 지원은 사용자가 정의 하 고 서비스에 업로드 하는 동의어 맵을 기반으로 합니다. 이러한 맵은 독립적인 리소스(인덱스 또는 데이터 원본 등)를 구성하며 검색 서비스의 모든 인덱스에서 검색 가능한 필드에 의해 사용될 수 있습니다.
 
 동의어 맵과 인덱스는 독립적으로 유지됩니다. 동의어 맵을 정의하고 서비스에 업로드하면 필드 정의에서 **synonymMaps**라는 새 속성을 추가하여 필드에서 동의어 기능을 사용할 수 있습니다. 동의어 맵 만들기, 업데이트 및 삭제는 항상 전체 문서 작업이므로 증분식으로 동의어 맵의 일부분을 만들거나 업데이트하거나 삭제할 수 없습니다. 단일 항목을 업데이트하는 경우에도 다시 로드해야 합니다.
 

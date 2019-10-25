@@ -1,5 +1,6 @@
 ---
-title: .NET 용 Microsoft Authentication Library의 클라이언트 어설션 | Microsoft
+title: Microsoft Authentication Library for .NET의 클라이언트 어설션
+titleSuffix: Microsoft identity platform
 description: Microsoft Authentication Library for .NET (MSAL.NET)의 기밀 클라이언트 응용 프로그램에 대 한 서명 된 클라이언트 어설션 지원에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: jmprieur
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1ea75499334f3f6eb2f5d3c15526067fcef4eb8
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: fcf11ac8dc39dcb1d70b932dbe870687f5446a52
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442498"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802843"
 ---
 # <a name="confidential-client-assertions"></a>기밀 클라이언트 어설션
 기밀 클라이언트 응용 프로그램은 id를 증명 하기 위해 Azure AD와 암호를 교환 합니다. 비밀은 다음과 같을 수 있습니다.
@@ -50,7 +51,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Azure AD에서 필요한 클레임은 다음과 같습니다.
 
-클레임 형식 | 값 | 설명
+클레임 유형 | Value | 설명
 ---------- | ---------- | ----------
 aud | https://login.microsoftonline.com/{tenantId}/v2.0 | "Aud" (대상) 클레임은 JWT가 의도 된 받는 사람을 식별 합니다 (여기서는 Azure AD) [RFC 7519, 섹션 4.1.3]을 참조 하세요.
 exp | 27 2019 15:04:17 GMT + 0200 (결혼 전 일광 절약 시간) | "exp"(만료 시간) 클레임은 JWT가 그 이후에는 처리를 허용하지 않아야 하는 만료 시간을 식별합니다. [RFC 7519, Section 4.1.4]를 참조 하세요.
@@ -135,7 +136,7 @@ string GetAssertion()
 
 ### <a name="withclientclaims"></a>WithClientClaims
 
-`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)`기본적으로는 Azure AD에서 예상한 클레임 및 전송 하려는 추가 클라이언트 클레임을 포함 하는 서명 된 어설션을 생성 합니다. 다음은이 작업을 수행 하는 방법에 대 한 코드 조각입니다.
+기본적으로 `WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)`는 Azure AD에서 예상한 클레임 및 보내려는 추가 클라이언트 클레임을 포함 하는 서명 된 어설션을 생성 합니다. 다음은이 작업을 수행 하는 방법에 대 한 코드 조각입니다.
 
 ```CSharp
 string ipAddress = "192.168.1.2";
@@ -150,4 +151,4 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 사전에 전달 하는 클레임 중 하나가 필수 클레임 중 하 나와 동일한 경우 추가 클레임 값이 고려 됩니다. MSAL.NET에서 계산 된 클레임을 재정의 합니다.
 
-Azure AD에서 요구 하는 필수 클레임을 포함 하 여 고유한 클레임을 제공 하려는 경우 `false` `mergeWithDefaultClaims` 매개 변수에 대해를 전달 합니다.
+Azure AD에서 요구 하는 필수 클레임을 포함 하 여 고유한 클레임을 제공 하려는 경우 `mergeWithDefaultClaims` 매개 변수에 대 한 `false`를 전달 합니다.

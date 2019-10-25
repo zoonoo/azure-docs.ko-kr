@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c897d52c10efdb8824f676d7640dcc7275915a9e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: dc5c85aaa3c2128b10ba2e6f9c45a66b44593202
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851788"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809215"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인의 제어된 유효성 검사
 
@@ -42,7 +42,7 @@ ADSI 편집 (Active Directory Services 인터페이스 편집기)을 사용 하 
 
 1. 및 관리 워크스테이션에서 **ADSI 편집** 데스크톱 응용 프로그램을 시작 하거나 엔터프라이즈 관리자로 도메인 컨트롤러를 시작 합니다.
 1. 도메인의 **구성 명명 컨텍스트에** 연결 합니다.
-1. **CN = Configuration, dc = contoso, dc = com** > **cn = Services** > **CN = 장치 등록 구성** 으로 이동 합니다.
+1. **Cn = Configuration, dc = contoso, dc = com** > **cn = Services** > **cn = 장치 등록 구성** 으로 이동 합니다.
 1. **CN = Device Registration Configuration** 에서 리프 개체를 마우스 오른쪽 단추로 클릭 하 고 **속성** 을 선택 합니다.
    1. **특성 편집기** 창에서 **키워드** 를 선택 하 고 **편집** 을 클릭 합니다.
    1. **AzureADId** 및 **azureADName** 값 (한 번에 하나씩)을 선택 하 고 **제거** 를 클릭 합니다.
@@ -55,25 +55,25 @@ ADSI 편집 (Active Directory Services 인터페이스 편집기)을 사용 하 
 
 1. 그룹 정책 Management console을 열고 도메인에 새 그룹 정책 개체를 만듭니다.
    1. 새로 만든 GPO에 이름 (예: ClientSideSCP)을 제공 합니다.
-1. GPO를 편집 하 고 다음 경로를 찾습니다. **컴퓨터 구성** > **기본**설정 > **Windows 설정** 레지스트리 > 
-1. 레지스트리를 마우스 오른쪽 단추로 클릭 하 고 **새** > **레지스트리 항목** 을 선택 합니다.
+1. GPO를 편집 하 고 다음 경로를 찾습니다. **컴퓨터 구성** > **기본 설정** > **Windows 설정** > **레지스트리**
+1. 레지스트리를 마우스 오른쪽 단추로 클릭 하 고 **새로 만들기** > **레지스트리 항목** 을 선택 합니다.
    1. **일반** 탭에서 다음을 구성 합니다.
-      1. 작업: **Update 함수**
-      1. 하이브의 **HKEY_LOCAL_MACHINE**
+      1. 작업: **업데이트**
+      1. Hive: **HKEY_LOCAL_MACHINE**
       1. 키 경로: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. 값 이름: **TenantId**
       1. 값 형식: **REG_SZ**
-      1. 방법 2 Azure AD 인스턴스의 GUID 또는 **디렉터리 id** 입니다 .이 값은 **Azure Portal** > **Azure Active Directory** > **속성** > **디렉터리 id**에서 찾을 수 있습니다.
-   1. **확인**을 클릭합니다.
-1. 레지스트리를 마우스 오른쪽 단추로 클릭 하 고 **새** > **레지스트리 항목** 을 선택 합니다.
+      1. 값 데이터: Azure AD 인스턴스의 GUID 또는 **디렉터리 id** 입니다 .이 값은 **Azure Portal** > **AZURE ACTIVE DIRECTORY** > **속성** > **디렉터리 id**)에서 찾을 수 있습니다.
+   1. **확인**
+1. 레지스트리를 마우스 오른쪽 단추로 클릭 하 고 **새로 만들기** > **레지스트리 항목** 을 선택 합니다.
    1. **일반** 탭에서 다음을 구성 합니다.
-      1. 작업: **Update 함수**
-      1. 하이브의 **HKEY_LOCAL_MACHINE**
+      1. 작업: **업데이트**
+      1. Hive: **HKEY_LOCAL_MACHINE**
       1. 키 경로: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
-      1. 값 이름: **TenantName**
+      1. 값 이름: **Tenantname**
       1. 값 형식: **REG_SZ**
-      1. 방법 2 AD FS와 같은 페더레이션된 환경을 사용 하는 경우 확인 된 **도메인 이름** 입니다. 예를 `contoso.onmicrosoft.com` 들어 관리 되는 환경을 사용 하는 경우 확인 된 **도메인 이름** 또는 onmicrosoft.com 도메인 이름
-   1. **확인**을 클릭합니다.
+      1. 값 데이터: AD FS와 같은 페더레이션된 환경을 사용 하는 경우 확인 된 **도메인 이름** 입니다. 확인 된 **도메인 이름** 또는 onmicrosoft.com 도메인 이름 (예: 관리 되는 환경을 사용 하는 경우 `contoso.onmicrosoft.com`)
+   1. **확인**
 1. 새로 만든 GPO에 대 한 편집기를 닫습니다.
 1. 사용자가 제어 하는 출시 모집단에 속한 도메인 가입 컴퓨터를 포함 하는 원하는 OU에 새로 만든 GPO를 연결 합니다.
 
@@ -82,7 +82,7 @@ ADSI 편집 (Active Directory Services 인터페이스 편집기)을 사용 하 
 AD FS를 사용 하는 경우 먼저 위에서 언급 한 지침을 사용 하 여 클라이언트 쪽 SCP를 구성 해야 하지만, GPO를 AD FS 서버에 연결 해야 합니다. SCP 개체는 장치 개체에 대 한 기관의 원본을 정의 합니다. 온-프레미스 또는 Azure AD 일 수 있습니다. 이를 AD FS에 대해 구성 하면 장치 개체의 소스가 Azure AD로 설정 됩니다.
 
 > [!NOTE]
-> AD FS 서버에서 클라이언트 쪽 SCP를 구성 하지 않은 경우 장치 id의 원본은 온-프레미스로 간주 되 고 AD FS는 규정 된 기간 후 온-프레미스 디렉터리에서 장치 개체 삭제를 시작 합니다.
+> AD FS 서버에서 클라이언트 쪽 SCP를 구성 하지 않은 경우 장치 id의 원본은 온-프레미스로 간주 되 고, 장치 쓰기 저장이 있는 경우에는 온-프레미스에 등록 된 장치 컨테이너에서 장치 개체를 삭제 하기 시작 AD FS 규정 된 기간
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Windows 하위 수준 장치에서 하이브리드 Azure AD 조인에 대 한 제어 된 유효성 검사
 

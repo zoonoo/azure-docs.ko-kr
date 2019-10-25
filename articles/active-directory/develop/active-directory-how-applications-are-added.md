@@ -1,5 +1,6 @@
 ---
 title: Azure Active Directory에 애플리케이션을 추가하는 방법과 이유
+titleSuffix: Microsoft identity platform
 description: Azure AD에 애플리케이션을 추가하는 것은 무슨 의미이며 어떻게 진행될까요?
 services: active-directory
 documentationcenter: ''
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bb3ef2a86c523d7cda5bc7da5d83ec4ac741abf
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: ebf6b9a07e775c76188dcebece011b01e90fbcf5
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835378"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803443"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>애플리케이션을 Azure AD에 추가하는 방법 및 이유
 
@@ -104,7 +105,7 @@ Azure AD와 통합하는 애플리케이션 게시자/공급업체에는 게시 
   * 클레임 변환 규칙
   * 특성 매핑(사용자 프로비전)
 * 서비스 주체 및 애플리케이션 개체에 대한 자세한 내용은 다음과 같은 Azure AD Graph REST API 참조 문서를 참조하세요.
-  * [응용 프로그램](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [애플리케이션](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
   * [서비스 주체](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>애플리케이션이 Azure AD와 통합되는 이유는 무엇일까요?

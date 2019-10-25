@@ -1,5 +1,6 @@
 ---
-title: IOS & macOS 용 MSAL (Microsoft 인증 라이브러리) | Microsoft
+title: IOS & macOS 용 MSAL (Microsoft 인증 라이브러리)
+titleSuffix: Microsoft identity platform
 description: IOS와 macOS 간의 MSAL (Microsoft 인증 라이브러리) 사용 차이점에 대해 설명 합니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +18,14 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beb6e55e83412535f29284db48fb37fd514b35d4
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 090f4eaea292c7122db2427ce8730df815506fc0
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269013"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803137"
 ---
-# <a name="microsoft-authentication-library-for-ios-and-macos-differences"></a>IOS 및 macOS의 Microsoft 인증 라이브러리 차이점
+# <a name="microsoft-authentication-library-for-ios-and-macos-differences"></a>iOS 및 macOS용 Microsoft 인증 라이브러리 차이점
 
 이 문서에서는 iOS 및 macOS 용 MSAL (Microsoft 인증 라이브러리) 간의 기능 차이점에 대해 설명 합니다.
 
@@ -37,7 +38,7 @@ MacOS 용 MSAL은 iOS에서 사용할 수 있는 기능의 하위 집합입니�
 
 MacOS 용 MSAL은 다음을 지원 하지 않습니다.
 
-- `ASWebAuthenticationSession`, `SFAuthenticationSession`, 등`SFSafariViewController`의 다양 한 브라우저 유형
+- `ASWebAuthenticationSession`, `SFAuthenticationSession`, `SFSafariViewController`등의 다양 한 브라우저 유형이 있습니다.
 - Microsoft Authenticator 앱을 통한 조정 된 인증은 macOS에 대해 지원 되지 않습니다.
 
 동일한 게시자의 앱 간에 키 집합 공유는 macOS 10.14 이전 버전에서 더 제한적입니다. [액세스 제어 목록을](https://developer.apple.com/documentation/security/keychain_services/access_control_lists?language=objc) 사용 하 여 키 집합을 공유 하는 앱의 경로를 지정 합니다. 사용자에 게 추가 키 집합 프롬프트가 표시 될 수 있습니다.

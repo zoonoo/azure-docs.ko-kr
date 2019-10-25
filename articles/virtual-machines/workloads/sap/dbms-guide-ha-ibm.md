@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: 7ca6f1bda2dff9a8a9e54cb9d9ce5fd2d34c7245
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e7de3e8026b15342c06eff9718242c08d33a53a4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428084"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72783774"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -201,7 +201,7 @@ Sap [설치 가이드 Finder][sap-instfind]를 사용 하 여 sap 도움말 포�
 
 SAP 유형이 같은 시스템 복사 프로시저를 사용 하 여 대기 데이터베이스 서버를 설정 하려면 다음 단계를 실행 합니다.
 
-1. **대상 시스템**@no__t**배포**된  > **데이터베이스 인스턴스**> **시스템 복사** 옵션을 선택 합니다.
+1. **배포** > **데이터베이스 인스턴스** > **대상 시스템** > **시스템 복사** 옵션을 선택 합니다.
 1. Backup을 사용 하 여 대기 서버 인스턴스에서 백업을 복원할 수 있도록 복사 방법으로 같은 **시스템** 을 선택 합니다.
 1. 동일한 시스템 복사를 위해 데이터베이스를 복원 하는 종료 단계에 도달 하면 설치 관리자를 종료 합니다. 주 호스트의 백업에서 데이터베이스를 복원 합니다. 주 데이터베이스 서버에서 모든 후속 설치 단계가 이미 실행 되었습니다.
 1. IBM Db2 용 HADR을 설정 합니다.
@@ -341,11 +341,15 @@ Execute command as db2&lt;sid&gt; db2pd -hadr -db &lt;SID&gt;
 - **[2]** : 노드 2에만 적용 가능
 
 **[A]** Pacemaker 구성에 대 한 필수 조건:
-1. Db2stop를 사용 하 여 사용자 db2 @ no__t-0sid >를 사용 하 여 두 데이터베이스 서버를 종료 합니다.
-1. Db2 @ no__t-0sid > 사용자에 대 한 셸 환경을 */bin/ksh*로 변경 합니다. Yast 도구를 사용 하는 것이 좋습니다. 
+1. Db2stop를 사용 하 여 사용자 db2\<sid >를 사용 하 여 두 데이터베이스 서버를 종료 합니다.
+1. Db2\<sid > 사용자에 대 한 셸 환경을 */bin/ksh*로 변경 합니다. Yast 도구를 사용 하는 것이 좋습니다. 
 
 
 ### <a name="pacemaker-configuration"></a>Pacemaker 구성
+
+> [!IMPORTANT]
+> 최신 테스트로 인해 netcat이 백로그로 인 한 요청 응답을 중지 하 고 하나의 연결만 처리할 수 있는 경우를 확인할 수 있습니다. Netcat 리소스는 Azure 부하 분산 장치 요청에 대 한 수신 대기를 중지 하 고 부동 IP는 사용할 수 없게 됩니다.  
+> 기존 Pacemaker 클러스터의 경우 [Azure 부하 분산 장치 검색 강화](https://www.suse.com/support/kb/doc/?id=7024128)의 지침에 따라 netcat을 socat로 바꾸는 것이 좋습니다. 변경 작업을 수행 하려면 짧은 가동 중지 시간이 필요 합니다.  
 
 **[1]** IBM Db2 HADR 관련 Pacemaker 구성:
 <pre><code># Put Pacemaker into maintenance mode
@@ -371,7 +375,7 @@ sudo crm configure primitive rsc_ip_db2ptr_<b>PTR</b> IPaddr2 \
 
 # Configure probe port for Azure load Balancer
 sudo crm configure primitive rsc_nc_db2ptr_<b>PTR</b> anything \
-        params binfile="/usr/bin/nc" cmdline_options="-l -k <b>62500</b>" \
+        params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:<b>62500</b>,backlog=10,fork,reuseaddr /dev/null" \
         op monitor timeout="20s" interval="10" depth="0"
 
 sudo crm configure group g_ip_db2ptr_<b>PTR</b> rsc_ip_db2ptr_<b>PTR</b> rsc_nc_db2ptr_<b>PTR</b>
@@ -497,7 +501,7 @@ J2EE 구성 도구를 사용 하 여 JDBC URL을 확인 하거나 업데이트�
  
 1. J2EE 인스턴스의 기본 응용 프로그램 서버에 로그인 하 고 `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`을 실행 합니다.
 1. 왼쪽 프레임에서 **보안 저장소**를 선택 합니다.
-1. 오른쪽 프레임에서 jdbc/pool/@no__t 키를 선택 합니다. 0SAPSID >/dv.
+1. 오른쪽 프레임에서 jdbc/pool/\<SAPSID >/url. 키를 선택 합니다.
 1. JDBC URL의 호스트 이름을 가상 호스트 이름으로 변경 합니다.
      `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
 1. **추가**를 선택합니다.
@@ -558,7 +562,7 @@ SAP 시스템의 원래 상태는 다음 이미지와 같이 트랜잭션 DBACOC
 > 테스트를 시작 하기 전에 다음을 확인 합니다.
 > * Pacemaker에 실패 한 작업 (crm 상태)이 없습니다.
 > * 위치 제약 조건이 없습니다 (마이그레이션 테스트의 leftovers).
-> * IBM Db2 HADR 동기화가 작동 중입니다. User db2 @ no__t-0sid를 사용 하 여 확인 > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> * IBM Db2 HADR 동기화가 작동 중입니다. 사용자 db2\<sid를 사용 하 여 확인 > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 다음 명령을 실행 하 여 기본 Db2 데이터베이스를 실행 하는 노드를 마이그레이션합니다.
@@ -592,8 +596,8 @@ SAP 시스템의 원래 상태는 다음 이미지와 같이 트랜잭션 DBACOC
 crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
-- **crm 리소스 마이그레이션 \<res_name > \<host >:** 위치 제약 조건을 만들고 인수와 관련 된 문제를 발생 시킬 수 있습니다.
-- **crm 리소스 clear \<res_name >** : 위치 제약 조건 지우기
+- **crm 리소스 마이그레이션 \<res_name > \<호스트 >:** 위치 제약 조건을 만들고 인수와 관련 된 문제를 발생 시킬 수 있습니다.
+- **crm resource clear \<res_name >** : location 제약 조건을 지웁니다.
 - **crm 리소스 정리 \<res_name >** : 리소스의 모든 오류를 지웁니다.
 
 ### <a name="test-the-fencing-agent"></a>펜스 에이전트 테스트
@@ -767,7 +771,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb01
      Masters: [ azibmdb01 ]
      Slaves: [ azibmdb02 ]</code></pre>
 
-User db2 @ no__t-0sid > db2stop force 명령을 실행 합니다.
+사용자 db2\<sid > 명령을 실행 db2stop force:
 <pre><code>azibmdb01:~ # su - db2ptr
 azibmdb01:db2ptr> db2stop force</code></pre>
 

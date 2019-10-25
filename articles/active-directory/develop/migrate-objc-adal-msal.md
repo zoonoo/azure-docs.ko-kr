@@ -1,6 +1,7 @@
 ---
 let application: MSALPublicClientApplication!
-title: MSAL으로 앱을 마이그레이션합니다. ObjectiveC | Microsoft id 플랫폼
+title: MSAL으로 앱을 마이그레이션합니다. ObjectiveC
+titleSuffix: Microsoft identity platform
 description: ObjectiveC 용 Microsoft Authentication Library (iOS 및 macOS 용 MSAL)와 ObjectiveC (ADAL)의 Azure AD 인증 Library 간의 차이점에 대해 알아봅니다. ObjC) 및 iOS 및 macOS 용 MSAL으로 마이그레이션하는 방법을 설명 합니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -18,12 +19,12 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcceec31785b3d8ebc6d9566e7d2eba857d792ef
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 208c644c26006fb99139abe1b05c63f90eff448d
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269026"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803282"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>IOS 및 macOS 용 MSAL으로 응용 프로그램 마이그레이션
 
@@ -58,69 +59,69 @@ MSAL 공용 API는 Azure AD v 1.0과 Microsoft id 플랫폼 간의 몇 가지 �
 
 ### <a name="msalpublicclientapplication-instead-of-adauthenticationcontext"></a>ADAuthenticationContext 대신 MSALPublicClientApplication
 
-`ADAuthenticationContext`는 ADAL 앱에서 만드는 첫 번째 개체입니다. ADAL의 인스턴스화를 나타냅니다. 앱은 각 Azure Active Directory 클라우드 및 `ADAuthenticationContext` 테 넌 트 (기관) 조합에 대 한의 새 인스턴스를 만듭니다. 동일한 `ADAuthenticationContext` 를 사용 하 여 여러 공용 클라이언트 응용 프로그램에 대 한 토큰을 가져올 수 있습니다.
+`ADAuthenticationContext`은 ADAL 앱이 만드는 첫 번째 개체입니다. ADAL의 인스턴스화를 나타냅니다. 앱은 각 Azure Active Directory 클라우드 및 테 넌 트 (기관) 조합에 대해 `ADAuthenticationContext`의 새 인스턴스를 만듭니다. 동일한 `ADAuthenticationContext`를 사용 하 여 여러 공용 클라이언트 응용 프로그램에 대 한 토큰을 가져올 수 있습니다.
 
-Msal에서 기본 상호 작용은 `MSALPublicClientApplication` [OAuth 2.0 공용 클라이언트](https://tools.ietf.org/html/rfc6749#section-2.1)를 통해 모델링 되는 개체를 통해 진행 됩니다. 의 `MSALPublicClientApplication` 인스턴스 하나를 사용 하 여 각 기관에 대 한 새 인스턴스를 만들 필요 없이 여러 AAD 클라우드 및 테 넌 트와 상호 작용할 수 있습니다. 대부분의 앱에는 `MSALPublicClientApplication` 하나의 인스턴스만 있으면 충분 합니다.
+MSAL에서 기본 상호 작용은 [OAuth 2.0 공용 클라이언트](https://tools.ietf.org/html/rfc6749#section-2.1)를 통해 모델링 되는 `MSALPublicClientApplication` 개체를 통해 진행 됩니다. 각 인증 기관에 대 한 새 인스턴스를 만들 필요 없이 여러 AAD 클라우드 및 테 넌 트와 상호 작용 하는 데 `MSALPublicClientApplication` 인스턴스 하나를 사용할 수 있습니다. 대부분의 앱에서 하나의 `MSALPublicClientApplication` 인스턴스만 있으면 충분 합니다.
 
 ### <a name="scopes-instead-of-resources"></a>리소스 대신 범위
 
-ADAL에서 앱은 Azure Active Directory v 1.0 끝점에서 토큰을 획득 `https://graph.microsoft.com` 하는 등의 리소스 식별자를 제공 해야 했습니다. 리소스는 응용 프로그램 매니페스트에서 파악 하는 다양 한 범위 또는 oAuth2Permissions를 정의할 수 있습니다. 이로 인해 클라이언트 앱은 앱 등록 중에 미리 정의 된 특정 범위의 범위에 대해 해당 리소스의 토큰을 요청할 수 있습니다.
+ADAL에서 앱은 Azure Active Directory v1.0 끝점에서 토큰을 획득 하기 위해 `https://graph.microsoft.com`와 같은 *리소스* 식별자를 제공 해야 했습니다. 리소스는 응용 프로그램 매니페스트에서 파악 하는 다양 한 범위 또는 oAuth2Permissions를 정의할 수 있습니다. 이로 인해 클라이언트 앱은 앱 등록 중에 미리 정의 된 특정 범위의 범위에 대해 해당 리소스의 토큰을 요청할 수 있습니다.
 
-MSAL에서 단일 리소스 식별자 대신 앱은 요청당 범위 집합을 제공 합니다. 범위는 리소스 식별자와 리소스/권한 형식의 사용 권한 이름입니다. 예를 들어 IPv4 주소를 사용하는 경우 `https://graph.microsoft.com/user.read`
+MSAL에서 단일 리소스 식별자 대신 앱은 요청당 범위 집합을 제공 합니다. 범위는 리소스 식별자와 리소스/권한 형식의 사용 권한 이름입니다. 위치(예:`https://graph.microsoft.com/user.read`
 
 MSAL에서 범위를 제공 하는 방법에는 두 가지가 있습니다.
 
-* 앱에 필요한 모든 사용 권한 목록을 제공 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. 
+* 앱에 필요한 모든 사용 권한 목록을 제공 합니다. 다음은 그 예입니다. 
 
     `@[@"https://graph.microsot.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
 
-    이 경우 앱은 `directory.read` 및 `directory.write` 사용 권한을 요청 합니다. 사용자가이 앱에 대해 이전에 동의한 하지 않은 경우 해당 사용 권한에 동의 하 라는 메시지가 표시 됩니다. 응용 프로그램은 사용자가 응용 프로그램에 대해 이미 동의한 추가 사용 권한을 받을 수도 있습니다. 사용자에 게 새 권한 또는 부여 되지 않은 사용 권한에 동의 하 라는 메시지만 표시 됩니다.
+    이 경우 앱은 `directory.read` 및 `directory.write` 권한을 요청 합니다. 사용자가이 앱에 대해 이전에 동의한 하지 않은 경우 해당 사용 권한에 동의 하 라는 메시지가 표시 됩니다. 응용 프로그램은 사용자가 응용 프로그램에 대해 이미 동의한 추가 사용 권한을 받을 수도 있습니다. 사용자에 게 새 권한 또는 부여 되지 않은 사용 권한에 동의 하 라는 메시지만 표시 됩니다.
 
 * `/.default` 범위입니다.
 
-이는 모든 응용 프로그램에 대해 기본 제공 되는 범위입니다. 응용 프로그램을 등록할 때 구성 된 사용 권한의 정적 목록을 참조 합니다. 의 동작은의 `resource`동작과 유사 합니다. 이는 유사한 범위 및 사용자 경험 집합이 유지 되도록 마이그레이션하는 경우에 유용할 수 있습니다.
+이는 모든 응용 프로그램에 대해 기본 제공 되는 범위입니다. 응용 프로그램을 등록할 때 구성 된 사용 권한의 정적 목록을 참조 합니다. 해당 동작은 `resource`와 비슷합니다. 이는 유사한 범위 및 사용자 경험 집합이 유지 되도록 마이그레이션하는 경우에 유용할 수 있습니다.
 
-`/.default` 범위를 사용 하려면 리소스 식별자 `/.default` 에를 추가 합니다. 예를 들어 `https://graph.microsoft.com/.default`을 참조하십시오. 리소스가 슬래시 (`/`)로 끝나는 경우 선행 슬래시를 포함 하 여 계속 `/.default`해 서 추가 해야 합니다 .이 경우에는 이중 슬래시 (`//`)가 포함 된 범위가 생성 됩니다.
+`/.default` 범위를 사용 하려면 리소스 식별자에 `/.default`를 추가 합니다. 예: `https://graph.microsoft.com/.default`. 리소스가 슬래시 (`/`)로 끝나는 경우에도 선행 슬래시를 포함 하 여 `/.default`를 추가 해야 합니다 .이 경우에는 이중 슬래시 (`//`)를 포함 하는 범위가 생성 됩니다.
 
 여기에서 "/.default" 범위를 사용 하는 방법에 대 한 자세한 내용은 여기를 참조 [하세요](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope) .
 
 ### <a name="supporting-different-webview-types--browsers"></a>브라우저 & 다양 한 웹 보기 유형 지원
 
-ADAL은 iOS 용 UIWebView 보기/WKWebView 및 macOS에 대 한 웹 보기만 지원 합니다. IOS 용 msal은 권한 부여 코드를 요청할 때 웹 콘텐츠를 표시 하기 위한 더 많은 옵션을 `UIWebView`지원 하 고 더 이상 지원 하지 않으므로 사용자 환경 및 보안을 향상 시킬 수 있습니다.
+ADAL은 iOS 용 UIWebView 보기/WKWebView 및 macOS에 대 한 웹 보기만 지원 합니다. IOS 용 MSAL은 권한 부여 코드를 요청할 때 웹 콘텐츠를 표시 하기 위한 더 많은 옵션을 지원 하 고 더 이상 `UIWebView`을 지원 하지 않습니다. 사용자 환경 및 보안을 향상 시킬 수 있습니다.
 
 기본적으로 iOS의 MSAL은 iOS 12 이상 장치에서 인증을 위해 Apple에서 권장 하는 웹 구성 요소인 [Aswebauthenticationsession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc)을 사용 합니다. 앱과 Safari 브라우저 간에 쿠키를 공유 하 여 SSO (Single Sign-on) 혜택을 제공 합니다.
 
 앱 요구 사항 및 원하는 최종 사용자 환경에 따라 다른 웹 구성 요소를 사용 하도록 선택할 수 있습니다. 자세한 옵션은 [지원 되는 웹 보기 형식](customize-webviews.md) 을 참조 하세요.
 
-Adal에서 msal으로 마이그레이션하는 경우 `WKWebView` 에서 iOS 및 macos의 adal과 가장 비슷한 사용자 환경을 제공 합니다. 가능 하면 iOS에서로 `ASWebAuthenticationSession` 마이그레이션하는 것이 좋습니다. MacOS의 경우를 사용 `WKWebView`하는 것이 좋습니다.
+ADAL에서 MSAL으로 마이그레이션하는 경우 `WKWebView` iOS 및 macOS의 ADAL과 가장 비슷한 사용자 환경을 제공 합니다. 가능 하면 iOS에서 `ASWebAuthenticationSession`로 마이그레이션하는 것이 좋습니다. MacOS의 경우 `WKWebView`를 사용 하는 것이 좋습니다.
 
 ### <a name="account-management-api-differences"></a>계정 관리 API 차이점
 
-ADAL 메서드 `acquireToken()` 또는 `acquireTokenSilent()`를 호출 하는 경우 인증 되는 `ADUserInformation` 계정을 나타내는의 `id_token` 클레임 목록이 포함 된 개체를 받습니다. 또한은 `upn` 클레임을 `userId` 기반으로을 반환합니다.`ADUserInformation` 초기 대화형 토큰 획득 후 ADAL에는 개발자가 모든 `userId` 자동 호출에서를 제공할 것으로 예상 합니다.
+`acquireToken()` 또는 `acquireTokenSilent()`ADAL 메서드를 호출 하는 경우 인증 중인 계정을 나타내는 `id_token`에서 클레임 목록을 포함 하는 `ADUserInformation` 개체를 받습니다. 또한 `ADUserInformation`는 `upn` 클레임에 따라 `userId`를 반환 합니다. 초기 대화형 토큰 획득 후 ADAL에는 개발자가 모든 자동 호출에 `userId`를 제공할 것으로 예상 합니다.
 
 ADAL은 알려진 사용자 id를 검색 하는 API를 제공 하지 않습니다. 앱을 사용 하 여 이러한 계정을 저장 하 고 관리 합니다.
 
 MSAL은 토큰을 획득 하지 않고 MSAL에 알려진 모든 계정을 나열 하는 일련의 Api를 제공 합니다.
 
-ADAL과 마찬가지로 MSAL은 `id_token`에서 클레임 목록을 보유 하는 계정 정보를 반환 합니다. 개체 내 개체`MSALAccount` 의 일부입니다. `MSALResult`
+ADAL과 마찬가지로 MSAL은 `id_token`클레임 목록을 포함 하는 계정 정보를 반환 합니다. `MSALResult` 개체 내의 `MSALAccount` 개체의 일부입니다.
 
 MSAL은 계정을 제거 하 고 제거 된 계정을 앱에서 액세스할 수 없도록 하는 Api 집합을 제공 합니다. 계정을 제거 하 고 나면 나중에 토큰 획득 호출에서 사용자에 게 대화형 토큰 획득을 수행 하 라는 메시지를 표시 합니다. 계정 제거는 시작한 클라이언트 응용 프로그램에만 적용 되며, 장치에서 실행 되는 다른 앱 또는 시스템 브라우저에서 계정을 제거 하지 않습니다. 이렇게 하면 개별 앱에서 로그 아웃 한 후에도 사용자가 장치에서 계속 SSO 환경을 사용할 수 있습니다.
 
-또한 MSAL은 나중에 토큰을 자동으로 요청 하는 데 사용할 수 있는 계정 식별자도 반환 합니다. 그러나 계정 식별자 ( `identifier` `MSALAccount` 개체의 속성을 통해 액세스 가능)는 표시 되지 않으며,이 식별자를 해석 하거나 구문 분석 하려고 하는 형식을 가정할 수 없습니다.
+또한 MSAL은 나중에 토큰을 자동으로 요청 하는 데 사용할 수 있는 계정 식별자도 반환 합니다. 그러나 계정 식별자 (`MSALAccount` 개체의 `identifier` 속성을 통해 액세스 가능)는 표시 되지 않으며,이를 해석 하거나 구문 분석 하려고 할 때의 형식을 가정할 수 없습니다.
 
 ### <a name="migrating-the-account-cache"></a>계정 캐시 마이그레이션
 
-Adal에서 마이그레이션할 때 앱은 `userId` `identifier` 일반적으로 msal에 필요한가 없는 ADAL을 저장 합니다. 일회성 마이그레이션 단계로 앱은 다음 API를 사용 하 여 ADAL의 userId를 사용 하 여 MSAL 계정을 쿼리할 수 있습니다.
+ADAL에서 마이그레이션할 때 앱은 일반적으로 MSAL에 필요한 `identifier` 없는 ADAL의 `userId`저장 합니다. 일회성 마이그레이션 단계로 앱은 다음 API를 사용 하 여 ADAL의 userId를 사용 하 여 MSAL 계정을 쿼리할 수 있습니다.
 
 `- (nullable MSALAccount *)accountForUsername:(nonnull NSString *)username error:(NSError * _Nullable __autoreleasing * _Nullable)error;`
 
 이 API는 MSAL 및 ADAL의 캐시를 모두 읽어 ADAL (ADAL userId)에서 계정을 찾습니다.
 
-계정이 있는 경우 개발자는이 계정을 사용 하 여 자동 토큰 가져오기를 수행 해야 합니다. 첫 번째 자동 토큰 획득은 계정을 효율적으로 업그레이드 하 고 개발자는 msal result (`identifier`)에서 msal 호환 계정 식별자를 가져옵니다. 그 후에는 `identifier` 다음 API를 사용 하 여 계정 조회에만 사용 해야 합니다.
+계정이 있는 경우 개발자는이 계정을 사용 하 여 자동 토큰 가져오기를 수행 해야 합니다. 첫 번째 자동 토큰 획득은 계정을 효율적으로 업그레이드 하 고 개발자는 msal result (`identifier`)에서 MSAL 호환 계정 식별자를 가져옵니다. 그 후에는 다음 API를 사용 하 여 계정 조회에 `identifier`만 사용 해야 합니다.
 
 `- (nullable MSALAccount *)accountForIdentifier:(nonnull NSString *)identifier error:(NSError * _Nullable __autoreleasing * _Nullable)error;`
 
-가 UPN을 기반으로 하기 때문 `userId` `userId` 에 msal의 모든 작업에 ADAL을 계속 사용할 수 있지만 사용자 환경이 잘못 될 수 있는 여러 제한 사항이 적용 됩니다. 예를 들어 UPN이 변경 되 면 사용자는 다시 로그인 해야 합니다. 모든 앱이 모든 작업에 대해 제공 하지 않는 `identifier` 계정을 사용 하는 것이 좋습니다.
+`userId`는 UPN을 기반으로 하기 때문에 MSAL의 모든 작업에 ADAL의 `userId`을 계속 사용할 수 있지만 사용자 환경이 잘못 될 수 있는 여러 가지 제한이 적용 됩니다. 예를 들어 UPN이 변경 되 면 사용자는 다시 로그인 해야 합니다. 모든 앱에서 모든 작업에 대해 `identifier`를 사용 하지 않는 계정을 사용 하는 것이 좋습니다.
 
 자세한 내용은 [캐시 상태 마이그레이션](sso-between-adal-msal-apps-macos-ios.md)을 참조 하세요.
 
@@ -128,18 +129,18 @@ Adal에서 마이그레이션할 때 앱은 `userId` `identifier` 일반적으�
 
 MSAL은 몇 가지 토큰 획득 호출 변경 사항을 소개 합니다.
 
-* ADAL과 마찬가지로 `acquireTokenSilent` 는 항상 자동 요청이 발생 합니다.
-* ADAL과 달리 `acquireToken` 는 항상 웹 보기 또는 Microsoft Authenticator 앱을 통해 사용자가 실행할 수도 있는 UI를 생성 합니다. 웹 보기/Microsoft Authenticator 내부의 SSO 상태에 따라 사용자에 게 자격 증명을 입력 하 라는 메시지가 표시 될 수 있습니다.
-* ADAL `acquireToken` 에서는 먼저 `AD_PROMPT_AUTO` 자동 토큰 획득을 시도 하 고 자동 요청이 실패 하는 경우에만 UI를 표시 합니다. Msal에서는를 먼저 호출 `acquireTokenSilent` 하 고 자동 획득이 실패 한 경우에만를 호출 `acquireToken` 하 여이 논리를 구현할 수 있습니다. 이를 통해 개발자는 대화형 토큰 획득을 시작 하기 전에 사용자 환경을 사용자 지정할 수 있습니다.
+* ADAL과 마찬가지로 `acquireTokenSilent` 항상 자동 요청이 발생 합니다.
+* ADAL과 달리 `acquireToken`는 항상 웹 보기 또는 Microsoft Authenticator 앱을 통해 사용자가 실행할 수도 있는 UI를 생성 합니다. 웹 보기/Microsoft Authenticator 내부의 SSO 상태에 따라 사용자에 게 자격 증명을 입력 하 라는 메시지가 표시 될 수 있습니다.
+* ADAL에서 `AD_PROMPT_AUTO`로 `acquireToken`는 먼저 자동 토큰 획득을 시도 하 고 자동 요청이 실패 하는 경우에만 UI를 표시 합니다. MSAL에서는 `acquireTokenSilent`를 먼저 호출 하 고 자동 획득이 실패할 경우에만 `acquireToken`를 호출 하 여이 논리를 구현할 수 있습니다. 이를 통해 개발자는 대화형 토큰 획득을 시작 하기 전에 사용자 환경을 사용자 지정할 수 있습니다.
 
 ### <a name="error-handling-differences"></a>오류 처리 차이점
 
 MSAL은 앱에서 처리할 수 있는 오류와 사용자의 개입이 필요한 오류를 보다 명확 하 게 구분 합니다. 개발자가 처리 해야 하는 제한 된 수의 오류는 다음과 같습니다.
 
-* `MSALErrorInteractionRequired`: 사용자는 대화형 요청을 수행 해야 합니다. 이는 만료 된 인증 세션, 조건부 액세스 정책 변경, 새로 고침 토큰이 만료 되거나 해지 된 경우, 캐시에 유효한 토큰이 없는 등의 다양 한 이유로 인해 발생할 수 있습니다.
+* `MSALErrorInteractionRequired`: 사용자가 대화형 요청을 수행 해야 합니다. 이는 만료 된 인증 세션, 조건부 액세스 정책 변경, 새로 고침 토큰이 만료 되거나 해지 된 경우, 캐시에 유효한 토큰이 없는 등의 다양 한 이유로 인해 발생할 수 있습니다.
 * `MSALErrorServerDeclinedScopes`: 요청이 완전히 완료 되지 않았으며 일부 범위에 액세스 권한이 부여 되지 않았습니다. 이는 하나 이상의 범위에 대 한 사용자의 동의를 거부 하는 경우에 발생할 수 있습니다.
 
-목록에서 다른 모든 오류를 처리 하는 것은 선택 사항입니다. [ `MSALError` ](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128) 이러한 오류의 정보를 사용 하 여 사용자 환경을 향상 시킬 수 있습니다.
+[`MSALError` 목록](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128) 에서 다른 모든 오류를 처리 하는 것은 선택 사항입니다. 이러한 오류의 정보를 사용 하 여 사용자 환경을 향상 시킬 수 있습니다.
 
 MSAL 오류 처리에 대 한 자세한 내용은 [MSAL을 사용 하 여 예외 및 오류 처리](msal-handling-exceptions.md) 를 참조 하세요.
 
@@ -149,9 +150,9 @@ V0.3.0 버전부터 MSAL은 Microsoft Authenticator 앱을 사용 하 여 조정
 
 응용 프로그램에 broker를 사용 하도록 설정 하려면:
 
-1. 응용 프로그램에 대 한 broker 호환 리디렉션 URI 형식을 등록 합니다. Broker 호환 리디렉션 URI 형식은 `msauth.<app.bundle.id>://auth`입니다. 을 `<app.bundle.id>` 응용 프로그램의 번들 ID로 바꿉니다. ADAL에서 마이그레이션하는 경우 응용 프로그램을 이미 broker를 사용할 수 있는 경우에는 추가 작업이 필요 하지 않습니다. 이전 리디렉션 URI는 MSAL과 완전히 호환 되므로 3 단계로 건너뛸 수 있습니다.
+1. 응용 프로그램에 대 한 broker 호환 리디렉션 URI 형식을 등록 합니다. Broker 호환 리디렉션 URI 형식이 `msauth.<app.bundle.id>://auth`. `<app.bundle.id>`를 응용 프로그램의 번들 ID로 바꿉니다. ADAL에서 마이그레이션하는 경우 응용 프로그램을 이미 broker를 사용할 수 있는 경우에는 추가 작업이 필요 하지 않습니다. 이전 리디렉션 URI는 MSAL과 완전히 호환 되므로 3 단계로 건너뛸 수 있습니다.
 
-2. Info.plist 파일에 응용 프로그램의 리디렉션 URI 체계를 추가 합니다. 기본 MSAL 리디렉션 URI의 경우 형식은 `msauth.<app.bundle.id>`입니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+2. Info.plist 파일에 응용 프로그램의 리디렉션 URI 체계를 추가 합니다. 기본 MSAL 리디렉션 URI의 경우 형식은 `msauth.<app.bundle.id>`입니다. 다음은 그 예입니다.
 
     ```xml
     <key>CFBundleURLSchemes</key>
@@ -170,7 +171,7 @@ V0.3.0 버전부터 MSAL은 Microsoft Authenticator 앱을 사용 하 여 조정
     </array>
     ```
 
-4. AppDelegate 파일에 다음을 추가 하 여 콜백을 처리 합니다. Objective-C:
+4. AppDelegate 파일에 다음을 추가 하 여 콜백을 처리 합니다.
     
     ```objc
     - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options`
@@ -179,7 +180,7 @@ V0.3.0 버전부터 MSAL은 Microsoft Authenticator 앱을 사용 하 여 조정
     }
     ```
     
-    Swift
+    Swift:
     
     ```swift
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -189,7 +190,7 @@ V0.3.0 버전부터 MSAL은 Microsoft Authenticator 앱을 사용 하 여 조정
 
 ### <a name="business-to-business-b2b"></a>B2B (business to business)
 
-ADAL에서 앱이 토큰을 요청 하 `ADAuthenticationContext` 는 각 테 넌 트에 대해 별도의 인스턴스를 만듭니다. 이는 더 이상 MSAL의 요구 사항이 아닙니다. Msal에서는 acquireToken 및 acquireTokenSilent 호출에 대해 다른 기관을 `MSALPublicClientApplication` 지정 하 여의 단일 인스턴스를 만들고 모든 AAD 클라우드 및 조직에 사용할 수 있습니다.
+ADAL에서는 앱에서 토큰을 요청 하는 각 테 넌 트에 대해 별도의 `ADAuthenticationContext` 인스턴스를 만듭니다. 이는 더 이상 MSAL의 요구 사항이 아닙니다. MSAL에서는 acquireToken 및 acquireTokenSilent 호출에 대해 다른 기관을 지정 하 여 `MSALPublicClientApplication` 단일 인스턴스를 만들고 모든 AAD 클라우드 및 조직에 사용할 수 있습니다.
 
 ## <a name="sso-in-partnership-with-other-sdks"></a>다른 Sdk와 파트너 관계의 SSO
 
@@ -207,7 +208,7 @@ MacOS에서 MSAL은 iOS 및 macOS 기반 응용 프로그램 및 ADAL 목표 C �
 
 IOS의 MSAL은 다음과 같은 두 가지 유형의 SSO도 지원 합니다.
 
-* 웹 브라우저를 통한 SSO. IOS 용 msal은 `ASWebAuthenticationSession`장치 및 특히 Safari 브라우저에서 다른 앱 간에 공유 되는 쿠키를 통해 SSO를 제공 하는를 지원 합니다.
+* 웹 브라우저를 통한 SSO. IOS 용 MSAL은 장치 및 특히 Safari 브라우저에서 다른 앱 간에 공유 되는 쿠키를 통해 SSO를 제공 하는 `ASWebAuthenticationSession`지원 합니다.
 * 인증 브로커를 통한 SSO. IOS 장치에서 Microsoft Authenticator는 Authentication broker 역할을 합니다. 규격 장치 요구와 같은 조건부 액세스 정책에 따라 등록 된 장치에 대 한 SSO를 제공할 수 있습니다. V0.3.0 버전부터 MSAL Sdk는 기본적으로 broker를 지원 합니다.
 
 ## <a name="intune-mam-sdk"></a>Intune MAM SDK
@@ -229,9 +230,9 @@ ADAL 및 MSAL 공존은 동일한 응용 프로그램에서 지원 되지 않습
 
 MSAL으로 전환 하 고 AAD 계정을 사용 하도록 설정 하기 위해 기존 AAD 응용 프로그램을 변경할 필요가 없습니다. 그러나 ADAL 기반 응용 프로그램에서 조정 된 인증을 지원 하지 않는 경우에는 응용 프로그램에 대 한 새 리디렉션 URI를 등록 해야 MSAL으로 전환할 수 있습니다.
 
-리디렉션 URI는 형식 `msauth.<app.bundle.id>://auth`이어야 합니다. 을 `<app.bundle.id>` 응용 프로그램의 번들 ID로 바꿉니다. [Azure Portal](https://aka.ms/MobileAppReg)에서 리디렉션 URI를 지정 합니다.
+리디렉션 URI는 `msauth.<app.bundle.id>://auth`형식 이어야 합니다. `<app.bundle.id>`를 응용 프로그램의 번들 ID로 바꿉니다. [Azure Portal](https://aka.ms/MobileAppReg)에서 리디렉션 URI를 지정 합니다.
 
-IOS의 경우에만 인증서 기반 인증을 지원 하기 위해 추가 리디렉션 URI를 응용 프로그램에 등록 하 고 다음 형식 `msauth://code/<broker-redirect-uri-in-url-encoded-form>`으로 Azure Portal 해야 합니다. 예를 들어 IPv4 주소를 사용하는 경우 `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
+IOS의 경우에만 인증서 기반 인증을 지원 하기 위해 추가 리디렉션 URI를 응용 프로그램에 등록 하 고 다음 형식으로 Azure Portal 해야 합니다. `msauth://code/<broker-redirect-uri-in-url-encoded-form>`. 위치(예:`msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
 
 모든 앱에서 리디렉션 Uri를 모두 등록 하는 것이 좋습니다.
 
@@ -245,7 +246,7 @@ ADAL에서 마이그레이션하고 AAD 및 MSA 계정을 모두 지원 하려�
 
 ### <a name="update-your-apps-infoplist-file"></a>앱의 info.plist 파일을 업데이트 합니다.
 
-IOS의 경우 info.plist 파일에 응용 프로그램의 리디렉션 URI 체계를 추가 합니다. ADAL broker 호환 앱의 경우 이미 있어야 합니다. 기본 MSAL 리디렉션 URI 체계는 형식 `msauth.<app.bundle.id>`입니다.  
+IOS의 경우 info.plist 파일에 응용 프로그램의 리디렉션 URI 체계를 추가 합니다. ADAL broker 호환 앱의 경우 이미 있어야 합니다. 기본 MSAL 리디렉션 URI 체계는 `msauth.<app.bundle.id>`형식입니다.  
 
 ```xml
 <key>CFBundleURLSchemes</key>
@@ -254,7 +255,7 @@ IOS의 경우 info.plist 파일에 응용 프로그램의 리디렉션 URI 체�
 </array>
 ```
 
-앱의 info.plist `LSApplicationQueriesSchemes`에 다음 스키마를 추가 합니다.
+`LSApplicationQueriesSchemes`아래에 있는 앱의 info.plist에 다음 스키마를 추가 합니다.
 
 ```xml
 <key>LSApplicationQueriesSchemes</key>
@@ -277,7 +278,7 @@ Objective-C:
 }
 ```
 
-Swift
+Swift:
 
 ```swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -285,8 +286,8 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 }
 ```
 
-**Xcode 11을 사용 하는 경우**msal 콜백을 `SceneDelegate` 파일에 대신 추가 해야 합니다.
-이전 iOS와의 호환성을 위해 UISceneDelegate 및 UIApplicationDelegate를 모두 지 원하는 경우 MSAL 콜백을 두 파일에 배치 해야 합니다.
+**Xcode 11을 사용 하는 경우**`SceneDelegate` 파일에 msal 콜백을 대신 넣어야 합니다.
+이전 iOS와의 호환성을 위해 UISceneDelegate 및 UIApplicationDelegate를 모두 지원하는 경우 MSAL 콜백을 두 파일에 배치해야 합니다.
 
 Objective-C:
 
@@ -301,7 +302,7 @@ Objective-C:
  }
 ```
 
-Swift
+Swift:
 
 ```swift
 func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
@@ -322,16 +323,16 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
 
 ### <a name="enable-token-caching"></a>토큰 캐싱 사용
 
-기본적으로 MSAL은 iOS 또는 macOS 키 집합에서 앱 토큰을 캐시 합니다. 
+기본적으로 MSAL은 앱의 토큰을 iOS 또는 macOS 키 집합에 캐시합니다. 
 
 토큰 캐싱을 사용하려면 다음을 수행합니다.
-1. 응용 프로그램이 제대로 서명 되었는지 확인
+1. 애플리케이션이 제대로 서명되었는지 확인
 2. Xcode 프로젝트 설정 > **기능 탭** > **키 집합 공유 사용**으로 이동합니다.
-3. 을 **+** 클릭 하 고 다음 키 **집합 그룹** 항목을 입력 합니다. 3. iOS의 경우 macos `com.microsoft.adalcache` enter에 대해 3. b를 입력 합니다.`com.microsoft.identity.universalstorage`
+3. **+** 를 클릭 하 고 다음 키 **집합 그룹** 항목을 입력 합니다. 3. iOS의 경우 `com.microsoft.adalcache` 3. b를 입력 합니다. macos에는 `com.microsoft.identity.universalstorage`
 
 ### <a name="create-msalpublicclientapplication-and-switch-to-its-acquiretoken-and-acquiretokesilent-calls"></a>MSALPublicClientApplication을 만들고 acquireToken 및 acquireTokeSilent 호출로 전환 합니다.
 
-다음 코드를 `MSALPublicClientApplication` 사용 하 여 만들 수 있습니다.
+다음 코드를 사용 하 여 `MSALPublicClientApplication`를 만들 수 있습니다.
 
 Objective-C:
 
@@ -344,7 +345,7 @@ MSALPublicClientApplication *application =
                                                      error:&error];
 ```
 
-Swift
+Swift:
 
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>")
@@ -367,7 +368,7 @@ NSError *error = nil;
 MSALAccount *account = [application accountForIdentifier:accountIdentifier error:&error];
 ```
 
-Swift
+Swift:
 
 ```swift
 // definitions that need to be initialized
@@ -393,7 +394,7 @@ NSError *error = nil;
 NSArray<MSALAccount *> *accounts = [application allAccounts:&error];
 ```
 
-Swift
+Swift:
 
 ```swift
 let application: MSALPublicClientApplication!
@@ -407,7 +408,7 @@ do {
 
 
 
-계정이 있는 경우 msal `acquireTokenSilent` API를 호출 합니다.
+계정이 있는 경우 MSAL `acquireTokenSilent` API를 호출 합니다.
 
 Objective-C:
 
@@ -435,7 +436,7 @@ MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc]
 }];
 ```
 
-Swift
+Swift:
 
 ```swift
 let application: MSALPublicClientApplication!
@@ -470,4 +471,4 @@ application.acquireTokenSilent(with: silentParameters) {
 
 ## <a name="next-steps"></a>다음 단계
 
-[인증 흐름 및 응용 프로그램 시나리오](authentication-flows-app-scenarios.md) 에 대 한 자세한 정보
+[인증 흐름 및 애플리케이션 시나리오](authentication-flows-app-scenarios.md)에 대해 알아보기

@@ -1,38 +1,38 @@
 ---
-title: 전체 텍스트 검색을 위해 Azure Table Storage 콘텐츠 인덱싱 - Azure Search
-description: Azure Search 인덱서를 사용하여 Azure Table Storage에 저장된 데이터를 인덱싱하는 방법을 알아봅니다.
-ms.date: 05/02/2019
-author: mgottein
+title: 전체 텍스트 검색을 위해 Azure Table storage에서 콘텐츠 인덱싱
+titleSuffix: Azure Cognitive Search
+description: Azure Cognitive Search 인덱서를 사용 하 여 Azure Table storage에 저장 된 데이터를 인덱싱하는 방법을 알아봅니다.
 manager: nitinme
+author: mgottein
 ms.author: magottei
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: dffb0a41dbf33cd86014115b089036d69a8e4718
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 11/04/2019
+ms.openlocfilehash: ae99145178fba8e204267546dc1cedf42df412eb
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648180"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793746"
 ---
-# <a name="index-azure-table-storage-with-azure-search"></a>Azure Search를 사용하여 Azure Table Storage 인덱싱
-이 문서에서는 Azure Search를 사용하여 Azure Table Storage에 저장된 데이터를 인덱싱하는 방법을 보여 줍니다.
+# <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Azure Cognitive Search을 사용 하 여 Azure 테이블 저장소에서 테이블을 인덱싱하는 방법
+
+이 문서에서는 azure Cognitive Search를 사용 하 여 Azure Table storage에 저장 된 데이터를 인덱싱하는 방법을 보여 줍니다.
 
 ## <a name="set-up-azure-table-storage-indexing"></a>Azure Table Storage 인덱싱 설정
 
 다음 리소스를 사용하여 Azure Table Storage 인덱서를 설정할 수 있습니다.
 
-* [Azure Portal](https://ms.portal.azure.com)
-* Azure Search [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
-* Azure Search [.NET SDK](https://aka.ms/search-sdk)
+* [Azure 포털](https://ms.portal.azure.com)
+* Azure Cognitive Search [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
+* Azure Cognitive Search [.NET SDK](https://aka.ms/search-sdk)
 
 여기에서는 REST API를 사용하여 흐름을 설명합니다. 
 
 ### <a name="step-1-create-a-datasource"></a>1단계: 데이터 원본 만들기
 
-데이터 원본은 인덱싱할 데이터, 데이터에 액세스하는 데 필요한 자격 증명, Azure Search에서 데이터 변경 내용을 효율적으로 식별할 수 있도록 해주는 정책을 지정합니다.
+데이터 원본은 인덱싱할 데이터, 데이터에 액세스 하는 데 필요한 자격 증명, Azure Cognitive Search에서 데이터 변경 내용을 효율적으로 식별할 수 있도록 하는 정책을 지정 합니다.
 
 테이블 인덱싱의 경우 데이터 원본에 다음과 같은 속성이 있어야 합니다.
 
@@ -67,8 +67,8 @@ ms.locfileid: "69648180"
 
 테이블에 대한 자격 증명을 제공하는 방법은 다음 중 하나입니다. 
 
-- **전체 액세스 스토리지 계정 연결 문자열**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Azure Portal에서 **스토리지 계정 블레이드** > **설정** > **키**(클래식 스토리지 계정) 또는 **설정** > **액세스 키**(Azure Resource Manager 스토리지 계정)로 이동하여 연결 문자열을 가져올 수 있습니다.
-- **스토리지 계정 공유 액세스 서명 연결 문자열**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` 공유 액세스 서명에 컨테이너(이 경우 테이블) 및 개체(테이블 행)에 대한 읽기 권한 및 목록이 있어야 합니다.
+- **전체 액세스 Storage 계정 연결 문자열**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Azure Portal에서 **Storage 계정 블레이드** > **설정** > **키**(클래식 Storage 계정) 또는 **설정** > **액세스 키**(Azure Resource Manager Storage 계정)로 이동하여 연결 문자열을 가져올 수 있습니다.
+- **Storage 계정 공유 액세스 서명 연결 문자열**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` 공유 액세스 서명에 컨테이너(이 경우 테이블) 및 개체(테이블 행)에 대한 읽기 권한 및 목록이 있어야 합니다.
 -  **테이블 공유 액세스 서명**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` 공유 액세스 서명에는 테이블에 대한 쿼리(읽기) 권한이 있어야 합니다.
 
 스토리지 공유 액세스 서명에 대한 자세한 내용은 [공유 액세스 서명 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
@@ -111,19 +111,19 @@ ms.locfileid: "69648180"
       "schedule" : { "interval" : "PT2H" }
     }
 
-이 인덱서는 2시간 간격으로 실행됩니다 (일정 간격이 "PT2H"로 설정됨). 인덱서를 30분 간격으로 실행하려면 간격을 "PT30M"으로 설정합니다. 지원되는 가장 짧은 간격은 5분입니다. 일정은 선택 사항입니다. 생략하는 경우 인덱서는 만들어질 때 한 번만 실행됩니다. 그러나 언제든지 필요할 때 인덱서를 실행할 수 있습니다.   
+이 인덱서는 2시간 간격으로 실행됩니다 (일정 간격이 "PT2H"로 설정 됩니다.) 30 분 마다 인덱서를 실행 하려면 간격을 "에서는 PT30M으로"로 설정 합니다. 지원되는 가장 짧은 간격은 5분입니다. 일정은 선택 사항입니다. 생략하는 경우 인덱서는 만들어질 때 한 번만 실행됩니다. 그러나 언제든지 필요할 때 인덱서를 실행할 수 있습니다.   
 
 인덱서 만들기 API에 대한 자세한 내용은 [인덱서 만들기](https://docs.microsoft.com/rest/api/searchservice/create-indexer)를 참조하세요.
 
-인덱서 일정을 정의 하는 방법에 대 한 자세한 내용은 [Azure Search의 인덱서를 예약 하는 방법을](search-howto-schedule-indexers.md)참조 하세요.
+인덱서 일정을 정의 하는 방법에 대 한 자세한 내용은 [Azure Cognitive Search의 인덱서를 예약 하는 방법을](search-howto-schedule-indexers.md)참조 하세요.
 
 ## <a name="deal-with-different-field-names"></a>다른 필드 이름 처리
-기존 인덱스의 필드 이름이 테이블의 속성 이름과 달라지는 경우가 종종 있습니다. 필드 매핑을 사용하여 테이블의 속성 이름을 검색 인덱스의 필드 이름에 매핑할 수 있습니다. 필드 매핑에 대해 자세히 알아보려면 [데이터 원본 및 검색 인덱스의 차이를 극복하는 Azure Search 인덱서 필드 매핑](search-indexer-field-mappings.md)을 참조하세요.
+기존 인덱스의 필드 이름이 테이블의 속성 이름과 달라지는 경우가 종종 있습니다. 필드 매핑을 사용하여 테이블의 속성 이름을 검색 인덱스의 필드 이름에 매핑할 수 있습니다. 필드 매핑에 대해 자세히 알아보려면 [데이터 원본 및 검색 인덱스 간의 차이점을 연결 하는 Azure Cognitive Search 인덱서 필드 매핑](search-indexer-field-mappings.md)을 참조 하세요.
 
 ## <a name="handle-document-keys"></a>문서 키 처리
-Azure Search에서는 문서 키가 문서를 고유하게 식별합니다. 모든 검색 인덱스는 `Edm.String`형식의 키 필드를 정확히 하나만 포함해야 합니다. 인덱스에 추가할 각 문서에는 키 필드가 필요합니다. (실제로 유일한 필수 필드임)
+Azure Cognitive Search에서 문서 키는 문서를 고유 하 게 식별 합니다. 모든 검색 인덱스는 `Edm.String`형식의 키 필드를 정확히 하나만 포함해야 합니다. 인덱스에 추가할 각 문서에는 키 필드가 필요합니다. (실제로 유일한 필수 필드임)
 
-테이블 행에 복합 키가 있으므로 Azure Search에서 파티션 키와 행 키 값을 연결한 `Key`라는 합성 필드를 생성합니다. 예를 들어 행의 PartitionKey가 `PK1`이고 RowKey가 `RK1`인 경우 `Key` 필드의 값은 `PK1RK1`이 됩니다.
+테이블 행에는 복합 키가 있으므로 Azure Cognitive Search는 파티션 키와 행 키 값을 연결 하는 `Key` 라는 가상 필드를 생성 합니다. 예를 들어 행의 PartitionKey가 `PK1`이고 RowKey가 `RK1`인 경우 `Key` 필드의 값은 `PK1RK1`이 됩니다.
 
 > [!NOTE]
 > `Key` 값은 문서 키의 유효하지 않은 문자(예: 대시)를 포함할 수 있습니다. `base64Encode` [필드 매핑 함수](search-indexer-field-mappings.md#base64EncodeFunction)를 사용하여 잘못된 문자를 처리할 수 있습니다. 또한 이 작업을 수행하는 경우 조회 같은 API 호출에서 문서 키 전달 시 URL 안전 Base64 인코딩을 사용해야 합니다.
@@ -150,7 +150,7 @@ Azure Search에서는 문서 키가 문서를 고유하게 식별합니다. 모�
 <a name="Performance"></a>
 ## <a name="performance-considerations"></a>성능 고려 사항
 
-기본적으로 Azure Search에서는 다음 쿼리 필터를 사용합니다. `Timestamp >= HighWaterMarkValue` Azure 테이블의 `Timestamp` 필드에는 보조 인덱스가 없으므로 이러한 유형의 쿼리는 전체 테이블 검색을 요구합니다. 따라서 대형 테이블에서 속도가 느려집니다.
+기본적으로 Azure Cognitive Search는 `Timestamp >= HighWaterMarkValue`쿼리 필터를 사용 합니다. Azure 테이블의 `Timestamp` 필드에는 보조 인덱스가 없으므로 이러한 유형의 쿼리는 전체 테이블 검색을 요구합니다. 따라서 대형 테이블에서 속도가 느려집니다.
 
 
 다음은 테이블 인덱싱 성능을 향상시킬 수 있는 두 가지 가능한 방법입니다. 이러한 두 방법 모두 테이블 파티션을 사용합니다. 
@@ -166,5 +166,5 @@ Azure Search에서는 문서 키가 문서를 고유하게 식별합니다. 모�
     - 이 방법을 사용할 경우 전체 다시 인덱싱을 트리거해야 할 때 인덱서를 다시 설정하는 것 외에도 데이터 원본 쿼리를 다시 설정해야 합니다. 
 
 
-## <a name="help-us-make-azure-search-better"></a>Azure Search 개선 지원
+## <a name="help-us-make-azure-cognitive-search-better"></a>Azure Cognitive Search 향상에 도움을 주세요.
 기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 제출합니다.

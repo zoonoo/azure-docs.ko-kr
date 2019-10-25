@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 67a05d065cba8286c837487e21fc2f5be54e2c0b
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: c9339b5c7c35378fb85daeae19a6daa01d54f350
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162337"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809655"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>자동 조정을 사용하여 쿼리 모니터링 및 워크로드 성능 향상
 
@@ -104,9 +104,15 @@ ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_I
 
 자동 조정은 데이터베이스에서 수행하는 모든 작업을 모니터링하고 일부 경우에서 자동 조정이 데이터베이스에서 제대로 작동할 수 없는지 결정할 수 있습니다. 이 상황에서 조정 옵션은 시스템에서 비활성화됩니다. 쿼리 저장소는 활성화되지 않았거나 특정 데이터베이스에서 읽기 전용 상태에 있기 때문에 대부분의 경우에서 발생합니다.
 
+## <a name="permissions"></a>권한
+
+자동 튜닝은 Azure 기능 이므로,이 기능을 사용 하려면 Azure의 기본 제공 RBAC 역할을 사용 해야 합니다. SQL 인증을 사용 하는 것 만으로는 Azure Portal 기능을 사용할 수 없습니다.
+
+자동 조정을 사용 하려면 사용자에 게 권한을 부여 하는 데 필요한 최소 권한이 Azure의 기본 제공 [SQL DB 참가자](../role-based-access-control/built-in-roles.md#sql-db-contributor) 역할입니다. 참여자, 참가자 및 소유자 SQL Server 같은 더 높은 권한 역할을 사용 하는 것을 고려할 수도 있습니다.
+
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>이메일 알림 자동 조정 구성
 
-[이메일 알림 자동 조정](sql-database-automatic-tuning-email-notifications.md) 가이드를 참조하세요.
+[자동 조정 전자 메일 알림](sql-database-automatic-tuning-email-notifications.md) 가이드를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

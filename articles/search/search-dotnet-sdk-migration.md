@@ -1,23 +1,22 @@
 ---
-title: Azure Search .NET SDK 버전 3으로 업그레이드 - Azure Search
+title: Azure Search .NET SDK 버전 3으로 업그레이드
+titleSuffix: Azure Cognitive Search
 description: 이전 버전에서 Azure Search .NET SDK 버전 3으로 코드를 마이그레이션합니다. 새로운 기능과 필요한 코드 변경 내용을 알아봅니다.
-author: brjohnstmsft
 manager: nitinme
-services: search
-ms.service: search
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: cab0da93bbea117c216969faf2f1e194e16d675f
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 11/04/2019
+ms.openlocfilehash: fcad05749892e3a652e110a7e351450bffaca6f2
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183228"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792976"
 ---
-# <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Azure Search .NET SDK 버전 3으로 업그레이드
+# <a name="upgrade-to-azure-search-net-sdk-version-3"></a>Azure Search .NET SDK 버전 3으로 업그레이드
 
 <!--- DETAILS in the word doc
 cosmosdb

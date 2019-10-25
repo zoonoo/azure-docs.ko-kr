@@ -1,31 +1,29 @@
 ---
-title: 검색 결과 작업 방법 - Azure Search
-description: 검색 결과를 구조화 및 정렬하고 문서 수를 가져오고 Azure Search의 검색 결과에 콘텐츠 탐색을 추가합니다.
-author: HeidiSteen
+title: 검색 결과를 사용 하는 방법
+titleSuffix: Azure Cognitive Search
+description: Azure Cognitive Search에서 검색 결과를 구조화 및 정렬 하 고, 문서 수를 가져오고, 검색 결과에 콘텐츠 탐색을 추가 합니다.
 manager: nitinme
-services: search
-ms.service: search
-ms.devlang: ''
-ms.topic: conceptual
-ms.date: 06/13/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 9fa2baf64dbb35d85c55635d7522075d61bfc17d
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 31af550d4f499b4b4440a27037dc210bfdf0cb6f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647701"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793463"
 ---
-# <a name="how-to-work-with-search-results-in-azure-search"></a>Azure Search에서 검색 결과 작업 방법
-이 문서에서는 총 개수, 문서 검색, 정렬 순서 및 탐색과 같은 검색 결과 페이지의 표준 요소를 구현하는 방법에 대한 지침을 제공합니다. 데이터 또는 정보를 검색 결과에 적용하는 페이지 관련 옵션은 Azure Search Service에 전송된 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 요청을 통해 지정됩니다. 
+# <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Azure Cognitive Search에서 검색 결과를 사용 하는 방법
+이 문서에서는 총 개수, 문서 검색, 정렬 순서 및 탐색과 같은 검색 결과 페이지의 표준 요소를 구현하는 방법에 대한 지침을 제공합니다. 검색 결과에 데이터 또는 정보를 제공 하는 페이지 관련 옵션은 Azure Cognitive Search 서비스로 전송 되는 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 요청을 통해 지정 됩니다. 
 
 REST API의 요청에는 GET 명령, 경로 및 서비스에 필요한 것과 응답을 작성하는 방법을 서비스에 알려주는 쿼리 매개 변수가 포함됩니다. .NET SDK에서 해당하는 API는 [DocumentSearchResult Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1)입니다.
 
-몇 가지 코드 샘플에는 웹 프런트 엔드 인터페이스가 포함되어 있으며 다음에서 확인할 수 있습니다. [New York City 작업 데모 앱](https://azjobsdemo.azurewebsites.net/) 및 [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd)
+몇 가지 코드 샘플에는 [뉴욕 도시 작업 데모 앱](https://azjobsdemo.azurewebsites.net/) 과 [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd)에서 찾을 수 있는 웹 프런트 엔드 인터페이스가 포함 되어 있습니다.
 
 > [!NOTE]
-> 유효한 요청에는 서비스 URL 및 경로, HTTP 동사, `api-version` 등과 같은 요소의 숫자가 포함됩니다. 요약하자면, 페이지 매김에 관련된 구문만 강조하기 위해 예제를 잘라냈습니다. 요청 구문에 대 한 자세한 내용은 [Azure Search 서비스 REST](https://docs.microsoft.com/rest/api/searchservice)를 참조 하세요.
+> 유효한 요청에는 서비스 URL 및 경로, HTTP 동사, `api-version` 등과 같은 요소의 숫자가 포함됩니다. 요약하자면, 페이지 매김에 관련된 구문만 강조하기 위해 예제를 잘라냈습니다. 요청 구문에 대 한 자세한 내용은 [Azure COGNITIVE SEARCH REST api](https://docs.microsoft.com/rest/api/searchservice)를 참조 하세요.
 >
 
 ## <a name="total-hits-and-page-counts"></a>총 적중 수 및 페이지 수
@@ -34,7 +32,7 @@ REST API의 요청에는 GET 명령, 경로 및 서비스에 필요한 것과 �
 
 ![][1]
 
-Azure Search에서는 `$count`, `$top` 및 `$skip` 매개 변수를 사용하여 이러한 값을 반환합니다. 다음 예에서는로 `@odata.count`반환 되는 "온라인-카탈로그" 라는 인덱스의 총 적중 횟수에 대 한 샘플 요청을 보여 줍니다.
+Azure Cognitive Search에서는 `$count`, `$top`및 `$skip` 매개 변수를 사용 하 여 이러한 값을 반환 합니다. 다음 예에서는 `@odata.count`로 반환 되는 "온라인-카탈로그" 라는 인덱스의 총 적중 횟수에 대 한 샘플 요청을 보여 줍니다.
 
     GET /indexes/online-catalog/docs?$count=true
 
@@ -50,13 +48,13 @@ Azure Search에서는 `$count`, `$top` 및 `$skip` 매개 변수를 사용하여
 
     GET /indexes/online-catalog/docs?search=*&$top=15&$skip=30&$count=true
 
-## <a name="layout"></a>레이아웃
+## <a name="layout"></a>Layout
 
 검색 결과 페이지에서 축소판 이미지, 필드의 하위 집합 및 전체 제품 페이지에 대한 링크를 표시할 수 있습니다.
 
  ![][2]
 
-Azure Search에서 및 `$select` [검색 API 요청](https://docs.microsoft.com/rest/api/searchservice/search-documents) 을 사용 하 여이 환경을 구현 합니다.
+Azure Cognitive Search에서 `$select` 및 [검색 API 요청](https://docs.microsoft.com/rest/api/searchservice/search-documents) 을 사용 하 여이 환경을 구현 합니다.
 
 타일화된 레이아웃에 대한 필드의 하위 집합을 반환하는 방법:
 
@@ -74,7 +72,7 @@ Azure Search에서 및 `$select` [검색 API 요청](https://docs.microsoft.com/
 
  ![][3]
 
-Azure Search에서 정렬은 `"Sortable": true.`로 인덱싱되는 모든 필드에 대해 `$orderby` 식을 기반으로 합니다. `$orderby` 절은 OData 식입니다. 구문에 대한 자세한 내용은 [필터 및 order-by 절의 OData 식 구문](query-odata-filter-orderby-syntax.md)을 참조하세요.
+Azure Cognitive Search에서 정렬은 `$orderby` 식을 기반으로 하며 `"Sortable": true.`로 인덱싱되는 모든 필드에 대해 `$orderby` 절은 OData 식입니다. 구문에 대한 자세한 내용은 [필터 및 order-by 절의 OData 식 구문](query-odata-filter-orderby-syntax.md)을 참조하세요.
 
 관련성은 프로필 점수 매기기와 강력하게 연관됩니다. 검색 단어가 더 많이 또는 더 강력하게 일치되는 문서에 더 높은 점수를 매기는 텍스트 분석 및 통계에 따라 모든 결과의 순서를 정하는 기본 점수를 사용할 수 있습니다.
 
@@ -92,7 +90,7 @@ Azure Search에서 정렬은 `"Sortable": true.`로 인덱싱되는 모든 필�
 
 ## <a name="faceted-navigation"></a>패싯 탐색
 
-종종 페이지의 옆쪽 또는 위쪽에 있는 검색 탐색은 결과 페이지에서 일반적입니다. Azure Search에서는 미리 정의된 필터에 따라 패싯 탐색이 자기 주도 탐색을 제공합니다. 자세한 내용은 [Azure Search의 패싯 탐색](search-faceted-navigation.md)을 참조하십시오.
+종종 페이지의 옆쪽 또는 위쪽에 있는 검색 탐색은 결과 페이지에서 일반적입니다. Azure Cognitive Search에서 패싯 탐색은 미리 정의 된 필터를 기반으로 하는 자체 지향 검색을 제공 합니다. 자세한 내용은 [Azure Cognitive Search의 패싯 탐색](search-faceted-navigation.md) 을 참조 하세요.
 
 ## <a name="filters-at-the-page-level"></a>페이지 수준의 필터
 
@@ -102,14 +100,14 @@ Azure Search에서 정렬은 `"Sortable": true.`로 인덱싱되는 모든 필�
 
     GET /indexes/online-catalog/docs?$filter=brandname eq 'Microsoft' and category eq 'Games'
 
-`$filter` 식에 대한 자세한 내용은 [문서 검색(Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)을 참조하십시오.
+`$filter` 식에 대 한 자세한 내용은 [문서 검색 (Azure COGNITIVE SEARCH API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 을 참조 하세요.
 
 ## <a name="see-also"></a>참고 항목
 
-- [Azure Search 서비스 REST API](https://docs.microsoft.com/rest/api/searchservice)
+- [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice)
 - [인덱스 작업](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
 - [문서 작업](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
-- [Azure Search의 패싯 탐색](search-faceted-navigation.md)
+- [Azure Cognitive Search의 패싯 탐색](search-faceted-navigation.md)
 
 <!--Image references-->
 [1]: ./media/search-pagination-page-layout/Pages-1-Viewing1ofNResults.PNG

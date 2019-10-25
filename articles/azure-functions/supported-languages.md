@@ -1,21 +1,18 @@
 ---
 title: Azure Functions에서 지원되는 언어
 description: 어떤 언어가 지원되는 언어(GA)이고 어떤 언어가 실험적 또는 미리 보기인지 알아봅니다.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: dotnet
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 8839fc0fb9f19a1cfa95a4191213503dba7602c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eac67c43915edb0aed273df40e7b08ca846062bf
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148812"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802462"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure Functions에서 지원되는 언어
 
@@ -29,7 +26,7 @@ ms.locfileid: "65148812"
 * **미리 보기** - 아직 지원되지 않지만 향후 GA 상태가 될 예정입니다.
 * **실험적** - 지원되지 않으며 향후 중단될 수 있습니다. 최종 미리 보기 또는 GA 상태가 보장되지 않습니다.
 
-## <a name="languages-in-runtime-1x-and-2x"></a>런타임 1.x와 2.x의 언어
+## <a name="languages-by-runtime-version"></a>런타임 버전별 언어 
 
 [두 가지 버전의 Azure Functions 런타임](functions-versions.md)을 사용할 수 있습니다. 다음 표는 각 런타임 버전에서 지원되는 언어를 나타냅니다.
 
@@ -45,23 +42,16 @@ ms.locfileid: "65148812"
 
 ### <a name="language-extensibility"></a>언어 확장성
 
-2\.x 런타임은 [언어 확장성](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility)을 제공하도록 설계되었습니다. 2\.x 런타임의 JavaScript 및 Java 언어는 이 확장성을 사용하여 빌드됩니다.
+버전 2.x부터 런타임은 [언어 확장성](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility)을 제공 하도록 설계 되었습니다. 2\.x 런타임의 JavaScript 및 Java 언어는 이 확장성을 사용하여 빌드됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Functions에서 GA 또는 미리 보기 언어 중 하나를 사용하는 방법에 대해 알아보려면 다음 리소스를 참조하세요.
+지원 되는 언어로 함수를 개발 하는 방법에 대해 자세히 알아보려면 다음 리소스를 참조 하세요.
 
-> [!div class="nextstepaction"]
-> [C#](functions-reference-csharp.md)
-
-> [!div class="nextstepaction"]
-> [F#](functions-reference-fsharp.md)
-
-> [!div class="nextstepaction"]
-> [JavaScript](functions-reference-node.md)
-
-> [!div class="nextstepaction"]
-> [Java](functions-reference-java.md)
-
-> [!div class="nextstepaction"]
-> [Python](functions-reference-python.md)
++ [C#클래스 라이브러리 개발자 참조](functions-dotnet-class-library.md)
++ [C#스크립트 개발자 참조](functions-reference-csharp.md)
++ [Java 개발자 참조](functions-reference-java.md)
++ [JavaScript 개발자 참조](functions-reference-node.md)
++ [PowerShell 개발자 참조](functions-reference-powershell.md)
++ [Python 개발자 참조](functions-reference-python.md)
++ [TypeScript 개발자 참조](functions-reference-node.md#typescript)

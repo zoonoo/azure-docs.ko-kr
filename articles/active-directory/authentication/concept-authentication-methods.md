@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b0c91357e5ab15b88c92b04fd0896b989e83953
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 18eba93661d9c418a230ced8f9970047a869a7e3
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051434"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808416"
 ---
 # <a name="what-are-authentication-methods"></a>인증 방법이란?
 
@@ -26,11 +26,11 @@ ms.locfileid: "70051434"
 
 관리자는 사용자가 액세스 권한이 없는 경우 필요한 최소 인증 방법 수보다 많이 선택할 수 있게 하는 것이 좋습니다.
 
-|인증 방법|사용법|
+|인증 방법|사용량|
 | --- | --- |
 | 암호 | MFA 및 SSPR |
 | 보안 질문 | SSPR만 |
-| 전자 메일 주소 | SSPR만 |
+| 메일 주소 | SSPR만 |
 | Microsoft Authenticator 앱 | MFA 및 SSPR |
 | OATH 하드웨어 토큰 | MFA 및 SSPR용 공개 미리 보기 |
 | SMS | MFA 및 SSPR |
@@ -41,7 +41,7 @@ ms.locfileid: "70051434"
 
 |     |
 | --- |
-| MFA 및 SSPR의 OATH 하드웨어 토큰은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
+| MFA 및 SSPR의 OATH 하드웨어 토큰은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
 
 ## <a name="password"></a>암호
@@ -113,7 +113,7 @@ Azure AD 암호는 인증 방법으로 간주됩니다. **비활성화할 수 �
 * 유니코드 문자를 포함한 모든 문자 집합을 사용하여 질문과 응답을 정의할 수 있습니다.
 * 정의된 질문 수는 등록에 필요한 질문 수보다 크거나 같아야 합니다.
 
-## <a name="email-address"></a>전자 메일 주소
+## <a name="email-address"></a>메일 주소
 
 이메일 주소는 **Azure AD SSPR(Self-service Password Reset)** 에서만 사용할 수 있습니다.
 
@@ -123,7 +123,7 @@ Azure AD 암호는 인증 방법으로 간주됩니다. **비활성화할 수 �
 
 Microsoft Authenticator 앱은 Microsoft 계정의 Azure AD 회사 또는 학교 계정에 추가 보안 수준을 제공합니다.
 
-Microsoft Authenticator 앱은 [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) 및 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)에서 사용할 수 있습니다.
+Microsoft Authenticator 앱은 [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) 및 [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6)에서 사용할 수 있습니다.
 
 > [!NOTE]
 > 사용자에게는 셀프 서비스 암호 재설정 등록을 위해 모바일 앱을 등록하는 옵션이 없습니다. 대신에 사용자는 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에서 또는 [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)의 보안 정보 등록 미리 보기에서 자신의 모바일 앱을 등록할 수 있습니다.
@@ -144,7 +144,7 @@ Microsoft Authenticator 앱을 사용하면 스마트폰 또는 태블릿에 알
 > [!NOTE]
 > 조직에서 근무 하는 직원이 있거나 중국으로 여행 하는 경우 **Android 장치** 에서 **모바일 앱 방법을 통한 알림이** 해당 국가에서 작동 하지 않습니다. 이러한 사용자에 대해 다른 방법을 사용할 수 있습니다.
 
-### <a name="verification-code-from-mobile-app"></a>모바일 앱을 통한 인증 코드
+### <a name="verification-code-from-mobile-app"></a>모바일 앱의 확인 코드
 
 Microsoft Authenticator 앱 또는 타사 앱을 소프트웨어 토큰으로 사용하여 OATH 확인 코드를 생성할 수 있습니다. 사용자 이름 및 암호를 입력한 후 앱에서 제공한 코드를 로그인 화면에 입력합니다. 확인 코드는 두 번째 인증 형식을 제공합니다.
 
@@ -160,7 +160,7 @@ OATH는 OTP(일회성 암호) 코드 생성 방법을 지정하는 공개 표준
 
 ![MFA 서버 OATH 토큰 블레이드에 OATH 토큰 업로드](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
-OATH 하드웨어 토큰은 공개 미리 보기의 일부로 지원됩니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+OATH 하드웨어 토큰은 공개 미리 보기의 일부로 지원됩니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 토큰이 확보되면 아래 예제와 같이 UPN, 일련 번호, 비밀 키, 시간 간격, 제조업체 및 모델이 포함된 CSV(쉼표로 구분된 값) 파일 형식으로 업로드해야 합니다.
 
@@ -182,7 +182,7 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 
 ## <a name="phone-options"></a>전화 옵션
 
-### <a name="mobile-phone"></a>모바일 폰
+### <a name="mobile-phone"></a>휴대폰
 
 휴대폰 사용자에게는 두 옵션이 제공됩니다.
 

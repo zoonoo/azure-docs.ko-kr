@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
-ms.openlocfilehash: c5aa7af1ca6f4fe0768add47d2037d797e4ef99b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4dceb558532305c6d2e84563e25ab05508423090
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69613235"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72801947"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>워크플로 디자이너와 고급 Encoding 워크플로 만들기  
 ## <a name="overview"></a>개요
@@ -57,7 +57,7 @@ ms.locfileid: "69613235"
 > 
 > 
 
-### <a name="day-2"></a>2일차
+### <a name="day-2"></a>2일
 2일차 비디오에서 다루는 내용은 다음과 같습니다.
 
 * 다양한 소스 파일 시나리오 – 오디오 처리
@@ -73,21 +73,23 @@ ms.locfileid: "69613235"
 
 * 워크플로/청사진 내부 스크립팅
 * 현재 인코더에 대한 제한 사항
-* 질문 및 답변
+* Q&A
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
 > 
 > 
+
+## <a name="need-help"></a>도움이 필요하십니까?
+
+[새 지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 으로 이동 하 여 지원 티켓을 열 수 있습니다.
 
 ## <a name="next-step"></a>다음 단계
 Media Services 학습 경로를 검토합니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-
-지원이 필요하거나 Workflow Designer 도구에서 사용자 지정 워크플로를 만드는 방법에 대해 질문이 있는 경우 mepd@microsoft.com로 메일을 보내주세요. 전자 메일을 작성 하는 경우 영어를 사용 하세요.
 
 ## <a name="see-also"></a>참고 항목
 [Azure Premium 인코더 워크플로 디자이너 교육 비디오](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)

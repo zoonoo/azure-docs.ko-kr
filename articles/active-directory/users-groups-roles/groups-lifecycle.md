@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56bfe92de24b9386252ee8719af66cc658948565
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b3cef2bd16907de6e60db2678516f70346a20285
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844308"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803598"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Office 365 그룹에 대한 만료 정책 구성
 
@@ -28,9 +28,16 @@ ms.locfileid: "70844308"
 
 만료할 그룹을 설정한 경우 다음이 적용됩니다.
 
-- 만료가 임박하면 그룹의 소유자에게 그룹을 갱신하라는 알림이 표시됩니다.
+- 만료 될 때 사용자 활동이 있는 그룹이 자동으로 갱신 됨
+- 그룹이 자동으로 갱신 되지 않은 경우 그룹 소유자에 게 그룹을 갱신 하 라는 알림이 표시 됩니다.
 - 갱신하지 않는 모든 그룹은 삭제됩니다.
 - 삭제된 Office 365 그룹은 그룹 소유자 또는 관리자에 의해 30일 이내로 복원될 수 있습니다.
+
+다음과 같은 다섯 작업을 수행 하면 그룹이 자동으로 갱신 됩니다.
+
+- SharePoint-파일 보기, 편집, 다운로드, 이동, 공유 및 업로드
+- Outlook-그룹, 읽기/쓰기 그룹 메시지 및 메시지와 같은 조인 그룹
+- 팀-팀 채널 방문
 
 현재, 테넌트의 Office 365 그룹에 대해 만료 정책을 하나만 구성할 수 있습니다.
 
@@ -43,7 +50,7 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
 
 다음은 Azure AD에서 Office 365 그룹의 만료를 구성하고 사용할 수 있는 역할입니다.
 
-역할 | 사용 권한
+역할 | 권한
 -------- | --------
 전역 관리자 또는 사용자 관리자 | Office 365 그룹 만료 정책 설정을 만들거나, 읽거나, 업데이트하거나, 삭제할 수 있음<br>Office 365 그룹을 갱신할 수 있음
 사용자 | 소유하는 Office 365 그룹을 갱신할 수 있음<br>소유하는 Office 365 그룹을 복원할 수 있음<br>만료 정책 설정을 읽을 수 있음
@@ -69,15 +76,15 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
   - 완료되면 **저장**을 선택하여 설정을 저장합니다.
 
 > [!NOTE]
-> 만료를 처음 설정 하는 경우 소유자가 갱신 하지 않는 한 만료 간격 보다 오래 된 그룹은 만료 될 때까지 30 일로 설정 됩니다. 하루 이내로 첫 번째 갱신 알림 전자 메일이 전송됩니다.
+> 처음 만료를 설정 하는 경우 그룹을 자동 갱신 하거나 소유자가 갱신 하지 않는 한 만료 간격 보다 오래 된 그룹은 만료 될 때까지 35 일로 설정 됩니다. 
 >
 > 동적 그룹을 삭제 및 복원 하는 경우 새 그룹으로 표시 되 고 규칙에 따라 다시 채워집니다. 이 프로세스는 최대 24 시간이 걸릴 수 있습니다.
 >
 > 팀에서 사용 하는 그룹에 대 한 만료 알림은 팀 소유자 피드에 표시 됩니다.
 
-## <a name="email-notifications"></a>메일 알림
+## <a name="email-notifications"></a>전자 메일 알림
 
-이와 같은 전자 메일 알림은 그룹의 만료 30일, 15일 및 1일 전에 Office 365 그룹 소유자에게 전송됩니다. 전자 메일의 언어는 그룹 소유자의 기본 설정 언어 또는 Azure AD 언어 설정에 따라 결정 됩니다. 그룹 소유자가 기본 설정 언어를 정의했거나 여러 소유자가 동일한 기본 설정 언어를 사용하는 경우 해당 언어가 사용됩니다. 다른 모든 경우에는 Azure AD 언어 설정이 사용 됩니다.
+그룹이 자동으로 갱신 되지 않는 경우 해당 그룹의 만료 전 30 일, 15 일 및 1 일 전에 전자 메일 알림이 Office 365 그룹 소유자에 게 전송 됩니다. 전자 메일의 언어는 그룹 소유자의 기본 설정 언어 또는 Azure AD 언어 설정에 따라 결정 됩니다. 그룹 소유자가 기본 설정 언어를 정의했거나 여러 소유자가 동일한 기본 설정 언어를 사용하는 경우 해당 언어가 사용됩니다. 다른 모든 경우에는 Azure AD 언어 설정이 사용 됩니다.
 
 ![만료 전자 메일 알림](./media/groups-lifecycle/expiration-notification.png)
 
@@ -119,7 +126,7 @@ PowerShell cmdlet을 사용 하 여 Azure AD 조직에서 Office 365 그룹에 �
    New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
    ```
 
-1. 기존 정책 가져오기 Get-AzureADMSGroupLifecyclePolicy: 이 cmdlet은 구성된 현재 Office 365 그룹 만료 설정을 검색합니다. 이 예제에서는 다음을 확인할 수 있습니다.
+1. 기존 정책 검색: Get-AzureADMSGroupLifecyclePolicy: 이 cmdlet은 구성된 현재 Office 365 그룹 만료 설정을 검색합니다. 이 예제에서는 다음을 확인할 수 있습니다.
 
    - 정책 ID
    - Azure AD 조직에서 모든 Office 365 그룹의 수명은 365 일로 설정 됩니다.
@@ -145,7 +152,7 @@ PowerShell cmdlet을 사용 하 여 Azure AD 조직에서 Office 365 그룹에 �
    Add-AzureADMSLifecyclePolicyGroup -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
    ```
   
-1. 기존 정책 제거 Remove-AzureADMSGroupLifecyclePolicy: 이 cmdlet은 Office 365 그룹 만료 설정을 삭제하지만 정책 ID가 필요합니다. Office 365 그룹에 대한 만료가 사용되지 않도록 설정됩니다.
+1. 기존 정책 제거 Remove-AzureADMSGroupLifecyclePolicy: 이 cmdlet은 Office 365 그룹 만료 설정을 삭제하지만 정책 ID가 필요합니다 Office 365 그룹에 대한 만료가 사용되지 않도록 설정됩니다.
   
    ```powershell
    Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"

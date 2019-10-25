@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: c78f2e37fa29fa1cdcb9acc6a4600688750b6d74
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: bcc272a8189ebb175f546f6a50c2c117a7975216
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387585"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800172"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>큰 Azure 리소스 데이터 세트 작업
 
@@ -36,7 +36,7 @@ az graph query -q "Resources | project name | order by name asc" --first 200 --o
 Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
-[REST API](/rest/api/azureresourcegraph/resources/resources)에서 제어는 **$top**이며 **QueryRequestOptions**의 일부입니다.
+[REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)에서 제어는 **$top**이며 **QueryRequestOptions**의 일부입니다.
 
 ‘가장 제한적’인 제어가 적용됩니다. 예를 들어 쿼리에서 **top** 또는 **limit** 연산자를 사용하며 **First**보다 많은 레코드를 생성하는 경우 반환되는 최대 레코드 수는 **First**와 같습니다. 마찬가지로, **top** 또는 **limit**가 **First**보다 작은 경우 반환되는 레코드 집합은 **top** 또는 **limit**로 구성된 더 작은 값이 됩니다.
 
@@ -59,11 +59,11 @@ az graph query -q "Resources | project name | order by name asc" --skip 10 --out
 Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-[REST API](/rest/api/azureresourcegraph/resources/resources)에서 제어는 **$skip**이며 **QueryRequestOptions**의 일부입니다.
+[REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)에서 제어는 **$skip**이며 **QueryRequestOptions**의 일부입니다.
 
 ## <a name="paging-results"></a>페이징 결과
 
-처리를 위해 결과 집합을 더 작은 레코드 집합으로 분할 하거나 결과 집합이 허용 되는 최대 값인 _1000_ 반환 레코드를 초과 하는 경우 페이징을 사용 합니다. [REST API](/rest/api/azureresourcegraph/resources/resources) **QueryResponse**는 결과 집합이 분할되었음을 나타내는 값(**resultTruncated** 및 **$skipToken**)을 제공합니다.
+처리를 위해 결과 집합을 더 작은 레코드 집합으로 분할 하거나 결과 집합이 허용 되는 최대 값인 _1000_ 반환 레코드를 초과 하는 경우 페이징을 사용 합니다. [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) **QueryResponse**는 결과 집합이 분할되었음을 나타내는 값(**resultTruncated** 및 **$skipToken**)을 제공합니다.
 **resultTruncated**는 응답에 반환되지 않은 추가 레코드가 있는지 여부를 소비자에게 알리는 부울 값입니다. **count** 속성이 **totalRecords** 속성보다 작은 경우에도 이 조건을 식별할 수 있습니다. **totalRecords**는 쿼리와 일치하는 레코드 수를 정의합니다.
 
 **resultTruncated**가 **true**이면 **$skipToken** 속성이 응답에 설정됩니다. 이 값은 동일한 쿼리 및 구독 값과 함께 사용되어 쿼리와 일치하는 다음 레코드 집합을 가져옵니다.
@@ -81,13 +81,13 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 > [!IMPORTANT]
 > 페이지 매김이 작동하려면 쿼리가 **ID** 필드를 **project**해야 합니다. 쿼리에서 누락 된 경우 응답에 **$skipToken**포함 되지 않습니다.
 
-예제는 REST API 문서에서 [다음 페이지 쿼리](/rest/api/azureresourcegraph/resources/resources#next-page-query)를 참조하세요.
+예제는 REST API 문서에서 [다음 페이지 쿼리](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources#next-page-query)를 참조하세요.
 
 ## <a name="formatting-results"></a>결과 서식 지정
 
 리소스 그래프 쿼리의 결과는 _테이블_ 및 _ObjectArray_의 두 가지 형식으로 제공 됩니다. 형식은 요청 옵션의 일부로 **resultformat** 매개 변수를 사용 하 여 구성 됩니다. _테이블_ 형식은 **resultformat**의 기본값입니다.
 
-Azure CLI의 결과는 기본적으로 JSON으로 제공 됩니다. Azure PowerShell 결과는 기본적으로 **PSCustomObject** cmdlet을 사용 @no__t 하 여 JSON으로 신속 하 게 변환할 수 있습니다. 다른 Sdk의 경우 쿼리 결과를 _ObjectArray_ 형식으로 출력 하도록 구성할 수 있습니다.
+Azure CLI의 결과는 기본적으로 JSON으로 제공 됩니다. Azure PowerShell 결과는 기본적으로 **PSCustomObject** `ConvertTo-Json` cmdlet을 사용 하 여 JSON으로 신속 하 게 변환할 수 있습니다. 다른 Sdk의 경우 쿼리 결과를 _ObjectArray_ 형식으로 출력 하도록 구성할 수 있습니다.
 
 ### <a name="format---table"></a>서식 테이블
 

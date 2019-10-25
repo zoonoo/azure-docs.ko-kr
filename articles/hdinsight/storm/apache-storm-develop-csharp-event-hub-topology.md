@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 53399fbdeba44b184ef4e76c89affefd29dbc413
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 62d65a4f004494ac4ce4ecd3df0f091460028d8f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915297"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800064"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(C#)
 
 HDInsight의 [Apache Storm](https://storm.apache.org/)에서 Azure Event Hubs를 사용하는 방법에 대해 알아봅니다. 이 문서는 C# Storm 토폴로지를 사용하여 Event Hubs에서 데이터를 읽고 씁니다.
 
 > [!NOTE]  
-> 이 프로젝트의 Java 버전은 [HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)를 참조하세요.
+> 이 프로젝트의 Java 버전은 [HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)를 참조하세요.
 
 ## <a name="scpnet"></a>SCP.NET
 
@@ -135,10 +135,10 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 1. 이벤트 허브가 생성된 후에는 Azure Portal에서 **EventHub** 설정을 보고 **공유 액세스 정책**을 선택합니다. **+ 추가**를 선택하여 다음 정책을 추가합니다.
 
-   | 이름 | 사용 권한 |
+   | name | 권한 |
    | --- | --- |
-   | 기록기 |Send |
-   | 판독기 |수신 |
+   | 기록기 |보내기 |
+   | 판독기 |수신 대기 |
 
     ![공유 액세스 정책 창의 스크린샷](./media/apache-storm-develop-csharp-event-hub-topology/share-access-policies.png)
 
@@ -152,7 +152,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 3. **EventHubWriter** 프로젝트에서 **App.config** 파일을 엽니다. 앞에서 구성한 이벤트 허브에 대한 정보를 다음 키에 대한 값에 입력합니다.
 
-   | Key | 값 |
+   | 키 | Value |
    | --- | --- |
    | EventHubPolicyName |기록기(*보내기* 권한이 있는 정책에 다른 이름을 사용한 경우 대신 사용) |
    | EventHubPolicyKey |기록기 정책에 대한 키 |
@@ -168,7 +168,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 2. **EventHubReader**에 대한 **App.config** 파일을 엽니다. 앞에서 구성한 이벤트 허브에 대한 정보를 다음 키에 대한 값에 입력합니다.
 
-   | Key | 값 |
+   | 키 | Value |
    | --- | --- |
    | EventHubPolicyName |판독기(*수신 대기* 권한이 있는 정책에 다른 이름을 사용한 경우 대신 사용) |
    | EventHubPolicyKey |판독기 정책에 대한 키 |

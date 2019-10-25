@@ -1,5 +1,6 @@
 ---
-title: 응용 프로그램의 게시자 도메인 구성 | Microsoft
+title: 응용 프로그램의 게시자 도메인 구성
+titleSuffix: Microsoft identity platform
 description: 응용 프로그램의 게시자 도메인을 구성 하 여 사용자가 자신의 정보가 전송 되는 위치를 알 수 있도록 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28021c0b8512ca12ead92b0b78541fce690b1f80
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 26ef28be328e01f8edcf898f123db55f262f286c
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257925"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803338"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain-preview"></a>방법: 응용 프로그램의 게시자 도메인 구성 (미리 보기)
 
@@ -39,8 +40,8 @@ ms.locfileid: "71257925"
 | 테 넌 트 확인 도메인 | 게시자 도메인의 기본값 |
 |-------------------------|----------------------------|
 | null | null |
-| *.onmicrosoft.com | *.onmicrosoft.com |
-| - *.onmicrosoft.com<br/>-domain1.com<br/>-domain2.com (주) | domain2.com |
+| *. onmicrosoft.com | *. onmicrosoft.com |
+| -*. onmicrosoft.com<br/>-domain1.com<br/>-domain2.com (주) | domain2.com |
 
 다중 테 넌 트 응용 프로그램의 게시자 도메인이 설정 되지 않았거나. onmicrosoft.com로 끝나는 도메인으로 설정 된 경우 앱의 동의 확인 표시는 게시자 도메인 대신 확인 되지 않음 **으로 표시 됩니다** .
 
@@ -69,13 +70,13 @@ ms.locfileid: "71257925"
    - 도메인을 아직 구성 하지 않은 경우 **도메인 구성을** 선택 합니다.
    - 도메인이 이미 구성 되어 있으면 **도메인 업데이트** 를 선택 합니다.
 
-앱이 테 넌 트에 등록 되어 있는 경우 선택할 수 있는 두 개의 탭이 표시 됩니다. **확인 된 도메인을 선택** 하 고 **새 도메인을 확인**합니다.
+앱이 테 넌 트에 등록 된 경우 선택 하는 두 개의 탭이 표시 됩니다. **확인 된 도메인을 선택** 하 고 **새 도메인을 확인**합니다.
 
 앱이 테 넌 트에 등록 되지 않은 경우 응용 프로그램에 대 한 새 도메인을 확인 하는 옵션만 표시 됩니다.
 
 ### <a name="to-verify-a-new-domain-for-your-app"></a>앱에 대 한 새 도메인을 확인 하려면
 
-1. 이라는 `microsoft-identity-association.json` 파일을 만들고 다음 JSON 코드 조각을 붙여 넣습니다.
+1. `microsoft-identity-association.json` 라는 파일을 만들고 다음 JSON 코드 조각을 붙여 넣습니다.
 
    ```json
    {
@@ -89,7 +90,7 @@ ms.locfileid: "71257925"
 
 1. 자리 표시자 *{앱 id-여기}* 를 앱에 해당 하는 응용 프로그램 (클라이언트) id로 바꿉니다.
 
-1. 에서 파일을 호스팅합니다 `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`. 확인 된 도메인과 일치 하도록 자리 표시자 *{도메인-여기}* 를 바꿉니다.
+1. `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`에서 파일을 호스팅합니다. 확인 된 도메인과 일치 하도록 자리 표시자 *{도메인-여기}* 를 바꿉니다.
 
 1. **도메인 확인 및 저장** 단추를 클릭 합니다.
 
@@ -98,7 +99,7 @@ ms.locfileid: "71257925"
 - 테 넌 트가 확인 된 도메인을 확인 하는 경우 **확인 된 도메인 선택** 드롭다운에서 도메인 중 하나를 선택 합니다.
 
 >[!Note]
-> 반환 되어야 하는 ' Content-type ' 헤더가 필요 `application/json`합니다. 이와 같은 다른 항목을 사용 하는 경우 아래에 설명 된 대로 오류가 발생할 수 있습니다.`application/json; charset=utf-8` 
+> 반환 되어야 하는 ' Content-type ' 헤더는 `application/json`합니다. 이와 같은 다른 항목을 사용 하는 경우 아래에 설명 된 대로 오류가 발생할 수 있습니다 `application/json; charset=utf-8` 
 > 
 >``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
 >

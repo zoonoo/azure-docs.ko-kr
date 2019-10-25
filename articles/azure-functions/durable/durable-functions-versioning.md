@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2017
+ms.date: 10/22/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ef64a43cbed7f033a938351506b7f78142ff044c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0bac6f9105d505bdfc1492b6966c2352771e73b0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097628"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791301"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>지속성 함수의 버전 관리(Azure Functions)
 
@@ -24,11 +24,11 @@ ms.locfileid: "70097628"
 
 주요 변경 내용을 인식할 수 있는 몇 가지 예제가 있습니다. 이 문서에서는 가장 일반적인 예제에 대해 설명합니다. 이들 모두의 기본 주제는 함수 코드의 변경으로 인해 새 함수와 기존 함수의 오케스트레이션이 모두 영향을 받는다는 것입니다.
 
-### <a name="changing-activity-function-signatures"></a>작업 함수 시그니처 변경
+### <a name="changing-activity-or-entity-function-signatures"></a>활동 또는 엔터티 함수 서명 변경
 
-시그니처 변경은 함수의 이름, 입력 또는 출력의 변경을 나타냅니다. 이러한 종류의 변경이 작업 함수에 적용되면 이 함수에 종속된 오케스트레이터 함수가 손상될 수 있습니다. 이 변경에 따라 오케스트레이터 함수를 업데이트하면 진행 중인 기존 인스턴스를 손상시킬 수 있습니다.
+시그니처 변경은 함수의 이름, 입력 또는 출력의 변경을 나타냅니다. 이러한 종류의 변경 내용이 활동 또는 엔터티 함수에 적용 되는 경우이에 종속 된 오 케 스트레이 터 함수를 중단할 수 있습니다. 이 변경에 따라 오케스트레이터 함수를 업데이트하면 진행 중인 기존 인스턴스를 손상시킬 수 있습니다.
 
-예를 들어 다음과 같은 함수가 있다고 가정해 보겠습니다.
+예를 들어 다음 오 케 스트레이 터 함수가 있다고 가정 합니다.
 
 ```csharp
 [FunctionName("FooBar")]
@@ -39,7 +39,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-이 간단한 함수는 **Foo**의 결과를 받아 **Bar**로 전달합니다. 더 다양한 결과 값을 지원하기 위해 **Foo**의 반환 값을 `bool`에서 `int`로 변경할 필요가 있다고 가정해 보겠습니다. 결과 다음과 같습니다.
+이 간단한 함수는 **Foo**의 결과를 받아 **Bar**로 전달합니다. 더 다양한 결과 값을 지원하기 위해 **Foo**의 반환 값을 `bool`에서 `int`로 변경할 필요가 있다고 가정해 보겠습니다. 결과는 다음과 유사하게 표시됩니다.
 
 ```csharp
 [FunctionName("FooBar")]
@@ -85,7 +85,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-이 변경은 **Foo**와 **Bar** 간의 **SendNotification**에 새 함수 호출을 추가합니다. 시그니처 변경은 없습니다. 문제는 **Bar**에 대한 호출에서 기존 인스턴스가 다시 시작될 때 발생합니다. 재생하는 동안 **Foo**에 대한 원래 호출에서 `true`를 반환하는 경우 오케스트레이터 재생은 실행 기록에 없는 **SendNotification**으로 호출됩니다. 결과적으로 지속성 작업 프레임워크는 **Bar**에 대한 호출을 예상했지만 **SendNotification**에 대한 호출을 발견했기 때문에 `NonDeterministicOrchestrationException`과 함께 실패합니다.
+이 변경은 **Foo**와 **Bar** 간의 **SendNotification**에 새 함수 호출을 추가합니다. 시그니처 변경은 없습니다. 문제는 **Bar**에 대한 호출에서 기존 인스턴스가 다시 시작될 때 발생합니다. 재생하는 동안 **Foo**에 대한 원래 호출에서 `true`를 반환하는 경우 오케스트레이터 재생은 실행 기록에 없는 **SendNotification**으로 호출됩니다. 결과적으로 지속성 작업 프레임워크는 **Bar**에 대한 호출을 예상했지만 **SendNotification**에 대한 호출을 발견했기 때문에 `NonDeterministicOrchestrationException`과 함께 실패합니다. `CreateTimer`, `WaitForExternalEvent`등을 포함 하 여 "내구성이 있는" Api에 대 한 호출을 추가할 때 동일한 유형의 문제가 발생할 수 있습니다.
 
 ## <a name="mitigation-strategies"></a>완화 전략
 
@@ -95,7 +95,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 * 진행 중인 모든 인스턴스 중지
 * 병렬 배포
 
-### <a name="do-nothing"></a>아무 작업도 안 함
+### <a name="do-nothing"></a>아무 작업도 수행하지 않음
 
 주요 변경을 처리하는 가장 쉬운 방법은 진행 중인 오케스트레이션 인스턴스를 실패하게 만드는 것입니다. 새 인스턴스가 변경된 코드를 성공적으로 실행합니다.
 
@@ -112,9 +112,9 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 주요 변경 내용을 안전하게 배포하는 가장 확실한 방법은 이전 버전과 함께 나란히 배포하는 것입니다. 이렇게 하려면 다음 방법 중 하나를 사용하면 됩니다.
 
-* 완전히 새로운 함수(새 이름)로 모든 업데이트를 배포합니다.
+* 기존 함수를 그대로 두고 완전히 새로운 함수로 모든 업데이트를 배포 합니다. 새 함수 버전의 호출자는 동일한 지침에 따라 업데이트 해야 하기 때문에 복잡할 수 있습니다.
 * 다른 스토리지 계정을 사용하는 새 함수 앱으로 모든 업데이트를 배포합니다.
-* 업데이트된 `TaskHub` 이름으로 함수 앱의 새 복사본을 배포합니다. 이 방법을 사용하는 것이 좋습니다.
+* 업데이트 된 `taskHub` 이름을 가진 동일한 저장소 계정을 사용 하 여 함수 앱의 새 복사본을 배포 합니다. 이 방법을 사용하는 것이 좋습니다.
 
 ### <a name="how-to-change-task-hub-name"></a>작업 허브 이름을 변경하는 방법
 
@@ -125,18 +125,28 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 ```json
 {
     "durableTask": {
-        "HubName": "MyTaskHubV2"
+        "hubName": "MyTaskHubV2"
     }
 }
 ```
 
 #### <a name="functions-2x"></a>Functions 2.x
 
-기본값은 `DurableFunctionsHub`입니다.
+```json
+{
+    "extensions": {
+        "durableTask": {
+            "hubName": "MyTaskHubV2"
+        }
+    }
+}
+```
 
-Azure Storage 엔터티의 이름은 모두 `HubName` 구성 값에 따라 지정됩니다. 작업 허브에 새 이름을 지정하면 새 버전의 애플리케이션에 대한 별도의 큐와 기록 테이블이 만들어졌는지 확인합니다.
+Durable Functions v1. x의 기본값은 `DurableFunctionsHub`입니다. Durable Functions v2.0부터 기본 작업 허브 이름은 Azure의 함수 앱 이름과 동일 하거나 Azure 외부에서 실행 되는 경우 `TestHubName` 합니다.
 
-새 버전의 함수 앱을 새 [배포 슬롯](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/)에 배포하는 것이 좋습니다. 배포 슬롯을 사용하면 슬롯 중 하나만 활성 *프로덕션* 슬롯으로 사용하여 함수 앱의 여러 복사본을 병렬로 실행할 수 있습니다. 새 오케스트레이션 논리를 기존 인프라에 노출할 준비가 되면 새 버전을 프로덕션 슬롯으로 교환하는 것처럼 간단할 수 있습니다.
+Azure Storage 엔터티의 이름은 모두 `hubName` 구성 값에 따라 지정됩니다. 작업 허브에 새 이름을 지정하면 새 버전의 애플리케이션에 대한 별도의 큐와 기록 테이블이 만들어졌는지 확인합니다. 그러나 함수 앱은 이전 작업 허브 이름으로 만든 오케스트레이션 또는 엔터티에 대 한 이벤트 처리를 중지 합니다.
+
+새 버전의 함수 앱을 새 [배포 슬롯](../functions-deployment-slots.md)에 배포하는 것이 좋습니다. 배포 슬롯을 사용하면 슬롯 중 하나만 활성 *프로덕션* 슬롯으로 사용하여 함수 앱의 여러 복사본을 병렬로 실행할 수 있습니다. 새 오케스트레이션 논리를 기존 인프라에 노출할 준비가 되면 새 버전을 프로덕션 슬롯으로 교환하는 것처럼 간단할 수 있습니다.
 
 > [!NOTE]
 > 이 전략은 오케스트레이터 함수에 HTTP와 웹후크 트리거를 사용할 때 가장 적합합니다. 큐 또는 Event Hubs와 같은 HTTP가 아닌 트리거의 경우 트리거 정의는 교환 작업의 일부로 업데이트 된 [앱 설정에서 파생](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) 되어야 합니다.

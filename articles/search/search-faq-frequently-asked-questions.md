@@ -1,42 +1,41 @@
 ---
-title: FAQ(질문과 대답) - Azure Search
-description: Microsoft Azure의 클라우드 호스티드 검색 서비스인 Microsoft Azure Search 서비스에 대한 일반적인 질문과 답변입니다.
-author: HeidiSteen
+title: FAQ(질문과 대답)
+titleSuffix: Azure Cognitive Search
+description: Microsoft Azure에서 클라우드 호스트 검색 서비스인 Microsoft Azure Cognitive Search 서비스에 대 한 일반적인 질문에 대 한 답변을 확인 하세요.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/03/2017
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 600c619134cae18e69b5a200cb03fbebd82dee0f
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: fee74cb6ec5acd5fa0f171eab9769a833f04ad66
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719897"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792906"
 ---
-# <a name="azure-search---frequently-asked-questions-faq"></a>Azure Search - FAQ(질문과 대답)
+# <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Azure Cognitive Search-FAQ (질문과 대답)
 
- Azure Search와 관련된 개념, 코드, 시나리오에 대한 일반적인 질문의 답변을 알아봅니다.
+ Azure Cognitive Search 관련 된 개념, 코드 및 시나리오에 대 한 일반적인 질문과 대답을 찾습니다.
 
 ## <a name="platform"></a>플랫폼
 
-### <a name="how-is-azure-search-different-from-full-text-search-in-my-dbms"></a>Azure Search가 DBMS의 전체 텍스트 검색과 어떻게 다릅니까?
+### <a name="how-is-azure-cognitive-search-different-from-full-text-search-in-my-dbms"></a>내 DBMS에서 Azure Cognitive Search 전체 텍스트 검색과 어떻게 다른가?
 
-Azure Search에서는 여러 데이터 원본, [다국어 언어 분석](https://docs.microsoft.com/rest/api/searchservice/language-support), [흥미롭고 일반적이지 않은 데이터 입력에 대한 사용자 지정 분석](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), [점수 매기기 프로필](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)을 통한 검색 순위 관리, 사용자 환경 특징(예: 미리 입력, 적중 항목 강조 표시, 패싯 탐색)을 지원합니다. 또한 동의어 및 다양한 쿼리 구문 등과 같은 다른 기능도 지원하지만 보통은 차별화된 기능이 아닙니다.
+Azure Cognitive Search는 여러 데이터 원본, [다양 한 언어에 대 한 언어 분석](https://docs.microsoft.com/rest/api/searchservice/language-support), [흥미롭고 이상한 데이터 입력에 대 한 사용자 지정 분석](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), [점수 매기기 프로필](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)을 통한 순위 제어 검색, 사용자 환경 지원 형식 미리, 적중 항목 강조 표시, 패싯 탐색 등의 기능이 있습니다. 또한 동의어 및 다양한 쿼리 구문 등과 같은 다른 기능도 지원하지만 보통은 차별화된 기능이 아닙니다.
 
-### <a name="what-is-the-difference-between-azure-search-and-elasticsearch"></a>Azure Search과 Elasticsearch의 차이는 무엇입니까?
+### <a name="what-is-the-difference-between-azure-cognitive-search-and-elasticsearch"></a>Azure Cognitive Search와 Elasticsearch의 차이점은 무엇 인가요?
 
-검색 기술을 비교할 때 고객은 Azure Search와 Elasticsearch의 특정한 차이점에 대해 자주 질문합니다. 고객은 보통 Azure Search가 주요 업무를 더 쉽게 해 주거나 타 Microsoft 기술과의 기본 제공 통합이 필요하기 때문에 검색 애플리케이션으로 Elasticsearch 대신 Azure Search를 선택합니다.
+고객은 검색 기술을 비교할 때 Azure Cognitive Search Elasticsearch와 비교 하는 방법에 대 한 세부 정보를 자주 요청 합니다. 검색 응용 프로그램 프로젝트에 대해 Elasticsearch를 통해 Azure Cognitive Search를 선택 하는 고객은 일반적으로 주요 작업을 더 쉽게 수행 하거나 다른 Microsoft 기술과의 기본 제공 통합이 필요 하기 때문에이 작업을 수행 합니다.
 
-+ Azure Search는 완벽 하 게 관리 되는 클라우드 서비스로, 충분 한 중복성을 제공 하 여 프로 비전 된 경우 99.9%의 SLA (서비스 수준 계약) (읽기 액세스용 복제본 2 개, 읽기/쓰기용 복제본 3 개)
++ Azure Cognitive Search는 완벽 하 게 관리 되는 클라우드 서비스로, 충분 한 중복성을 제공 하 여 프로 비전 된 경우 99.9%의 SLA (서비스 수준 계약)를 제공 합니다 (읽기 액세스용 복제본 2 개, 읽기/쓰기용 복제본 3 개)
 + Microsoft의 [자연어 프로세서](https://docs.microsoft.com/rest/api/searchservice/language-support)는 첨단 언어 분석을 제공합니다.  
-+ [Azure Search 인덱서](search-indexer-overview.md)는 초기 및 중분 인덱싱을 위해 다양한 Azure 데이터 소스를 탐색합니다.
++ [Azure Cognitive Search 인덱서](search-indexer-overview.md) 는 초기 및 증분 인덱싱을 위해 다양 한 azure 데이터 원본을 탐색할 수 있습니다.
 + 쿼리나 인덱싱 볼륨의 변동에 신속히 응대해야 할 경우 Azure Portal의 [슬라이더 컨트롤](search-manage.md#scale-up-or-down)을 사용하거나 [PowerShell 스크립트](search-manage-powershell.md)를 실행하여 직접 분할된 데이터베이스 관리를 무시합니다.  
 + [점수 매기기 및 조정 기능](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)은 검색 엔진이 단독으로 제공 가능하던 것을 넘어 검색 순위 점수에 영향을 미치는 방법을 제공합니다.
 
-### <a name="can-i-pause-azure-search-service-and-stop-billing"></a>Azure Search를 일시 중지하고 청구를 멈출 수 있습니까?
+### <a name="can-i-pause-azure-cognitive-search-service-and-stop-billing"></a>Azure Cognitive Search 서비스를 일시 중지 하 고 청구를 중지할 수 있나요?
 
 서비스는 일시 중지할 수 없습니다. 서비스가 만들어지면 고객의 독점적 사용을 위해 계산 및 스토리지 리소스가 할당됩니다. 요청에 따라 이러한 리소스를 해제하고 재청구하는 것은 불가능합니다.
 
@@ -48,21 +47,21 @@ Azure Search에서는 여러 데이터 원본, [다국어 언어 분석](https:/
 
 또는 나중에 복원 하는 데 사용할 수 있는 파일에 인덱스 스냅숏을 백업할 수 있습니다. 
 
-이 [Azure Search .net 샘플 리포지토리의](https://github.com/Azure-Samples/azure-search-dotnet-samples) **인덱스-백업 복원** 샘플 코드를 사용 하 여 이러한 모든 작업을 수행할 수 있습니다. 
+이 [Azure Cognitive Search .net 샘플 리포지토리의](https://github.com/Azure-Samples/azure-search-dotnet-samples) **인덱스-백업 복원** 샘플 코드를 사용 하 여 이러한 모든 작업을 수행할 수 있습니다. 
 
-Azure Search REST API를 사용 하 여 언제 든 지 [인덱스 정의를 가져올](https://docs.microsoft.com/rest/api/searchservice/get-index) 수도 있습니다.
+Azure Cognitive Search REST API를 사용 하 여 언제 든 지 [인덱스 정의를 가져올](https://docs.microsoft.com/rest/api/searchservice/get-index) 수도 있습니다.
 
 현재 Azure Portal에는 기본적으로 제공 되는 인덱스 추출, 스냅숏 또는 백업 복원 기능이 없습니다. 그러나 향후 릴리스에서는 백업 및 복원 기능을 추가 하는 것을 고려 하 고 있습니다. 이 기능에 대 한 지원을 표시 하려면 [사용자 음성](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index)에 대 한 투표를 캐스트 합니다.
 
 ### <a name="can-i-restore-my-index-or-service-once-it-is-deleted"></a>내 인덱스 또는 서비스가 삭제된 경우 복원할 수 있나요?
 
-아니요, Azure Search 인덱스 또는 서비스를 삭제 하는 경우에는 복구할 수 없습니다. Azure Search 서비스를 삭제한 경우 서비스의 모든 인덱스는 영구적으로 삭제됩니다. 하나 이상의 Azure Search 서비스를 포함 하는 Azure 리소스 그룹을 삭제 하면 모든 서비스가 영구적으로 삭제 됩니다.  
+아니요, Azure Cognitive Search 인덱스 또는 서비스를 삭제 하는 경우 복구할 수 없습니다. Azure Cognitive Search 서비스를 삭제 하면 서비스의 모든 인덱스가 영구적으로 삭제 됩니다. 하나 이상의 Azure Cognitive Search 서비스를 포함 하는 Azure 리소스 그룹을 삭제 하면 모든 서비스가 영구적으로 삭제 됩니다.  
 
 인덱스, 인덱서, 데이터 원본, 기술력과 등의 리소스를 다시 만들려면 코드에서 다시 만들어야 합니다. 
 
 인덱스를 다시 만들려면 외부 원본에서 데이터의 인덱스를 다시 만들어야 합니다. 따라서 Azure SQL Database 또는 Cosmos DB와 같은 다른 데이터 저장소에 원본 데이터의 백업 또는 마스터 복사본을 유지 하는 것이 좋습니다.
 
-또는이 [Azure Search .net 샘플 리포지토리의](https://github.com/Azure-Samples/azure-search-dotnet-samples) **인덱스-백업 복원** 샘플 코드를 사용 하 여 일련의 JSON 파일에 인덱스 정의와 인덱스 스냅숏을 백업할 수 있습니다. 나중에 필요한 경우 도구와 파일을 사용 하 여 인덱스를 복원할 수 있습니다.  
+또는이 [Azure Cognitive Search .net 샘플 리포지토리의](https://github.com/Azure-Samples/azure-search-dotnet-samples) **인덱스-백업 복원** 샘플 코드를 사용 하 여 일련의 JSON 파일에 인덱스 정의와 인덱스 스냅숏을 백업할 수 있습니다. 나중에 필요한 경우 도구와 파일을 사용 하 여 인덱스를 복원할 수 있습니다.  
 
 ### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexershttpsdocsmicrosoftcomazuresearchsearch-howto-connecting-azure-sql-database-to-azure-search-using-indexers"></a>SQL 데이터베이스 복제본에서 인덱싱할 수 있나요([Azure SQL Database 인덱서](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers)에 적용)?
 
@@ -90,7 +89,7 @@ Azure Search REST API를 사용 하 여 언제 든 지 [인덱스 정의를 가�
 
 ### <a name="why-is-the-search-rank-a-constant-or-equal-score-of-10-for-every-hit"></a>검색 순위가 일정하거나 모든 적중에 대해 점수가 1.0으로 같은 이유는 무엇인가요?
 
-기본적으로 검색 결과는 [일치하는 용어의 통계적 속성](search-lucene-query-architecture.md#stage-4-scoring)에 따라 점수가 매겨지며 결과 집합에서 높은 점수에서 낮은 점수 순으로 순위가 매겨집니다. 그러나 일부 쿼리 유형(와일드카드, 접두사, regex)은 전체적인 문서 점수에 항상 상수 점수를 부여합니다. 이 동작은 의도된 것입니다. Azure Search는 순위 영향 없이 쿼리 확장을 통해 검색된 일치 항목이 결과에는 포함되게 하기 위해 일정 점수를 적용합니다.
+기본적으로 검색 결과는 [일치하는 용어의 통계적 속성](search-lucene-query-architecture.md#stage-4-scoring)에 따라 점수가 매겨지며 결과 집합에서 높은 점수에서 낮은 점수 순으로 순위가 매겨집니다. 그러나 일부 쿼리 유형(와일드카드, 접두사, regex)은 전체적인 문서 점수에 항상 상수 점수를 부여합니다. 이 동작은 의도된 것입니다. Azure Cognitive Search는 순위에 영향을 주지 않고 쿼리 확장을 통해 찾은 일치 항목을 결과에 포함 하도록 허용 하는 상수 점수를 적용 합니다.
 
 예를 들어, 와일드카드 검색에서 "tour*"를 입력하면 "tours", "tourettes" 및 "tourmaline"이 일치합니다. 이러한 결과의 특성을 감안할 때, 어떤 용어가 더 중요한지 합리적으로 유추할 방법이 없습니다. 이러한 이유로 와일드카드, 접두사, regex 쿼리 유형의 결과에 대한 점수를 매길 때에는 용어 빈도를 무시합니다. 예기치 않은 일치의 가능성에 따른 왜곡을 방지하기 위해 부분 이력 기준 검색 결과에는 일정 점수가 부여됩니다.
 
@@ -98,14 +97,14 @@ Azure Search REST API를 사용 하 여 언제 든 지 [인덱스 정의를 가�
 
 ### <a name="what-is-the-best-approach-for-implementing-localized-search"></a>특정 언어 검색을 구현하기 위한 가장 좋은 방법은 무엇인가요?
 
-대부분의 고객은 동일한 인덱스에서 다양한 로캘(언어)을 지원하기 위해 컬렉션보다 전용 필드를 선택합니다. 로캘 특정 필드를 사용하면 적합한 분석기를 할당할 수 있습니다. 예를 들어, 프랑스어 문자열이 들어간 필드에는 Microsoft French Analyzer를 할당합니다. 그렇게 하면 필터링도 간소화됩니다. 쿼리가 Fr-Fr 페이지에서 시작되었음을 알고 있다면 검색 결과를 이 필드로 제한할 수 있습니다. 또는 [점수 매기기 프로필](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)을 만들어 해당 필드에 더 상대적인 가중치를 부여합니다. Azure Search는 [50개 이상의 언어 분석기](https://docs.microsoft.com/azure/search/search-language-support)를 지원합니다.
+대부분의 고객은 동일한 인덱스에서 다양한 로캘(언어)을 지원하기 위해 컬렉션보다 전용 필드를 선택합니다. 로캘 특정 필드를 사용하면 적합한 분석기를 할당할 수 있습니다. 예를 들어, 프랑스어 문자열이 들어간 필드에는 Microsoft French Analyzer를 할당합니다. 그렇게 하면 필터링도 간소화됩니다. 쿼리가 Fr-Fr 페이지에서 시작되었음을 알고 있다면 검색 결과를 이 필드로 제한할 수 있습니다. 또는 [점수 매기기 프로필](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)을 만들어 해당 필드에 더 상대적인 가중치를 부여합니다. Azure Cognitive Search는 [50 이상의 언어 분석기](https://docs.microsoft.com/azure/search/search-language-support) 를 지원 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 없는 기능 또는 특징에 대해 질문이 있으면 [사용자 의견 웹 사이트](https://feedback.azure.com/forums/263029-azure-search)에서 요청하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
- [StackOverflow: Azure Search](https://stackoverflow.com/questions/tagged/azure-search)   
- [Azure Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)  
- [Azure Search란?](search-what-is-azure-search.md)
+ [Stackoverflow: Azure Cognitive Search](https://stackoverflow.com/questions/tagged/azure-search)   
+ [Azure Cognitive Search에서 전체 텍스트 검색이 작동 하는 방식](search-lucene-query-architecture.md)  
+ [Azure Cognitive Search 이란?](search-what-is-azure-search.md)

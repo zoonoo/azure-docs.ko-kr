@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/22/2019
 ms.author: raynew
-ms.openlocfilehash: 179676ae2a7d68bc0263f897ffededcf8b7a01f4
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: de9fd8c7cd9470a7ccc9136d1eac91fe373fe03c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693379"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787294"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -50,7 +50,7 @@ RAM | 16GB
 디스크 수 | 3개의 디스크<br/><br/> 디스크에는 OS 디스크, 프로세스 서버 캐시 디스크, 보존 드라이브(장애 복구용)가 포함됩니다.
 사용 가능한 디스크 공간 | 프로세스 서버 캐시에 600 GB의 공간이 있습니다.
 사용 가능한 디스크 공간 | 보존 드라이브용 600 GB 공간.
-운영 체제  | Windows Server 2012 R2 또는 데스크톱 경험을 사용 하는 Windows Server 2016 |
+운영 체제  | Windows Server 2012 R2 또는 데스크톱 경험을 사용 하는 Windows Server 2016 <br/><br> 장애 복구 (failback)를 위해이 어플라이언스의 기본 제공 마스터 대상을 사용할 계획인 경우 OS 버전이 복제 된 항목과 같거나 그 이상 인지 확인 합니다.|
 운영 체제 로케일 | 미국 영어(en-us)
 [PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | 구성 서버 버전 [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) 이상에서는 필요 하지 않습니다. 
 Windows Server 역할 | Active Directory Domain Services 사용 안 함 인터넷 정보 서비스 (IIS) 또는 Hyper-v. 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/17/2019
+ms.date: 10/22/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 661e1b6e3811ff2b5ae25e4fd59764a69e9ebe48
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 6d59964013a2631430ecd7e46d1ce0f6be60a05f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596683"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802035"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>파트너에 대 한 Azure Cost Management 시작
 
@@ -30,10 +30,10 @@ CSP 파트너는 Cost Management을 사용 하 여 다음을 수행 합니다.
 - Cost Management 데이터에 대 한 고객 액세스를 제공 하는 Azure Resource Manager 정책을 사용 하도록 설정 합니다. 그러면 고객은 [종 량 제 요금](https://azure.microsoft.com/pricing/calculator/)을 사용 하 여 구독에 대 한 소비 비용 데이터를 볼 수 있습니다.
 
 모든 고객에 대 한 비용을 보여 주는 예제는 다음과 같습니다.
-모든 고객에 대 한 비용을 보여 주는 ![Example ](./media/get-started-partners/customer-costs1.png)
+모든 고객에 대 한 비용을 보여 주는 ![예제](./media/get-started-partners/customer-costs1.png)
 
 단일 고객에 대 한 비용을 보여 주는 예제는 다음과 같습니다.
-단일 고객에 대 한 비용을 보여 주는 ![Example ](./media/get-started-partners/customer-costs2.png)
+단일 고객에 대 한 비용을 보여 주는 ![예제](./media/get-started-partners/customer-costs2.png)
 
 Azure Cost Management에서 사용할 수 있는 모든 기능을 REST Api와 함께 사용할 수도 있습니다. Api를 사용 하 여 비용 관리 작업을 자동화 합니다.
 
@@ -101,7 +101,7 @@ Microsoft 고객 계약에 고객을 등록 한 후 Microsoft 고객 계약에 �
 
 **전역 관리자** 및 **관리 에이전트** 역할이 있는 사용자만 파트너의 Azure 테 넌 트에서 직접 청구 계정, 청구 프로필 및 고객에 대 한 비용을 관리 하 고 볼 수 있습니다. 파트너 센터 역할에 대 한 자세한 내용은 [사용자 역할 및 사용 권한 할당](/partner-center/permissions-overview)을 참조 하세요.
 
-### <a name="enable-cost-management-in-the-customer-tenant"></a>고객 테 넌 트에서 비용 관리 사용
+## <a name="enable-cost-management-in-the-customer-tenant"></a>고객 테 넌 트에서 비용 관리 사용
 
 파트너는 고객이 Microsoft 고객 계약에 등록 한 후 Cost Management에 대 한 액세스를 사용할 수 있습니다. 그런 다음 파트너는 고객이 종 량 제 요금으로 계산 된 비용을 볼 수 있도록 하는 정책을 사용 하도록 설정할 수 있습니다. 비용은 RBAC 구독 및 리소스 그룹 범위에서 사용 되는 사용량에 대 한 고객의 청구 통화로 표시 됩니다.
 
@@ -122,7 +122,7 @@ Azure Portal에서 파트너 테 넌 트에 로그인 하 고 **Cost Management 
 **설정**아래에서 **정책**을 클릭 합니다.
 
 선택한 고객에 대 한 구독과 연결 된 **Azure 사용** 요금에 대 한 현재 비용 표시 정책이 표시 됩니다.
-고객이 종 량 제 요금을 볼 수 있도록 ![Policy ](./media/get-started-partners/cost-management-billing-policies.png)
+고객이 종 량 제 요금을 볼 수 있도록 하 ![정책](./media/get-started-partners/cost-management-billing-policies.png)
 
 정책이 **아니요**로 설정 된 경우에는 고객과 연결 된 구독 사용자에 대해 Azure Cost Management를 사용할 수 없습니다. 파트너가 사용 하도록 설정 되지 않은 경우 모든 구독 사용자에 대해 기본적으로 비용 표시 정책이 사용 되지 않습니다.
 

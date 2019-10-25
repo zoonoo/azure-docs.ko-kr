@@ -10,26 +10,26 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/27/2019
+ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2069f0161ea2600a62ab123206d0ebe3c00642c3
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 72d9f0c7df12bd6746cd5cf0336e7bd58b6cc88d
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804372"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809029"
 ---
-# <a name="create-an-access-review-of-azure-ad-roles-in-pim"></a>PIM에서 Azure AD 역할에 대 한 액세스 검토 만들기
+# <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 액세스 검토 만들기
 
-시간이 지남에 따라 직원의 권한 있는 Azure AD 역할에 대 한 액세스를 변경 합니다. 부실 역할 할당과 관련 된 위험을 줄이려면 액세스를 정기적으로 검토 해야 합니다. Azure Active Directory (Azure AD) Privileged Identity Management (PIM)를 사용 하 여 권한 있는 Azure AD 역할에 대 한 액세스 검토를 만들 수 있습니다. 자동으로 발생 하는 되풀이 액세스 검토를 구성할 수도 있습니다.
+사용자가 권한 있는 Azure Active Directory (Azure AD) 역할에 대 한 액세스 권한을 얻기 위한 요구 사항은 시간이 지남에 따라 변경 될 수 있습니다. 부실 역할 할당과 관련 된 위험을 줄이려면 액세스를 정기적으로 검토 해야 합니다. PIM (Azure AD Privileged Identity Management)을 사용 하 여 권한 있는 Azure AD 역할에 대 한 액세스 검토를 만들 수 있습니다. 자동으로 발생 하는 되풀이 액세스 검토를 구성할 수도 있습니다.
 
 이 문서에서는 권한 있는 Azure AD 역할에 대 한 액세스 검토를 하나 이상 만드는 방법을 설명 합니다.
 
 ## <a name="prerequisites"></a>전제 조건
 
-- [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+[권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
 ## <a name="open-access-reviews"></a>액세스 검토 열기
 
@@ -37,19 +37,17 @@ ms.locfileid: "70804372"
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
-1. 왼쪽 메뉴에서 **AZURE AD 역할** 을 클릭 한 다음 **액세스 검토**를 클릭 합니다.
+1. 왼쪽 메뉴에서 **AZURE AD 역할** 을 선택 하 고 **액세스 검토**를 선택 합니다.
 
-1. 관리에서 **액세스 검토**를 클릭 합니다.
+1. 관리에서 **액세스 검토**를 선택 합니다.
 
     ![Azure AD 역할-모든 리뷰의 상태를 보여 주는 액세스 검토 목록](./media/pim-how-to-start-security-review/access-reviews.png)
 
-
 [!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
-
 
 ## <a name="start-the-access-review"></a>액세스 검토 시작
 
-액세스 검토에 대한 설정을 지정했으면 **시작**을 클릭합니다. 액세스 검토는 상태 표시기를 사용 하 여 목록에 표시 됩니다.
+액세스 검토에 대 한 설정을 지정한 후 **시작**을 선택 합니다. 액세스 검토는 상태 표시기를 사용 하 여 목록에 표시 됩니다.
 
 ![시작 된 검토의 상태를 보여 주는 액세스 검토 목록](./media/pim-how-to-start-security-review/access-reviews-list.png)
 

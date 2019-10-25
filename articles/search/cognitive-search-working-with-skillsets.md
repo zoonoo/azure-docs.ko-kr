@@ -1,70 +1,71 @@
 ---
-title: 기술력과 사용-Azure Search
-description: 기술력과는 인지 검색에서 AI 보강 파이프라인을 작성 하 고, 몇 가지 개념을 이해 하 고, 기술력과를 사용 하 여 단순 하거나 복잡 한 기술력과를 구축할 수 있는 방법입니다.
-manager: eladz
+title: 기술력과 사용
+titleSuffix: Azure Cognitive Search
+description: 기술력과는 Azure Cognitive Search에서 AI 보강 파이프라인을 작성 하는 위치입니다. 기술 컴퍼지션에 대 한 중요 한 개념 및 세부 정보를 알아보세요.
+manager: nitinme
 author: vkurpad
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/05/2019
 ms.author: vikurpad
-ms.openlocfilehash: f75e6dece376076d4aa5e33497aff7e4f9f56857
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 8a783581394de05fff9f0060e124e8dc59c96b60
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265691"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790180"
 ---
-# <a name="working-with-skillsets"></a>기술력과 사용
-이 문서는 보강 파이프라인이 작동 하는 방식을 심층적으로 이해 해야 하 고 인지 검색 프로세스를 개념적으로 이해 하 고 있다고 가정 하는 개발자를 위한 것입니다. 인지 검색을 처음 접하는 경우 다음으로 시작 합니다.
-+ [Azure Search에서 "인지 검색" 이란?](cognitive-search-concept-intro.md)
-+ [Azure Search에서 기술 자료 저장소 란?](knowledge-store-concept-intro.md)
+# <a name="working-with-skillsets-in-azure-cognitive-search"></a>Azure Cognitive Search에서 기술력과 사용
+
+이 문서는 보강 파이프라인이 작동 하는 방식을 심층적으로 이해 해야 하 고 AI 보강 프로세스를 개념적으로 이해 하 고 있다고 가정 하는 개발자를 위한 것입니다. 이러한 개념을 처음 접하는 경우 다음으로 시작 합니다.
++ [Azure Cognitive Search의 AI 보강](cognitive-search-concept-intro.md)
++ [지식 저장소 (미리 보기)](knowledge-store-concept-intro.md)
 
 ## <a name="specify-the-skillset"></a>기술 지정
-기술는 인덱싱 중에 텍스트 또는 이미지 내용을 분석, 변환 및 보강 하는 데 사용 되는 인식 기술 컬렉션을 지정 하는 재사용 가능한 Azure Search 리소스입니다. 기술를 만들면 데이터 수집 단계에서 텍스트 및 이미지 강화를 연결 하 여 원시 콘텐츠에서 새 정보 및 구조를 추출 하 고 만들 수 있습니다.
+기술는 인덱싱 중에 텍스트 또는 이미지 콘텐츠를 분석, 변환 및 보강 하는 데 사용 되는 인식 기술 컬렉션을 지정 하는 Azure Cognitive Search의 재사용 가능한 리소스입니다. 기술를 만들면 데이터 수집 단계에서 텍스트 및 이미지 강화를 연결 하 여 원시 콘텐츠에서 새 정보 및 구조를 추출 하 고 만들 수 있습니다.
 
 기술에는 다음과 같은 세 가지 속성이 있습니다.
 
-+   ```skills```-플랫폼에서 각 기술에 필요한 입력을 기준으로 실행 순서를 결정 하는 순서가 지정 되지 않은 기술 컬렉션입니다.
-+   ```cognitiveServices```-호출 된 인식 기술을 청구 하는 데 필요한 인식 서비스 키
-+   ```knowledgeStore```-보강 문서를 프로젝션 하는 저장소 계정
++   ```skills```각 기술에 필요한 입력을 기반으로 하 여 실행 순서를 결정 하는 순서가 지정 되지 않은 기술 모음입니다.
++   ```cognitiveServices```호출한 인식 기술을 청구 하는 데 필요한 인식 서비스 키
++   ```knowledgeStore```보강 문서가 프로젝션 되는 저장소 계정입니다.
 
 
 
-기술력과은 JSON으로 작성 됩니다. [식 언어](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional)를 사용 하 여 루프와 [분기](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-conditional) 를 사용 하 여 복잡 한 기술력과을 빌드할 수 있습니다. 식 언어는 보강 트리의 노드를 식별 하기 위해 몇 가지 수정으로 [JSON 포인터](https://tools.ietf.org/html/rfc6901) 경로 표기법을 사용 합니다. 는 ```"/"``` 트리에서 더 낮은 수준으로 이동 하 고 ```"*"``` 컨텍스트에서 각 연산자의 역할을 합니다. 이러한 개념은 예를 들어 잘 설명 되어 있습니다. 몇 가지 개념과 기능을 설명 하기 위해 [호텔 리뷰 샘플](knowledge-store-connect-powerbi.md) 기술을 살펴보겠습니다. 기술를 보려면 데이터 가져오기 워크플로를 수행한 후에 REST API 클라이언트를 사용 하 여 [기술를 가져와야](https://docs.microsoft.com/en-us/rest/api/searchservice/get-skillset)합니다.
+기술력과은 JSON으로 작성 됩니다. [식 언어](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional)를 사용 하 여 루프와 [분기](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-conditional) 를 사용 하 여 복잡 한 기술력과을 빌드할 수 있습니다. 식 언어는 보강 트리의 노드를 식별 하기 위해 몇 가지 수정으로 [JSON 포인터](https://tools.ietf.org/html/rfc6901) 경로 표기법을 사용 합니다. ```"/"```는 트리에서 더 낮은 수준으로 이동 하 고 ```"*"```는 컨텍스트에서 각각의 연산자 역할을 합니다. 이러한 개념은 예를 들어 잘 설명 되어 있습니다. 몇 가지 개념과 기능을 설명 하기 위해 [호텔 리뷰 샘플](knowledge-store-connect-powerbi.md) 기술을 살펴보겠습니다. 기술를 보려면 데이터 가져오기 워크플로를 수행한 후에 REST API 클라이언트를 사용 하 여 [기술를 가져와야](https://docs.microsoft.com/en-us/rest/api/searchservice/get-skillset)합니다.
 
 ### <a name="enrichment-tree"></a>보강 트리
 
 기술가 문서를 점진적으로 강화 하는 방법을 구상 하기 위해 모든 보강 앞에 문서 모양의 모양을 시작 하겠습니다. 문서 크랙의 출력은 데이터 원본 및 선택한 특정 구문 분석 모드에 따라 달라 집니다. 검색 인덱스에 데이터를 추가할 때 [필드 매핑에서](search-indexer-field-mappings.md) 콘텐츠를 원본으로 지정할 수 있는 문서의 상태 이기도 합니다.
-![파이프라인 다이어그램의 지식 저장소](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "파이프라인 다이어그램의 지식 저장소")
+![파이프라인 다이어그램의 기술 자료 저장소](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "K파이프라인 다이어그램의 nowledge 저장소)
 
 문서가 보강 파이프라인에 있으면 콘텐츠 및 관련 강화 트리로 표시 됩니다. 이 트리는 문서 크랙의 출력으로 인스턴스화됩니다. 보강 트리 형식을 사용 하면 보강 파이프라인이 메타 데이터를 기본 데이터 형식으로 연결 하 고, 유효한 JSON 개체가 아니지만 유효한 JSON 형식으로 프로젝션 할 수 있습니다. 다음 표에서는 보강 파이프라인에 입력 하는 문서의 상태를 보여 줍니다.
 
 |데이터 원본 \ 구문 분석 모드|기본값|JSON, JSON 줄 & CSV|
 |---|---|---|
 |Blob Storage|/문서/내용<br>/document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
-|SQL|/document/{column1}<br>/document/{column2}<br>…|해당 사항 없음 |
-|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|해당 사항 없음|
+|SQL|/document/{column1}<br>/document/{column2}<br>…|N/A |
+|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|
 
  기술이 실행 되 면 보강 트리에 새 노드를 추가 합니다. 이러한 새 노드는 다운스트림 기술에 대 한 입력으로 사용 하거나, 기술 자료 저장소로 프로젝션 하거나, 인덱스 필드에 매핑할 수 있습니다. 강화은 변경할 수 없습니다. 만든 후에는 노드를 편집할 수 없습니다. 기술력과가 더 복잡 하므로 보강 트리가 필요 하지만 보강 트리의 모든 노드가 인덱스나 기술 자료 저장소로 만들어야 하는 것은 아닙니다. 인덱스 또는 기술 자료 저장소에 강화의 하위 집합만 선택적으로 보관할 수 있습니다.
 
 인덱스 또는 기술 자료 저장소에 강화의 하위 집합만 선택적으로 보관할 수 있습니다.
 이 문서의 나머지 부분에서는 [호텔 리뷰 예](https://docs.microsoft.com/en-us/azure/search/knowledge-store-connect-powerbi)를 사용 하는 것으로 가정 하지만 동일한 개념은 다른 모든 데이터 원본의 문서 보강 적용 됩니다.
 
-### <a name="context"></a>컨텍스트
+### <a name="context"></a>Context
 각 기술에는 컨텍스트가 필요 합니다. 컨텍스트는 다음을 결정 합니다.
-+   선택 된 노드를 기준으로 기술이 실행 되는 횟수입니다. 형식 컬렉션의 컨텍스트 값의 경우 끝에 ```/*``` 를 추가 하면 컬렉션의 각 인스턴스에 대해 한 번씩 기술이 호출 됩니다. 
++   선택 된 노드를 기준으로 기술이 실행 되는 횟수입니다. 형식 컬렉션의 컨텍스트 값의 경우 끝에 ```/*```을 추가 하면 컬렉션의 각 인스턴스에 대해 한 번씩 기술이 호출 됩니다. 
 +   보강 트리에서는 기술 출력이 추가 됩니다. 출력은 항상 트리에 컨텍스트 노드의 자식으로 추가 됩니다. 
 +   입력의 셰이프입니다. 다중 수준 컬렉션의 경우 컨텍스트를 부모 컬렉션으로 설정 하면 기술 입력의 모양에 영향을 줍니다. 예를 들어 국가 목록이 포함 된 보강 트리가 있는 경우 각 보강은 zipcodes 목록을 포함 하는 상태 목록을 포함 합니다.
 
-|컨텍스트|입력|입력 모양|기술 호출|
+|Context|입력|입력 모양|기술 호출|
 |---|---|---|---|
 |```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |국가의 모든 zipcodes 목록 |국가 당 한 번 |
 |```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |상태의 zipcodes 목록 | 국가 및 상태 조합 당 한 번|
 
 ### <a name="sourcecontext"></a>SourceContext
 
-는 `sourceContext` [shaper skills](cognitive-search-skill-shaper.md) 및 [프로젝션](knowledge-store-projection-overview.md)에서만 사용 됩니다. 이 클래스는 여러 수준의 중첩 된 개체를 생성 하는 데 사용 됩니다. 을 `sourceContext` 사용 하 여 컨텍스트를 사용 하는 경우에는 여러 기술이 필요한 계층적 익명 형식 개체를 생성할 수 있습니다. 다음 `sourceContext` 섹션에는를 사용 하는 방법을 보여 줍니다.
+`sourceContext`는 [shaper skills](cognitive-search-skill-shaper.md) 및 [프로젝션](knowledge-store-projection-overview.md)에서만 사용 됩니다. 이 클래스는 여러 수준의 중첩 된 개체를 생성 하는 데 사용 됩니다. `sourceContext`를 사용 하 여 컨텍스트를 사용 하는 경우에는 여러 기술이 필요한 계층적 익명 형식 개체를 생성할 수 있습니다. `sourceContext` 사용은 다음 섹션에 나와 있습니다.
 
 ### <a name="projections"></a>프로젝션
 
@@ -88,22 +89,22 @@ ms.locfileid: "71265691"
 
 ![문서 크랙 후 보강 트리](media/cognitive-search-working-with-skillsets/enrichment-tree-doc-cracking.png "문서를 크랙 한 후 기술 실행 전 보강 트리")
 
-의 ```"/document/reviews_text"```기술 컨텍스트에서이 기술은 `reviews_text`에 대해 한 번 실행 됩니다. 기술 출력은 `reviews_text` 가 5000 문자 세그먼트로 청크 되는 목록입니다. 분할 된 기술 출력의 이름은로 지정 `pages` 되 고 보강 트리에 추가 됩니다. `targetName` 기능을 사용 하면 보강 트리에 추가 되기 전에 기술 출력의 이름을 바꿀 수 있습니다.
+이 기술은 ```"/document/reviews_text"```의 기술 컨텍스트에서 `reviews_text`에 대해 한 번 실행 됩니다. 기술 출력은 `reviews_text`를 5000 문자 세그먼트로 청크 분할 하는 목록입니다. 분할 된 기술 출력의 이름은 `pages`이 고 보강 트리에 추가 됩니다. `targetName` 기능을 사용 하면 보강 트리에 추가 되기 전에 기술 출력의 이름을 바꿀 수 있습니다.
 
 이제 보강 트리에는 기술 컨텍스트 아래에 새로운 노드가 배치 됩니다. 이 노드는 모든 기술, 프로젝션 또는 출력 필드 매핑에서 사용할 수 있습니다.
 
 
-모든 강화 `"/document"`에 대 한 루트 노드는입니다. Blob 인덱서를 사용 하는 경우 `"/document"` 노드에는 및 `"/document/normalized_images"`의 `"/document/content"` 자식 노드가 있습니다. 이 예에서와 같이 CSV 데이터로 작업 하는 경우 열 이름이 아래 `"/document"`노드에 매핑됩니다. 기술에 의해 노드에 추가 된 강화에 액세스 하려면 보강에 대 한 전체 경로가 필요 합니다. 예를 들어 ```pages``` 노드의 텍스트를 다른 기술에 대 한 입력으로 사용 하려는 경우에는이를로 ```"/document/reviews_text/pages/*"```지정 해야 합니다.
+모든 강화에 대 한 루트 노드가 `"/document"`되었습니다. Blob 인덱서를 사용 하는 경우 `"/document"` 노드에 `"/document/content"` 및 `"/document/normalized_images"`의 자식 노드가 있습니다. 이 예에서와 같이 CSV 데이터로 작업 하는 경우 열 이름은 `"/document"`아래의 노드에 매핑됩니다. 기술에 의해 노드에 추가 된 강화에 액세스 하려면 보강에 대 한 전체 경로가 필요 합니다. 예를 들어 ```pages``` 노드의 텍스트를 다른 기술에 대 한 입력으로 사용 하려는 경우에는 ```"/document/reviews_text/pages/*"```으로 지정 해야 합니다.
  
  ![기술 #1 후 보강 트리](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "기술 #1 실행 후 보강 트리")
 
 ### <a name="skill-2-language-detection"></a>기술 #2 언어 검색
  언어 검색 기술은 기술에서 정의 된 세 번째 (기술 #3) 기술 이지만 다음에 실행할 수 있는 기술입니다. 입력을 요구 하 여 차단 되지 않으므로 이전 기술과 병렬로 실행 됩니다. 앞에 있는 분할 기술과 마찬가지로 언어 감지 기술도 각 문서에 대해 한 번 호출 됩니다. 이제 보강 트리에는 언어에 대 한 새 노드가 있습니다.
- ![기술 #2 후 보강 트리](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "기술 #2 실행 후 보강 트리")
+ ![기술 #2 후 보강 트리](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "En기술 #2 실행 후의 richment 트리 ")
  
  ### <a name="skill-3-key-phrases-skill"></a>기술 #3: 핵심 구 기술 
 
-키 구 기술 컨텍스트가 ```/document/reviews_text/pages/*``` 지정 된 경우 `pages` 컬렉션의 각 항목에 대해 한 번씩 호출 됩니다. 기술에 대 한 출력은 연결 된 page 요소 아래에 노드가 됩니다. 
+```/document/reviews_text/pages/*``` 컨텍스트가 지정 된 경우 `pages` 컬렉션의 각 항목에 대해 키 구 기술이 한 번씩 호출 됩니다. 기술에 대 한 출력은 연결 된 page 요소 아래에 노드가 됩니다. 
 
  이제 기술의 나머지 기술을 살펴보고 각 기술을 실행 하 여 강화의 트리가 어떻게 계속 증가 하는지 시각화할 수 있습니다. 병합 기술 및 shaper 기술과 같은 일부 기술은 새 노드도 만들지만 기존 노드의 데이터만 사용 하 고 net new 강화는 만들지 않습니다.
 
@@ -113,7 +114,7 @@ ms.locfileid: "71265691"
 
 ## <a name="save-enrichments-in-a-knowledge-store"></a>기술 자료 저장소에 강화 저장 
 
-또한 기술력과는 보강 문서를 테이블 또는 개체로 예측할 수 있는 기술 자료 저장소를 정의 합니다. 보강 데이터를 기술 자료 저장소에 저장 하려면 보강 문서의 일련의 프로젝션을 정의 합니다. 기술 자료 저장소에 대 한 자세한 내용은 [Azure Search 기술 자료 저장소 란?](knowledge-store-concept-intro.md) 을 참조 하세요.
+또한 기술력과는 보강 문서를 테이블 또는 개체로 예측할 수 있는 기술 자료 저장소를 정의 합니다. 보강 데이터를 기술 자료 저장소에 저장 하려면 보강 문서의 일련의 프로젝션을 정의 합니다. 기술 자료 저장소에 대해 자세히 알아보려면 [기술 자료 저장소 개요](knowledge-store-concept-intro.md) 를 참조 하세요.
 
 ### <a name="slicing-projections"></a>조각화 프로젝션
 
@@ -125,7 +126,7 @@ ms.locfileid: "71265691"
 
 Shaper 접근 방식은 인라인 셰이핑 보다 더 자세한 정보를 표시 하지만 보강 트리의 모든 변경이는 기술 내에 포함 되 고 출력은 다시 사용할 수 있는 개체 인지 확인 합니다. 인라인 셰이핑을 사용 하면 필요한 셰이프를 만들 수 있지만 익명 개체 이며 정의 된 프로젝션 에서만 사용할 수 있습니다. 접근 방식은 함께 또는 별도로 사용할 수 있습니다. 포털 워크플로에서 생성 된 기술에는 둘 다 포함 되어 있습니다. 테이블 프로젝션에 shaper 기술을 사용 하지만 키 구 테이블을 프로젝션 하는 인라인 셰이핑도 사용 합니다.
 
-예제를 확장 하려면 인라인 셰이핑을 제거 하 고 shaper 기술을 사용 하 여 키 구에 대 한 새 노드를 만드는 방법을 선택할 수 있습니다. 세 개의 테이블, 즉 `hotelReviewsDocument` `hotelReviewsPages`,, 및 `hotelReviewsKeyPhrases`로 프로젝션 된 셰이프를 만들려면 다음 섹션에 두 가지 옵션이 설명 되어 있습니다.
+예제를 확장 하려면 인라인 셰이핑을 제거 하 고 shaper 기술을 사용 하 여 키 구에 대 한 새 노드를 만드는 방법을 선택할 수 있습니다. `hotelReviewsDocument`, `hotelReviewsPages`및 `hotelReviewsKeyPhrases`라는 세 개의 테이블로 프로젝션 된 셰이프를 만들려면 다음 섹션에서 두 가지 옵션에 대해 설명 합니다.
 
 
 #### <a name="shaper-skill-and-projection"></a>Shaper 기술 및 프로젝션 
@@ -203,7 +204,7 @@ Shaper 접근 방식은 인라인 셰이핑 보다 더 자세한 정보를 표�
 }
 ```
 
-위의 섹션에서 정의한 노드를 사용 하 여 이제 조각화 기능을 사용 `tableprojection` 하 여 노드의 일부를 여러 테이블로 프로젝션 할 수 있습니다. `tableprojection` `outputs`
+위의 `outputs` 섹션에 정의 된 `tableprojection` 노드를 사용 하 여 이제 조각화 기능을 사용 하 여 `tableprojection` 노드의 일부를 여러 테이블로 프로젝션 할 수 있습니다.
 
 > [!Note]
 > 이는 기술 자료 저장소 구성 내의 프로젝션 코드 조각입니다.
@@ -294,7 +295,7 @@ Shaper 접근 방식은 인라인 셰이핑 보다 더 자세한 정보를 표�
 ]
 ```
   
-두 방법에서의 한 가지 관찰은를 `"Keyphrases"` `"sourceContext"`사용 하 여의 값을 프로젝션 하는 방법입니다. 문자열 컬렉션을 포함 하는 노드는자체페이지텍스트의자식입니다.`"Keyphrases"` 그러나 프로젝션에는 JSON 개체가 필요 하 고 페이지는 기본 형식 (문자열) `"sourceContext"` 이기 때문에는 키 구를 명명 된 속성이 있는 개체로 래핑하는 데 사용 됩니다. 이 방법을 사용 하면 기본 형식을 독립적으로 프로젝션 할 수 있습니다.
+두 방법의 한 가지 관찰은 `"Keyphrases"`의 값이 `"sourceContext"`를 사용 하 여 예측 되는 방법입니다. 문자열 컬렉션을 포함 하는 `"Keyphrases"` 노드 자체는 페이지 텍스트의 자식입니다. 그러나 프로젝션에 JSON 개체가 필요 하 고 페이지가 기본 (문자열) 이기 때문에 `"sourceContext"`를 사용 하 여 명명 된 속성을 가진 개체에 키 구를 래핑합니다. 이 방법을 사용 하면 기본 형식을 독립적으로 프로젝션 할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

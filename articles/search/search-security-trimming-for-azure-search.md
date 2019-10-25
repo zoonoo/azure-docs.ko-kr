@@ -1,24 +1,23 @@
 ---
-title: 결과를 한정하기 위한 보안 필터 - Azure Search
-description: 보안 필터 및 사용자 ID를 사용하여 Azure Search 콘텐츠에 대한 액세스 제어
-ms.service: search
-ms.topic: conceptual
-services: search
-ms.date: 05/02/2019
+title: 결과 트리밍을 위한 보안 필터
+titleSuffix: Azure Cognitive Search
+description: 보안 필터 및 사용자 id를 사용 하 여 Azure Cognitive Search 콘텐츠에 대 한 액세스 제어.
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
-ms.custom: seodec2018
-ms.openlocfilehash: 4d1ffa5b29a56d32a4f6a8ccf40f5bafd27795e6
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 24f168f68a60ebb0408b7f1c367039ea5caea6d1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186484"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794273"
 ---
-# <a name="security-filters-for-trimming-results-in-azure-search"></a>Azure Search의 결과를 한정하기 위한 보안 필터
+# <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Azure Cognitive Search의 결과를 잘라내는 보안 필터
 
-사용자 ID에 따라 Azure Search에서 검색 결과를 한정하기 위해 보안 필터를 적용할 수 있습니다. 이 검색 환경에서는 일반적으로 검색을 요청하는 사람의 ID를 누가 문서에 대한 권한을 갖는지에 대한 원칙을 포함하는 필드와 비교해 보는 것이 필요합니다. 일치하는 항목이 발견되면, 사용자 또는 보안 주체(예: 그룹 또는 역할)는 해당 문서에 액세스할 수 있습니다.
+사용자 id에 따라 Azure Cognitive Search에서 검색 결과를 트리밍하는 보안 필터를 적용할 수 있습니다. 이 검색 환경에서는 일반적으로 검색을 요청하는 사람의 ID를 누가 문서에 대한 권한을 갖는지에 대한 원칙을 포함하는 필드와 비교해 보는 것이 필요합니다. 일치하는 항목이 발견되면, 사용자 또는 보안 주체(예: 그룹 또는 역할)는 해당 문서에 액세스할 수 있습니다.
 
 보안 필터링을 달성할 한 가지 방법은 예를 들어 `Id eq 'id1' or Id eq 'id2'`와 같은 같음 표현의 복잡한 분리를 통해서입니다. 이 방법은 오류가 발생하기 쉽고, 유지 관리가 어려우며, 목록에 수백 수천 개의 값이 있는 경우 쿼리 응답 시간(초)이 느려집니다. 
 
@@ -35,7 +34,7 @@ ms.locfileid: "70186484"
 
 ## <a name="prerequisites"></a>전제 조건
 
-이 문서에서는 [Azure 구독](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), [Azure Search 서비스](https://docs.microsoft.com/azure/search/search-create-service-portal) 및 [Azure Search 인덱스](https://docs.microsoft.com/azure/search/search-create-index-portal)가 있다고 가정합니다.  
+이 문서에서는 [azure 구독](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), [azure Cognitive Search 서비스](https://docs.microsoft.com/azure/search/search-create-service-portal)및 [azure Cognitive Search 인덱스가](https://docs.microsoft.com/azure/search/search-create-index-portal)있다고 가정 합니다.  
 
 ## <a name="create-security-field"></a>보안 필드 만들기
 
@@ -113,7 +112,7 @@ api-key: [admin key]
 
 `group_ids` 액세스에 기초해 문서를 다듬으려면 `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` 필터를 사용해 검색 쿼리를 발급해야 합니다. 여기서 'group_id1 group_id2...'는 검색 요청 발급자가 속해 있는 그룹입니다.
 이 필터는 주어진 식별자 중 하나가 `group_ids` 필드에 들어 있는 모든 문서와 일치합니다.
-Azure Search을 사용한 문서 검색에 대한 상세한 내용은 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents)에서 확인할 수 있습니다.
+Azure Cognitive Search를 사용 하 여 문서를 검색 하는 방법에 대 한 자세한 내용은 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents)을 참조 하세요.
 이 샘플은 POST 요청을 사용하여 문서를 검색하는 방법을 보여 줍니다.
 
 HTTP POST 요청을 발급합니다.
@@ -152,10 +151,10 @@ api-key: [admin or query key]
 ```
 ## <a name="conclusion"></a>결론
 
-사용자 Id와 Azure Search `search.in()` 함수에 따라 결과를 필터링할 수 있는 방법입니다. 이 함수를 사용 하 여 요청 하는 사용자에 대 한 보안 주체 식별자를 전달 하 여 각 대상 문서와 연결 된 보안 주체 식별자에 대해 일치 시킬 수 있습니다. 검색 요청이 처리될 때, `search.in` 함수는 사용자의 보안 주체 중 아무도 읽기 권한이 없는 검색 결과를 필터링합니다. 보안 주체 식별자는 보안 그룹, 역할 또는 심지어 사용자 본인 ID와 같은 것을 나타낼 수 있습니다.
+사용자 id 및 Azure Cognitive Search `search.in()` 함수를 기준으로 결과를 필터링 하는 방법입니다. 이 함수를 사용 하 여 요청 하는 사용자에 대 한 보안 주체 식별자를 전달 하 여 각 대상 문서와 연결 된 보안 주체 식별자에 대해 일치 시킬 수 있습니다. 검색 요청이 처리될 때, `search.in` 함수는 사용자의 보안 주체 중 아무도 읽기 권한이 없는 검색 결과를 필터링합니다. 보안 주체 식별자는 보안 그룹, 역할 또는 심지어 사용자 본인 ID와 같은 것을 나타낼 수 있습니다.
  
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
-+ [Azure Search 필터를 사용하여 Active Directory ID 기반 액세스 제어](search-security-trimming-for-azure-search-with-aad.md)
-+ [Azure Search의 필터](search-filters.md)
-+ [Azure Search 작업의 데이터 보안 및 액세스 제어](search-security-overview.md)
++ [Azure Cognitive Search 필터를 사용 하 여 id 기반 액세스 제어 Active Directory](search-security-trimming-for-azure-search-with-aad.md)
++ [Azure Cognitive Search의 필터](search-filters.md)
++ [Azure Cognitive Search 작업의 데이터 보안 및 액세스 제어](search-security-overview.md)

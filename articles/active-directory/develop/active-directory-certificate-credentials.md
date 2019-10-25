@@ -1,5 +1,6 @@
 ---
-title: Azure AD의 인증서 자격 증명 | Microsoft Docs
+title: Azure AD의 인증서 자격 증명
+titleSuffix: Microsoft identity platform
 description: 이 문서에서는 애플리케이션 인증을 위한 인증서 자격 증명의 등록 및 사용에 대해 설명합니다.
 services: active-directory
 documentationcenter: .net
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aa63a8f06b71455b7f00d2ce5842f0da851789b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 1184d210f5b7ea25b9f73cbd70b5f960402126a1
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835465"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803527"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>애플리케이션 인증을 위한 인증서 자격 증명
 
@@ -36,7 +37,7 @@ Azure AD(Azure Active Directory)를 사용하면 애플리케이션에서(예: O
 
 ### <a name="header"></a>헤더
 
-| 매개 변수 |  설명 |
+| 매개 변수를 포함해야 합니다. |  설명 |
 | --- | --- |
 | `alg` | **RS256**이어야 함 |
 | `typ` | **JWT**여야 함 |
@@ -44,9 +45,9 @@ Azure AD(Azure Active Directory)를 사용하면 애플리케이션에서(예: O
 
 ### <a name="claims-payload"></a>클레임(페이로드)
 
-| 매개 변수 |  설명 |
+| 매개 변수를 포함해야 합니다. |  설명 |
 | --- | --- |
-| `aud` | Audience:  **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** 이어야 함 |
+| `aud` | 대상: **https://login.microsoftonline.com/*tenant_Id*/oauth2/token**여야 합니다. |
 | `exp` | 만료 날짜: 토큰이 만료되는 날짜입니다. 시간은 1970년 1월 1일(1970-01-01T0:0:0Z) UTC부터 토큰의 유효 기간이 만료될 때까지의 시간(초)으로 표시됩니다.|
 | `iss` | 발급자: client_id(클라이언트 서비스의 애플리케이션 ID)여야 함 |
 | `jti` | GUID: JWT ID |
@@ -100,7 +101,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 클라이언트 애플리케이션에 대한 Azure 앱 등록에서:
 1. **인증서 및 비밀**을 선택합니다. 
 2. **인증서 업로드** 를 클릭 하 고 업로드할 인증서 파일을 선택 합니다.
-3. **추가**를 클릭합니다.
+3. **추가**으로 로그온합니다.
   인증서가 업로드 되 면 지문, 시작 날짜 및 만료 값이 표시 됩니다. 
 
 ### <a name="updating-the-application-manifest"></a>애플리케이션 매니페스트 업데이트

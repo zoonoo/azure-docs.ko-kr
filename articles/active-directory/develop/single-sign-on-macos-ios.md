@@ -1,5 +1,6 @@
 ---
-title: MacOS 및 iOS에서 SSO 구성 | Microsoft id 플랫폼
+title: MacOS 및 iOS에서 SSO 구성
+titleSuffix: Microsoft identity platform
 description: MacOS 및 iOS에서 SSO (single sign on)를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +18,14 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a407b57a380d059703383b02e37decb8761786f4
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: b43319f3a456c7ea56ee3c6d5b3f9a1a4526bbe0
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268935"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802497"
 ---
-# <a name="how-to-configure-sso-on-macos-and-ios"></a>방법: MacOS 및 iOS에서 SSO 구성
+# <a name="how-to-configure-sso-on-macos-and-ios"></a>방법: macOS 및 iOS에서 SSO 구성
 
 MacOS 및 iOS 용 MSAL (Microsoft 인증 라이브러리)은 macOS/iOS 앱과 브라우저 간에 SSO (Single Sign-on)를 지원 합니다. 이 문서에서는 다음 SSO 시나리오에 대해 설명 합니다.
 
@@ -69,9 +70,9 @@ MSAL은 iOS 키 집합 액세스 그룹을 통해 SSO 공유를 지원 합니다
 
 Microsoft id 플랫폼에서 토큰을 공유할 수 있는 응용 프로그램을 확인 하려면 이러한 응용 프로그램이 동일한 클라이언트 ID 또는 응용 프로그램 ID를 공유 해야 합니다. 포털에 첫 번째 애플리케이션을 등록했던 경우에 제공된 고유 식별자입니다.
 
-Microsoft id 플랫폼에서 동일한 응용 프로그램 ID를 사용 하는 앱을 **리디렉션 uri**로 알리는 방법이 있습니다. 각 애플리케이션에는 등록 포털에 등록한 여러 개의 리디렉션 URI가 있을 수 있습니다. 제품의 각 앱은 다른 리디렉션 URI를 갖습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+Microsoft id 플랫폼에서 동일한 응용 프로그램 ID를 사용 하는 앱을 **리디렉션 uri**로 알리는 방법이 있습니다. 각 애플리케이션에는 등록 포털에 등록한 여러 개의 리디렉션 URI가 있을 수 있습니다. 제품의 각 앱은 다른 리디렉션 URI를 갖습니다. 다음은 그 예입니다.
 
-App1 리디렉션 URI: `msauth.com.contoso.mytestapp1://auth`App2 리디렉션 URI: `msauth.com.contoso.mytestapp2://auth`App3 리디렉션 URI:`msauth.com.contoso.mytestapp3://auth`
+App1 리디렉션 uri: `msauth.com.contoso.mytestapp1://auth` App2 Redirect uri: `msauth.com.contoso.mytestapp2://auth` App3 리디렉션 URI: `msauth.com.contoso.mytestapp3://auth`
 
 > [!IMPORTANT]
 > 리디렉션 uri의 형식은 msal 지원 형식과 호환 되어야 합니다 .이 형식은 [Msal 리디렉션 URI 형식 요구 사항](redirect-uris-ios.md#msal-redirect-uri-format-requirements)에 설명 되어 있습니다.
@@ -80,7 +81,7 @@ App1 리디렉션 URI: `msauth.com.contoso.mytestapp1://auth`App2 리디렉션 U
 
 키 집합 공유를 사용 하도록 설정 하려면 Apple의 [기능 추가](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html) 문서를 참조 하세요. 중요 한 것은 키 집합을 호출 하려는 항목을 결정 하 고 SSO에 포함 될 모든 응용 프로그램에 해당 기능을 추가 하는 것입니다.
 
-자격이 올바르게 설정 된 경우 프로젝트 디렉터리에이 예제와 같은 내용이 `entitlements.plist` 포함 된 파일이 표시 됩니다.
+자격을 올바르게 설정 하면 프로젝트 디렉터리에이 예제와 같은 내용이 포함 된 `entitlements.plist` 파일이 표시 됩니다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -96,7 +97,7 @@ App1 리디렉션 URI: `msauth.com.contoso.mytestapp1://auth`App2 리디렉션 U
 </plist>
 ```
 
-각 응용 프로그램에서 키 집합 자격을 사용 하도록 설정 하 고 SSO를 사용할 준비가 되 면 다음 예제와 `MSALPublicClientApplication` 같이 키 집합 액세스 그룹을 사용 하 여를 구성 합니다.
+각 응용 프로그램에서 키 집합 자격을 사용 하도록 설정 하 고 SSO를 사용할 준비가 되 면 다음 예제와 같이 키 집합 액세스 그룹을 사용 하 여 `MSALPublicClientApplication`를 구성 합니다.
 
 Objective-C:
 
@@ -108,7 +109,7 @@ configuration.cacheConfig.keychainSharingGroup = @"my.keychain.group";
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:configuration error:&error];
 ```
 
-Swift
+Swift:
 
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "<my-client-id>")
@@ -129,7 +130,7 @@ do {
 > 이는 작업을 수행 하기 위해 토큰을 사용 하는 응용 프로그램이 있는 경우 특히 유용 합니다.
 > 키 집합을 공유 하면 앱이 Microsoft identity SDK 제거 작업을 사용 하는 경우 매우 주의 해야 합니다.
 
-정말 간단하죠. Microsoft id SDK는 이제 모든 응용 프로그램에서 자격 증명을 공유 합니다. 또한 계정 목록은 응용 프로그램 인스턴스 간에 공유 됩니다.
+이것으로 끝입니다. Microsoft id SDK는 이제 모든 응용 프로그램에서 자격 증명을 공유 합니다. 또한 계정 목록은 응용 프로그램 인스턴스 간에 공유 됩니다.
 
 ## <a name="sso-through-authentication-broker-on-ios"></a>IOS에서 Authentication broker를 통한 SSO
 
@@ -137,7 +138,7 @@ MSAL은 Microsoft Authenticator를 사용 하 여 조정 된 인증을 지원 �
 
 다음 단계는 앱에 대 한 인증 브로커를 사용 하 여 SSO를 사용 하도록 설정 하는 방법입니다.
 
-1. 앱의 info.plist에서 응용 프로그램에 대 한 broker 호환 리디렉션 URI 형식을 등록 합니다. Broker 호환 리디렉션 URI 형식은 `msauth.<app.bundle.id>://auth`입니다. ' < App. 번들 ID > ' '을 (를) 응용 프로그램의 번들 ID로 바꿉니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+1. 앱의 info.plist에서 응용 프로그램에 대 한 broker 호환 리디렉션 URI 형식을 등록 합니다. Broker 호환 리디렉션 URI 형식이 `msauth.<app.bundle.id>://auth`. ' < App. 번들 ID > ' '을 (를) 응용 프로그램의 번들 ID로 바꿉니다. 다음은 그 예입니다.
 
     ```xml
     <key>CFBundleURLSchemes</key>
@@ -146,7 +147,7 @@ MSAL은 Microsoft Authenticator를 사용 하 여 조정 된 인증을 지원 �
     </array>
     ```
 
-1. 앱의 info.plist `LSApplicationQueriesSchemes`에 다음 스키마를 추가 합니다.
+1. `LSApplicationQueriesSchemes`아래에 있는 앱의 info.plist에 다음 스키마를 추가 합니다.
 
     ```xml
     <key>LSApplicationQueriesSchemes</key>
@@ -167,7 +168,7 @@ MSAL은 Microsoft Authenticator를 사용 하 여 조정 된 인증을 지원 �
     }
     ```
     
-    Swift
+    Swift:
     
     ```swift
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -175,8 +176,8 @@ MSAL은 Microsoft Authenticator를 사용 하 여 조정 된 인증을 지원 �
     }
     ```
     
-**Xcode 11을 사용 하는 경우**msal 콜백을 `SceneDelegate` 파일에 대신 추가 해야 합니다.
-이전 iOS와의 호환성을 위해 UISceneDelegate 및 UIApplicationDelegate를 모두 지 원하는 경우 MSAL 콜백을 두 파일에 배치 해야 합니다.
+**Xcode 11을 사용 하는 경우**`SceneDelegate` 파일에 msal 콜백을 대신 넣어야 합니다.
+이전 iOS와의 호환성을 위해 UISceneDelegate 및 UIApplicationDelegate를 모두 지원하는 경우 MSAL 콜백을 두 파일에 배치해야 합니다.
 
 Objective-C:
 
@@ -191,7 +192,7 @@ Objective-C:
  }
 ```
 
-Swift
+Swift:
 
 ```swift
 func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
@@ -209,4 +210,4 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
     
 ## <a name="next-steps"></a>다음 단계
 
-[인증 흐름 및 응용 프로그램 시나리오](authentication-flows-app-scenarios.md) 에 대 한 자세한 정보
+[인증 흐름 및 애플리케이션 시나리오](authentication-flows-app-scenarios.md)에 대해 알아보기

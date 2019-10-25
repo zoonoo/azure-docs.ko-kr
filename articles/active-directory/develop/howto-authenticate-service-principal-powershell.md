@@ -1,5 +1,6 @@
 ---
-title: PowerShell을 사용하여 Azure 앱에 대한 ID 만들기 | Microsoft Docs
+title: PowerShell을 사용 하 여 Azure 앱에 대 한 id 만들기
+titleSuffix: Microsoft identity platform
 description: Azure PowerShell을 사용하여 Azure Active Directory 애플리케이션 및 서비스 주체를 만들고 역할 기반 액세스 제어를 통해 리소스에 대한 액세스를 부여하는 방법을 설명합니다. 인증서를 사용하여 애플리케이션을 인증하는 방법을 보여줍니다.
 services: active-directory
 documentationcenter: na
@@ -17,12 +18,12 @@ ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7c75a567dbefc71b4b0fea595dae56a03def5ed
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: fcf52bc5a6d177c18d9ebb792d1a147d09746afd
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295450"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803825"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>방법: Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기
 
@@ -72,7 +73,7 @@ Sleep 20
 New-AzRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $sp.ApplicationId
 ```
 
-이 예제는 새 서비스 주체가 Azure AD 전체에 전파될 시간을 허용하기 위해 20분간 대기합니다. 스크립트가 대기하는 시간이 충분히 길지 않으면 "보안 주체 {ID}이(가) 디렉터리 {DIR-ID}에 없습니다."라는 오류가 표시됩니다. 이 오류를 해결하려면 잠시 기다린 다음, **New-AzRoleAssignment** 명령을 다시 실행합니다.
+이 예제는 새 서비스 주체가 Azure AD 전체에 전파될 시간을 허용하기 위해 20분간 대기합니다. 스크립트가 대기하는 시간이 충분히 길지 않으면 "보안 주체 {ID}가 디렉터리 {DIR-ID}에 없습니다."라는 오류 메시지가 표시됩니다. 이 오류를 해결하려면 잠시 기다린 다음, **New-AzRoleAssignment** 명령을 다시 실행합니다.
 
 **ResourceGroupName** 매개 변수를 사용하여 역할 할당의 범위를 특정 리소스 그룹으로 지정할 수 있습니다. **ResourceType** 및 **ResourceName** 매개 변수를 사용하여 범위를 특정 리소스로 지정할 수도 있습니다. 
 
@@ -220,7 +221,7 @@ Get-AzADApplication -DisplayName exampleapp | New-AzADAppCredential `
 
 서비스 주체를 만들 때 다음과 같은 오류가 발생할 수 있습니다.
 
-* **"Authentication_Unauthorized"** 또는 **"컨텍스트에서 구독을 찾을 수 없습니다."** - 계정에 Azure AD에서 앱을 등록하는 데 [필요한 권한](#required-permissions)이 없으면 이 오류가 발생합니다. 일반적으로 Azure Active Directory의 관리 사용자만 앱을 등록할 수 있고 내 계정이 관리자가 아니면 이 오류가 표시됩니다. 관리자 역할에 사용자를 할당하거나 사용자가 앱을 등록할 수 있게 설정하도록 관리자에게 요청합니다.
+* **"Authentication_Unauthorized"** 또는 **"컨텍스트에서 구독을 찾을 수 없습니다."** - 계정에 Azure AD에서 앱을 등록하는 데 [필요한 권한](#required-permissions)이 없으면 이 오류가 발생합니다. 일반적으로 Azure Active Directory의 관리 사용자만 앱을 등록할 수 있고 계정이 관리자가 아닌 경우이 오류가 표시 됩니다. 관리자에 게 관리자 역할을 할당 하거나 사용자가 앱을 등록할 수 있도록 하려면 관리자에 게 문의 하세요.
 
 * 계정에 **"'/subscriptions/{guid}' 범위에 대해 'Microsoft.Authorization/roleAssignments/write' 작업을 수행할 수 있는 권한이 없습니다."** - 이 오류는 ID에 역할을 할당할 수 있는 충분한 권한이 계정에 없을 때 표시됩니다. 구독 관리자에게 사용자 액세스 관리자 역할에 사용자를 추가할 것을 요청합니다.
 

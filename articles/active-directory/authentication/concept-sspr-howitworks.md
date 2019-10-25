@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c31867f4de0e49e2c82733dc859f17ba060bdaa
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 9fcac058a510b8b7fed5b3967bbbf439dd4c0f71
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69561342"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786746"
 ---
-# <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방법: Azure AD 셀프 서비스 암호 재설정
+# <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방식: Azure AD SSPR(셀프 서비스 암호 재설정)
 
 SSPR(셀프 서비스 암호 재설정)은 어떻게 작동하나요? 인터페이스에서 이 옵션은 무엇인가요? 계속하여 Azure AD(Azure Active Directory) SSPR에 대해 자세히 알아보겠습니다.
 
@@ -58,8 +58,8 @@ SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상�
 
 * 모바일 앱 알림
 * 모바일 앱 코드
-* EMail
-* 모바일 폰
+* 이메일
+* 휴대폰
 * 사무실 전화
 * 보안 질문
 
@@ -97,6 +97,12 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법�
 > [!WARNING]
 > 사용자가 [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)에서 새 환경에 액세스할 수 있으려면 [셀프 서비스 암호 재설정 및 Azure Multi-Factor Authentication에 대한 등록 수렴(공개 미리 보기)](concept-registration-mfa-sspr-converged.md)를 사용하도록 설정해야 합니다.
 
+> [!IMPORTANT]
+> 1 게이트 정책을 구성할 때 인증자 앱을 유일한 인증 방법으로 선택할 수 없습니다. 마찬가지로, authenticator 앱과 2 게이트 정책을 구성할 때 하나의 추가 메서드만 선택할 수 있습니다.
+> 그러면 인증자 앱을 메서드로 포함 하는 SSPR 정책을 구성 하는 경우 1 게이트 정책을 구성할 때 최소한 추가 방법을 선택 해야 하며, 2 게이트 정책을 구성할 때 적어도 두 개 이상의 추가 방법을 선택 해야 합니다.
+> 이 요구 사항에 대 한 이유는 현재 SSPR 등록 환경에 인증자 앱을 등록 하는 옵션이 포함 되어 있지 않기 때문입니다. Authenticator 앱을 등록 하는 옵션이 [셀프 서비스 암호 재설정 및 Azure Multi-Factor Authentication (공개 미리 보기)에 대 한 새 수렴 형 등록과](concept-registration-mfa-sspr-converged.md)함께 포함 되어 있습니다.
+> Authenticator 앱만 사용 하는 정책 (1-게이트 정책의 경우) 또는 인증자 앱과 하나의 추가 방법 (2 게이트 정책의 경우)만 허용 하면 새를 사용 하도록 구성 될 때까지 사용자가 SSPR에 대 한 등록을 차단 하 게 됩니다. 등록 환경.
+
 ### <a name="change-authentication-methods"></a>인증 방법 변경
 
 등록된 재설정 또는 잠금 해제에 필요한 인증 방법이 하나만 있는 정책으로 시작한 후에 이를 두 가지 방법으로 변경하면 어떻게 되나요?
@@ -120,7 +126,7 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법�
 
 이 옵션을 사용하려면 사용자가 Azure AD를 사용하는 애플리케이션에 로그인한 경우 암호 재설정 등록을 완료해야 합니다. 이 워크플로에는 다음 애플리케이션이 포함됩니다.
 
-* Office 365
+* PowerApps
 * Azure Portal
 * 액세스 패널
 * 페더레이션된 애플리케이션
@@ -139,7 +145,7 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법�
 
 유효한 값은 0-730일이며, 여기서 "0"은 사용자가 해당 인증 정보를 다시 확인하도록 요청받지 않습니다.
 
-## <a name="notifications"></a>알림
+## <a name="notifications"></a>공지
 
 ### <a name="notify-users-on-password-resets"></a>사용자에게 암호 재설정에 대해 알림
 
@@ -188,9 +194,9 @@ Azure AD 셀프 서비스 암호 재설정은 Active Directory에서 관리자�
 
 암호 재설정 및 변경은 모든 B2B(기업 간 전자 상거래) 구성에서 완전히 지원됩니다. B2B 사용자 암호 재설정은 다음 세 가지 경우에 지원됩니다.
 
-* **기존 Azure AD 테넌트가 있는 파트너 조직의 사용자**: 제휴한 조직에 기존 Azure AD 테넌트가 있는 경우 *해당 테넌트에서 사용되는 모든 암호 재설정 정책을 따릅니다*. 암호 재설정이 작동하려면 파트너 조직에서 Azure AD SSPR을 사용하도록 설정되어 있는지 확인해야 합니다. Office 365 고객에게 추가 요금이 청구되지 않으며 [암호 관리 시작](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) 가이드의 단계에 따라 이 기능을 사용하도록 설정할 수 있습니다.
-* 셀프 서비스 등록을 통해 **로그인한 사용자**: 제휴한 조직에서 [셀프 서비스 등록](../users-groups-roles/directory-self-service-signup.md) 기능을 사용하여 테넌트에 가입한 경우 등록한 전자 메일을 통해 암호를 다시 설정하도록 합니다.
-* **B2B 사용자**: 새 [Azure AD B2B 기능](../active-directory-b2b-what-is-azure-ad-b2b.md)을 사용하여 만든 모든 새 B2B 사용자는 초대 프로세스 중에 등록한 이메일을 통해 암호를 다시 설정할 수 있습니다.
+* **기존 Azure AD 테넌트가 있는 파트너 조직의 사용자** - 제휴한 조직에 기존 Azure AD 테넌트가 있는 경우 "해당 테넌트에서 사용되는 모든 암호 재설정 정책을 따릅니다". 암호 재설정이 작동하려면 파트너 조직에서 Azure AD SSPR을 사용하도록 설정되어 있는지 확인해야 합니다. Office 365 고객에게 추가 요금이 청구되지 않으며 [암호 관리 시작](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) 가이드의 단계에 따라 이 기능을 사용하도록 설정할 수 있습니다.
+* 셀프 서비스 등록을 통해 **로그인한 사용자** - 제휴한 조직에서 [셀프 서비스 등록](../users-groups-roles/directory-self-service-signup.md) 기능을 사용하여 테넌트에 가입한 경우 등록한 전자 메일을 통해 암호를 다시 설정하도록 합니다.
+* **B2B 사용자** - 새 [Azure AD B2B 기능](../active-directory-b2b-what-is-azure-ad-b2b.md)을 사용하여 만든 모든 새 B2B 사용자는 초대 프로세스 중에 등록한 전자 메일을 통해 암호를 다시 설정할 수 있습니다.
 
 이 시나리오를 테스트하려면 이러한 파트너 사용자 중 하나로 https://passwordreset.microsoftonline.com 으로 이동합니다. 대체 전자 메일 또는 인증 전자 메일이 정의되어 있으면 암호 재설정이 예상대로 작동합니다.
 
@@ -211,7 +217,7 @@ Azure AD 셀프 서비스 암호 재설정은 Active Directory에서 관리자�
 * [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](howto-sspr-writeback.md)
 * [SSPR 작업은 어떻게 보고 합니까?](howto-sspr-reporting.md)
 * [모든 SSPR 옵션과 그 의미는 무엇입니까?](concept-sspr-howitworks.md)
-* [무엇인가 손상된 문제가 있습니다. SSPR 문제는 어떻게 해결합니까?](active-directory-passwords-troubleshoot.md)
+* [뭐가 손상 된 것으로 생각 합니다. SSPR 문제 해결을 어떻게 할까요??](active-directory-passwords-troubleshoot.md)
 * [다른 곳에서 다루지 않았던 질문이 있습니다.](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/concept-sspr-howitworks/sspr-authentication-methods.png "사용 가능한 Azure AD 인증 방법 및 필요한 수량"

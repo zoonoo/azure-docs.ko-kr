@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5080ec4db46f717a9e9ecdcdfbea42fbe43c349d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 66073052b290a1345dc0bb63ed6df0934fd81c64
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598434"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804180"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -305,7 +305,7 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
 | 설정 |적용 대상| Value |
 |----|---|---|
 | 클러스터 이름 |항상| yourclustername |
-| Databricks 런타임 |항상| ML이 아닌 모든 런타임 (ML 4.x, 2.x) |
+| Databricks 런타임 |항상|비 ML 런타임 6.0 (scala 2.11, spark 2.4.3) |
 | Python 버전 |항상| 3 |
 | 작업자 |항상| 2 이상 |
 | 작업자 노드 VM 유형 <br>(최대 동시 반복 횟수를 결정 합니다.) |자동화된 ML<br>에게만| 메모리 최적화 VM 기본 설정 |
@@ -346,14 +346,17 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
 
 설치에 성공 하면 가져온 라이브러리는 다음 중 하 나와 같아야 합니다.
 
-Databricks 용 자동화 된 machine learning ![Azure Machine Learning SDK를 사용 **_하지 않는_** Databricks sdk ](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+Databricks 용 자동화 된 machine learning ![Azure Machine Learning SDK를 사용 **_하지 않는_** Databricks sdk](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-Databricks ](./media/how-to-configure-environment/automlonadb.jpg)에 자동 machine learning이 설치 된 ![SDK 자동화 된 machine learning을 **사용 하** 는 SDK for Databricks
+Databricks](./media/how-to-configure-environment/automlonadb.png)에 자동화 된 machine learning이 설치 된 자동화 된 machine learning ![SDK를 **사용 하** 는 Sdk for Databricks
 
 ### <a name="start-exploring"></a>탐색 시작
 
 사용해 보기:
 + 많은 샘플 노트북을 사용할 수 있지만  **[이러한 샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) 만 Azure Databricks 작업을 수행 합니다.**
+
++ 작업 영역에서 직접 이러한 샘플을 가져옵니다. 다음을 참조 하세요. 가져오기 패널![가져오기](media/how-to-configure-environment/azure-db-screenshot.png)
+![선택](media/how-to-configure-environment/azure-db-import.png)
 
 + [Databricks를 학습 계산으로 사용 하 여 파이프라인을 만드는](how-to-create-your-first-pipeline.md)방법에 대해 알아봅니다.
 

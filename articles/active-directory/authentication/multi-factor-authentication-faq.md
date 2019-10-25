@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-factor Authentication FAQ-Azure Active Directory
+title: Azure Multi-Factor Authentication FAQ-Azure Active Directory
 description: Azure Multi-Factor Authentication과 관련된 질문과 대답입니다.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46abe367c9047616174a1e43dffd57861e6278e8
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 23ecec4d0701f6f55385937f872151a373b2f62e
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68811822"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808101"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 
@@ -61,7 +61,7 @@ Multi-Factor Authentication 서버에 선택적 필드를 구성할 수 있습�
 
 Microsoft는 동일한 번호를 통한 일관적인 SMS 또는 음성 기반 Multi-Factor Authentication 즉시 이행을 보장하지 않습니다. 사용자를 위해, SMS 이행성을 향상하기 위한 조정 작업을 수시로 진행하고 있는 Microsoft는 언제든지 짧은 코드를 추가하거나 제거할 수 있습니다. Microsoft는 미국 및 캐나다 외에도 국가/지역에 대 한 간단한 코드를 지원 하지 않습니다.
 
-## <a name="billing"></a>대금 청구
+## <a name="billing"></a>청구
 
 [Multi-Factor Authentication 가격 책정 페이지](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) 또는 [Azure Multi-Factor Authentication 획득 방법](concept-mfa-licensing.md)에 대한 설명서를 참조하여 대부분의 청구 관련 질문에 대답할 수 있습니다.
 
@@ -71,11 +71,11 @@ Microsoft는 동일한 번호를 통한 일관적인 SMS 또는 음성 기반 Mu
 
 사용자는 자신의 개인 전화 서비스에 따라 수신한 전화 통화 또는 문자 메시지 수신에 대한 요금이 부과될 수 있습니다.
 
-**Q: 사용자별 청구 모델에서는 활성화된 모든 사용자에 대해 요금이 청구되나요, 아니면 2단계 인증을 수행한 사용자에 대해서만 요금이 청구되나요?**
+**Q: 사용자별 청구 모델에서는 활성화된 모든 사용자에 대해 요금이 청구되나요? 2단계 인증을 수행한 사용자에 대해서만 청구되나요?**
 
 대금 청구는 해당 월에 2단계 인증을 수행했는지 여부에 관계없이 Multi-Factor Authentication을 사용하도록 구성된 사용자 수를 기준으로 합니다.
 
-**Q: 다단계 인증의 요금은 어떤 방식으로 청구되나요?**
+**Q:Multi-Factor Authentication은 어떤 방식으로 청구됩니까?**
 
 사용자 단위 또는 인증 단위 MFA 공급자를 만들 때 해당 조직의 Azure 구독이 사용량을 기준으로 매월 청구됩니다. 이 청구 모델은 가상 머신 및 웹 사이트의 사용량에 대해 Azure에서 청구하는 방식과 유사합니다.
 
@@ -83,15 +83,15 @@ Azure Multi-Factor Authentication에 대한 구독을 구매하는 경우 조직
 
 [Azure Multi-factor Authentication 획득 방법](concept-mfa-licensing.md)에서 옵션에 대해 자세히 알아보세요.
 
-**Q: Azure Multi-Factor Authentication의 무료 버전이 있나요?**
+**Q: Azure Multi-Factor Authentication의 평가판 버전이 있나요?**
 
 일부 경우에 그렇습니다.
 
-Azure 관리자를 위한 multi-factor Authentication은 [Azure Portal](https://portal.azure.com) 및 [Microsoft 365 관리 센터](https://admin.microsoft.com)를 포함 하 여 Microsoft 온라인 서비스에 대 한 액세스에 무료로 azure MFA 기능의 하위 집합을 제공 합니다. 이 제품은 MFA 라이선스, 번들 또는 독립 실행형 사용량 기반 공급자를 통해 Azure MFA의 정식 버전을 가지고 있지 않은 Azure Active Directory 인스턴스의 전역 관리자에게만 적용됩니다. 관리자가 무료 버전을 사용하는 경우 사용자가 Azure MFA의 정식 버전을 구입하면 모든 전역 관리자가 유료 버전으로 자동으로 승격됩니다.
+Azure 관리자를 위한 Multi-Factor Authentication은 [Azure Portal](https://portal.azure.com) 및 [Microsoft 365 관리 센터](https://admin.microsoft.com)를 비롯 하 여 Microsoft 온라인 서비스에 대 한 액세스를 위해 무료로 azure MFA 기능의 하위 집합을 제공 합니다. 이 제품은 MFA 라이선스, 번들 또는 독립 실행형 사용량 기반 공급자를 통해 Azure MFA의 정식 버전을 가지고 있지 않은 Azure Active Directory 인스턴스의 전역 관리자에게만 적용됩니다. 관리자가 무료 버전을 사용하는 경우 사용자가 Azure MFA의 정식 버전을 구입하면 모든 전역 관리자가 유료 버전으로 자동으로 승격됩니다.
 
 Office 365 사용자용 Multi-Factor Authentication에서는 비용 없이 Exchange Online, SharePoint Online 등의 Office 365 서비스에 액세스할 수 있는 Azure MFA 기능의 하위 집합을 제공합니다. 이 제품은 Azure Active Directory의 해당 인스턴스가 MFA 라이선스, 번들 또는 독립 실행형 사용량 기반 공급자를 통해 Azure MFA의 정식 버전을 보유하지 않은 경우 Office 365 라이선스가 할당된 사용자에게 적용됩니다.
 
-**Q: 조직에서 사용자당 요금 청구 모델과 인증당 사용량 요금 청구 모델 간을 언제든지 전환할 수 있나요?**
+**Q: 조직에서 사용자당 청구 모델과 인증당 청구 모델 간을 전환할 수 있습니까?**
 
 조직에서 사용량 기반 청구를 포함하는 독립 실행형 서비스로 MFA를 구입한 경우 MFA 공급자를 만들 때 청구 모델을 선택합니다. MFA 공급자가 생성된 후에는 청구 모델을 변경할 수 없습니다. 
 
@@ -99,7 +99,7 @@ Office 365 사용자용 Multi-Factor Authentication에서는 비용 없이 Excha
 
 [Azure Multi-Factor Auth 공급자 시작](concept-mfa-authprovider.md)에서 MFA 공급자에 대해 자세히 알아보세요.
 
-**Q: 조직에서 사용량 기반 요금 청구 모델과 구독(라이선스 기반 모델) 간을 언제든지 전환할 수 있나요?**
+**Q: 조직에서 언제든지 사용량 기반 요금 청구 및 구독(라이선스 기반 모델) 간을 전환할 수 있나요?**
 
 일부 경우에 그렇습니다.
 
@@ -107,7 +107,7 @@ Office 365 사용자용 Multi-Factor Authentication에서는 비용 없이 Excha
 
 디렉터리에 *인증 단위* Azure Multi-Factor Authentication 공급자가 있는 경우 MFA 공급자가 구독에 연결되기만 한다면 인증마다 요금이 항상 청구됩니다. 사용자에게 MFA 라이선스를 할당할 수 있지만 사용자의 MFA 라이선스 할당 여부에 관계없이 2단계 인증 요청마다 요금이 계속 청구됩니다.
 
-**Q: Azure Multi-Factor Authentication을 사용하려는 조직은 ID를 사용하고 동기화해야 하나요?**
+**Q: 내 조직은 ID를 사용하고 동기화하여 Azure Multi-Factor Authentication을 사용해야 합니까?**
 
 조직에서 사용량 기반 청구 모델을 사용하는 경우 Azure Active Directory는 선택 사항이며 필수가 아닙니다. MFA 공급자가 Azure AD 테넌트에 연결되어 있지 않은 경우 Azure Multi-Factor Authentication 서버 온-프레미스만 배포할 수 있습니다.
 
@@ -115,7 +115,7 @@ Office 365 사용자용 Multi-Factor Authentication에서는 비용 없이 Excha
 
 ## <a name="manage-and-support-user-accounts"></a>사용자 계정 관리 및 지원
 
-**Q: 전화로 응답이 수신되지 않는 사용자에게는 어떻게 안내해야 하나요?**
+**Q: 휴대폰에서 응답이 수신 되지 않는 경우 사용자에 게 어떻게 해야 하나요?**
 
 5분 동안 5회까지 인증용 SMS 수신이나 전화 통화를 시도해 볼 것을 안내합니다. Microsoft는 여러 공급자를 통해 전화를 걸고 SMS 메시지를 전송합니다. 이렇게 해도 응답이 수신되지 않으면 추가 문제 해결을 위해 Microsoft에 지원 사례를 알려주세요.
 
@@ -123,11 +123,11 @@ Office 365 사용자용 Multi-Factor Authentication에서는 비용 없이 Excha
 
 사용자에게 [최종 사용자 문제 해결 가이드](../user-help/multi-factor-authentication-end-user-troubleshoot.md)를 안내해줄 수 있습니다.
 
-**Q: 사용자 한 명이 계정에 로그인할 수 없는 경우 어떻게 해야 하나요?**
+**Q: 내 사용자 중 하나가 계정에 로그인할 수 없는 경우 어떻게 해야 하나요?**
 
 등록 프로세스를 다시 진행하도록 하여 사용자 계정을 재설정할 수 있습니다. [클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 및 디바이스 설정 관리](howto-mfa-userdevicesettings.md)에 대해 자세히 알아보세요.
 
-**Q: 사용자 한 명이 계정에 앱 암호를 사용하는 전화를 분실한 경우 어떻게 해야 하나요?**
+**Q: 내 사용자 중 하나가 앱 암호를 사용하는 전화기를 분실한 경우 어떻게 해야 하나요?**
 
 무단 액세스를 방지하려면 모든 사용자 앱 암호를 삭제합니다. 사용자에게 교체용 디바이스가 있는 경우 암호를 다시 만들 수 있습니다. [클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 및 디바이스 설정 관리](howto-mfa-userdevicesettings.md)에 대해 자세히 알아보세요.
 
@@ -142,15 +142,15 @@ Office 365 사용자용 Multi-Factor Authentication에서는 비용 없이 Excha
 >
 > 앱 암호는 최신 인증을 지원하는 않는 앱에만 필요합니다. Office 2013 클라이언트는 최신 인증 프로토콜을 지원하지만 구성되어야 합니다. 이제 최신 인증은 Office 2013의 3 월 2015 이상 업데이트를 실행 하는 모든 고객에 게 제공 됩니다. 자세한 내용은 블로그 게시물 [업데이트 된 Office 365 최신 인증](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/)을 참조 하세요.
 
-**Q: 사용자가 간혹 문자 메시지를 받지 못하거나 양방향 문자 메시지에 회신했는데 확인 시간이 초과된 것으로 표시된다고 합니다.**
+**Q: 내 사용자가 간혹 문자 메시지를 받지 못하거나 양방향 텍스트 메시지에 응답했지만 인증 시간이 초과된 것으로 표시된다고 합니다.**
 
 서비스의 안정성에 영향을 줄 수 있는 제어할 수 없는 요소가 있기 때문에 양방향 SMS에서 텍스트 메시지 전달 및 응답 수신이 보장되지 않습니다. 이러한 요인에는 대상 국가/지역, 휴대 전화 통신 회사 및 신호 강도가 포함 됩니다.
 
-사용자에게 문자 메시지를 안정적으로 수신하는 데 문제가 있는 경우 대신 모바일 앱 또는 휴대폰 전화 방법을 사용하도록 지시합니다. 모바일 앱은 셀룰러 및 Wi-Fi 연결 모두를 통해 알림을 받을 수 있습니다. 또한 디바이스에 신호가 전혀 없는 경우에도 모바일 앱은 인증 코드를 생성할 수 있습니다. [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073) 및 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
+사용자에게 문자 메시지를 안정적으로 수신하는 데 문제가 있는 경우 대신 모바일 앱 또는 휴대폰 전화 방법을 사용하도록 지시합니다. 모바일 앱은 셀룰러 및 Wi-Fi 연결 모두를 통해 알림을 받을 수 있습니다. 또한 디바이스에 신호가 전혀 없는 경우에도 모바일 앱은 인증 코드를 생성할 수 있습니다. [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073) 및 [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6)의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
 
 텍스트 메시지를 사용해야 하는 경우 가능하면 양방향 SMS보다는 단방향 SMS를 사용하는 것이 좋습니다. 단방향 SMS는 더 안정적 이며, 사용자가 전역 SMS 요금이 다른 국가/지역에서 전송 된 문자 메시지에 회신 하는 것을 방지 합니다.
 
-**Q: 시스템 시간이 초과되기 전에 사용자가 문자 메시지를 통해 확인 코드를 입력해야 하는 시간을 변경할 수 있나요?**
+**Q: 시스템 시간이 초과되기 전에 사용자가 문자 메시지를 통해 인증 코드를 입력해야 하는 시간을 변경할 수 있나요?**
 
 일부 경우에 가능합니다. 
 
@@ -183,11 +183,11 @@ Azure Multi-factor Authentication 서버를 사용하는 경우 타사 OATH(공�
 
 Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-Factor Authentication 서버가 Windows Server 2012 및 이전 버전에서 LSA(로컬 보안 기관) 보안 패키지에 연결하는 방식이 변경되었습니다. Windows 2012 이전의 터미널 서비스 버전의 경우 [Windows 인증으로 애플리케이션 보호](howto-mfaserver-windows.md#to-secure-an-application-with-windows-authentication-use-the-following-procedure)를 수행할 수 있습니다. Windows Server 2012 R2를 사용하는 경우 RD 게이트웨이가 필요합니다.
 
-**Q: MFA 서버에서 발신자 ID를 구성했는데 사용자에게 익명 발신자의 Multi-Factor Authentication 전화가 계속 수신됩니다.**
+**Q: MFA 서버에서 발신자 ID를 구성했지만 익명 발신자로부터 Multi-Factor Authentication을 받는 사용자가 여전히 있습니다.**
 
 경우에 따라 Multi-Factor Authentication 호출이 공용 전화망을 통해 이루어진 경우 발신자 번호를 지원하지 않는 통신 회사를 통해 라우팅됩니다. 이 때문에 항상 Multi-Factor Authentication에서 호출자 ID를 보내더라도 이 ID가 보장되지 않습니다.
 
-**Q: 사용자에게 보안 정보를 등록하라는 메시지가 표시되는 이유는 무엇인가요?**
+**Q: 내 사용자에게 보안 정보를 등록하라는 메시지가 표시되는 이유는 무엇인가요?**
 사용자에게 보안 정보를 등록하라는 메시지가 표시되는 데는 여러 가지 이유가 있습니다.
 
 - Azure AD의 관리자가 MFA를 사용할 수 있도록 사용자를 설정했지만 사용자의 계정에 대한 보안 정보가 아직 등록되어 있지 않습니다.
@@ -200,7 +200,7 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-Factor Authenticat
 
 ## <a name="errors"></a>오류
 
-**Q: 사용자가 모바일 앱 알림을 사용할 때 "활성화된 계정에 대한 인증 요청이 아닙니다." 오류 메시지가 표시되면 어떻게 해야 하나요?**
+**Q: 사용자가 모바일 앱 알림을 사용할 때 "활성화된 계정에 대한 인증 요청이 아닙니다." 오류 메시지가 표시되면 사용자는 어떻게 해야 하나요?**
 
 모바일 앱에서 해당 계정을 제거하려면 이 절차에 따라 알린 다음 다시 추가합니다.
 
@@ -209,7 +209,7 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-Factor Authenticat
 3. 모바일 앱에서 기존 계정을 제거합니다.
 4. **구성**을 클릭하고 지침에 따라 모바일 앱을 다시 구성합니다.
 
-**Q: 사용자가 비브라우저 애플리케이션에 로그인할 때 0x800434D4L 오류 메시지가 표시되면 어떻게 해야 하나요?**
+**Q: 비 브라우저 애플리케이션에 로그인할 때 0x800434D4L 오류 메시지가 표시되면 사용자는 어떻게 해야 하나요?**
 
 2단계 인증이 필요한 계정에서 작동하지 않는 로컬 컴퓨터에 설치된 비브라우저 애플리케이션에 로그인을 시도할 때 0x800434D4L 오류가 발생합니다.
 

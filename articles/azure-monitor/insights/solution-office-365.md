@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 032d52961b4867cad94d06802adb0a1f3eb00f5f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 84af0484ed9fb792bef6bbbe9c53395b569acb3c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553944"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793859"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -69,7 +69,10 @@ Office 365 구독에서 수집할 정보:
 
 - 사용자 이름: 관리 계정의 이메일 주소.
 - 테넌트 ID: Office 365 구독의 고유 ID.
-- 클라이언트 ID: Office 365 클라이언트를 나타내는 16자 길이의 문자열.
+
+Azure Active Directory에서 Office 365 응용 프로그램을 만들고 구성 하는 동안 다음 정보를 수집 해야 합니다.
+
+- 응용 프로그램 (클라이언트) ID: Office 365 클라이언트를 나타내는 16 자 문자열입니다.
 - 클라이언트 암호: 인증에 필요한 암호화된 문자열.
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Azure Active Directory에서 Office 365 애플리케이션 만들기
@@ -87,6 +90,9 @@ Office 365 구독에서 수집할 정보:
 1. **등록** 을 클릭 하 고 응용 프로그램 정보를 확인 합니다.
 
     ![앱 등록](media/solution-office-365/registered-app.png)
+
+1. 이전에 수집 된 나머지 정보와 함께 응용 프로그램 (클라이언트) ID를 저장 합니다.
+
 
 ### <a name="configure-application-for-office-365"></a>Office 365에 대한 애플리케이션 구성
 
@@ -117,7 +123,7 @@ Office 365 구독에서 수집할 정보:
     ![구성](media/solution-office-365/secret.png)
  
 1. 새 키의 **설명** 및 **기간**을 입력합니다.
-1. **추가** 를 클릭 한 다음 생성 된 **값** 을 복사 합니다.
+1. **추가** 를 클릭 한 다음 이전에 수집 된 나머지 정보와 함께 클라이언트 암호로 생성 된 **값** 을 저장 합니다.
 
     ![구성](media/solution-office-365/keys.png)
 
@@ -188,7 +194,12 @@ Office 365 구독에서 수집할 정보:
     
     ![관리자 동의](media/solution-office-365/admin-consent.png)
 
+> [!NOTE]
+> 존재 하지 않는 페이지로 리디렉션될 수 있습니다. 성공으로 간주 합니다.
+
 ### <a name="subscribe-to-log-analytics-workspace"></a>Log Analytics 작업 영역에 가입
+
+마지막 단계는 애플리케이션을 Log Analytics 작업 영역에 가입하는 것입니다. 이 작업 역시 PowerShell 스크립트를 사용합니다.
 
 마지막 단계는 애플리케이션을 Log Analytics 작업 영역에 가입하는 것입니다. 이 작업 역시 PowerShell 스크립트를 사용합니다.
 
@@ -236,18 +247,20 @@ Office 365 구독에서 수집할 정보:
                     $authority = "https://login.windows.net/$adTenant";
                     $ARMResource ="https://management.azure.com/";break} 
                     }
-    
+
     Function RESTAPI-Auth { 
-    
-    $global:SubscriptionID = $Subscription.SubscriptionId
+    $global:SubscriptionID = $Subscription.Subscription.Id
     # Set Resource URI to Azure Service Management API
-    $resourceAppIdURIARM=$ARMResource;
+    $resourceAppIdURIARM=$ARMResource
     # Authenticate and Acquire Token 
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
-    $global:authResultARM = $authContext.AcquireToken($resourceAppIdURIARM, $clientId, $redirectUri, "Auto")
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $platformParameters = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList "Auto"
+    $global:authResultARM = $authContext.AcquireTokenAsync($resourceAppIdURIARM, $clientId, $redirectUri, $platformParameters)
+    $global:authResultARM.Wait()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
+
     $authHeader
     }
     
@@ -271,7 +284,7 @@ Office 365 구독에서 수집할 정보:
     
     Function Connection-API
     {
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $ResourceName = "https://manage.office.com"
     $SubscriptionId   =  $Subscription[0].Subscription.Id
     
@@ -315,7 +328,7 @@ Office 365 구독에서 수집할 정보:
     Function Office-Subscribe-Call{
     try{
     #----------------------------------------------------------------------------------------------------------------------------------------------
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $SubscriptionId   =  $Subscription[0].Subscription.Id
     $OfficeAPIUrl = $ARMResource + 'subscriptions/' + $SubscriptionId + '/resourceGroups/' + $ResourceGroupName + '/providers/Microsoft.OperationalInsights/workspaces/' + $WorkspaceName + '/datasources/office365datasources_' + $SubscriptionId + $OfficeTennantId + '?api-version=2015-11-01-preview'
     

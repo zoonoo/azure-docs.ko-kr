@@ -1,5 +1,6 @@
 ---
-title: 웹 Api를 호출 하는 모바일 앱-앱에 대 한 토큰을 가져오는 중 | Microsoft id 플랫폼
+title: 웹 Api를 호출 하는 모바일 앱-앱에 대 한 토큰 가져오기
+titleSuffix: Microsoft identity platform
 description: 웹 Api를 호출 하는 모바일 앱을 빌드하는 방법 알아보기 (앱에 대 한 토큰 가져오기)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 454d62f871290d2e7dd8d0eee4b1a2429625a5fc
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 9b1d6a0e4bfffaaf4ed0fa836bcf62a7f1104e6a
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268262"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803775"
 ---
 # <a name="mobile-app-that-calls-web-apis---get-a-token"></a>웹 Api를 호출 하는 모바일 앱-토큰 가져오기
 
@@ -31,7 +32,7 @@ ms.locfileid: "71268262"
 
 토큰을 요청 하는 경우 범위를 정의 해야 합니다. 범위는 앱이 액세스할 수 있는 데이터를 결정 합니다.  
 
-가장 쉬운 방법은 원하는 web API `App ID URI` 를 범위 `.default`와 결합 하는 것입니다. 이렇게 하면 앱이 포털에서 모든 범위를 설정 해야 한다는 Microsoft id 플랫폼이 Microsoft id 플랫폼에 알려 줍니다.
+가장 쉬운 방법은 원하는 web API의 `App ID URI` `.default`범위와 결합 하는 것입니다. 이렇게 하면 앱이 포털에서 모든 범위를 설정 해야 한다는 Microsoft id 플랫폼이 Microsoft id 플랫폼에 알려 줍니다.
 
 #### <a name="android"></a>Android
 ```Java
@@ -119,7 +120,7 @@ MSALSilentTokenParameters *silentParams = [[MSALSilentTokenParameters alloc] ini
 }];
 ```
  
-Swift
+Swift:
 
 ```swift
 
@@ -152,7 +153,7 @@ application.acquireTokenSilent(with: silentParameters) { (result, error) in
 }
 ```
 
-**그런 다음 msal이 `MSALErrorInteractionRequired`반환 되 면 대화형으로 토큰을 획득 해 봅니다.**
+**MSAL이 `MSALErrorInteractionRequired`을 반환 하는 경우 토큰을 대화형으로 시도 합니다.**
 
 Objective-C:
 
@@ -172,7 +173,7 @@ MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParame
 }];
 ```
 
-Swift
+Swift:
 
 ```swift
 let viewController = ... // Pass a reference to the view controller that should be used when getting a token interactively
@@ -218,9 +219,9 @@ catch(MsalUiRequiredException)
 
 #### <a name="mandatory-parameters-in-msalnet"></a>MSAL.NET의 필수 매개 변수
 
-`AcquireTokenInteractive`에는 토큰을 필요로 ``scopes``하는 범위를 정의 하는 문자열의 열거형을 포함 하는 필수 매개 변수가 하나 뿐입니다. Microsoft Graph에 대 한 토큰 인 경우 필요한 범위는 "권한" 섹션에서 각 Microsoft Graph API의 api 참조에서 찾을 수 있습니다. 예를 들어 [사용자의 연락처를 나열](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts)하려면 "사용자. 읽기", "연락처. 읽기" 범위를 사용 해야 합니다. 참고 항목 [Microsoft Graph 사용 권한 참조](https://developer.microsoft.com/graph/docs/concepts/permissions_reference)합니다.
+`AcquireTokenInteractive`에는 필수 매개 변수 ``scopes``하나만 있습니다 .이 매개 변수는 토큰의 범위를 정의 하는 문자열의 열거형을 포함 합니다. Microsoft Graph에 대 한 토큰 인 경우 필요한 범위는 "권한" 섹션에서 각 Microsoft Graph API의 api 참조에서 찾을 수 있습니다. 예를 들어 [사용자의 연락처를 나열](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts)하려면 "사용자. 읽기", "연락처. 읽기" 범위를 사용 해야 합니다. 참고 항목 [Microsoft Graph 사용 권한 참조](https://developer.microsoft.com/graph/docs/concepts/permissions_reference)합니다.
 
-앱을 빌드할 때 지정 하지 않은 경우에는 Android에서 부모 작업 ( `.WithParentActivityOrWindow`아래 참조)도 지정 하 여 상호 작용 후에 해당 부모 작업으로 토큰을 다시 가져옵니다. 지정 하지 않으면를 호출할 `.ExecuteAsync()`때 예외가 throw 됩니다.
+앱을 빌드할 때 지정 하지 않은 경우, Android에서 부모 작업 `.WithParentActivityOrWindow`(아래 참조)을 지정 하 여 상호 작용 후에 토큰이 해당 부모 작업으로 다시 돌아갈 수 있도록 해야 합니다. 지정 하지 않으면 `.ExecuteAsync()`를 호출할 때 예외가 throw 됩니다.
 
 #### <a name="specific-optional-parameters-in-msalnet"></a>MSAL.NET의 특정 선택적 매개 변수
 
@@ -232,11 +233,11 @@ catch(MsalUiRequiredException)
 
 클래스는 다음 상수를 정의 합니다.
 
-- ``SelectAccount``: STS가 사용자에 게 세션이 있는 계정을 포함 하는 계정 선택 대화 상자를 표시 하도록 합니다. 이 옵션은 응용 프로그램 개발자가 다양 한 id 중에서 선택할 수 있도록 하려는 경우에 유용 합니다. 이 옵션은 id 공급자에 게 ``prompt=select_account`` 보낼 msal을 구동 합니다. 이 옵션은 기본적으로 사용 가능한 정보 (계정, 사용자에 대 한 세션의 상태 등)를 기반으로 최상의 환경을 제공 하는 데 유용 합니다. ...). 이 작업을 수행 해야 하는 경우를 제외 하 고는 변경 하지 마십시오.
-- ``Consent``: 응용 프로그램 개발자가 이전에 동의가 부여 된 경우에도 사용자에 게 동의 여부를 묻는 메시지를 표시 하도록 합니다. 이 경우 msal은 id 공급자 `prompt=consent` 에 게 보냅니다. 이 옵션은 조직에서 응용 프로그램이 사용 될 때마다 사용자에 게 동의 대화 상자가 표시 되는 일부 보안 중심 응용 프로그램에서 사용할 수 있습니다.
-- ``ForceLogin``:이 사용자 프롬프트가 필요 하지 않은 경우에도 응용 프로그램 개발자가 서비스에서 자격 증명을 묻는 메시지를 표시 하도록 할 수 있습니다. 이 옵션은 토큰을 획득 하는 데 실패 하 여 사용자가 다시 로그인 할 수 있도록 하는 경우에 유용할 수 있습니다. 이 경우 msal은 id 공급자 `prompt=login` 에 게 보냅니다. 이는 조직에서 사용자가 응용 프로그램의 특정 부분에 액세스할 때마다 다시 로그인 하는 것을 요구 하는 일부 보안 중심 응용 프로그램에서 사용 되었습니다.
-- ``Never``(.NET 4.5 및 WinRT에만 해당) 사용자에 게 메시지를 표시 하지 않고, 대신 숨겨진 포함 웹 보기에 저장 된 쿠키를 사용 하려고 합니다 (아래 참조). MSAL.NET의 웹 보기). 이 옵션을 사용 하면 오류가 발생할 수 있으며, `AcquireTokenInteractive` 이 경우 UI 조작이 필요 하다는 알림을 표시 하는 예외를 throw 하 고 다른 `Prompt` 매개 변수를 사용 해야 합니다.
-- ``NoPrompt``: 프롬프트를 id 공급자에 게 보내지 않습니다. 이 옵션은 Azure AD B2C 프로필 정책 편집에만 유용 합니다 ( [B2C 특정](https://aka.ms/msal-net-b2c-specificities)항목 참조).
+- ``SelectAccount``: STS가 사용자에 게 세션이 있는 계정을 포함 하는 계정 선택 대화 상자를 표시 하도록 합니다. 이 옵션은 응용 프로그램 개발자가 다양 한 id 중에서 선택할 수 있도록 하려는 경우에 유용 합니다. 이 옵션은 MSAL을 구동 하 여 id 공급자에 ``prompt=select_account``을 보냅니다. 이 옵션은 기본적으로 사용 가능한 정보 (계정, 사용자에 대 한 세션의 상태 등)를 기반으로 최상의 환경을 제공 하는 데 유용 합니다. ...). 이 작업을 수행 해야 하는 경우를 제외 하 고는 변경 하지 마십시오.
+- ``Consent``: 응용 프로그램 개발자가 이전에 동의가 부여 된 경우에도 사용자에 게 동의 여부를 묻는 메시지를 표시 하도록 합니다. 이 경우 MSAL은 id 공급자에 `prompt=consent`를 보냅니다. 이 옵션은 조직에서 응용 프로그램이 사용 될 때마다 사용자에 게 동의 대화 상자가 표시 되는 일부 보안 중심 응용 프로그램에서 사용할 수 있습니다.
+- ``ForceLogin``: 응용 프로그램 개발자가이 사용자 프롬프트가 필요 하지 않은 경우에도 서비스에서 사용자에 게 자격 증명을 묻는 메시지를 표시할 수 있도록 합니다. 이 옵션은 토큰을 획득 하는 데 실패 하 여 사용자가 다시 로그인 할 수 있도록 하는 경우에 유용할 수 있습니다. 이 경우 MSAL은 id 공급자에 `prompt=login`를 보냅니다. 이는 조직에서 사용자가 응용 프로그램의 특정 부분에 액세스할 때마다 다시 로그인 하는 것을 요구 하는 일부 보안 중심 응용 프로그램에서 사용 되었습니다.
+- ``Never`` (.NET 4.5 및 WinRT에만 해당)는 사용자에 게 메시지를 표시 하지 않고 대신 숨겨진 포함 웹 보기에 저장 된 쿠키를 사용 하려고 합니다 (아래 참조: MSAL.NET의 웹 뷰). 이 옵션을 사용 하면 오류가 발생할 수 있으며,이 경우 `AcquireTokenInteractive`는 예외를 throw 하 여 UI 조작이 필요 하다는 알림을 표시 하 고 다른 `Prompt` 매개 변수를 사용 해야 합니다.
+- ``NoPrompt``: id 공급자에 게 프롬프트를 보내지 않습니다. 이 옵션은 Azure AD B2C 프로필 정책 편집에만 유용 합니다 ( [B2C 특정](https://aka.ms/msal-net-b2c-specificities)항목 참조).
 
 ##### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
@@ -250,11 +251,11 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 
 ##### <a name="other-optional-parameters"></a>기타 선택적 매개 변수
 
-`AcquireTokenInteractive` [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods) 에 대 한 참조 설명서에서의 다른 모든 선택적 매개 변수에 대 한 자세한 정보
+[AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods) 에 대 한 참조 설명서의 `AcquireTokenInteractive`에 대 한 다른 모든 선택적 매개 변수에 대 한 자세한 정보
 
 ### <a name="acquire-tokens-via-the-protocol"></a>프로토콜을 통해 토큰 획득
 
-프로토콜을 직접 사용 하지 않는 것이 좋습니다. 이렇게 하면 앱에서 일부 SSO (single sign-on), 장치 관리 및 조건부 액세스 시나리오를 지원 하지 않습니다.
+프로토콜을 직접 사용 하지 않는 것이 좋습니다. 이 경우 앱은 일부 SSO (Single Sign-On), 장치 관리 및 조건부 액세스 시나리오를 지원 하지 않습니다.
 
 프로토콜을 사용 하 여 모바일 앱에 대 한 토큰을 가져오는 경우 두 요청을 수행 해야 합니다. 권한 부여 코드를 가져오고 토큰에 대해 교환 합니다.
 

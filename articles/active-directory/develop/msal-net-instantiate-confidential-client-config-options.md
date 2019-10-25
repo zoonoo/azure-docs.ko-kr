@@ -1,5 +1,6 @@
 ---
-title: 옵션 (.NET 용 Microsoft 인증 라이브러리)을 사용 하 여 기밀 클라이언트 앱 인스턴스화 | Microsoft
+title: 옵션을 사용 하 여 기밀 클라이언트 앱 인스턴스화 (.NET 용 Microsoft Authentication Library)
+titleSuffix: Microsoft identity platform
 description: Microsoft Authentication Library for .NET (MSAL.NET)을 사용 하 여 구성 옵션을 사용 하 여 기밀 클라이언트 응용 프로그램을 인스턴스화하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47a05959311b7f62f88a7b474b907982e005b98b
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: e382a8d0b5d6f08eafc5621d0e7591111a5e286b
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532620"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802818"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>MSAL.NET를 사용 하 여 구성 옵션을 사용 하 여 기밀 클라이언트 응용 프로그램 인스턴스화
 
@@ -37,7 +38,7 @@ ms.locfileid: "69532620"
 - 웹 앱 및 공용 클라이언트 앱의 경우 (특히 앱에서 broker를 사용 해야 하는 경우) id 공급자가 응용 프로그램에 보안 토큰을 다시 연결 하는 redirectUri도 설정 해야 합니다.
 
 ## <a name="configure-the-application-from-the-config-file"></a>구성 파일에서 응용 프로그램 구성
-MSAL.NET에 있는 옵션의 속성 이름은 ASP.NET Core의 속성 `AzureADOptions` 이름과 일치 하므로 glue 코드를 작성할 필요가 없습니다.
+MSAL.NET에 있는 옵션의 속성 이름은 ASP.NET Core의 `AzureADOptions` 속성 이름과 일치 하므로 glue 코드를 작성할 필요가 없습니다.
 
 ASP.NET Core 응용 프로그램 구성은 appsettings 파일에 설명 되어 있습니다 *.*
 
@@ -64,7 +65,7 @@ ASP.NET Core 응용 프로그램 구성은 appsettings 파일에 설명 되어 �
 
 MSAL.NET v3. x부터 구성 파일에서 기밀 클라이언트 응용 프로그램을 구성할 수 있습니다.
 
-응용 프로그램을 구성 하 고 인스턴스화할 클래스에서 `ConfidentialClientApplicationOptions` 개체를 선언 해야 합니다.  소스 (appconfig. json 파일 포함)에서 읽은 구성을 응용 프로그램 옵션의 인스턴스에 바인딩하고,이 [는 다음의](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder)메서드를 `IConfigurationRoot.Bind()` 사용 하 여 응용 프로그램 옵션의 인스턴스에 바인딩합니다.
+응용 프로그램을 구성 하 고 인스턴스화할 클래스에서 `ConfidentialClientApplicationOptions` 개체를 선언 해야 합니다.  Web.config [패키지](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder)의 `IConfigurationRoot.Bind()` 메서드를 사용 하 여 소스 (appconfig. json 파일 포함)에서 응용 프로그램 옵션 인스턴스로 읽은 구성을 바인딩합니다.
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -74,7 +75,7 @@ _applicationOptions = new ConfidentialClientApplicationOptions();
 configuration.Bind("AzureAD", _applicationOptions);
 ```
 
-이렇게 하면 *appsettings* 파일의 "AzureAD" 섹션 콘텐츠를 `ConfidentialClientApplicationOptions` 개체의 해당 속성에 바인딩할 수 있습니다.  다음으로 `ConfidentialClientApplication` 개체를 빌드합니다.
+이렇게 하면 *appsettings* 파일의 "AzureAD" 섹션 내용이 `ConfidentialClientApplicationOptions` 개체의 해당 속성에 바인딩됩니다.  다음으로 `ConfidentialClientApplication` 개체를 작성 합니다.
 
 ```csharp
 IConfidentialClientApplication app;

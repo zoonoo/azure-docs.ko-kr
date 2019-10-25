@@ -1,13 +1,13 @@
 ---
-title: OData 필터 참조-Azure Search
-description: Azure Search 쿼리의 필터 구문에 대 한 OData 언어 참조입니다.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
-author: Brjohnstmsft
-ms.author: brjohnst
+title: OData 필터 참조
+titleSuffix: Azure Cognitive Search
+description: Azure Cognitive Search 쿼리의 필터 구문에 대 한 OData 언어 참조입니다.
 manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 8817ce075409a3f166b82404767697dc1326cc89
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: ba1f5e8f2369d3222b3c31738e252a20b6de8906
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647580"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793365"
 ---
-# <a name="odata-filter-syntax-in-azure-search"></a>Azure Search의 OData $filter 구문
+# <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData $filter 구문
 
-Azure Search는 [OData 필터 식을](query-odata-filter-orderby-syntax.md) 사용 하 여 전체 텍스트 검색 단어 외에 추가 조건을 검색 쿼리에 적용 합니다. 이 문서에서는 필터의 구문에 대해 자세히 설명 합니다. 필터 및 필터를 사용 하 여 특정 쿼리 시나리오를 실현 하는 방법에 대 한 일반적인 정보는 [Azure Search의 필터](search-filters.md)를 참조 하세요.
+Azure Cognitive Search는 [OData 필터 식을](query-odata-filter-orderby-syntax.md) 사용 하 여 전체 텍스트 검색 용어 외에 추가 조건을 검색 쿼리에 적용 합니다. 이 문서에서는 필터의 구문에 대해 자세히 설명 합니다. 필터 및 필터를 사용 하 여 특정 쿼리 시나리오를 실현 하는 방법에 대 한 일반적인 내용은 [Azure Cognitive Search의 필터](search-filters.md)를 참조 하세요.
 
 ## <a name="syntax"></a>구문
 
@@ -53,27 +53,27 @@ variable ::= identifier | field_path
 대화형 구문 다이어그램도 사용할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Azure Search에 대 한 OData 구문 다이어그램](https://azuresearch.github.io/odata-syntax-diagram/#boolean_expression)
+> [Azure Cognitive Search에 대 한 OData 구문 다이어그램](https://azuresearch.github.io/odata-syntax-diagram/#boolean_expression)
 
 > [!NOTE]
-> 전체 EBNF [Azure Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 를 참조 하세요.
+> 전체 EBNF [Azure Cognitive Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 를 참조 하세요.
 
 부울 식의 형식에는 다음이 포함 됩니다.
 
-- `any` 또는`all`를 사용 하는 컬렉션 필터 식입니다. 이러한 필터 조건은 컬렉션 필드에 적용 됩니다. 자세한 내용은 [Azure Search의 OData 컬렉션 연산자](search-query-odata-collection-operators.md)를 참조 하세요.
-- , `and` `or`및 연산자를사용하여다른부울식을결합하는논리식입니다.`not` 자세한 내용은 [Azure Search의 OData 논리 연산자](search-query-odata-logical-operators.md)를 참조 하세요.
-- `eq`연산자 ,`ne` ,,`le`, 및를 사용 하 여 필드 또는 범위 변수를 상수 값과 비교 하는 비교 식. `gt` `lt` `ge` 자세한 내용은 [Azure Search의 OData 비교 연산자](search-query-odata-comparison-operators.md)를 참조 하세요. 비교 식은 함수를 `geo.distance` 사용 하 여 지리적 공간 좌표 사이의 거리를 비교 하는 데도 사용 됩니다. 자세한 내용은 [Azure Search의 OData 지역 공간 함수](search-query-odata-geo-spatial-functions.md)를 참조 하세요.
+- `any` 또는 `all`를 사용 하는 컬렉션 필터 식입니다. 이러한 필터 조건은 컬렉션 필드에 적용 됩니다. 자세한 내용은 [Azure Cognitive Search의 OData 컬렉션 연산자](search-query-odata-collection-operators.md)를 참조 하세요.
+- `and`, `or`및 `not`연산자를 사용 하 여 다른 부울 식을 결합 하는 논리 식입니다. 자세한 내용은 [Azure Cognitive Search의 OData 논리 연산자](search-query-odata-logical-operators.md)를 참조 하세요.
+- `eq`, `ne`, `gt`, `lt`, `ge`및 `le`연산자를 사용 하 여 필드 또는 범위 변수를 상수 값과 비교 하는 비교 식. 자세한 내용은 [Azure Cognitive Search의 OData 비교 연산자](search-query-odata-comparison-operators.md)를 참조 하세요. 비교 식은 `geo.distance` 함수를 사용 하 여 지리적 공간 좌표 사이의 거리를 비교 하는 데도 사용 됩니다. 자세한 내용은 [Azure Cognitive Search의 OData 지역 공간 함수](search-query-odata-geo-spatial-functions.md)를 참조 하세요.
 - 부울 리터럴 `true` 및 `false`입니다. 이러한 상수는 프로그래밍 방식으로 필터를 생성 하는 경우에 유용할 수 있지만 그렇지 않은 경우에는 실제로 사용 되지 않습니다.
 - 다음을 포함 하 여 부울 함수를 호출 합니다.
-  - `geo.intersects`지정 된 점이 지정 된 다각형 내에 있는지 여부를 테스트 하는입니다. 자세한 내용은 [Azure Search의 OData 지역 공간 함수](search-query-odata-geo-spatial-functions.md)를 참조 하세요.
-  - `search.in`-필드 또는 범위 변수와 값 목록의 각 값을 비교 합니다. 자세한 내용은 [Azure Search의 OData `search.in` 함수](search-query-odata-search-in-function.md)를 참조 하세요.
-  - `search.ismatch`필터 `search.ismatchscoring`컨텍스트에서 전체 텍스트 검색 작업을 실행 하는 및 자세한 내용은 [Azure Search의 OData 전체 텍스트 검색 함수](search-query-odata-full-text-search-functions.md)를 참조 하세요.
-- 형식의 `Edm.Boolean`필드 경로 또는 범위 변수 예를 들어 인덱스에 라는 `IsEnabled` 부울 필드가 있고이 필드가 인 `true`모든 문서를 반환 하려면 필터 식이 이름일 `IsEnabled`수 있습니다.
+  - 지정 된 점이 지정 된 다각형 내에 있는지 여부를 테스트 하는 `geo.intersects`입니다. 자세한 내용은 [Azure Cognitive Search의 OData 지역 공간 함수](search-query-odata-geo-spatial-functions.md)를 참조 하세요.
+  - `search.in`는 필드 또는 범위 변수와 값 목록의 각 값을 비교 합니다. 자세한 내용은 [Azure Cognitive Search의 OData `search.in` 함수](search-query-odata-search-in-function.md)를 참조 하세요.
+  - `search.ismatch` 및 `search.ismatchscoring`-필터 컨텍스트에서 전체 텍스트 검색 작업을 실행 합니다. 자세한 내용은 [Azure Cognitive Search의 OData 전체 텍스트 검색 기능](search-query-odata-full-text-search-functions.md)을 참조 하세요.
+- `Edm.Boolean`형식의 필드 경로 또는 범위 변수입니다. 예를 들어 인덱스에 `IsEnabled` 라는 부울 필드가 있고이 필드가 `true`되는 모든 문서를 반환 하려면 필터 식이 `IsEnabled`이름일 수 있습니다.
 - 괄호 안의 부울 식입니다. 괄호를 사용 하면 필터의 작업 순서를 명시적으로 결정 하는 데 도움이 됩니다. OData 연산자의 기본 우선 순위에 대 한 자세한 내용은 다음 섹션을 참조 하십시오.
 
 ### <a name="operator-precedence-in-filters"></a>필터의 연산자 우선 순위
 
-하위 식 주위에 괄호를 사용 하지 않고 필터 식을 작성 하는 경우 Azure Search 연산자 우선 순위 규칙 집합에 따라 계산 됩니다. 이러한 규칙은 하위 식을 결합 하는 데 사용 되는 연산자를 기반으로 합니다. 다음 표에서는 연산자 그룹을 최고 우선 순위부터 최하위 순서로 나열 합니다.
+하위 식 주위에 괄호를 사용 하지 않고 필터 식을 작성 하는 경우 Azure Cognitive Search는 연산자 우선 순위 규칙 집합에 따라 계산 합니다. 이러한 규칙은 하위 식을 결합 하는 데 사용 되는 연산자를 기반으로 합니다. 다음 표에서는 연산자 그룹을 최고 우선 순위부터 최하위 순서로 나열 합니다.
 
 | 그룹 | 연산자 |
 | --- | --- |
@@ -82,12 +82,12 @@ variable ::= identifier | field_path
 | 논리 연산자 | `and` |
 | 논리 연산자 | `or` |
 
-위의 표에 나와 있는 연산자는 다른 연산자 보다 해당 피연산자에 "더 밀접 하 게 바인딩" 할 수 있습니다. 예 `and` 를 들어는 보다 우선 순위가 높고 `or`비교 연산자는 보다 우선 순위가 높기 때문에 다음 두 식은 동일 합니다.
+위의 표에 나와 있는 연산자는 다른 연산자 보다 해당 피연산자에 "더 밀접 하 게 바인딩" 할 수 있습니다. 예를 들어 `and`은 `or`보다 우선 순위가 높고 비교 연산자는 두 식 보다 우선 순위가 높기 때문에 다음 두 식은 동일 합니다.
 
     Rating gt 0 and Rating lt 3 or Rating gt 7 and Rating lt 10
     ((Rating gt 0) and (Rating lt 3)) or ((Rating gt 7) and (Rating lt 10))
 
-연산자 `not` 는 비교 연산자 보다 높은 우선 순위를 갖습니다. 이러한 이유 때문에 다음과 같은 필터를 작성 하려고 합니다.
+`not` 연산자는 비교 연산자 보다 높은 우선 순위를 갖습니다. 이러한 이유 때문에 다음과 같은 필터를 작성 하려고 합니다.
 
     not Rating gt 5
 
@@ -95,7 +95,7 @@ variable ::= identifier | field_path
 
     Invalid expression: A unary operator with an incompatible type was detected. Found operand type 'Edm.Int32' for operator kind 'Not'.
 
-이 오류는 연산자가 전체 비교 식이 아니라 형식의 `Rating` `Edm.Int32`필드에만 연결 되어 있기 때문에 발생 합니다. 이 문제를 해결 하려면 피연산자 `not` 를 괄호 안에 넣습니다.
+이 오류는 연산자가 전체 비교 식이 아니라 `Edm.Int32`형식인 `Rating` 필드에만 연결 되어 있기 때문에 발생 합니다. 수정 방법은 `not`의 피연산자를 괄호 안에 배치 하는 것입니다.
 
     not (Rating gt 5)
 
@@ -103,12 +103,12 @@ variable ::= identifier | field_path
 
 ### <a name="filter-size-limitations"></a>필터 크기 제한
 
-Azure Search로 보낼 수 있는 필터 식의 크기 및 복잡성은 제한되어 있습니다. 이러한 제한은 대략적으로 필터 식의 절 수와 관련이 있습니다. 예를 들면, 수백 개의 절이 있는 경우 제한을 초과할 위험이 있습니다. 제한 없는 크기의 필터를 생성 하지 않는 방식으로 응용 프로그램을 디자인 하는 것이 좋습니다.
+Azure Cognitive Search에 보낼 수 있는 필터 식의 크기 및 복잡성에는 제한이 있습니다. 이러한 제한은 대략적으로 필터 식의 절 수와 관련이 있습니다. 예를 들면, 수백 개의 절이 있는 경우 제한을 초과할 위험이 있습니다. 제한 없는 크기의 필터를 생성 하지 않는 방식으로 응용 프로그램을 디자인 하는 것이 좋습니다.
 
 > [!TIP]
-> 함수 호출이 단일 절로 계산 되기 때문에 같음 비교의 긴 분해 대신 [함수를 `search.in` ](search-query-odata-search-in-function.md) 사용 하면 필터 절 제한을 피할 수 있습니다.
+> 함수 호출이 단일 절로 계산 되기 때문에 같음 비교의 긴 분해 대신 [`search.in` 함수를](search-query-odata-search-in-function.md) 사용 하면 필터 절 제한을 피할 수 있습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 4 이상 등급의 기본 요금이 $200 미만인 모든 호텔을 찾습니다.
 
@@ -126,7 +126,7 @@ Azure Search로 보낼 수 있는 필터 식의 크기 및 복잡성은 제한�
 
     $filter=ParkingIncluded and Rooms/all(room: not room/SmokingAllowed)
 
- \- 또는  
+ \- 또는 -  
 
     $filter=ParkingIncluded eq true and Rooms/all(room: room/SmokingAllowed eq false)
 
@@ -134,7 +134,7 @@ Azure Search로 보낼 수 있는 필터 식의 크기 및 복잡성은 제한�
 
     $filter=(Category eq 'Luxury' or ParkingIncluded eq true) and Rating eq 5
 
-하나 이상의 대화방에서 "wifi" 태그가 있는 모든 호텔을 찾습니다 (각 방에는 `Collection(Edm.String)` 필드에 저장 된 태그가 있음).  
+하나 이상의 대화방에서 "wifi" 태그가 있는 모든 호텔을 찾습니다. 여기서 각 방에는 `Collection(Edm.String)` 필드에 저장 된 태그가 있습니다.  
 
     $filter=Rooms/any(room: room/Tags/any(tag: tag eq 'wifi'))
 
@@ -146,11 +146,11 @@ Azure Search로 보낼 수 있는 필터 식의 크기 및 복잡성은 제한�
 
     $filter=not Rooms/any()
 
-지정 된 참조 지점의 10 킬로미터 이내에 있는 모든 호텔 찾기 ( `Location` 여기서는 유형의 `Edm.GeographyPoint`필드):
+지정 된 참조 지점의 10 킬로미터 이내에 있는 모든 호텔 찾기 (여기서 `Location`은 `Edm.GeographyPoint`형식의 필드):
 
     $filter=geo.distance(Location, geography'POINT(-122.131577 47.678581)') le 10
 
-지정 된 뷰포트 내에서 polygon로 설명 된 모든 호텔을 찾습니다 `Location` . 여기서은 GeographyPoint 형식의 필드입니다. 다각형이 닫혀 있어야 합니다. 즉, 첫 번째 및 마지막 점 집합이 동일 해야 합니다. 또한 [지점은 반시계 방향으로 나열](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1)되어야 합니다.
+다각형으로 설명 된 지정 된 뷰포트에 있는 모든 호텔을 찾습니다. 여기서 `Location`는 GeographyPoint 형식의 필드입니다. 다각형이 닫혀 있어야 합니다. 즉, 첫 번째 및 마지막 점 집합이 동일 해야 합니다. 또한 [지점은 반시계 방향으로 나열](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1)되어야 합니다.
 
     $filter=geo.intersects(Location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
 
@@ -178,7 +178,7 @@ Azure Search로 보낼 수 있는 필터 식의 크기 및 복잡성은 제한�
 
     $filter=search.ismatchscoring('waterfront')
 
-단어 "hostel"을 포함하고 등급이 4 이상인 문서 또는 단어 "motel"을 포함하고 등급이 5인 문서를 찾습니다. 을 사용 하 여 `search.ismatchscoring` `or`필터 작업과 함께 전체 텍스트 검색을 결합 하므로 함수 없이이 요청을 표현할 수 없습니다.
+단어 "hostel"을 포함하고 등급이 4 이상인 문서 또는 단어 "motel"을 포함하고 등급이 5인 문서를 찾습니다. 이 요청은 `or`를 사용 하 여 필터 작업과 함께 전체 텍스트 검색을 결합 하므로 `search.ismatchscoring` 함수 없이 표시할 수 없습니다.
 
     $filter=search.ismatchscoring('hostel') and rating ge 4 or search.ismatchscoring('motel') and rating eq 5
 
@@ -186,7 +186,7 @@ Azure Search로 보낼 수 있는 필터 식의 크기 및 복잡성은 제한�
 
     $filter=not search.ismatch('luxury')
 
-구 "ocean view"를 포함하거나 등급이 5인 문서를 찾습니다. `search.ismatchscoring` 쿼리는 필드 `HotelName` 및 `Description`에 대해서만 실행됩니다. 분리의 두 번째 절과 일치 하는 문서만 반환 됩니다. 즉, 호텔은 5 `Rating` 와 동일 합니다. 이러한 문서는 0과 같은 점수와 함께 반환 되어 식의 점수가 매겨진 부분과 일치 하지 않는 것을 명확 하 게 합니다.
+구 "ocean view"를 포함하거나 등급이 5인 문서를 찾습니다. `search.ismatchscoring` 쿼리는 필드 `HotelName` 및 `Description`에 대해서만 실행됩니다. 분리의 두 번째 절만 일치 하는 문서는 `Rating` 5와 동일한 호텔로 반환 됩니다. 이러한 문서는 0과 같은 점수와 함께 반환 되어 식의 점수가 매겨진 부분과 일치 하지 않는 것을 명확 하 게 합니다.
 
     $filter=search.ismatchscoring('"ocean view"', 'Description,HotelName') or Rating eq 5
 
@@ -196,7 +196,7 @@ Azure Search로 보낼 수 있는 필터 식의 크기 및 복잡성은 제한�
 
 ## <a name="next-steps"></a>다음 단계  
 
-- [Azure Search의 필터](search-filters.md)
-- [Azure Search에 대 한 OData 식 언어 개요](query-odata-filter-orderby-syntax.md)
-- [Azure Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md)
-- [문서 검색 &#40;Azure Search 서비스 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Azure Cognitive Search의 필터](search-filters.md)
+- [Azure Cognitive Search에 대 한 OData 식 언어 개요](query-odata-filter-orderby-syntax.md)
+- [Azure Cognitive Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md)
+- [문서 &#40;검색 Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

@@ -1,23 +1,22 @@
 ---
-title: Azure Search .NET SDK 버전 9로 업그레이드-Azure Search
+title: Azure Search .NET SDK 버전 9로 업그레이드
+titleSuffix: Azure Cognitive Search
 description: 이전 버전에서 Azure Search .NET SDK 버전 9로 코드를 마이그레이션합니다. 새로운 기능과 필요한 코드 변경 내용을 알아봅니다.
-author: brjohnstmsft
 manager: nitinme
-services: search
-ms.service: search
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/10/2019
-ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: 32908ab209cbe05a0acf9da896e1e1fb11e6f5dd
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 11/04/2019
+ms.openlocfilehash: fcc70267754f7e66f29dd1b855d3efb8b814e78b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183233"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793011"
 ---
-# <a name="upgrade-to-the-azure-search-net-sdk-version-9"></a>Azure Search .NET SDK 버전 9로 업그레이드
+# <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Azure Search .NET SDK 버전 9로 업그레이드
 
 버전 7.0-preview 또는 이전 버전의 [Azure Search .NET SDK](https://aka.ms/search-sdk)를 사용 하는 경우이 문서는 버전 9를 사용 하도록 응용 프로그램을 업그레이드 하는 데 도움이 됩니다.
 
@@ -38,7 +37,7 @@ Azure Search .NET SDK 버전 9에는 이전 버전과의 많은 변경 내용이
 ## <a name="whats-new-in-version-9"></a>버전 9의 새로운 기능
 Azure Search .NET SDK 버전 9는 Azure Search REST API, 특히 2019-05-06의 최신 버전을 대상으로 합니다. 이 버전이 있으면 다음을 비롯한 Azure Search의 새 기능을 .NET 애플리케이션에서 사용할 수 있습니다.
 
-* [인지 검색](cognitive-search-concept-intro.md) 은 이미지, blob 및 기타 구조화 되지 않은 데이터 원본에서 텍스트를 추출 하는 데 사용 되는 AZURE SEARCH의 AI 기능이 며,이 기능을 사용 하 여 Azure Search 인덱스에서 보다 검색 하기 쉽도록 콘텐츠를 보강 합니다.
+* [AI 보강](cognitive-search-concept-intro.md) 는 이미지, blob 및 기타 구조화 되지 않은 데이터 원본에서 텍스트를 추출 하는 기능으로, Azure Search 인덱스에서 보다 검색 하기 쉽도록 콘텐츠를 보강 합니다.
 * [복합 형식을](search-howto-complex-data-types.md) 지원 하면 Azure Search 인덱스에서 거의 모든 중첩 된 JSON 구조를 모델링할 수 있습니다.
 * [자동 완성](search-autocomplete-tutorial.md) 은 검색 형식 동작을 구현 하기 위한 **제안** API에 대 한 대안을 제공 합니다. 자동 완성은 사용자가 현재 입력 하 고 있는 단어 또는 구를 "완료" 합니다.
 * Azure Blob 인덱싱의 일부인 [JsonLines 구문 분석 모드](search-howto-index-json-blobs.md)는 JSON 엔터티 마다 줄 바꿈으로 구분 된 하나의 검색 문서를 만듭니다.
@@ -83,9 +82,9 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
 
 ### <a name="changes-to-field"></a>필드에 대 한 변경 내용
 
-`Field` 클래스가 복합 필드를 나타낼 수도 있으므로 이제 변경 되었습니다.
+이제 `Field` 클래스가 복합 필드를 나타낼 수 있도록 변경 되었습니다.
 
-이제 다음 `bool` 속성은 nullable입니다.
+다음 `bool` 속성은 이제 nullable입니다.
 
   - `IsFilterable`
   - `IsFacetable`
@@ -94,33 +93,33 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
   - `IsRetrievable`
   - `IsKey`
 
-이러한 속성은 이제 `null` 복잡 한 필드의 경우에 필요 하기 때문입니다. 이러한 속성을 읽는 코드가 있는 경우를 처리 `null`하도록 준비 해야 합니다. 의 `Field` 다른 모든 속성은 항상 발생 하 고 null을 허용 해야 하며, 그 `null` 중 일부는 복합 필드의 경우, 특히 다음과 같습니다.
+이러한 속성은 이제 복잡 한 필드의 경우에 `null` 되어야 하기 때문입니다. 이러한 속성을 읽는 코드가 있는 경우 `null`를 처리할 수 있도록 준비 해야 합니다. `Field`의 다른 모든 속성은 항상 그대로 유지 되 고 계속 nullable이 되며, 이러한 속성 중 일부는 복잡 한 필드의 경우 (특히 다음과 같이) `null` 됩니다.
 
   - `Analyzer`
   - `SearchAnalyzer`
   - `IndexAnalyzer`
   - `SynonymMaps`
 
-의 `Field` 매개 변수가 없는 생성자가 생성 `internal`되었습니다. 지금부터의 모든 `Field` 에는 생성 시 명시적인 이름 및 데이터 형식이 필요 합니다.
+`Field`의 매개 변수가 없는 생성자가 `internal`되었습니다. 지금부터 모든 `Field`에는 생성 시 명시적인 이름과 데이터 형식이 필요 합니다.
 
 ### <a name="simplified-batch-and-results-types"></a>단순화 된 일괄 처리 및 결과 형식
 
 7\.0-preview 및 이전 버전에서는 문서 그룹을 캡슐화 하는 다양 한 클래스가 병렬 클래스 계층 구조로 구성 되었습니다.
 
-  -  `DocumentSearchResult`다음 `DocumentSearchResult<T>` 에서 상속 됨`DocumentSearchResultBase`
-  -  `DocumentSuggestResult`다음 `DocumentSuggestResult<T>` 에서 상속 됨`DocumentSuggestResultBase`
-  -  `IndexAction`다음 `IndexAction<T>` 에서 상속 됨`IndexActionBase`
-  -  `IndexBatch`다음 `IndexBatch<T>` 에서 상속 됨`IndexBatchBase`
-  -  `SearchResult`다음 `SearchResult<T>` 에서 상속 됨`SearchResultBase`
-  -  `SuggestResult`다음 `SuggestResult<T>` 에서 상속 됨`SuggestResultBase`
+  -  `DocumentSearchResult` 및 `DocumentSearchResult<T>` 상속 `DocumentSearchResultBase`
+  -  `DocumentSuggestResult` 및 `DocumentSuggestResult<T>` 상속 `DocumentSuggestResultBase`
+  -  `IndexAction` 및 `IndexAction<T>` 상속 `IndexActionBase`
+  -  `IndexBatch` 및 `IndexBatch<T>` 상속 `IndexBatchBase`
+  -  `SearchResult` 및 `SearchResult<T>` 상속 `SearchResultBase`
+  -  `SuggestResult` 및 `SuggestResult<T>` 상속 `SuggestResultBase`
 
-제네릭 형식 매개 변수 없이 파생 된 형식은 "동적으로 형식화 된" 시나리오에서 사용 되며 `Document` 형식의 사용을 가정 합니다.
+제네릭 형식 매개 변수 없이 파생 된 형식은 "동적으로 형식화 된" 시나리오에서 사용 되 고 `Document` 형식의 사용을 가정 합니다.
 
-8\.0-preview 버전부터 기본 클래스 및 제네릭이 아닌 파생 클래스가 모두 제거 되었습니다. 동적으로 형식화 된 시나리오의 경우, `IndexBatch<Document>` `DocumentSearchResult<Document>`등을 사용할 수 있습니다.
+8\.0-preview 버전부터 기본 클래스 및 제네릭이 아닌 파생 클래스가 모두 제거 되었습니다. 동적으로 형식화 된 시나리오의 경우 `IndexBatch<Document>`, `DocumentSearchResult<Document>`등을 사용할 수 있습니다.
  
 ### <a name="removed-extensibleenum"></a>ExtensibleEnum 제거 됨
 
-`ExtensibleEnum` 기본 클래스가 제거 되었습니다. 예를 들어, 여기에서 파생 된 모든 클래스는 이제 `AnalyzerName`구조체 `DataType`(예 `DataSourceType` :, 및)입니다. 해당 `Create` 메서드도 제거 되었습니다. 이러한 형식은 문자열에서 암시적으로 `Create` 변환할 수 있기 때문에에 대 한 호출을 제거 하면 됩니다. 이로 인해 컴파일러 오류가 발생 하는 경우 캐스트를 통해 변환 연산자를 명시적으로 호출 하 여 형식을 구분할 수 있습니다. 예를 들어 다음과 같은 코드를 변경할 수 있습니다.
+`ExtensibleEnum` 기본 클래스가 제거 되었습니다. 여기에서 파생 된 모든 클래스는 `AnalyzerName`, `DataType`및 `DataSourceType`와 같은 구조체입니다. 또한 해당 `Create` 메서드가 제거 되었습니다. 이러한 형식은 문자열에서 암시적으로 변환 될 수 있으므로 `Create`에 대 한 호출을 제거 하면 됩니다. 이로 인해 컴파일러 오류가 발생 하는 경우 캐스트를 통해 변환 연산자를 명시적으로 호출 하 여 형식을 구분할 수 있습니다. 예를 들어 다음과 같은 코드를 변경할 수 있습니다.
 
 ```csharp
 var index = new Index()
@@ -152,7 +151,7 @@ var index = new Index()
 
 ### <a name="removed-facetresults-and-hithighlights"></a>FacetResults 및 HitHighlights 제거 됨
 
-`FacetResults` 및`HitHighlights` 클래스가 제거 되었습니다. 패싯 결과는 이제로 `IDictionary<string, IList<FacetResult>>` 형식화 되며는로 `IDictionary<string, IList<string>>`강조 표시 됩니다. 이러한 변경으로 인해 발생 하는 빌드 오류를 신속 하 게 해결 `using` 하는 방법은 제거 된 형식을 사용 하는 각 파일의 맨 위에 별칭을 추가 하는 것입니다. 예를 들어:
+`FacetResults` 및 `HitHighlights` 클래스가 제거 되었습니다. 패싯 결과는 이제 `IDictionary<string, IList<FacetResult>>`으로 형식화 되 고 `IDictionary<string, IList<string>>`로 강조 표시 됩니다. 이러한 변경으로 인해 발생 하는 빌드 오류를 신속 하 게 해결 하는 방법은 제거 된 형식을 사용 하는 각 파일의 맨 위에 `using` 별칭을 추가 하는 것입니다. 다음은 그 예입니다.
 
 ```csharp
 using FacetResults = System.Collections.Generic.IDictionary<string, System.Collections.Generic.IList<Models.FacetResult>>;
@@ -165,22 +164,22 @@ using HitHighlights = System.Collections.Generic.IDictionary<string, System.Coll
 
 ### <a name="miscellaneous-model-class-changes"></a>기타 모델 클래스 변경 내용
 
-`AutocompleteMode` 의`AutocompleteParameters` 속성은 더 이상 null을 허용 하지 않습니다. 이 속성을에 `null`할당 하는 코드가 있는 경우 해당 속성을 제거 하기만 하면 속성이 자동으로 기본값으로 초기화 됩니다.
+`AutocompleteParameters`의 `AutocompleteMode` 속성은 더 이상 nullable이 아닙니다. `null`에이 속성을 할당 하는 코드가 있는 경우 간단 하 게 제거 하면 속성은 자동으로 기본값으로 초기화 됩니다.
 
-`IndexAction` 생성자에 대 한 매개 변수 순서가 변경 되어 이제이 생성자가 자동으로 생성 되었습니다. 생성자를 사용 하는 대신 팩터리 메서드 `IndexAction.Upload`, `IndexAction.Merge`, 등을 사용 하는 것이 좋습니다.
+이제이 생성자가 자동으로 생성 되기 때문에 `IndexAction` 생성자에 대 한 매개 변수 순서가 변경 되었습니다. 생성자를 사용 하는 대신 팩터리 메서드 `IndexAction.Upload`, `IndexAction.Merge`등을 사용 하는 것이 좋습니다.
 
 ### <a name="removed-preview-features"></a>제거된 미리 보기 기능
 
-버전 8.0-preview에서 버전 9로 업그레이드 하는 경우이 기능은 아직 미리 보기 상태 이므로 고객 관리 키로 암호화가 제거 된 것을 알고 있어야 합니다. `Index` 특히 및 의`SynonymMap` 속성이 제거 되었습니다. `EncryptionKey`
+버전 8.0-preview에서 버전 9로 업그레이드 하는 경우이 기능은 아직 미리 보기 상태 이므로 고객 관리 키로 암호화가 제거 된 것을 알고 있어야 합니다. 특히 `Index` 및 `SynonymMap`의 `EncryptionKey` 속성이 제거 되었습니다.
 
 응용 프로그램에이 기능에 대 한 하드 종속성이 있는 경우 Azure Search .NET SDK 버전 9로 업그레이드할 수 없습니다. 버전 8.0-미리 보기를 계속 사용할 수 있습니다. 하지만 **프로덕션 애플리케이션에서는 미리 보기 SDK를 사용하지 않는 것이 좋습니다**. 미리 보기 기능은 평가용일 뿐이며 변경될 수 있습니다.
 
 > [!NOTE]
-> SDK 버전 8.0-preview를 사용 하 여 암호화 된 인덱스나 동의어 맵을 만든 경우에도 해당 암호화 상태에 부정적인 영향을 주지 않고 SDK 버전 9를 사용 하 여이를 사용 하 고 해당 정의를 수정할 수 있습니다. SDK 버전 9는 `encryptionKey` 속성을 REST API 전송 하지 않으며, 그 결과 REST API는 리소스의 암호화 상태를 변경 하지 않습니다. 
+> SDK 버전 8.0-preview를 사용 하 여 암호화 된 인덱스나 동의어 맵을 만든 경우에도 해당 암호화 상태에 부정적인 영향을 주지 않고 SDK 버전 9를 사용 하 여이를 사용 하 고 해당 정의를 수정할 수 있습니다. SDK 버전 9는 `encryptionKey` 속성을 REST API 전송 하지 않으며 그 결과 REST API는 리소스의 암호화 상태를 변경 하지 않습니다. 
 
 ### <a name="behavioral-change-in-data-retrieval"></a>데이터 검색의 동작 변경
 
-형식의 `Search` `object[]` `string[]` `Suggest` `Get` 인스턴스를 반환 하는 "동적으로 형식화 된", 또는 api를 사용 하는 경우 이제는 대신 빈 JSON 배열을로 deserialize 합니다. `Document`
+`Document`형식의 인스턴스를 반환 하는 "동적으로 형식화 된" `Search`, `Suggest`또는 `Get` Api를 사용 하는 경우 이제는 `object[]` 대신 빈 JSON 배열을 `string[]`로 deserialize 합니다.
 
 ## <a name="conclusion"></a>결론
 Azure Search .NET SDK 사용에 대한 자세한 내용은 [.NET 방법](search-howto-dotnet-sdk.md)을 참조하세요.

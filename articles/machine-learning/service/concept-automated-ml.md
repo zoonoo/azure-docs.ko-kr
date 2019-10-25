@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: e80d79c16b0748e25e549365001990fb014b5f14
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 895425232dabc78650b6ee7ed035048471084237
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030544"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793905"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -50,7 +50,7 @@ ms.locfileid: "72030544"
 
 1. 해결 될 기계 학습 **문제 식별** : 분류, 예측 또는 회귀
 
-1. **레이블이 지정 된 학습 데이터의 원본 및 형식을 지정**합니다. Numpy 배열 또는 Pandas 데이터 프레임
+1. **레이블이 지정 된 학습 데이터의 원본 및 형식 지정**: Numpy Array 또는 Pandas 데이터 프레임
 
 1. **모델 학습을 위한 계산 목표**(예: [로컬 컴퓨터, Azure Machine Learning 계산, 원격 vm 또는 Azure Databricks](how-to-set-up-training-targets.md))를 구성 합니다.  [원격 리소스에](how-to-auto-train-remote.md)대 한 자동화 된 학습에 대해 알아봅니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "72030544"
 
 자동화 된 모든 기계 학습 실험에서 데이터는 알고리즘의 성능을 향상 시킬 수 있도록 자동으로 확장 되거나 정규화 됩니다.  모델 학습 중에는 다음 크기 조정 또는 정규화 기술 중 하나가 각 모델에 적용 됩니다.
 
-|크기 조정 @ no__t-0 @ no__t-1 @ no__t 정규화| 설명 |
+|&nbsp;정규화&nbsp;&크기 조정| 설명 |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | 단위 분산의 평균 및 크기 조정을 제거 하 여 기능 표준화  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | 해당 열의 최소값과 최대값을 기준으로 각 기능의 크기를 조정 하 여 기능을 변환 합니다.  |
@@ -95,9 +95,9 @@ ms.locfileid: "72030544"
 
 누락 값 대체, 인코딩 및 변환과 같은 추가 고급 전처리 및 기능화도 사용할 수 있습니다. [기능화 포함 된 항목에 대해 자세히 알아보세요](how-to-create-portal-experiments.md#preprocess). 다음을 사용 하 여이 설정 사용:
 
-+ Azure Portal: **고급 설정** 에서 [다음 단계](how-to-create-portal-experiments.md)에 따라 **전처리** 확인란을 선택 합니다.
++ Azure Portal: **고급 설정** 에서 [다음 단계를 수행 하](how-to-create-portal-experiments.md)여 **전처리** 확인란을 선택 합니다.
 
-+ Python SDK: [@No__t 2 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)에 대해 `"preprocess": True`을 지정 합니다.
++ Python SDK: [`AutoMLConfig` 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)에 대 한 `"preprocess": True`를 지정 합니다.
 
 
 ## <a name="time-series-forecasting"></a>시계열 예측
@@ -108,6 +108,8 @@ ms.locfileid: "72030544"
 자세한 정보 및 [시계열 예측에 대 한 자동화 된 기계 학습](how-to-auto-train-forecast.md)예를 참조 하세요. 또는 다음을 비롯 한 고급 예측 구성의 자세한 코드 예제는 [에너지 수요 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) 을 참조 하세요.
 
 * 휴일 검색 및 기능화
+* 시계열 및 DNN 학습자 (Auto-ARIMA, Prophet, ForecastTCN)
+* 그룹화를 통한 많은 모델 지원
 * 롤링 원본 교차 유효성 검사
 * 구성 가능한 지연
 * 창 롤링 집계 기능
@@ -172,7 +174,7 @@ Azure Machine Learning를 사용 하면 자동화 된 ML을 사용 하 여 Pytho
 
 자동화 된 machine learning을 사용 하 여 모델을 작성 하는 방법 및 예제를 참조 하세요.
 
-+ @No__t-0Tutorial를 따르세요. Azure 자동화 Machine Learning @ no__t를 사용 하 여 회귀 모델을 자동으로 학습 합니다.
++ [자습서: Azure 자동화 된 Machine Learning를 사용 하 여 자동으로 회귀 모델 학습](tutorial-auto-train-models.md) 을 수행 합니다.
 
 + 자동 학습 실험의 설정 구성:
   + Azure Portal 인터페이스 또는 작업 영역 방문 페이지 (미리 보기)에서 [다음 단계를 사용](how-to-create-portal-experiments.md)합니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure AD SSPR-Azure Active Directory에 대 한 비밀 번호 쓰기 저장을 구성 하는 방법
+title: Azure AD SSPR에 대해 비밀 번호 쓰기 저장을 구성 하는 방법-Azure Active Directory
 description: Azure AD와 Azure AD Connect를 사용하여 온-프레미스 디렉터리에 대한 비밀번호 쓰기 저장
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17a2661883dd069e8cb719672f6b92442f1a8a0a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 71a16ad3c571086a73a2aae192fb2d00bce4d5f9
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60357508"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808162"
 ---
 # <a name="how-to-configure-password-writeback"></a>방법: 비밀번호 쓰기 저장 구성
 
@@ -59,7 +59,7 @@ ms.locfileid: "60357508"
 > 독립 실행형 Office 365 라이선스 요금제는 *"셀프 서비스 암호 재설정/변경/온-프레미스 쓰기 저장으로 잠금 해제"를 지원하지 않습니다*. 이 기능을 사용하려면 위의 요금제 중 하나가 필요합니다.
 >
 
-## <a name="active-directory-permissions"></a>Active Directory 사용 권한
+## <a name="active-directory-permissions-and-on-premises-password-complexity-policies"></a>Active Directory 권한 및 온-프레미스 암호 복잡성 정책 
 
 SSPR 범위 내에 있으려면 Azure AD Connect 유틸리티에 지정된 계정에 다음 항목이 설정되어야 합니다.
 
@@ -98,6 +98,8 @@ SSPR 범위 내에 있으려면 Azure AD Connect 유틸리티에 지정된 계�
     * **lockoutTime 쓰기**
     * **pwdLastSet 쓰기**
 9. **적용/확인**을 선택하여 변경 내용을 적용하고 열려 있는 대화 상자를 모두 끝냅니다.
+
+인증 원본이 온-프레미스에 있으므로 암호 복잡성 정책은 동일한 연결 된 데이터 원본에서 적용 됩니다. "최소 암호 길이"에 대 한 기존 그룹 정책을 변경 했는지 확인 합니다. 그룹 정책은 1로 설정 해서는 안 됩니다. 즉, 암호를 업데이트 하려면 먼저 하루 이상 이전 이어야 합니다. 0으로 설정 되어 있는지 확인 해야 합니다. 이러한 설정은 **컴퓨터 구성 > 정책 > Windows 설정 > 보안 설정 > 계정 정책**`gpmc.msc`에서 찾을 수 있습니다. `gpupdate /force`를 실행 하 여 변경 내용이 적용 되도록 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

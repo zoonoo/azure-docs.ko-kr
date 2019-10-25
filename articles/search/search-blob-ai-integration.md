@@ -5,15 +5,15 @@ description: Azure Search에서 AI 보강 파이프라인을 사용 하 여 Azur
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 1a8840aca71daacc08cf85b178668e42ff9f796c
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 5f65667ac8ffacdd12e57ae0d46e25c586624a31
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678429"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792465"
 ---
 # <a name="use-ai-to-understand-blob-storage-data"></a>AI를 사용 하 여 Blob 저장소 데이터 이해
 
@@ -68,7 +68,7 @@ AI 보강는 패턴 또는 특성을 찾은 다음 그에 따라 작업을 수�
 
 Azure Search에서 *기술은* 독립적으로 또는 다른 기술과 함께 사용할 수 있는 AI 처리의 개별 구성 요소입니다. 
 
-+ 기본 제공 기술은 Computer Vision를 기반으로 하는 이미지 분석과 Text Analytics을 기반으로 하는 자연어 처리를 사용 하 여 Cognitive Services에 의해 지원 됩니다. [콘텐츠 보강에 대 한 미리 정의 된 기술](cognitive-search-predefined-skills.md)에서 기본 제공 기술의 전체 목록을 검토할 수 있습니다.
++ 기본 제공 기술은 Computer Vision를 기반으로 하는 이미지 분석과 Text Analytics을 기반으로 하는 자연어 처리를 사용 하 여 Cognitive Services에 의해 지원 됩니다. 전체 목록은 [content 보강에 대 한 기본 제공 기술](cognitive-search-predefined-skills.md)을 참조 하세요.
 
 + 사용자 지정 기술은 파이프라인에 통합할 수 있는 [인터페이스 정의](cognitive-search-custom-skill-interface.md) 로 래핑된 사용자 지정 코드입니다. 고객 솔루션에서는 오픈 소스, 타사 또는 자사 AI 모듈을 제공 하는 사용자 지정 기술과 함께를 사용 하는 것이 일반적입니다.
 

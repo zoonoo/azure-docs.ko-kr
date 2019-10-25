@@ -1,5 +1,6 @@
 ---
 title: Azure Active Directory 동의 프레임워크
+titleSuffix: Microsoft identity platform
 description: Azure Active Directory의 동의 프레임워크와 이 프레임워크를 통해 다중 테넌트 웹 및 네이티브 클라이언트 애플리케이션을 쉽게 개발하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b9d272c8a01eeed58278a6e7f0cec147b01a10e
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: af5b60901e57392aaea504f96572801a878d707c
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482931"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803853"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory 동의 프레임워크
 
@@ -50,7 +51,7 @@ OAuth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
 
 1. 사용자가 로그인한 후 Azure AD는 사용자를 동의 페이지에 표시해야 하는지 여부를 결정합니다. 이 결정은 사용자(또는 해당 조직의 관리자)가 애플리케이션 동의를 부여했는지 여부에 따라 다릅니다. 아직 동의가 부여되지 않았다면 Azure AD는 사용자에게 동의 여부를 묻는 메시지를 표시하며 작동에 필요한 사용 권한을 표시합니다. 동의 대화 상자에 표시되는 사용 권한 집합은 Azure Portal의 **위임된 권한**에서 선택한 집합과 일치합니다.
 
-    ![동의 대화 상자에 표시 된 사용 권한의 예를 보여 줍니다.](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![승인 대화 상자에 표시 되는 사용 권한의 예를 보여 줍니다.](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
 1. 사용자가 동의를 부여하면 권한 부여 코드가 애플리케이션에 반환되며, 이것을 교환하여 액세스 토큰 및 새로 고침 토큰을 획득할 수 있습니다. 이 흐름에 대한 자세한 내용은 [Web API 앱 유형](web-api.md)을 참조하세요.
 
@@ -58,8 +59,8 @@ OAuth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
 
     **앱의 위임된 권한에 동의하려면**
 
-   1. 로 이동 합니다 **API 사용 권한** 응용 프로그램 페이지
-   1. 클릭 합니다 **관리자 동의 부여** 단추입니다.
+   1. 응용 프로그램에 대 한 **API 권한** 페이지로 이동 합니다.
+   1. **관리자 동의 허용** 단추를 클릭 합니다.
 
       ![명시적 관리자 동의를 위한 권한 부여](./media/consent-framework/grant-consent.png)
 

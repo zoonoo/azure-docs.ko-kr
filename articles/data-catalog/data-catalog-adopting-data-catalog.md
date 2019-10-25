@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 38a9f3a7020e866ccb000ed0c54499258f5e651a
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 63d1213a2dded41df3f462722b354b03fe9f6e33
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734668"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72801884"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Azure Data Catalog 채택을 위한 접근 방식 및 프로세스
 
@@ -125,7 +125,7 @@ Nancy와 그녀의 팀이 높은 가치의 데이터를 쉽게 찾을 수 있는
 파일럿 프로젝트의 일부로 Nancy의 팀은 David가 만들고 동료들이 유지관리하는 Excel 통합 문서에 설명되어 있는 데이터 원본도 사용합니다. 회사의 다른 팀도 Excel 통합 문서를 사용하여 데이터 원본을 설명하므로 IT 팀은 Excel 통합 문서를 데이터 카탈로그로 마이그레이션하는 도구를 만들기로 결정합니다. 데이터 카탈로그 REST API를 사용하면 기존 주석을 가져오면 파일럿 프로젝트 팀은 데이터 원본 등록 도구를 사용하여 데이터 원본에서 추출한 메타데이터로 구성되고 데이터 생산자와 소비자가 이전에 문서화한 정보를 모두 갖추고 수동으로 다시 입력할 필요가 없는 완벽한 데이터 카탈로그를 가질 수 있습니다. 전사적 데이터 카탈로그가 성장함에 따라 조직은 일반적인 데이터 원본에 대해 데이터 원본 등록 도구를 사용하고 사용자 지정 원본 및 특이한 시나리오에 대해 데이터 카탈로그 API를 사용할 수 있습니다.
 
 > [!NOTE]
-> 우리는 **Azure 데이터 카탈로그** API를 사용하여 Excel 통합 문서를 데이터 카탈로그에 마이그레이션하는 샘플 도구를 작성했습니다. Data Catalog API 및 샘플 도구에 대해 더 자세히 알려면 [임시 통합 문서 코드 샘플을 다운로드](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/)하고 [Azure Data Catalog REST API](/rest/api/datacatalog/) 문서를 확인합니다.
+> 우리는 **Azure 데이터 카탈로그** API를 사용하여 Excel 통합 문서를 데이터 카탈로그에 마이그레이션하는 샘플 도구를 작성했습니다. Data Catalog API 및 샘플 도구에 대해 더 자세히 알려면 [임시 통합 문서 코드 샘플을 다운로드](https://github.com/Azure-Samples/data-catalog-dotnet-excel-register-data-assets)하고 [Azure Data Catalog REST API](/rest/api/datacatalog/) 문서를 확인합니다.
 
 파일럿 프로젝트가 시행된 후 데이터 카탈로그 도입 계획을 실행해야 합니다.
 

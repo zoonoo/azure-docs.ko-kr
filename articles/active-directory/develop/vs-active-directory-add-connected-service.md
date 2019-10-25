@@ -1,5 +1,5 @@
 ---
-title: Visual Studio에서 연결된 서비스를 사용하여 Azure Active Directory 추가
+title: Visual Studio에서 연결된 서비스를 사용 하 여 Azure Active Directory 추가 | Microsoft
 description: Visual Studio 연결된 서비스 추가 대화 상자를 사용하여 Azure Active Directory 추가
 author: ghogen
 manager: jillfra
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c02821a41faa976f8f35984ecf48f425239e6fd
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 04c8b6bfeaabfa20b9b9b884584d40de7f09e9ac
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881184"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802480"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Visual Studio에서 연결된 서비스를 사용하여 Azure Active Directory 추가
 
-Azure AD(Azure Active Directory)를 사용하여 ASP.NET MVC 웹 애플리케이션 또는 웹 API 서비스에서 Active Directory 인증을 위한 SSO(Single Sign-on)을 지원할 수 있습니다. Azure AD 인증을 사용하면 사용자가 Azure Active Directory의 자신의 계정을 사용하여 웹 애플리케이션에 연결할 수 있습니다. Azure AD 인증의 장점으로 웹 애플리케이션에서 API를 표시하는 경우 향상된 데이터 보안을 들 수 있습니다. Azure AD를 사용하면, 자체 계정 및 사용자 관리를 사용하는 별도 인증 시스템을 관리할 필요가 없습니다.
+Azure AD(Azure Active Directory)를 사용하여 ASP.NET MVC 웹 애플리케이션 또는 웹 API 서비스에서 Active Directory 인증을 위한 SSO(Single Sign-on)을 지원할 수 있습니다. Azure AD 인증을 사용하면 사용자가 Azure Active Directory의 자신의 계정을 사용하여 웹 애플리케이션에 연결할 수 있습니다. 웹 API를 사용하여 Azure AD 인증을 수행하면, 웹 애플리케이션에서 API를 노출할 경우 데이터 보안을 강화할 수 있는 이점이 있습니다. Azure AD를 사용하면, 자체 계정 및 사용자 관리를 사용하는 별도 인증 시스템을 관리할 필요가 없습니다.
 
 이 문서 및 함께 제공되는 문서에서는 Active Directory용 Visual Studio 연결된 서비스 기능 사용에 대한 세부 정보를 제공합니다. 이 기능은 Visual Studio 2015 이상에서 사용할 수 있습니다.
 
@@ -46,7 +46,7 @@ Azure AD(Azure Active Directory)를 사용하여 ASP.NET MVC 웹 애플리케이
 
     ![소개 페이지](./media/vs-azure-active-directory/configure-azure-ad-wizard-1.png)
 
-1. **Single Sign-On** 페이지의 **도메인** 드롭다운 목록에서 도메인을 선택합니다. 목록에는 Visual Studio의 계정 설정 대화 상자(**파일 > 계정 설정...** )에 나열된 계정으로 액세스할 수 있는 모든 도메인이 포함됩니다. 대신, 도메인을 찾을 수 없는 경우 `mydomain.onmicrosoft.com` 등과 같은 도메인 이름을 입력할 수 있습니다. Azure Active Directory 앱을 만들거나 기존 Azure Active Directory 앱의 설정을 사용하는 옵션을 선택할 수 있습니다. 완료되면 **다음**을 선택합니다.
+1. **Single Sign-On** 페이지의 **도메인** 드롭다운 목록에서 도메인을 선택합니다. 이 목록에는 Visual Studio의 계정 설정 대화 상자 (**파일 > 계정 설정 ...** )에 나열 된 계정으로 액세스할 수 있는 모든 도메인이 포함 되어 있습니다. 또는 `mydomain.onmicrosoft.com`와 같이 찾고 있는 도메인 이름을 찾을 수 없는 경우 도메인 이름을 입력할 수 있습니다. Azure Active Directory 앱을 만들거나 기존 Azure Active Directory 앱의 설정을 사용하는 옵션을 선택할 수 있습니다. 완료되면 **다음**을 선택합니다.
 
     ![Single Sign-On 페이지](./media/vs-azure-active-directory/configure-azure-ad-wizard-2.png)
 

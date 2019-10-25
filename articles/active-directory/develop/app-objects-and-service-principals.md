@@ -1,5 +1,6 @@
 ---
 title: Azure Active Directory의 애플리케이션 및 서비스 주체 개체
+titleSuffix: Microsoft identity platform
 description: Azure Active Directory의 애플리케이션 및 서비스 주체 개체 간의 관계에 대해 알아봅니다.
 documentationcenter: dev-center-name
 author: rwike77
@@ -18,16 +19,16 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83083026b20573d93777e77f44bf8d5480bfdd97
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c1a4d9301894c6a98abd8244fdd6c10a058a26ad
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853317"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803429"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션 및 서비스 주체 개체
 
-경우에 따라 “응용 프로그램”이 Azure AD(Azure Active Directory)의 컨텍스트에서 사용될 때 용어의 의미를 잘못 이해할 수 있습니다. 이 문서에서는 [다중 테넌트 애플리케이션](developer-glossary.md#multi-tenant-application)에 대한 등록 및 동의에 대한 그림을 통해 Azure AD 애플리케이션 통합의 개념 및 구체적인 측면을 명확히 설명합니다.
+경우에 따라 “애플리케이션”이 Azure AD(Azure Active Directory)의 컨텍스트에서 사용될 때 용어의 의미를 잘못 이해할 수 있습니다. 이 문서에서는 [다중 테넌트 애플리케이션](developer-glossary.md#multi-tenant-application)에 대한 등록 및 동의에 대한 그림을 통해 Azure AD 애플리케이션 통합의 개념 및 구체적인 측면을 명확히 설명합니다.
 
 ## <a name="overview"></a>개요
 
@@ -50,7 +51,7 @@ Azure AD와 통합된 애플리케이션은 소프트웨어 측면을 넘어서�
 - 애플리케이션 개체
 - 서비스 주체 개체
 
-### <a name="application-object"></a>Application 개체
+### <a name="application-object"></a>애플리케이션 개체
 
 Azure AD 애플리케이션은 애플리케이션의 "홈" 테넌트라고도 알려진, 애플리케이션이 등록된 Azure AD 테넌트에 상주하는 하나의 애플리케이션 개체에 의해서만 정의됩니다. Microsoft Graph [응용 프로그램 엔터티][MS-Graph-App-Entity] 는 응용 프로그램 개체의 속성에 대 한 스키마를 정의 합니다.
 
@@ -87,7 +88,7 @@ Azure AD 테넌트에 의해 보안이 유지되는 리소스에 액세스하려
 
 이 예제 시나리오는 다음과 같이 이루어져 있습니다.
 
-| 단계 | Description |
+| 단계 | 설명 |
 |------|-------------|
 | 1    | 애플리케이션의 홈 테넌트에서 애플리케이션 및 서비스 주체 개체를 만드는 과정입니다. |
 | 2    | Contoso 관리자와 Fabrikam 관리자가 전적으로 동의한 경우 서비스 주체 개체가 회사의 Azure AD 테넌트에 생성되고 관리자가 부여한 사용 권한이 할당됩니다. 또한 사용자가 개별 사용에 대한 동의를 할 수 있게 HR 앱이 구성/설계될 수 있습니다. |

@@ -9,18 +9,18 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: dfcf9ea61a1f0fb5fd2d3b613c2449480753b3a1
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 5215a7d899af15dc028189aee5760a6ec5b6577d
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595089"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803996"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure에 vhd 업로드
 
 이 문서에서는 로컬 컴퓨터에서 Azure 관리 디스크로 vhd를 업로드 하는 방법을 설명 합니다. 이전에는 저장소 계정에 데이터를 준비 하 고 저장소 계정을 관리 하는 추가 관련 프로세스를 수행 해야 했습니다. 이제 저장소 계정을 관리 하지 않아도 되며, vhd를 업로드 하기 위해 데이터를 준비 해야 합니다. 대신, 빈 관리 디스크를 만들고이 디스크에 직접 vhd를 업로드 합니다. 이는 온-프레미스 Vm을 Azure로 업로드 하는 작업을 간소화 하 고, 최대 32 TiB의 vhd를 대량 관리 디스크로 직접 업로드할 수 있게 해줍니다.
 
-Azure에서 IaaS Vm에 대 한 백업 솔루션을 제공 하는 경우 직접 업로드를 사용 하 여 고객 백업을 관리 디스크로 복원 하는 것이 좋습니다. Azure 외부의 컴퓨터에서 VHD를 업로드 하는 경우의 속도는 로컬 대역폭에 따라 달라 집니다. Azure VM을 사용 하는 경우 대역폭은 표준 Hdd와 동일 합니다.
+Azure에서 IaaS Vm에 대 한 백업 솔루션을 제공 하는 경우 직접 업로드를 사용 하 여 고객 백업을 관리 디스크로 복원 하는 것이 좋습니다. Azure 외부의 컴퓨터에서 VHD를 업로드 하는 경우 속도는 로컬 대역폭에 따라 달라 집니다. Azure VM을 사용 하는 경우 대역폭은 표준 Hdd와 동일 합니다.
 
 현재 직접 업로드는 표준 HDD, 표준 SSD 및 프리미엄 SSD 관리 디스크에 대해 지원 됩니다. 아직 ultra Ssd에 대해 지원 되지 않습니다.
 
@@ -29,7 +29,7 @@ Azure에서 IaaS Vm에 대 한 백업 솔루션을 제공 하는 경우 직접 �
 - [AzCopy v10의 최신 버전](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy)을 다운로드 합니다.
 - [Azure CLI를 설치합니다](/cli/azure/install-azure-cli).
 - 로컬로 저장 된 vhd 파일
-- 온-pem에서 vhd를 업로드 하려는 경우: [Azure에 대해 준비](../windows/prepare-for-upload-vhd-image.md)된 vhd는 로컬에 저장 됩니다.
+- 온-프레미스에서 vhd를 업로드 하려는 경우: [Azure에 대해 준비](../windows/prepare-for-upload-vhd-image.md)된 vhd는 로컬에 저장 됩니다.
 - 또는 복사 작업을 수행 하려는 경우 Azure에서 관리 되는 디스크입니다.
 
 ## <a name="create-an-empty-managed-disk"></a>빈 관리 디스크 만들기
@@ -124,6 +124,5 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 관리 디스크에 vhd를 성공적으로 업로드 했으므로 VM에 디스크를 연결 하 고 사용을 시작할 수 있습니다.
+이제 관리 디스크에 vhd를 성공적으로 업로드 했으므로 디스크를 [기존 vm에 데이터 디스크로](add-disk.md) 연결 하거나 [vm에 디스크를 OS 디스크로 연결](upload-vhd.md#create-the-vm)하 여 새 vm을 만들 수 있습니다. 
 
-VM에 디스크를 연결 하는 방법에 대 한 자세한 내용은 주제: [LINUX VM에 디스크 추가](add-disk.md)의 문서를 참조 하세요.

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sukishen
-ms.openlocfilehash: bf62e62e1235c7a37c092e79df57ca518e07ff4b
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 60127a8aebaf45969ba78a65676093210ea6de78
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828195"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804210"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Azure 네트워킹 MSP 파트너 정보
 
@@ -38,7 +38,7 @@ Azure 네트워킹 MSP 파트너에서 제공 하는 관리 되는 클라우드 
 
 [Equinix](https://www.equinix.com/)
 
-[InterCloud](https://www.intercloud.com/partners/cloud-service-providers/get-azure-expressroute)
+[InterCloud](https://intercloud.com/partners/get-to-azure-via-expressroute/)
 
 [IIJ](https://www.iij.ad.jp/biz/cloudex/)
 

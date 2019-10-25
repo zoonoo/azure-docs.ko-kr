@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus를 사용 하는 Azure 리소스에 대 한 관리 id Microsoft Docs
+title: Service Bus를 통해 Azure 리소스에 관리 ID 사용
 description: Azure Service Bus를 통해 Azure 리소스에 관리 ID 사용
 services: service-bus-messaging
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2019
+ms.date: 10/22/2019
 ms.author: aschhab
-ms.openlocfilehash: 86721907352f19cc7ed69fba1f1a021dcf1ed1b7
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 57c52640262854037420c1679804f611394230ef
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299636"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793144"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Azure Service Bus 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증
 [Azure 리소스용 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)는 애플리케이션 코드가 실행되는 배포와 관련된 보안 ID를 만들 수 있도록 하는 Azure 간 기능입니다. 그런 다음 애플리케이션에 필요한 특정 Azure 리소스에 액세스하기 위한 사용자 지정 권한을 부여하는 액세스 제어 역할에 해당 ID를 연결할 수 있습니다.
@@ -28,7 +28,7 @@ ms.locfileid: "71299636"
 ## <a name="overview"></a>개요
 보안 주체 (사용자, 그룹 또는 응용 프로그램)가 Service Bus 엔터티에 대 한 액세스를 시도 하는 경우 요청에 권한이 부여 되어야 합니다. Azure AD를 사용 하 여 리소스에 대 한 액세스는 2 단계 프로세스입니다. 
 
- 1. 먼저, 보안 주체의 id가 인증 되 고 OAuth 2.0 토큰이 반환 됩니다. 토큰을 요청 하는 리소스 이름은 `https://servicebus.azure.net`입니다.
+ 1. 먼저, 보안 주체의 id가 인증 되 고 OAuth 2.0 토큰이 반환 됩니다. 토큰을 요청 하는 리소스 이름이 `https://servicebus.azure.net`되었습니다.
  1. 그런 다음 토큰은 지정 된 리소스에 대 한 액세스 권한을 부여 하기 위해 Service Bus 서비스에 대 한 요청의 일부로 전달 됩니다.
 
 인증 단계를 수행 하려면 응용 프로그램 요청이 런타임에 OAuth 2.0 액세스 토큰을 포함 해야 합니다. 응용 프로그램이 azure VM, 가상 머신 확장 집합 또는 azure 함수 앱과 같은 Azure 엔터티 내에서 실행 되는 경우 관리 id를 사용 하 여 리소스에 액세스할 수 있습니다. 
@@ -46,9 +46,9 @@ RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 �
 ## <a name="built-in-rbac-roles-for-azure-service-bus"></a>Azure Service Bus에 대 한 기본 제공 RBAC 역할
 Azure Service Bus의 경우 Azure Portal 및 Azure 리소스 관리 API를 통한 네임스페이스 및 관련된 모든 리소스의 관리는 이미 RBAC(*역할 기반 액세스 제어*) 모델을 사용하여 보호되고 있습니다. Azure는 Service Bus 네임 스페이스에 대 한 액세스 권한을 부여 하는 다음과 같은 기본 제공 RBAC 역할을 제공 합니다.
 
-- [데이터 소유자 Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner): Service Bus 네임 스페이스와 해당 엔터티 (큐, 항목, 구독 및 필터)에 대 한 데이터 액세스를 사용 하도록 설정 합니다.
-- [데이터 발신자 Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): 이 역할을 사용 하 여 Service Bus 네임 스페이스 및 해당 엔터티에 대 한 액세스 권한을 제공 합니다.
-- [Azure Service Bus 데이터 수신기](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver): 이 역할을 사용 하 여 Service Bus 네임 스페이스 및 해당 엔터티에 대 한 액세스 권한을 부여할 수 있습니다. 
+- [Azure Service Bus 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner): Service Bus 네임 스페이스와 해당 엔터티 (큐, 토픽, 구독 및 필터)에 대 한 데이터 액세스를 가능 하 게 합니다.
+- [Azure Service Bus 데이터 발신자](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender):이 역할을 사용 하 여 Service Bus 네임 스페이스 및 해당 엔터티에 대 한 액세스를 보낼 수 있습니다.
+- [Azure Service Bus 데이터 수신기](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver):이 역할을 사용 하 여 Service Bus 네임 스페이스 및 해당 엔터티에 대 한 액세스 권한을 부여할 수 있습니다. 
 
 ## <a name="resource-scope"></a>리소스 범위 
 보안 주체에 RBAC 역할을 할당 하기 전에 보안 주체에 게 부여 해야 하는 액세스 범위를 결정 합니다. 모범 사례는 항상 가장 좁은 범위를 부여 하는 것이 가장 좋습니다.
@@ -63,7 +63,7 @@ Azure Service Bus의 경우 Azure Portal 및 Azure 리소스 관리 API를 통�
         --assignee $assignee_id \
         --scope /subscriptions/$subscription_id/resourceGroups/$resource_group/providers/Microsoft.ServiceBus/namespaces/$service_bus_namespace/topics/$service_bus_topic/subscriptions/$service_bus_subscription
     ```
-- **Service Bus 네임 스페이스**: 역할 할당은 네임 스페이스 아래 Service Bus의 전체 토폴로지 및 이와 연결 된 소비자 그룹으로 확장 됩니다.
+- **Service Bus 네임 스페이스**: 역할 할당은 네임 스페이스 아래 Service Bus의 전체 토폴로지 및 이와 연결 된 소비자 그룹을 확장 합니다.
 - **리소스 그룹**: 역할 할당은 리소스 그룹 아래의 모든 Service Bus 리소스에 적용 됩니다.
 - **구독**: 역할 할당은 구독의 모든 리소스 그룹에 있는 모든 Service Bus 리소스에 적용 됩니다.
 
@@ -75,7 +75,7 @@ Azure Service Bus의 경우 Azure Portal 및 Azure 리소스 관리 API를 통�
 ## <a name="enable-managed-identities-on-a-vm"></a>VM에서 관리 ID 사용
 Azure 리소스에 관리 되는 id를 사용 하 여 VM에서 Service Bus 리소스에 권한을 부여 하려면 먼저 VM에서 Azure 리소스에 대 한 관리 되는 id를 사용 하도록 설정 해야 합니다. Azure 리소스의 관리 ID를 사용하도록 설정하는 방법을 알아보려면 다음 문서 중 하나를 참조하세요.
 
-- [Azure Portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [Azure 포털](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager 템플릿](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
@@ -146,7 +146,7 @@ Default.aspx 페이지가 방문 페이지입니다. 코드는 Default.aspx.cs �
 
 ## <a name="next-steps"></a>다음 단계
 
-Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
+Service Bus 메시징에 대해 자세히 알아보려면 다음 토픽을 참조하세요.
 
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)

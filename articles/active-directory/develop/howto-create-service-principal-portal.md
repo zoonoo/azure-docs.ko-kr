@@ -1,5 +1,6 @@
 ---
-title: 포털에서 Azure 앱에 대한 ID 만들기 | Microsoft Docs
+title: 포털에서 Azure 앱에 대 한 id 만들기
+titleSuffix: Microsoft identity platform
 description: Azure Resource Manager에서 리소스에 대한 액세스를 관리하기 위해 역할 기반 액세스 제어와 함께 사용할 수 있는 새 Azure Active Directory 애플리케이션 및 서비스 주체를 만드는 방법을 설명합니다.
 services: active-directory
 documentationcenter: na
@@ -16,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9f8163a3695260234107ad41cc7be125adc9091
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: d60c1a01f3a4ca3a191ddb322def7d86a316c58f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72324793"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803319"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
@@ -126,7 +127,7 @@ Windows 제어판에서 액세스할 수 있는 [사용자 인증서](/dotnet/fr
 1. [Azure Portal](https://portal.azure.com)에서 주요 자격 증명 모음으로 이동 하 여 **액세스 정책**을 선택 합니다.  
 1. **액세스 정책 추가**를 선택 하 고 응용 프로그램에 부여 하려는 키, 암호 및 인증서 권한을 선택 합니다.  이전에 만든 서비스 사용자를 선택 합니다.
 1. **추가** 를 선택 하 여 액세스 정책을 추가 하 고 **저장** 을 선택 하 여 변경 내용을 커밋합니다.
-    ![ 추가 액세스 정책 @ no__t-1
+    액세스 정책 추가 ![](./media/howto-create-service-principal-portal/add-access-policy.png)
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 

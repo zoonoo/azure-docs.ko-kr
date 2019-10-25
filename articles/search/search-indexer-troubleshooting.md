@@ -1,23 +1,23 @@
 ---
-title: 일반적인 검색 인덱서 문제 해결 - Azure Search
-description: 데이터 원본 연결, 방화벽 및 누락된 문서를 포함하여 Azure Search의 인덱서에서 발생하는 오류 및 일반적인 문제를 해결합니다.
-author: mgottein
+title: 일반적인 검색 인덱서 문제 해결
+titleSuffix: Azure Cognitive Search
+description: 데이터 원본 연결, 방화벽 및 누락 된 문서를 포함 하 여 Azure Cognitive Search의 인덱서와 관련 된 오류 및 일반적인 문제를 해결 합니다.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: mgottein
 ms.author: magottei
-ms.openlocfilehash: 4692be287e9b38cf116107d2e7c1043f23a6b34b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: c5a16d957f1e0414f92d0cc03442d88d438e4c92
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640608"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793620"
 ---
-# <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Azure Search의 일반적인 인덱서 문제 해결
+# <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Azure Cognitive Search의 일반적인 인덱서 문제 해결
 
-Azure Search로 데이터를 인덱싱할 때 인덱서에는 많은 문제가 발생할 수 있습니다. 오류의 주요 범주는 다음과 같습니다.
+인덱서는 데이터를 Azure Cognitive Search로 인덱싱할 때 많은 문제가 발생할 수 있습니다. 오류의 주요 범주는 다음과 같습니다.
 
 * [데이터 원본에 연결](#data-source-connection-errors)
 * [문서 처리](#document-processing-errors)
@@ -29,7 +29,7 @@ Azure Search로 데이터를 인덱싱할 때 인덱서에는 많은 문제가 �
 
 #### <a name="storage-account-firewall"></a>스토리지 계정 방화벽
 
-Azure Storage는 구성 가능한 방화벽을 제공합니다. 기본적으로 Azure Search가 Storage 계정에 연결할 수 있도록 방화벽을 사용하지 않습니다.
+Azure Storage는 구성 가능한 방화벽을 제공합니다. 기본적으로 방화벽은 사용 하지 않도록 설정 되어 있으므로 Azure Cognitive Search는 저장소 계정에 연결할 수 있습니다.
 
 방화벽을 사용하는 경우 특정 오류 메시지가 발생하지 않습니다. 일반적으로 방화벽 오류는 `The remote server returned an error: (403) Forbidden`과 같습니다.
 
@@ -43,13 +43,13 @@ FQDN (`<your-search-service-name>.search.windows.net`)을 ping 하 여 검색 �
 
 #### <a name="indexing-isnt-enabled"></a>인덱싱을 사용하도록 설정하지 않았습니다.
 
-Azure Search는 Cosmos DB 인덱싱에 대한 암시적 종속성을 갖습니다. Cosmos DB에서 자동 인덱싱을 해제하면 Azure Search는 성공 상태를 반환하지만 컨테이너 내용을 인덱스하는 데 실패합니다. 설정을 확인하고 인덱싱을 설정하는 방법에 대한 지침은 [Azure Cosmos DB에서 인덱싱 관리](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal)를 참조하세요.
+Azure Cognitive Search는 Cosmos DB 인덱싱에 대해 암시적 종속성이 있습니다. Cosmos DB에서 자동 인덱싱을 해제 하는 경우 Azure Cognitive Search는 성공적인 상태를 반환 하지만 컨테이너 내용 인덱스에는 실패 합니다. 설정을 확인하고 인덱싱을 설정하는 방법에 대한 지침은 [Azure Cosmos DB에서 인덱싱 관리](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal)를 참조하세요.
 
 ## <a name="document-processing-errors"></a>문서 처리 오류
 
 ### <a name="unprocessable-or-unsupported-documents"></a>처리할 수 없거나 지원되지 않는 문서
 
-Blob 인덱서 [문서는 문서 형식을 명시적으로 지원합니다.](search-howto-indexing-azure-blob-storage.md#supported-document-formats) 경우에 따라 Blob Storage 컨테이너에는 지원되지 않는 문서가 포함되어 있습니다. 문제가 있는 다른 문서가 있을 수 있습니다. [구성 옵션을 변경](search-howto-indexing-azure-blob-storage.md#dealing-with-errors)하여 이러한 문서에서 인덱서를 중지하지 않을 수 있습니다.
+Blob 인덱서 [문서는 문서 형식을 명시적으로 지원합니다.](search-howto-indexing-azure-blob-storage.md#SupportedFormats) 경우에 따라 Blob Storage 컨테이너에는 지원되지 않는 문서가 포함되어 있습니다. 문제가 있는 다른 문서가 있을 수 있습니다. [구성 옵션을 변경](search-howto-indexing-azure-blob-storage.md#DealingWithErrors)하여 이러한 문서에서 인덱서를 중지하지 않을 수 있습니다.
 
 ```
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
@@ -89,5 +89,5 @@ api-key: [admin key]
 * 문서는 인덱스되지 않았습니다. 성공적인 인덱서 실행을 위해 포털을 확인합니다.
 * 문서는 인덱서 실행 후에 업데이트되었습니다. 인덱서가 [일정](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule)대로 진행되는 경우 결국 문서를 다시 실행하고 선택합니다.
 * 데이터 원본에 지정된 [쿼리](https://docs.microsoft.com/rest/api/searchservice/create-data-source#request-body-syntax)는 문서를 제외합니다. 인덱서는 데이터 원본에 포함되지 않는 문서를 인덱싱할 수 없습니다.
-* [필드 매핑](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) 또는 [인지 검색](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) 에서 문서를 변경 하 여 원하는 것과 다르게 보입니다.
+* [필드 매핑](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) 또는 [AI 보강](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) 문서를 변경 하 여 원하는 것과 다르게 보입니다.
 * [문서 조회 API](https://docs.microsoft.com/rest/api/searchservice/lookup-document)를 사용하여 문서를 찾습니다.

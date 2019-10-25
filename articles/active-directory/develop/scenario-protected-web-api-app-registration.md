@@ -1,5 +1,6 @@
 ---
-title: 보호 된 웹 API-앱 등록 | Microsoft
+title: 보호 된 웹 API-앱 등록
+titleSuffix: Microsoft identity platform
 description: 보호 된 웹 API와 앱을 등록 하는 데 필요한 정보를 빌드하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,18 +17,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbccfc38a4e5e4b31cb625c614e838a3c92e7429
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0c905dfd86fd80b9e55aa7bd5a9b9b03f277570c
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562311"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802552"
 ---
 # <a name="protected-web-api-app-registration"></a>보호 된 웹 API: 앱 등록
 
 이 문서에서는 보호 된 web API에 대 한 앱 등록의 세부 사항을 설명 합니다.
 
-[빠른 시작: 앱을 등록 하는 일반적인 단계를](quickstart-register-app.md) 위해 Microsoft id 플랫폼에 응용 프로그램을 등록 합니다.
+앱을 등록 하는 일반적인 단계에 대해서는 [빠른 시작: Microsoft id 플랫폼을 사용 하 여 응용 프로그램 등록](quickstart-register-app.md) 을 참조 하세요.
 
 ## <a name="accepted-token-version"></a>수락 된 토큰 버전
 
@@ -49,17 +50,17 @@ Microsoft id 플랫폼 끝점은 두 가지 유형의 토큰을 발급할 수 �
 
 사용자가 대화형으로 로그인 하지 않았으므로 웹 Api에서 리디렉션 URI를 등록할 필요가 없습니다.
 
-## <a name="expose-an-api"></a>API 표시
+## <a name="expose-an-api"></a>API 노출
 
 웹 Api에 특정 한 다른 설정은 노출 된 API 및 노출 된 범위입니다.
 
 ### <a name="resource-uri-and-scopes"></a>리소스 URI 및 범위
 
-범위는 일반적으로 형식 `resourceURI/scopeName`입니다. Microsoft Graph의 경우 범위에는와 같은 `User.Read`바로 가기가 있습니다. 이 문자열은의 `https://graph.microsoft.com/user.read`바로 가기입니다.
+범위는 일반적으로 `resourceURI/scopeName`형식입니다. Microsoft Graph의 경우 범위에 `User.Read`와 같은 바로 가기가 있습니다. 이 문자열은 `https://graph.microsoft.com/user.read`의 바로 가기입니다.
 
 앱을 등록 하는 동안 다음 매개 변수를 정의 해야 합니다.
 
-- 리소스 URI 기본적으로 응용 프로그램 등록 포털에서를 사용 `api://{clientId}`하는 것이 좋습니다. 이 리소스 URI는 고유 하지만 사람이 읽을 수는 없습니다. 이를 변경할 수 있지만 새 값이 고유한 지 확인 합니다.
+- 리소스 URI입니다. 기본적으로 응용 프로그램 등록 포털에서 `api://{clientId}`를 사용 하는 것이 좋습니다. 이 리소스 URI는 고유 하지만 사람이 읽을 수는 없습니다. 이를 변경할 수 있지만 새 값이 고유한 지 확인 합니다.
 - 하나 이상의 *범위*입니다. 클라이언트 응용 프로그램에는 web API에 대 한 *위임 된 권한* 으로 표시 됩니다.
 - 하나 이상의 *앱 역할*. 클라이언트 응용 프로그램에는 web API에 대 한 *응용 프로그램 권한* 으로 표시 됩니다.
 
@@ -72,7 +73,7 @@ Microsoft id 플랫폼 끝점은 두 가지 유형의 토큰을 발급할 수 �
 
 1. 응용 프로그램 등록에서 **API 노출** 섹션을 선택 합니다.
 1. **범위 추가**를 선택합니다.
-1. 메시지가 표시 되 면 **저장 후 계속**을 선택 하`api://{clientId}`여 제안 된 응용 프로그램 ID URI ()를 적용 합니다.
+1. 메시지가 표시 되 면 **저장 후 계속**을 선택 하 여 제안 된 응용 프로그램 ID URI (`api://{clientId}`)를 적용 합니다.
 1. 다음 매개 변수를 입력 합니다.
       - **범위 이름**에 **access_as_user**를 사용 합니다.
       - **사용자가 동의할 수 있는 사용자**는 **관리자 및 사용자** 가 선택 되어 있는지 확인 합니다.
@@ -95,10 +96,10 @@ Microsoft id 플랫폼 끝점은 두 가지 유형의 토큰을 발급할 수 �
 응용 프로그램 사용 권한을 노출 하려면 매니페스트를 편집 해야 합니다.
 
 1. 응용 프로그램에 대 한 응용 프로그램 등록에서 **매니페스트**를 선택 합니다.
-1. `appRoles` 설정을 찾아 하나 이상의 응용 프로그램 역할을 추가 하 여 매니페스트를 편집 합니다. 다음 샘플 JSON 블록에서 역할 정의가 제공 됩니다. 만으로 `allowedMemberTypes` `"Application"` 설정 된 상태로 둡니다. `id` 이 고유한 GUID `displayName` 이며`value` 공백을 포함 하지 않는지 확인 합니다.
+1. `appRoles` 설정을 찾아 하나 이상의 응용 프로그램 역할을 추가 하 여 매니페스트를 편집 합니다. 다음 샘플 JSON 블록에서 역할 정의가 제공 됩니다. `allowedMemberTypes`를 `"Application"`만으로 설정 된 상태로 둡니다. `id` 고유한 GUID 인지 확인 하 고 `displayName` 및 `value`에 공백이 없어야 합니다.
 1. 매니페스트를 저장합니다.
 
-다음 샘플에서는의 `appRoles`내용을 보여 줍니다. 는 `id` 임의의 고유 GUID 일 수 있습니다.
+다음 샘플에서는 `appRoles`의 내용을 보여 줍니다. `id`은 임의의 고유 GUID 일 수 있습니다.
 
 ```JSon
 "appRoles": [
@@ -130,11 +131,11 @@ Microsoft id 플랫폼 끝점은 두 가지 유형의 토큰을 발급할 수 �
 
    > [!IMPORTANT]
    >
-   > **사용자 할당 필요 여부** 를 **예**로 설정 하는 경우 AZURE AD는 웹 API에 대 한 액세스 토큰을 요청할 때 클라이언트의 앱 역할 할당을 확인 합니다. 클라이언트가 앱 역할에 할당 되지 않은 경우 Azure AD에서 오류 `invalid_client: AADSTS501051: Application <application name> is not assigned to a role for the <web API>`를 반환 합니다.
+   > **사용자 할당 필요 여부** 를 **예**로 설정 하는 경우 AZURE AD는 웹 API에 대 한 액세스 토큰을 요청할 때 클라이언트의 앱 역할 할당을 확인 합니다. 클라이언트가 앱 역할에 할당 되지 않은 경우 Azure AD는 `invalid_client: AADSTS501051: Application <application name> is not assigned to a role for the <web API>`오류를 반환 합니다.
    >
-   > **사용자 할당** 을 유지 해야 하는 경우 **아니요**로 설정 하면 *클라이언트가 웹 API에 대 한 액세스 토큰을 요청할 때 Azure AD에서 앱 역할 할당을 확인 하지 않습니다*. 모든 데몬 클라이언트 (즉, 클라이언트 자격 증명 흐름을 사용 하는 모든 클라이언트)는 대상 그룹을 지정 하는 것 만으로 API에 대 한 액세스 토큰을 가져올 수 있습니다. 모든 응용 프로그램은이에 대 한 권한을 요청 하지 않고도 API에 액세스할 수 있습니다. 그러나 이전 섹션에서 설명한 대로 웹 API는 항상 응용 프로그램에 올바른 역할이 있는지 확인 합니다 (테 넌 트 관리자에 의해 권한이 부여 됨). API는 액세스 토큰에 역할 클레임이 있는지 확인 하 고이 클레임에 대 한 값이 올바른지 확인 하 여이 확인을 수행 합니다. 이 `access_as_application`경우 값은입니다.
+   > **사용자 할당** 을 유지 해야 하는 경우 **아니요**로 설정 하면 *클라이언트가 웹 API에 대 한 액세스 토큰을 요청할 때 Azure AD에서 앱 역할 할당을 확인 하지 않습니다*. 모든 데몬 클라이언트 (즉, 클라이언트 자격 증명 흐름을 사용 하는 모든 클라이언트)는 대상 그룹을 지정 하는 것 만으로 API에 대 한 액세스 토큰을 가져올 수 있습니다. 모든 응용 프로그램은이에 대 한 권한을 요청 하지 않고도 API에 액세스할 수 있습니다. 그러나 이전 섹션에서 설명한 대로 웹 API는 항상 응용 프로그램에 올바른 역할이 있는지 확인 합니다 (테 넌 트 관리자에 의해 권한이 부여 됨). API는 액세스 토큰에 역할 클레임이 있는지 확인 하 고이 클레임에 대 한 값이 올바른지 확인 하 여이 확인을 수행 합니다. 이 경우 값은 `access_as_application`입니다.
 
-1.           **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

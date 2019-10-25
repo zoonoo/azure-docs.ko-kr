@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 9155df315a5afb9a0fa7722c955333a47a73085a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 250d470e2450820f57720e0e1a6d274291cf162c
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596849"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809636"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
@@ -309,7 +309,8 @@ module.exports = {
     IsPastDue: false
 };
 ```
-이 모듈은 가짜 타이머 인스턴스인 is를 나타내는 `IsPastDue` 속성을 구현합니다.
+
+이 모듈은 가짜 타이머 인스턴스인 is를 나타내는 `IsPastDue` 속성을 구현합니다. 테스트 도구는 단순히 함수를 직접 호출 하 여 결과를 테스트 하는 것 이므로 NCRONTAB 식과 같은 타이머 구성은 필요 하지 않습니다.
 
 그런 다음, VS Code Functions 확장을 사용하여 [새 JavaScript HTTP 함수를 만들고](/azure/javascript/tutorial-vscode-serverless-node-01) 이름을 *HttpTrigger*로 지정합니다. 함수가 만들어지면 **index.test.js**라는 동일한 폴더에 새 파일을 추가하고 다음 코드를 추가합니다.
 

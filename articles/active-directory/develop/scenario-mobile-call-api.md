@@ -1,5 +1,6 @@
 ---
-title: 웹 api를 호출 하는 모바일 앱-web API 호출 | Microsoft id 플랫폼
+title: 웹 api를 호출 하는 모바일 앱-web API 호출
+titleSuffix: Microsoft identity platform
 description: Web api를 호출 하는 모바일 앱을 빌드하는 방법 알아보기
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,33 +17,33 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ada6ee6247deb3d4c72edb8237a40a0f47f96be
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 9e70b828219fc497fc07e2bc128eb480a532a176
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268308"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802558"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>웹 api를 호출 하는 모바일 앱-web API 호출
 
 앱이 사용자에 게 로그인 하 고 토큰을 받은 후 MSAL은 사용자, 사용자 환경 및 발급 된 토큰에 대 한 여러 정보를 노출 합니다. 앱은 이러한 값을 사용 하 여 web API를 호출 하거나 사용자에 게 환영 메시지를 표시할 수 있습니다.
 
-먼저 MSAL 결과를 살펴보겠습니다. 그런 다음 `AuthenticationResult` 또는 `result` 에서 액세스 토큰을 사용 하 여 보호 된 웹 API를 호출 하는 방법을 살펴보겠습니다.
+먼저 MSAL 결과를 살펴보겠습니다. 그런 다음 `AuthenticationResult` 또는 `result`에서 액세스 토큰을 사용 하 여 보호 된 웹 API를 호출 하는 방법을 살펴보겠습니다.
 
 ## <a name="msal-result"></a>MSAL 결과
 MSAL은 다음 값을 제공 합니다. 
 
 - `AccessToken`: HTTP 전달자 요청에서 보호 된 웹 Api를 호출 하는 데 사용 됩니다.
-- `IdToken`: 사용자 이름, 홈 테 넌 트 및 저장소에 대 한 고유 식별자와 같은 로그인 한 사용자에 대 한 유용한 정보를 포함 합니다.
+- `IdToken`: 로그인 한 사용자에 대 한 유용한 정보 (예: 사용자 이름, 홈 테 넌 트 및 저장소에 대 한 고유 식별자)를 포함 합니다.
 - `ExpiresOn`: 토큰의 만료 시간입니다. MSAL은 앱에 대 한 자동 새로 고침을 처리 합니다.
 - `TenantId`: 사용자가 로그인 한 테 넌 트의 식별자입니다. 게스트 사용자 (Azure Active Directory B2B)의 경우이 값은 사용자의 홈 테 넌 트가 아니라 사용자가 로그인 한 테 넌 트를 식별 합니다.  
 - `Scopes`: 토큰과 함께 부여 된 범위입니다. 부여 된 범위는 요청한 범위의 하위 집합일 수 있습니다.
 
-또한 MSAL은에 대 한 `Account`추상화를 제공 합니다. 는 `Account` 현재 사용자의 로그인 된 계정을 나타냅니다.
+또한 MSAL은 `Account`에 대 한 추상화를 제공 합니다. `Account`은 현재 사용자의 로그인 된 계정을 나타냅니다.
 
 - `HomeAccountIdentifier`: 사용자의 홈 테 넌 트 식별자입니다.
-- `UserName`: 사용자의 기본 설정 사용자 이름입니다. Azure Active Directory B2C 사용자에 게는 비어 있을 수 있습니다.
-- `AccountIdentifier`: 로그인 한 사용자의 식별자입니다. 사용자가 다른 테 넌 트의 게스트가 `HomeAccountIdentifier` 아니면이 값은 대부분의 경우의 값과 동일 합니다.
+- `UserName`: 사용자의 기본 설정 된 사용자 이름입니다. Azure Active Directory B2C 사용자에 게는 비어 있을 수 있습니다.
+- `AccountIdentifier`: 로그인 한 사용자의 식별자입니다. 사용자가 다른 테 넌 트의 게스트가 아니면이 값은 대부분의 경우 `HomeAccountIdentifier` 값과 동일 합니다.
 
 ## <a name="call-an-api"></a>API 호출
 
@@ -88,9 +89,9 @@ MSAL은 다음 값을 제공 합니다.
         queue.add(request);
 ```
 
-### <a name="msal-for-ios-and-macos"></a>IOS 및 macOS 용 MSAL
+### <a name="msal-for-ios-and-macos"></a>iOS 및 macOS용 MSAL
 
-토큰을 획득 하는 메서드는 `MSALResult` 개체를 반환 합니다. `MSALResult`웹 API를 호출 하는 데 사용할 수 있는 속성을노출합니다.`accessToken` 보호 된 Web API에 액세스 하기 전에 액세스 토큰을 HTTP 권한 부여 헤더에 추가 해야 합니다.
+토큰을 획득 하는 메서드는 `MSALResult` 개체를 반환 합니다. `MSALResult`는 web API를 호출 하는 데 사용할 수 있는 `accessToken` 속성을 노출 합니다. 보호 된 Web API에 액세스 하기 전에 액세스 토큰을 HTTP 권한 부여 헤더에 추가 해야 합니다.
 
 Objective-C:
 
@@ -106,7 +107,7 @@ NSURLSessionDataTask *task =
 [task resume];
 ```
 
-Swift
+Swift:
 
 ```swift
 let urlRequest = NSMutableURLRequest()
@@ -126,12 +127,12 @@ task.resume()
 
 동일한 API를 여러 번 호출 해야 하거나 여러 Api를 호출 해야 하는 경우에는 앱을 빌드할 때 다음 사항을 고려 하세요.
 
-- **증분 승인**: Microsoft id 플랫폼을 사용 하면 앱이 시작 시가 아니라 권한이 필요 하므로 사용자 동의를 가져올 수 있습니다. 앱이 API를 호출할 준비가 될 때마다 사용 해야 하는 범위만 요청 해야 합니다.
+- **증분 동의**: Microsoft id 플랫폼을 사용 하면 앱이 시작 시가 아니라 권한이 필요 하므로 사용자 동의를 가져올 수 있습니다. 앱이 API를 호출할 준비가 될 때마다 사용 해야 하는 범위만 요청 해야 합니다.
 - **조건부 액세스**: 특정 시나리오에서는 여러 API 요청을 만들 때 조건부 액세스 요구 사항이 추가로 발생할 수 있습니다. 첫 번째 요청에 적용 된 조건부 액세스 정책이 없고 앱에서 조건부 액세스가 필요한 새 API에 자동으로 액세스 하려고 하는 경우이 문제가 발생할 수 있습니다. 이 시나리오를 처리 하려면 자동 요청에서 오류를 catch 하 고 대화형 요청을 수행할 준비를 해야 합니다.  자세히 알아보려면 [조건부 액세스에 대 한 지침](conditional-access-dev-guide.md)을 참조 하세요.
 
 ## <a name="calling-several-apis-in-xamarin-or-uwp---incremental-consent-and-conditional-access"></a>Xamarin 또는 UWP에서 여러 Api 호출-증분 동의 및 조건부 액세스
 
-동일한 사용자에 대해 여러 api를 호출 해야 하는 경우 사용자에 대 한 토큰을 획득 한 후에는를 호출 `AcquireTokenSilent` 하 여 토큰을 가져오기 위해 사용자에 게 자격 증명을 반복적으로 요청 하는 것을 방지할 수 있습니다.
+동일한 사용자에 대해 여러 Api를 호출 해야 하는 경우 사용자에 대 한 토큰을 가져온 후에는 `AcquireTokenSilent`를 호출 하 여 토큰을 가져오는 방법으로 사용자에 게 자격 증명을 반복적으로 요청 하는 것을 방지할 수 있습니다.
 
 ```CSharp
 var result = await app.AcquireTokenXX("scopeApi1")

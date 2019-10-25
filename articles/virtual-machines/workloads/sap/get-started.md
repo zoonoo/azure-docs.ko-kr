@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/16/2019
+ms.date: 10/21/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 99e3cbc157817321e41a273b2bcf31128d71db18
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 9b857ea5380fb13f8c8b1ff30b9dd9d8b6c723c2
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72431019"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809685"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용 하 여 SAP 워크 로드 시나리오 호스트 및 실행
 
@@ -120,7 +120,10 @@ SAP 구성 요소에 Azure 서비스를 통합 하는 방법에 대 한 자세�
 
 
 ## <a name="change-log"></a>변경 로그
-- 10/16/2019: [백업 및 복원](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-backup-restore) 에서 끊어진 링크를 수정 하십시오.
+- 10/22/2019: sap 응용 프로그램에 대 한 [SUSE Linux Enterprise Server Azure vm의 Sap NetWeaver에 대 한](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)고가용성 변경, sap [응용 프로그램에 대 한 Azure NetApp Files SUSE Linux Enterprise Server의 AZURE Vm에서 sap NetWeaver에 대 한 고가용성 ](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files), [SUSE Linux Enterprise Server에서 azure VM의 NFS에 대 한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs), [azure에서 SUSE Linux Enterprise Server Pacemaker 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker), [SUSE Linux Enterprise Server의 azure vm에서 IBM Db2 LUW의](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm)고가용성 azure 부하 분산 장치 검색 강화를 위해 [SUSE Linux Enterprise Server에서 Azure vm의 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) 에 대 한 고가용성
+- [Azure 가상 컴퓨터 저장소 구성 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 의 anf 섹션과 헤더 섹션을 변경 합니다.
+- 10/21/2019: SLES의 [Azure NetApp Files를 사용 하 여 Azure vm에서 대기 노드를 사용 하 여 SAP HANA 스케일 아웃](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) 릴리스
+- 10/16/2019: [백업 및 복원](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore) 에서 끊어진 링크를 수정 하십시오.
 - 10/16/2019: [Pacemaker를 사용 하는 SUSE Linux Enterprise Server의 Azure vm에서 IBM DB2 LUW의 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm) 을 SLES 12 s p 3에서 SLES 12 SP4로 변경 합니다.
 - 10/11/2019: [Azure 가상 머신 저장소 구성 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 에서 Ultra disk 저장소 구성 및 anf 소개의 변경 내용
 - 10/01/2019: 보다 명확한 정보를 얻기 위해 [SAP 응용 프로그램의 네트워크 대기 시간을 최적화 하기 위해 Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) 의 그래픽을 변경 합니다.
@@ -129,8 +132,8 @@ SAP 구성 요소에 Azure 서비스를 통합 하는 방법에 대 한 자세�
 - 09/17/2019: SAP 용 VM 확장 관련 용어를 통합 하기 위한 NetWeaver 계획 및 배포 가이드 변경  
 - 08/22/2019: [Azure에서 SUSE Linux Enterprise Server On Pacemaker on을 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) 하 여 사용자 지정 역할 만들기에 대 한 url을 업데이트 합니다.  
 - 08/16/2019: azure의 새 버전으로 업데이트 하는 경우 [azure에서 Red Hat Enterprise Linux On Pacemaker on을 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) 하 여 사용자 지정 역할의 작업을 업데이트 하도록 고객에 게 알립니다.  
-- 08/15/2019: Ultra disk의 일반 공급 (이전의 울트라 SSD)을 반영 하도록 [Azure 가상 머신 저장소 구성 SAP HANA](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 변경 되었습니다.
-- 08/01/2019: [Azure에서 SUSE Linux Enterprise Server On Pacemaker 설정](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) 으로 변경 하 여 SLES 15 용 변경 사항을 통합 합니다. 
+- 08/15/2019: Ultra disk의 일반 공급 (이전의 울트라 SSD)을 반영 하도록 [Azure 가상 머신 저장소 구성 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 변경 되었습니다.
+- 08/01/2019: [Azure에서 SUSE Linux Enterprise Server On Pacemaker 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) 으로 변경 하 여 SLES 15 용 변경 사항을 통합 합니다. 
 - 07/23/2019: [Azure의 파일 공유를 사용 하 여 Windows 장애 조치 (failover) 클러스터의 SAP ASCS/SCS 인스턴스를 클러스터](sap-high-availability-guide-wsfc-file-share.md) 에서 변경 하 여 Azure Site Recovery 서비스에서 제공 하는 저장소 공간 다이렉트 지원을 반영 합니다.
 - 07/14/2019: [SAP 응용 프로그램의 네트워크 대기 시간을 최적화 하기 위해 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md) 릴리스
 - 07/11/2019: hana large Instances를 포함 하는 다양 한 문서의 변경 내용이 HANA Large Instances의 수정 버전 4를 포함 합니다.

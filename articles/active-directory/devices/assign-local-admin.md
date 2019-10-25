@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35cb6cba02a1bdcf9f19c7f02b7e2ca4d01e0d3f
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: f50ace6d707db35dfd7cf9f14026d755093a038c
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67983660"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802437"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Azure AD 조인 디바이스에서 로컬 관리자 그룹을 관리하는 방법
 
@@ -24,7 +24,7 @@ Windows 디바이스를 관리하려면 로컬 관리자 그룹의 구성원이 
 
 이 문서에서는 멤버 자격 업데이트의 작동 방법 및 Azure AD 조인 동안 사용자 지정하는 방법을 설명합니다. 이 문서의 내용은 **하이브리드** Azure AD 조인에 적용되지 않습니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 원리
 
 Azure AD 조인을 사용하여 Windows 디바이스를 Azure AD와 연결하는 경우 Azure AD는 디바이스에서 로컬 관리자 그룹에 다음 보안 원칙을 추가합니다.
 
@@ -61,7 +61,7 @@ Azure Portal에 있는 **디바이스** 페이지에서 디바이스 관리자 �
 
 디바이스 관리자는 모든 Azure AD 조인 디바이스에 할당됩니다. 디바이스 관리자를 특정 디바이스 집합으로 범위를 지정할 수 없습니다. 디바이스 관리자 역할 업데이트가 반드시 영향을 받는 사용자에게 즉각적인 영향을 미치는 것은 아닙니다. 사용자가 이미 로그인되어 있는 디바이스에서는 다음의 경우 권한 업데이트가 수행됩니다.
 
-- 사용자가 로그아웃한 경우.
+- 사용자가 로그 아웃 하는 경우
 - 4시간 후 새 기본 새로 고침 토큰이 발급된 경우. 
 
 ## <a name="manage-regular-users"></a>일반 사용자 관리
@@ -75,7 +75,7 @@ Azure Portal에 있는 **디바이스** 페이지에서 디바이스 관리자 �
 
 Azure AD 조인 프로세스를 사용하는 것 외에, 수동으로 하나의 특정 디바이스에서 일반 사용자를 로컬 관리자로 권한을 상승시킬 수 있습니다. 이 단계를 사용하려면 로컬 관리자 그룹의 구성원이어야 합니다. 
 
-**Windows 10 1709** 릴리스부터 **설정-> 계정-다른 사용자 >** 에서이 작업을 수행할 수 있습니다. **회사 또는 학교 사용자 추가**를 선택하고 **사용자 계정** 아래에 사용자의 UPN을 입력한 다음, **계정 유형**에서 ‘관리자’를 선택합니다.   
+**Windows 10 1709** 릴리스부터 **설정-> 계정-다른 사용자 >** 에서이 작업을 수행할 수 있습니다. **회사 또는 학교 사용자 추가**를 선택하고 **사용자 계정** 아래에 사용자의 UPN을 입력한 다음, **계정 유형**에서 ‘관리자’를 선택합니다.  
  
 또한 명령 프롬프트를 사용하여 사용자를 추가할 수 있습니다.
 

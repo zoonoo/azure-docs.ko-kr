@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 2364218a9ccbde1cbfc276e3354cb93e42e5ce0b
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: c6135f3ab90a2002c3cf0c8d26211d66d0c637e8
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553747"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802413"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)란?
 
@@ -33,7 +33,8 @@ VM용 Azure Monitor는 Azure VM(Virtual Machines) 및 가상 머신 확장 집�
 - Map
 
 >[!NOTE]
->최근 [변경 내용을 발표](https://azure.microsoft.com/updates/upcoming-changes-for-azure-monitor-for-vms-as-we-prepare-for-ga) 했으며, 공개 미리 보기 고객 으로부터 받은 피드백에 따라 상태 기능을 변경 하 게 됩니다. 변경 되는 내용 수를 고려 하 여 새 고객을 위한 상태 기능 제공을 중지할 예정입니다. 기존 고객은 상태 기능을 계속 사용할 수 있습니다. 자세한 내용은 [일반적인 가용성 FAQ](vminsights-ga-release-faq.md)를 참조 하세요.  
+>최근 [변경 내용을 발표](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
+) 했으며, 공개 미리 보기 고객 으로부터 받은 피드백에 따라 상태 기능을 변경 하 게 됩니다. 변경 되는 내용 수를 고려 하 여 새 고객을 위한 상태 기능 제공을 중지할 예정입니다. 기존 고객은 상태 기능을 계속 사용할 수 있습니다. 자세한 내용은 [일반적인 가용성 FAQ](vminsights-ga-release-faq.md)를 참조 하세요.  
 
 Azure Monitor 로그와 통합하면 강력한 집계, 필터링을 제공하고, 시간에 따른 데이터 추세를 분석할 수 있습니다. Azure Monitor 또는 서비스 맵 단독으로는 워크로드를 포괄적으로 모니터링할 수 없습니다.  
 

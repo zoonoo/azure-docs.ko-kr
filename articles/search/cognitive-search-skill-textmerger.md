@@ -1,22 +1,21 @@
 ---
-title: 텍스트 병합 인식 검색 기술 - Azure Search
-description: 필드 컬렉션에서 통합된 하나의 필드로 텍스트를 병합합니다. Azure Search 보강 파이프라인에서 이 인식 기술을 사용합니다.
-services: search
+title: 텍스트 병합 인식 기술
+titleSuffix: Azure Cognitive Search
+description: 필드 컬렉션에서 통합된 하나의 필드로 텍스트를 병합합니다. Azure Cognitive Search의 AI 보강 파이프라인에서 이러한 인식 기술을 사용 합니다.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 1e88fcc13d97d92cf9b35616ecb7d71c2d24db1f
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: c44f37c37bff2ddeb0fbba83d170054bf21129a6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265269"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791834"
 ---
-#    <a name="text-merge-cognitive-skill"></a>텍스트 병합 인식 기술
+#   <a name="text-merge-cognitive-skill"></a>텍스트 병합 인식 기술
 
 **텍스트 병합** 기술은 필드 컬렉션에서 단일 필드로 텍스트를 통합합니다. 
 
@@ -141,8 +140,8 @@ Microsoft.Skills.Text.MergeSkill
 }
 ```
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-+ [미리 정의된 기술](cognitive-search-predefined-skills.md)
-+ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기본 제공 기술](cognitive-search-predefined-skills.md)
++ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [인덱서 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

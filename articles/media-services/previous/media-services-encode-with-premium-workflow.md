@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: d20fc0cee6bce1389649e6287170b1963e799ccf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca5de657ad45f53cff0cb01d5fe9cc412baf4533
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463913"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792296"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>미디어 인코더 Premium 워크플로를 사용한 고급 인코딩
 > [!NOTE]
 > 중국에서는 이 문서에서 설명하는 Media Encoder Premium Workflow 미디어 프로세서를 사용할 수 없습니다.
 >
 >
-
-프리미엄 인코더 관련 질문은 mepd@microsoft.com으로 문의하세요.
 
 ## <a name="overview"></a>개요
 Microsoft Azure Media Services는 **미디어 인코더 Premium 워크플로** 미디어 프로세서를 도입 중입니다. 이 프로세서는 프리미엄 주문형 워크플로에 고급 인코딩 기능을 제공합니다.
@@ -231,10 +229,12 @@ namespace MediaEncoderPremiumWorkflowSample
 }
 ```
 
-프리미엄 인코더 관련 질문은 mepd@microsoft.com으로 문의하세요.
+## <a name="need-help"></a>도움이 필요하십니까?
+
+[새 지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 으로 이동 하 여 지원 티켓을 열 수 있습니다.
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

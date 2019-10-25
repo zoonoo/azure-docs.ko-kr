@@ -4,19 +4,19 @@ description: 이 문서에서는 azure 내부 또는 Azure 외부에서의 데�
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
+ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: f15fb46568f4ad062605b51600d3c61870b48645
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: f26eb44dd407e379d0bf3291eb890d2e451c919e
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828862"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72807919"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 연결 아키텍처
 
@@ -38,9 +38,9 @@ ms.locfileid: "71828862"
 
 Azure SQL Database는 SQL Database 서버의 연결 정책 설정에 대한 다음 세 가지 옵션을 지원합니다.
 
-- **리디렉션(권장):** 클라이언트는 데이터베이스를 호스팅하는 노드로 직접 연결을 설정합니다. 연결을 사용 하도록 설정 하려면 클라이언트는 포트 1433의 Azure SQL Database 게이트웨이 IP 주소만이 아니라 포트 11000-11999에 대 한 NSG ([서비스 태그](../virtual-network/security-overview.md#service-tags) 네트워크 보안 그룹)를 사용 하 여 지역의 모든 Azure IP 주소에 대 한 아웃 바운드 방화벽 규칙을 허용 해야 합니다. 패킷은 데이터베이스로 직접 이동하므로 대기 시간 및 처리량의 성능이 향상됩니다.
+- **리디렉션(권장):** 클라이언트는 데이터베이스를 호스팅하는 노드로 직접 연결을 설정합니다. 연결을 사용 하도록 설정 하려면 클라이언트는 포트 1433의 Azure SQL Database 게이트웨이 IP 주소만이 아닌, 포트 11000-11999에 대 한 [서비스 태그](../virtual-network/security-overview.md#service-tags) 와 Nsg (네트워크 보안 그룹)를 사용 하 여 지역의 모든 Azure IP 주소에 대 한 아웃 바운드 방화벽 규칙을 허용 해야 합니다. 패킷은 데이터베이스로 직접 이동하므로 대기 시간 및 처리량의 성능이 향상됩니다.
 - **프록시:** 이 모드에서 모든 연결은 Azure SQL Database 게이트웨이를 통해 프록시됩니다. 연결을 활성화하려면 클라이언트는 Azure SQL Database 게이트웨이 IP 주소만 허용하는 아웃바운드 방화벽 규칙이 있어야 합니다(일반적으로 지역당 두 개의 IP 주소). 이 모드를 선택하면 워크로드의 특성에 따라 더 높은 대기 시간 및 더 낮은 처리량이 발생할 수 있습니다. 가장 낮은 대기 시간 및 높은 처리량을 위해 `Proxy` 연결 정책을 통해 `Redirect` 연결 정책을 사용하는 것이 좋습니다.
-- **기본값:** 연결 정책을 `Proxy` 또는 `Redirect` 중 하나로 명시적으로 변경하지 않는 한 생성 후 모든 서버에 적용되는 연결 정책입니다. 실제 정책은 Azure(`Redirect`) 내에서 또는 Azure(`Proxy`) 외부에서 연결이 발생하는지 여부에 따라 달라집니다.
+- **기본값:** `Proxy` 또는 `Redirect`연결 정책을 명시적으로 변경 하지 않는 한 생성 후 모든 서버에 적용 되는 연결 정책입니다. 실제 정책은 Azure(`Redirect`) 내에서 또는 Azure(`Proxy`) 외부에서 연결이 발생하는지 여부에 따라 달라집니다.
 
 ## <a name="connectivity-from-within-azure"></a>Azure 내부에서 연결
 
@@ -58,7 +58,7 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 
 다음 표에서는 지역별 게이트웨이의 IP 주소를 나열 합니다. Azure SQL Database에 연결 하려면 네트워크 트래픽이 해당 지역에 대 한 **모든** 게이트웨이에서 & 하도록 허용 해야 합니다.
 
-특정 지역의 새 게이트웨이로 트래픽을 마이그레이션하는 방법에 대 한 세부 정보는 다음 문서에 나와 있습니다. [최신 게이트웨이로 트래픽 마이그레이션 Azure SQL Database](sql-database-gateway-migration.md)
+특정 지역의 새 게이트웨이로 트래픽을 마이그레이션하는 방법에 대 한 세부 정보는 다음 문서에 나와 있습니다. [최신 게이트웨이로의 트래픽 마이그레이션 Azure SQL Database](sql-database-gateway-migration.md)
 
 
 | 지역 이름          | 게이트웨이 IP 주소 |
@@ -75,8 +75,8 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 | 중국 동부 2         | 40.73.82.1         |
 | 중국 북부          | 139.219.15.17      |
 | 중국 북부 2        | 40.73.50.0         |
-| 아시아 동부            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
-| East US              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| 동아시아            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
+| 미국 동부              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | 미국 동부 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
 | 프랑스 중부       | 40.79.137.0, 40.79.129.1 |
 | 독일 중부      | 51.4.144.100       |
@@ -89,17 +89,17 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 | 한국 중부        | 52.231.32.42       |
 | 한국 남부          | 52.231.200.86      |
 | 미국 중북부     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
-| 유럽 북부         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
-| 남아프리카 북부   | 102.133.152.0      |
-| 남아프리카 서부    | 102.133.24.0       |
+| 북유럽         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
+| 남아프리카 공화국 북부   | 102.133.152.0      |
+| 남아프리카 공화국 서부    | 102.133.24.0       |
 | 미국 중남부     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
-| 아시아 남동부      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
+| 동남아시아      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
 | 아랍에미리트 중부          | 20.37.72.64        |
 | 아랍에미리트 북부            | 65.52.248.0        |
 | 영국 남부             | 51.140.184.11      |
 | 영국 서부              | 51.141.8.11        |
 | 미국 중서부      | 13.78.145.25       |
-| 유럽 서부          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
+| 서유럽          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
 | 미국 서부              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
 | 미국 서부 2            | 13.66.226.202      |
 |                      |                    |
@@ -115,7 +115,7 @@ Azure SQL Database 서버에 대한 Azure SQL Database 연결 정책을 변경�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다. 다음 스크립트에는 [Azure PowerShell 모듈이](/powershell/azure/install-az-ps)필요 합니다.
+> PowerShell Azure Resource Manager 모듈은 Azure SQL Database에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az module 및 AzureRm 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다. 다음 스크립트에는 [Azure PowerShell 모듈이](/powershell/azure/install-az-ps)필요 합니다.
 
 다음 PowerShell 스크립트에서는 연결 정책을 변경하는 방법을 보여줍니다.
 

@@ -1,6 +1,7 @@
 ---
-title: Internet explorer (Microsoft Authentication Library for JavaScript) | Azure
-description: JavaScript (MSAL.js) 용 Microsoft Authentication Library를 사용 하 여 Internet Explorer 브라우저에 대해 알아봅니다.
+title: Internet Explorer 사용 (JavaScript 용 Microsoft 인증 라이브러리)
+titleSuffix: Microsoft identity platform
+description: Internet Explorer 브라우저에서 JavaScript 용 Microsoft 인증 라이브러리 (MSAL .js)를 사용 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -17,45 +18,45 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cf8c84120f4c90d3943cfc31ffbf9aafcec0ba3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c79717b00cd9a4b5da00496bf2f1822f7f77032
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873917"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802978"
 ---
-# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>MSAL.js 사용 하 여 Internet Explorer와 Microsoft Edge 브라우저에서 알려진된 문제
+# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>MSAL .js를 사용 하는 Internet Explorer 및 Microsoft Edge 브라우저의 알려진 문제
 
-JavaScript (MSAL.js) 용 Microsoft 인증 라이브러리에 대해 생성 됩니다 [JavaScript ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) Internet Explorer에서 실행할 수 있도록 합니다. 그러나 있습니다, 몇 가지 알아야 합니다.
+Internet Explorer에서 실행할 수 있도록 javascript [ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) 용 Microsoft Authentication Library for javascript (msal .js)가 생성 됩니다. 그러나 알아야 할 몇 가지 사항이 있습니다.
 
 ## <a name="run-an-app-in-internet-explorer"></a>Internet Explorer에서 앱 실행
-MSAL.js Internet Explorer에서 실행할 수 있는 응용 프로그램에서 사용 하려는 경우 MSAL.js 스크립트 참조 하기 전에 약속 polyfill에 대 한 참조를 추가 해야 합니다.
+Internet Explorer에서 실행할 수 있는 응용 프로그램에서 MSAL를 사용 하려는 경우에는 MSAL 스크립트를 참조 하기 전에 약속 safehtml에 대 한 참조를 추가 해야 합니다.
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js" class="pre"></script>
 ```
 
-즉, Internet Explorer JavaScript 프라미스를 고유 하 게 지원 하지 않습니다.
+Internet Explorer에서는 JavaScript 약속을 기본적으로 지원 하지 않기 때문입니다.
 
-## <a name="debugging-an-application-running-in-internet-explorer"></a>Internet Explorer에서 실행 중인 응용 프로그램 디버깅
+## <a name="debugging-an-application-running-in-internet-explorer"></a>Internet Explorer에서 실행 되는 응용 프로그램 디버깅
 
 ### <a name="running-in-production"></a>프로덕션 환경에서 실행
-일반적으로 응용 프로그램 (예를 들어 Azure 웹 앱)에서 프로덕션으로 배포 정상적으로, 최종 사용자가 팝업을 수락을 제공 합니다. Internet Explorer 11을 사용 하 여 테스트 했습니다.
+응용 프로그램을 프로덕션에 배포 하는 경우 (예를 들어 Azure Web apps의 경우) 최종 사용자가 팝업을 수락한 경우 일반적으로 정상적으로 작동 합니다. Internet Explorer 11을 사용 하 여 테스트 했습니다.
 
-### <a name="running-locally"></a>로컬로 실행
-다음 고려 사항에 유의 해야 하는 로컬로 실행 하면서 디버깅할 응용 프로그램을 Internet Explorer에서 실행 하려는 경우 (으로 응용 프로그램을 실행 한다고 가정해 보십시오 *http://localhost:1234* ):
+### <a name="running-locally"></a>로컬에서 실행
+Internet Explorer에서 실행 되는 응용 프로그램을 로컬로 실행 하 고 디버깅 하려는 경우 다음 사항을 고려해 야 합니다 (응용 프로그램을 *http://localhost:1234* 으로 실행 하 려 한다고 가정).
 
-- Internet Explorer의 "보호 모드" MSAL.js 제대로 작동 하지 못하게 하는 명명 된 보안 메커니즘입니다. 증상, 중, 로그인 한 후 페이지 리디렉션될 수 http://localhost:1234/null 입니다.
+- Internet Explorer에는 MSAL가 제대로 작동 하지 않도록 하는 "보호 모드" 라는 보안 메커니즘이 있습니다. 증상 중에서 로그인 한 후 페이지를 http://localhost:1234/null 으로 리디렉션할 수 있습니다.
 
-- 를 실행 하 고 응용 프로그램을 로컬로 디버그이 "보호 모드"를 사용 하지 않도록 설정 해야 합니다. 이 방법을 사용 합니다.
+- 응용 프로그램을 로컬로 실행 하 고 디버깅 하려면 "보호 모드"를 사용 하지 않도록 설정 해야 합니다. 이렇게 하려면 다음을 수행 합니다.
 
-    1. Internet Explorer를 클릭 **도구** (기어 아이콘).
-    1. 선택 **인터넷 옵션** 차례로 합니다 **보안** 탭 합니다.
-    1. 클릭 합니다 **Internet** 영역을 마우스 선택 취소 **보호 모드 사용 (Internet Explorer를 다시 시작 필요)** 합니다. Internet Explorer 컴퓨터를 더 이상 보호 경고를 표시 합니다. **확인**을 클릭합니다.
+    1. Internet Explorer **도구** (기어 아이콘)를 클릭 합니다.
+    1. **인터넷 옵션** 을 선택한 다음 **보안** 탭을 선택 합니다.
+    1. **인터넷** 영역을 클릭 하 고 보호 모드 사용을 선택 취소 합니다 **(internet Explorer를 다시 시작 해야 함)** . Internet Explorer에서 컴퓨터가 더 이상 보호 되지 않는다는 경고를 표시 합니다. **확인**을 클릭합니다.
     1. Internet Explorer를 다시 시작 합니다.
-    1. 실행 하 고 응용 프로그램을 디버그 합니다.
+    1. 응용 프로그램을 실행 하 고 디버깅 합니다.
 
-완료 되 면 Internet Explorer 보안 설정을 복원 합니다.  선택 **설정을** -> **인터넷 옵션** -> **Security** -> **기본 수준로모든영역을다시설정**.
+완료 되 면 Internet Explorer 보안 설정을 복원 합니다.  **설정** -> **인터넷 옵션** -> **보안** -> **모든 영역을 기본 수준으로 다시 설정을**선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-에 대해 자세히 알아보세요 [MSAL.js를 사용 하 여 Internet Explorer에서 때의 알려진 문제](msal-js-use-ie-browser.md)합니다.
+[Internet Explorer에서 MSAL를 사용 하는 경우 알려진 문제](msal-js-use-ie-browser.md)에 대해 자세히 알아보세요.

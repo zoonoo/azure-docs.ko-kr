@@ -1,5 +1,6 @@
 ---
-title: HttpClient 및 프록시 제공(MSAL.NET) | Azure
+title: HttpClient 및 프록시 (MSAL.NET) 제공
+titleSuffix: Microsoft identity platform
 description: Microsoft Authentication Library for .NET(MSAL.NET)을 사용하여 Azure AD에 연결하는 자체 HttpClient 및 프록시를 제공하는 방법에 대해 알아보세요.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: daae88cd8e76d0ae1af04c45a7191027e9adece9
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 259c796cb3653ebdd330f5e65db76cc29c181467
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834943"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802769"
 ---
 # <a name="providing-your-own-httpclient-and-proxy-using-msalnet"></a>MSAL.NET을 사용하여 자체 HttpClient 및 프록시 제공
 [공용 클라이언트 애플리케이션을 초기화](msal-net-initializing-client-applications.md)할 때 `.WithHttpClientFactory method`를 사용하여 자체 HttpClient를 제공할 수 있습니다.  자체 HttpClient를 제공하면 HTTP 프록시 세부 제어, 사용자 에이전트 헤더 사용자 지정 또는 MSAL에서 특정 HttpClient를 사용하도록 강제(예: ASP.NET Core 웹앱/API에서)와 같은 고급 시나리오가 지원됩니다.

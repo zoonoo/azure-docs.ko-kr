@@ -1,5 +1,6 @@
 ---
-title: 웹 Api를 호출 하는 모바일 앱-개요 | Microsoft id 플랫폼
+title: 웹 Api를 호출 하는 모바일 앱-개요
+titleSuffix: Microsoft identity platform
 description: 웹 Api를 호출 하는 모바일 앱을 빌드하는 방법 알아보기 (개요)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,18 +17,18 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f67f063ab374dec8bac3905ea46f1dfa9d8ed1fb
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 98f05470a07bad82a1e51517a787fb98c78f92ce
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852601"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803752"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>시나리오: 웹 Api를 호출 하는 모바일 응용 프로그램
 
 웹 Api를 호출 하는 모바일 앱을 빌드하는 데 필요한 모든 것을 알아보세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
@@ -36,9 +37,9 @@ ms.locfileid: "68852601"
 첫 번째 모바일 응용 프로그램을 만들고 퀵 스타트를 사용해 보세요.
 
 > [!div class="nextstepaction"]
-> [빠른 시작: Android 앱에서 토큰을 획득 하 고 Microsoft Graph API를 호출 합니다.](./quickstart-v2-android.md)
+> [빠른 시작: Android 앱에서 토큰 획득 및 Microsoft Graph API 호출](./quickstart-v2-android.md)
 >
-> [빠른 시작: IOS 앱에서 토큰을 획득 하 고 Microsoft Graph API를 호출 합니다.](./quickstart-v2-ios.md)
+> [빠른 시작: iOS 앱에서 토큰 획득 및 Microsoft Graph API 호출](./quickstart-v2-ios.md)
 >
 > [빠른 시작: Xamarin iOS & Android 앱에서 토큰을 획득 하 고 Microsoft Graph API를 호출 합니다.](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
 
@@ -50,9 +51,9 @@ ms.locfileid: "68852601"
 
 모바일 앱에 대 한 고려 사항:
 
-- **사용자 환경은 열쇠입니다**. 사용자가 로그인을 요청 하기 전에 앱의 값을 볼 수 있도록 허용 하 고 필요한 권한만 요청 합니다.
-- **모든 사용자 구성 지원**: 많은 모바일 비즈니스 사용자가 조건부 액세스 및 장치 준수 정책을 사용 하 고 있습니다. 이러한 주요 시나리오를 지원 해야 합니다.
-- **Sso (single sign-on) 구현**: MSAL 및 Microsoft id 플랫폼을 사용 하면 장치의 브라우저나 Microsoft Authenticator (및 Android의 Intune 회사 포털)를 통해 single sign-on을 간단 하 게 사용할 수 있습니다.
+- **사용자 환경**: 사용자가 로그인을 요청 하기 전에 앱의 값을 볼 수 있도록 허용 하 고 필요한 권한만 요청 합니다.
+- **모든 사용자 구성 지원**: 많은 모바일 비즈니스 사용자는 조건부 액세스 및 장치 준수 정책에 있습니다. 이러한 주요 시나리오를 지원 해야 합니다.
+- **Single Sign-On (SSO) 구현**: msal 및 Microsoft id 플랫폼을 사용 하면 장치의 브라우저 또는 Microsoft Authenticator (및 Android에서 Intune 회사 포털)를 통해 Single Sign-On를 간단 하 게 사용할 수 있습니다.
 
 ## <a name="specifics"></a>자세히
 

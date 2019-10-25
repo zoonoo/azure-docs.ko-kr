@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0187d17f8210800aef1c68def0614ce26913e09a
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 54b158528a67dfe77f33f41f3bb4b4570eb4c508
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555098"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802209"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 G Suite 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "72555098"
 > [!NOTE]
 > G Suite 커넥터는 최근 2019 년 10 월에 업데이트 되었습니다. G Suite 커넥터에 대 한 변경 내용은 다음과 같습니다.
 - 추가 G Suite 사용자 및 그룹 특성에 대 한 지원이 추가 되었습니다. 
-- G Suite 대상 특성 이름이 [여기]()에 정의 된 것과 일치 하도록 업데이트 되었습니다.
+- G Suite 대상 특성 이름이 [여기](/azure/active-directory/manage-apps/customize-application-attributes)에 정의 된 것과 일치 하도록 업데이트 되었습니다.
 - 기본 특성 매핑을 업데이트 했습니다.
 
 ## <a name="prerequisites"></a>전제 조건

@@ -12,12 +12,12 @@ ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.openlocfilehash: eb8451272ecb5bc7b9a7c670545170cd74621883
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 6e5a8eda3891b3b356e0cbd7b6d2e22e4a70c278
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680319"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72799713"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 끝점을 사용 하 여 논리 앱 호출, 트리거 또는 중첩
 
@@ -32,7 +32,7 @@ HTTP 엔드포인트를 만들려면 Logic Apps가 들어오는 요청을 받을
 * [HTTP 웹후크](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
-   > 이 예제에서는 **요청** 트리거를 사용하지만 나열된 어떤 HTTP 트리거도 사용할 수 있으며, 모든 원칙은 다른 트리거 유형에 동일하게 적용됩니다.
+   > 이러한 예제에서는 **요청** 트리거를 사용 하지만 나열 된 요청 기반 트리거 중 하나를 사용할 수 있으며, 모든 원칙은 다른 트리거 유형에 동일 하 게 적용 됩니다.
 
 ## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>논리 앱을 위해 HTTP 엔드포인트 설정
 
@@ -40,22 +40,21 @@ HTTP 엔드포인트를 만들려면 들어오는 요청을 받을 수 있는 �
 
 1. [Azure portal](https://portal.azure.com "Azure Portal")에 로그인합니다. 논리 앱으로 이동하고 논리 앱 디자이너를 엽니다.
 
-2. 논리 앱이 들어오는 요청을 받을 수 있도록 하는 트리거를 추가합니다. 예를 들어, 논리 앱에 **요청** 트리거를 추가합니다.
+1. 논리 앱이 들어오는 요청을 받을 수 있도록 하는 트리거를 추가합니다. 예를 들어, 논리 앱에 **요청** 트리거를 추가합니다.
 
-3.  필요에 따라 **요청 본문 JSON 스키마**에서 트리거가 받을 것으로 예상하는 페이로드(데이터)에 대해 JSON 스키마를 입력할 수 있습니다.
+1. 필요에 따라 **요청 본문 JSON 스키마**에서 트리거가 받을 것으로 예상하는 페이로드(데이터)에 대해 JSON 스키마를 입력할 수 있습니다.
 
-    설계자는 워크플로를 통해 논리 앱이 트리거에서 데이터를 소비, 구문 분석 및 전달하는 데 사용할 수 있는 토큰을 생성하는 데 이 스키마를 사용합니다. 
-    [JSON 스키마에서 생성된 토큰](#generated-tokens)에 관한 추가 정보.
+   설계자는 워크플로를 통해 논리 앱이 트리거에서 데이터를 소비, 구문 분석 및 전달하는 데 사용할 수 있는 토큰을 생성하는 데 이 스키마를 사용합니다. [JSON 스키마에서 생성 된 토큰](#generated-tokens)에 대해 자세히 알아보세요.
 
-    이 예의 경우 디자이너에 표시된 스키마를 입력합니다.
+   이 예에서는 디자이너에 표시 된 것 처럼이 스키마를 입력 합니다.
 
-    ```json
-    {
+   ```json
+   {
       "type": "object",
       "properties": {
-        "address": {
-          "type": "string"
-        }
+         "address": {
+            "type": "string"
+         }
       },
       "required": [
         "address"
@@ -63,52 +62,50 @@ HTTP 엔드포인트를 만들려면 들어오는 요청을 받을 수 있는 �
     }
     ```
 
-    ![요청 작업 추가][1]
+   ![요청 작업 추가](./media/logic-apps-http-endpoint/manualtrigger.png)
 
-    > [!TIP]
-    > 
-    > [jsonschema.net](https://jsonschema.net/) 같은 도구에서, 또는 **샘플 페이로드를 사용하여 스키마 생성**을 선택하여 **요청** 트리거에서 샘플 JSON 페이로드에 대한 스키마를 생성할 수 있습니다. 
-    > 샘플 페이로드를 입력하고 **완료**를 선택합니다.
+   > [!TIP]
+   >
+   > **샘플 페이로드를 사용 하 여 스키마 생성을**선택 하 여 [jsonschema.net](https://jsonschema.net/) 같은 도구 또는 **요청** 트리거에서 샘플 JSON 페이로드에 대 한 스키마를 생성할 수 있습니다. 샘플 페이로드를 입력하고 **완료**를 선택합니다.
 
-    예를 들어 다음 샘플 페이로드는:
+   예를 들어 다음 샘플 페이로드는:
 
-    ```json
-    {
-       "address": "21 2nd Street, New York, New York"
-    }
-    ```
+   ```json
+   {
+      "address": "21 2nd Street, New York, New York"
+   }
+   ```
 
-    다음 스키마를 생성합니다.
+   다음 스키마를 생성 합니다.
 
-    ```json
-    {
-       "type": "object",
-       "properties": {
-          "address": {
-             "type": "string" 
-          }
-       }
-    }
-    ```
+   ```json
+   {
+      "type": "object",
+      "properties": {
+         "address": {
+            "type": "string"
+         }
+      }
+   }
+   ```
 
-4.  논리 앱을 저장합니다. **이 URL의 HTTP POST** 아래에서 이제 다음 예와 같은 생성된 콜백 URL을 확인할 수 있습니다.
+1. 논리 앱을 저장합니다. **이 URL의 HTTP POST** 아래에서 이제 다음 예와 같은 생성된 콜백 URL을 확인할 수 있습니다.
 
-    ![엔드포인트에 대해 생성된 콜백 URL](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
+   ![엔드포인트에 대해 생성된 콜백 URL](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
-    이 URL은 인증에 사용하는 쿼리 매개 변수에 공유 액세스 서명(SAS) 키를 포함합니다. 
-    Azure Portal의 논리 앱 개요에서 HTTP 엔드포인트 URL을 가져올 수도 있습니다. **트리거 기록** 아래에서 트리거를 선택합니다.
+   이 URL은 인증에 사용하는 쿼리 매개 변수에 공유 액세스 서명(SAS) 키를 포함합니다. Azure Portal의 논리 앱 개요에서 HTTP 엔드포인트 URL을 가져올 수도 있습니다. **트리거 기록** 아래에서 트리거를 선택합니다.
 
-    ![Azure Portal에서 HTTP 엔드포인트 URL 가져오기][2]
+   ![Azure Portal에서 HTTP 엔드포인트 URL 가져오기](./media/logic-apps-http-endpoint/manualtriggerurl.png)
 
-    또는 다음을 호출하여 URL을 가져올 수도 있습니다.
+   또는 다음을 호출하여 URL을 가져올 수도 있습니다.
 
-    ```
-    POST https://management.azure.com/{logic-app-resourceID}/triggers/{myendpointtrigger}/listCallbackURL?api-version=2016-06-01
+    ```http
+    POST https://management.azure.com/{logic-app-resource-ID}/triggers/{myendpointtrigger}/listCallbackURL?api-version=2016-06-01
     ```
 
 ## <a name="change-the-http-method-for-your-trigger"></a>트리거를 위한 HTTP 메서드 변경
 
-기본적으로 **요청** 트리거는 HTTP POST 요청을 예상하지만 다른 HTTP 메서드를 사용할 수 있습니다. 
+기본적으로 **요청** 트리거는 HTTP POST 요청을 예상하지만 다른 HTTP 메서드를 사용할 수 있습니다.
 
 > [!NOTE]
 > 메서드 유형을 하나만 지정할 수 있습니다.
@@ -117,10 +114,10 @@ HTTP 엔드포인트를 만들려면 들어오는 요청을 받을 수 있는 �
 
 2. **메서드** 목록을 엽니다. 이 예의 경우 **GET**을 선택하면 HTTP 엔드포인트의 URL을 나중에 테스트할 수 있습니다.
 
-    > [!NOTE]
-    > 다른 HTTP 메서드를 선택하거나 사용자의 고유한 논리 앱에 대한 사용자 지정 메서드를 지정할 수 있습니다.
+   > [!NOTE]
+   > 다른 HTTP 메서드를 선택하거나 사용자의 고유한 논리 앱에 대한 사용자 지정 메서드를 지정할 수 있습니다.
 
-    ![HTTP 메서드 변경](./media/logic-apps-http-endpoint/change-method.png)
+   ![HTTP 메서드 변경](./media/logic-apps-http-endpoint/change-method.png)
 
 ## <a name="accept-parameters-through-your-http-endpoint-url"></a>HTTP 엔드포인트 URL을 통해 매개 변수 허용
 
@@ -130,37 +127,36 @@ HTTP 엔드포인트 URL이 매개 변수를 허용하도록 하려면 트리거
 
 2. **메서드** 아래에서 요청에 사용할 HTTP 메서드를 지정합니다. 이 예의 경우 아직 선택하지 않은 경우 **GET** 메서드를 선택하여 HTTP 엔드포인트의 URL을 테스트할 수 있습니다.
 
-      > [!NOTE]
-      > 트리거에 대한 상대 경로를 지정하는 경우 트리거에 대한 HTTP 메서드도 명시적으로 지정해야 합니다.
+   > [!NOTE]
+   > 트리거에 대한 상대 경로를 지정하는 경우 트리거에 대한 HTTP 메서드도 명시적으로 지정해야 합니다.
 
 3. **상대 경로** 아래에서 URL이 허용해야 하는 매개 변수에 대한 상대 경로를 지정합니다. 예: `customers/{customerID}`.
 
-    ![HTTP 메서드 및 매개 변수에 대한 상대 경로 지정](./media/logic-apps-http-endpoint/relativeurl.png)
+   ![HTTP 메서드 및 매개 변수에 대한 상대 경로 지정](./media/logic-apps-http-endpoint/relativeurl.png)
 
 4. 매개 변수를 사용하려면 논리 앱에 **응답** 작업을 추가합니다. (트리거 아래에서 **새 단계** > **작업 추가** > **응답**을 선택) 
 
 5. 응답의 **본문**에 트리거의 상대 경로에 지정한 매개 변수의 토큰을 포함합니다.
 
-    예를 들어 `Hello {customerID}`로 돌아가려면 응답의 **본문**을 `Hello {customerID token}`로 업데이트합니다. 
-    동적 콘텐츠 목록이 나타나고 선택할 `customerID` 토큰이 표시됩니다.
+   예를 들어 `Hello {customerID}`로 돌아가려면 응답의 **본문**을 `Hello {customerID token}`로 업데이트합니다. 동적 콘텐츠 목록이 나타나고 선택할 `customerID` 토큰이 표시됩니다.
 
-    ![응답 본문에 매개 변수 추가](./media/logic-apps-http-endpoint/relativeurlresponse.png)
+   ![응답 본문에 매개 변수 추가](./media/logic-apps-http-endpoint/relativeurlresponse.png)
 
-    **본문**은 다음 예와 유사해야 합니다.
+   **본문**은 다음 예와 유사해야 합니다.
 
-    ![매개 변수 포함 응답 본문](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
+   ![매개 변수 포함 응답 본문](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
 
 6. 논리 앱을 저장합니다. 
 
     HTTP 엔드포인트 URL은 이제 다음 예와 같은 상대 경로를 포함합니다. 
 
-    https&#58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
+    ```http
+    https://prod-00.southcentralus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/customers/{customerID}...
+    ```
 
 7. HTTP 엔드포인트를 테스트하려면 업데이트된 URL을 복사하여 다른 브라우저 창에 붙여넣되, `{customerID}`을 `123456`로 바꾸고 Enter 키를 누릅니다.
 
-    브라우저에 다음 텍스트가 표시되어야 합니다. 
-
-    `Hello 123456`
+   브라우저에서 다음 텍스트를 표시 해야 합니다. `Hello 123456`
 
 <a name="generated-tokens"></a>
 
@@ -215,16 +211,16 @@ HTTP 엔드포인트를 만든 후 `POST` 메서드를 통해 논리 앱을 전�
 
 ```json
 {
-    "headers": {
-        "content-type" : "application/json"
-    },
-    "body": {
-        "myProperty" : "property value"
-    }
+   "headers": {
+      "content-type" : "application/json"
+   },
+   "body": {
+      "myProperty" : "property value"
+   }
 }
 ```
 
-특히 `@triggerBody()` 속성에 액세스하기 위해 `body` 바로 가기를 사용할 수 있습니다. 
+특히 `@triggerBody()` 속성에 액세스하기 위해 `body` 바로 가기를 사용할 수 있습니다.
 
 ## <a name="respond-to-requests"></a>요청에 응답
 
@@ -237,7 +233,7 @@ HTTP 엔드포인트를 만든 후 `POST` 메서드를 통해 논리 앱을 전�
 
 응답 본문에 둘 이상의 헤더 및 임의 형식의 콘텐츠를 포함할 수 있습니다. 예제 응답의 경우 헤더는 응답의 콘텐츠 형식이 `application/json`인 것으로 지정합니다. 그리고 본문은 **요청** 트리거에 대해 이전에 업데이트된 JSON 스키마에 따라 `title` 및 `name`를 포함합니다.
 
-![HTTP 응답 작업][3]
+![HTTP 응답 작업](./media/logic-apps-http-endpoint/response.png)
 
 응답 속성:
 
@@ -251,18 +247,18 @@ HTTP 엔드포인트를 만든 후 `POST` 메서드를 통해 논리 앱을 전�
 
 ``` json
 "Response": {
+   "type": "Response",
    "inputs": {
       "body": {
          "title": "@{triggerBody()?['title']}",
          "name": "@{triggerBody()?['name']}"
       },
       "headers": {
-           "content-type": "application/json"
+         "content-type": "application/json"
       },
       "statusCode": 200
    },
-   "runAfter": {},
-   "type": "Response"
+   "runAfter": {}
 }
 ```
 
@@ -283,11 +279,11 @@ A: Azure는 공유 액세스 서명(SAS)을 사용하여 논리 앱 콜백 URL�
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>Q: HTTP 엔드포인트를 추가로 구성할 수 있습니까?
 
-A: 예, HTTP 엔드포인트는 [**API Management**](../api-management/api-management-key-concepts.md)를 통해 고급 구성을 지원합니다. 또한 이 서비스는 Logic Apps를 포함한 모든 API를 일관성 있게 관리하고 사용자 지정 도메인 이름을 설정하고 다음과 같은 더 많은 인증 방법을 사용하는 기능을 제공합니다.
+A: 예, HTTP 끝점은 [Azure API Management](../api-management/api-management-key-concepts.md)를 통해 더 많은 고급 구성을 지원 합니다. 또한 이 서비스는 Logic Apps를 포함한 모든 API를 일관성 있게 관리하고 사용자 지정 도메인 이름을 설정하고 다음과 같은 더 많은 인증 방법을 사용하는 기능을 제공합니다.
 
-* [요청 메서드 변경](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
-* [요청의 URL 세그먼트 변경](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
-* [Azure Portal](https://portal.azure.com/ "Azure Portal") 에서 API Management 도메인 설정
+* [요청 메서드 변경](../api-management/api-management-advanced-policies.md#SetRequestMethod)
+* [요청의 URL 세그먼트 변경](../api-management/api-management-transformation-policies.md#RewriteURL)
+* [Azure Portal](https://portal.azure.com/) 에서 API Management 도메인 설정
 * 기본 인증을 확인하는 정책 설정
 
 #### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>Q: 스키마가 2014년 12월 1일 마이그레이션되었을 때 미리 보기가 어떻게 변경되었습니까?
@@ -304,17 +300,7 @@ A: 다음은 이러한 변경 내용에 대한 요약입니다.
 | `@triggerOutputs().body.Content`을 통해 들어오는 본문을 참조합니다. |`@triggerOutputs().body`을 통해 참조합니다. |
 | **HTTP 응답 보내기** 작업 |**HTTP 요청에 응답** 클릭(API 앱 필요 없음) |
 
-## <a name="get-help"></a>도움 받기
-
-질문하고, 질문에 답변하고, 다른 Azure Logic Apps 사용자가 어떤 일을 하는지 알아보려면 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문하세요.
-
-Azure Logic Apps 및 커넥터 개선에 도움을 주려면 [Azure Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)에서 투표하고 아이디어를 제출하세요.
-
 ## <a name="next-steps"></a>다음 단계
 
-* [작성자 논리 앱 정의](./logic-apps-author-definitions.md)
-* [오류 및 예외 처리](./logic-apps-exception-handling.md)
-
-[1]: ./media/logic-apps-http-endpoint/manualtrigger.png
-[2]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
-[3]: ./media/logic-apps-http-endpoint/response.png
+* [작성자 논리 앱 정의](logic-apps-author-definitions.md)
+* [오류 및 예외 처리](logic-apps-exception-handling.md)

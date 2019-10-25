@@ -1,5 +1,6 @@
 ---
-title: Azure AD 애플리케이션 동의 환경 이해 | Microsoft Docs
+title: Azure AD 애플리케이션 동의 환경 이해
+titleSuffix: Microsoft identity platform
 description: Azure AD에서 애플리케이션을 관리 및 개발할 때 Azure AD 동의 환경을 사용하는 방법을 확인하기 위해 해당 환경에 대해 알아보기
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 012a79969f2fa72589ba6b70aa5398b6f4e7e811
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 4356a0a26aa586f99766cc5166c17d301a9a194d
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835257"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803909"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Azure AD 애플리케이션 동의 환경 이해
 
@@ -52,7 +53,7 @@ Azure AD(Azure Active Directory) 애플리케이션 동의 사용자 환경에 �
 | 3 | 앱 로고 | 이 이미지는 이 앱이 액세스하려던 앱인지 여부를 나타내는 시각적 신호를 사용자가 확보하는 데 도움이 됩니다. 이 이미지는 애플리케이션 개발자가 제공하며 이 이미지의 소유권에 대한 유효성은 검사되지 않습니다. |
 | 4 | 앱 이름 | 이 값은 애플리케이션이 사용자의 데이터에 액세스를 요청하는 것을 사용자에게 알려야 합니다. 이 이름은 개발자가 제공하며 이 앱 이름의 소유권에 대한 유효성은 검사되지 않습니다. |
 | 5 | 게시자 도메인 | 이 값은 신뢰성을 평가할 수 있는 도메인을 사용자에게 제공해야 합니다. 이 도메인은 개발자가 제공하며 이 게시자 도메인의 소유권에 대한 유효성이 검사됩니다. |
-| 6 | 사용 권한 | 이 목록에는 클라이언트 애플리케이션에서 요청하는 사용 권한이 포함됩니다. 사용자는 동의하는 경우 자신을 대신해 액세스 권한이 클라이언트 애플리케이션에 부여되는 데이터를 파악하려면 요청되는 권한 유형을 항상 평가해야 합니다. 애플리케이션 개발자로서 최소 권한이 포함된 사용 권한에 대한 액세스를 요청하는 것이 가장 좋습니다. |
+| 6 | 권한 | 이 목록에는 클라이언트 애플리케이션에서 요청하는 사용 권한이 포함됩니다. 사용자는 동의하는 경우 자신을 대신해 액세스 권한이 클라이언트 애플리케이션에 부여되는 데이터를 파악하려면 요청되는 권한 유형을 항상 평가해야 합니다. 애플리케이션 개발자로서 최소 권한이 포함된 사용 권한에 대한 액세스를 요청하는 것이 가장 좋습니다. |
 | 7 | 사용 권한 설명 | 이 값은 사용 권한을 노출하는 서비스에서 제공됩니다. 사용 권한 설명을 참조하려면 사용 권한 옆의 펼침 단추를 설정 및 해제해야 합니다. |
 | 8 | 앱 사용 약관 | 이러한 사용 약관에는 서비스 및 애플리케이션의 개인정보처리방침 약관에 대한 링크가 포함됩니다. 게시자는 서비스 약관에 해당 규칙의 개요를 표시하는 일을 담당합니다. 또한 게시자는 해당 개인정보처리방침에서 사용자 데이터를 사용하고 공유하는 방법을 공개하는 일도 담당합니다. 게시자가 다중 테넌트 애플리케이션을 위해 이러한 값에 대한 링크를 제공하지 않는 경우 동의 확인 프롬프트에 굵게 표시된 경고가 표시됩니다. |
 | 9 | https://myapps.microsoft.com | 사용자가 검토해서 현재 해당 데이터에 액세스 권한이 있는 모든 타사 애플리케이션을 제거할 수 있는 링크입니다. |

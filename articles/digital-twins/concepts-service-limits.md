@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/03/2019
-ms.openlocfilehash: 88a66506b5102a4efaeefe1c7033b337dff9889a
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 10/22/2019
+ms.openlocfilehash: 97bcb4e6fad9c766f2ad059469e75ffd5ab8ec8c
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949235"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800225"
 ---
 # <a name="public-preview-service-limits"></a>공개 미리 보기 서비스 제한
 
@@ -70,7 +70,8 @@ Azure Digital Twins 관리 API의 요청 빈도 제한은 다음과 같습니다
 
 다음 제한은 디바이스가 Azure Digital Twins 인스턴스에 보낼 수 있는 모든 메시지의 총 수를 제한합니다.
 
-- 초당 100개의 메시지
+- 모든 장치에서 초당 100 메시지 수
+-   장치당 초당 25 개 메시지
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: df856e0d76dbd5903964bc80aa01b97b7461128a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 4f585778808b133fe5c731ab6a3189594cbfc0f9
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122693"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804220"
 ---
 # <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 HTTP 또는 HTTPS 끝점에 보내는 호출 보내기
 
@@ -29,13 +29,13 @@ ms.locfileid: "71122693"
 
 대상 끝점의 기능을 기반으로 하는 HTTP 커넥터는 TLS (전송 계층 보안) 버전 1.0, 1.1 및 1.2을 지원 합니다. 가능 하면 지원 되는 가장 높은 버전을 사용 하 여 끝점에 대 한 Logic Apps 협상 합니다. 따라서 예를 들어 끝점이 1.2을 지 원하는 경우 커넥터는 1.2를 먼저 사용 합니다. 그렇지 않으면 커넥터에서 지원 되는 가장 높은 다음 버전을 사용 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 호출 하려는 대상 끝점의 URL입니다.
 
-* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식 논리 앱을 처음 접하는 경우 [Azure Logic Apps 된 항목](../logic-apps/logic-apps-overview.md)을 검토 하세요.
 
 * 대상 끝점을 호출 하려는 논리 앱입니다. HTTP 트리거를 시작 하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). HTTP 작업을 사용 하려면 원하는 트리거를 사용 하 여 논리 앱을 시작 합니다. 이 예제에서는 첫 번째 단계로 HTTP 트리거를 사용 합니다.
 
@@ -43,9 +43,9 @@ ms.locfileid: "71122693"
 
 이 기본 제공 트리거는 끝점에 대해 지정 된 URL에 대 한 HTTP 호출을 수행 하 고 응답을 반환 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 논리 앱 디자이너에서 빈 논리 앱을 엽니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다. 논리 앱 디자이너에서 빈 논리 앱을 엽니다.
 
-1. 디자이너의 검색 상자에 "http"를 필터로 입력 합니다. **트리거** 목록에서 **HTTP** 트리거를 선택 합니다.
+1. **작업 선택**아래의 검색 상자에 "http"를 필터로 입력 합니다. **트리거** 목록에서 **HTTP** 트리거를 선택 합니다.
 
    ![HTTP 트리거 선택](./media/connectors-native-http/select-http-trigger.png)
 
@@ -53,9 +53,9 @@ ms.locfileid: "71122693"
 
 1. 대상 끝점에 대 한 호출에 포함 하려는 [HTTP 트리거 매개 변수에](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) 대 한 값을 제공 합니다. 트리거가 대상 끝점을 확인 하는 빈도에 대 한 되풀이를 설정 합니다.
 
-   ![HTTP 트리거 매개 변수 입력](./media/connectors-native-http/http-trigger-parameters.png)
+   **없음**이외의 인증 유형을 선택 하는 경우 인증 설정은 선택 사항에 따라 달라 집니다. 자세한 내용은 [아웃 바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조 하세요.
 
-   HTTP에 사용할 수 있는 인증 유형에 대 한 자세한 내용은 [http 트리거 및 작업 인증](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication)을 참조 하세요.
+   ![HTTP 트리거 매개 변수 입력](./media/connectors-native-http/http-trigger-parameters.png)
 
 1. 사용할 수 있는 다른 매개 변수를 추가 하려면 **새 매개 변수 추가** 목록을 열고 원하는 매개 변수를 선택 합니다.
 
@@ -67,15 +67,15 @@ ms.locfileid: "71122693"
 
 이 기본 제공 작업은 끝점에 대해 지정 된 URL에 대 한 HTTP 호출을 수행 하 고 응답을 반환 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. Logic Apps 디자이너에서 논리 앱을 엽니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다. Logic Apps 디자이너에서 논리 앱을 엽니다.
 
    이 예제에서는 첫 번째 단계로 HTTP 트리거를 사용 합니다.
 
 1. HTTP 작업을 추가 하려는 단계 아래에서 **새 단계**를 선택 합니다.
 
-   단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 표시 되는 더하기 기호 **+** ()를 선택 하 고 **작업 추가**를 선택 합니다.
+   단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 표시 되는 더하기 기호 ( **+** )를 선택 하 고 **작업 추가**를 선택 합니다.
 
-1. 디자이너의 검색 상자에 "http"를 필터로 입력 합니다. **작업** 목록에서 **HTTP** 작업을 선택 합니다.
+1. **작업 선택**아래의 검색 상자에 "http"를 필터로 입력 합니다. **작업** 목록에서 **HTTP** 작업을 선택 합니다.
 
    ![HTTP 작업 선택](./media/connectors-native-http/select-http-action.png)
 
@@ -83,9 +83,9 @@ ms.locfileid: "71122693"
 
 1. 대상 끝점에 대 한 호출에 포함 하려는 [HTTP 작업 매개 변수의](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) 값을 제공 합니다.
 
-   ![HTTP 작업 매개 변수 입력](./media/connectors-native-http/http-action-parameters.png)
+   **없음**이외의 인증 유형을 선택 하는 경우 인증 설정은 선택 사항에 따라 달라 집니다. 자세한 내용은 [아웃 바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조 하세요.
 
-   HTTP에 사용할 수 있는 인증 유형에 대 한 자세한 내용은 [http 트리거 및 작업 인증](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication)을 참조 하세요.
+   ![HTTP 작업 매개 변수 입력](./media/connectors-native-http/http-action-parameters.png)
 
 1. 사용할 수 있는 다른 매개 변수를 추가 하려면 **새 매개 변수 추가** 목록을 열고 원하는 매개 변수를 선택 합니다.
 
@@ -93,7 +93,7 @@ ms.locfileid: "71122693"
 
 ## <a name="content-with-multipartform-data-type"></a>Multipart/form 데이터 형식의 콘텐츠
 
-Http 요청에 `multipart/form-data` 형식이 있는 콘텐츠를 처리 하려면이 형식을 사용 하 여 `$content-type` 및 `$multipart` 특성을 포함 하는 JSON 개체를 http 요청의 본문에 추가할 수 있습니다.
+HTTP 요청에 `multipart/form-data` 형식이 있는 콘텐츠를 처리 하려면이 형식을 사용 하 여 `$content-type` 및 `$multipart` 특성을 포함 하는 JSON 개체를 HTTP 요청의 본문에 추가할 수 있습니다.
 
 ```json
 "body": {
@@ -109,7 +109,7 @@ Http 요청에 `multipart/form-data` 형식이 있는 콘텐츠를 처리 하려
 }
 ```
 
-예를 들어 `multipart/form-data` 형식을 지 원하는 해당 사이트의 API를 사용 하 여 Excel 파일에 대 한 HTTP POST 요청을 웹 사이트로 보내는 논리 앱이 있다고 가정 합니다. 이 작업의 모양은 다음과 같습니다.
+예를 들어 `multipart/form-data` 유형을 지 원하는 사이트의 API를 사용 하 여 Excel 파일에 대 한 HTTP POST 요청을 웹 사이트로 보내는 논리 앱이 있다고 가정 합니다. 이 작업의 모양은 다음과 같습니다.
 
 ![다중 파트 폼 데이터](./media/connectors-native-http/http-action-multipart.png)
 
@@ -144,23 +144,23 @@ Http 요청에 `multipart/form-data` 형식이 있는 콘텐츠를 처리 하려
 * [HTTP 트리거 매개 변수](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)
 * [HTTP 동작 매개 변수](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)
 
-### <a name="output-details"></a>출력 세부 사항
+### <a name="output-details"></a>출력 세부 정보
 
 이 정보를 반환 하는 HTTP 트리거 또는 작업의 출력에 대 한 자세한 내용은 다음과 같습니다.
 
-| 속성 이름 | 형식 | 설명 |
+| 속성 이름 | Type | 설명 |
 |---------------|------|-------------|
-| headers | object | 요청의 헤더입니다. |
+| 헤더 | object | 요청의 헤더입니다. |
 | body | object | JSON 개체 | 요청의 본문 내용이 포함 된 개체입니다. |
-| status code | int | 요청의 상태 코드 |
+| 상태 코드 | int | 요청의 상태 코드 |
 |||
 
-| status code | 설명 |
+| 상태 코드 | 설명 |
 |-------------|-------------|
 | 200 | 확인 |
-| 202 | 동의함 |
+| 202 | 수락됨 |
 | 400 | 잘못된 요청 |
-| 401 | 인증되지 않음 |
+| 401 | 권한 없음 |
 | 403 | 사용할 수 없음 |
 | 404 | 찾을 수 없음 |
 | 500 | 내부 서버 오류. 알 수 없는 오류 발생. |

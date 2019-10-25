@@ -10,21 +10,21 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: brahmnes
-ms.date: 08/06/2019
+ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 02d72ab877577e97592dfdd763a58cb01b201d8b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
-ms.translationtype: MT
+ms.openlocfilehash: c0d90d4eed7efb5c82ca9d61565bfe3f49e8aaa1
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839358"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809505"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 앱의 예외에 대한 디버그 스냅샷
-예외가 발생할 때 라이브 웹 애플리케이션에서 자동으로 디버그 스냅샷을 수집할 수 있습니다. 스냅샷은 예외가 throw되었을 때의 소스 코드 및 변수의 상태를 보여 줍니다. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)의 스냅샷 디버거(미리 보기)는 웹앱에서 예외 원격 분석을 모니터링합니다. 프로덕션에서 문제를 진단하는 데 필요한 정보를 유지하도록 많이 throw되는 예외에 대한 스냅샷을 수집합니다. [스냅샷 수집기 NuGet 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector)를 애플리케이션에 포함하고 필요에 따라, [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)에서 컬렉션 매개 변수를 구성합니다. 스냅샷은 Application Insights 포털의 [예외](../../azure-monitor/app/asp-net-exceptions.md)에 표시됩니다.
+예외가 발생할 때 라이브 웹 애플리케이션에서 자동으로 디버그 스냅샷을 수집할 수 있습니다. 스냅샷은 예외가 throw되었을 때의 소스 코드 및 변수의 상태를 보여 줍니다. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)의 스냅샷 디버거(미리 보기)는 웹앱에서 예외 원격 분석을 모니터링합니다. 프로덕션에서 문제를 진단하는 데 필요한 정보를 유지하도록 많이 throw되는 예외에 대한 스냅샷을 수집합니다. 응용 프로그램에 [스냅숏 수집기 NuGet 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) 를 포함 하 고 필요에 따라 [applicationinsights](../../azure-monitor/app/configuration-with-applicationinsights-config.md)에서 컬렉션 매개 변수를 구성 합니다. 스냅숏은 Application Insights 포털의 [예외](../../azure-monitor/app/asp-net-exceptions.md) 에 표시 됩니다.
 
 포털에서 디버그 스냅샷을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 소스 코드를 사용 하 여 보다 강력한 디버깅 환경을 얻으려면 Visual Studio 2019 Enterprise에서 스냅숏을 엽니다. 또한 Visual Studio에서 예외를 기다리지 않고 [snappoint에서 대화형으로 스냅샷을 만들도록 설정](https://aka.ms/snappoint)할 수도 있습니다.
 
-디버그 스냅샷은 7일 동안 저장됩니다. 이 보존 정책은 애플리케이션 단위로 설정됩니다. 이 값을 늘려야 하는 경우 Azure Portal에서 지원 사례를 열어 증가를 요청할 수 있습니다.
+디버그 스냅숏은 15 일 동안 저장 됩니다. 이 보존 정책은 애플리케이션 단위로 설정됩니다. 이 값을 늘려야 하는 경우 Azure Portal에서 지원 사례를 열어 증가를 요청할 수 있습니다.
 
 ## <a name="enable-application-insights-snapshot-debugger-for-your-application"></a>응용 프로그램에 대 한 Application Insights 스냅숏 디버거 사용
 스냅샷 컬렉션을 다음에 사용할 수 있습니다.
@@ -81,9 +81,9 @@ ms.locfileid: "68839358"
 중요한 정보가 스냅샷에 포함될 수 있으며 기본적으로 표시되지 않습니다. 스냅샷을 보려면 `Application Insights Snapshot Debugger` 역할이 할당되어 있어야 합니다.
 
 ## <a name="view-snapshots-in-visual-studio-2017-enterprise-or-above"></a>Visual Studio 2017 Enterprise 이상에서 스냅숏 보기
-1. **스냅숏 다운로드** 단추를 클릭 하 여 Visual Studio Enterprise `.diagsession` 에서 열 수 있는 파일을 다운로드 합니다.
+1. **스냅숏 다운로드** 단추를 클릭 하 여 Visual Studio Enterprise에서 열 수 있는 `.diagsession` 파일을 다운로드 합니다.
 
-2. 이 `.diagsession` 파일을 열려면 스냅숏 디버거 Visual Studio 구성 요소가 설치 되어 있어야 합니다. 스냅숏 디버거 구성 요소는 Visual Studio에서 ASP.net 워크 로드의 필수 구성 요소 이며 Visual Studio 설치 관리자의 개별 구성 요소 목록에서 선택할 수 있습니다. Visual Studio 2017 버전 15.5 이전 버전의 Visual Studio를 사용 하는 경우 [Visual Studio Marketplace](https://aka.ms/snapshotdebugger)에서 확장을 설치 해야 합니다.
+2. `.diagsession` 파일을 열려면 스냅숏 디버거 Visual Studio 구성 요소가 설치 되어 있어야 합니다. 스냅숏 디버거 구성 요소는 Visual Studio에서 ASP.net 워크 로드의 필수 구성 요소 이며 Visual Studio 설치 관리자의 개별 구성 요소 목록에서 선택할 수 있습니다. Visual Studio 2017 버전 15.5 이전 버전의 Visual Studio를 사용 하는 경우 [Visual Studio Marketplace](https://aka.ms/snapshotdebugger)에서 확장을 설치 해야 합니다.
 
 3. 스냅샷 파일을 연 후에 Visual Studio에서 미니덤프 디버깅 페이지가 표시됩니다. **관리 코드 디버그**를 클릭하여 스냅샷을 디버깅하기 시작합니다. 예외가 throw되는 코드 줄에 스냅샷이 열리고 프로세스의 현재 상태를 디버그할 수 있습니다.
 
@@ -125,7 +125,7 @@ Visual Studio 2017의 15.2 버전 이상은 App Service에 게시할 때 기본�
 Azure Compute 및 기타 형식의 경우 기호 파일이 주 애플리케이션 .dll의 동일한 폴더(일반적으로 `wwwroot/bin`)에 있거나 현재 경로에서 사용할 수 있는지 확인합니다.
 
 > [!NOTE]
-> 사용할 수 있는 다른 기호 옵션에 대 한 자세한 내용은 Visual Studio [설명서](https://docs.microsoft.com/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
+> 사용할 수 있는 다른 기호 옵션에 대 한 자세한 내용은 [Visual Studio 설명서](https://docs.microsoft.com/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
 )를 참조 하세요. 최상의 결과를 위해서는 "Full", "이식 가능" 또는 "포함"을 사용 하는 것이 좋습니다.
 
 ### <a name="optimized-builds"></a>최적화된 빌드

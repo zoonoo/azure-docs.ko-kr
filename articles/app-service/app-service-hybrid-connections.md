@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e26cf5ede2c8884719152b6d35f1b41eb092eda6
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 72874e7b96e2ec8909a325b5ae598b900ebe8079
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071794"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791888"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service 하이브리드 연결 #
 
@@ -28,7 +28,7 @@ ms.locfileid: "70071794"
 App Service 내에서 하이브리드 연결은 다른 네트워크의 애플리케이션 리소스에 액세스하는 데 사용될 수 있습니다. 이를 통해 앱에서 애플리케이션 엔드포인트에 액세스할 수 있습니다. 애플리케이션에 액세스하는 대체 기능으로는 사용되지 않습니다. App Service에서 사용되는 것처럼 각 하이브리드 연결은 단일 TCP 호스트 및 포트 조합에 상호 연결됩니다. 즉, TCP 수신 대기 포트에 액세스하는 한, 하이브리드 연결 엔드포인트는 모든 운영 체제 및 모든 애플리케이션에 있을 수 있습니다. 하이브리드 연결 기능은 애플리케이션 프로토콜이 무엇인지 또는 사용자가 무엇에 액세스하고 있는지 인식하거나 상관하지 않습니다. 단지 네트워크 액세스를 제공합니다.  
 
 
-## <a name="how-it-works"></a>작동 방법 ##
+## <a name="how-it-works"></a>작동 원리 ##
 하이브리드 연결 기능은 Azure Service Bus Relay에 대한 두 개의 아웃바운드 호출로 구성됩니다. 앱이 App Service에서 실행 중인 호스트의 라이브러리와 연결되어 있습니다. HCM(하이브리드 연결 관리자)과 Service Bus Relay 간에도 연결이 있습니다. HCM은 액세스하려는 리소스를 호스팅하는 네트워크 내에서 배포하는 릴레이 서비스입니다. 
 
 앱에는 이 두 개의 결합된 연결을 통해 HCM의 다른 쪽에 고정 호스트:포트 조합에 대한 TCP 터널이 포함됩니다. 연결은 인증 및 권한 부여를 위한 보안 및 SAS(공유 액세스 서명) 키에 TLS 1.2를 사용합니다.    
@@ -38,7 +38,7 @@ App Service 내에서 하이브리드 연결은 다른 네트워크의 애플리
 앱이 구성된 하이브리드 연결 엔드포인트와 일치하는 DNS 요청을 실행하면 아웃바운드 TCP 트래픽이 하이브리드 연결을 통해 리디렉션됩니다.  
 
 > [!NOTE]
-> 이는 항상 하이브리드 연결에 DNS 이름을 사용해야 함을 의미합니다. 일부 클라이언트 소프트웨어는 엔드포인트에서 IP 주소를 사용하는 경우 DNS 조회를 수행하지 않습니다.
+> 이는 항상 하이브리드 연결에 DNS 이름을 사용해야 함을 의미합니다. 일부 클라이언트 소프트웨어는 엔드포인트에서 IP 주소를 사용하는 경우 DNS 조회를 수행하지 않습니다. 
 >
 
 ### <a name="app-service-hybrid-connection-benefits"></a>App Service 하이브리드 연결의 장점 ###
@@ -62,6 +62,9 @@ App Service 내에서 하이브리드 연결은 다른 네트워크의 애플리
 - FTP 수동 모드 또는 확장 수동 모드 같은 동적 포트를 사용하는 TCP 기반 서비스에 액세스합니다.
 - UDP가 필요할 수 있으므로 LDAP를 지원합니다.
 - App Service 작업자를 도메인에 가입할 수 없으므로 Active Directory를 지원합니다.
+
+### <a name="prerequisites"></a>전제 조건 ###
+ - Windows App service가 필요 합니다. Windows 에서만 사용할 수 있습니다.  
 
 ## <a name="add-and-create-hybrid-connections-in-your-app"></a>앱에 하이브리드 연결 추가 및 만들기 ##
 
@@ -104,7 +107,7 @@ App Service 하이브리드 연결은 기본, 표준, 프리미엄 및 격리 �
 | 요금제 | 요금제에서 사용 가능한 하이브리드 연결 수 |
 |----|----|
 | Basic | 5 |
-| 표준 | 25 |
+| Standard | 25 |
 | Premium | 200 |
 | 격리 | 200 |
 
@@ -116,13 +119,13 @@ App Service 계획 UI는 어떤 앱에서 얼마나 많은 하이브리드 연�
 
 App Service 계획에 사용할 수 있는 하이브리드 연결 엔드포인트 수에는 제한이 있습니다. 하지만 사용된 각 하이브리드 연결은 해당 계획의 여러 앱에서 사용할 수 있습니다. 예를 들어 App Service 계획에서 5개의 개별 앱에 사용되는 단일 하이브리드 연결은 하나의 하이브리드 연결로 간주됩니다.
 
-### <a name="pricing"></a>가격 책정 ###
+### <a name="pricing"></a>가격 ###
 
 App Service 계획 SKU 요구 사항을 충족해야 할 뿐만 아니라 하이브리드 연결을 사용할 때는 추가 비용도 발생합니다. 하이브리드 연결에서 사용되는 각 수신기에 대해 요금이 부과됩니다. 수신기는 하이브리드 연결 관리자입니다. 두 개의 하이브리드 연결 관리자가 5개의 하이브리드 연결을 지원하는 경우 수신기는 10개가 됩니다. 자세한 내용은 [Service Bus 가격][sbpricing]을 참조하세요.
 
 ## <a name="hybrid-connection-manager"></a>하이브리드 연결 관리자 ##
 
-하이브리드 연결 기능에는 하이브리드 연결 엔드포인트를 호스트하는 네트워크의 릴레이 에이전트가 필요합니다. 이 릴레이 에이전트를 HCM(하이브리드 연결 관리자)이라고 합니다. Hcm을 다운로드 하려면 [Azure Portal][portal]의 앱에서 **네트워킹** > **하이브리드 연결 끝점 구성**을 선택 합니다.  
+하이브리드 연결 기능에는 하이브리드 연결 엔드포인트를 호스트하는 네트워크의 릴레이 에이전트가 필요합니다. 이 릴레이 에이전트를 HCM(하이브리드 연결 관리자)이라고 합니다. HCM을 다운로드 하려면 [Azure Portal][portal]의 앱에서 **네트워킹** > 선택 하 여 **하이브리드 연결 끝점을 구성**합니다.  
 
 이 도구는 Windows Server 2012 이상에서 실행됩니다. HCM은 서비스로 실행되며, 포트 443에서 Azure Relay에 아웃바운드로 연결됩니다.  
 
@@ -159,7 +162,7 @@ HCM에 하나 이상의 하이브리드 연결을 추가하려면 다음을 수�
 > Azure Relay는 연결을 위해 웹 소켓을 사용합니다. 이 기능은 Windows Server 2012 이상에서만 사용할 수 있습니다. 따라서 HCM은 Windows Server 2012 이전 버전에서 지원되지 않습니다.
 >
 
-### <a name="redundancy"></a>중복 ###
+### <a name="redundancy"></a>중복성 ###
 
 각 HCM은 여러 하이브리드 연결을 지원할 수 있습니다. 특정 하이브리드 연결이 여러 HCM에서 지원될 수도 있습니다. 기본 동작은 특정 엔드포인트에 대해 구성된 HCM을 통해 트래픽을 라우팅하는 것입니다. 네트워크에서 하이브리드 연결에 대한 고가용성이 필요한 경우에는 개별 컴퓨터에서 여러 HCM을 실행합니다. Relay 서비스가 HCM에 트래픽을 분산하는 데 사용하는 부하 분산 알고리즘은 임의 할당입니다. 
 

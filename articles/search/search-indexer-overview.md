@@ -1,29 +1,29 @@
 ---
-title: 인덱싱 중에 데이터 원본을 탐색하기 위한 인덱서 - Azure Search
-description: 검색 가능한 데이터를 추출하여 Azure Search 인덱스에 입력하기 위해 Azure SQL 데이터베이스, Azure Cosmos DB 또는 Azure Storage를 탐색합니다.
-author: HeidiSteen
+title: 인덱싱 중 데이터 원본 탐색에 대 한 인덱서
+titleSuffix: Azure Cognitive Search
+description: Azure SQL database, Azure Cosmos DB 또는 Azure storage를 탐색 하 여 검색 가능한 데이터를 추출 하 고 Azure Cognitive Search 인덱스를 채웁니다.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 55a9e06ad09c4c3635a2925956cac75c24b2c3c6
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 5e5d43909dc0e65c12c053515ba534ce5cfa121f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376395"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793653"
 ---
-# <a name="indexers-in-azure-search"></a>Azure Search의 인덱서
+# <a name="indexers-in-azure-cognitive-search"></a>Azure Cognitive Search의 인덱서
 
-Azure Search의 *인덱서*는 외부 Azure 데이터 원본에서 검색 가능한 데이터 및 메타데이터를 추출하고 인덱스와 데이터 원본 간의 필드 간 매핑에 따라 인덱스를 채우는 크롤러입니다. 이 접근 방식은 인덱스에 데이터를 추가 하는 코드를 작성 하지 않고도 서비스에서 데이터를 가져오기 때문에 ' 끌어오기 모델 '이 라고도 합니다.
+Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 검색 가능한 데이터 및 메타 데이터를 추출 하 고 인덱스와 데이터 원본 간의 필드 간 매핑을 기반으로 인덱스를 채우는 크롤러입니다. 이 접근 방식은 인덱스에 데이터를 추가 하는 코드를 작성 하지 않고도 서비스에서 데이터를 가져오기 때문에 ' 끌어오기 모델 '이 라고도 합니다.
 
 인덱서는 Azure, Cosmos DB, Azure Table Storage 및 Blob Storage에서 SQL Server에 대 한 개별 인덱서를 사용 하 여 데이터 원본 유형 또는 플랫폼을 기반으로 합니다. Blob 저장소 인덱서는 blob 콘텐츠 형식에 특정 한 추가 속성을 포함 합니다.
 
 데이터 수집을 위한 유일한 방법으로 인덱서를 사용하거나, 인덱서 사용이 포함된 기술의 조합을 통해 인덱스의 일부 필드만 로드할 수 있습니다.
 
-요청 시 또는 5 분 간격으로 자주 실행 되는 반복 되는 데이터 새로 고침 일정에서 인덱서를 실행할 수 있습니다. 더 자주 업데이트하려면 Azure Search와 외부 데이터 소스의 데이터를 동시에 업데이트하는 푸시 모델이 필요합니다.
+요청 시 또는 5 분 간격으로 자주 실행 되는 반복 되는 데이터 새로 고침 일정에서 인덱서를 실행할 수 있습니다. 업데이트를 자주 수행 하려면 Azure Cognitive Search와 외부 데이터 원본의 데이터를 동시에 업데이트 하는 푸시 모델이 필요 합니다.
 
 ## <a name="approaches-for-creating-and-managing-indexers"></a>인덱서를 만들고 관리하는 접근 방식
 
@@ -61,13 +61,13 @@ Azure Search의 *인덱서*는 외부 Azure 데이터 원본에서 검색 가능
 데이터 소스는 데이터 소스를 사용하는 인덱서와는 별도로 구성 및 관리됩니다. 즉 데이터 소스를 여러 인덱서에서 사용하여 한 번에 둘 이상의 인덱스를 로드할 수 있습니다.
 
 ### <a name="step-2-create-an-index"></a>2단계: 인덱스 만들기
-인덱서는 데이터 수집과 관련된 몇 가지 작업을 자동화하지만 인덱스를 만드는 작업은 일반적으로 포함되지 않습니다. 필수 구성 요소로서 외부 데이터 원본의 인덱스와 일치하는 필드를 포함한 미리 정의된 인덱스가 있어야 합니다. 필드는 이름 및 데이터 형식으로 일치 해야 합니다. 인덱스를 구성하는 방법에 대한 자세한 내용은 [인덱스 만들기(Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Index) 또는 [인덱스 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index)를 참조하세요. 필드 연결 도움말은 [Azure Search 인덱서의 필드 매핑](search-indexer-field-mappings.md)을 참조하세요.
+인덱서는 데이터 수집과 관련된 몇 가지 작업을 자동화하지만 인덱스를 만드는 작업은 일반적으로 포함되지 않습니다. 필수 구성 요소로서 외부 데이터 원본의 인덱스와 일치하는 필드를 포함한 미리 정의된 인덱스가 있어야 합니다. 필드는 이름 및 데이터 형식으로 일치 해야 합니다. 인덱스를 구조화 하는 방법에 대 한 자세한 내용은 [인덱스 만들기 (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Index) 또는 [인덱스 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index)를 참조 하세요. 필드 연결에 대 한 도움말은 [Azure Cognitive Search 인덱서의 필드 매핑](search-indexer-field-mappings.md)을 참조 하세요.
 
 > [!Tip]
 > 인덱서가 인덱스를 생성할 수 없지만 포털에서 **데이터 가져오기** 마법사를 통해 가능합니다. 대부분의 경우 마법사는 원본에서 기존 메타데이터의 인덱스 스키마를 유추할 수 있고 마법사가 활성화되어 있는 동안 인라인으로 편집할 수 있는 예비 인덱스 스키마를 표시합니다. 서비스에서 인덱스가 생성되면 포털에서 추가 편집 작업은 새 필드를 추가하는 것으로 제한됩니다. 인덱스를 수정하지 않고 만들기 위해 마법사를 사용합니다. 자동 학습은 [포털 연습](search-get-started-portal.md)의 단계를 수행합니다.
 
 ### <a name="step-3-create-and-schedule-the-indexer"></a>3단계: 인덱서 만들기 및 예약
-인덱서 정의는 데이터 수집과 관련 된 모든 요소를 결합 하는 구문입니다. 필수 요소는 데이터 원본 및 인덱스를 포함 합니다. 선택적 요소는 일정 및 필드 매핑을 포함 합니다. 필드 매핑은 원본 필드와 인덱스 필드가 명확 하 게 일치 하는 경우에만 선택 사항입니다. 해당 데이터 원본이 동일한 구독에 있으면 인덱서도 다른 서비스에서 데이터 원본을 참조할 수 있습니다. 인덱서를 구성하는 방법에 대한 자세한 내용은 [인덱서 만들기(Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)를 참조하세요.
+인덱서 정의는 데이터 수집과 관련 된 모든 요소를 결합 하는 구문입니다. 필수 요소는 데이터 원본 및 인덱스를 포함 합니다. 선택적 요소는 일정 및 필드 매핑을 포함 합니다. 필드 매핑은 원본 필드와 인덱스 필드가 명확 하 게 일치 하는 경우에만 선택 사항입니다. 해당 데이터 원본이 동일한 구독에 있으면 인덱서도 다른 서비스에서 데이터 원본을 참조할 수 있습니다. 인덱서를 구조화 하는 방법에 대 한 자세한 내용은 [인덱서 만들기 (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)를 참조 하세요.
 
 <a id="RunIndexer"></a>
 
@@ -130,5 +130,5 @@ Azure Search의 *인덱서*는 외부 Azure 데이터 원본에서 검색 가능
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
-* [Azure Search Blob 인덱서를 사용하여 CSV Blob 인덱싱](search-howto-index-csv-blobs.md)
-* [Azure Search Blob 인덱서를 사용하여 JSON Blob 인덱싱](search-howto-index-json-blobs.md)
+* [Azure Cognitive Search Blob 인덱서를 사용 하 여 CSV blob 인덱싱](search-howto-index-csv-blobs.md)
+* [Azure Cognitive Search Blob 인덱서를 사용 하 여 JSON blob 인덱싱](search-howto-index-json-blobs.md)

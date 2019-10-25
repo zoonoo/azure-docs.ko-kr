@@ -1,5 +1,6 @@
 ---
-title: 페이지 다시 로드 방지 (JavaScript 용 Microsoft 인증 라이브러리) | Microsoft
+title: 페이지 다시 로드 방지 (JavaScript 용 Microsoft 인증 라이브러리)
+titleSuffix: Microsoft identity platform
 description: JavaScript 용 Microsoft Authentication Library (MSAL)를 사용 하 여 토큰을 자동으로 획득 하 고 갱신할 때 페이지 다시 로드를 방지 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,29 +18,29 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c382c78cf631def74272768b78ee489e49820d04
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 29edafdc27a3835653f82ec36d576a4871e66155
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532824"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803110"
 ---
 # <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>MSAL를 사용 하 여 토큰을 자동으로 획득 하 고 갱신할 때 페이지를 다시 로드 하지 않습니다.
-JavaScript 용 Microsoft Authentication Library (msal .js)는 숨겨진 `iframe` 요소를 사용 하 여 백그라운드에서 토큰을 자동으로 가져오고 갱신 합니다. Azure AD는 토큰 요청에 지정 된 등록 된 redirect_uri로 토큰을 다시 반환 합니다 (기본적으로 앱의 루트 페이지). 응답은 302 이므로 `redirect_uri` `iframe`에서 로드 되는에 해당 하는 HTML을 생성 합니다. 일반적으로 앱 `redirect_uri` 은 루트 페이지 이므로 다시 로드 됩니다.
+JavaScript 용 Microsoft Authentication Library (MSAL)는 숨겨진 `iframe` 요소를 사용 하 여 백그라운드에서 토큰을 자동으로 가져오고 갱신 합니다. Azure AD는 토큰 요청에 지정 된 등록 된 redirect_uri로 토큰을 다시 반환 합니다 (기본적으로 앱의 루트 페이지). 응답이 302 이므로 `iframe`에서 로드 `redirect_uri`에 해당 하는 HTML이 생성 됩니다. 일반적으로 앱의 `redirect_uri`는 루트 페이지 이므로 다시 로드 됩니다.
 
-다른 경우에는 앱의 루트 페이지로 이동 하는 데 인증이 필요한 경우 중첩 `iframe` 된 `X-Frame-Options: deny` 요소나 오류가 발생할 수 있습니다.
+다른 경우에는 응용 프로그램의 루트 페이지로 이동 하는 데 인증이 필요한 경우 중첩 된 `iframe` 요소나 `X-Frame-Options: deny` 오류가 발생할 수 있습니다.
 
-Msal는 Azure AD에서 발급 된 302를 해제할 수 없고 반환 된 토큰을 처리 하는 데 필요 하므로에서가 로드 `redirect_uri` `iframe`되는 것을 방지할 수 없습니다.
+MSAL는 Azure AD에서 발급 된 302를 해제할 수 없고 반환 된 토큰을 처리 하는 데 필요 하므로 `iframe`에서 `redirect_uri` 로드 되지 않도록 방지할 수 없습니다.
 
 전체 앱 다시 로드를 다시 로드 하지 않거나이로 인해 발생 하는 다른 오류가 발생 하지 않도록 하려면 다음 해결 방법을 따르세요.
 
 ## <a name="specify-different-html-for-the-iframe"></a>Iframe에 대해 다른 HTML 지정
 
-구성의 `redirect_uri` 속성을 인증을 요구 하지 않는 간단한 페이지로 설정 합니다. Azure Portal에 `redirect_uri` 등록 된와 일치 하는지 확인 해야 합니다. 이는 사용자의 로그인 환경에 영향을 주지 않습니다. MSAL은 사용자가 로그인 프로세스를 시작할 때 시작 페이지를 저장 하 고 로그인이 완료 된 후 정확한 위치로 다시 리디렉션됩니다.
+구성의 `redirect_uri` 속성을 인증이 필요 하지 않은 간단한 페이지로 설정 합니다. Azure Portal에 등록 된 `redirect_uri`와 일치 하는지 확인 해야 합니다. 이는 사용자의 로그인 환경에 영향을 주지 않습니다. MSAL은 사용자가 로그인 프로세스를 시작할 때 시작 페이지를 저장 하 고 로그인이 완료 된 후 정확한 위치로 다시 리디렉션됩니다.
 
 ## <a name="initialization-in-your-main-app-file"></a>주 앱 파일의 초기화
 
-앱의 초기화, 라우팅 및 기타 항목을 정의 하는 하나의 중앙 Javascript 파일이 있도록 앱이 구조화 된 경우 앱이에서 로드 `iframe` 되는지 여부에 따라 앱 모듈을 조건부로 로드할 수 있습니다. 예를 들어:
+앱의 초기화, 라우팅 및 기타 항목을 정의 하는 중앙 Javascript 파일이 하나 있도록 앱이 구조화 된 경우 앱이 `iframe` 로드 되는지 여부에 따라 앱 모듈을 조건부로 로드할 수 있습니다. 다음은 그 예입니다.
 
 AngularJS: node.js
 

@@ -1,5 +1,6 @@
 ---
-title: 키 집합 구성 | Microsoft id 플랫폼
+title: 키 집합 구성
+titleSuffix: Microsoft identity platform
 description: 앱이 키 집합에서 토큰을 캐시할 수 있도록 키 집합을 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46dc3a44041acd90dbab449215138eeecbda7105
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 69991d105ff3523310f54e65596f2f379b547052
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264187"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803796"
 ---
 # <a name="configure-keychain"></a>키 집합 구성
 
@@ -36,19 +37,19 @@ ms.locfileid: "72264187"
 
 IOS의 MSAL은 기본적으로 `com.microsoft.adalcache` 액세스 그룹을 사용 합니다. 이는 MSAL 및 Azure AD 인증 Library (ADAL) Sdk 둘 다에서 사용 되는 공유 액세스 그룹으로, 동일한 게시자의 여러 앱 간에 SSO (최고 Single Sign-On) 환경을 보장 합니다.
 
-IOS에서 XCode의 **프로젝트 설정**에서 앱의 자격에 `com.microsoft.adalcache`**키 집합 그룹** 을 추가 합니다. @no__t @no__t**기능은**
+IOS에서 XCode의 **프로젝트 설정** > **기능** 에서 앱 자격에 `com.microsoft.adalcache` 키 집합 그룹을 추가 > 키 **집합 공유**
 
 ### <a name="macos"></a>macOS
 
 MacOS의 MSAL은 기본적으로 `com.microsoft.identity.universalstorage` 액세스 그룹을 사용 합니다.
 
-MacOS 키 집합 제한으로 인해 MSAL의 `access group`은 macOS 10.14 및 이전 버전에서 키 집합 액세스 그룹 특성 ( [kSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)참조)으로 직접 변환 되지 않습니다. 그러나 동일한 Apple 개발자가 배포 하는 여러 응용 프로그램에서 자동 SSO를 사용할 수 있도록 하 여 SSO 관점과 유사 하 게 동작 합니다.
+MacOS 키 집합 제한으로 인해 MSAL의 `access group`는 macOS 10.14 및 이전 버전에서 키 집합 액세스 그룹 특성 ( [kSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)참조)으로 직접 변환 되지 않습니다. 그러나 동일한 Apple 개발자가 배포 하는 여러 응용 프로그램에서 자동 SSO를 사용할 수 있도록 하 여 SSO 관점과 유사 하 게 동작 합니다.
 
 MacOS 10.15 이상 (macOS Catalina.properties)에서 MSAL은 키 집합 액세스 그룹 특성을 사용 하 여 iOS와 비슷하게 자동 SSO를 구현 합니다.
 
 ## <a name="custom-keychain-access-group"></a>사용자 지정 키 집합 액세스 그룹
 
-다른 키 집합 액세스 그룹을 사용 하려는 경우-1 @no__t 만들기 전에 `MSALPublicClientApplicationConfig`을 만들 때 사용자 지정 그룹을 전달할 수 있습니다. 예를 들면 다음과 같습니다.
+다른 키 집합 액세스 그룹을 사용 하려는 경우 다음과 같이 `MSALPublicClientApplication`를 만들기 전에 `MSALPublicClientApplicationConfig` 만들 때 사용자 지정 그룹을 전달할 수 있습니다.
 
 Objective-C:
 

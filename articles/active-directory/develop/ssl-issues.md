@@ -1,5 +1,6 @@
 ---
-title: 목적-C 문제에 대 한 MSAL 문제 해결 | Microsoft id 플랫폼
+title: 목표에 대 한 MSAL 문제 해결-C 문제
+titleSuffix: Microsoft identity platform
 description: MSAL을 사용 하 여 SSL 인증서를 사용 하는 다양 한 문제에 대해 알아봅니다. 목표-C 라이브러리입니다.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +18,14 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76892686beec8ea18d56166519353fb5a2495124
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: fc918502cd252b4e53af8bcbd209a8387ef4d8c2
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268909"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803658"
 ---
-# <a name="how-to-troubleshoot-msal-for-ios-and-macos-ssl-issues"></a>방법: IOS 및 macOS SSL 문제에 대 한 MSAL 문제 해결
+# <a name="how-to-troubleshoot-msal-for-ios-and-macos-ssl-issues"></a>방법: iOS 및 macOS SSL 문제에 대 한 MSAL 문제 해결
 
 이 문서에서는 [iOS 및 macOS 용 MSAL (Microsoft 인증 라이브러리)](reference-v2-libraries.md) 을 사용 하는 동안 발생할 수 있는 문제를 해결 하는 데 도움이 되는 정보를 제공 합니다.
 
@@ -32,7 +33,7 @@ ms.locfileid: "71268909"
 
 **오류-1200**: "SSL 오류가 발생 하 여 서버에 대 한 보안 연결을 만들 수 없습니다."
 
-이 오류는 연결이 안전 하지 않음을 의미 합니다. 인증서가 유효 하지 않은 경우에 발생 합니다. SSL 검사가 실패 하는 서버를 포함 하 여 자세한 내용은 error 개체의 `NSURLErrorFailingURLErrorKey` `userInfo` 사전에서을 참조 하세요.
+이 오류는 연결이 안전 하지 않음을 의미 합니다. 인증서가 유효 하지 않은 경우에 발생 합니다. SSL 검사가 실패 하는 서버를 포함 하 여 자세한 내용은 오류 개체의 `userInfo` 사전에서 `NSURLErrorFailingURLErrorKey`를 참조 하세요.
 
 이 오류는 Apple의 네트워킹 라이브러리에 있습니다. NSURL 오류 코드의 전체 목록은 macOS 및 iOS Sdk의 NSURLError에 있습니다. 이 오류에 대 한 자세한 내용은 [URL 로딩 시스템 오류 코드](https://developer.apple.com/documentation/foundation/1508628-url_loading_system_error_codes?language=objc)를 참조 하세요.
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 77d900844705bb86ce4bcfeda31d6ee765cb8d45
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 8b74621f2c5a9c91ece58c8118cd2bc952c3a464
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534999"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809705"
 ---
 # <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>자습서: Azure IoT Hub 메시지 강화 사용 (미리 보기)
 
@@ -30,7 +30,7 @@ ms.locfileid: "69534999"
 > * 허브로 메시지를 보내는 IoT 장치를 시뮬레이트하는 앱을 실행 합니다.
 > * 결과를 확인 하 고 강화 메시지가 정상적으로 작동 하는지 확인 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독이 있어야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -65,18 +65,18 @@ Azure CLI 스크립트는 필요한 리소스를 만드는 것 외에도 별도�
 
 몇 가지 리소스 이름(예: IoT Hub 이름 및 스토리지 계정 이름)은 전역적으로 고유해야 합니다. 스크립트를 더 쉽게 실행 하기 위해 이러한 리소스 이름에는 *randomValue*라는 임의의 영숫자 값이 추가 됩니다. randomValue는 스크립트의 맨 위에 한 번 생성되고 전체 스크립트에서 필요에 따라 리소스에 추가됩니다. 임의로 설정하지 않으려면 빈 문자열이나 특정 값으로 설정할 수 있습니다.
 
-아직 수행 하지 않은 경우 [Bash .에 대 한 Cloud Shell 창을](https://shell.azure.com)엽니다. 압축을 푼 리포지토리에서 스크립트를 열고 Ctrl + A를 사용 하 여 모두 선택한 다음 Ctrl + C를 눌러 복사 합니다. 또는 다음 CLI 스크립트를 복사 하거나 cloud shell에서 직접 열 수 있습니다. 명령줄을 마우스 오른쪽 단추로 클릭 하 고 **붙여넣기**를 선택 하 여 Azure cloud shell 창에 스크립트를 붙여 넣습니다. 스크립트는 한 번에 하나의 문으로 실행 됩니다. 스크립트가 실행을 중지 한 후 **Enter 키** 를 선택 하 여 마지막 명령이 실행 되는지 확인 합니다. 다음 코드 블록은 수행 되는 작업을 설명 하는 주석으로 사용 되는 스크립트를 보여 줍니다.
+아직 수행 하지 않은 경우 [Cloud Shell 창을](https://shell.azure.com) 열고 Bash로 설정 되었는지 확인 합니다. 압축을 푼 리포지토리에서 스크립트를 열고 Ctrl + A를 사용 하 여 모두 선택한 다음 Ctrl + C를 눌러 복사 합니다. 또는 다음 CLI 스크립트를 복사 하거나 Cloud Shell에서 직접 열 수 있습니다. 명령줄을 마우스 오른쪽 단추로 클릭 하 고 **붙여넣기**를 선택 하 여 Cloud Shell 창에 스크립트를 붙여 넣습니다. 스크립트는 한 번에 하나의 문으로 실행 됩니다. 스크립트가 실행을 중지 한 후 **Enter 키** 를 선택 하 여 마지막 명령이 실행 되는지 확인 합니다. 다음 코드 블록은 수행 되는 작업을 설명 하는 주석으로 사용 되는 스크립트를 보여 줍니다.
 
 스크립트에서 만든 리소스는 다음과 같습니다. **보강** 는 강화가 포함 된 메시지에 대 한 리소스 임을 의미 합니다. **원래** 는 보강 되지 않은 메시지에 대 한 리소스 임을 의미 합니다.
 
-| 이름 | 값 |
+| name | Value |
 |-----|-----|
-| 리소스 그룹 | ContosoResourcesMsgEn |
+| resourceGroup | ContosoResourcesMsgEn |
 | 컨테이너 이름 | 원문 언어  |
 | 컨테이너 이름 | 보강  |
 | IoT 장치 이름 | Contoso-테스트-장치 |
 | IoT Hub 이름 | ContosoTestHubMsgEn |
-| 저장소 계정 이름 | contosostorage |
+| 저장소 계정 이름 | : contosostorage |
 | 끝점 이름 1 | ContosoStorageEndpointOriginal |
 | 끝점 이름 2 | ContosoStorageEndpointEnriched|
 | 경로 이름 1 | ContosoStorageRouteOriginal |
@@ -168,10 +168,10 @@ az iot hub device-identity show --device-id $iotDeviceName \
 ##### ROUTING FOR STORAGE #####
 
 # You're going to have two routes and two endpoints.
-# One points to container1 in the storage account
-#   and includes all messages.
-# The other points to container2 in the same storage account
-#   and only includes enriched messages.
+# One route points to the first container ("original") in the storage account
+#   and includes the original messages.
+# The other points to the second container ("enriched") in the same storage account
+#   and includes the enriched versions of the messages.
 
 endpointType="azurestoragecontainer"
 endpointName1="ContosoStorageEndpointOriginal"
@@ -190,7 +190,7 @@ storageConnectionString=$(az storage account show-connection-string \
 # Create the routing endpoints and routes.
 # Set the encoding format to either avro or json.
 
-# This is the endpoint for container 1, for endpoint messages that are not enriched.
+# This is the endpoint for the first container, for endpoint messages that are not enriched.
 az iot hub routing-endpoint create \
   --connection-string $storageConnectionString \
   --endpoint-name $endpointName1 \
@@ -202,7 +202,7 @@ az iot hub routing-endpoint create \
   --resource-group $resourceGroup \
   --encoding json
 
-# This is the endpoint for container 2, for endpoint messages that are enriched.
+# This is the endpoint for the second container, for endpoint messages that are enriched.
 az iot hub routing-endpoint create \
   --connection-string $storageConnectionString \
   --endpoint-name $endpointName2 \
@@ -225,7 +225,8 @@ az iot hub route create \
   --enabled \
   --condition $condition
 
-# This is the route for messages that are not enriched.
+# This is the route for messages that are enriched.
+# Create the route for the second storage endpoint.
 az iot hub route create \
   --name $routeName2 \
   --hub-name $iotHubName \
@@ -240,7 +241,7 @@ az iot hub route create \
 
 ### <a name="view-routing-and-configure-the-message-enrichments"></a>라우팅 보기 및 메시지 강화 구성
 
-1. **리소스 그룹**을 선택 하 여 IoT Hub으로 이동한 다음이 자습서에 대해 설정 된 리소스 그룹을 선택 합니다 (**ContosoResources_MsgEn**). 목록에서 IoT Hub을 찾아 선택 합니다. Iot Hub에 대 한 *메시지 라우팅* 을 선택 합니다.
+1. **리소스 그룹**을 선택 하 여 IoT Hub으로 이동한 다음이 자습서에 대해 설정 된 리소스 그룹을 선택 합니다 (**ContosoResources_MsgEn**). 목록에서 IoT Hub을 찾아 선택 합니다. Iot Hub에 대 한 **메시지 라우팅** 을 선택 합니다.
 
    ![메시지 라우팅 선택](./media/tutorial-message-enrichments/select-iot-hub.png)
 
@@ -250,11 +251,11 @@ az iot hub route create \
 
 2. 이러한 값을 ContosoStorageEndpointEnriched 끝점 목록에 추가 합니다.
 
-   | 이름 | 값 | 끝점 (드롭다운 목록) |
+   | name | Value | 끝점 (드롭다운 목록) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
-   | Msds-devicelocation | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |
-   |customerID | 6ce345b8-1e4a-411e-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
+   | Msds-devicelocation | $twin. tags. location | AzureStorageContainers > ContosoStorageEndpointEnriched |
+   |CustomerID | 6ce345b8-1e4a-411e-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
 
    > [!NOTE]
    > 장치에 쌍이 없는 경우 여기에 입력 하는 값은 메시지 강화의 값에 대 한 문자열로 기록 됩니다. 장치 쌍 정보를 보려면 포털에서 허브로 이동한 다음 **IoT 장치**를 선택 하 고 장치를 선택한 다음 페이지 맨 위에 있는 **장치** 쌍을 선택 합니다.
@@ -273,27 +274,27 @@ az iot hub route create \
 
 * 저장소 끝점 ContosoStorageEndpointOriginal로 라우팅되는 메시지는 보강 되지 않으며 저장소 컨테이너 `original`에 저장 됩니다.
 
-* 저장소 끝점 ContosoStorageEndpointEnriched로 라우팅되는 메시지는 보강 되 고 저장소 컨테이너 `enriched`에 저장 됩니다.
+* 저장소 끝점 ContosoStorageEndpointEnriched로 라우팅되는 메시지는 보강 되 고 저장소 컨테이너 `enriched`저장 됩니다.
 
 시뮬레이션 된 장치 응용 프로그램은 압축을 푼 다운로드의 응용 프로그램 중 하나입니다. 응용 프로그램은 [라우팅 자습서](tutorial-routing.md)의 여러 메시지 라우팅 메서드에 대해 메시지를 보냅니다. 여기에는 Azure Storage 포함 됩니다.
 
-솔루션 파일(IoT_SimulatedDevice.sln)을 두 번 클릭하여 Visual Studio에서 코드를 연 다음, Program.cs를 엽니다. IoT `{your hub name}` hub 이름으로 대체 합니다. IoT hub 호스트 이름의 형식은 **{your hub name}. azure-devices.net**입니다. 이 자습서에서는 허브 호스트 이름이 **ContosoTestHubMsgEn.azure-devices.net**입니다. 그런 다음, `{device key}` 스크립트를 실행 하 여 리소스를 만들 때 이전에 저장 한 장치 키로 대체 합니다.
+솔루션 파일(IoT_SimulatedDevice.sln)을 두 번 클릭하여 Visual Studio에서 코드를 연 다음, Program.cs를 엽니다. 마커 `{your hub name}`의 IoT hub 이름을 대체 합니다. IoT hub 호스트 이름의 형식은 **{your hub name}. azure-devices.net**입니다. 이 자습서에서는 허브 호스트 이름이 **ContosoTestHubMsgEn.azure-devices.net**입니다. 그런 다음, 스크립트를 실행 하 여 이전에 저장 한 장치 키를 대체 하 여 `{your device key}`표식을 위한 리소스를 만듭니다.
 
 장치 키가 없는 경우 포털에서 검색할 수 있습니다. 로그인 한 후 **리소스 그룹**으로 이동 하 여 리소스 그룹을 선택한 다음 IoT Hub를 선택 합니다. **IoT 장치** 에서 테스트 장치를 확인 하 고 장치를 선택 합니다. **기본 키** 옆의 복사 아이콘을 선택 하 여 클립보드에 복사 합니다.
 
    ```csharp
-        static string myDeviceId = "contoso-test-device";
-        static string iotHubUri = "ContosoTestHubMsgEn.azure-devices.net";
+        private readonly static string s_myDeviceId = "Contoso-Test-Device";
+        private readonly static string s_iotHubUri = "ContosoTestHubMsgEn.azure-devices.net";
         // This is the primary key for the device. This is in the portal.
         // Find your IoT hub in the portal > IoT devices > select your device > copy the key.
-        static string deviceKey = "{your device key here}";
+        private readonly static string s_deviceKey = "{your device key}";
    ```
 
 ## <a name="run-and-test"></a>실행 및 테스트
 
 콘솔 애플리케이션을 실행합니다. 잠시 기다립니다. 전송 되는 메시지는 응용 프로그램의 콘솔 화면에 표시 됩니다.
 
-앱은 1초마다 새로운 디바이스-클라우드 메시지를 IoT Hub에 보냅니다. 메시지에는 디바이스 ID, 온도, 습도 및 메시지 수준(기본값이 `normal`)과 함께 JSON 직렬화된 개체가 포함됩니다. `critical` 또는`storage`의 수준을 임의로 할당 하 여 메시지가 저장소 계정 또는 기본 끝점으로 라우팅됩니다. 저장소 계정의 **보강** 컨테이너로 전송 되는 메시지는 보강 됩니다.
+앱은 1초마다 새로운 디바이스-클라우드 메시지를 IoT Hub에 보냅니다. 메시지에는 디바이스 ID, 온도, 습도 및 메시지 수준(기본값이 `normal`)과 함께 JSON 직렬화된 개체가 포함됩니다. `critical` 또는 `storage`수준을 임의로 할당 하 여 메시지가 저장소 계정 또는 기본 끝점으로 라우팅됩니다. 저장소 계정의 **보강** 컨테이너로 전송 되는 메시지는 보강 됩니다.
 
 몇 개의 저장소 메시지를 보낸 후에는 데이터를 봅니다.
 
@@ -309,13 +310,13 @@ az iot hub route create \
 
 **보강** 라는 컨테이너의 메시지에는 메시지에 포함 된 강화 메시지가 있습니다. **원본** 이라는 컨테이너의 메시지에는 강화가 없는 원시 메시지가 있습니다. 아래쪽으로 이동 하 여 가장 최근의 메시지 파일을 열 때까지 컨테이너 중 하나로 드릴 다운 한 다음 다른 컨테이너에 대해 동일한 작업을 수행 하 여 해당 컨테이너의 메시지에 강화 추가 되지 않았는지 확인 합니다.
 
-보강 된 메시지를 살펴보면 다음과 같이 허브 이름 뿐만 아니라 위치 및 고객 ID를 포함 하는 "My IoT Hub"가 표시 되어야 합니다.
+보강 된 메시지를 살펴보면 다음과 같이 허브 이름 뿐만 아니라 위치 및 고객 ID를 포함 하는 "my IoT Hub"가 표시 되어야 합니다.
 
 ```json
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage","my IoT Hub":"contosotesthubmsgen3276","devicelocation":"$twin.tags.location","customerID":"6ce345b8-1e4a-411e-9398-d34587459a3a"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
 ```
 
-Unenriched 메시지는 다음과 같습니다. "My IoT Hub", "devicelocation" 및 "customerID"는이 끝점에 강화 없으므로 여기에 표시 되지 않습니다.
+Unenriched 메시지는 다음과 같습니다. "my IoT Hub", "devicelocation" 및 "customerID"는 강화에서 추가 하는 필드이 고이 끝점에 강화가 없으므로 여기에 표시 되지 않습니다.
 
 ```json
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}

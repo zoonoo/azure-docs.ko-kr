@@ -1,5 +1,6 @@
 ---
-title: 인증 흐름 (Microsoft 인증 라이브러리) | Microsoft
+title: 인증 흐름 (Microsoft 인증 라이브러리)
+titleSuffix: Microsoft identity platform
 description: MSAL (Microsoft 인증 라이브러리)에서 사용 하는 인증 흐름 및 부여에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d41e011fd58c20cbe6d2dc8d9029e645f8851bd9
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: ea47981fedf7f002dbbd94a0f10d92759d166694
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513022"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803302"
 ---
 # <a name="authentication-flows"></a>인증 흐름
 
