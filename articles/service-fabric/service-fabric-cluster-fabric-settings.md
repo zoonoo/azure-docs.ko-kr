@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: 71f2b111c0291bc9563b12a1cdbd88ea7e9f5b5b
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e361ba4c7275a783b9211def5047a5a755f5a8b8
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376132"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882010"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -88,7 +88,7 @@ ms.locfileid: "72376132"
 |MaxDataMigrationTimeout |time(초), 기본값: 600 |않는|시간 간격은 초 단위로 지정합니다. 패브릭 업그레이드를 수행한 이후 데이터 마이그레이션 복구 작업에 대한 최대 시간 제한입니다. |
 |MaxOperationRetryDelay |time(초), 기본값: 5|않는| 시간 간격은 초 단위로 지정합니다. 오류가 발생하는 경우 내부 다시 시도에 대한 최대 지연 시간입니다. |
 |MaxOperationTimeout |time(초), 기본값: MaxValue |않는| 시간 간격은 초 단위로 지정합니다. ClusterManager에서 내부적으로 작업을 처리하기 위한 최대 전역 시간 제한입니다. |
-|MaxTimeoutRetryBuffer | time(초), 기본값: 600 |않는|시간 간격은 초 단위로 지정합니다. 시간 제한으로 인해 내부적으로 재시도 하는 최대 작업 시간 제한은-0 @no__t입니다. 추가 시간 제한은 MinOperationTimeout 증분 단위로 추가됩니다. |
+|MaxTimeoutRetryBuffer | time(초), 기본값: 600 |않는|시간 간격은 초 단위로 지정합니다. 시간 제한으로 인해 내부적으로 재시도 하는 최대 작업 시간 제한은 `<Original Time out> + <MaxTimeoutRetryBuffer>`입니다. 추가 시간 제한은 MinOperationTimeout 증분 단위로 추가됩니다. |
 |MinOperationTimeout | 시간(초), 기본값: 60 |않는|시간 간격은 초 단위로 지정합니다. ClusterManager에서 내부적으로 작업을 처리하기 위한 최소 전역 시간 제한입니다. |
 |MinReplicaSetSize |int, 기본값: 3 |허용되지 않음|ClusterManager의 MinReplicaSetSize입니다. |
 |PlacementConstraints | string, 기본값: "" |허용되지 않음|ClusterManager의 PlacementConstraints입니다. |
@@ -185,6 +185,9 @@ ms.locfileid: "72376132"
 |EnableRestartManagement |bool, 기본값: false |않는|서버를 다시 시작하도록 설정합니다. |
 |EnableServiceFabricAutomaticUpdates |bool, 기본값: false |않는|Windows 업데이트를 통해 패브릭을 자동으로 업데이트하도록 설정합니다. |
 |EnableServiceFabricBaseUpgrade |bool, 기본값: false |않는|서버에 대한 기본 업데이트를 사용하도록 설정합니다. |
+|FailureReportingExpeditedReportingIntervalEnabled | bool, 기본값: true | 공용 | FabricHost가 오류 보고 모드에 있을 때 DCA의 업로드 속도를 빠르게 할 수 있습니다. |
+|FailureReportingTimeout | TimeSpan, 기본값: Common::TimeSpan::FromSeconds(60) | 공용 |시간 간격은 초 단위로 지정합니다. 초기 단계 시작 실패가 발생 한 경우에는 DCA 실패 보고에 대 한 시간 제한이 FabricHost. | 
+|RunDCAOnStartupFailure | bool, 기본값: true | 공용 |FabricHost에서 시작 문제를 발생 시킬 때 로그를 업로드 하는 DCA를 시작할지 여부를 결정 합니다. | 
 |StartTimeout |시간(초), 기본값: 300 |않는|시간 간격은 초 단위로 지정합니다. fabricactivationmanager 시작에 대한 시간 제한입니다. |
 |StopTimeout |시간(초), 기본값: 300 |않는|시간 간격은 초 단위로 지정합니다. 호스티드 서비스 활성화, 비활성화 및 업그레이드에 대한 시간 제한 |
 
@@ -279,7 +282,7 @@ ms.locfileid: "72376132"
 |DiskSpaceHealthReportingIntervalWhenCloseToOutOfDiskSpace |TimeSpan, 기본값: Common:: TimeSpan:: FromMinutes (5)|않는|시간 간격은 초 단위로 지정합니다. 디스크 공간이 부족 한 경우 보고 상태 이벤트를 보고 하는 디스크 공간을 확인 하는 시간 간격입니다. |
 |DiskSpaceHealthReportingIntervalWhenEnoughDiskSpace |TimeSpan, 기본값: Common::TimeSpan::FromMinutes(15)|않는|시간 간격은 초 단위로 지정합니다. 디스크 공간이 충분 한 경우 보고 상태 이벤트에 대 한 디스크 공간 검사 사이의 시간 간격입니다. |
 |EnableImageStoreHealthReporting |bool, 기본값: TRUE |공용|파일 저장소 서비스가 상태를 보고 해야 하는지 여부를 결정 하는 구성입니다. |
-|FreeDiskSpaceNotificationSizeInKB|int64, 기본값은 25 @ no__t-01024 |않는|상태 경고가 발생할 수 있는 사용 가능한 디스크 공간의 크기입니다. 이 구성 및 FreeDiskSpaceNotificationThresholdPercentage config의 최소값은 상태 경고의 전송을 결정 하는 데 사용 됩니다. |
+|FreeDiskSpaceNotificationSizeInKB|int64, 기본값은 25\*1024 |않는|상태 경고가 발생할 수 있는 사용 가능한 디스크 공간의 크기입니다. 이 구성 및 FreeDiskSpaceNotificationThresholdPercentage config의 최소값은 상태 경고의 전송을 결정 하는 데 사용 됩니다. |
 |FreeDiskSpaceNotificationThresholdPercentage|double, 기본값은 0.02입니다. |않는|상태 경고가 발생할 수 있는 사용 가능한 디스크 공간의 비율입니다. 이 구성 및 FreeDiskSpaceNotificationInMB config의 최소값은 상태 경고의 전송 상태를 확인 하는 데 사용 됩니다. |
 |GenerateV1CommonNameAccount| bool, 기본값: TRUE|공용|사용자 이름 V1 생성 알고리즘을 사용하여 계정을 생성할지 여부를 지정합니다. Service Fabric 버전 6.1부터 v2 생성으로 계정이 항상 생성됩니다. V1 계정은 V2 생성을 지원하지 않는 버전(6.1 이전)에서 업그레이드하거나 이 버전으로 업그레이드할 때 필요합니다.|
 |MaxCopyOperationThreads | uint, 기본값: 0 |않는| 보조 저장소에서 기본 저장소로부터 복사할 수 있는 최대 병렬 파일 수. '0'은 코어 수와 동등합니다. |
@@ -353,6 +356,7 @@ ms.locfileid: "72376132"
 |DeploymentRetryBackoffInterval| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(10)|않는|시간 간격은 초 단위로 지정합니다. 배포 실패에 대한 백오프 간격입니다. 모든 연속 배포 실패에서 시스템은 최대 MaxDeploymentFailureCount회까지 배포를 다시 시도합니다. 다시 시도 간격은 연속 배포 실패와 배포 백오프 간격의 곱입니다. |
 |DisableContainers|bool, 기본값: FALSE|공용|컨테이너를 사용하지 않도록 설정하기 위한 구성 - 더 이상 사용되지 않는 DisableContainerServiceStartOnContainerActivatorOpen 구성 대신 사용됩니다. |
 |DisableDockerRequestRetry|bool, 기본값: FALSE |않는| 기본적으로 SF는 전송되는 각 http 요청에 대해 시간 제한 'DockerRequestTimeout' 동안 DD(docker 디먼)와 통신합니다. 이 기간 내에 DD가 응답하지 않으면 SF는 최상위 작업 시간이 아직 남아 있는 경우 요청을 다시 전송합니다.  hyperv 컨테이너 사용 시에는 DD가 컨테이너를 불러오거나 비활성화하는 데 시간이 훨씬 더 많이 걸릴 수도 있습니다. 이러한 경우 SF 측면에서 DD 요청의 시간이 초과되며, SF는 작업을 다시 시도합니다. 이로 인해 DD의 부담이 가중될 수도 있습니다. 이 구성을 사용하면 작업을 다시 시도하지 않도록 설정하고 DD가 응답할 때까지 기다릴 수 있습니다. |
+|DnsServerListTwoIps | Bool, 기본값: FALSE | 공용 | 이 플래그는 일시적인 문제 해결을 위해 로컬 dns 서버를 두 번 추가 합니다. |
 |EnableActivateNoWindow| bool, 기본값: FALSE|않는| 활성화된 프로세스가 콘솔 없이 백그라운드에서 만들어집니다. |
 |EnableContainerServiceDebugMode|bool, 기본값: TRUE|공용|Docker 컨테이너에 대한 로깅을 사용/사용하지 않도록 설정합니다.  Windows만 해당됩니다.|
 |EnableDockerHealthCheckIntegration|bool, 기본값: TRUE|공용|Docker HealthCheck 이벤트를 Service Fabric 시스템 상태 보고서와 통합할 수 있도록 합니다. |
@@ -645,7 +649,7 @@ ms.locfileid: "72376132"
 ## <a name="security"></a>보안
 | **매개 변수** | **허용되는 값** |**업그레이드 정책**| **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-|AADCertEndpointFormat|string, 기본값: ""|공용|"Https: \//@no__t microsoftonline/federationmetadata.xml/2007-06/federationmetadata.xml" Azure Government와 같은 기본 환경이 아닌 환경에 대해 지정 된 AAD 인증서 끝점 형식으로, 기본 Azure 상용입니다. |
+|AADCertEndpointFormat|string, 기본값: ""|공용|AAD 인증서 끝점 형식, 기본 Azure 상용, Azure Government "https:\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml"와 같은 기본 환경이 아닌 환경에 대해 지정 됨 |
 |AADClientApplication|string, 기본값: ""|공용|Fabric 클라이언트를 나타내는 Native Client 애플리케이션 이름 또는 ID |
 |AADClusterApplication|string, 기본값: ""|공용|클러스터를 나타내는 Web API 애플리케이션 이름 또는 ID |
 |AADLoginEndpoint|string, 기본값: ""|공용|기본 Azure 상용 인 AAD 로그인 끝점은 기본이 아닌 환경 (예: Azure Government "https: \//microsoftonline")에 대해 지정 됩니다. |

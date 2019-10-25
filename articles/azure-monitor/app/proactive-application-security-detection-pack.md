@@ -1,23 +1,18 @@
 ---
 title: 스마트 검색 - Azure Application Insights의 보안 검색 팩 | Microsoft Docs
 description: Azure Application Insights를 사용하여 애플리케이션의 잠재적 보안 문제를 모니터링합니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 12/12/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 90d58d1b22e893e922aa0f3770198fc95f539419
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/12/2017
+ms.openlocfilehash: 10c8a38af9e4f04b874bfa75e9e78d241b093117
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64572895"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820656"
 ---
 # <a name="application-security-detection-pack-preview"></a>애플리케이션 보안 검색 팩(미리 보기)
 
@@ -25,11 +20,11 @@ Application Insights는 애플리케이션에서 생성한 원격 분석을 자�
 
 이 기능을 사용하려면 [원격 분석을 보내도록 앱을 구성](https://docs.microsoft.com/azure/application-insights/app-insights-usage-overview)하는 것 외에 특별한 설정이 필요하지 않습니다.
 
-## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>이 유형의 스마트 검색 알림은 언제 받게 되나요?
+## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>이 형식의 스마트 검색 알림은 언제 받게 되나요?
 다음과 같은 세 가지 유형의 보안 문제가 검색됩니다.
 1. 안전하지 않은 URL 액세스: 애플리케이션의 URL이 HTTP와 HTTPS 모두를 통해 액세스됩니다. HTTPS 요청을 허용하는 URL은 HTTP 요청을 허용하지 않는 것이 통례이므로, 이는 애플리케이션의 버그나 보안 문제를 나타낼 수 있습니다.
 2. 안전하지 않은 양식: 애플리케이션의 양식(또는 기타 “POST” 요청)을 HTTPS 대신 HTTP를 사용합니다. HTTP를 사용하면 양식으로 보낸 사용자 데이터가 손상될 수 있습니다.
-3. 의심 스러운 사용자 활동: 응용 프로그램 액세스 되는지 여러 국가/지역에서 동일한 사용자가 거의 같은 시간입니다. 예를 들어 같은 사용자가 같은 시간 내에 스페인과 미국에서 애플리케이션에 액세스했습니다. 이 검색은 악의적일 가능성이 있는 애플리케이션 액세스 시도를 나타냅니다.
+3. 의심 스러운 사용자 활동: 한 번에 동일한 사용자가 여러 국가/지역에서 응용 프로그램에 액세스 하 고 있습니다. 예를 들어 같은 사용자가 같은 시간 내에 스페인과 미국에서 애플리케이션에 액세스했습니다. 이 검색은 악의적일 가능성이 있는 애플리케이션 액세스 시도를 나타냅니다.
 
 ## <a name="does-my-app-definitely-have-a-security-issue"></a>내 앱에 확실히 보안 문제가 있나요?
 아니요, 알림이 제공된다고 해서 앱에 반드시 보안 문제가 있는 것은 아닙니다. 위 시나리오의 검색은 많은 경우 보안 문제를 나타낼 수 있지만, 합당한 비즈니스 근거가 있을 수 있으며 무시해도 됩니다.
@@ -46,5 +41,5 @@ Application Insights는 애플리케이션에서 생성한 원격 분석을 자�
 
 ## <a name="how-do-i-fix-the-suspicious-user-activity-detection"></a>“의심스러운 사용자 활동” 검색을 해결하려면 어떻게 하나요?
 1. **심사.** 이 알림은 의심스러운 동작을 수행한 서로 다른 사용자의 수를 제공합니다. 문제에 우선 순위를 할당하는 데 도움이 될 수 있습니다.
-2. **범위.** 어떤 국가/지역에서 의심 스러운 요청이 시작 하지 못했습니다? 가장 의심스러운 사용자는 누구였나요? 이 정보는 알림에서 얻을 수 있습니다.
-3. **진단.** 검색에는 의심 스러운 사용자 목록 및 문제를 자세히 진단 하는 데 각 사용자에 대 한 국가/지역 목록을 제공 합니다.
+2. **범위.** 의심 스러운 요청이 발생 하는 국가/지역은 어디 인가요? 가장 의심스러운 사용자는 누구였나요? 이 정보는 알림에서 얻을 수 있습니다.
+3. **진단.** 검색은 의심 스러운 사용자 목록과 각 사용자에 대 한 국가/지역 목록을 제공 하 여 문제를 추가로 진단 하는 데 도움을 줍니다.

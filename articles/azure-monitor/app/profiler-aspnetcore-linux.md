@@ -1,23 +1,19 @@
 ---
 title: Application Insights Profiler를 사용하여 ASP.NET Core Azure Linux 웹앱 프로파일링 | Microsoft Docs
 description: Application Insights Profiler를 사용하는 방법에 대한 개념 개요 및 단계별 자습서입니다.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.reviewer: mbullwin
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 02/23/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 35789cc1e516fb24d5e985e12b44fe3cd01b795d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 02/23/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: a300aa066bdef40c4768ac5e278537aec1a8b3b7
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306537"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820543"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Application Insights Profiler를 사용하여 ASP.NET Core Azure Linux 웹앱 프로파일링
 
@@ -29,7 +25,7 @@ ms.locfileid: "60306537"
 
 ![Profiler 추적](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 다음 지침은 모든 Windows, Linux 및 Mac 개발 환경에 적용됩니다.
 
 * [.NET Core SDK 2.1.2 이상](https://dotnet.microsoft.com/download/archives)을 설치합니다.
@@ -53,7 +49,7 @@ ms.locfileid: "60306537"
     dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
 
-1. Program.cs에서 Application Insights를 사용 합니다.
+1. Program.cs에서 Application Insights를 사용 하도록 설정 합니다.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -176,8 +172,8 @@ ms.locfileid: "60306537"
 
 ## <a name="known-issues"></a>알려진 문제
 
-### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>Linux Profiler에 대 한 프로필 지금은 단추가 작동 하지 않습니다.
-프로 파일링 이제 프로필을 사용 하 여 단추 주문형 App Insights profiler Linux 버전이 아직 지원 하지 않습니다.
+### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>Linux Profiler에 대해 지금 프로 파일링 단추가 작동 하지 않음
+Linux 버전의 App Insights profiler는 지금 프로필 단추를 사용 하 여 요청 시 프로 파일링을 아직 지원 하지 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

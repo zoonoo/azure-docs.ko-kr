@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 보고서를 사용하여 로그인 오류 문제를 해결하는 방법 | Microsoft Docs
+title: 로그인 오류 보고서 문제를 해결 하는 방법 | Microsoft Docs
 description: Azure Portal에서 Azure Active Directory 보고서를 사용하여 로그인 오류 문제를 해결하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c901395436c8ed660c50b7342a804143d57db3c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 692fd2034fb70feffe02320eea5cdb9a3d163475
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988179"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819702"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>방법: Azure Active Directory 보고서를 사용하여 로그인 오류 문제 해결
 
@@ -32,20 +32,20 @@ Azure AD(Azure Active Directory)의 [ 로그인 보고서](concept-sign-ins.md)�
 
 또한 로그인 보고서는 조직의 사용자에 대한 로그인 실패 문제를 해결하는 데 도움이 될 수 있습니다. 이 가이드에서는 로그인 보고서에서 로그인 실패를 격리하고, 이를 사용하여 실패의 근본 원인을 파악하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 다음 작업을 수행해야 합니다.
 
-* 프리미엄(P1/P2) 라이선스가 있는 Azure AD 테넌트 [Azure Active Directory Premium 시작하기](../fundamentals/active-directory-get-started-premium.md)를 참조하여 Azure Active Directory 버전을 업그레이드하세요.
+* 프리미엄(P1/P2) 라이선스가 있는 Azure AD 테넌트 Azure Active Directory 버전을 업그레이드 하려면 [Azure Active Directory Premium 시작](../fundamentals/active-directory-get-started-premium.md) 을 참조 하세요.
 * **전역 관리자**, **보안 관리자**, **보안 읽기 권한자**또는 테 넌 트에 대 한 **보고서 읽기 권한자** 역할을 하는 사용자입니다. 또한 모든 사용자는 고유한 로그인에 액세스할 수 있습니다. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>로그인 보고서를 사용하여 로그인 오류 문제 해결
 
 1. [Azure Portal](https://portal.azure.com)로 이동하고 디렉터리를 선택합니다.
 2. **모니터링** 섹션에서 **Azure Active Directory**를 선택하고, **로그인**을 선택합니다. 
-3. 제공된 필터를 사용하여 사용자 이름 또는 개체 식별자, 애플리케이션 이름 또는 날짜에 따라 오류를 좁힐 수 있습니다. 또한 **상태** 드롭다운에서 실패 를 선택 하 여 실패 한 로그인만 표시 합니다. 
+3. 제공된 필터를 사용하여 사용자 이름 또는 개체 식별자, 애플리케이션 이름 또는 날짜에 따라 오류를 좁힐 수 있습니다. 또한 **상태** **드롭다운에서 실패를 선택 하** 여 실패 한 로그인만 표시 합니다. 
 
-    ![필터 결과](./media/howto-troubleshoot-sign-in-errors/filters.png)
+    ![결과 필터링](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
 4. 조사 하려는 실패 한 로그인을 식별 합니다. 실패 한 로그인에 대 한 자세한 정보가 포함 된 추가 세부 정보 창을 열려면이를 선택 합니다. **로그인 오류 코드** 및 **실패 이유**를 적어 둡니다. 
 

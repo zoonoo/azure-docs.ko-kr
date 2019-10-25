@@ -1,21 +1,19 @@
 ---
 title: Azure Application Insights의 로그 기반 및 사전 집계 메트릭 | Microsoft Docs
 description: Azure Application Insights에서 로그 기반과 사전 집계 메트릭을 사용하는 이유 비교
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: vgorbenko
 ms.author: vitalyg
-ms.reviewer: mbullwin
 ms.date: 09/18/2018
-ms.service: application-insights
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 9520cbb9973071bf1c52266d7718837607c1d10f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.reviewer: mbullwin
+ms.openlocfilehash: e0a0784c6331bdf4575f5c044c67cf9b4df3152f
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66256125"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820663"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Azure Application Insights의 로그 기반 및 사전 집계 메트릭
 
@@ -23,7 +21,7 @@ ms.locfileid: "66256125"
 
 ## <a name="log-based-metrics"></a>로그 기반 메트릭
 
-최근까지 Application Insights의 애플리케이션 모니터링 원격 분석 데이터 모델에서는 요청, 예외, 종속성 호출, 페이지 보기 등, 소규모의 미리 정의된 이벤트 유형만을 기준으로 했습니다. 개발자는 SDK를 사용하여 이러한 이벤트를 수동으로 내보내거나(명시적으로 SDK를 호출하는 코드 작성) 자동 계측의 자동 이벤트 수집을 사용할 수 있습니다. 두 경우 모두 Application Insights 백 엔드가 모든 수집된 이벤트를 로그로 저장하고, 로그의 이벤트 기반 데이터를 시각화하기 위해 Azure Portal의 Application Insights 블레이드가 분석 및 진단 도구 역할을 합니다.
+최근까지 Application Insights의 응용 프로그램 모니터링 원격 분석 데이터 모델은 요청, 예외, 종속성 호출, 페이지 보기 등의 몇 가지 미리 정의 된 이벤트 유형을 기반으로 합니다. 개발자는 sdk를 사용 하 여 SDK를 명시적으로 호출 하는 코드를 작성 하 여 이러한 이벤트를 수동으로 내보내거나 자동 계측의 자동 이벤트 수집을 사용할 수 있습니다. 두 경우 모두 Application Insights 백 엔드가 모든 수집된 이벤트를 로그로 저장하고, 로그의 이벤트 기반 데이터를 시각화하기 위해 Azure Portal의 Application Insights 블레이드가 분석 및 진단 도구 역할을 합니다.
 
 일련의 이벤트 전체를 유지하기 위해 로그를 사용하면 뛰어난 분석 및 진단 값을 제공할 수 있습니다. 예를 들어, 특정 URL에 대한 정확한 요청 수와, 이러한 호출을 수행한 고유 사용자 수를 파악할 수 있습니다. 또는 사용자 세션에 대한 예외와 종속성 호출을 포함하여 상세 진단 추적을 얻을 수 있습니다. 이러한 정보 유형이 있으면 애플리케이션 상태 및 사용에 대한 가시성이 크게 향상되어 앱 문제 진단에 필요한 시간을 줄일 수 있습니다. 
 
@@ -63,7 +61,7 @@ ms.locfileid: "66256125"
 
 ## <a name="creating-charts-and-exploring-log-based-and-standard-pre-aggregated-metrics"></a>차트 만들기 및 로그 기반 및 표준 사전 집계 메트릭 탐색
 
-사용 하 여 [Azure Monitor 메트릭 탐색기](../platform/metrics-getting-started.md) 차트를 사용 하 여 만든 대시보드를 미리 집계 된 및 로그 기반 메트릭에서 차트를 그릴 합니다. 원하는 Application Insights 리소스를 선택한 다음, 네임스페이스 선택기를 사용하여 표준(미리 보기)과 로그 기반 메트릭 사이를 전환하거나 사용자 지정 메트릭 네임스페이스를 선택합니다.
+[Azure Monitor 메트릭 탐색기](../platform/metrics-getting-started.md) 를 사용 하 여 미리 집계 된 메트릭과 로그 기반 메트릭에 대 한 차트를 플롯 하 고 차트를 사용 하 여 대시보드를 작성 합니다. 원하는 Application Insights 리소스를 선택한 다음, 네임스페이스 선택기를 사용하여 표준(미리 보기)과 로그 기반 메트릭 사이를 전환하거나 사용자 지정 메트릭 네임스페이스를 선택합니다.
 
 ![메트릭 네임스페이스](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 

@@ -1,29 +1,24 @@
 ---
 title: Application Insights의 스마트 검색 - 실패 | Microsoft Docs
 description: 웹앱에 요청 실패율의 비정상적인 변경 내용에 대해 경고하고 진단 분석을 제공합니다. 구성이 필요하지 않습니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 12/18/2018
 ms.reviewer: yossiy
-ms.author: mbullwin
-ms.openlocfilehash: 46944603fdf45a2a7a14641086959bf61b3f773e
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: f8b8318a16b36593d2fbaf08bcbc19156dc96006
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67465881"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820578"
 ---
 # <a name="smart-detection---failure-anomalies"></a>스마트 감지 - 실패
 [Application Insights](../../azure-monitor/app/app-insights-overview.md)는 웹앱에서 실패한 요청이 비정상적으로 증가하는 경우 거의 실시간으로 자동으로 알립니다. 실패했다고 보고된 HTTP 요청 또는 종속성 호출의 비율이 비정상적으로 증가하는 것을 감지합니다. 요청의 경우 실패한 요청은 일반적으로 응답 코드 400 이상입니다. 문제를 심사하고 진단할 수 있도록 실패 및 관련된 원격 분석의 특성에 대한 분석이 알림 영역에서 제공됩니다. 또한 추가 진단을 위해 Application Insights 포털에 링크가 제공됩니다. 기능이 Machine Learning 알고리즘을 사용하여 일반 실패율을 예측하려면 설정 또는 구성이 필요하지 않습니다.
 
-모든 웹 앱에 대 한 고유한 서버 또는 클라우드에서 호스트를 호출 하는 작업자 역할이 있는 경우 예를 들어, 요청 또는 종속성 원격 분석을 생성 하는이 기능의 작동 [trackrequest ()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) 또는 [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
+이 기능은 요청 또는 종속성 원격 분석을 생성 하는 클라우드 또는 자체 서버에서 호스트 되는 모든 웹 앱에서 작동 합니다. 예를 들어, 지 수 [요청 ()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) 또는 지 수 [종속성 ()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)을 호출 하는 작업자 역할이 있는 경우에 해당 합니다.
 
 [프로젝트에 대한 Application Insights](../../azure-monitor/app/app-insights-overview.md)를 설정한 후에 제공된 앱은 최소 일정량의 원격 분석을 생성합니다. 실패에 대한 스마트 검색은 전환되고 경고를 보낼 수 있기 전에 앱의 일반적인 동작을 알아보는 데 24시간이 걸립니다.
 
@@ -44,30 +39,30 @@ ms.locfileid: "67465881"
 * 특징지어진 실패와 관련된 것으로 보이는 예외, 로그 추적 및 종속성 오류(데이터베이스 또는 다른 외부 구성 요소).
 * Application Insights에서 원격 분석에 대한 관련 검색 직접 링크
 
-## <a name="failure-anomalies-v2"></a>오류 잘못 된 부분 v2
-실패 경고 규칙의 새 버전이 출시 되었습니다. 이 새 버전 새 Azure 경고 플랫폼에서 실행 되 고 하 고 기존 버전에 비해 다양 한 향상 된 기능을 소개 합니다.
+## <a name="failure-anomalies-v2"></a>실패 변칙 v2
+새 버전의 오류 비정상 경고 규칙을 이제 사용할 수 있습니다. 새 버전은 새 Azure 경고 플랫폼에서 실행 되며 기존 버전에 대 한 다양 한 향상 된 기능을 제공 합니다.
 
-### <a name="whats-new-in-this-version"></a>이 버전의 새로운 기능은 무엇입니까?
-- 빠르게 문제 검색
-- 다양 한 작업을 경고 규칙을 만들면는 연관 [작업 그룹](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) "Application Insights 스마트 감지" 전자 메일 및 webhook 작업을 포함 하 고 추가 작업 트리거를 확장할 수 있는 명명 된 경우 경고 발생 합니다.
-- 더 초점을 맞춘 알림-이 경고 규칙에서 보내는 메일 알림에 이제 구독의 Monitoring Reader와 Monitoring Contributor 역할에 연결 된 사용자에 게 기본적으로 전송 됩니다. 이 대 한 자세한 정보가 [여기](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification)합니다.
-- ARM 템플릿-예 참조를 통해 좀 더 간편한 구성을 [여기](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config)합니다.
-- 공용 경고 스키마 지원-이 경고 규칙에서 보내는 알림을 수행 합니다 [일반적인 경고 스키마](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema)합니다.
-- 전자 메일 템플릿-이 경고 규칙에서 알림을 일관적인 모양 및 기타 경고 유형을 사용 하 여 생각 하는 전자 메일을 통합 합니다. 이 변경으로 자세한 진단 정보를 사용 하 여 실패 경고를 받으려면 옵션을 더 이상 사용할 수 없습니다.
+### <a name="whats-new-in-this-version"></a>이 버전의 새로운 기능
+- 더 빠른 문제 검색
+- 다양 한 작업 집합-경고 규칙은 전자 메일 및 웹 후크 작업을 포함 하는 "Application Insights 스마트 검색" 이라는 연결 된 [작업 그룹](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) 을 사용 하 여 생성 되며 경고가 발생 하면 추가 작업을 트리거하기 위해 확장 될 수 있습니다.
+- 더 집중 된 알림-이 경고 규칙에서 보낸 전자 메일 알림은 이제 구독의 모니터링 판독기 및 모니터링 참가자 역할과 연결 된 사용자에 게 기본적으로 전송 됩니다. 이에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification)에서 제공 됩니다.
+- ARM 템플릿을 통한 간편한 구성- [여기](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config)에서 예제를 참조 하세요.
+- 일반적인 경고 스키마 지원-이 경고 규칙에서 전송 된 알림은 [일반적인 경고 스키마](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema)를 따릅니다.
+- 통합 전자 메일 템플릿-이 경고 규칙의 전자 메일 알림은 다른 경고 유형과 일관 된 모양 & 느낌을 갖습니다. 이와 같이 변경 하면 자세한 진단 정보를 포함 하는 오류 이상 경고를 가져오는 옵션을 더 이상 사용할 수 없습니다.
 
-### <a name="how-do-i-get-the-new-version"></a>새 버전을 어떻게 받나요?
-- 새로 만든된 Application Insights 리소스는 이제 실패 경고 규칙의 새 버전을 사용 하 여 프로 비전 됩니다.
-- 기존 Application Insights 리소스 오류 이상에 대 한 클래식 버전을 사용 하 여 경고 규칙은 새 버전 번 해당 호스팅 구독 가져오기의 일환으로 새로운 경고 플랫폼으로 마이그레이션되는 [클래식 경고 사용 중지 프로세스 ](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).
+### <a name="how-do-i-get-the-new-version"></a>새 버전을 가져올 어떻게 할까요? 있나요?
+- 새로 만든 Application Insights 리소스는 이제 오류 비정상 경고 규칙의 새 버전과 함께 프로 비전 됩니다.
+- 클래식 경고 사용 중지 [프로세스](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement)의 일부로 해당 호스팅 구독을 새 경고 플랫폼으로 마이그레이션한 후에는 기존에 발생 한 오류 이상 경고 규칙의 기존 Application Insights 리소스에 새 버전이 제공 됩니다.
 
 > [!NOTE]
-> 실패 경고 규칙의 새 버전에 사용 가능한 상태로 유지 됩니다. 또한 전자 메일 및 webhook 작업에 의해 트리거되는 연결 된 "Application Insights 스마트 감지" 작업 그룹도 무료입니다.
+> 오류 이상 경고 규칙의 새 버전은 사용 가능한 상태로 유지 됩니다. 또한 연결 된 "Application Insights 스마트 검색" 작업 그룹에 의해 트리거되는 전자 메일 및 웹 후크 작업도 무료로 제공 됩니다.
 > 
 > 
 
 ## <a name="benefits-of-smart-detection"></a>스마트 감지의 이점
 일반 [메트릭 경고](../../azure-monitor/app/alerts.md) 는 문제일 수 있음을 알려 줍니다. 하지만 스마트 감지는 진단 작업을 시작하여, 그렇지 않은 경우 사용자가 직접 수행해야 할 상당한 양의 분석을 수행합니다. 깔끔하게 정리된 결과를 얻고 문제의 원인을 신속하게 파악할 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 원리
 스마트 감지는 앱, 특히 실패 속도에서 받은 원격 분석을 모니터링합니다. 이 규칙은 `Successful request` 속성이 false인 요청 수와 `Successful call` 속이 false인 종속성 호출 수를 계산합니다. 요청의 경우 기본적으로 `Successful request == (resultCode < 400)`입니다(사용자 지정 코드를 [필터](../../azure-monitor/app/api-filtering-sampling.md#filtering)에 작성하거나 사용자 고유 [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) 호출을 생성하지 않는 한). 
 
 앱의 성능에는 일반적인 동작의 패턴이 있습니다. 일부 요청 또는 종속성 호출은 다른 요청보다 오류 발생 가능성이 높으며 로드가 증가함에 따라 전체 실패율이 상승할 수 있습니다. 스마트 감지는 이러한 이상을 발견하는 데 기계 학습을 사용합니다.
@@ -119,7 +114,7 @@ ms.locfileid: "67465881"
 
 더 자세히 조사해야 하는 경우 각 섹션의 링크는 관련 요청, 예외, 종속성 또는 추적을 필터링하는 [검색 페이지](../../azure-monitor/app/diagnostic-search.md) 로 바로 이동합니다. 또는 [Azure Portal](https://portal.azure.com)을 열고 앱에 대한 Application Insights 리소스에 이동하며 오류 블레이드를 열 수 있습니다.
 
-이 예제에서 '종속성 오류 세부 정보 보기' 링크를 클릭하면 Application Insights 검색 블레이드가 열립니다. 근본 원인의 예제가 있는 SQL 명령문이 표시됩니다. 필수 필드에 NULL이 제공되었으며 저장 작업 중 유효성 검사를 통과하지 못했습니다.
+이 예제에서 '종속성 오류 세부 정보 보기' 링크를 클릭하면 Application Insights 검색 블레이드가 열립니다. 다음과 같은 근본 원인의 예가 있는 SQL 문이 표시됩니다. 필수 필드에 Null이 제공되었으며 저장 작업 동안 유효성 검사를 통과하지 못했습니다.
 
 ![진단 검색](./media/proactive-failure-diagnostics/051.png)
 
@@ -151,11 +146,11 @@ ms.locfileid: "67465881"
 
 *그렇다면, 내 데이터를 확인하고 있습니까?*
 
-* 아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [프라이빗](../../azure-monitor/app/data-retention-privacy.md)입니다.
+* 아닙니다. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [프라이빗](../../azure-monitor/app/data-retention-privacy.md)입니다.
 
 *이 경고를 구독해야 하나요?*
 
-* 아니요. 요청 원격 분석을 보내는 모든 애플리케이션에 스마트 검색 경고 규칙이 있습니다.
+* 아닙니다. 요청 원격 분석을 보내는 모든 애플리케이션에 스마트 검색 경고 규칙이 있습니다.
 
 *구독을 취소하거나 동료에게 대신 보낸 알림을 가져올 수 있습니까?*
 

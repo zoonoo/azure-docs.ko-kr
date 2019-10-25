@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 5e3d226b0f15148c5ac4a9da84462f4a3277e112
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b9d8abb34c6ba2b6df5b9cb3fe4069d1034ec538
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72383554"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882207"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -41,7 +41,7 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 
 
 **업데이트** |  **통합 설정** | **구성 서버 ova** | **모바일 서비스 에이전트** | **Site Recovery 공급자** | **Recovery Services 에이전트**
 --- | --- | --- | --- | --- | ---
-[롤업 40](https://support.microsoft.com/help/4517283/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
+[롤업 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [롤업 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 [롤업 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
 [롤업 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0

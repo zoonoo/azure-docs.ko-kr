@@ -1,23 +1,18 @@
 ---
 title: 스마트 검색 - Azure Application Insights에서 예외 볼륨의 비정상적인 증가 | Microsoft Docs
 description: Azure Application Insights에서 애플리케이션 예외를 모니터링하여 예외 볼륨의 비정상적인 패턴을 확인합니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 12/08/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: a6e7e8e01ccb623a3ff340c318c9c238c919cb38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/08/2017
+ms.openlocfilehash: fa7669b78caabb95b08200e83ed18ea982ce9ac9
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61298587"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820609"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>예외 볼륨의 비정상적인 증가(미리 보기)
 
@@ -25,7 +20,7 @@ Application Insights는 애플리케이션에서 throw된 예외를 자동으로
 
 이 기능을 사용하려면 앱에 대한 [예외 보고를 구성](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-exceptions#set-up-exception-reporting)하는 것 외에 특별한 설정이 필요하지 않습니다. 앱에서 충분한 예외 원격 분석을 생성하면 이 기능은 활성화됩니다.
 
-## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>이 유형의 스마트 검색 알림은 언제 받게 되나요?
+## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>이 형식의 스마트 검색 알림은 언제 받게 되나요?
 앱에서 하루 동안 특정 유형의 예외 수가 지난 7일 동안 계산된 기준에 비해 비정상적으로 증가하는 경우 이 유형의 알림을 받을 수 있습니다.
 Machine Learning 알고리즘을 사용하여 예외 수의 증가를 검색하고, 애플리케이션 사용량의 자연스러운 증가도 고려합니다.
 

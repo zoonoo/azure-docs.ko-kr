@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory에 대 한 log analytics 보기를 설치 하 고 사용 하는 방법 | Microsoft Docs
+title: Log analytics 보기를 설치 및 사용 하는 방법 | Microsoft Docs
 description: Azure Active Directory에 대 한 log analytics 보기를 설치 하 고 사용 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb1241387144b691b76ec330a5f90b762ebc11f
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 00bca8bca19f9a71c4eeb639017845987682661f
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989778"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820901"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Azure Active Directory용 로그 분석 보기 설치 및 사용
 
@@ -31,7 +31,7 @@ Azure Active Directory 로그 분석 보기를 통해 Azure AD 테넌트에서 A
 * 감사 로그: [감사 로그 활동 보고서](concept-audit-logs.md)를 통해 테넌트에서 수행된 모든 작업의 기록에 액세스할 수 있습니다.
 * 로그인 로그: [로그인 활동 보고서](concept-sign-ins.md)를 통해 감사 로그에 보고된 작업을 수행한 사용자를 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 로그 분석 보기를 사용하려면 다음이 필요합니다.
 

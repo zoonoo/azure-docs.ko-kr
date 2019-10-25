@@ -1,23 +1,18 @@
 ---
 title: 스마트 검색 - Azure Application Insights에서 추적 심각도 비율의 저하 | Microsoft Docs
 description: Azure Application Insights에서 애플리케이션 추적을 모니터링하여 추적 원격 분석의 비정상적인 패턴을 확인합니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 11/27/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 10b909fd5239546047aa4696a1f6a68a703778c0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 11/27/2017
+ms.openlocfilehash: 83c1296beabaaae78289a653c6b30f6665f725c2
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306397"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820536"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>추적 심각도 비율의 저하(미리 보기)
 
@@ -26,7 +21,7 @@ ms.locfileid: "60306397"
 이 기능에는 앱에 대한 추적 로깅 구성 이외의 특별한 설정이 필요하지 않습니다([.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-trace-logs) 또는 [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-trace-logs)에 추적 로그 수신기를 구성하는 방법 참조 ). 앱에서 충분한 예외 원격 분석을 생성하면 이 기능은 활성화됩니다.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>이 형식의 스마트 검색 알림은 언제 받게 되나요?
-하는 경우 이러한 형식의 알림이 발생할 수 있습니다 "올바른" 추적 간 비율 (추적 수준을 사용 하 여 기록 *정보* 또는 *Verbose*) 및 "잘못 된" 추적 (추적 수준을 사용 하 여 기록 *경고*, *오류가*, 또는 *치명적*) 지난 7 일 동안 계산 된 기준에 비해 특정 한 날에 저하 됩니다.
+"양호" 추적 ( *정보* 수준 또는 *자세한*정보 표시로 기록 된 추적) 및 "잘못 된" 추적 ( *경고*, *오류*또는 *치명적*수준으로 기록 된 추적)의 비율이 이전 7 일 동안 계산 된 기준에 비해 특정 날짜
 
 ## <a name="does-my-app-definitely-have-a-problem"></a>내 앱에 분명히 문제가 있나요?
 아니요, 알림이 제공된다고 해서 앱에 반드시 문제가 있는 것은 아닙니다. "올바른" 및 "잘못된" 추적 간 비율의 저하가 애플리케이션 문제를 나타낼 수 있지만 이러한 비율의 변경은 무해할 수 있습니다. 예를 들어 기존 흐름보다 더 많은 "잘못된" 추적을 내보내는 애플리케이션에서 새 흐름으로 인해 증가가 발생할 수 있습니다.

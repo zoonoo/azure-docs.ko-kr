@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 73eed48bd34a8c8d81a66872888ebf5481074648
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: b984d194c75924451a52250490b1a5590b996974
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274093"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821388"
 ---
 # <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>AzCopy를 사용 하 여 Amazon S3 버킷의 데이터 복사
 
@@ -34,7 +34,7 @@ AzCopy를 다운로드 하려면 [AzCopy 시작](storage-use-azcopy-v10.md) 문�
 >
 > 대신 SAS 토큰을 사용 하 여 blob 데이터에 대 한 액세스 권한을 부여 하는 경우 각 AzCopy 명령의 리소스 URL에 해당 토큰을 추가할 수 있습니다.
 >
-> 예를 들어 `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`을 참조하십시오.
+> 예: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`.
 
 ### <a name="authorize-with-aws-s3"></a>AWS S3 인증
 
@@ -53,6 +53,9 @@ AzCopy는 [URL API에서 Put 블록](https://docs.microsoft.com/rest/api/storage
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공됩니다. 복사 작업 후 S3 버킷의 데이터를 제거 하려는 경우 데이터를 제거 하기 전에 데이터를 저장소 계정에 올바르게 복사 했는지 확인 해야 합니다.
 
+> [!TIP]
+> 이 단원의 예제에서는 경로 인수를 작은따옴표 (' ')로 묶습니다. Windows 명령 셸 (cmd.exe)을 제외한 모든 명령 셸에서 작은따옴표를 사용 합니다. Windows 명령 셸 (cmd.exe)을 사용 하는 경우 작은따옴표 (' ') 대신 경로 인수를 큰따옴표 ("")로 묶습니다.
+
 ### <a name="copy-an-object"></a>개체 복사
 
 |    |     |
@@ -65,7 +68,7 @@ AzCopy는 [URL API에서 Put 블록](https://docs.microsoft.com/rest/api/storage
 >
 > 가상 호스트 스타일 Url도 사용할 수 있습니다 (예: `http://bucket.s3.amazonaws.com`). 
 >
-> 버킷에 대 한 가상 호스팅에 대해 자세히 알아보려면 [버킷 가상 호스팅]] (https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html) 을 참조 하세요.
+> 버킷에 대 한 가상 호스팅에 대해 자세히 알아보려면 [버킷 가상 호스팅]] (https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html) 를 참조 하세요.
 
 ### <a name="copy-a-directory"></a>디렉터리 복사
 
@@ -99,17 +102,17 @@ AzCopy는 [URL API에서 Put 블록](https://docs.microsoft.com/rest/api/storage
 
 AWS S3에는 Azure blob 컨테이너와 비교할 때 버킷 이름에 대 한 서로 다른 명명 규칙 집합이 있습니다. [여기](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules)에서 정보를 읽을 수 있습니다. 버킷 그룹을 Azure storage 계정에 복사 하도록 선택 하는 경우 명명 차이로 인해 복사 작업이 실패할 수 있습니다.
 
-AzCopy는 발생할 수 있는 가장 일반적인 문제 중 두 가지를 처리 합니다. 연속 하이픈을 포함 하는 기간 및 버킷을 포함 하는 버킷 AWS S3 버킷 이름에는 마침표와 연속 하이픈이 포함 될 수 있지만 Azure의 컨테이너는 그렇지 않습니다. AzCopy는 마침표와 하이픈을 연속 하는 하이픈의 수를 나타내는 숫자로 바꿉니다. 예를 들어 `my----bucket` 이라는 버킷은 `my-4-bucket`이 됩니다. 
+AzCopy는 발생할 수 있는 가장 일반적인 문제 중 두 가지를 처리 합니다. 연속 하이픈을 포함 하는 기간 및 버킷을 포함 하는 버킷 AWS S3 버킷 이름에는 마침표와 연속 하이픈이 포함 될 수 있지만 Azure의 컨테이너는 그렇지 않습니다. AzCopy는 마침표와 하이픈을 연속 하는 하이픈의 수를 나타내는 숫자로 바꿉니다. 예를 들어 `my----bucket` 이름이 인 버킷이 `my-4-bucket`됩니다. 
 
-또한 AzCopy는 파일에 대 한 복사를 수행 하므로 이름 충돌을 확인 하 고 해결 하려고 시도 합니다. 예를 들어 이름이 `bucket-name`이 고 `bucket.name` 인 버킷이 있는 경우 AzCopy는 먼저 `bucket.name` 라는 버킷을 먼저 확인 한 @no__t 다음 `bucket-name`으로 확인 합니다.
+또한 AzCopy는 파일에 대 한 복사를 수행 하므로 이름 충돌을 확인 하 고 해결 하려고 시도 합니다. 예를 들어 이름이 `bucket-name` 및 `bucket.name`인 버킷이 있는 경우 AzCopy는 먼저 `bucket.name` 라는 버킷을 먼저 `bucket-name` 후 `bucket-name-2`로 확인 합니다.
 
 ## <a name="handle-differences-in-object-metadata"></a>개체 메타 데이터의 차이점 처리
 
-AWS S3 및 Azure는 개체 키 이름에 다른 문자 집합을 허용 합니다. [여기](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys)에서 AWS s 3에서 사용 하는 문자에 대한 자세한 내용을 확인할 수 있습니다. Azure 쪽에서는 blob 개체 키가 [ C# 식별자](https://docs.microsoft.com/dotnet/csharp/language-reference/)에 대 한 명명 규칙을 준수 합니다.
+AWS S3 및 Azure는 개체 키 이름에 다른 문자 집합을 허용 합니다. AWS s 3에서 사용 하는 문자에 대 한 자세한 내용을 확인할 [수 있습니다.](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) Azure 쪽에서는 blob 개체 키가 [ C# 식별자](https://docs.microsoft.com/dotnet/csharp/language-reference/)에 대 한 명명 규칙을 준수 합니다.
 
-AzCopy `copy` 명령의 일부로 파일의 메타 데이터에 호환 되지 않는 키 이름이 포함 된 파일을 처리 하는 방법을 지정 하는 선택적 `s2s-invalid-metadata-handle` 플래그의 값을 제공할 수 있습니다. 다음 표에서는 각 플래그 값에 대해 설명 합니다.
+AzCopy `copy` 명령의 일부로 파일의 메타 데이터에 호환 되지 않는 키 이름이 포함 된 파일을 처리 하는 방법을 지정 하는 선택적 `s2s-invalid-metadata-handle` 플래그에 대 한 값을 제공할 수 있습니다. 다음 표에서는 각 플래그 값에 대해 설명 합니다.
 
-| 플래그 값 | Description  |
+| 플래그 값 | 설명  |
 |--------|-----------|
 | **ExcludeIfInvalid** | (기본 옵션) 전송 된 개체에 메타 데이터가 포함 되어 있지 않습니다. AzCopy에서 경고를 기록 합니다. |
 | **FailIfInvalid** | 개체는 복사 되지 않습니다. AzCopy는 오류를 기록 하 고 전송 요약에 표시 되는 실패 횟수에 해당 오류를 포함 합니다.  |

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 포털의 로그인 활동 보고서 오류 코드 | Microsoft Docs
+title: Azure Active Directory 포털의 오류 코드 | Microsoft Docs
 description: 로그인 활동 보고서 오류 코드에 대한 참조입니다.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b5aedd5c9bde7689df14c7efdf8d58692680c13
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 931f2fbe5798966c41378d9b401dcd59cafc5cca
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383165"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820880"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>로그인 활동 보고서 오류 코드 
 
@@ -38,22 +38,22 @@ ms.locfileid: "70383165"
 
 [Azure Portal](https://portal.azure.com)에서 [로그인 보고서](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)로 이동합니다.
 
-![로그인 활동](./media/reference-sign-ins-error-codes/61.png "로그인 활동")
+![로그인 활동](./media/reference-sign-ins-error-codes/61.png "로그인 작업")
 
 **로그인 상태** 드롭다운 상자에서 **실패**를 선택하여 모든 실패한 로그인을 표시하도록 보고서를 필터링합니다.
 
-![로그인 활동](./media/reference-sign-ins-error-codes/06.png "로그인 활동")
+![로그인 활동](./media/reference-sign-ins-error-codes/06.png "로그인 작업")
 
-필터링된 목록에서 항목을 선택하면 **활동 세부 정보: 로그인** 블레이드가 열립니다. 이 보기는 **로그인 오류 코드** 및 **실패 이유**를 포함하여 실패한 로그인 이벤트에 대한 추가 정보를 제공합니다.
+필터링된 목록에서 항목을 선택하면 **활동 세부 정보: 로그인**  블레이드가 열립니다. 이 보기는 **로그인 오류 코드** 및 **실패 이유**를 포함하여 실패한 로그인 이벤트에 대한 추가 정보를 제공합니다.
 
-![로그인 활동](./media/reference-sign-ins-error-codes/05.png "로그인 활동")
+![로그인 활동](./media/reference-sign-ins-error-codes/05.png "로그인 작업")
 
 [보고 API](concept-reporting-api.md)를 사용하여 프로그래밍 방식으로 로그인 데이터에 액세스할 수도 있습니다.
 
 ## <a name="error-codes"></a>오류 코드
 
 
-|오류|Description|
+|오류|설명|
 |---|---|
 |16000|이것은 오류 조건이 아닌 내부 구현 세부 정보입니다. 이 참조를 무시해도 됩니다.|
 |20001|페더레이션 ID 공급자에 문제가 있습니다. 이 문제를 해결하려면 IDP에 문의하세요.|
@@ -107,7 +107,7 @@ ms.locfileid: "70383165"
 |50128|도메인 이름이 잘못되었습니다. 테넌트를 식별하는 정보가 요청에 없거나 제공된 자격 증명으로 암시되지 않습니다.|
 |50129|디바이스는 작업 공간에 연결되지 않았습니다. **작업 공간 연결**에는 디바이스를 등록할 필요가 없습니다.|
 |50130|클레임 값을 알려진 인증 방법으로 해석할 수 없습니다.|
-|50131|다양 한 조건부 액세스 오류에 사용 됩니다. 예를 들어 Windows 디바이스 상태가 잘못되었습니다. 의심스러운 활동, 액세스 정책 및 보안 정책 결정으로 인해 요청이 차단되었습니다.|
+|50131|다양 한 조건부 액세스 오류에 사용 됩니다. 예: Windows 디바이스 상태가 잘못되었습니다. 의심스러운 활동, 액세스 정책 및 보안 정책 결정으로 인해 요청이 차단되었습니다.|
 |50132|다음과 같은 이유로 자격 증명이 철회되었습니다.<ul><li>SSO 아티팩트가 잘못되었거나 만료되었습니다.</li><li>애플리케이션에 대한 세션이 최신 상태가 아닙니다.</li><li>자동 로그인 요청을 보냈지만 Azure AD를 사용하는 사용자의 세션이 유효하지 않거나 만료되었습니다.</li></ul>|
 |50133|만료 또는 최근 암호 변경으로 인해 세션이 잘못되었습니다.|
 |50135|계정이 위험하므로 암호를 변경해야 합니다.|
@@ -116,7 +116,7 @@ ms.locfileid: "70383165"
 |50143|세션 불일치 - 사용자 테넌트가 다른 리소스로 인해 도메인 힌트와 일치하지 않기 때문에 세션이 유효하지 않습니다. 자세한 내용을 확인하려면 상관 ID, 요청 ID 및 오류 코드가 있는  [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md).|
 |50144|사용자의 Active Directory 암호가 만료되었습니다. 사용자에 대한 새 암호를 생성하거나 셀프 서비스 재설정 도구를 사용하여 최종 사용자에게 제공합니다.|
 |50146|이 애플리케이션은 애플리케이션별 서명 키로 구성해야 합니다. 응용 프로그램이 키로 구성되지 않았거나, 키가 만료되었거나 아직 유효하지 않습니다. 애플리케이션 소유자에게 문의하세요.|
-|50148|code_verifier가 PKCE에 대한 권한 부여 요청에 제공된 code_challenge와 일치하지 않습니다. 애플리케이션 개발자에게 문의하세요. |
+|50148|code_verifier가 PKCE에 대한 권한 부여 요청에 제공된 code_challenge와 일치하지 않습니다. 응용 프로그램 개발자에 게 문의 하십시오. |
 |50155|이 사용자에 대한 디바이스 인증에 실패했습니다.|
 |50158|외부 보안 과제가 충족되지 않았습니다.|
 |50161|외부 공급자가 보낸 클레임이 충분하지 않거나 외부 공급자에게 요청된 클레임이 누락되었습니다.|
@@ -137,7 +137,7 @@ ms.locfileid: "70383165"
 |53002|사용 된 응용 프로그램은 조건부 액세스에 대해 승인 된 응용 프로그램이 아닙니다. 사용자가 액세스 권한을 부여받으려면 사용하도록 승인된 애플리케이션 목록에 있는 애플리케이션 중 하나를 사용해야 합니다.|
 |53003|조건부 액세스 정책으로 인해 액세스가 차단 되었습니다.|
 |53004|사용자는 이 콘텐츠에 액세스하기 전에 다단계 인증 등록 프로세스를 완료해야 합니다. 사용자가 다단계 인증을 등록해야 합니다.|
-|65001|Y 애플리케이션에 대한 액세스 권한이 X 애플리케이션에 없거나 권한이 취소되었습니다. 또는 사용자 또는 관리자가 X ID로 애플리케이션을 사용하는 데 동의하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보내세요. 또는 사용자 또는 관리자가 ID X로 애플리케이션을 사용하는 데 동의하지 않았습니다. 앱: Y, 리소스: Z를 대신하여 테넌트 관리자에게 권한 부여 요청을 보내세요.|
+|65001|Y 애플리케이션에 대한 액세스 권한이 X 애플리케이션에 없거나 권한이 취소되었습니다. 또는 사용자 또는 관리자가 X ID로 애플리케이션을 사용하는 데 동의하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보내세요. 또는 사용자 또는 관리자가 X ID로 애플리케이션을 사용하는 데 동의하지 않았습니다. Z 리소스에 대한 Y 앱을 대신하여 테넌트 관리자에게 권한 부여 요청을 보내세요.|
 |65004|사용자가 응용 프로그램에 액세스하는 데 동의하지 않았습니다. 사용자가 로그인을 다시 시도하고 응용 프로그램에 동의해야 합니다.|
 |65005|애플리케이션에 필요한 리소스 액세스 목록에 리소스에서 검색 가능한 애플리케이션이 없거나, 클라이언트 애플리케이션에서 필요한 리소스 액세스 목록에 지정되지 않은 리소스에 대한 액세스를 요청했거나, Graph 서비스에서 잘못된 요청 또는 찾을 수 없는 리소스를 반환했습니다. 애플리케이션에서 SAML을 지원하는 경우 잘못된 식별자(엔터티)로 애플리케이션을 구성했을 수 있습니다. 아래 링크를 사용하여 SAML에 대한 해결 방법을 시도해 보세요. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|
 |70000|다음과 같은 이유로 권한 부여가 잘못되었습니다.<ul><li>요청된 SAML 2.0 어설션에 잘못된 주체 확인 메서드가 있습니다.</li><li>응용 프로그램 OnBehalfOf 흐름은 V2에서 지원하지 않습니다.</li><li>기본 새로 고침 토큰이 세션 키로 서명되지 않았습니다.</li><li>외부 새로 고침 토큰이 잘못되었습니다.</li><li>다른 테넌트에 대한 액세스 권한이 부여되었습니다.</li></ul>|
@@ -162,7 +162,7 @@ ms.locfileid: "70383165"
 |75011|사용자가 서비스를 통해 인증하는 인증 방법이 요청한 인증 방법과 일치하지 않습니다. 애플리케이션 소유자에게 문의하세요.|
 |75016|SAML2 인증 요청에 잘못된 NameIdPolicy가 있습니다. 애플리케이션 소유자에게 문의하세요.|
 |80001|인증 에이전트에서 Active Directory에 연결할 수 없습니다. 사용자의 로그인 요청을 처리할 수 있는 DC를 확인하는 도메인 가입 컴퓨터에 인증 에이전트가 설치되어 있는지 확인하세요.|
-|80002|내부 오류입니다. 암호 유효성 검사 요청 시간이 초과되었습니다. 인증 요청은 내부 하이브리드 ID 서비스에 보낼 수 없었습니다. 오류에 대한 자세한 내용을 확인하려면 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+|80002|내부 오류입니다. 암호 유효성 검사 요청 시간이 초과 되었습니다. 내부 하이브리드 Id 서비스로 인증 요청을 보낼 수 없습니다. 오류에 대한 자세한 내용을 확인하려면 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md).|
 |80003|인증 에이전트에서 받은 응답이 잘못되었습니다. Active Directory 온-프레미스에 대한 인증을 시도하는 동안 알 수 없는 오류가 발생했습니다. 오류에 대한 자세한 내용을 확인하려면 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md).|
 |80005|인증 에이전트: 인증 에이전트에서 응답을 처리하는 동안 알 수 없는 오류가 발생했습니다. 오류에 대한 자세한 내용을 확인하려면 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md).|
 |80007|인증 에이전트에서 사용자의 암호에 대한 유효성을 검사할 수 없습니다.|
@@ -170,7 +170,7 @@ ms.locfileid: "70383165"
 |80011|인증 에이전트에서 암호화 키를 검색할 수 없습니다.|
 |80012|사용자가 허용되는 시간(AD에서 지정됨)이 아닌 시간에 로그온하려고 했습니다.|
 |80013|인증 에이전트를 실행하는 컴퓨터와 AD 사이의 시간차로 인해 인증 시도를 완료할 수 없습니다. 시간 동기화 문제를 해결하세요.|
-|80014|인증 에이전트 시간이 초과되었습니다. 이 오류에 대한 자세한 내용을 확인하려면 오류 코드, 상관 ID 및 날짜/시간이 있는 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+|80014|인증 에이전트 시간이 초과 되었습니다. 이 오류에 대 한 자세한 내용을 보려면 오류 코드, 상관 관계 ID 및 날짜/시간을 사용 하 여 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md) .|
 |81001|사용자의 Kerberos 티켓이 너무 큽니다. 사용자가 너무 많은 그룹에 속해 있고 Kerberos 티켓에 너무 많은 그룹 멤버 자격이 포함된 경우 이 오류가 발생할 수 있습니다. 사용자의 그룹 멤버 자격 수를 줄이고 다시 시도합니다.|
 |81005|인증 패키지가 지원되지 않습니다.|
 |81007|Seamless SSO에 대한 테넌트를 사용할 수 없습니다.|

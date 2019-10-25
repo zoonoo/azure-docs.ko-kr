@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: 88f8b6a8dcce0e498a7b81b8741072bcf4cfcad8
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: b6d707fc4bbc5fa57ffb0c809d7f70efebef99e9
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259510"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881654"
 ---
 # <a name="conditional-deployment-in-resource-manager-templates"></a>리소스 관리자 템플릿의 조건부 배포
 
@@ -81,6 +81,10 @@ ms.locfileid: "70259510"
 조건부로 배포 되는 리소스에 [참조](resource-group-template-functions-resource.md#reference) 또는 [목록](resource-group-template-functions-resource.md#list) 함수를 사용 하는 경우 리소스가 배포 되지 않은 경우에도 함수가 평가 됩니다. 함수가 존재 하지 않는 리소스를 참조 하는 경우 오류가 발생 합니다.
 
 [If](resource-group-template-functions-logical.md#if) 함수를 사용 하 여 리소스가 배포 될 때 함수가 조건에 대해서만 계산 되도록 합니다. If를 사용 하 고 조건부로 배포 된 리소스를 참조 하는 샘플 템플릿은 [if 함수](resource-group-template-functions-logical.md#if) 를 참조 하세요.
+
+## <a name="condition-with-complete-mode"></a>Complete 모드의 조건
+
+[전체 모드](deployment-modes.md) 를 사용 하 여 템플릿을 배포 하 고 조건이 false로 평가 되므로 리소스가 배포 되지 않은 경우 결과는 템플릿을 배포 하는 데 사용 하는 REST API 버전에 따라 달라 집니다. 2019-05-10 이전 버전을 사용 하는 경우 리소스는 **삭제 되지 않습니다**. 2019-05-10 이상에서는 리소스가 **삭제 됩니다**. 최신 버전의 Azure PowerShell 하 고 조건이 false 인 경우 리소스를 삭제 Azure CLI.
 
 ## <a name="next-steps"></a>다음 단계
 

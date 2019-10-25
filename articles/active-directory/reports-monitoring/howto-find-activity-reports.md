@@ -1,5 +1,5 @@
 ---
-title: Azure Portal에서 Azure Active Directory 사용자 작업 보고서 찾기 | Microsoft Docs
+title: Azure Portal에서 사용자 활동 보고서 찾기 Microsoft Docs
 description: Azure Portal에서 Azure Active Directory 사용자 작업 보고서가 어디에 위치하는지 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13f1746b710acd24316de3d294c1822ba108a378
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: d7fdf8c17c8dcbdc8203cb46342c8474b3d9832f
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70127386"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820932"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure Portal에서 작업 보고서 찾기
 

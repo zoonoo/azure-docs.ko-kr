@@ -15,12 +15,12 @@ ms.date: 08/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 158222c256e3efc7ca87d7a3781ca68e1c4307b1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: HT
+ms.openlocfilehash: e8a5b8b5794687f9e3b1707fda4cbe381e277317
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750181"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819775"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Azure 리소스에 대한 RBAC 문제 해결
 
@@ -29,7 +29,7 @@ ms.locfileid: "72750181"
 ## <a name="problems-with-rbac-role-assignments"></a>RBAC 역할 할당 관련 문제
 
 - **추가**  > **역할 할당** 추가 옵션이 사용 하지 않도록 설정 되거나 "개체 id가 있는 클라이언트에 권한이 없습니다." 라는 권한 오류가 발생 하 여 AZURE PORTAL **액세스 제어 (IAM)** 에서 역할 할당을 추가할 수 없는 경우 작업을 수행할 수 있는 권한 부여 "는 역할을 할당 하려는 범위에서 [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 와 같은 `Microsoft.Authorization/roleAssignments/write` 권한이 있는 사용자로 현재 로그인 했는지 확인 합니다.
-- 역할을 할당 하려고 할 때 "더 이상 역할 할당을 만들 수 없습니다 (코드: RoleAssignmentLimitExceeded)" 라는 오류 메시지가 표시 되는 경우 대신 그룹에 역할을 할당 하 여 역할 할당의 수를 줄여 보세요. Azure는 구독당 최대 **2000**개의 역할 할당을 지원합니다.
+- 역할을 할당 하려고 할 때 "더 이상 역할 할당을 만들 수 없습니다 (코드: RoleAssignmentLimitExceeded)" 라는 오류 메시지가 표시 되는 경우 대신 그룹에 역할을 할당 하 여 역할 할당의 수를 줄여 보세요. Azure는 구독당 최대 **2000**개의 역할 할당을 지원합니다. 이 역할 할당 제한은 고정 되어 있으므로 늘릴 수 없습니다.
 
 ## <a name="problems-with-custom-roles"></a>사용자 지정 역할의 문제
 

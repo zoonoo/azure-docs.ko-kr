@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: de8f31a02b62164a8a6b099a90297a207aefae80
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 5dae8c4da46c750f69057f33d593f5bb7396a99e
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240792"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882248"
 ---
 # <a name="connect-data-from-azure-ad-identity-protection"></a>Azure AD ID 보호에서 데이터 연결
 
@@ -29,7 +29,7 @@ ms.locfileid: "71240792"
 [Azure AD ID 보호](https://docs.microsoft.com/azure/information-protection/reports-aip) 에서 azure 센티널로 로그를 스트리밍하 여 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선할 수 있습니다. Azure Active Directory Identity Protection 위험 사용자, 위험 검색 및 취약성에 대 한 통합 보기를 제공 하며, 위험을 즉시 수정 하 고 향후 이벤트를 자동 수정 하도록 정책을 설정할 수 있습니다. 이 서비스는 고객 id를 보호 하는 Microsoft의 경험을 바탕으로 구축 되었으며 하루에 130억 대 이상의 로그에서 발생 하는 신호의 정확성을 향상 시킵니다. 
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - [Azure Active Directory Premium P1 또는 P2 라이선스가](https://azure.microsoft.com/pricing/details/active-directory/) 있어야 합니다.
 - 전역 관리자 또는 보안 관리자 권한이 있는 사용자
@@ -37,7 +37,7 @@ ms.locfileid: "71240792"
 
 ## <a name="connect-to-azure-ad-identity-protection"></a>Azure AD ID 보호에 연결
 
-Azure AD ID 보호 이미 있는 경우 [네트워크에서 사용 하도록 설정](../active-directory/identity-protection/enable.md)되었는지 확인 합니다.
+Azure AD ID 보호 이미 있는 경우 [네트워크에서 사용 하도록 설정](../active-directory/identity-protection/overview-identity-protection.md)되었는지 확인 합니다.
 Azure AD ID 보호 배포 되 고 데이터를 가져오는 경우 경고 데이터를 쉽게 Azure 센티널로 스트리밍할 수 있습니다.
 
 

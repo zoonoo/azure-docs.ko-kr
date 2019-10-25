@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dc8381fe964ce924ed37d6b7e6d22dc730eae89
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 19b29181f023b49cca7159fbbcad4a4675744a96
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72453057"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819730"
 ---
 # <a name="blocking-legacy-authentication"></a>레거시 인증 차단
  
@@ -33,9 +33,11 @@ ms.locfileid: "72453057"
 
 1. Azure Portal > Azure Active Directory > 로그인으로 이동 합니다.
 1. 클라이언트 앱 열 > 클라이언트 앱에서 열을 클릭 하 여 표시 되지 않은 경우 클라이언트 앱 열을 추가 합니다.
-1. 다른 클라이언트 > 클라이언트 앱을 기준으로 필터링 하 고 적용을 클릭 합니다.
+1. 클라이언트 앱을 기준으로 필터링 > 제공 된 다른 모든 클라이언트 옵션을 확인 하 고 적용을 클릭 합니다.
+1. 상태별로 필터링 하 > 성공을 클릭 하 고 적용을 클릭 합니다. 
+1. 날짜 필터를 사용 하 여 필요한 경우 날짜 범위를 확장 합니다.
 
-필터링은 레거시 인증 프로토콜을 통해 수행 된 로그인 시도만 표시 합니다. 개별 로그인 시도를 클릭 하면 추가 세부 정보가 표시 됩니다. 기본 정보 탭의 클라이언트 앱 필드는 사용 된 레거시 인증 프로토콜을 표시 합니다. 이러한 로그는 레거시 인증에 종속 된 사용자 및 레거시 프로토콜을 사용 하 여 인증 요청을 수행 하는 응용 프로그램을 표시 합니다. 이러한 로그에 표시 되지 않고 레거시 인증을 사용 하지 않는 사용자의 경우 조건부 액세스 정책을 구현 하거나 기준 정책 사용: 해당 사용자에 대해서만 레거시 인증 차단을 선택 합니다.
+필터링은 선택한 레거시 인증 프로토콜에서 수행한 성공적인 로그인 시도만 표시 합니다. 개별 로그인 시도를 클릭 하면 추가 세부 정보가 표시 됩니다. 데이터의 개별 행을 선택 하 고 나 서 기본 정보 탭의 클라이언트 앱 열 또는 클라이언트 앱 필드는 사용 된 레거시 인증 프로토콜을 표시 합니다. 이러한 로그는 레거시 인증에 종속 된 사용자 및 레거시 프로토콜을 사용 하 여 인증 요청을 수행 하는 응용 프로그램을 표시 합니다. 이러한 로그에 표시 되지 않고 레거시 인증을 사용 하지 않는 사용자의 경우 조건부 액세스 정책을 구현 하거나 기준 정책 사용: 해당 사용자에 대해서만 레거시 인증 차단을 선택 합니다.
 
 ## <a name="moving-away-from-legacy-authentication"></a>레거시 인증에서 밖으로 이동 
 
@@ -47,8 +49,8 @@ ms.locfileid: "72453057"
 
 최신 인증을 사용 하도록 설정 하는 첫 번째 단계는 디렉터리에서 최신 인증을 지원 하는지 확인 하는 것입니다. 최신 인증은 2017 년 8 월 1 일 이후에 생성 되는 디렉터리에 대해 기본적으로 사용 하도록 설정 됩니다. 이 날짜 이전에 디렉터리가 만들어진 경우 다음 단계를 사용 하 여 디렉터리에 대 한 최신 인증을 수동으로 사용 하도록 설정 해야 합니다.
 
-1.  [비즈니스용 Skype Online PowerShell 모듈](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell)에서 @ no__t-0 @ no__t를 실행 하 여 디렉터리가 최신 인증을 이미 지원 하는지 확인 합니다.
-1. 명령에서 빈 @ no__t-0 @ no__t 속성을 반환 하는 경우 최신 인증을 사용할 수 없습니다. @ No__t를 사용 하 여 최신 인증을 사용 하도록 설정을 업데이트 합니다. @ No__t-0 @ no__t 속성에 항목이 포함 되어 있으면 이동 하는 것이 좋습니다.
+1.  [비즈니스용 Skype Online PowerShell 모듈](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell)에서 `Get-CsOAuthConfiguration` 를 실행 하 여 디렉터리에서 최신 인증을 이미 지원 하는지 확인 합니다.
+1. 명령에서 빈 `OAuthServers` 속성을 반환 하는 경우 최신 인증을 사용할 수 없습니다.  `Set-CsOAuthConfiguration`를 사용 하 여 최신 인증을 사용 하도록 설정을 업데이트 합니다.  `OAuthServers` 속성에 항목이 포함 되어 있는 경우에는 계속 진행 하는 것이 좋습니다.
 
 앞으로 이동 하기 전에이 단계를 완료 해야 합니다. 모든 Office 클라이언트에서 사용할 프로토콜을 결정 하기 때문에 디렉터리 구성이 먼저 변경 되는 것이 중요 합니다. 최신 인증을 지 원하는 Office 클라이언트를 사용 하는 경우에도 디렉터리에서 최신 인증을 사용 하지 않도록 설정 하면 기존 프로토콜을 사용 하는 것이 기본적으로 사용 됩니다.
 

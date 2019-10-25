@@ -1,26 +1,21 @@
 ---
 title: Azure Application Insights에서 메트릭 탐색 | Microsoft Docs
 description: 메트릭 탐색기에 차트를 해석하는 방법 및 메트릭 탐색기 블레이드를 사용자 지정하는 방법입니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/22/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 5c659ca2f40d47450227d16963499a6b27c9e313
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/22/2019
+ms.openlocfilehash: b0831ff500ba4cbe71dae6251fd960f6c96c0fe5
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60700890"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820795"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Application Insights에서 메트릭 탐색
-[Application Insights][start]의 메트릭은 애플리케이션의 원격 분석에서 전송된 측정된 값 및 이벤트 수입니다. 성능 문제를 감지하고 애플리케이션 사용 방식의 추세를 볼 수 있습니다. 다양한 표준 메트릭이 있으며 사용자 고유의 사용자 지정 메트릭 및 이벤트를 만들 수도 있습니다.
+[Application Insights][start] 메트릭은 응용 프로그램의 원격 분석에서 전송 된 측정 된 값 및 이벤트 수입니다. 성능 문제를 감지하고 애플리케이션 사용 방식의 추세를 볼 수 있습니다. 다양한 표준 메트릭이 있으며 사용자 고유의 사용자 지정 메트릭 및 이벤트를 만들 수도 있습니다.
 
 > [!NOTE]
 > 이 문서에서는 현재 사용되지 않으며 결국 사용 중지될 예정인 클래식 메트릭 탐색기 환경을 설명합니다. [이 문서](../platform/metrics-charts.md)에 설명된 새 환경을 확인해 볼 것을 권장합니다.
@@ -75,7 +70,7 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 
 함께 표시할 수 있는 조합에 관한 제한이 있지만 차트에 하나 이상의 메트릭을 표시할 수 있습니다. 한 메트릭을 선택하면 일부 다른 메트릭을 사용할 수 없습니다.
 
-[사용자 지정 메트릭][track]을 앱으로 코딩한 경우(TrackMetric 및 TrackEvent 호출) 여기에 나열됩니다.
+앱에 [사용자 지정 메트릭을][track] 코딩 (TrackEvent 메트릭 및 호출) 하는 경우 여기에 나열 됩니다.
 
 ## <a name="segment-your-data"></a>데이터 분할
 메트릭을 속성별로 분할할 수 있습니다. 예를 들어 서로 다른 운영 체제를 사용하는 클라이언트에서 페이지 보기를 비교하려는 경우가 여기에 해당합니다.
@@ -89,7 +84,7 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 >
 >
 
-[사용자 지정 메트릭][track]을 앱으로 코딩하고 속성 값을 포함하는 경우 목록에서 속성을 선택할 수 있게 됩니다.
+[사용자 지정 메트릭을][track] 앱에 코딩 하 고 속성 값을 포함 하는 경우 목록에서 속성을 선택할 수 있습니다.
 
 데이터를 분할하기에 차트가 너무 작나요? 높이 조정:
 
@@ -175,7 +170,7 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 
 ![메트릭 탐색기에서 경고 규칙, 경고 추가 선택](./media/metrics-explorer/appinsights-413setMetricAlert.png)
 
-[경고에 대해 알아봅니다][alerts].
+[경고에 대해 자세히 알아보세요][alerts].
 
 
 ## <a name="continuous-export"></a>연속 내보내기
@@ -184,7 +179,7 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 ### <a name="power-bi"></a>Power BI
 보다 풍부한 데이터 보기를 사용하려는 경우 [Power BI를 내보낼](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)수 있습니다.
 
-## <a name="analytics"></a>분석
+## <a name="analytics"></a>분석기능
 [분석](../../azure-monitor/app/analytics.md) 은 강력한 쿼리 언어를 사용하여 원격 분석을 분석하는 더욱 유용한 방법입니다. 메트릭의 결과를 결합하거나 계산하려는 경우 또는 앱의 최근 성능을 면밀히 조사하려는 경우에 사용합니다. 
 
 메트릭 차트에서 분석 아이콘을 클릭하여 해당하는 분석 쿼리를 직접 가져올 수 있습니다.

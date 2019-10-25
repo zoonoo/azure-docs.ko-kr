@@ -5,14 +5,14 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
 ms.topic: reference
-ms.date: 05/23/2019
+ms.date: 10/18/2019
 ms.author: evansma
-ms.openlocfilehash: 75e806e56fa94916f76f9e7fa6572ae07987e017
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 9cded164b63bbb72e4a353e9a542c9e054c14d93
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595550"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821150"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS 처리 Api, 버전 2 
 
@@ -616,7 +616,7 @@ Request Body:
 파트너가 SaaS 구독을 구독 취소 하는 호출을 시작 했습니다.<br>
 
 코드: 400<br>
-@No__t_1에서 **삭제가** 없는 구독에 대해를 삭제 합니다.
+`allowedCustomerOperations`에서 **삭제가** 없는 구독에 대해를 삭제 합니다.
 
 코드: 403<br>
 권한이 없습니다. 인증 토큰이 제공 되지 않았거나 잘못 되었거나 요청에서 현재 게시자에 속하지 않은 획득에 액세스 하려고 합니다.

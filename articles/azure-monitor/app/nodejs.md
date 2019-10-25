@@ -1,27 +1,22 @@
 ---
 title: Azure Application Insights를 사용하여 Node.js 서비스 모니터링 | Microsoft Docs
 description: Application Insights를 사용하여 Node.js 서비스의 성능을 모니터링하고 문제를 진단합니다.
-services: application-insights
-documentationcenter: nodejs
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: f2a30d5a040c2713f04173e83732cea5fa19af3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/14/2019
+ms.openlocfilehash: 81f63380c041ae743a2b38e6ba89558b83e7497a
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255277"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820713"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 검색 하 고 성능 및 기타 문제를 신속 하 게 진단할 수 있도록 배포 후에 백 엔드 서비스 및 구성 요소를 모니터링 합니다. 데이터 센터, Azure VM 및 웹앱, 다른 퍼블릭 클라우드에서도 호스팅되는 Node.js 서비스에 대한 Application Insights를 사용할 수 있습니다.
+[Azure 애플리케이션 Insights](../../azure-monitor/app/app-insights-overview.md) 는 배포 후에 백 엔드 서비스 및 구성 요소를 모니터링 하 여 성능 및 기타 문제를 검색 하 고 신속 하 게 진단할 수 있도록 합니다. 데이터 센터, Azure VM 및 웹앱, 다른 퍼블릭 클라우드에서도 호스팅되는 Node.js 서비스에 대한 Application Insights를 사용할 수 있습니다.
 
 모니터링 데이터를 수신, 저장 및 탐색하려면 코드에 SDK를 포함하고 Azure에서 해당 Application Insights 리소스를 설정합니다. SDK는 추가 분석 및 탐색을 위해 해당 리소스로 데이터를 보냅니다.
 
@@ -33,9 +28,9 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 
 앱 또는 서비스에 대한 모니터링을 설정하려면 다음 작업을 완료합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>전제 조건
 
-시작하기 전에 Azure 구독이 있는지 확인하여 없는 경우 [무료 계정을 새로 만듭니다][azure-free-offer]. 조직에 이미 Azure 구독이 있으면 관리자가 [다음 지침][add-aad-user]에 따라 사용자를 구독에 추가할 수 있습니다.
+시작 하기 전에 Azure 구독이 있는지 확인 하거나 [무료로 새로 가져오세요][azure-free-offer]. 조직에 이미 Azure 구독이 있는 경우 관리자는 [다음 지침][add-aad-user] 에 따라 사용자를 추가할 수 있습니다.
 
 [azure-free-offer]: https://azure.microsoft.com/free/
 [add-aad-user]: https://docs.microsoft.com/azure/active-directory/active-directory-users-create-azure-portal
@@ -44,7 +39,7 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 ### <a name="resource"></a> Application Insights 리소스 설정
 
 
-1. [Azure Portal][portal]에 로그인합니다.
+1. [Azure portal][portal]에 로그인합니다.
 2. **리소스 만들기** > **개발자 도구** > **Application Insights**를 선택합니다. 리소스에는 원격 분석 데이터를 수신하기 위한 엔드포인트, 이 데이터 스토리지, 저장된 보고서 및 대시보드, 규칙 및 경고 구성이 포함됩니다.
 
 3. 리소스 만들기 페이지의 **애플리케이션 유형** 상자에서 **Node.js Application**을 선택합니다. 앱 유형에 따라 생성되는 기본 대시보드 및 보고서가 결정됩니다. (모든 Application Insights 리소스는 모든 언어 및 플랫폼에서 데이터를 수집할 수 있습니다.)
@@ -83,7 +78,7 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 
 SDK는 Node.js 런타임 및 일부 일반적인 타사 모듈에 대한 원격 분석을 자동으로 수집합니다. 애플리케이션을 사용하여 이 데이터를 생성합니다.
 
-그런 다음, [Azure Portal][portal]에서 이전에 만든 Application Insights 리소스로 이동합니다. **타임라인 개요**에서 먼저 몇 가지 데이터 요소를 찾습니다. 더 자세한 데이터를 보려면 차트에서 다른 구성 요소를 선택합니다.
+그런 다음 [Azure Portal][portal] 에서 이전에 만든 Application Insights 리소스로 이동 합니다. **타임라인 개요**에서 먼저 몇 가지 데이터 요소를 찾습니다. 더 자세한 데이터를 보려면 차트에서 다른 구성 요소를 선택합니다.
 
 앱에 대해 검색된 토폴로지를 보려면 **애플리케이션 맵** 단추를 선택합니다. 자세한 내용을 보려면 맵에서 구성 요소를 선택합니다.
 
@@ -93,7 +88,7 @@ SDK는 Node.js 런타임 및 일부 일반적인 타사 모듈에 대한 원격 
 
 ![조사 섹션](./media/nodejs/007-investigate-pane.png)
 
-#### <a name="no-data"></a>데이터가 없나요?
+#### <a name="no-data"></a>데이터가 없으세요?
 
 SDK는 제출할 데이터를 일괄 처리하기 때문에 항목이 포털에 표시될 때까지 지연될 수 있습니다. 리소스에 데이터가 보이지 않으면 다음 해결 방법 중 몇 가지를 시도해 보세요.
 

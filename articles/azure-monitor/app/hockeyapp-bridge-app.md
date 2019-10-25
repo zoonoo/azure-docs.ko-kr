@@ -1,23 +1,18 @@
 ---
 title: Azure Application Insights에서 HockeyApp 데이터 탐색 | Microsoft Docs
 description: Application Insights를 사용하여 Azure 앱의 사용 현황 및 성능을 분석합니다.
-services: application-insights
-documentationcenter: windows
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 97783cc6-67d6-465f-9926-cb9821f4176e
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/30/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 79adfbfde25903bfe92c94507071c9d0fe303ef1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/30/2017
+ms.openlocfilehash: b14cd38a1db6804a00883ded0b38511fa46c3a52
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60898755"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819588"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Application Insights에서 HockeyApp 데이터 탐색
 
@@ -51,14 +46,14 @@ HockeyApp 브리지 필드가 나타납니다.
 
 ![데이터를 기다리는 Application Insights 리소스](./media/hockeyapp-bridge-app/04.png)
 
-정말 간단하죠. 지금부터 HockeyApp 계측 앱에서 수집된 사용자 지정 및 추적 데이터는 이제 Application Insights의 분석 및 연속 내보내기 기능에서 사용할 수 있습니다.
+이것으로 끝입니다. 지금부터 HockeyApp 계측 앱에서 수집된 사용자 지정 및 추적 데이터는 이제 Application Insights의 분석 및 연속 내보내기 기능에서 사용할 수 있습니다.
 
 이제 사용할 수 있는 이러한 기능을 각각 간단히 검토하겠습니다.
 
-## <a name="analytics"></a>분석
-Analytics는 임시 쿼리를 진단 및 분석을 신속 하 게 근본 원인 및 패턴을 검색할 수 있도록 데이터를 위한 강력한 도구입니다.
+## <a name="analytics"></a>분석기능
+분석은 데이터의 임시 쿼리를 위한 강력한 도구로, 원격 분석을 진단 및 분석 하 고 근본 원인과 패턴을 신속 하 게 검색할 수 있도록 합니다.
 
-![분석](./media/hockeyapp-bridge-app/05.png)
+![분석기능](./media/hockeyapp-bridge-app/05.png)
 
 * [분석에 대해 자세히 알아보기](../../azure-monitor/log-query/get-started-portal.md)
 

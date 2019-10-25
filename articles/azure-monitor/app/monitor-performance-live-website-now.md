@@ -1,23 +1,18 @@
 ---
 title: Azure Application Insights로 라이브 ASP.NET 웹앱 모니터링 | Microsoft Docs
 description: 다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다. 온-프레미스 또는 VM에서 호스트되는 ASP.NET 웹앱으로 작업합니다.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/26/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: e7d69e2258036318b736f245f9e3aec3cf5f54de
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 08/26/2019
+ms.openlocfilehash: ac238ae5715e09b2e64737801a862d89852ec9d9
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389936"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820759"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Application Insights 코드 없는 Attach를 사용 하 여 런타임 시 웹 앱 계측
 

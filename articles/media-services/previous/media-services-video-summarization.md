@@ -15,14 +15,18 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: e7a99ffdd42c02e5a18dc14c4774b428232b8293
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: a546df73f316b4eb6c215a6f52d68f87ad09c1a2
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015993"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881699"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Azure 미디어 비디오 미리 보기를 사용하여 비디오 요약 만들기  
+
+> [!IMPORTANT]
+> 일부 미디어 프로세서의 사용 중지 [계획](media-services-analytics-overview.md#retirement-plans) 을 검토 합니다.
+
 ## <a name="overview"></a>개요
 **Azure 미디어 비디오 미리 보기** MP(미디어 프로세서)를 사용하여 긴 비디오의 요약만 미리 보려는 고객에게 유용한 비디오 요약을 만들 수 있습니다. 예를 들어 고객은 미리 보기를 가리키면 나타나는 짧은 "요약 비디오"를 원할 수 있습니다. 구성 기본 설정을 통해 **Azure 미디어 비디오 미리 보기** 의 매개 변수를 조정하면 MP의 강력한 장면 감지 및 연결 기술을 사용하여 알고리즘 방식으로 설명이 포함된 하위 클립을 생성할 수 있습니다.  
 
@@ -54,10 +58,10 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 
 현재 다음 매개 변수를 변경할 수 있습니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
-| outputAudio |결과 비디오에 오디오를 포함할지 여부를 지정합니다. <br/>허용되는 값은 다음과 같습니다. True 또는 False입니다. 기본값은 True입니다. |
-| fadeInFadeOut |개별 동작 미리 보기 간에 페이드 전환이 사용되는지 여부를 지정합니다.  <br/>허용되는 값은 다음과 같습니다. True 또는 False입니다.  기본값은 True입니다. |
+| outputAudio |결과 비디오에 오디오를 포함할지 여부를 지정합니다. <br/>허용되는 값은 True 또는 False입니다. 기본값은 True입니다. |
+| fadeInFadeOut |개별 동작 미리 보기 간에 페이드 전환이 사용되는지 여부를 지정합니다.  <br/>허용되는 값은 True 또는 False입니다.  기본값은 True입니다. |
 | maxMotionThumbnailDurationInSecs |전체 결과 비디오의 길이를 지정하는 정수입니다.  기본값은 원본 비디오의 지속 시간에 따라 다릅니다. |
 
 다음 표에서는 **maxMotionThumbnailInSecs** 가 사용되지 않은 경우의 기본 지속 시간을 설명합니다.
@@ -282,10 +286,10 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>관련 링크
+## <a name="related-links"></a>관련된 링크
 [Azure Media Services 분석 개요](media-services-analytics-overview.md)
 
 [Azure 미디어 분석 데모](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)

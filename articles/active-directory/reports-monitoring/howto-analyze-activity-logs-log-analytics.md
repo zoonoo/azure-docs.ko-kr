@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor 로그를 사용 하 여 Azure Active Directory 활동 로그 분석 | Microsoft Docs
+title: Azure Monitor 로그를 사용 하 여 활동 로그 분석 | Microsoft Docs
 description: Azure Monitor 로그를 사용 하 여 Azure Active Directory 활동 로그를 분석 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1670c93f83ecd6f5bd557d24ec754998a225db0c
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 52ab1bd445f8af0bf58dcb6b1176904aa073877a
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255631"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820955"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 Azure AD 활동 로그 분석
 
@@ -32,7 +32,7 @@ ms.locfileid: "72255631"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>전제 조건 
 
 필수 조건을 충족하려면 다음이 필요합니다.
 
@@ -41,13 +41,13 @@ ms.locfileid: "72255631"
 *  Log analytics 작업 영역에 대 한 [액세스](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions)
 * Azure Active Directory에서 다음 역할 (Azure Active Directory 포털을 통해 Log Analytics에 액세스 하는 경우)
     - 보안 관리자
-    - 보안 판독기
+    - 보안 읽기 권한자
     - 보고서 구독자
     - 전역 관리자
     
 ## <a name="navigate-to-the-log-analytics-workspace"></a>Log Analytics 작업 영역으로 이동
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+1. [Azure portal](https://portal.azure.com)에 로그인합니다. 
 
 2. **Azure Active Directory**를 선택한 다음, **모니터링** 섹션에서 **로그**를 선택하여 Log Analytics 작업 영역을 엽니다. 작업 영역이 기본 쿼리로 열립니다.
 

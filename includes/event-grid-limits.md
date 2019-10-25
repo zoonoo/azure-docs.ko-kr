@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 3f94481e6a8550479788d92c744327e1dc3b58c4
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 890095718833c90a6764d0799d2081b393b1d0bd
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "66376913"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72887810"
 ---
 다음 제한은 이벤트 도메인이 *아닌* 시스템 항목 및 사용자 지정 항목 Azure Event Grid에 적용 됩니다.
 
@@ -29,8 +29,9 @@ ms.locfileid: "66376913"
 
 | 리소스 | 제한 |
 | --- | --- |
-| 이벤트 도메인당 항목 | 공개 미리 보기 중 1,000개 |
-| 도메인 내의 토픽 당 이벤트 구독 | 공개 미리 보기 중 50개 |
-| 도메인 범위 이벤트 구독 | 공개 미리 보기 중 50개 |
-| 이벤트 도메인의 게시 빈도 (수신) | 공개 미리 보기 중 초당 5,000개 이벤트 |
+| 이벤트 도메인당 항목 | 100,000개의 |
+| 도메인 내의 토픽 당 이벤트 구독 | 500 |
+| 도메인 범위 이벤트 구독 | 50 |
+| 이벤트 도메인의 게시 빈도 (수신) | 초당 5000 이벤트 |
 | 게시 요청 | 초당 250 |
+| Azure 구독 당 이벤트 도메인 | 100 |

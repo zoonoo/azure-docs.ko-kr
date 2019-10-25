@@ -4,14 +4,14 @@ description: Azure Resource Manager를 사용하여 전체 또는 증분 배포 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 10/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: c82d8b90d9da44ab8f4b8ea0aa0e063ea70350e2
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 10a9917d8ed763b133fbd33aedd16da399a224b2
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258973"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881649"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 배포 모드
 
@@ -21,7 +21,9 @@ ms.locfileid: "70258973"
 
 ## <a name="complete-mode"></a>전체 모드
 
-전체 모드에서는 Resource Manager가 리소스 그룹에 존재하지만 템플릿에는 지정되지 않은 리소스를 **삭제**합니다. 템플릿에 지정되었지만 [condition](conditional-resource-deployment.md)(조건)이 false로 평가되어 배포되지 않은 리소스는 삭제되지 않습니다.
+전체 모드에서는 Resource Manager가 리소스 그룹에 존재하지만 템플릿에는 지정되지 않은 리소스를 **삭제**합니다.
+
+[조건이](conditional-resource-deployment.md) false로 평가 되므로 템플릿에 배포 되지 않은 리소스가 포함 된 경우에는 템플릿을 배포 하는 데 사용 하는 REST API 버전에 따라 결과가 달라 집니다. 2019-05-10 이전 버전을 사용 하는 경우 리소스는 **삭제 되지 않습니다**. 2019-05-10 이상에서는 리소스가 **삭제 됩니다**. 최신 버전의 Azure PowerShell 및 Azure CLI 리소스를 삭제 합니다.
 
 [복사 루프](resource-group-create-multiple.md)에서 전체 모드를 사용할 때는 주의 해야 합니다. 복사 루프를 확인 한 후 템플릿에 지정 되지 않은 모든 리소스는 삭제 됩니다.
 

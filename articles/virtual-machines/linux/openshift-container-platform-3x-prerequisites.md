@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/14/2019
+ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 591cc7a4b84f75536446abbcbe32a69a122ddf5a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 0b7eaaf68c1b0907b6d687b823ef71a7c9bd0102
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392671"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882410"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Azure에서 OpenShift Container Platform 3.11을 배포 하기 위한 일반적인 필수 구성 요소
 
@@ -113,14 +113,16 @@ az group create -l eastus -n openshiftrg
 서비스 주체 만들기:
 
 ```azurecli
-scope=`az group show --name openshiftrg --query id`
-az ad sp create-for-rbac --name openshiftsp \
-      --role Contributor --password {Strong Password} \
-      --scopes $scope \
+az group show --name openshiftrg --query id
 ```
-Windows를 사용하는 경우 ```az group show --name openshiftrg --query id```를 실행하고 $scope 대신 출력을 사용합니다.
+명령 출력을 저장 하 고 다음 명령에서 $scope 대신 사용 합니다.
 
-명령에서 반환되는 appId 속성을 기록해 둡니다.
+```azurecli
+az ad sp create-for-rbac --name openshiftsp \
+      --role Contributor --scopes $scope \
+```
+
+명령에서 반환 된 appId 속성 및 암호를 기록해 둡니다.
 ```json
 {
   "appId": "11111111-abcd-1234-efgh-111111111111",
@@ -131,7 +133,7 @@ Windows를 사용하는 경우 ```az group show --name openshiftrg --query id```
 }
 ```
  > [!WARNING] 
- > 보안 암호를 만들어야 합니다. [Azure AD 암호 규칙 및 제한 사항](/azure/active-directory/active-directory-passwords-policy) 지침을 따르세요.
+ > 이 암호를 다시 검색할 수 없게 되므로 보안 암호를 기록해 두어야 합니다.
 
 서비스 주체에 대한 자세한 내용은 [Azure CLI를 사용하여 Azure 서비스 주체 만들기](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)를 참조하세요.
 

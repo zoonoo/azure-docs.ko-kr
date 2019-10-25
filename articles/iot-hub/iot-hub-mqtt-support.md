@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 59bf62f73d8ba9732cd89209d2b239fd15a6d844
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: HT
+ms.openlocfilehash: 11e2a02277a47e070f91e8f057f0d8493235c5ce
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754466"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821344"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -116,6 +116,38 @@ MQTT 프로토콜을 지 원하는 [장치 sdk](https://github.com/Azure/azure-i
 MQTT 연결 및 분리 패킷의 경우, IoT Hub는 **작업 모니터링** 채널의 이벤트를 발행합니다. 이 이벤트에에는 연결 문제 해결에 도움이 되는 추가 정보가 있습니다.
 
 디바이스 앱은 **CONNECT** 패킷에 **Will** 메시지를 지정할 수 있습니다. 디바이스 앱은 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **Will** 항목 이름으로 사용하여 원격 분석 메시지로서 전달할 **Will** 메시지를 정의할 수 있습니다. 이 경우 네트워크 연결이 닫혀 있지만 **DISCONNECT** 패킷이 이전에 디바이스에서 수신되지 않은 경우 IoT Hub는 **CONNECT** 패킷에 제공된 **Will** 메시지를 원격 분석 채널로 전송합니다. 원격 분석 채널은 기본 **이벤트** 엔드포인트 또는 IoT Hub 라우팅으로 정의되는 사용자 지정 엔드포인트일 수 있습니다. 메시지에는 **Will** 값이 할당된 **iothub MessageType** 속성이 지정됩니다.
+
+### <a name="an-example-of-c-code-using-mqtt-without-azure-iot-c-sdk"></a>Azure IoT C SDK 없이 MQTT를 사용 하는 C 코드의 예
+이 [리포지토리에서](https://github.com/Azure-Samples/IoTMQTTSample)Azure IOT C SDK를 사용 하지 않고 원격 분석C++ 메시지를 보내고 iot hub를 사용 하 여 이벤트를 수신 하는 방법을 보여 주는 2 개의 C/데모 프로젝트를 찾을 수 있습니다. 
+
+이러한 샘플은 Eclipse Mosquitto 라이브러리를 사용 하 여 IoT hub에서 구현 된 MQTT Broker로 메시지를 보냅니다.
+
+이 리포지토리에는 다음이 포함 됩니다.
+
+**Windows의 경우:**
+
+• TelemetryMQTTWin32: 원격 분석 메시지를 Azure IoT hub에 전송 하 고, Windows 컴퓨터에서 빌드하고 실행 하는 코드를 포함 합니다.
+
+• SubscribeMQTTWin32: Windows 컴퓨터에서 지정 된 IoT hub의 이벤트를 구독 하는 코드를 포함 합니다.
+
+• DeviceTwinMQTTWin32: Windows 컴퓨터의 Azure IoT hub에서 장치의 장치 쌍 이벤트를 쿼리하고 구독 하는 코드를 포함 합니다.
+
+• PnPMQTTWin32: IoT 플러그 & Play preview 장치 기능을 사용 하 여 Azure IoT hub에 원격 분석 메시지를 전송 하 고, Windows 컴퓨터에서 빌드하고 실행 하는 코드를 포함 합니다. IoT 플러그인에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/en-us/azure/iot-pnp/overview-iot-plug-and-play) 에서 &.
+
+**Linux의 경우:**
+
+• MQTTLinux: Linux에서 실행할 코드 및 빌드 스크립트를 포함 합니다 (WSL, Ubuntu 및 Raspbian는 지금까지 테스트 됨).
+
+• LinuxConsoleVS2019: 동일한 코드를 포함 하지만 WSL (Windows Linux sub system)을 대상으로 하는 VS2019 프로젝트에 포함 됩니다. 이 프로젝트를 사용 하 여 Visual Studio의 단계별 Linux에서 실행 되는 코드를 디버그할 수 있습니다.
+
+**Mosquito_pub의 경우:**
+
+•이 폴더에는 Mosquitto.org에서 제공 하는 mosquitto_pub 유틸리티 도구로 사용 되는 두 개의 샘플 명령이 있습니다.
+
+Mosquitto_sendmessage: 장치 역할을 하는 Azure IoT hub에 간단한 문자 메시지를 전송 합니다.
+
+Mosquitto_subscribe: Azure IoT hub에서 발생 하는 이벤트를 확인 합니다.
+
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>MQTT 프로토콜 직접 사용(모듈로)
 

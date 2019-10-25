@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 448d416ce4915aeae048639f6021197ed8c1d334
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: b6dffb46d8c0fd7201079de3e8509ece516d2f8f
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967866"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821401"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export에 대한 시스템 요구 사항
 
@@ -26,7 +26,7 @@ WAImportExport 도구를 사용하여 하드 드라이브를 준비하기 위해
 
 |플랫폼 |버전 |
 |---------|---------|
-|Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
+|Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Windows 클라이언트에 필요한 다른 소프트웨어
@@ -57,10 +57,10 @@ Azure Import/Export 서비스는 다음과 같은 유형의 스토리지 계정�
 다음 스토리지 유형 목록은 Azure Import/Export 서비스를 지원합니다.
 
 
-|작업  |스토리지 서비스 |지원됨  |지원되지 않음  |
+|작업  |스토리지 서비스 |지원됨  |지원하지 않음  |
 |---------|---------|---------|---------|
-|가져오기     |  Azure Blob 스토리지 <br><br> Azure File Storage       | 블록 Blob 및 페이지 Blob 지원됨 <br><br> 파일 지원됨          |
-|내보내기     |   Azure Blob 스토리지       | 블록 Blob, 페이지 Blob 및 추가 Blob 지원됨         | Azure Files 지원되지 않음
+|가져오기     |  Azure Blob Storage <br><br> Azure File Storage       | 블록 Blob 및 페이지 Blob 지원됨 <br><br> 파일 지원됨          |
+|내보내기     |   Azure Blob Storage       | 블록 Blob, 페이지 Blob 및 추가 Blob 지원됨         | Azure Files 지원되지 않음
 
 
 ## <a name="supported-hardware"></a>지원되는 하드웨어 
@@ -72,7 +72,7 @@ Azure Import/Export 서비스의 경우 데이터를 복사할 지원되는 디�
 다음 디스크 목록은 Import/Export 서비스에서 사용하도록 지원됩니다.
 
 
-|디스크 유형  |Size  |지원됨 |
+|디스크 유형  |크기  |지원됨 |
 |---------|---------|---------|
 |SSD    |   2.5"      |SATA III          | 
 |HDD     |  2.5"<br>3.5"       |SATA II, SATA III         |
@@ -95,5 +95,5 @@ Azure Import/Export 서비스의 경우 데이터를 복사할 지원되는 디�
 
 * [WAImportExport 도구 설정](storage-import-export-tool-how-to.md)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
-* [Azure Import/Export REST API 샘플](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
+* [Azure Import/Export REST API 샘플](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)
 

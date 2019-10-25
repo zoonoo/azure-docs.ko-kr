@@ -1,23 +1,18 @@
 ---
 title: Application Insights에서 원격 분석 연속 내보내기 | Microsoft Docs
 description: Microsoft Azure에서 스토리지에 진단 및 사용량 데이터를 내보내고 여기에서 다운로드합니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/25/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 3238abcbcbc4d776e3736b13d5b32149c642649c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.date: 07/25/2019
+ms.openlocfilehash: 6504661c2df66bda81af03a6364703b4b10f7485
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516940"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819546"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
 표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 스토리지로 내보낼 수 있습니다. 여기에서 데이터를 다운로드 하 고 처리 하는 데 필요한 모든 코드를 작성할 수 있습니다.  
@@ -92,7 +87,7 @@ ms.locfileid: "68516940"
 ## <a name="get"></a> 데이터 검사
 포털에서 직접 스토리지를 검사할 수 있습니다. 맨 왼쪽 메뉴에서 홈을 클릭 하 고, "Azure 서비스"가 **저장소 계정**을 선택 하 고, 저장소 계정 이름을 선택 하 고, 개요 페이지에서 서비스 아래의 **blob** 을 선택 하 고, 마지막으로 컨테이너 이름을 선택 합니다.
 
-Visual Studio에서 Azure Storage를 검사하려면 **보기**, **클라우드 탐색기**를 차례로 엽니다. (해당 메뉴 명령이 없는 경우 Azure SDK를 설치해야 합니다. **새 프로젝트** 대화 상자를 열고, 시각적 개체 C#/클라우드를 확장하고 **.NET용 Microsoft Azure SDK 가져오기**를 선택합니다.)
+Visual Studio에서 Azure Storage를 검사하려면 **보기**, **클라우드 탐색기**를 차례로 엽니다. (해당 메뉴 명령이 없는 경우 Azure SDK를 설치해야 합니다. **새 프로젝트** 대화 상자를 열고 Visual C#/클라우드를 확장한 다음 **.NET용 Microsoft Azure SDK 가져오기**를 선택합니다.)
 
 blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입니다. Application Insights 리소스 이름, 계측 키, 원격 분석 유형/날짜/시간에서 파생된 각 파일의 URI입니다. 리소스 이름은 모두 소문자이고 계측 키에서 대시를 생략합니다.
 
@@ -104,7 +99,7 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
 
     $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
 
-위치
+Where
 
 * `blobCreationTimeUtc` 는 Blob이 내부 준비 스토리지에 만들어진 시간입니다.
 * `blobDeliveryTimeUtc` 는 Blob이 내보내기 대상 스토리지에 복사되는 시간입니다.
@@ -125,7 +120,7 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
 [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](export-data-model.md)
 
 ## <a name="processing-the-data"></a>데이터 처리
-작은 규모에서 데이터를 분리하고, 스프레드시트에서 읽는 등의 처리를 위한 코드를 작성할 수 있습니다. 예:
+작은 규모에서 데이터를 분리하고, 스프레드시트에서 읽는 등의 처리를 위한 코드를 작성할 수 있습니다. 다음은 그 예입니다.
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {
@@ -163,7 +158,7 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
 
 더 큰 규모에서는 [HDInsight](https://azure.microsoft.com/services/hdinsight/) (클라우드의 Hadoop 클러스터)를 고려합니다. HDInsight는 빅 데이터에 대한 다양한 관리 분석 기술을 제공하므로 이를 사용하여 Application Insights에서 내보낸 데이터를 처리할 수 있습니다.
 
-## <a name="q--a"></a>Q&A
+## <a name="q--a"></a>질문과 답변
 * *하지만 원하는 모든 것은 차트의 일회성 다운로드입니다.*  
 
     예, 수행할 수 있습니다. 탭 위쪽에서 **데이터 내보내기**를 클릭 합니다.
@@ -178,14 +173,14 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
     아니요. 죄송합니다. 우리의 내보내기 엔진은 현재 Azure Storage에서만 작동합니다.  
 * *내 저장소에 보관하는 데이터량에 제한이 있나요?*
 
-    아니요. 내보내기를 삭제할 때까지 푸싱한 데이터를 유지합니다. Windows에서 Azure File Storage 시작문서의 지침에 따라 Azure 파일 공유를 만듭니다. 사용자가 이용하는 스토리지 크기는 사용자가 제어하기 나름입니다.  
+    아닙니다. 내보내기를 삭제할 때까지 푸싱한 데이터를 유지합니다. Windows에서 Azure File Storage 시작문서의 지침에 따라 Azure 파일 공유를 만듭니다. 사용자가 이용하는 스토리지 크기는 사용자가 제어하기 나름입니다.  
 * *스토리지에서 몇 개의 BLOB를 볼 수 있나요?*
 
   * 내보내려고 선택한 모든 데이터 형식에 대해 새 blob(데이터 파일이 사용 가능한 경우)이 매 분마다 만들어 집니다.
   * 또한, 트래픽이 많은 애플리케이션은 추가 파티션이 할당됩니다. 이 경우 각 단위는 1 분 마다 blob을 만듭니다.
 * *내 스토리지 키를 다시 생성하거나 컨테이너의 이름을 변경한 경우에는 현재 내보내기가 동작하지 않습니다.*
 
-    내보내기를 편집 하 고 내보내기 대상 탭을 엽니다. 이전과 마찬가지로 선택된 것과 동일한 스토리지는 그대로 두고 확인을 클릭하여 확인합니다. 내보내기가 다시 시작됩니다. 지난 몇 일 이내에 변경된 경우 데이터가 손실됩니다.
+    내보내기를 편집 하 고 내보내기 대상 탭을 엽니다. 이전과 같이 선택한 것과 동일한 저장소를 그대로 두고 확인을 클릭 하 여 확인 합니다. 내보내기가 다시 시작됩니다. 지난 몇 일 이내에 변경된 경우 데이터가 손실됩니다.
 * *내보내기를 일시 중지할 수 있나요?*
 
     예. 사용 안함을 클릭합니다.
