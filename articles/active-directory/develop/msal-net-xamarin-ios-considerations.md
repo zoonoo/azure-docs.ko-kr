@@ -1,5 +1,6 @@
 ---
-title: Xamarin iOS 고려 사항 (Microsoft Authentication Library for .NET) | Microsoft
+title: Xamarin iOS 고려 사항 (Microsoft Authentication Library for .NET)
+titleSuffix: Microsoft identity platform
 description: MSAL.NET (Microsoft Authentication Library for .NET)에서 Xamarin iOS를 사용 하는 경우의 특정 고려 사항에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,18 +18,18 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 054033c0fc9f1138ef9ecf7eaceca626f6f53423
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 64524960e584907b1e761a36f8ceb1461a7771c7
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872854"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802616"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>MSAL.NET를 사용 하 여 Xamarin iOS 관련 고려 사항
 Xamarin iOS에서 MSAL.NET 사용 시 고려해 야 할 몇 가지 고려 사항이 있습니다.
 
 - [IOS 12 및 인증의 알려진 문제](#known-issues-with-ios-12-and-authentication)
-- [에서 함수를 `OpenUrl` 재정의 하 고 구현 합니다.`AppDelegate`](#implement-openurl)
+- [`AppDelegate`에서 `OpenUrl` 함수를 재정의 하 고 구현 합니다.](#implement-openurl)
 - [키 집합 그룹 사용](#enable-keychain-access)
 - [토큰 캐시 공유 사용](#enable-token-cache-sharing-across-ios-applications)
 - [키 집합 액세스 사용](#enable-keychain-access)
@@ -42,7 +43,7 @@ Xamarin iOS에서 MSAL.NET 응용 프로그램을 개발할 때 iOS 12에서 웹
 
 ## <a name="implement-openurl"></a>OpenUrl 구현
 
-먼저 `OpenUrl` `FormsApplicationDelegate` 파생 클래스의 메서드를 재정의 하 고를 호출 `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs`해야 합니다.
+먼저 `FormsApplicationDelegate` 파생 클래스의 `OpenUrl` 메서드를 재정의 하 고 `AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs`를 호출 해야 합니다.
 
 ```CSharp
 public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
@@ -57,9 +58,9 @@ public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
 ### <a name="enable-keychain-access"></a>키 집합 액세스 사용
 
 키 집합 액세스를 사용 하도록 설정 하려면 응용 프로그램에 키 집합 액세스 그룹이 있어야 합니다.
-아래와 같이 응용 프로그램을 만들 때 api를 `WithIosKeychainSecurityGroup()` 사용 하 여 키 집합 액세스 그룹을 설정할 수 있습니다.
+아래와 같이 응용 프로그램을 만들 때 `WithIosKeychainSecurityGroup()` api를 사용 하 여 키 집합 액세스 그룹을 설정할 수 있습니다.
 
-Single sign-on을 사용 하도록 설정 하려면 모든 응용 프로그램에서 `PublicClientApplication.iOSKeychainSecurityGroup` 속성을 동일한 값으로 설정 해야 합니다.
+Single Sign-On를 사용 하도록 설정 하려면 모든 응용 프로그램에서 `PublicClientApplication.iOSKeychainSecurityGroup` 속성을 동일한 값으로 설정 해야 합니다.
 
 MSAL v3. x를 사용 하는 예제는 다음과 같습니다.
 ```csharp
@@ -71,7 +72,7 @@ var builder = PublicClientApplicationBuilder
 
 Info.plist는 다음과 같은 XML 조각과 같이 업데이트 되어야 합니다.
 
-이 변경은 아래 액세스 그룹이 나 사용자 고유의 키를 사용 `Entitlements.plist` 하 여 파일에서 키 집합 액세스를 사용 하도록 설정 하는 것 *외에* 도 해당 됩니다.
+이러한 변경은 아래 액세스 그룹 또는 사용자 고유의 액세스 그룹을 사용 하 여 `Entitlements.plist` 파일에서 키 집합 액세스를 사용 하도록 설정 하는 것 *외에* 도 사용 됩니다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -92,25 +93,25 @@ MSAL v4. x를 사용 하는 예제는 다음과 같습니다.
 PublicClientApplication.iOSKeychainSecurityGroup = "com.microsoft.msalrocks";
 ```
 
-`WithIosKeychainSecurityGroup()` Api를 사용 하는 경우 xcode를 사용 하 여 응용 프로그램을 빌드할 때 동일한 작업을 수행 하기 때문에 msal은 응용 프로그램의 "팀 ID" (AppIdentifierPrefix) 끝에 보안 그룹을 자동으로 추가 합니다. [자세한 내용은 iOS 자격 설명서를 참조](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps)하세요. 따라서 info.plist의 키 집합 액세스 그룹 앞에 $ (AppIdentifierPrefix)를 포함 하도록 자격을 업데이트 해야 합니다.
+`WithIosKeychainSecurityGroup()` api를 사용 하는 경우 xcode를 사용 하 여 응용 프로그램을 빌드할 때 동일한 작업을 수행 하기 때문에 MSAL이 응용 프로그램의 "팀 ID" (AppIdentifierPrefix)의 끝에 자동으로 보안 그룹을 추가 합니다. [자세한 내용은 iOS 자격 설명서를 참조](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps)하세요. 따라서 info.plist의 키 집합 액세스 그룹 앞에 $ (AppIdentifierPrefix)를 포함 하도록 자격을 업데이트 해야 합니다.
 
 ### <a name="enable-token-cache-sharing-across-ios-applications"></a>IOS 응용 프로그램에서 토큰 캐시 공유 사용
 
 MSAL 2.x에서 여러 응용 프로그램에 걸쳐 토큰 캐시를 유지 하는 데 사용할 키 집합 액세스 그룹을 지정할 수 있습니다. 이 설정을 사용 하면 [ADAL.NET](https://aka.ms/adal-net), MSAL.NET 응용 프로그램 및로 [개발 된 네이티브 iOS 응용 프로그램을 사용 하 여 개발 된 키 집합 액세스 그룹을 포함 하는 여러 응용 프로그램 간에 토큰 캐시를 공유할 수 있습니다. ADAL. objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) 또는 [msal. objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc)).
 
-토큰 캐시를 공유 하면 동일한 키 집합 액세스 그룹을 사용 하는 모든 응용 프로그램 간에 single sign-on이 가능 합니다.
+토큰 캐시를 공유 하면 동일한 키 집합 액세스 그룹을 사용 하는 모든 응용 프로그램 간에 Single Sign-On 수 있습니다.
 
 이 캐시 공유를 사용 하도록 설정 하려면 ' WithIosKeychainSecurityGroup () ' 메서드를 사용 하 여 위의 예제와 같이 동일한 캐시를 공유 하는 모든 응용 프로그램에서 키 집합 액세스 그룹을 동일한 값으로 설정 해야 합니다.
 
-이전에는이 `WithIosKeychainSecurityGroup()` api를 사용할 때마다 msal에서 $ (AppIdentifierPrefix)를 추가 했습니다. AppIdentifierPrefix 또는 "팀 ID"는 동일한 게시자가 만든 응용 프로그램만 키 집합 액세스를 공유할 수 있도록 하는 데 사용 되기 때문입니다.
+이전에는 `WithIosKeychainSecurityGroup()` api를 사용할 때마다 MSAL에서 $ (AppIdentifierPrefix)를 추가 했습니다. AppIdentifierPrefix 또는 "팀 ID"는 동일한 게시자가 만든 응용 프로그램만 키 집합 액세스를 공유할 수 있도록 하는 데 사용 되기 때문입니다.
 
 > [!NOTE]
-> **속성 `KeychainSecurityGroup` 은 사용 되지 않습니다.**
+> **`KeychainSecurityGroup` 속성은 사용 되지 않습니다.**
 > 
-> 이전에는 msal 2.x에서 개발자가 `KeychainSecurityGroup` 속성을 사용할 때 teamid 접두사를 포함 해야 했습니다.
+> 이전에는 MSAL 2.x에서 개발자가 `KeychainSecurityGroup` 속성을 사용할 때 TeamId 접두사를 포함 해야 했습니다.
 >
->  Msal 2.7. x에서 새 `iOSKeychainSecurityGroup` 속성을 사용 하는 경우 msal은 런타임 중에 teamid 접두사를 확인 합니다. 이 속성을 사용 하는 경우 값은 TeamId 접두사를 포함 하지 않아야 합니다.
->  `iOSKeychainSecurityGroup` 이전`KeychainSecurityGroup` 속성이 더 이상 사용 되지 않으므로 teamid를 제공 하지 않아도 되는 새 속성을 사용 합니다.
+>  MSAL 2.7. x에서 새 `iOSKeychainSecurityGroup` 속성을 사용 하는 경우 MSAL은 런타임 중에 TeamId 접두사를 확인 합니다. 이 속성을 사용 하는 경우 값은 TeamId 접두사를 포함 하지 않아야 합니다.
+>  이전 `KeychainSecurityGroup` 속성은 이제 사용 되지 않으므로 TeamId를 제공 하지 않아도 되는 새 `iOSKeychainSecurityGroup` 속성을 사용 합니다.
 
 ### <a name="use-microsoft-authenticator"></a>Microsoft Authenticator 사용
 
@@ -126,7 +127,7 @@ Broker를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [
 
 자세한 내용은 다음 샘플의 readme.md 파일에 있는 [IOS 관련 고려 사항](https://github.com/azure-samples/active-directory-xamarin-native-v2#ios-specific-considerations) 단락에서 제공 됩니다.
 
-예제 | 플랫폼 | 설명
+샘플 | 플랫폼 | 설명
 ------ | -------- | -----------
 [https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | 간단한 Xamarin Forms 앱은 MSAL을 사용 하 여 Azure AD v2.0 끝점을 통해 MSA 및 Azure AD를 인증 하 고 결과 토큰을 사용 하 여 Microsoft Graph에 액세스 하는 방법을 보여주는 합니다.
 

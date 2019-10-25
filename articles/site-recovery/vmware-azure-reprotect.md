@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/22/2019
 ms.author: mayg
-ms.openlocfilehash: 2f6f865f019b8b2a403865db4e59a7e86f59e509
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: cf1ccdf953781ca9b9bd17152f2cf32677997d12
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331051"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791814"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Azure로 장애 조치(failover) 후에 머신을 온-프레미스 사이트로 다시 보호 및 장애 복구(failback)
 
@@ -34,6 +34,7 @@ Azure로 온-프레미스 VMware VM 및 물리적 서버를 [장애 조치](site
 - vCenter Server에서 장애 복구(failback)하려는 가상 머신을 관리하는 경우 vCenter Server에서 VM을 검색하는 데 [필요한 권한](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery)이 있는지 확인해야 합니다.
 - 다시 보호하기 전에 마스터 대상 서버에서 스냅샷을 삭제합니다. 온-프레미스 마스터 대상 또는 가상 머신에 스냅샷이 있는 경우 다시 보호가 실패합니다. 가상 머신의 스냅샷은 다시 보호 작업 중에 자동으로 병합됩니다.
 - 복제 그룹의 모든 가상 머신은 동일한 운영 체제 유형이어야 합니다(모두 Windows 또는 모두 Linux). 운영 체제가 혼합된 복제 그룹은 현재 다시 보호 및 온-프레미스로 장애 복구(failback)가 지원되지 않습니다. 즉, 마스터 대상이 가상 머신과 동일한 운영 체제이어야 합니다. 복제 그룹의 모든 가상 머신에는 동일한 마스터 대상이 있어야 합니다. 
+- 마스터 대상의 OS 버전은 복제 된 항목의 OS 버전과 같거나 더 높아야 합니다.
 - 장애 복구를 수행할 때 구성 서버가 온-프레미스에 있어야 합니다. 장애 복구하는 동안 가상 머신이 구성 서버 데이터베이스에 있어야 합니다. 그렇지 않으면 장애 복구가 실패합니다. 정기적으로 예정된 구성 서버 백업을 수행해야 합니다. 재해가 발생한 경우 장애 복구가 작동하도록 동일한 IP 주소로 서버를 복원합니다. 
 - 다시 보호 및 장애 복구를 수행 하려면 데이터를 복제 하기 위한 S2S (사이트 간) VPN 또는 Express 경로 개인 피어 링이 필요 합니다. 네트워크를 제공하여 Azure에서 장애 조치된 가상 머신이 온-프레미스 구성 서버에 연결(ping)할 수 있습니다. 장애 조치 (failover) 된 가상 머신의 Azure 네트워크에 프로세스 서버를 배포 해야 합니다. 또한이 프로세스 서버는 온-프레미스 구성 서버와 마스터 대상 서버와 통신할 수 있어야 합니다.
 - 장애 조치 (failover) 시 복제 된 항목의 IP 주소가 유지 된 경우 Azure virtual machines와 구성 서버의 장애 복구 NIC 간에 S2S 또는 Express 경로 연결을 설정 해야 합니다. IP 주소를 보존 하려면 구성 서버에 원본 컴퓨터 연결용 Nic와 Azure 장애 복구 연결용 Nic가 각각 하나씩 있어야 합니다. 이는 원본 및 장애 조치 (failover) 된 가상 컴퓨터의 서브넷 주소 범위 중복을 방지 하기 위한 것입니다.

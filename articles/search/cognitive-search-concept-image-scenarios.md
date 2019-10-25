@@ -1,26 +1,25 @@
 ---
-title: 인식 검색에서 이미지의 텍스트 처리 및 추출 - Azure Search
-description: Azure Search의 인식 검색 파이프라인에 있는 이미지에서 텍스트 및 기타 정보를 처리하고 추출합니다.
-services: search
+title: 보강 파이프라인에서 이미지의 텍스트 처리 및 추출
+titleSuffix: Azure Cognitive Search
+description: Azure Cognitive Search 파이프라인에서 이미지의 텍스트 및 기타 정보를 처리 하 고 추출 합니다.
 manager: nitinme
-author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: LuisCabrer
 ms.author: luisca
-ms.openlocfilehash: c1fd5c4e5a3ac054a85bdcc11d95bc3c338ee3c2
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 5006bf5bc7eafd464861a3570654539386c5f837
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265861"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787749"
 ---
-#  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>인식 검색 시나리오의 이미지에서 정보를 처리하고 추출하는 방법
+# <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>AI 보강 시나리오에서 이미지의 정보를 처리 하 고 추출 하는 방법
 
-인식 검색에는 이미지 및 이미지 파일에서 작동하는 몇 가지 기능이 있습니다. 문서를 해독하는 동안 *imageAction* 매개 변수를 사용하여 정지 신호에서 단어 "STOP"과 같은 영숫자 텍스트를 포함하는 사진이나 그림에서 텍스트를 추출할 수 있습니다. 기타 시나리오에는 민들레 사진의 "민들레" 또는 "노란색"과 같은 이미지의 텍스트 표현을 생성하는 방법이 포함됩니다. 또한 해당 크기와 같은 이미지에 대한 메타데이터를 추출할 수 있습니다.
+Azure Cognitive Search는 이미지 및 이미지 파일을 사용 하기 위한 몇 가지 기능을 제공 합니다. 문서를 해독하는 동안 *imageAction* 매개 변수를 사용하여 정지 신호에서 단어 "STOP"과 같은 영숫자 텍스트를 포함하는 사진이나 그림에서 텍스트를 추출할 수 있습니다. 기타 시나리오에는 민들레 사진의 "민들레" 또는 "노란색"과 같은 이미지의 텍스트 표현을 생성하는 방법이 포함됩니다. 또한 해당 크기와 같은 이미지에 대한 메타데이터를 추출할 수 있습니다.
 
-이 아티클에서는 이미지 처리를 자세히 설명하고 인식 검색 파이프라인에 있는 이미지로 작업하는 방법에 대한 지침을 제공합니다.
+이 문서에서는 이미지 처리에 대해 자세히 설명 하 고 AI 보강 파이프라인에서 이미지를 사용 하는 방법에 대 한 지침을 제공 합니다.
 
 <a name="get-normalized-images"></a>
 
@@ -32,12 +31,12 @@ ms.locfileid: "71265861"
 
 | 구성 매개 변수 | 설명 |
 |--------------------|-------------|
-| imageAction   | 포함된 이미지 또는 이미지 파일이 있을 때 아무 작업도 수행하지 않아야 하는 경우 "없음"으로 설정합니다. <br/>정규화된 이미지의 배열을 문서 해독의 일부로 생성하려 "generateNormalizedImages"로 설정합니다.<br/>정규화된 이미지 배열을 생성하려면 “generateNormalizedImagePerPage”로 설정합니다. 여기서 데이터 원본에 있는 PDF의 경우 각 페이지가 하나의 출력 이미지로 렌더링됩니다.  기능은 비 PDF 파일 형식에 대한 “generateNormalizedImages”와 동일합니다.<br/>“none”이 아닌 옵션의 경우 이미지가 *normalized_images* 필드에 공개됩니다. <br/>기본값은 "없음"입니다. 이 구성은 "dataToExtract"가 "contentAndMetadata"로 설정된 경우 Blob 데이터 원본에만 관련됩니다. <br/>지정 된 문서에서 최대 1000 개의 이미지가 추출 됩니다. 문서에 1000 개가 넘는 이미지가 있으면 첫 번째 1000이 추출 되 고 경고가 생성 됩니다. |
+| imageAction   | 포함된 이미지 또는 이미지 파일이 있을 때 아무 작업도 수행하지 않아야 하는 경우 "없음"으로 설정합니다. <br/>정규화된 이미지의 배열을 문서 해독의 일부로 생성하려 "generateNormalizedImages"로 설정합니다.<br/>"GenerateNormalizedImagePerPage"로 설정 하 여 데이터 원본의 Pdf에 대해 각 페이지가 하나의 출력 이미지로 렌더링 되는 정규화 된 이미지 배열을 생성 합니다.  기능은 비 PDF 파일 형식에 대한 “generateNormalizedImages”와 동일합니다.<br/>“none”이 아닌 옵션의 경우 이미지가 *normalized_images* 필드에 공개됩니다. <br/>기본값은 "없음"입니다. 이 구성은 "dataToExtract"가 "contentAndMetadata"로 설정된 경우 Blob 데이터 원본에만 관련됩니다. <br/>지정 된 문서에서 최대 1000 개의 이미지가 추출 됩니다. 문서에 1000 개가 넘는 이미지가 있으면 첫 번째 1000이 추출 되 고 경고가 생성 됩니다. |
 |  normalizedImageMaxWidth | 정규화된 이미지의 최대 너비(픽셀 단위)가 생성되었습니다. 기본값은 2000입니다. 허용 되는 최대값은 1만입니다. | 
 |  normalizedImageMaxHeight | 정규화된 이미지의 최대 높이(픽셀 단위)가 생성되었습니다. 기본값은 2000입니다. 허용 되는 최대값은 1만입니다.|
 
 > [!NOTE]
-> *imageAction*을 "없음" 이외의 값으로 설정하는 경우 *parsingMode* 속성을 "기본값" 이외의 값으로 설정할 수 없습니다.  인덱서 구성에서 이러한 두 속성 중 하나를 기본이 아닌 값으로 설정할 수 있습니다.
+> *Imageaction* 속성을 "none" 이외의 값으로 설정 하면 *parsingMode* 속성을 "default" 이외의 값으로 설정할 수 없습니다.  인덱서 구성에서 이러한 두 속성 중 하나를 기본이 아닌 값으로 설정할 수 있습니다.
 
 **parsingMode** 매개 변수를 `json`(각 blob을 단일 문서로 인덱싱) 또는 `jsonArray`(blob에 JSON 배열이 포함되어 있고 각 배열 요소를 별도 문서로 처리해야 하는 경우)로 설정합니다.
 
@@ -214,10 +213,10 @@ merged_text 필드가 있으므로 인덱서 정의에서 검색 가능한 필�
         }
 ```
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 + [인덱서 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [이미지 기술 분석](cognitive-search-skill-image-analysis.md)
 + [OCR 기술](cognitive-search-skill-ocr.md)
 + [텍스트 병합 기술](cognitive-search-skill-textmerger.md)
-+ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)

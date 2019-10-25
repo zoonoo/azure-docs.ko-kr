@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: 9bee329953a1f39720b054ed90e1d56c6743862e
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: a6789f409e26d1310d9e583ac2934e0bae462b21
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679866"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72799436"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Azure Logic Apps의 트리거 및 동작 유형에 대 한 스키마 참조 가이드
 
@@ -273,19 +273,21 @@ ms.locfileid: "72679866"
 
 ### <a name="http-trigger"></a>HTTP 트리거
 
-이 트리거는 지정된 되풀이 일정에 따라 지정된 엔드포인트을 검사하거나 폴링합니다. 엔드포인트의 응답은 워크플로가 실행될지 여부를 결정합니다.
+이 트리거는 지정 된 되풀이 일정에 따라 지정 된 HTTP 또는 HTTPS 끝점에 요청을 보냅니다. 그런 다음 트리거는 응답을 확인 하 여 워크플로가 실행 되는지 여부를 확인 합니다.
 
 ```json
 "HTTP": {
    "type": "Http",
    "inputs": {
       "method": "<method-type>",
-      "uri": "<endpoint-URL>",
+      "uri": "<HTTP-or-HTTPS-endpoint-URL>",
       "headers": { "<header-content>" },
+      "queries": "<query-parameters>",
       "body": "<body-content>",
-      "authentication": { "<authentication-method>" },
-      "retryPolicy": { "<retry-behavior>" },
-      "queries": "<query-parameters>"
+      "authentication": { "<authentication-type-and-property-values>" },
+      "retryPolicy": {
+         "type": "<retry-behavior>"
+      }
    },
    "recurrence": {
       "frequency": "<time-unit>",
@@ -303,27 +305,27 @@ ms.locfileid: "72679866"
 
 *필수*
 
-| Value | Type | 설명 | 
-|-------|------|-------------| 
-| <*method-type*> | string | 지정된 엔드포인트을 폴링하는 데 사용할 HTTP 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” | 
-| <*endpoint-URL*> | string | 엔드포인트이 폴링할 HTTP 또는 HTTPS URL입니다. <p>최대 문자열 크기: 2KB | 
-| <*time-unit*> | string | 트리거가 실행되는 빈도를 설명하는 시간 단위로, “초”, “분”, “시간”, “일”, “주” 또는 “월”이 있습니다. | 
-| <*number-of-time-units*> | 정수 | 트리거가 다시 실행될 때까지 기다리는 시간 단위 수를 나타내는 빈도에 따라 트리거가 얼마나 자주 발생하는지를 지정하는 값입니다. <p>다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어, 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. | 
-|||| 
+| 자산 | Value | Type | 설명 |
+|----------|-------|------|-------------|
+| `method` | <*method-type*> | string | 보내는 요청을 보내는 데 사용할 방법: "GET", "PUT", "POST", "PATCH" 또는 "DELETE" |
+| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | string | 보내는 요청을 전송 하려는 HTTP 또는 HTTPS 끝점 URL입니다. 최대 문자열 크기: 2KB <p>Azure 서비스 또는 리소스의 경우이 URI 구문에는 액세스 하려는 리소스 ID와 리소스에 대 한 경로가 포함 됩니다. |
+| `frequency` | <*time-unit*> | string | 트리거가 실행되는 빈도를 설명하는 시간 단위로, “초”, “분”, “시간”, “일”, “주” 또는 “월”이 있습니다. |
+| `interval` | <*number-of-time-units*> | 정수 | 트리거가 다시 실행될 때까지 기다리는 시간 단위 수를 나타내는 빈도에 따라 트리거가 얼마나 자주 발생하는지를 지정하는 값입니다. <p>다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어, 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. |
+|||||
 
 *선택 사항*
 
-| Value | Type | 설명 | 
-|-------|------|-------------| 
-| <*header-content*> | JSON 개체 | 요청과 함께 보낼 헤더입니다. <p>예를 들어 요청에 대한 언어 및 유형을 설정하려면 다음을 수행합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| <*body-content*> | string | 요청과 함께 페이로드로 전송할 메시지 콘텐츠입니다. | 
-| <*authentication-method*> | JSON 개체 | 요청이 인증에 사용하는 메서드입니다. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. Scheduler 외에 `authority` 속성이 지원됩니다. 지정되지 않은 경우 기본값은 `https://login.windows.net`이지만, `https://login.windows\-ppe.net`과 같이 다른 값을 사용할 수 있습니다. |
-| <*retry-behavior*> | JSON 개체 | 상태 코드 408, 429 및 5XX와 연결 예외가 있는 일시적 오류에 대한 재시도 동작을 사용자 지정합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 참조하세요. |  
- <*query-parameters*> | JSON 개체 | 요청에 포함할 쿼리 매개 변수입니다. <p>예를 들어, `"queries": { "api-version": "2018-01-01" }` 개체는 요청에 `?api-version=2018-01-01`을 추가합니다. | 
-| <*max-runs*> | 정수 | 기본적으로 워크플로 인스턴스는 동시에 실행 되거나 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. | 
-| <*max-runs-queue*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 (`runtimeConfiguration.concurrency.runs` 속성에 따라 변경 될 수 있음) 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 
-| <*operation-option*> | string | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. | 
-|||| 
+| 자산 | Value | Type | 설명 |
+|----------|-------|------|-------------|
+| `headers` | <*header-content*> | JSON 개체 | 요청에 포함 해야 하는 모든 헤더 <p>예를 들어 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| `queries` | <*query-parameters*> | JSON 개체 | 요청에 사용 해야 하는 모든 쿼리 매개 변수 <p>예를 들어, `"queries": { "api-version": "2018-01-01" }` 개체는 요청에 `?api-version=2018-01-01`을 추가합니다. |
+| `body` | <*body-content*> | JSON 개체 | 요청과 함께 페이로드로 전송할 메시지 콘텐츠입니다. |
+| `authentication` | <*인증 유형-및 속성-값*> | JSON 개체 | 요청에서 아웃 바운드 요청을 인증 하는 데 사용 하는 인증 모델입니다. 자세한 내용은 [아웃 바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조 하세요. Scheduler 외에 `authority` 속성이 지원됩니다. 지정 되지 않은 경우 기본값은 `https://management.azure.com/`이지만 다른 값을 사용할 수 있습니다. |
+| `retryPolicy` > `type` | <*retry-behavior*> | JSON 개체 | 상태 코드 408, 429 및 5XX와 연결 예외가 있는 일시적 오류에 대한 재시도 동작을 사용자 지정합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 참조하세요. |
+| `runs` | <*max-runs*> | 정수 | 기본적으로 워크플로 인스턴스는 동시에 실행 되거나 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. |
+| `maximumWaitingRuns` | <*max-runs-queue*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 (`runtimeConfiguration.concurrency.runs` 속성에 따라 변경 될 수 있음) 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. |
+| `operationOptions` | <*operation-option*> | string | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. |
+|||||
 
 *Outputs*
 
@@ -374,7 +376,7 @@ ms.locfileid: "72679866"
          "uri": "<endpoint-subscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "retryPolicy": { "<retry-behavior>" }
          },
       },
@@ -383,7 +385,7 @@ ms.locfileid: "72679866"
          "url": "<endpoint-unsubscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" }
+         "authentication": { "<authentication-type>" }
       }
    },
    "runTimeConfiguration": {
@@ -413,7 +415,7 @@ ms.locfileid: "72679866"
 | <*method-type*> | string | 취소 요청에 사용하는 HTTP 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” | 
 | <*endpoint-unsubscribe-URL*> | string | 취소 요청을 보낼 엔드포인트 URL입니다. | 
 | <*body-content*> | string | 구독 또는 취소 요청에 전송할 메시지 콘텐츠입니다. | 
-| <*authentication-method*> | JSON 개체 | 요청이 인증에 사용하는 메서드입니다. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. |
+| <*인증-형식*> | JSON 개체 | 요청에서 아웃 바운드 요청을 인증 하는 데 사용 하는 인증 모델입니다. 자세한 내용은 [아웃 바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조 하세요. |
 | <*retry-behavior*> | JSON 개체 | 상태 코드 408, 429 및 5XX와 연결 예외가 있는 일시적 오류에 대한 재시도 동작을 사용자 지정합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 참조하세요. | 
 | <*max-runs*> | 정수 | 기본적으로 워크플로 인스턴스는 모두 동시에 실행 되거나 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 동시에 실행 됩니다. 새로운 <*count*> 값을 설정하여 이 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency)을 참조하세요. | 
 | <*max-runs-queue*> | 정수 | 워크플로에서 최대 인스턴스 수를 이미 실행 중인 경우 (`runtimeConfiguration.concurrency.runs` 속성에 따라 변경 될 수 있음) 새 실행은 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지이 큐에 배치 됩니다. 기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 
@@ -950,7 +952,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
          "uri": "<api-subscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "retryPolicy": "<retry-behavior>",
          "queries": { "<query-parameters>" },
          "<other-action-specific-input-properties>"
@@ -960,7 +962,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
          "uri": "<api-unsubscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "<other-action-specific-properties>"
       },
    },
@@ -986,7 +988,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 | <*api-unsubscribe-URL*> | string | API에서 구독 취소하는 데 사용할 URI입니다. | 
 | <*header-content*> | JSON 개체 | 요청에 전송할 헤더입니다. <p>예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | JSON 개체 | 요청에 전송할 메시지 콘텐츠입니다. | 
-| <*authentication-method*> | JSON 개체 | 요청이 인증에 사용하는 메서드입니다. 자세한 내용은 [스케줄러 아웃바운드 인증](../scheduler/scheduler-outbound-authentication.md)을 참조하세요. |
+| <*인증-형식*> | JSON 개체 | 요청에서 아웃 바운드 요청을 인증 하는 데 사용 하는 인증 모델입니다. 자세한 내용은 [아웃 바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조 하세요. |
 | <*retry-behavior*> | JSON 개체 | 상태 코드 408, 429 및 5XX와 연결 예외가 있는 일시적 오류에 대한 재시도 동작을 사용자 지정합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 참조하세요. | 
 | <*query-parameters*> | JSON 개체 | API 호출에 포함하려는 쿼리 매개 변수입니다. <p>예를 들어 `"queries": { "api-version": "2018-01-01" }` 개체는 호출에 `?api-version=2018-01-01`을 추가합니다. | 
 | <*other-action-specific-input-properties*> | JSON 개체 | 이 특정 작업에 적용되는 다른 입력 속성입니다. | 
@@ -1105,9 +1107,9 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *예 2*
 
-이 작업을 수행 하면 Office 365 Outlook 계정에 새 전자 메일이 도착할 때 트리거되는 논리 앱에서 코드가 실행 됩니다. 또한 논리 앱은 승인 요청과 함께 수신 된 전자 메일의 콘텐츠를 전달 하는 승인 전자 메일 보내기 작업을 사용 합니다. 
+이 작업을 수행 하면 Office 365 Outlook 계정에 새 전자 메일이 도착할 때 트리거되는 논리 앱에서 코드가 실행 됩니다. 또한 논리 앱은 승인 요청과 함께 수신 된 전자 메일의 콘텐츠를 전달 하는 승인 전자 메일 보내기 작업을 사용 합니다.
 
-이 코드는 트리거의 `Body` 속성에서 전자 메일 주소를 추출 하 고 해당 전자 메일 주소를 승인 동작의 `SelectedOption` 속성 값과 함께 반환 합니다. 작업은 `explicitDependencies`  >  `actions` 특성에서 종속성으로 승인 전자 메일 보내기 작업을 명시적으로 포함 합니다.
+이 코드는 트리거의 `Body` 속성에서 전자 메일 주소를 추출 하 고 승인 동작의 `SelectedOption` 속성 값과 함께 주소를 반환 합니다. 작업은 `explicitDependencies`  >  `actions` 특성에서 종속성으로 승인 전자 메일 보내기 작업을 명시적으로 포함 합니다.
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1206,14 +1208,21 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 ### <a name="http-action"></a>HTTP 동작
 
-이 작업은 지정된 엔드포인트으로 요청을 전송하고 응답을 확인하여 워크플로를 실행할지 여부를 결정합니다. 
+이 작업은 지정 된 HTTP 또는 HTTPS 끝점에 요청을 보내고 응답을 확인 하 여 워크플로가 실행 되는지 여부를 확인 합니다.
 
 ```json
 "HTTP": {
    "type": "Http",
    "inputs": {
       "method": "<method-type>",
-      "uri": "<HTTP-or-HTTPS-endpoint-URL>"
+      "uri": "<HTTP-or-HTTPS-endpoint-URL>",
+      "headers": { "<header-content>" },
+      "queries": { "<query-parameters>" },
+      "body": "<body-content>",
+      "authentication": { "<authentication-type-and-property-values>" },
+      "retryPolicy": {
+         "type": "<retry-behavior>"
+      },
    },
    "runAfter": {}
 }
@@ -1221,23 +1230,24 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 *필수*
 
-| Value | Type | 설명 | 
-|-------|------|-------------| 
-| <*method-type*> | string | 요청을 전송하는 데 사용하는 메서드: “GET”, “PUT”, “POST”, “PATCH”, “DELETE” | 
-| <*HTTP-or-HTTPS-endpoint-URL*> | string | 호출할 HTTP 또는 HTTPS 엔드포인트입니다. 최대 문자열 크기: 2KB | 
-|||| 
+| 자산 | Value | Type | 설명 |
+|----------|-------|------|-------------|
+| `method` | <*method-type*> | string | 보내는 요청을 보내는 데 사용할 방법: "GET", "PUT", "POST", "PATCH" 또는 "DELETE" |
+| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | string | 보내는 요청을 전송 하려는 HTTP 또는 HTTPS 끝점 URL입니다. 최대 문자열 크기: 2KB <p>Azure 서비스 또는 리소스의 경우이 URI 구문에는 액세스 하려는 리소스 ID와 리소스에 대 한 경로가 포함 됩니다. |
+|||||
 
 *선택 사항*
 
-| Value | Type | 설명 | 
-|-------|------|-------------| 
-| <*header-content*> | JSON 개체 | 요청과 함께 보낼 헤더입니다. <p>예를 들어 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| <*body-content*> | JSON 개체 | 요청에 전송할 메시지 콘텐츠입니다. | 
-| <*retry-behavior*> | JSON 개체 | 상태 코드 408, 429 및 5XX와 연결 예외가 있는 일시적 오류에 대한 재시도 동작을 사용자 지정합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 참조하세요. | 
-| <*query-parameters*> | JSON 개체 | 요청에 포함할 쿼리 매개 변수입니다. <p>예를 들어 `"queries": { "api-version": "2018-01-01" }` 개체는 호출에 `?api-version=2018-01-01`을 추가합니다. | 
-| <*other-action-specific-input-properties*> | JSON 개체 | 이 특정 작업에 적용되는 다른 입력 속성입니다. | 
-| <*other-action-specific-properties*> | JSON 개체 | 이 특정 작업에 적용되는 다른 속성입니다. | 
-|||| 
+| 자산 | Value | Type | 설명 |
+|----------|-------|------|-------------|
+| `headers` | <*header-content*> | JSON 개체 | 요청에 포함 해야 하는 모든 헤더 <p>예를 들어 언어 및 형식을 설정하려면 다음과 같이 합니다. <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| `queries` | <*query-parameters*> | JSON 개체 | 요청에 사용 해야 하는 모든 쿼리 매개 변수 <p>예를 들어 `"queries": { "api-version": "2018-01-01" }` 개체는 호출에 `?api-version=2018-01-01`을 추가합니다. |
+| `body` | <*body-content*> | JSON 개체 | 요청과 함께 페이로드로 전송할 메시지 콘텐츠입니다. |
+| `authentication` | <*인증 유형-및 속성-값*> | JSON 개체 | 요청에서 아웃 바운드 요청을 인증 하는 데 사용 하는 인증 모델입니다. 자세한 내용은 [아웃 바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조 하세요. Scheduler 외에 `authority` 속성이 지원됩니다. 지정 되지 않은 경우 기본값은 `https://management.azure.com/`이지만 다른 값을 사용할 수 있습니다. |
+| `retryPolicy` > `type` | <*retry-behavior*> | JSON 개체 | 상태 코드 408, 429 및 5XX와 연결 예외가 있는 일시적 오류에 대한 재시도 동작을 사용자 지정합니다. 자세한 내용은 [다시 시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 참조하세요. |
+| <*other-action-specific-input-properties*> | <*입력-속성*> | JSON 개체 | 이 특정 작업에 적용되는 다른 입력 속성입니다. |
+| <*other-action-specific-properties*> | <*속성-값*> | JSON 개체 | 이 특정 작업에 적용되는 다른 속성입니다. |
+|||||
 
 *예제*
 
@@ -2665,134 +2675,11 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 }
 ```
 
-<a name="connector-authentication"></a>
+<a name="authenticate-triggers-actions"></a>
 
-## <a name="authenticate-http-triggers-and-actions"></a>HTTP 트리거 및 작업 인증
+## <a name="authenticate-triggers-and-actions"></a>트리거 및 작업 인증
 
-HTTP 엔드포인트는 다양한 종류의 인증을 지원합니다. 이러한 HTTP 트리거 및 작업에 대한 인증을 설정할 수 있습니다.
-
-* [HTTP](../connectors/connectors-native-http.md)
-* [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
-* [HTTP 웹후크](../connectors/connectors-native-webhook.md)
-
-설정할 수 있는 인증의 종류는 다음과 같습니다.
-
-* [기본 인증](#basic-authentication)
-* [클라이언트 인증서 인증](#client-certificate-authentication)
-* [Azure AD(Azure Active Directory) OAuth 인증](#azure-active-directory-oauth-authentication)
-
-> [!IMPORTANT]
-> 논리 앱 워크플로 정의가 처리하는 중요한 정보를 보호해야 합니다. 보안 매개 변수를 사용하고 필요에 따라 데이터를 인코딩하십시오. 매개 변수 사용 및 보호에 대한 자세한 내용은 [논리 앱 보호](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)를 참조하세요.
-
-<a name="basic-authentication"></a>
-
-### <a name="basic-authentication"></a>기본 인증
-
-Azure Active Directory를 사용한 [기본적인 인증](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md)의 경우 트리거나 작업 정의에 `authentication` JSON 개체를 포함할 수 있습니다. 여기에는 다음 표에 지정된 속성을 포함합니다. 런타임 시 매개 변수 값에 액세스하려면 [워크플로 정의 언어](https://aka.ms/logicappsdocs)에 제공되는 `@parameters('parameterName')` 식을 사용하면 됩니다. 
-
-| 자산 | 필수 | Value | 설명 | 
-|----------|----------|-------|-------------| 
-| **type** | yes | "Basic" | 사용할 인증 유형입니다. 여기에서는 "Basic"입니다. | 
-| **사용자 이름** | yes | "@parameters('userNameParam')" | 대상 서비스 엔드포인트에 대한 액세스를 인증하는 사용자 이름입니다. |
-| **암호** | yes | "@parameters('passwordParam')" | 대상 서비스 엔드포인트에 대한 액세스를 인증하는 암호입니다. |
-||||| 
-
-이 예제 HTTP 작업 정의에서는 `authentication` 섹션이 `Basic` 인증을 지정합니다. 매개 변수 사용 및 보호에 대한 자세한 내용은 [논리 앱 보호](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)를 참조하세요.
-
-```json
-"HTTP": {
-   "type": "Http",
-   "inputs": {
-      "method": "GET",
-      "uri": "https://www.microsoft.com",
-      "authentication": {
-         "type": "Basic",
-         "username": "@parameters('userNameParam')",
-         "password": "@parameters('passwordParam')"
-      }
-  },
-  "runAfter": {}
-}
-```
-
-> [!IMPORTANT]
-> 논리 앱 워크플로 정의가 처리하는 중요한 정보를 보호해야 합니다. 보안 매개 변수를 사용하고 필요에 따라 데이터를 인코딩하십시오. 매개 변수 보호에 대한 자세한 내용은 [논리 앱 보호](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)를 참조하세요.
-
-<a name="client-certificate-authentication"></a>
-
-### <a name="client-certificate-authentication"></a>클라이언트 인증서 인증
-
-Azure Active Directory를 사용한 [인정서 기반 인증](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)의 경우 트리거나 작업 정의에 `authentication` JSON 개체를 포함할 수 있습니다. 여기에는 다음 표에 지정된 속성을 포함합니다. 런타임 시 매개 변수 값에 액세스하려면 [워크플로 정의 언어](https://aka.ms/logicappsdocs)에 제공되는 `@parameters('parameterName')` 식을 사용하면 됩니다. 사용할 수 있는 클라이언트 인증서 수에 대한 제한은 [Azure Logic Apps의 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하세요.
-
-| 자산 | 필수 | Value | 설명 |
-|----------|----------|-------|-------------|
-| **type** | yes | "ClientCertificate" | SSL(Secure Sockets Layer) 클라이언트 인증서에 사용할 인증 유형입니다. 자체 서명된 인증서가 지원되지만 SSL에 대한 자체 서명된 인증서는 지원되지 않습니다. |
-| **pfx** | yes | "@parameters('pfxParam') | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 |
-| **암호** | yes | "@parameters('passwordParam')" | PFX 파일에 액세스하기 위한 암호 |
-||||| 
-
-이 예제 HTTP 작업 정의에서는 `authentication` 섹션이 `ClientCertificate` 인증을 지정합니다. 매개 변수 사용 및 보호에 대한 자세한 내용은 [논리 앱 보호](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)를 참조하세요.
-
-```json
-"HTTP": {
-   "type": "Http",
-   "inputs": {
-      "method": "GET",
-      "uri": "https://www.microsoft.com",
-      "authentication": {
-         "type": "ClientCertificate",
-         "pfx": "@parameters('pfxParam')",
-         "password": "@parameters('passwordParam')"
-      }
-   },
-   "runAfter": {}
-}
-```
-
-> [!IMPORTANT]
-> 논리 앱 워크플로 정의가 처리하는 중요한 정보를 보호해야 합니다. 보안 매개 변수를 사용하고 필요에 따라 데이터를 인코딩하십시오. 매개 변수 보호에 대한 자세한 내용은 [논리 앱 보호](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)를 참조하세요.
-
-<a name="azure-active-directory-oauth-authentication"></a>
-
-### <a name="azure-active-directory-ad-oauth-authentication"></a>Azure AD(Active Directory) OAuth 인증
-
-[Azure AD OAuth 인증](../active-directory/develop/authentication-scenarios.md)의 경우 트리거나 작업 정의에 `authentication` JSON 개체를 포함할 수 있습니다. 여기에는 다음 표에 지정된 속성을 포함합니다. 런타임 시 매개 변수 값에 액세스하려면 [워크플로 정의 언어](https://aka.ms/logicappsdocs)에 제공되는 `@parameters('parameterName')` 식을 사용하면 됩니다.
-
-| 자산 | 필수 | Value | 설명 |
-|----------|----------|-------|-------------|
-| **type** | yes | `ActiveDirectoryOAuth` | 사용할 인증 유형, Azure AD OAuth의 경우 "ActiveDirectoryOAuth" |
-| **authority** | 아닙니다. | <*URL-for-authority-token-issuer*> | 인증 토큰을 제공하는 기관의 URL |
-| **테넌트** | yes | <*tenant-ID*> | Azure AD 테넌트의 테넌트 ID |
-| **대상** | yes | <*resource-to-authorize*> | 권한 부여에 사용할 리소스(예: `https://management.core.windows.net/`) |
-| **clientId** | yes | <*client-ID*> | 권한 부여를 요청하는 앱에 대한 클라이언트 ID |
-| **credentialType** | yes | "인증서" 또는 "비밀" | 클라이언트에서 권한 부여 요청에 대해 사용하는 자격 증명 유형 이 속성 및 값은 기본 정의에 표시되지 않지만 자격 증명 형식에 대한 필수 매개 변수를 결정합니다. |
-| **pfx** | 예, "Certificate" 자격 증명 유형의 경우 | "@parameters('pfxParam') | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 |
-| **암호** | 예, "Certificate" 자격 증명 유형의 경우 | "@parameters('passwordParam')" | PFX 파일에 액세스하기 위한 암호 |
-| **암호** | 예, "Secret" 자격 증명 유형의 경우 | "@parameters('secretParam')" | 권한 부여를 요청하는 클라이언트 비밀 |
-|||||
-
-이 예제 HTTP 작업 정의에서는 `authentication` 섹션이 `ActiveDirectoryOAuth` 인증 및 "비밀" 자격 증명 형식을 지정합니다. 매개 변수 사용 및 보호에 대한 자세한 내용은 [논리 앱 보호](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)를 참조하세요.
-
-```json
-"HTTP": {
-   "type": "Http",
-   "inputs": {
-      "method": "GET",
-      "uri": "https://www.microsoft.com",
-      "authentication": {
-         "type": "ActiveDirectoryOAuth",
-         "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-         "audience": "https://management.core.windows.net/",
-         "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
-         "secret": "@parameters('secretParam')"
-     }
-   },
-   "runAfter": {}
-}
-```
-
-> [!IMPORTANT]
-> 논리 앱 워크플로 정의가 처리하는 중요한 정보를 보호해야 합니다. 보안 매개 변수를 사용하고 필요에 따라 데이터를 인코딩하십시오. 매개 변수 보호에 대한 자세한 내용은 [논리 앱 보호](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)를 참조하세요.
+HTTP 및 HTTPS 끝점은 서로 다른 종류의 인증을 지원 합니다. 이러한 끝점에 액세스 하는 아웃 바운드 호출 또는 요청을 만드는 데 사용 하는 트리거 또는 작업에 따라 다양 한 인증 유형 범위에서 선택할 수 있습니다. 자세한 내용은 [아웃 바운드 호출에 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

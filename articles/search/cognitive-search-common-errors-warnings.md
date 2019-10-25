@@ -1,24 +1,23 @@
 ---
-title: 일반적인 오류 및 경고-Azure Search
-description: 이 문서에서는 Azure Search AI 보강 중 발생할 수 있는 일반적인 오류 및 경고에 대 한 정보 및 솔루션을 제공 합니다.
-services: search
-manager: heidist
+title: 일반적인 오류 및 경고
+titleSuffix: Azure Cognitive Search
+description: 이 문서에서는 Azure Cognitive Search의 AI 보강 중 발생할 수 있는 일반적인 오류 및 경고에 대 한 정보 및 솔루션을 제공 합니다.
+manager: nitinme
 author: amotley
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 09/18/2019
 ms.author: abmotley
-ms.openlocfilehash: a8d5fc30299dbb16373b1cfbbd89563bad471f39
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 08d15f20f69c0c42d8b4dd4bac72e7d9f367a957
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553619"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787986"
 ---
-# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-search"></a>Azure Search AI 보강 파이프라인의 일반적인 오류 및 경고
+# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Azure Cognitive Search AI 보강 파이프라인의 일반적인 오류 및 경고
 
-이 문서에서는 Azure Search AI 보강 중 발생할 수 있는 일반적인 오류 및 경고에 대 한 정보 및 솔루션을 제공 합니다.
+이 문서에서는 Azure Cognitive Search의 AI 보강 중 발생할 수 있는 일반적인 오류 및 경고에 대 한 정보 및 솔루션을 제공 합니다.
 
 ## <a name="errors"></a>오류
 오류 수가 [' Maxfaileditems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures)를 초과 하면 인덱싱이 중지 됩니다. 
@@ -210,3 +209,14 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 
 ### <a name="web-api-skill-response-contains-warnings"></a>웹 API 기술 응답에 경고가 포함 되어 있습니다.
 인덱서가 기술에서 기술을 실행할 수 있었지만 웹 API 요청의 응답이 실행 중에 경고가 발생 했음을 나타냅니다. 경고를 검토 하 여 데이터의 영향을 받는 방법 및 조치가 필요한 지 여부를 파악 합니다.
+
+### <a name="the-current-indexer-configuration-does-not-support-incremental-progress"></a>현재 인덱서 구성은 증분 진행률을 지원 하지 않습니다.
+이 경고는 Cosmos DB 데이터 원본에 대해서만 발생 합니다.
+
+인덱싱하는 동안 증분 진행률은 인덱서 실행이 일시적 오류 또는 실행 시간 제한에 의해 중단되었는지를 확인합니다. 인덱서는 처음부터 전체 컬렉션을 다시 인덱스하는 대신 다음으로 실행할 위치를 선택할 수 있습니다. 대규모 컬렉션을 인덱싱할 때 특히 유용합니다.
+
+완료 되지 않은 인덱싱 작업을 다시 시작 하는 기능은 문서를 `_ts` 열을 기준으로 정렬 하 여 설명 합니다. 인덱서는 타임 스탬프를 사용 하 여 다음에 선택할 문서를 결정 합니다. `_ts` 열이 없거나 인덱서가 사용자 지정 쿼리 정렬 여부를 확인할 수 없는 경우 인덱서는 시작 시 시작 되 고이 경고가 표시 됩니다.
+
+이 동작을 재정의 하 여 증분 진행률을 활성화 하 고 `assumeOrderByHighWatermarkColumn` 구성 속성을 사용 하 여이 경고를 표시 하지 않을 수 있습니다.
+
+[Cosmos DB 증분 진행률 및 사용자 지정 쿼리를 추가 하는 방법에 대해 자세히 설명 합니다.](https://go.microsoft.com/fwlink/?linkid=2099593)

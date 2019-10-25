@@ -1,25 +1,24 @@
 ---
-title: 인덱서 상태 및 결과를 모니터링 하는 방법-Azure Search
-description: REST API 또는 .NET SDK를 사용 하 여 Azure Portal에서 Azure Search 인덱서의 상태, 진행률 및 결과를 모니터링 합니다.
-ms.date: 06/28/2019
-author: RobDixon22
+title: 인덱서 상태 및 결과를 모니터링 하는 방법
+titleSuffix: Azure Cognitive Search
+description: REST API 또는 .NET SDK를 사용 하 여 Azure Portal에서 Azure Cognitive Search 인덱서의 상태, 진행률 및 결과를 모니터링 합니다.
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: 0096334e06051b9ff474543384febb37bdf1c8e2
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/04/2019
+ms.openlocfilehash: c7f688c96576f660795becaf318c3b0677a24542
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72533707"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793794"
 ---
-# <a name="how-to-monitor-azure-search-indexer-status-and-results"></a>Azure Search 인덱서 상태 및 결과를 모니터링 하는 방법
+# <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Azure Cognitive Search 인덱서 상태 및 결과를 모니터링 하는 방법
 
-Azure Search는 모든 인덱서의 현재 및 과거 실행에 대 한 상태 및 모니터링 정보를 제공 합니다.
+Azure Cognitive Search는 모든 인덱서의 현재 및 과거 실행에 대 한 상태 및 모니터링 정보를 제공 합니다.
 
 인덱서 모니터링은 다음과 같은 경우에 유용 합니다.
 
@@ -75,7 +74,7 @@ Azure Search는 모든 인덱서의 현재 및 과거 실행에 대 한 상태 �
 
 경고는 일부 인덱서 유형에 공통적으로 사용 되며 항상 문제를 나타내지는 않습니다. 예를 들어 인식 서비스를 사용 하는 인덱서는 이미지 또는 PDF 파일에 처리할 텍스트가 포함 되지 않은 경우 경고를 보고할 수 있습니다.
 
-인덱서 오류 및 경고를 조사 하는 방법에 대 한 자세한 내용은 [Azure Search의 일반적인 인덱서 문제 해결](search-indexer-troubleshooting.md)을 참조 하세요.
+인덱서 오류 및 경고를 조사 하는 방법에 대 한 자세한 내용은 [Azure Cognitive Search의 일반적인 인덱서 문제 해결](search-indexer-troubleshooting.md)을 참조 하세요.
 
 <a name="restapi"></a>
 
@@ -128,7 +127,7 @@ Azure Search는 모든 인덱서의 현재 및 과거 실행에 대 한 상태 �
 
 ## <a name="monitor-using-the-net-sdk"></a>.NET SDK를 사용 하 여 모니터링
 
-Azure Search .NET SDK를 사용 하 여 인덱서의 일정을 정의할 수 있습니다. 이렇게 하려면 인덱서를 만들거나 업데이트할 때 **schedule** 속성을 포함 합니다.
+Azure Cognitive Search .NET SDK를 사용 하 여 인덱서 일정을 정의할 수 있습니다. 이렇게 하려면 인덱서를 만들거나 업데이트할 때 **schedule** 속성을 포함 합니다.
 
 다음 C# 예에서는 인덱서의 상태와 가장 최근에 실행 된 실행의 결과에 대 한 정보를 콘솔에 기록 합니다.
 

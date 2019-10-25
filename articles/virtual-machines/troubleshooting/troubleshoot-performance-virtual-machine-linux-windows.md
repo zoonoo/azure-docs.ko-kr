@@ -13,16 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: fc8cc4834997033203376cd33670cc907e2911e7
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 3fdac123ee7bda9d91d96940aebd6bddf4ea00f8
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170291"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790876"
 ---
 # <a name="generic-performance-troubleshooting-for-azure-virtual-machine-running-linux-or-windows"></a>Linux 또는 Windows를 실행 중인 Azure Virtual Machine의 일반 성능 문제 해결
 
-이 문서에서는 병목 현상 모니터링 및 관찰을 통해 VM (가상 컴퓨터) 일반 성능 문제를 설명 하 고 발생할 수 있는 문제에 대 한 가능한 수정을 제공 합니다.
+이 문서에서는 병목 현상 모니터링 및 관찰을 통해 VM (가상 컴퓨터) 일반 성능 문제를 설명 하 고 발생할 수 있는 문제에 대 한 가능한 수정을 제공 합니다. 모니터링 외에도 모범 사례 권장 사항을 포함 하는 보고서를 제공할 수 있는 Perfinsights 및 IO/CPU/메모리와 관련 된 주요 병목 상태를 사용할 수 있습니다. Perfinsights는 Azure의 [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) VM 모두에서 사용할 수 있습니다.
+
+이 문서에서는 모니터링을 사용 하 여 성능 병목 상태를 진단 하는 과정을 안내 합니다.
 
 ## <a name="enabling-monitoring"></a>모니터링 사용
 
@@ -34,32 +36,55 @@ ms.locfileid: "72170291"
  
 ### <a name="enable-vm-diagnostics-through-microsoft-azure-portal"></a>Microsoft Azure Portal를 통해 VM 진단을 사용 하도록 설정
 
-VM 진단을 사용 하도록 설정 하려면 VM으로 이동 하 고 **설정**을 클릭 한 다음 **진단**을 클릭 합니다.
+VM 진단을 사용 하도록 설정 하려면:
 
-![설정, 진단을 차례로 클릭 합니다.](media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png)
- 
+1. VM으로 이동
+2. **진단 설정** 을 클릭 합니다.
+3. 저장소 계정을 선택 하 고 **게스트 수준 모니터링 사용**을 클릭 합니다.
+
+   ![설정, 진단을 차례로 클릭 합니다.](media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png)
+
+진단 **설정**의 **에이전트** 탭에서 진단 설정에 사용 되는 저장소 계정을 확인할 수 있습니다.
+
+![저장소 계정 확인](media/troubleshoot-performance-virtual-machine-linux-windows/3-check-storage-account.png)
+
 ### <a name="enable-storage-account-diagnostics-through-azure-portal"></a>Azure Portal를 통해 저장소 계정 진단을 사용 하도록 설정
 
-먼저 VM을 선택 하 여 VM이 사용 하는 저장소 계정 (또는 계정)을 식별 합니다. **설정**을 클릭 한 다음 **디스크**를 클릭 합니다.
+저장소는 Azure에서 가상 머신에 대 한 IO 성능을 분석 하려는 경우 매우 중요 한 계층입니다. 저장소 관련 메트릭의 경우 추가 단계로 진단을 사용 하도록 설정 해야 합니다. 저장소 관련 카운터만 분석 하려는 경우에도이 기능을 사용 하도록 설정할 수 있습니다.
 
-![설정, 디스크를 차례로 클릭 합니다.](media/troubleshoot-performance-virtual-machine-linux-windows/3-storage-disks-disks-selection.png)
+1. Vm을 선택 하 여 VM에서 사용 하는 저장소 계정 (또는 계정)을 식별 합니다. **설정**을 클릭 한 다음 **디스크**를 클릭 합니다.
 
-포털에서 VM에 대 한 저장소 계정으로 이동 하 고 다음 단계를 수행 합니다.
+   ![설정, 디스크를 차례로 클릭 합니다.](media/troubleshoot-performance-virtual-machine-linux-windows/4-storage-disks-disks-selection.png)
 
-![Blob 메트릭 선택](media/troubleshoot-performance-virtual-machine-linux-windows/4-select-blob-metrics.png)
- 
-1. **모든 설정**을 선택 합니다.
-2. 진단을 켭니다.
-3. **Blob* 메트릭**을 선택 하 고 보존 기간을 **30** 일로 설정 합니다.
-4. 변경 내용을 저장합니다.
+2. 포털에서 VM에 대 한 저장소 계정으로 이동 하 고 다음 단계를 수행 합니다.
+
+   1. 위의 단계에서 찾은 저장소 계정에 대 한 개요를 클릭 합니다.
+   2. 기본 메트릭이 표시 됩니다. 
+
+    ![기본 메트릭](media/troubleshoot-performance-virtual-machine-linux-windows/5-default-metrics.png)
+
+3. 메트릭을 클릭 하 여 메트릭을 구성 하 고 추가 하는 옵션이 더 포함 된 다른 블레이드를 표시 합니다.
+
+   ![메트릭 추가](media/troubleshoot-performance-virtual-machine-linux-windows/6-add-metrics.png)
+
+이러한 옵션을 구성 하려면:
+
+1.  **메트릭**을 선택합니다.
+2.  **리소스** (저장소 계정)를 선택 합니다.
+3.  **네임 스페이스** 선택
+4.  **메트릭**을 선택 합니다.
+5.  **집계** 유형을 선택 합니다.
+6.  이 보기를 대시보드에 고정할 수 있습니다.
 
 ## <a name="observing-bottlenecks"></a>병목 상태 관찰
+
+필요한 메트릭에 대 한 초기 설정 프로세스를 진행 하 고 VM 및 관련 저장소 계정에 대 한 진단을 사용 하도록 설정한 후에는 분석 단계로 전환할 수 있습니다.
 
 ### <a name="accessing-the-monitoring"></a>모니터링에 액세스
 
 조사 하려는 Azure VM을 선택 하 고 **모니터링**을 선택 합니다.
 
-![모니터링 선택](media/troubleshoot-performance-virtual-machine-linux-windows/5-observe-monitoring.png)
+![모니터링 선택](media/troubleshoot-performance-virtual-machine-linux-windows/7-select-monitoring.png)
  
 ### <a name="timelines-of-observation"></a>관찰 타임 라인
 
@@ -67,11 +92,11 @@ VM 진단을 사용 하도록 설정 하려면 VM으로 이동 하 고 **설정*
 
 ### <a name="check-for-cpu-bottleneck"></a>CPU 병목 상태 확인
 
-![CPU 병목 상태 확인](media/troubleshoot-performance-virtual-machine-linux-windows/6-cpu-bottleneck-time-range.png)
+![CPU 병목 상태 확인](media/troubleshoot-performance-virtual-machine-linux-windows/8-cpu-bottleneck-time-range.png)
 
 1. 그래프를 편집 합니다.
 2. 시간 범위를 설정 합니다.
-3. 그런 다음 카운터에를 추가 해야 합니다. CPU 백분율 게스트 OS
+3. 그런 다음 카운터: CPU 비율 게스트 OS를 추가 해야 합니다.
 4. 저장합니다.
 
 ### <a name="cpu-observe-trends"></a>CPU 관찰 추세
@@ -95,6 +120,8 @@ VM 진단을 사용 하도록 설정 하려면 VM으로 이동 하 고 **설정*
 
 VM을 증가 시키고 CPU가 여전히 95%를 실행 하는 경우이 설정이 적절 한 수준으로 더 나은 성능을 제공 하는지 또는 응용 프로그램 처리량을 더 높게 제공 하는지 확인 합니다. 그렇지 않은 경우 개별 application\process.의 문제를 해결 합니다.
 
+[Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) 또는 [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) 용 Perfinsights을 사용 하 여 CPU 사용량을 제어 하는 프로세스를 분석할 수 있습니다. 
+
 ## <a name="check-for-memory-bottleneck"></a>메모리 병목 상태 확인
 
 메트릭을 보려면 다음을 수행 합니다.
@@ -112,7 +139,7 @@ VM을 증가 시키고 CPU가 여전히 95%를 실행 하는 경우이 설정이
 
 꾸준히 증가 – 가능한 응용 프로그램 ' 준비 '는 이러한 소비는 시작 되는 데이터베이스 엔진 사이에서 자주 발생 합니다. 그러나 응용 프로그램에서 메모리 누수가 발생할 수도 있습니다. 응용 프로그램을 식별 하 고 동작이 예상 되는지 여부를 파악 합니다.
 
-페이지 또는 스왑 파일 사용 – Windows 페이징 파일을 사용 하 고 있는지 확인 합니다. Windows 페이징 @no__t @no__t 파일을 사용 하 고 있는지 확인 합니다. 이러한 파일을 제외 하 고 이러한 볼륨에 아무 것도 없는 경우 해당 디스크에 대 한 읽기/쓰기의 높은를 확인 합니다. 이 문제는 메모리 부족 상태를 나타냅니다.
+페이지 또는 스왑 파일 사용 – Windows 페이징 파일\) (`/dev/sdb`에 위치)을 사용 하 고 있는지 여부를 확인 합니다. 이러한 파일을 제외 하 고 이러한 볼륨에 아무 것도 없는 경우 해당 디스크에 대 한 읽기/쓰기의 높은를 확인 합니다. 이 문제는 메모리 부족 상태를 나타냅니다.
 
 ### <a name="high-memory-utilization-remediation"></a>높은 메모리 사용률 수정
 
@@ -124,9 +151,13 @@ VM을 증가 시키고 CPU가 여전히 95%를 실행 하는 경우이 설정이
 
 큰 VM으로 업그레이드 한 후에도 여전히 지속적으로 100%까지 지속적으로 증가 하는 것을 알 수 있습니다.
 
+[Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) 또는 [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) 용 Perfinsights를 사용 하 여 메모리 소비를 구동 하는 프로세스를 분석할 수 있습니다. 
+
 ## <a name="check-for-disk-bottleneck"></a>디스크 병목 상태 확인
 
 VM에 대 한 저장소 하위 시스템을 확인 하려면 VM 진단의 카운터와 저장소 계정 진단을 사용 하 여 Azure VM 수준에서 진단을 확인 하세요.
+
+VM 특정 문제 해결에서 [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) 또는 [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux)에 대해 Perfinsights를 사용 하 여 IO를 구동 하는 프로세스를 분석할 수 있습니다. 
 
 영역 중복 및 Premium Storage 계정에 대 한 카운터가 없습니다. 이러한 카운터와 관련 된 문제의 경우 지원 사례를 발생 시킵니다.
 
@@ -134,7 +165,7 @@ VM에 대 한 저장소 하위 시스템을 확인 하려면 VM 진단의 카운
 
 아래 항목에 대 한 작업을 수행 하려면 포털에서 VM에 대 한 저장소 계정으로 이동 합니다.
 
-![모니터링에서 저장소 계정 진단 보기](media/troubleshoot-performance-virtual-machine-linux-windows/7-virtual-machine-storage-account.png)
+![모니터링에서 저장소 계정 진단 보기](media/troubleshoot-performance-virtual-machine-linux-windows/9-virtual-machine-storage-account.png)
 
 1. 모니터링 그래프를 편집 합니다.
 2. 시간 범위를 설정 합니다.
@@ -165,7 +196,7 @@ TimeOutErrors는 플랫폼 문제가 AverageServerLatency 동시에 더 늘어�
 
 AverageE2ELatency은 클라이언트 대기 시간을 나타냅니다. 응용 프로그램에서 IOPS를 수행 하는 방법을 확인 합니다. 증가 또는 지속적으로 높은 TotalRequests 메트릭을 찾습니다. 이 메트릭은 IOPS를 나타냅니다. 저장소 계정 또는 단일 VHD의 한도에 도달 하기 시작 하는 경우에는 제한에 대 한 대기 시간을 조정할 수 있습니다.
 
-#### <a name="check-for-azure-storage-throttling---add-the-storage-account-metrics-throttlingerror"></a>Azure storage 제한 확인-저장소 계정 메트릭을 추가 합니다. ThrottlingError
+#### <a name="check-for-azure-storage-throttling---add-the-storage-account-metrics-throttlingerror"></a>Azure storage 제한 확인-저장소 계정 메트릭 추가: ThrottlingError
 
 제한 값은 사용자가 저장소 계정 수준에서 제한 되 고 있음을 나타냅니다. 즉, 계정에 대 한 IOPS 제한에 도달 하 고 있음을 나타냅니다. **TotalRequests**메트릭을 확인 하 여 IOPs 임계값에 도달 하 고 있는지 여부를 확인할 수 있습니다.
 
@@ -175,11 +206,15 @@ AverageE2ELatency은 클라이언트 대기 시간을 나타냅니다. 응용 �
 
 IOPS 제한에 도달 하 고 있는지 확인 하려면 Storage 계정 진단으로 이동 하 여 TotalRequests를 확인 하 고 2만 TotalRequests에 도달 했는지 확인 합니다. 첫 번째 제한이 있는지 여부 또는 특정 시간에이 제한이 발생 하는지 여부에 관계 없이 패턴의 변경 내용 중 하나를 식별 합니다.
 
+Standard storage에서 새로운 디스크 제품을 사용 하는 경우 IOPS 및 처리량 한도가 다를 수 있지만 표준 저장소 계정의 누적 제한은 2만 IOPS (Premium storage는 계정 또는 디스크 수준에서 다른 한도)입니다. 다른 standard storage 디스크 제공 및 디스크당 제한 사항에 대해 자세히 알아보세요.
+
+* [Windows의 VM 디스크에 대 한 확장성 및 성능 목표](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets)
+
 #### <a name="references"></a>참조
 
 * [가상 머신 디스크에 대 한 확장성 목표](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-virtual-machine-disks)
 
-저장소 계정의 대역폭은 저장소 계정 메트릭을 기준으로 측정 됩니다. TotalIngress 및 Totalingress. 중복성 및 지역 유형에 따라 대역폭에 대해 서로 다른 임계값이 있습니다.
+저장소 계정의 대역폭은 저장소 계정 메트릭: TotalIngress 및 Totalingress로 측정 됩니다. 중복성 및 지역 유형에 따라 대역폭에 대해 서로 다른 임계값이 있습니다.
 
 * [Blob, 큐, 테이블 및 파일에 대 한 확장성 목표](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-blobs-queues-tables-and-files)
 
@@ -187,7 +222,9 @@ IOPS 제한에 도달 하 고 있는지 확인 하려면 Storage 계정 진단�
 
 VM에 연결 된 Vhd의 처리량 한도를 확인 합니다. VM 메트릭 디스크 읽기 및 쓰기를 추가 합니다.
 
-각 VHD는 최대 60 m b/초를 지원할 수 있습니다 (IOPS는 VHD 당 노출 되지 않음). 데이터를 확인 하 여 디스크 읽기 및 쓰기를 사용 하는 VM 수준에서 VHD의 총 용량 (MB)에 대 한 제한에 도달 했는지 확인 한 다음 VM 저장소 구성을 최적화 하 여 지난 단일 VHD 제한을 확장 합니다.
+Standard storage의 새 디스크 제공에는 IOPS 및 처리량 한도가 다릅니다 (IOPS는 VHD 당 노출 되지 않음). 데이터를 확인 하 여 디스크 읽기 및 쓰기를 사용 하는 VM 수준에서 VHD의 총 용량 (MB)에 대 한 제한에 도달 했는지 확인 한 다음 VM 저장소 구성을 최적화 하 여 지난 단일 VHD 제한을 확장 합니다. 다른 standard storage 디스크 제공 및 디스크당 제한 사항에 대해 자세히 알아보세요.
+
+* [Windows의 VM 디스크에 대 한 확장성 및 성능 목표](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets)
 
 ### <a name="high-disk-utilizationlatency-remediation"></a>높은 디스크 사용률/대기 시간 재구성
 

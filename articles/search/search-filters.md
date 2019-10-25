@@ -1,24 +1,23 @@
 ---
-title: 인덱스에서 검색 결과의 범위를 지정하기 위한 필터 - Azure Search
-description: Microsoft Azure의 호스트된 클라우드 검색 서비스인 Azure Search에서 쿼리에 대한 검색 결과를 줄이려면 사용자 보안 ID, 언어, 지리적 위치 또는 숫자 값별로 필터링합니다.
-author: HeidiSteen
+title: 인덱스의 범위 지정 검색 결과에 대 한 필터
+titleSuffix: Azure Cognitive Search
+description: 사용자 보안 id, 언어, 지리적 위치 또는 숫자 값을 기준으로 필터링 하 여 Microsoft Azure에서 호스팅되는 클라우드 search 서비스인 Azure Cognitive Search의 쿼리에 대 한 검색 결과를 줄입니다.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 06/13/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 49af6f1f535df098aa45cccd7e2d629ff6ccef50
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 7dd289005e91323010cfa2a0298c351b3e757d1d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649839"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792853"
 ---
-# <a name="filters-in-azure-search"></a>Azure Search의 필터 
+# <a name="filters-in-azure-cognitive-search"></a>Azure Cognitive Search의 필터 
 
-*필터*는 Azure Search 쿼리에 사용되는 문서를 선택하기 위한 조건을 제공합니다. 필터링되지 않은 검색에서는 모든 문서가 인덱스에 포함됩니다. 필터는 문서의 하위 집합으로 검색 쿼리의 범위를 지정합니다. 예를 들어, 필터를 사용하면 전체 텍스트 검색을 특정 임계값 이상의 가격대에서 특정 브랜드 또는 색상을 가진 제품으로 제한할 수 있습니다.
+*필터* 는 Azure Cognitive Search 쿼리에서 사용 되는 문서를 선택 하기 위한 기준을 제공 합니다. 필터링되지 않은 검색에서는 모든 문서가 인덱스에 포함됩니다. 필터는 문서의 하위 집합으로 검색 쿼리의 범위를 지정합니다. 예를 들어, 필터를 사용하면 전체 텍스트 검색을 특정 임계값 이상의 가격대에서 특정 브랜드 또는 색상을 가진 제품으로 제한할 수 있습니다.
 
 구현 과정에서 필터 요구 사항이 있는 검색 환경도 일부 있기는 하지만 *값 기반* 조건을 사용하여 검색을 제한하려는 경우는 언제든지 필터를 사용할 수 있습니다("Simon & Schuster"에서 출판된 "논픽션" 카테고리를 찾기 위해 제품 유형 검색 범위를 "책"으로 지정).
 
@@ -63,7 +62,7 @@ ms.locfileid: "69649839"
 
 ## <a name="defining-filters"></a>필터 정의
 
-필터는 [Azure Search에서 지원되는 OData V4 구문의 하위 집합](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)을 사용하여 표현된 OData 표현식입니다. 
+필터는 OData 식 이며 [Azure Cognitive Search에서 지원 되는 Odata V4 구문의 하위 집합](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)을 사용 하 여 더 합니다. 
 
 **검색** 작업 마다 하나의 필터를 지정할 수 있지만 필터 자체에는 여러 필드와 여러 조건이 포함 될 수 있으며, **ismatch** 함수를 사용 하는 경우 여러 전체 텍스트 검색 식이 포함 될 수 있습니다. 여러 부분으로 구성 된 필터 식에서 연산자 우선 순위 규칙에 따라 조건자를 순서에 관계 없이 지정할 수 있습니다. 특정한 순서로 조건자를 다시 정렬해도 성능에 별다른 도움은 되지 않습니다.
 
@@ -111,7 +110,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
    search=hotels ocean$filter=(baseRate ge 60 and baseRate lt 300) and city eq 'Los Angeles'
    ```
 
-+ "or"로 구분된 복합 쿼리에서는 각각 자체 필터 조건이 있습니다. 예를 들어, '개'는 '비글', '고양이'는 '샤미즈' 등입니다. 와 `or` 결합 된 식은 개별적으로 평가 되 고 각 식과 일치 하는 문서의 합집합은 응답으로 다시 전송 됩니다. 이 사용 패턴은 함수를 `search.ismatchscoring` 통해 구현 됩니다. 또한 비 점수 매기기 버전를 `search.ismatch`사용할 수 있습니다.
++ "or"로 구분된 복합 쿼리에서는 각각 자체 필터 조건이 있습니다. 예를 들어, '개'는 '비글', '고양이'는 '샤미즈' 등입니다. `or` 결합 된 식은 각각 응답에서 다시 보낸 각 식과 일치 하는 문서의 합집합을 사용 하 여 개별적으로 평가 됩니다. 이 사용 패턴은 `search.ismatchscoring` 함수를 통해 구현 됩니다. 또한 `search.ismatch`비 점수 매기기 버전을 사용할 수 있습니다.
 
    ```
    # Match on hostels rated higher than 4 OR 5-star motels.
@@ -121,7 +120,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
    $filter=search.ismatchscoring('luxury | high-end', 'description') or category eq 'Luxury'
    ```
 
-  대신 `search.ismatchscoring` `$filter` `search` 를 사용 하 `and` 는 필터를 통해 전체 텍스트 검색을 결합할 수도 있지만이는 검색 요청에서 및 매개 변수를 사용 하는 것과 기능적으로 동일 합니다. `or` 예를 들어 다음 두 쿼리는 동일한 결과를 생성 합니다.
+  `search.ismatchscoring`를 통해 전체 텍스트 검색을 `or`대신 `and`를 사용 하는 필터와 결합할 수도 있지만이 기능은 검색 요청에서 `search` 및 `$filter` 매개 변수를 사용 하는 것과 기능적으로 동일 합니다. 예를 들어 다음 두 쿼리는 동일한 결과를 생성 합니다.
 
   ```
   $filter=search.ismatchscoring('pool') and rating ge 4
@@ -139,7 +138,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 REST API에서 필터링은 단순 필드에 대해 기본적으로 *설정* 되어 있습니다. 필터링 가능 필드는 인덱스 크기가 늘어나기 때문에 필터에서 실제로 사용하지 않는 필드에 대해서는 `"filterable": false`로 설정합니다. 필드 정의 설정에 대한 자세한 내용은 [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)(인덱스 만들기)를 참조하세요.
 
-.NET SDK에서는 필터링 가능이 기본적으로 *해제*되어 있습니다. 해당 [field](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) 개체의 [isfilterable 가능 속성](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) 을로 설정 하 여 필드를 필터링 가능 하 `true`게 만들 수 있습니다. [Isfilterable 가능한 특성](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute)을 사용 하 여이 작업을 선언적으로 수행할 수도 있습니다. 아래 예제에서 특성은 인덱스 정의에 매핑되는 모델 `BaseRate` 클래스의 속성에 대해 설정 됩니다.
+.NET SDK에서는 필터링 가능이 기본적으로 *해제*되어 있습니다. 해당 [field](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) 개체의 [isfilterable 가능 속성](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) 을 `true`설정 하 여 필드를 필터링 가능 하 게 만들 수 있습니다. [Isfilterable 가능한 특성](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute)을 사용 하 여이 작업을 선언적으로 수행할 수도 있습니다. 아래 예제에서 특성은 인덱스 정의에 매핑되는 모델 클래스의 `BaseRate` 속성에 대해 설정 됩니다.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]
@@ -148,20 +147,20 @@ REST API에서 필터링은 단순 필드에 대해 기본적으로 *설정* 되
 
 ### <a name="making-an-existing-field-filterable"></a>필터링 가능한 기존 필드 만들기
 
-필터링 가능 하도록 기존 필드를 수정할 수 없습니다. 대신 새 필드를 추가 하거나 인덱스를 다시 작성 해야 합니다. 인덱스 또는 늘이기 필드를 다시 작성 하는 방법에 대 한 자세한 내용은 [Azure Search 인덱스를 다시 작성 하는 방법](search-howto-reindex.md)을 참조 하세요.
+필터링 가능 하도록 기존 필드를 수정할 수 없습니다. 대신 새 필드를 추가 하거나 인덱스를 다시 작성 해야 합니다. 인덱스 또는 늘이기 필드를 다시 작성 하는 방법에 대 한 자세한 내용은 [Azure Cognitive Search 인덱스를 다시 작성 하는 방법](search-howto-reindex.md)을 참조 하세요.
 
 ## <a name="text-filter-fundamentals"></a>텍스트 필터 기본 사항
 
-텍스트 필터는 필터에 제공 하는 리터럴 문자열과 문자열 필드를 일치 시킵니다. 전체 텍스트 검색과 달리 텍스트 필터에 대 한 어휘 분석 또는 단어 분리는 없으므로 정확한 일치 항목만 비교 합니다. 예를 들어 *f* 필드가 "sunny day" `$filter=f eq 'Sunny'` 를 포함 하는 경우는 일치 하지 않지만 `$filter=f eq 'sunny day'` 는 일치 한다고 가정 합니다. 
+텍스트 필터는 필터에 제공 하는 리터럴 문자열과 문자열 필드를 일치 시킵니다. 전체 텍스트 검색과 달리 텍스트 필터에 대 한 어휘 분석 또는 단어 분리는 없으므로 정확한 일치 항목만 비교 합니다. 예를 들어 *f* 필드에 "sunny day"가 포함 되어 `$filter=f eq 'Sunny'` 일치 하지 않지만 `$filter=f eq 'sunny day'`는 것으로 가정 합니다. 
 
-텍스트 문자열은 대/소문자를 구분합니다. 대문자 단어의 소문자는 구분 되지 않습니다. `$filter=f eq 'Sunny day'` "sunny day"를 찾지 않습니다.
+텍스트 문자열은 대/소문자를 구분합니다. 대문자 단어의 소문자는 구분 되지 않습니다. `$filter=f eq 'Sunny day'` "sunny day"를 찾을 수 없습니다.
 
 ### <a name="approaches-for-filtering-on-text"></a>텍스트 필터링 방법
 
-| 접근 방식 | Description | 사용 시기 |
+| 접근 방식 | 설명 | 사용하는 경우 |
 |----------|-------------|-------------|
-| [`search.in`](search-query-odata-search-in-function.md) | 구분 기호로 분리 된 문자열 목록에 대해 필드와 일치 하는 함수입니다. | 문자열 필드와 일치 해야 하는 원시 텍스트 값이 많은 필터 및 [보안 필터](search-security-trimming-for-azure-search.md) 에 권장 됩니다. **Search.in** 함수는 속도를 위해 디자인 되었으며 및 `eq` `or`를 사용 하 여 각 문자열과 필드를 명시적으로 비교 하는 것 보다 훨씬 빠릅니다. | 
-| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | 동일한 필터 식에서 전체 텍스트 검색 작업과 엄격한 부울 필터 작업을 혼합할 수 있게 해주는 함수입니다. | 하나의 요청에서 여러 검색 필터 조합을 사용 하려면 **ismatch** (또는 해당 하는 해당 점수 매기기)를 사용 합니다. 크기가 더 큰 문자열 내에서 부분적으로 문자열을 필터링하기 위해 *contains* 필터에 대해 이를 사용할 수도 있습니다. |
+| [`search.in`](search-query-odata-search-in-function.md) | 구분 기호로 분리 된 문자열 목록에 대해 필드와 일치 하는 함수입니다. | 문자열 필드와 일치 해야 하는 원시 텍스트 값이 많은 필터 및 [보안 필터](search-security-trimming-for-azure-search.md) 에 권장 됩니다. **Search.in** 함수는 속도를 위해 설계 되었으며 `eq` 및 `or`를 사용 하 여 각 문자열과 필드를 명시적으로 비교 하는 것 보다 훨씬 빠릅니다. | 
+| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | 동일한 필터 식에서 전체 텍스트 검색 작업과 엄격한 부울 필터 작업을 혼합할 수 있게 해주는 함수입니다. | 하나의 요청에서 여러 검색 필터 조합을 사용 하려면 **ismatch** (또는 해당 하는 해당 점수 **매기기)를 사용 합니다.** 크기가 더 큰 문자열 내에서 부분적으로 문자열을 필터링하기 위해 *contains* 필터에 대해 이를 사용할 수도 있습니다. |
 | [`$filter=field operator string`](search-query-odata-comparison-operators.md) | 필드, 연산자 및 값으로 구성된 사용자 정의 식입니다. | 문자열 필드와 문자열 값 사이에 정확히 일치 하는 항목을 찾으려면이를 사용 합니다. |
 
 ## <a name="numeric-filter-fundamentals"></a>숫자 필터 기본 사항
@@ -197,9 +196,9 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 
 더 많은 예제를 사용하려면 [OData 필터 식 구문 > 예제](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples)를 참조하세요.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
-+ [Azure Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)
++ [Azure Cognitive Search에서 전체 텍스트 검색이 작동 하는 방식](search-lucene-query-architecture.md)
 + [문서 검색 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 + [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Lucene 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)

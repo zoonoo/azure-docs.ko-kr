@@ -14,18 +14,16 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 9ec8e2df8befa28fc023edb30889f177b60939f9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 87cd7c63939331190530a46071a6b4c40480562f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015034"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792580"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>미디어 인코더 Premium 워크플로 형식 및 코덱
 
 > [!NOTE]
-> 프리미엄 인코더 관련 질문은 mepd@microsoft.com으로 문의하세요.
-> 
 > 중국에서는 이 토픽에서 설명하는 미디어 인코더 Premium 워크플로 미디어 프로세서를 사용할 수 없습니다. 
 
 이 문서에는 **미디어 인코더 Premium 워크플로** 인코더의 공개 미리 보기 버전에서 지원하는 입력 및 출력 파일 형식과 코덱 목록이 포함되어 있습니다.
@@ -100,8 +98,6 @@ Media Encoder Premium Workflow 출력 형식 및 코덱
 * JPEG 축소판 그림 만들기
 * HEVC(H.265, 8비트 및 10비트, 기본 및 기본 10 프로필)
 
-  HDR 10은 특정 시나리오에서 지원됩니다. 자세한 내용은 mepd@microsoft.com에 문의하세요.
-
 
 ### <a name="output-audio-codecs"></a>출력 오디오 코덱
 
@@ -141,11 +137,14 @@ Media Encoder Premium Workflow 출력 형식 및 코덱
 
 입력된 비디오에 자막이 없는 경우, 출력 자산은 빈 TTML 파일을 포함합니다. 
 
+## <a name="need-help"></a>도움이 필요하십니까?
+
+[새 지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 으로 이동 하 여 지원 티켓을 열 수 있습니다.
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

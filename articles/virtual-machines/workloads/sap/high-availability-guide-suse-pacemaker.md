@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: c49200dba33d4a3b9ad1f582841adb04c2dd1c41
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7be0cfbe538d06da617049ac74cba60ff1b713e6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099555"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791705"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -83,7 +83,7 @@ SBD 디바이스에는 iSCSI 대상 서버 역할을 하고 SBD 디바이스를 
 
 모든 **iSCSI 대상 가상 머신**에 대해 다음 명령을 실행하여 SAP 시스템에서 사용하는 클러스터에 대해 iSCSI 디스크를 만듭니다. 다음 예제에서는 여러 클러스터에 대한 SBD 디바이스가 만들어집니다. 또한 여러 클러스터에 대해 하나의 iSCSI 대상 서버를 사용하는 방법을 보여 줍니다. SBD 디바이스는 OS 디스크에 배치됩니다. 충분한 공간이 있는지 확인합니다.
 
-**`nfs`** 는 NFS 클러스터를 식별 하는 데 사용 되며, **ascsnw1** 는 **n w 1**의 ascs 클러스터를 식별 하는 데 사용 되 고, **dbnw1** 는 **n w 1**의 데이터베이스 클러스터를 식별 하는 데 사용 되며, **nfs-0** 및 **nfs-1** 은 nfs 클러스터 노드의 **호스트 이름입니다. n w 1-0** 및 **n w 1-xscs-1** 은 **n w 1** ascs 클러스터 노드의 호스트 이름이 고, **n w 1-0** 및 **n w 1-db-1** 은 데이터베이스 클러스터 노드의 호스트 이름입니다. 이러한 이름을 클러스터 노드의 호스트 이름과 SAP 시스템의 SID로 바꿉니다.
+NFS 클러스터를 식별 하는 데 사용 되는 **`nfs`** **ascsnw1** 는 **n w 1**의 ascs 클러스터를 식별 하는 데 사용 되 고 **dbnw1** 는 **n w 1**의 데이터베이스 클러스터를 식별 하는 데 사용 됩니다. **nfs-0** 및 **nfs-1** 은의 호스트 이름입니다. NFS 클러스터 노드, **n w 1-xscs-0** 및 **n w 1-1** 은 **n w 1** ascs 클러스터 노드의 호스트 이름이 고, **n w 1-0** 및 **n w 1-db-1** 은 데이터베이스 클러스터 노드의 호스트 이름입니다. 이러한 이름을 클러스터 노드의 호스트 이름과 SAP 시스템의 SID로 바꿉니다.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -320,6 +320,11 @@ o- / ...........................................................................
    <pre><code>sudo zypper update
    </code></pre>
 
+1. **[A]** 설치 구성 요소, 클러스터 리소스에 필요
+
+   <pre><code>sudo zypper in socat
+   </code></pre>
+
 1. **[A]** 운영 체제 구성
 
    경우에 따라 Pacemaker는 많은 프로세스를 만들게 되므로 허용되는 프로세스 수가 고갈됩니다. 이러한 경우 클러스터 노드 간 하트비트가 실패하고 리소스가 장애 조치(Failover)될 수 있습니다. 다음 매개 변수를 설정하여 허용되는 최대 프로세스 수를 늘리는 것이 좋습니다.
@@ -516,13 +521,13 @@ o- / ...........................................................................
 
 STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure에 대해 권한을 부여합니다. 다음 단계에 따라 서비스 주체를 만듭니다.
 
-1. [https://resources.azure.com](<https://portal.azure.com>) 으로 이동합니다.
+1. <https://portal.azure.com>(으)로 이동
 1. Azure Active Directory 블레이드 열기  
    속성으로 이동하여 Directory ID 기록 이 ID는 **테넌트 ID**입니다.
 1. 앱 등록 클릭
 1. 새 등록을 클릭 합니다.
 1. 이름을 입력 하 고 "이 조직 디렉터리에만 있는 계정"을 선택 합니다. 
-2. 응용 프로그램 유형 "웹"을 선택 하 고 로그온 URL (예: http:/slocallocalhost)을 입력 한 다음 추가를 클릭 합니다.\/  
+2. 응용 프로그램 유형 "웹"을 선택 하 고 로그온 URL (예: http:\//localhost)을 입력 한 다음 추가를 클릭 합니다.  
    로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있음
 1. 인증서 및 암호를 선택 하 고 새 클라이언트 암호를 클릭 합니다.
 1. 새 키에 대 한 설명을 입력 하 고 "기간 제한 없음"을 선택 하 고 추가를 클릭 합니다.

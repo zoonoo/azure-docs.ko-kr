@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 2d460688392ae017c0d87ce60fa980701e5d47d3
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 2b951c6660143b1bd2f6502a5441aec3ba8d71e1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528198"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792848"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 규모에 맞게 모니터링
 
@@ -29,7 +29,7 @@ Azure Backup은 Recovery Services 자격 증명 모음에 [기본 제공 모니�
 ## <a name="using-log-analytics-workspace"></a>Log Analytics 작업 영역 사용
 
 > [!NOTE]
-> Azure VM 백업, Azure Backup 에이전트, System Center Data Protection Manager, Azure Vm의 SQL 백업 및 Azure Files 공유 백업 데이터는 진단 설정을 통해 Log Analytics 작업 영역으로 펌프 됩니다.
+> Azure VM 백업, Azure Backup 에이전트, System Center Data Protection Manager, Azure Vm의 SQL 백업 및 Azure Files 공유 백업 데이터는 진단 설정을 통해 Log Analytics 작업 영역으로 펌프 됩니다. MABS (Microsoft Azure Backup 서버) 지원이 곧 추가 될 예정입니다.
 
 규모에 맞게 모니터링/보고 하려면 두 Azure 서비스의 기능이 필요 합니다. *진단 설정은* 여러 Azure Resource Manager 리소스의 데이터를 다른 리소스에 보냅니다. *Log Analytics* 는 작업 그룹을 사용 하 여 다른 알림 채널을 정의할 수 있는 사용자 지정 경고를 생성 합니다.
 

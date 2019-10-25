@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: e79d9be6b893184bd615fbc569893e53a2c72861
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9796b41d0df091bc6eb23ba525a79da278e00bbd
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555598"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802315"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고 개요 
 
@@ -184,9 +184,9 @@ ms.locfileid: "72555598"
 
 구독에 대해 생성 된 경고를 프로그래밍 방식으로 쿼리 하는 것이 좋습니다. 이는 Azure Portal 외부에서 사용자 지정 보기를 만들거나 패턴 및 추세를 식별 하기 위해 경고를 분석 하는 것일 수 있습니다.
 
-[경고 관리 REST API](https://aka.ms/alert-management-api) 사용 하거나 [경고에 대해 Azure 리소스 그래프 REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources)를 사용 하 여 구독에 대해 생성 된 경고를 쿼리할 수 있습니다.
+[경고 관리 REST API](https://aka.ms/alert-management-api) 사용 하거나 [경고에 대해 Azure 리소스 그래프 REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)를 사용 하 여 구독에 대해 생성 된 경고를 쿼리할 수 있습니다.
 
-[경고에 대 한 Azure 리소스 그래프 REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) 를 사용 하면 대규모 경고 인스턴스를 쿼리할 수 있습니다. 이는 여러 구독에서 생성 된 경고를 관리 해야 하는 경우에 권장 됩니다. 
+[경고에 대 한 Azure 리소스 그래프 REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)를 사용 하 여 대규모 경고 인스턴스를 쿼리할 수 있습니다. 이는 여러 구독에서 생성 된 경고를 관리 해야 하는 경우에 권장 됩니다. 
 
 API에 대 한 다음 샘플 요청은 한 구독 내의 경고 수를 반환 합니다.
 

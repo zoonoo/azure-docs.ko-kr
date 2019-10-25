@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 794a99481d9394229e77168e75c48f4110735578
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 55ef15bd1fe922aa44227d2fea3d882d4320146f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536922"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786723"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 암호 관리에 대한 보고 옵션
 
 배포 후에 여러 조직에서는 SSPR(셀프 서비스 암호 다시 설정)을 실제로 사용하는 방법 및 경우를 알아보려고 합니다. Azure AD(Azure Active Directory)에서 제공하는 보고 기능은 미리 작성된 보고서를 사용하여 질문에 대답하도록 도와줍니다. 적절히 라이선스를 받은 경우 사용자 지정 쿼리를 만들 수도 있습니다.
 
-![Azure AD에 로그인 감사를 사용 하 여 SSPR에 대 한 보고][Reporting]
+![Azure AD에서 감사 로그를 사용 하 여 SSPR에 대 한 보고][Reporting]
 
 [Azure Portal](https://portal.azure.com/)에 있는 보고서를 통해 다음과 같은 질문에 대답할 수 있습니다.
 
@@ -39,10 +39,6 @@ ms.locfileid: "67536922"
 * 어느 관리자가 자신의 암호를 자주 재설정합니까?
 * 암호 재설정에 대해 의심스러운 활동이 있습니까?
 
-## <a name="power-bi-content-pack"></a>Power BI 콘텐츠 팩
-
-Power BI 사용자의 경우 Azure AD용 콘텐츠 팩에 SSPR에 대한 사용하기 쉬운 보고 기능이 포함되어 있습니다. 콘텐츠 팩을 사용하고 배포하는 방법에 대한 자세한 내용은 [Azure Active Directory Power BI 콘텐츠 팩 사용 방법](../reports-monitoring/howto-power-bi-content-pack.md)을 참조하세요. 콘텐츠 팩을 사용하면 자신의 대시보드를 만들어서 조직의 다른 사람들과 공유할 수 있습니다.
-
 ## <a name="how-to-view-password-management-reports-in-the-azure-portal"></a>Azure Portal에서 암호 관리 보고서를 보는 방법
 
 Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을 볼 수 있는 향상된 방법이 있습니다. 다음 단계에 따라 암호 재설정 및 암호 재설정 등록 이벤트를 확인합니다.
@@ -50,14 +46,14 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 왼쪽 창에서 **모든 서비스**를 선택합니다.
 3. 서비스 목록에서 **Azure Active Directory**를 검색하고 선택합니다.
-4. 선택 **사용자** [관리] 섹션에서.
-5. 선택 **감사 로그** 에서 합니다 **사용자** 블레이드입니다. 그러면 디렉터리의 모든 사용자에 대해 발생한 감사 이벤트가 모두 표시됩니다. 이 보기를 필터링하여 암호 관련 이벤트를 모두 볼 수 있습니다.
-6. **필터** 선택 창의 맨 위에 있는 메뉴를 **서비스** 드롭 다운 목록 및로 변경 합니다 **셀프 서비스 암호 관리** 서비스 유형.
+4. 관리 섹션에서 **사용자** 를 선택 합니다.
+5. **사용자** 블레이드에서 **감사 로그** 를 선택 합니다. 그러면 디렉터리의 모든 사용자에 대해 발생한 감사 이벤트가 모두 표시됩니다. 이 보기를 필터링하여 암호 관련 이벤트를 모두 볼 수 있습니다.
+6. 창 위쪽의 **필터** 메뉴에서 **서비스** 드롭다운 목록을 선택 하 고 **셀프 서비스 암호 관리** 서비스 유형으로 변경 합니다.
 7. 필요에 따라 관심 있는 특정 **활동**을 선택하여 목록을 추가로 필터링합니다.
 
 ### <a name="converged-registration-preview"></a>등록 수렴(미리 보기)
 
-수렴 형된 등록의 공개 미리 보기에 참가 하는 경우 감사 로그에서 사용자 동작에 대 한 정보를 서비스에서 확인할 수 **인증 방법을**합니다.
+수렴 형 등록의 공개 미리 보기에 참여 하는 경우 감사 로그의 사용자 활동에 대 한 정보는 서비스 **인증 방법**에서 찾을 수 있습니다.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Azure Portal의 보고서 열 설명
 
@@ -74,21 +70,21 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 
 | 열 | 허용되는 값과 해당 의미 |
 | --- | --- |
-| 등록된 데이터 |**대체 이메일**: 인증하는 데 사용자가 사용한 대체 이메일 또는 인증 이메일입니다.<p><p>**사무실 전화**: 인증하는 데 사용자가 사용한 사무실 전화입니다.<p>**휴대폰**: 인증하는 데 사용자가 사용한 휴대폰 또는 인증 전화입니다.<p>**보안 질문**: 인증하는 데 사용자가 사용한 보안 질문입니다.<p>**이전 방법 조합(예: 대체 이메일 + 휴대폰)** : 2개의 게이트 정책이 지정되고 암호 재설정 요청을 인증하는 데 사용자가 사용한 두 방법을 표시합니다. |
+| 등록된 데이터 |**대체 전자 메일**: 인증하는 데 사용자가 사용한 대체 전자 메일 또는 인증 전자 메일입니다.<p><p>**사무실 전화**: 인증하는 데 사용자가 사용한 사무실 전화입니다.<p>**휴대폰**: 인증하는 데 사용자가 사용한 휴대폰 또는 인증 전화입니다.<p>**보안 질문**: 인증하는 데 사용자가 사용한 보안 질문입니다.<p>**이전 방법 조합(예: 대체 전자 메일 + 휴대폰)** : 2개의 게이트 정책이 지정되고 암호 재설정 요청을 인증하는 데 사용자가 사용한 두 방법을 표시합니다. |
 
 ## <a name="self-service-password-management-activity-types"></a>셀프 서비스 암호 관리 활동 유형
 
 다음 활동 유형은 **셀프 서비스 암호 관리** 감사 이벤트 범주에 표시됩니다.
 
-* [셀프 서비스 암호 재설정에서 차단](#activity-type-blocked-from-self-service-password-reset): 사용자가 암호를 다시 설정하거나 특정 게이트를 사용하거나 24시간 이내에 총 6회 이상 전화 번호의 유효성을 검사하려고 했음을 나타냅니다.
+* [셀프 서비스 암호 다시 설정에서 차단](#activity-type-blocked-from-self-service-password-reset): 사용자가 암호를 다시 설정하거나 특정 게이트를 사용하거나 24시간 이내에 총 6회 이상 전화 번호의 유효성을 검사하려고 했음을 나타냅니다.
 * [암호 변경(셀프 서비스)](#activity-type-change-password-self-service): 사용자가 자발적으로 또는 강제로(만료로 인해) 암호 변경을 수행했음을 나타냅니다.
 * [암호 재설정(관리자)](#activity-type-reset-password-by-admin): 관리자가 Azure Portal에서 사용자를 대신하여 암호를 재설정했음을 나타냅니다.
 * [암호 재설정(셀프 서비스)](#activity-type-reset-password-self-service): 사용자가 [Azure AD 암호 재설정 포털](https://passwordreset.microsoftonline.com)에서 자신의 암호를 성공적으로 재설정했음을 나타냅니다.
-* [셀프 서비스 암호 재설정 흐름 작업 진행률](#activity-type-self-serve-password-reset-flow-activity-progress): 암호 다시 설정 프로세스의 일부로 사용자가 진행하는 각각의 특정 단계(예: 특정 암호 다시 설정 인증 게이트 전달)를 나타냅니다.
-* [사용자 계정 잠금 해제(셀프 서비스)](#activity-type-unlock-a-user-account-self-service): 사용자가 재설정 없이 Active Directory 계정 잠금 해제 기능을 사용하여 [Azure AD 암호 재설정 포털](https://passwordreset.microsoftonline.com)에서 자신의 암호를 재설정하지 않고 Active Directory 계정을 성공적으로 잠금 해제했음을 나타냅니다.
+* [셀프 서비스 암호 재설정 흐름 활동 진행률](#activity-type-self-serve-password-reset-flow-activity-progress): 암호 재설정 프로세스의 일부로 사용자가 진행하는 각각의 특정 단계(예: 특정 암호 재설정 인증 게이트 전달)를 나타냅니다.
+* [사용자 계정 잠금 해제 (셀프 서비스)](#activity-type-unlock-a-user-account-self-service): 사용자가 계정 잠금 해제의 Active Directory 기능을 사용 하 여 [Azure AD 암호 재설정 포털](https://passwordreset.microsoftonline.com) 에서 자신의 암호를 재설정 하지 않고 Active Directory 계정을 성공적으로 잠금 해제 했음을 나타냅니다. 다시 설정 하지 않습니다.
 * [사용자가 셀프 서비스 암호 재설정 등록](#activity-type-user-registered-for-self-service-password-reset): 사용자가 현재 지정된 테넌트 암호 재설정 정책에 따라 자신의 암호를 재설정하는 데 필요한 모든 정보를 등록했음을 나타냅니다.
 
-### <a name="activity-type-blocked-from-self-service-password-reset"></a>작업 유형: 셀프 서비스 암호 재설정에서 차단
+### <a name="activity-type-blocked-from-self-service-password-reset"></a>활동 유형: 셀프 서비스 암호 다시 설정에서 차단
 
 다음 목록에서는 이 활동에 대해 자세히 설명합니다.
 
@@ -97,9 +93,9 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 * **활동 대상**: 추가 다시 설정 작업을 수행할 수 없도록 제한된 사용자입니다. 사용자는 최종 사용자 또는 관리자일 수 있습니다.
 * **활동 상태**:
   * _성공_: 사용자가 추가 다시 설정을 수행하거나 추가 인증 방법을 시도하거나 다음 24시간 동안 전화 번호의 유효성을 추가로 검사할 수 없도록 제한되었음을 나타냅니다.
-* **활동 상태 실패 이유**: 사용할 수 없습니다.
+* **활동 상태 실패 이유**: 해당되지 않습니다.
 
-### <a name="activity-type-change-password-self-service"></a>작업 유형: 암호 변경(셀프 서비스)
+### <a name="activity-type-change-password-self-service"></a>활동 유형: 암호 변경(셀프 서비스)
 
 다음 목록에서는 이 활동에 대해 자세히 설명합니다.
 
@@ -112,7 +108,7 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 * **활동 상태 실패 이유**:
   * _FuzzyPolicyViolationInvalidPassword_: 사용자가 Microsoft의 차단 암호 검색 기능으로 인해 너무 흔하거나 특히 약한 것으로 식별되어 자동으로 차단되는 암호를 선택했습니다.
 
-### <a name="activity-type-reset-password-by-admin"></a>작업 유형: 암호 재설정(관리자)
+### <a name="activity-type-reset-password-by-admin"></a>활동 유형: 암호 다시 설정(관리자)
 
 다음 목록에서는 이 활동에 대해 자세히 설명합니다.
 
@@ -123,11 +119,11 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
   * _성공_: 관리자가 사용자의 암호를 성공적으로 다시 설정했음을 나타냅니다.
   * _실패_: 관리자가 사용자의 암호를 변경하지 못했음을 나타냅니다. 행을 선택하여 **활동 상태 이유** 범주에서 실패한 원인에 대해 자세히 알아볼 수 있습니다.
 
-### <a name="activity-type-reset-password-self-service"></a>작업 유형: 암호 재설정(셀프 서비스)
+### <a name="activity-type-reset-password-self-service"></a>활동 유형: 암호 다시 설정(셀프 서비스)
 
 다음 목록에서는 이 활동에 대해 자세히 설명합니다.
 
-* **활동 설명**: 사용자가 [Azure AD 암호 재설정 포털](https://passwordreset.microsoftonline.com)에서 자신의 암호를 성공적으로 재설정했음을 나타냅니다.
+* **활동 설명** – 사용자가 [Azure AD 암호 재설정 포털](https://passwordreset.microsoftonline.com)에서 자신의 암호를 성공적으로 재설정했음을 나타냅니다.
 * **활동 행위자**: 자신의 암호를 재설정한 사용자입니다. 사용자는 최종 사용자 또는 관리자일 수 있습니다.
 * **활동 대상**: 자신의 암호를 재설정한 사용자입니다. 사용자는 최종 사용자 또는 관리자일 수 있습니다.
 * **활동 상태**:
@@ -136,7 +132,7 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 * **활동 상태 실패 이유**:
   * _FuzzyPolicyViolationInvalidPassword_: 관리자가 Microsoft의 차단 암호 검색 기능으로 인해 너무 흔하거나 특히 약한 것으로 식별되어 자동으로 차단되는 암호를 선택했습니다.
 
-### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>작업 유형: 셀프 서비스 암호 재설정 흐름 작업 진행률
+### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>활동 유형: 셀프 서비스 암호 다시 설정 흐름 활동 진행률
 
 다음 목록에서는 이 활동에 대해 자세히 설명합니다.
 
@@ -146,9 +142,9 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 * **활동 상태**:
   * _성공_: 사용자가 암호 다시 설정 흐름의 특정 단계를 성공적으로 완료했음을 나타냅니다.
   * _실패_: 암호 다시 설정 흐름의 특정 단계가 실패했음을 나타냅니다. 행을 선택하여 **활동 상태 이유** 범주에서 실패한 원인에 대해 자세히 알아볼 수 있습니다.
-* **활동 상태 이유**:   [모든 허용되는 다시 설정 활동 상태 이유](#description-of-the-report-columns-in-the-azure-portal)에 대해서는 다음 표를 참조하세요.
+* **활동 상태 이유**: [모든 허용되는 다시 설정 활동 상태 이유](#description-of-the-report-columns-in-the-azure-portal)에 대해서는 다음 표를 참조하세요.
 
-### <a name="activity-type-unlock-a-user-account-self-service"></a>작업 유형: 사용자 계정 잠금 해제(셀프 서비스)
+### <a name="activity-type-unlock-a-user-account-self-service"></a>활동 유형: 사용자 계정 잠금 해제(셀프 서비스)
 
 다음 목록에서는 이 활동에 대해 자세히 설명합니다.
 
@@ -159,7 +155,7 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
   * _성공_: 사용자가 자신의 계정을 성공적으로 잠금 해제했음을 나타냅니다.
   * _실패_: 사용자가 자신의 계정을 잠금 해제하지 못했음을 나타냅니다. 행을 선택하여 **활동 상태 이유** 범주에서 실패한 원인에 대해 자세히 알아볼 수 있습니다.
 
-### <a name="activity-type-user-registered-for-self-service-password-reset"></a>작업 유형: 사용자가 셀프 서비스 암호 재설정 등록
+### <a name="activity-type-user-registered-for-self-service-password-reset"></a>활동 유형: 사용자가 셀프 서비스 암호 다시 설정 등록
 
 다음 목록에서는 이 활동에 대해 자세히 설명합니다.
 
@@ -185,7 +181,7 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 * [SSPR에서 사용하는 정책 옵션은 무엇입니까?](concept-sspr-policy.md)
 * [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](howto-sspr-writeback.md)
 * [모든 SSPR 옵션과 그 의미는 무엇입니까?](concept-sspr-howitworks.md)
-* [무엇인가 손상된 문제가 있습니다. SSPR 문제는 어떻게 해결합니까?](active-directory-passwords-troubleshoot.md)
+* [뭐가 손상 된 것으로 생각 합니다. SSPR 문제 해결을 어떻게 할까요??](active-directory-passwords-troubleshoot.md)
 * [다른 곳에서 다루지 않았던 질문이 있습니다.](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Azure AD의 SSPR 작업 감사 로그 예제"

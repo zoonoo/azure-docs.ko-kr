@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 04753ca4c9b14d7ccc265cfcf971b3fd63c861ae
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 11cd90da1b1ca85893dbdad2ced191326af51238
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72384152"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793882"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화 된 ML 실험 구성
 
@@ -56,10 +56,11 @@ ms.locfileid: "72384152"
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
 [DNN 분류자](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[DNN 회귀 변수](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN 회귀 변수](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
 [DNN 선형 분류자](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[선형 회귀 변수](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[선형 회귀 변수](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
-[SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)||[자동 ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#sgd)||[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+|||ForecastTCN
 
-@No__t-1 생성자에 `task` 매개 변수를 사용 하 여 실험 유형을 지정 합니다.
+`AutoMLConfig` 생성자에서 `task` 매개 변수를 사용 하 여 실험 유형을 지정 합니다.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -70,28 +71,24 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## <a name="data-source-and-format"></a>데이터 원본 및 형식
 
-자동화된 Machine Learning은 로컬 데스크톱 또는 Azure Blob Storage와 같은 클라우드의 데이터를 지원합니다. Pandas 데이터 프레임 또는 Azure Machine Learning 데이터 집합으로 데이터를 읽을 수 있습니다. 다음 코드 예제에서는 이러한 형식으로 데이터를 저장 하는 방법을 보여 줍니다. [Datatsets에 대해 자세히 알아보세요](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
+자동화된 Machine Learning은 로컬 데스크톱 또는 Azure Blob Storage와 같은 클라우드의 데이터를 지원합니다. **Pandas 데이터 프레임** 또는 **Azure Machine Learning TabularDataset**데이터를 읽을 수 있습니다.  [Datatsets에 대해 자세히 알아보세요](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
+
+데이터 학습을 위한 요구 사항:
+- 데이터는 테이블 형식 이어야 합니다.
+- 예측할 값, 대상 열은 데이터에 있어야 합니다.
+
+다음 코드 예제에서는 이러한 형식으로 데이터를 저장 하는 방법을 보여 줍니다.
 
 * TabularDataset
+  ```python
+  from azureml.core.dataset import Dataset
+  
+  tabular_dataset = Dataset.Tabular.from_delimited_files("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv")
+  train_dataset, test_dataset = tabular_dataset.random_split(percentage = 0.1, seed = 42)
+  label = "Label"
+  ```
+
 * pandas 데이터 프레임
-
->[!Important]
-> 데이터 학습을 위한 요구 사항:
->* 데이터는 테이블 형식 이어야 합니다.
->* 예측 하려는 값 (대상 열)이 데이터에 있어야 합니다.
-
-예시:
-
-* TabularDataset
-```python
-    from azureml.core.dataset import Dataset
-
-    tabular_dataset = Dataset.Tabular.from_delimited_files("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv")
-    train_dataset, test_dataset = tabular_dataset.random_split(percentage = 0.1, seed = 42)
-    label = "Label"
-```
-
-*   pandas 데이터 프레임
 
     ```python
     import pandas as pd
@@ -109,11 +106,11 @@ automl_config = AutoMLConfig(task = "classification")
 * 정적 파일 또는 URL 원본에서 작업 영역으로 데이터를 쉽게 전송
 * 클라우드 계산 리소스에서 실행 되는 경우 학습 스크립트에서 데이터를 사용할 수 있도록 설정
 
-@No__t-1 클래스를 사용 하 여 계산 대상에 데이터를 탑재 하는 방법에 대 한 예제는 [방법을](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) 참조 하세요.
+`Dataset` 클래스를 사용 하 여 계산 대상에 데이터를 탑재 하는 방법에 대 한 예제는 [방법을](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) 참조 하세요.
 
 ## <a name="train-and-validation-data"></a>데이터 학습 및 유효성 검사
 
-@No__t-0 생성자에서 직접 학습 및 유효성 검사 집합을 개별적으로 지정할 수 있습니다.
+별도의 학습 및 유효성 검사 집합을 `AutoMLConfig` 생성자에서 직접 지정할 수 있습니다.
 
 ### <a name="k-folds-cross-validation"></a>K 접기 교차 유효성 검사
 
@@ -174,7 +171,7 @@ Azure Databricks 있는 노트북 예는 [GitHub 사이트](https://github.com/A
         n_cross_validations=5)
     ```
 
-세 가지 `task` 매개 변수 값 (세 번째 작업 유형은 `forecasting` 이며 `regression` 작업과 동일한 알고리즘 풀을 사용)은 적용할 모델 목록을 결정 합니다. @No__t-0 또는 `blacklist` 매개 변수를 사용 하 여 포함 하거나 제외할 사용 가능한 모델로 반복을 수정 합니다. 지원 되는 모델 목록은 [Supportedmodels 클래스](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py)에서 찾을 수 있습니다.
+세 가지 `task` 매개 변수 값 (세 번째 작업 유형은 `forecasting` 이며 `regression` 작업과 동일한 알고리즘 풀을 사용)은 적용할 모델 목록을 결정 합니다. `whitelist` 또는 `blacklist` 매개 변수를 사용 하 여 포함 하거나 제외할 사용 가능한 모델로 반복을 수정 합니다. 지원 되는 모델 목록은 [Supportedmodels 클래스](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py)에서 찾을 수 있습니다.
 
 ### <a name="primary-metric"></a>기본 메트릭
 기본 메트릭은 최적화를 위해 모델 학습 중에 사용할 메트릭을 결정 합니다. 선택할 수 있는 메트릭은 선택한 작업 유형에 따라 결정 되며, 다음 표에서는 각 작업 유형에 대 한 유효한 기본 메트릭을 보여 줍니다.
@@ -242,8 +239,8 @@ automl_config = AutoMLConfig(task = 'forecasting',
 
 기본 stack 앙상블 동작을 변경 하기 위해 `AutoMLConfig` 개체에서 `kwargs`으로 제공할 수 있는 여러 기본 인수가 있습니다.
 
-* `stack_meta_learner_type`: meta 학습자는 개별 다른 유형의 모델의 출력에 대해 학습 된 모델입니다. 기본 메타 학습자는 분류 작업 (또는 교차 유효성 검사를 사용 하도록 설정 된 경우 `LogisticRegressionCV`)에 대해 `LogisticRegression` @no__t @no__t 이며, 교차 유효성 검사를 사용 하는 경우에는-3이 고, 교차 유효성 검사를 사용 하는 경우-3입니다. 이 매개 변수는 다음 문자열 중 하나일 수 있습니다. `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor` 또는 `LinearRegression`.
-* `stack_meta_learner_train_percentage`: 학습 집합의 비율을 지정 합니다 (학습의 학습 및 유효성 검사 유형을 선택 하는 경우). 기본값은 `0.2`입니다.
+* `stack_meta_learner_type`: 학습자은 개별 다른 유형의 모델의 출력에 대해 학습 된 모델입니다. 기본 메타 학습자는 분류 작업 (또는 교차 유효성 검사를 사용 하는 경우 `LogisticRegressionCV`) `ElasticNet` 및 회귀/예측 작업 (교차 유효성 검사를 사용 하는 경우 `ElasticNetCV`)에 대해 `LogisticRegression` 됩니다. 이 매개 변수는 다음 문자열 중 하나일 수 있습니다. `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor` 또는 `LinearRegression`.
+* `stack_meta_learner_train_percentage`: 학습자를 학습 하기 위해 예약할 학습 집합 (학습 및 유효성 검사 유형 선택)의 비율을 지정 합니다. 기본값은 `0.2`입니다.
 * `stack_meta_learner_kwargs`: meta 학습자의 이니셜라이저에 전달할 선택적 매개 변수입니다. 이러한 매개 변수 및 매개 변수 형식은 해당 모델 생성자에서 이러한 매개 변수를 미러링 하 고 모델 생성자에 전달 됩니다.
 
 다음 코드는 `AutoMLConfig` 개체에서 사용자 지정 앙상블 동작을 지정 하는 예를 보여 줍니다.
@@ -316,9 +313,9 @@ run = experiment.submit(automl_config, show_output=True)
 ### <a name="exit-criteria"></a>종료 조건
 실험을 종료 하기 위해 정의할 수 있는 몇 가지 옵션이 있습니다.
 1. 조건 없음: 종료 매개 변수를 정의 하지 않으면 기본 메트릭에 대 한 추가 진행률이 표시 되지 않을 때까지 실험을 계속 진행 합니다.
-1. 반복 횟수: 실험에서 실행할 반복 횟수를 정의 합니다. 필요에 따라 `iteration_timeout_minutes`을 추가 하 여 각 반복 당 시간 제한 (분)을 정의할 수 있습니다.
-1. 시간이 지난 후 종료: 설정에서 `experiment_timeout_minutes`을 사용 하면 실험을 계속 실행 하는 데 걸리는 시간 (분)을 정의할 수 있습니다.
-1. 점수에 도달한 후 종료:-0을 @no__t 사용 하면 기본 메트릭 점수에 도달한 후에 실험을 완료 합니다.
+1. 반복 횟수: 실험에서 실행할 반복 횟수를 정의 합니다. 필요에 따라 `iteration_timeout_minutes`를 추가 하 여 각 반복 당 시간 제한 (분)을 정의할 수 있습니다.
+1. 시간이 지난 후 종료: 설정에 `experiment_timeout_minutes`를 사용 하면 실험을 계속 실행 하는 데 걸리는 시간 (분)을 정의할 수 있습니다.
+1. 점수를 받은 후 종료: 기본 메트릭 점수에 도달한 후 `experiment_exit_score`를 사용 하 여 실험을 완료 합니다.
 
 ### <a name="explore-model-metrics"></a>모델 메트릭 탐색
 
@@ -366,7 +363,7 @@ best_run, fitted_model = automl_run.get_output()
   >[!Note]
   >작업 = ' 예측 '에 ' timeseriestransformer '를 사용 하 고, ' 회귀 ' 또는 ' 분류 ' 작업에 ' datatransformer '를 사용 합니다.
 
-+ API 2: `get_featurization_summary()`은 모든 입력 기능에 대 한 기능화 요약을 반환 합니다.
++ API 2: `get_featurization_summary()` 모든 입력 기능에 대 한 기능화 요약을 반환 합니다.
 
   Usage:
   ```python

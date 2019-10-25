@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 39a7e78085f297838a028489de23c1991b6d672f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 56e745a4f4e4bfbe82da00b46b7a5c0a58e3785e
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693424"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789800"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>방화벽을 사용 하 여 Azure HDInsight 클러스터에 대 한 아웃 바운드 네트워크 트래픽 구성 (미리 보기)
 
@@ -83,7 +83,7 @@ HDInsight 클러스터를 올바르게 구성 하는 네트워크 규칙을 만�
    | --- | --- | --- | --- | --- | --- |
    | Rule_1 | UDP | * | * | `123` | 시간 서비스 |
    | Rule_2 | 모두 | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | Enterprise Security Package (ESP)를 사용 하는 경우 ESP 클러스터에 대해 AAD와 통신할 수 있도록 하는 IP 주소 섹션에서 네트워크 규칙을 추가 합니다. 도메인 컨트롤러의 IP 주소는 포털의 AAD DS 섹션에서 찾을 수 있습니다. | 
-   | Rule_3 | TCP | * | Data Lake Storage 계정의 IP 주소 | `*` | Azure Data Lake Storage를 사용 하는 경우 IP 주소 섹션에서 네트워크 규칙을 추가 하 여 ADLS Gen1 및 Gen2의 SNI 문제를 해결할 수 있습니다. 이 옵션을 선택 하면 트래픽이 방화벽으로 전달 되 고,이로 인해 큰 데이터 로드 비용이 더 많이 들 수 있지만 방화벽 로그에서 트래픽이 기록 되 고 감사 될 수 있습니다. Data Lake Storage 계정에 대 한 IP 주소를 확인 합니다. @No__t_0와 같은 powershell 명령을 사용 하 여 IP 주소에 대 한 FQDN을 확인할 수 있습니다.|
+   | Rule_3 | TCP | * | Data Lake Storage 계정의 IP 주소 | `*` | Azure Data Lake Storage를 사용 하는 경우 IP 주소 섹션에서 네트워크 규칙을 추가 하 여 ADLS Gen1 및 Gen2의 SNI 문제를 해결할 수 있습니다. 이 옵션을 선택 하면 트래픽이 방화벽으로 전달 되 고,이로 인해 큰 데이터 로드 비용이 더 많이 들 수 있지만 방화벽 로그에서 트래픽이 기록 되 고 감사 될 수 있습니다. Data Lake Storage 계정에 대 한 IP 주소를 확인 합니다. `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")`와 같은 powershell 명령을 사용 하 여 IP 주소에 대 한 FQDN을 확인할 수 있습니다.|
    | Rule_4 | TCP | * | * | `12000` | 필드 Log Analytics를 사용 하는 경우 IP 주소 섹션에서 네트워크 규칙을 만들어 Log Analytics 작업 영역과 통신할 수 있도록 합니다. |
 
 1. **서비스 태그** 섹션에서 다음 규칙을 만듭니다.
@@ -151,7 +151,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 Azure 방화벽을 Azure Monitor 로그와 통합 하는 것은 응용 프로그램의 모든 종속성을 인식 하지 못할 때 응용 프로그램을 처음 사용할 때 유용 합니다. Azure Monitor 로그에 대한 자세한 내용은 [Azure Monitor에서 로그 데이터 분석](../azure-monitor/log-query/log-query-overview.md)을 참조하세요.
 
-Azure 방화벽 및 요청 수의 확장 제한에 대해 알아보려면 [이](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#azure-firewall-limits) 문서를 참조 하세요.
+Azure 방화벽의 규모 제한과 요청이 늘어남에 대 한 자세한 내용은 [이](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#azure-firewall-limits) 문서를 참조 하거나 [faq](https://docs.microsoft.com/en-us/azure/firewall/firewall-faq)를 참조 하세요. 
 
 ## <a name="access-to-the-cluster"></a>클러스터에 대 한 액세스
 방화벽이 성공적으로 설정 되 면 내부 끝점 (`https://<clustername>-int.azurehdinsight.net`)을 사용 하 여 VNET 내부에서 Ambari에 액세스할 수 있습니다. 

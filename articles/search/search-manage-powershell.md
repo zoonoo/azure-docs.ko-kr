@@ -1,22 +1,22 @@
 ---
-title: Az. Search module-Azure Search를 사용 하는 PowerShell 스크립트
-description: PowerShell을 사용 하 여 Azure Search 서비스를 만들고 구성 합니다. 서비스의 규모를 확장 또는 축소 하 고, 관리 및 쿼리 api 키를 관리 하 고, 시스템 정보를 쿼리할 수 있습니다.
-author: HeidiSteen
+title: Az. 검색 모듈을 사용 하는 PowerShell 스크립트
+titleSuffix: Azure Cognitive Search
+description: PowerShell을 사용 하 여 Azure Cognitive Search 서비스를 만들고 구성 합니다. 서비스의 규모를 확장 또는 축소 하 고, 관리 및 쿼리 api 키를 관리 하 고, 시스템 정보를 쿼리할 수 있습니다.
 manager: nitinme
-services: search
-ms.service: search
+author: HeidiSteen
+ms.author: heidist
+ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/28/2019
-ms.author: heidist
-ms.openlocfilehash: d56ddcd48f6a1907bed865d391e1d4e64da2999d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 11/04/2019
+ms.openlocfilehash: efc61f7dc8e9d2caa53c4cbd7d932af9e1a206d1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331253"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793534"
 ---
-# <a name="manage-your-azure-search-service-with-powershell"></a>PowerShell을 사용한 Azure Search 서비스 관리
+# <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>PowerShell을 사용 하 여 Azure Cognitive Search 서비스 관리
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
@@ -24,7 +24,7 @@ ms.locfileid: "72331253"
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Windows, Linux 또는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 에서 PowerShell cmdlet 및 스크립트를 실행 하 여 Azure Search을 만들고 구성할 수 있습니다. **Az. Search** 모듈은 [Azure Search 관리 REST api](https://docs.microsoft.com/rest/api/searchmanagement)에 대 한 전체 패리티가 있는 Azure PowerShell]를 확장 합니다. Azure PowerShell 및 **Az. Search**를 사용 하 여 다음 작업을 수행할 수 있습니다.
+Windows, Linux 또는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 에서 PowerShell cmdlet 및 스크립트를 실행 하 여 Azure Cognitive Search를 만들고 구성할 수 있습니다. **Az. Search** 모듈은 [AZURE Cognitive Search 관리 REST api](https://docs.microsoft.com/rest/api/searchmanagement)에 대 한 전체 패리티가 있는 Azure PowerShell]를 확장 합니다. Azure PowerShell 및 **Az. Search**를 사용 하 여 다음 작업을 수행할 수 있습니다.
 
 > [!div class="checklist"]
 > * [구독의 모든 search 서비스 나열](#list-search-services)
@@ -92,7 +92,7 @@ Select-AzSubscription -SubscriptionName ContosoSubscription
 
 <a name="list-search-services"></a>
 
-## <a name="list-all-azure-search-services-in-your-subscription"></a>구독의 모든 Azure Search 서비스 나열
+## <a name="list-all-azure-cognitive-search-services-in-your-subscription"></a>구독의 모든 Azure Cognitive Search 서비스 나열
 
 다음 명령은 [**Az. resources**](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources)에서 구독에 이미 프로 비전 된 기존 리소스 및 서비스에 대 한 정보를 반환 합니다. 이미 생성 된 검색 서비스 수를 모르는 경우 이러한 명령은 해당 정보를 반환 하 여 포털에 대 한 여행 정보를 저장 합니다.
 
@@ -197,11 +197,11 @@ Tags
 
 [**AzSearchAdminKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) 는 관리 [API 키](search-security-api-keys.md)를 롤오버 하는 데 사용 됩니다. 각 서비스에서 인증 된 액세스에 대해 두 개의 관리 키가 생성 됩니다. 모든 요청에 키가 필요 합니다. 두 관리 키는 기능적으로 동일 하며, 모든 정보를 검색 하거나 개체를 만들고 삭제할 수 있는 기능을 사용 하 여 검색 서비스에 대 한 모든 쓰기 권한을 부여 합니다. 다른 키를 대체할 때 사용할 수 있도록 두 개의 키가 있습니다. 
 
-@No__t-0 또는 `secondary` 키로 지정 된 한 번에 하나씩만 다시 생성할 수 있습니다. 중단 없는 서비스의 경우 기본 키를 롤링 하는 동안 보조 키를 사용 하도록 모든 클라이언트 코드를 업데이트 해야 합니다. 작업이 진행 되는 동안에는 키를 변경 하지 마세요.
+`primary` 또는 `secondary` 키로 지정 된 한 번에 하나씩만 다시 생성할 수 있습니다. 중단 없는 서비스의 경우 기본 키를 롤링 하는 동안 보조 키를 사용 하도록 모든 클라이언트 코드를 업데이트 해야 합니다. 작업이 진행 되는 동안에는 키를 변경 하지 마세요.
 
 짐작할 수 있듯이 클라이언트 코드를 업데이트 하지 않고 키를 다시 생성 하면 이전 키를 사용 하는 요청이 실패 합니다. 모든 새 키를 다시 생성 해도 서비스에서 영구적으로 잠기지 않으며 포털을 통해 서비스에 계속 액세스할 수 있습니다. 기본 및 보조 키를 다시 생성 한 후 새 키를 사용 하도록 클라이언트 코드를 업데이트할 수 있으며 그에 따라 작업이 다시 시작 됩니다.
 
-API 키에 대 한 값은 서비스에 의해 생성 됩니다. Azure Search 사용할 사용자 지정 키를 제공할 수 없습니다. 마찬가지로, 관리 API 키에 대 한 사용자 정의 이름이 없습니다. 키에 대 한 참조는 `primary` 또는 `secondary` 인 고정 문자열입니다. 
+API 키에 대 한 값은 서비스에 의해 생성 됩니다. 사용할 Azure Cognitive Search에 대 한 사용자 지정 키를 제공할 수 없습니다. 마찬가지로, 관리 API 키에 대 한 사용자 정의 이름이 없습니다. 키에 대 한 참조는 `primary` 또는 `secondary` 인 고정 문자열입니다. 
 
 ```azurepowershell-interactive
 New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary
@@ -217,9 +217,9 @@ Primary                    Secondary
 
 ## <a name="create-or-delete-query-keys"></a>쿼리 키 만들기 또는 삭제
 
-[**AzSearchQueryKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchquerykey?view=azps-1.4.0) 은 클라이언트 앱에서 Azure Search 인덱스에 대 한 읽기 전용 액세스를 위한 쿼리 [API 키](search-security-api-keys.md) 를 만드는 데 사용 됩니다. 쿼리 키는 검색 결과를 검색 하기 위해 특정 인덱스에 인증 하는 데 사용 됩니다. 쿼리 키는 인덱스, 데이터 원본 또는 인덱서와 같은 서비스의 다른 항목에 대 한 읽기 전용 액세스 권한을 부여 하지 않습니다.
+[**AzSearchQueryKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchquerykey?view=azps-1.4.0) 은 클라이언트 앱에서 Azure Cognitive Search 인덱스에 대 한 읽기 전용 액세스를 위한 쿼리 [API 키](search-security-api-keys.md) 를 만드는 데 사용 됩니다. 쿼리 키는 검색 결과를 검색 하기 위해 특정 인덱스에 인증 하는 데 사용 됩니다. 쿼리 키는 인덱스, 데이터 원본 또는 인덱서와 같은 서비스의 다른 항목에 대 한 읽기 전용 액세스 권한을 부여 하지 않습니다.
 
-사용할 Azure Search 키를 제공할 수 없습니다. API 키는 서비스에 의해 생성 됩니다.
+사용할 Azure Cognitive Search에 대 한 키를 제공할 수 없습니다. API 키는 서비스에 의해 생성 됩니다.
 
 ```azurepowershell-interactive
 New-AzSearchQueryKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <query-key-name> 
@@ -257,7 +257,7 @@ Id                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resource
 
 [인덱스](search-what-is-an-index.md)를 작성 하 고 포털, REST api 또는 .net SDK를 사용 하 여 [인덱스를 쿼리](search-query-overview.md) 합니다.
 
-* [Azure Portal에서 Azure Search 인덱스 만들기](search-create-index-portal.md)
+* [Azure Portal에서 Azure Cognitive Search 인덱스 만들기](search-create-index-portal.md)
 * [다른 서비스에서 데이터를 로드 하는 인덱서 설정](search-indexer-overview.md)
-* [Azure Portal에서 검색 탐색기를 사용하여 Azure Search 인덱스 쿼리](search-explorer.md)
-* [.NET에서 Azure Search를 사용하는 방법](search-howto-dotnet-sdk.md)
+* [Azure Portal에서 검색 탐색기를 사용 하 여 Azure Cognitive Search 인덱스 쿼리](search-explorer.md)
+* [.NET에서 Azure Cognitive Search를 사용 하는 방법](search-howto-dotnet-sdk.md)

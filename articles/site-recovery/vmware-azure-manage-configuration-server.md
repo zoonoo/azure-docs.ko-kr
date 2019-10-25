@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 66022b5e4885c515bd6117f9a44b8108ff84ae5c
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 42e1e283736d8a1e3d4ece33c861185df2d72da7
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250109"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791828"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>VMware VM 재해 복구용 구성 서버 관리
 
@@ -21,12 +21,16 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+## <a name="update-windows-license"></a>Windows 라이선스 업데이트
+
+OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라이선스입니다. 중단 없이 사용하려면 제공된 라이선스를 사용하여 Windows를 정품 인증해야 합니다. 라이선스 업데이트는 독립 실행형 키 또는 KMS 표준 키를 통해 수행할 수 있습니다. 지침은 [DISM Windows 명령줄에서 OS를 실행](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options)하는 데 사용할 수 있습니다. 키를 가져오려면 [KMS 클라이언트 설정](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys)을 참조 하세요.
+
 ## <a name="access-configuration-server"></a>구성 서버 액세스
 
 다음과 같이 구성 서버에 액세스할 수 있습니다.
 
 * 배포된 VM에 로그인하고, 바탕 화면 바로 가기에서 **Azure Site Recovery Configuration Manager**를 시작합니다.
-* 또는 https://*ConfigurationServerName*/:44315/에서 구성 서버에 원격으로 액세스할 수 있습니다. 관리자 자격 증명을 사용하여 로그인합니다.
+* 또는 https://*Configurationservername*/: 44315/에서 원격으로 구성 서버에 액세스할 수 있습니다. 관리자 자격 증명을 사용하여 로그인합니다.
 
 ## <a name="modify-vmware-server-settings"></a>VMware 서버 설정 수정
 
@@ -58,7 +62,7 @@ CSPSConfigtool.exe를 통해 자격 증명을 수정할 수도 있습니다.
 
 CSPSConfigtool.exe를 통해 자격 증명을 수정할 수도 있습니다.
 
-1. 구성 서버에 로그인하고 CSPSConfigtool.exe 시작
+1. 구성 서버에 로그인 하 고 CSPSConfigtool .exe를 실행 합니다.
 2. 수정할 계정을 선택하고 **편집**을 클릭합니다.
 3. 새 자격 증명을 입력하고 **확인**을 클릭합니다.
 
@@ -73,7 +77,7 @@ CSPSConfigtool.exe를 통해 자격 증명을 수정할 수도 있습니다.
 
 CSPSConfigtool.exe를 통해 자격 증명을 추가할 수도 있습니다.
 
-1. 구성 서버에 로그인하고 CSPSConfigtool.exe 시작
+1. 구성 서버에 로그인 하 고 CSPSConfigtool .exe를 실행 합니다.
 2. **추가**를 클릭하고 새 자격 증명을 입력한 다음, **확인**을 클릭하세요.
 
 ## <a name="modify-proxy-settings"></a>프록시 설정 수정
@@ -109,7 +113,7 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
    ```
 
     >[!NOTE]
-    >구성 서버에서 스케일 아웃 프로세스 서버로 **최신 인증서를 풀** 하려면 *"\<설치 Drive\Microsoft Azure Site recovery\server\cdpclipclipclipclipclipcli.exe >"--registermt* 를 실행 합니다.
+    >구성 서버에서 스케일 아웃 프로세스 서버로 **최신 인증서를 꺼내려면** *"\<설치 Drive\Microsoft Azure Site Recovery\server\cdpclipcli.exe >"--registermt* 를 실행 합니다.
 
 8. 마지막으로 다음 명령을 실행하여 obengine을 다시 시작합니다.
    ```
@@ -135,7 +139,7 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
 
 ## <a name="upgrade-the-configuration-server"></a>구성 서버 업그레이드
 
-구성 서버를 업데이트하려면 업데이트 롤업을 실행합니다. 업데이트는 N-4 버전까지 적용할 수 있습니다. 예를 들어:
+구성 서버를 업데이트하려면 업데이트 롤업을 실행합니다. 업데이트는 N-4 버전까지 적용할 수 있습니다. 다음은 그 예입니다.
 
 - 9\.7, 9.8, 9.9 또는 9.10을 실행 중인 경우 9.11로 바로 업그레이드할 수 있습니다.
 - 9\.6 이하를 실행 중이고 9.11로 업그레이드하려는 경우 먼저 9.7 버전으로 업그레이드한 후 9\.11로 업그레이드해야 합니다.
@@ -151,16 +155,16 @@ Azure Site Recovery 구성 요소 지원 정책에 대한 자세한 지침은 [�
 
 1. 자격 증명 모음에서 **관리** > **Site Recovery 인프라** > **구성 서버**로 이동합니다.
 2. 업데이트를 사용할 수 있는 경우 **에이전트 버전** > 열에 링크가 표시됩니다.
-    ![Update 함수](./media/vmware-azure-manage-configuration-server/update2.png)
+    ![업데이트](./media/vmware-azure-manage-configuration-server/update2.png)
 3. 업데이트 설치 관리자 파일을 구성 서버에 다운로드합니다.
 
-    ![업데이트](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![주 지역에서](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. 두 번 클릭하여 설치 관리자를 실행합니다.
 5. 설치 관리자는 컴퓨터에서 실행 중인 현재 버전을 검색합니다. **예**를 클릭하여 업그레이드를 시작합니다.
 6. 업그레이드가 완료되면 서버 구성의 유효성을 검사합니다.
 
-    ![업데이트](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![주 지역에서](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. **마침**을 클릭하여 설치 관리자를 닫습니다.
 8. 나머지 Site Recovery 구성 요소를 업그레이드하려면 [업그레이드 지침](https://aka.ms/asr_vmware_upgrades)을 참조하세요.
@@ -181,9 +185,9 @@ Azure Site Recovery 구성 요소 지원 정책에 대한 자세한 지침은 [�
   ```
 
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
-|매개 변수 이름| 형식 | 설명| 값|
+|매개 변수 이름| Type | 설명| 값|
 |-|-|-|-|
 | /ServerMode|필수|구성 서버와 프로세스 서버를 모두 설치할지 또는 프로세스 서버만 설치할지 여부를 지정합니다.|CS<br>PS|
 |/InstallLocation|필수|구성 요소가 설치되는 폴더입니다.| 컴퓨터의 모든 폴더|
@@ -193,12 +197,12 @@ Azure Site Recovery 구성 요소 지원 정책에 대한 자세한 지침은 [�
 |/PSIP|필수|복제 데이터 전송에 사용할 NIC의 IP 주소입니다.| 모든 유효한 IP 주소|
 |/CSIP|필수|구성 서버가 수신 대기하는 NIC의 IP 주소입니다.| 모든 유효한 IP 주소|
 |/PassphraseFilePath|필수|암호 파일의 위치에 대한 전체 경로입니다.|유효한 파일 경로|
-|/BypassProxy|Optional|구성 서버가 프록시 없이 Azure에 연결되도록 지정합니다.|이렇게 하려면 Venu에서 이 값을 가져옵니다.|
-|/ProxySettingsFilePath|Optional|프록시 설정(인증이 필요한 기본 프록시 또는 사용자 지정 프록시)입니다.|파일은 아래에 지정된 형식이어야 합니다.|
-|DataTransferSecurePort|Optional|복제 데이터에 사용할 PSIP의 포트 번호입니다.| 유효한 포트 번호(기본값: 9433)|
-|/SkipSpaceCheck|Optional|캐시 디스크의 공간 확인을 건너뜁니다.| |
+|/BypassProxy|선택 사항|구성 서버가 프록시 없이 Azure에 연결되도록 지정합니다.|이렇게 하려면 Venu에서 이 값을 가져옵니다.|
+|/ProxySettingsFilePath|선택 사항|프록시 설정(인증이 필요한 기본 프록시 또는 사용자 지정 프록시)입니다.|파일은 아래에 지정된 형식이어야 합니다.|
+|DataTransferSecurePort|선택 사항|복제 데이터에 사용할 PSIP의 포트 번호입니다.| 유효한 포트 번호(기본값: 9433)|
+|/SkipSpaceCheck|선택 사항|캐시 디스크의 공간 확인을 건너뜁니다.| |
 |/AcceptThirdpartyEULA|필수|플래그는 타사 EULA에 대한 동의를 의미합니다.| |
-|/ShowThirdpartyEULA|Optional|타사 EULA를 표시합니다. 입력으로 제공되는 경우 다른 모든 매개 변수가 무시됩니다.| |
+|/ShowThirdpartyEULA|선택 사항|타사 EULA를 표시합니다. 입력으로 제공되는 경우 다른 모든 매개 변수가 무시됩니다.| |
 
 
 
@@ -291,10 +295,6 @@ ProxyPassword="Password"
 2. 새로 고치려는 구성 서버를 클릭합니다.
 3. 선택한 구성 서버의 세부 정보가 있는 블레이드에서 **자세히** > **서버 새로 고침**을 클릭합니다.
 4. **Recovery Services 자격 증명 모음** > **모니터링** > **Site Recovery 작업**에서 작업의 진행률을 모니터링합니다.
-
-## <a name="update-windows-license"></a>Windows 라이선스 업데이트
-
-OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라이선스입니다. 중단 없이 사용하려면 제공된 라이선스를 사용하여 Windows를 정품 인증해야 합니다.
 
 ## <a name="failback-requirements"></a>장애 복구 요구 사항
 

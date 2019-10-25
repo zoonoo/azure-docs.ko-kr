@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: 71c1d1eb91654ea169330715be6bcf2b94207a27
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 569ac844a971970c22f5cc0a511545020fe802c5
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71099039"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791680"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성
 
@@ -53,7 +53,7 @@ ms.locfileid: "71099039"
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 이 문서에서는 가상 머신을 배포 및 구성하고 클러스터 프레임워크 및 고가용성 SAP NetWeaver 7.50 시스템을 설치하는 방법을 설명합니다.
-그리고 예제 구성, 설치 명령 등을 소개합니다. 00 ASCS 인스턴스 번호, 02 ERS 인스턴스 번호 및 NW1 SAP 시스템 ID를 사용합니다. 예제에서 리소스 (예: 가상 머신, 가상 네트워크)의 이름은 SAP 시스템 ID가 N W 1 인 [수렴 형 템플릿][template-converged] 을 사용 하 여 리소스를 만들었다고 가정 합니다.
+예제 구성, 설치 명령 등에 있습니다. ASCS 인스턴스 번호 00, ERS 인스턴스 번호 02 및 SAP 시스템 ID N W 1가 사용 됩니다. 예제에서 리소스 (예: 가상 머신, 가상 네트워크)의 이름은 SAP 시스템 ID가 N W 1 인 [수렴 형 템플릿][template-converged] 을 사용 하 여 리소스를 만들었다고 가정 합니다.
 
 먼저 다음 SAP 참고와 문서 읽기
 
@@ -134,7 +134,7 @@ GitHub의 Azure 템플릿을 사용하여 필요한 Azure 리소스(가상 머�
 
 Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있는 SAP Applications 12용 SUSE Linux Enterprise Server의 이미지가 포함되어 있습니다. Marketplace 이미지는 SAP NetWeaver용 리소스 에이전트를 포함합니다.
 
-GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿에서 가상 머신, 부하 분산 장치, 가용성 집합 등을 배포합니다. 다음 단계를 따라 템플릿을 배포합니다.
+GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿은 가상 머신, 부하 분산 장치, 가용성 집합 등을 배포 합니다. 템플릿을 배포 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 [Ascs/SCS 다중 SID 템플릿][template-multisid-xscs] 또는 [수렴 형 템플릿][template-converged] 을 엽니다. 
    ASCS/SCS 템플릿은 SAP NetWeaver ASCS/SCS 및 ERS (Linux 전용) 인스턴스에만 부하 분산 규칙을 만들지만 수렴 형 템플릿은 데이터베이스의 부하 분산 규칙을 만듭니다 (예: Microsoft SQL Server 또는 SAP HANA). SAP NetWeaver 기반 시스템을 설치 하려는 경우 같은 컴퓨터에도 데이터베이스를 설치 하려면 [수렴 된 템플릿을][template-converged]사용 합니다.
@@ -163,7 +163,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 먼저 NFS 클러스터에 대한 가상 머신을 만들어야 합니다. 그런 다음, 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용합니다.
 
 1. 리소스 그룹 만들기
-1. 가상 네트워크 만들기
+1. Virtual Network 만들기
 1. 가용성 집합 만들기  
    최대 업데이트 도메인 설정
 1. Virtual Machine 1 만들기  
@@ -362,6 +362,10 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 1. **[1]** ASCS 인스턴스에 대한 가상 IP 리소스 및 상태 프로브 만들기
 
+   > [!IMPORTANT]
+   > 최신 테스트로 인해 netcat이 백로그로 인 한 요청 응답을 중지 하 고 하나의 연결만 처리할 수 있는 경우를 확인할 수 있습니다. Netcat 리소스는 Azure 부하 분산 장치 요청에 대 한 수신 대기를 중지 하 고 부동 IP는 사용할 수 없게 됩니다.  
+   > 기존 Pacemaker 클러스터의 경우 [Azure 부하 분산 장치 검색 강화](https://www.suse.com/support/kb/doc/?id=7024128)의 지침에 따라 netcat을 socat로 바꾸는 것이 좋습니다. 변경 작업을 수행 하려면 짧은 가동 중지 시간이 필요 합니다.  
+
    <pre><code>sudo crm node standby <b>nw1-cl-1</b>
    
    sudo crm configure primitive fs_<b>NW1</b>_ASCS Filesystem device='<b>nw1-nfs</b>:/<b>NW1</b>/ASCS' directory='/usr/sap/<b>NW1</b>/ASCS<b>00</b>' fstype='nfs4' \
@@ -374,7 +378,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_ASCS anything \
-     params binfile="/usr/bin/nc" cmdline_options="-l -k 620<b>00</b>" \
+     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:620<b>00</b>,backlog=10,fork,reuseaddr /dev/null" \
      op monitor timeout=20s interval=10 depth=0
    
    sudo crm configure group g-<b>NW1</b>_ASCS fs_<b>NW1</b>_ASCS nc_<b>NW1</b>_ASCS vip_<b>NW1</b>_ASCS \
@@ -427,10 +431,10 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_ERS anything \
-    params binfile="/usr/bin/nc" cmdline_options="-l -k 621<b>02</b>" \
+    params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:621<b>02</b>,backlog=10,fork,reuseaddr /dev/null" \
     op monitor timeout=20s interval=10 depth=0
    
-   # WARNING: Resources nc_NW1_ASCS,nc_NW1_ERS violate uniqueness for parameter "binfile": "/usr/bin/nc"
+   # WARNING: Resources nc_NW1_ASCS,nc_NW1_ERS violate uniqueness for parameter "binfile": "/usr/bin/socat"
    # Do you still want to commit (y/n)? y
    
    sudo crm configure group g-<b>NW1</b>_ERS fs_<b>NW1</b>_ERS nc_<b>NW1</b>_ERS vip_<b>NW1</b>_ERS
@@ -761,13 +765,13 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    hdbuserstore SET DEFAULT <b>nw1-db:30313@HN1</b> <b>SAPABAP1</b> <b>&lt;password of ABAP schema&gt;</b>
    </code></pre>
 
-## <a name="test-the-cluster-setup"></a>클러스터 설정 테스트
+## <a name="test-the-cluster-setup"></a>클러스터 설치 테스트
 
 다음 테스트는 SUSE의 모범 사례 가이드에서 테스트 사례를 복사한 것입니다. 이 테스트는 작업자 편의를 위해 복사되었습니다. 또한 항상 모범 사례 가이드를 읽고 추가되었을 수 있는 모든 추가 테스트를 수행해야 합니다.
 
 1. HAGetFailoverConfig, HACheckConfig 및 HACheckFailoverConfig 테스트
 
-   ASCS 인스턴스를 현재 실행 중인 노드에서 \<sapsid>adm으로 다음 명령을 실행합니다. 이러한 명령이 실패: 메모리 부족을 나타내며 실패할 경우 호스트 이름의 대시 때문일 수 있습니다. 이것은 알려진 문제로, SUSE에서는 sap-suse-cluster-connector 패키지에서 이 문제를 수정할 예정입니다.
+   ASCS 인스턴스를 현재 실행 중인 노드에서 \<sapsid>adm으로 다음 명령을 실행합니다. 이러한 명령이 “실패: 메모리 부족”을 나타내며 실패할 경우 호스트 이름의 대시 때문일 수 있습니다. 이것은 알려진 문제로, SUSE에서는 sap-suse-cluster-connector 패키지에서 이 문제를 수정할 예정입니다.
 
    <pre><code>nw1-cl-0:nw1adm 54> sapcontrol -nr <b>00</b> -function HAGetFailoverConfig
    
@@ -820,7 +824,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 
 1. 수동으로 ASCS 인스턴스 마이그레이션
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
@@ -864,7 +868,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 
 1. HAFailoverToNode 테스트
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
@@ -908,7 +912,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 
 1. 노드 작동 중단 시뮬레이트
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
@@ -983,7 +987,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 
 1. ASCS 인스턴스의 수동 다시 시작 테스트
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
@@ -1030,7 +1034,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 
 1. 메시지 서버 프로세스 종료
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
@@ -1073,7 +1077,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 
 1. 큐에 넣기 서버 프로세스 종료
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
@@ -1116,7 +1120,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 
 1. 큐에 넣기 복제 서버 프로세스 종료
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
@@ -1158,7 +1162,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 
 1. 큐에 넣기 sapstartsrv 프로세스 종료
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS

@@ -1,22 +1,23 @@
 ---
-title: 계층 및 SKU에 대한 서비스 제한 - Azure Search
-description: 용량 계획에 사용되는 서비스 제한 및 Azure Search에 대한 요청 및 응답의 최대 제한입니다.
-author: HeidiSteen
+title: 계층 및 sku에 대 한 서비스 제한
+titleSuffix: Azure Cognitive Search
+description: 용량 계획에 사용 되는 서비스 제한 및 Azure Cognitive Search에 대 한 요청 및 응답의 최대 제한입니다.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 10/03/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 2d3b74476def5bdf46a6292996f0af9162b20b43
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: d70812779d392cc4555c91599fad37c2d2c68ba5
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947772"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793569"
 ---
-# <a name="service-limits-in-azure-search"></a>Azure Search의 서비스 제한 사항
-저장소, 워크 로드 및 인덱스, 문서 및 기타 개체의 수량에 대 한 최대 제한은 **무료**, **기본**, **표준**또는 **저장소에 최적화** 된 가격 책정 계층에서 [Azure Search를 프로 비전](search-create-service-portal.md) 하는지 여부에 따라 달라 집니다.
+# <a name="service-limits-in-azure-cognitive-search"></a>Azure Cognitive Search의 서비스 제한
+
+저장소, 워크 로드 및 인덱스, 문서 및 기타 개체의 수량에 대 한 최대 제한은 Azure Cognitive Search를 **무료**, **기본**, **표준**또는 **저장소에 최적화** 된 가격 책정 계층에 [프로 비전](search-create-service-portal.md) 하는지 여부에 따라 달라 집니다. .
 
 + **무료** 는 Azure 구독과 함께 제공되는 다중 테넌트 공유 서비스입니다. 인덱싱 및 쿼리 요청은 다른 테 넌 트에서 사용 하는 복제본 및 파티션에서 실행 됩니다.
 
@@ -24,7 +25,7 @@ ms.locfileid: "71947772"
 
 + **표준**은 모든 수준에서 더 많은 스토리지 및 처리 용량으로 전용 컴퓨터에서 실행됩니다. 표준은 4가지 수준인 S1, S2, S3 및 S3 HD로 제공됩니다.
 
-+ **저장소 최적화** 는 **Standard**보다 많은 저장소, 저장소 대역폭 및 메모리가 있는 전용 컴퓨터에서 실행 됩니다. 저장소 최적화는 다음과 같은 두 가지 수준으로 제공 됩니다. L1 및 L2
++ **저장소 최적화** 는 **Standard**보다 많은 저장소, 저장소 대역폭 및 메모리가 있는 전용 컴퓨터에서 실행 됩니다. 저장소에 최적화 된 저장소는 L1 및 L2의 두 단계로 제공 됩니다.
 
 > [!NOTE]
 > 7 월 1 일부 터는 저장소에 최적화 된 계층을 포함 하 여 모든 계층을 일반적으로 사용할 수 있습니다. 가격 책정 [정보](https://azure.microsoft.com/pricing/details/search/) 페이지에서 모든 가격 책정을 찾을 수 있습니다.
@@ -45,7 +46,7 @@ ms.locfileid: "71947772"
 
 ## <a name="index-limits"></a>인덱스 제한
 
-| 리소스 | 무료 | 기본&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| 리소스 | 체험판 | 기본&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | 최대 인덱스 |3 |5 또는 15 |50 |200 |200 |파티션당 1000 또는 서비스당 3000 |10 |10 |
 | 인덱스 당 최대 단순 필드 |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
@@ -68,23 +69,23 @@ ms.locfileid: "71947772"
 
   ![사용량 타일](media/search-limits-quotas-capacity/portal-usage-tile.png)
 
-<sup>1</sup> SKU 관련 문서 한도가 없더라도 모든 인덱스에는 서비스 안정성을 보장 하기 위한 최대 안전 한도가 적용 됩니다. 이 제한은 Lucene에서 제공 됩니다. 모든 Azure Search 문서는 내부적으로 하나 이상의 Lucene 문서로 인덱싱됩니다. Azure search 문서당 Lucene 문서 수는 복합 컬렉션 필드의 총 요소 수에 따라 달라 집니다. 각 요소는 별도의 Lucene 문서로 인덱싱됩니다. 예를 들어 복잡 한 컬렉션 필드에 3 개의 요소가 있는 문서는 문서 자체에 대 한 4 개 Lucene 문서와 요소에 대해 3으로 인덱싱됩니다. Lucene 문서의 최대 수는 인덱스 당 약 250억입니다.
+<sup>1</sup> SKU 관련 문서 한도가 없더라도 모든 인덱스에는 서비스 안정성을 보장 하기 위한 최대 안전 한도가 적용 됩니다. 이 제한은 Lucene에서 제공 됩니다. 모든 Azure Cognitive Search 문서는 내부적으로 하나 이상의 Lucene 문서로 인덱싱됩니다. 검색 문서 당 Lucene 문서 수는 복합 컬렉션 필드의 총 요소 수에 따라 달라 집니다. 각 요소는 별도의 Lucene 문서로 인덱싱됩니다. 예를 들어 복잡 한 컬렉션 필드에 3 개의 요소가 있는 문서는 문서 자체에 대 한 4 개 Lucene 문서와 요소에 대해 3으로 인덱싱됩니다. Lucene 문서의 최대 수는 인덱스 당 약 250억입니다.
 
 ### <a name="regions-previously-having-document-limits"></a>이전에 문서 제한이 있던 지역
 
-포털에서 문서 제한이 지정하는 경우 2017년 후반 이전에 서비스가 만들어졌거나, Azure Search 서비스를 호스트하는 데 저용량 클러스터를 사용하는 데이터 센터에서 만들어진 것입니다.
+포털이 문서 제한을 나타내는 경우 서비스는 2017 이전에 생성 되었거나 Azure Cognitive Search 서비스를 호스팅하기 위한 낮은 용량의 클러스터를 사용 하 여 데이터 센터에 생성 된 것입니다.
 
 + 오스트레일리아 동부
-+ 아시아 동부
++ 동아시아
 + 인도 중부
 + 일본 서부
 + 미국 중서부
 
 문서 제한을 받는 서비스의 경우 다음과 같은 최대 제한이 적용됩니다.
 
-|  무료 | 기본 | S1 | S2 | S3 | S3&nbsp;HD |
+|  체험판 | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
-|  10000 |1 @ no__t-0million |파티션당 1천 5백만, 서비스당 1억 8천만 |파티션당 6천만, 서비스당 7억 2천만 |파티션당 1억 2천만, 서비스당 14억 |인덱스당 1백만, 파티션당 2억만 |
+|  10000 |1 @ no__t_0_ 백만 |파티션당 1천 5백만, 서비스당 1억 8천만 |파티션당 6천만, 서비스당 7억 2천만 |파티션당 1억 2천만, 서비스당 14억 |인덱스당 1백만, 파티션당 2억만 |
 
 서비스의 제한 때문에 작업이 차단되는 경우 새 서비스를 만들고 해당 서비스에 모든 콘텐츠를 다시 게시합니다. 백그라운드 작업을 통해 새 하드웨어에 서비스를 원활하게 다시 프로비전할 수 있는 메커니즘은 없습니다.
 
@@ -105,17 +106,17 @@ ms.locfileid: "71947772"
 최대 실행 시간은 서비스에 대 한 균형 및 안정성을 제공 하기 위해 존재 하지만 큰 데이터 집합은 최대 허용 수보다 많은 인덱싱 시간이 필요할 수 있습니다. 인덱싱 작업이 허용된 최대 시간 내에 완료될 수 없는 경우에는 일정에 따라 실행해보십시오. 스케줄러는 인덱싱 상태를 추적합니다. 어떤 이유로든 예약된 인덱싱 작업이 중단되면 다음에 예약된 실행에서 인덱서가 지난 번에 중단된 위치부터 작업을 이어갈 수 있습니다.
 
 
-| 리소스 | 무료&nbsp;<sup>1</sup> | 기본&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| 리소스 | 체험&nbsp;<sup>1</sup> | 기본&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
-| 최대 인덱서 |3 |5 또는 15|50 |200 |200 |해당 사항 없음 |10 |10 |
-| 최대 데이터 원본 |3 |5 또는 15 |50 |200 |200 |해당 사항 없음 |10 |10 |
-| 최대 기술 집합 <sup>4</sup> |3 |5 또는 15 |50 |200 |200 |해당 사항 없음 |10 |10 |
-| 호출당 최대 인덱싱 로드 |10,000개 문서 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |해당 사항 없음 |제한 없음 |제한 없음 |
+| 최대 인덱서 |3 |5 또는 15|50 |200 |200 |N/A |10 |10 |
+| 최대 데이터 원본 |3 |5 또는 15 |50 |200 |200 |N/A |10 |10 |
+| 최대 기술 집합 <sup>4</sup> |3 |5 또는 15 |50 |200 |200 |N/A |10 |10 |
+| 호출당 최대 인덱싱 로드 |10,000개 문서 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |N/A |무제한 |무제한 |
 | 최소 일정 | 5분 |5분 |5분 |5분 |5분 |5분 |5분 | 5분 |
-| 최대 실행 시간 <sup>5</sup> | 1-3분 |24시간 |24시간 |24시간 |24시간 |해당 사항 없음  |24시간 |24시간 |
-| 인식 검색 기능이나 이미지 분석을 통한 Blob 인덱싱의 최대 실행 시간 <sup>5</sup> | 3~10분 |2시간 |2시간 |2시간 |2시간 |해당 사항 없음  |2시간 |2시간 |
-| Blob 인덱서: 최대 Blob 크기(MB) |16 |16 |128 |256 |256 |해당 사항 없음  |256 |256 |
-| Blob 인덱서: Blob에서 추출된 콘텐츠의 최대 문자 |32,000 |64,000 |4 @ no__t-0million |4 @ no__t-0million |4 @ no__t-0million |해당 사항 없음 |4 @ no__t-0million |4 @ no__t-0million |
+| 최대 실행 시간 <sup>5</sup> | 1-3분 |24시간 |24시간 |24시간 |24시간 |N/A  |24시간 |24시간 |
+| 인식 검색 기능이나 이미지 분석을 통한 Blob 인덱싱의 최대 실행 시간 <sup>5</sup> | 3~10분 |2시간 |2시간 |2시간 |2시간 |N/A  |2시간 |2시간 |
+| Blob 인덱서: 최대 Blob 크기(MB) |16 |16 |128 |256 |256 |N/A  |256 |256 |
+| Blob 인덱서: Blob에서 추출된 콘텐츠의 최대 문자 |32,000 |64,000 |4 @ no__t_0_ 백만 |4 @ no__t_0_ 백만 |4 @ no__t_0_ 백만 |N/A |4 @ no__t_0_ 백만 |4 @ no__t_0_ 백만 |
 
 <sup>1</sup> 무료 계층의 인덱서 최대 실행 시간은 Blob 원본의 경우 3분이고 기타 모든 데이터 원본의 경우 1분입니다. Cognitive Services를 호출 하는 AI 인덱싱의 경우 무료 서비스는 하루 20 개의 무료 트랜잭션으로 제한 되며, 여기서 트랜잭션은 보강 파이프라인을 통해 성공적으로 전달 되는 문서로 정의 됩니다.
 
@@ -131,7 +132,7 @@ ms.locfileid: "71947772"
 
 허용 되는 최대 동의어 맵 수는 가격 책정 계층에 따라 다릅니다. 각 규칙에는 최대 20 개의 확장이 있을 수 있습니다. 여기서 확장은 equivalvent 용어입니다. 예를 들어, "cat", "새끼", "feline" 및 "felis"과의 연결 (cats 용 genus은 3 개의 확장으로 계산 됩니다.
 
-| 리소스 | 무료 | 기본 | S1 | S2 | S3 | S3-HD |L1 | L2 |
+| 리소스 | 체험판 | Basic | S1 | S2 | S3 | S3-HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
 | 최대 동의어 맵 |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Map 당 최대 규칙 수 |5,000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
@@ -140,13 +141,13 @@ ms.locfileid: "71947772"
 
 QPS 예상 값은 모든 고객에 의해 독립적으로 개발되어야 합니다. 인덱스 크기와 복잡성, 쿼리 크기와 복잡성 및 트래픽 양은 QPS의 주 결정자입니다. 이러한 요소를 알 수 없는 경우 의미 있는 예상 값을 제공할 방법이 없습니다.
 
-예측 값은 전용 리소스(기본 계층 및 표준 계층)에서 실행 중인 서비스에 대해 계산되는 경우 더 예측 가능해 집니다. 매개 변수를 더 잘 제어할 수 있기 때문에 QPS를 더 근접하게 예상할 수 있습니다. 예측 값에 접근하는 방법에 대한 지침은 [Azure Search 성능 및 최적화](search-performance-optimization.md)를 참조하세요.
+예측 값은 전용 리소스(기본 계층 및 표준 계층)에서 실행 중인 서비스에 대해 계산되는 경우 더 예측 가능해 집니다. 매개 변수를 더 잘 제어할 수 있기 때문에 QPS를 더 근접하게 예상할 수 있습니다. 예측에 접근 하는 방법에 대 한 지침은 [Azure Cognitive Search 성능 및 최적화](search-performance-optimization.md)를 참조 하세요.
 
 저장소에 최적화 된 계층의 경우 표준 계층 보다 낮은 쿼리 처리량과 대기 시간이 더 길어질 수 있습니다.  사용할 쿼리 성능을 예측 하는 방법은 표준 계층과 동일 합니다.
 
-## <a name="data-limits-cognitive-search"></a>데이터 제한(인식 검색)
+## <a name="data-limits-ai-enrichment"></a>데이터 제한 (AI 보강)
 
-[엔터티 인식](cognitive-search-skill-entity-recognition.md), [핵심 구 추출](cognitive-search-skill-keyphrases.md), [감정 분석](cognitive-search-skill-sentiment.md) 및 [언어 감지](cognitive-search-skill-language-detection.md)에 대한 텍스트 분석 리소스로 호출을 만드는 [인식 검색 파이프라인](cognitive-search-concept-intro.md)은 데이터가 제한될 수 있습니다. 레코드의 최대 크기는 5만 자 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)로 측정 되어야 합니다. 감성 분석기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 사용합니다.
+[엔터티를 인식](cognitive-search-skill-entity-recognition.md)하기 위해 Text Analytics 리소스를 호출 하는 [AI 보강 파이프라인](cognitive-search-concept-intro.md) , [키 구 추출](cognitive-search-skill-keyphrases.md), [감정 분석](cognitive-search-skill-sentiment.md)및 [언어 검색](cognitive-search-skill-language-detection.md) 에는 데이터 제한이 적용 됩니다. 레코드의 최대 크기는 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)으로 측정 되는 5만 자 여야 합니다. 감성 분석기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 사용합니다.
 
 ## <a name="throttling-limits"></a>제한 제한
 
@@ -154,11 +155,11 @@ QPS 예상 값은 모든 고객에 의해 독립적으로 개발되어야 합니
 
 인덱스와 관련 된 작업에 대 한 정적 전송률 요청 제한:
 
-+ 인덱스 나열 (GET/indexes): 검색 단위당 초당 5
++ 인덱스 나열 (GET/인덱스): 검색 단위당 초당 5
 + Get Index (GET/indexes/myindex): 검색 단위당 초당 10
 + 인덱스 만들기 (사후/인덱스): 검색 단위당 분당 12 개
-+ 인덱스 만들기 또는 업데이트 (PUT/indexes/myindex): 검색 단위당 초당 6
-+ 인덱스 삭제 (DELETE/indexes/myindex): 검색 단위당 분당 12 개 
++ 인덱스 만들기 또는 업데이트 (PUT/indexes/myindex): 검색 단위당 초당 6 개
++ Delete Index (DELETE/indexes/myindex): 검색 단위당 분당 12 
 
 ## <a name="api-request-limits"></a>API 요청 제한
 * 요청당 최대 16MB <sup>1</sup>
@@ -167,7 +168,7 @@ QPS 예상 값은 모든 고객에 의해 독립적으로 개발되어야 합니
 * $orderby 절에 최대 32개의 필드
 * 최대 검색어 크기는 UTF-8 인코딩된 텍스트로 32,766바이트(32KB에서 2바이트를 뺀 값)입니다.
 
-<sup>1</sup> Azure Search에서는 이론적 제한으로 달리 제한되지 않는 개별 필드 또는 컬렉션의 콘텐츠에 대한 실질적 한도를 부과하기 위해 요청 본문에 16MB의 상한이 적용됩니다(필드 컴퍼지션 및 제한 사항에 대한 자세한 내용은 [지원되는 데이터 형식](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) 참조).
+<sup>1</sup> Azure Cognitive Search에서 요청 본문은 16mb의 상한으로 설정 되어 있습니다 .이는 이론적 제한으로 제한 되지 않는 개별 필드 또는 컬렉션의 콘텐츠에 대 한 실질적인 제한을 적용 하는 것입니다 ( [지원 되는 데이터 형식 참조). ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)필드 컴퍼지션 및 제한 사항에 대 한 자세한 내용은을 (를).
 
 ## <a name="api-response-limits"></a>API 응답 제한
 * 검색 결과 페이지당 반환되는 문서 최대 1000개

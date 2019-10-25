@@ -1,29 +1,28 @@
 ---
-title: 이미지 분석 인식 검색 기술 - Azure Search
-description: Azure Search 보강 파이프라인의 이미지 분석 인식 기술을 사용하여 이미지 분석을 통해 의미 체계 텍스트를 추출합니다.
-services: search
+title: 이미지 분석 인식 기술
+titleSuffix: Azure Cognitive Search
+description: Azure Cognitive Search의 AI 보강 파이프라인에서 이미지 분석 인식 기술을 사용 하 여 이미지 분석을 통해 의미 체계 텍스트를 추출 합니다.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 08/28/2019
 ms.author: luisca
-ms.openlocfilehash: 69e798601dc53ffb666aa9dcddd68980256fa3fc
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 04114d00f3905675a1794a3875e650661febc832
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265450"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792001"
 ---
-#   <a name="image-analysis-cognitive-skill"></a>이미지 분석 인식 기술
+# <a name="image-analysis-cognitive-skill"></a>이미지 분석 인식 기술
 
 **이미지 분석** 기술은 이미지 콘텐츠를 기준으로 다양한 시각적 기능 집합을 추출합니다. 예를 들어, 이미지에서 캡션을 생성하거나, 태그를 생성하거나, 유명인과 랜드마크를 식별할 수 있습니다. 이 기술은 Cognitive Services의 [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)에서 제공하는 기계 학습 모델을 사용합니다. 
 
 > [!NOTE]
-> 작은 볼륨 (20 개 트랜잭션 미만)은 Azure Search에서 무료로 실행할 수 있지만, 더 큰 워크 로드 [는 청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출할 때와 Azure Search에서 문서 해독 단계의 일부로 이미지를 추출할 때는 요금이 누적됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
+> Azure Cognitive Search에서 작은 볼륨 (20 개 트랜잭션 미만)을 무료로 실행할 수 있지만, 더 큰 워크 로드 [는 청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 Api를 호출 하는 경우와 Azure Cognitive Search에서 문서 크랙 단계의 일부로 이미지 추출에 대 한 요금이 부과 됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
 >
-> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정 정보는 [Azure Search 가격 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다.
+> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격은 [Azure Cognitive Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명 되어 있습니다.
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -35,15 +34,15 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 | 매개 변수 이름     | 설명 |
 |--------------------|-------------|
-| defaultLanguageCode   |  반환할 언어를 나타내는 문자열입니다. 서비스는 지정된 언어로 인식 결과를 반환합니다. 이 매개 변수를 지정하지 않을 경우 기본값은 “en”입니다. <br/><br/>지원되는 언어는 다음과 같습니다. <br/>*en* - 영어(기본값) <br/> *zh* - 중국어 간체|
+| defaultLanguageCode   |  반환할 언어를 나타내는 문자열입니다. 서비스는 지정된 언어로 인식 결과를 반환합니다. 이 매개 변수를 지정하지 않을 경우 기본값은 "en"입니다. <br/><br/>지원되는 언어는 다음과 같습니다. <br/>*en* - 영어(기본값) <br/> *zh* - 중국어 간체|
 |visualFeatures |   반환할 시각적 기능 유형을 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다.  <ul><li> *categories* -Cognitive Services [Computer Vision 설명서](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)에 정의 된 분류에 따라 이미지 콘텐츠를 분류 합니다. </li><li> ‘태그’ - 이미지 콘텐츠와 관련된 단어의 자세한 목록으로 이미지에 태그를 지정합니다.</li><li>*설명* -전체 영어 문장이 포함 된 이미지 내용에 대해 설명 합니다.</li><li>*얼굴* -얼굴이 있는지 검색 합니다. 얼굴이 있으면 좌표, 성별 및 나이를 생성합니다.</li><li>    *Imagetype* -이미지가 클립 아트 인지 또는 선 그리기 인지 검색 합니다.</li><li>  *color* -악센트 색, 주요 색 및 이미지가 검은색 & 흰색 인지 여부를 결정 합니다.</li><li>*성인* -이미지가 음란 (노출 또는 성 act를 나타냅니다) 여부를 검색 합니다. 성적으로 노골적인 콘텐츠도 검색됩니다.</li></ul> 시각적 기능의 이름은 대/소문자를 구분합니다.|
-| details 정보   | 반환할 도메인 특정 세부 정보를 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다. <ul><li>*유명인* -이미지에서 검색 된 경우 유명인를 식별 합니다.</li><li>*랜드마크* -이미지에서 검색 된 경우 랜드마크를 식별 합니다. </li></ul> |
+| 세부 정보   | 반환할 도메인 특정 세부 정보를 나타내는 문자열 배열입니다. 유효한 시각적 기능 유형은 다음과 같습니다. <ul><li>*유명인* -이미지에서 검색 된 경우 유명인를 식별 합니다.</li><li>*랜드마크* -이미지에서 검색 된 경우 랜드마크를 식별 합니다. </li></ul> |
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 이름 입력      | 설명                                          |
+| 입력 이름      | 설명                                          |
 |---------------|------------------------------------------------------|
-| image         | 복합 형식입니다. ```imageAction```이 ```none``` 이외의 값으로 설정된 경우 현재 Azure Blob 인덱서에서 생성된 “/document/normalized_images” 필드에만 작동합니다. 자세한 내용은 [샘플](#sample-output)을 참조하세요.|
+| 이미지         | 복합 형식입니다. ```imageAction```이 ```none``` 이외의 값으로 설정된 경우 현재 Azure Blob 인덱서에서 생성된 “/document/normalized_images” 필드에만 작동합니다. 자세한 내용은 [샘플](#sample-output)을 참조하세요.|
 
 
 
@@ -503,7 +502,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 | NotSupportedImage | 지원되지 않는 이미지(예: 아동 음란물)입니다. |
 | InvalidDetails | 지원되지 않는 도메인 특정 모델입니다. |
 
-와 유사한 `"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"`오류가 발생 하는 경우 경로를 확인 합니다. 유명인와 랜드마크는 둘 다의 `detail`속성입니다.
+`"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"`와 유사한 오류가 발생 하는 경우 경로를 확인 합니다. 유명인 및 랜드마크는 모두 `detail`의 속성입니다.
 
 ```json
 "categories":[  
@@ -519,8 +518,8 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
             ]
 ```
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-+ [미리 정의된 기술](cognitive-search-predefined-skills.md)
-+ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기본 제공 기술](cognitive-search-predefined-skills.md)
++ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [인덱서 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

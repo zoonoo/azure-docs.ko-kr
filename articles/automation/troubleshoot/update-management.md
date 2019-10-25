@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 952bcb85484e885d45876de1e4cf3326db0a146a
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.openlocfilehash: 2aebcf05cbc818997943ed3bab19fb1fd8a83592
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693401"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786052"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>업데이트 관리 문제 해결
 
@@ -163,7 +163,7 @@ Windows 업데이트은 여러 레지스트리 키로 수정할 수 있으며,�
 
 ### <a name="resolution"></a>해상도
 
-[다시 시작을 관리 하는 데 사용 되](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) 는 레지스트리 및 레지스트리 키를 [편집 하 여 자동 업데이트 구성](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-rej7uijui7jgistry) 에 나열 된 레지스트리 키를 검토 하 여 컴퓨터가 제대로 구성 되었는지 확인 합니다.
+[다시 시작을 관리 하는 데 사용 되](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) 는 레지스트리 및 레지스트리 키를 [편집 하 여 자동 업데이트 구성](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) 에 나열 된 레지스트리 키를 검토 하 여 컴퓨터가 제대로 구성 되었는지 확인 합니다.
 
 ## <a name="failed-to-start"></a>시나리오: 컴퓨터에서 업데이트 배포에 "시작 하지 못했습니다." 표시
 
@@ -210,7 +210,7 @@ Windows에서는 업데이트가 제공 되는 즉시 자동으로 설치 됩니
 
 ### <a name="resolution"></a>해상도
 
-@No__t_0 레지스트리 키는 기본값 4: **자동 다운로드 및 설치**로 설정 됩니다.
+`HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` 레지스트리 키는 기본값 4: **자동 다운로드 및 설치**로 설정 됩니다.
 
 업데이트 관리 클라이언트의 경우이 키를 3으로 설정 하는 것이 좋습니다. **자동 다운로드 하지만 자동으로 설치 되지**않습니다.
 
@@ -334,7 +334,7 @@ Windowsupdate.log 파일을 검토 하면 가능한 원인을 확인 하는 데 
 > [!NOTE]
 > [Windows 업데이트 문제 해결사](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) 설명서는 windows 클라이언트에서 사용 하는 것을 나타내지만 windows Server 에서도 작동 합니다.
 
-## <a name="scenario-update-run-returns-failed-status"></a>시나리오: 업데이트 실행에서 "실패" 상태 반환
+## <a name="scenario-update-run-returns-failed-status-linux"></a>시나리오: 업데이트 실행에서 "실패" 상태 반환 (Linux)
 
 ### <a name="issue"></a>문제
 
@@ -367,7 +367,7 @@ Windowsupdate.log 파일을 검토 하면 가능한 원인을 확인 하는 데 
 ### <a name="machines-dont-install-updates"></a>컴퓨터에서 업데이트를 설치 하지 않음
 
 * 머신에서 직접 업데이트를 실행해 봅니다. 컴퓨터에서 업데이트를 적용할 수 없는 경우 [문제 해결 가이드에서 잠재적 오류 목록을](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult)참조 하십시오.
-* 업데이트를 로컬로 실행 하는 경우 [업데이트 관리에서 VM 제거의](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-from-update-management)지침에 따라 컴퓨터에서 에이전트를 제거 하 고 다시 설치 해 봅니다.
+* 업데이트를 로컬로 실행 하는 경우 [업데이트 관리에서 VM 제거의](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-browse#clean-up-resources)지침에 따라 컴퓨터에서 에이전트를 제거 하 고 다시 설치 해 봅니다.
 
 ### <a name="i-know-updates-are-available-but-they-dont-show-as-available-on-my-machines"></a>업데이트를 사용할 수 있지만 내 컴퓨터에서 사용할 수 있는 것으로 표시 되지 않습니다.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 75a96127c48186befc48b2240f78e49cd5914239
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eaa461dd0c4ef6bd9ed0ae4379a710ee100929d2
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60343423"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800204"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Apache Storm을 사용하여 Event Hubs에서 이벤트 수신
 
@@ -28,8 +28,8 @@ ms.locfileid: "60343423"
 
 Event Hubs 수신기 패턴에 대한 자세한 내용은 [Event Hubs 개요][Event Hubs overview]를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
-빠른 시작에서는 시작 하기 전에 **Event Hubs 네임 스페이스를 만들고 event hub**합니다. 사용 된 [Azure portal](https://portal.azure.com) Event Hubs 형식의 네임 스페이스를 만들고 event hub와 통신 해야 하는 응용 프로그램 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 
+## <a name="prerequisites"></a>전제 조건
+퀵 스타트를 시작 하기 전에 **Event Hubs 네임 스페이스 및 이벤트 허브를 만듭니다**. [Azure Portal](https://portal.azure.com) 를 사용 하 여 Event Hubs 형식의 네임 스페이스를 만들고 응용 프로그램이 이벤트 허브와 통신 하는 데 필요한 관리 자격 증명을 가져옵니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 
 
 ## <a name="create-project-and-add-code"></a>프로젝트 만들기 및 코드 추가
 
@@ -252,7 +252,7 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[이벤트 허브를 사용한 HDInsight Storm 예제]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
+[이벤트 허브를 사용한 HDInsight Storm 예제]: https://github.com/Azure-Samples/hdinsight-java-storm-eventhub
 
 <!-- Images -->
 

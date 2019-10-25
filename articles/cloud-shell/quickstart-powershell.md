@@ -1,25 +1,20 @@
 ---
-title: Azure Cloud Shell 빠른 시작 | Microsoft Docs
-description: Azure Cloud Shell에 대 한 빠른 시작
-services: Azure
-documentationcenter: ''
+title: Azure Cloud Shell 빠른 시작-PowerShell
+description: Azure Cloud Shell를 사용 하 여 브라우저에서 PowerShell을 사용 하는 방법을 알아봅니다.
 author: maertendmsft
-manager: timlt
+ms.author: damaerte
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
-ms.author: damaerte
-ms.openlocfilehash: f1184f9f3a4cf827f0afef9bca8a72308c371d76
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 72261989b7cee9d2251eb18b36431ec807b0e874
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224561"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791609"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell의 PowerShell에 대한 빠른 시작
 
@@ -27,8 +22,6 @@ ms.locfileid: "71224561"
 
 > [!NOTE]
 > [Azure Cloud Shell의 Bash](quickstart.md) 빠른 시작도 사용할 수 있습니다.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="start-cloud-shell"></a>Cloud Shell 시작
 
@@ -297,7 +290,7 @@ ssh azureuser@MyVM.Domain.Com
 
 ## <a name="install-custom-modules"></a>사용자 지정 모듈 설치
 
-를 실행 `Install-Module` 하 여 [PowerShell 갤러리][gallery]에서 모듈을 설치할 수 있습니다.
+`Install-Module`를 실행 하 여 [PowerShell 갤러리][gallery]모듈을 설치할 수 있습니다.
 
 ## <a name="get-help"></a>Get-Help
 

@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: b952763378de562f35c2e1ecaf49c56f0145c559
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 128a2e8b200f1323b88aad635f27c1b686ecbed2
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182317"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789705"
 ---
-# <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>처음부터 IoT(사물 인터넷) 보안
-
 사물 인터넷(IoT)은 전 세계 기업에 고유한 보안, 개인 정보 및 규정 준수 문제를 제기합니다. 문제가 소프트웨어와 구현 방식을 중심으로 발생하는 기존의 사이버 기술과는 달리 IoT는 사이버 세계와 실제 세계가 만날 때 일어나는 일과 관련하여 문제가 발생합니다. IoT 솔루션을 보호하기 위해서는 디바이스의 안전한 프로비전, 이러한 디바이스 및 클라우드 간의 보안 연결, 처리 및 스토리지 중에 클라우드에서 데이터 보호 설정이 요구됩니다. 그러나 이러한 기능에 대한 작업에는 리소스가 제한된 디바이스, 배포의 지리적 분산 및 솔루션 내 많은 수의 디바이스에 대한 작업이 포함됩니다.
 
 이 문서에서는 IoT 솔루션 가속기가 어떤 방식으로 안전한 프라이빗 사물 인터넷 클라우드 솔루션을 제공하는지 살펴봅니다. 솔루션 가속기는 처음부터 모든 단계에서 보안을 기본 제공하는 완전한 엔드투엔드 솔루션을 제공합니다. Microsoft에서 보안 소프트웨어 개발은 보안 소프트웨어 개발에 대한 Microsoft의 수십 년에 걸친 경험을 기반으로 하는 소프트웨어 엔지니어링 업무의 일환입니다. 이를 위해 SDL(보안 개발 수명 주기)은 OSA(운영 보안 보증) 및 Microsoft Digital Crimes Unit, Microsoft 보안 응답 센터, Microsoft 맬웨어 보호 센터와 같은 인프라 수준 보안 서비스 등과 함께 기본 개발 방법론입니다.
@@ -33,7 +31,7 @@ ms.locfileid: "67182317"
 
 ## <a name="secure-infrastructure-from-the-ground-up"></a>처음부터 보안 인프라
 
-합니다 [Microsoft Cloud](https://azure.microsoft.com) 인프라는 127 국가/지역의 한 십억 개 이상의 고객을 지원 합니다. 엔터프라이즈 소프트웨어를 구축하고 전 세계에서 가장 큰 온라인 서비스 중 일부를 실행하는 Microsoft의 수십 년에 걸친 경험을 토대로, Microsoft 클라우드는 대부분의 고객이 자체적으로 달성할 수 있는 것보다 향상된 수준의 보안, 개인 정보, 규정 준수 및 위협 완화 방법을 제공합니다.
+[Microsoft 클라우드](https://azure.microsoft.com) 인프라는 127 국가/지역에서 10억 명 이상의 고객을 지원 합니다. 엔터프라이즈 소프트웨어를 구축하고 전 세계에서 가장 큰 온라인 서비스 중 일부를 실행하는 Microsoft의 수십 년에 걸친 경험을 토대로, Microsoft 클라우드는 대부분의 고객이 자체적으로 달성할 수 있는 것보다 향상된 수준의 보안, 개인 정보, 규정 준수 및 위협 완화 방법을 제공합니다.
 
 [SDL(보안 개발 수명 주기)](https://www.microsoft.com/sdl/)은 보안 요구 사항을 전체 소프트웨어 수명 주기에 포함하는 전사적인 필수 개발 프로세스를 제공합니다. 동일한 보안 실무 수준에 따라 운영 활동이 진행되도록 하기 위해, SDL은 Microsoft의 OSA(운영 보안 보증) 프로세스에 따른 엄격한 보안 지침을 사용합니다. 또한 Microsoft는 규정 준수 의무를 충족하는지 지속적으로 확인하기 위해 타사 감사 업체와도 협력하며 Microsoft Digital Crimes Unit, Microsoft 보안 대응 센터 및 Microsoft 맬웨어 보호 센터를 비롯한 우수한 센터를 만들어 광범위한 보안 작업에 참여하고 있습니다.
 
@@ -55,7 +53,7 @@ Microsoft의 시스템은 지속적인 침입 탐지 및 방지, 서비스 거�
 
 솔루션 가속기는 각 디바이스에 대해 IoT 인프라에서 작업 중인 디바이스와 통신하는 데 사용할 수 있는 고유한 ID 키를 제공하여 현장에 나가 있는 동안 디바이스를 안전하게 보호합니다. 이 프로세스는 빠르고 쉽게 설정할 수 있습니다. 사용자가 선택한 디바이스 ID로 생성된 키는 디바이스와 Azure IoT Hub 간의 모든 통신에 사용되는 토큰의 기초를 구성합니다.
 
-디바이스 ID는 제조 중에 디바이스에 연결하거나(즉, 하드웨어 트러스트 모듈에서 플래시됨) 기존 고정된 ID를 프록시로 사용할 수 있습니다(예: CPU 일련 번호). 디바이스에서 이 식별 정보를 변경하는 것은 간단하지 않으므로 기본 디바이스 하드웨어가 변경되지만 논리적 디바이스는 동일하게 유지되는 경우 논리적 디바이스 ID를 도입하는 것이 중요합니다. 일부 경우 디바이스 ID의 연결이 디바이스 배포 시 발생할 수 있습니다(예: 솔루션 백 엔드와 통신하는 동안 인증된 현장 엔지니어가 새 디바이스를 물리적으로 구성). [Azure IoT Hub ID 레지스트리](../articles/iot-hub/iot-hub-devguide.md)는 디바이스 ID에 대한 보안 스토리지와 솔루션을 위한 보안 키를 제공합니다. 개별 또는 그룹 디바이스 ID를 허용 목록 또는 차단 목록에 추가하여 디바이스 액세스를 완벽하게 제어할 수 있습니다.
+디바이스 ID는 제조 중에 디바이스에 연결하거나(즉, 하드웨어 트러스트 모듈에서 플래시됨) 기존 고정된 ID를 프록시로 사용할 수 있습니다(예: CPU 일련 번호). 디바이스에서 이 식별 정보를 변경하는 것은 간단하지 않으므로 기본 디바이스 하드웨어가 변경되지만 논리적 디바이스는 동일하게 유지되는 경우 논리적 디바이스 ID를 도입하는 것이 중요합니다. 일부 경우 디바이스 ID의 연결이 디바이스 배포 시 발생할 수 있습니다(예: 솔루션 백 엔드와 통신하는 동안 인증된 현장 엔지니어가 새 디바이스를 물리적으로 구성). [Azure IoT Hub ID 레지스트리](../articles/iot-hub/iot-hub-devguide.md) 는 디바이스 ID에 대한 보안 스토리지와 솔루션을 위한 보안 키를 제공합니다. 개별 또는 그룹 디바이스 ID를 허용 목록 또는 차단 목록에 추가하여 디바이스 액세스를 완벽하게 제어할 수 있습니다.
 
 클라우드에서 Azure IoT Hub 액세스 제어 정책은 디바이스 ID를 활성화 및 비활성화하여 필요할 경우 IoT 배포에서 디바이스를 분리하는 방법을 제공합니다. 디바이스의 연결 및 분리는 각 디바이스 ID를 기반으로 합니다.
 
@@ -103,14 +101,14 @@ IoT 인프라에서 사용되는 모든 키는 보안 스토리지의 클라우�
 
 각 솔루션 가속기는 다음과 같은 Azure 서비스 인스턴스를 만듭니다.
 
-* [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): 장치에 클라우드를 연결 하는 게이트웨이. 솔루션의 보안을 설정하는 디바이스별 인증 지원을 통해 허브당 수백만 개의 연결까지 확장할 수 있으며 대량의 데이터를 처리할 수 있습니다.
+* [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): 클라우드를 디바이스에 연결하는 게이트웨이입니다. 솔루션의 보안을 설정하는 디바이스별 인증 지원을 통해 허브당 수백만 개의 연결까지 확장할 수 있으며 대량의 데이터를 처리할 수 있습니다.
 
-* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): 프로 비전 하는 특성, 구성 및 보안 속성 같은 장치에 대 한 메타 데이터를 관리 하는 반 구조화 된 데이터에 대 한 확장성 있고 완전히 인덱싱된 데이터베이스 서비스입니다. Azure Cosmos DB는 높은 성능 및 처리량 처리, 데이터의 스키마와 관계 없는 인덱싱 및 풍부한 SQL 쿼리 인터페이스를 제공합니다.
+* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): 반구조화된 데이터에 대한 확장성 있고 완전히 인덱싱된 데이터베이스 서비스로, 프로비전하는 디바이스에 대한 메타데이터(예: 특성, 구성 및 보안 속성)를 관리합니다. Azure Cosmos DB는 높은 성능 및 처리량 처리, 데이터의 스키마와 관계 없는 인덱싱 및 풍부한 SQL 쿼리 인터페이스를 제공합니다.
 
-* [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): 에서 실시간 스트림 처리를 신속 하 게 개발 및 장치, 센서, 인프라 및 응용 프로그램에서 실시간 정보를 파악 하는 저비용 분석 솔루션을 배포할 수 있는 클라우드입니다. 이 완전히 관리되는 서비스의 데이터를 높은 처리량, 낮은 대기 시간 및 복원력을 확보하면서 어떤 볼륨으로도 확장할 수 있습니다.
+* [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): 디바이스, 센서, 인프라 및 애플리케이션에서 실시간 정보를 파악하는 저비용 분석 솔루션을 빠르게 개발 및 배포하는 클라우드의 실시간 스트림 처리입니다. 이 완전히 관리되는 서비스의 데이터를 높은 처리량, 낮은 대기 시간 및 복원력을 확보하면서 어떤 볼륨으로도 확장할 수 있습니다.
 
-* [**Azure App Services**](https://azure.microsoft.com/services/app-service/): 강력한 웹 및 모바일 앱 어디서 든; 데이터에 연결을 구축 하기 위한 클라우드 플랫폼 클라우드 또는 온-프레미스 iOS, Android 및 Windows를 위한 유용한 모바일 앱을 빌드하세요. 수십 개의 클라우드 기반 서비스와 엔터프라이즈 애플리케이션에 즉시 연결 가능하므로 귀사의 SaaS(Software as a Service) 및 엔터프라이즈 애플리케이션과 통합이 용이합니다. 가장 자주 사용하는 언어와 IDE(.NET, Node.js, PHP, Python 또는 Java)로 코딩하여 더욱 빨리 웹앱과 API를 빌드하세요.
+* [**Azure App Services**](https://azure.microsoft.com/services/app-service/): 강력한 웹 및 모바일 앱을 빌드하기 위한 클라우드 플랫폼으로 클라우드 또는 온-프레미스 등 어디서나 데이터에 연결할 수 있습니다. iOS, Android 및 Windows를 위한 유용한 모바일 앱을 빌드하세요. 수십 개의 클라우드 기반 서비스와 엔터프라이즈 애플리케이션에 즉시 연결 가능하므로 귀사의 SaaS(Software as a Service) 및 엔터프라이즈 애플리케이션과 통합이 용이합니다. 가장 자주 사용하는 언어와 IDE(.NET, Node.js, PHP, Python 또는 Java)로 코딩하여 더욱 빨리 웹앱과 API를 빌드하세요.
 
-* [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): Azure App Service의 Logic Apps 기능에는 IoT 솔루션을 기존의 기간 업무 시스템을 통합 하 고 워크플로 프로세스를 자동화할 수 있습니다. Logic Apps를 사용하면 개발자는 트리거부터 시작하여 비즈니스 프로세스와 통합할 강력한 커넥터를 사용하는 규칙 및 작업으로 이루어진 일련의 단계를 수행하는 워크플로를 설계할 수 있습니다. Logic Apps는 SaaS, 클라우드 기반 및 온-프레미스 애플리케이션의 방대한 생태계에 즉시 연결을 제공합니다.
+* [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): Azure App Service의 Logic Apps 기능을 통해 IoT 솔루션을 기존의 LOB(기간 업무) 시스템에 통합하고 워크플로 프로세스를 자동화할 수 있습니다. Logic Apps를 사용하면 개발자는 트리거부터 시작하여 비즈니스 프로세스와 통합할 강력한 커넥터를 사용하는 규칙 및 작업으로 이루어진 일련의 단계를 수행하는 워크플로를 설계할 수 있습니다. Logic Apps는 SaaS, 클라우드 기반 및 온-프레미스 애플리케이션의 방대한 생태계에 즉시 연결을 제공합니다.
 
-* [**Azure Blob storage**](https://azure.microsoft.com/services/storage/): 장치가 클라우드로 전송 하는 데이터를 위한 경제적 이면 서 안정적인 클라우드 저장소입니다.
+* [Azure Blob Storage](https://azure.microsoft.com/services/storage/): 디바이스가 클라우드로 전송하는 데이터에 대한 안정적이고 경제적인 클라우드 스토리지입니다.

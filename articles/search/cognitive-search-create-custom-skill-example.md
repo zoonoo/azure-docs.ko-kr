@@ -1,19 +1,19 @@
 ---
-title: '예: Bing Entity Search API-Azure Search를 사용 하 여 사용자 지정 인식 기술 만들기'
-description: Azure Search에서 인지 검색 인덱싱 파이프라인에 매핑된 사용자 지정 기술에 Bing Entity Search 서비스를 사용 하는 방법을 보여 줍니다.
+title: '예: Bing Entity Search API을 사용 하 여 사용자 지정 인식 기술 만들기'
+titleSuffix: Azure Cognitive Search
+description: Azure Cognitive Search의 AI 보강 인덱싱 파이프라인에 매핑된 사용자 지정 기술에서 Bing Entity Search 서비스를 사용 하는 방법을 보여 줍니다.
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: ab2f9e8859fba0c906e181727aab923254e9b620
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: a9ab828daa009f7204abb1c64291d937a1f0dba2
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692210"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784943"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>예: Bing Entity Search API을 사용 하 여 사용자 지정 기술 만들기
 
@@ -69,7 +69,7 @@ namespace SampleSkills
 {
     /// <summary>
     /// Sample custom skill that wraps the Bing entity search API to connect it with a 
-    /// cognitive search pipeline.
+    /// AI enrichment pipeline.
     /// </summary>
     public static class BingEntitySearch
     {
@@ -418,7 +418,7 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 이 예에서는 로컬 환경에서 함수를 실행할 때 이전에 살펴본 것과 동일한 결과를 생성 해야 합니다.
 
 ## <a name="connect-to-your-pipeline"></a>파이프라인에 연결
-이제 새 사용자 지정 기술이 있으므로 기능에 추가할 수 있습니다. 아래 예제에서는 기술를 호출 하 여 문서에서 조직에 설명을 추가 하는 방법을 보여 줍니다 .이는 위치 및 사용자에 대해서도 작동 하도록 확장할 수 있습니다. @No__t_0를 앱 이름으로 바꿉니다.
+이제 새 사용자 지정 기술이 있으므로 기능에 추가할 수 있습니다. 아래 예제에서는 기술를 호출 하 여 문서에서 조직에 설명을 추가 하는 방법을 보여 줍니다 .이는 위치 및 사용자에 대해서도 작동 하도록 확장할 수 있습니다. `[your-entity-search-app-name]`를 앱 이름으로 바꿉니다.
 
 ```json
 {

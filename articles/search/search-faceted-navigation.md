@@ -1,29 +1,29 @@
 ---
-title: 범주 계층에서 패싯 탐색을 구현하는 방법 - Azure Search
-description: Microsoft Azure에서 클라우드 호스티드 Search 서비스인 Azure Search와 통합되는 애플리케이션에 패싯 탐색을 추가합니다.
-author: HeidiSteen
+title: 범주 계층 구조에서 패싯 탐색을 구현 하는 방법
+titleSuffix: Azure Cognitive Search
+description: Microsoft Azure의 클라우드 호스트 검색 서비스인 Azure Cognitive Search와 통합 된 응용 프로그램에 패싯 탐색을 추가 합니다.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/13/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 8e325abf1f58458d2fa035c8c8f081173efb0e65
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: f1847eae1ee7db90f36072e2e832bd6fec9c2caa
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69649904"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792935"
 ---
-# <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Search에서 패싯 탐색을 구현하는 방법
+# <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Azure Cognitive Search에서 패싯 탐색을 구현 하는 방법
+
 패싯 탐색은 검색 애플리케이션에서 자기 주도형 드릴다운 탐색을 제공하는 필터링 메커니즘입니다. '패싯 탐색'이라는 용어가 낯설 수도 있지만 아마도 이전에 사용해 보셨을 것입니다. 다음 예제와 같이 패싯 탐색은 결과를 필터링하는 데 사용되는 범주일 뿐입니다.
 
- ![Azure Search 작업 포털 데모](media/search-faceted-navigation/azure-search-faceting-example.png "Azure Search 작업 포털 데모")
+ ![Azure Cognitive Search 작업 포털 데모](media/search-faceted-navigation/azure-search-faceting-example.png "Azure Cognitive Search 작업 포털 데모")
 
 패싯 탐색은 검색의 대체 진입점입니다. 복잡한 검색 식을 직접 입력할 수 있는 편리한 대안을 제공합니다. 패싯을 사용하면 원하는 항목을 쉽게 찾을 수 있으며 항상 결과를 얻을 수 있습니다. 개발자는 패싯으로 검색 인덱스를 탐색 하는 데 가장 유용한 검색 조건을 노출할 수 있습니다. 온라인 소매 애플리케이션에서는 종종 브랜드, 부서(어린이 신발), 크기, 가격, 인기도 및 등급에 대한 패싯 탐색이 작성됩니다. 
 
-패싯 탐색의 구현은 검색 기술에 따라 다릅니다. Azure Search에서는 이전에 스키마에서 특성을 지정한 필드를 사용하여 쿼리 시 패싯 탐색이 작성됩니다.
+패싯 탐색의 구현은 검색 기술에 따라 다릅니다. Azure Cognitive Search에서 패싯 탐색은 이전에 스키마에서 특성을 지정 하는 필드를 사용 하 여 쿼리 시에 빌드됩니다.
 
 -   애플리케이션에서 작성한 쿼리는 해당 문서 결과 집합에서 사용 가능한 패싯 필터 값을 받기 위해 *패싯 쿼리 매개 변수*를 보내야 합니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "69649904"
 ## <a name="sample-code-and-demo"></a>샘플 코드 및 데모
 이 문서에서는 구직 검색 포털을 예로 사용합니다. 이 예제는 ASP.NET MVC 애플리케이션으로 구현됩니다.
 
--   [Azure Search 구직 포털 데모](https://azjobsdemo.azurewebsites.net/)에서 온라인으로 작업 데모를 살펴보고 테스트하세요.
+-   [Azure Cognitive Search 작업 포털 데모](https://azjobsdemo.azurewebsites.net/)에서 온라인으로 작동 하는 데모를 참조 하 고 테스트 하세요.
 
 -   [GitHub의 Azure 샘플 리포지토리](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)에서 코드를 다운로드하세요.
 
@@ -47,13 +47,13 @@ ms.locfileid: "69649904"
 
 시작 지점은 일반적으로 주변에서 패싯 탐색을 제공하는 애플리케이션 페이지입니다. 패싯 탐색은 각 값에 대한 확인란 또는 클릭할 수 있는 텍스트가 포함된 트리 구조인 경우가 많습니다. 
 
-1. Azure Search로 전송된 쿼리는 하나 이상의 패싯 쿼리 매개 변수를 통해 패싯 탐색 구조를 지정합니다. 예를 들어 쿼리는 프레젠테이션을 구체화하는 `:values` 또는 `:sort` 옵션과 함께 `facet=Rating`이 포함할 수 있습니다.
+1. Azure Cognitive Search에 전송 된 쿼리는 하나 이상의 패싯 쿼리 매개 변수를 통해 패싯 탐색 구조를 지정 합니다. 예를 들어 쿼리는 프레젠테이션을 구체화하는 `:values` 또는 `:sort` 옵션과 함께 `facet=Rating`이 포함할 수 있습니다.
 2. 프레젠테이션 계층은 요청에 지정된 패싯을 사용하여 패싯 탐색을 제공하는 검색 페이지를 렌더링합니다.
 3. 등급이 포함된 패싯 탐색 구조에서 사용자가 등급이 4 이상인 제품만 표시하기 위해 “4”를 클릭합니다. 
 4. 이에 대한 응답으로 애플리케이션은 `$filter=Rating ge 4` 
 5. 새 조건을 충족하는 항목(이 경우 등급이 4 이상인 제품)만 포함된 축소된 결과 집합을 표시하도록 프레젠테이션 계층에서 페이지를 업데이트합니다.
 
-패싯은 쿼리 매개 변수이지만 쿼리 입력과 혼동해서는 안 됩니다. 쿼리의 선택 조건으로 사용되지 않습니다. 패싯 쿼리 매개 변수는 응답에서 반환되는 탐색 구조의 입력이라고 생각해야 합니다. 제공한 각 패싯 쿼리 매개 변수에 대해 Azure Search는 각 패싯 값의 부분 결과에 포함된 문서 수를 평가합니다.
+패싯은 쿼리 매개 변수이지만 쿼리 입력과 혼동해서는 안 됩니다. 쿼리의 선택 조건으로 사용되지 않습니다. 패싯 쿼리 매개 변수는 응답에서 반환되는 탐색 구조의 입력이라고 생각해야 합니다. 사용자가 제공 하는 각 패싯 쿼리 매개 변수에 대해 Azure Cognitive Search는 각 패싯 값의 부분 결과에 있는 문서 수를 평가 합니다.
 
 4단계의 `$filter` 에 주목하세요. 필터는 패싯 탐색의 중요한 부분입니다. 패싯과 필터는 API에서 서로 독립적이지만 원하는 환경을 제공하려면 둘 다 필요합니다. 
 
@@ -63,7 +63,7 @@ ms.locfileid: "69649904"
 
 ### <a name="query-basics"></a>쿼리 기본 사항
 
-Azure Search에서는 하나 이상의 쿼리 매개 변수를 통해 요청이 지정됩니다(각 매개 변수에 대한 설명은 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 참조). 필수 사항인 쿼리 매개 변수는 없지만 쿼리가 유효하려면 하나 이상의 쿼리 매개 변수가 있어야 합니다.
+Azure Cognitive Search에서는 하나 이상의 쿼리 매개 변수를 통해 요청이 지정 됩니다 (각 항목에 대 한 설명은 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 참조). 필수 사항인 쿼리 매개 변수는 없지만 쿼리가 유효하려면 하나 이상의 쿼리 매개 변수가 있어야 합니다.
 
 관련 없는 적중 항목을 필터링하는 기능으로 이해되는 정밀도는 다음 두 식 중 하나 또는 둘 다를 통해 실현됩니다.
 
@@ -89,17 +89,17 @@ Azure Search에서는 하나 이상의 쿼리 매개 변수를 통해 요청이 
 <a name="howtobuildit"></a>
 
 ## <a name="build-a-faceted-navigation-app"></a>패싯 탐색 앱 구축
-Azure Search를 사용하여 애플리케이션 코드에서 검색 요청을 작성하는 패싯 탐색을 구현합니다. 패싯 탐색은 이전에 정의된 스키마의 요소를 사용합니다.
+검색 요청을 작성 하는 응용 프로그램 코드에서 Azure Cognitive Search를 사용 하 여 패싯 탐색을 구현 합니다. 패싯 탐색은 이전에 정의된 스키마의 요소를 사용합니다.
 
 검색 인덱스에 `Facetable [true|false]` 인덱스 특성이 미리 정의되어 있으므로 선택한 필드를 패싯 탐색 구조에서 사용하거나 사용하지 않도록 설정하면 됩니다. `"Facetable" = true`가 아니면 패싯 탐색에서 필드를 사용할 수 없습니다.
 
-코드의 프레젠테이션 계층은 사용자 환경을 제공합니다. 레이블, 값, 확인란, 개수 등 패싯 탐색의 구성 부분을 나열합니다. Azure Search REST API는 플랫폼에 독립적이므로 사용자가 원하는 언어와 플랫폼을 사용합니다. 단, 각 추가 패싯이 선택될 때 업데이트된 UI 상태로 증분 새로 고침을 지원하는 UI 요소를 포함해야 합니다. 
+코드의 프레젠테이션 계층은 사용자 환경을 제공합니다. 레이블, 값, 확인란, 개수 등 패싯 탐색의 구성 부분을 나열합니다. Azure Cognitive Search REST API는 플랫폼에 독립적 이므로 원하는 언어와 플랫폼을 사용 합니다. 단, 각 추가 패싯이 선택될 때 업데이트된 UI 상태로 증분 새로 고침을 지원하는 UI 요소를 포함해야 합니다. 
 
 쿼리 시 애플리케이션 코드는 패싯에 필드를 제공하는 요청 매개 변수인 `facet=[string]`을 포함하는 요청을 만듭니다. `&facet=color&facet=category&facet=rating`과 같이 각 패싯을 앰퍼샌드(&) 문자로 구분하여 여러 패싯을 쿼리에 지정할 수 있습니다.
 
 또한 애플리케이션 코드는 패싯 탐색에서 클릭 이벤트를 처리할 `$filter` 식을 생성해야 합니다. `$filter` 는 패싯 값을 필터 조건으로 사용하여 검색 결과를 줄입니다.
 
-Azure Search는 사용자가 입력한 하나 이상의 용어에 따라 검색 결과를 반환하고 패싯 탐색 구조를 업데이트합니다. Azure Search에서 패싯 탐색은 패싯 값과 각 값에 대해 발견된 결과 수로 이루어진 단일 수준 구성입니다.
+Azure Cognitive Search는 패싯 탐색 구조에 대 한 업데이트와 함께 입력 한 하나 이상의 용어를 기반으로 검색 결과를 반환 합니다. Azure Cognitive Search에서 패싯 탐색은 패싯 값을 포함 하는 단일 수준 생성 및 각 항목에 대해 발견 된 결과 수의 개수입니다.
 
 다음 섹션에서는 각 부분을 작성하는 방법을 좀 더 자세히 살펴보겠습니다.
 
@@ -167,7 +167,7 @@ Brand 또는 Price별로 패싯하려는 경우에는 각 문서에 필터 옵�
 
 패싯 탐색의 경우 웹 또는 애플리케이션은 패싯 탐색 구조를 표시하고, 페이지에서 사용자 입력을 검색하며, 변경된 요소를 삽입합니다. 
 
-웹 애플리케이션의 경우 주로 AJAX가 프레젠테이션 계층에서 사용되는데, 이는 증분 변경 내용을 새로 고칠 수 있기 때문입니다. ASP.NET MVC 또는 기타 HTTP를 통해 Azure Search에 연결할 수 있는 모든 시각화 플랫폼을 사용할 수도 있습니다. 이 문서 전체에 나오는 샘플 애플리케이션 **Azure Search 구직 포털 데모**는 ASP.NET MVC 애플리케이션입니다.
+웹 애플리케이션의 경우 주로 AJAX가 프레젠테이션 계층에서 사용되는데, 이는 증분 변경 내용을 새로 고칠 수 있기 때문입니다. HTTP를 통해 Azure Cognitive Search 서비스에 연결할 수 있는 다른 시각화 플랫폼 또는 ASP.NET MVC를 사용할 수도 있습니다. 이 문서 전체에서 참조 되는 샘플 응용 프로그램 ( **Azure Cognitive Search Job 포털 데모** )은 ASP.NET MVC 응용 프로그램입니다.
 
 이 샘플에서 패싯 탐색은 검색 결과 페이지에 작성됩니다. 샘플 애플리케이션의 `index.cshtml` 파일에서 가져온 다음 예제는 검색 결과 페이지에 패싯 탐색을 표시하는 동적 HTML 구조를 표시합니다. 검색 용어를 제출하거나 패킷을 선택 또는 선택 취소하면 자동으로 패싯 목록이 작성되거나 다시 작성됩니다.
 
@@ -230,7 +230,7 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-패싯 쿼리 매개 변수는 필드로 설정되어 있으며, 데이터 형식에 따라 `count:<integer>`, `sort:<>`, `interval:<integer>` 및 `values:<list>`를 포함하는 쉼표로 구분된 목록으로 추가 매개 변수화할 수 있습니다. 값 목록은 범위를 설정할 때 숫자 데이터에 대해 지원됩니다. 자세한 내용은 [문서 검색(Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 을 참조하세요.
+패싯 쿼리 매개 변수는 필드로 설정되어 있으며, 데이터 형식에 따라 `count:<integer>`, `sort:<>`, `interval:<integer>` 및 `values:<list>`를 포함하는 쉼표로 구분된 목록으로 추가 매개 변수화할 수 있습니다. 값 목록은 범위를 설정할 때 숫자 데이터에 대해 지원됩니다. 사용 세부 정보는 [문서 검색 (Azure COGNITIVE SEARCH API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 을 참조 하세요.
 
 패싯과 함께, 애플리케이션에서 작성된 요청도 패싯 값 선택 항목에 따라 후보 문서 집합의 범위를 좁히는 필터를 작성해야 합니다. 자전거 매장의 경우 패싯 탐색은 *어떤 색상, 어떤 제조업체, 어떤 종류의 자전거를 판매합니까?* 와 같은 질문에 대한 단서를 제공합니다. 필터링은 *이 가격대의 빨간색 산악용 자전거는 무엇입니까?* 와 같은 질문에 답변합니다. 빨간색 제품만 표시되도록 사용자가 "빨간색"을 클릭하면 애플리케이션에서 보내는 다음 쿼리에 `$filter=Color eq ‘Red’`가 포함됩니다.
 
@@ -260,7 +260,7 @@ Numeric 및 DateTime 값에 한해, 패싯 필드에서 값을 명시적으로 �
 
 **기본적으로 한 수준의 패싯 탐색만 유지 가능** 
 
-계층 구조에서 패싯 중첩은 직접 지원되지 않습니다. 기본적으로 Azure Search의 패싯 탐색은 하나의 필터 수준만 지원합니다. 그러나 해결 방법이 있습니다. `Collection(Edm.String)` 의 계층적 패싯 구조를 계층당 하나의 항목으로 인코딩할 수 있습니다. 이 해결책을 구현하는 방법은 이 문서의 범위를 벗어납니다. 
+계층 구조에서 패싯 중첩은 직접 지원되지 않습니다. 기본적으로 Azure Cognitive Search의 패싯 탐색은 하나의 필터 수준만 지원 합니다. 그러나 해결 방법이 있습니다. `Collection(Edm.String)` 의 계층적 패싯 구조를 계층당 하나의 항목으로 인코딩할 수 있습니다. 이 해결책을 구현하는 방법은 이 문서의 범위를 벗어납니다. 
 
 ### <a name="querying-tips"></a>쿼리 팁
 **필드의 유효성 검사**
@@ -302,7 +302,7 @@ Numeric 및 DateTime 값에 한해, 패싯 필드에서 값을 명시적으로 �
 패싯 결과와 검색 결과의 차이에 주의하세요. 검색 결과는 쿼리와 일치하는 모든 문서입니다. 패싯 결과는 각 패싯 값에 대한 일치 항목입니다. 이 예제에서 검색 결과에는 패싯 분류 목록(이 예제의 경우 5)에 없는 City 이름이 포함됩니다. 패싯 탐색을 통해 필터링된 결과는 사용자가 패싯을 지우거나 City 이외의 다른 패싯을 선택한 경우에 표시됩니다. 
 
 > [!NOTE]
-> 두 가지 이상의 형식이 있을 때 `count`를 설명하면 혼동을 일으킬 수 있습니다. 다음 표에서는 Azure Search API, 샘플 코드 및 설명서에서 용어가 사용되는 방식에 대한 간략한 요약을 제공합니다. 
+> 두 가지 이상의 형식이 있을 때 `count`를 설명하면 혼동을 일으킬 수 있습니다. 다음 표에서는 Azure Cognitive Search API, 샘플 코드 및 설명서에서 용어를 사용 하는 방법에 대 한 간략 한 요약을 제공 합니다. 
 
 * `@colorFacet.count`<br/>
   프레젠테이션 코드에는 패싯 결과 수를 표시하는 데 사용되는 count 매개 변수가 패싯에 표시됩니다. 패싯 결과에서 count는 패싯 용어 또는 범위와 일치하는 문서 수를 나타냅니다.
@@ -317,7 +317,7 @@ Numeric 및 DateTime 값에 한해, 패싯 필드에서 값을 명시적으로 �
 
 **정확한 수의 패싯을 가져오는지 확인**
 
-경우에 따라 패싯 수가 결과 집합과 일치하지 않을 수 있습니다( [Azure Search의 패싯 탐색(포럼 게시물)](https://social.msdn.microsoft.com/Forums/azure/06461173-ea26-4e6a-9545-fbbd7ee61c8f/faceting-on-azure-search?forum=azuresearch)참조).
+특정 상황에서는 패싯 수가 결과 집합과 일치 하지 않을 수 있습니다. [Azure Cognitive Search의 패싯 탐색 (포럼 게시물)](https://social.msdn.microsoft.com/Forums/azure/06461173-ea26-4e6a-9545-fbbd7ee61c8f/faceting-on-azure-search?forum=azuresearch)을 참조 하세요.
 
 패싯 수는 분할 아키텍처로 인해 부정확할 수 있습니다. 모든 검색 인덱스에는 여러 개의 분할된 데이터베이스가 있으며, 각 분할된 데이터베이스는 문서 수에 따라 상위 N개의 패싯을 보고합니다. 이 값이 단일 결과로 통합됩니다. 분할된 데이터베이스 중에 일치하는 값이 많은 것과 적은 것이 있는 경우 결과에서 일부 패싯 값이 누락되거나 적은 개수로 나타날 수 있습니다.
 
@@ -326,14 +326,14 @@ Numeric 및 DateTime 값에 한해, 패싯 필드에서 값을 명시적으로 �
 ### <a name="user-interface-tips"></a>사용자 인터페이스 팁
 **패싯 탐색의 각 필드에 대한 레이블 추가**
 
-레이블은 일반적으로 HTML 양식(샘플 애플리케이션의 `index.cshtml`)으로 정의됩니다. Azure Search에는 패싯 탐색 레이블 또는 다른 메타데이터에 사용할 수 있는 API가 없습니다.
+레이블은 일반적으로 HTML 양식(샘플 애플리케이션의 `index.cshtml`)으로 정의됩니다. Azure Cognitive Search에 패싯 탐색 레이블 또는 다른 메타 데이터에 대 한 API가 없습니다.
 
 <a name="rangefacets"></a>
 
 ## <a name="filter-based-on-a-range"></a>범위를 기준으로 필터링
-값 범위에 대한 패싯은 일반적인 검색 애플리케이션 요구 사항입니다. 범위는 숫자 데이터 및 DateTime 값에 대해 지원됩니다. 각 접근 방법에 대한 자세한 내용은 [문서 검색(Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)을 참조하세요.
+값 범위에 대한 패싯은 일반적인 검색 애플리케이션 요구 사항입니다. 범위는 숫자 데이터 및 DateTime 값에 대해 지원됩니다. [문서 검색 (Azure COGNITIVE SEARCH API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)의 각 접근 방식에 대해 자세히 알아볼 수 있습니다.
 
-Azure Search에서는 범위를 계산하는 두 가지 방법을 제공하여 범위 생성을 간소화합니다. 두 방법 모두에 대해 Azure Search에서는 사용자가 입력을 제공한 경우 적절한 범위를 만듭니다. 예를 들어 10|20|30 범위 값을 지정한 경우 0-10, 10-20, 20-30 범위가 자동으로 만들어집니다. 비어 있는 간격을 애플리케이션에서 선택적으로 제거할 수도 있습니다. 
+Azure Cognitive Search는 범위를 계산 하는 두 가지 방법을 제공 하 여 범위 생성을 간소화 합니다. 두 방법 모두 Azure Cognitive Search는 제공 된 입력이 제공 된 적절 한 범위를 만듭니다. 예를 들어 10|20|30 범위 값을 지정한 경우 0-10, 10-20, 20-30 범위가 자동으로 만들어집니다. 비어 있는 간격을 애플리케이션에서 선택적으로 제거할 수도 있습니다. 
 
 **방법 1: interval 매개 변수 사용**  
 10달러 단위로 증분되는 가격 패싯을 설정하려면 다음과 같이 지정합니다. `&facet=price,interval:10`
@@ -347,7 +347,7 @@ Azure Search에서는 범위를 계산하는 두 가지 방법을 제공하여 �
 
     facet=listPrice,values:10|25|100|500|1000|2500
 
-각 범위는 0부터 작성되며, 목록의 값을 엔드포인트로 사용하고 이전 범위를 잘라 불연속 간격을 만듭니다. Azure Search는 이러한 작업을 패싯 탐색의 일부로 수행합니다. 각 간격을 구성하기 위해 코드를 작성할 필요가 없습니다.
+각 범위는 0부터 작성되며, 목록의 값을 엔드포인트로 사용하고 이전 범위를 잘라 불연속 간격을 만듭니다. Azure Cognitive Search은 이러한 작업을 패싯 탐색의 일부로 수행 합니다. 각 간격을 구성하기 위해 코드를 작성할 필요가 없습니다.
 
 ### <a name="build-a-filter-for-a-range"></a>범위에 대한 필터 작성
 사용자가 선택한 범위에 따라 문서를 필터링하려면 범위의 엔드포인트를 정의하는 두 부분으로 구성된 식에서 `"ge"` 및 `"lt"` 필터 연산자를 사용하면 됩니다. 예를 들어 `listPrice` 필드의 범위를 10-25로 선택하면 필터는 `$filter=listPrice ge 10 and listPrice lt 25`가 됩니다. 샘플 코드의 필터 식에서는 **priceFrom** 및 **priceTo** 매개 변수를 사용하여 엔드포인트를 설정합니다. 
@@ -359,19 +359,19 @@ Azure Search에서는 범위를 계산하는 두 가지 방법을 제공하여 �
 ## <a name="filter-based-on-distance"></a>거리를 기준으로 필터링
 일반적으로 필터를 사용하면 현재 위치와의 근접성에 따라 매장, 레스토랑 또는 목적지를 쉽게 선택할 수 있습니다. 이 유형의 필터는 패싯 탐색처럼 보일 수 있지만 단순한 필터입니다. 특별히 이와 같은 특정 디자인 문제에 대한 구현 조언을 구하는 경우 이 점에 주의해야 합니다.
 
-Azure Search에는 **geo.distance** 및 **geo.intersects**라는 두 개의 지리 공간 함수가 있습니다.
+Azure Cognitive Search, **지역. 거리** 와 **지역**에는 두 개의 지리 공간적 함수가 있습니다.
 
 * **geo.distance** 함수는 두 점 사이의 거리를 킬로미터 단위로 반환합니다. 한 점은 필드이고 다른 점은 필터의 일부로 전달되는 상수입니다. 
 * **geo.intersects** 함수는 주어진 점이 주어진 다각형 내부에 있으면 true를 반환합니다. 점은 필드이고, 다각형은 필터의 일부로 전달되는 좌표의 상수 목록으로 지정됩니다.
 
-필터 예제는 [OData 식 구문(Azure Search)](query-odata-filter-orderby-syntax.md)에서 확인할 수 있습니다.
+[OData 식 구문 (Azure Cognitive Search)](query-odata-filter-orderby-syntax.md)에서 필터 예제를 찾을 수 있습니다.
 
 <a name="tryitout"></a>
 
 ## <a name="try-the-demo"></a>데모 사용해 보기
-Azure Search 구직 포털 데모에는 이 문서에 나와 있는 예제가 포함되어 있습니다.
+Azure Cognitive Search Job 포털 데모에는이 문서에서 참조 하는 예제가 포함 되어 있습니다.
 
--   [Azure Search 구직 포털 데모](https://azjobsdemo.azurewebsites.net/)에서 온라인으로 작업 데모를 살펴보고 테스트하세요.
+-   [Azure Cognitive Search 작업 포털 데모](https://azjobsdemo.azurewebsites.net/)에서 온라인으로 작동 하는 데모를 참조 하 고 테스트 하세요.
 
 -   [GitHub의 Azure 샘플 리포지토리](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)에서 코드를 다운로드하세요.
 
@@ -396,7 +396,7 @@ Azure Search 구직 포털 데모에는 이 문서에 나와 있는 예제가 �
 <a name="nextstep"></a>
 
 ## <a name="learn-more"></a>자세히 알아보기
-[Azure Search 심층 정보](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410)를 살펴보세요. 45분 25초 구간에 패싯을 구현하는 방법에 대한 데모가 있습니다.
+[Azure Cognitive Search 심층](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410)조사를 시청 하세요. 45분 25초 구간에 패싯을 구현하는 방법에 대한 데모가 있습니다.
 
 패싯 탐색의 디자인 원칙에 대한 자세한 내용은 다음 링크를 참조하는 것이 좋습니다.
 

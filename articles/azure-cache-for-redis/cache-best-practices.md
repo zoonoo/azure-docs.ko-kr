@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 06/21/2019
 ms.author: joncole
-ms.openlocfilehash: 6ac4722c1253f97bfb8c232202e24a923c027edf
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 29e5a81c438a7aa834fc002b916739a952c9a270
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018834"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72785863"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Redis 용 Azure 캐시에 대 한 모범 사례 
 이러한 모범 사례를 따르면 Azure Cache for Redis 인스턴스에 대 한 성능 및 비용 효율적 사용을 최대화할 수 있습니다.
@@ -29,11 +29,11 @@ ms.locfileid: "69018834"
 
  * **Redis는 메모리 내 데이터 저장소입니다.**  [이 문서에서는](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) 데이터 손실이 발생할 수 있는 몇 가지 시나리오에 대해 간략하게 설명 합니다.
 
- * **연결 문제를 처리할 수 있도록 시스템을 개발 합니다** . [패치 및 장애 조치 (failover)로 인해 발생](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md)합니다.
+ * [패치 및 장애 조치 (failover)로 인해](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md) **연결 문제를 처리할 수 있도록 시스템을 개발** 합니다.
 
- * **[Maxmemory-예약 된 설정을](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) 구성 하 여 메모리 부족 상태에서 시스템 응답성을 개선** 합니다.  이 설정은 쓰기 작업이 많은 워크 로드의 경우 또는 Redis에 더 큰 값 (100 KB 이상)을 저장 하는 경우에 특히 중요 합니다.  캐시 크기의 10%로 시작 하는 것이 좋습니다. 그런 다음 쓰기 작업이 많은 경우에는 증가 합니다. 값을 선택할 때는 [몇 가지 고려 사항을](cache-how-to-troubleshoot.md#considerations-for-memory-reservations) 참조 하세요.
+ * **[Maxmemory-예약 된 설정을](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) 구성 하 여 메모리 부족 상태에서 시스템 응답성을 개선** 합니다.  이 설정은 쓰기 작업이 많은 워크 로드의 경우 또는 Redis에 더 큰 값 (100 KB 이상)을 저장 하는 경우에 특히 중요 합니다. 캐시 크기의 10%로 시작 하는 것이 좋으며, 쓰기 작업이 많은 경우에는 백분율을 늘리는 것이 좋습니다.
 
- * **Redis는 작은 값으로 가장 적합**하므로 큰 데이터를 여러 키로 분할 하는 것이 좋습니다.  [이 Redis 토론](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/)에는 신중 하 게 고려해 야 하는 몇 가지 고려 사항이 나와 있습니다.  큰 값을 사용할 때 야기될 수 있는 문제 예에 대해서는 [이 문서](cache-how-to-troubleshoot.md#large-requestresponse-size) 를 읽어보세요.
+ * **Redis는 작은 값으로 가장 적합**하므로 큰 데이터를 여러 키로 분할 하는 것이 좋습니다.  [이 Redis 토론](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/)에는 신중 하 게 고려해 야 하는 몇 가지 고려 사항이 나와 있습니다.  큰 값을 사용할 때 야기될 수 있는 문제 예에 대해서는 [이 문서](cache-troubleshoot-client.md#large-request-or-response-size) 를 읽어보세요.
 
  * **동일한 지역에서 캐시 인스턴스와 응용 프로그램을 찾습니다.**  다른 지역의 캐시에 연결 하면 대기 시간이 상당히 늘어나고 안정성이 낮아질 수 있습니다.  Azure 외부에서 연결할 수 있지만 *특히 Redis를 캐시로 사용*하지 않는 것이 좋습니다.  Redis를 키/값 저장소로 사용 하는 경우에는 대기 시간이 중요 하지 않을 수 있습니다. 
 
@@ -43,10 +43,9 @@ ms.locfileid: "69018834"
      > [!NOTE]
      > 이 지침은 *연결 시도* 와 관련 된 것 이며 GET 또는 SET complete와 같은 *작업* 을 기다리는 시간과 관련 되지 않습니다.
  
+ * **비용이 많이 드는 작업을 방지** 합니다. [키](https://redis.io/commands/keys) 명령과 같은 일부 Redis 작업은 비용이 *매우* 많이 들고 사용 하지 않아야 합니다.  자세한 내용은 [장기 실행 명령](cache-troubleshoot-server.md#long-running-commands) 에 대 한 몇 가지 고려 사항을 참조 하세요.
 
- * **비용이 많이 들지 않는 명령 방지** - [키 명령과](https://redis.io/commands/keys)같은 일부 redis 작업은 비용이 *매우* 많이 들고 피해 야 합니다.  자세한 내용은 [비용이 많이 드는 명령에 대 한 몇 가지 고려 사항](cache-how-to-troubleshoot.md#expensive-commands) 을 참조 하세요.
-
-
+ * **Tls 암호화 사용** -Azure Cache for Redis는 기본적으로 TLS 암호화 통신이 필요 합니다.  TLS 버전 1.0, 1.1 및 1.2는 현재 지원 됩니다.  그러나 TLS 1.0 및 1.1은 업계 전체를 사용 하지 않는 경로에 있으므로 가능 하면 TLS 1.2를 사용 합니다.  클라이언트 라이브러리 또는 도구에서 TLS를 지원 하지 않는 경우 Azure Portal 또는 [관리 api](https://docs.microsoft.com/rest/api/redis/redis/update) [를 통해](cache-configure.md#access-ports) 암호화 되지 않은 연결을 사용 하도록 설정할 수 있습니다.  암호화 된 연결을 사용할 수 없는 경우에는 캐시와 클라이언트 응용 프로그램을 가상 네트워크에 배치 하는 것이 좋습니다.  에 사용 되는 포트에 대 한 자세한 내용 
  
 ## <a name="memory-management"></a>메모리 관리
 Redis server 인스턴스 내의 메모리 사용량과 관련 된 몇 가지 사항이 있습니다.  다음은 몇 가지 예제입니다.
@@ -56,7 +55,7 @@ Redis server 인스턴스 내의 메모리 사용량과 관련 된 몇 가지 �
  * **키에 만료 값을 설정 합니다.**  그러면 메모리가 부족할 때까지 대기 하는 대신 사전에 키가 제거 됩니다.  메모리가 부족 하 여 제거가 시작 되 면 서버에 대 한 추가 부하가 발생할 수 있습니다.  자세한 내용은 [만료](https://redis.io/commands/expire) 및 [ExpireAt](https://redis.io/commands/expireat) 명령에 대 한 설명서를 참조 하세요.
  
 ## <a name="client-library-specific-guidance"></a>클라이언트 라이브러리 관련 지침
- * [StackExchange.Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
+ * [StackExchange (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
  * [Java-어떤 클라이언트를 사용 해야 하나요?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
  * [(Java)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
@@ -68,7 +67,7 @@ Redis server 인스턴스 내의 메모리 사용량과 관련 된 몇 가지 �
 ## <a name="when-is-it-safe-to-retry"></a>언제 다시 시도 해도 되나요?
 아쉽게도 답은 없습니다.  각 응용 프로그램은 다시 시도할 수 있는 작업과 수행할 수 없는 작업을 결정 해야 합니다.  각 작업에는 서로 다른 요구 사항과 키 간 종속성이 있습니다.  다음은 고려할 수 있는 몇 가지 사항입니다.
 
- * Redis에서 실행 하도록 요청한 명령을 성공적으로 실행 한 경우에도 클라이언트 쪽 오류를 가져올 수 있습니다.  이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다.
+ * Redis에서 실행 하도록 요청한 명령을 성공적으로 실행 한 경우에도 클라이언트 쪽 오류를 가져올 수 있습니다.  다음은 그 예입니다.
      - 시간 제한은 클라이언트 쪽 개념입니다.  작업이 서버에 도달 하면 클라이언트가 대기 상태를 제공 하는 경우에도 서버에서 명령을 실행 합니다.  
      - 소켓 연결에서 오류가 발생 하는 경우 작업이 서버에서 실제로 실행 되었는지 여부를 알 수 없습니다.  예를 들어 서버에서 요청을 처리 한 후 클라이언트에서 응답을 받기 전에 연결 오류가 발생할 수 있습니다.
  *  실수로 동일한 작업을 두 번 실행 하는 경우 응용 프로그램이 어떻게 반응 하나요?  예를 들어 정수를 한 번이 아니라 두 번 증가 시키는 경우는 어떻게 되나요?  응용 프로그램이 여러 위치에서 동일한 키에 쓰고 있나요?  내 재시도 논리가 내 앱의 다른 부분에 의해 설정 된 값을 덮어쓰는 경우는 어떻게 되나요?
@@ -76,7 +75,7 @@ Redis server 인스턴스 내의 메모리 사용량과 관련 된 몇 가지 �
 오류 조건에서 코드가 작동 하는 방식을 테스트 하려면 [다시 부팅 기능](cache-administration.md#reboot)을 사용 하는 것이 좋습니다. 이렇게 하면 연결 문제 응용 프로그램에 미치는 영향을 확인할 수 있습니다.
 
 ## <a name="performance-testing"></a>성능 테스트
- * 사용자 고유의 성능 테스트를 작성 하기 전에 먼저를 **사용 `redis-benchmark.exe` 하 여** 가능한 처리량/대기 시간에 대 한 느낌을 확보 합니다.  Redis 벤치 마크 설명서는 [여기에서 찾을](https://redis.io/topics/benchmarks)수 있습니다.  Redis 벤치 마크는 SSL을 지원 하지 않으므로 테스트를 실행 하기 전에 [포털을 통해 비 ssl 포트를 사용 하도록 설정](cache-configure.md#access-ports) 해야 합니다.  [Redis-benchmark.exe의 windows 호환 버전은 여기에서 찾을 수 있습니다.](https://github.com/MSOpenTech/redis/releases)
+ * 먼저 **`redis-benchmark.exe`를 사용 하 여** 사용자 고유의 성능 테스트를 작성 하기 전에 가능한 처리량/대기 시간에 대 한 느낌을 얻으십시오.  Redis 벤치 마크 설명서는 [여기에서 찾을](https://redis.io/topics/benchmarks)수 있습니다.  Redis 벤치 마크는 SSL을 지원 하지 않으므로 테스트를 실행 하기 전에 [포털을 통해 비 ssl 포트를 사용 하도록 설정](cache-configure.md#access-ports) 해야 합니다.  [Redis-benchmark.exe의 windows 호환 버전은 여기에서 찾을 수 있습니다.](https://github.com/MSOpenTech/redis/releases)
  * 테스트에 사용 되는 클라이언트 VM은 Redis cache 인스턴스와 **동일한 지역에** 있어야 합니다.
  * 더 나은 하드웨어를 제공 하 고 최상의 결과를 제공 하므로 클라이언트에 **DV2 VM 시리즈를 사용 하는 것이 좋습니다** .
  * 사용 하는 클라이언트 VM에는 테스트 중인 캐시와*최소한 많은 계산 및 대역폭이* 있는지 확인 합니다. 
@@ -89,11 +88,11 @@ Redis server 인스턴스 내의 메모리 사용량과 관련 된 몇 가지 �
      > 여기에서 관찰 된 성능 결과가 [여기에 게시](cache-faq.md#azure-cache-for-redis-performance) 됩니다.   또한 SSL/TLS는 약간의 오버 헤드를 추가 하 여 전송 암호화를 사용 하는 경우 다른 대기 시간 및/또는 처리량을 얻을 수 있습니다.
  
 ### <a name="redis-benchmark-examples"></a>Redis 벤치 마크 예제
-**사전 테스트 설정**: 그러면 아래 나열 된 대기 시간 및 처리량 테스트 명령에 필요한 데이터를 사용 하 여 캐시 인스턴스가 준비 됩니다.
-> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a yourAccesskey -t SET -n 10 -d 1024 
+**사전 테스트 설정**: 아래 나열 된 대기 시간 및 처리량 테스트 명령에 필요한 데이터를 사용 하 여 캐시 인스턴스를 준비 합니다.
+> redis-benchmark.exe-h yourcache.redis.cache.windows.net-t 집합-n 10-d 1024 
 
-**대기 시간을 테스트 하려면**: 그러면 1k 페이로드를 사용 하 여 GET 요청이 테스트 됩니다.
-> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a yourAccesskey -t GET -d 1024 -P 50 -c 4
+**대기 시간 테스트**: 1k 페이로드를 사용 하 여 GET 요청을 테스트 합니다.
+> redis-benchmark.exe-h yourcache.redis.cache.windows.net-a 해당 Accesskey-t GET-d 1024-P 50-c 4
 
 **처리량을 테스트 하려면:** 그러면 1k 페이로드에서 파이프라인 GET 요청을 사용 합니다.
-> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n 1000000 -d 1024 -P 50  -c 50
+> redis-benchmark.exe-h yourcache.redis.cache.windows.net-a 해당 Accesskey-t GET-n 100만-d 1024-P 50-c 50

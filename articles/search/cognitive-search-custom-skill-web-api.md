@@ -1,24 +1,23 @@
 ---
-title: 사용자 지정 인식 검색 기술 - Azure Search
-description: Web API를 호출하여 인식 검색 기술 세트의 기능을 확장합니다.
-services: search
+title: 보강 파이프라인의 사용자 지정 웹 API 기술
+titleSuffix: Azure Cognitive Search
+description: Web Api를 호출 하 여 Azure Cognitive Search 기술력과의 기능을 확장 합니다. 사용자 지정 웹 API 기술을 사용 하 여 사용자 지정 코드를 통합 합니다.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: a148f974671e0d909591cbf24a433384a7570842
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: MT
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 54c51993733091d326c59c4ac4ec3662cc704021
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693303"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784901"
 ---
-# <a name="custom-web-api-skill"></a>사용자 지정 Web API 기술
+# <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Azure Cognitive Search 보강 파이프라인의 사용자 지정 웹 API 기술
 
-**사용자 지정 WEB api** 기술을 사용 하면 사용자 지정 작업을 제공 하는 Web api 끝점을 호출 하 여 인지 검색을 확장할 수 있습니다. 기본 제공 기술과 비슷하게 **사용자 지정 Web API** 기술에는 입/출력이 있습니다. 입력에 따라 웹 API는 인덱서가 실행 될 때 JSON 페이로드를 받고 성공 상태 코드와 함께 JSON 페이로드를 응답으로 출력 합니다. 응답은 사용자 지정 기술로 지정된 출력을 포함해야 합니다. 다른 응답은 오류로 간주되며 강화는 수행되지 않습니다.
+**사용자 지정 WEB api** 기술을 사용 하면 사용자 지정 작업을 제공 하는 Web api 끝점을 호출 하 여 AI 보강을 확장할 수 있습니다. 기본 제공 기술과 비슷하게 **사용자 지정 Web API** 기술에는 입/출력이 있습니다. 입력에 따라 웹 API는 인덱서가 실행 될 때 JSON 페이로드를 받고 성공 상태 코드와 함께 JSON 페이로드를 응답으로 출력 합니다. 응답은 사용자 지정 기술로 지정된 출력을 포함해야 합니다. 다른 응답은 오류로 간주되며 강화는 수행되지 않습니다.
 
 JSON 페이로드의 구조는 이 문서 뒷부분에서 좀 더 자세히 설명합니다.
 
@@ -204,5 +203,5 @@ Web API가 사용 가능하지 않거나 HTTP 오류를 반환하는 경우 HTTP
 
 + [전원 기술: 사용자 지정 기술의 리포지토리입니다.](https://aka.ms/powerskills)
 + [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
-+ [Cognitive Search에 사용자 지정 기술 추가](cognitive-search-custom-skill-interface.md)
-+ [예: 인지 검색에 대 한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
++ [AI 보강 파이프라인에 사용자 지정 기술 추가](cognitive-search-custom-skill-interface.md)
++ [예: AI 보강 사용자 지정 기술 만들기 (인지-검색-example.md)

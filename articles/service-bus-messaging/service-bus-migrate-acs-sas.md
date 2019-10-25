@@ -1,24 +1,23 @@
 ---
-title: Azure Active Directory Access Control Service에서 공유 액세스 서명 권한 부여로 마이그레이션 | Microsoft Docs
-description: Access Control Service에서 SAS로 애플리케이션 마이그레이션
+title: Azure AD Access Control Service에서 SAS로 마이그레이션
+description: Azure Active Directory Access Control Service에서 공유 액세스 서명 권한 부여로 마이그레이션하는 방법에 대해 알아봅니다.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
-manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: 746b19062c3014caa37c6668e6c41df054a47e25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae0dd3827e17cc63b4b698eb8d88a08799c7278f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60868165"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790340"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Azure Active Directory Access Control Service에서 공유 액세스 서명 권한 부여로 마이그레이션
 

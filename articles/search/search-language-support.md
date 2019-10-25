@@ -1,25 +1,25 @@
 ---
-title: 영어 이외의 검색 쿼리를 위한 다국어 인덱싱 - Azure Search
-description: Azure Search는 Lucene 및 Microsoft 제공 자연어 처리 기술을 통해 56개 언어를 지원합니다.
-author: yahnoosh
+title: 영어가 아닌 검색 쿼리에 대 한 다중 언어 인덱싱
+titleSuffix: Azure Cognitive Search
+description: Azure Cognitive Search는 Lucene의 언어 분석기 및 Microsoft의 자연어 처리 기술을 활용 하 여 56 언어를 지원 합니다.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
+author: yahnoosh
 ms.author: jlembicz
-ms.openlocfilehash: 9d2e6418eb925f0d113b7e9a91463951ca52031a
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: ca2bc66c755da2011cc7016f37b194caa6200d9a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186564"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793583"
 ---
-# <a name="how-to-create-an-index-for-multiple-languages-in-azure-search"></a>Azure Search에서 여러 언어에 대 한 인덱스를 만드는 방법
+# <a name="how-to-create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Azure Cognitive Search에서 여러 언어에 대 한 인덱스를 만드는 방법
 
 인덱스는 여러 언어의 콘텐츠를 포함 하는 필드를 포함할 수 있습니다. 예를 들어 언어별 문자열의 개별 필드를 만들 수 있습니다. 인덱싱 및 쿼리 중에 최상의 결과를 위해 적절 한 언어 규칙을 제공 하는 언어 분석기를 할당 합니다. 
 
-Azure Search는 Lucene 및 Microsoft에서 Analyzer 속성을 사용 하 여 개별 필드에 할당할 수 있는 많은 언어 분석기를 제공 합니다. 이 문서에 설명 된 대로 포털에서 언어 분석기를 지정할 수도 있습니다.
+Azure Cognitive Search는 Lucene 및 Microsoft에서 Analyzer 속성을 사용 하 여 개별 필드에 할당할 수 있는 많은 언어 분석기를 제공 합니다. 이 문서에 설명 된 대로 포털에서 언어 분석기를 지정할 수도 있습니다.
 
 ## <a name="add-analyzers-to-fields"></a>필드에 분석기 추가
 
@@ -34,7 +34,7 @@ Azure Search는 Lucene 및 Microsoft에서 Analyzer 속성을 사용 하 여 개
 
 ![필드 정의 중 언어 분석기 할당](media/search-language-support/select-analyzer.png "필드 정의 중 언어 분석기 할당")
 
-기본적으로 검색 가능한 모든 필드는 언어와 무관 한 [표준 Lucene 분석기](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) 를 사용 합니다. 지원 되는 분석기의 전체 목록을 보려면 [Azure Search 인덱스에 언어 분석기 추가](index-add-language-analyzers.md)를 참조 하세요.
+기본적으로 검색 가능한 모든 필드는 언어와 무관 한 [표준 Lucene 분석기](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) 를 사용 합니다. 지원 되는 분석기의 전체 목록을 보려면 [Azure Cognitive Search 인덱스에 언어 분석기 추가](index-add-language-analyzers.md)를 참조 하세요.
 
 포털에서 분석기는 그대로 사용 하기 위한 것입니다. 사용자 지정 또는 필터 및 토크 나이저의 특정 구성이 필요한 경우 코드에서 [사용자 지정 분석기를 만들어야](index-add-custom-analyzers.md) 합니다. 포털에서 사용자 지정 분석기를 선택 하거나 구성 하는 기능을 지원 하지 않습니다.
 
@@ -65,4 +65,4 @@ Azure Search는 Lucene 및 Microsoft에서 Analyzer 속성을 사용 하 여 개
 
 ## <a name="next-steps"></a>다음 단계
 
-.NET 개발자 인 경우 [Azure Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) 및 [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) 속성을 사용 하 여 언어 분석기를 구성할 수 있습니다. 
+.NET 개발자 인 경우 [Azure Cognitive Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) 및 [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) 속성을 사용 하 여 언어 분석기를 구성할 수 있습니다. 

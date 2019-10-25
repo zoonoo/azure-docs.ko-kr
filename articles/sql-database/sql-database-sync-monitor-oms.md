@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: d1461a1bb026d478d51a5f79cc02b34172524db6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 26dc1ebef1c627ed2b20eb0fda68b2ca2d01b82a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566423"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791751"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 SQL 데이터 동기화 모니터링 
 
@@ -135,9 +135,9 @@ Azure Monitor 로그를 사용 하는 경고를 만들려면 다음 작업을 �
 
 1.  Azure Portal에서 **Log Search**를 선택합니다.
 
-2.  선택한 간격 내에서 동기화 그룹별로 오류와 경고를 선택하는 쿼리를 만듭니다. 예:
+2.  선택한 간격 내에서 동기화 그룹별로 오류와 경고를 선택하는 쿼리를 만듭니다. 다음은 그 예입니다.
 
-    `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
+    `DataSyncLog_CL | where TimeGenerated > ago(60m) | where LogLevel_s != "Success" | summarize count() by SyncGroupName_s`
 
 3.  쿼리를 실행한 후 **경고**라고 말하는 벨을 선택합니다.
 
@@ -145,11 +145,11 @@ Azure Monitor 로그를 사용 하는 경고를 만들려면 다음 작업을 �
 
     1.  [집계 값]을 **다음 값보다 큼**으로 설정합니다.
 
-    2.  알림을 받기 전에 경과할 임계값을 **다음 값보다 큼** 뒤에 입력합니다. 일시적인 오류가 데이터 동기화에서 예상됩니다. 노이즈를 줄이려면 임계값을 5로 설정합니다.
+    2.  알림을 받기 전에 경과할 임계값을 **다음 값보다 큼** 뒤에 입력합니다. 데이터 동기화에서 일시적인 오류가 발생 합니다. 노이즈를 줄이려면 임계값을 5로 설정 합니다.
 
 5.  **작업** 아래에서 **전자 메일 알림**을 "예"로 설정합니다. 원하는 전자 메일 받는 사람을 입력합니다.
 
-6.  **Save**을 클릭합니다. 이제 오류가 발생하면 지정된 받는 사람이 전자 메일 알림을 받습니다.
+6.  페이지 맨 아래에 있는 **저장**을 참조하세요. 이제 오류가 발생하면 지정된 받는 사람이 전자 메일 알림을 받습니다.
 
 ## <a name="create-an-azure-monitor-view-for-monitoring"></a>모니터링할 Azure Monitor 보기 만들기
 

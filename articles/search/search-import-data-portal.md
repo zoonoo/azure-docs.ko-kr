@@ -1,24 +1,23 @@
 ---
-title: Azure Portal을 사용하여 검색 인덱스로 데이터 가져오기 - Azure Search
+title: Azure Portal를 사용 하 여 검색 인덱스로 데이터 가져오기
+titleSuffix: Azure Cognitive Search
 description: Azure Portal에서 데이터 가져오기 마법사를 사용하여 Azure VM에 있는 Cosmos DB, Blob Storage, 테이블 저장소, SQL Database 및 SQL Server에서 Azure 데이터를 크롤링하는 방법을 알아봅니다.
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 10/03/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 89f43227cfca3519a4985c5c961cf0b3c5774177
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 6b4ae076ba08af5514caa09a2e8027a1cbc909dc
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71936917"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793669"
 ---
-# <a name="import-data-wizard-for-azure-search"></a>Azure Search의 데이터 가져오기 마법사
+# <a name="import-data-wizard-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 데이터 가져오기 마법사
 
-Azure Portal은 Azure Search 대시보드에서 인덱스를 프로토타입 및 로드 하기 위한 **데이터 가져오기** 마법사를 제공 합니다. 이 문서에서는 마법사, 입/출력 및 일부 사용 정보를 사용할 때의 장점과 제한 사항을 설명 합니다. 기본 제공 샘플 데이터를 사용 하 여 마법사를 단계별로 실행 하는 방법에 대 한 실습 지침은 Azure Portal 빠른 시작을 [사용 하 여 Azure Search 인덱스 만들기](search-get-started-portal.md) 를 참조 하세요.
+Azure Portal는 Azure Cognitive Search 대시보드에서 인덱스를 프로토타입 및 로드 하기 위한 **데이터 가져오기** 마법사를 제공 합니다. 이 문서에서는 마법사, 입/출력 및 일부 사용 정보를 사용할 때의 장점과 제한 사항을 설명 합니다. 기본 제공 샘플 데이터를 사용 하 여 마법사를 단계별로 실행 하는 방법에 대 한 실습 지침은 Azure Portal 빠른 시작을 [사용 하 여 Azure Cognitive Search 인덱스 만들기](search-get-started-portal.md) 를 참조 하세요.
 
 이 마법사에서 수행 하는 작업은 다음과 같습니다.
 
@@ -34,7 +33,7 @@ Azure Portal은 Azure Search 대시보드에서 인덱스를 프로토타입 및
 
 ## <a name="advantages-and-limitations"></a>이점 및 제한 사항
 
-코드를 작성 하기 전에 프로토타입 및 개념 증명 테스트를 위해 마법사를 사용할 수 있습니다. 이 마법사는 외부 데이터 원본에 연결 하 고, 데이터를 샘플링 하 여 초기 인덱스를 만든 다음, Azure Search의 인덱스에 JSON 문서로 데이터를 가져옵니다. 
+코드를 작성 하기 전에 프로토타입 및 개념 증명 테스트를 위해 마법사를 사용할 수 있습니다. 이 마법사는 외부 데이터 원본에 연결 하 고, 데이터를 샘플링 하 여 초기 인덱스를 만든 다음, Azure Cognitive Search의 인덱스에 JSON 문서로 데이터를 가져옵니다. 
 
 샘플링은 인덱스 스키마를 유추 하 고 몇 가지 제한 사항을 적용 하는 프로세스입니다. 데이터 원본을 만들면 마법사는 문서 샘플을 선택 하 여 데이터 원본의 일부인 열을 결정 합니다. 모든 파일을 읽을 수 있는 것은 아닙니다 .이는 매우 큰 데이터 원본에 몇 시간이 걸릴 수 있기 때문입니다. 문서를 선택할 경우 필드 이름이 나 유형 등의 원본 메타 데이터를 사용 하 여 인덱스 스키마에 필드 컬렉션을 만듭니다. 원본 데이터의 복잡도에 따라 정확성을 위해 초기 스키마를 편집 해야 할 수도 있고 완전성을 위해 확장 해야 할 수도 있습니다. 인덱스 정의 페이지에서 변경 내용을 인라인으로 만들 수 있습니다.
 
@@ -56,7 +55,7 @@ Azure Portal은 Azure Search 대시보드에서 인덱스를 프로토타입 및
 
 ## <a name="data-source-input"></a>데이터 원본 입력
 
-**데이터 가져오기** 마법사는 소스를 샘플링 하 고, 메타 데이터를 읽고, 콘텐츠 및 구조를 읽을 수 있는 문서를 해독 하 고, 콘텐츠를에 대 한 JSON으로 serialize 하는 Azure Search 인덱서를 사용 하 여 외부 데이터 원본에 연결 합니다. Azure Search에 대 한 후속 가져오기.
+**데이터 가져오기** 마법사는 Azure Cognitive Search 인덱서에 제공 된 내부 논리를 사용 하 여 외부 데이터 원본에 연결 합니다 .이는 소스를 샘플링 하 고, 메타 데이터를 읽고, 콘텐츠 및 구조를 읽고, 콘텐츠를 serialize 하는 문서를 해독 합니다. Azure Cognitive Search에 대 한 후속 가져오기에 대 한 JSON으로
 
 단일 테이블, 데이터베이스 뷰 또는 동등한 데이터 구조 에서만 가져올 수 있지만 구조에는 계층적 또는 중첩 된 하위 구조체 포함 될 수 있습니다. 자세한 내용은 [복합 형식을 모델링 하는 방법](search-howto-complex-data-types.md)을 참조 하세요.
 
@@ -64,10 +63,10 @@ Azure Portal은 Azure Search 대시보드에서 인덱스를 프로토타입 및
 
 |  선택 | 설명 |
 | ---------- | ----------- |
-| **기존 데이터 원본** |검색 서비스에 이미 인덱서가 정의 되어 있는 경우 다시 사용할 수 있는 기존 데이터 원본 정의가 있을 수 있습니다. Azure Search에서 데이터 원본 개체는 인덱서에서만 사용됩니다. 데이터 원본 개체를 프로그래밍 방식으로 만들거나 **데이터 가져오기** 마법사를 통해 만든 다음 필요에 따라 다시 사용할 수 있습니다.|
-| **샘플**| Azure Search는 자습서 및 빠른 시작에서 사용 되는 두 개의 기본 제공 샘플 데이터 원본 (부동산 SQL 데이터베이스 및 Cosmos DB에 호스트 된 호텔 데이터베이스)을 제공 합니다. 호텔 샘플을 기반으로 하는 연습은 Azure Portal 빠른 시작 [에서 인덱스 만들기](search-get-started-portal.md) 를 참조 하세요. |
+| **기존 데이터 원본** |검색 서비스에 이미 인덱서가 정의 되어 있는 경우 다시 사용할 수 있는 기존 데이터 원본 정의가 있을 수 있습니다. Azure Cognitive Search에서 데이터 원본 개체는 인덱서 에서만 사용 됩니다. 데이터 원본 개체를 프로그래밍 방식으로 만들거나 **데이터 가져오기** 마법사를 통해 만든 다음 필요에 따라 다시 사용할 수 있습니다.|
+| **샘플**| Azure Cognitive Search는 자습서 및 빠른 시작에서 사용 되는 두 개의 기본 제공 샘플 데이터 원본 (부동산 SQL 데이터베이스 및 Cosmos DB에 호스트 된 호텔 데이터베이스)을 제공 합니다. 호텔 샘플을 기반으로 하는 연습은 Azure Portal 빠른 시작 [에서 인덱스 만들기](search-get-started-portal.md) 를 참조 하세요. |
 | [**Azure SQL Database**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |읽기 권한이 포함된 데이터베이스 사용자에 대한 서비스 이름, 자격 증명 및 데이터베이스 이름은 페이지에 또는 ADO.NET 연결 문자열을 통해 지정될 수 있습니다. 연결 문자열 옵션을 선택하여 속성을 보거나 사용자 지정합니다. <br/><br/>행 집합을 제공하는 테이블 또는 보기는 페이지에 지정되어야 합니다. 연결에 성공한 후에 이 옵션이 나타나면 선택할 수 있는 드롭다운 목록을 제공합니다.|
-| **Azure VM에서 SQL Server** |정규화된 서비스 이름, 사용자 ID와 암호 및 데이터베이스를 연결 문자열로 지정합니다. 이 데이터 원본을 사용하려면 연결을 암호화하는 로컬 저장소에 미리 인증서를 설치해야 합니다. 자세한 내용은 [Azure Search에 SQL VM 연결](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)을 참조하세요. <br/><br/>행 집합을 제공하는 테이블 또는 보기는 페이지에 지정되어야 합니다. 연결에 성공한 후에 이 옵션이 나타나면 선택할 수 있는 드롭다운 목록을 제공합니다. |
+| **Azure VM에서 SQL Server** |정규화된 서비스 이름, 사용자 ID와 암호 및 데이터베이스를 연결 문자열로 지정합니다. 이 데이터 원본을 사용하려면 연결을 암호화하는 로컬 저장소에 미리 인증서를 설치해야 합니다. 지침은 [Azure Cognitive Search에 대 한 SQL VM 연결](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)을 참조 하세요. <br/><br/>행 집합을 제공하는 테이블 또는 보기는 페이지에 지정되어야 합니다. 연결에 성공한 후에 이 옵션이 나타나면 선택할 수 있는 드롭다운 목록을 제공합니다. |
 | [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|요구 사항은 계정, 데이터베이스 및 컬렉션을 포함합니다. 컬렉션의 모든 문서는 인덱스에 포함됩니다. 행 집합을 평면화 또는 필터링 하는 쿼리를 정의 하거나 쿼리를 비워 둘 수 있습니다. 이 마법사에서는 쿼리가 필요 하지 않습니다.|
 | [**Azure Blob Storage**](search-howto-indexing-azure-blob-storage.md) |요구 사항은 스토리지 계정 및 컨테이너를 포함합니다. 필요에 따라 그룹화 목적으로 Blob 이름이 가상 명명 규칙을 따르는 경우 이름의 가상 디렉터리 부분을 컨테이너의 폴더로 지정할 수 있습니다. 자세한 내용은 [Blob Storage 인덱싱](search-howto-indexing-azure-blob-storage.md)을 참조하세요. |
 | [**Azure Table Storage**](search-howto-indexing-azure-tables.md) |요구 사항은 스토리지 계정 및 테이블 이름을 포함합니다. 필요에 따라 쿼리를 지정하여 테이블의 하위 집합을 검색할 수 있습니다. 자세한 내용은 [Table Storage 인덱싱](search-howto-indexing-azure-tables.md)을 참조하세요. |
@@ -94,7 +93,7 @@ Azure Portal은 Azure Search 대시보드에서 인덱스를 프로토타입 및
 
    ![포털에서 데이터 가져오기 명령](./media/search-import-data-portal/import-data-cmd2.png "데이터 가져오기 마법사 시작")
 
-Azure Cosmos DB, Azure SQL Database 및 Azure Blob storage를 비롯 한 다른 Azure 서비스에서 **데이터 가져오기를** 시작할 수도 있습니다. 서비스 개요 페이지의 왼쪽 탐색 창에서 **Azure Search 추가**를 찾아봅니다.
+Azure Cosmos DB, Azure SQL Database 및 Azure Blob storage를 비롯 한 다른 Azure 서비스에서 **데이터 가져오기를** 시작할 수도 있습니다. 서비스 개요 페이지의 왼쪽 탐색 창에서 **Azure Cognitive Search 추가** 를 찾습니다.
 
 <a name="index-definition"></a>
 
@@ -104,7 +103,7 @@ Azure Cosmos DB, Azure SQL Database 및 Azure Blob storage를 비롯 한 다른 
 
 1. 필드 목록이 완성 되었습니까? 샘플링에서 누락 된 새 필드를 추가 하 고 검색 환경에 값을 추가 하지 않거나 [필터 식](search-query-odata-filter.md) 또는 [점수 매기기 프로필](index-add-scoring-profiles.md)에 사용 되지 않는 모든 필드를 제거 합니다.
 
-1. 들어오는 데이터에 적합 한 데이터 형식 입니까? Azure Search [EDM (엔터티 데이터 모델) 데이터 형식을](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)지원 합니다. Azure SQL 데이터의 경우 해당 값을 레이아웃 하는 [매핑 차트가](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#mapping-between-sql-and-azure-search-data-types) 있습니다. 자세한 배경 정보는 [필드 매핑 및 변환](search-indexer-field-mappings.md)을 참조 하세요.
+1. 들어오는 데이터에 적합 한 데이터 형식 입니까? Azure Cognitive Search는 [EDM (엔터티 데이터 모델) 데이터 형식을](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)지원 합니다. Azure SQL 데이터의 경우 해당 값을 레이아웃 하는 [매핑 차트가](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) 있습니다. 자세한 배경 정보는 [필드 매핑 및 변환](search-indexer-field-mappings.md)을 참조 하세요.
 
 1. *키*로 사용할 수 있는 필드가 하나 있나요? 이 필드는 Edm 이어야 하며 문서를 고유 하 게 식별 해야 합니다. 관계형 데이터의 경우 기본 키에 매핑될 수 있습니다. Blob의 경우 `metadata-storage-path` 일 수 있습니다. 필드 값에 공백 또는 대시를 포함하는 경우 **고급 옵션**의 **인덱서 만들기** 단계에서 **Base-64 인코딩 키** 옵션을 설정하여 이러한 문자에 대한 유효성 검사를 억제해야 합니다.
 
@@ -134,4 +133,4 @@ Azure Cosmos DB, Azure SQL Database 및 Azure Blob storage를 비롯 한 다른 
 마법사의 이점과 제한 사항을 이해 하는 가장 좋은 방법은 단계별로 실행 하는 것입니다. 다음 빠른 시작에서는 각 단계를 안내 합니다.
 
 > [!div class="nextstepaction"]
-> [Azure Portal를 사용 하 여 Azure Search 인덱스 만들기](search-get-started-portal.md)
+> [Azure Portal를 사용 하 여 Azure Cognitive Search 인덱스 만들기](search-get-started-portal.md)

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 5812cc73fb1da58c591d0593e079851e05bd0940
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: f5fe49130742d116775b75f17c726b56150c574f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331967"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792345"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
@@ -28,7 +28,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 ## <a name="prerequisites"></a>전제 조건
 
-다음 표에는 구성 서버에 대한 최소 하드웨어 요구 사항이 요약되어 있습니다.
+구성 서버에 대 한 최소 하드웨어 요구 사항은 다음 섹션에 요약 되어 있습니다.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -37,31 +37,19 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 Azure Site Recovery 서비스에 구성 서버를 등록 하려면 AAD (Azure Active Directory)에 설정 된 **다음 권한 중 하나가** 있는 사용자가 필요 합니다.
 
 1. 응용 프로그램을 만들려면 "응용 프로그램 개발자" 역할이 있어야 합니다.
-   1. 확인 하려면 Azure Portal에 로그인 합니다.</br>
-   1. Azure Active Directory > 역할 및 관리자로 이동 합니다.</br>
-   1. "응용 프로그램 개발자" 역할이 사용자에 게 할당 되었는지 확인 합니다. 그렇지 않은 경우이 권한이 있는 사용자를 사용 하거나 관리자에 게 연락 하 여 사용 [권한을 설정](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles)합니다.
+    - 확인 하려면 Azure Portal에 로그인 합니다.</br>
+    - Azure Active Directory > 역할 및 관리자로 이동 합니다.</br>
+    - "응용 프로그램 개발자" 역할이 사용자에 게 할당 되었는지 확인 합니다. 그렇지 않은 경우이 권한이 있는 사용자를 사용 하거나 관리자에 게 연락 하 여 사용 [권한을 설정](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles)합니다.
     
-1. "응용 프로그램 개발자" 역할을 할당할 수 없는 경우 사용자가 id를 만들기 위해 "사용자가 응용 프로그램을 등록할 수 있음" 플래그가 true로 설정 되어 있는지 확인 합니다. 위의 사용 권한을 설정 하려면
-   1. Azure Portal에 로그인
-   1. Azure Active Directory > 사용자 설정으로 이동 합니다.
-   1. \* * 앱 등록 "에서" 사용자가 응용 프로그램을 등록할 수 있음 "은" 예 "로 선택 해야 합니다.
+2. "응용 프로그램 개발자" 역할을 할당할 수 없는 경우 사용자가 id를 만들기 위해 "사용자가 응용 프로그램을 등록할 수 있음" 플래그가 true로 설정 되어 있는지 확인 합니다. 위의 사용 권한을 설정 하려면
+    - Azure Portal에 로그인
+    - Azure Active Directory > 사용자 설정으로 이동 합니다.
+    - \* * 앱 등록 "에서" 사용자가 응용 프로그램을 등록할 수 있음 "은" 예 "로 선택 해야 합니다.
 
       ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
 > Active Directory Federation Services (ADFS)는 **지원 되지 않습니다**. [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)를 통해 관리 되는 계정을 사용 하세요.
-
-## <a name="capacity-planning"></a>용량 계획
-
-구성 서버에 대한 크기 조정 요구 사항은 잠재적 데이터 변경률에 따라 다릅니다. 이 표를 가이드로 참조하세요.
-
-| **CPU** | **메모리** | **캐시 디스크 크기** | **데이터 변경률** | **보호된 컴퓨터** |
-| --- | --- | --- | --- | --- |
-| 8개 vCPU(2개 소켓 * 4코어 \@ 2.5GHz) |16GB |300GB |500GB 이하 |100대 미만의 컴퓨터를 복제합니다. |
-| 12개 vCPU(2개 소켓 * 6코어 \@ 2.5GHz) |18GB |600GB |500GB ~ 1TB |100 ~ 150대 컴퓨터를 복제합니다. |
-| 16개 vCPU(2개 소켓 * 8코어 \@ 2.5GHz) |32GB |1TB |1TB ~ 2TB |150 ~ 200대 컴퓨터를 복제합니다. |
-
-둘 이상의 VMware VM을 복제하는 경우 [용량 계획 고려 사항](site-recovery-plan-capacity-vmware.md)을 참조하세요. VMware 복제를 위한 [Deployment Planner 도구](site-recovery-deployment-planner.md)를 실행합니다.
 
 ## <a name="download-the-template"></a>템플릿 다운로드
 
@@ -149,7 +137,7 @@ Azure Site Recovery 서비스에 구성 서버를 등록 하려면 AAD (Azure Ac
 
 ## <a name="upgrade-the-configuration-server"></a>구성 서버 업그레이드
 
-구성 서버를 최신 버전으로 업그레이드하려면 다음 [단계](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)를 따르세요. 모든 Site Recovery 구성 요소를 업그레이드하는 방법에 대한 자세한 지침을 보려면 [여기](service-updates-how-to.md)를 클릭하세요.
+구성 서버를 최신 버전으로 업그레이드하려면 다음 [단계](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)를 따르세요. 모든 Site Recovery 구성 요소를 업그레이드 하는 방법에 대 한 자세한 내용은 [서비스 업데이트 관리](service-updates-how-to.md)를 참조 하세요.
 
 ## <a name="manage-the-configuration-server"></a>구성 서버 관리
 
@@ -157,9 +145,9 @@ Azure Site Recovery 서비스에 구성 서버를 등록 하려면 AAD (Azure Ac
 
 ## <a name="faq"></a>FAQ
 
-1. OVF를 통해 구성 서버에 제공된 라이선스는 얼마 동안 유효한가요? 라이선스를 다시 활성화하지 않으면 어떻게 되나요?
+1. 을 사용 하 여 배포 된 구성 서버에서 제공 되는 라이선스는 잘못 된 것은 얼마 인가요? 라이선스를 다시 활성화하지 않으면 어떻게 되나요?
 
-    OVA 템플릿과 함께 제공 되는 라이선스는 180 일 동안 유효한 평가 라이선스입니다. 라이선스가 만료되기 전에 다시 활성화해야 합니다. 그렇지 않은 경우 구성 서버가 자주 종료되어 복제 작업이 원활히 진행되지 못합니다.
+    OVA 템플릿과 함께 제공 되는 라이선스는 180 일 동안 유효한 평가 라이선스입니다. 라이선스가 만료되기 전에 다시 활성화해야 합니다. 그렇지 않으면 구성 서버를 자주 종료 하 여 복제 작업을 hindrance 수 있습니다. 자세한 내용은 [configuration server 라이선스 관리](vmware-azure-manage-configuration-server.md#update-windows-license)문서를 참조 하세요.
 
 2. 구성 서버가 설치된 VM을 다른 용도로 사용할 수 있나요?
 

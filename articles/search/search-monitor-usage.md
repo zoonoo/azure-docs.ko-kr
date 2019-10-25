@@ -1,24 +1,24 @@
 ---
-title: 검색 서비스에 대한 리소스 사용량 및 메트릭 쿼리 모니터링 - Azure Search
-description: Azure Search 서비스에서 로깅을 사용하도록 설정하고, 쿼리 작업 메트릭, 리소스 사용량 및 기타 시스템 데이터를 가져옵니다.
-author: HeidiSteen
+title: 리소스 사용 및 쿼리 메트릭 모니터링
+titleSuffix: Azure Cognitive Search
+description: Azure Cognitive Search 서비스에서 로깅을 사용 하도록 설정 하 고, 쿼리 작업 메트릭, 리소스 사용량 및 기타 시스템 데이터를 가져옵니다.
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/16/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: fe8061f8e99742f9dc5c1181235c4203aaad82ca
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+tags: azure-portal
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: c4b8b03394eee6dffb79b0e40a22dd49880dee88
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72331205"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793495"
 ---
-# <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Azure Search에서 리소스 사용량 및 쿼리 작업 모니터링
+# <a name="monitor-resource-consumption-and-query-activity-in-azure-cognitive-search"></a>Azure Cognitive Search에서 리소스 소비 및 쿼리 작업 모니터링
 
-Azure Search 서비스의 개요 페이지에서 리소스 사용량, 쿼리 메트릭 및 더 많은 인덱스, 인덱서 및 데이터 원본을 만드는 데 사용할 수 있는 할당량에 대한 시스템 데이터를 볼 수 있습니다. 또한 포털을 사용하여 로그 분석 또는 영구 데이터 수집에 사용되는 다른 리소스를 구성할 수도 있습니다. 
+Azure Cognitive Search 서비스의 개요 페이지에서 리소스 사용량, 쿼리 메트릭 및 추가 인덱스, 인덱서 및 데이터 원본을 만드는 데 사용할 수 있는 할당량의 양에 대 한 시스템 데이터를 볼 수 있습니다. 또한 포털을 사용하여 로그 분석 또는 영구 데이터 수집에 사용되는 다른 리소스를 구성할 수도 있습니다. 
 
 로그 설정은 자체 진단 및 작업 기록 유지에 유용합니다. 내부적으로 로그는 지원 티켓을 제출하는 경우 조사 및 분석에 충분한 정도의 짧은 시간 동안 백 엔드에 있습니다. 로그 정보를 제어하고 액세스할 수 있도록 하려면 이 문서에서 설명하는 솔루션 중 하나를 설정해야 합니다.
 
@@ -52,7 +52,7 @@ Azure Search 서비스의 개요 페이지에서 리소스 사용량, 쿼리 메
 
 ## <a name="add-on-monitoring-solutions"></a>추가 기능 모니터링 솔루션
 
-Azure Search는 관리하는 개체 이외의 데이터를 저장하지 않으므로 로그 데이터는 외부에 저장해야 합니다. 로그 데이터를 유지하려는 경우 아래의 리소스를 구성할 수 있습니다. 
+Azure Cognitive Search는 관리 하는 개체 이외의 데이터는 저장 하지 않습니다. 즉, 로그 데이터를 외부에 저장 해야 합니다. 로그 데이터를 유지하려는 경우 아래의 리소스를 구성할 수 있습니다. 
 
 다음 표에서는 로그를 저장하고 Application Insights를 통해 서비스 작업 및 쿼리 워크로드에 대한 심층적인 모니터링을 추가하는 옵션을 비교합니다.
 
@@ -64,17 +64,17 @@ Azure Search는 관리하는 개체 이외의 데이터를 저장하지 않으�
 
 Azure Monitor 로그와 Blob 저장소는 모두 무료 서비스로 제공 되므로 Azure 구독의 수명 동안 무료로 사용해 볼 수 있습니다. 애플리케이션 데이터 크기가 특정 제한을 초과하지 않으면 Application Insights 평가판을 등록하여 사용할 수 있습니다(자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/monitor/) 참조).
 
-다음 섹션에서는 Azure Blob 스토리지를 사용하도록 설정하고 이를 사용하여 Azure Search 작업에서 만든 로그 데이터를 수집하고 액세스하는 단계를 안내합니다.
+다음 섹션에서는 azure Blob storage를 사용 하도록 설정 하 고 사용 하 여 Azure Cognitive Search 작업에서 만든 로그 데이터를 수집 하 고 액세스 하는 단계를 안내 합니다.
 
 ## <a name="enable-logging"></a>로깅 사용
 
-인덱싱 및 쿼리 작업에 대한 로깅은 기본적으로 해제되어 있으며, 로깅 인프라와 장기 외부 스토리지 모두에 대한 추가 기능 솔루션에 따라 달라집니다. Azure Search에서 만들고 관리하는 개체는 자체적으로 유지되는 유일한 데이터이므로 로그는 다른 위치에 저장해야 합니다.
+인덱싱 및 쿼리 작업에 대한 로깅은 기본적으로 해제되어 있으며, 로깅 인프라와 장기 외부 스토리지 모두에 대한 추가 기능 솔루션에 따라 달라집니다. Azure Cognitive Search에서 지속 되는 유일한 데이터는 만들고 관리 하는 개체 이므로 로그를 다른 곳에 저장 해야 합니다.
 
 이 섹션에서는 Blob 스토리지를 사용하여 기록된 이벤트와 메트릭 데이터를 저장하는 방법에 대해 알아봅니다.
 
-1. 스토리지 계정이 아직 없는 경우 [스토리지 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 이 연습에 사용된 모든 리소스를 삭제하려면 나중에 정리를 간소화하기 위해 Azure Search와 동일한 리소스 그룹에 배치할 수 있습니다.
+1. 스토리지 계정이 아직 없는 경우 [스토리지 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 이 연습에 사용 된 모든 리소스를 삭제 하려면 나중에 정리를 간소화 하기 위해 Azure Cognitive Search와 동일한 리소스 그룹에이를 추가할 수 있습니다.
 
-   저장소 계정은 Azure Search와 동일한 지역에 있어야 합니다.
+   저장소 계정은 Azure Cognitive Search와 동일한 지역에 있어야 합니다.
 
 2. 검색 서비스의 [개요] 페이지를 엽니다. 왼쪽 탐색 창에서 **모니터링**까지 아래로 스크롤하고 **모니터 사용**을 클릭합니다.
 
@@ -158,14 +158,14 @@ JSON 편집기를 사용하여 로그 파일을 볼 수 있습니다. 없는 경
 
 1. Azure Portal에서 Storage 계정을 엽니다. 
 
-2. 왼쪽 탐색 창에서 **Blob**을 클릭합니다. **sights-logs-operationlogs** 및 **inights-metrics-pt1m**이 표시됩니다. 이러한 컨테이너는 로그 데이터를 Blob 스토리지로 내보낼 때 Azure Search에서 만들어집니다.
+2. 왼쪽 탐색 창에서 **Blob**을 클릭합니다. **sights-logs-operationlogs** 및 **inights-metrics-pt1m**이 표시됩니다. 이러한 컨테이너는 로그 데이터를 Blob storage로 내보낼 때 Azure Cognitive Search에 의해 만들어집니다.
 
 3. .json 파일에 도달할 때까지 폴더 계층 구조를 따라 아래로 클릭합니다.  상황에 맞는 메뉴를 사용하여 파일을 다운로드합니다.
 
 파일이 다운로드되면 JSON 편집기에서 파일을 열어 내용을 봅니다.
 
 ## <a name="use-system-apis"></a>시스템 API 사용
-Azure Search REST API와 .NET SDK는 둘 다 서비스 메트릭, 인덱스와 인덱서 정보 및 문서 수에 대한 액세스를 프로그래밍 방식으로 제공합니다.
+Azure Cognitive Search REST API 및 .NET SDK는 서비스 메트릭, 인덱스 및 인덱서 정보 및 문서 수에 대 한 프로그래밍 방식의 액세스를 제공 합니다.
 
 * [서비스 통계 가져오기](/rest/api/searchservice/get-service-statistics)
 * [인덱스 통계 가져오기](/rest/api/searchservice/get-index-statistics)

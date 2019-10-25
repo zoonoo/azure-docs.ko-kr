@@ -1,26 +1,23 @@
 ---
-title: Azure Search 2019-05-06의 미리 보기 REST API-Azure Search
-description: Azure Search Service REST API 버전 2019-05-06-미리 보기에는 기술 자료 저장소 및 고객 관리 암호화 키와 같은 실험적 기능이 포함 되어 있습니다.
-services: search
-author: HeidiSteen
+title: REST API 버전 2019-05-06-미리 보기
+titleSuffix: Azure Cognitive Search
+description: Azure Cognitive Search service REST API 버전 2019-05-06-미리 보기에는 기술 자료 스토어 및 고객이 관리 하는 암호화 키와 같은 실험적 기능이 포함 되어 있습니다.
 manager: nitinme
-ms.service: search
-ms.devlang: rest-api
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: search
-ms.date: 05/02/2019
-ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 7fa280742556b7bc42d2c7fb30c880f836eef62b
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 11/04/2019
+ms.openlocfilehash: a4daaac6abababcedb5d6dd7eb2122ef29846ef4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649990"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792544"
 ---
-# <a name="azure-search-service-rest-api-version-2019-05-06-preview"></a>Azure Search 서비스 REST api-버전 2019-05-06-미리 보기
-이 문서에서는 `api-version=2019-05-06-Preview` 버전의 Azure Search Service REST API를 설명하면서 아직 일반 공개되지 않은 실험적 기능을 제공합니다.
+# <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>Azure Cognitive Search 서비스 REST api-버전 2019-05-06-미리 보기
+
+이 문서에서는 아직 일반 공급 되지 않는 실험적 기능을 제공 하는 검색 서비스 REST API `api-version=2019-05-06-Preview` 버전을 설명 합니다.
 
 > [!NOTE]
 > 미리 보기 기능은 사용자 의견을 수집하고 변경하기 위해 테스트 및 실험에 사용할 수 있습니다. 프로덕션 애플리케이션에서 미리 보기 API를 사용하지 않는 것이 좋습니다.
@@ -49,11 +46,11 @@ ms.locfileid: "69649990"
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2019-05-06-Preview
 
-Azure Search 서비스는 여러 버전으로 제공됩니다. 자세한 내용은 [API 버전](search-api-versions.md)을 참조하세요.
+Azure Cognitive Search 서비스는 여러 버전에서 사용할 수 있습니다. 자세한 내용은 [API 버전](search-api-versions.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Search Service REST API 참조 설명서를 검토 합니다. 문제가 발생 하는 경우 [Stackoverflow](https://stackoverflow.com/) 또는 [지원 담당자에 게](https://azure.microsoft.com/support/community/?product=search)도움을 요청 합니다.
+검색 REST API 참조 설명서를 검토 합니다. 문제가 발생 하는 경우 [Stackoverflow](https://stackoverflow.com/) 또는 [지원 담당자에 게](https://azure.microsoft.com/support/community/?product=search)도움을 요청 합니다.
 
 > [!div class="nextstepaction"]
 > [검색 서비스 REST API 참조](https://docs.microsoft.com/rest/api/searchservice/)

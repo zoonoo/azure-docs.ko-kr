@@ -1,25 +1,25 @@
 ---
-title: 언어 및 텍스트 처리용 분석기 - Azure Search
+title: 언어 및 텍스트 처리를 위한 분석기
+titleSuffix: Azure Cognitive Search
 description: 인덱스의 검색 가능한 텍스트 필드에 분석기를 할당하여 사용자 지정, 미리 정의 또는 언어 특정 대안으로 기본 표준 Lucene을 바꿉니다.
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
-ms.author: heidist
-manager: nitinme
 author: HeidiSteen
-ms.openlocfilehash: 387248b2dac7c10ec0e96454f26964ca7f15c56e
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+manager: nitinme
+ms.author: heidist
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 67ee2790cbf0f9e147222c5cf3ea4448362d9f87
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650002"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791207"
 ---
-# <a name="analyzers-for-text-processing-in-azure-search"></a>Azure Search의 텍스트 처리용 분석기
+# <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Azure Cognitive Search에서 텍스트 처리를 위한 분석기
 
 *분석기*는 쿼리 문자열과 인덱싱된 문서의 텍스트를 처리하는 [전체 텍스트 검색 엔진](search-lucene-query-architecture.md)의 구성 요소입니다. 시나리오에 따라 여러 분석기가 다양한 방법으로 텍스트를 조작합니다. 언어 분석기는 검색 품질을 개선하기 위해 언어 규칙을 사용하여 텍스트를 처리하는 반면, 다른 분석기는 문자를 소문자로 변환하는 작업처럼 기본적인 작업을 수행합니다. 
 
-언어 분석기는 가장 자주 사용되며, Azure Search 인덱스의 모든 검색 가능한 필드에 할당되는 기본 언어 분석기가 있습니다. 다음은 텍스트 분석 중에 일반적으로 수행되는 언어 변환입니다.
+언어 분석기는 가장 자주 사용 되며, Azure Cognitive Search 인덱스에서 검색 가능한 모든 필드에 기본 언어 분석기가 할당 됩니다. 다음은 텍스트 분석 중에 일반적으로 수행되는 언어 변환입니다.
 
 + 필수적이지 않은 단어(중지 단어) 및 문장 부호가 제거됩니다.
 + 구 및 하이픈을 넣은 단어는 구성 요소 부분으로 분류됩니다.
@@ -30,19 +30,19 @@ ms.locfileid: "69650002"
 
 ## <a name="default-analyzer"></a>기본 분석기  
 
-Azure Search는 [Apache Lucene 표준 분석기(표준 Lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html)를 기본값으로 사용하며, ["유니코드 텍스트 구분"](https://unicode.org/reports/tr29/) 규칙에 따라 텍스트를 요소로 분리합니다. 또한 표준 분석기에서는 모든 문자를 소문자 형식으로 변환합니다. 인덱싱 및 쿼리 처리 중에는 인덱싱된 문서와 검색 용어 둘 다에 대해 분석을 수행합니다.  
+Azure Cognitive Search는 [Apache Lucene 표준 분석기 (표준 Lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) 를 기본값으로 사용 합니다. 그러면 ["유니코드 텍스트 구분"](https://unicode.org/reports/tr29/) 규칙에 따라 텍스트를 요소로 분리 합니다. 또한 표준 분석기에서는 모든 문자를 소문자 형식으로 변환합니다. 인덱싱 및 쿼리 처리 중에는 인덱싱된 문서와 검색 용어 둘 다에 대해 분석을 수행합니다.  
 
 모든 검색 가능 필드에 자동으로 사용됩니다. 필드별로 기본 분석기를 재정의할 수 있습니다. [언어 분석기](index-add-language-analyzers.md), [사용자 지정 분석기](index-add-custom-analyzers.md) 또는 [사용 가능한 분석기 목록](index-add-custom-analyzers.md#AnalyzerTable)의 미리 정의된 분석기를 대신 사용할 수 있습니다.
 
 
 ## <a name="types-of-analyzers"></a>분석기 유형
 
-다음 목록에서는 Azure Search에서 사용 가능한 분석기를 설명합니다.
+다음 목록에는 Azure Cognitive Search에서 사용할 수 있는 분석기에 대 한 설명이 나와 있습니다.
 
 | 범주 | 설명 |
 |----------|-------------|
-| [표준 Lucene 분석기](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | 기본. 사양 또는 구성이 필요하지 않습니다. 이 범용 분석기는 대부분의 언어와 시나리오에서 잘 작동합니다.|
-| 미리 정의된 분석기 | 있는 그대로 사용되는 완제품으로 제공됩니다. <br/>특수 및 언어와 같은 두 가지 형식이 있습니다. "미리 정의된"이라는 수식어가 붙은 이유는 구성 또는 사용자 지정 없이 이름으로 참조하기 때문입니다. <br/><br/>[특수(언어 중립적) 분석기](index-add-custom-analyzers.md#AnalyzerTable)는 텍스트 입력에 특수 처리 또는 최소한의 처리가 필요할 때 사용됩니다. 미리 정의된 비언어 분석기는 **Asciifolding**, **키워드**, **패턴**, **단순**, **중지**, **공백**을 포함합니다.<br/><br/>[언어 분석기](index-add-language-analyzers.md)는 개별 언어에 대해 풍부한 언어 지원이 필요할 때 사용됩니다. Azure Search는 35개의 Lucene 언어 분석기 및 50개의 Microsoft 자연어 처리 분석기를 지원합니다. |
+| [표준 Lucene 분석기](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | 기본값 사양 또는 구성이 필요하지 않습니다. 이 범용 분석기는 대부분의 언어와 시나리오에서 잘 작동합니다.|
+| 미리 정의된 분석기 | 있는 그대로 사용되는 완제품으로 제공됩니다. <br/>특수 및 언어와 같은 두 가지 형식이 있습니다. "미리 정의된"이라는 수식어가 붙은 이유는 구성 또는 사용자 지정 없이 이름으로 참조하기 때문입니다. <br/><br/>[특수(언어 중립적) 분석기](index-add-custom-analyzers.md#AnalyzerTable)는 텍스트 입력에 특수 처리 또는 최소한의 처리가 필요할 때 사용됩니다. 미리 정의된 비언어 분석기는 **Asciifolding**, **키워드**, **패턴**, **단순**, **중지**, **공백**을 포함합니다.<br/><br/>[언어 분석기](index-add-language-analyzers.md)는 개별 언어에 대해 풍부한 언어 지원이 필요할 때 사용됩니다. Azure Cognitive Search는 35 Lucene 언어 분석기 및 50 Microsoft 자연어 처리 분석기를 지원 합니다. |
 |[사용자 지정 분석기](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | 기존 요소를 결합한 사용자 정의 구성을 말하며, 토크나이저(필수) 하나와 여러 선택적 필터(char 또는 토큰)로 구성됩니다.|
 
 **패턴** 또는 **중지** 같은 일부 미리 정의된 분석기는 제한된 구성 옵션 세트를 지원합니다. 이러한 옵션을 설정하려면 미리 정의된 분석기와 [미리 정의된 분석기 참조](index-add-custom-analyzers.md#AnalyzerTable)에 설명된 대체 옵션 중 하나로 구성되는 사용자 지정 분석기를 실질적으로 만들어야 합니다. 다른 사용자 지정 구성과 마찬가지로, Lucene 패턴 분석기와 구분할 수 있도록 구성의 이름(예: *myPatternAnalyzer*)을 입력합니다.
@@ -68,7 +68,7 @@ Azure Search는 [Apache Lucene 표준 분석기(표준 Lucene)](https://lucene.a
 
 인덱스 정의가 완성될수록 인덱스에 새 분석 구조를 추가할 수 있지만, **allowIndexDowntime** 플래그를 [인덱스 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index)에 전달해야만 다음 오류를 방지할 수 있습니다.
 
-*"가동 중지 시간이 발생하므로 인덱스 업데이트가 허용되지 않습니다. 기존 인덱스에 새 분석기, 토크나이저, 토큰 필터 또는 문자 필터를 추가하려면 인덱스 업데이트 요청에서 'allowIndexDowntime' 쿼리 매개 변수를 'true'로 설정하세요. 이 작업 중에 인덱스가 몇 초 이상 오프라인 상태가 되면 인덱싱 및 쿼리 요청이 실패합니다. 인덱스의 성능 및 쓰기 가용성은 인덱스를 업데이트한 후 몇 분 동안, 인덱스가 아주 큰 경우에는 더 긴 시간 동안 제대로 작동하지 않을 수 있습니다."*
+*"인덱스 업데이트는 가동 중지 시간이 발생할 수 있으므로 허용 되지 않습니다. 새 분석기, 토크 나이저, 토큰 필터 또는 문자 필터를 기존 인덱스에 추가 하려면 인덱스 업데이트 요청에서 ' allowIndexDowntime 중지 시간 ' 쿼리 매개 변수를 ' t r u e '로 설정 합니다. 이 작업을 수행 하면 최소한 몇 초 동안 인덱스를 오프 라인 상태로 전환 하므로 인덱싱 및 쿼리 요청이 실패 합니다. 인덱스를 업데이트 한 후 몇 분 동안 또는 매우 큰 인덱스의 경우에는 인덱스의 성능 및 쓰기 가용성이 손상 될 수 있습니다. "*
 
 분석기를 필드에 할당할 때에도 마찬가지입니다. 분석기는 필드 정의의 필수적인 부분이므로 필드를 만들 때에만 추가할 수 있습니다. 기존 필드에 분석기를 추가하려면 인덱스를 [삭제하고 다시 작성](search-howto-reindex.md)하거나 원하는 분석기를 사용하여 새 필드를 추가해야 합니다.
 
@@ -80,7 +80,7 @@ Azure Search는 [Apache Lucene 표준 분석기(표준 Lucene)](https://lucene.a
 
 ### <a name="one-analyzer-for-read-write-unless-you-have-specific-requirements"></a>특정 요구 사항이 없는 경우 읽기 쓰기에 대해 하나의 분석기
 
-Azure Search는 추가적인 **indexAnalyzer** 및 **searchAnalyzer** 필드 매개 변수를 통해 인덱싱 및 검색에 서로 다른 분석기를 지정할 수 있습니다. 분석기를 지정하지 않으면 **analyzer** 속성을 통해 설정된 분석기가 인덱싱과 검색에 모두 사용됩니다. `analyzer`를 지정하지 않으면 기본 표준 Lucene 분석기가 사용됩니다.
+Azure Cognitive Search를 사용 하 여 추가 **indexanalyzer** 및 **searchanalyzer** 필드 매개 변수를 통해 인덱싱 및 검색에 대해 다른 분석기를 지정할 수 있습니다. 분석기를 지정하지 않으면 **analyzer** 속성을 통해 설정된 분석기가 인덱싱과 검색에 모두 사용됩니다. `analyzer`를 지정하지 않으면 기본 표준 Lucene 분석기가 사용됩니다.
 
 특정 요구 사항이 따로 지정되지 않으면 인덱싱 및 쿼리 모두에 대해 동일한 분석기를 사용하는 것이 일반적인 규칙입니다. 철저하게 테스트해야 합니다. 검색 및 인덱싱 시간에서 텍스트 처리가 다른 경우 검색 및 인덱싱 분석기 구성이 일치하지 않으면 쿼리 용어와 인덱싱된 용어 사이에 불일치가 발생할 위험을 떠안게 됩니다.
 
@@ -286,7 +286,7 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
 
 이 예에서는 설명 필드에 Microsoft 영어 및 프랑스어 분석기를 할당 합니다. [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) 샘플의 hotels.cs 파일에서 호텔 클래스를 사용 하 여 생성 하는 호텔 인덱스의 더 큰 정의에서 가져온 코드 조각입니다.
 
-Azure Search에서 지원 되는 텍스트 분석기를 제공 하는 [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) 유형을 지정 하는 호출 [분석기](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet).
+[분석기](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet)를 호출 하 여 Azure Cognitive Search에서 지원 되는 텍스트 분석기를 제공 하는 [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) 유형을 지정 합니다.
 
 ```csharp
     public partial class Hotel
@@ -336,7 +336,7 @@ Azure Search에서 지원 되는 텍스트 분석기를 제공 하는 [AnalyzerN
 
 ## <a name="next-steps"></a>다음 단계
 
-+ [전체 텍스트 검색이 Azure Search에서 작동하는 방식](search-lucene-query-architecture.md)의 포괄적인 설명을 검토하세요. 이 문서에서는 화면에서 직관적이지 않은 것처럼 보일 수 있는 동작을 설명하는 예제를 사용합니다.
++ [Azure Cognitive Search에서 전체 텍스트 검색이 작동 하는 방식](search-lucene-query-architecture.md)에 대 한 포괄적인 설명을 검토 합니다. 이 문서에서는 화면에서 직관적이지 않은 것처럼 보일 수 있는 동작을 설명하는 예제를 사용합니다.
 
 + 포털의 Search 탐색기에서 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) 예제 섹션 또는 [단순 쿼리 구문](query-simple-syntax.md)의 추가 쿼리 구문을 사용해 보세요.
 
@@ -344,7 +344,7 @@ Azure Search에서 지원 되는 텍스트 분석기를 제공 하는 [AnalyzerN
 
 + 개별 필드에 대해 최소한의 처리 또는 특수한 처리를 수행하려면 [사용자 지정 분석기를 구성](index-add-custom-analyzers.md)하세요.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
  [문서 검색 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

@@ -1,24 +1,23 @@
 ---
-title: 조건부 인식 검색 기술 (Azure Search) | Microsoft Docs
-description: 조건부 기술은 필터링, 기본값 만들기 및 값 병합을 가능 하 게 합니다.
-services: search
+title: 조건부 인식 기술
+titleSuffix: Azure Cognitive Search
+description: Azure Cognitive Search의 조건부 기술은 필터링, 기본값 만들기 및 기술 정의의 값 병합을 가능 하 게 합니다.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/01/2019
 ms.author: luisca
-ms.openlocfilehash: ea6113b96e2acf70a877e170651be3daa578e518
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265807"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792040"
 ---
-#   <a name="conditional-skill"></a>조건부 기술
+# <a name="conditional-cognitive-skill"></a>조건부 인식 기술
 
-*조건부 스킬* 은 부울 연산이 출력에 할당할 데이터를 결정 하는 데 필요한 Azure Search 시나리오를 가능 하 게 합니다. 이러한 시나리오에는 조건을 기반으로 필터링, 기본값 할당 및 데이터 병합이 포함 됩니다.
+**조건부** 기술을 사용 하면 부울 작업을 필요로 하는 Azure Cognitive Search 시나리오에서 출력에 할당할 데이터를 결정할 수 있습니다. 이러한 시나리오에는 조건을 기반으로 필터링, 기본값 할당 및 데이터 병합이 포함 됩니다.
 
 다음 의사 코드는 조건부 기술에서 수행 하는 작업을 보여 줍니다.
 
@@ -33,7 +32,7 @@ else
 > 이 기술은 Azure Cognitive Services API에 바인딩되지 않으며 사용에 대 한 요금이 청구 되지 않습니다. 그러나 [Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md) 하 여 하루에 적은 수의 강화를 제한 하는 "무료" 리소스 옵션을 재정의 해야 합니다.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Util.ConditionalSkill
+ConditionalSkill.
 
 
 ## <a name="evaluated-fields"></a>평가 필드
@@ -44,14 +43,14 @@ Microsoft.Skills.Util.ConditionalSkill
 
 -   주석 경로 (식의 경로는 "$ (" 및 ")"로 구분 되어야 합니다.)
  <br/>
-    예를 들면 다음과 같습니다.
+    예시:
     ```
         "= $(/document)"
         "= $(/document/content)"
     ```
 
 -  리터럴 (문자열, 숫자, true, false, null) <br/>
-    예를 들면 다음과 같습니다.
+    예시:
     ```
        "= 'this is a string'"   // string (note the single quotation marks)
        "= 34"                   // number
@@ -60,21 +59,21 @@ Microsoft.Skills.Util.ConditionalSkill
     ```
 
 -  비교 연산자를 사용 하는 식 (= =,! =, > =, >, < =, <) <br/>
-    예를 들면 다음과 같습니다.
+    예시:
     ```
         "= $(/document/language) == 'en'"
         "= $(/document/sentiment) >= 0.5"
     ```
 
 -   부울 연산자 (& &, | |,!, ^)를 사용 하는 식 <br/>
-    예를 들면 다음과 같습니다.
+    예시:
     ```
         "= $(/document/language) == 'en' && $(/document/sentiment) > 0.5"
         "= !true"
     ```
 
 -   숫자 연산자 (+,-, \*,/,%)를 사용 하는 식 <br/>
-    예를 들면 다음과 같습니다. 
+    예시: 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
         "= $(/document/totalValue) * 1.10"       // multiplication
@@ -88,14 +87,14 @@ Microsoft.Skills.Util.ConditionalSkill
 
 | 입력   | 설명 |
 |-------------|-------------|
-| 조건   | 이 입력은 평가할 조건을 나타내는 [평가 된 필드](#evaluated-fields) 입니다. 이 조건은 부울 값 (*true* 또는 *false*)으로 계산 되어야 합니다.   <br/>  예를 들면 다음과 같습니다. <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
-| whenTrue    | 이 입력은 조건이 *true*로 평가 되는 경우 반환할 값을 나타내는 [계산 된 필드](#evaluated-fields) 입니다. 상수 문자열은 작은따옴표 (' 및 ')로 반환 되어야 합니다. <br/>샘플 값: <br/> "= ' 계약 '"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/> |
-| whenFalse   | 이 입력은 조건이 *false*로 평가 되는 경우 반환할 값을 나타내는 [계산 된 필드](#evaluated-fields) 입니다. <br/>샘플 값: <br/> "= ' 계약 '"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
+| condition   | 이 입력은 평가할 조건을 나타내는 [평가 된 필드](#evaluated-fields) 입니다. 이 조건은 부울 값 (*true* 또는 *false*)으로 계산 되어야 합니다.   <br/>  예시: <br/> "= true" <br/> "= $ (/document/language) = = ' fr '" <br/> "= $ (/sv/pv/\*/language) = = $ (/document/expectedLanguage)" <br/> |
+| whenTrue    | 이 입력은 조건이 *true*로 평가 되는 경우 반환할 값을 나타내는 [계산 된 필드](#evaluated-fields) 입니다. 상수 문자열은 작은따옴표 (' 및 ')로 반환 되어야 합니다. <br/>샘플 값: <br/> "= ' 계약 '"<br/>"= $ (/document/contractType)" <br/> "= $ (/ser/werary/\*)" <br/> |
+| = False   | 이 입력은 조건이 *false*로 평가 되는 경우 반환할 값을 나타내는 [계산 된 필드](#evaluated-fields) 입니다. <br/>샘플 값: <br/> "= ' 계약 '"<br/>"= $ (/document/contractType)" <br/> "= $ (/ser/werary/\*)" <br/>
 
 ## <a name="skill-outputs"></a>기술 출력
 단순히 "output" 이라고 하는 단일 출력이 있습니다. 조건이 false 이면 *false* 값을 반환 하 고 조건이 True 이면 *whenTrue* 을 반환 합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 ### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>샘플 기술 정의 1: 문서를 필터링 하 여 프랑스어 문서만 반환
 
@@ -116,7 +115,7 @@ Microsoft.Skills.Util.ConditionalSkill
 "/Document/frenchSentences"가 다른 기술 *컨텍스트로* 사용 되는 경우 "/document/frenchSentences"가 *null*로 설정 되지 않은 경우에만이 기술이 실행 됩니다.
 
 
-### <a name="sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist"></a>샘플 기술 정의 2: 존재 하지 않는 값의 기본값 설정
+### <a name="sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist"></a>샘플 기술 정의 2: 존재 하지 않는 값에 대 한 기본값 설정
 
 다음 출력은 문서 언어로 설정 된 주석 ("/document/languageWithDefault") 또는 언어가 설정 되지 않은 경우 "es"를 만듭니다.
 
@@ -151,7 +150,7 @@ Microsoft.Skills.Util.ConditionalSkill
 ```
 
 ## <a name="transformation-example"></a>변환 예
-### <a name="sample-skill-definition-4-data-transformation-on-a-single-field"></a>샘플 기술 정의 4: 단일 필드에 대 한 데이터 변환
+### <a name="sample-skill-definition-4-data-transformation-on-a-single-field"></a>샘플 기술 정의 4: 단일 필드의 데이터 변환
 
 이 예제에서는 0에서 1 사이의 *감정* 를 받습니다. -1에서 1 사이를 변환 하려고 합니다. 조건부 기술을 사용 하 여 이러한 사소한 변환을 수행할 수 있습니다.
 
@@ -176,5 +175,5 @@ Microsoft.Skills.Util.ConditionalSkill
 
 ## <a name="next-steps"></a>다음 단계
 
-+ [미리 정의된 기술](cognitive-search-predefined-skills.md)
++ [기본 제공 기술](cognitive-search-predefined-skills.md)
 + [기능을 정의하는 방법](cognitive-search-defining-skillset.md)

@@ -1,13 +1,13 @@
 ---
-title: OData 참조 선택-Azure Search
-description: Azure Search 쿼리의 select 구문에 대 한 OData 언어 참조입니다.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
-author: Brjohnstmsft
-ms.author: brjohnst
+title: OData 참조 선택
+titleSuffix: Azure Cognitive Search
+description: Azure Cognitive Search 쿼리에서 select 구문을 위한 OData 언어 참조입니다.
 manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 64e9ad75d88f595ab5def6fe8b63fee9407ae0fe
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7786974f3d39f9cbc81e1ffea955156d623f1476
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647885"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793259"
 ---
-# <a name="odata-select-syntax-in-azure-search"></a>Azure Search의 OData $select 구문
+# <a name="odata-select-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData $select 구문
 
- [OData **$select** 매개 변수](query-odata-filter-orderby-syntax.md) 를 사용 하 여 Azure Search 검색 결과에 포함할 필드를 선택할 수 있습니다. 이 문서에서는 **$select** 구문에 대해 자세히 설명 합니다. 검색 결과를 표시할 때 **$select** 를 사용 하는 방법에 대 한 일반적인 정보는 [Azure Search에서 검색 결과](search-pagination-page-layout.md)를 사용 하는 방법을 참조 하세요.
+ [OData **$select** 매개 변수](query-odata-filter-orderby-syntax.md) 를 사용 하 여 Azure Cognitive Search의 검색 결과에 포함할 필드를 선택할 수 있습니다. 이 문서에서는 **$select** 구문에 대해 자세히 설명 합니다. 검색 결과를 표시할 때 **$select** 를 사용 하는 방법에 대 한 일반적인 정보는 [Azure Cognitive Search에서 검색 결과](search-pagination-page-layout.md)를 사용 하는 방법을 참조 하세요.
 
 ## <a name="syntax"></a>구문
 
@@ -45,23 +45,23 @@ field_path ::= identifier('/'identifier)*
 대화형 구문 다이어그램도 사용할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Azure Search에 대 한 OData 구문 다이어그램](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
+> [Azure Cognitive Search에 대 한 OData 구문 다이어그램](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
 
 > [!NOTE]
-> 전체 EBNF [Azure Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 를 참조 하세요.
+> 전체 EBNF [Azure Cognitive Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 를 참조 하세요.
 
 **$Select** 매개 변수는 다음과 같은 두 가지 형식으로 제공 됩니다.
 
-1. 모든 검색 가능 필드`*`를 반환 해야 함을 나타내는 단일 별표 ()
+1. 검색할 수 있는 모든 필드를 반환 해야 함을 나타내는 단일 별모양 (`*`)입니다.
 1. 반환 해야 하는 필드를 식별 하는 쉼표로 구분 된 필드 경로 목록입니다.
 
 두 번째 폼을 사용 하는 경우 목록에서 검색할 수 있는 필드만 지정할 수 있습니다.
 
-하위 필드를 명시적으로 지정 하지 않고 복합 필드를 나열 하는 경우 검색 가능한 모든 하위 필드가 쿼리 결과 집합에 포함 됩니다. `Address` 예를 들어 인덱스에 모두 검색할 수 있는, `Street` `City`및 `Country` 하위 필드가 있는 필드가 있다고 가정 합니다. $Select에서 지정 `Address` 하는 경우 쿼리 결과에는 세 개의 하위 필드가 모두 포함 됩니다.
+하위 필드를 명시적으로 지정 하지 않고 복합 필드를 나열 하는 경우 검색 가능한 모든 하위 필드가 쿼리 결과 집합에 포함 됩니다. 예를 들어 인덱스에 모두 검색할 수 있는 `Street`, `City`및 `Country` 하위 필드가 있는 `Address` 필드가 있다고 가정 합니다. **$Select**에서 `Address` 지정 하는 경우 쿼리 결과에는 세 개의 하위 필드가 모두 포함 됩니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
-`HotelName` `Rating` `HotelId`의 하위필드`City` 뿐만 아니라 결과에, 및 최상위 필드를 포함 합니다. `Address`
+결과에 `HotelId`, `HotelName`및 `Rating` 최상위 필드와 `Address`의 `City` 하위 필드를 포함 합니다.
 
     $select=HotelId, HotelName, Rating, Address/City
 
@@ -78,7 +78,7 @@ field_path ::= identifier('/'identifier)*
 }
 ```
 
-`BaseRate` `Address` `Type` 결과에는 `Rooms` 최상위 필드 뿐만 아니라의 모든 하위 필드와 컬렉션에 있는 각 개체의 및 하위 필드를 포함 합니다. `HotelName`
+결과에 `HotelName` 최상위 필드 뿐만 아니라 `Address`의 모든 하위 필드와 `Rooms` 컬렉션에 있는 각 개체의 `Type` 및 `BaseRate` 하위 필드를 포함 합니다.
 
     $select=HotelName, Address, Rooms/Type, Rooms/BaseRate
 
@@ -110,7 +110,7 @@ field_path ::= identifier('/'identifier)*
 
 ## <a name="next-steps"></a>다음 단계  
 
-- [Azure Search에서 검색 결과를 사용 하는 방법](search-pagination-page-layout.md)
-- [Azure Search에 대 한 OData 식 언어 개요](query-odata-filter-orderby-syntax.md)
-- [Azure Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md)
-- [문서 검색 &#40;Azure Search 서비스 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Azure Cognitive Search에서 검색 결과를 사용 하는 방법](search-pagination-page-layout.md)
+- [Azure Cognitive Search에 대 한 OData 식 언어 개요](query-odata-filter-orderby-syntax.md)
+- [Azure Cognitive Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md)
+- [문서 &#40;검색 Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

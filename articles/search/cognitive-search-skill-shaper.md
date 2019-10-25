@@ -1,22 +1,21 @@
 ---
-title: 쉐이퍼 인식 검색 기술 - Azure Search
-description: 구조화되지 않은 데이터에서 메타데이터 및 구조화된 정보를 추출하고 Azure Search 보강 파이프라인에서 복합 형식으로 구성합니다.
-services: search
+title: 쉐이퍼 인식 기술
+titleSuffix: Azure Cognitive Search
+description: 비구조적 데이터에서 메타 데이터 및 구조화 된 정보를 추출 하 고 Azure Cognitive Search의 AI 보강 파이프라인에서 복합 형식으로 셰이프를 구성 합니다.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 84814c317a945fd22ada580dcc3f64ed2adcff7c
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: e9ba540ee0eda2be50c88a89a139032d8d99752d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265345"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791868"
 ---
-#   <a name="shaper-cognitive-skill"></a>쉐이퍼 인식 기술
+# <a name="shaper-cognitive-skill"></a>쉐이퍼 인식 기술
 
 **Shaper** 기술은 나중에 보강 파이프라인에서 참조할 수 있는 [복합 형식](search-howto-complex-data-types.md) 으로 여러 입력을 통합 합니다. **쉐이퍼** 기술을 사용하면 기본적으로 구조를 만들고, 해당 구조의 멤버 이름을 정의하고, 각 멤버에게 값을 할당할 수 있습니다. 검색 시나리오에서 유용 하 게 사용할 수 있는 통합 필드의 예로는 이름 및 성을 단일 구조, 도시 및 주를 단일 구조로 결합 하거나 이름 및 생년월일을 단일 구조로 결합 하 여 고유한 id를 설정 하는 것이 있습니다.
 
@@ -32,7 +31,7 @@ Microsoft.Skills.Util.ShaperSkill
 
 ## <a name="scenario-1-complex-types"></a>시나리오 1: 복합 형식
 
-각각 두 개의 멤버(*text* 및 *sentiment*)가 있는 *analyzedText*라는 구조를 만드는 시나리오를 가정해 보세요. Azure Search 인덱스에서 다중 파트 검색 가능 필드를 *복합 형식* 이라고 하며, 원본 데이터에 매핑되는 해당 하는 복잡 한 구조를 포함 하는 경우가 많습니다.
+각각 두 개의 멤버(*text* 및 *sentiment*)가 있는 *analyzedText*라는 구조를 만드는 시나리오를 가정해 보세요. 인덱스에서 다중 파트 검색 가능 필드를 *복합 형식* 이라고 하며, 원본 데이터에 매핑되는 해당 하는 복잡 한 구조를 포함 하는 경우가 많습니다.
 
 그러나 복합 형식을 만들기 위한 또 다른 방법은 **Shaper** 기술을 사용 하는 것입니다. 기술에이 기술을 포함 하 여 기술를 처리 하는 동안 메모리 내 작업은 중첩 된 구조로 데이터 셰이프를 출력할 수 있으며,이는 인덱스의 복합 형식에 매핑될 수 있습니다. 
 
@@ -110,7 +109,7 @@ Microsoft.Skills.Util.ShaperSkill
 
 ### <a name="skill-output"></a>기술 출력
 
-**쉐이퍼** 기술은 텍스트 및 *text* 및 *sentiment*의 결합된 요소를 사용하여 *analyzedText*라는 새 요소를 생성합니다. 이 출력은 인덱스 스키마를 따릅니다. Azure Search 인덱스에서 가져오고 인덱싱됩니다.
+**쉐이퍼** 기술은 텍스트 및 *text* 및 *sentiment*의 결합된 요소를 사용하여 *analyzedText*라는 새 요소를 생성합니다. 이 출력은 인덱스 스키마를 따릅니다. Azure Cognitive Search 인덱스에서 가져오고 인덱싱됩니다.
 
 ```json
 {
@@ -247,10 +246,10 @@ Microsoft.Skills.Util.ShaperSkill
 }
 ```
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-+ [미리 정의된 기술](cognitive-search-predefined-skills.md)
-+ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기본 제공 기술](cognitive-search-predefined-skills.md)
++ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [복합 형식을 사용 하는 방법](search-howto-complex-data-types.md)
-+ [지식 저장소 개요](knowledge-store-concept-intro.md)
++ [지식 저장소 (미리 보기)](knowledge-store-concept-intro.md)
 + [기술 자료 저장소를 시작 하는 방법](knowledge-store-howto.md)

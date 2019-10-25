@@ -1,22 +1,22 @@
 ---
-title: 쿼리 및 인덱싱에 대 한 파티션 및 복제본 크기 조정-Azure Search
-description: Azure Search에서 파티션 및 복제본 컴퓨터 리소스를 조정하고 이 곳에서 각 리소스가 청구 가능한 검색 단위로 가격이 책정됩니다.
-author: HeidiSteen
+title: 파티션 및 복제본을 확장 하 여 쿼리 및 인덱스 워크 로드에 대 한 용량 추가
+titleSuffix: Azure Cognitive Search
+description: Azure Cognitive Search의 파티션 및 복제본 컴퓨터 리소스를 조정 합니다. 여기서 각 리소스는 청구 가능한 검색 단위로 가격이 책정 됩니다.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 07/01/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: c048dcf31d8f434f742d2da9351ef9b46f0a71d4
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 8613ddc668df338c4f96a9d37f32120718513925
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69650073"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792495"
 ---
-# <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Azure Search의 쿼리 및 인덱싱 작업을 위한 파티션 및 복제본 크기 조정
+# <a name="scale-up-partitions-and-replicas-to-add-capacity-for-query-and-index-workloads-in-azure-cognitive-search"></a>파티션 및 복제본을 확장 하 여 Azure Cognitive Search의 쿼리 및 인덱스 작업에 대 한 용량 추가
+
 [가격 책정 계층을 선택](search-sku-tier.md)하고 [검색 서비스를 프로비전](search-create-service-portal.md)한 후에는 필요에 따라 서비스에 사용되는 복제본 또는 파티션 수를 늘립니다. 각 계층은 고정된 개수의 청구 단위를 제공합니다. 이 문서에서는 쿼리 실행, 인덱싱 및 스토리지 요구 사항의 균형을 유지하는 최적의 구성을 달성하기 위해 이러한 단위를 할당하는 방법을 설명합니다.
 
 리소스 구성은 [기본 계층](https://aka.ms/azuresearchbasic) 또는 [표준 또는 저장소에 최적화 된 계층](search-limits-quotas-capacity.md)중 하나에서 서비스를 설정할 때 사용할 수 있습니다. 이러한 계층에서 서비스의 경우 각 파티션 및 복제본이 하나의 SU로 계산되는 SU(*검색 단위*)로 용량을 증분하여 구매합니다. 
@@ -24,7 +24,7 @@ ms.locfileid: "69650073"
 더 적은 SU를 사용하면 비례적으로 청구 금액이 줄어듭니다. 대금 청구는 서비스가 설정되는 동안 적용됩니다. 서비스를 일시적으로 사용하지 않는 경우 대금 청구를 피하는 유일한 방법은 서비스를 삭제한 다음 필요할 때 다시 만드는 것입니다.
 
 > [!Note]
-> 서비스를 삭제하면 해당 서비스에 있는 모든 것이 삭제됩니다. Azure Search에는 유지되는 검색 데이터를 백업하고 복원하는 기능이 없습니다. 기존 인덱스를 새 서비스에 다시 배포하려면 처음에 인덱스를 만들고 로드할 때 사용한 프로그램을 실행 해야 합니다. 
+> 서비스를 삭제하면 해당 서비스에 있는 모든 것이 삭제됩니다. 지속형 검색 데이터를 백업 하 고 복원 하기 위해 Azure Cognitive Search 내에는 기능이 없습니다. 기존 인덱스를 새 서비스에 다시 배포하려면 처음에 인덱스를 만들고 로드할 때 사용한 프로그램을 실행 해야 합니다. 
 
 ## <a name="terminology-replicas-and-partitions"></a>용어: 복제본 및 파티션
 복제본 및 파티션은 검색 서비스를 백업 하는 기본 리소스입니다.
@@ -40,7 +40,7 @@ ms.locfileid: "69650073"
 
 
 ## <a name="how-to-allocate-replicas-and-partitions"></a>복제본 및 파티션을 할당 하는 방법
-Azure Search에서 서비스에는 1개 파티션과 1개 복제본으로 구성된 최소 수준의 리소스가 할당됩니다. 이것을 지원하는 계층에 대해 스토리지 및 I/O가 더 필요하거나 쿼리 볼륨을 늘리거나 성능을 높이기 위해 복제본을 더 추가하는 경우 파티션을 늘려 계산 리소스를 증분 조정할 수 있습니다. 단일 서비스에는 모든 워크로드(인덱싱 및 쿼리)를 처리할 만큼 충분한 리소스가 있어야 합니다. 여러 서비스 간에 워크로드를 세분화할 수 없습니다.
+Azure Cognitive Search에서 서비스는 처음에 하나의 파티션과 하나의 복제본으로 구성 된 최소 수준의 리소스를 할당 합니다. 이것을 지원하는 계층에 대해 스토리지 및 I/O가 더 필요하거나 쿼리 볼륨을 늘리거나 성능을 높이기 위해 복제본을 더 추가하는 경우 파티션을 늘려 계산 리소스를 증분 조정할 수 있습니다. 단일 서비스에는 모든 워크로드(인덱싱 및 쿼리)를 처리할 만큼 충분한 리소스가 있어야 합니다. 여러 서비스 간에 워크로드를 세분화할 수 없습니다.
 
 복제본 및 파티션의 할당을 늘리거나 변경하려면 Azure Portal을 사용하는 것이 좋습니다. 포털은 최대 제한 보다 낮은 허용 가능한 조합에 대해 제한을 적용 합니다. 스크립트 기반 또는 코드 기반 프로 비전 접근 방식이 필요한 경우 [Azure PowerShell](search-manage-powershell.md) 또는 [관리 REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) 대체 솔루션입니다.
 
@@ -72,7 +72,7 @@ Azure Search에서 서비스에는 1개 파티션과 1개 복제본으로 구성
 
 
 > [!NOTE]
-> 서비스가 프로비전된 후에는 상위 SKU로 업그레이드할 수 없습니다. 새 계층에서 검색 서비스를 만들고 인덱스를 다시 로드해야 합니다. 서비스 프로비전에 대한 도움말은 [포털에서 Azure Search 서비스 만들기](search-create-service-portal.md) 를 참조하세요.
+> 서비스가 프로비전된 후에는 상위 SKU로 업그레이드할 수 없습니다. 새 계층에서 검색 서비스를 만들고 인덱스를 다시 로드해야 합니다. 서비스 프로 비전에 대 한 도움말 [은 포털에서 Azure Cognitive Search 서비스 만들기](search-create-service-portal.md) 를 참조 하세요.
 >
 >
 
@@ -97,7 +97,7 @@ Azure Search에서 서비스에는 1개 파티션과 1개 복제본으로 구성
 SU, 가격 책정 및 용량에 대해서는 Azure Websites에 자세히 설명되어 있습니다. 자세한 내용은 [가격 정보](https://azure.microsoft.com/pricing/details/search/)를 참조하세요.
 
 > [!NOTE]
-> 복제본 및 파티션 수는 12를 고르게 나눌 수 있는 값입니다(특히 1, 2, 3, 4, 6, 12). Azure Search에서 각 인덱스를 모든 파티션 사이에 고르게 분할할 수 있도록 12개의 부분으로 미리 나누기 때문입니다. 예를 들어, 서비스에 파티션이 세 개 있는 상태에서 인덱스를 하나 만들 경우 각 파티션에는 분할된 인덱스가 4개가 포함됩니다. Azure Search에서 인덱스를 분할하는 방법은 구현에 관한 세부 정보이며 이후 릴리스에서 변경될 수 있습니다. 지금은 그 숫자가 12이지만 이후에 12가 아닌 값으로 바뀔 수도 있습니다.
+> 복제본 및 파티션 수는 12를 고르게 나눌 수 있는 값입니다(특히 1, 2, 3, 4, 6, 12). 이는 Azure Cognitive Search에서 각 인덱스를 12 개의 분할 미리 나누어 모든 파티션에서 동일한 부분에 분산 될 수 있기 때문입니다. 예를 들어, 서비스에 파티션이 세 개 있는 상태에서 인덱스를 하나 만들 경우 각 파티션에는 분할된 인덱스가 4개가 포함됩니다. Azure Cognitive Search 분할의 인덱스는 구현 세부 정보 이며, 이후 릴리스에서 변경 될 수 있습니다. 지금은 그 숫자가 12이지만 이후에 12가 아닌 값으로 바뀔 수도 있습니다.
 >
 
 
@@ -112,16 +112,16 @@ SU, 가격 책정 및 용량에 대해서는 Azure Websites에 자세히 설명�
 
 * 읽기/쓰기 워크로드의 고가용성을 위한 복제본 세 개 이상(개별 문서가 추가, 업데이트 또는 삭제됨에 따라 쿼리 및 인덱싱)
 
-Azure Search에 대한 Service Level Agreement(서비스 수준 약정)는 문서 추가, 업데이트 또는 삭제로 구성된 쿼리 작업 및 인덱스 업데이트를 대상으로 합니다.
+Azure Cognitive Search에 대 한 SLA (서비스 수준 계약)는 문서 추가, 업데이트 또는 삭제로 구성 된 쿼리 작업 및 인덱스 업데이트를 대상으로 합니다.
 
 기본 계층은 하나의 파티션과 세 개의 복제본에 우선합니다. 인덱싱 및 쿼리 처리량 모두에 대한 수요 변동에 즉시 응답하기 위한 유연성이 필요한 경우 표준 계층 중 하나를 사용하는 것이 좋습니다.  저장소 요구 사항이 쿼리 처리량 보다 훨씬 더 신속 하 게 증가 하는 경우 저장소에 최적화 된 계층 중 하나를 고려 합니다.
 
 ### <a name="index-availability-during-a-rebuild"></a>인덱스 다시 작성 중 가용성
 
-Azure Search의 고가용성은 인덱스 다시 작성을 포함하지 않는 쿼리 및 인덱스 업데이트와 관련이 있습니다. 필드를 삭제하거나, 데이터 유형을 변경하거나, 필드 이름을 변경하는 경우 인덱스를 다시 작성해야 합니다. 인덱스를 다시 작성하려면 인덱스를 삭제하고 인덱스를 다시 만들고 데이터를 다시 로드해야 합니다.
+Azure Cognitive Search에 대 한 고가용성은 인덱스를 다시 작성 하지 않는 쿼리와 인덱스 업데이트와 관련이 있습니다. 필드를 삭제하거나, 데이터 유형을 변경하거나, 필드 이름을 변경하는 경우 인덱스를 다시 작성해야 합니다. 인덱스를 다시 작성하려면 인덱스를 삭제하고 인덱스를 다시 만들고 데이터를 다시 로드해야 합니다.
 
 > [!NOTE]
-> 인덱스를 다시 작성하지 않고 Azure Search 인덱스에 새 필드를 추가할 수 있습니다. 새 필드의 값은 인덱스에 이미 있는 모든 문서에 대해 null이 됩니다.
+> 인덱스를 다시 작성 하지 않고 Azure Cognitive Search 인덱스에 새 필드를 추가할 수 있습니다. 새 필드의 값은 인덱스에 이미 있는 모든 문서에 대해 null이 됩니다.
 
 다시 작성하는 동안 인덱스 가용성을 유지하려면 동일한 서비스에 이름이 다른 인덱스 복사본을 두거나 다른 서비스에 이름이 같은 인덱스 복사본을 두고 코드로 리디렉션 또는 장애 조치(failover) 논리를 제공해야 합니다.
 
@@ -133,7 +133,7 @@ Azure Search의 고가용성은 인덱스 다시 작성을 포함하지 않는 �
 
 예상 QPS(초당 쿼리 수)를 고정 값으로 제공할 수 없습니다. 쿼리 성능은 쿼리의 복잡성과 경쟁 작업에 따라 달라지기 때문입니다. 복제본을 추가하면 성능이 확실히 증가되지만 결과가 반드시 비례하지 않습니다. 복제본을 세 개 추가한다고 해서 처리량이 3배가 되는 것은 아닙니다.
 
-워크로드에 대한 QPS를 측정하는 지침은 [Azure Search 성능 및 최적화 고려 사항](search-performance-optimization.md)을 참조하세요.
+워크 로드에 대 한 QPS을 예측 하는 방법에 대 한 지침은 [Azure Cognitive Search 성능 및 최적화 고려 사항](search-performance-optimization.md)을 참조 하세요.
 
 ## <a name="increase-indexing-performance-with-partitions"></a>파티션으로 인덱싱 성능 향상
 거의 실시간으로 진행되는 데이터 새로 고침을 필요로 하는 검색 애플리케이션은 복제본보다 비례적으로 더 많은 파티션이 필요합니다. 파티션을 추가하면 많은 수의 컴퓨팅 리소스로 읽기/쓰기 작업이 분산됩니다. 또한 추가 인덱스와 문서를 저장하기 위한 더 많은 디스크 공간이 보장됩니다.
@@ -143,4 +143,4 @@ Azure Search의 고가용성은 인덱스 다시 작성을 포함하지 않는 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Search에 대 한 가격 책정 계층 선택](search-sku-tier.md)
+[Azure Cognitive Search에 대 한 가격 책정 계층 선택](search-sku-tier.md)

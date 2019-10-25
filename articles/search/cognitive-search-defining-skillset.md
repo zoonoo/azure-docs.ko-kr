@@ -1,25 +1,25 @@
 ---
-title: Cognitive Search 파이프라인에서 기술 세트 만들기 - Azure Search
-description: Azure Search에서 사용을 위해 데이터에서 구조화된 정보를 추출하고 보강하기 위한 데이터 추출, 자연어 처리 또는 이미지 분석 단계입니다.
+title: 보강 파이프라인에서 기술 만들기
+titleSuffix: Azure Cognitive Search
+description: 데이터 추출, 자연어 처리 또는 이미지 분석 단계를 정의 하 여 Azure Cognitive Search에서 사용 하기 위해 데이터에서 구조화 된 정보를 보강 하 고 추출 합니다.
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: f78b8c3b9619b7eea92b6a4f04ed4f6543916efe
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: a60298b02b02e375d7241acf15852a19f814d59a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71265523"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787462"
 ---
-# <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>보강 파이프라인에서 기술 집합을 만드는 방법
+# <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Azure Cognitive Search에서 AI 보강 파이프라인에 기술를 만드는 방법 
 
-인식 검색은 데이터를 추출하고 보강하여 Azure Search에서 검색 가능하게 합니다. 인덱싱 동안 참조된 *기술 집합*에 결합된 추출 및 보강 단계를 *인식 기술*이라고 합니다. 기술는 [기본 제공 기술](cognitive-search-predefined-skills.md) 또는 사용자 지정 기술을 사용할 수 있습니다 (자세한 내용은 [인지 검색을 위한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md) 참조).
+AI 보강는 Azure Cognitive Search에서 검색할 수 있도록 데이터를 추출 하 고 강화 합니다. 인덱싱 동안 참조된 *기술 집합*에 결합된 추출 및 보강 단계를 *인식 기술*이라고 합니다. 기술는 [기본 제공 기술](cognitive-search-predefined-skills.md) 또는 사용자 지정 기술을 사용할 수 있습니다 (자세한 내용은 [AI 보강 파이프라인에서 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md) 참조).
 
-이 문서에서는 사용하려는 기술에 대한 보강 파이프라인을 만드는 방법을 알아 봅니다. 기술 집합은 Azure Search [인덱서](search-indexer-overview.md)에 첨부되어 있습니다. 이 문서에서 다루는 파이프라인 디자인의 한 부분은 기술 집합 자체를 생성하는 것입니다. 
+이 문서에서는 사용하려는 기술에 대한 보강 파이프라인을 만드는 방법을 알아 봅니다. 기술는 Azure Cognitive Search [인덱서에](search-indexer-overview.md)연결 됩니다. 이 문서에서 다루는 파이프라인 디자인의 한 부분은 기술 집합 자체를 생성하는 것입니다. 
 
 > [!NOTE]
 > 파이프라인 디자인의 다른 부분은 인덱서를 지정하는 것으로 [다음 단계](#next-step)에서 다루게 됩니다. 인덱서 정의에는 대상 인덱스의 출력에 입력을 연결하는 데 사용되는 필드 매핑 외에 기술 집합에 대한 참조가 포함됩니다.
@@ -45,10 +45,10 @@ ms.locfileid: "71265523"
 ![가상 보강 파이프라인](media/cognitive-search-defining-skillset/sample-skillset.png "가상 보강 파이프라인")
 
 
-파이프라인에서 원하는 것에 대해 잘 알고 있으면 이러한 단계를 제공하는 기술 집합을 표현할 수 있습니다. 기능적으로 Azure Search에 인덱서 정의를 업로드할 때 기술 집합을 표현합니다. 인덱서를 업로드하는 방법에 대해 자세히 알려면 [인덱서 설명서](https://docs.microsoft.com/rest/api/searchservice/create-indexer)를 참조합니다.
+파이프라인에서 원하는 것에 대해 잘 알고 있으면 이러한 단계를 제공하는 기술 집합을 표현할 수 있습니다. 기능적으로 기술는 인덱서 정의를 Azure Cognitive Search에 업로드할 때 표현 됩니다. 인덱서를 업로드하는 방법에 대해 자세히 알려면 [인덱서 설명서](https://docs.microsoft.com/rest/api/searchservice/create-indexer)를 참조합니다.
 
 
-다이어그램에서 *문서 해독* 단계는 자동으로 발생합니다. 기본적으로 Azure Search는 잘 알려진 파일을 열고 각 문서에서 추출된 텍스트를 포함하는 *콘텐츠* 필드를 만드는 방법에 대해 잘 압니다. 흰색 상자는 기본 제공된 보강자이며, 점으로 구분된 "Bing Entity Search" 상자는 만들고 있는 사용자 지정 보강자를 나타냅니다. 설명처럼 기술 집합은 세 가지 기술이 포함되어 있습니다.
+다이어그램에서 *문서 해독* 단계는 자동으로 발생합니다. 기본적으로 Azure Cognitive Search는 잘 알려진 파일을 열고 각 문서에서 추출 된 텍스트를 포함 하는 *콘텐츠* 필드를 만드는 방법을 알고 있습니다. 흰색 상자는 기본 제공된 보강자이며, 점으로 구분된 "Bing Entity Search" 상자는 만들고 있는 사용자 지정 보강자를 나타냅니다. 설명처럼 기술 집합은 세 가지 기술이 포함되어 있습니다.
 
 ## <a name="skillset-definition-in-rest"></a>REST의 기술 집합 정의
 
@@ -243,11 +243,11 @@ Content-Type: application/json
 
 ![샘플 출력 구조](media/cognitive-search-defining-skillset/enriched-doc.png "샘플 출력 구조")
 
-지금까지이 구조는 내부 전용 이며 메모리 전용 이며 Azure Search 인덱스 에서만 사용 됩니다. 기술 자료 저장소를 추가 하면 검색 외부에서 사용 하기 위해 모양을 강화 저장할 수 있습니다.
+지금까지이 구조는 내부 전용 이며 메모리 전용 이며 Azure Cognitive Search 인덱스 에서만 사용 됩니다. 기술 자료 저장소를 추가 하면 검색 외부에서 사용 하기 위해 모양을 강화 저장할 수 있습니다.
 
 ## <a name="add-a-knowledge-store"></a>기술 자료 저장소 추가
 
-[기술 자료 저장소](knowledge-store-concept-intro.md) 는 보강 문서를 저장 하기 위한 Azure Search의 미리 보기 기능입니다. Azure storage 계정에 의해 생성 되는 기술 자료 저장소는 보강 데이터가 있는 리포지토리입니다. 
+[기술 자료 저장소](knowledge-store-concept-intro.md) 는 보강 문서를 저장 하기 위한 Azure Cognitive Search의 미리 보기 기능입니다. Azure storage 계정에 의해 생성 되는 기술 자료 저장소는 보강 데이터가 있는 리포지토리입니다. 
 
 기술 자료 저장소 정의가 기술에 추가 됩니다. 전체 프로세스에 대 한 연습은 [기술 자료 저장소를 시작 하는 방법](knowledge-store-howto.md)을 참조 하세요.
 

@@ -1,23 +1,23 @@
 ---
-title: Azure Portal에서 Azure Search 인덱스 만들기 - Azure Search
-description: 기본 제공 포털 인덱스 디자이너를 사용 하 여 Azure Search에 대 한 인덱스를 만드는 방법에 대해 알아봅니다.
+title: Azure Portal에서 Azure Cognitive Search 인덱스 만들기
+titleSuffix: Azure Cognitive Search
+description: 기본 제공 포털 인덱스 디자이너를 사용 하 여 Azure Cognitive Search에 대 한 인덱스를 만드는 방법에 대해 알아봅니다.
 manager: nitinme
-author: heidisteen
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 10/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 4abef5a3030643d4c7b91d2911f350190972f1eb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: a9340b9c058ba780b8d74587f21c1b9fbe59576d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71937276"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792451"
 ---
-# <a name="create-an-azure-search-index-in-the-portal"></a>포털에서 Azure Search 인덱스 만들기
+# <a name="create-an-azure-cognitive-search-index-in-the-portal"></a>포털에서 Azure Cognitive Search 인덱스 만들기
 
-Azure Search는 프로토타입이나 Azure Search 서비스에서 호스트되는 [검색 인덱스](search-what-is-an-index.md)를 만드는 데 유용한 기본 제공 인덱스 디자이너를 포털에 포함합니다. 이 도구는 스키마 생성에 사용됩니다. 정의를 저장하면 빈 인덱스가 Azure Search에서 완전히 표현됩니다. 검색 가능한 콘텐츠로 부하를 로드 하는 방법은 사용자가 결정 합니다.
+Azure Cognitive Search에는 Azure Cognitive Search 서비스에서 호스트 되는 [검색 인덱스](search-what-is-an-index.md) 를 만들거나 프로토타입에 유용 하 게 사용할 포털의 기본 제공 인덱스 디자이너가 포함 되어 있습니다. 이 도구는 스키마 생성에 사용됩니다. 정의를 저장 하면 빈 인덱스가 Azure Cognitive Search에 완전히 표현 됩니다. 검색 가능한 콘텐츠로 부하를 로드 하는 방법은 사용자가 결정 합니다.
 
 인덱스 디자이너는 인덱스를 만들기 위한 유일한 방법입니다. 또는 [데이터 가져오기 마법사](search-get-started-portal.md)를 사용 하 여 인덱스를 만들고 로드할 수 있습니다. 마법사는 자신이 만든 인덱스에 대해서만 작동 합니다. 프로그래밍 방식으로 [.NET](search-create-index-dotnet.md) 또는 [REST](search-create-index-rest-api.md) API를 사용하여 인덱스를 만들 수 있습니다.
 
@@ -29,7 +29,7 @@ Azure Search는 프로토타입이나 Azure Search 서비스에서 호스트되�
 
    ![명령 모음에서 인덱스 링크 추가](media/search-create-index-portal/add-index.png "명령 모음에서 인덱스 링크 추가")
 
-3. Azure Search 인덱스를 명명합니다. 인덱스 이름은 인덱싱 및 쿼리 작업에서 참조됩니다. 인덱스 이름은 인덱스로의 연결 및 Azure Search REST API에서 HTTP 요청을 보내는 데 사용된 엔드포인트 URL의 일부가 됩니다.
+3. Azure Cognitive Search 인덱스의 이름을로 합니다. 인덱스 이름은 인덱싱 및 쿼리 작업에서 참조됩니다. 인덱스 이름은 인덱스에 연결 하 고 Azure Cognitive Search REST API에서 HTTP 요청을 보내는 데 사용 되는 끝점 URL의 일부가 됩니다.
 
    * 문자로 시작합니다.
    * 소문자, 숫자 또는 대시(“-”)만 사용합니다.
@@ -43,11 +43,11 @@ Azure Search는 프로토타입이나 Azure Search 서비스에서 호스트되�
 
 1. 들어오는 데이터가 계층적 이면 스키마에 중첩 된 구조를 나타내는 [복합 형식이](search-howto-complex-data-types.md) 포함 되어야 합니다. 기본 제공 샘플 데이터 집합 호텔은 각 호텔에 대해 일 대 일 관계를 갖는 주소 (여러 개의 하위 필드 포함)를 사용 하는 복합 형식을 보여 주며, 대화방 복합 컬렉션은 여러 개의 대화방에 연결 되어 있습니다. 
 
-1. Edm.String 형식의 *key* 필드를 지정합니다. 키 필드는 모든 Azure Search 인덱스에 필수이며 문자열이어야 합니다. 이 필드의 값은 각 문서를 고유하게 식별해야 합니다. 기본적으로 필드 이름은 *id*로 지정되지만 문자열이 [명명 규칙](https://docs.microsoft.com/rest/api/searchservice/Naming-rules)을 충족하기만 하면 이름을 변경할 수 있습니다. 예를 들어 필드 컬렉션에 *hotel-id*가 포함된 경우 해당 필드를 키로 선택합니다. 
+1. Edm.String 형식의 *key* 필드를 지정합니다. 키 필드는 모든 Azure Cognitive Search 인덱스에 필수 이며 문자열 이어야 합니다. 이 필드의 값은 각 문서를 고유하게 식별해야 합니다. 기본적으로 필드 이름은 *id*로 지정되지만 문자열이 [명명 규칙](https://docs.microsoft.com/rest/api/searchservice/Naming-rules)을 충족하기만 하면 이름을 변경할 수 있습니다. 예를 들어 필드 컬렉션에 *hotel-id*가 포함된 경우 해당 필드를 키로 선택합니다. 
 
 1. 각 필드의 특성을 설정합니다. 인덱스 디자이너는 데이터 형식에 유효하지 않은 모든 특성을 제외하지만 포함할 특성을 제안하지는 않습니다. 특성의 용도를 파악하려면 다음 섹션의 지침을 참조하세요.
 
-    Azure Search API 설명서에는 간단한 *호텔* 인덱스를 제공하는 코드 예제가 들어 있습니다. 아래 스크린샷에서는 인덱스 정의 중에 지정된 프랑스어 분석기를 포함한 인덱스 정의를 확인할 수 있으며, 포털에서 연습으로 다시 만들 수 있습니다.
+    Azure Cognitive Search API 설명서에는 간단한 *호텔* 인덱스를 포함 하는 코드 예제가 포함 되어 있습니다. 아래 스크린샷에서는 인덱스 정의 중에 지정된 프랑스어 분석기를 포함한 인덱스 정의를 확인할 수 있으며, 포털에서 연습으로 다시 만들 수 있습니다.
 
     ![호텔 데모 인덱스](media/search-create-index-portal/field-definitions.png "호텔 데모 인덱스")
 
@@ -76,7 +76,7 @@ Azure Search는 프로토타입이나 Azure Search 서비스에서 호스트되�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Search 인덱스를 만든 후에는 [검색 가능한 데이터를 인덱스에 업로드](search-what-is-data-import.md) 단계를 진행할 수 있습니다.
+Azure Cognitive Search 인덱스를 만든 후 다음 단계로 이동할 수 있습니다. [검색 가능한 데이터를 인덱스에 업로드](search-what-is-data-import.md)합니다.
 
 또는 [인덱스를 보다 자세히 살펴볼 수도 있습니다](search-what-is-an-index.md). 필드 컬렉션 외에도 인덱스는 분석기, 확인기, 점수 매기기 프로필 및 CORS 설정도 지정합니다. 포털은 필드, 분석기 및 확인기와 같은 가장 일반적인 요소를 정의하기 위한 탭 페이지를 제공합니다. 다른 요소를 만들거나 수정하려면 REST API 또는 .NET SDK를 만들면 됩니다.
 

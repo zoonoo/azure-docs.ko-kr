@@ -1,27 +1,27 @@
 ---
-title: '예: 다중 수준 패싯-Azure Search'
+title: '예: 다중 수준 패싯'
+titleSuffix: Azure Cognitive Search
 description: 다중 수준 분류를 위한 패싯 구조를 빌드하여 애플리케이션 페이지에 포함할 수 있는 중첩 탐색 구조를 만드는 방법을 알아봅니다.
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 9a56bba55f9b3a59126168bc2bbbd50927c3fc78
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 8672fa0911d1a031205bb3340fa0c03ab9492a28
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70274091"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792951"
 ---
-# <a name="example-multi-level-facets-in-azure-search"></a>예: Azure Search의 다중 수준 패싯
+# <a name="example-multi-level-facets-in-azure-cognitive-search"></a>예: Azure Cognitive Search의 다중 수준 패싯
 
-Azure Search 스키마는 다중 수준 분류 범주를 명시적으로 지원하지는 않지만, 인덱싱 전에 콘텐츠를 조작하여 근사치를 구한 다음, 결과에 특수 처리를 적용할 수 있습니다. 
+Azure Cognitive Search 스키마는 다중 수준 분류 범주를 명시적으로 지원 하지 않지만 인덱싱 전에 콘텐츠를 조작 하 고 결과에 몇 가지 특수 한 처리를 적용 하 여 대략적으로 확인할 수 있습니다. 
 
 ## <a name="start-with-the-data"></a>데이터 시작
 
-이 문서의 예제는 이전 예제 [AdventureWorks Inventory 데이터베이스 모델링](search-example-adventureworks-modeling.md)을 기반으로 Azure Search의 다중 수준 패싯을 보여줍니다.
+이 문서의 예제는 Azure Cognitive Search에서 다중 수준 패싯를 보여 주기 위해 [AdventureWorks Inventory Database 모델링](search-example-adventureworks-modeling.md)의 이전 예제를 기반으로 합니다.
 
 AdventureWorks는 부모-자식 관계의 간단한 2수준 분류를 제공합니다. 이 구조의 고정 길이 분류 깊이의 경우 간단한 SQL 조인 쿼리를 사용하여 분류를 그룹화할 수 있습니다.
 
@@ -39,7 +39,7 @@ LEFT JOIN
 
 ## <a name="indexing-to-a-collection-field"></a>컬렉션 필드에 인덱싱
 
-이 구조를 포함하는 인덱스에서 이 데이터를 저장할 Azure Search 스키마에 **Collection(Edm.String)** 필드를 만들고, 필드 특성에 searchable, filterable, facetable 및 retrievable을 포함합니다.
+이 구조를 포함 하는 인덱스에서 Azure Cognitive Search 스키마의 **컬렉션 (패싯 가능)** 필드를 만들어이 데이터를 저장 하 고 필드 특성에 검색 가능, 필터링 가능, 및 검색 가능이 포함 되어 있는지 확인 합니다.
 
 이제 특정 분류 범주를 참조하는 콘텐츠를 인덱싱할 때 각 분류 수준의 텍스트를 포함하는 배열로 분류를 제출합니다. 예를 들어 `ProductCategoryId = 5 (Mountain Bikes)`인 엔터티는 필드를 `[ "Bikes", "Bikes|Mountain Bikes"]`로 제출합니다.
 
@@ -99,4 +99,4 @@ categories.count = sum;
 
 ## <a name="see-also"></a>참고 항목
 
-[예: Azure Search에 대 한 AdventureWorks 인벤토리 데이터베이스 모델링](search-example-adventureworks-modeling.md)
+[예: Azure Cognitive Search에 대 한 AdventureWorks 인벤토리 데이터베이스 모델링](search-example-adventureworks-modeling.md)

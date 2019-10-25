@@ -1,5 +1,6 @@
 ---
-title: Xamarin Android 고려 사항 (.NET 용 Microsoft Authentication Library) | Microsoft
+title: Xamarin Android 고려 사항 (.NET 용 Microsoft 인증 라이브러리)
+titleSuffix: Microsoft identity platform
 description: MSAL.NET (Microsoft Authentication Library for .NET)에서 Xamarin Android를 사용 하는 경우의 특정 고려 사항에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 465902cf6ef6db1d867f7cc986da8c9e06e4fbbf
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 2d6af9753887ffa593a44fba9faa3376066417a8
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532451"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802639"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>MSAL.NET를 사용 하 여 Xamarin Android 관련 고려 사항
 이 문서에서는 MSAL.NET (Microsoft Authentication Library for .NET)에서 Xamarin Android를 사용할 때의 구체적인 고려 사항을 설명 합니다.
@@ -58,7 +59,7 @@ var pca = PublicClientApplicationBuilder
 
 
 ## <a name="ensuring-control-goes-back-to-msal-once-the-interactive-portion-of-the-authentication-flow-ends"></a>인증 흐름의 대화형 부분이 종료 되 면 컨트롤이 MSAL으로 다시 이동 하도록 보장
-Android에서 `OnActivityResult` `Activity` 의 메서드를 재정의 하 고 AuthenticationContinuationHelper msal 클래스의 SetAuthenticationContinuationEventArgs 메서드를 호출 해야 합니다.
+Android에서 `Activity`의 `OnActivityResult` 메서드를 재정의 하 고 AuthenticationContinuationHelper MSAL 클래스의 SetAuthenticationContinuationEventArgs 메서드를 호출 해야 합니다.
 
 ```csharp
 protected override void OnActivityResult(int requestCode, 
@@ -74,7 +75,7 @@ protected override void OnActivityResult(int requestCode,
 그러면 인증 흐름의 대화형 부분이 종료 되 면 컨트롤이 MSAL로 돌아갑니다.
 
 ## <a name="update-the-android-manifest"></a>Android 매니페스트 업데이트
-에 `AndroidManifest.xml` 는 다음 값이 포함 되어야 합니다.
+`AndroidManifest.xml`에는 다음 값이 포함 되어야 합니다.
 ```csharp
 <activity android:name="microsoft.identity.client.BrowserTabActivity">
     <intent-filter>
@@ -115,7 +116,7 @@ var authResult = AcquireTokenInteractive(scopes)
 
 ### <a name="error-the-name-authenticationcontinuationhelper-does-not-exist-in-the-current-context"></a>오류: ' AuthenticationContinuationHelper ' 이름이 현재 컨텍스트에 없습니다.
 
-Visual Studio에서 Android .csproj * 파일을 올바르게 업데이트 하지 않았기 때문일 수 있습니다. 경우에 따라  **hintpath>filepath에monoandroid90대신netstandard13이잘못포함\<** 됩니다.
+Visual Studio에서 Android .csproj * 파일을 올바르게 업데이트 하지 않았기 때문일 수 있습니다. 경우에 따라 **\<HintPath >** filepath에 **monoandroid90**대신 netstandard13이 잘못 포함 됩니다.
 
 ```xml
 <Reference Include="Microsoft.Identity.Client, Version=3.0.4.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae,
@@ -128,6 +129,6 @@ Visual Studio에서 Android .csproj * 파일을 올바르게 업데이트 하지
 
 다음 샘플의 readme.md 파일에 있는 [Android 관련 고려 사항](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations) 단락에서 자세한 내용 및 샘플을 제공 합니다.
 
-| 예제 | 플랫폼 | 설명 |
+| 샘플 | 플랫폼 | 설명 |
 | ------ | -------- | ----------- |
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | 간단한 Xamarin Forms 앱은 MSAL을 사용 하 여 AADD v2.0 끝점을 통해 MSA 및 Azure AD를 인증 하 고 결과 토큰을 사용 하 여 Microsoft Graph에 액세스 하는 방법을 보여주는 합니다. <br>![토폴로지](media/msal-net-xamarin-android-considerations/topology.png) |

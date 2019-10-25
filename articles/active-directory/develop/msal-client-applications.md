@@ -1,5 +1,6 @@
 ---
-title: 클라이언트 응용 프로그램 (Microsoft 인증 라이브러리) | Microsoft
+title: 클라이언트 응용 프로그램 (Microsoft 인증 라이브러리)
+titleSuffix: Microsoft identity platform
 description: MSAL (Microsoft 인증 라이브러리)의 공용 클라이언트 및 기밀 클라이언트 응용 프로그램에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c854cc34a1ea50f37428cfc18146618d516de7d
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 76c57d3a13f9f03fa635c6c9425e2049e2a2c885
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69532966"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803205"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>공용 클라이언트 및 기밀 클라이언트 응용 프로그램
 MSAL (Microsoft 인증 라이브러리)은 두 가지 유형의 클라이언트, 즉 공용 클라이언트와 기밀 클라이언트를 정의 합니다. 두 클라이언트 유형은 권한 부여 서버와 안전 하 게 인증 하 고 클라이언트 자격 증명의 기밀성을 유지 하는 기능으로 구분 됩니다. 반면, ADAL (Azure AD 인증 라이브러리)은 Azure AD에 대 한 연결 인 *인증 컨텍스트* 를 사용 합니다.
@@ -30,12 +31,12 @@ MSAL (Microsoft 인증 라이브러리)은 두 가지 유형의 클라이언트,
 - **기밀 클라이언트 응용 프로그램** 은 서버 (웹 앱, 웹 API 앱 또는 서비스/디먼 앱)에서 실행 되는 앱입니다. 액세스 하기 어렵고 응용 프로그램 암호를 유지할 수 있는 이유 때문입니다. 기밀 클라이언트는 구성 시간 암호를 보유할 수 있습니다. 클라이언트의 각 인스턴스에는 개별 구성 (클라이언트 ID 및 클라이언트 암호 포함)이 있습니다. 이러한 값은 최종 사용자가 추출 하기 어렵습니다. 웹 앱은 가장 일반적인 기밀 클라이언트입니다. 클라이언트 ID는 웹 브라우저를 통해 노출 되지만 비밀은 백 채널에만 전달 되 고 직접 노출 되지 않습니다.
 
     기밀 클라이언트 앱: <BR>
-    ![Web app ](media/msal-client-applications/web-app.png) ![Web API ](media/msal-client-applications/web-api.png) ![Daemon/서비스 ](media/msal-client-applications/daemon-service.png)
+    웹 앱](media/msal-client-applications/web-app.png) ![웹 API](media/msal-client-applications/web-api.png) ![데몬/서비스](media/msal-client-applications/daemon-service.png)를 ![합니다.
 
 - **공용 클라이언트 응용 프로그램** 은 장치 또는 데스크톱 컴퓨터에서 또는 웹 브라우저에서 실행 되는 앱입니다. 응용 프로그램 암호를 안전 하 게 유지 하는 것은 신뢰 되지 않으므로 사용자를 대신 하 여 Web Api에 액세스 하기만 하면 됩니다. (공용 클라이언트 흐름이 지원 됩니다.) 공용 클라이언트는 구성 타임 암호를 포함할 수 없으므로 클라이언트 암호를 갖지 않습니다.
 
     공용 클라이언트 앱: <BR>
-    앱 ](media/msal-client-applications/desktop-app.png) ![Browserless API ](media/msal-client-applications/browserless-app.png) ![Mobile 앱을 ![Desktop ](media/msal-client-applications/mobile-app.png)
+    ![데스크톱 앱](media/msal-client-applications/desktop-app.png) ![Browserless API](media/msal-client-applications/browserless-app.png) ![모바일 앱](media/msal-client-applications/mobile-app.png)
 
 > [!NOTE]
 > MSAL에서는 공용 및 기밀 클라이언트 앱을 분리 하지 않습니다.  MSAL는 클라이언트 앱을 사용자 에이전트 기반 앱으로, 클라이언트 코드가 웹 브라우저와 같은 사용자 에이전트에서 실행 되는 공용 클라이언트를 나타냅니다. 브라우저 컨텍스트는 공개적으로 액세스할 수 있기 때문에 이러한 클라이언트는 비밀을 저장 하지 않습니다.

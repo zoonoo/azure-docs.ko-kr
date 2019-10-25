@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 721d4dae2c05c252b863b7cea2589deca8404602
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d5028ff6378fec5939aee3218071fe6f4eb1e843
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392697"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791621"
 ---
 # <a name="configure-prerequisites"></a>필수 조건 구성
 
-Marketplace 제품을 사용 하 여 Azure에서 자체 관리 되는 OpenShift 컨테이너 플랫폼 3.11 클러스터를 배포 하기 전에 몇 가지 필수 구성 요소를 구성 해야 합니다.  Ssh 키 (암호 제외), Azure key vault, key vault 암호 및 서비스 주체를 만드는 방법에 대 한 자세한 내용은 [Openshift 필수 조건](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-prerequisites) 문서를 참조 하세요.
+Marketplace 제품을 사용 하 여 Azure에서 자체 관리 되는 OpenShift 컨테이너 플랫폼 3.11 클러스터를 배포 하기 전에 몇 가지 필수 구성 요소를 구성 해야 합니다.  Ssh 키 (암호 제외), Azure key vault, key vault 암호 및 서비스 주체를 만드는 방법에 대 한 자세한 내용은 [Openshift 필수 조건](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites) 문서를 참조 하세요.
 
  
 ## <a name="deploy-using-the-marketplace-offer"></a>Marketplace 제품을 사용 하 여 배포

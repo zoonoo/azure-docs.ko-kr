@@ -1,24 +1,23 @@
 ---
-title: 검색 탐색기 도구를 사용 하 여 Azure Portal에서 데이터 쿼리 Azure Search
-description: 검색 탐색기는 Azure Portal에 기본 제공 되며 Azure Search에서 콘텐츠를 탐색 하 고 쿼리 유효성을 검사 하는 데 유용 합니다. 용어 또는 문구 검색 문자열 또는 고급 구문을 포함 하는 정규화 된 검색 식을 입력 합니다.
+title: 검색 탐색기 도구를 사용 하 여 Azure Portal에서 데이터 쿼리
+titleSuffix: Azure Cognitive Search
+description: 검색 탐색기는 Azure Portal에 기본 제공 되며, Azure Cognitive Search에서 콘텐츠를 탐색 하 고 쿼리 유효성을 검사 하는 데 유용 합니다. 용어 또는 문구 검색 문자열 또는 고급 구문을 포함 하는 정규화 된 검색 식을 입력 합니다.
 manager: nitinme
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/20/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: fe66787ea82a8f97470199e99faadb72b85c83b2
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 0bb50bd50c58b85f1d5de100c34d00d114a9ed77
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178142"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792955"
 ---
-# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-search"></a>Azure Portal에서 검색 탐색기를 사용 하 여 Azure Search에서 문서를 쿼리 합니다. 
+# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-cognitive-search"></a>Azure Portal에서 검색 탐색기를 사용 하 여 Azure에서 문서를 쿼리 Cognitive Search 
 
-이 문서에서는 Azure Portal에서 **검색 탐색기**를 사용하여 기존 Azure Search 인덱스를 쿼리하는 방법을 보여줍니다. 명령 모음에서 검색 탐색기를 시작 하 여 단순 또는 전체 Lucene 쿼리 식을 서비스의 기존 인덱스에 제출할 수 있습니다. 
+이 문서에서는 Azure Portal에서 **검색 탐색기** 를 사용 하 여 기존 Azure Cognitive Search 인덱스를 쿼리 하는 방법을 보여 줍니다. 명령 모음에서 검색 탐색기를 시작 하 여 단순 또는 전체 Lucene 쿼리 식을 서비스의 기존 인덱스에 제출할 수 있습니다. 
 
    ![포털의 검색 탐색기 명령](./media/search-explorer/search-explorer-cmd2.png "포털의 검색 탐색기 명령")
 
@@ -38,11 +37,11 @@ ms.locfileid: "71178142"
 
    **결과**
    
-   ![빈 쿼리 예제](./media/search-explorer/search-explorer-example-empty.png "정규화되지 않았거나 또는 빈 쿼리 예제")
+   ![빈 쿼리 예제](./media/search-explorer/search-explorer-example-empty.png "정규화 되지 않았거나 빈 쿼리 예제")
 
 ### <a name="example-2---free-text-search"></a>예제 2 - 자유 텍스트 검색
 
-연산자가 있거나 없는 자유 형식 쿼리는 사용자 지정 앱에서 Azure Search로 보내는 사용자 정의 쿼리를 시뮬레이트하는 데 유용합니다. 쿼리 용어나 식을 제공하면 검색 순위가 매겨집니다. 다음 예제에서는 자유 텍스트 검색을 보여 줍니다.
+연산자가 있거나 없는 자유 형식 쿼리는 사용자 지정 앱에서 Azure Cognitive Search로 전송 되는 사용자 정의 쿼리를 시뮬레이션 하는 데 유용 합니다. 쿼리 용어나 식을 제공하면 검색 순위가 매겨집니다. 다음 예제에서는 자유 텍스트 검색을 보여 줍니다.
 
    ```Input
    Seattle apartment "Lake Washington" miele OR thermador appliance
@@ -63,7 +62,7 @@ ms.locfileid: "71178142"
    ```
    **결과**
 
-   ![문서 수 예제](./media/search-explorer/search-explorer-example-count.png "인덱스의 일치하는 문서 수")
+   ![문서 수 예](./media/search-explorer/search-explorer-example-count.png "인덱스의 일치 하는 문서 수")
 
 ### <a name="example-4---restrict-fields-in-search-results"></a>예제 4 - 검색 결과의 필드 제한
 
@@ -75,11 +74,11 @@ ms.locfileid: "71178142"
 
    **결과**
 
-   ![필드 제한 예제](./media/search-explorer/search-explorer-example-selectfield.png "검색 결과에서 필드 제한")
+   ![Limit 필드 예](./media/search-explorer/search-explorer-example-selectfield.png "검색 결과의 필드 제한")
 
 ### <a name="example-5---return-next-batch-of-results"></a>예제 5 - 결과의 다음 일괄 처리 반환
 
-Azure Search는 검색 순위에 따라 상위 50개의 일치 항목을 반환합니다. 일치하는 문서의 다음 세트를 가져오려면 **$top=100,&$skip=50**을 추가하여 결과 세트를 100개 문서로 늘리고(기본값: 50개, 최대값: 1,000개) 처음 50개 문서를 건너뜁니다. 순위가 지정된 결과를 얻으려면 쿼리 용어 또는 식과 같은 검색 조건을 제공해야 합니다. 검색 결과에 더 깊게 도달할수록 검색 점수가 줄어듭니다.
+Azure Cognitive Search는 검색 순위를 기준으로 상위 50 개 일치 항목을 반환 합니다. 일치하는 문서의 다음 세트를 가져오려면 **$top=100,&$skip=50**을 추가하여 결과 세트를 100개 문서로 늘리고(기본값: 50개, 최대값: 1,000개) 처음 50개 문서를 건너뜁니다. 순위가 지정된 결과를 얻으려면 쿼리 용어 또는 식과 같은 검색 조건을 제공해야 합니다. 검색 결과에 더 깊게 도달할수록 검색 점수가 줄어듭니다.
 
    ```Input
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100&$skip=50
@@ -87,7 +86,7 @@ Azure Search는 검색 순위에 따라 상위 50개의 일치 항목을 반환�
 
    **결과**
 
-   ![검색 결과 일괄 처리](./media/search-explorer/search-explorer-example-topskip.png "검색 결과의 다음 일괄 처리 반환")
+   ![일괄 검색 결과](./media/search-explorer/search-explorer-example-topskip.png "검색 결과의 다음 배치 반환")
 
 ## <a name="filter-expressions-greater-than-less-than-equal-to"></a>필터 식(보다 큼, 보다 작음, 같음)
 
@@ -99,7 +98,7 @@ Azure Search는 검색 순위에 따라 상위 50개의 일치 항목을 반환�
    
    **결과**
 
-   ![필터 식](./media/search-explorer/search-explorer-example-filter.png "필터링 기준")
+   ![필터 식](./media/search-explorer/search-explorer-example-filter.png "기준 필터링")
 
 ## <a name="order-by-expressions"></a>Order-by 식
 
@@ -127,13 +126,13 @@ Azure Search는 검색 순위에 따라 상위 50개의 일치 항목을 반환�
 
 3. 쿼리할 인덱스를 선택합니다.
 
-   ![쿼리할 인덱스 선택](./media/search-explorer/search-explorer-changeindex-se2.png "인덱스 선택")
+   ![쿼리할 인덱스를 선택 합니다.](./media/search-explorer/search-explorer-changeindex-se2.png "인덱스 선택")
 
 4. 필요에 따라 API 버전을 설정합니다. 기본적으로 현재 일반 공급 API 버전이 선택되지만, 사용하려는 구문이 버전마다 다를 경우 미리 보기 또는 이전 API를 선택할 수 있습니다.
 
 5. 인덱스 및 API 버전을 선택한 후에는 검색 표시줄에 검색 용어 또는 정규화된 쿼리 식을 입력하고 **검색**을 클릭하여 실행합니다.
 
-   ![검색 용어 입력 및 검색 클릭](./media/search-explorer/search-explorer-query-string-example.png "검색 용어 입력 및 검색 클릭")
+   ![검색 용어를 입력 하 고 검색을 클릭 합니다.](./media/search-explorer/search-explorer-query-string-example.png "검색 용어를 입력 하 고 검색을 클릭 합니다.")
 
 **검색 탐색기**에서 검색을 수행하기 위한 팁:
 
@@ -143,7 +142,7 @@ Azure Search는 검색 순위에 따라 상위 50개의 일치 항목을 반환�
 
 + 상용 웹 브라우저에서 입력할 수 있는 것과 비슷한 자유 형식 쿼리는 최종 사용자 환경을 테스트하는 데 유용합니다. 예를 들어, 기본 제공 부동산 샘플 인덱스를 가정할 경우 "Seattle apartments lake washington"을 입력한 후 Ctrl+F를 사용하여 검색 결과 내에서 용어를 찾을 수 있습니다. 
 
-+ 쿼리 및 필터 식을 Azure Search에서 지원되는 구문으로 나타내야 합니다. 기본 구문은 [간단한 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)이지만 필요에 따라 보다 강력한 쿼리를 위해 [전체 Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)을 사용할 수 있습니다. [필터 식](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)은 OData 구문입니다.
++ 쿼리 및 필터 식은 Azure Cognitive Search에서 지 원하는 구문에서 반드시 필요 합니다. 기본 구문은 [간단한 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)이지만 필요에 따라 보다 강력한 쿼리를 위해 [전체 Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)을 사용할 수 있습니다. [필터 식](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)은 OData 구문입니다.
 
 
 ## <a name="next-steps"></a>다음 단계

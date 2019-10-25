@@ -1,13 +1,13 @@
 ---
-title: 단순 쿼리 구문 - Azure Search
-description: Azure Search에서 전체 텍스트 검색 쿼리에 사용되는 단순 쿼리 구문에 대한 참조입니다.
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
+title: 단순 쿼리 구문
+titleSuffix: Azure Cognitive Search
+description: Azure Cognitive Search의 전체 텍스트 검색 쿼리에 사용 되는 단순 쿼리 구문에 대 한 참조입니다.
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,18 +19,19 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e6c5ea86534001e0e5de2b02c4151af70631e4ef
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: fb98be9975de38ec9f65e723e078a1db8755b4ed
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650024"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792547"
 ---
-# <a name="simple-query-syntax-in-azure-search"></a>Azure Search의 단순 쿼리 구문
-Azure Search는 두 Lucene 쿼리 언어인 [단순 쿼리 파서](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) 및 [Lucene 쿼리 파서](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)를 구현합니다. Azure Search에서 단순 쿼리 구문에서는 유사 항목 검색 옵션이 제외됩니다.  
+# <a name="simple-query-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 단순 쿼리 구문
+
+Azure Cognitive Search는 두 가지 Lucene 기반 쿼리 언어 즉, [단순 쿼리 파서와](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) [lucene 쿼리 파서](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)를 구현 합니다. Azure Cognitive Search에서는 단순 쿼리 구문에서 유사 항목/slop 옵션을 제외 합니다.  
 
 > [!NOTE]  
->  Azure Search는 보다 복잡한 쿼리를 위해 대체 [Lucene 쿼리 구문](query-lucene-syntax.md)을 제공합니다. 각 구문의 쿼리 구문 분석 아키텍처 및 장점에 대해 자세히 알아보려면 [Azure Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)을 참조하세요.
+>  Azure Cognitive Search는 보다 복잡 한 쿼리를 위한 대체 [Lucene 쿼리 구문을](query-lucene-syntax.md) 제공 합니다. 쿼리 구문 분석 아키텍처와 각 구문의 이점에 대 한 자세한 내용은 [Azure Cognitive Search에서 전체 텍스트 검색의 작동 방식](search-lucene-query-architecture.md)을 참조 하세요.
 
 ## <a name="how-to-invoke-simple-parsing"></a>단순 구문 분석 호출 방법
 
@@ -38,9 +39,9 @@ Azure Search는 두 Lucene 쿼리 언어인 [단순 쿼리 파서](https://lucen
 
 ## <a name="query-behavior-anomalies"></a>쿼리 동작 변칙
 
-하나 이상의 단어를 포함하는 모든 텍스트는 쿼리 실행의 유효한 시작점으로 간주됩니다. Azure Search는 텍스트 분석 중에 발견된 변형을 포함하여 모든 용어를 포함하는 문서를 검색합니다. 
+하나 이상의 단어를 포함하는 모든 텍스트는 쿼리 실행의 유효한 시작점으로 간주됩니다. Azure Cognitive Search는 텍스트 분석 중에 발견 된 변형을 비롯 하 여 모든 용어 또는 모든 용어를 포함 하는 문서와 일치 합니다. 
 
-간단해 보일 수 있지만, Azure Search에는 더 많은 용어와 연산자를 입력 문자열에 추가할 때 검색 결과를 줄이기보다 늘릴 수 *있는* 쿼리 실행의 측면이 있습니다. 이러한 증가가 실제로 발생하는지 여부는 NOT이 AND 또는 OR 동작과 관련해서 해석되는 방식을 결정하는 `searchMode` 매개 변수와 NOT 연산자를 포함하는지에 따라 좌우됩니다. 기본값인 `searchMode=Any`와 NOT 연산자를 지정할 경우 연산은 OR 작업으로 계산되므로 `"New York" NOT Seattle`은 시애틀이 아닌 모든 도시를 반환합니다.  
+이와 같이 간단 하 게 하기 때문에 Azure Cognitive Search에서 예기치 않은 결과를 발생 *시킬 수* 있는 쿼리 실행의 한 가지 측면은 입력 문자열에 추가 된 용어 및 연산자가 추가 될 때 검색 결과를 줄이는 대신 향상 됩니다. 이러한 증가가 실제로 발생하는지 여부는 NOT이 AND 또는 OR 동작과 관련해서 해석되는 방식을 결정하는 `searchMode` 매개 변수와 NOT 연산자를 포함하는지에 따라 좌우됩니다. 기본값인 `searchMode=Any`와 NOT 연산자를 지정할 경우 연산은 OR 작업으로 계산되므로 `"New York" NOT Seattle`은 시애틀이 아닌 모든 도시를 반환합니다.  
 
 일반적으로는 콘텐츠를 검색하는 애플리케이션의 사용자 상호 작용 패턴에서 이러한 동작이 나타나기 쉽습니다. 이 경우 사용자는 기본 제공 방식의 탐색 구조를 갖는 전자 상거래 사이트와 달리, 쿼리에 연산자를 포함할 가능성이 높습니다. 자세한 내용은 [NOT 연산자](#not-operator)를 참조하세요. 
 
@@ -71,11 +72,11 @@ NOT 연산자는 빼기 기호입니다. 예를 들어, `wifi –luxury`는 `wif
 
 ## <a name="phrase-search-operator"></a>구 검색 연산자
 
-구 연산자는 구를 따옴표로 `" "`묶습니다. 예를 들어, `Roach Motel`(따옴표 제외)은 순서 및 위치에 관계없이 `Roach` 및/또는 `Motel`을 포함하는 문서를 검색하지만, `"Roach Motel"`(따옴표 포함)은 해당 전체 구를 해당 순서로 포함하는 문서만 검색합니다(텍스트 분석은 계속 적용됨).
+구 연산자는 `" "`따옴표로 묶습니다. 예를 들어, `Roach Motel`(따옴표 제외)은 순서 및 위치에 관계없이 `Roach` 및/또는 `Motel`을 포함하는 문서를 검색하지만, `"Roach Motel"`(따옴표 포함)은 해당 전체 구를 해당 순서로 포함하는 문서만 검색합니다(텍스트 분석은 계속 적용됨).
 
 ## <a name="precedence-operator"></a>선행 연산자
 
-선행 연산자는 문자열을 괄호로 `( )`묶습니다. 예를 들어 `motel+(wifi | luxury)` 는 motel term을 포함 하는 문서 `wifi` 와 또는 `luxury` (또는 둘 다)를 검색 합니다.  
+선행 연산자는 문자열을 괄호로 묶습니다 `( )`합니다. 예를 들어 `motel+(wifi | luxury)`은 motel term을 포함 하는 문서를 검색 하 고 `wifi` 또는 `luxury` (또는 둘 다)를 검색 합니다.  
 
 ## <a name="escaping-search-operators"></a>검색 연산자 이스케이프  
 
@@ -85,10 +86,10 @@ NOT 연산자는 빼기 기호입니다. 예를 들어, `wifi –luxury`는 `wif
 - 접미사 연산자 `*`는 공백 앞의 마지막 문자인 경우에만 이스케이프되고, 단어 중간에 있는 경우에는 이스케이프되지 않아야 합니다. 예를 들어, `wi*fi`는 단일 토큰으로 처리됩니다.
 
 > [!NOTE]  
->  이스케이프는 토큰을 유지하지만, 분석 모드에 따라 텍스트 분석 시 토큰이 분할될 수 있습니다. 자세한 내용은 [언어 지원 &#40;Azure Search 서비스 REST API&#41;](index-add-language-analyzers.md)를 참조하세요.  
+>  이스케이프는 토큰을 유지하지만, 분석 모드에 따라 텍스트 분석 시 토큰이 분할될 수 있습니다. 자세한 내용은 [언어 &#40;지원 Azure Cognitive Search&#41; REST API](index-add-language-analyzers.md) 를 참조 하세요.  
 
-## <a name="see-also"></a>참고자료  
+## <a name="see-also"></a>참고 항목  
 
-+ [문서 검색 &#40;Azure Search 서비스 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
++ [문서 &#40;검색 Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
 + [Lucene 쿼리 구문](query-lucene-syntax.md)
 + [OData 식 구문](query-odata-filter-orderby-syntax.md) 

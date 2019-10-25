@@ -1,21 +1,21 @@
 ---
-title: 출력 필드에 보강된 입력 필드의 인식 검색 매핑 - Azure Search
-description: 원본 데이터 필드를 보강하고 추출해 Azure Search 인덱스에서 출력 필드에 매핑합니다.
+title: AI-보강 입력 필드를 출력 필드에 매핑
+titleSuffix: Azure Cognitive Search
+description: 원본 데이터 필드를 추출 및 보강 하 고 Azure Cognitive Search 인덱스의 출력 필드에 매핑합니다.
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 4ceb8e6290e3e7f4fb552db13c97558db1c8c97e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 77f378f4e0c4a8e4827523e244f7b18c2a9ba336
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265499"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792114"
 ---
-# <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>검색 가능한 인덱스에 보강된 필드를 매핑하는 방법
+# <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>AI-보강 필드를 검색 가능한 인덱스에 매핑하는 방법
 
 이 문서에서는 검색 가능한 인덱스에서 입력 필드에 보강된 출력 필드를 매핑하는 방법에 대해 알아봅니다. [기술 집합을 정의](cognitive-search-defining-skillset.md)했으면 검색 인덱스에서 지정된 필드에 값을 직접 기여하는 모든 기술의 출력 필드를 매핑해야 합니다. 필드 매핑은 보강된 문서에서 콘텐츠를 인덱스로 이동하는 데 필요합니다.
 
@@ -72,4 +72,4 @@ sourceFieldName에서 경로는 하나 또는 여러 요소를 나타낼 수 있
 ## <a name="next-steps"></a>다음 단계
 검색 가능한 필드에 보강된 필들을 매핑했으면 [인덱스 정의의 일부로서](search-what-is-an-index.md) 검색 가능한 필드 각각에 대해 필드 특성을 설정할 수 있습니다.
 
-필드 매핑에 대한 자세한 내용은 [Azure Search 인덱서의 필드 매핑](search-indexer-field-mappings.md)을 참조하세요.
+필드 매핑에 대 한 자세한 내용은 [Azure Cognitive Search 인덱서의 필드 매핑](search-indexer-field-mappings.md)을 참조 하세요.
