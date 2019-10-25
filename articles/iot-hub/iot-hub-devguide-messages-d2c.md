@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: d2c84f5b6389ac83206472440d26aa8d81ba76be
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 5d21d3800655cc0be78a2b63d13a3616b1d0f2f8
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147355"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372722"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>IoT Hub 메시지 라우팅을 사용 하 여 다른 끝점으로 장치-클라우드 메시지 보내기
 
@@ -79,7 +79,7 @@ Blob Storage로 라우팅 시 파티션을 가정하지 않고 모든 컨테이�
 
 IoT Hub으로 사용되는 Service Bus 큐 및 토픽에는 **세션** 또는 **중복 검색**이 사용하도록 설정되어 있어서는 안 됩니다. 두 옵션 중 하나가 사용하도록 설정되어 있으면 Azure Portal에서 엔드포인트가 **연결할 수 없음**으로 표시됩니다.
 
-### <a name="event-hubs"></a>Event Hubs
+### <a name="event-hubs"></a>Event Hubs(영문)
 
 기본 제공 Event Hubs 호환 엔드포인트 외에, Event Hubs 유형의 사용자 지정 엔드포인트로 데이터를 라우팅할 수도 있습니다. 
 
@@ -107,13 +107,19 @@ Azure Portal > 메시지 라우팅 블레이드에서 대체 경로를 사용 �
 
 ## <a name="non-telemetry-events"></a>비-원격 분석 이벤트
 
-장치 원격 분석 외에도 메시지 라우팅을 통해 장치 쌍 변경 이벤트, 장치 수명 주기 이벤트 및 디지털 쌍 변경 이벤트 (공개 미리 보기)를 보낼 수 있습니다. 예를 들어, **디바이스 쌍 변경 이벤트**로 설정된 데이터 원본으로 경로가 생성되면, IoT Hub는 디바이스 쌍의 변경 사항을 포함하는 엔드포인트로 메시지를 전송합니다. 마찬가지로 **장치 수명 주기 이벤트**로 설정 된 데이터 원본을 사용 하 여 경로를 만들 경우 IoT Hub는 장치를 삭제 하거나 만들었는지 여부를 나타내는 메시지를 보냅니다. 마지막으로, 개발자는 [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 디지털 쌍 **변경 IoT Hub 이벤트** 로 설정된 데이터 원본이 있는 경로를 만들고 디지털 쌍 [속성](../iot-pnp/iot-plug-and-play-glossary.md)이 설정 되거나 변경 될 때마다 디지털 쌍으로 메시지를 보낼 수 있습니다. [digital twin](../iot-pnp/iot-plug-and-play-glossary.md)이 대체 되거나 기본 장치 쌍에 대해 변경 이벤트가 발생하는 경우
+장치 원격 분석 외에도 메시지 라우팅을 통해 장치 쌍 변경 이벤트, 장치 수명 주기 이벤트 및 디지털 쌍 변경 이벤트 (공개 미리 보기)를 보낼 수 있습니다. 예를 들어, **디바이스 쌍 변경 이벤트**로 설정된 데이터 원본으로 경로가 생성되면, IoT Hub는 디바이스 쌍의 변경 사항을 포함하는 엔드포인트로 메시지를 전송합니다. 마찬가지로 **장치 수명 주기 이벤트**로 설정 된 데이터 원본을 사용 하 여 경로를 만들 경우 IoT Hub는 장치를 삭제 하거나 만들었는지 여부를 나타내는 메시지를 보냅니다. 마지막으로, 개발자는 [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 디지털 쌍 **변경 IoT Hub 이벤트** 로 설정 된 데이터 원본이 있는 경로를 만들고 디지털 쌍 [속성이](../iot-pnp/iot-plug-and-play-glossary.md) 설정 되거나 변경 될 때마다 디지털 쌍으로 메시지를 보낼 수 있습니다. [ ](../iot-pnp/iot-plug-and-play-glossary.md)가 대체 되거나 기본 장치 쌍에 대해 변경 이벤트가 발생 하는 경우
 
 또한 IoT Hub는 이러한 이벤트를 기반으로 워크플로의 실시간 통합 및 자동화를 지 원하는 장치 이벤트를 게시 하 [는 Azure Event Grid와 통합](iot-hub-event-grid.md) 됩니다. [메시지 라우팅과 Event Grid 간의 주요 차이점](iot-hub-event-grid-routing-comparison.md)을 확인하고 내 시나리오에 무엇이 가장 적합한지 알아보세요.
 
 ## <a name="testing-routes"></a>경로 테스트
 
 새 경로를 만들거나 기존 경로를 편집하는 경우에는 샘플 메시지로 경로 쿼리를 테스트해야 합니다. 개별 경로를 테스트하거나 모든 경로를 한 번에 테스트할 수 있으며 테스트 중에는 엔드포인트에 메시지가 라우팅되지 않습니다. Azure Portal, Azure Resource Manager, Azure PowerShell 및 Azure CLI 테스트에 사용할 수 있습니다. 결과는 샘플 메시지와 쿼리 일치 여부를 식별 하는 데 도움이 됩니다. 즉, 예제 메시지 또는 쿼리 구문이 잘못 되었으므로 테스트를 실행할 수 없습니다. 자세히 알아보려면 [경로 테스트](/rest/api/iothub/iothubresource/testroute) 및 [모든 경로 테스트](/rest/api/iothub/iothubresource/testallroutes)를 참조하세요.
+
+## <a name="ordering-guarantees-with-at-least-once-delivery"></a>하나 이상의 배달에 대 한 순서 보장
+
+IoT Hub 메시지 라우팅은 순서 대로 메시지를 끝점으로 배달 하 고 한 번 이상 메시지를 배달 합니다. 즉, 중복 된 메시지가 있을 수 있으며 메시지 일련의 메시지를 다시 전송 하 여 원래 메시지 순서를 지정할 수 있습니다. 예를 들어 원래 메시지 순서가 [1, 2, 3, 4] 인 경우 [1, 2, 1, 2, 3, 1, 2, 3, 4]와 같은 메시지 시퀀스를 받을 수 있습니다. 순서를 지정 하는 것은 메시지 [1]을 받는 경우 항상 [2, 3, 4]가 뒤에 오는 것입니다.
+
+메시지 중복을 처리 하려면 일반적으로 장치 또는 모듈인 원본 지점에 있는 메시지의 응용 프로그램 속성에서 고유한 식별자를 스탬프 하는 것이 좋습니다. 메시지를 사용 하는 서비스는이 식별자를 사용 하 여 중복 메시지를 처리할 수 있습니다.
 
 ## <a name="latency"></a>대기 시간
 
@@ -125,7 +131,7 @@ Azure Portal > 메시지 라우팅 블레이드에서 대체 경로를 사용 �
 
 IoT Hub는 허브 및 전송 메시지의 상태에 대 한 개요를 제공 하기 위해 라우팅 및 끝점과 관련 된 몇 가지 메트릭을 제공 합니다. 여러 메트릭의 정보를 결합하여 문제의 근본 원인을 식별할 수 있습니다. 예를 들어 메트릭 **라우팅 사용: 원격 분석 메시지 삭제** 또는 **d2c** 를 사용 하 여 경로 및 대체 (fallback) 경로에 대 한 쿼리와 일치 하지 않을 때 삭제 된 메시지 수를 식별 합니다. [IoT Hub 메트릭](iot-hub-metrics.md)에는 기본적으로 IoT Hub에 대해 활성화된 모든 메트릭이 나열됩니다.
 
-REST API [Endpoint Health 가져오기](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth)를 사용 하 여 Endpoint의 [Health 상태](iot-hub-devguide-endpoints.md#custom-endpoints) 를 가져올 수 있습니다. 끝점 상태가 비정상 이거나 비정상 상태인 경우 라우팅 메시지 대기 시간과 관련 된 [IoT Hub 메트릭을](iot-hub-metrics.md) 사용 하 여 오류를 식별 하 고 디버그 하는 것이 좋습니다. 예를 들어 끝점 형식 Event Hubs의 경우 **D2c eventHubs**를 모니터링할 수 있습니다. IoT Hub가 궁극적으로 일관 된 상태 상태를 설정 하면 비정상 끝점의 상태가 정상으로 업데이트 됩니다.
+REST API [가져오기 끝점 상태](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) 를 사용 하 여 [끝점 상태를 가져올 수](iot-hub-devguide-endpoints.md#custom-endpoints) 있습니다. 끝점 상태가 비정상 이거나 비정상 상태인 경우 라우팅 메시지 대기 시간과 관련 된 [IoT Hub 메트릭을](iot-hub-metrics.md) 사용 하 여 오류를 식별 하 고 디버그 하는 것이 좋습니다. 예를 들어 끝점 형식 Event Hubs의 경우 **D2c eventHubs**를 모니터링할 수 있습니다. IoT Hub가 궁극적으로 일관 된 상태 상태를 설정 하면 비정상 끝점의 상태가 정상으로 업데이트 됩니다.
 
 Azure Monitor [진단 설정](../iot-hub/iot-hub-monitor-resource-health.md)에서 **경로** 진단 로그를 사용 하 여, 라우팅 쿼리를 평가 하는 동안 발생 하는 오류를 추적할 수 있습니다. 예를 들어 끝점이 중단 된 경우와 같이 IoT Hub에서 인식 되는 끝점 상태를 추적할 수 있습니다. 이러한 진단 로그는 사용자 지정 처리를 위해 Azure Monitor 로그, Event Hubs 또는 Azure Storage으로 전송 될 수 있습니다.
 
