@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: c886289f098eb41f4b215b4abc2e206db93a27f9
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 706f76c00022c5f5661ea261a5bb35eedc13d5ba
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710133"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756042"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
 
@@ -34,7 +34,7 @@ Machine learning 모델 워크플로는 일반적으로 다음과 같은 순서�
 
 1. **패키지** -만족 스러운 실행을 찾은 후 **모델 레지스트리에서**지속형 모델을 등록 합니다.
 
-1. **유효성 검사** - 현재 및 이전 실행에서 기록**된 메트릭의 실험을 쿼리** 합니다. 메트릭이 원하는 결과를 표시하지 않으면 1단계로 돌아가 스크립트를 반복합니다.
+1. **유효성 검사** - 현재 및 이전 실행에서 기록 **된 메트릭의 실험을 쿼리** 합니다. 메트릭이 원하는 결과를 표시하지 않으면 1단계로 돌아가 스크립트를 반복합니다.
 
 1. **배포** -모델을 사용 하 고 Azure 또는 **IoT Edge 장치**에 **웹 서비스로** **모델을 배포** 하는 점수 매기기 스크립트를 개발 합니다.
 
@@ -52,22 +52,22 @@ Azure Machine Learning 다음 도구를 사용 합니다.
 > [!NOTE]
 > 이 문서에서는 Azure Machine Learning에서 사용 하는 용어와 개념을 정의 하지만, Azure 플랫폼에 대 한 용어 및 개념은 정의 하지 않습니다. Azure 플랫폼 용어에 대한 자세한 내용은 [Microsoft Azure 용어집](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)을 참조하세요.
 
-## <a name="glossary"></a>용어 설명
+## <a name="glossary"></a>용어
 + <a href="#activities">활동</a>
 + <a href="#compute-targets">계산 대상</a>
 + <a href="#datasets-and-datastores">데이터 집합 & 데이터 저장소</a>
-+ <a href="#deployment">배포</a>
++ <a href="#deployment">배포웹사이트를</a>
 + <a href="#environments">에서는</a>
 + [추정](#estimators)
 + <a href="#experiments">실험</a>
 + <a href="#github-tracking-and-integration">Git 추적</a>
 + <a href="#iot-module-deployments">IoT 모듈</a>
-+ <a href="#logging">로깅</a>
++ <a href="#logging">Logging</a>
 + <a href="#ml-pipelines">ML 파이프라인</a>
 + <a href="#models">모델인</a>
-+ <a href="#runs">실행</a>
++ <a href="#runs">RoleEntryPoint</a>
 + <a href="#run-configurations">실행 구성</a>
-+ <a href="#snapshots">스냅숏</a>
++ <a href="#snapshots">스냅샷</a>
 + <a href="#training-scripts">학습 스크립트</a>
 + <a href="#web-service-deployments">웹 서비스</a>
 + <a href="#workspaces">환경이</a>
@@ -89,9 +89,9 @@ Azure Machine Learning 다음 도구를 사용 합니다.
 
 ### <a name="datasets-and-datastores"></a>데이터 집합 및 데이터 저장소
 
-**Azure Machine Learning 데이터 집합** (미리 보기)를 사용 하면 데이터에 쉽게 액세스 하 고 작업을 수행할 수 있습니다. 데이터 집합은 모델 학습 및 파이프라인 생성과 같은 다양 한 시나리오에서 데이터를 관리 합니다. Azure Machine Learning SDK를 사용 하 여 기본 저장소에 액세스 하 고, 데이터를 탐색 하 고, 다양 한 데이터 집합 정의의 수명 주기를 관리할 수 있습니다.
+데이터 집합 (미리 보기)을 사용 하면 데이터에 쉽게 액세스 하 고 작업을 수행할 수 있습니다. **Azure Machine Learning** 데이터 집합은 모델 학습 및 파이프라인 생성과 같은 다양 한 시나리오에서 데이터를 관리 합니다. Azure Machine Learning SDK를 사용 하 여 기본 저장소에 액세스 하 고, 데이터를 탐색 하 고, 다양 한 데이터 집합 정의의 수명 주기를 관리할 수 있습니다.
 
-데이터 집합은 또는 `from_delimited_files()` `to_pandas_dataframe()`을 사용 하는 것과 같이 널리 사용 되는 형식으로 데이터 작업을 위한 메서드를 제공 합니다
+데이터 집합은 `from_delimited_files()` 또는 `to_pandas_dataframe()`를 사용 하는 것과 같이 널리 사용 되는 형식으로 데이터 작업을 위한 메서드를 제공 합니다.
 
 자세한 내용은 [Azure Machine Learning 데이터 집합 만들기 및 등록](how-to-create-register-datasets.md)을 참조 하세요.  데이터 집합을 사용 하는 추가 예제는 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets)을 참조 하세요.
 
@@ -144,13 +144,14 @@ PyTorch, TensorFlow 및 체 이너 Azure Machine Learning 작업의 경우 이�
 
 실험은 지정된 스크립트의 많은 실행을 그룹화한 것입니다. 실험은 항상 작업 영역에 속합니다. 실행을 제출할 때 실험 이름을 제공합니다. 실행에 대한 정보는 해당 실험 아래에 저장됩니다. 실행을 제출하고 존재하지 않는 실험 이름을 지정하면 새로 지정된 해당 이름을 가진 새 실험이 자동으로 생성됩니다.
 
-실험을 사용 하는 예제를 보려면 [자습서: 첫 번째 모델](tutorial-1st-experiment-sdk-train.md)을 학습 합니다.
+실험을 사용 하는 예제는 [자습서: 첫 번째 모델 학습](tutorial-1st-experiment-sdk-train.md)을 참조 하세요.
 
 
 ### <a name="github-tracking-and-integration"></a>GitHub 추적 및 통합
 
-원본 디렉터리가 로컬 Git 리포지토리 인 학습 실행을 시작 하면 리포지토리에 대 한 정보가 실행 기록에 저장 됩니다. 예를 들어 리포지토리의 현재 커밋 ID는 기록의 일부로 기록 됩니다. 평가기, ML 파이프라인 또는 스크립트 실행을 사용 하 여 제출 된 실행에서 작동 합니다. SDK 또는 Machine Learning CLI에서 제출 된 실행에 대해서도 작동 합니다.
+원본 디렉터리가 로컬 Git 리포지토리 인 학습 실행을 시작 하면 리포지토리에 대 한 정보가 실행 기록에 저장 됩니다. 평가기, ML 파이프라인 또는 스크립트 실행을 사용 하 여 제출 된 실행에서 작동 합니다. SDK 또는 Machine Learning CLI에서 제출 된 실행에 대해서도 작동 합니다.
 
+자세한 내용은 [Azure Machine Learning에 대 한 Git 통합](concept-train-model-git-integration.md)을 참조 하세요.
 
 ### <a name="logging"></a>로깅
 
@@ -166,13 +167,13 @@ PyTorch, TensorFlow 및 체 이너 Azure Machine Learning 작업의 경우 이�
 
 ### <a name="models"></a>모델
 
-간단하게 설명하면, 하나의 모델은 입력을 받아들이고 출력을 생성하는 코드의 한 조각을 말합니다. 기계 학습 모델을 만드는 동안 알고리즘을 선택하고, 데이터를 제공하고, 하이퍼 매개 변수를 조정합니다. 학습은 학습된 모델을 생성하는 반복 프로세스이며, 학습된 모듈에는 모델이 학습 프로세스 중에 습득한 내용이 캡슐화되어 있습니다.
+가장 간단하게, 모델은 입력을 사용하고 출력을 생성하는 코드 조각입니다. 기계 학습 모델을 만드는 동안 알고리즘을 선택하고, 데이터를 제공하고, 하이퍼 매개 변수를 조정합니다. 학습은 학습된 모델을 생성하는 반복 프로세스이며, 학습된 모듈에는 모델이 학습 프로세스 중에 습득한 내용이 캡슐화되어 있습니다.
 
 모델은 Azure Machine Learning에서 실행을 통해 생성됩니다. Azure Machine Learning 외부에서 학습된 모델을 사용할 수도 있습니다. 모델을 Azure Machine Learning 작업 영역에 등록할 수 있습니다.
 
 Azure Machine Learning은 프레임워크에 제약이 없습니다. 모델을 만들 때 Scikit, XGBoost, PyTorch, TensorFlow 및 체 이너와 같은 인기 있는 기계 학습 프레임 워크를 사용할 수 있습니다.
 
-Scikit 및 평가기를 사용 하 여 모델을 학습 하는 방법에 대 한 [예제를 보려면 자습서: Azure Machine Learning](tutorial-train-models-with-aml.md)를 사용 하 여 이미지 분류 모델을 학습 합니다.
+Scikit 및 평가기를 사용 하 여 모델을 학습 하는 방법에 대 한 예제는 [자습서: Azure Machine Learning을 사용 하 여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md)을 참조 하세요.
 
 **모델 레지스트리** 는 Azure Machine Learning 작업 영역에 있는 모든 모델을 추적 합니다.
 
@@ -206,7 +207,7 @@ Scikit 및 평가기를 사용 하 여 모델을 학습 하는 방법에 대 한
 실행 구성은 학습 스크립트를 포함하는 디렉터리 내의 파일에 지속되거나, 메모리 내 개체로 구성되고 실행을 제출하는 데 사용될 수 있습니다.
 
 실행 구성 예제는 [모델 학습을 위한 컴퓨팅 대상 선택 및 사용](how-to-set-up-training-targets.md)을 참조하세요.
-### <a name="snapshots"></a>스냅숏
+### <a name="snapshots"></a>스냅샷
 
 실행을 제출하면 Azure Machine Learning은 스크립트를 포함하는 디렉터리를 zip 파일로 압축하여 컴퓨팅 대상으로 보냅니다. 그런 다음, zip 파일이 추출되고 스크립트가 실행됩니다. 또한 Azure Machine Learning은 zip 파일을 실행 기록의 일부인 스냅샷으로 저장합니다. 작업 영역에 대한 액세스 권한이 있는 사용자는 실행 기록을 찾아보고 스냅샷을 다운로드할 수 있습니다.
 
@@ -217,7 +218,7 @@ Scikit 및 평가기를 사용 하 여 모델을 학습 하는 방법에 대 한
 
 모델을 학습시키려면 학습 스크립트 및 연결된 파일을 포함하는 디렉터리를 지정합니다. 학습 중에 수집된 정보를 저장하는 데 사용되는 실험 이름도 지정합니다. 학습 중에 전체 디렉터리가 학습 환경(컴퓨팅 대상)에 복사되고 실행 구성을 통해 지정된 스크립트가 시작됩니다. 또한 디렉터리의 스냅샷이 작업 영역의 실험 아래에 저장됩니다.
 
-예제는 [자습서: Azure Machine Learning](tutorial-train-models-with-aml.md)를 사용 하 여 이미지 분류 모델을 학습 합니다.
+예제는 [자습서: Azure Machine Learning을 사용 하 여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md)을 참조 하세요.
 
 ### <a name="workspaces"></a>작업 영역
 
@@ -230,4 +231,4 @@ Azure Machine Learning를 시작 하려면 다음을 참조 하세요.
 
 * [Azure Machine Learning이란 무엇인가요?](overview-what-is-azure-ml.md)
 * [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)
-* [자습서(1부): 모델 학습](tutorial-train-models-with-aml.md)
+* [자습서 (1 부): 모델 학습](tutorial-train-models-with-aml.md)

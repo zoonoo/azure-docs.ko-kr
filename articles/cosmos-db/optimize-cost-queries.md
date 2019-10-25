@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에서 요청 단위 및 쿼리 실행 비용 최적화
 description: 쿼리의 요청 단위 요금을 평가하고 성능 및 비용 측면에서 쿼리를 최적화하는 방법을 알아봅니다.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.author: rimman
-ms.openlocfilehash: bdf223e60015c4e5d96416f95c410854a057c02c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 376c1a32a70951448b35a4c02022719229a3aad2
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717015"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753296"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 쿼리 비용 최적화
 
@@ -33,7 +33,7 @@ Azure Cosmos DB의 쿼리는 일반적으로 처리량 측면에서 가장 빠�
 
 일부 데이터를 Azure Cosmos 컨테이너에 저장한 경우 Azure Portal의 Data Explorer를 사용하여 쿼리를 생성하고 실행할 수 있습니다. 또한 Data Explorer를 사용하여 쿼리 비용을 확인할 수도 있습니다. 이 방법을 사용하면 시스템에서 지원하는 일반 쿼리 및 작업과 관련된 실제 요금을 파악할 수 있습니다.
 
-또한 SDK를 사용하여 쿼리 비용을 프로그래밍 방식으로 확인할 수도 있습니다. 만들기, 업데이트 또는 삭제와 같은 작업의 오버헤드를 측정하려면 REST API를 사용하여 `x-ms-request-charge` 헤더를 조사합니다. .Net 또는 Java SDK `RequestCharge` 를 사용 하는 경우 속성은 요청 요금을 얻기 위한 동일한 속성 이며,이 속성은 ResourceResponse 또는 FeedResponse 내에 있습니다.
+또한 SDK를 사용하여 쿼리 비용을 프로그래밍 방식으로 확인할 수도 있습니다. 만들기, 업데이트 또는 삭제와 같은 작업의 오버헤드를 측정하려면 REST API를 사용하여 `x-ms-request-charge` 헤더를 조사합니다. .NET 또는 Java SDK를 사용 하는 경우 `RequestCharge` 속성은 요청 요금을 얻기 위해 동일한 속성 이며,이 속성은 ResourceResponse 또는 FeedResponse 내에 있습니다.
 
 ```csharp
 // Measure the performance (request units) of writes 

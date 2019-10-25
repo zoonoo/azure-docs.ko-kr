@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 8d4e7b7056f4d5e53785366818fad05e24cfc605
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 630f094ffc6c57a0137d1abc46476f5abe64f616
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100058"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750376"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>빠른 시작: Azure Virtual Machines에서 단일 인스턴스 SAP HANA 수동 설치
 ## <a name="introduction"></a>소개
@@ -29,7 +29,7 @@ ms.locfileid: "70100058"
 > [!NOTE]
 > 이 가이드에서는 Azure VM에 SAP HANA를 배포하는 방법에 대해 설명합니다. HANA large instances에 SAP HANA를 배포 하는 방법에 대 한 자세한 내용은 [Azure Virtual Machines에서 SAP 사용](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)을 참조 하세요.
  
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 이 가이드에서는 다음과 같은 IaaS (infrastructure as a service) 기본 사항에 대해 잘 알고 있다고 가정 합니다.
  * Azure Portal 또는 PowerShell을 통해 Vm (가상 머신) 또는 가상 네트워크를 배포 하는 방법
  * JSON (JavaScript Object Notation) 템플릿을 사용 하는 옵션을 포함 하는 Azure 플랫폼 간 CLI (명령줄 인터페이스).
@@ -50,7 +50,7 @@ SAP HANA 고가용성은 [Azure Virtual Machines에 대 한 SAP HANA 고가용�
 
 SAP HANA 인스턴스 또는 S/4HANA 또는 BW/4HANA 시스템을 신속 하 게 배포 하려면 [SAP 클라우드 어플라이언스 라이브러리](https://cal.sap.com)를 사용 하는 것이 좋습니다. Azure의 SAP Cloud 어플라이언스 라이브러리를 통해 S/4HANA 시스템을 배포 하는 방법에 대 한 설명서를 찾을 수 있습니다 (예: [이 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h)). SAP 클라우드 어플라이언스 라이브러리에 등록할 수 있는 Azure 구독 및 SAP 사용자만 있으면 됩니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 ### <a name="sap-hana-backup"></a>SAP HANA 백업
 Azure Vm에서 SAP HANA 데이터베이스를 백업 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 * [Azure Virtual Machines에서 SAP HANA에 대 한 백업 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)입니다.
@@ -61,19 +61,19 @@ Azure Vm에서 SAP HANA 데이터베이스를 백업 하는 방법에 대 한 �
 SAP 클라우드 어플라이언스 라이브러리를 사용 하 여 S/4HANA 또는 BW/4HANA를 배포 하는 방법에 대 한 자세한 내용은 [Microsoft Azure에서 Sap S/4hana 또는 bw/4Hana 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h)를 참조 하세요.
 
 ### <a name="sap-hana-supported-operating-systems"></a>SAP HANA 지원 운영 체제
-SAP HANA 지원 되는 [운영 체제에 대 한 자세한 내용은 SAP Note 2235581-SAP HANA: 지원 되는](https://launchpad.support.sap.com/#/notes/2235581/E)운영 체제 Azure VM은 이러한 운영 체제의 하위 집합만 지원합니다. Azure에서 SAP HANA를 배포하는 데 지원되는 운영 체제는 다음과 같습니다. 
+SAP HANA 지원 되는 운영 체제에 대 한 자세한 내용은 [SAP Note 2235581-SAP HANA: 지원 되는 운영 체제](https://launchpad.support.sap.com/#/notes/2235581/E)를 참조 하세요. Azure VM은 이러한 운영 체제의 하위 집합만 지원합니다. Azure에서 SAP HANA를 배포하는 데 지원되는 운영 체제는 다음과 같습니다. 
 
 * SUSE Linux Enterprise Server 12.x
 * Red Hat Enterprise Linux 7.2
 
 SAP HANA 및 다른 Linux 운영 체제에 대한 SAP 추가 설명서는 다음을 참조하세요.
 
-* [SAP Note 171356: Linux의 SAP 소프트웨어: 일반 정보](https://launchpad.support.sap.com/#/notes/1984787)입니다.
-* [SAP Note 1944799: SLES 운영 체제 설치](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)에 대 한 지침을 SAP HANA 합니다.
-* [SAP Note 2205917: SLES 12 for SAP applications](https://launchpad.support.sap.com/#/notes/2205917/E)에 대 한 SAP HANA DB 권장 OS 설정
-* [SAP Note 1391070: Linux UUID 솔루션](https://launchpad.support.sap.com/#/notes/1391070).
-* [SAP Note 2009879: RHEL (Red Hat Enterprise Linux) 운영 체제](https://launchpad.support.sap.com/#/notes/2009879)에 대 한 SAP HANA 지침
-* [SAP Note 2292690: SAP HANA DB: RHEL 7](https://launchpad.support.sap.com/#/notes/2292690/E)에 대 한 권장 OS 설정
+* [Sap Note 171356: Linux의 Sap 소프트웨어: 일반 정보](https://launchpad.support.sap.com/#/notes/1984787)
+* [SAP Note 1944799: SLES 운영 체제 설치에 대 한 지침을 SAP HANA](http://service.sap.com/sap/support/notes/1944799)합니다.
+* [Sap Note 2205917: SLES 12 FOR sap applications에 대 한 SAP HANA DB 권장 OS 설정](https://launchpad.support.sap.com/#/notes/2205917/E)
+* [SAP Note 1391070: LINUX UUID 솔루션](https://launchpad.support.sap.com/#/notes/1391070).
+* [SAP Note 2009879: Red Hat Enterprise Linux (RHEL) 운영 체제에 대 한 SAP HANA 지침](https://launchpad.support.sap.com/#/notes/2009879)입니다.
+* [SAP Note 2292690: SAP HANA DB: RHEL 7에 대 한 권장 OS 설정](https://launchpad.support.sap.com/#/notes/2292690/E)
 
 ### <a name="sap-monitoring-in-azure"></a>Azure에서 SAP 모니터링
 Azure의 SAP 모니터링에 대 한 정보:
@@ -85,7 +85,7 @@ Azure의 SAP 모니터링에 대 한 정보:
 ### <a name="azure-vm-types"></a>Azure VM 유형
 SAP HANA와 함께 사용 되는 Azure VM 유형 및 SAP 지원 워크 로드 시나리오는 [sap 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html)에 설명 되어 있습니다. 
 
-Sap NetWeaver 또는 S/4hana 응용 프로그램 계층에 대해 sap에서 인증 한 Azure VM 유형은 sap Note 1928533 [에 설명 되어 있습니다. Azure의 SAP 응용 프로그램: 지원 되는 제품 및 Azure](https://launchpad.support.sap.com/#/notes/1928533/E)VM 유형입니다.
+Sap NetWeaver 또는 S/4HANA 응용 프로그램 계층에 대해 SAP에서 인증 된 azure VM 유형은 [Sap Note 1928533: azure의 sap 응용 프로그램: 지원 제품 및 AZURE vm 유형](https://launchpad.support.sap.com/#/notes/1928533/E)에 설명 되어 있습니다.
 
 > [!NOTE]
 > SAP-Linux-Azure 통합은 Azure Resource Manager에서만 지원하며, 클래식 배포 모델에서는 지원하지 않습니다. 
@@ -152,7 +152,7 @@ Sap NetWeaver 또는 S/4hana 응용 프로그램 계층에 대해 sap에서 인�
 20. SAP MC를 시작합니다. SAP GUI 또는 HANA Studio를 통해 연결합니다.
 
 ## <a name="prepare-azure-vms-for-a-manual-installation-of-sap-hana"></a>SAP HANA의 수동 설치를 위한 Azure VM 준비
-이 단원에서는 다음 항목에 대해 설명합니다.
+이 섹션에서는 다음 항목을 다룹니다.
 
 * OS 업데이트
 * 디스크 설정
@@ -177,18 +177,18 @@ Sap NetWeaver 또는 S/4hana 응용 프로그램 계층에 대해 sap에서 인�
 문제의 종류에 따라 패치는 범주 및 심각도별로 분류됩니다. 범주에 일반적으로 사용 되는 값은 다음과 같습니다. 
 - 보안
 - 권장
-- Optional
+- 선택 사항
 - 기능
 - 문서
 - Yast
 
 심각도에 일반적으로 사용 되는 값은 다음과 같습니다.
 
-- 심각
+- 중요
 - 중요
 - 보통
 - 낮음
-- Unspecified
+- 지정 되지 않은
 
 **zypper** 명령은 설치된 패키지에 필요한 업데이트만 찾습니다. 예를 들어 다음 명령을 사용할 수 있습니다.
 
@@ -241,7 +241,7 @@ SLES for SAP Applications 12 general availability and SLES for SAP Applications 
 
 **tuned-adm**에 대한 자세한 내용은 [tuned-adm 관련 SUSE 설명서](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip)(영문)를 참조하세요.
 
-다음 스크린샷에서는 필요한 SAP HANA 설정에 따라 **조정** 된 `transparent_hugepage` adm에서 및 `numa_balancing` 값을 변경 하는 방법을 확인할 수 있습니다.
+다음 스크린샷에서는 필요한 SAP HANA 설정에 따라 **조정 된 adm** 에서 `transparent_hugepage`를 변경 하 고 값을 `numa_balancing` 하는 방법을 확인할 수 있습니다.
 
 ![tuned-adm 도구는 필수 SAP HANA 설정에 따라 값을 변경합니다.](./media/hana-get-started/image005.jpg)
 
@@ -382,7 +382,7 @@ SAPABAP1 스키마 암호에 대한 질문을 입력합니다.
 
 ![SAPABAP1 스키마 암호에 대한 질문 입력](./media/hana-get-started/image037b.jpg)
 
-각 작업이 완료되면 DB 설치 프로세스의 각 단계 옆에 녹색 확인 표시가 나타납니다. 메시지 "데이터베이스... 인스턴스의 실행이 완료되었습니다."가 표시됩니다.
+각 작업이 완료되면 DB 설치 프로세스의 각 단계 옆에 녹색 확인 표시가 나타납니다. 메시지의 "실행 중 ... 데이터베이스 인스턴스가 완료 되었습니다. "가 표시 됩니다.
 
 ![확인 메시지가 표시된 작업 완료 창](./media/hana-get-started/image023.jpg)
 
@@ -419,7 +419,7 @@ HANA HDBLCM 도구에 대한 자세한 내용은 다음을 참조하세요.
 * [SAP HANA 수명 주기 관리 도구](https://www.tutorialspoint.com/sap_hana_administration/sap_hana_administration_lifecycle_management.htm)입니다.
 * [서버 설치 및 업데이트 가이드를 SAP HANA](https://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)합니다.
 
-HDBLCM 도구에 의해 생성 되는에 대 한 `\<HANA SID\>adm user`기본 그룹 ID 설정 문제를 방지 하려고 합니다. HDBLCM를 통해 SAP HANA를 설치 하기 전에 그룹 ID `sapsys` `1001`를 사용 하 여 라는 새 그룹을 정의 합니다.
+HDBLCM 도구에 의해 생성 되는 `\<HANA SID\>adm user`에 대 한 기본 그룹 ID 설정 문제를 방지 하려고 합니다. HDBLCM를 통해 SAP HANA를 설치 하기 전에 그룹 ID `1001`를 사용 하 여 `sapsys` 라는 새 그룹을 정의 합니다.
 
 ![1001 그룹 ID를 사용하여 정의한 새로운 "sapsys" 그룹](./media/hana-get-started/image030.jpg)
 
@@ -432,11 +432,11 @@ HDBLCM 도구에 의해 생성 되는에 대 한 `\<HANA SID\>adm user`기본 �
 > [!IMPORTANT]
 > HANA 로그 및 데이터 볼륨에 대해 이름이 지정 된 디렉터리와이 샘플에서/hana/shared 설치 경로는 루트 파일 시스템에 포함 되지 않아야 합니다. 이러한 디렉터리는 VM에 연결 된 Azure 데이터 디스크에 속합니다. 자세한 내용은 "디스크 설정" 섹션을 참조 하세요. 
 
-이 방법은 루트 파일 시스템의 공간이 부족하지 않도록 방지하는 데 유용합니다. HANA 시스템 관리자에 게는 사용자 id `1005` 가 있으며 설치 전에 정의 된 id `1001`를 가진 `sapsys` 그룹의 일부입니다.
+이 방법은 루트 파일 시스템의 공간이 부족하지 않도록 방지하는 데 유용합니다. HANA 시스템 관리자에 게는 사용자 ID `1005` 있고, 설치 전에 정의 된 ID `1001`의 `sapsys` 그룹의 일부입니다.
 
 ![이전에 선택한 주요 SAP HANA 구성 요소 전체 목록](./media/hana-get-started/image032.jpg)
 
-/Etc/passwd 디렉터리 `\<HANA SID\>adm user` 에서 세부 정보를 확인 합니다. 다음 스크린샷에 표시 된 것 처럼 를찾습니다.`azdadm`
+/Etc/passwd 디렉터리에서 `\<HANA SID\>adm user` 세부 정보를 확인 합니다. 다음 스크린샷에 표시 된 것 처럼 `azdadm`를 찾습니다.
 
 ![/etc/passwd 디렉터리에 나열된 HANA \<HANA SID\>adm 사용자 세부 정보](./media/hana-get-started/image033.jpg)
 
