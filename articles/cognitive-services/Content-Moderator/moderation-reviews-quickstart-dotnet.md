@@ -3,19 +3,19 @@ title: .NET을 사용하여 검토 만들기 - Content Moderator
 titleSuffix: Azure Cognitive Services
 description: .NET용 Azure Content Moderator SDK를 사용하여 검토를 만드는 방법입니다.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.author: sajagtap
-ms.openlocfilehash: e3b36eae4f6dc4343828a38fa4ffe3920a83f589
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: 540d9872d41ba3ffc73f5e42f098fe51437789c6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242863"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755307"
 ---
 # <a name="create-human-reviews-net"></a>사용자 리뷰 만들기 (.NET)
 
@@ -24,7 +24,7 @@ ms.locfileid: "72242863"
 - 사용자 중재자에 대한 검토 집합 만들기
 - 사용자 중재자에 대한 기존 검토의 상태 가져오기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에서 로그인 하거나 계정을 만드세요.
 
@@ -156,7 +156,7 @@ public static class Clients
 > [!NOTE]
 > Content Moderator 서비스 키에는 RPS(초당 요청 수) 속도 제한이 있으며, 제한을 초과하는 경우 SDK에서 429 오류 코드로 예외를 throw합니다.
 >
-> 체험 계층 키에는 하나의 RPS 속도 제한이 있습니다.
+> 체험판 계층 키에는 하나의 RPS 속도 제한이 있습니다.
 
 #### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Program.cs의 **Program** 클래스에 다음 상수를 추가 합니다.
 

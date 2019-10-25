@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 10/12/2019
 ms.author: diberry
-ms.openlocfilehash: a63b6773a7546f8add0b2f2ab6280801e90bccca
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 8f00ffeff4eb353fa70aa7df60b14c97d4b8e724
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248631"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554868"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>GenerateAnswer API 및 메타 데이터를 사용 하 여 답변 받기
 
@@ -48,7 +48,7 @@ QnA 엔터티마다 고유한 영구 ID가 있습니다. ID를 사용 하 여 �
 엔드포인트 세부 정보를 가져오려면 다음을 수행합니다.
 1. [https://www.qnamaker.ai](https://www.qnamaker.ai)에 로그인합니다.
 1. **내 기술 자료**에서 기술 자료에 대 한 **코드 보기** 를 선택 합니다.
-    기술 자료 @ no__t-1의 ![Screenshot
+    내 기술 자료의 스크린샷 ![](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. GenerateAnswer 엔드포인트 세부 정보를 가져옵니다.
 
     ![끝점 세부 정보 스크린샷](../media/qnamaker-how-to-metadata-usage/view-code.png)
@@ -73,7 +73,7 @@ GenerateAnswer URL의 형식은 다음과 같습니다.
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-@No__t-0의 HTTP 헤더 속성은 후행 공백이 있는 문자열 `EndpointKey`의 값과 **설정** 페이지에 있는 끝점 키를 사용 하 여 설정 해야 합니다.
+후행 공백이 있는 문자열 `EndpointKey`의 값과 **설정** 페이지에 있는 끝점 키를 사용 하 여 `Authorization`의 HTTP 헤더 속성을 설정 해야 합니다.
 
 예제 JSON 본문은 다음과 같습니다.
 
@@ -83,6 +83,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
     "top": 6,
     "isTest": true,
     "scoreThreshold": 30,
+    "rankerType": "" // values: QuestionOnly
     "strictFilters": [
     {
         "name": "category",
@@ -91,6 +92,8 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
     "userId": "sd53lsY="
 }
 ```
+
+[RankerType](../concepts/best-practices.md#choosing-ranker-type)에 대해 자세히 알아보세요.
 
 이전 JSON은 임계값 점수 보다 30% 이상인 답만 요청 했습니다. 
 
@@ -229,7 +232,7 @@ GenerateAnswer에 대 한 응답에는 일치 하는 질문 및 답변 집합에
 
 기본적으로 QnA Maker는 질문과 대답을 검색 합니다. 질문을 통해서만 검색 하려는 경우 대답을 생성 하려면 GenerateAnswer 요청의 게시 본문에서 `RankerType=QuestionOnly`을 사용 합니다.
 
-@No__t-0을 사용 하 여 게시 된 kb를 검색 하거나 `isTest=true`을 사용 하 여 테스트 kb에서 검색할 수 있습니다.
+`isTest=false`를 사용 하 여 게시 된 kb를 통해 또는 `isTest=true`를 사용 하 여 테스트 kb에서 검색할 수 있습니다.
 
 ```json
 {

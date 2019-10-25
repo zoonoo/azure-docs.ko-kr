@@ -1,21 +1,21 @@
 ---
 title: 텍스트 조정 - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: 가능한 원치 않는 텍스트, PII 및 사용자 지정 용어 목록에 대해 텍스트 조정을 사용합니다.
+description: 원치 않는 텍스트, 개인 데이터 및 사용자 지정 약관 목록에 대해 텍스트 조정을 사용 합니다.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: e1d5224d8dc86c82624613b0d2a984ceef3ae5bf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: c5127d0f16a12840cda735d1682cb578266441fe
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564377"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757246"
 ---
 # <a name="learn-text-moderation-concepts"></a>텍스트 조정 개념 알아보기
 
@@ -45,9 +45,9 @@ API가 [지원되는 언어](Text-Moderation-API-Languages.md)의 욕설을 감�
     }
 
 > [!NOTE]
-> **language** 매개 변수에 대해 `eng`를 할당하거나, 기계 지원 **분류** 응답(미리 보기 기능)을 확인하려면 비워 둡니다. **이 기능은 영어만 지원합니다**.
+> **language** 매개 변수에 대해 `eng`를 할당하거나, 컴퓨터 지원 **분류** 응답(미리 보기 기능)을 확인하려면 비워둡니다. **이 기능은 영어만 지원합니다**.
 >
-> **욕설** 감지의 경우 이 문서에 나열된 지원되는 언어의 [ISO 639-3 코드](http://www-01.sil.org/iso639-3/codes.asp)를 사용하거나 비워 둡니다.
+> **욕설** 감지의 경우 이 문서에 나열된 지원되는 언어의 [ISO 639-3 코드](http://www-01.sil.org/iso639-3/codes.asp)를 사용하거나 비워둡니다.
 
 ## <a name="classification"></a>분류
 
@@ -78,9 +78,9 @@ JSON 추출의 다음 추출은 예제 출력을 보여 줍니다.
 
 ## <a name="personal-data"></a>개인 데이터
 
-PII 기능은 잠재적으로 다음과 같은 정보가 있는지 감지합니다.
+개인 데이터 기능은이 정보의 잠재적 존재 여부를 검색 합니다.
 
-- 전자 메일 주소
+- 메일 주소
 - 미국 우편 주소
 - IP 주소
 - 미국 전화 번호
@@ -89,51 +89,68 @@ PII 기능은 잠재적으로 다음과 같은 정보가 있는지 감지합니�
 
 다음 예제에서는 샘플 응답을 보여 줍니다.
 
-    "PII": {
-        "Email": [{
-            "Detected": "abcdef@abcd.com",
-            "SubType": "Regular",
-            "Text": "abcdef@abcd.com",
-            "Index": 32
-            }],
-        "IPA": [{
-            "SubType": "IPV4",
-            "Text": "255.255.255.255",
-            "Index": 72
-            }],
-        "Phone": [{
-            "CountryCode": "US",
-            "Text": "6657789887",
-            "Index": 56
-            }, {
-            "CountryCode": "US",
-            "Text": "870 608 4000",
-            "Index": 212
-            }, {
-            "CountryCode": "UK",
-            "Text": "+44 870 608 4000",
-            "Index": 208
-            }, {
-            "CountryCode": "UK",
-            "Text": "0344 800 2400",
-            "Index": 228
-            }, {
-            "CountryCode": "UK",
-            "Text": "0800 820 3300",
-            "Index": 245
-            }],
-        "Address": [{
-            "Text": "1 Microsoft Way, Redmond, WA 98052",
-            "Index": 89
-            }],
-        "SSN": [{
-            "Text": "999999999",
-            "Index": 56
-            }, {
-            "Text": "999-99-9999",
-            "Index": 267
-            }]
-        }
+```json
+"PII":{ 
+  "Email":[ 
+    { 
+      "Detected":"abcdef@abcd.com",
+      "SubType":"Regular",
+      "Text":"abcdef@abcd.com",
+      "Index":32
+    }
+  ],
+  "IPA":[ 
+    { 
+      "SubType":"IPV4",
+      "Text":"255.255.255.255",
+      "Index":72
+    }
+  ],
+  "Phone":[ 
+    { 
+      "CountryCode":"US",
+      "Text":"6657789887",
+      "Index":56
+    },
+    { 
+      "CountryCode":"US",
+      "Text":"870 608 4000",
+      "Index":212
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"+44 870 608 4000",
+      "Index":208
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"0344 800 2400",
+      "Index":228
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"0800 820 3300",
+      "Index":245
+    }
+  ],
+  "Address":[ 
+    { 
+      "Text":"1 Microsoft Way, Redmond, WA 98052",
+      "Index":89
+    }
+  ],
+  "SSN":[ 
+    { 
+      "Text":"999999999",
+      "Index":56
+    },
+    { 
+      "Text":"999-99-9999",
+      "Index":267
+    }
+  ]
+}
+```
 
 ## <a name="auto-correction"></a>자동 고침
 
