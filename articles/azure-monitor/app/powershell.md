@@ -1,23 +1,18 @@
 ---
 title: PowerShell 사용하여 Azure Application Insights 자동화 | Microsoft Docs
 description: Azure Resource Manager 템플릿을 사용 하 여 PowerShell에서 리소스, 경고 및 가용성 테스트 만들기 및 관리를 자동화 합니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 10/17/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 5cfe09c3c38ffd6e68d45ddc90862b69b305a824
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 10/17/2019
+ms.openlocfilehash: 938511069500c551eb526b6c7238546b85d59dce
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555481"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72818936"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>PowerShell을 사용 하 여 Application Insights 리소스 관리
 
@@ -558,7 +553,7 @@ Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <
    * `InstrumentationKey`
    * `CreationDate`
    * `TenantId`
-4. @No__t_0 및 `alertrules` 섹션을 열고 개별 항목에 대 한 JSON을 템플릿에 복사 합니다. @No__t_0 또는 `alertrules` 노드에서 복사 하지 않습니다. 아래 항목으로 이동 합니다.
+4. `webtests` 및 `alertrules` 섹션을 열고 개별 항목에 대 한 JSON을 템플릿에 복사 합니다. `webtests` 또는 `alertrules` 노드에서 복사 하지 않습니다. 아래 항목으로 이동 합니다.
    
     각 웹 테스트에는 연결된 경고 규칙이 있으므로 둘 다 복사해야 합니다.
    

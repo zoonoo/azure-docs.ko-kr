@@ -5,25 +5,20 @@ author: bharathsreenivas
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 10/23/2019
 ms.author: bharathb
-ms.openlocfilehash: 6092b3aac2b0282a795d89730266e72179b34e8a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 69b400eb7838c986ac6f275da58c7457179ebea6
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648889"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880215"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>수백 테라바이트의 데이터를 Azure Cosmos DB로 마이그레이션 
 
-Tb의 데이터를 저장할 수 Azure Cosmos DB. 대규모 데이터 마이그레이션을 수행 하 여 프로덕션 워크 로드를 Azure Cosmos DB로 이동할 수 있습니다. 이 문서에서는 대규모 데이터를 Azure Cosmos DB로 이동 하는 데 필요한 과제를 설명 하 고 문제를 해결 하 고 데이터를 Azure Cosmos DB으로 마이그레이션하는 데 도움이 되는 도구를 소개 합니다. 이 사례 연구에서 고객은 Cosmos DB SQL API를 사용 했습니다.  
+Azure Cosmos DB에 테라바이트의 데이터를 저장할 수 있습니다. 대규모 데이터 마이그레이션을 수행하여 프로덕션 워크로드를 Azure Cosmos DB로 이동할 수 있습니다. 이 문서에서는 대규모 데이터를 Azure Cosmos DB로 이동 하는 데 필요한 과제를 설명 하 고 문제를 해결 하 고 데이터를 Azure Cosmos DB으로 마이그레이션하는 데 도움이 되는 도구를 소개 합니다. 이 사례 연구에서 고객은 Cosmos DB SQL API를 사용 했습니다.  
 
 전체 작업을 Azure Cosmos DB로 마이그레이션하기 전에 데이터의 하위 집합을 마이그레이션하여 파티션 키 선택, 쿼리 성능 및 데이터 모델링과 같은 일부 측면의 유효성을 검사할 수 있습니다. 개념 증명의 유효성을 검사 한 후에는 전체 작업을 Azure Cosmos DB로 이동할 수 있습니다.  
-
-[Cosmos DB 부트스트랩 프로그램](https://azurecosmosdb.github.io/CosmosBootstrap/) 을 사용 하 여 Azure Cosmos DB에서 응용 프로그램을 빌드하거나 마이그레이션하는 속도를 높일 수도 있습니다. 이 프로그램의 일부로 Azure Cosmos DB 팀의 엔지니어가 프로젝트에 할당 되 고 데이터를 Azure Cosmos DB으로 마이그레이션하는 데 도움이 됩니다. 아래 단추를 클릭 하 Cosmos DB 부트스트랩 프로그램에 등록 합니다.
-
-> [!div class="nextstepaction"]
-> [Cosmos DB 부트스트랩 프로그램](https://azurecosmosdb.github.io/CosmosBootstrap/)
 
 ## <a name="tools-for-data-migration"></a>데이터 마이그레이션 도구 
 
@@ -33,11 +28,11 @@ Azure Cosmos DB 마이그레이션 전략은 현재 API 선택 및 데이터 크
 
 Azure Cosmos DB로 데이터를 마이그레이션하기 위한 기존 도구에는 다음과 같은 몇 가지 제한 사항이 있습니다.
 
- * **제한 된 확장 기능**: Tb의 데이터를 최대한 신속 하 게 Azure Cosmos DB으로 마이그레이션하고 프로 비전 된 전체 처리량을 효과적으로 사용 하기 위해 마이그레이션 클라이언트에 무기한 규모를 확장할 수 있는 기능이 있어야 합니다.  
+ * **제한 된 규모 확장 기능**: 가능한 한 빨리 tb의 데이터를 Azure Cosmos DB으로 마이그레이션하고 프로 비전 된 전체 처리량을 효과적으로 사용 하기 위해 마이그레이션 클라이언트에서 무기한 규모를 확장할 수 있어야 합니다.  
 
-* **진행률 추적 및 확인이 부족**합니다. 큰 데이터 집합을 마이그레이션하는 동안에는 마이그레이션 진행률을 추적 하 고 체크 가리키기를 설정 하는 것이 중요 합니다. 그렇지 않은 경우 마이그레이션 중에 발생 하는 모든 오류는 마이그레이션을 중지 하 고 처음부터 프로세스를 시작 해야 합니다. 99%가 이미 완료 되었을 때 전체 마이그레이션 프로세스를 다시 시작 하는 것은 생산적이 지 않습니다.  
+* **진행률 추적 및 체크 인이 부족**합니다. 마이그레이션 진행 상황을 추적 하 고 큰 데이터 집합을 마이그레이션하는 동안 체크 가리키기를 수행 하는 것이 중요 합니다. 그렇지 않은 경우 마이그레이션 중에 발생 하는 모든 오류는 마이그레이션을 중지 하 고 처음부터 프로세스를 시작 해야 합니다. 99%가 이미 완료 되었을 때 전체 마이그레이션 프로세스를 다시 시작 하는 것은 생산적이 지 않습니다.  
 
-* **배달 못한 편지 큐 부족**: 일부 경우에는 많은 데이터 집합 내에서 원본 데이터의 일부에 문제가 있을 수 있습니다. 또한 클라이언트 또는 네트워크에 일시적인 문제가 있을 수 있습니다. 이러한 경우 모두 전체 마이그레이션이 실패 하지는 않습니다. 대부분의 마이그레이션 도구는 일시적인 문제를 방지 하는 강력한 다시 시도 기능을 포함 하지만 항상 충분 하지는 않습니다. 예를 들어 원본 데이터 문서의 0.01% 미만이 크기가 2mb 보다 크면 문서 쓰기가 Azure Cosmos DB에서 실패 하 게 됩니다. 이상적인 경우 마이그레이션 도구를 통해 이러한 ' 실패 ' 문서를 다른 배달 못한 편지 큐에 보관 하 여 마이그레이션 후에 처리할 수 있는 것이 좋습니다. 
+* **배달 못한 편지 큐 부족**: 많은 데이터 집합 내에서 원본 데이터의 일부에 문제가 있을 수 있습니다. 또한 클라이언트 또는 네트워크에 일시적인 문제가 있을 수 있습니다. 이러한 경우 모두 전체 마이그레이션이 실패 하지는 않습니다. 대부분의 마이그레이션 도구는 일시적인 문제를 방지 하는 강력한 다시 시도 기능을 포함 하지만 항상 충분 하지는 않습니다. 예를 들어 원본 데이터 문서의 0.01% 미만이 크기가 2mb 보다 크면 문서 쓰기가 Azure Cosmos DB에서 실패 하 게 됩니다. 이상적인 경우 마이그레이션 도구를 통해 이러한 ' 실패 ' 문서를 다른 배달 못한 편지 큐에 보관 하 여 마이그레이션 후에 처리할 수 있는 것이 좋습니다. 
 
 이러한 제한 사항 중 상당수는 Azure data factory, Azure Data Migration services와 같은 도구에 대해 수정 되 고 있습니다. 
 
@@ -154,10 +149,7 @@ Azure Cosmos DB로 데이터를 마이그레이션하기 위한 기존 도구에
 
 
 ## <a name="next-steps"></a>다음 단계
+
 * [.Net](bulk-executor-dot-net.md) 및 [Java](bulk-executor-java.md)에서 대량 실행자 라이브러리를 사용 하는 샘플 응용 프로그램을 사용해 보세요. 
 * 대량 실행자 라이브러리는 Cosmos DB Spark 커넥터에 통합 되어 있습니다. 자세한 내용은 [Azure Cosmos DB spark 커넥터](spark-connector.md) 문서를 참조 하세요.  
 * 대규모 마이그레이션에 대 한 추가 도움말을 보려면 "일반 권고" 문제 유형 및 "대규모 (TB +) 마이그레이션" 문제 하위 유형에 서 지원 티켓을 열어 Azure Cosmos DB 제품 팀에 문의 하세요. 
-* [Cosmos DB 부트스트랩 프로그램](https://azurecosmosdb.github.io/CosmosBootstrap/) 을 사용 하 여 Azure Cosmos DB에서 응용 프로그램을 빌드하거나 마이그레이션하는 속도를 높일 수 있습니다.
-
-> [!div class="nextstepaction"]
-> [Cosmos DB 부트스트랩 프로그램](https://azurecosmosdb.github.io/CosmosBootstrap/)

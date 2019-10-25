@@ -1,24 +1,19 @@
 ---
 title: 'Application Insights: 언어, 플랫폼 및 통합 | Microsoft Docs'
 description: Application Insights 사용할 수 있는 언어, 플랫폼 및 통합
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 07/18/2019
 ms.reviewer: olegan
-ms.author: mbullwin
-ms.openlocfilehash: ab573d1d9ca9d9db39135ea76e555bb0720d7b68
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 35d1cf37e1df0b2714505833d40163775e3d090c
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878784"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819042"
 ---
 # <a name="supported-languages"></a>지원되는 언어
 
@@ -56,5 +51,5 @@ ms.locfileid: "68878784"
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Stream Analytics](../../azure-monitor/app/export-power-bi.md)
 
-## <a name="unsupported-sdks"></a>지원 되지 않는 Sdk
+## <a name="unsupported-sdks"></a>지원되지 않는 SDK
 커뮤니티에서 지 원하는 여러 Sdk가 있습니다. 그러나 Azure Monitor은이 페이지에 나열 된 지원 되는 Sdk를 사용할 때만 지원 합니다. 다른 언어에 대 한 지원을 확장 하는 기회를 지속적으로 평가 하 고 있으므로 [GitHub 발표](https://github.com/microsoft/ApplicationInsights-Announcements/issues) 페이지에 따라 최신 SDK 뉴스를 받을 수 있습니다. 

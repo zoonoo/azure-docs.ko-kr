@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 00d49d763dedc5d86557dadd10f5d727e7893dbe
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 2e2195c61acbf39b40a7659335afff78ac03cb4b
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563066"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881416"
 ---
 # <a name="connect-azure-virtual-network-to-cloudsimple-using-expressroute"></a>Express 경로를 사용 하 여 Azure 가상 네트워크를 CloudSimple에 연결
 
@@ -24,21 +24,28 @@ ms.locfileid: "69563066"
 사설 클라우드와 Azure virtual network 간의 Express 경로 연결에는 인증 키가 필요 합니다. 키를 얻으려면 <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">지원</a>되는 티켓을 파일에 입력 합니다.  요청에서 다음 정보를 사용 합니다.
 
 * 문제 유형: **기술**
-* 구독: **CloudSimple 서비스가 배포 된 구독을 선택 합니다.**
+* 구독: **CloudSimple 서비스가 배포 된 구독을 선택 합니다** .
 * 서비스: **CloudSimple 별 VMware 솔루션**
 * 문제 유형: **서비스 요청**
-* 문제 하위 유형: **Azure VNET 연결에 대 한 인증 키**
-* 제목: **Azure VNET 연결에 대 한 인증 키 요청**
+* 문제 하위 유형: **AZURE VNET 연결에 대 한 인증 키**
+* 주제: **AZURE VNET 연결에 대 한 인증 키 요청**
 
-## <a name="obtain-peering-information-for-azure-virtual-network-to-cloudsimple-connection"></a>Azure virtual network에 대 한 피어 링 정보를 CloudSimple 연결로 가져오기
+## <a name="get-peering-information-from-cloudsimple-portal"></a>CloudSimple 포털에서 피어 링 정보 가져오기
 
-연결을 설정 하려면 Azure virtual network와 CloudSimple 환경 간의 링크를 설정 해야 합니다.  절차의 일부로 피어 회로 URI 및 권한 부여 키를 제공 해야 합니다. [Cloudsimple 포털](access-cloudsimple-portal.md)에서 URI 및 권한 부여 키를 가져옵니다.  측면 메뉴에서 **네트워크** 를 선택한 다음 **Azure 네트워크 연결**을 선택 합니다. 또는 측면 메뉴에서 **계정** 을 선택 하 고 **Azure 네트워크 연결**을 선택 합니다.
+연결을 설정 하려면 Azure virtual network와 CloudSimple 환경 간의 연결을 설정 해야 합니다.  절차의 일부로 피어 회로 URI 및 권한 부여 키를 제공 해야 합니다. [Cloudsimple 포털](access-cloudsimple-portal.md)에서 URI 및 권한 부여 키를 가져옵니다.  측면 메뉴에서 **네트워크** 를 선택한 다음 **Azure 네트워크 연결**을 선택 합니다. 또는 측면 메뉴에서 **계정** 을 선택 하 고 **Azure 네트워크 연결**을 선택 합니다.
 
-피어 회로 URI와 각 지역의 인증 키에 대 한 복사 아이콘을 확인 합니다. 연결 하려는 각 사설 클라우드에 대해 다음을 수행 합니다.
+*복사* 아이콘을 사용 하 여 각 지역에 대 한 인증 키와 피어 회로 URI를 복사 합니다. 연결할 각 CloudSimple 영역에 대해 다음을 수행 합니다.
 
-* **복사** 를 클릭 하 여 URI를 복사 합니다. Azure Portal에 추가할 수 있는 파일에 붙여넣습니다.  
-* **복사** 를 클릭 하 여 권한 부여 키를 복사 하 고 파일에도 붙여넣습니다.
+1. **복사** 를 클릭 하 여 URI를 복사 합니다. Azure Portal에 추가할 수 있는 파일에 붙여넣습니다.  
+2. **복사** 를 클릭 하 여 권한 부여 키를 복사 하 고 파일에도 붙여넣습니다.
 
-![Virtual Network 연결 페이지](media/network-virt-conn-page.png)
+**사용 가능한** 상태의 인증 키 및 피어 회로 URI를 복사 합니다.  **사용** 된 상태는 키가 이미 가상 네트워크 연결을 만드는 데 사용 되었음을 나타냅니다.
+
+![Virtual Network 연결 페이지](media/virtual-network-connection.png)
 
 Azure virtual network를 CloudSimple 링크로 설정 하는 방법에 대 한 자세한 내용은 Express 경로를 [사용 하 여 Cloudsimple 사설 클라우드 환경을 Azure virtual network에 연결](azure-expressroute-connection.md)을 참조 하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+* [사설 클라우드에 대 한 Azure 가상 네트워크 연결](azure-expressroute-connection.md)
+* [Azure Express 경로를 사용 하 여 온-프레미스 네트워크에 연결](on-premises-connection.md)

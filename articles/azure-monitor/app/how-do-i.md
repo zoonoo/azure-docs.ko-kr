@@ -1,25 +1,20 @@
 ---
 title: Azure Application Insights에서 어떻게 할까요? | Microsoft Docs
 description: Application Insights의 FAQ
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/04/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 9f80edf18a531d6c2850658ddef9c7007edb350f
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.date: 04/04/2017
+ms.openlocfilehash: 28881403e4938376cc1912227bdff51aa5f069cf
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795521"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817375"
 ---
-# <a name="how-do-i--in-application-insights"></a>Application Insights에서 어떻게 할까요?
+# <a name="how-do-i--in-application-insights"></a>Application Insights에서 다음을 수행하는 방법
 ## <a name="get-an-email-when-"></a>전자 메일을 받는 경우
 ### <a name="email-if-my-site-goes-down"></a>내 사이트가 다운되면 전자 메일로 알림
 [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 설정합니다.
@@ -82,9 +77,9 @@ ms.locfileid: "67795521"
 
 ## <a name="separate-telemetry-from-different-versions"></a>서로 다른 버전에서 별도 원격 분석
 
-* 앱에서 여러 역할: 단일 Application Insights 리소스 사용 및 [cloud_Rolename](../../azure-monitor/app/app-map.md) 필터링
-* 개발, 테스트 및 릴리스 버전 구분: 다른 Application Insights 리소스 사용 web.config에서 계측 키를 선택합니다. [자세히 알아보기](../../azure-monitor/app/separate-resources.md)
-* 빌드 버전 보고: 원격 분석 이니셜라이저를 사용하여 속성 추가 [자세히 알아보기](../../azure-monitor/app/separate-resources.md)
+* 앱의 여러 역할: 단일 Application Insights 리소스를 사용 하 고 [cloud_Rolename](../../azure-monitor/app/app-map.md)에서 필터링 합니다.
+* 개발, 테스트 및 릴리스 버전 구분: 다른 Application Insights 리소스 사용. Web.config에서 계측 키를 선택 합니다. [자세히 알아보기](../../azure-monitor/app/separate-resources.md)
+* 빌드 버전 보고: 원격 분석 이니셜라이저를 사용하여 속성 추가. [자세한 정보](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>백엔드 서버 및 데스크톱 앱 모니터링
 [Windows Server SDK 모듈을 사용합니다](../../azure-monitor/app/windows-desktop.md).
@@ -96,14 +91,14 @@ ms.locfileid: "67795521"
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>다른 원본 및 Application Insights의 데이터가 표시된 대시보드
 * [Power BI에 원격 분석을 내보냅니다](../../azure-monitor/app/export-power-bi.md ).
 
-또는
+or
 
 * SharePoint를 대시보드로 사용하여 SharePoint 웹 파트에 데이터를 표시 합니다. [연속 내보내기 및 Stream Analytics를 사용하여 SQL로 내보냅니다](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md).  PowerView를 사용하여 데이터베이스를 검사하고 PowerView에 대한 SharePoint 웹 파트를 만듭니다.
 
 <a name="search-specific-users"></a>
 
 ### <a name="filter-out-anonymous-or-authenticated-users"></a>익명 또는 인증된 사용자 필터링
-사용자가 로그인할 경우 [인증된 사용자 ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)를 설정할 수 있습니다. 이 작업은 자동으로 수행되지 않습니다.
+사용자가 로그인 하는 경우 [인증 된 사용자 id](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)를 설정할 수 있습니다. 자동으로 발생 하지 않습니다.
 
 그런 다음 다음을 수행할 수 있습니다.
 
@@ -146,16 +141,16 @@ ms.locfileid: "67795521"
 ```
 
 ### <a name="other-applications"></a>다른 애플리케이션
-사용 하는 것은 권장 되지 `TelemetryConfiguration.Active` 콘솔 또는 ASP.NET Core 응용 프로그램에 단일 항목입니다.
-만든 경우 `TelemetryConfiguration` 인스턴스를 직접-설정 `DisableTelemetry` 에 `true`입니다.
+콘솔 또는 ASP.NET Core 응용 프로그램에서 `TelemetryConfiguration.Active` singleton을 사용 하지 않는 것이 좋습니다.
+`TelemetryConfiguration` 인스턴스를 직접 만든 경우 `DisableTelemetry`을 `true`로 설정 합니다.
 
-ASP.NET Core 응용 프로그램에 액세스할 수 있습니다 `TelemetryConfiguration` 인스턴스에서 사용 하 여 [ASP.NET Core 종속성 주입](/aspnet/core/fundamentals/dependency-injection/)합니다. 자세한 내용은 참조 하세요 [ASP.NET Core 응용 프로그램에 대 한 application Insights](../../azure-monitor/app/asp-net-core.md) 문서.
+ASP.NET Core 응용 프로그램의 경우 [ASP.NET Core 종속성 주입](/aspnet/core/fundamentals/dependency-injection/)을 사용 하 여 `TelemetryConfiguration` 인스턴스에 액세스할 수 있습니다. [ASP.NET Core 응용 프로그램에 대 한 Applicationinsights](../../azure-monitor/app/asp-net-core.md) 문서에서 자세한 내용을 확인 하세요.
 
-## <a name="disable-selected-standard-collectors"></a>선택한 표준 수집기를 사용 하지 않도록 설정
+## <a name="disable-selected-standard-collectors"></a>선택한 표준 수집기 사용 안 함
 표준 수집기 (예: 성능 카운터, HTTP 요청 또는 종속성)를 사용 하지 않도록 설정할 수 있습니다.
 
-* **ASP.NET 응용 프로그램** -삭제 하거나에서 관련 줄을 주석 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
-* **ASP.NET Core 응용 프로그램** -원격 분석 모듈 구성 옵션에 따라 [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
+* **ASP.NET 응용 프로그램** -applicationinsights에서 관련 줄을 삭제 하거나 주석으로 처리 [합니다.](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
+* **응용 프로그램 ASP.NET Core** - [applicationinsights](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules) 의 원격 분석 모듈 구성 옵션을 따릅니다 ASP.NET Core
 
 ## <a name="view-system-performance-counters"></a>시스템 성능 카운터 보기
 메트릭 탐색기에서 표시할 수 있는 메트릭 중에는 시스템 성능 카운터 집합이 있습니다. 이름이 **서버** 인 미리 정의된 블레이드에서 그중 몇 가지를 표시합니다.

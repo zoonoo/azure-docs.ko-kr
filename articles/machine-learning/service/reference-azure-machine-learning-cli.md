@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 08/20/2019
+ms.date: 10/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 85ebcc36d32b86ec2640ce7ce02190deaab19d6b
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 597cc4e03257b544187fc2bc131974954b64c84b
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997077"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819879"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Azure Machine Learning에 CLI 확장 사용
 
@@ -30,9 +30,9 @@ Azure Machine Learning CLI는 Azure 플랫폼용 플랫폼 간 명령줄 인터�
 
 CLI는 Azure Machine Learning SDK를 대체하는 것이 아닙니다. 자동화에 잘 맞는 매우 중요 한 작업을 처리 하도록 최적화 된 보완 도구입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
-* CLI를 사용하려면 Azure 구독이 있어야 합니다. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 을 사용해 보세요.
+* CLI를 사용하려면 Azure 구독이 있어야 합니다. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 서비스의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
@@ -100,7 +100,7 @@ az extension remove -n azure-cli-ml
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
 
-    이 명령은 .runconfig 및 `.azureml` conda environment 파일 예제를 포함 하는 하위 디렉터리를 만듭니다. 또한 Azure Machine Learning 작업 영역과 `config.json` 통신 하는 데 사용 되는 파일도 포함 되어 있습니다.
+    이 명령은 .runconfig 및 conda environment 파일 예제를 포함 하는 `.azureml` 하위 디렉터리를 만듭니다. 또한 Azure Machine Learning 작업 영역과 통신 하는 데 사용 되는 `config.json` 파일도 포함 되어 있습니다.
 
     자세한 내용은 [az ml folder attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach)항목을 참조 하세요.
 
@@ -138,18 +138,18 @@ az extension remove -n azure-cli-ml
 
 ## <a id="experiments"></a>실험 실행
 
-* 실험 실행을 시작합니다. 이 명령을 사용 하는 경우-c 매개 변수에 대해 .runconfig 파일의 이름 ( \*파일 시스템을 확인 하는 .runconfig 앞의 텍스트)을 지정 합니다.
+* 실험 실행을 시작합니다. 이 명령을 사용 하는 경우-c 매개 변수에 대해 .runconfig 파일의 이름 (파일 시스템을 확인 하는 경우 .runconfig \*앞의 텍스트)을 지정 합니다.
 
     ```azurecli-interactive
     az ml run submit-script -c sklearn -e testexperiment train.py
     ```
 
     > [!TIP]
-    > 명령은 .runconfig 파일의 `.azureml` 두 예제를 포함 하는 하위 디렉터리를 만듭니다. `az ml folder attach` 
+    > `az ml folder attach` 명령은 .runconfig 파일의 두 예제를 포함 하는 `.azureml` 하위 디렉터리를 만듭니다. 
     >
     > 실행 구성 개체를 프로그래밍 방식으로 만드는 Python 스크립트가 있는 경우 [.runconfig ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) 를 사용 하 여 .runconfig 파일로 저장할 수 있습니다.
     >
-    > .Runconfig 파일 예제에 대 한 자세한 [https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml](https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml)내용은을 참조 하십시오.
+    > .Runconfig 파일 예제에 대 한 자세한 내용은 [https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml](https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml)를 참조 하세요.
 
     자세한 내용은 [az ml run submit-스크립트](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script)를 참조 하세요.
 
@@ -196,6 +196,40 @@ az extension remove -n azure-cli-ml
     ```
 
     자세한 내용은 [az ml environment 다운로드](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-download)를 참조 하세요.
+
+## <a name="ml-pipeline-management"></a>ML 파이프라인 관리
+
+다음 명령에서는 machine learning 파이프라인을 사용 하는 방법을 보여 줍니다.
+
++ Machine learning 파이프라인을 만듭니다.
+
+    ```azurecli-interactive
+    az ml pipeline create -n mypipeline -y mypipeline.yml
+    ```
+
+    자세한 내용은 [az ml pipeline create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/pipeline?view=azure-cli-latest#ext-azure-cli-ml-az-ml-pipeline-create)를 참조 하세요.
+
+    파이프라인 YAML 파일에 대 한 자세한 내용은 [yaml에서 기계 학습 파이프라인 정의](reference-pipeline-yaml.md)를 참조 하세요.
+
++ 파이프라인을 실행 합니다.
+
+    ```azurecli-interactive
+    az ml run submit-pipeline -n myexperiment -y mypipeline.yml
+    ```
+
+    자세한 내용은 [az ml run submit 파이프라인](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-pipeline)을 참조 하세요.
+
+    파이프라인 YAML 파일에 대 한 자세한 내용은 [yaml에서 기계 학습 파이프라인 정의](reference-pipeline-yaml.md)를 참조 하세요.
+
++ 파이프라인 예약:
+
+    ```azurecli-interactive
+    az ml pipeline create-schedule -n myschedule -e myexpereiment -i mypipelineid -y myschedule.yml
+    ```
+
+    자세한 내용은 [az ml pipeline create-schedule](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/pipeline?view=azure-cli-latest#ext-azure-cli-ml-az-ml-pipeline-create-schedule)를 참조 하세요.
+
+    파이프라인 일정 YAML 파일에 대 한 자세한 내용은 [yaml에서 기계 학습 파이프라인 정의](reference-pipeline-yaml.md#schedules)를 참조 하세요.
 
 ## <a name="model-registration-profiling-deployment"></a>모델 등록, 프로 파일링, 배포
 

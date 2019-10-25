@@ -1,21 +1,18 @@
 ---
 title: Azure Application Insights - 종속성 자동 수집 | Microsoft Docs
 description: Application Insights에서 자동으로 종속성 수집 및 시각화
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: reference
-ms.date: 10/16/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 3ad2f4788a765366066023724772f5432d0d56eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 10/16/2018
+ms.openlocfilehash: 1d3259c32de7f937d4e5ac8e21c8cab60b9cc635
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60699208"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819182"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights NuGet 패키지
 
@@ -43,6 +40,22 @@ ms.locfileid: "60699208"
 | Microsoft.ApplicationInsights.PerfCounterCollector | 2.8.0 | Application Insights 성능 카운터 수집기를 사용하면 성능 카운터에서 수집한 데이터를 Application Insights로 보낼 수 있습니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) |
 | Microsoft.ApplicationInsights.WindowsServer | 2.8.0 | Application Insights Windows Server NuGet 패키지는 .NET 애플리케이션의 Application Insights 원격 분석을 자동으로 수집합니다. 이 패키지는 Application Insights 플랫폼별 패키지의 종속 패키지 또는 플랫폼별 패키지(예: .NET 작업자 역할 관련)로 수집되지 않는 .NET 애플리케이션용 독립 실행형 패키지로 사용할 수 있습니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  |
 | Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.8.0 | 오프라인 시나리오에서 원격 분석을 유지하는 Application Insights Windows Server SDK에 대한 원격 분석 채널을 제공합니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
+
+## <a name="common-packages-for-python-using-opencensus"></a>OpenCensus를 사용 하는 Python 용 일반 패키지
+| 패키지 이름 | 안정적 버전 | 설명 | 다운로드 |
+|-------------------------------|-----------------------|------------|----|
+| opencensus-azure | 1.0.0 | OpenCensus를 통해 Azure Monitor에서 Python 응용 프로그램에 대 한 Application Insights 합니다. | [패키지 다운로드](https://pypi.org/project/opencensus-ext-azure/) |
+| opencensus-django | 0.7.2 | 이 패키지는 Python [django](https://pypi.org/project/django/) 라이브러리와의 통합을 제공 합니다. | [패키지 다운로드](https://pypi.org/project/opencensus-ext-django/) |
+| opencensus-flask | 0.7.3 | 이 패키지는 Python [flask](https://pypi.org/project/flask/) 라이브러리와의 통합을 제공 합니다. | [패키지 다운로드](https://pypi.org/project/opencensus-ext-flask/) |
+| opencensus-httplib | 0.7.2 | 이 패키지는 Python [http. 클라이언트](https://docs.python.org/3/library/http.client.html) 라이브러리 Python3 및 [httplib](https://docs.python.org/2/library/httplib.html) for Python2와의 통합을 제공 합니다. | [패키지 다운로드](https://pypi.org/project/opencensus-ext-httplib/) |
+| opencensus-ext-로깅 | 0.1.0 | 이 패키지는 추적 데이터를 사용 하 여 로그 레코드를 강화 합니다. | [패키지 다운로드](https://pypi.org/project/opencensus-ext-logging/) |
+| opencensus-mysql | 0.1.2 | 이 패키지는 Python [mysql 커넥터](https://pypi.org/project/mysql-connector/) 라이브러리와의 통합을 제공 합니다. | [패키지 다운로드](https://pypi.org/project/opencensus-ext-mysql/) |
+| opencensus-postgresql | 0.1.2 | 이 패키지는 Python [psycopg2](https://pypi.org/project/psycopg2/) 라이브러리와의 통합을 제공 합니다. | [패키지 다운로드](https://pypi.org/project/opencensus-ext-postgresql/) |
+| opencensus-pymongo | 0.7.1 | 이 패키지는 Python [pymongo](https://pypi.org/project/pymongo/) 라이브러리와의 통합을 제공 합니다. | [패키지 다운로드](https://pypi.org/project/opencensus-ext-pymongo/) |
+| opencensus-pymysql | 0.1.2 | 이 패키지는 Python [PyMySQL](https://pypi.org/project/PyMySQL/) 라이브러리와의 통합을 제공 합니다. | [패키지 다운로드](https://pypi.org/project/opencensus-ext-pymysql/) |
+| opencensus-피라미드형 | 0.7.1 | 이 패키지는 Python [피라미드](https://pypi.org/project/pyramid/) 라이브러리와의 통합을 제공 합니다. | [패키지 다운로드](https://pypi.org/project/opencensus-ext-pyramid/) |
+| opencensus-요청 | 0.7.2 | 이 패키지는 Python [요청](https://pypi.org/project/requests/) 라이브러리와의 통합을 제공 합니다. | [패키지 다운로드](https://pypi.org/project/opencensus-ext-requests/) |
+| opencensus-sqlalchemy | 0.1.2 | 이 패키지는 Python [SQLAlchemy](https://pypi.org/project/SQLAlchemy/) 라이브러리와의 통합을 제공 합니다. | [패키지 다운로드](https://pypi.org/project/opencensus-ext-sqlalchemy/) |
 
 ## <a name="listenerscollectorsappenders"></a>수신기/수집기/어펜더
 
@@ -76,7 +89,7 @@ ms.locfileid: "60699208"
 
 | 패키지 이름 | 안정적 버전 | 설명 | 다운로드 |
 |-------------------------------|-----------------------|------------|----|
-| Microsoft.ApplicationInsights.AzureWebSites | 2.6.5 | 이 확장을 사용하여 Azure App Service에서 Application Insights 모니터링을 수행할 수 있습니다. SDK 버전 2.6.1. 지침: ikey를 사용하여 'APPINSIGHTS_INSTRUMENTATIONKEY' 애플리케이션 설정을 추가하고 웹앱을 다시 시작하여 적용합니다.| [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AzureWebSites/) |
+| Microsoft.ApplicationInsights.AzureWebSites | 2.6.5 | 이 확장을 사용하여 Azure App Service에서 Application Insights 모니터링을 수행할 수 있습니다. SDK 버전 2.6.1. 지침: ikey를 사용하여 'APPINSIGHTS_INSTRUMENTATIONKEY' 애플리케이션 설정을 추가하고 웹앱을 다시 시작하여 변경 내용을 적용합니다.| [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AzureWebSites/) |
 | Microsoft.ApplicationInsights.Injector | 2.6.7 | 이 패키지에는 코드 없는 Application Insights 주입에 필요한 파일이 포함되어 있습니다. | [패키지 다운로드](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Injector/) |
 
 ## <a name="next-steps"></a>다음 단계

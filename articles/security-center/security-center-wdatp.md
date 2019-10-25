@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: fb401226e9697afb71dfa7a30f9814e07c3422c2
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 6ceed914d1c69ccdfce5d7acb6dcfc1afc9ef868
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028090"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819893"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Azure Security Center으로 Microsoft Defender Advanced Threat Protection
 
@@ -28,19 +28,19 @@ Azure Security Center는 [Microsoft Defender ATP (Advanced Threat Protection](ht
 
 Microsoft Defender ATP를 사용 하는 경우 다음을 얻게 됩니다.
 
-- **고급 위반 감지 센서**: Windows 서버용 Microsoft Defender ATP 센서는 수많은 동작 신호를 수집 합니다.
+- **고급 위반 검색 센서**: Windows server 용 MICROSOFT Defender ATP 센서는 수많은 동작 신호를 수집 합니다.
 
-- **분석 기반 클라우드형 위반 후 탐지**: Microsoft Defender ATP는 위협 변화에 빠르게 적응 합니다. 고급 분석 기능과 빅 데이터를 활용합니다. Microsoft Defender ATP는 Windows, Azure 및 Office에서 신호를 통해 Intelligent Security Graph 기능을 활용 하 여 알 수 없는 위협을 감지 합니다. 신속하게 대응할 수 있도록 조치 가능한 경고를 제공합니다.
+- **분석 기반 클라우드 기반 사후 위반 검색**: MICROSOFT Defender ATP는 위협 변화에 빠르게 적응 합니다. 고급 분석 기능과 빅 데이터를 활용합니다. Microsoft Defender ATP는 Windows, Azure 및 Office에서 신호를 통해 Intelligent Security Graph 기능을 활용 하 여 알 수 없는 위협을 감지 합니다. 신속하게 대응할 수 있도록 조치 가능한 경고를 제공합니다.
 
-- **위협 인텔리전스**: Microsoft Defender ATP는 공격자 도구, 기술 및 절차를 식별할 때 경고를 생성 합니다. 이 과정에서는 Microsoft 위협 확인 담당자와 보안 팀에서 생성하며 파트너가 제공한 정보를 통해 강화된 데이터를 활용합니다.
+- **위협 인텔리전스**: MICROSOFT Defender ATP는 공격자 도구, 기술 및 절차를 식별할 때 경고를 생성 합니다. 이 과정에서는 Microsoft 위협 확인 담당자와 보안 팀에서 생성하며 파트너가 제공한 정보를 통해 강화된 데이터를 활용합니다.
 
 이제 Azure Security Center에서 다음 기능을 사용할 수 있습니다.
 
-- **자동 온보딩**: Azure Security Center 등록 된 Windows 서버에 대해 Microsoft Defender ATP 센서가 자동으로 사용 하도록 설정 됩니다.
+- **자동 온 보 딩**: Azure Security Center 등록 된 Windows 서버에 대해 MICROSOFT Defender ATP 센서를 자동으로 사용 하도록 설정 합니다.
 
-- **하나의 창에서 경고 확인**: Azure Security Center 콘솔에 Microsoft Defender ATP 경고가 표시 됩니다.
+- **단일 창**: Azure Security Center 콘솔에 MICROSOFT Defender ATP 경고가 표시 됩니다.
 
-- **세부 머신 조사**: Azure Security Center 고객은 Microsoft Defender ATP 콘솔을 사용 하 여 상세 조사를 수행 하 여 위반 범위를 파악할 수 있습니다.
+- **자세한 컴퓨터 조사**: 고객이 MICROSOFT Defender ATP 콘솔을 사용 하 여 자세한 조사를 수행 하 여 위반 범위를 확인할 수 Azure Security Center.
 
 ![경고 목록 및 각 경고 관련 일반 정보가 표시된 Azure Security Center](media/security-center-wdatp/image1.png)
 
@@ -50,7 +50,7 @@ Microsoft Defender ATP를 사용 하는 경우 다음을 얻게 됩니다.
 
 ## <a name="platform-support"></a>플랫폼 지원
 
-Security Center의 Microsoft Defender ATP는 표준 서비스 구독에서 Windows Server 2016, 2012 R2 및 2008 R2 SP1 운영 체제에 대 한 검색을 지원 합니다.
+Security Center의 Microsoft Defender ATP는 Windows Server 2016, 2012 R2 및 2008 R2 s p 1에 대 한 검색을 지원 합니다. Azure Vm의 경우 표준 계층 구독이 필요 하 고 비 Azure Vm의 경우 작업 영역 수준 에서만 표준 계층이 필요 합니다.
 
 > [!NOTE]
 > Azure Security Center를 사용 하 여 서버를 모니터링 하는 경우 Microsoft Defender ATP 테 넌 트가 자동으로 만들어지고 Microsoft Defender ATP 데이터는 기본적으로 유럽에 저장 됩니다. 데이터를 다른 위치로 이동 해야 하는 경우 Microsoft 지원에 문의 하 여 테 넌 트를 다시 설정 해야 합니다. 이러한 통합을 활용 하는 서버 끝점 모니터링은 Office 365 GCC 고객에 대해 사용 하지 않도록 설정 되었습니다.
@@ -70,7 +70,7 @@ Security Center에 서버를 등록 하려면 이동을 클릭 하 여 Microsoft
 
 ## <a name="enable-microsoft-defender-atp-integration"></a>Microsoft Defender ATP 통합 사용
 
-Microsoft Defender ATP 통합이 사용 하도록 설정 되어 있는지 확인 하려면 **Security center** > **가격 책정 & 설정** > 구독을 클릭 합니다.
+Microsoft Defender ATP 통합이 사용 하도록 설정 되어 있는지 확인 하려면 **Security center** > **가격 & 설정** 을 선택 > 구독을 클릭 합니다.
 여기서 현재 사용하도록 설정된 통합을 확인할 수 있습니다.
 
   ![Microsoft Defender ATP 통합을 사용 하도록 설정 된 Azure Security Center 위협 검색 설정 페이지](media/security-center-wdatp/enable-integrations.png)
@@ -114,6 +114,6 @@ Microsoft Defender ATP 통합이 사용 하도록 설정 되어 있는지 확인
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Security Center에서 지원하는 기능 및 플랫폼](security-center-os-coverage.md)
-- [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md): Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성하는 방법을 알아봅니다.
-- [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md): 권장 사항을 통해 Azure 리소스를 보호하는 방법을 알아봅니다.
+- [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md): Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+- [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md): 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아봅니다.
 - [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md): Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.

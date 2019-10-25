@@ -1,23 +1,18 @@
 ---
 title: Azure Application Insights에서 Java 웹앱에 대한 성능 모니터링 | Microsoft Docs
 description: Application Insights로 Java 웹 사이트의 확장된 성능 및 사용량 모니터링
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/10/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: ff9d4bb98a79c379fda2c1a0a0ab9d5e0ec212ce
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 01/10/2019
+ms.openlocfilehash: 181a1f253157fe112d42753d6f824a327457a2fa
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338100"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819403"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Java 웹 앱에서 종속성, catch 한 예외 및 메서드 실행 시간 모니터링
 
@@ -25,7 +20,7 @@ ms.locfileid: "71338100"
 [Application Insights를 사용 하 여 java 웹 앱을 계측][java]한 경우 java 에이전트를 사용 하 여 코드를 변경 하지 않고 보다 심층적인 정보를 얻을 수 있습니다.
 
 * **종속성:** 애플리케이션이 다음을 포함한 다른 구성 요소에 수행하는 호출에 대한 데이터:
-  * Apache httpclient, okhttp 및 `java.net.HttpURLConnection` 를 통해 생성 된 **나가는 HTTP 호출은** 캡처됩니다.
+  * Apache HttpClient, OkHttp 및 `java.net.HttpURLConnection`를 통해 생성 된 **나가는 HTTP 호출은** 캡처됩니다.
   * Jedis 클라이언트를 통해 수행 된 **Redis 호출은** 캡처됩니다.
   * **JDBC 쿼리** -MySQL 및 PostgreSQL의 경우 호출이 10 초 보다 오래 걸리면 에이전트가 쿼리 계획을 보고 합니다.
 
@@ -35,8 +30,8 @@ ms.locfileid: "71338100"
   * **Logback**
 
 * **더 나은 작업 이름 지정:** (포털에서 요청을 집계 하는 데 사용 됨)
-  * **스프링** 기반 `@RequestMapping`.
-  * **Jax-rs-RS** 기반 `@Path`. 
+  * `@RequestMapping`에 대 한 **스프링** 기반입니다.
+  * **Jax-rs-RS** 기반 `@Path` 
 
 Java 에이전트를 사용하려면 사용자의 서버에 설치합니다. [Application Insights JAVA SDK][java]를 사용 하 여 웹 앱을 계측 해야 합니다. 
 
@@ -93,12 +88,12 @@ Azure 앱 서비스에 대해 다음을 수행 합니다.
 * 설정 &gt; 애플리케이션 설정 선택
 * 앱 설정 아래에서 새로운 키 값 쌍을 추가합니다.
 
-키: `JAVA_OPTS`기본값`-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
+키: `JAVA_OPTS` 값: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
 
-최신 버전의 Java 에이전트는 [여기 에](https://github.com/Microsoft/ApplicationInsights-Java/releases
-)서 릴리스를 확인 하세요. 
+최신 버전의 Java 에이전트는 [여기](https://github.com/Microsoft/ApplicationInsights-Java/releases
+)에서 릴리스를 확인 하세요. 
 
-에이전트는 D:/home/site/wwwroot/directory에서 종료 되도록 프로젝트에 리소스로 패키지 되어야 합니다. **개발 도구** > **고급 도구** > **디버그 콘솔** 로 이동 하 여 사이트 디렉터리의 콘텐츠를 검사 하 여 에이전트가 올바른 App Service 디렉터리에 있는지 확인할 수 있습니다.    
+에이전트는 D:/home/site/wwwroot/directory에서 종료 되도록 프로젝트에 리소스로 패키지 되어야 합니다. **개발 도구** > **고급 도구** > **디버그 콘솔** 하 고 사이트 디렉터리의 내용을 검사 하 여 에이전트가 올바른 App Service 디렉터리에 있는지 확인할 수 있습니다.    
 
 * 설정을 저장 하 고 앱을 다시 시작 합니다. 이러한 단계는 Windows에서 실행 되는 App Services에만 적용 됩니다.
 
@@ -131,8 +126,8 @@ Application Insights 리소스에서 집계 된 원격 종속성과 메서드 �
 
 [종속성 문제 진단 - 자세한 내용](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
 
-## <a name="questions-problems"></a>궁금한 점이 더 있나요? 문제가 있습니까?
-* 데이터가 없나요? [방화벽 예외 설정](../../azure-monitor/app/ip-addresses.md)
+## <a name="questions-problems"></a>질문이 있으시나요? 문제가 있으신가요?
+* 데이터가 없으세요? [방화벽 예외 설정](../../azure-monitor/app/ip-addresses.md)
 * [Java 문제 해결](java-troubleshoot.md)
 
 <!--Link references-->

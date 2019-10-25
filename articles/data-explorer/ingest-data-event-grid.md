@@ -7,17 +7,17 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 9557923fc2228e8508acaa7e15d1729ac3d29538
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d3f5ef9d2c3359dc61c32d4971100b096b004f2f
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028368"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881559"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Event Grid 알림을 구독하여 Azure Data Explorer에 Blob 수집
 
 > [!div class="op_single_selector"]
-> * [포털](ingest-data-event-grid.md)
+> * [Portal](ingest-data-event-grid.md)
 > * [C#](data-connection-event-grid-csharp.md)
 > * [Python](data-connection-event-grid-python.md)
 
@@ -25,7 +25,7 @@ Azure Data Explorer는 로그 및 원격 분석 데이터에 사용 가능한 �
 
 이 문서에서는 [Azure Event Grid](/azure/event-grid/overview) 구독을 설정 하 고 이벤트 허브를 통해 Azure 데이터 탐색기에 이벤트를 라우팅하는 방법에 대해 알아봅니다. 시작하려면 Azure Event Hubs로 알림을 전송하는 이벤트 구독이 있는 스토리지 계정이 있어야 합니다. 그런 다음, Event Grid 데이터 연결을 만들어서 시스템 전반의 데이터 흐름을 볼 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. [평가판 Azure 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * [클러스터 및 데이터베이스](create-cluster-database-portal.md)
@@ -43,9 +43,9 @@ Azure Data Explorer는 로그 및 원격 분석 데이터에 사용 가능한 �
 
     **설정** | **제안 값** | **필드 설명**
     |---|---|---|
-    | 이름 | *test-grid-connection* | 만들려는 Event Grid의 이름입니다.|
+    | name | *test-grid-connection* | 만들려는 Event Grid의 이름입니다.|
     | 이벤트 스키마 | *Event Grid 스키마* | Event Grid에 사용해야 하는 스키마입니다. |
-    | 항목 종류 | *저장소 계정* | Event Grid 항목의 종류입니다. |
+    | 항목 종류 | *Storage 계정* | Event Grid 항목의 종류입니다. |
     | 항목 리소스 | *gridteststorage* | 사용자 스토리지 계정의 이름입니다. |
     | 모든 이벤트 형식 구독 | *clear* | 모든 이벤트에 대한 알림을 받지 않습니다. |
     | 정의된 이벤트 유형 | *만든 Blob* | 알림을 받을 특정 이벤트 |
@@ -53,7 +53,7 @@ Azure Data Explorer는 로그 및 원격 분석 데이터에 사용 가능한 �
     | 엔드포인트 | *test-hub* | 앞에서 만든 이벤트 허브입니다. |
     | | |
 
-1. 특정 컨테이너의 파일을 추적하려면 **추가 기능** 탭을 선택합니다. 알림에 대한 필터를 다음과 같이 설정합니다.
+1. 특정 컨테이너에서 파일을 추적 하려면 **필터** 탭을 선택 합니다. 알림에 대한 필터를 다음과 같이 설정합니다.
     * **제목 시작 문자** 필드는 Blob 컨테이너의 *리터럴* 접두사입니다. 적용된 패턴이 *startswith*이므로, 여러 컨테이너를 포함할 수 있습니다. 와일드카드는 허용되지 않습니다.
      다음과 같이 *설정해야 합니다*. *`/blobServices/default/containers/`* [컨테이너 접두사]
     * **제목 종료 문자** 필드는 Blob의 *리터럴* 접미사입니다. 와일드카드는 허용되지 않습니다.
@@ -94,7 +94,7 @@ Azure Data Explorer에서 Event Hubs가 데이터를 보낼 테이블을 만듭�
 
     ![데이터 수집](media/ingest-data-event-grid/data-ingestion-create.png)
 
-1.  연결 형식을 선택합니다. **Blob Storage**
+1.  연결 유형 **Blob Storage**를 선택 합니다.
 
 1. 다음 정보로 양식을 작성하고 **만들기**를 선택합니다.
 

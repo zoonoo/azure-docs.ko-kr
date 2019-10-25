@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 67022c6bd9e237ce24d8e63285f7ebabadca87c6
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 308809a9b78de9d3c0e77ed6028e62c42ff4e1c5
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671320"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882580"
 ---
 # <a name="azure-storage-account-overview"></a>Azure Storage 계정 개요
 
-Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등 모든 Azure Storage 데이터 개체가 포함됩니다. 저장소 계정은 Azure Storage 데이터에 대한 고유한 네임 스페이스를 제공하며 전 세계 어디에서나 HTTP 또는 HTTPS를 통해 접근할 수 있게 합니다. Azure Storage 계정의 데이터는 내구성 및 고가용성을 제공하며 안전하고 대규모로 확장 가능합니다.
+Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등, 모든 Azure Storage 데이터 개체가 포함됩니다. 저장소 계정은 HTTP 또는 HTTPS를 통해 전 세계 어디에서 나 액세스할 수 있는 Azure Storage 데이터에 대 한 고유한 네임 스페이스를 제공 합니다. Azure storage 계정의 데이터는 지속적이 고 항상 사용 가능 하며 안전 하며 대규모 확장 가능 합니다.
 
 Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.
 
@@ -29,7 +29,7 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 
 범용 v2 스토리지 계정은 최신 Azure Storage 기능을 지원하고 모든 범용 v1의 기능 및 Blob Storage 계정을 통합합니다. 범용 v2 계정은 업계 경쟁력 있는 트랜잭션 가격 뿐만 아니라 Azure Storage에 대해서도 가장 낮은 기가바이트당 용량 가격을 제공합니다. 범용 v2 스토리지 계정은 다음 Azure Storage 서비스를 지원합니다.
 
-- Blob(모든 유형: 차단, 추가, 페이지)
+- Blob(모든 유형: 블록, 추가, 페이지)
 - 파일
 - 디스크
 - 큐
@@ -44,7 +44,7 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 
 ### <a name="general-purpose-v1-accounts"></a>범용 v1 계정
 
-범용 v1 계정은 모든 Azure Storage 서비스에 대한 액세스를 제공하지만 최신 기능 또는 기가바이트당 가장 낮은 가격 책정이 포함되지 않을 수 있습니다. 범용 v1 스토리지 계정은 다음 Azure Storage 서비스를 지원합니다.
+범용 v1 저장소 계정은 모든 Azure Storage 서비스에 대 한 액세스를 제공 하지만 최신 기능 또는 gb 당 최소 가격 책정을 포함 하지 않을 수 있습니다. 범용 v1 스토리지 계정은 다음 Azure Storage 서비스를 지원합니다.
 
 - Blob(모든 유형)
 - 파일
@@ -58,19 +58,21 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 
 * 애플리케이션이 트랜잭션이 많거나 상당한 지역 복제 대역폭을 사용하지만 대용량이 필요하지는 않습니다. 이 경우 범용 v1이 가장 경제적인 선택이 될 수 있습니다.
 
-* 2014-02-14 이전 버전인 [Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 나, 4.x 미만인 클라이언트 라이브러리를 사용하며 애플리케이션을 업그레이드할 수 없습니다.
+* 2014-02-14 이전 버전인 [Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 또는 4.x 미만인 클라이언트 라이브러리를 사용하며 애플리케이션을 업그레이드할 수 없습니다.
 
-### <a name="block-blob-storage-accounts"></a>Blob storage 계정 차단
+### <a name="blockblobstorage-accounts"></a>BlockBlobStorage 계정
 
-블록 blob 저장소 계정은 구조화 되지 않은 개체 데이터를 블록 blob으로 저장 하기 위한 특수 저장소 계정입니다. 이 저장소 계정 유형은 블록 blob 및 추가 blob을 지원 하지만 페이지 blob, 테이블 또는 큐는 지원 하지 않습니다.
+BlockBlobStorage 계정은 구조화 되지 않은 개체 데이터를 블록 blob으로 저장 하 고 프리미엄 블록 blob을 만드는 데 사용 되는 특수화 된 저장소 계정입니다. 이 저장소 계정 종류는 블록 blob 및 추가 blob을 지원 하지만 페이지 blob, 테이블 또는 큐는 지원 하지 않습니다.
 
-범용 v2 및 blob 저장소 계정에 비해 블록 blob storage 계정은 낮은 대기 시간과 일관성 있는 대기 시간을 제공 하 고 더 높은 트랜잭션 속도를 제공 합니다.
+범용 v2 및 BlobStorage 계정과 비교할 때 BlockBlobStorage 계정은 낮은 대기 시간과 일관 된 대기 시간을 제공 하 고 더 높은 트랜잭션 속도를 제공 합니다.
 
-블록 blob 저장소 계정은 현재 핫, 쿨 또는 보관 액세스 계층으로 계층화를 지원 하지 않습니다.
+BlockBlobStorage 계정은 현재 핫, 쿨 또는 보관 액세스 계층으로 계층화를 지원 하지 않습니다.
 
-### <a name="filestorage-storage-accounts"></a>FileStorage 저장소 계정
+### <a name="filestorage-accounts"></a>FileStorage 계정
 
-FileStorage 저장소 계정은 프리미엄 파일 공유를 저장 하 고 만드는 데 사용 되는 특수 한 저장소 계정입니다. FileStorage storage 계정은 IOPS 버스트와 같은 고유한 성능 전용 특성을 제공 합니다. 이러한 특성에 대 한 자세한 내용은 파일 계획 가이드의 [파일 공유 성능 계층](../files/storage-files-planning.md#file-share-performance-tiers) 섹션을 참조 하십시오.
+FileStorage 계정은 프리미엄 파일 공유를 저장 하 고 만드는 데 사용 되는 특수 저장소 계정입니다. 이 저장소 계정 유형은 파일을 지원 하지만 블록 blob, 추가 blob, 페이지 blob, 테이블 또는 큐를 지원 하지 않습니다. 
+
+FileStorage 계정은 IOPS 버스트와 같은 고유한 성능 전용 특성을 제공 합니다. 이러한 특성에 대 한 자세한 내용은 파일 계획 가이드의 [파일 공유 성능 계층](../files/storage-files-planning.md#file-share-performance-tiers) 섹션을 참조 하십시오.
 
 ## <a name="naming-storage-accounts"></a>스토리지 계정 이름 지정
 
@@ -86,7 +88,7 @@ FileStorage 저장소 계정은 프리미엄 파일 공유를 저장 하 고 만
 * Blob, 파일, 테이블, 큐 및 Azure 가상 머신 디스크를 저장하기 위한 표준 성능 계층
 * 비관리형 가상 머신 디스크만 저장하기 위한 프리미엄 성능 계층
 
-블록 blob 저장소 계정은 블록 blob 및 추가 blob을 저장 하기 위한 프리미엄 성능 계층을 제공 합니다.
+BlockBlobStorage 저장소 계정은 블록 blob 및 추가 blob을 저장 하기 위한 프리미엄 성능 계층을 제공 합니다.
 
 FileStorage 저장소 계정은 Azure 파일 공유에 대 한 프리미엄 성능 계층을 제공 합니다.
 
@@ -115,7 +117,7 @@ Azure Storage는 사용 패턴에 따라 블록 Blob 데이터 액세스를 위�
 
 스토리지 계정의 모든 데이터는 서비스 쪽에서 암호화됩니다. 암호화에 대한 자세한 내용은 [미사용 데이터에 대한 Azure Storage 서비스 암호화](storage-service-encryption.md)를 참조하세요.
 
-## <a name="storage-account-endpoints"></a>스토리지 계정 엔드포인트
+## <a name="storage-account-endpoints"></a>Storage 계정 엔드포인트
 
 스토리지 계정은 데이터에 대해 Azure에서 고유의 네임스페이스를 제공합니다. Azure Storage 계정에 저장한 모든 개체는 고유 계정 이름을 포함하는 주소를 갖습니다. 계정 이름과 Azure Storage 서비스 엔드포인트의 조합이 스토리지 계정의 엔드포인트가 됩니다.
 
@@ -142,7 +144,7 @@ Blob에 사용자 지정 도메인 이름을 사용하도록 스토리지 계정
 다음 방법 중 하나를 사용하여 스토리지 계정에서 데이터에 대한 액세스를 부여할 수 있습니다.
 
 - **Azure Active Directory:** Azure AD (Azure Active Directory) 자격 증명을 사용 하 여 blob 및 큐 데이터에 액세스 하기 위해 사용자, 그룹 또는 기타 id를 인증 합니다. ID 인증에 성공하면 Azure AD가 Azure Blob Storage나 큐 스토리지에 사용할 토큰을 반환합니다. 자세한 내용은 [Azure Active Directory를 사용하여 Azure Storage에 대한 액세스 인증](storage-auth-aad.md)을 참조하세요.
-- **공유 키 권한 부여:** 스토리지 계정 액세스 키를 사용하여, Azure Storage에 액세스하기 위해 런타임 시 애플리케이션이 사용하는 연결 문자열을 구성합니다. 연결 문자열의 값을 사용하여 Azure Storage에 전달되는 *권한 부여* 헤더를 구성합니다. 자세한 내용은 [Azure Storage 연결 문자열 구성](storage-configure-connection-string.md)을 참조하세요.
+- **공유 키 권한 부여:** 스토리지 계정 액세스 키를 사용하여, Azure Storage에 액세스하기 위해 런타임에 애플리케이션이 사용하는 연결 문자열을 구성합니다. 연결 문자열의 값을 사용하여 Azure Storage에 전달되는 *권한 부여* 헤더를 구성합니다. 자세한 내용은 [Azure Storage 연결 문자열 구성](storage-configure-connection-string.md)을 참조하세요.
 - **공유 액세스 서명:** Azure AD 권한 부여를 사용 하지 않는 경우 공유 액세스 서명을 사용 하 여 저장소 계정의 리소스에 대 한 액세스를 위임 합니다. 공유 액세스 서명은 URL의 Azure Storage에 대한 요청을 인증하는 데 필요한 모든 정보를 캡슐화하는 토큰입니다. 스토리지 리소스, 부여한 사용 권한, 권한이 유효한 기간을 공유 액세스 서명의 일부로 지정할 수 있습니다. 자세한 내용은 [SAS(공유 액세스 서명) 사용](storage-sas-overview.md)을 참조하세요.
 
 > [!NOTE]
@@ -186,5 +188,5 @@ Import/Export 서비스를 사용하여 데이터를 Azure Blob Storage에서 �
 ## <a name="next-steps"></a>다음 단계
 
 * 범용 Azure storage 계정을 만드는 방법을 알아보려면 [저장소 계정 만들기](storage-quickstart-create-account.md)를 참조 하세요.
-* 블록 blob storage 계정을 만드는 방법에 대 한 자세한 내용은 [블록 blob 저장소 계정 만들기](../blobs/storage-blob-create-account-block-blob.md)를 참조 하세요.
+* BlockBlobStorage 계정을 만드는 방법에 대 한 자세한 내용은 [블록 blob 저장소 계정 만들기](../blobs/storage-blob-create-account-block-blob.md)를 참조 하세요.
 * 기존 스토리지 계정을 관리 또는 삭제하려면 [Azure Storage 계정 관리](storage-account-manage.md)를 참조하세요.

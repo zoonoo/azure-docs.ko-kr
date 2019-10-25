@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 124b52d920ef36b373eef895187727499068f3eb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: da8dc332794cadc0eb6677390c566e67a6df6f3f
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72596536"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882436"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>데이터 흐름에 대 한 싱크 변환
 
@@ -53,8 +53,8 @@ Azure Blob 저장소 또는 Data Lake Storage 싱크 형식의 경우 변환 된
 
 대상 폴더에 대상 파일을 쓰기 전에 싱크 폴더의 내용을 자르려면 **폴더 지우기** 를 선택 합니다.
 
-## <a name="rule-based-mapping"></a>규칙 기반 매핑
-자동 매핑을 해제할 때 열 기반 매핑 (고정 매핑) 또는 규칙 기반 매핑을 추가 하는 옵션이 있습니다. 규칙 기반 매핑을 사용 하면 패턴 일치를 포함 하는 식을 작성할 수 있습니다. 
+## <a name="fixed-mapping-vs-rule-based-mapping"></a>매핑 및 규칙 기반 매핑의 고정
+자동 매핑을 해제할 때 열 기반 매핑 (고정 매핑) 또는 규칙 기반 매핑을 추가 하는 옵션이 있습니다. 규칙 기반 매핑을 사용 하면 패턴 일치를 사용 하는 식을 작성할 수 있습니다. 고정 매핑은 논리적 및 물리적 열 이름을 매핑합니다.
 
 ![규칙 기반 매핑](media/data-flow/rules4.png "규칙 기반 매핑")
 
@@ -65,6 +65,12 @@ Azure Blob 저장소 또는 Data Lake Storage 싱크 형식의 경우 변환 된
 행을 확장 하 고 "이름 일치:" 옆에 정규식을 입력 하 여 규칙 기반 일치를 사용할 때 정규식 패턴을 입력할 수도 있습니다.
 
 ![Regex 매핑](media/data-flow/scdt1g4.png "Regex 매핑")
+
+규칙 기반 매핑과 고정 매핑의 기본 일반적인 예는 들어오는 모든 필드를 대상의 동일한 이름에 매핑하는 경우입니다. 고정 매핑의 경우 테이블의 각 개별 열을 나열 합니다. 규칙 기반 매핑의 경우 ```true()```를 사용 하는 모든 필드를 ```$$```표시 되는 동일한 들어오는 필드 이름에 매핑하는 단일 규칙이 있습니다.
+
+### <a name="sink-association-with-dataset"></a>데이터 집합과 싱크 연결
+
+싱크에 대해 선택 하는 데이터 집합에는 데이터 집합 정의에 정의 된 스키마가 있을 수도 있고 없을 수도 있습니다. 스키마가 정의 되어 있지 않으면 스키마 드리프트를 허용 해야 합니다. 고정 매핑을 정의 하면 논리적-물리적 이름 매핑이 싱크 변환에 유지 됩니다. 데이터 집합의 스키마 정의를 변경 하면 싱크 매핑이 중단 될 수 있습니다. 이를 방지 하려면 규칙 기반 매핑을 사용 합니다. 규칙 기반 매핑은 일반화 됩니다. 즉, 데이터 집합의 스키마를 변경 해도 매핑이 중단 되지 않습니다.
 
 ## <a name="file-name-options"></a>파일 이름 옵션
 

@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/25/2019
+ms.date: 10/23/2019
 ms.reviewer: sdash
-ms.openlocfilehash: f34695cb4a92fbed285ba8c56764606a124194a4
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 80a39151a3d40c9b9d7cb49c6ab41aab602c5991
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678230"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817394"
 ---
 # <a name="multi-step-web-tests"></a>다단계 웹 테스트
 
@@ -34,38 +34,12 @@ ms.locfileid: "72678230"
 > [!NOTE]
 > 다단계 웹 테스트에는 이와 관련 된 추가 비용이 있습니다. 자세히 알아보려면 [공식 가격 책정 가이드](https://azure.microsoft.com/pricing/details/application-insights/)를 참조 하세요.
 
-## <a name="record-a-multi-step-web-test"></a>다단계 웹 테스트 기록
+## <a name="record-a-multi-step-web-test"></a>다단계 웹 테스트 기록 
 
-다단계 테스트를 만들려면 Visual Studio Enterprise를 사용하여 시나리오를 기록한 다음 Application Insights에 기록을 업로드합니다. Application Insights 설정 된 간격으로 시나리오를 재생 하 고 응답을 확인 합니다.
+> [!WARNING]
+> 다중 단계 레코더를 사용 하는 것이 더 이상 권장 되지 않습니다. 이 레코더는 기본 상호 작용이 포함 된 정적 HTML 페이지에 대해 개발 되었으며 최신 웹 페이지에 대 한 기능 환경을 제공 하지 않습니다.
 
-> [!IMPORTANT]
-> * 테스트에서 코딩된 함수 또는 루프를 사용할 수 없습니다. 테스트는 .webtest 스크립트에 완전히 포함되어야 합니다. 그러나 표준 플러그 인을 사용할 수 있습니다.
-> * 영어 문자만 다단계 웹 테스트에서 지원됩니다. 다른 언어로 Visual Studio를 사용하는 경우 웹 테스트 정의 파일을 영어가 아닌 문자를 번역/제외하도록 업데이트하세요.
-
-Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
-
-1. 웹 성능 및 부하 테스트 프로젝트를 만듭니다. **파일**  > **새**  > **프로젝트**  > **Visual C#**   > **테스트**
-
-    ![Visual Studio 새 프로젝트 UI](./media/availability-multistep/vs-web-performance-and-load-test.png)
-
-2. @No__t_0 파일을 열고 기록을 시작 합니다.
-
-    ![Visual Studio 테스트 기록 UI](./media/availability-multistep/open-web-test.png)
-
-3. 기록의 일부분으로 테스트를 시뮬레이션 하려는 단계를 클릭 합니다.
-
-    ![브라우저 기록 UI](./media/availability-multistep/record.png)
-
-4. 테스트를 다음과 같이 편집합니다.
-
-    * 받은 텍스트 및 응답 코드를 확인하는 유효성 검사를 추가합니다.
-    * Uneccesary 상호 작용을 제거 합니다. 또한 테스트에 대 한 종속 요청을 제거 하거나 테스트 성공 여부를 고려 하는 것과 관련이 없는 추적 사이트를 추가할 수 있습니다.
-    
-    테스트 스크립트만 편집할 수 있습니다. 사용자 지정 코드를 추가 하거나 다른 웹 테스트를 호출할 수 있습니다. 테스트에 루프를 삽입하지 마세요. 표준 웹 테스트 플러그 인을 사용할 수 있습니다.
-
-5. Visual Studio에서 테스트를 실행 하 여 유효성을 검사 하 고 작동 하는지 확인 합니다.
-
-    웹 test runner에서 웹 브라우저가 열리고 기록한 작업을 반복합니다. 모든 것이 예상 대로 작동 하는지 확인 합니다.
+Visual Studio 웹 테스트를 만드는 방법에 대 한 지침은 [공식 Visual studio 2019 설명서](https://docs.microsoft.com/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019)를 참조 하세요.
 
 ## <a name="upload-the-web-test"></a>웹 테스트 업로드
 
@@ -96,7 +70,7 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 |**클래식** | 새 가용성 테스트에 대 한 클래식 경고를 사용 하는 것이 더 이상 권장 되지 않습니다.|
 |**경고 위치 임계값**|최소 3/5 위치를 사용하는 것이 좋습니다. 경고 위치 임계값과 테스트 위치 수 간의 최적 관계는**최소 5 개의 테스트 위치를 사용 하는 테스트 위치-2의 수**  =  **경고 위치 임계값** 입니다.|
 
-## <a name="advanced-configuration"></a>고급 구성
+## <a name="configuration"></a>구성
 
 ### <a name="plugging-time-and-random-numbers-into-your-test"></a>시간 및 난수를 테스트에 연결
 

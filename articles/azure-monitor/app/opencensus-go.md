@@ -1,26 +1,24 @@
 ---
 title: Azure Application Insights를 사용하는 OpenCensus Go 추적 | Microsoft Docs
 description: OpenCensus Go 추적을 로컬 전달자 및 Application Insights와 통합하는 지침을 제공합니다.
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/15/2018
-ms.service: application-insights
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 56e66f17e9ce1d2482463f619e82dfd29d48f191
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 99f26bb2b89ef9642a36aa2be2037d04aafcdcd4
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67990294"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819275"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Go(미리 보기)에서 분산 추적 수집
 
 이제 Application Insights는 [OpenCensus](https://opencensus.io) 및 새로운 [로컬 전달자](./opencensus-local-forwarder.md)와의 통합을 통해 Go 애플리케이션의 분산 추적을 지원합니다. 이 문서에서는 Go에 대해 OpenCensus를 설정하고 추적 데이터를 Application Insights로 가져오는 프로세스를 단계별로 안내합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 구독이 필요합니다.
 - Go를 설치해야 합니다. 이 문서에서는 버전 1.11 [Go 다운로드](https://golang.org/dl/)를 사용합니다.
@@ -30,7 +28,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+[Azure portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-application-insights-resource"></a>Application Insights 리소스 만들기
 
@@ -41,15 +39,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    ![Application Insights 리소스 추가](./media/opencensus-Go/0001-create-resource.png)
 
  > [!NOTE]
-   >Application Insights 리소스를 처음 만드는 경우 [Application Insights 리소스 만들기](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) 문서를 방문 하 여 자세히 알아볼 수 있습니다.
+   >Application Insights 리소스를 처음 만드는 경우 자세한 내용은 [Application Insights 리소스 만들기](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) 문서를 참조하세요.
 
    구성 상자가 표시되면 다음 표를 사용하여 입력 필드를 채웁니다.
 
-    | 설정        | 값           | Description  |
+    | 설정        | Value           | 설명  |
    | ------------- |:-------------|:-----|
-   | **이름**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
+   | **Name**      | 전역적으로 고유한 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
    | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. |
-   | **위치** | East US | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
+   | **위치** | 미국 동부 | 가까운 위치 또는 응용 프로그램이 호스팅되는 위치 근처를 선택합니다. |
 
 2. **만들기**를 클릭합니다.
 
@@ -210,7 +208,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     하나의 메서드 호출만 추적했으므로 애플리케이션 맵은 흥미롭지 않습니다. 하지만 애플리케이션은 훨씬 분산된 애플리케이션을 시각화하도록 확장될 수 있습니다.
 
-   ![애플리케이션 맵](media/opencensus-go/application-map.png)
+   ![Application Map](media/opencensus-go/application-map.png)
 
 4. **성능 조사**를 선택하여 자세한 성능 분석을 수행하고 성능 저하의 근본 원인을 확인합니다.
 

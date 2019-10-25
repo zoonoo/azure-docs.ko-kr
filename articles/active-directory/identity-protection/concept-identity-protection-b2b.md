@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 10/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5d374f4ddac2e4d013bab1c5e88a87af1da2c1f
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 95ea7eb470a5880bc88b3df903d33854f363e974
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667129"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881320"
 ---
 # <a name="identity-protection-and-b2b-users"></a>ID 보호 및 B2B 사용자
 
@@ -33,9 +33,9 @@ B2B 공동 작업 사용자에 대 한 사용자 위험은 자신의 홈 디렉�
 
 자신의 홈 디렉터리에 있는 id로 인해 리소스 디렉터리에서 B2B 공동 작업 사용자에 대 한 Id 보호 구현에는 제한 사항이 있습니다. 주요 제한 사항은 다음과 같습니다.
 
-- 게스트 사용자가 암호 재설정을 강제 하는 Id 보호 사용자 위험 정책을 트리거하는 경우 차단 됩니다. 이 블록은 리소스 디렉터리에서 암호를 다시 설정할 수 없기 때문에 발생 합니다.
-- 게스트 사용자는 위험한 사용자 보고서에 표시 되지 않습니다. 이러한 표시의 손실은 B2B 사용자의 홈 디렉터리에서 발생 하는 위험 평가 때문에 발생 합니다.
-- 관리자는 리소스 디렉터리에서 위험한 B2B 공동 작업 사용자를 해제 하거나 수정할 수 없습니다. 이러한 기능 손실은 리소스 디렉터리의 관리자가 B2B 사용자의 홈 디렉터리에 액세스할 수 없기 때문입니다.
+- 게스트 사용자가 암호 재설정을 강제 하는 Id 보호 사용자 위험 정책을 트리거하는 경우 **차단**됩니다. 이 블록은 리소스 디렉터리에서 암호를 다시 설정할 수 없기 때문에 발생 합니다.
+- **게스트 사용자는 위험한 사용자 보고서에 표시 되지**않습니다. 이러한 표시의 손실은 B2B 사용자의 홈 디렉터리에서 발생 하는 위험 평가 때문에 발생 합니다.
+- 관리자는 리소스 디렉터리에서 **위험한 B2B 공동 작업 사용자를 해제 하거나 수정할 수 없습니다** . 이러한 기능 손실은 리소스 디렉터리의 관리자가 B2B 사용자의 홈 디렉터리에 액세스할 수 없기 때문입니다.
 
 ### <a name="why-cant-i-remediate-risky-b2b-collaboration-users-in-my-directory"></a>내 디렉터리에서 위험한 B2B 공동 작업 사용자를 수정할 수 없는 이유는 무엇입니까?
 
@@ -54,4 +54,3 @@ B2B 사용자에 대 한 위험 평가 및 수정은 홈 디렉터리에서 발�
 Azure AD B2B 협업에 대한 다음 문서를 살펴보세요.
 
 - [Azure AD B2B 협업이란?](../b2b/what-is-b2b.md)
-- [조건부 액세스 란?](../conditional-access/overview.md)

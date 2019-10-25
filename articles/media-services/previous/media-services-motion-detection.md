@@ -14,14 +14,18 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: c053e4dfc38fc0f055ec91a6622ef7f767c13a86
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: c319b3e53f550e56fbf4f655cb9cfa43326f9c72
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "69015330"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882417"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Azure 미디어 검색으로 동작 검색
+
+> [!IMPORTANT]
+> 일부 미디어 프로세서의 사용 중지 [계획](media-services-analytics-overview.md#retirement-plans) 을 검토 합니다.
+
 ## <a name="overview"></a>개요
 **Azure 미디어 동작 탐지기** 의 MP(미디어 프로세서)를 사용하여 길고 특별하지 않은 동영상 중에서 원하는 섹션을 효율적으로 식별합니다. 동작 검색은 고정된 카메라 장면에서 동작이 발생한 동영상 섹션을 식별하는 데 사용할 수 있습니다. 이벤트가 발생한 경계 영역 및 타임스탬프가 있는 메타데이터를 포함하는 JSON 파일을 생성합니다.
 
@@ -32,20 +36,20 @@ ms.locfileid: "69015330"
 이 문서에서는 **Azure Media Motion Detector**에 대한 세부 정보를 제공하고 .NET용 Media Services SDK와 함께 사용하는 방법을 보여 줍니다.
 
 ## <a name="motion-detector-input-files"></a>동작 검색기 입력 파일
-동영상 파일입니다. 현재 다음 형식이 지원됩니다. MP4, MOV 및 WMV.
+동영상 파일입니다. 현재 MP4, MOV 및 WMV 형식이 지원됩니다.
 
 ## <a name="task-configuration-preset"></a>작업 구성(기본 설정)
 **Azure 미디어 동작 탐지기**로 작업을 만들 때에는 구성 기본 설정을 지정해야 합니다. 
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 다음 매개 변수를 사용할 수 있습니다.
 
-| 이름 | 변수 | 설명 | 기본값 |
+| name | 옵션 | 설명 | 기본값 |
 | --- | --- | --- | --- |
-| sensitivityLevel |String:'low', 'medium', 'high' |동작이 보고되는 민감도 수준을 설정합니다. 가양성 수를 조정하려면 이 값을 조정합니다. |'medium' |
+| sensitivityLevel |문자열:'low', 'medium', 'high' |동작이 보고되는 민감도 수준을 설정합니다. 가양성 수를 조정하려면 이 값을 조정합니다. |'medium' |
 | frameSamplingValue |양의 정수 |알고리즘이 실행되는 빈도를 설정합니다. 1은 프레임마다, 2는 두 개의 프레임마다 등을 의미합니다. |1 |
-| detectLightChange |Boolean:'true', 'false' |결과에 간단한 변경 내용이 보고되는지 여부를 설정합니다. |'False' |
-| mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>예제: 00:00:03 |2개의 이벤트가 결합되어 1로 보고되는 동작 이벤트 간의 기간을 지정합니다. |00:00:00 |
+| detectLightChange |부울:'true', 'false' |결과에 간단한 변경 내용이 보고되는지 여부를 설정합니다. |'False' |
+| mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>예: 00:00:03 |2개의 이벤트가 결합되어 1로 보고되는 동작 이벤트 간의 기간을 지정합니다. |00:00:00 |
 | detectionZones |검색 영역 배열:<br/>- 검색 영역은 3개 이상의 지점 배열<br/>- 지점은 0부터 1까지의 x 및 y 좌표입니다. |사용할 다각형의 검색 영역 목록을 설명합니다.<br/>결과는 영역과 함께 ID로 보고되며 첫 번째 항목은 ‘id’:0입니다. |전체 프레임에 걸쳐 있는 단일 영역입니다. |
 
 ### <a name="json-example"></a>JSON 예제
@@ -93,23 +97,23 @@ ms.locfileid: "69015330"
 
 다음 표는 출력 JSON 파일의 요소에 대해 설명합니다.
 
-| 요소 | Description |
+| 요소 | 설명 |
 | --- | --- |
-| version |동영상 API의 버전을 나타냅니다. 현재 버전은 2입니다. |
+| 버전 |동영상 API의 버전을 나타냅니다. 현재 버전은 2입니다. |
 | timescale |동영상의 초당 "틱"입니다. |
 | offset |"틱" 단위의 타임스탬프에 대한 시간 오프셋입니다. 동영상 API 버전 1.0에서는 항상 0입니다. 향후 지원하는 시나리오에서는 이 값이 변경될 수 있습니다. |
 | framerate |동영상의 초당 프레임 수입니다. |
 | width, height |픽셀 단위의 동영상 너비와 높이를 참조합니다. |
-| start |"틱" 단위의 시작 타임스탬프입니다. |
+| 시작 |"틱" 단위의 시작 타임스탬프입니다. |
 | duration |"틱" 단위의 이벤트 길이입니다. |
-| 간격 |"틱" 단위의 이벤트에 있는 각 항목의 간격입니다. |
-| 이벤트 |각 이벤트 조각에는 해당 기간 내에 검색된 동작이 포함됩니다. |
+| interval |"틱" 단위의 이벤트에 있는 각 항목의 간격입니다. |
+| events |각 이벤트 조각에는 해당 기간 내에 검색된 동작이 포함됩니다. |
 | type |현재 버전에서 이 값은 일반 동작에 대해 항상 '2'입니다. 이 레이블은 향후 버전에서 동영상 API에 동작 분류에 대한 유연성을 제공합니다. |
 | regionId |위에서 설명했듯이 이 버전에서 이 값은 항상 0입니다. 이 레이블은 향후 버전에서 동영상 API에 다양한 영역에서 동작을 찾는 유연성을 제공합니다. |
-| regions |동작에 관심이 있는 동영상 영역을 참조합니다. <br/><br/>-"id"는 지역 영역을 나타내는데, 이 버전에는 ID 0밖에 없습니다. <br/>-"type"은 동작에 대한 중요한 영역 모양을 나타냅니다. 현재 "rectangle" 및 "polygon"이 지원됩니다.<br/> "rectangle"이 지정된 경우 영역은 X, Y, 너비 및 높이 치수를 가집니다. X 및 Y 좌표는 0.0 ~ 1.0의 정규화된 배율 단위로 영역의 왼쪽 상단 XY 좌표를 나타냅니다. 너비와 높이는 0.0 ~ 1.0의 정규화된 배율 단위로 영역의 크기를 나타냅니다. 현재 버전에서, X, Y, 너비 및 높이는 0, 0 및 1, 1로 항상 고정됩니다. <br/>"polygon"이 지정된 경우 영역은 지점 단위의 치수를 가집니다. <br/> |
+| 개 지역 |동작에 관심이 있는 동영상 영역을 참조합니다. <br/><br/>-"id"는 지역 영역을 나타내는데, 이 버전에는 ID 0밖에 없습니다. <br/>-"type"은 동작에 대한 중요한 영역 모양을 나타냅니다. 현재 "rectangle" 및 "polygon"이 지원됩니다.<br/> "rectangle"이 지정된 경우 영역은 X, Y, 너비 및 높이 치수를 가집니다. X 및 Y 좌표는 0.0 ~ 1.0의 정규화된 배율 단위로 영역의 왼쪽 상단 XY 좌표를 나타냅니다. 너비와 높이는 0.0 ~ 1.0의 정규화된 배율 단위로 영역의 크기를 나타냅니다. 현재 버전에서, X, Y, 너비 및 높이는 0, 0 및 1, 1로 항상 고정됩니다. <br/>"polygon"이 지정된 경우 영역은 지점 단위의 치수를 가집니다. <br/> |
 | fragments |메타데이터는 조각이라고 하는 다른 세그먼트로 청크 분할됩니다. 각 조각에는 시작, 기간, 간격 번호 및 이벤트가 포함됩니다. 이벤트가 없는 조각은 해당 시작 시간 및 기간 동안에 검색된 동작이 없음을 의미합니다. |
 | 대괄호 [] |각 대괄호는 이벤트에서 하나의 간격을 나타냅니다. 해당 간격에 대한 빈 대괄호는 검색된 동작이 없음을 의미합니다. |
-| locations |이벤트 아래의 이 새 항목은 동작이 발생한 위치를 나열합니다. 검색 영역보다 더 구체적입니다. |
+| 위치 |이벤트 아래의 이 새 항목은 동작이 발생한 위치를 나열합니다. 검색 영역보다 더 구체적입니다. |
 
 다음 JSON 예제에서는 결과를 보여줍니다.
 
@@ -379,10 +383,10 @@ namespace VideoMotionDetection
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>관련 링크
+## <a name="related-links"></a>관련된 링크
 [Azure Media Services 동작 탐지기 블로그](https://azure.microsoft.com/blog/motion-detector-update/)
 
 [Azure Media Services 분석 개요](media-services-analytics-overview.md)

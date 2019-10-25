@@ -1,22 +1,18 @@
 ---
 title: Azure에서 PowerShell을 사용하여 Application Insights 설정 | Microsoft Docs
 description: Application Insights에 데이터를 파이프 하는 Azure 진단 구성을 자동화 합니다.
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 4ac803a8-f424-4c0c-b18f-4b9c189a64a5
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/06/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 0c963e4cd7befffe69fef159542eabd29059e3d9
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 08/06/2019
+ms.openlocfilehash: 0e1fd048b855473c1d7978e2a908c45360a1ed2a
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035199"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819026"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>PowerShell을 사용 하 여 Azure Cloud Services에 대 한 Application Insights 설정
 
@@ -46,7 +42,7 @@ ms.locfileid: "70035199"
 * `myWebAppName` - 웹앱의 ID
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>클라우드 서비스 배포의 일부로 진단 확장을 사용하도록 설정
-`New-AzureDeployment` cmdlet에는 `ExtensionConfiguration` 매개 변수가 있으며, 진단 구성의 배열을 사용합니다. 이것은 `New-AzureServiceDiagnosticsExtensionConfig` cmdlet을 사용하여 만들 수 있습니다. 예를 들어:
+`New-AzureDeployment` cmdlet에는 `ExtensionConfiguration` 매개 변수가 있으며, 진단 구성의 배열을 사용합니다. 이것은 `New-AzureServiceDiagnosticsExtensionConfig` cmdlet을 사용하여 만들 수 있습니다. 다음은 그 예입니다.
 
 ```ps
 
@@ -133,7 +129,7 @@ Role 매개 변수 없이 `Set-AzureServiceDiagnosticsExtension` 또는 `New-Azu
 ```
 
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 * [Application Insights로 Azure Cloud Services 앱 모니터링](../../azure-monitor/app/cloudservices.md)
 * [Application Insights에 Azure Diagnostics 보내기](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [구성 경고 자동화](powershell-alerts.md)

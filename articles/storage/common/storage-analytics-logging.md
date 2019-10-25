@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 36c6c914c96048825c82a8d1f590a7e805373c08
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 3b61e8680ef2484b1ad42837711adef171fdde25
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854610"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882632"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage 분석 로깅
 
@@ -53,10 +53,10 @@ ms.locfileid: "68854610"
 
 ## <a name="how-logs-are-stored"></a>로그 저장 방법
 
-모든 로그는 저장소 계정에 대해 스토리지 분석를 사용 하도록 `$logs`설정할 때 자동으로 생성 되는 이라는 컨테이너의 블록 blob에 저장 됩니다. 컨테이너 `$logs` 는 저장소 계정의 blob 네임 스페이스에 있습니다 (예: `http://<accountname>.blob.core.windows.net/$logs`). Storage 계정을 사용하도록 설정한 후에는 이 컨테이너를 삭제할 수 없지만 해당 콘텐츠는 삭제할 수 있습니다. 저장소 검색 도구를 사용 하 여 컨테이너로 직접 이동 하는 경우 로깅 데이터를 포함 하는 모든 blob이 표시 됩니다.
+모든 로그는 `$logs`라는 컨테이너의 블록 blob에 저장 됩니다 .이 컨테이너는 저장소 계정에 대해 스토리지 분석을 사용할 때 자동으로 생성 됩니다. `$logs` 컨테이너는 저장소 계정의 blob 네임 스페이스에 있습니다 (예: `http://<accountname>.blob.core.windows.net/$logs`). Storage 계정을 사용하도록 설정한 후에는 이 컨테이너를 삭제할 수 없지만 해당 콘텐츠는 삭제할 수 있습니다. 저장소 검색 도구를 사용 하 여 컨테이너로 직접 이동 하는 경우 로깅 데이터를 포함 하는 모든 blob이 표시 됩니다.
 
 > [!NOTE]
->  컨테이너 `$logs` 는 컨테이너 나열 작업과 같은 컨테이너 목록 작업을 수행할 때 표시 되지 않습니다. 직접 액세스해야 합니다. 예를 들어 blob 나열 작업을 사용 하 여 `$logs` 컨테이너의 blob에 액세스할 수 있습니다.
+>  컨테이너 나열 작업과 같이 컨테이너 목록 작업을 수행할 때 `$logs` 컨테이너가 표시 되지 않습니다. 직접 액세스해야 합니다. 예를 들어 Blob 나열 작업을 사용 하 여 `$logs` 컨테이너의 blob에 액세스할 수 있습니다.
 
 요청을 기록할 때 스토리지 분석은 중간 결과를 블록으로 업로드합니다. 그리고 이러한 블록을 정기적으로 커밋하여 Blob로 제공합니다. 저장소 서비스가 로그 기록기를 플러시하는 빈도 때문에 **$logs** 컨테이너의 blob에 로그 데이터가 표시 되는 데 최대 한 시간이 걸릴 수 있습니다. 같은 시간에 생성되는 로그의 경우 중복 레코드가 있을 수 있습니다. **RequestId** 및 **Operation** 번호를 검사하여 레코드 중복 여부를 확인할 수 있습니다.
 
@@ -88,15 +88,15 @@ ms.locfileid: "68854610"
 
  다음 표에서는 로그 이름의 각 특성에 대해 설명 합니다.
 
-|특성|Description|
+|특성|설명|
 |---------------|-----------------|
-|`<service-name>`|스토리지 서비스의 이름입니다. 예: `blob`, `table`또는`queue`|
+|`<service-name>`|스토리지 서비스의 이름입니다. 예: `blob`, `table`또는 `queue`|
 |`YYYY`|로그의 4 자리 연도입니다. 예: `2011`|
 |`MM`|로그의 두 자릿수 월입니다. 예: `07`|
 |`DD`|로그의 두 자리 일입니다. 예: `31`|
 |`hh`|로그의 시작 시간 (24 시간 UTC 형식)을 나타내는 두 자릿수 시간입니다. 예: `18`|
-|`mm`|로그의 시작 분을 나타내는 두 자리 숫자입니다. **참고:**  이 값은 현재 버전의 스토리지 분석에서 지원 되지 않으며 해당 값은 항상 `00`입니다.|
-|`<counter>`|1시간 동안 스토리지 서비스에 대해 생성되는 로그 Blob의 수를 나타내는 0부터 시작되는 6자리 카운터입니다. 이 카운터는에서 `000000`시작 합니다. 예: `000001`|
+|`mm`|로그의 시작 분을 나타내는 두 자리 숫자입니다. **참고:**  이 값은 현재 버전의 스토리지 분석에서 지원 되지 않으며 해당 값은 항상 `00`됩니다.|
+|`<counter>`|1시간 동안 스토리지 서비스에 대해 생성되는 로그 Blob의 수를 나타내는 0부터 시작되는 6자리 카운터입니다. 이 카운터는 `000000`에서 시작 합니다. 예: `000001`|
 
  다음은 위의 예를 조합 하는 전체 샘플 로그 이름입니다.
 
@@ -106,17 +106,17 @@ ms.locfileid: "68854610"
 
  `https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log`
 
- 스토리지 요청이 기록되면 생성되는 로그 이름과 요청한 작업이 완료된 시간 간의 상관 관계가 지정됩니다. 예를 들어 GetBlob 요청이 7/31/2011에서 오전 6 시 30 분에 완료 된 경우 로그는 다음 접두사를 사용 하 여 기록 됩니다.`blob/2011/07/31/1800/`
+ 스토리지 요청이 기록되면 생성되는 로그 이름과 요청한 작업이 완료된 시간 간의 상관 관계가 지정됩니다. 예를 들어 GetBlob 요청이 7/31/2011에서 오전 6 시 30 분에 완료 되 면 다음 접두사를 사용 하 여 로그를 작성 합니다. `blob/2011/07/31/1800/`
 
 ### <a name="log-metadata"></a>로그 메타데이터
 
  모든 로그 Blob는 해당 Blob에 포함된 로깅 데이터를 식별하는 데 사용할 수 있는 메타데이터와 함께 저장됩니다. 다음 표에서는 각 메타 데이터 특성에 대해 설명 합니다.
 
-|특성|Description|
+|특성|설명|
 |---------------|-----------------|
-|`LogType`|로그에 읽기, 쓰기 또는 삭제 작업과 관련된 정보가 포함되는지 여부를 설명합니다. 이 값에는 한 가지 형식이 포함될 수도 있고 3개 형식이 모두 조합(쉼표로 구분)되어 포함될 수도 있습니다.<br /><br /> 예 1: `write`<br /><br /> 예 2: `read,write`<br /><br /> 예 3:`read,write,delete`|
-|`StartTime`|로그에서 항목의 가장 이른 시간 (형식 `YYYY-MM-DDThh:mm:ssZ`)입니다. 예: `2011-07-31T18:21:46Z`|
-|`EndTime`|로그에 있는 항목의 최신 시간 (형식 `YYYY-MM-DDThh:mm:ssZ`)입니다. 예: `2011-07-31T18:22:09Z`|
+|`LogType`|로그에 읽기, 쓰기 또는 삭제 작업과 관련된 정보가 포함되는지 여부를 설명합니다. 이 값에는 한 가지 형식이 포함될 수도 있고 3개 형식이 모두 조합(쉼표로 구분)되어 포함될 수도 있습니다.<br /><br /> 예 1: `write`<br /><br /> 예 2: `read,write`<br /><br /> 예 3: `read,write,delete`|
+|`StartTime`|로그에서 항목의 가장 이른 시간으로 `YYYY-MM-DDThh:mm:ssZ`형식입니다. 예: `2011-07-31T18:21:46Z`|
+|`EndTime`|`YYYY-MM-DDThh:mm:ssZ`형식으로 된 로그 항목의 마지막 시간입니다. 예: `2011-07-31T18:22:09Z`|
 |`LogVersion`|로그 형식의 버전입니다.|
 
  다음 목록에서는 위의 예를 사용 하 여 전체 샘플 메타 데이터를 표시 합니다.
@@ -179,7 +179,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
 ## <a name="download-storage-logging-log-data"></a>저장소 로깅 로그 데이터 다운로드
 
- 로그 데이터를 보고 분석 하려면 원하는 로그 데이터가 포함 된 blob을 로컬 컴퓨터에 다운로드 해야 합니다. 많은 저장소 검색 도구를 사용 하 여 저장소 계정에서 blob을 다운로드할 수 있습니다. Azure Storage 팀에서 제공한 명령줄 Azure 복사 도구 (**AzCopy**)를 사용 하 여 로그 데이터를 다운로드할 수도 있습니다.  
+ 로그 데이터를 보고 분석 하려면 원하는 로그 데이터가 포함 된 blob을 로컬 컴퓨터에 다운로드 해야 합니다. 많은 저장소 검색 도구를 사용 하 여 저장소 계정에서 blob을 다운로드할 수 있습니다. Azure Storage 팀에서 제공한 명령줄 Azure 복사 도구 [AzCopy](storage-use-azcopy-v10.md) 를 사용 하 여 로그 데이터를 다운로드할 수도 있습니다.  
 
  관심이 있는 로그 데이터를 다운로드 하 고 동일한 로그 데이터를 두 번 이상 다운로드 하지 않도록 하려면 다음을 수행 합니다.  
 
@@ -187,20 +187,17 @@ queueClient.SetServiceProperties(serviceProperties);
 
 -   로그 데이터를 포함 하는 blob에 대 한 메타 데이터를 사용 하 여 blob에서 로그 데이터를 보관할 특정 기간을 식별 하 여 다운로드 해야 하는 정확한 blob을 식별할 수 있습니다.  
 
-> [!NOTE]
->  AzCopy는 Azure SDK의 일부 이지만 항상에서 [https://aka.ms/AzCopy](https://aka.ms/AzCopy)최신 버전을 다운로드할 수 있습니다. 기본적으로 AzCopy는 **C:\Program files (x86) \Microsoft SDKs\Windows Azure\AzCopy**폴더에 설치 되며 명령 프롬프트 또는 PowerShell 창에서 도구를 실행 하기 전에이 폴더를 경로에 추가 해야 합니다.  
+AzCopy을 시작 하려면 [AzCopy 시작](storage-use-azcopy-v10.md) 을 참조 하세요. 
 
- 다음 예에서는 2014 20에서 오전 9 시, 오전 10 시, 오전 11 시에 시작 하는 시간 동안 큐 서비스에 대 한 로그 데이터를 다운로드 하는 방법을 보여 줍니다. **/S** 매개 변수를 사용 하면 AzCopy는 로그 파일 이름의 날짜와 시간을 기준으로 로컬 폴더 구조를 작성 합니다. **/v** 매개 변수를 설정 하면 AzCopy에서 자세한 출력을 생성 합니다. **/y** 매개 변수를 설정 하면 AzCopy가 로컬 파일을 덮어씁니다. **< Storageaccount\>**  를 사용자의 저장소 계정 이름으로 바꾸고 해당 하는 **< storagekey\>**  를 저장소 계정 키로 바꿉니다.  
+다음 예에서는 2014 20에서 오전 9 시, 오전 10 시, 오전 11 시에 시작 하는 시간 동안 큐 서비스에 대 한 로그 데이터를 다운로드 하는 방법을 보여 줍니다.
 
 ```
-AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs\Storage' '2014/05/20/09' '2014/05/20/10' '2014/05/20/11' /sourceKey:<yourstoragekey> /S /V /Y  
-```  
+azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
+```
 
- AzCopy에는 다운로드 한 파일에 마지막으로 수정 된 시간을 설정 하는 방법 및 로컬 컴퓨터에 이미 있는 파일 보다 오래 되었거나 최신 파일을 다운로드할지 여부를 제어 하는 몇 가지 유용한 매개 변수가 있습니다. 재시작 가능 모드에서 실행할 수도 있습니다. 자세한 내용은 **AzCopy/?** 를 실행 하 여 도움말을 참조 하세요. 명령을 통해 Visual Studio의 대화형 창에 직접 통합됩니다.  
+특정 파일을 다운로드 하는 방법에 대해 자세히 알아보려면 [특정 파일 다운로드](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files)를 참조 하세요.
 
- 프로그래밍 방식으로 로그 데이터를 다운로드 하는 방법에 대 한 예는 블로그 [게시물 Windows Azure Storage 로깅: 로그를 사용 하 여 저장소](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) 요청을 추적 하 고 페이지에서 "DumpLogs" 라는 단어를 검색 합니다.  
-
- 로그 데이터를 다운로드 한 경우 파일의 로그 항목을 볼 수 있습니다. 이러한 로그 파일은 Microsoft Message Analyzer를 비롯 한 많은 로그 읽기 도구가 구문 분석할 수 있는 분리 된 텍스트 형식을 사용 합니다 (자세한 내용은 [모니터링, 진단 및 문제 Microsoft Azure Storage 해결](storage-monitoring-diagnosing-troubleshooting.md)가이드 참조). 다양 한 도구에는 로그 파일의 내용에 대 한 서식 지정, 필터링, 정렬, 광고 검색 기능이 서로 다릅니다. 저장소 로깅 로그 파일 형식 및 콘텐츠에 대 한 자세한 내용은 [스토리지 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format) 및 [스토리지 분석 기록 된 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)를 참조 하세요.
+로그 데이터를 다운로드 한 경우 파일의 로그 항목을 볼 수 있습니다. 이러한 로그 파일은 Microsoft Message Analyzer를 비롯 한 많은 로그 읽기 도구가 구문 분석할 수 있는 분리 된 텍스트 형식을 사용 합니다 (자세한 내용은 [모니터링, 진단 및 문제 Microsoft Azure Storage 해결](storage-monitoring-diagnosing-troubleshooting.md)가이드 참조). 다양 한 도구에는 로그 파일의 내용에 대 한 서식 지정, 필터링, 정렬, 광고 검색 기능이 서로 다릅니다. 저장소 로깅 로그 파일 형식 및 콘텐츠에 대 한 자세한 내용은 [스토리지 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format) 및 [스토리지 분석 기록 된 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

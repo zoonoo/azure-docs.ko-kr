@@ -1,23 +1,18 @@
 ---
 title: JavaScript 웹앱용 Azure Application Insights | Microsoft Docs
 description: 페이지 보기 및 세션 수와 웹 클라이언트 데이터를 가져오고 사용 패턴을 추적합니다. JavaScript 웹 페이지의 예외 및 성능 문제를 감지합니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/20/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: b49206c677e2f1b20c154ae0c9e358e8b2b0bbd8
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.date: 09/20/2019
+ms.openlocfilehash: 17765910b379bd4212d171cce6643de561db23ad
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430200"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819371"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -50,7 +45,7 @@ appInsights.loadAppInsights();
 
 ### <a name="snippet-based-setup"></a>코드 조각 기반 설정
 
-앱에서 npm를 사용 하지 않는 경우 각 페이지의 맨 위에이 코드 조각을 붙여넣어 Application Insights를 사용 하 여 웹 페이지를 직접 계측할 수 있습니다. 모든 종속성과 관련 된 잠재적인 문제를 모니터링할 수 있도록 `<head>` 섹션에서 첫 번째 스크립트 여야 합니다. Blazor Server 앱을 사용 하는 경우 `<head>` 섹션에서-0 @no__t 파일의 맨 위에 코드 조각을 추가 합니다.
+앱에서 npm를 사용 하지 않는 경우 각 페이지의 맨 위에이 코드 조각을 붙여넣어 Application Insights를 사용 하 여 웹 페이지를 직접 계측할 수 있습니다. 모든 종속성과 관련 된 잠재적인 문제를 모니터링할 수 있도록 `<head>` 섹션에서 첫 번째 스크립트 여야 합니다. Blazor Server 앱을 사용 하는 경우 `<head>` 섹션에서 `_Host.cshtml` 파일의 맨 위에 코드 조각을 추가 합니다.
 
 ```html
 <script type="text/javascript">
@@ -85,7 +80,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 ### <a name="telemetry-initializers"></a>원격 분석 이니셜라이저
 원격 분석 이니셜라이저는 사용자의 브라우저에서 전송 되기 전에 수집 된 원격 분석의 내용을 수정 하는 데 사용 됩니다. 또한 `false`을 반환 하 여 특정 원격 분석이 전송 되는 것을 방지 하는 데 사용할 수 있습니다. 여러 원격 분석 이니셜라이저를 Application Insights 인스턴스에 추가할 수 있으며 이러한 이니셜라이저를 추가 하기 위해 실행 됩니다.
 
-@No__t-0에 대 한 입력 인수는 인수로 [`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API.md#addTelemetryInitializer) 를 사용 하 고 `boolean` 또는 `void`를 반환 하는 콜백입니다. -0 @no__t 반환 하는 경우 원격 분석 항목이 전송 되지 않고 다음 원격 분석 이니셜라이저 (있는 경우)로 진행 되거나 원격 분석 컬렉션 끝점으로 전송 됩니다.
+`addTelemetryInitializer`에 대 한 입력 인수는 [`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API.md#addTelemetryInitializer) 인수로 사용 하 고 `boolean` 또는 `void`를 반환 하는 콜백입니다. `false`반환 하는 경우 원격 분석 항목이 전송 되지 않고, 다른 원격 분석 이니셜라이저 (있는 경우)로 진행 되거나 원격 분석 컬렉션 끝점으로 전송 됩니다.
 
 원격 분석 이니셜라이저를 사용 하는 예제:
 ```ts
@@ -99,7 +94,7 @@ appInsights.addTelemetryInitializer(() => false); // Nothing is sent after this 
 appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
 ## <a name="configuration"></a>구성
-대부분의 구성 필드의 이름은 기본적으로 false로 설정 될 수 있습니다. @No__t-0을 제외한 모든 필드는 선택 사항입니다.
+대부분의 구성 필드의 이름은 기본적으로 false로 설정 될 수 있습니다. `instrumentationKey`를 제외 하 고 모든 필드는 선택 사항입니다.
 
 | name | 기본값 | 설명 |
 |------|---------|-------------|
@@ -178,7 +173,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 ### <a name="analytics"></a>분석기능 
 
-JavaScript SDK에 의해 수집 된 원격 분석을 쿼리하려면 **로그 (분석)에서 보기** 단추를 선택 합니다. @No__t-1의 `where` 문을 추가 하면 JavaScript SDK의 데이터만 표시 되 고 다른 Sdk에서 수집한 서버 쪽 원격 분석은 제외 됩니다.
+JavaScript SDK에 의해 수집 된 원격 분석을 쿼리하려면 **로그 (분석)에서 보기** 단추를 선택 합니다. `client_Type == "Browser"``where` 문을 추가 하면 JavaScript SDK의 데이터만 볼 수 있고 다른 Sdk에서 수집한 서버 쪽 원격 분석은 제외 됩니다.
  
 ```kusto
 // average pageView duration by name
@@ -200,7 +195,7 @@ dataset
 예외 원격 분석의 매우 많은 호출 스택이 Azure Portal에서 확인할 수 없습니다. 예외 세부 정보 패널의 모든 기존 통합은 새로 적용 되지 않은 호출 스택에 적용 됩니다. 끌어서 놓기 소스 맵 unminifying는 모든 기존 및 향후 JS Sdk (+ NODE.JS)를 지원 하므로 SDK 버전을 업그레이드할 필요가 없습니다. 취소할 수 없는 호출 스택을 보려면
 1. Azure Portal에서 예외 원격 분석 항목을 선택 하 여 "종단 간 트랜잭션 정보"를 확인 합니다.
 2. 이 호출 스택에 해당 하는 소스 맵을 식별 합니다. 소스 맵은 스택 프레임의 소스 파일과 일치 해야 하지만 `.map`으로 시작 합니다.
-3. Azure Portal에서 소스 맵을 호출 스택으로 끌어서 놓습니다 ![](https://i.imgur.com/Efue9nU.gif)
+3. 소스 맵을 Azure Portal의 호출 스택으로 끌어 놓습니다 ![](https://i.imgur.com/Efue9nU.gif)
 
 ### <a name="application-insights-web-basic"></a>Application Insights 웹 기본
 
@@ -208,7 +203,7 @@ dataset
 ```
 npm i --save @microsoft/applicationinsights-web-basic
 ```
-이 버전은 최소한의 기능과 기능을 제공 하며, 적합 한 것으로 빌드에 의존 합니다. 예를 들어 autocollection (catch 되지 않은 예외, AJAX 등)을 수행 합니다. @No__t-0, `trackException` 등의 특정 원격 분석 유형을 전송 하는 Api는이 버전에 포함 되지 않으므로 고유한 래퍼를 제공 해야 합니다. 유일 하 게 사용할 수 있는 API는 `track`입니다. [샘플](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) 은 여기에 있습니다.
+이 버전은 최소한의 기능과 기능을 제공 하며, 적합 한 것으로 빌드에 의존 합니다. 예를 들어 autocollection (catch 되지 않은 예외, AJAX 등)을 수행 합니다. `trackTrace`, `trackException`등의 특정 원격 분석 유형을 전송 하는 Api는이 버전에 포함 되지 않으므로 고유한 래퍼를 제공 해야 합니다. 유일 하 게 사용할 수 있는 API는 `track`입니다. [샘플](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) 은 여기에 있습니다.
 
 ## <a name="examples"></a>예시
 
@@ -219,7 +214,7 @@ npm i --save @microsoft/applicationinsights-web-basic
 SDK V2 버전의 주요 변경 내용:
 - 더 나은 API 서명을 허용 하기 위해 trackPageView, 기능 예외 등의 일부 API 호출이 업데이트 되었습니다. IE8 또는 낮은 버전의 브라우저에서 실행 되는 것은 지원 되지 않습니다.
 - 원격 분석 봉투 (envelope)에는 데이터 스키마 업데이트로 인 한 필드 이름 및 구조 변경 내용이 있습니다.
-- @No__t-0 `context.telemetryTrace`로 이동 했습니다. 일부 필드 (`operation.id` @ no__t-1 @ no__t-2)도 변경 되었습니다.
+- `context.operation`을 `context.telemetryTrace`로 이동 했습니다. 일부 필드도 변경 되었습니다 (`operation.id` --> `telemetryTrace.traceID`).
   - 현재 페이지 보기 ID (예: SPA 앱)를 수동으로 새로 고치려면 `appInsights.properties.context.telemetryTrace.traceID = Util.newId()`을 사용 하 여이 작업을 수행할 수 있습니다.
 
 현재 application insights PRODUCTION SDK (1.0.20)를 사용 하 고 새 SDK가 런타임에 작동 하는지 확인 하려는 경우 현재 SDK 로드 시나리오에 따라 URL을 업데이트 합니다.

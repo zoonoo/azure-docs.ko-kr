@@ -4,15 +4,15 @@ description: AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 37d8c483a1ef49a87205dcc848aae974f5b0e47e
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 812daaf42a987e9dd63bbc39b60c517d8f0cc761
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675854"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882487"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -58,6 +58,8 @@ AzCopy 디렉터리를 경로에 추가 하지 않도록 선택 하는 경우 Az
 특정 명령에 대 한 자세한 내용을 보려면 명령 이름 (예: `azcopy list -h`)을 포함 하면 됩니다.
 
 ![인라인 도움말](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+
+각 명령 및 명령 매개 변수에 대 한 자세한 참조 설명서를 찾으려면 [azcopy](storage-ref-azcopy.md) 를 참조 하세요.
 
 > [!NOTE] 
 > Azure Storage 계정의 소유자는 데이터에 액세스할 수 있는 권한을 자동으로 할당 하지 않습니다. AzCopy를 사용 하 여 의미 있는 작업을 수행 하려면 먼저 저장소 서비스에 권한 부여 자격 증명을 제공 하는 방법을 결정 해야 합니다. 
@@ -122,7 +124,7 @@ azcopy login
 azcopy login --tenant-id=<tenant-id>
 ```
 
-@No__t_0 자리 표시자를 저장소 계정이 속한 조직의 테 넌 트 ID로 바꿉니다. 테 넌 트 ID를 찾으려면 Azure Portal에서 **디렉터리 id > Azure Active Directory > 속성** 을 선택 합니다.
+`<tenant-id>` 자리 표시자를 저장소 계정이 속한 조직의 테 넌 트 ID로 바꿉니다. 테 넌 트 ID를 찾으려면 Azure Portal에서 **디렉터리 id > Azure Active Directory > 속성** 을 선택 합니다.
 
 이 명령은 웹 사이트의 인증 코드와 URL을 반환합니다. 웹 사이트를 열고, 코드를 입력하고, **다음** 단추를 선택합니다.
 
@@ -146,7 +148,7 @@ azcopy login --tenant-id=<tenant-id>
 
 ##### <a name="using-a-client-secret"></a>클라이언트 암호 사용
 
-@No__t_0 환경 변수를 서비스 주체의 앱 등록에 대 한 클라이언트 암호로 설정 하 여 시작 합니다.
+`AZCOPY_SPA_CLIENT_SECRET` 환경 변수를 서비스 주체의 앱 등록에 대 한 클라이언트 암호로 설정 하 여 시작 합니다.
 
 > [!NOTE]
 > 운영 체제의 환경 변수 설정이 아니라 명령 프롬프트에서이 값을 설정 해야 합니다. 이렇게 하면 현재 세션에만 값을 사용할 수 있습니다.
@@ -166,7 +168,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 azcopy login --service-principal --application-id <application-id> --tenant-id=<tenant-id>
 ```
 
-@No__t_0 자리 표시자를 서비스 사용자의 앱 등록에 대 한 응용 프로그램 ID로 바꿉니다. @No__t_0 자리 표시자를 저장소 계정이 속한 조직의 테 넌 트 ID로 바꿉니다. 테 넌 트 ID를 찾으려면 Azure Portal에서 **디렉터리 id > Azure Active Directory > 속성** 을 선택 합니다. 
+`<application-id>` 자리 표시자를 서비스 사용자의 앱 등록에 대 한 응용 프로그램 ID로 바꿉니다. `<tenant-id>` 자리 표시자를 저장소 계정이 속한 조직의 테 넌 트 ID로 바꿉니다. 테 넌 트 ID를 찾으려면 Azure Portal에서 **디렉터리 id > Azure Active Directory > 속성** 을 선택 합니다. 
 
 ##### <a name="using-a-certificate"></a>인증서 사용
 
@@ -191,7 +193,7 @@ $env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
 azcopy login --service-principal --certificate-path <path-to-certificate-file> --tenant-id=<tenant-id>
 ```
 
-@No__t_0 자리 표시자를 인증서 파일의 상대 또는 정규화 된 경로로 바꿉니다. AzCopy는이 인증서에 대 한 경로를 저장 하지만 인증서 복사본을 저장 하지 않으므로 해당 인증서를 그대로 유지 해야 합니다. @No__t_0 자리 표시자를 저장소 계정이 속한 조직의 테 넌 트 ID로 바꿉니다. 테 넌 트 ID를 찾으려면 Azure Portal에서 **디렉터리 id > Azure Active Directory > 속성** 을 선택 합니다.
+`<path-to-certificate-file>` 자리 표시자를 인증서 파일의 상대 또는 정규화 된 경로로 바꿉니다. AzCopy는이 인증서에 대 한 경로를 저장 하지만 인증서 복사본을 저장 하지 않으므로 해당 인증서를 그대로 유지 해야 합니다. `<tenant-id>` 자리 표시자를 저장소 계정이 속한 조직의 테 넌 트 ID로 바꿉니다. 테 넌 트 ID를 찾으려면 Azure Portal에서 **디렉터리 id > Azure Active Directory > 속성** 을 선택 합니다.
 
 > [!NOTE]
 > 이 예제에 나와 있는 것 처럼 프롬프트를 사용 하는 것이 좋습니다. 이렇게 하면 사용자의 암호가 콘솔의 명령 기록에 표시 되지 않습니다. 
@@ -226,19 +228,19 @@ azcopy login --identity
 azcopy login --identity --identity-client-id "<client-id>"
 ```
 
-@No__t_0 자리 표시자를 사용자 할당 관리 id의 클라이언트 ID로 바꿉니다.
+`<client-id>` 자리 표시자를 사용자 할당 관리 id의 클라이언트 ID로 바꿉니다.
 
 ```azcopy
 azcopy login --identity --identity-object-id "<object-id>"
 ```
 
-@No__t_0 자리 표시자를 사용자 할당 관리 id의 개체 ID로 바꿉니다.
+`<object-id>` 자리 표시자를 사용자 할당 관리 id의 개체 ID로 바꿉니다.
 
 ```azcopy
 azcopy login --identity --identity-resource-id "<resource-id>"
 ```
 
-@No__t_0 자리 표시자를 사용자 할당 관리 id의 리소스 ID로 바꿉니다.
+`<resource-id>` 자리 표시자를 사용자 할당 관리 id의 리소스 ID로 바꿉니다.
 
 ### <a name="option-2-use-a-sas-token"></a>옵션 2: SAS 토큰 사용
 
@@ -293,7 +295,7 @@ URL은이 명령의 출력에 표시 됩니다. 그런 다음 스크립트에서
 
 ### <a name="escape-special-characters-in-sas-tokens"></a>SAS 토큰의 이스케이프 특수 문자
 
-@No__t_0 확장이 있는 배치 파일에서 SAS 토큰에 표시 되는 `%` 문자를 이스케이프 해야 합니다. SAS 토큰 문자열의 기존 `%` 문자 옆에 추가 `%` 문자를 추가 하 여이 작업을 수행할 수 있습니다.
+`.cmd` 확장이 있는 배치 파일에서 SAS 토큰에 표시 되는 `%` 문자를 이스케이프 해야 합니다. SAS 토큰 문자열의 기존 `%` 문자 옆에 추가 `%` 문자를 추가 하 여이 작업을 수행할 수 있습니다.
 
 ### <a name="run-scripts-by-using-jenkins"></a>Jenkins를 사용 하 여 스크립트 실행
 

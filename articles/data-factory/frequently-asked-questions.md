@@ -5,18 +5,16 @@ services: data-factory
 documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ee57d943016c2d166f3c8469b403b56b1009385c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 764a4dd31125dad20f6ef23e3628d7710dba2b85
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387070"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880136"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ
 이 아티클에서는 Azure Data Factory에 대한 질문과 대답을 제공합니다.  
@@ -180,32 +178,19 @@ Azure Data Factory에 대한 최신 정보를 얻으려면 다음 사이트로 �
 
 ## <a name="mapping-data-flows"></a>데이터 흐름 매핑
 
-### <a name="which-data-factory-version-do-i-use-to-create-data-flows"></a>데이터 흐름을 만드는 데 사용 하는 Data Factory 버전은 무엇 인가요?
-Data Factory V2 버전을 사용 하 여 데이터 흐름을 만듭니다.
-  
-### <a name="i-was-a-previous-private-preview-customer-who-used-data-flows-and-i-used-the-data-factory-v2-preview-version-for-data-flows"></a>데이터 흐름을 사용한 이전 비공개 미리 보기 고객 이었던 데이터 흐름에 Data Factory V2 preview 버전을 사용 했습니다.
-이 버전은 이제 사용 되지 않습니다. 데이터 흐름에 Data Factory V2를 사용 합니다.
-  
-### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-regard-to-data-flows"></a>비공개 미리 보기에서 데이터 흐름과 관련 된 공개 미리 보기로 변경 된 내용은 무엇 인가요?
-이제는 사용자 고유의 Azure Databricks 클러스터를 가져올 필요가 없습니다. Data Factory에서 클러스터 만들기 및 해체를 관리 합니다. Blob 데이터 집합 및 Azure Data Lake Storage Gen2 데이터 집합은 분리 된 텍스트 및 Apache Parquet 데이터 집합으로 구분 됩니다. 이러한 파일을 저장 하는 데에도 Data Lake Storage Gen2 및 Blob 저장소를 사용할 수 있습니다. 해당 저장소 엔진에 적절 한 연결 된 서비스를 사용 합니다.
-
-### <a name="can-i-migrate-my-private-preview-factories-to-data-factory-v2"></a>비공개 미리 보기 팩터리를 Data Factory V2로 마이그레이션할 수 있나요?
-
-예. [지침을 따릅니다](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration).
-
 ### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help"></a>데이터 흐름 논리 문제를 해결 하는 데 도움이 필요 합니다. 도움을 받기 위해 제공 해야 하는 정보는 무엇 인가요?
 
-Microsoft에서 데이터 흐름에 대 한 지원을 제공 하거나 문제를 해결 하는 경우 DSL 코드 계획을 제공 하세요. 이렇게 하려면 다음 단계를 수행하세요.
+Microsoft에서 데이터 흐름에 대 한 도움말 또는 문제 해결을 제공 하는 경우 데이터 흐름 스크립트를 제공 하십시오. 이는 데이터 흐름 그래프의 코드 숨겨진 스크립트입니다. ADF UI에서 데이터 흐름을 연 다음 오른쪽 위 모퉁이에 있는 "스크립트" 단추를 클릭 합니다. 이 스크립트를 복사 하 여 붙여넣거나 텍스트 파일에 저장 합니다.
 
-1. 데이터 흐름 디자이너의 오른쪽 위 모서리에서 **코드** 를 선택 합니다. 이렇게 하면 데이터 흐름에 대 한 편집 가능한 JSON 코드가 표시 됩니다.
-2. 코드 보기의 오른쪽 위 모서리에서 **요금제** 를 선택 합니다. 이 토글은 JSON에서 읽기 전용 형식의 DSL 스크립트 계획으로 전환 됩니다.
-3. 이 스크립트를 복사 하 여 붙여넣거나 텍스트 파일에 저장 합니다.
-
-### <a name="how-do-i-access-data-by-using-the-other-80-dataset-types-in-data-factory"></a>Data Factory에서 다른 80 데이터 집합 형식을 사용 하 여 데이터에 액세스 어떻게 할까요??
+### <a name="how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory"></a>Data Factory에서 다른 90 데이터 집합 형식을 사용 하 여 데이터에 액세스 어떻게 할까요??
 
 데이터 흐름 매핑 기능을 사용 하면 현재 Azure Blob storage 또는 Azure Data Lake Storage Gen2에서 분리 된 텍스트 파일을 Azure SQL Database Azure SQL Data Warehouse 고, Blob storage에서 파일을 Parquet 하거나 원본 및 싱크에 대해 기본적으로 Data Lake Storage Gen2 수 있습니다. 
 
 복사 작업을 사용 하 여 다른 커넥터에서 데이터를 준비 하 고 데이터 흐름 작업을 실행 하 여 데이터를 준비한 후 데이터를 변환 합니다. 예를 들어 파이프라인이 먼저 Blob storage에 복사 된 다음 데이터 흐름 작업은 원본에서 데이터 집합을 사용 하 여 해당 데이터를 변환 합니다.
+
+### <a name="is-the-self-hosted-integration-runtime-available-for-data-flows"></a>자체 호스팅 통합 런타임을 데이터 흐름에 사용할 수 있나요?
+
+자체 호스팅 IR은 복사 작업에서 온-프레미스 또는 VM 기반 데이터 원본 및 싱크로 데이터를 가져오거나 이동 하는 데 사용할 수 있는 ADF 파이프라인 구문입니다. 먼저 복사본을 사용 하 여 데이터를 준비 하 고 변환에 대 한 데이터 흐름을 지정한 다음 변환 된 데이터를 다시 온-프레미스 저장소로 이동 해야 하는 경우 후속 복사를 수행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 데이터 팩터리를 만드는 단계별 지침은 다음 자습서를 참조하세요.

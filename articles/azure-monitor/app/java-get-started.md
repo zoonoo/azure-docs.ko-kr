@@ -1,27 +1,22 @@
 ---
 title: Azure Application Insights로 Java 웹앱 분석 | Microsoft Docs
 description: 'Application Insights를 사용하여 Java 웹앱에 대한 애플리케이션 성능 모니터링. '
-services: application-insights
-documentationcenter: java
-author: lgayhardt
-manager: carmonm
-ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/24/2019
+author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: a6e8187a085d637ad3abc650daf15d92b96755a3
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 05/24/2019
+ms.openlocfilehash: 28fbb5fcfba2b346d0519dec79e538b1e513b7dd
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338105"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817135"
 ---
-# <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
+# <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/)는 라이브 애플리케이션의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. 이를 통해 [요청을 자동으로 계측하고, 종속성을 추적하고, 성능 카운터를 수집하고](auto-collect-dependencies.md#java), 성능 문제 및 예외를 진단 하 고, 앱을 사용 하 여 사용자가 수행 하는 작업을 [코드 기록][api] 추적 
+[Application Insights](https://azure.microsoft.com/services/application-insights/)는 라이브 애플리케이션의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. 이를 통해 [요청을 자동으로 계측 하 고, 종속성을 추적 하 고, 성능 카운터를 수집](auto-collect-dependencies.md#java)하 고, 성능 문제 및 예외를 진단 하 고, 앱을 [사용 하 여][api] 사용자가 수행 하는 작업을 추적 
 
 ![개요 샘플 데이터 스크린샷](./media/java-get-started/overview-graphs.png)
 
@@ -32,7 +27,7 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
 * Java 7 이상
 * [Microsoft Azure](https://azure.microsoft.com/)구독.
 
-## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Application Insights 계측 키 가져오기
+## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Application Insights 계측 키를 가져옵니다.
 1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. Application Insights 리소스 만들기 Java 웹 애플리케이션에 대한 애플리케이션 종류를 설정합니다.
 
@@ -40,7 +35,7 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
 
     ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/java-get-started/instrumentation-key-001.png)
 
-## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. 프로젝트에 Java용 Aplication Insights SDK 추가
+## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. 프로젝트에 Java 용 Application Insights SDK 추가
 *프로젝트에 적합한 방법을 선택합니다.*
 
 #### <a name="if-youre-using-maven-a-namemaven-setup-"></a>Maven을 사용하는 경우... <a name="maven-setup" />
@@ -77,10 +72,10 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
 [최신 버전](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)을 다운로드하고 필요한 파일을 프로젝트에 복사하여 이전 버전을 교체합니다.
 
 ### <a name="questions"></a>질문...
-* *`-web-auto` ,`-web` 및 구성`-core` 요소 간의 관계는 무엇 인가요?*
-  * `applicationinsights-web-auto`런타임에 Application Insights 서브렛 필터를 자동으로 등록 하 여 HTTP 서블릿 요청 수와 응답 시간을 추적 하는 메트릭을 제공 합니다.
-  * `applicationinsights-web`는 또한 HTTP 서블릿 요청 수와 응답 시간을 추적 하는 메트릭을 제공 하지만 응용 프로그램에서 Application Insights 서브렛 필터를 수동으로 등록 해야 합니다.
-  * `applicationinsights-core`응용 프로그램이 서브렛 기반이 아닌 경우와 같이 기본 API만 제공 합니다.
+* *`-web-auto`, `-web` 및 `-core` 구성 요소 간의 관계는 무엇 인가요?*
+  * `applicationinsights-web-auto`는 런타임에 Application Insights 서블릿 필터를 자동으로 등록 하 여 HTTP 서블릿 요청 수와 응답 시간을 추적 하는 메트릭을 제공 합니다.
+  * 또한 `applicationinsights-web`는 HTTP 서블릿 요청 수와 응답 시간을 추적 하는 메트릭을 제공 하지만 응용 프로그램에서 Application Insights 서블릿 필터를 수동으로 등록 해야 합니다.
+  * 예를 들어 응용 프로그램이 서블릿 기반이 아닌 경우에는 완전 한 API만 제공 `applicationinsights-core`.
   
 * *SDK를 최신 버전으로 업데이트하려면 어떻게 해야 하나요?*
   * Gradle 또는 Maven을 사용하는 경우...
@@ -88,7 +83,7 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
   * 종속성을 수동으로 관리하는 경우...
     * 최신 버전의 [Java용 Application Insights SDK](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)를 다운로드하여 이전 버전을 대체합니다. 변경 내용은 [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)에 설명되어 있습니다.
 
-## <a name="3-add-an-applicationinsightsxml-file"></a>3. ApplicationInsights.xml 파일 추가
+## <a name="3-add-an-applicationinsightsxml-file"></a>3. ApplicationInsights .xml 파일을 추가 합니다.
 ApplicationInsights.xml을 프로젝트의 리소스 폴더에 추가하거나 ApplicationInsights.xml이 프로젝트의 배포 클래스 경로에 추가되었는지 확인합니다. 다음 XML을 복사합니다.
 
 Azure 포털에서 가져온 계측 키를 대체합니다.
@@ -148,7 +143,7 @@ Application Insights SDK는 다음 순서로 키를 찾습니다.
 
 나가는 HTTP 호출, JDBC 쿼리, 응용 프로그램 로깅 및 더 나은 작업 이름을 캡처하기 위해 [Java 에이전트를 설치](java-agent.md) 합니다.
 
-## <a name="5-run-your-application"></a>5. 애플리케이션 실행
+## <a name="5-run-your-application"></a>5. 응용 프로그램을 실행 합니다.
 응용 프로그램을 디버그 모드로 개발 컴퓨터에서 실행하거나 서버에 게시합니다.
 
 ## <a name="6-view-your-telemetry-in-application-insights"></a>6. Application Insights에서 원격 분석 보기
@@ -178,7 +173,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
 ![분석 예제](./media/java-get-started/0025.png)
 
-## <a name="7-install-your-app-on-the-server"></a>7. 서버에 앱 설치
+## <a name="7-install-your-app-on-the-server"></a>7. 서버에 앱을 설치 합니다.
 이제 서버에 앱을 게시하고, 사람들이 사용하게 한 다음 포털에 표시되는 원격 분석을 확인합니다.
 
 * 방화벽에서 애플리케이션이 다음 포트에 원격 분석을 보내도록 허용하는지 확인합니다.
@@ -289,7 +284,7 @@ Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.i
 이제 웹 서버에서 원격 분석을 보내려 합니다. 애플리케이션을 전체적으로 파악하기 위해 모니터링을 추가할 수 있습니다.
 
 * [웹 페이지에 원격 분석을 추가][usage] 하여 페이지 보기 및 사용자 메트릭을 모니터링합니다.
-* [웹 테스트를 설정][availability] 하여 애플리케이션이 라이브 상태로 유지되며 응답하는지 확인할 수 있습니다.
+* [웹 테스트를 설정][availability]하여 애플리케이션이 라이브 상태로 유지되며 응답하는지 확인할 수 있습니다.
 
 ## <a name="send-your-own-telemetry"></a>사용자 고유의 원격 분석 전송
 이제 SDK를 설치한 했으므로 API를 사용하여 사용자 고유의 원격 분석을 전송할 수 있습니다.
@@ -302,7 +297,7 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 
 [가용성 웹 테스트를 설정 하는 방법에 대해 자세히 알아보세요.][availability]
 
-## <a name="questions-problems"></a>궁금한 점이 더 있나요? 문제가 있습니까?
+## <a name="questions-problems"></a>질문이 있으시나요? 문제가 있으신가요?
 [Java 문제 해결](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>다음 단계

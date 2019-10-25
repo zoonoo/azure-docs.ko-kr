@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: morgangrobin
 ms.author: mogrobin
 ms.date: 10/11/2019
-ms.openlocfilehash: a2b29f2c24a3244cdc800d882e7c2ed8f943eabe
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 900228e1f9bdf9d367fa37b9ec90a6148faec656
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677594"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880246"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Azure Functions를 사용 하 여 사용자 지정 가용성 테스트 만들기 및 실행
 
@@ -44,7 +44,7 @@ ms.locfileid: "72677594"
 ![Azure Portal에서 Azure 함수의 실행. csx](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
-> @No__t_0 사용 하는 끝점 주소: 리소스가 Azure Government 또는 Azure 중국와 같은 지역에 있는 경우를 제외 하 고 [기본 끝점 재정의](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) 에 대 한이 문서를 참조 하 고 해당 지역에 적절 한 원격 분석 채널 끝점을 선택 합니다.
+> `EndpointAddress= https://dc.services.visualstudio.com/v2/track`사용 하는 끝점 주소: 리소스가 Azure Government 또는 Azure 중국와 같은 지역에 있는 경우를 제외 하 고 [기본 끝점 재정의](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) 에 대 한이 문서를 참조 하 고 해당 지역에 적절 한 원격 분석 채널 끝점을 선택 합니다.
 
 ```C#
 using System;
@@ -159,7 +159,7 @@ private static async Task AvailabilityTestRun(string name, string location, stri
         log.LogError($"[Error]: {ex.Message}");
 
         // optional - throw to fail the function
-        throw;
+        //throw;
     }
     finally
     {

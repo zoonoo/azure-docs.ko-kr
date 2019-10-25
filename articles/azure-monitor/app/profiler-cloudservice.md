@@ -1,27 +1,23 @@
 ---
 title: Application Insights를 사용하여 라이브 Azure Cloud Services 프로파일링 | Microsoft Docs
 description: Azure Cloud Services에 대해 Application Insights Profiler를 사용하도록 설정합니다.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 93392e379cbb03508fefc1877d5d50e04436b79c
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: 682711d7681e3646ae14686b01542bc5d7432179
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737223"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820504"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Application Insights로 라이브 Azure Cloud Services 프로파일링
 
-다음과 같은 서비스에 Application Insights Profiler를 배포할 수도 있습니다.
+또한 다음과 같은 서비스에서 Application Insights Profiler를 배포할 수도 있습니다.
 * [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric 애플리케이션](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
@@ -29,7 +25,7 @@ ms.locfileid: "68737223"
 Application Insights Profiler는 Azure Diagnostics 확장과 함께 설치됩니다. Profiler를 설치하고 Application Insights 리소스로 프로필을 전송하도록 Azure Diagnostics를 구성하기만 하면 됩니다.
 
 ## <a name="enable-profiler-for-azure-cloud-services"></a>Azure Cloud Services에 대해 Profiler 사용
-1. [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 이상 버전을 사용 하 고 있는지 확인 합니다. OS 제품군 4를 사용 하는 경우 [시작 작업](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-dotnet-install-dotnet)을 사용 하 여 .NET Framework 4.6.1 이상 버전을 설치 해야 합니다. OS 제품군 5에는 기본적으로 .NET Framework 호환 되는 버전이 포함 되어 있습니다. 
+1. [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 이상 버전을 사용 하 고 있는지 확인 합니다. OS 제품군 4를 사용 하는 경우 [시작 작업](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-install-dotnet)을 사용 하 여 .NET Framework 4.6.1 이상 버전을 설치 해야 합니다. OS 제품군 5에는 기본적으로 .NET Framework 호환 되는 버전이 포함 되어 있습니다. 
 
 1. [Azure Cloud Services에 Application Insights SDK](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json)를 추가합니다.
 

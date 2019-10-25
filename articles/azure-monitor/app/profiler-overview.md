@@ -1,23 +1,19 @@
 ---
 title: Application Insights Profiler를 사용하여 Azure에서 프로덕션 애플리케이션 프로파일링 | Microsoft Docs
 description: 적은 공간의 프로파일러를 사용하여 웹 서버 코드에서 실행 부하 과다 경로를 식별합니다.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: debc30a368a0f9ef7be9b0cda0b1238f8e2bc2e3
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: fc152aab6d0e62ac5656b50834ce17278bb6676e
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338071"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820509"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Application Insights를 사용하여 Azure에서 프로덕션 애플리케이션 프로파일링
 ## <a name="enable-application-insights-profiler-for-your-application"></a>애플리케이션에 대해 Application Insights Profiler 사용
@@ -48,10 +44,10 @@ Profiler가 추적을 업로드하도록 하기 위해 애플리케이션은 요
 
 추적 탐색기에서 다음 정보를 표시합니다.
 
-* **실행 부하 과다 경로 표시**: 가장 큰 리프 노드 또는 최소한 닫힌 것을 엽니다. 대부분의 경우에서 이 노드는 성능 병목에 인접한 상태가 됩니다.
+* **실행 부하 과다 경로 표시**: 가장 큰 리프 노드 또는 닫힌 것을 엽니다. 대부분의 경우에서 이 노드는 성능 병목에 인접한 상태가 됩니다.
 * **레이블**: 함수 또는 이벤트의 이름입니다. 트리는 발생한 코드와 이벤트의 혼합을 보여 줍니다(예: SQL 및 HTTP 이벤트). 최상위 이벤트는 전체 요청 기간을 나타냅니다.
-* **경과 시간**: 작업의 시작과 끝 간의 시간 간격입니다.
-* **시기**: 함수 또는 이벤트가 다른 함수와 관련해서 실행된 시기입니다.
+* **경과 시간**: 작업의 시작과 끝 사이의 시간 간격입니다.
+* **시기**: 함수 또는 이벤트가 다른 함수와 관련해서 실행된 시기입니디.
 
 ## <a name="how-to-read-performance-data"></a>성능 데이터를 읽는 방법
 
@@ -95,7 +91,7 @@ Microsoft 서비스 프로파일러는 샘플링 메서드와 계측의 조합�
 
 **BLOCKED_TIME**은 코드가 다른 리소스를 사용할 수 있을 때까지 기다리고 있음을 나타냅니다. 예를 들어, 동기화 개체를 기다리거나, 스레드를 사용할 수 있거나 요청이 완료될 때까지 기다릴 수 있습니다.
 
-### <a name="unmanaged-async"></a>관리되지 않는 비동기
+### <a name="unmanaged-async"></a>관리 되지 않는 비동기
 
 .NET framework는 ETW 이벤트를 내보내고 스레드 간에 작업 id를 전달 하 여 스레드 간에 비동기 호출을 추적할 수 있도록 합니다. 관리 되지 않는 코드 (네이티브 코드)와 비동기 코드의 일부 이전 스타일에는 이러한 이벤트와 활동 id가 없으므로 프로파일러에서는 스레드 및 스레드에서 실행 되는 함수를 알 수 없습니다. 호출 스택에서 ' 관리 되지 않는 Async '로 레이블이 지정 됩니다. ETW 파일을 다운로드 하는 경우 [Perfview](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) 를 사용 하 여 발생 하는 상황에 대 한 자세한 정보를 얻을 수 있습니다.
 

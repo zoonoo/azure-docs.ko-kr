@@ -1,23 +1,19 @@
 ---
 title: 웹 사이트의 가용성 및 응답성 모니터링 | Microsoft Docs
 description: Application Insights에서 웹 테스트를 설정합니다. 웹 사이트가 사용할 수 없게 되거나 느리게 응답하는 경우 알림이 제공됩니다.
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: 3c7ba10525dedf213a416d9ce6b55c80539fedd7
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 074b5c175305131cd67cc6660d13756a83386c11
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812199"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819288"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>모든 웹 사이트의 가용성 모니터링
 
@@ -31,7 +27,7 @@ ms.locfileid: "71812199"
 
 * [URL ping 테스트](#create-a-url-ping-test): Azure 포털에서 만들 수 있는 간단한 테스트입니다.
 * [다단계 웹 테스트](availability-multistep.md): 더 복잡 한 시나리오를 테스트 하기 위해 재생할 수 있는 웹 요청 시퀀스의 기록입니다. 다중 단계 웹 테스트는 Visual Studio Enterprise에서 만들어지고 실행을 위해 포털에 업로드 됩니다.
-* [사용자 지정 추적 가용성 테스트](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): 사용자 지정 응용 프로그램을 만들어 가용성 테스트를 실행 하기로 결정 한 경우 `TrackAvailability()` 메서드를 사용 하 여 결과를 Application Insights으로 보낼 수 있습니다.
+* [사용자 지정 추적 가용성 테스트](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): 가용성 테스트를 실행 하는 사용자 지정 응용 프로그램을 만들 경우 `TrackAvailability()` 메서드를 사용 하 여 Application Insights에 결과를 보낼 수 있습니다.
 
 **Application Insights 리소스 당 최대 100 개의 가용성 테스트를 만들 수 있습니다.**
 
@@ -39,7 +35,7 @@ ms.locfileid: "71812199"
 
 가용성 테스트를 만들려면 먼저 Application Insights 리소스를 만들어야 합니다. 리소스를 이미 만든 경우 다음 섹션으로 이동 하 여 [URL Ping 테스트를 만듭니다](#create-a-url-ping-test).
 
-Azure Portal에서 **리소스** > 만들기**개발자 도구** > **Application Insights** 를 선택 하 고 [Application Insights 리소스를 만듭니다](create-new-resource.md).
+Azure Portal에서 **리소스 만들기** > **개발자 도구** > **Application Insights** 를 선택 하 고 [Application Insights 리소스를 만듭니다](create-new-resource.md).
 
 ## <a name="create-a-url-ping-test"></a>URL ping 테스트 만들기
 
@@ -72,13 +68,13 @@ Azure Portal에서 **리소스** > 만들기**개발자 도구** > **Application
 | **HTTP 응답** | 성공으로 계산되어 반환된 상태 코드입니다. 200은 일반적인 웹 페이지의 반환을 나타내는 코드입니다.|
 | **콘텐츠 일치** | 문자열 (예: "환영!") 정확한 대/소문자 구분 일치가 모든 응답에서 발생하는지 테스트합니다. 와일드카드 없는 일반 문자열이어야 합니다. 페이지 내용이 변경되면 업데이트해야 할 수 있습니다. **내용 일치에서는 영어 문자만 지원 됩니다.** |
 
-### <a name="alerts"></a>,
+### <a name="alerts"></a>경고
 
 |설정| 설명
 |----|----|----|
 |**거의 실시간 (미리 보기)** | 거의 실시간으로 경고를 사용 하는 것이 좋습니다. 이 유형의 경고 구성은 가용성 테스트를 만든 후에 수행 됩니다.  |
 |**클래식** | 새 가용성 테스트에 대 한 클래식 경고를 사용 하는 것이 더 이상 권장 되지 않습니다.|
-|**경고 위치 임계값**|최소 3/5 위치를 사용하는 것이 좋습니다. 경고 위치 임계값과 테스트 위치 수 간의 최적 관계는**최소 5 개의 테스트 위치를 포함 하는 테스트 위치-2의** **경고 위치 임계값** = 번호입니다.|
+|**경고 위치 임계값**|최소 3/5 위치를 사용하는 것이 좋습니다. 경고 위치 임계값과 테스트 위치 수 간의 최적 관계는**최소 5 개의 테스트 위치를 사용 하는 테스트 위치-2의 수**  =  **경고 위치 임계값** 입니다.|
 
 ## <a name="see-your-availability-test-results"></a>가용성 테스트 결과 참조
 

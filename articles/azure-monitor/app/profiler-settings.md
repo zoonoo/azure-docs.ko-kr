@@ -1,30 +1,26 @@
 ---
 title: Azure Application Insights Profiler 설정 창 사용 | Microsoft Docs
 description: Profiler 상태 보기 및 프로파일링 세션 시작
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 12cb8e31617ee6b1e0c8515e66e265f4eccdf3df
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: b383ef8c92325b0ad6561bee9b654c78e4054338
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338042"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820482"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler 구성
 
 ## <a name="updated-profiler-agent"></a>업데이트 된 프로파일러 에이전트
-트리거 기능은 버전 2.6 이상의 프로파일러 에이전트 에서만 작동 합니다. Azure App Service를 실행 하는 경우 에이전트가 자동으로 업데이트 됩니다. 웹 사이트의 Kudu URL로 이동 하 고 \DiagnosticServices (예: https://yourwebsite.scm.azurewebsites.net/diagnosticservices )을 끝에 추가 하는 경우 실행 중인 에이전트의 버전을 확인할 수 있습니다. Application Insights Profiler Webjob의 버전은 2.6 이상 이어야 합니다. 웹 앱을 다시 시작 하 여 업그레이드를 강제로 수행할 수 있습니다. 
+트리거 기능은 버전 2.6 이상의 프로파일러 에이전트 에서만 작동 합니다. Azure App Service를 실행 하는 경우 에이전트가 자동으로 업데이트 됩니다. 웹 사이트의 Kudu URL로 이동 하 고 \DiagnosticServices (예: https://yourwebsite.scm.azurewebsites.net/diagnosticservices )의 끝에 추가 하는 경우 실행 중인 에이전트의 버전을 확인할 수 있습니다. Application Insights Profiler Webjob의 버전은 2.6 이상 이어야 합니다. 웹 앱을 다시 시작 하 여 업그레이드를 강제로 수행할 수 있습니다. 
 
-VM 또는 클라우드 서비스에서 프로파일러를 실행 하는 경우 Windows Azure 진단 (WAD) 확장 버전 16.0.4 이상이 설치 되어 있어야 합니다. VM에 로그인 하 고이 디렉터리를 살펴보면 WAD의 버전을 확인할 수 있습니다. C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. 디렉터리 이름은 설치 된 WAD의 버전입니다. 새 버전을 사용할 수 있게 되 면 Azure VM 에이전트가 자동으로 WAD를 업데이트 합니다.
+VM 또는 클라우드 서비스에서 프로파일러를 실행 하는 경우 Windows Azure 진단 (WAD) 확장 버전 16.0.4 이상이 설치 되어 있어야 합니다. VM에 로그온 하 여 WAD의 버전을 확인 하 고이 디렉터리를 찾을 수 있습니다. C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. 디렉터리 이름은 설치 된 WAD의 버전입니다. 새 버전을 사용할 수 있게 되 면 Azure VM 에이전트가 자동으로 WAD를 업데이트 합니다.
 
 ## <a name="profiler-settings-page"></a>프로파일러 설정 페이지
 
@@ -42,7 +38,7 @@ Azure 애플리케이션 Insights Profiler 설정 창을 열려면 Application I
 |-|-|
 지금 프로 파일링 | 이 Application Insights 인스턴스에 연결된 모든 앱에 대해 프로파일링 세션이 시작됩니다.
 트리거 | 프로파일러를 실행 하는 트리거를 구성할 수 있습니다. 
-최근 프로파일링 세션 | 이전 프로파일링 세션에 대한 정보가 표시됩니다.
+최근 프로 파일링 세션 | 이전 프로파일링 세션에 대한 정보가 표시됩니다.
 
 ## <a name="profile-now"></a>지금 프로 파일링
 이 옵션을 사용 하면 요청 시 프로 파일링 세션을 시작할 수 있습니다. 이 링크를 클릭 하면이 Application Insights 인스턴스로 데이터를 보내는 모든 프로파일러 에이전트가 프로필 캡처를 시작 합니다. 5 ~ 10 분이 지나면 프로필 세션이 아래 목록에 표시 됩니다.
@@ -58,8 +54,8 @@ Azure 애플리케이션 Insights Profiler 설정 창을 열려면 Application I
 |-|-|
 설정/해제 단추 | On:이 트리거에서 프로파일러를 시작할 수 있습니다. Off:이 트리거에서 프로파일러를 시작 하지 않습니다.
 메모리 임계값 | 이 메모리 비율을 사용 중인 경우 프로파일러가 시작 됩니다.
-Duration | 트리거될 때 프로파일러가 실행 되는 시간을 설정 합니다.
-휴지 | 프로파일러가 트리거된 후 메모리 또는 CPU 사용량을 다시 확인 하기 전에 프로파일러가 대기 하는 시간을 설정 합니다.
+기간 | 트리거될 때 프로파일러가 실행 되는 시간을 설정 합니다.
+시간이 | 프로파일러가 트리거된 후 메모리 또는 CPU 사용량을 다시 확인 하기 전에 프로파일러가 대기 하는 시간을 설정 합니다.
 
 ## <a name="recent-profiling-sessions"></a>최근 프로 파일링 세션
 페이지의이 섹션에서는 최근 프로 파일링 세션에 대 한 정보를 보여 줍니다. 프로 파일링 세션은 프로파일러 에이전트가 응용 프로그램을 호스팅하는 컴퓨터 중 하나에서 프로필을 가져오는 기간을 나타냅니다. 행 중 하나를 클릭 하 여 세션에서 프로필을 열 수 있습니다. 각 세션에 대해 다음을 보여 줍니다.
@@ -69,7 +65,7 @@ Duration | 트리거될 때 프로파일러가 실행 되는 시간을 설정 �
 트리거한 사람 | 트리거, 지금 프로 파일링 또는 기본 샘플링을 통해 세션이 시작 된 방법입니다. 
 앱 이름 | 프로 파일링 된 응용 프로그램의 이름입니다.
 컴퓨터 인스턴스 | 프로파일러 에이전트가 실행 되는 컴퓨터의 이름입니다.
-timestamp | 프로필을 캡처한 시간입니다.
+Timestamp | 프로필을 캡처한 시간입니다.
 Tracee | 개별 요청에 연결 된 추적 수입니다.
 CPU % | 프로파일러가 실행 되는 동안 사용 된 CPU의 백분율입니다.
 Ram | 프로파일러가 실행 되는 동안 사용 된 메모리의 비율입니다.
@@ -80,7 +76,7 @@ Ram | 프로파일러가 실행 되는 동안 사용 된 메모리의 비율입�
 
 다음 섹션에서는 이 시나리오의 작동 방식에 대해 설명합니다.
 
-### <a name="step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>1단계: 웹 성능 테스트를 시작하여 웹앱에 트래픽 생성
+### <a name="step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>1 단계: 웹 성능 테스트를 시작 하 여 웹 앱에 대 한 트래픽 생성
 
 웹앱에 들어오는 트래픽을 이미 있거나 수동으로 트래픽을 생성하려는 경우 이 섹션을 건너뛰고 2단계를 계속 진행합니다.
 
@@ -100,7 +96,7 @@ Ram | 프로파일러가 실행 되는 동안 사용 된 메모리의 비율입�
 
     ![부하 테스트 진행이 진행 중임][load-test-in-progress]
 
-### <a name="step-2-start-a-profiler-on-demand-session"></a>2단계: Profiler 주문형 세션 시작
+### <a name="step-2-start-a-profiler-on-demand-session"></a>2 단계: 프로파일러 주문형 세션 시작
 
 1. 부하 테스트가 실행되면 Profiler를 시작하여 부하를 수신하는 동안 웹앱에서 추적을 캡처합니다.
 

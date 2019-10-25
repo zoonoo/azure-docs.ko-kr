@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 8/17/2018
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 14f65851e50ed25024524f6d988ba2b2f2b3aeba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e33e90d988251afde630401bed165a4d3614d2cd
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367673"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881460"
 ---
 # <a name="configure-bfd-over-expressroute"></a>ExpressRoute를 통해 BFD 구성
 
-ExpressRoute는 프라이빗 피어링을 통해 BFD(양방향 전달 검색)를 지원합니다. ExpressRoute를 통해 BFD를 활성화하면 ExpressRoute 회로(PE)를 종단시킬 Microsoft Enterprise 에지(MSEE) 기기와 라우터 사이에 연결 오류 감지를 촉진할 수 있습니다. Customer Edge 라우팅 디바이스 또는 Partner Edge 라우팅 디바이스를 통해 ExpressRoute를 종료할 수 있습니다(관리형 Layer 3 연결 서비스에 동의한 경우). 이 문서에서는 BFD의 필요성과 ExpressRoute를 통해 BFD를 활성화하는 방법을 안내합니다.
+ExpressRoute는 프라이빗 피어링을 통해 BFD(양방향 전달 검색)를 지원합니다. Express 경로를 통해 BFD를 사용 하도록 설정 하면 MSEE (Microsoft Enterprise edge) 장치와 Express 경로 회로 (PE/CE)를 종료 하는 라우터에 대 한 오류 감지를 신속 하 게 연결할 수 있습니다. Customer Edge 라우팅 디바이스 또는 Partner Edge 라우팅 디바이스를 통해 ExpressRoute를 종료할 수 있습니다(관리형 Layer 3 연결 서비스에 동의한 경우). 이 문서에서는 BFD의 필요성과 ExpressRoute를 통해 BFD를 활성화하는 방법을 안내합니다.
 
 ## <a name="need-for-bfd"></a>BFD의 필요성
 
-다음 다이어그램에서는 ExpressRoute 회로를 통해 BFD를 활성화할 경우의 장점을 보여줍니다. [![1]][1]
+다음 다이어그램에서는 ExpressRoute 회로를 통해 BFD를 활성화할 경우의 장점을 보여줍니다. [ ![1]][1]
 
 Layer 2 연결 또는 관리형 Layer 3 연결을 사용하여 ExpressRoute 회로를 활성화할 수 있습니다. 두 경우 모두, ExpressRoute 연결 경로에 하나 이상의 Layer-2 디바이스가 있는 경우 경로의 연결 오류를 감지하는 역할은 상위 BGP에서 수행합니다.
 
@@ -34,9 +34,9 @@ Customer Edge 피어링 디바이스에서 하위 BGP keepalive 및 hold-time을
 
 ## <a name="enabling-bfd"></a>BFD 사용
 
-BFD는 기본적으로 MSEE에서 새로 생성된 모든 ExpressRoute 프라이빗 피어링 인터페이스에 구성됩니다. 따라서 BFD를 활성화하려면 PE에 BFD를 구성하기만 하면 됩니다. BFD를 구성하는 과정은 2단계 프로세스입니다. 인터페이스에 BFD를 구성한 다음, BGP 세션에 연결하기만 하면 됩니다.
+BFD는 기본적으로 MSEE에서 새로 생성된 모든 ExpressRoute 프라이빗 피어링 인터페이스에 구성됩니다. 따라서 BFD를 사용 하도록 설정 하려면 기본 및 보조 장치 모두에서 BFD를 Pe/CEs에 구성 하기만 하면 됩니다. BFD 구성은 2 단계 프로세스입니다. 인터페이스에서 BFD를 구성한 다음 BGP 세션에 연결 해야 합니다.
 
-PE(Cisco IOS XE 사용) 구성 예는 아래에 나와 있습니다. 
+예제 PE/CE (Cisco IOS XE 사용) 구성은 다음과 같습니다. 
 
     interface TenGigabitEthernet2/0/0.150
       description private peering to Azure
@@ -56,7 +56,7 @@ PE(Cisco IOS XE 사용) 구성 예는 아래에 나와 있습니다.
       exit-address-family
 
 >[!NOTE]
->기존의 프라이빗 피어링에 BFD를 활성화하려면 피어링을 다시 설정해야 합니다. [ExpressRoute 피어링 다시 설정][ResetPeering] 참조
+>기존의 프라이빗 피어링에 BFD를 활성화하려면 피어링을 다시 설정해야 합니다. [Express 경로 다시 설정][ResetPeering] 을 참조 하세요.
 >
 
 ## <a name="bfd-timer-negotiation"></a>BFD 타이머 협상
@@ -72,7 +72,7 @@ BFD 피어 간의 전송 속도는 둘 중 더 느린 쪽을 따릅니다. MSEE 
 자세한 정보 또는 도움말을 보려면 다음 링크를 확인하세요.
 
 - [ExpressRoute 회로 만들기 및 수정][CreateCircuit]
-- [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering]
+- [Express 경로 회로에 대 한 라우팅 만들기 및 수정][CreatePeering]
 
 <!--Image References-->
 [1]: ./media/expressroute-bfd/BFD_Need.png "연결 오류 추론 시간을 가속화하는 BFD"

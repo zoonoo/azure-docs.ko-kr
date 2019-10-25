@@ -1,24 +1,19 @@
 ---
 title: Azure Application Insights의 사용자 지정 메트릭 및 진단을 사용한 라이브 메트릭 스트림 | Microsoft Docs
 description: 사용자 지정 메트릭으로 웹앱을 실시간으로 모니터링하고 오류, 추적 및 이벤트의 라이브 피드를 통해 문제를 진단할 수 있습니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: 4e1d83d99f6df9407e24e2ae57af70f68858092d
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: d85688d297eb0df00e71f388b2a3350eabe5f6d5
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012747"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817207"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>라이브 메트릭 스트림: 1초 대기 시간으로 모니터링 및 진단
 
@@ -38,7 +33,7 @@ ms.locfileid: "70012747"
 
 라이브 메트릭은 현재 ASP.NET, ASP.NET Core, Azure Functions, Java 및 node.js 앱에 대해 지원 됩니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 1. 웹앱에 [Application Insights를 아직 설치](../../azure-monitor/azure-monitor-app-hub.md)하지 않은 경우 지금 수행합니다.
 2. 표준 Application Insights 패키지 외에 [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/)는 라이브 메트릭 스트림을 활성화하는 데 필요합니다.
@@ -52,9 +47,9 @@ ms.locfileid: "70012747"
 
 ### <a name="nodejs"></a>Node.js
 
-Node.js에서 라이브 메트릭을 사용 하려면 SDK 버전 1.30 이상으로 업데이트 해야 합니다. 기본적으로 라이브 메트릭은 node.js SDK에서 사용 하지 않도록 설정 됩니다. 라이브 메트릭을 사용 하도록 설정 `setSendLiveMetrics(true)` 하려면 SDK를 초기화할 때 [구성 방법](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) 에를 추가 합니다.
+Node.js에서 라이브 메트릭을 사용 하려면 SDK 버전 1.30 이상으로 업데이트 해야 합니다. 기본적으로 라이브 메트릭은 node.js SDK에서 사용 하지 않도록 설정 됩니다. 라이브 메트릭을 사용 하도록 설정 하려면 SDK를 초기화할 때 [구성 방법](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) 에 `setSendLiveMetrics(true)`를 추가 합니다.
 
-### <a name="no-data-check-your-server-firewall"></a>데이터가 없나요? 서버 방화벽을 확인합니다.
+### <a name="no-data-check-your-server-firewall"></a>데이터가 없으세요? 서버 방화벽을 확인합니다.
 
 [라이브 메트릭 스트림의 나가는 포트](../../azure-monitor/app/ip-addresses.md#outgoing-ports)가 서버의 방화벽에서 열려 있는지 확인합니다. 
 
@@ -65,7 +60,7 @@ Node.js에서 라이브 메트릭을 사용 하려면 SDK 버전 1.30 이상으�
 |대기 시간|데이터가 1초 내에 표시됨|몇 분에 걸쳐 집계됨|
 |보존 없음|데이터가 차트에 있는 동안 지속된 후 삭제됨|[데이터가 90일 동안 유지됨](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |주문형|라이브 메트릭을 여는 동안 데이터가 스트리밍됨|SDK가 설치되고 사용될 때마다 데이터가 전송됨|
-|Free|라이브 스트림 데이터 무료|[가격 책정](../../azure-monitor/app/pricing.md)에 따라 다름
+|체험판|라이브 스트림 데이터 무료|[가격 책정](../../azure-monitor/app/pricing.md)에 따라 다름
 |샘플링|선택한 모든 메트릭 및 카운터가 전송되고 오류 및 스택 추적이 샘플링되며 TelemetryProcessors가 적용되지 않음|이벤트가 [샘플링](../../azure-monitor/app/api-filtering-sampling.md)될 수 있음|
 |컨트롤 채널|필터 제어 신호가 SDK로 전송되며 이 채널을 보호하는 것이 좋습니다.|포털로의 단방향 통신임|
 
@@ -112,7 +107,7 @@ Application Insights 원격 분석 외에, 스트림 옵션 중에서 선택하�
 사용자 지정 라이브 메트릭 스트림은 버전 2.4.0-beta2 또는 최신 버전의 [웹용 Application Insights SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/)에서 사용할 수 있습니다. NuGet 패키지 관리자에서 "시험판 포함" 옵션을 선택해야 합니다.
 
 ### <a name="nodejs"></a>Node.js
-라이브 메트릭 스트림는 [node.js 용 APPLICATION INSIGHTS SDK](https://npmjs.com/package/applicationinsights)의 버전 1.3.0 이상에서 사용할 수 있습니다. 코드에서 SDK `setSendLiveMetrics(true)` 를 구성 하는 동안를 사용 해야 합니다.
+라이브 메트릭 스트림는 [node.js 용 APPLICATION INSIGHTS SDK](https://npmjs.com/package/applicationinsights)의 버전 1.3.0 이상에서 사용할 수 있습니다. 코드에서 SDK를 구성 하는 동안 `setSendLiveMetrics(true)`를 사용 해야 합니다.
 
 ## <a name="secure-the-control-channel"></a>컨트롤 채널 보호
 지정한 사용자 지정 필터 조건이 Application Insights SDK의 라이브 메트릭 구성 요소에 다시 전송됩니다. 필터는 customerid와 같은 잠재적으로 중요한 정보를 포함할 수 있습니다. 계측 키 외에도 비밀 API 키를 사용해서 채널 보안을 유지할 수 있습니다.
@@ -200,7 +195,7 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => mod
 
 ## <a name="troubleshooting"></a>문제 해결
 
-데이터가 없나요? 애플리케이션이 보호된 네트워크에 있는 경우: 라이브 메트릭 스트림은 다른 Application Insights 원격 분석과 다른 IP 주소를 사용합니다. 방화벽에서 [해당 포트](../../azure-monitor/app/ip-addresses.md)가 열려 있는지 확인합니다.
+데이터가 없으세요? 애플리케이션이 보호된 네트워크에 있는 경우: 라이브 메트릭 스트림은 Application Insights 원격 분석과는 다른 IP 주소를 사용합니다. 방화벽에서 [해당 포트](../../azure-monitor/app/ip-addresses.md)가 열려 있는지 확인합니다.
 
 
 
