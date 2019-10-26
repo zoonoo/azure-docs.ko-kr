@@ -120,7 +120,7 @@
         - name: 'C#의 REST API 샘플'
           href: samples-rest.md
         - name: 기타 Azure 샘플
-          href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator'
+          href: 'https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator'
     - name: Azure 웹 세미나 시리즈
       href: 'https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html'
     - name: 가격 책정 및 제한

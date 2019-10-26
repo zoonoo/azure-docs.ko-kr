@@ -97,7 +97,7 @@
 - name: 리소스
   items:
     - name: 샘플
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure&term=vision'
     - name: 한도 및 할당량
       href: limits-and-quotas.md
     - name: UserVoice

@@ -1,23 +1,24 @@
 ---
-title: 보강 파이프라인의 사용자 지정 웹 API 기술
-titleSuffix: Azure Cognitive Search
-description: Web Api를 호출 하 여 Azure Cognitive Search 기술력과의 기능을 확장 합니다. 사용자 지정 웹 API 기술을 사용 하 여 사용자 지정 코드를 통합 합니다.
+title: 사용자 지정 인식 검색 기술 - Azure Search
+description: Web API를 호출하여 인식 검색 기술 세트의 기능을 확장합니다.
+services: search
 manager: nitinme
 author: luiscabrer
-ms.author: luisca
-ms.service: cognitive-search
+ms.service: search
+ms.workload: search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 54c51993733091d326c59c4ac4ec3662cc704021
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: HT
+ms.date: 05/02/2019
+ms.author: luisca
+ms.openlocfilehash: fda4f96c2c73c5a2d39435a509afcf654ed77b70
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784901"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901327"
 ---
-# <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Azure Cognitive Search 보강 파이프라인의 사용자 지정 웹 API 기술
+# <a name="custom-web-api-skill"></a>사용자 지정 Web API 기술
 
-**사용자 지정 WEB api** 기술을 사용 하면 사용자 지정 작업을 제공 하는 Web api 끝점을 호출 하 여 AI 보강을 확장할 수 있습니다. 기본 제공 기술과 비슷하게 **사용자 지정 Web API** 기술에는 입/출력이 있습니다. 입력에 따라 웹 API는 인덱서가 실행 될 때 JSON 페이로드를 받고 성공 상태 코드와 함께 JSON 페이로드를 응답으로 출력 합니다. 응답은 사용자 지정 기술로 지정된 출력을 포함해야 합니다. 다른 응답은 오류로 간주되며 강화는 수행되지 않습니다.
+**사용자 지정 WEB api** 기술을 사용 하면 사용자 지정 작업을 제공 하는 Web api 끝점을 호출 하 여 인지 검색을 확장할 수 있습니다. 기본 제공 기술과 비슷하게 **사용자 지정 Web API** 기술에는 입/출력이 있습니다. 입력에 따라 웹 API는 인덱서가 실행 될 때 JSON 페이로드를 받고 성공 상태 코드와 함께 JSON 페이로드를 응답으로 출력 합니다. 응답은 사용자 지정 기술로 지정된 출력을 포함해야 합니다. 다른 응답은 오류로 간주되며 강화는 수행되지 않습니다.
 
 JSON 페이로드의 구조는 이 문서 뒷부분에서 좀 더 자세히 설명합니다.
 
@@ -41,6 +42,7 @@ Microsoft.Skills.Custom.WebApiSkill
 | httpHeaders | 키-값 쌍 컬렉션입니다. 여기서 키는 헤더 이름을 나타내고, 값은 페이로드와 함께 Web API로 보낼 헤더 값을 나타냅니다. 헤더 `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via`는 이 컬렉션에서 금지됩니다. |
 | 시간 제한 | (선택 사항) 지정할 경우 API 호출을 수행하는 http 클라이언트에 대한 시간 제한을 나타냅니다. 형식은 XSD "dayTimeDuration" 값( [ISO 8601 기간](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 예를 들어, 60초인 경우 `PT60S`입니다. 설정하지 않으면 기본값 30초가 선택됩니다. 제한 시간은 최대 230 초, 최소 1 초로 설정할 수 있습니다. |
 | batchSize | (선택 사항) API 호출당 보낼 "데이터 레코드" 수를 나타냅니다(아래의 _JSON_ 페이로드 구조 참조). 설정하지 않으면 기본값인 1,000이 선택됩니다. 인덱싱 처리량과 API의 부하 간에 적절한 절충을 이루려면 이 매개 변수를 사용하는 것이 좋습니다. |
+| degreeOfParallelism | 필드 지정 된 경우 인덱서가 제공 된 끝점과 병렬로 수행 될 호출 수를 나타냅니다. 끝점이 요청 부하를 너무 많이 초과 하 여 실패 하는 경우이 값을 줄일 수 있으며, 끝점에서 더 많은 요청을 수락 하 고 인덱서 성능을 증가 시킬 수 있는 경우이 값을 낮출 수 있습니다.  이 값을 설정 하지 않으면 기본값인 5가 사용 됩니다. DegreeOfParallelism은 최대 10 개까지 설정할 수 있으며 최소값은 1입니다. |
 
 ## <a name="skill-inputs"></a>기술 입력
 
@@ -203,5 +205,5 @@ Web API가 사용 가능하지 않거나 HTTP 오류를 반환하는 경우 HTTP
 
 + [전원 기술: 사용자 지정 기술의 리포지토리입니다.](https://aka.ms/powerskills)
 + [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
-+ [AI 보강 파이프라인에 사용자 지정 기술 추가](cognitive-search-custom-skill-interface.md)
-+ [예: AI 보강 사용자 지정 기술 만들기 (인지-검색-example.md)
++ [Cognitive Search에 사용자 지정 기술 추가](cognitive-search-custom-skill-interface.md)
++ [예: 인지 검색에 대 한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
