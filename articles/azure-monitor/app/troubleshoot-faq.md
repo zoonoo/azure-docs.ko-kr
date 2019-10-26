@@ -1,23 +1,18 @@
 ---
 title: Azure Application Insights FAQ | Microsoft Docs
 description: Application Insights에 대한 질문과 대답입니다.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
-ms.service: application-insights
-ms.workload: mobile
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/16/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 94e994a3dc1cd9d5d5d0b7acb5aed4783d881915
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.date: 09/16/2019
+ms.openlocfilehash: 55a096cd4971664e55bb2cfd17f9f8927d7c32f5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802298"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899517"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: 질문과 대답
 
@@ -84,13 +79,13 @@ ms.locfileid: "71802298"
 
   * Web.config
   * packages.config
-* (새 프로젝트에만 해당- [기존 프로젝트에 Application Insights을 추가][start]하는 경우이 작업을 수동으로 수행 해야 합니다.) 클라이언트 및 서버 코드에 코드 조각을 삽입하여 Application Insights 리소스 ID로 해당 코드를 초기화합니다. 예를 들어 MVC 앱에서 코드를 마스터 페이지 Views/Shared/_Layout.cshtml에 삽입합니다.
+* (새 프로젝트에만 해당- [기존 프로젝트에 Application Insights을 추가][start]하는 경우이 작업을 수동으로 수행 해야 합니다.) 클라이언트 및 서버 코드에 코드 조각을 삽입 하 여 Application Insights 리소스 ID를 사용 하 여 초기화 합니다. 예를 들어 MVC 앱에서 코드를 마스터 페이지 Views/Shared/_Layout.cshtml에 삽입합니다.
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>이전 SDK 버전에서 업그레이드하려면 어떻게 해야 합니까?
 사용자의 애플리케이션 유형에 적합한 SDK는 [릴리스 정보](release-notes.md)를 참조하세요.
 
 ## <a name="update"></a>내 프로젝트에서 데이터를 보내는 Azure 리소스를 변경하려면 어떻게 해야 하나요?
-솔루션 탐색기에서 `ApplicationInsights.config`를 마우스 오른쪽 단추로 클릭하고 **Application Insights 업데이트**를 선택합니다. Azure에서 기존 또는 새 리소스로 데이터를 보낼 수 있습니다. 업데이트 마법사는 서버 SDK에서 데이터를 전송하는 위치를 결정하는 ApplicationInsights.config의 계측 키를 변경합니다. "모두 업데이트"를 선택 취소하지 않은 한, 웹 페이지에 표시되는 키도 변경됩니다.
+솔루션 탐색기에서 `ApplicationInsights.config` 를 마우스 오른쪽 단추로 클릭하고 **Application Insights 업데이트**를 선택합니다. Azure에서 기존 또는 새 리소스로 데이터를 보낼 수 있습니다. 업데이트 마법사는 서버 SDK에서 데이터를 전송하는 위치를 결정하는 ApplicationInsights.config의 계측 키를 변경합니다. "모두 업데이트"를 선택 취소하지 않은 한, 웹 페이지에 표시되는 키도 변경됩니다.
 
 ## <a name="what-is-status-monitor"></a>상태 모니터란?
 
@@ -165,7 +160,7 @@ ms.locfileid: "71802298"
 
 다음과 같이 할 수 있습니다.
 
-* 클라이언트 및 서버 데이터에 대해 두 개의 개별 계측 키 (별도의 Application Insights 리소스)를 사용 합니다. 또는
+* 클라이언트 및 서버 데이터에 대해 두 개의 개별 계측 키 (별도의 Application Insights 리소스)를 사용 합니다. or
 * 서버에서 실행되는 프록시를 작성하고 웹 클라이언트에서 해당 프록시를 통해 데이터를 전송하도록 합니다.
 
 ## <a name="post"></a>진단 검색에서 POST 데이터를 어떻게 확인하나요?

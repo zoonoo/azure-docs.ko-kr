@@ -1,6 +1,6 @@
 ---
 title: Azure Stream Analytics Edge 작업에 대한 .NET Standard 함수 개발(미리 보기)
-description: Stream Analytics Edge 작업에 대한 C# 사용자 정의 함수를 작성하는 방법을 알아봅니다.
+description: CodeBehind, 기존 패키지 또는 로컬 프로젝트를 사용 하 여 Azure Stream Analytics 작업에 대 한 .NET 사용자 정의 함수를 개발 하는 방법에 대해 알아봅니다.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 40035b946d0f2b09929f8c7f1ac27231546e6746
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 287ee2d84ea3d5c6f1568edb1636191f509681e0
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64692910"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901627"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Azure Stream Analytics Edge 작업에 대한 .NET Standard 사용자 정의 함수 개발(미리 보기)
 
@@ -39,12 +39,12 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
 |**UDF 형식(C#)**  |**Azure Stream Analytics 형식**  |
 |---------|---------|
 |long  |  bigint   |
-|double  |  double   |
+|Double  |  Double   |
 |문자열  |  nvarchar(max)   |
-|dateTime  |  dateTime   |
+|datetime  |  datetime   |
 |struct  |  IRecord   |
 |object  |  IRecord   |
-|Array\<object>  |  IArray   |
+|배열\<개체 >  |  IArray   |
 |dictionary<string, object>  |  IRecord   |
 
 ## <a name="codebehind"></a>CodeBehind
@@ -63,7 +63,7 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
 6. 어셈블리 경로를 `JobConfig.json` 작업 구성 파일에 구성합니다. [어셈블리 경로]를 **로컬 프로젝트 참조 또는 CodeBehind**로 설정합니다.
 7. 함수 프로젝트와 Azure Stream Analytics 프로젝트를 모두 다시 빌드합니다.  
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 이 예에서 **UDFTest**는 C# 클래스 라이브러리 프로젝트이고, **ASAEdgeUDFDemo**는 Azure Stream Analytics Edge 프로젝트이며 **UDFTest**를 참조합니다.
 
@@ -114,8 +114,8 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
  |**설정**  |**제안 값**  |
  |---------|---------|
  |어셈블리 원본  | 클라우드의 기존 어셈블리 패키지    |
- |Resource  |  현재 계정의 데이터 선택   |
- |구독  |  구독을 선택합니다.   |
+ |리소스  |  현재 계정의 데이터 선택   |
+ |Subscription  |  구독을 선택합니다.   |
  |스토리지 계정  |  스토리지 계정 선택   |
  |컨테이너  |  스토리지 계정에서 만든 컨테이너 선택   |
 

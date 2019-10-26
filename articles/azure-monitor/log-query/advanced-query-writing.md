@@ -1,29 +1,23 @@
 ---
-title: 고급 Azure Monitor에서 쿼리 | Microsoft Docs
+title: Azure Monitor의 고급 쿼리 | Microsoft Docs
 description: 이 문서에서는 Analytics 포털을 사용하여 Azure Monitor에서 쿼리를 작성하는 것에 대한 자습서를 제공합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/15/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 65713ed9c2d0635e776a7a7e5f205b6d55438ed4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 11/15/2018
+ms.openlocfilehash: 8895224bef037c8c3f8b28a6085359837478d924
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589582"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894511"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Azure Monitor에서 고급 쿼리 작성
 
 > [!NOTE]
-> 완료 해야 [Azure Monitor Log Analytics를 사용 하 여 시작](get-started-portal.md) 하 고 [쿼리로 시작](get-started-queries.md) 이 단원을 완료 하기 전에 합니다.
+> 이 단원을 완료 하기 전에 [Azure Monitor Log Analytics 시작](get-started-portal.md) 및 [쿼리 시작](get-started-queries.md) 을 완료 해야 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -76,7 +70,7 @@ Event
 ```
 
 ## <a name="print"></a>Print
-`print`는 단일 열 및 단일 행이 있는 테이블을 반환하며, 계산 결과를 표시합니다. 이 간단한 계산을 해야 하는 경우에 종종 사용 됩니다. 예를 들어, PST로 현재 시간을 확인한 후 EST를 사용하여 열에 추가하려면 다음을 입력합니다.
+`print`는 단일 열 및 단일 행이 있는 테이블을 반환하며, 계산 결과를 표시합니다. 간단한 계산이 필요한 경우에 주로 사용 됩니다. 예를 들어, PST로 현재 시간을 확인한 후 EST를 사용하여 열에 추가하려면 다음을 입력합니다.
 
 ```Kusto
 print nowPst = now()-8h

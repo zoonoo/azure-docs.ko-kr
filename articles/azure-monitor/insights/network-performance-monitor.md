@@ -1,24 +1,18 @@
 ---
 title: Azure의 네트워크 성능 모니터 | Microsoft Docs
 description: Azure의 네트워크 성능 모니터를 사용하면 네트워크 성능을 거의 실시간으로 모니터링하여 네트워크 성능 병목을 감지하고 위치를 찾을 수 있습니다.
-services: log-analytics
-documentationcenter: ''
-author: vinynigam
-manager: carmonm
-editor: ''
-ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 02/20/2018
+author: vinynigam
 ms.author: vinigam
-ms.openlocfilehash: 185bdd5f666da04238a575f3b7704baf10f5e281
-ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
+ms.date: 02/20/2018
+ms.openlocfilehash: 943f6cee70367d8a1ff0dc003d06e46b487e3a48
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303469"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898797"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -31,23 +25,23 @@ ms.locfileid: "72303469"
 
 네트워크 성능 모니터는 세 가지 광범위한 기능을 제공합니다. 
 
-* [성능 모니터](network-performance-monitor-performance-monitor.md): 클라우드 배포 및 온-프레미스 위치, 여러 데이터 센터, 지점, 업무에 중요한 다중 계층 애플리케이션 또는 마이크로서비스 간의 네트워크 연결을 모니터링할 수 있습니다. 성능 모니터를 사용하면 사용자가 불만을 제기하기 전에 네트워크 문제를 감지할 수 있습니다.
+* [성능 모니터](network-performance-monitor-performance-monitor.md): 클라우드 배포 및 온-프레미스 위치, 여러 데이터 센터, 지점, 업무에 중요한 다중 계층 애플리케이션 또는 마이크로 서비스 간의 네트워크 연결을 모니터링할 수 있습니다. 성능 모니터를 사용하면 사용자가 불만을 제기하기 전에 네트워크 문제를 감지할 수 있습니다.
 
-* [서비스 연결 모니터](network-performance-monitor-service-connectivity.md): 관심 있는 서비스에 대한 사용자의 연결을 모니터링하고 경로에 어떤 인프라가 있는지 판단하고 네트워크 병목 현상이 발생하는 위치를 식별할 수 있습니다. 사용자보다 먼저 중단에 대해 알 수 있고, 네트워크 경로에서 문제의 위치를 정확히 볼 수 있습니다. 
+* [서비스 연결 모니터](network-performance-monitor-service-connectivity.md): 관심 있는 서비스에 대한 사용자의 연결을 모니터링하고, 경로에 어떤 인프라가 있는지 확인하고, 네트워크 병목 현상이 발생하는 위치를 식별할 수 있습니다. 사용자보다 먼저 중단에 대해 알 수 있고, 네트워크 경로에서 문제의 위치를 정확히 볼 수 있습니다. 
 
     이 기능을 사용하면 HTTP, HTTPS, TCP 및 ICMP를 기반으로 테스트를 수행하여 서비스의 가용성 및 응답 시간을 거의 실시간으로 또는 시간별로 모니터링할 수 있습니다. 또한 패킷 손실 및 대기 시간에 대한 네트워크의 영향도 모니터링할 수 있습니다. 네트워크 토폴로지 맵을 통해 네트워크 속도 저하를 격리시킬 수 있습니다. 각 홉의 대기 시간 데이터를 통해, 노드에서 서비스로 가는 네트워크 경로에서 발생하는 문제 지점을 식별할 수 있습니다. 기본 제공 테스트를 통해 사전 구성 없이 Office 365, Dynamics CRM에 대한 네트워크 연결을 모니터링할 수 있습니다. 이 기능을 사용하여 웹 사이트, SaaS 애플리케이션, PaaS 애플리케이션, SQL 데이터베이스 등과 같은 TCP 지원 엔드포인트에 대한 네트워크 연결을 모니터링할 수 있습니다.
 
-* [ExpressRoute 모니터](network-performance-monitor-expressroute.md): Azure ExpressRoute를 통해 지사와 Azure의 엔드투엔드 연결 및 성능을 모니터링합니다.  
+* [ExpressRoute 모니터링](network-performance-monitor-expressroute.md): Azure ExpressRoute를 통해 지사와 Azure 간의 엔드투엔드 연결 및 성능을 모니터링합니다.  
 
 [네트워크 성능 모니터](https://docs.microsoft.com/azure/networking/network-monitoring-overview)에서 지원하는 다양한 기능에 대한 자세한 내용은 온라인으로 제공됩니다.
  
 ## <a name="supported-regions"></a>지원되는 지역
 NPM은 다음 지역 중 한 곳에서 호스트되는 작업 영역에서 전 세계에 모든 곳에 있는 네트워크와 애플리케이션 간의 연결을 모니터링할 수 있습니다.
-* 유럽 서부
+* 서유럽
 * 미국 중서부
-* East US
+* 미국 동부
 * 일본 동부
-* 아시아 남동부
+* 동남아시아
 * 오스트레일리아 동남부
 * 영국 남부
 * 인도 중부
@@ -66,11 +60,11 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 ### <a name="where-to-install-the-agents"></a>에이전트 설치 위치 
 
-* **성능 모니터**: 다른 하위 네트워크에 대한 네트워크 연결을 모니터링하려는 각 하위 네트워크에 연결된 하나 이상의 노드에 Log Analytics 에이전트를 설치합니다.
+* **성능 모니터:** 다른 하위 네트워크에 대한 네트워크 연결을 모니터링하려는 각 하위 네트워크에 연결된 하나 이상의 노드에 Log Analytics 에이전트를 설치합니다.
 
     네트워크 링크를 모니터링하려면 해당 링크의 엔드포인트 양쪽 모두에 에이전트를 설치해야 합니다. 네트워크 토폴로지를 확실히 모를 경우 사이의 네트워크 성능을 모니터링하려는 중요 워크로드가 있는 서버에 에이전트를 설치합니다. 예를 들어, 웹 서버와 SQL을 실행하는 서버 간의 네트워크 연결을 모니터링하려는 경우 두 서버 모두에 에이전트를 설치합니다. 에이전트는 호스트 자체가 아닌 호스트 간의 네트워크 연결(링크)을 모니터링합니다. 
 
-* **서비스 연결 모니터**: 서비스 엔드포인트에 대한 네트워크 연결을 모니터링하려는 각 노드에 Log Analytics 에이전트를 설치합니다. 예를 들어 O1, O2 및 O3 레이블이 지정된 사무실 사이트에서 Office 365에 대한 네트워크 연결을 모니터링하려는 경우 O1, O2 및 O3 각각에서 하나 이상의 노드에 Log Analytics 에이전트를 설치합니다. 
+* **서비스 연결 모니터:** 서비스 엔드포인트에 대한 네트워크 연결을 모니터링하려는 각 노드에 Log Analytics 에이전트를 설치합니다. 예를 들어 O1, O2 및 O3 레이블이 지정된 사무실 사이트에서 Office 365에 대한 네트워크 연결을 모니터링하려는 경우 O1, O2 및 O3 각각에서 하나 이상의 노드에 Log Analytics 에이전트를 설치합니다. 
 
 * **ExpressRoute 모니터**: Azure 가상 네트워크에 하나 이상의 Log Analytics 에이전트를 설치합니다. 또한 ExpressRoute 프라이빗 피어링을 통해 연결된 온-프레미스 서브네트워크에 에이전트를 하나 이상 설치합니다.  
 
@@ -78,7 +72,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 네트워크 성능 모니터는 가상 트랜잭션을 사용하여 원본과 대상 에이전트 사이의 네트워크 성능을 모니터링합니다. 성능 모니터 및 서비스 연결 모니터 기능에서는 TCP와 ICMP 중 하나를 모니터링 프로토콜로 선택할 수 있습니다. ExpressRoute 모니터의 경우, TCP만 모니터링 프로토콜로 사용할 수 있습니다. 방화벽을 통해 선택한 프로토콜에서 모니터링하는 데 사용되는 Log Analytics 에이전트 간의 통신이 허용되는지 확인합니다. 
 
-* **TCP 프로토콜**: 모니터링을 위한 프로토콜로 TCP를 선택했으면 네트워크 성능 모니터 및 ExpressRoute 모니터에 사용되는 에이전트에서 방화벽 포트를 열어서 에이전트가 서로 연결할 수 있는지 확인합니다. 포트를 열려면 매개 변수 없이 PowerShell 창에서 관리자 권한으로 [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell 스크립트를 실행합니다.
+* **TCP 프로토콜:** 모니터링을 위한 프로토콜로 TCP를 선택했으면 네트워크 성능 모니터 및 ExpressRoute 모니터에 사용되는 에이전트에서 방화벽 포트를 열어서 에이전트가 서로 연결할 수 있는지 확인합니다. 포트를 열려면 매개 변수 없이 PowerShell 창에서 관리자 권한으로 [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell 스크립트를 실행합니다.
 
     스크립트를 통해 솔루션에 필요한 레지스트리 키가 만들어집니다. 또한 에이전트가 서로 TCP 연결을 만들 수 있도록 Windows 방화벽 규칙이 만들어집니다. 스크립트로 만들어진 레지스트리 키는 디버그 로그와 로그 파일의 경로를 기록할지 여부를 지정합니다. 스크립트는 통신에 사용되는 에이전트 TCP 포트도 정의합니다. 이러한 키 값은 스크립트에 의해 자동으로 설정됩니다. 이 키는 수동으로 변경하지 마십시오. 기본적으로 열리는 포트는 8084입니다. 스크립트에 매개 변수 portNumber를 지정하여 사용자 지정 포트를 사용할 수 있습니다. 스크립트가 실행되는 모든 컴퓨터에서 동일한 포트를 사용하십시오. 
 
@@ -116,7 +110,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
    ![성능 모니터 보기](media/network-performance-monitor/npm-synthetic-transactions.png)
     
-   **서비스 연결 모니터**: 이 기능은 에이전트에서 Office 365 및 Dynamics 365로의 네트워크 연결을 모니터링하기 위한 기본 제공 사전 구성 테스트를 제공합니다. 옆에 있는 확인란을 선택하여 모니터링할 Office 365 및 Dynamics 365 서비스를 선택합니다. 모니터링할 에이전트를 선택하려면 **에이전트 추가**를 선택합니다. 이 기능을 사용하지 않거나 나중에 설정하려는 경우 아무것도 선택하지 않은 상태에서 **저장하고 계속**을 선택합니다.
+   **서비스 연결 모니터**: 이 기능은 에이전트에서 Office 365 및 Dynamics 365로의 네트워크 연결을 모니터링하기 위해 미리 구성된 기본 제공 테스트를 제공합니다. 옆에 있는 확인란을 선택하여 모니터링할 Office 365 및 Dynamics 365 서비스를 선택합니다. 모니터링할 에이전트를 선택하려면 **에이전트 추가**를 선택합니다. 이 기능을 사용하지 않거나 나중에 설정하려는 경우 아무것도 선택하지 않은 상태에서 **저장하고 계속**을 선택합니다.
 
    ![서비스 연결 모니터 보기](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
@@ -196,7 +190,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 * **성능 모니터**: 이 페이지에는 솔루션이 모니터링하는 **네트워크** 링크 및 **서브네트워크** 링크에 대한 상태 요약이 제공됩니다. **토폴로지** 타일에는 네트워크에서 모니터링되는 네트워크 경로 수가 표시됩니다. **토폴로지** 보기로 이동하려면 이 타일을 선택합니다. 
 
-* **일반 쿼리**: 이 페이지에는 원시 네트워크 모니터링 데이터를 직접 가져오는 검색 쿼리 세트가 포함되어 있습니다. 이러한 쿼리를 시작점으로 사용하여 사용자 지정 보고를 위한 자체 쿼리를 만들 수 있습니다. 
+* **일반 쿼리**: 이 페이지에는 원시 네트워크 모니터링 데이터를 직접 가져오는 검색 쿼리 집합이 포함되어 있습니다. 이러한 쿼리를 시작점으로 사용하여 사용자 지정 보고를 위한 자체 쿼리를 만들 수 있습니다. 
 
    ![네트워크 성능 모니터 대시보드](media/network-performance-monitor/npm-dashboard.png)
 
@@ -248,7 +242,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 네트워크 성능 모니터 대시보드 및 드릴 다운 페이지를 통해 그래픽으로 노출 되는 모든 데이터는 [로그 쿼리에서](../log-query/log-query-overview.md)기본적으로 사용할 수 있습니다. 리포지토리의 데이터를 대화형으로 분석하고 여러 원본의 데이터를 상호 연결할 수 있습니다. 사용자 지정 경고 및 보기를 만들 수 있고 Excel, Power BI 또는 공유할 수 있는 링크로 데이터를 내보낼 수도 있습니다. 대시보드의 **일반 쿼리** 영역에는 고유한 쿼리 및 보고서를 만들기 위한 시작 지점으로 사용할 수 있는 몇 가지 유용한 쿼리가 있습니다. 
 
-## <a name="alerts"></a>,
+## <a name="alerts"></a>경고
 
 네트워크 성능 모니터는 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)의 경고 기능을 사용합니다.
 
@@ -274,7 +268,7 @@ Azure Portal를 통해 경고를 만드는 NPM 사용자 인 경우:
 
 가격 책정에 대한 정보는 [온라인](network-performance-monitor-pricing-faq.md)으로 지원됩니다.
 
-## <a name="provide-feedback"></a>피드백 제공 
+## <a name="provide-feedback"></a>피드백 제공하기 
 
 * **UserVoice:** 개발되기를 바라는 네트워크 성능 모니터 기능에 대한 아이디어를 게시할 수 있습니다. [UserVoice 페이지](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring)를 방문하세요. 
 

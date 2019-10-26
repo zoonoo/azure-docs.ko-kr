@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor를 사용하여 Active Directory 복제 상태 모니터링 | Microsoft Docs
 description: Active Directory 복제 상태 솔루션 팩은 Active Directory 환경에서 복제 실패가 있는지를 정기적으로 모니터링합니다.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 01/24/2018
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: f7bbde98c6ef35021cc03b2646193d3601ca1cff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.date: 01/24/2018
+ms.openlocfilehash: 47f57fd9e9fe9cc84df5058794bc21e1d5cce11b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60495176"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899182"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Azure Monitor를 사용하여 Active Directory 복제 상태 모니터링
 
@@ -44,7 +38,7 @@ Azure Monitor에 도메인 컨트롤러를 직접 연결하지 않으려는 경�
 3. 해당 컴퓨터에서 다음 레지스트리 키를 설정합니다.<br>키: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>값: **IsTarget**<br>값 데이터: **true**
 
    > [!NOTE]
-   > Microsoft Monitoring Agent 서비스 (HealthService.exe)를 다시 시작 될 때까지 이러한 변경 내용을 적용 하지 않습니다.
+   > 이러한 변경 내용은 Microsoft Monitoring Agent 서비스 (Health service)를 다시 시작할 때까지 적용 되지 않습니다.
    > ### <a name="install-solution"></a>솔루션 설치
    > [모니터링 솔루션 설치](solutions.md#install-a-monitoring-solution)에 설명된 프로세스에 따라 Log Analytics 작업 영역에 **Active Directory 복제 상태** 솔루션을 추가합니다. 추가 구성은 필요 없습니다.
 
@@ -128,7 +122,7 @@ A: 지금은 없습니다.
 **Q: 복제 상태를 보려면 내 Log Analytics 작업 영역에 내 도메인 컨트롤러를 모두 추가해야 하나요?**
 A: 아니요, 단일 도메인 컨트롤러만 추가되어야 합니다. Log Analytics 작업 영역에 도메인 컨트롤러가 여러 개 있는 경우 모든 도메인 컨트롤러의 데이터가 Azure Monitor에 전송됩니다.
 
-**Q: 내 Log Analytics 작업 영역에 도메인 컨트롤러를 추가하고 싶지 않습니다. 여전히 AD 복제 상태 솔루션을 사용할 수 있습니까?**
+**Q: 내 Log Analytics 작업 영역에 도메인 컨트롤러를 추가 하 고 싶지 않습니다. AD 복제 상태 솔루션을 계속 사용할 수 있나요?**
 
 A: 예. 이 기능을 활성화하도록 레지스트리 키의 값을 설정할 수 있습니다. [비도메인 컨트롤러 사용](#enable-non-domain-controller)을 참조하세요.
 

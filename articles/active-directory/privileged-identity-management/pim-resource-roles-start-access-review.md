@@ -1,5 +1,5 @@
 ---
-title: PIM-Azure Active Directory |에서 Azure 리소스 역할의 액세스 검토 만들기 Microsoft Docs
+title: Privileged Identity Management-Azure Active Directory에서 Azure 리소스 역할에 대 한 액세스 검토를 만듭니다. Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM)에서 Azure 리소스 역할에 대 한 액세스 검토를 만드는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -11,26 +11,26 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 04/29/2019
+ms.date: 10/23/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba674c143cd8d85b9764c8ade776b52dd1d3598d
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 56ccab2162a8f0ea9405d834e3f25558d8236b52
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804149"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895421"
 ---
-# <a name="create-an-access-review-of-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할에 대 한 액세스 검토 만들기
+# <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할에 대 한 액세스 검토 만들기
 
 직원에 대 한 권한 있는 Azure 리소스 역할에 대 한 액세스는 시간이 지남에 따라 변경 됩니다. 부실 역할 할당과 관련 된 위험을 줄이려면 액세스를 정기적으로 검토 해야 합니다. Azure Active Directory (Azure AD) Privileged Identity Management (PIM)를 사용 하 여 권한 있는 Azure 리소스 역할에 대 한 액세스 검토를 만들 수 있습니다. 자동으로 발생 하는 되풀이 액세스 검토를 구성할 수도 있습니다.
 
 이 문서에서는 권한 있는 Azure 리소스 역할에 대 한 하나 이상의 액세스 검토를 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
-- [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+[권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
 ## <a name="open-access-reviews"></a>액세스 검토 열기
 
@@ -38,17 +38,15 @@ ms.locfileid: "70804149"
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
-1. 왼쪽 메뉴에서 **Azure 리소스**를 클릭 합니다.
+1. 왼쪽 메뉴에서 **Azure 리소스**를 선택 합니다.
 
-1. 관리하려는 리소스(예: 구독 또는 관리 그룹)를 클릭합니다.
+1. 관리 하려는 리소스 (예: 구독 또는 관리 그룹)를 선택 합니다.
 
-1. 관리에서 **액세스 검토**를 클릭 합니다.
+1. 관리에서 **액세스 검토**를 선택 합니다.
 
     ![Azure 리소스-모든 리뷰의 상태를 보여 주는 액세스 검토 목록](./media/pim-resource-roles-start-access-review/access-reviews.png)
 
-
 [!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
-
 
 ## <a name="start-the-access-review"></a>액세스 검토 시작
 

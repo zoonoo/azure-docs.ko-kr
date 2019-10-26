@@ -6,27 +6,26 @@ services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 10/01/2019
+ms.topic: article
+ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9994d5f882e7bf27ac822a69c4310bc7c6fabe1
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
-ms.translationtype: HT
+ms.openlocfilehash: 4307c9036db45145a7c0e95cb5e55a667c6851eb
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803468"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893359"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 응용 프로그램에 대 한 SAML 토큰에서 발급 된 클레임 사용자 지정
 
 현재 Azure Active Directory (Azure AD)는 Azure AD 앱 갤러리에 사전 통합 된 응용 프로그램과 사용자 지정 응용 프로그램을 포함 하 여 대부분의 엔터프라이즈 응용 프로그램에서 SSO (Single Sign-On)를 지원 합니다. 사용자가 SAML 2.0 프로토콜을 사용하여 Azure AD를 통해 애플리케이션을 인증하면 Azure AD는 (HTTP POST를 통해) 애플리케이션에 토큰을 보냅니다. 그런 다음 애플리케이션이 토큰의 유효성을 검사하고 사용하여 사용자 이름과 암호를 묻는 대신 사용자를 로그인합니다. 이러한 SAML 토큰에는 *클레임*이라는 사용자에 대 한 정보가 포함 되어 있습니다.
 
@@ -79,7 +78,7 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Azu
 | userprincipalName | 사용자의 UPN (사용자 계정 이름) |
 | onpremisessamaccount | 온-프레미스 Azure AD에서 동기화된 SAM 계정 이름입니다. |
 | objectId | Azure AD에서 사용자의 objectid |
-| employeeid | 사용자의 employeeid |
+| employeeid | 사용자의 직원 ID |
 | 디렉터리 확장 | [Azure AD Connect 동기화를 사용하여 온-프레미스 Active Directory에서 동기화되는](../hybrid/how-to-connect-sync-feature-directory-extensions.md) 디렉터리 확장입니다. |
 | 확장 특성 1-15 | Azure AD 스키마를 확장하는 데 사용되는 온-프레미스 확장 특성입니다. |
 
@@ -91,7 +90,7 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Azu
 
 1. 수정 하려는 필수 클레임을 클릭 합니다.
 
-1. 조직 마다 **원본 특성** 에 상수 값을 입력 하 고 **저장**을 클릭 합니다.
+1. 조직 마다 **원본 특성** 에 따옴표 없이 상수 값을 입력 하 고 **저장**을 클릭 합니다.
 
     ![Azure Portal에서 클레임 & 사용자 특성 섹션을 엽니다.](./media/active-directory-saml-claims-customization/organization-attribute.png)
 
@@ -118,19 +117,27 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Azu
 1. 클레임의 **이름을** 입력 합니다. 값은 SAML 사양에 따라 URI 패턴을 따를 필요가 없습니다. URI 패턴이 필요한 경우 **네임 스페이스** 필드에 추가할 수 있습니다.
 1. 클레임에서 값을 검색할 **원본을** 선택 합니다. 원본 특성 드롭다운에서 사용자 특성을 선택 하거나 클레임으로 내보내기 전에 사용자 특성에 변환을 적용할 수 있습니다.
 
-### <a name="application-specific-claims---transformations"></a>응용 프로그램별 클레임-변환
+### <a name="claim-transformations"></a>클레임 변환
 
-클레임 변환 함수를 사용할 수도 있습니다.
+사용자 특성에 변환을 적용 하려면 다음을 수행 합니다.
+
+1. **클레임 관리**에서 클레임 원본으로 *변환* 을 선택 하 여 **변환 관리** 페이지를 엽니다.
+2. 변환 드롭다운에서 함수를 선택 합니다. 선택한 함수에 따라 변환에서 평가할 상수 값과 매개 변수를 제공 해야 합니다. 사용 가능한 함수에 대 한 자세한 내용은 아래 표를 참조 하세요.
+3. 여러 변환을 적용 하려면 **변환 추가**를 클릭 합니다. 클레임에 최대 2 개의 변환을 적용할 수 있습니다. 예를 들어 `user.mail`의 전자 메일 접두사를 먼저 추출할 수 있습니다. 그런 다음 문자열을 대문자로 만듭니다.
+
+   ![NameID (이름 식별자) 값 편집](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
+
+다음 함수를 사용 하 여 클레임을 변환할 수 있습니다.
 
 | 함수 | 설명 |
 |----------|-------------|
 | **ExtractMailPrefix()** | 전자 메일 주소 또는 사용자 계정 이름에서 도메인 접미사를 제거 합니다. 그러면 전달되는 사용자 이름의 첫 부분만 추출됩니다(예: joe_smith@contoso.com 대신 "joe_smith"). |
-| **Join ()** | 두 특성을 조인 하 여 새 값을 만듭니다. 필요에 따라 두 특성 사이에 구분 기호를 사용할 수 있습니다. |
+| **Join ()** | 두 특성을 조인 하 여 새 값을 만듭니다. 필요에 따라 두 특성 사이에 구분 기호를 사용할 수 있습니다. NameID 클레임 변환의 경우 조인은 확인 된 도메인으로 제한 됩니다. 선택한 사용자 식별자 값에 도메인이 있으면 사용자 이름을 추출하여 선택한 확인된 도메인을 추가합니다. 예를 들어, 사용자 식별자 값으로 이메일(joe_smith@contoso.com)을 선택하고 확인된 도메인으로 contoso.onmicrosoft.com을 선택하면 joe_smith@contoso.onmicrosoft.com이 됩니다. |
 | **ToLower()** | 선택한 특성의 문자를 소문자로 변환합니다. |
 | **ToUpper()** | 선택한 특성의 문자를 대문자로 변환합니다. |
 | **Contains ()** | 입력이 지정 된 값과 일치 하는 경우 특성 또는 상수를 출력 합니다. 그렇지 않으면 일치 하는 항목이 없는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어 "@contoso.com" 도메인을 포함 하는 경우 값이 사용자의 전자 메일 주소인 클레임을 내보내려면이 고, 그렇지 않으면 사용자 계정 이름을 출력 합니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>*매개 변수 1 (입력)* : user. email<br/>*값*: "@contoso.com"<br/>매개 변수 2 (출력): user. email<br/>매개 변수 3 (일치 하지 않는 경우 출력): user. userprincipalname |
-| **EndWith ()** | 입력이 지정 된 값으로 끝나는 경우 특성 또는 상수를 출력 합니다. 그렇지 않으면 일치 하는 항목이 없는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어 employeeid가 "000"으로 끝나는 경우 값이 사용자의 employeeid 인 클레임을 내보내려면이 고, 그렇지 않으면 확장 특성을 출력 하려고 합니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>*매개 변수 1 (입력)* : user. employeeid<br/>*값*: "000"<br/>매개 변수 2 (출력): user. employeeid<br/>매개 변수 3 (일치 하지 않는 경우 출력): user. extensionattribute1 |
-| **StartWith ()** | 입력이 지정 된 값으로 시작 하는 경우 특성 또는 상수를 출력 합니다. 그렇지 않으면 일치 하는 항목이 없는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어 국가/지역이 "US"로 시작 하는 경우 값이 사용자의 employeeid 인 클레임을 내보내려면이 고, 그렇지 않으면 확장 특성을 출력 하는 것입니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>*매개 변수 1 (입력)* : user. country<br/>*값*: "US"<br/>매개 변수 2 (출력): user. employeeid<br/>매개 변수 3 (일치 하지 않는 경우 출력): user. extensionattribute1 |
+| **EndWith ()** | 입력이 지정 된 값으로 끝나는 경우 특성 또는 상수를 출력 합니다. 그렇지 않으면 일치 하는 항목이 없는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어 직원 ID가 "000"으로 끝나는 경우 값이 사용자의 직원 ID 인 클레임을 내보내려면이 고, 그렇지 않으면 확장 특성을 출력 하는 것입니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>*매개 변수 1 (입력)* : user. employeeid<br/>*값*: "000"<br/>매개 변수 2 (출력): user. employeeid<br/>매개 변수 3 (일치 하지 않는 경우 출력): user. extensionattribute1 |
+| **StartWith ()** | 입력이 지정 된 값으로 시작 하는 경우 특성 또는 상수를 출력 합니다. 그렇지 않으면 일치 하는 항목이 없는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어 국가/지역이 "US"로 시작 하는 경우 값이 사용자의 직원 ID 인 클레임을 내보내려면이 고, 그렇지 않으면 확장 특성을 출력 하는 것입니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>*매개 변수 1 (입력)* : user. country<br/>*값*: "US"<br/>매개 변수 2 (출력): user. employeeid<br/>매개 변수 3 (일치 하지 않는 경우 출력): user. extensionattribute1 |
 | **Extract ()-일치 후** | 지정 된 값과 일치 하는 부분 문자열을 반환 합니다.<br/>예를 들어 입력 값이 "Finance_BSimon" 인 경우 일치 하는 값은 "Finance_"이 고 클레임의 출력은 "따르면"입니다. |
 | **Extract ()-일치 하기 전에** | 지정 된 값과 일치 하는 부분 문자열을 반환 합니다.<br/>예를 들어 입력 값이 "BSimon_US" 인 경우 일치 하는 값은 "_US"이 고 클레임의 출력은 "따르면"입니다. |
 | **Extract ()-일치 항목 사이** | 지정 된 값과 일치 하는 부분 문자열을 반환 합니다.<br/>예를 들어 입력 값이 "Finance_BSimon_US" 인 경우 일치 하는 첫 번째 값은 "Finance_"이 고, 두 번째 일치 하는 값은 "_US"이 고, 클레임의 출력은 "따르면"입니다. |
@@ -138,10 +145,39 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Azu
 | **ExtractAlpha ()-접미사** | 문자열의 접미사 사전순 부분을 반환 합니다.<br/>예를 들어 입력의 값이 "123_Simon" 인 경우 "Simon"를 반환 합니다. |
 | **ExtractNumeric ()-접두사** | 문자열의 접두사 숫자 부분을 반환 합니다.<br/>예를 들어 입력의 값이 "123_BSimon" 인 경우 "123"을 반환 합니다. |
 | **ExtractNumeric ()-접미사** | 문자열의 접미사 숫자 부분을 반환 합니다.<br/>예를 들어 입력의 값이 "BSimon_123" 인 경우 "123"을 반환 합니다. |
-| **IfEmpty ()** | 입력이 null 이거나 비어 있는 경우 특성 또는 상수를 출력 합니다.<br/>예를 들어 지정 된 사용자에 대 한 employeeid가 비어 있는 경우 extensionattribute에 저장 된 특성을 출력 하려고 합니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>매개 변수 1 (입력): user. employeeid<br/>매개 변수 2 (출력): extensionattribute1<br/>매개 변수 3 (일치 하지 않는 경우 출력): user. employeeid |
-| **IfNotEmpty ()** | 입력이 null 이거나 비어 있지 않은 경우 특성 또는 상수를 출력 합니다.<br/>예를 들어 지정 된 사용자에 대 한 employeeid가 비어 있지 않은 경우 extensionattribute에 저장 된 특성을 출력 하려고 합니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>매개 변수 1 (입력): user. employeeid<br/>매개 변수 2 (출력): extensionattribute1 |
+| **IfEmpty ()** | 입력이 null 이거나 비어 있는 경우 특성 또는 상수를 출력 합니다.<br/>예를 들어 지정 된 사용자에 대 한 직원 ID가 비어 있는 경우 extensionattribute에 저장 된 특성을 출력 하려고 합니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>매개 변수 1 (입력): user. employeeid<br/>매개 변수 2 (출력): extensionattribute1<br/>매개 변수 3 (일치 하지 않는 경우 출력): user. employeeid |
+| **IfNotEmpty ()** | 입력이 null 이거나 비어 있지 않은 경우 특성 또는 상수를 출력 합니다.<br/>예를 들어 지정 된 사용자에 대 한 직원 ID가 비어 있지 않은 경우 extensionattribute에 저장 된 특성을 출력 하려고 합니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>매개 변수 1 (입력): user. employeeid<br/>매개 변수 2 (출력): extensionattribute1 |
 
 추가 변환이 필요한 경우 [AZURE AD의 사용자 의견 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599) 에서 *SaaS 응용 프로그램* 범주에 따라 아이디어를 제출 합니다.
+
+## <a name="emitting-claims-based-on-conditions"></a>조건에 따라 클레임 내보내기
+
+사용자 유형 및 사용자가 속한 그룹을 기반으로 하는 클레임의 원본을 지정할 수 있습니다. 
+
+사용자 형식은 다음과 같을 수 있습니다.
+- **Any**: 모든 사용자가 응용 프로그램에 액세스할 수 있습니다.
+- **멤버**: 테 넌 트의 네이티브 멤버
+- **모든 게스트**: Azure AD를 사용 하거나 사용 하지 않고 외부 조직에서 사용자를 가져옵니다.
+- **AAD 게스트**: 게스트 사용자는 Azure AD를 사용 하는 다른 조직에 속합니다.
+- **외부 게스트**: 게스트 사용자는 Azure AD가 없는 외부 조직에 속합니다.
+
+
+이에 대 한 한 가지 시나리오는 클레임의 원본이 응용 프로그램에 액세스 하는 게스트 및 직원과 다른 경우입니다. 사용자가 직원 인 경우 NameID가 user. email에서 원본으로 사용 되도록 지정 하는 것이 좋습니다. 그러나 사용자가 게스트가 면 NameID가 extensionattribute1에서 원본으로 사용 됩니다.
+
+클레임 조건을 추가 하려면 다음을 수행 합니다.
+
+1. **클레임 관리**에서 클레임 조건을 확장 합니다.
+2. 사용자 유형을 선택 합니다.
+3. 사용자가 속해야 하는 그룹을 선택 합니다. 지정 된 응용 프로그램에 대 한 모든 클레임에서 최대 10 개의 고유 그룹을 선택할 수 있습니다. 
+4. 클레임에서 값을 검색할 **원본을** 선택 합니다. 원본 특성 드롭다운에서 사용자 특성을 선택 하거나 클레임으로 내보내기 전에 사용자 특성에 변환을 적용할 수 있습니다.
+
+조건을 추가 하는 순서는 중요 합니다. Azure AD는 클레임에서 내보낼 값을 결정 하기 위해 위에서 아래로의 조건을 평가 합니다. 
+
+예를 들어 Brita Simon는 Contoso 테 넌 트의 게스트 사용자입니다. 또한 Azure AD를 사용 하는 다른 조직에 속합니다. Fabrikam 응용 프로그램에 대 한 아래 구성을 고려 하 여 Brita가 Fabrikam에 로그인 하려고 하면 Azure AD는 다음과 같이 조건을 평가 합니다.
+
+첫째, Azure AD는 Brita의 사용자 형식이 `All guests`인지 확인 합니다. 이는 true 이므로 Azure AD는 클레임에 대 한 소스를 `user.extensionattribute1`에 할당 합니다. 두 번째로, Azure AD는 Brita의 사용자 형식이 `AAD guests`인지 확인 합니다 .이는 true 이기도 하므로 Azure AD는 클레임에 대 한 소스를 `user.mail`할당 합니다. 마지막으로 클레임은 Brita의 값 `user.email`로 내보내집니다.
+
+![클레임 조건부 구성](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 
 ## <a name="next-steps"></a>다음 단계
 

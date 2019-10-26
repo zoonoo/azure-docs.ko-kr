@@ -1,24 +1,19 @@
 ---
 title: Azure Application Insights 사용 영향 | Microsoft docs
 description: 여러 속성이 앱 일부의 전환율에 미칠 수 있는 영향을 분석합니다.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: a1ff700bece2d64451294e72ebdf3c771ee644f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fffe71cb80be7795201ab672ca632788f4f18e5c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604186"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899459"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Application Insights를 사용하여 영향 분석
 
@@ -63,7 +58,7 @@ Impact는 표준 및 사용자 지정 속성/측정을 모두 지원합니다. �
 2. **분석 대상** 드롭다운에서 "국가 또는 지역"을 선택합니다.
 3. **이 다음의 사용량에 미치는 영향을 분석합니다.** 드롭다운에서는 1단계에서 선택한 페이지 보기의 UI 요소와 일치하는 사용자 지정 이벤트를 선택합니다.
 
-이 경우 결과가 더 이상 첫 번째 예제처럼 연속 x-축 모델과 맞지 않습니다. 대신, 세그먼트 깔때기와 비슷한 시각화가 표시됩니다. 정렬할 **사용량** 변형 변환이 국가/지역에 따라 사용자 지정 이벤트를 볼 수 있습니다.
+이 경우 결과가 더 이상 첫 번째 예제처럼 연속 x-축 모델과 맞지 않습니다. 대신, 세그먼트 깔때기와 비슷한 시각화가 표시됩니다. 국가/지역을 기준으로 사용자 지정 이벤트에 대 한 변환의 변형을 보기 위해 **사용량** 을 기준으로 정렬 합니다.
 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Impact 도구는 어떤 방식으로 전환율을 계산하나요?

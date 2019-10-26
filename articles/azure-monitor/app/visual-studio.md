@@ -1,26 +1,20 @@
 ---
 title: Visual Studio에서 Azure Application Insights로 애플리케이션 디버그 | Microsoft Docs
 description: 디버깅 및 프로덕션 중에 웹앱 성능 분석 및 진단입니다.
-services: application-insights
-documentationcenter: .net
-author: NumberByColors
-manager: carmonm
-ms.assetid: 2059802b-1131-477e-a7b4-5f70fb53f974
-ms.service: application-insights
-ms.custom: vs-azure
-ms.workload: azure-vs
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/07/2017
-ms.pm_owner: daviste;NumberByColors
-ms.reviewer: mbullwin
+author: NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 1b2f429129c0bb9098f4f5029cb07ce06bc5db13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/07/2017
+ms.reviewer: mbullwin
+ms.custom: vs-azure
+ms.openlocfilehash: 32596b058918d3a8859dc356f8f0b1223b7f755a
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255128"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899288"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Visual Studio에서 Azure Application Insights로 애플리케이션 디버그
 Visual Studio(2015 이상)에서 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)의 원격 분석을 사용하여 디버깅 및 프로덕션의 성능을 분석하고 ASP.NET 웹앱의 문제를 진단할 수 있습니다.
@@ -77,14 +71,14 @@ Search 창에서 예외 보고서가 표시됩니다. (일부 ASP.NET 애플리�
 
 [코드 렌즈의 Application Insights에 대한 자세한 정보](../../azure-monitor/app/visual-studio-codelens.md)
 
-## <a name="trends"></a>추세
+## <a name="trends"></a>동향
 추세는 시간이 지남에 따라 앱의 동작 방식을 시각화하는 도구입니다. 
 
 Application Insights 도구 모음 단추 또는 Application Insights Search 창에서 **원격 분석 추세 탐색**을 선택합니다. 시작하려면 일반적인 5개의 쿼리 중 하나를 선택합니다. 원격 분석 유형, 시간 범위 및 기타 속성에 따라 서로 다른 데이터 세트를 분석할 수 있습니다. 
 
 데이터에서 잘못된 부분을 찾으려면 "유형 보기" 드롭다운에서 비정상 옵션 중 하나를 선택합니다. 창의 아래쪽에서 필터링 옵션을 사용하면 쉽게 원격 분석의 특정 하위 집합을 쉽게 찾을 수 있습니다.
 
-![추세](./media/visual-studio/51.png)
+![동향](./media/visual-studio/51.png)
 
 [추세 자세히 알아보기](../../azure-monitor/app/visual-studio-trends.md).
 
@@ -98,7 +92,7 @@ Application Insights 도구 모음 단추 또는 Application Insights Search 창
 * *우선 Application Insights를 완전히 구성하여 포털에 원격 분석을 전송했습니다. 하지만 이제 Visual Studio에서만 원격 분석을 확인하려 합니다.*
   
   * Search 창 설정에서 앱이 포털에 원격 분석을 전송하는 경우 로컬 진단을 검색하는 옵션이 있습니다.
-  * 포털에 전송되는 원격 분석을 중지하려면 ApplicationInsights.config에서 `<instrumentationkey>...` 줄을 주석으로 처리합니다. 원격 분석을 포털에 다시 보낼 준비가 되면 주석 처리를 제거합니다.
+  * 포털로 전송 되는 원격 분석을 중지 하려면 ApplicationInsights에서 줄 `<instrumentationkey>...` 주석 처리 합니다. 포털에 원격 분석을 다시 보낼 준비가 되 면 주석 처리를 제거 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

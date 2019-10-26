@@ -10,16 +10,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: jehollan
-ms.openlocfilehash: b581d7c9b5876813e36ebbf41be713b44dd97735
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8e07032f84ead4bb003176af84cb4c731819ffa4
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096087"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900059"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>KEDA를 사용 하 여 Kubernetes에서 Azure Functions
 
-Azure Functions 런타임은 원하는 위치와 방법을 호스팅할 수 있는 유연성을 제공 합니다.  [Keda](https://github.com/kedacore/kore) (Kubernetes 기반 이벤트 기반 자동 크기 조정)은 Azure Functions 런타임과 도구를 사용 하 여 Kubernetes에서 이벤트 중심 크기 조정을 제공 합니다.
+Azure Functions 런타임은 원하는 위치와 방법을 호스팅할 수 있는 유연성을 제공 합니다.  [Keda](https://github.com/kedacore/kore) (Kubernetes 기반 이벤트 기반 자동 크기 조정)는 Azure Functions 런타임과 도구를 사용 하 여 Kubernetes에서 이벤트 중심 크기 조정을 제공 합니다.
 
 ## <a name="how-kubernetes-based-functions-work"></a>Kubernetes 기반 함수의 작동 방식
 
@@ -33,7 +33,7 @@ Kubernetes 클러스터에서 함수를 실행 하려면 KEDA 구성 요소를 �
 
 ### <a name="installing-with-the-azure-functions-core-tools"></a>Azure Functions Core Tools를 사용 하 여 설치
 
-기본적으로 핵심 도구는 각각 이벤트 기반 및 HTTP 크기 조정을 지 원하는 KEDA 및 오시리스 구성 요소를 모두 설치 합니다.  설치는 현재 `kubectl` 컨텍스트에서를 실행 합니다.
+기본적으로 핵심 도구는 각각 이벤트 기반 및 HTTP 크기 조정을 지 원하는 KEDA 및 오시리스 구성 요소를 모두 설치 합니다.  설치는 현재 컨텍스트에서 실행 중인 `kubectl`를 사용 합니다.
 
 다음 설치 명령을 실행 하 여 클러스터에 KEDA를 설치 합니다.
 
@@ -43,7 +43,7 @@ func kubernetes install --namespace keda
 
 ## <a name="deploying-a-function-app-to-kubernetes"></a>Kubernetes에 함수 앱 배포
 
-Kubernetes를 실행 하는 모든 함수 앱을 KEDA를 실행 하는 클러스터에 배포할 수 있습니다.  함수는 Docker 컨테이너에서 실행 되므로 프로젝트에는가 `Dockerfile`필요 합니다.  아직 없는 경우 함수 프로젝트의 루트에서 다음 명령을 실행 하 여 Dockerfile을 추가할 수 있습니다.
+Kubernetes를 실행 하는 모든 함수 앱을 KEDA를 실행 하는 클러스터에 배포할 수 있습니다.  함수는 Docker 컨테이너에서 실행 되므로 프로젝트에 `Dockerfile`필요 합니다.  아직 없는 경우 함수 프로젝트의 루트에서 다음 명령을 실행 하 여 Dockerfile을 추가할 수 있습니다.
 
 ```cli
 func init --docker-only
@@ -51,17 +51,24 @@ func init --docker-only
 
 이미지를 빌드하고 함수를 Kubernetes에 배포 하려면 다음 명령을 실행 합니다.
 
+> [!NOTE]
+> 핵심 도구는 docker CLI를 활용 하 여 이미지를 빌드하고 게시 합니다. Docker를 이미 설치 하 고 `docker login`를 사용 하 여 계정에 연결 해야 합니다.
+
 ```cli
 func kubernetes deploy --name <name-of-function-deployment> --registry <container-registry-username>
 ```
 
 > `<name-of-function-deployment>`은 함수 앱 이름으로 바꿉니다.
 
-그러면 `Deployment` 파일에서`local.settings.json` 가져온 환경 변수를 `ScaledObject` 포함 하는 `Secrets`Kubernetes 리소스 (리소스)가 생성 됩니다.
+그러면 `local.settings.json` 파일에서 가져온 환경 변수를 포함 하는 Kubernetes `Deployment` 리소스, `ScaledObject` 리소스 및 `Secrets`만들어집니다.
+
+### <a name="deploying-a-function-app-from-a-private-registry"></a>개인 레지스트리에서 함수 앱 배포
+
+위의 흐름은 개인 레지스트리 에서도 작동 합니다.  개인 레지스트리에서 컨테이너 이미지를 끌어오는 경우 `func kubernetes deploy`를 실행할 때 개인 레지스트리 자격 증명을 포함 하는 Kubernetes 암호를 참조 하는 `--pull-secret` 플래그를 포함 합니다.
 
 ## <a name="removing-a-function-app-from-kubernetes"></a>Kubernetes에서 함수 앱 제거
 
-배포한 후에는 `Deployment` `Secrets` 만든 연결 `ScaledObject`된를 제거 하 여 함수를 제거할 수 있습니다.
+배포한 후에는 생성 된 `Secrets` 연결 된 `Deployment``ScaledObject`제거 하 여 함수를 제거할 수 있습니다.
 
 ```cli
 kubectl delete deploy <name-of-function-deployment>
@@ -87,7 +94,7 @@ KEDA는 현재 베타 버전으로, 다음 Azure Function 트리거를 지원 �
 * [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension)
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 다음 리소스를 참조하십시오.
+자세한 내용은 다음 리소스를 참조하세요.
 
 * [사용자 지정 이미지를 사용 하 여 함수 만들기](functions-create-function-linux-custom-image.md)
 * [Azure Functions를 로컬에서 코딩 및 테스트](functions-develop-local.md)

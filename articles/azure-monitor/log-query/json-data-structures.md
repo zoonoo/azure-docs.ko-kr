@@ -1,29 +1,23 @@
 ---
 title: Azure Monitor 로그 쿼리에서 문자열 작업 | Microsoft Docs
-description: 이 문서에서는 Azure portal에서 Azure Monitor Log Analytics를 사용 하 여 쿼리 및 Azure Monitor의 로그 데이터를 분석 하는 자습서를 제공 합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+description: 이 문서에서는 Azure Portal에서 Azure Monitor Log Analytics를 사용 하 여 Azure Monitor의 로그 데이터를 쿼리하고 분석 하는 방법에 대 한 자습서를 제공 합니다.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 718b12c8a66d66a75796f88ef31b5f0f62abbbc4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/16/2018
+ms.openlocfilehash: 82ac27e10a74dc99adb7615d604502e696aa9edb
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60519636"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894318"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 JSON 및 데이터 구조 사용
 
 > [!NOTE]
-> 완료 해야 [Azure Monitor Log Analytics를 사용 하 여 시작](get-started-portal.md) 하 고 [Azure Monitor 로그 쿼리를 사용 하 여 시작](get-started-queries.md) 이 단원을 완료 하기 전에 합니다.
+> 이 단원을 완료 하기 전에 [Azure Monitor Log Analytics 시작](get-started-portal.md) 을 완료 하 고 [Azure Monitor 로그 쿼리를 시작](get-started-queries.md) 해야 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

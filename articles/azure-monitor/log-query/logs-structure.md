@@ -1,18 +1,18 @@
 ---
 title: Azure Monitor 로그 구조 | Microsoft Docs
 description: Azure Monitor에서 로그 데이터를 검색하려면 로그 쿼리가 필요합니다.  이 문서는 Azure Monitor에서 새 로그 쿼리가 어떻게 사용되는지를 설명하고 새로 만들기 전에 이해해야 하는 개념을 제공합니다.
-services: log-analytics
-author: bwren
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/22/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: b1d22729724c2d1a8e3705e017762dcef588245e
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 08/22/2019
+ms.openlocfilehash: 091d7f598a9841ae45b4248ad8a07a355203445a
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034866"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894244"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Azure Monitor 로그의 구조
 [로그 쿼리](log-query-overview.md) 를 사용 하 여 데이터에 대 한 정보를 신속 하 게 파악 하는 기능은 Azure Monitor의 강력한 기능입니다. 효율적이 고 유용한 쿼리를 만들려면 원하는 데이터의 위치와 구성 방법 등의 몇 가지 기본 개념을 이해 해야 합니다. 이 문서에서는 시작 하는 데 필요한 기본 개념을 제공 합니다.
@@ -53,17 +53,17 @@ Application Insights에서 응용 프로그램을 만들 때 해당 응용 프�
 
 Log Analytics 작업 영역과 달리 Application Insights 응용 프로그램에는 고정 테이블 집합이 있습니다. 응용 프로그램에 쓰도록 다른 데이터 원본을 구성할 수 없으므로 추가 테이블을 만들 수 없습니다. 
 
-| Table | Description | 
+| Table | 설명 | 
 |:---|:---|
 | availabilityResults | 가용성 테스트의 요약 데이터입니다. |
 | browserTimings      | 들어오는 데이터를 처리 하는 데 걸린 시간과 같은 클라이언트 성능에 대 한 데이터입니다. |
 | customEvents        | 응용 프로그램에서 만든 사용자 지정 이벤트입니다. |
 | customMetrics       | 응용 프로그램에서 만든 사용자 지정 메트릭입니다. |
-| 종속성        | 응용 프로그램에서 외부 구성 요소에 대 한 호출입니다. |
-| 예외          | 응용 프로그램 런타임에서 throw 되는 예외입니다. |
+| 관계도        | 응용 프로그램에서 외부 구성 요소에 대 한 호출입니다. |
+| 단          | 응용 프로그램 런타임에서 throw 되는 예외입니다. |
 | pageViews           | 브라우저 정보를 사용 하 여 각 웹 사이트 보기에 대 한 데이터입니다. |
 | performanceCounters | 응용 프로그램을 지 원하는 계산 리소스의 성능 측정 |
-| 요청            | 각 응용 프로그램 요청에 대 한 세부 정보입니다.  |
+| requests            | 각 응용 프로그램 요청에 대 한 세부 정보입니다.  |
 | traces              | 분산 추적의 결과입니다. |
 
 응용 프로그램에 대 한 Log Analytics의 **스키마** 탭에서 각 테이블에 대 한 스키마를 볼 수 있습니다.
@@ -73,10 +73,10 @@ Log Analytics 작업 영역과 달리 Application Insights 응용 프로그램�
 ## <a name="standard-properties"></a>표준 속성
 Azure Monitor 로그의 각 테이블에는 자체 스키마가 있지만 모든 테이블에서 공유 하는 표준 속성은 있습니다. 각 항목에 대 한 자세한 내용은 [Azure Monitor 로그의 표준 속성](../platform/log-standard-properties.md) 을 참조 하세요.
 
-| Log Analytics 작업 영역 | 응용 프로그램 Application Insights | Description |
+| Log Analytics 작업 영역 | 응용 프로그램 Application Insights | 설명 |
 |:---|:---|:---|
 | TimeGenerated | timestamp  | 레코드를 만든 날짜와 시간입니다. |
-| 형식          | itemType   | 레코드가 검색 된 테이블의 이름입니다. |
+| Type          | itemType   | 레코드가 검색 된 테이블의 이름입니다. |
 | _ResourceId   |            | 레코드가 연결 된 리소스의 고유 식별자입니다. |
 | _IsBillable   |            | 수집 데이터에 대 한 청구 가능 여부를 지정 합니다. |
 | _BilledSize   |            | 청구 되는 데이터의 크기 (바이트)를 지정 합니다. |

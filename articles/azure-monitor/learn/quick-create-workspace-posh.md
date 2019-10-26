@@ -1,24 +1,18 @@
 ---
 title: Azure PowerShell을 사용하여 Log Analytics 작업 영역 만들기 | Microsoft Docs
 description: Azure PowerShell을 사용하여 온-프레미스 환경에서 관리 솔루션 및 데이터 수집이 가능하도록 Log Analytics 작업 영역을 만드는 방법에 대해 알아봅니다.
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 03/12/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: b81495f19ce596d689778e6ab75512d744ae4588
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.date: 03/12/2019
+ms.openlocfilehash: d9ac472c320767919301f5de634fd5158e824726
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71836561"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900518"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Azure PowerShell로 Log Analytics 작업 영역 만들기
 
@@ -43,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 PowerShell을 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 자습서에는 Azure PowerShell Az 모듈이 필요 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
-## <a name="create-a-workspace"></a>작업 영역 만들기
+## <a name="create-a-workspace"></a>작업 영역 생성
 [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)를 사용 하 여 작업 영역을 만듭니다. 다음 예제에서는 로컬 컴퓨터의 리소스 관리자 템플릿을 사용 하 여 *e us* 위치에 작업 영역을 만듭니다. JSON 템플릿은 작업 영역의 이름만 사용자에게 입력을 요청하도록 구성되며, 환경에서 표준 구성으로 사용될수 있는 다른 매개 변수에 대해서는 기본값을 지정합니다. 
 
 지원 되는 지역에 대 한 자세한 내용은 [에서 사용할 수 있는 지역 Log Analytics](https://azure.microsoft.com/regions/services/) 를 참조 하 고 **제품 검색** 필드에서 Azure Monitor를 검색 합니다. 

@@ -4,16 +4,17 @@ description: Azure Resource Manager 템플릿에서 값을 검색하고 문자�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 10/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 968e55cc07d10a0d4b54d4a7e866417d18e98bb5
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 04358f21af79838f894dc50d5d9c165da67a332c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258876"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894172"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager 템플릿 함수
+
 이 아티클에서는 Azure Resource Manager 템플릿에서 사용할 수 있는 모든 함수에 대해 설명합니다. 템플릿에서 함수를 사용 하는 방법에 대 한 자세한 내용은 [템플릿 구문](template-expressions.md)을 참조 하세요.
 
 함수를 직접 만들려면 [사용자 정의 함수](resource-group-authoring-templates.md#functions)를 참조하세요.
@@ -50,7 +51,7 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 * [json](resource-group-template-functions-array.md#json)
 * [last](resource-group-template-functions-array.md#last)
 * [length](resource-group-template-functions-array.md#length)
-* [분](resource-group-template-functions-array.md#min)
+* [min](resource-group-template-functions-array.md#min)
 * [max](resource-group-template-functions-array.md#max)
 * [range](resource-group-template-functions-array.md#range)
 * [skip](resource-group-template-functions-array.md#skip)
@@ -81,7 +82,7 @@ Resource Manager는 템플릿의 섹션에서 값을 가져오고 배포와 관�
 
 * [deployment](resource-group-template-functions-deployment.md#deployment)
 * [매개 변수](resource-group-template-functions-deployment.md#parameters)
-* [변수](resource-group-template-functions-deployment.md#variables)
+* [variables](resource-group-template-functions-deployment.md#variables)
 
 <a id="and" aria-hidden="true" />
 <a id="bool" aria-hidden="true" />
@@ -123,6 +124,7 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 * [mul](resource-group-template-functions-numeric.md#mul)
 * [sub](resource-group-template-functions-numeric.md#sub)
 
+<a id="extensionResourceId" aria-hidden="true" />
 <a id="listkeys" aria-hidden="true" />
 <a id="list" aria-hidden="true" />
 <a id="providers" aria-hidden="true" />
@@ -130,10 +132,13 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 <a id="resourcegroup" aria-hidden="true" />
 <a id="resourceid" aria-hidden="true" />
 <a id="subscription" aria-hidden="true" />
+<a id="subscriptionResourceId" aria-hidden="true" />
+<a id="tenantResourceId" aria-hidden="true" />
 
 ## <a name="resource-functions"></a>리소스 함수
 Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공합니다.
 
+* [extensionResourceId](resource-group-template-functions-resource.md#extensionresourceid)
 * [listAccountSas](resource-group-template-functions-resource.md#list)
 * [listKeys](resource-group-template-functions-resource.md#listkeys)
 * [listSecrets](resource-group-template-functions-resource.md#list)
@@ -142,7 +147,9 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 * [reference](resource-group-template-functions-resource.md#reference)
 * [resourceGroup](resource-group-template-functions-resource.md#resourcegroup)
 * [resourceId](resource-group-template-functions-resource.md#resourceid)
-* [subscription](resource-group-template-functions-resource.md#subscription)
+* [구독](resource-group-template-functions-resource.md#subscription)
+* [subscriptionResourceId](resource-group-template-functions-resource.md#subscriptionresourceid)
+* [tenantResourceId](resource-group-template-functions-resource.md#tenantresourceid)
 
 <a id="base64" aria-hidden="true" />
 <a id="base64tojson" aria-hidden="true" />
@@ -198,7 +205,7 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 * [padLeft](resource-group-template-functions-string.md#padleft)
 * [replace](resource-group-template-functions-string.md#replace)
 * [skip](resource-group-template-functions-string.md#skip)
-* [split](resource-group-template-functions-string.md#split)
+* [분할](resource-group-template-functions-string.md#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
 * [string](resource-group-template-functions-string.md#string)
 * [substring](resource-group-template-functions-string.md#substring)
@@ -213,6 +220,7 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 * [utcNow](resource-group-template-functions-string.md#utcnow)
 
 ## <a name="next-steps"></a>다음 단계
+
 * Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)
 * 여러 템플릿을 병합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](resource-group-linked-templates.md)
 * 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)

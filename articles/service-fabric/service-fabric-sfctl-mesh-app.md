@@ -3,33 +3,34 @@ title: Azure Service Fabric CLI- sfctl mesh app | Microsoft Docs
 description: Service Fabric CLI sfctl mesh app 명령을 설명합니다.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 7e560b08290146b4a497539ecc180f8ae4431246
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 18cf1107ed86915f96dbc92d588a6ebedab530b4
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035174"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901470"
 ---
 # <a name="sfctl-mesh-app"></a>sfctl mesh app
 애플리케이션 리소스를 가져오고 삭제합니다.
 
 ## <a name="commands"></a>명령
 
-|명령|Description|
+|명령|설명|
 | --- | --- |
-| 삭제 | 애플리케이션 리소스를 삭제합니다. |
-| 목록 | 모든 애플리케이션 리소스를 나열합니다. |
-| 표시 | 지정된 이름의 애플리케이션 리소스를 가져옵니다. |
+| delete | 애플리케이션 리소스를 삭제합니다. |
+| list | 모든 애플리케이션 리소스를 나열합니다. |
+| 보기 | 지정된 이름의 애플리케이션 리소스를 가져옵니다. |
 
 ## <a name="sfctl-mesh-app-delete"></a>sfctl mesh app delete
 애플리케이션 리소스를 삭제합니다.
@@ -38,9 +39,9 @@ ms.locfileid: "69035174"
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
-| --name -n [필수] | 애플리케이션의 이름입니다. |
+| --name -n [필수] | 애플리케이션 이름입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -48,7 +49,7 @@ ms.locfileid: "69035174"
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -59,11 +60,11 @@ ms.locfileid: "69035174"
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -76,19 +77,19 @@ ms.locfileid: "69035174"
 
 |인수|설명|
 | --- | --- |
-| --name -n [필수] | 애플리케이션의 이름입니다. |
+| --name -n [필수] | 애플리케이션 이름입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계
-- Service Fabric CLI [설정](service-fabric-cli.md)
+- Service Fabric CLI [설정](service-fabric-cli.md).
 - [샘플 스크립트](/azure/service-fabric/scripts/sfctl-upgrade-application)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.

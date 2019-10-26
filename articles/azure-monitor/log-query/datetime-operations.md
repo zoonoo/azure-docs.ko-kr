@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor 로그 쿼리에서 날짜/시간 값 사용 | Microsoft Docs
 description: Azure Monitor 로그 쿼리에서 날짜/시간 데이터를 사용하는 방법을 설명합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 402511ba3c45e8bd12cb7f92ecd54f6084c8ada2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/16/2018
+ms.openlocfilehash: 6ff095d674a11d95ed4fd2d008c3e664dd595fef
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62112360"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894222"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 날짜/시간 값 사용
 
@@ -37,10 +31,10 @@ timespan은 10진수 다음에 시간 단위를 사용해서 표현됩니다.
 
 |축약형   | 시간 단위    |
 |:---|:---|
-|일           | 일          |
+|d           | 일          |
 |h           | 시간         |
-|분           | minute       |
-|초           | second       |
+|m           | 분       |
+|초           | 초       |
 |ms          | 밀리초  |
 |microsecond | microsecond  |
 |tick        | 나노초   |
@@ -91,7 +85,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-`timeAgo` 열에는 다음과 같은 값이 있습니다. “00:09:31.5118992”는 값이 hh:mm:ss.fffffff 형식으로 지정되었음을 의미합니다. 이러한 값을 시작 시간 이후에 경과한 분의 `numver` 형식으로 지정하려면 해당 값을 “1분”으로 나눕니다.
+`timeAgo` 열에는 "00:09:31.5118992"와 같은 값이 포함 됩니다. 즉, hh: mm: ss. fffffff로 형식이 지정 됩니다. 이러한 값을 시작 시간 이후에 경과한 분의 `numver` 형식으로 지정하려면 해당 값을 “1분”으로 나눕니다.
 
 ```Kusto
 Event
@@ -153,7 +147,7 @@ Event
 
 ## <a name="related-functions"></a>관련 함수
 
-| Category | 함수 |
+| 범주 | 함수 |
 |:---|:---|
 | 데이터 형식 변환 | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
 | 값을 bin 크기로 반올림 | [bin](/azure/kusto/query/binfunction) |

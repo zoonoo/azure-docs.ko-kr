@@ -1,23 +1,18 @@
 ---
-title: 'Azure 애플리케이션 Insights 에이전트 API 참조: 모니터링 사용 | Microsoft Docs'
+title: Azure 애플리케이션 Insights 에이전트 API 참조
 description: 에이전트 API 참조를 Application Insights 합니다. ApplicationInsightsMonitoring를 사용 합니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
-services: application-insights
-documentationcenter: .net
-author: TimothyMothra
-manager: alexklim
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/23/2019
+author: TimothyMothra
 ms.author: tilee
-ms.openlocfilehash: 2a310a83677bffc8843fdb8979ec272f197a8a39
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 04/23/2019
+ms.openlocfilehash: dccd7e617174bef4a85cb6293cbcc459542310f9
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389885"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899701"
 ---
 # <a name="application-insights-agent-api-enable-applicationinsightsmonitoring"></a>Application Insights 에이전트 API: ApplicationInsightsMonitoring
 
@@ -54,7 +49,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ### <a name="example-with-an-instrumentation-key-map"></a>계측 키 맵이 있는 예제
 이 예제에서:
 - `MachineFilter`은 `'.*'` 와일드 카드를 사용 하 여 현재 컴퓨터와 일치 합니다.
-- `AppFilter='WebAppExclude'`은 @no__t 1 계측 키를 제공 합니다. 지정 된 앱은 계측 되지 않습니다.
+- `AppFilter='WebAppExclude'` `null` 계측 키를 제공 합니다. 지정 된 앱은 계측 되지 않습니다.
 - `AppFilter='WebAppOne'`은 지정 된 앱에 고유한 계측 키를 할당 합니다.
 - `AppFilter='WebAppTwo'`은 지정 된 앱에 고유한 계측 키를 할당 합니다.
 - 마지막으로 `AppFilter`은 `'.*'` 와일드 카드를 사용 하 여 이전 규칙과 일치 하지 않는 모든 웹 앱을 일치 시키고 기본 계측 키를 할당 합니다.
@@ -77,7 +72,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 
 ### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
 **필수** 이 매개 변수를 사용 하 여 여러 계측 키를 제공 하 고 각 앱에서 사용 하는 계측 키의 매핑을 제공 합니다.
-@No__t-0을 설정 하 여 여러 컴퓨터에 대해 단일 설치 스크립트를 만들 수 있습니다.
+`MachineFilter`를 설정 하 여 여러 컴퓨터에 대해 단일 설치 스크립트를 만들 수 있습니다.
 
 > [!IMPORTANT]
 > 앱은 규칙이 제공 된 순서 대로 규칙에 대해 일치 합니다. 따라서 가장 구체적인 규칙을 먼저 지정 하 고 가장 일반적인 규칙을 마지막에 지정 해야 합니다.

@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11453ad9132664313df2b56cb3664512628a16ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1291db8cd895a1104183ae2b5388eb6a23305874
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108230"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895928"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>애플리케이션과 Azure Active Directory 통합 시작 가이드
 
@@ -70,14 +70,14 @@ ms.locfileid: "67108230"
 * [Azure 애플리케이션 갤러리에서 애플리케이션 사용](what-is-single-sign-on.md)
 * [SaaS 애플리케이션 통합 자습서 목록](../active-directory-saas-tutorial-list.md)
 
-### <a name="authentication-types"></a>인증 유형
+### <a name="authentication-types"></a>인증 형식
 애플리케이션에는 각자 다른 인증 요구 사항이 있을 수 있습니다. Azure AD과 함께 인증서 서명은 SAML 2.0, WS-페더레이션 또는 OpenID 연결 프로토콜 뿐만 아니라 암호 Single Sign-on을 사용하는 애플리케이션을 사용하는 애플리케이션과 사용될 수 있습니다. Azure AD와 함께 사용할 애플리케이션 인증 형식에 대한 자세한 내용은 [Azure Active Directory에서 페더레이션된 Single Sign-on에 대한 인증서 관리](manage-certificates-for-federated-single-sign-on.md) 및 [암호 기반 Single Sign On](what-is-single-sign-on.md)을 참조하세요.
 
 ### <a name="enabling-sso-with-azure-ad-app-proxy"></a>Azure AD 앱 프록시를 사용하는 SSO 사용
 Microsoft Azure AD 애플리케이션 프록시를 사용하여 어디서든 어떤 디바이스에서든 안전하게 프라이빗 네트워크 내부에 위치한 애플리케이션에 액세스를 제공할 수 있습니다. 환경 내에서 애플리케이션 프록시 커넥터를 설치한 후에 Azure AD를 이용하여 쉽게 구성될 수 있습니다.
 
 ### <a name="integrating-custom-applications"></a>사용자 지정 애플리케이션 통합
-전원 Azure AD를 활용하여 새 애플리케이션을 작성하고 개발자를 지원하려면 [개발자 가이드](../active-directory-applications-guiding-developers-for-lob-applications.md)를 참조하세요.
+새 응용 프로그램을 작성 하 고 개발자가 Azure AD의 기능을 활용 하도록 지원 하려면 [개발자 가이드](../active-directory-applications-guiding-developers-for-lob-applications.md)를 참조 하세요.
 
 Azure 애플리케이션 갤러리에 사용자 지정 애플리케이션을 추가하려는 경우 [Azure AD 셀프 서비스 SAML 구성을 사용하여 "앱 가져오기"](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)를 참조하세요.
 
@@ -91,11 +91,11 @@ Azure 애플리케이션 갤러리에 사용자 지정 애플리케이션을 추
 * [계정 공유](../active-directory-sharing-accounts.md)
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 [GitHub](https://aka.ms/deploymentplans)에서 Azure Active Directory 배포 계획을 다운로드할 수 있습니다. 갤러리 응용 프로그램에서 single sign-on, 조건부 액세스 및 사용자를 통해 프로 비전에 대 한 배포 계획을 다운로드할 수 있습니다 합니다 [Azure portal](https://portal.azure.com)합니다. 
+자세한 내용은 [GitHub](https://aka.ms/deploymentplans)에서 Azure Active Directory 배포 계획을 다운로드할 수 있습니다. 갤러리 응용 프로그램의 경우 [Azure Portal](https://portal.azure.com)를 통해 Single Sign-On, 조건부 액세스 및 사용자 프로 비전을 위한 배포 계획을 다운로드할 수 있습니다. 
 
 Azure Portal에서 배포 계획을 다운로드하려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 2. **엔터프라이즈 애플리케이션** | **앱 선택** | **배포 계획**을 선택합니다.
 
 [배포 계획 조사](https://aka.ms/DeploymentPlanFeedback)를 수행하여 배포 계획에 대한 피드백을 제공하세요.

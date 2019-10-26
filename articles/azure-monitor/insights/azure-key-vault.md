@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor에서 Azure Key Vault 솔루션 Microsoft Docs
 description: Azure Monitor에서 Azure Key Vault 솔루션을 사용 하 여 Azure Key Vault 로그를 검토할 수 있습니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 03/27/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 1e0e9a0d76e644ec48ecd423a105dd89629d290c
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.date: 03/27/2019
+ms.openlocfilehash: 8863280407de5d02b53a203b2b6385477aa9f8ae
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997696"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899205"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Monitor의 Azure Key Vault 분석 솔루션
 
@@ -103,7 +97,7 @@ Azure Blob Storage에 로그를 작성하지 않아도 되며 데이터 수집�
 ## <a name="azure-monitor-log-records"></a>Azure Monitor 로그 레코드
 Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../../key-vault/key-vault-logging.md)에서 수집된 **KeyVaults** 형식의 레코드를 분석합니다.  이러한 레코드의 속성은 다음 표에 있습니다.  
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--- |:--- |
 | `Type` |*AzureDiagnostics* |
 | `SourceSystem` |*Azure* |
@@ -138,7 +132,7 @@ Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../../key
 1. [진단을 구성 하 여 Key Vault에서 Log Analytics 작업 영역으로 직접 전송](#enable-key-vault-diagnostics-in-the-portal)  
 2. [솔루션 갤러리에서 Azure Monitor 솔루션 추가](../../azure-monitor/insights/solutions.md) 에 설명 된 프로세스를 사용 하 여 Azure Key Vault 솔루션을 사용 하도록 설정 합니다.
 3. 새 데이터 형식을 사용하도록 저장된 쿼리, 대시보드 또는 경고를 업데이트합니다.
-   + 형식은 KeyVaults에서 AzureDiagnostics로 변경됩니다. ResourceType을 사용하여 Key Vault 로그로 필터링할 수 있습니다.
+   + KeyVaults에서 AzureDiagnostics로 형식을 변경합니다. ResourceType을 사용하여 Key Vault 로그로 필터링할 수 있습니다.
    + `KeyVaults` 대신 `AzureDiagnostics | where ResourceType'=="VAULTS"`를 사용합니다.
    + 필드: (필드 이름은 대/소문자를 구분함)
    + 이름에 \_s, \_d 또는 \_g 접미사가 있는 필드의 경우 첫 번째 문자를 소문자로 변경합니다.

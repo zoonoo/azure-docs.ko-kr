@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor 로그 쿼리의 집계 | Microsoft Docs
 description: 데이터를 분석하는 유용한 방법을 제공하는 Azure Monitor 로그 쿼리의 집계 함수에 대해 설명합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/16/2018
+ms.openlocfilehash: 86b84e76b4716c1fddda23a6d52c65c0700c5663
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65602736"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900424"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 집계
 
@@ -79,7 +73,7 @@ Heartbeat
 ```
 
 ### <a name="evaluating-subgroups"></a>하위 그룹 평가
-데이터의 하위 그룹에 대해 개수 또는 다른 집계를 수행하려면 `by` 키워드를 사용합니다. 예를 들어, 각 국가/지역에서 하트 비트를 전송 하는 고유한 Linux 컴퓨터의 수를 계산 합니다.
+데이터의 하위 그룹에 대해 개수 또는 다른 집계를 수행하려면 `by` 키워드를 사용합니다. 예를 들어 각 국가/지역에서 하트 비트를 보낸 고유 Linux 컴퓨터의 수를 계산 하려면:
 
 ```Kusto
 Heartbeat 
@@ -96,7 +90,7 @@ Heartbeat
 |네덜란드      | 2                   |
 
 
-데이터의 좀 더 작은 하위 그룹을 분석하려면 `by` 섹션에 추가 열 이름을 추가합니다. 예를 들어, 다음 OSType 당 각 국가/지역에서 고유한 컴퓨터 수에 것이 좋습니다.
+데이터의 좀 더 작은 하위 그룹을 분석하려면 `by` 섹션에 추가 열 이름을 추가합니다. 예를 들어 OSType 당 각 국가/지역에서 고유 컴퓨터 수를 계산 하는 것이 좋습니다.
 
 ```Kusto
 Heartbeat 

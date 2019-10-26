@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory reporting API에 액세스하기 위한 필수 구성 요소 | Microsoft Docs
+title: Azure Active Directory 보고 API에 대 한 필수 구성 요소 | Microsoft Docs
 description: Azure AD Reporting API에 액세스하기 위한 필수 구성 요소에 대해 알아보기
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 08/30/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7b6fab4a4a36691bbdeb11975c7a93b97ab86cb
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: af5e198a900241bc7bb0b6aff9a57eed59d1cd86
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241644"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895237"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Azure Active Directory reporting API에 액세스하기 위한 필수 구성 요소
 
@@ -80,7 +80,7 @@ Azure AD 보고 API에 액세스하도록 디렉터리를 구성하려면 Azure 
 
     b. **지원 되는 계정 유형**으로 **이 조직 에서만 계정을**선택 합니다.
 
-    c. **리디렉션 URL** 선택 **웹** 텍스트 상자에을 입력 `https://localhost`합니다.
+    다. **리디렉션 URL** 선택 **웹** 텍스트 상자에 `https://localhost`을 입력 합니다.
 
     d. **등록**을 선택합니다. 
 
@@ -91,7 +91,7 @@ Azure AD 보고 API에 액세스하도록 디렉터리를 구성하려면 Azure 
 
 | API | 사용 권한 |
 | --- | --- |
-| Microsoft Azure Active Directory | 디렉터리 데이터 읽기 |
+| Windows Azure Active Directory | 디렉터리 데이터 읽기 |
 | Microsoft Graph | 모든 감사 로그 데이터 읽기 |
 
 
@@ -183,7 +183,7 @@ Reporting API에 대한 호출을 구성하는 경우 이 값이 필요합니다
 
     b. **만료**로 **In 2 years**(2년)를 선택합니다.
 
-    c. **Save**을 클릭합니다.
+    다. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 
     d. 키 값을 복사합니다.
 
@@ -201,14 +201,14 @@ Reporting API에 대한 호출을 구성하는 경우 이 값이 필요합니다
 
 ![Graph 탐색기](./media/troubleshoot-graph-api/graph-explorer.png)
 
-### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>오류: AD Graph에서 Premium 라이선스를 확인하지 못함 
+### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>오류: AD Graph에서 Premium 라이선스 확인을 수행하지 못함 
 
 Graph 탐색기를 사용하여 로그인에 액세스하는 동안 이 오류 메시지가 표시되면 왼쪽 탐색에 있는 계정 아래에서 **권한 수정**을 선택하고 **Tasks.ReadWrite** 및 **Directory.Read.All**을 선택합니다. 
 
 ![권한 수정 UI](./media/troubleshoot-graph-api/modify-permissions.png)
 
 
-### <a name="error-tenant-is-not-b2c-or-tenant-doesnt-have-premium-license"></a>오류: 테 넌 트가 B2C 또는 테 넌 트에 프리미엄 라이선스가 없습니다.
+### <a name="error-tenant-is-not-b2c-or-tenant-doesnt-have-premium-license"></a>오류: 테 넌 트가 B2C이 아니거나 테 넌 트에 프리미엄 라이선스가 없습니다.
 
 로그인 보고서에 액세스하려면 Azure Active Directory P1(Premium 1) 라이선스가 필요합니다. 로그인에 액세스하는 동안 이 오류 메시지가 표시되면 Azure AD P1 라이선스를 사용하여 테넌트에게 사용이 허가되었는지 확인합니다.
 
@@ -216,9 +216,9 @@ Graph 탐색기를 사용하여 로그인에 액세스하는 동안 이 오류 �
 
  API를 사용 하 여 감사 로그에 액세스 하거나 로그인 하는 동안 오류가 발생 하지 않도록 합니다. 계정이 Azure Active Directory 테 넌 트에서 **보안 읽기 권한자** 또는 **보고서 구독자** 역할의 일부 인지 확인 합니다.
 
-### <a name="error-application-missing-aad-read-directory-data-permission"></a>오류: 애플리케이션에 AAD '디렉터리 데이터 읽기' 권한이 없음 
+### <a name="error-application-missing-aad-read-directory-data-permission"></a>오류: 애플리케이션에 AAD ‘디렉터리 데이터 읽기’ 권한이 없음 
 
-### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>오류: 애플리케이션에 MSGraph API '모든 감사 로그 데이터 읽기' 권한이 없음
+### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>오류: 애플리케이션에 MSGraph API ‘모든 감사 로그 데이터 읽기’ 권한이 없음
 
 [Azure Active Directory 보고 API에 액세스 하기 위한 필수 구성 요소](howto-configure-prerequisites-for-reporting-api.md) 의 단계에 따라 응용 프로그램이 올바른 권한 집합으로 실행 되 고 있는지 확인 합니다. 
 

@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor를 사용하여 Active Directory 환경 최적화 | Microsoft Docs
 description: Active Directory Health Check 솔루션을 사용하여 일정한 간격으로 환경의 위험 및 상태를 평가할 수 있습니다.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 09/10/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: a0ffe7b8726ee78ca81751687bebd3c435365576
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.date: 09/10/2019
+ms.openlocfilehash: bdc84a9213bd98981040775d3fec90f45edac54f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883074"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899197"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Azure Monitor에서 Active Directory 상태 검사 솔루션을 사용하여 사용자의 Active Directory 환경 최적화
 
@@ -40,7 +34,7 @@ Active Directory Health Check 솔루션을 사용하여 일정한 간격으로 �
 
 ![AD Health Check 대시보드의 이미지](./media/ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Active Directory Health Check 솔루션을 사용 하려면 Windows 용 Log Analytics 에이전트 (Microsoft Monitoring Agent (MMA) 라고도 함)가 설치 된 각 컴퓨터에 지원 되는 버전의 .NET Framework 4.5.2 이상이 설치 되어 있어야 합니다.  에이전트는 System Center 2016-Operations Manager, Operations Manager 2012 R2 및 Azure Monitor에서 사용 됩니다.
 * 이 솔루션은 Windows Server 2008 및 2008 R2, Windows Server 2012 및 2012 R2 및 Windows Server 2016을 실행하는 도메인 컨트롤러를 지원합니다.
@@ -103,7 +97,7 @@ Active Directory Health Check는 사용자가 사용하도록 설정한 에이�
 
 ### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>모든 주요 영역에서 100%의 점수를 목표로 해야 하나요?
 
-그럴 필요는 없습니다. 권장 사항은 수천 번의 고객 방문에서 Microsoft 엔지니어가 얻은 지식과 경험을 기반으로 합니다. 그러나 두 서버 인프라는 동일하지 않으며 특정 권장 사항은 거의 사용자와 관련 될 수 있습니다. 예를 들어, 가상 머신이 인터넷에 노출되지 않는 경우 일부 보안 권장 사항의 관련성은 떨어질 수 있습니다. 일부 가용성 권장 사항은 우선순위가 낮은 임시 데이터 수집 및 보고를 제공하는 서비스와는 관련성이 떨어질 수 있습니다. 성숙한 비즈니스에 중요한 문제는 시작에 덜 중요할 수 있습니다. 우선하는 주요 영역을 식별하고 시간이 지남에 따라 다음 점수가 어떻게 변경되는지 확인할 수 있습니다.
+반드시 그렇지는 않습니다. 권장 사항은 수천 번의 고객 방문에서 Microsoft 엔지니어가 얻은 지식과 경험을 기반으로 합니다. 그러나 두 서버 인프라는 동일하지 않으며 특정 권장 사항은 거의 사용자와 관련 될 수 있습니다. 예를 들어, 가상 머신이 인터넷에 노출되지 않는 경우 일부 보안 권장 사항의 관련성은 떨어질 수 있습니다. 일부 가용성 권장 사항은 우선순위가 낮은 임시 데이터 수집 및 보고를 제공하는 서비스와는 관련성이 떨어질 수 있습니다. 성숙한 비즈니스에 중요한 문제는 시작에 덜 중요할 수 있습니다. 우선하는 주요 영역을 식별하고 시간이 지남에 따라 다음 점수가 어떻게 변경되는지 확인할 수 있습니다.
 
 모든 권장 사항에는 중요한 이유에 대한 지침이 포함됩니다. IT 서비스의 특성 및 조직의 비즈니스 요구를 고려해 볼 때, 이 가이드를 사용하여 권장 사항 구현이 사용자에 적절한지 여부를 평가해야 합니다
 
@@ -179,7 +173,7 @@ ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Co
 
 *상태 검사 실행 주기를 구성하는 방법이 있나요?*
 
-* 지금은 없습니다.
+* 현재는 사용할 수 없습니다.
 
 *상태 검사 솔루션을 추가한 후 다른 서버가 발견되면 이 서버를 검사하나요?*
 
@@ -199,7 +193,7 @@ ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Co
 
 *데이터를 수집하는 경우 구성하는 방법이 있나요?*
 
-* 지금은 없습니다.
+* 현재는 사용할 수 없습니다.
 
 *왜 상위 10개의 권장 사항만을 표시하나요?*
 

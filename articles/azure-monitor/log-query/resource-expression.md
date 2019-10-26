@@ -1,28 +1,22 @@
 ---
 title: Azure Monitor 로그 쿼리의 resource () 식 | Microsoft Docs
 description: 리소스 식은 여러 리소스에서 데이터를 검색 하기 위해 리소스 중심 Azure Monitor 로그 쿼리에서 사용 됩니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 09/10/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: deca6e7ef1c231a82a73067971d86a6e9cdd0599
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
-ms.translationtype: MT
+ms.date: 09/10/2018
+ms.openlocfilehash: 4787dc8a8cc06e0ad0be88597dab3481284fb58b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71817411"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900221"
 ---
 # <a name="resource-expression-in-azure-monitor-log-query"></a>Azure Monitor 로그 쿼리의 resource () 식
 
-@No__t-0 식은 다른 리소스에서 데이터를 검색 하기 위해 [리소스로 범위가](scope.md#query-scope) 지정 된 Azure Monitor 쿼리에서 사용 됩니다. 
+`resource` 식은 다른 리소스에서 데이터를 검색 하기 위해 [리소스로 범위가](scope.md#query-scope) 지정 된 Azure Monitor 쿼리에 사용 됩니다. 
 
 
 ## <a name="syntax"></a>구문
@@ -31,9 +25,9 @@ ms.locfileid: "71817411"
 
 ## <a name="arguments"></a>인수
 
-- *Identifier*: 리소스의 리소스 ID입니다.
+- *식별자*: 리소스의 리소스 ID입니다.
 
-| Identifier | 설명 | 예제
+| 식별자 | 설명 | 예제
 |:---|:---|:---|
 | 리소스 | 리소스에 대 한 데이터를 포함 합니다. | 리소스 ("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm") |
 | 리소스 그룹 또는 구독 | 리소스 및 리소스에 포함 된 모든 리소스에 대 한 데이터를 포함 합니다.  | 리소스 ("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup) |
@@ -44,7 +38,7 @@ ms.locfileid: "71817411"
 * 리소스에 대 한 읽기 권한이 있어야 합니다.
 
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 ```Kusto
 union (Heartbeat),(resource("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm").Heartbeat) | summarize count() by _ResourceId, TenantId

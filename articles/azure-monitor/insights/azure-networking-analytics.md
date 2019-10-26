@@ -1,26 +1,20 @@
 ---
-title: Azure Monitor의 azure Networking Analytics 솔루션 | Microsoft Docs
-description: Azure 네트워크 보안 그룹 로그 및 Azure Application Gateway 로그를 검토 하려면 Azure Monitor의 Azure Networking Analytics 솔루션을 사용할 수 있습니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 66a3b8a1-6c55-4533-9538-cad60c18f28b
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Azure Monitor의 Azure 네트워킹 분석 솔루션 Microsoft Docs
+description: Azure Monitor에서 Azure 네트워킹 분석 솔루션을 사용 하 여 Azure 네트워크 보안 그룹 로그 및 Azure 애플리케이션 게이트웨이 로그를 검토할 수 있습니다.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/21/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 13908706f8dcec0eb2d1773bcef2ee622b4ebcc1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/21/2018
+ms.openlocfilehash: 8a8a2f32de905ab7c12f4886d889b2a6fc20c449
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048646"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899145"
 ---
-# <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Azure Monitor에서 솔루션을 모니터링 하는 azure 네트워킹
+# <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 Azure 네트워킹 모니터링 솔루션
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -46,15 +40,15 @@ Azure Monitor는 네트워크 모니터링에 대 한 다음 솔루션을 제공
 
 ## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure Application Gateway 및 네트워크 보안 그룹 분석
 솔루션을 사용하려면:
-1. Azure Monitor에 관리 솔루션을 추가 하 고
-2. Azure Monitor에서 Log Analytics 작업 영역에 진단을 지시 하는 진단을 사용 하도록 설정 합니다. Azure Blob Storage에 로그를 쓸 필요는 없습니다.
+1. Azure Monitor에 관리 솔루션을 추가 합니다.
+2. 진단을 사용 하 여 Azure Monitor의 Log Analytics 작업 영역으로 진단을 보냅니다. Azure Blob Storage에 로그를 쓸 필요는 없습니다.
 
 Application Gateway 및 네트워킹 보안 그룹 중 하나 또는 둘 다에 대해 진단 및 해당 솔루션을 사용할 수 있습니다.
 
 특정 리소스 유형에 진단 로깅을 사용하도록 설정하지 않고 솔루션을 설치하면 해당 리소스의 대시보드 블레이드가 비어 있고 오류 메시지가 표시됩니다.
 
 > [!NOTE]
-> 2017 년 1 월 전송에 대 한 지원 되는 방식의 Application Gateway 및 네트워크 보안 그룹에서 변경 하는 Log Analytics 작업 영역에 기록 합니다. **Azure Networking Analytics(사용되지 않음)** 솔루션을 표시하는 경우 수행해야 할 단계는 [이전 Networking Analytics 솔루션에서 마이그레이션](#migrating-from-the-old-networking-analytics-solution)을 참조하세요.
+> 2017 년 1 월에 응용 프로그램 게이트웨이 및 네트워크 보안 그룹에서 Log Analytics 작업 영역으로 로그를 전송 하는 지원 되는 방법이 변경 되었습니다. **Azure Networking Analytics(사용되지 않음)** 솔루션을 표시하는 경우 수행해야 할 단계는 [이전 Networking Analytics 솔루션에서 마이그레이션](#migrating-from-the-old-networking-analytics-solution)을 참조하세요.
 >
 >
 
@@ -68,7 +62,7 @@ Azure Application Gateway 분석 및 네트워크 보안 그룹 분석 관리 �
 | Azure |  |  |&#8226; |  |  |기록될 때 |
 
 
-## <a name="azure-application-gateway-analytics-solution-in-azure-monitor"></a>Azure Monitor에서 azure Application Gateway 분석 솔루션
+## <a name="azure-application-gateway-analytics-solution-in-azure-monitor"></a>Azure Monitor의 Azure 애플리케이션 Gateway analytics 솔루션
 
 ![Azure Application Gateway 분석 기호](media/azure-networking-analytics/azure-analytics-symbol.png)
 
@@ -86,23 +80,23 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 ### <a name="install-and-configure-the-solution"></a>솔루션 설치 및 구성
 다음 지침을 사용하여 Azure Application Gateway 분석 솔루션을 설치하고 구성합니다.
 
-1. Azure Application Gateway 분석 솔루션을 사용 하도록 설정 [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) 하거나에 설명 된 프로세스를 사용 하 여 [솔루션 갤러리에서 Azure Monitor 추가 솔루션](../../azure-monitor/insights/solutions.md)합니다.
+1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) 에서 또는 [솔루션 갤러리에서 Azure Monitor 솔루션 추가](../../azure-monitor/insights/solutions.md)에 설명 된 프로세스를 사용 하 여 Azure 애플리케이션 Gateway analytics 솔루션을 사용 하도록 설정 합니다.
 2. 모니터링할 [Application Gateway](../../application-gateway/application-gateway-diagnostics.md)에 대해 진단 로깅을 사용하도록 설정합니다.
 
 #### <a name="enable-azure-application-gateway-diagnostics-in-the-portal"></a>포털에서 Azure Application Gateway 진단 사용 설정
 
-1. Azure portal에서 모니터링할 Application Gateway 리소스로 이동 합니다.
-2. 선택 *진단 로그* 다음 페이지를 엽니다.
+1. Azure Portal에서 모니터링할 Application Gateway 리소스로 이동 합니다.
+2. *진단 로그* 를 선택 하 여 다음 페이지를 엽니다.
 
    ![Azure Application Gateway 리소스 이미지](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
-3. 클릭 *진단 켜기* 다음 페이지를 엽니다.
+3. *진단 켜기* 를 클릭 하 여 다음 페이지를 엽니다.
 
    ![Azure Application Gateway 리소스 이미지](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
-4. 진단을 켜려면 클릭 *온* 아래에서 *상태*합니다.
-5. 에 대 한 확인란을 클릭 *Log Analytics에 보내기*합니다.
+4. 진단을 켜려면 *상태*에서 *켜기* 를 클릭 합니다.
+5. *Log Analytics 보내기*확인란을 클릭 합니다.
 6. 기존 Log Analytics 작업 영역을 선택 하거나 작업 영역을 만듭니다.
-7. 아래에 있는 확인란을 클릭 **로그** 각 수집할 로그 유형에 대 한 합니다.
-8. 클릭 *저장할* Azure Monitor에 대 한 진단 로깅을 사용 하도록 설정 합니다.
+7. 수집할 각 로그 유형에 대 한 **로그** 아래에 있는 확인란을 클릭 합니다.
+8. *저장* 을 클릭 하 여 Azure Monitor에 대 한 진단 로깅을 사용 하도록 설정 합니다.
 
 #### <a name="enable-azure-network-diagnostics-using-powershell"></a>PowerShell을 사용하여 Azure 네트워크 진단 사용 설정
 
@@ -119,7 +113,7 @@ Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspace
 ### <a name="use-azure-application-gateway-analytics"></a>Azure Application Gateway 분석 사용
 ![Azure Application Gateway 분석 타일 이미지](media/azure-networking-analytics/log-analytics-appgateway-tile.png)
 
-개요에서 **Azure Application Gateway 분석** 타일을 클릭한 후 로그 요약을 확인한 후 다음 범주에 대한 세부 정보를 파악할 수 있습니다.
+[개요]에서 **Azure Application Gateway 분석** 타일을 클릭한 후 로그 요약을 확인한 후 다음 범주에 대한 세부 정보를 파악할 수 있습니다.
 
 * Application Gateway 액세스 로그
   * Application Gateway 액세스 로그에 대한 클라이언트 및 서버 오류
@@ -139,7 +133,7 @@ Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspace
 로그 검색 페이지에서, 시간별 결과, 자세한 결과 및 로그 검색 기록을 볼 수 있습니다. 패싯으로 필터링하여 결과 범위를 좁힐 수 있습니다.
 
 
-## <a name="azure-network-security-group-analytics-solution-in-azure-monitor"></a>Azure Monitor에서 azure 네트워크 보안 그룹 분석 솔루션
+## <a name="azure-network-security-group-analytics-solution-in-azure-monitor"></a>Azure Monitor의 Azure 네트워크 보안 그룹 분석 솔루션
 
 ![Azure 네트워크 보안 그룹 분석 기호](media/azure-networking-analytics/azure-analytics-symbol.png)
 
@@ -157,7 +151,7 @@ Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspace
 ### <a name="install-and-configure-the-solution"></a>솔루션 설치 및 구성
 다음 지침을 사용하여 Azure Networking Analytics 솔루션을 설치 및 구성합니다.
 
-1. Azure 네트워크 보안 그룹 분석 솔루션을 사용 하도록 설정 [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) 하거나에 설명 된 프로세스를 사용 하 여 [솔루션 갤러리에서 Azure Monitor 추가 솔루션](../../azure-monitor/insights/solutions.md)합니다.
+1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) 에서 또는 [솔루션 갤러리에서 Azure Monitor 솔루션 추가](../../azure-monitor/insights/solutions.md)에 설명 된 프로세스를 사용 하 여 azure 네트워크 보안 그룹 분석 솔루션을 사용 하도록 설정 합니다.
 2. 모니터링할 [네트워크 보안 그룹](../../virtual-network/virtual-network-nsg-manage-log.md) 리소스에 대해 진단 로깅을 사용하도록 설정합니다.
 
 ### <a name="enable-azure-network-security-group-diagnostics-in-the-portal"></a>포털에서 Azure 네트워크 보안 그룹 진단 사용 설정
@@ -205,24 +199,24 @@ Set-AzDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -
 로그 검색 페이지에서, 시간별 결과, 자세한 결과 및 로그 검색 기록을 볼 수 있습니다. 패싯으로 필터링하여 결과 범위를 좁힐 수 있습니다.
 
 ## <a name="migrating-from-the-old-networking-analytics-solution"></a>이전 Networking Analytics 솔루션에서 마이그레이션
-2017 년 1 월 전송 하는 지원 되는 방법은 Azure Application Gateway 및 Azure 네트워크 보안 그룹에서 변경 하는 Log Analytics 작업 영역에 기록 합니다. 이러한 변경은 다음과 같은 이점을 제공합니다.
-+ 로그는 저장소 계정을 사용 하지 않아도 Azure Monitor에 직접 기록
-+ Azure Monitor에서 사용할 수 있도록 로그를 생성 하는 경우 시간에서 대기 시간이 짧습니다
+2017 년 1 월에 Azure 애플리케이션 게이트웨이 및 Azure 네트워크 보안 그룹에서 Log Analytics 작업 영역으로 로그를 전송 하는 지원 되는 방법이 변경 되었습니다. 이러한 변경은 다음과 같은 이점을 제공합니다.
++ 로그는 저장소 계정을 사용 하지 않고도 Azure Monitor에 직접 기록 됩니다.
++ 로그가 생성 된 시간부터 Azure Monitor에서 사용할 수 있는 시간에서의 대기 시간 감소
 + 구성 단계 감소
 + 모든 유형의 Azure 진단을 위한 공통 형식
 
 업데이트된 솔루션을 사용하려면 다음을 수행합니다.
 
-1. [Azure Application Gateway에서 Azure Monitor로 직접 보내도록 진단을 구성 합니다.](#enable-azure-application-gateway-diagnostics-in-the-portal)
+1. [Azure 애플리케이션 게이트웨이에서 Azure Monitor로 직접 보내도록 진단을 구성 합니다.](#enable-azure-application-gateway-diagnostics-in-the-portal)
 2. [Azure 네트워크 보안 그룹에서 Azure Monitor로 직접 보내도록 진단을 구성 합니다.](#enable-azure-network-security-group-diagnostics-in-the-portal)
-2. 사용 하도록 설정 합니다 *Azure Application Gateway 분석* 하며 *Azure 네트워크 보안 그룹 분석* 에서 설명한 프로세스를 사용 하 여 솔루션 [에서 Azure Monitor 추가 솔루션은 솔루션 갤러리](solutions.md)
+2. 에서 [Azure Monitor 솔루션 추가](solutions.md) 에 설명 된 프로세스를 사용 하 여 *Azure Application Gateway 분석* 및 *Azure 네트워크 보안 그룹 분석* 솔루션을 사용 하도록 설정 솔루션 갤러리
 3. 새 데이터 형식을 사용하도록 저장된 쿼리, 대시보드 또는 경고를 업데이트합니다.
    + 형식은 AzureDiagnostics로 변경합니다. ResourceType을 사용하여 Azure 네트워킹 로그로 필터링할 수 있습니다.
 
      | 다음 위치 대신 | 사용: |
      | --- | --- |
-     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; 여기서 ResourceType "APPLICATIONGATEWAYS" 및 OperationName = = "ApplicationGatewayAccess" = = |
-     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; 여기서 ResourceType "APPLICATIONGATEWAYS" 및 OperationName = = "ApplicationGatewayPerformance" = = |
+     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; where ResourceType = = "applicationgateways" 및 OperationName = = "Applicationgaccess" |
+     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; where ResourceType = = "applicationgateways" 및 OperationName = = "Applicationgperformance" |
      | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
 
    + 이름에 \_s, \_d 또는 \_g 접미사가 있는 필드의 경우 첫 번째 문자를 소문자로 변경합니다.
@@ -236,4 +230,4 @@ Set-AzDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>다음 단계
-* 사용 하 여 [Azure Monitor에서 로그 쿼리](../log-query/log-query-overview.md) 자세한 Azure 진단 데이터를 볼 수 있습니다.
+* [Azure Monitor의 로그 쿼리](../log-query/log-query-overview.md) 를 사용 하 여 자세한 Azure 진단 데이터를 볼 수 있습니다.

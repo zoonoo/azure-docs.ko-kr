@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: mathoma
-ms.openlocfilehash: 57a325dd297955296a94db134b6a2a6d58a37f03
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a91098d06f481afaae75eb497d5a076c3eb42c07
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828606"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72896947"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM에 대한 스토리지 구성
 
@@ -28,7 +28,7 @@ Azure에서 SQL Server 가상 머신 이미지를 구성하는 경우 포털에�
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 자동화된 스토리지 구성 설정을 사용하려면 가상 머신에는 다음과 같은 특성이 필요합니다.
 
@@ -62,7 +62,7 @@ SQL Server 갤러리 이미지를 사용 하 여 Azure VM을 프로 비전 할 �
 
 
    > [!TIP]
-   > 저장소 구성이 선택한 VM 크기에 적용 되는 제한과 일치 해야 합니다. VM 크기의 성능 끝을 초과 하는 저장소 매개 변수를 선택 하면 오류가 발생 합니다. `The desired performance might not be reached due to the maximum virtual machine disk performance cap.`입니다. 디스크 유형을 변경 하 여 IOPs를 줄이거나 VM 크기를 늘려 성능 cap 제한을 늘립니다. 
+   > 저장소 구성이 선택한 VM 크기에 적용 되는 제한과 일치 해야 합니다. VM 크기의 성능 끝을 초과 하는 저장소 매개 변수를 선택 하면 오류가 발생 합니다. `The desired performance might not be reached due to the maximum virtual machine disk performance cap.`. 디스크 유형을 변경 하 여 IOPs를 줄이거나 VM 크기를 늘려 성능 cap 제한을 늘립니다. 
 
 
 선택을 기반으로 Azure는 VM을 만든 후에 다음과 같은 스토리지 구성 작업을 수행합니다.
@@ -99,7 +99,7 @@ Azure에서 스토리지 설정을 구성하는 방법에 대한 자세한 내�
 * SQL 데이터
 * SQL 로그
 * 기타(비 SQL 스토리지)
-* 사용 가능
+* 사용할 수 있음
 
 저장소 설정을 수정 하려면 **설정**아래에서 **구성** 을 선택 합니다. 
 
@@ -111,7 +111,7 @@ SQL Server VM 만들기 프로세스 중에 구성 된 드라이브에 대 한 �
 
 
 
-## <a name="storage-configuration"></a>스토리지 구성
+## <a name="storage-configuration"></a>Storage 구성
 
 이 섹션에서는 SQL VM을 프로 비전 하는 동안 Azure에서 자동으로 수행 하는 저장소 구성 변경 내용 및 Azure Portal 구성에 대 한 참조를 제공 합니다.
 
@@ -124,21 +124,18 @@ SQL Server VM 만들기 프로세스 중에 구성 된 드라이브에 대 한 �
 
 Azure는 다음 설정을 사용하여 SQL Server VM에 스토리지 풀을 만듭니다.
 
-| 설정 | 값 |
+| 설정 | Value |
 | --- | --- |
 | 스트라이프 크기 |256KB(데이터 웨어하우징); 64KB(트랜잭션) |
 | 디스크 크기 |각각 1TB |
-| 캐시 |Read |
+| 캐시 |읽기 |
 | 할당 크기 |64KB NTFS 할당 단위 크기 |
-| 즉시 파일 초기화 |Enabled |
-| 메모리 내 페이지 잠금 |Enabled |
-| 복구 |단순 복구(복원력 없음) |
-| 열 수 |데이터 디스크 수<sup>1</sup> |
-| TempDB 위치 |데이터 디스크에 저장됨<sup>2</sup> |
+| 복구 | 단순 복구(복원력 없음) |
+| 열 수 |최대 8<sup>개의</sup> 데이터 디스크 수 |
+
 
 <sup>1</sup> 스토리지 풀을 만든 후에 스토리지 풀에서 열 수를 변경할 수 없습니다.
 
-<sup>2</sup> 이 설정은 스토리지 구성 기능을 사용하는 첫 번째 드라이브에만 적용됩니다.
 
 ## <a name="workload-optimization-settings"></a>워크로드 최적화 설정
 

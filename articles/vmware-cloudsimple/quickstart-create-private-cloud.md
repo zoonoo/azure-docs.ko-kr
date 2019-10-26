@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b38779681dfe612369fefb9d752389395965e7b4
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: c32045c6d68a813eaeb6e4e5de433160c2a30634
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285773"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901450"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>빠른 시작-사설 클라우드 환경 구성
 
 이 문서에서는 CloudSimple 사설 클라우드를 만들고 사설 클라우드 환경을 설정 하는 방법에 대해 알아봅니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 [네트워킹 필수 구성 요소](cloudsimple-network-checklist.md)를 검토 합니다.
 
@@ -42,12 +42,12 @@ ms.locfileid: "72285773"
 
 5. CloudSimple 포털에서 사설 클라우드의 이름을 제공 합니다.
 6. 사설 클라우드의 **위치** 를 선택 합니다.
-7. Azure에서 구매한 항목과 일치 하는 **노드 유형**을 선택 합니다.
+7. Azure에서 프로 비전 한 것과 일치 하는 **노드 유형**을 선택 합니다.
 8. **노드 수**를 지정 합니다.  사설 클라우드를 만들려면 노드가 세 개 이상 필요 합니다.
 
     ![사설 클라우드 만들기-기본 정보](media/create-private-cloud-basic-info.png)
 
-9. **다음: 고급 옵션 @ no__t-0.
+9. **다음: 고급 옵션**을 클릭 합니다.
 10. VSphere/Vsphere 서브넷의 CIDR 범위를 입력 합니다. CIDR 범위가 온-프레미스 또는 기타 Azure 서브넷 (가상 네트워크) 또는 게이트웨이 서브넷과 겹치지 않는지 확인 합니다.
 
     **CIDR 범위 옵션:** /24,/23,/22 또는/21. /24 CIDR 범위는 최대 26 개의 노드를 지원 하 고/23 CIDR 범위는 최대 58 노드를 지원 하며,/22 및/21 CIDR 범위는 64 노드 (사설 클라우드의 최대 노드 수)를 지원 합니다.  Vlan 및 서브넷에 대 한 자세한 내용은 [vlan 및 서브넷 개요](cloudsimple-vlans-subnets.md)를 참조 하세요.
@@ -55,7 +55,7 @@ ms.locfileid: "72285773"
       > [!IMPORTANT]
       > VSphere/Vsphere CIDR 범위의 IP 주소는 사설 클라우드 인프라에서 사용 하도록 예약 되어 있습니다.  가상 머신에서는이 범위의 IP 주소를 사용 하지 마세요.
 
-11. **다음: @ No__t-0을 검토 하 고 만듭니다.
+11. **다음: 검토 및 만들기**를 클릭 합니다.
 12. 설정을 검토 합니다. 설정을 변경 해야 하는 경우에는 **이전**을 클릭 합니다.
 13. **만들기**를 클릭합니다.
 
@@ -139,7 +139,7 @@ VPN 클라이언트는 컴퓨터에서 CloudSimple에 연결 하는 데 필요 �
 5. 목록에서 VLAN ID를 선택 합니다.  
 6. 서브넷을 식별 하는 서브넷 이름을 입력 합니다.
 7. 서브넷 CIDR 범위와 마스크를 지정 하십시오.  이 범위는 기존 서브넷과 겹치지 않아야 합니다.
-8. **제출**을 클릭합니다.
+8. **Submit**를 클릭합니다.
 
     ![VLAN/서브넷 세부 정보 만들기](media/create-new-vlan-subnet-details.png)
 
@@ -169,11 +169,11 @@ CloudSimple은 vCenter에 처음 로그인 할 때 암호를 변경 하는 것�
 사용자가 설정 하는 암호는 다음 요구 사항을 충족 해야 합니다.
 
 * 최대 수명: 365 일 마다 암호를 변경 해야 합니다.
-* 다시 사용 제한: 사용자는 이전 5 개 암호를 다시 사용할 수 없습니다.
-* 소요 시간: 8-20 문자
+* 다시 사용 제한: 사용자는 이전의 5 개 암호를 다시 사용할 수 없습니다.
+* 길이: 8-20 문자
 * 특수 문자: 하나 이상의 특수 문자
 * 영문자: 하나 이상의 대문자, a-z 및 하나 이상의 소문자, a-z
-* 번호 하나 이상의 숫자 문자, 0-9
+* 숫자: 하나 이상의 숫자 문자, 0-9
 * 최대 동일한 인접 문자: 3
 
     예: CC 또는 CCC는 암호의 일부로 허용 되지만 CCCC는 허용 되지 않습니다.

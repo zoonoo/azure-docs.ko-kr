@@ -10,15 +10,15 @@ ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/02/2019
+ms.date: 10/24/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 105728bdab9c70bb807f38e4a09d5be863694c16
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: f453a0276a3448273964a589112e21ca5665c2d2
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231966"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900132"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 고급 인증 및 권한 부여 사용
 
@@ -42,7 +42,7 @@ ms.locfileid: "70231966"
 
 **요청이 인증되지 않은 경우 수행할 작업**에서 **익명 요청 허용(작업 없음)** 을 선택합니다.
 
-로그인 페이지, 탐색 모음 또는 앱의 다른 위치에서 사용하도록 설정한 각 공급자에 로그인 링크를 추가합니다(`/.auth/login/<provider>`). 예를 들어:
+로그인 페이지, 탐색 모음 또는 앱의 다른 위치에서 사용하도록 설정한 각 공급자에 로그인 링크를 추가합니다(`/.auth/login/<provider>`). 다음은 그 예입니다.
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -64,7 +64,7 @@ ms.locfileid: "70231966"
 
 클라이언트 리디렉션 로그인에 애플리케이션은 사용자가 수동으로 공급자에 로그인한 다음, 유효성 검사를 위해 인증 토큰을 App Service에 제출합니다([인증 흐름](overview-authentication-authorization.md#authentication-flow) 참조). 이 유효성 검사 자체는 실제로 원하는 앱 리소스에 대한 액세스 권한을 부여하지 않지만, 유효성 검사가 성공하면 앱 리소스에 액세스하는 데 사용할 수 있는 세션 토큰이 제공됩니다. 
 
-공급자 토큰의 유효성을 검사하려면 먼저 원하는 공급자를 사용하여 App Service 앱을 구성해야 합니다. 런타임 시 공급자에서 인증 토큰을 검색한 후 유효성 검사를 위해 토큰을 `/.auth/login/<provider>`에 게시합니다. 예: 
+공급자 토큰의 유효성을 검사하려면 먼저 원하는 공급자를 사용하여 App Service 앱을 구성해야 합니다. 런타임 시 공급자에서 인증 토큰을 검색한 후 유효성 검사를 위해 토큰을 `/.auth/login/<provider>`에 게시합니다. 다음은 그 예입니다. 
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -75,7 +75,7 @@ Content-Type: application/json
 
 토큰 형식은 공급자에 따라 약간 다릅니다. 자세한 내용은 다음 표를 참조하세요.
 
-| 공급자 값 | 요청 본문에 필요 | 주석 |
+| 공급자 값 | 요청 본문에 필요 | 의견 |
 |-|-|-|
 | `aad` | `{"access_token":"<access_token>"}` | |
 | `microsoftaccount` | `{"access_token":"<token>"}` | `expires_in` 속성은 선택 사항입니다. <br/>Live 서비스에서 토큰을 요청하는 경우 항상 `wl.basic` 범위를 요청합니다. |
@@ -95,7 +95,7 @@ Content-Type: application/json
 }
 ```
 
-이 세션 토큰이 있으면 `X-ZUMO-AUTH` 헤더를 HTTP 요청에 추가하여 보호된 앱 리소스에 액세스할 수 있습니다. 예: 
+이 세션 토큰이 있으면 `X-ZUMO-AUTH` 헤더를 HTTP 요청에 추가하여 보호된 앱 리소스에 액세스할 수 있습니다. 다음은 그 예입니다. 
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
@@ -116,7 +116,7 @@ X-ZUMO-AUTH: <authenticationToken_value>
 <a href="/.auth/logout">Sign out</a>
 ```
 
-기본적으로 성공적인 로그아웃은 클라이언트를 `/.auth/logout/done` URL로 리디렉션합니다. `post_logout_redirect_uri` 쿼리 매개 변수를 추가하여 로그아웃 후 리디렉션 페이지를 변경할 수 있습니다. 예를 들어:
+기본적으로 성공적인 로그아웃은 클라이언트를 `/.auth/logout/done` URL로 리디렉션합니다. `post_logout_redirect_uri` 쿼리 매개 변수를 추가하여 로그아웃 후 리디렉션 페이지를 변경할 수 있습니다. 다음은 그 예입니다.
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
@@ -153,7 +153,7 @@ App Service는 특수 헤더를 사용하여 사용자 클레임을 애플리케
 * X-MS-CLIENT-PRINCIPAL-NAME
 * X-MS-CLIENT-PRINCIPAL-ID
 
-모든 언어로 작성된 코드 또는 프레임워크는 이러한 헤더에서 필요한 정보를 가져올 수 있습니다. ASP.NET 4.6 앱의 경우 **ClaimsPrincipal** 이 적절한 값으로 자동 설정됩니다.
+모든 언어로 작성된 코드 또는 프레임워크는 이러한 헤더에서 필요한 정보를 가져올 수 있습니다. ASP.NET 4.6 앱의 경우 **ClaimsPrincipal** 이 적절한 값으로 자동 설정됩니다. 그러나 ASP.NET Core App Service 사용자 클레임과 통합 되는 인증 미들웨어는 제공 하지 않습니다. 해결 방법은 [MaximeRouiller. AppService. EasyAuth](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)를 참조 하세요.
 
 또한 애플리케이션에서 `/.auth/me`를 호출하여 인증된 사용자에 대한 추가 세부 사항을 가져올 수 있습니다. Mobile Apps 서버 SDK는 이 데이터를 사용하기 위한 도우미 메서드를 제공합니다. 자세한 내용은 [Azure Mobile Apps Node.js SDK를 사용하는 방법](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) 및 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info)을 참조하세요.
 
@@ -185,7 +185,7 @@ App Service는 특수 헤더를 사용하여 사용자 클레임을 애플리케
 - **Microsoft 계정**: [Microsoft 계정 인증 설정을 구성](configure-authentication-provider-microsoft.md)할 때 `wl.offline_access` 범위를 선택합니다.
 - **Azure Active Directory**: [https://resources.azure.com](https://resources.azure.com)에서 다음 단계를 수행합니다.
     1. 페이지의 위쪽에서 **읽기/쓰기**를 선택합니다.
-    2. 왼쪽 브라우저에서 **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > **_\<resource\_group\_name>_** > **providers** > **Microsoft.Web** > **사이트** > **_\<app\_name>_** > **config** > **authsettings**로 이동합니다. 
+    2. 왼쪽 브라우저에서 **subscriptions** >  **_\<subscription\_name_**  > **resourceGroups** >  **_\<resource\_group\_name>_**  > **providers** > **Microsoft.Web** > **사이트** >  **_\<app\_name>_**  > **config** > **authsettings**로 이동합니다. 
     3. **편집**을 클릭합니다.
     4. 다음 속성을 수정합니다. _\<app\_id&gt;_ 를 액세스하려는 서비스의 Azure Active Directory 애플리케이션 ID로 바꿉니다.
 
@@ -197,7 +197,7 @@ App Service는 특수 헤더를 사용하여 사용자 클레임을 애플리케
 
 공급자가 구성되면 토큰 저장소에서 [새로 고침 토큰 및 액세스 토큰에 대한 만료 시간 찾을](#retrieve-tokens-in-app-code) 수 있습니다. 
 
-언제 든 지 액세스 토큰을 새로 고치려면 모든 언어로를 `/.auth/refresh` 호출 하면 됩니다. 다음 코드 조각은 jQuery를 사용하여 JavaScript 클라이언트에서 액세스 토큰을 새로 고칩니다.
+언제 든 지 액세스 토큰을 새로 고치려면 모든 언어로 `/.auth/refresh`를 호출 하면 됩니다. 다음 코드 조각은 jQuery를 사용하여 JavaScript 클라이언트에서 액세스 토큰을 새로 고칩니다.
 
 ```JavaScript
 function refreshTokens() {
@@ -232,7 +232,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Microsoft 계정과 Azure Active Directory는 모두 여러 도메인에서 로그인할 수 있습니다. 예를 들어 Microsoft 계정은 _outlook.com_, _live.com_ 및 _hotmail.com_ 계정을 허용합니다. Azure AD는 로그인 계정에 대해 원하는 수의 사용자 지정 도메인을 허용 합니다. 그러나 사용자의 브랜드 Azure AD 로그인 페이지 (예: `contoso.com`)로 직접 사용자를 가속화 하는 것이 좋습니다. 로그인 계정의 도메인 이름을 제안 하려면 다음 단계를 수행 합니다.
 
-[https://resources.azure.com](https://resources.azure.com)에서 **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > **_\<resource\_group\_name>_** > **providers** > **Microsoft.Web** > **사이트** > **_\<app\_name>_** > **config** > **authsettings**로 이동합니다. 
+[https://resources.azure.com](https://resources.azure.com)에서 **subscriptions** >  **_\< subscription\_ name_**  > **resourceGroups** >  **_\< resource\_ group\_ name>_**  > **providers** > **Microsoft.Web** > **사이트** >  **_\< app\_ name>_**  > **config** > **authsettings**로 이동합니다. 
 
 **편집**을 클릭하고 다음 속성을 수정한 다음, **배치**를 클릭합니다. _\<domain\_name>_ 을 원하는 도메인으로 바꿨는지 확인합니다.
 
@@ -243,7 +243,7 @@ Microsoft 계정과 Azure Active Directory는 모두 여러 도메인에서 로�
 이 설정은 `domain_hint` 쿼리 문자열 매개 변수를 로그인 리디렉션 URL에 추가 합니다. 
 
 > [!IMPORTANT]
-> 클라이언트는 리디렉션 URL을 받은 후 `domain_hint` 매개 변수를 제거 하 고 다른 도메인으로 로그인 할 수 있습니다. 따라서이 함수는 편리 하지만 보안 기능이 아닙니다.
+> 클라이언트는 리디렉션 URL을 받은 후 `domain_hint` 매개 변수를 제거 하 고 다른 도메인을 사용 하 여 로그인 할 수 있습니다. 따라서이 함수는 편리 하지만 보안 기능이 아닙니다.
 >
 
 ## <a name="authorize-or-deny-users"></a>사용자 권한 부여 또는 거부
@@ -258,11 +258,11 @@ App Service는 가장 간단한 인증 사례 (예: 인증 되지 않은 요청 
 
 모든 Windows 앱의 경우 *web.config 파일을* 편집 하 여 IIS 웹 서버의 권한 부여 동작을 정의할 수 있습니다. Linux 앱은 IIS를 사용 하지 않으며 *web.config*를 통해 구성할 수 없습니다.
 
-1. 탐색`https://<app-name>.scm.azurewebsites.net/DebugConsole`
+1. `https://<app-name>.scm.azurewebsites.net/DebugConsole` 탐색
 
-1. App Service 파일의 브라우저 탐색기에서 *site/wwwroot*로 이동 합니다. *Web.config가* 없는 경우 **+** **새 파일**을 선택  > 하 여 만듭니다. 
+1. App Service 파일의 브라우저 탐색기에서 *site/wwwroot*로 이동 합니다. *Web.config가 존재 하지 않는* 경우 **+**  > **새 파일**을 선택 하 여 만듭니다. 
 
-1. *Web.config* 의 연필을 선택 하 여 편집 합니다. 다음 구성 코드를 추가 하 고 **저장**을 클릭 합니다. Web.config *가 이미 있는 경우 요소* 를 포함 하는 `<authorization>` 요소를 추가 하기만 하면 됩니다. `<allow>` 요소에 허용 하려는 계정을 추가 합니다.
+1. *Web.config* 의 연필을 선택 하 여 편집 합니다. 다음 구성 코드를 추가 하 고 **저장**을 클릭 합니다. Web.config *가 이미 있는 경우에* 는 `<authorization>` 요소를 모든 항목에 추가 하기만 하면 됩니다. `<allow>` 요소에 허용 하려는 계정을 추가 합니다.
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -278,7 +278,7 @@ App Service는 가장 간단한 인증 사례 (예: 인증 되지 않은 요청 
 
 ### <a name="identity-provider-level"></a>Id 공급자 수준
 
-Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 예:
+Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 다음은 그 예입니다.
 
 - [Azure App Service](configure-authentication-provider-aad.md)의 경우 Azure AD에서 직접 [엔터프라이즈 수준의 액세스를 관리할](../active-directory/manage-apps/what-is-access-management.md) 수 있습니다. 자세한 내용은 [응용 프로그램에 대 한 사용자 액세스를 제거 하는 방법](../active-directory/manage-apps/methods-for-removing-user-access.md)을 참조 하세요.
 - [Google](configure-authentication-provider-google.md)의 경우 조직에 속한 google API 프로젝트는 조직의 사용자 에게만 액세스를 허용 하도록 구성할 [수 있습니다 (](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) [Google의 **OAuth 2.0 지원 설정** 페이지](https://support.google.com/cloud/answer/6158849?hl=en)참조).

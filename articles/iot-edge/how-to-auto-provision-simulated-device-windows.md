@@ -9,16 +9,18 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 16ac8ef9e0fb876103b57b1cc463bdae5b2362b7
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 5842d6fcb5f03754fc8f5922e299d0d9c30d21db
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828100"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900825"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Windows에서 가상 TPM을 사용 하 여 시뮬레이트된 IoT Edge 장치 만들기 및 프로 비전
 
 Edge를 사용하지 않는 디바이스와 마찬가지로 [Device Provisioning Service](../iot-dps/index.yml)를 사용하여 Azure IoT Edge 디바이스를 자동 프로비전할 수 있습니다. 자동 프로비전 프로세스에 익숙하지 않은 경우 계속하기 전에 [자동 프로비전 개념](../iot-dps/concepts-auto-provisioning.md)을 검토하세요.
+
+DPS는 개별 등록 및 그룹 등록 모두에서 IoT Edge 장치에 대 한 대칭 키 증명을 지원 합니다. 그룹 등록의 경우 대칭 키 증명에서 "IoT Edge 장치" 옵션을 true로 선택 하면 해당 등록 그룹에 등록 된 모든 장치가 IoT Edge 장치로 표시 됩니다. 
 
 이 문서에서는 다음 단계를 사용 하 여 시뮬레이트된 IoT Edge 장치에서 자동 프로 비전을 테스트 하는 방법을 보여 줍니다.
 
@@ -33,10 +35,10 @@ Edge를 사용하지 않는 디바이스와 마찬가지로 [Device Provisioning
 > [!TIP]
 > 이 문서에서는 가상 장치에서 TPM 증명을 사용 하 여 자동 프로 비전 테스트에 대해 설명 하지만, 실제 TPM 하드웨어를 사용 하는 경우에도 대부분 적용 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * Windows 개발 컴퓨터. 이 문서에서는 Windows 10을 사용합니다.
-* 활성 IoT Hub
+* 활성 IoT Hub.
 
 ## <a name="set-up-the-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service 설정
 
@@ -64,7 +66,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 * [C](../iot-dps/quick-create-simulated-device.md)
 * [Java](../iot-dps/quick-create-simulated-device-tpm-java.md)
 * [C#](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
-* [Node.JS](../iot-dps/quick-create-simulated-device-tpm-node.md)
+* [Node.js](../iot-dps/quick-create-simulated-device-tpm-node.md)
 * [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
 
 개별 등록을 만든 후 **등록 ID** 값을 저장합니다. IoT Edge 런타임을 구성하는 경우 이 값을 사용합니다.
@@ -96,9 +98,9 @@ Windows에 IoT Edge를 설치 하는 방법에 대 한 자세한 내용은 컨�
 
 1. 이 시점에서 IoT Core 장치가 자동으로 다시 시작 될 수 있습니다. 다른 Windows 10 또는 Windows Server 장치를 다시 시작 하 라는 메시지가 표시 될 수 있습니다. 그렇다면 장치를 지금 다시 시작 하세요. 장치가 준비 되 면 관리자 권한으로 PowerShell을 다시 실행 합니다.
 
-1. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 이 명령은 Windows 컨테이너를 통한 수동 프로비저닝으로 기본 설정됩니다. 수동 프로 `-Dps` 비전 대신 장치 프로 비전 서비스를 사용 하려면 플래그를 사용 합니다.
+1. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 이 명령은 Windows 컨테이너를 통한 수동 프로비저닝으로 기본 설정됩니다. 수동 프로 비전 대신 장치 프로 비전 서비스를 사용 하려면 `-Dps` 플래그를 사용 합니다.
 
-   @No__t-0 및 `{registration_id}`에 대 한 자리 표시자 값을 앞에서 수집한 데이터로 바꿉니다.
+   `{scope_id}` 및 `{registration_id}`에 대 한 자리 표시자 값을 앞에서 수집한 데이터로 바꿉니다.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `

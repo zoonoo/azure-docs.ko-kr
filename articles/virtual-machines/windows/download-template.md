@@ -14,28 +14,24 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 37e833e5ba2fcbc9fcfe0a27d5b607a5c6cdd55b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 39abe054869bf68a254b9305a680ecc892359300
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079524"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898880"
 ---
 # <a name="download-the-template-for-a-vm"></a>VM에 대한 템플릿 다운로드
 포털 또는 PowerShell을 사용하여 Azure에서 VM을 만들 때 Resource Manager 템플릿은 자동으로 만들어집니다. 배포를 빠르게 복제하는 데 이 템플릿을 사용할 수 있습니다. 템플릿은 리소스 그룹에 있는 모든 리소스에 대한 정보를 포함합니다. 즉 가상 머신의 경우 네트워킹 리소스를 포함하여 해당 리소스 그룹에서 VM을 지원하기 위해 만든 모든 항목이 템플릿에 있음을 의미합니다.
 
 ## <a name="download-the-template-using-the-portal"></a>포털을 사용한 템플릿 다운로드
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/) 에 로그인합니다.
 2. 왼쪽 메뉴에서 **Virtual Machines**을 선택합니다.
-3. 목록에서 가상 머신을 선택합니다.
-4. **템플릿 내보내기**를 선택 합니다.
+3. 목록에서 가상 컴퓨터를 선택합니다.
+4. **템플릿 내보내기**를 선택합니다.
 5. 위쪽의 메뉴에서 **다운로드**를 선택하고 .zip 파일을 로컬 컴퓨터에 저장합니다.
 6. .zip 파일을 열고 파일을 폴더에 풉니다. .zip 파일에는 다음 항목이 포함되어 있습니다.
    
-   * deploy.ps1
-   * deploy.sh 
-   * deployer.rb
-   * DeploymentHelper.cs
    * parameters.json
    * template.json
 

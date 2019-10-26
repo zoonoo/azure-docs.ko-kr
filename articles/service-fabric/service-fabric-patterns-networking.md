@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: 90b2a1954d60f1e86ab61afb264483177f4aca3b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 638ee162b770f949eaf0a0fc34b745698364d019
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073946"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900104"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 네트워킹 패턴
 다른 Azure 네트워킹 기능으로 Azure Service Fabric 클러스터를 통합할 수 있습니다. 이 문서에서는 다음과 같은 기능을 사용하여 클러스터를 만드는 방법을 보여 줍니다.
@@ -30,6 +30,8 @@ ms.locfileid: "70073946"
 - [내부 및 외부 부하 분산 장치](#internalexternallb)
 
 Service Fabric은 표준 가상 머신 확장 집합에서 실행됩니다. 가상 머신 확장 집합에서 사용할 수 있는 모든 기능을 Service Fabric 클러스터에서 사용할 수 있습니다. 가상 머신 확장 집합 및 Service Fabric에 대한 Azure Resource Manager 템플릿의 네트워킹 섹션은 동일합니다. 기존 가상 네트워크에 배포한 후 Azure ExpressRoute, Azure VPN Gateway, 네트워크 보안 그룹 및 가상 네트워크의 피어링 등의 다른 네트워킹 기능을 쉽게 통합할 수 있습니다.
+
+### <a name="allowing-the-service-fabric-resource-provider-to-query-your-cluster"></a>Service Fabric 리소스 공급자가 클러스터를 쿼리할 수 있도록 허용
 
 Service Fabric은 한 가지 측면에서 다른 네트워킹 기능과 다릅니다. [Azure Portal](https://portal.azure.com)이 내부적으로 Service Fabric 리소스 공급자를 사용하여 노드 및 애플리케이션에 대한 정보를 얻기 위해 클러스터를 호출한다는 것이 바로 그것입니다. Service Fabric 리소스 공급자는 관리 엔드포인트에서 HTTP 게이트웨이 포트(기본적으로 19080)에 대해 공개적으로 액세스 가능한 인바운드 액세스 권한이 필요합니다. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 관리 엔드포인트를 사용하여 클러스터를 관리합니다. 또한 Service Fabric 리소스 공급자는 Azure Portal에 표시하기 위해 클러스터에 대한 정보를 쿼리하는 데도 이 포트를 사용합니다. 
 
@@ -293,7 +295,7 @@ DnsSettings              : {
 <a id="internallb"></a>
 ## <a name="internal-only-load-balancer"></a>내부 전용 부하 분산 장치
 
-이 시나리오에서는 기본 Service Fabric 템플릿의 외부 부하 분산 장치를 내부 전용 부하 분산 장치로 바꿉니다. Azure Portal 및 Service Fabric 리소스 공급자의 의미에 대해서는 이전 섹션을 참조합니다.
+이 시나리오에서는 기본 Service Fabric 템플릿의 외부 부하 분산 장치를 내부 전용 부하 분산 장치로 바꿉니다. Azure Portal 및 Service Fabric 리소스 공급자에 대 한 의미는이 [문서의 앞부분에 있는](#allowing-the-service-fabric-resource-provider-to-query-your-cluster) 을 참조 하세요.
 
 1. `dnsName` 매개 변수를 제거합니다. (필수는 아닙니다.)
 
@@ -391,7 +393,7 @@ DnsSettings              : {
 <a id="internalexternallb"></a>
 ## <a name="internal-and-external-load-balancer"></a>내부 및 외부 부하 분산 장치
 
-이 시나리오는 기존 단일 노드 형식 외부 부하 분산 장치로 시작하고 동일한 노드 형식에 대한 내부 부하 분산 장치를 추가합니다. 백 엔드 주소 풀에 연결된 백 엔드 포트는 단일 부하 분산 장치에만 할당할 수 있습니다. 애플리케이션 포트를 포함할 부하 분산 장치 및 관리 엔드포인트를 포함할 부하 분산 장치를 선택합니다(포트 19000 및 19080). 내부 부하 분산 장치에 관리 엔드포인트를 둘 경우 이 문서 앞부분에서 제시된 Service Fabric 리소스 공급자 제한 사항에 유의하세요. 사용하는 예제에서 관리 엔드포인트는 외부 부하 분산 장치에 유지됩니다. 또한 포트 80을 애플리케이션 포트에 추가한 후 내부 부하 분산 장치에 배치합니다.
+이 시나리오는 기존 단일 노드 형식 외부 부하 분산 장치로 시작하고 동일한 노드 형식에 대한 내부 부하 분산 장치를 추가합니다. 백 엔드 주소 풀에 연결된 백 엔드 포트는 단일 부하 분산 장치에만 할당할 수 있습니다. 애플리케이션 포트를 포함할 부하 분산 장치 및 관리 엔드포인트를 포함할 부하 분산 장치를 선택합니다(포트 19000 및 19080). 내부 부하 분산 장치에 관리 끝점을 배치 하는 경우이 [문서의 앞부분에서](#allowing-the-service-fabric-resource-provider-to-query-your-cluster)설명한 Service Fabric 리소스 공급자 제한 사항에 유의 하세요. 사용하는 예제에서 관리 엔드포인트는 외부 부하 분산 장치에 유지됩니다. 또한 포트 80을 애플리케이션 포트에 추가한 후 내부 부하 분산 장치에 배치합니다.
 
 두 노드 형식 클러스터에서 한 노드 형식은 외부 부하 분산 장치에 있습니다. 다른 노드 형식은 내부 부하 분산 장치에 있습니다. 두 노드 형식 클러스터를 사용하려면 포털에서 만들어진 두 노드 형식 템플릿(두 가지 부하 분산 장치와 함께 제공)에서 두 번째 부하 분산 장치를 내부 부하 분산 장치로 전환합니다. 자세한 내용은 [내부 전용 부하 분산 장치](#internallb) 섹션을 참조하세요.
 

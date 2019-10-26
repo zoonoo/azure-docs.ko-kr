@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: atsenthi
-ms.openlocfilehash: 4a865102cbc33da4140f3e25e4b4926eade8e162
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 241349724929845afa2fd2a4bacabf9b5017cc7c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599960"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901561"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기 
 > [!div class="op_single_selector"]
 > * [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
-> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
+> * [Azure 포털](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
 [Azure Service Fabric 클러스터](service-fabric-deploy-anywhere.md)는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 머신 집합입니다.  Azure에서 실행 중인 Service Fabric 클러스터는 Azure 리소스이며, Azure Resource Manager를 사용하여 배포됩니다. 이 문서에서는 Resource Manager를 사용하여 Azure에 보안 Service Fabric 클러스터를 설정하는 방법을 설명합니다. 기본 클러스터 템플릿 또는 사용자 지정 템플릿을 사용할 수 있습니다.  사용자 지정 템플릿이 아직 없는 경우 [템플릿 만드는 방법을 알아볼](service-fabric-cluster-creation-create-template.md) 수 있습니다.
 
-클러스터 보안은 클러스터가 먼저 설정된 후에 구성되며 나중에 변경할 수 없습니다. 클러스터를 설정 하기 전에 [Service Fabric 클러스터 보안 시나리오][service-fabric-cluster-security]를 참조 하세요. Azure에서 Service Fabric은 x509 인증서를 사용하여 클러스터 및 해당 엔드포인트를 보호하고, 클라이언트를 인증하고, 데이터를 암호화합니다. 관리 엔드포인트에 대한 액세스를 보호하려면 Azure Active Directory를 사용하는 것도 좋습니다. Azure AD 테넌트 및 사용자는 클러스터를 만들기 전에 생성되어야 합니다.  자세한 내용은 [클라이언트를 인증하도록 Azure AD 설정](service-fabric-cluster-creation-setup-aad.md)을 읽어보세요.
+클러스터를 보호 하기 위해 선택한 보안 유형 (즉, Windows id, X509 등)은 클러스터를 처음 만들 때 지정 해야 하며 이후에는 변경할 수 없습니다. 클러스터를 설정 하기 전에 [Service Fabric 클러스터 보안 시나리오][service-fabric-cluster-security]를 참조 하세요. Azure에서 Service Fabric은 x509 인증서를 사용하여 클러스터 및 해당 엔드포인트를 보호하고, 클라이언트를 인증하고, 데이터를 암호화합니다. 관리 엔드포인트에 대한 액세스를 보호하려면 Azure Active Directory를 사용하는 것도 좋습니다. 자세한 내용은 [클라이언트를 인증하도록 Azure AD 설정](service-fabric-cluster-creation-setup-aad.md)을 읽어보세요.
 
 프로덕션 워크로드를 실행할 프로덕션 클러스터를 만들려면 먼저 [프로덕션 준비 검사 목록](service-fabric-production-readiness-checklist.md)을 읽어보는 것이 좋습니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "68599960"
 * [Azure CLI 버전 2.0 이상][azure-CLI]
 
 Service Fabric 모듈에 대한 참조 설명서를 여기에서 찾을 수 있습니다.
-* [Az.ServiceFabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
+* [Az. ServiceFabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
 * [az SF CLI module](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
@@ -290,7 +290,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이 시점에 Azure에서 실행되는 보안 클러스터가 생깁니다. 다음으로, [클러스터에 연결](service-fabric-connect-to-secure-cluster.md)하고 [애플리케이션 비밀을 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.
+이 시점에 Azure에서 실행되는 보안 클러스터가 생깁니다. 다음으로, [클러스터에 연결](service-fabric-connect-to-secure-cluster.md)하고 [애플리케이션 암호를 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.
 
 템플릿을 사용하는 데 필요한 JSON 구문 및 속성은 [Microsoft.ServiceFabric/clusters 템플릿 참조](/azure/templates/microsoft.servicefabric/clusters)에서 확인하세요.
 

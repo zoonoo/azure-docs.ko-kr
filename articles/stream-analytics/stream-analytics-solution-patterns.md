@@ -1,18 +1,18 @@
 ---
 title: Azure Stream Analytics 솔루션 패턴
-description: Azure Stream Analytics에 대 한 다양 한 일반적인 솔루션 패턴에 대해 알아봅니다.
+description: 대시보드, 이벤트 메시징, 데이터 저장소, 참조 데이터 보강, 모니터링 등의 Azure Stream Analytics에 대 한 일반적인 솔루션 패턴에 대해 알아봅니다.
 author: zhongc
 ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: cbc9ffe9510cf0888e8d8b62ea112b6517117eed
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 2d936a538a54edce9e3f13ea7865d57b8243c4a5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173033"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901686"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Azure Stream Analytics 솔루션 패턴
 

@@ -1,23 +1,18 @@
 ---
 title: Azure 애플리케이션 Insights 에이전트 상세 지침 | Microsoft Docs
 description: Application Insights 에이전트를 시작 하는 방법에 대 한 자세한 지침입니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
-services: application-insights
-documentationcenter: .net
-author: TimothyMothra
-manager: alexklim
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/23/2019
+author: TimothyMothra
 ms.author: tilee
-ms.openlocfilehash: d7a6db65b92ec2d3a3fdcf55aea0523f57012be1
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 04/23/2019
+ms.openlocfilehash: 8a9ae2364b51c0c201f2efffb3a7433594f76c49
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388237"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899633"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights 에이전트 (이전의 이름이 지정 된 상태 모니터 v2): 자세한 지침
 
@@ -57,7 +52,7 @@ https:/go.microsoft.com/fwlink/?LinkID=135170.
 
 ## <a name="prerequisites-for-powershell"></a>PowerShell용 필수 구성 요소
 
-@No__t-0 명령을 실행 하 여 PowerShell의 인스턴스를 감사 합니다.
+`$PSVersionTable` 명령을 실행 하 여 PowerShell의 인스턴스를 감사 합니다.
 이 명령은 다음과 같은 출력을 생성 합니다.
 
 
@@ -119,7 +114,7 @@ SerializationVersion           1.1.0.1
         'PSGallery'?
         [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
 
-    @No__t-0 명령을 실행 하 여이 변경 내용을 확인 하 고 모든 PSRepositories 감사를 수행할 수 있습니다.
+    `Get-PSRepository` 명령을 실행 하 여이 변경 내용을 확인 하 고 모든 PSRepositories 감사를 수행할 수 있습니다.
 
 4. 최신 버전의 PowerShellGet을 설치 합니다.
     - 설명:이 모듈에는 PowerShell 갤러리에서 다른 모듈을 가져오는 데 사용 되는 도구가 포함 되어 있습니다. 버전 1.0.0.1은 Windows 10 및 Windows Server와 함께 제공 됩니다. 버전 1.6.0 이상이 필요 합니다. 설치 된 버전을 확인 하려면 `Get-Command -Module PowerShellGet` 명령을 실행 합니다.
@@ -209,7 +204,7 @@ Powershell 세션에서 검색할 수 있도록 수동으로 다운로드 한 Po
 1. 확장을 ".zip"으로 변경 하 고 원하는 설치 디렉터리로 패키지의 내용을 추출 합니다.
 2. Az psd1의 파일 경로를 찾습니다.
 3. 관리자 권한으로 실행 정책을 통해 PowerShell을 관리자 권한으로 실행 합니다.
-4. @No__t-0 명령을 사용 하 여 모듈을 로드 합니다.
+4. `Import-Module Az.ApplicationMonitor.psd1` 명령을 사용 하 여 모듈을 로드 합니다.
     
 
 ## <a name="route-traffic-through-a-proxy"></a>프록시를 통해 트래픽 라우팅
@@ -224,7 +219,7 @@ Application Insights SDK는 앱의 원격 분석을 Microsoft로 전송 해야 �
 
 ## <a name="enable-monitoring"></a>모니터링 사용
 
-@No__t-0 명령을 사용 하 여 모니터링을 사용 하도록 설정 합니다.
+`Enable-ApplicationInsightsMonitoring` 명령을 사용 하 여 모니터링을 사용 하도록 설정 합니다.
 
 이 cmdlet을 사용 하는 방법에 대 한 자세한 설명은 [API 참조](status-monitor-v2-api-enable-monitoring.md) 를 참조 하세요.
 

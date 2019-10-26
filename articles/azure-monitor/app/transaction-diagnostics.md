@@ -1,23 +1,19 @@
 ---
 title: Azure Application Insights 트랜잭션 진단 | Microsoft Docs
 description: Application Insights 엔드투엔드 트랜잭션 진단
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: c6c44525018e2115f1df8ed2d3f15432b95490c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ed3713fe4a6c9403be13f444d0409af459a1e70
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60783715"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899565"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>통합된 구성 요소 간 트랜잭션 진단
 
@@ -72,11 +68,11 @@ ms.locfileid: "60783715"
 
 ## <a name="profiler-and-snapshot-debugger"></a>프로파일러 및 스냅샷 디버거
 
-[Application Insights 프로파일러](../../azure-monitor/app/profiler.md) 또는 [스냅숏 디버거](snapshot-debugger.md)는 성능 및 오류 문제에 대한 코드 수준 진단에 도움이 됩니다. 이 환경을 사용하면 한 번의 클릭으로 모든 구성 요소에서 프로파일러 추적 또는 스냅샷을 볼 수 있습니다.
+[Application Insights 프로파일러](../../azure-monitor/app/profiler.md) 또는 [스냅샷 디버거](snapshot-debugger.md)는 성능 및 오류 문제에 대한 코드 수준 진단에 도움이 됩니다. 이 환경을 사용하면 한 번의 클릭으로 모든 구성 요소에서 프로파일러 추적 또는 스냅샷을 볼 수 있습니다.
 
-Profiler 작업 못한 경우에 문의 하세요 **serviceprofilerhelp\@microsoft.com**
+프로파일러 작업을 수행할 수 없는 경우 **serviceprofilerhelp\@microsoft.com** 에 문의 하세요.
 
-스냅숏 디버거 작업 못한 경우에 문의 하세요 **snapshothelp\@microsoft.com**
+스냅숏 디버거 작업을 수행할 수 없는 경우 **snapshothelp\@microsoft.com** 에 문의 하세요.
 
 ![프로파일러 통합](media/transaction-diagnostics/profilerTraces.png)
 
@@ -92,7 +88,7 @@ Profiler 작업 못한 경우에 문의 하세요 **serviceprofilerhelp\@microso
 
 액세스 권한이 있고 구성 요소가 최신 Application Insights SDK를 통해 계측되는 경우 오른쪽 위에 있는 피드백 채널을 통해 알려주세요.
 
-*종속성에 대해 중복된 행이 표시됩니다. 이것은 예상된 동작인가요?*
+*종속성에 대 한 중복 행이 표시 됩니다. 이것이 예상 되나요?*
 
 현재 아웃바운드 종속성 호출은 인바운드 요청과는 별도로 표시됩니다. 일반적으로 두 호출은 네트워크 왕복으로 인해 기간 값만 다를 뿐 동일하게 보입니다. 기간 막대의 선행 아이콘과 고유한 스타일은 구분하는 데 도움이 됩니다. 이러한 데이터 표시가 혼란스러운가요? 의견을 보내주세요!
 

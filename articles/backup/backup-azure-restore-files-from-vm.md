@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5ff4f1ff8a3d6143285b2842c351e1d26bd356ea
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 1c0d470f12cf54c900fec3c453b7e5f07d0b2325
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210361"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900303"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -68,15 +68,15 @@ Azure Backup에서는 복구 지점이라고도 하는 Azure VM 백업에서 [Az
     - download.microsoft.com
     - Recovery Service URL(복구 서비스 자격 증명 모음이 있는 지역을 참조하는 지역 이름)
         - https:\//pod01-rec2.geo-name.backup.windowsazure.com (Azure 공용 geos의 경우)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (Azure 중국 21vianet의 경우)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (Azure 미국 정부의 경우)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (Azure 중국 21Vianet의 경우)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (Azure 미국 정부)
         - https:\//pod01-rec2.geo-name.backup.windowsazure.de (Azure 독일의 경우)
     - 아웃바운드 포트 3260
 
 > [!Note]
 > 
-> * 다운로드 한 스크립트 파일 이름에는 URL에 입력 되는 **지역 이름이** 포함 됩니다. 예를 들면 다음과 같습니다. 다운로드 \'한 스크립트 이름은 VMname\_\'geoname _GUID\'(예:ContosoVM_wcus_12345678...)로시작합니다.\'\'\'<br><br>
-> * URL은 "https:/pod01-rec2.wcus.backup.windowsazure.com\/"입니다.
+> * 다운로드 한 스크립트 파일 이름에는 URL에 입력 되는 **지역 이름이** 포함 됩니다. 예: 다운로드 한 스크립트 이름은 \'VMname\'\_\'geoname\'_\'GUID\'(예: ContosoVM_wcus_12345678 ...)로 시작 합니다.<br><br>
+> * URL은 "https:\//pod01-rec2.wcus.backup.windowsazure.com"입니다.
 
 
    Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' 및 'lshw' 구성 요소가 필요합니다. 컴퓨터에 스크립트가 실행되는 구성 요소가 없는 경우 스크립트에서 구성 요소 설치를 허가할지 묻습니다. 동의하여 필요한 구성 요소를 설치 합니다.
@@ -187,7 +187,7 @@ RAID 디스크에 다른 LVM이 구성되어 있는 경우 LVM 파티션에 대�
 
 |서버 OS | 호환되는 클라이언트 OS  |
 | --------------- | ---- |
-| Windows Server 2016    | Windows 10 |
+| Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
@@ -219,18 +219,47 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 | python | 2.6.6 이상  |
 | TLS | 1.2가 지원되어야 합니다.  |
 
+## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>디스크가 많은 가상 컴퓨터 백업에서 파일 복구
+
+이 섹션에서는 Azure 가상 컴퓨터 백업에서 파일 복구를 수행 하는 방법에 대해 설명 합니다. 디스크 수는 16 >, 각 디스크 크기는 2TB >
+
+파일 복구 프로세스는 백업의 모든 디스크를 연결 하므로 많은 수의 디스크 (> 16) 또는 대량 디스크 > (각각 4TB)의 경우에는 다음 동작 지점이 권장 됩니다.
+
+- 파일 복구를 위해 별도의 복원 서버 (Azure VM D2v3 Vm)를 유지 합니다. 파일 복구만 사용할 수 있으며 필요 하지 않은 경우에는 종료할 수 있습니다. VM 자체에 상당한 영향을 주므로 원래 컴퓨터에서 복원 하는 것은 권장 되지 않습니다.
+- 그런 다음 스크립트를 한 번 실행 하 여 파일 복구 작업이 성공 했는지 확인 합니다.
+- 파일 복구 프로세스가 중단 되 면 (디스크가 탑재 되지 않거나 탑재 되었지만 볼륨이 표시 되지 않음) 다음 단계를 수행 합니다.
+  - 복원 서버가 Windows VM 인 경우
+    - OS가 WS 2012 이상 인지 확인 합니다.
+    - 레지스트리 키가 아래 복원 서버에서 제안 된 대로 설정 되어 있는지 확인 하 고 서버를 다시 부팅 해야 합니다. GUID 옆에 있는 숫자의 범위는 0001-0005입니다. 다음 예제에서는 0004입니다. 레지스트리 키 경로를 탐색 하 여 매개 변수 섹션까지 이동 합니다.
+
+    ![iscsi-reg-key-changes](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
+
+```registry
+- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\EnableNOPOut – change this from 0 to 1
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 1200
+```
+
+- 복원 서버가 Linux VM 인 경우
+  - /Etc/iscsi/iscsid.conf 파일에서 설정을 변경 합니다.
+    - node.js [0]. timeo = 5 to node. conn [0]. timeo = 30
+- 다음 작업을 수행한 후 스크립트를 다시 실행 합니다. 이러한 변경으로 파일 복구가 성공할 가능성이 높습니다.
+- 사용자가 스크립트를 다운로드할 때마다 다운로드를 위한 복구 지점을 준비 하는 프로세스를 시작 Azure Backup. 디스크가 큰 경우에는 상당한 시간이 소요 됩니다. 요청이 연속 해 서 발생 하는 경우 대상 준비가 다운로드 나선형으로 이동 합니다. 따라서 포털/Powershell/CLI에서 스크립트를 다운로드 하 고 20-30 분 (추론)을 기다린 다음 실행 하는 것이 좋습니다. 이 시점에서는 스크립트에서 대상에 연결할 준비가 된 것으로 예상 됩니다.
+- 파일 복구 후 포털로 돌아가서 볼륨을 탑재할 수 없는 복구 지점의 "디스크 분리"를 클릭 합니다. 기본적으로이 단계는 기존 프로세스/세션을 모두 정리 하 고 복구 가능성을 높입니다.
+
 ## <a name="troubleshooting"></a>문제 해결
 
 가상 머신에서 파일을 복구하는 동안 문제가 생기는 경우 다음 표에서 추가 정보를 확인하세요.
 
-| 오류 메시지/시나리오 | 가능한 원인 | 권장 조치 |
+| 오류 메시지/시나리오 | 가능한 원인 | 권장 작업 |
 | ------------------------ | -------------- | ------------------ |
 | Exe 출력: *대상에 연결하는 동안 예외가 발생했습니다.* |스크립트가 복구 지점에 액세스할 수 없습니다.    | 컴퓨터가 이전 액세스 요구 사항을 충족하는지 확인하세요. |  
 | Exe 출력: *iSCSI 세션을 통해 대상이 이미 로그인되었습니다.* | 동일한 컴퓨터에서 스크립트가 이미 실행되었고 드라이브가 연결되었습니다. | 복구 지점의 볼륨이 이미 연결되었습니다. 원래 VM과 동일한 드라이브 문자로 탑재되지 않을 수 있습니다. 파일 탐색기에서 사용 가능한 모든 볼륨을 탐색하여 파일을 찾습니다. |
-| Exe 출력: *디스크가 포털을 통해 분리되었고 12시간 제한을 초과했으므로 이 스크립트는 유효하지 않습니다. 포털에서 새 스크립트를 다운로드하세요.* |    디스크가 포털에서 분리되었거나 12시간 제한을 초과했습니다. | 이 특정 exe는 현재 유효하지 않고 실행할 수 없습니다. 복구 지정 시간의 파일에 액세스하려면 포털에서 새 exe를 찾으세요.|
-| exe가 실행되는 머신에서: 분리 단추를 클릭하면 새 볼륨이 분리되지 않습니다. | 머신에서 iSCSI 초기자가 응답하지 않거나 대상에 대한 연결을 새로 고치지 않고 캐시를 유지 관리하지 않습니다. |  **분리**를 클릭한 후에 잠시 대기합니다. 새 볼륨이 분리되지 않으면 모든 볼륨을 탐색하세요. 모든 볼륨을 탐색하면 초기자가 강제로 연결을 새로 고치도록 하여 디스크를 사용할 수 없다는 오류 메시지와 함께 볼륨이 분리됩니다.|
-| Exe 출력: 스크립트가 성공적으로 실행되지만 스크립트 출력에 "New volumes attached(새 볼륨 연결됨)"가 표시되지 않습니다. |    일시적인 오류입니다.    | 볼륨은 이미 연결되었습니다. Explorer를 열어 탐색합니다. 스크립트를 실행할 때마다 동일한 컴퓨터를 사용하는 경우 컴퓨터를 다시 시작하면 목록이 후속 exe 실행에 표시됩니다. |
-| Linux 특정: 원하는 볼륨을 볼 수 없습니다. | 스크립트가 실행되는 컴퓨터의 OS는 보호된 VM의 기본 파일 시스템을 인식하지 못할 수도 있습니다. | 복구 지점이 충돌 일관성 또는 파일 일관성인지 확인합니다. 파일 일관성인 경우 OS가 보호된 VM의 파일 시스템을 인식하는 다른 컴퓨터에서 스크립트를 실행합니다. |
+| Exe 출력: *디스크가 포털을 통해 분리 되었거나 12 시간 제한을 초과 했기 때문에이 스크립트는 유효 하지 않습니다. 포털에서 새 스크립트를 다운로드 합니다.* |    디스크가 포털에서 분리되었거나 12시간 제한을 초과했습니다. | 이 특정 exe는 현재 유효하지 않고 실행할 수 없습니다. 복구 지정 시간의 파일에 액세스하려면 포털에서 새 exe를 찾으세요.|
+| exe가 실행되는 컴퓨터에서: 분리 단추를 클릭하면 새 볼륨이 분리되지 않습니다. | 머신에서 iSCSI 초기자가 응답하지 않거나 대상에 대한 연결을 새로 고치지 않고 캐시를 유지 관리하지 않습니다. |  **분리**를 클릭한 후에 잠시 대기합니다. 새 볼륨이 분리되지 않으면 모든 볼륨을 탐색하세요. 모든 볼륨을 탐색하면 초기자가 강제로 연결을 새로 고치도록 하여 디스크를 사용할 수 없다는 오류 메시지와 함께 볼륨이 분리됩니다.|
+| Exe 출력: 스크립트가 성공적으로 실행되지만 스크립트 출력에 "New volumes attached(새 볼륨 연결됨)"이 표시되지 않습니다. |    일시적인 오류입니다.    | 볼륨은 이미 연결되었습니다. Explorer를 열어 탐색합니다. 스크립트를 실행할 때마다 동일한 컴퓨터를 사용하는 경우 컴퓨터를 다시 시작하면 목록이 후속 exe 실행에 표시됩니다. |
+| Linux 특정: 원하는 볼륨을 볼 수 없습니다 | 스크립트가 실행되는 컴퓨터의 OS는 보호된 VM의 기본 파일 시스템을 인식하지 못할 수도 있습니다. | 복구 지점이 충돌 일관성 또는 파일 일관성인지 확인합니다. 파일 일관성인 경우 OS가 보호된 VM의 파일 시스템을 인식하는 다른 컴퓨터에서 스크립트를 실행합니다. |
 | Windows 특정: 원하는 볼륨을 볼 수 없습니다. | 디스크가 연결되었을 수도 있지만 볼륨이 구성되지 않았습니다. | 디스크 관리 화면에서 복구 지점과 관련된 추가 디스크를 식별합니다. 이러한 디스크가 오프 라인 상태 이면 디스크를 마우스 오른쪽 단추로 클릭 하 고 ' 온라인 '을 클릭 하 여 온라인으로 설정 해 보세요.|
 
 ## <a name="security"></a>보안

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 52f86f85ec303d23a78fd942276bfe46d0f12832
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: f00e7663c4ed2211927f5c8d1c131d85bc6c96dd
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030404"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900896"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>온-프레미스 워크스테이션에서 사설 클라우드 vCenter 액세스의 이름 확인에 대 한 DNS 구성
 
@@ -23,7 +23,7 @@ ms.locfileid: "72030404"
 
 1. [Cloudsimple 포털](access-cloudsimple-portal.md)에 로그인 합니다.
 
-2. **리소스** > **사설 클라우드** 로 이동 하 고 연결 하려는 사설 클라우드를 선택 합니다.
+2. **리소스** > **사설** 클라우드로 이동 하 고 연결 하려는 사설 클라우드를 선택 합니다.
 
 3. 사설 클라우드의 **요약** 페이지에 있는 **기본 정보**에서 사설 클라우드 DNS 서버 IP 주소를 복사 합니다.
 
@@ -80,7 +80,7 @@ zone “cloudsimple.io”
 
 조건부 전달자는 모든 DNS 이름 확인 요청을 지정 된 서버에 전달 합니다. 이 설정을 사용 하면 *. cloudsimple.io에 대 한 모든 요청이 사설 클라우드에 있는 DNS 서버로 전달 됩니다. 다음 예에서는 여러 유형의 DNS 서버에서 전달자를 설정 하는 방법을 보여 줍니다.
 
-### <a name="create-a-conditional-forwarded-on-a-bind-dns-server"></a>바인드 DNS 서버에 전달 되는 조건부 만들기
+### <a name="create-a-conditional-forwarder-on-a-bind-dns-server"></a>바인드 DNS 서버에 조건부 전달자 만들기
 
 구성할 특정 파일 및 매개 변수는 개별 DNS 설정에 따라 달라질 수 있습니다.
 

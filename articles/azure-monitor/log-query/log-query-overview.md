@@ -1,18 +1,18 @@
 ---
 title: Azure Monitor의 로그 쿼리 개요 | Microsoft Docs
 description: 로그 쿼리와 관련 된 일반적인 질문에 답변 하 고이를 사용 하 여 시작 합니다.
-services: log-analytics
-author: bwren
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/19/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 89633d77a6270b5c34cd9b4f52bc7286f84b1976
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.date: 06/19/2019
+ms.openlocfilehash: 08af0ff3121d6721c9f5c1457655c345f50f91e0
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827315"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900262"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Azure Monitor의 로그 쿼리 개요
 로그 쿼리를 통해 [Azure Monitor 로그](../platform/data-platform-logs.md)에 수집 된 데이터의 값을 완벽 하 게 활용할 수 있습니다. 강력한 쿼리 언어를 사용 하면 여러 테이블의 데이터를 조인 하 고, 큰 데이터 집합을 집계 하 고, 최소한의 코드로 복잡 한 작업을 수행할 수 있습니다. 실제로 모든 질문에 대 한 답변 및 분석은 지원 데이터가 수집 되는 동안 수행 되며, 올바른 쿼리를 구성 하는 방법을 이해할 수 있습니다.

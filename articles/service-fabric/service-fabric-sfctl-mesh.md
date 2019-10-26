@@ -3,28 +3,29 @@ title: Azure Service Fabric CLI- sfctl mesh | Microsoft Docs
 description: Service Fabric CLI sfctl mesh 명령을 설명합니다.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 0774a933bb109ffc66c7f4673d2803f0631f9b82
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: a97cf0a9dd9eccea2db60d73308338350102cb8c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035314"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901110"
 ---
 # <a name="sfctl-mesh"></a>sfctl mesh
 Service Fabric Mesh 애플리케이션을 삭제하고 관리합니다.
 
 ## <a name="subgroups"></a>하위 그룹
-|하위 그룹|Description|
+|하위 그룹|설명|
 | --- | --- |
 | [app](service-fabric-sfctl-mesh-app.md) | 애플리케이션 리소스를 가져오고 삭제합니다. |
 | [code-package-log](service-fabric-sfctl-mesh-code-package-log.md) | 지정된 서비스 복제본에 대해 지정된 코드 패키지의 컨테이너 관련 로그를 가져옵니다. |
@@ -33,11 +34,11 @@ Service Fabric Mesh 애플리케이션을 삭제하고 관리합니다.
 | [network](service-fabric-sfctl-mesh-network.md) | 메시 네트워크 리소스를 가져오고 삭제합니다. |
 | [암호](service-fabric-sfctl-mesh-secret.md) | 메시 비밀 리소스를 가져오고 삭제합니다. |
 | [secretvalue](service-fabric-sfctl-mesh-secretvalue.md) | 메시 비밀 값 리소스를 가져오고 삭제합니다. |
-| [서비스](service-fabric-sfctl-mesh-service.md) | 애플리케이션 리소스의 서비스를 나열하고 서비스 세부 정보를 가져옵니다. |
+| [service](service-fabric-sfctl-mesh-service.md) | 애플리케이션 리소스의 서비스를 나열하고 서비스 세부 정보를 가져옵니다. |
 | [service-replica](service-fabric-sfctl-mesh-service-replica.md) | 복제본 세부 정보를 가져오고 애플리케이션 리소스에 있는 지정된 서비스의 복제본을 나열합니다. |
 | [volume](service-fabric-sfctl-mesh-volume.md) | 볼륨 리소스를 가져오고 삭제합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계
-- Service Fabric CLI [설정](service-fabric-cli.md)
+- Service Fabric CLI [설정](service-fabric-cli.md).
 - [샘플 스크립트](/azure/service-fabric/scripts/sfctl-upgrade-application)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.

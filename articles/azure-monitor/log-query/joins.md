@@ -1,29 +1,23 @@
 ---
 title: Azure Monitor 로그 쿼리에서 조인 | Microsoft Docs
 description: 이 문서는 Azure Monitor 쿼리 언어에서 조인을 사용하는 방법에 대한 단원을 포함합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 2ea5b4e3af6591e6e25a863998baa7cecb3e29e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/16/2018
+ms.openlocfilehash: 526c359367271c69ccd461e4421c3223b00fbc36
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60520104"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900276"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 조인
 
 > [!NOTE]
-> 완료 해야 [Azure Monitor Log Analytics를 사용 하 여 시작](get-started-portal.md) 하 고 [Azure Monitor 로그 쿼리](get-started-queries.md) 이 단원을 완료 하기 전에 합니다.
+> 이 단원을 완료 하기 전에 [Azure Monitor Log Analytics](get-started-portal.md) 및 [Azure Monitor 로그 쿼리](get-started-queries.md) 시작을 완료 해야 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

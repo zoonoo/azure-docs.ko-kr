@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 포털의 위험한 로그인 보고서 | Microsoft Docs
+title: 포털의 위험한 로그인 보고서 | Microsoft Docs
 description: Azure Active Directory 포털의 위험한 로그인 보고서에 대해 알아보기
 services: active-directory
 author: cawrites
@@ -15,24 +15,24 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72493400ba20ef3c838a636b66afdf26aa00ff62
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 31a002af32ac6c07e6358a3ccd0f1420d3e8c9ef
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127430"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895177"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 위험한 로그인 보고서
 
 Azure Active Directory(Azure AD)는 사용자 계정과 관련된 의심스러운 동작을 감지합니다. 검색 된 각 작업에 대해 **위험 검색** 이라는 레코드가 만들어집니다. 자세한 내용은 [AZURE AD 위험 탐지](concept-risk-events.md)를 참조 하세요. 
 
-[Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 블레이드를 선택하고 **보안** 섹션으로 이동하여 보안 보고서에 액세스할 수 있습니다. 
+**Azure Active Directory** 블레이드를 선택한 다음, **보안** 섹션으로 이동하여 [Azure Portal](https://portal.azure.com)의 보안 보고서에 액세스할 수 있습니다. 
 
 위험 검색에 따라 계산 되는 두 가지 보안 보고서가 있습니다.
 
 - **위험한 로그인** - 위험한 로그인은 사용자 계정의 정당한 소유자가 아닌 사용자에 의해 수행된 로그인 시도에 대한 지표입니다.
 
-- **위험 플래그가 지정된 사용자** - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다. 
+- **위험 플래그가 지정된 사용자** - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 지표입니다. 
 
 ![위험한 로그인](./media/concept-risky-sign-ins/10.png)
 

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/11/2019
+ms.date: 10/24/2019
 ms.author: ramkris
-ms.openlocfilehash: 9da994550609b0be44362e0f0059844b288aabbd
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 0ff281e54df0273cc4c72d1780f4a99fe9719aec
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388073"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900179"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET Bulk Executor 라이브러리: 다운로드 정보 
 
@@ -50,15 +50,15 @@ ms.locfileid: "72388073"
 
 * SDK 종속성을 > = 2.5.1로 변경 했습니다.
 
-### <a name="a-name230-preview2230-preview2"></a>@no__t 02.3.0-미리 보기 2
+### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-미리 보기 2
 
 * 꼭 짓 점 및 가장자리에서 ttl을 허용 하도록 그래프 대량 실행자에 대 한 지원이 추가 됨
 
-### <a name="a-name220-preview2220-preview2"></a>@no__t 02.2.0-미리 보기 2
+### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-미리 보기 2
 
 * 게이트웨이 모드에서 실행 될 때 Azure Cosmos DB 탄력적으로 크기를 조정 하는 동안 예외가 발생 하는 문제를 해결 했습니다. 이 수정 프로그램은 1.4.1 릴리스와 기능적으로 동일 합니다.
 
-### <a name="a-name210-preview2210-preview2"></a>@no__t 02.1.0-미리 보기 2
+### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-미리 보기 2
 
 * 삭제할 파티션 키, 문서 id 튜플을 허용 하는 SQL API 계정에 대 한 대량 삭제 지원이 추가 되었습니다. 이러한 변경으로 인해 1.4.0 릴리스와 기능적으로 동일 합니다.
 
@@ -69,6 +69,10 @@ ms.locfileid: "72388073"
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
 
 * 대량 실행자 라이브러리가 .NET Core 응용 프로그램과 함께 작동 하도록 지원 되는 대상 프레임 워크 중 하나로 .NET Standard 2.0를 추가 했습니다.
+
+### <a name="a-name185185"></a><a name="1.8.5"/>1.8.5
+
+* SDK 버전에 대 한 잠금을 제거 했습니다. 이제 패키지가 SDK > = 2.5.1에 종속 됩니다.
 
 ### <a name="a-name184184"></a><a name="1.8.4"/>1.8.4
 

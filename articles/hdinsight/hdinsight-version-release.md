@@ -1,18 +1,18 @@
 ---
 title: HDInsight 4.0 개요 - Azure
 description: HDInsight 3.6을 HDInsight 4.0 기능, 제한 사항 및 업그레이드 권장 사항과 비교합니다.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: 74cd6a6919db1c01535fb984d1e8e0d0ad2d5ade
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.date: 10/22/2019
+ms.openlocfilehash: 0463e3297bbb2fda50adfeefaa89f0a7a3ef8b0a
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879335"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901523"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Azure HDInsight 4.0 개요
 
@@ -40,7 +40,7 @@ Hive는 이제 데이터 웨어하우스에서 쿼리 처리를 가속화하는�
 
 HDI 4.0에는 Hive 웨어하우스에 상주하는 트랜잭션 테이블에 대한 ACID(원자성, 일관성, 격리 및 영속성) 규정 준수를 요구하는 Apache Hive 3이 포함되어 있습니다. ACID 준수 테이블 및 테이블 데이터는 Hive에서 액세스 및 관리됩니다. CRUD(만들기, 검색, 업데이트 및 삭제) 테이블의 데이터는 ORC(Optimized Row Column) 파일 형식이어야 하지만 삽입 전용 테이블은 모든 파일 형식을 지원합니다.
 
-* ACID v2에는 스토리지 형식과 실행 엔진에 성능 향상이 있습니다. 
+* ACID v2에는 스토리지 형식과 실행 엔진에 성능 향상이 있습니다.
 
 * ACID는 기본적으로 활성화되어 데이터 업데이트에 대한 전체 지원을 허용합니다.
 
@@ -71,7 +71,6 @@ Spark에서 직접 Hive 트랜잭션 테이블에 실수로 액세스하여 일�
 
 [Apache Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/spark-overview/content/analyzing_data_with_apache_spark.html)에 대해 자세히 알아봅니다.
 
-
 ### <a name="apache-oozie"></a>Apache Oozie
 
 Apache Oozie 4.3.1은 다음 변경 내용으로 HDI 4.0에 포함됩니다.
@@ -86,14 +85,14 @@ Apache Oozie 4.3.1은 다음 변경 내용으로 HDI 4.0에 포함됩니다.
 
 모든 주요 릴리스와 마찬가지로 프로덕션 환경에서 최신 버전을 구현하기 전에 구성 요소를 철저히 테스트해야 합니다. HDInsight 4.0을 업그레이드 프로세스를 시작하는 데 사용할 수 있지만 HDInsight 3.6은 실수로 인한 오류 발생을 방지하기 위해 기본 옵션입니다.
 
-이전 버전의 HDInsight에서 HDInsight 4.0으로 지원되는 업그레이드 경로가 없습니다. Metastore와 Blob 데이터 형식이 변경되었으므로 HDInsight 4.0은 이전 버전과 호환되지 않습니다. 새 HDInsight 4.0 환경을 현재 프로덕션 환경과 별도로 유지해야 합니다. HDInsight 4.0을 현재 환경에 배포하는 경우 Metastore가 업그레이드되며 되돌릴 수 없습니다.  
+이전 버전의 HDInsight에서 HDInsight 4.0로의 지원 되는 업그레이드 경로는 없습니다. Metastore 및 blob 데이터 형식이 변경 되었으므로 HDInsight 4.0은 이전 버전과 호환 되지 않습니다. 새 HDInsight 4.0 환경을 현재 프로덕션 환경과 분리 하 여 유지 하는 것이 중요 합니다. 현재 환경에 HDInsight 4.0을 배포 하는 경우 Metastore가 업그레이드 되며 되돌릴 수 없습니다.  
 
 ## <a name="limitations"></a>제한 사항
 
-* HDInsight 4.0은 Apache Hive용 MapReduce를 지원하지 않습니다. 대신 Apache Tez를 사용하세요. [Apache Tez](https://tez.apache.org/)에 대해 자세히 알아봅니다.
-* HDInsight 4.0은 Apache Storm을 지원하지 않습니다. 
-* Hive 보기는 HDInsight 4.0에서 더 이상 사용할 수 없습니다. 
-* Apache Zeppelin의 셸 인터프리터는 Spark 및 대화형 쿼리 클러스터에서 지원되지 않습니다.
+* HDInsight 4.0는 Apache Hive에 대 한 MapReduce를 지원 하지 않습니다. 대신 Apache Tez를 사용하세요. [Apache Tez](https://tez.apache.org/)에 대해 자세히 알아봅니다.
+* HDInsight 4.0는 Apache Storm을 지원 하지 않습니다.
+* Hive 보기는 HDInsight 4.0에서 더 이상 사용할 수 없습니다.
+* Apache Zeppelin의 셸 인터프리터는 Spark 및 대화형 쿼리 클러스터에서 지원 되지 않습니다.
 * LLAP는 Spark-LLAP 클러스터에서 *사용하지 않도록 설정*할 수 없으며, 이를 해제할 수만 있습니다.
 * Azure Data Lake Storage Gen2는 Spark 클러스터에 Juypter 노트북을 저장할 수 없습니다.
 

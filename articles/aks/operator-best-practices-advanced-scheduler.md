@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: a31f839b4bad79a52f5cab386d17e3084314784b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: f260e019ffa6eb89e8a2c1e17d2bf239e74290c2
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026113"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900120"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 고급 스케줄러 기능 모범 사례
 
@@ -179,7 +179,7 @@ Kubernetes 스케줄러가 워크로드를 논리적으로 격리하는 한 가�
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-이 예제는 노드 선택기 또는 노드 선호도를 사용하는 것보다 더 복잡한 배포입니다. 배포를 통해 Kubernetes가 노드에서 Pod를 예약하는 방법을 제어하고 리소스를 논리적으로 격리할 수 있습니다. Redis 용 Azure Cache 예제를 사용 하는이 웹 응용 프로그램의 전체 예제는 [동일한 노드의 colocate pod][k8s-pod-affinity]를 참조 하세요.
+이 예제는 노드 선택기 또는 노드 선호도를 사용하는 것보다 더 복잡한 배포입니다. 배포를 통해 Kubernetes가 노드에서 Pod를 예약하는 방법을 제어하고 리소스를 논리적으로 격리할 수 있습니다. Redis 용 Azure Cache 예제를 사용 하는이 웹 응용 프로그램의 전체 예제는 [동일한 노드에 Pod 배치][k8s-pod-affinity]를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

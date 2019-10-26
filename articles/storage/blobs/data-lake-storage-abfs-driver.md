@@ -8,14 +8,14 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 6e74830a3a62ea54c5d8e7f9815fe2ba6eed6d58
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
-ms.translationtype: MT
+ms.openlocfilehash: 49567ae52b8ea706ebf7e093880e919cc8bbdbad
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166502"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901637"
 ---
-# <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>ABFS(Azure Blob 파일 시스템) 드라이버: Hadoop 전용 Azure Storage 드라이버
+# <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob 파일 시스템 드라이버(ABFS): Hadoop 전용 Azure Storage 드라이버
 
 Azure Data Lake Storage Gen2에서 데이터에 대한 기본 액세스 방법 중 하나는 [Hadoop 파일 시스템](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html)을 통해서입니다. Data Lake Storage Gen2를 사용하면 Azure Blob Storage 사용자가 새 드라이버인 `ABFS`(Azure Blob File System 드라이버)에 액세스할 수 있습니다. ABFS는 Apache Hadoop의 일부이며 많은 Hadoop의 상업용 배포 버전에 포함됩니다. 이 드라이버를 사용하면 많은 애플리케이션과 프레임워크에서 Data Lake Storage Gen2를 명시적으로 참조하는 코드 없이 Azure Blob Storage의 데이터에 액세스할 수 있습니다. 
 
@@ -42,23 +42,23 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 내부적으로 ABFS 드라이버는 URI에 지정된 리소스를 파일 및 디렉터리로 변환하고 해당 리소스를 사용하여 Azure Data Lake Storage REST API를 호출합니다.
 
-### <a name="authentication"></a>인증
+### <a name="authentication"></a>Authentication
 
-ABFS 드라이버는 두 가지 형식의 인증을 지원하므로 Hadoop 애플리케이션은 Data Lake Storage Gen2 지원 계정 내에 포함된 리소스에 안전하게 액세스할 수 있습니다. 사용 가능한 인증 체계의 전체 세부 정보는 [Azure Storage 보안 가이드](../common/storage-security-guide.md)에 있습니다. 구현되지 않은 것은 다음과 같습니다.
+ABFS 드라이버는 두 가지 형식의 인증을 지원하므로 Hadoop 애플리케이션은 Data Lake Storage Gen2 지원 계정 내에 포함된 리소스에 안전하게 액세스할 수 있습니다. 사용 가능한 인증 체계의 전체 세부 정보는 [Azure Storage 보안 가이드](../common/storage-security-guide.md)에 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
 - **공유 키:** 이렇게 하면 사용자가 계정의 모든 리소스에 액세스할 수 있습니다. 키는 암호화되어 Hadoop 구성에 저장됩니다.
 
-- **Azure Active Directory OAuth 전달자 토큰:** Azure AD 전달자 토큰은 최종 사용자의 ID 또는 구성된 서비스 주체를 사용하여 드라이버에서 획득하고 새로 고칩니다. 이 인증 모델을 사용하면 모든 액세스 권한은 할당된 POSIX ACL(액세스 제어 목록)에 대해 평가되고 제공된 토큰과 연결된 ID를 사용하여 호출당 기준으로 부여됩니다.
+- **Azure Active Directory OAuth 전달자 토큰:** Azure AD 전달자 토큰은 최종 사용자의 ID 또는 구성된 서비스 주체를 사용하여 드라이버에서 획득되고 새로 고쳐집니다. 이 인증 모델을 사용하면 모든 액세스 권한은 할당된 POSIX ACL(액세스 제어 목록)에 대해 평가되고 제공된 토큰과 연결된 ID를 사용하여 호출당 기준으로 부여됩니다.
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
 ABFS 드라이버에 대한 모든 구성은 <code>core-site.xml</code> 구성 파일에 저장됩니다. [Ambari](https://ambari.apache.org/)가 특징인 Hadoop 배포에서 웹 포털이나 Ambari REST API를 사용하여 구성을 관리할 수 있습니다.
 
-지원되는 모든 구성 항목의 세부 정보는 [Hadoop 공식 설명서](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html)에 나와 있습니다.
+지원되는 모든 구성 항목의 세부 정보는 [Hadoop 공식 설명서](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html)에 나와 있습니다.
 
 ### <a name="hadoop-documentation"></a>Hadoop 설명서
 
-ABFS 드라이버는 [Hadoop 공식 설명서](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html)에 충분히 설명돼 있습니다.
+ABFS 드라이버는 [Hadoop 공식 설명서](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html)에 충분히 설명돼 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

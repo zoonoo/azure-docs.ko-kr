@@ -4,19 +4,19 @@ description: Azure Active Directory 조건부 액세스 정책에서 지원 되�
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: reference
 ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 834b13c512bca1b7c43c3c8e93a72383a82db198
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 5a3518dfcad3678dc298ba8529e731d48ec1d195
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274191"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893470"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 조건부 액세스 설정 참조
 
@@ -61,7 +61,7 @@ Microsoft에서 다음 클라우드 앱에 조건부 액세스 정책을 할당�
 - Bing에서 Microsoft Search
 - Microsoft StaffHub
 - Microsoft Stream
-- Microsoft 팀
+- Microsoft Teams
 - Office 365 Exchange Online
 - Office 365 SharePoint Online
 - Office 365 Yammer
@@ -71,7 +71,7 @@ Microsoft에서 다음 클라우드 앱에 조건부 액세스 정책을 할당�
 - Power BI 서비스
 - Project Online
 - 비즈니스 온라인용 Skype
-- VPN(가상 사설망)
+- VPN (가상 사설망)
 - Windows Defender ATP
 
 ### <a name="other-applications"></a>다른 애플리케이션
@@ -117,9 +117,9 @@ Microsoft 클라우드 앱 외에도 다음과 같은 유형의 클라우드 앱
 
 | OS                     | 브라우저                                        |
 | :--                    | :--                                             |
-| Windows 10             | Microsoft Edge, Internet Explorer, Chrome       |
-| Windows 8 / 8.1        | Internet Explorer, Chrome                       |
-| Windows 7              | Internet Explorer, Chrome                       |
+| Windows 10             | Microsoft Edge, Internet Explorer, Chrome       |
+| Windows 8 / 8.1        | Internet Explorer, 크롬                       |
+| Windows 7              | Internet Explorer, 크롬                       |
 | iOS                    | Microsoft Edge, Intune Managed Browser, Safari  |
 | Android                | Microsoft Edge, Intune Managed Browser, Chrome  |
 | Windows Phone          | Microsoft Edge, Internet Explorer               |
@@ -142,19 +142,19 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 
 |    |    |
 | --- | --- |
-| 경로 | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Name | 1 |
-| type | REG_SZ (String) |
-| data | ppnbnpeolgkicgegkbkbjmhlideopiji; https @ no__t-0//clients2/update2/crx |
+| path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| name | 1 |
+| Type | REG_SZ (String) |
+| 데이터 | ppnbnpeolgkicgegkbkbjmhlideopiji; https\://clients2.google.com/service/update2/crx |
 
 **Windows 8.1 및 7**에서 Chrome을 지원하려면 다음 레지스트리 키를 만듭니다.
 
 |    |    |
 | --- | --- |
-| 경로 | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Name | 1 |
-| 형식 | REG_SZ (String) |
-| data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
+| path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| name | 1 |
+| Type | REG_SZ (String) |
+| 데이터 | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 이러한 브라우저는 디바이스 인증을 지원하므로 정책에 대해 디바이스 유효성을 검사하고 식별하는 것이 가능합니다. 브라우저가 개인 모드로 실행 중이면 디바이스 검사가 실패합니다.
 
@@ -169,11 +169,11 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 | 클라이언트 앱 | 대상 서비스 | 플랫폼 |
 | --- | --- | --- |
 | Dynamics CRM 앱 | Dynamics CRM | Windows 10, Windows 8.1, iOS 및 Android |
-| 메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)| Office 365 Exchange Online | Windows 10 |
+| 메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)| Office 365 Exchange Online | Windows 10 |
 | 앱에 대한 MFA 및 위치 정책입니다. 디바이스 기반 정책은 지원되지 않습니다.| 모든 My Apps 앱 서비스| Android 및 iOS |
-| Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다. | Microsoft 팀 | Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS |
+| Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다. | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS |
 | Office 2016 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
-| Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조), Office 그룹 지원은 나중에 지원될 예정입니다. SharePoint 앱 지원은 나중에 지원될 예정입니다. | Office 365 SharePoint Online | Windows 10 |
+| Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조), Office 그룹 지원은 나중에 지원될 예정입니다. SharePoint 앱 지원은 나중에 지원될 예정입니다. | Office 365 SharePoint Online | Windows 10 |
 | Office 2016(Word, Excel, PowerPoint, OneNote만 해당) 향후 제공될 예정인 비즈니스용 OneDrive 지원| Office 365 SharePoint Online| macOS|
 | Office 2019| Office 365 SharePoint Online | Windows 10, macOS |
 | Office 모바일 앱 | Office 365 SharePoint Online | Android, iOS |
@@ -190,7 +190,7 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 
 **다른 클라이언트**를 선택하여 IMAP, MAPI, POP, SMTP 및 최신 인증을 사용하지 않는 이전 Office 앱과 같은 메일 프로토콜과 함께 기본 인증을 사용하는 앱에 영향을 미치는 조건을 지정할 수 있습니다.  
 
-![다른 클라이언트](./media/technical-reference/11.png)
+![기타 클라이언트](./media/technical-reference/11.png)
 
 자세한 내용은 [클라이언트 앱](conditions.md#client-apps)을 참조하세요.
 
@@ -221,16 +221,16 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 - Microsoft Power BI
 - Microsoft PowerPoint
 - Microsoft SharePoint
-- 비즈니스용 Microsoft Skype
+- Microsoft 비즈니스용 Skype
 - Microsoft StaffHub
 - Microsoft Stream
-- Microsoft 팀
+- Microsoft Teams
 - Microsoft To-Do
 - Microsoft Visio
 - Microsoft Word
 - Microsoft Yammer
 
-**주의**
+**설명**
 
 - 승인된 클라이언트 앱은 Intune 모바일 애플리케이션 관리 기능을 지원합니다.
 - **승인된 클라이언트 앱 필요** 요구 사항:
@@ -249,7 +249,7 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 - Microsoft Outlook
 - Microsoft Planner
 
-**주의**
+**설명**
 
 - 앱 보호 정책에 대 한 앱은 정책 보호를 사용 하 여 Intune 모바일 응용 프로그램 관리 기능을 지원 합니다.
 - **앱 보호 정책** 요구 사항은 다음과 같습니다.

@@ -1,23 +1,18 @@
 ---
-title: 'Azure 애플리케이션 Insights 에이전트 API 참조: 상태 가져오기 | Microsoft Docs'
+title: Azure 애플리케이션 Insights 에이전트 API 참조
 description: 에이전트 API 참조를 Application Insights 합니다. ApplicationInsightsMonitoringStatus. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. VM 또는 Azure의 온-프레미스에서 호스트되는 ASP.NET 웹앱으로 작업합니다.
-services: application-insights
-documentationcenter: .net
-author: TimothyMothra
-manager: alexklim
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/23/2019
+author: TimothyMothra
 ms.author: tilee
-ms.openlocfilehash: 6e103e1856e338669224540a991c4b9ea6b10d6d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 04/23/2019
+ms.openlocfilehash: 9b1010404cb876ed818dd54cf527987c6cf0ffe0
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389865"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899682"
 ---
 # <a name="application-insights-agent-api-get-applicationinsightsmonitoringstatus"></a>Application Insights 에이전트 API: ApplicationInsightsMonitoringStatus
 
@@ -36,7 +31,7 @@ ms.locfileid: "72389865"
 
 ### <a name="example-application-status"></a>예: 응용 프로그램 상태
 
-@No__t-0 명령을 실행 하 여 웹 사이트의 모니터링 상태를 표시 합니다.
+명령 `Get-ApplicationInsightsMonitoringStatus`를 실행 하 여 웹 사이트의 모니터링 상태를 표시 합니다.
 
 ```
 PS C:\Windows\system32> Get-ApplicationInsightsMonitoringStatus
@@ -138,7 +133,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime
 
 계측 된 컴퓨터에서 프로세스를 검사 하 여 모든 Dll이 로드 되었는지 확인할 수 있습니다. 모니터링이 작동 하는 경우 12 개 이상의 Dll을 로드 해야 합니다.
 
--0 @no__t 명령을 실행 합니다.
+명령 `Get-ApplicationInsightsMonitoringStatus -InspectProcess`를 실행 합니다.
 
 
 ```

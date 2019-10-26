@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor의 실시간 데이터 솔루션 Microsoft Docs
 description: Wire Data는 Log Analytics 에이전트를 사용한 컴퓨터의 통합 네트워크 및 성능 데이터입니다. 네트워크 데이터는 데이터를 상호 연결할 수 있도록 로그 데이터와 결합됩니다.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/03/2018
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 4e1324bb90c0b92daf709b695a0a8b3af9161c2e
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 10/03/2018
+ms.openlocfilehash: 5e19c9bd47fe253f9a416b923ec0cb1748682842
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905422"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900582"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Azure Monitor에서 Wire Data 2.0 (미리 보기) 솔루션
 
@@ -33,7 +27,7 @@ Log Analytics 에이전트 외에 Wire Data 솔루션은 IT 인프라에서 컴�
 >[!NOTE]
 >이미 서비스 맵를 배포 했거나 서비스 맵 또는 [VM용 Azure Monitor](../../azure-monitor/insights/vminsights-overview.md)를 고려 하 고 있는 경우, 데이터를 연결 하는 데 비슷한 정보를 제공 하는 새로운 연결 메트릭 데이터 집합을 수집 하 여 Azure Monitor에 저장 합니다.
 
-기본적으로 Azure Monitor는 Windows 및 Linux에 기본 제공 된 카운터의 CPU, 메모리, 디스크 및 네트워크 성능 데이터에 대 한 데이터를 기록 하 고 지정할 수 있는 다른 성능 카운터를 기록 합니다. 컴퓨터에 사용되는 서브넷 및 애플리케이션 수준 프로토콜을 포함하여 네트워크 및 기타 데이터 수집이 에이전트별로 실시간으로 이루어집니다.  실시간 데이터는 TCP 전송 계층으로 내려가지 않고 애플리케이션 수준에서 네트워크 데이터를 확인합니다.  솔루션은 개별 ACK 및 SYN을 확인하지 않습니다.  핸드셰이크가 완료되면 라이브 연결로 간주되고 연결됨으로 표시됩니다. 해당 연결은 양쪽에서 소켓이 열려 있고 데이터를 앞뒤로 전달할 수 있음을 동의할 경우 실시간 상태를 유지합니다.  한쪽이 연결을 닫으면 연결이 Disconnected로 표시 됩니다.  따라서 성공적으로 완료된 패킷의 대역폭만 계산하며 재전송된 패킷 또는 실패한 패킷 수는 보고하지 않습니다.
+기본적으로 Azure Monitor는 Windows 및 Linux에 기본 제공 된 카운터의 CPU, 메모리, 디스크 및 네트워크 성능 데이터에 대 한 데이터를 기록 하 고 지정할 수 있는 다른 성능 카운터를 기록 합니다. 컴퓨터에 사용되는 서브넷 및 애플리케이션 수준 프로토콜을 포함하여 네트워크 및 기타 데이터 수집이 에이전트별로 실시간으로 이루어집니다.  실시간 데이터는 TCP 전송 계층으로 내려가지 않고 애플리케이션 수준에서 네트워크 데이터를 확인합니다.  이 솔루션은 개별 Ack 및 SYNs를 확인 하지 않습니다.  핸드셰이크가 완료 되 면 라이브 연결로 간주 되 고 연결 된 것으로 표시 됩니다. 해당 연결은 양쪽에서 소켓이 열려 있고 데이터를 앞뒤로 전달할 수 있음을 동의할 경우 실시간 상태를 유지합니다.  한쪽이 연결을 닫으면 연결이 Disconnected로 표시 됩니다.  따라서 성공적으로 완료된 패킷의 대역폭만 계산하며 재전송된 패킷 또는 실패한 패킷 수는 보고하지 않습니다.
 
 [Cisco의 NetFlow 프로토콜](https://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html)과 함께 [sFlow](http://www.sflow.org/) 또는 다른 소프트웨어를 사용한 경우 실시간 데이터에서 볼 통계 및 데이터는 익숙하게 느껴집니다.
 
@@ -60,10 +54,10 @@ Wire Data는 Microsoft 종속성 에이전트에서 해당 데이터를 가져�
 
 | **연결된 원본** | **지원됨** | **설명** |
 | --- | --- | --- |
-| Windows 에이전트 | 예 | Wire Data는 Windows 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br> [Windows용 Log Analytics 에이전트](../platform/agent-windows.md) 외에도 Windows 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](vminsights-enable-overview.md#supported-operating-systems)를 참조하세요. |
-| Linux 에이전트 | 예 | Wire Data는 Linux 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다.<br><br> [Linux용 Log Analytics 에이전트](../learn/quick-collect-linux-computer.md) 외에도 Linux 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](vminsights-enable-overview.md#supported-operating-systems)를 참조하세요. |
-| System Center Operations Manager 관리 그룹 | 예 | Wire Data는 연결된 [System Center Operations Manager 관리 그룹](../platform/om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br> System Center Operations Manager 에이전트 컴퓨터에서 Azure Monitor 직접 연결 해야 합니다. |
-| Azure Storage 계정 | 아니요 | Wire Data는 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
+| Windows 에이전트 | yes | Wire Data는 Windows 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br> [Windows용 Log Analytics 에이전트](../platform/agent-windows.md) 외에도 Windows 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](vminsights-enable-overview.md#supported-operating-systems)를 참조하세요. |
+| Linux 에이전트 | yes | Wire Data는 Linux 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다.<br><br> [Linux용 Log Analytics 에이전트](../learn/quick-collect-linux-computer.md) 외에도 Linux 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](vminsights-enable-overview.md#supported-operating-systems)를 참조하세요. |
+| System Center Operations Manager 관리 그룹 | yes | Wire Data는 연결된 [System Center Operations Manager 관리 그룹](../platform/om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br> System Center Operations Manager 에이전트 컴퓨터에서 Azure Monitor 직접 연결 해야 합니다. |
+| Azure Storage 계정 | 아닙니다. | Wire Data는 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
 
 Windows에서는 Microsoft Monitoring Agent (MMA)를 사용 하 여 데이터를 수집 하 고 전송 하기 위해 System Center Operations Manager와 Azure Monitor 모두 사용 합니다. 에이전트는 컨텍스트에 따라 System Center Operations Manager 에이전트, Log Analytics 에이전트, MMA 또는 직접 에이전트라고 합니다. System Center Operations Manager 및 Azure Monitor는 MMA의 약간 다른 버전을 제공 합니다. 이러한 버전은 각각 System Center Operations Manager, Azure Monitor 또는 양쪽 모두에 보고할 수 있습니다.
 
@@ -80,7 +74,7 @@ Azure Monitor에 연결 된 관리 그룹이 있는 System Center Operations Man
 
 Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 경우 Log Analytics 게이트웨이를 사용 하 여 Azure Monitor에 연결 하도록 Log Analytics 에이전트를 구성 해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=52666)에서 Log Analytics 게이트웨이를 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - [Insight and Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing) 솔루션 제품이 필요합니다.
 - 이전 버전의 Wire Data 솔루션을 사용하는 경우 먼저 이전 버전을 제거해야 합니다. 그러나 원래 Wire Data 솔루션을 통해 캡처된 모든 데이터는 Wire Data 2.0 및 로그 검색에서 계속 사용할 수 있습니다.
@@ -100,10 +94,10 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 - Windows Server 2012
 - Windows Server 2008 R2 SP1
 
-#### <a name="windows-desktop"></a>Windows 바탕 화면
+#### <a name="windows-desktop"></a>Windows 데스크톱
 
 - Windows 10 1803
-- Windows 10
+- Windows 10
 - Windows 8.1
 - Windows 8
 - Windows 7
@@ -133,14 +127,14 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 ##### <a name="centosplus"></a>CentOSPlus
 | OS 버전 | 커널 버전 |
 |:--|:--|
-| 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
-| 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
+| 6.9 | 2.6.32 커널을-696.18.7<br>2.6.32 커널을-696.30.1 |
+| 6.10 | 2.6.32 커널을-696.30.1<br>2.6.32 커널을-754.3.5 |
 
 ##### <a name="ubuntu-server"></a>Ubuntu Server
 
 | OS 버전 | 커널 버전 |
 |:--|:--|
-| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
+| Ubuntu 18.04 | 커널 4.15.\*<br>4.18 * |
 | Ubuntu 16.04.3 | kernel 4.15.* |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
@@ -149,7 +143,7 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 
 | OS 버전 | 커널 버전
 |:--|:--|
-| 11 SP4 | 3.0.* |
+| 11 SP4 | 3.0. * |
 
 ##### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
@@ -160,14 +154,14 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 
 ### <a name="dependency-agent-downloads"></a>종속성 에이전트 다운로드
 
-| 파일 | OS | 버전 | SHA-256 |
+| File | OS | 버전 | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 다음 단계를 수행하여 작업 영역에 대해 Wire Data 솔루션을 구성합니다.
 
@@ -187,7 +181,7 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 다음 단계를 사용 하 여 Windows를 실행 하는 각 컴퓨터에 종속성 에이전트를 설치 합니다.
 
 1. [사용자 환경에서 호스트되는 Windows 컴퓨터에서 데이터 수집](../../azure-monitor/platform/agent-windows.md)의 단계에 따라 Log Analytics 에이전트를 설치합니다.
-2. 이전 섹션의 링크를 사용 하 여 Windows 종속성 에이전트를 다운로드 한 후 다음 명령을 사용 하 여 실행 합니다.`InstallDependencyAgent-Windows.exe`
+2. 이전 섹션의 링크를 사용 하 여 Windows 종속성 에이전트를 다운로드 한 후 다음 명령을 사용 하 여 실행 합니다. `InstallDependencyAgent-Windows.exe`
 3. 마법사에 따라 에이전트를 설치합니다.
 4. Dependency Agent를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Windows 에이전트에서 로그 디렉터리는 %Programfiles%\Microsoft Dependency Agent\logs입니다.
 
@@ -380,7 +374,7 @@ Azure Portal의 사용자 Log Analytics 작업 영역에 대한 **개요** 페�
 
 프로토콜 트래픽이 시간에 따라 증가하는지 감소하는지 여부를 아는 데 유용합니다. 예를 들어 애플리케이션에 의해 전송되고 있는 데이터 양이 증가하는 경우 이를 알고 있어야 하거나 주목할 만한 것일 수 있습니다.
 
-## <a name="input-data"></a>입력 데이터
+## <a name="input-data"></a>데이터 입력
 
 실시간 데이터 기능은 설정한 에이전트를 사용하여 네트워크 트래픽에 대한 메타데이터를 수집합니다. 각 에이전트는 약 15초마다 데이터를 보냅니다.
 
@@ -388,18 +382,18 @@ Azure Portal의 사용자 Log Analytics 작업 영역에 대한 **개요** 페�
 
 각 형식의 입력 데이터에 대해 종류가 _WireData_인 레코드가 만들어집니다. WireData 레코드는 다음 테이블에 표시된 속성을 가집니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 |---|---|
-| Computer | 데이터가 수집된 컴퓨터 이름 |
+| 컴퓨터 | 데이터가 수집된 컴퓨터 이름 |
 | TimeGenerated | 레코드 시간 |
 | LocalIP | 로컬 컴퓨터의 IP 주소 |
 | SessionState | 연결 또는 연결 끊김 |
 | ReceivedBytes | 받은 바이트의 양 |
 | ProtocolName | 사용되는 네트워크 프로토콜의 이름 |
 | IPVersion | IP 버전 |
-| Direction | 인바운드 또는 아웃바운드 |
+| 방향 | 인바운드 또는 아웃바운드 |
 | MaliciousIP | 알려진 악의적인 원본의 IP 주소 |
-| Severity | 의심되는 맬웨어 심각도 |
+| 심각도 | 의심되는 맬웨어 심각도 |
 | RemoteIPCountry | 원격 IP 주소의 국가/지역 |
 | ManagementGroupName | Operations Manager 관리 그룹의 이름 |
 | SourceSystem | 데이터가 수집된 원본 |

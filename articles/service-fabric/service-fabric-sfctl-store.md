@@ -3,31 +3,32 @@ title: Azure Service Fabric CLI- sfctl store| Microsoft Docs
 description: Service Fabric CLI sfctl store 명령을 설명합니다.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: ccd9e8323f6e0de7b81c7600e7828e4858c51201
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: e8a085c4aa6df34441f22da5542231999930d89f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035870"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900949"
 ---
 # <a name="sfctl-store"></a>sfctl store
 클러스터 이미지 저장소에서 기본 파일 수준 작업을 수행합니다.
 
 ## <a name="commands"></a>명령
 
-|명령|Description|
+|명령|설명|
 | --- | --- |
-| 삭제 | 기존 이미지 저장소 콘텐츠를 삭제합니다. |
+| delete | 기존 이미지 저장소 콘텐츠를 삭제합니다. |
 | root-info | 이미지 저장소의 루트에서 콘텐츠 정보를 가져옵니다. |
 | stat | 이미지 저장소 콘텐츠 정보를 가져옵니다. |
 
@@ -38,18 +39,18 @@ ms.locfileid: "69035870"
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --content-path [필수] | 루트에서 이미지 저장소의 파일 또는 폴더에 대한 상대 경로입니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -62,15 +63,15 @@ ms.locfileid: "69035870"
 
 |인수|설명|
 | --- | --- |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -84,15 +85,15 @@ ms.locfileid: "69035870"
 |인수|설명|
 | --- | --- |
 | --content-path [필수] | 루트에서 이미지 저장소의 파일 또는 폴더에 대한 상대 경로입니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 

@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15f7e830079c224e9e15dd45d14c1741376f8762
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6d28b9c31b8fbad8a565ff8cbdf717bfb3bc1309
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851707"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72896466"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당
 
-엔터프라이즈 앱에 사용자 또는 그룹을 할당하려면 엔터프라이즈 앱을 관리하기 위한 적절한 권한이 있어야 하고 해당 디렉터리에 대한 전역 관리자여야 합니다. Microsoft 애플리케이션(예: Office 365 앱)의 경우 PowerShell을 사용하여 엔터프라이즈 앱에 사용자를 할당합니다.
+엔터프라이즈 앱에 사용자 또는 그룹을 할당 하려면 전역 관리자, 응용 프로그램 관리자, 클라우드 응용 프로그램 관리자 또는 엔터프라이즈 앱 소유자로 할당 된 관리자 역할을 할당 받아야 합니다.  Microsoft 애플리케이션(예: Office 365 앱)의 경우 PowerShell을 사용하여 엔터프라이즈 앱에 사용자를 할당합니다.
 
 > [!NOTE]
 > 이 문서에서 설명하는 기능에 대한 라이선스 요구 사항은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory)를 참조하세요.
@@ -57,7 +57,7 @@ ms.locfileid: "68851707"
 - 이 옵션을 예로 설정 하면 사용자가 먼저이 응용 프로그램에 할당 되어야 액세스할 수 있습니다.
 - 이 옵션을 아니요로 설정 하면 응용 프로그램 심층 링크 URL 또는 응용 프로그램 URL로 직접 이동 하는 모든 사용자에 게 액세스 권한이 부여 됩니다.
 - 응용 프로그램 액세스 패널에 응용 프로그램이 표시 되는지 여부에는 영향을 주지 않습니다. 애플리케이션을 액세스 패널에 표시하려면 애플리케이션에 적절한 사용자 또는 그룹을 할당해야 합니다.
-- SAML single sign-on에 대해 구성 된 클라우드 응용 프로그램 에서만 작동 하며, Azure Active Directory 사전 인증을 사용 하는 응용 프로그램 프록시 응용 프로그램 또는 OAuth 2.0/를 사용 하는 Azure AD 응용 프로그램 플랫폼에 직접 빌드된 응용 프로그램을 사용 합니다. 사용자 또는 관리자가 해당 응용 프로그램에 동의한 한 후에 Openid connect Connect 인증을 사용 합니다. [애플리케이션에 대한 Single Sign-On](what-is-single-sign-on.md)을 참조하세요. [최종 사용자가 애플리케이션에 동의하는 방법 구성](configure-user-consent.md)을 참조하세요.
+- SAML Single Sign-On 용으로 구성 된 클라우드 응용 프로그램을 사용 하는 응용 프로그램, Azure Active Directory 사전 인증을 사용 하는 응용 프로그램 프록시 응용 프로그램 또는 OAuth 2.0/를 사용 하는 Azure AD 응용 프로그램 플랫폼에 직접 빌드된 응용 프로그램 사용자 또는 관리자가 해당 응용 프로그램에 동의한 한 후에 Openid connect Connect 인증을 사용 합니다. [애플리케이션에 대한 Single Sign-On](what-is-single-sign-on.md)을 참조하세요. [최종 사용자가 애플리케이션에 동의하는 방법 구성](configure-user-consent.md)을 참조하세요.
 - 응용 프로그램이 다른 Single Sign-on 모드로 구성 된 경우에는이 옵션이 적용 되지 않습니다.
 
 ## <a name="assign-a-user-to-an-app---powershell"></a>앱에 사용자 할당 - PowerShell

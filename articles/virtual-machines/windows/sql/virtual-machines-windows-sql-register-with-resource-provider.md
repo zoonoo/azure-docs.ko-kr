@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2f0fac5e1951f593ea769f73feb21a60afe9c02b
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 433480b4a587b3a085c3b1c0ba4122ae98eb4508
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756164"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72897709"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>SQL VM 리소스 공급자를 사용 하 여 Azure에 SQL Server 가상 머신 등록
 
@@ -246,9 +246,9 @@ PowerShell을 사용 하 여 SQL Server IaaS 에이전트의 현재 모드를 �
   ```
 ---
 
-## <a name="register-the-sql-vm-resource-provider-with-a-subscription"></a>구독에 SQL VM 리소스 공급자 등록 
+## <a name="register-subscription-with-rp"></a>RP를 사용 하 여 구독 등록
 
-SQL VM 리소스 공급자에 SQL Server VM를 등록 하려면 구독에 리소스 공급자를 등록 해야 합니다. Azure Portal, Azure CLI 또는 PowerShell을 사용 하 여이 작업을 수행할 수 있습니다.
+SQL VM 리소스 공급자에 SQL Server VM를 등록 하려면 먼저 리소스 공급자에 구독을 등록 해야 합니다.  Azure Portal, Azure CLI 또는 PowerShell을 사용 하 여이 작업을 수행할 수 있습니다.
 
 ### <a name="azure-portal"></a>Azure Portal
 

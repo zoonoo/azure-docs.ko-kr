@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor 로그 쿼리 예제 | Microsoft Docs
 description: Kusto 쿼리 언어를 사용한 Azure Monitor의 로그 쿼리 예제입니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 10/01/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 7cdd471e6618e83483f6cc304f284a1669f3b67b
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
-ms.translationtype: MT
+ms.date: 10/01/2019
+ms.openlocfilehash: 2ded97e427c8ecf4584ee486408de14a26f014eb
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718904"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900363"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure Monitor 로그 쿼리 예제
 이 문서에는 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하여 Azure Monitor에서 여러 형식의 로그 데이터를 검색하는 [쿼리](log-query-overview.md)의 다양한 예제가 포함되어 있습니다. 여기서 소개하는 예제에서는 여러 가지 방법으로 데이터를 통합하고 분석하므로, 이러한 샘플을 활용하면 고유한 요구 사항을 충족하는 데 사용할 수 있는 여러 전략을 파악할 수 있습니다.  
@@ -44,7 +38,7 @@ Event
 search in (Event, SecurityEvent) "unmarshaling"
 ```
 
-## <a name="heartbeat"></a>하트비트
+## <a name="heartbeat"></a>Heartbeat
 
 ### <a name="chart-a-week-over-week-view-of-the-number-of-computers-sending-data"></a>데이터를 전송하는 컴퓨터 수의 주 단위 보기 차트 작성
 
@@ -170,7 +164,7 @@ NetworkMonitoring
 | distinct Computer
 ```
 
-## <a name="performance"></a>성능
+## <a name="performance"></a>성능 중심
 
 ### <a name="join-computer-perf-records-to-correlate-memory-and-cpu"></a>컴퓨터 성능 레코드를 조인하여 메모리와 CPU의 상관 관계 설정
 이 예제에서는 특정 컴퓨터의 **perf** 레코드 상관 관계를 설정하고 시간 차트 2개(평균 CPU/최대 메모리)를 만듭니다.
@@ -381,7 +375,7 @@ let suspicious_users_that_later_logged_in =
 suspicious_users_that_later_logged_in
 ```
 
-## <a name="usage"></a>사용법
+## <a name="usage"></a>사용량
 
 ### <a name="calculate-the-average-size-of-perf-usage-reports-per-computer"></a>컴퓨터당 성능 사용량 보고서의 평균 크기 계산
 

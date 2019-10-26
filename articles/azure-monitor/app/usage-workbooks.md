@@ -1,24 +1,19 @@
 ---
 title: Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기 | Microsoft docs
 description: 미리 빌드되고 사용자 지정 매개 변수가 있는 통합 문서를 사용하여 복잡한 보고 간소화
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: 6d84ad69b067f730bbfbcad9e46bdc9ae2036ead
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bbbf511286c63acf4a939e0a0e7d9c3dc9efa75b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569609"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899385"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기
 
@@ -26,7 +21,7 @@ ms.locfileid: "64569609"
 
 통합 문서는 다음과 같은 시나리오에 유용합니다.
 
-* 관심 있는 메트릭을 사전에 모르는 경우 앱의 사용 현황 탐색: 사용자 수, 재방문 주기율, 변환율 등 다른 사용량 현황 분석 도구와는 달리 통합 문서를 통해 이러한 종류의 자유 형식 탐색에 매우 유용하도록 여러 종류의 시각화 및 분석을 결합할 수 있습니다.
+* 관심 있는 메트릭을 미리 알지 못하는 경우 사용자 수, 보존 요금, 변환율 등의 앱 사용을 탐색 합니다. 다른 사용 현황 분석 도구와 달리 통합 문서를 사용 하면 여러 종류의 시각화 및 분석을 결합 하 여 이러한 종류의 자유 형식 탐색에 유용 하 게 사용할 수 있습니다.
 * 팀에 주요 상호 작용 및 다른 메트릭에 대한 사용자 수를 보여 주어 새로 릴리스된 기능이 수행되는 방법을 설명합니다.
 * 앱에서 A/B 실험의 결과를 팀의 다른 멤버와 공유합니다. 텍스트로 실험에 대한 목표를 설명한 다음 각 메트릭이 위 또는 아래-대상이었는지 여부에 대한 분명한 설명선과 함께 실험을 평가하는 데 사용되는 각 사용 현황 메트릭 및 분석 쿼리를 보여줄 수 있습니다.
 * 데이터, 텍스트 설명 및 차후의 중단을 방지하기 위한 다음 단계의 논의를 결합하여 앱의 사용 현황에 대한 중단의 영향을 보고합니다.
@@ -206,7 +201,7 @@ datatable( column1:string, column2:string )
 
 ![Application Insights 통합 문서 섹션 편집 컨트롤](./media/usage-workbooks/011-data-table.png)
 
-더 적용 하는 예제는 이름으로 국가/지역 집합에서 선택 드롭다운을 사용 합니다.
+더 적절 한 예는 드롭다운을 사용 하 여 국가/지역 집합에서 이름으로 선택 하는 것입니다.
 
 ```
 customEvents

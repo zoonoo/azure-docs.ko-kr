@@ -1,29 +1,24 @@
 ---
 title: Application Insights를 사용하여 SharePoint 사이트 모니터링
 description: 새 계측 키를 사용하여 새 애플리케이션 모니터링 시작
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 2bfe5910-d673-4cf6-a5c1-4c115eae1be0
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/11/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 027d5485b29deb434953470023d8a290cc0af58a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/11/2018
+ms.openlocfilehash: 271ef590d7cdbefc824a7f80aef110b0c08b6d6d
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60784601"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899878"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Application Insights를 사용하여 SharePoint 사이트 모니터링
 Azure Application Insights는 애플리케이션의 가용성, 성능 및 사용량을 모니터링합니다. 여기에서는 SharePoint 사이트에 맞게 설정하는 방법을 알아봅니다.
 
 ## <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
-[Azure Portal](https://portal.azure.com)에서 새 Application Insights 리소스를 만듭니다. 애플리케이션 유형으로 ASP.NET을 선택합니다.
+[Azure 포털](https://portal.azure.com)에서 새 Application Insights 리소스를 만듭니다. 애플리케이션 유형으로 ASP.NET을 선택합니다.
 
 ![속성 클릭, 키 선택 및 ctrl+C 누르기](./media/sharepoint/001.png)
 
@@ -50,7 +45,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 </script>
 ```
 
-추적하려는 모든 페이지의 &lt;/head&gt; 태그 바로 앞에 스크립트를 삽입합니다. 웹 사이트에 마스터 페이지가 있는 경우 이 페이지에 스크립트를 넣을 수 있습니다. 예를 들어 ASP.NET MVC 프로젝트에서는 View\Shared\_Layout.cshtml에 추가합니다.
+추적 하려는 모든 페이지의 &lt;/head&gt; 태그 바로 앞에 스크립트를 삽입 합니다. 웹 사이트에 마스터 페이지가 있으면 스크립트를 넣을 수 있습니다. 예를 들어 ASP.NET MVC 프로젝트에서는 View\Shared\_Layout.cshtml에 추가합니다.
 
 스크립트에는 Application Insights 리소스에 원격 분석을 전달하는 계측 키가 포함됩니다.
 
@@ -76,7 +71,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 ## <a name="view-data-about-your-app"></a>앱에 대한 데이터 보기
 응용 프로그램을 다시 배포 합니다.
 
-[Azure Portal](https://portal.azure.com)에서 사용자 애플리케이션 블레이드로 돌아갑니다.
+[Azure 포털](https://portal.azure.com)에서 사용자 애플리케이션 블레이드로 돌아갑니다.
 
 첫 번째 이벤트가 검색에 표시됩니다. 
 

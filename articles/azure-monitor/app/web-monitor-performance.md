@@ -1,29 +1,24 @@
 ---
 title: Application Insights로 앱 상태 및 사용 현황 모니터링
 description: Application Insights를 시작합니다. 온-프레미스 또는 Microsoft Azure 웹 애플리케이션의 사용량, 가용성 및 성능을 분석합니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 40650472-e860-4c1b-a589-9956245df307
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: d7b8037f50fc4877fe233925f3e922648169f73b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ebf6fa6d3dac6c63dfaa349a77a08bc81d402ef8
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60373089"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899290"
 ---
 # <a name="monitor-performance-in-web-applications"></a>웹 애플리케이션의 성능 모니터링
 
 
-애플리케이션이 정상적으로 작동하는지 확인하고 오류가 발생하는지 신속하게 파악합니다. [Application Insights][start]는 성능 문제 및 예외에 대한 정보와, 이러한 현상에 대한 근본 원인을 확인하고 진단하는 기능을 제공합니다.
+애플리케이션이 정상적으로 작동하는지 확인하고 오류가 발생하는지 신속하게 파악합니다. [Application Insights][start] 는 성능 문제 및 예외에 대 한 정보를 제공 하 고 근본 원인을 찾아 진단 하는 데 도움을 줍니다.
 
 Application Insights에서 Java 및 ASP.NET 웹 애플리케이션과 서비스, WCF 서비스를 모니터링할 수 있습니다. 온-프레미스, 가상 머신에서 또는 Microsoft Azure 웹 사이트로 호스트할 수 있습니다. 
 
@@ -108,11 +103,11 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 ## <a name="diagnosis"></a>문제 진단
 아래에는 성능 문제를 찾고 진단하기 위한 몇 가지 팁이 나와 있습니다.
 
-* 웹 사이트의 작동이 중단되거나 응답이 잘못되거나 속도가 느려지는 경우 경고를 받도록 [웹 테스트][availability]를 설정합니다. 
+* 웹 사이트의 작동이 중단 되거나 응답이 잘못 되거나 느리게 응답 하는 경우 경고를 표시 하도록 [웹 테스트][availability] 를 설정 합니다. 
 * 요청 수를 다른 메트릭과 비교하여 오류 또는 느린 응답이 부하와 관련되어 있는지 확인합니다.
-* 코드에서 [검사 추적 문을 삽입 및 검색][diagnostic]하여 문제를 파악합니다.
-* [라이브 메트릭 스트림][livestream]을 사용하여 작업에서 웹앱을 모니터링합니다.
-* 사용 하 여.NET 응용 프로그램의 상태를 캡처하도록 [스냅숏 디버거][snapshot]합니다.
+* 코드에 [추적 문을 삽입 하 고 검색][diagnostic] 하 여 문제를 파악 합니다.
+* [라이브 메트릭 스트림][livestream]를 사용 하 여 작업에서 웹 앱을 모니터링 합니다.
+* [스냅숏 디버거][snapshot]를 사용 하 여 .net 응용 프로그램의 상태를 캡처합니다.
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>성능 조사 환경을 사용하여 성능 병목 현상 찾기 및 수정
 
@@ -140,13 +135,13 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
 
 ## <a name="next"></a>다음 단계
-[웹 테스트][availability] - 전 세계에서 웹 요청이 일정한 간격으로 애플리케이션에 전송되도록 합니다.
+[웹 테스트][availability] -전 세계의 일정 한 간격으로 응용 프로그램에 웹 요청을 보냅니다.
 
-[진단 추적 캡처 및 검색][diagnostic] - 추적 호출을 삽입하고 결과를 확인하여 문제를 파악합니다.
+[진단 추적 캡처 및 검색][diagnostic] -추적 호출을 삽입 하 고 결과를 자세히 살펴볼 하 여 문제를 파악 합니다.
 
-[사용 현황 추적][usage] - 사용자의 애플리케이션 사용 방식을 파악합니다.
+[사용 추적][usage] -사용자가 응용 프로그램을 사용 하는 방법을 알아봅니다.
 
-[문제 해결][qna] - 질문과 대답
+[문제 해결][qna] -및 Q & A
 
 
 

@@ -1,24 +1,19 @@
 ---
 title: Azure Application Insights를 사용한 웹 애플리케이션의 사용자 재방문 주기 분석 | Microsoft Docs
 description: 앱으로 돌아온 사용자는 몇 명이나 되나요?
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/03/2017
-ms.pm_owner: daviste;NumberByColors
-ms.reviewer: mbullwin
+author: NumberByColors
 ms.author: daviste
-ms.openlocfilehash: bda79520dd86cc14161f6f22cd24feb2e35849ab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 05/03/2017
+ms.reviewer: mbullwin
+ms.openlocfilehash: 5f5f6235354adc565815ac2eab0a1c774267102d
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60372637"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899413"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Application Insights를 사용한 웹 애플리케이션의 사용자 재방문 주기 분석
 

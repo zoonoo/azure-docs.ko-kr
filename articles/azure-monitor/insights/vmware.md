@@ -1,35 +1,29 @@
 ---
-title: Azure Monitor의 VMware 모니터링 솔루션 | Microsoft Docs
+title: Azure Monitor에서 VMware 모니터링 솔루션 Microsoft Docs
 description: VMware 모니터링 솔루션으로 로그를 관리하고 ESXi 호스트를 모니터링하는 방법을 알아봅니다.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 05/04/2018
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: eac6a27c3bcf64462a9f3d9a57da6df736f30c78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/04/2018
+ms.openlocfilehash: dc453ad42312bb096aed1356d376b0906870a7b0
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61386233"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900605"
 ---
-# <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Azure Monitor의 VMware 모니터링 (사용 되지 않음) 솔루션
+# <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Azure Monitor에서 VMware 모니터링 (사용 되지 않음) 솔루션
 
 ![VMware 기호](./media/vmware/vmware-symbol.png)
 
 > [!NOTE]
 > VMware 모니터링 솔루션은 더 이상 사용되지 않습니다.  솔루션이 이미 설치되어 있는 고객은 계속해서 사용할 수 있지만 VMware 모니터링을 모든 새 작업 영역에 추가할 수 없습니다.
 
-Azure Monitor의 VMware 모니터링 솔루션에는 중앙 집중식된 로깅 및 대규모 VMware 로그에 대 한 모니터링 접근 방식을 만들 수 있는 솔루션이입니다. 이 문서에서는 단일 위치에서 이 솔루션을 사용하여 ESXi 호스트의 문제를 해결, 캡처 및 관리하는 방법을 설명합니다. 솔루션을 사용하면 단일 위치에서 모든 ESXi 호스트에 대한 데이터를 자세히 볼 수 있습니다. ESXi 호스트 로그를 통해 제공되는 상위 이벤트 수, 상태, VM 및 ESXi 호스트의 추세를 볼 수 있습니다. 중앙 집중식 ESXi 호스트 로그를 보고 검색하여 문제를 해결할 수 있습니다. 그리고 로그 검색 쿼리에 기반한 경고를 만들 수 있습니다.
+Azure Monitor의 VMware 모니터링 솔루션은 대량 VMware 로그에 대 한 중앙 집중식 로깅 및 모니터링 접근 방식을 만드는 데 도움이 되는 솔루션입니다. 이 문서에서는 단일 위치에서 이 솔루션을 사용하여 ESXi 호스트의 문제를 해결, 캡처 및 관리하는 방법을 설명합니다. 솔루션을 사용하면 단일 위치에서 모든 ESXi 호스트에 대한 데이터를 자세히 볼 수 있습니다. ESXi 호스트 로그를 통해 제공되는 상위 이벤트 수, 상태, VM 및 ESXi 호스트의 추세를 볼 수 있습니다. 중앙 집중식 ESXi 호스트 로그를 보고 검색하여 문제를 해결할 수 있습니다. 그리고 로그 검색 쿼리에 기반한 경고를 만들 수 있습니다.
 
-솔루션은 ESXi 호스트의 기본 syslog 기능을 사용하여 Log Analytics 에이전트가 있는 대상 VM에 데이터를 푸시합니다. 그러나 대상 VM 내의 syslog에 파일을 작성하지는 않습니다. Log Analytics 에이전트는 포트 1514를 열고 수신 대기합니다. 데이터를 받으면 Log Analytics 에이전트는 Azure Monitor에 데이터를 푸시합니다.
+솔루션은 ESXi 호스트의 기본 syslog 기능을 사용하여 Log Analytics 에이전트가 있는 대상 VM에 데이터를 푸시합니다. 그러나 대상 VM 내의 syslog에 파일을 작성하지는 않습니다. Log Analytics 에이전트는 포트 1514를 열고 수신 대기합니다. 데이터를 받으면 Log Analytics 에이전트가 데이터를 Azure Monitor으로 푸시합니다.
 
 ## <a name="install-and-configure-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
@@ -57,23 +51,23 @@ ESXi 호스트로부터 모든 syslog 데이터를 수신하는 Linux 운영 체
     ![vspherefwproperties](./media/vmware/vsphere3.png)  
 1. vSphere 콘솔에서 해당 syslog가 제대로 설정되어 있는지 확인합니다. ESXi 호스트에서 포트가 **1514**로 구성되어 있는지 확인합니다.
 1. Linux용 Log Analytics 에이전트를 다운로드하여 Linux 서버에 설치합니다. 자세한 내용은 [Linux용 Log Analytics 에이전트 설명서](https://github.com/Microsoft/OMS-Agent-for-Linux)를 참조하세요.
-1. Linux용 Log Analytics 에이전트를 설치한 후 /etc/opt/microsoft/omsagent/sysconf/omsagent.d 디렉터리로 이동하고, vmware_esxi.conf 파일을 /etc/opt/microsoft/omsagent/conf/omsagent.d 디렉터리에 복사한 후, 해당 파일의 소유자/그룹 및 사용 권한을 변경합니다. 예를 들면 다음과 같습니다.
+1. Linux용 Log Analytics 에이전트를 설치한 후 /etc/opt/microsoft/omsagent/sysconf/omsagent.d 디렉터리로 이동하고, vmware_esxi.conf 파일을 /etc/opt/microsoft/omsagent/conf/omsagent.d 디렉터리에 복사한 후, 해당 파일의 소유자/그룹 및 사용 권한을 변경합니다. 다음은 그 예입니다.
 
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
 1. `sudo /opt/microsoft/omsagent/bin/service_control restart`를 실행하여 Linux용 Log Analytics 에이전트를 다시 시작합니다.
-1. ESXi 호스트에서 `nc` 명령을 사용하여 Linux 서버와 ESXi 호스트 간의 연결을 테스트합니다. 예를 들면 다음과 같습니다.
+1. ESXi 호스트에서 `nc` 명령을 사용하여 Linux 서버와 ESXi 호스트 간의 연결을 테스트합니다. 다음은 그 예입니다.
 
     ```
     [root@ESXiHost:~] nc -z 123.456.789.101 1514
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-1. Azure portal에 대 한 로그 쿼리 수행 `VMware_CL`합니다. Azure Monitor에서 syslog 데이터를 수집할 때는 syslog 형식을 그대로 유지 합니다. 포털에서는 *Hostname* 및 *ProcessName*과 같은 일부 특정 필드가 캡처됩니다.  
+1. Azure Portal에서 `VMware_CL`에 대 한 로그 쿼리를 수행 합니다. Azure Monitor syslog 데이터를 수집 하는 경우 syslog 형식을 유지 합니다. 포털에서는 *Hostname* 및 *ProcessName*과 같은 일부 특정 필드가 캡처됩니다.  
 
-    ![형식](./media/vmware/type.png)  
+    ![type](./media/vmware/type.png)  
 
     로그 검색 결과 보기가 위 이미지와 비슷한 경우 VMware 모니터링 솔루션 대시보드를 사용하도록 설정된 것입니다.  
 
@@ -88,7 +82,7 @@ VMware 모니터링 솔루션에서는 사용 설정된 Linux용 Log Analytics �
 
 다음 표에서는 VMware 모니터링 솔루션에서 수집한 데이터 형식의 예를 보여줍니다.
 
-| 필드 이름 | 설명 |
+| 필드 이름 | description |
 | --- | --- |
 | Device_s |VMware 스토리지 디바이스 |
 | ESXIFailure_s |오류 유형 |
@@ -104,7 +98,7 @@ VMware 모니터링 솔루션에서는 사용 설정된 Linux용 Log Analytics �
 | SyslogMessage_s |Syslog 데이터 |
 | UserName_s |VM을 만들거나 삭제한 사용자 |
 | VMName_s |VM 이름 |
-| Computer |호스트 컴퓨터 |
+| 컴퓨터 |호스트 컴퓨터 |
 | TimeGenerated |데이터가 생성된 시간 |
 | DataCenter_s |VMware 데이터 센터 |
 | StorageLatency_s |스토리지 대기 시간(밀리초) |
@@ -129,7 +123,7 @@ VMware 타일이 Log Analytics 작업 영역에 나타납니다. 발생한 모�
 
 블레이드를 클릭하면 해당 블레이드의 특정 세부 정보를 보여 주는 Log Analytics 검색 창이 열립니다.
 
-여기에서 특정 항목에 대 한 수정 하려면 로그 쿼리를 편집할 수 있습니다. 로그 쿼리를 만드는 방법에 대 한 세부 정보를 참조 하세요 [Azure Monitor에서 로그 쿼리를 사용 하 여 데이터 찾기](../log-query/log-query-overview.md)합니다.
+여기에서 로그 쿼리를 편집 하 여 특정 항목에 대해 수정할 수 있습니다. 로그 쿼리를 만드는 방법에 대 한 자세한 내용은 [Azure Monitor에서 로그 쿼리를 사용 하 여 데이터 찾기](../log-query/log-query-overview.md)를 참조 하세요.
 
 #### <a name="find-esxi-host-events"></a>ESXi 호스트 이벤트 찾기
 단일 ESXi 호스트에서는 프로세스에 따라 여러 로그를 생성합니다. VMware 모니터링 솔루션은 이러한 로그를 중앙 집중식으로 관리하고 이벤트 수를 요약 합니다. 이처럼 중앙 집중화된 보기를 사용하면 대량의 이벤트가 발생한 ESXi 호스트 및 사용자 환경에서 가장 빈번하게 발생한 이벤트를 손쉽게 파악할 수 있습니다.
@@ -158,19 +152,19 @@ ESXi 호스트마다 가상 머신을 만들고 삭제할 수 있습니다. 이�
 
 
 #### <a name="save-queries"></a>쿼리 저장
-로그 쿼리 저장은 Azure Monitor의 표준 기능 및 유용한 경험한 쿼리를 유지 하는 데 도움이 합니다. 만든 쿼리가 유용하다고 생각되면 **즐겨찾기**를 클릭하여 해당 쿼리를 저장합니다. 저장된 쿼리를 사용하면 나중에 사용자 지정 대시보드를 만들 수 있는 [내 대시보드](../learn/tutorial-logs-dashboards.md) 페이지에서 해당 쿼리를 손쉽게 다시 활용할 수 있습니다.
+로그 쿼리 저장은 Azure Monitor의 표준 기능이 며 유용한 쿼리를 유지 하는 데 도움이 될 수 있습니다. 만든 쿼리가 유용하다고 생각되면 **즐겨찾기**를 클릭하여 해당 쿼리를 저장합니다. 저장된 쿼리를 사용하면 나중에 사용자 지정 대시보드를 만들 수 있는 [내 대시보드](../learn/tutorial-logs-dashboards.md) 페이지에서 해당 쿼리를 손쉽게 다시 활용할 수 있습니다.
 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>쿼리에서 경고 만들기
 쿼리를 만든 후에는 특정 이벤트가 발생할 때 경고하도록 이 쿼리를 사용하는 것이 좋습니다. 경고를 생성하는 방법에 대한 내용은 [Log Analytics의 경고](../platform/alerts-overview.md)를 참조하세요. 경고 쿼리 및 기타 쿼리의 예제에 대해서는 [Monitor VMware using Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics)(Log Analytics를 사용하여 VMware 모니터링) 블로그 게시물을 참조하세요.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>ESXi 호스트 설정에서 수행해야 하는 작업은 무엇입니까? 현재 환경에 미치는 영향은 무엇입니까?
 이 솔루션은 기본 ESXi 호스트 Syslog 전달 메커니즘을 사용합니다. ESXi 호스트에 추가 Microsoft 소프트웨어가 없어도 로그를 캡처할 수 있습니다. 기존 환경에 미치는 영향이 적습니다. 그러나 ESXI 기능인 syslog 전달을 설정해야 합니다.
 
 ### <a name="do-i-need-to-restart-my-esxi-host"></a>ESXi 호스트를 다시 시작해야 합니까?
-아니요. 이 프로세스는 호스트를 다시 시작하지 않아도 됩니다. vSphere에서 syslog을 제대로 업데이트하지 못하는 경우가 있습니다. 이 경우 ESXi 호스트에 로그온하여 syslog를 다시 로드하세요. 호스트를 다시 시작할 필요가 없으므로 이 프로세스는 사용자 환경에 방해가 되지 않습니다.
+아닙니다. 이 프로세스는 호스트를 다시 시작하지 않아도 됩니다. vSphere에서 syslog을 제대로 업데이트하지 못하는 경우가 있습니다. 이 경우 ESXi 호스트에 로그온하여 syslog를 다시 로드하세요. 호스트를 다시 시작할 필요가 없으므로 이 프로세스는 사용자 환경에 방해가 되지 않습니다.
 
 ### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-log-analytics"></a>Log Analytics로 전송되는 로그 데이터의 양을 늘리거나 줄일 수 있나요?
 예. vsphere에서 ESXi 호스트 로그 수준 설정을 사용하면 됩니다. 로그 수집은 *정보* 수준을 기반으로 합니다. 따라서 VM 만들기 또는 삭제를 감사하려면 호스트에서 *정보* 수준을 유지해야 합니다. 자세한 내용은 [VMware 기술 자료](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658)를 참조하세요.

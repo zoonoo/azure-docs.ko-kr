@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 10/23/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 6870297eea194b89a84a89e1e8ef8decf5c1788e
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 0b93f898924d73636c31826b6b63a228f75fc8ba
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374540"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900161"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
 
 이 문서는 Azure Cost Management에 포함 된 Azure 비용 및 사용 현황 데이터를 더 잘 이해 하는 데 도움이 됩니다. 데이터를 처리 하 고, 수집 하 고, 표시 하 고, 닫는 방법을 설명 합니다. Azure 사용 요금은 매월 청구됩니다. 청구 주기는 월별 기간 이지만 주기 시작 및 종료 날짜는 구독 유형에 따라 달라 집니다. Cost Management가 사용량 데이터를 받는 빈도는 다양한 요인에 따라 달라집니다. 이러한 요인에는 데이터 처리에 걸리는 시간, Azure 서비스에서 사용량을 청구 시스템으로 내보내는 빈도 등이 있습니다.
 
-Cost Management에는 기업계약 (EA) 계정에 대 한 예약 및 타사 제품을 비롯 한 모든 사용량 및 구매가 포함 됩니다. Microsoft MCA (고객 계약) 계정 및 종 량 제 요금으로 개별 구독은 Azure 및 Marketplace 서비스의 사용만 포함 합니다. 지원 및 기타 비용은 포함 되지 않습니다. 비용은 송장이 생성 될 때까지 예상 되며 크레딧에는 영향을 주지 않습니다.
+Cost Management에는 기업계약 (EA) 계정에 대 한 예약 및 타사 제품을 비롯 한 모든 사용량 및 구매가 포함 됩니다. Microsoft 고객 계약 계정 및 종 량 제 요금으로 개별 구독은 Azure 및 Marketplace 서비스의 사용만 포함 합니다. 지원 및 기타 비용은 포함 되지 않습니다. 비용은 송장이 생성 될 때까지 예상 되며 크레딧에는 영향을 주지 않습니다.
 
 ## <a name="supported-microsoft-azure-offers"></a>지원 되는 Microsoft Azure 제공
 
@@ -34,7 +34,7 @@ Azure Cost Management에서 현재 지원되는 [Microsoft Azure 제품](https:/
 | **EA(기업 계약)** | [Microsoft Azure 엔터프라이즈](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | 2014 년 5 월<sup>1</sup> |
 | **Microsoft 고객 계약** | [Microsoft Azure 계획](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/A | <sup>3 월 2019</sup> |
 | **Microsoft 고객 계약** | [개발/테스트에 대 한 Microsoft Azure 계획](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | N/A | <sup>3 월 2019</sup> |
-| **Microsoft 파트너 계약** | Microsoft Azure 계획 | CSP_2015-05-01, CSP_MG_2017-01, CSPDEVTEST_2018-05-01 | N/A | 10 월 2019 |
+| **파트너에서 지원 되는 Microsoft 고객 계약** | Microsoft Azure 계획 | CSP_2015-05-01, CSP_MG_2017-01 및 CSPDEVTEST_2018-01-01<br><br>할당량 ID는 Microsoft 고객 계약 및 레거시 CSP 구독에 다시 사용 됩니다. 현재 Microsoft 고객 계약 구독만 지원 됩니다. | N/A | 2019년 10월 |
 | **MSDN(Microsoft Developer Network)** | [MSDN 플랫폼](https://azure.microsoft.com/offers/ms-azr-0062p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2018 년 10 월<sup>2 일</sup> |
 | **종량제** | [종량제](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2018 년 10 월<sup>2 일</sup> |
 | **종량제** | [종량제 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2018 년 10 월<sup>2 일</sup> |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 39e6273382133493a77321deed2baec4718bc912
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b2a1b1426af3e72756a7a85a173ef4a2a5671b02
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72383659"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900205"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>Azure Service Fabric에서 ASP.NET Core Reliable Services
 
@@ -54,20 +54,20 @@ Service Fabric 서비스와 ASP.NET를 게스트 실행 파일 또는 신뢰할 
 
 그러나 응용 프로그램 진입점은 신뢰할 수 있는 서비스에서 WebHost를 만들 수 있는 올바른 위치가 아닙니다. 응용 프로그램 진입점은 서비스 유형을 Service Fabric 런타임으로 등록 하는 데만 사용 되므로 해당 서비스 유형의 인스턴스를 만들 수 있기 때문입니다. WebHost는 신뢰할 수 있는 서비스 자체에서 만들어야 합니다. 서비스 호스트 프로세스 내에서 서비스 인스턴스 및/또는 복제본은 여러 수명 주기를 진행할 수 있습니다. 
 
-Reliable Service 인스턴스는 `StatelessService` 또는 `StatefulService`에서 파생되는 서비스 클래스로 표현됩니다. 서비스를 위한 통신 스택은 서비스 클래스의 `ICommunicationListener` 구현에 포함되어 있습니다. @No__t 0 NuGet 패키지에는 신뢰할 수 있는 서비스에서 Kestrel 또는 HTTP.SYS에 대 한 ASP.NET Core WebHost를 시작 하 고 관리 하는 `ICommunicationListener`의 구현이 포함 되어 있습니다.
+Reliable Service 인스턴스는 `StatelessService` 또는 `StatefulService`에서 파생되는 서비스 클래스로 표현됩니다. 서비스를 위한 통신 스택은 서비스 클래스의 `ICommunicationListener` 구현에 포함되어 있습니다. `Microsoft.ServiceFabric.AspNetCore.*` NuGet 패키지에는 신뢰할 수 있는 서비스에서 Kestrel 또는 HTTP.SYS에 대 한 ASP.NET Core WebHost를 시작 하 고 관리 하는 `ICommunicationListener` 구현이 포함 되어 있습니다.
 
 ![신뢰할 수 있는 서비스에서 ASP.NET Core 호스팅을 위한 다이어그램][1]
 
 ## <a name="aspnet-core-icommunicationlisteners"></a>ASP.NET Core ICommunicationListeners
-@No__t 1 NuGet 패키지의 Kestrel 및 HTTP.SYS에 대 한 @no__t 0 구현은 비슷한 사용 패턴을 갖습니다. 하지만 각 웹 서버에 따라 약간 다른 작업을 수행 합니다. 
+`Microsoft.ServiceFabric.AspNetCore.*` NuGet 패키지의 Kestrel 및 HTTP.SYS에 대 한 `ICommunicationListener` 구현에는 비슷한 사용 패턴이 있습니다. 하지만 각 웹 서버에 따라 약간 다른 작업을 수행 합니다. 
 
 두 통신 수신기는 다음 인수를 사용하는 생성자를 제공합니다.
  - **`ServiceContext serviceContext`** : 실행 중인 서비스에 대 한 정보를 포함 하는 `ServiceContext` 개체입니다.
- - **`string endpointName`** : servicemanifest.xml에서 `Endpoint` 구성의 이름입니다. 주로 두 통신 수신기가 서로 다릅니다. Http.sys에는 @no__t 1 구성이 *필요* 하지만, Kestrel은 그렇지 않습니다.
- - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`** : `IWebHost`를 만들고 반환 하는 사용자가 구현 하는 람다입니다. 이를 통해 ASP.NET Core 응용 프로그램에서 정상적으로 작동 하는 방식으로 `IWebHost`을 구성할 수 있습니다. 람다는 사용 하는 Service Fabric 통합 옵션과 사용자가 제공 하는 @no__t 구성에 따라 생성 되는 URL을 제공 합니다. 그런 다음 해당 URL을 수정 하거나 사용 하 여 웹 서버를 시작할 수 있습니다.
+ - **`string endpointName`** : servicemanifest.xml에서 `Endpoint` 구성의 이름입니다. 주로 두 통신 수신기가 서로 다릅니다. Http.sys에는 `Endpoint` 구성이 *필요* 하지만, Kestrel은 그렇지 않습니다.
+ - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`** : `IWebHost`를 만들고 반환 하는 사용자가 구현 하는 람다입니다. 이를 통해 ASP.NET Core 응용 프로그램에서 정상적으로 작동 하는 방식으로 `IWebHost`을 구성할 수 있습니다. 람다는 사용 하는 Service Fabric 통합 옵션과 사용자가 제공 하는 `Endpoint` 구성에 따라 생성 되는 URL을 제공 합니다. 그런 다음 해당 URL을 수정 하거나 사용 하 여 웹 서버를 시작할 수 있습니다.
 
 ## <a name="service-fabric-integration-middleware"></a>Service Fabric 통합 미들웨어
-@No__t 0 NuGet 패키지에는 Service Fabric 인식 미들웨어를 추가 하는 `IWebHostBuilder`에 대 한 @no__t 1 확장 메서드가 포함 되어 있습니다. 이 미들웨어는 Kestrel 또는 HTTP.SYS `ICommunicationListener`을 구성 하 여 Service Fabric Naming Service에 고유한 서비스 URL을 등록 합니다. 그런 다음 클라이언트 요청의 유효성을 검사 하 여 클라이언트가 올바른 서비스에 연결 하는지 확인 합니다. 
+`Microsoft.ServiceFabric.AspNetCore` NuGet 패키지에는 Service Fabric 인식 미들웨어를 추가 하는 `IWebHostBuilder`에 대 한 `UseServiceFabricIntegration` 확장 메서드가 포함 되어 있습니다. 이 미들웨어는 Kestrel 또는 HTTP.SYS `ICommunicationListener`을 구성 하 여 Service Fabric Naming Service에 고유한 서비스 URL을 등록 합니다. 그런 다음 클라이언트 요청의 유효성을 검사 하 여 클라이언트가 올바른 서비스에 연결 하는지 확인 합니다. 
 
 이 단계는 클라이언트가 잘못 된 서비스에 연결 되지 않도록 방지 하는 데 필요 합니다. 이는 Service Fabric 같은 공유 호스트 환경에서 여러 웹 응용 프로그램을 동일한 물리적 컴퓨터 또는 가상 컴퓨터에서 실행할 수 있지만 고유한 호스트 이름은 사용 하지 않기 때문입니다. 이 시나리오에 대해서는 다음 섹션에서 자세히 설명합니다.
 
@@ -98,7 +98,7 @@ Reliable Service 인스턴스는 `StatelessService` 또는 `StatefulService`에�
 
 Kestrel 및 HTTP.SYS `ICommunicationListener` 구현은 모두 똑같은 방식으로이 메커니즘을 사용 합니다. Http.sys는 기본 **http.sys** 포트 공유 기능을 사용 하 여 고유한 URL 경로에 따라 요청을 내부적으로 구분할 수 있지만,이 기능은 http.sys `ICommunicationListener` 구현에서 사용 *되지 않습니다* . 앞에서 설명한 시나리오에서 HTTP 503 및 HTTP 404 오류 상태 코드가 발생 하기 때문입니다. 이렇게 하면 HTTP 503 및 HTTP 404이 일반적으로 다른 오류를 나타내는 데 사용 되므로 클라이언트에서 오류의 의도를 확인 하기가 어려워집니다. 
 
-따라서 Kestrel 및 HTTP.SYS `ICommunicationListener` 구현은 @no__t 1 확장 메서드에서 제공 하는 미들웨어를 표준화 합니다. 따라서 클라이언트는 HTTP 410 응답에서 서비스 끝점 다시 확인 작업을 수행 하기만 하면 됩니다.
+따라서 Kestrel 및 HTTP.SYS `ICommunicationListener` 구현은 모두 `UseServiceFabricIntegration` 확장 메서드에서 제공 하는 미들웨어를 표준화 합니다. 따라서 클라이언트는 HTTP 410 응답에서 서비스 끝점 다시 확인 작업을 수행 하기만 하면 됩니다.
 
 ## <a name="httpsys-in-reliable-services"></a>Reliable Services에서 HTTP.SYS
 **ServiceFabric AspNetCore** NuGet 패키지를 가져와 Reliable Services에서 http.sys를 사용할 수 있습니다. 이 패키지에는 `ICommunicationListener`의 구현인 `HttpSysCommunicationListener`이 포함 되어 있습니다. `HttpSysCommunicationListener`을 사용 하면 http.sys를 웹 서버로 사용 하 여 신뢰할 수 있는 서비스 내에서 ASP.NET Core WebHost를 만들 수 있습니다.
@@ -195,7 +195,7 @@ HTTP.SYS에서 동적으로 할당 된 포트를 사용 하려면 `Endpoint` 구
   </Resources>
 ```
 
-@No__t-0 구성에 의해 할당 된 동적 포트는 *호스트 프로세스 당*하나의 포트만 제공 합니다. 현재 Service Fabric 호스팅 모델을 사용 하면 여러 서비스 인스턴스 및/또는 복제본을 동일한 프로세스에서 호스팅할 수 있습니다. 즉, `Endpoint` 구성을 통해 할당 될 때 각 항목은 동일한 포트를 공유 합니다. 여러 **http.sys** 인스턴스는 기본 **http.sys** 포트 공유 기능을 사용 하 여 포트를 공유할 수 있습니다. 그러나 클라이언트 요청에 대 한 복잡성 때문에 `HttpSysCommunicationListener`에서 지원 되지 않습니다. 동적 포트 사용의 경우 Kestrel이 제안 된 웹 서버입니다.
+`Endpoint` 구성에 의해 할당 된 동적 포트는 *호스트 프로세스 당*하나의 포트만 제공 합니다. 현재 Service Fabric 호스팅 모델을 사용 하면 여러 서비스 인스턴스 및/또는 복제본을 동일한 프로세스에서 호스팅할 수 있습니다. 즉, `Endpoint` 구성을 통해 할당 될 때 각 항목은 동일한 포트를 공유 합니다. 여러 **http.sys** 인스턴스는 기본 **http.sys** 포트 공유 기능을 사용 하 여 포트를 공유할 수 있습니다. 그러나 클라이언트 요청에 대 한 복잡성 때문에 `HttpSysCommunicationListener`에서 지원 되지 않습니다. 동적 포트 사용의 경우 Kestrel이 제안 된 웹 서버입니다.
 
 ## <a name="kestrel-in-reliable-services"></a>Reliable Services의 Kestrel
 **ServiceFabric. AspNetCore** NuGet 패키지를 가져와 Reliable Services에서 kestrel을 사용할 수 있습니다. 이 패키지에는 `ICommunicationListener`의 구현인 `KestrelCommunicationListener`이 포함 되어 있습니다. `KestrelCommunicationListener`을 사용 하면 웹 서버로 Kestrel을 사용 하 여 신뢰할 수 있는 서비스 내에서 ASP.NET Core WebHost를 만들 수 있습니다.
@@ -304,7 +304,7 @@ serviceContext =>
 
 
 ### <a name="endpoint-configuration"></a>엔드포인트 구성
-@No__t-0 구성은 Kestrel을 사용 하는 데 필요 하지 않습니다. 
+`Endpoint` 구성은 Kestrel을 사용 하는 데 필요 하지 않습니다. 
 
 Kestrel은 간단한 독립 실행형 웹 서버입니다. Http.sys (또는 HttpListener)와는 달리 시작 하기 전에 URL을 등록할 필요가 없기 때문에 Servicemanifest.xml에 `Endpoint` 구성이 필요 하지 않습니다. 
 
@@ -330,7 +330,7 @@ new KestrelCommunicationListener(serviceContext, "ServiceEndpoint", (url, listen
 Servicemanifest.xml가 `Endpoint` 구성을 사용 하지 않는 경우 `KestrelCommunicationListener` 생성자에서 이름을 생략 합니다. 이 경우 동적 포트를 사용 합니다. 이에 대 한 자세한 내용은 다음 섹션을 참조 하세요.
 
 #### <a name="use-kestrel-with-a-dynamic-port"></a>동적 포트로 Kestrel 사용
-Kestrel은 Servicemanifest.xml의 `Endpoint` 구성에서 자동 포트 할당을 사용할 수 없습니다. @No__t-0 구성에서 자동 포트 할당은 *호스트 프로세스*당 고유한 포트를 할당 하 고 단일 호스트 프로세스에는 여러 Kestrel 인스턴스가 포함 될 수 있기 때문입니다. 이는 포트 공유를 지원 하지 않기 때문에 Kestrel에서 작동 하지 않습니다. 따라서 각 Kestrel 인스턴스는 고유 포트에서 열어야 합니다.
+Kestrel은 Servicemanifest.xml의 `Endpoint` 구성에서 자동 포트 할당을 사용할 수 없습니다. `Endpoint` 구성의 자동 포트 할당은 *호스트 프로세스*당 고유한 포트를 할당 하 고 단일 호스트 프로세스에는 여러 Kestrel 인스턴스가 포함 될 수 있기 때문입니다. 이는 포트 공유를 지원 하지 않기 때문에 Kestrel에서 작동 하지 않습니다. 따라서 각 Kestrel 인스턴스는 고유 포트에서 열어야 합니다.
 
 Kestrel에서 동적 포트 할당을 사용 하려면 Servicemanifest.xml에서 `Endpoint` 구성을 완전히 생략 하 고 다음과 같이 끝점 이름을 `KestrelCommunicationListener` 생성자에 전달 하지 마세요.
 
@@ -340,13 +340,16 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 
 이 구성에서 `KestrelCommunicationListener`는 애플리케이션 포트 범위에서 사용되지 않는 포트를 자동으로 선택합니다.
 
+HTTPS의 경우 Servicemanifest.xml에 지정 된 포트 없이 HTTPS 프로토콜을 사용 하 여 끝점을 구성 하 고 끝점 이름을 KestrelCommunicationListener 생성자에 전달 해야 합니다.
+
+
 ## <a name="service-fabric-configuration-provider"></a>Service Fabric 구성 공급자
 ASP.NET Core의 앱 구성은 구성 공급자가 설정한 키-값 쌍을 기반으로 합니다. 일반적인 ASP.NET Core 구성 지원에 대 한 자세한 내용은 [ASP.NET Core 구성](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/) 을 참조 하세요.
 
-이 섹션에서는 Service Fabric 구성 공급자가 @no__t 0 NuGet 패키지를 가져와 ASP.NET Core 구성과 통합 하는 방법에 대해 설명 합니다.
+이 섹션에서는 `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet 패키지를 가져와 Service Fabric 구성 공급자를 ASP.NET Core 구성과 통합 하는 방법에 대해 설명 합니다.
 
 ### <a name="addservicefabricconfiguration-startup-extensions"></a>AddServiceFabricConfiguration 시작 확장
-@No__t-0 NuGet 패키지를 가져온 후 ASP.NET Core 구성 API를 사용 하 여 Service Fabric 구성 소스를 등록 해야 합니다. 이렇게 하려면 `IConfigurationBuilder`에 대 한 `Microsoft.ServiceFabric.AspNetCore.Configuration` 네임 스페이스의 **AddServiceFabricConfiguration** 확장을 확인 합니다.
+`Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet 패키지를 가져온 후 ASP.NET Core 구성 API를 사용 하 여 Service Fabric 구성 소스를 등록 해야 합니다. 이렇게 하려면 `IConfigurationBuilder`에 대 한 `Microsoft.ServiceFabric.AspNetCore.Configuration` 네임 스페이스의 **AddServiceFabricConfiguration** 확장을 확인 합니다.
 
 ```csharp
 using Microsoft.ServiceFabric.AspNetCore.Configuration;
@@ -393,7 +396,7 @@ $"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{Configuration
 Service Fabric 구성 공급자는 키 매핑의 기본 동작을 변경 하는 `ServiceFabricConfigurationOptions`도 지원 합니다.
 
 #### <a name="encrypted-settings"></a>암호화 된 설정
-Service Fabric는 Service Fabric 구성 공급자와 마찬가지로 암호화 된 설정을 지원 합니다. 암호화 된 설정은 기본적으로 ASP.NET Core @no__t 0으로 해독 되지 않습니다. 대신 암호화 된 값이 저장 됩니다. 그러나 ASP.NET Core IConfiguration에 저장할 값을 해독 하려면 다음과 같이 `AddServiceFabricConfiguration` 확장에서 *DecryptValue* 플래그를 false로 설정할 수 있습니다.
+Service Fabric는 Service Fabric 구성 공급자와 마찬가지로 암호화 된 설정을 지원 합니다. 암호화 된 설정은 기본적으로 ASP.NET Core `IConfiguration`로 해독 되지 않습니다. 대신 암호화 된 값이 저장 됩니다. 그러나 ASP.NET Core IConfiguration에 저장할 값을 해독 하려면 다음과 같이 `AddServiceFabricConfiguration` 확장에서 *DecryptValue* 플래그를 false로 설정할 수 있습니다.
 
 ```csharp
 public Startup()
@@ -417,7 +420,7 @@ public Startup()
 }
 ```
 #### <a name="custom-key-mapping-value-extraction-and-data-population"></a>사용자 지정 키 매핑, 값 추출 및 데이터 채우기
-또한 Service Fabric 구성 공급자는 `ExtractKeyFunc`으로 키 매핑을 사용자 지정 하 고 `ExtractValueFunc`로 값을 사용자 지정 하는 고급 시나리오를 지원 합니다. @No__t-0을 사용 하 여 Service Fabric 구성에서 ASP.NET Core 구성으로 데이터를 채우는 전체 프로세스를 변경할 수도 있습니다.
+또한 Service Fabric 구성 공급자는 `ExtractKeyFunc`으로 키 매핑을 사용자 지정 하 고 `ExtractValueFunc`로 값을 사용자 지정 하는 고급 시나리오를 지원 합니다. `ConfigAction`를 사용 하 여 Service Fabric 구성에서 ASP.NET Core 구성으로 데이터를 채우는 전체 프로세스를 변경할 수도 있습니다.
 
 다음 예에서는 `ConfigAction`을 사용 하 여 데이터 채우기를 사용자 지정 하는 방법을 보여 줍니다.
 ```csharp
@@ -513,7 +516,7 @@ Kestrel은 외부 인터넷 연결 HTTP 끝점을 노출 하는 프런트 엔드
 
 |  |  | **참고 사항** |
 | --- | --- | --- |
-| 웹 서버 | Kestrel | @No__t-0은 복제본이 호스트 프로세스를 공유 하는 상태 저장 서비스에서 사용 하도록 설계 되지 않았습니다. |
+| 웹 서버 | Kestrel | `HttpSysCommunicationListener`는 복제본이 호스트 프로세스를 공유 하는 상태 저장 서비스에서 사용 하도록 설계 되지 않았습니다. |
 | 포트 구성 | 동적으로 할당 | 상태 저장 서비스의 여러 복제본이 호스트 프로세스 또는 호스트 운영 체제를 공유할 수 있으므로 고유한 포트가 필요 합니다. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | 동적 포트 할당으로 인해 이 설정은 앞에서 설명한 잘못된 ID 문제를 방지합니다. |
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: iainfou
-ms.openlocfilehash: 3876c6f80e9f18059ab4abac67732cdbf2ca24fa
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: ffcff84c7778ec3d6395e1c7a706c0deb2a0dc90
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248295"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893428"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>관리되는 도메인의 암호 및 계정 잠금 정책
 
@@ -24,7 +24,10 @@ Azure Active Directory Domain Services (Azure AD DS)에서 사용자 보안을 �
 
 이 문서에서는 Active Directory 관리 센터를 사용 하 여 Azure AD DS에서 세분화 된 암호 정책을 만들고 구성 하는 방법을 보여 줍니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+> [!NOTE]
+> 암호 정책은 Azure AD DS 리소스 관리자 배포 모델을 사용 하 여 만든 관리 되는 도메인에만 사용할 수 있습니다. 클래식을 사용 하 여 만든 관리 되는 이전 도메인의 경우 [클래식 가상 네트워크 모델에서 리소스 관리자로 마이그레이션합니다][migrate-from-classic].
+
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서를 완료 하려면 다음 리소스와 권한이 필요 합니다.
 
@@ -34,6 +37,7 @@ Azure Active Directory Domain Services (Azure AD DS)에서 사용자 보안을 �
   * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant] [Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
   * 필요한 경우 자습서를 완료 하 여 [Azure Active Directory Domain Services 인스턴스를 만들고 구성][create-azure-ad-ds-instance]합니다.
+  * Azure AD DS 인스턴스는 리소스 관리자 배포 모델을 사용 하 여 만들어야 합니다. 필요한 경우 [클래식 가상 네트워크 모델에서 리소스 관리자로 마이그레이션합니다][migrate-from-classic].
 * Azure AD DS 관리 되는 도메인에 가입 된 Windows Server 관리 VM입니다.
   * 필요한 경우 자습서를 완료 하 여 [관리 VM을 만듭니다][tutorial-create-management-vm].
 * Azure AD 테넌트의 *Azure AD DC Administrators* 그룹에 속한 멤버인 사용자 계정
@@ -54,8 +58,8 @@ Fgpp입니다 (세분화 된 암호 정책)를 사용 하면 암호 및 계정 �
 
 * **계정 잠금 기간:** 30
 * **허용 되는 실패 한 로그온 시도 횟수:** 5
-* **다음 이후 실패 한 로그온 시도 횟수 다시 설정:** 30분
-* **최대 암호 사용 기간 (수명):** 90일
+* **다음 시간 후 실패 한 로그온 시도 횟수 다시 설정:** 30 분
+* **최대 암호 사용 기간 (수명):** 90 일
 
 이러한 기본 설정을 사용 하면 2 분 내에 잘못 된 암호 5 개가 사용 되는 경우 사용자 계정이 30 분 동안 잠깁니다. 계정은 30분 후 자동으로 잠금 해제됩니다.
 
@@ -130,3 +134,4 @@ Azure에서 응용 프로그램을 빌드하고 실행할 때 사용자 지정 �
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
+[migrate-from-classic]: migrate-from-classic-vnet.md

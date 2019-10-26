@@ -1,23 +1,18 @@
 ---
-title: 'Azure 애플리케이션 Insights 에이전트 API 참조: 시작 추적 | Microsoft Docs'
+title: Azure 애플리케이션 Insights 에이전트 API 참조
 description: 에이전트 API 참조를 Application Insights 합니다. 시작-추적. 상태 모니터 및 Application Insights SDK에서 ETW 로그를 수집 합니다.
-services: application-insights
-documentationcenter: .net
-author: TimothyMothra
-manager: alexklim
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/23/2019
+author: TimothyMothra
 ms.author: tilee
-ms.openlocfilehash: b1c5aa34c46a20631b328abfb061dc2477150c72
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 04/23/2019
+ms.openlocfilehash: c97315b3a215f10e5b8f9533bf09fa5ac30ee16f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389857"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899662"
 ---
 # <a name="application-insights-agent-api-start-applicationinsightsmonitoringtrace"></a>Application Insights 에이전트 API: ApplicationInsightsMonitoringTrace
 
@@ -52,8 +47,8 @@ ms.locfileid: "72389857"
 ### <a name="what-events-to-collect"></a>수집할 이벤트
 
 이벤트를 수집할 때 세 가지 옵션이 있습니다.
-1. @No__t-0 스위치를 사용 하 여 Application Insights SDK에서 내보낸 이벤트를 수집 합니다.
-2. @No__t-0 스위치를 사용 하 여 상태 모니터 및 Redfield 런타임에서 내보낸 이벤트를 수집 합니다. 이러한 로그는 IIS 및 응용 프로그램 시작을 진단할 때 유용 합니다.
+1. Application Insights SDK에서 내보낸 이벤트를 수집 하려면 스위치 `-CollectSdkEvents`를 사용 합니다.
+2. 스위치 `-CollectRedfieldEvents`를 사용 하 여 상태 모니터 및 Redfield 런타임에 의해 내보내지는 이벤트를 수집 합니다. 이러한 로그는 IIS 및 응용 프로그램 시작을 진단할 때 유용 합니다.
 3. 두 스위치를 모두 사용 하 여 두 이벤트 유형을 모두 수집 합니다.
 4. 기본적으로 스위치를 지정 하지 않으면 두 이벤트 유형이 모두 수집 됩니다.
 
@@ -115,7 +110,7 @@ Timeout Reached. Stopping...
 
 추가 문제 해결:
 
-- @No__t-0에서 추가 문제 해결 단계를 검토 합니다.
+- https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-troubleshoot 에서 추가 문제 해결 단계를 검토 합니다.
 - [API 참조](status-monitor-v2-overview.md#powershell-api-reference) 를 검토 하 여 누락 된 매개 변수에 대해 알아보세요.
 - 추가 도움이 필요 하면 [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues)에서 문의할 수 있습니다.
 

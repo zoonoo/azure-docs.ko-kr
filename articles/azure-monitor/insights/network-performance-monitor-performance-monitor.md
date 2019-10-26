@@ -1,24 +1,18 @@
 ---
 title: Azure Log Analytics의 네트워크 성능 모니터 솔루션에 포함된 성능 모니터 기능 | Microsoft Docs
 description: 네트워크 성능 모니터의 성능 모니터 기능을 사용하면 네트워크의 다양한 지점 간 네트워크 연결을 모니터링할 수 있습니다. 클라우드 배포 및 온-프레미스 위치, 여러 데이터 센터, 지점, 업무에 중요한 다중 계층 애플리케이션 또는 마이크로 서비스를 모니터링할 수 있습니다.
-services: log-analytics
-documentationcenter: ''
-author: abshamsft
-manager: carmonm
-editor: ''
-ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 02/20/2018
+author: abshamsft
 ms.author: absha
-ms.openlocfilehash: bb99689409ddff311e556250083b99842bc59927
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/20/2018
+ms.openlocfilehash: 745ec6ee8e69ad911e42b6360b3408d79d660718
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963519"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898841"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>네트워크 성능 모니터 솔루션: 성능 모니터링
 
@@ -70,7 +64,7 @@ ms.locfileid: "65963519"
 4. ICMP 및 TCP 프로토콜 중 가상 트랜잭션 실행에 사용할 프로토콜을 선택합니다. 
 5. 선택한 항목에 대해 상태 이벤트를 만들지 않으려는 경우 **이 규칙이 적용되는 링크에서 상태 모니터링 사용**을 선택 취소합니다. 
 6. 모니터링 조건을 선택합니다. 상태 이벤트 생성에 대한 사용자 지정 임계값을 설정하려면 임계값을 입력합니다. 조건 값이 선택한 네트워크 또는 서브네트워크 쌍에 선택된 임계값을 초과할 경우 상태 이벤트가 생성됩니다. 
-7. **저장**을 선택하여 구성을 저장합니다. 
+7. **저장** 을 선택하여 구성을 저장합니다. 
 
 모니터링 규칙을 저장한 후에는 **경고 만들기**를 선택하여 규칙을 경고 관리와 통합할 수 있습니다. 검색 쿼리를 사용하여 경고 규칙이 자동으로 만들어집니다. 다른 필수 매개 변수는 자동으로 채워집니다. 경고 규칙을 사용하면 네트워크 성능 모니터 내에 있는 기존 경고 외에도 이메일 기반 경고를 수신할 수 있습니다. 또한 경고를 통해 Runbook으로 수정 작업을 트리거하거나 웹후크를 사용하여 기존 서비스 관리 솔루션과 통합할 수 있습니다. **경고 관리**를 선택하여 경고 설정을 편집합니다. 
 

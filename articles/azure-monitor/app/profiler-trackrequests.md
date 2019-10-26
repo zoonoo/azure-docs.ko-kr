@@ -1,23 +1,19 @@
 ---
 title: Azure Application Insights를 사용하여 요청을 추적하는 코드 작성 | Microsoft Docs
 description: 요청에 대한 프로필을 받을 수 있도록 Application Insights를 사용하여 요청을 추적하는 코드를 작성합니다.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 4782e560b580b7f565724dbb35ed9876bffdc256
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: 3f449c98ed44f13fb6b3849ef2457cd8fbd916de
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60730857"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900004"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Application Insights를 사용하여 요청을 추적하는 코드 작성
 
@@ -51,7 +47,7 @@ Azure 클라우드 서비스 작업자 역할 및 Service Fabric 상태 비저�
         }
         ```
 
-        다른 `StartOperation<RequestTelemetry>` 범위 내의 `StartOperation<RequestTelemetry>` 호출은 지원되지 않습니다. 대신, 중첩된 범위에서는 `StartOperation<DependencyTelemetry>`를 사용할 수 있습니다. 예를 들면 다음과 같습니다.  
+        다른 `StartOperation<RequestTelemetry>` 범위 내의 `StartOperation<RequestTelemetry>` 호출은 지원되지 않습니다. 대신, 중첩된 범위에서는 `StartOperation<DependencyTelemetry>`를 사용할 수 있습니다. 다음은 그 예입니다.  
         
         ```csharp
         using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))

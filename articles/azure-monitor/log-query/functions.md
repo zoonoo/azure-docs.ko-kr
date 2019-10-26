@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor 로그 쿼리의 함수 | Microsoft Docs
 description: 이 문서에서는 함수를 사용하여 Azure Monitor의 한 쿼리에서 다른 로그 쿼리를 호출하는 방법을 설명합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/15/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 75beb7b66863efd2fb3679f034a3663dca4a6d2f
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 11/15/2018
+ms.openlocfilehash: 8d8473b88327d3d17346a0351d0a9fc510152cd8
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076710"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894184"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 함수 사용
 
@@ -30,8 +24,8 @@ ms.locfileid: "71076710"
 
 | 설정 | 설명 |
 |:---|:---|
-| 이름           | **쿼리 탐색기**에 나타나는 쿼리의 표시 이름입니다. |
-| 다른 이름으로 저장        | 기능 |
+| name           | **쿼리 탐색기**에 나타나는 쿼리의 표시 이름입니다. |
+| 다른 이름으로 저장        | 함수 |
 | 함수 별칭 | 다른 쿼리에서 함수를 사용하기 위한 약식 이름입니다. 공백을 포함할 수 없으며 고유해야 합니다. |
 | 범주       | **쿼리 탐색기**에서 저장된 쿼리 및 함수를 구성하는 범주입니다. |
 

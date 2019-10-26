@@ -1,26 +1,20 @@
 ---
 title: Visual Studio CodeLens에서 Application Insights 원격 분석 | Microsoft Docs
 description: Visual Studio에서 CodeLens를 사용하여 Application Insights 요청 및 예외 원격 분석에 빠르게 액세스합니다.
-services: application-insights
-documentationcenter: .net
-author: NumberByColors
-manager: carmonm
-ms.assetid: 93559e44-23cb-4b9d-8425-60f7f0d0a82c
-ms.service: application-insights
-ms.custom: vs-azure
-ms.workload: azure-vs
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: d4f7cfab8291fcb6d0160035b9e421a8d47b2396
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: vs-azure
+ms.openlocfilehash: 4232431be221fca076a6bff9305093354f08c44d
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255178"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899331"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Visual Studio CodeLens에서 Application Insights 원격 분석
 웹앱의 코드에 있는 메서드는 런타임 예외 및 요청 응답 시간에 대한 원격 분석을 사용하여 주석이 추가될 수 있습니다. 애플리케이션에 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)를 설치하는 경우 원격 분석은 Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx)에 표시됩니다. 즉, 각 함수의 상단에 있는 메모에서 해당 함수가 참조된 횟수 또는 마지막으로 편집한 사용자 등 유용한 정보를 볼 수 있습니다.

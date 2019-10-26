@@ -1,23 +1,18 @@
 ---
 title: Azure Application Insights에서 개발, 테스트 및 릴리스의 원격 분석 구분 | Microsoft Docs
 description: 개발, 테스트 및 프로덕션 스탬프에 대한 다양한 리소스에 직접 원격 분석
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/15/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 2e9c599c12ed10327d352baee02500d2284d98d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/15/2017
+ms.openlocfilehash: bcf741e82e247a5b79a478ef1015a70cccb4d274
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60713469"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899906"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>개발, 테스트 및 프로덕션의 원격 분석 구분
 
@@ -132,7 +127,7 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](../../azure-mo
     </PropertyGroup>
     ```
 
-    그러면 *yourProjectName*.BuildInfo.config 파일이 생성됩니다. 게시 프로세스의 이름이 BuildInfo.config로 바뀝니다.
+    이렇게 하면 해당 하는 *projectname*이라는 파일이 생성 됩니다. BuildInfo. .config. 게시 프로세스에서이 이름을 BuildInfo .config로 바꿉니다.
 
     Visual Studio를 사용하여 빌드할때 빌드 레이블에는 자리 표시자(AutoGen_...)가 포함됩니다. MSBuild로 빌드할 때는 정확한 버전 번호가 입력됩니다.
 

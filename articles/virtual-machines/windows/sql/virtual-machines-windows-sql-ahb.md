@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 05cd68c7be005a5b148b7d3e691c46a0d067b0c0
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: aac20034fb4a528e48d5b383f39205a952878539
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262860"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900687"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Azure에서 SQL Server 가상 컴퓨터에 대 한 라이선스 모델 변경
 이 문서에서는 **SqlVirtualMachine**새 SQL vm 리소스 공급자를 사용 하 여 AZURE에서 vm (가상 머신)에 대 SQL Server 한 라이선스 모델을 변경 하는 방법을 설명 합니다.
@@ -31,7 +31,7 @@ SQL Server를 호스트 하는 VM에 대 한 라이선스 모델에는 종 량 �
 
 Azure 하이브리드 혜택를 사용 하면 Azure 가상 머신에서 소프트웨어 보증 ("적격 라이선스")이 있는 SQL Server 라이선스를 사용할 수 있습니다. Azure 하이브리드 혜택을 통해 고객은 VM에서 SQL Server 라이선스 사용에 대 한 요금이 부과 되지 않습니다. 하지만 기본 요금, 저장소 및 백업에 대 한 비용을 지불 해야 합니다. 서비스의 사용과 관련 된 i/o (해당 하는 경우)에 대해서도 요금을 지불 해야 합니다.
 
-Microsoft 제품 약관에 따라: "Azure SQL Database (Managed Instance, Elastic Pool 및 Single Database), Azure Data Factory, SQL Server Integration Services, SQL Server의 Virtual Machines에 있는 Azure 하이브리드 혜택의 SQL Server에서이를 사용 하 고 있음을 나타내야 합니다. Azure의 워크 로드 "
+Microsoft 제품 약관에 따라 "고객은 Azure에서 Azure SQL Database (Managed Instance, Elastic Pool, Single Database), Azure Data Factory, SQL Server Integration Services 또는 SQL Server Virtual Machines를 사용 하 고 있음을 나타내야 합니다. Azure에서 워크 로드를 구성할 때 SQL Server에 대 한 하이브리드 혜택 "
 
 Azure VM에서 SQL Server에 Azure 하이브리드 혜택를 사용 하 고 정책을 준수 하도록 지정 하려면 다음 세 가지 옵션을 사용할 수 있습니다.
 
@@ -41,7 +41,7 @@ Azure VM에서 SQL Server에 Azure 하이브리드 혜택를 사용 하 고 정�
 
 VM이 프로 비전 될 때 SQL Server의 라이선스 유형이 설정 됩니다. 나중에 언제 든 지 변경할 수 있습니다. 라이선스 모델 간을 전환 하면 가동 중지 시간이 발생 하지 않으며, VM을 다시 시작 하지 않고 추가 비용을 추가 하지 않으며 즉시 적용 됩니다. 실제로 Azure 하이브리드 혜택를 활성화 하면 비용이 *절감* 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 SQL VM 리소스 공급자를 사용 하려면 SQL Server IaaS 확장이 필요 합니다. 따라서 다음이 필요 합니다.
 - [Azure 구독](https://azure.microsoft.com/free/).
@@ -51,7 +51,7 @@ SQL VM 리소스 공급자를 사용 하려면 SQL Server IaaS 확장이 필요 
 
 ## <a name="change-the-license-for-vms-already-registered-with-the-resource-provider"></a>리소스 공급자에 이미 등록 된 Vm에 대 한 라이선스 변경 
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -149,12 +149,12 @@ SQL Server VM SQL VM 리소스 공급자에 등록 된 경우에만 SQL Server V
 
 ## <a name="known-errors"></a>알려진 오류
 
-### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>리소스 그룹 '\<리소스 그룹 > '에서 '\<SqlVirtualMachine/SqlVirtualMachines/resource-group > ' 리소스를 찾을 수 없습니다.
+### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>리소스 그룹 '\<리소스 그룹 > '에서 ' SqlVirtualMachine/SqlVirtualMachines/\<리소스 그룹 > ' 리소스를 찾을 수 없습니다.
 이 오류는 SQL VM 리소스 공급자에 등록 되지 않은 SQL Server VM에서 라이선스 모델을 변경 하려고 할 때 발생 합니다.
 
 `The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' under resource group '\<resource-group>' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set.`
 
-리소스 공급자를 [구독](virtual-machines-windows-sql-register-with-resource-provider.md#register-the-sql-vm-resource-provider-with-a-subscription)에 등록 한 다음 [리소스 공급자를 사용](virtual-machines-windows-sql-register-with-resource-provider.md)하 여 SQL Server VM를 등록 해야 합니다. 
+리소스 공급자에 구독을 등록 한 다음 [리소스 공급자를 사용](virtual-machines-windows-sql-register-with-resource-provider.md)하 여 SQL Server VM를 등록 해야 합니다. 
 
 ### <a name="cannot-validate-argument-on-parameter-sku"></a>'Sku' 매개 변수의 인수가 유효한지 확인할 수 없음
 4\.0 이후의 Azure PowerShell 버전을 사용 하 여 SQL Server VM 라이선스 모델을 변경 하려고 하면이 오류가 발생할 수 있습니다.

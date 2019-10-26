@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 00891122015bb3e6adb500b6f6c30fa031161b92
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 056bd1293e0593a7fb7f9909cfd85043577686c4
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598006"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901346"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Windows용 Azure Disk Encryption(Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -36,11 +36,11 @@ Azure Disk Encryption은 BitLocker를 활용하여 Windows를 실행하는 Azure
 
 ## <a name="extension-schemata"></a>확장 schemata
 
-Azure Disk Encryption에 대 한 두 가지 schemata 있습니다. v 1.1, AAD (Azure Active Directory) 속성을 사용 하지 않는 권장 스키마, AAD 속성을 필요로 하는 오래 된 스키마 인 v 0.1. 사용 중인 확장에 해당 하는 스키마 버전을 사용 해야 합니다. AzureDiskEncryption 확장 버전 1.1에 대 한 schema v1.0 및 AzureDiskEncryption 확장 버전 0.1에 대 한 schema v 0.1을 사용 해야 합니다.
+Windows AzureDiskEncryption 확장에 대 한 두 가지 schemata 있습니다. v 2.2, AAD (Azure Active Directory) 속성을 사용 하지 않는 권장 스키마, AAD 속성을 필요로 하는 오래 된 스키마. v 1.1 사용 중인 확장에 해당 하는 스키마 버전을 사용 해야 합니다. AzureDiskEncryption 확장 버전 2.2에 대 한 schema v 2.2, AzureDiskEncryption 확장 버전 1.1의 경우 schema v 1.1을 사용 해야 합니다.
 
-### <a name="schema-v11-no-aad-recommended"></a>Schema v1.0: AAD 없음 (권장)
+### <a name="schema-v22-no-aad-recommended"></a>Schema v 2.2: AAD 없음 (권장)
 
-V 1.1 스키마를 권장 하며 Azure Active Directory 속성이 필요 하지 않습니다.
+V 2.2 스키마는 모든 새 Vm에 권장 되며 Azure Active Directory 속성이 필요 하지 않습니다.
 
 ```json
 {
@@ -67,9 +67,9 @@ V 1.1 스키마를 권장 하며 Azure Active Directory 속성이 필요 하지 
 ```
 
 
-### <a name="schema-v01-with-aad"></a>Schema v 0.1: AAD 사용 
+### <a name="schema-v11-with-aad"></a>Schema v1.0: AAD 사용 
 
-0\.1 스키마에 `aadClientID` `aadClientSecret` 또는 `AADClientCertificate` 필요 합니다.
+1\.1 스키마에는 `aadClientID` `aadClientSecret` 또는 `AADClientCertificate` 필요 하며 새 Vm에는 권장 되지 않습니다.
 
 `aadClientSecret`을 사용할 경우 다음을 실행합니다.
 
@@ -139,10 +139,10 @@ V 1.1 스키마를 권장 하며 Azure Active Directory 속성이 필요 하지 
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | 문자열 |
 | type | AzureDiskEncryptionForLinux | 문자열 |
-| typeHandlerVersion | 0.1, 1.1 | int |
-| (0.1 스키마) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (0.1 스키마) AADClientSecret | 암호 | 문자열 |
-| (0.1 스키마) AADClientCertificate | thumbprint | 문자열 |
+| typeHandlerVersion | 1.1, 2.2 | 문자열 |
+| (1.1 스키마) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
+| (1.1 스키마) AADClientSecret | 암호 | 문자열 |
+| (1.1 스키마) AADClientCertificate | thumbprint | 문자열 |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON 사전 |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | 문자열 | 
 | KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | 문자열 |

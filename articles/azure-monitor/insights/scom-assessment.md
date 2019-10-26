@@ -1,24 +1,18 @@
 ---
 title: Azure Log Analytics를 사용하여 System Center Operations Manager 환경 최적화 | Microsoft Docs
 description: System Center Operations Manager Health Check 솔루션을 사용하여 일정한 간격으로 환경의 위험 및 상태를 평가할 수 있습니다.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/25/2018
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 27b55af74a713c51655891df8c852ff44cd3744a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/25/2018
+ms.openlocfilehash: 33aa246e21b54aebaa902304ff92d4b74bfaac4b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60401733"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898778"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>System Center Operations Manager Health Check(미리 보기) 솔루션을 사용하여 환경 최적화
 
@@ -40,7 +34,7 @@ System Center Operations Manager Health Check 솔루션을 사용하여 일정�
 
 ## <a name="installing-and-configuring-the-solution"></a>솔루션 설치 및 구성
 
-이 솔루션은 Microsoft System Center 2012 Operations Manager 서비스 팩 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager 및 Microsoft System을 사용 하 여 작동 Center Operations Manager 1807
+이 솔루션은 Microsoft System Center 2012 Operations Manager 서비스 팩 1, Microsoft system Center 2012 R2 Operations Manager, Microsoft System center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager 및 Microsoft System과 함께 작동 합니다. 센터 Operations Manager 1807
 
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
@@ -57,9 +51,9 @@ System Center Operations Manager Health Check 솔루션을 사용하여 일정�
 1. [System Center Operations Manager Health Check 평가를 위한 실행 계정 설정](#operations-manager-run-as-accounts-for-log-analytics)  
 2. System Center Operations Manager 상태 검사 규칙 구성
 
-## <a name="system-center-operations-manager-health-check-data-collection-details"></a>System Center Operations Manager Health Check 데이터 수집 정보
+## <a name="system-center-operations-manager-health-check-data-collection-details"></a>System Center Operations Manager 상태 검사 데이터 수집 정보
 
-System Center Operations Manager Health Check 솔루션은 다음 원본에서 데이터를 수집합니다.
+System Center Operations Manager 상태 검사 솔루션은 다음 원본에서 데이터를 수집 합니다.
 
 * 레지스트리
 * WMI(Windows Management Instrumentation)
@@ -97,7 +91,7 @@ Log Analytics는 부가 가치 서비스를 제공하는 작업을 위해 관리
 2. **배포** 탭에서 **선택된 컴퓨터** 상자에 대해 **추가**를 클릭하고 계정을 배포할 관리 서버를 추가합니다.  **확인**을 두 번 클릭하여 변경 내용을 저장합니다.
 3. **실행 구성**에서 **프로필**을 클릭합니다.
 4. *SCOM 평가 프로필*을 검색합니다.
-5. 프로필 이름은 *Microsoft System Center Operations Manager 상태 검사 실행 프로필*합니다.
+5. 프로필 이름은 *Microsoft System Center Operations Manager 상태 검사 실행 프로필*이어야 합니다.
 6. 오른쪽 클릭하여 속성을 업데이트하고 앞에서 만든 실행 계정을 추가합니다.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>실행 계정에 대한 세부적인 사용 권한을 부여하는 SQL 스크립트
@@ -152,15 +146,15 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ### <a name="configure-the-health-check-rule"></a>상태 검사 규칙 구성
 
-System Center Operations Manager Health Check 솔루션의 관리 팩 이라는 규칙을 포함 *Microsoft System Center Operations Manager 실행 상태 확인 규칙*합니다. 이 규칙은 상태 검사의 실행을 담당합니다. 규칙을 사용하도록 설정하고 빈도를 구성하려면 아래 절차를 사용합니다.
+System Center Operations Manager 상태 검사 솔루션의 관리 팩에는 *Microsoft System Center Operations Manager 상태 검사 규칙 실행*이라는 규칙이 포함 되어 있습니다. 이 규칙은 상태 검사의 실행을 담당합니다. 규칙을 사용하도록 설정하고 빈도를 구성하려면 아래 절차를 사용합니다.
 
-Microsoft System Center Operations Manager 실행 상태 확인 규칙은 기본적으로 비활성화 됩니다. 상태 검사를 실행하려면 관리 서버에서 규칙을 사용하도록 설정해야 합니다. 다음 단계를 사용하세요.
+기본적으로 Microsoft System Center Operations Manager Run Health Check Rule은 사용 하지 않도록 설정 되어 있습니다. 상태 검사를 실행하려면 관리 서버에서 규칙을 사용하도록 설정해야 합니다. 다음 단계를 사용하세요.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>특정 관리 서버에 대한 규칙을 사용하도록 설정
 
-1. 에 **Authoring** 검색 규칙에 대 한 Operations Manager 운영 콘솔의 작업 영역 *Microsoft System Center Operations Manager 실행 상태 확인 규칙* 에 **규칙** 창입니다.
-2. 검색 결과에서 *유형: 관리 서버*라는 텍스트가 포함된 항목을 선택합니다.
-3. 마우스 오른쪽 단추로 규칙을 클릭한 다음, **재정의** > **다음 클래스의 특정 개체: 관리 서버**를 클릭합니다.
+1. Operations Manager 운영 콘솔의 **제작** 작업 영역에서 **규칙** 창의 *Microsoft System Center Operations Manager Health Check rule 실행* 규칙을 검색 합니다.
+2. 검색 결과에서 *유형: 관리 서버*라는 텍스트를 포함하는 항목을 선택합니다.
+3. 규칙을 오른쪽 클릭한 다음 **재정의** > **다음 클래스의 특정 개체: 관리 서버**를 클릭합니다.
 4.  사용 가능한 관리 서버 목록에서 규칙을 실행할 관리 서버를 선택합니다.  앞에서 실행 계정에 연결하도록 구성한 것과 같은 관리 서버여야 합니다.
 5.  **사용** 매개 변수 값에 대한 재정의 값을 **참**으로 변경해야 합니다.<br><br> ![재정의 매개 변수](./media/scom-assessment/rule.png)
 
@@ -170,8 +164,8 @@ Microsoft System Center Operations Manager 실행 상태 확인 규칙은 기본
 
 평가는 기본적으로 10,080분(또는 7일) 주기로 실행되도록 구성됩니다. 값을 최소값인 1440분(또는 1일)으로 재정의할 수 있습니다. 이 값은 연속적인 평가 실행 사이에 필요한 최소 시간 간격을 나타냅니다. 간격을 재정의하려면 아래 단계를 사용합니다.
 
-1. 에 **Authoring** 검색 규칙에 대 한 Operations Manager 콘솔의 작업 영역 *Microsoft System Center Operations Manager 실행 상태 확인 규칙* 에 **규칙** 섹션입니다.
-2. 검색 결과에서 *유형: 관리 서버*라는 텍스트가 포함된 항목을 선택합니다.
+1. Operations Manager 콘솔의 **제작** 작업 영역에서 **규칙** 섹션의 *Microsoft System Center Operations Manager Health Check rule 실행* 규칙을 검색 합니다.
+2. 검색 결과에서 *유형: 관리 서버*라는 텍스트를 포함하는 항목을 선택합니다.
 3. 규칙을 오른쪽 클릭한 다음 **Override the Rule**(규칙 재정의) > **다음 클래스의 모든 개체: 관리 서버**를 클릭합니다.
 4. **간격** 매개 변수 값을 원하는 간격 값으로 변경합니다. 아래 예의 경우 값이 1440분(1일)으로 설정되어 있습니다.<br><br> ![간격 매개 변수](./media/scom-assessment/interval.png)<br>  
 
@@ -204,7 +198,7 @@ Microsoft System Center Operations Manager 실행 상태 확인 규칙은 기본
 
 ### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>모든 주요 영역에서 100%의 점수를 목표로 해야 하나요?
 
-그럴 필요는 없습니다. 권장 사항은 수천 번의 고객 방문에서 Microsoft 엔지니어가 얻은 지식과 경험을 기반으로 합니다. 그러나 두 서버 인프라는 동일하지 않으며 특정 권장 사항은 거의 사용자와 관련 될 수 있습니다. 예를 들어, 가상 머신이 인터넷에 노출되지 않는 경우 일부 보안 권장 사항의 관련성은 떨어질 수 있습니다. 일부 가용성 권장 사항은 우선순위가 낮은 임시 데이터 수집 및 보고를 제공하는 서비스와는 관련성이 떨어질 수 있습니다. 성숙한 비즈니스에 중요한 문제는 시작에 덜 중요할 수 있습니다. 우선하는 주요 영역을 식별하고 시간이 지남에 따라 다음 점수가 어떻게 변경되는지 확인할 수 있습니다.
+반드시 그렇지는 않습니다. 권장 사항은 수천 번의 고객 방문에서 Microsoft 엔지니어가 얻은 지식과 경험을 기반으로 합니다. 그러나 두 서버 인프라는 동일하지 않으며 특정 권장 사항은 거의 사용자와 관련 될 수 있습니다. 예를 들어, 가상 머신이 인터넷에 노출되지 않는 경우 일부 보안 권장 사항의 관련성은 떨어질 수 있습니다. 일부 가용성 권장 사항은 우선순위가 낮은 임시 데이터 수집 및 보고를 제공하는 서비스와는 관련성이 떨어질 수 있습니다. 성숙한 비즈니스에 중요한 문제는 시작에 덜 중요할 수 있습니다. 우선하는 주요 영역을 식별하고 시간이 지남에 따라 다음 점수가 어떻게 변경되는지 확인할 수 있습니다.
 
 모든 권장 사항에는 중요한 이유에 대한 지침이 포함됩니다. IT 서비스의 특성 및 조직의 비즈니스 요구를 고려해 볼 때, 이 가이드를 사용하여 권장 사항 구현이 사용자에 적절한지 여부를 평가해야 합니다.
 
@@ -269,7 +263,7 @@ Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션�
 
 ## <a name="system-center-operations-manager-health-check-solution-faq"></a>System Center Operations Manager Health Check 솔루션 FAQ
 
-*내 Log Analytics 작업 영역에 Health Check 솔루션을 추가했습니다. 하지만 권장 사항이 표시되지 않습니다. 이유* 솔루션을 추가한 후, 다음 단계 보기를 사용하여 Log Analytics 대시보드의 권장 사항을 봅니다.  
+*상태 검사 솔루션을 내 Log Analytics 작업 영역에 추가 했습니다. 그러나 권장 사항이 표시 되지 않습니다. 왜 안 돼요?* 솔루션을 추가한 후, 다음 단계 보기를 사용하여 Log Analytics 대시보드의 권장 사항을 봅니다.  
 
 - [System Center Operations Manager Health Check 평가를 위한 실행 계정 설정](#operations-manager-run-as-accounts-for-log-analytics)  
 - [System Center Operations Manager Health Check 규칙 구성](#configure-the-health-check-rule)
@@ -277,7 +271,7 @@ Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션�
 
 *검사 실행 주기를 구성하는 방법이 있나요?* 예. [실행 빈도 구성](#configure-the-run-frequency)을 참조하세요.
 
-*System Center Operations Manager Health Check 솔루션을 추가한 후 다른 서버가 발견 되 면를 검사?* 예, 검색된 이후 기본적으로 7일마다 검사됩니다.
+*System Center Operations Manager 상태 검사 솔루션을 추가한 후 다른 서버가 발견 되 면 해당 서버가 확인 됩니까?* 예, 검색된 이후 기본적으로 7일마다 검사됩니다.
 
 *데이터 수집을 수행하는 프로세스의 이름은 무엇인가요?* AdvisorAssessment.exe
 
@@ -289,7 +283,7 @@ Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션�
 
 *필수 구성 요소 오류가 있는지 어떻게 알 수 있나요?* 상태 검사가 실행되었는데 결과가 보이지 않는다면 검사의 일부 필수 구성 요소에 오류가 있을 가능성이 있습니다. 로그 검색에서 `Operation Solution=SCOMAssessment` 및 `SCOMAssessmentRecommendation FocusArea=Prerequisites`를 실행하여 실패한 필수 구성 요소를 볼 수 있습니다.
 
-*필수 구성 요소 오류에 `Failed to connect to the SQL Instance (….).` 메시지가 있습니다. 문제가 무엇인가요?* 데이터를 수집하는 프로세스 AdvisorAssessment.exe는 관리 서버의 HealthService 프로세스에서 실행됩니다. 상태 검사의 일환으로 이 프로세스는 Operations Manager 데이터베이스가 있는 SQL Server에 연결을 시도합니다. 이 오류는 방화벽 규칙이 SQL Server 인스턴스에 대한 연결을 차단하는 경우 발생할 수 있습니다.
+*필수 구성 요소 오류에 `Failed to connect to the SQL Instance (….).` 메시지가 있습니다. 문제가 무엇 인가요?* 데이터를 수집하는 프로세스 AdvisorAssessment.exe는 관리 서버의 HealthService 프로세스에서 실행됩니다. 상태 검사의 일환으로 이 프로세스는 Operations Manager 데이터베이스가 있는 SQL Server에 연결을 시도합니다. 이 오류는 방화벽 규칙이 SQL Server 인스턴스에 대한 연결을 차단하는 경우 발생할 수 있습니다.
 
 *어떤 유형의 데이터를 수집하나요?* 다음 유형의 데이터를 수집합니다. Windows PowerShell, SQL 쿼리, 파일 정보 수집기를 통해 - WMI 데이터 - Registry 데이터 - EventLog 데이터 - Operations Manager 데이터.
 

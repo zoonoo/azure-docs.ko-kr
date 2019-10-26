@@ -1,24 +1,19 @@
 ---
 title: Azure Application Insights의 원격 분석 샘플링 | Microsoft Docs
 description: 제어에서 원격 분석의 양을 유지하는 방법입니다.
-services: application-insights
-documentationcenter: windows
-author: cijothomas
-manager: carmonm
-ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: cijothomas
+ms.author: cithomas
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
-ms.author: cithomas
-ms.openlocfilehash: 83243ba7df48db5cd7757a464f0818ef69c4559e
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 82c0855e3ea3b6a89c1b20569971b0dc6b3d449c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372555"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899852"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -53,7 +48,7 @@ ms.locfileid: "72372555"
 
 적응 샘플링은 ASP.NET v 2.0.0-beta3 이상, AspNetCore SDK v 2.2.0-beta1 이상에서 Application Insights 사용할 수 있으며 기본적으로 사용 하도록 설정 되어 있습니다.
 
-적응 샘플링은 웹 서버 앱에서 Application Insights 서비스 엔드포인트로 보내는 원격 분석의 양에 영향을 줍니다. 볼륨이 지정 된 최대 트래픽 속도로 유지 되도록 자동으로 조정 되 고 `MaxTelemetryItemsPerSecond`을 통해 제어 됩니다. 응용 프로그램에서 디버깅 또는 사용률이 낮은 경우와 같이 낮은 원격 분석을 생성 하는 경우 볼륨의 크기가 0 @no__t 보다 낮으면 샘플링 프로세서에 의해 항목이 삭제 되지 않습니다. 원격 분석의 양이 늘어나면 샘플링 주기는 대상 볼륨을 달성할 수 있도록 조정 됩니다.
+적응 샘플링은 웹 서버 앱에서 Application Insights 서비스 엔드포인트로 보내는 원격 분석의 양에 영향을 줍니다. 볼륨이 지정 된 최대 트래픽 속도로 유지 되도록 자동으로 조정 되 고 `MaxTelemetryItemsPerSecond`을 통해 제어 됩니다. 응용 프로그램에서 디버깅 또는 사용률이 낮은 경우와 같이 낮은 수준의 원격 분석을 생성 하는 경우 볼륨이 `MaxTelemetryItemsPerSecond`미만인 경우에만 샘플링 프로세서에 의해 항목이 삭제 되지 않습니다. 원격 분석의 양이 늘어나면 샘플링 주기는 대상 볼륨을 달성할 수 있도록 조정 됩니다.
 
 목표량을 달성하기 위해 생성된 원격 분석 중 일부가 삭제됩니다. 그러나 다른 샘플링 유형과 마찬가지로 알고리즘에 관련 원격 분석 항목이 유지됩니다. 예를 들어 검색에서 원격 분석을 검사하는 경우 특정 예외와 관련된 요청을 찾을 수 있습니다.
 
@@ -150,7 +145,7 @@ ASP.NET Core 응용 프로그램에 대 한 `ApplicationInsights.Config`은 없�
 
 ### <a name="turning-off-adaptive-sampling"></a>적응 샘플링 끄기
 
-Application Insights 서비스 @no__t @no__t @no__t를 추가 하는 동안 기본 샘플링 기능을 사용 하지 않도록 설정할 수 있습니다.
+Application Insights 서비스 ```ConfigureServices```를 추가 하는 동안 `Startup.cs` 파일 내의 ```ApplicationInsightsServiceOptions```를 사용 하 여 기본 샘플링 기능을 사용 하지 않도록 설정할 수 있습니다.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -381,7 +376,7 @@ SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 �
 ## <a name="sampling-for-web-pages-with-javascript"></a>JavaScript를 사용하는 웹 페이지에 대한 샘플링
 서버에서 고정 비율 샘플링에 대한 웹 페이지를 구성할 수 있습니다. 
 
-[Application Insights에 대한 웹 페이지를 구성](../../azure-monitor/app/javascript.md)할 때 Application Insights 포털에서 얻은 JavaScript 코드 조각을 수정합니다. ASP.NET apps에서 코드 조각은 일반적으로 _Layout. cshtml로 이동 합니다.  계측 키 앞에 `samplingPercentage: 10,`과 같은 줄을 삽입 합니다.
+[Application Insights에 대한 웹 페이지를 구성](../../azure-monitor/app/javascript.md)할 때 Application Insights 포털에서 얻은 JavaScript 코드 조각을 수정합니다. ASP.NET apps에서 코드 조각은 일반적으로 _Layout. cshtml로 이동 합니다.  계측 키 앞에 `samplingPercentage: 10,`와 같은 줄을 삽입 합니다.
 
     <script>
     var appInsights= ... 

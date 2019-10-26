@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor 로그 쿼리의 app() 식 | Microsoft Docs
-description: 앱 식이 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 Application Insights 앱에서 데이터를 검색 하는 Azure Monitor 로그 쿼리에서 사용 됩니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+description: 앱 식은 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독에 있는 특정 Application Insights 앱에서 데이터를 검색 하기 위해 Azure Monitor 로그 쿼리에서 사용 됩니다.
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 01/25/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: a1a605bc733597430f64dceeb6c485db0abf657b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.date: 01/25/2019
+ms.openlocfilehash: fd6bfd40eadfc09008c992d263b065d7b41ffa1f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589243"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894469"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Azure Monitor 쿼리에서 app() 식
 
@@ -33,9 +27,9 @@ ms.locfileid: "60589243"
 
 ## <a name="arguments"></a>인수
 
-- *식별자*: 아래 표에 있는 형식 중 하나를 사용하여 앱을 식별합니다.
+- *Identifier*: 아래 표에 있는 형식 중 하나를 사용하여 앱을 식별합니다.
 
-| Identifier | 설명 | 예
+| 식별자 | 설명 | 예제
 |:---|:---|:---|
 | 리소스 이름 | 사용자가 읽을 수 있는 앱의 이름(즉, “구성 요소 이름”) | app(“fabrikamapp”) |
 | 정규화된 이름 | “subscriptionName/resourceGroup/componentName” 형식으로 된 앱의 전체 이름 | app(‘AI-Prototype/Fabrikam/fabrikamapp’) |
@@ -43,14 +37,14 @@ ms.locfileid: "60589243"
 | Azure 리소스 ID | Azure 리소스의 식별자 |app(“/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp”) |
 
 
-## <a name="notes"></a>메모
+## <a name="notes"></a>참고
 
 * 애플리케이션에 대한 읽기 권한이 있어야 합니다.
 * 애플리케이션을 이름으로 식별하면 액세스 가능한 모든 구독에서 고유한 것으로 가정합니다. 지정된 이름의 애플리케이션이 여러 개 있으면 모호성으로 인해 쿼리가 실패합니다. 이런 경우 다른 식별자 중 하나를 사용해야 합니다.
 * 관련된 식 [작업 영역](workspace-expression.md)을 사용하여 Log Analytics 작업 영역 전체를 쿼리합니다.
 * 앱() 식은 현재 Application Insights 애플리케이션이 경고 규칙에 대한 리소스로 사용되지 않는 한 Azure Portal을 사용하여 [사용자 지정 로그 검색 경고 규칙](../platform/alerts-log.md)을 만들 때 검색 쿼리에서 지원되지 않습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 ```Kusto
 app("fabrikamapp").requests | count

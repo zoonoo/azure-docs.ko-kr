@@ -1,23 +1,18 @@
 ---
 title: FAQ - Azure의 네트워크 성능 모니터 솔루션 | Microsoft Docs
 description: 이 문서에서는 Azure의 네트워크 성능 모니터에 대 한 자주 묻는 질문을 캡처합니다. NPM (네트워크 성능 모니터)를 사용 하면 네트워크 성능을 거의 실시간으로 모니터링 하 여 네트워크 성능 병목을 감지 하 고 찾을 수 있습니다.
-services: log-analytics
-documentationcenter: ''
-author: vinynigam
-manager: agummadi
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: article
-ms.date: 10/12/2018
+author: vinynigam
 ms.author: vinigam
-ms.openlocfilehash: b3274c214aa60c930e62e651af960d5f01cbdd20
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
-ms.translationtype: MT
+ms.date: 10/12/2018
+ms.openlocfilehash: 26e9215c7e00eca59d33f7e8d259a689ad642f19
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782118"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898863"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>네트워크 성능 모니터 솔루션 FAQ
 
@@ -165,12 +160,12 @@ E2EMedianLatency는 tcp ping 테스트 결과를 집계 한 후 3 분 마다 업
 
 ### <a name="why-does-hop-by-hop-latency-numbers-differ-from-hoplatencyvalues"></a>홉 단위 대기 시간 수가 HopLatencyValues와 다른 이유는 무엇 인가요? 
 HopLatencyValues은 끝점에 대 한 소스입니다.
-예: 홉 (A, B, C)입니다. AvgHopLatency - 10,15,20. 즉, 소스가 대기 시간 = 10이 고 원본에서 B로의 대기 시간 = 15 이며 원본에서 C 대기 시간이 20입니다. UI는 토폴로지에서-B 홉 대기 시간을 5로 계산 합니다.
+예: 홉 A, B, C. AvgHopLatency-10, 15, 20. 즉, 소스가 대기 시간 = 10이 고 원본에서 B로의 대기 시간 = 15 이며 원본에서 C 대기 시간이 20입니다. UI는 토폴로지에서-B 홉 대기 시간을 5로 계산 합니다.
 
 ### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>솔루션은 100% 손실을 보여 주지만 원본과 대상 사이에 연결이 있습니다.
 이 상황은 호스트 방화벽 또는 중간 방화벽(네트워크 방화벽 또는 Azure NSG)이 NPM에서 모니터링하는 데 사용 중인 포트(고객이 변경하지 않았다면 기본적으로 포트 8084) 상에서 원본 에이전트와 대상 간의 통신을 차단합니다.
 
-* 호스트 방화벽이 필요한 포트에서 통신을 차단하고 있지 않은지 확인하려면 네트워크 성능 모니터 -> 구성 -> 노드 보기에서 원본 및 대상 노드의 상태를 봅니다. 
+* 호스트 방화벽이 필요한 포트에서 통신을 차단하지 않는지 확인하려면 네트워크 성능 모니터 -> 구성 -> 노드 보기에서 원본 및 대상 노드의 정상/비정상 상태를 봅니다. 
   비정상 상태인 경우 지침을 보고 정정 작업을 실행합니다. 노드가 정상인 경우 b 단계로 이동합니다. 알아봅니다.
 * 중간 네트워크 방화벽 또는 Azure NSG가 필요한 포트에서 통신을 차단하지 않는지 확인하려면 아래 지침을 통해 제3자 PsPing 유틸리티를 사용합니다.
   * PsPing 유틸리티는 [여기](https://technet.microsoft.com/sysinternals/psping.aspx)에서 다운로드할 수 있습니다. 
@@ -186,7 +181,7 @@ A에서 B로의 네트워크 경로는 B에서 A로의 네트워크 경로와 �
 ### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>나의 ExpressRoute 회로 및 피어링 연결 중 일부가 검색되지 않는 이유는 무엇인가요?
 NPM은 이제 사용자가 액세스할 수 있는 모든 구독에서 ExpressRoute 회로와 피어링 연결을 검색합니다. Express Route 리소스가 연결된 모든 구독을 선택하고 검색된 각 리소스에 대한 모니터링을 사용하도록 설정합니다. 프라이빗 피어링을 검색하는 경우 NPM에서 연결 개체를 찾으므로 VNET이 피어링과 연결되어 있는지 확인합니다.
 
-### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>ER 모니터 기능에는 "트래픽이 어떤 회로도 통과하지 않습니다" 진단 메시지가 있습니다. 이는 무엇을 의미하나요?
+### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>ER 모니터 기능에는 "트래픽이 어떤 회로도 통과하지 않습니다" 진단 메시지가 있습니다. 이것은 무엇을 의미하나요?
 
 온-프레미스 노드와 Azure 노드 간에 정상 연결이 있지만 트래픽이 NPM에서 모니터링하도록 구성된 ExpressRoute 회로를 통해 이동하지 않는 시나리오가 있을 수 있습니다. 
 
@@ -228,7 +223,7 @@ NPM 프로세스는 호스트 CPU 리소스의 5%를 초과하여 이용하는 �
 NPM은 에이전트들이 지정된 포트에서 서로 TCP 연결을 만들 수 있도록 EnableRules.ps1 Powershell 스크립트를 실행하는 노드에 대해서만 로컬 Windows 방화벽 규칙을 만듭니다. 솔루션은 네트워크 방화벽 규칙 또는 NSG(네트워크 보안 그룹) 규칙을 수정하지 않습니다.
 
 ### <a name="how-can-i-check-the-health-of-the-nodes-being-used-for-monitoring"></a>모니터링에 사용하는 노드의 상태를 어떻게 확인할 수 있나요?
-다음 보기에서 모니터링에 사용되는 노드의 상태를 볼 수 있습니다. 네트워크 성능 모니터 -> 구성 -> 노드 보기에서 원본 및 대상 노드의 상태를 봅니다. 노드가 비정상인 경우 오류 세부 정보를 보고 권장 작업을 실행할 수 있습니다.
+다음 보기에서 모니터링에 사용하는 노드의 정상/비정상 상태를 볼 수 있습니다. 네트워크 성능 모니터 -> 구성 -> 노드. 노드가 비정상인 경우 오류 세부 정보를 보고 권장 작업을 실행할 수 있습니다.
 
 ### <a name="can-npm-report-latency-numbers-in-microseconds"></a>NPM은 대기 시간 숫자를 마이크로초 단위로 보고할 수 있습니까?
 NPM은 UI 및 밀리초 단위의 대기 시간 숫자를 반올림합니다. 동일한 데이터를 더 높은 세분성(가끔 최대 소수 네 자리)으로 저장됩니다.

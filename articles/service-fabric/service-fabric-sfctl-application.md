@@ -3,46 +3,47 @@ title: Microsoft Azure Service Fabric CLI- sfctl 애플리케이션 | Microsoft 
 description: Service Fabric CLI sfctl 애플리케이션 명령을 설명합니다.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 5d9728db919f15eda49602f2619f1c27fbb42b57
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 163faaab8fa2503458503d9f2b72d27a3e5856f0
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036538"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901280"
 ---
 # <a name="sfctl-application"></a>sfctl application
 애플리케이션 및 애플리케이션 유형을 성, 삭제 및 관리합니다.
 
 ## <a name="commands"></a>명령
 
-|명령|Description|
+|명령|설명|
 | --- | --- |
 | create | 지정한 설명을 사용하여 Microsoft Azure Service Fabric 애플리케이션을 만듭니다. |
 | delete | 기존 Microsoft Azure Service Fabric 애플리케이션을 삭제합니다. |
-| deployed | Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션에 대한 정보를 가져옵니다. |
+| 배포됨 | Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션에 대한 정보를 가져옵니다. |
 | deployed-health | Service Fabric 노드에 배포된 애플리케이션의 상태에 대한 정보를 가져옵니다. |
 | deployed-list | Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션의 목록을 가져옵니다. |
-| health | Microsoft Azure Service Fabric 애플리케이션의 상태를 가져옵니다. |
+| 의료 | Microsoft Azure Service Fabric 애플리케이션의 상태를 가져옵니다. |
 | info | Microsoft Azure Service Fabric 애플리케이션에 대한 정보를 가져옵니다. |
 | list | 지정된 필터와 일치하는 Service Fabric 클러스터에서 만든 애플리케이션 목록을 가져옵니다. |
 | load | Microsoft Azure Service Fabric 애플리케이션에 대한 로드 정보를 가져옵니다. |
 | manifest | 애플리케이션 유형을 설명하는 매니페스트를 가져옵니다. |
-| provision | 외부 저장소의 .sfpkg 패키지를 사용하거나 이미지 저장소의 애플리케이션 패키지를 사용하는 클러스터를 통해 Service Fabric 애플리케이션 유형을 프로비전하거나 등록합니다. |
+| provision | 외부 저장소의 '. .sfpkg ' 패키지를 사용 하는 클러스터 또는 이미지 저장소의 응용 프로그램 패키지를 사용 하 여 Service Fabric 응용 프로그램 유형을 프로 비전 하거나 등록 합니다. |
 | report-health | Microsoft Azure Service Fabric 애플리케이션에 대한 상태 보고서를 보냅니다. |
 | type | 지정된 이름과 정확히 일치하는 Microsoft Azure Service Fabric 클러스터에서 애플리케이션 종류의 목록을 가져옵니다. |
 | type-list | Microsoft Azure Service Fabric 클러스터에서 애플리케이션의 유형 목록을 가져옵니다. |
 | unprovision | 클러스터에서 Microsoft Azure Service Fabric 애플리케이션 유형을 제거하거나 등록 취소합니다. |
-| upgrade | Microsoft Azure Service Fabric 클러스터에서 애플리케이션 업그레이드를 시작합니다. |
+| 업그레이드 | Microsoft Azure Service Fabric 클러스터에서 애플리케이션 업그레이드를 시작합니다. |
 | upgrade-resume | Microsoft Azure Service Fabric 클러스터에 애플리케이션을 다시 업그레이드하기 시작합니다. |
 | upgrade-rollback | Service Fabric 클러스터에서 현재 진행 중인 애플리케이션 업그레이드의 롤백을 시작합니다. |
 | upgrade-status | 이 애플리케이션에 수행된 최신 업그레이드에 대한 세부 정보를 가져옵니다. |
@@ -62,15 +63,15 @@ ms.locfileid: "69036538"
 | --metrics | JSON 인코딩된 애플리케이션 용량 메트릭 설명 목록입니다. 메트릭은 애플리케이션이 있는 각각의 노드에 대한 용량의 집합과 연결된 이름으로 정의됩니다. |
 | --min-node-count | Service Fabric이 이 애플리케이션에 대해 용량을 예약하는 노드의 최소 수입니다. 이 애플리케이션의 서비스가 모든 해당 노드에 배치되지는 않습니다. |
 | --parameters | JSON 인코딩된 애플리케이션 매개 변수 목록은 애플리케이션을 만들 때 적용되기 위해 재정의합니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -85,15 +86,15 @@ ms.locfileid: "69036538"
 | --- | --- |
 | --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --force-remove | 정상적인 종료 시퀀스를 거치지 않고 강제로 Service Fabric 애플리케이션이나 서비스를 제거합니다. 이 매개 변수는 복제본을 정상적으로 종료하지 못하게 하는 서비스 코드의 문제로 인해 삭제 시간이 초과되는 애플리케이션이나 서비스를 강제로 삭제하는 데 사용할 수 있습니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -104,20 +105,20 @@ Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션에 대�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
-| --node-name [필수] | 노드 이름입니다. |
+| --node-name [필수] | 노드의 이름입니다. |
 | --include-health-state | 엔터티의 상태를 포함합니다. 이 매개 변수가 false이거나 지정되지 않은 경우 반환된 상태는 "Unknown"입니다. true로 설정된 경우 쿼리는 결과가 병합되기 전에 노드 및 상태 시스템 서비스에 병렬로 들어갑니다. 결과적으로 쿼리는 비용이 더 들며 더 긴 시간이 걸릴 수 있습니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -131,19 +132,19 @@ Service Fabric 노드에 배포된 애플리케이션의 상태에 대한 정보
 |인수|설명|
 | --- | --- |
 | --application-id                     [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
-| --node-name                          [필수] | 노드 이름입니다. |
+| --node-name                          [필수] | 노드의 이름입니다. |
 | --deployed-service-packages-health-state-filter | 배포된 서비스 패키지 상태 개체의 필터링이 상태를 기반으로 한 배포된 애플리케이션 상태 쿼리의 결과로 반환되도록 허용합니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 배포된 서비스 패키지만 반환됩니다. 모든 배포된 서비스 패키지는 배포된 애플리케이션의 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 'OR' 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 서비스 패키지의 상태가 반환됩니다.  <br> - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다.  <br> - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다.  <br> - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다.  <br> - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다.  <br> - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다.  <br> - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다. |
 | --events-health-state-filter | 상태에 따라 반환된 HealthEvent 개체의 컬렉션을 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 이벤트만 반환됩니다. 모든 이벤트는 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 모든 이벤트가 반환됩니다.  <br> - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다.  <br> - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다.  <br> - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다.  <br> - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다.  <br> - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다.  <br> - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다. |
 | --exclude-health-statistics | 상태 통계가 쿼리 결과의 일부로 반환되어야 하는지 여부를 나타냅니다. False(기본값). 통계는 Ok, Warning 및 Error 상태의 자식 엔터티 수를 보여줍니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -154,21 +155,21 @@ Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션의 목�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
-| --node-name [필수] | 노드 이름입니다. |
+| --node-name [필수] | 노드의 이름입니다. |
 | --continuation-token | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다. |
 | --include-health-state | 엔터티의 상태를 포함합니다. 이 매개 변수가 false이거나 지정되지 않은 경우 반환된 상태는 "Unknown"입니다. true로 설정된 경우 쿼리는 결과가 병합되기 전에 노드 및 상태 시스템 서비스에 병렬로 들어갑니다. 결과적으로 쿼리는 비용이 더 들며 더 긴 시간이 걸릴 수 있습니다. |
 | --max-results | 페이징된 쿼리의 일부로 반환될 결과의 최대 수입니다. 이 매개 변수는 반환되는 결과 수에 상한값을 정의합니다. 반환되는 결과는 구성에 정의된 최대 메시지 크기 제한에 따라 메시지에 맞지 않는 경우 지정된 최대의 결과보다 작을 수 있습니다. 이 매개 변수가 0이거나 지정되지 않은 경우 페이징된 쿼리는 반환 메시지에 맞는 가능한 많은 결과를 포함합니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -179,22 +180,22 @@ Microsoft Azure Service Fabric 애플리케이션의 상태를 반환합니다. 
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-id                 [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --deployed-applications-health-state-filter | 배포된 애플리케이션 상태 개체의 필터링이 상태를 기반으로 한 애플리케이션 상태 쿼리의 결과값으로 반환되도록 허용합니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 배포된 애플리케이션만 반환됩니다. 모든 배포된 애플리케이션은 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 배포된 애플리케이션의 상태가 반환됩니다.  <br> - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다.  <br> - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다.  <br> - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다.  <br> - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다.  <br> - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다.  <br> - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다. |
 | --events-health-state-filter | 상태에 따라 반환된 HealthEvent 개체의 컬렉션을 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 이벤트만 반환됩니다. 모든 이벤트는 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 모든 이벤트가 반환됩니다.  <br> - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다.  <br> - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다.  <br> - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다.  <br> - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다.  <br> - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다.  <br> - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다. |
 | --exclude-health-statistics | 상태 통계가 쿼리 결과의 일부로 반환되어야 하는지 여부를 나타냅니다. False(기본값). 통계는 Ok, Warning 및 Error 상태의 자식 엔터티 수를 보여줍니다. |
 | --services-health-state-filter | 상태에 따라 서비스 상태 쿼리의 결과로 반환된 서비스 상태 개체를 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 서비스만 반환됩니다. 모든 서비스는 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 서비스 상태가 반환됩니다.  <br> - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다.  <br> - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다.  <br> - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다.  <br> - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다.  <br> - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다.  <br> - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -205,11 +206,11 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-id      [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --exclude-application-parameters | 애플리케이션 매개 변수가 결과에서 제외될지 여부를 지정하는 플래그입니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -217,7 +218,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -228,22 +229,22 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-definition-kind-filter | Service Fabric 애플리케이션을 정의하는 데 사용되는 메커니즘인 ApplicationDefinitionKind에서 필터링하는 데 사용합니다.  <br> - 기본 - 기본값으로, “All”을 선택할 때와 동일한 함수를 수행합니다. 값은 0입니다.  <br> - All - 입력과 일치하는 모든 ApplicationDefinitionKind 값을 검색하는 필터입니다. 값은 65535입니다.  <br> - ServiceFabricApplicationDescription - 입력과 일치하는 ApplicationDefinitionKind 값 ServiceFabricApplicationDescription을 검색하는 필터입니다. 값은 1입니다.  <br> - Compose - 입력과 일치하는 ApplicationDefinitionKind 값 Compose를 검색하는 필터입니다. 값은 2입니다. |
 | --application-type-name | 쿼리할 애플리케이션을 필터링하는 데 사용되는 애플리케이션 유형 이름입니다. 이 값은 애플리케이션 유형 버전을 포함할 수 없습니다. |
 | --continuation-token | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다. |
 | --exclude-application-parameters | 애플리케이션 매개 변수가 결과에서 제외될지 여부를 지정하는 플래그입니다. |
 | --max-results | 페이징된 쿼리의 일부로 반환될 결과의 최대 수입니다. 이 매개 변수는 반환되는 결과 수에 상한값을 정의합니다. 반환되는 결과는 구성에 정의된 최대 메시지 크기 제한에 따라 메시지에 맞지 않는 경우 지정된 최대의 결과보다 작을 수 있습니다. 이 매개 변수가 0이거나 지정되지 않은 경우 페이징된 쿼리는 반환 메시지에 맞는 가능한 많은 결과를 포함합니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -254,18 +255,18 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -276,11 +277,11 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-type-name    [필수] | 애플리케이션 유형의 이름입니다. |
 | --application-type-version [필수] | 애플리케이션 유형의 버전입니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -288,26 +289,26 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-application-provision"></a>sfctl application provision
-외부 저장소의 .sfpkg 패키지를 사용하거나 이미지 저장소의 애플리케이션 패키지를 사용하는 클러스터를 통해 Service Fabric 애플리케이션 유형을 프로비전하거나 등록합니다.
+외부 저장소의 '. .sfpkg ' 패키지를 사용 하는 클러스터 또는 이미지 저장소의 응용 프로그램 패키지를 사용 하 여 Service Fabric 응용 프로그램 유형을 프로 비전 하거나 등록 합니다.
 
-클러스터를 통해 Service Fabric 애플리케이션 유형을 프로비전합니다. 이것이 있어야 새로운 애플리케이션을 인스턴스화할 수 있습니다. 프로비전 작업은 relativePathInImageStore 또는 외부 .sfpkg의 URI를 사용하여 지정된 애플리케이션 패키지에서 수행할 수 있습니다. 외부 프로비전이 설정되지 않은 경우 이 명령은 이미지 저장소 프로비전이 필요합니다.
+클러스터를 통해 Service Fabric 애플리케이션 유형을 프로비전합니다. 새 응용 프로그램을 인스턴스화하려면 먼저 프로 비전이 필요 합니다. 프로 비전 작업은 relativePathInImageStore에 지정 된 응용 프로그램 패키지에서 수행 하거나 외부 '. .sfpkg '의 URI를 사용 하 여 수행할 수 있습니다. 외부 프로비전이 설정되지 않은 경우 이 명령은 이미지 저장소 프로비전이 필요합니다.
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --애플리케이션-패키지-다운로드-URI | HTTP 또는 HTTPS 프로토콜을 사용하여 애플리케이션 패키지를 다운로드할 수 있는 ‘.sfpkg’ 애플리케이션 패키지의 경로입니다. <br><br> 프로비전 종류 외부 저장소에만 해당합니다. 애플리케이션 패키지는 파일을 다운로드하도록 가져오기 작업을 제공하는 외부 저장소에 저장할 수 있습니다. 지원되는 프로토콜은 HTTP 및 HTTPS이며, 경로는 읽기 권한을 허용해야 합니다. |
 | --애플리케이션-형식-빌드-경로 | 프로비전 종류 이미지 저장소에만 해당합니다. 이전 업로드 작업 중 지정된 이미지 저장소에 있는 애플리케이션 패키지에 대한 상대 경로입니다. |
 | --application-type-name | 프로비전 종류 외부 저장소에만 해당합니다. 애플리케이션 유형 이름은 애플리케이션 매니페스트에 있는 애플리케이션 유형의 이름을 나타냅니다. |
 | --애플리케이션-유형-버전 | 프로비전 종류 외부 저장소에만 해당합니다. 애플리케이션 유형 버전은 애플리케이션 매니페스트에 있는 애플리케이션 유형의 버전을 나타냅니다. |
 | --external-provision | 애플리케이션 패키지를 등록하거나 프로비전할 수 있는 위치입니다. 외부 저장소에 이전에 업로드된 애플리케이션 패키지를 위한 프로비전임을 나타냅니다. 애플리케이션 패키지는 확장명이 *.sfpkg로 끝납니다. |
-| --no-wait | 프로비전을 비동기적으로 수행할지 여부를 나타냅니다. <br><br> true로 설정한 경우 요청이 시스템에 의해 수락되면 프로비전 작업이 반환되며, 프로비전 작업은 어떠한 시간 제한 없이 계속됩니다. 기본값은 false입니다. 대형 애플리케이션 패키지의 경우 값을 true로 설정하는 것이 좋습니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --no-wait | 프로비전을 비동기적으로 수행할지 여부를 나타냅니다. <br><br> true로 설정한 경우 요청이 시스템에 의해 수락되면 프로비전 작업이 반환되며, 프로비전 작업은 어떠한 시간 제한 없이 계속됩니다. 기본값은 False입니다. 대형 애플리케이션 패키지의 경우 값을 true로 설정하는 것이 좋습니다. |
+| --timeout -t | 기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -315,7 +316,7 @@ Microsoft Azure Service Fabric 클러스터에서 만들어졌거나 만들어�
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -326,7 +327,7 @@ Microsoft Azure Service Fabric 애플리케이션에 대한 상태 보고서를 
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-id  [필수] | 애플리케이션 ID입니다. <br><br> 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 '\~' 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 'fabric\:/myapp/app1'인 경우 애플리케이션 ID가 6.0 이상에서는 'myapp\~app1'이고 이전 버전에서는 'myapp/app1'입니다. |
 | --health-property [필수] | 상태 정보의 속성입니다. <br><br> 엔터티는 서로 다른 속성에 대한 상태 보고서를 가질 수 있습니다. 속성은 문자열이며 보고자 유연성에서 보고서를 트리거하는 상태 조건을 분류하도록 허용하는 고정된 열거형이 아닙니다. 예를 들어 SourceId "LocalWatchdog"가 있는 보고자는 노드에서 사용 가능한 디스크의 상태를 모니터링할 수 있으므로 해당 노드에서 "AvailableDisk" 속성을 보고할 수 있습니다. 동일한 보고자는 노드 연결을 모니터링할 수 있으므로 동일한 노드에서 "Connectivity" 속성을 보고할 수 있습니다. Health 스토어에서 이러한 보고서는 지정된 노드에 대한 별도의 상태 이벤트로 처리됩니다. SourceId와 함께 속성은 상태 정보를 고유하게 식별합니다. |
@@ -336,16 +337,16 @@ Microsoft Azure Service Fabric 애플리케이션에 대한 상태 보고서를 
 | --immediate | 보고서를 즉시 보낼지 여부를 나타내는 플래그입니다. <br><br> 상태 보고서는 Health 스토어에 전달하는 Service Fabric 게이트웨이 애플리케이션에 전송됩니다. Immediate가 true로 설정된 경우 보고서는 HTTP 게이트웨이 애플리케이션이 사용 중인 패브릭 클라이언트 설정에 관계 없이 HTTP 게이트웨이에서 Health 스토어로 즉시 전송됩니다. 이는 가능한 한 빨리 보내야 하는 중요한 보고서에 유용합니다. 타이밍 및 기타 조건에 따라 보고서 전송이 여전히 실패할 수 있습니다. 예를 들어, HTTP 게이트웨이가 닫혀 있거나 메시지가 게이트웨이에 도달하지 않는 경우입니다. Immediate가 false로 설정된 경우 보고서는 HTTP 게이트웨이의 상태 클라이언트 설정에 따라 전송됩니다. 따라서 HealthReportSendInterval 구성에 따라 일괄처리됩니다. 상태 클라이언트가 상태 보고서 처리뿐만 아니라 Health 스토어로 메시지를 보고하는 상태를 최적화하도록 허용하므로 이는 권장 설정입니다. 기본적으로 보고서는 즉시 전송되지 않습니다. |
 | --remove-when-expired | 보고서가 만료될 때 Health 스토어에서 제거할지 여부를 나타내는 값입니다. <br><br> true로 설정된 경우 보고서는 만료된 후 Health 스토어에서 제거됩니다. false로 설정된 경우 보고서는 만료될 때 오류로 처리됩니다. 이 속성의 값은 기본적으로 false입니다. 클라이언트가 주기적으로 보고하는 경우 RemoveWhenExpired를 false(기본값)로 설정해야 합니다. 이러한 방식은 문제가 있고(예: 교착 상태) 보고할 수 없는 보고자이며, 엔터티는 상태 보고서가 만료되는 경우 오류로 평가됩니다. 엔터티를 오류 성능 상태에 있는 것으로 플래그 지정합니다. |
 | --sequence-number | 숫자 문자열의 이 상태 보고서에 대한 일련 번호입니다. <br><br> 보고서 일련 번호는 Health 스토어에서 유효하지 않은 보고서를 검색하는 데 사용됩니다. 지정되지 않은 경우 일련 번호는 보고서가 추가될 때 상태 클라이언트에서 자동으로 생성됩니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 기본값\: 60. |
 | --ttl | 이 상태 보고서가 유효한 기간입니다. 이 필드는 기간을 지정하는 데 ISO8601 형식을 사용합니다. <br><br> 클라이언트가 주기적으로 보고하는 경우 TTL(Time to Live)보다 높은 빈도로 보고서를 보내야 합니다. 클라이언트가 전환 시 보고하는 경우 TTL(Time to live)을 무한으로 설정할 수 있습니다. TTL(Time to live)이 만료되면 상태 정보를 포함하는 상태 이벤트는 RemoveWhenExpired가 true인 경우 Health 스토어에서 제거되거나 RemoveWhenExpired가 false인 경우 오류로 평가됩니다. 지정되지 않은 경우 TTL(Time to live)은 무한 값으로 기본 설정됩니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -356,14 +357,14 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-type-name [필수] | 애플리케이션 유형의 이름입니다. |
 | --애플리케이션-유형-버전 | 애플리케이션 유형의 버전입니다. |
 | --continuation-token | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다. |
 | --exclude-application-parameters | 애플리케이션 매개 변수가 결과에서 제외될지 여부를 지정하는 플래그입니다. |
 | --max-results | 페이징된 쿼리의 일부로 반환될 결과의 최대 수입니다. 이 매개 변수는 반환되는 결과 수에 상한값을 정의합니다. 반환되는 결과는 구성에 정의된 최대 메시지 크기 제한에 따라 메시지에 맞지 않는 경우 지정된 최대의 결과보다 작을 수 있습니다. 이 매개 변수가 0이거나 지정되지 않은 경우 페이징된 쿼리는 반환 메시지에 맞는 가능한 많은 결과를 포함합니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -371,7 +372,7 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -382,13 +383,13 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-type-definition-kind-filter | Service Fabric 애플리케이션 유형을 정의하는 데 사용되는 메커니즘인 ApplicationTypeDefinitionKind에서 필터링하는 데 사용합니다.  <br> - 기본 - 기본값으로, “All”을 선택할 때와 동일한 함수를 수행합니다. 값은 0입니다.  <br> - All - 입력과 일치하는 모든 ApplicationTypeDefinitionKind 값을 검색하는 필터입니다. 값은 65535입니다.  <br> - ServiceFabricApplicationPackage - 입력과 일치하는 ApplicationTypeDefinitionKind 값 ServiceFabricApplicationPackage를 검색하는 필터입니다. 값은 1입니다.  <br> - Compose - 입력과 일치하는 ApplicationTypeDefinitionKind 값 Compose를 검색하는 필터입니다. 값은 2입니다. |
 | --continuation-token | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다. |
 | --exclude-application-parameters | 애플리케이션 매개 변수가 결과에서 제외될지 여부를 지정하는 플래그입니다. |
 | --max-results | 페이징된 쿼리의 일부로 반환될 결과의 최대 수입니다. 이 매개 변수는 반환되는 결과 수에 상한값을 정의합니다. 반환되는 결과는 구성에 정의된 최대 메시지 크기 제한에 따라 메시지에 맞지 않는 경우 지정된 최대의 결과보다 작을 수 있습니다. 이 매개 변수가 0이거나 지정되지 않은 경우 페이징된 쿼리는 반환 메시지에 맞는 가능한 많은 결과를 포함합니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -396,7 +397,7 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -411,16 +412,16 @@ Microsoft Azure Service Fabric 클러스터에 프로비전된 또는 프로비�
 | --- | --- |
 | --application-type-name    [필수] | 애플리케이션 유형의 이름입니다. |
 | --application-type-version [필수] | 애플리케이션 매니페스트에서 정의된 애플리케이션 유형의 버전입니다. |
-| --async-parameter | 프로비전 해제를 비동기적으로 수행할지 여부를 나타내는 플래그입니다. true로 설정한 경우 요청이 시스템에 의해 수락되면 프로비전 해제 작업이 반환되며, 프로비전 해제 작업은 어떠한 시간 제한 없이 계속됩니다. 기본값은 false입니다. 단, 프로비전된 대형 애플리케이션 패키지의 경우 true로 설정하는 것이 좋습니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --async-parameter | 프로비전 해제를 비동기적으로 수행할지 여부를 나타내는 플래그입니다. true로 설정한 경우 요청이 시스템에 의해 수락되면 프로비전 해제 작업이 반환되며, 프로비전 해제 작업은 어떠한 시간 제한 없이 계속됩니다. 기본값은 False입니다. 단, 프로비전된 대형 애플리케이션 패키지의 경우 true로 설정하는 것이 좋습니다. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -431,7 +432,7 @@ Microsoft Azure Service Fabric 클러스터에서 애플리케이션 업그레�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-id      [필수] | 애플리케이션 ID입니다. <br><br> 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --application-version [필수] | 애플리케이션 업그레이드를 위한 대상 애플리케이션 유형 버전(애플리케이션 매니페스트에 있음)입니다. |
@@ -446,18 +447,18 @@ Microsoft Azure Service Fabric 클러스터에서 애플리케이션 업그레�
 | --mode | 롤링 업그레이드 동안 상태를 모니터링하는 데 사용되는 모드입니다.  기본값\: UnmonitoredAuto. |
 | --replica-set-check-timeout | 예기치 않은 문제가 있을 때 업그레이드 도메인의 처리를 차단하고 가용성의 손실을 방지하는 최대 시간입니다. 초 단위로 측정됩니다. |
 | --service-health-policy | 서비스 형식 이름 단위 서비스 형식 상태 정책으로 JSON 인코딩된 맵입니다. 맵은 기본적으로 비어 있습니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 기본값\: 60. |
 | --upgrade-domain-timeout | FailureAction이 실행되기 전에 각 업그레이드 도메인이 완료해야 하는 시간입니다.  기본값\: P10675199DT02H48M05.4775807S. <br><br> 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. |
 | --upgrade-timeout | FailureAction이 실행되기 전에 전체 업그레이드를 완료해야 하는 시간입니다.  기본값\: P10675199DT02H48M05.4775807S. <br><br> 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. |
 | --warning-as-error | 경고가 오류와 동일한 심각도로 처리되는지 여부를 나타냅니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -468,19 +469,19 @@ Microsoft Azure Service Fabric 클러스터에 애플리케이션을 다시 업�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-id      [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --upgrade-domain-name [필수] | 업그레이드를 다시 시작할 업그레이드 도메인의 이름입니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -491,18 +492,18 @@ Service Fabric 클러스터에서 현재 진행 중인 애플리케이션 업그
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -516,7 +517,7 @@ Service Fabric 클러스터에서 현재 진행 중인 애플리케이션 업그
 |인수|설명|
 | --- | --- |
 | --application-id [필수] | 애플리케이션 ID입니다. 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
-| --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -524,7 +525,7 @@ Service Fabric 클러스터에서 현재 진행 중인 애플리케이션 업그
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
@@ -535,19 +536,20 @@ Microsoft Azure Service Fabric 애플리케이션 패키지를 이미지 저장�
 
 ### <a name="arguments"></a>인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --path   [필수] | 로컬 애플리케이션 패키지 경로입니다. |
-| --imagestore-string | 애플리케이션 패키지를 업로드할 대상 이미지 저장소입니다.  기본값\: fabric\:ImageStore. |
+| --imagestore-string | 애플리케이션 패키지를 업로드할 대상 이미지 저장소입니다.  기본값\: fabric\:ImageStore. <br><br> 파일 위치에 업로드 하려면 ' file\:'를 사용 하 여이 매개 변수를 시작 합니다. 그렇지 않으면 값이 기본값과 같은 이미지 저장소 연결 문자열 이어야 합니다. |
 | --show-progress | 큰 패키지에 대한 파일 업로드 진행률을 표시합니다. |
+| --timeout -t | 총 시간 제한 (초)입니다. 업로드 제한 시간이 경과 되 면 업로드가 실패 하 고 오류가 반환 됩니다. 이 제한 시간은 전체 응용 프로그램 패키지에 적용 되며, 개별 파일 시간 제한은 남은 시간 제한 기간과 같습니다.  기본값\: 300입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|Description|
+|인수|설명|
 | --- | --- |
 | --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
-| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, 테이블, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 

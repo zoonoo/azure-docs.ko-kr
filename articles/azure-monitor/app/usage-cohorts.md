@@ -1,24 +1,19 @@
 ---
 title: Azure Application Insights 사용 코호트 | Microsoft Docs
 description: 공통점이 있는 다양한 사용자, 세션, 이벤트 또는 작업의 집합을 분석합니다.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: 263316028e7b35a1a515322dddc4ee867011dcac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6762ac9253c838f715588451441aa9aa467f673
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604111"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899506"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights 코호트
 
@@ -35,13 +30,13 @@ ms.locfileid: "65604111"
 > [!NOTE]
 > 코호트가 만들어지면 사용자, 세션, 이벤트 및 사용자 흐름 도구에서 사용할 수 있습니다.
 
-## <a name="example-engaged-users"></a>예제: 참여한 사용자
+## <a name="example-engaged-users"></a>예: 참여한 사용자
 
 팀에서는 특정 월에 앱을 5번 이상 사용하는 모든 사용자를 참여도 높은 사용자로 정의하고 있습니다. 이 섹션에서는 이러한 참여한 사용자의 코호트를 정의합니다.
 
 1. 코호트 도구를 엽니다.
 
-2. **템플릿 갤러리** 탭을 선택합니다. 다양한 코호트에 대한 템플릿 컬렉션이 표시됩니다.
+2. **템플릿 갤러리** 탭을 선택 합니다. 다양 한 코 호트에 대 한 템플릿 컬렉션이 표시 됩니다.
 
 3. **참여한 사용자 – 사용한 일 기준**을 선택합니다.
 
@@ -76,15 +71,15 @@ ms.locfileid: "65604111"
 * 기본 필터를 통해 이 집합을 만들 수 없습니다. 날짜 논리의 수준이 좀 더 높습니다.
 * 사용자 도구에서 일반 필터를 사용하여 이 코호트를 추가로 필터링할 수 있습니다. 따라서 코호트가 28일 기간으로 정의되어도 사용자 도구에서 시간 범위를 30, 60 또는 90일로 조정할 수 있습니다.
 
-이러한 필터는 쿼리 작성기로 표현할 수 없는 더 복잡한 질문을 지원합니다. 예를 들어 다음과 같습니다. _지난 28일 동안 참여한 사람입니다. 이러한 동일한 사람은 지난 60일 동안 어떻게 동작했나요?_
+이러한 필터는 쿼리 작성기로 표현할 수 없는 더 복잡한 질문을 지원합니다. 예를 들어 _지난 28 일 동안 참여 한 사람들을 들 수 있습니다. 동일한 사람이 지난 60 일간 어떻게 동작 했습니까?_
 
-## <a name="example-events-cohort"></a>예제: 이벤트 코호트
+## <a name="example-events-cohort"></a>예: 이벤트 코호트
 
 이벤트의 코호트를 만들 수도 있습니다. 이 섹션에서는 이벤트 및 페이지 보기의 코호트를 정의합니다. 그러면 다른 도구에서 사용하는 방법을 알게 됩니다. 이 코호트는 팀에서 _활성 사용_으로 간주하는 이벤트 집합 또는 특정 새 기능과 관련된 집합을 정의할 수 있습니다.
 
 1. 코호트 도구를 엽니다.
 
-2. **템플릿 갤러리** 탭을 선택합니다. 다양한 코호트에 대한 템플릿 컬렉션이 표시됩니다.
+2. **템플릿 갤러리** 탭을 선택 합니다. 다양 한 코 호트에 대 한 템플릿 모음이 표시 됩니다.
 
 3. **이벤트 선택**을 선택합니다.
 
@@ -94,7 +89,7 @@ ms.locfileid: "65604111"
 
 5. 코호트에 이름을 지정하여 저장합니다.
 
-## <a name="example-active-users-where-you-modify-a-query"></a>예제: 쿼리를 수정하는 경우의 활성 사용자
+## <a name="example-active-users-where-you-modify-a-query"></a>예: 쿼리를 수정하는 경우의 활성 사용자
 
 앞에 나온 두 코호트는 드롭다운 상자를 사용하여 정의되었습니다. 하지만 전체적인 유연성을 위해 분석 쿼리를 사용하여 코호트를 정의할 수도 있습니다. 방법을 알아보기 위해 영국의 사용자 코호트를 만듭니다.
 
@@ -123,20 +118,20 @@ ms.locfileid: "65604111"
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. **쿼리 실행**을 선택합니다. 국가/지역의 응용 프로그램에 사용자를 찾을 수 없으면 테이블에 표시 되는 사용자 Id를 변경 합니다.
+3. **쿼리 실행**을 선택합니다. 테이블에 사용자 Id가 표시 되지 않으면 응용 프로그램에 사용자가 있는 국가/지역으로 변경 합니다.
 
 4. 코호트를 저장하고 이름을 지정합니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
 
-_특정 국가/지역에서 사용자의 코 호트를 정의 했습니다. 해당 국가/지역에서 필터링을 설정할 사용자 도구에서이 코 호트를 비교 하는 경우 다른 결과가 표시 됩니다. 이유_
+_특정 국가/지역에서 코 호트 사용자를 정의 했습니다. 사용자 도구에서이 코 호트를 비교 하 여 해당 국가/지역에 대 한 필터를 설정 하기만 하면 다른 결과가 표시 됩니다. 굳이?_
 
 코호트와 필터는 다릅니다. 영국의 사용자로 이루어진 코호트가 있고(이전 예제와 같이 정의됨) 해당 결과를 필터 “Country or region = United Kingdom”을 설정할 때의 결과와 비교한다고 가정해보겠습니다.
 
 * 코호트 버전은 현재 시간 범위에서 영국으로부터 하나 이상의 이벤트를 전송한 사용자의 모든 이벤트를 표시합니다. 국가 또는 지역별로 분할하면 많은 국가와 지역이 표시될 수 있습니다.
 * 필터 버전은 영국의 이벤트만 표시합니다. 하지만 국가 또는 지역별로 분할해도 영국만 표시됩니다.
 
-## <a name="learn-more"></a>자세한 정보
+## <a name="learn-more"></a>자세히 알아보기
 
 * [분석 쿼리 언어](https://go.microsoft.com/fwlink/?linkid=856587)
 * [사용자, 세션, 이벤트](usage-segmentation.md)

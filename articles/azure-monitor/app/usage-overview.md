@@ -1,22 +1,18 @@
 ---
 title: Azure Application Insights로 사용 분석 | Microsoft Docs
 description: 어떤 사용자가 앱으로 어떤 작업을 수행하는지 이해합니다.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/19/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 77aa39ae68800128409beb17ce3eb636ddcf28d1
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 09/19/2019
+ms.openlocfilehash: 7131cf1902cc92fed66ae4db59449700973c6913
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128956"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899428"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights를 사용하여 사용량 분석
 
@@ -28,9 +24,9 @@ ms.locfileid: "71128956"
 
 1. **서버 코드:** [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../azure-monitor/app/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md) 또는 [기타](../../azure-monitor/app/platforms.md) 앱에 적합한 모듈을 설치합니다.
 
-    * *서버 코드를 설치하지 않으려면 [Azure Application Insights 리소스를 만들기만](../../azure-monitor/app/create-new-resource.md ) 하면 됩니다.*
+    * *서버 코드를 설치 하지 않으려는 경우 [Azure 애플리케이션 Insights 리소스를 만듭니다](../../azure-monitor/app/create-new-resource.md ).*
 
-2. **웹 페이지 코드:** ``</head>``를 닫기 전에 다음 스크립트를 웹 페이지에 추가합니다. 계측 키를 Application Insights 리소스에 대한 적절한 값으로 바꿉니다.
+2. **웹 페이지 코드:** ``</head>``하기 전에 웹 페이지에 다음 스크립트를 추가 합니다. 계측 키를 Application Insights 리소스에 대한 적절한 값으로 바꿉니다.
     
     ```html
     <script type="text/javascript">
@@ -46,7 +42,7 @@ ms.locfileid: "71128956"
 
 3. **모바일 앱 코드:** App Center SDK를 사용하여 앱에서 이벤트를 수집한 다음, 분석을 위해 [이 가이드에 따라](../../azure-monitor/learn/mobile-center-quickstart.md) 이러한 이벤트의 복사본을 Application Insights로 보냅니다.
 
-4. **원격 분석 가져오기:** 몇 분 동안 디버그 모드에서 프로젝트를 실행한 다음, Application Insights의 개요 블레이드에서 결과를 찾습니다.
+4. **원격 분석 가져오기:** 몇 분 동안 디버그 모드에서 프로젝트를 실행한 다음 Application Insights의 개요 블레이드에서 결과를 찾습니다.
 
     앱을 게시하여 앱의 성능을 모니터링하고 사용자가 앱으로 수행하는 작업을 확인합니다.
 
@@ -159,9 +155,9 @@ Global.asax.cs 같은 웹앱 이니셜라이저에서 다음이 적용됩니다.
 **ASP.NET Core 앱**
 
 > [!NOTE]
-> 또는를 사용 `ApplicationInsights.config`하여 이니셜라이저를추가하는것은ASP.NETCore응용프로그램에적합하지않습니다.`TelemetryConfiguration.Active` 
+> `ApplicationInsights.config` 또는 `TelemetryConfiguration.Active`를 사용 하 여 이니셜라이저를 추가 하는 것은 ASP.NET Core 응용 프로그램에 적합 하지 않습니다. 
 
-[ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 응용 프로그램의 경우 아래와 `TelemetryInitializer` 같이 종속성 주입 컨테이너에 새를 추가 하 여 새를 추가 합니다. 클래스의 메서드에서`ConfigureServices` 이 작업을 수행 합니다. `Startup.cs`
+[ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 응용 프로그램의 경우 아래와 같이 종속성 주입 컨테이너에 추가 하 여 새 `TelemetryInitializer`를 추가 합니다. 이 작업은 `Startup.cs` 클래스의 `ConfigureServices` 메서드에서 수행 됩니다.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;

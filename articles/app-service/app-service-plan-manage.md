@@ -5,22 +5,22 @@ keywords: App Service, Azure App Service, 규모, App Service 계획, 변경, �
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: cfowler
+manager: gwallace
 editor: ''
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 10/24/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a5e69209c30eae816837ce8f00a065231a5fd821
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: e8bdc749ee354e75a6043dbd6dac3f93a606f79e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067219"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898997"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Azure에서 App Service 계획 관리
 
@@ -33,23 +33,17 @@ ms.locfileid: "70067219"
 
 빈 App Service 계획을 만들거나 앱 생성의 일부로 계획을 만들 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **새로 만들기** > **웹+모바일**을 선택하고 **웹앱** 또는 다른 App Service 앱 종류를 선택합니다.
-
-2. 기존 App Service 계획을 선택하거나 새 앱에 대한 계획을 만듭니다.
+1. [Azure Portal](https://portal.azure.com)에서 **새로 만들기** > **웹 앱** 또는 다른 종류의 App Service 앱을 선택 합니다.
 
    ![Azure Portal에서 앱을 만듭니다.][createWebApp]
 
-   계획을 만들려면
+2. App Service 계획을 구성 하기 전에 **인스턴스 세부 정보** 섹션을 구성 하십시오. **게시** 및 **운영** 체제와 같은 설정은 App Service 요금제에 대 한 사용 가능한 가격 책정 계층을 변경할 수 있습니다. **지역은** App Service 요금제가 생성 되는 위치를 결정 합니다.
+   
+3. **App Service 계획** 섹션에서 기존 계획을 선택 하거나 **새로 만들기**를 선택 하 여 계획을 만듭니다.
 
-   a. **[+] 새로 만들기**를 선택합니다.
+   ![App Service 계획을 만듭니다.][createASP] 
 
-      ![App Service 계획을 만듭니다.][createASP] 
-
-   b. **App Service 계획**에서 계획의 이름을 입력합니다.
-
-   c. **위치**에서 적절한 위치를 선택합니다.
-
-   d. **가격 책정 계층**에서 서비스에 대한 적절한 가격 책정 계층을 선택합니다. **무료** 및 **공유** 등의 더 많은 가격 책정 옵션을 보려면 **모두 보기**를 선택합니다. 가격 책정 계층을 선택한 다음 **선택** 단추를 클릭합니다.
+4. 계획을 만들 때 새 계획의 가격 책정 계층을 선택할 수 있습니다. **Sku 및 크기**에서 **크기 변경** 을 선택 하 여 가격 책정 계층을 변경 합니다. 
 
 <a name="move"></a>
 
@@ -65,25 +59,20 @@ ms.locfileid: "70067219"
 
 1. [Azure Portal](https://portal.azure.com)에서 이동하려는 앱을 찾습니다.
 
-1. 메뉴에서 **App Service 계획** 섹션을 찾아봅니다.
+2. 왼쪽 메뉴에서 **App Service 계획 변경**을 선택 합니다.
 
-1. **App Service 계획 변경**을 선택하면 **App Service 계획** 선택기가 열립니다.
+3. **App Service 계획** 드롭다운에서 앱을 이동할 기존 계획을 선택 합니다. 드롭다운에는 현재 App Service 계획과 동일한 리소스 그룹 및 지역에 있는 계획만 표시 됩니다. 이러한 계획이 없는 경우 기본적으로 계획을 만들 수 있습니다. **새로 만들기**를 선택 하 여 새 계획을 수동으로 만들 수도 있습니다.
 
+4. 계획을 만드는 경우 새 계획의 가격 책정 계층을 선택할 수 있습니다. **가격 책정 계층**에서 기존 계층을 선택 하 여 변경 합니다. 
+   
+   > [!IMPORTANT]
+   > 더 높은 계층의 계획에서 하위 계층의 계획으로 앱을 이동 하는 경우 (예: **D1** 에서 **F1**로) 앱은 대상 계획의 특정 기능을 잃을 수 있습니다. 예를 들어 앱에서 SSL 인증서를 사용 하는 경우 다음 오류 메시지가 표시 될 수 있습니다.
+   >
+   > `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
+
+5. 작업을 마쳤으면 **확인**을 선택합니다.
+   
    ![App Service 계획 선택기입니다.][change] 
-
-1. **App Service 계획** 선택기에서 이 앱을 이동할 기존 계획을 선택합니다.   
-
-**App Service 계획 선택** 페이지에는 현재 앱의 App Service 계획과 동일한 리소스 그룹 및 지역에 있는 계획만 표시됩니다.
-
-각 계획에는 고유한 가격 책정 계층이 있습니다. 예를 들어 **무료** 계층에서 **표준** 계층으로 사이트를 이동하면 **표준** 계층에 할당된 모든 앱이 해당 계층의 기능과 리소스를 사용할 수 있습니다. 그러나 더 높은 계층의 계획에서 낮은 계층의 계획으로 앱을 이동하면 특정 기능에는 더 이상 액세스할 수 없게 됩니다. 앱이 대상 계획에서 사용할 수 없는 기능을 사용하고 있는 경우, 사용할 수 없는 기능을 사용한다는 오류가 표시됩니다. 
-
-예를 들어, 앱 중 하나가 SSL 인증서를 사용하는 경우 다음 오류 메시지가 표시될 수 있습니다.
-
-`Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
-
-이 경우 앱을 대상 계획에 이동하기 전에 다음을 수행해야 합니다.
-- 대상 계획의 가격 책정 계층을 **기본** 이상으로 강화합니다.
-- 앱에 대한 모든 SSL 연결을 제거합니다.
 
 ## <a name="move-an-app-to-a-different-region"></a>다른 영역으로 앱 이동
 

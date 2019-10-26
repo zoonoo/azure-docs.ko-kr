@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/01/2019
-ms.openlocfilehash: 599dd2b44f934bb864acfa9ffe8d03fa0e8bb850
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 2f89b57257088b0b647fd5f0159a58c2ac03bda7
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757456"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72897251"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server에 대 한 설명서 변경
 
@@ -28,6 +28,7 @@ Azure를 사용 하면 기본 제공 SQL Server 이미지를 사용 하 여 VM (
 
 | 변경 내용 | 세부 정보 |
 | --- | --- |
+| **대량 리소스 공급자 등록** | 이제 리소스 공급자를 사용 하 여 SQL 가상 머신을 [대량 등록할](virtual-machines-windows-sql-bulk-register-with-resource-provider.md) 수 있습니다. | 
 | **성능 최적화 저장소 구성** | 이제 새 SQL Server VM를 만들 때 [저장소 구성을 완전히 사용자 지정할](virtual-machines-windows-sql-server-storage-configuration.md#new-vms) 수 있습니다. |
 | **FCI 용 프리미엄 파일 공유** | 이제 [스토리지 공간 다이렉트](virtual-machines-windows-portal-sql-create-failover-cluster.md)의 원래 방법 대신 [프리미엄 파일 공유](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md) 를 사용 하 여 장애 조치 (failover) 클러스터 인스턴스를 만들 수 있습니다. 
 | &nbsp; | &nbsp; |

@@ -1,23 +1,19 @@
 ---
 title: Azure Service Fabric, 클라우드 서비스 및 Virtual Machines에서 .NET 앱에 대 한 스냅숏 디버거 사용 Microsoft Docs
 description: Azure Service Fabric, 클라우드 서비스 및 Virtual Machines에서 .NET 앱에 대 한 스냅숏 디버거를 사용 하도록 설정
-services: application-insights
-documentationcenter: ''
-author: brahmnes
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 03/07/2019
+author: brahmnes
 ms.author: bfung
-ms.openlocfilehash: 5a6cf763ae16b55806df2acaf2e03fd8c13d1e76
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.date: 03/07/2019
+ms.reviewer: mbullwin
+ms.openlocfilehash: 98ceeeb8efb11e2caeffadeb48270c419cc7e430
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359282"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899807"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Azure Service Fabric, 클라우드 서비스 및 Virtual Machines에서 .NET 앱에 대 한 스냅숏 디버거를 사용 하도록 설정
 
@@ -78,18 +74,18 @@ ASP.NET 또는 ASP.NET core 응용 프로그램이 Azure App Service에서 실�
 2. [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 앱에 포함합니다.
 
 3. 애플리케이션의 `Startup` 클래스를 수정하여 스냅샷 수집기의 원격 분석 프로세서를 추가하고 구성합니다.
-    1. [Microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지 버전 1.3.5 이상이 사용 되는 경우에는 다음 using 문을에 `Startup.cs`추가 합니다.
+    1. [Microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지 버전 1.3.5 이상을 사용 하는 경우 `Startup.cs`에 다음 using 문을 추가 합니다.
 
        ```csharp
             using Microsoft.ApplicationInsights.SnapshotCollector;
        ```
 
-       `Startup` 의`Startup.cs`클래스에서 ConfigureServices 메서드의 끝에 다음을 추가 합니다.
+       `Startup.cs`의 `Startup` 클래스에서 ConfigureServices 메서드의 끝에 다음을 추가 합니다.
 
        ```csharp
             services.AddSnapshotCollector((configuration) => Configuration.Bind(nameof(SnapshotCollectorConfiguration), configuration));
        ```
-    2. [Microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지 버전 1.3.4이 사용 되는 경우에는 다음 using 문을에 `Startup.cs`추가 합니다.
+    2. [Microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지 버전 1.3.4이 사용 되는 경우 `Startup.cs`에 다음 using 문을 추가 합니다.
 
        ```csharp
        using Microsoft.ApplicationInsights.SnapshotCollector;

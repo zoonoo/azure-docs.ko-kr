@@ -1,34 +1,28 @@
 ---
 title: Azure Log Analytics의 네트워크 성능 모니터 솔루션 | Microsoft Docs
 description: 네트워크 성능 모니터의 ExpressRoute 모니터 기능을 사용하여 Azure ExpressRoute를 통한 지사와 Azure 간의 엔드투엔드 연결 및 성능을 모니터링할 수 있습니다.
-services: log-analytics
-documentationcenter: ''
-author: abshamsft
-manager: carmonm
-editor: ''
-ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/27/2018
+author: abshamsft
 ms.author: absha
-ms.openlocfilehash: 7f9c0d905a7b2bc81063e59229d78a1200894d47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/27/2018
+ms.openlocfilehash: 5383402816eddba4c631c240585723b7c7119cef
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963777"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898892"
 ---
-# <a name="expressroute-monitor"></a>ExpressRoute 모니터
+# <a name="expressroute-monitor"></a>ExpressRoute 모니터링
 
-[네트워크 성능 모니터](network-performance-monitor.md)의 Azure ExpressRoute 모니터 기능을 사용하여 Azure ExpressRoute를 통한 지사와 Azure 간의 종단 간 연결 및 성능을 모니터링할 수 있습니다. 주요 이점은 다음과 같습니다. 
+[네트워크 성능 모니터](network-performance-monitor.md)의 Azure ExpressRoute 모니터 기능을 사용하여 Azure ExpressRoute를 통한 지사와 Azure 간의 엔드투엔드 연결 및 성능을 모니터링할 수 있습니다. 주요 이점은 다음과 같습니다. 
 
 - 구독에 연결된 ExpressRoute 회로의 자동 검색
 - ExpressRoute에 대한 회로, 피어링 및 Azure Virtual Network 수준에서 대역폭 사용률, 손실 및 대기 시간 추적
 - ExpressRoute 회로의 네트워크 토폴로지 검색
 
-![ExpressRoute 모니터](media/network-performance-monitor-expressroute/expressroute-intro.png)
+![ExpressRoute 모니터링](media/network-performance-monitor-expressroute/expressroute-intro.png)
 
 ## <a name="configuration"></a>구성 
 네트워크 성능 모니터에 대한 구성을 열려면 [네트워크 성능 모니터 솔루션](network-performance-monitor.md)을 열고 **구성**을 선택합니다.
@@ -45,7 +39,7 @@ NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../../virtual-
 ### <a name="discover-expressroute-peering-connections"></a>ExpressRoute 피어링 연결 검색 
  
 1. **ExpressRoute 피어링** 보기를 선택합니다.
-2. **지금 검색** 단추를 선택하여 이 Azure Log Analytics 작업 영역에 연결된 Azure 구독의 가상 네트워크에 연결되어 있는 모든 ExpressRoute 개인 피어링을 검색합니다.
+2. **지금 검색** 단추를 선택하여 이 Azure Log Analytics 작업 영역에 연결된 Azure 구독의 가상 네트워크에 연결되어 있는 모든 ExpressRoute 프라이빗 피어링을 검색합니다.
 
     >[!NOTE]
     > 이 솔루션은 현재, ExpressRoute 프라이빗 피어링만 검색합니다. 
@@ -64,7 +58,7 @@ NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../../virtual-
 3. 이 연결에 대한 상태 이벤트를 만들려는 경우 **이 피어링에 상태 모니터링 사용**을 선택합니다. 
 4. 모니터링 조건을 선택합니다. 임계값을 입력하여 상태 이벤트 생성에 대한 사용자 지정 임계값을 설정할 수 있습니다. 조건 값이 피어링 연결의 선택된 임계값을 초과할 경우 상태 이벤트가 생성됩니다. 
 5. **에이전트 추가**를 선택하여 이 피어링 연결을 모니터링하는 데 사용할 모니터링 에이전트를 선택합니다. 에이전트를 연결의 양쪽 끝에 추가했는지 확인합니다. 이 피어링에 연결된 가상 네트워크에 하나 이상의 에이전트가 필요합니다. 이 피어링에 연결된 하나 이상의 온-프레미스 에이전트가 필요합니다. 
-6. **저장**을 선택하여 구성을 저장합니다. 
+6. **저장** 을 선택하여 구성을 저장합니다. 
 
    ![ExpressRoute 모니터링 구성](media/network-performance-monitor-expressroute/expressroute-configure-discovery.png)
 

@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor 로그 쿼리에서 차트 및 다이어그램 만들기 | Microsoft Docs
 description: 로그 데이터를 여러 다른 방법으로 표시하기 위한 Azure Monitor의 다양한 시각화에 대해 설명합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 07d0866bd697587da170a00e8077a57035989d32
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/16/2018
+ms.openlocfilehash: 34975a1752467c61ea5b329210473eee266c98d1
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60594082"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900411"
 ---
 # <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 차트 및 다이어그램 만들기
 
@@ -40,7 +34,7 @@ Heartbeat
 
 기본적으로 결과는 테이블로 표시됩니다.
 
-![테이블](media/charts/table-display.png)
+![Table](media/charts/table-display.png)
 
 더 나은 보기를표시 하려면 **차트**를 선택하고 **원형** 옵션을 선택하여 결과를 시각화합니다.
 
