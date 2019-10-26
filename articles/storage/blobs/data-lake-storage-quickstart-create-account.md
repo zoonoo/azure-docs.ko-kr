@@ -4,31 +4,31 @@ description: Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하여 Dat
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: quickstart
-ms.date: 08/19/2019
+ms.topic: conceptual
+ms.date: 10/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 2063dd22e3253b0707f6920f3a5c0c7a6bb01126
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
-ms.translationtype: HT
+ms.openlocfilehash: 1c9cdfa54494cd6d77edcd13110a79e5265e5032
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992314"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817841"
 ---
 # <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>Azure Data Lake Storage Gen2 스토리지 계정 만들기
 
 Azure Data Lake Storage Gen2는 HDFS(Hadoop 분산 파일 시스템)에서 작동하도록 조정된 네이티브 디렉터리 기반 컨테이너를 제공하는 [계층 구조 네임스페이스를 지원](data-lake-storage-introduction.md)합니다. HDFS에서 Data Lake Storage Gen2 데이터에 액세스하려면 [ABFS 드라이버](data-lake-storage-abfs-driver.md)를 통해 액세스할 수 있습니다.
 
-이 빠른 시작에서는 [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)를 통해 계정을 만드는 방법을 보여 줍니다.
+이 문서에서는 Azure Portal, Azure PowerShell 또는 Azure CLI를 통해 계정을 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. 
 
-|           | 필수 요소 |
+|           | 필수 조건 |
 |-----------|--------------|
 |포털     | 없음         |
-|PowerShell | 이 빠른 시작에서는 PowerShell 모듈 Az.Storage 버전 **0.7** 이상이 필요합니다. 현재 버전을 찾으려면 `Get-Module -ListAvailable Az.Storage` 명령을 실행합니다. 이 명령을 실행한 후에 결과가 나타나지 않거나 **0.7**보다 낮은 버전이 표시되는 경우에는 PowerShell 모듈을 업그레이드해야 합니다. 이 가이드의 [PowerShell 모듈 업그레이드](#upgrade-your-powershell-module) 섹션을 참조하세요.
+|PowerShell | 이 문서에는 PowerShell 모듈 Az. Storage 버전 **0.7** 이상이 필요 합니다. 현재 버전을 찾으려면 `Get-Module -ListAvailable Az.Storage` 명령을 실행합니다. 이 명령을 실행한 후에 결과가 나타나지 않거나 **0.7**보다 낮은 버전이 표시되는 경우에는 PowerShell 모듈을 업그레이드해야 합니다. 이 가이드의 [PowerShell 모듈 업그레이드](#upgrade-your-powershell-module) 섹션을 참조하세요.
 |CLI        | Azure에 로그인하고 다음 두 방법 중 하나로 Azure CLI 명령을 실행할 수 있습니다. <ul><li>Azure Cloud Shell의 Azure Portal에서 CLI 명령 실행 </li><li>CLI를 설치하고 로컬에서 CLI 실행</li></ul>|
 
 명령줄에서 작업하는 경우 Azure Cloud Shell을 실행하거나 CLI를 로컬로 설치하는 옵션이 제공됩니다.
@@ -39,64 +39,49 @@ Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Ba
 
 [![Cloud Shell](./media/data-lake-storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
-이 단추는 이 빠른 시작의 단계를 실행하는 데 사용할 수 있는 대화형 셸을 시작합니다.
+이 단추는이 문서의 단계를 실행 하는 데 사용할 수 있는 대화형 셸을 시작 합니다.
 
 [![포털에서 Cloud Shell 창을 보여 주는 스크린샷](./media/data-lake-storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
 ### <a name="install-the-cli-locally"></a>로컬에서 CLI 설치
 
-Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 빠른 시작에서는 Azure CLI 버전 2.0.38 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 문서에서는 Azure CLI 버전 2.0.38 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-storage-account-with-azure-data-lake-storage-gen2-enabled"></a>Data Lake Storage Gen2가 사용되는 스토리지 계정 만들기
 
-계정을 만들기 전에 먼저 만드는 스토리지 계정 또는 다른 Azure 리소스에 대한 논리 컨테이너 역할을 하는 리소스 그룹을 만듭니다. 이 빠른 시작에서 만든 리소스를 정리하려면 간단히 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 연결된 스토리지 계정과 기타 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.
+Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등, 모든 Azure Storage 데이터 개체가 포함됩니다. 저장소 계정은 HTTP 또는 HTTPS를 통해 전 세계 어디에서 나 액세스할 수 있는 Azure Storage 데이터에 대 한 고유한 네임 스페이스를 제공 합니다. Azure storage 계정의 데이터는 지속적이 고 항상 사용 가능 하며 안전 하며 대규모 확장 가능 합니다.
 
 > [!NOTE]
 > Data Lake Storage Gen2 기능을 활용하려면 새 스토리지 계정을 **StorageV2(범용 V2)** 유형으로 만들어야 합니다.  
 
 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
-스토리지 계정의 이름을 지정할 때는 다음 규칙에 유의하세요.
-
-- Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다.
-- 스토리지 계정 이름은 Azure 내에서 고유해야 합니다. 두 개의 스토리지 계정이 같은 이름을 사용할 수 없습니다.
-
 ## <a name="create-an-account-using-the-azure-portal"></a>Azure Portal을 사용하여 계정 만들기
 
-[Azure Portal](https://portal.azure.com)에 로그인합니다.
+[Azure portal](https://portal.azure.com)에 로그인합니다.
 
-### <a name="create-a-resource-group"></a>리소스 그룹 만들기
+### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-Azure Portal에서 리소스 그룹을 만들려면 다음 단계를 수행합니다.
-
-1. Azure Portal에서 왼쪽의 메뉴를 확장하여 서비스의 메뉴를 열고 **리소스 그룹**을 선택합니다.
-2. **추가** 단추를 클릭하여 새 리소스 그룹을 추가합니다.
-3. 새 리소스 그룹의 이름을 입력합니다.
-4. 새 리소스 그룹을 만들려는 구독을 선택합니다.
-5. 리소스 그룹의 위치를 선택합니다.
-6. **만들기** 단추를 클릭합니다.  
-
-   ![Azure Portal에서 리소스 그룹 만들기를 표시하는 스크린샷](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
-
-### <a name="create-a-general-purpose-v2-storage-account"></a>범용 v2 스토리지 계정 만들기
+모든 스토리지 계정은 Azure 리소스 그룹에 속해야 합니다. 리소스 그룹은 Azure 리소스를 그룹화하기 위한 논리적 컨테이너입니다. 스토리지 계정을 만들 때 새 리소스 그룹을 만들거나 기존 리소스 그룹을 사용할 수 있는 옵션이 있습니다. 이 문서에서는 새 리소스 그룹을 만드는 방법을 보여 줍니다.
 
 Azure Portal에서 범용 v2 스토리지 계정을 만들려면 다음 단계를 수행합니다.
 
 > [!NOTE]
 > 계층 구조 네임스페이스는 현재 모든 공용 영역에서 사용할 수 있습니다.
 
-1. Azure Portal에서 왼쪽의 메뉴를 확장하여 서비스의 메뉴를 열고 **모든 서비스**를 선택합니다. 그런 다음 **Storage**로 스크롤하고 **Storage 계정**을 선택합니다. 나타나는 **Storage 계정** 창에서 **추가**를 선택합니다.
-2. 앞에서 만든 **구독** 및 **리소스 그룹**을 선택합니다.
-3. 스토리지 계정의 이름을 입력합니다.
-4. **위치**를 **미국 서부 2**로 설정합니다.
-5. 다음 필드는 기본값으로 유지합니다. **성능**, **계정 종류**, **복제**, **액세스 계층**.
-6. 스토리지 계정을 만들려는 구독을 선택합니다.
-7. **다음: 고급 >** 선택
-8. 기본값으로 설정된 **보안** 및 **가상 네트워크** 필드 아래 값을 유지합니다.
-9. **Data Lake Storage Gen2** 섹션에서 **계층적 네임스페이스**를 **사용**으로 설정합니다.
-10. **검토 + 만들기**를 클릭하여 스토리지 계정을 만듭니다.
+1. 스토리지 계정을 만들려는 구독을 선택합니다.
+2. Azure Portal에서 **리소스 만들기** 단추를 선택한 다음 **저장소 계정**을 선택 합니다.
+3. **리소스 그룹** 필드 아래에서 **새로 만들기**를 선택합니다. 새 리소스 그룹의 이름을 입력 합니다.
+   
+   리소스 그룹은 Azure 리소스를 그룹화하기 위한 논리적 컨테이너입니다. 스토리지 계정을 만들 때 새 리소스 그룹을 만들거나 기존 리소스 그룹을 사용할 수 있는 옵션이 있습니다.
 
-    ![Azure Portal에서 스토리지 계정을 만드는 과정을 보여 주는 스크린샷](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
+4. 그런 다음, 스토리지 계정의 이름을 입력합니다. 선택하는 이름이 Azure에서 고유해야 합니다. 또한 이름의 길이가 3~24자여야 하고, 숫자 및 소문자만 포함할 수 있습니다.
+5. 위치를 선택합니다.
+6. **계정 종류** 드롭다운 목록에서 **StorageV2 (범용 v2)** 가 선택 된 것으로 표시 되는지 확인 합니다.
+7. 필요에 따라 각 필드의 값을 **성능**, **복제**, **액세스 계층**으로 변경 합니다. 이러한 옵션에 대해 자세히 알아보려면 [Azure Storage 소개](https://docs.microsoft.com/azure/storage/common/storage-introduction#introducing-the-azure-storage-services)를 참조 하세요.
+8. **고급** 탭을 선택 합니다.
+10. **Data Lake Storage Gen2** 섹션에서 **계층적 네임스페이스**를 **사용**으로 설정합니다.
+11. **검토 + 만들기**를 클릭하여 스토리지 계정을 만듭니다.
 
 이제 포털을 통해 스토리지 계정이 만들어집니다.
 
@@ -227,6 +212,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Data Lake Storage Gen2 기능이 포함된 스토리지 계정을 만들었습니다. 스토리지 계정에서 Blob을 업로드 및 다운로드하는 방법을 알아보려면 다음 항목을 참조하세요.
+이 문서에서는 Data Lake Storage Gen2 기능이 포함 된 저장소 계정을 만들었습니다. 스토리지 계정에서 Blob을 업로드 및 다운로드하는 방법을 알아보려면 다음 항목을 참조하세요.
 
 * [AzCopy V10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

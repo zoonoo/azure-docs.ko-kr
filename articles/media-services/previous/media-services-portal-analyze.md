@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d3917f65d8be08d6355013393f6c6675ea6c7fc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26a951ffaf0253371ffe69c6df798120f0464082
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61131820"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881907"
 ---
-# <a name="analyze-your-media-using-the-azure-portal"></a>Azure Portal을 사용하여 미디어 분석 
-> [!NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하십시오. 
-> 
-> 
+# <a name="analyze-your-media-using-the-azure-portal"></a>Azure Portal을 사용하여 미디어를 분석 
+
+> [!IMPORTANT]
+> 일부 미디어 프로세서의 사용 중지 [계획](media-services-analytics-overview.md#retirement-plans) 을 검토 합니다.
 
 ## <a name="overview"></a>개요
 Azure Media Services Analytics는 조직과 기업이 비디오 파일에서 실질적인 통찰력을 끌어내기 쉽도록 만드는 언어 및 시각 구성 요소 모음으로, 미디어 분석을 엔터프라이즈 규모, 규정 준수, 보안 및 전 세계 범위로 제공합니다. Azure Media Services Analytics에 대한 자세한 개요는 [이](media-services-analytics-overview.md) 항목을 참조하세요. 
@@ -63,7 +62,7 @@ Azure Media Services Analytics는 조직과 기업이 비디오 파일에서 실
 이러한 형식의 CC(선택 캡션)는 청각 장애가 있는 사용자가 액세스할 수 있는 오디오 및 비디오 파일을 만드는 데 사용될 수 있습니다.
 
 ### <a name="aib-file"></a>AIB 파일
-사용자 지정 SQL Server IFilter에 사용하기 위해 Audio Index Blob 파일을 생성하려는 경우 이 옵션을 선택합니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) 를 참조하세요.
+사용자 지정 SQL Server IFilter에 사용하기 위해 Audio Index Blob 파일을 생성하려는 경우 이 옵션을 선택합니다. 자세한 내용은 [이](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) 블로그를 참조하세요.
 
 ### <a name="keywords"></a>키워드
 키워드 XML 파일을 생성하려는 경우 이 옵션을 선택합니다. 이 파일은 빈도 및 오프셋 정보를 포함하며 음성 콘텐츠에서 추출된 키워드를 포함합니다.
@@ -136,7 +135,7 @@ Azure Media Services Analytics는 조직과 기업이 비디오 파일에서 실
 
 ![비디오 조정](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
 
-### <a name="version"></a>Version 
+### <a name="version"></a>버전 
 "2.0"을 사용합니다.
 
 ### <a name="mode"></a>Mode
@@ -147,5 +146,5 @@ Media Services 학습 경로 보기.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
